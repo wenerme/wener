@@ -4,6 +4,7 @@
 <!-- state: published -->
 
 ![运行截图](http://upload.eebbk.net/UploadFile/2011-3/201132713331481771.gif)
+
 原帖[链接](http://club.eebbk.com/bbkbbs/showtopic/255787/1)
 
 <pre>

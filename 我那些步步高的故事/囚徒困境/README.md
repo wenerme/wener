@@ -5,6 +5,7 @@
 <!-- state: published -->
 
 ![游戏截图](http://upload.eebbk.net/UploadFile/2011-3/20113521241757170.gif "运行效果")
+
 原帖**[连接](http://club.eebbk.com/bbkbbs/showtopic/254672/1)**
 
 <!-- more -->
