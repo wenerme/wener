@@ -1,14 +1,16 @@
-<!-- title: 还原Bda计算器 -->
-<!-- category: Game -->
+<!-- title: 还原的Bda计算器 -->
 <!-- tag: BBK -->
-<!-- date: 2011-03-12 23:47:00 -->
+<!-- date: 2011-03-11 13:44:00 -->
 <!-- state: published -->
 
 ![黑色主题截图](http://upload.eebbk.net/UploadFile/2011-3/201131223455072125.gif)
 
 ![蓝色主题截图](http://upload.eebbk.net/UploadFile/2011-3/20113122346761807.gif)
 
+原帖[链接](http://club.eebbk.com/bbkbbs/showtopic/255060/1)
+
 <!-- more -->
+
 ```
 刚开始看到图片的时候会不会觉得是Bda呢？
  
