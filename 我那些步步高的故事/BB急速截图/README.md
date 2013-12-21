@@ -7,6 +7,8 @@
 
 原帖[链接](http://club.eebbk.com/bbkbbs/showtopic/255787/1)
 
+<!-- more -->
+
 <pre>
 '//=========截图类函数v1.0==========//
 '作者 Wener
