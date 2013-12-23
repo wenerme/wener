@@ -1,4 +1,12 @@
 
 
 
-> Written with [StackEdit](https://stackedit.io/).
+Asciidoc
+Creole
+Markdown
+MediaWiki
+Org-Mode
+Pod
+RDoc
+Textile
+reStructuredText
