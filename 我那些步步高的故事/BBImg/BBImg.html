@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<title>BB图片格式解析</title>
+<script type="text/javascript" src="VirtualFile.class.js"></script>
+<script type="text/javascript" src="CanvasExFuncs.js"></script>
+<script type="text/javascript" src="Lib.class.js"></script>
+<script type="text/javascript" src="jquery-1.6_2.js"></script>
+<script type="application/javascript">
+window.onload = function(){
+	var sb = document.getElementById("info-submit")
+	var BI = new BBImg;
+	var ic = document.getElementById("img-countainer")
+	
+	sb.onclick = function()
+	{
+		if( fn.value == '请输入文件名')
+			return false;
+		var ft = document.getElementById("file-type").value
+		var file_name = 'src/' + fn.value + ft
+			document.title = file_name
+		ic.innerHTML = '';
+		
+		switch( ft)
+		{
+			case '.lib':
+			BI.curFunc = BI.LoadLib
+			break;
+			case '.rlb':
+			BI.curFunc = BI.LoadRlb
+			break;
+			case '.dlx':
+			BI.curFunc = BI.LoadDlx
+			break;
+			default:
+			alert('类型错误！');
+		}
+		
+		BI.curFunc( file_name)
+		
+	var count = BI.Count()
+		for( var i = 0; i < count; i ++)
+			{
+			var image = document.createElement("img");
+				image.src = BI._img[ i].canvas.toDataURL();
+				image.className = 'showImg'
+				ic.appendChild(image);
+				
+			}
+	}
+	
+	var fn = document.getElementById("file-name")
+	fn.onblur = function()
+	{
+		if( !this.value.length)
+		{
+			fn.style.color = '#aaa'
+			this.value = '请输入文件名'
+		}
+	
+	}
+	fn.onfocus = function()
+	{
+		
+		if( this.value == '请输入文件名')
+		{
+			fn.style.color = '#000'
+			this.value = ''
+		}
+
+	}
+
+		
+
+	
+	}
+</script>
+<style type="text/css">
+.showImg{ margin: 5px}
+</style>
+</head>
+
+<body>
+<form id="info" >
+    <input name="" type="text" disabled value="src/" size="6" readonly />
+    <input name="" type="text" id="file-name" value="请输入文件名" style="color:#aaa" />
+    <select id="file-type">
+      <option value=".dlx">.dlx</option>
+      <option value=".lib" selected="selected">.lib</option>
+      <option value=".rlb">.rlb</option>
+    </select>
+    <input name="" type="button" id="info-submit" value="提交" />
+</form>
+<div id="img-countainer"></div>
+
+</body>
+</html>
