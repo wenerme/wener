@@ -7,6 +7,6 @@
 截图
 ----
 
-![主页](https://raw.github.com/wenerme/blog/master/那些小东西/院系首页修改/screenshot-index.png "主页")
+![主页](https://raw.github.com/wenerme/blog/master/那些小东西/院系首页修改/screenshot-index.jpg "主页")
 
-![院系首页修改](https://raw.github.com/wenerme/blog/master/那些小东西/院系首页修改/screenshot-menu.png "院系首页修改")
+![院系首页修改](https://raw.github.com/wenerme/blog/master/那些小东西/院系首页修改/screenshot-menu.jpg "院系首页修改")
