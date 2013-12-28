@@ -1,0 +1,12 @@
+
+*.pxm
+*.pem
+.DS_Store
+
+# eclipse project file
+.project
+.buildpath
+.settings
+
+# jetbrain IDE
+.idea
