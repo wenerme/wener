@@ -1,0 +1,214 @@
+@charset "utf-8";
+
+/* 添加新页面的时候使用这些设置 */
+.newpage() {
+	html, body
+	{
+		height: 100%;
+		width: 100%
+	}
+}
+
+// 最顶层
+.topmost() {
+	z-index: 9999999;
+}
+
+// 设置背景色
+.bgC(@color: white) {
+	background-color: @color;
+}
+
+// 设置背景位置
+.bgP(@xpos, @ypos: 0) {
+	background-position: @arguments
+}
+
+// 设置尺寸
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+
+.min-size(@width, @height) {
+	min-width: @width;
+	min-height: @height;
+}
+
+.max-size(@width, @height) {
+	max-width: @width;
+	max-height: @height;
+}
+
+/* CSS3 fix */
+.box-shadow (...) {
+	box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+}
+
+.inner-shadow(@x:0, @y: 0, @blur: 1px, @color: #000000) {
+	box-shadow: inset @arguments;
+	-moz-box-shadow: inset @arguments;
+	-webkit-box-shadow: inset @arguments;
+}
+
+//
+.box-round(...)
+{
+	.border-radius(@arguments);
+}
+.border-radius(...)
+{
+	-webkit-border-radius: @arguments;
+	border-radius: @arguments;
+}
+//
+.box-sizing(@type: content-box) {
+	-webkit-box-sizing: @type; /* <=iOS4, <= Android  2.3 */
+	-moz-box-sizing: @type; /* Firefox 1+ */
+	box-sizing: @type; /* Chrome, IE8+, Opera, Safari 5.1*/
+}
+
+
+// 动画类
+.transition(...) {
+	-webkit-transition: @arguments; /* Chrome 1-25, Safari 3.2+ */
+	-moz-transition: @arguments; /* Firefox 4-15 */
+	-o-transition: @arguments; /* Opera 10.50–12.00 */
+	transition: @arguments; /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+.transform(...) {
+	-webkit-transform: @arguments; /* Chrome, Safari 3.1+ */
+	-moz-transform: @arguments; /* Firefox 3.5-15 */
+	-ms-transform: @arguments; /* IE 9 */
+	-o-transform: @arguments; /* Opera 10.50-12.00 */
+	transform: @arguments; /* Firefox 16+, IE 10+, Opera 12.10+ */
+}
+.perspective(...)
+{
+	-webkit-perspective: @arguments;  /* Chrome 12+, Safari 4+ */
+	-moz-perspective: @arguments;  /* Firefox 10+ */
+	-ms-perspective: @arguments;  /* IE 10 */
+	perspective: @arguments;
+}
+.transform-style(...)
+{
+	-webkit-transform-style: @arguments;
+	-moz-transform-style: @arguments;
+	-ms-transform-style: @arguments;
+	transform-style: @arguments;
+}
+.animation(...)
+{
+	-webkit-animation: @arguments; /* Chrome, Safari 5+ */
+	-moz-animation: @arguments; /* Firefox 5-15 */
+	-o-animation: @arguments; /* Opera 12.00 */
+	animation: @arguments; /* Chrome, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+// column
+.column-count(...)
+{
+
+	-webkit-column-count: @arguments;/* Chrome, Safari 3 */
+	-moz-column-count: @arguments;   /* Firefox 3.5+ */
+	column-count: @arguments;        /* Opera 11+ */
+}
+.column-gap(...)
+{
+
+	-webkit-column-gap: @arguments; /* Chrome, Safari 3 */
+	-moz-column-gap: @arguments;    /* Firefox 3.5+ */
+	column-gap: @arguments;         /* Opera 11+ */
+}
+.colume-rule(...)
+{
+	-moz-column-rule: @arguments; /* Firefox */
+	-webkit-column-rule: @arguments; /* Safari and Chrome */
+	column-rule: @arguments;
+}
+//
+.use-select(...) {
+	-webkit-user-select: @arguments; /* Chrome all / Safari all */
+	-moz-user-select: @arguments; /* Firefox all */
+	-ms-user-select: @arguments; /* IE 10+ */
+
+	/* No support for these yet, use at own risk */
+	-o-user-select: @arguments;
+	user-select: @arguments;
+}
+
+
+//
+.linear-gradient(...) {
+	// 因为参数可能有逗号 所以需要对参数求值
+//	@param: `@{arguments}`;
+	@param: ~`"@{arguments}".replace(/^\[|\]$/g,'')`;
+	// Array.prototype.slice(@{arguments}).join(',')
+
+	/* Safari 5.1+, Mobile Safari, Chrome 10+ */
+	background-image: -webkit-linear-gradient(@param);
+
+	/* Firefox 3.6+ */
+	background-image: -moz-linear-gradient(@param);
+
+	/* IE 10+ */
+	background-image: -ms-linear-gradient(@param);
+
+	/* Opera 11.10+ */
+	background-image: -o-linear-gradient(@param);
+
+	background-image: linear-gradient(@param);
+}
+
+/* 缩写 */
+.transition-all(@time: 200ms, @ease: ease-in-out)
+{
+	.transition(all @time @ease);
+}
+// 旋转
+.rotate(@deg)
+{
+	.transform(rotate(@deg));
+}
+// 缩放
+.scale(@percentage)
+{
+	.transform(scale(@percentage));
+}
+.border-box()
+{
+	.box-sizing(border-box);
+}
+.unselectable() {
+	.use-select(none);
+}
+/* fix some problem */
+.fix-inline-space() {
+	font-size: 0;
+}
+
+.fix-pusddown() {
+	vertical-align: bottom
+}
+
+.inline-block() {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+}
+
+.hide-text() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/*
+实现水平居中的办法(已知parent高):
+#parent{line-height: parentpx;}
+#child{vertical-align: middle;}
+*/
