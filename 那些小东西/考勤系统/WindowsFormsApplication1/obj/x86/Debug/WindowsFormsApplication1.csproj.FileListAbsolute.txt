@@ -1,0 +1,110 @@
+H:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+H:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+H:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+G:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+G:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+G:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+I:\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+I:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+I:\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\考勤系统\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\meiling\Desktop\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form3.resources
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\BINZHI\桌面\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\meiling\Desktop\1\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.信息录入窗体.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.信息录入窗体.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\meiling\Desktop\1\考勤1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.修改窗体.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.信息录入窗体.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form5.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.修改窗体.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.form2.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog

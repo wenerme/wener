@@ -1,0 +1,13 @@
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\AttendanceSystem.exe
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\AttendanceSystem.pdb
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\Newtonsoft.Json.dll
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\bin\Debug\Newtonsoft.Json.xml
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.Properties.Resources.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.信息窗体.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.exe
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.pdb
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.登录窗口.resources
+D:\Wener\Documents\Visual Studio 2010\Projects\考勤\WindowsFormsApplication1\obj\x86\Debug\AttendanceSystem.信息查询窗口.resources
