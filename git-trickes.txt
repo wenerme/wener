@@ -1,0 +1,10 @@
+Undo a commit and redo
+-----------------------
+
+$ git commit ...              (1)
+$ git reset --soft 'HEAD^'    (2)
+$ edit                        (3)
+$ git add ....                (4)
+$ git commit -c ORIG_HEAD     (5)
+
+from [here](http://stackoverflow.com/questions/927358)

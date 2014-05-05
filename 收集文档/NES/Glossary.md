@@ -2,8 +2,7 @@
 
 
 水平空白期 
-[Horizontal 
-     Blank period] (HBlank).
+[Horizontal Blank period] (HBlank).
 	 
 竖直空白期 
 [Vertial Blank period] (VBlank).
@@ -14,7 +13,8 @@ NTSC制式的NES频率是 1.7897725MHZ, PAL的是 1.773447MHZ.
 
 6502有三种 (3) 中断: IRQ/BRK, NMI和RESET.
 
-NMI的意思是 Non-Maskable Interrupt
+NMI的意思是 Non-Maskable Interrupt(不可屏蔽中断)，发生在每次刷新时
+     (VBlank). 这些刷新的间隔依赖于所用的系统 (PAL/NTSC).
 
 NES     - 任天堂娱乐系统: Self-explanitory.
      Dany    - 与Famicom同义(硬件范围).

@@ -379,7 +379,7 @@ SEC Set Carry flag. Sets C to 1.
 
 SED Set Decimal mode. You won't need this.
 
-SEI Set Interrupt disable. When the Interrup t disable flag is set, the
+SEI Set Interrupt disable. When the Interrupt disable flag is set, the
 	processor ignores interrupt signals. NMI are not included, they
 	will continue working. As far as I know, the only interrupt in
 	the NES is one that executes every Vblank, but this is a Non
@@ -412,7 +412,7 @@ TXS Transfer X to S. Stores in S the value of X. This must be used always
 	This instruction can be used too to manipulate the stack, but that
 	is quite complex.
 
-TYX Transfer Y to A.
+TYA Transfer Y to A.
 
 Those are all the instructions available.
 
