@@ -2,20 +2,8 @@
 请不要猜测这里有什么
 ==================
 
-移除 git 历史
---------------
-
-```
-# $sha 为需要移除的历史位置
-git checkout --orphan temp $sha
-git commit -m "Truncated history"
-git rebase --onto temp $sha master
-git branch -D temp
-```
-
 福利
 ----
-
 
 MXGS-153
 推荐理由：最有教育意义的影片。
@@ -43,3 +31,8 @@ BOBB-073
 
 FDD-2408
 推荐理由：一个时代的终结。
+
+入口
+-----
+
+xiao77.la:88

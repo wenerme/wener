@@ -1,0 +1,70 @@
+
+
+http://en.wikiquote.org/wiki/Donald_Knuth
+
+	Beware of bugs in the above code; I have only proved it correct, not tried it.
+	— Donald Knuth
+	
+* 注意上面代码里,我只保证他正确,但是我还没试过.
+
+	By understanding a machine-oriented language, the programmer will tend to use
+	a much more efficient method; it is much closer to reality.
+	— Donald Knuth
+	
+	Premature optimization is the root of all evil.
+	— Donald Knuth
+	
+* 过早的优化是万恶之源.
+
+引用
+http://programmers.stackexchange.com/questions/39/whats-your-favourite-quote-about-programming
+
+	Debugging is twice as hard as writing the code in the first place. Therefore,
+	if you write the code as cleverly as possible, you are, by definition, not 
+	smart enough to debug it.
+	— Brian W. Kernighan
+	
+	Walking on water and developing software from a specification are easy if both are frozen.
+	— Edward V Berard
+
+	It always takes longer than you expect, even when you take into account Hofstadter's Law. 
+	— Hofstadter's Law
+	
+	In theory, there is no difference between theory and practice. But, in practice, there is.
+	— Jan L. A. van de Snepscheut
+	
+	理论上来说,理论和实践是没有区别的.但是在实践中,他们是有的.
+	
+	Measuring programming progress by lines of code is like measuring aircraft building progress by weight.
+	— Bill Gates
+	
+	Nine people can't make a baby in a month.
+	— Fred Brooks, The Mythical Man-Month
+
+	Debuggers don't remove bugs. They only show them in slow motion.
+	
+	If Java had true garbage collection, most programs would delete themselves upon execution.
+	— Robert Sewell
+	
+	Computer Science is no more about computers than astronomy is about telescopes
+	— Edsger Dijkstra
+	
+	If debugging is the process of removing software bugs, then programming must be the process of putting them in.
+	— Edsger Dijkstra
+	
+	编程就像是在 enbugging
+	
+	I have always wished for my computer to be as easy to use as my telephone; 
+	my wish has come true because I can no longer figure out how to use my telephone
+	—Bjarne Stroustrup
+	
+	Commenting your code is like cleaning your bathroom - you never want to do it, 
+	but it really does create a more pleasant experience for you and your guests.
+	— Ryan Campbell
+	
+	Programming is like sex: one mistake and you have to support it for the rest of your life.
+	— Michael Sinz
+	
+	Given enough eyeballs, all bugs are shallow.
+	— Linus's Law
+	

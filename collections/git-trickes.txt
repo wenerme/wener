@@ -1,0 +1,31 @@
+Undo a commit and redo
+-----------------------
+
+git commit ...              (1)
+git reset --soft 'HEAD^'    (2)
+edit                        (3)
+git add ....                (4)
+git commit -c ORIG_HEAD     (5)
+
+from [here](http://stackoverflow.com/questions/927358)
+
+显示 不同
+---------
+
+git diff
+	--cached
+	--staged
+	HEAD 尚未暂存的,当前正在编辑的
+
+from [here](http://stackoverflow.com/questions/1587846)
+	
+移除 git 历史
+--------------
+
+# $sha 为需要移除的历史位置
+git checkout --orphan temp $sha
+git commit -m "Truncated history"
+git rebase --onto temp $sha master
+git branch -D temp
+
+
