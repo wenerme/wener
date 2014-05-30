@@ -64,7 +64,7 @@
 
 ### 部分作品图片
 
-如果您不想查看以下照片, 可以点 [这里](#个人照片) 跳过
+如果您不想查看以下照片, 可以 [跳过](#个人照片) 
 
 #### asp.net.SaySay
 ![asp.net.SaySay][3]
@@ -121,11 +121,12 @@ vb.net 写的对对碰游戏
 * 高三下期的时候, 去逛步步高学习机的论坛, 那时候手上有一台 9588, 感觉是多么牛了, 而恰巧那上面可以用 BBASIC 编程, 但是bug 很多, 所以很多时候都用 BASM 来写, 运行环境则为 bb 虚拟机.虽然这门汇编语言非常的简单, 但是也让我明白了非常多的底层的东西. 恰巧这又为我后来做了铺垫么 ?
 * 到了大学, 一个糊里糊涂的选择让我去了海南, 但是没有后悔过. 在大学里学的第一门语言是 C, 因为有过汇编经验, 所以理解起 C 来其实非常的容易, 开始对这门语言感兴趣, 也开始了解它的一些周边(GCC,LINUX ...)
 * 接下来就是 VB.NET 的课了,让我去学这些东西的并不是老师, 而是自己的兴趣, 只是课程中有这些内容对我起了一定的引导作用, 在这期间尝试着写了一个 对对碰游戏, 自己感觉良好, 虽然性能不好, 但是依然有成就感.
-* 然后就是 ASP.NET, 至此开始接触了 C#, 自己甚至用 C# 去做了一些外包.
+* 然后就是 ASP.NET, 至此开始接触了 `C#`, 自己甚至用 `C#` 去做了一些外包.
 * 大三时, 我决定以后要走java, 最后走上了去培训 java 的历程, 虽然在这之前我也用 java 写过一些东西, 写了一个小游戏 GTetris 等, 但是距离工作还是有一段距离. 然后就到了现在.至于中间还有诸多的小插曲就不一一详述了.
 
 ### 评价自我
-我一直都认为兴趣是第一老师
+
+我一直都认为兴趣是第一导师, 而编程就是我的兴趣所在. 让自己做自己不喜欢做的事, 那必然是痛苦的. 喜欢编程, 喜欢设计, 喜欢实现自己的想法. 渐渐的开始理解到了为程序员准备的焦油坑, 似乎进去了, 就再也出不来了. 但喜欢这样的感受.
 
 
 曾获证书
@@ -164,7 +165,7 @@ Where am I
 
 
 > 使用 [stackedit.io](https://stackedit.io/) 编辑并生成 PDF  
-> 该文档[源文件](https://github.com/wenerme/blog/about-me/profile.md) https://github.com/wenerme/blog/about-me/profile.md
+> 该文档[源文件](https://github.com/wenerme/wener/blob/master/about-me/profile.md) https://github.com/wenerme/wener/blob/master/about-me/profile.md
 
 
   [my-image]: https://git.oschina.net/wenerme/wener/raw/master/personal/sale-myself.jpg
@@ -176,7 +177,7 @@ Where am I
   [GTetris]: https://github.com/wenerme/GTetris
   [asp.net.SaySay]: https://github.com/wenerme/asp.net.SaySay
   [dotfiles]: https://github.com/wenerme/dotfiles
-  [asp.net.SaySay]:https://github.com/wenerme/asp.net.SaySay
+  [asp.net.SaySay]: https://github.com/wenerme/asp.net.SaySay
 
 
   [1]: https://github.com/wenerme/QQExportMessageParser
@@ -194,3 +195,5 @@ Where am I
   [13]: http://git.oschina.net/wenerme/wener/raw/master/screenshot/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83.gif
   [14]: http://git.oschina.net/wenerme/wener/raw/master/screenshot/%E8%B4%AA%E5%90%83%E8%9B%87-%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%89%88.png
   [15]: http://git.oschina.net/wenerme/wener/raw/master/screenshot/%E5%AF%B9%E5%AF%B9%E7%A2%B0%E6%B8%B8%E6%88%8F.jpg
+  
+  
