@@ -1,0 +1,530 @@
+\newcounter                  \pagenumbering                 \newlength
+\setcounter                  \thispagestyle                 \newsavebox
+\addtocounter
+
+
+\setlength
+	textwidth 	行宽
+	parskip		行距
+	
+
+一些需要记忆的命令:
+\title
+\author \thanks
+\date	\year	\month
+\today	
+\maketitle
+
+*_形式不会被加入目录 也不会增加计数器
+\chapter
+\section
+\subsection
+\subsection*
+\subsubsection
+\subsubsection*	
+
+\setcounter{}{}
+\setlength{}{}
+
+\pagenumbering{}
+\pagestyle{}
+
+\addcontentsline{类型}{格式}{条目}
+\addtocontents	{类型}{条目}
+
+\frenchspace
+\nofrenchspace
+
+\flushbottom	所有页最后一行在同一位置 article twoside 包含了该选项
+\raggedbottom	与\flushbottom不同 其是由具体定义设置的 所以最后一行不一定会对齐
+
+/* 填充 插入任意距离 */
+\hspace{}		插入任意距离	标准形式 若跨行了则去掉开始的
+\hspace*{}
+\hfill 			= \hspace{\fill}	插入足够宽 使得其在一行的两边
+				如果一行上有多个\hfill 则等宽填充
+				
+\quad			插入一个当前字宽的空白
+\qquad			\quad的两倍
+
+\dotfill		同\hfill 不过是用点填充
+\hrulefill		用线填充
+
+/* 断行 */
+\\[距离]		换行	距离为额外的行间距
+\\*[距离]		禁止在两行之间分页
+
+/* 断行命令 */
+\newline		= \\
+\linebreak[数]	数 0 - 4 表示断行的重要性	默认为4
+\nolinebreak[数]数 0 - 4 表示断行的重要性	
+\mbox{text}		保持文本在一行上 在连字符处不断行
+
+/* 段落间距 */
+\setlength{\parskip}{}
+\vspace{dis}	在新页开头不加
+\vspace*{dis}
+\vfill			=\vspace{\fill}
+\bigskip
+\medskip
+\smallskip
+\par			表面一个段落的结束
+
+/* 段落缩进 */
+\setlength{\parindent}{}
+\noindent		放在段落开头才有效
+\indent
+
+/* 正常分页 */
+\pagebreak[数]	换页的重要性 0-4		在twocolumn模式时 命令结束该列
+\nopagebreak[数]
+\newpage								同上
+
+\clearpage		有图表时分页	如果空间不够则将图标放到下一页
+				如果空间不够 在twocolumn下则插入空白列
+\cleardoublepage
+				在twocolumn时也换页 有必要则插入空白列 
+\samepage		声明该选项 使分页只发生在段落间，显示公式或文本前后，
+				章节标题前后，或者列表环境中的 \item（第一个除外）之间
+				在其他地方可以使用\pagebreak
+				该功能没预期的那么好，故建议不使用 因为兼容才保留的
+
+/* 控制分页 */
+\enlargethispage{SIZE}
+\enlargethispage*{SIZE}
+				稍微增加当前页高度，会把SIZE添加到textheight上 会做稍微调整
+				*_会强迫增加，以最大化页面高度。
+
+\penalty		罚点  负的罚点则是支持 但不建议修改 因为会打破内部的平衡
+				可能造成奇怪的分页
+\linepenalty	增加该值，则使其在段落中分段比段落间分段更难
+\clubpenalty
+\widowpenalty	增加第一行和最后一行 使其不易在此分段
+				
+/* 断词 */
+\-				指示可能再次断开 = \discretionary{-}{}{}
+\discretionary{前}{后}{无}
+				指示一个词如果要断开，则断开的前后 和不断开的形式
+\hyphenation{列表}
+				断词列表，可放在导言处 列表以空格分隔
+				比如:
+					man-u-script com-pu-ter ......
+/* 禁止断词 */
+\begin{sloppypar}
+				不是禁止断词，只是允许更大的词间距，而不会给出警告信息
+\sloppy			在导言和当前环境中加入该命令，来减少整篇文档或当前环境中
+				被断开的单词数目。当行相当窄时，推荐使用这种方法
+\begin{fussypar}
+				在指定\sloppy后暂时重新打开断词
+\fussy			同上
+\showhyphens{}
+				显示单词列表的断词结果
+
+\language
+
+/*======显示文本=====*/
+/* 强调 */
+\em				{\em some text}
+\emph			\emph{some text}	会自动校正倾斜
+				如果当前为 slanted 则会切换为一种直立字体
+
+/* 字体尺寸 */
+\tiny
+\scriptsize
+\footnotesize
+\small
+\normalsize
+\large
+\Large
+\LARGE
+\huge
+\Huge
+\baselinestretch
+\baselineskip
+				行间距=\baselinestretch × \baselineskip
+				每次修稿字体尺寸，\baselineskip都会修改为自然行距
+				\renewcommand{\baselinestretch}{}
+				
+/* 字体属性 */
+/* 族 */
+\rmfamily		Times Roman字体
+\ttfamily		一个打字机字体
+\sffamily		sans serif字体
+/* 形状 */
+\upshape		切换为一种治理字体
+\itshape		斜体
+\slshape		slanted的字体
+\scshape		小型大写字母(Small Caps)
+/* 序列 */
+\mdseries		切换平均权重
+\bfseries		切换粗体
+
+\begin{字体样式}
+
+/* 字体命令 */
+/* 族 */
+\textrm
+\texttt
+\textsf
+/* 形状 */
+\textup
+\textit			会自动的进行倾斜校正 \textit{Wener\nocorr} 这样可以取消校正
+\textsl
+\textsc
+/* 序列 */
+\textmd
+\textbf
+
+\textnormal		默认
+\emph			强调
+
+/* 旧字体声明 */
+\rm				只修改一个属性{\rm wen} = {\normalfont\bfseries wen}
+\it
+\sc
+\bf
+\sl
+\sf
+\tt
+
+/* 其他字体 */
+\newfont{\fnt}{名称 scaled 因子}
+\newfont{\fnt 字体}{名称 at 因子}
+				比如要安装一种 slated,sans serif字体 尺寸为20.7pt 名称为\sss
+					\newfont{\sss}{cmssi17 at 20.74pt}
+\DeclareFixedFont
+
+/* 字符集与符号 */
+\symbol{数}		八进制前缀 ' 十六进制前缀 "
+
+/* 文本居中 */
+\beigin{center}
+\centering
+\centerline{文本}
+
+/* 单边调整 */
+\beigin{flushright}		
+\beigin{flushleft}
+				左右对齐
+\raggedleft
+\raggedright	同上
+
+/* 两边缩进 */
+\begin{quote}
+\begin{quotation}
+				缩进，在quote中，段落用竖直间距来表示，quotation用第一行具有缩进来表示
+
+/* 诗歌缩进 */
+\beigin{verse}
+				两边都进行缩进，可以嵌套在quote中，最多嵌套6层
+
+/* 列表 */
+\beigin{itemize}
+\beigin{enumerate}
+\beigin{description}
+				三种列表环境
+				itemize 
+				前面有个黑点 所谓的 bullet，每项中文本都可以任意长度，标签位于开头
+				相邻之间有额外的竖直间距
+				enumerate
+				标签由相邻的数字组成，标签都是从1开始编号
+				description
+				适用于定义一组单词或表达式，关键词作为标签，每一项由分类或解释构成
+				也可以用于参考文献中的作者列表
+				
+\item[]			生成标签,可改变标签样式
+\labelitemi
+\labelitemii
+\labelitemiiii
+\labelitemiv
+				给itemize生成标签 最多6层
+\labelenumi
+\labelenumii
+\labelenumiiii
+\labelenumiv
+				给enumrate生成标签		
+				\renewcommand{\labelitemiii}{+}	重新设置标签
+				修改enumerate标签时要更复杂，因为有enumi enumii enumiii enumiv计数器
+				\renewcommand{\labelenumii}{\arbic{enumi}.\arbic{enumii}项目:}	重新设置标签
+
+/* 参考文献 */
+\begin{thebibliography}{标签样本}
+	所有参考文献项
+\end{thebibliography}
+\bibitem[标签]{关键词} 文本条目
+				定义文献项目
+\cite{关键词}	在文献中引用
+\notice
+
+/* 广义列表 */
+\begin{list}{标准标签}{列表声明}
+\item			标准标签
+\newcounter{名称}
+\usecounter{}
+\marklabel{标签}
+				\renewcommand{\marklabel}{新的定义} 时其与新的计数器联系起来
+\newenvironment{figlist}{\begin{list}{}...\end{list}}
+				在这之后就可以使用 \begin{figlist}来直接使用该种列表了
+
+/* 平凡列表 */				
+\begin{trivlist}
+/* 定理型声明 */
+\newtheorem{结构类型}{结构标题}[其他计数器]
+\begin{结构类型}[附加标题]
+\newtheorem{结构类型}[编号来源]{结构名称}
+
+/* 制表位 */
+\begin{tabbing}	制表位对齐例子:
+				A \quad\= B \quad\= C\\[0.8ex]
+				D	\>	  D		\>	E\\
+				在tabbing中 一般不允许分页 不允许使用 \newpage \clearpage, \pagebreak会被忽略
+				可以通过查过很大的间距来分页 \\[10cm]
+				tabbing环境不能嵌套tabbing环境
+				tabbing中没有自动断行 只能由 \\指定
+				且\hfill \hrulefill \dotfill 在这里是没有作用的 因为这里不会伸展
+/* 样本行 */
+				例子:
+				\hspace*{3cm}\=\hspace{3cm}\=\hspace{3cm}\= \kill
+				A \> B \> C\\
+				D \> E \> F\\
+				在这里第一个应用\hspace* 保证在边界的边距能够产生
+				\kill使该行不显示
+\=				设置制表位
+\>				跳到所设置的制表位
+				如果前面的文本长度超过了间距，则\>会回移到原本的位置
+\<				在被去掉的制表位前加上\< 该行就拥有到左边界那么多制表位
+\+				右移一制表位
+\-				左移一制表位
+\'				定位制表位
+				左文本\'右文本	这两个是挨着的  \'为一个制表位
+				左右文本的间隔距离用 \tabbingsep指定
+				像 \= \'在tabbing外是重音符号 在tabbing内重音符号需要 \a= \a'来指定
+\`				使文本相对于右边界对齐
+\pushtabs
+\poptabs
+
+/*== 盒子 ==*/
+				三种盒子类型:
+					LR盒子	:由从左到右的有序材料组成
+					段落盒子	:竖直堆积的行组成
+					标尺盒子	:黑色填充的实心矩形 通常用来画水平或竖线
+/* LR盒子 */
+\mbox{文本}
+\makebox[宽度][位置]{文本}
+				生成LR盒子，其宽度恰好是文本的宽度
+\fbox{文本}
+\framebox[宽度][位置]{文本}
+				同上，不过是用方框包围起来的
+				位置是定义文本在盒子中的位置，省略该参数则是居中的 = l r s(stretch 伸展文本以达到定义的宽度)
+				伸展利用橡皮长度或其他填充物
+				\framebox[5cm][s]{Begin \dotfile Text}
+				在特殊情况下，可以将宽度置0，使其内容居中等
+\width			盒子的自然宽度
+\height			从基线到顶部的距离
+\depth			从基线到底部的距离
+\totalheight	\height + \depth
+				可以相对于一个LR盒子的自然宽度来定义其宽度
+				\framebox[6\width]{Wen} 文本6倍宽的盒子
+/* 构建新的盒子 */
+\newsavebox{\boxname}
+\sbox{\boxname}{文本}
+\savebox{\boxname}[宽][位置]{文本}
+\usebox{\boxname}
+\begin{lrbox}{boxname}
+				保存盒子
+/* 竖直移动盒子 */
+\rasebox{上移量}[高度][深度]{文本}
+				生成一个内容为文本的盒子 基于基线上移动
+/* 子段盒子和小页 */
+\parbox[位置][高度][内部位置]{宽度}{文本}
+				整个段落可用该命令放到单独的子段盒子
+				其文本不可以包含在居中 列表或其他环境
+\begin{minipage}[位置][高度][内部位置]{宽度}
+				同上，位置的取值为 b:盒子的底边与基线对齐 t:顶行文本与当前基线对齐
+				在高度参数中，可用LR盒子高度的指定方式
+				内部位置:
+					t	文本靠盒子的顶部
+					b	文本推向盒子的底部
+					c	竖直居中
+					s	伸展以填满整个盒子
+/* 标尺盒子 */
+\rule[提升]{宽度}{高度}
+				可以将宽度设置为0 这样就得到一个不可见的具有给定高度的 支撑 盒子
+				\fbox{\rule[-2mm]{0cm}{6mm}Text}
+/* 盒子样式 */
+\fboxrule		方框线的粗细
+\fboxsep		方框与被包围文本之间的距离大小
+				这些设置如果位于导言中，则适用于整个文档，如果在某个环境中，就直到环境结束
+
+/*== 表格 ==*/
+\begin{array}[位置]{列}
+				只能在数学环境中使用
+\begin{tabular}[位置]{列}
+\begin{tabular*}{宽度}[位置]{列}
+				是通过生成小页实现
+				位置:t b
+				宽度:只能出现在tabular*中，在该环境下列参数必须在第一项后面某个地方包含@_表达式
+					@{\extracolsep{\fill}}
+				列:响应于表格左右边界和列间距的额外选项  没列都必须在其中有一个相应选项
+					列格式符号:
+					l r c
+					p{宽} 在该列的文本设置成具有给定宽的行 顶行与其他列对齐 实际是:\parbox[t]{宽}{文本}
+					*{数}{列}包含在列中的列格式被复制了 数 份 因此 *{5}{|c}| = |c|c|c|c|c|
+					左右边距和列间距的可用格式化符号:
+					|	一条竖线
+					||	两条紧相邻的竖线
+				
+/*=============================================*/
+标准页面大小:
+letter		11*8.5		in
+legal		14*8.5		in
+executive	10.5*7.25	in
+A4			29.7*21		cm
+A5			21*14.8		cm
+B5			25*17.6		cm
+
+landscape	纵向模式
+
+
+支持的页码形式:
+arabic
+roman
+Roman
+alpha
+Alpha
+
+\setlength可设置的项:
+parskip		段落间距
+parindent
+
+paperwidth
+paperheight
+
+baselinestretch
+baselineskip
+/* 调整边距类 */
+oddsidemargin
+evensidemargin
+headheight
+headsep
+topmargin
+textwidth
+textheight
+footmargin
+
+tabbingsep
+
+\fboxrule		方框线的粗细
+\fboxsep		方框与被包围文本之间的距离大小
+
+\setcounter可设置的项:
+page		页码
+tocdepth	目录显示的深度
+secnumdepth	章节数的深度 art: -1~5	book/report: -2 ~ 5
+章节名
+
+\pagestyle选项:
+plain 只显示页码 默认
+empty
+headings	显示页码和章节短标题
+myheadings	由\markright{}和\markboth{}{}控制
+
+斜字体:
+{\slshape sometext\/}
+\/用来矫正倾斜间距
+\textsl \textit 会自动校正
+所以应该用
+\textsl{sometext}
+可以在倾斜后面跟 \nocorr 不就行倾斜校正
+
+\/			还可以用来取消连写
+\@			用来分开 some\@. 可能会以为.为英文缩写 减小间距
+\,			分开 ``\,`love',`life'\,''
+
+documentclass[字体大小 纸张大小 页面格式 其他]{article book report letter}
+	article -> 	parts sections subsections subsubsections
+	book->		chapter
+	report
+	letter
+	
+book有用来方便使用的命令
+\frontmatter	索引，目录，前言等	置页面编号为小写罗马字
+\mainmatter		主体内容				重置页面编号，页码为arabic
+\backmatter		引用等				停止编号
+
+自动生成命令:
+\tableofcontents	.toc文件
+\listoffigures		.lof
+\listoftables		.lot
+
+设置显示深度：
+\setcounter{tocdepth/lof/lot}{num}
+
+添加到其中:
+\addcontentsline{类型}{格式}{条目}
+\addtocontents{类型}{条目}
+
+可添加的类型有:
+toc
+lot
+lof
+
+
+可以begin的:
+CJK 
+	当引用CJK包后
+	\begin{CJK}{GBK}{kai}
+CJK*
+	会忽略CJK中字符间的空格，是中文的习惯
+	\CJKnospace 进入CJK模式
+	\CJKspace 	进入CJK*模式
+	
+document
+
+titlepage
+abstract
+
+appendix
+sloppypar
+	增加词间距，减少断词
+fussypar
+	在sloppypar或者在指定了\sloppy的情况下 暂时允许断词
+	
+字体样式
+center
+flushright
+flushleft
+	左右对齐
+quote
+quotation
+	缩进
+verse
+	进行诗歌等两边缩进的排版
+	
+itemize
+enumerate
+description
+
+thebibliography
+	参考文献
+list
+	列表
+tabbing
+	制表位
+lrbox
+	lr盒子
+minipage
+	小页
+array
+tabular
+tabular*
+	表格
+
+
+
+
+
+个人:
+latex在book twoside的时候 会保证每一章的开始都在偶数页
+会因此而添加空白页
+可使用oneside避免，或者\cleardoublepage
