@@ -1,0 +1,10 @@
+# download: remote -> local
+scp user@remote_host:remote_file local_file 
+
+# local_file 可以为目录
+
+# upload: local -> remote
+scp local_file user@remote_host:remote_file
+
+# 以第二列排序, 以数字的方法比较
+sort -n -k 2
