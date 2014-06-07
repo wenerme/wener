@@ -72,7 +72,56 @@ gpg --verify artifact.jar.asc
 	</executions>
 </plugin>
 
+# maven 使用 socks 代理
+export MAVEN_OPTS="-DsocksProxyHost=192.168.1.103 -DsocksProxyPort=8087"
+export MAVEN_OPTS="-DhttpProxyHost=192.168.1.103 -DhttpProxyPort=8087 -DhttpsProxyHost=192.168.1.103 -DhttpsProxyPort=8087"
 
+# 不调用javadoc 插件
+-Dmaven.javadoc.skip=true
+# 不测试
+-Dmaven.test.skip=true
+# -Dmaven.test.skip prevents Maven building the test-jar artifact.
+# If you'd like to skip tests but create artifacts as per a normal build use:
+-Dmaven.test.skip.exec
 
+# maven 配置 conf/settings.xml
+# 国内镜像
+<mirror>  
+		<id>nexus-osc</id>  
+      <mirrorOf>*</mirrorOf>  
+	  <name>Nexusosc</name>  
+	  <url>http://maven.oschina.net/content/groups/public/</url>  
+</mirror> 
 
-
+<profile>  
+	<id>jdk-1.7</id>  
+	<activation>  
+		<jdk>1.7</jdk>  
+	</activation>  
+	<repositories>  
+		<repository>  
+			<id>nexus</id>  
+			<name>local private nexus</name>  
+			<url>http://maven.oschina.net/content/groups/public/</url>  
+			<releases>  
+				<enabled>true</enabled>  
+			</releases>  
+			<snapshots>  
+				<enabled>false</enabled>  
+			</snapshots>  
+		</repository>  
+	</repositories>  
+	<pluginRepositories>  
+		<pluginRepository>  
+			<id>nexus</id>  
+			<name>local private nexus</name>  
+			<url>http://maven.oschina.net/content/groups/public/</url>  
+			<releases>  
+				<enabled>true</enabled>  
+			</releases>  
+			<snapshots>  
+				<enabled>false</enabled>  
+			</snapshots>  
+		</pluginRepository>  
+	</pluginRepositories>  
+</profile>
