@@ -48,6 +48,9 @@ echo -e "Wener\nis\ngreate" | grep -i -e "wen\|$" -e "greate\|$"
 # Ctrl+R 开始搜索 继续 Ctrl+R 遍历搜索结果
 # 可以绑定为其它按键
 bind '"\C-t": reverse-search-history'
+# 绑定上下键为 遍历搜索结果的按键
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 # 查看历史记录
 history
 # 使用某条
@@ -58,6 +61,8 @@ history
 !ech
 # 或者不一样匹配开始
 !?ho
+# 或者这样替换参数
+^old^new
 # 最好设置该选项, 以免运行了错误的命令
 shopt -s histverify
 
