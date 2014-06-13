@@ -66,8 +66,21 @@ history
 # 最好设置该选项, 以免运行了错误的命令
 shopt -s histverify
 
+# 判断变量状态
+                        +-------+-------+-----------+
+                VAR is: | unset | empty | non-empty |
++-----------------------+-------+-------+-----------+
+| [ -z "${VAR}" ]       | true  | true  | false     |
+| [ -z "${VAR+set}" ]   | true  | false | false     |
+| [ -z "${VAR-unset}" ] | false | true  | false     |
+| [ -n "${VAR}" ]       | false | false | true      |
+| [ -n "${VAR+set}" ]   | false | true  | true      |
+| [ -n "${VAR-unset}" ] | true  | false | true      |
++-----------------------+-------+-------+-----------+
 
-
+# 展开变量  如果不存在或者未设置 则会显示消息
+${STATE?"Need to set STATE"}
+${DEST:?"Need to set DEST non-empty"}
 
 
 
