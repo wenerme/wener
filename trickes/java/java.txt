@@ -1,0 +1,170 @@
+处理器
+------
+lombok.core.AnnotationProcessor
+com.mysema.query.apt.jpa.JPAAnnotationProcessor
+
+# 可用的 eclipse 配置
+http://wiki.eclipse.org/Eclipse.ini
+
+# aptana 升级地址 
+http://update.aptana.com/update/studio/3.4
+# 如果以上地址没有内容, 可以尝试 
+http://download.aptana.com/studio3/plugin/update/
+http://download.aptana.com/studio3-rcp/plugin/update/
+# 也可以参考 https://wiki.appcelerator.org/display/guides2/Changing+the+Update+Type
+# Aptana Studio Beta Updates: 
+http://preview.appcelerator.com/aptana/studio3/plugin/update/beta/
+# Aptana Studio Nightly Updates: 
+http://preview.appcelerator.com/aptana/studio3/plugin/update/nightly/
+
+# activiti 升级地址
+http://activiti.org/designer/update/
+
+# 修改 Intellij 的启动参数 主要修改 mx
+D:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\bin\idea.exe.vmoptions
+# 关于更改后无法启动的说明 
+https://intellij-support.jetbrains.com/entries/23393413
+# 最好是使用 64 位版本 idea64.exe 
+# 可以增加提示的文件大小
+idea.max.intellisense.filesize=2500
+
+# 这里的注释有别人提供的一份配置 可以参考 https://intellij-support.jetbrains.com/entries/23395793
+
+# 如果设置 JAVA_HOEM 为 jdk8 可能的导致启动非常慢 可以考虑设置
+IDEA_JDK_64
+
+# java 启动时的调试参数
+-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=12345
+
+# 关于 permSize 的解释 http://java.sun.com/docs/hotspot/gc1.4.2/faq.html
+The permanent generation is used to hold reflective data of the VM itself such as class objects and method objects. These reflective objects are allocated directly into the permanent generation, and it is sized independently from the other generations.
+
+# 关于 java8 对 permSize 的警告
+http://stackoverflow.com/questions/18339707
+PermGen space was removed. Memory management has changed a bit.
+
+ReservedCodeCacheSize (and InitialCodeCacheSize) is an option for the (just-in-time) compiler of the Java Hotspot VM. Basically it sets the maximum size for the compilers code cache.
+
+# gc 的调优
+http://www.oracle.com/technetwork/java/javase/gc-tuning-6-140523.html
+# Java HotSpot VM Options
+http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+# 查看 vm 工作的工具
+https://visualvm.java.net/
+# 参考
+http://stackoverflow.com/questions/1058991/how-to-monitor-java-memory-usage
+
+#  java 代理
+http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
+# net 的属性 http://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html
+# 参考 http://stackoverflow.com/questions/120797
+
+
+# JavaTM Secure Socket Extension
+# http://docs.oracle.com/javase/1.5.0/docs/guide/security/jsse/JSSERefGuide.html#Debug
+# 可以参考类 java.security.cert.X509Certificate
+
+# 由于 GPE 地址总是用不上, 可以考虑
+https://commondatastorage.googleapis.com/eclipse_toolreleases/products/gpe/main/4.3/compositeContent.xml
+<child location="https://dl.google.com/eclipse/plugin/core/4.3"/>
+<child location="https://dl.google.com/eclipse/appengine"/>
+<child location="https://dl.google.com/eclipse/gwt"/>
+<child location="https://dl-ssl.google.com/android/eclipse"/>
+
+
+
+JAVA_FLAGS=-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8087
+java %JAVA_FLAGS%
+# proxySet 似乎是无效的
+if (needsProxy()) {
+    System.getProperties().put("proxySet", "true");
+    System.getProperties().put("proxyHost", getProxyHost());
+    System.getProperties().put("proxyPort", getProxyPort());
+} else {
+    System.getProperties().put("proxySet", "false");
+    System.getProperties().put("proxyHost", "");
+    System.getProperties().put("proxyPort", "");
+}
+# 调试 ssl
+java -Djavax.net.debug=all -Djavax.net.ssl.trustStore=trustStore
+
+# 常用的 ssl 命令
+http://shib.kuleuven.be/docs/ssl_commands.shtml
+
+# keytool 使用说明
+http://docs.oracle.com/javase/1.5.0/docs/tooldocs/solaris/keytool.html
+
+# 获取 cert
+echo -n | openssl s_client -connect dl.google.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > dl.google.cert
+
+# 导入到 keystore
+keytool -import -alias custom-ssl -file dl.google.cert -keystore C:\custom.truststore
+
+# 修改 eclipse.ini 使用自定义的 keystore
+-Djavax.net.ssl.trustStore=C:\custom.truststore
+-Djavax.net.ssl.trustStorePassword=qazwsx
+# eclipse 推荐插件列表
+http://www.eclipse.org/community/eclipse_newsletter/2013/december/article2.php
+http://stackoverflow.com/questions/2826/do-you-have-any-recommended-plugins-for-eclipse
+
+# eclipse 4.3 支持 java8 的补丁
+# 4.4 支持 java8
+http://download.eclipse.org/eclipse/updates/4.3-P-builds/
+
+# How to Create a Self Signed Certificate using Java Keytool
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+
+www.google.com
+Web Development
+Google, Inc.
+Mountain View
+California
+US
+
+http://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.html
+
+set CERT=%JAVA_HOME%/jre/lib/security/cacerts
+keytool -list -v -keystore %CERT%
+# 默认口令为 changeit 在 MAC 上是 changeme, 但有的也可能是 changeit
+
+# Generate a Java keystore and key pair
+keytool -genkey -alias mydomain -keyalg RSA -keystore keystore.jks -keysize 2048
+
+# Generate a certificate signing request (CSR) for an existing Java keystore
+keytool -certreq -alias mydomain -keystore keystore.jks -file mydomain.csr
+
+# Import a root or intermediate CA certificate to an existing Java keystore
+keytool -import -trustcacerts -alias root -file Thawte.crt -keystore keystore.jks
+
+# Import a signed primary certificate to an existing Java keystore
+keytool -import -trustcacerts -alias mydomain -file mydomain.crt -keystore keystore.jks
+
+# Generate a keystore and self-signed certificate (see How to Create a Self Signed Certificate using Java Keytool for more info)
+keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
+
+# Check a stand-alone certificate
+keytool -printcert -v -file mydomain.crt
+
+# Check which certificates are in a Java keystore
+keytool -list -v -keystore keystore.jks
+
+# Check a particular keystore entry using an alias
+keytool -list -v -keystore keystore.jks -alias mydomain
+
+# Delete a certificate from a Java Keytool keystore
+keytool -delete -alias mydomain -keystore keystore.jks
+
+# Change a Java keystore password
+keytool -storepasswd -new new_storepass -keystore keystore.jks
+
+# Export a certificate from a keystore
+keytool -export -alias mydomain -file mydomain.crt -keystore keystore.jks
+
+# List Trusted CA Certs
+keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts
+
+# Import New CA into Trusted Certs
+keytool -import -trustcacerts -file /path/to/ca/ca.pem -alias CA_ALIAS -keystore $JAVA_HOME/jre/lib/security/cacerts
+
+
+
