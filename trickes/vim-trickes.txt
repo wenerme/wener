@@ -1,0 +1,43 @@
+"kyy
+Or you can append to a register by using a capital letter
+"Kyy
+You can then move through the document and paste it elsewhere using
+"kp
+To access all currently defined registers type
+:reg
+
+"* or "+ - the contents of the system clipboard
+"/ - last search command
+": - last command.
+
+CTRL-R {0-9a-z"%#:-=.}					*c_CTRL-R* *c_<C-R>*
+插入寄存器里的内容。当按下 CTRL-R 时，屏幕会显示一个 '"' 字
+符，提示你输入一个寄存器的名字。
+插入的文字就像是你自己输入的，但是映射和缩写不会生效。同样也不
+会触发 'wildchar' 的补全功能。并且那些可以结束命令的字符会被按
+字面插入 (<Esc>，<CR>，<NL>，<C-C>)。但 <BS> 或 CTRL-W 仍旧可
+能结束命令行模式，并使剩余的字符被接下来其他的模式解释，这可能
+并非你的本意。
+特殊寄存器:
+
+	'"'	无名寄存器，包含最近一次删除或复制的内容
+	'%'	当前文件名
+	'#'	轮换文件名
+	'*'	剪贴板的内容 (X11: 主选择区)
+	'+'	剪贴板的内容
+	'/'	最近一次的查找模式
+	':'	最近一次在命令行输入的命令
+	'-'	最近一次小的 (少于一行) 删除
+	'.'	最近插入的文本
+					*c_CTRL-R_=*
+	'='	表达式寄存器: 会提示你输入一个表达式。
+		(见 |expression|)
+		(在表达式提示中无效；不允许改变缓冲区或者当前
+		窗口这样的操作，以避免副作用)
+		如果结果为 |List| 列表，其中的每一项当作一行。
+		当然其中内容也可包含换行符。
+		如果结果为浮点数，自动转换为字符串。
+与寄存器相关的内容请参见 |registers|。{Vi 无此功能}
+实现细节: 如果使用 |expression| 寄存器并且调用 setcmdpos()，那
+么在插入返回的文本之前设置光标位置。使用 CTRL-R CTRL-R 在插入
+返回的文本之后设置光标位置。
