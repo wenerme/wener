@@ -30,12 +30,15 @@ git branch -D temp
 
 push tags
 -----
+```
 git push --tags
 # 只 push 一个
 git push origin <tag_name>
+```
 
 强制 pull
 ------
+
 git fetch --all
 git reset --hard origin/master
 
