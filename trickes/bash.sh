@@ -83,10 +83,13 @@ ${STATE?"Need to set STATE"}
 ${DEST:?"Need to set DEST non-empty"}
 
 
+# wget 可用于获取 googlecode 因为我实在是下载不下来~
+# 需要开启代理 已经在 .wgetrc 中配置了代理
+# http://downloadsvn.codeplex.com/ 也可以用来下载 svn 但是不好用代理
+wget ... -e use_proxy=on
 
 
-
-
-
+wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
+wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
 
 
