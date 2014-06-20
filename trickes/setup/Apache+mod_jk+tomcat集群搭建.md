@@ -1,12 +1,16 @@
+
+[toc]
+
 计划方案
 -------
 
-环境
+### 环境
 
-四台主机: cloud01,cloud02,cloud03,cloud04
-OS: CentOS 6.5
+* 四台主机: cloud01,cloud02,cloud03,cloud04
+* OS: CentOS 6.5
+* Tomcat安装位置: `/opt/tomcat`
 
-集群方案
+### 集群方案
 
 * cloud02 cloud03 cloud04 为 tomcat 节点
 * cloud01 上的 apache 做负载均衡
@@ -20,7 +24,7 @@ yum install httpd
 # ServerName localhost
 ```
 
-如果想要使用 apachectl status 命令 需要 elinks `yum install elinks -y` 和 mod_status, 一般 mode_status 是默认加载的,但是还要一点配置.
+如果想要使用 `apachectl status` 命令 需要 elinks `yum install elinks -y` 和 mod_status, 一般 mode_status 是默认加载的,但是还要一点配置.
 
 在 httpd.conf 中添加如下配置
 ```
@@ -143,41 +147,41 @@ cloud03, cloud04 也这样修改.
 ```
 <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster" channelSendOptions="8">
 
-          <Manager className="org.apache.catalina.ha.session.DeltaManager"
-                   expireSessionsOnShutdown="false"
-                   notifyListenersOnReplication="true"/>
+  <Manager className="org.apache.catalina.ha.session.DeltaManager"
+		   expireSessionsOnShutdown="false"
+		   notifyListenersOnReplication="true"/>
 
-          <Channel className="org.apache.catalina.tribes.group.GroupChannel">
-          	<Membership className="org.apache.catalina.tribes.membership.McastService"
-                            address="228.0.0.4"
-                            port="45564"
-                            frequency="500"
-                            dropTime="3000"/>
-                <Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
-                          address="auto"
-                          port="4000"
-                          autoBind="100"
-                          selectorTimeout="5000"
-                          maxThreads="6"/>
+  <Channel className="org.apache.catalina.tribes.group.GroupChannel">
+	<Membership className="org.apache.catalina.tribes.membership.McastService"
+					address="228.0.0.4"
+					port="45564"
+					frequency="500"
+					dropTime="3000"/>
+		<Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
+				  address="auto"
+				  port="4000"
+				  autoBind="100"
+				  selectorTimeout="5000"
+				  maxThreads="6"/>
 
-          	<Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter">
-           		<Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender"/>
-         	</Sender>
-          	<Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/>
-          	<Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor"/>
-          </Channel>
+	<Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter">
+		<Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender"/>
+	</Sender>
+	<Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/>
+	<Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor"/>
+  </Channel>
 
-          <Valve className="org.apache.catalina.ha.tcp.ReplicationValve" filter=""/>
-          <Valve className="org.apache.catalina.ha.session.JvmRouteBinderValve"/>
+  <Valve className="org.apache.catalina.ha.tcp.ReplicationValve" filter=""/>
+  <Valve className="org.apache.catalina.ha.session.JvmRouteBinderValve"/>
 
-          <Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
-                    tempDir="/tmp/war-temp/"
-                    deployDir="/tmp/war-deploy/"
-                    watchDir="/tmp/war-listen/"
-                    watchEnabled="false"/>
+  <Deployer className="org.apache.catalina.ha.deploy.FarmWarDeployer"
+			tempDir="/tmp/war-temp/"
+			deployDir="/tmp/war-deploy/"
+			watchDir="/tmp/war-listen/"
+			watchEnabled="false"/>
 
-          <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
-       </Cluster>
+  <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
+</Cluster>
 ```
 
 启动集群
@@ -199,7 +203,7 @@ done;
 for i in $(echo 02 03 04); do echo ====$i====;ssh "cloud$i" jps; done;
 ```
 
-集群配置完成后可以通过刷新 ```http://cloud01/manager/status``` 这个页面, 观察 IP address 来判断是否成功.
+集群配置完成后可以通过刷新 http://cloud01/manager/status 这个页面, 观察 IP address 来判断是否成功.
 
 其他
 ----
