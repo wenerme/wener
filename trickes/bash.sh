@@ -10,10 +10,15 @@ scp local_file user@remote_host:remote_file
 sort -n -k 2
 
 # 显示内存及cpu使用情况
-top -bMmc -d 0.01 |head -20
+top -abMmc -d 0.01 |head -20
 # M 单位为 m
 # m 显示进程使用的 而不是镜像大小 VIRT
 # c 显示完整的命令行
+
+# top 显示的 USED 可能会很多,因为有很多 CACHED 这个并没有什么
+# 参考这里 http://www.linuxatemyram.com/
+# 如果想看查看实际空闲的内存, 可以使用
+free -tm
 
 # 类似树形的显示
 ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
@@ -35,6 +40,13 @@ tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
 							   
 # 开机启动
 chkconfig --level 23 network on
+chkconfig --add foo
+chkconfig --del foo
+# ubuntu 可以使用 update-rc.d
+sudo update-rc.d mysql defaults
+sudo update-rc.d mysql remove
+# 该命令可以用来管理开机启动服务
+ntsysv
 
 # 设置代理
 export https_proxy=http://192.168.1.103:8087/
@@ -88,8 +100,13 @@ ${DEST:?"Need to set DEST non-empty"}
 # http://downloadsvn.codeplex.com/ 也可以用来下载 svn 但是不好用代理
 wget ... -e use_proxy=on
 
-
 wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
 wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
+
+# 退出 shell 后不关闭后台进程
+shopt +s huponexit
+# 或者是使用
+nohup
+# 至于为什么会被关闭 参考这里 http://stackoverflow.com/questions/15595374/
 
 
