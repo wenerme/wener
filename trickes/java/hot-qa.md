@@ -8,28 +8,26 @@ http://stackoverflow.com/questions/5846183/arraylist-vs-linkedlist
 时间复杂度比较
 ------------
 
-N/A| LinkedList<E> |  ArrayList<E>
-|-|-|
+操作\类型| LinkedList<E> |  ArrayList<E>
+| ------------- |:-------------:|:-----:|
 get(int index) | O(n) | O(1) :star:
 add(E element) | O(1) | O(1) 最坏: O(n)
 add(int index, E element) | O(n) |  O(n - index) 最坏: O(n)
 remove(int index) | O(n) :star: | O(n - index) (比如移除最后一个是 O(1))
 ListIterator.add(E element) | O(1) :star: | O(n - index)
 
-注
-: 之所以 ArrayList 有最坏情况, 是因为如果达到了 ArrayList 的容量上限, 那么需要创建新数组, 然后拷贝整个数组.
-: ArrayList 实现了 标记接口(Mark interface) [RandomAccess](http://docs.oracle.com/javase/7/docs/api/java/util/RandomAccess.html), 表示该集合可以进行随机访问.
-: 一般来说 LinkedList 比 ArrayList 需要更大的空间, 而且存储的数据越多, LinkedList 要的空间越大, 因为一个节点有前节点和后节点的指针.
-: 标注有 :star: 的为该类型的主要优势
+注:
 
+* 之所以 ArrayList 有最坏情况, 是因为如果达到了 ArrayList 的容量上限, 那么需要创建新数组, 然后拷贝整个数组.
+* ArrayList 实现了 标记接口(Mark interface) [RandomAccess](http://docs.oracle.com/javase/7/docs/api/java/util/RandomAccess.html), 表示该集合可以进行随机访问.
+* 一般来说 LinkedList 比 ArrayList 需要更大的空间, 而且存储的数据越多, LinkedList 要的空间越大, 因为一个节点有前节点和后节点的指针.
+* 标注有 :star: 的为该类型的主要优势
 
-
-
-Jvm 调优
+jvm 调优
 ========
 
-调优步骤
--------
+调优需要考虑个问题
+---------
 
 * JVM 发布商和版本
 * 对堆大小和垃圾收集进行调优
@@ -46,7 +44,7 @@ Jvm 调优
 * 混合 服务器/客户端 JVM
 * UNIX 线程模型
 
-在进行调优前线对代码进行评测(profiling)
+* 在进行调优前线对代码进行评测(profiling)
 
 参考
 -----
