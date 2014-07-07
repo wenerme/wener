@@ -1,0 +1,242 @@
+!http://www.allacronyms.com/_technology/language/topic
+!http://www.allacronyms.com/_technology/programming_language/topic
+AAT: Art and Architecture Thesaurus
+ABEL: Advanced Boolean Expression Language
+ACABIT: Automatic Corporations-based Acquisition…
+ACABIT: Automatic Corpus-based Acquisition of Binary Terms
+ACL: Arbortext Command Language
+ACL: Association for Computational Linguistics
+ADADL: Ada design and documentation language
+AHDL: Altera Hardware Description Language
+ALGOL: Algorithmic Language
+ALPAC: Automatic Language Processing Advisory Committe
+ALS: Ada Language System
+ALTW: Australasian Language Technology Workshop
+ANA: Automatic Natural Acquisition
+APL: A Programming Language
+ASL: American Sign Language
+ASN.1: Abstract Syntax Notation One
+ASR: Automatic Speech Recognition
+ATL: Application Transaction Language
+BASIC: Beginner's All-purpose Symbolic Instruction Code
+BASIC: Beginner's All-purpose Symbolic…
+BCPL: Basic Combined Programming Language
+BFO: Basic Formal Ontology
+BPL: Business Process Language
+BPML: Business Process Management Language
+BPQL: Business Process Query Language
+BXML: Backbase eXtensible Mark-up Language
+CALICO: Computer Assisted Language Instituteuction…
+CALICO: Computer Assisted Language Instruction Consortium
+CBL: Contextual Browsing Language
+CFML: ColdFusion Markup Language
+CHTML: Compact HyperText Markup Language
+CLEF: Cross-Language Evaluation Forum
+CML: Chemical Markup Language
+CML: Chemical Markup Language
+COAST: Competence Network for Advanced Speech…
+COBOL: Common Business Oriented Language
+COBOL: Common Business-oriented Language
+CPL: Combined Programming Language
+CQL: Common Query Language
+CS&L: Computer Speech & Language
+CSR: Continuous Speech Recognition
+DAC: Digital-to-Analog Converters
+DAL: Data Access Language
+DAML: DARPA Agent Markup Language
+DHTML: Dynamic Hypertext Markup Language
+DHTML: Dynamic Hypertext Markup Language
+DLT: Distributed Language Translation
+DML: Data Manipulate Language
+DSL: Domain-specific language
+DSL: Domain-specific language
+DSSSL: Document Style Semantics and Specification…
+DTD: Document Type Definition
+DTD: Document Type Description
+ebXML: Electronic Business using eXtensible…
+EDT: Estelle Development Toolset
+EGL: Enterprise Generation Language
+EML: Ecological Metadata Language
+EML: Educational Modeling Language
+EML: Election Markup Language
+EML: Environmental Markup Language
+EMNLP: Empirical Methods in Natural Language Processing
+EODM: EMF Ontology Definition Metamode
+EODM: EMF Ontology Definition Metamode
+ESPOL: Executive Systems Programming Oriented Language
+ESSL: Engineering and Scientific Subroutine Library
+FAP: FORTRAN Assembly Program
+FOAF: Friend of a Friend
+Fortran: FORmula TRANslation
+GATE: General Architecture for Text Engineering
+GCL: Golden Common LISP
+GEL: Graph Evaluation Language
+GELLMU: Generalized Extensible LaTeX-Like MarkUp
+GML: Generalized Markup Language
+GML: Geography Markup Language
+GML: Geography Markup Language
+GPL: GOAL Processing Language
+GPRN: GOAL Test Procedure Release Notice
+GPUR: GOAL Test Procedure Update Request
+GRDDL: Gleaning Resource Descriptions from…
+GUM: Generalized Upper Model
+HAL: High-order Assembly Language
+HAL: Houston Aerospace Language
+HALS: High-order Programming Language for Spacelab usage
+HCL: Hardware Control Language
+HDL: Hardware Description Language
+HDL: Hardware Description Language
+HITS: Hyperlink-Induced Topic Search
+HLAL: High-level Assembler Language
+HLTL: High-Level Test Language
+HOL: High-Order Language
+HOLC: High-Order Language Computer
+HPF: High Performance Fortran
+HPSG: Head-driven Phrase Structure Grammar
+HTLL: High-Test-Level Language
+HTML: HyperText Markup Language
+HTML: HyperText Markup Language
+IAL: International Algorithmic Language
+ICLEF: Interactive Cross-Language Evaluation Forum
+ICSLP: International Conference on Spoken…
+IDL: Interface Description Language
+IDL: Interface Description Language
+IL: Intermediate Language
+ILPS: Information and Language Processing Systems
+ILSP: Institute for Language and Speech Processing
+ILSP: Institutetute for Language and Speech Processing
+IODT: Integrated Ontology Development Toolkit
+IODT: Integrated Ontology Development Toolkit
+IRL: ILOG Rule Language
+J2EE: Java 2 Enterprise Edition
+JAAS: Java Authentication and Authorization Service
+JAI: Java Advanced Imaging
+JCL: Job Control Language
+JCP: Java Community Process
+JDE: Java Development Environment
+JOnAS: Java Open Application Server
+JSP: Java Server Pages
+JSR: Java Specification Request
+JVM: Java Virtual Machine
+KML: Keyhole Markup Language
+Lisp: List Processing
+LSL: Linden Scripting Language
+MathML: Mathematical Markup Language
+MEL: Maya Embedded Language
+MFC: Mel Frequency Cepstral
+MFCC: Mel Frequency Cepstrum Coefficients
+MLP: Machine Language Program
+MMIE: Maximum Mutual Information Estimation
+MML: Math Markup Language
+MUMPS: Massachusetts General Hospital Utility…
+MVR: Multilingual Vocabulary Repository
+NAMIC: News Agencies Multilingual Information…
+NER: Named Entity Recognition
+NEWP: New Executive Programming Language
+NLP: Natural Language Processing
+OCML: Operational Conceptual Modelling Language
+ODL: Object Definition Language
+OED: Oxford English Dictionary
+OIL: Ontology Inference Layer
+OML: Object Manipulation Language
+OML: Ontology Markup Language
+OntoUCP: Ontology-based Unified Communication Protocol
+OOL: Object Oriented Language
+OPML: Outline Processor Markup Language
+OQL: Object Query Language
+OWL: Ontology Web Language
+OWL: Web Ontology Language
+PCGI: Perl Common Gateway Interface
+PDF: Portable Document Format
+PESSL: Parallel Engineering and Scientific…
+PGML: Precision Graphics Markup Language
+PHP: Personal Home Page
+PHP: PHP Hypertext Preprocessor
+PHP: PHP Hypertext Processor
+PLDI: Programming Language Design and Implementation
+PLEAC: Programming Language Examples Alike Cookbook
+POJO: Plain Old Java Object
+PS: PostScript
+PSL: Program Statement Language
+RDDL: Resource Directory Description Language
+RPG: Report Program Generator
+RPL: Reverse Polish Lisp
+RSS: RDF Site Summary
+RSS: Really Simple Syndication
+RSS: Rich Site Summary
+SAA: Semantic Audio Analysis
+SAL: Standard Annotation Language
+SAML: Security Assertion Markup Language
+SAMPA: Speech Assessment Methods Phonetic Alphabet
+SBML: Systems Biology Markup Language
+SEAL: Semantics-directed Environment Adaptation Language
+SEXI: String EXpression Interpreter
+SGML: Standard Generalized Markup Language
+SGML: Standard Generalized Markup Language
+SISR: Semantic Interpretation for Speech Recognition
+SMBL: Systems Biology Markup Language
+SMIL: Synchronized Multimedia Integration Language
+SML: Spacecraft Markup Language
+SMT: Statistical Machine Translation
+SNOBOL: StriNg Oriented symBOlic Language
+SOLIM: Spatial Ontology Language for multimedia…
+SPL: System Programming Language
+SPSC: Signal Processing and Speech Communication
+SQALE: Speech recognizer Quality Assessment for…
+SQL: Structured Query Language
+SSML: Speech Synthesis Markup Language
+STL: Speech Transmission Laboratory
+SUMO: Suggested Upper Merged Ontology
+SVG: Scalable Vector Graphics
+SWD: Semantic Web Deployment
+TAL: Tandem Application Language
+TAL: Transaction Application Language
+TAL: Typed Assembly Language
+TAUS: Translation Automation User Society
+Tcl: Tool Command Language
+TDAP: Transformations and Discourse Analysis Project
+TMAPI: Topic Map Application Programming Interface
+TSL: Template Style Language
+TTCN: Tree and Tabular Combined Notation
+TTI: Translation Technologies, Inc.
+UFO: United Functions and Objects
+UIL: User Interface Language
+UIML: User Interface Markup Language
+UML: Unified Modeling Language
+UNL: Universal Networking Language
+UNL: Universityrsal Networking Language
+VBA: Visual Basic for Applications
+VML: Vector Markup Language
+VRM: Voice Response Management
+VSL: Visual Shading Language
+VTML: Visual Tool Markup Language
+VXML: Voice Extensible Markup Language
+WBS: Word Based Search
+WER: Word Error Rate
+WML: Wireless Markup Language
+WSCL: Web Services Conversation Language
+WSFL: Web Services Flow Language
+X3D: Extensible 3D
+XAML: Extensible Application Markup Language
+XBEL: XML Bookmark Exchange Language
+XBL: eXtensible Binding Language
+XBL: Extensible Bindings Language
+XBL: Xml Binding Language
+XBRL: eXtensible Business Reporting Language
+XFDL: Extensible Forms Description Language
+XFN: XHTML Friends Network
+XHTML: Extensible Hypertext Markup Language
+XHTML: Extensible Hypertext Markup Language
+XLL: Extensible Linking Language
+XML: Extensible Markup Language
+XML: Extensible Markup Language
+XNCL: XML Namespace Catalogue Language
+XPDL: XML Process Definition Language
+XSL: Extensible Style Language
+XSL: Extensible Stylesheet Language
+XSL-FO: EXtensible Stylesheet Language Formatting Object
+XSL-FO: XSL Formatting Objects
+XSLT: Extensible Stylesheet Language Transformations
+XUL: XML-based User interface Language
+YAMCHA: Yet Another Multipurpose CHunk Annotator
+YRRSDS: Young Researchers' Roundtable on Spoken…

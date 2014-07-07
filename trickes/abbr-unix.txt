@@ -1,0 +1,292 @@
+...wm: Window Manager
+0:http://www.allacronyms.com/_technology/unix/topic
+0:http://www.allacronyms.com/_technology/unix_command/topic
+A/UX: Apple UniX
+ADB: A DeBugger
+adb: Absolute
+adb: Advanced Debugger
+adb: Algol
+adb: Assembly
+ADEW: Andrew Development Environment Workbench
+AFS: Andrew File System
+AFUU: Association Francaise des Utilisateurs d'Unix
+AIX: Advanced Interactive eXecutive
+Ar: Archiver
+As: Assembler
+ASH: Almquist SHell
+ATK: Andrew ToolKit
+atob: ASCII to binary
+AUE: Andrew User Environment
+AUIS: Andrew User Interface System
+AUX: Apple UniX
+AWK: Aho, Weinberger, Kernighan
+AWK: al Aho, peter Weinberger, brian Kernighan
+Bash: Bourne-Again Shell
+Bin: Binaries
+BIND: Berkeley Internet Name Domain
+BSD: Berkeley Software Distribution
+bsh: Bourne shell
+BSS: Block Started by Symbol
+btoa: Binary To Ascii
+Cal: Calendar
+CAT: Concatenate
+cb: C-Beautifier
+CC: C-Compiler
+CD: Change Directory
+chgrp: Change Group
+chmod: Change Mode
+chown: Change Owner
+chsh: Change Shell
+CI: Check In
+CMP: Compare
+Co: Check out
+Comm: Common
+cp: Copy
+CPIO: Copy In and Out
+CPIO: CoPy In/Out
+cpp: C preprocessor
+cron: Chronos
+CSH: C SHell
+CTSS: Compatible Time Sharing System
+CXI: Common X-windows Interface
+d: Daemon
+DAC: Discretionary Access Control
+daemon: Disk And Execution MONitor
+DAS: Disk Array Subsystem
+dbx: Extended Debugger
+DC: Desk Calculator
+Dev: Devices
+DF: Disk Free
+Diff: Difference
+diff3: Differences Of Three Files
+dirname: Directory Name
+DSU: Data Secure Unix
+DU: Disk Usage
+egrep: Extended Grep
+egrep: Extended Grep
+Elm: Electronic Mail
+Emacs: Editing MACroS
+Env: Environment
+EP/IX: Enhanced Performance unIX
+EPIX: Enhanced Performance unIX
+EQN: Equation
+EUC: Extended Unix Code
+EUnet: European UNIX Network
+Eval: Evaluate
+EX: Extended Editor
+Exec: Execute
+Expr: Expression
+FACE: Framed Access Command Environment
+FC: Fix Command
+FD: File Descriptors
+FD: Floppy Disk
+FFS: Fast File System
+fmt: Format
+FSCK: File System Check
+FSTAB: File System Table
+ftio: Fast Tape Input/output
+fuser: File User
+GASH: Group Admin SHell
+GCUX: GIAC Certified UniX security administrator
+getty: Get Tty
+GREP: Global Regular Expression Print
+HD: Hard Disk
+HPUX: Hewlett Packard UniX
+HURD: HIRD of Unix-Replacing DAEMONs
+IAUG: International AIX User Group
+ICMX: Interface for Communications Manager uniX
+ID: Identity
+IFS: Internal Field Separator
+IFS: Internal Field Seperators
+imake: Interface To Make
+kmem: Kernel Memory
+KPI: Kernel Programming Interface
+ksh: Korn shell
+Lang: Language
+LCA: Linux Certified Administrator
+LEL: Link, Embed and Launch
+Lex: Lexical Analyser
+lharc: Lempl-Huffman archiver
+Lib: Library
+Linux: Linus and Unix
+LM/U: LAN Manager for Unix
+LM/X: LAN Manager for uniX
+LMU: LAN Manager for Unix
+LMX: LAN Manager for uniX
+ln: Link
+LOGNAME: Log-in Name
+lorder: Library Order
+LP: Line Printer
+LPC: Line Printer Control
+LPD: Line Printer Daemon
+LPP: Licensed Program Products
+LPQ: Line Printer Queue
+lpr: Line Print
+lprm: Line Printer Remove
+ls: List
+LTC: Linux Technology Center
+LUW: Linux, Unix, Windows
+MAGRST: Magnetic Tape Restore
+Man: Manual
+MAX: MAssively parallel uniX
+MEM: Memory
+Minix: miniature Unix
+mkfs: Make File System
+mknod: Make Node
+MOSIX: Multicomputer Operating System for UnIX
+MOTD: Message of the Day
+MULTICS: Multiplexed Information and Computing System
+mv: Move
+mvdir: Move Directory
+MWM: Motif Window Manager
+nawk: New awk
+NIS: Network Information System
+NL: Number Lines
+nm: Names
+NN: No News
+nohup: No Hangup
+NROFF: New Roff
+NZUSUGI: New Zealand Unix System User Group, Inc.
+oclock: O shaped clock
+OD: Octal Dump
+PANIX: Public Access internet/uNIX
+PASSWD: Password
+PAX: Portable Archive eXchange
+PC/IX: Personal Computer / unIX
+PCC: Portable C Compiler
+PCIX: Personal Computer / unIX
+pg: Pager
+PGP: Pretty Good Privacy
+pico: Pine Composer
+PID: Process Identification Number
+POSIX: Portable Operating System for unIX
+povray: Persistence Of Vision Raytracer
+PPID: Parent Process IDentification number
+Pr: Prepare
+printcap: Printer Capability
+Proc: Processes
+Prof: Profiler
+PRS: Print Revision Summary
+PS: Process Status
+pty: Pseudo Tty
+pushd: Push Directory
+PWD: Print Work Directory
+qdaemon: Queue Daemon
+r...: Remote
+ranlib: Random Access Library
+RCP: Remote Copy
+RCS: Revision Control System
+RFS: Remote File Sharing
+rlogin: Remote Login
+rm: Remove
+rmail: Restricted Mail
+rmdel: Remove Delta
+RMDIR: Remove Directory
+RMT: Raw Magnetic Tape
+RMT: Remote Magnetic Tape
+roff: Run-off
+RRIP: Rock Ridge Interchange Protocol
+rsh: Remote Shell
+RSH: Restricted SHell
+RWX: Read, Write, Execute
+RZ: receive Z-modem
+SAF: Service Access Facilities
+SAR: System Activity Report
+sbin: Superuser Binaries
+SCCS: Source Code Control System
+SCNA: Sun Certified Network Administrator for Solaris
+SCSA: Sun Certified System Administrator for Solaris
+SCSAS: Sun Certified Solaris Associate
+SCSECA: Sun Certified Security Administrator for Solaris
+SDB: Symbolic Debugger
+sed: Stream Editor
+SHAR: Shell Archive
+SIGABRT: Signal: Abort
+SIGALRM: Signal: Alarm Clock
+SIGBUS: Signal: Bus Error
+SIGCHLD: Signal: Child
+SIGCONT: Signal: Continue
+SIGEMT: signal: EMT instruction
+SIGFPE: Signal: Floating Point Exception
+SIGHUP: Signal: Hangup
+SIGILL: Signal: Illegal Instruction
+SIGINT: Signal: Interruption
+SIGIO: Signal: Input/output
+SIGSEGV: Signal: Segmentation Violation
+SIGSYS: Signal: System Call
+SIGTERM: Signal: Terminate
+SIGTSTP: Signal: terminal stop
+SIGTTIN: signal: TTY input
+SIGTTOU: signal: TTY output
+SIGURG: signal: urgent I/O condition
+SIGUSR1: Signal: User-defined Signal 1
+SIGWINCH: Signal: Window Changed
+Sinix: Siemens Unix
+SIPP: SImple Polygone Processor
+stty: Set Tty
+Su: Superuser
+SVABI: System V Application Binary Interface
+SVID: System V Interface Definition
+SVR3: System V Release 3
+SVR4: System V Release 4
+Sync: Synchronize
+SYSV: System V
+SZ: Send ZModem
+tar: Tape Archive
+TAR: Tape ARchiver
+tbl: Table
+tclsh: Tcl shell
+tcsh: Tenex C shell
+TEE: T pipe fitting
+TELNET: TELephone NETwork
+telnet: Terminal Over Network
+TELNETD: TELephone NETwork DAEMON
+TERMCAP: TERMinal CAPability
+TERMINFO: TERMinal INFOrmation
+TEX: Tau Epsilon Chi
+TIS: Tools Interface Standard
+tmp: Temporary
+Tr: Translate
+troff: Typesetter Roff
+tsort: Topological Sort
+TTT: Tic Tac Toe
+TTY: Teletype
+TZ: Time Zone
+U.N.C.L.E.: Unix Net for Computer security in Law Enforcement
+u: User
+UAB: Unix Appletalk Bridge
+UI: Unix International
+ulimit: User's Limit
+UMA: Universal Measurement Architecture 
+UMA: Universityrsal Measurement Architecture
+uname: Unix name
+UNCLE: Unix Net for Computer security in Law Enforcement
+Uniq: Unique
+USL: Unix Systems Laboratories
+USR: Unix Shared Resources
+USS: Unix Support Services
+UUCICO: Unix to Unix Copy Incoming Copy Outgoing
+UUCP: UNIX-to-UNIX Communication Protocol
+UUNET: Unix to Unix NETwork
+Var: Variable
+VI: Visual Editor
+Vi: Visual
+vile: VI Like Emacs
+Vim: Vi IMproved
+wall: Write All
+WC: Word Count
+wish: Windowing Shell
+xargs: Extended Arguments
+XDM: X Display Manager
+xdpr: X dump print
+XENIX: Xenos Unix
+XFD: X font display
+XFS: eXtended File System
+XINU: Xinu Is Not Unix
+xmkmf: X make makefile
+xrdb: X resource database
+XWD: X Window Dump
+xwud: X window un-dump
+YACC: Yet Another Compiler Compiler
+YAUN: Yet Another Unix Nerd
+zip: Ziv packer

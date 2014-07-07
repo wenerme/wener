@@ -1,0 +1,199 @@
+!http://www.allacronyms.com/_technology/web/topic
+AFAICR: As Far As I Can Recall
+AFAICS: As Far As I Can See
+AFAICT: As Far As I Can Tell
+AFAIK: As Far As I Know
+AJAX: Asynchronous JavaScript and XML
+ARP: Address Resolution Protocol
+ASFG: Ask The Fucking Google
+ASL: Age/Sex/Location
+ASP: Active Server Pages
+AWF: A Web Factory
+AYBABTU: All Your Base Are Belong To Us
+B2B: Business to Business
+BBIAB: Be Back In A Bit
+BBL: Be Back Later
+BBS: Be Back Soon
+BCNU: Be Seeing You
+BGP: Border Gateway Protocol
+BSOD: Blue Screen of Death
+BTDT: Been There, Done That
+CMS: Content Management Server
+CSS: Cascading Style Sheets
+CSTIT: Computer Speech, Text and Internet Technology
+DHTML: Dynamic Hypertext Markup Language
+DILLIGAF: Does It Look Like I Give A Fuck
+DND: Do Not Disturb
+DOM: Document Object Model
+EOF: End Of File
+EOL: End of Life
+EOL: End Of Line
+FDDI: Fiber Distributed Data Interface
+FDN: French Data Network
+FFS: For Fucks Sake
+FOAF: Friend of a Friend
+FTW: For The Win
+FTW: From The Wilderness
+FU: Fuck You
+FUD: Fear, Uncertainty and Doubt
+G2G: Got To Go
+GFC: Google Friends Connect
+GFU: Good for you
+GTG: Good To Go
+GTG: Got To Go
+HAND: Have A Nice Day
+HITS: Hyperlink-Induced Topic Search
+HRI: Human Rights Internet
+HTH: Hope That Helps
+HTML: HyperText Markup Language
+HTTP: Hypertext Transfer Protocol
+IAF: Internet Access Facilities
+ICANN: Internet Corporation for Assigned Names…
+ICANN: Internet Corporationration for Assigned…
+ICC: Internet Chess Club
+ICMP: Internet Control Message Protocol
+ICRA: Internet Content Rating Association
+ICS: Internet Connection Sharing
+ICSA: Internet Cellular Smart Access
+IDK: I don't know
+IE: Internet Explorer
+IEDR: IE Domain Registry
+IESG: Internet Engineering Steering Group
+IETF: Internet Engineering Task Force
+IGAAC: Internet Guide for Asian American Cybernauts
+IGF: Internet Governance Forum
+IGMP: Internet Group Management Protocol
+IIOP: Internet Inter Orb Protocol
+IIRC: If I Recall Correctly
+IIRC: If I Remember Correctly
+IIUC: If I understand correctly
+IMAO: In My Arrogant Opinion
+IMAP: Internet Message Access Protocol
+IMHO: In My Honest Opinion
+IMHO: In My Humble Opinion
+IMO: In My Opinion
+INFRAWEBS: Intelligent Framework for Generating Open…
+IOW: In Other Words
+IP: Internet Protocol
+IPEA: Internet Positioning European Association
+IPPS: Internet Programming and Promotion Service
+IRAS: Internet Review Arno Schmidt
+IRL: In Real Life
+ISOC: Internet Society
+ISPF: Internet Service Providers' Forum
+ITYM: I Think You Mean
+IWSN: I Want Sex Now
+IYKWIM: If You Know What I Mean
+L8R: Later
+LII: Librarians' Internet Index
+LMAO: Laughing My Ass Off
+LMFAO: Laughing My Fucking Ass Off
+LMK: Let Me Know
+LTNS: Long time, no see
+LYLAB: Love You Like A Brother
+LYLAS: Love You Like A Sister
+M8: Mate
+MBS/IP: Multi-purpose Business Security over…
+MBS: Multi-purpose Business Security
+MCIS: Microsoft Commercial Internet Systems
+MIME: Multipurpose Internet Mail Extensions
+MINC: Multilingual Internet Names Consortium
+MMORPG: Massive Multiplayer Online Role-Playing Game
+MOTD: Message of the Day
+MUD: Multi-User Dungeon
+MUSH: Multi-User Shared Hallucination
+MWI: Mobile Web Initiative
+NM: Nevermind
+NM: No Message
+NM: Not Much
+NP: No Problem
+NSFW: Not Safe For Work
+NSI: NASA Science Internet
+nvm: Nevermind
+OIC: Oh, I see
+OMFG: Oh My Fucking God
+OMG: Oh My God
+OMW: On My Way
+Op: Operator
+OSPF: Open Shortest Path First
+OTOH: On The Other Hand
+OTP: On The Phone
+P2P: Peer to Peer
+PAIR: Portal to Asian Internet Resources
+PHP: PHP: Hypertext Preprocessor
+PICS: Platform for Internet Content Selection
+PING: Packet Internet Gopher
+PITA: Pain in the Ass
+PLMK: Please Let Me Know
+PMSL: Pissing Myself Laughing
+POS: Piece Of Shit
+POV: Point of View
+PPL: People
+QIS: Qualcomm Internet Services
+RIA: Rich Internet Application
+RIAP: Rural Internet Access Point
+ROFL: Rolling On the Floor, Laughing
+ROFLMAOWPIMP: Rolling On the Floor Laughing My Ass Off…
+ROTFLMAO: Rolling On The Floor Laughing My Ass Off
+ROTFLMAOWPIMP: Rolling on the floor laughing my ass off…
+RTFS: Read The Fucking Source
+SCNR: Sorry, Could Not Resist
+SCTP: Stream Control Transmission Protocol
+SEMPO: Search Engine Marketing Professional Organization
+SEO: Search Engine Optimization
+SERP: Search Engine Ranking Page
+SERPs: Search Engine Ranking Pages
+SGC: Server Gated Cryptography
+SGML: Standard Generalized Markup Language
+SLIP: Serial Line Internet Protocol
+SMIG: Southern Minnesota Internet Group
+SNMP: Simple Network Management Protocol
+SOPE: Skyrix Object Publishing Environment
+STFU: Shut The Fuck Up
+STFW: Search The Fucking Web
+SWAD: Semantic Web Advanced Development
+SWD: Semantic Web Deployment
+SWD: Solliès Web Design
+SWSW: Semantic Web Services Week
+TANSTAAFL: There Ain't No Such Thing As A Free Lunch
+TBH: To Be Honest
+TCP/IP: Transmission Control Protocol/Internet Protocol
+TCP: Transmission Control Protocol
+TDA: Tetrault Design Associates
+TGIF: Thank God Its Friday
+thnx: Thanks
+THX: Thanks
+TIA: Thanks In Advance
+TINC: There Is No Cabal
+TIPHON: Telecommunications and Internet Protocol…
+TISPAN: Telecoms & Internet converged Services &…
+TMI: Too Much Information
+TNX: Thanks
+TOS: Terms of Service
+TTFN: Ta-Ta for Now
+TTUL: Talk To You Later
+TTYL: Talk To You Later
+TX: Thanks
+TYVM: Thank You Very Much
+UDP/IP: User Datagram Protocol/Internet Protocol
+URL: Uniform Resource Locator
+w/: With
+w/o: Without
+W8: Wait
+WAI: Web Accessibility Initiative
+WBS: Word Based Search
+WCM: Web Content Management
+WHATWG: Web Hypertext Application Technology Working Group
+WML: Website META Language
+WML: Wireless Markup Language
+WMS: Web Management System
+WRT: With Regard To
+WSS: Web Storage System
+WTG: Way To Go
+WWW: World Wide Web
+WYSIWYG: What You See Is What You Get
+XHR: XMLHttpRequest
+XHTML: Extensible Hypertext Markup Language
+XML: Extensible Markup Language
+YHBT: You Have Been Trolled
+YOYO: You're On Your Own

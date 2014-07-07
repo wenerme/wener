@@ -1,0 +1,495 @@
+! !http://www.allacronyms.com/_technology/data/topic
+AAC: Advanced Audio Coding
+ADAP: Automated Data Analysis Program
+AdGDP: Advances in Geophysical Data Processing
+ADMS: Automated Data Management System
+ADO.NET: ADO for .NET
+ADO: ActiveX Data Objects
+ADP: Automatic Data Processing
+ADPE: Automatic Data Processing Equipment
+ADPF: Automated Data Processing Facility
+ADS: Alternate Data Stream
+ADT: Abstract Data Type
+AFD: Acceptance For Data
+AIDS: Airborne Integrated Data System
+AIF: Auto Increment Field
+AIML: Artificial Intelligence Markup Language
+AMeDAS: Automated Meteorological Data Acquisition System
+ANHD: ANimation HeaDer
+ASCII: American Standard Code for Information Interchange
+AVALON: Acquisition and Validation of Ontologies
+BDC: Business Data Catalog
+BDE: Borland Database Engine
+BiblioML: Bibliographic Markup Language
+BMHD: Bitmap Header
+BMP: Basic Multilingual Plane
+BPML: Business Process Management Language
+BSML: Bioinformatic Sequence Markup Language
+CADH: Communications and Data Handling
+CDB: Central Data Buffer
+CDB: Command Data Base
+CDB: Computer Data Bus
+CDBFR: Common Data Buffer
+CDD: Common Data Dictionary
+CDF: Central Data Facility
+CDF: Combined Data File
+CDF: Compound Document Format
+CDP: Command Data Processor
+CDP: Computational Data Processing
+CDP: Computer Data Processing
+CDPIS: Command Data Processing and Instrumentation System
+CDPIS: Command Data Processing and¡­
+CDSL: Computer Data System Laboratory
+CDT: Configuration Data Table
+CDU: Coupling Data Unit
+CDW: Command Data Word
+CFG: Context Free Grammar
+COM: Computer Output Microfilm
+CRC: Cyclic Redundancy Check
+CRIS: Current Research Information Systems
+CSDF: Central Source Data File
+CSV: Comma Separated Value
+CY: Calendar Year
+DA: Data Automation
+DACP: Data Acquisition Control Processor
+DACP: Data Acquisition, Control and Processing
+DACS: Data Acquisition and Control System
+DAD: Data Acquisition and Distribution
+DADE: Data Acquisition and Documentation Equipment
+DAE: Data Acquisition Equipment
+DAF: Data Analysis Facility
+DAFT: Data Acquisition Frequency Table
+DAIS: Data Avionics Information System
+DAL: Data Acquisition List
+DAML: DARPA Agent Markup Language
+DAO: Data Access Objects
+DAS: Data Archive System
+DAU: Data Acquisition Unit
+DAV: Data Available
+DAVL: Data Available Low
+DAWG: Data Access Working Group
+DB: Data Base
+DB: Data Buffer
+DB: Data Bus
+DBA: Data Base Administrator
+DBC: Data Buffer Coupler
+DBC: Data Bus Control
+DBC: Data Bus Coupler
+DBCR: Data Base Change Request
+DBD: Database Driver
+DBDD: Data Base Design Document
+DBE: Data Bus Element
+DBFN: Data Bus File Number
+DBG: Data Bus Group
+DBGMP: Data Bus Generation and Maintenance Package
+DBI: Data Base Interface
+DBIA: Data Bus Interface Adapter
+DBIA: Data Bus Isolation Amplifier
+DBIU: Data Bus Interface Unit
+DBM: Data Base Management
+DBMS: Data Base Management Software
+DBMS: Data Base Management System
+DBN: Data Bus Network
+DBRN: Data Bank Release Notice
+DBS: Data Base System
+DBS: Data Bus Simulator
+DBUR: Data Bank Update Request
+DBW: Data Bus Wire
+DC: Data Control
+DC: Data Coordinator
+DC: Dublin Core
+DCARS: Data Collection And Reduction System
+DCAS: Data Collection and Analysis System
+DCB: Data Control Board
+DCE: Data Circuit-terminating Equipment
+DCE: Data Communication Equipment
+DCEP: Data Collection and Evaluation Plan
+DCF: Data Control Facility
+DCIB: Data Communication Input Buffer
+DCM: Data And Configuration Management
+DCM: Data and Control Management
+DCN: Data Change Notice
+DCS: Data Communication System
+DCS: Data Conditioning System
+DCT: Data Collect Tool
+DD: Data Dictionary
+DDA: Data Distribution Assembly
+DDDL: Digital Data Downlink
+DDDS: Digital Data Distribution System
+DDEX: Digital Data Exchange
+DDI: Discrete Data input
+DDL: Data Downlink
+DDM: Data Display Module
+DDM: Discrete Data Management
+DDM: Distributed Data Manager
+DDO: Discrete Data Output
+DDP: Data Distribution Panel
+DDP: Data Distribution Plan
+DDP: Digital Data Processing
+DDPC: Digital Data Processing Center
+DDPC: Digital Data Processing Complex
+DDPS: Digital Data Processing System
+DDR: Data Display and Review
+DDR: Data Display Room
+DDU: Data Display Unit
+DFD: Data Flow Diagram
+DFE: Data Flow Engineer
+DHT: Distributed Hash Table
+DHTML: Dynamic Hypertext Markup Language
+DIF: Data Interchange Format
+DIP: Data Integrated Plan
+DIT: Data ID Table
+DIU: Data Interface Unit
+DLSM: Data Link Summary Message
+DLTR: Data Link Terminal Repeater
+DLTR: Data Link Transmission Repeater
+DM: Data Management
+DMC: Data Management Computer
+DMG: Data Mining Group
+DML: Data Manipulate Language
+DMP: Data Management Processor
+DMP: Data Merger Processor
+DMS: Data Management System
+DMS: Data Management System
+DMSS: Data Management System Simulator
+DMU: Data Management Unit
+DOLAP: Desktop On Line Analytical Processing
+DOM: Document Object Model
+DOT: Data Output Tape
+DP&S: Data Processing and Software
+DP&SS: Data Processing and Software Subsystem
+DP: Data Processing
+DP: Data Processor
+DP: Data Product
+DPA: Data Processing Assembly
+DPC: Data Processing Center
+DPD: Data Procurement Document
+DPI: Data Processing Installation
+DPI: Data Processing Institutellation
+DPP: DTD Pre-processor Parser
+DPS: Data Processing and Software
+DPS: Data Processing System
+DPSD: Data Processing Systems Division
+DPSD: Data Processing Systems Divisionsion
+DPSS: Data Processing and Software Subsystem
+DPSS: Data Processing Services Subsystem
+DPSS: Data Processing Software System
+DPU: Data Processing Unit
+DR&A: Data Requirements and Analysis
+DR: Data Register
+DR: Data Requester
+Dr: Data Requirement
+DRAT: Data Requirements Analysis Tool
+DRC: Data Reduction Center
+DRI: Data Rate Indicator
+DRR: Data Recorder/Reproducer
+DRS: Data Recording System
+DRS: Data Relay Satellite
+DRS: Data Relay Station
+DRSS: Data Relay Satellite System
+DS&R: Data Storage and Retrieval
+DS: Data Storage
+DSAD: Data Systems and Analysis Directorate
+DSC: Data Separator Card
+DSDL: Document Schema Definition Languages
+DSDU: Data Storage Distribution Unit
+DSE: Data Storage Encoder
+DSE: Data Storage Equipment
+DSEA: Data Storage Electronics Assembly
+DSM: Data System Modernization
+DSN: Data Steering Network
+DSR: Data Storage and Retrieval
+DSS: Data Support System
+DTC: Distributed Transaction Coordinator
+DTCW: Data Transfer Command Word
+DTD: Document Type Description
+DTE: Data Terminal Equipment
+DTE: Data Transmission Equipment
+DTS: Data Transfer System
+DTS: Data Transmission System
+DTSL: Data Transfer Systems Laboratory
+DTVC: Data Transmission and Verification Converter
+DUNS: Data Universal Numbering System
+DUNS: Data Universityrsal Numbering System
+EAD: Encoded Archival Description
+EBCDIC: Extended Binary Coded Decimal Interchange Code
+ebXML: Electronic Business using eXtensible¡­
+ECM: Enterprise Content Management
+EDC: EROS Data Center
+EDF: Engineering Data File
+EDI: Electronic Data Interchange
+EDIF: Electronic Design Interchange Format
+EDIFACT: Electronic Data Interchange For¡­
+EDITORIA: Earth observation Data InTegration and¡­
+EDM: Entity Data Model
+EDP: Electronic Data Processing
+EDP: Embedded Data Processor
+EDPC: Electronic Data Processing Center
+EDPE: Electronic Data Processing Equipment
+EDPM: Electronic Data Processing Machine
+EDRS: European Data Relay Satellite
+EDS: Electronic Data Systems
+EDTS: Electronic Data Transfer System
+EODB: End of Data Block
+EODM: EMF Ontology Definition Metamode
+ER: Entity Resolution
+ERCS: Extended Reference Concrete Syntaxes
+ESDP: External Sensor Data Processing
+ESE: Extensible Storage Engine
+ESIS: Element Structure Information Set
+ETIS: European Transport Policy Information System
+ETL: Extract Transform Load
+GDBS: Generalized Data Base System
+GDMS: Generic Data Management System
+GDMS: Ground Data Management System
+GDSD: Ground Data Systems Division
+GDSD: Ground Data Systems Divisionsion
+GDSM: Ground Data Systems Manager
+GDSO: Ground Data Systems Officer
+GELLMU: Generalized Extensible LaTeX-Like MarkUp
+GFD: Government-Furnished Data
+GIDEP: Government Interagency Data Exchange Program
+GIF: Graphics Interchange Format
+GIM: Generalized Information Management
+GIRLS: Generalized Information Retrieval Language System
+GMIS: GSSC Management Information System
+GODAC: Global Oceanographic Data Center
+GPIO: General-Purpose Input and Output
+GSTDN: Ground Spacecraft Tracking and Data Network
+HDDR: High-Density Digital Recorder
+HDR: High Data Rate
+HDRA: High-Data-Rate Assembly
+HDRM: High-Data-Rate Multiplexer
+HDRR: High-Data-Rate Recorder
+HDRS: High-Data-Rate System
+HDRSS: High-Data-Rate Storage System
+HELM: Hypertextual Electronic Library of Mathematics
+HOLAP: Hybrid On Line Analytical Processing
+HSD: High-Speed Data
+HSDL: High-Speed Data Line
+HVD: Holographic Versatile Disc
+Hz: Hertz
+IBIS: Input/Output Buffer Information Specification
+IDA: Intermediate Data Array
+IDAR: Interim Data Assessment Review
+IDAS: Integrated Data Acquisition System
+IDBMS: Integrated Data Base Management System
+IDD: IGS Data Denial
+IDEP: Interservice Data Exchange Program
+IDMC: Independent Data-Monitoring Committee
+IDMS: Information and Data Management System
+IDP: Integrated Data Processing
+IDR: Interim Data Review
+IDS: Information Data System
+IDS: Interface Data Sheet
+IES: Information Extraction System
+IMDB: Integrated Maintenance Data Base
+IOA: Input/output Adapter
+IOB: Input/Output Box
+IOB: Input/output Buffer
+IOB: Input/Output Bus
+IOBPS: Input/Output Box and Peripheral Simulator
+IOC: Input/output Controller
+IODT: Integrated Ontology Development Toolkit
+IOM: Input/Output Module
+IOP: Input/Output Part
+IOP: Input/Output Part
+IOP: Input/Output Processor
+IOPT: Input/Output Parameter Table
+IOQE: Input/Output Queue Element
+IORL: Input/output Requirements Language
+IORTD: Input/Output Relationships and Timing Diagram
+IOS: Input/Output Supervisor
+IOU: Input/Output Unit
+IPE: Information Processing Equipment
+ISIS: Integrated Safety Information System
+ISMRB: Information Systems Management Review Board
+JDBC: Java Database Connectivity
+JET: Joint Engine Technology
+JoDI: Journal of Digital Information
+JRO: Jet and Replication Objects
+KCCA: Knowledge Content Carrier Architecture
+KCO: Knowledge Content Object
+KCOs: Knowledge Content Objects
+KDMS: Kennedy Data Management System
+LDB: Logistics Data Bank
+LDD: Logical Data Design
+LDD: Logical Data Dictionary
+LDD: Logical Document Determination
+LDIF: Lightweight Data Interchange Format
+LDP: Local Data Package
+LDR: Low Data Rate
+LMDS: Logistics Management Data System
+LSD: Low-Speed Data
+LTM: Lightweight Transaction Manager
+MACRO: Merge And Correlate Recorded Output
+MADRE: Manufacturing Data Retrieval
+MADS: Modular Auxiliary Data System
+MathML: Mathematical Markup Language
+MCDS: Management Communication and Data System
+MDAC: Microsoft Data Access Components
+MDAS: Meteorological Data Acquisition System
+MDAS: Mission Data Acquisition System
+MDB: Master Data Base
+MDB: Master Data Base
+MDCS: Material Data Collection System
+MDDS: Material Directory Data Sheet
+MDL: Master Data Library
+MetPetDB: Metamorphic Petrology Database
+MGDR: Merged Geophysical Data Record
+MMDB: Master Measurement Data Base
+MMDF: Mission Model Data File
+MMDS: Maintenance Management Data System
+MOLAP: Multidimensional On Line Analytical Processing
+MQL: Metaweb Query Language
+MSDE: MicroSoft Data Engine
+MSDT: Multiple Shuttle Data Tape
+OASIS: Organisation for the Advancement of¡­
+OCA: Oracle Certifiate Associate
+OCM: Oracle Certified Master
+OCP: Oracle Certified Professional
+ODB: Operational Data Base
+ODBC: Open Data Base Connectivity
+ODBMS: Object-Oriented Database Management System
+ODDP: Object-Dependent Data Processor
+ODF: Open Document Format
+ODF: Output Data Formatter
+ODMG: Object Database Management Group
+ODR: Output Data Redundancy
+ODRC: Orbiter Data Reduction Center
+OFTDS: Orbital Flight Test Data System
+OLAP: On Line Analytical Processing
+OLDB: On-Line Data Bank
+OLTP: On Line Transaction Processing
+OPC: Open Process Control
+OPSDB: Operations Data Base
+OPSDBA: Operations Data Base Administrator
+OQL: Object Query Language
+ORDBMS: Object-Relational DataBase Management System
+OSTDS: Office of Space Tracking and Data Systems
+OTDA: Office of Tracking and Data Acquisition
+OWL: Web Ontology Language
+PCDATA: Parsed Character Data
+PDF: Portable Document Format
+PDM: Processor Data Monitor
+PDS: Planetary Data System
+PNI: Picture Network International
+QLDS: Quick-Look Data Station
+QUIC: Quality Data Information and Control
+RDA: Remote Data Access
+RDA: Resident Data Area
+RDBMS: Relational Database Management System
+RDBMS: Relational Database Management System
+RDDL: Resource Directory Description Language
+RDF: Resource Data File
+RDF: Resource Description Framework
+RDF: Ressource Description Format
+RDO: Relational Database Operator
+RDO: Remote Data Objects
+RDR: Raw Data Recorder
+RDS: Remote Data Services
+RIM: Reference Information Model
+ROLAP: Relational On Line Analytical Processing
+RSDP: Remote Site Data Processor
+RTD: Real-time Data
+RTF: Rich Text Format
+RTOLAP: Real-Time On Line Analytical Processing
+SA: Selective Availability
+SAG: SQL Access Group
+SAMPA: Speech Assessment Methods Phonetic Alphabet
+SAN: Storage Area Network
+SBML: Systems Biology Markup Language
+SBR: Spectral Band Replication
+SCTS: Secondary Clear To Send
+SDA: Source Data Automation
+SDCD: Secondary Data Carrier Detect
+SDD: System for Distributed Database
+SDDS: Special Data Dissemination Standards
+SDHS: Satellite Data Handling System
+SDM: Shuttle Data Management
+SDNS: Secure Data Network System
+SDP: Sensor Data Processing
+SDP: Shuttle Data Processor
+SDP: Site Data Processor
+SDPC: Shuttle Data Processing Complex
+SDR: Sensor Data Record
+SDR: Serial Data Receiver
+SDR: Storage Data Register
+SDS: Satellite Data System
+SDS: Scientific Data System
+SDT: Shuttle Data Tape
+SENS: System Event Notification Service
+SEQUEL: Structured English Query Language
+SGML: Standard Generalized Markup Language
+SIP: Submission Information Package
+SIP: Supplementary Ideographic Plane
+SMP: Supplementary Multilingual Plane
+SODA: Simple Ocean Data Assimilation
+SODB: Start Of Data Block
+SODS: Shuttle Operational Data Submittal
+SODS: Shuttle Operational Data System
+SOLAP: Spatial On Line Analytical Processing
+SP: Stored Procedure
+SPARQL: SPARQL Protocol And RDF Query Language
+SQL: Structured Query Language
+SQLDMO: SQL Server Distributed Management Objects
+SQLXML: SQL Server XML
+SRD: Secondary Received Data
+SRTS: Secondary Request To Send
+SSB: SQL Server Service Broker
+SSDAC: Space Station Data Acquisition and Control
+SSDS: Space Station Data System
+SSDSAS: Space Station Data System Architecture Study
+SSIS: SQL Server Integration Services
+SSML: Speech Synthesis Markup Language
+SSP: Supplementary Special-purpose Plane
+ST&E: Security Test and Evaluation
+STADAC: Station Data Acquisition and Control
+STADAN: Satellite Tracking and Data Acquisition Network
+STADAN: Space Tracking and Data Acquisition Network
+STD: Secondary Transmitted Data
+STDN: Spacecraft Tracking and Data Network
+STIVE: Standard Interface Verification Equipment
+SVG: Scalable Vector Graphics
+SWF: Small Web Format
+TDAPR: Telecommunications and Data Acquisition¡­
+TDM: Time Division Multiplexing
+TDM: Time Divisionsion Multiplexing
+TDMS: Terminal Data Management System
+TDP: Tracking Data Processor
+TEI: Text Encoding Initiative
+TrAX: TRansformation Api for Xml
+TREND: Technical Requirements Engineering Network¡­
+UART: Universal Asynchronous Receiver-Transmitter
+UART: Universityrsal Asynchronous Receiver-Transmitter
+UCS: Universal Character Set
+UCS: Universityrsal Character Set
+UDA: Universal Data Access
+UDA: Universityrsal Data Access
+UDS: Uniform Data Systems
+UIUC DLI: University of Illinois at Urbana-Champaign¡­
+UIUC DLI: Universityrsity of Illinois at¡­
+UNOS: United Network for Organ Sharing
+V&DA: Video and Data Acquisition
+V&DA: Video and Data Assembly
+VDA: Variable Data Area
+VDA: Video Data Assembly
+VDB: Verification Data Base
+VDF: Validation Data File
+VFP: Visual FoxPro
+VTL: Virtual Tape Library
+VXML: Voice Extensible Markup Language
+WAB: Windows Address Book
+WBD: Wide-Band Data
+WOLAP: Web Based On-line Analytical Processing
+XBL: Xml Binding Language
+XDM: XPath Data Model
+XDR: eXtended Data Representation
+XDR: XML Data Reduced
+XFN: XHTML Friends Network
+XHTML: Extensible Hypertext Markup Language
+XMF: eXtensible Music Format
+XML: Extensible Markup Language
+XNCL: XML Namespace Catalogue Language
+XOML: Windows Workflow Markup Language
+XPS: XML Paper Specification

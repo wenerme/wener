@@ -1,0 +1,126 @@
+! !http://www.allacronyms.com/_technology/software_development/topic
+2TUP: Two Tracks Unified Process
+ATL: Active Template Library
+AUP: Agile Unified Process
+BAML: Binary Application Markup Language
+BCL: Base Class Library
+BDD: Behavior Driven Development
+BDUF: Big Design Up Front
+BMAEA: Blind Men And Elephant Approach
+CAML: Collaborative Application Markup Language
+CAPI: Cryptographic API
+CAPI: Cryptographic API
+CAPICOM: Cryptographic API for COM
+CBDI: Component Based Development and Integration
+CCW: COM Callable Wrapper
+CDM: Constructionist Design Methodology
+CDO: Collaboration Data Objects
+CDONTS: Collaboration Data Objects for Windows NT Server
+CIMOM: Common Information Model Object Manager
+CLR: Common Language Runtime
+CLS: Common Language Specification
+CLSID: COM Class Identifier
+COFF: Common Object File Format
+COM+: Component Object Model Hosting Services
+COM: Component Object Model
+COM: Component Object Model
+CSPDK: Cryptographic Service Provider Developer's Kit
+CTS: Common Type System
+D3: Design-driven development
+DCOM: Distributed Component Object Model
+DDD: Domain-Driven Design
+DDE: Dynamic Data Exchange
+DDT: Design Driven Testing
+DIE: Duplication is Evil
+DNA: Distributed interNet Applications Architecture
+DRM: Durable Resource Manager
+DRY: Don't Repeat Yourself
+DSDM: Dynamic Systems Development Method
+DSI: Dynamic System Initiative
+EAFP: Easier to Ask Forgiveness than Permission
+ES: Enterprise Services
+ESSUP: Essential Unified Process
+FCL: Framework Class Library
+FDD: Feature Driven Development
+FSO: File System Object
+GAC: Global Assembly Cache
+GC: Garbage Collection
+GC: Garbage Collector
+GEFN: Good Enough For Now
+GUID: Globally Unique Identifier
+HIS: Host Integration Server
+HTA: HTML Application
+IIS: Internet Information Services
+IT: Information Technology
+JIT: Just in Time Activation
+JIT: Just in Time Compilation
+MAPI: Messaging Application Programming Interface
+MDA: Model-Driven Architecture
+MOD: Microsoft Office Developer
+MOSS: Microsoft Office SharePoint Server
+MSD: Microsoft Script Debugger
+MSDE: MicroSoft Data Engine
+MSDN: Microsoft Developer Network
+MSF: Microsoft Solutions Framework
+MSIL: MicroSoft Intermediate Language
+MSMQ: Microsoft Message Queuing
+MSPI: Media Service Provider Interface
+MSXML: Microsoft XML Core Services
+MT: Method Table
+MTS: Microsoft Transaction Server
+NDDE: Network Dynamic Data Exchange
+OLE: Object Linking and Embedding
+OpenUP: Open Unified Process
+OWC: Office Web Components
+PE: Portable Executable
+Perl: Practical Extraction and Report Language
+PIA: Primary Interop Assembly
+POS: Microsoft Point of Service for .NET
+PSPE: Promotable Single Phase Enlistment
+RAD: Rapid Application Development
+RCW: Runtime Callable Wrapper
+RDD: Responsibility-Driven Design
+RTC: Real-Time Communications
+RUP: Rational Unified Process
+SET: Secure Electronic Transactions Framework
+SOC: Separation of Concerns
+SPOT: Single Point of Truth
+SPS: SharePoint Portal Server
+SQLDMO: SQL Server Distributed Management Objects
+SQLXML: SQL Server XML
+SSB: SQL Server Service Broker
+SSIS: SQL Server Integration Services
+SSOT: Single Source of Truth
+SSPI: Security Support Provider Interface
+SxS: Side-by-Side Component Sharing
+TAPI: Telephony Application Programming Interface
+Tcl: Tool Command Language
+TDD: Test-Driven Development
+TSP: Team Software Process
+TSPI: Telephony Service Provider Interface
+UDA: Universal Data Access
+UDA: Universityrsal Data Access
+UML: Unified Modeling Language
+UML: Unified Modelling Language
+UP: Unified Process
+VB: Visual Basic
+VBA: Visual Basic for Applications
+VFP: Visual FoxPro
+VS: Visual Studio
+VSA: Visual Studio for Applications
+VSIP: Visual Studio Industry Partners
+VSTO: Visual Studio Tools for Office
+VSTS: Visual Studio Team System
+WAB: Windows Address Book
+WCF: Windows Communication Foundation
+WIA: Windows Image Acquisition
+WinFX: Next-generation managed APIs for Windows
+WPF: Windows Presentation Foundation
+WQL: WMI Query Language
+WSE: Web Services Enhancements
+WSH: Windows Script Host
+WSS: Windows SharePoint Services
+WWF: Windows Workflow Foundation
+XAML: Extensible Application Markup Language
+XP: Extreme Programming
+YAGNI: You Ain't Gonna Need It

@@ -1,0 +1,1194 @@
+! !http://www.allacronyms.com/_technology/software/topic
+! !http://www.allacronyms.com/_technology/software_development/topic
+! !http://www.allacronyms.com/_technology/software_engineering/topic
+2TUP: Two Tracks Unified Process
+A/UX: Apple UniX
+AAT: Application Assembly Tool
+ABAP: Advanced Business Application Programming
+ABEL: Advanced Boolean Expression Language
+ACAP: Advanced Computer Airframe Program
+ACE: Assured Computing Environment
+ACF: Application Configuration File
+ACK: Amsterdam Compiler Kit
+ACL: Appletalk Class Library
+ADADL: Ada design and documentation language
+ADAM: ALEPH Digital Asset Module
+ADAP: Automated Data Analysis Program
+ADB: Apple Desktop Bus
+ADC: Advanced Data Control
+ADF: Application Development Framework
+ADM: Application Discovery Manager
+ADO: ActiveX Data Objects
+ADP: Accelerated Data Path
+ADS: Active Directory Service
+ADS: Artwork Delivery System
+ADS: Automated Deployment Service
+ADT: Access Developer's Toolkit
+AFC: Application Foundation Classes
+AFL: Academic Free License
+AFR: Alternate Frame Rendering
+AHDL: Altera Hardware Description Language
+AIM: AOL Instant Messenger
+AIM: AOL Institutent Messenger
+AIPS: Astronomical Image Processing System
+AIX: Advanced Interactive eXecutive
+AIXM: Aeronautical Information eXchange Model
+AJAX: Asynchronous JavaScript and XML
+ALGOL: Algorithmic Language
+ALICE: Artificial Linguistic Internet Computer Entity
+ALS: Ada Language System
+ALSSW: ALS Software
+AMF: Action Message Format
+AMS: Advertising Management System
+AMT: Apple Media Tool
+ANN: Artificial Neural Network
+ANT: Another Neat Tool
+AOCE: Apple Open Collaboration Environment
+AOCP: AVCS On-board Computer Program
+APA: Abort Programmer Assembly
+APC: Asynchronous Pool Cleaning
+APEX: Application Express
+API: Application Program Interface
+API: Application Programming Interface
+APL: A Pattern Language
+APL: A Programming Language
+APL: Applications Program Library
+APLM: Applications Program Library Maintenance
+App: Application
+APP: Automatic Page Positioning
+APPC: Advanced Program-to-Program Communications
+ARAP: Appletalk Remote Access Protocol
+ART: Another Ray Tracer
+ASA: Active Server Application
+ASA: Adaptive Server Anywhere
+ASF: Apache Software Foundation
+ASFP: askSam File Pointer
+ASN.1: Abstract Syntax Notation One
+ASP: Active Server Pages
+ASP: Application Service Provider
+ASPI: Advanced SCSI Programming Interface
+ASV: Adobe SVG Viewer
+ATAM: Architecture Tradeoff Analysis Method
+ATC: Air Traffic Control
+ATFG: Automatic Test File Generator
+ATL: Active Template Library
+AUP: Agile Unified Process
+AVN: Adobe Virtual Network
+AVS: Advanced Visual Systems
+AVS: Application Visualization System
+AWT: Abstract Windowing Toolkit
+BAC: Business Availability Center
+BAML: Binary Application Markup Language
+BASE: Bielefeld Academic Search Engine
+BASIC: Beginner's All-purpose Symbolic Instruction Code
+BASIC: Beginner's All-purpose Symbolic鈥?
+BASS: Backup Avionics System Software
+BCL: Base Class Library
+BCM: Business Contact Manager
+BCP: Bulk Copy Program
+BCPL: Basic Combined Programming Language
+BDD: Behavior Driven Development
+BDD: Business Desktop Deployment
+BDE: Borland Database Engine
+BDUF: Big Design Up Front
+BFO: Basic Formal Ontology
+BFS: Backup Flight Software
+BFSS: Backup Flight Software System
+BIS: Bibliographic Information System
+BIS: Boot Integrity Service
+BIS: Business Information System
+BLAS: Basic Linear Algebra Subprograms
+BLAST: Basic Local Alignment Search Tool
+BMAEA: Blind Men And Elephant Approach
+BMIDE: Business Modeler Integrated Development…
+BMP: Bean-Managed Persistence
+BMT: Bean-Managed Transactions
+BOCC: Big Oxford Computer Company
+BPML: Business Process Management Language
+BPQL: Business Process Query Language
+BPS: Basic Programming Support
+BSA: Business Software Alliance
+BSD: Berkeley Software Distribution
+BXML: Backbase eXtensible Mark-up Language
+CAA: Component Application Architecture
+CAI: Computer Aided Instituteuction
+CAI: Computer Aided Instruction
+CAL: Client Access License
+CAML: Collaborative Application Markup Language
+CANCER: Computer Analysis of Nonlinear Circuits,…
+CAP: Computer Application Program
+CAPI: Cryptographic API
+CAPICOM: Cryptographic API for COM
+CASE: Computer Aided Software Engineering
+CASE: Computer-Automated Software Engineering
+CBDI: Component Based Development and Integration
+CBT: Computer Based Training
+CCE: Control Creation Edition
+CCK: Client Customization Kit
+CCL: Core Component Library
+CCM: Cybergraphic's Component Manager
+CCW: COM Callable Wrapper
+CDE: Collaborative Development Environment
+CDE: Common Desktop Environment
+CDM: Constructionist Design Methodology
+CDO: Collaboration Data Objects
+CDONTS: Collaboration Data Objects for Windows NT Server
+CDS: Content Distribution Services
+CDT: Common Documentation Tool
+CEC: Channel Editorial Center
+CEVA: Content-Enabled Vertical Application
+CFML: ColdFusion Markup Language
+CFT: Cross File Transfer
+CGI: Common Gateway Interface
+CHL: Certified Hardware List
+CHTML: Compact HyperText Markup Language
+CIAO: Chandra Interactive Analysis of Observations
+CID: Configuration, Installation, Distribution
+CID: Configuration, Institutellation, Distribution
+CIGOS: Canadian Interest Group on Open Systems
+CIM: Collaborative Information Manager
+CIM: Common Information Model
+CIM: Customer Information Management
+CIMOM: Common Information Model Object Manager
+CLD: Coarse Locking Daemon
+CLDC: Connected Limited Device Configuration
+CLI: Call Level Interface
+CLI: Command Line Interface
+CLP: Certifies Lotus Professional
+CLR: Common Language Runtime
+CLS: Common Language Specification
+CLSID: COM Class Identifier
+CMC: Channel Management Center
+CMC: Content Management Center
+CML: Chemical Markup Language
+CMM: Capability Maturity Model
+CMM: Color Management Module
+CMP: Container Managed Persistence
+CMR: Competitive Media Reporting
+CMS: Catalog Management System
+CMS: Color Management System
+CMS: Content Management System
+CMSMS: Content Management System Made Simple
+CMT: Container Managed Transactions
+CND: Caldera Network Desktop
+COBOL: Common Business Oriented Language
+COBOL: Common Business-oriented Language
+COFF: Common Object File Format
+COIM: Checkout Interpreter Module
+COL: Caldera Open Linux
+COM: Component Object Model
+COM+: Component Object Model Hosting Services
+COS: Crypto Operating System
+CP: Computer Program
+CPAS: Clean Process Advisory System
+CPC: Computer Program Component
+CPCEI: Computer Program Contract End Item
+CPCI: Computer Program Change Instituteuction
+CPCI: Computer Program Change Instruction
+CPCI: Computer Program Configuration Item
+CPCR: Computer Program Change Request
+CPCSS: CPC Software Solutions
+CPDDS: Computer Program Detail Design Specification
+CPDP: Computer Program Development Plan
+CPDP: Computer Program Development Program
+CPDS: Computer Program Design Specification
+CPDS: Computer Program Detailed Specification
+CPDS: Computer Program Development Specification
+CPEI: Computer Program End Item
+CPIC: Computer Program Integration Contract
+CPL: Combined Programming Language
+CPM: Computer Program Module
+CPP: Customer Preview Program
+CPPS: Computer Program Product Specification
+CPSS: Critical Phase System Software
+CPT: Computer Program Tape
+CQL: Common Query Language
+CRC: Class, Responsibility, Collaborators
+CRI: Cryptography Research Inc.
+CSC: Computer Software Component
+CSC: Computer Software Configuration
+CSCI: Computer Software Configuration Item
+CSCI: Configuration Software Computer Item
+CSIR: Computer Software Integration Review
+CSP: Character Shape Player
+CSPDK: Cryptographic Service Provider Developer's Kit
+CSR: Certificate Signing Request
+CSR: Character Shape Recorder
+CSRP: Computer and Software Review Panel
+CSS: Cascading Style Sheets
+CST: Crew Software Trainer
+CSTA: Crew Software Training Aid
+CSTIT: Computer Speech, Text and Internet Technology
+CTS: Common Type System
+CVE: Collaborative Virtual Environment
+CVP: Collaborative Virtual Prototyping
+CVS: Concurrent Versions System
+CWM: Closed World Machine
+D3: Design-driven development
+DAC: Digital-to-Analog Converters
+DAD: Digital Animation Dreammachine
+daemon: Disk And Execution MONitor
+DAML: DARPA Agent Markup Language
+DAO: Data Access Objects
+DAP: Descent Analysis Program
+DBD: Database Driver
+DBMS: Data Base Management Software
+DBS: Data Base Server
+DCC: Dynamic Command Center
+DCD: Document Content Description
+DCE: Distributed Computing Environment
+DCL: Data Control Language
+DCOM: Distributed Component Object Model
+DCP: Display Control Program
+DCP: Dynamic Content Processor
+DCPEI: Display Control Program End Item
+DCT: Data Collect Tool
+DDC: Desktop Delivery Controller
+DDD: Domain-Driven Design
+DDE: Direct Data Entry
+DDE: Dynamic Data Exchange
+DDK: Device Development Kit
+DDK: Driver Development Kit
+DDL: Data Definition Language
+DDQ: Data Driven Query
+DDT: Design Driven Testing
+DEM: Data Entry Manager
+DFCS: Digital Flight Control Software
+DHTML: Dynamic Hypertext Markup Language
+DIE: Duplication is Evil
+DITA: Darwin Information Typing Architecture
+DLD: Deutsche Linux Distribution
+DLM: Document Lifecycle Management
+DMF: Distributed Management Framework
+DMI: Desktop Management Interface
+DML: Data Manipulate Language
+DML: Data Manipulation Language
+DMO: Distributed Management Objects
+DMS: Document Management System
+DNA: Distributed interNet Applications Architecture
+DOI: Digital Object Identifier
+DOS: Disk Operating System
+DOT: Distributed Object Technology
+DP&S: Data Processing and Software
+DP&SS: Data Processing and Software Subsystem
+DPM: Dynamic Package Manager
+DPP: Digital Photo Professional
+DPS: Data Processing and Software
+DPS: Dynamic Parallel Schedules
+DPSD: Data Processing Systems Divisionsion
+DPSS: Data Processing and Software Subsystem
+DPSS: Data Processing Software System
+DPU: Data Processing Unit
+DRI: Declarative Referential Integrity
+DRI: Deklarative Referentielle Integrit?t
+DRM: Durable Resource Manager
+DRV: Driver
+DRY: Don't Repeat Yourself
+DSD: Document Structure Description
+DSDM: Dynamic Systems Development Method
+DSI: Dynamic Skeleton Interface
+DSI: Dynamic System Initiative
+DSL: Damn Small Linux
+DSL: Domain-specific language
+DSO: Decision Support Objects
+DSS: Decision Support System
+DSS: Directory and Security Services
+DSSSL: Document Style Semantics and Specification鈥?
+DTC: Distributed Transaction Coordinator
+DTD: Document Type Definition
+DTD: Document Type Description
+DTM: Document Table Model
+DTO: Data Transfer Object
+DTS: Data Transformation Services
+DVS: Descriptive Video Service
+DWN: Dr. Web Newsletter
+EAFP: Easier to Ask Forgiveness than Permission
+EAI: Enterprise Application Integration
+EAI: External Authoring Interface
+ebXML: Electronic Business using eXtensible鈥?
+ECI: Enterprise Content Integration
+ECI: External Call Interface
+ECM: Enterprise Content Management
+ECP: Explicitly Coded Program
+EDA: Event-driven architecture
+EDM: Enterprise Desktop Manager
+EDT: Estelle Development Toolset
+EE: Empire Earth
+EHSD: Existing Hardware/Software Database
+EIS: Enterprise Information System
+EIS: Executive Information System
+EJB: Enterprise Java Beans
+EJO: Electronic Journal Online
+Emerald: Electronic Management Research Library Database
+EMF: Eclipse Modeling Framework
+EMP: Eclipse Modeling Project
+EMUG: European MAP User Group
+EODM: EMF Ontology Definition Metamode
+EOF: Enterprise Object Framework
+EPI: External Presentation Interface
+ERU: Emergency Recovery Unit
+ES: Enterprise Services
+ESB: Enterprise Service Bus
+ESC: Extended Static Checker
+ESPOL: Executive Systems Programming Oriented Language
+ESRD: Engineering Software Research and Development
+ESSL: Engineering and Scientific Subroutine Library
+ESSUP: Essential Unified Process
+ETAPS: European Joint Conferences on Theory and…
+EWG: Eiffel Wrapper Generator
+FAP: FORTRAN Assembly Program
+FAR: False Acceptance Rate
+FBA: Faceless Background Application
+FCAP: Flight Control Applications Program
+FCL: Framework Class Library
+FCO: First Class Object
+FCOS: Flight Control Operational Software
+FDD: Feature Driven Development
+FDK: Flight Display Keyboard
+FDL: FERIA Description Language
+FDS: Failure Dynamics Software
+FDS: Flex Data Services
+FDS: Flight Dynamics Software
+FIT: Feature Integration Testing
+FIT: Filtering Integration Technology
+FIU: Fingerprint Identification Unit
+FLAPS: Flight Application Software
+FLI: Font Library
+FLOSS: Free/Libre Open Source Software
+FMP: FileMaker Pro
+FOAF: Friend of a Friend
+FODM: Field Operations Data Model
+Fortran: FORmula TRANslation
+FPS: First Personal Shooter
+FRR: False Rejection Rate
+FSCP: Flight Support Computer Program
+FSE: Fast Software Encryption
+FSF: Free Software Foundation
+FSI: Flight Software Integration
+FSN: File System Navigator
+FSO: File System Object
+FSO: File System Objects
+FSRR: Flight Software Readiness Review
+FSRU: File Substring Replacement Utility
+FSSR: Flight System Software Request
+FSSR: Flight System Software Requirements
+FSSR: Functional Subsystem Software Requirements
+FSW: Flight Software
+FTAM: File Transfer, Access and Management
+FTP: Functional Test Program
+GAC: Global Assembly Cache
+GBS: Ground-Based Software
+GC: Garbage Collection
+GC: Garbage Collector
+GCC: GNU Compiler Collection
+GEFN: Good Enough For Now
+GELLMU: Generalized Extensible LaTeX-Like MarkUp
+GIOP: General Inter-ORB Protocol
+GIS: Geographic Information System
+GKS: Graphical Kernel System
+GKS: Graphics Kernel System
+GLP: Goal Language Processor
+GMF: Graphical Modeling Framework
+GML: Geography Markup Language
+GNOME: GNU Network Object Model Environment
+GNU: GNU's Not Unix
+GPC: Graphic Performance Council
+GPL: GNU Public License
+GPL: GOAL Processing Language
+GPM: GUI Package Manager
+GPO: Group Policy Object
+GPRN: GOAL Test Procedure Release Notice
+GPSCP: GPS Computer Program
+GPUR: GOAL Test Procedure Update Request
+GRC: Gibson Research Corporation
+GRC: Gibson Research Corporationration
+GSA: Google Search Appliance
+GSAS: Government Selected Application Systems
+GSDL: Ground Software Development Laboratory
+GSN: Global Sensor Networks
+GSPF: Ground Software Production Facility
+GSS: Ground Support Software
+GUID: Globally Unique Identifier
+GUM: Generalized Upper Model
+GWM: Generic Window Manager
+GWT: Google Web Toolkit
+GWT: Google Widget Toolkit
+HAL: Hardware Abstraction Layer
+HAL: High-order Assembly Language
+HAL: Houston Aerospace Language
+HALS: High-order Programming Language for Spacelab usage
+HCL: Hardware Control Language
+HDL: Hardware Description Language
+HDM: Hard Disk Manager
+HES: Home Electronic System
+HIP: HotMetal Intranet Publisher
+HIS: Host Integration Server
+HLAL: High-level Assembler Language
+HLQ: High Level Qualifier
+HLTL: High-Level Test Language
+HOL: High-Order Language
+HOLC: High-Order Language Computer
+HOS: High-Order Software
+HP: Hewlett Packard
+HPF: High Performance Fortran
+HPJ: High Performance Java
+HPS: HexBase Publishing System
+HPUX: Hewlett Packard UniX
+HSC: Hardware and Software Coordination
+HSL: Haifa Software Lab
+HTA: HTML Application
+HTA: HTML Applications
+HTLL: High-Test-Level Language
+HTML: HyperText Markup Language
+IAD: Internet Address Detector
+IAL: International Algorithmic Language
+IAP: Internet Access Pack
+iBats: Inter Business Automated Transaction System
+ICD: Installable Client Driver
+ICD: Institutellable Client Driver
+ICF: Internet Communication Framework
+ICM: Image Color Matching
+ICM: Internet Communication Manager
+ICOS: Integrated Cargo Operating Software
+ICS: Internet Connection Sharing
+ICSE: International Conference on Software Engineering
+IDBMS: Integrated Data Base Management System
+IDC: Internet Database Connector
+IDE: Integrated Development Environment
+IDE: Interactive Development Environment
+IDL: Interface Description Language
+IDS: Intrusion Detection System
+IE: Internet Explorer
+IFF: Internet Fast Forward
+IFS: Installable File System
+IFS: Institutellable File System
+IGDA: International Game Developers Association
+IGZ: Internet Gaming Zone
+IHSR: Integrated Hardware/Software Review
+IID: Interface Identifier
+IIOP: Internet Inter Orb Protocol
+IIS: Internet Information Server
+IIS: Internet Information Services
+ILS: Integrated Library System
+INC: Information-Node-Connector
+INFRAWEBS: Intelligent Framework for Generating Open…
+IOCP: ITS On-board Computer Program
+IODT: Integrated Ontology Development Toolkit
+IPF: Information Presentation Facility
+IPL: Initial Program Load
+IPLC: Initial Program Load Complete
+IPLS: Initial Program Load Start
+IPPS: Internet Programming and Promotion Service
+IPU: Imposition Processing Unit
+IRC: Internet Relay Chat
+IRD: Intelligent Resource Director
+ISA: Internet Server Applications
+ISCCB: Internal Software Change Control Board
+ISCM: Initial Software Configuration Map
+iSDP: Information Systems Designated Procurement
+ISDX: Interactive Surface Design eXtension
+ISIS: Institutetute of Software Technology and…
+ISP: Intelligente Schadensprüfung
+ISSA: Integrated Software Safety Analysis
+ISST: Institutetute for Software and Systems Engineering
+ISV: Independent Software Vendor
+IT: Information Technology
+ITDS: IBM Tivoli Directory Server
+ITF: Intelligent Templates and Forms
+ITSG: Interactive Test Sequence Generator
+J2EE: Java 2 Enterprise Edition
+JAAS: Java Authentication and Authorization Service
+JAI: Java Advanced Imaging
+JAP: Java Anon Proxy
+JAR: Java Archive
+JCA: Java Connector Architecture
+JCE: Java Cryptography Extension
+JCP: Java Community Process
+JCSC: Journal of Circuits, Systems and Computers
+JDBC: Java Database Connectivity
+JDE: Java Development Environment
+JDO: Java Data Objects
+JEP: Java Math Expression Parser
+JET: Java Enabled Type
+JET: Joint Engine Technology
+JFC: Java Foundation Class
+JFE: Java Front End
+JGL: Java Generic Library
+JIC: Jasc Image Commander
+JIM: JAR Installation Manager
+JIM: JAR Institutellation Manager
+JIR: Jasc Image Robot
+JIT: Just in Time Activation
+JIT: Just in Time Compilation
+JKS: Java Key Store
+JMC: JASC Media Center
+JME: Java Micro Edition
+JME: Java Monkey Engine
+JMF: Java Media Framework
+JMRP: Junk e-Mail Reporting Program
+JMS: Java Messaging Service
+JMX: Java Management eXtension
+JNI: Java Native Interface
+JOnAS: Java Open Application Server
+JPA: Java Persistence API
+JSF: Java Server Faces
+JSGF: Java Speech API Grammar Format
+JSON: JavaScript Object Notation
+JSP: Java Server Pages
+JSR: Java Specification Request
+JTA: Java Transaction API
+JTS: Java Transaction Service
+JVM: Java Virtual Machine
+JWS: Java Web Server
+KBS: Knowledge-based System
+KBSA: Knowledge-Based Software Assistant
+KCO: Knowledge Content Object
+KDE: K Desktop Environment
+KDS: Kennedy-Developed Software
+KIM: Krause Imposition Manager
+KMD: Kazaa Media Desktop
+KMS: Knowledge Management System
+LAE: Linux Application Environment
+LAMP: Linux, Apache, MySQL, PHP
+LBA: Little Big Adventure
+LBX: Low Bandwidth X
+LCS: Linux Compatibility Standard
+LDF: Linear Display File
+LDI: Layered Department Images
+LDI: Layered Depth Images
+LDP: Linux Documentation Project
+Lib: Library
+Linux: Linus and Unix
+Lisp: List Processing
+LKP: Linux Kernel Personality
+LLCSC: Low-Level Computer Software Component
+LMO: Liga Manager Online
+LNN: Lotus Notes Network
+LOC: Lines Of Code
+LOF: List of Figures
+LOT: List Of Tables
+LPD: Line Printer Demon
+LPI: Linux Professional Institute
+LPI: Linux Professional Institutetute
+LSB: Least Significant Bit
+LSB: Linux Standard Base
+LSO: Linux Standards Organization
+LSX: Lotus Script Extensions
+LVS: Linux Virtual Server
+LVT: LPAR Validation Tool
+LWI: Light Weight Infrastructure
+LWI: Light Weight Installer
+LWI: Light Weight Instituteller
+MAB: Mozilla Amazon Browser
+MAE: Macintosh Application Environment
+MAM: Media Asset Management
+Man: Manual
+MAPI: Messaging Application Programming Interface
+MAPM: My Arbitrary Precision Math
+MASH: Microsoft Agent Scripting Helper
+MathML: Mathematical Markup Language
+MBR: Master Boot Record
+MCD: Mini Client Driver
+MCD: Mission Control Desktop
+MCF: Meta Content Framework
+MCMS: Microsoft Content Management Server
+MCP: Master Computer Program
+MCP: Multi Channel Publishing
+MCS: Multi Channel Server
+MDA: Model Driven Architecture
+MDA: Model-Driven Architecture
+MDC: Manipulation Detection Code
+MDC: Mozilla Developer Center
+MDD: Model Driven Development
+MDI: Multiple Document Interface
+MDM: Master Data Management
+MDS: Model Driven Security
+MDSD: Model Driven Software Development
+MES: Manufacturing Execution System
+MESCAL: Middleware Efficiently SCALable
+METS: Metadata Encoding & Transmission Standard
+MFC: Microsoft Foundation Classes
+MIC: Microsoft Image Composer
+Minix: miniature Unix
+MIS: Management Information System
+MIX: Metadata for Images in XML
+MLP: Machine Language Program
+MMC: Microsoft Management Console
+MMO: Massively Multiplayer Online
+MMORPG: Massively multiplayer online role playing game
+MOD: Microsoft Office Developer
+MOF: Microsoft Operations Framework
+MOM: Message Oriented Middleware
+MOM: Message-Oriented Middleware
+MOSS: Microsoft Office SharePoint Server
+MPL: Master Program Library
+MPL: Mozilla Public License
+MRM: Multi Resolution Mesh
+MSA: Micro Service Architecture
+MSD: Microsoft Script Debugger
+MSDE: MicroSoft Data Engine
+MSDN: Microsoft Developer Network
+MSF: Microsoft Solutions Framework
+MSIL: MicroSoft Intermediate Language
+MSL: Microsoft Software Library
+MSMQ: Microsoft Message Queuing
+MSPI: Media Service Provider Interface
+Ms-PL: Microsoft Permissive License
+MSS: Multisystem Software
+MSS: Multi-System Synchronizer
+MSXML: Microsoft XML Core Services
+MT: Method Table
+MTJ: Mobile Tools for Java
+MTS: Microsoft Transaction Server
+MTS: Modular Training System
+MUD: Multi-User Dungeon
+MULTICS: Multiplexed Information and Computing System
+MUMPS: Massachusetts General Hospital Utility鈥?
+MUS: Mission-Unique Software
+MWIP: Mean What I Play
+MWM: Motif Window Manager
+NAM: NetWare Application Manager
+NaReGI: NAtional REsearch Grid Initiative
+NBUP: NetBackup
+NCI: Network Computing Interface
+NCM: Network Connection Manager
+NDDE: Network Dynamic Data Exchange
+NDEF: NFC Data Exchange Format
+NED: NASA/IPAC Extragalactic Database
+NEPOMUK: Networked Environment for Personalized,…
+NEWP: New Executive Programming Language
+NFCIP-1: Near Field Communication Interface and Protocol-1
+NFM: Network File Manager
+NIM: Network Installation Manager
+NIM: Network Institutellation Manager
+NIS: Norton Internet Security
+NLM: Network Lock Manager
+NLP: Natural Language Processing
+NMS: Network Management System
+NMX: Network Management Extensions
+NPE: Null Pointer Exception
+NPF: Norton Personal Firewall
+NPH: Non Processed Header
+NPS: Network Productivity System
+NSE: Nmap Scripting Engine
+NXP: Norberts XML Parser
+OAG: Open Application Group
+OASCB: Orbiter Avionics Software Control Board
+OASIS: Orbit Avionics Software Integration Study
+OBCP: On-board Computer Program
+OCA: Oracle Certifiate Associate
+OCCP: Orbit Command Computer Program
+OCM: Oracle Certified Master
+OCML: Operational Conceptual Modelling Language
+OCP: Oracle Certified Professional
+OCS: Oracle Collaboration Suite
+ODE: Open Dynamics Engine
+ODE: Orchestration Director Engine
+ODF: Output Data Formatter
+ODS: Open Data Service
+OEA: Oracle Express Analyzer
+OEO: Oracle Express Objects
+OER: Oracle Enterprise Repository
+OFA: Oracle Financial Analyzer
+OIL: Ontology Inference Layer
+OLE: Object Linking and Embedding
+OLP: Open License Program
+OMG: Object Management Group
+OMS: Object Management System
+OMS: Open Music System
+OMT: Object-modeling technique
+OntoUCP: Ontology based Unified Communication Protocol
+OntoUCP: Ontology-based Unified Communication Protocol
+OOP: Object Oriented Programming
+OpenUP: Open Unified Process
+OPL: Online-Problem-Log
+OPML: Outline Processor Markup Language
+OQL: Object Query Language
+ORB: Object Request Broker
+ORDI: Ontology Representation and Data Integration
+ORP: Open Router Project
+OS: Operating Software
+OSCR: Orbiter Software Change Request
+OSDL: Open Source Development Lab
+OSDL: Open Source Development Labs
+OSE: Open Source Edition
+OSF: Open Software Foundation
+OSI: Open Source Initiative
+OSR: OEM Service Release
+OSR: Oracle Service Registry
+OSRBD: operational software reliability benchmark…
+OSS: Open Source Software
+OSS: Operator Support System
+OTP: Open Telecom Platform
+OWA: Oracle Web Application
+OWC: Office Web Components
+OWL: Object Windows Library
+OWL: Web Ontology Language
+PAA: Protected Access Architecture
+PARS: Programmed Airline Reservation System
+Paso: Pattern-Oriented Software Architecture
+PASS: Primary Avionics Software System
+PASTISS: Professional Analysis Software Tool for…
+PBIC: Programmable Buffer Interface Card
+PBIM: Programmable Buffer Interface Module
+PBM: Project Bridge Modeler
+PBS: Portable Batch System
+PBU: Page Buffer Unit
+PC&PM: program control and performance management
+PCGI: Perl Common Gateway Interface
+PCL: Programming Checklist
+PCRE: Perl-compatible regular expression
+PCS: Pinball Construction Set
+PDF: Portable Document Format
+PDS: Partitioned Data Set
+PE: Portable Executable
+Perl: Practical Extraction and Report Language
+PESSL: Parallel Engineering and Scientific鈥?
+PFR: Portable Font Resource
+PFS: Primary Flight Software
+PGI: Progiciel de Gestion Intégrée
+PGML: Precision Graphics Markup Language
+PGP: Pretty Good Privacy
+PHP: Personal Home Page
+PHP: PHP Hypertext Preprocessor
+PIA: Pers?nlicher Internet Assistent
+PIA: Personal Intelligent Agent
+PIA: Primary Interop Assembly
+PICO: Program In, Chip Out
+PKI: Public Key Infrastructure
+PLDI: Programming Language Design and Implementation
+PLEAC: Programming Language Examples Alike Cookbook
+PMAC: Portable Multipurpose Applications Console
+PMF: Policy Management Framework
+PMW: Project Manager Workbench
+POD: Planet Of Death
+POE: PERL Object Environment
+POJO: Plain Old Java Object
+POS: Microsoft Point of Service for .NET
+POSIX: Portable Operating System Interface for UNIX
+POV: Persistence of Vision
+PPCP: Postprocessing Computer Program
+PPE: People, Places and Events
+PPM: Perl Package Manager
+PPM: Programmer's Package Manager
+PRG: Program
+PROGRESS: Programme for Research on Embedded Systems…
+PRPS: Programming Requirements Process Specification
+PS: PostScript
+PSL: Program Statement Language
+PSO: Phantasy Star Online
+PSP: Paint Shop Pro
+PSP: Programmable Signal Processor
+PSPE: Promotable Single Phase Enlistment
+PSU: Page Storage Unit
+PSU: Phantasy Star Universityrse
+PWS: Power Web Suite
+PWS: Private Web Server
+QIP: Quality Improvement Program
+QOM: Quick Ontology Mapping
+QPS: Quark Publishing System
+RAC: Real Application Cluster
+RACF: Resource Access Control Facility
+RAD: Rapid Application Development
+RADOP: Radiator Optimization Computer Code
+RAP: Rich AJAX Platform
+RAS: Remote Access Service
+RASMUS: Remote Accessible Software configurable…
+RC: Release Candidate
+RC1: Release Candidate 1
+RCP: Rich Client Platform
+RCW: Runtime Callable Wrapper
+RDA: Rich Desktop Application
+RDD: Responsibility-Driven Design
+RDDL: Resource Directory Description Language
+RDM: Real Data Management
+RDO: Remote Data Objects
+REX: Remote Events for XML
+RFCP: Request For Computer Program
+RGC: Retro-Gaming Connexion
+RIA: Rich Internet Application
+RIS: Remote Installation Service
+RIS: Remote Institutellation Service
+RMI: Remote Method Invocation
+ROR: Ruby On Rails
+ROSES: Rockwell Operational Software Engineering System
+RPL: Reverse Polish Lisp
+RSC: Remote System Control
+RSCS: Remote Spooling and Communication Subsystem
+RSE: Remote System Explorer
+RSG: Ready, Set, Go
+RTC: Real-Time Communications
+RTC: Real-Time Computing
+RTCPS: Real-Time Computer Program System
+RTCS: Real-Time Computer System
+RTE: Rich Text Editor
+RTFSS: Real-Time Flight Safety Software
+RUP: Rational Unified Process
+SAAS: Software As A Service
+SACS: Software Avionics Command Support
+SAF: Service Access Facility
+SAM: Symantec AntiVirus for Macintosh
+SAML: Security Assertion Markup Language
+SAS: Software Approval Sheet
+SAS: Software Automation Subpanel
+SASCB: Shuttle Avionics Software Control Board
+SASTP: Stand-Alone Self-Test Program
+SAX: Simple API for XML
+SBML: Systems Biology Markup Language
+SBS: Small Business Server
+SC: Software Change
+SCA: Service Component Architecture
+SCA: Software Command Analysis
+SCATS: Sydney Coordinated Adaptive Traffic System
+SCB: Software Control Board
+SCCB: Software Change Control Board
+SCDR: Software Critical Design Review
+SCI: Software Customer Inspection
+SCM: Software Configuration Management
+SCM: Software Configuration Manager
+SCM: Sofware Configuration Management
+SCMO: Software Configuration Management Office
+SCMP: Software Configuration Management Plan
+SCO: Second Class Object
+SCR: Software Change Request
+SCSL: Scientific Computing Software Library
+SDBC: Software Development Baseline Control
+SDC: Software Development Computer
+SDD: SciTech Display Doctor
+SDD: Software Description Document
+SDD: Software Design Document
+SDDL: Software Design and Document Language
+SDE: Software Development Environment
+SDF: Software Development Facility
+SDF: Software Development File
+SDH: Software Development Handbook
+SDI: Single Document Interface
+SDIF: Software Development and Integration Facility
+SDK: Software Development Kit
+SDL: Simple DirectMedia Layer
+SDL: Software Development Laboratory
+SDL: Software Development Library
+SDM: Sun Download Manager
+SDN: Software Development Note
+SDP: Software Development Plan
+SDR: Software Design Requirement
+SDR: Software Design Review
+SDRB: Software Design Review Board
+SDS: Software Design Specification
+SDVF: Software Development And Verification Facility
+SE: Software Engineering
+SEA: Solstice Enterprise Agents
+SEAL: Semantics-directed Environment Adaptation Language
+SEE: Software Engineering Environment
+SEE: Software Engineering Exercise
+SEE: Software Equality Evaluation
+SEI: Software Engineering Institutetute
+SEM: SEmantic Memory
+SER: Soft Error Rate
+SES: Software Evaluation Subpanel
+SET: Secure Electronic Transactions Framework
+SET: Software Engineering Today
+SEXI: String EXpression Interpreter
+SFA: Sales Force Automation
+SFACI: Software Flight Article Configuration Inspection
+SFT: System Fault Tolerance
+SGML: Standard Generalized Markup Language
+SI/FS: System Integration and Flight Software
+SIA: Software Impact Assessment
+SIM: System Image Manager
+SIM: Systems Insight Manager
+Sinix: Siemens Unix
+SIP: Software Input Panel
+SIPB: Student Information Processing Board
+SIRR: Software Integration Readiness Review
+SIS: Software Implementation Specification
+SIS: Software Integrated Schedule
+SIT: Software Integrated Test
+SIV: System Information Viewer
+SLEE: Service Logic Execution Environment
+SLPEM: Sparta Linear Programming Effectiveness Model
+SMBL: Systems Biology Markup Language
+SMI: System Monitoring Interface
+SMIL: Synchronized Multimedia Integration Language
+SML: Spacecraft Markup Language
+SMP: Software Management Plan
+SMS: Site-Managed Software
+SMS: Software Modification Sheet
+SMS: System Management Server
+SMSC: Software Moding, Sequencing and Control
+SMU: Software Management Utility
+SNOBOL: StriNg Oriented symBOlic Language
+SOC: Separation of Concerns
+SOL: Special Object Library
+SOM: System Object Model
+SOMM: Software Operations and Maintenance Manual
+SOP: Subsystem Operating Program
+SOPE: Skyrix Object Publishing Environment
+SP: Stored Procedure
+SPA: Software Product Assurance
+SPC: Software Productivity Consortium
+SPC: Starting-Point Code
+SPC: Stored Program Command
+SPC: Stored Program Control
+SPCR: Software Problem Change Request
+SPD: SharePoint Designer
+SPDR: Software Preliminary Design Review
+SPE: Software Process Engineering
+SPF: Software Production Facility
+SPL: System Programming Language
+SPM: Software Performance Monitor
+SPM: Software Programmer's Manual
+SPOT: Single Point of Truth
+SPR: Software Problem Report
+SPS: SharePoint Portal Server
+SPS: Software Product Specification
+SPS: Software Productivity Solution
+SPS: Spy Structure
+SPT: System Planning Tool
+SQA: Software Quality Assurance
+SQC: Schema Quality Checker
+SQE: Software Quality Evaluation
+SQLDMO: SQL Server Distributed Management Objects
+SQLXML: SQL Server XML
+SRCB: Software Requirements Change Board
+SRCBD: Software Requirements Change Board Directive
+SREM: Software Requirements Methodology
+SRN: Software Release Notice
+SRR: Software Requirements Review
+SRS: Software Requirements Specification
+SS: System Software
+SSA: Software Safety Analysis
+SSAD: Software System Analysis Document
+SSB: SQL Server Service Broker
+SSC: Security Subsystem Class
+SSCR: Support Software Change Request
+SSD: Spacecraft Software Divisionsion
+SSDD: Software System Design Document
+SSE: Software Support Environment
+SSE: Software Support Equipment
+SSE: Steuer-Spar-Erkl?rung
+SSEDF: Software Support Environment Development Facility
+SSES: Software System Environment System
+SSIP: System Software Interface Processing
+SSIS: SQL Server Integration Services
+SSL: System Software Loader
+SSML: Speech Synthesis Markup Language
+SSO: Single Sign-On
+SSO: Systems Software Office
+SSOT: Single Source of Truth
+SSP: Standard Switch Panel
+SSPF: Space Shuttle Programming Facility
+SSPI: Security Support Provider Interface
+SSPM: Software Standards and Procedures Manual
+SSR: Software Specification Review
+SSRN: System Software Reference Number
+SSS: Spacecraft Software System
+STAR: Software Tools And Requirements
+STD: Software Test Description
+STIL: Software Test and Integration Laboratory
+STL: Standard Template Library
+STN: Software Trouble Note
+STOICAL: STack Oriented Interactive Compiler…
+STP: Software Technology Program
+STP: Software Test Plan
+STP: Software Test Procedure
+StP: Software through Pictures
+STR: Software Test Report
+STSDAS: Space Telescope Science Data Analysis System
+SUL: Software Utilization List
+SUM: Software User's Manual
+SVG: Scalable Vector Graphics
+SVN: Subversion
+SVP: Software Verification Procedure
+SVP: Sound and Vision Platform
+SVR4: System V Release 4
+SVRR: Software Verification Readiness Review
+SW: Software
+SWCDR: Software Critical Design Review
+SWCI: Software Configuration Inspection
+SWD&I: Software Development and Integration
+SWEE: Software Engineering Environment
+SWG: Software Working Group
+SWPDR: Software Preliminary Design Review
+SWRR: Software Readiness Review
+SWS: Software System
+SWT: Standard Widget Toolkit
+SWWG: Software Working Group
+SxS: Side-by-Side Component Sharing
+SYSV: System V
+TAPI: Telephony Application Programming Interface
+Tcl: Tool Command Language
+TCP: TeX Code Page
+TDA: Transition Data Analysis
+TDC: Tabular Data Control
+TDD: Test Driven Development
+TDD: Test-Driven Development
+TDS: Tape Duplication System
+TextMD: Technical Metadata for Text
+TFM: TeX Font Metric
+TGM: Timetable Generation Module
+THAP: Thermal Hydraulic Analyzer Program
+TMAPI: Topic Map Application Programming Interface
+TME: Tivoli Management Environment
+TOM: Tridion Object Model
+TOMS: Transactions on Mathematical Software
+TOR: The Onion Router
+TOT: Transaction Object Technology
+TPJ: The Perl Journal
+TPM: Transaction Processing Monitor
+TPS: Thirs Person Shooter
+TPU: True Proof Unit
+TrAX: TRansformation Api for Xml
+TRML: Temporized Reader Markup Language
+TSGP: Test Sequence Generator Program
+TSO: Time Sharing Option
+TSP: Team Software Process
+TSP: Test Software Program
+TSP: Trajectory Shaping Program
+TSP: Trajectory Synthesis Program
+TSPI: Telephony Service Provider Interface
+TSS: Test Software Support
+TSW: Test Software
+TTCN: Tree and Tabular Combined Notation
+TTS: Text-To-Speech
+TTS: Transaction Tracking System
+UAM: User Authentification Module
+UAP: User Agent Profiling
+UCS: Univentions Corporate Server
+UCS: Universityntions Corporationrate Server
+UDA: Universal Data Access
+UDA: Universityrsal Data Access
+UDC: Usage Data Collector
+UDF: User Defined Functions
+UDT: User Defined Type
+UFD: User File Directory
+UFS: Unix File System
+UGS: Univentions Groupware Server
+UGS: Universityntions Groupware Server
+UIMA: Unstructured Information Management Architecture
+UIML: User Interface Markup Language
+UML: Unified Modeling Language
+UML: Unified Modelling Language
+UP: Unified Process
+UPF: Universityrsal Patch Format
+USI: Update Software Identity
+USS: Ulead Smart Saver
+UTF: UCS Transformation Format
+UUX: UNIX-to-UNIX-execute
+UWM: Universal Window Manager
+UWM: Universityrsal Window Manager
+Var: Variable
+VAT: Video Audio Tool
+VB: Visual Basic
+VBA: Visual Basic for Applications
+VBX: Visual Basic Extensions
+VCD: Virtual Communications Driver
+VCL: Visual Component Library
+VCR: Voluntary Content Rating
+VDC: Virtual Desktop Controller
+VDC: Visual Development Center
+VDI: Virtual Desktop Infrastructure
+VET: Virtual Environment Technology
+VFD: Verified Free Distribution
+VFP: Visual FoxPro
+VFW: Video for Windows
+VIM: Vendor-Independent Mail
+VIM: Vendor-Independent Messaging
+VIP: Versatile Internet Platform
+VLK: Volume License Key
+VLP: Value License Program
+VM: Virtual Memory
+VML: Vector Markup Language
+VMS: Virtual Memory System
+VNC: Virtual Network Computing
+VO: Virtual Observatory
+VPO: Volume Purchase Option
+VRM: Visitor Relationship Management
+VRML: Virtual Reality Modeling Language
+VS: Visual Studio
+VSA: Visual Studio for Applications
+VSIP: Visual Studio Industry Partners
+VSS: Visual Source Save
+VST: Virtual Studio Technology
+VSTO: Visual Studio Tools for Office
+VSTS: Visual Studio Team System
+VTML: Visual Tool Markup Language
+VTS: Virtual Touch Screen
+VUE: Visual User Environment
+VUSW: Vehicle Utility Software
+VXML: Voice Extensible Markup Language
+WAB: Windows Address Book
+WAC: WebFeat Administrative Console
+WAF: Web Application Firewall
+WALL: Wireless Abstraction Library
+WAS: Web Application Server
+WAS: Windows Activation Service
+WBI: Web Browser Intelligence
+WBS: World Broadcasting System
+WBT: Web-Based Training
+WCF: Windows Communication Foundation
+WCM: Web Content Management
+WDK: Web Development Kit
+WDM: Win32 Driver Model
+WDS: Windows Deployment Service
+WEP: Windows Exit Procedure
+WFS: Web Feature Service
+WGA: Windows Genuine Advantage
+WHATWG: Web Hypertext Application Technology Working Group
+WIA: Windows Image Acquisition
+WIM: Windows Image
+WIN: Windoof
+WinFX: Next-generation managed APIs for Windows
+WMI: Windows Management Interface
+WML: Website META Language
+WML: Wireless Markup Language
+WMP: Windows Media Player
+WMS: Web Management System
+WOW: Windows on Win32
+WPF: Windows Presentation Foundation
+WQL: WMI Query Language
+WRB: Web Request Broker
+WSCL: Web Services Conversation Language
+WSDL: Web Service Description Language
+WSE: Web Services Enhancements
+WSFL: Web Services Flow Language
+WSH: Windows Script Host
+WSI: Web Service Interoperability
+WSOA: Web Services Oriented Architecture
+WSS: Windows SharePoint Services
+WTF: Work Time Fun
+WURFL: Wireless Universityrsal Resource File
+WWF: Windows Workflow Foundation
+XAML: Extensible Application Markup Language
+XBEL: XML Bookmark Exchange Language
+XBL: Extensible Bindings Language
+XBL: Xml Binding Language
+XBRL: eXtensible Business Reporting Language
+XCA: Express Communications Architecture
+XENIX: Xenos Unix
+XFDL: Extensible Forms Description Language
+XFN: XHTML Friends Network
+XHR: XMLHttpRequest
+XHTML: Extensible Hypertext Markup Language
+XIE: X Imaging Extension
+XMI: XML Metadata Interchange
+XML: Extensible Markup Language
+XNCL: XML Namespace Catalogue Language
+XNP: eXtreme non programming
+XOS: eXperimental Operating System
+XOS: Xylan Operating System
+XP: Extreme Programming
+XPCOM: Cross Platform Component Object Model
+XPDL: XML Process Definition Language
+XPFE: Cross Platform Front End
+XPP: Xml Pull Parser
+XRX: XForms, REST, XQuery
+XSD: XML Schema Definition
+XSL: Extensible Stylesheet Language
+XSL-FO: EXtensible Stylesheet Language Formatting Object
+XSL-FO: XSL Formatting Objects
+XSLT: Extensible Stylesheet Language Transformations
+XSV: XML Schema Validator
+XUL: XML-based User interface Language
+YAGNI: You Ain't Gonna Need It
+ZAK: Zero Administration Kit
