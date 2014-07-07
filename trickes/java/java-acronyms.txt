@@ -1,0 +1,131 @@
+AFC: Application Foundation Classes 
+AJAX: Asynchronous JavaScript and XML 
+ANT: Another Neat Tool 
+AWT: Abstract Window Toolkit 
+AWT: Abstract Windowing Toolkit 
+AWTAPI: Abstract Windows Toolkit-Application… 
+BMP: Bean-Managed Persistence 
+BMT: Bean-Managed Transactions 
+CARDVM: Card Virtual Machine 
+CLDC: Connected Limited Device Configuration 
+CMP: Container Managed Persistence 
+CMT: Container Managed Transactions 
+EAB: Enterprise Access Builder 
+ECI: External Call Interface 
+EJB: Enterprise Java Beans 
+EPI: External Presentation Interface 
+FCO: First Class Object 
+FMA: Federated Management Architecture 
+GWT: Google Web Toolkit 
+HLQ: High Level Qualifier 
+HPJ: High Performance Java 
+IB4J: Instant BASIC for Java 
+IB4J: Institutent BASIC for Java 
+ICAN: Integrated Composite Application Network 
+ICAT: Interactive Code Analysis Tool 
+IDAC: Infobus Data Access Component 
+IDL: Interface Definition Language 
+IFC: Internet Foundation Classes 
+IJH: Initial Java Heap 
+ILO: Integrated Lights Out 
+JAAS: Java Authentication and Authorization Service 
+JAE: Java Application Environment 
+JAIN: Java API for Integrated Networks 
+JAOO: Java and Object Orientation 
+JAP: Java Anon Proxy 
+JAR: Java Archive 
+JARS: Java Applet Rating Service 
+JASS: Javascript-Accessable Style Sheets 
+JavaOS: Java operating system 
+JAX: Java API for XML 
+JAX: Java, Apache, XML 
+JAXB: Java API for XML Binding 
+JAXM: Java API for XML Messaging 
+JAXP: Java API for XML Processing 
+JAXR: Java API for XML Registries 
+JAX-R: Java API for XML Registries 
+JAXRPC: Java API for XML-based Remote Procedure Calls 
+JAX-RPC: Java API for XML-based Remote Procedure Calls 
+JAXWS: Java API for XML-based Web Services 
+JAX-WS: Java API for XML-based Web Services 
+JBI: Java Business Integration 
+JCA: Java Connector Architecture 
+JCA: Java Cryptography Architecture 
+JCE: Java Cryptographic Extension 
+JCE: Java Cryptography Extension 
+JCO: Java COnnector 
+JCP: Java Community Process 
+JCR: Java Content Repository 
+JCSC: Journal of Circuits, Systems and Computers 
+JDBC: Java Database Connectivity 
+JDO: Java Data Objects 
+JEP: Java Math Expression Parser 
+JFC: Java Foundation Class 
+JFC: Java Foundation Classes 
+JFE: Java Front End 
+JIM: JAR Installation Manager 
+JIM: JAR Institutellation Manager 
+JKS: Java Key Store 
+JLCA: Java Language Conversion Assistant 
+JMAPI: Java Management API 
+JMAPI: Java Management API 
+JME: Java Micro Edition 
+JME: Java Monkey Engine 
+JME: JME Molecular Editor 
+JMEP: Java Mathematical Expression Parser 
+JMI: Java Metadata Interface 
+JML: Java Modeling Language 
+JMS: Java Messages Service 
+JMS: Java Messaging Service 
+JMX: Java Management eXtension 
+JNDI: Java Naming and Directory Interface 
+JNI: Java Native Interface 
+JNT: Java Network Technology 
+JOnAS: Java Open Application Server 
+JPA: Java Persistence API 
+JSF: Java Server Faces 
+JSGF: Java Speech API Grammar Format 
+JSON: JavaScript Object Notation 
+JSP: Java Server Pages 
+JSPA: Java Specification Participation Agreement 
+JSSE: Java Secure Socket Extension 
+JTA: Java Transaction API 
+JTS: Java Transaction Service 
+JTS: Java Transaction Services 
+JVM: Java Virtual Machine 
+JVMPI: Java Virtual Machine Profiling Interface 
+JWS: Java Web Start 
+KVM: Kilobyte Virtual Machine 
+MAJC: Microprocessor Architecture for Java Computing 
+MDA: Model Driven Architecture 
+MIDP: Mobile Information Device Profile 
+MMAPI: Mobile Media API 
+MMI: Mixed Mode Interpreter 
+MRJ SDK: Macintosh Runtime for Java Software Developer Kit 
+MRJ: Macintosh Runtime for Java 
+MRJ: MacOS Runtime for Java 
+MRJSDK: Macintosh Runtime for Java Software Developer Kit 
+NCI: Network Computing Interface 
+OAK: Object Application Kernel 
+PDS: Partitioned Data Set 
+POJI: Plain Old Java Interfaces 
+POJO: Plain Old Java Object 
+RMI: Remote Method Invocation 
+RNI: Raw Native Interface 
+SAAJ: SOAP with Attachments API for Java 
+SCO: Second Class Object 
+SDAO: Simulated Data Access Object 
+SMS: Short Message Service 
+SQLJ: Structured Query Language - Java 
+SVK: Self Voicing Kit 
+TCAF: Thin Client Application Framework 
+TCF: Thin Client Framework 
+VAJ: Visual Age for Java 
+VEP: Visual Editor Project 
+VTL: Velocity Template Language 
+WAR: Web Application aRchive 
+WFC: Windows Foundation Classes 
+WSAD: Websphere Studio Application Developper 
+WSDK: Websphere Software Development Kit 
+WSTKMD: Web Services Tool Kit for Mobile Devices 
+XPP: Xml Pull Parser 

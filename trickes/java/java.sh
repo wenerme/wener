@@ -1,5 +1,6 @@
 # 注解处理器
 lombok.core.AnnotationProcessor
+# QueryDSL
 com.mysema.query.apt.jpa.JPAAnnotationProcessor
 
 # java 启动时的调试参数

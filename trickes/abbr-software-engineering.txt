@@ -1,0 +1,155 @@
+! !http://www.allacronyms.com/_technology/software_engineering/topic
+2TUP: Two Tracks Unified Process
+ABEL: Advanced Boolean Expression Language
+ADADL: Ada design and documentation language
+AHDL: Altera Hardware Description Language
+ALGOL: Algorithmic Language
+ALS: Ada Language System
+APL: A Programming Language
+ASN.1: Abstract Syntax Notation One
+AUP: Agile Unified Process
+BASIC: Beginner's All-purpose Symbolic Instruction Code
+BASIC: Beginner's All-purpose Symbolic…
+BCPL: Basic Combined Programming Language
+BDD: Behavior Driven Development
+BDUF: Big Design Up Front
+BFO: Basic Formal Ontology
+BMAEA: Blind Men And Elephant Approach
+BPML: Business Process Management Language
+BPQL: Business Process Query Language
+BXML: Backbase eXtensible Mark-up Language
+CDM: Constructionist Design Methodology
+CFML: ColdFusion Markup Language
+CHTML: Compact HyperText Markup Language
+CML: Chemical Markup Language
+COBOL: Common Business Oriented Language
+COBOL: Common Business-oriented Language
+CPL: Combined Programming Language
+CQL: Common Query Language
+D3: Design-driven development
+DAC: Digital-to-Analog Converters
+DAML: DARPA Agent Markup Language
+DDD: Domain-Driven Design
+DDT: Design Driven Testing
+DHTML: Dynamic Hypertext Markup Language
+DIE: Duplication is Evil
+DML: Data Manipulate Language
+DRY: Don't Repeat Yourself
+DSDM: Dynamic Systems Development Method
+DSL: Domain-specific language
+DSSSL: Document Style Semantics and Specification…
+DTD: Document Type Definition
+DTD: Document Type Description
+EAFP: Easier to Ask Forgiveness than Permission
+ebXML: Electronic Business using eXtensible…
+EDT: Estelle Development Toolset
+EODM: EMF Ontology Definition Metamode
+ESPOL: Executive Systems Programming Oriented Language
+ESSL: Engineering and Scientific Subroutine Library
+FAP: FORTRAN Assembly Program
+FOAF: Friend of a Friend
+Fortran: FORmula TRANslation
+GEFN: Good Enough For Now
+GELLMU: Generalized Extensible LaTeX-Like MarkUp
+GML: Geography Markup Language
+GPL: GOAL Processing Language
+GPRN: GOAL Test Procedure Release Notice
+GPUR: GOAL Test Procedure Update Request
+GUM: Generalized Upper Model
+HAL: High-order Assembly Language
+HAL: Houston Aerospace Language
+HALS: High-order Programming Language for Spacelab usage
+HCL: Hardware Control Language
+HDL: Hardware Description Language
+HLAL: High-level Assembler Language
+HLTL: High-Level Test Language
+HOL: High-Order Language
+HOLC: High-Order Language Computer
+HPF: High Performance Fortran
+HTLL: High-Test-Level Language
+HTML: HyperText Markup Language
+IAL: International Algorithmic Language
+IDL: Interface Description Language
+IODT: Integrated Ontology Development Toolkit
+J2EE: Java 2 Enterprise Edition
+JAAS: Java Authentication and Authorization Service
+JAI: Java Advanced Imaging
+JCP: Java Community Process
+JDE: Java Development Environment
+JOnAS: Java Open Application Server
+JSR: Java Specification Request
+JVM: Java Virtual Machine
+Lisp: List Processing
+MathML: Mathematical Markup Language
+MDA: Model-Driven Architecture
+MLP: Machine Language Program
+MSF: Microsoft Solutions Framework
+MUMPS: Massachusetts General Hospital Utility…
+NEWP: New Executive Programming Language
+OCML: Operational Conceptual Modelling Language
+OIL: Ontology Inference Layer
+OntoUCP: Ontology-based Unified Communication Protocol
+OPML: Outline Processor Markup Language
+OQL: Object Query Language
+OWL: Web Ontology Language
+PCGI: Perl Common Gateway Interface
+PDF: Portable Document Format
+PESSL: Parallel Engineering and Scientific…
+PGML: Precision Graphics Markup Language
+PHP: Personal Home Page
+PHP: PHP Hypertext Preprocessor
+PLDI: Programming Language Design and Implementation
+PLEAC: Programming Language Examples Alike Cookbook
+POJO: Plain Old Java Object
+PS: PostScript
+PSL: Program Statement Language
+RAD: Rapid Application Development
+RDD: Responsibility-Driven Design
+RDDL: Resource Directory Description Language
+RPL: Reverse Polish Lisp
+RUP: Rational Unified Process
+SAML: Security Assertion Markup Language
+SBML: Systems Biology Markup Language
+SEAL: Semantics-directed Environment Adaptation Language
+SEXI: String EXpression Interpreter
+SGML: Standard Generalized Markup Language
+SMBL: Systems Biology Markup Language
+SMIL: Synchronized Multimedia Integration Language
+SML: Spacecraft Markup Language
+SNOBOL: StriNg Oriented symBOlic Language
+SOC: Separation of Concerns
+SPL: System Programming Language
+SPOT: Single Point of Truth
+SSML: Speech Synthesis Markup Language
+SSOT: Single Source of Truth
+SVG: Scalable Vector Graphics
+TDD: Test-Driven Development
+TSP: Team Software Process
+TTCN: Tree and Tabular Combined Notation
+UIML: User Interface Markup Language
+UP: Unified Process
+VBA: Visual Basic for Applications
+VML: Vector Markup Language
+VML: Vector Markup Language
+VTML: Visual Tool Markup Language
+VXML: Voice Extensible Markup Language
+WSCL: Web Services Conversation Language
+WSFL: Web Services Flow Language
+XAML: Extensible Application Markup Language
+XBEL: XML Bookmark Exchange Language
+XBL: Extensible Bindings Language
+XBL: Xml Binding Language
+XBRL: eXtensible Business Reporting Language
+XFDL: Extensible Forms Description Language
+XFN: XHTML Friends Network
+XHTML: Extensible Hypertext Markup Language
+XML: Extensible Markup Language
+XNCL: XML Namespace Catalogue Language
+XP: Extreme Programming
+XPDL: XML Process Definition Language
+XSL: Extensible Stylesheet Language
+XSL-FO: EXtensible Stylesheet Language Formatting Object
+XSL-FO: XSL Formatting Objects
+XSLT: Extensible Stylesheet Language Transformations
+XUL: XML-based User interface Language
+YAGNI: You Ain't Gonna Need It
