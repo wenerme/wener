@@ -1,0 +1,270 @@
+OCI 下载地址
+http://www.oracle.com/technetwork/topics/winsoft-085727.html
+JDBC URL 说明
+http://docs.oracle.com/cd/E11882_01/java.112/e16548/urls.htm#JJDBC28287
+
+sqlplus / as sysdba
+grant connect,resource,dba to wendb;
+select username from dba_users;
+CREATE USER wendb IDENTIFIED BY wendb;
+GRANT CONNECT TO wendb;
+GRANT EXECUTE on schema.procedure TO username;
+sqlplus.exe wendb/wendb@192.168.1.193:1521/ORCL
+select * from v$version;
+
+生成删除所有表的sql语句
+select 'drop table '||table_name||' cascade constraints;' from user_tables;
+
+存储表信息的地方: all_tables,dba_tables,user_tables,tabs
+
+在命令行导入出现乱码, 设置 `set NLS_LANG=SIMPLIFIED CHINESE_CHINA.ZHS16GBK`
+参考 http://www.oracle.com/technetwork/products/globalization/nls-lang-099431.html
+
+
+MyBatis
+========
+https://code.google.com/p/mybatis/wiki/faq
+
+The difference is that '#' is used for PreparedStatement substitution. '$' is for direct String substitution.
+# 是 PreparedStatement 的参数, $ 是直接替换
+
+在遇到需要转移字符的时候 记住有 CDATA
+<![CDATA[
+   SELECT * FROM CampaignStats WHERE statsDate >= #{start} AND statsDate <= #{end}
+]]>
+
+构造一个like
+<select id="selectLike">
+  select * from foo where bar like '%' || '${value}' || '%'
+</select>
+
+在接口方法的参数上使用 @Param("username")  来给参数命名
+
+SPRING 核心
+===========
+
+IoC 容器
+资源 Resouce
+	UrlResource: ftp, http, file
+	ClassPathResource: classpath:
+	FileSystemResource: File, URL
+	ServletContextResource
+	InputStreamResource
+	ByteArrayResource
+验证,数据绑定,类型转换
+SpEL
+AOP
+Spring AOP API
+测试
+
+MVC
+====
+
+Creating REST Controllers with the @RestController annotation
+
+<mvc:default-servlet-handler/> 避免一些静态资源被处理
+
+
+@PathVariable
+@MatrixVariable
+	用在 Map<String, String> 上可以取出所有的值
+
+路径匹配可以使用 ${xx} 来使用配置的属性
+
+3.1 引入了 RequestMappingHandlerMapping 和 RequestMappingHandlerAdapter
+
+使用 BingdingResult 来判断绑定结果
+
+支持的参数类型(参考手册 452 页 Supported Method Argiment Types):
+* Servlet API
+	* ServletRequest, HttpServletRequest
+	* HttpSession
+		* 对 session 的操作可能不是线程安全的
+			考虑设置 RequestMappingHandlerAdapter 的 synchronizeOnSession 来确保
+* web.context.request.WebRequest, NativeWebRequest
+	是对请求对象的封装
+* java.util.Locale
+	当前请求的 locale, 可以配置  LocalResolver
+* InputStream, Reader 获取请求的内容
+* OutputStream, Writer 直接生成响应内容
+* org.springframework.http.HttpMethod 获取请求的方法
+* java.security.Principal 获取当前授权的用户
+* @PathVariable  获取 URI 模板中的变量
+* @MatrixVariable 获取一个变量中的矩阵类型变量  i.e. delete/1234;name=wener;gender=male;
+* @RequestParam 获取请求中所带的参数. 会发生参数类型转换.
+* @RequestHeader 获取 HTTP 头信息中的值. 会发生参数类型转换.
+* @RequestBody 获取 HTTP 请求体. 会使用 HttpMessageConverter 进行类型转换
+* @RequestPart 获取 "multipart/form-data" 的内容
+* @CookieValue
+* HttpEntity<?> 获取 HTTP 头和内容. 会使用 HttpMessageConverter 转换
+* java.util.Map / org.springframework.ui.Model / org.springframework.ui.ModelMap
+	获取模型
+* org.springframework.web.servlet.mvc.support.RedirectAttributes
+	用来指定跳转参数和临时变量 
+	flash attributes (attributesstored temporarily on the server-side to make them available to the request after the redirect) 
+	主要用来替代 redirect: 前缀+视图名或 RedirectView
+
+* Command or form objects to bind request parameters to bean properties (via setters) or
+directly to fields, with customizable type conversion, depending on @InitBinder methodsand/or the HandlerAdapter configuration. See the webBindingInitializer property on
+RequestMappingHandlerAdapter. Such command objects along with their validation results will
+be exposed as model attributes by default, using the command class class name - e.g. model attribute
+"orderAddress" for a command object of type "some.package.OrderAddress". The ModelAttribute
+annotation can be used on a method argument to customize the model attribute name used.
+* @InitBinder  HandlerAdapter, @ModelAttribute
+	参考  RequestMappingHandlerAdapter 的 webBindingInitializer
+	使用 ModelAttribute 需要注意和 BindingResult 的顺序
+
+* org.springframework.validation.Errors /org.springframework.validation.BindingResult 
+	验证一个处理的结果
+* org.springframework.web.bind.support.SessionStatus, @SessionAttributes
+status handle for marking form
+processing as complete, which triggers the cleanup of session attributes that have been indicated by
+the @SessionAttributes annotation at the handler type level.
+
+* org.springframework.web.util.UriComponentsBuilder 
+	相对于当前地址的 URL 构造器,  host, port, scheme, context path, and the literal part of the servlet mapping.
+The Errors or BindingResult parameters have to follow the model object that is being bound
+immediately as the method signature might have more that one model object and Spring will create a
+separate BindingResult instance for each of them so the following sample won’t work:
+
+支持的返回类型:
+
+* ModelAndView
+	
+• A ModelAndView object, with the model implicitly enriched with command objects and the results of
+@ModelAttribute annotated reference data accessor methods.
+* Model 对象
+	通过 RequestToViewNameTranslator 隐式的来判断视图名
+• A Model object, with the view name implicitly determined through a
+RequestToViewNameTranslator and the model implicitly enriched with command objects and the
+results of @ModelAttribute annotated reference data accessor methods.
+
+* Map 对象 和 Model 相同
+
+* View 对象
+	模型通过 command objects 和 @ModelAttribute 注解引用对象 来隐式指定
+	处理函数也可以通过制定一个 Model 参数来指定
+* String
+	逻辑视图名, 模型通过 command objects and @ModelAttribute annotated reference 来隐式指定
+	处理函数也可以通过制定一个 Model 参数来指定
+* void
+	方法自己处理响应. 例如通过 ServletResponse / HttpServletResponse
+	或者是 视图名由 RequestToViewNameTranslator 提供
+* 如果方法有 @ResponseBody 注解., 那么返回类型是 HTTP body, 返回的值会使用 HttpMessageConverter 转换
+* HttpEntity<?> or ResponseEntity<?>
+	通过 HttpMessageConverter 转换为响应流
+* HttpHeaders
+	没有相应体
+* Callable<?>
+	当想要异步响应的时候可以返回一个 Callable
+	会在Spring 管理的线程中运行
+* DeferredResult<?>
+	类似于 Callable, 但是可以指定运行线程
+* 除此以外的类型, 会被当成是一个简单的模型属性. 
+	在方法上使用 @ModelAttribute 来指定模型名.
+	或者是根据返回类型名生成的默认的属性名.
+
+当设置模型属性时,如果没有指定名字, 则会使用简单类名, 例如 Account -> account
+
+@ModelAttribute 会在每个 RequestMapping 前执行
+通过 ControllerAdvice 可以让这个对多个 Controller 同时起作用
+
+映射静态文件
+<!-- resources exclusions from servlet mapping -->
+<mvc:resources mapping="/css/**" location="/css/" />
+<mvc:resources mapping="/images/**" location="/images/" />
+<mvc:resources mapping="/js/**" location="/js/" />
+
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.jpg</url-pattern>
+</servlet-mapping> <!-- The 'static' content -->
+
+WebDataBinder 自定义类型转换处理
+SpelExpressionParser SpEL表达式
+ConversionService 类型转换服务
+
+SpEL
+================
+
+使用 EL 来引用其他 bean 的属性
+<bean id="numberGuess" class="org.spring.samples.NumberGuess">
+	<property name="randomNumber" value="{ T(java.lang.Math).random() * 100.0 }"/>
+</bean>
+<bean id="shapeGuess" class="org.spring.samples.ShapeGuess">
+	<property name="initialShapeSeed" value="{ numberGuess.randomNumber }"/>
+</bean>
+
+在注入时使用 value 也能用EL
+@Value("#{ systemProperties[user.region] }")
+EL 的一些表示方法
+	List {1,2,3,4}
+	'xyz' instanceof T(int) 使用 T 来获取类型
+	T(java.lang.Math).random()
+		在该对象山
+	Class stringClass = parser.parseExpression("T(String)").getValue(Class.class);
+		T 返回 Class
+	'5.00' matches '^-?\\d+(\\.\\d{2})?$'
+		使用正则表达式匹配
+	lt (<), gt (>), le (# 这里应该是 <=), ge (>=),eq (==), ne (!=), div (/), mod (%), not (!)
+	and or
+	^ 幂操作
+		可用的操作符
+	Inventor einstein = p
+	.parseExpression("new org.spring.samples.spel.inventor.Inventor(Albert Einstein, German)")
+	.getValue(Inventor.class);
+	调用构造函数
+	parser.parseExpression("Name = #newName").getValue(context);
+		变量引用
+	#root
+		root context
+	#this
+		当前求值对象
+
+// create an array of integers
+List<Integer> primes = new ArrayList<Integer>();
+primes.addAll(Arrays.asList(2,3,5,7,11,13,17));
+
+// create parser and set variable primes as the array of integers
+ExpressionParser parser = new SpelExpressionParser();
+StandardEvaluationContext context = new StandardEvaluationContext();
+context.setVariable("primes",primes);
+
+// all prime numbers > 10 from the list (using selection ?{...})
+// evaluates to [11, 13, 17]
+List<Integer> primesGreaterThanTen = (List<Integer>) parser
+	.parseExpression("#primes.?[#this>10]").getValue(context);
+
+	如果设置了一个 BeanResolver, 那么可以使用 @foo 这样的语法来查找
+	SpEL 支持三元运算符
+	支持 Groovy 的 Elvis operator
+		name != null ? name : "Unknown"; -> name?:"Unknown"
+	支持 Groovy 的 Safe Navigation operator
+		Person?.name 如果 person 为 null, 会返回 null, 避免空指针异常
+	集合选择 ?[value<27] 只选择第一个 ^[value<27] 只选择最后一个 $[value<27]
+		Members.?[Nationality == Serbian]
+	集合投影 ![projectionExpression]
+		将一个集合转换成一个新的集合, 类似于 java8 中的 map
+		Members.![placeOfBirth.city]
+	表达式模板支持 ParserContext
+
+
+
+
+
+
+
+
+
+
+我的编程的理念和别人的往往有些不同, 我不愿意写一些很恶心的代码
+不愿意为了马上就完成任务而牺牲一切. 写代码的时候, 更喜欢优美的, 舒心的代码
+算是个人的原则吧 :-)
