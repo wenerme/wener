@@ -1,0 +1,28 @@
+动态生成SQL/面向对象查询
+-----------------------
+http://stackoverflow.com/questions/825141/
+
+* jOOQ: http://www.jooq.org
+	对使用开源数据库是免费的, Apachev2 协议.
+	CUBRID 8.4
+	Derby 10.10
+	Firebird 2.5
+	H2 1.3
+	HSQLDB 2.2
+	MariaDB 5.2
+	MySQL 5.5
+	PostgreSQL 9.0
+	SQLite
+* QueryDSL: http://www.querydsl.com
+	Apachev2
+	支持 JPA,SQL,Mongodb,JDO,Lucene,集合,Spatial
+* JaQu: http://www.h2database.com/html/jaqu.html
+* iciql: http://iciql.com/ (a friendly fork of JaQu)
+* Quaere: http://quaere.codehaus.org
+* Jequel: http://www.jequel.de (in maintenance mode, I think)
+* Squiggle: http://code.google.com/p/squiggle-sql (in maintenance mode, I think)
+
+-----
+
+中文 jsr-356 WebSocket
+https://jsr-chinese.readthedocs.org/en/latest/jsr-356/index.html
