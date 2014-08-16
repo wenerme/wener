@@ -3,8 +3,9 @@ http://stackoverflow.com/questions/1205995/what-is-the-list-of-valid-suppresswar
 
 
 
+
 Warning Description	|	Warning Name
-- | -
+------------- | -------------:
 "Magic character"	|	MagicCharacter
 "Magic number"	|	MagicNumber
 'Comparator.compare()' method does not use parameter	|	ComparatorMethodParameterNotUsed
