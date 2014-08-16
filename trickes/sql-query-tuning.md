@@ -91,3 +91,4 @@ http://blog.jooq.org/2013/11/03/probably-the-coolest-sql-feature-window-function
 * PART 2 http://www.codeproject.com/Articles/35665/Top-steps-to-optimize-data-access-in-SQL-Serv
 * http://en.wikipedia.org/wiki/Query_optimization
 * http://www.sommarskog.se/dyn-search.html
+* http://blog.jooq.org/2013/07/07/high-complexity-and-low-throughput-reasons-for-using-an-orm/
