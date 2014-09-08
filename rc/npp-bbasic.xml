@@ -1,0 +1,64 @@
+<NotepadPlus>
+    <UserLang name="BBasic" ext="bas" udlVersion="2.1">
+        <Settings>
+            <Global caseIgnored="yes" allowFoldOfComments="no" foldCompact="no" forcePureLC="0" decimalSeparator="0" />
+            <Prefix Keywords1="no" Keywords2="no" Keywords3="no" Keywords4="no" Keywords5="no" Keywords6="no" Keywords7="no" Keywords8="no" />
+        </Settings>
+        <KeywordLists>
+            <Keywords name="Comments">00; 00&apos; 01 02 03;region 04;endregion</Keywords>
+            <Keywords name="Numbers, prefix1"></Keywords>
+            <Keywords name="Numbers, prefix2"></Keywords>
+            <Keywords name="Numbers, extras1"></Keywords>
+            <Keywords name="Numbers, extras2"></Keywords>
+            <Keywords name="Numbers, suffix1"></Keywords>
+            <Keywords name="Numbers, suffix2"></Keywords>
+            <Keywords name="Numbers, range"></Keywords>
+            <Keywords name="Operators1">, [ ] ( )  + - * /</Keywords>
+            <Keywords name="Operators2">=</Keywords>
+            <Keywords name="Folders in code1, open">&apos;BLOCK</Keywords>
+            <Keywords name="Folders in code1, middle"></Keywords>
+            <Keywords name="Folders in code1, close">&apos;ENDBLOCK</Keywords>
+            <Keywords name="Folders in code2, open"></Keywords>
+            <Keywords name="Folders in code2, middle"></Keywords>
+            <Keywords name="Folders in code2, close"></Keywords>
+            <Keywords name="Folders in comment, open"></Keywords>
+            <Keywords name="Folders in comment, middle"></Keywords>
+            <Keywords name="Folders in comment, close"></Keywords>
+            <Keywords name="Keywords1">NOP &#x000A;LD    &#x000A;PUSH  &#x000A;POP   &#x000A;IN    &#x000A;OUT   &#x000A;JMP   &#x000A;JPC   &#x000A;CALL  &#x000A;RET   &#x000A;CMP   &#x000A;CAL   &#x000A;EXIT  &#x000A;DATA  &#x000A;.BLOCK&#x000A; </Keywords>
+            <Keywords name="Keywords2">ADD&#x000A; SUB&#x000A; MUL&#x000A; DIV&#x000A; MOD&#x000A; Z  B &#x000A; BE&#x000A; A &#x000A; AE&#x000A; NZ&#x000A;</Keywords>
+            <Keywords name="Keywords3">dword &#x000A;word   &#x000A;byte   &#x000A;float  &#x000A;int</Keywords>
+            <Keywords name="Keywords4"> rp&#x000A; rf&#x000A; rs&#x000A; rb&#x000A; r0&#x000A; r1&#x000A; r2&#x000A; r3&#x000A;</Keywords>
+            <Keywords name="Keywords5">print function end DIM SHARED LOADPTR OPEN CLOSE Const MOD</Keywords>
+            <Keywords name="Keywords6">vasm SIN COS TAN SQR ABS ABS LOCATE GETPENPOSX GETPENPOSY LEN STR VAL CHR ASC LEFT RIGHT MID INSTR INKEY SETPEN SETBRUSH MOVETO LINETO RECTANGLE CIRCLE SETLCD CREATEPAGE DELETEPAGE LOADRES FREERES SHOWPIC FLIPPAGE BITBLTPAGE STRETCHBLTPAGE STRETCHBLTPAGEEX FILLPAGE PIXEL READPIXEL COLOR FONT SETBKMODE RANDOMIZE RND KEYPRESS WAITKEY INKEY GETPICWID GETPICHGT PIXLOCATE GETTICK MSDELAY PEEK GETENV VMTEST EOF LOF LOC ESHL ESHR ENOT EAND EOR EXOR SIN! COS! TAN! SQR! ABS! STR$ CHR$ LEFT$ RIGHT$ MID$ INKEY$</Keywords>
+            <Keywords name="Keywords7">KEY_UP KEY_DOWN KEY_LEFT KEY_RIGHT KEY_SPACE KEY_ESCAPE KEY_ENTER ENV_SIM ENV_9288 ENV_9188 ENV_9288T ENV_9288S ENV_9388 FONT_12SONG FONT_12KAI FONT_12HEI FONT_16SONG FONT_16KAI FONT_16HEI FONT_24SONG FONT_24KAI FONT_24HEI TRANSPARENT OPAQUE PEN_SOLID PEN_DASH BRUSH_SOLID </Keywords>
+            <Keywords name="Keywords8"></Keywords>
+            <Keywords name="Delimiters">00[ 01 02] 03 04 05 06&quot; 07 08&quot; 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23</Keywords>
+        </KeywordLists>
+        <Styles>
+            <WordsStyle name="DEFAULT" fgColor="FFFFFF" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="COMMENTS" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="LINE COMMENTS" fgColor="9F9B88" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="NUMBERS" fgColor="AE81FF" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS1" fgColor="FA007F" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS2" fgColor="FF0080" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS3" fgColor="A6E22E" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS4" fgColor="79ABFF" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS5" fgColor="FF007F" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS6" fgColor="A7EC21" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS7" fgColor="B3CFFF" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS8" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="OPERATORS" fgColor="C0C0C0" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE1" fgColor="C0C0C0" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE2" fgColor="C0C0C0" bgColor="0C1021" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS1" fgColor="C0D6FF" bgColor="0C1021" fontStyle="0" nesting="16792576" />
+            <WordsStyle name="DELIMITERS2" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS3" fgColor="E6DB74" bgColor="0C1021" fontStyle="0" nesting="50347008" />
+            <WordsStyle name="DELIMITERS4" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS5" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS6" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS8" fgColor="000000" bgColor="FFFFFF" fontStyle="0" nesting="0" />
+        </Styles>
+    </UserLang>
+</NotepadPlus>

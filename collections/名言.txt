@@ -68,3 +68,16 @@ http://programmers.stackexchange.com/questions/39/whats-your-favourite-quote-abo
 	Given enough eyeballs, all bugs are shallow.
 	— Linus's Law
 	
+
+分布式计算的八大谬论
+-------------------
+http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing
+
+1. The network is reliable.
+1. Latency is zero.
+1. Bandwidth is infinite.
+1. The network is secure.
+1. Topology doesn't change.
+1. There is one administrator.
+1. Transport cost is zero.
+1. The network is homogeneous.

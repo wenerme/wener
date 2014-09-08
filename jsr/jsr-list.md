@@ -7,7 +7,7 @@ Bean Validation
 : 349  1.1
 
 
-jaxrs
+JAX-RS
 : 303 2.0
 : 311 1.0,1.1
 
@@ -21,8 +21,8 @@ NIO
 : 203 NIO2
 
 JMS
-: 343 2.0
 : 914 1.0,1.1
+: 343 2.0
 
 JTA
 : 907 1.0,1.1
@@ -67,12 +67,12 @@ JDBC
 : 54 3.0
 : 221 4.0
 
-JCR
+JCR Content Repository
 : 283 2.0
 
 
 JSR|描述|平台
--|-
+----|----|----
 133 | 内存模型和线程规范修订
 166 | 并发工具 | J2SE 5.0
 201 |扩展的枚举,自动封装,Loop增强和静态导入| J2SE 5.0
@@ -85,13 +85,14 @@ JSR|描述|平台
 308 | 在Java类型上的注解 | SE8
 336 | Java平台,标准版
 901 | Java语言规范 | 参考实现 OpenJDK 7
+292 | Supporting Dynamically Typed Languages on the JavaTM Platform
 
 __servlet__
 
 版本历史 http://en.wikipedia.org/wiki/JSR_154#History
 
 版本|发布|JSR|平台|重大改变
-:-:|:-:|:-:|:-:|:-:
+:----:|:-----:|:-----:|:-----:|:-----:
 3.1|2013.5|340|JavaEE 7|非阻塞IO,HTTP协议升级机制,参考[3.1新特性][whats-new-in-servlet]
 3.0|2009.10|315|JavaEE6,JavaSE6|扩展能力,简单开发,异步Servlet,安全,文件上传
 2.5|2005.9|154|JavaEE5,JavaSE5|需要JavaSE 5,支持注解
