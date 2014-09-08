@@ -1,3 +1,12 @@
+# 参考文档
+# BASH 参考手册 http://www.gnu.org/software/bash/manual/bashref.html
+# Advanced Bash-Scripting Guide http://tldp.org/LDP/abs/html/
+
+
+# ===========================================
+# =================SHELL 技巧================
+# ===========================================
+
 # download: remote -> local
 scp user@remote_host:remote_file local_file 
 
@@ -56,6 +65,18 @@ export ftp_proxy=$https_proxy
 # 高亮关键字
 echo -e "Wener\nis\ngreate" | grep -i -e "wen\|$" -e "greate\|$"
 
+# wget 可用于获取 googlecode 因为我实在是下载不下来~
+# 需要开启代理 已经在 .wgetrc 中配置了代理
+# http://downloadsvn.codeplex.com/ 也可以用来下载 svn 但是不好用代理
+wget ... -e use_proxy=on
+
+wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
+wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
+
+# ===========================================
+# =================BASH 基础=================
+# ===========================================
+
 # bash 历史操作 http://superuser.com/questions/7414/
 # Ctrl+R 开始搜索 继续 Ctrl+R 遍历搜索结果
 # 可以绑定为其它按键
@@ -94,19 +115,27 @@ shopt -s histverify
 ${STATE?"Need to set STATE"}
 ${DEST:?"Need to set DEST non-empty"}
 
-
-# wget 可用于获取 googlecode 因为我实在是下载不下来~
-# 需要开启代理 已经在 .wgetrc 中配置了代理
-# http://downloadsvn.codeplex.com/ 也可以用来下载 svn 但是不好用代理
-wget ... -e use_proxy=on
-
-wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
-wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
-
 # 退出 shell 后不关闭后台进程
 shopt +s huponexit
 # 或者是使用
 nohup
 # 至于为什么会被关闭 参考这里 http://stackoverflow.com/questions/15595374/
 
+x=123
+i=x
+echo ${!i} # 使用变量名来获取
+declare "$i=456" # 设置变量
+declare "$i=456${!i}" # 在值里也引用之前的值
 
+# 数组操作
+array=(a b c d e f g h) # 定义数组
+array+=(A) # 往数组添加
+declare -p array # 显示数组中内容
+echo ${#array[@]} # 数组长度
+end=(${!array[@]}) # 将所有索引放到另外一个数组
+end=${end[@]: -1}  # 获取最后一个
+# 迭代数组
+for i in "${array[@]}"
+do
+	echo bin "$i"
+done
