@@ -2,6 +2,7 @@
 # BASH 参考手册 http://www.gnu.org/software/bash/manual/bashref.html
 # Advanced Bash-Scripting Guide http://tldp.org/LDP/abs/html/
 
+# http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
 
 # ===========================================
 # =================SHELL 技巧================
@@ -72,6 +73,21 @@ wget ... -e use_proxy=on
 
 wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
 wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
+
+
+# 列举所有用户
+cut -d: -f1 /etc/passwd
+adduser new_username
+useradd new_username 
+# `useradd` is native binary compiled with the system. 
+# But, adduser is a perl script which uses useradd binary in back-end.
+# `adduser` is more user friendly and interactive than its back-end  useradd. 
+# There's no difference in features provided.
+rm -r /home/username
+usermod -l new_username old_username
+passwd username
+chsh username # To change the shell for a user:
+chfn username # To change the details for a user (for example real name):
 
 # ===========================================
 # =================BASH 基础=================
