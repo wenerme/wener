@@ -42,3 +42,41 @@ git push origin <tag_name>
 git fetch --all
 git reset --hard origin/master
 
+启动git服务
+-----------
+
+* http://git-scm.com/docs/git-daemon
+* http://git-scm.com/docs/git-http-backend
+
+```
+mkdir eddies  # MAKE folder for repo
+chown -R eddie:websrv eddies/  # ensure apache (webserver) can access it
+cd eddies/
+git --bare init --shared
+ls
+branches  config  description  HEAD  hooks  info  objects  refs
+# 如果是已有的项目,可以这样启用 receivepack
+git config --file config http.receivepack true
+```
+
+```
+# 启动服务
+git daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
+# receive-pack 会允许匿名的push 使用需谨慎
+```
+
+```
+# 转换为 bare 仓库
+cd repo
+mv .git .. && rm -fr *
+mv ../.git .
+mv .git/* .
+rmdir .git
+
+git config --bool core.bare true # 这个很重要
+cd ..; mv repo repo.git # renaming just for clarity
+
+# 或者这样操作方便些
+git clone --bare /path/to/repo
+
+```

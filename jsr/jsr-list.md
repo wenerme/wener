@@ -1,4 +1,4 @@
-JSR 列表:http://en.wikipedia.org/wiki/Java_Specification_Request
+JSR 列表: http://en.wikipedia.org/wiki/Java_Specification_Request
 所有 Final 的jsr http://www.jcp.org/en/jsr/stage?listBy=final
 JDK Enhancement Proposals JEP: http://openjdk.java.net/jeps/0
 
@@ -57,6 +57,22 @@ Java SE
 Java ME
 : 68 1.0
 
+javax.el
+: 341 3.0
+: 245 2.2	JSP 2.2 的一部分
+
+
+* 2.2的单独实现:
+	* javadoc http://docs.oracle.com/javaee/6/api/javax/el/package-summary.html
+	* http://juel.sourceforge.net/
+	* http://mvnrepository.com/artifact/de.odysseus.juel
+* 3.0参考实现: 
+	* javadoc http://docs.oracle.com/javaee/7/api/javax/el/package-summary.html
+	* https://java.net/projects/el-spec/downloads
+	* http://mvnrepository.com/artifact/org.glassfish/javax.el/
+* tomcat 8 实现了el 3.0
+	* http://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper-el/8.0.12
+
 
 EJB
 : 19 2.0
@@ -85,7 +101,7 @@ JSR|描述|平台
 308 | 在Java类型上的注解 | SE8
 336 | Java平台,标准版
 901 | Java语言规范 | 参考实现 OpenJDK 7
-292 | Supporting Dynamically Typed Languages on the JavaTM Platform
+292 | Supporting Dynamically Typed Languages on the JavaTM Platform, `dynamicinvoke`
 
 __servlet__
 
