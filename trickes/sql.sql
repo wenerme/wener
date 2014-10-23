@@ -10,6 +10,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'wener'@'localhost' WITH GRANT OPTION;
 CREATE USER 'wendb'@'%' IDENTIFIED BY 'wendb';
 GRANT ALL PRIVILEGES ON cbh.* TO 'wendb'@'%' identified by 'wendb' WITH GRANT OPTION;
 
+-- 设置密码
+SET PASSWORD FOR 'root'@'%' = PASSWORD('newpwd');
+-- 删除密码
+SET PASSWORD FOR 'root'@'%' = PASSWORD('');
+
 -- 使权限生效
 FLUSH PRIVILEGES;
 
@@ -40,6 +45,12 @@ SHOW VARIABLES LIKE '%slow_query%'
 -- H2 中这样导出 SQL
 script to 'filenam'
 
+-- FAQ
+-- how-to-shrink-purge-ibdata1-file-in-mysql http://stackoverflow.com/questions/3456159/
+-- how-do-i-quickly-rename-a-mysql-database-change-schema-name http://stackoverflow.com/questions/67093/
+-- 热门问题 http://stackoverflow.com/questions/tagged/mysql?sort=votes
+
+-- Reference
 -- MySQL 日期函数
 -- http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html
 -- JPQL 日期函数
