@@ -80,3 +80,7 @@ cd ..; mv repo repo.git # renaming just for clarity
 git clone --bare /path/to/repo
 
 ```
+检出本地
+```
+git clone git://localhost/reponame
+```
