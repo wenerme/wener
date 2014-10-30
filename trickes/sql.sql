@@ -41,6 +41,8 @@ FLUSH SLOW LOGS;
 SET GLOBAL slow_query_log_file = 'path';
 -- 查看变量
 SHOW VARIABLES LIKE '%slow_query%'
+-- 如果已知变量名
+select @@datadir;
 
 -- H2 中这样导出 SQL
 script to 'filenam'

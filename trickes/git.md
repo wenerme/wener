@@ -84,3 +84,15 @@ git clone --bare /path/to/repo
 ```
 git clone git://localhost/reponame
 ```
+
+移除分支
+---------
+`git branch -d the_local_branch`
+`git push origin :the_remote_branch`
+
+开始空的新分支
+--------------
+```
+git checkout --orphan <branchname>
+git rm --cached -r .
+```
