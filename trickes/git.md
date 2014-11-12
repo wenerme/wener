@@ -89,6 +89,8 @@ git clone git://localhost/reponame
 ---------
 `git branch -d the_local_branch`
 `git push origin :the_remote_branch`
+提交新的分支
+`git push --all`
 
 开始空的新分支
 --------------

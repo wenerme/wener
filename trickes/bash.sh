@@ -9,12 +9,28 @@
 # ===========================================
 
 # download: remote -> local
-scp user@remote_host:remote_file local_file 
-
 # local_file 可以为目录
-
+scp user@remote_host:remote_file local_file 
 # upload: local -> remote
 scp local_file user@remote_host:remote_file
+
+# To Forward sshtalk.in:8080 -> Cort.local:4567, you can do
+local="Cort.local:4567" # or "localhost:4567"
+remot="*:8080" # "*" for all interfaces (default is loopback)
+
+ssh -R ${remote}:${local} sshtalk.in
+
+# To forward localhost:1234 -> private-host:443, through public-host you can do
+local="localhost:1234" # or just "1234" default is localhost
+remot="private-host:443" # "*" for all interfaces (default is loopback)
+
+ssh -L ${local}:${remote} public-host
+
+# 须在在Server端允许转发
+# 在 /etc/ssh/sshd_config 中添加
+GatewayPorts yes
+# 然后重启
+sudo service sshd restart
 
 # 以第二列排序, 以数字的方法比较
 sort -n -k 2
@@ -77,6 +93,9 @@ wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/s
 
 # 列举所有用户
 cut -d: -f1 /etc/passwd
+# 查看所有组
+cut -d: -f1 /etc/group
+
 adduser new_username
 useradd new_username 
 # `useradd` is native binary compiled with the system. 
@@ -88,6 +107,33 @@ usermod -l new_username old_username
 passwd username
 chsh username # To change the shell for a user:
 chfn username # To change the details for a user (for example real name):
+
+# 安装VPN
+wget http://www.hi-vps.com/shell/vpn_centos6.sh
+chmod a+x vpn_centos6.sh
+
+# 查看Linux发布版本
+cat /etc/*-release
+lsb_release -a
+uname -mrs
+cat /proc/version
+
+# 保存和使用上次的session
+SESSIONNAME="script"
+tmux has-session -t $SESSIONNAME &> /dev/null
+if [ $? != 0 ] 
+ then
+    tmux new-session -s $SESSIONNAME -n script -d
+    tmux send-keys -t $SESSIONNAME "~/bin/script" C-m 
+fi
+tmux attach -t $SESSIONNAME
+
+## 显示程序运行时间
+ps -eo pid,cmd,etime
+12261 java -mx64m -jar core.jar   102-12:21:17
+# 输出的时间格式为 天-时:分:秒
+# 运行的时间从小到大排序
+ps -eo pid,etime,cmd|sort -n -k2
 
 # ===========================================
 # =================BASH 基础=================

@@ -7,11 +7,12 @@ CREATE USER 'wener'@'localhost' IDENTIFIED BY 'qaz';
 GRANT ALL PRIVILEGES ON *.* TO 'wener'@'localhost' WITH GRANT OPTION;
 
 -- 创建一个可以远程使用的账户
-CREATE USER 'wendb'@'%' IDENTIFIED BY 'wendb';
-GRANT ALL PRIVILEGES ON cbh.* TO 'wendb'@'%' identified by 'wendb' WITH GRANT OPTION;
+CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON cbh.* TO 'root'@'%' identified by 'root' WITH GRANT OPTION;
 
 -- 设置密码
-SET PASSWORD FOR 'root'@'%' = PASSWORD('newpwd');
+SET PASSWORD FOR 'root'@'%' = PASSWORD('root');
 -- 删除密码
 SET PASSWORD FOR 'root'@'%' = PASSWORD('');
 
@@ -27,6 +28,14 @@ SELECT table_schema                                        "DB Name",
    Round(Sum(data_length + index_length) / 1024 / 1024, 2) "DB Size in MB" 
 FROM   information_schema.tables
 GROUP  BY table_schema; 
+
+-- 可以使用环境变量来指定密码,避免命令行上的警告
+MYSQL_PWD=$password
+
+-- 查看当前连接数
+SHOW STATUS WHERE `variable_name` = 'Threads_connected'
+show processlist
+
 
 -- mysql 启用慢查询
 -- http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_slow_query_log_file
@@ -54,7 +63,7 @@ script to 'filenam'
 
 -- Reference
 -- MySQL 日期函数
--- http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html
+-- http://dev.mysql.com/doc/refman/5.6/en/date-and-time-functions.html
 -- JPQL 日期函数
 -- http://www.datanucleus.org/products/accessplatform_2_2/jpa/jpql_functions.html
 -- JPQL 手册
