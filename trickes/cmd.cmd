@@ -13,3 +13,9 @@ sc create svnserve binpath= "\"C:\Program Files\CollabNet Subversion Server\svns
 sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\Debug\asperacentral.exe" DisplayName= "Aspera Central" start= auto
 
 :: CMD 续行符号为 ^ 相当于 linux的 \
+
+:: 操作菜单中的最佳列表
+:: %appdata%\Microsoft\Windows\Recent
+
+:: 跳转菜单中的最近列表
+:: %appdata%\microsoft\windows\recent\automaticdestinations
