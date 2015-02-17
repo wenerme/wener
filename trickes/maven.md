@@ -1,4 +1,4 @@
-½« jar °²×°µ½±¾µØ²Ö¿â
+å°† jar å®‰è£…åˆ°æœ¬åœ°ä»“åº“
 ----
 mvn install:install-file -Dfile=c:\kaptcha-{version}.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion={version} -Dpackaging=jar
 
@@ -16,14 +16,14 @@ Where: <path-to-file>  the path to the file to load
    <version>       the version of the file
    <packaging>     the packaging of the file e.g. jar
 
-´ò°ü jar µÄ²ÎÊı   
+æ‰“åŒ… jar çš„å‚æ•°   
 ----
 http://maven.apache.org/plugins/maven-jar-plugin/jar-mojo.html
 
 
-×¼±¸ºÃÉÏ´«
+å‡†å¤‡å¥½ä¸Šä¼ 
 ---------
-:: ÊÖ²á https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
+:: æ‰‹å†Œ https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
 cd ..
 mvn source:jar javadoc:jar
 cd target
@@ -35,10 +35,10 @@ gpg -ab %PROJ_NAME%.jar
 gpg -ab %PROJ_NAME%-sources.jar
 gpg -ab %PROJ_NAME%-javadoc.jar
 
-Ö±½Ó²¿Êğ´æÔÚµÄ
+ç›´æ¥éƒ¨ç½²å­˜åœ¨çš„
 -------------
-:: ¾ßÌå²ÎÊı²Î¿¼ http://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html
-:: ¿ÉÒÔÖ±½ÓÔÚÃüÁîĞĞÉÏÖ¸¶¨ÃÜÂë
+:: å…·ä½“å‚æ•°å‚è€ƒ http://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html
+:: å¯ä»¥ç›´æ¥åœ¨å‘½ä»¤è¡Œä¸ŠæŒ‡å®šå¯†ç 
 PASSPHRASE=xxx
 mvn gpg:sign-and-deploy-file -Dgpg.passphrase=%PASSPHRASE% ^
 	-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=sonatype-nexus-staging -DpomFile=pom.xml -Dfile=IKAnalyzer-2012_u6.jar
@@ -47,7 +47,7 @@ mvn gpg:sign-and-deploy-file -Dgpg.passphrase=%PASSPHRASE% ^
 mvn gpg:sign-and-deploy-file -Dgpg.passphrase=%PASSPHRASE% ^
 	-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ -DrepositoryId=sonatype-nexus-staging -DpomFile=pom.xml -Dfile=IKAnalyzer-2012_u6-javadoc.jar -Dclassifier=javadoc
 
-ÉÏ´«Ê±µÄ gpgÈÏÖ¤
+ä¸Šä¼ æ—¶çš„ gpgè®¤è¯
 ----------------
 https://github.com/sevntu-checkstyle/dsm-maven-plugin/wiki/How-to-config-GPG-and-sign-artifact-with-it
 
@@ -72,19 +72,19 @@ gpg --verify artifact.jar.asc
 	</executions>
 </plugin>
 
-# maven Ê¹ÓÃ socks ´úÀí
+# maven ä½¿ç”¨ socks ä»£ç†
 export MAVEN_OPTS="-DsocksProxyHost=192.168.1.103 -DsocksProxyPort=8087"
 export MAVEN_OPTS="-DhttpProxyHost=192.168.1.103 -DhttpProxyPort=8087 -DhttpsProxyHost=192.168.1.103 -DhttpsProxyPort=8087"
 
-# ²»µ÷ÓÃjavadoc ²å¼ş
+# ä¸è°ƒç”¨javadoc æ’ä»¶
 -Dmaven.javadoc.skip=true
-# ²»²âÊÔ
+# ä¸æµ‹è¯•
 -Dmaven.test.skip=true
 # -Dmaven.test.skip prevents Maven building the test-jar artifact.
 # If you'd like to skip tests but create artifacts as per a normal build use:
 -Dmaven.test.skip.exec
 
-# maven ´úÀíÉèÖÃ
+# maven ä»£ç†è®¾ç½®
 <proxy>
 	<id>myproxy</id>
 	<active>true</active>
@@ -94,18 +94,18 @@ export MAVEN_OPTS="-DhttpProxyHost=192.168.1.103 -DhttpProxyPort=8087 -DhttpsPro
 	<nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
 </proxy>
 
-# spring µÄ²Ö¿â
+# spring çš„ä»“åº“
 http://repo.spring.io/libs-milestone
 https://code.lds.org/nexus/content/groups/main-repo
 https://repository.jboss.org/nexus/content/repositories/releases
 http://repo.typesafe.com/typesafereadonly/releases
-# Ìí¼ÓÆäËûµÄ²Ö¿â
+# æ·»åŠ å…¶ä»–çš„ä»“åº“
 <repository>
 	<id>nexus-osc</id>
 	<url>http://maven.oschina.net/content/groups/public/</url>
 </repository>
-# maven ÅäÖÃ conf/settings.xml
-# ¹úÄÚ¾µÏñ
+# maven é…ç½® conf/settings.xml
+# å›½å†…é•œåƒ
 <mirror>  
 		<id>nexus-osc</id>  
       <mirrorOf>*</mirrorOf>  

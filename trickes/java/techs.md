@@ -1,9 +1,9 @@
-¶¯Ì¬Éú³ÉSQL/ÃæÏò¶ÔÏó²éÑ¯
+åŠ¨æ€ç”ŸæˆSQL/é¢å‘å¯¹è±¡æŸ¥è¯¢
 -----------------------
 http://stackoverflow.com/questions/825141/
 
 * jOOQ: http://www.jooq.org
-	¶ÔÊ¹ÓÃ¿ªÔ´Êı¾İ¿âÊÇÃâ·ÑµÄ, Apachev2 Ğ­Òé.
+	å¯¹ä½¿ç”¨å¼€æºæ•°æ®åº“æ˜¯å…è´¹çš„, Apachev2 åè®®.
 	CUBRID 8.4
 	Derby 10.10
 	Firebird 2.5
@@ -15,22 +15,22 @@ http://stackoverflow.com/questions/825141/
 	SQLite
 * QueryDSL: http://www.querydsl.com
 	Apachev2
-	Ö§³Ö JPA,SQL,Mongodb,JDO,Lucene,¼¯ºÏ,Spatial
+	æ”¯æŒ JPA,SQL,Mongodb,JDO,Lucene,é›†åˆ,Spatial
 * JaQu: http://www.h2database.com/html/jaqu.html
 * iciql: http://iciql.com/ (a friendly fork of JaQu)
 * Quaere: http://quaere.codehaus.org
 * Jequel: http://www.jequel.de (in maintenance mode, I think)
 * Squiggle: http://code.google.com/p/squiggle-sql (in maintenance mode, I think)
 
-[JDBI](http://jdbi.org/) ËäÈ»²»ÊÇ¶¯Ì¬Éú³ÉSQL,µ«ÊÇ¸¨ÖúJDBC½øĞĞ²Ù×÷µÄ,Ò²·Ç³£·½±ã.
+[JDBI](http://jdbi.org/) è™½ç„¶ä¸æ˜¯åŠ¨æ€ç”ŸæˆSQL,ä½†æ˜¯è¾…åŠ©JDBCè¿›è¡Œæ“ä½œçš„,ä¹Ÿéå¸¸æ–¹ä¾¿.
 
-Ñ¡ÔñJAX-RS jsr339
+é€‰æ‹©JAX-RS jsr339
 ---------------
 http://programmers.stackexchange.com/questions/155467/
 
-¿¼ÂÇÇáÁ¿ĞÍµÄ½â¾ö·½°¸ Dropwizard 
+è€ƒè™‘è½»é‡å‹çš„è§£å†³æ–¹æ¡ˆ Dropwizard 
 
-ÏµÁĞ¼¼ÊõÕ»
+ç³»åˆ—æŠ€æœ¯æ ˆ
 
 * Jetty (HTTP)
 * Jersey (JAX-RS)
@@ -40,38 +40,38 @@ http://programmers.stackexchange.com/questions/155467/
 * Hibernate Validator (input verification)
 * OAuth (RESTful authentication)
 
-¶ÔÓÚ JAX-RS [restlet](http://www.restlet.org) ÊÇ·Ç³£²»´íµÄÑ¡Ôñ, CXFÏà¶ÔÖØÁ¿¼¶Ò»µã.
+å¯¹äº JAX-RS [restlet](http://www.restlet.org) æ˜¯éå¸¸ä¸é”™çš„é€‰æ‹©, CXFç›¸å¯¹é‡é‡çº§ä¸€ç‚¹.
 
 restlet
-: ºËĞÄ°ü+JAX-RS´óÔ¼1M×óÓÒ ²»¿¼ÂÇÒÀÀµ
-: ¿ÉÒÔºÍguice¼¯³É
-: [JAX-RSÊ¾Àı](http://restlet.com/learn/guide/2.2/extensions/jaxrs)
-: Ã»ÓĞÔÚÖĞÑë²Ö¿â
+: æ ¸å¿ƒåŒ…+JAX-RSå¤§çº¦1Må·¦å³ ä¸è€ƒè™‘ä¾èµ–
+: å¯ä»¥å’Œguiceé›†æˆ
+: [JAX-RSç¤ºä¾‹](http://restlet.com/learn/guide/2.2/extensions/jaxrs)
+: æ²¡æœ‰åœ¨ä¸­å¤®ä»“åº“
 
 CXF
-: ºËĞÄ°ü+JAX-RS´óÔ¼1.7M ²»¿¼ÂÇÒÀÀµ
-: ´ò°üºó´ó¸Å2.9M,²»°üº¬Jetty
-: Ä¿Ç°Ö»ÄÜÊ¹ÓÃ Spring
+: æ ¸å¿ƒåŒ…+JAX-RSå¤§çº¦1.7M ä¸è€ƒè™‘ä¾èµ–
+: æ‰“åŒ…åå¤§æ¦‚2.9M,ä¸åŒ…å«Jetty
+: ç›®å‰åªèƒ½ä½¿ç”¨ Spring
 
 Jersey
-: ºËĞÄ°ü+·şÎñ¶Ë°ü´ó¸Å1.6M ²»¿¼ÂÇÒÀÀµ
+: æ ¸å¿ƒåŒ…+æœåŠ¡ç«¯åŒ…å¤§æ¦‚1.6M ä¸è€ƒè™‘ä¾èµ–
 
 Dropwizard
-: ºËĞÄ°ü¼ÓÒÀÀµ,´ò°üºó´óÔ¼ 9.5M, °üº¬ÁËËùÓĞµÄ¹¦ÄÜ
+: æ ¸å¿ƒåŒ…åŠ ä¾èµ–,æ‰“åŒ…åå¤§çº¦ 9.5M, åŒ…å«äº†æ‰€æœ‰çš„åŠŸèƒ½
 : Apache License v2
-: Ö»ĞèÒªÒıÈëÒ»¸ö×ø±ê,¾ÍÁ¢¼´¿ÉÒÔ½øĞĞ¿ª·¢,Ê¹ÓÃ·Ç³£·½±ã,´î½¨ºÃÁËÒ»ÏµÁĞµÄ¿ò¼Ü,Ê¹ÓÃµÄ¶¼ÊÇÄ¿Ç°±È½ÏºÃµÄÊµÏÖºÍ±È½ÏĞÂµÄ°æ±¾.±ÜÃâÁËºÜ¶àÅäÖÃÉÏµÄÂé·³
-: Ò²¿ÉÒÔÅäºÏ Guice Ê¹ÓÃ https://github.com/HubSpot/dropwizard-guice
-: JSON ×¢½â http://wiki.fasterxml.com/JacksonAnnotations
-: Bean Validation×¢½â: http://docs.jboss.org/hibernate/validator/5.1/reference/en-US/html_single/#section-builtin-constraints
+: åªéœ€è¦å¼•å…¥ä¸€ä¸ªåæ ‡,å°±ç«‹å³å¯ä»¥è¿›è¡Œå¼€å‘,ä½¿ç”¨éå¸¸æ–¹ä¾¿,æ­å»ºå¥½äº†ä¸€ç³»åˆ—çš„æ¡†æ¶,ä½¿ç”¨çš„éƒ½æ˜¯ç›®å‰æ¯”è¾ƒå¥½çš„å®ç°å’Œæ¯”è¾ƒæ–°çš„ç‰ˆæœ¬.é¿å…äº†å¾ˆå¤šé…ç½®ä¸Šçš„éº»çƒ¦
+: ä¹Ÿå¯ä»¥é…åˆ Guice ä½¿ç”¨ https://github.com/HubSpot/dropwizard-guice
+: JSON æ³¨è§£ http://wiki.fasterxml.com/JacksonAnnotations
+: Bean Validationæ³¨è§£: http://docs.jboss.org/hibernate/validator/5.1/reference/en-US/html_single/#section-builtin-constraints
 
 
 WebSocket
 --------
-* ¼òµ¥µÄ²âÊÔWebSocket http://www.websocket.org/echo.html
-* jsµÄwebsocket¿Í»§¶Ë https://github.com/gimite/web-socket-js
-* ¼òµ¥µÄ java WebSocket ÊµÏÖ https://github.com/TooTallNate/Java-WebSocket
-	* __¿ÉÔËĞĞÔÚ°²×¿¶Ë__
-* ÆäÊµ [](http://async-io.org/) ÊÇÒ»¸ö·Ç³£²»´íµÄ¿ò¼Ü, Ö»ÊÇËÆºõ²»ÄÜ²¿Êğ·şÎñ¶ËÔÚ°²×¿ÉÏ
+* ç®€å•çš„æµ‹è¯•WebSocket http://www.websocket.org/echo.html
+* jsçš„websocketå®¢æˆ·ç«¯ https://github.com/gimite/web-socket-js
+* ç®€å•çš„ java WebSocket å®ç° https://github.com/TooTallNate/Java-WebSocket
+	* __å¯è¿è¡Œåœ¨å®‰å“ç«¯__
+* å…¶å® [](http://async-io.org/) æ˜¯ä¸€ä¸ªéå¸¸ä¸é”™çš„æ¡†æ¶, åªæ˜¯ä¼¼ä¹ä¸èƒ½éƒ¨ç½²æœåŠ¡ç«¯åœ¨å®‰å“ä¸Š
 
 
 
@@ -80,5 +80,5 @@ WebSocket
 
 -----
 
-ÖĞÎÄ jsr-356 WebSocket
+ä¸­æ–‡ jsr-356 WebSocket
 https://jsr-chinese.readthedocs.org/en/latest/jsr-356/index.html

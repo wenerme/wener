@@ -1,21 +1,21 @@
 
-:: ÊµÏÖÒ»¸ö CMDRC, Ã¿´ÎÆô¶¯
+:: å®ç°ä¸€ä¸ª CMDRC, æ¯æ¬¡å¯åŠ¨
 reg add "hklm\software\Microsoft\Command Processor" /f /v AutoRun /d "C:\cmdrc.cmd" > NUL
-:: »¹Ëã¼òµ¥µÄÒ»¸öÌáÊ¾·û
+:: è¿˜ç®—ç®€å•çš„ä¸€ä¸ªæç¤ºç¬¦
 prompt $P$_$$$S
 
-:: ºóÌ¨ÔËĞĞ Ïàµ±ÓÚlinuxÏÂµÄ xxx &
+:: åå°è¿è¡Œ ç›¸å½“äºlinuxä¸‹çš„ xxx &
 START /B xxx.exe
 
-:: SC ·şÎñ²Ù×÷ http://support.microsoft.com/kb/251192
+:: SC æœåŠ¡æ“ä½œ http://support.microsoft.com/kb/251192
 sc create svnserve binpath= "\"C:\Program Files\CollabNet Subversion Server\svnserve.exe\" --service -r \"C:\my repositories\"  " displayname= "Subversion Server" depend= Tcpip start= auto
 
 sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\Debug\asperacentral.exe" DisplayName= "Aspera Central" start= auto
 
-:: CMD ĞøĞĞ·ûºÅÎª ^ Ïàµ±ÓÚ linuxµÄ \
+:: CMD ç»­è¡Œç¬¦å·ä¸º ^ ç›¸å½“äº linuxçš„ \
 
-:: ²Ù×÷²Ëµ¥ÖĞµÄ×î¼ÑÁĞ±í
+:: æ“ä½œèœå•ä¸­çš„æœ€ä½³åˆ—è¡¨
 :: %appdata%\Microsoft\Windows\Recent
 
-:: Ìø×ª²Ëµ¥ÖĞµÄ×î½üÁĞ±í
+:: è·³è½¬èœå•ä¸­çš„æœ€è¿‘åˆ—è¡¨
 :: %appdata%\microsoft\windows\recent\automaticdestinations

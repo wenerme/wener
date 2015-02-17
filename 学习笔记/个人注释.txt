@@ -1,11 +1,11 @@
-Í¬²½
+åŒæ­¥
 rsync -avh --exclude-from=to-mv --delete ./ /i/mini_env/
 
 
-ÔÚÕâÀï³õÊ¼»¯ÊÇÔÚ×¢²á±íÖĞ
+åœ¨è¿™é‡Œåˆå§‹åŒ–æ˜¯åœ¨æ³¨å†Œè¡¨ä¸­
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor
-µÄAutoRunÖÆ¶¨µÄ
-Ìí¼Óautorun
+çš„AutoRunåˆ¶å®šçš„
+æ·»åŠ autorun
 reg add "HKLM\SOFTWARE\Microsoft\Command Processor" /v AutoRun /d "%DOS%\init.bat" /f
 
 reg query hkcu\software\minienv /v envpath
@@ -19,40 +19,40 @@ reg query hkcu\software\minienv /v envpath | find "envpath"| gawk {print $3}
 for /f %i in ( 'reg query hkcu\software\minienv /v envpath') do set ENVPATH=%ENVPATH%%i
 
 for /f "delims=" %i in ('reg query hkcu\software\minienv /v envpath | find "envpath"') do set str=%i
-//½«½á¹û¸³Öµ¸ø±äÁ¿
+//å°†ç»“æœèµ‹å€¼ç»™å˜é‡
 for /f %i in ( 'date   /t ') do set ENVPATH=%i
 
-echo µ±Ç°ÅÌ·û£º%~d0
-echo µ±Ç°ÅÌ·ûºÍÂ·¾¶£º%~dp0
-echo µ±Ç°Åú´¦ÀíÈ«Â·¾¶£º%~f0
-echo µ±Ç°ÅÌ·ûºÍÂ·¾¶µÄ¶ÌÎÄ¼şÃû¸ñÊ½£º%~sdp0
-echo µ±Ç°CMDÄ¬ÈÏÄ¿Â¼£º%cd%
-echo Ä¿Â¼ÖĞÓĞ¿Õ¸ñÒ²¿ÉÒÔ¼ÓÈë""±ÜÃâÕÒ²»µ½Â·¾¶
+echo å½“å‰ç›˜ç¬¦ï¼š%~d0
+echo å½“å‰ç›˜ç¬¦å’Œè·¯å¾„ï¼š%~dp0
+echo å½“å‰æ‰¹å¤„ç†å…¨è·¯å¾„ï¼š%~f0
+echo å½“å‰ç›˜ç¬¦å’Œè·¯å¾„çš„çŸ­æ–‡ä»¶åæ ¼å¼ï¼š%~sdp0
+echo å½“å‰CMDé»˜è®¤ç›®å½•ï¼š%cd%
+echo ç›®å½•ä¸­æœ‰ç©ºæ ¼ä¹Ÿå¯ä»¥åŠ å…¥""é¿å…æ‰¾ä¸åˆ°è·¯å¾„
 
 
 
-chrome ½ÓÊÜµÄ²ÎÊı
+chrome æ¥å—çš„å‚æ•°
 --disable-images
 --disable-javascript
 --disable-java
 --disable-plugins
---incognito	ÒşÉí´°¿Ú
+--incognito	éšèº«çª—å£
 
-%CD% - À©Õ¹µ½µ±Ç°Ä¿Â¼×Ö·û´®¡£
+%CD% - æ‰©å±•åˆ°å½“å‰ç›®å½•å­—ç¬¦ä¸²ã€‚
 
-%DATE% - ÓÃ¸ú DATE ÃüÁîÍ¬ÑùµÄ¸ñÊ½À©Õ¹µ½µ±Ç°ÈÕÆÚ¡£
+%DATE% - ç”¨è·Ÿ DATE å‘½ä»¤åŒæ ·çš„æ ¼å¼æ‰©å±•åˆ°å½“å‰æ—¥æœŸã€‚
 
-%TIME% - ÓÃ¸ú TIME ÃüÁîÍ¬ÑùµÄ¸ñÊ½À©Õ¹µ½µ±Ç°Ê±¼ä¡£
+%TIME% - ç”¨è·Ÿ TIME å‘½ä»¤åŒæ ·çš„æ ¼å¼æ‰©å±•åˆ°å½“å‰æ—¶é—´ã€‚
 
-%RANDOM% - À©Õ¹µ½ 0 ºÍ 32767 Ö®¼äµÄÈÎÒâÊ®½øÖÆÊı×Ö¡£
+%RANDOM% - æ‰©å±•åˆ° 0 å’Œ 32767 ä¹‹é—´çš„ä»»æ„åè¿›åˆ¶æ•°å­—ã€‚
 
-%ERRORLEVEL% - À©Õ¹µ½µ±Ç° ERRORLEVEL ÊıÖµ¡£
+%ERRORLEVEL% - æ‰©å±•åˆ°å½“å‰ ERRORLEVEL æ•°å€¼ã€‚
 
-%CMDEXTVERSION% - À©Õ¹µ½µ±Ç°ÃüÁî´¦ÀíÆ÷À©Õ¹°æ±¾ºÅ¡£
+%CMDEXTVERSION% - æ‰©å±•åˆ°å½“å‰å‘½ä»¤å¤„ç†å™¨æ‰©å±•ç‰ˆæœ¬å·ã€‚
 
-%CMDCMDLINE% - À©Õ¹µ½µ÷ÓÃÃüÁî´¦ÀíÆ÷µÄÔ­Ê¼ÃüÁîĞĞ¡£
+%CMDCMDLINE% - æ‰©å±•åˆ°è°ƒç”¨å‘½ä»¤å¤„ç†å™¨çš„åŸå§‹å‘½ä»¤è¡Œã€‚
 
-%HIGHESTNUMANODENUMBER% - À©Õ¹µ½´Ë¼ÆËã»úÉÏµÄ×î¸ß NUMA ½ÚµãºÅ¡£
+%HIGHESTNUMANODENUMBER% - æ‰©å±•åˆ°æ­¤è®¡ç®—æœºä¸Šçš„æœ€é«˜ NUMA èŠ‚ç‚¹å·ã€‚
 
 addusers
 Adds, Writes, or Erases accounts as specified by a delimited file.
@@ -61,14 +61,14 @@ NTFS Last Access Time Finder
 audited
 NTFS SACL Reporter - Finds audited files
 
-Ê¹ÓÃvim´ò¿ªtxtfileÀàÎÄµµ
+ä½¿ç”¨vimæ‰“å¼€txtfileç±»æ–‡æ¡£
 ftype txtfile=%vim%\gvim.exe "%1" %*
-ÓÃvim´ò¿ªcºÍcpp h
+ç”¨vimæ‰“å¼€cå’Œcpp h
 assoc .h=txtfile
 assoc .c=txtfile
 assoc .cpp=txtfile
 
-ÓÒ¼ü²Ëµ¥
+å³é”®èœå•
 HKCR \*\shellex\contextmenuhandlers	Files
 HKCR\AllFileSystemObjects\shellex\ contextmenuhandlers	Files and file folders
 HKCR\Folder\shellex\contextmenuhandlers	Folders

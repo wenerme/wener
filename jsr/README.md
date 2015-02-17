@@ -1,37 +1,37 @@
 
-ÒÑ·­Òë
+å·²ç¿»è¯‘
 ------
 
-jsr | ×´Ì¬
+jsr | çŠ¶æ€
 ----|----
-JSR 339: JAX-RS 2.0: The Java API for RESTful Web Services | Î´Íê³É
+JSR 339: JAX-RS 2.0: The Java API for RESTful Web Services | æœªå®Œæˆ
 
 
-ÊÕ¼¯ÎÄµµ
+æ”¶é›†æ–‡æ¡£
 -------
 
-ÊÕ¼¯µÄ±ğÈË·­ÒëµÄJSRÓëÔ­×÷ÕßºÍÔ­Ò³Ãæ
+æ”¶é›†çš„åˆ«äººç¿»è¯‘çš„JSRä¸åŸä½œè€…å’ŒåŸé¡µé¢
 
-jsr | Ô­×÷Õß | Ô­ÍøÒ³
+jsr | åŸä½œè€… | åŸç½‘é¡µ
 ----|----|----
-JSR 133: JavaTM Memory Model and Thread Specification | ticmy | [Ô­ÎÄ](http://ifeve.com/jsr133-cn/)
-JSR 356: JavaTM API for WebSocket | [readthedocs](http://readthedocs.org/) | [Ô­ÎÄ](https://jsr-chinese.readthedocs.org/en/latest/jsr-356/index.html)
+JSR 133: JavaTM Memory Model and Thread Specification | ticmy | [åŸæ–‡](http://ifeve.com/jsr133-cn/)
+JSR 356: JavaTM API for WebSocket | [readthedocs](http://readthedocs.org/) | [åŸæ–‡](https://jsr-chinese.readthedocs.org/en/latest/jsr-356/index.html)
 
-ÈçÈôÇÖ·¸ÁËÄúµÄÈ¨Àû,Çë¼°Ê±¸æÖª,ÎÒ»á×ö³öÒ»¶¨µÄµ÷Õû
+å¦‚è‹¥ä¾µçŠ¯äº†æ‚¨çš„æƒåˆ©,è¯·åŠæ—¶å‘ŠçŸ¥,æˆ‘ä¼šåšå‡ºä¸€å®šçš„è°ƒæ•´
 
-¸½×¢
+é™„æ³¨
 ----
 
-¸ÃÄ¿Â¼ÏÂµÄÆäÓà²¿·ÖÊÇÎÒ·­ÒëµÄ²¿·ÖJSR[^what-is-jsr]ÎÄµµ.Ö®ËùÒÔÏëÒª·­ÒëJSR,ÊÇÏë×Ô¼º¶ÔÕâĞ©¹æ·¶ÓĞ¸üÉîµÄÀí½â,Ò²Ï£Íû¸ü¶àµÄÈËÄÜÀí½âÕâĞ©¹æ·¶.ÔÄ¶ÁJSR±ÈÔÄ¶ÁÊé¼®¸üÄÜ»ñÈ¡µ½ÖªÊ¶,±Ï¾¹JSR¶¼ÊÇ¾«»ª.
+è¯¥ç›®å½•ä¸‹çš„å…¶ä½™éƒ¨åˆ†æ˜¯æˆ‘ç¿»è¯‘çš„éƒ¨åˆ†JSR[^what-is-jsr]æ–‡æ¡£.ä¹‹æ‰€ä»¥æƒ³è¦ç¿»è¯‘JSR,æ˜¯æƒ³è‡ªå·±å¯¹è¿™äº›è§„èŒƒæœ‰æ›´æ·±çš„ç†è§£,ä¹Ÿå¸Œæœ›æ›´å¤šçš„äººèƒ½ç†è§£è¿™äº›è§„èŒƒ.é˜…è¯»JSRæ¯”é˜…è¯»ä¹¦ç±æ›´èƒ½è·å–åˆ°çŸ¥è¯†,æ¯•ç«ŸJSRéƒ½æ˜¯ç²¾å.
 
-  [^what-is-jsr]: ¹ØÓÚJSRµÄ¶¨Òå, ²Î¼û JCP FAQ ÖĞµÄ»Ø´ğ https://jcp.org/en/introduction/faq#jsr.
+  [^what-is-jsr]: å…³äºJSRçš„å®šä¹‰, å‚è§ JCP FAQ ä¸­çš„å›ç­” https://jcp.org/en/introduction/faq#jsr.
 
-·­ÒëÕâĞ©ÎÄµµ¾ùÊÇÊ¹ÓÃµÄ `Markdown` ¸ñÊ½ÊéĞ´,ÇÒÊ¹ÓÃÁËºÜ¶àÀ©Õ¹¹¦ÄÜ,Óï·¨ÊÇGithubÁ÷(GFM).Òò´ËÏëÒª±È½ÏºÃµÄÔÄ¶Á,ÇëÊ¹ÓÃ[stackedit.io].ÀıÈçÏëÔÄ¶Á `jsr/jsr339-cn`, ÄÇÃ´URLÎª
+ç¿»è¯‘è¿™äº›æ–‡æ¡£å‡æ˜¯ä½¿ç”¨çš„ `Markdown` æ ¼å¼ä¹¦å†™,ä¸”ä½¿ç”¨äº†å¾ˆå¤šæ‰©å±•åŠŸèƒ½,è¯­æ³•æ˜¯Githubæµ(GFM).å› æ­¤æƒ³è¦æ¯”è¾ƒå¥½çš„é˜…è¯»,è¯·ä½¿ç”¨[stackedit.io].ä¾‹å¦‚æƒ³é˜…è¯» `jsr/jsr339-cn`, é‚£ä¹ˆURLä¸º
 
 	https://stackedit.io/viewer#!url=https://raw.githubusercontent.com/wenerme/wener/master/jsr/jsr339-cn.md
 
-ÏëÒª·ÃÎÊÆäËûµÄÎÄµµ, URLÒÔ´ÎÀàÍÆ.
+æƒ³è¦è®¿é—®å…¶ä»–çš„æ–‡æ¡£, URLä»¥æ¬¡ç±»æ¨.
 
-¾õµÃÓĞ·­Òë²»µ½Î»»òÕß²»×¼È·µÄ»òÕßÊÇÈÎºÎÒâ¼ûºÍ½¨Òé,ÇëÁªÏµ [wener](https://github.com/wenerme), »òÕßÊÇ[·¢ÆğÒ»¸öIssus](https://github.com/wenerme/wener/issues/new) .
+è§‰å¾—æœ‰ç¿»è¯‘ä¸åˆ°ä½æˆ–è€…ä¸å‡†ç¡®çš„æˆ–è€…æ˜¯ä»»ä½•æ„è§å’Œå»ºè®®,è¯·è”ç³» [wener](https://github.com/wenerme), æˆ–è€…æ˜¯[å‘èµ·ä¸€ä¸ªIssus](https://github.com/wenerme/wener/issues/new) .
 
  [stackedit.io]: https://stackedit.io

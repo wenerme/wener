@@ -61,7 +61,7 @@ script to 'filenam'
 -- ======================================
 DROP TABLE IF EXISTS massive;
 /* 不创建索引,否则会产生大量的索引文件 */
-CREATE TABLE massive (id int /*NOT NULL PRIMARY KEY*/ AUTO_INCREMENT, n int, val varchar(40));
+CREATE TABLE massive (id int PRIMARY KEY AUTO_INCREMENT, n int, val varchar(40));
 
 -- 使其在一个事务里,增加插入的速度
 DROP PROCEDURE IF EXISTS prepare_data;
@@ -71,7 +71,7 @@ BEGIN
 	DECLARE i INT DEFAULT 0;
 	START TRANSACTION;
 	WHILE i < n DO
-		INSERT INTO massive (n,val) VALUES (i, uuid());
+		INSERT INTO massive (n,val) VALUES (i % 200, uuid());
 		SET i = i + 1;
 	END WHILE;
 	COMMIT;
@@ -83,7 +83,7 @@ CALL prepare_data(100);
 SHOW CREATE PROCEDURE prepare_data;
 
 -- 可能需要一些权限
-GRANT EXECUTE ON PROCEDURE test.* TO 'root'@'%';
+GRANT EXECUTE ON PROCEDURE test.* TO ''@'localhost';
 flush privileges;
 -- 清除 binlog
 PURGE BINARY LOGS TO 'mysql-bin.010';

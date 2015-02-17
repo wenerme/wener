@@ -1,39 +1,39 @@
 [toc]
 
-ÍæÎÒµÄ CentOS / Play CentOS
+ç©æˆ‘çš„ CentOS / Play CentOS
 ===================
 
-> ¼ÇÂ¼ÎÒÍæ centos µÄ¾­Àú
-> ºÜ¶àÊ±ºòĞèÒª sudo µÈ root È¨ÏŞµÄÊ±ºòĞèÒª×ÔĞĞÅĞ¶Ï.¾¡Á¿²»Ö±½ÓÓÃrootÕÊ»§.
+> è®°å½•æˆ‘ç© centos çš„ç»å†
+> å¾ˆå¤šæ—¶å€™éœ€è¦ sudo ç­‰ root æƒé™çš„æ—¶å€™éœ€è¦è‡ªè¡Œåˆ¤æ–­.å°½é‡ä¸ç›´æ¥ç”¨rootå¸æˆ·.
 
-> ÎÒ×Ô¼ºÊ¹ÓÃÊ±µÄÖ÷Òª°²×°¹ı³Ì
+> æˆ‘è‡ªå·±ä½¿ç”¨æ—¶çš„ä¸»è¦å®‰è£…è¿‡ç¨‹
 > 
-> ³õÊ¼ÅäÖÃ -> ÉèÖÃºÃ openssh-server -> Ìí¼Ó¶îÍâµÄ repo -> °²×° git
-> ÏÂÔØ[ÎÒµÄdotfiles](https://github.com/wenerme/dotfiles)
-> ÆäËû²½ÖèÔò°´Ğè½øĞĞ
+> åˆå§‹é…ç½® -> è®¾ç½®å¥½ openssh-server -> æ·»åŠ é¢å¤–çš„ repo -> å®‰è£… git
+> ä¸‹è½½[æˆ‘çš„dotfiles](https://github.com/wenerme/dotfiles)
+> å…¶ä»–æ­¥éª¤åˆ™æŒ‰éœ€è¿›è¡Œ
 
 
-³õÊ¼ minimal ÅäÖÃ
+åˆå§‹ minimal é…ç½®
 ---------------
 ```
-# Ê×ÏÈÊÇ´ò¿ªÍøÂç¿©
+# é¦–å…ˆæ˜¯æ‰“å¼€ç½‘ç»œå’¯
 ifconfig eth0 up
 dhclient
-# Ìí¼Ó¸öÕÊºÅ, ÉèÖÃºÃÃÜÂë
+# æ·»åŠ ä¸ªå¸å·, è®¾ç½®å¥½å¯†ç 
 useradd wener
 passwd wener
-# °Ñ ´´½¨µÄÕÊºÅÌí¼Óµ½ sudoers file ÖĞ
+# æŠŠ åˆ›å»ºçš„å¸å·æ·»åŠ åˆ° sudoers file ä¸­
 echo "wener ALL=(ALL) ALL" >> /etc/sudoers
-# ¸üĞÂÒ»ÏÂÏÈ
+# æ›´æ–°ä¸€ä¸‹å…ˆ
 yum update -y
-# ÒòÎªÊÇ minimal °æ±¾, ÏÈ°²×°Ò»Ğ©±ØÒªµÄ¶«Î÷
+# å› ä¸ºæ˜¯ minimal ç‰ˆæœ¬, å…ˆå®‰è£…ä¸€äº›å¿…è¦çš„ä¸œè¥¿
 yum install man wget curl -y
-# µÇ³ö,ÏÂÃæµÄ²Ù×÷²»ÔÚrootÏÂ²Ù×÷ÁË,°²È«µã
+# ç™»å‡º,ä¸‹é¢çš„æ“ä½œä¸åœ¨rootä¸‹æ“ä½œäº†,å®‰å…¨ç‚¹
 logout
-# ÓÃÖ®Ç°´´½¨µÄÕÊºÅµÇÂ¼
+# ç”¨ä¹‹å‰åˆ›å»ºçš„å¸å·ç™»å½•
 ```
 
-·Ç minimal µÄ×¼±¸
+é minimal çš„å‡†å¤‡
 -------
 
 ```
@@ -48,70 +48,70 @@ su root
 yum upgrade
 ```
 
-Ìí¼ÓÆäËûµÄ repo
+æ·»åŠ å…¶ä»–çš„ repo
 ---------------
 ```
 # add rpmforge
 # fllow this http://wiki.centos.org/AdditionalResources/Repositories/RPMForge
 rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
-# °æ±¾ºÅ¿ÉÄÜÓĞËù²»Í¬,²Î¼ûÉÏÃæµÄÁ´½Ó
-# ¸ù¾İ¸öÈËµÄÏµÍ³¹¹¼Ü`uname -i`Ñ¡Ôñ i686 »ò x86_64
+# ç‰ˆæœ¬å·å¯èƒ½æœ‰æ‰€ä¸åŒ,å‚è§ä¸Šé¢çš„é“¾æ¥
+# æ ¹æ®ä¸ªäººçš„ç³»ç»Ÿæ„æ¶`uname -i`é€‰æ‹© i686 æˆ– x86_64
 wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 rpm -K rpmforge-release-*.rpm
 rpm -i rpmforge-release-*.rpm
 yum upgrade
 ```
 
-ÔÓÏî
+æ‚é¡¹
 -----
 ```
 # lscpi
 yum install pciutils -y
-# iwconfig µÈÎŞÏß¹¤¾ß
+# iwconfig ç­‰æ— çº¿å·¥å…·
 yum install wireless-tools -y
 
-# ÁĞ³öÒÑ°²×°µÄ°ü
+# åˆ—å‡ºå·²å®‰è£…çš„åŒ…
 yum list installed
 
-# ÇĞ»» TTY µÄ¿ì½İ¼ü <C-A-F1-6>
+# åˆ‡æ¢ TTY çš„å¿«æ·é”® <C-A-F1-6>
 
-# sudo ¸½¼Óµ½ÎÄ¼ş
+# sudo é™„åŠ åˆ°æ–‡ä»¶
 echo BOOTPROTO=dhcp | sudo tee -a /etc/sysconfig/network-scripts/ifcfg-wlan0
 
-# ¹ÒÔØ vbox µÄ¹²ÏíÄ¿Â¼
+# æŒ‚è½½ vbox çš„å…±äº«ç›®å½•
 mkdir ~/shared
 sudo mount -t vboxsf shared ~/shared
 
-# Ê¹ÓÃsudoÕÒ²»µ½ÃüÁîµÄÊ±ºò
-# ¿ÉÒÔ¿¼ÂÇ½« /usr/local/bin/:/usr/local/sbin/ 
-# Ìí¼Óµ½ /etc/sudoers µÄ secure_path ÖĞ
+# ä½¿ç”¨sudoæ‰¾ä¸åˆ°å‘½ä»¤çš„æ—¶å€™
+# å¯ä»¥è€ƒè™‘å°† /usr/local/bin/:/usr/local/sbin/ 
+# æ·»åŠ åˆ° /etc/sudoers çš„ secure_path ä¸­
 
-# ÅĞ¶ÏÔ¶³ÌÄ³¶Ë¿ÚÊÇ·ñ¿ªÆô
+# åˆ¤æ–­è¿œç¨‹æŸç«¯å£æ˜¯å¦å¼€å¯
 timeout 1 bash -c 'cat < /dev/null > /dev/tcp/192.168.56.101/8087'
 echo $?
 ```
 
-CentOS ÏÂ °²×°µÄwpa_supplicant Ã»ÓĞwpa_gui,¿ÉÒÔ²Î¼û [ÕâÀï](http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wpa_supplicant.html),Ö÷ÒªÊÇÒòÎª centosµÄwpa_supplicant °æ±¾Ì«ÀÏÁË,0.7µÄ,ÏÖÔÚ×îĞÂµÄÊÇ2.1µÄ,²é¿´[¹Ù·½Ö÷Ò³](http://w1.fi/wpa_supplicant/)¿ÉÏÂÔØ.µ«ÊÇÕâ¸öÈí¼şµÄÒÀÀµÏî¶ÔcentosÀ´Ëµ °æ±¾Ì«¸ßÁË,°²×°ÆğÀ´·Ç³£¸´ÔÓ.
+CentOS ä¸‹ å®‰è£…çš„wpa_supplicant æ²¡æœ‰wpa_gui,å¯ä»¥å‚è§ [è¿™é‡Œ](http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wpa_supplicant.html),ä¸»è¦æ˜¯å› ä¸º centosçš„wpa_supplicant ç‰ˆæœ¬å¤ªè€äº†,0.7çš„,ç°åœ¨æœ€æ–°çš„æ˜¯2.1çš„,æŸ¥çœ‹[å®˜æ–¹ä¸»é¡µ](http://w1.fi/wpa_supplicant/)å¯ä¸‹è½½.ä½†æ˜¯è¿™ä¸ªè½¯ä»¶çš„ä¾èµ–é¡¹å¯¹centosæ¥è¯´ ç‰ˆæœ¬å¤ªé«˜äº†,å®‰è£…èµ·æ¥éå¸¸å¤æ‚.
 
-Æô¶¯²»´ø´°¿ÚµÄvbox
+å¯åŠ¨ä¸å¸¦çª—å£çš„vbox
 ------------------
-ºÜ¶àÊ±ºòÖ»ĞèÒªÈÃÏµÍ³ÔËĞĞ, È»ºóÔ¶³Ì ssh ·ÃÎÊ, Í¬Ê±Ò²½ÚÔ¼µãÄÚ´æ.
+å¾ˆå¤šæ—¶å€™åªéœ€è¦è®©ç³»ç»Ÿè¿è¡Œ, ç„¶åè¿œç¨‹ ssh è®¿é—®, åŒæ—¶ä¹ŸèŠ‚çº¦ç‚¹å†…å­˜.
 ```
-# ·½·¨Ò». Ê¹ÓÃÃüÁîĞĞ
-# ÖªµÀÆô¶¯ÏµÍ³µÄÃû×Ö»òUUID
+# æ–¹æ³•ä¸€. ä½¿ç”¨å‘½ä»¤è¡Œ
+# çŸ¥é“å¯åŠ¨ç³»ç»Ÿçš„åå­—æˆ–UUID
 VBoxManager list vms
-# Æô¶¯Ö¸¶¨µÄÏµÍ³
+# å¯åŠ¨æŒ‡å®šçš„ç³»ç»Ÿ
 VBoxManager -s UUID
-# »ò
-VBoxManager -s ÏµÍ³Ãû×Ö
-# ·½·¨¶ş. ÔÚµãÆô¶¯°´Å¥µÄÊ±ºò,°´×¡ Shift ¼´¿É
+# æˆ–
+VBoxManager -s ç³»ç»Ÿåå­—
+# æ–¹æ³•äºŒ. åœ¨ç‚¹å¯åŠ¨æŒ‰é’®çš„æ—¶å€™,æŒ‰ä½ Shift å³å¯
 ```
 
-°²×°Ç°Ìá
+å®‰è£…å‰æ
 --------
 
 ```
-# ÔÚ½øĞĞÏÂÁĞ°²×°µÄÊ±ºò ¼ÙÉèÒÑ¾­ÉèÖÃºÃÁË rpmforg ÒÑ¾­°²×°ÁË¿ª·¢tao#Ì×¼ş groupinstall "Development tools" -y
+# åœ¨è¿›è¡Œä¸‹åˆ—å®‰è£…çš„æ—¶å€™ å‡è®¾å·²ç»è®¾ç½®å¥½äº† rpmforg å·²ç»å®‰è£…äº†å¼€å‘tao#å¥—ä»¶ groupinstall "Development tools" -y
 ```
 
 Install 7z
@@ -121,48 +121,48 @@ Install 7z
 yum install p7zip -y
 ```
 
-°²×° GUI, Ö»Õë¶ÔÓÚ minimal °²×°µÄ
+å®‰è£… GUI, åªé’ˆå¯¹äº minimal å®‰è£…çš„
 ----------------------------------
 ```
 yum -y groupinstall "X Window System" "Desktop" "Fonts" "General Purpose Desktop"
-# Ä¬ÈÏÊÇÃ»ÓĞ»ğºüµÄ,×Ô¼ºÊÖ¶¯°²×°
+# é»˜è®¤æ˜¯æ²¡æœ‰ç«ç‹çš„,è‡ªå·±æ‰‹åŠ¨å®‰è£…
 yum -y firefox
 ```
 
-°²×°virtual-boxµÄ¸½¼ÓÀ©Õ¹
+å®‰è£…virtual-boxçš„é™„åŠ æ‰©å±•
 --------------------------
-Ò»°ãÖ±½Ó°²×°À©Õ¹µÄÊ±ºò°²×°Ö÷Ä£¿éÓĞ¿ÉÄÜÊ§°Ü.
+ä¸€èˆ¬ç›´æ¥å®‰è£…æ‰©å±•çš„æ—¶å€™å®‰è£…ä¸»æ¨¡å—æœ‰å¯èƒ½å¤±è´¥.
 ```
-# ²Î¿¼ http://wiki.centos.org/HowTos/Virtualization/VirtualBox/CentOSguest
-# ĞèÒªÏÈÅäÖÃºÃ rpmforge
+# å‚è€ƒ http://wiki.centos.org/HowTos/Virtualization/VirtualBox/CentOSguest
+# éœ€è¦å…ˆé…ç½®å¥½ rpmforge
 yum -y install dkms
 yum -y groupinstall "Development Tools"
 yum -y install kernel-devel
 ```
 
-°²×° git
+å®‰è£… git
 --------
 ```
-# ÒòÎª git °æ±¾Ì«µÍÁË,ËùÒÔ´òËã×Ô¼º°²×°git
+# å› ä¸º git ç‰ˆæœ¬å¤ªä½äº†,æ‰€ä»¥æ‰“ç®—è‡ªå·±å®‰è£…git
 yum --enablerepo=updates clean metadata
 yum install perl-devel -y
 yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
-# ¿ÉÒÔ¿¼ÂÇÊ¹ÓÃÆäËû°æ±¾, ÀıÈç https://github.com/git/git/archive/v1.9.4.zip
-# Ê¹ÓÃ·¢²¼°æÎÈ¶¨Ğ©
+# å¯ä»¥è€ƒè™‘ä½¿ç”¨å…¶ä»–ç‰ˆæœ¬, ä¾‹å¦‚ https://github.com/git/git/archive/v1.9.4.zip
+# ä½¿ç”¨å‘å¸ƒç‰ˆç¨³å®šäº›
 curl -L -o git.zip https://github.com/git/git/archive/master.zip
-# »ò
+# æˆ–
 # wget -O git.zip https://github.com/git/git/archive/master.zip
 unzip git*.zip
 cd git*
 make prefix=/usr/local all
 make prefix=/usr/local install
-# ÕâÀï¿ÉÄÜºÍ ÔÚ Development tools ÀïµÄgit³åÍ»
-# ¿ÉÒÔÒÆ³ı°²×°µÄgit ´ÓĞÂ´ò¿ªÖÕ¶Ë¾ÍºÃÁË
+# è¿™é‡Œå¯èƒ½å’Œ åœ¨ Development tools é‡Œçš„gitå†²çª
+# å¯ä»¥ç§»é™¤å®‰è£…çš„git ä»æ–°æ‰“å¼€ç»ˆç«¯å°±å¥½äº†
 yum remove git
 exit
 # reopen an terminal
-# Èç¹û²»ÏëÒÆ³ı git
-# Çå³ıÏÂ git µÄhash¾ÍºÃÁË
+# å¦‚æœä¸æƒ³ç§»é™¤ git
+# æ¸…é™¤ä¸‹ git çš„hashå°±å¥½äº†
 hash -d git
 ```
 
@@ -281,7 +281,7 @@ make -j 8 && make test -j 8 && make install
 Install vim
 ---------------
 ```
-# Ö±½ÓÊ¹ÓÃyumËÑË÷µ½µÄ ÎªÁËÊ¹ÓÃ¼òµ¥
+# ç›´æ¥ä½¿ç”¨yumæœç´¢åˆ°çš„ ä¸ºäº†ä½¿ç”¨ç®€å•
 yum install vim-enhanced -y
 
 ```
@@ -311,15 +311,15 @@ Bully + Aircrack-ng + Reaver
 
 > [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz)  
 > [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz) 
-> reaver µÄÌæ´ú [bully](https://github.com/bdpurcell/bully)
+> reaver çš„æ›¿ä»£ [bully](https://github.com/bdpurcell/bully)
 
 ```
-# ×¼±¸¹¤×÷
+# å‡†å¤‡å·¥ä½œ
 yum install -y libpcap libpcap-devel openssl-devel sqlite sqlite-devel
-# Õâ¸ölibnl ÊÇÓÃÀ´Ö§³Ö netlink (nl80211) µÄ
+# è¿™ä¸ªlibnl æ˜¯ç”¨æ¥æ”¯æŒ netlink (nl80211) çš„
 yum install -y libnl libnl-devel
 
-# ÏÈ¸ãºÃ bully
+# å…ˆæå¥½ bully
 curl -L -o bully.zip https://github.com/bdpurcell/bully/archive/master.zip
 7za x bully.zip
 cd bully-master/src
@@ -327,23 +327,23 @@ make
 make install
 cd -
 
-# ÔÙ¸ã Aircrack-ng
-# ÎÒ°²×°Ê± ×î¸ß°æ±¾Îª 1.2-beta3
-# ÕâÀïĞèÒª×¢ÒâµÄÊÇ, aircrack-ng ±»Ç½ÁË,ÖÁÉÙÎÒÏÂÔØµÄÊ±ºòÊÇµÄ
-# ÎÒÊÇ·ÅÔÚ¹²ÏíÄ¿Â¼Àï¿½±´¹ıÀ´µÄ
-# Ò²¿ÉÒÔ´Ó github ÏÂÔØ
+# å†æ Aircrack-ng
+# æˆ‘å®‰è£…æ—¶ æœ€é«˜ç‰ˆæœ¬ä¸º 1.2-beta3
+# è¿™é‡Œéœ€è¦æ³¨æ„çš„æ˜¯, aircrack-ng è¢«å¢™äº†,è‡³å°‘æˆ‘ä¸‹è½½çš„æ—¶å€™æ˜¯çš„
+# æˆ‘æ˜¯æ”¾åœ¨å…±äº«ç›®å½•é‡Œæ‹·è´è¿‡æ¥çš„
+# ä¹Ÿå¯ä»¥ä» github ä¸‹è½½
 # https://github.com/aircrack-ng/aircrack-ng
 wget -O aircrack-ng.tar.gz http://download.aircrack-ng.org/aircrack-ng-1.2-beta3.tar.gz
 tar -xvf aircrack-ng.tar.gz
 cd aircrack-ng-*
-# °²×°¹ı³Ì¿ÉÒÔ²Î¿¼ÕâÀï
+# å®‰è£…è¿‡ç¨‹å¯ä»¥å‚è€ƒè¿™é‡Œ
 # http://www.aircrack-ng.org/doku.php?id=install_aircrack#installing_aircrack-ng_from_source
 make sqlite=true
 sudo make install
-# ¸üĞÂ OUI
+# æ›´æ–° OUI
 sudo airodump-ng-oui-update
 
-# °²×° reaver, ËäÈ»ÓĞbully,µ«ÊÇreaver»¹ÊÇÂù²»´íµÄ
+# å®‰è£… reaver, è™½ç„¶æœ‰bully,ä½†æ˜¯reaverè¿˜æ˜¯è›®ä¸é”™çš„
 wget https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz
 tar -xzvf reaver-*.tar.gz
 cd reaver-*/src
@@ -357,19 +357,19 @@ pin creack
 
 ```bash
 ifconfig wlan0 down
-# ÕâÀï»áÌáÊ¾Ò»Ğ©ÓĞ¿ÉÄÜ±»Ó°ÏìµÄ½ø³Ì dhclient ºÍ wpa_supplicant
-# ¿ÉÒÔ¿¼ÂÇ½«ÕâĞ©½ø³Ì¹Ø±Õ
+# è¿™é‡Œä¼šæç¤ºä¸€äº›æœ‰å¯èƒ½è¢«å½±å“çš„è¿›ç¨‹ dhclient å’Œ wpa_supplicant
+# å¯ä»¥è€ƒè™‘å°†è¿™äº›è¿›ç¨‹å…³é—­
 airmon-ng start wlan0
-bully -e ÈÈµãÃû×Ö -v3 mon0
+bully -e çƒ­ç‚¹åå­— -v3 mon0
 
-# Ê¹ÓÃ reaver µÄ·½·¨
+# ä½¿ç”¨ reaver çš„æ–¹æ³•
 wash -i mon0
 reaver -a -S -vv -i mon0 -b `MAC`
 ```
 
-Í¨¹ıÃüÁîĞĞÁ¬½ÓÎŞÏßÍø, ¼òµ¥°æ
+é€šè¿‡å‘½ä»¤è¡Œè¿æ¥æ— çº¿ç½‘, ç®€å•ç‰ˆ
 ----------------------------
-À´×Ô [connect-to-a-wireless-network-via-command-line](http://www.ghacks.net/2009/04/14/connect-to-a-wireless-network-via-command-line/)
+æ¥è‡ª [connect-to-a-wireless-network-via-command-line](http://www.ghacks.net/2009/04/14/connect-to-a-wireless-network-via-command-line/)
 
 ```
 #! /bin/bash
@@ -377,44 +377,44 @@ ifconfig wlan0
 iwconfig wlan0 essid NETWORK_ID key WIRELESS_KEY
 dhclient wlan0
 ```
-`NETWORK_ID` ÎªÎŞÏßÃû  
-`WIRELESS_KEY` ¸ã²»Çå³ş,Ó¦¸ÃÊÇÃÜÂë°É. Ä¬ÈÏÎª 16 ½øÖÆµÄÖµ,¿ÉÒÔÓÃ `s:WIRELESS_KEY` À´Ê¹ÓÃascii
+`NETWORK_ID` ä¸ºæ— çº¿å  
+`WIRELESS_KEY` æä¸æ¸…æ¥š,åº”è¯¥æ˜¯å¯†ç å§. é»˜è®¤ä¸º 16 è¿›åˆ¶çš„å€¼,å¯ä»¥ç”¨ `s:WIRELESS_KEY` æ¥ä½¿ç”¨ascii
 
-Í¨¹ıÃüÁîĞĞÁ¬½ÓÎŞÏßÍø
+é€šè¿‡å‘½ä»¤è¡Œè¿æ¥æ— çº¿ç½‘
 --------------------
 
-À´×Ô [how-to-connect-to-wpawpa2-wifi-network](http://linuxcommando.blogspot.com/2013/10/how-to-connect-to-wpawpa2-wifi-network.html)
+æ¥è‡ª [how-to-connect-to-wpawpa2-wifi-network](http://linuxcommando.blogspot.com/2013/10/how-to-connect-to-wpawpa2-wifi-network.html)
 
-ĞèÒªÊ¹ÓÃµÄ¹¤¾ß
+éœ€è¦ä½¿ç”¨çš„å·¥å…·
 `yum install wpa_supplicant wireless-tools -y`
 
 ```
-# 1. ²é¿´ÄãµÄÎŞÏßÉè±¸Ãû
+# 1. æŸ¥çœ‹ä½ çš„æ— çº¿è®¾å¤‡å
 $iw dev
 phy#0
 	Interface wlan0
 		ifindex 3
 		type managed
-# 2. ¼ì²éÎŞÏßÉè±¸ÊÇ·ñÆôÓÃ ÀïÃæĞèÒªÓĞ¸öUP
+# 2. æ£€æŸ¥æ— çº¿è®¾å¤‡æ˜¯å¦å¯ç”¨ é‡Œé¢éœ€è¦æœ‰ä¸ªUP
 $ ip link show wlan0
 3: wlan0: (BROADCAST,MULTICAST) mtu 1500 qdisc noop state DOWN mode DEFAULT qlen 1000
     link/ether 74:e5:43:a1:ce:65 brd ff:ff:ff:ff:ff:ff
-# ÆôÓÃÎŞÏßÉè±¸
+# å¯ç”¨æ— çº¿è®¾å¤‡
 $ ip link set wlan0 up
 
-# ¼ì²éÎŞÏßÉè±¸ÊÇ·ñÆôÓÃ ÀïÃæÓĞ¸öUP
+# æ£€æŸ¥æ— çº¿è®¾å¤‡æ˜¯å¦å¯ç”¨ é‡Œé¢æœ‰ä¸ªUP
 $ ip link show wlan0
 3: wlan0: (NO-CARRIER,BROADCAST,MULTICAST,UP) mtu 1500 qdisc mq state DOWN mode DEFAULT qlen 1000
     link/ether 74:e5:43:a1:ce:65 brd ff:ff:ff:ff:ff:ff
 
-# 3. ¼ì²éÁ¬½Ó×´Ì¬
+# 3. æ£€æŸ¥è¿æ¥çŠ¶æ€
 $ /sbin/iw wlan0 link
 Not connected.
 
-# 4. É¨ÃèÍøÂç
+# 4. æ‰«æç½‘ç»œ
 $ sudo /sbin/iw wlan0 scan
 BSS 00:14:d1:9c:1f:c8 (on wlan0)
-        ... ÂÔ¹ı ...
+        ... ç•¥è¿‡ ...
 	freq: 2412
 	SSID: Touch-me
 	RSN:	 * Version: 1
@@ -422,17 +422,17 @@ BSS 00:14:d1:9c:1f:c8 (on wlan0)
 		 * Pairwise ciphers: CCMP
 		 * Authentication suites: PSK
 		 * Capabilities: (0x0000)
-        ... ÂÔ¹ı ...
+        ... ç•¥è¿‡ ...
 
-# ÕâÀïµÄ SSID ºÍ °²È«Ğ­ÒéÀàĞÍºÜÖØÒª
-# ÕâÀïÊÇ RSN, ¼´ wpa2
+# è¿™é‡Œçš„ SSID å’Œ å®‰å…¨åè®®ç±»å‹å¾ˆé‡è¦
+# è¿™é‡Œæ˜¯ RSN, å³ wpa2
 
-# 5. Á¬½Óµ½ WPA/WPA2 wifi
+# 5. è¿æ¥åˆ° WPA/WPA2 wifi
 
-$ wpa_passphrase ÎŞÏßÃû³Æ >> /etc/wpa_supplicant.conf 
-ÎŞÏßÃÜÂë
+$ wpa_passphrase æ— çº¿åç§° >> /etc/wpa_supplicant.conf 
+æ— çº¿å¯†ç 
 
-# ÕıÈ·µÄÓ¦¸ÃÊÇÕâÑùµÄ
+# æ­£ç¡®çš„åº”è¯¥æ˜¯è¿™æ ·çš„
 $ cat /etc/wpa_supplicant.conf 
 # reading passphrase from stdin
 network={
@@ -441,13 +441,13 @@ network={
 	psk=4dfe1c985520d26a13e932bf0acb1d4580461dd854ed79ad1a88ec221a802061
 }
 
-# Á¬½Ó
+# è¿æ¥
 $ sudo wpa_supplicant -B -D wext -i wlan0 -c /etc/wpa_supplicant.conf
-# -B ÔÚºóÌ¨ÔËĞĞ
-# -D Ö¸¶¨ÎŞÏßÉèÎª, wextÎªÆÕÍ¨ÎŞÏßÉè±¸
-# -c ÅäÖÃÎÄ¼şÂ·¾¶
+# -B åœ¨åå°è¿è¡Œ
+# -D æŒ‡å®šæ— çº¿è®¾ä¸º, wextä¸ºæ™®é€šæ— çº¿è®¾å¤‡
+# -c é…ç½®æ–‡ä»¶è·¯å¾„
 
-# ¼ì²éÊÇ·ñÁ¬½Ó
+# æ£€æŸ¥æ˜¯å¦è¿æ¥
 $ /sbin/iw wlan0 link
 Connected to 00:14:d1:9c:1f:c8 (on wlan0)
 	SSID: gorilla
@@ -460,11 +460,11 @@ Connected to 00:14:d1:9c:1f:c8 (on wlan0)
 	bss flags:	short-slot-time
 	dtim period:	0
 	beacon int:	100
-# 6. Í¨¹ı DHCP »ñÈ¡ IPµØÖ·
+# 6. é€šè¿‡ DHCP è·å– IPåœ°å€
 $ sudo dhclient wlan0
-# ÓĞÊ±ºòÎŞ·¨»ñÈ¡ ¿ÉÒÔ¿¼ÂÇ dhclient -x ¹Ø±Õºó´ÓĞÂ»ñÈ¡
+# æœ‰æ—¶å€™æ— æ³•è·å– å¯ä»¥è€ƒè™‘ dhclient -x å…³é—­åä»æ–°è·å–
 
-# ²é¿´ IP µØÖ·
+# æŸ¥çœ‹ IP åœ°å€
 $ ip addr show wlan0
 3: wlan0:  mtu 1500 qdisc mq state UP qlen 1000
     link/ether 74:e5:43:a1:ce:65 brd ff:ff:ff:ff:ff:ff
@@ -472,62 +472,62 @@ $ ip addr show wlan0
     inet6 fe80::76e5:43ff:fea1:ce65/64 scope link 
        valid_lft forever preferred_lft forever
 	   
-# 7. Ìí¼ÓÄ¬ÈÏÂ·ÓÉ¹æÔò(¿ÉÂÔ¹ı)
+# 7. æ·»åŠ é»˜è®¤è·¯ç”±è§„åˆ™(å¯ç•¥è¿‡)
 $ ip route show
 192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113 
 
-#  ÕâÌõ¹æÔòÊÇ×ª·¢ (192.168.1.*) µ½ wlan0,Èç¹ûÄãÏëÌí¼ÓÆäËûµÄ ¿ÉÒÔÓÃÒÔÏÂ·½·¨
+#  è¿™æ¡è§„åˆ™æ˜¯è½¬å‘ (192.168.1.*) åˆ° wlan0,å¦‚æœä½ æƒ³æ·»åŠ å…¶ä»–çš„ å¯ä»¥ç”¨ä»¥ä¸‹æ–¹æ³•
 $ sudo ip route add default via 192.168.1.254 dev wlan0
 $ ip route show
 default via 192.168.1.254 dev wlan0 
 192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113 
 
-# 8. ²âÊÔÊÇ·ñÕıÈ·Á¬½Ó
+# 8. æµ‹è¯•æ˜¯å¦æ­£ç¡®è¿æ¥
 $ ping 8.8.8.8
 ```
 
-×Ô¶¯Á¬½ÓÎŞÏßµÄÅäÖÃ
+è‡ªåŠ¨è¿æ¥æ— çº¿çš„é…ç½®
 -------------
 
-²Î¿¼¹Ù·½µÄ [wpa_supplicant ÅäÖÃ](http://wiki.centos.org/HowTos/Laptops/WpaSupplicant)
-ÕâÀïÃ»ÓĞÌáµ½¸ø wlan0 ÅäÖÃ×Ô¶¯µÄ dhcp
+å‚è€ƒå®˜æ–¹çš„ [wpa_supplicant é…ç½®](http://wiki.centos.org/HowTos/Laptops/WpaSupplicant)
+è¿™é‡Œæ²¡æœ‰æåˆ°ç»™ wlan0 é…ç½®è‡ªåŠ¨çš„ dhcp
 
-¸Ğ¾õÉÏ 
+æ„Ÿè§‰ä¸Š 
 `echo BOOTPROTO=dhcp | sudo tee -a /etc/sysconfig/network-scripts/ifcfg-wlan0`
-ÕâÑù¾Í¿ÉÒÔÁË~µ«ÊÇ»¹ÊÇ²»ĞĞ,»¹ÊÇÒª `dhclient wlan0`
+è¿™æ ·å°±å¯ä»¥äº†~ä½†æ˜¯è¿˜æ˜¯ä¸è¡Œ,è¿˜æ˜¯è¦ `dhclient wlan0`
 
-ĞèÒª²Î¿¼ [Õâ¸ö](http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html) À´ÅäÖÃ.Ò²¿ÉÒÔ²Î¿¼[Õâ¸ö](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch13_:_Linux_Wireless_Networking#.U0YCk_mSyR0)À´ÅäÖÃ.
+éœ€è¦å‚è€ƒ [è¿™ä¸ª](http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html) æ¥é…ç½®.ä¹Ÿå¯ä»¥å‚è€ƒ[è¿™ä¸ª](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch13_:_Linux_Wireless_Networking#.U0YCk_mSyR0)æ¥é…ç½®.
 
 ```
-# µ÷ÊÔ
+# è°ƒè¯•
 wp _supplicantwpaa_supplicant -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -d
 ```
 
-Íü¼ÇÃÜÂë
+å¿˜è®°å¯†ç 
 --------
 
-ÔÚ `grub` Æô¶¯µÄÊ±ºò, ÖĞ¶Ï×Ô¶¯Æô¶¯, ¿´µ½Ñ¡ÔñÁĞ±íµÄÊ±ºò, °´ `a`, É¾³ı `rhgb quiet` È»ºóÊäÈë `1` »Ø³µ, ¼´¿É½øÈëµ¥ÓÃ»§Ä£Ê½. ËæºóÊ¹ÓÃ passwd ĞŞ¸ÄÍê³ÉÃÜÂëºóÖØÆô¾Í¿ÉÒÔ»Øµ½¶àÓÃ»§Ä£Ê½ÁË.
+åœ¨ `grub` å¯åŠ¨çš„æ—¶å€™, ä¸­æ–­è‡ªåŠ¨å¯åŠ¨, çœ‹åˆ°é€‰æ‹©åˆ—è¡¨çš„æ—¶å€™, æŒ‰ `a`, åˆ é™¤ `rhgb quiet` ç„¶åè¾“å…¥ `1` å›è½¦, å³å¯è¿›å…¥å•ç”¨æˆ·æ¨¡å¼. éšåä½¿ç”¨ passwd ä¿®æ”¹å®Œæˆå¯†ç åé‡å¯å°±å¯ä»¥å›åˆ°å¤šç”¨æˆ·æ¨¡å¼äº†.
 
-²Î¿¼ [ResetRootPassword](http://wiki.centos.org/TipsAndTricks/ResetRootPassword)
+å‚è€ƒ [ResetRootPassword](http://wiki.centos.org/TipsAndTricks/ResetRootPassword)
 
-°²×°¿ª·¢»·¾³
+å®‰è£…å¼€å‘ç¯å¢ƒ
 =============
 
 Install JDK
 ----
-¿¼ÂÇĞèÒª°²×°µÄ jdk ·¢²¼ÉÌ, Ñ¡Ôñ openJDK »¹ÊÇ oracle µÄ jdk
-¿É²Î¿¼ÕâÀï[webupd8](https://launchpad.net/~webupd8team/+archive/java) À´°²×° oracle µÄjdk.
-»òÕß²Î¿¼[Õâ¸ö](http://d.stavrovski.net/blog/post/how-to-install-and-setup-oracle-java-jdk-in-centos-6)°²×°²½Öè,»¹¿ÉÒÔ²Î¿¼[ÕâÀï](https://wiki.powerfolder.com/display/PFS/Installing+Oracle+Java+on+Linux)
+è€ƒè™‘éœ€è¦å®‰è£…çš„ jdk å‘å¸ƒå•†, é€‰æ‹© openJDK è¿˜æ˜¯ oracle çš„ jdk
+å¯å‚è€ƒè¿™é‡Œ[webupd8](https://launchpad.net/~webupd8team/+archive/java) æ¥å®‰è£… oracle çš„jdk.
+æˆ–è€…å‚è€ƒ[è¿™ä¸ª](http://d.stavrovski.net/blog/post/how-to-install-and-setup-oracle-java-jdk-in-centos-6)å®‰è£…æ­¥éª¤,è¿˜å¯ä»¥å‚è€ƒ[è¿™é‡Œ](https://wiki.powerfolder.com/display/PFS/Installing+Oracle+Java+on+Linux)
 ```
-# ²é¿´ repo ÖĞÖ§³ÖµÄ jdk °æ±¾, Ò»°ã centos µÄrepoÖĞÖ»ÓĞ openjdk
+# æŸ¥çœ‹ repo ä¸­æ”¯æŒçš„ jdk ç‰ˆæœ¬, ä¸€èˆ¬ centos çš„repoä¸­åªæœ‰ openjdk
 yum search java-1
-# È·±£ÏµÍ³ÖĞÃ»ÓĞ ÒÑ¾­°²×°
+# ç¡®ä¿ç³»ç»Ÿä¸­æ²¡æœ‰ å·²ç»å®‰è£…
 rpm -qa | grep java-
-# Èç¹ûÓĞµÄ»° ÔòÉ¾³ısyum remove java-1.6.0-openjdkayn`
+# å¦‚æœæœ‰çš„è¯ åˆ™åˆ é™¤syum remove java-1.6.0-openjdkayn`
 ```
-ÎÒÑ¡ÔñµÄÊÖ[¶¯ÏÂ](http://www.oracle.com/technetwork/java/javase/downloads/index.html)ÔØ oracle µÄ jdk,±Ï¾¹ oracle µÄjdk¸üÎÈ¶¨Ğ©.
+æˆ‘é€‰æ‹©çš„æ‰‹[åŠ¨ä¸‹](http://www.oracle.com/technetwork/java/javase/downloads/index.html)è½½ oracle çš„ jdk,æ¯•ç«Ÿ oracle çš„jdkæ›´ç¨³å®šäº›.
 
-ÎÒ°²×° JDK8 µÄÏÂÔØµØÖ·
+æˆ‘å®‰è£… JDK8 çš„ä¸‹è½½åœ°å€
 http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.rpm
 
 ```
@@ -571,27 +571,27 @@ Install php
 ```
 yum groupinstall 'PHP Support'
 ```
-°²×°·şÎñ
+å®‰è£…æœåŠ¡
 =============
 
 Install vsftpd
 ---------------
 
 ```
-# È·¶¨ÓĞ
+# ç¡®å®šæœ‰
 yum search vsftpd
 ```
 
 Install openssh-server
 -------------------
 ```
-# ²Î¿¼ http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-openssh-server-config.html
+# å‚è€ƒ http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-openssh-server-config.html
 yum install openssh-server -y
-# ÅäÖÃÎÄ¼şÎª /etc/ssh/sshd_config
-# Æô¶¯
+# é…ç½®æ–‡ä»¶ä¸º /etc/ssh/sshd_config
+# å¯åŠ¨
 /sbin/service sshd start
-# ´ÓÖ÷»úÁ¬½Ó
-# ssh ÓÃ»§Ãû@¸Ãlinux»úÆ÷µÄIP
+# ä»ä¸»æœºè¿æ¥
+# ssh ç”¨æˆ·å@è¯¥linuxæœºå™¨çš„IP
 ```
 
 Install tomcat
@@ -599,32 +599,32 @@ Install tomcat
 ```
 tar -zxvf apache-tomcat*.tar.gz
 mv apache-tomcat* /opt/tomcat
-# Æô¶¯
+# å¯åŠ¨
 /opt/tomcat/bin/startup.sh
-# ÅäÖÃ iptable, Ê¹Íâ²¿¿ÉÒÔ·ÃÎÊ
-# ²é¿´Ä¿Ç°µÄ IPTables ÉèÖÃ
+# é…ç½® iptable, ä½¿å¤–éƒ¨å¯ä»¥è®¿é—®
+# æŸ¥çœ‹ç›®å‰çš„ IPTables è®¾ç½®
 iptables -nL --linenumber
-# È·±£²åÈëÔÚ REJECT any Ç°Ãæ, 5 ÎªĞĞºÅ ¸ù¾İ¸öÈËµÄÇé¿öĞŞ¸Ä
+# ç¡®ä¿æ’å…¥åœ¨ REJECT any å‰é¢, 5 ä¸ºè¡Œå· æ ¹æ®ä¸ªäººçš„æƒ…å†µä¿®æ”¹
 iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT -m comment --comment "Tomcat Server port"
 service iptables save
 ```
 
 Install hadoop
 --------------
-²Î¿¼[ÕâÀï](http://tecadmin.net/steps-to-install-hadoop-on-centosrhel-6/)
+å‚è€ƒ[è¿™é‡Œ](http://tecadmin.net/steps-to-install-hadoop-on-centosrhel-6/)
 
 Install apache
 --------------
 [apache-inshttpd](https://www.centos.org/docs/5/html/Cluster_Administration/s1-apache-inshttpd-CA.html)
 ```
 yum install httpd
-# Íê³Éºó ĞèÒªÔÚ /etc/httpd/conf/httpd.conf ÖĞÌí¼ÓÒ»¾ä
+# å®Œæˆå éœ€è¦åœ¨ /etc/httpd/conf/httpd.conf ä¸­æ·»åŠ ä¸€å¥
 # ServerName localhost
-# Èç¹ûÏëÒªÊ¹ÓÃ apachectl status ÃüÁî ĞèÒª elinks ºÍ mod_status
-# ¹ØÓÚÊ¹ÓÃ status ³öÏÖ´íÎóµÄÇé¿ö ²Î¿¼
+# å¦‚æœæƒ³è¦ä½¿ç”¨ apachectl status å‘½ä»¤ éœ€è¦ elinks å’Œ mod_status
+# å…³äºä½¿ç”¨ status å‡ºç°é”™è¯¯çš„æƒ…å†µ å‚è€ƒ
 # http://www.mydigitallife.info/request-url-server-status-or-404-page-not-found-apache-error/
 ```
-ÏëÒªÊ¹ÓÃ apachectl status ÔÚ httpd.conf ÖĞÌí¼ÓÈçÏÂÅäÖÃ
+æƒ³è¦ä½¿ç”¨ apachectl status åœ¨ httpd.conf ä¸­æ·»åŠ å¦‚ä¸‹é…ç½®
 ```
 ExtendedStatus on
 <IfModule mod_status.c>
@@ -640,23 +640,23 @@ ExtendedStatus on
 </IfModule>
 ```
 
-### ÅäÖÃ mod_jk
+### é…ç½® mod_jk
 ```
-# Ê¹ÓÃµÄÊ±ºò Ö»ÓĞ 1.2.40 °æ±¾
-# ¿ÉÒÔ²é¿´ÆäËû°æ±¾ http://www.apache.org/dist/tomcat/tomcat-connectors/jk/
+# ä½¿ç”¨çš„æ—¶å€™ åªæœ‰ 1.2.40 ç‰ˆæœ¬
+# å¯ä»¥æŸ¥çœ‹å…¶ä»–ç‰ˆæœ¬ http://www.apache.org/dist/tomcat/tomcat-connectors/jk/
 wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.40-src.zip
 unzip tomcat-connectors*.zip
 cd tomcat-connectors*
 cd native
-# ÕâÀïÓĞµã³¶µ­µÄÊÇ ÕâĞ©½Å±¾¶¼ÊÇdos ¸ñÊ½µÄ ËùÒÔĞèÒªÏÈ dos2unix
-# ËùÒÔÎÒÖ±½Ó»»ÁË¸ö°æ±¾ Ê¹ÓÃµÄ 1.2.39 µÄ, ´úÂë¸ñÃ»ÎÊÌâ
+# è¿™é‡Œæœ‰ç‚¹æ‰¯æ·¡çš„æ˜¯ è¿™äº›è„šæœ¬éƒ½æ˜¯dos æ ¼å¼çš„ æ‰€ä»¥éœ€è¦å…ˆ dos2unix
+# æ‰€ä»¥æˆ‘ç›´æ¥æ¢äº†ä¸ªç‰ˆæœ¬ ä½¿ç”¨çš„ 1.2.39 çš„, ä»£ç æ ¼æ²¡é—®é¢˜
 yum install -y httpd-devel
 ./configure --with-apxs=/usr/sbin/apxs
 make
 make install
 ```
 
-¼¯ÈºÅäÖÃÍê³É¸ö¿ÉÒÔÍ¨¹ıË¢ĞÂ http://cloud01/manager/status Õâ¸öÒ³Ãæ, ¹Û²ì IP address À´ÅĞ¶ÏÊÇ·ñ³É¹¦.
+é›†ç¾¤é…ç½®å®Œæˆä¸ªå¯ä»¥é€šè¿‡åˆ·æ–° http://cloud01/manager/status è¿™ä¸ªé¡µé¢, è§‚å¯Ÿ IP address æ¥åˆ¤æ–­æ˜¯å¦æˆåŠŸ.
 
 Install MySQL
 ---------------

@@ -1,40 +1,40 @@
 
-# ¿ÉÓÃµÄ eclipse ÅäÖÃ
+# å¯ç”¨çš„ eclipse é…ç½®
 http://wiki.eclipse.org/Eclipse.ini
 
-# aptana Éı¼¶µØÖ· 
+# aptana å‡çº§åœ°å€ 
 http://update.aptana.com/update/studio/3.4
-# Èç¹ûÒÔÉÏµØÖ·Ã»ÓĞÄÚÈİ, ¿ÉÒÔ³¢ÊÔ 
+# å¦‚æœä»¥ä¸Šåœ°å€æ²¡æœ‰å†…å®¹, å¯ä»¥å°è¯• 
 http://download.aptana.com/studio3/plugin/update/
 http://download.aptana.com/studio3-rcp/plugin/update/
-# Ò²¿ÉÒÔ²Î¿¼ https://wiki.appcelerator.org/display/guides2/Changing+the+Update+Type
+# ä¹Ÿå¯ä»¥å‚è€ƒ https://wiki.appcelerator.org/display/guides2/Changing+the+Update+Type
 # Aptana Studio Beta Updates: 
 http://preview.appcelerator.com/aptana/studio3/plugin/update/beta/
 # Aptana Studio Nightly Updates: 
 http://preview.appcelerator.com/aptana/studio3/plugin/update/nightly/
 
-# activiti Éı¼¶µØÖ·
+# activiti å‡çº§åœ°å€
 http://activiti.org/designer/update/
 
-# ĞŞ¸Ä Intellij µÄÆô¶¯²ÎÊı Ö÷ÒªĞŞ¸Ä mx
+# ä¿®æ”¹ Intellij çš„å¯åŠ¨å‚æ•° ä¸»è¦ä¿®æ”¹ mx
 D:\Program Files (x86)\JetBrains\IntelliJ IDEA 13.1.1\bin\idea.exe.vmoptions
-# ¹ØÓÚ¸ü¸ÄºóÎŞ·¨Æô¶¯µÄËµÃ÷ 
+# å…³äºæ›´æ”¹åæ— æ³•å¯åŠ¨çš„è¯´æ˜ 
 https://intellij-support.jetbrains.com/entries/23393413
-# ×îºÃÊÇÊ¹ÓÃ 64 Î»°æ±¾ idea64.exe 
-# ¿ÉÒÔÔö¼ÓÌáÊ¾µÄÎÄ¼ş´óĞ¡
+# æœ€å¥½æ˜¯ä½¿ç”¨ 64 ä½ç‰ˆæœ¬ idea64.exe 
+# å¯ä»¥å¢åŠ æç¤ºçš„æ–‡ä»¶å¤§å°
 idea.max.intellisense.filesize=2500
 
-# ÕâÀïµÄ×¢ÊÍÓĞ±ğÈËÌá¹©µÄÒ»·İÅäÖÃ ¿ÉÒÔ²Î¿¼ https://intellij-support.jetbrains.com/entries/23395793
+# è¿™é‡Œçš„æ³¨é‡Šæœ‰åˆ«äººæä¾›çš„ä¸€ä»½é…ç½® å¯ä»¥å‚è€ƒ https://intellij-support.jetbrains.com/entries/23395793
 
-# Èç¹ûÉèÖÃ JAVA_HOEM Îª jdk8 ¿ÉÄÜµÄµ¼ÖÂÆô¶¯·Ç³£Âı ¿ÉÒÔ¿¼ÂÇÉèÖÃ
+# å¦‚æœè®¾ç½® JAVA_HOEM ä¸º jdk8 å¯èƒ½çš„å¯¼è‡´å¯åŠ¨éå¸¸æ…¢ å¯ä»¥è€ƒè™‘è®¾ç½®
 IDEA_JDK_64
 
-# =========== Eclipse ²å¼ş ===========
+# =========== Eclipse æ’ä»¶ ===========
 
-# eclipse ÍÆ¼ö²å¼şÁĞ±í
+# eclipse æ¨èæ’ä»¶åˆ—è¡¨
 http://www.eclipse.org/community/eclipse_newsletter/2013/december/article2.php
 http://stackoverflow.com/questions/2826/do-you-have-any-recommended-plugins-for-eclipse
 
-# eclipse 4.3 Ö§³Ö java8 µÄ²¹¶¡
-# 4.4 Ö§³Ö java8
+# eclipse 4.3 æ”¯æŒ java8 çš„è¡¥ä¸
+# 4.4 æ”¯æŒ java8
 http://download.eclipse.org/eclipse/updates/4.3-P-builds/

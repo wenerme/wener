@@ -1,15 +1,15 @@
-# ²Î¿¼ÎÄµµ
-# BASH ²Î¿¼ÊÖ²á http://www.gnu.org/software/bash/manual/bashref.html
+# å‚è€ƒæ–‡æ¡£
+# BASH å‚è€ƒæ‰‹å†Œ http://www.gnu.org/software/bash/manual/bashref.html
 # Advanced Bash-Scripting Guide http://tldp.org/LDP/abs/html/
 
 # http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
 
 # ===========================================
-# =================SHELL ¼¼ÇÉ================
+# =================SHELL æŠ€å·§================
 # ===========================================
 
 # download: remote -> local
-# local_file ¿ÉÒÔÎªÄ¿Â¼
+# local_file å¯ä»¥ä¸ºç›®å½•
 scp user@remote_host:remote_file local_file 
 # upload: local -> remote
 scp local_file user@remote_host:remote_file
@@ -26,74 +26,74 @@ remot="private-host:443" # "*" for all interfaces (default is loopback)
 
 ssh -L ${local}:${remote} public-host
 
-# ĞëÔÚÔÚServer¶ËÔÊĞí×ª·¢
-# ÔÚ /etc/ssh/sshd_config ÖĞÌí¼Ó
+# é¡»åœ¨åœ¨Serverç«¯å…è®¸è½¬å‘
+# åœ¨ /etc/ssh/sshd_config ä¸­æ·»åŠ 
 GatewayPorts yes
-# È»ºóÖØÆô
+# ç„¶åé‡å¯
 sudo service sshd restart
 
-# ÒÔµÚ¶şÁĞÅÅĞò, ÒÔÊı×ÖµÄ·½·¨±È½Ï
+# ä»¥ç¬¬äºŒåˆ—æ’åº, ä»¥æ•°å­—çš„æ–¹æ³•æ¯”è¾ƒ
 sort -n -k 2
 
-# ÏÔÊ¾ÄÚ´æ¼°cpuÊ¹ÓÃÇé¿ö
+# æ˜¾ç¤ºå†…å­˜åŠcpuä½¿ç”¨æƒ…å†µ
 top -abMmc -d 0.01 |head -20
-# M µ¥Î»Îª m
-# m ÏÔÊ¾½ø³ÌÊ¹ÓÃµÄ ¶ø²»ÊÇ¾µÏñ´óĞ¡ VIRT
-# c ÏÔÊ¾ÍêÕûµÄÃüÁîĞĞ
+# M å•ä½ä¸º m
+# m æ˜¾ç¤ºè¿›ç¨‹ä½¿ç”¨çš„ è€Œä¸æ˜¯é•œåƒå¤§å° VIRT
+# c æ˜¾ç¤ºå®Œæ•´çš„å‘½ä»¤è¡Œ
 
-# top ÏÔÊ¾µÄ USED ¿ÉÄÜ»áºÜ¶à,ÒòÎªÓĞºÜ¶à CACHED Õâ¸ö²¢Ã»ÓĞÊ²Ã´
-# ²Î¿¼ÕâÀï http://www.linuxatemyram.com/
-# Èç¹ûÏë¿´²é¿´Êµ¼Ê¿ÕÏĞµÄÄÚ´æ, ¿ÉÒÔÊ¹ÓÃ
+# top æ˜¾ç¤ºçš„ USED å¯èƒ½ä¼šå¾ˆå¤š,å› ä¸ºæœ‰å¾ˆå¤š CACHED è¿™ä¸ªå¹¶æ²¡æœ‰ä»€ä¹ˆ
+# å‚è€ƒè¿™é‡Œ http://www.linuxatemyram.com/
+# å¦‚æœæƒ³çœ‹æŸ¥çœ‹å®é™…ç©ºé—²çš„å†…å­˜, å¯ä»¥ä½¿ç”¨
 free -tm
 
-# ÀàËÆÊ÷ĞÎµÄÏÔÊ¾
+# ç±»ä¼¼æ ‘å½¢çš„æ˜¾ç¤º
 ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 
-# Ê¹ÓÃ rsync + ssh Í¬²½
+# ä½¿ç”¨ rsync + ssh åŒæ­¥
 rsync -avze ssh /localpath robot@192.168.1.171:/remote/path
 
-# scp to ¶àÌ¨
+# scp to å¤šå°
 for dest in $(<destfile.txt); do
   scp ourfile.txt ${dest}:remote/path/
 done
 
-# ÔÚ²»ÓÃ scp µÄÇé¿öÏÂ ¿½±´µ½¶àÌ¨
+# åœ¨ä¸ç”¨ scp çš„æƒ…å†µä¸‹ æ‹·è´åˆ°å¤šå°
 cat file.txt | tee >(ssh user@ip1.com "cat > file.txt") \
                    >(ssh user@ip2.com "cat > file.txt")
 
 tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
                                >( ... )
 							   
-# ¿ª»úÆô¶¯
+# å¼€æœºå¯åŠ¨
 chkconfig --level 23 network on
 chkconfig --add foo
 chkconfig --del foo
-# ubuntu ¿ÉÒÔÊ¹ÓÃ update-rc.d
+# ubuntu å¯ä»¥ä½¿ç”¨ update-rc.d
 sudo update-rc.d mysql defaults
 sudo update-rc.d mysql remove
-# ¸ÃÃüÁî¿ÉÒÔÓÃÀ´¹ÜÀí¿ª»úÆô¶¯·şÎñ
+# è¯¥å‘½ä»¤å¯ä»¥ç”¨æ¥ç®¡ç†å¼€æœºå¯åŠ¨æœåŠ¡
 ntsysv
 
-# ÉèÖÃ´úÀí
+# è®¾ç½®ä»£ç†
 export https_proxy=http://192.168.1.103:8087/
 export http_proxy=$https_proxy
 export ftp_proxy=$https_proxy
 
-# ¸ßÁÁ¹Ø¼ü×Ö
+# é«˜äº®å…³é”®å­—
 echo -e "Wener\nis\ngreate" | grep -i -e "wen\|$" -e "greate\|$"
 
-# wget ¿ÉÓÃÓÚ»ñÈ¡ googlecode ÒòÎªÎÒÊµÔÚÊÇÏÂÔØ²»ÏÂÀ´~
-# ĞèÒª¿ªÆô´úÀí ÒÑ¾­ÔÚ .wgetrc ÖĞÅäÖÃÁË´úÀí
-# http://downloadsvn.codeplex.com/ Ò²¿ÉÒÔÓÃÀ´ÏÂÔØ svn µ«ÊÇ²»ºÃÓÃ´úÀí
+# wget å¯ç”¨äºè·å– googlecode å› ä¸ºæˆ‘å®åœ¨æ˜¯ä¸‹è½½ä¸ä¸‹æ¥~
+# éœ€è¦å¼€å¯ä»£ç† å·²ç»åœ¨ .wgetrc ä¸­é…ç½®äº†ä»£ç†
+# http://downloadsvn.codeplex.com/ ä¹Ÿå¯ä»¥ç”¨æ¥ä¸‹è½½ svn ä½†æ˜¯ä¸å¥½ç”¨ä»£ç†
 wget ... -e use_proxy=on
 
 wget -m -np http://myproject.googlecode.com/svn/myproject/trunk/
 wget --user=yourusername --ask-password -m -np http://myproject.googlecode.com/svn/myproject/trunk/
 
 
-# ÁĞ¾ÙËùÓĞÓÃ»§
+# åˆ—ä¸¾æ‰€æœ‰ç”¨æˆ·
 cut -d: -f1 /etc/passwd
-# ²é¿´ËùÓĞ×é
+# æŸ¥çœ‹æ‰€æœ‰ç»„
 cut -d: -f1 /etc/group
 
 adduser new_username
@@ -108,17 +108,17 @@ passwd username
 chsh username # To change the shell for a user:
 chfn username # To change the details for a user (for example real name):
 
-# °²×°VPN
+# å®‰è£…VPN
 wget http://www.hi-vps.com/shell/vpn_centos6.sh
 chmod a+x vpn_centos6.sh
 
-# ²é¿´Linux·¢²¼°æ±¾
+# æŸ¥çœ‹Linuxå‘å¸ƒç‰ˆæœ¬
 cat /etc/*-release
 lsb_release -a
 uname -mrs
 cat /proc/version
 
-# ±£´æºÍÊ¹ÓÃÉÏ´ÎµÄsession
+# ä¿å­˜å’Œä½¿ç”¨ä¸Šæ¬¡çš„session
 SESSIONNAME="script"
 tmux has-session -t $SESSIONNAME &> /dev/null
 if [ $? != 0 ] 
@@ -128,45 +128,45 @@ if [ $? != 0 ]
 fi
 tmux attach -t $SESSIONNAME
 
-## ÏÔÊ¾³ÌĞòÔËĞĞÊ±¼ä
+## æ˜¾ç¤ºç¨‹åºè¿è¡Œæ—¶é—´
 ps -eo pid,cmd,etime
 12261 java -mx64m -jar core.jar   102-12:21:17
-# Êä³öµÄÊ±¼ä¸ñÊ½Îª Ìì-Ê±:·Ö:Ãë
-# ÔËĞĞµÄÊ±¼ä´ÓĞ¡µ½´óÅÅĞò
+# è¾“å‡ºçš„æ—¶é—´æ ¼å¼ä¸º å¤©-æ—¶:åˆ†:ç§’
+# è¿è¡Œçš„æ—¶é—´ä»å°åˆ°å¤§æ’åº
 ps -eo pid,etime,cmd|sort -n -k2
 
-# É¾³ı ´´½¨Ê±¼äÎªËÄ¸öÔÂÇ°²¢ÇÒ×îºó·ÃÎÊÊ±¼äÎªËÄ¸öÔÂÇ°µÄÎÄ¼ş
+# åˆ é™¤ åˆ›å»ºæ—¶é—´ä¸ºå››ä¸ªæœˆå‰å¹¶ä¸”æœ€åè®¿é—®æ—¶é—´ä¸ºå››ä¸ªæœˆå‰çš„æ–‡ä»¶
 find . -type f -amin +172800 -mmin +172800 -delete
 
 dir () { ls -FaGl "${@}" | awk '{ total += $4; print }; END { print total }'; }
 
 # ===========================================
-# =================BASH »ù´¡=================
+# =================BASH åŸºç¡€=================
 # ===========================================
 
-# bash ÀúÊ·²Ù×÷ http://superuser.com/questions/7414/
-# Ctrl+R ¿ªÊ¼ËÑË÷ ¼ÌĞø Ctrl+R ±éÀúËÑË÷½á¹û
-# ¿ÉÒÔ°ó¶¨ÎªÆäËü°´¼ü
+# bash å†å²æ“ä½œ http://superuser.com/questions/7414/
+# Ctrl+R å¼€å§‹æœç´¢ ç»§ç»­ Ctrl+R éå†æœç´¢ç»“æœ
+# å¯ä»¥ç»‘å®šä¸ºå…¶å®ƒæŒ‰é”®
 bind '"\C-t": reverse-search-history'
-# °ó¶¨ÉÏÏÂ¼üÎª ±éÀúËÑË÷½á¹ûµÄ°´¼ü
+# ç»‘å®šä¸Šä¸‹é”®ä¸º éå†æœç´¢ç»“æœçš„æŒ‰é”®
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
-# ²é¿´ÀúÊ·¼ÇÂ¼
+# æŸ¥çœ‹å†å²è®°å½•
 history
-# Ê¹ÓÃÄ³Ìõ
+# ä½¿ç”¨æŸæ¡
 !2
-# »òÕß¸ºÊıµÄË÷ÒıÒ²¿ÉÒÔ
+# æˆ–è€…è´Ÿæ•°çš„ç´¢å¼•ä¹Ÿå¯ä»¥
 !-2
-# Ò²¿ÉÒÔÖ±½ÓÊ¹ÓÃÆ¥ÅäµÄÃüÁî
+# ä¹Ÿå¯ä»¥ç›´æ¥ä½¿ç”¨åŒ¹é…çš„å‘½ä»¤
 !ech
-# »òÕß²»Ò»ÑùÆ¥Åä¿ªÊ¼
+# æˆ–è€…ä¸ä¸€æ ·åŒ¹é…å¼€å§‹
 !?ho
-# »òÕßÕâÑùÌæ»»²ÎÊı
+# æˆ–è€…è¿™æ ·æ›¿æ¢å‚æ•°
 ^old^new
-# ×îºÃÉèÖÃ¸ÃÑ¡Ïî, ÒÔÃâÔËĞĞÁË´íÎóµÄÃüÁî
+# æœ€å¥½è®¾ç½®è¯¥é€‰é¡¹, ä»¥å…è¿è¡Œäº†é”™è¯¯çš„å‘½ä»¤
 shopt -s histverify
 
-# ÅĞ¶Ï±äÁ¿×´Ì¬
+# åˆ¤æ–­å˜é‡çŠ¶æ€
                         +-------+-------+-----------+
                 VAR is: | unset | empty | non-empty |
 +-----------------------+-------+-------+-----------+
@@ -178,30 +178,30 @@ shopt -s histverify
 | [ -n "${VAR-unset}" ] | true  | false | true      |
 +-----------------------+-------+-------+-----------+
 
-# Õ¹¿ª±äÁ¿  Èç¹û²»´æÔÚ»òÕßÎ´ÉèÖÃ Ôò»áÏÔÊ¾ÏûÏ¢
+# å±•å¼€å˜é‡  å¦‚æœä¸å­˜åœ¨æˆ–è€…æœªè®¾ç½® åˆ™ä¼šæ˜¾ç¤ºæ¶ˆæ¯
 ${STATE?"Need to set STATE"}
 ${DEST:?"Need to set DEST non-empty"}
 
-# ÍË³ö shell ºó²»¹Ø±ÕºóÌ¨½ø³Ì
+# é€€å‡º shell åä¸å…³é—­åå°è¿›ç¨‹
 shopt +s huponexit
-# »òÕßÊÇÊ¹ÓÃ
+# æˆ–è€…æ˜¯ä½¿ç”¨
 nohup
-# ÖÁÓÚÎªÊ²Ã´»á±»¹Ø±Õ ²Î¿¼ÕâÀï http://stackoverflow.com/questions/15595374/
+# è‡³äºä¸ºä»€ä¹ˆä¼šè¢«å…³é—­ å‚è€ƒè¿™é‡Œ http://stackoverflow.com/questions/15595374/
 
 x=123
 i=x
-echo ${!i} # Ê¹ÓÃ±äÁ¿ÃûÀ´»ñÈ¡
-declare "$i=456" # ÉèÖÃ±äÁ¿
-declare "$i=456${!i}" # ÔÚÖµÀïÒ²ÒıÓÃÖ®Ç°µÄÖµ
+echo ${!i} # ä½¿ç”¨å˜é‡åæ¥è·å–
+declare "$i=456" # è®¾ç½®å˜é‡
+declare "$i=456${!i}" # åœ¨å€¼é‡Œä¹Ÿå¼•ç”¨ä¹‹å‰çš„å€¼
 
-# Êı×é²Ù×÷
-array=(a b c d e f g h) # ¶¨ÒåÊı×é
-array+=(A) # ÍùÊı×éÌí¼Ó
-declare -p array # ÏÔÊ¾Êı×éÖĞÄÚÈİ
-echo ${#array[@]} # Êı×é³¤¶È
-end=(${!array[@]}) # ½«ËùÓĞË÷Òı·Åµ½ÁíÍâÒ»¸öÊı×é
-end=${end[@]: -1}  # »ñÈ¡×îºóÒ»¸ö
-# µü´úÊı×é
+# æ•°ç»„æ“ä½œ
+array=(a b c d e f g h) # å®šä¹‰æ•°ç»„
+array+=(A) # å¾€æ•°ç»„æ·»åŠ 
+declare -p array # æ˜¾ç¤ºæ•°ç»„ä¸­å†…å®¹
+echo ${#array[@]} # æ•°ç»„é•¿åº¦
+end=(${!array[@]}) # å°†æ‰€æœ‰ç´¢å¼•æ”¾åˆ°å¦å¤–ä¸€ä¸ªæ•°ç»„
+end=${end[@]: -1}  # è·å–æœ€åä¸€ä¸ª
+# è¿­ä»£æ•°ç»„
 for i in "${array[@]}"
 do
 	echo bin "$i"
