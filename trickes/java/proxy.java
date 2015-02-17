@@ -1,13 +1,13 @@
 
-#  java ´úÀí
+#  java ä»£ç†
 http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
-# net µÄÊôĞÔ http://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html
-# ²Î¿¼ http://stackoverflow.com/questions/120797
+# net çš„å±æ€§ http://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html
+# å‚è€ƒ http://stackoverflow.com/questions/120797
 # http://docs.oracle.com/javase/7/docs/technotes/guides/net/proxies.html
 
 JAVA_FLAGS=-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8087
 java %JAVA_FLAGS%
-# proxySet ËÆºõÊÇÎŞĞ§µÄ
+# proxySet ä¼¼ä¹æ˜¯æ— æ•ˆçš„
 if (needsProxy()) {
     System.getProperties().put("proxySet", "true");
     System.getProperties().put("proxyHost", getProxyHost());

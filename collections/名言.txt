@@ -3,73 +3,73 @@
 http://en.wikiquote.org/wiki/Donald_Knuth
 
 	Beware of bugs in the above code; I have only proved it correct, not tried it.
-	¡ª Donald Knuth
+	â€” Donald Knuth
 	
-* ×¢ÒâÉÏÃæ´úÂëÀï,ÎÒÖ»±£Ö¤ËûÕıÈ·,µ«ÊÇÎÒ»¹Ã»ÊÔ¹ı.
+* æ³¨æ„ä¸Šé¢ä»£ç é‡Œ,æˆ‘åªä¿è¯ä»–æ­£ç¡®,ä½†æ˜¯æˆ‘è¿˜æ²¡è¯•è¿‡.
 
 	By understanding a machine-oriented language, the programmer will tend to use
 	a much more efficient method; it is much closer to reality.
-	¡ª Donald Knuth
+	â€” Donald Knuth
 	
 	Premature optimization is the root of all evil.
-	¡ª Donald Knuth
+	â€” Donald Knuth
 	
-* ¹ıÔçµÄÓÅ»¯ÊÇÍò¶ñÖ®Ô´.
+* è¿‡æ—©çš„ä¼˜åŒ–æ˜¯ä¸‡æ¶ä¹‹æº.
 
-ÒıÓÃ
+å¼•ç”¨
 http://programmers.stackexchange.com/questions/39/whats-your-favourite-quote-about-programming
 
 	Debugging is twice as hard as writing the code in the first place. Therefore,
 	if you write the code as cleverly as possible, you are, by definition, not 
 	smart enough to debug it.
-	¡ª Brian W. Kernighan
+	â€” Brian W. Kernighan
 	
 	Walking on water and developing software from a specification are easy if both are frozen.
-	¡ª Edward V Berard
+	â€” Edward V Berard
 
 	It always takes longer than you expect, even when you take into account Hofstadter's Law. 
-	¡ª Hofstadter's Law
+	â€” Hofstadter's Law
 	
 	In theory, there is no difference between theory and practice. But, in practice, there is.
-	¡ª Jan L. A. van de Snepscheut
+	â€” Jan L. A. van de Snepscheut
 	
-	ÀíÂÛÉÏÀ´Ëµ,ÀíÂÛºÍÊµ¼ùÊÇÃ»ÓĞÇø±ğµÄ.µ«ÊÇÔÚÊµ¼ùÖĞ,ËûÃÇÊÇÓĞµÄ.
+	ç†è®ºä¸Šæ¥è¯´,ç†è®ºå’Œå®è·µæ˜¯æ²¡æœ‰åŒºåˆ«çš„.ä½†æ˜¯åœ¨å®è·µä¸­,ä»–ä»¬æ˜¯æœ‰çš„.
 	
 	Measuring programming progress by lines of code is like measuring aircraft building progress by weight.
-	¡ª Bill Gates
+	â€” Bill Gates
 	
 	Nine people can't make a baby in a month.
-	¡ª Fred Brooks, The Mythical Man-Month
+	â€” Fred Brooks, The Mythical Man-Month
 
 	Debuggers don't remove bugs. They only show them in slow motion.
 	
 	If Java had true garbage collection, most programs would delete themselves upon execution.
-	¡ª Robert Sewell
+	â€” Robert Sewell
 	
 	Computer Science is no more about computers than astronomy is about telescopes
-	¡ª Edsger Dijkstra
+	â€” Edsger Dijkstra
 	
 	If debugging is the process of removing software bugs, then programming must be the process of putting them in.
-	¡ª Edsger Dijkstra
+	â€” Edsger Dijkstra
 	
-	±à³Ì¾ÍÏñÊÇÔÚ enbugging
+	ç¼–ç¨‹å°±åƒæ˜¯åœ¨ enbugging
 	
 	I have always wished for my computer to be as easy to use as my telephone; 
 	my wish has come true because I can no longer figure out how to use my telephone
-	¡ªBjarne Stroustrup
+	â€”Bjarne Stroustrup
 	
 	Commenting your code is like cleaning your bathroom - you never want to do it, 
 	but it really does create a more pleasant experience for you and your guests.
-	¡ª Ryan Campbell
+	â€” Ryan Campbell
 	
 	Programming is like sex: one mistake and you have to support it for the rest of your life.
-	¡ª Michael Sinz
+	â€” Michael Sinz
 	
 	Given enough eyeballs, all bugs are shallow.
-	¡ª Linus's Law
+	â€” Linus's Law
 	
 
-·Ö²¼Ê½¼ÆËãµÄ°Ë´óÃıÂÛ
+åˆ†å¸ƒå¼è®¡ç®—çš„å…«å¤§è°¬è®º
 -------------------
 http://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing
 

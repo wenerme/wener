@@ -1,5 +1,5 @@
-JSR ÁĞ±í: http://en.wikipedia.org/wiki/Java_Specification_Request
-ËùÓĞ Final µÄjsr http://www.jcp.org/en/jsr/stage?listBy=final
+JSR åˆ—è¡¨: http://en.wikipedia.org/wiki/Java_Specification_Request
+æ‰€æœ‰ Final çš„jsr http://www.jcp.org/en/jsr/stage?listBy=final
 JDK Enhancement Proposals JEP: http://openjdk.java.net/jeps/0
 
 Bean Validation
@@ -12,7 +12,7 @@ JAX-RS
 : 311 1.0,1.1
 
 JPA
-: ÆäËûÊµÏÖ Hibernate, EclipseLink, openJPA
+: å…¶ä»–å®ç° Hibernate, EclipseLink, openJPA
 : 317 2.0
 
 NIO
@@ -59,18 +59,18 @@ Java ME
 
 javax.el
 : 341 3.0
-: 245 2.2	JSP 2.2 µÄÒ»²¿·Ö
+: 245 2.2	JSP 2.2 çš„ä¸€éƒ¨åˆ†
 
 
-* 2.2µÄµ¥¶ÀÊµÏÖ:
+* 2.2çš„å•ç‹¬å®ç°:
 	* javadoc http://docs.oracle.com/javaee/6/api/javax/el/package-summary.html
 	* http://juel.sourceforge.net/
 	* http://mvnrepository.com/artifact/de.odysseus.juel
-* 3.0²Î¿¼ÊµÏÖ: 
+* 3.0å‚è€ƒå®ç°: 
 	* javadoc http://docs.oracle.com/javaee/7/api/javax/el/package-summary.html
 	* https://java.net/projects/el-spec/downloads
 	* http://mvnrepository.com/artifact/org.glassfish/javax.el/
-* tomcat 8 ÊµÏÖÁËel 3.0
+* tomcat 8 å®ç°äº†el 3.0
 	* http://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper-el/8.0.12
 
 
@@ -87,36 +87,36 @@ JCR Content Repository
 : 283 2.0
 
 
-JSR|ÃèÊö|Æ½Ì¨
+JSR|æè¿°|å¹³å°
 ----|----|----
-133 | ÄÚ´æÄ£ĞÍºÍÏß³Ì¹æ·¶ĞŞ¶©
-166 | ²¢·¢¹¤¾ß | J2SE 5.0
-201 |À©Õ¹µÄÃ¶¾Ù,×Ô¶¯·â×°,LoopÔöÇ¿ºÍ¾²Ì¬µ¼Èë| J2SE 5.0
-223 | ½Å±¾±à³Ì| Java SE 6
-241 | Groovy±à³ÌÓïÑÔ
-260 | JavadocÉı¼¶
-269 | À©Õ¹µÄ×¢½â´¦ÀíAPI
-277 | Ä£¿éÏµÍ³
-296 | Swing³ÌĞò¿ò¼Ü | SE7
-308 | ÔÚJavaÀàĞÍÉÏµÄ×¢½â | SE8
-336 | JavaÆ½Ì¨,±ê×¼°æ
-901 | JavaÓïÑÔ¹æ·¶ | ²Î¿¼ÊµÏÖ OpenJDK 7
+133 | å†…å­˜æ¨¡å‹å’Œçº¿ç¨‹è§„èŒƒä¿®è®¢
+166 | å¹¶å‘å·¥å…· | J2SE 5.0
+201 |æ‰©å±•çš„æšä¸¾,è‡ªåŠ¨å°è£…,Loopå¢å¼ºå’Œé™æ€å¯¼å…¥| J2SE 5.0
+223 | è„šæœ¬ç¼–ç¨‹| Java SE 6
+241 | Groovyç¼–ç¨‹è¯­è¨€
+260 | Javadocå‡çº§
+269 | æ‰©å±•çš„æ³¨è§£å¤„ç†API
+277 | æ¨¡å—ç³»ç»Ÿ
+296 | Swingç¨‹åºæ¡†æ¶ | SE7
+308 | åœ¨Javaç±»å‹ä¸Šçš„æ³¨è§£ | SE8
+336 | Javaå¹³å°,æ ‡å‡†ç‰ˆ
+901 | Javaè¯­è¨€è§„èŒƒ | å‚è€ƒå®ç° OpenJDK 7
 292 | Supporting Dynamically Typed Languages on the JavaTM Platform, `dynamicinvoke`
 
 __servlet__
 
-°æ±¾ÀúÊ· http://en.wikipedia.org/wiki/JSR_154#History
+ç‰ˆæœ¬å†å² http://en.wikipedia.org/wiki/JSR_154#History
 
-°æ±¾|·¢²¼|JSR|Æ½Ì¨|ÖØ´ó¸Ä±ä
+ç‰ˆæœ¬|å‘å¸ƒ|JSR|å¹³å°|é‡å¤§æ”¹å˜
 :----:|:-----:|:-----:|:-----:|:-----:
-3.1|2013.5|340|JavaEE 7|·Ç×èÈûIO,HTTPĞ­ÒéÉı¼¶»úÖÆ,²Î¿¼[3.1ĞÂÌØĞÔ][whats-new-in-servlet]
-3.0|2009.10|315|JavaEE6,JavaSE6|À©Õ¹ÄÜÁ¦,¼òµ¥¿ª·¢,Òì²½Servlet,°²È«,ÎÄ¼şÉÏ´«
-2.5|2005.9|154|JavaEE5,JavaSE5|ĞèÒªJavaSE 5,Ö§³Ö×¢½â
-2.4|2003.11|154|J2EE1.4,J2SE1.3| `web.xml`¿ªÊ¼Ê¹ÓÃ XML Schema
-2.3 JSP 1.2| 2001.8| 53 | J2EE1.3 J2SE1.2 | Ìí¼ÓÁËFilter
-2.2|1999.8|-|J2EE1.2 J2SE1.2|³ÉÎª J2EEµÄÒ»²¿·Ö,ÒıÈëÁË¶ÀÁ¢µÄWebÓ¦ÓÃ,`.war`ÎÄ¼ş
+3.1|2013.5|340|JavaEE 7|éé˜»å¡IO,HTTPåè®®å‡çº§æœºåˆ¶,å‚è€ƒ[3.1æ–°ç‰¹æ€§][whats-new-in-servlet]
+3.0|2009.10|315|JavaEE6,JavaSE6|æ‰©å±•èƒ½åŠ›,ç®€å•å¼€å‘,å¼‚æ­¥Servlet,å®‰å…¨,æ–‡ä»¶ä¸Šä¼ 
+2.5|2005.9|154|JavaEE5,JavaSE5|éœ€è¦JavaSE 5,æ”¯æŒæ³¨è§£
+2.4|2003.11|154|J2EE1.4,J2SE1.3| `web.xml`å¼€å§‹ä½¿ç”¨ XML Schema
+2.3 JSP 1.2| 2001.8| 53 | J2EE1.3 J2SE1.2 | æ·»åŠ äº†Filter
+2.2|1999.8|-|J2EE1.2 J2SE1.2|æˆä¸º J2EEçš„ä¸€éƒ¨åˆ†,å¼•å…¥äº†ç‹¬ç«‹çš„Webåº”ç”¨,`.war`æ–‡ä»¶
 2.1|1998.11
-2.0|-| -|JDK 1.1 | ³ÉÎª Java Servlet Development Kit 2.0 µÄ²¿·Ö
+2.0|-| -|JDK 1.1 | æˆä¸º Java Servlet Development Kit 2.0 çš„éƒ¨åˆ†
 1.0|1997.7
 
  [whats-new-in-servlet]:https://blogs.oracle.com/arungupta/entry/what_s_new_in_servlet

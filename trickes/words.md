@@ -1,6 +1,6 @@
 Concurrency vs. Parallelism
 =========================
-Õª×Ô Akka ÎÄµµ
+æ‘˜è‡ª Akka æ–‡æ¡£
 
 Concurrency and parallelism are related concepts, but there are small differences. Concurrency means that two or more tasks are making progress even though they might not be executing simultaneously. This can for example be realized with time slicing where parts of tasks are executed sequentially and mixed with parts of other tasks.
 Parallelism on the other hand arise when the execution can be truly simultaneous.
@@ -8,10 +8,10 @@ Parallelism on the other hand arise when the execution can be truly simultaneous
 
 Deadlock vs. Starvation vs. Live-lock
 ==================================
-Õª×Ô Akka ÎÄµµ
+æ‘˜è‡ª Akka æ–‡æ¡£
 
 Deadlock arises when several participants are waiting on each other to reach a specific state to be able to progress.
-As none of them can progress without some other participant to reach a certain state (a ¡°Catch-22¡± problem) all
+As none of them can progress without some other participant to reach a certain state (a â€œCatch-22â€ problem) all
 affected subsystems stall. Deadlock is closely related to blocking, as it is necessary that a participant thread be
 able to delay the progression of other threads indefinitely.
 In the case of deadlock, no participants can make progress, while in contrast Starvation happens, when there are
@@ -23,4 +23,4 @@ of being frozen in a state of waiting for others to progress, the participants c
 example scenario when two participants have two identical resources available. They each try to get the resource,
 but they also check if the other needs the resource, too. If the resource is requested by the other participant, they
 try to get the other instance of the resource. In the unfortunate case it might happen that the two participants
-¡°bounce¡± between the two resources, never acquiring it, but always yielding to the other.
+â€œbounceâ€ between the two resources, never acquiring it, but always yielding to the other.

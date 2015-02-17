@@ -1,32 +1,32 @@
 
 [toc]
 
-¼Æ»®·½°¸
+è®¡åˆ’æ–¹æ¡ˆ
 -------
 
-### »·¾³
+### ç¯å¢ƒ
 
-* ËÄÌ¨Ö÷»ú: cloud01,cloud02,cloud03,cloud04
+* å››å°ä¸»æœº: cloud01,cloud02,cloud03,cloud04
 * OS: CentOS 6.5
-* Tomcat°²×°Î»ÖÃ: `/opt/tomcat`
+* Tomcatå®‰è£…ä½ç½®: `/opt/tomcat`
 
-### ¼¯Èº·½°¸
+### é›†ç¾¤æ–¹æ¡ˆ
 
-* cloud02 cloud03 cloud04 Îª tomcat ½Úµã
-* cloud01 ÉÏµÄ apache ×ö¸ºÔØ¾ùºâ
-* ¶Ë¿Ú¾ùÊ¹ÓÃ±ê×¼¶Ë¿Ú, ÒòÎªÊÇ²¿ÊğÔÚ²»Í¬µÄ»úÆ÷ÉÏ
+* cloud02 cloud03 cloud04 ä¸º tomcat èŠ‚ç‚¹
+* cloud01 ä¸Šçš„ apache åšè´Ÿè½½å‡è¡¡
+* ç«¯å£å‡ä½¿ç”¨æ ‡å‡†ç«¯å£, å› ä¸ºæ˜¯éƒ¨ç½²åœ¨ä¸åŒçš„æœºå™¨ä¸Š
 
-°²×° Apache
+å®‰è£… Apache
 ---------
 ```
 yum install httpd
-# Íê³Éºó ĞèÒªÔÚ /etc/httpd/conf/httpd.conf ÖĞÌí¼ÓÒ»¾ä
+# å®Œæˆå éœ€è¦åœ¨ /etc/httpd/conf/httpd.conf ä¸­æ·»åŠ ä¸€å¥
 # ServerName localhost
 ```
 
-Èç¹ûÏëÒªÊ¹ÓÃ `apachectl status` ÃüÁî ĞèÒª elinks `yum install elinks -y` ºÍ mod_status, Ò»°ã mode_status ÊÇÄ¬ÈÏ¼ÓÔØµÄ,µ«ÊÇ»¹ÒªÒ»µãÅäÖÃ.
+å¦‚æœæƒ³è¦ä½¿ç”¨ `apachectl status` å‘½ä»¤ éœ€è¦ elinks `yum install elinks -y` å’Œ mod_status, ä¸€èˆ¬ mode_status æ˜¯é»˜è®¤åŠ è½½çš„,ä½†æ˜¯è¿˜è¦ä¸€ç‚¹é…ç½®.
 
-ÔÚ httpd.conf ÖĞÌí¼ÓÈçÏÂÅäÖÃ
+åœ¨ httpd.conf ä¸­æ·»åŠ å¦‚ä¸‹é…ç½®
 ```
 ExtendedStatus on
 <IfModule mod_status.c>
@@ -41,18 +41,18 @@ ExtendedStatus on
     </Location>
 </IfModule>
 ```
-Èç¹ûÅäÖÃºó»¹ÓĞ /server/status ´íÎó, ²Î¿¼[ÕâÀï](http://www.mydigitallife.info/request-url-server-status-or-404-page-not-found-apache-error/)
+å¦‚æœé…ç½®åè¿˜æœ‰ /server/status é”™è¯¯, å‚è€ƒ[è¿™é‡Œ](http://www.mydigitallife.info/request-url-server-status-or-404-page-not-found-apache-error/)
 
 
-±àÒë/ÅäÖÃ mod_jk
+ç¼–è¯‘/é…ç½® mod_jk
 --------------
 
-### ±àÒë mod_jk
+### ç¼–è¯‘ mod_jk
 ```
-# Ê¹ÓÃµÄÊ±ºò×îĞÂ°æ±¾Îª 1.2.40
-# ¿ÉÒÔ²é¿´ÆäËû°æ±¾ http://www.apache.org/dist/tomcat/tomcat-connectors/jk/
-# ÕâÀïÓĞµã³¶µ­µÄÊÇ 1.2.40µÄ½Å±¾¶¼ÊÇ dos ¸ñÊ½µÄ, ĞèÒªÏÈ dos2unix
-# ËùÒÔÎÒÖ±½Ó»»ÁË¸ö°æ±¾ Ê¹ÓÃµÄ 1.2.39 µÄ, ´úÂë¸ñÃ»ÎÊÌâ
+# ä½¿ç”¨çš„æ—¶å€™æœ€æ–°ç‰ˆæœ¬ä¸º 1.2.40
+# å¯ä»¥æŸ¥çœ‹å…¶ä»–ç‰ˆæœ¬ http://www.apache.org/dist/tomcat/tomcat-connectors/jk/
+# è¿™é‡Œæœ‰ç‚¹æ‰¯æ·¡çš„æ˜¯ 1.2.40çš„è„šæœ¬éƒ½æ˜¯ dos æ ¼å¼çš„, éœ€è¦å…ˆ dos2unix
+# æ‰€ä»¥æˆ‘ç›´æ¥æ¢äº†ä¸ªç‰ˆæœ¬ ä½¿ç”¨çš„ 1.2.39 çš„, ä»£ç æ ¼æ²¡é—®é¢˜
 
 wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.39-src.zip
 unzip tomcat-connectors*.zip
@@ -64,38 +64,38 @@ make
 make install
 ```
 
-### ÅäÖÃ mod_jk.conf
-ĞÂ½¨ `/etc/httpd/conf/mod_jk.conf`, Ğ´ÈëÈçÏÂÄÚÈİ
+### é…ç½® mod_jk.conf
+æ–°å»º `/etc/httpd/conf/mod_jk.conf`, å†™å…¥å¦‚ä¸‹å†…å®¹
 ```
-# ¼ÓÔØmod_jk Module
+# åŠ è½½mod_jk Module
 # /usr/lib64/httpd/modules/mod_jk.so
 LoadModule jk_module modules/mod_jk.so
 
-# Ö¸¶¨workers.propertiesÎÄ¼şÂ·¾¶ 
+# æŒ‡å®šworkers.propertiesæ–‡ä»¶è·¯å¾„ 
 JkWorkersFile conf/workers.properties
 
-# Ö¸¶¨ÄÇĞ©ÇëÇó½»¸øtomcat´¦Àí
-# "controller"ÎªÔÚworkers.propertiseÀïÖ¸¶¨µÄ¸ºÔØ·ÖÅä¿ØÖÆÆ÷Ãû
+# æŒ‡å®šé‚£äº›è¯·æ±‚äº¤ç»™tomcatå¤„ç†
+# "controller"ä¸ºåœ¨workers.propertiseé‡ŒæŒ‡å®šçš„è´Ÿè½½åˆ†é…æ§åˆ¶å™¨å
 JkMount /* controller
 ```
 
-### ÅäÖÃ workers.properties
-ĞÂ½¨ `/etc/httpd/conf/workers.properties`, Ğ´ÈëÈçÏÂÄÚÈİ
+### é…ç½® workers.properties
+æ–°å»º `/etc/httpd/conf/workers.properties`, å†™å…¥å¦‚ä¸‹å†…å®¹
 ```
 #server
 worker.list = controller
 #========cloud03========
-#ajp13¶Ë¿ÚºÅ£¬ÔÚtomcatÏÂserver.xmlÅäÖÃ,Ä¬ÈÏ 8009
+#ajp13ç«¯å£å·ï¼Œåœ¨tomcatä¸‹server.xmlé…ç½®,é»˜è®¤ 8009
 worker.cloud03.port=8009
 
-#tomcatµÄÖ÷»úµØÖ·£¬Èç²»Îª±¾»ú£¬ÇëÌîĞ´ipµØÖ· 
+#tomcatçš„ä¸»æœºåœ°å€ï¼Œå¦‚ä¸ä¸ºæœ¬æœºï¼Œè¯·å¡«å†™ipåœ°å€ 
 worker.cloud03.host=cloud03
 
-#Ğ­ÒéÀàĞÍ
+#åè®®ç±»å‹
 worker.cloud03.type=ajp13
 
-# serverµÄ¼ÓÈ¨±ÈÖØ£¬ÖµÔ½¸ß£¬·ÖµÃµÄÇëÇóÔ½¶à¡£
-# lbfactorÊÇ¸ºÔØÆ½ºâÒòÊı(Load Balance Factor)
+# serverçš„åŠ æƒæ¯”é‡ï¼Œå€¼è¶Šé«˜ï¼Œåˆ†å¾—çš„è¯·æ±‚è¶Šå¤šã€‚
+# lbfactoræ˜¯è´Ÿè½½å¹³è¡¡å› æ•°(Load Balance Factor)
 worker.cloud03.lbfactor=1
 
 #========cloud02========
@@ -110,40 +110,40 @@ worker.cloud04.host=cloud04
 worker.cloud04.type=ajp13
 worker.cloud04.lbfactor=1
 
-#========controller,¸ºÔØ¾ùºâ¿ØÖÆÆ÷========
-#¸ºÔØ¾ùºâ¿ØÖÆÆ÷ÀàĞÍ£¬lbfactorÊÇ¸ºÔØÆ½ºâÒòÊı(Load Balance Factor)
+#========controller,è´Ÿè½½å‡è¡¡æ§åˆ¶å™¨========
+#è´Ÿè½½å‡è¡¡æ§åˆ¶å™¨ç±»å‹ï¼Œlbfactoræ˜¯è´Ÿè½½å¹³è¡¡å› æ•°(Load Balance Factor)
 worker.controller.type=lb
 
-#Ö¸¶¨·Öµ£ÇëÇóµÄtomcatÁĞ±í
+#æŒ‡å®šåˆ†æ‹…è¯·æ±‚çš„tomcatåˆ—è¡¨
 worker.controller.balanced_workers=cloud03,cloud02,cloud04
 
-# Õ³ĞÔsession(Ä¬ÈÏÊÇ´ò¿ªµÄ) 
-# µ±¸ÃÊôĞÔÖµ=true£¨»ò1£©Ê±£¬´ú±ísessionÊÇÕ³ĞÔµÄ£¬
-# ¼´Í¬Ò»sessionÔÚ¼¯ÈºÖĞµÄÍ¬Ò»¸ö½ÚµãÉÏ´¦Àí£¬
-# session²»¿çÔ½½Úµã¡£ÔÚ¼¯Èº»·¾³ÖĞ£¬Ò»°ã½«¸ÃÖµÉèÖÃÎªfalse
+# ç²˜æ€§session(é»˜è®¤æ˜¯æ‰“å¼€çš„) 
+# å½“è¯¥å±æ€§å€¼=trueï¼ˆæˆ–1ï¼‰æ—¶ï¼Œä»£è¡¨sessionæ˜¯ç²˜æ€§çš„ï¼Œ
+# å³åŒä¸€sessionåœ¨é›†ç¾¤ä¸­çš„åŒä¸€ä¸ªèŠ‚ç‚¹ä¸Šå¤„ç†ï¼Œ
+# sessionä¸è·¨è¶ŠèŠ‚ç‚¹ã€‚åœ¨é›†ç¾¤ç¯å¢ƒä¸­ï¼Œä¸€èˆ¬å°†è¯¥å€¼è®¾ç½®ä¸ºfalse
 worker.controller.sticky_session=false
 
-# ÉèÖÃÓÃÓÚ¸ºÔØ¾ùºâµÄserverµÄsession¿É·ñ¹²Ïí
+# è®¾ç½®ç”¨äºè´Ÿè½½å‡è¡¡çš„serverçš„sessionå¯å¦å…±äº«
 worker.controller.sticky_session_force=1
 ```
 
-### ĞŞ¸Ä httpd.conf
-ĞŞ¸Ä`/etc/httpd/conf/httpd.conf`,ÔÚ×îºóÌí¼Ó:
+### ä¿®æ”¹ httpd.conf
+ä¿®æ”¹`/etc/httpd/conf/httpd.conf`,åœ¨æœ€åæ·»åŠ :
 ```
 Include conf/mod_jk.conf
 ```
 
-ÅäÖÃ tomcat
+é…ç½® tomcat
 ----------
-°²×° tomcat Ö»ĞèÒªÏÂÔØ½âÑ¹¾Í¿ÉÒÔÁË, Ã»Ê²Ã´ÌØÊâµÄ.ÒÔÏÂµÄÅäÖÃ¶¼ÊÇÔÚ `server.xml` ÖĞ½øĞĞµÄ. ¸ÃÅäÖÃÎÄ¼şÔÚ tomcat °²×°Ä¿Â¼ÖĞ conf Ä¿Â¼ÏÂ.
+å®‰è£… tomcat åªéœ€è¦ä¸‹è½½è§£å‹å°±å¯ä»¥äº†, æ²¡ä»€ä¹ˆç‰¹æ®Šçš„.ä»¥ä¸‹çš„é…ç½®éƒ½æ˜¯åœ¨ `server.xml` ä¸­è¿›è¡Œçš„. è¯¥é…ç½®æ–‡ä»¶åœ¨ tomcat å®‰è£…ç›®å½•ä¸­ conf ç›®å½•ä¸‹.
 
-ËÑË÷ Engine ½Úµã, Ìí¼Ó `jvmRoute` ÊôĞÔÎªÖ®Ç° `worker.properties` ÅäÖÃµÄÃû×Ö.ÒòÎªÎÒÔÚÅäÖÃ `worker.propertis` Ê±¶¼ÊÇÊ¹ÓÃµÄÖ÷»úÃû,ËùÒÔ `cloud02` ĞŞ¸Äºó¾ÍÊÇ
+æœç´¢ Engine èŠ‚ç‚¹, æ·»åŠ  `jvmRoute` å±æ€§ä¸ºä¹‹å‰ `worker.properties` é…ç½®çš„åå­—.å› ä¸ºæˆ‘åœ¨é…ç½® `worker.propertis` æ—¶éƒ½æ˜¯ä½¿ç”¨çš„ä¸»æœºå,æ‰€ä»¥ `cloud02` ä¿®æ”¹åå°±æ˜¯
 ```
 <Engine name="Catalina" defaultHost="localhost" jvmRoute="cloud02">
 ```
-cloud03, cloud04 Ò²ÕâÑùĞŞ¸Ä.
+cloud03, cloud04 ä¹Ÿè¿™æ ·ä¿®æ”¹.
 
-È»ºóÔÚ `</Engine>` Ç°, ¼ÓÈëÈçÏÂÄÚÈİ.
+ç„¶ååœ¨ `</Engine>` å‰, åŠ å…¥å¦‚ä¸‹å†…å®¹.
 ```
 <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster" channelSendOptions="8">
 
@@ -184,28 +184,28 @@ cloud03, cloud04 Ò²ÕâÑùĞŞ¸Ä.
 </Cluster>
 ```
 
-Æô¶¯¼¯Èº
+å¯åŠ¨é›†ç¾¤
 -------
 
 ```
-# ÔÚ cloud01 ÖĞ²Ù×÷
+# åœ¨ cloud01 ä¸­æ“ä½œ
 ssh cloud01
-# Æô¶¯ apache ĞèÒª root È¨ÏŞ
+# å¯åŠ¨ apache éœ€è¦ root æƒé™
 sudo apachectl restart
-# Æô¶¯ËùÓĞ½Úµã
-# ×¢Òâ: ÏÂÃæ tomcat µÄÂ·¾¶ĞèÒª¸ù¾İ¸öÈËµÄ°²×°À´ĞŞ¸Ä
+# å¯åŠ¨æ‰€æœ‰èŠ‚ç‚¹
+# æ³¨æ„: ä¸‹é¢ tomcat çš„è·¯å¾„éœ€è¦æ ¹æ®ä¸ªäººçš„å®‰è£…æ¥ä¿®æ”¹
 for i in $(echo 02 03 04);
 do
 	ssh "cloud$i" /opt/tomcat/bin/startup.sh;
 done;
 
-# ²é¿´ÔËĞĞ×´Ì¬, È·±£ÓĞ BootStrap ½ø³Ì
+# æŸ¥çœ‹è¿è¡ŒçŠ¶æ€, ç¡®ä¿æœ‰ BootStrap è¿›ç¨‹
 for i in $(echo 02 03 04); do echo ====$i====;ssh "cloud$i" jps; done;
 ```
 
-¼¯ÈºÅäÖÃÍê³Éºó¿ÉÒÔÍ¨¹ıË¢ĞÂ http://cloud01/manager/status Õâ¸öÒ³Ãæ, ¹Û²ì IP address À´ÅĞ¶ÏÊÇ·ñ³É¹¦.
+é›†ç¾¤é…ç½®å®Œæˆåå¯ä»¥é€šè¿‡åˆ·æ–° http://cloud01/manager/status è¿™ä¸ªé¡µé¢, è§‚å¯Ÿ IP address æ¥åˆ¤æ–­æ˜¯å¦æˆåŠŸ.
 
-ÆäËû
+å…¶ä»–
 ----
-ÓĞµÄ tomcat ÅäÖÃÌáµ½ `<ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/>`, ¸ÃÀàÔÚ tomcat8 ÖĞÒÑ¾­ÒÆ³ıÁË.²Î¿´[ÕâÀï](http://tomcat.apache.org/tomcat-8.0-doc/changelog.html#Tomcat_8.0.0_(markt)/Cluster).
+æœ‰çš„ tomcat é…ç½®æåˆ° `<ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/>`, è¯¥ç±»åœ¨ tomcat8 ä¸­å·²ç»ç§»é™¤äº†.å‚çœ‹[è¿™é‡Œ](http://tomcat.apache.org/tomcat-8.0-doc/changelog.html#Tomcat_8.0.0_(markt)/Cluster).
 

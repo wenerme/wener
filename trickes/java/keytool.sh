@@ -2,24 +2,24 @@
 
 # JavaTM Secure Socket Extension
 # http://docs.oracle.com/javase/1.5.0/docs/guide/security/jsse/JSSERefGuide.html#Debug
-# ¿ÉÒÔ²Î¿¼Àà java.security.cert.X509Certificate
+# å¯ä»¥å‚è€ƒç±» java.security.cert.X509Certificate
 
-# µ÷ÊÔ ssl
+# è°ƒè¯• ssl
 java -Djavax.net.debug=all -Djavax.net.ssl.trustStore=trustStore
 
-# ³£ÓÃµÄ ssl ÃüÁî
+# å¸¸ç”¨çš„ ssl å‘½ä»¤
 http://shib.kuleuven.be/docs/ssl_commands.shtml
 
-# keytool Ê¹ÓÃËµÃ÷
+# keytool ä½¿ç”¨è¯´æ˜
 http://docs.oracle.com/javase/1.5.0/docs/tooldocs/solaris/keytool.html
 
-# »ñÈ¡ cert
+# è·å– cert
 echo -n | openssl s_client -connect dl.google.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > dl.google.cert
 
-# µ¼Èëµ½ keystore
+# å¯¼å…¥åˆ° keystore
 keytool -import -alias custom-ssl -file dl.google.cert -keystore C:\custom.truststore
 
-# ĞŞ¸Ä eclipse.ini Ê¹ÓÃ×Ô¶¨ÒåµÄ keystore
+# ä¿®æ”¹ eclipse.ini ä½¿ç”¨è‡ªå®šä¹‰çš„ keystore
 -Djavax.net.ssl.trustStore=C:\custom.truststore
 -Djavax.net.ssl.trustStorePassword=qazwsx
 
@@ -37,7 +37,7 @@ http://www.sslshopper.com/article-most-common-java-keytool-keystore-commands.htm
 
 set CERT=%JAVA_HOME%/jre/lib/security/cacerts
 keytool -list -v -keystore %CERT%
-# Ä¬ÈÏ¿ÚÁîÎª changeit ÔÚ MAC ÉÏÊÇ changeme, µ«ÓĞµÄÒ²¿ÉÄÜÊÇ changeit
+# é»˜è®¤å£ä»¤ä¸º changeit åœ¨ MAC ä¸Šæ˜¯ changeme, ä½†æœ‰çš„ä¹Ÿå¯èƒ½æ˜¯ changeit
 
 # Generate a Java keystore and key pair
 keytool -genkey -alias mydomain -keyalg RSA -keystore keystore.jks -keysize 2048
