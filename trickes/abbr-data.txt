@@ -38,7 +38,7 @@ CDP: Command Data Processor
 CDP: Computational Data Processing
 CDP: Computer Data Processing
 CDPIS: Command Data Processing and Instrumentation System
-CDPIS: Command Data Processing and¡­
+CDPIS: Command Data Processing andâ€¦
 CDSL: Computer Data System Laboratory
 CDT: Configuration Data Table
 CDU: Coupling Data Unit
@@ -213,14 +213,14 @@ DUNS: Data Universal Numbering System
 DUNS: Data Universityrsal Numbering System
 EAD: Encoded Archival Description
 EBCDIC: Extended Binary Coded Decimal Interchange Code
-ebXML: Electronic Business using eXtensible¡­
+ebXML: Electronic Business using eXtensibleâ€¦
 ECM: Enterprise Content Management
 EDC: EROS Data Center
 EDF: Engineering Data File
 EDI: Electronic Data Interchange
 EDIF: Electronic Design Interchange Format
-EDIFACT: Electronic Data Interchange For¡­
-EDITORIA: Earth observation Data InTegration and¡­
+EDIFACT: Electronic Data Interchange Forâ€¦
+EDITORIA: Earth observation Data InTegration andâ€¦
 EDM: Entity Data Model
 EDP: Electronic Data Processing
 EDP: Embedded Data Processor
@@ -344,7 +344,7 @@ MOLAP: Multidimensional On Line Analytical Processing
 MQL: Metaweb Query Language
 MSDE: MicroSoft Data Engine
 MSDT: Multiple Shuttle Data Tape
-OASIS: Organisation for the Advancement of¡­
+OASIS: Organisation for the Advancement ofâ€¦
 OCA: Oracle Certifiate Associate
 OCM: Oracle Certified Master
 OCP: Oracle Certified Professional
@@ -452,14 +452,14 @@ STDN: Spacecraft Tracking and Data Network
 STIVE: Standard Interface Verification Equipment
 SVG: Scalable Vector Graphics
 SWF: Small Web Format
-TDAPR: Telecommunications and Data Acquisition¡­
+TDAPR: Telecommunications and Data Acquisitionâ€¦
 TDM: Time Division Multiplexing
 TDM: Time Divisionsion Multiplexing
 TDMS: Terminal Data Management System
 TDP: Tracking Data Processor
 TEI: Text Encoding Initiative
 TrAX: TRansformation Api for Xml
-TREND: Technical Requirements Engineering Network¡­
+TREND: Technical Requirements Engineering Networkâ€¦
 UART: Universal Asynchronous Receiver-Transmitter
 UART: Universityrsal Asynchronous Receiver-Transmitter
 UCS: Universal Character Set
@@ -467,8 +467,8 @@ UCS: Universityrsal Character Set
 UDA: Universal Data Access
 UDA: Universityrsal Data Access
 UDS: Uniform Data Systems
-UIUC DLI: University of Illinois at Urbana-Champaign¡­
-UIUC DLI: Universityrsity of Illinois at¡­
+UIUC DLI: University of Illinois at Urbana-Champaignâ€¦
+UIUC DLI: Universityrsity of Illinois atâ€¦
 UNOS: United Network for Organ Sharing
 V&DA: Video and Data Acquisition
 V&DA: Video and Data Assembly
