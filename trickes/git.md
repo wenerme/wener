@@ -1,32 +1,33 @@
 Undo a commit and redo
 -----------------------
-
+```
 git commit ...
 git reset --soft 'HEAD^'
 edit                       
 git add ....
 git commit -c ORIG_HEAD
-
+```
 from [here](http://stackoverflow.com/questions/927358)
 
 显示 不同
 ---------
-
+```
 git diff
 	--cached
 	--staged
 	HEAD 尚未暂存的,当前正在编辑的
-
+```
 from [here](http://stackoverflow.com/questions/1587846)
-	
+
 移除 git 历史
 --------------
-
+```
 # $sha 为需要移除的历史位置
 git checkout --orphan temp $sha
 git commit -m "Truncated history"
 git rebase --onto temp $sha master
 git branch -D temp
+```
 
 push tags
 -----
@@ -38,9 +39,10 @@ git push origin <tag_name>
 
 强制 pull
 ------
-
+```
 git fetch --all
 git reset --hard origin/master
+```
 
 启动git服务
 -----------
@@ -97,4 +99,28 @@ git clone git://localhost/reponame
 ```
 git checkout --orphan <branchname>
 git rm --cached -r .
+```
+
+Migrate git branch to a new repository
+--------------------
+```
+mkdir /path/to/new/repo && cd "$@"
+git config receive.denyCurrentBranch warn
+cd -
+git push /path/to/new/repo:optional-new-branch-name branch-name
+```
+
+from [Here](http://stackoverflow.com/a/2227571/1870054)
+
+## Rename branch
+```
+# Rename old-branch-name to a non exists new-branch-name
+git branch -m old-branch-name new-branch-name
+# Rename current branch to new-branch-name
+git branch -m new-branch-name
+
+# Rename remote
+git branch new-branch-name origin/old-branch-name
+git push origin --set-upstream new-branch-name
+git push origin :old-branch-name
 ```
