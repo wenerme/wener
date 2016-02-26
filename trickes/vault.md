@@ -1,6 +1,10 @@
+<!--
+title: Vault 基础
+date: 2016-2-18
+link: vault
+-->
 
-
-## Get started
+## 开始
 ```
 vault server -dev
 ```
@@ -10,7 +14,7 @@ vault write secret/hello value=world
 vault read secret/hello
 ```
 
-## Basic
+## 基础
 
 __conf.hcl__
 
@@ -45,6 +49,6 @@ $ vault read -format=json secret/hello | jq ".data.value" -r
 $ vault read -field=value secret/password
 ```
 
-## Reference
+## 参考
 
 * [Vault project](https://www.vaultproject.io/)
