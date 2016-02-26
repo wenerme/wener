@@ -8,30 +8,6 @@
 # =================SHELL 技巧================
 # ===========================================
 
-# download: remote -> local
-# local_file 可以为目录
-scp user@remote_host:remote_file local_file 
-# upload: local -> remote
-scp local_file user@remote_host:remote_file
-
-# To Forward sshtalk.in:8080 -> Cort.local:4567, you can do
-local="Cort.local:4567" # or "localhost:4567"
-remot="*:8080" # "*" for all interfaces (default is loopback)
-
-ssh -R ${remote}:${local} sshtalk.in
-
-# To forward localhost:1234 -> private-host:443, through public-host you can do
-local="localhost:1234" # or just "1234" default is localhost
-remot="private-host:443" # "*" for all interfaces (default is loopback)
-
-ssh -L ${local}:${remote} public-host
-
-# 须在在Server端允许转发
-# 在 /etc/ssh/sshd_config 中添加
-GatewayPorts yes
-# 然后重启
-sudo service sshd restart
-
 # 以第二列排序, 以数字的方法比较
 sort -n -k 2
 
@@ -52,18 +28,7 @@ ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's
 # 使用 rsync + ssh 同步
 rsync -avze ssh /localpath robot@192.168.1.171:/remote/path
 
-# scp to 多台
-for dest in $(<destfile.txt); do
-  scp ourfile.txt ${dest}:remote/path/
-done
 
-# 在不用 scp 的情况下 拷贝到多台
-cat file.txt | tee >(ssh user@ip1.com "cat > file.txt") \
-                   >(ssh user@ip2.com "cat > file.txt")
-
-tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
-                               >( ... )
-							   
 # 开机启动
 chkconfig --level 23 network on
 chkconfig --add foo
@@ -97,10 +62,10 @@ cut -d: -f1 /etc/passwd
 cut -d: -f1 /etc/group
 
 adduser new_username
-useradd new_username 
-# `useradd` is native binary compiled with the system. 
+useradd new_username
+# `useradd` is native binary compiled with the system.
 # But, adduser is a perl script which uses useradd binary in back-end.
-# `adduser` is more user friendly and interactive than its back-end  useradd. 
+# `adduser` is more user friendly and interactive than its back-end  useradd.
 # There's no difference in features provided.
 rm -r /home/username
 usermod -l new_username old_username
@@ -121,10 +86,10 @@ cat /proc/version
 # 保存和使用上次的session
 SESSIONNAME="script"
 tmux has-session -t $SESSIONNAME &> /dev/null
-if [ $? != 0 ] 
+if [ $? != 0 ]
  then
     tmux new-session -s $SESSIONNAME -n script -d
-    tmux send-keys -t $SESSIONNAME "~/bin/script" C-m 
+    tmux send-keys -t $SESSIONNAME "~/bin/script" C-m
 fi
 tmux attach -t $SESSIONNAME
 
