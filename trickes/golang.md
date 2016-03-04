@@ -69,6 +69,12 @@ func main() {
 * [Go Execution Mode](https://docs.google.com/document/d/1nr-TQHw_er6GOQRsF6T43GGhFDelrAP0NqSS_00RgZQ/edit)
 * [cmd/cgo](https://golang.org/cmd/cgo/)
 
+## Cross compile
+
+env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbeat
+
+* [environment](https://golang.org/doc/install/source#environment)
+
 ## Reference
 
 * [cmd/go](https://golang.org/cmd/go/)

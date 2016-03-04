@@ -212,6 +212,37 @@ Elasticsearch 集群中节点角色分为主节点,数据节点,客户端节点,
 * 同步机制
 * 数据刷盘方式
 
+### Discovery
+
+Master
+: 唯一可以发布新的集群状态的节点
+: 用于响应集群操作,修改节点,增删改索引信息,为节点分配分片
+: 索引和搜索等不需要牵涉到主节点
+
+```
+discovery.zen.
+  minimum_master_nodes 选举主节点的最小 master eligible 节点数,类似于 Zookeeper 里的大多数
+  ping.unicast 单播时进行发现的主机信息
+  master_election.
+    filter_client 默认 true
+    filter_data 默认 false
+  fd. Fault Detection
+    ping_interval : 1
+    ping_timeout  : 30s
+    ping_retries  : 3
+  publish_timeout : 30s 发布集群状态的超时时间
+  no_master_block. 当没有 Master 时需要拒绝的操作,不会阻止和节点相关的 API
+    all
+    write 默认.可能会读取到过期数据.
+```
+
+### Local Gateway
+* 用于本地存储集群节点和分片信息.即便在集群完全重启后也会保持.
+* 存储的节点和集群信息会用于确定何时进行数据恢复调度.
+* 配置项的更改只有在集群完全重启后才会生效.
+
+### 参考
+* [弹性扩容的问题](https://www.elastic.co/guide/en/elasticsearch/resiliency/current/index.html)
 
 ## 恢复备份
 
@@ -282,6 +313,78 @@ curl -XDELETE 'localhost:9200/_snapshot/backup/bckp1/_restore'
 * 缓存以段位单位
 * 主要用于排序,聚合和部分过滤及脚本
 
+## 插件
+
+### 常用插件
+
+* [mobz/elasticsearch-head](https://github.com/mobz/elasticsearch-head)
+  A web front end for an elastic search cluster
+* [lmenezes/elasticsearch-kopf](https://github.com/lmenezes/elasticsearch-kopf)
+  web admin interface for elasticsearch
+* [royrusso/elasticsearch-HQ](https://github.com/royrusso/elasticsearch-HQ)/[online](http://www.elastichq.org/)
+  Monitoring and Management Web Application for ElasticSearch instances and clusters.
+* [delete-by-query](https://www.elastic.co/guide/en/elasticsearch/plugins/2.2/delete-by-query-usage.html)
+* Update by query
+  * [yakaz/elasticsearch-action-updatebyquery](https://github.com/yakaz/elasticsearch-action-updatebyquery)
+    该插件目前已经不可用
+  * [#2230](https://github.com/elastic/elasticsearch/issues/2230)
+    添加 Update by query 请求,目前已经合并还未发布
+
+### 插件开发
+
+## 更新
+
+更新主要指部分更新,部分更新在复杂场景下是非常常见的常见.部分更新分为脚本和文档合并两种方式.
+
+```
+curl -XPUT "localhost:9200/test/test/1" -d '{"name":"wener","age":15}'
+# 需要
+# script.inline: true
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{"script" : "ctx._source.age=16"}'
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{"script" : "ctx._source.sex='男'"}'
+# params for script
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{
+   "script" : "ctx._source.age=age",
+   "params" : {
+      "age" : 20
+   }
+}'
+# upsert for missing
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{
+   "script" : "ctx._source.score+=1",
+   "upsert": {
+       "score": 0
+   }
+}'
+# doc for partial update
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{
+  "doc":{
+    "friends":[
+      "XXX"
+    ]
+  }
+}'
+# doc_as_upsert will insert this doc if missing
+curl -XPOST "localhost:9200/test/test/2/_update" -d '{
+  "doc":{
+    "friends":[
+      "CCC"
+    ]
+  },
+  "doc_as_upsert": true
+}'
+# remove field
+curl -XPOST "localhost:9200/test/test/1/_update" -d '{
+  "script" : "ctx._source.remove('friends')"
+}'
+```
+
+## 翻页
+
+默认翻页内容最多 10000 条(配置项 [index.max_result_window](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html)),
+
+* [Fetch phase](https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html)
+* [Pagination](https://www.elastic.co/guide/en/elasticsearch/guide/current/pagination.html)
 
 ## FAQ
 
@@ -309,3 +412,8 @@ Use -XX:-UseSuperWord if you are running on 7u40 <= JVM < 7u55
 当使用 term 进行全文匹配时,要求查找的字段为非解析字段,否则无法进行全文匹配.
 
 * [Exact values  versus full text](https://www.elastic.co/guide/en/elasticsearch/guide/current/_exact_values_versus_full_text.html)
+
+### vs MongoDB
+
+
+### vs Solar
