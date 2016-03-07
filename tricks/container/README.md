@@ -29,3 +29,8 @@
   * [Deisdash](http://deisdash.com/) Dashboard for deis
 * [Pivotal platform](http://pivotal.io/platform)
 * [Flynn](https://flynn.io/)
+  * [flynn](https://github.com/flynn/flynn)
+* [Openshift](https://www.openshift.com/)
+* [Dokku](http://dokku.viewdocs.io/dokku/)
+  Docker based PaaS
+  * [dokku/dokku](https://github.com/dokku/dokku)
