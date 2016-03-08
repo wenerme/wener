@@ -42,3 +42,9 @@ Compare and set
 ## CURD
 指数据的增删改查
 ```
+
+## 参考
+
+* Markdown 语法参考
+  * [Markdown 语法说明 (简体中文版) ](http://wowubuntu.com/markdown/)
+  * [Github 流 Markdown 语法指南](https://guides.github.com/features/mastering-markdown/)
