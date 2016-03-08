@@ -1,3 +1,8 @@
+## 将另外一个仓库合并为当前仓库的一个子目录
+```
+git subtree add -P <prefix> <repo> <rev>
+```
+
 Undo a commit and redo
 -----------------------
 ```
