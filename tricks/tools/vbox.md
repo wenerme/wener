@@ -49,4 +49,15 @@ config.vm.network "public_network", ip: "192.168.0.17"
 # disabled 禁用
 config.vm.synced_folder "src/", "/srv/website", owner: "root", group: "root"
 ```
+* 手动安装 box
+```bash
+vagrant box add laravel/homestead path/to/your/box/file.box
+```
+* 常用 BOX
+```
+centos/7
+ubuntu/trusty64
+```
+* 搜索 BOX
+  [vagrantbox](http://www.vagrantbox.es/)
 * [Vagrantup](https://www.vagrantup.com/)
