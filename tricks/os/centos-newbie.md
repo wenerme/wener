@@ -1,5 +1,3 @@
-[toc]
-
 玩我的 CentOS / Play CentOS
 ===================
 
@@ -7,9 +5,9 @@
 > 很多时候需要 sudo 等 root 权限的时候需要自行判断.尽量不直接用root帐户.
 
 > 我自己使用时的主要安装过程
-> 
+>
 > 初始配置 -> 设置好 openssh-server -> 添加额外的 repo -> 安装 git
-> 下载[我的dotfiles](https://github.com/wenerme/dotfiles)
+> 下载我的[dotfiles](https://github.com/wenerme/dotfiles)
 > 其他步骤则按需进行
 
 
@@ -83,7 +81,7 @@ mkdir ~/shared
 sudo mount -t vboxsf shared ~/shared
 
 # 使用sudo找不到命令的时候
-# 可以考虑将 /usr/local/bin/:/usr/local/sbin/ 
+# 可以考虑将 /usr/local/bin/:/usr/local/sbin/
 # 添加到 /etc/sudoers 的 secure_path 中
 
 # 判断远程某端口是否开启
@@ -182,7 +180,7 @@ Install iBus
 # 1.Install necessary packages
 yum install ibus ibus-gtk ibus-qt
 yum install ibus-pinyin # or other engine(s) you want
-yum install im-chooser 
+yum install im-chooser
 # 2. Enable input method at System->Perferences->Input Method
 # 3. Add input methods
 # 4.Re-login
@@ -191,7 +189,7 @@ yum install im-chooser
 Install python2.7 for goagent
 -----------------------------
 ```
-# Setup Development tools 
+# Setup Development tools
 yum groupinstall "Development tools" -y
 # basic lib
 yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel -y
@@ -268,7 +266,7 @@ Install gvim7.4
 mkdir -p ~/src && cd $_
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar -jxvf vim-7.4.tar.bz2
-# 
+#
 yum install lua lua-devel -y
 yum install libX11 libX11-devel libXt-devel libgtk2 libgtk2-devel -y
 #
@@ -310,10 +308,10 @@ Bully + Aircrack-ng + Reaver
 -------------------
 
 > [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz)  
-> [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz) 
+> [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz)
 > reaver 的替代 [bully](https://github.com/bdpurcell/bully)
 
-```
+```bash
 # 准备工作
 yum install -y libpcap libpcap-devel openssl-devel sqlite sqlite-devel
 # 这个libnl 是用来支持 netlink (nl80211) 的
@@ -371,7 +369,7 @@ reaver -a -S -vv -i mon0 -b `MAC`
 ----------------------------
 来自 [connect-to-a-wireless-network-via-command-line](http://www.ghacks.net/2009/04/14/connect-to-a-wireless-network-via-command-line/)
 
-```
+```bash
 #! /bin/bash
 ifconfig wlan0
 iwconfig wlan0 essid NETWORK_ID key WIRELESS_KEY
@@ -388,7 +386,7 @@ dhclient wlan0
 需要使用的工具
 `yum install wpa_supplicant wireless-tools -y`
 
-```
+```bash
 # 1. 查看你的无线设备名
 $iw dev
 phy#0
@@ -429,11 +427,11 @@ BSS 00:14:d1:9c:1f:c8 (on wlan0)
 
 # 5. 连接到 WPA/WPA2 wifi
 
-$ wpa_passphrase 无线名称 >> /etc/wpa_supplicant.conf 
+$ wpa_passphrase 无线名称 >> /etc/wpa_supplicant.conf
 无线密码
 
 # 正确的应该是这样的
-$ cat /etc/wpa_supplicant.conf 
+$ cat /etc/wpa_supplicant.conf
 # reading passphrase from stdin
 network={
 	ssid="gorilla"
@@ -469,18 +467,18 @@ $ ip addr show wlan0
 3: wlan0:  mtu 1500 qdisc mq state UP qlen 1000
     link/ether 74:e5:43:a1:ce:65 brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.113/24 brd 192.168.1.255 scope global wlan0
-    inet6 fe80::76e5:43ff:fea1:ce65/64 scope link 
+    inet6 fe80::76e5:43ff:fea1:ce65/64 scope link
        valid_lft forever preferred_lft forever
-	   
+
 # 7. 添加默认路由规则(可略过)
 $ ip route show
-192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113 
+192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113
 
 #  这条规则是转发 (192.168.1.*) 到 wlan0,如果你想添加其他的 可以用以下方法
 $ sudo ip route add default via 192.168.1.254 dev wlan0
 $ ip route show
-default via 192.168.1.254 dev wlan0 
-192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113 
+default via 192.168.1.254 dev wlan0
+192.168.1.0/24 dev wlan0  proto kernel  scope link  src 192.168.1.113
 
 # 8. 测试是否正确连接
 $ ping 8.8.8.8
@@ -492,7 +490,7 @@ $ ping 8.8.8.8
 参考官方的 [wpa_supplicant 配置](http://wiki.centos.org/HowTos/Laptops/WpaSupplicant)
 这里没有提到给 wlan0 配置自动的 dhcp
 
-感觉上 
+感觉上
 `echo BOOTPROTO=dhcp | sudo tee -a /etc/sysconfig/network-scripts/ifcfg-wlan0`
 这样就可以了~但是还是不行,还是要 `dhclient wlan0`
 
