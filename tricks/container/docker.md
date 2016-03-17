@@ -1,6 +1,6 @@
 
 # Setup
-```
+```bash
 docker-machine start default
 eval $(docker-machine env default)
 docker pull java:8
@@ -10,7 +10,7 @@ docker pull java:8
 ## SSHD service
 * __Dockerfile__
 
-```
+```Dockerfile
 FROM java:8
 MAINTAINER Wener <wener@wener.me>
 
@@ -29,7 +29,7 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 ```
 
-```
+```bash
 docker build -t local-sshd .
 docker run -d -p 2331:22 --name dock-1 local-sshd
 
@@ -60,3 +60,7 @@ docker run --rm -it -v ~:/host williamyeh/ansible:ubuntu14.04-onbuild bash
 ```
 
 * [Dockerizing an SSH daemon service](https://docs.docker.com/engine/examples/running_ssh_service/)
+
+## Tips
+
+* Docker machine root 密码为 `tcuser`
