@@ -8,8 +8,35 @@ VBoxManage extpack install  --replace FILE_NAME
 
 ```
 
+### 磁盘控制
+```bash
+# 查看当前磁盘
+lsblk -io KNAME,TYPE,SIZE,MODEL
+# 创建磁盘
+VBoxManage createhd --filename disk.vid --format VDI --size 1000
+# 添加媒介
+VBoxManage storageattach try_disk --storagectl SATA --port 1 --device 0 --type hdd --medium `pwd`/disk.vid
+
+# 在新磁盘上创建单个分区
+sudo fdisk -u /dev/sdb <<EOF
+n
+p
+1
+
+
+t
+8e
+w
+EOF
+# 使用 ext4 磁盘
+mkfs.ext4 /dev/sdb1
+# 挂载磁盘
+mount -t ext4 /dev/sdb1 /data
+# 判断挂载成功
+df  -h
+```
+
 ## Vagrantfile
-`Vagrantfile` 配置示例
 ```ruby
 Vagrant.configure(2) do |config|
   # 配置可参考https://docs.vagrantup.com.
@@ -29,11 +56,14 @@ Vagrant.configure(2) do |config|
 
   # 对不同的运行环境进行配置
   config.vm.provider "virtualbox" do |vb|
+    # virtualbox 相关配置可参考 https://www.vagrantup.com/docs/virtualbox/configuration.html
     # 在启动时禁用 VirtualBox 图形界面
     vb.gui = false
 
     # 指定虚拟机使用的内存量
     vb.memory = "1024"
+    # 指定虚拟机使用的核数
+    vb.cpus = 2
   end
 
   # 配置监听,在虚拟机启动后执行
@@ -51,6 +81,77 @@ Vagrant.configure(2) do |config|
 end
 ```
 
+### 添加额外磁盘和分区
+```ruby
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_check_update = false
+  config.vm.network "private_network", ip: "192.168.33.9"
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = "1024"
+    vb.name = "try_disk"
+
+    file_to_disk = File.realpath( "." ).to_s + "/disk.vdi"
+
+    if ARGV[0] == "up" && ! File.exist?(file_to_disk)
+       vb.customize [
+            'createhd',
+            '--filename', file_to_disk,
+            '--format', 'VDI',
+            '--size', 30 * 1024 # 30 GB
+            ]
+       vb.customize [
+            'storageattach', :id,
+            '--storagectl', 'SATA', # The name may vary
+            '--port', 1, '--device', 0,
+            '--type', 'hdd', '--medium',
+            file_to_disk
+            ]
+    end
+  end
+
+  # Tow partition in one disk
+  config.vm.provision "shell", inline: <<-SHELL
+set -e
+set -x
+
+if [ -f /etc/provision_env_disk_added_date ]
+then
+   echo "Provision runtime already done."
+   exit 0
+fi
+
+
+sudo fdisk -u /dev/sdb <<EOF
+n
+p
+1
+
++500M
+n
+p
+2
+
+
+w
+EOF
+
+mkfs.ext4 /dev/sdb1
+mkfs.ext4 /dev/sdb2
+mkdir -p /{data,extra}
+mount -t ext4 /dev/sdb1 /data
+mount -t ext4 /dev/sdb2 /extra
+
+date > /etc/provision_env_disk_added_date
+  SHELL
+
+  config.vm.provision "shell", inline: <<-SHELL
+    echo Well done
+  SHELL
+end
+```
 ## Vagrant Tips
 
 * 启动后运行命令
@@ -112,6 +213,14 @@ vagrant ssh # SSH 进入机器
 vagrant reload # 重启机器
 vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目录有 Vagrantfile
 ```
+* 常用插件
+  * landrush
+  * vagrant-vbguest
+  * vagrant-cachier
+  * vagrant-omnibus
+  * vagrant-proxyconf
+  * vagrant-share
+* 添加额外磁盘分区和修改磁盘大小和通过定制化参数实现,具体可参考[这里](https://github.com/mitchellh/vagrant/issues/2339#issuecomment-33064917)
 * 搜索 BOX
   * [vagrantbox](http://www.vagrantbox.es/)
   * [boxes/search](https://atlas.hashicorp.com/boxes/search)
@@ -120,3 +229,12 @@ vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目�
   * [软件下载](https://www.vagrantup.com/downloads.html)
   * [官方文件文档](https://www.vagrantup.com/docs/)
   * [配置文件文档](https://www.vagrantup.com/docs/vagrantfile/)
+
+
+## FAQ
+
+### VBoxManage: error: Could not rename the directory
+```
+vagrant destroy -f
+rm ~/VirtualBox\ VMs/YOUR_NAME_HERE
+```
