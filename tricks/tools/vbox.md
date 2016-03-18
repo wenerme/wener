@@ -8,34 +8,6 @@ VBoxManage extpack install  --replace FILE_NAME
 
 ```
 
-### 磁盘控制
-```bash
-# 查看当前磁盘
-lsblk -io KNAME,TYPE,SIZE,MODEL
-# 创建磁盘
-VBoxManage createhd --filename disk.vid --format VDI --size 1000
-# 添加媒介
-VBoxManage storageattach try_disk --storagectl SATA --port 1 --device 0 --type hdd --medium `pwd`/disk.vid
-
-# 在新磁盘上创建单个分区
-sudo fdisk -u /dev/sdb <<EOF
-n
-p
-1
-
-
-t
-8e
-w
-EOF
-# 使用 ext4 磁盘
-mkfs.ext4 /dev/sdb1
-# 挂载磁盘
-mount -t ext4 /dev/sdb1 /data
-# 判断挂载成功
-df  -h
-```
-
 ## Vagrantfile
 ```ruby
 Vagrant.configure(2) do |config|
@@ -91,6 +63,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = "1024"
+    # machine name in virtualbox
     vb.name = "try_disk"
 
     file_to_disk = File.realpath( "." ).to_s + "/disk.vdi"
@@ -104,7 +77,9 @@ Vagrant.configure(2) do |config|
             ]
        vb.customize [
             'storageattach', :id,
-            '--storagectl', 'SATA', # The name may vary
+            # The name may vary, found by
+            # VBoxManage showvminfo try_disk|grep 'Storage Controller Name'|
+            '--storagectl', 'SATAController',
             '--port', 1, '--device', 0,
             '--type', 'hdd', '--medium',
             file_to_disk
@@ -112,7 +87,7 @@ Vagrant.configure(2) do |config|
     end
   end
 
-  # Tow partition in one disk
+  # Tow partition in one disk 10G,20G
   config.vm.provision "shell", inline: <<-SHELL
 set -e
 set -x
@@ -124,12 +99,12 @@ then
 fi
 
 
-sudo fdisk -u /dev/sdb <<EOF
+fdisk -u /dev/sdb <<EOF
 n
 p
 1
 
-+500M
++10G
 n
 p
 2
@@ -141,8 +116,9 @@ EOF
 mkfs.ext4 /dev/sdb1
 mkfs.ext4 /dev/sdb2
 mkdir -p /{data,extra}
-mount -t ext4 /dev/sdb1 /data
-mount -t ext4 /dev/sdb2 /extra
+echo '/dev/sdb1 /data ext4 defaults 0 0'>> /etc/fstab
+echo '/dev/sdb2 /extra ext4 defaults 0 0'>> /etc/fstab
+mount -a
 
 date > /etc/provision_env_disk_added_date
   SHELL
@@ -152,6 +128,37 @@ date > /etc/provision_env_disk_added_date
   SHELL
 end
 ```
+
+#### 磁盘控制
+```bash
+# 查看当前磁盘
+lsblk -io KNAME,TYPE,SIZE,MODEL
+# 创建磁盘
+VBoxManage createhd --filename disk.vid --format VDI --size 1000
+# 添加媒介
+VBoxManage storageattach try_disk --storagectl SATA --port 1 --device 0 --type hdd --medium `pwd`/disk.vid
+
+# 在新磁盘上创建单个分区
+sudo fdisk -u /dev/sdb <<EOF
+n
+p
+1
+
+
+t
+8e
+w
+EOF
+# 使用 ext4 磁盘
+mkfs.ext4 /dev/sdb1
+# 挂载磁盘
+mount -t ext4 /dev/sdb1 /data
+# 判断挂载成功
+df  -h
+```
+
+
+
 ## Vagrant Tips
 
 * 启动后运行命令
@@ -187,11 +194,13 @@ config.vm.network "forwarded_port", guest: 80, host: 8080
 # 指定公网地址
 config.vm.network "public_network", ip: "192.168.0.17"
 ```
-* 目录同步
+* 共享目录
 ```ruby
 # create 自动创建主机中的目录
 # disabled 禁用
-config.vm.synced_folder "src/", "/srv/website", owner: "root", group: "root"
+config.vm.synced_folder "src/", "/srv/website", create: true, owner: "root", group: "root"
+# 禁用默认挂载目录
+config.vm.synced_folder '.', '/vagrant', disabled: true
 ```
 * 手动安装 box
 ```bash
@@ -237,4 +246,17 @@ vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目�
 ```
 vagrant destroy -f
 rm ~/VirtualBox\ VMs/YOUR_NAME_HERE
+```
+
+### 在当前目录下创建了大量文件
+这是由于临时目录异常导致的,可参考
+* [#3493](https://github.com/mitchellh/vagrant/issues/3493)
+* [#3514](https://github.com/mitchellh/vagrant/issues/3514)
+* Vagrant 判断该目录的[代码](https://github.com/ruby/ruby/blob/2254fc650b681c2582f25aa0d2be2cc8aba3cb8e/lib/tmpdir.rb#L25)
+
+
+```bash
+# 确保属性正确
+chmod 1777 /tmp
+chmod +s /tmp
 ```
