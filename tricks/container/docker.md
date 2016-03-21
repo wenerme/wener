@@ -64,3 +64,4 @@ docker run --rm -it -v ~:/host williamyeh/ansible:ubuntu14.04-onbuild bash
 ## Tips
 
 * Docker machine root 密码为 `tcuser`
+* 也可以通过 `sudo su root` 切换为 root

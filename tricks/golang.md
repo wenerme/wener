@@ -80,3 +80,7 @@ env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbe
 * [cmd/go](https://golang.org/cmd/go/)
 * [vender](https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo/edit)
 * [Summary of Go Generics Discussions](https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit#heading=h.vuko0u3txoew)
+* [FAQ](http://golang.org/doc/faq)
+* [The Three Go Landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)
+* Video
+	* [Profiling & Optimizing in Go](https://www.youtube.com/watch?v=xxDZuPEgbBU)

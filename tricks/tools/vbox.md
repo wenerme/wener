@@ -1,5 +1,5 @@
 
-## Vagrant
+## VirtualBox
 
 ```bash
 # Download and install vbox and extension pack
@@ -7,6 +7,27 @@
 VBoxManage extpack install  --replace FILE_NAME
 
 ```
+
+### 添加 USB 设备
+```bash
+# 启用 USB 设备控制器,需要虚拟机未运行
+# ohci -> usb1.0, echi -> usb2.0 ,xchi -> usb3.0
+# echi 和 xchi 需要安装 ext packet
+VBoxManage modifyvm <主机名> --usb on --usbxhci on
+
+# 查看正在运行的虚拟机
+VBoxManage list runningvms
+# 查看主机上的 USB 设备
+VBoxManage list usbhost
+# 挂载 USB 设备虚拟机
+VBoxManage controlvm <主机名> usbattach <设备 UUID>
+# 确认挂载成功
+VBoxManage showvminfo <主机名>
+# 移除 USB 设备
+VBoxManage controlvm <主机名> usbdetach <设备 UUID>
+```
+
+## Vagrant
 
 ## Vagrantfile
 ```ruby
@@ -258,5 +279,6 @@ rm ~/VirtualBox\ VMs/YOUR_NAME_HERE
 ```bash
 # 确保属性正确
 chmod 1777 /tmp
+# 或尝试 需谨慎!
 chmod +s /tmp
 ```
