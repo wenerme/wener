@@ -214,6 +214,26 @@ Elasticsearch 集群中节点角色分为主节点,数据节点,客户端节点,
 * 同步机制
 * 数据刷盘方式
 
+### 主副本分片交互过程
+* 主副本分片结构
+![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0401.png)
+* 创建,索引或删除文档
+![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0402.png)
+* 获取单个文档
+![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0403.png)
+* 部分更新
+![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0404.png)
+  * 即便是部分更新,每次发送给副本的都是一个全量的文档
+  * 此时的文档分发是异步的,不保证其顺序
+* 同时操作多个文档
+  * mget
+  ![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0405.png)
+  * bulk
+  ![](https://www.elastic.co/guide/en/elasticsearch/guide/current/images/elas_0406.png)
+
+
+* [How Primary and Replica Shards Interact](https://www.elastic.co/guide/en/elasticsearch/guide/current/_how_primary_and_replica_shards_interact.html)
+
 ### Discovery
 
 Master
@@ -417,7 +437,32 @@ Use -XX:-UseSuperWord if you are running on 7u40 <= JVM < 7u55
 
 * [Exact values  versus full text](https://www.elastic.co/guide/en/elasticsearch/guide/current/_exact_values_versus_full_text.html)
 
-### vs MongoDB
+### vs Others
+将 Elasticsearch 和其他产品做比较时,需要先考虑它的设计初衷
 
+* 一次写多次读
+  * 符合日志的特性
+  * 能够做大量缓存
+* 搜索
+* 统计分析
 
-### vs Solar
+Elasticsearch 自身本可以作为主数据库使用, 但目前常用的做法都是作为一个附属库,当数据被写入到一个支持事务的高一致性的存储(HBase,PostgreSQL)后,再异步推送到 Elasticsearch 进行索引,以实现对存储的数据进行高性能的检索和分析.
+
+* [Elasticsearch as NoSQL](https://www.elastic.co/blog/found-elasticsearch-as-nosql)
+
+#### MongoDB
+MongoDB 是用于传统用途(CRUD) 的基于文档的数据库,其主要特色不是搜索或者统计分析,而是能够以数据本身的文档结构进行存储.
+
+MongoDB 与 Elasticsearch 两者并不违背,可以同时使用.
+
+虽然 Elasticsearch 本事是不需要 Schema 的,但是因为底层为 Lucene, 所有的文档都会扁平化处理,因此无法真正的把 Elasticsearch 作为 Schemaless 来使用,反而需要慎重的对待.而 MongoDB 却能很好地做到 Schemaless, 可以从 JavaScript 的处理角度出发看待起处理文档的方式.
+
+Elasticsearch 大多情况适用于处理小文档,当处理不需要索引的大文档时,其功能有限.而 MongoDB 支持 [GridFS](https://docs.mongodb.org/manual/core/gridfs/), 可以很好地使用同一套接口来处理大文档.
+
+* [MongoDB vs. Elasticsearch: The Quest of the Holy Performances](http://blog.quarkslab.com/mongodb-vs-elasticsearch-the-quest-of-the-holy-performances.html)
+* [Elasticsearch vs MongoDB : DB engines](http://db-engines.com/en/system/Elasticsearch%3BMongoDB)
+
+#### Solar
+
+* [Apache Solr vs Elasticsearch The Feature Smackdown](http://solr-vs-elasticsearch.com/)
+* [Elasticsearch vs Solr : DB engines](http://db-engines.com/en/system/Elasticsearch%3BSolr)
