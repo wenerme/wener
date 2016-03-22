@@ -1,6 +1,6 @@
 # Ansible
 
-## 最佳实践
+## 最佳实践的目录结构
 
 ```
 /roles
@@ -151,9 +151,25 @@ Constant-width | C(/bin/bash) | File and option names
 ansible -i hosts -m setup all
 ```
 
-### 部署时 Java 版本和 SSH 进去时的版本不同
-在部署时使用 Bash 的非交互式模式,因此加载的 profile 路径可能有所不同,此时可将相应的环境变量放到 `~/.bashrc` 配置文件的 __最上面__.
+### Java 环境不正确或没有
+因为安装部署是通过 SSH 进行操作,是非交互式的 SHELL, 可通过以下命令验证环境是否正确,
+```bash
+ssh user@host 'java -version'
+```
+可将所需的 JAVA 环境变量添加到 `~/.bashrc` 的 __最上面__. 因为非交互式的启动脚本执行路径可能有所不同.
 
+### Aborting, target uses selinux but python bindings aren't installed!
+在执行时可能遇到以下错误
+```
+TASK [es : My Task] *****************************************
+fatal: [host-1]: FAILED! => {"changed": false, "checksum": "4bd3ef681e70faefe3a66c6eb3419b5d4a0e2714", "failed": true, "msg": "Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!"}
+```
+
+是由于开启了 SELinux, 但没有安装 Python 绑定库导致的, 只需要安装该库即可.
+
+```
+yum install libselinux-python
+```
 
 ## Reference
 

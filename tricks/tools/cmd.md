@@ -1,4 +1,5 @@
 
+```cmd
 :: 实现一个 CMDRC, 每次启动
 reg add "hklm\software\Microsoft\Command Processor" /f /v AutoRun /d "C:\cmdrc.cmd" > NUL
 :: 还算简单的一个提示符
@@ -19,3 +20,4 @@ sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\
 
 :: 跳转菜单中的最近列表
 :: %appdata%\microsoft\windows\recent\automaticdestinations
+```
