@@ -1,7 +1,8 @@
 
-## 在 Mac 上使用 Docker 中的 fdisk 对磁盘进行分区
 ```bash
-
+# 类似于 lsusb
+ioreg -p IOUSB -l -w 0
+brew update && brew tap jlhonora/lsusb && brew install lsusb
 ```
 
 ## 移动磁盘格式选择

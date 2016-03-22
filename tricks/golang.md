@@ -8,12 +8,19 @@ Directory and file names that begin with "." or "_ " are ignored by the go tool,
 
 
 ## Install golang under linux
-```
+```bash
 GOVERSION=1.6
 wget https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go$GOVERSION.linux-amd64.tar.gz
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$PATH
+
+# 或将环境变量放到启动脚本
+cd ~
+echo 'export GOROOT=/usr/local/go' >> $HOME/.bashrc
+echo 'export GOPATH=$HOME/go' >> $HOME/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
 ```
 
 __UNINSTALL__

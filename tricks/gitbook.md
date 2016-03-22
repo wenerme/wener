@@ -63,6 +63,7 @@ gitbook build
 # 在本地启动 HTTP 服务器
 gitbook serve
 # 生成 PDF, 需要安装额外的程序
+# Mac OS 可使用 brew cask install calibre 安装依赖程序
 gitbook pdf
 ```
 
