@@ -175,19 +175,79 @@ network:
   # 同时指定 bind_host, publish_host
   host: 0.0.0.0
 
+# 传输模块负责集群内节点之间的通讯.所有的传输本质上都是一部的,因此不会有线程阻塞等待响应.
+# 参考
+#   https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-transport.html
 transport:
+    # 基于 TCP 实现的传输模块
     tcp:
       # 节点之间通信端口
       port: 9300-9400
-      # 节点之间通信是否启用压缩
+      # 集群中其他节点与该节点通讯时使用的端口.当在防火墙或者代理后面的时候很有用.
+      # 如果不设置与 port 值相同
+      publish_port: 9300-9400
+      # 绑定传输端口的主机地址
+      # 默认 network.bind_host
+      bind_host: 0.0.0.0
+      # 集群中其他节点与该节点通讯时使用的主机地址
+      # 默认 transport.host 或 network.publish_host
+      publish_host: 0.0.0.0
+      # 同时设置 transport.bind_host 和 transport.publish_host
+      # 默认 network.host
+      host: 0.0.0.0
+      connect_timeout: 30s
+      # 节点之间通信是否启用压缩 LZF
       compress: false
+      # 定期发送 PING 保证链接存活
+      ping_schedule: 5s
+# HTTP 模块用于通过 HTTP 暴露 Elasticsearch 的 API
+# HTTP 均为异步,没有线程会被等待响应阻塞,解决了 C10K 问题
+# 尽量使用 HTTP keep-alive, 不要使用 HTTP chunking
+# 参考
+#     https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-http.html
 http:
   # 监听的 HTTP 端口
   port: 9200-9300
+  # 客户端应该连接的节点
+  # 默认 http.port 的实际值
+  publish_port: 9200-9300
+  # 绑定 HTTP 端口的主机地址
+  # 默认 network.bind_host
+  bind_host: 0.0.0.0
+  # 客户端应该连接的主机地址
+  publish_host: 0.0.0.0
+  # 同时设置 bind_host 和 publish_host
+  host: 0.0.0.0
   # 允许的最大内容长度
+  # 如果大于 Integer.MAX_VALUE 会被重置为 100mb
   max_content_length: 100mb
+  # URL 最大长度
+  max_initial_line_length: 4kb
+  max_header_size: 8kb
+  # 是否在支持压缩的时候使用压缩
+  compression: false
+  # 压缩级别
+  compression_level: 6
   # 是否禁用 HTTP
   enabled: false
+  cors:
+    # 是否启用跨域资源共享
+    enabled: false
+    allow-origin: *
+    # 默认 1728000 = 20 天
+    max-age: 1728000
+    allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+    allow-headers: X-Requested-With, Content-Type, Content-Length
+    allow-credentials: false
+  # 是否在响应中显示具体的错误堆栈
+  # 如果设置为 false, 当请求带了 error_trace 参数也会返回错误信息
+  detailed_errors:
+    enabled: true
+  pipelining: true
+  pipelining:
+    # HTTP 链接关闭前堆积在内存中的最大事件数量
+    max_events: 10000
+
 
 # ==================================================
 # 网关
@@ -290,37 +350,51 @@ index:
 # ==================================================
 # 线程池
 # ==================================================
+# 每个节点中都有多个线程池, 大多的线程池还有一个关联的请求队列, 使得请求可以等待处理而不是被抛弃.
+# 线程数量可在运行时修改
 # 参考
 #   https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-threadpool.html
 
+threadpool:
+    # 常规操作线程池, 例如 后台的节点发现, type: cached
+    generic:
+    # 用于索引和删除操作的线程池
+    index:
+      size: N
+      queue_size: 200
+    # 用搜索和 count 操作的线程池.
+    search:
+      size: (N * 3) / 2 + 1
+      queue_size: 1000
+    # 推荐操作.
+    suggest:
+      size: N
+      queue_size: 1000
+    # 获取操作
+    get:
+      size: N
+      queue_size: 1000
+    # 批量操作
+    bulk:
+      size: N
+      queue_size: 50
+    percolate:
+      size: N
+      queue_size: 1000
+    # 备份和恢复操作
+    snapshot:
+      keep_alive: 5m
+      size: min(5, N/2)
+    warmer:
+      keep_alive: 5m
+      size: min(5, N/2)
+    refresh:
+      keep_alive: 5m
+      size: min(10, N/2)
+    listener:
+      size: min(10, N/2)
 
-# A node holds several thread pools in order to improve how threads memory consumption are managed within a node. Many of these pools also have queues associated with them, which allow pending requests to be held instead of discarded.
-#
-# There are several thread pools, but the important ones include:
-#
-# generic
-# For generic operations (e.g., background node discovery). Thread pool type is cached.
-# index
-# For index/delete operations. Thread pool type is fixed with a size of # of available processors, queue_size of 200.
-# search
-# For count/search operations. Thread pool type is fixed with a size of int((# of available_processors * 3) / 2) + 1, queue_size of 1000.
-# suggest
-# For suggest operations. Thread pool type is fixed with a size of # of available processors, queue_size of 1000.
-# get
-# For get operations. Thread pool type is fixed with a size of # of available processors, queue_size of 1000.
-# bulk
-# For bulk operations. Thread pool type is fixed with a size of # of available processors, queue_size of 50.
-# percolate
-# For percolate operations. Thread pool type is fixed with a size of # of available processors, queue_size of 1000.
-# snapshot
-# For snapshot/restore operations. Thread pool type is scaling with a keep-alive of 5m and a size of min(5, (# of available processors)/2).
-# warmer
-# For segment warm-up operations. Thread pool type is scaling with a keep-alive of 5m and a size of min(5, (# of available processors)/2).
-# refresh
-# For refresh operations. Thread pool type is scaling with a keep-alive of 5m and a size of min(10, (# of available processors)/2).
-# listener
-# Mainly for java client executing of action when listener threaded is set to true. Thread pool type is scaling with a default size of min(10, (# of available processors)/2).
-# Changing a specific thread pool can be done by setting its type-specific parameters; for example, changing the index thread pool to have more threads:
+
 
 # ==================================================
 # 自动发现
