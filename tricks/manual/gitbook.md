@@ -71,6 +71,3 @@ gitbook pdf
 
 * [Gitbook](https://www.gitbook.com/)
 * [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook)
-* Markdown 语法参考
-  * [Markdown 语法说明 (简体中文版) ](http://wowubuntu.com/markdown/)
-  * [Github 流 Markdown 语法指南](https://guides.github.com/features/mastering-markdown/)
