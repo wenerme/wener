@@ -139,15 +139,18 @@ class Obj{
 [显示的内容](链接的地址)
 [显示的内容][定义的链接名]
 
-[百毒](http://baidu.com)
-[百度][某网站地址]
+[Wener](https://github.com/wenerme)
+[Wenerme][网站地址]
 
-  [某网站地址]: http://baidu.com
+  [网站地址]: https://github.com/wenerme
 ```
-[百毒](http://baidu.com)
-[百度][某网站地址]
 
-  [某网站地址]: http://baidu.com
+[Wener](https://github.com/wenerme)
+[Wenerme][网站地址]
+
+  [网站地址]: https://github.com/wenerme
+
+
 ### 强调
 
 ```
@@ -174,13 +177,20 @@ class Obj{
 
   [定义的链接名]:链接地址
 
-![百毒的图标][图标地址]
+![我的头像][头像地址]
 
-  [图标地址]: https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png
+  [头像地址]: https://avatars1.githubusercontent.com/u/1777211?v=3&s=40
+
+<!-- 可点击打开网页的图片 -->
+[![我的头像][头像地址]](https://github.com/wenerme)
 ```
-![百毒的图标][图标地址]
 
-  [图标地址]: https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png
+![我的头像][头像地址]
+
+  [头像地址]: https://avatars1.githubusercontent.com/u/1777211?v=3&s=40
+
+<!-- 可点击打开网页的图片 -->
+[![我的头像][头像地址]](https://github.com/wenerme)
 
 ### 转义
 ```
