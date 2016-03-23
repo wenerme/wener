@@ -21,7 +21,7 @@ nodeA -> nodeB [style=invis]
 ## Plantuml
 
 ### Plantuml Server
-[Plantuml Server](http://plantuml.com/plantuml/form) 可将 DOT 语言转为为 PNG/SVG/ASCII 图形,可通过链接应用.在书写 Markdown 等类型的文档时,非常有用.例如:
+[Plantuml Server](http://plantuml.com/plantuml/form) 可将 DOT 语言转为为 PNG/SVG/ASCII 图形,可通过链接引用.在书写 Markdown 等类型的文档时,非常有用.例如:
 
 ```
 digraph G {
