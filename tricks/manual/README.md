@@ -3,4 +3,3 @@
 * Command
 * Tools
 * Shell
-* Theory
