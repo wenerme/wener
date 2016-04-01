@@ -1,9 +1,7 @@
+# OS X
 
-```bash
-# 类似于 lsusb
-ioreg -p IOUSB -l -w 0
-brew update && brew tap jlhonora/lsusb && brew install lsusb
-```
+## Brew
+Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
 
 ## 移动磁盘格式选择
 如果想要将移动磁盘与 PC 和 Mac 共用,最好选择 ExtFAT,支持大文件(>4G), 都能被识别和读写,在 Mac 上格式化的时候,需要选择使用主引导记录而不是 GUID, 否则 Windows 识别不了.
@@ -40,19 +38,51 @@ xcode-select --install
 ```
 
 ## Tricks
-```shell
+```bash
 # 查看可用的分辨率
-$ system_profiler SPDisplaysDataType |grep Resolution
-$ xrandr
+system_profiler SPDisplaysDataType |grep Resolution
+xrandr
+
 # 统计 Chrome 用的内存
-$ ps aux | grep -i chrome | awk '{sum += $4} END {print 4*1024 * (sum/100)}'
+ps aux | grep -i chrome | awk '{sum += $4} END {print 4*1024 * (sum/100)}'
+
+# 类似于 lsusb
+ioreg -p IOUSB -l -w 0
+# lsusb
+brew update && brew tap jlhonora/lsusb && brew install lsusb
 ```
 
-https://github.com/jwise/HoRNDIS
+
+
 
 * [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
 
 ## FAQ
+
+### NTFS 不能写
+OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件才能进行写操作.
+
+* Tuxera NTFS
+
+### 使用 USB 以太网
+需要安装 [HoRNDIS](https://github.com/jwise/HoRNDIS) 来支持
+
+### 制作安装盘
+当下载好安装器后可直接使用安装器里附带的程序制作安装包
+
+```bash
+# 替换 MyVolume 为实际的挂载盘
+
+# El Capitan:
+sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app
+# Yosemite:
+sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Yosemite.app
+# Mavericks:
+sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Mavericks.app
+```
+
+* [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
+* [Disk Maker X](http://diskmakerx.com/)
 
 ### Installer can't verified 安装器不能被验证
 使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避
