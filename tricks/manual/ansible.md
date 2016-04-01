@@ -144,12 +144,22 @@ Constant-width | C(/bin/bash) | File and option names
 
 ## 常见问题
 
-### has no attribute 'ansible_default_ipv4'
+### has no attribute 'ansible_default_ipv4', 'address'
 此时需要从新收集主机信息,然后再继续之前操作
 
 ```
 ansible -i hosts -m setup all
 ```
+
+确保该操作成功,如果仍然还是出现没有` address` 的错误,那可能是由于 ansible 无法收集到默认地址,也需要确保 `ifconfig` 有地址.
+
+Ansible 是使用 `ip -4 route get 8.8.8.8` (参考[这里](https://github.com/ansible/ansible/blob/837f3dd24d2a3f6acdfcd6184d4b1830af551100/lib/ansible/module_utils/facts.py#L1939))
+
+* 解决办法 参考 [这里](http://stackoverflow.com/a/29496135/1870054)
+  * 通过手动添加路由来尝试修改这个问题
+  * 通过 set_facts 来覆盖配置
+  * 通过定制 facts 来实现该配置
+
 
 ### Java 环境不正确或没有
 因为安装部署是通过 SSH 进行操作,是非交互式的 SHELL, 可通过以下命令验证环境是否正确,
