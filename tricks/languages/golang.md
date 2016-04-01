@@ -31,7 +31,7 @@ sudo rm -rf /usr/local/go
 
 ## Interop with C
 
-```
+```bash
 go install -buildmode=shared -linkshared  std
 go install  -buildmode=shared -linkshared userownpackage
 go build -linkshared yourprogram
@@ -39,7 +39,7 @@ go build -linkshared yourprogram
 
 ### Export function
 
-```
+```go
 //export SayHello
 func SayHello(name string) {
 	fmt.Printf("Nautilus says: Hello, %s!\n", name)
@@ -47,7 +47,7 @@ func SayHello(name string) {
 ```
 
 ### Inline C code
-```
+```go
 // typedef int (*intFunc) ();
 //
 // int
@@ -77,17 +77,19 @@ func main() {
 * [cmd/cgo](https://golang.org/cmd/cgo/)
 
 ## Cross compile
-
+```bash
 env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbeat
+```
 
 * [environment](https://golang.org/doc/install/source#environment)
 
 ## Reference
-
+* Articles
+	* [Go Patterns](http://www.infoq.com/news/2016/03/go-patterns)
+* Video
+	* [Profiling & Optimizing in Go](https://www.youtube.com/watch?v=xxDZuPEgbBU)
 * [cmd/go](https://golang.org/cmd/go/)
 * [vender](https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo/edit)
 * [Summary of Go Generics Discussions](https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit#heading=h.vuko0u3txoew)
 * [FAQ](http://golang.org/doc/faq)
 * [The Three Go Landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)
-* Video
-	* [Profiling & Optimizing in Go](https://www.youtube.com/watch?v=xxDZuPEgbBU)

@@ -13,7 +13,11 @@
 
 * 隐藏边
 ```
-nodeA -> nodeB [style=invis]
+a -> b [style=invis]
+```
+* 增加边长度
+```
+a -> b [label="       "]
 ```
 
 ## Graphviz
@@ -23,7 +27,7 @@ nodeA -> nodeB [style=invis]
 ### Plantuml Server
 [Plantuml Server](http://plantuml.com/plantuml/form) 可将 DOT 语言转为为 PNG/SVG/ASCII 图形,可通过链接引用.在书写 Markdown 等类型的文档时,非常有用.例如:
 
-```
+```dot
 digraph G {
     rankdir=LR
 

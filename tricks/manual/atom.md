@@ -1,5 +1,18 @@
+# Atom
+
+* 轻量级
+* 跨平台
+* 特性完善
+* 插件丰富
+* 可用于替代一下编辑器作为日常使用
+  * vim
+  * Emacs
+  * Notepad++
+  * UltraEdit
+* 前往 [官网](https://atom.io/) 下载
 
 
+## 常用插件
 atom-sync  emmet       language-groovy  pigments
 atom-beautify  dash	  file-icons  merge-conflicts  script
 

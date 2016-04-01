@@ -1,13 +1,13 @@
 # Logstash
 
-```
+```bash
 # Get started
 bin/logstash -e 'input { stdin { } } output { stdout {} }'
 
 bin/logstash -e 'input { generator { } } filter { ruby { code => "sleep 10000" } } output { stdout { codec => dots } }' -w 1 --allow-unsafe-shutdown
 ```
 
-```
+```bash
 git clone https://github.com/logstash-plugins/logstash-input-example.git
 cd logstash-input-example
 rm -rf .git

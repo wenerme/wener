@@ -218,6 +218,12 @@ http://github.com/wenerme
 	* Stackedit 支持
 	* Gitbook 可通过插件支持
 * 定义标签 ID
+* 数据定义
+  * Stackedit 支持
+* 目录
+  * Stackedit 支持
+* Github 引用
+
 
 ### 表格
 ```

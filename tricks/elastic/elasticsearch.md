@@ -3,6 +3,105 @@
 
 * 2016.2  ELK 交流. 讲义文稿 [GoogleDoc](https://docs.google.com/presentation/d/1UNycijD8JrkfspY87NAt9vFlJBe6drcsgF93rr_3Hn4/edit?usp=sharing)/[Slideshare](http://www.slideshare.net/3160586/elk-59003177)
 
+## Tips
+* 文档不会被删除,只会被标记删除
+* 索引在内存中构建, 然后刷到磁盘
+* 一个索引由多个段(segment)组成,搜索会在所有段执行,最终合并结果
+* 段会定期合并
+* 每个段都会缓存 Field 和 Filter
+* Elasticsearch 不支持事务
+* 每个分片为一个 Lucene 索引
+* 近实时程度与性能有关,默认为 1 秒
+* Lucene 自身是增量索引
+* 每个段自身为一个小索引
+* 1.4 之前默认使用 UUID, 之后使用 Flask ID
+* 无法通过查询来删除
+  * [delete-by-query](https://www.elastic.co/guide/en/elasticsearch/plugins/2.2/delete-by-query-usage.html)
+* 无法通过查询来更新
+  * [yakaz/elasticsearch-action-updatebyquery](https://github.com/yakaz/elasticsearch-action-updatebyquery)
+    该插件目前已经不可用
+  * 提议添加该功能 [#2230](https://github.com/elastic/elasticsearch/issues/2230)
+
+## Best practice
+* 只索引不更新
+* 日志索引分日期
+* 定义好 Mapping
+* 挂载多个磁盘使用多个 path.data
+  * 提升索引速度
+  * 减少数据丢失
+* 如果允许, 增大刷新间隔
+* 最大使用 32G 内存, 利用 JVM 压缩指针
+  * 测试最大内存量
+```bash
+java -Xmx32600m -XX:+PrintFlagsFinal 2> /dev/null | grep UseCompressedOops
+bool UseCompressedOops   := true
+```
+  * 1.7 32600m, 1.8 32766m
+* 关闭内存 swap
+  * [影响 GC](https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html)
+```bash
+swapoff -a
+# 或者
+sysctl vm.swappiness=1
+# 在 Elasticsearch 配置中添加 bootstrap.mlockall: true
+```
+* 如果自定义 ID, 选择一个较好的 ID
+  * 前缀相同
+  * 长度相同
+  * [Choosing fast unique id](http://blog.mikemccandless.com/2014/05/choosing-fast-unique-identifier-uuid.html)
+
+## Reference
+* [Elasticsearch nightly benchmarks](https://benchmarks.elastic.co)
+* [Lucene nightly benchmarks](https://people.apache.org/~mikemccand/lucenebench/)
+* Articles
+	* [Elasticsearch from the bottom up](https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up)
+	* [Performance consideration](https://www.elastic.co/blog/performance-considerations-elasticsearch-indexing)
+	* [Performance consideration 2.0](https://www.elastic.co/blog/performance-indexing-2-0)
+  * [9 Tips on ElasticSearch Configuration for High Performance](https://www.loggly.com/blog/nine-tips-configuring-elasticsearch-for-high-performance/)
+
+## 常用操作
+
+### 批量导入
+```bash
+# 导入前关闭刷新
+curl -XPUT localhost:9200/test/_settings -d '{"index" : {"refresh_interval" : "-1"} }'
+# 导入前取消副本
+curl -XPUT 'localhost:9200/test/_settings' -d '{"index" : {"number_of_replicas" : 0}}'
+# 导入完成强制合并
+curl -XPOST 'localhost:9200/test/_forcemerge?max_num_segments=5'
+```
+
+### 更改解析器
+```bash
+# 更改前需要先关闭所有
+curl -XPOST 'localhost:9200/test/_close'
+
+curl -XPUT 'localhost:9200/test/_settings' -d '{
+  "analysis" : {
+    "analyzer":{
+      "content":{
+        "type":"custom",
+        "tokenizer":"whitespace"
+      }
+    }
+  }
+}'
+# 完成后打开索引
+curl -XPOST 'localhost:9200/test/_open'
+```
+
+### 诊断
+```bash
+# 查看 jvm 内存状态
+curl localhost:9200/_nodes/stats| jq ".nodes[].jvm.mem"
+# 单个节点内存状态
+curl localhost:9210/_nodes/stats| jq "[.nodes[]]|.[1].jvm.mem"
+
+# 快速信息查看端口, ?help 显示列的含义
+curl localhost:9200/_cat
+# 查看恢复进度
+curl localhost:9200/_cat/recovery
+```
 
 ## 模块
 Elasticsearch 的所有功能都是由各个模块组成的.
@@ -194,6 +293,9 @@ curl -XPOST 'localhost:9200/index/type/_search' -d'
 
 可见善用 query_string 查询是非常有用的.在 Kibana 的视图查询界面均是 query_string 查询.
 
+* [Query String 语法](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html)
+* [Lucene 查询解析语法](http://lucene.apache.org/core/5_5_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description)
+
 ### 总结
 
 Elasticsearch 对于基础的查询提供了非常多的查询方式,但对于关系型的支持较少,官方建议是在应用端做数据关联,对关系型的处理有一定的复杂度.内置了两种对关系型数据的支持(Nested Object, Parent-Child),但支持都相对较为薄弱,难以处理复杂的场景,还不如使用通常的文档,这样对文档的控制更全面.
@@ -242,19 +344,19 @@ Master
 : 用于响应集群操作,修改节点,增删改索引信息,为节点分配分片
 : 索引和搜索等不需要牵涉到主节点
 
-```
-discovery.zen.
-  minimum_master_nodes 选举主节点的最小 master eligible 节点数,类似于 Zookeeper 里的大多数
-  ping.unicast 单播时进行发现的主机信息
-  master_election.
-    filter_client 默认 true
-    filter_data 默认 false
-  fd. Fault Detection
+```yml
+discovery.zen:
+  minimum_master_nodes: 选举主节点的最小 master eligible 节点数,类似于 Zookeeper 里的大多数
+  ping.unicast: 单播时进行发现的主机信息
+  master_election:
+    filter_client: 默认 true
+    filter_data: 默认 false
+  fd: Fault Detection
     ping_interval : 1
     ping_timeout  : 30s
     ping_retries  : 3
   publish_timeout : 30s 发布集群状态的超时时间
-  no_master_block. 当没有 Master 时需要拒绝的操作,不会阻止和节点相关的 API
+  no_master_block: 当没有 Master 时需要拒绝的操作,不会阻止和节点相关的 API
     all
     write 默认.可能会读取到过期数据.
 ```
@@ -308,8 +410,6 @@ curl -XDELETE 'localhost:9200/_snapshot/backup/bckp1/_restore'
 
 ### 参考
 
-## 调优
-
 ## 数据建模
 
 ### Parent-Child
@@ -354,7 +454,7 @@ curl -XDELETE 'localhost:9200/_snapshot/backup/bckp1/_restore'
     该插件目前已经不可用
   * [#2230](https://github.com/elastic/elasticsearch/issues/2230)
     添加 Update by query 请求,目前已经合并还未发布
-
+* bigdesk
 ### 插件开发
 
 ## 更新
@@ -411,33 +511,6 @@ curl -XPOST "localhost:9200/test/test/1/_update" -d '{
 * [Fetch phase](https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html)
 * [Pagination](https://www.elastic.co/guide/en/elasticsearch/guide/current/pagination.html)
 
-## FAQ
-
-### Java 版本
-Elasticsearch 对 Java 版本有要求,至少需要 1.7, 并且在1.7的某些版本中的 Bug 可能会影响 Lucene 的一致性,因此 Elasticsearch 在启动时会给予警告.
-
-```
-Exception in thread "main" java.lang.RuntimeException: Java version: Oracle Corporation 1.7.0_45 [Java HotSpot(TM) 64-Bit Server VM 24.45-b08] suffers from critical bug https://bugs.openjdk.java.net/browse/JDK-8024830 which can cause data corruption.
-Please upgrade the JVM, see http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html for current recommendations.
-If you absolutely cannot upgrade, please add -XX:-UseSuperWord to the JAVA_OPTS environment variable.
-Upgrading is preferred, this workaround will result in degraded performance.
-	at org.elasticsearch.bootstrap.JVMCheck.check(JVMCheck.java:123)
-	at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:283)
-	at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:35)
-Refer to the log for complete error details.
-```
-
-```
-Use -XX:-UseSuperWord if you are running on 7u40 <= JVM < 7u55
-```
-
-* https://wiki.apache.org/lucene-java/JavaBugs
-
-### 使用 term 查找不到指定内容
-当使用 term 进行全文匹配时,要求查找的字段为非解析字段,否则无法进行全文匹配.
-
-* [Exact values  versus full text](https://www.elastic.co/guide/en/elasticsearch/guide/current/_exact_values_versus_full_text.html)
-
 ### vs Others
 将 Elasticsearch 和其他产品做比较时,需要先考虑它的设计初衷
 
@@ -467,3 +540,51 @@ Elasticsearch 大多情况适用于处理小文档,当处理不需要索引的�
 
 * [Apache Solr vs Elasticsearch The Feature Smackdown](http://solr-vs-elasticsearch.com/)
 * [Elasticsearch vs Solr : DB engines](http://db-engines.com/en/system/Elasticsearch%3BSolr)
+
+
+## FAQ
+
+### 指定配置文件
+启动时可通过 `path.conf` 来指定配置文件目录, 读取的配置文件来该目录下的 `elasticsearch.yml`, 不能直接指定该配置文件,也不能修改该配置文件名.
+
+```bash
+# 确保目录下配置文件正确
+ls my-config
+elasticsearch.yml logging.yml
+# 启动时指定配置目录
+./bin/elasticsearch -Dpath.conf=my-config
+```
+
+### 使用 ROOT 启动
+Elasticsearch 默认是不允许使用 ROOT 用户启动的,可通过启动时添加 `es.insecure.allow.root` 参数允许使用 ROOT 启动.
+
+```bash
+# 允许使用 ROOT 启动
+./bin/elasticsearch -Des.insecure.allow.root=true
+```
+
+### Java 版本
+Elasticsearch 对 Java 版本有要求,至少需要 1.7, 并且在1.7的某些版本中的 Bug 可能会影响 Lucene 的一致性,因此 Elasticsearch 在启动时会给予警告.
+
+```
+Exception in thread "main" java.lang.RuntimeException: Java version: Oracle Corporation 1.7.0_45 [Java HotSpot(TM) 64-Bit Server VM 24.45-b08] suffers from critical bug https://bugs.openjdk.java.net/browse/JDK-8024830 which can cause data corruption.
+Please upgrade the JVM, see http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html for current recommendations.
+If you absolutely cannot upgrade, please add -XX:-UseSuperWord to the JAVA_OPTS environment variable.
+Upgrading is preferred, this workaround will result in degraded performance.
+	at org.elasticsearch.bootstrap.JVMCheck.check(JVMCheck.java:123)
+	at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:283)
+	at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:35)
+Refer to the log for complete error details.
+```
+
+```
+Use -XX:-UseSuperWord if you are running on 7u40 <= JVM < 7u55
+```
+
+* https://wiki.apache.org/lucene-java/JavaBugs
+
+### 使用 term 查找不到指定内容
+* 当使用 term 进行全文匹配时,要求查找的字段为非解析字段,否则无法进行全文匹配.
+* 大写会存储为小写,查询时需要手动转为小写.
+
+* [Exact values  versus full text](https://www.elastic.co/guide/en/elasticsearch/guide/current/_exact_values_versus_full_text.html)
