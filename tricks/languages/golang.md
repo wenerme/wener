@@ -10,6 +10,7 @@ Directory and file names that begin with "." or "_ " are ignored by the go tool,
 ## Install golang under linux
 ```bash
 GOVERSION=1.6
+# 查看可选架构 https://storage.googleapis.com/golang/
 wget https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go$GOVERSION.linux-amd64.tar.gz
 export GOROOT=/usr/local/go
