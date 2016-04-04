@@ -10,7 +10,7 @@
 
 ```bash
 # 基础
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 brew tap caskroom/versions
 brew tap homebrew/versions
 brew tap homebrew/dupes
