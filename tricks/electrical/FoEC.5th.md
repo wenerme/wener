@@ -2,6 +2,8 @@
 
 所有学习电路基础(Foundation of Electric Circuit 5th ed)的笔记. :P
 
+> 由于 Github 不能显示公式, 可在 [Stackedit](https://stackedit.io/viewer#!url=https://raw.githubusercontent.com/wenerme/wener/master/tricks/eletrical/FoEC.5th.md) 阅读该笔记.
+
 ## 笔记
 
 > An electric circuit is an interconnection of electrical elements.
