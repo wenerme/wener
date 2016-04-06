@@ -84,6 +84,30 @@ env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbe
 
 * [environment](https://golang.org/doc/install/source#environment)
 
+
+## Reduce binary size
+```bash
+# A Hello world in Golang 1.6 is 2.2M
+
+# 2.1M
+strip main
+
+# -s	disable symbol table
+# -w	disable DWARF generation
+# 1.7M
+go build -ldflags "-s -w"  main.go
+
+# UPX can not compress drawin.amd64
+env GOOS=linux GOARCH=amd64 go build  -o main.linux.amd64 main.go # 2.2M
+env GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o main.linux.amd64.flag main.go # 1.6M
+
+upx --best main.linux.amd64 # 666K
+upx -9 --ultra-brute main.linux.amd64 # 508K
+
+upx --best main.linux.amd64 # 478K
+upx -9 --ultra-brute main.linux.amd64 # 363K
+```
+
 ## Reference
 * Articles
 	* [Go Patterns](http://www.infoq.com/news/2016/03/go-patterns)

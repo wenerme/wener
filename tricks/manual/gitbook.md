@@ -24,7 +24,7 @@ Gitbook 的目录文件为 `SUMMARY.md`
 
 例如:
 
-```
+```markdown
 # Summary
 
 * [简介](README.md)
@@ -42,7 +42,7 @@ Gitbook 的目录文件为 `SUMMARY.md`
 
 例如:
 
-```
+```markdown
 ## CAS
 Compare and set
 
@@ -53,7 +53,7 @@ Compare and set
 ## Gitbook 命令行
 Gitbook 可使用 [gitbook](https://github.com/GitbookIO/gitbook) 命令行来生成静态站点或电子书
 
-```
+```bash
 # 使用 NPM 安装
 npm install gitbook-cli -g
 # 在当前目录初始化书籍
@@ -65,6 +65,13 @@ gitbook serve
 # 生成 PDF, 需要安装额外的程序
 # Mac OS 可使用 brew cask install calibre 安装依赖程序
 gitbook pdf
+```
+
+## Tips
+```bash
+# 将所有 md 合并为一个文件
+# 然后可以使用 pandoc 将其转换为其他格式
+cat `cat SUMMARY.md |sed -nr 's/.*?\(([^)]+).*/\1/p'` > all.md
 ```
 
 ## 参考
