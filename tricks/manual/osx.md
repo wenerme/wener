@@ -37,7 +37,7 @@ Finder 的主要问题
 xcode-select --install
 ```
 
-## Tricks
+## Tips
 ```bash
 # 查看可用的分辨率
 system_profiler SPDisplaysDataType |grep Resolution
@@ -51,9 +51,6 @@ ioreg -p IOUSB -l -w 0
 # lsusb
 brew update && brew tap jlhonora/lsusb && brew install lsusb
 ```
-
-
-
 
 * [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
 
