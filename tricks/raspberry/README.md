@@ -12,9 +12,9 @@ unzup *-raspbian-jessie.zip
 # 修改磁盘为相应盘符
 dd if=*-raspbian-jessie.img of=/dev/rdisk2 bs=64M
 ```
-2. 挂载烧录的盘符,在 cmdline.txt 末尾添加 `ip=192.168.2.1`, 如果该网段在使用,则修改相应地址
+2. 挂载烧录的盘符,在 cmdline.txt 末尾添加 `ip=192.168.2.1`, 如果该网段在使用,则修改为其他网段
 0. 插入 SDCard 到 Raspberry
-0. 链接直连网线
+0. 连接直连网线, RJ45 电脑直连树莓
 0. 打开电源
 0. 修改主机直连为手动配置
   地址: `192.168.2.2` 子网掩码:`255.255.255.0`
@@ -61,7 +61,15 @@ sudo tar -C /usr/local -xzf go$GOVERSION.*.tar.gz
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$PATH
 
+# 跨平台编译并且缓存编译后的包
+env GOOS=linux GOARCH=arm GOBIN=`pwd`/bin go install main.go
+# 压缩程序大小
+env GOOS=linux GOARCH=arm GOBIN=`pwd`/bin go install -ldflags '-s -w' main.go
+# 可使用 -9 或者 --ultra-brute 来达到更高的压缩效果
+upx bin/main
 
+# 挂载远程目录,可操作一些特殊文件
+sshfs -o sshfs_sync,sync_readdir,reconnect,follow_symlinks,direct_io pi:/ pi
 ```
 
 ## 常用命令
@@ -72,7 +80,6 @@ export PATH=$GOROOT/bin:$PATH
 cat /sys/class/thermal/thermal_zone0/temp
 # 监控 CPU 和 GPU 温度
 watch -n 1 'sed -re "s/(..)(.).*/CPU Temp: \1.\2°C/" /sys/class/thermal/thermal_zone0/temp;vcgencmd measure_temp | sed -re "s/temp=([[:digit:]]+.[[:digit:]]+).*/GPU Temp: \1°C/"'
-
 ```
 
 ## 资源

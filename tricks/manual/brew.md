@@ -90,6 +90,13 @@ chsh -s /usr/local/bin/bash
 [Linuxbrew](http://linuxbrew.sh/) 是 Brew 的 Linux 移植版, 支持大多的安装包.
 
 ```bash
+
+# Ubuntu
+sudo apt-get install build-essential curl git m4 python-setuptools ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+
+# Centos
+sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb m4 python-setuptools ruby texinfo bzip2-devel curl-devel expat-devel ncurses-devel zlib-devel
+
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 ```
 

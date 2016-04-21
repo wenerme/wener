@@ -15,7 +15,6 @@
 * 是一套认证框架
 * 规范复杂且庞大
 * 主要用于对外提供用户认证服务
-* IEFE 标准
 
 __强项__
 
@@ -34,6 +33,7 @@ __限制__
 * 是一套认证协议
 * 协议简单且易于实现
 * 主要用于分布式的无状态接口调用
+* 国际标准 [RFC 7519](https://tools.ietf.org/html/rfc7519)
 
 __强项__
 
@@ -51,3 +51,4 @@ __限制__
 
 ## Resources
 * [Auth 2.0 vs JWT](http://www.seedbox.com/en/blog/2015/06/05/oauth-2-vs-json-web-tokens-comment-securiser-un-api/)
+* [JWT 验证](https://www.jsonwebtoken.io/)
