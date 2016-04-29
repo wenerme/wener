@@ -138,3 +138,26 @@
 ## 其他资源
 * [Matrix](http://matrix.org/) 通讯协议
 * [Self host XMPP servers](https://github.com/Kickball/awesome-selfhosted#xmpp-servers)
+* [Apache ActiveMQ Artemis](http://activemq.apache.org/artemis/)
+  * AMQP protocol support
+  * OpenWire support for ActiveMQ 5 clients
+  * MQTT support
+  * STOMP protocol support
+  * HornetQ Core protocol support for HornetQ 2.4,2.5 clients
+  * JMS 2.0 and 1.1 support
+  * High availability with shared store and non shared store (replication)
+  * Flexible Clustering
+  * High performance journal for message persistence
+  * Queue memory limitation
+  * SSL support
+  * Management over JMX, JMS and core protocol
+  * Large message support
+  * Topic hierarchies
+  * Producer flow control
+  * Consumer flow control
+  * Diverts
+  * Last value queue
+  * Message Groups
+  * OSGi support
+* [Apache ActiveMQ](http://activemq.apache.org/features.html)
+  * 支持 XMPP 协议
