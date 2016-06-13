@@ -161,3 +161,4 @@
   * OSGi support
 * [Apache ActiveMQ](http://activemq.apache.org/features.html)
   * 支持 XMPP 协议
+* [NSQ](https://github.com/nsqio/nsq)

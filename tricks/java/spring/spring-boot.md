@@ -5,12 +5,14 @@ brew tap pivotal/tap
 brew install springboot
 ```
 
+## 参考
+* [最新文档](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+* [所有的配置属性](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties)
+
 ## Changes
-### 1.4.0.M2
+### 1.4
 
 * 升级到 Hibernate 5
-
-### 1.4
 
 ### 1.3
 
@@ -32,8 +34,32 @@ brew install springboot
 </dependency>
 ```
 
+## 常量
+* org.springframework.http.HttpHeaders
+* org.springframework.http.HttpStatus
+
+## 重要的处理接口
+* org.springframework.util.PathMatcher
+  路径的匹配格式,比如 cors 配置
+
 ## 配置
 
+### 主要配置对象
+配置对象都通过 Adapter/Configurer 的类进行配置, 只是对内部配置进行修改而不是直接替换.
+
+* org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
+* org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter
+* org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter
+* org.springframework.security.config.annotation.SecurityConfigurerAdapter
+* org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+* org.springframework.scheduling.annotation.AsyncConfigurer
+* org.springframework.cache.annotation.CachingConfigurer
+* org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer
+* org.springframework.security.config.annotation.web.configurers.HeadersConfigurer
+* org.springframework.boot.autoconfigure.security.oauth2.resource.JwtAccessTokenConverterConfigurer
+* org.springframework.web.servlet.config.annotation.PathMatchConfigurer
+* org.springframework.security.config.annotation.web.configurers.RequestCacheConfigurer
+* org.springframework.transaction.annotation.TransactionManagementConfigurer
 
 ### 配置属性加载顺序
 
@@ -135,7 +161,7 @@ spring.h2.console.path=/h2-console
 
 ### Tips
 
-* 可自定义属数据类型转换 [Properties conversion](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-conversion)
+* 可自定义数据类型转换 [Properties conversion](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-conversion)
 * 可使用 `javax.validation` 对配置的属性进行校验
 * 可通过 `spring-boot-actuator` 模块在 `/configprops` 查看属性配置
 
@@ -325,5 +351,32 @@ MetricWriter metricWriter() {
 @ExportMetricWriter
 MetricWriter metricWriter(MBeanExporter exporter) {
 	return new JmxMetricWriter(exporter);
+}
+```
+
+### 获取 XmlMapper
+http://docs.spring.io/spring-boot/docs/current/reference/html/howto-spring-mvc.html
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+```
+
+```java
+@Autowired
+public void init(MappingJackson2XmlHttpMessageConverter xmlConverter){
+    XmlMapper mapper = (XmlMapper) xmlConverter.getObjectMapper();
+}
+```
+
+### 获取请求体文本
+
+```java
+@RequestMapping(path = "/echo", method = RequestMethod.POST)
+public Object echo(HttpServletRequest request) throws IOException {
+  String content = CharStreams.toString(new InputStreamReader(request.getInputStream()));
+  return content;
 }
 ```

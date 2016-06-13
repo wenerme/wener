@@ -1,10 +1,10 @@
-## 将另外一个仓库合并为当前仓库的一个子目录
+### 将另外一个仓库合并为当前仓库的一个子目录
 ```
 git subtree add -P <prefix> <repo> <rev>
 ```
 
-Undo a commit and redo
------------------------
+### Undo a commit and redo
+
 ```
 git commit ...
 git reset --soft 'HEAD^'
@@ -14,9 +14,9 @@ git commit -c ORIG_HEAD
 ```
 from [here](http://stackoverflow.com/questions/927358)
 
-显示 不同
----------
-```
+### 显示 不同
+
+```bash
 git diff
 	--cached
 	--staged
@@ -24,9 +24,9 @@ git diff
 ```
 from [here](http://stackoverflow.com/questions/1587846)
 
-移除 git 历史
---------------
-```
+### 移除 git 历史
+
+```bash
 # $sha 为需要移除的历史位置
 git checkout --orphan temp $sha
 git commit -m "Truncated history"
@@ -34,28 +34,26 @@ git rebase --onto temp $sha master
 git branch -D temp
 ```
 
-push tags
------
+### push tags
+
 ```
 git push --tags
 # 只 push 一个
 git push origin <tag_name>
 ```
 
-强制 pull
-------
+### 强制 pull
 ```
 git fetch --all
 git reset --hard origin/master
 ```
 
-启动git服务
------------
+### 启动git服务
 
 * http://git-scm.com/docs/git-daemon
 * http://git-scm.com/docs/git-http-backend
 
-```
+```bash
 mkdir eddies  # MAKE folder for repo
 chown -R eddie:websrv eddies/  # ensure apache (webserver) can access it
 cd eddies/
@@ -66,13 +64,13 @@ branches  config  description  HEAD  hooks  info  objects  refs
 git config --file config http.receivepack true
 ```
 
-```
+```bash
 # 启动服务
 git daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
 # receive-pack 会允许匿名的push 使用需谨慎
 ```
 
-```
+```bash
 # 转换为 bare 仓库
 cd repo
 mv .git .. && rm -fr *
@@ -88,27 +86,27 @@ git clone --bare /path/to/repo
 
 ```
 检出本地
-```
+```bash
 git clone git://localhost/reponame
 ```
 
-移除分支
----------
+### 移除分支
+
 `git branch -d the_local_branch`
 `git push origin :the_remote_branch`
 提交新的分支
 `git push --all`
 
-开始空的新分支
---------------
+### 开始空的新分支
+
 ```
 git checkout --orphan <branchname>
 git rm --cached -r .
 ```
 
-Migrate git branch to a new repository
---------------------
-```
+### Migrate git branch to a new repository
+
+```bash
 mkdir /path/to/new/repo && cd "$@"
 git config receive.denyCurrentBranch warn
 cd -
@@ -117,7 +115,7 @@ git push /path/to/new/repo:optional-new-branch-name branch-name
 
 from [Here](http://stackoverflow.com/a/2227571/1870054)
 
-## Rename branch
+### Rename branch
 ```
 # Rename old-branch-name to a non exists new-branch-name
 git branch -m old-branch-name new-branch-name
@@ -132,7 +130,7 @@ git push origin :old-branch-name
 
 ------
 
-## Linux & Mac OS
+### Linux & Mac OS
 在 Mac 和 Linux 均建议使用 Homebrew 来管理包,当 Homebrew 安装好后
 ```
 # 安装 Git
@@ -141,7 +139,7 @@ brew install git
 brew update
 brew upgrade git
 ```
-## Windows
+### Windows
 建议使用 [Cygwin](http://cygwin.org/)+[Cygwinports](http://cygwinports.org/) 来使用 Git, 避免自己编译或下载一个完整的 MingWin 包.
 
 # Git 基本使用

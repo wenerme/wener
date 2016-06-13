@@ -529,7 +529,7 @@ MongoDB 是用于传统用途(CRUD) 的基于文档的数据库,其主要特色�
 
 MongoDB 与 Elasticsearch 两者并不违背,可以同时使用.
 
-虽然 Elasticsearch 本事是不需要 Schema 的,但是因为底层为 Lucene, 所有的文档都会扁平化处理,因此无法真正的把 Elasticsearch 作为 Schemaless 来使用,反而需要慎重的对待.而 MongoDB 却能很好地做到 Schemaless, 可以从 JavaScript 的处理角度出发看待起处理文档的方式.
+虽然 Elasticsearch 不需要 Schema ,但是因为底层为 Lucene, 所有的文档都会扁平化处理,因此无法真正的把 Elasticsearch 作为 Schemaless 来使用,反而需要慎重的对待.而 MongoDB 却能很好地做到 Schemaless, 可以从 JavaScript 的处理角度出发看待起处理文档的方式.
 
 Elasticsearch 大多情况适用于处理小文档,当处理不需要索引的大文档时,其功能有限.而 MongoDB 支持 [GridFS](https://docs.mongodb.org/manual/core/gridfs/), 可以很好地使用同一套接口来处理大文档.
 

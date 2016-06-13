@@ -15,6 +15,7 @@ wget https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go$GOVERSION.linux-amd64.tar.gz
 export GOROOT=/usr/local/go
 export PATH=$GOROOT/bin:$PATH
+export GOPATH=$HOME/go
 
 # 或将环境变量放到启动脚本
 cd ~

@@ -1,6 +1,6 @@
 
 ## Prefix/Suffix
-```shell
+```bash
 $ x="/foo/fizzbuzz.bar"
 $ y=${x%.bar}
 $ echo ${y##*/}
@@ -20,8 +20,20 @@ $ echo $y
 file.gif
 ```
 
-## SSH
+## Base N
+```bash
+# Encode base62
+BASE62=($(echo {0..9} {a..z} {A..Z}))
+for i in $(bc <<< "obase=62; 9207903953"); do
+    echo -n ${BASE62[$(( 10#$i ))]}
+done && echo
+# Decode base62
+base62_decode() { echo $((62#$1)) }
 ```
+
+
+## SSH
+```bash
 # download: remote -> local
 # local_file 可以为目录用 -r 递归
 scp user@remote_host:remote_file local_file
@@ -47,7 +59,7 @@ GatewayPorts yes
 sudo service sshd restart
 ```
 
-```
+```bash
 # scp to 多台
 for dest in $(<destfile.txt); do
   scp ourfile.txt ${dest}:remote/path/
