@@ -319,7 +319,7 @@ pandoc makrdown.md -f markdown -t docx -o output.docx
 # Markdown 转 pdf
 # 依赖于 pdflatex,
 # Mac 下可通过安装 maclatex 提供
-#   brew cask install mactex
+#   brew cask install mactex # 2.5 G
 pandoc makrdown.md -f markdown -t latex -o output.pdf
 ```
 

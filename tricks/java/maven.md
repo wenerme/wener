@@ -1,3 +1,49 @@
+## Plugins
+
+### delombok
+```
+<plugin>
+     <groupId>org.projectlombok</groupId>
+     <artifactId>lombok-maven-plugin</artifactId>
+     <version>${org.projectlombok.version}.0</version>
+     <dependencies>
+         <dependency>
+             <groupId>sun.jdk</groupId>
+             <artifactId>tools</artifactId>
+             <version>1.7</version>
+             <scope>system</scope>
+             <systemPath>${java.home}/../lib/tools.jar</systemPath>
+         </dependency>
+     </dependencies>
+     <executions>
+         <execution>
+             <id>delombok</id>
+             <phase>generate-sources</phase>
+             <goals>
+                 <goal>delombok</goal>
+             </goals>
+             <configuration>
+                 <encoding>UTF-8</encoding>
+                 <addOutputDirectory>false</addOutputDirectory>
+                 <sourceDirectory>target/generated-sources/lombok</sourceDirectory>
+             </configuration>
+         </execution>
+         <execution>
+             <id>test-delombok</id>
+             <phase>generate-test-sources</phase>
+             <goals>
+                 <goal>testDelombok</goal>
+             </goals>
+             <configuration>
+                 <encoding>UTF-8</encoding>
+                 <addOutputDirectory>false</addOutputDirectory>
+                 <sourceDirectory>target/generated-sources/lombok</sourceDirectory>
+             </configuration>
+         </execution>
+     </executions>
+ </plugin>
+```
+
 将 jar 安装到本地仓库
 ----
 mvn install:install-file -Dfile=c:\kaptcha-{version}.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion={version} -Dpackaging=jar
@@ -111,7 +157,7 @@ http://repo.typesafe.com/typesafereadonly/releases
       <mirrorOf>*</mirrorOf>  
 	  <name>Nexusosc</name>  
 	  <url>http://maven.oschina.net/content/groups/public/</url>  
-</mirror> 
+</mirror>
 
 <profile>
 	<id>jdk-1.7</id>  

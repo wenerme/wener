@@ -61,6 +61,17 @@ docker run --rm -it -v ~:/host williamyeh/ansible:ubuntu14.04-onbuild bash
 
 * [Dockerizing an SSH daemon service](https://docs.docker.com/engine/examples/running_ssh_service/)
 
+## 修改镜像
+```bash
+# 标准配置位于 /etc/sysconfig/docker
+# 配置参数格式为 --registry-mirror=镜像地址
+# 基于 https://docs.docker.com/engine/installation/linux/centos/ 在 CentOS 7 上安装时
+# 需要修改 service 启动参数 /usr/lib/systemd/system/docker.service
+# 然后加载配置并重启服务
+sudo systemctl daemon-reload
+sudo service docker restart
+```
+
 ## Tips
 
 * Docker machine root 密码为 `tcuser`

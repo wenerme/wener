@@ -28,6 +28,76 @@ dd bs=16M count=64 if=test of=test1 conv=fdatasync
 
 * [dd benchmark](https://romanrm.net/dd-benchmark)
 
+## 常用操作
+```bash
+# 可查看速度
+pv /home/user/bigfile.iso | md5sum
+# 8.25 后可查看进度
+dd if=/dev/urandom of=/dev/null status=progress
+# 似乎会更快
+pv < /dev/sda > /dev/sdb
+# 使用 PV 监控速度
+dd if=/dev/urandom | pv | dd of=/dev/null
+# 简单一点
+pv bigfile.iso | dd of=VirtualDisk.raw
+# 在 DD 执行以后也可以查看进度
+kill -USR1 $(pgrep ^dd)
+watch -n5 'kill -USR1 $(pgrep ^dd)'
+# 在 BSD/MAC 下需要 INFO
+kill -INFO $(pgrep ^dd$)
+# 同上简单一点
+pkill -usr1 dd
+```
+
+## diskutil
+```
+Usage:  diskutil [quiet] <verb> <options>, where <verb> is as follows:
+
+     list                  (List the partitions of a disk)
+     info[rmation]         (Get information on a specific disk or partition)
+     listFilesystems       (List file systems available for formatting)
+     activity              (Continuous log of system-wide disk arbitration)
+
+     u[n]mount             (Unmount a single volume)
+     unmountDisk           (Unmount an entire disk (all volumes))
+     eject                 (Eject a disk)
+     mount                 (Mount a single volume)
+     mountDisk             (Mount an entire disk (all mountable volumes))
+
+     enableJournal         (Enable HFS+ journaling on a mounted HFS+ volume)
+     disableJournal        (Disable HFS+ journaling on a mounted HFS+ volume)
+     moveJournal           (Move the HFS+ journal onto another volume)
+     enableOwnership       (Treat as exact User/Group IDs for a mounted volume)
+     disableOwnership      (Ignore on-disk User/Group IDs for a mounted volume)
+
+     rename[Volume]        (Rename a volume)
+
+     verifyVolume          (Verify the file system data structures of a volume)
+     repairVolume          (Repair the file system data structures of a volume)
+
+     verifyDisk            (Verify the components of a partition map of a disk)
+     repairDisk            (Repair the components of a partition map of a disk)
+
+     eraseDisk             (Erase an existing disk, removing all volumes)
+     eraseVolume           (Erase an existing volume)
+     reformat              (Erase an existing volume with same name and type)
+     eraseOptical          (Erase optical media (CD/RW, DVD/RW, etc.))
+     zeroDisk              (Erase a disk, writing zeros to the media)
+     randomDisk            (Erase a disk, writing random data to the media)
+     secureErase           (Securely erase a disk or freespace on a volume)
+
+     partitionDisk         ((re)Partition a disk, removing all volumes)
+     resizeVolume          (Resize a volume, increasing or decreasing its size)
+     splitPartition        (Split an existing partition into two or more)
+     mergePartitions       (Combine two or more existing partitions into one)
+
+     appleRAID <verb>      (Perform additional verbs related to AppleRAID)
+     coreStorage <verb>    (Perform additional verbs related to CoreStorage)
+
+diskutil <verb> with no options will provide help on that verb
+
+```
+
 ## 我的移动存储设备
 
 ### 32G
@@ -332,6 +402,11 @@ gdisk
 http://superuser.com/questions/631592
 
 ### MBR vs GPT
+
+VS|MBR | GPT
+----|----|----
+分区数| 4 | N/A
+
 
 
 ## 参考
