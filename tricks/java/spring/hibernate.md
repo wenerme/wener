@@ -30,7 +30,24 @@ hibernate.show_sql: true
 hibernate.use_sql_comments: true
 ```
 
+__二级缓存配置__
+
+```yml
+# 只针对使用了注解的实体进行缓存
+javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+# 缓存处理类
+hibernate.cache.region.factory_class: com.hazelcast.hibernate.HazelcastLocalCacheRegionFactory
+hibernate.cache.hazelcast.instance_name: default # 使用现有的 Hazelcast 实例,而不是创建
+hibernate.cache.use_second_level_cache: true # 启用二级缓存
+hibernate.cache.use_query_cache: true # 启用查询缓存
+hibernate.cache.use_reference_entries: true # 缓存使用引用
+hibernate.cache.use_structured_entries: true # 使缓存数据的结构更可读
+hibernate.cache.use_minimal_puts: true # 提示 Hibernate 减少缓存 put
+hibernate.cache.default_cache_concurrency_strategy: nonstrict-read-write # 默认缓存并发级别
+```
+
 ```java
+// Hibernate 统计信息
 Statistics statistics = sessionFactory.getStatistics();
 statistics.setStatisticsEnabled(true);
 statistics.logSummary();
@@ -40,14 +57,13 @@ statistics.logSummary();
 * 使用 `BatchSize` 控制集合加载的数据量
 * 可通过设置 `default_batch_fetch_size` 来控制默认的加载量
 * 使用 Bag 或 List 来实现反向的集合,而非 Set, 这样可以在不获取整个集合的前提下向集合中添加元素
-<!-- * 实体继承 `org.hibernate.engine.spi.ManagedEntity` -->
 * 缓存只会缓存实体本身而__不会__缓存实体关系,例如: OneToMany 集合
 * 集合缓存需要额外添加注解 `@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)`
 
 
 ### Fetching 策略
 建议保留默认,建议在查询时控制,细粒度控制
-* WHEN -  何时缓存 - 通过各个 ToOne 和 ToMany 上的 fetch 控制
+* WHEN -  何时获取数据 - 通过各个 ToOne 和 ToMany 上的 fetch 控制
   * EAGER - ToOne 默认
     * 当关联关系较深时会加载大量数据
   * LAZY - ToMany 默认
@@ -61,15 +77,13 @@ statistics.logSummary();
     * 在使用集合内元素的 ID 时也不会导致集合中实体的数据被加载
     * 使用集合中的单个元素只会加载单个,而不会加载整个集合
     * 集合大小不会被缓存
-* HOW - Hibernate 扩展,使用 Fetch 注解控制
+* HOW - 如何获取数据 - Hibernate 扩展,使用 Fetch 注解控制
   * JOIN
     * 适用于 ToOne 关系
     * 在对集合使用时需要注意一般数据库 Select 会比 Join 更快
-    <!-- * OneToOne Eager 时会 JOIN -->
   * SELECT
     * 集合的默认获取方式,避免笛卡尔乘积
     * 需要注意 N+1 问题, 每个集合元素都获取一次
-    <!-- * OneToOne Lazy 时会 JOIN -->
   * BATCH
     * 在访问一个元素时即加载多个元素
     * 批量加载数量可配置
