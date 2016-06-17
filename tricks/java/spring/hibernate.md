@@ -111,4 +111,4 @@ TRANSACTIONAL| 需要支持事务的缓存,需要 JTA
 
 
 * [Hibernate ORM: Tips, Tricks, and Performance Techniques](http://www.slideshare.net/brmeyer/hibernate-orm-performance-31550150)
-* [](http://what-when-how.com/hibernate/optimizing-fetching-and-caching-hibernate/)
+* [数据获取和缓存优化](http://what-when-how.com/hibernate/optimizing-fetching-and-caching-hibernate/)
