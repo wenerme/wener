@@ -37,6 +37,9 @@ Finder 的主要问题
 xcode-select --install
 ```
 
+### 资源下载
+* [mac-torrent-download](http://mac-torrent-download.net/)
+
 ## Tips
 ```bash
 # 查看可用的分辨率
