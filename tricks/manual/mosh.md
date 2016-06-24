@@ -59,12 +59,13 @@ tmux new -s myname
 # 如果配合 sshrc 使用,可先 sshrc 进入服务器,创建好相应会话
 tmuxrc new -D -s cmd
 tmuxrc new -D -s log
+# 不允许直接执行 exit
+tmux -S /tmp/extratmuxserver/tmuxserver send -t cmd "alias exit='echo Please do not exits,use [CTRL-A+D] to detach from this session, if you really want to exit, use [command exit] instead'" ENTER
 
 # 然后再在本地进入到相应会话
 mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t cmd
 mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t log
 ```
-
 
 
 * https://blog.filippo.io/my-remote-shell-session-setup/

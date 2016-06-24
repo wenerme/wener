@@ -21,7 +21,7 @@ file.gif
 ```
 
 ## Base N
-```bash
+```
 # Encode base62
 BASE62=($(echo {0..9} {a..z} {A..Z}))
 for i in $(bc <<< "obase=62; 9207903953"); do
