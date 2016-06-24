@@ -10,8 +10,6 @@
 
 ```
 new-session
-set-window-option -g mode-mouse on
-set -g history-limit 30000
 
 ##########################################
 # STATUS BAR
@@ -35,7 +33,8 @@ set -g set-titles on
 set -g set-titles-string "#(tmux ls | awk -F: '{print $1}' | xargs | sed 's/\ / | /g')"
 
 
-##########################################                                                             # KEY BINDINGS
+##########################################
+# KEY BINDINGS
 # C-a = prefix
 unbind C-b
 set -g prefix C-a

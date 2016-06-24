@@ -126,3 +126,12 @@ TRANSACTIONAL| 需要支持事务的缓存,需要 JTA
 
 * [Hibernate ORM: Tips, Tricks, and Performance Techniques](http://www.slideshare.net/brmeyer/hibernate-orm-performance-31550150)
 * [数据获取和缓存优化](http://what-when-how.com/hibernate/optimizing-fetching-and-caching-hibernate/)
+
+
+## Hibernate 更新操作
+
+PreUpdate 只有在修改实体时才会触发,如果使用 Hibernate 的 EXTRA LAZY, 往 Collection 中插入时时不会触发原实体的,因此 PreUpdate 在修改部分 Collection 的时候不会被触发.
+
+Version 字段只有在自己所持有熟悉和自己所持有的关系被修改时才会更新 Version, 更新 Version 时也会触发 PreUpdate 修改.
+
+在 Hibernate 中可强制使用 `OptimisticLock` 使得在更新集合时也触发 Version 的修改,因此也可以强制触发 PreUpdate 事件.

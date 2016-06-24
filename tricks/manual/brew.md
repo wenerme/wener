@@ -4,6 +4,7 @@
 ```bash
 # 安装
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# 如果 XCode 安装失败可使用 xcode-select --install 安装
 ```
 
 ## 基础的软件包
@@ -52,6 +53,10 @@ brew cask install java7 java
 brew install maven
 brew cask install intellij-idea
 
+# OS X 下的常用工具
+# 也可以用 AppleScript 提供的命令实现 https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html#//apple_ref/doc/uid/TP40000983-CH216-SW224
+brew install terminal-notifier
+
 # 在中国的基本工具
 brew cask install qq sogouinput
 open  /opt/homebrew-cask/Caskroom/sogouinput/*/安装搜狗输入法.app
@@ -79,6 +84,17 @@ OS X 自带的 Bash 是 3 的,有些功能不支持,使用 Brew 安装的是最�
 ```bash
 echo /usr/local/bin/bash | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
+```
+
+### Font
+```bash
+# 添加字体库
+brew tap caskroom/fonts
+# 搜索字体
+# brew cask search /monoid/ # 支持 ligature 的编程字体
+# brew cask search /noto/ # 谷歌的 noto 字体
+# brew cask install font-noto-emoji font-noto-color-emoji font-noto-sans-cjk-sc
+# fc-list : file family |grep \/Library # 查看安装的字体
 ```
 
 ### FUSE
@@ -120,6 +136,16 @@ brew install avfs
 brew install btfs
 ```
 
+### Tex
+```bash
+# 完整的 MacTex 相当大,可以只安装 BasicTex 然后通过 tlmgr 安装额外的包
+# http://www.tug.org/mactex/morepackages.html
+# export PATH="$PATH:/Library/TeX/texbin/"
+# tlmgr update --self
+# tlmgr install collection-fontsrecommended
+brew cask install basictex
+```
+
 ### 容器相关
 如果想要使用例如 Docker 之类的容器技术,可安装下列软件包
 
@@ -146,6 +172,12 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/in
 ```
 
 ## Tips
+
+### 缓存目录
+
+* Cask
+  * 早起存储于 `/opt/homebrew-cask/Caskroom/`
+  * 后迁移至 `/usr/local/Caskroom/`
 
 ### 手动下载未下载完成的安装包
 ```bash
