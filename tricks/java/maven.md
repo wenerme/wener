@@ -1,3 +1,12 @@
+
+## Tips
+```
+-pl, --projects
+        Build specified reactor projects instead of all projects
+-am, --also-make
+        If project list is specified, also build projects required by the list
+```
+
 ## Plugins
 
 ### delombok

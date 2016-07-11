@@ -50,7 +50,7 @@ mosh HOST -- tmux a
 > __TIPS__
 >
 > * 选中复制需要按住 Option
-> * `C-b d` detach 会话
+> * `C-b d` detach 会话, `C-b` 经常被重新绑定为 `C-a`
 
 ```bash
 # 使用指定会话名创建一个新的会话
@@ -60,7 +60,7 @@ tmux new -s myname
 tmuxrc new -D -s cmd
 tmuxrc new -D -s log
 # 不允许直接执行 exit
-tmux -S /tmp/extratmuxserver/tmuxserver send -t cmd "alias exit='echo Please do not exits,use [CTRL-A+D] to detach from this session, if you really want to exit, use [command exit] instead'" ENTER
+tmux -S /tmp/extratmuxserver/tmuxserver send -t cmd "alias exit='echo Please do not exit,use [CTRL-A+D] to detach from this session, if you really want to exit, use [command exit] instead'" ENTER
 
 # 然后再在本地进入到相应会话
 mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t cmd
