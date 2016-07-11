@@ -15,11 +15,14 @@ function docker-ips() {
 
 https://github.com/ajohnstone/dot-files/blob/master/bash.d/bash/docker
 
-## 移除旧的容器
 ```bash
+# 移除旧的容器
 docker rm `docker ps -aq`
 docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
 docker rm $(docker ps -q -f status=exited)
+
+# Stats 显示名字
+docker stats $(docker ps --format={{.Names}})
 ```
 
 ## 查看完整的启动命令

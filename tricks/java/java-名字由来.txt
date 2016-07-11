@@ -1,16 +1,36 @@
 http://stackoverflow.com/a/3042879/1870054
 
-From: James Gosling 
-Date: August 24, 2007 8:16:58 PM PDT 
-To: Jonathan Schwartz 
-Subject: How was Java named? 
+From: James Gosling
+Date: August 24, 2007 8:16:58 PM PDT
+To: Jonathan Schwartz
+Subject: How was Java named?
 
 The story goes like this:
 
-We needed a name. We had been using "oak" (which was selected essentially randomly by me), and while the team had grown attached to it, the trademark lawyers ruled it out. We had lots of email debates about names, but nothing got resolved. We ended up in the awkward position where the #1 thing stopping us from shipping was the name.
+We needed a name. We had been using "oak" (which was selected essentially
+randomly by me), and while the team had grown attached to it, the trademark
+lawyers ruled it out. We had lots of email debates about names, but nothing got
+resolved. We ended up in the awkward position where the #1 thing stopping us
+from shipping was the name.
 
-Our marketing lead knew someone who was a "naming consultant" (I don't remember his name, but he was great). We could neither afford the price nor the time of a conventional product naming process. He agreed to do something rather odd, but effective and quick: he acted as a facilitator at a meeting where about a dozen of us locked ourselves in a room for an afternoon. He started asking us questions like "How does this thing make you feel?" (Excited!) "What else makes you feel that way?" (Java!) We ended up with a board covered with essentially random words. Then he put us through a sorting process where we ended up with a ranking of the names. We ended up with a dozen name candidates and sent them off to the lawyers: they worked down the list until they hit one that cleared their search. "Java" was the fourth name on the list. The first name on the list was "Silk", which I hated but everyone else liked. My favorite was "Lyric", the third one on the list, but it didn't pass the lawyers test. I don't remember what the other candidate names where.
+Our marketing lead knew someone who was a "naming consultant" (I don't remember
+his name, but he was great). We could neither afford the price nor the time of
+a conventional product naming process. He agreed to do something rather odd,
+but effective and quick: he acted as a facilitator at a meeting where about a
+dozen of us locked ourselves in a room for an afternoon. He started asking us
+questions like "How does this thing make you feel?" (Excited!) "What else makes
+you feel that way?" (Java!) We ended up with a board covered with essentially
+random words. Then he put us through a sorting process where we ended up with a
+ranking of the names. We ended up with a dozen name candidates and sent them off
+to the lawyers: they worked down the list until they hit one that cleared their
+search. "Java" was the fourth name on the list. The first name on the list was
+"Silk", which I hated but everyone else liked. My favorite was "Lyric", the
+third one on the list, but it didn't pass the lawyers test. I don't remember
+what the other candidate names where.
 
-So, who named Java? Marketing organized the meeting, the consultant ran it, and a whole pile of us did a lot of yelling out of random words. I'm honestly not real sure who said "Java" first, but I'm pretty sure it was Mark Opperman.
+So, who named Java? Marketing organized the meeting, the consultant ran it, and
+a whole pile of us did a lot of yelling out of random words. I'm honestly not
+real sure who said "Java" first, but I'm pretty sure it was Mark Opperman.
 
-There certainly wasn't any brilliant marketing mind who went through a coherent thought process.
+There certainly wasn't any brilliant marketing mind who went through a coherent
+thought process.

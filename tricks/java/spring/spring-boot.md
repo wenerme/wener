@@ -99,14 +99,45 @@ java -jar myproject.jar --spring.config.name=myproject
 java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties
 # 通过环境变量修改文件名
 SPRING_CONFIG_NAME=myproject java -jar myproject.jar
+# 可同时加载多个配置名
+# --spring.config.name=server-app,env
+# 可在启动时激活相应配置
+# --spring.profiles.active=local
+# 可修改配置的搜索路径
+# --spring.profiles.location=file:./conf
+# 修改默认 Profile
+# --spring.profiles.default=test
+# 可直接传递 JSON 参数
+# --spring.application.json={"redis.port":6379}
+```
+
+> __注意__:
+>   
+> * 使用 Profile 时, include 的优先级会比当前配置的优先级高,因此在使用时建议避免使用 include 来包含默认配置.
+> * 指定多个 profile 时后面的会覆盖前面的
+
+### 特殊配置说明
+* DevTool 会尝试查找 HOME 下的 `.spring-boot-devtools.properties` 配置文件
+* `spring.main` 下的参数会应用到 `SpringApplication` 上,因此可以在配置文件中配置 `spring.main.web_environment: false` 这样的参数
+* Spring 启动时的处理类为 `org.springframework.boot.context.config.ConfigFileApplicationListener`
+  * 负责加载给定的配置 `spring.config.name`,`spring.profiles.active`,`spring.profiles.location`
+  * 负责将 `spring.main` 上的属性绑定到 `SpringApplication` 上
+* 可启用日志,记录所有尝试加载的配置文件名
+```
+<logger name="org.springframework.boot.context.config.ConfigFileApplicationListener"
+        level="TRACE"
+        additivity="false">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="FILE"/>
+</logger>
 ```
 
 ### 属性文件可使用占位符
 ```
 app.name=MyApp
-app.description=${app.name} is a Spring Boot application
+app.description=${app.name:Default Name} is a Spring Boot application
 ```
-### 单个 YAML 可指定多个 profil
+### 单个 YAML 可指定多个 profile
 ```yaml
 server:
     address: 192.168.1.100
