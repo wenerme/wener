@@ -31,7 +31,7 @@ __UNINSTALL__
 sudo rm -rf /usr/local/go
 ```
 
-## Interop with C
+## 与 C 交互操作/Interop with C
 
 ```bash
 go install -buildmode=shared -linkshared  std
@@ -78,15 +78,18 @@ func main() {
 * [Go Execution Mode](https://docs.google.com/document/d/1nr-TQHw_er6GOQRsF6T43GGhFDelrAP0NqSS_00RgZQ/edit)
 * [cmd/cgo](https://golang.org/cmd/cgo/)
 
-## Cross compile
+## 交叉编译/Cross compile
 ```bash
+# 编译为 Linux 可执行文件
 env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbeat
+# 编译为 Windows 可执行文件
+env GOOS=windows GOARCH=amd64 go build -o main.exe -v
 ```
 
-* [environment](https://golang.org/doc/install/source#environment)
+* 查看所有支持的环境 [environment](https://golang.org/doc/install/source#environment)
 
 
-## Reduce binary size
+## 程序瘦身/Reduce binary size
 ```bash
 # A Hello world in Golang 1.6 is 2.2M
 
@@ -109,7 +112,7 @@ upx --best main.linux.amd64 # 478K
 upx -9 --ultra-brute main.linux.amd64 # 363K
 ```
 
-## Reference
+## 参考/Reference
 * Articles
 	* [Go Patterns](http://www.infoq.com/news/2016/03/go-patterns)
 * Video
@@ -119,3 +122,11 @@ upx -9 --ultra-brute main.linux.amd64 # 363K
 * [Summary of Go Generics Discussions](https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit#heading=h.vuko0u3txoew)
 * [FAQ](http://golang.org/doc/faq)
 * [The Three Go Landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)
+
+### 学习资源
+* [《Go编程基础》](https://github.com/Unknwon/go-fundamental-programming)
+	是一套针对 Google 出品的 Go 语言的视频语音教程，主要面向新手级别的学习者。
+* [Learning-Go](https://github.com/mikespook/Learning-Go-zh-cn)
+* [Go Web 基础](https://github.com/Unknwon/go-web-foundation)
+* [Go名库讲解](https://github.com/Unknwon/go-rock-libraries-showcases)
+* [Go 语言学习资料与社区索引](https://github.com/Unknwon/go-study-index)
