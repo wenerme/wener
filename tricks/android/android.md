@@ -55,11 +55,28 @@ adb shell service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A
 # 27  getIsimPcscf
 # 28  getIsimChallengeResponse
 # 29  getIccSimChallengeResponse
+```
 
+## 将 HttpClient 的日志输出到 Logcat
+__代码__
+```java
+java.util.logging.Logger.getLogger("org.apache.http.wire").setLevel(java.util.logging.Level.FINEST);
+java.util.logging.Logger.getLogger("org.apache.http.headers").setLevel(java.util.logging.Level.FINEST);
 
+System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
+System.setProperty("org.apache.commons.logging.simplelog.log.httpclient.wire", "debug");
+System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "debug");
+System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http.headers", "debug");
+```
 
-apktool b gongshi
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore gongshi/dist/gongshi.apk alias_name
+__命令行__
+```bash
+adb shell setprop log.tag.org.apache.http VERBOSE
+adb shell setprop log.tag.org.apache.http.wire VERBOSE
+adb shell setprop log.tag.org.apache.http.headers VERBOSE
+
+adb logcat -s "org.apache.http.wire" -s "log.tag.org.apache.http.headers" -s "org.apache.http"
 ```
 
 ## 在 APK 中注入代码
@@ -140,3 +157,4 @@ public class Extra{
   * 根据需要注入的内容不同,可选择不同的注入点: 构造函数,静态构造函数,onCreate 等
   * 需要在其他地方注入代码时操作也是一样的
 * 然后参照上述命令行操作,重新将该项目构建为一个 APK 即可
+* 使用 `adb logcat -s "Injected"` 来查看在注入代码中打印的日志
