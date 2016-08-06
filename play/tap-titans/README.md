@@ -1,6 +1,6 @@
-# Play Titantis using shell
+# Play Titans using shell
 
-[Tap Titantis](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans) on Play Store
+[Tap Titans](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans) on Play Store
 
 ## Features
 
