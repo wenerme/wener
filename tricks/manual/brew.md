@@ -161,7 +161,6 @@ brew install {docker,docker-machine,docker-compose,vagrant}-completion docker-ma
 [Linuxbrew](http://linuxbrew.sh/) 是 Brew 的 Linux 移植版, 支持大多的安装包.
 
 ```bash
-
 # Ubuntu 依赖
 sudo apt-get install build-essential curl git m4 python-setuptools ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
 
@@ -173,6 +172,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/in
 ```
 
 ## Tips
+
 
 ### 缓存目录
 

@@ -17,6 +17,13 @@ tmux a -t myname
 tmux kill-session -t myname
 ```
 
+__tmux__ 命令
+
+```
+# 是其他链接全都 detach, 使得当前窗口能够最大化
+:detach -a
+```
+
 ## ~/.tmux.conf
 
 ```
