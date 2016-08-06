@@ -1,5 +1,6 @@
 # Play Titantis using shell
 
+[Tap Titantis](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans) on Play Store
 
 ## Features
 
@@ -11,8 +12,8 @@
 
 > __NOTE__
 >
-> * Only tested on Nexus 5, different may use different coordinates and event dev.
-> * Used to plat tiantis long time ago, may not works in current version.
+> * Only tested on Nexus 5, different devices may use different coordinates and event dev.
+> * Used to plat tiantis long time ago, may not works in current version.Different version may use different color and coordinates
 
 ## Requirement
 
