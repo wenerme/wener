@@ -1,0 +1,47 @@
+# Play Titantis using shell
+
+
+## Features
+
+* Auto upgrade
+* Auto spell skill
+* Auto start challenge
+* Auto close ad dialog
+* Verify fast tap (0.03s/tap)
+
+> __NOTE__
+>
+> * Only tested on Nexus 5, different may use different coordinates and event dev.
+> * Used to plat tiantis long time ago, may not works in current version.
+
+## Requirement
+
+* ADB
+* Image Magic
+* Bash
+
+## Get started
+ * Start game
+
+ ```bash
+ chmod +x play.sh
+ # Connect through lan, so you don't have to use the usb
+ ./play.sh use-tcp
+ # Push the pre-generated event file
+ adb push events /mnt/sdcard
+ # Start playing
+ ./play.sh
+ ```
+
+## How is works ?
+
+### Why fast ?
+* Because I don't use `adb shell input tap`, instead use a generated file that represent a tap event, then `cat tap > /dev/input/event1`.
+* Use generated shell run in android.
+
+### How to detect the screen event ?
+Use screen capture, then use the image magic to check the color,kind of slowly, but works.
+
+## More
+
+Check the [source](./play.sh)

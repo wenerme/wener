@@ -26,6 +26,20 @@
 * ORM 元数据
 * ORM XML 映射描述
 
+## 创建实体的建议
+
+* 实现 `Serializable`
+  * 如果不需要将实体进行序列化,例如放到 SESSION 中或者通过 RPC 来使用,那么是不必要的
+  * JPA 规范要求要实现 `Serializable` 接口
+* 不可变的字段只需要不给出 `setter` 即可,不是必须要作为 `final`
+* UUID 作为主键不适合 90% 的场景
+  * 因为大多数项目不会达到那么大的规模
+  * 选择 UUID 对性能会有影响
+
+
+
+* [create-the-perfect-jpa-entity](http://stackoverflow.com/questions/6033905)
+
 
 ## JOIN 不相关的实体
 
