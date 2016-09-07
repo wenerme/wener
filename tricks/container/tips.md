@@ -1,3 +1,5 @@
+
+
 ## Docker ps 中显示 IP
 ```bash
 function docker-ips() {
@@ -23,26 +25,25 @@ docker rm $(docker ps -q -f status=exited)
 
 # Stats 显示名字
 docker stats $(docker ps --format={{.Names}})
-```
 
-## 查看完整的启动命令
-```bash
+# 获取容器 IP
+docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${CID}
+
+# 查看完整的启动命令
 docker inspect  -f "{{.Name}} {{.Config.Cmd}}" $(docker ps -a -q)
 docker ps -a --no-trunc
-```
 
-
-## 修改 Docker machine 内存和 CPU
-```bash
+# 修改 Docker machine 内存和 CPU
 docker-machine stop
 VBoxManage modifyvm default --cpus 2
 VBoxManage modifyvm default --memory 4096
 docker-machine start
-```
 
-```bash
+# 创建时指定内存
 docker-machine create -d virtualbox --virtualbox-memory 4096 default
 ```
+
+## docker-machine --help
 
 ```bash
 $ docker-machine create -d virtualbox --help

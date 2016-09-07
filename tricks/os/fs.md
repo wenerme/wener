@@ -34,6 +34,9 @@ dd bs=16M count=64 if=test of=test1 conv=fdatasync
 pv /home/user/bigfile.iso | md5sum
 # 8.25 后可查看进度
 dd if=/dev/urandom of=/dev/null status=progress
+# urandom 会限制速度,可以使用文件来测试
+truncat -s 10G test.data
+dd if=test.data of=/dev/null status=progress
 # 似乎会更快
 pv < /dev/sda > /dev/sdb
 # 使用 PV 监控速度
@@ -47,6 +50,15 @@ watch -n5 'kill -USR1 $(pgrep ^dd)'
 kill -INFO $(pgrep ^dd$)
 # 同上简单一点
 pkill -usr1 dd
+
+# 测试随机写IOPS
+fio -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
+# 测试随机读IOPS
+fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
+# 测试写吞吐量
+fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
+# 测试读吞吐量
+fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
 ```
 
 ## diskutil

@@ -84,7 +84,7 @@ statistics.logSummary();
   * SELECT
     * 集合的默认获取方式,避免笛卡尔乘积
     * 需要注意 N+1 问题, 每个集合元素都获取一次
-  * BATCH
+  * BATCH - @Fetch(FetchMode.SELECT) @BatchSize(size = 10)
     * 在访问一个元素时即加载多个元素
     * 批量加载数量可配置
     * 批量加载数量有多种算法来判断

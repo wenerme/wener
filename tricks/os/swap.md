@@ -28,3 +28,18 @@ vm_stat
 # 查看使用的交换文件
 ls -lh /private/var/vm/swapfile*
 ```
+
+
+## 添加 swap
+
+```bash
+dd if=/dev/zero of=/sysswap count=4096 bs=1MiB status=progress
+chmod 600 /sysswap
+mkswap /sysswap
+swapon /sysswap
+# 将 swap 添加到 fstab
+echo /sysswap   swap    swap    sw  0   0 >> /etc/fstab
+```
+
+## 参考
+* [How to add swap on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-centos-7)

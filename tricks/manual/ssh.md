@@ -8,6 +8,10 @@
 ```
 Match User dev
    GatewayPorts yes
+
+# 禁止部分用户使用 TTY
+Match User player
+  PermitTTY no
 ```
 
 __常用配置__
@@ -22,6 +26,28 @@ PermitRootLogin yes
 # 是否允许使用密码登陆
 PasswordAuthentication yes
 
+```
+
+## Tunnel
+在工作中常常需要较多的代理和转发,为每个代理和转发都进行一次 SSH 未免太过麻烦,使用 `~/.ssh/config` 可以将常用的转发一次配置
+
+```bash
+Host tunnel
+Hostname my.host.com
+User myUser
+Compression yes
+ExitOnForwardFailure yes
+ForwardAgent yes
+DynamicForward 8888
+RemoteForward 2222 127.0.0.1:22
+LocalForward 16379 myInternalRedis:6379
+LocalForward 13306 myInternalMySQL:3306
+```
+
+再配合 autossh 可大大减少工作量
+
+```bash
+autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
 ```
 
 ## SSHFS

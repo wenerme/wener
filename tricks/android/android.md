@@ -55,7 +55,32 @@ adb shell service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A
 # 27  getIsimPcscf
 # 28  getIsimChallengeResponse
 # 29  getIccSimChallengeResponse
+
+# 获取屏幕上的颜色
+# <bytes per pixel> 一般为4
+# <pixel offset> = Y * width + X
+# 需要 ROOT 权限
+adb shell "dd if=/dev/graphics/fb0 bs=<bytes per pixel> count=1 skip=<pixel offset> 2>/dev/null | hd"
+# 获取屏幕宽度
+adb shell getprop ro.sf.lcd_density
+
 ```
+
+### Touch Event
+```bash
+# 查看所有的设备,有 MT_TOUCH 为触摸设备
+getevent -pl
+# 假设 /dev/input/event1 为触摸设备
+# 记录所有的操作, 需手动中断
+cat /dev/input/event1 > event-dump
+# 回放记录的操作
+cat event-dump > /dev/input/event1
+# 可命令行操作 tap
+input tap 233 466
+# 查看所有操作的事件
+getevent -l
+```
+<!-- while true;do { cat tap-dump > /dev/input/event1; usleep 500; } done -->
 
 ## 将 HttpClient 的日志输出到 Logcat
 __代码__
