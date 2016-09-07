@@ -43,7 +43,7 @@ Video size : 320px par 180px
 Generated video : final_video.mp4
 
 #Extracting sound from a video, and save it as Mp3
-ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3
+ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 sound.mp3
 #Explanations :
 
 Source video : source_video.avi

@@ -23,6 +23,11 @@
 * Spring AOP
   * 动态代理处理类 `org.springframework.aop.framework.JdkDynamicAopProxy`
 * 大多 Spring AOP 的拦截点都可以通过 `spring-aspects` 中定义的 AspectJ 来直观的看到
+* Spring MVC
+  * `HandlerMethodReturnValueHandler` 处理返回值, `@RequestBody` 就是在这接口中处理的
+  * `RequestBodyAdvice` 可在 `@RequestBody` 处理时附加其他操作
+  * `MappingJackson2HttpMessageConverter` 基于 Jackson 实现的 JSON 转换, 返回结果的序列化会在这里发生
+
 
 
 ## Spring AOP vs AspectJ

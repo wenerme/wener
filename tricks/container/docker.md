@@ -4,7 +4,6 @@
 docker-machine start default
 eval $(docker-machine env default)
 docker pull java:8
-
 ```
 
 ## SSHD service
@@ -72,7 +71,54 @@ sudo systemctl daemon-reload
 sudo service docker restart
 ```
 
+* 可使用 daocloud 提供的镜像服务 https://www.daocloud.io/mirror
+* 用于在 Linux 下修改镜像的脚本 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s 镜像地址
+* 也可在 /etc/default/docker 中添加 HTTP_PROXY 来拉取镜像
+
 ## Tips
 
 * Docker machine root 密码为 `tcuser`
 * 也可以通过 `sudo su root` 切换为 root
+* Linux 下的配置文件 /etc/default/docker
+
+```bash
+# stats 中显示容器名字
+docker stats $(docker ps --format={{.Names}})
+```
+
+### 时区
+
+启动时修改时区
+```
+$ docker run --rm busybox date
+Thu Mar 20 04:42:02 UTC 2014
+$ docker run --rm -v /etc/localtime:/etc/localtime  busybox date
+Thu Mar 20 14:42:20 EST 2014
+$ FILE=$(mktemp) ; echo $FILE ; echo -e "Europe/Brussels" > $FILE ; docker run --rm -v $FILE:/etc/timezone -v /usr/share/zoneinfo/Europe/Brussels:/etc/localtime busybox date
+/tmp/tmp.JwL2A9c50i
+Thu Mar 20 05:42:26 CET 2014
+$ docker run -t -i --rm -e TZ=Europe/London busybox date
+```
+
+__Dockerfile__ 修改时区
+```
+RUN echo America/New_York | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
+```
+
+修改 MySQL 的时区
+```bash
+# 方法一 修改容器时区,重启 mysql
+docker exec -it MySQL bash
+# 时区信息 /usr/share/zoneinfo
+# 直接修改 echo Asia/Shanghai > /etc/timezone
+# 获取所有时区 timedatectl list-timezones
+# 直接修改时区 timedatectl set-timezone Europe/Athens
+# 在容器里可能 timedatectl 无法使用
+
+# 交互式选择时区
+dpkg-reconfigure tzdata
+/etc/init.d/mysql restart
+
+# 方法二 SET GLOBAL time_zone = 'Asia/Shanghai';
+# 方法三 my.cnf [mysqld] default-time-zone='Asia/Shanghai'
+```

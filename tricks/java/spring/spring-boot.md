@@ -178,16 +178,23 @@ logging.pattern.level|LOG_LEVEL_PATTERN|输出日志等级的格式(默认 %5p)(
 PID|PID|
 
 ### 常用配置
-```
+```yaml
 # 日志配置
-logging.level.root=WARN
-logging.level.org.springframework.web=DEBUG
-logging.level.org.hibernate=ERROR
+logging.level.root: INFO
+logging.level.org.springframework.web: DEBUG
+logging.level.org.hibernate: ERROR
 
 # 启用 h2 控制台
-spring.h2.console.enabled=true
+spring.h2.console.enabled: true
 # 修改控制台路径,默认 /h2-console
-spring.h2.console.path=/h2-console
+spring.h2.console.path: /h2-console
+
+# 修改 Jackson 时间格式,设置正确的时区非常重要,否则会导致序列化的时间有时差
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: zh_CN
+    time-zone: GMT+8
 ```
 
 ### Tips
@@ -220,7 +227,7 @@ shutdown| 停止应用(默认未开启)|true
 trace| 显示跟踪信息(默认只显示前几个 HTTP 请求)|true
 
 ### 配置
-```
+```yaml
 # 修改一个终端的敏感值
 endpoints.beans.id=springbeans
 endpoints.beans.sensitive=false
@@ -232,12 +239,12 @@ endpoints.shutdown.enabled=true
 endpoints.sensitive=true
 endpoints.info.sensitive=false
 # 控制 CORS
-endpoints.cors.allowed-origins=http://example.com
-endpoints.cors.allowed-methods=GET,POST
+endpoints.cors.allowed-origins: http://example.com
+endpoints.cors.allowed-methods: GET,POST
 # 控制是否启用监控检查
 management.health.defaults.enabled=false
 # 控制路径和端口地址
-management.context-path=/manage
+management.context-path: /manage
 management.port=8081
 management.address=127.0.0.1
 # 定制化通过 info 终端暴露的信息
@@ -262,7 +269,7 @@ endpoints.{name}.path
 management.port=-1
 # 修改 MBean 名字
 endpoints.jmx.domain=myapp
-endpoints.jmx.unique-names=true
+endpoints.jmx.unique-names: true
 ```
 
 ## Remote shell

@@ -1,3 +1,8 @@
+# Linux
+
+## Tips
+
+
 
 ## CentOS change hostname
 https://www.vultr.com/docs/how-to-change-your-hostname-on-centos
