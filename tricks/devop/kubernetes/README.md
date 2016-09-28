@@ -12,7 +12,7 @@
 
 ```bash
 # 如果你有代理,则先设置好代理
-proxy_host=10.25.30.127
+proxy_host=10.1.1.1
 export https_proxy=http://$proxy_host:7777
 export http_proxy=http://$proxy_host:7777
 
