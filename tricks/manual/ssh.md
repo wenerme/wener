@@ -5,14 +5,7 @@
 ## Tips
 
 * 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
-```
-Match User dev
-   GatewayPorts yes
 
-# 禁止部分用户使用 TTY
-Match User player
-  PermitTTY no
-```
 
 __常用配置__
 
@@ -26,6 +19,13 @@ PermitRootLogin yes
 # 是否允许使用密码登陆
 PasswordAuthentication yes
 
+# 转发的端口允许外部访问
+Match User dev
+   GatewayPorts yes
+
+# 禁止部分用户使用 TTY
+Match User player
+  PermitTTY no
 ```
 
 ## Tunnel
