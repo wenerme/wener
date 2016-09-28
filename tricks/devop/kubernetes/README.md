@@ -50,7 +50,7 @@ systemctl start kubelet
 #### FAQ
 
 ##### 安装好后无法使用 kubectl, 提示说地址错误
-需要手动指定地址 `kubectl --server=127.0.0.1:8080 get nodes`, 因为启动时的API 服务器地址为 `127.0.0.1:8080`,具体指定位置在 `cat /etc/kubernetes/manifests/kube-apiserver.json`, 改地址暂时无法更改.
+需要手动指定地址 `kubectl --server=127.0.0.1:8080 get nodes`, 因为启动时的API 服务器地址为 `127.0.0.1:8080`,具体指定位置在 `cat /etc/kubernetes/manifests/kube-apiserver.json`, 该地址暂时无法更改.
 
 由于绑定的地址是 `127.0.0.1`, 所以如果想要在本地使用,则建议在本地通过转发使用 `ssh -vNL 8082:127.0.0.1:8080 主机地址`, 然后则可以使用 `kubectl -s 127.0.0.1:8082 get nodes` 进行操作了.
 
