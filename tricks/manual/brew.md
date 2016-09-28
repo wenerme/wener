@@ -176,9 +176,12 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/in
 
 ### 缓存目录
 
+* Homebrew
+  * `~/Library/Caches/Homebrew`
 * Cask
   * 早起存储于 `/opt/homebrew-cask/Caskroom/`
   * 后迁移至 `/usr/local/Caskroom/`
+
 
 ### 手动下载未下载完成的安装包
 ```bash

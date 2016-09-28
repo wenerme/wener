@@ -1,10 +1,74 @@
+# Golang
 
+## Library
+
+* [Awesome Go](https://github.com/avelino/awesome-go)
+
+### Machine Learning
+
+* [GoLearn](https://github.com/sjwhitworth/golearn) is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.
+* [goml](https://github.com/cdipaolo/goml) is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.
+* [Gorgonia](https://github.com/chewxy/gorgonia) is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.
+
+### Web
+一般 Web 的库分为很多种, MVC 型, REST 型,基础功能型
+
+* Beego 的 MVC 做的相当好
+* REST 类的 ECHO 会比较好,虽然 Gin 也不错,但是 Gin 使用的 httprouter 无法处理 `/user` 和 `/user/:id` 这样的路径
+* 基础功能的一般可考虑直接使用原生或 Gin 或者 Mux 这样的来组装自己的服务
+
+### Data
+
+* ORM
+	* gorm 是目前最好的 Go ORM 库
+
+### Misc
+https://github.com/alexflint/go-restructure
+https://github.com/urfave/cli
+https://github.com/pointlander/peg Peg, Parsing Expression Grammar
+https://github.com/jteeuwen/go-bindata
+
+https://github.com/hanwen/go-fuse
+
+
+
+### Game
+https://go-talks.appspot.com/github.com/guregu/slides/comiket/comiket.slide
+
+https://github.com/EngoEngine/engo
+ is an open-source 2D game engine written in Go.
+ https://github.com/azul3d/engine A 3D game engine written in Go!
+
+https://github.com/golang/mobile
+ Golang mobile support cross-platform gl binding
+
+https://github.com/name5566/leaf
+https://github.com/xtaci/gonet
+Golang 实现的游戏服务器框架
+
+
+https://github.com/veandco/go-sdl2
+https://github.com/fogleman/gg
+https://github.com/andlabs/ui
 ## Tips
 
 Directory and file names that begin with "." or "_ " are ignored by the go tool, as are directories named "testdata".
 
 ----
 
+
+```bash
+# 更新 Go 过后可能会导致每个项目都会重复构建, 导致编译很慢, 针对单个项目可以按照如下的方式处理
+# 把所有的依赖从新编译
+go build -v 2> /tmp/build-tmp
+sed -i '$ d' /tmp/build-tmp
+cat /tmp/build-tmp | xargs -n 1 go get -u -v
+
+# go build -v 2> /tmp/build-tmp;sed -i '$ d' /tmp/build-tmp;cat /tmp/build-tmp | xargs -n 1 go get -u -v
+
+# 跨平台编译
+env GOOS=linux GOARCH=amd64 go build  -o main-linux-amd64 main.go
+```
 
 
 ## Install golang under linux

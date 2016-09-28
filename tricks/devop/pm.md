@@ -29,3 +29,10 @@ __产品经理__ | __项目经理__
 * [VENTURE DESIGN PROCESS](http://www.alexandercowan.com/venture-design/)
 * [Coursera: 敏捷团队管理](https://www.coursera.org/learn/agile-team-management)
 * [Coursera: Getting Started: Agile Meets Design Thinking](https://www.coursera.org/learn/getting-started-agile/)
+
+## How to become a proper Project Manager
+
+* \* Manager
+  * 更关注商业目的和利益
+
+* [Ask HN: How can I become a proper Project Manager from a Programmer?](https://news.ycombinator.com/item?id=12477850)

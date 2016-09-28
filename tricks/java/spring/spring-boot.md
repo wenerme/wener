@@ -418,3 +418,33 @@ public Object echo(HttpServletRequest request) throws IOException {
   return content;
 }
 ```
+
+### 去除错误白板页
+
+```java
+@RestController
+public class IndexController implements ErrorController{
+
+    private static final String PATH = "/error";
+
+    private final ErrorAttributes errorAttributes;
+
+    // 也可以自己处理错误
+    @Autowired
+    public IndexController(ErrorAttributes errorAttributes) {
+      Assert.notNull(errorAttributes, "ErrorAttributes must not be null");
+      this.errorAttributes = errorAttributes;
+    }
+
+    @RequestMapping(value = PATH)
+    public String error() {
+        return "Error handling";
+    }
+
+    @Override
+    public String getErrorPath() {
+        return PATH;
+    }
+}
+// 默认的错误控制器为 ErrorMvcAutoConfiguration#basicErrorController
+```

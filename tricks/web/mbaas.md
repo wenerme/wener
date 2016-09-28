@@ -7,3 +7,5 @@
 * [deployd](http://deployd.com/)
 * [liveoak](http://liveoak.io/)
 * [Usergrid](http://usergrid.apache.org/)
+
+https://docs.feathersjs.com/why/vs/meteor.html

@@ -59,6 +59,12 @@ fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjo
 fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
 # 测试读吞吐量
 fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
+
+# 挂载 smb
+# Windows 共享无密码时使用 guest
+mount_smbfs //guest:guest@192.168.8.1/share/ ~/mnt/share/
+# 或者挂载 cifs 也可以
+mount -t cifs -o username=guest,password=guest //192.168.8.1/share/ ~/mnt/share/
 ```
 
 ## diskutil
@@ -419,7 +425,42 @@ VS|MBR | GPT
 ----|----|----
 分区数| 4 | N/A
 
+### 文件时间
 
+时间缩写 | 全称 | 说明
+----|----|----
+atime | Access Time | 访问时间
+ctime | Change Time | 当访问权限等修改时,会修改该时间
+mtime | Modify Time | 当修改文件内容时会修改该时间
+btime | Birth Time | 创建时间
+
+|  | windows | linux | solaris | dragonfly | nacl | freebsd | darwin | netbsd | openbsd | plan9 |
+|:-----:|:-------:|:-----:|:-------:|:---------:|:------:|:-------:|:----:|:------:|:-------:|:-----:|
+| atime | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| mtime | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| ctime | ✓* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  |
+| btime | ✓ |  |  |  |  | ✓ |  ✓| ✓ |  
+
+* Windows XP 不支持 ctime, Vista 以上支持.
+* 可使用 `stat 文件名` 查看
+* 该表格摘自 [djherbis/times](https://github.com/djherbis/times#supported-times)
+
+```bash
+$ stat sg_store.db
+  File: 'sg_store.db'
+  Size: 45056          	Blocks: 88         IO Block: 4096   regular file
+Device: 1000004h/16777220d     	Inode: 45296478    Links: 1
+Access: (0644/-rw-r--r--)  Uid: (  501/   root)   Gid: (   20/   root)
+Access: 2016-09-22 15:26:54.000000000 +0800
+Modify: 2016-09-22 15:26:54.000000000 +0800
+Change: 2016-09-22 15:27:20.000000000 +0800
+ Birth: 2016-09-21 23:05:30.000000000 +0800
+
+# 修改 mtime 和 ctime
+$ touch sg_store.db
+# 修改 ctime
+$ chown root:root sg_store.db
+```
 
 ## 参考
 

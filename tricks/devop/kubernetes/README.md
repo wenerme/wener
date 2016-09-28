@@ -57,6 +57,10 @@ systemctl start kubelet
 > TIPS:
 > 通过 `alias k="kubectl -s 127.0.0.1:8082"` 简化操作
 
+##### 阻塞在 Waiting for 'control plane to become ready'
+
+也有别人遇到过该问题 https://github.com/kubernetes/kubernetes/issues/33544 ,我也遇到,但为 Docker 添加代理后就没问题了,应该是拉取容器造成的.
+
 ##### 限制
 由于 kubeadm 还处于 beta 版,因此还会有很多问题
 
