@@ -15,10 +15,59 @@ mvn package -Dmaven.repo.remote=http://maven.aliyun.com/nexus/content/groups/pub
 mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public -Dartifact=org.redisson:redisson:3.2.0
 ```
 
-## Mirror
+### 第三方仓库
+
+一般使用镜像有以下几种方式
+
+* 在 POM 中添加仓库
+  * 粘贴复制下就能使用
+  * 会持久在项目中
+    * 团队中其他人也不需要配置
+  * 如果在镜像的仓库中找不到会在中央仓库找
+* 在 setting 中添加镜像
+  * 需要调整 setting.xml 相对麻烦一些
+  * 在仓库中找不到会出错
+  * 当项目中有多个模块时,使用镜像可能会出现找不到本地模块的问题
+* 在 setting 中添加 profile
+
+#### 阿里云
 
 ```xml
+<!-- 可以在 POM 中加入如下仓库配置来使用 阿里云的 Maven 仓库镜像 -->
+<!-- 注意: 阿里云 Maven 仓库镜像同步相对较慢,可能几天或者十几天才能同步 -->
+<repositories>
+    <repository>
+        <id>aliyun</id>
+        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>aliyun</id>
+        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </pluginRepository>
+</pluginRepositories>
+```
 
+#### 谷歌
+```xml
+<!-- 同步速度快,访问速度也很快,没有被封 -->
+<repositories>
+    <repository>
+       <id>google</id>
+       <url>https://maven-central.storage.googleapis.com</url>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>google</id>
+        <url>https://maven-central.storage.googleapis.com</url>
+    </pluginRepository>
+</pluginRepositories>
+```
+#### setting 配置
+
+```xml
 <settings>
   <mirrors>
 
