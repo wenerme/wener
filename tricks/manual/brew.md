@@ -44,7 +44,7 @@ brew install {pip,ruby,gem,bundler,open,maven,brew-cask,apm-bash}-completion
 brew install sqlite
 
 # 日常工具
-brew cask install iterm2 google-chrome xtrafinder atom
+brew cask install iterm2 google-chrome atom
 # xtrafinder 在 10.11 中需要额外配置才能使用
 # FinderPath 无法通过 cask 安装
 
@@ -110,7 +110,7 @@ brew cask install osxfuse
 
 # 添加 fuse 仓库
 # 所有支持的 fs 可在 https://github.com/Homebrew/homebrew-fuse/tree/master/Formula 看到
-brew tag homebrew/fuse
+brew tap homebrew/fuse
 
 # 使用方式 sshfs HOST:/opt ~/mnt 将主机的 /opt 目录映射到本地的 ~/mnt
 brew install sshfs
@@ -146,6 +146,19 @@ brew install btfs
 brew cask install basictex
 ```
 
+### PHP
+* [homebrew-php](https://github.com/Homebrew/homebrew-php)
+
+```bash
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+# 安装需要的版本
+brew install php56
+```
+
+多版本 PHP 可使用 [php-version](https://github.com/wilmoore/php-version) 控制
+
 ### 容器相关
 如果想要使用例如 Docker 之类的容器技术,可安装下列软件包
 
@@ -178,9 +191,11 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/in
 
 * Homebrew
   * `~/Library/Caches/Homebrew`
+  * `/usr/local/Hombrew`
 * Cask
-  * 早起存储于 `/opt/homebrew-cask/Caskroom/`
+  * 早期存储于 `/opt/homebrew-cask/Caskroom/`
   * 后迁移至 `/usr/local/Caskroom/`
+  * 再后来 `/usr/local/Hombrew/Cask`
 
 
 ### 手动下载未下载完成的安装包

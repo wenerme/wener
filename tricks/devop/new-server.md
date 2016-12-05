@@ -4,6 +4,8 @@
 # 修改主机名
 hostnamectl set-hostname myHostName
 # 如果想要直接使用主机名,还需要在 /etc/hosts 里添加相关记录
+# nano /etc/hostname
+# nano /etc/hosts
 
 # 生成中文
 locale-gen zh_CN.UTF-8
@@ -55,6 +57,16 @@ ufw enable
 
 ## Tips
 当有多台主机需要部署的时候,建议使用 sshrc, tmuxrc, 这样能快速的将所有的配置都带给服务器,能够快速方便的对多台进行安装部署.
+
+### mosh-dev
+由于 mosh 部分鼠标相关的功能需要最新版,所以建议直接安装 dev 版本
+
+```bash
+apt-get install software-properties-common
+add-apt-repository ppa:keithw/mosh-dev
+apt-get update
+apt install mosh
+```
 
 ## fail2ban
 ```bash

@@ -50,6 +50,9 @@ vi /mnt/tmp/etc/ld.so.preload
 * [raspberrypi@Github](https://github.com/raspberrypi)
 * [raspberrypilearning@Github](https://github.com/raspberrypilearning)
 
+https://www.modmypi.com/blog/raspberry-pis-remotes-ir-receivers
+IR 感应
+
 ## 术语
 
 ### GPIO

@@ -1,8 +1,6 @@
-https://github.com/nyanp/tiny-cnn
+# 机器学习
 
-
-
-||tiny-cnn|[caffe](https://github.com/BVLC/caffe)|[Theano](https://github.com/Theano/Theano)|[TensorFlow](https://www.tensorflow.org/)|
+|-|[tiny-cnn](https://github.com/nyanp/tiny-cnn)|[caffe](https://github.com/BVLC/caffe)|[Theano](https://github.com/Theano/Theano)|[TensorFlow](https://www.tensorflow.org/)|
 |---|---|---|---|---|
 |Prerequisites|__Nothing__(Optional:TBB,OpenMP)|BLAS,Boost,protobuf,glog,gflags,hdf5, (Optional:CUDA,OpenCV,lmdb,leveldb etc)|Numpy,Scipy,BLAS,(optional:nose,Sphinx,CUDA etc)|numpy,six,protobuf,(optional:CUDA,Bazel)|
 |Modeling By|C++ code|Config File|Python Code|Python Code|
@@ -14,11 +12,14 @@ https://github.com/nyanp/tiny-cnn
 * `*` unofficial version is available
 
 
-## 学习资源
-http://neuralnetworksanddeeplearning.com/
-http://wiki.jikexueyuan.com/project/tensorflow-zh
-http://colah.github.io/
+* [DL4J vs. Torch vs. Theano vs. Caffe vs. TensorFlow](https://deeplearning4j.org/compare-dl4j-torch7-pylearn)
 
+## 学习资源
+* http://neuralnetworksanddeeplearning.com/
+* http://wiki.jikexueyuan.com/project/tensorflow-zh
+* http://colah.github.io/
+* https://github.com/josephmisiti/awesome-machine-learning
 
 * [What is the class of this image ?](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html)
   Discover the current state of the art in objects classification.
+* http://theopenacademy.com/content/machine-learning

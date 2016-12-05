@@ -74,6 +74,7 @@ public class HelloServlet extends HttpServlet {
 		eventSource.onmessage = function(event) {
 			document.getElementById('foo').innerHTML = event.data;
 		};
+	}
 	</script>
 </body>
 </html>

@@ -23,6 +23,10 @@ PasswordAuthentication yes
 Match User dev
    GatewayPorts yes
 
+# 可只对指定的接口对外暴露
+# -R :8000:localhost:80
+# GatewayPorts clientspecified
+
 # 禁止部分用户使用 TTY
 Match User player
   PermitTTY no

@@ -62,9 +62,12 @@ Directory and file names that begin with "." or "_ " are ignored by the go tool,
 # 把所有的依赖从新编译
 go build -v 2> /tmp/build-tmp
 sed -i '$ d' /tmp/build-tmp
+# 更新所有依赖
 cat /tmp/build-tmp | xargs -n 1 go get -u -v
 
 # go build -v 2> /tmp/build-tmp;sed -i '$ d' /tmp/build-tmp;cat /tmp/build-tmp | xargs -n 1 go get -u -v
+# 重新构建并缓存, 这样下次构建就会很快了
+go build -i -v ./...
 
 # 跨平台编译
 env GOOS=linux GOARCH=amd64 go build  -o main-linux-amd64 main.go
@@ -73,8 +76,10 @@ env GOOS=linux GOARCH=amd64 go build  -o main-linux-amd64 main.go
 
 ## Install golang under linux
 ```bash
-GOVERSION=1.7
+GOVERSION=1.7.3
 # 查看可选架构 https://storage.googleapis.com/golang/
+# Windows 64 位 https://storage.googleapis.com/golang/go$GOVERSION.windows-amd64.zip
+# Windows 32 位 https://storage.googleapis.com/golang/go$GOVERSION.windows-386.zip
 wget https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz
 # 或者使用代理下载
 # https_proxy=socks://127.0.0.1:8888 curl https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz -o go$GOVERSION.linux-amd64.tar.gz
@@ -152,8 +157,54 @@ env GOOS=linux GOARCH=amd64 go build -o RedHat/clbeat -v github.com/wenerme/clbe
 env GOOS=windows GOARCH=amd64 go build -o main.exe -v
 ```
 
+部分需要 linux cgo 编译的可使用 docker 镜像完成
+
+```bash
+docker run --rm -v $GOPATH:/go -w /go/src/应用包 golang go build -i -v
+# 因为是使用 alphie 编译的,因此构建的 docker 中需要添加
+# RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+# 需要注意 https://github.com/golang/go/issues/9344
+```
+
+### xgo
+
+可使用 xgo 一次性编译多个平台的可执行文件,可使用 xgo 镜像以便于跨平台编译 cgo.
+
+
+
+
 * 查看所有支持的环境 [environment](https://golang.org/doc/install/source#environment)
 
+## Go & C++
+* [Swig 3.0 Document for GO](http://www.swig.org/Doc3.0/SWIGDocumentation.html#Go)
+
+使用 Go 和 C++ 可通过 Swig 实现,也可通过将 C++ 的方法全封装为 C 方法,然后再通过 Go 调用.
+在量较少的时候,使用第二种方式是非常方便快捷的,但是如果想要把大量的接口导出到 Go, 并且保持类特性,则只能使用 Swig.
+
+Go 自 1.1 开就支持 Swig 了.
+
+* [Swig Go Example](https://github.com/swig/swig/tree/master/Examples/go)
+
+```bash
+# 相关帮助
+swig -go -help
+swig -go -intgosize 64 -c++ -cgo director.i
+go install
+```
+
+__swig -go --help__
+
+```
+Go Options (available with -go)
+     -cgo                - Generate cgo input files
+     -gccgo              - Generate code for gccgo rather than 6g/8g
+     -go-pkgpath <p>     - Like gccgo -fgo-pkgpath option
+     -go-prefix <p>      - Like gccgo -fgo-prefix option
+     -intgosize <s>      - Set size of Go int type--32 or 64 bits
+     -package <name>     - Set name of the Go package to <name>
+     -use-shlib          - Force use of a shared library
+     -soname <name>      - Set shared library holding C/C++ code to <name>
+```
 
 ## 程序瘦身/Reduce binary size
 ```bash
@@ -188,6 +239,7 @@ upx -9 --ultra-brute main.linux.amd64 # 363K
 * [Summary of Go Generics Discussions](https://docs.google.com/document/d/1vrAy9gMpMoS3uaVphB32uVXX4pi-HnNjkMEgyAHX4N4/edit#heading=h.vuko0u3txoew)
 * [FAQ](http://golang.org/doc/faq)
 * [The Three Go Landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)
+* [pkg/plugin](https://tip.golang.org/pkg/plugin/)
 
 ### 学习资源
 * [《Go编程基础》](https://github.com/Unknwon/go-fundamental-programming)

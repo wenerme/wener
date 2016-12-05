@@ -33,12 +33,15 @@ ls -lh /private/var/vm/swapfile*
 ## 添加 swap
 
 ```bash
-dd if=/dev/zero of=/sysswap count=4096 bs=1MiB status=progress
+# 4G 交换区
+dd if=/dev/zero of=/sysswap count=4096 bs=20MiB status=progress
 chmod 600 /sysswap
 mkswap /sysswap
 swapon /sysswap
 # 将 swap 添加到 fstab
 echo /sysswap   swap    swap    sw  0   0 >> /etc/fstab
+
+sysctl vm.swappiness=10
 ```
 
 ## 参考

@@ -48,3 +48,22 @@ https://css-tricks.com/almanac/properties/f/filter/
   text-overflow: ellipsis;
 }
 ```
+
+### 比例宽高
+
+```css
+.container {
+  width: 100%;
+  /* 4:3 */
+  padding-bottom: 75%;
+}
+```
+
+aspect ratio  | padding-bottom value
+--------------|----------------------
+    16:9      |       56.25%
+    4:3       |       75%
+    3:2       |       66.66%
+    8:5       |       62.5%
+
+http://stackoverflow.com/questions/1495407

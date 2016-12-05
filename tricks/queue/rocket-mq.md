@@ -1,6 +1,6 @@
 
 ## Setup
-```
+```bash
 wget -cN -O alibaba-rocketmq-3.2.6.tar.gz https://github.com/alibaba/RocketMQ/releases/download/v3.2.6/alibaba-rocketmq-3.2.6.tar.gz
 tar zxvf alibaba-rocketmq-*.gz
 cd alibaba-rocketmq*

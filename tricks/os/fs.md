@@ -65,56 +65,14 @@ fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjo
 mount_smbfs //guest:guest@192.168.8.1/share/ ~/mnt/share/
 # 或者挂载 cifs 也可以
 mount -t cifs -o username=guest,password=guest //192.168.8.1/share/ ~/mnt/share/
+
+# 如果使用的环境没有相关的 linux 工具,可以考虑使用 docker
+docker run --rm -it --privileged -v /:/host ubuntu
+
 ```
 
 ## diskutil
-```
-Usage:  diskutil [quiet] <verb> <options>, where <verb> is as follows:
-
-     list                  (List the partitions of a disk)
-     info[rmation]         (Get information on a specific disk or partition)
-     listFilesystems       (List file systems available for formatting)
-     activity              (Continuous log of system-wide disk arbitration)
-
-     u[n]mount             (Unmount a single volume)
-     unmountDisk           (Unmount an entire disk (all volumes))
-     eject                 (Eject a disk)
-     mount                 (Mount a single volume)
-     mountDisk             (Mount an entire disk (all mountable volumes))
-
-     enableJournal         (Enable HFS+ journaling on a mounted HFS+ volume)
-     disableJournal        (Disable HFS+ journaling on a mounted HFS+ volume)
-     moveJournal           (Move the HFS+ journal onto another volume)
-     enableOwnership       (Treat as exact User/Group IDs for a mounted volume)
-     disableOwnership      (Ignore on-disk User/Group IDs for a mounted volume)
-
-     rename[Volume]        (Rename a volume)
-
-     verifyVolume          (Verify the file system data structures of a volume)
-     repairVolume          (Repair the file system data structures of a volume)
-
-     verifyDisk            (Verify the components of a partition map of a disk)
-     repairDisk            (Repair the components of a partition map of a disk)
-
-     eraseDisk             (Erase an existing disk, removing all volumes)
-     eraseVolume           (Erase an existing volume)
-     reformat              (Erase an existing volume with same name and type)
-     eraseOptical          (Erase optical media (CD/RW, DVD/RW, etc.))
-     zeroDisk              (Erase a disk, writing zeros to the media)
-     randomDisk            (Erase a disk, writing random data to the media)
-     secureErase           (Securely erase a disk or freespace on a volume)
-
-     partitionDisk         ((re)Partition a disk, removing all volumes)
-     resizeVolume          (Resize a volume, increasing or decreasing its size)
-     splitPartition        (Split an existing partition into two or more)
-     mergePartitions       (Combine two or more existing partitions into one)
-
-     appleRAID <verb>      (Perform additional verbs related to AppleRAID)
-     coreStorage <verb>    (Perform additional verbs related to CoreStorage)
-
-diskutil <verb> with no options will provide help on that verb
-
-```
+* [diskutil.8](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/diskutil.8.html)
 
 ## 我的移动存储设备
 
@@ -280,6 +238,7 @@ printcap name = /dev/null
 * 默认端口
   * TCP: 139, 445
   * UDP: 137, 138
+
 ### Quick start
 
 ```bash
@@ -390,6 +349,7 @@ pure-ftpd restart
 * [ownCloud](https://github.com/owncloud/core)
   * PHP
   * Star 4k
+
 ## Syncany
 
 ```bash
@@ -461,6 +421,16 @@ $ touch sg_store.db
 # 修改 ctime
 $ chown root:root sg_store.db
 ```
+
+## RAID
+
+RAID | 最少磁盘 | 最大容错 | 可用容量 | 读取性能 | 写入性能 | 安全性 | 目的 | 应用产业
+----|----|----|----|----
+0 | 2 | 0 | n | n | n | 一个硬碟异常，全部硬碟都会异常 | 追求最大容量、速度 | 影片剪接快取用途
+1 | 2 | n/2 | 1 | n | n/2 | 最高，一个正常即可 | 追求最大安全性 | 个人、企业备份
+5 | 3 | 1 | n-1 | n-1 | n-1 | 高 | 追求最大容量、最小预算 | 个人、企业备份
+6 | 4 | 2 | n-2 | n-2 | n-2 | 安全性较RAID 5高 | 同RAID 5，但较安全 | 个人、企业备份
+10 | 4 | n/2 | n/2 | n | n/2 | 安全性高 | 综合RAID 0/1优点，理论速度较快 | 大型资料库、伺服器
 
 ## 参考
 

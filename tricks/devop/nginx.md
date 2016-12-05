@@ -143,6 +143,37 @@ brew tap homebrew/nginx
 brew info nginx-full
 ```
 
+### Websocket 反向代理
+```nginx
+location /chat/ {
+    proxy_pass http://backend;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+}
+```
+
+也可以直接使用客户端的参数
+
+```nginx
+http {
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+    }
+
+    server {
+        # ...
+
+        location /chat/ {
+            proxy_pass http://backend;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+        }
+    }
+}
+```
 
 ## Reference
 * [agentzh's Nginx Tutorials ](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
