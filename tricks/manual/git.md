@@ -1,3 +1,17 @@
+# Git
+
+## Tips
+
+```bash
+# 直接通过 SSH 进行仓库推送
+ssh user@host 'git init --bare /repo/my-project'
+git push 'ssh://user@host/repo/my-project'
+# 在远程使用该仓库
+mkdir -p /src/my-project
+git clone /repo/my-project /src/my-project
+
+```
+
 ### 将另外一个仓库合并为当前仓库的一个子目录
 ```
 git subtree add -P <prefix> <repo> <rev>
@@ -116,7 +130,7 @@ git push /path/to/new/repo:optional-new-branch-name branch-name
 from [Here](http://stackoverflow.com/a/2227571/1870054)
 
 ### Rename branch
-```
+```bash
 # Rename old-branch-name to a non exists new-branch-name
 git branch -m old-branch-name new-branch-name
 # Rename current branch to new-branch-name
@@ -128,11 +142,9 @@ git push origin --set-upstream new-branch-name
 git push origin :old-branch-name
 ```
 
-------
-
 ### Linux & Mac OS
 在 Mac 和 Linux 均建议使用 Homebrew 来管理包,当 Homebrew 安装好后
-```
+```bash
 # 安装 Git
 brew install git
 # 更新 Git 版本

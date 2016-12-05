@@ -54,3 +54,5 @@ docker service create --name tool --replicas=1 --container-label TYPE=main --net
 
 * [Lessons learned from using Docker Swarm mode in production](http://blog.bugsnag.com/container-orchestration-with-docker-swarm-mode)
   * [HN](https://news.ycombinator.com/item?id=12508711)
+* 学习资源
+  * https://github.com/yeasy/docker_practice/

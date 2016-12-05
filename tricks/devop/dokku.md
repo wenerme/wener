@@ -1,6 +1,8 @@
 # Dokku
 单服务器的 PaaS, 非常简单易用.
 
+http://dokku.viewdocs.io/dokku
+
 __需求__
 
 * Ubuntu 14.04 LTS
@@ -9,7 +11,7 @@ __需求__
 ```bash
 # 安装
 wget https://raw.githubusercontent.com/dokku/dokku/v0.6.5/bootstrap.sh
-sudo DOKKU_TAG=v0.6.5 bash bootstrap.sh
+sudo DOKKU_TAG=v0.7.2 bash bootstrap.sh
 
 # 浏览器打开该主机的 80 端口,设置公钥
 # 如果为主机设置了域名,可使用虚拟主机
@@ -54,6 +56,8 @@ dokku plugin:install https://github.com/expa/dokku-app-user.git
 dokku config:set <app> DOKKU_APP_USER=expauser
 git push dokku@dokku.me:<app> master
 ```
+
+https://devcenter.heroku.com/articles/java-support
 
 
 ## Reference

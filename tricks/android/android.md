@@ -1,3 +1,9 @@
+# Android
+
+* APK 下载
+  * https://apkpure.com/
+  * http://apk-dl.com/
+  * http://www.apkmirror.com/
 
 ## Tips
 
@@ -64,6 +70,16 @@ adb shell "dd if=/dev/graphics/fb0 bs=<bytes per pixel> count=1 skip=<pixel offs
 # 获取屏幕宽度
 adb shell getprop ro.sf.lcd_density
 
+# 拉取所有照片
+adb pull /mnt/sdcard/DCIM/
+
+# 短信
+# 数据库文件需要 root 权限
+# /data/data/com.android.providers.telephony/databases/mmssms.db
+# 可使用 APP 备份然后下载
+# https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore
+# 备份后拉取即可
+adb pull /mnt/sdcard/SMSBackupRestore
 ```
 
 ### Touch Event

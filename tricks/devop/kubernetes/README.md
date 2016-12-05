@@ -47,6 +47,25 @@ ip link set cni0 down; ip link del cni0;
 systemctl start kubelet
 ```
 
+#### Tips
+使用 kubeadm 时会在 /etc/systemd/system/kubelet.service.d 生成相应的配置,例如 10-kubeadm.conf.
+
+__10-kubeadm.conf__
+
+kubelet 参数可参考 http://kubernetes.io/docs/admin/kubelet/
+cni 可参考 http://kubernetes.io/docs/admin/network-plugins/
+
+```
+[Service]
+Environment="KUBELET_KUBECONFIG_ARGS=--kubeconfig=/etc/kubernetes/kubelet.conf --require-kubeconfig=true"
+Environment="KUBELET_SYSTEM_PODS_ARGS=--pod-manifest-path=/etc/kubernetes/manifests --allow-privileged=true"
+Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
+Environment="KUBELET_DNS_ARGS=--cluster-dns=100.64.0.10 --cluster-domain=cluster.local"
+Environment="KUBELET_EXTRA_ARGS=--v=4"
+ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $KUBELET_NETWORK_ARGS $KUBELET_DNS_ARGS $KUBELET_EXTRA_ARGS
+```
+
+
 #### FAQ
 
 ##### 安装好后无法使用 kubectl, 提示说地址错误

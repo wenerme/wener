@@ -7,3 +7,4 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org --disturl=https://npm
 ```
 
 * [CNPM](https://npm.taobao.org/)
+* [npm star](https://www.npmjs.com/browse/star)

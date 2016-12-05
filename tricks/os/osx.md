@@ -53,6 +53,17 @@ ps aux | grep -i chrome | awk '{sum += $4} END {print 4*1024 * (sum/100)}'
 ioreg -p IOUSB -l -w 0
 # lsusb
 brew update && brew tap jlhonora/lsusb && brew install lsusb
+
+# 更新软件
+softwareupdate -i -w
+
+# 避免待机
+caffeinate
+# 或
+pmset noidel
+
+# 查看 OS X 系统版本信息
+sw_vers
 ```
 
 * [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)

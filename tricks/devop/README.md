@@ -1,6 +1,6 @@
 # DevOps
 
-* [Ops School](http://www.opsschool.org/en/latest/)
+
 
 
 ## Kubernetes vs Docker Swarm

@@ -54,6 +54,7 @@ zcat ~/images/etcd-amd64.3.0.4.tar.gz | docker load
 docker rm $(docker ps --all -q -f status=exited)
 ```
 
+## FAQ
 ## No xxx limit support
 ```
 WARNING: No swap limit support
@@ -65,6 +66,17 @@ nano /etc/default/grub
 # GRUB_CMDLINE_LINUX_DEFAULT="cgroup_enable=memory swapaccount=1"
 grub-update
 reboot
+```
+
+## 'dumb': unknown terminal type.
+```bash
+cd /usr/share/terminfo
+mkdir d
+cp v/vt100 d/dumb
+
+# 或者修改为存在的 TERM
+export TERM=xterm
+
 ```
 
 ## docker-machine --help

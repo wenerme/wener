@@ -58,6 +58,7 @@ docker run --rm -it -v ~:/host williamyeh/ansible:ubuntu14.04-onbuild bash
 ## 修改镜像
 ```bash
 # 标准配置位于 /etc/sysconfig/docker
+# Boot2docker 位于 /var/lib/boot2docker/profile
 # 配置参数格式为 --registry-mirror=镜像地址
 # 基于 https://docs.docker.com/engine/installation/linux/centos/ 在 CentOS 7 上安装时
 # 需要修改 service 启动参数 /usr/lib/systemd/system/docker.service
@@ -69,6 +70,9 @@ sudo service docker restart
 * 可使用 daocloud 提供的镜像服务 https://www.daocloud.io/mirror
 * 用于在 Linux 下修改镜像的脚本 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s 镜像地址
 * 也可在 /etc/default/docker 中添加 HTTP_PROXY 来拉取镜像
+* 阿里镜像 http://mirrors.aliyun.com/
+* 阿里容器管理接口有加速服务
+
 
 ## 安装
 
@@ -95,6 +99,15 @@ systemctl restart docker
 ```
 
 https://www.daocloud.io/mirror
+
+* http://mirrors.aliyun.com/help/docker-engine
+
+```bash
+# 使用阿里提供的仓库进行安装会非常快
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+# 安装完毕后为当前用户添加权限,需要退出重新登录才能生效
+sudo usermod -aG docker $USER
+```
 
 __Ubuntu__
 
@@ -142,6 +155,8 @@ vi /var/lib/boot2docker/profile
 # 重启服务
 /etc/init.d/docker restart
 
+# 移除停止容器
+docker rm `docker ps --no-trunc -aq`
 # 数据清理
 docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
 docker volume ls -qf dangling=true | xargs -r docker volume rm
@@ -150,6 +165,36 @@ docker volume ls -qf dangling=true | xargs -r docker volume rm
 docker-machine start default
 eval $(docker-machine env default)
 docker pull java:8
+
+# Docker machine 只会将 home 下的目录挂载到虚拟机中,如果要挂载其他的目录需要自己添加
+docker-machine stop
+VBoxManage sharedfolder add default --name /hetc --hostpath /etc --automount
+docker-machine start
+docker-machine ssh default 'sudo mkdir --parents /hetc'
+docker-machine ssh default 'sudo mount -t vboxsf hetc /hetc'
+docker run --rm -v /hetc:/hetc ubuntu
+
+
+```
+
+### INCLUDE
+
+由于 Dockerfile 不支持 INCLUDE, 可以考虑使用 cpp
+
+```Makefile
+Dockerfile: Dockerfile.in *.docker
+  cpp -o Dockerfile Dockerfile.in
+
+build: Dockerfile
+  docker build -rm -t my/image .
+```
+
+```Dockerfile
+FROM ubuntu:latest
+MAINTAINER me
+
+#include "imagemagick.docker"
+#include "redis.docker"
 ```
 
 ### 代理

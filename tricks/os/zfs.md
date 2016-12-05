@@ -1,5 +1,5 @@
+# ZFS
 
-## ZFS
 * 数据完整性
   * 数据完整性是 ZFS 的主要特性
   * 256 位的校验和位于元数据中,与数据相隔离
@@ -24,9 +24,52 @@
 * [Oracle® Solaris Administration: ZFS File Systems - 2012](https://docs.oracle.com/cd/E23824_01/pdf/821-1448.pdf)[HTML](https://docs.oracle.com/cd/E23824_01/html/821-1448/)
 * [Encryption](https://docs.oracle.com/cd/E23824_01/html/821-1448/gkkih.html)
 
-### Tutor
+## 数据冗余
 
-#### 准备工作
+* Stripped
+  * 无冗余
+* RAIDZ1
+  * 等同于 RAID 5
+  * 最大的磁盘空间
+  * 当磁盘读写块大于 128K 时性能较好
+  * 应该使用 2<sup>n<sup>+1 个磁盘
+* RAIDZ2
+  * 等同于 RAID 6
+  * 更好的容错
+  * 比 RAIDZ1 更好的 MTTDL(mean time to data loss)
+  * 应该使用 2<sup>n<sup>+2 个磁盘
+* RAIDZ3
+  * 应该使用 2<sup>n<sup>+3 个磁盘
+* 镜像
+  * 等同于 RAID 1
+  * 使用更多的磁盘空间,但处理小数据的读写性能会较好.
+  * 为了追求更好的性能可基于 RAIDZ 实现镜像,特别是针对交大的,不可缓存的随机读.
+
+* 每个 vdev 的磁盘不应该超过 12 个.建议每个 vdev 为 3-9 个磁盘.
+* 一个或多个磁盘组成 vdev
+* vdev 创建后不能修改
+* 一个或多个 vdev 组成 zpool
+* 磁盘损坏不会导致数据丢失
+* vdev 损坏导致 zpool 不可使用
+* 添加到 zpool 后的 vdev 不能被删除
+* ZIL(ZFS intent log) 损坏会导致数据丢失
+* L1ARC 是存储于 RAM 的读缓存,不应该超过 7/8 总 RAM
+* L2ARC 是存储于磁盘的读缓存
+* ZIL he L2ARC 存储于 SSD 但不应该存储于同一个 SSD
+* ZIL 主要用于同步写,大多数情况下不需要
+* L2ARC 大多数情况下不会提升太多的性能
+* 增加 RAM 是提升性能的最好方式
+
+
+## 硬件
+* [Hardware](http://open-zfs.org/wiki/Hardware)
+
+
+
+
+## Tutor
+
+### 准备工作
 ```bash
 # 创建工作区间
 mkdir -p ~/temp/zfs && cd $_
@@ -35,7 +78,7 @@ for i in {1..4};do dd bs=1M count=256 if=/dev/zero of=disk$i; done
 dd bs=1M count=256 if=/dev/zero of=sparedisk
 ```
 
-#### zpool
+### zpool
 ```bash
 # 创建单个磁盘的 Pool, 没有数据冗余
 zpool create tank $PWD/disk1
@@ -75,7 +118,7 @@ zpool iostat -v tank
 zpool destroy tank
 ```
 
-#### zfs
+### zfs
 ```bash
 zpool create tank mirror $PWD/disk1 $PWD/disk2
 zfs list tank
@@ -116,3 +159,14 @@ cp /usr/share/dict/words /tank/ross/
 cp /usr/share/dict/words /tank/joey/
 zfs list -o name,used,compressratio,compression tank/{joey,ross}
 ```
+
+## 参考
+* [ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love RAIDZ](http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/)
+* [Getting the Most out of ZFS Pools](Getting the Most out of ZFS Pools)
+* [A Closer Look at ZFS, Vdevs and Performance](http://constantin.glez.de/blog/2010/06/closer-look-zfs-vdevs-and-performance)
+* [FreeBSD ZFS Tuning Guide](https://wiki.freebsd.org/ZFSTuningGuide)
+* [ZFS Administration Guide](http://docs.oracle.com/cd/E19253-01/819-5461/index.html)
+* [Becoming a ZFS Ninja (video)](https://blogs.oracle.com/video/entry/becoming_a_zfs_ninja)
+* [Slideshow explaining VDev, zpool, ZIL and L2ARC and other newbie mistakes!](https://forums.freenas.org/index.php?threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/)
+* [A Crash Course on ZFS](http://www.bsdnow.tv/tutorials/zfs)
+* [ZFS: The Last Word in File Systems - Part 1 (video)](https://www.youtube.com/watch?v=uT2i2ryhCio)
