@@ -422,16 +422,6 @@ $ touch sg_store.db
 $ chown root:root sg_store.db
 ```
 
-## RAID
-
-RAID | 最少磁盘 | 最大容错 | 可用容量 | 读取性能 | 写入性能 | 安全性 | 目的 | 应用产业
-----|----|----|----|----
-0 | 2 | 0 | n | n | n | 一个硬碟异常，全部硬碟都会异常 | 追求最大容量、速度 | 影片剪接快取用途
-1 | 2 | n/2 | 1 | n | n/2 | 最高，一个正常即可 | 追求最大安全性 | 个人、企业备份
-5 | 3 | 1 | n-1 | n-1 | n-1 | 高 | 追求最大容量、最小预算 | 个人、企业备份
-6 | 4 | 2 | n-2 | n-2 | n-2 | 安全性较RAID 5高 | 同RAID 5，但较安全 | 个人、企业备份
-10 | 4 | n/2 | n/2 | n | n/2 | 安全性高 | 综合RAID 0/1优点，理论速度较快 | 大型资料库、伺服器
-
 ## 参考
 
 * [List of cryptographic file systems](https://en.wikipedia.org/wiki/List_of_cryptographic_file_systems)

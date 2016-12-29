@@ -1,6 +1,10 @@
-http://caniuse.com/#feat=flexbox
+# CSS
 
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+
+<!--
+
 https://github.com/duojs/duo
 
 https://github.com/componentjs/component
@@ -21,12 +25,23 @@ https://github.com/dogfalo/materialize/
 
 https://materializecss.com
 https://getmdl.io/
+-->
 
-使用 :before 做背景并添加滤镜
-http://codepen.io/akademy/pen/FlkzB
+
+
+* CSS 参考手册
+  * https://tympanus.net/codrops/css_reference/
+  * https://css-tricks.com/almanac/
+  * [cssreference](http://cssreference.io/)
+    * [HN](https://news.ycombinator.com/item?id=13031492)
+    * 可视化的方式解释 CSS 属性
+
+
 
 ### CSS 滤镜
-https://css-tricks.com/almanac/properties/f/filter/
+* https://css-tricks.com/almanac/properties/f/filter/
+* http://codepen.io/akademy/pen/FlkzB
+  * 使用 :before 做背景并添加滤镜
 
 ```css
 /* 对滤镜使用渐变 */
@@ -38,6 +53,70 @@ https://css-tricks.com/almanac/properties/f/filter/
   -o-transition: 1s -o-filter linear;
 }
 ```
+
+### flex
+
+* [caniuse](http://caniuse.com/#feat=flexbox)
+* [flexbugs](https://github.com/philipwalton/flexbugs) 由社区维护的 flex 在各个浏览器中的 BUG 和解决方法
+* float, clear 和 vertical-align 不影响 flex 元素
+* [A guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+```css
+/* 针对容器的属性 */
+.container{
+  display: flex;
+  /* 排序方向 */
+  flex-direction: row;
+  /*flex-direction: row | row-reverse | column | column-reverse;*/
+
+  /* 换行控制 */
+  flex-wrap: nowrap
+  /*flex-wrap: nowrap | wrap | wrap-reverse;*/
+
+  /* flex-direction 和 flex-wrap 的缩写 */
+  flex-flow: row nowrap;
+  /*flex-flow: <‘flex-direction’> || <‘flex-wrap’>*/
+
+  /* 内容间隔控制 */
+  justify-content: flex-start;
+  /*justify-content: flex-start | flex-end | center | space-between | space-around;*/
+
+  /* 内容对齐控制 */
+  align-items: flex-start;
+  /*align-items: flex-start | flex-end | center | baseline | stretch;*/
+
+  /* 控制内容有多行时的行间距 */
+  align-content: flex-start;
+  /*align-content: flex-start | flex-end | center | space-between | space-around | stretch;*/
+}
+/* 针对自身的属性 */
+.item{
+  /* 顺序控制 */
+  /*order: <integer>;*/
+
+  /* 宽度增长控制 */
+  flex-grow: 0;
+  /*flex-grow: <number>;*/
+
+  /* 宽度收缩控制 */
+  flex-shrink: 0;
+  /*flex-shrink: <number>;*/
+
+  /* 基础尺寸控制 */
+  flex-basis: auto;
+  /*flex-basis: <length> | auto;*/
+
+  /* 参数缩写 */
+  flex: 0 0 auto;
+  /*flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]*/
+
+  /* 元素对齐控制 */
+  align-self: flex-start;
+  /*align-self: auto | flex-start | flex-end | center | baseline | stretch;*/
+}
+```
+
+
 
 ### 文本溢出显示省略号
 ```css

@@ -1,5 +1,15 @@
 # SQLite
 
+## Tips
+
+```sql
+-- 导入 csv
+create table foo(a, b);
+.mode csv
+.import test.csv foo
+```
+
+
 ## .help
 
 指令|描述|默认

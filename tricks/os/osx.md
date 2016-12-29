@@ -39,8 +39,12 @@ xcode-select --install
 
 ### 资源下载
 * [mac-torrent-download](http://mac-torrent-download.net/)
+* http://superuser.com/a/264943/242730
 
 ## Tips
+* 好看的屏保 https://github.com/JohnCoates/Aerial
+	* `brew cask install aerial`
+
 ```bash
 # 查看可用的分辨率
 system_profiler SPDisplaysDataType |grep Resolution
@@ -57,16 +61,102 @@ brew update && brew tap jlhonora/lsusb && brew install lsusb
 # 更新软件
 softwareupdate -i -w
 
+# 查看 OS X 系统版本信息
+sw_vers
+
+# 打开屏保
+open -a ScreenSaverEngine
+
+# 锁屏
+/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend
+
+```
+
+* [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
+
+打开取色器
+
+```applescript
+on run {input, parameters}
+	choose color
+	return input
+end run
+```
+
+__文件目录结构__
+```
+/Library
+	/Screen Savers # 屏保程序
+```
+
+### pmset
+
+
+```bash
+# 查看当前配置
+pmset -g
+# Active Profiles:
+# Battery Power  		1
+# AC Power       		-1*
+# Currently in use:
+#  standbydelay         10800								写入休眠镜像到磁盘之前和停止给内存供电的延迟,秒
+#  standby              1										是否让电源管理器自动休眠系统.
+#  womp                 1										是否启用网络唤醒
+#  halfdim              1										display sleep will use an intermediate half-brightness state between full brightness and fully off
+#  hibernatefile        /var/vm/sleepimage	休眠时转储的文件
+#  powernap             1										是否启用 Power Nap
+#  gpuswitch            2
+#  networkoversleep     0
+#  disksleep            0										磁盘睡眠定时器
+#  sleep                1										系统睡眠定时器,分钟,0 禁用
+#  autopoweroffdelay    14400								进入自动停止电源模式的延迟,秒
+#  hibernatemode        3										休眠模式,分钟,0 禁用
+#  autopoweroff         1										是否自动停止电源
+#  ttyskeepawake        1										当任何 tty 处于'激活'的时候都使系统不会进入睡眠.当 tty 的空闲时间超过系统睡眠时间后便不再处于 '激活' 状态.
+#  displaysleep         10									显示器睡眠定时器,分钟,0 禁用
+#  acwake               0										wake the machine when power source (AC/battery) is changed
+#  lidwake              1										wake the machine when the laptop lid (or clamshell) is opened
+#  autorestart 是否在断电后自动重启
+#  ring - wake on modem ring
+#  lessbright - slightly turn down display brightness when switching to this power source
+#  sms - use Sudden Motion Sensor to park disk heads on sudden changes in G force
+#  networkoversleep - this setting affects how OS X networking presents shared network services during system sleep. This setting is not used by all platforms; changing its value is unsupported.
+#  destroyfvkeyonstandby - Destroy File Vault Key when going to standby mode. By default File vault keys are retained even when system goes to standby. If the keys are destroyed, user will be prompted to enter the password while coming out of standby mode.(value: 1 - Destroy, 0 - Retain)
+```
+
+```bash
 # 避免待机
 caffeinate
 # 或
 pmset noidel
 
-# 查看 OS X 系统版本信息
-sw_vers
+# 其他参数
+#  boot 重启系统
+#  force 强制 PM(Power Management) 立即激活设置.不讲设置写到磁盘,可以使设置能够很容易被重写.当在特殊场景下 PM 未运行时很有帮助.
+#  touch PM 从新从磁盘读取现有配置
+#  noidle 避免空闲时进入睡眠模式,该命令已被废弃,使用 caffeinate 替代
+#  sleepnow 立即使系统进入睡眠
+#  restoredefaults 恢复节能程序到默认值
+#  displaysleepnow 使显示器立即进入睡眠
+#  resetdisplayambientparams 重置指定显示器的环境光参数
+
+# 修改时指定范围
+#		-b 电池
+#		-c 链接了电源, UPS ( -u )
+#		-u UPS
+#		-a 所有
+
 ```
 
-* [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
+* 休眠模式
+	* 0 不会讲内存持久化到存储.在断电时内存数据会丢失.
+	* 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
+		* 默认为该选项
+	* 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
+		* 省电,电池寿命更久
+		* 但睡眠和唤醒更慢
+* 如果系统支持 standby, 则在超过 standbydely 后就会写一个休眠镜像
+* 如果要完全禁止休眠,可将 hibernatemode, standby 和 autopoweroff 设置为 0
 
 ## FAQ
 

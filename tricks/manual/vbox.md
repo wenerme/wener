@@ -1,11 +1,21 @@
+# VirtualBox
 
-## VirtualBox
+## Tips
+
+* 磁盘类型
+  * VDI
+    * vbox 自己的磁盘格式
+  * VMDK
+    * 最先由 vm 提出,大多虚拟环境都支持
+    * 支持划分为 2G 小文件功能
+  * VHD
+    * 主要在 Windows 中使用
+    * HyperV 默认磁盘类型
 
 ```bash
 # Download and install vbox and extension pack
 # https://www.virtualbox.org/wiki/Linux_Downloads
 VBoxManage extpack install  --replace FILE_NAME
-
 ```
 
 ### 添加 USB 设备
@@ -263,8 +273,11 @@ vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目�
 
 ## FAQ
 
+### 找不到 64bit 的虚拟
+可能由于CPU 不支持硬件虚拟化技术(Intel VT-x 或 AMD-v),或者被其他程序占用,例如装了 HyperV.
+
 ### VBoxManage: error: Could not rename the directory
-```
+```bash
 vagrant destroy -f
 rm ~/VirtualBox\ VMs/YOUR_NAME_HERE
 ```
