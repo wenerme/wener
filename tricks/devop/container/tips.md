@@ -21,7 +21,9 @@ https://github.com/ajohnstone/dot-files/blob/master/bash.d/bash/docker
 # 移除旧的容器
 docker rm `docker ps -aq`
 docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
-docker rm $(docker ps -q -f status=exited)
+# 删除所有退出的容器
+docker rm $(docker ps --all -q -f status=exited)
+
 
 # Stats 显示名字
 docker stats $(docker ps --format={{.Names}})
@@ -50,8 +52,6 @@ rsync -avzhe ssh ./images/ root@192.168.2.2:/root/images/
 # 然后在转移到的机器上导入
 zcat ~/images/etcd-amd64.3.0.4.tar.gz | docker load
 
-# 删除所有退出的容器
-docker rm $(docker ps --all -q -f status=exited)
 ```
 
 ## FAQ

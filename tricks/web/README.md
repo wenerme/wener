@@ -1,5 +1,11 @@
 # Web relate resources
 
+* [Firefox Hardware Report](https://metrics.mozilla.com/firefox-hardware-report/)
+https://resilientwebdesign.com/
+
+## Generator
+
+* [launchaco](http://launchaco.com/build/)
 
 ## CSS
 

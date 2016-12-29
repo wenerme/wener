@@ -151,7 +151,7 @@ mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public
 ## Plugins
 
 ### delombok
-```
+```xml
 <plugin>
      <groupId>org.projectlombok</groupId>
      <artifactId>lombok-maven-plugin</artifactId>
@@ -302,6 +302,33 @@ export MAVEN_OPTS="-DhttpProxyHost=127.0.0.1 -DhttpProxyPort=7777 -DhttpsProxyHo
 	<port>8087</port>
 	<nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
 </proxy>
+
+## Tomcat 配置
+
+__pom.xml__
+```xml
+<plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <url>http://localhost:8080/manager/text</url>
+        <server>tomcatserver</server>
+        <path>/mycontext</path>
+        <username>admin</username>
+        <password>admin</password>
+    </configuration>
+</plugin>
+```
+
+__settings.xml__
+```xml
+<server>
+    <id>tomcatserver</id>
+    <username>admin</username>
+    <password>admin</password>
+</server>
+```
 
 # spring 的仓库
 http://repo.spring.io/libs-milestone

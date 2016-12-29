@@ -2,6 +2,8 @@
 
 ## Tips
 
+* [Linux insides](https://github.com/0xAX/linux-insides)
+* [How to Make a Computer Operating System](https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System)
 
 
 ## CentOS change hostname

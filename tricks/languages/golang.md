@@ -22,6 +22,10 @@
 * ORM
 	* gorm 是目前最好的 Go ORM 库
 
+
+### Test
+https://github.com/smartystreets/goconvey
+
 ### Misc
 https://github.com/alexflint/go-restructure
 https://github.com/urfave/cli
@@ -29,7 +33,6 @@ https://github.com/pointlander/peg Peg, Parsing Expression Grammar
 https://github.com/jteeuwen/go-bindata
 
 https://github.com/hanwen/go-fuse
-
 
 
 ### Game
@@ -50,7 +53,10 @@ Golang 实现的游戏服务器框架
 https://github.com/veandco/go-sdl2
 https://github.com/fogleman/gg
 https://github.com/andlabs/ui
+
 ## Tips
+
+* Websocket [C10M](http://goroutines.com/10m)
 
 Directory and file names that begin with "." or "_ " are ignored by the go tool, as are directories named "testdata".
 
@@ -71,8 +77,17 @@ go build -i -v ./...
 
 # 跨平台编译
 env GOOS=linux GOARCH=amd64 go build  -o main-linux-amd64 main.go
+
+# 移动包
+go get github.com/golang/tools/cmd/gomvpkg/main.go
+gomvpkg -from github.com/wenerme/before -to github.com/wenerme/after
+
+# Guru
+go get github.com/golang/tools/cmd/guru/main.go
 ```
 
+* https://mholt.github.io/json-to-go/
+* https://mholt.github.io/curl-to-go/
 
 ## Install golang under linux
 ```bash
@@ -228,6 +243,18 @@ upx -9 --ultra-brute main.linux.amd64 # 508K
 upx --best main.linux.amd64 # 478K
 upx -9 --ultra-brute main.linux.amd64 # 363K
 ```
+
+## Beego
+
+```bash
+go get -u github.com/beego/bee
+go get -u github.com/astaxie/beego
+
+bee api bapi
+cd bapi
+bee run -downdoc=true -gendoc=true
+```
+
 
 ## 参考/Reference
 * Articles
