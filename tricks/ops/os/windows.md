@@ -33,10 +33,14 @@
 
 ### KMS
 
-使用 vbox 启动 KMS 虚拟机,网络使用桥接,确保网络互通
-
-* 也可以使用 [py-kms](https://github.com/myanaloglife/py-kms) 来做 KMS 服务器
+* [py-kms](https://github.com/myanaloglife/py-kms) Python 实现的 KMS 服务器
   * py-kms 有很多 fork, 更新版本的需要找 fork 的分支,我的 fork [wenerme/py-kms](https://github.com/wenerme/py-kms)
+* [vlmcsd](https://github.com/Wind4/vlmcsd) 是 C 的实现,可以直接通过 [软盘](https://github.com/Wind4/vlmcsd/tree/master/floppy) 启动
+  * 使用 vbox 启动 KMS 虚拟机,网络使用桥接,确保网络互通
+  * 可以使用 docker 启动 `docker run -d --name vlmcsd --net host muicoder/vlmcsd`
+  * [vlmcsd.7](https://rawgit.com/Wind4/vlmcsd/master/man/vlmcsd.7.html)
+    * 包含了很多序列号
+  * [vlmcsd.8](https://rawgit.com/Wind4/vlmcsd/master/man/vlmcsd.8.html)
 
 
 ```bash

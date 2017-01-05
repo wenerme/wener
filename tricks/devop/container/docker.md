@@ -101,6 +101,8 @@ systemctl restart docker
 https://www.daocloud.io/mirror
 
 * http://mirrors.aliyun.com/help/docker-engine
+* 镜像仓库 https://dev.aliyun.com/search.html
+* 镜像加速器 https://cr.console.aliyun.com/#/accelerator
 
 ```bash
 # 使用阿里提供的仓库进行安装会非常快
@@ -161,6 +163,16 @@ docker rm `docker ps --no-trunc -aq`
 docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
 docker volume ls -qf dangling=true | xargs -r docker volume rm
 
+# 回收旧数据
+apt-get autoclean
+apt-get autoremove
+cd /var/discourse
+./launcher cleanup
+
+# https://github.com/spotify/docker-gc
+# 可以直接 Docker 运行
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc
+
 # 使用 Docker Machine 启动
 docker-machine start default
 eval $(docker-machine env default)
@@ -175,6 +187,8 @@ docker-machine ssh default 'sudo mount -t vboxsf hetc /hetc'
 docker run --rm -v /hetc:/hetc ubuntu
 
 
+# 将一个已经启动的容器修改为自动重启
+docker update --restart=always web
 ```
 
 ### INCLUDE
