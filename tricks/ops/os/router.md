@@ -24,3 +24,16 @@ http://askubuntu.com/questions/180733/how-to-setup-an-access-point-mode-wi-fi-ho
 https://github.com/oblique/create_ap
 https://github.com/mdlayher/dhcp6
 https://github.com/miekg/dns
+
+https://advancedtomato.com/downloads/router/r7000
+
+没落的 http://www.dualwan.cn
+VPN 可以使两边内网互通
+http://www.dualwan.cn/index.php/tomato-faq/27-vpn-pptp/512-tomato-dualwan-pptp-serverclient
+
+原版 tomato http://tomato.groov.pl/
+https://github.com/Jackysi/advancedtomato
+https://advancedtomato.com/ tomato 的 GUI
+https://advancedtomato.com/downloads 支持列表
+
+https://en.wikipedia.org/wiki/Tomato_(firmware)

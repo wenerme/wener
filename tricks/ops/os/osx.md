@@ -8,16 +8,16 @@ Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里
 
 ## 启动选项
 启动键 |	描述
-----|----
-Command-R |	启动为恢复模式
-Alt/Option |	访问启动管理器
-C	| 从 CD, DVD, 或 USB 启动
-N	| NetBoot
-Shift	| 安全启动
-Command-V	| 详细模式
-Command-S	| 单用户模式
+------|----
+Command-R 	|	启动为恢复模式
+Alt/Option 	|	访问启动管理器
+C						| 从 CD, DVD, 或 USB 启动
+N						| NetBoot
+Shift				| 安全启动
+Command-V		| 详细模式
+Command-S		| 单用户模式
 Command-Option-P-R	| 重置 PRAM
-T	| 启动目标磁盘模式
+T						| 启动目标磁盘模式
 
 ## Finder
 
@@ -69,6 +69,7 @@ open -a ScreenSaverEngine
 
 # 锁屏
 /System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend
+
 
 ```
 
@@ -160,6 +161,18 @@ pmset noidel
 
 ## FAQ
 
+### BasicIPv6ValidationError
+
+```bash
+# 先禁用掉对应网卡的 IPv6
+# networksetup -setv6off Wi-Fi
+networksetup -setv6off Ethernet
+# 然后通过命令行修改配置
+networksetup -setmanual Ethernet 192.168.31.2 255.255.255.0 192.168.1.1
+# 设置完成后也可以将 IPv6 设置为自动
+```
+
+
 ### NTFS 不能写
 OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件才能进行写操作.
 
@@ -173,7 +186,8 @@ OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件�
 
 ```bash
 # 替换 MyVolume 为实际的挂载盘
-
+# macOS Sierra
+sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ macOS\ Sierra.app
 # El Capitan:
 sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app
 # Yosemite:
@@ -185,8 +199,9 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 * [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
 * [Disk Maker X](http://diskmakerx.com/)
 
-### Installer can't verified 安装器不能被验证
+#### Installer can't verified 安装器不能被验证
 使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避
-```
+```bash
+# 在安装前进入终端执行
 date 0101010116
 ```

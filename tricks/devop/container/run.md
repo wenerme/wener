@@ -221,6 +221,16 @@ auto_reload = True
 ; xmlrpcs_port = 8071
 ```
 
+## VPN
+
+### IKEv2
+
+```bash
+docker run -d --name ikev2-vpn-server --privileged -p 500:500/udp -p 4500:4500/udp gaomd/ikev2-vpn-server:0.3.0
+# 将 vpn1.example.com 修改为机器的 IP 地址
+docker run -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=vpn1.example.com" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > ikev2-vpn.mobileconfig
+```
+
 ## Postgres
 
 ## 其他服务

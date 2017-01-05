@@ -54,6 +54,27 @@ __限制__
 * 需要 Token 有个较短的失效周期
 
 
+字段|全称|含义
+----|----|----
+iss | Issuer | 发出者
+sub | Subject | 一般为用户 id
+aud | Audience | 接受者
+exp | Expiration time | 失效时间
+nbf | Not before | 在这之前不生效
+iat | Issued at | 发出时间
+jti | JWT ID
+typ | Type | 类型,由用户扩展
+
+常见算法
+
+* HMAC + SHA256
+* RSASSA-PKCS1-v1_5 + SHA256
+* ECDSA + P-256 + SHA256
+* RSA vs ECDSA
+  * 同等安全度下
+    * RSA 更长, 签名验证更快
+    * ECDSA 更短, 生成签名和密钥时快得多
+
 __字段含义__
 
 ```js
@@ -65,19 +86,19 @@ __字段含义__
 }
 ```
 
-```go
-type StandardClaims struct {
-	Audience  string `json:"aud,omitempty"`
-	ExpiresAt int64  `json:"exp,omitempty"`
-	Id        string `json:"jti,omitempty"`
-	IssuedAt  int64  `json:"iat,omitempty"`
-	Issuer    string `json:"iss,omitempty"`
-	NotBefore int64  `json:"nbf,omitempty"`
-	Subject   string `json:"sub,omitempty"`
-}
-```
+### Resources
+* [Auth 2.0 vs JWT](http://www.seedbox.com/en/blog/2015/06/05/oauth-2-vs-json-web-tokens-comment-securiser-un-api/)
+* [JWT 验证](https://www.jsonwebtoken.io/)
+
+## AAA
+* Authentication
+* Authorization
+* Accounting
+
 
 ## LADP
+http://searchsecurity.techtarget.com/definition/Kerberos
+
 Kerberos 5
 https://en.wikipedia.org/wiki/Authentication_server
 Change Password Protocol
@@ -109,7 +130,3 @@ dn| distinguished name |
 cn| name | 全名
 sn| surname | 姓
 dc| domain component |
-
-## Resources
-* [Auth 2.0 vs JWT](http://www.seedbox.com/en/blog/2015/06/05/oauth-2-vs-json-web-tokens-comment-securiser-un-api/)
-* [JWT 验证](https://www.jsonwebtoken.io/)
