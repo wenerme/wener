@@ -194,6 +194,27 @@ mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public
  </plugin>
 ```
 
+## 仓库管理
+
+* [仓库管理](https://maven.apache.org/repository-management.html)
+* [Artifactory 特性比较](https://www.jfrog.com/confluence/display/RTF/Artifactory+Comparison+Matrix)
+* [Apache Archiva](https://archiva.apache.org)
+* Nexus
+  * 支持 bower,docker,maven2,npm,nuget,pypi,raw,rubygems
+  * 3.x 支持 Docker
+
+```bash
+# ARCHIVA_BASE 可修改存储位置, 默认为 /var/archiva
+# ARCHIVA_CONTEXT_PATH 可在反向代理是使用, 默认为 /
+docker run -v $PWD/archiva:/var/archiva -p 8080:8080 -d ninjaben/archiva-docker
+```
+
+__settings.xml__
+```xml
+
+```
+
+
 将 jar 安装到本地仓库
 ----
 mvn install:install-file -Dfile=c:\kaptcha-{version}.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion={version} -Dpackaging=jar

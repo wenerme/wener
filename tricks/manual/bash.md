@@ -20,6 +20,34 @@ $ echo $y
 file.gif
 ```
 
+## Parallels
+
+```bash
+# do it once
+seq 1 | parallel -n0 "curl -H 'Content-Type: application/json' http://httpbin.org/post -X POST -d '{\"url\":\"http://google.com/\"}'"
+
+# do it twice
+seq 2 | parallel -n0 "curl -H 'Content-Type: application/json' http://httpbin.org/post -X POST -d '{\"url\":\"http://google.com/\"}'"
+
+# do it 4 times, but at 2 a time
+seq 4 | parallel -n0 -j2 "curl -H 'Content-Type: application/json' http://httpbin.org/post -X POST -d '{\"url\":\"http://google.com/\"}'"
+
+# you can also put all your commands into a file
+echo "ls\nls" > somefile
+cat somefile | parallel
+
+# finally, just straight command line parameters
+parallel echo ::: a b c
+
+# by default, it runs as many jobs in parallel as there are cores in your computer
+
+# if you try and set more jobs than there are cores, they will be concurrent, but
+# they will only ever be parallel up to your core count
+
+# for httpie use the --ignore-stdin flag, or else it gets mixed up
+seq 1 | parallel -n0 "http --ignore-stdin POST http://httpbin.org/post url=http://google.com/"
+```
+
 ## Base N
 ```
 # Encode base62

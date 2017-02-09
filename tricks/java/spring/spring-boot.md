@@ -9,13 +9,6 @@ brew install springboot
 * [最新文档](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 * [所有的配置属性](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties)
 
-## Changes
-### 1.4
-
-* 升级到 Hibernate 5
-
-### 1.3
-
 ## 使用 Jetty 而不使用 Tomcat
 ```xml
 <dependency>

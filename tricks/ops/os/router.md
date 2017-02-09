@@ -37,3 +37,9 @@ https://advancedtomato.com/ tomato 的 GUI
 https://advancedtomato.com/downloads 支持列表
 
 https://en.wikipedia.org/wiki/Tomato_(firmware)
+
+
+CFE
+https://wiki.openwrt.org/doc/techref/bootloader/cfe
+https://www.dd-wrt.com/wiki/index.php/Serial_Recovery
+https://en.wikipedia.org/wiki/Common_Firmware_Environment

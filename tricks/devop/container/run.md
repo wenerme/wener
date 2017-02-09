@@ -13,20 +13,20 @@
 ## MySQL
 ```bash
 # 自定义配置
-mkdir -p /opt/apps/mysql/conf.d/
+mkdir -p /data/mysql/conf.d/
 echo '
 [mysqld]
 character_set_server=utf8mb4
 collation_server=utf8mb4_unicode_ci
-' > /opt/apps/mysql/conf.d/my.cnf
+' > /data/mysql/conf.d/my.cnf
 
 # 自定义数据目录
-mkdir -p /opt/apps/mysql/conf.d/datadir
+mkdir -p /data/mysql/conf.d/datadir
 
 # 使用自定义的配置启动 MySQL
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   -p 3306:3306 \
-  -v /opt/apps/mysql/datadir:/var/lib/mysql -v /opt/apps/mysql/conf.d:/etc/mysql/conf.d \
+  -v /data/mysql/datadir:/var/lib/mysql -v /data/mysql/conf.d:/etc/mysql/conf.d \
   -e MYSQL_ROOT_PASSWORD=ThisIsPassword \
   --name mysql mysql
 ```
@@ -138,7 +138,73 @@ tar -C /var/jenkins_home/go/root -xzf go$GOVERSION.linux-amd64.tar.gz
 ## Redis
 
 ```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 6379:6379 \
+  -v /data/redis:/data \
+  --name redis redis redis-server --appendonly yes
 
+# 客户端
+docker run -it --link some-redis:redis --rm redis redis-cli -h redis -p 6379
+```
+
+
+## MongoDB
+```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 27017:27017 \
+  -v /data/mongo:/data/db \
+  --name mongo mongo
+
+# 客户端
+docker run -it --link some-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
+```
+
+## RethinkDB
+
+```bash
+# 配置参考
+# https://github.com/rethinkdb/rethinkdb/blob/next/packaging/assets/config/default.conf.sample
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 8080:8080 -p 28015:28015 \
+  -v /data/rethinkdb:/data \
+  --name some-rethink rethinkdb
+
+# 管理界面
+$BROWSER "http://$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' some-rethink):8080"
+
+# 端口转发
+ssh -fNTL localhost:8080:$(ssh remote "docker inspect --format '{{ .NetworkSettings.IPAddress }}' some-rethink"):8080 remote
+# 在浏览器中打开
+xdg-open http://localhost:8080
+# 停止端口转发
+kill $(lsof -t -i @localhost:8080 -sTCP:listen)
+```
+
+## Nexus
+
+```bash
+# 使用 mount 存储文件
+mkdir -p /data/nexus && sudo chown -R 200:200 /data/nexus
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 8002:8081 -v /data/nexus:/sonatype-work \
+  --name nexus sonatype/nexus:oss
+
+# 使用 data volume
+docker run -d --name nexus-data sonatype/nexus:oss echo "data-only container for Nexus"
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 8002:8081 --volumes-from nexus-data \
+  --name nexus sonatype/nexus:oss
+
+# nexus3 支持 docker
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -e NEXUS_CONTEXT=nexus \
+  -p8004:8004 -p8003:8003 -p8081:8081 \
+  -v /data/nexus:/nexus-data \
+  --name nexus sonatype/nexus3
+
+# 默认账号密码 admin / admin123
+# 测试状态
+curl http://localhost:8081/nexus/service/local/status
 ```
 
 ## Registry
