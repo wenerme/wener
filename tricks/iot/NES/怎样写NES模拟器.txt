@@ -1,0 +1,570 @@
+怎样写模拟器
+作者: Nikolas Gavalas
+Email: thundermahoney@hotmail.com
+
+怎样写模拟器
+简介
+阶段
+读入
+运行
+获得 ROM 的操作码
+执行操作码
+执行中断
+读写内存
+做循环任务
+视频模拟
+声音模拟
+优化
+课程收获
+我的模拟器
+参考文献
+
+
+
++------+
+| 简介 |
++------+
+
+模拟你喜欢的系统来玩游戏比你想象的要简单 (简单程度依赖于你尝试的模拟的系统). 本文档旨在给你一个构建模拟器的概要. 为了帮知你更好的理解概念，我将给出一些 NES 模拟器的明确的例子 (这个模拟器是我这学期我在 Long Beach 的 California State University 写的).
+
+本文档假设读者对 C++ 和 汇编语言 (Assembly) 熟悉.
+
+
++------+
+| 阶段 |
++------+
+
+与模拟有关的阶段其实只有两个. 它们是读入游戏或程序 (ROM) 和运行 ROM. 你的大多数工作都是在运行阶段. 读入阶段非常直截了当.
+
+
++------+
+| 读入 |
++------+
+
+你要做的第一件事就是把 ROM 整个读入到内存中. 怎样读入 ROM 到内存中依赖于你所要模拟的系统. 我将把 NES 的读入阶段作为一个很好的例子来解释.
+
+在 NES 的 cartridge 上有两种内存. 程序内存的真正的指令是被 CPU 执行. 角色内存用来显示图形的是 8x8 马赛克块. 对于 NES，我将全部程序内存读入一个数组，将全部角色内存读入另外一个数组.
+
+NES 只有 32k 程序内存和 8k 角色内存. 这样就限制了你在如此有限的内存中能够制作出的游戏的类型和品质. 为了解决这个问题，一些 cartridges 拥有内存镜像 (mapper). 内存镜像被用来在 cartridge 中的内存和 NES 中的内存作交换. 镜像交换在数据被写入 cartridge 的一个寄存器 (register) 时发生. 这些寄存器告诉 cartridge 哪段内存被使用.
+
+一旦你将全部的 cartridge 读入内存，你就可以使交换非常快速. 比真的将内存拷入拷出其他数组要快，你只需要改变一个指针. 例如，如果你需要交换程序内存中的第一段，你只需要需要改变指向 cartridge 上使用中的内存段的指针的值.
+
+     pPRGROMBank1 = &abyPRGROM[PRGROM_BANKSIZE*wBankNumber];
+
+现在，我们已经有了一些关于如何将 ROM 读入内存和如何处理内存镜像的背景知识了，下面我将要解释在 ROM 被读入后应当做些什么.
+
+你首先需要建立 PRG-ROM 内存段，方法类似通过内存镜像处理内存交换. NES 有两段程序内存，每一段 16k. 依赖于所使用的内存段，你需要对指针适当的赋值. 在下面的例子中，wBankNumber1 和 wBankNumber2 是使用的每段 PRG-ROM 区域的号码.
+
+     pPRGROMBank1 = &abyPRGROM[PRGROM_BANKSIZE*wBankNumber1];
+     pPRGROMBank1 = &abyPRGROM[PRGROM_BANKSIZE*wBankNumber2];
+
+下一件事情是你需要建立指向程序开始地址的 Instruction pointer (指令指针). 由于我对其他系统没有太多经验，我将解释 NES 是如何工作的. 在 PRG-ROM (0FFFEh) 的一个指定地址，有保存指令指针的初始值 (starting value) 的字. 你需要拷贝那个字到说明指针，然后执行指令指针指向的地方.
+
+
++------+
+| 运行 |
++------+
+
+运行 ROM 可以被分成几个部分. 为了运行 ROM 你必须:
+
+     1. 获得 ROM 的操作码
+     2. 执行操作码
+     3. 执行 Interrupts (中断)
+     4. 读/写内存
+     5. 做循环任务
+
+
++-------------------+
+| 获得 ROM 的操作码 |
++-------------------+
+
+执行 ROM 的第一件事就是获得操作码. 你获得 CPU 的指令指针 (IP) 指向的字节. 这个字节就是你的操作码. 依赖于操作码，你也许要获得操作数 (operands) 或者你也许要为了执行部分来保存这部分. 对于一个8位处理器 (8-bit processer)，代码可以像下面的.
+
+     byOpcode = pPRGROMBank1[wInstructionPointer];
+
+CPU.pPRGROMBank1 指向的内存段就是在一开始被读入的，wInstructionPointer 就是说明指针. 在上述的执行后，byOpcode 将会以数字的方式 (numeric value) 保存你的操作码.
+
+
++------------+
+| 执行操作码 |
++------------+
+
+现在你已经有了操作码 byte，你需要对它解码和执行. 如果你要模拟的系统是8位的，解码就非常容易. 如果是16位系统，我想这也不是太难. 但是，为了使这个处理过程更简单，并且指出重点，就让我们继续坚持以8位处理器为例子.
+
+你的操作码 字只是一个指令. 例如，对于 6502 (6502是 NES 的 CPU -- 译注)，值 29h 是一个 AND 指令的表格. 既然这样，它就立即执行 AND，这也就意味着它将在操作码 byte 之后累加器 (Accumulator register) 与 immediate value 作 and 运算. 由于这个，如果你写一个 6502 的模拟器，你需要在 AND操作码 byte 之后在累加器上执行一个 AND. 然后你需要增加 IP，还有加或者减去执行那个特别指令所花去的时钟周期的数目.
+
+下面是 AND 操作的代码. 其他的操作就像这个差不多.
+
+switch (byOpcode)
+{
+      case 0x29:
+            byOperand1 = pPRGROMBank1[wInstructionPointer+1];
+            A &= byOperand1;
+            break;
+      .
+      .
+      .
+}
+wInstructionPointer += wNumBytesForOpcode;
+dwCPUCycles -= dwNumCyclesForOpcode;
+
+
++----------+
+| 执行中断 |
++----------+
+
+中断可以使硬件中断也可以是软件中断. 当某些硬件情况发生时，硬件中断发生. 例如，当 VBlank 发生时，一个中断就发生. 当程序中特定的指令执行时，软件中断就发生. 对于 NES，这种状况发生在 BRK 指令被执行.
+
+当中断发生时，NES 保存指令指针和标志寄存器 (Flag register)，然后再特定的内存区域内查找一个新的值赋给指令指针. 每个终端都有它们被指派的地址，所以 NES 从那个位置获得值然后赋给指令指针. 然后程序从这个点继续执行.
+
+NES 有三种中断. 指令指针的新的值依赖于中断发生的内存地址.
+
+     FFFAh = NMI (VBlank)
+     FFFCh = RESET
+     FFFEh = IRQ/BRK (software)
+
+所以当 VBlakn 发生时，CPU 将:
+
+     1. 将指令指针当前值推入栈.
+     2. 将标志寄存器当前值推入栈.
+     3. 获得位于 FFFAh 字的值然后拷贝到指令指针.
+
+
++----------+
+| 读写内存 |
++----------+
+
+读写内存有两种方法. 得到操作码 和操作码 的操作数被认为是读内存的简单方法，并且在这个过程中没有什么模拟行为. 另一种方法是当指令执行的时候读写内存 (The other way is when an instruction has to go out and read/write from memory). 这是你必须关心的方法.
+
+为了模拟这种方法，你必须指出那条指令事实上需要读写内存. 对于 NES 的 CPU (6502)，指令是 LDA (读)和 STA (写).
+
+依赖于读或写的地址，特定的时间必须发生. 特定的内存地址也许是一个寄存器，内存镜像，或者其他任何你的系统拥有的. 我将提供一个 NES 有详细地址的例子，但是我将会详细解释重点. 写内存和读内存用类似的方法.
+
+     BYTE ReadMemory(WORD wAddress)
+     {
+           switch (wAddress)
+           {
+                 case 0x2002:
+                 // Emulate the PPU status register.
+                 break;
+     
+                 case 0x2004:
+                 // Return a byte from sprite memory.
+                 break;
+     
+                 .
+                 .
+                 .
+     
+                 default:
+                 // Return a byte at the address passed in.
+           }
+     }
+
+
++------------+
+| 做循环任务 |
++------------+
+
+选择执行循环任务的时间和位置是依赖于你所模拟的系统的选择. 它可以在绘制一个扫描线之后，在绘制一整个屏幕之后，或者即便是任何指令之后. 循环任务越多，性能损失也就越多，但是准确性就会越高. 其他的方法也有同样效果. 如果你减少循环任务，你的模拟器的速度就会加快但是会损失一些准确性. It's up to you to desgin your emulator, so I leave the choice up to you.
+
+一旦你决定了执行循环任务的位置，你就必须决定循环任务是什么. 例如执行中断，增加被扫描的扫描线，或者其他任何你能想到的但必须有一定间隔.
+
+对于 NES 模拟器，我决定在每条扫描线绘制后执行循环任务. 我通过经过的 CPU 时钟周期数量来保持屏幕扫描线的绘制轨迹. 我通过下面的式子来计算每条扫描线需要的时钟周期:
+
+     NumCyclesPerScanline = (CPUFrequency / RefreshRate) / NumScanlinePerFrame
+
+
+
++----------+
+| 视频模拟 |
++----------+
+
+模拟器图形处理是非常依赖系统的题目. 我将解释一些一般的模拟器图形处理的观点，但是这里的大多数的材料都特别对应于 NES. 如果你除 NES 外其他的系统，我希望这里的信息会有用; 如果不然，跳过本部分.
+
+电视机的图像都是通过一个电子枪显示. 如果你距离电视机很近地看，你可以看到单个的像素. 像素改变颜色通过电子枪从屏幕左边到右边的移动. 就这样一行一行的做，使得像素改变颜色. 这就叫做绘制一条扫描线. 如果电子枪完成一条扫描线，它将回到左边并向下移动到下一条扫描线. 电子枪回到屏幕左边的时间叫做 HBlank 时期. 一旦电子枪扫描完屏幕上的所有扫描线，对 NTSC 来说是240条，它就移动到屏幕的左上角. 电子枪移动到左上角的时间叫做 VBlank 时期.
+
+有了上面的信息后，我们就可以讨论一些显示图形的指导方针. 由于人们看到图形的原理，你可以绘制图形的每一条扫描线，或者你可以在 VBlank 时期等待和绘制任何东西. 我将讨论两种方法的不同点.
+
+通过绘制图形的每条扫描线来绘制图形非常精确但不是很快速. 用这种方法模拟，你就必须需要让 CPU 执行每条扫描线需要的时钟周期 (用上面说过的方法计算). 对于 NES，就是114条 (rounded up). 然后你就应当绘制这条线. 在 VBlank 时期，你应当继续模拟 CPU, 但是不要在 VBlank 结束前绘制扫描线.
+
+每次绘制整个的屏幕将会非常快，但是如果模拟的不正确，将会损失掉精确度. 用这种方法模拟，你需要让 CPU 执行240条扫描线，然后将所有扫描线一下子绘制. 如果你的模拟器在绘制屏幕的时候改变值 (卷轴值，调色板个数)，你将会损失精确度.
+
+对于我的模拟器，我选择使用扫描线方法来获得最终的准确. 阅读 Yoshi 的 NES 文档以获得关于 NES 和图形系统更多的信息.
+
+http://www.zophar.net/tech/files/ndox200.zip
+
+
++----------+
+| 声音模拟 |
++----------+
+
+对我来说，声音是最难模拟的. 大致的原因就是 DirectSound Buffers 方面的设计. 我将会解释我所使用的方法，并且把后面的留给你，寄希望于你能够发现我的错误并且纠正.
+
+第一，你应当去学 DirectSound Buffers 流 (steaming DirectSound Buffers). Microsoft 在 MSDN 中有大量的相关信息. 既然它们已经有了丰富的信息和优秀的作者，那么如果我继续尝试解释就是浪费时间，呵呵.
+
+我的算法就是在每个框架的末尾用声音数据更新 DirectSount Buffer. 下面就是我用来模拟一个输出了期待的大小和频率的方波的声音频道的步骤:
+
+     1. 计算波的波长. 这是在 CPU 周期里完成，由一些声音寄存器读出.
+     2. 计算波的工作循环. 这就是应当重复波长多少次直至波结束. 同样，这也是从声音寄存器读出.
+     3. 计算输出音量. 这是从声音寄存器读出. 你可以认为这是波的振幅.
+
+我只在框架开始做这件事. 然后我就沿着波向前移动并把数据写到 DirectSound Buffer.样本的比率决定了写入缓冲的字节数目. 我只是将 CPU 框架中同样数目的样本写入缓冲. 在下一个框架，我继续写入剩下的数据. 当我完成写入所有我计算的波的数据，我将重新计算步骤1-3，然后重复整个过程. 例如:
+
+     NumBytesToLock=(((NumBitsPerSample/8)*NumChannels*NumSamplesPerSec)/30)
+
+下面是我模拟 NES 的一个频道的方波的代码，用它来阐明我所说的.
+
+//------------------------------------------------------------------------------
+// Name: APU_DoFrame()
+// Desc: Takes care of the sound for a frame.
+//------------------------------------------------------------------------------
+BOOL APU_DoFrame()
+{
+       // Stuff necessary for working with streaming buffers.
+       HRESULT hr;
+       DWORD   dwWritePos;
+       DWORD   dwBytesLocked1;
+       DWORD   dwBytesLocked2;
+       DWORD   dwByteNum;
+       VOID*   pvData1;
+       VOID*   pvData2;
+       VOID*   pvDataSave;
+ 
+       static DWORD dwLastEndWritePos = 0;
+ 
+       // Stuff for nintendo sound files.
+       WORD wTotalOutputVol; // Sum of all the sound channel's volumes.
+ 
+ 
+       // If the buffer is invalid then return.
+       if (lpdsbSoundBuf == NULL)
+              return FALSE;
+ 
+       // Get the current write position within the buffer.
+       if (FAILED(lpdsbSoundBuf->GetCurrentPosition(NULL, &dwWritePos)))
+              return FALSE;
+ 
+       // If the play cursor has just reached the first or second half
+       // of the buffer, it's time to stream data to the other half.
+       LONG lTemp = dwLastEndWritePos - 1000;
+       if (lTemp < 0)
+              lTemp = 0;
+ 
+       //if (dwWritePos >= (dwLastEndWritePos))// || ())
+       if (dwWritePos >= (DWORD)lTemp)// || ())
+       {
+              // Lock the buffer so we can write to it.
+              hr = lpdsbSoundBuf->Lock(dwLastEndWritePos, OPTIONS_NUM_BYTESTOLOCK, 
+                     &pvData1, &dwBytesLocked1, &pvData2, &dwBytesLocked2, 0);
+ 
+              if (SUCCEEDED(hr))
+              {
+                     // For the first part of the loop calculate the sound values.
+                     bCalculateSound = TRUE;
+ 
+                     // Fill the whole locked portion of the sound buffer with
+                     // out sound data from each of the Nintendo's sound channels.
+                     // This involves two for loops since the buffer may wrap around.
+                     
+                     // Save a temp pointer to the first portions of the sound buffer.
+                     pvDataSave = pvData1;
+ 
+                     // First portion of the buffer.
+                     for (dwByteNum = 0; dwByteNum < dwBytesLocked1; 
+                           dwByteNum += OPTIONS_NUM_CHANNELS * (OPTIONS_NUM_BITSPERSAMPLE / 8))
+                     {
+                           // Clear the last volume outta there.
+                           wTotalOutputVol = 0;
+ 
+                           // Process the square channel 1.
+                           wTotalOutputVol += (WORD)APU_DoSquare1();
+ 
+                           // Write the data to the sound buffer and move the pointer 
+                           // to the buffer to the next data position.
+                           if (OPTIONS_NUM_BITSPERSAMPLE == 8)
+                           {
+                                  *((BYTE*)pvDataSave) = (BYTE)wTotalOutputVol;
+                                  pvDataSave = (BYTE*)pvDataSave + (OPTIONS_NUM_CHANNELS * 1);
+                           }
+                           else
+                           {
+                                  *((WORD*)pvDataSave) = wTotalOutputVol;
+                                  pvDataSave = (BYTE*)pvDataSave + (OPTIONS_NUM_CHANNELS * 2);
+                           }
+ 
+                           // Stop calculating the sound.
+                           if (bCalculateSound == TRUE)
+                                  bCalculateSound = FALSE;
+                     }
+ 
+                     // If the locked portion of the buffer wrapped around to the 
+                     // beginning of the buffer then we need to write to it.
+                     if (dwBytesLocked2 > 0)
+                     {
+                           // Save a temp pointer to the second portions of the sound buffer.
+                           pvDataSave = pvData2;
+ 
+                           // Second portion of the buffer.
+                           for (dwByteNum = 0; dwByteNum < dwBytesLocked2; 
+                                  dwByteNum += OPTIONS_NUM_CHANNELS * (OPTIONS_NUM_BITSPERSAMPLE / 8))
+                           {
+                                  // Clear the last volume outta there.
+                                  wTotalOutputVol = 0;
+ 
+                                  // Process the square channel 1.
+                                  wTotalOutputVol += (WORD)APU_DoSquare1();
+ 
+                                  // Write the data to the sound buffer and move the pointer 
+                                  // to the buffer to the next data position.
+                                  if (OPTIONS_NUM_BITSPERSAMPLE == 8)
+                                  {
+                                         *((BYTE*)pvDataSave) = (BYTE)wTotalOutputVol;
+                                         pvDataSave = (BYTE*)pvDataSave + (OPTIONS_NUM_CHANNELS * 1);
+                                  }
+                                  else
+                                  {
+                                         *((WORD*)pvDataSave) = wTotalOutputVol;
+                                         pvDataSave = (BYTE*)pvDataSave + (OPTIONS_NUM_CHANNELS * 2);
+                                  }
+                           }
+                     }
+ 
+                     // Unlock the buffer now that were done with it.
+                     lpdsbSoundBuf->Unlock(pvData1, dwBytesLocked1, pvData2, dwBytesLocked2);
+              }
+ 
+              // Save the position of the last place we wrote to so 
+              // we can continue the next time this function is called.
+              dwLastEndWritePos = (DWORD)(dwLastEndWritePos+dwBytesLocked1+dwBytesLocked2);
+ 
+              if (dwLastEndWritePos >= (OPTIONS_NUM_BITSPERSAMPLE/8)*OPTIONS_NUM_CHANNELS*OPTIONS_NUM_SAMPLESPERSEC)*OPTIONS_NUM_SECONDSFORBUFFER)
+              {
+                    dwLastEndWritePos -= (OPTIONS_NUM_BITSPERSAMPLE/8)*OPTIONS_NUM_CHANNELS*OPTIONS_NUM_SAMPLESPERSEC)*OPTIONS_NUM_SECONDSFORBUFFER;
+              }
+       }
+ 
+       // Victory is ours!!!!
+       return TRUE;
+} // end APU_DoFrame()
+ 
+
+//------------------------------------------------------------------------------
+// Name: APU_DoSquare1()
+// Desc: Process the first square wave sound channel.
+//------------------------------------------------------------------------------
+WORD APU_DoSquare1()
+{
+       static DWORD dwNumCyclesElapsed = 0; // Keeps track of where we are in the wave.
+       static DWORD dwDutyFlip = 0;         // How many times the programmable timer must 
+                                            // reload untill a duty flip.
+       static DWORD dwWaveLength = 0;       // How many cycles till the programmable timer reloads.
+ 
+       static BYTE  byOutput = 0x80; // The returned output volume.
+       static BOOL  bDutyFlip = FALSE; // Has a duty flip happended?
+ 
+       static BOOL bCalcSquare = FALSE;
+       static BOOL bCalcOnNextFlag = FALSE;
+ 
+       if (bCalculateSound)
+              bCalcOnNextFlag = TRUE;
+       
+       // If the calculate flag is set, then we need to calculate everything
+       // that is needed to return an output volume to the calling function.
+       // Otherwise we just return the precalculated data that was stored
+       // in the static variables.
+       if (bCalcSquare)
+       {
+	CalculateIt:
+              // First thing we need to do is start over by reseting the elapsed cycles.
+              dwNumCyclesElapsed = 0;
+              // Reset the duty toggle.
+              bDutyFlip = FALSE;
+              bCalcSquare = FALSE;
+              bCalcOnNextFlag = FALSE;
+              //---------------------------------------------------------------------
+              // Do the length counter part.
+              //---------------------------------------------------------------------
+
+              // If the length counter is enabled then we need to process it.
+              if (!(CPU.Memory[0x4000] & 0x20))
+              {
+                     // If the length counter is not zero then decrement the value.
+                     if (APU.sndchanSquare1.byLengthCtr)
+                           APU.sndchanSquare1.byLengthCtr--;
+              }
+ 
+              //---------------------------------------------------------------------
+              // TODO: This is where the sweeping unit needs to be emulated.
+              //---------------------------------------------------------------------
+
+              //---------------------------------------------------------------------
+              // Emulate the programmable timer to get the wavelength.
+              //---------------------------------------------------------------------
+
+              // Take the 3 least significant bits from $4003 and
+              // use those as the bits 8-10 for our wavelength. Bits
+              // 0-7 come from $4002 to produce our 11-bit wavelength.
+              // The we need to add one to it.
+
+              dwWaveLength = ((((WORD)(CPU.Memory[0x4003]&0x7)) << 8) | CPU.Memory[0x4002]) + 1; 
+         
+              //---------------------------------------------------------------------
+              // Emulate the duty flip part.
+              //---------------------------------------------------------------------
+
+              dwDutyFlip = abyDutyCycleTablePos[CPU.Memory[0x4000]>>6];
+
+              //---------------------------------------------------------------------
+              // Now finally send the signal through the volume/envelope decay unit.
+              //---------------------------------------------------------------------
+
+              // If the envelope decay bit is set, then the volume goes staight
+              // to the DAC...or in our case DirectSound. This means that
+              // the envelope decay is disabled.
+
+              if (!(CPU.Memory[0x4000] & 0x10))
+              {
+                     // There are a few conditions when 0 is sent straight
+                     // to the DAC for the volume. They are as follows:
+                     // 1.  If the length counter is 0
+                     // 2.  Something to do with the sweep unit.
+                     // 3.  On the negative portion of the output frequency 
+                     //     signal coming from the duty cycle.
+                     //
+                     // Otherwise bits (0-3) of $4000 are sent straight the
+                     // DAC for the volume.
+
+                     if (APU.sndchanSquare1.byLengthCtr == 0) // TODO: implement other conditions.
+                           byOutput = 0x80;
+                     else
+                           byOutput = ((CPU.Memory[0x4000] & 0x0F) << 3);
+              }
+              else
+                     byOutput = ((CPU.Memory[0x4000] & 0x0F) << 3);
+       }
+ 
+       // If we are done with the wave we need to start over.
+       if (dwNumCyclesElapsed >= dwWaveLength)
+       {
+              // We need to flip the volume to negative if the amount of
+              // times for a duty flip has passed.
+
+              if ((dwDutyFlip--) == 0)
+              {
+                     // If the duty flip is positive then we load the counter with the negative
+                     // value. If the duty flip is negative, then we load the counter
+                     // with the positive counter.
+
+                     if (bDutyFlip)
+                     {
+                           dwDutyFlip = abyDutyCycleTablePos[CPU.Memory[0x4000]>>6];
+                           if (bCalcOnNextFlag)
+                           {
+                                  bCalcSquare = FALSE;
+                                  //return (WORD)byOutput;
+                                  goto CalculateIt;
+                           }
+                     }
+                     else
+                     {
+                           dwDutyFlip = abyDutyCycleTableNeg[CPU.Memory[0x4000]>>6];
+                     }
+ 
+                     // Flip the output wave.
+                     byOutput = -byOutput;
+ 
+                     // Toggle the duty flip indicator.
+                     bDutyFlip ^= TRUE;
+              }
+ 
+              dwNumCyclesElapsed -= dwWaveLength;
+       }
+       else
+              // Keep moving along the phase of the wave form.
+              dwNumCyclesElapsed += dwNumCyclesPerSample;
+ 
+       // Return the final value.
+       return (WORD)byOutput;
+
+} // end APU_DoSquare1()
+
+
++------+
+| 优化 |
++------+
+
+本节中，我将列出一些通用的优化方法以及一些针对 NES 的优化方法.
+
+     1. 解开循环. 如果你有一个循环，并且你知道这个循环将被做一段确定的次数，就剪、贴同样的代码. 例如，如果你有一个执行某些代码3次的循环，就把被执行的代码重复三次来代替循环. 在汇编语言中，循环代码的比较和跳过指令将比直接执行代码花费更多时间.
+
+        for (int i=0; i < 3; i++)
+        {
+            // Some Code
+        }
+
+        应当别写成:
+
+        // Some Code
+        // Some Code
+        // Some Code
+
+     2. 对于汇编语言，重写一些代码将受益匪浅. 循环就是在执行中获得的一个例子. 另一个例子是不再使用 C++ 中的 switch 和 case 陈述，你应当使用汇编语言中被称为跳转表格 (jump table) 的东西. 一个跳转表格是一个保存地址的数组. 不论 case 的值是多少，你都会到数组的相应位置，然后移动那个值到一个32位寄存器. 然后你跳转到那个寄存器中的值. 这种想法在模拟读写内存的函数和操作码 中的 switch 陈述中很有用.
+
+        ; 获得操作码 字节.
+        GET_MEMORY_BYTE CPU.P
+
+        ; 为后面的使用保存操作码，然后用上面定义
+        ; 的跳转表格跳转到正确的操作码
+        and eax, 000000FFh
+        mov dwOpcode, eax
+        jmp [adwOpcodeJumpTable+eax*4]
+
+     3. 对于 NES 的图形处理，是用马赛克隐藏算法 (tile caching algorithm). 他将在你读 NES 图形处理如何工作是有意义. 他们在 Yoshi 的 NES 文档中有解释. http://www.zophar.net/tech/files/ndox200.zip
+
+
++----------+
+| 课程收获 |
++----------+
+
+1. 不要在学校的学期内做这个项目 ;-)
+2. 当模拟 NES 时，读一些关于6502的不同的文档. 它们提供不同的信息. 例如，我读过的一个文档说 PLA 不设定 CPU 的标志，而我读过的另一个说事实上它设定标志.
+
+
++------------+
+| 我的模拟器 |
++------------+
+
+下面是我的模拟器和我的模拟器的代码. 这个项目使用 Visual C++ .NET 和 DirectX 8 SDK 制作的.
+
+在我的模拟其中运行 NES ROM，你需要先运行模拟器，然后选择文件菜单 (file menu) 中的打开游戏 (Open Rom)，然后选择文件菜单中的运行 (Run). 当运行游戏的时候，使用光标移动键作为上、下、左、右，S 是 Start，A 是 Select，Z 是 B，X 是 A. ESC 将停止运行 ROM.
+
+在我的模拟器中 debug 一个 ROM，你可以双击任何一行来增加或删除一个中断点 (breakpoint). 你可以使用 Debug 菜单来一步一步运行代码或者运行到一个 NMI 中断. 使用察看菜单 (View menu) 来查看内存.
+
+NEStreme (http://www.cecs.csulb.edu/~hill/cecs497/nestreme/NEStreme.zip)
+NEStreme source (http://www.cecs.csulb.edu/~hill/cecs497/nestreme/NEStreme_src.zip)
+NEStreme Mapper0 source (http://www.cecs.csulb.edu/~hill/cecs497/nestreme/mapper0.zip)
+NEStreme Mapper2 source (http://www.cecs.csulb.edu/~hill/cecs497/nestreme/mapper2.zip)
+NEStreme Mapper3 source (http://www.cecs.csulb.edu/~hill/cecs497/nestreme/mapper3.zip)
+
+
++----------+
+| 参考文献 |
++----------+
+
+Zophar 的网站 (http://www.zophar.net/index.phtml)
+
+Holds tons of information on emulators as well as the emulators themselves.
+
+NES info, programs, and demos (http://nesdev.parodius.com)
+
+Holds over 2 thousand pounds of programming information on the NES as well as some free demos.
+
+* Translated by Blue Potato [bspotato@yahoo.com.cn] [http://bspotato.51.net] *
+* 虽然已经尽全力翻译了，不过还是会有很多不恰当的地方. 如果你有很好的建议，请发信到上面的信箱中. 非常感谢 *
+*--------------------------------------------------------------------------------------------------------*
+* 感谢 AgeMO 网友的建议，将 opcode 翻译为操作码                                                          *
+* 感谢 roseclarkh 网友的建议，对一些输入错误进行了校正                                                   *
+* 感谢 palomino 网友的建议，修正了对 Accumulator register 的错误翻译                                     *
+*--------------------------------------------------------------------------------------------------------*
+* Chinese Edition Version: 1 *
