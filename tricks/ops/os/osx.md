@@ -39,6 +39,7 @@ xcode-select --install
 
 ### 资源下载
 * [mac-torrent-download](http://mac-torrent-download.net/)
+* http://www.macbed.com/
 * http://superuser.com/a/264943/242730
 
 ## Tips
@@ -70,7 +71,11 @@ open -a ScreenSaverEngine
 # 锁屏
 /System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend
 
-
+# 阅读邮件
+mail
+# 删除所有邮件
+# delete *
+# q
 ```
 
 * [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
@@ -205,3 +210,8 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 # 在安装前进入终端执行
 date 0101010116
 ```
+
+#### 更新未能被验证
+可参考[该文章](http://matrix.sspai.com/p/dd9c2d80).
+
+解决办法,前往 [苹果组合更新下载页面](https://support.apple.com/downloads/combo), 下载需要的版本, 手动进行安装更新.

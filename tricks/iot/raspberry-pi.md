@@ -1,6 +1,23 @@
 # Raspberry Pi
 
 ## Tips
+* 认证的外置设备
+  * http://elinux.org/RPi_VerifiedPeripherals
+* Projects
+  * [How we built a Smart Office system based on Raspberry Pi](http://monterail.com/blog/2016/how-we-built-a-truly-smart-office-system-based-on-raspberry-pi/)
+    * [HN](https://news.ycombinator.com/item?id=12771201)
+    * 灯控
+      * Finder 继电器
+      * ISP814 光感
+      * MCP23017 控制 - I2C - Pi
+      * DMX 灯控 - IR - Pi
+
+* 扩展 GPIO [Port expander](http://en.wikipedia.org/wiki/Port_expander)
+  * MCP23017
+  * MAX7219, MAX7221, MAX6950, MAX6951 and TLC5940
+* USB 转 GPIO
+  * [FT245B](http://www.ftdichip.com/Products/ICs/FT245B.htm)
+
 ```bash
 
 # 安装 QEmu

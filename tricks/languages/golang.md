@@ -82,6 +82,12 @@ env GOOS=linux GOARCH=amd64 go build  -o main-linux-amd64 main.go
 go get github.com/golang/tools/cmd/gomvpkg/main.go
 gomvpkg -from github.com/wenerme/before -to github.com/wenerme/after
 
+# 将构建时间添加到生成的内容中
+go build -ldflags "-X main.minversion=`date -u +.%Y%m%d.%H%M%S`" service.go
+go run -ldflags "-X main.xyz=abc" main.go
+go run -ldflags "-X main.build=`date +%Y%m%d.%H%M%S`" main.go
+
+
 # Guru
 go get github.com/golang/tools/cmd/guru/main.go
 ```
@@ -244,6 +250,9 @@ upx --best main.linux.amd64 # 478K
 upx -9 --ultra-brute main.linux.amd64 # 363K
 ```
 
+## Profiling
+https://blog.golang.org/profiling-go-programs
+https://golang.org/pkg/net/http/pprof/
 ## Beego
 
 ```bash

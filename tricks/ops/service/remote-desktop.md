@@ -10,6 +10,7 @@
 
 ```bash
 xfreerdp /v:127.0.0.1:3389
+xfreerdp +clipboard /u:<username> /v:<hostname> /size:<WxH> /p: <port>
 ```
 ## VNC
 
