@@ -1,5 +1,7 @@
 # PM
 
+http://project-management.zone/system/jira,phabricator,redmine
+
 ## Product Manager vs Project Manager
 
 * 项目会比产品多得多.举例来说,一个商业的企业级软件中,项目经理会比产品经理多得多,他们主要负责项目的部署和管理.

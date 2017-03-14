@@ -15,14 +15,27 @@
 * [DL4J vs. Torch vs. Theano vs. Caffe vs. TensorFlow](https://deeplearning4j.org/compare-dl4j-torch7-pylearn)
 
 ## 学习资源
-* http://neuralnetworksanddeeplearning.com/
+* Awesome
+  * [awesome-deep-vision](https://github.com/kjw0612/awesome-deep-vision)
+  * [awesome-machine-learning](* https://github.com/josephmisiti/awesome-machine-learning)
+  * [awesome-computer-vision](https://github.com/jbhuang0604/awesome-computer-vision)
+* [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+* [Deep Learning](http://www.deeplearningbook.org/)
+* [Data Mining:Practical Machine Learning Tools and Techniques](http://www.cs.waikato.ac.nz/ml/weka/book.html)
+* [Deep Learning Tutorials](http://deeplearning.net/tutorial/)
+* [CS231n: Convolutional Neural Networks for Visual Recognition](http://vision.stanford.edu/teaching/cs231n/index.html)
 * http://wiki.jikexueyuan.com/project/tensorflow-zh
-* http://colah.github.io/
-* https://github.com/josephmisiti/awesome-machine-learning
-
+* [colah's blog](http://colah.github.io/)
+  * A wandering machine learning researcher, bouncing between groups. I want to understand things clearly, and explain them well.
+* [Christopher Bourez's blog](http://christopher5106.github.io/)
+* [Andrej Karpathy blog](http://karpathy.github.io/)
+  * http://karpathy.github.io/neuralnets/
+* [hOCR 中文版](https://github.com/clear-datacenter/plan/wiki/hOCR-%E4%B8%AD%E6%96%87%E7%89%88)
+* [Intro to Parallel Programming](https://www.udacity.com/course/intro-to-parallel-programming--cs344)
 * [What is the class of this image ?](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html)
   Discover the current state of the art in objects classification.
 * http://theopenacademy.com/content/machine-learning
+* InfoQ [Machine Learning](https://www.infoq.com/machinelearning/)
 
 * [Tutorial on Deep Learning](https://simons.berkeley.edu/talks/tutorial-deep-learning)
   * [HN](https://news.ycombinator.com/item?id=13505160)
@@ -41,5 +54,8 @@
 * [Stanford Unsupervised Deep Learning Tutorial (2014)](http://deeplearning.stanford.edu/tutorial/)
   * [HN](https://news.ycombinator.com/item?id=13353941)
 * [Deep Learning Gallery – A curated list of deep learning projects](http://deeplearninggallery.com/)
-* http://aireads.top/
+* [AI/ML Reads](http://aireads.top/)
 * http://machinelearningmastery.com/
+
+* [The Missing Roadmap to Self-Study Machine Learning](http://machinelearningmastery.com/machine-learning-roadmap-your-self-study-guide-to-machine-learning/)
+  * http://www.jianshu.com/p/82f39ed4f089

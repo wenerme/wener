@@ -34,7 +34,7 @@ ls -lh /private/var/vm/swapfile*
 
 ```bash
 # 4G 交换区
-dd if=/dev/zero of=/sysswap count=4096 bs=20MiB status=progress
+dd if=/dev/zero of=/sysswap count=512 bs=8MiB status=progress
 chmod 600 /sysswap
 mkswap /sysswap
 swapon /sysswap

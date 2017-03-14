@@ -190,6 +190,9 @@ docker run --rm -v /hetc:/hetc ubuntu
 # 将一个已经启动的容器修改为自动重启
 # https://docs.docker.com/engine/reference/commandline/update/
 docker update --restart=always web
+
+# 清空日志
+echo "" > $(docker inspect --format='{{.LogPath}}' web)
 ```
 
 ### INCLUDE

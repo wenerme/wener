@@ -129,6 +129,8 @@ sudo nfsd checkexport
 # 如果修改了 exports 文件
 sudo nfsd update
 showmount -e
+# 查看共享目录
+showmount -e 192.168.34.120
 
 mount -t nfs 192.168.0.100:/share /mnt/nfsshare
 umount 192.168.0.100:/share
@@ -136,6 +138,14 @@ umount 192.168.0.100:/share
 # 关闭 nfs
 sudo nfsd stop
 sudo nfsd disable
+
+# 如果 mac 下 mount 出现 Operation not permitted, 则添加 -o resvport
+sudo mount -t nfs -o resvport 192.168.1.1:/ ~/mnt/alpine/
+
+# 如果想让客户端非 root 访问服务端 root 信息, 则可以
+# all_squash,anonuid=0,anongid=0
+# 使所有用户都作为匿名用户,而匿名用户则默认为 root
+# 也可以指定为特定的用户,例如 id asterisk
 ```
 
 * showmount
@@ -147,6 +157,35 @@ sudo nfsd disable
   * `-a` 导出所有 `/etc/exports` 中的共享配置
   * `-u` 取消共享 `/etc/exports` 中的配置
   * `-r` 在修改 `/etc/exports` 后刷新服务共享列表
+
+* Alpine [NFS](https://wiki.alpinelinux.org/wiki/Setting_up_a_nfs-server)
+* [/etc/exports](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s1-nfs-server-config-exports.html)
+* http://kodi.wiki/view/NFS
+
+
+```
+program vers proto   port
+ 100000    2   tcp    111  portmapper,rpcbind
+ 100000    2   udp    111  portmapper
+ 100005    1   udp    950  mountd
+ 100005    3   udp    950  mountd
+ 100005    1   tcp    884  mountd
+ 100005    3   tcp    884  mountd
+ 100003    2   udp   2049  nfs
+ 100003    3   udp   2049  nfs
+ 100003    2   tcp   2049  nfs
+ 100003    3   tcp   2049  nfs
+ 100024    1   udp    644  status
+ 100024    1   tcp    918  status
+ 100021    0   udp    630  nlockmgr
+ 100021    1   udp    630  nlockmgr
+ 100021    3   udp    630  nlockmgr
+ 100021    4   udp    630  nlockmgr
+ 100021    0   tcp    917  nlockmgr
+ 100021    1   tcp    917  nlockmgr
+ 100021    3   tcp    917  nlockmgr
+ 100021    4   tcp    917  nlockmgr
+```
 
 ## Samba
 

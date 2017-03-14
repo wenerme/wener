@@ -12,7 +12,7 @@ https://docs.jboss.org/hibernate/orm
 
 __开启用于调试的日志__
 
-```yml
+```
 org.hibernate.SQL: debug # 如果开了 show_sql 就可以不用开这个
 org.hibernate.id: info # Logs SQL statements for id generation
 org.hibernate.type: debug # Logs the JDBC-Parameter which are passed to a query (very verboose)
@@ -23,7 +23,7 @@ org.springframework.cache: trace
 ```
 
 __开启用于调试的配置__
-```yml
+```
 hibernate.generate_statistics: true
 hibernate.format_sql: true
 hibernate.show_sql: true
@@ -32,7 +32,7 @@ hibernate.use_sql_comments: true
 
 __二级缓存配置__
 
-```yml
+```
 # 只针对使用了注解的实体进行缓存
 javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
 # 缓存处理类
@@ -45,6 +45,7 @@ hibernate.cache.use_structured_entries: true # 使缓存数据的结构更可读
 hibernate.cache.use_minimal_puts: true # 提示 Hibernate 减少缓存 put
 hibernate.cache.default_cache_concurrency_strategy: nonstrict-read-write # 默认缓存并发级别
 ```
+
 
 ```java
 // Hibernate 统计信息

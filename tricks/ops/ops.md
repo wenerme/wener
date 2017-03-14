@@ -16,9 +16,6 @@ arping -c 1 -I eth0 10.100.10.11
 
 * [Ops School](http://www.opsschool.org/en/latest/)
 
-## CPU
-
-http://ark.intel.com/
 
 ## DELL PERC 6/i
 

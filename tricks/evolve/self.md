@@ -4,13 +4,16 @@
 * [If you don’t finish then you’re just busy, not productive](http://www.jacksimpson.co/finishing-being-productive-busy/)
   * [HN](https://news.ycombinator.com/item?id=13402472)
 
+### Frelance
+* [upwork](https://www.upwork.com/)
+
 ### RethinkDB: why we failed
 * [RethinkDB: why we failed](http://www.defstartup.org/2017/01/18/why-rethinkdb-failed.html)
   * [HN](https://news.ycombinator.com/item?id=13421608)
 
 ### I Only Work Remotely
-[Source](https://shift.newco.co/why-i-only-work-remotely-2e5eb07ae28f)
-[HN](https://news.ycombinator.com/item?id=13519451)
+* [Source](https://shift.newco.co/why-i-only-work-remotely-2e5eb07ae28f)
+  * [HN](https://news.ycombinator.com/item?id=13519451)
 
 灵活工作时间都是骗人的
 晚来晚走可以,早来早走是不行的.

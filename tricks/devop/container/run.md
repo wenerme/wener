@@ -80,6 +80,14 @@ docker exec -it -u root jenkins useradd dev --uid `id -u jenkins` -d /home/dev
 
 Jenkins 是离线的,由于 `jenkins-ci.org` 被墙,所以需要使用 HTTP 代理
 
+## gitea
+
+```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -v /data/gitea:/data \
+  --name gitea gitea/gitea
+```
+
 ## Drone.io
 
 ```bash
@@ -133,6 +141,17 @@ tar -C /var/jenkins_home/go/root -xzf go$GOVERSION.linux-amd64.tar.gz
 # 然后在 Jenkins 中添加环境变量
 # GOROOT=/var/jenkins_home/go/root/go
 # GOPATH=/var/jenkins_home/go
+```
+
+## WatchTower
+
+```bash
+# 将主机上的 docker 配置授权映射到容器内以便于拉取私有仓库
+docker run -d \
+  --name watchtower \
+  -v $HOME/.docker/config.json:/config.json \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  v2tec/watchtower container_to_watch --debug -i 60
 ```
 
 ## Redis
@@ -287,7 +306,7 @@ auto_reload = True
 ; xmlrpcs_port = 8071
 ```
 
-## VPN
+## 代理
 
 ### IKEv2
 
@@ -295,6 +314,11 @@ auto_reload = True
 docker run -d --name ikev2-vpn-server --privileged -p 500:500/udp -p 4500:4500/udp gaomd/ikev2-vpn-server:0.3.0
 # 将 vpn1.example.com 修改为机器的 IP 地址
 docker run -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=vpn1.example.com" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > ikev2-vpn.mobileconfig
+```
+
+### SS
+```bash
+
 ```
 
 ## Postgres

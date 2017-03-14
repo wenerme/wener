@@ -9,12 +9,25 @@
 ```bash
 # 初始化
 eval "$(direnv hook bash)"
+
+# 使用目录下的 .envrc, 需要 direnv allow 来允许
+echo 'export PATH=$PATH:$PWD/bin' > .envrc
+direnv allow
 ```
 
 ## tmux
+* 分屏
+* 多窗口
 
 ## mosh
+* 自动重连的 ssh
+* 不支持内容滚动, 需要配合 tmux 更好
 
+## sshrc
+* [sshrc](https://github.com/Russell91/sshrc)
+* 将本地的 dotfiles 和 vimrc 等通过 ssh 或 mosh 带到远程环境
 
-## gotty
-https://github.com/yudai/gotty
+## ttyd
+* [ttyd](https://github.com/tsl0922/ttyd/)
+  * [gotty](https://github.com/yudai/gotty) 的 fork
+  * 支持 CJK
