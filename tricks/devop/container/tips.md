@@ -1,4 +1,9 @@
 
+## docker-compose
+```bash
+curl -L https://github.com/docker/compose/releases/download/1.10.0/run.sh > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
 
 ## Docker ps 中显示 IP
 ```bash

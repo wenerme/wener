@@ -94,39 +94,3 @@ __字段含义__
 * Authentication
 * Authorization
 * Accounting
-
-
-## LADP
-http://searchsecurity.techtarget.com/definition/Kerberos
-
-Kerberos 5
-https://en.wikipedia.org/wiki/Authentication_server
-Change Password Protocol
-http://projects.spring.io/spring-ldap/
-http://directory.apache.org/
-
-
-ApacheDS 端口为
- 10389 unencrypted or StartTLS
- 10636 SSL
-
-LDAP 端口为
-389
-
-默认用户
-uid=admin,ou=system
-secret
-
-https://www.ldap.com/basic-ldap-concepts
-http://archive.oreilly.com/pub/a/perl/excerpts/system-admin-with-perl/ten-minute-ldap-utorial.html
-
-
-https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html
-http://www.kouti.com/tables/userattributes.htm
-
-字段|全称|含义
-----|----|----
-dn| distinguished name |
-cn| name | 全名
-sn| surname | 姓
-dc| domain component |

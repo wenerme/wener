@@ -276,6 +276,7 @@ bee run -downdoc=true -gendoc=true
 * [FAQ](http://golang.org/doc/faq)
 * [The Three Go Landmines](https://gist.github.com/lavalamp/4bd23295a9f32706a48f)
 * [pkg/plugin](https://tip.golang.org/pkg/plugin/)
+* [Calling Go Functions from Other Languages](https://dev.to/vladimirvivien/calling-go-functions-from-other-languages)
 
 ### 学习资源
 * [《Go编程基础》](https://github.com/Unknwon/go-fundamental-programming)

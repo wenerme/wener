@@ -16,7 +16,7 @@ N						| NetBoot
 Shift				| 安全启动
 Command-V		| 详细模式
 Command-S		| 单用户模式
-Command-Option-P-R	| 重置 PRAM
+Command-Option-P-R	| 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063)
 T						| 启动目标磁盘模式
 
 ## Finder
@@ -215,3 +215,28 @@ date 0101010116
 可参考[该文章](http://matrix.sspai.com/p/dd9c2d80).
 
 解决办法,前往 [苹果组合更新下载页面](https://support.apple.com/downloads/combo), 下载需要的版本, 手动进行安装更新.
+
+#### 常见问题诊断
+* 重置 NVRAM
+* 重置 [SMC](https://support.apple.com/zh-cn/HT201295)
+* 磁盘检测 fsck -fy
+  * [fsck](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck.8.html)
+  * [fsck_hfs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck_hfs.8.html)
+  * http://www.thegeekstuff.com/2012/08/fsck-command-examples
+* 安全启动
+* 无法挂载磁盘
+  * http://apple.stackexchange.com/a/59166/103557
+  * 可以尝试 [asr](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/asr.8.html)
+  * https://en.wikipedia.org/wiki/Apple_Software_Restore
+* http://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition
+* http://www.insanelymac.com/forum/topic/312038-how-to-fix-a-bad-or-broken-efi-partition-to-be-working-with-uefi-booters/
+
+```bash
+# Ubuntu
+apt-get install hfsprogs
+fdisk -l
+# 检测磁盘是否有问题
+fsck.hfsplus /dev/sda2
+# 考虑将其挂载上然后把需要的数据拷贝出来
+mount -t hfsplus -o force,rw /dev/sdb2 /media/mntpoint
+```

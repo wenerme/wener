@@ -13,6 +13,9 @@
 mvn package -Dmaven.repo.remote=http://maven.aliyun.com/nexus/content/groups/public -Dmaven.repo.local="$HOME/repo"
 # 下载单个
 mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public -Dartifact=org.redisson:redisson:3.2.0
+
+# Maven Release
+mvn release:help
 ```
 
 ### 第三方仓库

@@ -2,6 +2,11 @@
 * https://spring.io/blog/category/releases
 * [Spring Initializr](http://start.spring.io/)
 
+## Spring
+
+### 4.3
+* [What's new in 4.3](https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/new-in-4.3.html)
+
 ## Spring Data
 
 ### Ingalls
@@ -35,6 +40,7 @@
 
 
 ## Spring Boot
+
 ### 1.5
 * [1.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes)
 * [1.5.1 Released](https://spring.io/blog/2017/01/30/spring-boot-1-5-1-released)
@@ -100,6 +106,7 @@
 * [1.3.5 Released](https://spring.io/blog/2016/05/10/spring-boot-1-3-5-released)
 
 ## Spring Cloud
+* Spring Cloud [版本关系](http://start.spring.io/info)
 
 ### Dalston
 * Spring Boot 1.5.x
@@ -119,3 +126,44 @@
 
 ## QueryDSL
 http://www.querydsl.com/releases
+
+## Hibernate
+
+### 5.2
+* 要求 Java 8
+  * 可以使用 Query.stream()
+* Session 扩展 EntityManager
+* 支持 JCache
+* Session 级别的 batch size
+  * [How to customize jdbc batch size for each persistence context](https://vladmihalcea.com/2016/09/27/how-to-customize-the-jdbc-batch-size-for-each-persistence-context-with-hibernate/)
+* 全局的时区设置
+  * 针对 Timestamp 和 Time
+  * [How to store timestamps in UTC using the new hibernate.jdbc.time_zone configuration property](http://in.relation.to/2016/09/12/jdbc-time-zone-configuration-property/)
+* [Hibernate ORM 5.2 release](http://in.relation.to/2016/06/01/hibernate-orm-520-final-release/)
+* [User Guide](http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html)
+### 5.1
+* Ad-hoc joins
+* Multi-entity load
+* [ORM 5.1 feature release](http://in.relation.to/2016/02/10/hibernate-orm-510-final-release/)
+### 5.0
+* Hibernate
+  * 新的启动接口
+  * 集成 Hibernate Spatial
+  * 能处理 GIS
+  * Java 8
+    * 日期类型
+    * `@Past`,`@Future` 注解
+  * 支持更多的类型
+    * UUID
+  * Session 支持泛型
+  * 二级缓存引用
+    * 可直接将不可变的实体引用存入二级缓存
+  * 新的文档
+    * [User Guide](http://docs.jboss.org/hibernate/orm/5.0/userguide/html_single/Hibernate_User_Guide.html)
+* Hibernate Search
+* Hibernate OGM
+  * 第一个稳定版
+* Hibernate Validator
+  * 提供很多实用的注解
+* [What's new in Hibernate ORM 5?](http://stackoverflow.com/q/31965179/1870054)
+* Release report [5.0](https://hibernate.atlassian.net/projects/HHH/versions/23150/tab/release-report-done)

@@ -44,6 +44,8 @@ vim /etc/ssh/sshd_config
 # service ssh restart
 
 # 防火墙设置
+# DNS 53
+# mosh allow 60000:61000/udp 或 allow mosh
 ufw allow 22
 ufw allow 80
 ufw allow 443
@@ -62,10 +64,10 @@ ufw enable
 由于 mosh 部分鼠标相关的功能需要最新版,所以建议直接安装 dev 版本
 
 ```bash
-apt-get install software-properties-common
+apt-get install -y software-properties-common
 add-apt-repository ppa:keithw/mosh-dev
 apt-get update
-apt install mosh
+apt install -y mosh
 ```
 
 ## fail2ban
@@ -87,4 +89,24 @@ apt-get update
 apt-get install oracle-java8-installer
 # 如果有多个 Java 环境可调整配置
 update-alternatives --config java
+```
+
+## ipv6
+```bash
+# https://jiandanxinli.github.io/2016-08-06.html
+
+# /etc/sysctl.conf
+# net.ipv6.conf.all.disable_ipv6=0
+# net.ipv6.conf.default.disable_ipv6=0
+# net.ipv6.conf.lo.disable_ipv6=0
+sysctl -p
+
+# https://www.tunnelbroker.net/
+# 选择 linux route2, 然后执行脚本
+
+# 检测 ipv6 是否可用
+# http://ready.chair6.net/?url=wener.me
+
+# 如果操作失败了则删除通道从来
+ip tun del he-ipv6
 ```

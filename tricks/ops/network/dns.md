@@ -1,11 +1,7 @@
 # DNS
 
 
-* https://linux.die.net/man/8/nsupdate
-* http://tinydns.org/
-* https://github.com/sameersbn/docker-bind
-* BIND + Webmin
-* https://github.com/miekg/dns
+
 
 
 ## Tips

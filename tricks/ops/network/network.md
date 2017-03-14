@@ -34,6 +34,17 @@ nc -v -v -l -n -p 8000 | pv > /dev/null
 # 客户端
 time yes | pv |nc -v -v -n 192.168.1.1 8000 >/dev/null
 
+# UDP
+# Listen
+netcat -ul 2115
+# 端口检测
+netcat -zv -u 127.0.0.1  2115
+ls /usr/local/opt/nmap/bin
+# ncat  ndiff  nmap  nping  uninstall_ndiff
 
+# https://nmap.org/ncat/guide/ncat-usage.html
+man ncat
 
+# 端口转发
+ncat -l localhost 8080 --sh-exec "ncat wener.me 80"
 ```

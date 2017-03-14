@@ -10,6 +10,17 @@
 * [CLOUD SPEECH API](https://cloud.google.com/speech/)
 * [CLOUD VISION API](https://cloud.google.com/vision/)
 
+## Driver
+https://github.com/dsoprea/GDriveFS
+
+```bash
+pip install gdrivefs
+gdfstool auth -u
+gdfstool auth -a /var/cache/gdfs.creds "$CODE"
+
+# linux 使用 -o big_writes 可提升速度
+gdfs -o allow_other /var/cache/gdfs.creds /mnt/gdrivefs
+```
 
 ## Voice
 

@@ -21,7 +21,7 @@
 1 TSP  = 5 g
 1/2 TSP = 2.5g
 1/2 CUP = 8 TBSP = 24 TSP = 120 g
-1/4 CUP 60 g
+1/4 CUP = 60 g
 ```
 
 ### 参考

@@ -4,6 +4,7 @@
 
 ## 前缀
 * trie tree
+  * [Trie](https://en.wikipedia.org/wiki/Trie)
   * 前缀树
 * radix tree
   * 根树
