@@ -1,3 +1,15 @@
+# Filesystem
+
+## Tips
+
+N/A | Minix |	Ext | Ext2 | Xia
+----|----|----|----|----
+Max FS size	    | 64 MB | 2 GB	4 TB	2 GB
+Max file size	  | 64 MB	| 2 GB	2 GB	64 MB
+Max file name	  | 16/30 c|	255 c|	255 c|	248 c
+3 times support	| No	| No	| Yes	| Yes
+Extensible	    | No	| No	| Yes	| No
+Var. block size	| No	| No	| Yes	| No
 
 ## 基准测试
 ```bash
@@ -83,7 +95,7 @@ diskutil list
 diskutil unmount /Volumes/<挂载名>
 diskutil unmountdisk /dev/disk2
 # 格式化磁盘
-diskutil eraseDisk HFS+ newdisk disk2
+diskutil eraseDisk HFS+ DISK disk2
 # 磁盘分区
 diskutil partitionDisk disk4 1 GPT HFS+ newdisk R
 
@@ -357,6 +369,8 @@ VS|MBR | GPT
 分区数| 4 | N/A
 
 ### 文件时间
+
+* HN [Linus on btime: “Let’s wait five years” (2010)](https://news.ycombinator.com/item?id=12555160)
 
 时间缩写 | 全称 | 说明
 ----|----|----

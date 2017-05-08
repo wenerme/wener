@@ -12,6 +12,18 @@ MEDIUMTEXT  |    16,777,215 (224−1) bytes = 16 MiB
 LONGTEXT    | 4,294,967,295 (232−1) bytes =  4 GiB
 
 
+```sql
+-- 设置 binlog 超时时间
+SET GLOBAL expire_logs_days=7
+
+-- 查看所有的 binlog
+SHOW BINARY LOGS;
+-- 清除一个 binlog 文件
+PURGE BINARY LOGS TO 'mysql-bin.00123';
+-- 清空所有 binlog
+PURGE BINARY LOGS BEFORE NOW();
+```
+
 ## FAQ
 ### [1071] - Specified key was too long; max key length is 767 bytes
 

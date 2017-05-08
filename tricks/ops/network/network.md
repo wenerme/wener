@@ -1,5 +1,13 @@
 # Network
 
+## Tips
+* tunneling
+  * [HTTP tunneling](https://wiki.archlinux.org/index.php/HTTP_tunneling)
+    * Corkscrew + SSH
+  * [chisel](https://github.com/jpillora/chisel)
+    * [HN](https://news.ycombinator.com/item?id=13957242)
+    * TCP over WS
+
 ## 转发
 
 ```bash
@@ -16,17 +24,6 @@ sed -i 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf;sy
 ### Tips
 
 ```bash
-# 启用网卡
-ifconfig wlan0 up
-# 扫描热点
-iwlist scan
-# 生成配置
-wpa_passphrase ssid-name passphrase > wpa.conf
-
-# 可以使用 -B 参数在后台运行
-wpa_supplicant -Dwext -ieth1 -c/root/wpa.conf
-dhclient -r
-dhclient wlan0
 
 # 速度检测
 # 服务端
@@ -47,4 +44,25 @@ man ncat
 
 # 端口转发
 ncat -l localhost 8080 --sh-exec "ncat wener.me 80"
+```
+
+### 无线
+* [WPA_supplicant](https://wiki.archlinux.org/index.php/WPA_supplicant)
+  * man [wpa_supplicant](https://linux.die.net/man/8/wpa_supplicant)
+  * man [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf)
+* man [iwconfig](https://linux.die.net/man/8/iwconfig)
+* man [iwlist](https://linux.die.net/man/8/iwlist)
+
+```bash
+# 启用网卡
+ifconfig wlan0 up
+# 扫描热点
+iwlist scan
+# 生成配置
+wpa_passphrase ssid-name passphrase > wpa.conf
+
+# 在前台运行以便调试, 可以使用 -B 参数在后台运行
+wpa_supplicant -Dwext -ieth1 -c/root/wpa.conf
+dhclient -r
+dhclient wlan0
 ```

@@ -13,9 +13,16 @@
 ## Auth 2.0
 [Auth 2](http://oauth.net/2/)
 
+* [OAuth vs OAuth2](http://stackoverflow.com/q/4113934/1870054)
 * 是一套认证框架
 * 规范复杂且庞大
 * 主要用于对外提供用户认证服务
+* 采用
+  * Google [OAuth Playground](https://developers.google.com/oauthplayground/)
+  * 豆瓣 [OAuth2](https://developers.douban.com/wiki/?title=oauth2)
+  * [理解 OAuth2](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)
+  * 腾讯 [OAuth2 开发文档](http://wiki.open.qq.com/wiki/mobile/OAuth2.0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3)
+  * 微博 [OAuth2](http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E)
 
 __强项__
 
@@ -94,3 +101,7 @@ __字段含义__
 * Authentication
 * Authorization
 * Accounting
+
+## Keycloak
+*
+* YouTuBe [Keycloak: A New Open Source Authentication Server](https://www.youtube.com/watch?v=lUO4hjA6bME)

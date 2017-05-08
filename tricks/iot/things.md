@@ -133,55 +133,6 @@ watch -n 0.1 "sudo dmesg | tail -n $((LINES-6))"
 
 ## Platforms
 
-### RPi
-https://en.wikipedia.org/wiki/Raspberry_Pi
-
-https://www.raspberrypi.org/blog/vote-top-20-raspberry-pi-projects-magpi/
-
-__规格__
-
-型号 | SoC | Arch | Mem | CPU |
-----|----|----|----
-RPi 1 A | BCM2835 | ARMv6 32bit | 256 MB | 700 MHz single-core ARM1176JZF-S
-RPi 1 A+/B/B+ | - | - | 512 MB | -
-RPi 2 B | BCM2836 | ARMv7 32bit | 1G | 900 MHz 32-bitquad-core ARM Cortex-A7
-RPi 3 B | BCM2837 | ARMv8 64/32 bit | - | 1.2 GHz 64-bit quad-core ARM Cortex-A53
-
-__GPU__
-
-Broadcom VideoCore IV @ 250 MHz (BCM2837: 3D part of GPU @ 300 MHz, video part of GPU @ 400 MHz)
-OpenGL ES 2.0 (BCM2835, BCM2836: 24 GFLOPS / BCM2837: 28.8 GFLOPS)
-MPEG-2 and VC-1 (with license),[48] 1080p30 H.264/MPEG-4 AVC high-profile decoder and encoder (BCM2837: 1080p60)
-
-
-#### RPi 1
-
-http://www.raspberrypi.org/wp-content/uploads/2012/02/BCM2835-ARM-Peripherals.pdf
-
-```
-Rev 1 Raspberry Pi
-+------+------+--------+
-| GPIO | Phys | Name   |
-+------+------+--------+
-|   0  |   3  | SDA    |
-|   1  |   5  | SCL    |
-|   4  |   7  | GPIO 7 |
-|   7  |  26  | CE1    |
-|   8  |  24  | CE0    |
-|   9  |  21  | MISO   |
-|  10  |  19  | MOSI   |
-|  11  |  23  | SCLK   |
-|  14  |   8  | TxD    |
-|  15  |  10  | RxD    |
-|  17  |  11  | GPIO 0 |
-|  18  |  12  | GPIO 1 |
-|  21  |  13  | GPIO 2 |
-|  22  |  15  | GPIO 3 |
-|  23  |  16  | GPIO 4 |
-|  24  |  18  | GPIO 5 |
-|  25  |  22  | GPIO 6 |
-+------+------+--------+
-```
 
 
 ### PL2303

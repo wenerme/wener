@@ -1,5 +1,6 @@
 # Algorithms
 
+* [A Tour of Machine Learning Algorithms](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)
 
 ## Top 10 Machine Learning Algorithms
 

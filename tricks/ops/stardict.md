@@ -14,3 +14,9 @@
   * 文档格式 http://www.huzheng.org/stardict/StarDictFileFormat
   * Github 源码 https://github.com/huzheng001/stardict-3
   * 词库下载 http://download.huzheng.org/
+
+
+http://xdxf.sourceforge.net/
+XDXF is a project to unite all existing open dictionaries and provide both users and developers with universal XML-based format, convertible to and from other popular dictionary formats.
+
+https://sourceforge.net/projects/xdxf/files/dicts-XDXF/

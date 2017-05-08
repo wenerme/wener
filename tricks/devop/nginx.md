@@ -1,19 +1,5 @@
 # NGINX
 
-## 主要内容
-### 管理
-### 代理和缓存
-### 重写和访问控制
-### 管理出入流
-### 性能调优
-
-## listen
-http://nginx.org/en/docs/http/ngx_http_core_module.html#listen
-```
-listen address[:port] [default_server] [ssl] [http2 | spdy] [proxy_protocol] [setfib=number] [fastopen=number] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [ipv6only=on|off] [reuseport] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
-listen port [default_server] [ssl] [http2 | spdy] [proxy_protocol] [setfib=number] [fastopen=number] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [ipv6only=on|off] [reuseport] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
-listen unix:path [default_server] [ssl] [http2 | spdy] [proxy_protocol] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
-```
 
 ## Tips
 
@@ -26,6 +12,18 @@ listen unix:path [default_server] [ssl] [http2 | spdy] [proxy_protocol] [backlog
 * [ngx_http_auth_request_module](http://nginx.org/en/docs/http/ngx_http_auth_request_module.html)
   * 可将授权交由其他请求处理
   * [教程](https://developers.shopware.com/blog/2015/03/02/sso-with-nginx-authrequest-module/)
+
+* Reference
+  * [agentzh's Nginx Tutorials ](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
+  * [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+  * [第三方模块列表](https://www.nginx.com/resources/wiki/modules/)
+  * [Ngx PageSpeed](http://ngxpagespeed.com/)
+  * [Doc](http://nginx.org/en/docs/)
+  * [NGINX Reverse Proxy](https://www.nginx.com/resources/admin-guide/reverse-proxy/)
+  * [NAXSI](https://github.com/nbs-system/naxsi)
+     * is an open-source, high performance, low rules maintenance WAF for NGINX
+     * NAXSI means Nginx Anti XSS & SQL Injection.
+
 
 ```bash
 # Homebrew Install
@@ -70,14 +68,20 @@ http {
 }
 ```
 
-## Reference
-* [agentzh's Nginx Tutorials ](http://openresty.org/download/agentzh-nginx-tutorials-en.html)
-* [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
-* [模块列表](https://www.nginx.com/resources/wiki/modules/)
-* [Ngx PageSpeed](http://ngxpagespeed.com/)
-* [Doc](http://nginx.org/en/docs/)
-* [NGINX Reverse Proxy](https://www.nginx.com/resources/admin-guide/reverse-proxy/)
-* [NAXSI](https://github.com/nbs-system/naxsi)
-   * is an open-source, high performance, low rules maintenance WAF for NGINX
-   * NAXSI means Nginx Anti XSS & SQL Injection.
-<!-- DONE -->
+
+
+
+## 主要内容
+### 管理
+### 代理和缓存
+### 重写和访问控制
+### 管理出入流
+### 性能调优
+
+## listen
+http://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+```
+listen address[:port] [default_server] [ssl] [http2 | spdy] [proxy_protocol] [setfib=number] [fastopen=number] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [ipv6only=on|off] [reuseport] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
+listen port [default_server] [ssl] [http2 | spdy] [proxy_protocol] [setfib=number] [fastopen=number] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [ipv6only=on|off] [reuseport] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
+listen unix:path [default_server] [ssl] [http2 | spdy] [proxy_protocol] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
+```

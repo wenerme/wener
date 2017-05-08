@@ -10,6 +10,15 @@
 -d
 ```
 
+## xhyve
+
+```bash
+# 安装 https://github.com/zchee/docker-machine-driver-xhyve#install
+docker-machine create --driver xhyve xhyve
+eval `docker-machine env xhyve`
+docker info
+```
+
 ## MySQL
 ```bash
 # 自定义配置
@@ -31,19 +40,19 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   --name mysql mysql
 ```
 
-## OwnCloud
+## OwnCloud/Nextcloud
 ```bash
 # 需要先创建名为 mysql 的 mysql 容器,如果没有,可去除 --link
 # 启动 OwnCloud
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   -p 8080:80 \
-  -v /opt/apps/owncloud:/var/www/html \
+  -v /data/owncloud:/var/www/html \
   --link mysql:mysql \
   --name owncloud owncloud
 ```
 
 ### 反向代理
-sudo nano /opt/apps/owncloud/config/config.php
+sudo nano /data/owncloud/config/config.php
 ```php
 <?php
 /* $CONFIG */
@@ -178,6 +187,22 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 docker run -it --link some-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
 ```
 
+* 由于 MongoDB 使用的 memmap, 通过 vbox 的映射不能够做共享数据卷, 但可以使用 xhyve 驱动的 docker-machine
+
+```bash
+# mongo with mongoclient
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  --network service \
+  -p 27017:27017 \
+  -v $HOME/data/mongo:/data/db \
+  --name mongo mongo
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+    --network service \
+    -e MONGO_URL=mongodb://mongo:27017 \
+    -p 3000:3000 \
+    --name mongoclient mongoclient/mongoclient
+```
+
 ## RethinkDB
 
 ```bash
@@ -215,6 +240,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   --name nexus sonatype/nexus:oss
 
 # nexus3 支持 docker
+# 默认端口为 8081
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   -e NEXUS_CONTEXT=nexus \
   -p8004:8004 -p8003:8003 -p8081:8081 \
@@ -259,7 +285,7 @@ docker run -d -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo --name odoo-db pos
 # 配置文件 /etc/odoo/openerp-server.conf
 # 扩展路径 /mnt/extra-addons
 # docker run -p 8069:8069 --name odoo --link db:db -t odoo -- 自定义参数
-docker run -d -p 8069:8069 -v `pwd`/addons:/mnt/extra-addons --name odoo --link odoo-db:db -t odoo
+docker run -d -p 8069:8069 -v /data/odoo/addons:/mnt/extra-addons --name odoo --link odoo-db:db -t odoo
 ```
 
 __默认 openerp-server.conf__
@@ -319,6 +345,32 @@ docker run -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=vpn1.example.com"
 ### SS
 ```bash
 
+```
+
+## XAMPP
+* [tomsik68/xampp](https://hub.docker.com/r/tomsik68/xampp/)
+* mysql
+  * /opt/lampp/var/mysql
+* phpadmin
+  * /opt/lampp/phpmyadmin/config.inc.php
+    * 配置数据库密码等
+```php
+// 在网页上输入账号密码
+$cfg['Servers'][$i]['auth_type']    = 'cookie';
+$cfg['Servers'][$i]['AllowNoPassword']     = false;
+```
+
+
+```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 22222:22 -p 80:80 -p 443:443 -d \
+  -v/data/xampp/www:/www \
+  --name xampp  tomsik68/xampp
+
+# 重启 xampp
+/opt/lampp/lampp restart
+# 重启 apache
+/opt/lampp/bin/httpd -k restart
 ```
 
 ## Postgres

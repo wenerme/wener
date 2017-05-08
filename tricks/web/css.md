@@ -36,7 +36,10 @@ https://getmdl.io/
     * [HN](https://news.ycombinator.com/item?id=13031492)
     * 可视化的方式解释 CSS 属性
 
+http://htmlreference.io/
 
+* scss
+  * long shadow http://codepen.io/danieltott/pen/AjKay
 
 ### CSS 滤镜
 * https://css-tricks.com/almanac/properties/f/filter/
@@ -54,12 +57,29 @@ https://getmdl.io/
 }
 ```
 
+### 在 CSS 中使用 FontAwesome
+* [A list of Font Awesome icons and their CSS content values](http://astronautweb.co/snippet/font-awesome/)
+
+```css
+.mytextwithicon {
+    position:relative;
+}    
+.mytextwithicon:before {
+    content: "\25AE"; /* 修改为需要的值 */
+    font-family: FontAwesome;
+    left:-5px;
+    position:absolute;
+    top:0;
+ }
+```
+
 ### flex
 
 * [caniuse](http://caniuse.com/#feat=flexbox)
 * [flexbugs](https://github.com/philipwalton/flexbugs) 由社区维护的 flex 在各个浏览器中的 BUG 和解决方法
 * float, clear 和 vertical-align 不影响 flex 元素
 * [A guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [滚动内容](http://stackoverflow.com/a/14964944/1870054)
 
 ```css
 /* 针对容器的属性 */

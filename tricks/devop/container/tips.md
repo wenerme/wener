@@ -53,9 +53,11 @@ docker-machine create -d virtualbox --virtualbox-memory 4096 default
 docker pull gcr.io/google_containers/etcd-amd64:3.0.4
 docker save gcr.io/google_containers/etcd-amd64:3.0.4 | gzip > etcd-amd64.3.0.4.tar.gz
 rsync -avzhe ssh ./images/ root@192.168.2.2:/root/images/
-
 # 然后在转移到的机器上导入
 zcat ~/images/etcd-amd64.3.0.4.tar.gz | docker load
+
+# 也可以一次性操作,在没有私有仓库时非常方便
+docker save wener/web | gzip | ssh user@host 'zcat | docker load'
 
 ```
 
