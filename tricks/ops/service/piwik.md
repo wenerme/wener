@@ -1,5 +1,16 @@
 # Piwik
 
+## Tips
+
+```ini
+
+; 外部网络代理
+[proxy]
+host = proxy      ; Proxy host: the host name of your proxy server (mandatory)
+port =      ; Proxy port: the port that the proxy server listens to. There is no standard default, but 80, 1080, 3128, and 8080 are popular
+username =      ; Proxy username: optional; if specified, password is mandatory
+password =      ; Proxy password: optional; if specified, username is mandatory
+```
 
 ## 活动支持
 

@@ -13,7 +13,7 @@ locale-gen zh_CN.UTF-8
 apt-get update
 apt-get upgrade
 
-# 出现 The following packages have been kept back 可考虑 dist-upgrade 或 install
+# 出现 The following packages have been kept back 可考虑 apt dist-upgrade 或 install
 # 当 /etc/apt/sources.list* 有其他仓库时使用 dist-upgrade 相对没那么安全
 
 # 修改密码

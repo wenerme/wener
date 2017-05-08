@@ -16,6 +16,10 @@ mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public
 
 # Maven Release
 mvn release:help
+
+# 获取项目信息,在命令行下比较有用
+mvn -q -Dexec.executable="echo" -Dexec.args='${project.artifactId}' --non-recursive org.codehaus.mojo:exec-maven-plugin:exec
+
 ```
 
 ### 第三方仓库

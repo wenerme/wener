@@ -26,7 +26,7 @@
   * 支持更多的 MongoDB 聚合操作
   * 支持 Redis GEO 指令
   * 更新到 Cassandra 3.0, 支持更多的类型和查询方法
-  * 仓库查询方法支持 Javaslang 的 Option, 集合和 map 类型
+  * 仓库查询方法支持 Javaslang 的 Optional, 集合和 map 类型
   * 支持 Java 8 中的 Optionl 和 Stream, 支持 JSR 310
 
 ### Hopper
@@ -167,3 +167,12 @@ http://www.querydsl.com/releases
   * 提供很多实用的注解
 * [What's new in Hibernate ORM 5?](http://stackoverflow.com/q/31965179/1870054)
 * Release report [5.0](https://hibernate.atlassian.net/projects/HHH/versions/23150/tab/release-report-done)
+
+
+## FAQ
+### Spring Boot 与 Hibernate 5
+* 1.5.x 与 Hibernate 5.2 兼容不好
+  * SessionFactory 与 EMF 相互之间似乎有冲突
+* Hazelcast-Hibernate52 支持 Hibernate 5.2
+* 但是 Hazelcast-Hibernate5-1.2 不支持 Hibernate-5.0.11 最多支持到 5.0.10
+  * 接口有变动

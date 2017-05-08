@@ -1,5 +1,8 @@
 # Java 9
 
+## Tips
+* [55 New Features in JDK 9](https://www.slideshare.net/SimonRitter/55-new-features-in-jdk-9)
+
 ## Contents
 * [JSR 379: JavaTM SE 9 Release Contents](https://jcp.org/en/jsr/detail?id=379)
 * [Java9](http://openjdk.java.net/projects/jdk9/)

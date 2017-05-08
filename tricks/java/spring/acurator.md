@@ -7,6 +7,10 @@ EnvironmentManagerMvcEndpoint
 POST  /env 设置环境变量
 POST  /env/reset
 
+LoggersMvcEndpoint
+GET   /loggers | /loggers.json 获取所有的日志级别
+GET   /loggers/{name}
+POST  /loggers/{name}
 
 RefreshBusEndpoint
 POST /bus/refresh

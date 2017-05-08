@@ -31,8 +31,10 @@ csvsql --db postgresql:///database --insert data.csv
 sql2csv --db postgresql:///database --query "select * from data" > extract.csv
 ```
 
+
+
 ### [csv2json](https://github.com/darwin/csv2json)
-```
+```bash
 # Install
 gem install csv2json
 # gem install orderedhash
