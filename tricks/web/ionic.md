@@ -3,6 +3,8 @@
 ## Tips
 
 * Codepen [Ionic](http://codepen.io/ionic/pens/public/)
+* Plugins
+  * [cordova-plugin-wechat](https://github.com/xu-li/cordova-plugin-wechat)
 
 ```bash
 # 安装
@@ -24,6 +26,13 @@ yarn add --dev ionic
 ```
 
 ## FAQ
+
+### ISSUES
+* Tabs 页面黑屏 https://github.com/driftyco/ionic/issues/8508
+* Uncaught (in promise): nav controller was destroyed https://github.com/driftyco/ionic/issues/11454
+* Ionic v3 - Runtime Error Uncaught (in promise): removeView was not found https://github.com/driftyco/ionic/issues/11443
+* Deferred long-running timer task(s) https://github.com/angular/material/issues/8236
+  * `.md-scroll-mask { position: initial;}`
 
 ### 添加自定义图标
 

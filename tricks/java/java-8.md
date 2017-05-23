@@ -25,3 +25,8 @@ __缺点__
 __参考__
 
 * [Java 8: CompletableFuture in action](https://dzone.com/articles/java-8-completablefuture)
+
+## BUGS
+
+### JDK-8064803
+* [Story of a Java 8 Compiler Bug (JDK-8064803)](https://blog.dogan.io/2015/03/02/java-8-compiler-bug/)

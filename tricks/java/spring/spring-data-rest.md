@@ -2,7 +2,8 @@
 * [Spring HATEOAS 文档](http://docs.spring.io/spring-hateoas/docs/current/reference/html/)
 
 ## Tips
-可提供 `RepositoryRestConfigurer` (或扩展 `RepositoryRestConfigurerAdapter`) 来实现对 Spring Data REST 的定制化配置.
+* 可提供 `RepositoryRestConfigurer` (或扩展 `RepositoryRestConfigurerAdapter`) 来实现对 Spring Data REST 的定制化配置.
+
 
 ## 使用虚拟映射字段
 ```java

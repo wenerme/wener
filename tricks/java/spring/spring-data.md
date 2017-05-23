@@ -1,6 +1,10 @@
 # Spring Data
+
+## Tips
 * [Spring Data 示例](https://github.com/spring-projects/spring-data-examples)
 * [Spring Data Commons 文档](http://docs.spring.io/spring-data/commons/docs/current/reference/html/)
+* 实现将 PathVariable 从主键转为实体的转换器为 DomainClassConverter
+  * 主要使用: Repositories, RepositoryInformation, RepositoryInvoker 进行操作
 
 
 ## Spring Data 查询关键字

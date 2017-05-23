@@ -39,3 +39,18 @@ cp app-icon-1024.png app-icon.iconset/icon_512x512@2x.png
 iconutil -c icns app-icon.iconset
 rm -R app-icon.iconset
 ```
+
+
+## FAQ
+
+
+### Mac 打包后非常大
+[electron/electron#2003](https://github.com/electron/electron/issues/2003)
+
+```
+osx       - 117.3 mb
+linux32   -  60.3 mb
+linux64   -  55.2 mb
+win ia32  -  47.8 mb
+win x64   -  66.2 mb
+```

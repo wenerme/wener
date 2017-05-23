@@ -7,8 +7,16 @@
   * [mongo-shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
   * [Connection String](https://docs.mongodb.com/manual/reference/connection-string/)
     * `mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]`
+* 建模
+  * [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
+  * [Data Model](https://docs.mongodb.com/manual/data-modeling/)
+    * [Data Model Examples and Patterns](https://docs.mongodb.com/manual/applications/data-models/)
+    * [DBRef](https://docs.mongodb.com/manual/reference/database-references/)
+* FAQ
+  * Java 目前无法通过 SSH 转发链接 ReplicaSet
 
 ```js
+
 ```
 
 ```bash

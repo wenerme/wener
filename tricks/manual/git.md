@@ -12,6 +12,24 @@ git clone /repo/my-project /src/my-project
 
 ```
 
+## FAQ
+
+### 自定义配置
+* 配置定义 [git-config](https://git-scm.com/docs/git-config)
+* 配置参考
+	* [pksunkara/.gitconfig](https://gist.github.com/pksunkara/988716)
+
+Git 不允许直接引用仓库中的文件作为配置, 但可以通过修改本地配置来 include 仓库中的配置文件.
+
+```bash
+# 创建仓库中共享的配置
+touch .gitconfig
+# 修改 .git/config 来引入仓库中的 .gitconfig, 这个命令会添加一下内容到配置文件中
+# [include]
+#  path = ../.gitconfig
+git config --local include.path ../.gitconfig
+```
+
 ### 将另外一个仓库合并为当前仓库的一个子目录
 ```
 git subtree add -P <prefix> <repo> <rev>

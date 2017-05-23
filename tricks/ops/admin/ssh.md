@@ -10,6 +10,7 @@
 __常用配置__
 
 ```bash
+# 配置使用的端口
 Port 22
 
 # 是否转发网关
@@ -30,6 +31,12 @@ Match User dev
 # 禁止部分用户使用 TTY
 Match User player
   PermitTTY no
+```
+
+```bash
+# 强制使用密码
+ssh user:@example.com
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```
 
 ## Tunnel

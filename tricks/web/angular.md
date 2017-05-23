@@ -9,6 +9,9 @@
   * 例如 `<ng-content select="header"></ng-content>`
 * [angular-cli.json](https://github.com/angular/angular-cli/wiki/angular-cli)
 * [ngrx/store](https://github.com/ngrx/store)
+* [Angular Weekly Meeting Notes](http://g.co/ng/weekly-notes)
+* [Angular Universal Design](https://docs.google.com/document/d/1eGEq0N7czS8nWWuCV3n4eMF3GFzk88rsN0bll6yE0bE/edit?usp=sharing)
+
 
 ```js
 // 处理 window 的事件
@@ -44,18 +47,30 @@ source-map-explorer dist/main.bundle.js
 
 ```
 
+## SSR
+* [Server Side Rendering With Angular4](https://www.softwarearchitekt.at/post/2017/03/07/server-side-rendering-with-angular-4.aspx)
+
+```
+```
+
 ## FAQ
 
-### Mac 打包后非常大
-[electron/electron#2003](https://github.com/electron/electron/issues/2003)
+### 如何在 ios 开发调试
+* 建议使用 [safari](https://developer.apple.com/safari/tools/) 进行开发
+* Safari 的技术预览版也都可以模拟设备和开启控制台
+* ios 上默认为 Safari 浏览器内核, 因此在浏览器中调试和在真机调试没太大区别
 
-```
-osx       - 117.3 mb
-linux32   -  60.3 mb
-linux64   -  55.2 mb
-win ia32  -  47.8 mb
-win x64   -  66.2 mb
-```
+
+### date pipe 在 ios/Safari 下无法正常工作
+* https://github.com/angular/angular/issues/7008
+* 由于 Safari 对时间格式的要求比较严格, 例如 '2017-1-1' 这样的格式在 Safari 下是无法正常处理的
+* 最好的解决办法是基于 [momentjs](https://momentjs.com/) 实现一个自己的 date pipe
+* 或者在传入到 date pipe 前确保 date 是正确的格式
+
+### AoT 无法 Watch
+https://github.com/angular/angular/issues/12867
+
+只能是在最终发布构建时使用 aot.
 
 ### AoT 在遇到 Sass 出现找不到资源的情况
 https://github.com/angular/angular/issues/11897
