@@ -97,6 +97,30 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   --name gitea gitea/gitea
 ```
 
+## PHP
+
+官方提供了很多 PHP 版本, 如果需要额外的扩展建议自己 build 一个, 例如
+
+__php.dockerfile__
+```dockerfile
+FROM php:5-apache
+RUN apt-get update
+RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev  \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb
+RUN pecl install redis && docker-php-ext-enabl redis
+```
+
+```bash
+docker build -t wener/php -f php.dockerfile .
+docker run -d --restart always -p 80:80 -v /data/php/www:/var/www/html --name php wener/php
+# 也可以添加自己的配置
+# 设置默认时区
+echo 'date.timezone=Asia/Shanghai' > /data/php/config/php.ini;
+docker run -d --restart always  -p 80:80 -v /data/php/www:/var/www/html \
+  -v /data/php/config/php.ini:/usr/local/etc/php/php.ini  --name php wener/php
+```
+
 ## Drone.io
 
 ```bash

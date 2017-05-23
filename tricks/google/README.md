@@ -10,6 +10,9 @@
 * [CLOUD SPEECH API](https://cloud.google.com/speech/)
 * [CLOUD VISION API](https://cloud.google.com/vision/)
 
+## Photo
+* [](https://developers.google.com/picasa-web/docs/3.0/developers_guide_protocol)
+
 ## Driver
 https://github.com/dsoprea/GDriveFS
 

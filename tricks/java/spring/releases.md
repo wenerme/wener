@@ -4,6 +4,23 @@
 
 ## Spring
 
+### 5.0
+* [What's New in Spring Framework 5.x](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-the-Spring-Framework#whats-new-in-spring-framework-5x)
+* Java8+
+* JavaEE7+
+* Kotlin 1.1+
+  * [Introducing Kotlin support in Spring Framework 5.0](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0)
+* Core
+  * `@Nullable` 注解的注入会被认为是可选的
+  * `spring-jcl` 模块用于桥接 jcl
+* MVC
+  * Servlet 3.1
+  * Reactor 3.1
+  * [Jackson 2.9](https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.9)
+  * Protobuf 3
+  * 新的路径匹配类 [PathPattern](http://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/javadoc-api/org/springframework/web/util/patterns/PathPattern.html)
+
+
 ### 4.3
 * [What's new in 4.3](https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/new-in-4.3.html)
 
@@ -41,10 +58,23 @@
 
 ## Spring Boot
 
+### 2.0
+* [Spring Boot 2.0 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes)
+* Java8+
+* Spring Framework 5.0
+* 连接池默认为 HikariCP
+* 移除之前废弃的内容
+  * Spring Loaded
+  * CRaSH
+
 ### 1.5
 * [1.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes)
 * [1.5.1 Released](https://spring.io/blog/2017/01/30/spring-boot-1-5-1-released)
 * [1.5 Configuration Changelog](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Configuration-Changelog)
+* 1.5.3
+  * Java 7+
+  * Spring Framework 4.3.8.RELEASE
+
 * Deps
   * Spring Data Ingalls
   * Jetty 9.4

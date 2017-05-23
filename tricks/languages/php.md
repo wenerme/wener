@@ -1,6 +1,9 @@
 # PHP
 
 ## Tips
+* https://github.com/psecio/iniscan
+* https://www.owasp.org/index.php/PHP_Configuration_Cheat_Sheet
+* http://www.phptherightway.com/
 
 ```bash
 # CentOS
@@ -10,6 +13,56 @@ yum instal yum-utils
 # 查看已安装的文件
 repoquery -lq --installed time
 ```
+
+```ini
+# PHP 常用配置
+date.timezone=Asia/Shanghai
+```
+
+## Docker
+
+__php.dockerfile__
+```dockerfile
+FROM php:5-apache
+RUN apt-get update
+RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev  \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb
+RUN pecl install redis && docker-php-ext-enable redis
+```
+
+__php-nginx.dockerfile__
+```dockerfile
+FROM php:5-fpm
+RUN apt-get update
+RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev  \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb
+RUN pecl install redis && docker-php-ext-enable redis
+
+RUN apt-get install -y nginx
+
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+EXPOSE 80
+
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+__entrypoint.sh__
+```shell
+#!/bin/sh
+set -e
+set -o xtrace
+[ -z "$WWW_ROOT" ] || sed -i -e "s#/var/www/html#$WWW_ROOT#g" /etc/nginx/nginx.conf
+
+php-fpm -t && nginx -t
+
+php-fpm -D
+nginx -g 'daemon off;'
+```
+
+使用 nginx, 运行时需要映射适当的 nginx.conf
 
 ## laravel
 
