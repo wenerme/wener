@@ -92,10 +92,10 @@ public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
 // 基于表达式的访问控制
 // 即便不是用 access, 实际生成的也都是类似的表达式
 http
-		.authorizeRequests()
+    .authorizeRequests()
         // 可以直接调用上下文中的 bean 对象来检测
         // 其中的 request 参数是在 WebSecurityExpressionRoot 定义的
-				.antMatchers("/user/**").access("@webSecurity.check(authentication,request)")
+        .antMatchers("/user/**").access("@webSecurity.check(authentication,request)")
         // 访问路径参数
         .antMatchers("/user/{userId}/**").access("@webSecurity.checkUserId(authentication,#userId)")
 ```
