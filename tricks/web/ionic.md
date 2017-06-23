@@ -6,20 +6,22 @@
 * Plugins
   * [cordova-plugin-wechat](https://github.com/xu-li/cordova-plugin-wechat)
 
+* https://github.com/yarnpkg/yarn/issues/648
+
 ```bash
 # 安装
 yarn global add ionic
 # 确保 ionic 在路径下
 export PATH="$(yarn global bin):$PATH"
 
-# 窗口一个简单的 tab 切换 app
+# 创建一个简单的 tab 切换 app
 # -w 不生成 Cordova 相关
 # -s 使用 SCSS
 ionic start -w -s app-demo tabs
 cd app-demo
 ionic serve
 
-# 可以考虑将 ionic 作为开发依赖, 以便于和全局的版本冲突
+# 可以考虑将 ionic 作为开发依赖, 以避免和全局的版本冲突
 # 这样也可以直接使用 yarn 执行 ionic 来生成内容
 # 例如 yarn run -- ionic g page MyHome
 yarn add --dev ionic
@@ -51,6 +53,20 @@ yarn add --dev ionic
   opacity: 0.9;
 }
 ```
+
+### No provider for NavController
+* [#5543](https://github.com/ionic-team/ionic/issues/5543)
+* [#9581](https://github.com/ionic-team/ionic/issues/9581)
+* 无法在 Service 中注入 NavController
+* 解决方法
+  1. 通过 `Events` 进行中转
+  2. 注入 `App`, 然后
+```js
+get navCtrl(){
+  return this.app.getRootNav()
+}
+```
+
 
 ### 添加页面
 

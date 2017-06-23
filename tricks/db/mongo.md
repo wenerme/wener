@@ -26,3 +26,24 @@ mongodump -v --db test  --host myhost --port 27017 --out mg-`date +%Y%m%d`
 # 导入一个库
 mongorestore -v --db test  --host myhost --port 27017 mg-`date +%Y%m%d`/db
 ```
+
+## FAQ
+
+
+### 启动
+
+__mongod.conf__
+```yaml
+# https://docs.mongodb.com/manual/reference/configuration-options/
+systemLog:
+  destination: file
+  path: mongo.log
+  logAppend: true
+storage:
+  dbPath: . # 数据存储于当前目录
+net:
+  bindIp: 127.0.0.1
+```
+```bash
+mongod --config ./mongo.conf --fork
+```

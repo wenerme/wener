@@ -1,5 +1,33 @@
 # GameDev
 
+## JS 游戏引擎
+* https://github.com/showcases/javascript-game-engines
+* https://html5gameengine.com/
+* https://github.com/photonstorm/phaser
+  * Phaser is a fun, free and fast 2D game framework for making HTML5 games for desktop and mobile web browsers, supporting Canvas and WebGL rendering.
+* https://github.com/pixijs/pixi.js
+  * Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback
+  * features
+    * WebGL renderer (with automatic smart batching allowing for REALLY fast performance)
+    * Canvas renderer (Fastest in town!)
+    * Full scene graph
+    * Super easy to use API (similar to the flash display list API)
+    * Support for texture atlases
+    * Asset loader / sprite sheet loader
+    * Auto-detect which renderer should be used
+    * Full Mouse and Multi-touch Interaction
+    * Text
+    * BitmapFont text
+    * Multiline Text
+    * Render Texture
+    * Primitive Drawing
+    * Masking
+    * Filters
+    * User Plugins
+* https://github.com/excaliburjs/Excalibur
+  * A simple HTML5 Canvas game engine written in TypeScrip
+* http://voxeljs.com/
+
 
 
 ## 状态同步

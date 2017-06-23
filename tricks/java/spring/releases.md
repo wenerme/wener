@@ -71,6 +71,7 @@
 * [1.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes)
 * [1.5.1 Released](https://spring.io/blog/2017/01/30/spring-boot-1-5-1-released)
 * [1.5 Configuration Changelog](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Configuration-Changelog)
+
 * 1.5.3
   * Java 7+
   * Spring Framework 4.3.8.RELEASE

@@ -1,8 +1,17 @@
 # Spring Boot
+
+## Tips
+
 ```bash
 # 安装命令行工具
 brew tap pivotal/tap
 brew install springboot
+# 安装 Spring Cloud 扩展
+# https://cloud.spring.io/spring-cloud-cli/
+spring install org.springframework.cloud:spring-cloud-cli:1.3.2.RELEASE
+
+# 如果想用加密的功能还需要安装 jce
+# http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
 ```
 
 ## 参考
@@ -34,6 +43,16 @@ brew install springboot
 ## 重要的处理接口
 * org.springframework.util.PathMatcher
   路径的匹配格式,比如 cors 配置
+* org.springframework.boot.logging.LoggingSystem
+  * 用于控制日志级别
+  * 运行时会暴露 logger endpoint, 可查看和修改日志级别
+    * org.springframework.boot.actuate.endpoint.LoggersEndpoint
+  * 日志级别
+    * TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+  * 日志属性分为 configuredLevel 和 effectiveLevel
+    * 修改时使用 configuredLevel
+  * Spring Boot 自带了较多的 Logback 配置
+    * org.springframework.boot.logging.logback
 
 ## 配置
 

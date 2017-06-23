@@ -1,5 +1,10 @@
 # OS X
 
+## Tips
+* [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
+* [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
+* [Identify your iPad model](https://support.apple.com/en-us/HT201471)
+
 ## Brew
 Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
 
@@ -45,6 +50,8 @@ xcode-select --install
 ## Tips
 * 好看的屏保 https://github.com/JohnCoates/Aerial
 	* `brew cask install aerial`
+* [iousbhiddriver](https://github.com/thefloweringash/iousbhiddriver-descriptor-override)
+	* 支持 Noppoo Choc 的驱动
 
 ```bash
 # 查看可用的分辨率
@@ -203,6 +210,13 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 
 * [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
 * [Disk Maker X](http://diskmakerx.com/)
+* 操作系统下载
+	* App Store [macOS Sierra](https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=11&path=mac%2fmacossierra)
+
+#### 在 x86 上安装
+* [UniBeast: Install macOS Sierra on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/)
+* [unibeast 7](https://www.tonymacx86.com/resources/unibeast-7-1-1.333/)
+	* 支持 macOS Sierra
 
 #### Installer can't verified 安装器不能被验证
 使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避

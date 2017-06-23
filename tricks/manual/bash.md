@@ -1,23 +1,31 @@
+# Bash
 
-## Prefix/Suffix
+## Tips
+
+## FAQ
+
+### Prefix/Suffix
 ```bash
-$ x="/foo/fizzbuzz.bar"
-$ y=${x%.bar}
-$ echo ${y##*/}
-fizzbuzz
+# 去除前缀和后缀
+x="/foo/fizzbuzz.bar"
+y=${x%.bar}
+echo ${y##*/}
+#> fizzbuzz
 
-$ x="/foo/fizzbuzz.bar.quux"
-$ y=${x%.*}
-$ echo $y
-/foo/fizzbuzz.bar
-$ y=${x%%.*}
-$ echo $y
-/foo/fizzbuzz
+# 去除后缀
+x="/foo/fizzbuzz.bar.quux"
+y=${x%.*}
+echo $y
+#> /foo/fizzbuzz.bar
+y=${x%%.*}
+echo $y
+#> /foo/fizzbuzz
 
-$ x=/foo/bar/bim/baz/file.gif
-$ y=${path##*/}
-$ echo $y
-file.gif
+# 去除前缀
+x=/foo/bar/bim/baz/file.gif
+y=${path##*/}
+echo $y
+#> file.gif
 ```
 
 ## Parallels

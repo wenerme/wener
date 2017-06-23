@@ -11,7 +11,8 @@
 * [ngrx/store](https://github.com/ngrx/store)
 * [Angular Weekly Meeting Notes](http://g.co/ng/weekly-notes)
 * [Angular Universal Design](https://docs.google.com/document/d/1eGEq0N7czS8nWWuCV3n4eMF3GFzk88rsN0bll6yE0bE/edit?usp=sharing)
-
+* [Augury](https://github.com/rangle/augury)
+  * Angular Debugging and Visualization Tools
 
 ```js
 // 处理 window 的事件
@@ -82,3 +83,8 @@ https://github.com/angular/angular/issues/11897
 ### AoT 无法处理 Router 的 loadChildren
 
 需要使用 AppModuleNgFactory, 使用 AoT 编译出来
+
+### /deep/ 被废弃
+* https://www.chromestatus.com/features/4964279606312960
+* 在后面版本会不产生任何操作
+* 使用 `>>>`
