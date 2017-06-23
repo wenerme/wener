@@ -35,9 +35,72 @@ spring:
 ```
 
 ## Spring Cloud Netflix Eureka
+* [Eureka at a glance](https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance)
 * [Spring Cloud Netflix Eureka - The Hidden Manual](http://blog.abhijitsarkar.org/technical/netflix-eureka/)
 * [Spring Cloud中，Eureka常见问题总结](http://www.itmuch.com/spring-cloud-sum-eureka/)
 * [Eureka Clustering documentation and best practices#203](https://github.com/spring-cloud/spring-cloud-netflix/issues/203)
+
+## zuul
+* [Netflix/zuul](https://github.com/Netflix/zuul)
+  * Zuul is a gateway service that provides dynamic routing, monitoring, resiliency, security, and more.
+* `ZuulServlet`
+  * 主要入口
+  * 负责初始化 RequestContext
+    * 设置请求和响应对象
+  * 将请求代理给过滤器处理
+  * 分文前中后和异常步骤
+  * 默认会开启 buffer-requests, 将请求体缓存起来
+  * 响应也是会缓冲起来
+* `RequestContext.getCurrentContext()`
+  * 请求上下文信息
+  * 线程相关
+  * 集成自 ConcurrentHashMap ,用于存储额外信息
+  * 包含请求和响应对象
+* `FilterProcessor.getInstance()`
+  * 核心的过滤处理
+* `FilterLoader.getInstance()`
+  * 加载和编译过滤器 `ZuulFilter`
+* `ZuulFilter`
+  * 实际处理的过滤器
+  * 基本属性
+    * 类型
+      * error, post, pre, route
+    * 顺序
+  * `ZuulFilterResult` 执行结果
+    * `ExecutionStatus` 结果状态
+      * SUCCESS(1), SKIPPED(-1), DISABLED(-2), FAILED(-3);
+    * 异常
+    * 结果
+* `TracerFactory`
+  * 跟踪调用链
+
+### Spring Cloud Netflix Zuul
+* 集成 Zuul
+* 实现反向代理
+* 简化配置
+* 实现了很多 `ZuulFilter`
+* `@EnableZuulProxy`
+  * 主要用于反向代理
+  * `ZuulProxyConfiguration`
+  * `Zuul (Discovery)` 特性
+* `@EnableZuulServer`
+  * 通用的 Zuul 服务
+  * `Zuul (Simple)` 特性
+* `ServiceRouteMapper`
+  * 将 ServiceId 转为路由名
+* `RouteLocator`
+  * 核心的路由定位接口
+  * `DiscoveryClientRouteLocator`
+    * 主要实现
+    * 基于 `DiscoveryClient`
+* `ProxyRequestHelper`
+  * 反向代理的辅助工具类
+  * 主要用于构建反向代理的请求
+* `FilterConstants`
+  * 定义主要用到的常量
+* ZuulFilter
+  * `RibbonRoutingFilter`
+    * 通过 ServiceId 反向代理的路过最终会由该过滤器处理, 会构建一个 RibbonCommand 进行执行请求
 
 ## spring-cloud-config
 * 分为 client 端和 server 端

@@ -1,11 +1,11 @@
 # Tmux
 
-## Cheat sheet
-
-* https://gist.github.com/andreyvit/2921703
-* https://gist.github.com/MohamedAlaa/2961058
-
 ## Tips
+* [tmux.1](http://man.openbsd.org/OpenBSD-current/man1/tmux.1)
+* Cheat sheet
+  * https://gist.github.com/andreyvit/2921703
+  * https://gist.github.com/MohamedAlaa/2961058
+
 ```bash
 # 显示指定服务开启的会话
 tmux -S /tmp/extratmuxserver/tmuxserver ls
@@ -17,11 +17,12 @@ tmux a -t myname
 tmux kill-session -t myname
 ```
 
-__tmux__ 命令
+### Commands
 
 ```
 # 是其他链接全都 detach, 使得当前窗口能够最大化
-:detach -a
+# detach -> detach-client
+detach -a
 ```
 
 ## ~/.tmux.conf

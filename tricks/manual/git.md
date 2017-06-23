@@ -14,6 +14,33 @@ git clone /repo/my-project /src/my-project
 
 ## FAQ
 
+### 移除历史文件和敏感数据
+* [Removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
+* https://rtyley.github.io/bfg-repo-cleaner/
+
+```bash
+# BFG
+# 比 git-filter-branch 快 10 - 720x
+brew install bfg
+```
+
+### 文件太大
+如果服务器限制了文件大小, 则当推送一个较大的仓库时会失败, 如果无法修改服务器参数, 则可以考虑分批推送
+
+```bash
+# 获取总得有多少个提交
+gut log --pretty=format:"%h" | wc -l
+# 获取第一千个提交
+git log --reverse --pretty=format:"%h" | sed '1000!d'
+# 推送前一千个提交
+git push origin $(git log --reverse --pretty=format:"%h" | sed '1000!d'):master
+# 如果出现该错误
+# The destination refspec neither matches an existing ref on the remote nor
+# begins with refs/, and we are unable to guess a prefix based on the source ref.
+# 则使用
+git push origin $(git log --reverse --pretty=format:"%h" | sed '1000!d'):refs/heads/master
+```
+
 ### 自定义配置
 * 配置定义 [git-config](https://git-scm.com/docs/git-config)
 * 配置参考

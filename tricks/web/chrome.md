@@ -1,5 +1,79 @@
+# Chrome
 
-## Chrome extension code vs Content scripts vs Injected scripts
+## Tips
+* DevTools: impossible to disable a breakpoint caused by "debugger" statement
+  * https://bugs.chromium.org/p/chromium/issues/detail?id=429167
+* Headless 可接受的参数参考 [headless_shell_switches.cc](https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc)
+* [chrome-extension-typescript-starter](https://github.com/chibat/chrome-extension-typescript-starter)
+
+```bash
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
+# https://www.chromium.org/developers/how-tos/run-chromium-with-flags
+chromium --js-flags="--help"
+```
+
+## Headless
+* https://developers.google.com/web/updates/2017/04/headless-chrome
+* https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc
+* https://chromedevtools.github.io/devtools-protocol/tot/Debugger/
+* https://www.npmjs.com/package/chrome-remote-interface
+
+
+```bash
+chrome-remote-interface inspect
+```
+
+```js
+Runtime.evaluate({expression: 'window.location.toString()'})
+
+Log.enable()
+Console.enable()
+Log.entryAdded(({entry: e}) => console.log(`${new Date(e.timestamp).toISOString()} ${e.source}:${e.level} ${e.text}`));
+Console.messageAdded(({message: e}) => console.log(`${new Date().toISOString()} ${e.source}:${e.level} ${e.text}`))
+
+
+Runtime.executionContextCreated(async ({context}) => {
+    await Runtime.evaluate({
+        expression: `
+        // setInterval:function _$aW(){_$uz=_$ez[_$dh](_$rz);},2000
+        window._ev=window.eval
+        window.eval=(...args)=>{
+            if(args[0] == 'var a = new Date(); debugger; new Date() - a > 100;'){
+                console.log('Found the evil')
+                return false
+            }
+            return window._ev.apply(window,args)
+        }
+        console.log('ContextCreated: '+location.href)
+        `,
+        contextId: context.id,
+    });
+})
+
+Runtime.evaluate({expression: `$('[name="request:sn"]').val('309491')`})
+
+Runtime.evaluate({expression: `v=$('table input');o={};'tid,fd,sn,mon,hnc,nc,img'.split(',').forEach(n=>o[n]=v.attr(n));JSON.stringify(o)`})
+
+
+Runtime.evaluate({expression: `$('table input').html()`})
+
+
+Page.loadEventFired(async () => {
+  Runtime.evaluate({expression: `v=$('table input');o={};'tid,fd,sn,mon,hnc,nc,img'.split(',').forEach(n=>o[n]=v.attr(n));JSON.stringify(o)`})
+});
+
+
+ Runtime.evaluate({expression: `$('[name="request:sn"]').val('309495')`})
+ Runtime.evaluate({expression: `$('input[type=button]').eq(1).click()`})
+
+ Runtime.evaluate({expression: `$('[name="request:sn"]').val('309496');$('input[type=button]').eq(1).click()`})
+```
+
+## Extension
+### Chrome extension code vs Content scripts vs Injected scripts
 
 
 - **Extension code - Full access to all permitted [`chrome.*`][1] APIs.**<br>

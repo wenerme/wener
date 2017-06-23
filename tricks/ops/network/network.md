@@ -8,7 +8,15 @@
     * [HN](https://news.ycombinator.com/item?id=13957242)
     * TCP over WS
 
+https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools
+https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
+
+* 获取 IP
+  * http://checkip.amazonaws.com/
+
 ## 转发
+
+* http://www.dest-unreach.org/socat/
 
 ```bash
 # 将改机作为对外访问的路由

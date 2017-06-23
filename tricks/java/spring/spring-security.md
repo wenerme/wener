@@ -72,6 +72,8 @@
     * Permission
     * HTTP 403 Forbidden
 * Spring Data 集成
+  * 需要添加依赖 `spring-security-data`
+  * 自动配置 `org.springframework.boot.autoconfigure.security.SecurityDataConfiguration`
   * 初始化 `org.springframework.security.data.repository.query.SecurityEvaluationContextExtension`
 ```java
 @Bean
@@ -92,14 +94,86 @@ public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
 // 基于表达式的访问控制
 // 即便不是用 access, 实际生成的也都是类似的表达式
 http
-    .authorizeRequests()
-        // 可以直接调用上下文中的 bean 对象来检测
-        // 其中的 request 参数是在 WebSecurityExpressionRoot 定义的
-        .antMatchers("/user/**").access("@webSecurity.check(authentication,request)")
-        // 访问路径参数
-        .antMatchers("/user/{userId}/**").access("@webSecurity.checkUserId(authentication,#userId)")
+  .authorizeRequests()
+    // 可以直接调用上下文中的 bean 对象来检测
+    // 其中的 request 参数是在 WebSecurityExpressionRoot 定义的
+    .antMatchers("/user/**").access("@webSecurity.check(authentication,request)")
+    // 访问路径参数
+    .antMatchers("/user/{userId}/**").access("@webSecurity.checkUserId(authentication,#userId)")
 ```
 
+
+### ACL
+* [Domain Object Security](http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#domain-acls)
+* spring-security-acl
+* 主要用于控制对象权限
+* 使用 `ACL_` 数据表
+  * ACL_SID
+    * SID -> Security Identifier
+    * 系统中 principal 或 authority 的唯一标识符
+  * ACL_CLASS
+    * 系统中 DO 的唯一标识符
+  * ACL_OBJECT_IDENTITY
+    * DO 实例的唯一标识符
+  * ACL_ENTRY
+    * 存储指派给 recipient 的单独权限
+    * 包含 ACL_OBJECT_IDENTITY, ACL_SID 和权限的 bit mask
+* 主要接口
+  * Acl
+    * 每个 DO 对应一个 Acl, 包含 `AccessControlEntry` 信息, 不直接指向 DO, 但包含 `ObjectIdentity`.
+    * 存储于 `ACL_OBJECT_IDENTITY` 表
+  * AccessControlEntry
+    * 包含多个 `AccessControlEntry`
+    * 缩写为 `ACE`
+    * 每个 ACE 指向一组 Permission, Sid 和 Acl.
+    * 包含授权和未被授权信息
+    * 包含审查设置
+    * 存储于 `ACL_ENTRY`
+  * Permission
+    * 表示一个不可变的 bit mask, 并提供相应的操作
+    * 基础的权限 (0-4) 在 `BasePermission` 类中
+  * Sid
+    * 抽象化了 principals 和 `GrantedAuthority[]`, 以供 ACL 模块引用
+    * 常见的类包含
+      * PrincipalSid: 表示 `Authentication` 中的 principals
+      * GrantedAuthoritySid
+    * 存储于 `ACL_SID`
+  * ObjectIdentity
+    * 每个 DO 实例在 ACL 模块中都使用 `ObjectIdentity` 表示
+    * 默认实现为 `ObjectIdentityImpl`
+      * 调用 `getId` 方法
+  * AclService
+    * 从 `ObjectIdentity` 取得 Acl 相关的信息
+    * 默认实现为 `JdbcAclService`
+    * 请求操作会转移到 `LookupStrategy`
+      * 优化了对 ACL 信息的请求
+      * BasicLookupStrategy
+  * MutableAclService
+    * 循序修改的 Acl 信息被持久化
+    * 该功能可选
+* 取不到 DO 的 id 会投弃权
+* Permission
+  * 权限为一个 bit mask + 字符
+  * BasePermission 定义了基础权限
+  * PermissionFactory
+  * CumulativePermission 可修改的权限对象, 用于构建权限
+* NOTE
+  * 自己使用时建议自己实现 AclService, 如果不需要提供修改接口则不需要实现修改接口
+  * 目前没有针对 Acl 的自动配置, 添加扫描路径应该可以, 或者手动添加 Voter 和 AfterInvocation 的处理.
+  * 如果是基于现有对象实现 Acl
+    * 实现自定义的 `ObjectIdentityRetrievalStrategy` 和 `ObjectIdentityRetrievalStrategy`
+    * 存储真实的 DO 对象. AclService 从实现上取得真实对象关联的信息
+
+
+__BasePermission__
+
+Char | Mask | Meaning
+--|---------|--------
+R | '----1' | READ
+W | '---1-' | WRITE
+C | '--1--' | CREATE
+D | '-1---' | DELETE
+A | '1----' | ADMINISTRATION
 
 ## 主要对象
 对象名|作用

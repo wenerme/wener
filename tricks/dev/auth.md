@@ -82,7 +82,7 @@ typ | Type | 类型,由用户扩展
     * RSA 更长, 签名验证更快
     * ECDSA 更短, 生成签名和密钥时快得多
 
-__字段含义__
+__示例__
 
 ```js
 {
@@ -90,6 +90,28 @@ __字段含义__
   "aud": "http://example.com",
   "iat": 1356999524,
   "nbf": 1357000000
+}
+```
+
+```js
+{
+  "iss": "https://oidc.my.com",
+  "x5t": "AAAAAAAAAAAAAAAAAAAA"
+  "typ": "JWT"
+  "alg": "RS265"
+}
+
+{
+  "sub": "wener"
+  "name": "Wener"
+  "email": "wener@wener.me"
+  "phone_number": "1852159826715"
+  "aud": "https://otheremail.com"
+  "iss": "https://oidc.my.com"
+  "nbf": 1497868409096
+  "jti": "ANpzy7AyyANx0Cn8WMP5N7bG3E8awOhB"
+  "exp": 1497868509096
+  "nbf": 1497868409096
 }
 ```
 
@@ -103,5 +125,7 @@ __字段含义__
 * Accounting
 
 ## Keycloak
-*
 * YouTuBe [Keycloak: A New Open Source Authentication Server](https://www.youtube.com/watch?v=lUO4hjA6bME)
+
+## CAS
+* https://github.com/apereo/cas

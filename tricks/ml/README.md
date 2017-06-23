@@ -1,5 +1,10 @@
 # 机器学习
 
+## Tips
+
+* [Comparing Deep Learning Frameworks](https://www.infoq.com/presentations/comparison-deep-learning-frameworks)
+
+
 |-|[tiny-cnn](https://github.com/nyanp/tiny-cnn)|[caffe](https://github.com/BVLC/caffe)|[Theano](https://github.com/Theano/Theano)|[TensorFlow](https://www.tensorflow.org/)|
 |---|---|---|---|---|
 |Prerequisites|__Nothing__(Optional:TBB,OpenMP)|BLAS,Boost,protobuf,glog,gflags,hdf5, (Optional:CUDA,OpenCV,lmdb,leveldb etc)|Numpy,Scipy,BLAS,(optional:nose,Sphinx,CUDA etc)|numpy,six,protobuf,(optional:CUDA,Bazel)|

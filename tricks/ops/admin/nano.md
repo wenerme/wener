@@ -1,5 +1,15 @@
 # nano
 
+## Tips
+* [nano.1](https://www.nano-editor.org/dist/latest/nano.1.html)
+* [nanorc.5](https://www.nano-editor.org/dist/latest/nanorc.5.html)
+
+## nanorc
+```
+# 默认为 8
+set tabsize 4
+```
+
 ## 快捷键
 
 * <C-k><C-u><C-u> 复制当前行
