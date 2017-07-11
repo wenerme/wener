@@ -10,25 +10,63 @@
   * 基于 [seastar](https://github.com/scylladb/seastar) 框架
 * http://projects.spring.io/spring-data-cassandra/
   * http://docs.spring.io/spring-data/cassandra/docs/1.5.4.RELEASE/reference/html/
+* 客户端
+  * https://stackoverflow.com/a/17523595/1870054
+  * https://github.com/serge-rider/dbeaver
+  * JDBC https://github.com/datastax/java-driver/tree/3.x/manual/shaded_jar
+* 数据模型
+  * [Data modeling concepts](http://docs.datastax.com/en/cql/3.3/cql/ddl/dataModelingApproach.html)
 
 ```bash
 # 启动用于测试的服务
 # 暴露 JMX 和 CQL 端口
+# 使用了 mmap, 在 mac 下不能映射 volume
 docker run -it --rm -p 9042:9042 -p 7199:7199 -v /data/cassandra/dev:/var/lib/cassandra cassandra
+
+# 本地连接 docker 中的服务器
+cqlsh `docker-machine ip`
+
+# 可从容器中将配置拷贝出来
+docker cp cassandra:/etc/cassandra config
+
+# 自定义 yaml 配置
+JVM_OPTS="$JVM_OPTS -Dcassandra.config=file://$PWD/config/cassandra.yaml" cassandra -f
+
+# 默认配置目录 /usr/local/etc/cassandra/
+# 默认数据目录 /usr/local/var/lib/cassandra/
+brew install cassandra
 
 ```
 
-```cql
+```sql
+
+-- 创建空间
 CREATE KEYSPACE Excelsior
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
 USE Excelsior;
+-- 创建一个最小表
 CREATE TABLE t (k text PRIMARY KEY);
-
+-- 插入和查询
 INSERT INTO t(k) values('Hello');
 SELECT * FROM t;
+
+-- http://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlshDescribe.html
+-- 显示所有表
+DESCRIBE TABLES;
+
 ```
 
 ## Notes
+* `org.apache.cassandra.config.YamlConfigurationLoader`
+  * 加载 YAML 配置
+* `org.apache.cassandra.config.Config`
+  * 配置类
+* 主键
+  * 类型
+    * 分片
+    * 集群
+
+## Doc Notes
 * 端口
   * 7000 集群通信
   * 7001 集群通信 SSL

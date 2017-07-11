@@ -73,6 +73,11 @@ spring:
     * 结果
 * `TracerFactory`
   * 跟踪调用链
+* 扩展
+
+#### 常见问题
+##### 无法反向代理 WebSockets
+##### 无法基于域名反向代理
 
 ### Spring Cloud Netflix Zuul
 * 集成 Zuul
@@ -98,9 +103,31 @@ spring:
   * 主要用于构建反向代理的请求
 * `FilterConstants`
   * 定义主要用到的常量
-* ZuulFilter
+* `ZuulFilter`
+  * `PreDecorationFilter`
+    * 前过滤器
+    * 设置代理相关的头
+  * 确定代理的目标
   * `RibbonRoutingFilter`
     * 通过 ServiceId 反向代理的路过最终会由该过滤器处理, 会构建一个 RibbonCommand 进行执行请求
+
+
+#### FAQ
+
+##### 不能动态配置
+* [#706](https://github.com/spring-cloud/spring-cloud-netflix/issues/706)
+
+```java
+// 通过刷新来获取新的配置使得配置生效
+// 只能使得修改生效,不能使得新增和删除生效
+// 修改如果从 url 修改为 serviceid 也是不会生效的
+@Bean(name="zuul.CONFIGURATION_PROPERTIES")
+@RefreshScope
+@ConfigurationProperties("zuul")
+public ZuulProperties zuulProperties() {
+   return new ZuulProperties();
+}
+```
 
 ## spring-cloud-config
 * 分为 client 端和 server 端
@@ -109,11 +136,23 @@ spring:
 * 配置的默认值:
   * profile: default
   * application: ${spring.application.name}
+* `RefreshEndpoint`
+  * 用于刷新拉取配置
+* `RefreshAutoConfiguration`
 
+### spring-cloud-config-client
+* `ConfigClientAutoConfiguration`
+  * `ConfigClientWatch`
+    * 配置监控刷新, 默认未开启
+    * `spring.cloud.config.watch.enabled`
+    * 默认初始延时 `spring.cloud.config.watch.initialDelay` 为 180s
+    * 默认间隔 `spring.cloud.config.watch.delay` 为 500ms
+    * `config.client.state`
+      * 客户端状态是否发生变化的依据
+      * 由 `ConfigServicePropertySourceLocator` 放入
 
-### spring-cloud-config-clientp
-* 配置类 `ConfigClientAutoConfiguration`
 * 配置对象: `ConfigServiceBootstrapConfiguration`, `DiscoveryClientConfigServiceBootstrapConfiguration`
+
 
 ### spring-cloud-config-server
 * 服务端会暴露出来相应的数据接口

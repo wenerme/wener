@@ -1,6 +1,228 @@
 # Spring Security
 
 ## Tips
+
+## Notes
+* `@EnableGlobalMethodSecurity`
+  * 标识被注解的类可以用于配置 `AuthenticationManagerBuilder`, 即可以注入该配置对象
+  * 该注解可以作为元注解使用, 因此 `@EnableWebSecurity` 和 `@EnableWebMvcSecurity` 都有这样的功能
+  * `AuthenticationConfiguration`
+* `@EnableWebSecurity`
+  * 如果有 mvc 环境, 会启用 `WebMvcSecurityConfiguration` 配置
+  * `WebMvcSecurityConfiguration`
+    * 添加了 `@AuthenticationPrincipal` 方法参数注解的处理
+    * 添加了 `CsrfToken` 参数注入
+  * `WebSecurityConfiguration`
+    * 使用 `WebSecurity` 来构建一个 `Filter` (springSecurityFilterChain)
+    * `WebSecurity`
+      * 核心配置上下文
+    * `WebSecurityConfigurer`
+      * 从 `AutowiredWebSecurityConfigurersIgnoreParents` 取得
+      * 继承自 `SecurityConfigurer`
+        * 配置结果为 `Filter`
+        * 未添加任何其他的方法
+* `@EnableWebMvcSecurity`
+  * 已弃用, 使用 `@EnableWebSecurity`
+* `@EnableGlobalMethodSecurity`
+  * `GlobalMethodSecuritySelector`
+    * 根据注解上启用的功能来导入配置
+  * `GlobalMethodSecurityConfiguration`
+    * `MethodInterceptor`
+      * 使用配置项构建的方法拦截 (methodSecurityInterceptor)
+      * `AccessDecisionManager`
+        * 默认为 `AffirmativeBased`
+        * `PreInvocationAuthorizationAdviceVoter`
+          * 实现 `@PreFilter` 和 `@PreAuthorize`
+          * 实际上该类型的判断不需要作为基于投票的判断, 因为已经能从信息中拿到结果, 不过为了可读性才以基于投票的系统来实现
+        * `RoleVoter`
+        * `AuthenticatedVoter`
+      * `AfterInvocationManager`
+        * 如果没有开启前后处理(prePost), 那么不会有该实现
+        * 该接口主要用于实现后处理
+        * 默认为 `AfterInvocationProviderManager`
+          * 实际决策由 `AfterInvocationProvider` 处理
+          * `PostInvocationAdviceProvider`
+            * `PostInvocationAuthorizationAdvice`
+              * `ExpressionBasedPostInvocationAdvice`
+                * `PostInvocationExpressionAttribute`
+                * 实现 `@PostFilter` 和 `@PostAuthorize` 的处理
+      * `MethodSecurityMetadataSource`
+        * 一个 `SecurityMetadataSource` 的实现
+        * 用于生成不同访问决策 `AccessDecisionManager` 需要的 `ConfigAttribute`
+      * `RunAsManager`
+        * 处理 `@RunAs`
+        * 默认没有实现
+        * 执行时创建一个新的授权对象
+  * `Jsr250MetadataSourceConfiguration`
+    * `@DenyAll`, `@PermitAll`, `@RolesAllowed`
+* `SecurityConfigurer`
+  * 基础的安全配置配置接口
+  * 核心的配置配置内容均继承自该接口
+  * 分为配置结果和配置上下文
+  * `SecurityBuilder`
+    * 配置上下文的基础接口
+    * 最终由该接口提供的方法配置出结果配置对象
+    * 主要实现
+      * `WebSecurity`
+      * `HttpSecurityBuilder`
+        * `HttpSecurity`
+        * 结果类型为 `DefaultSecurityFilterChain`
+        * 默认的 Filter 链顺序
+          * `ChannelProcessingFilter`
+            * 主要用于判断是否是从 `https` 端口来的请求
+            * 构建 `FilterInvocation`
+            * 拿到相应的安全配置属性 `ConfigAttribute`
+            * 最终交由 `ChannelDecisionManager` 判断
+          * `ConcurrentSessionFilter`
+            * 默认的 Filter 链中有三个 `ConcurrentSessionFilter`
+            * 主要用于处理并发会话
+            * 主要做两件事
+              1. 调用 `SessionRegistry#refreshLastRequest(String)`
+                * 保证会话的上次更新时间是正确的
+              2. 从 `SessionRegistry` 拿 `SessionInformation`, 并判断是否过期
+                * 如果过期了则执行退出登录逻辑
+          * `SecurityContextPersistenceFilter`
+            * 将从 `SecurityContextRepository` 拿到的安全上下文 `SecurityContext` 放到 `SecurityContextHolder`
+            * 必须在所有授权机制之前执行
+            * 使用请求对象的属性(`__spring_security_scpf_applied`) 来保证只执行一次
+            * `SecurityContextRepository`
+              * 用于在请求之间持久化 `SecurityContext` 信息的接口
+              * 大多是情况下是使用 `HttpSession` 来存储
+              * 加载时不会反回 `null`, 如果没有, 会返回一个空的上下文
+              * `HttpSessionSecurityContextRepository`
+                * 会话存储键 `SPRING_SECURITY_CONTEXT`
+              * `NullSecurityContextRepository`
+                * 如果不启用会话则会使用该实现
+                * 加载上下文时会使用 `SecurityContextHolder#createEmptyContext` 创建空的上下文
+          * `LogoutFilter`
+            * 处理匹配(`RequestMatcher`)的退出登录请求
+            * 实际退出登录操作交由 `LogoutHandler` 处理
+            * 退出登录成功后通知 `LogoutSuccessHandler`
+            * 主要实现
+              * `CookieClearingLogoutHandler`
+                * 清理 Cookie
+              * `CsrfLogoutHandler`
+                * 清理 csrf
+              * `SecurityContextLogoutHandler`
+                * 失效会话
+                * 去除安全上下文中的授权
+              * `AbstractRememberMeServices`
+                * 清除  RememberMe 信息
+          * `X509AuthenticationFilter`
+          * `AbstractPreAuthenticatedProcessingFilter`
+            * 所有进行预认证的处理
+            * 主要处理由外部系统认证的情况
+            * 从请求中提取出 `principal`, 而不是对他们进行认证
+            * 当一个认证失败后会尝试其他的认证机制
+              * `continueFilterChainOnUnsuccessfulAuthentication`
+            * 如果已经进行过授权则不会再次进行
+            * 主要实现
+              * `X509AuthenticationFilter`
+                * 最先执行
+              * `RequestHeaderAuthenticationFilter`
+                * [CA SSO](https://www.ca.com/us/products/ca-single-sign-on.html)
+                * CA Siteminder
+                * `SM_USER` 头
+              * `RequestAttributeAuthenticationFilter`
+                * [Stanford WebAuth](http://webauth.stanford.edu/manual/mod/mod_webauth.html#java)
+                * [Shibboleth](https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPJavaInstall)
+                * [Shibboleth (Internet2)](https://en.wikipedia.org/wiki/Shibboleth_(Internet2))
+                * `REMOTE_USER` 请求属性
+          * `CasAuthenticationFilter`
+            * 处理 cas 认证
+          * `UsernamePasswordAuthenticationFilter`
+            * 取表单中的用户名密码进行认证
+          * `ConcurrentSessionFilter`
+          * `OpenIDAuthenticationFilter`
+          * `DefaultLoginPageGeneratingFilter`
+            * 生成默认登录页
+            * 默认地址为 `/login`
+          * `ConcurrentSessionFilter`
+          * `DigestAuthenticationFilter`
+            * 处理[HTTP 摘要认证](https://zh.wikipedia.org/wiki/HTTP摘要认证)
+            * Digest 的弱点
+              * 要求密码可恢复
+          * `BasicAuthenticationFilter`
+            * 处理 HTTP 基本验证
+          * `RequestCacheAwareFilter`
+            * 从 `RequestCache` 恢复缓存的请求
+            * 允许重定向到认证机制后重新开始单个请求
+          * `SecurityContextHolderAwareRequestFilter`
+            * 包装当前的请求, 以实现 Servlet 3 请求上安全相关的方法
+              * `HttpServletRequest#authenticate(HttpServletResponse)`
+              * `HttpServletRequest#login(String, String)`
+              * `HttpServletRequest#logout()`
+              * `AsyncContext#start(Runnable)`
+          * `JaasApiIntegrationFilter`
+            * JAAS 集成
+          * `RememberMeAuthenticationFilter`
+            * 如果未找到当前的认证信息, 则尝试从 `RememberMeServices` 中构建认证
+          * `AnonymousAuthenticationFilter`
+            * 如果没有认证信息, 则构建一个匿名认证信息
+          * `SessionManagementFilter`
+            * 根据当前的认证信息执行会话相关的策略
+          * `ExceptionTranslationFilter`
+            * 处理抛出的 `AccessDeniedException` 和 `AuthenticationException` 异常
+            * 将异常信息转换为对应的 HTTP 响应
+            * `AuthenticationException`
+              * 会尝试返回请求从新要求认证
+            * `AccessDeniedException`
+              * 如果当前认证是匿名的或者是记住我, 则尝试从新开始认证
+              * 否则交由 `AccessDeniedHandler` 处理
+          * `FilterSecurityInterceptor`
+            * 执行 `Filter` 层的拦截处理
+          * `SwitchUserFilter`
+            * 处理用户切换请求 `/login/impersonate`
+            * 处理退出切换的用户 `/logout/impersonate`
+            * 例如: 将用户从 `ROLE_ADMIN` 切换为 `ROLE_USER`
+  * 主要实现
+    * `SecurityConfigurerAdapter`
+      * 添加了对象后处理配置
+        * `ObjectPostProcessor`
+      * 添加了 `SecurityBuilder` 链式调用的处理
+    * `WebSecurityConfigurerAdapter`
+      * Builder 类型为 `WebSecurity`
+      * `ContentNegotiationStrategy`
+        * 配置内容协商决策
+      * 请求对象 -> 媒体类型
+      * 授权配置
+      * 授权管理器配置
+      * Http 安全配置
+        * 默认配置
+          * csrf
+          * 异步集成
+          * 异常处理
+          * 头处理
+          * 会话管理
+          * 安全上下文
+          * 请求缓存
+          * 匿名请求
+          * servlet 接口
+          * 默认登录页
+          * 退出登录
+    * `AbstractHttpConfigurer`
+      * Builder 类型为 `HttpSecurity`
+      * 配置结果为 `DefaultSecurityFilterChain`
+* `AuthenticationEventPublisher`
+  * 用于发布授权成功或失败的 Publisher
+    * `AuthenticationSuccessEvent`
+  * 失败的授权会根据异常类型不同映射为不同的事件
+* `UserDetailsService`
+  * 安全系统中的用户概念
+  * 该接口提供只读功能
+  * `UserDetails`
+    * 用户信息
+  * `UserDetailsManager`
+    * 提供对用户信息的管理
+  * `GroupManager`
+    * 用户分组管理
+  * `AuthenticationUserDetailsService`
+    * 从认证中拿到用户信息
+* `AuthenticationTrustResolver`
+  * 判断一个认证是否为匿名或记住我
+
+
+## Doc Notes
 * [Secure Object Implementations](http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#secure-object-impls)
 * PermissionEvaluator 用于处理 hasPermission
 * 方法安全的 AOP 主要基于 MethodSecurityInterceptor

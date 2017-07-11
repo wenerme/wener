@@ -7,6 +7,29 @@
 ### Frelance
 * [upwork](https://www.upwork.com/)
 
+### Planning to Make the Best Use of Your Time
+* [Planning to Make the Best Use of Your Time](https://www.mindtools.com/pages/article/newHTE_07.htm)
+
+1. Identify Available Time
+  * 明确有效时间
+2. Schedule Essential Actions
+  * 安排主要事项
+3. Schedule High-Priority Activities
+  * 安排优先事项
+4. Schedule Contingency Time
+  * 安排突发紧急事项
+5. Schedule Discretionary Time
+  * 安排零散的时间
+6. Analyze Your Activities
+  * 事项分析
+
+1. Identify the time you have available.
+2. Block in the essential tasks you must carry out to succeed in your job.
+3. Schedule high-priority urgent tasks and vital "housekeeping" activities.
+4. Block in appropriate contingency time to handle unpredictable events and interruptions.
+5. Schedule the activities that address your priorities and personal goals in the time that remains.
+6. Analyze your activities to identify tasks that can be delegated, outsourced or cut altogether.
+
 ### RethinkDB: why we failed
 * [RethinkDB: why we failed](http://www.defstartup.org/2017/01/18/why-rethinkdb-failed.html)
   * [HN](https://news.ycombinator.com/item?id=13421608)

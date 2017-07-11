@@ -56,6 +56,21 @@ function fullscreen() {
 }
 ```
 
+## FAQ
+### 检测网络连通性
+```js
+function doConnectFunction() {
+}
+function doNotConnectFunction() {
+}
+
+var i = new Image();
+i.onload = doConnectFunction;
+i.onerror = doNotConnectFunction;
+// CHANGE IMAGE URL TO ANY IMAGE YOU KNOW IS LIVE
+i.src = 'http://server.com/some.png?t=' + Date.now();
+```
+
 
 https://github.com/nolimits4web/swiper/
 

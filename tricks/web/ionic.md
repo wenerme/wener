@@ -14,12 +14,19 @@ yarn global add ionic
 # 确保 ionic 在路径下
 export PATH="$(yarn global bin):$PATH"
 
-# 创建一个简单的 tab 切换 app
-# -w 不生成 Cordova 相关
+# 创建一个基于 web 的 tab 切换 app
 # -s 使用 SCSS
-ionic start -w -s app-demo tabs
+ionic start app-demo tabs
 cd app-demo
 ionic serve
+
+# 查看可用的启动模板
+ionic start -l
+
+# 创建一个 cordova 应用
+# --skip-link 不链接 ionic cloud 账号
+# --skip-deps 不自动下载依赖
+ionic start --cordova --skip-link --skip-deps -n '我的应用' myapp tabs
 
 # 可以考虑将 ionic 作为开发依赖, 以避免和全局的版本冲突
 # 这样也可以直接使用 yarn 执行 ionic 来生成内容

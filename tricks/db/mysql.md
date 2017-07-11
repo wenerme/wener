@@ -1,5 +1,8 @@
 # MySQL
 
+## Tips
+* [Common MySQL Queries](http://www.artfulsoftware.com/infotree/queries.php)
+
 ## Type
 
 * [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
