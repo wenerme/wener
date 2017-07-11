@@ -90,7 +90,7 @@ ssh -L ${local}:${remote} public-host
 
 # 须在在Server端允许转发
 # 在 /etc/ssh/sshd_config 中添加
-GatewayPorts yes
+# GatewayPorts yes
 # 然后重启
 sudo service sshd restart
 ```

@@ -1,5 +1,19 @@
 # Tools
 
+## aria2c
+
+* https://aria2.github.io/manual/en/html/aria2c.html
+* https://github.com/aria2/aria2
+
+```bash
+# 使用文件作为下载列表
+# 最大并发 16
+# 默认继续下载
+# 单个服务最多 16 个链接
+# 重试次数 0, 忽略 404
+aria2c -i list.txt -j 16 -c -x 16 -m 0
+```
+
 ## ngrep
 
 [ngrep usage](http://ngrep.sourceforge.net/usage.html)

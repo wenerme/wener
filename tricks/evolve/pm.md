@@ -1,6 +1,8 @@
 # PM
 
-http://project-management.zone/system/jira,phabricator,redmine
+* [](http://project-management.zone/system/jira,phabricator,redmine)
+* [PMBOK](https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge)
+* [What is the role of a product manager?](http://www.aha.io/roadmapping/guide/product-management/what-is-the-role-of-a-product-manager)
 
 ## Product Manager vs Project Manager
 

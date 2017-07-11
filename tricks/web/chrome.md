@@ -5,6 +5,8 @@
   * https://bugs.chromium.org/p/chromium/issues/detail?id=429167
 * Headless 可接受的参数参考 [headless_shell_switches.cc](https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc)
 * [chrome-extension-typescript-starter](https://github.com/chibat/chrome-extension-typescript-starter)
+* 下载扩展
+  * http://chrome-extension-downloader.com/
 
 ```bash
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -72,8 +74,59 @@ Page.loadEventFired(async () => {
  Runtime.evaluate({expression: `$('[name="request:sn"]').val('309496');$('input[type=button]').eq(1).click()`})
 ```
 
+## Version
+
+### 60
+* [New in DevTools 60](https://developers.google.com/web/updates/2017/05/devtools-release-notes)
+  * 新特性
+    * 新的 Audit 面板
+      * 包含 Lighthouse 工具
+    * 可以为第三方标识标记
+    * 可以使用 `Command+Click` 的方式使用 Continue to Here
+    * 调试时可 Step into async
+  * 修改
+    * 以前在控制台输入一个对象, 如果其中属性是对象时只会显示 `Object`, 现在会显示更多信息
+    * 控制台上下文选项菜单会显示更多信息
+      * 标题
+      * 子标题会显示域名和来源等
+      * 鼠标放上去时会高亮页面中属于该上下文的部分
+    * 实时覆盖测试结果显示
+      * 以前只能点暂停后才能看到结果
+    * Async 栈跟踪默认开启
+
+
+
+### 59
+* Headless
+* [New in Chrome 59](https://developers.google.com/web/updates/2017/05/nic59)
+* Native notifications on macOS
+* Image capture API
+* [New in DevTools 59](https://developers.google.com/web/updates/2017/04/devtools-release-notes)
+  * CSS, JS 覆盖测试
+  * 全页面截屏
+  * 阻塞请求
+  * Debug 时 Step Over async await
+  * 统一的命令菜单
+    * `Command+O`
+
 ## Extension
-### Chrome extension code vs Content scripts vs Injected scripts
+### FAQ
+#### 弹出窗有时显示不出来
+
+```js
+// 解决有时弹出窗口显示有问题的情况
+window.setTimeout(() => {
+    let $content = $('body>content');
+    $content.hide();
+    window.setTimeout(() => $content.show(), 0);
+}, 0);
+```
+
+#### 请求失败被限流
+* http://dev.chromium.org/throttling
+* 目前只要在启动时添加 `--disable-extensions-http-throttling` 来避免
+
+#### Chrome extension code vs Content scripts vs Injected scripts
 
 
 - **Extension code - Full access to all permitted [`chrome.*`][1] APIs.**<br>

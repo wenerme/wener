@@ -15,6 +15,9 @@
     * [#12616](https://www.virtualbox.org/ticket/12616)
     * 暂时只能只读
     * 可以转换为其他格式再挂载 `VBoxManage clonemedium disk <input VHDX> <output image>`
+* [vboxvfs seems to have problems with mmapped access to files => retry with 3.1.4](https://www.virtualbox.org/ticket/819)
+  * vbox 映射的目录不能做 mmap
+  * 导致 boot2docker 很镜像多不能用, mongodb, realmdb, ipfs 等
 
 ```bash
 # Download and install vbox and extension pack

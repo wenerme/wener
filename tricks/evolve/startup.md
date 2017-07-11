@@ -17,7 +17,7 @@ THERE’S NOT ALWAYS MONEY IN THE BANANA STAND.
 
 需要在市场中找到一个平衡点.付费用户不会太少并且业务面不至于过广以导致无法解决具体的问题.
 
-观看 [ Simon Sinek’s TEDx talk about starting with “why?” ](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action) 思考自己是是为什么开始的创业.
+观看 [Simon Sinek’s TEDx talk about starting with “why?” ](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action) 思考自己是是为什么开始的创业.
 
 DON’T KEEP YOUR IDEA TO YOURSELF.
 将自己的创意保留,避免别人偷了你的创意,但又对自己的创意不是足够的自信,无法组建一个合适的团队,那么或许这样的一个创意根本不适合你.
