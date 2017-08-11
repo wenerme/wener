@@ -7,6 +7,9 @@
 [Graphviz](https://zh.wikipedia.org/wiki/Graphviz)
 : Graphviz 是用于绘制使用 DOT 语言书写图形内容的工具.
 
+* [族谱布局](https://stackoverflow.com/q/2271704/1870054)
+* [How do you create a family tree in d3.js?](https://stackoverflow.com/q/31245751/1870054)
+
 ## Dot
 
 ### Tips

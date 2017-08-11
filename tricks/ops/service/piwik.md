@@ -26,3 +26,8 @@ password =      ; Proxy password: optional; if specified, username is mandatory
 # vhost log format
 log_format vhosts '$host $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"';
 ```
+
+## FAQ
+### 关闭网络访问
+* [How do I configure Piwik on a server without Internet?](https://piwik.org/faq/troubleshooting/faq_16646/)
+* 禁用掉 Marketplace 插件即可

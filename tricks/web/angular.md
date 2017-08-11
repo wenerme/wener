@@ -1,9 +1,6 @@
 # Angular
 
 ## Tips
-
-## Tricks
-
 * 如果想要实现默认的嵌套多级路由,并且希望将路由定义在别的地方,似乎只能使用 loadModule 来实现
 * 内容映射可以使用 `ng-content` 实现
   * 例如 `<ng-content select="header"></ng-content>`
@@ -13,6 +10,14 @@
 * [Angular Universal Design](https://docs.google.com/document/d/1eGEq0N7czS8nWWuCV3n4eMF3GFzk88rsN0bll6yE0bE/edit?usp=sharing)
 * [Augury](https://github.com/rangle/augury)
   * Angular Debugging and Visualization Tools
+* 相关资源
+  * Angular [resources](https://angular.io/resources/)
+* CDK
+  * [What is `cdk` in Angular Material 2 components](https://stackoverflow.com/q/42340649/1870054)
+  * component dev kit
+  * [A first look into the Angular CDK](https://medium.com/@caroso1222/a-first-look-into-the-angular-cdk-67e68807ed9b)
+  * 提供接口供 `Portal` 和 `PortalHost` 动态实例化
+  * `Portal`
 
 ```js
 // 处理 window 的事件
@@ -30,6 +35,7 @@ onResize(event) {
 
 ```bash
 # 全局安装 ng
+# 或者 npm i -g @angular/cli
 yarn global add @angular/cli
 # 如果全局路径不在 PATH 中可以添加以下命令输出的路径
 yarn global bin
@@ -41,7 +47,7 @@ ng set defaults.styleExt scss
 # 如果出现无法处理 css 的异常, 则修改 angular-cli.json 中的 "styles":["styles.css"] 为 "styles":["styles.scss"]
 
 # 生成项目时使用 scss
-ng new project --style=scss
+ng new my-roject --style=scss
 
 # 查看压缩情况
 source-map-explorer dist/main.bundle.js
@@ -51,8 +57,86 @@ source-map-explorer dist/main.bundle.js
 ## SSR
 * [Server Side Rendering With Angular4](https://www.softwarearchitekt.at/post/2017/03/07/server-side-rendering-with-angular-4.aspx)
 
+## UI 组件
+* [angular/flex-layout](https://github.com/angular/flex-layout/)
+  * `yarn add @angular/flex-layout`
+  * [API Documentation](https://github.com/angular/flex-layout/wiki/API-Documentation)
+
+### Material
+* Angular [Material](https://material.angular.io)
+* 注意官方的字体是使用的谷歌在线字体, 建议下载下来本地托管
+  * `<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`
+  * 下载 https://github.com/google/material-design-icons/tree/master/iconfont
+  * 设计规范 http://google.github.io/material-design-icons/
+  * 在线搜索 https://material.io/icons/
+  * 也可以安装 `material-design-icons` 来使用
+    * 该模块非常大 (~60M), 因为会下载整个仓库
+  * `<i class="material-icons">face</i>`
+* 当分模块时, 可能每个模块都要导不同的 md 组件, 官方建议用一个自己的 Md 模块, 导入需要的, 然后导入该模块即可
+* [Teradata/covalent](https://github.com/Teradata/covalent)
+  * Covalent: UI Platform based on Angular-Material
+
+```bash
+yarn add @angular/material @angular/cdk
+yarn add @angular/animations
 ```
-```
+
+## 开发规范
+* [Style Guide](https://angular.io/guide/styleguide)
+  * 官方规范手册
+* [Architecture Overview](https://angular.io/guide/architecture)
+  * 架构概览
+
+
+* 标准目录结构
+  * `/e2e`
+    * 测试相关
+  * `/src`
+    * `/app`
+      * 应用代码主目录
+      * `/shared`
+        * 全局公共组件
+      * `/pages`
+        * 全局公共页面
+      * `/<模块>`
+        * 自定义模块
+        * `/shared`
+          * 自定义模块下的共享组件
+        * `/<组件>`
+          * 自定义模块下的组件
+    * `/assets`
+      * 资源
+        * 例如图片
+    * `/environments`
+      * 环境配置
+      * 生产,开发,测试
+    * `main.ts`
+      * 入口
+    * `polyfills.ts`
+      * 添加 Polyfills 的地方
+    * `styles.scss`
+      * 全局样式, 添加主题的地方
+
+
+* 组件命名
+  * 页面建议使用 `page-` 的前缀
+
+## Node
+
+### 组件通讯
+* [Component Interaction](https://angular.io/guide/component-interaction)
+
+1. `@Input` 属性绑定
+2. `@Output` 对外事件触发, 多为 EventEmitter
+3. `@Input` + `@Output` 可以组成双向绑定
+4. `@ViewChild` 可以将引用到的组件直接注入, 可以直接操作组件方法
+5. 基于 Service 进行通讯
+
+### 路由
+
+* 路由的内容会在 `<router-outlet>` 标签中显示
+* 路由可以做多级
+
 
 ## FAQ
 
@@ -88,3 +172,5 @@ https://github.com/angular/angular/issues/11897
 * https://www.chromestatus.com/features/4964279606312960
 * 在后面版本会不产生任何操作
 * 使用 `>>>`
+
+### scss 全局变量

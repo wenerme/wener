@@ -1,10 +1,13 @@
 # Java 9
 ## Tips
 * [55 New Features in JDK 9](https://www.slideshare.net/SimonRitter/55-new-features-in-jdk-9)
+* [Self-Contained Application Packaging](https://docs.oracle.com/javase/9/deploy/self-contained-application-packaging.htm#JSDPG583)
+
 ## Contents
 * [JSR 379: JavaTM SE 9 Release Contents](https://jcp.org/en/jsr/detail?id=379)
 * [Java9](http://openjdk.java.net/projects/jdk9/)
 * [Countdown to Java 9 Release Date](http://www.java9countdown.xyz/)
+
 ## NOTES
 * 没有任何语言上的修改
 * Flow

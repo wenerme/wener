@@ -44,14 +44,31 @@ https://github.com/muaz-khan/WebRTC-Experiment
 https://github.com/streamproc/MediaStreamRecorder
 https://github.com/strukturag/spreed-webrtc
 https://github.com/keroserene/go-webrtc
-https://github.com/Kurento/kurento-media-server
-http://peerjs.com/
+
+* [peerjs](http://peerjs.com/)
+  * 已经停止开发
 https://simplewebrtc.com/
 
 https://github.com/priologic/easyrtc
 
 https://github.com/muaz-khan/WebRTC-Experiment/
 https://github.com/muaz-khan/RecordRTC
+
+
+## Kurento
+
+* [Kurento and Asterisk: A powerful couple](https://webrtc.ventures/2017/02/kurento-asterisk-powerful-couple/)
+* [Kurento/kurento-media-server](https://github.com/Kurento/kurento-media-server)
+* Kurento media server
+* C++
+* Features
+  * Networked streaming protocols, including HTTP, RTP and WebRTC.
+  * Group communications (MCUs and SFUs functionality) supporting both media mixing and media routing/dispatching.
+  * Generic support for computational vision and augmented reality filters.
+  * Media storage supporting writing operations for WebM and MP4 and playing in all formats supported by GStreamer.
+  * Automatic media transcodification between any of the codecs supported by GStreamer including VP8, H.264, H.263, AMR, OPUS, Speex, G.711, etc.
+
+
 ## Feed
 
 https://github.com/abhishekkr/capture

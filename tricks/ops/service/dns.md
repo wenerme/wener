@@ -39,6 +39,7 @@ Default TTL: 3600
 ## PowerDNS
 * [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
 * Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
+* [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
 * 特性
   * 多种后端
   * 多种复制方式
@@ -93,6 +94,59 @@ pdnsutil check-zone mydomain.com
 # add-record ZONE NAME TYPE [ttl] content
 
 ```
+
+### 后端
+* 后端模块
+  * sql
+    * sqlite
+    * oracle
+    * mysql
+    * pgsql
+    * odbc
+    * opendb
+  * bind
+  * tinydns
+  * remote
+  * pipe
+  * lua
+  * ldap
+* 后端方法分类
+  * minimal
+    * list
+      * 用于支持 AXFR
+    * lookup
+    * get
+    * getSOA
+  * master
+    * getUpdatedMasters
+    * setNotifed
+  * slave
+    * getDomainInfo
+    * isMaster
+    * getUnfreshSlaveInfos
+    * setFresh
+    * startTransaction
+    * commitTransaction
+    * abortTransaction
+    * feedRecord
+  * supermaster
+    * superMasterBackend
+    * createSlaveDomain
+  * dnssec
+  * 其他
+* 主要接口
+  * `BackendFactory`
+    * `DNSBackend` 的工厂类
+  * `DNSBackend`
+    * 后端接口
+  * `XXXLoader`
+    * 静态初始化类
+    * 用于注册工厂方法
+    * `BackendMakers().report(new XXXFactory)`
+* 需要实现 `pdns/dnsbackend.hh` 中的 DNSBackend
+* [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
+* AXFR
+
 
 ### FAQ
 #### 将日志记录到文件

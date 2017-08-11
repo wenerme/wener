@@ -70,29 +70,22 @@ $CONFIG = array_merge($CONFIG, $EXTRA_CONFIG)
 ## Jenkins
 
 ```bash
-# 创建 jenkins 用户,因为容器里需要使用到 uid
-useradd jenkins
-# 数据目录
-mkdir -p /opt/apps/jenkins/data
-# 修改数据目录权限
-chown -R jenkins:jenkins /opt/apps/jenkins/data
-# 需要使用 -u 修改 uid
+# 不用映射, 备份通过 docker cp $ID:/var/jenkins_home
+# 设置 JENKINS_OPTS="--prefix=/jenkins" 来做反向代理
+# 如果目录有权限问题可手动设置 mkdir -p /data/jenkins && chwon 1000:1000 /data/jenkins
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
-  --name jenkins -u `id -u jenkins` \
   -p 8080:8080 -p 50000:50000 \
-  -v /opt/apps/jenkins/data:/var/jenkins_home \
-  jenkins
-
-# 在容器中添加对应的用户名,如果 uid 对应的用户名找不到,会出现错误
-docker exec -it -u root jenkins useradd dev --uid `id -u jenkins` -d /home/dev
+  -v /data/jenkins:/var/jenkins_home \
+  --name jenkins jenkins
 ```
 
-Jenkins 是离线的,由于 `jenkins-ci.org` 被墙,所以需要使用 HTTP 代理
+Jenkins 是离线的,由于 `jenkins-ci.org` 被墙,所以可能需要使用 HTTP 代理
 
 ## gitea
 
 ```bash
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 3000:3000 \
   -v /data/gitea:/data \
   --name gitea gitea/gitea
 ```
@@ -199,6 +192,15 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 docker run -it --link some-redis:redis --rm redis redis-cli -h redis -p 6379
 ```
 
+## Docker in Docker
+
+```bash
+# start dockerd
+docker run -it --privileged -v /data/docker:/var/lib/docker --name dockerd --rm docker:dind
+# 客户端
+# DOCKER_HOST=tcp://docker:2375
+docker run --rm -it --link dockerd:docker docker info
+```
 
 ## MongoDB
 ```bash
@@ -251,18 +253,6 @@ kill $(lsof -t -i @localhost:8080 -sTCP:listen)
 ## Nexus
 
 ```bash
-# 使用 mount 存储文件
-mkdir -p /data/nexus && sudo chown -R 200:200 /data/nexus
-docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
-  -p 8002:8081 -v /data/nexus:/sonatype-work \
-  --name nexus sonatype/nexus:oss
-
-# 使用 data volume
-docker run -d --name nexus-data sonatype/nexus:oss echo "data-only container for Nexus"
-docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
-  -p 8002:8081 --volumes-from nexus-data \
-  --name nexus sonatype/nexus:oss
-
 # nexus3 支持 docker
 # 默认端口为 8081
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
@@ -395,6 +385,15 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 /opt/lampp/lampp restart
 # 重启 apache
 /opt/lampp/bin/httpd -k restart
+```
+
+## ldap
+
+```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+  -p 10636:10636 -p 10389:10389 \
+  -v /data/apacheds:/opt/apacheds/instances \
+  --name apacheds wener/apacheds
 ```
 
 ## Postgres

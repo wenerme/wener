@@ -164,7 +164,7 @@ brew install php56
 
 ```bash
 # 基础 Docker 依赖
-docker install docker docker-machine docker-machine-driver-xhyve docker-compose docker-swarm
+brew install docker docker-machine docker-machine-driver-xhyve docker-compose docker-swarm
 brew cask install virtualbox vagrant
 
 brew install {docker,docker-machine,docker-compose,vagrant}-completion docker-machine-completion
@@ -205,4 +205,12 @@ for f in `echo *.incomplete`; do
   echo Manual download ${f%.incomplete}
   aria2c -c -j 10 https://homebrew.bintray.com/bottles/${f%.incomplete} && rm $f
 done
+```
+
+### xcode 版本检测错误
+```bash
+# 显示当前使用的版本
+xcode-select -p
+# 切换为另外的版本
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 ```
