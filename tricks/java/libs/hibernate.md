@@ -8,6 +8,10 @@ https://docs.jboss.org/hibernate/orm
   * `org.hibernate.cfg.AvailableSettings`
   * `org.hibernate.jpa.AvailableSettings`
 
+## What's new in Hibernate 5
+* Java 8 支持 [Hibernate Java 8](http://mvnrepository.com/artifact/org.hibernate/hibernate-java8)
+
+
 ## 优化
 
 __开启用于调试的日志__

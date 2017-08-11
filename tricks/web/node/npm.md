@@ -16,4 +16,7 @@ npm publish
 npm install @wener/wener-test
 # 可以设置当前的全局 scope
 npm config set scope wener
+
+# 使用淘宝镜像安装依赖
+npm i --registry=https://registry.npm.taobao.org
 ```

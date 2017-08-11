@@ -17,6 +17,9 @@
     * 制作启动盘
     * 速度很快
     * 只能在 Windows 下使用
+  * [etcher](https://etcher.io/)
+    * 制作启动盘
+    * 可以跨平台使用
 * 输入法
   * http://dl.google.com/pinyin/v2/GooglePinyinInstaller.exe
   * http://dl.google.com/pinyin/v1/GooglePinyinInstaller.exe
@@ -58,8 +61,6 @@ Get-WmiObject Win32_NetworkAdapter -Filter "netenabled = true" | Select Guid
   * IIS 10 支持HTTP/2
   * Windows PowerShell 5.0
   * Hyper-V 支持网络虚拟化
-
-
 
 ## 激活
 

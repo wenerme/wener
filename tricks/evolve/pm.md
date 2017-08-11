@@ -40,3 +40,22 @@ __产品经理__ | __项目经理__
   * 更关注商业目的和利益
 
 * [Ask HN: How can I become a proper Project Manager from a Programmer?](https://news.ycombinator.com/item?id=12477850)
+
+## Meeting
+
+### 11 Things Leaders Need to Talk About When They Meet With Their Staff
+__Discussion to drive the business forward__
+
+* [11 Things Leaders Need to Talk About When They Meet With Their Staff](https://www.eremedia.com/tlnt/11-big-things-leaders-should-talk-about-when-they-meet-with-their-staff/)
+
+1. What are the key outcomes we are on the hook for?
+2. What are the risks we face?
+3. What data do we wish we knew about our business?
+4. What stupid stuff are we doing?
+5. What has changed?
+6. What improvements can we make?
+7. What has become harder or easier in our work and business?
+8. What should we all be learning?
+9. Who should we thank?
+10. Who are the stars?
+11. What is our team brand?
