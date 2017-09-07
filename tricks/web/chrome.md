@@ -18,11 +18,14 @@ chromium --js-flags="--help"
 ```
 
 ## Headless
-* https://developers.google.com/web/updates/2017/04/headless-chrome
-* https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc
+* [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
+* 其他启动参数 [headless_shell_switches.cc](https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc)
 * https://chromedevtools.github.io/devtools-protocol/tot/Debugger/
-* https://www.npmjs.com/package/chrome-remote-interface
-
+* [chrome-remote-interface](https://www.npmjs.com/package/chrome-remote-interface)
+* [TagUI](https://github.com/tebelorg/TagUI)
+  * General purpose tool for automating web interactions
+* [Chromeless, Chrominator, Chromy, Navalia, Lambdium, GhostJS, AutoGCD](https://medium.com/@kensoh/chromeless-chrominator-chromy-navalia-lambdium-ghostjs-autogcd-ef34bcd26907)
+* [GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer)
 
 ```bash
 chrome-remote-interface inspect

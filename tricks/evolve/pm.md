@@ -1,8 +1,19 @@
 # PM
 
+
+## Tips
+
 * [](http://project-management.zone/system/jira,phabricator,redmine)
 * [PMBOK](https://en.wikipedia.org/wiki/Project_Management_Body_of_Knowledge)
 * [What is the role of a product manager?](http://www.aha.io/roadmapping/guide/product-management/what-is-the-role-of-a-product-manager)
+* [Functional Specifications vs. Requirements Document](https://stackoverflow.com/q/2683193/1870054)
+  * Requirements : “what” the application should do [from user's perspective view]
+  * Functional specification: “how” the application function
+  * Technical specification: “how” the function implemented
+* [What is the difference between requirements and specifications ?](https://softwareengineering.stackexchange.com/q/121289/126631)
+  * Requirements are what your program should do, from user or the business as a whole
+  * Specifications are how you plan to do it, from technical team
+  * same information, but to two completely different audiences
 
 ## Product Manager vs Project Manager
 
@@ -59,3 +70,13 @@ __Discussion to drive the business forward__
 9. Who should we thank?
 10. Who are the stars?
 11. What is our team brand?
+
+
+## MindTools - PM
+* [Project Management - Delivering Complex Projects Successfully](https://www.mindtools.com/pages/main/newMN_PPM.htm)
+
+## Gantt
+* [Gantt Charts - Planning and Scheduling Team Projects](https://www.mindtools.com/pages/article/newPPM_03.htm)
+
+
+

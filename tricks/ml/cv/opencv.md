@@ -23,6 +23,20 @@
   * [New functionality OpenCV3](http://visilab.etsii.uclm.es/personas/oscar/Publications/New_functionality_OpenCV3.pdf)
 * OpenCV 2.4 [cheatsheet](http://docs.opencv.org/2.4/opencv_cheatsheet.pdf)
 
+* [OpenCV](https://github.com/opencv/opencv)
+* [OpenCV Contrib](https://github.com/opencv/opencv_contrib) 第三方模块
+* [go-opencv](https://github.com/lazywei/go-opencv) OpenCV 1.x,2.x go binding
+* [EasyPR](https://github.com/liuruoze/EasyPR) 中国牌照识别
+* [OpenALPR](https://github.com/openalpr/openalpr) 自动牌照识别,不支持中国
+* [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+* [Go SVM](https://github.com/datastream/libsvm)
+
+* https://github.com/bytedeco/javacv
+* https://github.com/bytedeco/javacv/wiki/Other-Resources
+* ImageJ
+* HaarDetect
+* [OpenCL™ Optimization Case Study Fast Fourier Transform – Part 1](http://developer.amd.com/resources/articles-whitepapers/opencl-optimization-case-study-fast-fourier-transform-part-1/)
+
 
 
 ```bash
@@ -45,6 +59,18 @@ make -j8
 ## Sample
 * sample [textdetection](https://github.com/opencv/opencv_contrib/blob/master/modules/text/samples/textdetection.cpp)
 * doc [group__text__detect](http://docs.opencv.org/master/da/d56/group__text__detect.html)
+
+## Bindings
+### js
+* [node-opencv](https://github.com/peterbraden/node-opencv)
+  * 2.3+
+* [face-detection-node-opencv](https://github.com/drejkim/face-detection-node-opencv)
+
+
+### go
+* [go-opencv/go-opencv](https://github.com/go-opencv/go-opencv)
+  * 1.x, 2.x
+  * 3.x [#60](https://github.com/go-opencv/go-opencv/issues/60)
 
 ## Install
 
@@ -241,21 +267,3 @@ INTER_LANCZOS4  | Lanczos interpolation over 8x8 neighborhood
 INTER_MAX  | mask for interpolation codes
 WARP_FILL_OUTLIERS  | flag, fills all of the destination image pixels. If some of them correspond to outliers in the source image, they are set to zero
 WARP_INVERSE_MAP  | flag, inverse transformation
-
-## Reference
-
-* [OpenCV](https://github.com/opencv/opencv)
-* [OpenCV Contrib](https://github.com/opencv/opencv_contrib) 第三方模块
-* [go-opencv](https://github.com/lazywei/go-opencv) OpenCV 1.x,2.x go binding
-* [EasyPR](https://github.com/liuruoze/EasyPR) 中国牌照识别
-* [OpenALPR](https://github.com/openalpr/openalpr) 自动牌照识别,不支持中国
-* [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
-* [Go SVM](https://github.com/datastream/libsvm)
-
-https://github.com/bytedeco/javacv
-https://github.com/bytedeco/javacv/wiki/Other-Resources
-ImageJ
-HaarDetect
-
-
-[OpenCL™ Optimization Case Study Fast Fourier Transform – Part 1](http://developer.amd.com/resources/articles-whitepapers/opencl-optimization-case-study-fast-fourier-transform-part-1/)

@@ -1,5 +1,7 @@
 # Asterisk
 
+## Tips
+
 * [源码](https://gerrit.asterisk.org/)
 * 语音文件 https://www.asterisksounds.org
 * Asterisk NOW
@@ -12,12 +14,12 @@
   * https://wiki.asterisk.org/wiki/display/AST/Home
   * https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture
 
+* http://www.asteriskdocs.org/
+* http://downloads.asterisk.org/pub/
+  * 公共下载目录
+
 https://store.docker.com/community/images/luar/asterisk
 https://wiki.alpinelinux.org/wiki/FreePBX
-
-
-
-
 
 ## 服务端
 * Asterisk
@@ -28,49 +30,70 @@ https://wiki.alpinelinux.org/wiki/FreePBX
 * Yate
 * PBX in a Flash
 * IPPBX/IVR
-
-http://wiki.alpinelinux.org/wiki/FaxServer_using_Asterisk
+* [FaxServer using Asterisk](http://wiki.alpinelinux.org/wiki/FaxServer_using_Asterisk)
 
 ## 客户端
 * Softphone
   * ring.cx GNU
   * x.lite
+  * Zoiper - iOS
 * 协议
-  http://www.pjsip.org/
-  http://sipml5.org/
-  http://wiki.freepbx.org/display/FPG/Extensions+Module+-+PJSIP+Extension
+  * http://www.pjsip.org/
+  * http://sipml5.org/
+  * http://wiki.freepbx.org/display/FPG/Extensions+Module+-+PJSIP+Extension
+  * https://github.com/onsip/SIP.js
 
-http://www.studyweb.com/wide-open-voip-top-50-open-source-voip-apps/
+* [Top 50 Open Source VoIP Apps](http://html.com/blog/voip-top-50-open-source-voip-apps/)
 * [SIP-Client for Raspberry Pi that works from command line?](http://stackoverflow.com/a/29715067/1870054)
 
 http://www.linphone.org/technical-corner/ortp/overview
 
-## 硬件
-* PSTN(E1) -> 数字 -> Asterisk -> 模拟 -> FXS -> 座机
-* [Digium Board selector](https://store.digium.com/boards)
-* 电信光纤 -> ?
-  * 电信光纤是怎么转成电话的,是转的数字还是模拟
-  * 怎么在同一个光纤中支持多个通道
-* 转换器接口类型
-  * PCI
-  * PCIe
-  * USB
-    * 较少
-* OpenVox
-* 回音消除/EC/Echo Cancelation
-* RJ48
-* RJ45
 
-https://www.voip-info.org/wiki/view/Analog+Telephone+Adapters
-http://www.synway.cn/
-http://www.synway.cn/index.php/product/product-list/14
 
-三汇CTI语音产品分为SHT模拟语音卡、SHD数字中继卡、SHN VOIP语音卡、SHF系列传真卡
+## Web
 
-SHD-30C-CT/PCI
-SHD系列数字中继卡，可分为C型、D型号、E型号、CAS卡，四种类型。C型/D型数字卡，是一种采用PCI总线的数字中继线语音卡，该系列语音卡可以实现采用E1/T1数字中继线接 入的电话语音处理系统所需的绝大部分功能。D型数字卡增强了回波抵消的能力；同时，采用的DMA数据读写方式具有传输速率高和CPU占用率小的优点，进一步提高了系统性能。E型数字中继卡，是采用PCIe总线，CAS语音卡包含SHD-120D-CT/PCI/CAS、SHD-240D-CT/PCI /CAS等2种语音卡，是一种采用PCI总线的数字中继线语音卡，支持E1模式下1号信令的呼叫接续。 - See more at: http://www.synway.cn/index.php/product/product-content/14/203#sthash.oi5mAdNR.dpuf
+* [Asterisk WebRTC Support](https://wiki.asterisk.org/wiki/display/AST/Asterisk+WebRTC+Support)
+* [WebRTC tutorial using SIPML5](https://wiki.asterisk.org/wiki/display/AST/WebRTC+tutorial+using+SIPML5)
 
-## Tips
+* 客户端
+  * https://github.com/DoubangoTelecom/sipml5
+  * http://jssip.net/
+
+## 视频
+* [Asterisk video](http://www.voip-info.org/wiki/view/Asterisk+video)
+
+## 名词
+
+* AGI
+  * 执行 Dialplan 中的脚本
+  * 针对单次通话
+* AMI
+  * `manager.conf`
+  * 实时接口
+  * Telnet
+  * 针对整个 PBX
+* ARI
+  * `ari.conf`
+  * 通过接口的方式而不是 C 的方式来写应用
+  * HTTP GET POST DELETE
+  * Websocks 统计和事件
+* Diaplan
+* DAHDI
+* libpri
+* IVR
+  * 交互式语音应答
+
+## FAQ
+### no samples for gxxx
+
+It means that one of clients, is using silence suppression mechanism which sends audio frames that do not contain any samples. That is causing these Warnings on Asterisk CLI.
+
+Either ignore it, or find the device that does this and disable silent suppression.
+
+* [RTP Silence Suppression](https://www.voip-info.org/wiki/view/RTP+Silence+Suppression)
+
+
+## Notes
 ```bash
 # 一个基于 Ubuntu 的 freepbx 容器
 docker run --net=host -it --name freepbx jmar71n/freepbx
@@ -79,28 +102,28 @@ docker run --net=host -it --name freepbx jmar71n/freepbx
 * /etc/asterisk/modules.conf
 
 * 模块类型
-* Applications
-  * app_
-* Bridging modules
-  * bridge_
-* Call detail recording (CDR) modules
-  * cdr_
-* Channel event logging (CEL) modules
-  * cel_
-* Channel drivers
-  * chan_
-* Codec translators
-  * codec_
-* Format interpreters
-  * format_
-* Dialplan functions
-  * func_
-* PBX modules
-  * pbx_
-* Resource modules
-  * res_
-* Add-on modules
-* Test modules
+  * Applications
+    * app_
+  * Bridging modules
+    * bridge_
+  * Call detail recording (CDR) modules
+    * cdr_
+  * Channel event logging (CEL) modules
+    * cel_
+  * Channel drivers
+    * chan_
+  * Codec translators
+    * codec_
+  * Format interpreters
+    * format_
+  * Dialplan functions
+    * func_
+  * PBX modules
+    * pbx_
+  * Resource modules
+    * res_
+  * Add-on modules
+  * Test modules
 
 * 文件结构
   * 配置
@@ -118,15 +141,35 @@ docker run --net=host -it --name freepbx jmar71n/freepbx
     * cdr,cel,debug,队列,消息,错误等
   * Dialplan
     * 传统方式 /etc/asterisk/extensions.conf
-    * Asterisk Extension Logic (AEL) in /etc/asterisk/extensions.ael
+    * Asterisk Extension Logic (AEL) /etc/asterisk/extensions.ael
     * Lua /etc/asterisk/extensions.lua
   * 硬件
     * 常见的厂商 Digium (the sponsor, owner, and primary developer of Asterisk), Sangoma, Rhino, OpenVox, Pika, Voicetronix, Junghanns, Dialogic, Xorcom, beroNet
     * Digium Asterisk Hardware Device Interface - DAHDI
+* 常见模块
+  * asterisk-alsa
+  * asterisk-cdr-mysql
+  * asterisk-chan-dongle
+  * asterisk-curl
+  * asterisk-dahdi
+  * asterisk-dbg
+  * asterisk-dev
+  * asterisk-doc
+  * asterisk-fax
+  * asterisk-mobile
+  * asterisk-odbc
+  * asterisk-pgsql
+  * asterisk-sample-config
+  * asterisk-sounds-en
+  * asterisk-sounds-moh
+  * asterisk-speex
+  * asterisk-srtp
+  * asterisk-tds
+* 安装的模块位于 `/usr/lib/asterisk/modules`
 
 ```bash
 apk add asterisk
-apk add asterisk-{alsa,cdr-mysql,chan-dongle,curl,dahdi,dbg,dev,doc,fax,mobile,sample-config,sounds-en,sounds-moh,speex,srtp,tds}
+apk add asterisk-{alsa,cdr-mysql,chan-dongle,curl,dahdi,dbg,dev,doc,fax,mobile,odbc,pgsql,sample-config,sounds-en,sounds-moh,speex,srtp,tds}
 asterisk -cvvv
 #> module show
 #> core stop now
@@ -256,124 +299,13 @@ done
 rm *.wav
 ```
 
-Dialplan
-* dialplan reload
-* cointext 名字长度为 80, 但有最后一位 null, 所以是 79
-* [general] and [globals] 特殊
-* 避免使用  [general], [default], and [globals] 作为名字
-* The context is the point in the dialplan where connections from that channel will begin.
-* channel 中 context 名字是链接开始的点
-* 推荐使用非数字而是具体含义的名字作为不可拨号的扩展名
 
-```
-exten => name,priority,application()
-; priority 可使用 n 替代 2,3,4,5,6..., 但 1 必须指定
-;   n 也可以做算术运算,例如 n+200, 但不推荐使用
-; 相同的名字可以使用 same => 替代
 
-exten => 123,1,Answer()
-  same => n,do something
-  same => n,do something else
-  same => n,do one last thing
-  same => n,Hangup()
 
-exten => 123,n(label),application()
-; 在扩展中可以给优先级指定标签,因此可以通过名字而不是一个数字来引用优先级
-```
 
-Applications
-Answer()
-  建立通道
-Playback(filename)
-  播放预先录制好的声音文件
-  预先附带的文件位于 /var/lib/asterisk/sounds, 但是是有语言限制的,主要注意
-  core show sounds 查看所有的, core show sound 查看单个
-  filename 可以是绝对路径,也可以是相对于音频文件夹的相对路径
-  filename 可以不带扩展类型,会尝试播放最好编码的文件
-Hangup([code])
-  code 为 ISDN cause code
-Progress()
-  主要用于返回通话过程信息给对方,部分服务提供商可能对此有要求,当遇到奇怪问题的时候可以试试
-Goto(context,extension,priority)
-Goto(extension,priority)
-Goto(priority)
-  跳转到其他的位置
-Background()
-  在后台播放音频,但是是会等待 DTMF
-  与 Playback, 但用户马上可以做出操作而不是等待声音播放完成
-WaitExten([timeout])
-  当 Background 播放完成后使用改程序等待 DTMF 数字输入
-  timeout 如果不传则会使用默认的, 参考 TIMEOUT()
-  如果输入的扩展不存在则会使用 i 扩展
-  如果超时了则会使用 t
-Dial(destination[,timeout[,option[,URI]]])
-  destination
-    DAHDI/1 模拟电话的 FXS 通道. DAHDI 技术, 资源(通道标识符) 1
-    SIP/0004F2001122
-    IAX2/Softphone
-    同时多方拨号 DAHDI/1&SIP/0004F2001122&IAX2/Softphone, 但只会接通第一个
-    远程 VoIP `technology/user[:password]@remote_host[:port][/remote_extension]`
-  如果拨号失败会设置变量 DIALSTATUS 记录失败原因
-  Digium 演示服务 Dial(DAHDI/[gGrR]channel_or_group[/remote_extension])
-  例如 Dial(IAX2/guest@misery.digium.com/s)
-  如果拨号成功则会桥接过去,而不会继续执行
-```
-exten => 502,1,Dial(DAHDI/1,10)
-  ; 无人接听
-  same => n,Playback(vm-nobodyavail)
-  same => n,Hangup()
-```
-  option 有非常多,例如 m,当在拨号时使用 moh 而不是对方的声音
-  URI 很少使用, 在支持的环境下可能会打开该 URI 指向的网页
-  没有的参数可以留空 Dial(DAHDI/1,,m)
-Set()
-  设置变量
-  全局变量
-  通道变量
-    ${EXTEN} 通道名
-  环境变量(${ENV(var)})
-  变量操作
-    `${EXTEN:x}` 移除前面 x 位
-    `${EXTEN:x:y}` y 为长度
-    x,y 可以为负
-```
-exten => 301,1,Set(LEIF=SIP/0000FFFF0001)
-  ; 对变量的应用
-  same => n,Dial(${LEIF})
-; 全局变量
-[globals]
-LEIF=SIP/0000FFFF0001
 
-; 修改通道相关的变量
-; gives the choice of (1) French, (2) Spanish, or (3) German
-exten => s,1,Background(choose-language)
-   same => n,WaitExten(5)
-exten => 1,1,Set(CHANNEL(language)=fr)
-exten => 2,1,Set(CHANNEL(language)=es)
-exten => 3,1,Set(CHANNEL(language)=de)
-; the next priority for extensions 1, 2, or 3 would be handled here
-exten => _[123],n,Goto(menu,s,1)
-```
-SayNumber(number)
-  报数, number 不能过大
-SayDigits(digits)
-  说出每个数字
-Verbose(2, Call from VoIP network to ${EXTEN})
-  日志
 
-模式匹配
-  以 _ 开头
-  X => [0-9]
-  Z => [1-9]
-  N => [2-9]
-  [15-7] => [15-7] 匹配单个数字, 1 或者 5,6,7
-  . => .+ 匹配一个或多个任意字符
-  ! => .*
 
-引入其他上下文
-```
-include => context
-```
 
 外部连通性
 
@@ -568,35 +500,6 @@ exten => 104,1,Dial(SIP/Charlie,,tT)
 ```
 
 
-传统 PSTN 线路: 模拟和数字
-模拟技术
-  没有信号通道,大多数信号通道是电子的
-  断开连接通常需要几秒,并且不稳定
-  Far-end supervision is minimal
-  不同的电路就意味着不同的音频特性,需要进行调整
-连接到 Asterisk 的模拟线路需要通过 FOX(Foreign eXchange Office) 端口
-如果想要将传统电话连接到 Asterisk 也需要同样的转接卡
-
-
-数字线路
-T1,24路
-  加拿大或美国,ISDN-PRI
-E1,32路
-  世界其他国家,ISDN-PRI 或 MFC/R2
-  中国
-BRI,2路
-  ISDN-BRI, Euro-ISDN
-
-PRI ISDN Primary Rate Interface ISDN (一般称为PRI) 协议主要运行于 DS1(T1/E1)线路
-MFC/R2 拉丁美洲和亚洲 (E1)
-
-Phone numbers as used for the purpose of origination are commonly called direct inward dialing numbers (DIDs)
-Historically, a DID referred to a phone number asso‐ ciated with a trunk connected to customer premise equipment (CPE).
-The number that was dialed is commonly referred to as the Dialed Number Identification Service (DNIS) number
-
-CAS-based protocol (like R2).
-PRI terminated in an RJ45 will be an ISDN connection,
-BNC Connector
 
 ```
 ; 处理来自 pstn 的请求
@@ -630,10 +533,6 @@ exten => _X.,1,Answer()
 
 https://groups.google.com/forum/#!forum/asterisk-tw
 
-深入拨号计划
-表达式
-https://wiki.asterisk.org/wiki/display/AST/Expressions
-https://www.voip-info.org/wiki/view/Asterisk+Expressions
 
 core show functions
 GotoIf(expression?destination1:destination2)
@@ -682,7 +581,7 @@ exten => s,1,NoOp()
 exten => 101,1,Macro(voicemail,${JOHN})
 
 ; 协程定义
- [subDialer]
+[subDialer]
 exten => start,1,NoOp()
   same => n,Dial(${ARG1},${ARG2})
   same => n,Return(${DIALSTATUS})
@@ -717,7 +616,6 @@ G.722 | 48/56/64 Kbps
 G.726 | 16/24/32/40 Kbps
 G.728 | 16 Kbps
 G.729 | 8 Kbps
-
 SPEEX Narrowband | 14Kps-23Kps | 8k
 SPEEX Wideband | 20800-58400 | 16k
 OPUS | 6k-51k | 48k
@@ -727,13 +625,6 @@ G.722 | 8K-80k | 16k
 
 视频编码
 H.263 90000
-
-VoIP 适配类型
-Single FXS – A single FXS VoIP adapter allows you to connect one telephone. Single FXS VoIP adapters come with either one or two Ethernet ports.
-Dual FXS – A dual FXS VoIP adapter allows you to connect up to two telephones. Dual FXS VoIP adapters come with either one or two Ethernet ports.
-FXO / FXS – A FXO / FXS VoIP adapter allows you to connect a single telephone and a single POTS line. These combination adapters are typically used to provide fail-over or life-line capabilities.
-
-如果需要超过两个线,则需要使用 VoIP 网关
 
 
 
@@ -1132,27 +1023,3 @@ voicemail show users           -- List defined voicemail boxes
 voicemail show zones           -- List zone message formats
 xmldoc dump                    -- Dump the XML docs to the specified file
 ```
-
-
-## Web
-
-https://wiki.asterisk.org/wiki/display/AST/Asterisk+WebRTC+Support
-https://wiki.asterisk.org/wiki/display/AST/WebRTC+tutorial+using+SIPML5
-
-* 客户端
-  * https://github.com/DoubangoTelecom/sipml5
-  * http://jssip.net/
-
-## 视频
-http://www.voip-info.org/wiki/view/Asterisk+video
-
-## 名词
-
-* AGI
-* AMI
-* ARI
-* Diaplan
-* DAHDI
-* libpri
-* IVR
-  * 交互式语音应答

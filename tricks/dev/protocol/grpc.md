@@ -11,6 +11,8 @@
     * 对服务的轻量级定义
 * NOTES:
   * k8s 使用 go-to-protobuf 从 go 生成的 proto
+* Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
+  * [grpc-go#555](https://github.com/grpc/grpc-go/issues/555)
 
 https://github.com/grpc/grpc-proto
 常用协议
@@ -28,6 +30,10 @@ https://goel.io/grpc-100/
 https://github.com/mfornos/awesome-microservices
 https://github.com/LogNet/grpc-spring-boot-starter
 https://grpc.io/docs/guides/auth.html
+
+## Node
+* [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
+
 
 ## grpc-gateway
 * [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)

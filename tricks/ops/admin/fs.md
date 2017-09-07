@@ -263,11 +263,14 @@ mount –t smbfs //localhost/public ~/mnt/smb/ –o username=wener
 
 ## FTP
 
-* [pure-ftpd](http://www.pureftpd.org/project/pure-ftpd)/[WIKI](https://en.wikipedia.org/wiki/Pure-FTPd)
+* [pure-ftpd](http://www.pureftpd.org/project/pure-ftpd)
+  * [Pure-FTPd:wikipedia](https://en.wikipedia.org/wiki/Pure-FTPd)
   * Pure-FTPd 非常简单的 FTP 服务, 只需要 `pure-ftpd &` 即可.
-* [vsftpd](https://security.appspot.com/vsftpd.html)/[WIKI](https://en.wikipedia.org/wiki/Vsftpd)
+* [vsftpd](https://security.appspot.com/vsftpd.html)
+  * [vsftpd:wikipedia](https://en.wikipedia.org/wiki/Vsftpd)
   * 相对较为安全并且迅速稳定.
-* [ProFTPD](http://www.proftpd.org/)/[WIKI](https://en.wikipedia.org/wiki/ProFTPD)
+* [ProFTPD](http://www.proftpd.org/)
+  * [ProFTPD:wikipedia](https://en.wikipedia.org/wiki/ProFTPD)
   * 有较多的特性
 
 ### OS X

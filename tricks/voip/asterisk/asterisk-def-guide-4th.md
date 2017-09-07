@@ -365,8 +365,8 @@ Calendar:<calendar name>|
 ## Ch21. 网关接口 - AGI
 ## Ch22. 集群
 ## Ch23. 分布式全球号码发现 - DUNDi
-Distributed Universal Number Discovery (DUNDi)
-https://en.wikipedia.org/wiki/Distributed_Universal_Number_Discovery
+* Distributed Universal Number Discovery (DUNDi)
+* [DUNDi](https://en.wikipedia.org/wiki/Distributed_Universal_Number_Discovery)
 
 ## Ch24. 系统监控和日志
 ## Ch25. Web 接口

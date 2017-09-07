@@ -54,6 +54,15 @@ https://github.com/priologic/easyrtc
 https://github.com/muaz-khan/WebRTC-Experiment/
 https://github.com/muaz-khan/RecordRTC
 
+## Jitsi
+* [jitsi.org](https://jitsi.org/)
+* [github/jitsi](https://github.com/jitsi)
+* The most innovative opensource video conferencing community.
+* [jitsi/jitsi-videobridge](https://github.com/jitsi/jitsi-videobridge)
+  * Jitsi Videobridge is a WebRTC compatible video router or SFU that lets build highly scalable video conferencing infrastructure (i.e., up to hundreds of conferences per server)
+* [jitsi/jitsi](https://github.com/jitsi/jitsi)
+  * Jitsi is an audio/video and chat communicator that supports protocols such as SIP, XMPP/Jabber, AIM/ICQ, IRC and many other useful features.
+* [jitsi/ice4j](https://github.com/jitsi/ice4j)
 
 ## Kurento
 

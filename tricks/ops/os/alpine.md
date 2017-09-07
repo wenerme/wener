@@ -1,6 +1,83 @@
 # Alpine
 
 
+## Tips
+* [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
+  * Search file in package from command line
+
+
+```bash
+# 计算块设备容量
+echo $(blockdev --getsize64 /dev/sdb1)/1024/1024 | bc -l
+
+
+apk add shadow
+apk add bash
+# 更换 shell 为 bash
+chsh root -s /bin/bash
+
+
+# 安装 neofetch
+apk add --no-cache -X http://dl-3.alpinelinux.org/alpine/edge/testing/ neofetch
+```
+
+
+
+## 安装
+* [Installation](https://wiki.alpinelinux.org/wiki/Installation)
+
+```bash
+# 制作启动盘
+dd if=alpine.iso of=/dev/sdx
+
+
+
+# https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts
+# 统一初始化
+# 分为 keymap,hostname,interfaces,dns,timezone,proxy,disk,ntp,cache,lbu,apkrepos 等
+setup-alpine
+
+# 也可以分开设置, 建议先设置网卡和 sshd, 那么接下来的操作就可以在远程操作
+# 网卡建议使用引导进行设置, 否则需要手动写配置文件
+setup-interfaces
+# 设置完网卡后可能需要重启网络服务
+rc-service networking restart
+setup-sshd -c openssh
+# 默认情况下不允许 root 远程登陆
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+rc-service sshd restart
+
+# 接下来就可以远程操作了
+setup-keymap us us
+setup-hostname -n alpine-test
+# 使设置的主机名生效
+/etc/init.d/hostname --quiet restart
+
+setup-ntp -c chrony
+setup-timezone -z Asia/Shanghai
+
+# 添加仓库
+# 安装时的安装包位于 /media/sdb/apks/
+echo "http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/main
+http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/community" >> /etc/apk/repositories
+
+# Edge 可选, 用于安装一些特殊的, 或者更新的
+echo "@edge http://mirrors.aliyun.com/alpine/edge/main
+@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
+
+apk update
+
+
+# 创建回答文件, 然后可直接编辑
+setup-alpine -c ans
+# 使用回答文件进行初始化
+setup-alpine -f ans
+
+# 如果只是想直接装到 U 盘, 那么至少需要 setup-interfaces, setup-sshd(从远程方便操作, 可以粘贴复制), 添加仓库, 然后才能 setup-disk
+# 因为 setup-disk 需要安装一些包
+
+```
+
 ## USB
 
 ```
@@ -25,3 +102,80 @@ hwdata-usb-0.282-r0
 
 ## Block device
 blkid
+
+## NTFS
+
+```bash
+# Manual http://www.tuxera.com/community/open-source-ntfs-3g/#tab-1414502373-2-22
+# http://www.tuxera.com/community/ntfs-3g-manual/
+apk add ntfs-3g ntfs-3g-progs
+
+# 挂载
+mount -t ntfs-3g /dev/sda1 /mnt/windows
+# 或
+echo '/dev/sda1 /mnt/windows ntfs-3g defaults 0 0' >  /etc/fstab
+```
+
+## APKINDEX
+* http://mirrors.aliyun.com/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+* https://wiki.alpinelinux.org/wiki/Apkindex_format
+* https://wiki.alpinelinux.org/wiki/Apk_spec
+
+## Edge
+* https://wiki.alpinelinux.org/wiki/Edge
+* "edge" is under constant development so be careful using it in production. It is possible that bugs in "edge" could cause data loss or could break your system.
+
+
+## Mirror
+* [How to setup a Alpine Linux mirror](https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror)
+
+/mnt/disk2t/data/alpine
+
+```bash
+rsync \
+  --archive \
+  --update \
+  --hard-links \
+  --delete \
+  --delete-after \
+  --delay-updates \
+  --timeout=600 \
+  --include=/mnt/disk2t/data/alpine/include.txt \
+  rsync://rsync.alpinelinux.org/alpine/ /mnt/disk2t/data/alpine/mirror/
+```
+
+rsync --archive --update --hard-links --delete --delete-after --delay-updates --timeout=600 ~/data/alpine/ root@192.168.1.20:/mnt/disk2t/data/alpine/
+
+__/etc/periodic/hourly/alpine-mirror__
+
+```bash
+#!/bin/sh
+# make sure we never run 2 rsync at the same time
+lockfile="/tmp/alpine-mirror.lock"
+if [ -z "$flock" ] ; then
+  exec env flock=1 flock -n $lockfile "$0" "$@"
+fi
+
+src=rsync://rsync.alpinelinux.org/alpine/ 
+dest=/var/www/localhost/htdocs/alpine/
+
+# uncomment this to exclude old v2.x branches
+#exclude="--exclude v2.*"
+
+mkdir -p "$dest"
+/usr/bin/rsync \
+        --archive \
+        --update \
+        --hard-links \
+        --delete \
+        --delete-after \
+        --delay-updates \
+        --timeout=600 \
+        $exclude \
+        "$src" "$dest"
+```
+
+```bash
+chmod +x /etc/periodic/hourly/alpine-mirror
+```
+
