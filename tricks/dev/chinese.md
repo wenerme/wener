@@ -10,6 +10,8 @@
   * 搜狗
     * http://pinyin.sogou.com/dict/
 
+## 笔画
+
 ## 搜狗 scel 格式
 
 搜狗的scel词库就是保存的文本的unicode编码，每两个字节一个字符（中文汉字或者英文字母）

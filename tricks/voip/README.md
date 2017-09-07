@@ -1,6 +1,7 @@
 # VOIP
 
-https://www.linphone.org/
+## Tips
+* https://www.linphone.org/
 
 ## 术语
 
@@ -12,8 +13,6 @@ https://www.linphone.org/
 ### WebRTC
 * 与 VOIP 关注的内容有很大重叠,但面向的对象不同
 * 主要关注基于浏览器的通讯
-
-__参考__
 * [WebRTC vs VoIP](http://www.voip-info.org/wiki/view/WebRTC+vs+VoIP)
 
 ### SIP
@@ -24,20 +23,24 @@ __参考__
 * 基于文本与传输层无关的的应用层协议,协议借鉴了 HTTP 和 SMTP 的很多元素
 * 主要用于初始化协议,其内部的数据交换使用其他协议
 * 传输层大多使用 RTP 或 SRTP, 可使用 TLS 加密
-
-__参考__
-
-* [SIP vs VOIP - whats difference/](http://www.sip.us/sip-vs-voip-whats-difference/)
-* [SIP:wikipedia](https://en.wikipedia.org/wiki/Session_Initiation_Protocol)
-* [rfc3261](https://tools.ietf.org/html/rfc3261)
+* 参考
+  * [SIP](https://en.wikipedia.org/wiki/Session_Initiation_Protocol)
+  * [SIP vs VOIP - whats difference/](http://www.sip.us/sip-vs-voip-whats-difference/)
+  * [rfc3261](https://tools.ietf.org/html/rfc3261)
 
 ### SDP
+* Session Descriptor Protocol
+* 会话描述协议
 
 ### PSTN
 * Public Switched Telephone Network
 * 公共交换电话网
 * 也可指 POTS - Plain Old Telephone System
 * PSTN的核心目前几乎已完全数字化
+
+### POTS
+* [POTS](https://en.wikipedia.org/wiki/Plain_old_telephone_service)
+* Plain Old Telephone Service
 
 ### PBX
 
@@ -75,7 +78,7 @@ primary advantages of IAX is single-port firewall penetration. All traffic, incl
    提供拨号声音(dialtone)
    检测联通状态  hook state (off-hook and on-hook)
    发送必要的信号例如被叫 ID
- station
+station
    提供响铃,处理 Ringing voltage
    提供拨号面板或发送 DTMF 的方式
    提供线路状态检测检测,Providing a hook switch to indicate the status of the line
@@ -102,14 +105,81 @@ primary advantages of IAX is single-port firewall penetration. All traffic, incl
 
 
 
+## DUNDi
+* Distributed Universal Number Discovery
+* [voip-info/DUNDi](https://www.voip-info.org/wiki/view/DUNDi)
 
+## DAHDi
+* Digium Asterisk Hardware Device Interface
+* [voip-info/DAHDi](https://www.voip-info.org/wiki/view/DAHDi)
+* 2008/5/12 之前名字为 Zaptel
 
-
-### ISDN
+## ISDN
+* [ISDN](https://en.wikipedia.org/wiki/Integrated_Services_Digital_Network)
 * Integrated Services Digital Network
 * 综合业务数字网
 * 数字线路
 * 在数据传输上呗 DSL 淘汰
 
-__参考__
-* [ISDN:Wikipedia](https://en.wikipedia.org/wiki/Integrated_Services_Digital_Network)
+
+## CTI - Computer Telephone Integration - 计算机电话集成
+* 协议
+  * TAPI, TSAPI, CSTA, CTConnect
+
+## ACD - 自动呼叫分配系统
+
+## CMS - Call Management System - 呼叫管理系统
+
+负责为来话呼叫中心管理有关中继线、业务代表、队列、路由选择方案和应用的信息，以协助企业有效地管理他们的资源。
+
+* 基本服务指标
+  * 描述整体服务水平, 按日,周,月进行统计
+* 系统使用率
+  * 系统设备使用情况
+  * 按需增减设备安排人员
+* 坐席员工记录
+
+
+## IVR/Interactive voice response - 交互式语音应答
+* [IVR:wikipedia](https://en.wikipedia.org/wiki/Interactive_voice_response)
+* [VoiceXML](https://en.wikipedia.org/wiki/VoiceXML)
+  * 为 [Voice Browser](https://en.wikipedia.org/wiki/Voice_browser) 提供 [Voice User Interface](https://en.wikipedia.org/wiki/Voice_user_interface)
+* [ccXML](https://en.wikipedia.org/wiki/Call_Control_eXtensible_Markup_Language)
+  * 告知 Voice Browser 进行电话通道控制
+* 参考
+  * [因子软件 IVR 设置](http://www.yinzisoft.com/help/callcenter/index.htm)
+* 硬件
+  * NMS, Inetl, Synway
+* 多协议, 大容量, 分布式
+
+* 基本功能
+  * 根据不同呼入号码实现不同语音导航，分配至相关业务座席。
+  * 自动语音应答：如播放语音、菜单选择、收号、录音等。
+  * 支持静态传真的自动收发，图形存储格式采用标准的TIF格式，提供多种文字：如中文、英文转换传真的功能。
+  * 支持动态传真发送，可将中文、英文字符实时地转换为传真发送出去。
+  * 数据库查询采用ODBC与数据库连接，支持MSSQL、Oracle、Sybase等主流数据库。
+  * 系统支持通过代理服务器访问数据库，以保证IVR系统访问远程数据库、大型数据库、保密数据库时不受影响。
+  * 支持DNIS和ANI自动识别功能。
+  * 支持自动拨号，批量外拨，记录外拨结果，外拨方式不仅支持语音，还可支持传真，人工话务员等。
+  * 系统能够将客户IVR交互活动记录到电话跟踪数据库中。
+  * 支持模拟电话接口（LPS）、BRI（2B+D）、中国一号信令、ISDN（30B+D）、LineSide E1、七号信令（SS7）等多种信令方式。
+* 系统安全性及其他
+  * 系统可对IVR通道进行实时监控，一旦超出规定值或者系统部件不能正常运行，能够立即以声音形式进行告警，对发生告警的设备能 够准确显示其位置，并生成详细的告警及故障处理文档，确定故障原因以便于工程技术人员及时进行维护。
+  * 系统的各种提示音和通知音应能够由用户随时进行方便的修改、添加和删除等。
+  * 系统提供开放的应用层接口，动态加载新的业务模块。
+  * 支持平滑、自然人性化的Text To Speech语音报读功能（支持中文）；要求有语音编排系统；支持文语转换；支持用户通过 Internet直接访问IVR的方法；
+  * 可以加载自动语音识别算法
+  * 系统提供功能强大的应用开发环境：图形化的流程编制工具、脚本语音控制、DLL功能加载、人工座席控制等
+
+
+## FAQ
+### What is overlap dialing ?
+* [What is overlap dialing ?](https://www.3cx.com/blog/voip-howto/overlap-dialing/)
+
+影响按键之间的超时间隔, 关闭后, 网关会一个数字一个数字的接收, 开启后, 网关会有一定的等待延时, 例如 2s.
+
+主要用于在拨号时处理歧义, 例如 `23163441`, 在接收到一部分的时候, 可能就已经开始拨号, 这是不对的, 应该等待输入完成
+
+
+
+

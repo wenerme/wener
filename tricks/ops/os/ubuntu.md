@@ -179,16 +179,7 @@ systemctl restart ifup@eth0
 
 fwupd.org Updating Firmware in Linux
 
+## FAQ
+### 移除旧版内核
+* https://askubuntu.com/a/254585
 
- LVM
-
-* 逻辑卷
-* 动态分区,修改无需重启
-* 热交换
-* 合并多个云盘
-* 可以做混合,使用 SSD 来做缓存
-* 可以对 LV 做快照或恢复
-* 也可以使用 striped 模式,使系统直接方粉物理磁盘,类似于 RAID-0
-* [LVM howto](http://tldp.org/HOWTO/LVM-HOWTO/)
-* [LVM wiki](https://wiki.ubuntu.com/Lvm)
-* [LVM Wikipedia](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux))

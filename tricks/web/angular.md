@@ -16,8 +16,16 @@
   * [What is `cdk` in Angular Material 2 components](https://stackoverflow.com/q/42340649/1870054)
   * component dev kit
   * [A first look into the Angular CDK](https://medium.com/@caroso1222/a-first-look-into-the-angular-cdk-67e68807ed9b)
+  * [Angular Pro Tip: How to dynamically create components in <body>](https://medium.com/@caroso1222/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6)
   * 提供接口供 `Portal` 和 `PortalHost` 动态实例化
   * `Portal`
+    * 注入到其他地方的部分 UI 组件, `Component`, `TemplateRef`
+  * `PortalHost`
+    * 渲染 `Portal` 的地方
+    * `DOMPortalHost`
+* NOTES:
+  * 目前没有比较好的退出登录 ICON, power_settings_new 算是最接近的了
+    * [#71](https://github.com/google/material-design-icons/issues/71)
 
 ```js
 // 处理 window 的事件
@@ -61,6 +69,21 @@ source-map-explorer dist/main.bundle.js
 * [angular/flex-layout](https://github.com/angular/flex-layout/)
   * `yarn add @angular/flex-layout`
   * [API Documentation](https://github.com/angular/flex-layout/wiki/API-Documentation)
+* [Onsen UI for Angular 2+](https://onsen.io/angular2/)
+  * Create beautiful high-quality hybrid mobile apps the fastest way 
+with Angular 2+ or AngularJS 1 and Onsen UI Framework.
+* [Teradata/covalent](https://github.com/Teradata/covalent)
+  * Covalent: UI Platform based on Angular-Material
+* [PrimeNG](https://www.primefaces.org/primeng)
+  * The Most Complete User Interface Suite for Angular
+  * [primefaces/primeng](https://github.com/primefaces/primeng)
+* [vmware/clarity](https://github.com/vmware/clarity/)
+  * UX guidelines, HTML/CSS framework, and Angular components working together to craft exceptional experiences
+  * [clarity.design](http://clarity.design)
+* [swimlane](https://github.com/swimlane)
+  * ngx-charts
+  * ngx-datatable
+  * ngx-dad
 
 ### Material
 * Angular [Material](https://material.angular.io)
@@ -73,12 +96,29 @@ source-map-explorer dist/main.bundle.js
     * 该模块非常大 (~60M), 因为会下载整个仓库
   * `<i class="material-icons">face</i>`
 * 当分模块时, 可能每个模块都要导不同的 md 组件, 官方建议用一个自己的 Md 模块, 导入需要的, 然后导入该模块即可
-* [Teradata/covalent](https://github.com/Teradata/covalent)
-  * Covalent: UI Platform based on Angular-Material
+
+* 不支持 Native
+  * [#3386](https://github.com/angular/material2/issues/3386)
+* Data Table
+  * [#581 md-data-table](https://github.com/angular/material2/issues/581)
+  * [#5885 sticky headers](https://github.com/angular/material2/issues/5885)
 
 ```bash
 yarn add @angular/material @angular/cdk
 yarn add @angular/animations
+yarn add hammerjs
+```
+
+### Covalent
+* [Teradata/covalent](https://github.com/Teradata/covalent)
+  * Covalent: UI Platform based on Angular-Material
+* 基于 Angular/Material
+
+
+```bash
+yarn add @covalent/core
+## (optional) Additional Covalent Modules installs
+yarn add @covalent/http @covalent/highlight @covalent/markdown @covalent/dynamic-forms 
 ```
 
 ## 开发规范
@@ -121,7 +161,24 @@ yarn add @angular/animations
 * 组件命名
   * 页面建议使用 `page-` 的前缀
 
-## Node
+## NOTES
+
+* 主要注解
+  * `@ContentChild`
+  * `@ContentChildren`
+  * `@HostBinding`
+  * `@HostListener`
+  * `@Input`
+  * `@Output`
+  * `@ViewChild`
+  * `@ViewChildren`
+  * `@Component`
+  * `@Directive`
+  * `@Pipe`
+* `Component`, `Directive` 和 `Pipe` 注解不支持继承
+* AOT 后, 组件的元数据是不存在的
+
+### 代码分析
 
 ### 组件通讯
 * [Component Interaction](https://angular.io/guide/component-interaction)
@@ -136,6 +193,24 @@ yarn add @angular/animations
 
 * 路由的内容会在 `<router-outlet>` 标签中显示
 * 路由可以做多级
+
+
+## CHANGELOG
+* [CHANGELOG](https://github.com/angular/angular/blob/master/CHANGELOG.md)
+
+### 5.0.x
+* switch angular to use StaticInjector instead of ReflectiveInjector
+
+### 4.3.x
+* 增加了 HttpClient [](https://github.com/angular/angular/blob/master/CHANGELOG.md#430-2017-07-14)
+  * 位于新的包 `@angular/common/http`, 旧的代码可逐步迁移
+  * 特性
+    * Typed, synchronous response body access, including support for JSON body types
+    * JSON is an assumed default and no longer needs to be explicitly parsed
+    * Interceptors allow middleware logic to be inserted into the pipeline
+    * Immutable request/response objects
+    * Progress events for both request upload and response download
+    * Post-request verification & flush based testing framework
 
 
 ## FAQ

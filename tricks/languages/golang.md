@@ -285,3 +285,24 @@ bee run -downdoc=true -gendoc=true
 * [Go Web 基础](https://github.com/Unknwon/go-web-foundation)
 * [Go名库讲解](https://github.com/Unknwon/go-rock-libraries-showcases)
 * [Go 语言学习资料与社区索引](https://github.com/Unknwon/go-study-index)
+
+
+## FAQ
+### 什么时候使用指针
+* 方法接收使用指针
+* 当有疑问时, 使用指针
+* 当结构体比较大, 或会发生变化时使用指针
+
+### 为枚举生成 String 方法
+* 使用 [Stringer](https://godoc.org/golang.org/x/tools/cmd/stringer) 生成
+* 生成的默认文件为 `<type>_string.go`
+
+```go
+// 为类型 MyType 生成 Stringer
+//go:generate stringer -type=MyType
+// 输出到 strings.go
+//go:generate stringer -type=MyType -output=strings.go
+
+```
+
+

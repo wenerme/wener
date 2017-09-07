@@ -1,31 +1,24 @@
 # CSS
 
+## Tips
 
-
-
-<!--
-
-https://github.com/duojs/duo
-
-https://github.com/componentjs/component
-
-http://www.voxelcss.com/
-
-
-https://github.com/search?o=desc&q=grid+language%3Acss&s=stars&type=Repositories&utf8=%E2%9C%93
-
-
-https://github.com/peterramsing/lost
-https://github.com/mojotech/jeet
-https://github.com/kumailht/gridforms
-https://js.coach/react
-http://postcss.parts/
-
-https://github.com/dogfalo/materialize/
-
-https://materializecss.com
-https://getmdl.io/
--->
+* [Reset/remove CSS styles for element only](https://stackoverflow.com/q/15901030/1870054)
+* Library
+  * [voxel.css](http://www.voxelcss.com/)
+  * [peterramsing/lost](https://github.com/peterramsing/lost)
+    * LostGrid is a powerful grid system built in PostCSS that works with any preprocessor and even vanilla CSS.
+  * [mojotech/jeet](https://github.com/mojotech/jeet)
+    * The most advanced, yet intuitive, grid system available for Sass or Stylus
+  * [kumailht/gridforms](https://github.com/kumailht/gridforms)
+    * Data entry can be beautiful
+  * [dogfalo/materialize](https://github.com/dogfalo/materialize)
+    * [Materialize](https://materializecss.com)
+    * Materialize, a CSS Framework based on Material Design
+  * [google/material-design-lite](https://github.com/google/material-design-lite)
+    * [Get MDL](https://getmdl.io/)
+    * Material Design Components in HTML/CSS/JS 
+* [PostCSS.parts](https://www.postcss.parts/)
+  * A searchable catalog of PostCSS plugins
 
 
 
@@ -35,11 +28,29 @@ https://getmdl.io/
   * [cssreference](http://cssreference.io/)
     * [HN](https://news.ycombinator.com/item?id=13031492)
     * 可视化的方式解释 CSS 属性
-
-http://htmlreference.io/
+  * (htmlreference.io)[http://htmlreference.io/]
 
 * scss
   * long shadow http://codepen.io/danieltott/pen/AjKay
+
+
+## Topics
+
+### Print
+* [CSS Generated Content for Paged Media Module](https://www.w3.org/TR/css-gcpm-3)
+* [page-break@css-tricks](https://css-tricks.com/almanac/properties/p/page-break/)
+
+```css
+/*  页眉 */
+@page {
+  @top-center {
+    content: element(pageHeader);
+  }
+}
+#pageHeader{
+  position: running(pageHeader);
+}
+```
 
 ### CSS 滤镜
 * https://css-tricks.com/almanac/properties/f/filter/
@@ -135,8 +146,6 @@ http://htmlreference.io/
   /*align-self: auto | flex-start | flex-end | center | baseline | stretch;*/
 }
 ```
-
-
 
 ### 文本溢出显示省略号
 ```css

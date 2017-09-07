@@ -14,8 +14,14 @@
 * tini
 * dump-init
 * openrc
-* http://wiki.alpinelinux.org/wiki/Alpine_Linux_Init_System
+
 
 
 
 ## supervisor
+
+## OpenRC
+* http://wiki.alpinelinux.org/wiki/Alpine_Linux_Init_System
+* https://wiki.gentoo.org/wiki/Project:OpenRC
+* https://en.wikipedia.org/wiki/OpenRC
+* https://github.com/openrc/openrc/
