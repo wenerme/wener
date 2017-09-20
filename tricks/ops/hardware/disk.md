@@ -13,28 +13,6 @@
   * USB
   * SAS
 
-## SATA
-
-https://en.wikipedia.org/wiki/Serial_ATA
-
-__常见速率__
-
-* SATA revision 3.2	16 Gbit/s	1.97 GB/s
-* SATA revision 3.0	6 Gbit/s	600 MB/s
-
-版本 | 发布日期 | 最大传输速率
-----|---------|-----------
-USB 1.1 |	August 1998   |	Full Speed (12 Mbit/s)
-USB 2.0 |	April 2000    |	High Speed (480 Mbit/s)
-USB 3.0 |	November 2008 |	SuperSpeed (5 Gbit/s)
-USB 3.1 |	July 2013     |	SuperSpeed+ (10 Gbit/s)
-
-__m2__
-
-* M.2 - NGFF - Next Generation Form Factor
-* 用于替换 mSATA
-* 物理硬件使用 pcie-mini 的布局
-* 更适合于 SSD
 
 ## RAID 级别
 

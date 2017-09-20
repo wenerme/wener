@@ -24,6 +24,17 @@ tail -f /var/log/syslog | grep CRON
 crond -nx test
 ```
 
+```bash
+#!/bin/bash
+# 简单的服务自动重启
+# 然后添加到 @reboot 规则中就可以
+until myserver; do
+    echo "Server 'myserver' crashed with exit code $?.  Respawning.." >&2
+    sleep 1
+done
+```
+
+
 ## mac
 虽然不推荐使用 crontab, 因为其功能都已经被 lanuchd 替代,但简单的工作还是 crontab 更简单
 

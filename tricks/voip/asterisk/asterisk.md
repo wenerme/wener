@@ -21,6 +21,51 @@
 https://store.docker.com/community/images/luar/asterisk
 https://wiki.alpinelinux.org/wiki/FreePBX
 
+
+
+## Certified Asterisk
+* [Certified Asterisk](https://www.digium.com/products/asterisk/certified-asterisk)
+  * Asterisk 的一个分支
+  * 符合 Diginum 的 SLA/Service Level Agreement
+  * [Asterisk Support Entitlements Chart](https://www.digium.com/products/asterisk/support/chart)
+
+
+## Versions
+* [Versions](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Versions)
+* [CHANGES](https://github.com/asterisk/asterisk/blob/master/CHANGES)
+* [edge/main/x86_64/asterisk](https://pkgs.alpinelinux.org/package/edge/main/x86_64/asterisk)
+  * edge 版
+* JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
+
+### CHANGES
+* 14.6.2 - 2017-09-19
+* 14.6.1 - 2017-08-31
+  * [5902](https://gerrit.asterisk.org/#/c/5902/) res_pjsip: `dtmf_mode` 添加 `auto_info`
+      * 默认的 `auto` 会将 dtmf 模式回退到 inband, 该模式是回退为 `INFO`
+  * [ASTERISK-27152] - Sending a "tel" uri in a From or To header in an unauthenticated message causes asterisk to crash
+* 14.6.0
+  * [ASTERISK-22432] - Async AGI crashes Asterisk when issuing "set variable" command without args
+  * [ASTERISK-26978] - rtp: Crash in ast_rtp_codecs_payload_code()
+  * [ASTERISK-27016] - Crash occurs when a channel in a 'mixing,dtmf_events' bridge is muted multiple times.
+  * [ASTERISK-27026] - res_ari: Crash when no ari.conf configuration file exists
+  * [ASTERISK-27050] - Crash on Transcoded Audio in PERIODIC_HOOK Function
+  * [ASTERISK-27108] - Crash using 'data get' CLI command
+  * [ASTERISK-25370] - res_corosync segfaults at startup with corosync version > 2.x
+  * [ASTERISK-27046] - res_pjsip_transport_websocket: segfault in get_write_timeout
+  * [ASTERISK-27057] - Seg Fault in ast_sorcery_object_get_id at sorcery.c
+* 14.5.0
+  * [ASTERISK-21855] - Asterisk crashes when XMPP message is sent (JabberSend) and no internet connection is available
+  * [ASTERISK-26692] - res_rtp_asterisk: Crash in dtls_srtp_handle_timeout at res_rtp_asterisk (using chan_sip)
+  * [ASTERISK-26835] - res_rtp_asterisk: Crash when freeing RTCP address string
+  * [ASTERISK-26853] - res_rtp_asterisk: Crash in pjnath when receiving packet
+  * [ASTERISK-26926] - func_speex: Crash caused by frame with no datalen
+  * [ASTERISK-26927] - pjproject_bundled: Crash on pj_ssl_get_info() while ioqueue_on_read_complete().
+  * [ASTERISK-26953] - Asterisk crash if hep.conf have some missing parameters
+  * [ASTERISK-26983] - Crash in Manager Reload when TLS Config Changes
+  * [ASTERISK-25506] - [patch]CONFBRIDGE failure after an app_confbrige.so module reload results in segfault or error/warning messages.
+  * [ASTERISK-26606] - tcptls: Incorrect OpenSSL function call leads to misleading error report
+
+
 ## 服务端
 * Asterisk
 * Elastix
@@ -31,6 +76,10 @@ https://wiki.alpinelinux.org/wiki/FreePBX
 * PBX in a Flash
 * IPPBX/IVR
 * [FaxServer using Asterisk](http://wiki.alpinelinux.org/wiki/FaxServer_using_Asterisk)
+
+### FreePBX
+* FAQ
+  * [Fwconsole not found](https://community.freepbx.org/t/fwconsole-not-found/33406)
 
 ## 客户端
 * Softphone
@@ -1023,3 +1072,602 @@ voicemail show users           -- List defined voicemail boxes
 voicemail show zones           -- List zone message formats
 xmldoc dump                    -- Dump the XML docs to the specified file
 ```
+
+
+
+```
+$ ./menuselect/menuselect --list-options
+- chan_mobile                    MENUSELECT_ADDONS
+- chan_ooh323                    MENUSELECT_ADDONS
+- format_mp3                     MENUSELECT_ADDONS
+- res_config_mysql               MENUSELECT_ADDONS
+- app_mysql                      MENUSELECT_ADDONS
+- cdr_mysql                      MENUSELECT_ADDONS
++ app_agent_pool                 MENUSELECT_APPS
++ app_authenticate               MENUSELECT_APPS
++ app_bridgewait                 MENUSELECT_APPS
++ app_cdr                        MENUSELECT_APPS
++ app_celgenuserevent            MENUSELECT_APPS
++ app_channelredirect            MENUSELECT_APPS
++ app_chanspy                    MENUSELECT_APPS
++ app_confbridge                 MENUSELECT_APPS
++ app_controlplayback            MENUSELECT_APPS
++ app_db                         MENUSELECT_APPS
++ app_dial                       MENUSELECT_APPS
++ app_directed_pickup            MENUSELECT_APPS
++ app_directory                  MENUSELECT_APPS
++ app_disa                       MENUSELECT_APPS
++ app_dumpchan                   MENUSELECT_APPS
++ app_echo                       MENUSELECT_APPS
++ app_exec                       MENUSELECT_APPS
++ app_flash                      MENUSELECT_APPS
++ app_followme                   MENUSELECT_APPS
++ app_forkcdr                    MENUSELECT_APPS
++ app_macro                      MENUSELECT_APPS
++ app_milliwatt                  MENUSELECT_APPS
++ app_mixmonitor                 MENUSELECT_APPS
++ app_originate                  MENUSELECT_APPS
++ app_page                       MENUSELECT_APPS
++ app_playback                   MENUSELECT_APPS
++ app_playtones                  MENUSELECT_APPS
++ app_privacy                    MENUSELECT_APPS
++ app_queue                      MENUSELECT_APPS
++ app_read                       MENUSELECT_APPS
++ app_readexten                  MENUSELECT_APPS
++ app_record                     MENUSELECT_APPS
++ app_sayunixtime                MENUSELECT_APPS
++ app_senddtmf                   MENUSELECT_APPS
++ app_sendtext                   MENUSELECT_APPS
+- app_skel                       MENUSELECT_APPS
++ app_softhangup                 MENUSELECT_APPS
++ app_speech_utils               MENUSELECT_APPS
++ app_stack                      MENUSELECT_APPS
++ app_stasis                     MENUSELECT_APPS
++ app_system                     MENUSELECT_APPS
++ app_talkdetect                 MENUSELECT_APPS
++ app_transfer                   MENUSELECT_APPS
++ app_userevent                  MENUSELECT_APPS
++ app_verbose                    MENUSELECT_APPS
++ app_voicemail                  MENUSELECT_APPS
++ app_waituntil                  MENUSELECT_APPS
++ app_while                      MENUSELECT_APPS
++ app_adsiprog                   MENUSELECT_APPS
++ app_alarmreceiver              MENUSELECT_APPS
++ app_amd                        MENUSELECT_APPS
++ app_chanisavail                MENUSELECT_APPS
++ app_dahdiras                   MENUSELECT_APPS
++ app_dictate                    MENUSELECT_APPS
++ app_externalivr                MENUSELECT_APPS
+- app_fax                        MENUSELECT_APPS
++ app_festival                   MENUSELECT_APPS
++ app_getcpeid                   MENUSELECT_APPS
++ app_ices                       MENUSELECT_APPS
++ app_image                      MENUSELECT_APPS
+- app_ivrdemo                    MENUSELECT_APPS
++ app_jack                       MENUSELECT_APPS
+- app_meetme                     MENUSELECT_APPS
++ app_minivm                     MENUSELECT_APPS
++ app_morsecode                  MENUSELECT_APPS
++ app_mp3                        MENUSELECT_APPS
++ app_nbscat                     MENUSELECT_APPS
++ app_osplookup                  MENUSELECT_APPS
+- app_saycounted                 MENUSELECT_APPS
++ app_sms                        MENUSELECT_APPS
++ app_test                       MENUSELECT_APPS
++ app_url                        MENUSELECT_APPS
++ app_waitforring                MENUSELECT_APPS
++ app_waitforsilence             MENUSELECT_APPS
++ app_zapateller                 MENUSELECT_APPS
+- app_setcallerid                MENUSELECT_APPS
++ bridge_builtin_features        MENUSELECT_BRIDGES
++ bridge_builtin_interval_featur MENUSELECT_BRIDGES
++ bridge_holding                 MENUSELECT_BRIDGES
++ bridge_native_rtp              MENUSELECT_BRIDGES
++ bridge_simple                  MENUSELECT_BRIDGES
++ bridge_softmix                 MENUSELECT_BRIDGES
++ cdr_adaptive_odbc              MENUSELECT_CDR
++ cdr_custom                     MENUSELECT_CDR
++ cdr_manager                    MENUSELECT_CDR
++ cdr_syslog                     MENUSELECT_CDR
++ cdr_csv                        MENUSELECT_CDR
++ cdr_odbc                       MENUSELECT_CDR
++ cdr_pgsql                      MENUSELECT_CDR
++ cdr_radius                     MENUSELECT_CDR
++ cdr_sqlite3_custom             MENUSELECT_CDR
++ cdr_tds                        MENUSELECT_CDR
++ cdr_sqlite                     MENUSELECT_CDR
++ cel_custom                     MENUSELECT_CEL
++ cel_manager                    MENUSELECT_CEL
++ cel_odbc                       MENUSELECT_CEL
++ cel_pgsql                      MENUSELECT_CEL
++ cel_radius                     MENUSELECT_CEL
++ cel_sqlite3_custom             MENUSELECT_CEL
++ cel_tds                        MENUSELECT_CEL
++ chan_bridge_media              MENUSELECT_CHANNELS
++ chan_dahdi                     MENUSELECT_CHANNELS
++ chan_iax2                      MENUSELECT_CHANNELS
++ chan_motif                     MENUSELECT_CHANNELS
++ chan_pjsip                     MENUSELECT_CHANNELS
++ chan_rtp                       MENUSELECT_CHANNELS
++ chan_alsa                      MENUSELECT_CHANNELS
++ chan_console                   MENUSELECT_CHANNELS
++ chan_mgcp                      MENUSELECT_CHANNELS
++ chan_misdn                     MENUSELECT_CHANNELS
++ chan_nbs                       MENUSELECT_CHANNELS
++ chan_oss                       MENUSELECT_CHANNELS
++ chan_phone                     MENUSELECT_CHANNELS
++ chan_sip                       MENUSELECT_CHANNELS
++ chan_skinny                    MENUSELECT_CHANNELS
++ chan_unistim                   MENUSELECT_CHANNELS
++ chan_vpb                       MENUSELECT_CHANNELS
+- chan_multicast_rtp             MENUSELECT_CHANNELS
++ codec_a_mu                     MENUSELECT_CODECS
++ codec_adpcm                    MENUSELECT_CODECS
++ codec_alaw                     MENUSELECT_CODECS
++ codec_dahdi                    MENUSELECT_CODECS
++ codec_g722                     MENUSELECT_CODECS
++ codec_g726                     MENUSELECT_CODECS
++ codec_gsm                      MENUSELECT_CODECS
++ codec_ilbc                     MENUSELECT_CODECS
++ codec_lpc10                    MENUSELECT_CODECS
++ codec_resample                 MENUSELECT_CODECS
++ codec_speex                    MENUSELECT_CODECS
++ codec_ulaw                     MENUSELECT_CODECS
++ codec_opus                     MENUSELECT_CODECS
++ codec_silk                     MENUSELECT_CODECS
++ codec_siren7                   MENUSELECT_CODECS
++ codec_siren14                  MENUSELECT_CODECS
++ codec_g729a                    MENUSELECT_CODECS
++ format_g719                    MENUSELECT_FORMATS
++ format_g723                    MENUSELECT_FORMATS
++ format_g726                    MENUSELECT_FORMATS
++ format_g729                    MENUSELECT_FORMATS
++ format_gsm                     MENUSELECT_FORMATS
++ format_h263                    MENUSELECT_FORMATS
++ format_h264                    MENUSELECT_FORMATS
++ format_ilbc                    MENUSELECT_FORMATS
++ format_ogg_vorbis              MENUSELECT_FORMATS
++ format_pcm                     MENUSELECT_FORMATS
++ format_siren14                 MENUSELECT_FORMATS
++ format_siren7                  MENUSELECT_FORMATS
++ format_sln                     MENUSELECT_FORMATS
++ format_wav                     MENUSELECT_FORMATS
++ format_wav_gsm                 MENUSELECT_FORMATS
++ format_jpeg                    MENUSELECT_FORMATS
++ format_vox                     MENUSELECT_FORMATS
++ func_aes                       MENUSELECT_FUNCS
++ func_base64                    MENUSELECT_FUNCS
++ func_blacklist                 MENUSELECT_FUNCS
++ func_callcompletion            MENUSELECT_FUNCS
++ func_callerid                  MENUSELECT_FUNCS
++ func_cdr                       MENUSELECT_FUNCS
++ func_channel                   MENUSELECT_FUNCS
++ func_config                    MENUSELECT_FUNCS
++ func_curl                      MENUSELECT_FUNCS
++ func_cut                       MENUSELECT_FUNCS
++ func_db                        MENUSELECT_FUNCS
++ func_devstate                  MENUSELECT_FUNCS
++ func_dialgroup                 MENUSELECT_FUNCS
++ func_dialplan                  MENUSELECT_FUNCS
++ func_enum                      MENUSELECT_FUNCS
++ func_env                       MENUSELECT_FUNCS
++ func_extstate                  MENUSELECT_FUNCS
++ func_global                    MENUSELECT_FUNCS
++ func_groupcount                MENUSELECT_FUNCS
++ func_hangupcause               MENUSELECT_FUNCS
++ func_holdintercept             MENUSELECT_FUNCS
++ func_iconv                     MENUSELECT_FUNCS
++ func_jitterbuffer              MENUSELECT_FUNCS
++ func_lock                      MENUSELECT_FUNCS
++ func_logic                     MENUSELECT_FUNCS
++ func_math                      MENUSELECT_FUNCS
++ func_md5                       MENUSELECT_FUNCS
++ func_module                    MENUSELECT_FUNCS
++ func_odbc                      MENUSELECT_FUNCS
++ func_periodic_hook             MENUSELECT_FUNCS
++ func_pjsip_aor                 MENUSELECT_FUNCS
++ func_pjsip_contact             MENUSELECT_FUNCS
++ func_pjsip_endpoint            MENUSELECT_FUNCS
++ func_presencestate             MENUSELECT_FUNCS
++ func_rand                      MENUSELECT_FUNCS
++ func_realtime                  MENUSELECT_FUNCS
++ func_sha1                      MENUSELECT_FUNCS
++ func_shell                     MENUSELECT_FUNCS
++ func_sorcery                   MENUSELECT_FUNCS
++ func_speex                     MENUSELECT_FUNCS
++ func_sprintf                   MENUSELECT_FUNCS
++ func_srv                       MENUSELECT_FUNCS
++ func_strings                   MENUSELECT_FUNCS
++ func_sysinfo                   MENUSELECT_FUNCS
++ func_talkdetect                MENUSELECT_FUNCS
++ func_timeout                   MENUSELECT_FUNCS
++ func_uri                       MENUSELECT_FUNCS
++ func_version                   MENUSELECT_FUNCS
++ func_vmcount                   MENUSELECT_FUNCS
++ func_volume                    MENUSELECT_FUNCS
++ func_frame_trace               MENUSELECT_FUNCS
++ func_pitchshift                MENUSELECT_FUNCS
++ func_audiohookinherit          MENUSELECT_FUNCS
++ pbx_config                     MENUSELECT_PBX
++ pbx_loopback                   MENUSELECT_PBX
++ pbx_spool                      MENUSELECT_PBX
++ pbx_ael                        MENUSELECT_PBX
++ pbx_dundi                      MENUSELECT_PBX
++ pbx_lua                        MENUSELECT_PBX
++ pbx_realtime                   MENUSELECT_PBX
++ res_adsi                       MENUSELECT_RES
++ res_agi                        MENUSELECT_RES
++ res_ari                        MENUSELECT_RES
++ res_ari_applications           MENUSELECT_RES
++ res_ari_asterisk               MENUSELECT_RES
++ res_ari_bridges                MENUSELECT_RES
++ res_ari_channels               MENUSELECT_RES
++ res_ari_device_states          MENUSELECT_RES
++ res_ari_endpoints              MENUSELECT_RES
++ res_ari_events                 MENUSELECT_RES
++ res_ari_mailboxes              MENUSELECT_RES
++ res_ari_model                  MENUSELECT_RES
++ res_ari_playbacks              MENUSELECT_RES
++ res_ari_recordings             MENUSELECT_RES
++ res_ari_sounds                 MENUSELECT_RES
++ res_calendar                   MENUSELECT_RES
++ res_calendar_caldav            MENUSELECT_RES
++ res_calendar_ews               MENUSELECT_RES
++ res_calendar_exchange          MENUSELECT_RES
++ res_calendar_icalendar         MENUSELECT_RES
++ res_clialiases                 MENUSELECT_RES
++ res_clioriginate               MENUSELECT_RES
++ res_config_curl                MENUSELECT_RES
++ res_config_odbc                MENUSELECT_RES
++ res_config_sqlite3             MENUSELECT_RES
++ res_convert                    MENUSELECT_RES
++ res_crypto                     MENUSELECT_RES
++ res_curl                       MENUSELECT_RES
++ res_fax                        MENUSELECT_RES
++ res_format_attr_celt           MENUSELECT_RES
++ res_format_attr_g729           MENUSELECT_RES
++ res_format_attr_h263           MENUSELECT_RES
++ res_format_attr_h264           MENUSELECT_RES
++ res_format_attr_opus           MENUSELECT_RES
++ res_format_attr_silk           MENUSELECT_RES
++ res_format_attr_siren14        MENUSELECT_RES
++ res_format_attr_siren7         MENUSELECT_RES
++ res_format_attr_vp8            MENUSELECT_RES
++ res_http_post                  MENUSELECT_RES
++ res_http_websocket             MENUSELECT_RES
++ res_limit                      MENUSELECT_RES
++ res_manager_devicestate        MENUSELECT_RES
++ res_manager_presencestate      MENUSELECT_RES
++ res_monitor                    MENUSELECT_RES
++ res_musiconhold                MENUSELECT_RES
++ res_mutestream                 MENUSELECT_RES
+- res_mwi_external               MENUSELECT_RES
++ res_mwi_external_ami           MENUSELECT_RES
++ res_odbc                       MENUSELECT_RES
++ res_odbc_transaction           MENUSELECT_RES
++ res_parking                    MENUSELECT_RES
++ res_pjproject                  MENUSELECT_RES
++ res_pjsip                      MENUSELECT_RES
++ res_pjsip_acl                  MENUSELECT_RES
++ res_pjsip_authenticator_digest MENUSELECT_RES
++ res_pjsip_caller_id            MENUSELECT_RES
++ res_pjsip_config_wizard        MENUSELECT_RES
++ res_pjsip_dialog_info_body_gen MENUSELECT_RES
++ res_pjsip_diversion            MENUSELECT_RES
++ res_pjsip_dlg_options          MENUSELECT_RES
++ res_pjsip_dtmf_info            MENUSELECT_RES
++ res_pjsip_empty_info           MENUSELECT_RES
++ res_pjsip_endpoint_identifier_ MENUSELECT_RES
++ res_pjsip_endpoint_identifier_ MENUSELECT_RES
++ res_pjsip_endpoint_identifier_ MENUSELECT_RES
++ res_pjsip_exten_state          MENUSELECT_RES
++ res_pjsip_header_funcs         MENUSELECT_RES
++ res_pjsip_logger               MENUSELECT_RES
++ res_pjsip_messaging            MENUSELECT_RES
++ res_pjsip_mwi                  MENUSELECT_RES
++ res_pjsip_mwi_body_generator   MENUSELECT_RES
++ res_pjsip_nat                  MENUSELECT_RES
++ res_pjsip_notify               MENUSELECT_RES
++ res_pjsip_one_touch_record_inf MENUSELECT_RES
++ res_pjsip_outbound_authenticat MENUSELECT_RES
++ res_pjsip_outbound_publish     MENUSELECT_RES
++ res_pjsip_outbound_registratio MENUSELECT_RES
++ res_pjsip_path                 MENUSELECT_RES
++ res_pjsip_pidf_body_generator  MENUSELECT_RES
++ res_pjsip_pidf_digium_body_sup MENUSELECT_RES
++ res_pjsip_pidf_eyebeam_body_su MENUSELECT_RES
++ res_pjsip_publish_asterisk     MENUSELECT_RES
++ res_pjsip_pubsub               MENUSELECT_RES
++ res_pjsip_refer                MENUSELECT_RES
++ res_pjsip_registrar            MENUSELECT_RES
++ res_pjsip_registrar_expire     MENUSELECT_RES
++ res_pjsip_rfc3326              MENUSELECT_RES
++ res_pjsip_sdp_rtp              MENUSELECT_RES
++ res_pjsip_send_to_voicemail    MENUSELECT_RES
++ res_pjsip_session              MENUSELECT_RES
++ res_pjsip_sips_contact         MENUSELECT_RES
++ res_pjsip_t38                  MENUSELECT_RES
++ res_pjsip_transport_management MENUSELECT_RES
++ res_pjsip_transport_websocket  MENUSELECT_RES
++ res_pjsip_xpidf_body_generator MENUSELECT_RES
++ res_realtime                   MENUSELECT_RES
++ res_rtp_asterisk               MENUSELECT_RES
++ res_rtp_multicast              MENUSELECT_RES
++ res_security_log               MENUSELECT_RES
++ res_smdi                       MENUSELECT_RES
++ res_sorcery_astdb              MENUSELECT_RES
++ res_sorcery_config             MENUSELECT_RES
++ res_sorcery_memory             MENUSELECT_RES
++ res_sorcery_memory_cache       MENUSELECT_RES
++ res_sorcery_realtime           MENUSELECT_RES
++ res_speech                     MENUSELECT_RES
++ res_srtp                       MENUSELECT_RES
++ res_stasis                     MENUSELECT_RES
++ res_stasis_answer              MENUSELECT_RES
++ res_stasis_device_state        MENUSELECT_RES
++ res_stasis_mailbox             MENUSELECT_RES
++ res_stasis_playback            MENUSELECT_RES
++ res_stasis_recording           MENUSELECT_RES
++ res_stasis_snoop               MENUSELECT_RES
++ res_stasis_test                MENUSELECT_RES
++ res_stun_monitor               MENUSELECT_RES
++ res_timing_dahdi               MENUSELECT_RES
++ res_timing_timerfd             MENUSELECT_RES
++ res_xmpp                       MENUSELECT_RES
++ res_ael_share                  MENUSELECT_RES
+- res_chan_stats                 MENUSELECT_RES
++ res_config_ldap                MENUSELECT_RES
++ res_config_pgsql               MENUSELECT_RES
++ res_config_sqlite              MENUSELECT_RES
++ res_corosync                   MENUSELECT_RES
+- res_endpoint_stats             MENUSELECT_RES
++ res_fax_spandsp                MENUSELECT_RES
++ res_hep                        MENUSELECT_RES
++ res_hep_pjsip                  MENUSELECT_RES
++ res_hep_rtcp                   MENUSELECT_RES
++ res_phoneprov                  MENUSELECT_RES
++ res_pjsip_history              MENUSELECT_RES
++ res_pjsip_phoneprov_provider   MENUSELECT_RES
+- res_pktccops                   MENUSELECT_RES
++ res_snmp                       MENUSELECT_RES
++ res_statsd                     MENUSELECT_RES
++ res_timing_kqueue              MENUSELECT_RES
++ res_timing_pthread             MENUSELECT_RES
++ res_digium_phone               MENUSELECT_RES
++ test_abstract_jb               MENUSELECT_TESTS
++ test_acl                       MENUSELECT_TESTS
++ test_amihooks                  MENUSELECT_TESTS
++ test_aoc                       MENUSELECT_TESTS
++ test_app                       MENUSELECT_TESTS
++ test_ari                       MENUSELECT_TESTS
++ test_ari_model                 MENUSELECT_TESTS
++ test_ast_format_str_reduce     MENUSELECT_TESTS
++ test_astobj2                   MENUSELECT_TESTS
++ test_astobj2_thrash            MENUSELECT_TESTS
++ test_bridging                  MENUSELECT_TESTS
++ test_bucket                    MENUSELECT_TESTS
++ test_callerid                  MENUSELECT_TESTS
++ test_cdr                       MENUSELECT_TESTS
++ test_cel                       MENUSELECT_TESTS
++ test_channel_feature_hooks     MENUSELECT_TESTS
++ test_config                    MENUSELECT_TESTS
++ test_core_codec                MENUSELECT_TESTS
++ test_core_format               MENUSELECT_TESTS
++ test_db                        MENUSELECT_TESTS
++ test_devicestate               MENUSELECT_TESTS
++ test_dlinklists                MENUSELECT_TESTS
++ test_endpoints                 MENUSELECT_TESTS
++ test_event                     MENUSELECT_TESTS
++ test_expr                      MENUSELECT_TESTS
++ test_file                      MENUSELECT_TESTS
++ test_format_cache              MENUSELECT_TESTS
++ test_format_cap                MENUSELECT_TESTS
++ test_func_file                 MENUSELECT_TESTS
++ test_gosub                     MENUSELECT_TESTS
++ test_hashtab_thrash            MENUSELECT_TESTS
++ test_heap                      MENUSELECT_TESTS
++ test_jitterbuf                 MENUSELECT_TESTS
++ test_json                      MENUSELECT_TESTS
++ test_linkedlists               MENUSELECT_TESTS
++ test_locale                    MENUSELECT_TESTS
++ test_logger                    MENUSELECT_TESTS
++ test_message                   MENUSELECT_TESTS
++ test_named_lock                MENUSELECT_TESTS
++ test_netsock2                  MENUSELECT_TESTS
++ test_optional_api              MENUSELECT_TESTS
++ test_pbx                       MENUSELECT_TESTS
++ test_poll                      MENUSELECT_TESTS
++ test_res_pjsip_scheduler       MENUSELECT_TESTS
++ test_res_stasis                MENUSELECT_TESTS
++ test_sched                     MENUSELECT_TESTS
++ test_scoped_lock               MENUSELECT_TESTS
++ test_security_events           MENUSELECT_TESTS
++ test_skel                      MENUSELECT_TESTS
++ test_sorcery                   MENUSELECT_TESTS
++ test_sorcery_astdb             MENUSELECT_TESTS
++ test_sorcery_memory_cache_thra MENUSELECT_TESTS
++ test_sorcery_realtime          MENUSELECT_TESTS
++ test_stasis                    MENUSELECT_TESTS
++ test_stasis_channels           MENUSELECT_TESTS
++ test_stasis_endpoints          MENUSELECT_TESTS
++ test_stringfields              MENUSELECT_TESTS
++ test_strings                   MENUSELECT_TESTS
++ test_substitution              MENUSELECT_TESTS
++ test_taskprocessor             MENUSELECT_TESTS
++ test_threadpool                MENUSELECT_TESTS
++ test_time                      MENUSELECT_TESTS
++ test_uri                       MENUSELECT_TESTS
++ test_utils                     MENUSELECT_TESTS
++ test_uuid                      MENUSELECT_TESTS
++ test_vector                    MENUSELECT_TESTS
++ test_voicemail_api             MENUSELECT_TESTS
++ test_websocket_client          MENUSELECT_TESTS
++ test_xml_escape                MENUSELECT_TESTS
+- DONT_OPTIMIZE                  MENUSELECT_CFLAGS
+- COMPILE_DOUBLE                 MENUSELECT_CFLAGS
+- DEBUG_THREADS                  MENUSELECT_CFLAGS
+- DEBUG_FD_LEAKS                 MENUSELECT_CFLAGS
+- BETTER_BACKTRACES              MENUSELECT_CFLAGS
+- LOTS_OF_SPANS                  MENUSELECT_CFLAGS
+- MALLOC_DEBUG                   MENUSELECT_CFLAGS
+- DEBUG_CHAOS                    MENUSELECT_CFLAGS
++ BUILD_NATIVE                   MENUSELECT_CFLAGS
+- REF_DEBUG                      MENUSELECT_CFLAGS
+- AO2_DEBUG                      MENUSELECT_CFLAGS
+- STATIC_BUILD                   MENUSELECT_CFLAGS
+- REBUILD_PARSERS                MENUSELECT_CFLAGS
+- LOW_MEMORY                     MENUSELECT_CFLAGS
+- DISABLE_INLINE                 MENUSELECT_CFLAGS
++ OPTIONAL_API                   MENUSELECT_CFLAGS
+- USE_HOARD_ALLOCATOR            MENUSELECT_CFLAGS
+- RADIO_RELAX                    MENUSELECT_CFLAGS
+- G711_NEW_ALGORITHM             MENUSELECT_CFLAGS
+- G711_REDUCED_BRANCHING         MENUSELECT_CFLAGS
+- TEST_CODING_TABLES             MENUSELECT_CFLAGS
+- TEST_TANDEM_TRANSCODING        MENUSELECT_CFLAGS
+- ADDRESS_SANITIZER              MENUSELECT_CFLAGS
+- THREAD_SANITIZER               MENUSELECT_CFLAGS
+- LEAK_SANITIZER                 MENUSELECT_CFLAGS
+- UNDEFINED_SANITIZER            MENUSELECT_CFLAGS
+- BUSYDETECT_TONEONLY            MENUSELECT_CFLAGS
+- BUSYDETECT_COMPARE_TONE_AND_SI MENUSELECT_CFLAGS
+- BUSYDETECT_DEBUG               MENUSELECT_CFLAGS
+- INTEGER_CALLERID               MENUSELECT_CFLAGS
++ FILE_STORAGE                   MENUSELECT_OPTS_app_voicemail
+- ODBC_STORAGE                   MENUSELECT_OPTS_app_voicemail
+- IMAP_STORAGE                   MENUSELECT_OPTS_app_voicemail
++ astcanary                      MENUSELECT_UTILS
++ astdb2sqlite3                  MENUSELECT_UTILS
++ astdb2bdb                      MENUSELECT_UTILS
+- aelparse                       MENUSELECT_UTILS
+- astman                         MENUSELECT_UTILS
+- check_expr                     MENUSELECT_UTILS
+- check_expr2                    MENUSELECT_UTILS
+- conf2ael                       MENUSELECT_UTILS
+- muted                          MENUSELECT_UTILS
+- smsq                           MENUSELECT_UTILS
+- stereorize                     MENUSELECT_UTILS
+- streamplayer                   MENUSELECT_UTILS
+- agi-test.agi                   MENUSELECT_AGIS
+- eagi-test                      MENUSELECT_AGIS
+- eagi-sphinx-test               MENUSELECT_AGIS
+- jukebox.agi                    MENUSELECT_AGIS
+- CORE-SOUNDS-EN-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-ALAW            MENUSELECT_CORE_SOUNDS
++ CORE-SOUNDS-EN-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-WAV          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-ULAW         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-ALAW         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-GSM          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-G729         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-G722         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-SLN16        MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-SIREN7       MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_AU-SIREN14      MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-WAV          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-ULAW         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-ALAW         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-GSM          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-G729         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-G722         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-SLN16        MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-SIREN7       MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-EN_GB-SIREN14      MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-ES-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-FR-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-IT-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-RU-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-JA-SIREN14         MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-WAV             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-ULAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-ALAW            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-GSM             MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-G729            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-G722            MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-SLN16           MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-SIREN7          MENUSELECT_CORE_SOUNDS
+- CORE-SOUNDS-SV-SIREN14         MENUSELECT_CORE_SOUNDS
++ MOH-OPSOUND-WAV                MENUSELECT_MOH
+- MOH-OPSOUND-ULAW               MENUSELECT_MOH
+- MOH-OPSOUND-ALAW               MENUSELECT_MOH
+- MOH-OPSOUND-GSM                MENUSELECT_MOH
+- MOH-OPSOUND-G729               MENUSELECT_MOH
+- MOH-OPSOUND-G722               MENUSELECT_MOH
+- MOH-OPSOUND-SLN16              MENUSELECT_MOH
+- MOH-OPSOUND-SIREN7             MENUSELECT_MOH
+- MOH-OPSOUND-SIREN14            MENUSELECT_MOH
+- EXTRA-SOUNDS-EN-WAV            MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-ULAW           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-ALAW           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-GSM            MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-G729           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-G722           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-SLN16          MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-SIREN7         MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN-SIREN14        MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-WAV         MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-ULAW        MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-ALAW        MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-GSM         MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-G729        MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-G722        MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-SLN16       MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-SIREN7      MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-EN_GB-SIREN14     MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-WAV            MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-ULAW           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-ALAW           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-GSM            MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-G729           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-G722           MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-SLN16          MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-SIREN7         MENUSELECT_EXTRA_SOUNDS
+- EXTRA-SOUNDS-FR-SIREN14        MENUSELECT_EXTRA_SOUNDS
+```
+

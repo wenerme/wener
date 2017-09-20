@@ -21,37 +21,6 @@ arping -c 1 -I eth0 10.100.10.11
 
 * RAID 卡
 
-## SATA
-* SATA
-  * Serial ATA
-* ATA
-  * AT Attachment
-
-* 1.0
-  * 1.5 Gbit/s, 150 MB/s
-  * 2003
-* 2.0
-  * 3 Gbit/s, 300 MB/s
-  * 2004
-* 3.0
-  * 6 Gbit/s, 600 MB/s
-  * 2008
-* 3.2
-  * 16 Gbit/s, 1969 MB/s
-  * 2013
-
-
-## iSCSI
-
-* [iSCSI](https://en.wikipedia.org/wiki/ISCSI) Internet Small Computer System Interface
-* [Linux iSCSI](http://www.linux-iscsi.org)
-* [Using iSCSI On Ubuntu 10.04 (Initiator And Target)](https://www.howtoforge.com/using-iscsi-on-ubuntu-10.04-initiator-and-target)
-* SCSI commands over network
-
-
-## SAN
-* [SAN](https://en.wikipedia.org/wiki/Storage_area_network) Storage Area Network
-
 ## FS
 * [Ubuntu 文件服务器](https://help.ubuntu.com/lts/serverguide/file-servers.html)
 

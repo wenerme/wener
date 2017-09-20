@@ -103,6 +103,34 @@ pg_dumpall > outfile
 psql -f infile postgres
 ```
 
+### NOTIFY
+
+```sql
+LISTEN virtual;
+NOTIFY virtual;
+NOTIFY virtual, 'This is the payload';
+
+
+LISTEN foo;
+SELECT pg_notify('fo' || 'o', 'pay' || 'load');
+
+-- NOTIFY on insert
+-- Send Notify Procedure
+CREATE OR REPLACE FUNCTION my_tab()
+  RETURNS TRIGGER AS $$
+DECLARE
+BEGIN
+  PERFORM pg_notify('my_tab_insert_notify', new.id::TEXT);
+  RETURN new;
+END;
+$$ LANGUAGE plpgsql;
+-- Trigger
+CREATE TRIGGER my_tab_after_insert
+AFTER INSERT ON my_tab
+FOR EACH ROW EXECUTE PROCEDURE my_tab_notify_insert();
+```
+
+
 ### Extension
 * https://pgxn.org/
 

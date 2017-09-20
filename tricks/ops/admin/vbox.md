@@ -26,6 +26,11 @@ VBoxManage extpack install  --replace FILE_NAME
 
 # 磁盘格式转换
 VBoxManage clonemedium disk <input VHDX> <output image>
+
+# 导出磁盘
+VBoxManage clonehd --format RAW debian.vdi debian.img
+#
+VBoxManage internalcommands converttoraw Ubuntu.vdi Ubuntu.raw
 ```
 
 ### 添加 USB 设备
@@ -361,7 +366,7 @@ vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目�
 ## FAQ
 
 ### 找不到 64bit 的虚拟
-可能由于CPU 不支持硬件虚拟化技术(Intel VT-x 或 AMD-v),或者被其他程序占用,例如装了 HyperV.
+可能由于 CPU 不支持硬件虚拟化技术(Intel VT-x 或 AMD-v),或者被其他程序占用,例如装了 HyperV.
 
 ### VBoxManage: error: Could not rename the directory
 ```bash
