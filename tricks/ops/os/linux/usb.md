@@ -2,6 +2,15 @@
 
 ## Tips
 
+
+版本 | 发布日期 | 最大传输速率
+----|---------|-----------
+USB 1.1 |	August 1998   |	Full Speed (12 Mbit/s)
+USB 2.0 |	April 2000    |	High Speed (480 Mbit/s)
+USB 3.0 |	November 2008 |	SuperSpeed (5 Gbit/s)
+USB 3.1 |	July 2013     |	SuperSpeed+ (10 Gbit/s)
+
+
 ## 加密狗
 * [Software protection dongle](https://en.wikipedia.org/wiki/Software_protection_dongle)
 * 安全令牌/[Security token](https://en.wikipedia.org/wiki/Security_token)

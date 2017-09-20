@@ -51,6 +51,19 @@ https://www.voip-info.org/wiki/view/Analog+Telephone+Adapters
 * [dtasia](http://dtasia.net/)
   * 亚洲分销商
 * [Telephony Cards Datasheet](https://www.digium.com/sites/digium/files/telephony-cards-datasheet.pdf)
+* 模型规范
+  * A4A/A4B, 单口, PCI/PCIe
+  * A8A/A8B, 双口, PCI/PCIe
+  * B -  Echo Cancellation
+  * TMD/AEX - 四口, PCI/PCIe
+  * TE 数字卡
+    * 编号 ABC, A 为端口数, B 为版本号, C 如果为单数或0则是 PCIe
+  * VPM 回声消除
+  * TC 语言处理
+    * 一般用于处理 G.729, G.723
+
+
+
 
 ### OpenVox
 * [OpenVox](http://www.openvox.cn/cn/)

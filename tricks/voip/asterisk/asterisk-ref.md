@@ -47,8 +47,7 @@
 * 如果有异常, 那也可能是 crc4 导致的
 
 ### DAHDi 拨号选项
-* https://github.com/asterisk/asterisk/blob/master/channels/chan_dahdi.c#L13167
-
+* [channels/chan_dahdi.c#L13167](https://github.com/asterisk/asterisk/blob/master/channels/chan_dahdi.c#L13167)
 * `Dial(DAHDI/pseudo[/extension[/options]])`
 * `Dial(DAHDI/<channel#>[c|r<cadance#>|d][/extension[/options]])`
 * `Dial(DAHDI/<subdir>!<channel#>[c|r<cadance#>|d][/extension[/options]])`
@@ -156,6 +155,16 @@ G729    | 18 | G.729a
 ```
 
 
+### Convert
+* http://my.digium.com/en/products/ivr/audio-converter/
+* http://blogs.digium.com/2011/04/19/asterisk-sound-files-101/
+
+
+```bash
+# 如果出现警告, 可以尝试降低音量  -v 0.96 
+sox callwait.mp3 -c 1 -r 16000 -b 16 callwait.wav
+```
+
 ## RFCs
 * RFC 3262 Reliability of Provisional Responses in the Session Initiation Protocol
   * 临时响应的可靠传输
@@ -173,6 +182,10 @@ G729    | 18 | G.729a
   * https://tools.ietf.org/html/rfc4733
 * RFC 6913 - Indicating Fax over IP Capability in the Session Initiation Protocol (SIP)
   * https://tools.ietf.org/html/rfc6913
+
+
+## DAHDi
+* [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
 
 ## DTMF/Dual-tone multi-frequency
 * [DTMF:wikipedia](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling)
@@ -210,6 +223,7 @@ alembic -c config.ini upgrade head --sql
 ```
 
 ### 找不到 `ENUM`
+* [ASTERISK-27272](https://issues.asterisk.org/jira/browse/ASTERISK-27272)
 使用的那个版本配置可能有点问题, 在那个文件里添加以下内容即可
 ```python
 from sqlalchemy.dialects.postgresql import ENUM
@@ -219,6 +233,7 @@ YESNO_VALUES = ['yes', 'no']
 
 ### 实时配置
 * [Realtime Database Configuration](https://wiki.asterisk.org/wiki/display/AST/Realtime+Database+Configuration)
+* 实时模块主要是抽象数据层的访问, 是可以添加自定义的表的
 
 ```conf
 ; modules.conf
@@ -235,9 +250,13 @@ preload => res_config_odbc.so
 meetme => odbc,general
 ```
 
-```
-# 加载一条数据
+```bash
+# 获取一条数据
 realtime load sippeers name 9009
+realtime load queues name marka
+
+# 操作自定义的表
+realtime load staffs no 8002
 ```
 
 __cel.postgres.sql__
@@ -515,6 +534,22 @@ endpoint/context=default
 aor/qualify_frequency=15
 
 
+; 简单的用户模板
+[user-template](!)
+type = wizard
+accepts_registrations = yes
+accepts_auth = yes
+endpoint/context = default
+
+[9001](user-template)
+inbound_auth/username = 9001
+inbound_auth/password = 9001
+
+[9002](user-template)
+inbound_auth/username = 9002
+inbound_auth/password = 9002
+
+
 ```
 
 #### 禁用
@@ -526,6 +561,8 @@ noload => chan_pjsip.so
 noload => res_pjsip_exten_state.so
 noload => res_pjsip_log_forwarder.so
 ```
+
+#### wizard
 
 #### 配置
 
@@ -676,6 +713,23 @@ exten => _900X,1,NoOp()
     same => n,Verbose(2, Failed Forward ${EXTEN}: No body)
     same => n,Playback(vm-nobodyavail)
     same => n,Hangup()
+```
+
+
+* 简单用于测试的拨号计划
+
+```conf
+[default]
+exten => 1992,1,NoOp()
+        same => n,Answer()
+        same => n,Playback(demo-instruct)
+        same => n,Hangup()
+
+[from-pstn]
+exten => _X!,1,NoOp()
+        same => n,Answer()
+        same => n,Playback(demo-instruct)
+        same => n,Hangup()
 ```
 
 ## Command

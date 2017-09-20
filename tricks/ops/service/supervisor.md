@@ -4,7 +4,7 @@
   * size: 4161536
 * s6
   * size: 765952
-* runit
+* [runit](http://smarden.org/runit/)
   * size: 258048
 * systemd
 * initd

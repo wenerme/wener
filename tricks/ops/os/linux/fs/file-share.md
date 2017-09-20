@@ -1,115 +1,8 @@
-# Filesystem
+# File Share
 
 ## Tips
 
-N/A | Minix |	Ext | Ext2 | Xia
-----|----|----|----|----
-Max FS size	    | 64 MB | 2 GB	4 TB	2 GB
-Max file size	  | 64 MB	| 2 GB	2 GB	64 MB
-Max file name	  | 16/30 c|	255 c|	255 c|	248 c
-3 times support	| No	| No	| Yes	| Yes
-Extensible	    | No	| No	| Yes	| No
-Var. block size	| No	| No	| Yes	| No
-
-## 基准测试
-```bash
-# /dev/zero 最快,但可能会被压缩
-time cat /dev/zero | head -c $((1024*1024*500)) > /dev/null
-real	0m0.439s
-user	0m0.026s
-sys	0m0.747s
-
-# /dev/urandom 性能较慢
-time cat /dev/urandom | head -c $((1024*1024*500)) > /dev/null
-real	1m25.427s
-user	0m0.097s
-sys	1m25.713s
-
-# openssl 随机数相对更快
-time openssl rand $((1024*1024*500)) | head -c $((1024*1024*500)) > /dev/null
-real	0m9.721s
-user	0m9.024s
-sys	0m1.284s
-
-# 监控 IO 状况
-iostat -mx -d sda 1
-
-dd bs=16M count=64 if=test of=test1 conv=fdatasync
-
-```
-
-* [dd benchmark](https://romanrm.net/dd-benchmark)
-
-## 常用操作
-```bash
-# 可查看速度
-pv /home/user/bigfile.iso | md5sum
-# 8.25 后可查看进度
-dd if=/dev/urandom of=/dev/null status=progress
-# urandom 会限制速度,可以使用文件来测试
-truncat -s 10G test.data
-dd if=test.data of=/dev/null status=progress
-# 似乎会更快
-pv < /dev/sda > /dev/sdb
-# 使用 PV 监控速度
-dd if=/dev/urandom | pv | dd of=/dev/null
-# 简单一点
-pv bigfile.iso | dd of=VirtualDisk.raw
-# 在 DD 执行以后也可以查看进度
-kill -USR1 $(pgrep ^dd)
-watch -n5 'kill -USR1 $(pgrep ^dd)'
-# 在 BSD/MAC 下需要 INFO
-kill -INFO $(pgrep ^dd$)
-# 同上简单一点
-pkill -usr1 dd
-
-# 测试随机写IOPS
-fio -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试随机读IOPS
-fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试写吞吐量
-fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试读吞吐量
-fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-
-# 挂载 smb
-# Windows 共享无密码时使用 guest
-mount_smbfs //guest:guest@192.168.8.1/share/ ~/mnt/share/
-# 或者挂载 cifs 也可以
-mount -t cifs -o username=guest,password=guest //192.168.8.1/share/ ~/mnt/share/
-
-# 如果使用的环境没有相关的 linux 工具,可以考虑使用 docker
-docker run --rm -it --privileged -v /:/host ubuntu
-
-```
-
-## diskutil
-* [diskutil.8](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/diskutil.8.html)
-
-
-## OS X
-```bash
-# 相当于 fdisk -l
-diskutil list
-# umount 经常无法直接操作
-diskutil unmount /Volumes/<挂载名>
-diskutil unmountdisk /dev/disk2
-# 格式化磁盘
-diskutil eraseDisk HFS+ DISK disk2
-# 磁盘分区
-diskutil partitionDisk disk4 1 GPT HFS+ newdisk R
-
-# 添加 ext 类磁盘操作工具
-brew install e2fsprogs
-ls `brew --prefix e2fsprogs`/sbin
-```
-
-
-## Tips
-
-* 在 Mac 下可通过虚拟机来格式化磁盘
-* 使用 [rufus](https://rufus.akeo.ie/) 制作 Windows 启动盘
-* CHS - 柱面-磁头-扇区 - Cylinder-head-sector
+* [AFP vs. SMB and NFS file sharing for network clients](https://www.helios.de/web/EN/news/AFP_vs_SMB-NFS.html)
 
 ## NFS
 * 允许本地访问远程文件
@@ -217,7 +110,7 @@ printcap name = /dev/null
   * `smbclient  //127.0.0.1/public -U guest`
 * smb.conf
   * [Using samba ch06](https://www.samba.org/samba/docs/using_samba/ch06.html)
-  * [man smb.conf](https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html)
+  * man [smb.conf](https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html)
 * 默认端口
   * TCP: 139, 445
   * UDP: 137, 138
@@ -317,6 +210,127 @@ chown -R ftpuser:ftpgroup /root/ftphome
 pure-ftpd restart
 ```
 
+### vsftp
+#### vsftpd.conf.example
+```conf
+# Example config file /etc/vsftpd.conf
+#
+# The default compiled in settings are fairly paranoid. This sample file
+# loosens things up a bit, to make the ftp daemon more usable.
+# Please see vsftpd.conf.5 for all compiled in defaults.
+#
+# READ THIS: This example file is NOT an exhaustive list of vsftpd options.
+# Please read the vsftpd.conf.5 manual page to get a full idea of vsftpd's
+# capabilities.
+#
+# Allow anonymous FTP? (Beware - allowed by default if you comment this out).
+anonymous_enable=YES
+#
+# Uncomment this to allow local users to log in.
+#local_enable=YES
+#
+# Uncomment this to enable any form of FTP write command.
+#write_enable=YES
+#
+# Default umask for local users is 077. You may wish to change this to 022,
+# if your users expect that (022 is used by most other ftpd's)
+#local_umask=022
+#
+# Uncomment this to allow the anonymous FTP user to upload files. This only
+# has an effect if the above global write enable is activated. Also, you will
+# obviously need to create a directory writable by the FTP user.
+#anon_upload_enable=YES
+#
+# Uncomment this if you want the anonymous FTP user to be able to create
+# new directories.
+#anon_mkdir_write_enable=YES
+#
+# Activate directory messages - messages given to remote users when they
+# go into a certain directory.
+dirmessage_enable=YES
+#
+# Activate logging of uploads/downloads.
+xferlog_enable=YES
+#
+# Make sure PORT transfer connections originate from port 20 (ftp-data).
+connect_from_port_20=YES
+#
+# If you want, you can arrange for uploaded anonymous files to be owned by
+# a different user. Note! Using "root" for uploaded files is not
+# recommended!
+#chown_uploads=YES
+#chown_username=whoever
+#
+# You may override where the log file goes if you like. The default is shown
+# below.
+#xferlog_file=/var/log/vsftpd.log
+#
+# If you want, you can have your log file in standard ftpd xferlog format.
+# Note that the default log file location is /var/log/xferlog in this case.
+#xferlog_std_format=YES
+#
+# You may change the default value for timing out an idle session.
+#idle_session_timeout=600
+#
+# You may change the default value for timing out a data connection.
+#data_connection_timeout=120
+#
+# It is recommended that you define on your system a unique user which the
+# ftp server can use as a totally isolated and unprivileged user.
+#nopriv_user=ftpsecure
+#
+# Enable this and the server will recognise asynchronous ABOR requests. Not
+# recommended for security (the code is non-trivial). Not enabling it,
+# however, may confuse older FTP clients.
+#async_abor_enable=YES
+#
+# By default the server will pretend to allow ASCII mode but in fact ignore
+# the request. Turn on the below options to have the server actually do ASCII
+# mangling on files when in ASCII mode.
+# Beware that on some FTP servers, ASCII support allows a denial of service
+# attack (DoS) via the command "SIZE /big/file" in ASCII mode. vsftpd
+# predicted this attack and has always been safe, reporting the size of the
+# raw file.
+# ASCII mangling is a horrible feature of the protocol.
+#ascii_upload_enable=YES
+#ascii_download_enable=YES
+#
+# You may fully customise the login banner string:
+#ftpd_banner=Welcome to blah FTP service.
+#
+# You may specify a file of disallowed anonymous e-mail addresses. Apparently
+# useful for combatting certain DoS attacks.
+#deny_email_enable=YES
+# (default follows)
+#banned_email_file=/etc/vsftpd.banned_emails
+#
+# You may specify an explicit list of local users to chroot() to their home
+# directory. If chroot_local_user is YES, then this list becomes a list of
+# users to NOT chroot().
+# (Warning! chroot'ing can be very dangerous. If using chroot, make sure that
+# the user does not have write access to the top level directory within the
+# chroot)
+#chroot_local_user=YES
+#chroot_list_enable=YES
+# (default follows)
+#chroot_list_file=/etc/vsftpd.chroot_list
+#
+# You may activate the "-R" option to the builtin ls. This is disabled by
+# default to avoid remote users being able to cause excessive I/O on large
+# sites. However, some broken FTP clients such as "ncftp" and "mirror" assume
+# the presence of the "-R" option, so there is a strong case for enabling it.
+#ls_recurse_enable=YES
+#
+# When "listen" directive is enabled, vsftpd runs in standalone mode and
+# listens on IPv4 sockets. This directive cannot be used in conjunction
+# with the listen_ipv6 directive.
+listen=YES
+#
+# This directive enables listening on IPv6 sockets. To listen on IPv4 and IPv6
+# sockets, you must run two copies of vsftpd with two configuration files.
+# Make sure, that one of the listen options is commented !!
+#listen_ipv6=YES
+```
 
 
 
@@ -354,63 +368,3 @@ dd
 fdisk
 gdisk
 
-
-## FAQ
-### disk vs rdisk on BSD
-`man hdiutil`
-
-> /dev/rdisk nodes are character-special devices, but are "raw" in the BSD sense and force block-aligned I/O. They are closer to the physical disk than the buffer cache. /dev/disk nodes, on the other hand, are buffered block-special devices and are used primarily by the kernel's filesystem code.
-
-即 rdisk 几乎是直接访问物理设备,disk 还会经过系统缓存.在能使用 rdisk 时不使用 disk.
-
-http://superuser.com/questions/631592
-
-### MBR vs GPT
-
-VS|MBR | GPT
-----|----|----
-分区数| 4 | N/A
-
-### 文件时间
-
-* HN [Linus on btime: “Let’s wait five years” (2010)](https://news.ycombinator.com/item?id=12555160)
-
-时间缩写 | 全称 | 说明
-----|----|----
-atime | Access Time | 访问时间
-ctime | Change Time | 当访问权限等修改时,会修改该时间
-mtime | Modify Time | 当修改文件内容时会修改该时间
-btime | Birth Time  | 创建时间
-
-|  | windows | linux | solaris | dragonfly | nacl | freebsd | darwin | netbsd | openbsd | plan9 |
-|:-----:|:-------:|:-----:|:-------:|:---------:|:------:|:-------:|:----:|:------:|:-------:|:-----:|
-| atime | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| mtime | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| ctime | ✓*| ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   |
-| btime | ✓ |  |  |  |  | ✓ |  ✓| ✓ |  
-
-* Windows XP 不支持 ctime, Vista 以上支持.
-* 可使用 `stat 文件名` 查看
-* 该表格摘自 [djherbis/times](https://github.com/djherbis/times#supported-times)
-
-```bash
-$ stat sg_store.db
-  File: 'sg_store.db'
-  Size: 45056          	Blocks: 88         IO Block: 4096   regular file
-Device: 1000004h/16777220d     	Inode: 45296478    Links: 1
-Access: (0644/-rw-r--r--)  Uid: (  501/   root)   Gid: (   20/   root)
-Access: 2016-09-22 15:26:54.000000000 +0800
-Modify: 2016-09-22 15:26:54.000000000 +0800
-Change: 2016-09-22 15:27:20.000000000 +0800
- Birth: 2016-09-21 23:05:30.000000000 +0800
-
-# 修改 mtime 和 ctime
-$ touch sg_store.db
-# 修改 ctime
-$ chown root:root sg_store.db
-```
-
-## 参考
-
-* [List of cryptographic file systems](https://en.wikipedia.org/wiki/List_of_cryptographic_file_systems)
-* [Comparison of file system](https://en.wikipedia.org/wiki/Comparison_of_file_systems)
