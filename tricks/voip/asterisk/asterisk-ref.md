@@ -12,6 +12,15 @@
 * https://git.alpinelinux.org/cgit/aports/tree/main/asterisk/APKBUILD
 
 ## FAQ
+### user , peer, friend
+* user 本端做验证, 呼入
+* peer 远端做验证, 呼出
+* friend 两端都要验证
+* agent
+  * 用户代理
+    * 终端
+  * 代理服务
+
 ### Macro vs Sub
 * 首选 Sub
 * Macro 最多 7 层嵌套
@@ -164,24 +173,6 @@ G729    | 18 | G.729a
 # 如果出现警告, 可以尝试降低音量  -v 0.96 
 sox callwait.mp3 -c 1 -r 16000 -b 16 callwait.wav
 ```
-
-## RFCs
-* RFC 3262 Reliability of Provisional Responses in the Session Initiation Protocol
-  * 临时响应的可靠传输
-  * [RFC4028的不足与SIP KEEP-ALIVE方法](https://www.myvoipapp.com/blogs/yxh/2011/10/30/rfc4028%E7%9A%84%E4%B8%8D%E8%B6%B3%E4%B8%8Esip-keep-alive%E6%96%B9%E6%B3%95/)
-* RFC 4028 - Session Timers in the Session Initiation Protocol
-  * 会话刷新
-* RFC 3261 SIP: Session Initiation Protocol
-  * https://tools.ietf.org/html/rfc3261
-  * 定义了使用 OPTIONS 来检测状态
-    * asterisk 中的 qualify
-* RFC 2833 - RTP Payload for DTMF Digits, Telephony Tones and Telephony Signals
-  * https://tools.ietf.org/html/rfc2833
-* RFC 4733 - RTP Payload for DTMF Digits, Telephony Tones, and Telephony Signals
-  * 替代 2833
-  * https://tools.ietf.org/html/rfc4733
-* RFC 6913 - Indicating Fax over IP Capability in the Session Initiation Protocol (SIP)
-  * https://tools.ietf.org/html/rfc6913
 
 
 ## DAHDi
@@ -429,6 +420,16 @@ core show channeltypes
     * 包含: transport, aor, auth
     * 配置的 transport 主要用于发送, 所有的都能接收
   * auth
+    * `auth_type`
+      * 授权类型
+      * nonce_lifetime
+        * 单位 秒
+        * 默认 32
+      * userpass
+        * password 存储明文
+      * md5
+        * md5_cred 存储密文
+        * 格式为 账号:asterisk:密码
   * aor
     * Address of Record
     * Multiple AORS for 1 device
@@ -470,9 +471,13 @@ pjsip set logger on
 ```
 
 ```conf
-[trans-one]
+[ts-udp]
 type=transport
 protocol=udp
+bind=0.0.0.0
+[ts-tcp]
+type=transport
+protocol=tcp
 bind=0.0.0.0
 
 [trans-more]
@@ -540,6 +545,8 @@ type = wizard
 accepts_registrations = yes
 accepts_auth = yes
 endpoint/context = default
+endpoint/allow = !all,ulaw,gsm,g722
+aor/max_contacts=5
 
 [9001](user-template)
 inbound_auth/username = 9001
@@ -548,8 +555,6 @@ inbound_auth/password = 9001
 [9002](user-template)
 inbound_auth/username = 9002
 inbound_auth/password = 9002
-
-
 ```
 
 #### 禁用
@@ -720,6 +725,9 @@ exten => _900X,1,NoOp()
 
 ```conf
 [default]
+exten => _9XXXXXX!,1,NoOp()
+        same => n,Dial(DAHDI/g1/${EXTEN:1})
+        same => n,Hangup()
 exten => 1992,1,NoOp()
         same => n,Answer()
         same => n,Playback(demo-instruct)
@@ -814,7 +822,23 @@ exten => 502,1,Dial(DAHDI/1,10)
   same => n,Playback(vm-nobodyavail)
   same => n,Hangup()
 ```
-  * option 有非常多,例如 m,当在拨号时使用 moh 而不是对方的声音
+  * option 
+    * `A(x)` 播放提示音文件 `x`
+    * `b([[context^]exten^]priority[(arg1[^...][^argN])])`
+      * 在呼出前跳转到指定位置, 使用新的通道
+    * `B([[context^]exten^]priority[(arg1[^...][^argN])])`
+      * 在呼出前跳转到指定位置, 使用当前通道
+    * `R`
+      * 重置当前 CDR
+    * `c`
+    t: Allow the called party to transfer the calling party by sending the DTMF
+    sequence defined in "features.conf". This setting does not perform policy
+    enforcement on transfers initiated by other methods.
+
+    T: Allow the calling party to transfer the called party by sending the DTMF
+    sequence defined in "features.conf". This setting does not perform policy
+    enforcement on transfers initiated by other methods.
+    * m,当在拨号时使用 moh 而不是对方的声音
   * URI 很少使用, 在支持的环境下可能会打开该 URI 指向的网页
   * 没有的参数可以留空 Dial(DAHDI/1,,m)
 * Set()

@@ -126,11 +126,30 @@ secret=0000
 [9005](base)
 ```
 
+__pjsip_wizard.conf__
+```conf
+[user-template](!)
+type = wizard
+accepts_registrations = yes
+accepts_auth = yes
+endpoint/context = default
+endpoint/allow = !all,ulaw,gsm,g722
+aor/max_contacts=5
+
+[9001](user-template)
+inbound_auth/username = 9001
+inbound_auth/password = 9001
+
+[9002](user-template)
+inbound_auth/username = 9002
+inbound_auth/password = 9002
+```
+
 ## OS
 
 ```bash
 # 基础
-apk add openssh-client openssl curl busybox file nano grep
+apk add openssh-client openssl curl busybox file nano grep 
 
 apk add shadow bash
 chsh root -s /bin/bash
@@ -142,12 +161,11 @@ apk add sox alsa-utils
 # 核心
 apk add asterisk
 apk add asterisk-{curl,pgsql,sounds-en,sounds-moh,srtp}
-# apk add asterisk-{curl,pgsql,sounds-en,sounds-moh,srtp,dahdi,dbg,sample-config}
+# apk add asterisk-sample-config
 
-# 
 # 部分工具依赖 perl
 apk add asterisk-dahdi dahdi-linux-hardened perl
-apk add pciutils
+apk add pciutils util-linux
 
 # 会看到 Communication controller 这样的 PCI
 lspci
@@ -619,9 +637,9 @@ Report bugs to the package provider.
 ```
 
 
-### centos
+### Centos
 
-```
+```bash
 wget http://downloads.openvox.cn/pub/drivers/dahdi-linux-complete/openvox_dahdi-linux-complete-current.tar.gz
 
 
@@ -652,4 +670,11 @@ make
 make install
 make samples
 
+# format_mp3
+# Any rate but 8000hz mono is optimal
+# 源码需要下载
+contrib/scripts/get_mp3_source.sh
+./menuselect/menuselect --enable format_mp3 menuselect.makeopts
+make
+make install
 ```
