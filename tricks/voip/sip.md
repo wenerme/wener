@@ -16,13 +16,26 @@
 ## PJSIP
 * http://www.pjsip.org/
 * [pjproject/APKBUILD](https://git.alpinelinux.org/cgit/aports/tree/main/pjproject/APKBUILD)
-* Asterisk 14 使用的是 2.5.5
-* Asterisk 15 可以选择使用封装的 pjsip
+* [PJSIP-Datasheet](https://trac.pjsip.org/repos/wiki/PJSIP-Datasheet)
+* [Roadmap](https://trac.pjsip.org/repos/roadmap)
+* Asterisk 13 开始可以选择使用封装的 pjsip
+* [2.8](https://trac.pjsip.org/repos/milestone/release-2.8)
+  * 主要
+    * OPUS param on the fly
+    * WebRTC interopability - RTP/SAVPF - SSRC
+* [2.7](https://trac.pjsip.org/repos/milestone/release-2.7)
+  * 2017-9-25
+  * 主要
+    * DTLS for SRTP keying
+    * iOS (and Mac) H.264 Native Encoder and Decoder
+    * NAT64
 * [2.6](http://trac.pjsip.org/repos/milestone/release-2.6)
+  * 2017-1-25
+  * 主要
+    * WinRT/Win10 support
   * [#1946](https://trac.pjsip.org/repos/ticket/1946)
     * Assertion in deinitializing client auth session when dialog creation fails
     * 在之前版本中导致了大量异常
-* 2.5.5
 
 ### FAQ
 #### How can I apply a fix from a particular ticket ?

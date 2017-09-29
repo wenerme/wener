@@ -640,11 +640,17 @@ Report bugs to the package provider.
 ### Centos
 
 ```bash
-wget http://downloads.openvox.cn/pub/drivers/dahdi-linux-complete/openvox_dahdi-linux-complete-current.tar.gz
+# 建议先设置好 https_proxy 和 http_proxy 变量, 因为 wget 只支持 http 代理, 所以不能用 socks 代理
 
-
+# 前置条件
 yum install kernel-devel
 yum install -y ncurses-devel curl-devel zlib-devel libedit-devel sqlite-devel postgresql-devel libuuid-devel uuid-devel lua-devel jansson-devel newt-devel openssl-devel
+
+# DAHDi 驱动安装
+# 如果使用的 OpenVox 则可以使用 OpenVox 的驱动
+# wget http://downloads.openvox.cn/pub/drivers/dahdi-linux-complete/openvox_dahdi-linux-complete-current.tar.gz
+wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
+tar -zxvf dahdi-linux-complete-*.tar.gz
 
 cd dahdi-linux-complete-*
 make
@@ -653,11 +659,19 @@ make config
 
 cd ..
 
+# 安装 libpri
+wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz
+tar -zxvf libpri-current.tar.gz
+
 cd libpri-*
 make
 make install
 
 cd ..
+
+# 安装 asterisk
+wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
+tar -zxvf asterisk-*-current.tar.gz
 
 cd asterisk-*
 ./configure \

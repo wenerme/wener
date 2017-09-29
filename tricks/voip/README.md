@@ -3,8 +3,64 @@
 ## Tips
 * https://www.linphone.org/
 
+## RFCs
+* RFC 3856 - A Presence Event Package for the Session Initiation Protocol
+* RFC 3262 Reliability of Provisional Responses in the Session Initiation Protocol
+  * 临时响应的可靠传输
+  * [RFC4028的不足与SIP KEEP-ALIVE方法](https://www.myvoipapp.com/blogs/yxh/2011/10/30/rfc4028%E7%9A%84%E4%B8%8D%E8%B6%B3%E4%B8%8Esip-keep-alive%E6%96%B9%E6%B3%95/)
+* RFC 4028 - Session Timers in the Session Initiation Protocol
+  * 会话刷新
+* RFC 3261 SIP: Session Initiation Protocol
+  * https://tools.ietf.org/html/rfc3261
+  * 定义了使用 OPTIONS 来检测状态
+    * asterisk 中的 qualify
+* RFC 2833 - RTP Payload for DTMF Digits, Telephony Tones and Telephony Signals
+  * https://tools.ietf.org/html/rfc2833
+* RFC 4733 - RTP Payload for DTMF Digits, Telephony Tones, and Telephony Signals
+  * 替代 RFC 2833
+  * https://tools.ietf.org/html/rfc4733
+* RFC 6913 - Indicating Fax over IP Capability in the Session Initiation Protocol (SIP)
+  * https://tools.ietf.org/html/rfc6913
+
+
 ## 术语
 
+### 电话号码
+* [Is there a standard for phone numbers?](https://stackoverflow.com/a/21001896/1870054)
+* [E.164](https://en.wikipedia.org/wiki/E.164)
+* [List of country calling codes](https://en.wikipedia.org/wiki/List_of_country_calling_codes)
+
+### ITU
+* [ITU](https://en.wikipedia.org/wiki/International_Telecommunication_Union) - International Telecommunication Union - 国际电信联盟
+  * 大部分电信协议规定的制定者
+  * 老旧, 难于发生改变
+  * [ITU-T Recommendations](http://www.itu.int/zh/ITU-T/publications/Pages/recs.aspx)
+* [IETF](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force)
+  * [ietf.org](http://ietf.org/)
+
+### SLA - Shared Line Appearance
+
+### Registered Jack
+* [Registered Jack](https://en.wikipedia.org/wiki/Registered_jack)
+* {A}P{B}C
+  * 例如 6P2C,6P4C
+  * P 针数, C 连接数
+* RJ11(C/W) 6P2C 支持一线电话
+* RJ18(C/W) 6P4C 支持两线电话
+* RJ25(C/W) 6P6C 支持三线电话
+* RJ61X 8P8C 支持四线电话
+* RJ21X
+  * 50-pin	Multiple (up to 25) line bridged T/R configuration
+  * Digium 的 TDM2400PLF 为 RJ21, 需要自行进行转接, 一般这样的设备会相对便宜
+
+* 常见的名字后缀
+  * C: flush-mount or surface mount
+  * F: flex-mount
+  * W: wall-mount
+  * L: lamp-mount
+  * S: single-line
+  * M: multi-line
+  * X: complex jack
 ### VOIP
 * Voice over IP
 * 泛指基于网络的多媒体通信

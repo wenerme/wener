@@ -60,7 +60,7 @@ https://www.voip-info.org/wiki/view/Analog+Telephone+Adapters
     * 编号 ABC, A 为端口数, B 为版本号, C 如果为单数或0则是 PCIe
   * VPM 回声消除
   * TC 语言处理
-    * 一般用于处理 G.729, G.723
+    * 一般用于处理 G.729a, G.723.1
 
 
 
@@ -84,7 +84,18 @@ https://www.voip-info.org/wiki/view/Analog+Telephone+Adapters
   * 查看是否有独立中断
 * 单机多卡需要时钟线
 * A 卡都是附加 FXO-400, FSO-400
-
+* D230E
+  * [infineon](https://www.infineon.com/)
+    * PEF 22554 HT v2.1
+    * QuadFALC
+    * G0624
+    * Framer and LIU (Line Interface Unit) Component (FALC)
+    * [Infineon Introduces 4-Line T1/E1/J1 Framer and LIU Component with Smallest Footprint and Lowest Power Consumption](https://www.infineon.com/cms/en/about-infineon/press/market-news/2002/129029.html)
+  * 4x MNOVR MS1442 1443Y
+  * AITRA cyclone IV
+    * [Altera Cyclone® IV](https://www.altera.com.cn/products/fpga/cyclone-series/cyclone-iv/overview.html)
+    * EP4CE10E17CBN
+    * MALAYSIA
 
 ## 讯时
 * mx60
