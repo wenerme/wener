@@ -190,6 +190,36 @@ No voicemail provider registered.
 [Sep  5 19:42:32] NOTICE[14239]: sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
 ```
 
+### pjproject:0 sip_transport.c Error processing 430 bytes packet from UDP 192.168.8.121:5061 : PJSIP syntax error exception when parsing '' header on line 2 col 6:
+* 网关的问题, 重启下网关就好了
+
+```
+[Oct 11 13:06:06] ERROR[15471]: pjproject:0 <?>:               sip_transport.c Error processing 430 bytes packet from UDP 192.168.8.121:5061 : PJSIP syntax error exception when parsing '' header on line 2 col 6:
+REGISTER sip:192.168.8.125 SIP/2.0
+Via: 0/2.0/0 192.168.8.121:5061;rport;branch=z9hG4bK--106272960715076983491506365490
+To: <sip:8076@192.168.8.125>
+From: <sip:8076@192.168.8.125>;tag=15064208101506326178-1
+Call-ID: 15064208101187768510-0@192.168.8.121
+CSeq: 4535 REGISTER
+Max-Forwards: 70
+Expires: 600
+Contact: <sip:8076@192.168.8.121:5061>
+User-Agent: NewRockTech MX8-8S VER.1.9.82.343/UA 2.0
+Content-Length: 0
+
+
+-- end of packet.
+```
+
+### res_pjsip.c:3053 ast_sip_create_dialog_uac: Endpoint Could not create dialog to invalid URI
+* 终端未注册上, 在 CONTACTS 中不存在对应记录, 使用 PJSIP 请求所有 CONTACTS 时不会返回任何东西
+* 尝试将终端离线再从新上线
+
+```
+[Oct 11 13:08:04] ERROR[15472]: res_pjsip.c:3053 ast_sip_create_dialog_uac: Endpoint '8380': Could not create dialog to invalid URI '8380'.  Is endpoint registered and reachable?
+[Oct 11 13:08:04] ERROR[15472]: chan_pjsip.c:2219 request: Failed to create outgoing session to endpoint '8380'
+```
+
 ## TBD
 
 http://lists.digium.com/pipermail/asterisk-users/2011-May/262225.html
@@ -315,4 +345,7 @@ S 口网关拨号异常
 ```
 [Sep 12 11:18:57] NOTICE[25466]: res_pjsip_exten_state.c:418 new_subscribe: Endpoint '8292' state subscription failed: Extension '09198118662' does not exist in context 'inside' or has no associated hint
 ```
+
+
+
 

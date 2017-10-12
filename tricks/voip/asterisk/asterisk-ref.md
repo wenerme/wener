@@ -430,6 +430,7 @@ core show channeltypes
       * md5
         * md5_cred 存储密文
         * 格式为 账号:asterisk:密码
+        * asterisk 为 realm, 可以修改
   * aor
     * Address of Record
     * Multiple AORS for 1 device

@@ -670,10 +670,12 @@ make install
 cd ..
 
 # 安装 asterisk
-wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-14-current.tar.gz
-tar -zxvf asterisk-*-current.tar.gz
+AST_MAJOR_VER=14
+wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-${AST_MAJOR_VER}-current.tar.gz
+tar -zxvf asterisk-${AST_MAJOR_VER}-current.tar.gz
 
-cd asterisk-*
+cd asterisk-${AST_MAJOR_VER}.*
+# 15 后 --with-pjproject-bundled 为默认值
 ./configure \
   --with-pjproject-bundled --with-gnu-ld --with-libcurl --with-libedit \
   --with-gsm=internal \
@@ -691,4 +693,47 @@ contrib/scripts/get_mp3_source.sh
 ./menuselect/menuselect --enable format_mp3 menuselect.makeopts
 make
 make install
+
+# codec_opus
+# http://downloads.digium.com/pub/telephony/codec_opus/README
+# https://wiki.asterisk.org/wiki/display/AST/Codec+Opus
+# 使用官方二进制版可能会进行统计, 如果想要关闭, 可以在 dnsmasq 中添加 local=/stats.asterisk.org/ 或者在 hosts 中添加对应记录
+# 二进制安装
+# 支持 13,14,15 支持 x86_64,x86_32 的 linux
+AST_MAJOR_VER="$(asterisk -V | sed -nr -e 's/.*([0-9]{2}).*/\1/p')"
+# 当前最新版为 1.1.0
+OPUS_VER=current
+wget "http://downloads.digium.com/pub/telephony/codec_opus/asterisk-${AST_MAJOR_VER}.0/x86-64/codec_opus-${AST_MAJOR_VER}.0_${OPUS_VER}-$(uname -m).tar.gz"
+tar zxvf codec_opus-*
+cd codec_opus-*
+cp codec_opus.so /usr/lib/asterisk/modules/
+cp format_ogg_opus.so /usr/lib/asterisk/modules/
+cp codec_opus_config-en_US.xml /var/lib/asterisk/documentation/thirdparty/
+
+# 源码安装
+# 依赖
+yum install -y opus-devel
+# 官方未释出源码
+# 菜单项为 Codec Translators -> codec_opus
+# 可参考源码 https://github.com/traud/asterisk-opus
+# Debian 的 Asterisk 使用的改源码 https://anonscm.debian.org/git/pkg-voip/asterisk-opus.git
+```
+
+## 录音文件归档
+* 录音文件归档建议使用 opus 压缩
+  * 1453  wav 405M 压缩后为 91M
+    * 其中有 764 个空白文件
+  * 688   wav 402M 压缩后为 88M
+* wav 空白文件为 44
+* opus 空白文件为 872
+
+```bash
+# 删除空白文件
+find . -size 44c -delete
+# 时间范围
+find . -type f -newermt 2017-9-28 ! -newermt 2017-9-29
+# 15 分钟前到现在
+find . -type f -mmin -15
+# 删除这之前的数据
+find . -type f ! -newermt 2017-9-29 -delete
 ```

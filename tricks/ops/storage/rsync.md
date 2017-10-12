@@ -8,6 +8,11 @@
 # 使用 SSH 同步
 rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
 
+# 备份整个系统
+rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder
+# 使用 --info=progress2 显示总体的进度, 而不是每个文件
+rsync -aAX --info=progress2 --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder
+
 # 配合 fswatch 使用
 # 拷贝
 fswatch ./ | xargs -I{} cp {} ~/Dropbox/backup/latest/

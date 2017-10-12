@@ -7,6 +7,11 @@
 * CHS - 柱面-磁头-扇区 - Cylinder-head-sector
 * [List of cryptographic file systems](https://en.wikipedia.org/wiki/List_of_cryptographic_file_systems)
 * [Comparison of file system](https://en.wikipedia.org/wiki/Comparison_of_file_systems)
+* [Which Linux File System Should You Use?](https://www.howtogeek.com/howto/33552/htg-explains-which-linux-file-system-should-you-choose/)
+  * 如果不确定就用 EXT4
+* [Solid State Drives](https://wiki.archlinux.org/index.php/Solid_State_Drives)
+* [Flash file system](https://en.wikipedia.org/wiki/Flash_file_system)
+
 
 N/A | Minix |	Ext | Ext2 | Xia
 ----|----|----|----|----

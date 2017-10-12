@@ -6,6 +6,69 @@
 * 实现将 PathVariable 从主键转为实体的转换器为 DomainClassConverter
   * 主要使用: Repositories, RepositoryInformation, RepositoryInvoker 进行操作
 
+## Note
+* `RepositoryMetadata`
+* `RepositoryInformation`
+* `RepositoryQuery`
+  * 抽象接口, 用于执行所有数据仓库操作
+* `PartTree`
+  * 用于将方法名转换为查询方法
+  * `^(find|read|get|query|stream|count|exists|delete|remove)((\p{Lu}.*?))??By`
+* `PersistenceExceptionTranslationInterceptor`
+  * 处理数据仓库调用过程中的异常
+
+* 查询方法处理链
+  * `SurroundingTransactionDetectorMethodInterceptor`
+    * 事务设置
+  * `ExposeInvocationInterceptor`
+  * `DefaultMethodInvokingMethodInterceptor`
+    * 处理 `default` 方法
+  * `RepositoryFactorySupport$QueryExecutorMethodInterceptor`
+
+
+## MongoDB
+
+```yaml
+// SpringData 查询日志
+logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
+// MongoDB 的日志工具类 com.mongodb.diagnostics.logging.Loggers
+// 前缀 org.mongodb.driver 例如 操作 operation
+logging.level.org.mongodb.driver.operation: INFO
+// 或者打开全量的
+// 注意, 依然是看不到发送的查询
+logging.level.org.mongodb.driver: INFO
+```
+
+* MongoDB 的 Repository 实现
+  * `org.springframework.data.mongodb.repository.support.SimpleMongoRepository`
+  * `org.springframework.data.mongodb.repository.support.QueryDslMongoRepository`
+* `MongoQueryMethod`
+  * 解析 Mongo 的 Query 注解
+* `PartTreeMongoQuery`
+  * 通过方法解析后的 Query 实例
+* `org.springframework.data.mongodb.core.query.Query`
+  * 实际查询
+* `org.springframework.data.mongodb.repository.support.SpringDataMongodbQuery`
+  * QueryDSL Mongo 的查询对象
+
+```java
+
+interface MyRepo{
+  // 只返回 tags 字段
+  // 注意: QueryDSL 的 Predicate 不会被使用
+  @Query(fields = "{'tags':1}")
+  List<PageDocument> findTagsBy(Predicate predicate);
+  // 建议基于 QueryDslMongoRepository 将查询对象上的 Path 参数暴露出来, 例如
+  List<T> findAll(Predicate predicate, Path<?>... paths);
+}
+
+```
+
+## Entity Versions
+* [spring-projects/spring-data-envers](https://github.com/spring-projects/spring-data-envers)
+* JPA 扩展, 基于 hibernate envers
+
 
 ## Spring Data 查询关键字
 

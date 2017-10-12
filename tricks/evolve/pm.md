@@ -52,6 +52,17 @@ __产品经理__ | __项目经理__
 
 * [Ask HN: How can I become a proper Project Manager from a Programmer?](https://news.ycombinator.com/item?id=12477850)
 
+## 7 Tips to Help Project Managers Track Their Tech Teams
+* [7 Tips to Help Project Managers Track Their Tech Teams](https://www.cio.com/article/2386852/project-management/7-tips-to-help-project-managers-track-their-tech-teams.html)
+
+1. Define what needs to get done by whom by when upfront.
+2. Use tools that allow team members to share documents and files. 
+3. Meet with your team on a regular basis.
+4. Take notes and follow up. 
+5. Ask people how they are doing and if they need help-but don't be a micromanager.
+6. Use videoconferencing and IM to keep in contact with remote employees. 
+7. Consider a bring-your-own-device-friendly policy.
+
 ## Meeting
 
 ### 11 Things Leaders Need to Talk About When They Meet With Their Staff

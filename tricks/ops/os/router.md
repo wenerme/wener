@@ -1,5 +1,27 @@
 # Router
 
+## Tips
+* [List of router and firewall distributions](https://en.wikipedia.org/wiki/List_of_router_and_firewall_distributions)
+* RouterOS
+  * MikroTik RouterOS
+  * Linux
+  * x86
+* DD-WRT 
+* OpenWrt
+* [VyOS](https://vyos.io/)
+  * [VyOS:wikipedia](https://en.wikipedia.org/wiki/VyOS)
+  * https://github.com/vyos
+* ClearOS
+  * [clearos/kernel](https://github.com/clearos/kernel/tree/clear7)
+* [IPFire](http://www.ipfire.org/)
+* [pfsense](https://www.pfsense.org/)
+  * [pfsense/pfsense](https://github.com/pfsense/pfsense)
+* [packetfence](https://packetfence.org/)
+  * [inverse-inc/packetfence](https://github.com/inverse-inc/packetfence)
+  * fully supported, trusted, Free and Open Source network access control (NAC) solution
+
+* [6 best free Linux firewalls of 2017](http://www.techradar.com/news/6-best-free-linux-firewalls-of-2017)
+
 ## 参考
 * [Udoo x86](http://www.udoo.org/udoo-x86/) 相当不错的单片机, x86 架构
 
@@ -49,6 +71,11 @@ https://zh.wikipedia.org/wiki/Tomato
 https://en.wikibooks.org/wiki/Tomato_Firmware
 https://advancedtomato.com/
 https://github.com/Jackysi/advancedtomato
+
+## Captive portal
+* [Captive portal:wiki](https://en.wikipedia.org/wiki/Captive_portal)
+* [wifidog](http://dev.wifidog.org/)
+* pfsense [Captive Portal](https://doc.pfsense.org/index.php/Captive_Portal)
 
 ### Optimize
 

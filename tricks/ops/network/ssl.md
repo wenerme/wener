@@ -31,6 +31,11 @@
   * [shred/acme4j](https://github.com/shred/acme4j)
     * Java client for ACME (Let's Encrypt)
 * Automatic Certificate Management Environment (ACME)
+## Tips
+* PEM - Privacy Enhanced Mail
+* DER - Distinguished Encoding Rules,
+  * `-inform der`
+
 
 ```bash
 mkdir -p ~/.cert/mail.nixcraft.net/
@@ -55,8 +60,24 @@ sudo keytool -importcert -file example.crt -alias example -keystore $(/usr/libex
 # 导入 cer
 keytool -importcert -file certificate.cer -keystore keystore.jks -alias "Alias"
 
+# 生成 CSR
+# https://support.rackspace.com/how-to/generate-a-csr-with-openssl/
+# 生成 Key
+openssl genrsa -out wener.me.key 4096
+# 生成新的 CSR
+penssl req -new -sha256 -key wener.me.key -out wener.me.csr
+# 然后提交 wener.me.csr 即可
+# 拿到分发的 x509 可生成 pem 以供 nginx 使用
+openssl x509 -in wener.me.x509 -out wener.me.pem -outform PEM
+# 查看证书信息
+openssl x509 -in wener.me.pem -text -noout
 
+# Let's Encrypt certbot
+brew install certbot
+certbot certonly --standalone --preferred-challenges tls-sni -d example.com --staple-ocsp -m example@example.com --agree-tos --work-dir . --config-dir ./config --logs-dir ./logs
 ```
+
+
 ## FAQ
 ### Java 启动时 ssl 相关参数
 http://docs.oracle.com/javase/1.5.0/docs/guide/security/jsse/JSSERefGuide.html#Debug

@@ -77,8 +77,17 @@ initdb -kU postgres -s
 initdb -kU postgres
 # 启动数据库
 pg_ctl -D $PGDATA -l $HOME/data/pg/logfile start
+pg_ctl -D $PGDATA -l $PGDATA/pg.log start
 # 查看运行状态
 pg_ctl -D $PGDATA status 
+```
+
+```sql
+-- 相当于给其他人 root 权限
+grant postgres to someone;
+
+-- 导入 CSV
+COPY phonebook (id,name, phone, update_time) FROM E'/data/phonebook.csv' DELIMITER ',' CSV;
 ```
 
 ## Notes
@@ -163,4 +172,8 @@ CREATE EXTENSION IF NOT EXISTS file_fdw;
 ### 9.x
 
 
-
+## FAQ
+### varchar vs text
+* [PostgreSQL: Difference between text and varchar (character varying)](https://stackoverflow.com/a/4849030/1870054)
+* 没有区别, 存储方式是完全一样的, 只是其他的类型会检测长度,
+* 建议均使用 text, 在应用层做限制

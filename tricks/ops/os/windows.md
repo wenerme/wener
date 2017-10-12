@@ -74,6 +74,7 @@ Get-WmiObject Win32_NetworkAdapter -Filter "netenabled = true" | Select Guid
   * [vlmcsd.7](https://rawgit.com/Wind4/vlmcsd/master/man/vlmcsd.7.html)
     * 包含了很多序列号
   * [vlmcsd.8](https://rawgit.com/Wind4/vlmcsd/master/man/vlmcsd.8.html)
+  * 端口为 1688, 可使用 -P 控制
 
 
 ```bash
