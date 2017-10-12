@@ -67,8 +67,10 @@ nginx -g 'daemon off;'
 使用 nginx, 运行时需要映射适当的 nginx.conf
 
 ## laravel
-
-https://github.com/illuminate/database
+* [laravel](https://laravel.com/)
+* [awesome-laravel](https://github.com/chiraggude/awesome-laravel)
+* ORM [illuminate](https://github.com/illuminate/database)
+* [laravel-china](https://laravel-china.org/) - 中文社区
 
 ```bash
 # 可使用代理 https_proxy=http://127.0.0.1:7777 http_proxy=http://127.0.0.1:7777
@@ -89,6 +91,12 @@ php artisan db:seed
 
 * fpm [配置项](http://php.net/manual/zh/install.fpm.configuration.php)
   * 计算 pm.max_children [参考](http://myshell.co.uk/blog/2012/07/adjusting-child-processes-for-php-fpm-nginx/)
+
+### Lumen
+* Laravel [Lumen](https://lumen.laravel.com/)
+  * The stunningly fast micro-framework by Laravel.
+* 主要做 REST 服务
+
 
 ## CentOS
 * 参考 https://www.centos.org/forums/viewtopic.php?t=52586
@@ -158,10 +166,6 @@ composer validate
 <?php
 require "vendor/autoload.php";
 ```
-
-## Lumen
-* Laravel [Lumen](https://lumen.laravel.com/)
-  * The stunningly fast micro-framework by Laravel.
 
 ## ThinkPHP5
 * [ThinkPHP5.0完全开发手册](https://www.kancloud.cn/manual/thinkphp5)

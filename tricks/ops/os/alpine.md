@@ -87,15 +87,7 @@ setup-alpine -f ans
 setup-disk -m sys -s 0 -v /dev/sda
 ```
 
-## Server
 
-```bash
-apk add openssh-client openssl curl busybox file grep nano tmux mosh htop rsync docker
-rc-update add docker
-
-apk add shadow bash
-chsh root -s /bin/bash
-```
 
 ## USB
 
@@ -118,9 +110,6 @@ libgusb-dev-0.2.9-r1
 usb-modeswitch-udev-2.4.0-r0
 hwdata-usb-0.282-r0
 ```
-
-## Block device
-blkid
 
 ## NTFS
 
@@ -146,13 +135,15 @@ echo '/dev/sda1 /mnt/windows ntfs-3g defaults 0 0' >  /etc/fstab
 
 
 ## Kernal
-* hardened
-  * https://en.wikipedia.org/wiki/Hardening_(computing)
-* https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.6&repo=&arch=x86_64&maintainer=
 * vanilla
 * virthardened
 * hardened
+  * [Hardening:wiki](https://en.wikipedia.org/wiki/Hardening_(computing))
   * Grsecurity
+* 内核相关包
+  * [linux-*](https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.6&repo=&arch=x86_64)
+  * [*-hardened](https://pkgs.alpinelinux.org/packages?name=*hardened&branch=v3.6&repo=&arch=x86_64)
+
 ## Mirror
 * [How to setup a Alpine Linux mirror](https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror)
 

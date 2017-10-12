@@ -2,6 +2,8 @@
 
 ## Tips
 
+* https://developer.mozilla.org/en-US/docs/Web/Events
+
 ```js
 // 简单的播放音频
 var audio = new Audio('audio_file.mp3');
@@ -52,11 +54,33 @@ function fullscreen() {
     if( requestMethod ) {
         requestMethod.apply( element );
     }
-
 }
 ```
 
 ## FAQ
+
+### 检测方向
+
+* [Prevent orientation change in iOS Safari](https://stackoverflow.com/a/7061983/1870054)
+
+```js
+var query = window.matchMedia("(orientation:landscape)")
+var isPortrait = !query.matches;
+
+function getOrientation() {
+  return window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Screen
+// http://caniuse.com/screen-orientation/embed/
+screen.orientation.type
+
+// https://developer.mozilla.org/en-US/docs/Web/Events/orientationchange
+window.addEventListener("orientationchange", function() {
+    alert("the orientation of the device is now " + screen.orientation.angle);
+});
+```
+
 ### 检测网络连通性
 ```js
 function doConnectFunction() {

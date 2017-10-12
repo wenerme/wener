@@ -4,6 +4,7 @@
 * https://www.linphone.org/
 
 ## RFCs
+* [Voice-Related RFCs](https://www.cisco.com/c/en/us/support/docs/voice/voice-quality/46275-voice-rfcs.html)
 * RFC 3856 - A Presence Event Package for the Session Initiation Protocol
 * RFC 3262 Reliability of Provisional Responses in the Session Initiation Protocol
   * 临时响应的可靠传输

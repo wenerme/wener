@@ -1,5 +1,16 @@
 # ZFS
 
+## Tips
+* [zfsonlinux](http://zfsonlinux.org/)
+* [zfsonlinux/zfs](https://github.com/zfsonlinux/zfs)
+* [open-zfs](http://open-zfs.org/)
+* Archlinux [ZFS](https://wiki.archlinux.org/index.php/ZFS)
+* Archlinux [ZFS/Virtual disks](https://wiki.archlinux.org/index.php/ZFS/Virtual_disks)
+* [ZFS Administration](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
+* [ZFS Tutorial - 2016](http://buildwithbsd.org/zfs/zfs_tutorial_part_1.html)
+* [ZFS Resources](http://serverfault.com/questions/355708)
+* [Oracle® Solaris Administration: ZFS File Systems - 2012](https://docs.oracle.com/cd/E23824_01/pdf/821-1448.pdf)[HTML](https://docs.oracle.com/cd/E23824_01/html/821-1448/)
+* [Encryption](https://docs.oracle.com/cd/E23824_01/html/821-1448/gkkih.html)
 * 数据完整性
   * 数据完整性是 ZFS 的主要特性
   * 256 位的校验和位于元数据中,与数据相隔离
@@ -9,6 +20,7 @@
   * ZFS 会将存储设备的可用空间作为一个资源池, zpool
   * 会用于优化性能和冗余
 * RAIDZ 和 RAIDZ2
+  * 类似于 RAID-5
 * SSD 混合存储池
 * 容量
   * ZFS 是 128 位的文件系统, 可存储 256 ZB
@@ -18,11 +30,14 @@
 * 数据去重
 * 加密
 * ARC - Adaptive Replacement Cache.
-* [ZFS Administration](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
-* [ZFS Tutorial - 2016](http://buildwithbsd.org/zfs/zfs_tutorial_part_1.html)
-* [ZFS Resources](http://serverfault.com/questions/355708)
-* [Oracle® Solaris Administration: ZFS File Systems - 2012](https://docs.oracle.com/cd/E23824_01/pdf/821-1448.pdf)[HTML](https://docs.oracle.com/cd/E23824_01/html/821-1448/)
-* [Encryption](https://docs.oracle.com/cd/E23824_01/html/821-1448/gkkih.html)
+* [faq](https://github.com/zfsonlinux/zfs/wiki/faq)
+  * 选择创建 pool 的名字
+    * 开发,测试 /dev/hdX,/dev/sdX 
+    * < 10 /dev/disk/by-id
+    * > 10 /dev/disk/by-path
+    * > 10 最好 /dev/disk/by-vdev
+* [zpool.8](https://www.freebsd.org/cgi/man.cgi?query=zpool&sektion=8)
+* [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
 
 ## 数据冗余
 

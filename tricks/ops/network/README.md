@@ -79,3 +79,11 @@ wpa_supplicant -Dwext -ieth1 -c/root/wpa.conf
 dhclient -r
 dhclient wlan0
 ```
+
+## Link aggregation
+* [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation)
+* Linux [bonding](https://wiki.linuxfoundation.org/networking/bonding)
+* [What can you do with a second Ethernet port ?](https://www.linux.com/news/what-can-you-do-second-ethernet-port)
+* kernel/doc/[bonding](https://www.kernel.org/doc/Documentation/networking/bonding.txt)
+
+

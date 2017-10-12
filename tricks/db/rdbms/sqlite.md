@@ -2,11 +2,28 @@
 
 ## Tips
 
+* DATETIME 不会存储毫秒
+
 ```sql
 -- 导入 csv
 create table foo(a, b);
 .mode csv
 .import test.csv foo
+
+-- 日期函数
+-- https://sqlite.org/lang_datefunc.html
+-- 转换时间戳
+select datetime( 1323648000, 'unixepoch' );
+-- 获取时间戳, 带毫秒
+SELECT CAST((julianday('now') - 2440587.5) * 86400000 AS INTEGER);
+-- 默认值带毫秒
+CREATE TABLE IF NOT EXISTS event
+(
+  create_at DATETIME DEFAULT (STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))
+);
+
+-- 附加其他文件到数据库
+ATTACH 'cache.db' AS cache;
 ```
 
 

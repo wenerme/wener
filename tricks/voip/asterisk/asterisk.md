@@ -13,13 +13,13 @@
   * https://github.com/asterisk/asterisk
   * https://wiki.asterisk.org/wiki/display/AST/Home
   * https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture
-
 * http://www.asteriskdocs.org/
 * http://downloads.asterisk.org/pub/
   * 公共下载目录
-
+* 录音时尽量选择 .WAV 而非 .wav
 https://store.docker.com/community/images/luar/asterisk
 https://wiki.alpinelinux.org/wiki/FreePBX
+
 
 
 
@@ -38,6 +38,17 @@ https://wiki.alpinelinux.org/wiki/FreePBX
 * JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
 
 ### CHANGES
+* 15.0
+  * 默认使用 bundled pjproject
+  * 支持 RTCP Multiplexing 和 BUNDLE
+    * [Multiplexing RTP Data and Control Packets on a Single Port](https://tools.ietf.org/html/rfc5761)
+    * [Negotiating Media Multiplexing Using the SDP](https://datatracker.ietf.org/doc/draft-ietf-mmusic-sdp-bundle-negotiation/)
+  * Unified Plan
+    * [A Unified Plan for Using SDP with Large Numbers of Media Flows draft-roach-mmusic-unified-plan-00](https://tools.ietf.org/html/draft-roach-mmusic-unified-plan-00)
+    * multiple media streams per connection
+  * [asterisk/cyber_mega_phone_2k](https://github.com/asterisk/cyber_mega_phone_2k)
+    * testing of Asterisk's (15+) multistream capabilities
+
 * 14.6.2 - 2017-09-19
 * 14.6.1 - 2017-08-31
   * [5902](https://gerrit.asterisk.org/#/c/5902/) res_pjsip: `dtmf_mode` 添加 `auto_info`

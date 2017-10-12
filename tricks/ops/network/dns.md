@@ -5,9 +5,11 @@
 
 
 ## Tips
-```bash
+* [Comparison of DNS server software](https://en.wikipedia.org/wiki/Comparison_of_DNS_server_software)
+* [rfc2136](https://tools.ietf.org/html/rfc2136) - Dynamic Updates in the Domain Name System (DNS UPDATE)
+  * [Dynamic DNS:wiki](https://en.wikipedia.org/wiki/Dynamic_DNS)
+  * caddy [tls.dns.rfc2136](https://caddyserver.com/docs/tls.dns.rfc2136)
 
-```
 
 ```
 server localhost 53
