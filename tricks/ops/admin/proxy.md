@@ -15,15 +15,25 @@
 * https://hub.docker.com/r/gaomd/ikev2-vpn-server/
 
 ```bash
-# 生成的秘钥位于 /etc/ipsec.secrets
-# 如果还想二次使用, 可以拷贝出来
+
 docker run -d --restart always --privileged \
   -p 500:500/udp -p 4500:4500/udp \
   --name ikev2-vpn-server gaomd/ikev2-vpn-server:0.3.0
 
+
 # 将 vpn1.example.com 修改为机器的 IP 地址
 docker run -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=vpn1.example.com" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > ikev2-vpn.mobileconfig
 
+
+# 生成的秘钥位于 /etc/ipsec.secrets
+# 如果还想二次使用, 可以拷贝出来
+docker cp ikev2-vpn-server:/etc/ipsec.secrets .
+# 如果已经有了 PKI
+echo ": PSK \"$IKEV2_PKI\"" > ipsec.secrets
+# 使用现有的 PKI 启动
+docker run -d --restart always --privileged \
+  -p 500:500/udp -p 4500:4500/udp -v $PWD/ipsec.secrets:/etc/ipsec.secrets  \
+  --name ikev2-vpn-server gaomd/ikev2-vpn-server:0.3.0
 
 ```
 

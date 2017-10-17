@@ -68,6 +68,7 @@ nginx -g 'daemon off;'
 
 ## laravel
 * [laravel](https://laravel.com/)
+* http://www.golaravel.com/
 * [awesome-laravel](https://github.com/chiraggude/awesome-laravel)
 * ORM [illuminate](https://github.com/illuminate/database)
 * [laravel-china](https://laravel-china.org/) - 中文社区

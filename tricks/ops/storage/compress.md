@@ -19,6 +19,9 @@
 * Benchmark
   * [Squash Compression Benchmark](https://quixdb.github.io/squash-benchmark/)
   * [Large Text Compression Benchmark](http://mattmahoney.net/dc/text.html)
+* JS
+  * [nodeca/pako](https://github.com/nodeca/pako)
+    * high speed zlib port to javascript, works in browser & node.js
 
 ```bash
 # 解压 bz2

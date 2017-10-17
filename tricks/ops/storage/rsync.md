@@ -2,7 +2,7 @@
 
 ## Tips
 * https://www.cheatography.com/richardjh/cheat-sheets/rsync/
-
+* https://wiki.archlinux.org/index.php/rsync
 
 ```bash
 # 使用 SSH 同步
