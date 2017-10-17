@@ -19,7 +19,7 @@
 6. SIP/PJSIP 的问题
   * 切换使用 `chan_sip` 和 `chan_pjsip` 进行尝试
 7. PJSIP 的问题
-  * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj 进行补丁
+  * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj
 
 ## Assertion failed: sess && sess->endpt
 * 该异常后程序会直接崩溃

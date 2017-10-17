@@ -14,9 +14,9 @@
 * tini
 * dump-init
 * openrc
+* Gentoo [Comparison of init systems](https://wiki.gentoo.org/wiki/Comparison_of_init_systems)
 
-
-
+* [OpenRC to systemd Cheatsheet](https://wiki.gentoo.org/wiki/OpenRC_to_systemd_Cheatsheet)
 
 ## supervisor
 

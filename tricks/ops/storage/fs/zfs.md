@@ -19,8 +19,10 @@
 * Pooled Data Storage
   * ZFS 会将存储设备的可用空间作为一个资源池, zpool
   * 会用于优化性能和冗余
-* RAIDZ 和 RAIDZ2
+* RAIDZ
   * 类似于 RAID-5
+  * RAIDZ1
+  * RAIDZ2
 * SSD 混合存储池
 * 容量
   * ZFS 是 128 位的文件系统, 可存储 256 ZB
@@ -38,6 +40,38 @@
     * > 10 最好 /dev/disk/by-vdev
 * [zpool.8](https://www.freebsd.org/cgi/man.cgi?query=zpool&sektion=8)
 * [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
+* [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)
+
+## NOTES
+* zpool
+  * 存储池
+    * 一组虚拟设备的合集
+* vdev - Virtual Device - 虚拟设备
+  * disk
+  * file
+  * mirror
+  * raidz
+    * raidz 等同于 raidz1
+    * raidz1
+    * raidz2
+    * raidz3
+  * spare
+  * log
+  * cache
+* vdev 状态
+  * DEGRADED
+  * FAULTED
+  * OFFLINE
+  * ONLINE
+  * REMOVED
+  * UNAVAIL
+
+A raidz group with	N disks	of size	X with P parity	disks can hold
+approximately (N-P)*X bytes and can withstand P device(s) failing
+before data integrity is compromised. The minimum number of
+devices in	a raidz	group is one more than the number of parity
+disks. The	recommended number is between 3	and 9 to help increase
+performance.
 
 ## 数据冗余
 
