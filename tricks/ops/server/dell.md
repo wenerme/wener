@@ -1,5 +1,6 @@
 # Dell
 
+## Tips
 * Dell [服务器列表](https://en.wikipedia.org/wiki/List_of_Dell_PowerEdge_Servers)
 
 R720 R720XD 2011针2U服务器 大显卡 支持8T
@@ -41,6 +42,12 @@ R510 14盘位 H700 无盘服务器 存储 视频缓存 秒C2100
   * 10xUSB3 1xDP 1xRJ45 1xCOM 1xHDMI 1xAudio
   * 4xDDR4 4xSata
 
-## H700 - DELL
+## RAID
+### H700 - DELL
 
 * PERC H700 H800 [完全手册](http://zh.community.dell.com/support_forums/poweredge/w/wiki/492.perc-h700-h800)
+
+## DRAC
+* Dell [DRAC](https://en.wikipedia.org/wiki/Dell_DRAC)
+  * Dell Remote Access Controller
+  * iDRAC - integrated DRAC

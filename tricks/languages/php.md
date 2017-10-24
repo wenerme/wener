@@ -14,6 +14,10 @@ rpm -ql php-fpm
 yum instal yum-utils
 # 查看已安装的文件
 repoquery -lq --installed time
+
+# 內建 web 服务
+# http://php.net/manual/zh/features.commandline.webserver.php
+http://php.net/manual/zh/features.commandline.webserver.php
 ```
 
 ```ini

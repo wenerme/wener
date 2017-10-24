@@ -737,3 +737,40 @@ find . -type f -mmin -15
 # 删除这之前的数据
 find . -type f ! -newermt 2017-9-29 -delete
 ```
+
+## 性能调优
+* [Asterisk at large](https://www.voip-info.org/wiki/view/Asterisk+at+large)
+* [Asterisk dimensioning](https://www.voip-info.org/wiki/view/Asterisk+dimensioning)
+
+```bash
+# 将语言文件放到内存
+# /var/lib/asterisk/sound
+mkdir /mnt/ramdisk
+mount -t tmpfs -o size=2g tmpfs /mnt/ramdisk
+# /etc/fstab
+# tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=2048M 0 0
+
+# 保证最大文件数够大, 至少 131072
+sysctl fs.file-max
+# 刷新修改
+sysctl -p /etc/sysctl.conf
+sysctl -w fs.file-max=100000
+sysctl --system
+
+# 确保打开文件数勾搭, 至少 32768
+ulimit -n
+# 查看已经运行的
+cat /proc/$(pidof asterisk)/limits | grep files
+# https://superuser.com/a/441758/242730
+prlimit --nofile -p $(pidof asterisk)
+
+# 当前打开的文件数
+lsof -p $(pidof asterisk) | wc -l
+ls -l /proc/$(pidof asterisk)/fd | wc -l
+
+# 当前所有的量
+lsof | wc -l
+
+# 查看内核的文件数限制
+sysctl fs.file-nr
+```
