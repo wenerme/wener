@@ -61,5 +61,12 @@ MegaRAID
 N8103-117A
 RAID controller (RAID 0/1/5/6, 128MB) (PCI EXPRESS (x8))
 
+DELL H200 支持 JBOD
+
 HP Smart Array P420i 之前的 RAID 都不能禁用 RAID 功能
+
+
+FBWC=Flash-Based Write Cache(FBWC)    使用 flash 做存储，掉电时有一个大电容供电，将缓存中的内容写入flash. 写入flash 后，永久有效，无72小时限制。
+
+BBWC=Battery-Backed Write Cache(BBWC)   使用 电池供电，只能保持72小时的数据。
 

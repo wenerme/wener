@@ -74,14 +74,6 @@ kill -INFO $(pgrep ^dd$)
 # 同上简单一点
 pkill -usr1 dd
 
-# 测试随机写IOPS
-fio -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试随机读IOPS
-fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试写吞吐量
-fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试读吞吐量
-fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
 
 # 挂载 smb
 # Windows 共享无密码时使用 guest

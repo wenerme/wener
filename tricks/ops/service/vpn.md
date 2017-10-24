@@ -1,5 +1,7 @@
 # VPN
 
+## Tips
+* [PPTP](https://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol)
 * Ubuntu wiki [VPN](https://wiki.ubuntu.com/VPN)
 * [IPSEC VPN on Ubuntu 16.04 with StrongSwan](https://raymii.org/s/tutorials/IPSEC_vpn_with_Ubuntu_16.04.html)
 

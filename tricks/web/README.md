@@ -1,7 +1,12 @@
 # Web relate resources
 
 * [Firefox Hardware Report](https://metrics.mozilla.com/firefox-hardware-report/)
-https://resilientwebdesign.com/
+* [Resilient Web Design](https://resilientwebdesign.com/)
+
+## Metric
+* Material [Device Metric](https://material.io/devices/)
+* [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
+* [Screen Size](http://screensiz.es/)
 
 ## Generator
 

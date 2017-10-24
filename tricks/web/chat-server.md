@@ -112,6 +112,7 @@ https://chromium.googlesource.com/external/webrtc
 
 * [mattermost](https://github.com/mattermost/platform)
   * [主页](http://www.mattermost.org)
+  * [mattermost/mattermost-server](https://github.com/mattermost/mattermost-server)
   * 技术
     * Docker
     * React
@@ -140,6 +141,7 @@ https://chromium.googlesource.com/external/webrtc
 
 ## 其他资源
 * [Matrix](http://matrix.org/) 通讯协议
+* [Matrix-通讯协议](https://en.wikipedia.org/wiki/Matrix_(communication_protocol))
 * [Self host XMPP servers](https://github.com/Kickball/awesome-selfhosted#xmpp-servers)
 * [Apache ActiveMQ Artemis](http://activemq.apache.org/artemis/)
   * AMQP protocol support
