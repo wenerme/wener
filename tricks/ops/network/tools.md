@@ -141,3 +141,20 @@ socat openssl-listen:1053,fork,reuseaddr,cert=$PWD/server.pem,cafile=$PWD/client
 # 客户端连接服务端的 1053
 sudo socat UDP-RECVFROM:53,fork,reuseaddr openssl-connect:SERVER:1053,cert=$PWD/client.pem,cafile=$PWD/server.crt
 ```
+
+## curl
+
+## wget
+* `-e robots=off`
+  * 忽略 robot.txt
+
+```bash
+wget -rN --no-parent -e robots=off -P /some/where http://some.site
+```
+
+## httpie
+* https://daniel.haxx.se/docs/curl-vs-httpie.html
+* https://github.com/jakubroztocil/httpie
+* http://curl2httpie.online/
+* https://httpie.org/
+
