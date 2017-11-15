@@ -9,31 +9,214 @@
   * 默认定义
   * api.proto
     * 对服务的轻量级定义
-* NOTES:
+* 问题
+  * [grpc-go#555](https://github.com/grpc/grpc-go/issues/555) - ServeHTTP doesn't work without TLS
+    * Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
+* 相关服务
+  * [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy)
+    * grpc 反向代理
+  * [improbable-eng/grpc-web](https://github.com/improbable-eng/grpc-web)
+    * gRPC Web implementation for Golang and TypeScript
+* 案例参考
+  * [grpc/grpc-proto](https://github.com/grpc/grpc-proto)
+    * 常用协议
   * k8s 使用 go-to-protobuf 从 go 生成的 proto
-* Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
-  * [grpc-go#555](https://github.com/grpc/grpc-go/issues/555)
+* 参考
+  * [mfornos/awesome-microservices](https://github.com/mfornos/awesome-microservices)
+  * [gRPC Practical Tutorial - Magic That Generates Code](https://goel.io/grpc-100/)
+  * [LogNet/grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter)
 
-https://github.com/grpc/grpc-proto
-常用协议
+## Note
+* guides/[concepts](https://grpc.io/docs/guides/concepts.html)
+  * 服务定义
+  * 使用方式
+  * RPC 生命周期
+    * 单向 RPC
+    * 服务端流
+    * 客户端流
+    * 双向流
+    * 超时
+    * 终端
+    * 取消
+    * 元数据
+    * 通道
+* 实现
+  * 使用 HTTP2 协议
+  * 使用 HTTP2 Trailler 来标识是否还有后续包
+    * Web 无法获取到该信息, 所以无法实现和使用 gRPC
+*  鉴权
+  * guides/[auth](https://grpc.io/docs/guides/auth.html)
+    * SSL/TLS
+    * 基于 Token
+  * [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md) 
 
-* https://github.com/mwitkow/grpc-proxy
-  * grpc 反向代理
 
+## 安装
+* https://github.com/grpc/grpc/blob/master/INSTALL.md
+* https://hub.docker.com/u/grpc/
+* 生成主要依赖插件
+  * protoc-gen-go
+  * protoc-gen-grpc-gateway
+  * protoc-gen-swagger
+  * protoc-gen-grpc-java
+* https://github.com/Juniper/grpc-c
+* https://github.com/grpc/grpc-java/tree/master/compiler
 
+```bash
+# grpc_cli
+# grpc_cpp_plugin
+# grpc_csharp_plugin
+# grpc_node_plugin
+# grpc_objective_c_plugin
+# grpc_php_plugin
+# grpc_python_plugin
+# grpc_ruby_plugin
+brew install grpc
+# 不 link 则使用绝对路径
+brew link grpc
 
+# gRPC 生成
+# =========
+# 安装 gRPC 后会包含很多插件
+GRPC_BIN=$(brew --prefix grpc)/bin
+# 生成 cpp, node, php, c#, ruby, python, objc 的方式是一样的
 
-https://github.com/improbable-eng/grpc-web
-https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md
-https://github.com/sourcegraph/prototools
-https://goel.io/grpc-100/
-https://github.com/mfornos/awesome-microservices
-https://github.com/LogNet/grpc-spring-boot-starter
-https://grpc.io/docs/guides/auth.html
+# --js_out=./node 生成 protobuf
+# --grpc_out=./node 生成 grpc
+# --plugin=protoc-gen-grpc=$GRPC_BIN/grpc_node_plugin 使用 grpc_node_plugin 来生成 node 的 grpc
+# -I . 包从当前目录查找
+# apis/**/*.proto 生成所有 apis 下的 proto
+protoc --js_out=./node --grpc_out=./node --plugin=protoc-gen-grpc=$GRPC_BIN/grpc_node_plugin -I . apis/**/*.proto
+
+# Golang
+# =========
+go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+go get -u google.golang.org/grpc
+# Golang 可直接生成 gRPC 和 Protobuf
+protoc --go_out=plugins=grpc:$HOME/go/src -I . *.proto
+
+# Java
+# =========
+# Java 插件需要自己编译
+git clone https://github.com/grpc/grpc-java
+cd grpc-java/compiler
+../gradlew java_pluginExecutable
+# 插件完整路径
+realpath build/exe/java_plugin/protoc-gen-grpc-java
+GEN_JAVA="$(realpath build/exe/java_plugin/protoc-gen-grpc-java)"
+
+# 生成 gRPC
+protoc --plugin=protoc-gen-grpc-java=$GEN_JAVA --grpc-java_out=$PWD/java -I . proto/**/*.proto
+# 生成 protobuf
+protoc -I . --java_out=./java proto/**/*.proto
+# 生成 nano 的 pb
+protoc -I . --javanano_out=./java proto/**/*.proto
+# 生成 gRPC lite
+protoc --plugin=protoc-gen-grpc-java=$GEN_JAVA --grpc-java_out=lite:$PWD/java -I . proto/**/*.proto
+# 生成 gRPC nano
+protoc --plugin=protoc-gen-grpc-java=$GEN_JAVA --grpc-java_out=nano:$PWD/java -I . proto/**/*.proto
+
+# Swift
+# =========
+# https://github.com/grpc/grpc-swift
+git clone https://github.com/grpc/grpc-swift
+cd grpc-swift/Plugin
+make
+GEN_SWIFT=$(realpath protoc-gen-swiftgrpc)
+# 生成
+protoc --plugin=$GEN_SWIFT --swiftgrpc_out=./swift -I=. proto/**/*.proto
+```
+
+## Java
+```java
+class Tests{
+  // TLS 服务端
+  @Test
+  public void testTLSSvr() throws IOException, InterruptedException {
+    java.security.Security.addProvider(
+        new org.bouncycastle.jce.provider.BouncyCastleProvider()
+    );
+
+    int port = 8443;
+    Server server = NettyServerBuilder
+        .forPort(port)
+        .sslContext(GrpcSslContexts
+            .forServer(new File("localhost.pem"),new File("localhost-key.pem"))
+            .trustManager(new File("ca.pem"))
+            // 要求客户端认证
+            .clientAuth(ClientAuth.REQUIRE).build())
+        .addService(new MyServiceImpl())
+        .build();
+    log.info("Server started, listening on " + port);
+    server.start().awaitTermination();
+  }
+
+  // TLS 客户端
+  @Test
+  public void testTLSCli() throws Exception {
+    java.security.Security.addProvider(
+        new org.bouncycastle.jce.provider.BouncyCastleProvider()
+    );
+    // 使用 Netty 实现, 也可以使用 OkHttp 实现
+    ManagedChannel channel = NettyChannelBuilder
+        .forAddress("localhost", 8443)
+        .sslContext(GrpcSslContexts
+            .forClient()
+            .trustManager(new File("ca.pem"))
+            // 双向认证才需要
+            .keyManager(
+                new File("cli.pem"),
+                new File("cli-key.pem")
+            )
+            .build())
+        .build();
+    // 创建阻塞客户端
+    MyServiceGrpcBlockingStub stub = MyServiceGrpc.newBlockingStub(channel);
+    GetInfoResponse info = stub.getInfo(GetInfoRequest.newBuilder().build());
+    System.out.println(info.getName());
+  }
+}
+```
+
+## PHP
+
+```php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+$creds = 
+  // 无 TLS
+  Grpc\ChannelCredentials::createInsecure()
+  // 只配置 CA 如果服务端不要求客户端认证
+  // \Grpc\ChannelCredentials::createSsl(file_get_contents("ca.pem"))
+  // 双向认证, 服务端要求客户端认证
+  // \Grpc\ChannelCredentials::createSsl(file_get_contents("ca.pem"),file_get_contents("cli-key.pem"),file_get_contents("cli.pem"))
+;
+$client = new \Wener\Service\V1\InfoServiceClient("localhost:5002", [
+    'credentials' => $creds,
+]);
+
+/**
+ * @var \Wener\Service\V1\GetInfoResponse $reply
+ * @var \Wener\Api\GrpcStatus $status Customized type for ide to hint type
+ */
+list($reply, $status) = $client->GetInfo(new \Yikaiye\Service\V1\GetInfoRequest())->wait();
+
+echo $status->code . PHP_EOL;
+echo $reply->getName() . PHP_EOL;
+
+// All Status
+print_r($status);
+// JSON
+echo $reply->serializeToJsonString() . PHP_EOL;
+```
 
 ## Node
 * [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
 
+## Web
+* [gRPC Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)
+* https://github.com/dcodeIO/ProtoBuf.js/
 
 ## grpc-gateway
 * [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)

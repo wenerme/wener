@@ -31,10 +31,13 @@
   * [shred/acme4j](https://github.com/shred/acme4j)
     * Java client for ACME (Let's Encrypt)
 * Automatic Certificate Management Environment (ACME)
-## Tips
 * PEM - Privacy Enhanced Mail
 * DER - Distinguished Encoding Rules,
   * `-inform der`
+
+
+
+
 
 
 ```bash
@@ -77,8 +80,35 @@ brew install certbot
 certbot certonly --standalone --preferred-challenges tls-sni -d example.com --staple-ocsp -m example@example.com --agree-tos --work-dir . --config-dir ./config --logs-dir ./logs
 ```
 
+## Convert
+https://stackoverflow.com/q/13732826/1870054
+
+## CA
+* https://jamielinux.com/docs/openssl-certificate-authority/
+
+
+## CFSSL
+* https://github.com/cloudflare/cfssl
+* https://cfssl.org/scan
+* https://github.com/jason-riddle/generating-certs/wiki
+
+```bash
+# 安装
+go get -u github.com/cloudflare/cfssl/cmd/...
+```
 
 ## FAQ
+### SSL/TLS mutual authentication
+* 客户端和服务端同时验证证书, 因此要求客户端配置 cert 和 key
+* Golang ClientAuthType
+  * NoClientCert
+  * RequestClientCert
+  * RequireAnyClientCert
+  * VerifyClientCertIfGiven
+  * RequireAndVerifyClientCert
+
+
+
 ### Java 启动时 ssl 相关参数
 http://docs.oracle.com/javase/1.5.0/docs/guide/security/jsse/JSSERefGuide.html#Debug
 
@@ -110,3 +140,14 @@ record debugging can be widened with:
 plaintext    hex dump of record plaintext
 packet       print raw SSL/TLS packets
 ```
+
+### Server Cert vs Client Cert
+* https://stackoverflow.com/q/24752105/1870054
+* Server
+  * Signing
+    * 证书中的秘钥能用于标识 CN 中说明的服务, 实体认证
+  * Key Encipherment
+    * 证书中的秘钥可以用于加密从会话中衍生的会话秘钥(对等秘钥)
+* Client
+  * Signing
+

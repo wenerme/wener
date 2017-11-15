@@ -12,11 +12,31 @@
 https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools
 https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
 
-* 获取 IP
-  * http://checkip.amazonaws.com/
 
+* [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 
+## 获取 IP
+* http://checkip.amazonaws.com/
 
+```bash
+curl ipinfo.io/ip
+curl ifconfig.co
+curl ipecho.net/plain
+curl icanhazip.com
+curl ipv4.icanhazip.com
+
+dig +short myip.opendns.com @resolver1.opendns.com
+```
+
+## 路由
+```bash
+# -n 不做 dns 查找
+# -w secopnds 超时时间, 默认 50s
+# -q NUMBER 每跳的包数, 默认 3
+# -I 使用 icmp, 可能会需要 root 权限
+traceroute -n -w3 -q1 172.172.0.1
+traceroute -nI 172.172.0.1
+```
 
 ## 转发
 
