@@ -44,12 +44,6 @@
   * 使用 HTTP2 协议
   * 使用 HTTP2 Trailler 来标识是否还有后续包
     * Web 无法获取到该信息, 所以无法实现和使用 gRPC
-*  鉴权
-  * guides/[auth](https://grpc.io/docs/guides/auth.html)
-    * SSL/TLS
-    * 基于 Token
-  * [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md) 
-
 
 ## 安装
 * https://github.com/grpc/grpc/blob/master/INSTALL.md
@@ -75,12 +69,23 @@ brew install grpc
 # 不 link 则使用绝对路径
 brew link grpc
 
-# gRPC 生成
+
+# 变量定义简化操作
 # =========
 # 安装 gRPC 后会包含很多插件
+# # 生成 cpp, node, php, c#, ruby, python, objc 的方式是一样的
 GRPC_BIN=$(brew --prefix grpc)/bin
-# 生成 cpp, node, php, c#, ruby, python, objc 的方式是一样的
+# 定义 pb 路径
+PROTO_PATH=./apis/
+# 对路径进行展开
+PROTO_FILES=(apis/**/*.proto)
+PROTO_ARGS="-I $PROTO_PATH  ${PROTO_FILES[*]}"
+# 覆盖 protoc
+alias protoc="protoc $PROTO_ARGS"
 
+
+# gRPC 生成
+# =========
 # --js_out=./node 生成 protobuf
 # --grpc_out=./node 生成 grpc
 # --plugin=protoc-gen-grpc=$GRPC_BIN/grpc_node_plugin 使用 grpc_node_plugin 来生成 node 的 grpc
@@ -90,10 +95,28 @@ protoc --js_out=./node --grpc_out=./node --plugin=protoc-gen-grpc=$GRPC_BIN/grpc
 
 # Golang
 # =========
+# 不支持一次性生成多个包
+# https://github.com/golang/protobuf/pull/40
+# 可以使用 https://github.com/square/goprotowrap 规避
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 go get -u google.golang.org/grpc
 # Golang 可直接生成 gRPC 和 Protobuf
-protoc --go_out=plugins=grpc:$HOME/go/src -I . *.proto
+protoc --go_out=plugins=grpc:$HOME/go/src -I . apis/**/*.proto
+
+# 使用 protowrap
+go get -u github.com/square/goprotowrap/cmd/protowrap
+# -I apis/ 是必须的, 要有有一个前缀
+protowrap --go_out=plugins=grpc:$HOME/go/src -I . -I apis/ apis/**/*.proto
+
+# https://github.com/gogo/protobuf
+# gogoprotobuf is a fork of golang/protobuf with extra code generation features.
+# 扩展 https://github.com/gogo/protobuf/blob/master/extensions.md
+#
+# protoc-gen-gogofast (same as gofast, but imports gogoprotobuf)
+# protoc-gen-gogofaster (same as gogofast, without XXX_unrecognized, less pointer fields)
+# protoc-gen-gogoslick (same as gogofaster, but with generated string, gostring and equal methods)
+go get -u github.com/gogo/protobuf/protoc-gen-gofast
+protowrap --gofast_out=plugins=grpc:$HOME/go/src -I . -I apis/ apis/**/*.proto
 
 # Java
 # =========
@@ -122,9 +145,40 @@ protoc --plugin=protoc-gen-grpc-java=$GEN_JAVA --grpc-java_out=nano:$PWD/java -I
 git clone https://github.com/grpc/grpc-swift
 cd grpc-swift/Plugin
 make
-GEN_SWIFT=$(realpath protoc-gen-swiftgrpc)
-# 生成
-protoc --plugin=$GEN_SWIFT --swiftgrpc_out=./swift -I=. proto/**/*.proto
+GEN_SWIFT=$(realpath .)
+# 生成 pb 和 grpc
+protoc --plugin=$GEN_SWIFT/protoc-gen-swift --swift_out=./swift -I . proto/**/*.proto
+protoc --plugin=$GEN_SWIFT/protoc-gen-swiftgrpc --swiftgrpc_out=./swift -I . proto/**/*.proto
+
+# Gateway
+# =========
+# Web <-> gRPC
+# 生成网关代码和 Swagger 配置
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+
+
+# 生成 stub
+protoc --go_out=plugins=grpc:. -I proto/ proto/hello.proto
+# 生成反向代理
+protoc --grpc-gateway_out=logtostderr=true:. -I proto/ proto/hello.proto
+# 生成 swagger
+protoc --swagger_out=logtostderr=true:. -I proto/ proto/hello.proto
+
+# prototools
+# =========
+# 生成文档, json, dump
+# https://github.com/sourcegraph/prototools
+go get -u sourcegraph.com/sourcegraph/prototools/cmd/protoc-gen-doc
+# 如果找不到文件可以考虑指定 filemap=./tmpl/filemap.xml
+protowrap --doc_out=./apidoc -I . -I apis/ apis/**/*.proto
+
+# pseudomuto/protoc-gen-doc
+# =========
+# 生成文档, 支持生成 HTML, JSON, DocBook, Markdown
+# 默认模板比 prototools 好看
+# https://github.com/pseudomuto/protoc-gen-doc
+go get -u github.com/pseudomuto/protoc-gen-doc/cmd/...
 ```
 
 ## Java
@@ -264,8 +318,20 @@ go get .
 # 添加 main, 启动时调用注册
 ```
 
+## Auth
+* [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md) 
+* guides/[auth](https://grpc.io/docs/guides/auth.html)
+  * SSL/TLS 双向认证
+  * 基于 Token
+* 授权分为整个通道和单次请求
+* gRPC 可以自带元数据头, 因此也可以自定义授权
 
 ## 案例
+
+* [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/tree/master/pkg/roachpb)
+* [docker/swarmkit](https://github.com/docker/swarmkit/tree/master/api)
+* https://github.com/gogo/protobuf#users
+
 
 ### GCP
 * [API Design Guide](https://cloud.google.com/apis/design/)
@@ -344,7 +410,7 @@ docker run -it --rm -v $PWD/googleapis:/googleapis -v $PWD/artman:/artman -w /go
 * Service rollouts
   * 流量控制
 
-## Note
+## 源码和使用分析
 * PB 附带了所有解析后的消息格式定义
 * PB 3 增加了 java-util, 可以进行 JSON 序列化
   * `JsonFormat` 打印时需要使用 `com.google.protobuf.util.JsonFormat.TypeRegistry` 来反查具体类
