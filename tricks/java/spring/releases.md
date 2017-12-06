@@ -98,13 +98,32 @@
 ## Spring Boot
 
 ### 2.0
+* [spring-boot/milestones](https://github.com/spring-projects/spring-boot/milestones)
+  * 2.0.0 正式发布时间 2017.12.8
 * [Spring Boot 2.0 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes)
 * Java8+
 * Spring Framework 5.0
-* 连接池默认为 HikariCP
 * 移除之前废弃的内容
   * Spring Loaded
   * CRaSH
+* 可删除 Session
+* 支持 JSON-B
+* [micrometer](https://github.com/micrometer-metrics/micrometer) 支持
+* 使用 Lettuce 替代 Jedis
+* 合并 OAuth 到 Spring Securety 核心模块
+* 至少 Mockito 2
+* 默认禁用 Jolokia
+* Actuator 修改为使用原生的 SpringMVC, SpringWebFlux 和 Jersey
+* 添加 ApplicationContextRunner 用于测试自动配置
+* 插件控制的配置属性前缀都修改为了 `spring-boot`
+  * `mvn spring-boot:run -Dspring-boot.run.profiles=foo`
+* 所有请求默认压缩
+* 连接池默认为 HikariCP
+* 支持使用 Quartz 作为调度器 `spring-boot-starter-quartz`
+* 提供 `spring.data.web` 用于控制分页和排序的选项
+* 添加 `spring-boot-starter-json`
+* 响应式数据模块
+
 
 ### 1.5
 * [1.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.5-Release-Notes)
