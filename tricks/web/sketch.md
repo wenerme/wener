@@ -1,6 +1,7 @@
 # Sketch
 
 ## Tips
+* [Sketch](https://www.sketchapp.com/)
 * 插件安装目录 `~/Library/Application Support/com.bohemiancoding.sketch3/Plugins`
 
 ```
@@ -17,11 +18,15 @@ open *.sketchplugin
 cd -
 ```
 
+## 插件
+* [中文插件](https://github.com/cute/SketchI18N)
+* [官方插件列表](https://github.com/sketchplugins/plugin-directory)
+
 ## 推荐插件
-* [sketch-measure](https://github.com/utom/sketch-measure)
+* [utom/sketch-measure](https://github.com/utom/sketch-measure)
   * 必备插件
   * 标注,导出
-* [material-design-color-palette](https://github.com/t32k/material-design-color-palette)
+* [t32k/material-design-color-palette](https://github.com/t32k/material-design-color-palette)
   * Material 设计的调色盘
   * 如果经常为颜色发愁或者又在依照 MD 规范设计,那么这个也是必备的
 * [SketchI18N](https://github.com/cute/SketchI18N)
@@ -46,6 +51,8 @@ cd -
   * 对图层等进行排序
 * [dynamic-button](https://github.com/ddwht/sketch-dynamic-button)
   * 按钮自适应内容
+* [mathieudutour/git-sketch-plugin](https://github.com/mathieudutour/git-sketch-plugin)
+  * A Git client generating pretty diffs built right into Sketch.
 
 * 原型交互设计工具
   * http://principleformac.com/
@@ -58,7 +65,3 @@ cd -
   * https://designcode.io/sketch-plugins
   * https://awesome-sket.ch/
   * http://sketch.land/
-
-## 插件
-* [中文插件](https://github.com/cute/SketchI18N)
-* [官方插件列表](https://github.com/sketchplugins/plugin-directory)
