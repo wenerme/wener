@@ -1,6 +1,7 @@
 # Gradle
 
 * [Userguide](https://docs.gradle.org/current/userguide/userguide.html)
+* [Building Java 9 Modules](https://guides.gradle.org/building-java-9-modules/)
 
 ```bash
 # https://docs.gradle.org/current/userguide/build_init_plugin.html
@@ -10,6 +11,9 @@ gradle init
 
 ```
 
+## gradle --help
+
+```
 USAGE: gradle [option...] [task...]
 
 -?, -h, --help          Shows this help message.
@@ -51,3 +55,4 @@ USAGE: gradle [option...] [task...]
 -u, --no-search-upward  Don't search in parent folders for a settings.gradle file.
 -v, --version           Print version info.
 -x, --exclude-task      Specify a task to be excluded from execution.
+```
