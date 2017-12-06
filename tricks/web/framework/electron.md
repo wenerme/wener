@@ -45,7 +45,7 @@ rm -R app-icon.iconset
 
 
 ### Mac 打包后非常大
-[electron/electron#2003](https://github.com/electron/electron/issues/2003)
+* [electron/electron#2003](https://github.com/electron/electron/issues/2003)
 
 ```
 osx       - 117.3 mb

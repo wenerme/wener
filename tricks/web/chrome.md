@@ -22,6 +22,7 @@ chromium --js-flags="--help"
 * 其他启动参数 [headless_shell_switches.cc](https://cs.chromium.org/chromium/src/headless/app/headless_shell_switches.cc)
 * https://chromedevtools.github.io/devtools-protocol/tot/Debugger/
 * [chrome-remote-interface](https://www.npmjs.com/package/chrome-remote-interface)
+  * https://github.com/cyrus-and/chrome-remote-interface
 * [TagUI](https://github.com/tebelorg/TagUI)
   * General purpose tool for automating web interactions
 * [Chromeless, Chrominator, Chromy, Navalia, Lambdium, GhostJS, AutoGCD](https://medium.com/@kensoh/chromeless-chrominator-chromy-navalia-lambdium-ghostjs-autogcd-ef34bcd26907)
