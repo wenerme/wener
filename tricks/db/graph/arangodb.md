@@ -51,7 +51,7 @@ require('fs').write('/var/lib/arangodb3/export.txt',db._query(`return CONCAT_SEP
 ```
 
 ```
-# 将边的数量更新到节点上
+// 将边的数量更新到节点上
 FOR doc IN documents
   LET inEdgesCount = LENGTH(FOR v IN 1..1 INBOUND doc GRAPH 'edgeGraph' RETURN 1)
   LET outEdgesCount = LENGTH(FOR v IN 1..1 OUTBOUND doc GRAPH 'edgeGraph' RETURN 1)

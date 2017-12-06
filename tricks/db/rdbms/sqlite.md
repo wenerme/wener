@@ -3,6 +3,7 @@
 ## Tips
 
 * DATETIME 不会存储毫秒
+* [数据类型](http://sqlite.org/datatype3.html)
 
 ```sql
 -- 导入 csv

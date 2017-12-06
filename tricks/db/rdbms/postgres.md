@@ -58,8 +58,10 @@
     * Sync Postgres data between databases
 * 资源
   * [dhamaniasad/awesome-postgres](https://github.com/dhamaniasad/awesome-postgres)
-
-
+* 数据结构
+  * Database / Schema / table
+* 数据迁移
+  * https://wiki.postgresql.org/wiki/Converting_from_other_Databases_to_PostgreSQL
 
 ```bash
 # POSTGRES_USER=postgres
@@ -83,15 +85,23 @@ pg_ctl -D $PGDATA status
 ```
 
 ```sql
--- 相当于给其他人 root 权限
-grant postgres to someone;
 
--- 导入 CSV
-COPY phonebook (id,name, phone, update_time) FROM E'/data/phonebook.csv' DELIMITER ',' CSV;
+
+-- 查看当前版本
+select version();
+
+-- 将字符串风格为字符数组
+select regexp_split_to_array('abc','');
 ```
 
 ## Notes
+
 ### 备份
+
+* https://www.postgresql.org/docs/current/static/app-psql.html
+* https://wiki.postgresql.org/wiki/Incremental_backup
+* https://www.postgresql.org/docs/current/static/continuous-archiving.html
+* https://www.postgresql.org/docs/current/static/app-pgdump.html
 
 ```bash
 # 转储单个库
@@ -110,6 +120,162 @@ pg_restore -d dbname filename
 # 转储所有
 pg_dumpall > outfile
 psql -f infile postgres
+```
+
+```sql
+-- 导入 CSV
+
+-- COPY
+-- https://www.postgresql.org/docs/current/static/sql-copy.html
+-- COPY table_name [ ( column_name [, ...] ) ] FROM { 'filename' | PROGRAM 'command' | STDIN } [ [ WITH ] ( option [, ...] ) ]
+-- COPY { table_name [ ( column_name [, ...] ) ] | ( query ) } TO { 'filename' | PROGRAM 'command' | STDOUT } [ [ WITH ] ( option [, ...] ) ]
+-- 需要管理员权限
+-- Windows users might need to use an E'' string and double any backslashes used in the path name.
+-- 要求文件在服务器上
+COPY phonebook (id,name, phone) FROM '/tmp/phonebook.csv' DELIMITER ',' CSV;
+-- 带头导出
+COPY phonebook TO '/tmp/data.csv' DELIMITER ',' CSV HEADER;
+
+-- \copy
+-- https://www.postgresql.org/docs/current/static/app-psql.html#APP-PSQL-META-COMMANDS-COPY
+-- \copy { table [ ( column_list ) ] | ( query ) } { from | to } { 'filename' | program 'command' | stdin | stdout | pstdin | pstdout } [ [ with ] ( option [, ...] ) ]
+-- 从客户端进行导入
+-- 可以使用相对路径, 会先将文件上传到服务器
+\copy out_tmp (id,name) from 'out.csv' DELIMITER ',' CSV;
+-- 导出
+\copy my_table to 'filename' csv header
+\copy (select id,name from out_tmp) to 'exp.csv' DELIMITER ',' CSV;
+-- 带头
+\copy (select id,name from out_tmp) to 'exp.csv' DELIMITER ',' CSV HEADER;
+
+```
+
+### optimize
+* http://www.revsys.com/writings/postgresql-performance.html
+* https://wiki.postgresql.org/wiki/Performance_Optimization
+* https://www.datadoghq.com/blog/100x-faster-postgres-performance-by-changing-1-line/
+* https://www.postgresql.org/docs/current/static/parallel-query.html
+* [Optimize and Improve PostgreSQL Performance with VACUUM, ANALYZE, and REINDEX](https://confluence.atlassian.com/kb/optimize-and-improve-postgresql-performance-with-vacuum-analyze-and-reindex-885239781.html)
+
+* PG 的 MVCC 实现使得更新操作非常昂贵. 如果需要更新表里的每一行, 那每一行都会拷贝为一个新的版本, 旧的版本会标记为已删除.
+  * 因此一般来说重写整个表会比更新来的更快
+* `DROP COLUMN` 不会做物理删除, 而是将列标记为不可见, 因此操作会非常快
+
+Heap Only Tuple
+
+http://pydanny-event-notes.readthedocs.io/en/latest/DjangoConEurope2012/10-steps-to-better-postgresql-performance.html
+
+https://www.dbrnd.com/2015/10/postgresql-fast-way-to-find-the-row-count-of-a-table/
+
+https://www.dbrnd.com/2016/12/postgresql-increase-the-speed-of-update-query-using-hot-update-heap-only-tuple-mvcc-fill-factor-vacuum-fragmentation/
+
+VACUUM 
+command will reclaim space still used by data that had been updated. In PostgreSQL, updated key-value tuples are not removed from the tables when rows are changed, so the VACUUM command should be run occasionally to do this.
+
+VACUUM can be run on its own, or with ANALYZE.
+
+VACUUM(FULL, ANALYZE, VERBOSE) [tablename]
+
+ANALYZE gathers statistics for the query planner to create the most efficient query execution paths. Per PostgreSQL documentation, accurate statistics will help the planner to choose the most appropriate query plan, and thereby improve the speed of query processing. 
+
+
+The REINDEX command rebuilds one or more indices, replacing the previous version of the index. REINDEX can be used in many scenarios, including the following (from Postgres documentation):
+
+https://wiki.postgresql.org/wiki/Using_EXPLAIN
+https://www.postgresql.org/docs/current/static/using-explain.html
+
+
+https://wiki.postgresql.org/wiki/Disk_Usage
+
+```sql
+-- 这个操作会非常慢
+update a set name = b.name from b where a.id = b.id;
+-- 这个操作会比整个更新快
+create table c as (select a.age, b.name from a left join b on a.id = b.id);
+
+-- 所以整表更新建议
+begin;
+create table T as select col1, col2, colN from orders;
+drop table orders;
+alter table T rename to orders;
+commit;
+
+-- 置空一列
+-- 数据大了后该操作非常慢
+UPDATE orders SET status = null;
+-- 因此可以考虑这样
+ALTER TABLE orders DROP column status
+                 , ADD  column status text;
+
+
+```
+
+### 数据类型
+* https://www.postgresql.org/docs/10/static/datatype.html
+* 数组
+  * 可以使用 GIN 索引
+    * https://www.postgresql.org/docs/current/static/indexes-types.html
+  * 操作需要使用数组操作符
+
+#### JSON
+* 支持 hstore, json 和 jsonb 类型
+  * 大部分时候选择 JSONB
+  * 如果只写入或者要求快速写入, 很少查询可以选择 JSON
+* https://www.postgresql.org/docs/current/static/datatype-json.html
+* json 文本, 操作更耗时, 每次需要解析, 会保存重复键值, 以最后一次为准
+* josnb 二进制, 一般磁盘空间更大, 写入更耗时, 支持索引
+* 操作符
+  * `->`  取字段, 可以是数组索引
+  * `->>` 返回的值始终为 text, 不会有引号
+  * `#>`  指定多个路径, 获取为 text
+    * `SELECT  '{"a":[1,2,3],"b":[4,5,6]}'::json#>>'{a,2}';`
+  * `@>`  jsonb, 检测左侧是否包含右侧
+  * `<@`  jsonb, 检测右侧是否包含左侧
+  * `?`   jsonb, 检测是否包含 key
+    * `SELECT '{"a":1, "b":2}'::jsonb ? 'b';`
+  * `?|`  jsonb, 检测是否包含某个 key
+    * `SELECT  '{"a":1, "b":2, "c":3}'::jsonb ?| array['b', 'ceeee', 'e'];`
+  * `?&`  jsonb, 是否包含所有 key
+  * `||`  jsonb, 拼接两个 jsonb
+  * `-`   删除 kv 或数组元素
+    * `SELECT  '{"a": "b"}'::jsonb - 'a';` `SELECT  '["a", "b"]'::jsonb - 'a';`
+    * `SELECT  '["a", "b"]'::jsonb - (-1);` `SELECT  '["a", "b"]'::jsonb - (1);`
+  * `#-`  删除路径
+* FAQ
+  * https://dba.stackexchange.com/questions/54283/how-to-turn-json-array-into-postgres-array
+
+
+```sql
+SELECT '5'::json;
+SELECT '[1, 2, "foo", null]'::json;
+SELECT '{"bar": "baz", "balance": 7.77, "active": false}'::json;
+
+-- 检测是否包含
+SELECT '"foo"'::jsonb @> '"foo"'::jsonb;
+SELECT '[1, 2, 3]'::jsonb @> '[3, 1]'::jsonb;
+-- 指定一个字段
+SELECT data->'field' FROM doc;
+
+-- 创建索引
+CREATE INDEX idxgin ON api USING GIN (jdoc);
+CREATE INDEX idxginp ON api USING GIN (jdoc jsonb_path_ops);
+
+-- 将数组作为行
+SELECT
+  s ->> 'name'
+FROM tab t, jsonb_array_elements(t.family -> 'children') s;
+```
+
+
+### Admin
+
+```sql
+-- 相当于给其他人 root 权限
+grant postgres to someone;
+
+
+GRANT ALL PRIVILEGES ON DATABASE "my_db" to my_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO myuser;
 ```
 
 ### NOTIFY
@@ -137,6 +303,20 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER my_tab_after_insert
 AFTER INSERT ON my_tab
 FOR EACH ROW EXECUTE PROCEDURE my_tab_notify_insert();
+```
+
+### Graph
+* https://www.postgresql.org/docs/current/static/queries-with.html
+* [Pg Conf - Implementing Graph Database based-on PostgreSQL](https://www.slideshare.net/JoshuaBae/pg-conf-implementing-graph-database-basedon-postgresql)
+* [SQLGraph: An Efficient Relational-Based Property Graph Store](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/43287.pdf)
+* https://github.com/pietermartin/sqlg
+* https://github.com/cayleygraph/cayley/pull/289
+  * graph: Postgres backend
+* http://bitnine.net/agensgraph/
+  * 基于 PG
+
+
+```
 ```
 
 
@@ -175,5 +355,259 @@ CREATE EXTENSION IF NOT EXISTS file_fdw;
 ## FAQ
 ### varchar vs text
 * [PostgreSQL: Difference between text and varchar (character varying)](https://stackoverflow.com/a/4849030/1870054)
-* 没有区别, 存储方式是完全一样的, 只是其他的类型会检测长度,
+* 没有区别, 存储方式是完全一样的, 只是其他的类型会检测长度
 * 建议均使用 text, 在应用层做限制
+
+
+### psql
+
+```
+General
+  \copyright             show PostgreSQL usage and distribution terms
+  \errverbose            show most recent error message at maximum verbosity
+  \g [FILE] or ;         execute query (and send results to file or |pipe)
+  \gexec                 execute query, then execute each value in its result
+  \gset [PREFIX]         execute query and store results in psql variables
+  \q                     quit psql
+  \crosstabview [COLUMNS] execute query and display results in crosstab
+  \watch [SEC]           execute query every SEC seconds
+
+Help
+  \? [commands]          show help on backslash commands
+  \? options             show help on psql command-line options
+  \? variables           show help on special variables
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+
+Query Buffer
+  \e [FILE] [LINE]       edit the query buffer (or file) with external editor
+  \ef [FUNCNAME [LINE]]  edit function definition with external editor
+  \ev [VIEWNAME [LINE]]  edit view definition with external editor
+  \p                     show the contents of the query buffer
+  \r                     reset (clear) the query buffer
+  \s [FILE]              display history or save it to file
+  \w FILE                write query buffer to file
+
+Input/Output
+  \copy ...              perform SQL COPY with data stream to the client host
+  \echo [STRING]         write string to standard output
+  \i FILE                execute commands from file
+  \ir FILE               as \i, but relative to location of current script
+  \o [FILE]              send all query results to file or |pipe
+  \qecho [STRING]        write string to query output stream (see \o)
+
+Informational
+  (options: S = show system objects, + = additional detail)
+  \d[S+]                 list tables, views, and sequences
+  \d[S+]  NAME           describe table, view, sequence, or index
+  \da[S]  [PATTERN]      list aggregates
+  \dA[+]  [PATTERN]      list access methods
+  \db[+]  [PATTERN]      list tablespaces
+  \dc[S+] [PATTERN]      list conversions
+  \dC[+]  [PATTERN]      list casts
+  \dd[S]  [PATTERN]      show object descriptions not displayed elsewhere
+  \ddp    [PATTERN]      list default privileges
+  \dD[S+] [PATTERN]      list domains
+  \det[+] [PATTERN]      list foreign tables
+  \des[+] [PATTERN]      list foreign servers
+  \deu[+] [PATTERN]      list user mappings
+  \dew[+] [PATTERN]      list foreign-data wrappers
+  \df[antw][S+] [PATRN]  list [only agg/normal/trigger/window] functions
+  \dF[+]  [PATTERN]      list text search configurations
+  \dFd[+] [PATTERN]      list text search dictionaries
+  \dFp[+] [PATTERN]      list text search parsers
+  \dFt[+] [PATTERN]      list text search templates
+  \dg[S+] [PATTERN]      list roles
+  \di[S+] [PATTERN]      list indexes
+  \dl                    list large objects, same as \lo_list
+  \dL[S+] [PATTERN]      list procedural languages
+  \dm[S+] [PATTERN]      list materialized views
+  \dn[S+] [PATTERN]      list schemas
+  \do[S]  [PATTERN]      list operators
+  \dO[S+] [PATTERN]      list collations
+  \dp     [PATTERN]      list table, view, and sequence access privileges
+  \drds [PATRN1 [PATRN2]] list per-database role settings
+  \ds[S+] [PATTERN]      list sequences
+  \dt[S+] [PATTERN]      list tables
+  \dT[S+] [PATTERN]      list data types
+  \du[S+] [PATTERN]      list roles
+  \dv[S+] [PATTERN]      list views
+  \dE[S+] [PATTERN]      list foreign tables
+  \dx[+]  [PATTERN]      list extensions
+  \dy     [PATTERN]      list event triggers
+  \l[+]   [PATTERN]      list databases
+  \sf[+]  FUNCNAME       show a function's definition
+  \sv[+]  VIEWNAME       show a view's definition
+  \z      [PATTERN]      same as \dp
+
+Formatting
+  \a                     toggle between unaligned and aligned output mode
+  \C [STRING]            set table title, or unset if none
+  \f [STRING]            show or set field separator for unaligned query output
+  \H                     toggle HTML output mode (currently off)
+  \pset [NAME [VALUE]]   set table output option
+                         (NAME := {format|border|expanded|fieldsep|fieldsep_zero|footer|null|
+                         numericlocale|recordsep|recordsep_zero|tuples_only|title|tableattr|pager|
+                         unicode_border_linestyle|unicode_column_linestyle|unicode_header_linestyle})
+  \t [on|off]            show only rows (currently off)
+  \T [STRING]            set HTML <table> tag attributes, or unset if none
+  \x [on|off|auto]       toggle expanded output (currently off)
+
+Connection
+  \c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo}
+                         connect to new database (currently "postgres")
+  \encoding [ENCODING]   show or set client encoding
+  \password [USERNAME]   securely change the password for a user
+  \conninfo              display information about current connection
+
+Operating System
+  \cd [DIR]              change the current working directory
+  \setenv NAME [VALUE]   set or unset environment variable
+  \timing [on|off]       toggle timing of commands (currently off)
+  \! [COMMAND]           execute command in shell or start interactive shell
+
+Variables
+  \prompt [TEXT] NAME    prompt user to set internal variable
+  \set [NAME [VALUE]]    set internal variable, or list all if no parameters
+  \unset NAME            unset (delete) internal variable
+
+Large Objects
+  \lo_export LOBOID FILE
+  \lo_import FILE [COMMENT]
+  \lo_list
+  \lo_unlink LOBOID      large object operations
+```
+
+## pg_dump --help
+```
+pg_dump dumps a database as a text file or to other formats.
+
+Usage:
+  pg_dump [OPTION]... [DBNAME]
+
+General options:
+  -f, --file=FILENAME          output file or directory name
+  -F, --format=c|d|t|p         output file format (custom, directory, tar,
+                               plain text (default))
+  -j, --jobs=NUM               use this many parallel jobs to dump
+  -v, --verbose                verbose mode
+  -V, --version                output version information, then exit
+  -Z, --compress=0-9           compression level for compressed formats
+  --lock-wait-timeout=TIMEOUT  fail after waiting TIMEOUT for a table lock
+  -?, --help                   show this help, then exit
+
+Options controlling the output content:
+  -a, --data-only              dump only the data, not the schema
+  -b, --blobs                  include large objects in dump
+  -c, --clean                  clean (drop) database objects before recreating
+  -C, --create                 include commands to create database in dump
+  -E, --encoding=ENCODING      dump the data in encoding ENCODING
+  -n, --schema=SCHEMA          dump the named schema(s) only
+  -N, --exclude-schema=SCHEMA  do NOT dump the named schema(s)
+  -o, --oids                   include OIDs in dump
+  -O, --no-owner               skip restoration of object ownership in
+                               plain-text format
+  -s, --schema-only            dump only the schema, no data
+  -S, --superuser=NAME         superuser user name to use in plain-text format
+  -t, --table=TABLE            dump the named table(s) only
+  -T, --exclude-table=TABLE    do NOT dump the named table(s)
+  -x, --no-privileges          do not dump privileges (grant/revoke)
+  --binary-upgrade             for use by upgrade utilities only
+  --column-inserts             dump data as INSERT commands with column names
+  --disable-dollar-quoting     disable dollar quoting, use SQL standard quoting
+  --disable-triggers           disable triggers during data-only restore
+  --enable-row-security        enable row security (dump only content user has
+                               access to)
+  --exclude-table-data=TABLE   do NOT dump data for the named table(s)
+  --if-exists                  use IF EXISTS when dropping objects
+  --inserts                    dump data as INSERT commands, rather than COPY
+  --no-security-labels         do not dump security label assignments
+  --no-synchronized-snapshots  do not use synchronized snapshots in parallel jobs
+  --no-tablespaces             do not dump tablespace assignments
+  --no-unlogged-table-data     do not dump unlogged table data
+  --quote-all-identifiers      quote all identifiers, even if not key words
+  --section=SECTION            dump named section (pre-data, data, or post-data)
+  --serializable-deferrable    wait until the dump can run without anomalies
+  --snapshot=SNAPSHOT          use given snapshot for the dump
+  --strict-names               require table and/or schema include patterns to
+                               match at least one entity each
+  --use-set-session-authorization
+                               use SET SESSION AUTHORIZATION commands instead of
+                               ALTER OWNER commands to set ownership
+
+Connection options:
+  -d, --dbname=DBNAME      database to dump
+  -h, --host=HOSTNAME      database server host or socket directory
+  -p, --port=PORT          database server port number
+  -U, --username=NAME      connect as specified database user
+  -w, --no-password        never prompt for password
+  -W, --password           force password prompt (should happen automatically)
+  --role=ROLENAME          do SET ROLE before dump
+
+If no database name is supplied, then the PGDATABASE environment
+variable value is used.
+```
+
+## pg_restore --help
+```
+pg_restore restores a PostgreSQL database from an archive created by pg_dump.
+
+Usage:
+  pg_restore [OPTION]... [FILE]
+
+General options:
+  -d, --dbname=NAME        connect to database name
+  -f, --file=FILENAME      output file name
+  -F, --format=c|d|t       backup file format (should be automatic)
+  -l, --list               print summarized TOC of the archive
+  -v, --verbose            verbose mode
+  -V, --version            output version information, then exit
+  -?, --help               show this help, then exit
+
+Options controlling the restore:
+  -a, --data-only              restore only the data, no schema
+  -c, --clean                  clean (drop) database objects before recreating
+  -C, --create                 create the target database
+  -e, --exit-on-error          exit on error, default is to continue
+  -I, --index=NAME             restore named index
+  -j, --jobs=NUM               use this many parallel jobs to restore
+  -L, --use-list=FILENAME      use table of contents from this file for
+                               selecting/ordering output
+  -n, --schema=NAME            restore only objects in this schema
+  -N, --exclude-schema=NAME    do not restore objects in this schema
+  -O, --no-owner               skip restoration of object ownership
+  -P, --function=NAME(args)    restore named function
+  -s, --schema-only            restore only the schema, no data
+  -S, --superuser=NAME         superuser user name to use for disabling triggers
+  -t, --table=NAME             restore named relation (table, view, etc.)
+  -T, --trigger=NAME           restore named trigger
+  -x, --no-privileges          skip restoration of access privileges (grant/revoke)
+  -1, --single-transaction     restore as a single transaction
+  --disable-triggers           disable triggers during data-only restore
+  --enable-row-security        enable row security
+  --if-exists                  use IF EXISTS when dropping objects
+  --no-data-for-failed-tables  do not restore data of tables that could not be
+                               created
+  --no-publications            do not restore publications
+  --no-security-labels         do not restore security labels
+  --no-subscriptions           do not restore subscriptions
+  --no-tablespaces             do not restore tablespace assignments
+  --section=SECTION            restore named section (pre-data, data, or post-data)
+  --strict-names               require table and/or schema include patterns to
+                               match at least one entity each
+  --use-set-session-authorization
+                               use SET SESSION AUTHORIZATION commands instead of
+                               ALTER OWNER commands to set ownership
+
+Connection options:
+  -h, --host=HOSTNAME      database server host or socket directory
+  -p, --port=PORT          database server port number
+  -U, --username=NAME      connect as specified database user
+  -w, --no-password        never prompt for password
+  -W, --password           force password prompt (should happen automatically)
+  --role=ROLENAME          do SET ROLE before restore
+
+The options -I, -n, -P, -t, -T, and --section can be combined and specified
+multiple times to select multiple objects.
+
+If no input file name is supplied, then standard input is used.
+```

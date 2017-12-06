@@ -1,69 +1,34 @@
 
--- ²é¿´ÓÃ»§
-SELECT User,host FROM mysql.user; 
-
--- ´´½¨ÓÃ»§
-CREATE USER 'wener'@'localhost' IDENTIFIED BY 'qaz';
-GRANT ALL PRIVILEGES ON *.* TO 'wener'@'localhost' WITH GRANT OPTION;
-
--- ´´½¨Ò»¸ö¿ÉÒÔÔ¶³ÌÊ¹ÓÃµÄÕË»§
-CREATE USER 'root'@'%' IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
-GRANT ALL PRIVILEGES ON cbh.* TO 'root'@'%' identified by 'root' WITH GRANT OPTION;
-
--- ÉèÖÃÃÜÂë
-SET PASSWORD FOR 'root'@'%' = PASSWORD('root');
--- É¾³ıÃÜÂë
-SET PASSWORD FOR 'root'@'%' = PASSWORD('');
-
--- Ê¹È¨ÏŞÉúĞ§
-FLUSH PRIVILEGES;
-
--- ´´½¨½á¹¹ÏàÍ¬µÄ±í
-create table name like old_tab;
-create table name select * from old_tab where 1=2;
-
--- MYSQL »ñÈ¡Êı¾İ¿âµÄ´óĞ¡
-SELECT table_schema                                        "DB Name", 
-   Round(Sum(data_length + index_length) / 1024 / 1024, 2) "DB Size in MB" 
-FROM   information_schema.tables
-GROUP  BY table_schema; 
-
--- ¿ÉÒÔÊ¹ÓÃ»·¾³±äÁ¿À´Ö¸¶¨ÃÜÂë,±ÜÃâÃüÁîĞĞÉÏµÄ¾¯¸æ
-MYSQL_PWD=$password
-
--- ²é¿´µ±Ç°Á¬½ÓÊı
-SHOW STATUS WHERE `variable_name` = 'Threads_connected'
-show processlist
 
 
--- mysql ÆôÓÃÂı²éÑ¯
+
+-- mysql å¯ç”¨æ…¢æŸ¥è¯¢
 -- http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_slow_query_log_file
 -- http://dev.mysql.com/doc/refman/5.6/en/slow-query-log.html
--- ÒÑ²»ÔÙÊ¹ÓÃ SET GLOBAL log_slow_queries = 1;
+-- å·²ä¸å†ä½¿ç”¨ SET GLOBAL log_slow_queries = 1;
 -- 5.1.12
 SET GLOBAL slow_query_log = 'ON';
 FLUSH LOGS;
--- 5.5 ÒÔºóÓĞ
+-- 5.5 ä»¥åæœ‰
 FLUSH SLOW LOGS;
--- ÉèÖÃÂı²éÑ¯ÈÕÖ¾ÎÄ¼ş 5.1.12
+-- è®¾ç½®æ…¢æŸ¥è¯¢æ—¥å¿—æ–‡ä»¶ 5.1.12
 SET GLOBAL slow_query_log_file = 'path';
--- ²é¿´±äÁ¿
+-- æŸ¥çœ‹å˜é‡
 SHOW VARIABLES LIKE '%slow_query%'
--- Èç¹ûÒÑÖª±äÁ¿Ãû
+-- å¦‚æœå·²çŸ¥å˜é‡å
 select @@datadir;
 
--- H2 ÖĞÕâÑùµ¼³ö SQL
+-- H2 ä¸­è¿™æ ·å¯¼å‡º SQL
 script to 'filenam'
 
 -- ======================================
--- === Éú³É²âÊÔÊı¾İ
+-- === ç”Ÿæˆæµ‹è¯•æ•°æ®
 -- ======================================
 DROP TABLE IF EXISTS massive;
-/* ²»´´½¨Ë÷Òı,·ñÔò»á²úÉú´óÁ¿µÄË÷ÒıÎÄ¼ş */
+/* ä¸åˆ›å»ºç´¢å¼•,å¦åˆ™ä¼šäº§ç”Ÿå¤§é‡çš„ç´¢å¼•æ–‡ä»¶ */
 CREATE TABLE massive (id int PRIMARY KEY AUTO_INCREMENT, n int, val varchar(40));
 
--- Ê¹ÆäÔÚÒ»¸öÊÂÎñÀï,Ôö¼Ó²åÈëµÄËÙ¶È
+-- ä½¿å…¶åœ¨ä¸€ä¸ªäº‹åŠ¡é‡Œ,å¢åŠ æ’å…¥çš„é€Ÿåº¦
 DROP PROCEDURE IF EXISTS prepare_data;
 DELIMITER $$
 CREATE PROCEDURE prepare_data (IN n INT)
@@ -82,10 +47,10 @@ CALL prepare_data(100);
 
 SHOW CREATE PROCEDURE prepare_data;
 
--- ¿ÉÄÜĞèÒªÒ»Ğ©È¨ÏŞ
+-- å¯èƒ½éœ€è¦ä¸€äº›æƒé™
 GRANT EXECUTE ON PROCEDURE test.* TO ''@'localhost';
 flush privileges;
--- Çå³ı binlog
+-- æ¸…é™¤ binlog
 PURGE BINARY LOGS TO 'mysql-bin.010';
 PURGE BINARY LOGS BEFORE '2008-04-02 22:46:26';
 PURGE BINARY LOGS BEFORE now();
@@ -93,21 +58,21 @@ PURGE BINARY LOGS BEFORE now();
 -- FAQ
 -- how-to-shrink-purge-ibdata1-file-in-mysql http://stackoverflow.com/questions/3456159/
 -- how-do-i-quickly-rename-a-mysql-database-change-schema-name http://stackoverflow.com/questions/67093/
--- ÈÈÃÅÎÊÌâ http://stackoverflow.com/questions/tagged/mysql?sort=votes
+-- çƒ­é—¨é—®é¢˜ http://stackoverflow.com/questions/tagged/mysql?sort=votes
 
 -- Reference
--- MySQL ÈÕÆÚº¯Êı
+-- MySQL æ—¥æœŸå‡½æ•°
 -- http://dev.mysql.com/doc/refman/5.6/en/date-and-time-functions.html
--- JPQL ÈÕÆÚº¯Êı
+-- JPQL æ—¥æœŸå‡½æ•°
 -- http://www.datanucleus.org/products/accessplatform_2_2/jpa/jpql_functions.html
--- JPQL ÊÖ²á
+-- JPQL æ‰‹å†Œ
 -- http://docs.oracle.com/cd/E17904_01/apirefs.1111/e13946/ejb3_langref.html
--- MySQL ÈÕÖ¾ËµÃ÷ http://dev.mysql.com/doc/refman/5.6/en/server-logs.html
+-- MySQL æ—¥å¿—è¯´æ˜ http://dev.mysql.com/doc/refman/5.6/en/server-logs.html
 
--- ÓÅ»¯±í
+-- ä¼˜åŒ–è¡¨
 -- http://stackoverflow.com/questions/5474662/mysql-optimize-all-tables
--- OPTIMIZE TABLE ÃüÁî
+-- OPTIMIZE TABLE å‘½ä»¤
 -- http://dev.mysql.com/doc/refman/5.6/en/optimize-table.html
--- ½²ÓÅ»¯ÎÄÕÂ
+-- è®²ä¼˜åŒ–æ–‡ç« 
 -- https://www.digitalocean.com/community/tutorials/how-to-optimize-queries-and-tables-in-mysql-and-mariadb-on-a-vps
 -- http://www.openlogic.com/wazi/bid/195905/Tips-and-Tricks-to-Optimize-MySQL

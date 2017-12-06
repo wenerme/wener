@@ -17,11 +17,6 @@
 * [Hoodie](https://github.com/hoodiehq/hoodie)
   * The Offline First JavaScript Backend
 * [CouchDB](./couchdb.md)
-* [gunjs](https://github.com/amark/gun)
-  * Realtime
-  * Distributed
-  * Offline-first
-  * Graph
 * [Meteor](https://github.com/meteor/meteor)
   * [Meteor Alternatives Per Feature](https://gist.github.com/ilyaigpetrov/afb50eb4060bc198de97)
   * [Angular Meteor](https://github.com/urigo/angular-meteor/)
