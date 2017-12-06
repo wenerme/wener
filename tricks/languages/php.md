@@ -6,6 +6,8 @@
 * http://www.phptherightway.com/
 * [PHP-FIG](http://www.php-fig.org/)
   * [PSRs](http://www.php-fig.org/psr/)
+* https://github.com/ziadoz/awesome-php
+* APC
 
 ```bash
 # CentOS
@@ -17,7 +19,10 @@ repoquery -lq --installed time
 
 # 內建 web 服务
 # http://php.net/manual/zh/features.commandline.webserver.php
-http://php.net/manual/zh/features.commandline.webserver.php
+php -S 0.0.0.0:8082 -c php.ini
+
+# 判断是否有响应模块
+php -i "(command-line 'phpinfo()')" | grep -i grpc
 ```
 
 ```ini
@@ -27,48 +32,14 @@ date.timezone=Asia/Shanghai
 
 ## Docker
 
-__php.dockerfile__
-```dockerfile
-FROM php:5-apache
-RUN apt-get update
-RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev  \
-    && pecl install mongodb \
-    && docker-php-ext-enable mongodb
-RUN pecl install redis && docker-php-ext-enable redis
+```bash
+# wener/php:app
+# php7 + nginx + mongo,redis,grpc extension + composer
+docker run --rm -it --entrypoint bash wener/php:app
 ```
 
-__php-nginx.dockerfile__
-```dockerfile
-FROM php:5-fpm
-RUN apt-get update
-RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev  \
-    && pecl install mongodb \
-    && docker-php-ext-enable mongodb
-RUN pecl install redis && docker-php-ext-enable redis
-
-RUN apt-get install -y nginx
-
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-EXPOSE 80
-
-ENTRYPOINT ["/entrypoint.sh"]
-```
-
-__entrypoint.sh__
-```shell
-#!/bin/sh
-set -e
-set -o xtrace
-[ -z "$WWW_ROOT" ] || sed -i -e "s#/var/www/html#$WWW_ROOT#g" /etc/nginx/nginx.conf
-
-php-fpm -t && nginx -t
-
-php-fpm -D
-nginx -g 'daemon off;'
-```
-
-使用 nginx, 运行时需要映射适当的 nginx.conf
+## PHP 7
+* opcache
 
 ## laravel
 * [laravel](https://laravel.com/)
@@ -120,8 +91,18 @@ yum replace --enablerepo=webtatic-testing php-common --replace-with=php56w-commo
 ## Composer
 * [paquettg/php-html-parser](https://github.com/paquettg/php-html-parser)
 * [国内镜像](https://pkg.phpcomposer.com/)
+* 私有仓库
+  * https://getcomposer.org/doc/articles/handling-private-packages-with-satis.md
+* https://getcomposer.org/doc/04-schema.md
+* https://getcomposer.org/doc/03-cli.md
 
 ```bash
+# 使用中国镜像安装
+php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" && \
+php composer-setup.php && \
+php -r "unlink('composer-setup.php');" && \
+mv composer.phar /usr/local/bin/composer
+
 # 使用国内镜像
 # 修改全局配置
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
@@ -169,7 +150,7 @@ composer validate
 * 安装好后只需要添加一下 autoload 即可使用
 ```php
 <?php
-require "vendor/autoload.php";
+require __DIR__ . '/vendor/autoload.php';
 ```
 
 ## ThinkPHP5
@@ -265,7 +246,7 @@ project  应用部署目录
 ├─think                 命令行入口文件
 ```
 
-## 代码
+### 代码
 * `thinkphp/start.php`
   * 系统默认的一个引导文件
   * 加载系统常量定义
@@ -291,6 +272,151 @@ project  应用部署目录
   edit	|GET	  |blog/:id/edit|edit
   update|PUT    |blog/:id	    |update
   delete|DELETE	|blog/:id	    |delete
+
 * 模型
   * 支持数据库表映射
   * 支持基本的增删改查操作
+
+## PECL
+* http://pear.php.net/packages.php
+* https://pecl.php.net/package-stats.php
+* http://php.net/manual/en/extensions.php
+* 常用扩展
+  * Redis
+  * Mongo
+  * gRPC
+  * Protobuf
+
+```bash
+pecl updahe-channels
+# yes 启用 igbinary
+# https://github.com/igbinary/igbinary
+pecl install -o -f redis <<<no
+```
+
+```
+build                  Build an Extension From C Source
+bundle                 Unpacks a Pecl Package
+channel-add            Add a Channel
+channel-alias          Specify an alias to a channel name
+channel-delete         Remove a Channel From the List
+channel-discover       Initialize a Channel from its server
+channel-info           Retrieve Information on a Channel
+channel-login          Connects and authenticates to remote channel server
+channel-logout         Logs out from the remote channel server
+channel-update         Update an Existing Channel
+clear-cache            Clear Web Services Cache
+config-create          Create a Default configuration file
+config-get             Show One Setting
+config-help            Show Information About Setting
+config-set             Change Setting
+config-show            Show All Settings
+convert                Convert a package.xml 1.0 to package.xml 2.0 format
+cvsdiff                Run a "cvs diff" for all files in a package
+cvstag                 Set CVS Release Tag
+download               Download Package
+download-all           Downloads each available package from the default channel
+info                   Display information about a package
+install                Install Package
+list                   List Installed Packages In The Default Channel
+list-all               List All Packages
+list-channels          List Available Channels
+list-files             List Files In Installed Package
+list-upgrades          List Available Upgrades
+login                  Connects and authenticates to remote server [Deprecated in favor of channel-login]
+logout                 Logs out from the remote server [Deprecated in favor of channel-logout]
+makerpm                Builds an RPM spec file from a PEAR package
+package                Build Package
+package-dependencies   Show package dependencies
+package-validate       Validate Package Consistency
+pickle                 Build PECL Package
+remote-info            Information About Remote Packages
+remote-list            List Remote Packages
+run-scripts            Run Post-Install Scripts bundled with a package
+run-tests              Run Regression Tests
+search                 Search remote package database
+shell-test             Shell Script Test
+sign                   Sign a package distribution file
+svntag                 Set SVN Release Tag
+uninstall              Un-install Package
+update-channels        Update the Channel List
+upgrade                Upgrade Package
+upgrade-all            Upgrade All Packages [Deprecated in favor of calling upgrade with no parameters]
+Usage: pecl [options] command [command-options] <parameters>
+Type "pecl help options" to list all options.
+Type "pecl help shortcuts" to list all command shortcuts.
+Type "pecl help version" or "pecl version" to list version information.
+Type "pecl help <command>" to get the help for the specified command.
+```
+
+## HHVM
+* 结论: 不建议使用
+* https://hhvm.com/
+* http://hacklang.org/
+* https://en.wikipedia.org/wiki/HHVM
+* http://github.com/facebook/hhvm
+* https://3v4l.org/
+* https://www.keycdn.com/blog/php-7-vs-hhvm/
+* Hip Hop bytecode
+* HHVM vs PHP7
+  * 速度相差不大
+  * 扩展 HHVM 使用 C++ PHP7 使用 C
+  * HHVM 支持类型注解, 类似于 Typescript 与 JavaScript 直接的关系
+  * PHP7 更加稳定, 兼容性更强
+  * 代码修正后 HHVM 需要重启
+* 越来越多的库选择不再支持 HHVM
+  * [Symfony 4: End of HHVM support](http://symfony.com/blog/symfony-4-end-of-hhvm-support)
+  * [doctrine#6424](https://github.com/doctrine/doctrine2/issues/6424)
+  * [HHVM and MongoDB](https://derickrethans.nl/mongodb-hhvm.html)
+  * [cakephp#10674](https://github.com/cakephp/cakephp/issues/10674): Drop support for HHVM officially
+
+## Symfony
+* https://github.com/symfony/symfony
+
+
+
+## Notes
+* require,require_once,include_once,include 是语句而不是函数, 所以不需要括号 `()`
+
+## FAQ
+### 避免直接访问 PHP
+```php
+<?php
+// 避免不被 include
+if(count(get_included_files()) ==1) exit("Direct access not permitted.");
+
+// 避免被 include
+function blockit()
+{
+  $buf = get_included_files();
+  return $buf[0] != __FILE__;
+}
+blockit() and exit("You can not include a MAIN file as a part of your script.");
+```
+
+### 确保相对引用正确
+
+```php
+<?php 
+// 定义相对路径
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__.'/config.php'); 
+
+// 而不是使用绝对路径
+require_once('/var/www/public_html/config.php'); ?> 
+```
+
+
+### 查看 ca 环境
+```bash
+php -r "print_r(openssl_get_cert_locations());" 
+```
+
+### Connection to `ssl://pecl.php.net:443' failed: Unable to find the socket transport "ssl" - did you forget to enable it when you configured PHP?
+* 可能是由于未启用 openssl `php -m | grep ssl`
+* 可能是由于 pecl 未加载 php.ini
+
+```bash
+# 设置 php.ini
+pear config-set php_ini /etc/php7/php.ini
+```
