@@ -3,6 +3,8 @@
 ## Tips
 * https://www.cheatography.com/richardjh/cheat-sheets/rsync/
 * https://wiki.archlinux.org/index.php/rsync
+* unison
+  * https://www.cis.upenn.edu/~bcpierce/unison/
 
 ```bash
 # 使用 SSH 同步

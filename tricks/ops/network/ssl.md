@@ -2,8 +2,11 @@
 
 ## Tips
 * https://www.cyberciti.biz/faq/test-ssl-certificates-diagnosis-ssl-certificate/
+* 购买
+  * https://www.sslshopper.com/certificate-authority-reviews.html
 * FAQ
   * Java 是不支持泛域名的, 但是支持 SAN
+  * 中间证书不能被限制对哪些域名进行分发证书, 因此只有真正值得信任的机构才会有中间证书
 * 在线检测
   * https://www.sslchecker.com/sslchecker
   * https://www.sslshopper.com/ssl-checker.html
@@ -34,7 +37,8 @@
 * PEM - Privacy Enhanced Mail
 * DER - Distinguished Encoding Rules,
   * `-inform der`
-
+* SNI
+* https://shansing.com/read/355/
 
 
 

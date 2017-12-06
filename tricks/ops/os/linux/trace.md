@@ -1,0 +1,7 @@
+# Trace
+
+## Tips
+* strace
+
+
+

@@ -38,6 +38,15 @@ Default TTL: 3600
   * https://github.com/miekg/dns
   * [Authoritative vs. Recursive DNS Servers: What’s The Difference?](http://social.dnsmadeeasy.com/blog/authoritative-vs-recursive-dns-servers-whats-the-difference/)
 
+## 服务
+* https://www.knot-dns.cz/
+  * C + Lua
+
+https://github.com/tenta-browser/tenta-dns
+https://news.ycombinator.com/item?id=15796943
+Recursive and authoritative DNS server in go, including DNSSEC and DNS-over-TLS 
+
+https://coredns.io/
 
 ## PowerDNS
 * [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
@@ -151,6 +160,45 @@ pdnsutil check-zone mydomain.com
 * AXFR
 
 
+## dnsupdate
+* [nsupdate.8](https://linux.die.net/man/8/nsupdate)
+
+```bash
+# 更新 NS 记录的函数
+ns_update_record(){
+  nsupdate -y $TSIG_NAME:$TSIG_SECRET <<!
+  update delete $1 $3
+  update add $1 $2 $3 $4
+  send
+  !
+}
+# ns_update_record test.wener.me 600 A 192.168.1.1
+```
+
+## dig
+
+```bash
+# 所有 IP
+dig +short amazon.com
+# 所有 NS
+dig NS +short amazon.com
+# 请求过程
+dig amazone.com +trace
+# 通过 IP 请求域名
+dig +short -x 8.8.8.8
+# 顶级域名的 NS
+dig +short NS me.
+# 指定请求的 ns
+dig google.com @8.8.8.8
+# 获取超时时间
+dig google.com +noall +answer
+# 判断是否所有 NS 都同步了域名, 主要通过 SOA 序号判断
+dig google.com +nssearch
+# 看域名在 DNS 上是否存在
+dig SOA google.nl @ns1.dns.nl.
+```
+
+
 ### FAQ
 #### 将日志记录到文件
 
@@ -223,42 +271,4 @@ cache-ttl=20
 query-cache-ttl=20
 # 缓存查询但不缓存结果的时间
 negquery-cache-ttl=60
-```
-
-## dnsupdate
-* [nsupdate.8](https://linux.die.net/man/8/nsupdate)
-
-```bash
-# 更新 NS 记录的函数
-ns_update_record(){
-  nsupdate -y $TSIG_NAME:$TSIG_SECRET <<!
-  update delete $1 $3
-  update add $1 $2 $3 $4
-  send
-  !
-}
-# ns_update_record test.wener.me 600 A 192.168.1.1
-```
-
-## dig
-
-```bash
-# 所有 IP
-dig +short amazon.com
-# 所有 NS
-dig NS +short amazon.com
-# 请求过程
-dig amazone.com +trace
-# 通过 IP 请求域名
-dig +short -x 8.8.8.8
-# 顶级域名的 NS
-dig +short NS me.
-# 指定请求的 ns
-dig google.com @8.8.8.8
-# 获取超时时间
-dig google.com +noall +answer
-# 判断是否所有 NS 都同步了域名, 主要通过 SOA 序号判断
-dig google.com +nssearch
-# 看域名在 DNS 上是否存在
-dig SOA google.nl @ns1.dns.nl.
 ```

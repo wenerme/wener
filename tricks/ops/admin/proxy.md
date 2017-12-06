@@ -38,6 +38,8 @@ docker run -d --restart always --privileged \
 ```
 
 ## HTTP
+* [elazarl/goproxy](https://github.com/elazarl/goproxy)
+  * An HTTP proxy library for Go
 * 因为部分的工具只能使用 HTTP 代理
   * 例如 wget
 
@@ -54,3 +56,8 @@ privoxy --config-test socks2http.conf
 # 在前台运行
 privoxy --no-daemon socks2http.conf
 ```
+
+## SOCKS
+* [armon/go-socks5](https://github.com/armon/go-socks5)
+  * SOCKS5 server in Golang
+* https://zh.wikipedia.org/wiki/SOCKS

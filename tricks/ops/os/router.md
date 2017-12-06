@@ -6,7 +6,7 @@
   * MikroTik RouterOS
   * Linux
   * x86
-* DD-WRT 
+* DD-WRT
 * OpenWrt
 * [VyOS](https://vyos.io/)
   * [VyOS:wikipedia](https://en.wikipedia.org/wiki/VyOS)
@@ -114,5 +114,7 @@ reboot
 * TTL, 靠近灯依次为 VCC,GND,Rx,Tx
 
 ### FAQ
+
 #### unlzma 失败
+
 需要注意,要使用 9.22 版本的 lzma, 而不是 xz 中携带的 lzma, 在 Ubuntu 下可以直接安装 lzma, 在有些环境中没有原版的 lzma.

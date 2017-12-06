@@ -206,6 +206,18 @@ cp /usr/share/dict/words /tank/joey/
 zfs list -o name,used,compressratio,compression tank/{joey,ross}
 ```
 
+## 管理运维
+
+```bash
+zpool status -x
+# 进行数据清理操作
+zpool scrub tank
+# 查看 scrub 状态
+zpool status
+# io 统计, 间隔 5s
+zpool iostat -v 5
+```
+
 ## ZFS vs 硬件 RAID
 * ZFS 有校验和,和可避免位翻转等问题,而 RAID 主要用于避免整个磁盘的损坏
 * ZFS 只需要 HBAs (host bus adapter ) 而不需要 RAID 控制器
