@@ -8,7 +8,7 @@
 # 开发模式
 consul agent -dev -client 0.0.0.0
 
-consul agent -bootstrap -server -data-dir $PWD/data -advertise 127.0.0.1 -ui-dir `brew --prefix consul`/share/consul/web-ui
+consul agent -bootstrap -server -data-dir $PWD/data -advertise 127.0.0.1 -ui
 # ==> WARNING: Bootstrap mode enabled! Do not enable unless necessary
 # ==> Starting Consul agent...
 # ==> Starting Consul agent RPC...
@@ -24,6 +24,37 @@ consul agent -bootstrap -server -data-dir $PWD/data -advertise 127.0.0.1 -ui-dir
 #              Atlas: <disabled>
 
 
+# 在容器中启动集群, 指定网卡是关键
+docker run --rm -it \
+  --networ service \
+  -e CONSUL_CLIENT_INTERFACE=eth0 \
+  -e CONSUL_BIND_INTERFACE=eth0 \
+  consule agent -server -bootstrap-expect 3 \
+  -retry-join consul_consul_1 -retry-join consul_consul_2 -retry-join consul_consul_3
+
+# 查看成员信息
+docker exec -it consul_consul_3 consul members -http-addr=http://consul_consul_3:8500
+
+# 再启动一个用于做对外暴露, 启动 ui, 允许所有来源客户端访问
+docker run -it --rm --network multi-host-network \
+  -e CONSUL_BIND_INTERFACE=eth0 -p 8500:8500 \
+  --name consul consul agent -server -retry-join consul_consul_1 -ui
+
+
+
+# 启用 ACL
+docker run -it --rm -p 8500:8500  -v $PWD/consul/data:/consul/data \
+  -e 'CONSUL_LOCAL_CONFIG={"datacenter":"dc1","acl_datacenter": "dc1","acl_master_token": "b1gs33cr3t","acl_default_policy": "deny","acl_down_policy": "extend-cache"}' \
+  -e CONSUL_CLIENT_INTERFACE=eth0 \
+  -e CONSUL_BIND_INTERFACE=eth0 \
+  --name consul consul agent -server -bootstrap-expect 1 -ui
+
+# 客户端指定 Token
+consul members -token b1gs33cr3t
+CONSUL_HTTP_TOKEN=b1gs33cr3t consul members
+
+curl -v --request PUT http://127.0.0.1:8500/v1/acl/bootstrap
+
 docker run -d --name=dev-consul consul
 docker run -d consul agent -dev -join=172.17.0.2
 docker exec -t dev-consul consul members
@@ -35,6 +66,42 @@ docker run -d --name=node0 consul agent -server -client=0.0.0.0 -node=node0 -boo
 
 # Start client
 docker run -d --name=node1 consul agent -client=0.0.0.0 -node=node1 -bind=172.17.0.3 -data-dir=/tmp/consul -join=172.17.0.2
+```
+
+
+## ACL
+* ACL 可控制的资源主要有
+  * agent	Utility operations in the Agent API, other than service and check registration
+  * event	Listing and firing events in the Event API
+  * key	Key/value store operations in the KV Store API
+  * keyring	Keyring operations in the Keyring API
+  * node	Node-level catalog operations in the Catalog API, Health API, Prepared Query API, Network Coordinate API, and Agent API
+  * operator	Cluster-level operations in the Operator API, other than the Keyring API
+  * query	Prepared query operations in the Prepared Query API
+  * service	Service-level catalog operations in the Catalog API, Health API, Prepared Query API, and Agent API
+  * session	Session operations in the Session API
+
+```hcl
+# Agent Token
+node "" {
+  policy="write"
+}
+service "" {
+  policy="read"
+}
+
+# Client Token
+node "" {
+  policy="read"
+}
+
+# Traefik
+key "traefik" {
+  policy = "write"
+}
+session "" {
+  policy = "write"
+}
 ```
 
 ### Config
@@ -61,16 +128,16 @@ docker run -d --name=node1 consul agent -client=0.0.0.0 -node=node1 -bind=172.17
 ### Helps
 
 ```
-$ consul
-usage: consul [--version] [--help] <command> [<args>]
+$ consul help
+Usage: consul [--version] [--help] <command> [<args>]
 
 Available commands are:
     agent          Runs a Consul agent
-    configtest     Validate config file
+    catalog        Interact with the catalog
     event          Fire a new event
     exec           Executes a command on Consul nodes
     force-leave    Forces a member of the cluster to enter the "left" state
-    info           Provides debugging information for operators
+    info           Provides debugging information for operators.
     join           Tell Consul agent to join cluster
     keygen         Generates a new encryption key
     keyring        Manages gossip layer encryption keys
@@ -84,6 +151,7 @@ Available commands are:
     reload         Triggers the agent to reload configuration files
     rtt            Estimates network round trip time between nodes
     snapshot       Saves, restores and inspects snapshots of Consul server state
+    validate       Validate config files/directories
     version        Prints the Consul version
     watch          Watch for changes in Consul
 ```

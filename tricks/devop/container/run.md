@@ -21,6 +21,7 @@ docker info
 
 ## MySQL
 ```bash
+DIR=/data/mysql
 # 自定义配置
 mkdir -p /data/mysql/conf.d/
 echo '
@@ -195,6 +196,9 @@ docker run -it --link some-redis:redis --rm redis redis-cli -h redis -p 6379
 ## Docker in Docker
 
 ```bash
+# 使用主机的 Docker
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker wener/base:bash
+
 # start dockerd
 docker run -it --privileged -v /data/docker:/var/lib/docker --name dockerd --rm docker:dind
 # 客户端
@@ -383,6 +387,13 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ```
 
 ## Postgres
+
+```bash
+docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
+    -p 5432:5432 -e POSTGRES_PASSWORD=thisispassword \
+    -v /data/pg:/var/lib/postgresql/data \
+    --name postgres postgres:alpine
+```
 
 ## 其他服务
 

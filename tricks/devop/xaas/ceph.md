@@ -114,24 +114,6 @@ ceph osd rm $OSD_NUM
 * [Configure Ceph Cluster on Ubuntu 16.04](https://www.server-world.info/en/note?os=Ubuntu_16.04&p=ceph)
 * [Quick Ceph Deploy](http://docs.ceph.com/docs/master/start/quick-ceph-deploy/)
 
-## FS 比较
-
-* XFS
-  * 慢
-  * 基于日志
-  * 足够稳定,适合生产,使用最为广泛
-* Btrfs
-  * 最快
-  * CopyOnWrite
-  * 支持写快照
-  * 支持 XATTRs 和 inline data
-  * 支持热 fsck
-  * Ceph 可同时写日志和对象数据
-  * 正在趋于稳点和生产
-* Ext4
-  * 适合生产
-  * 基于日志
-  * 文件名有长度限制
 
 使用 Ceph 尽量避免 RAID, 因为并没有得到任何好处,除非是在有非常多的磁盘且内存资源不足时可使用 RAID 来减少 Ceph 对内存的使用,因为对于每个磁盘的监控 Ceph 大约会使用 2G 内存.
 
