@@ -3,7 +3,7 @@
 ## Tips
 * [Hangup Cause Mappings](https://wiki.asterisk.org/wiki/display/AST/Hangup+Cause+Mappings)
 
-## 问题排查方面
+## 系统问题排查
 
 1. 硬件的问题
   * 中断
@@ -20,6 +20,10 @@
   * 切换使用 `chan_sip` 和 `chan_pjsip` 进行尝试
 7. PJSIP 的问题
   * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj
+
+## 终端问题排查
+* 确保 context 正确
+* 尝试关闭 ICE
 
 ## Assertion failed: sess && sess->endpt
 * 该异常后程序会直接崩溃
@@ -348,4 +352,7 @@ S 口网关拨号异常
 
 
 
-
+```
+[Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Not yet handling pre-handle message type USER_INFORMATION (0x20)
+[Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Don't know how to pre-handle message type USER_INFORMATION (0x20)
+```
