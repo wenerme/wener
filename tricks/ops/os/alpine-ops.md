@@ -16,6 +16,7 @@ lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE
 ```bash
 # Bash
 apk add shadow bash
+# 该步骤要求输入密码
 chsh root -s /bin/bash
 
 # 补全
@@ -31,6 +32,11 @@ source /etc/profile.d/bash_completion.sh
 apk add nano file grep htop rsync curl
 
 apk add openssl
+```
+
+## ca
+```bash
+# /etc/ssl/certs/ca-certificates.crt
 ```
 
 ## ops-base
@@ -371,6 +377,8 @@ btrfs rescue zero-log /dev/sde
 mount -a
 ```
 
+## netwoking
+
 ## bonding
 * Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
 
@@ -653,16 +661,43 @@ isoinfo -d -i is_it_bootable.iso
 # burn iso
 pv spp-2016.10.0.iso | dd bs=4M of=/dev/sdd
 ```
-
-## virtual-disk
+## QEMU
+* [QEMU](https://www.qemu.org/)
+  * [Doc](https://qemu.weilnetz.de/doc/qemu-doc.html)
+### virtual-disk
 * https://en.wikibooks.org/wiki/QEMU/Images
+* qemu-nbd
+  * QEMU Disk Network Block Device Server
 
 ```bash
 modprobe nbd max_part=16
+# 链接
 qemu-nbd -c /dev/nbd0 image.qcow2
 partprobe /dev/nbd0
+# 挂载
 mount /dev/nbd0p1 /mnt/image
+
+umount /mnt/image
+
+# 断开连接
+qemu-nbd -c /dev/nbd0
+
 ```
+
+
+## ntfs
+
+```bash
+# Manual http://www.tuxera.com/community/open-source-ntfs-3g/#tab-1414502373-2-22
+# http://www.tuxera.com/community/ntfs-3g-manual/
+apk add ntfs-3g ntfs-3g-progs
+
+# 挂载
+mount -t ntfs-3g /dev/sda1 /mnt/windows
+# 或
+echo '/dev/sda1 /mnt/windows ntfs-3g defaults 0 0' >  /etc/fstab
+```
+
 
 ## ftp
 
@@ -816,6 +851,7 @@ To activate cross compilation specify in environment:
 
 ## libguestfs
 * https://en.wikipedia.org/wiki/Libguestfs
+* https://bugs.alpinelinux.org/issues/1792
 * 会编译失败, 因为用了 glibc 特有的 printf 修饰符
   * https://www.redhat.com/archives/libguestfs/2016-August/msg00002.html
   * No support for glibc-style extended printf formatters.
@@ -871,6 +907,14 @@ or
 run again without -i and use 'run' + 'list-filesystems' + 'mount' cmds.
 
 For more information, see the manpage guestfish(1).
+```
+
+## acf
+* [Alpine Configuration Framework Design](https://wiki.alpinelinux.org/wiki/Alpine_Configuration_Framework_Design)
+* [ACF packages](https://wiki.alpinelinux.org/wiki/ACF_packages)
+* [acf-*](https://pkgs.alpinelinux.org/packages?name=acf-*&branch=v3.6&arch=x86_64)
+
+```bash
 ```
 
 ## FAQ
@@ -986,6 +1030,23 @@ nano /var/run/ifstate
 * jubel-han 的 [Dockerfile](https://github.com/jubel-han/dockerfiles/blob/master/node/Dockerfile) 提供了一个 LD_PRELOAD 
 * [What is the LD_PRELOAD trick?](https://stackoverflow.com/q/426230/1870054)
 * http://wiki.musl-libc.org/wiki/Functional_differences_from_glibc#Thread_stack_size
+
+### PHP 下 iconv 有问题
+Alpine 下 PHP 的 iconv 有问题 https://github.com/docker-library/php/issues/428
+https://github.com/docker-library/php/issues/240
+
+```bash
+apk add --no-cache gnu-libiconv --repository http://mirrors.aliyun.com/alpine/edge/testing
+LD_PRELOAD=/usr/lib/preloadable_libiconv.so php
+# 或
+export LD_PRELOAD="/usr/lib/preloadable_libiconv.so php"
+```
+
+```Dockerfile
+RUN apk add gnu-libiconv --no-cache --repository mirrors.aliyun.com/alpine/edge/testing
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+```
+
 
 ### TBD
 ```

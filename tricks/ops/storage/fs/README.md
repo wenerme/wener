@@ -22,6 +22,23 @@ Max file name	  | 16/30 c|	255 c|	255 c|	248 c
 Extensible	    | No	| No	| Yes	| No
 Var. block size	| No	| No	| Yes	| No
 
+* XFS
+  * 慢
+  * 基于日志
+  * 足够稳定,适合生产,使用最为广泛
+* Btrfs
+  * 最快
+  * CopyOnWrite
+  * 支持写快照
+  * 支持 XATTRs 和 inline data
+  * 支持热 fsck
+  * Ceph 可同时写日志和对象数据
+  * 正在趋于稳点和生产
+* Ext4
+  * 适合生产
+  * 基于日志
+  * 文件名有长度限制  
+
 ## 基准测试
 ```bash
 # /dev/zero 最快,但可能会被压缩
@@ -74,6 +91,10 @@ kill -INFO $(pgrep ^dd$)
 # 同上简单一点
 pkill -usr1 dd
 
+# 将磁盘制作为镜像文件
+dd if=/dev/sdb of=./disk.img
+# 从文件恢复到磁盘
+dd if=./disk.img of=/dev/sdb
 
 # 挂载 smb
 # Windows 共享无密码时使用 guest

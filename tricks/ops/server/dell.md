@@ -3,6 +3,10 @@
 ## Tips
 * Dell [服务器列表](https://en.wikipedia.org/wiki/List_of_Dell_PowerEdge_Servers)
 
+
+## Server
+
+
 R720 R720XD 2011针2U服务器 大显卡 支持8T
 
 PowerEdge R720
@@ -18,11 +22,12 @@ PowerEdge R720 technical specification
 http://www.dell.com/downloads/global/products/pedge/dell-poweredge-r720-spec-sheet.pdf
 
 
-PowerEdge R720xd
-26 x 2.5-inch internal disk capacity
-Up to 24 DIMMs
-PCIe 3.0-enabled expansion slots
-Choice of NIC technologies
+* PowerEdge R720xd
+  * [适用于 PowerEdge R720xd 的支持](http://www.dell.com/support/home/cn/zh/cnbsd1/product-support/servicetag/5p8mgz1/drivers)
+  * 26 x 2.5-inch internal disk capacity
+  * Up to 24 DIMMs
+  * PCIe 3.0-enabled expansion slots
+  * Choice of NIC technologies
 
 R720XD
 http://www.dell.com/downloads/global/products/pedge/dell-poweredge-r720xd-spec-sheet.pdf
@@ -33,6 +38,7 @@ R510 14盘位 H700 无盘服务器 存储 视频缓存 秒C2100
 
 [PowerEdge](https://dell.com/PowerEdge)
 
+HP_spp-2017.04.0-SPP2017040.2017_0420.14.iso
 
 * Dell PowerEdge T30
   * 裸机大约 2500
