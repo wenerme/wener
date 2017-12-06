@@ -14,6 +14,15 @@ git clone /repo/my-project /src/my-project
 
 ## FAQ
 
+### 拉取远程分支
+
+```bash
+
+#
+git fetch <remote> <rbranch>:<lbranch> 
+git checkout <lbranch>
+```
+
 ### 移除历史文件和敏感数据
 * [Removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
 * https://rtyley.github.io/bfg-repo-cleaner/

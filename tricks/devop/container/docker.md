@@ -75,6 +75,7 @@ sudo service docker restart
 
 
 ## 安装
+* https://yq.aliyun.com/articles/110806
 
 ```bash
 # 使用安装脚本安装

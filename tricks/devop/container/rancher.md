@@ -1,4 +1,7 @@
-# [Rancher](http://rancher.com/)
+# Rancher
+
+## Tips
+[Rancher](http://rancher.com/)
 
 
 ## Get started

@@ -150,6 +150,15 @@ GEN_SWIFT=$(realpath .)
 protoc --plugin=$GEN_SWIFT/protoc-gen-swift --swift_out=./swift -I . proto/**/*.proto
 protoc --plugin=$GEN_SWIFT/protoc-gen-swiftgrpc --swiftgrpc_out=./swift -I . proto/**/*.proto
 
+# Node
+# =========
+protoc --js_out=./node --grpc_out=./node --plugin=protoc-gen-grpc=$GRPC_BIN/grpc_node_plugin -I . proto/**/*.proto
+
+# ts-protoc-gen
+# =========
+# https://github.com/improbable-eng/ts-protoc-gen
+# 生成 Typescript 定义 .d.ts
+
 # Gateway
 # =========
 # Web <-> gRPC
@@ -254,7 +263,7 @@ $client = new \Wener\Service\V1\InfoServiceClient("localhost:5002", [
  * @var \Wener\Service\V1\GetInfoResponse $reply
  * @var \Wener\Api\GrpcStatus $status Customized type for ide to hint type
  */
-list($reply, $status) = $client->GetInfo(new \Yikaiye\Service\V1\GetInfoRequest())->wait();
+list($reply, $status) = $client->GetInfo(new \Wener\Service\V1\GetInfoRequest())->wait();
 
 echo $status->code . PHP_EOL;
 echo $reply->getName() . PHP_EOL;
@@ -262,15 +271,134 @@ echo $reply->getName() . PHP_EOL;
 // All Status
 print_r($status);
 // JSON
-echo $reply->serializeToJsonString() . PHP_EOL;
+// 再次解码编码是为了方便调试
+echo json_encode(json_decode($reply->serializeToJsonString()), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . PHP_EOL;
 ```
 
 ## Node
 * [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
 
+```bash
+# 最基本的只需要这两个依赖
+yarn add google-protobuf
+yarn add grpc
+```
+
+```js
+const grpc = require('grpc');
+const fs = require('fs');
+
+// 生成的 pb 对象
+const messages = require('./service_pb');
+// 生成 grpc 客户端和服务端
+const services = require('./service_grpc_pb');
+
+let client = new services.ServiceClient('service.wener.me:443',
+  // 无 TLS
+  // grpc.credentials.createInsecure(),
+  // 使用 self-signed 证书
+  grpc.credentials.createSsl(fs.readFileSync('ca.pem'), fs.readFileSync('cli-key.pem'), fs.readFileSync('cli.pem'))
+);
+
+// 发起请求
+let request = new messages.GetInfoRequest();
+client.getInfo(request, (err, response) => {
+  console.log('Service name', response.getName())
+})
+```
+
+## Golang
+
+### Client
+
+```golang
+package main
+
+func main(){
+  
+}
+```
+### Server
+```golang
+package main
+
+var (
+	ServerCert string
+	ServerKey  string
+	RootCA     string
+	Addr       string
+)
+
+func main() {
+	flag.StringVar(&ServerCert, "cert", "", "")
+	flag.StringVar(&ServerKey, "key", "", "")
+	flag.StringVar(&RootCA, "ca", "", "")
+	flag.StringVar(&Addr, "addr", "", "")
+
+	flag.Parse()
+	var srv *grpc.Server
+	lis, err := net.Listen("tcp", Addr)
+	if err != nil {
+		panic(fmt.Errorf("could not list on %s: %s", Addr, err))
+	}
+
+	if ServerCert == "" {
+		srv = grpc.NewServer()
+	} else {
+		logrus.WithField("cert", ServerCert).Info("With TLS")
+		// 读取证书信息
+		certificate, err := tls.LoadX509KeyPair(ServerCert, ServerKey)
+		if err != nil {
+			panic(fmt.Errorf("could not load client key pair: %s", err))
+		}
+
+		// Create a certificate pool from the certificate authority
+		certPool := x509.NewCertPool()
+		ca, err := ioutil.ReadFile(RootCA)
+		if err != nil {
+			panic(fmt.Errorf("could not read ca certificate: %s", err))
+		}
+
+		// Append the certificates from the CA
+		if ok := certPool.AppendCertsFromPEM(ca); !ok {
+			panic(errors.New("failed to append ca certs"))
+		}
+
+		creds := credentials.NewTLS(&tls.Config{
+      // 如何对客户端进行认证, 可进行双向认证
+			ClientAuth:   tls.VerifyClientCertIfGiven,
+			Certificates: []tls.Certificate{certificate},
+			ClientCAs:    certPool,
+		})
+		srv = grpc.NewServer(grpc.Creds(creds))
+	}
+
+	// Create the gRPC server with the credentials
+	service.RegisterInfoServiceServer(srv, &DemoStatus{})
+
+	logrus.WithField("addr", Addr).Info("Serving")
+	// Serve and Listen
+	if err := srv.Serve(lis); err != nil {
+		panic(fmt.Errorf("grpc serve error: %s", err))
+	}
+}
+
+type DemoStatus struct {
+	service.InfoServiceServer
+}
+
+func (DemoStatus) GetInfo(context.Context, *service.GetInfoRequest) (*service.GetInfoResponse, error) {
+	logrus.Info("Handle request")
+	return &service.GetInfoResponse{Name: "Demo Service"}, nil
+}
+```
+
 ## Web
 * [gRPC Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)
 * https://github.com/dcodeIO/ProtoBuf.js/
+
+## Typescript
+https://www.npmjs.com/package/ts-protoc-gen
 
 ## grpc-gateway
 * [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
@@ -334,7 +462,6 @@ go get .
 
 
 ### GCP
-* [API Design Guide](https://cloud.google.com/apis/design/)
 * [googleapis/googleapis](https://github.com/googleapis/googleapis)
 * [googleapis/toolkit](https://github.com/googleapis/toolkit)
 * [googleapis/artman](https://github.com/googleapis/artman)

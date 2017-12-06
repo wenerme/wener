@@ -4,6 +4,14 @@
 
 ## FAQ
 
+### Find max file
+
+```bash
+find . -printf '%s %p\n' | sort -nr | head
+find . -maxdepth 1 -printf '%s %p\n' | sort -nr | head
+du -a . | sort -nr | head
+```
+
 ### Prefix/Suffix
 ```bash
 # 去除前缀和后缀

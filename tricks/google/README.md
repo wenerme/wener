@@ -50,3 +50,8 @@ wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=U
 * 玩纸牌 [solitaire](https://www.google.com/search?q=solitaire)
 * 绘图 [3*cos(sqrt(x*x+y*y))+5](https://www.google.com/search?q=3*cos(sqrt(x*x%2By*y))%2B5)
 * [Manage calculator, unit converter & color codes](https://support.google.com/websearch/answer/3284611)
+
+## Calender
+* 农历
+  * http://www.google.com/calendar/ical/ug2j3l2nqq7uch3m9n0pm5t2lo@group.calendar.google.com/public/basic.ics
+

@@ -21,3 +21,9 @@
 
 ## CAS
 * https://github.com/apereo/cas
+
+## ACL
+https://loopback.io/doc/en/lb3/ACL-REST-API.html
+http://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-using-rest-api.html
+
+
