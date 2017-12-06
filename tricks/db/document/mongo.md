@@ -12,6 +12,7 @@
   * [Data Model](https://docs.mongodb.com/manual/data-modeling/)
     * [Data Model Examples and Patterns](https://docs.mongodb.com/manual/applications/data-models/)
     * [DBRef](https://docs.mongodb.com/manual/reference/database-references/)
+* [Glossary](https://docs.mongodb.com/manual/reference/glossary)
 * FAQ
   * Java 目前无法通过 SSH 转发链接 ReplicaSet
   * DBRef 的 `$ref` 必须要在 `$id` 之前
@@ -24,6 +25,12 @@
 mongodump -v --db test  --host myhost --port 27017 --out mg-`date +%Y%m%d`
 # 导入一个库
 mongorestore -v --db test  --host myhost --port 27017 mg-`date +%Y%m%d`/db
+
+
+mongoexport -h localhost -d databse -c collection --csv \
+--fields erpNum,orderId,time,status \
+-q '{"time":{"$gt":1438275600000}, "status":{"$ne" :"Cancelled"}}' \
+--out report.csv
 ```
 
 ## Operaters
@@ -35,6 +42,8 @@ mongorestore -v --db test  --host myhost --port 27017 mg-`date +%Y%m%d`/db
 ```js
 // 查看服务状态
 db.serverStatus()
+// 查看集合状态
+db.list.stats()
 
 // 查询
 db.users.find({});
@@ -73,8 +82,82 @@ db.users.update({role:null},{$set:{role:{"$ref" : "roles","$id" : ObjectId("5980
 db.students.update({_id: 1},{ $set: { "grades.$" : 82 } });
 // 修改数组中对象值
 db.students.update({_id: 1},{ $set: { "grades.$.std" : 79 } });
+
+db.collection.find().sort({age:-1}).limit(1) // for MAX
+db.collection.find().sort({age:+1}).limit(1) // for MIN
+
+// 查找重复的 id
+db.list.aggregate([
+	{
+		$group: {
+			_id: {cid: "$cid"},
+			uniqueIds: {$addToSet: "$_id"},
+			count: {$sum: 1}
+		}
+	},
+	{
+		$match: {
+			count: {"$gt": 1}
+		}
+	},
+	{
+		$sort: {
+			count: -1
+		}
+	}
+]);
+// 删除重复数据
+// .forEach(v=>{v.uniqueIds.pop();db.list.remove({'_id':{'$in':v.uniqueIds}})})
+
+// 查找不为空的对象
+db.col.find({'score.user': { "$gt": {}}});
 ```
 
+### 索引管理
+```js
+// 创建唯一索引
+db.list.createIndex({cid:-1},{name:'cid_unique',unique:true})
+
+// 获取索引
+db.list.getIndexes()
+```
+
+### 角色权限管理
+* https://docs.mongodb.com/manual/tutorial/enable-authentication/
+* https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/
+* 启动时需要 `--auth` 来启用授权, 或在配置文件中加 `security.authorization` 配置
+* 內建角色
+  * 数据库用户: read,readWrite
+  * 数据库管理员: dbAdmin, dbOwner, userAdmin
+  * 集群管理: clusterAdmin, clusterManager, clusterMonitor, hostManager
+  * 备份恢复: backup, restore
+  * 所有数据库: readAnyDatabase, readWriteAnyDatabase, userAdminAnyDatabase, dbAdminAnyDatabase
+  * 超级管理员角色: root
+    * readWriteAnyDatabase, dbAdminAnyDatabase, userAdminAnyDatabase, clusterAdmin, restore, backup 
+* https://docs.mongodb.com/v3.0/reference/method/js-user-management/
+
+
+```js
+// use admin;
+// 创建管理员
+db.createUser(
+  {
+    user: "admin",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+);
+db.changeUserPassword("admin", "myPassword");
+db.getUser("admin");
+db.getUsers();
+
+db.getRole("read", { showPrivileges: true});
+
+// root 权限
+db.grantRolesToRole('admin',['root']);
+// 指定到某个库
+db.grantRolesToRole('admin',[{role:'readWrite', db: "list"}]);
+```
 
 ### 更新无法引用当前值
 
@@ -95,6 +178,12 @@ db.events.find().snapshot().forEach(
 );
 ```
 
+### parameters
+* https://docs.mongodb.com/v3.4/reference/parameters/
+
+```js
+db.adminCommand({setParameter: 1, disableJavaScriptJIT: true});
+```
 
 ## Versions
 ### 3.2
