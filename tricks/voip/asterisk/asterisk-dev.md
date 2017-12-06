@@ -56,9 +56,6 @@ make doc/full-en_US.xml
 ## Addon
 https://github.com/zaf/Asterisk-eSpeak
 
-## ARI
-* [Asterisk Manager Interface](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239)
-
 ## AMI
 * 配置文件 `manager.conf`
 * 默认端口 5038
@@ -72,9 +69,15 @@ https://github.com/zaf/Asterisk-eSpeak
   * 例如: 以 `EndpointDetail` 开始, 以 `EndpointDetailComplete` 结束
 
 ## ARI
+* [Asterisk Manager Interface](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239)
 * [Asterisk REST Interface](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=29395573)
-* Swagger http://localhost:8088/ari/api-docs/resources.json
+* [asterisk/res/ari](https://github.com/asterisk/asterisk/tree/master/res/ari)
+* https://github.com/asterisk/asterisk/tree/master/rest-api
+* Swagger
+  * http://localhost:8088/ari/api-docs/resources.json
+  * https://raw.githubusercontent.com/asterisk/asterisk/master/rest-api/resources.json
 * http://ari.asterisk.org/
+
 ## Experiment
 
 ```bash
