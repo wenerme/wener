@@ -1,5 +1,11 @@
 # Golang
 
+
+## Tips
+
+## Pro tip
+* Stop taking everything the pros say as fact. Test it yourself!
+
 ## Library
 
 * [Awesome Go](https://github.com/avelino/awesome-go)
@@ -10,12 +16,52 @@
 * [goml](https://github.com/cdipaolo/goml) is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.
 * [Gorgonia](https://github.com/chewxy/gorgonia) is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.
 
+### Utils
+* https://github.com/jinzhu/now
+  * Now is a time toolkit for golang
+* https://github.com/benmanns/goworker
+* https://github.com/dustin/go-humanize
+  * 格式化数据大小, 时间和数字等
+* https://github.com/dropbox/godropbox
+  * Common libraries for writing Go services/applications.
+* https://github.com/asciimoo/wuzz
+  * Interactive cli tool for HTTP inspection
+* https://github.com/goreleaser/goreleaser
+  * Deliver Go binaries as fast and easily as possible 
+
+### Console
+* https://github.com/jroimartin/gocui
+  * Minimalist Go package aimed at creating Console User Interfaces.
+* https://github.com/nsf/termbox-go
+  * Pure Go termbox implementation
+
+### Data
+* https://github.com/Workiva/go-datastructures
+* https://github.com/emirpasic/gods
+
 ### Web
+* https://github.com/valyala/fasthttp
+  * Fast HTTP package for Go. Tuned for high performance. Zero memory allocations in hot paths. Up to 10x faster than net/http
+* [Web Frameworks](https://awesome-go.com/#web-frameworks)
+* https://github.com/kataras/iris
+* https://github.com/labstack/echo
+* Auth
+  * https://github.com/markbates/goth
+    * Package goth provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.
+* https://github.com/go-kit/kit
+  * A standard library for microservices.
+* https://github.com/micro/micro
+  * A microservice toolkit for distributed systems development
+
 一般 Web 的库分为很多种, MVC 型, REST 型,基础功能型
 
 * Beego 的 MVC 做的相当好
 * REST 类的 ECHO 会比较好,虽然 Gin 也不错,但是 Gin 使用的 httprouter 无法处理 `/user` 和 `/user/:id` 这样的路径
 * 基础功能的一般可考虑直接使用原生或 Gin 或者 Mux 这样的来组装自己的服务
+
+### GUI
+* https://github.com/lxn/walk
+  * Machine Learning for Go
 
 ### Data
 
@@ -28,12 +74,19 @@ https://github.com/smartystreets/goconvey
 
 ### Misc
 https://github.com/alexflint/go-restructure
-https://github.com/urfave/cli
 https://github.com/pointlander/peg Peg, Parsing Expression Grammar
 https://github.com/jteeuwen/go-bindata
 
 https://github.com/hanwen/go-fuse
 
+### Hardware
+* https://github.com/ycoroneos/golang_embedded
+* [ycoroneos/G.E.R.T](https://github.com/ycoroneos/G.E.R.T)
+  * Golang Embedded Run-Time
+  * https://news.ycombinator.com/item?id=15591847
+  * https://news.ycombinator.com/item?id=14590847
+* https://bugs.alpinelinux.org/issues/4276
+  * gcc-arm-none-eabi
 
 ### Game
 https://go-talks.appspot.com/github.com/guregu/slides/comiket/comiket.slide
@@ -264,6 +317,8 @@ cd bapi
 bee run -downdoc=true -gendoc=true
 ```
 
+## Self Update
+* https://github.com/jpillora/overseer
 
 ## 参考/Reference
 * Articles
@@ -285,7 +340,6 @@ bee run -downdoc=true -gendoc=true
 * [Go Web 基础](https://github.com/Unknwon/go-web-foundation)
 * [Go名库讲解](https://github.com/Unknwon/go-rock-libraries-showcases)
 * [Go 语言学习资料与社区索引](https://github.com/Unknwon/go-study-index)
-
 
 ## FAQ
 ### 什么时候使用指针
