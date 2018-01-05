@@ -142,7 +142,13 @@ https://github.com/CreateJS
 
 ## 数据可视化
 * D3
-* [vega](https://github.com/vega/vega)
+* [vega/vega](https://github.com/vega/vega)
+  * A visualization grammar.
+  * a declarative format for creating, saving, and sharing interactive visualization designs.
+  * 使用 JSON 生成 SVG/Canvas
+  * [vega/vega-lite](https://github.com/vega/vega-lite)
+    * A grammar of interactive graphics, built on Vega. 
+    * [编辑器](https://vega.github.io/editor)
 * [Clusterize.js](https://github.com/NeXTs/Clusterize.js)
   * 无限长的列表
 * [nvd3](https://github.com/novus/nvd3)
@@ -150,6 +156,9 @@ https://github.com/CreateJS
   * Time serial
 * [handsontable](https://github.com/handsontable/handsontable)
   * Excel 表格
+* [ag-grid/ag-grid](https://github.com/ag-grid/ag-grid)
+  * Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
+
 
 ## Bootstrap
 * [fuelux](https://github.com/ExactTarget/fuelux)
