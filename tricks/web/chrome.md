@@ -15,6 +15,9 @@ alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
 # https://www.chromium.org/developers/how-tos/run-chromium-with-flags
 chromium --js-flags="--help"
+
+# 测试, 允许不安全的 https
+chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --disable-web-resources --enable-automation --enable-logging --force-fieldtrials=SiteIsolationExtensions/Control --ignore-certificate-errors --log-level=0 --metrics-recording-only --no-first-run --password-store=basic --remote-debugging-port=12207 --safebrowsing-disable-auto-update --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/chrome
 ```
 
 ## Headless
