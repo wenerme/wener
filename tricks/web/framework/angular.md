@@ -57,9 +57,32 @@ ng set defaults.styleExt scss
 # 生成项目时使用 scss
 ng new my-roject --style=scss
 
+# 在当前目录,生成路由,添加 ServiceWorker
+ng new --routing -sw --style scss -dir . proj
+
 # 查看压缩情况
 source-map-explorer dist/main.bundle.js
 
+```
+
+## Notes
+* ng-container
+  * [ngTemplateOutlet](https://angular.io/api/common/NgTemplateOutlet)
+    * `*ngTemplateOutlet="customTemplate ? customTemplate: defaultTemplate"`
+  * 模板容器
+* ng-template
+  * 模板定义
+  * 可以被引用
+  * 默认不会显示, 可以由结构指令控制
+  * 代码引用
+```ts
+@ViewChild('defaultTabButtons')
+defaultTabButtonsTpl: TemplateRef<any>;
+```
+
+* [Angular ng-template, ng-container and ngTemplateOutlet - The Complete Guide To Angular Templates](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
+
+```
 ```
 
 ## SSR
@@ -84,6 +107,9 @@ with Angular 2+ or AngularJS 1 and Onsen UI Framework.
   * ngx-charts
   * ngx-datatable
   * ngx-dad
+* https://github.com/valor-software/ng2-tree
+* https://github.com/akserg/ng2-dnd
+  * 更好用
 
 ### Material
 * Angular [Material](https://material.angular.io)
@@ -120,6 +146,17 @@ yarn add @covalent/core
 ## (optional) Additional Covalent Modules installs
 yarn add @covalent/http @covalent/highlight @covalent/markdown @covalent/dynamic-forms 
 ```
+
+## GraphQL
+
+* [Setup and options](https://www.apollographql.com/docs/angular/basics/setup.html)
+
+```bash
+yarn add apollo-angular
+
+yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inmemory graphql-tag graphql
+```
+
 
 ## 开发规范
 * [Style Guide](https://angular.io/guide/styleguide)
@@ -285,13 +322,12 @@ yarn add @covalent/http @covalent/highlight @covalent/markdown @covalent/dynamic
 * 或者在传入到 date pipe 前确保 date 是正确的格式
 
 ### AoT 无法 Watch
-https://github.com/angular/angular/issues/12867
-
-只能是在最终发布构建时使用 aot.
+* [#12867](https://github.com/angular/angular/issues/12867)
+* ~只能是在最终发布构建时使用 aot~
+* 现在可以了
 
 ### AoT 在遇到 Sass 出现找不到资源的情况
-https://github.com/angular/angular/issues/11897
-
+* [#11897](https://github.com/angular/angular/issues/11897)
 * AoT 不能与 SASS 同时使用
 * 不支持 CSS + 字体应用
 * 可以考虑在外部引入
@@ -333,7 +369,7 @@ ng build <options...>
     aliases: -d <value>, --deployUrl <value>
   --verbose (Boolean) (Default: false) Adds more details to output logging.
     aliases: -v, --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while building.
+  --progress (Boolean) (Default: false) Log progress to the console while building.
     aliases: -pr, --progress
   --i18n-file (String) Localization file to use for i18n.
     aliases: --i18nFile <value>
@@ -369,6 +405,10 @@ ng build <options...>
     aliases: -sri, --subresourceIntegrity
   --bundle-dependencies (none, all) (Default: none) Available on server platform only. Which external dependencies to bundle into the module. By default, all of node_modules will be kept as requires.
     aliases: --bundleDependencies <value>
+  --service-worker (Boolean) (Default: true) Generates a service worker config for production builds, if the app has service worker enabled.
+    aliases: -sw, --serviceWorker
+  --skip-app-shell (Boolean) (Default: false) Flag to prevent building an app shell
+    aliases: --skipAppShell
   --stats-json (Boolean) (Default: false) Generates a `stats.json` file which can be analyzed using tools such as: `webpack-bundle-analyzer` or https://webpack.github.io/analyse.
     aliases: --statsJson
 
@@ -409,7 +449,7 @@ ng e2e <options...>
     aliases: -d <value>, --deployUrl <value>
   --verbose (Boolean) (Default: false) Adds more details to output logging.
     aliases: -v, --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while building.
+  --progress (Boolean) (Default: false) Log progress to the console while building.
     aliases: -pr, --progress
   --i18n-file (String) Localization file to use for i18n.
     aliases: --i18nFile <value>
@@ -445,6 +485,10 @@ ng e2e <options...>
     aliases: -sri, --subresourceIntegrity
   --bundle-dependencies (none, all) (Default: none) Available on server platform only. Which external dependencies to bundle into the module. By default, all of node_modules will be kept as requires.
     aliases: --bundleDependencies <value>
+  --service-worker (Boolean) (Default: true) Generates a service worker config for production builds, if the app has service worker enabled.
+    aliases: -sw, --serviceWorker
+  --skip-app-shell (Boolean) (Default: false) Flag to prevent building an app shell
+    aliases: --skipAppShell
   --port (Number) (Default: 0) The port to use to serve the application.
     aliases: -p <value>, -port <value>
   --host (String) (Default: localhost) Listens only on localhost by default.
@@ -502,7 +546,7 @@ ng eject <options...>
     aliases: -d <value>, --deployUrl <value>
   --verbose (Boolean) (Default: false) Adds more details to output logging.
     aliases: -v, --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while building.
+  --progress (Boolean) (Default: false) Log progress to the console while building.
     aliases: -pr, --progress
   --i18n-file (String) Localization file to use for i18n.
     aliases: --i18nFile <value>
@@ -536,6 +580,10 @@ ng eject <options...>
     aliases: -sri, --subresourceIntegrity
   --bundle-dependencies (none, all) (Default: none) Available on server platform only. Which external dependencies to bundle into the module. By default, all of node_modules will be kept as requires.
     aliases: --bundleDependencies <value>
+  --service-worker (Boolean) (Default: true) Generates a service worker config for production builds, if the app has service worker enabled.
+    aliases: -sw, --serviceWorker
+  --skip-app-shell (Boolean) (Default: false) Flag to prevent building an app shell
+    aliases: --skipAppShell
   --force (Boolean) Overwrite any webpack.config.js and npm scripts already existing.
     aliases: --force
   --app (String) Specifies app name to use.
@@ -614,7 +662,7 @@ ng serve <options...>
     aliases: -d <value>, --deployUrl <value>
   --verbose (Boolean) (Default: false) Adds more details to output logging.
     aliases: -v, --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while building.
+  --progress (Boolean) (Default: false) Log progress to the console while building.
     aliases: -pr, --progress
   --i18n-file (String) Localization file to use for i18n.
     aliases: --i18nFile <value>
@@ -650,6 +698,10 @@ ng serve <options...>
     aliases: -sri, --subresourceIntegrity
   --bundle-dependencies (none, all) (Default: none) Available on server platform only. Which external dependencies to bundle into the module. By default, all of node_modules will be kept as requires.
     aliases: --bundleDependencies <value>
+  --service-worker (Boolean) (Default: true) Generates a service worker config for production builds, if the app has service worker enabled.
+    aliases: -sw, --serviceWorker
+  --skip-app-shell (Boolean) (Default: false) Flag to prevent building an app shell
+    aliases: --skipAppShell
   --port (Number) (Default: 4200) Port to listen to for serving.
     aliases: -p <value>, -port <value>
   --host (String) (Default: localhost) Listens only on localhost by default.
@@ -691,7 +743,7 @@ ng test <options...>
     aliases: -c <value>, --config <value>
   --single-run (Boolean) Run tests a single time.
     aliases: -sr, --singleRun
-  --progress (Boolean) (Default: true) Log progress to the console while in progress.
+  --progress (Boolean) (Default: false) Log progress to the console while in progress.
     aliases: --progress
   --browsers (String) Override which browsers tests are run against.
     aliases: --browsers <value>
@@ -726,7 +778,7 @@ ng xi18n <options...>
     aliases: -op <value>, --outputPath <value>
   --verbose (Boolean) (Default: false) Adds more details to output logging.
     aliases: --verbose
-  --progress (Boolean) (Default: true) Log progress to the console while running.
+  --progress (Boolean) (Default: false) Log progress to the console while running.
     aliases: --progress
   --app (String) Specifies app name to use.
     aliases: -a <value>, -app <value>
