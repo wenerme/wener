@@ -12,7 +12,7 @@
   * http://www.huzheng.org/stardict/index_cn.php
 * 内部文档
   * 文档格式 http://www.huzheng.org/stardict/StarDictFileFormat
-  * Github 源码 https://github.com/huzheng001/stardict-3
+  * [huzheng001/stardict-3](https://github.com/huzheng001/stardict-3)
   * 词库下载 http://download.huzheng.org/
 
 

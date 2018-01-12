@@ -18,7 +18,7 @@
   * Dart 暂不支持 GRPC
     * [#22655](https://github.com/dart-lang/sdk/issues/22655)
     * [dart-lang/grpc-dart](https://github.com/dart-lang/grpc-dart)
-
+* https://github.com/hourliert/graphql_client
 
 ```bash
 flutter build apk
