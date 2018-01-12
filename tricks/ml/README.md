@@ -19,6 +19,20 @@
 
 * [DL4J vs. Torch vs. Theano vs. Caffe vs. TensorFlow](https://deeplearning4j.org/compare-dl4j-torch7-pylearn)
 
+```Dockerfile
+FROM alpine:3.6
+LABEL com.nvidia.volumes.needed="nvidia_driver"
+ENV PATH /usr/local/nvidia/bin:/usr/local/cuda/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
+
+RUN /bin/sh
+```
+
+```bash
+docker build -t alpine-nvidia
+nvidia-docker run -ti --rm alpine-nvidia
+```
+
 ## 学习资源
 * Awesome
   * [awesome-deep-vision](https://github.com/kjw0612/awesome-deep-vision)

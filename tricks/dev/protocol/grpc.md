@@ -278,10 +278,15 @@ echo json_encode(json_decode($reply->serializeToJsonString()), JSON_PRETTY_PRINT
 ## Node
 * [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
 
+
 ```bash
 # 最基本的只需要这两个依赖
 yarn add google-protobuf
 yarn add grpc
+
+# 调试相关的环境变量
+GRPC_TRACE=all
+GRPC_VERBOSITY=DEBUG
 ```
 
 ```js
@@ -308,6 +313,14 @@ client.getInfo(request, (err, response) => {
 ```
 
 ## Golang
+
+```bash
+# http2 相关的环境变量
+GODEBUG=http2client=0  # disable HTTP/2 client support
+GODEBUG=http2server=0  # disable HTTP/2 server support
+GODEBUG=http2debug=1   # enable verbose HTTP/2 debug logs
+GODEBUG=http2debug=2   # ... even more verbose, with frame dumps
+```
 
 ### Client
 
@@ -912,3 +925,11 @@ message BroadcastMsg {
     string msg = 2;
 }
 ```
+
+## FAQ
+### all SubConns are in TransientFailure
+* https://groups.google.com/forum/#!topic/grpc-io/yCUwuHycNWk
+* 超时后会恢复
+
+### Golang 空值字符串
+

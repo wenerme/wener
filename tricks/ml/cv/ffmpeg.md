@@ -37,6 +37,11 @@
 
 
 ```bash
+# 安装
+brew reinstall ffmpeg --with-{chromaprint,fontconfig,freetype,opus,rtmpdump,sdl2,snappy,speex,tesseract,tools,webp,xz,zeromq} \
+--with-lib{gsm,modplug,soxr,ssh,vorbis,vpx} \
+--with-open{jpeg,ssl}
+
 # 查看支持的像素格式
 ffmpeg -pix_fmts
 # 查看编码选项

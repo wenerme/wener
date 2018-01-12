@@ -17,6 +17,18 @@ https://zh.wikisource.org/zh-hans/通用规范汉字表
     * http://pinyin.sogou.com/dict/
 
 
+http://www.babelstone.co.uk/CJK/IDS.TXT
+https://github.com/kawabata/ids
+
+IDS 
+表意文字序列（Ideographic Description Sequence，IDS）
+https://zh.wikipedia.org/wiki/表意文字描述字符
+https://zh.wikipedia.org/wiki/动态组字
+https://zh.wikipedia.org/wiki/组合字符
+
+CJKV (Chinese Japanese Korean Vietnamese) Ideograph Database
+https://github.com/cjkvi/
+
 “”
 
 https://zh.wikipedia.org/wiki/标点符号

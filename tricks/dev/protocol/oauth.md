@@ -42,12 +42,22 @@
     * 文档
     * 一致格式
     * 有效的服务
+* 实现
+  * OAuth2 [Code](https://oauth.net/code/)
+    * 服务端
+    * 客户端
+    * 代理
+  * [OAuth.io](https://oauth.io/)
+    * https://github.com/oauth-io
+  * [Auth0](https://auth0.com/)
+  
 
 
-
-## Auth 2.0
+## OAuth 2.0
 * [Auth 2](http://oauth.net/2/)
 * [OAuth vs OAuth2](http://stackoverflow.com/q/4113934/1870054)
+* https://tools.ietf.org/html/rfc6749  The OAuth 2.0 Authorization Framework
+https://tools.ietf.org/html/rfc8252 OAuth 2.0 for Native Apps
 * 是一套认证框架
 * 规范复杂且庞大
 * 主要用于对外提供用户认证服务
@@ -334,3 +344,355 @@ __示例__
   "nbf": 1497868409096
 }
 ```
+
+## GitHub
+* https://developer.github.com/apps/building-oauth-apps/
+
+```bash
+curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com/users/wenerme -I
+```
+
+```
+HTTP/1.1 401 Unauthorized
+Date: Tue, 02 Jan 2018 05:08:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 93
+Server: GitHub.com
+Status: 401 Unauthorized
+X-GitHub-Media-Type: github.v3; format=json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Reset: 1514873228
+Access-Control-Expose-Headers: ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'none'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-Runtime-rack: 0.011490
+X-GitHub-Request-Id: C390:1E82:97CD8EB:B8B4F1D:5A4B13D1
+```
+
+## Auth0
+### NOTES
+* 客户端
+  * 名字
+  * 域名
+  * Client ID
+  * Client Secret
+  * 描述
+  * Logo - 150x150
+  * 类型
+    * 原生
+    * 非交互应用
+    * 一般网页应用
+    * 单页应用
+  * Token Endpoint Authentication Method
+    * Basic
+    * Post
+  * Allowed Callback URLs
+  * Allowed Web Origins
+  * Allowed Logout URLs
+  * Allowed Origins (CORS)
+  * JWT Expiration = 36000
+  * Use Auth0 instead of the IdP to do Single Sign On
+  * 高级设置
+    * 应用元数据
+    * 移动设置
+      * IOS
+        * Team ID
+        * App bundle identifier
+      * Android
+        * App Package Name
+        * Key Hashes
+    * OAuth
+    * Allowed APPs / APIs
+    * JsonWebToken Signature Algorithm
+      * HS256
+      * RS256
+    * OIDC 适配
+    * Cross-Origin Verification Fallback
+    * 授权类型
+      * Implicit
+      * Authorization Code
+      * Refresh Token
+      * Client Credentials
+      * Password
+      * MFA
+      * Legacy: RO
+      * Legacy: RO jwt-bearer
+      * Legacy: Delegation Refresh Token
+      * Legacy: Delegation ID Token
+      * Legacy: Access Token
+    * WS-Federation
+    * Certificates
+    * Endpoints
+      * OAuth
+        * OAuth Authorization URL https://wener.auth0.com/authorize
+        * OAuth Token URL https://wener.auth0.com/oauth/token
+        * OAuth User Info URL https://wener.auth0.com/userinfo
+        * OpenID Configuration https://wener.auth0.com/.well-known/openid-configuration
+        * JSON Web Key Set https://wener.auth0.com/.well-known/jwks.json
+      * SAML
+        * SAML Protocol URL https://wener.auth0.com/samlp/<ClientID>
+        * SAML Metadata URL https://wener.auth0.com/samlp/metadata/<ClientID>
+      * WS-Federation
+        * WsFederation Metadata URL https://wener.auth0.com/wsfed/<ClientID>/FederationMetadata/2007-06/FederationMetadata.xml
+        * WsFederation Sign-in URL https://wener.auth0.com/wsfed/<ClientID>
+* 链接
+  * 实际存储用户
+  * 提供
+
+      * 用户导入
+    * 社交
+    * 企业
+* 用户
+
+* 数据库
+  * 用户策略
+    * 是否需要用户名
+      * 长度限制
+    * 是否允许注册
+  * 密码策略
+    * 密码强度
+      * Low
+        * 6 位
+      * Fair
+        * 8 位
+        * 至少包含 小写字母, 大写字母, 数字
+      * Good
+        * 8 位
+        * 至少包含三类: 小写, 大写, 数字, 特殊字符
+      * Excellent
+        * 10 位
+        * 至少包含三类: 小写, 大写, 数字, 特殊字符
+        * 最多 128
+        * 连续相同字符不能超过两位
+    * 密码历史
+      * 历史大小
+        * 最多 24
+    * 密码字典
+    * 个人数据
+      * 不允许使用包含在其他字段的信息
+  * 自定义数据库
+    * 模板
+      * ASP.NET Membership Provider MVC3 - Universal Providers
+      * ASP.NET Membership Provider MVC4 - Simple Membership
+      * MongoDB
+      * MySQL
+      * Oracle
+      * PostgreSQL
+      * SqlServer
+      * Windows Azure SQL Database
+      * Request with Basic Auth
+      * Storm Path
+    * 操作
+      * 登陆 - email, password
+      * 创建 - user{password, email}
+      * 验证 - email
+        * 注册, 邮箱验证, 密码重置, 删除用户
+      * 修改密码 - email, newPassword
+      * 获取用户 - email
+        * {user_id, nickname, email, name, given_name, family_name}
+      * 删除 - id
+    * 使用 bcrypt/10 加密
+    * nodejs
+    * 配置 SQL 语句
+    * 支持配置属性
+* 社交
+  * Google
+    * https://console.developers.google.com/projectselector/apis/credentials
+    * Client ID
+    * Client Secret
+    * Allowed Mobile Client IDs
+    * Attributes
+      * Basic Profile
+        * 邮箱和邮箱验证标识
+      * Extended Profile
+        * 必选
+    * 权限
+      * Contacts
+      * Blogger
+      * Calendar
+      * Gmail
+      * Google+
+      * Orkut
+      * Picasa Web
+      * Tasks
+      * YouTube
+      * Adsense Management
+      * Google Affiliate Network
+      * Analytics
+      * Google Books
+      * Google Cloud Storage
+      * Content API for Shopping
+      * Chrome Web Store
+      * Document List
+      * Google Drive
+      * Google Drive Files
+      * Latitude (Best)
+      * Latitude (City)
+      * Moderator
+      * Sites
+      * Spreadsheets
+      * URL Shortener
+      * Webmaster Tools
+      * Coordinate
+      * Coordinate (read only)
+  * Facebook
+  * GitHub
+    * Client ID
+    * Client Secret
+    * Attributes
+      * Basic Profile
+      * Email address
+    * 权限
+  * 新浪微博
+    * App Key
+    * App Secret
+    * Attributes
+      * Basic Profile
+      * Email, 默认未选中
+    * 权限
+      * direct_messages_write
+      * direct_messages_read
+      * friendships_groups_write
+      * friendships_groups_read
+      * invitation_write
+  * 百度
+    * API Key
+    * Secret Key
+    * Attributes
+      * Basic Profile
+  * Twitter
+    * https://apps.twitter.com/
+    * Consumer Key
+    * Consumer Secret
+    * Attributes
+      * Basic Profile
+        * name, picture, signup date, twitter description, language, location, twitter screen name, time zone, URL, timezone and verified account. 
+        * 目前不提供用户邮箱
+* 企业
+  * AD/LDAP
+  * ADFS
+  * IP
+  * PingFederate
+  * SAMLP Identity Provider
+  * SharePoint Apps
+  * Google Apps
+  * Office 365
+  * Microsoft Azure AD
+* 无密码
+  * 短信
+    * Twilio SID
+    * Twilio AuthToken
+    * SMS Source
+      * Copilot
+        * Copilot SID
+      * From
+        * 好嘛
+    * 语法
+      * Liquid
+      * Markdown
+  * 邮箱
+    * 语法
+      * HTML+(Liquid)[https://github.com/Shopify/liquid]
+      * Markdown
+    * 主题
+    * 内容
+    * 授权参数
+    * OTP Expiry
+    * OTP 长度
+    * 禁用注册
+  * TouchID
+* 托管页面
+  * 登陆
+  * 密码重置
+* 邮件
+  * 模板
+    * 验证
+    * 欢迎
+    * 注册
+    * 修改密码
+    * 密码修改提示
+    * 禁用提示
+  * 提供商
+    * MANDRILL
+    * AWS
+    * SendGrid
+    * SMTP
+      * From
+      * Host
+      * Port
+      * Username
+      * Password
+* Logs
+  * 概况
+    * 时间
+    * 描述
+    * 日期
+    * 链接
+    * 客户端
+    * 应用
+    * 用户
+  * 元数据
+  * 上下文数据
+    * 应该为 Referer
+
+__元数据__
+```json
+{
+  "date": "2018-01-02T07:59:06.836Z",
+  "type": "f",
+  "description": "the connection was disabled",
+  "connection": "wener",
+  "connection_id": "con_lXyPhu5jR9BjYNg6",
+  "client_id": "bm4susnnbqtysjSoTuWMqgqhkFQa8dBg",
+  "ip": "47.89.37.179",
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
+  "details": {
+    "body": {},
+    "qs": {
+      "client_id": "bm4susnnbqtysjSoTuWMqgqhkFQa8dBg",
+      "response_type": "code",
+      "connection": "wener",
+      "prompt": "consent",
+      "redirect_uri": "https://manage.auth0.com/tester/callback?connection=wener",
+      "scope": "openid profile"
+    },
+    "connection": "wener",
+    "error": {
+      "message": "the connection was disabled",
+      "oauthError": "invalid_request",
+      "type": "request-error"
+    }
+  },
+  "log_id": "49574419589858254662358307566469418022270857965582942242"
+}
+```
+
+__上下文数据__
+```json
+{
+  "body": {},
+  "qs": {
+    "client_id": "bm4susnnbqtysjSoTuWMqgqhkFQa8dBg",
+    "response_type": "code",
+    "connection": "wener",
+    "prompt": "consent",
+    "redirect_uri": "https://manage.auth0.com/tester/callback?connection=wener",
+    "scope": "openid profile"
+  },
+  "connection": "wener",
+  "error": {
+    "message": "the connection was disabled",
+    "oauthError": "invalid_request",
+    "type": "request-error"
+  }
+}
+```
+
+## Hydra
+* https://github.com/ory/hydra
+

@@ -19,3 +19,19 @@ https://hackernoon.com/deep-learning-cheat-sheet-25421411e460
 
 https://github.com/googlecreativelab/teachable-machine
 https://deeplearnjs.org/
+
+
+https://github.com/apache/incubator-mxnet
+
+http://tvmlang.org/
+TVM: End to End IR stack for AI Frameworks
+
+https://github.com/dmlc/tvm
+
+https://github.com/halide/Halide
+a language for image processing and computational photography
+
+https://www.youtube.com/watch?v=kGktiYF5upk
+
+
+https://www.slideshare.net/xavigiro/speech-recognition-with-deep-neural-networks-d3l2-deep-learning-for-speech-and-language-upc-2017
