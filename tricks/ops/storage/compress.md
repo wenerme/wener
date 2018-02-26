@@ -42,4 +42,11 @@ gzip -vfk9 data.db > data.db.gz
 # -w 0 自动选择优化的窗口大小
 # -9 压缩率, 如果不指定, 默认为 -Z 即 11, 会非常慢
 pv dict.db | brotli -9 -w 0 > dict.db.br
+
+# Unzip 乱码
+# 使用指定的编码, 有些 unzip 不一定有该选项
+unzip -O cp936 -l my.zip
+# 也可以先解压, 然后再转换
+LANG=C 7za x your-zip-file.zip
+convmv -f GBK -t utf8 --notest -r .
 ```

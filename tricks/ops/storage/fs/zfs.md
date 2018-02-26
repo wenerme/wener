@@ -20,9 +20,9 @@
   * ZFS 会将存储设备的可用空间作为一个资源池, zpool
   * 会用于优化性能和冗余
 * RAIDZ
-  * 类似于 RAID-5
-  * RAIDZ1
-  * RAIDZ2
+  * RAIDZ1 - RAID-5
+  * RAIDZ2 - RAID-6
+  * RAIDZ3 用的相对较少, 多一个冗余
 * SSD 混合存储池
 * 容量
   * ZFS 是 128 位的文件系统, 可存储 256 ZB
@@ -41,6 +41,7 @@
 * [zpool.8](https://www.freebsd.org/cgi/man.cgi?query=zpool&sektion=8)
 * [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
 * [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)
+* http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/
 
 ## NOTES
 * zpool
@@ -65,6 +66,20 @@
   * ONLINE
   * REMOVED
   * UNAVAIL
+* 主要的守护进程
+  * zfs-import
+    * `zpool import`
+    * 导入 pool
+  * zfs-mount
+    * `zfs mount -a` / `zfs umount -a`
+    * 自动挂载目录, 挂载目录和是否挂载由 mountpoint 和 canmount 控制
+  * zfs-share
+    * `zfs share -a` / `zfs unshare -a`
+    * 控制 iSCSI, NFS 或 CIFS 等网络共享
+  * zfs-zed
+    * ZFS Event Daemon
+    * 监控 zfs 事件, 当有 zevent 时间触发时, 会执行相应类型的脚本
+
 
 A raidz group with	N disks	of size	X with P parity	disks can hold
 approximately (N-P)*X bytes and can withstand P device(s) failing
@@ -185,7 +200,7 @@ df -h |grep tank
 # 从新挂载
 zfs mount tank/joey
 # 获取所有属性
-# SOURCE: '-' 只读 default 默认值 local 本地修改的值 inherited 继承自父文件系统的值
+# SOURCE: '-' 只读 default 默认值 local 本地修改的值 inherited 继承自父文件系统的值 temporary 
 zfs get all tank/joey
 zfs get -Hp -o name,property,value used,available tank/joey
 
@@ -216,6 +231,20 @@ zpool scrub tank
 zpool status
 # io 统计, 间隔 5s
 zpool iostat -v 5
+# 从 pool 中移除设备, 只能移除 未使用的热备, 缓存, 顶层设备, 日志设备
+zpool remove main device
+# 添加顶层设备
+zpool add main raidz dev1 dev2
+# 添加缓存
+zpool add main cache dev
+
+# 查看压缩信息
+# compressratio, compression, refcompressratio
+zfs get all main/archive | grep com
+# 查看压缩后的大小
+du -h .
+# 查看实际大小
+du --apparent-size -h .
 ```
 
 ## ZFS vs 硬件 RAID
@@ -242,3 +271,85 @@ zpool iostat -v 5
 * [ZFS: The Last Word in File Systems - Part 1 (video)](https://www.youtube.com/watch?v=uT2i2ryhCio)
 * [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
 * [The 'Hidden' Cost of Using ZFS for Your Home NAS](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
+
+
+## 性能优化
+* https://wiki.freebsd.org/ZFSTuningGuide
+* http://open-zfs.org/wiki/Performance_tuning
+* http://fibrevillage.com/storage/171-zfs-on-linux-performance-tuning
+
+```bash
+# 查看所有配置参数
+zfs get all p1
+# NAME  PROPERTY              VALUE           SOURCE
+# p1    type                  filesystem      -
+# p1    creation              1507714508      -
+# p1    used                  400K            -
+# p1    available             138M            -
+# p1    referenced            128K            -
+# p1    compressratio         1.00x           -
+# p1    mounted               yes             -
+# p1    quota                 none            default
+# p1    reservation           none            default
+# p1    recordsize            128K            default
+# p1    mountpoint            /mnt/data       local
+# p1    sharenfs              off             default
+# p1    checksum              on              default
+# p1    compression           off             default
+# p1    atime                 on              default
+# p1    devices               on              default
+# p1    exec                  on              default
+# p1    setuid                on              default
+# p1    readonly              off             default
+# p1    zoned                 off             default
+# p1    snapdir               hidden          default
+# p1    aclinherit            restricted      default
+# p1    canmount              on              default
+# p1    xattr                 on              default
+# p1    copies                1               default
+# p1    version               5               -
+# p1    utf8only              off             -
+# p1    normalization         none            -
+# p1    casesensitivity       sensitive       -
+# p1    vscan                 off             default
+# p1    nbmand                off             default
+# p1    sharesmb              off             default
+# p1    refquota              none            default
+# p1    refreservation        none            default
+# p1    primarycache          all             default
+# p1    secondarycache        all             default
+# p1    usedbysnapshots       0               -
+# p1    usedbydataset         128K            -
+# p1    usedbychildren        272K            -
+# p1    usedbyrefreservation  0               -
+# p1    logbias               latency         default
+# p1    dedup                 off             default
+# p1    mlslabel              none            default
+# p1    sync                  standard        default
+# p1    refcompressratio      1.00x           -
+# p1    written               128K            -
+# p1    logicalused           92.5K           -
+# p1    logicalreferenced     40K             -
+# p1    filesystem_limit      none            default
+# p1    snapshot_limit        none            default
+# p1    filesystem_count      none            default
+# p1    snapshot_count        none            default
+# p1    snapdev               hidden          default
+# p1    acltype               off             default
+# p1    context               none            default
+# p1    fscontext             none            default
+# p1    defcontext            none            default
+# p1    rootcontext           none            default
+# p1    relatime              off             default
+# p1    redundant_metadata    all             default
+# p1    overlay               off             default
+
+# atime 一般可以不需要
+zfs set atime=off p1
+zfs set relatime=on p1
+
+# 开启压缩
+zfs set compression=on p1
+```
+
+

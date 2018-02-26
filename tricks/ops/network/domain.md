@@ -2,6 +2,8 @@
 
 ## Tips
 * [List of Internet top-level domains](https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains)
+* [List of Top-Level Domains](https://www.icann.org/resources/pages/tlds-2012-02-25-en)
+    * [tlds-alpha-by-domain.txt](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 * [google/nomulus](https://github.com/google/nomulus/)
   * Google tld 管理服务
 * TLD
@@ -15,3 +17,4 @@
   * .me
   * .ws
     * Web Service
+

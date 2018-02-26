@@ -1,6 +1,9 @@
 # SSL
 
 ## Tips
+https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations
+https://curl.haxx.se/docs/ssl-compared.html
+
 * https://www.cyberciti.biz/faq/test-ssl-certificates-diagnosis-ssl-certificate/
 * 购买
   * https://www.sslshopper.com/certificate-authority-reviews.html
@@ -111,6 +114,28 @@ go get -u github.com/cloudflare/cfssl/cmd/...
   * VerifyClientCertIfGiven
   * RequireAndVerifyClientCert
 
+### Revoke
+* [Certificate revocation lists](https://jamielinux.com/docs/openssl-certificate-authority/certificate-revocation-lists.html)
+
+```ini
+[ server_cert ]
+# 在服务配置中指定 crl
+crlDistributionPoints = URI:http://example.com/intermediate.crl.pem
+```
+
+```bash
+# 生成 CLR
+openssl ca -config intermediate/openssl.cnf \
+      -gencrl -out intermediate/crl/intermediate.crl.pem
+# 检查 crl 中的内容
+openssl crl -in intermediate/crl/intermediate.crl.pem -noout -text
+```
+
+__crl.pem__
+
+```
+R 160420124740Z 150411125310Z 1001 unknown ... /CN=bob@example.com
+```
 
 
 ### Java 启动时 ssl 相关参数

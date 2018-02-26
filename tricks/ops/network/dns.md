@@ -37,6 +37,9 @@ Default TTL: 3600
   * http://tinydns.org/
   * https://github.com/miekg/dns
   * [Authoritative vs. Recursive DNS Servers: What’s The Difference?](http://social.dnsmadeeasy.com/blog/authoritative-vs-recursive-dns-servers-whats-the-difference/)
+  * dnsimple [DNS FAQ](https://support.dnsimple.com/categories/dns/)
+  * [Differences between the A, CNAME, ALIAS and URL records](https://support.dnsimple.com/articles/differences-between-a-cname-alias-url/)
+
 
 ## 服务
 * https://www.knot-dns.cz/
@@ -46,7 +49,17 @@ https://github.com/tenta-browser/tenta-dns
 https://news.ycombinator.com/item?id=15796943
 Recursive and authoritative DNS server in go, including DNSSEC and DNS-over-TLS 
 
-https://coredns.io/
+## coredns
+* https://coredns.io/
+* https://github.com/coredns/coredns
+* CNCF 下的项目
+
+
+```bash
+coredns -conf Corefile -dns.port 1053
+
+dig -p 1053 @localhost AAAA www.example.org +noall +answer
+```
 
 ## PowerDNS
 * [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
@@ -64,6 +77,9 @@ https://coredns.io/
   * 4.1.0
     * 添加 metadata 接口
     * 移除 auth 服务中的递归
+* NOTES
+  * 当找到一条匹配的后不会再尝试使用通配符查找
+    * 例如 *.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
 
 ```bash
 # SQLite3
@@ -216,6 +232,7 @@ local0	/var/log/pdns.log
 ```
 
 #### DDNS
+* https://wiki.archlinux.org/index.php/Dynamic_DNS
 
 修改 pdns.conf 启用 dnsupdate
 ```

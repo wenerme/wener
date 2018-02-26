@@ -93,6 +93,28 @@ nano /etc/hosts
 nano /etc/network/interfaces
 ```
 
+## 磁盘扩展
+* 
+
+```bash
+# 扩展分区
+# 假设分区结构为: boot,swap,root,空闲
+# 删除第三个分区, 再创建第三个分区, 确保起点位置不变
+fdisk /dev/sda
+
+# 重启
+reboot
+
+# 扩展文件系统
+apk add e2fsprogs-extra
+resize2fs /dev/sda3
+
+# parted 也可以
+parted /dev/sdb resize 1 1 200M
+parted /dev/sdb resizepart 1 400M
+resize2fs /dev/sdb1 400M
+```
+
 ## udev
 * Gentoo [Eudev](https://wiki.gentoo.org/wiki/Project:Eudev)
 
@@ -148,8 +170,11 @@ zpool status
 # 查看磁盘量
 parted --list
 # 查看现有磁盘 UUID
+# 依赖于 udev
 # 一般会有 ata, scsi, wwn 前缀之类
 ls -lh /dev/disk/by-id/
+# 只看主盘
+ls -lh /dev/disk/by-id/ | grep 'sd.$'
 
 # -f 强制创建, 避免 Does not contain an EFI label 错误
 # -o ashift=12 使用高级磁盘格式
@@ -182,6 +207,11 @@ zpool status
 # 此时可以重启测试看看 pool 是否还在
 
 zpool status -x
+
+# 将 scrub 作为周期性任务
+echo '#!/bin/sh -
+zpool scrub main
+' > /etc/periodic/daily/zfs-scrub
 ```
 
 ### uninstall zfs
@@ -200,82 +230,6 @@ rc-update del zfs-mount sysinit
 # 移除内核模块
 modprobe -r zfs
 ```
-
-### zfs tuning
-```bash
-# 查看所有配置参数
-zfs get all p1
-# NAME  PROPERTY              VALUE           SOURCE
-# p1    type                  filesystem      -
-# p1    creation              1507714508      -
-# p1    used                  400K            -
-# p1    available             138M            -
-# p1    referenced            128K            -
-# p1    compressratio         1.00x           -
-# p1    mounted               yes             -
-# p1    quota                 none            default
-# p1    reservation           none            default
-# p1    recordsize            128K            default
-# p1    mountpoint            /mnt/data       local
-# p1    sharenfs              off             default
-# p1    checksum              on              default
-# p1    compression           off             default
-# p1    atime                 on              default
-# p1    devices               on              default
-# p1    exec                  on              default
-# p1    setuid                on              default
-# p1    readonly              off             default
-# p1    zoned                 off             default
-# p1    snapdir               hidden          default
-# p1    aclinherit            restricted      default
-# p1    canmount              on              default
-# p1    xattr                 on              default
-# p1    copies                1               default
-# p1    version               5               -
-# p1    utf8only              off             -
-# p1    normalization         none            -
-# p1    casesensitivity       sensitive       -
-# p1    vscan                 off             default
-# p1    nbmand                off             default
-# p1    sharesmb              off             default
-# p1    refquota              none            default
-# p1    refreservation        none            default
-# p1    primarycache          all             default
-# p1    secondarycache        all             default
-# p1    usedbysnapshots       0               -
-# p1    usedbydataset         128K            -
-# p1    usedbychildren        272K            -
-# p1    usedbyrefreservation  0               -
-# p1    logbias               latency         default
-# p1    dedup                 off             default
-# p1    mlslabel              none            default
-# p1    sync                  standard        default
-# p1    refcompressratio      1.00x           -
-# p1    written               128K            -
-# p1    logicalused           92.5K           -
-# p1    logicalreferenced     40K             -
-# p1    filesystem_limit      none            default
-# p1    snapshot_limit        none            default
-# p1    filesystem_count      none            default
-# p1    snapshot_count        none            default
-# p1    snapdev               hidden          default
-# p1    acltype               off             default
-# p1    context               none            default
-# p1    fscontext             none            default
-# p1    defcontext            none            default
-# p1    rootcontext           none            default
-# p1    relatime              off             default
-# p1    redundant_metadata    all             default
-# p1    overlay               off             default
-
-# atime 一般可以不需要
-zfs set atime=off p1
-zfs set relatime=on p1
-
-# 开启压缩
-zfs set compression=on p1
-```
-
 
 ## btrfs
 * kernel [btrfs](	https://btrfs.wiki.kernel.org/)
@@ -524,6 +478,7 @@ __tree /sys/class/net/bond0__
 ├── type
 └── uevent
 ```
+
 ## networking
 
 
@@ -664,6 +619,47 @@ pv spp-2016.10.0.iso | dd bs=4M of=/dev/sdd
 ## QEMU
 * [QEMU](https://www.qemu.org/)
   * [Doc](https://qemu.weilnetz.de/doc/qemu-doc.html)
+
+If you want to run VM as unprivileged user and let Qemu create tunX devices,
+then you must add that user to the group "qemu".
+If you use KVM for hardware-assisted virtualization, then you may also need
+to add that user to the group "kvm".
+
+
+https://wiki.archlinux.org/index.php/QEMU_(简体中文)
+
+https://allyourco.de/running-vmware-esxi-under-qemu-kvm/
+
+### kvm
+* https://wiki.alpinelinux.org/wiki/KVM
+
+```bash
+# 基础
+apk add qemu-system-x86_64 libvirt
+# 32 位
+apk add qemu-system-i386
+# 如果需要 GUI 管理
+apk add libvirt-daemon dbus polkit
+# 如果想用其他磁盘格式
+apk add qemu-img
+# 启用内核模块
+modprobe kvm-intel
+# 如果是 AMD
+# modprobe kvm-amd
+
+# 开机启用
+rc-update add libvirtd
+rc-update add dbus
+
+# KVM 默认会桥接 NAT, 如果想使用默认的网络配置, 需要加载 tun 模块
+modprobe tun
+
+# 添加用户到分组
+addgroup $USER kvm
+addgroup $USER qemu
+addgroup $USER libvirt
+```
+
 ### virtual-disk
 * https://en.wikibooks.org/wiki/QEMU/Images
 * qemu-nbd
@@ -917,6 +913,20 @@ For more information, see the manpage guestfish(1).
 ```bash
 ```
 
+## crond
+
+```
+echo 'CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"' > /etc/conf.d/crond
+rc-update add crond
+rc-service crond restart
+```
+
+## benchmark
+
+
+
+
+
 ## FAQ
 ### ip: ioctl 0x8913 failed: no such device
 * 可能是网卡名字发生了改变
@@ -1045,6 +1055,77 @@ export LD_PRELOAD="/usr/lib/preloadable_libiconv.so php"
 ```Dockerfile
 RUN apk add gnu-libiconv --no-cache --repository mirrors.aliyun.com/alpine/edge/testing
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+```
+
+### rc-status sysinit 异常
+* 可能是由于 zfs-zed 导致
+* https://github.com/OpenRC/openrc/issues/168#issuecomment-349870167
+* https://github.com/zfsonlinux/zfs/issues/6930
+* https://wiki.debian.org/LSBInitScripts
+
+### InfiniBand
+
+```
+[   12.225627] mlx4_core 0000:42:00.0: PCIe link speed is 5.0GT/s, device supports 5.0GT/s
+[   12.225632] mlx4_core 0000:42:00.0: PCIe link width is x8, device supports x8
+[   12.501725] NET: Registered protocol family 10
+[   12.537987] mlx4_en: Mellanox ConnectX HCA Ethernet driver v2.2-1 (Feb 2014)
+[   12.538258] mlx4_en 0000:42:00.0: Activating port:1
+[   12.550287] mlx4_en: 0000:42:00.0: Port 1: Using 256 TX rings
+[   12.550289] mlx4_en: 0000:42:00.0: Port 1: Using 8 RX rings
+[   12.550292] mlx4_en: 0000:42:00.0: Port 1:   frag:0 - size:1522 prefix:0 stride:1536
+[   12.550428] mlx4_en: 0000:42:00.0: Port 1: Initializing port
+[   12.563234] <mlx4_ib> mlx4_ib_add: mlx4_ib: Mellanox ConnectX InfiniBand driver v2.2-1 (Feb 2014)
+[   12.566383] <mlx4_ib> mlx4_ib_add: counter index 1 for port 1 allocated 1
+```
+
+```
+$ tree /lib/modules/4.9.65-1-hardened/kernel/drivers/infiniband/
+/lib/modules/4.9.65-1-hardened/kernel/drivers/infiniband/
+├── core
+│   ├── ib_cm.ko
+│   ├── ib_core.ko
+│   ├── ib_ucm.ko
+│   ├── ib_umad.ko
+│   ├── ib_uverbs.ko
+│   ├── iw_cm.ko
+│   ├── rdma_cm.ko
+│   └── rdma_ucm.ko
+├── hw
+│   ├── cxgb3
+│   │   └── iw_cxgb3.ko
+│   ├── cxgb4
+│   │   └── iw_cxgb4.ko
+│   ├── hfi1
+│   │   └── hfi1.ko
+│   ├── i40iw
+│   │   └── i40iw.ko
+│   ├── mlx4
+│   │   └── mlx4_ib.ko
+│   ├── mlx5
+│   │   └── mlx5_ib.ko
+│   ├── mthca
+│   │   └── ib_mthca.ko
+│   ├── nes
+│   │   └── iw_nes.ko
+│   └── qib
+│       └── ib_qib.ko
+├── sw
+│   ├── rdmavt
+│   │   └── rdmavt.ko
+│   └── rxe
+│       └── rdma_rxe.ko
+└── ulp
+    ├── ipoib
+    │   └── ib_ipoib.ko
+    ├── iser
+    │   └── ib_iser.ko
+    ├── isert
+    │   └── ib_isert.ko
+    ├── srp
+    │   └── ib_srp.ko
+    └── srpt
+        └── ib_srpt.ko
 ```
 
 

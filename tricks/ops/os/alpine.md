@@ -18,7 +18,9 @@ chsh root -s /bin/bash
 
 
 # 安装 neofetch
-apk add --no-cache -X http://dl-3.alpinelinux.org/alpine/edge/testing/ neofetch
+apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing neofetch
+# 有些环境下没有 neofetch 可以用screenfetch
+apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing screenfetch
 ```
 
 
@@ -49,6 +51,8 @@ echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 rc-service sshd restart
 # 设置一个密码, 以便于远程登陆
 passwd
+# 注意: 如果远程登陆说密码失效, 可能是时间问题, 先在服务器上开启 ntp 同步时间
+# 立即同步时间 ntpd -dn -N -p pool.ntp.org
 
 # 远程证书配置好过后可以考虑关闭远程密码登陆
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
@@ -103,6 +107,7 @@ ROOTFS=btrfs BOOTFS=btrfs VARFS=btrfs DISKLABEL=alp-wen setup-disk -m sys -s 0 -
 
 ## 升级
 * 查看当前内核版本 https://pkgs.alpinelinux.org/packages?name=linux*&branch=v3.7&repo=main&arch=x86_64
+* 3.7 添加了 busybox-extras, 部分原先 busybox 中的工具被移到了该包
 
 ```bash
 sed -ire 's/v\d\.\d/v3.7/g' /etc/apk/repositories
