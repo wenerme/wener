@@ -2,6 +2,10 @@
 
 ## Tips
 
+MIPS
+Microprocessor without Interlocked Pipeline Stages
+https://en.wikipedia.org/wiki/MIPS_architecture
+
 ## FAQ
 ### 修改网卡名为 eth* 的形式
 * [Linux : How to rename the network interface in CentOS/RHEL7](http://www.itechlounge.net/2016/04/linux-how-to-rename-the-network-interface-in-centosrhel7/)

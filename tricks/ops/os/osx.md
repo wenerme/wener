@@ -5,6 +5,15 @@
 * [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
 * [Identify your iPad model](https://support.apple.com/en-us/HT201471)
 
+```bash
+# OS X 12 (Sierra) and later
+sudo killall -HUP mDNSResponder
+sudo killall mDNSResponderHelper
+sudo dscacheutil -flushcache
+# OS X 11 (El Capitan) and OS X 12 (Sierra)
+sudo killall -HUP mDNSResponder
+```
+
 ## Brew
 Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
 
@@ -23,6 +32,13 @@ Command-V		| 详细模式
 Command-S		| 单用户模式
 Command-Option-P-R	| 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063)
 T						| 启动目标磁盘模式
+
+## 证书
+
+```bash
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" cert.cer
+sudo security remove-trusted-cert -d cert.cer
+```
 
 ## Finder
 
@@ -198,14 +214,16 @@ OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件�
 
 ```bash
 # 替换 MyVolume 为实际的挂载盘
+# High Sierra
+sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 # macOS Sierra
-sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ macOS\ Sierra.app
+sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ macOS\ Sierra.app --volume /Volumes/MyVolume 
 # El Capitan:
-sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app
+sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app --volume /Volumes/MyVolume
 # Yosemite:
-sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Yosemite.app
+sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Yosemite.app --volume /Volumes/MyVolume
 # Mavericks:
-sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ OS\ X\ Mavericks.app
+sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --volume /Volumes/MyVolume
 ```
 
 * [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)

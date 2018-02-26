@@ -1,5 +1,10 @@
 # CPU
 
+
+## MIPS
+Microprocessor without Interlocked Pipeline Stages
+https://en.wikipedia.org/wiki/MIPS_architecture
+
 ## Core
 
 CPU 版本后面的意思
@@ -10,3 +15,6 @@ CPU 版本后面的意思
 * Q: Quad-Core. The Q rating is only for processors with four physical cores.
 * H: High-Performance Graphics. The chipset has one of Intel’s better graphics units in it.
 * K: Unlocked. This means you can overclock the processor above its rating.
+
+## MIPS vs ARM
+http://www.differencebetween.com/difference-between-mips-and-vs-arm/

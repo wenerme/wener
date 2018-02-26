@@ -56,6 +56,32 @@ Settings for eth0:
 aria2c -i list.txt -j 16 -c -x 16 -m 0
 ```
 
+* http://aria2c.com/
+* http://aria2c.com/usage.html
+* https://github.com/ziahamza/webui-aria2
+* https://github.com/mayswind/AriaNg
+
+```ini
+dir=.
+continue=true
+max-connection-per-server=5
+min-split-size=10M
+
+input-file=aria2.session
+save-session=aria2.session
+
+enable-rpc=true
+rpc-allow-origin-all=true
+rpc-listen-all=true
+rpc-listen-port=6800
+
+```
+
+```bash
+touch aria2.session
+aria2c --conf-path=$PWD/aria2.conf
+```
+
 ## ngrep
 
 [ngrep usage](http://ngrep.sourceforge.net/usage.html)
@@ -158,3 +184,20 @@ wget -rN --no-parent -e robots=off -P /some/where http://some.site
 * http://curl2httpie.online/
 * https://httpie.org/
 
+## kcptun
+* https://github.com/xtaci/kcptun
+* ssh client <---> kcptun client <---> kcptun server <----> ssh server
+
+```bash
+# Alpine
+docker run -d --name tmp xtaci/kcptun
+docker cp tmp:/bin/client kcptun-client
+docker cp tmp:/bin/server kcptun-server
+docker rm -f tmp
+
+# App <-> Target Client(9003/tcp) <-> KCP Client <-> KCP Server(9002/udp) <-> Target Server(9001/tcp)
+# 目标 9001 监听 9002
+./kcptun-server -key $KEY -t "127.0.0.1:9001" -l ":9002" -mode fast2
+# 目标 9002 监听 9003
+./kcptun-client -key $KEY -r "127.0.0.1:9002" -l ":9003" -mode fast2
+```

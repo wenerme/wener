@@ -20,10 +20,16 @@
 * [QEMUSwitchToLibvirt](https://wiki.libvirt.org/page/QEMUSwitchToLibvirt)
 * [UbuntuKVMWalkthrough](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough)
 
+https://github.com/libvirt/libvirt-go
+http://www.cnblogs.com/popsuper1982/p/4056158.html
+
 ```bash
 # macOS
 # 安装 vbox
 brew install libvirt
+
+# alpine
+apk add virt-install
 
 # 启动服务进程
 libvirtd -v
@@ -35,4 +41,32 @@ LIBVIRT_LOG_FILTERS=1:vbox virsh -c vbox:///session
 
 # 虚拟机列表
 virsh list
+
+# https://wiki.libvirt.org/page/SSHSetup
+echo 'unix_sock_group = "libvirt"' >> /etc/libvirt/libvirtd.conf
+echo 'unix_sock_rw_perms = "0770"' >> /etc/libvirt/libvirtd.conf
+usermod -G libvirt -a $USER
+rc-service libvirtd restart
+
+virsh -c qemu+ssh://username@hostname/system
 ```
+
+## XML
+
+* https://libvirt.org/format.html
+
+```
+virt-xml-validate /path/to/XML/file
+```
+
+## virt-install
+
+```bash
+virt-install --virt-type kvm --name xp \
+--location http://httpredir.debian.org/debian/dists/squeeze/main/installer-amd64/ \
+--extra-args "console=ttyS0" -v --os-variant debiansqueeze \
+--disk size=4 --memory 512 
+-n xp --vcpus 2 --import winxp
+```
+
+https://wiki.debian.org/KVM
