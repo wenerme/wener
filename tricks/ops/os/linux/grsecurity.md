@@ -29,6 +29,20 @@ grep -e GRKERNSEC_CHROOT /boot/config-hardened
 apk add paxctl
 
 # https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/gradm
+# https://en.wikibooks.org/wiki/Grsecurity/The_Administration_Utility
 # gradm grsecurity RBAC administration and policy analysis utility
 apk add gradm
 ```
+
+
+https://wiki.gentoo.org/wiki/Hardened/PaX_Quickstart
+
+https://hardenedlinux.github.io/system-security/2016/08/10/grsec-kernel-full-commentary.html
+
+use of CAP_SYS_ADMIN in chroot denied
+
+sysctl -w kernel.grsecurity.chroot_caps=0
+sysctl -w kernel.grsecurity.chroot_deny_mount=0
+
+
+
