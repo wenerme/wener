@@ -3,7 +3,9 @@
 ## Alpine 的优点
 
 > Small. Simple. Secure.
+>
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
+> 
 > Alpine Linux 是一个基于 musl libc 和 busybox, 面向安全, 轻量级的 Linux 发布版.
 
 * 开源
@@ -24,7 +26,7 @@
 * 简单的包管理
   * Apk
   * 包的构建也很简单
-* 现代化
+* 现代化
   * 内核版本较新
     * 能够利用上很多新内核的功能
   * 包版本比较新
@@ -60,7 +62,7 @@
 ### 系统镜像选择
 官方 [下载页](https://alpinelinux.org/downloads/) 列了几种类型的镜像, 所有镜像的构建脚本位于 [alpinelinux/alpine-iso](https://github.com/alpinelinux/alpine-iso).
 
-> TIPS
+> __TIPS__
 > 1. 做安装盘建议选择 EXTENDED, 在不需要 setup-repository 的前提下也能够安装到硬盘.
 > 2. 仓库镜像中也能下载系统镜像 [v3.7/releases](http://mirrors.aliyun.com/alpine/v3.7/releases/)
 
@@ -89,7 +91,7 @@
 
 主要分为稳定版和 edge 版, 主要区别在于内核和包版本不同. 稳定版很容易升级到下一个版本, 修改仓库中的版本号进行更新即可.
 
-> TIPS
+> __TIPS__
 > 推荐使用稳定版
 
 * v3.7
@@ -100,7 +102,7 @@
 ### 仓库选择
 仓库分为三个版本, 安装包时可指定仓库.
 
-> TIPS
+> __TIPS__
 > 推荐只添加 main 和 community 仓库, testing 仓库可以添加到 @testing 标签下或安装时指定.
 
 * main
