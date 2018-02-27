@@ -51,6 +51,40 @@ apk add blkid cfdisk findmnt mcookie setpriv sfdisk
 apk add util-linux-bash-completion
 ```
 
+## dns
+很多时候需要 dns 缓存, 否则会非常慢
+
+* https://wiki.archlinux.org/index.php/dnsmasq
+* https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+* https://wiki.debian.org/HowTo/dnsmasq
+
+
+```bash
+# 速度测试
+time ping -c 1 baidu.com
+
+apk add dnsmasq
+
+
+# 配置
+# 如果不需要其他服务访问, 可以使用 127.0.0.1, docker 中也会无法访问
+# echo 'listen-address=127.0.0.1' >> /etc/dnsmasq.conf
+echo 'resolv-file=/etc/resolv.dnsmasq.conf' >> /etc/dnsmasq.conf
+
+echo 'nameserver 223.5.5.5' >>  /etc/resolv.dnsmasq.conf
+echo 'nameserver 114.114.114.114' >>  /etc/resolv.dnsmasq.conf
+
+# 这里配置 127.0.0.1, docker 不会使用, 建议配置 172.17.0.1 或者实际静态 ip
+echo 'nameserver 127.0.0.1' > /etc/resolv.conf
+
+# 测试
+dnsmasq --test
+
+# 启动
+rc-service dnsmasq start
+rc-update add dnsmasq
+```
+
 ## Container
 
 ```bash

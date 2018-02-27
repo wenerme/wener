@@ -723,3 +723,54 @@ Block device options:
 See <http://qemu.org/contribute/report-a-bug> for how to report bugs.
 More information on the QEMU project at <http://qemu.org>.
 ```
+
+## qemu-arm --help
+
+```
+usage: qemu-arm [options] program [arguments...]
+Linux CPU emulator (compiled for arm emulation)
+
+Options and associated environment variables:
+
+Argument      Env-variable      Description
+-h                              print this help
+-help
+-g port       QEMU_GDB          wait gdb connection to 'port'
+-L path       QEMU_LD_PREFIX    set the elf interpreter prefix to 'path'
+-s size       QEMU_STACK_SIZE   set the stack size to 'size' bytes
+-cpu model    QEMU_CPU          select CPU (-cpu help for list)
+-E var=value  QEMU_SET_ENV      sets targets environment variable (see below)
+-U var        QEMU_UNSET_ENV    unsets targets environment variable (see below)
+-0 argv0      QEMU_ARGV0        forces target process argv[0] to be 'argv0'
+-r uname      QEMU_UNAME        set qemu uname release string to 'uname'
+-B address    QEMU_GUEST_BASE   set guest_base address to 'address'
+-R size       QEMU_RESERVED_VA  reserve 'size' bytes for guest virtual address space
+-d item[,...] QEMU_LOG          enable logging of specified items (use '-d help' for a list of items)
+-D logfile    QEMU_LOG_FILENAME write logs to 'logfile' (default stderr)
+-p pagesize   QEMU_PAGESIZE     set the host page size to 'pagesize'
+-singlestep   QEMU_SINGLESTEP   run in singlestep mode
+-strace       QEMU_STRACE       log system calls
+-seed         QEMU_RAND_SEED    Seed for pseudo-random number generator
+-trace        QEMU_TRACE        [[enable=]<pattern>][,events=<file>][,file=<file>]
+-version      QEMU_VERSION      display version information and exit
+
+Defaults:
+QEMU_LD_PREFIX  = /usr/gnemul/qemu-arm
+QEMU_STACK_SIZE = 8388608 byte
+
+You can use -E and -U options or the QEMU_SET_ENV and
+QEMU_UNSET_ENV environment variables to set and unset
+environment variables for the target process.
+It is possible to provide several variables by separating them
+by commas in getsubopt(3) style. Additionally it is possible to
+provide the -E and -U options multiple times.
+The following lines are equivalent:
+    -E var1=val2 -E var2=val2 -U LD_PRELOAD -U LD_DEBUG
+    -E var1=val2,var2=val2 -U LD_PRELOAD,LD_DEBUG
+    QEMU_SET_ENV=var1=val2,var2=val2 QEMU_UNSET_ENV=LD_PRELOAD,LD_DEBUG
+Note that if you provide several changes to a single variable
+the last change will stay in effect.
+
+See <http://qemu.org/contribute/report-a-bug> for how to report bugs.
+More information on the QEMU project at <http://qemu.org>.
+```
