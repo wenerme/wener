@@ -13,7 +13,8 @@
 
 
 https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools
-https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
+
+https://www.kernel.org/doc/Documentation/networking/
 
 
 * [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
@@ -58,53 +59,6 @@ sed -i 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf;sy
 * [5 Open Source Software Defined Networking Projects to Know](https://www.linux.com/news/open-cloud-report/2016/5-open-source-software-defined-networking-projects-know)
 * SDN 也可以通过特殊的硬件来实现
 
-## Wifi
-
-### Tips
-
-```bash
-
-# 速度检测
-# 服务端
-nc -v -v -l -n -p 8000 | pv > /dev/null
-# 客户端
-time yes | pv |nc -v -v -n 192.168.1.1 8000 >/dev/null
-
-# UDP
-# Listen
-netcat -ul 2115
-# 端口检测
-netcat -zv -u 127.0.0.1  2115
-ls /usr/local/opt/nmap/bin
-# ncat  ndiff  nmap  nping  uninstall_ndiff
-
-# https://nmap.org/ncat/guide/ncat-usage.html
-man ncat
-
-# 端口转发
-ncat -l localhost 8080 --sh-exec "ncat wener.me 80"
-```
-
-### 无线
-* [WPA_supplicant](https://wiki.archlinux.org/index.php/WPA_supplicant)
-  * man [wpa_supplicant](https://linux.die.net/man/8/wpa_supplicant)
-  * man [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf)
-* man [iwconfig](https://linux.die.net/man/8/iwconfig)
-* man [iwlist](https://linux.die.net/man/8/iwlist)
-
-```bash
-# 启用网卡
-ifconfig wlan0 up
-# 扫描热点
-iwlist scan
-# 生成配置
-wpa_passphrase ssid-name passphrase > wpa.conf
-
-# 在前台运行以便调试, 可以使用 -B 参数在后台运行
-wpa_supplicant -Dwext -ieth1 -c/root/wpa.conf
-dhclient -r
-dhclient wlan0
-```
 
 ## Link aggregation
 * http://www.linux-kvm.org/page/HOWTO_BONDING
@@ -150,3 +104,41 @@ dhclient wlan0
 #  jumbo frames
 ifconfig bond0 mtu 9000 up
 ```
+
+
+## FAQ
+
+### Infiniband vs 10 Gig Eth
+
+NDR = Next Data Rate
+HDR = High Data Rate
+EDR = Enhanced Data Rate
+FDR = Fourteen Data Rate
+QDR = Quad Data Rate
+DDR = Double Data Rate
+SDR = Single Data Rate (not shown)
+
+Infiniband vs 10 gig Enet - pros and cons ?
+https://www.reddit.com/r/networking/comments/5kuxia/infiniband_vs_10_gig_enet_pros_and_cons/
+
+http://www.ics.uci.edu/~ccgrid11/files/ccgrid11-ib-hse_last.pdf
+
+InfiniBand aimed at all three bottlenecks (protocol
+processing, I/O bus, and network speed)
+
+Ethernet aimed at directly handling the network speed
+bottleneck and relying on complementary technologies to
+alleviate the protocol processing and I/O bus bottlenecks
+
+
+High-speed Ethernet Consortium (10GE/40GE/100GE)
+
+
+To design a scalable and high performance communication
+and I/O architecture by taking an integrated view of computing,
+networking, and storage technologies
+
+To achieve a scalable and high performance
+communication architecture while maintaining backward
+compatibility with Ethernet
+• http://www.ethernetalliance.org

@@ -1,4 +1,4 @@
-## Alpine Operation
+## Alpine 运维笔记
 
 ## Tips
 
@@ -25,84 +25,55 @@ apk add bash-completion
 source /etc/profile.d/bash_completion.sh
 ```
 
-## base
+## manpages
+* Alpine 默认不会安装 doc 和 man
+* 所有的文档以 -doc 结尾
+* 文档位于 /usr/share/man
+* [How to get regular stuff working](https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working)
 
 ```bash
-# 常用工具
-apk add nano file grep htop rsync curl
+apk add --no-cache man man-pages mdocml-apropos less less-doc
+export PAGER=less
 
-apk add openssl
+# 安装和查看
+apk add --no-cache curl-doc
+man curl
+
+# 或者直接使用 docker 便于查文档
+docker run --rm -it wener/base:man
+# 可以安装映射到主机
+docker run --rm -it -v $PWD/man:/usr/share/man wener/base:man
 ```
 
-## ca
+## 基础运维工具
 ```bash
-# /etc/ssl/certs/ca-certificates.crt
-```
+# 基础工具
+apk add nano file grep htop rsync curl openssl
 
-## ops-base
-```bash
-# easy to op
+# 简化链接
 apk add tmux mosh
 
-# util-linux
+# 常用工具
 apk add util-linux
+# 扩展工具
 apk add blkid cfdisk findmnt mcookie setpriv sfdisk
 # 补全
 apk add util-linux-bash-completion
+
+# 信息查询工具
+apk add lsof
+
+# 证书
+# /etc/ssl/certs/ca-certificates.crt
 ```
 
-## dns
-很多时候需要 dns 缓存, 否则会非常慢
-
-* https://wiki.archlinux.org/index.php/dnsmasq
-* https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
-* https://wiki.debian.org/HowTo/dnsmasq
-
-
-```bash
-# 速度测试
-time ping -c 1 baidu.com
-
-apk add dnsmasq
-
-
-# 配置
-# 如果不需要其他服务访问, 可以使用 127.0.0.1, docker 中也会无法访问
-# echo 'listen-address=127.0.0.1' >> /etc/dnsmasq.conf
-echo 'resolv-file=/etc/resolv.dnsmasq.conf' >> /etc/dnsmasq.conf
-
-echo 'nameserver 223.5.5.5' >>  /etc/resolv.dnsmasq.conf
-echo 'nameserver 114.114.114.114' >>  /etc/resolv.dnsmasq.conf
-
-# 这里配置 127.0.0.1, docker 不会使用, 建议配置 172.17.0.1 或者实际静态 ip
-echo 'nameserver 127.0.0.1' > /etc/resolv.conf
-
-# 测试
-dnsmasq --test
-
-# 启动
-rc-service dnsmasq start
-rc-update add dnsmasq
-```
-
-## Container
-
-```bash
-# Docker
-apk add docker
-rc-update add docker
-```
-
-
-## ops-tool
+## 硬件运维工具
 
 ```bash
 apk add pciutils
 apk add usbutils
-apk add lsof
 apk add parted
 apk add ddrescue
-
 
 # dmidecode ownership vpddecode biosdecode
 apk add dmidecode
@@ -127,8 +98,59 @@ nano /etc/hosts
 nano /etc/network/interfaces
 ```
 
+## dns
+很多时候需要 dns 缓存, 否则会非常慢
+
+* Archlinux wiki
+  * [dnsmasq](https://wiki.archlinux.org/index.php/dnsmasq)
+    * [简体中文](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+* Debian HowTo [dnsmasq](https://wiki.debian.org/HowTo/dnsmasq)
+
+```bash
+# 速度测试
+time ping -c 1 baidu.com
+# 查看当前使用的 dns
+cat /etc/resolv.conf
+# 安装
+apk add dnsmasq
+
+
+# 配置
+# 如果不需要其他服务访问, 可以使用 127.0.0.1, docker 中也会无法访问
+# echo 'listen-address=127.0.0.1' >> /etc/dnsmasq.conf
+echo 'resolv-file=/etc/resolv.dnsmasq.conf' >> /etc/dnsmasq.d/local.conf
+# 添加 dns
+echo 'nameserver 223.5.5.5' >>  /etc/resolv.dnsmasq.conf
+echo 'nameserver 114.114.114.114' >>  /etc/resolv.dnsmasq.conf
+# 这里配置 127.0.0.1, docker 不会使用, 建议配置 172.17.0.1 或者实际静态 ip
+echo 'nameserver 127.0.0.1' > /etc/resolv.conf
+
+# 测试配置
+dnsmasq --test
+
+# 启动
+rc-service dnsmasq start
+rc-update add dnsmasq
+
+# 日志调试
+# 还可以开启 log-dhcp
+echo 'log-queries' > /etc/dnsmasq.d/log.conf
+# 服务重启
+rc-service dnsmasq restart
+# 查看消息
+tail -f /var/log/message
+```
+
+## 容器
+
+```bash
+# Docker
+apk add docker
+rc-update add docker
+```
+
+
 ## 磁盘扩展
-* 
 
 ```bash
 # 扩展分区
@@ -364,8 +386,6 @@ mount -a
 btrfs rescue zero-log /dev/sde
 mount -a
 ```
-
-## netwoking
 
 ## bonding
 * Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
@@ -775,7 +795,8 @@ mount /dev/SangomaVG/root /mnt/data
 ## build
 * [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
 * https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
-* https://wiki.alpinelinux.org/wiki/Apkindex_format
+* [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
+* [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
 
 ```bash
 # 环境设置
@@ -816,6 +837,8 @@ abuild -r
 
 ```bash
 docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder wener/edge:builder
+
+docker run --rm -it -v $PWD:/src --entrypoint bash wener/base:builder
 ```
 
 * Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
@@ -1096,71 +1119,6 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 * https://github.com/OpenRC/openrc/issues/168#issuecomment-349870167
 * https://github.com/zfsonlinux/zfs/issues/6930
 * https://wiki.debian.org/LSBInitScripts
-
-### InfiniBand
-
-```
-[   12.225627] mlx4_core 0000:42:00.0: PCIe link speed is 5.0GT/s, device supports 5.0GT/s
-[   12.225632] mlx4_core 0000:42:00.0: PCIe link width is x8, device supports x8
-[   12.501725] NET: Registered protocol family 10
-[   12.537987] mlx4_en: Mellanox ConnectX HCA Ethernet driver v2.2-1 (Feb 2014)
-[   12.538258] mlx4_en 0000:42:00.0: Activating port:1
-[   12.550287] mlx4_en: 0000:42:00.0: Port 1: Using 256 TX rings
-[   12.550289] mlx4_en: 0000:42:00.0: Port 1: Using 8 RX rings
-[   12.550292] mlx4_en: 0000:42:00.0: Port 1:   frag:0 - size:1522 prefix:0 stride:1536
-[   12.550428] mlx4_en: 0000:42:00.0: Port 1: Initializing port
-[   12.563234] <mlx4_ib> mlx4_ib_add: mlx4_ib: Mellanox ConnectX InfiniBand driver v2.2-1 (Feb 2014)
-[   12.566383] <mlx4_ib> mlx4_ib_add: counter index 1 for port 1 allocated 1
-```
-
-```
-$ tree /lib/modules/4.9.65-1-hardened/kernel/drivers/infiniband/
-/lib/modules/4.9.65-1-hardened/kernel/drivers/infiniband/
-├── core
-│   ├── ib_cm.ko
-│   ├── ib_core.ko
-│   ├── ib_ucm.ko
-│   ├── ib_umad.ko
-│   ├── ib_uverbs.ko
-│   ├── iw_cm.ko
-│   ├── rdma_cm.ko
-│   └── rdma_ucm.ko
-├── hw
-│   ├── cxgb3
-│   │   └── iw_cxgb3.ko
-│   ├── cxgb4
-│   │   └── iw_cxgb4.ko
-│   ├── hfi1
-│   │   └── hfi1.ko
-│   ├── i40iw
-│   │   └── i40iw.ko
-│   ├── mlx4
-│   │   └── mlx4_ib.ko
-│   ├── mlx5
-│   │   └── mlx5_ib.ko
-│   ├── mthca
-│   │   └── ib_mthca.ko
-│   ├── nes
-│   │   └── iw_nes.ko
-│   └── qib
-│       └── ib_qib.ko
-├── sw
-│   ├── rdmavt
-│   │   └── rdmavt.ko
-│   └── rxe
-│       └── rdma_rxe.ko
-└── ulp
-    ├── ipoib
-    │   └── ib_ipoib.ko
-    ├── iser
-    │   └── ib_iser.ko
-    ├── isert
-    │   └── ib_isert.ko
-    ├── srp
-    │   └── ib_srp.ko
-    └── srpt
-        └── ib_srpt.ko
-```
 
 
 ### TBD
