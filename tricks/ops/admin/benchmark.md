@@ -24,6 +24,31 @@ IO
 nc -v -v -l -n -p 8000 | pv > /dev/null
 # 客户端
 time yes | pv |nc -v -v -n 192.168.1.1 8000 >/dev/null
+
+# 简单的 TCP/IP 延时测试
+# 服务端
+nc  -v -v -n -k -l 8000 | pv > /dev/null
+# 客户端
+# 计算接收和发送时间
+nmap --packet-trace -p 8000 192.168.1.2
+
+# qperf
+# ==========
+apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing qperf
+# 服务端
+qperf
+# 客户端
+# _bw 带宽, _lat 延迟, 协议支持 rds, sctp, sdp, tcp, udp
+qperf 192.168.2.2 tcp_bw tcp_lat
+# 万兆 tcp_bw: 1.12 GB/sec tcp_lat: 23.9 us
+# 千兆 tcp_bw: 117 MB/sec tcp_lat: 41.6 us
+
+# iperf
+# ==========
+# https://iperf.fr/
+apk add iperf3
+iperf3 -s
+iperf3 -c 192.168.1.2
 ```
 
 ## sysbench
