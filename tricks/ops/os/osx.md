@@ -4,70 +4,14 @@
 * [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
 * [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
 * [Identify your iPad model](https://support.apple.com/en-us/HT201471)
-
-```bash
-# OS X 12 (Sierra) and later
-sudo killall -HUP mDNSResponder
-sudo killall mDNSResponderHelper
-sudo dscacheutil -flushcache
-# OS X 11 (El Capitan) and OS X 12 (Sierra)
-sudo killall -HUP mDNSResponder
-```
-
-## Brew
-Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
-
-## 移动磁盘格式选择
-如果想要将移动磁盘与 PC 和 Mac 共用,最好选择 ExtFAT,支持大文件(>4G), 都能被识别和读写,在 Mac 上格式化的时候,需要选择使用主引导记录而不是 GUID, 否则 Windows 识别不了.
-
-## 启动选项
-启动键 |	描述
-------|----
-Command-R 	|	启动为恢复模式
-Alt/Option 	|	访问启动管理器
-C						| 从 CD, DVD, 或 USB 启动
-N						| NetBoot
-Shift				| 安全启动
-Command-V		| 详细模式
-Command-S		| 单用户模式
-Command-Option-P-R	| 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063)
-T						| 启动目标磁盘模式
-
-## 证书
-
-```bash
-sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" cert.cer
-sudo security remove-trusted-cert -d cert.cer
-```
-
-## Finder
-
-Finder 的主要问题
-
-* 不能复制当前地址
-* 不能新建文件
-* 不能剪切
-
-* [xtrafinder](http://www.trankynam.com/xtrafinder/)
-	* XtraFinder add Tabs and features to Mac Finder.
-* [FinderPath](http://bahoom.com/finderpath/)
-	* 地址栏
-
-## Install Xcode
-```
-xcode-select --install
-```
-
-### 资源下载
-* [mac-torrent-download](http://mac-torrent-download.net/)
-* http://www.macbed.com/
-* http://superuser.com/a/264943/242730
-
-## Tips
+* [Where does Mac OS X come from?](https://unix.stackexchange.com/q/695/47774)
 * 好看的屏保 https://github.com/JohnCoates/Aerial
 	* `brew cask install aerial`
 * [iousbhiddriver](https://github.com/thefloweringash/iousbhiddriver-descriptor-override)
 	* 支持 Noppoo Choc 的驱动
+* 参考
+  * [OS X 技巧](http://apple.stackexchange.com/questions/400)
+  * [Assign a shortcut to running a script in OS X](http://superuser.com/a/264943/242730)
 
 ```bash
 # 查看可用的分辨率
@@ -101,7 +45,7 @@ mail
 # q
 ```
 
-* [OS X 技巧](http://apple.stackexchange.com/questions/400/please-share-your-hidden-os-x-features-or-tips-and-tricks)
+
 
 打开取色器
 
@@ -118,7 +62,53 @@ __文件目录结构__
 	/Screen Savers # 屏保程序
 ```
 
-### pmset
+## Brew
+Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
+
+## 移动磁盘格式选择
+如果想要将移动磁盘与 PC 和 Mac 共用,最好选择 ExtFAT,支持大文件(>4G), 都能被识别和读写,在 Mac 上格式化的时候,需要选择使用主引导记录而不是 GUID, 否则 Windows 识别不了.
+
+## 启动选项
+启动键 |	描述
+------|----
+Command-R 	|	启动为恢复模式
+Alt/Option 	|	访问启动管理器
+C						| 从 CD, DVD, 或 USB 启动
+N						| NetBoot
+Shift				| 安全启动
+Command-V		| 详细模式
+Command-S		| 单用户模式
+Command-Option-P-R	| 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063)
+T						| 启动目标磁盘模式
+
+## 证书
+
+```bash
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" cert.cer
+sudo security remove-trusted-cert -d cert.cer
+```
+
+## Finder
+
+* Finder 的主要问题
+  * 不能复制当前地址
+  * 不能新建文件
+  * 不能剪切
+* [xtrafinder](http://www.trankynam.com/xtrafinder/)
+	* XtraFinder add Tabs and features to Mac Finder.
+* [FinderPath](http://bahoom.com/finderpath/)
+	* 地址栏
+
+## Install Xcode
+```
+xcode-select --install
+```
+
+## 资源下载
+* [mac-torrent-download](http://mac-torrent-download.net/)
+* http://www.macbed.com/
+
+## pmset
 
 
 ```bash
@@ -271,4 +261,14 @@ fdisk -l
 fsck.hfsplus /dev/sda2
 # 考虑将其挂载上然后把需要的数据拷贝出来
 mount -t hfsplus -o force,rw /dev/sdb2 /media/mntpoint
+```
+
+### 清除 DNS 缓存
+```bash
+# OS X 12 (Sierra) and later
+sudo killall -HUP mDNSResponder
+sudo killall mDNSResponderHelper
+sudo dscacheutil -flushcache
+# OS X 11 (El Capitan) and OS X 12 (Sierra)
+sudo killall -HUP mDNSResponder
 ```

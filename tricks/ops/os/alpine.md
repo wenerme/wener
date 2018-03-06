@@ -5,7 +5,6 @@
 * [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
   * Search file in package from command line
 
-
 ```bash
 # 计算块设备容量
 echo $(blockdev --getsize64 /dev/sdb1)/1024/1024 | bc -l
@@ -72,9 +71,8 @@ setup-timezone -z Asia/Shanghai
 echo "http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/main
 http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/community" >> /etc/apk/repositories
 
-# Edge 可选, 用于安装一些特殊的, 或者更新的
-echo "@edge http://mirrors.aliyun.com/alpine/edge/main
-@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
+# testing 有些尚未发布的, 有时候会用到
+echo "@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
 
 # 或者直接用 edge
 echo "http://mirrors.aliyun.com/alpine/edge/main
@@ -129,25 +127,37 @@ sync
 reboot
 ```
 
+## Mips
+https://bugs.alpinelinux.org/issues/5643
+https://patchwork.alpinelinux.org/bundle/Lochnair/mips-port/?state=*
+
+搜索 mips
+https://github.com/alpinelinux/aports/blob/master/main/gcc/APKBUILD
 
 ## USB
 
 ```
 usbutils-008-r0
+
 libusb-1.0.20-r0
+libusb-dev-1.0.20-r0
+libusb-compat-dev-0.1.5-r3
+
 usbredir-doc-0.7-r2
 usbredir-0.7-r2
+usbredir-dev-0.7-r2
+usbredir-server-0.7-r2
+
 libgusb-0.2.9-r1
+libgusb-dev-0.2.9-r1
+libgusb-doc-0.2.9-r1
+
 libusb-compat-0.1.5-r3
 usb-modeswitch-doc-2.4.0-r0
 usbutils-doc-008-r0
-libusb-dev-1.0.20-r0
-usbredir-dev-0.7-r2
-libgusb-doc-0.2.9-r1
-usbredir-server-0.7-r2
+
 usb-modeswitch-2.4.0-r0
-libusb-compat-dev-0.1.5-r3
-libgusb-dev-0.2.9-r1
+
 usb-modeswitch-udev-2.4.0-r0
 hwdata-usb-0.282-r0
 ```
@@ -175,9 +185,15 @@ hwdata-usb-0.282-r0
 ## Mirror
 * [How to setup a Alpine Linux mirror](https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror)
 
-/mnt/disk2t/data/alpine
+
+* rsync://rsync.alpinelinux.org/alpine/
+* rsync://mirrors.tuna.tsinghua.edu.cn/alpine/
+  * https://github.com/tuna/rsync
 
 ```bash
+# 添加 -r iso --limit-rate=2m
+wget -np -rNP repos --cut-dirs 1 -e robots=off -X latest-stable,edge http://mirrors.aliyun.com/alpine/
+
 rsync \
   --archive \
   --update \
@@ -188,7 +204,42 @@ rsync \
   --timeout=600 \
   --exclude="*" \
   --include=/mnt/disk2t/data/alpine/include.txt \
-  rsync://rsync.alpinelinux.org/alpine/ /mnt/disk2t/data/alpine/mirror/
+  rsync://rsync.alpinelinux.org/alpine/ mirror/
+
+rsync \
+  --archive \
+  --update \
+  --hard-links \
+  --delete \
+  --delete-after \
+  --delay-updates \
+  --timeout=600 \
+  rsync://mirrors.tuna.tsinghua.edu.cn/alpine/ mirror/
+
+# 同步单个目录并显示进度
+rsync \
+  --archive \
+  --update \
+  --hard-links \
+  --delete \
+  --delete-after \
+  --delay-updates \
+  --timeout=600 \
+  --progress \
+  rsync://mirrors.tuna.tsinghua.edu.cn/alpine/v3.7/ mirror/v3.7/
+
+# 可同时同步另外一个目录以达到并发
+# --bwlimit=KBPS 带宽限制
+rsync \
+  --archive \
+  --update \
+  --hard-links \
+  --delete \
+  --delete-after \
+  --delay-updates \
+  --timeout=600 \
+  --bwlimit=5000 \
+  rsync://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/ mirror/v3.6/
 ```
 
 rsync --archive --update --hard-links --delete --delete-after --delay-updates --timeout=600 ~/data/alpine/ root@192.168.1.20:/mnt/disk2t/data/alpine/

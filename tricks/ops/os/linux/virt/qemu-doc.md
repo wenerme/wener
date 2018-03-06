@@ -387,3 +387,20 @@ http://www.linux-kvm.org/page/Networking
 https://wiki.ubuntu.com/KvmWithBridge
 
 https://askubuntu.com/questions/179508/kvm-bridged-network-not-working
+
+
+chardev
+
+msmouse
+file
+wctablet
+mux
+udp
+vc
+stdio
+socket
+testdev
+ringbuf
+pipe
+memory
+null
