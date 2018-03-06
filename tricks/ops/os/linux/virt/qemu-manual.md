@@ -1,3 +1,26 @@
+# Qemu Manual
+
+
+```bash
+modprobe -av nbd
+qemu-img create -f qcow2 rpi.img 2g
+qemu-nbd -c /dev/nbd0 rpi.img
+
+qemu-nbd --disconnect /dev/nbd0
+
+
+qemu-img convert -f raw rpi.img -O qcow2 rpi.qcow2
+```
+
+```
+label: dos
+label-id: 0x4980cef8
+device: rpi.img
+unit: sectors
+
+rpi.img1 : start=        2048, size=      258048, type=6, bootable
+rpi.img2 : start=      260096, size=     3934208, type=83
+```
 
 ## FAQ
 
@@ -13,4 +36,11 @@ grub-mkrescue -o os.iso isofiles
 https://serverfault.com/q/787038/190601
 
 
-https://github.com/kholia/OSX-KVM
+
+### Qemu cpu
+```bash
+QEMU_LD_PREFIX=/usr/gnemul/qemu-arm
+```
+
+### OSX
+* [kholia/OSX-KVM](https://github.com/kholia/OSX-KVM)
