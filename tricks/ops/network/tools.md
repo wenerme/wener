@@ -184,9 +184,30 @@ sudo socat UDP-RECVFROM:53,fork,reuseaddr openssl-connect:SERVER:1053,cert=$PWD/
 ## wget
 * `-e robots=off`
   * 忽略 robot.txt
+* `-np`/`--no-parent`
+  * 不访问上级
+* `-N`/`--timestamping`
+  * 只访问更新的
+* `-nc`/`--no-clobber`
+  * 不要下载已存在将被覆盖的文件
+* `-P`/`--directory-prefix`
+  * 存储文件到前缀
+* `-r`/`--recursive`
+  * 递归
+* `-l`/`--level`
+  * 最大递归层级
+* `-m`/`--mirror`
+  * 等同于 -N -r -l inf --no-remove-listing
+* `-q`/`--quiet`
+  * 安静模式
+* `--limit-rate`
+  * 限速
 
 ```bash
 wget -rN --no-parent -e robots=off -P /some/where http://some.site
+# 镜像站点
+wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://example.org
+wget -mkEpnp http://example.org
 ```
 
 ## httpie
