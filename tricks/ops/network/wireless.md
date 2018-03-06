@@ -1,6 +1,12 @@
 # WIFI
 
 ## Tips
+* Linux Kernel Wireless
+  * https://wireless.wiki.kernel.org/
+  * [documentation](https://wireless.wiki.kernel.org/en/users/documentation)
+  * iw
+  * wpa_supplicant
+  * hostapd
 * [Connecting to a wireless access point](https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point)
 * [Linux Find Wireless Driver Chipset Information](https://www.cyberciti.biz/faq/linux-find-wireless-driver-chipset/)
 * [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)

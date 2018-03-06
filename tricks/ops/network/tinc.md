@@ -3,6 +3,17 @@
 ## Tips
 
 * Tiny VPN
+  * 支持路由模式
+    * IP 协议交换
+    * 不支持广播
+  * 支持交换模式
+    * Ethernet 协议
+    * 支持广播
+  * 协议加密
+  * NAT 穿透
+  * 支持 UDP
+  * 支持网段
+  * 支持转发
 * 类似
   * https://github.com/meshbird/meshbird
 * https://wiki.archlinux.org/index.php/Tinc
@@ -86,6 +97,8 @@ apk add tinc
 apk add tinc-pre
 
 modprobe tun
+echo tun >> /etc/modules
+# echo tun >> /etc/modules-load.d/netdev.conf
 
 # 基础配置
 tinc init first
@@ -203,7 +216,6 @@ sudo kextutil /Volumes/Tunnelblick/Tunnelblick.app/Contents/Resources/tun-signed
 sudo kextutil /Library/Extensions/tun.kext
 # Memory allocation failure.
 # Untrusted kexts are not allowed
-
 
 ```
 
