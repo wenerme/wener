@@ -7,3 +7,6 @@
   * Distributed
   * Offline-first
   * Graph
+  * CRDT
+* https://github.com/amark/gun/wiki/porting-gun
+

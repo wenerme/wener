@@ -1,32 +1,62 @@
 # Redis
-https://scaleyourcode.com/blog/article/15
 
-http://download.redis.io/redis-stable/redis.conf
-https://redislabs.com/blog/5-key-takeaways-for-developing-with-redis
-http://redis.io/topics/admin
-https://www.youtube.com/watch?v=X01gn5a2WQ0
+## Tips
+
+* [redis.conf](http://download.redis.io/redis-stable/redis.conf)
+* 参考
+  * [5 Key Takeaways for Developing with Redis](https://redislabs.com/blog/5-key-takeaways-for-developing-with-redis)
+    1. Keep Track of Your Keys
+    2. Keep Track of the Length of Your Key Names
+    3. Use the Right Data Structures
+    4. Use SCAN, Never Use KEYS
+    5. Use Server-Side Lua Scripts
+  * [Redis configuration for production](https://scaleyourcode.com/blog/article/15)
+    * [YouTube](https://www.youtube.com/watch?v=X01gn5a2WQ0)
+
+```bash
+# 使用配置文件启动
+wget http://download.redis.io/redis-stable/redis.conf
+redis-server redis.conf
+# macOS 安装
+brew install redis
+# 通过 docker 启动
+# 数据存储于 ~/data/redis
+docker run --rm -it -v ~/data/redis:/data -p 6379:6379 --name my-redis redis redis-server --appendonly ye
+```
+
+## Module
+
+* [写 Redis 模块的教程](https://redislabs.com/blog/writing-redis-modules)
+* [Redis 模块仓库](http://redismodules.com/)
+* [Antirez 关于 Redis 模块的博客](http://antirez.com/news/106)
 
 
 ## CHANGELOG
 
+### 5.0
+* stream
+  * [Redis Streams: consumer groups v2 specification document](https://gist.github.com/antirez/68e67f3251d10f026861be2d0fe0d2f4)
+  * [api](https://gist.github.com/antirez/4e7049ce4fce4aa61bf0cfbc3672e64d)
+
 ### 4.0
-
-http://www.antirez.com/news/110
-https://raw.githubusercontent.com/antirez/redis/4.0/00-RELEASENOTES
-
-1. 模块
-2. 新的同步方式
-  * A -> B -> C -> D
-3. 失效机制
-  * LFU
-4. 非阻塞 DEL 和 FLUSHALL/FLUSHDB.
-5. RDB-AOF 混合持久模式
-6. 新的 MEMORY 语句
-7. Redis Cluster 现在兼容 NAT/Docker
-
+* 变更
+  1. 模块
+  2. 新的同步方式
+    * A -> B -> C -> D
+  3. 失效机制
+    * LFU
+  4. 非阻塞 DEL 和 FLUSHALL/FLUSHDB.
+  5. RDB-AOF 混合持久模式
+  6. 新的 MEMORY 语句
+  7. Redis Cluster 现在兼容 NAT/Docker
+* 参考
+  * [The first release candidate of Redis 4.0 is out](http://www.antirez.com/news/110)
+  * [RELEASENOTES](https://raw.githubusercontent.com/antirez/redis/4.0/00-RELEASENOTES)
 
 ### 3.2.0
-http://antirez.com/news/104
+
+* 参考
+  * [Redis 3.2.0 is out!](http://antirez.com/news/104)
 
 * [GEO](http://redis.io/commands/#geo) API
 * [BITFIELD](http://redis.io/commands/bitfield) command
@@ -38,12 +68,3 @@ http://antirez.com/news/104
 * SPOP now accepts an optional count argument
 * RDB AUX fields
 * Sentinel can now scale monitoring many masters
-
-## Module
-
-```
-```
-
-* [写 Redis 模块的教程](https://redislabs.com/blog/writing-redis-modules)
-* [Redis 模块仓库](http://redismodules.com/)
-* [Antirez 关于 Redis 模块的博客](http://antirez.com/news/106)
