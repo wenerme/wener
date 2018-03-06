@@ -62,6 +62,33 @@
   * Database / Schema / table
 * 数据迁移
   * https://wiki.postgresql.org/wiki/Converting_from_other_Databases_to_PostgreSQL
+* 参考
+  * [Why PostgreSQL doesn't have query hints](https://it.toolbox.com/blogs/josh-berkus/why-postgresql-doesnt-have-query-hints-020411)
+    * [HN](https://news.ycombinator.com/item?id=2179433)
+  * [A PostgreSQL Response to Uber](http://thebuild.com/presentations/uber-perconalive-2017.pdf)
+    * Write Amplification
+      * PostgreSQL must update every index if a change to the row updates an index.
+      * PostgreSQL keeps each version of the tuple on disk until it is vacuumed.
+      * Each page changed here must be pushed down the binary replication link.
+    * Replication
+      * PostgreSQL does not have logical replication in core. (Coming in 10!)
+      * Existing logical replication tools (Slony, Bucardo, etc.) are somewhat fiddly to set up and manage.
+    * Replica MVCC
+      * Incoming streaming replication activity can be blocked by queries, or queries can be cancelled.
+      * Naïve users can be surprised by query cancellation messages.
+    * Upgrade
+      * PostgreSQL does not have in-place major version upgrade.
+      * You have to do some kind of process to get low-downtime upgrades.
+      * pg_upgrade, while a big improvement, is not a panacea.
+        * PostGIS, for example, is a huge pain.
+    * Buffer Pool
+      * PostgreSQL’s shared buffer management performance peaks at 8-32GB.
+        * [citation required]
+      * Larger shared_buffers than that (usually) mean diminishing returns.
+      * Retrieving things from file system cache is slower than from shared buffers.
+    * Connection Management
+      * The PostgreSQL forking model is not efficient for lots of connections, or fast connection cycling.
+      * While basic RAM statistics can be misleading, each backend does consume a notable amount of memory.
 
 ```bash
 # POSTGRES_USER=postgres
@@ -105,9 +132,15 @@ select regexp_split_to_array('abc','');
 
 ```bash
 # 转储单个库
-# -j 并发数
 pg_dump dbname > outfile
 psql dbname < infile
+
+# -j 8 并发数
+# -F d 目录格式, 并发要求使用目录
+# -t 指定表
+# -O --no-owner
+# -f backup 文件/目录名
+pg_dump -F d -f backup -j 8 db -t a -t b -O
 
 # 使用压缩
 pg_dump dbname | gzip > filename.gz
@@ -130,6 +163,7 @@ psql -f infile postgres
 -- COPY table_name [ ( column_name [, ...] ) ] FROM { 'filename' | PROGRAM 'command' | STDIN } [ [ WITH ] ( option [, ...] ) ]
 -- COPY { table_name [ ( column_name [, ...] ) ] | ( query ) } TO { 'filename' | PROGRAM 'command' | STDOUT } [ [ WITH ] ( option [, ...] ) ]
 -- 需要管理员权限
+-- 支持 text,binary,csv
 -- Windows users might need to use an E'' string and double any backslashes used in the path name.
 -- 要求文件在服务器上
 COPY phonebook (id,name, phone) FROM '/tmp/phonebook.csv' DELIMITER ',' CSV;
@@ -156,36 +190,23 @@ COPY phonebook TO '/tmp/data.csv' DELIMITER ',' CSV HEADER;
 * https://www.datadoghq.com/blog/100x-faster-postgres-performance-by-changing-1-line/
 * https://www.postgresql.org/docs/current/static/parallel-query.html
 * [Optimize and Improve PostgreSQL Performance with VACUUM, ANALYZE, and REINDEX](https://confluence.atlassian.com/kb/optimize-and-improve-postgresql-performance-with-vacuum-analyze-and-reindex-885239781.html)
-
+* [Really Big Elephants: PostgreSQL DW](https://www.slideshare.net/PGExperts/really-big-elephants-postgresql-dw-15833438)
+  * DW-datawarehouse
+    * BI/DW
+    * 分析数据库
+    * OLAP
+    * 数据挖掘
+    * 决策支持
+  * JOIN 优化
+    * 5 JOIN 类型
+    * 可进行 20+ 的表 JOIN
+  * 在任何语句中都可执行子查询
+    * 嵌套子查询
+  * Window 查询
+  * 递归查询
 * PG 的 MVCC 实现使得更新操作非常昂贵. 如果需要更新表里的每一行, 那每一行都会拷贝为一个新的版本, 旧的版本会标记为已删除.
   * 因此一般来说重写整个表会比更新来的更快
 * `DROP COLUMN` 不会做物理删除, 而是将列标记为不可见, 因此操作会非常快
-
-Heap Only Tuple
-
-http://pydanny-event-notes.readthedocs.io/en/latest/DjangoConEurope2012/10-steps-to-better-postgresql-performance.html
-
-https://www.dbrnd.com/2015/10/postgresql-fast-way-to-find-the-row-count-of-a-table/
-
-https://www.dbrnd.com/2016/12/postgresql-increase-the-speed-of-update-query-using-hot-update-heap-only-tuple-mvcc-fill-factor-vacuum-fragmentation/
-
-VACUUM 
-command will reclaim space still used by data that had been updated. In PostgreSQL, updated key-value tuples are not removed from the tables when rows are changed, so the VACUUM command should be run occasionally to do this.
-
-VACUUM can be run on its own, or with ANALYZE.
-
-VACUUM(FULL, ANALYZE, VERBOSE) [tablename]
-
-ANALYZE gathers statistics for the query planner to create the most efficient query execution paths. Per PostgreSQL documentation, accurate statistics will help the planner to choose the most appropriate query plan, and thereby improve the speed of query processing. 
-
-
-The REINDEX command rebuilds one or more indices, replacing the previous version of the index. REINDEX can be used in many scenarios, including the following (from Postgres documentation):
-
-https://wiki.postgresql.org/wiki/Using_EXPLAIN
-https://www.postgresql.org/docs/current/static/using-explain.html
-
-
-https://wiki.postgresql.org/wiki/Disk_Usage
 
 ```sql
 -- 这个操作会非常慢
@@ -209,6 +230,13 @@ ALTER TABLE orders DROP column status
 
 
 ```
+
+### Install
+* https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/postgresql
+* https://pkgs.alpinelinux.org/package/edge/testing/x86_64/postgis
+* https://hub.docker.com/_/postgres/
+  * https://github.com/docker-library/postgres/blob/1805adb0693d9602bfb19b6bf2583b311c43b749/10/alpine/Dockerfile
+
 
 ### 数据类型
 * https://www.postgresql.org/docs/10/static/datatype.html
@@ -314,6 +342,8 @@ FOR EACH ROW EXECUTE PROCEDURE my_tab_notify_insert();
   * graph: Postgres backend
 * http://bitnine.net/agensgraph/
   * 基于 PG
+* [Graphs in the Database: Rdbms In The Social Networks Age](https://www.slideshare.net/quipo/rdbms-in-the-social-networks-age)
+* [Trees In The Database - Advanced data structures](https://www.slideshare.net/quipo/trees-in-the-database-advanced-data-structures)
 
 
 ```
@@ -348,6 +378,31 @@ CREATE EXTENSION IF NOT EXISTS file_fdw;
 
 ### 10
 * [New in postgres 10](https://wiki.postgresql.org/wiki/New_in_postgres_10)
+* [PostgreSQL 10 New Features With Examples](http://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/lcc/pdf/PostgreSQL_10_New_Features_en_20170522-1.pdf)
+
+* https://blog.2ndquadrant.com/postgresql-10-identity-columns/
+* The identity property is not inherited. For a serial column, the default expression is inherited but the sequence ownership is not (similar to the LIKE case).
+```sql
+-- 之前
+-- serial 不会被语句重现
+-- 会有序列归属问题
+CREATE TABLE test_old (
+    id serial PRIMARY KEY,
+    payload text
+);
+
+INSERT INTO test_old (payload) VALUES ('a'), ('b'), ('c') RETURNING *;
+
+-- 之后
+-- 符合 SQL 标准, 兼容 DB2, Oracle
+-- 语句重现
+CREATE TABLE test_new (
+    id int GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+    payload text
+);
+
+INSERT INTO test_new (payload) VALUES ('a'), ('b'), ('c') RETURNING *;
+```
 
 ### 9.x
 
@@ -358,6 +413,142 @@ CREATE EXTENSION IF NOT EXISTS file_fdw;
 * 没有区别, 存储方式是完全一样的, 只是其他的类型会检测长度
 * 建议均使用 text, 在应用层做限制
 
+### int vs bigint
+* 在 64 位的服务器上, 两者占用的空间相同
+* 因此建议使用 bigint
+
+### 数组索引
+GIN 索引是反向索引(inverted indexes), 适用于包含多个值的情况.
+
+* 支持的操作符
+<@
+@>
+=
+&&
+
+
+### 数组外键
+* 不支持
+
+### ERROR:  cannot alter type of a column used by a view or rule
+必须要先 drop view 再操作, 目前没有比较好的操作方式, 但操作都可以在一个事务中完成
+
+有些修改可以通过直接修改 pg_attribute 来达到目的, 但是非常不建议.
+
+### 时间戳上的毫秒处理
+目前没有比较好的处理方式
+
+```sql
+-- 将一个毫秒的 ts 转为 timestamp 类型
+ALTER TABLE  my_info
+  ALTER COLUMN tstmp TYPE TIMESTAMP USING to_timestamp(tstmp / 1000) + ((tstmp % 1000) || ' milliseconds') :: INTERVAL;
+```
+### 查询语句的最大大小
+* 目前为 1G
+* [Is there a maximum length constraint for a postgres query?](https://dba.stackexchange.com/q/131399)
+* [src/common/psprintf.c#L28](https://github.com/postgres/postgres/blob/REL_10_1/src/common/psprintf.c#L28)
+
+```c
+#define MaxAllocSize   ((Size) 0x3fffffff) /* 1 gigabyte - 1 */
+```
+
+### IN vs any
+* https://stackoverflow.com/a/28995514/1870054
+* IN
+  * Bitmap 扫描
+  * 数据量大时, 执行时间更慢计划时间更久
+* ANY
+  * 会使用临时表做 JOIN
+  * 数据量大时, 执行时间更久计划时间更快
+
+```sql
+CREATE TABLE test (
+  id  BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  val TEXT
+);
+
+-- 插入测试数据
+DO
+$$
+BEGIN
+  FOR i IN 1..100000 LOOP
+    INSERT INTO test (val) VALUES ('val#' || i);
+  END LOOP;
+END
+$$;
+
+EXPLAIN SELECT *
+        FROM test
+        WHERE id IN (1, 2, 3);
+
+EXPLAIN SELECT *
+        FROM test
+        WHERE id = ANY (VALUES (1), (2), (3));
+```
+
+```
+# IN
+Bitmap Heap Scan on test  (cost=12.86..19.97 rows=3 width=40)
+  Recheck Cond: (id = ANY ('{1,2,3}'::bigint[]))
+  ->  Bitmap Index Scan on test_pkey  (cost=0.00..12.86 rows=3 width=0)
+        Index Cond: (id = ANY ('{1,2,3}'::bigint[]))
+
+# ANY
+Nested Loop  (cost=0.32..25.00 rows=3 width=40)
+  ->  HashAggregate  (cost=0.05..0.08 rows=3 width=4)
+        Group Key: ""*VALUES*"".column1
+        ->  Values Scan on ""*VALUES*""  (cost=0.00..0.04 rows=3 width=4)
+  ->  Index Scan using test_pkey on test  (cost=0.28..8.29 rows=1 width=40)
+        Index Cond: (id = ""*VALUES*"".column1)
+```
+
+```SQL
+-- 测试 IN
+DO
+$$
+DECLARE
+  x   TEXT = '';
+  r   REFCURSOR;
+  rec RECORD;
+BEGIN
+  x = '0';
+  FOR i IN 1..1000 LOOP
+    x = x || ',' || i;
+  END LOOP;
+  OPEN r FOR EXECUTE 'EXPLAIN ANALYSE SELECT *
+        FROM test
+        WHERE id IN (' || x || ')';
+
+  FOR i IN 1..6 LOOP
+    FETCH r INTO rec;
+    RAISE NOTICE 'ROW %', rec;
+  END LOOP;
+END
+$$;
+
+-- 测试 ANY
+DO
+$$
+DECLARE
+  x   TEXT;
+  r   REFCURSOR;
+  rec RECORD;
+BEGIN
+  x = '(0)';
+  FOR i IN 1..1000 LOOP
+    x = x || ',(' || i || ')';
+  END LOOP;
+  OPEN r FOR EXECUTE 'EXPLAIN ANALYSE SELECT *
+        FROM test
+        WHERE id = any (VALUES ' || x || ')';
+
+  FOR i IN 1..10 LOOP
+    FETCH r INTO rec;
+    RAISE NOTICE 'ROW %', rec;
+  END LOOP;
+END
+$$;
+```
 
 ### psql
 

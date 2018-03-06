@@ -32,7 +32,8 @@
     * 默认情况下, RethinkDB 会返回还没提交到磁盘的并发写请求, 可通过 read_mode 选项控制隔离级别.
 * ReQL
   * [SQL to ReQL](https://rethinkdb.com/docs/sql-to-reql/javascript/)
-
+* 问题
+  * [#6618](https://github.com/rethinkdb/rethinkdb/issues/6618) Is rethinkdb dead ?
 
 ```bash
 # 启动两个示例,组成一个集群,数据会分别存储到 data-a 和 data-b

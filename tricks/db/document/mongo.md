@@ -20,6 +20,13 @@
 
 
 ```bash
+# 在前台启动
+# 数据存储到 ~/data/mgo
+# Ctrl-C 停止
+docker run --rm -it -p 27017:27017 --name my-mongo -v ~/data/mgo:/data/db mongo
+# 另外一个终端连接到服务端
+mongo
+
 # https://docs.mongodb.com/manual/reference/program/mongodump/
 # 导出一个库
 mongodump -v --db test  --host myhost --port 27017 --out mg-`date +%Y%m%d`
@@ -199,6 +206,9 @@ db.adminCommand({setParameter: 1, disableJavaScriptJIT: true});
 
 
 ### 启动
+```bash
+mongod --config ./mongo.conf --fork
+```
 
 __mongod.conf__
 ```yaml
@@ -211,7 +221,4 @@ storage:
   dbPath: . # 数据存储于当前目录
 net:
   bindIp: 127.0.0.1
-```
-```bash
-mongod --config ./mongo.conf --fork
 ```
