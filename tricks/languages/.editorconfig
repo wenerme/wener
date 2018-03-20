@@ -1,0 +1,7 @@
+[*.g4]
+indent_style = space
+indent_size = 2
+
+[*.pegjs]
+indent_style = space
+indent_size = 2

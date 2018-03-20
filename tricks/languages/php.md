@@ -7,7 +7,18 @@
 * [PHP-FIG](http://www.php-fig.org/)
   * [PSRs](http://www.php-fig.org/psr/)
 * https://github.com/ziadoz/awesome-php
-* APC
+* 缓存
+  * APC
+    * 支持 opcode 和 数据缓存
+    * System Cache Entries
+    * Per-Directory Entries
+    * User Cache Entries
+  * APCu
+    * 提供 APC 中的数据缓存功能
+  * XCache
+  * OPCache
+    * 5.5 集成
+    * 替代 APC 的 opcode 缓存, XCache
 
 ```bash
 # CentOS
@@ -151,6 +162,44 @@ composer validate
 ```php
 <?php
 require __DIR__ . '/vendor/autoload.php';
+```
+
+### satis
+
+```bash
+# 可以映射主机上的主目录以利用缓存
+# -v $COMPOSER_HOME:/composer
+docker run --rm -it -v $PWD/build:/build --entrypoint /bin/sh composer/satis
+
+# 当构建完成后直接上传为静态站点即可
+rsync -avz  build/ my-server:/var/www/html
+```
+
+__satis.json__
+```json
+{
+    "name": "MyRepo",
+    "homepage": "https://composer.example.org",
+    "repositories": [{
+            "type": "vcs",
+            "url": "https://example.org/code/api-php.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://example.org/code/other-php.git"
+        }
+    ],
+    "require-all": true
+}
+```
+
+```bash
+cd /build
+# 创建 satis.json
+php /satis/bin/satis build satis.json .
+# 或者 docker 构建
+docker run --rm -it -v $PWD/build:/build composer/satis
+rsync -avz --delete ./build/ root@my-host:/mysite
 ```
 
 ## ThinkPHP5
