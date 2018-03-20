@@ -345,6 +345,37 @@ __示例__
 }
 ```
 
+## PAST
+* https://github.com/paragonie/past
+* Platform-Agnostic Security Tokens
+* 目的
+  * JWT 的 alg 不太安全, 因为有一些加密算法安全性本身不高, 甚至可以使用 none
+
+
+```
+v2.local.wvbu1sWg-Td2nDxn7vyAVAEzTGqtzn_zfzaiGjAkQzfa5-l2PaAK1QA0IZjrWdKP8Xqi7DHHlu6F8E5BXoarTSfmrgkMEOeiasRhuZ3GWDUtmD2K027gjgalkjMZJE7lNfkOSdKr65Fo0_8.UGFyYWdvbiBJbml0aWF0aXZlIEVudGVycHJpc2Vz
+```
+
+* 版本: v2
+* 目的: local
+* 内容
+```
+c2f6eed6c5a0f937769c3c67eefc805401334c6aadce7ff37f36a21a30244337
+dae7e9763da00ad500342198eb59d28ff17aa2ec31c796ee85f04e415e86ab4d
+27e6ae090c10e7a26ac461b99dc658352d983d8ad36ee08e06a5923319244ee5
+35f90e49d2abeb9168d3ff
+```
+* Nonce: c2f6eed6c5a0f937769c3c67eefc805401334c6aadce7ff3
+* Authentication tag: 3319244ee535f90e49d2abeb9168d3ff
+* 解码后的内容
+```json
+{
+  "data": "this is a signed message",
+  "exp": "2039-01-01T00:00:00"
+}
+```
+* Key: `707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f`
+
 ## GitHub
 * https://developer.github.com/apps/building-oauth-apps/
 
@@ -443,7 +474,6 @@ X-GitHub-Request-Id: C390:1E82:97CD8EB:B8B4F1D:5A4B13D1
 * 链接
   * 实际存储用户
   * 提供
-
       * 用户导入
     * 社交
     * 企业

@@ -12,46 +12,59 @@
     * [Comparison of IPFS and BitTorrent for Archives](https://github.com/ipfs/notes/issues/208)
     * [How does IPFS compare with X?](https://discuss.ipfs.io/t/how-does-ipfs-compare-with-x/465)
 * 端口
+  * 4001
+    * Swarm TCP
+  * 4002
+    * Swarm uTP
+  * 5001
+    * API
   * `:5001/webui`
     * Web 管理端
-    * API
+  * 8080
+    * Gateway
+  * 8081
+    * Swarm Websockets
 
 ```bash
-# Docker
-docker run -it --rm \
-   -v $HOME/data/ipfs/export:/export -v $HOME/data/ipfs/data:/data/ipfs \
-   -p 8080:8080 -p 4001:4001 -p 5001:5001 \
-   --name ipfs_host ipfs/go-ipfs:latest
+# 容器环境中使用 ipfs
+docker run --rm -it -v $PWD:/host --entrypoint sh --workdir /host ipfs/go-ipfs
 
-# 在 Mac 下可能数据目录会映射失败, 因为 vb 的文件映射
+# 启动服务
+# -e IPFS_LOGGING=debug 显示调试日志
 docker run -it --rm \
-   -v $HOME/data/ipfs/export:/export \
+   -v $PWD/repo:/data/ipfs \
    -p 8080:8080 -p 4001:4001 -p 5001:5001 \
-   --name ipfs_host ipfs/go-ipfs:latest
+   --name ipfs_host ipfs/go-ipfs
 
-hash=`echo "I <3 IPFS @$(date +'%Y-%m-%d %H:%M:%S')" | ipfs add -q | tee /dev/fd/2`
-curl "https://ipfs.io/ipfs/$hash"
 
 
 # 生成配置文件
 # 默认位于 $HOME/.ipfs 可通过 IPFS_PATH 更改
-# export IPFS_PATH=$PWD/repo
+export IPFS_PATH=$PWD/repo
+# 也可以使用 --config 或 -c 指定
 ipfs init
 
-# 验证初始化成功
-ipfs -c repo cat /ipfs/QmVLDAhCY3X9P2uRudKAryuQFPM5zqA3Yij1dY8FpGbL7T/readme
+# 获取配置
+ipfs config -c $PWD/repo --json Addresses.API
+# 修改配置
+# 默认只监听 127.0.0.1
+ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001
 
 # 启动服务端
-ipfs -c repo daemon
+ipfs daemon
+
+
+# 可使用 --api 指定远程接口
+# 适用于
+ipfs --api /ip4/127.0.0.1/tcp/5001 swarm peers
 
 # 觉得操作麻烦可以添加别名
-alias ipfs='ipfs -c repo'
+alias ipfs="ipfs -c $IPFS_PATH"
 ```
 
 ## ipfs --help
 
 ```
-$ ipfs --help
 USAGE
   ipfs - Global p2p merkle-dag filesystem.
 
@@ -111,8 +124,9 @@ SUBCOMMANDS
 
   Use 'ipfs <command> --help' to learn more about each command.
 
-  ipfs uses a repository in the local file system. By default, the repo is located
-  at ~/.ipfs. To change the repo location, set the $IPFS_PATH environment variable:
+  ipfs uses a repository in the local file system. By default, the repo is
+  located at ~/.ipfs. To change the repo location, set the $IPFS_PATH
+  environment variable:
 
     export IPFS_PATH=/path/to/ipfsrepo
 
