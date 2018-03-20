@@ -17,6 +17,9 @@
     * GraphQL server with a focus on ease of use
     * 强类型, 基于反射
     * 直接基于 schema 解析
+  * [vektah/gqlgen](https://github.com/vektah/gqlgen)
+    * go generate based graphql server library
+    * [HN](https://news.ycombinator.com/item?id=16352611)
   * [graphql-go/graphql](https://github.com/graphql-go/graphql)
     * An implementation of GraphQL for Go / Golang
     * 弱类型, Resolver 返回 interface{}
@@ -34,6 +37,8 @@
     * A catalog of different packages and syntaxes to generate a GraphQL-JS schema
   * [graphql/graphiql](https://github.com/graphql/graphiql)
     * An in-browser IDE for exploring GraphQL
+  * [google/rejoiner](https://github.com/google/rejoiner)
+    * [HN](https://news.ycombinator.com/item?id=16193250)
 * 接口参考
   * Facebook [Graph API](https://developers.facebook.com/docs/graph-api/)
   * GitHub[GraphQL API v4](https://developer.github.com/v4/)
@@ -60,6 +65,7 @@
   * [Authorization in GraphQL](https://dev-blog.apollodata.com/auth-in-graphql-part-2-c6441bcc4302)
     * 鉴权
     * 判断用户是否进行相关操作
+  * [Reusable GraphQL schema directives](https://dev-blog.apollodata.com/131fb3a177d1)
 * Relay
   * [facebook/relay](https://facebook.github.io/relay/)
   * [Learn Relay](https://www.learnrelay.org)
@@ -76,7 +82,6 @@
 
 ## Apollo
 * https://github.com/apollographql
-
 
 ## FAQ
 ### N + 1
