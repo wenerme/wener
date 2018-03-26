@@ -3,6 +3,13 @@
 
 ## Tips
 
+* JSON
+  * [json-iterator/go](https://github.com/json-iterator/go) - A high-performance 100% compatible drop-in replacement of "encoding/json" 
+  * [esnme/ultrajson](https://github.com/esnme/ultrajson) - Ultra fast JSON decoder and encoder written in C with Python bindings 
+  * [ugorji/go](https://github.com/ugorji/go) - idiomatic codec and rpc lib for msgpack, cbor, json, etc.
+  * [pquerna/ffjson](https://github.com/pquerna/ffjson) - faster JSON serialization for Go
+  * [mailru/easyjson](https://github.com/mailru/easyjson) - Fast JSON serializer for golang.
+
 ## Pro tip
 * Stop taking everything the pros say as fact. Test it yourself!
 
