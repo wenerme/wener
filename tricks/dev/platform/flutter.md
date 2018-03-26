@@ -15,11 +15,112 @@
 * 支持 Android 4.1+, iOS 8+
 * 目前最小的 APK 大约 7M, iOS 大约 20M
 * NOTES
-  * Dart 暂不支持 GRPC
+  * 开发环境推荐使用 Android Studio
+  * gRPC 官方已经开始支持 Dart
+    * [grpc/grpc-dart](https://github.com/grpc/grpc-dart)
     * [#22655](https://github.com/dart-lang/sdk/issues/22655)
     * [dart-lang/grpc-dart](https://github.com/dart-lang/grpc-dart)
-* https://github.com/hourliert/graphql_client
+* [hourliert/graphql_client](https://github.com/hourliert/graphql_client) - GraphQL Client
+* 参考
+  * [在中国使用 Flutter](https://github.com/flutter/flutter/wiki/Using-Flutter-in-China)
+  * [HTML/CSS 对应 Flutter](https://flutter.io/web-analogs)
+  * [React Native 对应 Flutter](https://flutter.io/flutter-for-react-native)
+  * [Android 对应 Flutter](https://flutter.io/flutter-for-android)
+
 
 ```bash
+git clone -b beta https://github.com/flutter/flutter.git
+export PATH=`pwd`/flutter/bin:$PATH
+
+# 中国可设置使用
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+flutter doctor
+
+# 构建 APK
 flutter build apk
+# 构建 iOS
+flutter build ios
+# 安装到链接的设备上
+flutter install
+```
+
+
+## FAQ
+
+### 滚动监听
+https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html
+
+如果监听 ScrollNotification 来进行布局调整会导致延迟, 因为接收到通知时已经渲染完毕.
+从 ScrollController 监听 ScrollPosition 来做这样的事, 或者直接监听 ScrollController 再获取 position 即可
+
+https://flutter.io/animations/hero-animations/
+
+
+### dart2
+* [Trying the preview of Dart 2 in Flutter](https://github.com/flutter/flutter/wiki/Trying-the-preview-of-Dart-2-in-Flutter)
+
+### 图片和资源
+https://flutter.io/assets-and-images/
+
+### 自定义字体
+https://flutter.io/custom-fonts
+
+### 嵌入 Web
+* [dart-flitter/flutter_webview_plugin](https://github.com/dart-flitter/flutter_webview_plugin)
+  * Plugin that allow Flutter to communicate with a native WebView.
+* 要求整页为 Web
+
+
+## flutter help
+```
+Manage your Flutter app development.
+
+Common commands:
+
+  flutter create <output directory>
+    Create a new Flutter project in the specified directory.
+
+  flutter run [options]
+    Run your Flutter application on an attached device or in an emulator.
+
+Usage: flutter <command> [arguments]
+
+Global options:
+-h, --help            Print this usage information.
+-v, --verbose         Noisy logging, including all shell commands executed.
+-d, --device-id       Target device id or name (prefixes allowed).
+    --version         Reports the version of this tool.
+    --bug-report      Captures a bug report file to submit to the Flutter team (contains local paths, device
+                      identifiers, and log snippets).
+
+    --flutter-root    The root directory of the Flutter repository (uses $FLUTTER_ROOT if set).
+
+Available commands:
+  analyze          Analyze the project's Dart code.
+  build            Flutter build commands.
+  channel          List or switch flutter channels.
+  clean            Delete the build/ directory.
+  config           Configure Flutter settings.
+  create           Create a new Flutter project.
+  devices          List all connected devices.
+  doctor           Show information about the installed tooling.
+  drive            Runs Flutter Driver tests for the current project.
+  format           Format one or more dart files.
+  fuchsia_reload   Hot reload on Fuchsia.
+  help             Display help information for flutter.
+  install          Install a Flutter app on an attached device.
+  logs             Show log output for running Flutter apps.
+  packages         Commands for managing Flutter packages.
+  precache         Populates the Flutter tool's cache of binary artifacts.
+  run              Run your Flutter app on an attached device.
+  screenshot       Take a screenshot from a connected device.
+  stop             Stop your Flutter app on an attached device.
+  test             Run Flutter unit tests for the current project.
+  trace            Start and stop tracing for a running Flutter app.
+  upgrade          Upgrade your copy of Flutter.
+
+Run "flutter help <command>" for more information about a command.
+Run "flutter help -v" for verbose help output, including less commonly used options.
 ```
