@@ -11,7 +11,7 @@ grammar BBAsm;
 WS  :  [ \t\u000C]+ -> skip
     ;
 
-EOL : EOF | '\r\n' | '\r' | '\n' ;
+EOL : '\r\n' | '\r' | '\n' ;
 
 bbasm: asm+ EOF ;
 asm
@@ -39,7 +39,7 @@ instruction
   | LD    DataType operand ',' operand                    #LoadInstruction     // ld int r1, 1067320848
   | CMP   CompareOperator operand                         #CompareInstruction  // jpc a some-where
   | BLOCK intValue intValue                               #BlockInstruction    // .block 1 10
-  | DATA  identifier DataType? dataValue (',' dataValue)*  #DataInstruction
+  | DATA  identifier DataType? dataValue (',' dataValue)* #DataInstruction
   ;
 
 operand

@@ -210,3 +210,7 @@ ANTLR Parser Generator  Version 4.7.1
 * [Antlr4 visitor vs listener pattern](http://saumitra.me/blog/antlr4-visitor-vs-listener-pattern/)
   * listener pattern is that its all automatic and even if you don’t write any parse tree walker, then also it will figure out and trigger the enter and exit method for each rule. This is a huge benefit for translation type of usecases.
 * [Fight "the Listener vs the Visitor" at antlr4 stadium](http://developers-club.com/posts/259691/)
+
+### reportAttemptingFullContext
+* [DiagnosticErrorListener#reportAttemptingFullContext](http://www.antlr.org/api/Java/org/antlr/v4/runtime/DiagnosticErrorListener.html#reportAttemptingFullContext-org.antlr.v4.runtime.Parser-org.antlr.v4.runtime.dfa.DFA-int-int-java.util.BitSet-org.antlr.v4.runtime.atn.ATNConfigSet-)
+* 不影响解析
