@@ -20,6 +20,7 @@
 * [PostCSS.parts](https://www.postcss.parts/)
   * A searchable catalog of PostCSS plugins
 * https://css-tricks.com/snippets/
+* [Loaders Loading!](https://codepen.io/collection/jifIK)
 
 
 * CSS 参考手册
@@ -164,6 +165,7 @@
   text-overflow: ellipsis;
 }
 ```
+
 
 ### 避免点击高亮
 * [Remove Gray Highlight When Tapping Links in Mobile Safari](https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/)

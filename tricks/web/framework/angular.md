@@ -122,12 +122,18 @@ with Angular 2+ or AngularJS 1 and Onsen UI Framework.
     * 该模块非常大 (~60M), 因为会下载整个仓库
   * `<i class="material-icons">face</i>`
 * 当分模块时, 可能每个模块都要导不同的 md 组件, 官方建议用一个自己的 Md 模块, 导入需要的, 然后导入该模块即可
+* 已知问题
+  * 不支持滚动事件
+    * [#13048](https://github.com/angular/angular/issues/13048)
+  * 不支持 Native
+    * [#3386](https://github.com/angular/material2/issues/3386)
+  * Data Table
+    * [#581 md-data-table](https://github.com/angular/material2/issues/581)
+    * [#5885 sticky headers](https://github.com/angular/material2/issues/5885)
+* _elevation
+  * [_elevation.scss](https://github.com/angular/material2/blob/5.1.x/src/lib/core/style/_elevation.scss)
+  * [Adding Box Shadow (md-elevation/z-depth) to Angular Material 2 Components](https://medium.com/@ladyleet/adding-box-shadow-z-depth-to-angular-material-2-components-6bd0de303dcb)
 
-* 不支持 Native
-  * [#3386](https://github.com/angular/material2/issues/3386)
-* Data Table
-  * [#581 md-data-table](https://github.com/angular/material2/issues/581)
-  * [#5885 sticky headers](https://github.com/angular/material2/issues/5885)
 
 ```bash
 yarn add @angular/material @angular/cdk
@@ -236,6 +242,20 @@ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inme
 * [CHANGELOG](https://github.com/angular/angular/blob/master/CHANGELOG.md)
 * [Angular Release Schedule](https://github.com/angular/angular/blob/master/docs/RELEASE_SCHEDULE.md)
 
+### 6.0
+* Project Ivy: a faster and smaller renderer
+
+### 5.2
+* 路由
+  * paramsInheritanceStrategy
+    * always: it makes child routes unconditionally inherit params from parent routes;
+    * emptyOnly: the default, it only inherits parent params for path-less or component-less routes (the former behavior).
+* 编译器
+  * $any()
+    * 类似于 ts 的 as any
+    * 在模板中使用, 避免类型检测
+    * 主要在开启了 fullTemplateTypeCheck 的特殊时候使用
+
 ### 5.0
 * 较大的变动
   * https://github.com/angular/angular/blob/master/CHANGELOG.md#500-beta5-2017-08-29
@@ -247,6 +267,10 @@ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inme
   * 支持懒加载 Angular 模块到 AngularJS 中
 * 编译器
   * add representation of placeholders to xliff & xmb ([b3085e9](https://github.com/angular/angular/commit/b3085e9))
+  * fullTemplateTypeCheck
+    * 模板强类型检测
+  * preserveWhitespaces
+    * 移除模板中的空白
 * 表单
   * add options arg to abstract controls
     * FormControls, FormGroups, FormArrays 添加第二个可选参数
