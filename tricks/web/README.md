@@ -2,7 +2,12 @@
 
 * [Firefox Hardware Report](https://metrics.mozilla.com/firefox-hardware-report/)
 * [Resilient Web Design](https://resilientwebdesign.com/)
+* [Frontend Masters](https://frontendmasters.com/)
+  * https://www.gitbook.com/@frontendmasters
+  * https://github.com/FrontendMasters
+  * Black-belt front-end web development training. Video courses from LIVE online/in-person workshops.
 
+ 
 ## Metric
 * Material [Device Metric](https://material.io/devices/)
 * [Media Queries for Standard Devices](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/)
