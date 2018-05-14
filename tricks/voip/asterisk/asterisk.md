@@ -21,6 +21,39 @@ https://store.docker.com/community/images/luar/asterisk
 https://wiki.alpinelinux.org/wiki/FreePBX
 
 
+## Ports/Firewall
+* [Asterisk firewall rules](https://www.voip-info.org/asterisk-firewall-rules/)
+* [Ports used on your PBX](https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX)
+
+```bash
+ # SIP on UDP port 5060. Other SIP servers may need TCP port 5060 as well
+ iptables -A INPUT -p udp -m udp --dport 5060 -j ACCEPT
+
+ # IAX2- the IAX protocol
+ iptables -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
+
+ # IAX - most have switched to IAX v2, or ought to
+ iptables -A INPUT -p udp -m udp --dport 5036 -j ACCEPT
+
+ # RTP - the media stream
+ # (related to the port range in /etc/asterisk/rtp.conf) 
+ iptables -A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
+ 
+
+ # MGCP - if you use media gateway control protocol in your configuration
+ iptables -A INPUT -p udp -m udp --dport 2727 -j ACCEPT
+```
+
+PBX SIP and IAX Communication
+
+端口 | 协议 | 目的 | 备注
+----|-----|----|----
+5060 | UDP | pjsip | pjsip 标准端口,不建议暴露到不信任的网络
+5061 | UDP | pjsip | pjsip 标准端口,不建议暴露到不信任的网络
+5160 | UDP | pjsip | pjsip 标准端口,不建议暴露到不信任的网络
+5161 | UDP | pjsip | pjsip 标准端口,不建议暴露到不信任的网络
+10000-20000 | UDP | RTP for SIP | 可对外暴露, 实际 SIP 通话端口
+4569 | UDP | IAX | IAX 协议和线路
 
 
 ## Certified Asterisk
