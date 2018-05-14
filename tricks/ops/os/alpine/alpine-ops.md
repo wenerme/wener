@@ -45,7 +45,7 @@ docker run --rm -it wener/base:man
 docker run --rm -it -v $PWD/man:/usr/share/man wener/base:man
 ```
 
-## 基础运维工具
+## 基础运维
 ```bash
 # 基础工具
 apk add nano file grep htop rsync curl openssl
@@ -53,6 +53,17 @@ apk add nano file grep htop rsync curl openssl
 # 简化链接
 apk add tmux mosh
 
+# sshrc - https://github.com/Russell91/sshrc
+# 依赖包
+apk add vim tar coreutils openssl
+
+# 证书
+# /etc/ssl/certs/ca-certificates.crt
+```
+
+## 系统运维
+
+```bash
 # 常用工具
 apk add util-linux
 # 扩展工具
@@ -62,12 +73,9 @@ apk add util-linux-bash-completion
 
 # 信息查询工具
 apk add lsof
-
-# 证书
-# /etc/ssl/certs/ca-certificates.crt
 ```
 
-## 硬件运维工具
+## 硬件运维
 
 ```bash
 apk add pciutils
@@ -98,47 +106,22 @@ nano /etc/hosts
 nano /etc/network/interfaces
 ```
 
-## dns
-很多时候需要 dns 缓存, 否则会非常慢
-
-* Archlinux wiki
-  * [dnsmasq](https://wiki.archlinux.org/index.php/dnsmasq)
-    * [简体中文](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-* Debian HowTo [dnsmasq](https://wiki.debian.org/HowTo/dnsmasq)
+## 本地仓库
 
 ```bash
-# 速度测试
-time ping -c 1 baidu.com
-# 查看当前使用的 dns
-cat /etc/resolv.conf
-# 安装
-apk add dnsmasq
+ARCH=$(apk print --print-arch)
+REPO=$PWD/repo
+mkdir -p $REPO/$ARCH
+apk fetch -vRo $REPO/$ARCH nano
+# 可以指定仓库
+apk fetch -vRo $REPO/$ARCH -X http://mirrors.aliyun.com/alpine/edge/main --no-cache linux-firmware-brcm
 
+# 创建索引
+# 这里的 APKINDEX 是未签名的
+apk index -o $REPO/$ARCH/APKINDEX.tar.gz $REPO/$ARCH/*.apk
+apk -X $REPO update --allow-untrust
+apk -X $REPO search --allow-untrust nano
 
-# 配置
-# 如果不需要其他服务访问, 可以使用 127.0.0.1, docker 中也会无法访问
-# echo 'listen-address=127.0.0.1' >> /etc/dnsmasq.conf
-echo 'resolv-file=/etc/resolv.dnsmasq.conf' >> /etc/dnsmasq.d/local.conf
-# 添加 dns
-echo 'nameserver 223.5.5.5' >>  /etc/resolv.dnsmasq.conf
-echo 'nameserver 114.114.114.114' >>  /etc/resolv.dnsmasq.conf
-# 这里配置 127.0.0.1, docker 不会使用, 建议配置 172.17.0.1 或者实际静态 ip
-echo 'nameserver 127.0.0.1' > /etc/resolv.conf
-
-# 测试配置
-dnsmasq --test
-
-# 启动
-rc-service dnsmasq start
-rc-update add dnsmasq
-
-# 日志调试
-# 还可以开启 log-dhcp
-echo 'log-queries' > /etc/dnsmasq.d/log.conf
-# 服务重启
-rc-service dnsmasq restart
-# 查看消息
-tail -f /var/log/message
 ```
 
 ## 容器
@@ -152,18 +135,27 @@ rc-update add docker
 
 ## 磁盘扩展
 
+
 ```bash
 # 扩展分区
 # 假设分区结构为: boot,swap,root,空闲
 # 删除第三个分区, 再创建第三个分区, 确保起点位置不变
-fdisk /dev/sda
+# F 可以看到空余空间
+# 手动分区
+# fdisk /dev/sda
+# 或直接分区
+echo -e 'd\n\nn\n\n\n\n\n\np\nw\n' | fdisk /dev/sda
 
 # 重启
+# 不重启应该也是可以的
 reboot
 
 # 扩展文件系统
 apk add e2fsprogs-extra
 resize2fs /dev/sda3
+
+# 检查结果
+df -h /
 
 # parted 也可以
 parted /dev/sdb resize 1 1 200M
@@ -193,7 +185,7 @@ udevadm trigger
 # 会添加 /lib/udev/rules.d/80-net-name-slot.rules
 # 需要参数 net.ifnames=0 来关闭
 # 大多数时候不需要
-apk add eudev-netifnames
+# apk add eudev-netifnames
 ```
 
 ## zfs
@@ -265,9 +257,16 @@ zpool status
 zpool status -x
 
 # 将 scrub 作为周期性任务
+# 一般一两周一次, 至少一月一次
 echo '#!/bin/sh -
 zpool scrub main
-' > /etc/periodic/daily/zfs-scrub
+' > /etc/periodic/weekly/zfs-scrub
+chmod +x /etc/periodic/weekly/zfs-scrub
+
+# 测试 crond
+# busybox 的 run-parts 功能较少
+apk add run-parts
+run-parts /etc/periodic/weekly -v --report
 ```
 
 ### uninstall zfs
@@ -387,154 +386,12 @@ btrfs rescue zero-log /dev/sde
 mount -a
 ```
 
-## bonding
-* Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
-
-```bash
-# /etc/network/if-post-down.d/bonding
-# /etc/network/if-pre-up.d/bonding
-# /etc/network/if-up.d/bonding
-apk add bonding
-
-# 查看模式
-cat /sys/class/net/bond0/bonding/mode
-# 查看状态
-cat /proc/net/bonding/bond0
-
-ethtool eth0
-```
-
-```
-auto bond0
-iface bond0 inet static
-	address 192.168.0.2
-	netmask 255.255.255.0
-	gateway 192.168.0.1
-	# specify the ethernet interfaces that should be bonded
-	bond-slaves eth0 eth1 eth2 eth3
-```
-
-__tree /sys/class/net/bond0__
-
-```
-/sys/class/net/bond0
-├── addr_assign_type
-├── addr_len
-├── address
-├── bonding
-│   ├── active_slave
-│   ├── ad_actor_key
-│   ├── ad_actor_sys_prio
-│   ├── ad_actor_system
-│   ├── ad_aggregator
-│   ├── ad_num_ports
-│   ├── ad_partner_key
-│   ├── ad_partner_mac
-│   ├── ad_select
-│   ├── ad_user_port_key
-│   ├── all_slaves_active
-│   ├── arp_all_targets
-│   ├── arp_interval
-│   ├── arp_ip_target
-│   ├── arp_validate
-│   ├── downdelay
-│   ├── fail_over_mac
-│   ├── lacp_rate
-│   ├── lp_interval
-│   ├── mii_status
-│   ├── miimon
-│   ├── min_links
-│   ├── mode
-│   ├── num_grat_arp
-│   ├── num_unsol_na
-│   ├── packets_per_slave
-│   ├── primary
-│   ├── primary_reselect
-│   ├── queue_id
-│   ├── resend_igmp
-│   ├── slaves
-│   ├── tlb_dynamic_lb
-│   ├── updelay
-│   ├── use_carrier
-│   └── xmit_hash_policy
-├── broadcast
-├── carrier
-├── carrier_changes
-├── dev_id
-├── dev_port
-├── dormant
-├── duplex
-├── flags
-├── gro_flush_timeout
-├── ifalias
-├── ifindex
-├── iflink
-├── link_mode
-├── lower_eth1 -> ../../../pci0000:00/0000:00:1c.4/0000:02:00.1/net/eth1
-├── lower_eth2 -> ../../../pci0000:00/0000:00:1c.4/0000:02:00.2/net/eth2
-├── lower_eth3 -> ../../../pci0000:00/0000:00:1c.4/0000:02:00.3/net/eth3
-├── mtu
-├── name_assign_type
-├── netdev_group
-├── operstate
-├── phys_port_id
-├── phys_port_name
-├── phys_switch_id
-├── power
-│   ├── autosuspend_delay_ms
-│   ├── control
-│   ├── runtime_active_time
-│   ├── runtime_status
-│   └── runtime_suspended_time
-├── proto_down
-├── queues
-│   ├── rx-0
-│   │   ├── rps_cpus
-│   │   └── rps_flow_cnt
-│   ├── tx-0
-│   │   ├── byte_queue_limits
-│   │   │   ├── hold_time
-│   │   │   ├── inflight
-│   │   │   ├── limit
-│   │   │   ├── limit_max
-│   │   │   └── limit_min
-│   │   ├── tx_maxrate
-│   │   ├── tx_timeout
-│   │   └── xps_cpus
-├── speed
-├── statistics
-│   ├── collisions
-│   ├── multicast
-│   ├── rx_bytes
-│   ├── rx_compressed
-│   ├── rx_crc_errors
-│   ├── rx_dropped
-│   ├── rx_errors
-│   ├── rx_fifo_errors
-│   ├── rx_frame_errors
-│   ├── rx_length_errors
-│   ├── rx_missed_errors
-│   ├── rx_nohandler
-│   ├── rx_over_errors
-│   ├── rx_packets
-│   ├── tx_aborted_errors
-│   ├── tx_bytes
-│   ├── tx_carrier_errors
-│   ├── tx_compressed
-│   ├── tx_dropped
-│   ├── tx_errors
-│   ├── tx_fifo_errors
-│   ├── tx_heartbeat_errors
-│   ├── tx_packets
-│   └── tx_window_errors
-├── subsystem -> ../../../../class/net
-├── tx_queue_len
-├── type
-└── uevent
-```
-
 ## networking
 
+* auto
+  * try to ip link set <dev> up  at boot.  Best choice for anything PCIe/SoC.
+* allow-hotplug
+  * for kernel+drivers+udev to detect the device, then ip link set <dev> up it.  The only thing that can deal with annoying USB, SDIO, etc.
 
 ```bash
 apk add ethtool
@@ -559,37 +416,32 @@ ifconfig eth1 192.168.8.182 netmask 255.255.252.0
 ifup -v eth1
 ```
 
-```
-BusyBox v1.26.2 (2017-10-04 13:37:41 GMT) multi-call binary.
-
-Usage: run-parts [-a ARG]... [-u UMASK] [--reverse] [--test] [--exit-on-error] DIRECTORY
-
-Run a bunch of scripts in DIRECTORY
-
-	-a ARG		Pass ARG as argument to scripts
-	-u UMASK	Set UMASK before running scripts
-	--reverse	Reverse execution order
-	--test		Dry run
-	--exit-on-error	Exit if a script exits with non-zero
-```
 
 ```
-Usage: run-parts [OPTION]... DIRECTORY
-      --test          print script names which would run, but don't run them.
-      --list          print names of all valid files (can not be used with
-                      --test)
-  -v, --verbose       print script names before running them.
-      --report        print script names if they produce output.
-      --reverse       reverse execution order of scripts.
-      --exit-on-error exit as soon as a script returns with a non-zero exit
-                      code.
-      --lsbsysinit    validate filenames based on LSB sysinit specs.
-      --new-session   run each script in a separate process session
-      --regex=PATTERN validate filenames based on POSIX ERE pattern PATTERN.
-  -u, --umask=UMASK   sets umask to UMASK (octal), default is 022.
-  -a, --arg=ARGUMENT  pass ARGUMENT to scripts, use once for each argument.
-  -V, --version       output version information and exit.
-  -h, --help          display this help and exit.
+# 一个网卡, 多个网关
+auto eth0
+iface eth0 inet static
+    address 10.1.248.11
+    netmask 255.255.255.0
+    up ip route add default via 10.1.248.1 dev eth0  metric 100
+    up ip route add default via 10.1.248.3 dev eth0  metric 200
+
+# 一个网卡, 多个地址
+auto eth0
+iface eth0 inet static
+  address aaa.aaa.aaa.aaa
+  netmask 255.255.254.0
+  gateway bbb.bbb.bbb.bbb
+  dns-nameservers ccc.ccc.ccc.ccc ddd.ddd.ddd.ddd eee.eee.eee.eee
+  dns-search vps-number.com
+  # 或者
+  up ip addr add fff.fff.fff.fff/prefixlen dev eth0
+
+auto eth0:0
+iface eth0:0 inet static
+  address fff.fff.fff.fff
+  netmask 255.255.254.0
+
 ```
 
 ## init
@@ -735,19 +587,6 @@ qemu-nbd -c /dev/nbd0
 ```
 
 
-## ntfs
-
-```bash
-# Manual http://www.tuxera.com/community/open-source-ntfs-3g/#tab-1414502373-2-22
-# http://www.tuxera.com/community/ntfs-3g-manual/
-apk add ntfs-3g ntfs-3g-progs
-
-# 挂载
-mount -t ntfs-3g /dev/sda1 /mnt/windows
-# 或
-echo '/dev/sda1 /mnt/windows ntfs-3g defaults 0 0' >  /etc/fstab
-```
-
 
 ## ftp
 
@@ -789,116 +628,6 @@ vgchange -ay SangomaVG
 lvs
 # 挂载
 mount /dev/SangomaVG/root /mnt/data
-```
-
-
-## build
-* [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
-* https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
-* [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
-* [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
-
-```bash
-# 环境设置
-DEV_USER=dev
-
-apk add alpine-sdk
-adduser $DEV_USER
-echo "$DEV_USER  ALL=(ALL) ALL" >> /etc/sudoers
-
-# 修改 PACKAGER 信息
-vi /etc/abuild.conf
-addgroup $DEV_USER abuild
-
-# 缓存目录
-mkdir -p /var/cache/distfiles
-# 给所有人写的权限
-# 也可以只给 abuild 组 chgrp abuild /var/cache/distfiles; chmod g+w /var/cache/distfiles
-chmod a+w /var/cache/distfiles
-
-# 切换为 $DEV_USER 登陆
-# 生成秘钥
-abuild-keygen -a -i
-#git config --global user.name "Your Full Name"
-#git config --global user.email "your@email.address"
-mkdir -p /gits
-cd /gits
-git clone git://git.alpinelinux.org/aports
-# 查看相关帮助
-abuild -h
-```
-
-```bash
-# /var/cache/distfiles
-abuild checksum
-abuild -r
-# 位于 $HOME/packages/main/x86_64
-```
-
-```bash
-docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder wener/edge:builder
-
-docker run --rm -it -v $PWD:/src --entrypoint bash wener/base:builder
-```
-
-* Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
-  * 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
-  * 因为部分项目构建是无法将 `musl` 识别为 `gnu`
-
-
-```
-$ abuild -h
-abuild 3.0.0_rc3
-usage: abuild [options] [-P REPODEST] [-s SRCDEST] [-D DESCRIPTION] [cmd] ...
-       abuild [-c] -n PKGNAME[-PKGVER]
-Options:
- -A  Print CARCH and exit
- -c  Enable colored output
- -d  Disable dependency checking
- -D  Set APKINDEX description (default: $repo $(git describe))
- -f  Force specified cmd, even if they are already done
- -F  Force run as root
- -h  Show this help
- -i  Install PKG after successful build
- -k  Keep built packages, even if APKBUILD or sources are newer
- -K  Keep buildtime temp dirs and files (srcdir/pkgdir/deps)
- -m  Disable colors (monochrome)
- -P  Set REPODEST as the repository location for created packages
- -q  Quiet
- -r  Install missing dependencies from system repository (using sudo)
- -R  Recursively build and install missing dependencies (using sudo)
- -s  Set source package destination directory
- -u  Recursively build and upgrade all dependencies (using sudo)
- -v  Verbose: show every command as it is run (very noisy)
-
-Commands:
-  build       Compile and install package into $pkgdir
-  check       Run any defined tests concerning the package
-  checksum    Generate checksum to be included in APKBUILD
-  clean       Remove temp build and install dirs
-  cleancache  Remove downloaded files from $SRCDEST
-  cleanoldpkg Remove binary packages except current version
-  cleanpkg    Remove already built binary and source package
-  deps        Install packages listed in makedepends and depends
-  fetch       Fetch sources to $SRCDEST and verify checksums
-  index       Regenerate indexes in $REPODEST
-  listpkg     List target packages
-  package     Create package in $REPODEST
-  prepare     Apply patches
-  rootbld     Build package in clean chroot
-  rootpkg     Run 'package', the split functions and create apks as fakeroot
-  sanitycheck Basic sanity check of APKBUILD
-  snapshot    Create a $giturl or $svnurl snapshot and upload to $disturl
-  sourcecheck Check if remote source package exists upstream
-  srcpkg      Make a source package
-  undeps      Uninstall packages listed in makedepends and depends
-  unpack      Unpack sources to $srcdir
-  up2date     Compare target and sources dates
-  verify      Verify checksums
-
-To activate cross compilation specify in environment:
-  CHOST       Arch or hostspec of machine to generate packages for
-  CTARGET     Arch or hostspec of machine to generate compiler for
 ```
 
 
@@ -971,6 +700,8 @@ For more information, see the manpage guestfish(1).
 ```
 
 ## crond
+* 实际执行时使用的 run-parts
+* busybox 自带的 run-parts 功能较少, 可额外安装
 
 ```
 echo 'CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"' > /etc/conf.d/crond
@@ -978,9 +709,39 @@ rc-update add crond
 rc-service crond restart
 ```
 
-## benchmark
 
+```
+BusyBox v1.26.2 (2017-10-04 13:37:41 GMT) multi-call binary.
 
+Usage: run-parts [-a ARG]... [-u UMASK] [--reverse] [--test] [--exit-on-error] DIRECTORY
+
+Run a bunch of scripts in DIRECTORY
+
+	-a ARG		Pass ARG as argument to scripts
+	-u UMASK	Set UMASK before running scripts
+	--reverse	Reverse execution order
+	--test		Dry run
+	--exit-on-error	Exit if a script exits with non-zero
+```
+
+```
+Usage: run-parts [OPTION]... DIRECTORY
+      --test          print script names which would run, but don't run them.
+      --list          print names of all valid files (can not be used with
+                      --test)
+  -v, --verbose       print script names before running them.
+      --report        print script names if they produce output.
+      --reverse       reverse execution order of scripts.
+      --exit-on-error exit as soon as a script returns with a non-zero exit
+                      code.
+      --lsbsysinit    validate filenames based on LSB sysinit specs.
+      --new-session   run each script in a separate process session
+      --regex=PATTERN validate filenames based on POSIX ERE pattern PATTERN.
+  -u, --umask=UMASK   sets umask to UMASK (octal), default is 022.
+  -a, --arg=ARGUMENT  pass ARGUMENT to scripts, use once for each argument.
+  -V, --version       output version information and exit.
+  -h, --help          display this help and exit.
+```
 
 
 

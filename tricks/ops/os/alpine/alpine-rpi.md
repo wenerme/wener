@@ -19,11 +19,13 @@ apk add wiringpi raspberryip
 # 格式化 sd
 # 第一个分区 128 mb, fat16
 # 第二个分区 使用剩下的所有空间
-fidks /dev/sdb
+# fidks /dev/sdb
+echo -e "o\n n\n\n\n\n+128m\nt\n6\na\n n\n\n\n\n\n p\nw\n" | fdisk /dev/sdb
+
 # 创建文件系统
 mkdosfs -F 16 /dev/sdb1
 # 挂载文件系统
-mount -t vfat /dev/sda1 /mnt
+mount -t vfat /dev/sdb1 /mnt
 # 下载并解压系统到启动分区
 wget http://mirrors.aliyun.com/alpine/v3.7/releases/armhf/alpine-rpi-3.7.0-armhf.tar.gz
 tar zxvf alpine-rpi-3.7.0-armhf.tar.gz -C /mnt --no-same-owner
@@ -43,7 +45,7 @@ umount /mnt
 ```bash
 # 基于 docker 的制作环境
 # losetup https://github.com/moby/moby/issues/27886
-docker run --rm -it -v $PWD:/host --workdir /host wener/base:sys
+docker run --rm -it -v /dev:/dev --privileged -v $PWD:/host --workdir /host wener/base:sys
 # 创建镜像和制作分区
 dd if=/dev/zero of=rpi.img bs=1 count=0 seek=1G
 stat rpi.img
@@ -108,9 +110,39 @@ cd wiringPi
 * [edge/main/armhf/linux-firmware-brcm](https://pkgs.alpinelinux.org/contents?file=brcmfmac43430-sdio.bin&path=&name=&branch=edge&arch=armhf)
 * [#6959](https://bugs.alpinelinux.org/issues/6959) Raspberry Pi Zero W support
 
+https://github.com/raspberrypi/linux/issues/1342
+wlan freezes in raspberry pi 3/PiZeroW (Not 3B+)
+
+### Direct firmware load for brcm/brcmfmac43430-sdio.bin failed with error -2
+
+`modprobe brcmfmac` 时出现该异常
+
+https://www.raspberrypi.org/forums/viewtopic.php?t=141834
+
+```
+cd /lib/firmware/brcm/
+wget https://github.com/RPi-Distro/firmware-nonfree/raw/master/brcm/brcmfmac43430-sdio.txt
+wget https://github.com/RPi-Distro/firmware-nonfree/raw/master/brcm/brcmfmac43430-sdio.bin
+```
+
 ### wiringPiSetup: mmap (GPIO) failed: Operation not permitted
 * 安装最新版 wiringpi
 * https://bugs.centos.org/view.php?id=13734
+
+### tty_port_close_start: tty->count = 1 port count = 2
+* 开启 `enable_uart=1` 后会出现大量的这个错误
+
+### can't execute `/bin/login`
+
+* 可能是存储设备有问题, rootfs 挂载失败
+* 进入系统后看到如下信息
+
+```
+mmc0: fsm 1, hsts 1
+mmc0: PIO read timeout - EDM 10841
+tty_port_close_start: tty->count = 1 port count = 2
+```
+
 
 ## TBD
 

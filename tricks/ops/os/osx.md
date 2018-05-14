@@ -12,6 +12,7 @@
 * 参考
   * [OS X 技巧](http://apple.stackexchange.com/questions/400)
   * [Assign a shortcut to running a script in OS X](http://superuser.com/a/264943/242730)
+* [Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
 
 ```bash
 # 查看可用的分辨率
@@ -43,6 +44,9 @@ mail
 # 删除所有邮件
 # delete *
 # q
+
+# 查看硬件网络端口
+networksetup -listallhardwareports
 ```
 
 
@@ -272,3 +276,106 @@ sudo dscacheutil -flushcache
 # OS X 11 (El Capitan) and OS X 12 (Sierra)
 sudo killall -HUP mDNSResponder
 ```
+
+### 桥接
+* 对 wifi 支持不太好
+
+```bash
+sudo ifconfig bridge0 create
+sudo ifconfig bridge0 addm en0 addm en1
+sudo ifconfig bridge0 up
+
+ifconfig tap0 192.168.0.20 netmask 255.255.255.0
+
+ifconfig bridge0 addm tap0
+
+man ifconfig
+```
+
+### tuntap
+* http://tuntaposx.sourceforge.net/
+* macOS 支持 utun
+
+```bash
+brew cask install tuntap
+# 避免 root 访问
+chown $USER:staff /dev/tap0
+
+ll /dev/tun*
+ll /dev/tap*
+
+# 会创建失败
+ifconfig tap0 create
+# 在 root shell 中执行该命令会创建
+# https://sourceforge.net/p/tuntaposx/mailman/message/30457237/
+# The idea is that interfaces only get created when a program opens the corresponding /dev/tapX or /dev/tunX device. 
+# To try, do exec 3<>/dev/tap0 on a root shell.
+exec 3<>/dev/tap0
+
+ifconfig tap0 10.10.10.1 10.10.10.255
+ifconfig tap0 up
+ping -c1 10.10.10.1
+
+ifconfig tap0 0.0.0.0
+sudo ifconfig bridge0 addm tap0
+```
+
+### 转发
+
+* [How do I bridge a connection from Wi-Fi to TAP on Mac OS X? (for the emulator QEMU)](https://superuser.com/questions/596095)
+* [How do I create a wifi network bridge with qemu on OS X?](https://superuser.com/questions/670545)
+* [qemu-tap.sh](https://github.com/ckujau/scripts/blob/master/qemu-tap.sh)
+
+* 新版没有 natd 和 ipfw 了 统一使用 pfctl
+* PF - [Network Address Translation](https://www.openbsd.org/faq/pf/nat.html)
+
+
+```bash
+INTERFACE=en0
+
+# ifup
+sysctl -w net.inet.ip.forwarding=1
+sysctl -w net.link.ether.inet.proxyall=1
+sysctl -w net.inet.ip.fw.enable=1
+ifconfig bridge0 create
+ifconfig bridge0 addm $INTERFACE addm tap0
+ifconfig bridge0 up
+natd -interface $INTERFACE
+ipfw add divert natd ip from any to any via $INTERFACE
+
+# ifdown
+sysctl -w net.inet.ip.forwarding=0
+sysctl -w net.link.ether.inet.proxyall=0
+sysctl -w net.inet.ip.fw.enable=1
+```
+
+
+### 防火墙
+* [OS X PF Manual](https://murusfirewall.com/Documentation/OS%20X%20PF%20Manual.pdf)
+* A Cheat Sheet For Using pf in OS X Lion and Up http://krypted.com/mac-os-x/a-cheat-sheet-for-using-pf-in-os-x-lion-and-up/
+
+```bash
+cat /etc/pf.conf
+# 启用, 可能默认未启用
+pfctl -ef /etc/pf.conf
+# 语法检测
+pfctl -v -n -f /etc/pf.conf
+# 应用和重载
+pfctl -f /etc/pf.conf
+```
+
+### DocumentRevisions-V100
+
+* `/.DocumentRevisions-V100` 可能会占用非常多的空间
+* [What will occur if the .DocumentRevisions-V100 folder is deleted?](https://apple.stackexchange.com/a/313112/103557)
+
+
+### 常见网络名称
+* lo0 = loopback
+* gif0 = Software Network Interface
+* stf0 = 6to4 tunnel interface
+* en0 = Ethernet 0
+* fw0 = Firewire
+* en1 = Ethernet 1
+* vmnet1 = Virtual Interface
+

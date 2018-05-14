@@ -36,6 +36,16 @@ In order to use libvirtd to remotely control KVM over ssh PolicyKit needs a .pkl
  ResultActive=yes
 
 
+```
+[83370.391485] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x1c9
+[83370.391491] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x1a6
+[83370.391493] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x1a7
+[83370.391495] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x3f6
+[83370.391496] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x3f7
+[83370.718134] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x64e
+[83370.718143] kvm [13452]: vcpu0, guest rIP: 0xffffffff8105e183 unhandled rdmsr: 0x34
+```
+
 ### TBD
 
 https://wiki.debian.org/KVM

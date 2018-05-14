@@ -23,6 +23,9 @@
 * 输入法
   * http://dl.google.com/pinyin/v2/GooglePinyinInstaller.exe
   * http://dl.google.com/pinyin/v1/GooglePinyinInstaller.exe
+* [Windows lifecycle fact sheet](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet)
+  * Windows 7, service pack 1*	January 13, 2015	January 14, 2020 
+  * Windows 8.1	January 9, 2018	January 10, 2023
 
 ```bash
 # 获取 bios 串号
@@ -37,20 +40,7 @@ wmic csproduct get name
 # 显示网卡 GUID
 gwmi win32_networkadapter -Property guid
 Get-WmiObject Win32_NetworkAdapter -Filter "netenabled = true" | Select Guid
-
-
-
 ```
-
-## GameBox
-* Win 10
-* Tools
-  * sysinternals
-  * haozip
-* Civ 4
-* SC 1
-* War
-
 
 ## 版本
 
@@ -106,7 +96,7 @@ cscript ospp.vbs /act
 # 查看激活状态
 cscript osbb.vbs /dstatus
 ```
-
+<!--
 ### 密钥
 
 版本 | 密钥
@@ -185,3 +175,35 @@ TQ32R-WFBDM-GFHD2-QGVMH-3P9GC
 GG4MQ-MGK72-HVXFW-KHCRF-KW6KY
 4HJRK-X6Q28-HWRFY-WDYHJ-K8HDH
 QXV7B-K78W2-QGPR6-9FWH9-KGMM7
+
+
+------ Windows 10 Free keys------ 
+Windows 10 Professional Key: 
+MNHF7-PDX97-CF4PT-BHJBQ-8K8XG
+GVNJP-8BJ7F-K4J4B-YWR27-9BT6T
+YN4Y9-Y74T2-PPG47-CFD74-9W3GT
+QN4P6-PWK22-G74BT-WY34D-YBH3B
+JNQHG-VTDGF-3XPJG-9TKR6-Y98XM
+
+Windows 10 Home Key: 
+WKDNC-X7KYJ-DMJMV-JBHPB-R6YK7
+QNVD9-6RJ3T-HHQGX-JK2CP-CKCHH
+DHHQN-VPX2K-X4DX3-PGM9M-2PQDV
+BNRMV-C6K9C-49T7H-YM2RR-3DBK7
+
+Windows 10 Enterprise Key: 
+RP7BT-XGNVB-X3DGW-JGT9R-7H644
+WN7YQ-FTFFX-R83HV-988M7-2R4CF
+XPQYG-YPNPP-CYR6T-8V7RJ-DGPJR
+
+
+
+<!--
+## GameBox
+* Win 10
+* Tools
+  * sysinternals
+  * haozip
+* Civ 4
+* SC 1
+* War

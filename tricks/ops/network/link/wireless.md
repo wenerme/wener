@@ -126,3 +126,6 @@ ac      | 866   | 20/40/80/160  | 8     | 5
 
 Mb/c 单通道最大速度
 MHz/c 通道宽度
+
+## DBm
+[Understanding WiFi Signal Strength](https://support.metageek.com/hc/en-us/articles/201955754-Understanding-WiFi-Signal-Strength)

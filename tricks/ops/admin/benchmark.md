@@ -118,4 +118,32 @@ fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjo
 fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
 # 测试读吞吐量
 fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
+
+fio -iodepth=1 -numjobs=1 -direct=1 -rw=randwrite
+```
+
+## cryptsetup benchmark
+
+```
+# alpine hvf
+# ==========
+# Tests are approximate using memory only (no storage IO).
+PBKDF2-sha1       684449 iterations per second for 256-bit key
+PBKDF2-sha256     981812 iterations per second for 256-bit key
+PBKDF2-sha512     840205 iterations per second for 256-bit key
+PBKDF2-ripemd160  476625 iterations per second for 256-bit key
+PBKDF2-whirlpool  385505 iterations per second for 256-bit key
+#     Algorithm | Key |  Encryption |  Decryption
+        aes-cbc   128b   211.4 MiB/s   252.4 MiB/s
+    serpent-cbc   128b    75.2 MiB/s   308.4 MiB/s
+    twofish-cbc   128b   177.4 MiB/s   314.0 MiB/s
+        aes-cbc   256b   162.9 MiB/s   180.3 MiB/s
+    serpent-cbc   256b    76.0 MiB/s   300.5 MiB/s
+    twofish-cbc   256b   169.1 MiB/s   264.9 MiB/s
+        aes-xts   256b   228.3 MiB/s   235.1 MiB/s
+    serpent-xts   256b   278.3 MiB/s   310.7 MiB/s
+    twofish-xts   256b   315.6 MiB/s   308.0 MiB/s
+        aes-xts   512b   179.5 MiB/s   186.7 MiB/s
+    serpent-xts   512b   292.1 MiB/s   301.8 MiB/s
+    twofish-xts   512b   310.6 MiB/s   305.4 MiB/s
 ```

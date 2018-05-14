@@ -245,6 +245,7 @@ qemu-system-i386 -cdrom nbd://localhost/openSUSE-11.1-ppc-netinst
 
 ## 网络
 * https://www.linux-kvm.org/page/Networking
+
 ```bash
 # 查看支持的 NIC
 qemu-system-x86_64 -net nic,model=help
@@ -252,6 +253,17 @@ qemu-system-x86_64 -net nic,model=help
 # 10.0.2.0/24 默认起始地址 x.x.x.15-13, 主机地址 x.x.x.2 dns x.x.x.3
 # 主机无法访问虚拟机
 qemu-system-x86_64 -hda vdisk.img -cdrom alpine-standard-3.6.2-x86_64.iso -net nic -net user
+
+# 使用 tap 可以创建虚拟网络设备使主机互通
+qemu-system-x86_64 -m 512M -net nic -net tap,script=no,downscript=no
+# 使用指定的名字
+qemu-system-x86_64 -m 512M -net nic -net tap,ifname=tap0,script=no,downscript=no
+# -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
+# 确保权限
+# ip tuntap add dev tap0 mode tap group netdev
+# 或者使用 tunctl 控制
+# tunctl -p -t tap0 -u $USER
+# tunctl -t tap0 -g netdev
 ```
 
 ## 外设
@@ -309,98 +321,3 @@ vncviewer :1
 
 
 ```
-
-## Windows
-* https://fedoraproject.org/wiki/Windows_Virtio_Drivers
-* https://github.com/virtio-win/kvm-guest-drivers-windows
-* https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers
-* Windows 默认没有 virtio 驱动, 需要额外下载
-* [Windows XP Guest Notes](https://pve.proxmox.com/wiki/Windows_XP_Guest_Notes)
-
-```bash
-# 其他版本可查看 https://fedorapeople.org/groups/virt/virtio-win/repo/stable/
-curl -O https://fedorapeople.org/groups/virt/virtio-win/repo/stable/virtio-win-0.1.141-1.noarch.rpm
-
-# mac 下解压需要安装 rpm
-brew install rpm
-rpm2cpio virtio-win-0.1.141-1.noarch.rpm | cpio -idmv
-# 拷贝到当前目录
-cp ./usr/share/virtio-win/virtio-win.iso .
-
-# 启动系统
-qemu-img create -f qcow2 win7.img 20g
-qemu-img create -f qcow2 win7-32.img 10g
-qemu-img create -f qcow2 xp.img 10g
-# 检测不到硬盘, 需要在 virtio-win 光驱中找到 viostor 安装相应版本驱动
-qemu-system-x86_64 -m 2048 -vga std \
-  -drive file=win7.img,index=0,media=disk,if=virtio \
-  -drive file=win7.iso,index=2,media=cdrom \
-  -drive file=virtio-win.iso,index=3,media=cdrom
-
-# 32 位
-qemu-system-i386 -m 1024 -vga std \
-  -drive file=win7-32.img,index=0,media=disk,if=virtio \
-  -drive file=win7-32.iso,index=2,media=cdrom \
-  -drive file=virtio-win.iso,index=3,media=cdrom
-
-# xp
-# virtio 要在系统完成后才能加载, 先使用 ide 启动
-# 在没安装 virtio 之前, 网络可以使用 -net nic,model=rtl8139
-qemu-system-i386 -m 512 -vga std \
-  -drive file=xp.img,index=0,media=disk,if=ide \
-  -drive file=xp.iso,index=2,media=cdrom \
-  -drive file=virtio-win.iso,index=3,media=cdrom
-# 服务器使用 vnc 远程
-# 安装启动
-qemu-system-i386 -m 1024 -vga std -nographic -vnc :1 \
-  -drive file=xp.img,index=0,media=disk,if=ide \
-  -drive file=xp.iso,index=2,media=cdrom \
-  -drive file=virtio-win.iso,index=3,media=cdrom \
-  -boot d
-
-# 启动
-qemu-system-i386 -m 1024 -nographic -smb 2 -vnc :1 \
-  -drive file=xp.img,index=0,media=disk,if=ide \
-  -drive file=virtio-win.iso,index=3,media=cdrom \
-  -net bridge,br=br0
-
-qemu linux.img -netdev tap,helper=/usr/local/libexec/qemu-bridge-helper,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
-  /usr/lib/qemu/qemu-bridge-helper
-
-qemu-system-i386 -m 1024 -nographic -smp 2 -vnc :1 \
-  -drive file=xp.img,index=0,media=disk \
-  -drive file=virtio-win.iso,index=3,media=cdrom \
-  -netdev bridge,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
-  -netdev tap,helper=/usr/lib/qemu/qemu-bridge-helper,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
-
-
-qemu-system-i386 -m 1024 -nographic -smp 2 -vnc :1 \
-  -hda xp.img \
-  -drive file=virtio-win.iso,index=3,media=cdrom \
-  -net nic,model=virtio -net tap,ifname=tap0,script=no,downscript=no
-
-```
-
-virtio-net-pci
-
-http://www.linux-kvm.org/page/Networking
-https://wiki.ubuntu.com/KvmWithBridge
-
-https://askubuntu.com/questions/179508/kvm-bridged-network-not-working
-
-
-chardev
-
-msmouse
-file
-wctablet
-mux
-udp
-vc
-stdio
-socket
-testdev
-ringbuf
-pipe
-memory
-null

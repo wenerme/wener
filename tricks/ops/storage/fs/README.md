@@ -11,7 +11,7 @@
   * 如果不确定就用 EXT4
 * [Solid State Drives](https://wiki.archlinux.org/index.php/Solid_State_Drives)
 * [Flash file system](https://en.wikipedia.org/wiki/Flash_file_system)
-
+* [AFP vs. SMB and NFS file sharing for network clients](https://www.helios.de/web/EN/news/AFP_vs_SMB-NFS.html)
 
 N/A | Minix |	Ext | Ext2 | Xia
 ----|----|----|----|----
@@ -130,6 +130,7 @@ ls `brew --prefix e2fsprogs`/sbin
 
 
 ## FAQ
+
 ### disk vs rdisk on BSD
 `man hdiutil`
 

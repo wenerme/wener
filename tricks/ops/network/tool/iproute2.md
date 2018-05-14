@@ -9,23 +9,15 @@
 * [iproute2+tc notes](http://www-online.kek.jp/~yasu/ATLAS/QoS/iproute2-notes.html)
 * [iproute2 cheatsheet](http://baturin.org/docs/iproute2/)
   * https://github.com/dmbaturin/iproute2-cheatsheet
-
-IPIP (IPv4 in IPv4), SIT (IPv6 in IPv4), IP6IP6 (IPv6 in IPv6), IPIP6 (IPv4 in IPv6), GRE (virtually anything in anything), and, in very recent versions, VTI (IPv4 in IPsec).
-
-Linux BRIDGE-STP-HOWTO
-https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/index.html
-6. Set Up The Bridge
-https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/set-up-the-bridge.html
-
-STP(Spanning Tree Protocol)即生成树协议，标准为IEEE802.1D-1998。 
-STP是一种二层冗余技术，利用STA算法构建一个逻辑上没有环路的树形网络拓扑结构，并且可以通过一定的方法实现路径冗余。
-
-http://www.cnblogs.com/hzl6255/p/3259909.html
-
-How can I bridge two interfaces with ip/iproute2?
-https://unix.stackexchange.com/q/255484/47774
-
+* IPIP (IPv4 in IPv4), SIT (IPv6 in IPv4), IP6IP6 (IPv6 in IPv6), IPIP6 (IPv4 in IPv6), GRE (virtually anything in anything), and, in very recent versions, VTI (IPv4 in IPsec).
+* [Linux BRIDGE-STP-HOWTO](https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/index.html)
+* [6. Set Up The Bridge](https://www.tldp.org/HOWTO/BRIDGE-STP-HOWTO/set-up-the-bridge.html)
+* STP(Spanning Tree Protocol)即生成树协议，标准为IEEE802.1D-1998。 
+  * STP是一种二层冗余技术，利用STA算法构建一个逻辑上没有环路的树形网络拓扑结构，并且可以通过一定的方法实现路径冗余。
+* [Linux STP介绍](http://www.cnblogs.com/hzl6255/p/3259909.html)
+* [How can I bridge two interfaces with ip/iproute2?](https://unix.stackexchange.com/q/255484/47774)
 * ip, ss, bridge, rtacct, rtmon, tc, ctstat, lnstat, nstat, routef, routel, rtstat, tipc, arpd, devlink, tc
+* [iproute2 rules and iptables NAT… what is the difference?](https://serverfault.com/q/135053/190601)
 
 Legacy utility  | Obsoleted by                | Note
 ----------------|-----------------------------|------
@@ -37,10 +29,6 @@ nameif	        | ifrename, ip link set name	| Rename network interfaces
 ipmaddr	        | ip maddr	                  | Multicast
 netstat	        | ip -s, ss, ip route	        | Show various networking statistics
 
-
-https://serverfault.com/q/135053/190601
-
-iproute2 rules and iptables NAT… what is the difference?
 
 ## Notes
 

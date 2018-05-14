@@ -1,7 +1,5 @@
 # FAQ
 
-## Tips
-
 ## 'RTLD_NEXT' undeclared
 * gcc 添加 `-D_GNU_SOURCE`
 * 因为不是标准的 POSIX 定义
@@ -23,9 +21,10 @@ sysctl -w kernel.pax.softmode=1
 
 ## 查看内核配置
 * 常见配置路径
-  * `/proc/config.gz`
   * `/boot/config`
   * `/boot/config-$(uname -r)`
+  * `/proc/config.gz`
+    * 需要加载模块
 
 ```bash
 cat /proc/config.gz | gunzip > running.config

@@ -42,6 +42,7 @@
 * [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
 * [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)
 * http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/
+* [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
 
 ## NOTES
 * zpool
@@ -271,85 +272,4 @@ du --apparent-size -h .
 * [ZFS: The Last Word in File Systems - Part 1 (video)](https://www.youtube.com/watch?v=uT2i2ryhCio)
 * [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
 * [The 'Hidden' Cost of Using ZFS for Your Home NAS](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
-
-
-## 性能优化
-* https://wiki.freebsd.org/ZFSTuningGuide
-* http://open-zfs.org/wiki/Performance_tuning
-* http://fibrevillage.com/storage/171-zfs-on-linux-performance-tuning
-
-```bash
-# 查看所有配置参数
-zfs get all p1
-# NAME  PROPERTY              VALUE           SOURCE
-# p1    type                  filesystem      -
-# p1    creation              1507714508      -
-# p1    used                  400K            -
-# p1    available             138M            -
-# p1    referenced            128K            -
-# p1    compressratio         1.00x           -
-# p1    mounted               yes             -
-# p1    quota                 none            default
-# p1    reservation           none            default
-# p1    recordsize            128K            default
-# p1    mountpoint            /mnt/data       local
-# p1    sharenfs              off             default
-# p1    checksum              on              default
-# p1    compression           off             default
-# p1    atime                 on              default
-# p1    devices               on              default
-# p1    exec                  on              default
-# p1    setuid                on              default
-# p1    readonly              off             default
-# p1    zoned                 off             default
-# p1    snapdir               hidden          default
-# p1    aclinherit            restricted      default
-# p1    canmount              on              default
-# p1    xattr                 on              default
-# p1    copies                1               default
-# p1    version               5               -
-# p1    utf8only              off             -
-# p1    normalization         none            -
-# p1    casesensitivity       sensitive       -
-# p1    vscan                 off             default
-# p1    nbmand                off             default
-# p1    sharesmb              off             default
-# p1    refquota              none            default
-# p1    refreservation        none            default
-# p1    primarycache          all             default
-# p1    secondarycache        all             default
-# p1    usedbysnapshots       0               -
-# p1    usedbydataset         128K            -
-# p1    usedbychildren        272K            -
-# p1    usedbyrefreservation  0               -
-# p1    logbias               latency         default
-# p1    dedup                 off             default
-# p1    mlslabel              none            default
-# p1    sync                  standard        default
-# p1    refcompressratio      1.00x           -
-# p1    written               128K            -
-# p1    logicalused           92.5K           -
-# p1    logicalreferenced     40K             -
-# p1    filesystem_limit      none            default
-# p1    snapshot_limit        none            default
-# p1    filesystem_count      none            default
-# p1    snapshot_count        none            default
-# p1    snapdev               hidden          default
-# p1    acltype               off             default
-# p1    context               none            default
-# p1    fscontext             none            default
-# p1    defcontext            none            default
-# p1    rootcontext           none            default
-# p1    relatime              off             default
-# p1    redundant_metadata    all             default
-# p1    overlay               off             default
-
-# atime 一般可以不需要
-zfs set atime=off p1
-zfs set relatime=on p1
-
-# 开启压缩
-zfs set compression=on p1
-```
-
 

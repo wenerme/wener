@@ -1,6 +1,11 @@
 # PCI
 
 ## Tips
+* https://wiki.debian.org/HowToIdentifyADevice/PCI
+* http://pci-ids.ucw.cz/
+The PCI ID Repository
+The home of the pci.ids file
+
 * [PCI](https://en.wikipedia.org/wiki/Conventional_PCI)
   * Peripheral Component Interconnect
   * 外设组件互连标准
@@ -21,5 +26,8 @@
 * http://elixir.free-electrons.com/linux/latest/source/include/linux/pci.h
 
 
+```bash
+lspci -s 02:00.0 -vv
+```
 
 

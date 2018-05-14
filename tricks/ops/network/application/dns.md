@@ -45,10 +45,9 @@ Default TTL: 3600
 * https://www.knot-dns.cz/
   * C + Lua
 
-https://github.com/tenta-browser/tenta-dns
-https://news.ycombinator.com/item?id=15796943
-Recursive and authoritative DNS server in go, including DNSSEC and DNS-over-TLS 
-
+* [tenta-browser/tenta-dns](https://github.com/tenta-browser/tenta-dns) Recursive and authoritative DNS server in go, including DNSSEC and DNS-over-TLS
+  * [HN](https://news.ycombinator.com/item?id=15796943)
+ 
 ## coredns
 * https://coredns.io/
 * https://github.com/coredns/coredns
@@ -59,122 +58,10 @@ Recursive and authoritative DNS server in go, including DNSSEC and DNS-over-TLS
 coredns -conf Corefile -dns.port 1053
 
 dig -p 1053 @localhost AAAA www.example.org +noall +answer
+
+nslookup -type=A twitter.com 1.0.0.1
+nslookup -type=A twitter.com 114.114.114.114
 ```
-
-## PowerDNS
-* [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
-* Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
-* [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
-* 特性
-  * 多种后端
-  * 多种复制方式
-  * 修改不需要重启
-  * 定制缓存
-  * Supermaster
-    * 当为一个节点设置了 Supermaster 后,在主节点上创建 zone,所有子节点会自动创建相应的 zone, 并发起一个 AXFR 请求
-    * bind 中需要手动为所有子节点添加 zone
-* RELEASE
-  * 4.1.0
-    * 添加 metadata 接口
-    * 移除 auth 服务中的递归
-* NOTES
-  * 当找到一条匹配的后不会再尝试使用通配符查找
-    * 例如 *.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
-
-```bash
-# SQLite3
-# https://doc.powerdns.com/md/authoritative/backend-generic-sqlite/
-# 将 Schema 保存到 schema.sqlite3
-sqlite3 powerdns.sqlite .read schema.sqlite3
-# 在前台启动, 之所以修改 端口和 socket-dir 是因为可能会没有权限
-pdns_server --daemon=no --launch=gsqlite3 --local-port=5300 --socket-dir=`pwd`/socket
-# 将配置文件写入到 pdns.conf
-# launch=gsqlite3
-# local-port=5300
-# socket-dir=./socket
-# gsqlite3-database=powerdns.sqlite
-# 使用配置文件启动
-pdns_server --daemon=yes --config-dir=.
-
-# pdns_control 用于操作实例
-# 简化 pdns_control 操作
-alias pc="pdns_control --config-dir=`pwd`"
-# 退出服务
-pc quite
-# 获取当前的配置
-pc current-config
-
-# pdnsutil 用于操作后端数据, 即便没有启动 server 也可以
-# 简化 pdnsutil 操作
-alias pu="pdnsutil --config-dir=`pwd`"
-# 添加用于测试的记录
-pu add-record i.wener.me @ A 127.0.0.1
-pu add-record i.wener.me dev A 127.0.0.1
-
-# 测试添加的记录
-dig @127.0.0.1 -p 5300 dev.i.wener.me
-
-# 常用操作
-# 创建
-pdnsutil create-zone mydomain.com
-# 检测现有的问题
-pdnsutil check-zone mydomain.com
-# add-record ZONE NAME TYPE [ttl] content
-
-```
-
-### 后端
-* 后端模块
-  * sql
-    * sqlite
-    * oracle
-    * mysql
-    * pgsql
-    * odbc
-    * opendb
-  * bind
-  * tinydns
-  * remote
-  * pipe
-  * lua
-  * ldap
-* 后端方法分类
-  * minimal
-    * list
-      * 用于支持 AXFR
-    * lookup
-    * get
-    * getSOA
-  * master
-    * getUpdatedMasters
-    * setNotifed
-  * slave
-    * getDomainInfo
-    * isMaster
-    * getUnfreshSlaveInfos
-    * setFresh
-    * startTransaction
-    * commitTransaction
-    * abortTransaction
-    * feedRecord
-  * supermaster
-    * superMasterBackend
-    * createSlaveDomain
-  * dnssec
-  * 其他
-* 主要接口
-  * `BackendFactory`
-    * `DNSBackend` 的工厂类
-  * `DNSBackend`
-    * 后端接口
-  * `XXXLoader`
-    * 静态初始化类
-    * 用于注册工厂方法
-    * `BackendMakers().report(new XXXFactory)`
-* 需要实现 `pdns/dnsbackend.hh` 中的 DNSBackend
-* [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
-* AXFR
-
 
 ## dnsupdate
 * [nsupdate.8](https://linux.die.net/man/8/nsupdate)
@@ -216,6 +103,23 @@ dig SOA google.nl @ns1.dns.nl.
 
 
 ### FAQ
+
+#### 公共 DSN
+* https://public-dns.info/
+* https://wiki.ipfire.org/dns/public-servers
+* https://www.lifewire.com/free-and-public-dns-servers-2626062
+* https://www.dnsperf.com
+
+* 8.8.8.8
+* 8.8.4.4
+* 223.6.6.6
+* 223.5.5.5
+* 114.114.114.114
+* 1.1.1.1 
+  * https://blog.cloudflare.com/dns-resolver-1-1-1-1/
+* 1.0.0.1
+
+
 #### 将日志记录到文件
 
 修改配置,调整 syslog 输出

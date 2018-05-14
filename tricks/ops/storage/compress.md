@@ -24,7 +24,9 @@
     * high speed zlib port to javascript, works in browser & node.js
 
 ```bash
-# 解压 bz2
+# bz2
+# ==========
+# 解压
 bzip2 -d filename.bz2
 # 解压并保留原始压缩包
 bzip2 -dk filename.bz2

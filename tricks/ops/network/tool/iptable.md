@@ -1,15 +1,25 @@
 # IPTable
 
-http://ipset.netfilter.org/ipset.man.html
-https://github.com/coreos/go-iptables
-
 ## Tips
+* http://ipset.netfilter.org/ipset.man.html
+* https://github.com/coreos/go-iptables
 * https://linux.die.net/man/8/iptables
 * http://www.netfilter.org/
-
-https://wiki.archlinux.org/index.php/Iptables_(简体中文)
-
+* https://wiki.archlinux.org/index.php/Iptables_(简体中文)
 * [IPTables packet traverse map](http://www.adminsehow.com/2011/09/iptables-packet-traverse-map/)
+* [第九章、防火墙与 NAT 服务器](http://cn.linux.vbird.org/linux_server/0250simple_firewall.php)
+* [How can I port forward with iptables?](https://serverfault.com/questions/140622)
+
+* table
+  * nat
+* PREROUTING
+  * 修改来源 IP
+* POSTROUTING
+  * 修改目标 IP
+* SNAT
+  * Source NAT
+* NAT/DNAT
+  * Destination NAT
 
 
 ```bash
