@@ -163,7 +163,7 @@ apk add sox alsa-utils
 
 # 核心
 apk add asterisk
-apk add asterisk-{curl,pgsql,sounds-en,sounds-moh,srtp}
+apk add asterisk-{curl,pgsql,sounds-en,sounds-moh,srtp,chan-dongle,curl,alsa}
 # apk add asterisk-sample-config
 
 # 部分工具依赖 perl
