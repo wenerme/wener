@@ -18,3 +18,6 @@
   * .ws
     * Web Service
 
+domains.google
+Google Domains 定价和支持的 TLD
+https://support.google.com/domains/answer/6010092

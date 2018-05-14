@@ -5,6 +5,10 @@
 * [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
   * Search file in package from command line
 
+* [adelielinux](https://adelielinux.org/)
+  * 基于 Alpine 针对桌面的系统
+  * https://code.foxkit.us/groups/adelie
+
 ```bash
 # 计算块设备容量
 echo $(blockdev --getsize64 /dev/sdb1)/1024/1024 | bc -l
@@ -17,7 +21,7 @@ chsh root -s /bin/bash
 
 
 # 安装 neofetch
-apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing neofetch
+apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 # 有些环境下没有 neofetch 可以用screenfetch
 apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing screenfetch
 ```
@@ -92,7 +96,12 @@ setup-alpine -f ans
 # 如果只是想直接装到 U 盘, 那么至少需要 setup-interfaces, setup-sshd(从远程方便操作, 可以粘贴复制), 添加仓库, 然后才能 setup-disk
 # 因为 setup-disk 需要安装一些包
 
-# swap 0
+# -s 0 无交换区
+# -v 详细输出
+# -m 磁盘格式
+# -k 内核 vanilla, varthardend, hardended
+# https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.7&arch=x86_64&maintainer=Natanael+Copa
+# BOOT_SIZE 100m 启动分区大小, 一般安装完成后 20m 左右, 默认会给 100
 setup-disk -m sys -s 0 -v /dev/sda
 
 # 其他的可选参数
@@ -101,6 +110,95 @@ setup-disk -m sys -s 0 -v /dev/sda
 # SYSROOT=/mnt
 # ERASE_DISKS 可以设置成写入的磁盘, 就不会再进行询问
 ROOTFS=btrfs BOOTFS=btrfs VARFS=btrfs DISKLABEL=alp-wen setup-disk -m sys -s 0 -v /dev/sda
+```
+
+### 制作磁盘镜像
+
+```bash
+# 创建 2g 镜像
+qemu-img create -f qcow2 virt.qcow2 2g
+# 从 cd 启动安装到镜像盘
+# 转发 22 到本地 2222
+qemu-system-x86_64 -cdrom alpine-virt-3.7.0-x86_64.iso -boot b -hda virt.qcow2 -net nic -net user,hostfwd=tcp::2222-:22
+
+# 启用网络
+echo -e '\n\n' | setup-interface
+rc-service networking restart
+rc-u
+# 配置 ssh 远程登陆
+setup-sshd -c openssh
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+rc-service sshd restart
+# 设置密码为 root
+echo 'root:root' | chpasswd
+
+# 另外一个终端从本地 2222 进入
+ssh root@127.0.0.1 -p 2222
+echo "http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/main
+http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/community
+@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
+apk update
+# 安装到磁盘
+setup-disk -m sys -s 0 /dev/sda
+# 完毕关机
+poweroff
+```
+
+```bash
+# 从镜像启动
+qemu-system-x86_64 -hda virt.qcow2 -net nic -net user,hostfwd=tcp::2222-:22
+
+# 初始化配置
+setup-hostname -n alpine-test
+/etc/init.d/hostname --quiet restart
+setup-keymap us us
+setup-ntp -c busybox
+setup-timezone -z Asia/Shanghai
+# 常用包
+apk add nano busybox-extras
+
+# 结束配置
+poweroff
+# 压缩磁盘
+# 可能会清除分区上的 boot 信息
+# mv virt.qcow2 virt-backup.qcow2
+# qemu-img convert -O qcow2 virt-backup.qcow2 virt.qcow2
+
+# 附加配置 - Bash
+# ============
+# 默认为 ash, 修改为 bash
+apk add shadow bash
+echo root | chsh root -s /bin/bash
+apk add bash-completion
+source /etc/profile.d/bash_completion.sh
+
+# 附加配置 - man
+# ============
+# 默认没有 manpages
+# 安装时如果需要文档, 可以安装 包名-doc
+apk add --no-cache man man-pages mdocml-apropos less less-doc
+export PAGER=less
+
+# 附加配置 - Docker
+# ============
+# 一般镜像都可以把 docker 做上, 因为非常常用
+apk add docker
+rc-update add docker
+rc-service docker restart
+# 修改镜像
+tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["你的镜像地址"]
+}
+EOF
+rc-service docker restart
+# 验证配置成功
+docker info
+
+# 附加配置 - neofetch
+# ============
+# 快速的查看当前环境
+apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 ```
 
 ## 升级
@@ -244,6 +342,8 @@ rsync \
 
 rsync --archive --update --hard-links --delete --delete-after --delay-updates --timeout=600 ~/data/alpine/ root@192.168.1.20:/mnt/disk2t/data/alpine/
 
+rsync --archive --update --hard-links --timeout=600 --progress --exclude-from .rsyncignore rsync://mirrors.tuna.tsinghua.edu.cn/alpine/ ./
+
 __/etc/periodic/hourly/alpine-mirror__
 
 ```bash
@@ -280,6 +380,8 @@ chmod +x /etc/periodic/hourly/alpine-mirror
 ## FAQ
 
 ### 手动指定 DNS
+1. 直接修改 `/etc/resolv.conf`
+2. 修改网络配置
 
 ```
 iface eth0 inet static
@@ -290,6 +392,7 @@ iface eth0 inet static
     dns-nameservers 223.5.5.5 114.114.114.114
 ```
 
-```
+```bash
+# 该命令来源于 openresolv
 resolvconf -u
 ```

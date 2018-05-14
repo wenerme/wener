@@ -56,6 +56,11 @@ done
 0	5	1	*	*	run-parts /etc/periodic/monthly
 ```
 
+```
+# 每两周一次
+0 4 * * 6 test $((10#$(date +\%W)\%2)) -eq 1 && run-parts /etc/periodic/bi-weekly
+```
+
 
 ## mac
 虽然不推荐使用 crontab, 因为其功能都已经被 lanuchd 替代,但简单的工作还是 crontab 更简单

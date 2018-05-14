@@ -24,6 +24,11 @@ ls /proc/sys/fs/binfmt_misc
 # 查看注册信息
 cat /proc/sys/fs/binfmt_misc/qemu-arm
 
+wget https://raw.githubusercontent.com/qemu/qemu/master/scripts/qemu-binfmt-conf.sh
+chmod +x qemu-binfmt-conf.sh
+./qemu-binfmt-conf.sh --help
+
+ ./qemu-binfmt-conf.sh --qemu-path /usr/bin
 # chroot alpine arm
 # ===============
 apk add --no-cache qemu-arm
@@ -49,3 +54,17 @@ uname -a
 
 https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot
 https://wiki.alpinelinux.org/wiki/Chroot
+
+
+https://github.com/postmarketOS/pmbootstrap/issues/107
+
+sysctl -w kernel.grsecurity.chroot_deny_chmod=0
+
+/proc/sys/kernel/grsecurity
+ls -1 /proc/sys/kernel/grsecurity | xargs -I '___' sysctl -w kernel.grsecurity.___=0
+
+ls -1 /proc/sys/kernel/grsecurity/chroot* | xargs -I '___' basename ___ | xargs -I '___' sysctl -w kernel.grsecurity.___=0
+
+s390x_magic='\x7fELF\x02\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x16'
+s390x_mask='\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff'
+s390x_family=s390x

@@ -10,7 +10,19 @@
 * [usb-modeswitch](http://www.draisberghof.de/usb_modeswitch/)
   * [edge/main/x86_64/usb-modeswitch](https://pkgs.alpinelinux.org/package/edge/main/x86_64/usb-modeswitch)
   * usb_modeswitch
+* 参考
+  * [USB Topology](http://www.usblyzer.com/usb-topology.htm)
 
+
+```bash
+# 查看设备树
+lsusb -t
+# 查看单个设备
+lsusb -s 2:2
+# 设备详细信息
+# bcdUSB USB version of the port
+lsusb -s 2:2 -vvv
+```
 
 ### 速度
 
@@ -39,9 +51,12 @@ Thunderbolt 3 |	2015          | 40 Gbps
 * [usbip_protocol](https://www.kernel.org/doc/Documentation/usb/usbip_protocol.txt)
 * [tools-usb-usbip-README](https://www.kernel.org/doc/readme/tools-usb-usbip-README)
 * [tools/usb/usbip](https://github.com/torvalds/linux/tree/master/tools/usb/usbip)
+  * 新的 usbip 代码
+  * 2017 年似乎有些修改
 * [Linux, RPi and USB over IP updated](http://web.archive.org/web/20160403200320/http://blog.3mdeb.com/2015/10/27/linux/)
 * usbip-utils
   * [unmaintained/usbip-utils](https://github.com/alpinelinux/aports/tree/master/unmaintained/usbip-utils)
+* https://en.wikipedia.org/wiki/Wireless_USB
 
 * usbip-vhci
   * 客户端内核模块

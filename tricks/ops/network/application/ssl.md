@@ -1,8 +1,8 @@
 # SSL
 
 ## Tips
-https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations
-https://curl.haxx.se/docs/ssl-compared.html
+* https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations
+* https://curl.haxx.se/docs/ssl-compared.html
 
 * https://www.cyberciti.biz/faq/test-ssl-certificates-diagnosis-ssl-certificate/
 * 购买

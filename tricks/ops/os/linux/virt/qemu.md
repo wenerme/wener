@@ -140,8 +140,18 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
   * Linux 支持 NWFPE FPU
   * 能运行大部分 ARM Linux 二进制文件
 
+## CHANGLOG
+* https://wiki.qemu.org/Planning
+* https://wiki.qemu.org/ChangeLog
 
-### qemu-system-x86_64 -h
+### 2.12 - 2018-04-24
+* [ChangeLog/2.12](https://wiki.qemu.org/ChangeLog/2.12)
+* Initial support for Raspberry Pi 3 machine model
+* Experimental support for two new virtualization accelerators: Apple's Hypervisor.framework ("-accel hvf") and Microsoft's Windows Hypervisor Platform Extensions ("-accel whpx")
+* `-nic` 取代 `-net` 参数
+  * `-nic user` -> `-net nic -net user`
+
+## qemu-system-x86_64 -h
 ```
 QEMU emulator version 2.10.1
 Copyright (c) 2003-2017 Fabrice Bellard and the QEMU Project developers

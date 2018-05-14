@@ -141,6 +141,16 @@ echo "test" | socat - udp4-sendto:127.0.0.1:8123
 
 # 连接后启动程序
 socat -u udp-l:8123,fork exec:/bin/cat
+# tcp
+socat -u tcp-l:80,fork exec:/bin/cat
+
+# 输出到文件
+socat -u TCP-LISTEN:12456,keepalive,reuseaddr,rcvbuf=131071 STDOUT
+
+# server
+socat exec:'bash -li',pty,stderr,setsid  tcp-listen:8999,reuseaddr
+# cli
+socat tcp-connect:127.0.0.1:8999 file:`tty`,raw,echo=0
 ```
 
 ### OpenSSL Tunnel
@@ -182,6 +192,7 @@ sudo socat UDP-RECVFROM:53,fork,reuseaddr openssl-connect:SERVER:1053,cert=$PWD/
 ## curl
 
 ## wget
+* [GNU Wget Manual](https://www.gnu.org/software/wget/manual/wget.html)
 * `-e robots=off`
   * 忽略 robot.txt
 * `-np`/`--no-parent`
@@ -190,18 +201,21 @@ sudo socat UDP-RECVFROM:53,fork,reuseaddr openssl-connect:SERVER:1053,cert=$PWD/
   * 只访问更新的
 * `-nc`/`--no-clobber`
   * 不要下载已存在将被覆盖的文件
-* `-P`/`--directory-prefix`
-  * 存储文件到前缀
-* `-r`/`--recursive`
-  * 递归
-* `-l`/`--level`
-  * 最大递归层级
-* `-m`/`--mirror`
-  * 等同于 -N -r -l inf --no-remove-listing
 * `-q`/`--quiet`
   * 安静模式
-* `--limit-rate`
-  * 限速
+
+短选项 | 长选项 | 说明
+------|-------|------
+__2.5 下载选项__||
+ || `--limit-rate=amount` | 限速
+__目录选项__||
+`-P`  | `--directory-prefix` | 存储文件到前缀
+`-nH` | `--no-host-directories` | 不创建主机前缀目录
+`-nd` | `--no-directories` | 不创建递归目录
+__2.11 递归下载选项__ ||
+`-r` | `--recursive` | 递归, 默认最大深度为 5
+`-l depth` | `--level=depth` | 指定最大递归深度
+`-m` | `--mirror` | 镜像, 等同于 `-r -N -l inf --no-remove-listing`
 
 ```bash
 wget -rN --no-parent -e robots=off -P /some/where http://some.site

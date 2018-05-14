@@ -39,6 +39,21 @@ ssh user:@example.com
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```
 
+## config
+
+```bash
+# 网关服务器
+Host my-gate
+User root
+Hostname 1.2.3.4
+
+# 通过 my-gate 链接 1.2.3.100
+# busybox 的 nc 没有 -q, 需要
+Host my-gate-110
+User root
+ProxyCommand ssh -q qc-sh-1 nc -q0 1.2.3.100 22
+```
+
 ## Tunnel
 在工作中常常需要较多的代理和转发,为每个代理和转发都进行一次 SSH 未免太过麻烦,使用 `~/.ssh/config` 可以将常用的转发一次配置
 

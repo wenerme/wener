@@ -5,6 +5,11 @@
 * https://wiki.archlinux.org/index.php/rsync
 * unison
   * https://www.cis.upenn.edu/~bcpierce/unison/
+* `--info=progress2` 显示速度
+
+
+选项 | 说明
+----|----
 
 ```bash
 # 使用 SSH 同步
@@ -14,6 +19,9 @@ rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/
 rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder
 # 使用 --info=progress2 显示总体的进度, 而不是每个文件
 rsync -aAX --info=progress2 --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder
+
+# 不同步权限用户分组信息
+rsync -avz --no-perms --no-owner --no-group mnt/wener abuild/
 
 # 配合 fswatch 使用
 # 拷贝

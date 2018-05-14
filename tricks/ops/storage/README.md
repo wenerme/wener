@@ -47,6 +47,9 @@
   * [kahing/catfs](https://github.com/kahing/catfs)
     * Catfs is a caching filesystem written in Rust
 * [Optimize Storage Efficiency](https://www.snia.org/sites/default/files/SDC/2016/presentations/erasure_coding/DrorGoldenberg_Optimize_Storage_Efficiency-v2.pdf)
+* 不能使用的文件名
+  * Windows `\/:*?"<>|`
+  * Linux, macOS `null` 或 `/`
 
 
 ```bash
