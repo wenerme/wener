@@ -20,17 +20,9 @@ grammar GraphQL;
 graphql : document ;
 
 // 2.1 Source Text
-WS : Ignored+ -> skip;
-
 // SourceCharacter : [\u0009\u000A\u000D\u0020-\uFFFF] ;
 
-Ignored
-  : UnicodeBOM
-  | WhiteSpace
-  | LineTerminator
-  | Comment
-  | Comma
-  ;
+Ignored: (UnicodeBOM | WhiteSpace | LineTerminator | Comma) -> skip;
 
 UnicodeBOM : [\uFEFF];
 
@@ -41,7 +33,7 @@ WhiteSpace : [\u0009\u0020];
 // [\u000A] | '\u000D\u000A' | [\u000D]
 LineTerminator : [\u000D\u000A]+;
 
-Comment : '#' ~[\u000D\u000A]* -> skip;
+Comment : '#' ~[\n\r\u2028\u2029]* -> channel(2);
 // NOTE overlap with NAME
 // CommentChar : ~[\u000D\u000A] ; // TODO SourceCharacter but not LineTerminator
 
@@ -51,17 +43,27 @@ Comma : ',' ;
 // NOTE: Allowed keyword as name
 name
   : NAME
-  | 'type' | 'on' | 'fragment' | 'extend' | 'implements' | 'schema'
+  | 'type' | 'fragment' | 'extend' | 'implements' | 'schema'
   | 'enum' | 'union' | 'interface' | 'input' | 'scalar' | 'directive'
   | 'query' | 'mutation' | 'subscription'
   | DirectiveLocation
   // | 'true' | 'false' | 'null' // NOTE boolean and null is NOT allowed
   | 'by' // keyword used by extensions
+  // | 'on' // will confuse inline spread
   ;
 
 // 2.2 Query Document
 document
    : definition+ EOF
+   ;
+//extension
+executableDocument
+   : executableDefinition+ EOF
+   ;
+
+//extension
+typeSystemDocument
+   : typeSystemDefinition+ EOF
    ;
 
 definition
@@ -203,7 +205,7 @@ objectField : name ':' value ;
 // 2.10 Variables
 variable : '$' name ;
 variableDefinitions : '(' variableDefinition+ ')' ;
-variableDefinition : variable ':' type defaultValue? ;
+variableDefinition : variable ':' type ( '='? defaultValue)? ;
 defaultValue : value ;
 
 // 2.11 Input Types
