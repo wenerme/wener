@@ -42,3 +42,30 @@ function setup(){
   .done(()=>riot.mount('pusher'))
 }
 ```
+
+
+```html
+<!-- mount point -->
+<my-tag></my-tag>
+
+<!-- inlined tag definition -->
+<script type="riot/tag">
+  <my-tag>
+    <h3>Tag layout</h3>
+    <inner-tag />
+  </my-tag>
+</script>
+
+<!-- <inner-tag/> is specified on external file -->
+<script src="path/to/javascript/with-tags.js" type="riot/tag"></script>
+
+<!-- include riot.js and the compiler -->
+<script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
+
+
+<!-- mount normally -->
+<script>
+riot.compile(my_tag.innerHTML)
+riot.mount('*')
+</script>
+```

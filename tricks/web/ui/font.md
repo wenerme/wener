@@ -7,12 +7,48 @@
   * 是对 SNFT 类型字体(TrueType,Opentype)的封装
   * 添加了压缩, zlib, 能达到 40% 左右的压缩率
   * 2.0 使用 Brotli 压缩
+* [Mac OS X: Font locations and their purposes](https://support.apple.com/en-us/HT201722)
+* https://codepen.io/ambarli/pen/mqRErQ
+* [Can i use unicode range](https://caniuse.com/#search=unicode%20range)
+* [Helvetica](https://en.wikipedia.org/wiki/Helvetica)
+  * Regular, Oblique, Bold, Bold Oblique
+* Helvetica Neue
+	* Condensed Bold, Condensed Black, Ultra-light, Ultra-light Italic, Light, Light Italic, Regular, Italic, Bold, Bold Italic
+* [JavaScript/CSS Font Detector](http://www.lalit.org/lab/javascript-css-font-detect/)
+* [Js detech font](https://stackoverflow.com/a/3368855/1870054)
+* 衬线体 [Serif](https://en.wikipedia.org/wiki/Serif)
+* 无衬线体 [Sans-serif](https://en.wikipedia.org/wiki/Sans-serif)
+
+```bash
+system_profiler SPFontsDataType
+fc-list: file family |grep \/Library
+```
+
+
+Value	| Common weight name
+------|-------------------
+100	  | Thin (Hairline)
+200	  | Extra Light (Ultra Light)
+300	  | Light
+400	  | Normal
+500	  | Medium
+600	  | Semi Bold (Demi Bold)
+700	  | Bold
+800	  | Extra Bold (Ultra Bold)
+900	  | Black (Heavy)
+
+Font                    | Weight| font-family
+------------------------|-------|------------
+PingFang SC Thin        | 100   | PingFangSC-Thin
+PingFang SC Ultralight  | 200   | PingFangSC-Ultralight
+PingFang SC Light       | 300   | PingFangSC-Light
+PingFang SC Regular     | 400   | PingFangSC-Regular
+PingFang SC Medium      | 600   | PingFangSC-Medium
+PingFang SC Semibold    | 800   | PingFangSC-Semibold
 
 
 ### 安全字体
 * [CSS Web Safe Font Combinations](https://www.w3schools.com/cssref/css_websafe_fonts.asp)
-* [Serif](https://en.wikipedia.org/wiki/Serif)
-* [Sans-serif](https://en.wikipedia.org/wiki/Sans-serif)
 * [Fonts included with macOS Sierra](https://support.apple.com/en-us/HT206872)
 * [List of typefaces included with macOS](https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS)
   * Helvetica
@@ -20,13 +56,12 @@
   * Microsoft YaHei
 * [网页设计中常用的19个Web安全字体](https://blog.csdn.net/joyous/article/details/51498105)
 
-
 ```css
-.font {
-  /* 衬线体 */
+body {
   font-family: "Times New Roman", Times, serif;
-  /* 无衬线体 */
-  font-family: "Microsoft YaHei", Helvetica, sans-serif;
+}
+body {
+  font-family: "PingFangSC","Microsoft YaHei", Helvetica, sans-serif;
 }
 ```
 
@@ -39,6 +74,8 @@
 ## Noto
 * WebFont 预览版
   * https://fonts.google.com/earlyaccess
+* [Noto Sans+SC Sliced](https://fonts.google.com/earlyaccess#Noto+Sans+SC+Sliced)
+  * Unicode Range 版本
 
 ## Noto Sans SC Offline
 ```bash

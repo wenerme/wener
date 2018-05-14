@@ -60,9 +60,17 @@ ng new my-roject --style=scss
 # 在当前目录,生成路由,添加 ServiceWorker
 ng new --routing -sw --style scss -dir . proj
 
+ng add @angular/pwa
+ng add @angular/material
+ng add @angular/elements
+
+ng generate @angular/material:material-nav --name=my-nav
+ng generate @angular/material:material-dashboard --name=my-dashboard
+ng generate @angular/material:material-table --name=my-table
+
+
 # 查看压缩情况
 source-map-explorer dist/main.bundle.js
-
 ```
 
 ## Notes
@@ -242,8 +250,56 @@ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inme
 * [CHANGELOG](https://github.com/angular/angular/blob/master/CHANGELOG.md)
 * [Angular Release Schedule](https://github.com/angular/angular/blob/master/docs/RELEASE_SCHEDULE.md)
 
-### 6.0
+### Next
+* https://update.angular.io/
 * Project Ivy: a faster and smaller renderer
+  * 未能在 6.0 发布
+  * [Ivy@ng-conf](https://youtu.be/dIxknqPOWms?t=1360)
+
+### 6.0
+* Node 8+
+* [angular.json](https://github.com/angular/angular-cli/wiki/angular-workspace)
+  * Angular CLI workspace file (angular.json) schema
+  * 移除了以前的 `.angular-cli.json`
+  * 一个项目下包含多个应用
+  * generate
+    * serviceWorker
+    * universal
+    * appShell
+    * library - 库
+* [elements](https://angular.io/guide/elements)
+  * [Angular Elements Quick Start](https://youtu.be/4u9_kdkvTsc)
+  * `ng add @angular/elements`
+  * WebComponent
+  * 基于自定义元素
+* pwa
+  * `ng add @angular/pwa`
+* 参考
+  * [Version 6 of Angular Now Available](https://blog.angular.io/cc56b0efa7a4)
+  * [Angular 6: Upgrading & Summary of New Features](https://alligator.io/angular/angular-6/)
+
+#### update
+
+```bash
+yarn global add @angular/cli
+yarn add @angular/cli
+
+# 依赖升级
+# 如果出现升级失败的, 可以考虑手动更改
+ng update @angular/cli
+
+
+ng update @angular/core --force
+ng update @angular/material --force
+
+# 升级其他依赖
+ng update @angular/flex-layout
+
+# 如果出现 rxjs 兼容问题
+yarn add rxjs-compat
+yarn global add rxjs-tslint
+rxjs-5-to-6-migrate -p src/tsconfig.app.json
+```
 
 ### 5.2
 * 路由
@@ -313,6 +369,18 @@ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inme
 
 
 ## FAQ
+
+### Multiple entry points / pages
+
+* [angular/angular-cli#1804](https://github.com/angular/angular-cli/issues/1804) Multiple Entrypoints, Main Files
+* [angular/angular-cli#6428](https://github.com/angular/angular-cli/issues/6428) Multiple entry points with ng serve
+* [angular/angular#14745](https://github.com/angular/angular/issues/14745) Is there any way to use Angular2 in multi-page app instead SPA?
+* ng6 后 .angular-cli.json 被 angular.json 替代
+
+```bash
+# ng serve = ng serve --app=0
+ng serve --app=1
+```
 
 ### 浏览器支持
 * [Browser support](https://angular.io/guide/browser-support)
