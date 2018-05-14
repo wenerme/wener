@@ -24,6 +24,7 @@
     * Gateway
   * 8081
     * Swarm Websockets
+* [Is it possible to use IPFS for LIVE video streaming?](https://discuss.ipfs.io/t/is-it-possible-to-use-ipfs-for-live-video-streaming/1115)
 
 ```bash
 # 容器环境中使用 ipfs
@@ -61,6 +62,18 @@ ipfs --api /ip4/127.0.0.1/tcp/5001 swarm peers
 # 觉得操作麻烦可以添加别名
 alias ipfs="ipfs -c $IPFS_PATH"
 ```
+
+## libp2p
+* [libp2p/libp2p](https://github.com/libp2p/libp2p)
+* [libp2p/go-libp2p](https://github.com/libp2p/go-libp2p)
+
+功能 | 目的 | 实现
+----|----|----
+使用数据 | applications | IPFS
+定义数据 | naming<br>merkledag | IPNS<br>IPLD
+移动数据 | exchange<br>routing<br>network | libp2p
+
+https://github.com/ipld/specs/tree/master/ipld
 
 ## ipfs --help
 

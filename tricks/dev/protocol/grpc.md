@@ -58,7 +58,7 @@
 
 ```bash
 # 假设 api 位于当前目录下的 apis
-docker run --rm -it -v $PWD:/host -workdir /host wener/grpc
+docker run --rm -it -v $PWD:/host --workdir /host wener/grpc
 # 创建目标目录
 # 注意: 如果删除了 proto 文件, 目录下之前生成的的文件不会被删除, 此时建议删除目录从新生成
 # 注意: 文件生成在了当前目录, 需要同步到项目中. 也可以直接生成到项目中

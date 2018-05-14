@@ -44,18 +44,17 @@ flutter build apk
 flutter build ios
 # 安装到链接的设备上
 flutter install
+
+# 分支切换
+# =======
+# 查看所有 channel
+flutter channel
+# 如果没有, 可先拉取
+git fetch origin dev:dev
+# 切换分支
+flutter channel dev
 ```
 
-
-## FAQ
-
-### 滚动监听
-https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html
-
-如果监听 ScrollNotification 来进行布局调整会导致延迟, 因为接收到通知时已经渲染完毕.
-从 ScrollController 监听 ScrollPosition 来做这样的事, 或者直接监听 ScrollController 再获取 position 即可
-
-https://flutter.io/animations/hero-animations/
 
 
 ### dart2
@@ -66,11 +65,6 @@ https://flutter.io/assets-and-images/
 
 ### 自定义字体
 https://flutter.io/custom-fonts
-
-### 嵌入 Web
-* [dart-flitter/flutter_webview_plugin](https://github.com/dart-flitter/flutter_webview_plugin)
-  * Plugin that allow Flutter to communicate with a native WebView.
-* 要求整页为 Web
 
 
 ## flutter help
