@@ -14,13 +14,43 @@ mvn package -Dmaven.repo.remote=http://maven.aliyun.com/nexus/content/groups/pub
 # 下载单个
 mvn dependency:get -DrepoUrl=http://maven.aliyun.com/nexus/content/groups/public -Dartifact=org.redisson:redisson:3.2.0
 
-# Maven Release
-mvn release:help
-
 # 获取项目信息,在命令行下比较有用
 mvn -q -Dexec.executable="echo" -Dexec.args='${project.artifactId}' --non-recursive org.codehaus.mojo:exec-maven-plugin:exec
 
+# 强制更新 SNAPSHOT
+mvn clean install -U
 ```
+
+## maven-release-plugin
+* Maven Release
+* [Maven Release Plugin](http://maven.apache.org/maven-release/maven-release-plugin/)
+* http://central.sonatype.org/pages/apache-maven.html
+* Goals
+  * release:clean Clean up after a release preparation.
+  * release:prepare Prepare for a release in SCM.
+  * release:prepare-with-pom Prepare for a release in SCM, and generate release POMs that record the fully resolved projects used.
+  * release:rollback Rollback a previous release.
+  * release:perform Perform a release from SCM.
+  * release:stage Perform a release from SCM into a staging folder/repository.
+  * release:branch Create a branch of the current project with all versions updated.
+  * release:update-versions Update the versions in the POM(s).
+
+```bash
+mvn release:help
+
+# 准备发布
+mvn release:clean release:prepare
+# 执行发布
+# deploy & push
+mvn release:perform
+# 回滚操作
+mvn release:rollback
+```
+
+### 中央仓库
+* [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/guides/mini/guide-central-repository-upload.html)
+* [Deploy to Maven Central Repository](https://dzone.com/articles/deploy-maven-central)
+* [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html)
 
 ### 第三方仓库
 
@@ -322,6 +352,7 @@ export MAVEN_OPTS="-DhttpProxyHost=127.0.0.1 -DhttpProxyPort=7777 -DhttpsProxyHo
 ```
 
 # maven 代理设置
+```xml
 <proxy>
 	<id>myproxy</id>
 	<active>true</active>
@@ -330,7 +361,7 @@ export MAVEN_OPTS="-DhttpProxyHost=127.0.0.1 -DhttpProxyPort=7777 -DhttpsProxyHo
 	<port>8087</port>
 	<nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
 </proxy>
-
+```
 ## Tomcat 配置
 
 __pom.xml__
@@ -364,10 +395,12 @@ https://code.lds.org/nexus/content/groups/main-repo
 https://repository.jboss.org/nexus/content/repositories/releases
 http://repo.typesafe.com/typesafereadonly/releases
 # 添加其他的仓库
+```xml
 <repository>
 	<id>nexus-osc</id>
 	<url>http://maven.oschina.net/content/groups/public/</url>
 </repository>
+```
 # maven 配置 conf/settings.xml
 # 国内镜像
 

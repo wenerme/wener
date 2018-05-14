@@ -2,6 +2,9 @@
 
 ## Tips
 
+* 方便查看每个版本的依赖版本
+  * [org.springframework.boot/spring-boot-starter-parent](http://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.0.RELEASE)
+
 ```bash
 # 安装命令行工具
 brew tap pivotal/tap

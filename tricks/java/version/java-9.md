@@ -1,5 +1,7 @@
 # Java 9
+
 ## Tips
+* [JDK 9](http://openjdk.java.net/projects/jdk9/)
 * [55 New Features in JDK 9](https://www.slideshare.net/SimonRitter/55-new-features-in-jdk-9)
 * [Self-Contained Application Packaging](https://docs.oracle.com/javase/9/deploy/self-contained-application-packaging.htm#JSDPG583)
 
@@ -17,8 +19,7 @@
 * Jigsaws
   * [Jigsaws Missing Pieces](http://wildfly.org/news/2016/12/12/Jigsaws-Missing-Pieces/)
 
-## JEPs targeted to JDK 9
-[Java 9](http://openjdk.java.net/projects/jdk9/) Project
+## JEPs
 
 * 102: [Process API Updates](http://openjdk.java.net/jeps/102)
   * 提升与系统的互操作性
