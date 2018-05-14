@@ -27,6 +27,12 @@
   * [string](https://cmake.org/cmake/help/latest/command/string.html)
 * References
   * [GNUInstallDirs](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html)
+* 模块
+  * [Kitware/CMake/Modules](https://github.com/Kitware/CMake/blob/master/Modules)
+    * 官方模块
+  * [bro/cmake](https://github.com/bro/cmake)
+    * a collection of CMake scripts
+  * [IoLanguage/io/modules](https://github.com/IoLanguage/io/tree/master/modules)
 
 ```bash
 # 生成依赖图
@@ -80,3 +86,38 @@ If real-time processing is not critical in your project or its performance is en
 ```
 add_custom_target(newtarget ${CMAKE_COMMAND} -E env NAME=VALUE somecommand)
 ```
+
+### 并行构建
+* [How to configure portable parallel builds in CMake?](https://stackoverflow.com/questions/10688549)
+
+
+```bash
+mkdir build
+cd    build
+cmake –G”Unix Makefiles” ../src
+make –j5
+
+mkdir build
+cd    build
+cmake -G Ninja ..
+ninja             # Parallel build (no need -j12)
+
+mkdir build
+cd    build
+cmake -G Ninja ..
+cmake --build .   # Parallel build using ninja
+```
+
+### 配置文件
+https://cmake.org/cmake/help/latest/command/configure_file.html
+
+```
+#cmakedefine HAVE_FEATURE_A @Feature_A_FOUND@
+#cmakedefine HAVE_FEATURE_B @Feature_B_FOUND@
+#cmakedefine HAVE_FEATURE_BITS @B_BITSIZE@
+```
+
+```
+configure_file(config.h.in config.h)
+```
+
