@@ -21,6 +21,7 @@
     * [#22655](https://github.com/dart-lang/sdk/issues/22655)
     * [dart-lang/grpc-dart](https://github.com/dart-lang/grpc-dart)
 * [hourliert/graphql_client](https://github.com/hourliert/graphql_client) - GraphQL Client
+* [常见问题](./flutter-faq.md) 整理
 * 参考
   * [在中国使用 Flutter](https://github.com/flutter/flutter/wiki/Using-Flutter-in-China)
   * [HTML/CSS 对应 Flutter](https://flutter.io/web-analogs)
@@ -36,7 +37,10 @@ export PATH=`pwd`/flutter/bin:$PATH
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
+# 检测本地环境
 flutter doctor
+# 升级
+flutter upgrade
 
 # 构建 APK
 flutter build apk
@@ -45,13 +49,16 @@ flutter build ios
 # 安装到链接的设备上
 flutter install
 
+# 创建项目
+flutter create --org com.myapp -i swift -a kotlin --description 'My App' myapp
+
 # 分支切换
 # =======
 # 查看所有 channel
 flutter channel
 # 如果没有, 可先拉取
 git fetch origin dev:dev
-# 切换分支
+# 切换分支 - 一般推荐使用 beta 分支
 flutter channel dev
 ```
 

@@ -94,3 +94,7 @@ new AssetImage('assets/slides/3.png').resolve(localImageConfiguration);
 * [dart-flitter/flutter_webview_plugin](https://github.com/dart-flitter/flutter_webview_plugin)
   * Plugin that allow Flutter to communicate with a native WebView.
 * 要求整页为 Web
+
+## 添加到现有应用
+* [wiki/Add-Flutter-to-existing-apps](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps)
+* [#14821](https://github.com/flutter/flutter/issues/14821) Reduce friction encountered when adding Flutter to existing apps 
