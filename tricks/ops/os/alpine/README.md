@@ -201,9 +201,79 @@ docker info
 apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 ```
 
-## 升级
+## Release
+
+## 3.8
+* [3.8.0](https://alpinelinux.org/posts/Alpine-3.8.0-released.html) 2018-06-27
+* Support netboot on all architectures
+* Add arm64 (aarch64) Raspberry Pi image
+* Add support for Raspberry Pi 3 Model B+
+* Support ISO image on s390x (KVM installation)
+* End of support for hardened kernel (unofficial Grsecurity)
+* Support for Crystal language
+* Linux 4.14
+* Go 1.10
+* Node.js 8.11 (LTS)
+* Rust 1.26
+* Ruby 2.5
+* PHP 7.2
+* ghc 8.4
+* OCaml 4.06
+* R 3.5
+* JRuby 9.2
+* 拆分了 linux-firmware 子包, 可单独安装
+* 注意
+  * 3.8 移除了 hardened 相关的 kernel, 之前版本安装的都需要做调整
+  * 3.7 没有 linut-virt 只有 linut-virthardened 需要先更新仓库
+
+```bash
+# 更新为 3.8 仓库
+sed -ire 's/v\d\.\d/v3.8/g' /etc/apk/repositories
+# 更新仓库索引
+apk update
+
+
+# 3.8 内核切换
+# ============
+# 3.8 移除了 hardened 内核, 升级前先切换到非 hardened 内核版本
+# 查看当前内核
+apk info -vv | grep hardened
+# 如果为 linux-virthardened 则安装 linux-virt
+# 如果为 linux-hardened 则安装 linux-vanilla
+# 如果不是 hardened 内核, 跳过
+apk add linux-vanilla
+# 如果有其他内核模块是 hardened 也需要安装对应的 vanilla 版本, zfs, drbd, spl, dahdi, 例如
+# apk add zfs-vanilla spl-vanilla
+# 移除 hardened 的启动菜单, 确保下次启动进入选择正确的内核
+nano /boot/extlinux.conf
+reboot
+# 重启后移除旧的内核
+apk del linux-hardened
+# 如果有依赖需要一并移除, 例如
+# apk del linux-hardened spl-hardened zfs-hardened
+
+# 更新所有的包
+apk upgrade
+sync
+reboot
+```
+
+## 3.7
+* [3.7.0](https://alpinelinux.org/posts/Alpine-3.7.0-released.html)
 * 查看当前内核版本 https://pkgs.alpinelinux.org/packages?name=linux*&branch=v3.7&repo=main&arch=x86_64
 * 3.7 添加了 busybox-extras, 部分原先 busybox 中的工具被移到了该包
+* Support for EFI;
+* Support in the installer for the GRUB bootloader
+* Linux 4.9.65
+* GCC 6.4
+* LLVM 5.0
+* Go 1.9
+* Node.js 8.9 (LTS)
+* Perl 5.26
+* PostgreSQL 10
+* Rust 1.22
+
+
 
 ```bash
 sed -ire 's/v\d\.\d/v3.7/g' /etc/apk/repositories
