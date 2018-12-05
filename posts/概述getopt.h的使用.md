@@ -30,27 +30,24 @@ gcc -o exc 是短选项 带参数，与gcc --output exc相同
 getopt中的内容：
 
 具体讲解在实例中。
+- 已定义的变量 
+  - int opterr;
+  - int optopt;
+  - int optind;
+  - char *optarg;
 
-<code lang="c[lines]">/* 已定义的变量 */
-
-int opterr
-int optopt
-int optind
-char *optarg
-
-/* 已定义的函数 */
-/*  */
+- 已定义的函数 
+```c
 int getopt (int argc, char **argv, const char *options)
 int getopt_long (int argc, char *const *argv, const char *shortopts, const struct option *longopts, int *indexptr)
-
 int getopt_long_only (int argc, char *const *argv, const char *shortopts, const struct option *longopts, int *indexptr)
+```
+- 数据类型 
+```struct option```
 
-/* 数据类型 */
-struct option</code>
+## 实例1.实现短参数
 
-实例1.实现短参数
-
-<code lang="c[lines]">
+```c
 #include <ctype .h>
 #include <stdio .h>
 #include <stdlib .h>
@@ -105,11 +102,11 @@ int main (int argc, char **argv)
         printf ("未定义的参数： %s\n", argv[index]);
     return 0;
 }
-</code>
+```
 
-实例2.实现长选项
+## 实例2.实现长选项
 
-<code lang="c[lines]">
+```c
 #include <stdio .h>
 #include <stdlib .h>
 /* 使用getopt_long时不需要unistd*/
@@ -227,9 +224,9 @@ char **argv;
 
     exit (0);
 }
-</code>
+```
 
-实例3.<strong>getopt_long_only</strong>
+## 实例3.**getopt_long_only**
 
 这个函数的参数和getopt_long相同，只是接受长参数时，可以只用一个'-'来替代'--'。当-xx没有检测到xx的长参数时会检测-x短参数。
 
@@ -239,8 +236,7 @@ char **argv;
 
 参考：
 
-GNU Libc手册：<a href="http://www.gnu.org/software/libc/manual/html_node/Getopt.html#Getopt">http://www.gnu.org/software/libc/manual/html_node/Getopt.html#Getopt</a>
+- GNU Libc手册[http://www.gnu.org/software/libc/manual/html_node/Getopt.html#Getopt](http://www.gnu.org/software/libc/manual/html_node/Getopt.html#Getopt)
 
-Getopt英文维基页面：<a href="http://en.wikipedia.org/wiki/Getopt">http://en.wikipedia.org/wiki/Getopt</a>
+- Getopt英文维基页面[http://en.wikipedia.org/wiki/Getopt](http://en.wikipedia.org/wiki/Getopt)
 
-&nbsp;</getopt></stdlib></stdio></code></unistd></stdlib></stdio></ctype></code>
