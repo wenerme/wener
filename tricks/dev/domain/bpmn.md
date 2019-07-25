@@ -23,3 +23,6 @@
   * a pattern matching algorithm for implementing production rule systems.
   * determine which of the system's rules should fire based on its data store.
 * openhub [camunda vs activiti vs drools](https://www.openhub.net/p/_compare?project_0=camunda+BPM+platform&project_1=Activiti&project_2=JBoss+Drools)
+
+https://camunda.com/bpmn/reference/
+

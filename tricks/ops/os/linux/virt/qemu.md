@@ -144,6 +144,19 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
 * https://wiki.qemu.org/Planning
 * https://wiki.qemu.org/ChangeLog
 
+### 3.1.0
+* https://www.qemu.org/2018/12/12/qemu-3-1-0/
+* ARM
+* qemu-img tool can now generate LUKS-encrypted files through ‘convert’ command
+### 3.0.0
+* https://www.qemu.org/2018/08/15/qemu-3-0-0/
+* 完整的 ARM 7 模拟
+* Sparc32
+* Sparc64
+* SDL 2
+* GTK 3
+
+
 ### 2.12 - 2018-04-24
 * [ChangeLog/2.12](https://wiki.qemu.org/ChangeLog/2.12)
 * Initial support for Raspberry Pi 3 machine model
@@ -153,7 +166,7 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
 
 ## qemu-system-x86_64 -h
 ```
-QEMU emulator version 2.10.1
+QEMU emulator version 2.12.0
 Copyright (c) 2003-2017 Fabrice Bellard and the QEMU Project developers
 usage: qemu-system-x86_64 [options] [disk_image]
 
@@ -165,7 +178,7 @@ Standard options:
 -machine [type=]name[,prop[=value][,...]]
                 selects emulated machine ('-machine help' for list)
                 property accel=accel1[:accel2[:...]] selects accelerator
-                supported accelerators are kvm, xen, hax or tcg (default: tcg)
+                supported accelerators are kvm, xen, hax, hvf, whpx or tcg (default: tcg)
                 kernel_irqchip=on|off|split controls accelerated irqchip support (default=off)
                 vmport=on|off|auto controls emulation of vmport (default: auto)
                 kvm_shadow_mem=size of KVM shadow MMU in bytes
@@ -177,12 +190,12 @@ Standard options:
                 suppress-vmdesc=on|off disables self-describing migration (default=off)
                 nvdimm=on|off controls NVDIMM support (default=off)
                 enforce-config-section=on|off enforce configuration section migration (default=off)
-                s390-squash-mcss=on|off controls support for squashing into default css (default=off)
+                s390-squash-mcss=on|off (deprecated) controls support for squashing into default css (default=off)
+                memory-encryption=@var{} memory encryption object to use (default=none)
 -cpu cpu        select CPU ('-cpu help' for list)
 -accel [accel=]accelerator[,thread=single|multi]
-                select accelerator (kvm, xen, hax or tcg; use 'help' for a list)
-                thread=single|multi (enable multi-threaded TCG)
--smp [cpus=]n[,maxcpus=cpus][,cores=cores][,threads=threads][,sockets=sockets]
+                select accelerator (kvm, xen, hax, hvf, whpx or tcg; use 'help' for a list)
+                thread=single|multi (enable multi-threaded TCG)-smp [cpus=]n[,maxcpus=cpus][,cores=cores][,threads=threads][,sockets=sockets]
                 set the number of CPUs to 'n' [default=1]
                 maxcpus= maximum number of total cpus, including
                 offline CPUs for hotplug, etc
@@ -192,6 +205,7 @@ Standard options:
 -numa node[,mem=size][,cpus=firstcpu[-lastcpu]][,nodeid=node]
 -numa node[,memdev=id][,cpus=firstcpu[-lastcpu]][,nodeid=node]
 -numa dist,src=source,dst=destination,val=distance
+-numa cpu,node-id=node[,socket-id=x][,core-id=y][,thread-id=z]
 -add-fd fd=fd,set=set[,opaque=opaque]
                 Add 'fd' to fd 'set'
 -set group.id.arg=value
@@ -220,9 +234,8 @@ NOTE: Some architectures might enforce a specific granularity
                 and only specified sound cards (comma separated list)
                 use '-soundhw help' to get the list of supported cards
                 use '-soundhw all' to enable all of them
--balloon none   disable balloon device
 -balloon virtio[,addr=str]
-                enable virtio balloon device (default)
+                enable virtio balloon device (deprecated)
 -device driver[,prop[=value][,...]]
                 add device (based on driver)
                 prop=value,... sets driver properties
@@ -235,7 +248,7 @@ NOTE: Some architectures might enforce a specific granularity
                 NOTE: The thread names are for debugging and not a stable API.
 -uuid %08x-%04x-%04x-%04x-%012x
                 specify machine UUID
-:
+
 Block device options:
 -fda/-fdb file  use 'file' as floppy disk 0/1 image
 -hda/-hdb file  use 'file' as IDE hard disk 0/1 image
@@ -264,9 +277,6 @@ Block device options:
 -sd file        use 'file' as SecureDigital card image
 -pflash file    use 'file' as a parallel flash image
 -snapshot       write to temporary files instead of disk image files
--hdachs c,h,s[,t]
-                force hard disk 0 physical geometry and the optional BIOS
-                translation (t=none or lba) (usually QEMU can guess them)
 -fsdev fsdriver,id=id[,path=path,][security_model={mapped-xattr|mapped-file|passthrough|none}]
  [,writeout=immediate][,readonly][,socket=socket|sock_fd=sock_fd][,fmode=fmode][,dmode=dmode]
  [[,throttling.bps-total=b]|[[,throttling.bps-read=r][,throttling.bps-write=w]]]
@@ -277,11 +287,16 @@ Block device options:
 -virtfs local,path=path,mount_tag=tag,security_model=[mapped-xattr|mapped-file|passthrough|none]
         [,id=id][,writeout=immediate][,readonly][,socket=socket|sock_fd=sock_fd][,fmode=fmode][,dmode=dmode]
 -virtfs_synth Create synthetic file system image
-:
+-iscsi [user=user][,password=password]
+       [,header-digest=CRC32C|CR32C-NONE|NONE-CRC32C|NONE
+       [,initiator-name=initiator-iqn][,id=target-iqn]
+       [,timeout=timeout]
+                iSCSI session parameters
+
 USB options:
 -usb            enable the USB driver (if it is not used by default yet)
 -usbdevice name add the host or guest USB device 'name'
-:
+
 Display options:
 -display sdl[,frame=on|off][,alt_grab=on|off][,ctrl_grab=on|off]
             [,window_close=on|off][,gl=on|off]
@@ -321,7 +336,7 @@ The default display is equivalent to
                 select video card type
 -full-screen    start in full screen
 -vnc <display>  shorthand for -display vnc=<display>
-:
+
 i386 target only:
 -win2k-hack     use it when installing Windows 2000 to avoid a disk full bug
 -no-fd-bootchk  disable boot signature checking for floppy disks
@@ -349,7 +364,7 @@ i386 target only:
 -smbios type=17[,loc_pfx=str][,bank=str][,manufacturer=str][,serial=str]
                [,asset=str][,part=str][,speed=%d]
                 specify SMBIOS type 17 fields
-:
+
 Network options:
 -netdev user,id=str[,ipv4[=on|off]][,net=addr[/mask]][,host=addr]
          [,ipv6[=on|off]][,ipv6-net=addr[/int]][,ipv6-host=addr]
@@ -368,7 +383,7 @@ Network options:
                 to configure it and 'dfile' (default=/etc/qemu-ifdown)
                 to deconfigure it
                 use '[down]script=no' to disable script execution
-                use network helper 'helper' (default=/usr/local/Cellar/qemu/2.10.1/libexec/qemu-bridge-helper) to
+                use network helper 'helper' (default=/usr/local/Cellar/qemu/2.12.0/libexec/qemu-bridge-helper) to
                 configure it
                 use 'fd=h' to connect to an already opened TAP interface
                 use 'fds=x:y:...:z' to connect to already opened multiqueue capable TAP interfaces
@@ -387,7 +402,7 @@ Network options:
 -netdev bridge,id=str[,br=bridge][,helper=helper]
                 configure a host TAP network backend with ID 'str' that is
                 connected to a bridge (default=br0)
-                using the program 'helper (default=/usr/local/Cellar/qemu/2.10.1/libexec/qemu-bridge-helper)
+                using the program 'helper (default=/usr/local/Cellar/qemu/2.12.0/libexec/qemu-bridge-helper)
 -netdev socket,id=str[,fd=h][,listen=[host]:port][,connect=host:port]
                 configure a network backend to connect to another network
                 using a socket connection
@@ -399,19 +414,21 @@ Network options:
                 using an UDP tunnel
 -netdev vhost-user,id=str,chardev=dev[,vhostforce=on|off]
                 configure a vhost-user network, backed by a chardev 'dev'
--netdev hubport,id=str,hubid=n
+-netdev hubport,id=str,hubid=n[,netdev=nd]
                 configure a hub port on QEMU VLAN 'n'
--net nic[,vlan=n][,macaddr=mac][,model=type][,name=str][,addr=str][,vectors=v]
-                old way to create a new NIC and connect it to VLAN 'n'
-                (use the '-device devtype,netdev=str' option if possible instead)
--net dump[,vlan=n][,file=f][,len=n]
-                dump traffic on vlan 'n' to file 'f' (max n bytes per packet)
--net none       use it alone to have zero network devices. If no -net option
-                is provided, the default is '-net nic -net user'
+--nic [tap|bridge|user|vhost-user|socket][,option][,...][mac=macaddr]
+                initialize an on-board / default host NIC (using MAC address
+                macaddr) and connect it to the given host network backend
+--nic none      use it alone to have zero network devices (the default is to
+                provided a 'user' network connection)
+-net nic[,vlan=n][,netdev=nd][,macaddr=mac][,model=type][,name=str][,addr=str][,vectors=v]
+                configure or create an on-board (or machine default) NIC and
+                connect it either to VLAN 'n' or the netdev 'nd' (for pluggable
+                NICs please use '-device devtype,netdev=nd' instead)
 -net [user|tap|bridge|socket][,vlan=n][,option][,option][,...]
                 old way to initialize a host network interface
                 (use the -netdev option if possible instead)
-:
+
 Character device options:
 -chardev help
 -chardev null,id=id[,mux=on|off][,logfile=PATH][,logappend=on|off]
@@ -431,13 +448,7 @@ Character device options:
 -chardev pipe,id=id,path=path[,mux=on|off][,logfile=PATH][,logappend=on|off]
 -chardev pty,id=id[,mux=on|off][,logfile=PATH][,logappend=on|off]
 -chardev stdio,id=id[,mux=on|off][,signal=on|off][,logfile=PATH][,logappend=on|off]
-:
-Device URL Syntax:
--iscsi [user=user][,password=password]
-       [,header-digest=CRC32C|CR32C-NONE|NONE-CRC32C|NONE
-       [,initiator-name=initiator-iqn][,id=target-iqn]
-       [,timeout=timeout]
-                iSCSI session parameters
+
 Bluetooth(R) options:
 -bt hci,null    dumb bluetooth HCI - doesn't respond to commands
 -bt hci,host[:id]
@@ -448,19 +459,21 @@ Bluetooth(R) options:
                 add host computer to virtual scatternet 'n' using VHCI
 -bt device:dev[,vlan=n]
                 emulate a bluetooth device 'dev' in scatternet 'n'
-:
+
 TPM device options:
 -tpmdev passthrough,id=id[,path=path][,cancel-path=path]
                 use path to provide path to a character device; default is /dev/tpm0
                 use cancel-path to provide path to TPM's cancel sysfs entry; if
                 not provided it will be searched for in /sys/class/misc/tpm?/device
-:
+-tpmdev emulator,id=id,chardev=dev
+                configure the TPM device using chardev backend
+
 Linux/Multiboot boot specific:
 -kernel bzImage use 'bzImage' as kernel image
 -append cmdline use 'cmdline' as kernel command line
 -initrd file    use 'file' as initial ram disk
 -dtb    file    use 'file' as device tree image
-:
+
 Debug/Expert options:
 -fw_cfg [name=]<name>,file=<file>
                 add named fw_cfg entry with contents from file
@@ -471,7 +484,7 @@ Debug/Expert options:
 -monitor dev    redirect the monitor to char device 'dev'
 -qmp dev        like -monitor but opens in 'control' mode
 -qmp-pretty dev like -qmp but uses pretty JSON formatting
--mon [chardev=]name[,mode=readline|control]
+-mon [chardev=]name[,mode=readline|control][,pretty[=on|off]]
 -debugcon dev   redirect the debug console to char device 'dev'
 -pidfile file   write PID to 'file'
 -singlestep     always run in singlestep mode
@@ -510,7 +523,7 @@ Debug/Expert options:
                 or disable real time cpu sleeping
 -watchdog model
                 enable virtual hardware watchdog [default=none]
--watchdog-action reset|shutdown|poweroff|pause|debug|none
+-watchdog-action reset|shutdown|poweroff|inject-nmi|pause|debug|none
                 action when watchdog fires [default=reset]
 -echr chr       set terminal escape character instead of ctrl-a
 -virtioconsole c
@@ -532,14 +545,24 @@ Debug/Expert options:
 -nodefaults     don't create default devices
 -chroot dir     chroot to dir just before starting the VM
 -runas user     change to user id user just before starting the VM
--sandbox <arg>  Enable seccomp mode 2 system call filter (default 'off').
+-sandbox on[,obsolete=allow|deny][,elevateprivileges=allow|deny|children]
+          [,spawn=allow|deny][,resourcecontrol=allow|deny]
+                Enable seccomp mode 2 system call filter (default 'off').
+                use 'obsolete' to allow obsolete system calls that are provided
+                    by the kernel, but typically no longer used by modern
+                    C library implementations.
+                use 'elevateprivileges' to allow or deny QEMU process to elevate
+                    its privileges by blacklisting all set*uid|gid system calls.
+                    The value 'children' will deny set*uid|gid system calls for
+                    main QEMU process but will allow forks and execves to run unprivileged
+                use 'spawn' to avoid QEMU to spawn new threads or processes by
+                     blacklisting *fork and execve
+                use 'resourcecontrol' to disable process affinity and schedular priority
 -readconfig <file>
 -writeconfig <file>
                 read/write config file
--nodefconfig
-                do not load default config files at startup
 -no-user-config
-                do not load user-provided config files at startup
+                do not load default user-provided config files at startup
 -trace [[enable=]<pattern>][,events=<file>][,file=<file>]
                 specify tracing options
 -msg timestamp[=on|off]
@@ -550,7 +573,7 @@ Debug/Expert options:
                 Use the scripts/vmstate-static-checker.py file to
                 check for possible regressions in migration code
                 by comparing two such vmstate dumps.
-:
+
 Generic object creation:
 -object TYPENAME[,PROP1=VALUE1,...]
                 create a new object of type TYPENAME setting properties
@@ -565,9 +588,8 @@ ctrl-alt        toggle mouse and keyboard grab
 
 When using -nographic, press 'ctrl-a h' to get some help.
 
-See <http://qemu.org/contribute/report-a-bug> for how to report bugs.
-More information on the QEMU project at <http://qemu.org>.
-
+See <https://qemu.org/contribute/report-a-bug> for how to report bugs.
+More information on the QEMU project at <https://qemu.org>.
 ```
 
 

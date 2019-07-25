@@ -25,3 +25,10 @@
 * pg_repack
   * https://github.com/reorg/pg_repack
   * http://reorg.github.io/pg_repack/
+* [zombodb/zombodb](https://github.com/zombodb/zombodb)
+  * Making Postgres and Elasticsearch work together
+
+
+
+## pljava
+https://github.com/tada/pljava

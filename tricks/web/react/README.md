@@ -39,3 +39,18 @@ webpack/webpack - Builds & Dev-Server
 
 
 https://github.com/mattkrick/meatier
+
+## FAQ
+### Rect vs MobX
+* https://www.reddit.com/r/reactjs/comments/885bxa/redux_vs_mobx/
+* [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+  * by Redux Author
+
+
+## Nextjs
+
+```
+npm install --save react react-dom next
+mkdir pages
+next
+```

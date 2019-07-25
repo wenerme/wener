@@ -1,3 +1,8 @@
+---
+id: ip
+title: IP
+---
+
 # TCP/IP
 
 ## Tips
@@ -39,6 +44,41 @@ Start       | End             | Count     | Class | CIDR
   * 64.233.173.193 – 64.233.173.255
   * 66.249.64.1 – 66.249.79.255
   * 216.239.33.96 – 216.239.59.128
+
+## ipcalc
+
+```
+Usage: ipcalc [options] <ADDRESS>[[/]<NETMASK>] [NETMASK]
+
+ipcalc takes an IP address and netmask and calculates the resulting broadcast,
+network, Cisco wildcard mask, and host range. By giving a second netmask, you
+can design sub- and supernetworks. It is also intended to be a teaching tool
+and presents the results as easy-to-understand binary values.
+
+ -n --nocolor  Don't display ANSI color codes.
+ -b --nobinary Suppress the bitwise output.
+ -c --class    Just print bit-count-mask of given address.
+ -h --html     Display results as HTML (not finished in this version).
+ -v --version  Print Version.
+ -s --split n1 n2 n3
+               Split into networks of size n1, n2, n3.
+ -r --range    Deaggregate address range.
+    --help     Longer help text.
+
+Examples:
+
+ipcalc 192.168.0.1/24
+ipcalc 192.168.0.1/255.255.128.0
+ipcalc 192.168.0.1 255.255.128.0 255.255.192.0
+ipcalc 192.168.0.1 0.0.63.255
+
+
+ipcalc <ADDRESS1> - <ADDRESS2>  deaggregate address range
+
+ipcalc <ADDRESS>/<NETMASK> --s a b c
+                                split network to subnets
+				where a b c fits in.
+```
 
 ## FAQ
 ### IP-address ending with zero?

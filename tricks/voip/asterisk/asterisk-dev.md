@@ -1,3 +1,9 @@
+---
+id: dev
+title: 开发
+---
+
+
 # Dev
 
 ## Tips
@@ -52,6 +58,9 @@ make doc/full-en_US.xml
 
 # NOTE 生成文档中的 para/example 标签应该为 CDATA, 但是生成的 xml 中没有 <![CDATA[ ]]>, 需要手动替换, 否则部分解析器会解析失败
 ```
+
+## Tricks
+https://www.voip-info.org/asterisk-tips-and-tricks
 
 ## Addon
 https://github.com/zaf/Asterisk-eSpeak
@@ -174,8 +183,8 @@ apk add pciutils util-linux
 lspci
 
 # OpenVox 需要 wct4xxp
-modprob dahdi
-modprob wct4xxp
+modprobe dahdi
+modprobe wct4xxp
 
 # 启动 dahdi 服务, 并且下次自动启动
 rc-update add dahdi
@@ -741,6 +750,23 @@ find . -type f -mmin -15
 find . -type f ! -newermt 2017-9-29 -delete
 ```
 
+## 自动拨号文件
+/var/spool/asterisk/outgoing/
+
+https://www.voip-info.org/asterisk-call-files
+https://www.voip-info.org/asterisk-auto-dial-out
+
+http://www.pycall.org/
+a flexible python library for creating and using Asterisk call files.
+
+* 使用场景
+  * Prank call programs.
+  * Wakeup call programs.
+  * Telemarketing campaigns.
+  * Automatic callback systems.
+  * Emergency warning systems.
+  * Advanced conferencing applications.
+
 ## 性能调优
 * [Asterisk at large](https://www.voip-info.org/wiki/view/Asterisk+at+large)
 * [Asterisk dimensioning](https://www.voip-info.org/wiki/view/Asterisk+dimensioning)
@@ -776,4 +802,221 @@ lsof | wc -l
 
 # 查看内核的文件数限制
 sysctl fs.file-nr
+```
+## debian
+
+https://github.com/alpinelinux/aports/blob/master/main/asterisk/APKBUILD
+
+```bash
+apt install curl libedit-dev uuid-dev libjansson-dev libxml2-dev libsqlite3-dev
+
+./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--libdir=/usr/lib \
+		--localstatedir=/var \
+		--disable-xmldoc \
+		--with-gsm=internal \
+		--with-popt \
+		--with-z \
+		--with-newt \
+		--with-unixodbc \
+		--with-postgres \
+		--with-tds \
+		--with-dahdi \
+		--with-pri \
+		--with-tonezone \
+		--with-resample \
+		--with-sqlite3 \
+		--with-speex \
+		--with-asound \
+		--without-x11 \
+		--without-pjproject-bundled \
+		--with-spandsp \
+		--with-bluetooth \
+		--with-libcurl \
+		--with-libedit \
+		--with-srtp \
+		--with-imap=system
+
+		--with-imap=system
+--with-bluetooth
+--with-tds
+--with-unixodbc
+--with-popt
+
+
+
+./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--libdir=/usr/lib \
+		--localstatedir=/var \
+		--disable-xmldoc \
+		--with-gsm=internal \
+		--with-z \
+		--with-newt \
+		--with-postgres \
+		--with-dahdi \
+		--with-pri \
+		--with-tonezone \
+		--with-resample \
+		--with-sqlite3 \
+		--with-speex \
+		--with-asound \
+		--without-x11 \
+		--with-spandsp \
+		--with-libcurl \
+		--with-libedit \
+		--with-srtp
+
+
+ 
+
+
+
+./menuselect/menuselect \
+		--enable chan_mobile \
+		--enable app_meetme \
+		--enable cdr_mysql \
+		--disable BUILD_NATIVE \
+		--enable IMAP_STORAGE \
+		menuselect.makeopts
+
+rm -f menuselect.makeopts
+make menuselect.makeopts
+./menuselect/menuselect \
+		--enable app_meetme \
+		menuselect.makeopts
+
+make -j $(nproc)
+```
+
+
+libxml2-dev libncurses5-dev uuid-dev sqlite3 libsqlite3-dev pkg-config libjansson-dev
+
+uuid-dev
+
+xml2,sqlite3,jansson,asound2,newt,pq,pri,resample,spandsp,speex,speexdsp,srtp
+
+
+dahdi
+
+https://en.wikipedia.org/wiki/Newt_(programming_library)
+
+tonezone
+
+dahdi-source
+
+configure: ***
+configure: *** The ALSA installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-asound.
+
+configure: ***
+configure: *** The BLUETOOTH installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-bluetooth.
+
+configure: ***
+configure: *** The DAHDI installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-dahdi.
+
+configure: ***
+configure: *** The IMAP_TK installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-imap.
+
+configure: ***
+configure: *** The NEWT installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-newt.
+
+configure: ***
+configure: *** The PGSQL installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-postgres.
+
+configure: ***
+configure: *** The POPT installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-popt.
+
+configure: ***
+configure: *** The PRI installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-pri.
+
+configure: ***
+configure: *** The RESAMPLE installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-resample.
+
+configure: ***
+configure: *** The SPANDSP installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-spandsp.
+
+configure: ***
+configure: *** The SPEEX installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-speex.
+
+configure: ***
+configure: *** The SPEEX_PREPROCESS installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-speex.
+
+configure: ***
+configure: *** The SRTP installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-srtp.
+
+configure: ***
+configure: *** The FREETDS installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-tds.
+
+configure: ***
+configure: *** The TONEZONE installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-tonezone.
+
+configure: ***
+configure: *** The UNIXODBC installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-unixodbc.
+
+configure: ***
+configure: *** The ZLIB installation appears to be missing or broken.
+configure: *** Either correct the installation, or run configure
+configure: *** including --without-z.
+
+
+http://www.sailpbx.com/mediawiki/index.php/Debian_DAHDI
+
+```bash
+apt-get install dahdi-source
+m-a a-i dahdi
+```
+
+
+## Ops
+https://www.voip-info.org/asterisk-automatic-daily-restart/
+
+```bash
+until asterisk -gcv -C /data/asterisk/etc/asterisk.conf; do
+    UNID=$(date +"%Y-%m-%d.%H-%M-%S")
+    [ -e core ] && {
+      echo "$UNID Server 'asterisk' crashed with exit code $?.  Respawning.." >> dump.log;
+      mv core core.$UNID;
+      mv /var/log/asterisk/full full.$UNID;
+    }
+    sleep 1;
+done
 ```

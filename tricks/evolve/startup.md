@@ -35,8 +35,8 @@
 * [如何看待老板老拿期权激励员工，给的工资却很少？](https://www.zhihu.com/question/29056889)
 
 ### How to start a startup without ruining your life
-[Source](https://www.superhi.com/blog/how-to-start-a-startup-without-ruining-your-life)
-[HN](https://news.ycombinator.com/item?id=13532992)
+* [How to start a startup without ruining your life](https://www.superhi.com/blog/how-to-start-a-startup-without-ruining-your-life)
+  * [HN](https://news.ycombinator.com/item?id=13532992)
 
 THERE’S NOT ALWAYS MONEY IN THE BANANA STAND.
 科技行业的商业模型不是必要的,因为科技行业的规模是其他行业无法比拟的,互联网可以使你的业务扩展到全世界.

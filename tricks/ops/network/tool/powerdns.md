@@ -1,3 +1,9 @@
+---
+id: powerdns
+title: PowerDNS
+---
+
+
 # PowerDNS
 
 ## Tips
@@ -300,6 +306,7 @@ daemon=no
 local-address=127.0.0.1
 local-port=53
 reuseport=yes
+forward-zones=.=8.8.8.8
 
 # ==========
 # webserver

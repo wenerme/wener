@@ -3,6 +3,12 @@
 ## Tips
 * https://github.com/containous/traefik
 * [traefik.sample.toml](https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
+* ISSUES
+  * [#2674](https://github.com/containous/traefik/issues/2674) Let's Encrypt: use ACME API V2
+    * 支持泛域名
+* ACME
+  *  20 certificates per domain per week
+  * https://letsencrypt.org/docs/rate-limits/
 
 ## Notes
 

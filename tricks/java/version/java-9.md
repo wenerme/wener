@@ -1,3 +1,8 @@
+---
+id: java-9
+title: Java 9
+---
+
 # Java 9
 
 ## Tips

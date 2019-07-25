@@ -1,3 +1,8 @@
+---
+id: tinc
+title: Tinc
+---
+
 # tinc
 
 ## Tips
@@ -54,9 +59,13 @@
     * 默认
     * 基于子网信息构建路由表
     * 支持基于 ip 的单播通讯
+    * tun 设备
+      * mac tun 只支持点对点 - 例如 ifconfig tun0 inet 10.2.1.1 10.2.1.2 up
+      * 其他需要手动添加路由 route add -net 10.2 -interface tun0
   * switch
     * 基于 mac 信息构建路由表
-    * 支持基于 Ethernet 的单播,广播通讯
+    * 支持基于 ethernet的单播,广播通讯
+    * tap 设备
   * hub
     * 不维护路由表, 只做转发
 * 支持的设备类型 - DeviceType
@@ -193,7 +202,10 @@ docker run -d --restart always \
 ```bash
 # macOS
 # http://tuntaposx.sourceforge.net/
-brew install tinc --devel
+# 新版没有了 devel 参数
+# https://github.com/Homebrew/homebrew-core/tree/master/Formula/tinc.rb
+curl https://raw.githubusercontent.com/wenerme/homebrew-core/tinc-pre/Formula/tinc-pre.rb > /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tinc-pre.rb
+brew install tinc-pre
 
 # utun
 # ===============
@@ -244,6 +256,10 @@ __tinc-up__
 #!/bin/sh
 brctl addif br0 $INTERFACE
 ifconfig $INTERFACE 0.0.0.0 promisc up
+
+# 该节点作为路由
+# iptables -I FORWARD -i $INTERFACE -j ACCEPT
+# iptables -t nat -A POSTROUTING -d 10.88.0.0/16 -o $INTERFACE -j MASQUERADE
 ```
 
 __tinc-fw__
@@ -418,7 +434,17 @@ Digest = sha1
 
 ## FAQ
 
+### Peer  tries to roll back protocol version to 17.0
+
+使用 1.0 协议
+
+```
+ExperimentalProtocol = no
+```
+
 ### Could not open /dev/net/tun: No such file or directory
+
+加载 tun 内核模块
 
 ```bash
 modprobe tun
@@ -426,6 +452,8 @@ echo tun >> /etc/modules
 ```
 
 ### route
+
+* https://wiki.archlinux.org/index.php/Network_bridge
 
 ```bash
 sysctl net.ipv4.ip_forward
@@ -470,3 +498,5 @@ https://askubuntu.com/q/227369/267103
 
 Linux IP Masquerade HOWTO
 http://tldp.org/HOWTO/IP-Masquerade-HOWTO/
+
+iptables -I FORWARD -i brwenet -j ACCEPT

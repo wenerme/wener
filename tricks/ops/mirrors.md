@@ -1,3 +1,8 @@
+---
+id: mirrors
+title: Mirrors
+---
+
 # 镜像
 
 ## 镜像站点

@@ -1,4 +1,8 @@
-# Alpine Packages
+---
+id: alpine-pkgs
+title: Alpine 包维护
+---
+
 ## Tips
 * https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md
 
@@ -29,6 +33,8 @@ echo "$DEV_USER  ALL=(ALL) ALL" >> /etc/sudoers
 
 # 修改 PACKAGER 信息
 vi /etc/abuild.conf
+# echo 'PACKAGER="wener <wenermail@gmail.com>"' >> /etc/abuild.conf
+# 里面的 JOB 参数可修改为核数
 addgroup $DEV_USER abuild
 
 # 缓存目录
@@ -39,7 +45,11 @@ chmod a+w /var/cache/distfiles
 
 # 切换为 $DEV_USER 登陆
 # 生成秘钥
+# 会生成到 $HOME/.abuild 如果已经有了，直接拷贝即可
 abuild-keygen -a -i
+# /etc/apk/keys
+# echo /build/.abuild/build.rsa | abuild-keygen -a -i
+
 #git config --global user.name "Your Full Name"
 #git config --global user.email "your@email.address"
 mkdir -p /gits
@@ -67,12 +77,21 @@ rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild
 docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder wener/edge:builder
 
 docker run --rm -it -v $PWD:/src --entrypoint bash wener/base:builder
+
+chown 1000:1000 -R build/
+docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder --entrypoint bash wener/base:builder
 ```
 
 * Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
   * 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
   * 因为部分项目构建是无法将 `musl` 识别为 `gnu`
 
+### 开发
+https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
+
+```
+
+```
 
 ```
 $ abuild -h

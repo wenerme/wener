@@ -1,3 +1,9 @@
+---
+id: cloud
+title: Spring Cloud
+---
+
+
 # Spring Cloud
 * [Spring Cloud](http://projects.spring.io/spring-cloud/)
 * [Dalston.RELEASE Docs](http://cloud.spring.io/spring-cloud-static/Dalston.RELEASE)

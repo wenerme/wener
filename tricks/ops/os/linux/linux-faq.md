@@ -1,5 +1,18 @@
 # FAQ
 
+
+## halt vs poweroff vs shutdown
+* halt
+  * 终止所有进程并关闭 CPU
+* poweroff
+  * 与 halt 相似,但也会关闭 PC 自身.会发送 ACPI 命令到主板, PSU 然后切断电源
+* shutdown -t now
+  * 与 poweroff 相似,但会执行关机脚本
+  * 最优雅的关机方式
+  * 会先 `kill -15 `然后 `kill -9`
+  * 现代的 `halt` 和 `reboot` 一般也会调用 shutdown
+
+
 ## 'RTLD_NEXT' undeclared
 * gcc 添加 `-D_GNU_SOURCE`
 * 因为不是标准的 POSIX 定义
@@ -38,3 +51,42 @@ grep CONFIG_IKCONFIG running.config
 ```bash
 modprobe configs
 ```
+
+## 释放磁盘空间
+
+rm 不一定会释放空间, 可以 cp /dev/null xx
+lsof | grep deleted
+
+
+https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace
+https://unix.stackexchange.com/questions/34140/tell-fs-to-free-space-from-deleted-files-now
+
+https://serverfault.com/questions/232525/df-in-linux-not-showing-correct-free-space-after-file-removal/232526
+
+ls -l /proc/*/fd/ | grep deleted
+lsof +L1 
+
+df -ah
+du -sh
+
+df -i
+
+
+dumpe2fs /dev/sda1 | grep -i reserved
+
+
+Most Linux filesystems reserve 5% space for use only the root user.
+
+You can see this with e.g
+
+dumpe2fs /dev/sda1 | grep -i reserved
+You can change the reserved amount using :
+
+tune2fs -m 0 /dev/sda1
+
+Tracking down where disk space has gone on Linux?
+https://unix.stackexchange.com/questions/125429/tracking-down-where-disk-space-has-gone-on-linux
+
+https://github.com/moby/moby/issues/32420
+
+https://unix.stackexchange.com/questions/125429/tracking-down-where-disk-space-has-gone-on-linux

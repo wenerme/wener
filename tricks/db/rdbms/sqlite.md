@@ -27,6 +27,72 @@ CREATE TABLE IF NOT EXISTS event
 ATTACH 'cache.db' AS cache;
 ```
 
+## Notes
+[The SQLite Query Optimizer Overview](https://www.sqlite.org/optoverview.html)
+* WHERE 条件分析
+  * 索引选择
+* BETWEEN 优化
+  * 转换为 >= <= 
+  * 与索引判断
+* OR 优化
+  * 相同列语意上可转换为 IN
+  * 不同列 OR 需要按 Cost 选择
+* LIKE 优化
+  * 前缀索引
+* Skip-Scan 优化
+  * 条件不以索引最左列开始
+  * 尝试限定最左列条件来利用索引
+  * 例如当最左列只有固定几个值的时候
+* JOIN
+  * JOIN 重排序
+  * 基于 SQLITE_STAT 选择顺序
+  * 通过 CROSS JOIN 控制查询
+* 多个索引的选择
+  * 基于统计
+  * 使用 `+a = 4` 的方式来暗示不实用 `a` 的索引
+  * 范围查询
+* 覆盖索引
+  * 全表扫描时选择包含 rowid 的索引
+* ORDER BY 优化
+  * 尝试使用符合 ORDER BY 要求的索引
+* 通过索引进行部分 ORDER BY
+  * 包含多个 ORDER BY 时
+* 拉平子查询
+  * 将子查询优化为 JOIN
+* 协程执行子查询
+  * 部分子查询可以与当前查询并行执行
+* MIN/MAX 优化
+  * 如果列是某索引的最左列可以使用索引
+* 自动索引
+  * 当查询没有索引时，可能会在语句执行期间自动创建一个索引。
+  * 创建索引 O(NlogN) 全表扫描 O(N)
+* 下推优化/Push-Down Optimization
+  * 一个子查询无法被平整为外部查询，可尝试将外部查询的条件下推到子查询中。
+* LEFT JOIN Strength Reduction Optimization
+  * 有时一个 LEFT JOIN 可以转换为一个普通的 JOIN，只要两者结果相同。
+  * if any column in the right-hand table of the LEFT JOIN must be non-NULL in order for the WHERE clause to be true, then the LEFT JOIN is demoted to an ordinary JOIN.
+* 忽略 LEFT JOIN
+  * 有时 LEFT JOIN 可以完全呗忽略
+    * 飞聚合查询
+    * DISTINC 查询或使用 ON/USING 来限制 JOIN 只匹配一列
+    * LETF JOIN 右边表的列未在外部查询使用
+
+[The Next-Generation Query Planner](https://www.sqlite.org/queryplanner-ng.html)
+
+
+统计信息
+https://www.sqlite.org/fileformat2.html#stat1tab
+https://www.sqlite.org/lang_analyze.html
+ANALYZE 会生成统计信息表
+
+sqlite_stat1
+可更新或删除，不可 alter 或创建
+```sql
+CREATE TABLE sqlite_stat1(tbl,idx,stat);
+CREATE TABLE sqlite_stat2(tbl,idx,sampleno,sample);
+CREATE TABLE sqlite_stat3(tbl,idx,nEq,nLt,nDLt,sample);
+CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
+```
 
 ## .help
 
@@ -83,3 +149,8 @@ ATTACH 'cache.db' AS cache;
 .trace FILE|off        | 输出每个 SQL 语句
 .vfsname ?AUX?         | 输出 VFS 栈
 .width NUM1 NUM2 ...   | 设置 "column" 模式的宽度,负值为右对齐
+
+## Deeper
+
+https://dzone.com/articles/how-sqlite-database-works
+

@@ -1,6 +1,6 @@
 http://tips4java.wordpress.com/2008/10/09/uimanager-defaults/
 
-��ʾĬ�ϵ�UIManagerֵ
+显示默认的UIManager值
 ```
 import javax.swing.*;
 import java.util.*;

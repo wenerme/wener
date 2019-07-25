@@ -15,3 +15,32 @@
 #   Turned on by default since v4.12
 nokaslr norandmaps printk.devkmsg=on printk.time=y
 ```
+
+https://en.wikipedia.org/wiki/Linux_kernel
+
+
+System.map
+https://en.wikipedia.org/wiki/System.map
+
+https://en.wikipedia.org/wiki/Vmlinux
+
+所有模块
+find /lib/modules/$(uname -r) -type f -name '*.ko'
+
+/lib/modules/$(uname -r)/modules.dep
+modules.dep.bin
+
+depmod
+生成 modules.dep 和 modules.dep.bin
+depmod -av
+
+已加载的
+cat /proc/modules
+
+lsmod | tail -n +2 | cut -f 1 -d ' ' | sort
+
+内核内建模块
+cat /lib/modules/$(uname -r)/modules.builtin
+
+blob kernel
+

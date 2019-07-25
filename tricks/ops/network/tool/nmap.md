@@ -1,3 +1,8 @@
+---
+id: nmap
+title: NMap
+---
+
 # nmap
 
 ## Tips

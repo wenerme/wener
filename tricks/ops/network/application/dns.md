@@ -1,3 +1,8 @@
+---
+id: dns
+title: DNS
+---
+
 # DNS
 
 ## Tips
@@ -100,6 +105,11 @@ dig google.com +nssearch
 # 看域名在 DNS 上是否存在
 dig SOA google.nl @ns1.dns.nl.
 ```
+
+## DOH
+
+https://developers.google.com/speed/public-dns/docs/doh/json
+https://en.wikipedia.org/wiki/DNS_over_HTTPS
 
 
 ### FAQ

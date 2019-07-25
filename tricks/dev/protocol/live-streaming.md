@@ -29,6 +29,14 @@ Additional features supported via plugin:
 * Libshout 提供 Java, Python 绑定
 * 提供 ezstream 命令行工具来提供源
 
+https://en.wikipedia.org/wiki/Icecast
+https://wiki.archlinux.org/index.php/Icecast
+
+
+https://www.xiph.org/
+OPUS FLAC ICECAST VORBIS DAALA THEORA SPEEX XSPF
+
+
 ## mistserver
 [mistserver](https://github.com/DDVTECH/mistserver) is a streaming media server that works well in any streaming environment.
 http://www.mistserver.com/

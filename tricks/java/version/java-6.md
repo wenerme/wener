@@ -1,3 +1,8 @@
+---
+id: java-6
+title: Java 6
+---
+
 # Java 6
 
 ## Contents

@@ -31,3 +31,13 @@ https://news.ycombinator.com/item?id=12650290
 
 go 并行图像处理库
 https://github.com/anthonynsimon/bild
+
+
+Content aware image resize library
+https://github.com/esimov/caire
+
+https://github.com/gen2brain/cam2ip
+
+https://github.com/hunterloftis/pbr
+
+https://github.com/deepfakes/faceswap

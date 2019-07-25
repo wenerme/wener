@@ -1,3 +1,8 @@
+---
+id: objc
+title: Object C
+---
+
 # Object C
 
 ## Tips

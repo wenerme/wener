@@ -6,6 +6,7 @@
 
 * 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
 
+Verify that the .pem file has permissions of 0400, not 0777
 
 __常用配置__
 
@@ -19,6 +20,7 @@ GatewayPorts no
 PermitRootLogin yes
 # 是否允许使用密码登陆
 PasswordAuthentication yes
+ChallengeResponseAuthentication yes
 
 # 转发的端口允许外部访问
 Match User dev
@@ -75,10 +77,3 @@ LocalForward 13306 myInternalMySQL:3306
 ```bash
 autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
 ```
-
-## SSHFS
-
-#### Socket is not connected
-> mount_osxfusefs: failed to mount /@/dev/osxfuse0: Socket is not connected
-
-确认挂载的路径是否存在.

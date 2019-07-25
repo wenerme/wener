@@ -8,7 +8,7 @@
 
 ```bash
 # macOS 安装 imagemagick
-brew info imagemagick --with-librsvg
+brew install imagemagick --with-librsvg
 
 # 使用指定的图像和目录
 # 默认会使用 logo.svg 并输出到当前目录
@@ -86,8 +86,8 @@ new AssetImage('assets/slides/3.png').resolve(localImageConfiguration);
 
 ## 滚动监听
 
-0. 从 ScrollController 监听 ScrollPosition 来做这样的事, 或者直接监听 ScrollController 再获取 position 即可
-0. 通过 [ScrollNotification](https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html) 监听来进行布局调整会导致延迟, 因为接收到通知时已经渲染完毕.
+1. 从 ScrollController 监听 ScrollPosition 来做这样的事, 或者直接监听 ScrollController 再获取 position 即可
+2. 通过 [ScrollNotification](https://docs.flutter.io/flutter/widgets/ScrollNotification-class.html) 监听来进行布局调整会导致延迟, 因为接收到通知时已经渲染完毕.
 
 ## 嵌入 Web
 
@@ -98,3 +98,154 @@ new AssetImage('assets/slides/3.png').resolve(localImageConfiguration);
 ## 添加到现有应用
 * [wiki/Add-Flutter-to-existing-apps](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps)
 * [#14821](https://github.com/flutter/flutter/issues/14821) Reduce friction encountered when adding Flutter to existing apps 
+
+## Flutter 可以在网页上运行么
+不能, 并且也不打算
+
+### 图片和资源
+https://flutter.io/assets-and-images/
+
+### 自定义字体
+https://flutter.io/custom-fonts
+
+### Tips
+```dart
+// unfocus
+// https://github.com/flutter/flutter/issues/7247
+FocusScope.of(context).requestFocus(new FocusNode());
+
+// 不滚动
+ListView(
+  physics: const NeverScrollableScrollPhysics()
+)
+```
+
+
+
+## 音频
+Plugin for recording audio
+https://github.com/flutter/flutter/issues/10592
+
+https://github.com/ZaraclaJ/audio_recorder
+https://pub.dartlang.org/packages/audio_recorder
+
+https://pub.dartlang.org/packages/medcorder_audio
+https://github.com/evrone/flutter_audio
+
+## 视频
+
+## 照片
+https://github.com/flutter/plugins/tree/master/packages/camera
+
+
+## 自定义图标
+
+http://fluttericon.com/
+https://github.com/ilikerobots/polyicon
+https://github.com/fontello/fontello
+
+## 嵌套列表
+
+嵌套的列表需要 shrinkWrap: true
+
+## 固定头
+https://github.com/fluttercommunity/flutter_sticky_headers
+
+## 桌面端
+非官方项目
+https://github.com/google/flutter-desktop-embedding
+https://flutter.io/faq/#can-i-use-flutter-to-build-desktop-apps
+
+## Key
+https://segmentfault.com/a/1190000011276853
+
+https://docs.flutter.io/flutter/widgets/PageStorageKey-class.html
+https://flutter.io/widgets-intro/#keys
+
+## 光标不下移
+Editing multiline text sometimes places cursor on the wrong line #15572
+https://github.com/flutter/flutter/issues/15572
+
+## 中英文混合输入
+chinese font display not well on nexus 5x
+https://github.com/flutter/flutter/issues/18665
+
+## SVG
+[Enhancement] Support SVG
+https://github.com/flutter/flutter/issues/15501
+
+## onLongPress 不会释放
+* #17072
+  * onTapUp 不会被触发
+* onPointerUp 会触发
+
+```dart
+Listener(
+    onPointerUp: (e) {
+        print("onPointerUp");
+    },
+    child: GestureDetector(
+        onTap: _onTap,
+        onLongPress: _onLongPress,
+        child: CircleAvatar(
+            radius: 30.0,
+            backgroundColor: Colors.white,
+        ),
+    ),
+);
+```
+
+## 裁剪居中
+https://stackoverflow.com/a/49523770/1870054
+
+## 修改状态栏颜色
+[Request: API for changing the color of status bar](https://github.com/flutter/flutter/issues/7347)
+
+## 多个手势动作同时发生
+https://stackoverflow.com/questions/50824208
+
+## QR Code
+
+https://pub.dartlang.org/packages/barcode_scan
+
+https://github.com/apptreesoftware/flutter_barcode_reader
+
+Android
+https://github.com/dm77/barcodescanner
+iOS
+https://github.com/mikebuss/MTBBarcodeScanner
+
+https://pub.dartlang.org/packages/qrcode_reader
+https://github.com/bcko/flutter_qrcode_reader
+
+
+
+https://github.com/zxing/zxing
+
+https://pub.dartlang.org/packages/zxing
+https://github.com/yohom/zxing-flutter
+
+Is there a way to scan barcodes in Flutter?
+https://stackoverflow.com/questions/49521283
+
+
+## ImportError: cannot import name _remove_dead_weakref
+
+```
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/copy.py", line 52, in <module>
+    import weakref
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/weakref.py", line 14, in <module>
+    from _weakref import (
+ImportError: cannot import name _remove_dead_weakref
+```
+
+https://github.com/flutter/flutter/issues/17803
+
+<!-- flutter/flutter#17803 -->
+
+暂时只能通过卸载 python@2 解决
+```bash
+brew uninstall --ignore-dependencies python@2
+```

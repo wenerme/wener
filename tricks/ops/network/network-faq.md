@@ -1,6 +1,7 @@
 # FAQ
 
 
+
 ## What is kernel ip forwarding
 * [What is kernel ip forwarding?](https://unix.stackexchange.com/q/14056/47774)
 
@@ -13,9 +14,10 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 A router has multiple network interfaces. If traffic comes in on one interface that matches a subnet of another network interface, a router then forwards that traffic to the other network interface.
 
 ## Bridge vs NAT
-* https://serverfault.com/q/490043/190601
-* https://en.wikipedia.org/wiki/Bridging_(networking)
-* https://en.wikipedia.org/wiki/Network_address_translation
+https://serverfault.com/q/490043/190601
+
+https://en.wikipedia.org/wiki/Bridging_(networking)
+https://en.wikipedia.org/wiki/Network_address_translation
 
 
 ## tinc vs wireguard
@@ -26,4 +28,4 @@ A router has multiple network interfaces. If traffic comes in on one interface t
 ## BGP vs OSPF
 * [What is the difference between BGP and OSPF?](https://serverfault.com/questions/185635)
 
-* BGP 是 EGP, OSPF 是 IGP
+BGP 是 EGP, OSPF 是 IGP

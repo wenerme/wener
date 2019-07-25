@@ -5,6 +5,10 @@
 
 Dump pipe, Smart endpoint.
 
+https://github.com/uber/cherami-server
+Distributed, scalable, durable, and highly available message queue system. 
+
+https://eng.uber.com/cherami/
 
 ## Nats vs NSQ
 

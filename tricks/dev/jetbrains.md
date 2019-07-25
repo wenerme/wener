@@ -24,3 +24,7 @@ mkdir -p -m 750 <path to data directory> <path to logs directory> \
 chown -R 13001:13001 <path to data directory> <path to logs directory> \
     <path to conf directory> <path to backups directory>
 ```
+
+https://gitee.com/gsls200808/JetBrainsLicenseServerforPHP
+https://blog.csdn.net/gsls200808/article/details/78481771
+https://gitee.com/gsls200808/JetBrainsLicenseServerforJava

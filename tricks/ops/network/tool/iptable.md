@@ -1,3 +1,8 @@
+---
+id: iptable
+title: IPTable
+---
+
 # IPTable
 
 ## Tips
@@ -31,6 +36,15 @@ iptables -t nat -F
 iptables -t mangle -F
 iptables -F
 iptables -X
+
+# 重置
+iptables -F; iptables -t nat -F; iptables -t mangle -F
+
+
+# -C --check 检测是否存在
+iptables -C FORWARD -i eth0 -j ACCEPT 
+# 以前的检测方式
+iptables-save | grep -- "-A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT"
 
 # 查看状态
 iptables -nvL

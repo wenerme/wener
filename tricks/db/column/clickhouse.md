@@ -11,6 +11,8 @@
 * 默认库 default
 * DataGrip 可以使用 JDBC 连接
 
+https://clickhouse.yandex/docs/en/development/architecture/
+
 ```bash
 # https://hub.docker.com/r/yandex/clickhouse-server/
 docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server

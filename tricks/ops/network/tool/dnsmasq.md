@@ -1,3 +1,9 @@
+---
+id: dnsmasq
+title: dnsmasq
+---
+
+
 # dnsmasq
 
 ## Tips
@@ -10,8 +16,7 @@
   * https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns
   * http://www.openwall.com/lists/musl/2017/09/28/1
   * https://wiki.musl-libc.org/functional-differences-from-glibc.html
-
-address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
+* address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
 
 ```bash
 # 速度测试

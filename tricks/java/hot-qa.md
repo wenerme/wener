@@ -1,3 +1,7 @@
+---
+id: hot-qa
+title: 热门问题
+---
 
 
 LinkedList vs ArrayList
@@ -8,7 +12,7 @@ http://stackoverflow.com/questions/5846183/arraylist-vs-linkedlist
 时间复杂度比较
 ------------
 
-操作\类型| LinkedList<E> |  ArrayList<E>
+操作\类型| `LinkedList<E>` |  `ArrayList<E>`
 | ------------- |:-------------:|:-----:|
 get(int index) | O(n) | O(1) :star:
 add(E element) | O(1) | O(1) 最坏: O(n)

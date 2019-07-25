@@ -1,3 +1,8 @@
+---
+id: bonding
+title: Bonding
+---
+
 # Bonding
 
 ## Tips
@@ -48,7 +53,6 @@
   * 802.3ad 需要交换机支持 LACP 组, 性能最好
 * Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
 * ifenslave
-
 
 
 ```bash

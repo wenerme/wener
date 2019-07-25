@@ -6,9 +6,9 @@
 * [Identify your iPad model](https://support.apple.com/en-us/HT201471)
 * [Where does Mac OS X come from?](https://unix.stackexchange.com/q/695/47774)
 * 好看的屏保 https://github.com/JohnCoates/Aerial
-	* `brew cask install aerial`
+  * `brew cask install aerial`
 * [iousbhiddriver](https://github.com/thefloweringash/iousbhiddriver-descriptor-override)
-	* 支持 Noppoo Choc 的驱动
+  * 支持 Noppoo Choc 的驱动
 * 参考
   * [OS X 技巧](http://apple.stackexchange.com/questions/400)
   * [Assign a shortcut to running a script in OS X](http://superuser.com/a/264943/242730)
@@ -55,15 +55,15 @@ networksetup -listallhardwareports
 
 ```applescript
 on run {input, parameters}
-	choose color
-	return input
+  choose color
+  return input
 end run
 ```
 
 __文件目录结构__
 ```
 /Library
-	/Screen Savers # 屏保程序
+  /Screen Savers # 屏保程序
 ```
 
 ## Brew
@@ -99,9 +99,9 @@ sudo security remove-trusted-cert -d cert.cer
   * 不能新建文件
   * 不能剪切
 * [xtrafinder](http://www.trankynam.com/xtrafinder/)
-	* XtraFinder add Tabs and features to Mac Finder.
+  * XtraFinder add Tabs and features to Mac Finder.
 * [FinderPath](http://bahoom.com/finderpath/)
-	* 地址栏
+  * 地址栏
 
 ## Install Xcode
 ```
@@ -112,7 +112,21 @@ xcode-select --install
 * [mac-torrent-download](http://mac-torrent-download.net/)
 * http://www.macbed.com/
 
+## 终端启用换行
+
+不换行会被截断
+
+```bash
+# 禁用换行
+tput rmam
+# 启用换行
+tput smam
+```
+
 ## pmset
+
+* [Pmset](https://en.wikipedia.org/wiki/Pmset)
+* [pmset](https://www.dssw.co.uk/reference/pmset.html) man
 
 
 ```bash
@@ -123,10 +137,14 @@ pmset -g
 # AC Power       		-1*
 # Currently in use:
 #  standbydelay         10800								写入休眠镜像到磁盘之前和停止给内存供电的延迟,秒
+#  standbydelaylow      10800               写休眠镜像的延时，秒
+#  standbydelayhigh     86400               写休眠镜像的延时，秒
 #  standby              1										是否让电源管理器自动休眠系统.
+#  highstandbythreshold 50
 #  womp                 1										是否启用网络唤醒
 #  halfdim              1										display sleep will use an intermediate half-brightness state between full brightness and fully off
 #  hibernatefile        /var/vm/sleepimage	休眠时转储的文件
+#  proximitywake        1                   相同 iCloud ID 设备接近时唤醒
 #  powernap             1										是否启用 Power Nap
 #  gpuswitch            2
 #  networkoversleep     0
@@ -172,16 +190,123 @@ pmset noidel
 ```
 
 * 休眠模式
-	* 0 不会讲内存持久化到存储.在断电时内存数据会丢失.
-	* 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
-		* 默认为该选项
-	* 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
-		* 省电,电池寿命更久
-		* 但睡眠和唤醒更慢
+  * 0 不会将内存持久化到存储.在断电时内存数据会丢失.
+  * 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
+    * 默认为该选项
+  * 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
+    * 省电,电池寿命更久
+    * 但睡眠和唤醒更慢
 * 如果系统支持 standby, 则在超过 standbydely 后就会写一个休眠镜像
 * 如果要完全禁止休眠,可将 hibernatemode, standby 和 autopoweroff 设置为 0
 
+### csrutil
+
+```
+Modify the System Integrity Protection configuration. All configuration changes apply to the entire machine.
+Available commands:
+
+    clear
+        Clear the existing configuration.
+    disable
+        Disable the protection on the machine. Only available in Recovery OS.
+    enable
+        Enable the protection on the machine. Only available in Recovery OS.
+    status
+        Display the current configuration.
+
+    netboot
+        add <address>
+            Insert a new IPv4 address in the list of allowed NetBoot sources.
+        list
+            Print the list of allowed NetBoot sources.
+        remove <address>
+            Remove an IPv4 address from the list of allowed NetBoot sources.
+```
+
+/System
+/sbin
+/bin
+/usr *
+/Applications **
+
+* /usr is protected with the exception of /usr/local subdirectory, which is often used by tools like Homebrew
+
+** /Applications is protected for apps that are pre-installed with Mac OS (Calendar, Photos, Safari, Terminal, Console, App Store, Notes, etc)
+
+log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
+
 ## FAQ
+
+### 未进入休眠
+
+* 在 Console.app 中搜索 `PreventUserIdleSystemSleep`
+* `pmset -g` 确认当前的配置信息
+  * 时间
+  * sleep 是否有 prevent 信息
+    * 常见阻碍线程
+      * sharingd
+      * backupd
+      * AddressBookSourceSync
+* 
+
+```bash
+# 当前系统状态
+# 主要是 PreventUserIdleSystemSleep
+pmset -g assertions
+
+# 查看状态变更日志
+# InternalPreventSleep 和 PreventUserIdleSystemSleep
+pmset -g assertionslog
+
+# 查看唤起原因
+log show --style syslog --start '2019-05-27 17:50:00' | grep "Wake reason"
+```
+
+  
+Shutdown the computer, wait 30 seconds, restart the computer.
+  
+Disconnect all third-party peripherals.
+Resetting your Mac’s PRAM and NVRAM
+Reset the System Management Controller (SMC)
+Reset your Startup Disk and Sound preferences.
+Start the computer in Safe Mode. Test in safe mode to see if the problem persists, then restart normally.
+Use Apple Hardware Test to see if there is any hardware malfunction.
+  
+Repair the disk by booting from the Recovery HD. Immediately after the chime hold down the Command and R keys until the Utility Menu appears. Choose Disk Utility and click on the Continue button. Select the indented (usually, Macintosh HD) volume entry from the side list.  Click on the First Aid button in the toolbar. Wait for the Done button to appear. Quit Disk Utility and return to the Utility Menu. Restart the computer from the Apple Menu.
+  
+Repair permissions on the Home folder: Resolve issues caused by changing the permissions of items in your home folder.
+
+reset NVRAM
+https://support.apple.com/en-us/HT204063
+
+Option, Command, P, and R. You can release the keys after about 20 seconds, during which your Mac might appear to restart.
+
+On Mac computers that play a startup sound, you can release the keys after the second startup sound.
+On Mac computers that have the Apple T2 Security Chip, you can release the keys after the Apple logo appears and disappears for the second time. 
+
+https://support.apple.com/zh-cn/HT201295
+
+
+有 T2 芯片的 Mac 笔记本电脑
+先尝试以下操作：
+
+选取苹果菜单 >“关机”。
+在 Mac 关机后，按住电源按钮 10 秒钟。
+松开电源按钮，然后等待几秒钟。
+再次按下电源按钮以开启 Mac。
+如果上述操作无法解决问题，请按照以下步骤操作：
+
+选取苹果菜单 >“关机”。
+在 Mac 关机后，按住右 Shift 键、左 Option 键和左 Control 键 7 秒钟。然后，在按住电源按钮的同时继续按住这些按键 7 秒钟。
+松开所有三个按键和电源按钮，然后等待几秒钟。
+再次按下电源按钮以开启 Mac。
+
+### Diskutil
+
+```bash
+# 格式化为 FAT32
+diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2
+```
 
 ### BasicIPv6ValidationError
 
@@ -210,25 +335,25 @@ OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件�
 # 替换 MyVolume 为实际的挂载盘
 # High Sierra
 sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
-# macOS Sierra
+# Sierra
 sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ macOS\ Sierra.app --volume /Volumes/MyVolume 
-# El Capitan:
+# El Capitan
 sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app --volume /Volumes/MyVolume
-# Yosemite:
+# Yosemite
 sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Yosemite.app --volume /Volumes/MyVolume
-# Mavericks:
+# Mavericks
 sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --volume /Volumes/MyVolume
 ```
 
 * [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
 * [Disk Maker X](http://diskmakerx.com/)
 * 操作系统下载
-	* App Store [macOS Sierra](https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=11&path=mac%2fmacossierra)
+  * App Store [macOS Sierra](https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=11&path=mac%2fmacossierra)
 
 #### 在 x86 上安装
 * [UniBeast: Install macOS Sierra on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/)
 * [unibeast 7](https://www.tonymacx86.com/resources/unibeast-7-1-1.333/)
-	* 支持 macOS Sierra
+  * 支持 macOS Sierra
 
 #### Installer can't verified 安装器不能被验证
 使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避
@@ -349,6 +474,14 @@ sysctl -w net.link.ether.inet.proxyall=0
 sysctl -w net.inet.ip.fw.enable=1
 ```
 
+### 路由
+
+```bash
+netstat -nr
+route delete -host 10.3.2.1
+route add -net 10.3 tun0
+route add -host 9.8.7.6 tun0
+```
 
 ### 防火墙
 * [OS X PF Manual](https://murusfirewall.com/Documentation/OS%20X%20PF%20Manual.pdf)

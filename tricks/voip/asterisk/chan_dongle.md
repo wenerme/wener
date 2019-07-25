@@ -1,3 +1,8 @@
+---
+id: chan_dongle
+title: chan_dongle
+---
+
 # chan_dongle
 ## Tips
 
@@ -9,9 +14,7 @@
 
 * https://www.dc-unlocker.com/
 * http://a-zgsm.com/huawei.php
-
 * https://github.com/bg111/asterisk-chan-dongle
-
 * http://www.modemunlock.com/huawei-modem-firmwares-download-all-huawei-firmwares
 
 
@@ -31,8 +34,8 @@ mount -t iso9660 /dev/sr1 /mnt/a
 ioreg -p IOUSB -l -b | grep -10 -i huawei
 ```
 
-http://m2msupport.net/m2msupport/module-tester/
-https://wiki.archlinux.org/index.php/Huawei_E1550_3G_modem
+* http://m2msupport.net/m2msupport/module-tester/
+* https://wiki.archlinux.org/index.php/Huawei_E1550_3G_modem
 
 ```bash
 apk add screen usb-modeswitch-udev usbutils

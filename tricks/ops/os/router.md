@@ -26,6 +26,9 @@
 ## IPFire
 https://wiki.ipfire.org/hardware/requirements
 
+## Router7
+https://github.com/rtr7/router7
+pure-Go small home internet router
 
 ## Ubnt
 https://github.com/ShaneMcC/vyatta-tinc
@@ -76,6 +79,8 @@ https://www.dd-wrt.com/wiki/index.php/Serial_Recovery
 https://en.wikipedia.org/wiki/Common_Firmware_Environment
 
 
+https://zeroshell.org/
+Zeroshell is a Linux based distribution  dedicated to the implementation of Router and Firewall Appliances completely administrable via  web interface.
 
 ## Captive portal
 * [Captive portal:wiki](https://en.wikipedia.org/wiki/Captive_portal)

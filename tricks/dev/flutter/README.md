@@ -27,7 +27,21 @@
   * [HTML/CSS 对应 Flutter](https://flutter.io/web-analogs)
   * [React Native 对应 Flutter](https://flutter.io/flutter-for-react-native)
   * [Android 对应 Flutter](https://flutter.io/flutter-for-android)
+  * [Flutter System Architecture](https://docs.google.com/presentation/d/1cw7A4HbvM_Abv320rVgPVGiUP2msVs7tfGbkgdrTy0I)
+  * [Flutter 样式和布局控件简析](https://segmentfault.com/a/1190000011949751)
+  * [Flutter 中的布局绘制流程简析](https://segmentfault.com/a/1190000011912538)
+* Effects
+  * [Shimmer effect](https://medium.com/flutter-community/dbe7a1bfd980)
 
+
+```bash
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+brew install --HEAD libimobiledevice
+brew install ideviceinstaller
+brew install ios-deploy
+brew install cocoapods
+pod setup
+```
 
 ```bash
 git clone -b beta https://github.com/flutter/flutter.git
@@ -52,6 +66,10 @@ flutter install
 # 创建项目
 flutter create --org com.myapp -i swift -a kotlin --description 'My App' myapp
 
+
+flutter packages get
+flutter packages upgrade
+
 # 分支切换
 # =======
 # 查看所有 channel
@@ -62,17 +80,17 @@ git fetch origin dev:dev
 flutter channel dev
 ```
 
+https://github.com/flutter/flutter/issues/12345
+/usr/bin/xcrun simctl list --json devices | grep state
 
 
 ### dart2
 * [Trying the preview of Dart 2 in Flutter](https://github.com/flutter/flutter/wiki/Trying-the-preview-of-Dart-2-in-Flutter)
 
-### 图片和资源
-https://flutter.io/assets-and-images/
+### 常用库
+https://github.com/tekartik/sqflite
 
-### 自定义字体
-https://flutter.io/custom-fonts
-
+https://github.com/flutter/plugins
 
 ## flutter help
 ```

@@ -2,6 +2,52 @@
 
 ## Tips
 
+```bash
+# glob 大小写不敏感
+shopt -s nocaseglob
+
+# 追加到历史而不是重写
+shopt -s histappend
+
+# 使用 cd 时自动校正书写
+shopt -s cdspell
+
+# Bash 4
+# ==========
+# `**/qux` will enter `./foo/bar/baz/qux`
+shopt -s autocd
+# Recursive globbing, e.g. `echo **/*.txt`
+shopt -s globstar
+
+```
+
+## .inputrc
+
+C-x C-r is bound to re-read-init-file.
+
+https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html
+
+https://www.gnu.org/software/bash/manual/bashref.html#Miscellaneous-Commands
+
+```bash
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (i.e. more intelligent Up/Down behavior)
+"\eOA": history-search-backward
+"\e[A": history-search-backward
+"\eOB": history-search-forward
+"\e[B": history-search-forward
+
+```
+
 ## FAQ
 
 ### Find max file

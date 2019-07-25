@@ -190,3 +190,6 @@ https://github.com/paralect/robomongo
 https://github.com/reactjs/react-router
 
 https://github.com/christianalfoni/formsy-react
+
+React Native Fabric (UI-Layer Re-architecture)
+https://github.com/react-native-community/discussions-and-proposals/issues/4

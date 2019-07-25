@@ -1,3 +1,9 @@
+---
+id: boot
+title: Spring Boot
+---
+
+
 # Spring Boot
 
 ## Tips
@@ -322,10 +328,10 @@ processors | 进程数
 uptime | 系统运行时间  ms
 instance.uptime | 程序运行时间 | ms
 systemload.average| 系统平均负载
-heap<br>heap.committed<br>heap.init<br>heap.used|堆信息| KB
-threads<br>thread.peak<br>thread.daemon| 线程信息
-classes<br>classes.loaded<br>classes.unloaded| 类加载信息
-gc.xxx.count<br>gc.xxx.time| 垃圾回收信息
+heap<br/>heap.committed<br/>heap.init<br/>heap.used|堆信息| KB
+threads<br/>thread.peak<br/>thread.daemon| 线程信息
+classes<br/>classes.loaded<br/>classes.unloaded| 类加载信息
+gc.xxx.count<br/>gc.xxx.time| 垃圾回收信息
 
 __数据源监控__
 
@@ -463,3 +469,10 @@ public class IndexController implements ErrorController{
 }
 // 默认的错误控制器为 ErrorMvcAutoConfiguration#basicErrorController
 ```
+
+## 创建自定义的自动配置
+* [46. Creating Your Own Auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-auto-configuration.html)
+* `META-INF/spring.factories`
+* `org.springframework.boot.autoconfigure.EnableAutoConfiguration=`
+  * 逗号分隔
+

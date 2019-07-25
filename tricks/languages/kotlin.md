@@ -1,12 +1,24 @@
 # Kotlin
 
+## Tips
 * http://mvnrepository.com/artifact/org.jetbrains.kotlin
 * https://kotlinlang.org/docs/reference/
+* 作为 Web 开发时遇到的问题
+  * Kotlin 不支持 Mapstruct
+
+https://github.com/ftomassetti/antlr-kotlin
+Antlr Target
 
 ## Versions
 * [CHANGELOG](https://github.com/JetBrains/kotlin/blob/master/ChangeLog.md)
 
+### 1.3
+* coroutines 进入稳定
+* 无符号整型
+
 ### 1.2
+* 多平台项目支持 - 实验性
+
 
 ### 1.1.4
 

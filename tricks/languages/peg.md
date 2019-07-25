@@ -1,4 +1,8 @@
-# Parsing Expression Grammars
+---
+id: peg
+title: Parsing Expression Grammars
+sidebar_label: PEG
+---
 
 ## Tips
 * [Parsing expression grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
@@ -23,3 +27,36 @@
 * 参考
   * [The Packrat Parsing and Parsing Expression Grammars Page](http://bford.info/packrat/)
   * [LL(*): The Foundation of the ANTLR Parser Generator](http://www.antlr.org/papers/LL-star-PLDI11.pdf)
+
+
+## 操作符优先级
+
+例如 `!true || !false && (true ^ false)`
+
+定义语法如下
+
+```pegjs
+Exp = AndExp
+AndExp = OrExp ( _ "&&" _ AndExp)?
+OrExp = ExOrExp ( _ "||" _ OrExp)?
+ExOrExp = PrefixExp ( _ "^" _ ExOrExp)?
+PrefixExp = PrimaryExp / _ "!" _ PrefixExp
+PrimaryExp = "(" _ Exp _ ")" / Boolean
+Boolean = "true" / "false"
+
+_ "whitespace" = [ \t\n\r]*
+```
+
+该预发能正确处理各操作符的优先级，在非 `LLR` 中一般这样处理
+
+```pegjs
+Exp = AndExp
+AndExp = a:OrExp ( _ "&&" _ b:AndExp)? {return b?[a,"AND",b]:a}
+OrExp = a:ExOrExp ( _ "||" _ b:OrExp)? {return b?[a,"OR",b]:a}
+ExOrExp = a:PrefixExp ( _ "^" _ b:ExOrExp)? {return b?[a,"XOR",b]:a}
+PrefixExp = PrimaryExp / _ "!" _ PrefixExp
+PrimaryExp = "(" _ Exp _ ")" / Boolean
+Boolean = "true" / "false"
+
+_ "whitespace" = [ \t\n\r]*
+```

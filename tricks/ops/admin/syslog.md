@@ -1,7 +1,10 @@
 # Syslog
 
 
-## Rsyslog
+## syslog
+
+
+## rsyslog
 * rsyslog [Configuration Wizard](http://www.rsyslog.com/rsyslog-configuration-builder/)
 
 ## syslog-ng

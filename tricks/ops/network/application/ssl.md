@@ -1,3 +1,8 @@
+---
+id: ssl
+title: SSL
+---
+
 # SSL
 
 ## Tips

@@ -1,4 +1,7 @@
-## Alpine 运维笔记
+---
+id: alpine-ops
+title: Alpine 运维笔记
+---
 
 ## Tips
 
@@ -59,6 +62,9 @@ apk add vim tar coreutils openssl
 
 # 证书
 # /etc/ssl/certs/ca-certificates.crt
+
+# 系统信息
+apk add neofetch
 ```
 
 ## 系统运维
@@ -139,7 +145,7 @@ rc-update add docker
 ```bash
 # 扩展分区
 # 假设分区结构为: boot,swap,root,空闲
-# 删除第三个分区, 再创建第三个分区, 确保起点位置不变
+# 删除最后一个分区, 再创建最后一个分区, 确保起点位置不变
 # F 可以看到空余空间
 # 手动分区
 # fdisk /dev/sda
@@ -152,7 +158,7 @@ reboot
 
 # 扩展文件系统
 apk add e2fsprogs-extra
-resize2fs /dev/sda3
+resize2fs /dev/sda2
 
 # 检查结果
 df -h /
@@ -197,12 +203,13 @@ udevadm trigger
 
 ```bash
 apk add zfs zfs-{scripts,udev,utils-py}
-# 如果是 hardened 内核
-apk add zfs-hardened
-# vanilla
-# apk add zfs-vanilla
+# 如果是 hardened 内核 - alpine 3.8 后无 hardened 内核
+# apk add zfs-hardened
+# vanilla 内核
+apk add zfs-vanilla
 # 加载内核模块
 modprobe zfs
+echo zfs >> /etc/modules
 
 # init: zfs-import zfs-mount zfs-share zfs-zed
 rc-update add zfs-import sysinit
@@ -389,9 +396,9 @@ mount -a
 ## networking
 
 * auto
-  * try to ip link set <dev> up  at boot.  Best choice for anything PCIe/SoC.
+  * try to `ip link set <dev> up`  at boot.  Best choice for anything PCIe/SoC.
 * allow-hotplug
-  * for kernel+drivers+udev to detect the device, then ip link set <dev> up it.  The only thing that can deal with annoying USB, SDIO, etc.
+  * for kernel+drivers+udev to detect the device, then `ip link set <dev> up` it.  The only thing that can deal with annoying USB, SDIO, etc.
 
 ```bash
 apk add ethtool
@@ -442,6 +449,15 @@ iface eth0:0 inet static
   address fff.fff.fff.fff
   netmask 255.255.254.0
 
+```
+
+## network benchmark
+
+```bash
+apk add iperf3 iptraf-ng iftop
+
+iperf3 -s
+iperf3 -c HOST
 ```
 
 ## init
@@ -496,18 +512,6 @@ stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.9;}' < /proc/meminfo)k 
 stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)k --vm-keep -m 10 
 ```
 
-## S.M.A.R.T
-* https://help.ubuntu.com/community/Smartmontools
-* https://en.wikipedia.org/wiki/S.M.A.R.T.
-https://wiki.archlinux.org/index.php/S.M.A.R.T.
-
-https://en.wikipedia.org/wiki/Comparison_of_S.M.A.R.T._tools
-
-```bash
-smartctl
-
-```
-
 ## disk
 * badblocks
 * e2fsprogs-extra
@@ -550,6 +554,7 @@ apk add libvirt-daemon dbus polkit
 apk add qemu-img
 # 启用内核模块
 modprobe kvm-intel
+echo kvm-intel >> /etc/modules
 # 如果是 AMD
 # modprobe kvm-amd
 
@@ -744,6 +749,35 @@ Usage: run-parts [OPTION]... DIRECTORY
 ```
 
 
+## wireguard
+* 3.8 还没有，需要使用 edge
+
+
+```bash
+qemu-img create -f raw edge-virt.raw 300M
+wget https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.8/releases/x86_64/alpine-virt-3.8.2-x86_64.iso
+qemu-system-x86_64 -m 2g -hda edge-virt.raw -net nic -net user,hostfwd=tcp::2222-:22 -cdrom alpine-virt-3.8.2-x86_64.iso -boot d
+
+# Setup VM
+setup-interfaces
+rc-service networking restart
+setup-sshd -c openssh
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+echo root:root | chpasswd
+rc-service sshd restart
+
+# From Host
+ssh-keygen -R [127.0.0.1]:2222
+ssh root@127.0.0.1 -p 2222
+
+echo "http://mirrors.aliyun.com/alpine/edge/main
+http://mirrors.aliyun.com/alpine/edge/community
+http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
+apk update
+
+ERASE_DISKS=/dev/sda setup-disk -m sys -s 0 /dev/sda
+poweroff
+```
 
 ## FAQ
 ### ip: ioctl 0x8913 failed: no such device
@@ -880,6 +914,22 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 * https://github.com/OpenRC/openrc/issues/168#issuecomment-349870167
 * https://github.com/zfsonlinux/zfs/issues/6930
 * https://wiki.debian.org/LSBInitScripts
+
+
+### 启动分区修复
+
+1. mbr 坏了但分区是好的
+```bash
+dd if=/usr/share/syslinux/mbr.bin of=/dev/sdc
+```
+
+2. 启动分区坏了
+
+```bash
+# 查看分区信息
+file -s /dev/sdc1
+```
+
 
 
 ### TBD

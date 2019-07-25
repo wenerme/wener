@@ -62,7 +62,7 @@ done
 ```
 
 
-## mac
+## macOS
 虽然不推荐使用 crontab, 因为其功能都已经被 lanuchd 替代,但简单的工作还是 crontab 更简单
 
 * http://stackoverflow.com/a/23880156/1870054

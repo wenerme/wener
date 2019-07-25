@@ -11,6 +11,11 @@
 组件示例
 https://demo.vaadin.com/sampler/
 
+https://vaadin.com/docs/v10
+
+
+https://vaadin.com/blog/vaadin-10-and-static-resources
+
 ## Vaddin Elements
 
 * [Elements](https://vaadin.com/elements)
@@ -18,9 +23,17 @@ https://demo.vaadin.com/sampler/
 * 一套基于 Polymer 2 的组件
 * 暂没有与 Vaadin Framework 有很好的集成
 
+## Vaadin Flow
+HtmlImport
+JavaScript
+StyleSheet
+Uses
 
+https://github.com/vaadin/flow
 
 ## Release
+
+### 10
 
 ### 8
 * Java 8
@@ -91,3 +104,16 @@ SpringViewDisplay
 UIScope
 VaadinSessionScope
 ViewScope
+
+BeanValidationBinder
+
+## FAQ
+### webapp 未被包含
+
+jar 包会默认忽略 webapp
+war 会包含 webapp
+
+https://stackoverflow.com/a/28727189/1870054
+
+### 不支持 `/user/:id/edit` 这样的路由
+https://github.com/vaadin/flow/issues/2740

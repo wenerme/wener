@@ -1,3 +1,8 @@
+---
+id: ifconfig
+title: ifconfig
+---
+
 # ifconfig
 
 ## Tips

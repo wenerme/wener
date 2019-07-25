@@ -1,3 +1,8 @@
+---
+id: releases
+title: 发布历史
+---
+
 # Releases
 * https://spring.io/blog/category/releases
 * [Spring Initializr](http://start.spring.io/)
@@ -48,8 +53,6 @@
   * WildFly 10.1
 
 ### 4.2.x
-
-
 * 完善对 Java 8 的支持
   * Java 8 的新增类型
   * Java 8 的接口默认方法支持
@@ -62,6 +65,10 @@
   * `RestTemplate` 集成 OkHTTP
   * 添加 `RequestBodyAdvice` 扩展点,以支持在 `@RequestBody` 上使用 `@JsonView`
 
+### 3.1.x
+* 2011-11-13
+* [New in 3.1](https://docs.spring.io/spring/docs/3.1.0.RELEASE/spring-framework-reference/html/new-in-3.1.html)
+* 3.1 支持非标准的 Bean Setter
 
 ## Spring Data
 

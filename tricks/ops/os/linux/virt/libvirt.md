@@ -20,8 +20,39 @@
 * [QEMUSwitchToLibvirt](https://wiki.libvirt.org/page/QEMUSwitchToLibvirt)
 * [UbuntuKVMWalkthrough](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough)
 
+https://github.com/digitalocean/go-libvirt
 https://github.com/libvirt/libvirt-go
 http://www.cnblogs.com/popsuper1982/p/4056158.html
+
+
+https://libvirt.org/api.html
+https://libvirt.org/internals/rpc.html
+https://github.com/libvirt/libvirt
+
+https://github.com/libvirt/libvirt/blob/master/src/rpc/virnetprotocol.x
+https://github.com/digitalocean/go-libvirt/blob/master/internal/lvgen/gen/main.go
+https://github.com/libvirt/libvirt/blob/master/src/remote/remote_protocol.x
+
+https://github.com/digitalocean/go-libvirt/blob/master/internal/lvgen/sunrpc.y
+
+https://en.wikipedia.org/wiki/External_Data_Representation
+https://tools.ietf.org/html/rfc4506
+https://tools.ietf.org/html/rfc4506#section-6.3
+https://github.com/antlr/grammars-v4/blob/master/oncrpc/xdr.g4
+
+Open Network Computing Remote Procedure Call (ONCRPC) aka SunRPC is a remote procedure call system that uses XDR for serialization. version 2 is defined by RFC 5531
+
+ONCRPC is the rpc mechanism that NFS (Network File System) is built on.
+https://github.com/dCache/oncrpc4j
+
+https://github.com/Kerbaya/ieee754lib
+https://github.com/EMCECS/nfs-client-java/blob/master/src/main/java/com/emc/ecs/nfsclient/rpc/Xdr.java
+
+Handling a quadruple precision floating point (128-bit) number in java
+https://stackoverflow.com/a/21071907/1870054
+
+https://libosinfo.org/
+https://gitlab.com/libosinfo/libosinfo
 
 ```bash
 # macOS
@@ -69,4 +100,70 @@ virt-install --virt-type kvm --name xp \
 -n xp --vcpus 2 --import winxp
 ```
 
+virt-install \
+     --connect qemu:///system \
+     --virt-type qemu \
+     --name demo \
+     --ram 500 \
+     --graphics vnc \
+     --disk path=/root/alp.qcow2 \
+     --cdrom /root/alpine-standard-3.8.0-x86_64.iso \
+     --os-variant=generic \
+     --dry-run --print-xml
+     
+
 https://wiki.debian.org/KVM
+
+```
+Usage:
+  libvirtd [options]
+
+Options:
+  -h | --help            Display program help:
+  -v | --verbose         Verbose messages.
+  -d | --daemon          Run as a daemon & write PID file.
+  -l | --listen          Listen for TCP/IP connections.
+  -t | --timeout <secs>  Exit after timeout period.
+  -f | --config <file>   Configuration file.
+  -V | --version         Display version information.
+  -p | --pid-file <file> Change name of PID file.
+
+libvirt management daemon:
+
+  Default paths:
+
+    Configuration file (unless overridden by -f):
+      $XDG_CONFIG_HOME/libvirt/libvirtd.conf
+
+    Sockets:
+      $XDG_RUNTIME_DIR/libvirt/libvirt-sock
+
+    TLS:
+      CA certificate:     $HOME/.pki/libvirt/cacert.pem
+      Server certificate: $HOME/.pki/libvirt/servercert.pem
+      Server private key: $HOME/.pki/libvirt/serverkey.pem
+
+    PID file:
+      $XDG_RUNTIME_DIR/libvirt/libvirtd.pid
+```
+
+
+virsh -c qemu+ssh://root@127.0.0.1:2222/system?socket=/var/run/libvirt/libvirt-sock list --all
+
+http://rabexc.org/posts/how-to-get-started-with-libvirt-on
+
+https://libvirt.org/formatdomain.html
+
+```conf
+listen_tls = 0
+listen_tcp=1
+auth_tcp="none"
+
+
+unix_sock_dir = "/usr/local/var/run/libvirt"
+unix_sock_ro_perms = "0777"
+unix_sock_rw_perms = "0770"
+
+auth_unix_ro = "none"
+auth_unix_rw = "none"
+```

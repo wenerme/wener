@@ -1,3 +1,8 @@
+---
+id: the-definitive-guide-4th
+title: Asterisk 权威指南,第四版
+---
+
 # Asterisk 权威指南,第四版 - The Definitive Guide, 4th Edition
 
 读书笔记
@@ -345,11 +350,11 @@ include => Queues      ; allow phones to call queues
 
 虚拟设备| 描述
 ----|----
-MeetMe:<conference bridge> |
-SLA:<shared line>|
-Custom:<custom name>|
-Park:<exten@context>|
-Calendar:<calendar name>|
+`MeetMe:<conference bridge>` |
+`SLA:<shared line>`|
+`Custom:<custom name>`|
+`Park:<exten@context>`|
+`Calendar:<calendar name>`|
 
 
 

@@ -1,3 +1,8 @@
+---
+id: infiniband
+title: InfiniBand
+---
+
 # InfiniBand
 
 ## Tips

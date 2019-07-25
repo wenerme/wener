@@ -16,6 +16,30 @@ systool -m video -v
 ```
 
 
+/lib/firmware/
+dmesg | grep firmware
+
+lshw -C network
+
+How does Linux Kernel know where to look for driver firmware?
+https://stackoverflow.com/a/953404/1870054
+
+https://wireless.wiki.kernel.org/en/users/Drivers/iwlwifi
+Prints some simple information about ucode firmwares such as those used by Intel Wifi cards
+https://gist.github.com/bramp/1285857
+
+modinfo iwlwifi | grep '^firmware:'
+
+modinfo iwlwifi | grep '^firmware:' | sed -r 's/(\s|\t)+/ /' | cut -f 2 -d ' '
+
+for m in $(lsmod | tail -n +2 | cut -f 1 -d ' ' | sort); do
+  echo "# $m"
+  modinfo $m | grep '^firmware:' | sed -r 's/(\s|\t)+/ /' | cut -f 2 -d ' '; 
+done
+
+
+https://wiki.ubuntu.com/Kernel/Firmware
+
 ## systool supported
 ```
 Supported sysfs buses:

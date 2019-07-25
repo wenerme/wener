@@ -19,3 +19,13 @@
 * [Handsoncode](https://handsontable.com)
   * 使用 RuleJS 实现公式
 * [Formulas in Microsoft Excel](http://chandoo.org/excel-formulas/index.shtml)
+
+A general purpose, real-time visualization library.
+https://github.com/epochjs/epoch
+
+G2: The Grammar of Graphics in JavaScript
+https://github.com/antvis/g2
+
+https://antv.alipay.com/
+https://github.com/antvis
+antv

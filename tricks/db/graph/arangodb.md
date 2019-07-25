@@ -59,6 +59,10 @@ FOR doc IN documents
      {inEdgesCount: inEdgesCount, outEdgesCount: outEdgesCount} In Documents
 ```
 
+## AQL
+
+https://www.arangodb.com/why-arangodb/sql-aql-comparison/
+
 ## ChangeLog
 
 ### 3.2

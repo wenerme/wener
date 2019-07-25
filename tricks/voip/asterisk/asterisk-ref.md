@@ -1,5 +1,9 @@
-# Asterisk Reference
+---
+id: reference
+title: 参考
+---
 
+# Asterisk Reference
 
 ## Tips
 * [chan-sccp/chan-sccp](https://github.com/chan-sccp/chan-sccp)

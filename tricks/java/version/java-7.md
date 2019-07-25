@@ -1,3 +1,9 @@
+---
+id: java-7
+title: Java 7
+---
+
+
 # Java 7
 
 ## Contents

@@ -1,3 +1,8 @@
+---
+id: faq
+title: 常见问题
+---
+
 # Asterisk FAQ
 
 ## Tips
@@ -20,6 +25,30 @@
   * 切换使用 `chan_sip` 和 `chan_pjsip` 进行尝试
 7. PJSIP 的问题
   * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj
+
+## 诊断命令
+
+CLI commands useful for debugging
+https://wiki.asterisk.org/wiki/display/AST/CLI+commands+useful+for+debugging
+
+```bash
+# 系统状态 - 内存, 决策树, 运行时间
+core show sysinfo
+# 查看线程
+core show threads
+
+
+# 查看通话统计
+# uptime 会显示通话时间
+core show calls uptime
+# 查看通道信息
+core show channels
+# 终止一个 channel 
+channel request hangup SIP/4003-00000a2f
+
+# 查看注册的 PBX 交换
+core show switches
+```
 
 ## 终端问题排查
 * 确保 context 正确
@@ -88,12 +117,25 @@ Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_aut
 * [logger.c#L727](https://github.com/asterisk/asterisk/blob/master/main/logger.c#L727)
   * `logger.conf` 中配置 `[general]`/`logger_queue_limit` 默认为 1000
   * 示例配置中没有说明
+* 系统卡顿的时候会出现该问题
+* 请求加压过多时会出现该问题
 
+```
+[Jun 29 11:11:57] WARNING[5024]: logger:0 ***: Log queue threshold (5000) exceeded.  Discarding new messages.
+[Jun 29 11:16:37] WARNING[28086]: logger:0 ***: Logging resumed.  158329 messages discarded.
+```
+
+## 系统间歇性卡顿
+[Asterisk hanging occasionally](http://forums.asterisk.org/viewtopic.php?f=1&t=79945)
 
 ## Error loading module 'res_pjsip.so': undefined symbol: ast_sip_session_register_supplement
 
 * [ASTERISK-26518](https://issues.asterisk.org/jira/browse/ASTERISK-26518)
   * 将部分代码注释即可
+
+```bash
+curl -O https://issues.asterisk.org/jira/secure/attachment/54695/ast.diff
+```
 
 ## Read factory 0xb6d0acb8 was pretty quick last time, waiting for them / DTMF best
 * [ASTERISK-15743](https://issues.asterisk.org/jira/browse/ASTERISK-15743)
@@ -180,8 +222,20 @@ No voicemail provider registered.
 
 ### sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
 * [sig_pri.c#L6425](https://github.com/asterisk/asterisk/blob/master/channels/sig_pri.c#L6425)
-* [pri.c#L776](https://github.com/asterisk/libpri/blob/master/pri.c#L776)
+* pri_check_event [pri.c#L776](https://github.com/asterisk/libpri/blob/master/pri.c#L776)
+  * pri->read_func
+  * q921_receive
 * https://downloads.asterisk.org/pub/telephony/libpri/
+* TODD
+  * 导致该问题的具体原因还不清楚
+  * 会有什么影响也暂不清楚
+
+PRI locks randomly, hangup cause 102, "recovery on timer expiry".
+[ASTERISK-15529](https://issues.asterisk.org/jira/browse/ASTERISK-15529)
+
+http://lists.digium.com/pipermail/asterisk-users/2009-August/236460.html
+http://lists.digium.com/pipermail/asterisk-users/2014-August/284268.html
+
 
 ```
 [Sep  5 19:42:22] NOTICE[14239]: chan_dahdi.c:2840 my_handle_dchan_exception: Got DAHDI event: HDLC Abort (6) on D-channel of span 1
@@ -192,6 +246,104 @@ No voicemail provider registered.
 [Sep  5 19:42:23] NOTICE[14239]: sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
 [Sep  5 19:42:32] NOTICE[14239]: chan_dahdi.c:2840 my_handle_dchan_exception: Got DAHDI event: HDLC Abort (6) on D-channel of span 1
 [Sep  5 19:42:32] NOTICE[14239]: sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
+
+```
+
+
+```
+PRI Span: 1 < TEI: 0 State 7(Multi-frame established)
+PRI Span: 1 < V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 < K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 < T200_id=0, N200=3, T203_id=8192
+PRI Span: 1 < [ 02 01 01 01 ]
+PRI Span: 1 < Supervisory frame:
+PRI Span: 1 < SAPI: 00  C/R: 1 EA: 0
+PRI Span: 1 <  TEI: 000        EA: 1
+PRI Span: 1 < Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 < N(R): 000 P/F: 1
+PRI Span: 1 < 0 bytes of data
+PRI Span: 1
+PRI Span: 1 > TEI: 0 State 7(Multi-frame established)
+PRI Span: 1 > V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 > K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 > T200_id=0, N200=3, T203_id=8192
+PRI Span: 1 > [ 02 01 01 01 ]
+PRI Span: 1 > Supervisory frame:
+PRI Span: 1 > SAPI: 00  C/R: 1 EA: 0
+PRI Span: 1 >  TEI: 000        EA: 1
+PRI Span: 1 > Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 > N(R): 000 P/F: 1
+PRI Span: 1 > 0 bytes of data
+PRI Span: 1 -- Got ACK for N(S)=0 to (but not including) N(S)=0
+PRI Span: 1 -- T200 requested to stop when not started
+PRI Span: 1 T203 requested to start without stopping first
+PRI Span: 1 -- Starting T203 timer
+PRI Span: 1 Done handling message for SAPI/TEI=0/0
+pri_check_event returned error 22 (Invalid argument)
+PRI Span: 1
+PRI Span: 1 < TEI: 0 State 8(Timer recovery)
+PRI Span: 1 < V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 < K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 < T200_id=8192, N200=3, T203_id=0
+PRI Span: 1 < [ 00 01 01 01 ]
+PRI Span: 1 < Supervisory frame:
+PRI Span: 1 < SAPI: 00  C/R: 0 EA: 0
+PRI Span: 1 <  TEI: 000        EA: 1
+PRI Span: 1 < Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 < N(R): 000 P/F: 1
+PRI Span: 1 < 0 bytes of data
+PRI Span: 1 -- Got ACK for N(S)=0 to (but not including) N(S)=0
+PRI Span: 1 -- Stopping T200 timer
+PRI Span: 1 -- Starting T203 timer
+PRI Span: 1 Done handling message for SAPI/TEI=0/0
+pri_check_event returned error 22 (Invalid argument)
+PRI Span: 1
+PRI Span: 1 < TEI: 0 State 7(Multi-frame established)
+PRI Span: 1 < V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 < K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 < T200_id=0, N200=3, T203_id=8192
+PRI Span: 1 < [ 02 01 01 01 ]
+PRI Span: 1 < Supervisory frame:
+PRI Span: 1 < SAPI: 00  C/R: 1 EA: 0
+PRI Span: 1 <  TEI: 000        EA: 1
+PRI Span: 1 < Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 < N(R): 000 P/F: 1
+PRI Span: 1 < 0 bytes of data
+PRI Span: 1
+PRI Span: 1 > TEI: 0 State 7(Multi-frame established)
+PRI Span: 1 > V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 > K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 > T200_id=0, N200=3, T203_id=8192
+PRI Span: 1 > [ 02 01 01 01 ]
+PRI Span: 1 > Supervisory frame:
+PRI Span: 1 > SAPI: 00  C/R: 1 EA: 0
+PRI Span: 1 >  TEI: 000        EA: 1
+PRI Span: 1 > Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 > N(R): 000 P/F: 1
+PRI Span: 1 > 0 bytes of data
+PRI Span: 1 -- Got ACK for N(S)=0 to (but not including) N(S)=0
+PRI Span: 1 -- T200 requested to stop when not started
+PRI Span: 1 T203 requested to start without stopping first
+PRI Span: 1 -- Starting T203 timer
+PRI Span: 1 Done handling message for SAPI/TEI=0/0
+pri_check_event returned error 22 (Invalid argument)
+PRI Span: 1
+PRI Span: 1 < TEI: 0 State 8(Timer recovery)
+PRI Span: 1 < V(A)=0, V(S)=0, V(R)=0
+PRI Span: 1 < K=7, RC=0, l3_initiated=0, reject_except=0, ack_pend=0
+PRI Span: 1 < T200_id=8192, N200=3, T203_id=0
+PRI Span: 1 < [ 00 01 01 01 ]
+PRI Span: 1 < Supervisory frame:
+PRI Span: 1 < SAPI: 00  C/R: 0 EA: 0
+PRI Span: 1 <  TEI: 000        EA: 1
+PRI Span: 1 < Zero: 0     S: 0 01: 1  [ RR (receive ready) ]
+PRI Span: 1 < N(R): 000 P/F: 1
+PRI Span: 1 < 0 bytes of data
+PRI Span: 1 -- Got ACK for N(S)=0 to (but not including) N(S)=0
+PRI Span: 1 -- Stopping T200 timer
+PRI Span: 1 -- Starting T203 timer
+PRI Span: 1 Done handling message for SAPI/TEI=0/0
+pri_check_event returned error 22 (Invalid argument)
 ```
 
 ### pjproject:0 sip_transport.c Error processing 430 bytes packet from UDP 192.168.8.121:5061 : PJSIP syntax error exception when parsing '' header on line 2 col 6:
@@ -223,6 +375,11 @@ Content-Length: 0
 [Oct 11 13:08:04] ERROR[15472]: res_pjsip.c:3053 ast_sip_create_dialog_uac: Endpoint '8380': Could not create dialog to invalid URI '8380'.  Is endpoint registered and reachable?
 [Oct 11 13:08:04] ERROR[15472]: chan_pjsip.c:2219 request: Failed to create outgoing session to endpoint '8380'
 ```
+
+### 发起通话的事件间隔很长
+
+### ISSUES
+
 
 ## TBD
 
@@ -355,4 +512,18 @@ S 口网关拨号异常
 ```
 [Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Not yet handling pre-handle message type USER_INFORMATION (0x20)
 [Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Don't know how to pre-handle message type USER_INFORMATION (0x20)
+```
+
+
+```
+[Jun 29 11:28:22] NOTICE[3759]: res_pjsip_exten_state.c:418 new_subscribe: Endpoint '1009' state subscription failed: Extension '185555555555' does not exist in context 'inside' or has no associated hint
+```
+
+```
+SecurityEvent="ChallengeSent",EventTV="2018-07-02T10:27:12.637+0800",Severity="Informational",Service="PJSIP",EventVersion="1",AccountID="9001",SessionID="90533OTQ3MGM0MzYwNjdjMjk5ODMyZTZmNTE2NzIyZTYwNzc",LocalAddress="IPV4/UDP/192.168.88.125/5060",RemoteAddress="IPV4/UDP/192.168.89.11/60448",Challenge=""
+SecurityEvent="SuccessfulAuth",EventTV="2018-07-02T10:27:12.640+0800",Severity="Informational",Service="PJSIP",EventVersion="1",AccountID="9001",SessionID="90533OTQ3MGM0MzYwNjdjMjk5ODMyZTZmNTE2NzIyZTYwNzc",Local$ddress="IPV4/UDP/192.168.88.125/5060",RemoteAddress="IPV4/UDP/192.168.89.11/60448",UsingPassword="1"
+```
+
+```
+[Jul  2 10:39:00] WARNING[32235]: res_rtp_asterisk.c:2524 __rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
 ```

@@ -10,15 +10,41 @@ git push 'ssh://user@host/repo/my-project'
 mkdir -p /src/my-project
 git clone /repo/my-project /src/my-project
 
+
+git fetch origin 15:15
+git checkout 15
+```
+
+## gitflow
+* [nvie/gitflow](https://github.com/nvie/gitflow)
+* [petervanderdoes/gitflow-avh](https://github.com/petervanderdoes/gitflow-avh)
+  * a collection of Git extensions to provide high-level repository operations for Vincent Driessen's branching model.
+  * adds more functionality to the existing git-flow and several of the internal commands have been rewritten to speed up the software.
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model)
+* [git-flow 工作流程](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
+
+
+```bash
+brew install git-flow-avh
 ```
 
 ## FAQ
 
+### 子模块初始化
+
+```bash
+git pull --recurse-submodules
+# 或者递归拉取
+git clone --recursive <URL> 
+```
+
 ### 拉取远程分支
 
 ```bash
+# 检出远程分支
+git clone -b stable <URL> 
 
-#
+# 或检出后
 git fetch <remote> <rbranch>:<lbranch> 
 git checkout <lbranch>
 ```
@@ -31,6 +57,10 @@ git checkout <lbranch>
 # BFG
 # 比 git-filter-branch 快 10 - 720x
 brew install bfg
+
+bfg --delete-files id_{dsa,rsa}  my-repo.git
+bfg --strip-blobs-bigger-than 50M  my-repo.git
+bfg --delete-folders dirname  my-repo.git
 ```
 
 ### 文件太大

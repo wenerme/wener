@@ -1,4 +1,8 @@
-# Alpine 入门
+---
+id: alpine-intro
+title: Alpine 入门
+date: 2018-02-26
+---
 
 ## Alpine 的优点
 
@@ -8,11 +12,9 @@
 > 
 > Alpine Linux 是一个基于 musl libc 和 busybox, 面向安全, 轻量级的 Linux 发布版.
 
+<!-- more -->
+
 * 开源
-* 安全
-  * 默认附带 Linux 安全模块
-  * PaX
-  * grsec
 * 轻量级
   * 最小安装 5MB
   * 大部分都是静态链接
@@ -37,18 +39,27 @@
   * x86
   * x86_64
   * armhf
+  * armv7
   * aarch64
   * ppc64le
   * s390x
 * 支持树莓派
-* 大部分 docker 基础镜像都是 AlpineLinux
+* 很多 docker 镜像基于 AlpineLinux
   * Docker For Mac 的基础系统是 AlpineLinux
+
+<!--
+3.8 之后因为授权问题移除
+* 安全
+  * 默认附带 Linux 安全模块
+  * PaX
+  * grsec
+-->
 
 ## Alpine 的缺点
 
 * 文档不够全面
   * Wiki 内容较少, 更新不多
-* LibC 可能有兼容问题, 有时候需要补丁
+* musl libc 可能有兼容问题, 有时候需要补丁
   * 但越来越多的开发者也都会做兼容了
 
 ## 参考资源
@@ -64,7 +75,7 @@
 
 > __TIPS__
 > 1. 做安装盘建议选择 EXTENDED, 在不需要 setup-repository 的前提下也能够安装到硬盘.
-> 2. 仓库镜像中也能下载系统镜像 [v3.7/releases](http://mirrors.aliyun.com/alpine/v3.7/releases/)
+> 2. 仓库镜像中也能下载系统镜像 [v3.10/releases](http://mirrors.aliyun.com/alpine/v3.10/releases/)
 
 * STANDARD
   * 标准镜像
@@ -73,8 +84,8 @@
   * 扩展镜像
   * 附带了常用包, 安装不需要网络连接; 适用于路由和服务器
 * VANILLA
-  * 未 [Hardened](./linux/grsecurity.md) 的镜像
-  * 适用于调试
+  * 未 [Hardened](../linux/grsecurity.md) 的镜像
+  * 自 3.8 开始，已经没有 hardened 的内核了
 * VIRTUAL
   * 适用于虚拟机的镜像
 * XEN
@@ -94,7 +105,7 @@
 > __TIPS__
 > 推荐使用稳定版
 
-* v3.7
+* v3.10
   * 稳定版
 * edge
   * 最新版
@@ -142,8 +153,8 @@ Alpine 仓库有很多镜像, 在中国一般推荐使用国内的镜像, 而不
 将系统镜像做到 USB 以便于从 USB 启动安装.
 
 ```bash
-# 使用 3.7 版本
-ALP_VER=v3.7
+# 使用 3.10 版本
+ALP_VER=v3.10
 # 下载镜像
 wget http://mirrors.aliyun.com/alpine/$ALP_VER/releases/x86_64/alpine-extended-$ALP_VER.0-x86_64.iso
 
@@ -199,3 +210,6 @@ setup-disk
 setup-disk -m sys -s 0 -v /dev/sdb
 ```
 
+## 概括
+
+Alpine 的安装还是非常简单的，并非十分快速简洁，因此可以多多尝试。Alpine 的使用体验也是一样的，简单易用，开始你的 Alpine 之旅吧。

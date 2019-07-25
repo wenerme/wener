@@ -13,6 +13,8 @@
   * [AngularClass/awesome-angular](https://github.com/AngularClass/awesome-angular)
 
 ```bash
+# 安装
+# https://electronjs.org/docs/tutorial/installation
 # 淘宝源开发依赖安装
 ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ npm install electron --save-dev
 
@@ -42,6 +44,26 @@ rm -R app-icon.iconset
 
 
 ## FAQ
+
+### vs NW.js vs Neutralinojs
+* [neutralinojs/evaluation](https://github.com/neutralinojs/evaluation) - Neutralinojs vs Electron vs Nw.js
+* [Electron vs NW](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
+* [Why I prefer NW.js over Electron? ](https://hackernoon.com/e60b7289752)
+  * 支持 chrome.* 接口
+  * 支持 chrome 扩展
+  * 支持 bytecode
+    * electron 可以自己手动添加
+  * 支持移除 dev 工具
+  * 支持旧系统
+  * 入口可以是 js 或 html
+  * 原生 PDF 插件
+  * 最新版 Chromium
+  * NW.js 支持直接使用 --url 打开一个页面
+* Electron
+  * 内建自动更新
+  * 更大的社区
+  * 对 gyp 模块支持的更好
+    * electron-rebuild
 
 
 ### Mac 打包后非常大

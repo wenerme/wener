@@ -1,6 +1,8 @@
 # 文档路径
 https://docs.jboss.org/hibernate/orm
 
+https://github.com/hibernate/hibernate-orm/blob/master/hibernate-core/src/main/antlr/hql.g
+
 ## 配置选项
 * [Configuration properties](https://docs.jboss.org/hibernate/orm/4.3/devguide/en-US/html/apa.html)
 * 所有的属性也定义在
@@ -19,24 +21,29 @@ __开启用于调试的日志__
 ```yaml
 org.hibernate.SQL: debug # 如果开了 show_sql 就可以不用开这个
 org.hibernate.id: info # Logs SQL statements for id generation
-org.hibernate.type: debug # Logs the JDBC-Parameter which are passed to a query (very verboose)
-org.hibernate.cache: debug # Logs cache related activities
-org.hibernate.stat: debug
+org.hibernate.type: debug # 请求参数
+org.hibernate.type.descriptor.sql: trace # 提取的返回值
+org.hibernate.cache: debug # 缓存相关
+org.hibernate.stat: debug # 统计
 org.hibernate.event.internal: trace # 查看所有的缓存操作
 org.springframework.cache: trace
 ```
 
 __开启用于调试的配置__
 ```yaml
+# 生成统计
 hibernate.generate_statistics: true
+# 格式化 SQL
 hibernate.format_sql: true
+# 显示 SQL
 hibernate.show_sql: true
+# 添加 HQL 相关的注释信息
 hibernate.use_sql_comments: true
 ```
 
 __二级缓存配置__
 
-```
+```yaml
 # 只针对使用了注解的实体进行缓存
 javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
 # 缓存处理类
@@ -167,3 +174,35 @@ Version 字段只有在自己所持有熟悉和自己所持有的关系被修改
   * MultiTenantConnectionProvider
     * 使用租户获取链接
 * [Multi-Tenancy Implementation for Spring Boot + Hibernate Projects](https://dzone.com/articles/spring-boot-hibernate-multitenancy-implementation)
+
+## JSON
+https://github.com/velo/hibernate-native-json
+
+https://github.com/wenerme/postjava
+
+
+```java
+@TypeDefs({
+  @TypeDef(name = "json", typeClass = JsonStringType.class),
+  @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
+  @TypeDef(name = "json-node", typeClass = JsonNodeStringType.class),
+  @TypeDef(name = "jsonb-node", typeClass = JsonNodeBinaryType.class),
+})
+@Entity
+@Table(name = "users")
+@Setter
+@Getter
+class UserEntity {
+  Integer id;
+  @Type(type="json-node")
+  JsonNode attributes;
+  @Type(type="jsonb")
+  Map<String,String> labels;
+}
+```
+
+## FAQ
+
+### 内嵌自定义方言函数
+* [Can I nest functions in Hibernate custom dialect ?](https://stackoverflow.com/questions/17368962)
+* 不能, 最简单的做法是增加参数数量, 合并成单个函数

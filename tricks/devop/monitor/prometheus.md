@@ -54,6 +54,28 @@ grafana| 3000
 [container-exporter](https://github.com/docker-infra/container_exporter)| 9104|[Docker Dashboard](https://grafana.net/dashboards/179)
 [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)|n/a|[Nginx Overview](https://grafana.net/dashboards/462)
 
+https://prometheus.io/docs/guides/node-exporter/
+
+https://prometheus.io/docs/prometheus/latest/querying/basics/
+
+https://gitlab.awesome-it.de/overlays/awesome/blob/master/net-analyzer/prometheus-node-exporter/files/prometheus-node-exporter-initd
+
+```bash
+#!/sbin/openrc-run
+description="Prometheus Node Exporter"
+pidfile="/var/run/${SVCNAME}.pid"
+command=/data/code/bin/node_exporter
+command_args="${PROMETHEUS_NODE_EXPORTER_ARGS}"
+command_background="true"
+user=root
+logfile="/var/log/${SVCNAME}.log"
+
+start_stop_daemon_args="-u ${user} -1 ${logfile} -2 ${logfile}"
+
+depend() {
+  need net
+}
+```
 
 ```bash
 # Get start
@@ -81,8 +103,49 @@ docker run --net mon-net --ip 172.18.0.20 -i -p 12001:9090 prom/prometheus
 
 # docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 
+# http://docs.grafana.org/installation/docker/
 docker run -i -p 12000:3000 \
   -e "GF_SERVER_ROOT_URL=http://grafana.server.name"  \
   -e "GF_SECURITY_ADMIN_PASSWORD=secret"  \
   grafana/grafana
+
+
+```
+
+docker run -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml \
+       prom/prometheus
+
+
+https://prometheus.io/docs/prometheus/latest/federation/
+
+```yaml
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+    - targets: ['localhost:9090']
 ```

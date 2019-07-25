@@ -31,6 +31,9 @@ alias run_rsync='rsync -azP --exclude ".*/" --exclude ".*" --exclude "tmp/" ~/Do
 run_rsync; fswatch -o . | while read f; do run_rsync; done
 ```
 
+## Concurrent
+https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
+
 
 ## --help
 ```

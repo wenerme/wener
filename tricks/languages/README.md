@@ -1,5 +1,10 @@
-# Languages
+---
+id: languages
+title: 语言
+---
 
+## Tips
+* [Learn X in Y minutes](https://learnxinyminutes.com/)
 * Ranking
   * [Interactive: The Top Programming Languages 2017](http://spectrum.ieee.org/static/interactive-the-top-programming-languages-2017)
 

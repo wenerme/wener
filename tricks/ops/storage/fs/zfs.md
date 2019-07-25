@@ -1,3 +1,8 @@
+---
+id: zfs
+title: ZFS
+---
+
 # ZFS
 
 ## Tips
@@ -43,6 +48,7 @@
 * [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)
 * http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/
 * [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
+* https://forum.proxmox.com/threads/zfs-with-ssds-am-i-asking-for-a-headache-in-the-near-future.25967/
 
 ## NOTES
 * zpool
@@ -97,14 +103,14 @@ performance.
   * 等同于 RAID 5
   * 最大的磁盘空间
   * 当磁盘读写块大于 128K 时性能较好
-  * 应该使用 2<sup>n<sup>+1 个磁盘
+  * 应该使用 2<sup>n</sup>+1 个磁盘
 * RAIDZ2
   * 等同于 RAID 6
   * 更好的容错
   * 比 RAIDZ1 更好的 MTTDL(mean time to data loss)
-  * 应该使用 2<sup>n<sup>+2 个磁盘
+  * 应该使用 2<sup>n</sup>+2 个磁盘
 * RAIDZ3
-  * 应该使用 2<sup>n<sup>+3 个磁盘
+  * 应该使用 2<sup>n</sup>+3 个磁盘
 * 镜像
   * 等同于 RAID 1
   * 使用更多的磁盘空间,但处理小数据的读写性能会较好.
@@ -125,6 +131,17 @@ performance.
 * L2ARC 大多数情况下不会提升太多的性能
 * 增加 RAM 是提升性能的最好方式
 
+
+https://github.com/zfsonlinux/zfs/blob/master/module/zfs/dmu.c
+This statistic shows ZFS DMU (Data Management Unit) operations/sec.
+https://docs.oracle.com/cd/E27998_01/html/E48490/analytics__statistics__disk_zfs_dmu_operations.html
+
+ARC buffer data (ABD).
+https://github.com/zfsonlinux/zfs/blob/master/module/zfs/abd.c
+
+dnode
+dnode is a data structure which represents an object. An object can be a ZPL file or directory, a ZVOL volume, or several other types of internal metadata
+http://open-zfs.org/wiki/Documentation/DnodeSync
 
 ## 硬件
 * [Hardware](http://open-zfs.org/wiki/Hardware)
@@ -259,6 +276,11 @@ du --apparent-size -h .
 * "PFA"s, as in Pre-Failure Alerts
 
 * [ZFS vs RAID6](https://www.reddit.com/r/storage/comments/3jcg2r/zfs_vs_raid6/)
+
+## 加密
+https://blog.heckel.xyz/2017/01/08/zfs-encryption-openzfs-zfs-on-linux/
+https://www.rolando.cl/blog/2017/06/13/playing-with-zfs-encryption/
+https://news.ycombinator.com/item?id=14591452
 
 ## 参考
 * [ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love RAIDZ](http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/)

@@ -1,4 +1,7 @@
-# Zig
+---
+id: zig
+title: Zig
+---
 
 ## Tips
 * [ziglang](http://ziglang.org/)

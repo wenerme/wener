@@ -10,6 +10,8 @@
   * [pquerna/ffjson](https://github.com/pquerna/ffjson) - faster JSON serialization for Go
   * [mailru/easyjson](https://github.com/mailru/easyjson) - Fast JSON serializer for golang.
 
+https://syslog.ravelin.com/go-in-a-scratch-vm-a28c14e82a51
+
 ## Pro tip
 * Stop taking everything the pros say as fact. Test it yourself!
 

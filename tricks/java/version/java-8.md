@@ -1,3 +1,7 @@
+---
+id: java-8
+title: Java 8
+---
 
 # Java 8
 

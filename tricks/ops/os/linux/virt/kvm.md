@@ -77,3 +77,22 @@ https://wiki.archlinux.org/index.php/Libvirt_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%
 https://www.contrib.andrew.cmu.edu/~somlo/OSXKVM/
 
 https://wiki.alpinelinux.org/wiki/KVM
+
+
+qemu-img create base.raw 10g
+
+qemu-system-x86_64 -m 4g -net nic -net user,hostfwd=tcp::2223-:22 -accel hax -hda alp.raw
+
+wget https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.10/releases/x86_64/alpine-virt-3.10.0-x86_64.iso
+qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -vnc :1 -hda base.raw -cdrom alpine-virt-3.10.0-x86_64.iso -nographic
+
+qemu -nographic -serial mon:stdio -append 'console=ttyS0' binary.img
+
+qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -vnc :1 -hda base.raw 
+qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -hda virt.qcow2 -nographic
+
+-monitor stdio
+-nographic
+-curses
+
+brew cask install vnc-viewer

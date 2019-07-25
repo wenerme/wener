@@ -1,5 +1,7 @@
-# Alpine
-
+---
+id: alpine
+title: Alpine
+---
 
 ## Tips
 * [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
@@ -72,8 +74,8 @@ setup-timezone -z Asia/Shanghai
 
 # 添加仓库
 # 安装时的安装包位于 /media/sdb/apks/
-echo "http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/main
-http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/community" >> /etc/apk/repositories
+echo "http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
+http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" >> /etc/apk/repositories
 
 # testing 有些尚未发布的, 有时候会用到
 echo "@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
@@ -103,6 +105,7 @@ setup-alpine -f ans
 # https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.7&arch=x86_64&maintainer=Natanael+Copa
 # BOOT_SIZE 100m 启动分区大小, 一般安装完成后 20m 左右, 默认会给 100
 setup-disk -m sys -s 0 -v /dev/sda
+# apk add sfdisk e2fsprogs syslinux
 
 # 其他的可选参数
 # BOOTLOADER grub 或 syslinux
@@ -110,8 +113,36 @@ setup-disk -m sys -s 0 -v /dev/sda
 # SYSROOT=/mnt
 # ERASE_DISKS 可以设置成写入的磁盘, 就不会再进行询问
 ROOTFS=btrfs BOOTFS=btrfs VARFS=btrfs DISKLABEL=alp-wen setup-disk -m sys -s 0 -v /dev/sda
+
+# 使用 EFI
+# DISKLABEL 为 gpt
+# BOOTLOADER 为 grub
+# 启动分区格式为 vfat
+USE_EFI=1 setup-disk -m sys -s 0 -v /dev/sdb
 ```
 
+acct linux-$KERNEL_FLAVOR alpine-base
+
+DISKLABEL=gpt
+USE_EFI gpt,grub,boot-vfat
+
+```bash
+PREFIX=
+. "$PREFIX/lib/libalpine.sh"
+. "$PREFIX/lib/dasd-functions.sh"
+
+MBR=${MBR:-"/usr/share/syslinux/mbr.bin"}
+ROOTFS=${ROOTFS:-ext4}
+BOOTFS=${BOOTFS:-ext4}
+VARFS=${VARFS:-ext4}
+BOOTLOADER=${BOOTLOADER:-syslinux}
+DISKLABEL=${DISKLABEL:-dos}
+# default location for mounted root
+SYSROOT=${SYSROOT:-/mnt}
+
+# machine arch
+ARCH=$(apk --print-arch)
+```
 ### 制作磁盘镜像
 
 ```bash
@@ -134,8 +165,8 @@ echo 'root:root' | chpasswd
 
 # 另外一个终端从本地 2222 进入
 ssh root@127.0.0.1 -p 2222
-echo "http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/main
-http://mirrors.aliyun.com/alpine/v$(head -c3 /etc/alpine-release)/community
+echo "http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
+http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community
 @testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
 apk update
 # 安装到磁盘
@@ -188,7 +219,7 @@ rc-service docker restart
 # 修改镜像
 tee /etc/docker/daemon.json <<-'EOF'
 {
-  "registry-mirrors": ["你的镜像地址"]
+  "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 EOF
 rc-service docker restart
@@ -202,6 +233,20 @@ apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 ```
 
 ## Release
+
+## 3.9
+
+```bash
+# 升级仓库之前可先升级本地包
+apk update
+apk upgrade
+
+# 更新为 3.9 仓库
+sed -ire 's/v\d\.\d/v3.9/g' /etc/apk/repositories
+apk update
+apk upgrade
+sync
+```
 
 ## 3.8
 * [3.8.0](https://alpinelinux.org/posts/Alpine-3.8.0-released.html) 2018-06-27

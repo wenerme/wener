@@ -1,14 +1,12 @@
-<!--
 ---
-title: Maven Tricks
-url: trick/maven
+url: maven
+title: Maven
 tags:
   - Maven
   - Java
   - 编程
   - 技巧
 ---
--->
 
 # Maven
 
@@ -29,9 +27,9 @@ maven.test.skip | 不编译测试，不执行测试
 maven.test.skip.exec | 不执行测试，但编译测试包
 maven.repo.remote | 远程仓库
 maven.repo.local | 本地仓库
-socksProxyHost<br>socksProxyPort | Socks 代理
-httpProxyHost<br>httpProxyPort | Http 代理
-httpsProxyHost<br>httpsProxyPort | Https 代理
+socksProxyHost<br/>socksProxyPort | Socks 代理
+httpProxyHost<br/>httpProxyPort | Http 代理
+httpsProxyHost<br/>httpsProxyPort | Https 代理
 
 
 ```

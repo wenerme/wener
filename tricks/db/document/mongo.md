@@ -7,6 +7,7 @@
   * [mongo-shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
   * [Connection String](https://docs.mongodb.com/manual/reference/connection-string/)
     * `mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]`
+      * authSource 使用不同的库做授权
 * 建模
   * [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
   * [Data Model](https://docs.mongodb.com/manual/data-modeling/)
@@ -32,7 +33,11 @@ mongo
 mongodump -v --db test  --host myhost --port 27017 --out mg-`date +%Y%m%d`
 # 导入一个库
 mongorestore -v --db test  --host myhost --port 27017 mg-`date +%Y%m%d`/db
+# 使用 URI 参数
+mongodump -v --uri mongodb://root:pass@host:27017/dbname?authSource=admin
 
+# 导出 json
+mongoexport --db db-name --collection collection-name --out exp.json
 
 mongoexport -h localhost -d databse -c collection --csv \
 --fields erpNum,orderId,time,status \

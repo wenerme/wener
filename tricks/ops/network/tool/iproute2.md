@@ -1,3 +1,7 @@
+---
+id: iproute2
+title: IPRoute2
+---
 
 # IPRoute2
 
@@ -18,6 +22,7 @@
 * [How can I bridge two interfaces with ip/iproute2?](https://unix.stackexchange.com/q/255484/47774)
 * ip, ss, bridge, rtacct, rtmon, tc, ctstat, lnstat, nstat, routef, routel, rtstat, tipc, arpd, devlink, tc
 * [iproute2 rules and iptables NAT… what is the difference?](https://serverfault.com/q/135053/190601)
+* [Task-centered iproute2 user guide](https://baturin.org/docs/iproute2)
 
 Legacy utility  | Obsoleted by                | Note
 ----------------|-----------------------------|------
@@ -44,6 +49,18 @@ ip li set dev eth0 nomaster
 # 默认网关
 ip route add 0.0.0.0/0 via 10.0.2.2
 
+# 删除最上层的默认网关
+ip ro del default
+
+ip li set dev eth0  mtu 9000
+
+ip route flush table main
+
+ip route flush 172.17.0.0/16
+
+ip route flush cache
+
+ip -s route show cache
 
 # greptap
 # ==============================

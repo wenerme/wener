@@ -1,3 +1,8 @@
+---
+id: data
+title: Spring Data
+---
+
 # Spring Data
 
 ## Tips
@@ -25,6 +30,26 @@
     * 处理 `default` 方法
   * `RepositoryFactorySupport$QueryExecutorMethodInterceptor`
 
+### 映射 - org.springframework.data.mapping
+* 处理不同 SpringData 持久化的中间层映射
+* `PersistentEntity<T, P extends PersistentProperty<P>> extends Iterable<P>`
+  * 一个持久化对象
+* `PersistentProperty`
+  * 一个持久化对象的属性
+  * `Association`
+    * 表示属性之间的关联
+  * 主要实现
+    * `JpaPersistentPropertyImpl`
+      * JPA 持久化对象的属性
+* `MutablePersistentEntity<T, P extends PersistentProperty<P>> extends PersistentEntity<T, P>`
+  * 包含了修改方法
+* `IdentifierAccessor`
+* `PersistentPropertyAccessor`
+* `MappingContext`
+  * 映射上下文
+  * 记录了所有已知的实体类型
+  * `PersistentPropertyPath`
+    * 表示一个持久属性的路径
 
 ## MongoDB
 
@@ -108,18 +133,18 @@ void | 不返回值
 原子类型 | Java 原子类型值
 包装类型 |  Java 包装类型值
 T | An unique entity. Expects the query method to return one result at most. In case no result is found null is returned. More than one result will trigger an IncorrectResultSizeDataAccessException.
-Iterator<T> | An Iterator.
-Collection<T> | A Collection.
-List<T> | A List.
-Optional<T> | A Java 8 or Guava Optional. Expects the query method to return one result at most. In case no result is found Optional.empty()/Optional.absent() is returned. More than one result will trigger an IncorrectResultSizeDataAccessException.
-Stream<T> | A Java 8 Stream.
-Future<T> | A Future. Expects method to be annotated with @Async and requires Spring’s asynchronous method execution capability enabled.
-CompletableFuture<T> | A Java 8 CompletableFuture. Expects method to be annotated with @Async and requires Spring’s asynchronous method execution capability enabled.
+Iterator&lt;T> | An Iterator.
+Collection&lt;T> | A Collection.
+List&lt;T> | A List.
+Optional&lt;T> | A Java 8 or Guava Optional. Expects the query method to return one result at most. In case no result is found Optional.empty()/Optional.absent() is returned. More than one result will trigger an IncorrectResultSizeDataAccessException.
+Stream&lt;T> | A Java 8 Stream.
+Future&lt;T> | A Future. Expects method to be annotated with @Async and requires Spring’s asynchronous method execution capability enabled.
+CompletableFuture&lt;T> | A Java 8 CompletableFuture. Expects method to be annotated with @Async and requires Spring’s asynchronous method execution capability enabled.
 ListenableFuture | A org.springframework.util.concurrent.ListenableFuture. Expects method to be annotated with @Async and requires Spring’s asynchronous method execution capability enabled.
 Slice | A sized chunk of data with information whether there is more data available. Requires a Pageable method parameter.
-Page<T> | A Slice with additional information, e.g. the total number of results. Requires a Pageable method parameter.
-GeoResult<T> | A result entry with additional information, e.g. distance to a reference location.
-GeoResults<T> | A list of GeoResult<T> with additional information, e.g. average distance to a reference location. | GeoPage<T> | A Page with GeoResult<T>, e.g. average distance to a reference location.
+Page&lt;T> | A Slice with additional information, e.g. the total number of results. Requires a Pageable method parameter.
+GeoResult&lt;T> | A result entry with additional information, e.g. distance to a reference location.
+GeoResults&lt;T> | A list of GeoResult&lt;T> with additional information, e.g. average distance to a reference location. | GeoPage&lt;T> | A Page with GeoResult&lt;T>, e.g. average distance to a reference location.
 
 > 空间坐标类型(GeoResult, GeoResults, GeoPage)只有在存储类型支持空间类型时返回
 
@@ -132,12 +157,12 @@ And | findByLastnameAndFirstname | … where x.lastname = ?1 and x.firstname = ?
 Or | findByLastnameOrFirstname | … where x.lastname = ?1 or x.firstname = ?2
 Is,Equals | findByFirstname,findByFirstnameIs,findByFirstnameEquals | … where x.firstname = ?1
 Between | findByStartDateBetween | … where x.startDate between ?1 and ?2
-LessThan | findByAgeLessThan | … where x.age < ?1
+LessThan | findByAgeLessThan | … where x.age &lt; ?1
 LessThanEqual | findByAgeLessThanEqual | … where x.age ⇐ ?1
 GreaterThan | findByAgeGreaterThan | … where x.age > ?1
 GreaterThanEqual | findByAgeGreaterThanEqual | … where x.age >= ?1
 After | findByStartDateAfter | … where x.startDate > ?1
-Before | findByStartDateBefore | … where x.startDate < ?1
+Before | findByStartDateBefore | … where x.startDate &lt; ?1
 IsNull | findByAgeIsNull | … where x.age is null
 IsNotNull,NotNull | findByAge(Is)NotNull | … where x.age not null
 Like | findByFirstnameLike | … where x.firstname like ?1
@@ -146,9 +171,9 @@ StartingWith | findByFirstnameStartingWith | … where x.firstname like ?1 (para
 EndingWith | findByFirstnameEndingWith | … where x.firstname like ?1 (parameter bound with prepended %)
 Containing | findByFirstnameContaining | … where x.firstname like ?1 (parameter bound wrapped in %)
 OrderBy | findByAgeOrderByLastnameDesc | … where x.age = ?1 order by x.lastname desc
-Not | findByLastnameNot | … where x.lastname <> ?1
-In | findByAgeIn(Collection<Age> ages) | … where x.age in ?1
-NotIn | findByAgeNotIn(Collection<Age> age) | … where x.age not in ?1
+Not | findByLastnameNot | … where x.lastname &lt;> ?1
+In | findByAgeIn(Collection&lt;Age> ages) | … where x.age in ?1
+NotIn | findByAgeNotIn(Collection&lt;Age> age) | … where x.age not in ?1
 True | findByActiveTrue() | … where x.active = true
 False | findByActiveFalse() | … where x.active = false
 IgnoreCase | findByFirstnameIgnoreCase | … where UPPER(x.firstame) = UPPER(?1)

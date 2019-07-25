@@ -163,3 +163,40 @@ mkimage -T script -C none -n 'Demo Script File' -d setenv-commands setenv.img
 
 
 brew install u-boot-tools
+
+
+https://blog.christophersmart.com/2016/10/27/building-and-booting-upstream-linux-and-u-boot-for-raspberry-pi-23-arm-boards/
+mkimage -A arm -T ramdisk -C none -n uInitrd \
+-d initramfs-arm.cpio /mnt/uInitrd
+
+
+make bcm2835_defconfig
+
+make -j$(nproc) zImage dtbs
+sudo cp -iv arch/arm/boot/zImage /mnt/
+sudo cp -iv arch/arm/boot/dts/bcm2836-rpi-2-b.dtb /mnt/
+
+cat > boot.cmd << EOF
+fatload mmc 0 \${kernel_addr_r} zImage
+fatload mmc 0 \${fdt_addr_r} bcm2836-rpi-2-b.dtb
+fatload mmc 0 \${ramdisk_addr_r} uInitrd
+setenv bootargs console=ttyAMA0,115200 earlyprintk root=/dev/root \
+rootwait panic=10
+bootz \${kernel_addr_r} \${ramdisk_addr_r} \${fdt_addr_r}
+EOF
+
+sudo mkimage -C none -A arm -T script -d boot.cmd /mnt/boot.scr
+
+https://stackoverflow.com/questions/28891221/uenv-txt-vs-boot-scr
+
+https://github.com/linux-sunxi/u-boot-sunxi/wiki#uenvtxt-support
+
+
+uboot传递initrd(initramfs or ramdisk) 到kernel的两种方式
+https://blog.csdn.net/yiyeguzhou100/article/details/78419293
+
+https://blog.csdn.net/androidstar_cn/article/details/53165941
+
+
+What is difference between U-Boot and BIOS ?
+https://superuser.com/questions/708196/what-is-difference-between-u-boot-and-bios

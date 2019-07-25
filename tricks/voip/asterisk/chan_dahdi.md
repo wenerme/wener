@@ -1,3 +1,8 @@
+---
+id: chan_dahdi
+title: chan_dahdi
+---
+
 # DAHDi
 
 ## Tips
@@ -50,6 +55,11 @@ grep . /sys/bus/dahdi_spans/devices/span-*/{alarms,basechan,channels,desc,is_dig
 # 设备信息
 grep . /sys/bus/dahdi_devices/devices/*/{assign_span,auto_assign,hardware_id,location,manufacturer,registration_time,span_count,spantype,type,uevent}
 ```
+
+
+modprobe dahdi
+modprobe wctdm
+/sys/bus/dahdi_devices
 
 * dahdi -> crc_ccitt
 * oct612x -> dahdi
@@ -141,14 +151,14 @@ wget http://www.openvox.cn/pub/drivers/dahdi-linux-complete/openvox_dahdi-linux-
 tar zxvf openvox_dahdi-linux-complete-current.tar.gz
 cd dahdi-linux-complete*
 
-
+https://www.openvox.cn/pub/drivers/dahdi-linux-complete/openvox_dahdi-linux-complete-2.11.1.gz
 ```
 
 ```bash
 apk add bison zlib{,-dev} ncurses{,-dev} libxml2{,-dev} openssl{,-dev} gnutls{,-dev} linux-headers make abuild gcc g++ perl git wget
 
 # 要看具体使用的什么内核 uname -r
-apk add linux-hardened{,-dev}
+# apk add linux-hardened{,-dev}
 apk add linux-vanilla{,-dev}
 
 # 或者用 docker 编译

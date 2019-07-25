@@ -1,5 +1,7 @@
 # Gradle
 
+## Tips
+
 * [Userguide](https://docs.gradle.org/current/userguide/userguide.html)
 * [Building Java 9 Modules](https://guides.gradle.org/building-java-9-modules/)
 
@@ -9,7 +11,34 @@
 # --type pom,java-application,java-library,scala-library,groovy-library,basic
 gradle init
 
+# 刷新依赖
+gradlew build --refresh-dependencies
+# 代理
+gradlew -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=1234 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=1234 build
 ```
+
+__gradle.properties__
+
+```ini
+# 代理配置
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=1234
+systemProp.https.proxyHost=127.0.0.1
+systemProp.https.proxyPort=1234
+
+# 如果需要授权
+# http.proxyUser=usernameProxy
+# http.proxyPassword=yourPassoword
+```
+
+```groovy
+// https://docs.gradle.org/current/userguide/declaring_repositories.html
+mavenCentral()
+maven {
+    url "http://maven.aliyun.com/nexus/content/groups/public"
+}
+```
+
 
 ## gradle --help
 

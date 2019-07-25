@@ -30,6 +30,9 @@
 5. Schedule the activities that address your priorities and personal goals in the time that remains.
 6. Analyze your activities to identify tasks that can be delegated, outsourced or cut altogether.
 
+### GitHub: October 21 Incident Report
+https://news.ycombinator.com/item?id=18272928
+
 ### RethinkDB: why we failed
 * [RethinkDB: why we failed](http://www.defstartup.org/2017/01/18/why-rethinkdb-failed.html)
   * [HN](https://news.ycombinator.com/item?id=13421608)
@@ -57,3 +60,50 @@ The open office plan is a tyrant of interruption, a deep loss of privacy, and th
 -- [DHH](https://twitter.com/dhh/status/671953192947736576)
 
 工作都是以坐在坐在座位上为准,而不关心你具体做了多少东西.
+
+
+
+
+
+Money is not Evil by itself. It's just paper with
+ perceived value, to obtain other things we 
+value in other ways. If not Money, what is Evil..
+.. you may ask?
+
+Evil is the unconscionable, obsessive, and 
+moral bending desire for more. Evil is the 
+bottomless, soulless and obsessive compulsive 
+pursuit of some pot of gold at the end of some 
+rainbow which doesn't exist. 
+
+Evil is having a price-tag for your heart and soul in 
+exchange for financial success at any cost. Evil is 
+trying to buy happiness again and again until all 
+those fake short-lived mirages of emotions are gone.
+
+I'm not saying you can't be financially successful.
+I'm saying: Have a greater purpose in life, well beyond 
+the pursuit of financial success. Your soul is screaming 
+for you to answer your TRUE calling.
+
+You can change today, if you redefine what success is to You.
+You can transform your damaged relationships and build new ones.
+You can forgive yourself, and others who have hurt you.
+
+You can become a leader by mentoring with others 
+who you'd aspire to be like.
+You can re-balance your priorities in life. You can heal your marriage 
+AND recreate a stronger love that you ever thought possible.
+You can become the best parent possible at any age even 86.
+But don't wait until then.
+You'll always be able to make more money.
+
+But you cannot..
+                                    ..make more time.
+
+
+## Creative
+* [5 Ways to Improve Your Creative Thinking](https://www.topuniversities.com/blog/5-ways-improve-your-creative-thinking)
+
+## HowTo
+* [How to Accept and Embrace Disagreement](https://www.wikihow.com/Accept-and-Embrace-Disagreement)
