@@ -17,8 +17,7 @@ script:
   - cd docusaurus
   - yarn
   - yarn build:my
-
-after_script:
+  - cd ${TRAVIS_BUILD_DIR}
   # customized public material
   - rsync -avrc site/public/ docusaurus/my/build/
 
