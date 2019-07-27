@@ -88,6 +88,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           path: 'content/tricks',
+          routeBasePath: 'notes',
         },
         blog: {
           path: 'content/story',
