@@ -1,3 +1,8 @@
+---
+id: productive
+title: 生产力
+---
+
 # 增加 Java 生产力的相关工具和库
 
 ## Tips
@@ -43,6 +48,5 @@
 public class MyProcessor extends AbstractProcessor {
 
 }
-
 ```
 

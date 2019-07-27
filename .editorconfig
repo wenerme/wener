@@ -1,30 +1,17 @@
 root = true
 
 [*]
-# 默认使用空白
-indent_style = space
-indent_size = 4
-
-# 通用配置
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 120
 
-# Markdown 保留行尾空白
 [*.md]
+insert_final_newline = false
 trim_trailing_whitespace = false
-indent_style = space
-indent_size = 2
-
-[{package,bower}.json]
-indent_style = space
-indent_size = 2
-
-# Yaml 使用 2 的缩进
-[*.{yml,yaml}]
-indent_style = space
-indent_size = 2
 
 # Makefile 必须使用 tab
 [Makefile]
