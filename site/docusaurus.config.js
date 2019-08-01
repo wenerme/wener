@@ -94,6 +94,10 @@ module.exports = {
           path: 'content/story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
+          mdxLoaderOptions: {
+            onInput: require('./extensions/onMdxInput'),
+            onRemarkPlugins: require('./extensions/onRemarkPlugins'),
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

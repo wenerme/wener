@@ -14,7 +14,7 @@ Overviews - Five Ws
 什么时候出现的 | 2008年九月 第一个Google Collection版本出现在 [maven 仓库](http://mvnrepository.com/artifact/com.google.collections/google-collections);<br/>2010年四月第一个Guava版本出现在[maven 仓库](http://mvnrepository.com/artifact/com.google.guava/guava)
 什么使用 | 为什么不使用 ?
 
-<!--truncate-->
+<!--more-->
 
 Features
 ----------
