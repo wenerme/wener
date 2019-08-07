@@ -8,6 +8,7 @@ module.exports = {
     ],
     Java: [
       'java/java',
+      'java/maven',
       {
         type: 'category',
         label: '版本',
@@ -84,7 +85,9 @@ module.exports = {
         type: 'category',
         label: '存储',
         items: [
+          'ops/storage/raid',
           'ops/storage/fs/zfs',
+          'ops/storage/fs/mdadm',
           // 'ops/storage/fs/zfs-tuning',
         ]
       },
