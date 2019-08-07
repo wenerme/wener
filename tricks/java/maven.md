@@ -1,5 +1,5 @@
 ---
-url: maven
+id: maven
 title: Maven
 tags:
   - Maven
@@ -199,6 +199,54 @@ mvn install:install-file \
 
 ### maven-shade-plugin
 * [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/index.html)
+
+```xml
+<!-- 常用配置，按需粘贴 -->
+<configuration>
+    <!-- 不创建 reduced pom 文件 -->
+    <createDependencyReducedPom>false</createDependencyReducedPom>
+    <!-- 附加 shaded 的文件，默认会上传 shaded 的问题 -->
+    <shadedArtifactAttached>true</shadedArtifactAttached>
+    <!-- shaded 的 classfier，依赖时指定 classfier 即可 -->
+    <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
+    <!-- 排除签名相关，否则 shade 后签名异常，切排除 java9 后的 module 信息 -->
+    <filters>
+        <filter>
+            <artifact>*:*</artifact>
+            <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+                <exclude>module-info.class</exclude>
+            </excludes>
+        </filter>
+    </filters>
+    <artifactSet>
+        <excludes>
+            <!-- 排除包，不做 shade -->
+            <exclude>org.slf4j:*</exclude>
+        </excludes>
+    </artifactSet>
+    <!-- 转换，按需配置 -->
+    <transformers>
+        <!-- 合并文件为一个，附加的方式 -->
+        <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+            <resource>config.properties</resource>
+        </transformer>
+        <!-- 处理 ServiceLoader 的定义 -->
+        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+        <!-- 合并 META-INF/NOTICE.TXT 文件 -->
+        <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer"/>
+    </transformers>
+    <!-- 避免版本冲突，做 shade -->
+    <relocations>
+        <relocation>
+            <pattern>com.google.common</pattern>
+            <shadedPattern>me.wener.shade.guava</shadedPattern>
+        </relocation>
+    </relocations>
+</configuration>
+```
 
 #### shade one & relocation
 
