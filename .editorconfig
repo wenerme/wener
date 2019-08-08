@@ -12,6 +12,7 @@ max_line_length = 120
 [*.md]
 insert_final_newline = false
 trim_trailing_whitespace = false
+indent_size = 2
 
 # Makefile 必须使用 tab
 [Makefile]

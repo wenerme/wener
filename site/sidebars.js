@@ -1,11 +1,5 @@
 module.exports = {
   docs: {
-    语言: [
-      'languages/languages',
-      'languages/peg',
-      'languages/php',
-      'languages/zig',
-    ],
     Java: [
       'java/java',
       'java/maven',
@@ -38,6 +32,12 @@ module.exports = {
       },
       'java/libs/productive',
     ],
+    语言: [
+      'languages/languages',
+      'languages/peg',
+      'languages/php',
+      'languages/zig',
+    ],
     AlpineLinux: [
       'ops/os/alpine/alpine',
       'ops/os/alpine/alpine-intro',
@@ -45,54 +45,47 @@ module.exports = {
       'ops/os/alpine/alpine-pkgs',
       'ops/os/alpine/alpine-faq',
     ],
-
-    数据库: [
+    参考: [
+      'reference/words',
       {
         type: 'category',
-        label: 'SQL',
-        items: [],
+        label: '软件',
+        items: [
+          'reference/software/saas',
+          'reference/software/glossary',
+        ],
       },
       {
         type: 'category',
-        label: 'NoSQL',
-        items: [],
-      },
-      {
-        type: 'category',
-        label: 'Cloud',
-        items: [],
+        label: '烹饪',
+        items: [
+          'reference/cook/glossary',
+        ],
       },
     ],
-    运维: [
+    网络: [
       {
         type: 'category',
-        label: '网络',
+        label: '应用',
         items: [
-          'ops/network/application/http',
-          'ops/network/application/ssl',
-          'ops/network/application/dns',
-
           'ops/network/link/wireless',
           'ops/network/link/infiniband',
-
-          'ops/network/private/intro',
-          'ops/network/private/tinc',
-
-          'ops/network/standard/ieee-802',
         ]
       },
       {
         type: 'category',
-        label: '存储',
+        label: '链路',
         items: [
-          'ops/storage/block/raid',
-          'ops/storage/block/lvm',
-          'ops/storage/fs/intro',
-          'ops/storage/fs/zfs',
-          'ops/storage/fs/mdadm',
-          'ops/storage/fs/btrfs',
-          'ops/storage/fs/fuse',
-          // 'ops/storage/fs/zfs-tuning',
+          'ops/network/link/wireless',
+          'ops/network/link/infiniband',
+        ]
+      },
+      {
+        type: 'category',
+        label: '私有',
+        items: [
+          'ops/network/private/intro',
+          'ops/network/private/tinc',
         ]
       },
       {
@@ -111,6 +104,7 @@ module.exports = {
           'ops/network/tool/wireshark',
         ]
       },
+      'ops/network/standard/ieee-802',
     ],
     存储: [
       'ops/storage/intro',
@@ -147,7 +141,7 @@ module.exports = {
         label: '存储服务',
         items: [
           'ops/storage/service/minio',
-          'ops/storage/network/sshfs',
+          'ops/storage/service/nextcloud',
         ]
       },
     ],
@@ -168,6 +162,23 @@ module.exports = {
           'voip/asterisk/the-definitive-guide-4th',
         ]
       }
+    ],
+    数据库: [
+      {
+        type: 'category',
+        label: 'SQL',
+        items: [],
+      },
+      {
+        type: 'category',
+        label: 'NoSQL',
+        items: [],
+      },
+      {
+        type: 'category',
+        label: 'Cloud',
+        items: [],
+      },
     ],
   },
 };
