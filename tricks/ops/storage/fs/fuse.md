@@ -6,22 +6,34 @@ title: FUSE
 
 # FUSE
 
+
+## Tips
+
 * Golang
   * [bazil/fuse](https://github.com/bazil/fuse)
 
-## Tips
 
 ```bash
 # 挂载 loop
 losetup -P /dev/loop2 harddrive.img
 ```
 
+## zip
+* [avfs](http://avf.sourceforge.net/)
+* [fuse-zip](https://bitbucket.org/agalanin/fuse-zip/)
+* [archivemount](http://www.cybernoia.de/software/archivemount/)
+
+
+```bash
+# 只读挂载
+fuse-zip -r archivetest.zip ~/mnt/zip
+archivemount -o readonly archivetest.zip  /mnt
+```
+
 ## encfs
 
 * https://github.com/vgough/encfs
 * https://github.com/vgough/encfs/blob/master/encfs/encfs.pod
-
-### Tips
 
 ```bash
 # For single file
@@ -67,19 +79,4 @@ mkfs
 # 或者事先格式化 brew install hfsutils
 # hformat -l File image.img
 # mount -t hfs -o loop image.img /mnt/file
-
-
-
-```
-
-## zip
-* [avfs](http://avf.sourceforge.net/)
-* [fuse-zip](https://bitbucket.org/agalanin/fuse-zip/)
-* [archivemount](http://www.cybernoia.de/software/archivemount/)
-
-
-```bash
-# 只读挂载
-fuse-zip -r archivetest.zip ~/mnt/zip
-archivemount -o readonly archivetest.zip  /mnt
 ```

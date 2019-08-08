@@ -85,9 +85,13 @@ module.exports = {
         type: 'category',
         label: '存储',
         items: [
-          'ops/storage/raid',
+          'ops/storage/block/raid',
+          'ops/storage/block/lvm',
+          'ops/storage/fs/intro',
           'ops/storage/fs/zfs',
           'ops/storage/fs/mdadm',
+          'ops/storage/fs/btrfs',
+          'ops/storage/fs/fuse',
           // 'ops/storage/fs/zfs-tuning',
         ]
       },
@@ -105,6 +109,45 @@ module.exports = {
           'ops/network/tool/nmap',
           'ops/network/tool/powerdns',
           'ops/network/tool/wireshark',
+        ]
+      },
+    ],
+    存储: [
+      'ops/storage/intro',
+      {
+        type: 'category',
+        label: '块存储',
+        items: [
+          'ops/storage/block/raid',
+          'ops/storage/block/lvm',
+        ]
+      },
+      {
+        type: 'category',
+        label: '文件存储',
+        items: [
+          'ops/storage/fs/intro',
+          'ops/storage/fs/zfs',
+          'ops/storage/fs/mdadm',
+          'ops/storage/fs/btrfs',
+          'ops/storage/fs/fuse',
+          // 'ops/storage/fs/zfs-tuning',
+        ]
+      },
+      {
+        type: 'category',
+        label: '网络存储',
+        items: [
+          'ops/storage/network/share',
+          'ops/storage/network/sshfs',
+        ]
+      },
+      {
+        type: 'category',
+        label: '存储服务',
+        items: [
+          'ops/storage/service/minio',
+          'ops/storage/network/sshfs',
         ]
       },
     ],

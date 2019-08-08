@@ -1,3 +1,8 @@
+---
+id: intro
+title: Storage
+---
+
 # Storage
 ## Tips
 * [restic/restic](https://github.com/restic/restic)
@@ -57,8 +62,8 @@ brew install s3fs
 
 brew install goofys
 
-export AWS_ACCESS_KEY_ID=<ID>
-export AWS_SECRET_ACCESS_KEY=<KEY>
+export AWS_ACCESS_KEY_ID=${ID}
+export AWS_SECRET_ACCESS_KEY=${KEY}
 # goofys <bucket> <mountpoint>
 # goofys <bucket:prefix> <mountpoint>
 ```

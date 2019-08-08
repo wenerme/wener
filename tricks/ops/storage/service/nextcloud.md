@@ -1,3 +1,8 @@
+---
+id: nextcloud
+title: NextCloud
+---
+
 # NextCloud
 
 ## Tips

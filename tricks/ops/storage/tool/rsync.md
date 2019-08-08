@@ -7,10 +7,6 @@
   * https://www.cis.upenn.edu/~bcpierce/unison/
 * `--info=progress2` 显示速度
 
-
-选项 | 说明
-----|----
-
 ```bash
 # 使用 SSH 同步
 rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 

@@ -1,3 +1,8 @@
+---
+id: minio
+title: Minio
+---
+
 # Minio
 
 ## Tips
@@ -133,6 +138,11 @@ server_side_encryption=
 rclone lsd oss:
 
 ```
+
+## KMS
+* https://docs.min.io/docs/minio-kms-quickstart-guide.html
+* https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template#L355
+
 ## FAQ
 ### Unsupported backend format
 * [#4104](https://github.com/minio/minio/issues/4104)
