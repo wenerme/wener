@@ -57,6 +57,13 @@ module.exports = {
       },
       {
         type: 'category',
+        label: '用户增长',
+        items: [
+          'reference/growth/glossary',
+        ],
+      },
+      {
+        type: 'category',
         label: '烹饪',
         items: [
           'reference/cook/glossary',

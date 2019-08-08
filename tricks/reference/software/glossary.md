@@ -81,10 +81,11 @@ alipay              | 支付宝
 ## 财务系统
 英文 | 含义 | 释义
 --------------------|-----------|----
- - | 凭证
- - | 发票
- - | 进项
-NA | 销项
+voucher | 凭证
+invoice | 发票
+income | 进项、收入
+expenses | 销项、支出
+revenue | 收入
 account | 账户
 accounting system | 会计系统
 audit | 审计
