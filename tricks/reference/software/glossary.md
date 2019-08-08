@@ -64,8 +64,8 @@ rank                | 等级, 主动, 例如: 客户星级,产品评价
 grade               | 等级, 被动, 例如: 成绩,商品
 property            | 属性, 多指固有的,本身的,proper
 attribute           | 属性, 多指特征的,可变的,tribute
-referral            | 引荐, 主动, 掌握关系主动方<br>例如: 别人引荐你给我, 你和我直接联系
-introduction        | 推荐, 被动, 位于关系被动方<br>例如: 别人介绍你给我, 由别人产生联系
+referral            | 引荐, 主动, 掌握关系主动方<br/>例如: 别人引荐你给我, 你和我直接联系
+introduction        | 推荐, 被动, 位于关系被动方<br/>例如: 别人介绍你给我, 由别人产生联系
 login               | 登陆
 signup              | 注册
 
