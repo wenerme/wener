@@ -1,6 +1,10 @@
+---
+id: nginx
+title: Nginx
+---
+
+
 # NGINX
-
-
 ## Tips
 
 * `/usr/share/nginx/html` 静态文件目录

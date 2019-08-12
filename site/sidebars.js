@@ -38,6 +38,19 @@ module.exports = {
       'languages/php',
       'languages/zig',
     ],
+    开发运维: [
+      'devops/tracing/tracing',
+      'devops/metrics/metrics',
+      {
+        type: 'category',
+        label: 'Web',
+        items: [
+          'devops/web/nginx',
+          'devops/web/caddy',
+          'devops/web/traefik',
+        ],
+      },
+    ],
     AlpineLinux: [
       'ops/os/alpine/alpine',
       'ops/os/alpine/alpine-intro',
