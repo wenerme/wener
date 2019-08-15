@@ -40,7 +40,14 @@ module.exports = {
     ],
     开发运维: [
       'devops/tracing/tracing',
-      'devops/metrics/metrics',
+      {
+        type: 'category',
+        label: '指标监控',
+        items: [
+          'devops/metrics/metrics',
+          'devops/metrics/prometheus',
+        ],
+      },
       {
         type: 'category',
         label: 'Web',
@@ -48,6 +55,13 @@ module.exports = {
           'devops/web/nginx',
           'devops/web/caddy',
           'devops/web/traefik',
+        ],
+      },
+      {
+        type: 'category',
+        label: '平台服务',
+        items: [
+          'devops/xaas/db-schema',
         ],
       },
     ],

@@ -19,6 +19,7 @@
 * Benchmark
   * [Squash Compression Benchmark](https://quixdb.github.io/squash-benchmark/)
   * [Large Text Compression Benchmark](http://mattmahoney.net/dc/text.html)
+  * [Gzip vs Bzip2 vs LZMA vs XZ vs LZ4 vs LZO](https://catchchallenger.first-world.info/wiki/Quick_Benchmark:_Gzip_vs_Bzip2_vs_LZMA_vs_XZ_vs_LZ4_vs_LZO)
 * JS
   * [nodeca/pako](https://github.com/nodeca/pako)
     * high speed zlib port to javascript, works in browser & node.js
@@ -56,3 +57,6 @@ convmv -f GBK -t utf8 --notest -r .
 # brew install unar
 unar -e gb18030 gb18030.zip
 ```
+
+## gzip
+* [gzip format](http://www.onicos.com/staff/iz/formats/gzip.html)
