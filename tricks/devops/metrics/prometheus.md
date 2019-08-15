@@ -1,3 +1,8 @@
+---
+id: prometheus
+title: Prometheus
+---
+
 # Prometheus
 
 ## Tips

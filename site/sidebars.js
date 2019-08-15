@@ -147,6 +147,7 @@ module.exports = {
         label: '块存储',
         items: [
           'ops/storage/block/raid',
+          'ops/storage/block/mdadm',
           'ops/storage/block/lvm',
         ]
       },
@@ -156,7 +157,6 @@ module.exports = {
         items: [
           'ops/storage/fs/intro',
           'ops/storage/fs/zfs',
-          'ops/storage/fs/mdadm',
           'ops/storage/fs/btrfs',
           'ops/storage/fs/fuse',
           // 'ops/storage/fs/zfs-tuning',
