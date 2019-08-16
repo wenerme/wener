@@ -8,6 +8,8 @@
 
 
 ```bash
+sudo apk add qemu qemu-system-x86_64 qemu-ui-curses qemu-block-ssh qemu-img
+
 sudo apk add qemu-system-x86_64 libvirt 
 
 sudo apk add libvirt-daemon dbus polkit

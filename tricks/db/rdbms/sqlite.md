@@ -104,16 +104,16 @@ CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
 .clone NEWDB           | 克隆现有的数据库到 NEWDB
 .databases             | 例举添加的数据库名和文件
 .dbinfo ?DB?           | 显示数据库状态信息
-.dump ?TABLE? ...      | 以 SQL 的形式转储数据库<br>如果指定了表,则只转储匹配 LIKE 模式的表.
+.dump ?TABLE? ...      | 以 SQL 的形式转储数据库<br/>如果指定了表,则只转储匹配 LIKE 模式的表.
 .echo on|off           | 命令回显
 .eqp on|off            | 自动执行 EXPLAIN QUERY PLAN
 .exit                  | 退出
-.explain ?on|off?      | 使用适合 EXPLAIN 的输出模式<br>如果未指定参数,则为打开
+.explain ?on|off?      | 使用适合 EXPLAIN 的输出模式<br/>如果未指定参数,则为打开
 .fullschema            | 显示 sqlite_stat 的 schema 和内容
 .headers on|off        | 显示头
 .help                  | 显示该信息
 .import FILE TABLE     | 导入 FILE 内容为 TABLE
-.indexes ?TABLE?       | 显示所有索引<br>如果指定了表,则只显示匹配 LIKE 模式的表.
+.indexes ?TABLE?       | 显示所有索引<br/>如果指定了表,则只显示匹配 LIKE 模式的表.
 .limit ?LIMIT? ?VAL?   | 显示或更改 SQLITE_LIMIT 的值
 .log FILE|off          | 日志, FILE 可以为 stderr/stdout
 .mode MODE ?TABLE?     | 设置输出模式
@@ -137,13 +137,13 @@ CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
 .restore ?DB? FILE     | 恢复 DB(默认 "main") 的内容到 FILE
 .save FILE             | 将内存数据库写入到 FILE
 .scanstats on|off      | 打开或关闭 sqlite3_stmt_scanstatus() 监测
-.schema ?TABLE?        | 显示 CREATE 语句<br>如果指定了表,则只显示匹配 LIKE 模式的表.
+.schema ?TABLE?        | 显示 CREATE 语句<br/>如果指定了表,则只显示匹配 LIKE 模式的表.
 .separator COL ?ROW?   | 修改列和行的分隔符,会影响输出和 .import
 .shell CMD ARGS...     | 在系统 shell 中执行 CMD ARGS...
 .show                  | 显示当前的各种设置
 .stats on|off          | 统计开关
 .system CMD ARGS...    | 在系统 shell 中执行 CMD ARGS...
-.tables ?TABLE?        | 显示表名<br>如果指定了表,则只显示匹配 LIKE 模式的表.
+.tables ?TABLE?        | 显示表名<br/>如果指定了表,则只显示匹配 LIKE 模式的表.
 .timeout MS            | 打开被锁表的超时时间
 .timer on|off          | SQL 计时器开关
 .trace FILE|off        | 输出每个 SQL 语句

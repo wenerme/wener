@@ -90,7 +90,7 @@ prometheus| 9090
 grafana| 3000
 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) | 9104
 [redis-exporter]((https://github.com/oliver006/redis_exporter)) | 9121|[Prometheus Redis](https://grafana.net/dashboards/763)
-[node-exporter](https://github.com/prometheus/node_exporter)| 9100|[Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br>[Node exporter single server](https://grafana.net/dashboards/22)
+[node-exporter](https://github.com/prometheus/node_exporter)| 9100|[Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22)
 [container-exporter](https://github.com/docker-infra/container_exporter)| 9104|[Docker Dashboard](https://grafana.net/dashboards/179)
 [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)|n/a|[Nginx Overview](https://grafana.net/dashboards/462)
 

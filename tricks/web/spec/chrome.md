@@ -136,7 +136,7 @@ window.setTimeout(() => {
 #### Chrome extension code vs Content scripts vs Injected scripts
 
 
-- **Extension code - Full access to all permitted [`chrome.*`][1] APIs.**<br>
+- **Extension code - Full access to all permitted [`chrome.*`][1] APIs.**<br/>
  This includes the [background page][2], and all pages which have direct access to it via [`chrome.extension.getBackgroundPage()`][3], such as the [browser pop-ups][4].
 
 - **[Content scripts][5] (via the manifest file or [`chrome.tabs.executeScript`][6]) - [Partial][7] access to some of the `chrome` APIs**, full access to the page's DOM (**not** to any of the `window` objects, including frames).  

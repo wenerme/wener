@@ -112,10 +112,9 @@ title: Tinc
   * [用RouterOS/QEMU在Tinc TAP VPN内部实现DHCP](https://blog.swineson.me/use-routeros-qemu-as-tinc-tap-vpn-dhcp-server/)
   * https://www.tinc-vpn.org/faq/
   * [Large scale tinc tests](https://www.tinc-vpn.org/pipermail/tinc-devel/2015-September/000790.html)
-
-https://www.tinc-vpn.org/packages/
-https://github.com/gsliepen/tinc
-https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
+  * https://www.tinc-vpn.org/packages/
+  * https://github.com/gsliepen/tinc
+  * https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
 
 ```bash
 # 稳定版 1.0 版

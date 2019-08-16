@@ -195,11 +195,11 @@ Elasticsearch 的底层搜索是 Lucene, 其提供的查询也主要是对 Lucen
 
 查询类型|说明
 ----|----
-match_all|匹配所有文档,`_score` 为 `1.0`<br>可通过 `boost` 更改分数值
+match_all|匹配所有文档,`_score` 为 `1.0`<br/>可通过 `boost` 更改分数值
 match|模糊近似匹配
 multi_match|与 match 相同,可指定多个字段
 common_terms|一个更特殊的查询,会更趋向于选择不常见的词
-query_string|支持 Lucene 查询语法,可使用 `AND,OR,NOT` 条件,可在单个查询中标示多个字段的搜索<br>__需谨慎使用__
+query_string|支持 Lucene 查询语法,可使用 `AND,OR,NOT` 条件,可在单个查询中标示多个字段的搜索<br/>__需谨慎使用__
 simple_query_string|一个更高效的 query_string 版本,适合普通用户使用
 term|匹配字段包含的词
 terms|匹配字段包含的词
@@ -207,7 +207,7 @@ range|使用范围匹配字段的值(日期,数字,字符串等)
 exists|匹配非空字段
 missing|匹配不存在字段或为空的字段
 prefix|匹配字段值前缀
-wildcard|使用通配符来匹配字段的值<br>`?` 单个字符,`*` 多个字符
+wildcard|使用通配符来匹配字段的值<br/>`?` 单个字符,`*` 多个字符
 regexp|使用正则表达式来匹配字段的值
 fuzzy|模糊匹配字段的值,使用[莱文斯坦距离](https://zh.wikipedia.org/wiki/莱文斯坦距离)进行度量.
 type|匹配文档类型

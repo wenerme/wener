@@ -189,7 +189,7 @@ $$
 > Energy is the capacity to do work, measured in joules (J).
 
 $$
-1 Wh = 3600 J
+1 Wh = 3600 J
 $$
 
 Ex 1.4 An energy source forces a constant current of 2 A for 10 s to flow

@@ -10,6 +10,9 @@ title: Alpine 运维笔记
 lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE
 # 使用 NAME 排序
 lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE
+
+# 基础安装包
+apk add wpa_supplicant e2fsprogs-extra
 ```
 
 ## bash

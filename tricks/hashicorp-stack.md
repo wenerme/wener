@@ -5,7 +5,7 @@ HaShiCorp | Others
 ----|----
 Consul | Zookeeper, Etcd
 Nomad | Mesos Docker swarm Kubunetes
-Otto<br>Vagrant successor| Docker
+Otto<br/>Vagrant successor| Docker
 Terrform
 
 # Consul

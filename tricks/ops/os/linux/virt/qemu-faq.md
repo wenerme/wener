@@ -6,6 +6,13 @@
 https://cloudplatform.googleblog.com/2017/01/7-ways-we-harden-our-KVM-hypervisor-at-Google-Cloud-security-in-plaintext.html
 
 
+## 访问远程镜像
+
+```bash
+# apk add qemu-block-ssh
+qemu -drive file=ssh://host/path/to/file,if=virtio,cache=none
+```
+
 ## virtfs
 https://wiki.qemu.org/Documentation/9psetup
 
