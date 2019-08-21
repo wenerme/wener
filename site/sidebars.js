@@ -72,6 +72,17 @@ module.exports = {
       'ops/os/alpine/alpine-pkgs',
       'ops/os/alpine/alpine-faq',
     ],
+    操作系统: [
+      {
+        type: 'category',
+        label: 'Darwin',
+        items: [
+          'ops/os/darwin/darwin',
+          'ops/os/darwin/macOs',
+          'ops/os/darwin/brew',
+        ]
+      }
+    ],
     参考: [
       'reference/words',
       {

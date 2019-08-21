@@ -30,6 +30,11 @@ brew install git-flow-avh
 
 ## FAQ
 
+## 修正用户名
+```bash
+git commit --amend --author="Author Name <email@address.com>"
+```
+
 ### 子模块初始化
 
 ```bash

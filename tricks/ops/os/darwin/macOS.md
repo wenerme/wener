@@ -1,4 +1,9 @@
-# OS X
+---
+id: macos
+title: macOS
+---
+
+# macOs
 
 ## Tips
 * [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
@@ -47,6 +52,13 @@ mail
 
 # 查看硬件网络端口
 networksetup -listallhardwareports
+
+# 查看隐藏文件，需要重启 finder
+defaults write com.apple.finder AppleShowAllFiles YES
+# 关闭 finder
+killall Finder /System/Library/CoreServices/Finder.app
+# 关闭
+defaults write com.apple.finder AppleShowAllFiles NO
 ```
 
 
@@ -313,9 +325,9 @@ diskutil eraseDisk FAT32 NAME MBRFormat /dev/disk2
 ```bash
 # 先禁用掉对应网卡的 IPv6
 # networksetup -setv6off Wi-Fi
-networksetup -setv6off Ethernet
+networksetup -setv6off Ethernet
 # 然后通过命令行修改配置
-networksetup -setmanual Ethernet 192.168.31.2 255.255.255.0 192.168.1.1
+networksetup -setmanual Ethernet 192.168.31.2 255.255.255.0 192.168.1.1
 # 设置完成后也可以将 IPv6 设置为自动
 ```
 
@@ -402,6 +414,14 @@ sudo dscacheutil -flushcache
 sudo killall -HUP mDNSResponder
 ```
 
+### 网络
+
+```bash
+# 查看路由表
+# -n 不做 resolve
+netstat -nr
+```
+
 ### 桥接
 * 对 wifi 支持不太好
 
@@ -424,7 +444,7 @@ man ifconfig
 ```bash
 brew cask install tuntap
 # 避免 root 访问
-chown $USER:staff /dev/tap0
+sudo chown $USER:staff /dev/tap0
 
 ll /dev/tun*
 ll /dev/tap*
@@ -502,6 +522,29 @@ pfctl -f /etc/pf.conf
 * `/.DocumentRevisions-V100` 可能会占用非常多的空间
 * [What will occur if the .DocumentRevisions-V100 folder is deleted?](https://apple.stackexchange.com/a/313112/103557)
 
+### Migration
+
+```bash
+brew list > formulas.txt
+
+brew fetch $(cat formulas.txt)
+brew unlink $(cat formulas.txt)
+brew link --overwrite $(cat formulas.txt)
+brew reinstall $(cat formulas.txt)
+
+brew doctor check_for_stray_headers
+brew doctor check_for_stray_headers 2>&1 | grep /protobuf | xargs rm
+brew doctor check_for_stray_headers 2>&1 | grep '^  /' | xargs rm
+
+brew doctor check_for_stray_static_libs
+brew doctor check_for_stray_static_libs 2>&1 | grep '^  /' | xargs rm
+
+brew doctor check_for_stray_dylibs
+brew doctor check_for_stray_dylibs 2>&1 | grep '^  /' | xargs rm
+
+brew prune
+brew missing
+```
 
 ### 常见网络名称
 * lo0 = loopback
@@ -511,4 +554,22 @@ pfctl -f /etc/pf.conf
 * fw0 = Firewire
 * en1 = Ethernet 1
 * vmnet1 = Virtual Interface
+
+### Develope
+
+```
+security find-identity -v -p codesigning
+```
+
+### 命令行开启屏幕共享
+
+```bash
+# 开启所有服务，允许所有用户
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -off -restart -agent -privs -all -allowAccessFor -allUsers
+
+# 只开启屏幕共享
+sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
+
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+```
 

@@ -223,3 +223,16 @@ brew install proxychains-ng
 # 网络请求会被代理
 proxychains4 curl google.com
 ```
+
+## FAQ
+
+### Tinc vs ZeroTier vs Wireguard
+* 共同点
+    * P2P 协议
+* Tinc 完全中心化，无控制器，网络连接性会更好，tinc 1.1pre 使用非常简单
+    * 开源的 Android 和 iOS 应用，但未维护了
+    * 支持 UDP
+* ZeroTier 有中心控制器，能够进行验证授权，使用简单，有管理接口和页面
+    * 闭源 Android 和 iOS 应用，可在应用商店安装
+    * 更好的 QoS 控制
+    * 基于 TCP

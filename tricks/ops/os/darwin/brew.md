@@ -1,10 +1,31 @@
+---
+id: brew
+title: Brew
+---
+
 # Brew
-[Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
+
+## Tips
+* [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
+
+> __⚠️__
+> 1. 安装过程中可能会需要代理
+> 2. 代理建议使用 https_proxy 进行设置或全局代理
+> 3. 如果使用 https_proxy 建议使用 http 代理
 
 ```bash
 # 安装
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # 如果 XCode 安装失败可使用 xcode-select --install 安装
+
+# 使用清华镜像，避免代理
+# https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
+git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+brew update
+# bottle/二进制 也使用镜像
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 ```
 
 ## 基础的软件包
@@ -30,15 +51,25 @@ brew install openssh autossh git mosh bash sshrc ssh-copy-id sshuttle tmux vim
 # Linux/GNU 命令
 # 这些 gnu 命令都没用 --with-default-names 参数,因此命令会推荐一个 g 前缀,例如 gawk
 # 使用的时候添加 /usr/local/opt/coreutils/libexec/gnubin 该路径就可以了, 不需要 g 前缀
-brew install less nano file-formula findutils coreutils binutils diffutils wget rsync svn unzip gzip wdiff
-brew install gnu-{indent,sed,tar,which,units,time} gnutls gnuplot gpatch grep
+brew install less nano file-formula findutils coreutils binutils diffutils wget rsync unzip gzip wdiff
+brew install gnu-{indent,sed,tar,which,units,time} gnutls gpatch grep
 brew install bash-completion2
 
 # 基本语言环境, 可选装
-brew install ruby python python3 go nvm
-nvm install node
-nvm use node
+# 如果使用 nvm 则不安装 node
+# python 默认为 3 可同时安装 python@2
+brew install ruby python go node
+# 补全
 brew install {pip,ruby,gem,bundler,open,maven,brew-cask,apm-bash}-completion
+
+# Java 环境
+# 不建议通过 brew 安装 java 因为按住的是最新版，建议自行安装 LTS 版
+# brew cask install java
+# 最新 beta 版可安装 homebrew/cask-versions/java-beta
+brew install maven
+# 建议通过 toolbox 安装 jetbrain 的 ide
+# brew cask install intellij-idea
+
 # 数据库
 # 可选 mongodb mysql mariadb postgresql
 brew install sqlite
@@ -58,6 +89,7 @@ brew cask install intellij-idea
 brew install terminal-notifier
 
 # 在中国的基本工具
+# 如果习惯苹果的输入法可以考虑不安装 搜狗
 brew cask install qq sogouinput
 open  /opt/homebrew-cask/Caskroom/sogouinput/*/安装搜狗输入法.app
 # 也可以安装百度云 baiducloud
@@ -66,6 +98,8 @@ open  /opt/homebrew-cask/Caskroom/sogouinput/*/安装搜狗输入法.app
 # 娱乐相关程序
 brew install youtube-dl ffmpeg cmus
 brew install mpv # 只是命令行启动,未关联文件, mpv --profile=pseudo-gui 可启动伪 UI
+# mpv 的 app
+brew cask install mpv
 
 # 常用辅助工具
 brew install di pv jlhonora/lsusb/lsusb
@@ -184,7 +218,18 @@ sudo yum groupinstall 'Development Tools' && sudo yum install curl git irb m4 py
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 ```
 
-## Tips
+## 使用 gcc 而不使用 clang
+
+```bash
+cd /usr/local/bin
+VER=8
+for v in gcc c++ g++ cpp; do ln -s $v-$VER $v; done
+
+# 恢复
+for v in gcc c++ g++ cpp; do unlink $v; done
+```
+
+## FAQ
 
 
 ### 缓存目录
@@ -213,4 +258,14 @@ done
 xcode-select -p
 # 切换为另外的版本
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+```
+
+### dir_s_mkdir permission denied
+
+* [#19789](https://github.com/Homebrew/homebrew-core/issues/19789)
+
+```bash
+brew link ruby -- dir_s_mkdir permission denied
+find /usr/local -not -uid $(id -u)
+find /usr/local -not -uid $(id -u) | xargs -n 1 sudo chown -R $(whoami)
 ```
