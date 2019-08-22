@@ -1,3 +1,8 @@
+---
+id: faq
+title: FAQ
+---
+
 # PostgreSQL FAQ
 
 ## VARCHAR vs TEXT

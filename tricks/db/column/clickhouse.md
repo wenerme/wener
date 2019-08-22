@@ -17,7 +17,11 @@ https://clickhouse.yandex/docs/en/development/architecture/
 # https://hub.docker.com/r/yandex/clickhouse-server/
 docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server
 
-docker run -it --rm --link some-clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server
+docker run --rm -it -p 8123:8123 -p 9000:9000 --name ch-server --ulimit nofile=262144:262144 -v $PWD/data:/var/lib/clickhouse yandex/clickhouse-server
+
+# 镜像拉取
+# docker pull dockerhub.azk8s.cn/library/yandex/clickhouse-server
+# docker pull docker.mirrors.ustc.edu.cn/yandex/clickhouse-server
 
 docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 -v /path/to/your/config.xml:/etc/clickhouse-server/config.xml yandex/clickhouse-server
 

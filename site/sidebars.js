@@ -78,8 +78,19 @@ module.exports = {
         label: 'Darwin',
         items: [
           'ops/os/darwin/darwin',
-          'ops/os/darwin/macOs',
+          'ops/os/darwin/macos',
           'ops/os/darwin/brew',
+        ]
+      }
+    ],
+    数据库: [
+      'db/db',
+      {
+        type: 'category',
+        label: 'PostgreSQL',
+        items: [
+          'db/relational/postgresql/postgresql',
+          'db/relational/postgresql/faq',
         ]
       }
     ],
@@ -207,23 +218,6 @@ module.exports = {
           'voip/asterisk/the-definitive-guide-4th',
         ]
       }
-    ],
-    数据库: [
-      {
-        type: 'category',
-        label: 'SQL',
-        items: [],
-      },
-      {
-        type: 'category',
-        label: 'NoSQL',
-        items: [],
-      },
-      {
-        type: 'category',
-        label: 'Cloud',
-        items: [],
-      },
     ],
   },
 };
