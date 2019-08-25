@@ -1,3 +1,8 @@
+---
+id: mysql
+title: MySQL
+---
+
 # MySQL
 
 ## Tips
