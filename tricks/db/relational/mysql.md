@@ -3,18 +3,6 @@
 ## Tips
 * [Common MySQL Queries](http://www.artfulsoftware.com/infotree/queries.php)
 
-## Type
-
-* [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
-
-Type        | Maximum length
-------------+-------------------------------------
-TINYTEXT    |           255 (2 8−1) bytes
-TEXT        |        65,535 (216−1) bytes = 64 KiB
-MEDIUMTEXT  |    16,777,215 (224−1) bytes = 16 MiB
-LONGTEXT    | 4,294,967,295 (232−1) bytes =  4 GiB
-
-
 ```sql
 -- 设置 binlog 超时时间
 SET GLOBAL expire_logs_days=7
@@ -130,3 +118,14 @@ innodb_log_file_size = 1G
 innodb_write_io_threads = 16
 innodb_flush_log_at_trx_commit = 0
 ```
+
+## Type
+
+* [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
+
+Type        | Maximum length
+------------+-------------------------------------
+TINYTEXT    |           255 (2 8−1) bytes
+TEXT        |        65,535 (216−1) bytes = 64 KiB
+MEDIUMTEXT  |    16,777,215 (224−1) bytes = 16 MiB
+LONGTEXT    | 4,294,967,295 (232−1) bytes =  4 GiB

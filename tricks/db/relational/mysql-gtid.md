@@ -1,3 +1,8 @@
+---
+id: mysql-gtid
+title: MySQL GTID
+---
+
 # GTID
 这里主要简单描述下实现 GTID 遇到的问题
 

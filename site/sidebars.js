@@ -95,6 +95,15 @@ module.exports = {
       },
       {
         type: 'category',
+        label: '关系型',
+        items: [
+          'db/relational/mysql',
+          'db/relational/mysql-gitd',
+          'db/relational/sqlite',
+        ]
+      },
+      {
+        type: 'category',
         label: 'Key Value',
         items: [
           'db/kv/kv',

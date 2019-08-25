@@ -1,3 +1,8 @@
+---
+id: sqlite
+title: SQLite
+---
+
 # SQLite
 
 ## Tips
