@@ -125,7 +125,7 @@ CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
 -                      | ascii    行列使用 0x1F 和 0x1E 分隔
 -                      | csv      逗号分隔的值
 -                      | column   左对齐列  (参见 .width)
--                      | html     HTML <table> 代码
+-                      | html     HTML `<table>` 代码
 -                      | insert   Insert 语句 TABLE
 -                      | line     每行只有值
 -                      | list     使用 .separator 分隔的值
