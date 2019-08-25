@@ -90,6 +90,7 @@ module.exports = {
         label: 'PostgreSQL',
         items: [
           'db/relational/postgresql/postgresql',
+          'db/relational/postgresql/timescale',
           'db/relational/postgresql/faq',
         ]
       },
@@ -98,7 +99,7 @@ module.exports = {
         label: '关系型',
         items: [
           'db/relational/mysql',
-          'db/relational/mysql-gitd',
+          'db/relational/mysql-gtid',
           'db/relational/sqlite',
         ]
       },
