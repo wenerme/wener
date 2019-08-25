@@ -1,6 +1,11 @@
+---
+id: lmdb
+title: LMDB
+---
+
 # LMDB - Lighting Memory-Maped Database
 
-
+## Tips
 * Key/value 存储
 * 内存映射
 * 使用全局递增 ID 标示版本

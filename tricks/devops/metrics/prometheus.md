@@ -12,6 +12,8 @@ title: Prometheus
 * Prometheus vs TICK
   * Pull vs Push
 * [prometheus/pushgateway](https://github.com/prometheus/pushgateway)
+* 参考
+  * [Rate then sum, never sum then rate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
 
 ```bash
 # 安装

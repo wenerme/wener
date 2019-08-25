@@ -92,7 +92,17 @@ module.exports = {
           'db/relational/postgresql/postgresql',
           'db/relational/postgresql/faq',
         ]
-      }
+      },
+      {
+        type: 'category',
+        label: 'Key Value',
+        items: [
+          'db/kv/kv',
+          'db/kv/redis',
+          'db/kv/lmdb',
+          'db/kv/leveldb',
+        ]
+      },
     ],
     参考: [
       'reference/words',
