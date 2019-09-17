@@ -1,0 +1,52 @@
+---
+id: formula
+title: 增长相关公式
+---
+
+import {reaction} from 'mobx';
+import {useObserver,useLocalStore} from 'mobx-react';
+import styled from 'styled-components'
+
+## 积少成多
+
+export function LessIsMoreFormula(){
+  const MyInput = React.useMemo(()=>styled.input`
+    border: none;
+    border-bottom: 1px solid;
+    width: ${props=>props.width||'80px'};
+    background: none;
+    text-align: right;
+  `,[]);
+  const store = useLocalStore(()=>({
+    initial:1000,
+    rate: 101,
+    period: 1,
+    get final(){
+      return Math.floor(this.initial*Math.pow(this.rate/100,52*this.period))
+    },
+    get changeRate(){
+      return (this.final/this.initial || 0).toFixed(2);
+    }
+  }));
+  return useObserver(()=>
+    <div>
+      如果开始有
+      <MyInput size="small" type="number" value={store.initial} onChange={e=>store.initial=parseInt(e.target.value)} />
+      初始用户，周增长为
+      <MyInput width="60px" type="number" value={store.rate} onChange={e=>store.rate=parseInt(e.target.value)} />
+      %，那么
+      <MyInput width="40px" type="number" value={store.period} onChange={e=>store.period=parseInt(e.target.value)} />
+      年后用户数为
+      <MyInput width="120px" disabled value={store.final} />，
+      前后相差
+      <MyInput width="50px" disabled value={store.changeRate} />倍
+      。
+    </div>
+  );
+}
+
+<LessIsMoreFormula/>
+
+---
+
+一点的增长，累计下来可能大不一样。
