@@ -15,7 +15,7 @@ http://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html
 变量|含义|说明
 ----|----|----
 Aborted_clients| 由于客户没有正确关闭连接已经死掉，已经放弃的连接数量。
-Aborted_connects | 尝试已经失败的MySQL服务器的连接的次数 | 1.客户端不具有连接至数据库的权限<br>2.客户端采用了不正确的密码<br>3.连接信息包不含正确信息<br>4.获取连接信息包的时间超过connect_timeout秒
+Aborted_connects | 尝试已经失败的MySQL服务器的连接的次数 | 1.客户端不具有连接至数据库的权限<br/>2.客户端采用了不正确的密码<br/>3.连接信息包不含正确信息<br/>4.获取连接信息包的时间超过connect_timeout秒
 Connections| 试图连接MySQL服务器的次数
 Created_tmp_tables | 当执行语句时，已经被创造了的隐含临时表的数量
 Delayed_insert_threads | 正在使用的延迟插入处理器线程的数量

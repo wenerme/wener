@@ -1,0 +1,69 @@
+---
+id: ipsec
+title: IPSec
+---
+
+# IPSec
+
+## Tips
+* [IPsec](https://en.wikipedia.org/wiki/IPsec) - Internet Protocol Security
+* 参考
+  * [Full-mesh IPsec network](https://www.usenix.org/sites/default/files/conference/protected-files/srecon16europe_slides_garcia.pdf)
+    * n2n 迁移 IPSec
+    * 不要使用 ipsec-tools
+
+```bash
+# ip xfrm
+# =========
+# http://man7.org/linux/man-pages/man8/ip-xfrm.8.html
+# 当前的 SPDB
+ip xfrm policy
+# 当前的 SADB
+ip xfrm state
+# 监控 SADB 和 SPDB 变更
+ip xfrm monitor
+# 删除所有 SADB
+ip xfrm state flush
+
+# 内核的 xfrm 统计信息
+# https://www.kernel.org/doc/Documentation/networking/xfrm_proc.txt
+cat /proc/net/xfrm_stat
+```
+
+## Note
+### 概念
+* 一组协议 - 开放标准
+* 核心能力
+  * 数据加密
+  * 数据来源验证
+  * 数据完整性
+* 特性
+  * 内核加密 - 速度快
+  * 加密强度较高
+  * 开放协议
+* 协议方式
+  * AH - Authentication Header - 数据完整性和来源校验
+  * ESP - Encapsulating Security Payload - 数据加密
+* SP - Security Policy - 安全策略
+  * 存储在 SPD - Security Policy Database
+  * 由内核使用，表述如下语义
+    * 从 A 到 B 使用 ESP 的传输模式
+    * 从 C 到 D 的 443 端口不使用 IPSec
+* SA - Security Association - 安全关系
+  * 单向的点之间安全配置
+  * 包含点的基本信息
+  * 存储在 SAD
+* IKE - Internet Key Exchange
+  * 协商用于建立安全通道的算法和密钥
+  * 协商完成后的信息记录为 SA
+
+
+__工作模式__
+
+模式\方式 | 封装消息头 | 封装消息体 | 主机对主机 | 站点对站点
+---------|---------|---------|---------|---------
+通道模式 | ✅ | ✅ | ✅ | ✅
+传输模式 | ❌ | ✅ | ✅ | ❌
+
+> 传输模式配置更简单，性能更好
+
