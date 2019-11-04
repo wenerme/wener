@@ -57,3 +57,9 @@ echo wg set wg0 peer $(cat wg0.pub) persistent-keepalive 25 allowed-ips 10.0.0.1
 # 在 B 能访问 A
 ping 10.0.0.1
 ```
+
+## FAQ
+### 桥接或DHCP
+* wg 只支持 L3 通道
+* 桥接的网路可以考虑通过路由实现 - [例如](https://lists.zx2c4.com/pipermail/wireguard/2018-January/002341.html)
+* 如果需要桥接可以考虑 tinc 的 switch 模式或者 [l2tp](https://remote-lab.net/linux-l2tp-ethernet-pseudowires)

@@ -5,6 +5,13 @@ title: 私有网络
 
 # 私有网络
 
+https://github.com/StreisandEffect/streisand
+https://github.com/trailofbits/algo
+https://github.com/mullvad/mullvadvpn-app
+
+https://mullvad.net/en/download/wireguard-config/
+
+
 ## Tips
 * [TORRENT PROXY: SOCKS VS. HTTP](https://www.best-bittorrent-vpn.com/socks-vs-http-proxy-for-torrents.html)
 * 常用的代理变量
@@ -238,6 +245,7 @@ proxychains4 curl google.com
   * 单线程 - 性能有一定瓶颈 - 例如 1Gb 网卡可能只能跑满 300-600 Mb
   * 用户空间
   * 安装使用配置方便 - 1.1 版本
+  * 实现简单 LOC ~ 3k
 * ZeroTier 有中心控制器，能够进行验证授权，使用简单，有管理接口和页面
   * 闭源 Android 和 iOS 应用 - 可在应用商店安装
   * QoS 控制
@@ -246,7 +254,10 @@ proxychains4 curl google.com
   * 目前没有比较好的 mesh 方案 - 需要所有节点配置
   * 节点不能自动发现
   * 需要节点之间直连 - 不能通过中继访问
-  * 只支持 TCP/IP 层 - 不能 DHCP - 使用 IP 寻址
+  * 只支持 Layer 3 - 不能 DHCP 或桥接 - 使用 IP 寻址
+  * 使用 UDP 通信
+  * 替代 OpenVPN 和 IPsec
+  * 实现简单 LOC ~ 4k
   * 开源可用的 Android 和 iOS 应用
   * 客户端支持广泛
   * 需要内核支持

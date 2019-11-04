@@ -117,15 +117,13 @@ title: Tinc
   * https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
 
 ```bash
-# 稳定版 1.0 版
-# 只有 tincd 目录
-# apk add tinc
-# PreRelease 版 1.1
+# 推荐使用 tinc-pre 1.1 版本
+# 配置更方便使用更简单
 apk add tinc-pre
 
 modprobe tun
 echo tun >> /etc/modules
-# echo tun >> /etc/modules-load.d/netdev.conf
+# echo tun >> /etc/modules-load.d/tinc.conf
 
 # 基础配置
 tinc init first
@@ -374,8 +372,8 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ### 基于容器组件网络
 
 ## Turning
+* [tinc.conf.5](https://www.tinc-vpn.org/documentation-1.1/tinc.conf.5)
 
-https://www.tinc-vpn.org/documentation-1.1/tinc.conf.5
 
 ```ini
 # The symmetric cipher algorithm used to encrypt UDP packets. 默认 blowfish
