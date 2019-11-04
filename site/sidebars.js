@@ -162,6 +162,8 @@ module.exports = {
         items: [
           'ops/network/private/intro',
           'ops/network/private/tinc',
+          'ops/network/private/ipsec',
+          'ops/network/private/wireguard',
         ]
       },
       {

@@ -30,8 +30,7 @@ ip xfrm state flush
 cat /proc/net/xfrm_stat
 ```
 
-## Note
-### 概念
+## 概念
 * 一组协议 - 开放标准
 * 核心能力
   * 数据加密
@@ -67,3 +66,10 @@ __工作模式__
 
 > 传输模式配置更简单，性能更好
 
+## Opportunistic IPsec
+* libreswan HowTo [Opportunistic IPsec](https://libreswan.org/wiki/HOWTO:_Opportunistic_IPsec)
+* 大量节点使用相同的配置来部署 IPsec - 添加节点不需要从新配置现有节点
+* 主要用于企业或云部署
+* 也叫 Mesh Encryption / [Opportunistic encryption](https://en.wikipedia.org/wiki/Opportunistic_encryption)
+* 参考
+  * [Quick Start: 在 AWS 云上部署机会性 IPsec 网格](https://aws.amazon.com/cn/about-aws/whats-new/2019/05/new-quick-start-deploys-opportunistic-ipsec-mesh-on-aws/)

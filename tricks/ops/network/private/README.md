@@ -10,7 +10,7 @@ title: 私有网络
 * 常用的代理变量
   * https_proxy
   * http_proxy
-  * 
+  * all_proxy
 
 ### iOS
 * https://github.com/chrisballinger/ProxyKit
@@ -226,13 +226,67 @@ proxychains4 curl google.com
 
 ## FAQ
 
-### Tinc vs ZeroTier vs Wireguard
+### Tinc vs ZeroTier vs Wireguard vs IPSec
 * 共同点
-    * P2P 协议
+  * P2P 协议
+  * 支持加密
 * Tinc 完全中心化，无控制器，网络连接性会更好，tinc 1.1pre 使用非常简单
-    * 开源的 Android 和 iOS 应用，但未维护了
-    * 支持 UDP
+  * 开源的 Android 和 iOS 应用，但未维护了
+  * 支持 UDP
+  * 支持 Switch 模式 - 2 层网络 - MAC 寻址
+  * 默认 Router 模式 - TCP/IP 寻址
+  * 单线程 - 性能有一定瓶颈 - 例如 1Gb 网卡可能只能跑满 300-600 Mb
+  * 用户空间
+  * 安装使用配置方便 - 1.1 版本
 * ZeroTier 有中心控制器，能够进行验证授权，使用简单，有管理接口和页面
-    * 闭源 Android 和 iOS 应用，可在应用商店安装
-    * 更好的 QoS 控制
-    * 基于 TCP
+  * 闭源 Android 和 iOS 应用 - 可在应用商店安装
+  * QoS 控制
+  * 基于 TCP
+* Wireguard
+  * 目前没有比较好的 mesh 方案 - 需要所有节点配置
+  * 节点不能自动发现
+  * 需要节点之间直连 - 不能通过中继访问
+  * 只支持 TCP/IP 层 - 不能 DHCP - 使用 IP 寻址
+  * 开源可用的 Android 和 iOS 应用
+  * 客户端支持广泛
+  * 需要内核支持
+* IPSec
+  * 开源成熟的标准
+  * 客户端使用相对没那么友好
+  * 服务端初次配置相对复杂
+  * 高性能 - 如果只在服务端使用需要很高的性能则优先选择 IPSec - 1Gb 网络基本能达到 900+Mb
+  * Android 和 iOS 原生支持
+
+__性能对比__
+
+iperf3\10s | Transfer | Bitrate
+-----------|----------|---------
+原始 | 1.10 GBytes | 943 Mbits/sec
+TINC | 385 MBytes | 323 Mbits/sec
+WireGuard | 1.05 GBytes | 898 Mbits/sec
+
+> TINC 最弱 - 因为服务器单核较弱
+> Intel(R) Xeon(R) CPU E5-2651 v2 @ 1.80GHz
+
+### StrongSwan vs Openswan vs Libreswan vs Freeswan
+* FreeS/WAN
+* Libreswan 即 Openswan
+  * 2003 fork freeswan 命名为 openswan
+  * 2011 被强制要求更名 - 命名为 libreswan
+  * 支持更多[硬件加密](https://libreswan.org/wiki/OCF_Hardware_crypto_acceleration) - 可能需要内核补丁
+* StrongSwan
+  * 相较 Libreswan 做了更多的提升和文档
+  * 支持 EAP - 更易于集成
+  * 支持[集群](https://wiki.strongswan.org/projects/strongswan/wiki/HighAvailability)
+  * __不支持__ [OE](https://wiki.strongswan.org/issues/2160)
+
+> *参考*
+>
+> 1. [Libreswan History](https://libreswan.org/wiki/History)
+> 2. [strongswan vs openswan](https://serverfault.com/a/655752/190601)
+
+### Site to Site/站点对站点 VPN
+* 连接两个子网
+* 连接地域上分离的两个网络
+* 例如
+  * 开发人员 -VPN-> Site to Site VPN --> 阿里云内网
