@@ -15,6 +15,8 @@ title: WireGuard
   * 未完成 - 无维护
 * [gsliepen/tinc#178](https://github.com/gsliepen/tinc/issues/179) - tinc: Wireguard backend
 * 常见端口 51820
+* 参考
+  * [WireGuard VPN: What You Need to Know](https://restoreprivacy.com/wireguard)
 
 ```bash
 # 内核模块

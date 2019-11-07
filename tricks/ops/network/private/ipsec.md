@@ -73,3 +73,4 @@ __工作模式__
 * 也叫 Mesh Encryption / [Opportunistic encryption](https://en.wikipedia.org/wiki/Opportunistic_encryption)
 * 参考
   * [Quick Start: 在 AWS 云上部署机会性 IPsec 网格](https://aws.amazon.com/cn/about-aws/whats-new/2019/05/new-quick-start-deploys-opportunistic-ipsec-mesh-on-aws/)
+  * [OPPORTUNISTIC ENCRYPTION USING IPSEC](http://events17.linuxfoundation.org/sites/events/files/slides/LinuxSecuritySummit-2016-OE-16x9.pdf)
