@@ -239,6 +239,28 @@ cp /usr/share/dict/words /tank/joey/
 zfs list -o name,used,compressratio,compression tank/{joey,ross}
 ```
 
+## share
+
+```bash
+# 启动 nfs
+apk add nfs-utils
+service nfs start
+
+# 会修改 /var/lib/nfs/etab 配置文件
+zfs set sharenfs=on data/share
+# samba
+# zfs set sharesmb=on data/share
+# 设置额外选项
+zfs set sharenfs="rw=@192.168.11.0/24" data/share
+# 共享是所有定义了共享属性的卷
+zfs share -a
+# 启动时执行 zfs share -a
+rc-update add zfs-share
+
+# 取消所有共享
+zfs unshare -a
+```
+
 ## 管理运维
 
 ```bash

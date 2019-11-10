@@ -216,8 +216,13 @@ launch=
 ```
 
 ## CHANGELOG
+### 4.2
+* [changelog](https://doc.powerdns.com/authoritative/changelog/4.2.html) / [发布申明](https://blog.powerdns.com/2019/08/30/powerdns-authoritative-server-4-2-0/)
+* LUA 记录支持
+* LMDB 后端支持
+
 ### 4.1
-* https://doc.powerdns.com/recursor/changelog/4.1.html
+* [changelog](https://doc.powerdns.com/authoritative/changelog/4.1.html)
 * api 添加 metadata 接口
 * 移除了 as 中的 recursor
   1. 通过 recursor 转发到 as

@@ -5,6 +5,9 @@ title: FAQ
 
 # PostgreSQL FAQ
 
+## How to Upgrade
+可以构造一个包含所有版本的镜像，然后进行升级 - [Dockerfile](https://github.com/postgres/pgadmin4/blob/master/Dockerfile)
+
 ## VARCHAR vs TEXT
 * 存储完全相同
 * 只是 VARCHAR 会做长度验证

@@ -18,10 +18,20 @@ direnv allow
 ## tmux
 * 分屏
 * 多窗口
+* iTerm2 [tmux Integration Best Practices](https://gitlab.com/gnachman/iterm2/wikis/tmux-Integration-Best-Practices)
+  * iTerm2 支持非常好的 tmux 集成
+  * 集成后和使用本地窗口无区别
 
 ## mosh
 * 自动重连的 ssh
 * 不支持内容滚动, 需要配合 tmux 更好
+
+## et
+* [Eternal Terminal](https://eternalterminal.dev/)
+* 支持重连
+* 支持远程 tmux
+* 支持滚动
+* 但需要启服务端
 
 ## sshrc
 * [sshrc](https://github.com/Russell91/sshrc)

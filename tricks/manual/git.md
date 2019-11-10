@@ -35,6 +35,13 @@ brew install git-flow-avh
 git commit --amend --author="Author Name <email@address.com>"
 ```
 
+## 修改当前仓库关联的用户
+
+```bash
+git config --local user.name "Author Name"
+git config --local user.email "email@address.com"
+```
+
 ### 子模块初始化
 
 ```bash

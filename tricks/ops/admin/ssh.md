@@ -77,3 +77,7 @@ LocalForward 13306 myInternalMySQL:3306
 ```bash
 autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
 ```
+
+## FAQ
+### key_load_public: No such file or directory
+找不到 `~/.ssh/id_rsa.pub`，不影响使用
