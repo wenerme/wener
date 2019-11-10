@@ -6,250 +6,228 @@ title: Traefik
 # Traefik
 
 ## Tips
-* https://github.com/containous/traefik
-* [traefik.sample.toml](https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
+* [containous/traefik](https://github.com/containous/traefik)
+  * [traefik.sample.toml](https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
 * ISSUES
-  * [#2674](https://github.com/containous/traefik/issues/2674) Let's Encrypt: use ACME API V2
     * 支持泛域名
+  * [#5048](https://github.com/containous/traefik/issues/5048) 支持 UDP 
 * ACME
-  *  20 certificates per domain per week
+  * 20 certificates per domain per week
   * https://letsencrypt.org/docs/rate-limits/
-
-## Notes
-
-### Docker
+* 注意
+  * 如果 EndPoint 是 HTTPS 但是 router 未指定 tls 会无法匹配出现 404 - router 相当于是匹配 HTTP
 
 ```bash
-# 简单启动
-docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO --web
-# 使用 consul
-docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO --web --consul.endpoint=consul:8500
+# 启动
+# 配置文件支持 yaml、toml、json
+# 人为配置推荐 yaml
+traefik --configfile traefik.yaml
 ```
 
-### 基本概念
-* 入口
-  * http
-  * https
-* 前端
-  * 定义从入口进入的请求如何转发到后端
-  * 注意, 正则里的名字并没有任何意义, 只是因为依赖的 [gorilla/mux](https://github.com/gorilla/mux) 要求必须要有
-  * 可以使用 `passHostHeader` 将头完全传递到后端
-  * 可以使用 `passTLSCert` 将客户端证书也转发到后端
-  * 默认优先级为规则长度的反序, 避免路径重叠, 可以使用 `priority` 修改
-  * 可以添加自定义头
-  * 安全相关的头可以使用简化的方式启用
-    * [unrolled/secure#available-options](https://github.com/unrolled/secure#available-options)
-  * Modifiers
-    * 不管顺序怎么样, 会在 `Matchers` 之后执行
-    * 修改请求, 不影响路由
-    * `AddPrefix: /products`
-    * `ReplacePath: /serverless-path`
-      * 替换路径并添加 `X-Replaced-Path` 头
-  * Matchers
-    * 定义请求如何转发到后端
-    * `,` 分隔符用于定义多个 `或` 条件
-    * `;` 定义多个 `与` 条件
-    * `Headers: Content-Type, application/json`
-      * 头匹配, 接受使用 `,` 分割的 kv 值
-    * `HeadersRegexp: Content-Type, application/(text/json)`
-      * 头匹配, 接受使用 `,` 分割的 kv 值
-      * 值可以为正则
-    * `Host: traefik.io, www.traefik.io`
-    * `HostRegexp: traefik.io, {subdomain:[a-z]+}.traefik.io`
-    * `Method: GET, POST, PUT`
-    * `Path: /products/, /articles/{category}/{id:[0-9]+}`
-    * `PathStrip: /products/`
-      * 路径完全匹配, 转发到后端的时候会去掉路径
-      * 会将原路径保存到 `X-Forwarded-Prefix`
-    * `PathStripRegex: /articles/{category}/{id:[0-9]+}`
-    * `PathPrefix: /products/, /articles/{category}/{id:[0-9]+}`
-    * `PathPrefixStrip: /products/`
-    * `PathPrefixStripRegex: /articles/{category}/{id:[0-9]+}`
-    * `Query: foo=bar, bar=baz`
-* 后端
-  * 将前端的请求负载到一组服务器
-  * 负载方式
-    * wrr 基于权重的轮询
-    * drr 动态轮询
-  * 支持熔断机制
-    * 方法: LatencyAtQuantileMS, NetworkErrorRatio, ResponseCodeRatio
-    * 操作: AND, OR, EQ, NEQ, LT, LE, GT, GE
-  * 最大连接数控制
-    * 对链接分组可以使用 `request.host` , `client.ip`, `request.header.ANY_HEADER`
-    * 达到阀值会返回 `429 Too Many Requests`
-  * 粘性会话, 需要指定 `cookieName`
-  * 健康检查
-    * 可指定路径, 间隔, 端口, 要求是 http
-  * 服务定义
-    * 主要为 url, 路径可以在 Modifier 中指定
-    * 可以指定 weight
+__基础配置__
 
-```toml
-# 入口定义
-[entryPoints]
-  [entryPoints.http]
-  address = ":80"
-    # 强制跳转到 https
-    [entryPoints.http.redirect]
-    entryPoint = "https"
-    # url 重写
-    [entryPoints.http.redirect]
-    regex = "^http://localhost/(.*)"
-    replacement = "http://mydomain/$1"
+```yaml
+providers:
+  file:
+    # 自动监听该目录配置
+    directory: traefik.d
+    watch: true
 
-  [entryPoints.https]
-  address = ":443"
-  [entryPoints.https.tls]
-  clientCAFiles = ["tests/clientca1.crt", "tests/clientca2.crt"]
-    [entryPoints.https.tls]
-      [[entryPoints.https.tls.certificates]]
-      certFile = "tests/traefik.crt"
-      keyFile = "tests/traefik.key"
-
-# 前端
-[frontends]
-  # 定义一个前端
-  [frontends.frontend1]
-  # 指定后端
-  backend = "backend2"
-    # 定义路由规则
-    [frontends.frontend1.routes.test_1]
-    rule = "Host:test.localhost,test2.localhost"
-    # 可以使用自定义头
-    [frontends.frontend1.headers.customresponseheaders]
-    X-Custom-Response-Header = "True"
-    [frontends.frontend1.headers.customrequestheaders]
-    X-Script-Name = "test"
-  # 定义了一个前端
-  [frontends.frontend2]
-  # 均直接转发
-  backend = "backend1"
-  passHostHeader = true
-  passTLSCert = true
-  # 指定优先级
-  priority = 10
-  entrypoints = ["https"] # overrides defaultEntryPoints
-    [frontends.frontend2.routes.test_1]
-    rule = "HostRegexp:localhost,{subdomain:[a-z]+}.localhost"
-  [frontends.frontend3]
-  backend = "backend2"
-    # 规则可以写在一起也可以分开写
-    [frontends.frontend3.routes.test_1]
-    rule = "Host:test3.localhost;Path:/test"
-    [frontends.frontend3.routes.test_2]
-    rule = "Query: test=1"
-
-# 后端
-[backends]
-  [backends.backend1]
-    # 定义熔断机制
-    [backends.backend1.circuitbreaker]
-    expression = "NetworkErrorRatio() > 0.5"
-    # 设置最大连接数
-    [backends.backend1.maxconn]
-    amount = 10
-    extractorfunc = "request.host"
-    # 定义后端服务
-    [backends.backend1.servers.server1]
-    url = "http://172.17.0.2:80"
-    weight = 10
-    [backends.backend1.servers.server2]
-    url = "http://172.17.0.3:80"
-    weight = 1
-    # 定义健康检查
-    [backends.backend1.healthcheck]
-    path = "/health"
-    interval = "10s"
-    port = 8080
-  [backends.backend2]
-    # 设置负载方式
-    [backends.backend2.LoadBalancer]
-    method = "drr"
-    [backends.backend2.loadbalancer.stickiness]
-    # 定义粘性会话
-    # 可选, 默认为 sha1 六位字符
-    cookieName = "my_cookie"
-    [backends.backend2.servers.server1]
-    url = "http://172.17.0.4:80"
-    weight = 1
-    [backends.backend2.servers.server2]
-    url = "http://172.17.0.5:80"
-    weight = 2
+entryPoints:
+  http:
+    address: ":8080"
+  https:
+    address: ":8443"
 ```
 
-### 配置
-* 配置路径
-  * `/etc/traefik/`
-  * `$HOME/.traefik/`
-  * `.`
+## 配置
 
-```toml
+* [Static Configuration](https://docs.traefik.io/master/reference/static-configuration/file/)
+
+### 静态配置项
+
+```yaml
 # 全局配置
-debug=false
-# "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "PANIC"
-logLevel = "ERROR"
-# 前端未指定 entrypoint 的默认值
-defaultEntryPoints = ["http"]
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+# 服务端传输配置
+serversTransport:
+  insecureSkipVerify: false
+  rootCAs: ["foobar", "foobar"]
+  maxIdleConnsPerHost: 42
+  forwardingTimeouts:
+    dialTimeout: 42
+    responseHeaderTimeout: 42
+    idleConnTimeout: 42
 
-# 安全停止的超时时间
-graceTimeOut = "10s"
-
-# 间隔检测新版本
-checkNewVersion = false
-
-# Backends throttle duration.
-ProvidersThrottleDuration = "2s"
-
-# Controls the maximum idle (keep-alive) connections to keep per-host.
-MaxIdleConnsPerHost = 200
-
-# If set to true invalid SSL certificates are accepted for backends.
-# This disables detection of man-in-the-middle attacks so should only be used on secure backend networks.
-InsecureSkipVerify = true
-
-# Register Certificates in the RootCA.
-RootCAs = [ "/mycert.cert" ]
-
+# 默认
+entryPoints:
+  web:
+    address: ':80'
+  websecure:
+    address: ':443'
+# 配置发现
+providers:
+  providersThrottleDuration: 42
+  file:
+    directory: traefik.d
+    watch: true
+    filename: traefik.yaml
+    debugLogGeneratedTemplate: true
+# 启用 API
+api:
+  # 不安全模式可以直接访问
+  # 安全模式会定义 api@internal 内部服务，需要自行配置路由
+  insecure: true
+  dashboard: true
+  # 添加 /debug 端口
+  debug: true
+# 指标监控
+metrics:
+  prometheus:
+    buckets: []
+    addEntryPointsLabels: true
+    addServicesLabels: true
+    entryPoint: traefik
+# 启用 PING - 用于健康检查 - 端口为 /ping
+ping:
+  entryPoint: traefik
 # 日志配置
-[traefikLog]
-# 默认为 os.Stdout
-# 如果路径不存在会创建
-filePath = "log/traefik.log"
-# 格式可以为 json 和 common
-format = "common"
+log:
+  level: INFO
+  filePath: traefik.log
+  # common/json
+  format: common
+# 访问日志配置
+accessLog:
+  filePath: access.log
+  format: json
+  # 在内存缓冲的行数
+  bufferingSize: 100
+  # 落日志的条件 - 或 关系
+  filters:
+    statusCodes: [ 400, 401 ]
+    # 重试
+    retryAttempts: true
+    # 至少 10ms
+    minDuration: 10
+  # 字段控制
+  fields:
+    # 保留字段
+    defaultMode: keep
+    names:
+      # 丢弃字段
+      ClientUsername: drop
+      name1: foobar
+    headers:
+      # 将字段值替换为 redacted
+      "User-Agent": "redact"
 
-
-# 访问日志
-[accessLog]
-# 默认为 os.Stdout
-filePath = "/path/to/log/log.txt"
-# 默认为 common log format - clf
-format = "common"
-
-# 文件配置
-[file]
-# 文件引入
-filename = "rules.toml"
-# 配置目录
-directory = "/path/to/config/"
-# 检测改变
-watch=true
-
-
-# 最小化配置
-[entryPoints]
-  [entryPoints.http]
-  address = ":8080"
-[web]
-address=":8081"
+# 调用跟踪
+tracing:
+  serviceName: foobar
+  spanNameLimit: 42
+  zipkin:
+    httpEndpoint: foobar
+    sameSpan: true
+    id128Bit: true
+    sampleRate: 42
+# 主机域名解析
+hostResolver:
+  cnameFlattening: true
+  resolvConfig: foobar
+  resolvDepth: 5
+# 证书解析
+certificatesResolvers:
+  CertificateResolver0:
+    # let‘s encrypt
+    acme:
+      email: foobar
+      caServer: foobar
+      storage: foobar
+      keyType: foobar
+      dnsChallenge:
+        provider: foobar
+        delayBeforeCheck: 42
+        resolvers:
+        - foobar
+        - foobar
+        disablePropagationCheck: true
+      httpChallenge:
+        entryPoint: foobar
+      tlsChallenge: {}
 ```
 
-### admin
+#### PowerDNS 证书
+```yaml
+certificatesResolvers:
+  pdns:
+    acme:
+      dnsChallenge:
+        # 通过环境变量配置链接信息 PDNS_API_KEY, PDNS_API_URL
+        # 环境变量也可以使用 *_FILE 指向文件来配置
+        provider: pdns
+```
+
+__使用__
+
+```yaml
+http:
+  routers:
+    traefik:
+      entryPoints: [ https ]
+      rule: Host(`traefik.example.com`)
+      service: api@internal
+      tls:
+        # 引用定义
+        certResolver: pdns
+        # 使用通配符证书
+        domains:
+        - main: example.com
+          sans:
+          - "*.example.com"
+```
+
+#### Docker 配置发现
+
+```yaml
+# 运行 docker 添加 -v /var/run/docker.sock:/var/run/docker.sock
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    # 是否默认暴露服务 - 正常需要 traefik.enable=true
+    exposedByDefault: false
+    # 默认的映射规则
+    # 支持 https://masterminds.github.io/sprig 函数
+    # defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"customLabel\"}}`)"
+```
 
 ```bash
-# 健康检查
-# 可以使用 -c 指定配置文件
-traefik healthcheck
-# 将异常提交到 github
-traefik bug
+docker run --rm -it \
+  -l traefik.enable=true \
+  -l traefik.http.routers.my-container.rule=Host(`mydomain.com`) \
+  -l traefik.http.services.my-container-service.loadbalancer.server.port=80
+  --name web nginx
 ```
+
+## FAQ
+### traefik v1 vs v2
+* 新特性
+  * 支持带 SNI 的 TCP 路由和多协议端口
+  * 支持 TCP 和 HTTP 在同一个端口 - 使用 SNI 区分
+  * 新的结构 Routers, Middlewares, Services
+  * 新的监控页面
+  * 带权重的 AB 发布
+  * 服务负载均衡支持镜像请求 - 将请求发送到多个端忽略返回结果
+* 迁移点
+  * 没有了 Frontends 和 Backends 概念，新的核心组件为 Routers, Middlewares, Services
+  * TLS 每个路由动态配置 - v1 为全局静态
+  * HTTP 调整 HTTPS 现在是路由 - v1 需要在入口配置
+  * LetsEncrypt 配置调整
+  * 日志不在作为全局配置，配置在 log 区块下
+  * 移除了所有全局设置
+  * __v2 的 provider 支持较少__
+* 参考
+  * [v2](https://blog.containo.us/traefik-2-0-6531ec5196c2)
+  * [v1 迁移 v2](https://docs.traefik.io/migration/v1-to-v2/)

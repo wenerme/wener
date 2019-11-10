@@ -1,5 +1,12 @@
 # Account
 
+```bash
+# 密码设置为 * 禁止登录
+usermod -p '*' admin
+# 解锁用户 - 锁定的用户无法登录
+passwd -u admin
+```
+
 /etc/passwd – Contains one line for each user account.
 /etc/shadow – Contains the password information in encrypted formatfor the system’s accounts and optional account aging information.
 /etc/group – Defines the groups on the system.
