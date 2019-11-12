@@ -209,6 +209,11 @@ docker run --rm -it \
   -l traefik.http.routers.my-container.rule=Host(`mydomain.com`) \
   -l traefik.http.services.my-container-service.loadbalancer.server.port=80
   --name web nginx
+
+# 指定端口 - 多个逗号分割
+# traefik.http.routers.my-container.entrypoints=https
+# 启用 tls
+# traefik.http.routers.my-container.tls=true
 ```
 
 ## FAQ
