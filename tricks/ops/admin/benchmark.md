@@ -9,12 +9,20 @@
 * https://github.com/phoronix-test-suite/phoronix-test-suite
 
 ## Disk
-IO
-顺序读写 （吞吐量，常用单位为MB/s）：文件在硬盘上存储位置是连续的。
-适用场景：大文件拷贝（比如视频音乐）。速度即使很高，对数据库性能也没有参考价值。
-4K随机读写 （IOPS，常用单位为次）：在硬盘上随机位置读写数据，每次4KB。
-适用场景：操作系统运行、软件运行、数据库。
+* 场景
+  * 顺序读写 （吞吐量，常用单位为MB/s）：文件在硬盘上存储位置是连续的。
+    * 适用场景：大文件拷贝（比如视频音乐）。速度即使很高，对数据库性能也没有参考价值。
+  * 4K随机读写 （IOPS，常用单位为次）：在硬盘上随机位置读写数据，每次4KB。
+    * 适用场景：操作系统运行、软件运行、数据库。
+* 复杂压测考虑使用 [fio](#fio)
 
+```bash
+# 简单的文件写入性能
+# 因为写入的 0 需要注意底层系统是否会进行压缩
+dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k; rm -f test
+# 磁盘性能
+hdparm -Tt /dev/sda
+```
 
 ## Network
 
@@ -99,10 +107,7 @@ sysbench fileio run --file-test-mode=rndwr --threads=$(nproc) --warmup-time=10 -
 
 
 ```bash
-git clone --depth=1 https://github.com/axboe/fio
-apk add linux-headers zlib-dev
-./configure --prefix=$PWD/dist
-make -j 4
+apk add fio
 
 # 4k 100% Read or 100% Write 100% 4k
 fio --filename=/data/test --direct=1 --rw=randrw --refill_buffers --norandommap --randrepeat=0 --bs=4k --size=2g --rwmixread=100 --iodepth=16 --numjobs=16 --runtime=60 --group_reporting --name=4ktest
