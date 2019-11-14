@@ -222,6 +222,7 @@ zfs mount tank/joey
 zfs get all tank/joey
 zfs get -Hp -o name,property,value used,available tank/joey
 
+
 # 限制配额
 zfs set quota=50m tank/joey
 # 设置预留

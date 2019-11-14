@@ -4,6 +4,11 @@ id: alpine-faq
 date: 2018-02-26
 ---
 
+## 术语
+* HWE Hardware Enablement 
+  * https://askubuntu.com/questions/248914
+* [EDAC](https://en.wikipedia.org/wiki/EDAC_(Linux))
+
 ## apk 1 error
 apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.
 
@@ -11,6 +16,11 @@ apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.
 # 即可
 apk fix
 ```
+
+## ifupdown 包不会启动
+* ifupdown 来自 debian - 虽然依赖 iproute2 但是不会使用
+* busybox 的 ifup 会调用 ip li set eth0 up
+* 3.10 是 0.7.x 版本的，下一个大版本应该可用
 
 ## 内核风格/kernel flavors
 https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened/APKBUILD
@@ -73,6 +83,10 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 
 ## [Firmware Bug]: TSC_DEADLINE disabled due to Errata: please update microcode to version: 0x52 (or later)
 
+## [Firmware Bug]: the BIOS has corrupted hw-PMU resources (MSR 38d is 30)
+
+## EDAC sbridge: Failed to register device with error -19.
+
 ## microcode
 * AlpineLinux 的 microcode 在 non-free 下，需要自己编译
 * 编译完成可直接拷贝进行安装 `apk add --allow-untrusted intel-ucode-20180312-r0.apk`
@@ -104,10 +118,22 @@ microcode: Microcode Update Driver: v2.2
 
 ## mount: mounting UUID=x-x-x-x on /sysroot failed: No such file or directory
 
-多半是分区坏了，可以直接从现有的系统复制 boot 内容到启动分区。
+* 可能系统还没发现设备就就行挂载了
+  * 通常出现在使用 usb 启动的情况
+  * 因为 rootdelay 这样的参数在 extlinux 挂载时还未生效，可能系统启动但设备还未发现
+  * 尝试修改启动脚本，增加 sleep 10
+  * 第一次出现时候可以考虑手动挂载
+  * 也可以考虑多重启几次，有一定几率进入系统
 
-* 复制后切记修改 extlinux.conf 中的 UUID 喂正确的 rootfs。
-* 复制后记得检查 kernel 版本，确保被复制的存储上 /lib/modules 下有对应 kernel 版本的模块。
+```bash
+mount UUID=x-x-x-x /sysroot
+# 挂载完成后退出会继续启动
+# exit
+```
+
+* 可能启动分区坏了 - 可以直接从现有的系统复制 boot 内容到启动分区。
+  * 复制后切记修改 extlinux.conf 中的 UUID 喂正确的 rootfs。
+  * 复制后记得检查 kernel 版本，确保被复制的存储上 /lib/modules 下有对应 kernel 版本的模块。
 
 ## sh: can't access tty; job control turned off
 一般会伴随分区损坏出现。
@@ -120,3 +146,29 @@ microcode: Microcode Update Driver: v2.2
 ## /dev/null/utmp: Not a directory
 * [#3282](https://bugs.alpinelinux.org/issues/3282) - users: /dev/null/utmp: Not a directory
   * 执行 who, last, screen 时
+
+## Password: chpasswd: PAM: Authentication failure
+* 3.6+ BUG https://gitlab.alpinelinux.org/alpine/aports/issues/10209
+
+## mlx4_core Internal error detected
+```
+[  149.148339] mlx4_core 0000:82:00.0: Internal error detected:
+[  149.148368] mlx4_core 0000:82:00.0:   buf[00]: ffffffff
+[  149.148375] mlx4_core 0000:82:00.0:   buf[01]: ffffffff
+[  149.148398] mlx4_core 0000:82:00.0:   buf[02]: ffffffff
+[  149.148421] mlx4_core 0000:82:00.0:   buf[03]: ffffffff
+[  149.148427] mlx4_core 0000:82:00.0:   buf[04]: ffffffff
+[  149.148433] mlx4_core 0000:82:00.0:   buf[05]: ffffffff
+[  149.148478] mlx4_core 0000:82:00.0:   buf[06]: ffffffff
+[  149.148483] mlx4_core 0000:82:00.0:   buf[07]: ffffffff
+[  149.148489] mlx4_core 0000:82:00.0:   buf[08]: ffffffff
+[  149.148494] mlx4_core 0000:82:00.0:   buf[09]: ffffffff
+[  149.148500] mlx4_core 0000:82:00.0:   buf[0a]: ffffffff
+[  149.148523] mlx4_core 0000:82:00.0:   buf[0b]: ffffffff
+[  149.148546] mlx4_core 0000:82:00.0:   buf[0c]: ffffffff
+[  149.148568] mlx4_core 0000:82:00.0:   buf[0d]: ffffffff
+[  149.148574] mlx4_core 0000:82:00.0:   buf[0e]: ffffffff
+[  149.148579] mlx4_core 0000:82:00.0:   buf[0f]: ffffffff
+[  149.148603] mlx4_core 0000:82:00.0: device is going to be reset
+[  149.148607] mlx4_core 0000:82:00.0: crdump: FW doesn't support health buffer access, skipping
+```

@@ -9,6 +9,8 @@ title: Java 9
 * [JDK 9](http://openjdk.java.net/projects/jdk9/)
 * [55 New Features in JDK 9](https://www.slideshare.net/SimonRitter/55-new-features-in-jdk-9)
 * [Self-Contained Application Packaging](https://docs.oracle.com/javase/9/deploy/self-contained-application-packaging.htm#JSDPG583)
+* FAQ
+  * [为什么Java9新增jmod](https://stackoverflow.com/questions/44732915)
 
 ## Contents
 * [JSR 379: JavaTM SE 9 Release Contents](https://jcp.org/en/jsr/detail?id=379)
@@ -185,120 +187,3 @@ title: Java 9
 * 297: [Unified arm32/arm64 Port](http://openjdk.java.net/jeps/297)
 
 
-
-## jdeps --help
-
-```
-$ jdeps --help
-Usage: jdeps <options> <path ...>]
-<path> can be a pathname to a .class file, a directory, a JAR file.
-
-Possible options include:
-  -dotoutput <dir>
-  --dot-output <dir>            Destination directory for DOT file output
-  -s       -summary             Print dependency summary only.
-  -v       -verbose             Print all class level dependences
-                                Equivalent to -verbose:class -filter:none.
-  -verbose:package              Print package-level dependences excluding
-                                dependences within the same package by default
-  -verbose:class                Print class-level dependences excluding
-                                dependences within the same package by default
-  -apionly
-  --api-only                    Restrict analysis to APIs i.e. dependences
-                                from the signature of public and protected
-                                members of public classes including field
-                                type, method parameter types, returned type,
-                                checked exception types etc.
-  -jdkinternals
-  --jdk-internals               Finds class-level dependences on JDK internal
-                                APIs. By default, it analyzes all classes
-                                on --class-path and input files unless -include
-                                option is specified. This option cannot be
-                                used with -p, -e and -s options.
-                                WARNING: JDK internal APIs are inaccessible.
-  --check <module-name>[,<module-name>...
-                                Analyze the dependence of the specified modules
-                                It prints the module descriptor, the resulting
-                                module dependences after analysis and the
-                                graph after transition reduction.  It also
-                                identifies any unused qualified exports.
-  --generate-module-info <dir>  Generate module-info.java under the specified
-                                directory. The specified JAR files will be
-                                analyzed. This option cannot be used with
-                                --dot-output or --class-path. Use
-                                --generate-open-module option for open modules.
-  --generate-open-module <dir>  Generate module-info.java for the specified
-                                JAR files under the specified directory as
-                                open modules. This option cannot be used with
-                                --dot-output or --class-path.
-  --list-deps                   Lists the dependences and use of JDK internal
-                                APIs.
-  --list-reduced-deps           Same as --list-deps with not listing
-                                the implied reads edges from the module graph
-                                If module M1 depends on M2 and M3,
-                                M2 requires public on M3, then M1 reading M3 is
-                                implied and removed from the module graph.
-  -cp <path>
-  -classpath <path>
-  --class-path <path>           Specify where to find class files
-  --module-path <module path>   Specify module path
-  --upgrade-module-path <module path>  Specify upgrade module path
-  --system <java-home>          Specify an alternate system module path
-  --add-modules <module-name>[,<module-name>...]
-                                Adds modules to the root set for analysis
-  -m <module-name>
-  --module <module-name>        Specify the root module for analysis
-  --multi-release <version>     Specifies the version when processing
-                                multi-release jar files.  <version> should
-                                be integer >= 9 or base.
-
-Options to filter dependences:
-  -p <pkg>
-  -package <pkg>
-  --package <pkg>               Finds dependences matching the given package
-                                name (may be given multiple times).
-  -e <regex>
-  -regex <regex>
-  --regex <regex>               Finds dependences matching the given pattern.
-  --require <module-name>       Finds dependences matching the given module
-                                name (may be given multiple times). --package,
-                                --regex, --require are mutual exclusive.
-  -f <regex> -filter <regex>    Filter dependences matching the given
-                                pattern. If given multiple times, the last
-                                one will be used.
-  -filter:package               Filter dependences within the same package.
-                                This is the default.
-  -filter:archive               Filter dependences within the same archive.
-  -filter:module                Filter dependences within the same module.
-  -filter:none                  No -filter:package and -filter:archive
-                                filtering.  Filtering specified via the
-                                -filter option still applies.
-
-
-Options to filter classes to be analyzed:
-  -include <regex>              Restrict analysis to classes matching pattern
-                                This option filters the list of classes to
-                                be analyzed.  It can be used together with
-                                -p and -e which apply pattern to the dependences
-  -P       -profile             Show profile containing a package
-  -R       -recursive           Recursively traverse all run-time dependences.
-                                The -R option implies -filter:none.  If -p,
-                                -e, -f option is specified, only the matching
-                                dependences are analyzed.
-  -I       --inverse            Analyzes the dependences per other given options
-                                and then find all artifacts that directly
-                                and indirectly depend on the matching nodes.
-                                This is equivalent to the inverse of
-                                compile-time view analysis and print
-                                dependency summary.  This option must use
-                                with --require, --package or --regex option.
-  --compile-time                Compile-time view of transitive dependences
-                                i.e. compile-time view of -R option.
-                                Analyzes the dependences per other given options
-                                If a dependence is found from a directory,
-                                a JAR file or a module, all classes in that
-                                containing archive are analyzed.
-  -q       -quiet               Do not show missing dependences from
-                                --generate-module-info output.
-  -version --version            Version information
-```

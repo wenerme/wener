@@ -17,17 +17,22 @@ title: Bonding
 
 * [Bonding Modes](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html/Installation_Guide/Bonding_Modes.html)
 * 模式
-  * balance-rr - 0 - 轮询
-    * 代价是碎片化
-    * 对有些协议(CIFS)来说会影响性能
+  * balance-rr - 0 - 轮询负载
+    * 唯一单 TCP/IP 流能利用多个网口的模式
+    * 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
+    * net.ipv4.tcp_reordering 控制拥挤程度
+    * 使用对顺序无要求的协议, 例如 UDP, 基本可以做到线性性能放大
+    * 需要交换机配置 etherchannel 或 trunking
   * active-backup - 1 - 主备
+    * 保持相同的发送网口
   * balance-xor - 2 - XOR
     * 基于 HASH 算法进行负载均衡
+    * 需要交换机配置 etherchannel 或 trunking
   * broadcast - 3 - 广播
     * 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
   * 802.3ad - 4 - IEEE 802.3ad
     * 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
-  * and balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
+  * balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
     * 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
   * balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
     * balance-tlb + receive load balancing (rlb)
@@ -72,6 +77,13 @@ ethtool eth0
 
 # jumbo frames
 ifconfig bond0 mtu 9000 up
+
+# 添加 slave
+ifenslave bond0 eth0 eth1 eth2
+# 移除
+ifenslave -d bond0 eth1
+# 连接
+ifenslave -c bond0 eth1
 ```
 
 
@@ -94,9 +106,6 @@ iface bond0 inet static
 
 ### 四网口聚合
 ```
-auto lo
-iface lo inet loopback
-
 allow-hotplug eth0
 iface eth0 inet manual
 

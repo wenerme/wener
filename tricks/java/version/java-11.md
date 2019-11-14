@@ -9,8 +9,7 @@ title: Java 11
 * [JDK 11](http://openjdk.java.net/projects/jdk/11/)
 * 2018-09-25
 * 动态 class 文件常量
-* 
-Dynamic Class-File Constants
+* Dynamic Class-File Constants
 Epsilon: A No-Op Garbage Collector
 Remove the Java EE and CORBA Modules
 HTTP Client
@@ -38,9 +37,15 @@ https://github.com/javafx-maven-plugin/javafx-maven-plugin/issues/287
 
 https://docs.oracle.com/javase/9/tools/jmod.htm
 
-https://stackoverflow.com/questions/44732915/why-did-java-9-introduce-the-jmod-file-format
 
-https://en.wikipedia.org/wiki/Java_packager
+
+
+https://simply-how.com/getting-started-with-java-11
+
+## 变化
+* 新增 `Collection#toArray(IntFunction)`
+* `-XX:+UseDynamicNumberOfCompilerThreads`
+  * 动态控制编译器线程数
 
 ## JEPs
 
@@ -57,6 +62,7 @@ https://en.wikipedia.org/wiki/Java_packager
   * 优化字符串和数组内建方法
   * 优化 java.lang.Math sin, cos 和 log 方法
 * [318](http://openjdk.java.net/jeps/318): Epsilon: A No-Op Garbage Collector
+  * ZeroGC - ZGC
   * 会管理内存请求但不会回收内存，当内存用完时则会停止 JVM
 * [320](http://openjdk.java.net/jeps/320): Remove the Java EE and CORBA Modules
   * 从 JavaSE 移除 JavaEE 和 CORBA 模块
@@ -88,12 +94,14 @@ https://en.wikipedia.org/wiki/Java_packager
 * [328](http://openjdk.java.net/jeps/328): Flight Recorder
   * 开源 Flight Recorder
 * [329](http://openjdk.java.net/jeps/329): ChaCha20 and Poly1305 Cryptographic Algorithms
+  * ChaCha20 和 Poly1305 加密算法
 * [330](http://openjdk.java.net/jeps/330): Launch Single-File Source-Code Programs
   * 启动单源文件程序
   * 通过 `#!` 来启动 java 程序，类似于 shell
   * `#!/path/to/java --source version`
   * 也允许直接调用 `java -Dtrace=true --source 10 factorial 3`
 * [331](http://openjdk.java.net/jeps/331): Low-Overhead Heap Profiling
+  * 通过 JVMTI 操作
 * [332](http://openjdk.java.net/jeps/332): Transport Layer Security (TLS) 1.3
 * [333](http://openjdk.java.net/jeps/333): ZGC: A Scalable Low-Latency Garbage Collector
   * ZGC 可扩展的低延时 gc
@@ -111,4 +119,3 @@ https://en.wikipedia.org/wiki/Java_packager
 * [336](http://openjdk.java.net/jeps/336): Deprecate the Pack200 Tools and API
   * 废弃 java.util.jar 中的 pack200, unpack200 工具和 Pack200 接口
 
-### 181: Nest-Based Access Control

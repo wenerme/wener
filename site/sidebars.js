@@ -96,6 +96,13 @@ module.exports = {
       },
       {
         type: 'category',
+        label: 'OLAP',
+        items: [
+          'db/olap/olap',
+        ]
+      },
+      {
+        type: 'category',
         label: '关系型',
         items: [
           'db/relational/mysql',

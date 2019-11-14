@@ -23,6 +23,13 @@
 
 * [6 best free Linux firewalls of 2017](http://www.techradar.com/news/6-best-free-linux-firewalls-of-2017)
 
+* OPNsense
+  * FreeBSD
+  * fork of pfSense
+* pfSense
+  * FreeBSD
+  * fork of m0n0wall
+
 ## IPFire
 https://wiki.ipfire.org/hardware/requirements
 

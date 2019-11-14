@@ -1,5 +1,18 @@
 # FAQ
 
+## The NVM Checksum Is Not Valid
+
+```
+e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+e1000e 0000:00:1f.6: The NVM Checksum Is Not Valid
+e1000e: probe of 0000:00:1f.6 failed with error -5
+```
+
+## PCIe Bus Error: severity=Corrected, type=Physical Layer, id=00e5(Receiver ID)
+
+启动参数添加 `pcie_aspm=off`
 
 ## halt vs poweroff vs shutdown
 * halt

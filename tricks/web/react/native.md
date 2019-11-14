@@ -1,5 +1,9 @@
 # React Native
 
+## Tips
+* 参考
+  * [stevenpersia/tinder-react-native](https://github.com/stevenpersia/tinder-react-native)
+
 ## Get started
 ```bash
 npm install -g react-native-cli

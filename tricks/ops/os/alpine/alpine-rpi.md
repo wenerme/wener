@@ -321,8 +321,8 @@ mkdir -p mnt/boot
 mount ${LOOPDEV}p1 mnt/boot
 # 制作启动分区
 # 完成后, 已经能正常启动
-wget http://mirrors.aliyun.com/alpine/v3.9/releases/aarch64/alpine-rpi-3.9.3-aarch64.tar.gz
-tar zxvf alpine-rpi-3.9.3-aarch64.tar.gz -C mnt/boot --no-same-owner
+wget http://mirrors.aliyun.com/alpine/v3.9/releases/aarch64/alpine-rpi-3.10.3-aarch64.tar.gz
+tar zxvf alpine-rpi-3.10.3-aarch64.tar.gz -C mnt/boot --no-same-owner
 # 添加一条用户配置
 echo enable_uart=1 >> mnt/boot/usercfg.txt
 

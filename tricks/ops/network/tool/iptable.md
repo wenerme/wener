@@ -17,6 +17,7 @@ title: IPTable
 
 * table
   * nat
+  * mangle
 * PREROUTING
   * 修改来源 IP
 * POSTROUTING
@@ -55,6 +56,12 @@ iptables -t nat -v -L -n --line-number
 iptables -t nat -v -L PREROUTING -n --line-number
 # 显示 POSTROUTING 表
 iptables -t nat -v -L POSTROUTING -n --line-number
+# 通过行号删除规则
+iptables -t nat -D POSTROUTING 3
+# 规则处理统计
+iptables -t nat -L -v
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 ! -d 10.0.0.0/24 -j MASQUERADE
+
 ```
 
 

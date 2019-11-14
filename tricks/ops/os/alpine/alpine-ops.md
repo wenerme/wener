@@ -195,6 +195,9 @@ udevadm trigger
 # 需要参数 net.ifnames=0 来关闭
 # 大多数时候不需要
 # apk add eudev-netifnames
+
+# 所有定义的规则
+udevadm info --export-db
 ```
 
 ## zfs
@@ -206,8 +209,6 @@ udevadm trigger
 
 ```bash
 apk add zfs zfs-{scripts,udev,utils-py}
-# 如果是 hardened 内核 - alpine 3.8 后无 hardened 内核
-# apk add zfs-hardened
 # vanilla 内核
 apk add zfs-vanilla
 # 加载内核模块

@@ -5,13 +5,6 @@ title: 私有网络
 
 # 私有网络
 
-https://github.com/StreisandEffect/streisand
-https://github.com/trailofbits/algo
-https://github.com/mullvad/mullvadvpn-app
-
-https://mullvad.net/en/download/wireguard-config/
-
-
 ## Tips
 * [TORRENT PROXY: SOCKS VS. HTTP](https://www.best-bittorrent-vpn.com/socks-vs-http-proxy-for-torrents.html)
 * 常用的代理变量

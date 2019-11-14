@@ -34,9 +34,6 @@ nameif	        | ifrename, ip link set name	| Rename network interfaces
 ipmaddr	        | ip maddr	                  | Multicast
 netstat	        | ip -s, ss, ip route	        | Show various networking statistics
 
-
-## Notes
-
 ```bash
 # 添加桥接
 ip li add name br0 type bridge
@@ -86,6 +83,21 @@ brctl addif br0 eth0
 ip addr add 10.10.10.2/24 dev br0
 ip link set br0 up
 ```
+
+## veth - Virtual Ethernet Device - 虚拟以太网设备
+* [veth.4](http://man7.org/linux/man-pages/man4/veth.4.html)
+* https://superuser.com/a/765078/242730
+
+```bash
+ip li add veth0 type veth
+```
+
+## bridge
+* [docker/libnetwork#2310](https://github.com/docker/libnetwork/issues/2310) - docker 不能在不影响 docker0 的前提下使用现有的 bridge 网口
+* docker network [macvlan](https://docs.docker.com/network/macvlan)
+
+## macvlan
+
 
 ## FAQ
 ### Stateless NAT with iproute2

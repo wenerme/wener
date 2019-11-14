@@ -202,3 +202,31 @@ wget http://maven.aliyun.com/nexus/content/groups/public/org/eclipse/jetty/jetty
 
 java -jar jetty-runner.jar --port 8081 fortress-rest.war
 ```
+
+## 常见结构
+* [LDAP Schemas, objectClasses and Attributes](http://www.zytrax.com/books/ldap/ch3/)
+* [Ldap Object Class](http://www.ldapexplorer.com/en/manual/107060000-ldap-object-classes.htm)
+* [ObjectClass](https://ldapwiki.com/wiki/ObjectClass)
+* [basic auth acl](https://directory.apache.org/apacheds/basic-ug/3.2-basic-authorization.html)
+
+* dc=wener,dc=me
+  * ou=users
+    * cn=USERNAME - 用户 - inetOrgPerson
+      * uid 唯一标识符
+      * cn 名称
+      * cn 姓
+  * ou=groups
+    * cn=GROUPNAME - 分组 - groupOfNames
+      * member - 成员
+      * entryDN - 组成员属性、组 DN 属性
+      * displayName - 如果不想显示 cn 可以考虑使用该属性
+
+
+```bash
+# 以简化操作
+alias ldapsearch="ldapsearch -H ldap://127.0.0.1:10389 -D 'uid=admin,ou=system' -w admin"
+# 检测用户是否在组中
+ldapsearch -b 'cn=developer,ou=groups,dc=example,dc=com' '(&(member=uid=wener,ou=users,dc=example,dc=com))'
+
+ldapsearch -b 'ou=users,dc=incos,dc=dev' '(uid=wener.cyw)'
+```

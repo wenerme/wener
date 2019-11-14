@@ -36,10 +36,12 @@ cat /usr/local/var/log/prometheus.log
 # 管理接口
 # --web.enable-admin-api 启用 /api/*/admin/ 相关接口
 # --web.enable-lifecycle 启用 reload 和 quite
+# 参考 https://prometheus.io/docs/operating/security/
 prometheus --config.file ~/.config/prometheus.yml --web.enable-admin-api --web.enable-lifecycle
 # brew 参数
-# echo "--config.file $HOME/.config/prometheus.yml --storage.tsdb.path $HOME/.data/prometheus --web.enable-admin-api --web.enable-lifecycle" > /usr/local/etc/prometheus.args
-# 参考 https://prometheus.io/docs/operating/security/
+echo "--config.file $HOME/.config/prometheus.yml --storage.tsdb.path $HOME/.data/prometheus --web.enable-admin-api --web.enable-lifecycle" > /usr/local/etc/prometheus.args
+# 重启服务
+brew services restart prometheus
 # 重载配置
 curl -X POST http://localhost:9090/-/reload
 

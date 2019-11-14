@@ -1,27 +1,133 @@
 # Ansible
 
-## 最佳实践的目录结构
+## Tips
+* 系统要求
+  * 控制节点 - python *nix
+  * 管理节点 - python sftp/scp
+
+```bash
+# ping 所有节点
+ansible all -m ping
+# -i 指定仓库
+ansible all -m ping -i hosts
+# ping 本地 - 指定解释器
+ansible localhost -m ping -e 'ansible_python_interpreter=/usr/bin/python3'
+# 执行命令
+ansible all -a date -i hosts
+
+# ansible_facts 内容
+ansible localhost -m setup
+
+# 节点上本地设置的内容 - 文件为 ini 格式
+# /etc/ansible/facts.d/preferences.fact
+ansible hostname -m setup -a "filter=ansible_local"
+```
+
+## ansible.cfg
+* [Ansible Configuration Settings](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
+* 查找顺序
+  * ANSIBLE_CONFIG
+  * ansible.cfg
+  * ~/.ansible.cfg
+  * /etc/ansible/ansible.cfg
+
+```ini
+# 缓存 facts
+[defaults]
+gathering = smart
+# 缓存时间 - 秒
+fact_caching_timeout = 86400
+# 缓存到 redis
+# pip install redis
+fact_caching = redis
+# 缓存到 json 文件
+fact_caching = jsonfile
+fact_caching_connection = /path/to/cachedir
+```
+
+## 最佳实践
+* [Best Practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
 
 ```
-/roles
-  /common 公共角色
-    /defaults 默认变量
-    /tasks 实际操作
-    /handlers 处理器
-    /files 相关文件
-    /templates 模板
-    /meta 依赖定义
-  /database 数据库角色
-group_vars 分组变量
-  /all.yml 应用于所有分组
-  /db.yml 应用于 db 分组
-host_vars 主机变量
-  /all.yml
-  /host-1.yml 应用于 host-1 主机
-/files
-/templates
-ansible.cfg 配置文件
-hosts 主机配置文件,可以有多个,文件名可自定义
+production                # 正式环境仓库
+staging                   # 预发环境仓库
+
+group_vars/
+   group1.yml             # 分组变量
+   group2.yml
+host_vars/
+   hostname1.yml          # 主机变量
+   hostname2.yml
+
+library/                  # 自定义模块
+module_utils/             # 用于支持模块的模块工具
+filter_plugins/           # 自定义过滤插件
+
+site.yml                  # 主 playbook
+webservers.yml            # playbook for webserver tier
+dbservers.yml             # playbook for dbserver tier
+
+roles/
+    common/               # 角色结构
+        tasks/            #
+            main.yml      #  <-- tasks file can include smaller files if warranted
+        handlers/         #
+            main.yml      #  <-- handlers file
+        templates/        #  <-- files for use with the template resource
+            ntp.conf.j2   #  <------- templates end in .j2
+        files/            #
+            bar.txt       #  <-- files for use with the copy resource
+            foo.sh        #  <-- script files for use with the script resource
+        vars/             #
+            main.yml      #  <-- variables associated with this role
+        defaults/         #
+            main.yml      #  <-- default lower priority variables for this role
+        meta/             #
+            main.yml      #  <-- role dependencies
+        library/          # roles can also include custom modules
+        module_utils/     # roles can also include custom module_utils
+        lookup_plugins/   # or other types of plugins, like lookup in this case
+
+    webtier/              # same kind of structure as "common" was above, done for the webtier role
+    monitoring/           # ""
+    fooapp/               # ""
+```
+
+如果变量区别较大，可采用独立的目录结构
+
+```
+inventories/
+   production/
+      hosts               # inventory file for production servers
+      group_vars/
+         group1.yml       # here we assign variables to particular groups
+         group2.yml
+      host_vars/
+         hostname1.yml    # here we assign variables to particular systems
+         hostname2.yml
+
+   staging/
+      hosts               # inventory file for staging environment
+      group_vars/
+         group1.yml       # here we assign variables to particular groups
+         group2.yml
+      host_vars/
+         stagehost1.yml   # here we assign variables to particular systems
+         stagehost2.yml
+
+library/
+module_utils/
+filter_plugins/
+
+site.yml
+webservers.yml
+dbservers.yml
+
+roles/
+    common/
+    webtier/
+    monitoring/
+    fooapp/
 ```
 
 ## Generate ansible directories

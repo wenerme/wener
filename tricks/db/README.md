@@ -8,9 +8,9 @@ title: 数据库
 ## Tips
 * [Database eLearning](https://db.grussell.org/index.html)
 * [DB-Engines Ranking](https://db-engines.com/en/ranking)
+* Aphyr [jepsen](https://aphyr.com/tags/jepsen)
 * [EventQL](https://github.com/eventql/eventql)
   * [EventQL](http://eventql.io/) is a distributed, column-oriented database built for large-scale event collection and analytics. It runs super-fast SQL and MapReduce queries.
-* Aphyr [jepsen](https://aphyr.com/tags/jepsen)
 * [Carte](https://crate.io/)
   * SQL FOR THINGS DATA
   * Real-time SQL. Simple scaling. Millions of inserts per second.
@@ -24,7 +24,7 @@ title: 数据库
 * [caesar0301/awesome-public-datasets](https://github.com/caesar0301/awesome-public-datasets)
 
 ## FAQ
-### OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart
+### OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart vs Data Lake
 * OLTP
   * 面向交易场景
   * 强事务，强一致，较低 RT，低频度更新
@@ -46,12 +46,17 @@ title: 数据库
   * 数据仓库
   * 企业纬度的数据管控
   * 一套系统，体系化的解决企业内部数据存储、处理、分析问题
-  * 数据量巨大，对响应要求非常低，可能是小时级别
+  * 数据量巨大，对响应要求低
   * 统一平台，由很多部分组成，有开发平台
   * 面向开发和 BI
   * 面向企业整体
-  * 一般数据不允许更新
+  * 数据有一定结构
 * [Data Mart](https://en.wikipedia.org/wiki/Data_mart)
   * 数据仓库的一种特殊形式，数据仓库的子集
   * 面向业务、组织部门、某一领域
   * 企业内一定数据共享，数据具有结构性
+* Data Lake
+  * 存储原始数据，保持低廉的存储成本
+  * 规模和数据量比 DW 大，处理更慢，读取时定义数据结构
+  * Hadoop 是 DL，而在这之上的 HBase 则是 DW 
+  * 一般数据不允许更新
