@@ -30,7 +30,7 @@ module.exports = {
           'java/spring/releases',
         ],
       },
-      'java/libs/productive',
+      'java/library/productive',
     ],
     语言: [
       'languages/languages',
