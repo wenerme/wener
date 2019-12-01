@@ -135,6 +135,7 @@ module.exports = {
         type: 'category',
         label: '用户增长',
         items: [
+          'reference/growth/formula',
           'reference/growth/glossary',
         ],
       },

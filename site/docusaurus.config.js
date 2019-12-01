@@ -1,14 +1,9 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
 const path = require('path');
+const moment = require('moment')
 
 module.exports = {
   title: 'Wener Live & Life',
-  tagline: 'Passion I\'ve found',
+  tagline: "Passion I've found",
   url: 'https://wener.me',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -22,8 +17,8 @@ module.exports = {
         src: 'img/wener-logo-head.svg',
       },
       links: [
-        {to: 'notes/languages/languages', label: '笔记', position: 'left'},
-        {to: 'blog', label: '故事', position: 'left'},
+        { to: 'notes/languages/languages', label: '笔记', position: 'left' },
+        { to: 'blog', label: '故事', position: 'left' },
         {
           href: 'https://github.com/wenerme/wener',
           label: 'GitHub',
@@ -57,6 +52,15 @@ module.exports = {
             {
               label: 'Wener',
               href: 'https://github.com/wenerme/wener',
+              html: `
+              <div>
+              <a class="footer__link-item" href="https://github.com/wenerme/wener">Wener</a>
+              - <a class="footer__link-item" href="https://travis-ci.com/wenerme/wener" title="wenerme/wener - travis-ci">
+                构建<img style="vertical-align: middle;opacity: .4;" src="https://travis-ci.com/wenerme/wener.svg?branch=master"/>
+                </a>
+              - <a class="footer__link-item" href="https://github.com/wenerme/wenerme.github.io/deployments" title="GitHub Pages 部署">部署状态</a>
+              </div>
+              `
             },
           ],
         },
@@ -66,6 +70,10 @@ module.exports = {
             {
               label: 'Blog',
               to: 'blog',
+            },
+            {
+              label: 'GitHub',
+              to: 'https://github.com/wenerme',
             },
             {
               label: 'Twitter',
@@ -78,9 +86,10 @@ module.exports = {
         alt: 'Wener Site',
         src: 'img/wener-logo.svg',
       },
-      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener 🦖️`,
+      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - 构建时间 ${moment().format('YYYY-MM-DD HH:mm')}`,
     },
   },
+  themes: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       '@docusaurus/preset-classic',
