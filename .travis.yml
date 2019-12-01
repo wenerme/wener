@@ -2,13 +2,13 @@ language: node_js
 node_js:
   - "12"
 before_script:
-  - cd /
+  - echo building $$TRAVIS_BUILD_DIR
+  - cd ..
   - git clone --depth 1 -b master https://github.com/wenerme/docusaurus
-  - cd /docusaurus
+  - cd docusaurus
   - mv $TRAVIS_BUILD_DIR wener
   - git apply wener/site/docusaurus.patch
 script:
-  - cd /docusaurus
   - yarn
   - NODE_ENV=production yarn workspace wener-website start
   - cd ${TRAVIS_BUILD_DIR}
@@ -27,6 +27,6 @@ deploy:
   keep_history: false
   # org page
   target_branch: master
-  local_dir: /docusaurus/wener/site/build
+  local_dir: wener/site/build
   on:
     branch: master
