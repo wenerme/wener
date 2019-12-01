@@ -41,8 +41,8 @@ module.exports = {
               to: 'notes/ops/os/alpine/alpine',
             },
             {
-              label: '语言',
-              to: 'notes/languages/languages',
+              label: 'VoIP',
+              to: 'notes/voip/voip-intro',
             },
           ],
         },
