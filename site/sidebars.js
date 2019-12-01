@@ -98,7 +98,7 @@ module.exports = {
         type: 'category',
         label: 'OLAP',
         items: [
-          'db/olap/olap',
+          // 'db/olap/olap',
         ]
       },
       {

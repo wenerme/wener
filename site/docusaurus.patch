@@ -1,0 +1,51 @@
+diff --git a/package.json b/package.json
+index 30ee4b472..6d6ff996b 100644
+--- a/package.json
++++ b/package.json
+@@ -4,6 +4,7 @@
+     "packages/*",
+     "website",
+     "website-1.x",
++    "wener/site",
+     "packages/docusaurus-init/templates/*"
+   ],
+   "scripts": {
+diff --git a/packages/docusaurus-plugin-content-blog/src/blogUtils.ts b/packages/docusaurus-plugin-content-blog/src/blogUtils.ts
+index 77924ef0d..0540d7d4f 100644
+--- a/packages/docusaurus-plugin-content-blog/src/blogUtils.ts
++++ b/packages/docusaurus-plugin-content-blog/src/blogUtils.ts
+@@ -107,6 +107,7 @@ export async function generateBlogPosts(
+       const blogFileName = path.basename(relativeSource);
+
+       const fileString = await fs.readFile(source, 'utf-8');
++      if (!fileString.startsWith('--')) return;
+       const {frontMatter, excerpt} = parse(fileString);
+
+       let date;
+diff --git a/packages/docusaurus-plugin-content-docs/src/index.ts b/packages/docusaurus-plugin-content-docs/src/index.ts
+index 1834b9d88..edf2b10fb 100644
+--- a/packages/docusaurus-plugin-content-docs/src/index.ts
++++ b/packages/docusaurus-plugin-content-docs/src/index.ts
+@@ -137,6 +137,7 @@ export default function pluginContentDocs(
+               options,
+               env,
+             });
++            if(metadata && metadata.id)
+             docsMetadataRaw[metadata.id] = metadata;
+           }),
+         ),
+diff --git a/packages/docusaurus-plugin-content-docs/src/metadata.ts b/packages/docusaurus-plugin-content-docs/src/metadata.ts
+index cb649286f..f7b6b0ba2 100644
+--- a/packages/docusaurus-plugin-content-docs/src/metadata.ts
++++ b/packages/docusaurus-plugin-content-docs/src/metadata.ts
+@@ -91,7 +91,9 @@ export default async function processMetadata({
+     ? normalizeUrl([editUrl, posixPath(relativePath)])
+     : undefined;
+
+-  const {frontMatter = {}, excerpt} = parse(await fileStringPromise);
++  let fileContent = await fileStringPromise;
++  if(!fileContent.startsWith("--"))return {} as MetadataRaw;
++  const {frontMatter = {}, excerpt} = parse(fileContent);
+   const {sidebar_label, custom_edit_url} = frontMatter;
+
+   // Default base id is the file name.

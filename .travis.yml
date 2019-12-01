@@ -2,24 +2,18 @@ language: node_js
 node_js:
   - "12"
 before_script:
-  - git clone --depth 1 -b wenerme https://github.com/wenerme/docusaurus
-  # customized site settings
-  - rsync -avrc site/ docusaurus/my/
-  # symbol link will failed webpack
-  #  - ln -s $PWD docusaurus/my/content
-  - mkdir docusaurus/my/content
-  - mv story docusaurus/my/content
-  - mv tricks docusaurus/my/content
-# symbol link will failed webpack
-#  - ln -s $PWD docusaurus/my/content
-
+  - cd /
+  - git clone --depth 1 -b master https://github.com/wenerme/docusaurus
+  - cd /docusaurus
+  - mv $TRAVIS_BUILD_DIR wener
+  - git apply wener/site/docusaurus.patch
 script:
-  - cd docusaurus
+  - cd /docusaurus
   - yarn
-  - NODE_ENV=production yarn build:my
+  - NODE_ENV=production yarn workspace wener-website start
   - cd ${TRAVIS_BUILD_DIR}
   # customized public material
-  - rsync -avrc site/public/ docusaurus/my/build/
+  # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
 
 # deploy to github pages
 deploy:
@@ -33,6 +27,6 @@ deploy:
   keep_history: false
   # org page
   target_branch: master
-  local_dir: docusaurus/my/build
+  local_dir: /docusaurus/wener/site/build
   on:
     branch: master

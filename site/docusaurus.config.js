@@ -87,16 +87,16 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          path: 'content/tricks',
+          path: '../tricks',
           routeBasePath: 'notes',
         },
         blog: {
-          path: 'content/story',
+          path: '../story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           mdxLoaderOptions: {
-            onInput: require('./extensions/onMdxInput'),
-            onRemarkPlugins: require('./extensions/onRemarkPlugins'),
+            // onInput: require('./extensions/onMdxInput'),
+            // onRemarkPlugins: require('./extensions/onRemarkPlugins'),
           },
         },
         theme: {
