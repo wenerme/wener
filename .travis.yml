@@ -2,14 +2,15 @@ language: node_js
 node_js:
   - "12"
 before_script:
-  - echo building $$TRAVIS_BUILD_DIR
+  - echo building $TRAVIS_BUILD_DIR
+  - node --version && yarn --version
   - cd ..
   - git clone --depth 1 https://github.com/facebook/docusaurus
   - cd docusaurus
   - mv $TRAVIS_BUILD_DIR wener
   - git apply wener/site/docusaurus.patch
 script:
-  - yarn
+  - yarn upgrade && yarn
   - NODE_ENV=production yarn workspace wener-website build
   # restore
   - mv wener ..
