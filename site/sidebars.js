@@ -72,6 +72,22 @@ module.exports = {
       'ops/os/alpine/alpine-pkgs',
       'ops/os/alpine/alpine-faq',
     ],
+    Kubernetes: [
+      'devops/kubernetes/k8s-intro',
+      'devops/kubernetes/helm-intro',
+      'devops/kubernetes/knative-intro',
+      'devops/kubernetes/istio-intro',
+      'devops/kubernetes/rancher-intro',
+      'devops/kubernetes/rancher-rke',
+      {
+        type: 'category',
+        label: '网络',
+        items: [
+          'devops/kubernetes/network/k8s-network',
+          'devops/kubernetes/network/metallb',
+        ],
+      },
+    ],
     操作系统: [
       {
         type: 'category',

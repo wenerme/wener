@@ -41,6 +41,10 @@ module.exports = {
               to: 'notes/ops/os/alpine/alpine',
             },
             {
+              label: 'Kubernates',
+              to: 'notes/devops/kubernetes/k8s-intro',
+            },
+            {
               label: 'VoIP',
               to: 'notes/voip/voip-intro',
             },

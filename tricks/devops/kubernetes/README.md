@@ -1,3 +1,8 @@
+---
+id: k8s-intro
+title: Kubernates
+---
+
 # Kubernetes
 
 * [Reference](http://kubernetes.io/docs/user-guide)
@@ -67,6 +72,9 @@ Environment="KUBELET_EXTRA_ARGS=--v=4"
 ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $KUBELET_NETWORK_ARGS $KUBELET_DNS_ARGS $KUBELET_EXTRA_ARGS
 ```
 
+## 最佳实践
+* https://kubernetes.io/docs/setup/best-practices/
+* https://rancher.com/blog/2019/2019-01-17-101-more-kubernetes-security-best-practices/
 
 #### FAQ
 
