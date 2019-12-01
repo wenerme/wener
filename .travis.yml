@@ -11,7 +11,7 @@ before_script:
 script:
   - yarn
   - NODE_ENV=production yarn workspace wener-website build
-  - cd ${TRAVIS_BUILD_DIR}
+  # - cd ${TRAVIS_BUILD_DIR}
   # customized public material
   # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
 
