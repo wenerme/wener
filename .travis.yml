@@ -4,13 +4,15 @@ node_js:
 before_script:
   - echo building $$TRAVIS_BUILD_DIR
   - cd ..
-  - git clone --depth 1 -b master https://github.com/wenerme/docusaurus
+  - git clone --depth 1 https://github.com/facebook/docusaurus
   - cd docusaurus
   - mv $TRAVIS_BUILD_DIR wener
   - git apply wener/site/docusaurus.patch
 script:
   - yarn
   - NODE_ENV=production yarn workspace wener-website build
+  # restore
+  - mv wener ..
   # - cd ${TRAVIS_BUILD_DIR}
   # customized public material
   # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
@@ -27,6 +29,7 @@ deploy:
   keep_history: false
   # org page
   target_branch: master
-  local_dir: wener/site/build
+  # from ~/wenerme/wener
+  local_dir: site/build
   on:
     branch: master
