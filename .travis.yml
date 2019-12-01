@@ -10,7 +10,7 @@ before_script:
   - git apply wener/site/docusaurus.patch
 script:
   - yarn
-  - NODE_ENV=production yarn workspace wener-website start
+  - NODE_ENV=production yarn workspace wener-website build
   - cd ${TRAVIS_BUILD_DIR}
   # customized public material
   # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
