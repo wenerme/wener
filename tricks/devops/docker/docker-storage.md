@@ -1,3 +1,8 @@
+---
+id: docker-storage
+title: Docker 存储
+---
+
 # Storage
 
 ## Tips
@@ -40,9 +45,10 @@ __/etc/docker/daemon.json__
 
 
 ## cleanup
+* [Docker - How to cleanup (unused) resources](https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430)
+
+```
 docker volume prune -f
 docker system prune -a -f
-https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430
+```
 
-https://docs.docker.com/storage/
-https://docs.docker.com/storage/storagedriver/zfs-driver

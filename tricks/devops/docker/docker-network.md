@@ -1,3 +1,7 @@
+---
+id: docker-network
+title: Docker 网络
+---
 
 # Docker Network
 
@@ -31,4 +35,8 @@ docker network create appnet -o 'com.docker.network.bridge.name=appnet'
 # 使用 eth1 作为上级 - 无法通过 eth1 互通 - 如果有 host 有两个网口则可以
 # 可以与主机互通的容器网络，但会自行设置 ip 而不是使用 dhcp
 docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 -o parent=eth1 appnet
+
+# 查看容器监听
+pid=$(docker inspect -f '{{.State.Pid}}' container_name_or_id)
+sudo nsenter -t $pid -n netstat
 ```

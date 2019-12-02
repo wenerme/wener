@@ -72,6 +72,13 @@ module.exports = {
       'ops/os/alpine/alpine-pkgs',
       'ops/os/alpine/alpine-faq',
     ],
+    Docker: [
+      'devops/docker/docker-intro',
+      'devops/docker/docker-network',
+      'devops/docker/docker-storage',
+      'devops/docker/docker-swarm',
+      'devops/docker/docker-cookbook',
+    ],
     Kubernetes: [
       'devops/kubernetes/k8s-intro',
       'devops/kubernetes/helm-intro',
