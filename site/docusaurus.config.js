@@ -1,5 +1,5 @@
 const path = require('path');
-const moment = require('moment')
+const moment = require('moment-timezone')
 
 module.exports = {
   title: 'Wener Live & Life',
@@ -90,7 +90,7 @@ module.exports = {
         alt: 'Wener Site',
         src: 'img/wener-logo.svg',
       },
-      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - 构建时间 ${moment().format('YYYY-MM-DD HH:mm')}`,
+      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - 构建时间 ${moment().tz("Asia/Shanghai").format('YYYY-MM-DD HH:mm')}`,
     },
   },
   themes: ['@docusaurus/theme-live-codeblock'],
