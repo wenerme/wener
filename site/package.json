@@ -3,6 +3,7 @@
   "version": "2.0.0-alpha.37",
   "private": true,
   "scripts": {
+    "tsc": "tsc",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -14,6 +15,7 @@
     "@docusaurus/preset-classic": "^2.0.0-alpha.37",
     "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.37",
     "classnames": "^2.2.6",
+    "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "moment": "^2.24.0",
@@ -32,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/isomorphic-fetch": "^0.0.35"
   }
 }

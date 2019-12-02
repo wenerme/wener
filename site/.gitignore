@@ -1,2 +1,6 @@
 build
 .docusaurus
+
+src/**/*.d.ts
+src/**/*.d.ts.map
+src/**/*.js

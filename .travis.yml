@@ -11,6 +11,8 @@ before_script:
   - git apply wener/site/docusaurus.patch
 script:
   - yarn upgrade && yarn
+  # preprocess - fetch external resoruces
+  - cd wener/site && node src/preprocessors/processor.js && cd -
   - NODE_ENV=production yarn workspace wener-website build
   # restore
   - mv wener ..
