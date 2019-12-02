@@ -1,6 +1,8 @@
 import globby from 'globby';
 import fs from 'fs-extra';
-import fetch from 'isomorphic-fetch'
+// ../../node_modules/@types/isomorphic-fetch/index.d.ts(8,30): error TS2552: Cannot find name 'fetch'. Did you mean '_fetch'?
+// import fetch from 'isomorphic-fetch'
+import fetch from 'node-fetch'
 
 
 (async function () {

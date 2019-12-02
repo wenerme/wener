@@ -19,6 +19,7 @@
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "styled-components": "^4.4.1"
@@ -36,6 +37,6 @@
     ]
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "^0.0.35"
+    "@types/node-fetch": "^2.5.4"
   }
 }
