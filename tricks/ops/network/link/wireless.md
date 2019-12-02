@@ -248,12 +248,9 @@ nano /etc/network/interface
 # 调试
 # ===============
 # 在前台运行以便调试
-wpa_supplicant -Dwext -ieth1 -c wpa.conf
+wpa_supplicant -Dwext -iwlan0 -c wpa.conf
 # busybox 自带了 udhcpc
-
-apk add dhclient
-dhclient -r
-dhclient wlan0
+udhcpc -fqi wlan0
 ```
 
 ## 热点
@@ -347,3 +344,16 @@ MHz/c 通道宽度
 ```bash
 echo "options iwlwifi 11n_disable=1 wd_disable=1" | sudo tee /etc/modprobe.d/iwlwifi.conf
 ```
+
+### brcmfmac: brcmf_cfg80211_scan: scan error
+```
+brcmfmac: brcmf_run_escan: error (-52)
+brcmfmac: brcmf_cfg80211_scan: scan error (-52)
+brcmfmac: brcmf_escan_timeout: timer expired
+```
+
+```bash
+echo 'options 8192cu rtw_power_mgnt=0 rtw_enusbss=0' >> /etc/modprobe.d/8192cu.conf
+```
+
+* [#1342](https://github.com/raspberrypi/linux/issues/1342)

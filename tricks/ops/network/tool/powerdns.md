@@ -45,6 +45,8 @@ pdns_server --daemon=no --launch=gsqlite3 --local-port=5300 --socket-dir=`pwd`/s
 # 使用配置文件启动
 pdns_server --daemon=yes --config-dir=.
 
+pdns_server --daemon=no --launch=remote --local-port=5300 --socket-dir=`pwd`/socket
+
 # pdns_control 用于操作实例
 # 简化 pdns_control 操作
 alias pc="pdns_control --config-dir=`pwd`"
@@ -213,6 +215,27 @@ webserver-print-arguments=no
 # launch=bind,gmysql,remote
 # launch=gmysql,gmysql:server2 两个 mysql, 第二个的配置为 gmysql-server2-host
 launch=
+```
+
+__pdns.conf__
+
+```ini
+cache-ttl=60
+chroot=/var/empty
+config-dir=/etc/pdns
+daemon=yes
+distributor-threads=1
+guardian=yes
+local-port=53
+loglevel=3
+module-dir=/usr/lib/pdns/pdns
+negquery-cache-ttl=60
+setgid=pdns
+setuid=pdns
+socket-dir=/var/run
+use-logfile=no
+webserver=no
+wildcards=yes
 ```
 
 ## CHANGELOG

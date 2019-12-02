@@ -7,7 +7,10 @@ date: 2018-02-26
 ## 术语
 * HWE Hardware Enablement 
   * https://askubuntu.com/questions/248914
-* [EDAC](https://en.wikipedia.org/wiki/EDAC_(Linux))
+* ECC - Error-correcting memory
+* [EDAC](https://en.wikipedia.org/wiki/EDAC_(Linux)) - Error Detection and Correction
+  * [EDAC Project](http://bluesmoke.sourceforge.net/)
+  * [EDAC Device](https://www.kernel.org/doc/html/v4.19/driver-api/edac.html)
 
 ## apk 1 error
 apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.
@@ -86,6 +89,51 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 ## [Firmware Bug]: the BIOS has corrupted hw-PMU resources (MSR 38d is 30)
 
 ## EDAC sbridge: Failed to register device with error -19.
+
+## EDAC DEBUG: ie31200_check: MC0
+* 内存问题，尝试更换内存。
+* 如果是双通道，但是只有一根内存条，尝试补齐
+
+## pstore: crypto_comp_decompress failed, ret = -22!
+```
+pstore: crypto_comp_decompress failed, ret = -22!
+pstore: decompression failed: -22
+```
+* [fs/pstore/platform.c#L280](https://github.com/torvalds/linux/blob/bf929479893052b1c7bfe23a4e7a903643076350/fs/pstore/platform.c#L280)
+* 与该目录相关 `/sys/fs/pstore/`
+* 与升级内核有关
+* 参考 [pstore: crypto_comp_decompress failed](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=902966)
+
+```bash
+# root 执行 - sudo 不会展开
+rm /sys/fs/pstore/dmesg*
+```
+
+## AER: Corrected error received
+```
+pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
+pcieport 0000:00:1c.7: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Recei
+pcieport 0000:00:1c.7:   device [8086:a297] error status/mask=00000001/00002000
+pcieport 0000:00:1c.7:    [ 0] RxErr                  (First)
+```
+
+* 内核参数 - 建议依次尝试
+  * `pci=nomsi` - 关闭部分中断 - MSI=Message Signaled Interrupts - PCI_MSI 编译内核参数
+  * `pci=noaer` - 关闭报错 - AER=Advanced Error Reporting - PCIEAER 编译内核参数
+  * `pcie_aspm=off` - 关闭 PCIe 省电管理 - 可能会更耗电 - ASPM=Active State Power Management
+* 参考
+  * [PCIe Bus Error: severity=Corrected, type=Physical Layer, id=00e5(Receiver ID)](https://askubuntu.com/questions/863150)
+    * 可能是由于 PCI 的额电源管理将链路设置为低电模式触发的异常
+
+### The NVM Checksum Is Not Valid
+```
+e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+e1000e 0000:00:1f.6: The NVM Checksum Is Not Valid
+e1000e: probe of 0000:00:1f.6 failed with error -5
+```
+
 
 ## microcode
 * AlpineLinux 的 microcode 在 non-free 下，需要自己编译

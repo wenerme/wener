@@ -16,6 +16,7 @@ title: Traefik
   * https://letsencrypt.org/docs/rate-limits/
 * 注意
   * 如果 EndPoint 是 HTTPS 但是 router 未指定 tls 会无法匹配出现 404 - router 相当于是匹配 HTTP
+  * V2 不支持高可用部署 [#5792](https://github.com/containous/traefik/issues/5792)
 
 ```bash
 # 启动
@@ -39,6 +40,13 @@ entryPoints:
   https:
     address: ":8443"
 ```
+
+## 规则
+* Host 匹配域名
+* HostRegexp
+  * `HostRegexp("a.example.com","{subdomain}.domain.com","{subdomain:[a-z]+}.domain.com")`
+  * 并不是真正的完全正则匹配 - 只有在 `{}` 内的才会处理
+  * 使用的是 gorilla/mux 的 [Host](https://github.com/gorilla/mux/blob/4de8a5a4d283677c69afa1a86a044c8451633a18/route.go#L293:17)
 
 ## 配置
 

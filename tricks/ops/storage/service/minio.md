@@ -139,6 +139,16 @@ rclone lsd oss:
 
 ```
 
+## Docker
+
+```bash
+docker run -p 9000:9000 --name minio1 \
+  -e "MINIO_ACCESS_KEY=changeme" \
+  -e "MINIO_SECRET_KEY=changeme" \
+  -v /mnt/data:/data \
+  minio/minio server /data
+```
+
 ## KMS
 * https://docs.min.io/docs/minio-kms-quickstart-guide.html
 * https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template#L355

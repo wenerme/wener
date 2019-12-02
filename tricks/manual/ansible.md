@@ -4,6 +4,17 @@
 * 系统要求
   * 控制节点 - python *nix
   * 管理节点 - python sftp/scp
+* 注意
+  * 分组名包含 `-` 会告警
+    * `force_valid_group_names=ignore` 可关闭
+  * docker_container 模块网络有所调整 - 之后默认不会添加 default 网络 - 与 docker 保持一直
+    * 建议 `networks_cli_compatible=yes` 提前与 docker 网络保持一致
+  * 建议使用 yaml 写 inventory - 比 ini 的模式好管理 - 结构也更加清晰
+* 参考
+  * [Ansible tutorial](https://github.com/leucos/ansible-tuto)
+  * [List all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
+  * [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的ansible.cfg配置
+  * 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
 
 ```bash
 # ping 所有节点
@@ -43,21 +54,29 @@ fact_caching = redis
 # 缓存到 json 文件
 fact_caching = jsonfile
 fact_caching_connection = /path/to/cachedir
+
+# 兼容 docker network - 如果指定了网络不添加默认网络
+networks_cli_compatible=yes
+# 不校验分组名字 允许包含 `-'
+force_valid_group_names=ignore
 ```
 
 ## 最佳实践
 * [Best Practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
+
+### 常用目录结构
 
 ```
 production                # 正式环境仓库
 staging                   # 预发环境仓库
 
 group_vars/
-   group1.yml             # 分组变量
-   group2.yml
+    all.yml               # 全局变量
+    group1.yml            # 分组变量
+    group2.yml
 host_vars/
-   hostname1.yml          # 主机变量
-   hostname2.yml
+    hostname1.yml          # 主机变量
+    hostname2.yml
 
 library/                  # 自定义模块
 module_utils/             # 用于支持模块的模块工具
@@ -93,27 +112,29 @@ roles/
     fooapp/               # ""
 ```
 
-如果变量区别较大，可采用独立的目录结构
+### 独立仓库目录结构
+如果仓库区别较大，可采用
 
 ```
 inventories/
    production/
-      hosts               # inventory file for production servers
+      hosts               # production 仓库主机定义
       group_vars/
-         group1.yml       # here we assign variables to particular groups
-         group2.yml
+          all.yml         # production 全局变量
+          group1.yml      # 分组变量
+          group2.yml
       host_vars/
-         hostname1.yml    # here we assign variables to particular systems
-         hostname2.yml
+          hostname1.yml   # 主机变量
+          hostname2.yml
 
    staging/
-      hosts               # inventory file for staging environment
+      hosts               # staging 仓库主机定义
       group_vars/
-         group1.yml       # here we assign variables to particular groups
-         group2.yml
+          group1.yml       # here we assign variables to particular groups
+          group2.yml
       host_vars/
-         stagehost1.yml   # here we assign variables to particular systems
-         stagehost2.yml
+          stagehost1.yml   # here we assign variables to particular systems
+          stagehost2.yml
 
 library/
 module_utils/
@@ -250,10 +271,17 @@ Constant-width | C(/bin/bash) | File and option names
 
 ## 常见问题
 
+### 快速获取地址
+
+```bash
+ansible -i hosts all -m setup
+ansible -i k8s all -m debug -a 'msg={{ansible_default_ipv4.address}}'
+```
+
 ### has no attribute 'ansible_default_ipv4', 'address'
 此时需要从新收集主机信息,然后再继续之前操作
 
-```
+```bash
 ansible -i hosts -m setup all
 ```
 
@@ -287,9 +315,51 @@ fatal: [host-1]: FAILED! => {"changed": false, "checksum": "4bd3ef681e70faefe3a6
 yum install libselinux-python
 ```
 
-## Reference
+### env 'python' no such file
+```bash
+# 是因为找不到 python - 可能是因为使用的 python3
+env python
+# 确保 python3 存在
+env python3
+# 创建软链接
+ln -s `which python3` /usr/bin/python
+```
 
-* [Ansible tutorial](https://github.com/leucos/ansible-tuto)
-* [List all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
-* [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的ansible.cfg配置
-* 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
+### 批量模版
+
+```yaml
+- name: create x template
+  template:
+    src: "{{item}}"
+    dest: /tmp/{{ item | basename | regex_replace('\.j2','') }}
+  with_fileglob:
+    - ../templates/*.j2
+```
+
+### 拆分主机到多个文件
+
+目录结构可以为
+
+```
+inventories/
+  a.yaml
+  b.yaml
+  c.yaml
+```
+
+```bash
+# 指向 inventories/ 作为仓库即可
+ansible -i inventories/ all --list-hosts
+# 需要的时候也可以单个指定
+ansible -i inventories/a.yaml -i inventories/b.yaml all --list-hosts
+```
+
+目录结构也可以为 - 适用于不同环境区别较大的时候
+
+```
+inventories/
+  a/
+    hosts
+  b/
+    hosts
+```

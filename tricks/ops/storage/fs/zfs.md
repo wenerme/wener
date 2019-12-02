@@ -258,6 +258,9 @@ zfs share -a
 # 启动时执行 zfs share -a
 rc-update add zfs-share
 
+# 查看所有的共享状态
+zfs list -o name,sharenfs
+
 # 取消所有共享
 zfs unshare -a
 ```

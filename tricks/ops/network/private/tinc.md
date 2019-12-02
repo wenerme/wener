@@ -456,11 +456,13 @@ echo tun >> /etc/modules
 sysctl net.ipv4.ip_forward
 sysctl -w net.ipv4.ip_forward=1
 # 1. 允许包转发, 会将 eth0 子网的转发到 mynet, 需要在网关节点添加 eth0 的子网才能做到互通
+# iptables -L --line-number -nv
 iptables -I FORWARD -i mynet -j ACCEPT
 iptables -I FORWARD -i eth0 -j ACCEPT
 
 # 2. NAT 使得 eth0 子网能访问私网
 # 如果做了桥接, 这里需要换成桥接网卡
+# iptables -t nat -L --line-number -nv
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o mynet -j MASQUERADE
 # 如果有多个私网, 也可以考虑限制目标网段
 # iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -d 10.10.0.0/16 -o mynet -j MASQUERADE

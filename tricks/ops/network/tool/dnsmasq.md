@@ -66,6 +66,40 @@ brew install dnsmasq
 * [dnsmasq.conf.example](http://thekelleys.org.uk/gitweb/?p=dnsmasq.git;a=blob_plain;f=dnsmasq.conf.example;hb=HEAD)
 * 配置的内容也是命令行接受的参数
 
+### 常用配置
+```ini
+# --no-daemon 前台运行
+# 配置目录
+conf-dir=/etc/dnsmasq.d/,*.conf
+# 只允许本地查询 - 当作为本地 dns 缓存的时候可以开启
+local-service
+
+# 转发 consul 主域名 - 比如 abc.consul
+# dig consul.service.consul @127.0.0.1
+server=/consul/127.0.0.1#8600
+
+# 上游 DNS 服务器
+server=223.5.5.5
+server=114.114.114.114
+# 缓存大小 - 默认只有 150
+cache-size=65536
+
+# 可选配置 - 运行的账户信息
+user=dnsmasq
+group=dnsmasq
+
+# 私网自定义逆查询 RFC 1918, 5735, 6598:
+#rev-server=0.0.0.0/8,127.0.0.1#8600
+#rev-server=10.0.0.0/8,127.0.0.1#8600
+#rev-server=100.64.0.0/10,127.0.0.1#8600
+#rev-server=127.0.0.1/8,127.0.0.1#8600
+#rev-server=169.254.0.0/16,127.0.0.1#8600
+#rev-server=172.16.0.0/12,127.0.0.1#8600
+#rev-server=192.168.0.0/16,127.0.0.1#8600
+#rev-server=224.0.0.0/4,127.0.0.1#8600
+#rev-server=240.0.0.0/4,127.0.0.1#8600
+```
+
 ### 基础配置
 ```ini
 conf-file=<file>
@@ -90,6 +124,24 @@ group=<groupname>
 # 记录 conntrack 标示 - 主要用于防火墙或统计
 conntrack
 ```
+### DNSSEC
+* 需要安装 __dnsmasq-dnssec__ 而不是 dnsmasq
+
+```ini
+# 启动 dnssec - 编译时需要 HAVE_DNSSEC
+dnssec
+# trust-anchors 配置
+conf-file=/usr/share/dnsmasq/trust-anchors.conf
+# 手动指定 DS 记录，用于 DNSSEC 验证
+# https://data.iana.org/root-anchors/root-anchors.xml
+# trust-anchor=[<class>],<domain>,<key-tag>,<algorithm>,<digest-type>,<digest>
+# 是否尝试对未签名的进行检查
+dnssec-check-unsigned[=no]
+dnssec-no-timecheck
+dnssec-timestamp=<path>
+proxy-dnssec
+dnssec-debug
+```
 
 ### DNS
 
@@ -101,20 +153,6 @@ domain-needed
 bogus-priv
 bogus-nxdomain=<ipaddr>
 ignore-address=<ipaddr>
-
-# 启动 dnssec - 编译时需要 HAVE_DNSSEC
-dnssec
-# trust-anchors 配置
-conf-file=%%PREFIX%%/share/dnsmasq/trust-anchors.conf
-# 手动指定 DS 记录，用于 DNSSEC 验证
-# https://data.iana.org/root-anchors/root-anchors.xml
-trust-anchor=[<class>],<domain>,<key-tag>,<algorithm>,<digest-type>,<digest>
-dnssec-check-unsigned[=no]
-dnssec-no-timecheck
-dnssec-timestamp=<path>
-proxy-dnssec
-dnssec-debug
-
 
 # 不读 /etc/hosts
 no-hosts
@@ -134,7 +172,9 @@ neg-ttl=<time>
 max-ttl=<time>
 
 max-cache-ttl=<time>
-min-cache-ttl=<time>
+# 设置最小缓存时间 - 单位 秒
+# 默认有最大 1h 清除缓存
+min-cache-ttl=600
 # 从 权威服务器/AS 返回的 TTL
 auth-ttl=<time>
 

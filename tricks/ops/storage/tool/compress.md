@@ -23,6 +23,7 @@
 * JS
   * [nodeca/pako](https://github.com/nodeca/pako)
     * high speed zlib port to javascript, works in browser & node.js
+* [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
 
 ```bash
 # bz2

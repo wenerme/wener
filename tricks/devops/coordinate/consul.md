@@ -10,8 +10,9 @@
 
 ```bash
 # 默认配置目录为 /etc/consul
+cd /etc/consul
 # 基础服务配置
-cat <<CONF > /etc/consul/server.json
+cat <<CONF > server.json
 {
     "client_addr": "0.0.0.0",
     "data_dir": "/var/consul",
@@ -29,9 +30,9 @@ cat <<CONF > /etc/consul/server.json
 }
 CONF
 # 启动连接 - 数据中心
-echo '{"start_join":["10.10.1.1","10.10.1.2","10.10.1.3"],"bootstrap_expect": 3,"datacenter":"center"}' > /etc/consul/join.json
+echo '{"start_join":["10.10.1.1","10.10.1.2","10.10.1.3"],"bootstrap_expect": 3,"datacenter":"center"}' > join.json
 # 生成密钥
-echo '{"encrypt":"'$(consul keygen)'"}' > /etc/consul/encrypt.json
+echo '{"encrypt":"'$(consul keygen)'"}' > encrypt.json
 
 # 如果觉得配置文件过多可合并为一个
 # jq -s add consul.d/*.json > config.json
@@ -62,8 +63,10 @@ killall -HUP consul
 }
 ```
 
-### 定义单个服务
+### 服务定义
 * [Services](https://www.consul.io/docs/agent/services.html)
+
+__定义单个服务__
 
 ```json
 {
@@ -77,6 +80,17 @@ killall -HUP consul
     "port": 80,
     "enable_tag_override": false
   }
+}
+```
+
+__定义多个服务__
+
+```json
+{
+  "services":[
+    {"name":"svc-a"},
+    {"name":"svc-b"},
+  ]
 }
 ```
 
@@ -200,4 +214,40 @@ session "" {
      "statsite_address": "127.0.0.1:2180"
   }
 }
+```
+
+## FAQ
+
+### 地址模板验证
+
+```bash
+go get -u github.com/hashicorp/go-sockaddr/cmd/sockaddr
+~/go/bin/sockaddr eval 'GetPrivateInterfaces |  include "network" "10.0.0.0/8" | attr "address"'
+```
+
+### 将 docker 暴露到 consul
+* [gliderlabs/registrator](https://github.com/gliderlabs/registrator)
+* 配置项
+  * 标示 SERVICE_ID - 默认是 主机名:服务名:端口
+  * 名字 SERVICE_NAME
+  * 忽略 SERVICE_IGNORE
+  * 标签 SERVICE_TAGS=master,backups
+  * 属性 SERVICE_xxoo=abc 会记录到服务属性
+
+```bash
+# master 为最新 - latest 为 4 年前最后版本
+docker run gliderlabs/registrator:master --help
+
+# -explicit 只有定义了 SERVICE_NAME 的才暴露
+# -ip 暴露的 IP - 使用了该参数则不需要 net=host
+# -internal 使用内部地址和端口 - 在使用自定义网络的时候很方便
+docker run -d --name=registrator \
+  --volume=/var/run/docker.sock:/tmp/docker.sock \
+  gliderlabs/registrator:master -explicit -ip 192.168.1.2 consul://192.168.1.2:8500
+
+docker run -d --name web -l SERVICE_NAME=web -P nginx
+# 当暴露了多个端口时隐藏某个端口
+docker run -d --name web -l SERVICE_NAME=web -l SERVICE_443_IGNORE=true -P nginx
+# 如果暴露了多个端口，也可以选择只暴露某个端口作为服务
+docker run -d --name web -l SERVICE_8080_NAME=web -P nginx
 ```

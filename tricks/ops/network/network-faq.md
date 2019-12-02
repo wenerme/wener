@@ -25,7 +25,3 @@ https://en.wikipedia.org/wiki/Network_address_translation
 * tinc 是用户空间的, 相对更慢
 * wg 目前只支持 ipv4, ipv6, 不支持 ethernet 层通道
 
-## BGP vs OSPF
-* [What is the difference between BGP and OSPF?](https://serverfault.com/questions/185635)
-
-BGP 是 EGP, OSPF 是 IGP
