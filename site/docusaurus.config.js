@@ -17,13 +17,15 @@ module.exports = {
         src: 'img/wener-logo-head.svg',
       },
       links: [
-        { to: 'notes/languages/languages', label: '笔记', position: 'left' },
+        { to: 'notes/java/java', label: '笔记', position: 'left' },
         { to: 'blog', label: '故事', position: 'left' },
         {
           href: 'https://github.com/wenerme/wener',
           label: 'GitHub',
           position: 'right',
         },
+        { to: 'notes/howto/network/tinc-multi-path', label: '指南', position: 'left' },
+        { to: 'notes/tool/network/ip-lookup', label: '工具', position: 'left' },
       ],
     },
     footer: {

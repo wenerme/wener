@@ -95,6 +95,32 @@ module.exports = {
         ],
       },
     ],
+    指南: [
+      {
+        type:'category',
+        label:'运维',
+        items:[
+          'howto/ops/alpine-admin-ansible',
+        ]
+      },
+      {
+        type:'category',
+        label:'网络',
+        items:[
+          'howto/network/tinc-get-started',
+          'howto/network/tinc-multi-path',
+        ]
+      },
+    ],
+    工具: [
+      {
+        type:'category',
+        label:'网络',
+        items:[
+          'tool/network/ip-lookup',
+        ]
+      }
+    ],
     操作系统: [
       {
         type: 'category',
