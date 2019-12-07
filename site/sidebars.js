@@ -206,7 +206,7 @@ module.exports = {
           'ops/network/tool/dnsmasq',
           'ops/network/tool/ifconfig',
           'ops/network/tool/iproute2',
-          'ops/network/tool/iptable',
+          'ops/network/tool/iptables',
           // 'ops/network/tool/mitmproxy',
           'ops/network/tool/nmap',
           'ops/network/tool/powerdns',
