@@ -5,10 +5,12 @@ date: 2019-12-08
 ---
 
 ## 场景
-* __云上云下网络互通__
-  * 本地直接访问云上环境，云上能直接访问本地机房资源
-* __本地网络穿透到外网以提供服务__
-  * 例如 阿里云上购买一个廉价的 ECS - 实际计算存储资源使用本地机房 - 通过网络穿透提供服务
+
+### 云上云下网络互通
+* 本地直接访问云上环境，云上能直接访问本地机房资源
+
+### 本地网络穿透到外网以提供服务
+* 例如 阿里云上购买一个廉价的 ECS - 实际计算存储资源使用本地机房 - 通过网络穿透提供服务
 
 <!--
 @startdot
@@ -29,8 +31,9 @@ label="TINC - 穿透网络提供服务"
 @enddot
 -->
 ![ServiceTunnel](http://www.plantuml.com/plantuml/svg/VP5FIyCm6CRl_HIXNZlgTCW6RHchgtZnehUnGxTchX2QaEJW7uIA23gGETX5h0TFJjX1Jy9q-cMMLB-5gSN9O0WzbF0ylz_x9bN6VSe3pBKWtAS-wO8jSAn5E80DrlK9j5lum63y446x4o840wED4QOsftx4Y4zXn9jQNcmmWi88CXjJtiK6o20C4hlOrBGs2bMoWVmMHBOb9iDqE5AVl7XnZ8oRG_MLMcspxjLqrI2AugFVncmoaCcLwDsBcv5PTtUj5ZKTguCZ3WWE8rvWuH6qzUAQxiZaKfoFq-b094_YBlv9olZXysmgtfujC-iuYrAtNDzmAvaKuVQVKoPZXPXh_r6AtaZ6fqjyawK-p_CgRacVNmieE21VD_jRc060ygfPAgqxAfmVwNlREoueWFJnuolkgpNJrqJshsVlj_cakdQYLM4KP4_w3G00)
+## 站点对站点私有网络
 * __Site to Site VPN / 多站点互通__
-  * 例如 公司有两个地址，希望两个地址的网络互通
+* 例如 公司有两个地址，希望两个地址的网络互通
 
 <!--
 @startdot
@@ -50,8 +53,15 @@ label="TINC - 办公地点网络打通"
 -->
 ![SiteToSite](http://www.plantuml.com/plantuml/svg/RT31IiGm40RWUvuYr6kskorITc5JrjPL1F4WtagHn4GR34r9Sb144C63tiIRB3w11wyYFaujleK9hQ2mSnncllcPXR54MwOiOE9CawQ2k_0Ar8hnmbIauPYg2sJifUJuL4Z96JfHKcbiDQbDGpIlRGdwnS8qKjJSOALjfH3qYE4DZX1qm-TCQBn_M080ZB3yc1IIK2xnl7ruQUzUszLRT_k-DQTwd4QpE8oIQHY5at6ycI9_kByQR6JPzd8d2yeUeUkGx1yIhq7owJB9PmuPei1H2WVFfwJALgY70-ZgbveuAafynwyE0qTx1paSmRy1ki_7xcFrTV_qVVCSW6kmu3Lp7_u1)
 
-* 傍路由
-  * 不管在哪里，只要联网就能管理网络
+### 傍路由
+* 不管在哪里，只要联网就能管理网络
+* 例如 
+  * IoT 场景 - 只要网络接入就能进行数据通信
+  * 家庭网络 - 任何地方都能直接访问家里的 NAS
+
+### 加密通信
+* 所有的通道通信都是加密的
+* 可以直接使用 HTTP 或者不安全的网络，且不用担心被外部攻击
 
 ## 简介
 * 默认端口为 655

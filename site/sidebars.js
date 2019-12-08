@@ -107,6 +107,7 @@ module.exports = {
         type:'category',
         label:'网络',
         items:[
+          'howto/network/dns-prevent-spoofing',
           'howto/network/tinc-get-started',
           'howto/network/tinc-multi-path',
         ]
