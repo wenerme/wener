@@ -33,7 +33,7 @@ label="DNS 排污"
 @enddot
 -->
 
-![域名访问结构](http://www.plantuml.com/plantuml/svg/RP9DIm916CVlyoa6kvgIH2Yv4gvkjmWwHeUndL9QTsrc3uO8LeUeA4nxPqkbA8dIEXQPNwOPrs_Hh5k-4NiPdl_pstcU7pD7JKHCrJ21cbedA9E4yp07T4F5opI9CbXA65alDRSqBAsbD0shtbL3CuXa4gJJ329ODxrEu5Oz4z5eBAv4FIi04CCmbpMKm9eKvjLtRXsnWngxgaTM0ABzu6QNrRU7Cu9N-w7rpApNRg74MgNX5bMdQKGtHziwdsNsSZbe6vbAKUHOB22cIXff_CUnjmAhL3gj4_-YxEVxXzpw6AUKa3mjA9mrCT6HrYVlpmKMMrWA9uW_ylrro1vsOD3N-tgbRk7QRk-vRNQZtRrezChyeihVQhnI7hr73iPdv93ZB2UiRaWKfV4i52BWxwPvrwONKJWPSGB7adCSCp7bW-prncwUsOzt_BROkvCLcvtJEXJ3BiNbo62NV_203xeWjvxitPPx5efOyMXWtU4SYm2ub4Vy6VBZabZC0_9W3kkgU4q_)
+![域名访问结构](https://www.plantuml.com/plantuml/svg/RP9DIm916CVlyoa6kvgIH2Yv4gvkjmWwHeUndL9QTsrc3uO8LeUeA4nxPqkbA8dIEXQPNwOPrs_Hh5k-4NiPdl_pstcU7pD7JKHCrJ21cbedA9E4yp07T4F5opI9CbXA65alDRSqBAsbD0shtbL3CuXa4gJJ329ODxrEu5Oz4z5eBAv4FIi04CCmbpMKm9eKvjLtRXsnWngxgaTM0ABzu6QNrRU7Cu9N-w7rpApNRg74MgNX5bMdQKGtHziwdsNsSZbe6vbAKUHOB22cIXff_CUnjmAhL3gj4_-YxEVxXzpw6AUKa3mjA9mrCT6HrYVlpmKMMrWA9uW_ylrro1vsOD3N-tgbRk7QRk-vRNQZtRrezChyeihVQhnI7hr73iPdv93ZB2UiRaWKfV4i52BWxwPvrwONKJWPSGB7adCSCp7bW-prncwUsOzt_BROkvCLcvtJEXJ3BiNbo62NV_203xeWjvxitPPx5efOyMXWtU4SYm2ub4Vy6VBZabZC0_9W3kkgU4q_)
 
 ## 原理
 * 不要依赖上游 DNS - 例如 114.114.114.114
@@ -134,7 +134,20 @@ dig img.alicdn.com +short @8.8.8.8 | grep '^[.0-9]*$' | xargs -I {} -n 1 -- sh -
 
 > ⚠️ 确保本地有方式能访问到不被污染的 DNS 服务 - 否则 google.com 这样的域名不能被解析
 
+### Docker 完整镜像
+
+> 💡提示
+> 该镜像包含了下述配置，具体构建过程参见 [wenerme/dockerfiles/app/dns-rec](https://github.com/wenerme/dockerfiles/tree/master/app/dns-rec)
+
+```bash
+docker run --rm -it \
+  --cap-add NET_ADMIN --device /dev/net \
+  --name dns-rec -p 53:53/udp wener/app:dns-rec
+```
+
 ### Docker 验证部署
+
+* 按照实际部署的方式进行配置，但通过 docker 来进行验证
 
 ```bash
 # 创建测试用的网络 - 测试完成即可删除 - 自定义的网络才能使用静态 IP
