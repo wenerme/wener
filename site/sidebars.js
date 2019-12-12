@@ -109,7 +109,7 @@ module.exports = {
         items:[
           'howto/network/dns-prevent-spoofing',
           'howto/network/tinc-get-started',
-          'howto/network/tinc-multi-path',
+          'howto/network/tinc-multi-path-failover',
         ]
       },
     ],

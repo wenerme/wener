@@ -24,7 +24,7 @@ module.exports = {
           label: 'GitHub',
           position: 'right',
         },
-        { to: 'notes/howto/network/tinc-multi-path', label: '指南', position: 'left' },
+        { to: 'notes/howto/network/dns-prevent-spoofing', label: '指南', position: 'left' },
         { to: 'notes/tool/network/ip-lookup', label: '工具', position: 'left' },
       ],
     },

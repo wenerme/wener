@@ -87,7 +87,13 @@ label="TINC - 办公地点网络打通"
   5. 配置地址 - 设置 tinc 的地址
 
 > ⚠️ 注意
+>
 > 由于 tinc-pre 1.17 在 AlpineLinux 3.10 上编译测试用例未通过，因此官方仓库没有。下面使用 [wenerme/repository](https://github.com/wenerme/repository) 仓库中的 tinc-pre 1.16 进行部署。
+
+
+> 💡提示 
+>
+> 如果需要配置为 Switch 模式，只需要在最开始节点的 tinc.conf 里添加 `Mode=Switch` 即可
 
 ### Docker 部署 Tinc
 

@@ -1,19 +1,33 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
 
 /* You can override the default Infima variables here. */
+
+/* Emoji Range https://gist.github.com/mfornos/9991865 */
+
+@font-face {
+  font-family: emoji;
+
+  src: local('Apple Color Emoji'),
+       local('Android Emoji'),
+       local('Segoe UI'),
+       local(EmojiSymbols),
+       local(Symbola)
+       /* ,url('font/Symbola-Emoji.eot?#iefix') format('embedded-opentype'),
+       url('font/Symbola-Emoji.woff') format('woff'),
+       url('font/Symbola-Emoji.ttf') format('truetype') */
+       ;
+  /* Emoji unicode blocks */
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}
+
 :root {
   --ifm-color-primary: #64B5F6;
+  /* emoji first */
+  --ifm-font-family-base: emoji, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
   /*--ifm-color-primary: #25c2a0;*/
   --ifm-color-primary-dark: rgb(33, 175, 144);
@@ -39,6 +53,7 @@
 }
 
 /* https://meta.superuser.com/questions/4788/css-for-the-new-kbd-style */
+
 kbd {
   -moz-border-radius: 3px;
   -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
