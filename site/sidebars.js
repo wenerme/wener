@@ -110,6 +110,7 @@ module.exports = {
           'howto/network/dns-prevent-spoofing',
           'howto/network/tinc-get-started',
           'howto/network/tinc-multi-path-failover',
+          'howto/network/tinc-transparency-proxy',
         ]
       },
     ],

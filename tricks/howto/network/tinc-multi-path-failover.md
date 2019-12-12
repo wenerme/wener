@@ -2,6 +2,7 @@
 id: tinc-multi-path-failover
 title: 如何配置 TINC 实现多路容灾？
 date: 2019-12-08
+updateDate: 2019-12-13
 ---
 
 ## 场景
