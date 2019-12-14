@@ -1,0 +1,85 @@
+
+@host=http://127.0.0.1:598
+@db=test
+
+@admin_username=admin
+@admin_password=admin
+
+@username=wener
+@password=wener
+
+### 基础信息
+
+GET {{host}}
+
+### 创建用户
+
+PUT {{host}}/_users/org.couchdb.user:{{username}}
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+{
+  "name": "{{username}}",
+  "password": "{{password}}",
+  "roles":["user"],
+  "type":"user"
+}
+
+### 获取用户信息
+GET {{host}}/_users/org.couchdb.user:{{username}}
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+### 创建数据库
+
+PUT {{host}}/{{db}}
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+
+### 获取数据的安全配置
+
+GET {{host}}/{{db}}/_security
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+### 更新数据的安全配置
+
+PUT {{host}}/{{db}}/_security
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+{
+  "members": {
+    "roles": [
+      "user"
+    ]
+  },
+  "admins": {
+    "roles": [
+      "admin"
+    ]
+  }
+}
+
+### 一般用户获取数据库信息
+
+GET {{host}}/{{db}}
+Authorization: Basic {{username}} {{password}}
+
+### 写入文档
+PUT {{host}}/{{db}}/config:test
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+{"ver":1}
+
+### 只允许 admin 编辑
+
+POST {{host}}/{{db}}
+Content-Type: application/json
+Authorization: Basic {{admin_username}} {{admin_password}}
+
+{
+  "_id": "_design/auth",
+  "language": "javascript",
+  "validate_doc_update": "function(newDoc, oldDoc, userCtx) {if (userCtx.roles.indexOf('admin')) {return;} else {throw({ forbidden: 'only admin can edit configs' });}}"
+}
+
+### 获取授权设计文档
+GET {{host}}/zhensikeji/_design/auth
+Authorization: Basic {{admin_username}} {{admin_password}}

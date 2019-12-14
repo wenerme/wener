@@ -1,3 +1,8 @@
+---
+id: mongodb
+title: MongoDB
+---
+
 # MongoDB
 
 ## Tips

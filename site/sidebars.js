@@ -163,7 +163,16 @@ module.exports = {
       },
       {
         type: 'category',
-        label: 'Key Value',
+        label: '文档型',
+        items: [
+          'db/document/mongodb',
+          'db/document/rethinkdb',
+          'db/document/couchdb',
+        ]
+      },
+      {
+        type: 'category',
+        label: '键值型',
         items: [
           'db/kv/kv',
           'db/kv/redis',
