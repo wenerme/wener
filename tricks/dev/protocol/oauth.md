@@ -1,3 +1,8 @@
+---
+id: oauth
+title: OAuth
+---
+
 # OAuth
 
 ## Tips

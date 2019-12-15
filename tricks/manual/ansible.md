@@ -15,6 +15,10 @@
   * [List all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
   * [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的ansible.cfg配置
   * 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
+* 环境变量
+  * `ANSIBLE_INVENTORY` - 逗号分隔的仓库源
+  * `DEFAULT_HOST_LIST` - 默认仓库源 - `inventory` 配置
+
 
 ```bash
 # ping 所有节点
@@ -33,6 +37,9 @@ ansible localhost -m setup
 # /etc/ansible/facts.d/preferences.fact
 ansible hostname -m setup -a "filter=ansible_local"
 ```
+
+## tasks
+* `lookup('password', 'credentials/db.passwd length=8 chars=digits')` - 读取或随机生成密码
 
 ## ansible.cfg
 * [Ansible Configuration Settings](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
