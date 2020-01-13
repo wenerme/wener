@@ -6,31 +6,23 @@ title: Asterisk
 # Asterisk
 
 ## Tips
-
-* [源码](https://gerrit.asterisk.org/)
-* 语音文件 https://www.asterisksounds.org
-* Asterisk NOW
-  * 是一个立即可用的系统镜像
-  * [下载](http://www.asterisk.org/downloads/asterisknow-6-64)
 * Asterisk
   * [文档](https://wiki.asterisk.org/wiki/display/AST/Home)
-  * http://www.asterisk.org/community/documentation
-  * https://github.com/asterisk/asterisk
-  * https://wiki.asterisk.org/wiki/display/AST/Home
-  * https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture
-* http://www.asteriskdocs.org/
-* http://downloads.asterisk.org/pub/
-  * 公共下载目录
-* 录音时尽量选择 .WAV 而非 .wav
-* http://asterisktech.co.ke/cctv-cameras/
-* Connecting Non-SIP IP Camera to Your PBX - AstriCon 2014 https://youtu.be/yiQHVq4UzO4
-* How to implement an alarm system with Asterisk and a webcam https://www.voip-info.org/how-to-implement-an-alarm-system-with-asterisk-and-a-webcam/
-* https://wiki.freepbx.org/display/PC/Asterisk+GSM
-
-https://store.docker.com/community/images/luar/asterisk
-https://wiki.alpinelinux.org/wiki/FreePBX
-
-
+    * [架构](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture)
+    * [版本历史](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Versions)
+      * 每隔两个版本为 LTS 版本
+      * 目前在维护周期的 LTS 有 13、16
+  * [源码](https://gerrit.asterisk.org/) / [asterisk/asterisk](https://github.com/asterisk/asterisk)
+  * [公共下载目录](http://downloads.asterisk.org/pub/)
+  * [文档索引](http://www.asterisk.org/community/documentation)
+* 语音文件 https://www.asterisksounds.org
+* [Asterisk NOW](http://www.asterisk.org/downloads/asterisknow-6-64) - 是一个立即可用的系统镜像
+* [Asterisk The Definitive Guide](http://www.asteriskdocs.org/)
+* 注意
+  * 录音时尽量选择 .WAV 而非 .wav
+* 参考
+  * [Connecting Non-SIP IP Camera to Your PBX - AstriCon 2014](https://youtu.be/yiQHVq4UzO4)
+  * [How to implement an alarm system with Asterisk and a webcam](https://www.voip-info.org/how-to-implement-an-alarm-system-with-asterisk-and-a-webcam/)
 
 ## Ports/Firewall
 * [Asterisk firewall rules](https://www.voip-info.org/asterisk-firewall-rules/)
@@ -66,109 +58,11 @@ PBX SIP and IAX Communication
 10000-20000 | UDP | RTP for SIP | 可对外暴露, 实际 SIP 通话端口
 4569 | UDP | IAX | IAX 协议和线路
 
-
-udp   UNCONN     0      0                     *:4569                              *:* iax
-udp   UNCONN     0      0                     *:5060                              *:* sip
-
-Netid State      Recv-Q Send-Q    Local Address:Port                   Peer Address:Port
-udp   UNCONN     0      0                     *:4569                              *:*                   users:(("asterisk",pid=24149,fd=49))
-udp   UNCONN     0      0                     *:5060                              *:*                   users:(("asterisk",pid=24149,fd=14))
-udp   UNCONN     0      0                     *:56156                             *:*                   users:(("asterisk",pid=24149,fd=11))
-udp   UNCONN     0      0                     *:10336                             *:*                   users:(("asterisk",pid=24149,fd=86))
-udp   UNCONN     0      0                     *:10337                             *:*                   users:(("asterisk",pid=24149,fd=87))
-udp   UNCONN     0      0                     *:12244                             *:*                   users:(("asterisk",pid=24149,fd=112))
-udp   UNCONN     0      0                     *:12245                             *:*                   users:(("asterisk",pid=24149,fd=113))
-udp   UNCONN     0      0                     *:14914                             *:*                   users:(("asterisk",pid=24149,fd=73))
-udp   UNCONN     0      0                     *:14915                             *:*                   users:(("asterisk",pid=24149,fd=68))
-udp   UNCONN     0      0             127.0.0.1:323                               *:*                   users:(("chronyd",pid=776,fd=1))
-udp   UNCONN     0      0                     *:16758                             *:*                   users:(("asterisk",pid=24149,fd=66))
-udp   UNCONN     0      0                     *:16759                             *:*                   users:(("asterisk",pid=24149,fd=58))
-udp   UNCONN     0      0                     *:16998                             *:*                   users:(("asterisk",pid=24149,fd=70))
-udp   UNCONN     0      0                     *:16999                             *:*                   users:(("asterisk",pid=24149,fd=67))
-udp   UNCONN     0      0                     *:18010                             *:*                   users:(("asterisk",pid=24149,fd=82))
-udp   UNCONN     0      0                     *:18011                             *:*                   users:(("asterisk",pid=24149,fd=83))
-udp   UNCONN     0      0                   ::1:323                              :::*                   users:(("chronyd",pid=776,fd=2))
-udp   UNCONN     0      0                    :::49592                            :::*                   users:(("asterisk",pid=24149,fd=12))
-tcp   LISTEN     0      10                    *:5038                              *:*                   users:(("asterisk",pid=24149,fd=9))
-tcp   LISTEN     0      128                   *:111                               *:*                   users:(("systemd",pid=1,fd=41))
-tcp   LISTEN     0      128                   *:22                                *:*                   users:(("sshd",pid=1142,fd=3))
-tcp   LISTEN     0      10                    *:8088                              *:*                   users:(("asterisk",pid=24149,fd=8))
-tcp   LISTEN     0      100           127.0.0.1:25                                *:*                   users:(("master",pid=1361,fd=13))
-tcp   LISTEN     0      5                     *:5060                              *:*                   users:(("asterisk",pid=24149,fd=13))
-tcp   LISTEN     0      128                  :::111                              :::*                   users:(("systemd",pid=1,fd=40))
-tcp   LISTEN     0      128                  :::8080                             :::*                   users:(("ykycc2",pid=9623,fd=7))
-tcp   LISTEN     0      128                  :::22                               :::*                   users:(("sshd",pid=1142,fd=4))
-tcp   LISTEN     0      128                  :::5432                             :::*                   users:(("docker-proxy-cu",pid=26763,fd=4))
-tcp   LISTEN     0      100                 ::1:25                               :::*                   users:(("master",pid=1361,fd=14))
-
 ## Certified Asterisk
 * [Certified Asterisk](https://www.digium.com/products/asterisk/certified-asterisk)
   * Asterisk 的一个分支
   * 符合 Diginum 的 SLA/Service Level Agreement
   * [Asterisk Support Entitlements Chart](https://www.digium.com/products/asterisk/support/chart)
-
-
-## Versions
-* [Versions](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Versions)
-* [CHANGES](https://github.com/asterisk/asterisk/blob/master/CHANGES)
-* [edge/main/x86_64/asterisk](https://pkgs.alpinelinux.org/package/edge/main/x86_64/asterisk)
-  * edge 版
-* JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
-
-### 16.0 - LTS - 2018-1017
-* LTS 版本
-* app_originate 支持 `a` 参数, 异步拨号, 不等待响应
-* app_macro 模块废弃, 使用 app_stack (Gosub)
-* res_config_sqlite 模块废弃, 使用 res_config_sqlite3
-* res_monitor 模块废弃, 使用 app_mixmonitor
-* cdr_syslog 模块废弃, 并且默认不会构建
-* app_fax 模块废弃, 使用 res_fax
-
-
-### 15.0
-* 默认使用 bundled pjproject
-* 支持 RTCP Multiplexing 和 BUNDLE
-  * [Multiplexing RTP Data and Control Packets on a Single Port](https://tools.ietf.org/html/rfc5761)
-  * [Negotiating Media Multiplexing Using the SDP](https://datatracker.ietf.org/doc/draft-ietf-mmusic-sdp-bundle-negotiation/)
-* Unified Plan
-  * [A Unified Plan for Using SDP with Large Numbers of Media Flows draft-roach-mmusic-unified-plan-00](https://tools.ietf.org/html/draft-roach-mmusic-unified-plan-00)
-  * multiple media streams per connection
-* [asterisk/cyber_mega_phone_2k](https://github.com/asterisk/cyber_mega_phone_2k)
-  * testing of Asterisk's (15+) multistream capabilities
-
-### 14.0
-* 14.6.2 - 2017-09-19
-* 14.6.1 - 2017-08-31
-  * [5902](https://gerrit.asterisk.org/#/c/5902/) res_pjsip: `dtmf_mode` 添加 `auto_info`
-      * 默认的 `auto` 会将 dtmf 模式回退到 inband, 该模式是回退为 `INFO`
-  * [ASTERISK-27152] - Sending a "tel" uri in a From or To header in an unauthenticated message causes asterisk to crash
-* 14.6.0
-  * [ASTERISK-22432] - Async AGI crashes Asterisk when issuing "set variable" command without args
-  * [ASTERISK-26978] - rtp: Crash in ast_rtp_codecs_payload_code()
-  * [ASTERISK-27016] - Crash occurs when a channel in a 'mixing,dtmf_events' bridge is muted multiple times.
-  * [ASTERISK-27026] - res_ari: Crash when no ari.conf configuration file exists
-  * [ASTERISK-27050] - Crash on Transcoded Audio in PERIODIC_HOOK Function
-  * [ASTERISK-27108] - Crash using 'data get' CLI command
-  * [ASTERISK-25370] - res_corosync segfaults at startup with corosync version > 2.x
-  * [ASTERISK-27046] - res_pjsip_transport_websocket: segfault in get_write_timeout
-  * [ASTERISK-27057] - Seg Fault in ast_sorcery_object_get_id at sorcery.c
-* 14.5.0
-  * [ASTERISK-21855] - Asterisk crashes when XMPP message is sent (JabberSend) and no internet connection is available
-  * [ASTERISK-26692] - res_rtp_asterisk: Crash in dtls_srtp_handle_timeout at res_rtp_asterisk (using chan_sip)
-  * [ASTERISK-26835] - res_rtp_asterisk: Crash when freeing RTCP address string
-  * [ASTERISK-26853] - res_rtp_asterisk: Crash in pjnath when receiving packet
-  * [ASTERISK-26926] - func_speex: Crash caused by frame with no datalen
-  * [ASTERISK-26927] - pjproject_bundled: Crash on pj_ssl_get_info() while ioqueue_on_read_complete().
-  * [ASTERISK-26953] - Asterisk crash if hep.conf have some missing parameters
-  * [ASTERISK-26983] - Crash in Manager Reload when TLS Config Changes
-  * [ASTERISK-25506] - [patch]CONFBRIDGE failure after an app_confbrige.so module reload results in segfault or error/warning messages.
-  * [ASTERISK-26606] - tcptls: Incorrect OpenSSL function call leads to misleading error report
-
-## 13
-REST
-WebSocket
-Stasis
-
 
 ## 服务端
 * Asterisk
@@ -181,9 +75,6 @@ Stasis
 * IPPBX/IVR
 * [FaxServer using Asterisk](http://wiki.alpinelinux.org/wiki/FaxServer_using_Asterisk)
 
-### FreePBX
-* FAQ
-  * [Fwconsole not found](https://community.freepbx.org/t/fwconsole-not-found/33406)
 
 ## 客户端
 * Softphone
@@ -215,27 +106,6 @@ http://www.linphone.org/technical-corner/ortp/overview
 ## 视频
 * [Asterisk video](http://www.voip-info.org/wiki/view/Asterisk+video)
 
-## 名词
-
-* AGI
-  * 执行 Dialplan 中的脚本
-  * 针对单次通话
-* AMI
-  * `manager.conf`
-  * 实时接口
-  * Telnet
-  * 针对整个 PBX
-* ARI
-  * `ari.conf`
-  * 通过接口的方式而不是 C 的方式来写应用
-  * HTTP GET POST DELETE
-  * Websocks 统计和事件
-* Diaplan
-* DAHDI
-* libpri
-* IVR
-  * 交互式语音应答
-
 ## FAQ
 ### no samples for gxxx
 
@@ -247,10 +117,6 @@ Either ignore it, or find the device that does this and disable silent suppressi
 
 
 ## Notes
-```bash
-# 一个基于 Ubuntu 的 freepbx 容器
-docker run --net=host -it --name freepbx jmar71n/freepbx
-```
 
 * /etc/asterisk/modules.conf
 
@@ -389,18 +255,6 @@ friend  | 同时使用 peer 和 user. 对于 SIP 电话来说这是最常用的�
 ;	3. Asterisk checks the IP address (and port number) that the INVITE
 ;	   was sent from and matches against any devices with type=peer
 
-sip
-default is port 5060 for UDP and TCP, 5061
-; for TLS).
-
-SIP 由三部分组成
-1) the SIP connection (signaling for the call),
-2) the outgoing audio stream (RTP),
-3) the incoming audio stream (RTP).
-
-
-Asterisk as a B2BUA
-B2BUA (Back to Back User Agent)
 
 部分 VoIP 支持 T.38 faxing protocol, 但更好的做法是 Fax over IP server
 
@@ -409,48 +263,8 @@ http://www.voipsupply.com/voip-adapter-overview
 
 
 
-Digium Phone Module for Asterisk (DPMA)
-a proprietary technology which allows a secure connection between an Asterisk system and a Digium telephone
-
 注册主要是为了在网络上标识自己,而不是授权,标识自己后才能接收到来电.
 授权是在每次拨号时触发,一个座机可以未注册但也可以拨号,不过此时无法接到来电.
-
-
-MOH
-https://www.jamendo.com/start
-
-http://www.thegeekstuff.com/2009/05/sound-exchange-sox-15-examples-to-manipulate-audio-files
-https://linux.die.net/man/1/rec
-https://www.voip-info.org/wiki/view/Asterisk+config+musiconhold.conf
-
-https://github.com/bg111/asterisk-chan-dongle
-http://chan-dongle.blogspot.hk/2017/02/list-of-supported-models.html
-https://github.com/bg111/asterisk-chan-dongle/wiki/Requirements-and-Limitations
-
-https://web.archive.org/web/20150821112735/http://wiki.e1550.mobi/doku.php?id=compatible_usb_hubs
-
-
-
-
-```bash
-sox SilentCity.mp3 -t raw -r 8000 -s -2 -c 1 SilentCity.sln
-cp *.sln /var/lib/asterisk/moh
-asterisk -rx "module reload res_musiconhold.so"
-
-# exten => 664,1,NoOp()
-#     same => n,Progress()
-#     same => n,MusicOnHold()
-
-lame --decode music.mp3 music.wav
-sox -V music.wav -r 8000 -c 1 -w music.raw
-sox -V music.wav -r 8000 -c 1 -w music.gsm
-
-for i in *.wav; do \
-sox $i -r 8000 -c 1 $(basename $i .wav).raw; \
-sox $i -r 8000 -c 1 $(basename $i .wav).gsm; \
-done
-rm *.wav
-```
 
 
 
@@ -751,33 +565,6 @@ exten => 101,1,NoOp()
   same => n,GoSub(subVoicemail,start,1(${EXTEN},default,${VoicemailMessage}))
 ```
 
-__VoIP Protocol__
-Protocol | Mean | Notes
-----|----|----
-SIP   | Session Initiation Protocol          | SIP 基于标准的协议,大多数 VoIP 电话和服务都在使用或提供响应支持.
-SCCP  | Cisco Skinny Client Control Protocol | SCCP 是私有协议,主要用于 Cisco's Call Manager 和 IP 电话
-MGCP  | MGCP 很老的 VoIP 协议,已经很少使用了.
-H.323 | 类似于 MGCP , 是很老的 VoIP 协议,已经很少使用了.
-
-__语音编码__
-编码 | 速率 | Fidelity
-----|----
-GSM   | 13 Kbps| 8k
-iLBC  | 15 Kbps
-G.711 | 64 Kbps
-G.722 | 48/56/64 Kbps
-G.726 | 16/24/32/40 Kbps
-G.728 | 16 Kbps
-G.729 | 8 Kbps
-SPEEX Narrowband | 14Kps-23Kps | 8k
-SPEEX Wideband | 20800-58400 | 16k
-OPUS | 6k-51k | 48k
-G.722 | 8K-80k | 16k
-
-
-
-视频编码
-H.263 90000
 
 
 

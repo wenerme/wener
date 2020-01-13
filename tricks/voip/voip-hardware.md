@@ -41,6 +41,10 @@ https://www.voip-info.org/wiki/view/Analog+Telephone+Adapters
     * GSM
   * 云通讯
 
+## 语音卡
+
+* https://wiki.freepbx.org/display/PC/Telephony+Card+Hardware+Overview
+
 ## 主板
 * 主要考虑 PCI 槽数, 考虑 PCIe 即可
 * ASROCK/华擎科技 H110 PRO BTC+

@@ -300,10 +300,12 @@ module.exports = {
         'label': 'Asterisk',
         'items': [
           'voip/asterisk/intro',
+          'voip/asterisk/version',
           'voip/asterisk/dev',
           'voip/asterisk/chan_dahdi',
           'voip/asterisk/chan_dongle',
           'voip/asterisk/reference',
+          'voip/asterisk/glossory',
           'voip/asterisk/faq',
           'voip/asterisk/the-definitive-guide-4th',
         ]

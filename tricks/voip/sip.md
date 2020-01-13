@@ -20,5 +20,16 @@ SIP stack in Golang
 https://github.com/versatica/JsSIP
 JavaScript SIP library
 
+## Notes
+* 默认端口
+  * 5060 UDP/TCL
+  * 5061 TLS
+
+* SIP 由三部分组成
+  * the SIP connection (signaling for the call),
+  * the outgoing audio stream (RTP),
+  * the incoming audio stream (RTP).
+
+
 ## FAQ
 ### Call ID vs

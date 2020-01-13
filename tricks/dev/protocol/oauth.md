@@ -471,11 +471,11 @@ X-GitHub-Request-Id: C390:1E82:97CD8EB:B8B4F1D:5A4B13D1
         * OpenID Configuration https://wener.auth0.com/.well-known/openid-configuration
         * JSON Web Key Set https://wener.auth0.com/.well-known/jwks.json
       * SAML
-        * SAML Protocol URL https://wener.auth0.com/samlp/<ClientID>
-        * SAML Metadata URL https://wener.auth0.com/samlp/metadata/<ClientID>
+        * SAML Protocol URL `https://wener.auth0.com/samlp/<ClientID>`
+        * SAML Metadata URL `https://wener.auth0.com/samlp/metadata/<ClientID>`
       * WS-Federation
-        * WsFederation Metadata URL https://wener.auth0.com/wsfed/<ClientID>/FederationMetadata/2007-06/FederationMetadata.xml
-        * WsFederation Sign-in URL https://wener.auth0.com/wsfed/<ClientID>
+        * WsFederation Metadata URL `https://wener.auth0.com/wsfed/<ClientID>/FederationMetadata/2007-06/FederationMetadata.xml`
+        * WsFederation Sign-in URL `https://wener.auth0.com/wsfed/<ClientID>`
 * 链接
   * 实际存储用户
   * 提供
