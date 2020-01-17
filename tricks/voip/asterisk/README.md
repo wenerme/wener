@@ -165,6 +165,7 @@ Either ignore it, or find the device that does this and disable silent suppressi
   * 硬件
     * 常见的厂商 Digium (the sponsor, owner, and primary developer of Asterisk), Sangoma, Rhino, OpenVox, Pika, Voicetronix, Junghanns, Dialogic, Xorcom, beroNet
     * Digium Asterisk Hardware Device Interface - DAHDI
+* 安装的模块位于 `/usr/lib/asterisk/modules`
 * 常见模块
   * asterisk-alsa
   * asterisk-cdr-mysql
@@ -184,7 +185,6 @@ Either ignore it, or find the device that does this and disable silent suppressi
   * asterisk-speex
   * asterisk-srtp
   * asterisk-tds
-* 安装的模块位于 `/usr/lib/asterisk/modules`
 
 ```bash
 apk add asterisk

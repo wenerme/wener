@@ -27,12 +27,11 @@ title: 常见问题
   * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj
 
 ## 诊断命令
+* [CLI commands useful for debugging](https://wiki.asterisk.org/wiki/display/AST/CLI+commands+useful+for+debugging)
 
-CLI commands useful for debugging
-https://wiki.asterisk.org/wiki/display/AST/CLI+commands+useful+for+debugging
 
 ```bash
-# 系统状态 - 内存, 决策树, 运行时间
+# 系统状态 - 内存, 运行时间
 core show sysinfo
 # 查看线程
 core show threads
@@ -48,11 +47,31 @@ channel request hangup SIP/4003-00000a2f
 
 # 查看注册的 PBX 交换
 core show switches
+
+# 开启日志进行排查
+core set verbose 4
+core set debug 4
+
+# 开启 SIP 日志
+pjsip set logger on
 ```
 
 ## 终端问题排查
 * 确保 context 正确
 * 尝试关闭 ICE
+
+## 常见 HTTP 异常状态码
+
+No Response
+408 Request Timeout
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable 线路忙、拥塞
+504 Server Timeout
+Any 600-class response
+
+401 Unauthorized
+407 Proxy Authentication Required
 
 ## Assertion failed: sess && sess->endpt
 * 该异常后程序会直接崩溃
@@ -376,6 +395,15 @@ Content-Length: 0
 [Oct 11 13:08:04] ERROR[15472]: chan_pjsip.c:2219 request: Failed to create outgoing session to endpoint '8380'
 ```
 
+### res_pjsip/config_system.c:236 system_create_resolver_and_set_nameservers: There are no local system nameservers configured, resorting to system resolution
+
+```
+[Sep 11 14:07:32] ERROR[12786]: res_pjsip/config_system.c:236 system_create_resolver_and_set_nameservers: There are no local system nameservers configured, resorting to system resolution
+```
+
+### Everyone is busy/congested at this time (1:0/0/1)
+
+
 ### 发起通话的事件间隔很长
 
 ### ISSUES
@@ -496,9 +524,6 @@ S 口网关拨号异常
 [Sep 11 14:07:33] WARNING[12741]: res_phoneprov.c:1231 get_defaults: Unable to find a valid server address or name.
 ```
 
-```
-[Sep 11 14:07:32] ERROR[12786]: res_pjsip/config_system.c:236 system_create_resolver_and_set_nameservers: There are no local system nameservers configured, resorting to system resolution
-```
 
 
 
@@ -526,4 +551,14 @@ SecurityEvent="SuccessfulAuth",EventTV="2018-07-02T10:27:12.640+0800",Severity="
 
 ```
 [Jul  2 10:39:00] WARNING[32235]: res_rtp_asterisk.c:2524 __rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
+```
+
+
+
+```
+[Jan 15 18:32:43] WARNING[1855]: res_pjsip/config_transport.c:506 transport_apply: Transport 'transport-udp' is not reloadable, maintaining previous values
+[Jan 15 18:32:43] WARNING[1904]: res_pjsip/config_transport.c:506 transport_apply: Transport 'transport-tcp' is not reloadable, maintaining previous values
+[Jan 15 18:32:43] NOTICE[1904]: res_pjsip/pjsip_distributor.c:676 log_failed_request: Request 'REGISTER' from '<sip:8225@10.10.0.200>' failed for '10.10.0.3:53380' (callid: 102009Y2Q2N2QwNDMwNjFkZmFiZDZjNWIxMDg5MzMzMzI1YTA) - No matching endpoint found
+[Jan 15 18:32:43] NOTICE[1904]: res_pjsip/pjsip_distributor.c:676 log_failed_request: Request 'REGISTER' from '<sip:8225@10.10.0.200>' failed for '10.10.0.3:53380' (callid: 102009Y2Q2N2QwNDMwNjFkZmFiZDZjNWIxMDg5MzMzMzI1YTA) - No matching endpoint found
+[Jan 15 18:32:43] NOTICE[1904]: res_pjsip/pjsip_distributor.c:676 log_failed_request: Request 'REGISTER' from '<sip:8225@10.10.0.200>' failed for '10.10.0.3:53380' (callid: 102009Y2Q2N2QwNDMwNjFkZmFiZDZjNWIxMDg5MzMzMzI1YTA) - Failed to authenticate
 ```

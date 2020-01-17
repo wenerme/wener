@@ -304,6 +304,8 @@ module.exports = {
           'voip/asterisk/dev',
           'voip/asterisk/chan_dahdi',
           'voip/asterisk/chan_dongle',
+          'voip/asterisk/conf',
+          'voip/asterisk/dialplain',
           'voip/asterisk/reference',
           'voip/asterisk/glossory',
           'voip/asterisk/faq',
