@@ -212,8 +212,9 @@ module.exports = {
         type: 'category',
         label: '应用',
         items: [
-          'ops/network/link/wireless',
-          'ops/network/link/infiniband',
+          'ops/network/application/dns',
+          'ops/network/application/http',
+          'ops/network/application/ssl',
         ]
       },
       {
@@ -271,6 +272,8 @@ module.exports = {
           'ops/storage/fs/zfs',
           'ops/storage/fs/btrfs',
           'ops/storage/fs/fuse',
+          'ops/storage/fs/nfs',
+          'ops/storage/fs/ntfs',
           // 'ops/storage/fs/zfs-tuning',
         ]
       },
