@@ -273,6 +273,7 @@ module.exports = {
           'ops/storage/fs/btrfs',
           'ops/storage/fs/fuse',
           'ops/storage/fs/nfs',
+          'ops/storage/fs/smb',
           'ops/storage/fs/ntfs',
           // 'ops/storage/fs/zfs-tuning',
         ]

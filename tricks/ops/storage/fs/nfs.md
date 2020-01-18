@@ -1,3 +1,8 @@
+---
+id: nfs
+title: NFS
+---
+
 # NFS
 ## Tips
 * 允许本地访问远程文件
