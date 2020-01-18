@@ -1,3 +1,8 @@
+---
+id: rsync
+title: Rsync
+---
+
 # rsync
 
 ## Tips
@@ -10,6 +15,9 @@
 ```bash
 # 使用 SSH 同步
 rsync -avz -e ssh remoteuser@remotehost:/remote/dir /this/dir/ 
+
+# 远程使用 sudo
+rsync --rsync-path="sudo rsync" -avz dnsmasq/ admin@10.1.1.1:/etc/dnsmasq/
 
 # 备份整个系统
 rsync -aAXv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup/folder

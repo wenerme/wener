@@ -153,6 +153,21 @@ docker run -p 9000:9000 --name minio1 \
 * https://docs.min.io/docs/minio-kms-quickstart-guide.html
 * https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template#L355
 
+## ACL
+* https://docs.min.io/docs/minio-admin-complete-guide.html
+
+```bash
+# 创建一个 sites 的 bucket
+mc mb myminio/sites
+# 创建一个 sites 来管理
+mc admin user add myminio/ sites $(uuidgen | tee)
+# 添加策略
+echo '{"Version":"2012-10-17","Statement":[{"Action":["s3:*"],"Effect":"Allow","Resource":["arn:aws:s3:::crm/*"],"Sid":""}]}' > minio-sites-admin-policy.json
+mc admin policy add myminio/ sites-admin minio-sites-admin-policy.json
+# 给用户赋权
+mc admin policy set myminio sites-admin user=sites
+```
+
 ## FAQ
 ### Unsupported backend format
 * [#4104](https://github.com/minio/minio/issues/4104)

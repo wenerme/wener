@@ -13,7 +13,10 @@
     * 支持实时订阅
   * 数据模型通过 DSL 定义 - 支持自动迁移
 * 架构: 应用 -> Prisma Client -> Prisma Server -> Database
-
+* 现有的一些问题
+  * [Postgraphile vs Hasura vs Prisma vs AppSync experiences?](https://www.reddit.com/r/graphql/comments/ah27k1/postgraphile_vs_hasura_vs_prisma_vs_appsync/)
+  * 因为抽象了 DB 层 - 因此与具体的某个 DB 结合的没那么好
+    * 比如与 Postgre 没有 Hasura 结合的好 - 性能和功能
 
 ```bash
 # 安装命令行工具

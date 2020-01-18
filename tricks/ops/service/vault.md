@@ -29,6 +29,10 @@
   * 最大的区别是一个强调加密一个强调服务发现
   * Consul 的配置是 KV
   * Vault 的是目录格式 - 两个形式上有些类似
+* 环境变量
+  * VAULT_ADDR 服务端地址
+  * VAULT_TOKEN 请求的 Token
+
 
 ```bash
 # macOS
@@ -90,32 +94,139 @@ vault read -format=json secret/hello | jq ".data.value" -r
 vault read -field=value secret/password
 ```
 
+## approle
+```bash
+# 先使用 ROOT 登陆
+vault login
+
+# 只读
+cat <<EOF | vault policy write secret-read -
+path "secret/*" {
+  capabilities = [ "read" ]
+}
+EOF
+
+cat <<EOF | vault policy write secret-management -
+path "secret/*" {
+  capabilities = [ "create", "read", "update", "delete", "list" ]
+}
+EOF
+
+# 启用 approle
+vault auth enable approle
+
+# macOS 下是大写
+# 也可以不预定义 ROLE_ID
+ROLE_ID=$(uuidgen|tr '[:upper:]' '[:lower:]')
+vault write auth/approle/role/secret-reader role_id=$ROLE_ID
+# 赋予策略
+vault write auth/approle/role/secret-reader policies="secret-read"
+# 刚才创建的角色 ID
+vault read auth/approle/role/secret-reader/role-id
+# secret 不能查看 - 可以修改
+vault read auth/approle/role/secret-reader/secret-id
+# 从新生成 SECRET_ID
+# 将结果更新到变量
+SECRET_ID=$(vault write -f auth/approle/role/secret-reader/secret-id -format=json | jq -r '.data.secret_id')
+# 添加到登陆
+# 会生成 TOKEN - 重复操作会生成新的 Token 但之前的也会有效
+TOKEN=$(vault write --format=json auth/approle/login role_id=$ROLE_ID secret_id=$SECRET_ID | jq -r '.auth.client_token')
+
+# 验证 Token 有效
+VAULT_TOKEN=$TOKEN vault read auth/token/lookup-self
+
+# 写入测试数据
+vault secrets enable -path=secret kv
+vault kv put secret/test test_password=$ROLE_ID
+
+# 使用该 TOKEN 查询
+VAULT_TOKEN=$TOKEN vault kv get -field=test_password secret/test
+
+# 可以尝试在另外一个会话使用 TOKEN 登陆
+vault login $TOKEN
+```
+
 ## vault agent
 * 自动授权
 * 缓存
 * 模板
+* Agent 配置对象定义 [config.go](https://gopkgs.io/src/github.com/hashicorp/vault/command/agent/config/config.go)
 
 ```bash
+# APP ROLE 拿到的角色信息
+echo $ROLE_ID > role_id.vault.txt
+echo $SECRET_ID > secret_id.vault.txt
+
+# remove_secret_id_file_after_reading - 默认为 true - secret_id 读取后会被删除
 cat <<EOF > agent.json
 {
   "pid_file": "./vault.pid",
-  "vault": {"address":"https://myvault:8200"},
+  "vault": {
+    "address": "$VAULT_ADDR"
+  },
+  "listener": {
+    "tcp": {
+      "address": "0.0.0.0:8200",
+      "tls_disable": true
+    }
+  },
   "auto_auth": {
-      "sink":{
-        "file":{
-          "config":{
-            "path":"./vault.file"
-          }
+    "method": {
+      "type": "approle",
+      "config": {
+        "role_id_file_path": "role_id.vault.txt",
+        "secret_id_file_path": "secret_id.vault.txt"
+      }
+    },
+    "sink": [
+      {
+        "type": "file",
+        "config": {
+          "path": "./agent-token.file"
         }
       }
+    ]
   },
-  "cache":{"use_auto_auth_token": true}
+  "cache": {
+    "use_auto_auth_token": true
+  }
 }
 EOF
-cache {
-        use_auto_auth_token = true
-}
 
+vault agent -config agent.json
+
+# 使用本地和获取到的 Token
+export VAULT_ADDR=http://127.0.0.1:8200
+VAULT_TOKEN=$(cat agent-token.file) vault read auth/token/lookup-self
+
+# 登陆后则可以一直访问
+vault login $(cat agent-token.file)
+vault read auth/token/lookup-self
+```
+
+## Consul Secret
+* 基于 Consul 的 ACL 策略动态生成 Consul API 的 Token
+* 依赖 global-management 的 token
+
+```bash
+# 如果没有配置过 token
+consul acl bootstrap
+
+# 启用 consul secret
+vault secrets enable consul
+# 创建 token
+CONSUL_HTTP_TOKEN=d54fe46a-1f57-a589-3583-6b78e334b03b consul acl token create -policy-name=global-management
+# 使用新创建的 token
+vault write consul/config/access \
+    address=127.0.0.1:8500 \
+    token=7652ba4c-0f6e-8e75-5724-5e083d72cfe4
+
+# 新增角色 - 关联策略
+vault write consul/roles/my-role policy=$(base64 <<< 'key "" { policy = "read" }')
+# 角色关联现有策略
+vault write consul/roles/my-role policies=readonly
+# 获取授权信息
+vault read consul/creds/my-role
 ```
 
 ## PostgreSQL 存储
@@ -137,3 +248,22 @@ storage "postgresql" {
   connection_url = "postgres://user123:secret123!@localhost:5432/vault?sslmode=disable"
 }
 ```
+
+## 密码生成
+
+```bash
+vault write sys/plugins/catalog/secrets-gen \
+  sha_256=$(docker run --rm incos/vault sha256sum /etc/vault/plugins/vault-secrets-gen|cut -d ' ' -f 1) \
+  command=vault-secrets-gen
+
+vault secrets enable -path=gen -plugin-name=secrets-gen plugin
+
+vault write gen/password length=36 symbols=0
+```
+
+vault write sys/plugins/catalog/secrets-gen \
+    sha_256="${SHA256}" \
+    command="vault-secrets-gen"
+
+## 配置
+* https://www.vaultproject.io/docs/configuration/

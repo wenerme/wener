@@ -5,6 +5,17 @@ title: 词汇表
 
 # VoIP Glossary
 
+* hot-desking
+* ADC
+* CID - CallerID Number
+  * 主叫号码
+* DID
+* MWI - Message Waiting indicators
+* RPID - Remote-Party-ID 头
+  * Usually should be enabled to the settings used by your device for CONNECTEDLINE() functionality to work if supported by the endpoint.
+* PAI - P-Asserted-Identity 头
+* ICE - Interactive Connectivity Establishment
+
 ## 电话号码
 * [Is there a standard for phone numbers?](https://stackoverflow.com/a/21001896/1870054)
 * [E.164](https://en.wikipedia.org/wiki/E.164)

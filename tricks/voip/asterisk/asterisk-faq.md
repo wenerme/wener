@@ -403,6 +403,15 @@ Content-Length: 0
 
 ### Everyone is busy/congested at this time (1:0/0/1)
 
+* 开启日志排查 `pjsip set logger on`
+* 遇到过的问题
+  * `488 Not Acceptable Here` Warning: 305 devnull "SDP: Incompatible media format: no common codec"
+    * 被叫返回不支持编码
+    * 尝试 allow=all 来进行调试 - 然后再修改允许的编码
+* [Mysterious 'everybody is busy/congested at this time' error in Asterisk](https://feeding.cloud.geek.nz/posts/asterisk-everyone-busy-congested-at-this-time/)
+  * 原因是被叫返回了 `Do Not Disturb`
+
+
 
 ### 发起通话的事件间隔很长
 

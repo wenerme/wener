@@ -22,6 +22,8 @@ title: Asterisk 编码
   * gsm: 原始 GSM 编码，适用于 VoIP
   * wav: MS wav format, 16 bit linear
   * WAV: MS wav format, gsm encoded (wav49)
+* 目前很多场景也推荐使用 [Opus 编码](https://wiki.asterisk.org/wiki/display/AST/Codec+Opus)
+  * 开源、高效、支持的平台多
 * 参考
   * [Convert WAV audio files for use in Asterisk](https://www.voip-info.org/convert-wav-audio-files-for-use-in-asterisk/)
 
@@ -45,6 +47,51 @@ PCMA    | 8  | G.711/alaw
 G722    | 9  |         
 G729    | 18 | G.729a
 
+
+## 音频编码
+* 最佳兼容编码是 ulaw、alaw、gsm
+  * allow=ulaw,alaw,g722
+  * disallow=all
+* 开启 all 目前得到的是 codec2|g723|ulaw|alaw|gsm|g726|g726aal2|adpcm|slin|slin|slin|slin|slin|slin|slin|slin|slin|lpc10|g729|speex|speex|speex|ilbc|g722|siren7|siren14|testlaw|g719|opus|jpeg|png|h261|h263|h263p|h264|mpeg4|vp8|vp9|red|t140|t38|silk|silk|silk|silk
+* 如果两端的编码不一致会由 asterisk 进行转码 - 有一定的性能影响
+* 如果和允许的编码不匹配会导致拒绝
+  * SDP: Incompatible media format: no common codec
+* SDP 里的 rtpmap 标示支持的编码格式
+
+__SDP__ 头里的编码信息
+
+```
+m=audio 55560 RTP/AVP 0 101 3 8 110 97
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=rtpmap:110 speex/8000
+a=rtpmap:97 iLBC/8000
+a=fmtp:97 mode=30
+```
+
+* 编码类型
+  * u-law
+  * G726
+  * Speex Wide
+  * Speex Ultra
+  * Opus Narrow
+  * Opus Super
+  * Opus Full
+  * Opus Wide
+  * GSM
+  * a-law
+  * Speex Narrow
+  * iLBC 30
+  * G729
+  * G722
+
+## 视频编码
+* H.264
+* VP8
+* 客户端支持情况
+  * XLite 支持 H263 H263P
+  * Zoiper 免费版支持 VP8 付费版支持 H264
+
 ## 音频文件转码
 * [在线转码](https://www.sangoma.com/audio-converter/)
   * 支持转出 8K WAV、GSM、slin16、G729
@@ -55,28 +102,28 @@ G729    | 18 | G.729a
 sox callwait.mp3 -c 1 -r 16000 -b 16 callwait.wav
 ```
 
-## 音频编码
-* 最佳兼容编码是 ulaw、alaw、gsm
-* 如果两端的编码不一致会由 asterisk 进行转码 - 有一定的性能影响
+### 批量转换
 
-u-law
-G726
-Speex Wide
-Speex Ultra
-Opus Narrow
-Opus Super
-Opus Full
-Opus Wide
-GSM
-a-law
-Speex Narrow
-iLBC 30
-G729
-G722
+```bash
+sox SilentCity.mp3 -t raw -r 8000 -s -2 -c 1 SilentCity.sln
+cp *.sln /var/lib/asterisk/moh
+asterisk -rx "module reload res_musiconhold.so"
 
-## 视频编码
-* H.264
-* VP8
+# exten => 664,1,NoOp()
+#     same => n,Progress()
+#     same => n,MusicOnHold()
+
+lame --decode music.mp3 music.wav
+sox -V music.wav -r 8000 -c 1 -w music.raw
+sox -V music.wav -r 8000 -c 1 -w music.gsm
+
+for i in *.wav; do \
+sox $i -r 8000 -c 1 $(basename $i .wav).raw; \
+sox $i -r 8000 -c 1 $(basename $i .wav).gsm; \
+done
+rm *.wav
+```
+
 
 ## 格式之间的转码时间
 

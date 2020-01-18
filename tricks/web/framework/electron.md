@@ -11,6 +11,22 @@
     * Angular admin dashboard framework
 * 参考
   * [AngularClass/awesome-angular](https://github.com/AngularClass/awesome-angular)
+  * [When a rewrite isn’t: rebuilding Slack on the desktop](https://slack.engineering/308d6fe94ae4)
+    * Slack 资源占用降低
+      * 2G -> 300M
+    * 问题
+      * 基于 HTML 模板的手动 DOM 更新 - 重构为使用 React - 响应式更新
+      * 过早的数据家在 - 数据缓存、所有数据都假设为懒加载
+      * 每个工作空间是一个独立进程 - 重构为单进程、组件感知工作空间 - 完全重写
+* Tray 使用 16x16 的 ICON
+* https://electronjs.org/docs/api/native-image
+
+```bash
+# 生成 tray 图标
+convert logo.png -resize 16x16 tray.png
+
+echo -n 1 1.5 2 3 4 | xargs -d ' ' -n 1 -I {} sh -c 'convert logo.png -resize $(node -pe "16*{}") tray@{}x.png'
+```
 
 ```bash
 # 安装

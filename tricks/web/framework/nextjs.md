@@ -17,14 +17,19 @@
     * 不能在这里导入 CSS
   * _app.js
       * 自定义应用
+* 问题
+  * https://github.com/zeit/next.js/issues/8311 -  Setting-Up Socket.io-based Serverless API Route
+  * https://github.com/kirill-konshin/next-redux-wrapper
 ## 快速开始
 
 ```bash
 # 初始化项目
 mkdir my-web && cd my-web
 # 依赖
-npm install --save next react react-dom
-npm install --save-dev @types/react @types/node
+# npm install --save next react react-dom
+# npm install --save-dev typescript @types/react @types/node
+yarn add next react react-dom
+yarn add --dev typescript @types/react @types/node
 # 首页
 mkdir pages
 cat <<INDEX >pages/index.tsx
@@ -40,6 +45,20 @@ INDEX
 # 启动服务
 ./node_modules/.bin/next
 # 访问 http://localhost:3000
+
+# 其它常用目录
+mkdir public libs hooks types components modules
+```
+
+## Tips
+
+```bash
+# 常用依赖
+# npm add @zeit/next-css @zeit/next-sass @zeit/next-mdx isomorphic-unfetch isomorphic-ws
+yarn add npm add @zeit/next-css @zeit/next-sass @zeit/next-mdx isomorphic-unfetch isomorphic-ws
+
+# UI 框架
+npm add　antd
 ```
 
 ## 提示
@@ -48,9 +67,65 @@ INDEX
 * next.config.js - 配置文件
 * next-env.d.ts - 针对 TS 的类型定义
 * pages - 页面 - 可直接访问
+  * _document.js
+  * _app.js
   * api - 接口 - 通过 `/api/*` 访问
 
+#### 自定义 _app.js
+
+```js
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async (appContext) => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+//
+//   return { ...appProps }
+// }
+
+export default MyApp
+```
+
+#### 自定义 _document.js
+```js
+// _document is only rendered on the server side and not on the client side
+// Event handlers like onClick can't be added to this file
+
+// ./pages/_document.js
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+
+export default MyDocument
+```
+
 ### 接口
+* 使用 [micro](https://github.com/zeit/micro) 框架
+
 修改 pages/api/test.ts 为以下内容
 
 ```ts
@@ -62,7 +137,179 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
 然后访问 http://localhost:3000/api/test
 
+#### 接口配置
+
+```js
+export const config = {
+  api: {
+    // 默认会解析 1mb 的 body - 可以关闭
+    bodyParser: false,
+
+    // 修改配置
+    bodyParser: {
+      sizeLimit: '1mb'
+    }
+  },
+}
+```
+
+#### 支持 CORS
+
+```js
+import Cors from 'micro-cors'
+
+const cors = Cors({
+  allowedMethods: ['GET', 'HEAD'],
+})
+
+function Endpoint(req, res) {
+  res.json({ message: 'Hello Everyone!' })
+}
+
+export default cors(Endpoint)
+```
+
+
+### 常用脚本
+
+__packages.json__
+
+```js
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
+
+### 常用 tsconfig 配置
+
+```json5
+{
+  "compilerOptions":{
+    "baseUrl": ".",
+    "paths": {
+      "components/*": [
+        "components/*"
+      ],
+      "types/*": [
+        "types/*"
+      ],
+      "libs/*": [
+        "libs/*"
+      ],
+      "hooks/*": [
+        "hooks/*"
+      ],
+      "modules/*": [
+        "modules/*"
+      ]
+    }
+  }
+}
+```
+
+
 ## 配置
+
+* [next.config.js](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+
+```js
+module.exports = {
+  // 自定义环境变量
+  env: { customKey: 'my-value', },
+  // 页面扩展名
+  pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
+  // 资源路径替换
+  assetPrefix: isProd ? 'https://cdn.mydomain.com' : '',
+  // 支持 server 和 serverless
+  target: 'serverless',
+
+  // 自定义 webpack 配置
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // Note: we provide webpack above so you should not `require` it
+    // Perform customizations to webpack config
+    // Important: return the modified config
+    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
+    return config
+  },
+  webpackDevMiddleware: config => {
+    // Perform customizations to webpack dev middleware config
+    // Important: return the modified config
+    return config
+  },
+
+  // target 为 server 支持压缩
+  // 如果前端后 web 服务可以不考虑开启
+  compress: false,
+
+  // 自动静态优化的提示 - 闪电图标
+  devIndicators: {
+    autoPrerender: false,
+  },
+
+  // 关闭 X-Powered-By 头
+  poweredByHeader: false,
+  // 生成 ETag - 默认开启
+  generateEtags: false,
+
+  // 构建目录
+  distDir: 'build',
+
+  // 生成构建 ID
+  generateBuildId: async () => {
+    // You can, for example, get the latest git commit hash here
+    return 'my-build-id'
+  },
+
+  onDemandEntries: {
+    // period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: 25 * 1000,
+    // number of pages that should be kept simultaneously without being disposed
+    pagesBufferLength: 2,
+  },
+
+  typescript: {
+    // 忽略开发时的 typescript 错误
+    ignoreDevErrors: true,
+  },
+
+  // 静态导出的路径 - next export
+  exportPathMap: async function(
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/p/hello-nextjs': { page: '/post', query: { title: 'hello-nextjs' } },
+      '/p/learn-nextjs': { page: '/post', query: { title: 'learn-nextjs' } },
+      '/p/deploy-nextjs': { page: '/post', query: { title: 'deploy-nextjs' } },
+    }
+  },
+
+  // 会导出为 about/index.html 而不是 about.html
+  exportTrailingSlash: true,
+}
+```
+
+```js
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+
+module.exports = (phase, { defaultConfig }) => {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
+    return {
+      /* development only config options here */
+    }
+  }
+
+  return {
+    /* config options for all phases except development here */
+  }
+}
+```
 
 ### 针对服务端配置 fs:empty
 ```js
@@ -108,6 +355,10 @@ const faker = eval("require('faker')")
 
 这个方式是最简单的，其他方式参考 [SSR and Server Only Modules](https://arunoda.me/blog/ssr-and-server-only-modules)
 
+
+### Invalid left-hand side in assignment "MyModule*" = namespaces;
+* [using npm debug module breaks build (overriding any property on process.env)](https://spectrum.chat/zeit/now/using-npm-debug-module-breaks-build-overriding-any-property-on-process-env~b36f36b2-7785-4aea-b1f9-065a284b4188)
+* debug 模块的问题 - 注意引入位置 - 如果通过 transpile 可能会有问题
 
 ### 分析服务端代码和SSR代码
 

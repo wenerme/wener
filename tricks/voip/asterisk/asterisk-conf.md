@@ -198,6 +198,8 @@ noload => chan_sip.so
 ; 推荐使用 alsa - docker 下只能使用 oss
 noload => chan_console.so
 noload => chan_alsa.so
+; 如果运行环境并不能连接耳机等，可以考虑直接关闭
+noload => chan_oss.so
 
 ; DAHDi
 noload => chan_dahdi.so

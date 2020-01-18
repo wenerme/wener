@@ -6,10 +6,12 @@ title: Alpine
 ## Tips
 * [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
   * Search file in package from command line
-
 * [adelielinux](https://adelielinux.org/)
   * 基于 Alpine 针对桌面的系统
   * https://code.foxkit.us/groups/adelie
+* https://postmarketos.org/
+  * 基于 Alpine 的移动操作系统
+* GitLab 上关于 [安全的问题](https://gitlab.alpinelinux.org/alpine/aports/issues?state=closed&label_name%5B%5D=T-Security)
 
 ```bash
 # 计算块设备容量
@@ -232,113 +234,6 @@ docker info
 apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 ```
 
-## Release
-
-## 3.9
-
-```bash
-# 升级仓库之前可先升级本地包
-apk update
-apk upgrade
-
-# 更新为 3.9 仓库
-sed -ire 's/v\d\.\d/v3.9/g' /etc/apk/repositories
-apk update
-apk upgrade
-sync
-```
-
-## 3.8
-* [3.8.0](https://alpinelinux.org/posts/Alpine-3.8.0-released.html) 2018-06-27
-* Support netboot on all architectures
-* Add arm64 (aarch64) Raspberry Pi image
-* Add support for Raspberry Pi 3 Model B+
-* Support ISO image on s390x (KVM installation)
-* End of support for hardened kernel (unofficial Grsecurity)
-* Support for Crystal language
-* Linux 4.14
-* Go 1.10
-* Node.js 8.11 (LTS)
-* Rust 1.26
-* Ruby 2.5
-* PHP 7.2
-* ghc 8.4
-* OCaml 4.06
-* R 3.5
-* JRuby 9.2
-* 拆分了 linux-firmware 子包, 可单独安装
-* 注意
-  * 3.8 移除了 hardened 相关的 kernel, 之前版本安装的都需要做调整
-  * 3.7 没有 linut-virt 只有 linut-virthardened 需要先更新仓库
-
-```bash
-# 更新为 3.8 仓库
-sed -ire 's/v\d\.\d/v3.8/g' /etc/apk/repositories
-# 更新仓库索引
-apk update
-
-
-# 3.8 内核切换
-# ============
-# 3.8 移除了 hardened 内核, 升级前先切换到非 hardened 内核版本
-# 查看当前内核
-apk info -vv | grep hardened
-# 如果为 linux-virthardened 则安装 linux-virt
-# 如果为 linux-hardened 则安装 linux-vanilla
-# 如果不是 hardened 内核, 跳过
-apk add linux-vanilla
-# 如果有其他内核模块是 hardened 也需要安装对应的 vanilla 版本, zfs, drbd, spl, dahdi, 例如
-# apk add zfs-vanilla spl-vanilla
-# 移除 hardened 的启动菜单, 确保下次启动进入选择正确的内核
-nano /boot/extlinux.conf
-reboot
-# 重启后移除旧的内核
-apk del linux-hardened
-# 如果有依赖需要一并移除, 例如
-# apk del linux-hardened spl-hardened zfs-hardened
-
-# 更新所有的包
-apk upgrade
-sync
-reboot
-```
-
-## 3.7
-* [3.7.0](https://alpinelinux.org/posts/Alpine-3.7.0-released.html)
-* 查看当前内核版本 https://pkgs.alpinelinux.org/packages?name=linux*&branch=v3.7&repo=main&arch=x86_64
-* 3.7 添加了 busybox-extras, 部分原先 busybox 中的工具被移到了该包
-* Support for EFI;
-* Support in the installer for the GRUB bootloader
-* Linux 4.9.65
-* GCC 6.4
-* LLVM 5.0
-* Go 1.9
-* Node.js 8.9 (LTS)
-* Perl 5.26
-* PostgreSQL 10
-* Rust 1.22
-
-
-
-```bash
-sed -ire 's/v\d\.\d/v3.7/g' /etc/apk/repositories
-apk update
-# 在进行升级之前先更新 apk 工具
-apk add --upgrade apk-tools
-# 更新所有的包, --available 会强制更新包, 即便版本是一样的
-apk upgrade --available
-
-# 查看是否还有未升级的
-apk version
-# 内核可能由于依赖原因不会升级
-apk info -r linux-hardened
-# 将依赖的包进行统一升级即可
-apk add --upgrade linux-hardened spl-hardened zfs-hardened
-
-# 如果更新了内核, 则需要重启
-sync
-reboot
-```
 
 ## Mips
 https://bugs.alpinelinux.org/issues/5643
