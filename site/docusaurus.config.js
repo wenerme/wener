@@ -9,7 +9,25 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'wenerme',
   projectName: 'wener',
+  plugins: [
+    '@docusaurus/plugin-google-analytics',
+    '@docusaurus/plugin-google-gtag',
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        cacheTime: 600 * 1000, // 600 sec - cache purge period
+        changefreq: 'weekly',
+        priority: 0.5,
+      }
+    ],
+  ],
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-30404720-1',
+    },
+    gtag: {
+      trackingID: 'UA-30404720-1',
+    },
     navbar: {
       title: 'Wener',
       logo: {
@@ -116,9 +134,6 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-        },
-        googleAnalytics: {
-          trackingID: 'UA-30404720-1',
         },
       },
     ],
