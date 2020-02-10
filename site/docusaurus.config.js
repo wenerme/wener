@@ -80,11 +80,15 @@ module.exports = {
               <div>
               <a class="footer__link-item" href="https://github.com/wenerme/wener">Wener</a>
               - <a class="footer__link-item" href="https://travis-ci.com/wenerme/wener" title="wenerme/wener - travis-ci">
-                构建<img style="vertical-align: middle;opacity: .4;" src="https://travis-ci.com/wenerme/wener.svg?branch=master"/>
+                <img style="vertical-align: middle;opacity: .4;" src="https://travis-ci.com/wenerme/wener.svg?branch=master"/>
                 </a>
               - <a class="footer__link-item" href="https://github.com/wenerme/wenerme.github.io/deployments" title="GitHub Pages 部署">部署状态</a>
               </div>
               `
+            },
+            {
+              label: 'Wener\'s Apis',
+              href: 'https://apis.wener.me',
             },
           ],
         },
