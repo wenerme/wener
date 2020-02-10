@@ -124,6 +124,9 @@ pcieport 0000:00:1c.7:    [ 0] RxErr                  (First)
 * 参考
   * [PCIe Bus Error: severity=Corrected, type=Physical Layer, id=00e5(Receiver ID)](https://askubuntu.com/questions/863150)
     * 可能是由于 PCI 的额电源管理将链路设置为低电模式触发的异常
+  * [PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)](https://bbs.archlinux.org/viewtopic.php?id=242182)
+    * 可能是带宽问题
+    * Corrected 消息不影响，链路层自动矫正。Uncorrected 有问题
 
 ### The NVM Checksum Is Not Valid
 ```

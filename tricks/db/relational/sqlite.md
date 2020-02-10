@@ -10,6 +10,15 @@ title: SQLite
 * DATETIME 不会存储毫秒
 * [数据类型](http://sqlite.org/datatype3.html)
 
+```bash
+# macOS 安装
+brew install sqlite3
+# 因为系统自带 - 所以默认不会添加到 PATH
+$(brew --prefix sqlite3)/bin/sqlite3
+# 添加安装的 sqlite3 到 PATH
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+```
+
 ```sql
 -- 导入 csv
 create table foo(a, b);
@@ -159,3 +168,27 @@ CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
 
 https://dzone.com/articles/how-sqlite-database-works
 
+## 归档文件 / SQL Archive
+* [sqlar](https://www.sqlite.org/sqlar.html) - 自 2014 年 3.22.0 版本
+
+```sql
+-- 创建 sqlar 使用的表
+CREATE TABLE sqlar(
+  name TEXT PRIMARY KEY,  -- name of the file
+  mode INT,               -- access permissions
+  mtime INT,              -- last modification time
+  sz INT,                 -- original file size
+  data BLOB               -- compressed content
+);
+```
+
+```bash
+# 创建
+sqlite3 alltxt.sqlar -Ac *.txt
+# 更新
+sqlite3 example.sqlar -Au *.md
+# 显示文件
+sqlite3 example.sqlar -Atv
+# 提取
+sqlite3 example.sqlar -Ax
+```

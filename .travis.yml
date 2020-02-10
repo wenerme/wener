@@ -5,7 +5,7 @@ before_script:
   - echo building $TRAVIS_BUILD_DIR
   - node --version && yarn --version
   - cd ..
-  - git clone --depth 1 https://github.com/facebook/docusaurus
+  - git clone --branch v2.0.0-alpha.40 --depth 1 https://github.com/facebook/docusaurus
   - cd docusaurus
   - mv $TRAVIS_BUILD_DIR wener
   - git apply wener/site/docusaurus.patch
