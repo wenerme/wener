@@ -24,6 +24,10 @@ title: PowerDNS
     * 例如 *.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
 * 参考
   * [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
+* pdnsutil
+  * 域名管理工具
+  * 通过修改 DB - 可以远程使用
+
 
 dnsdist is a DNS loadbalancer from the people behind PowerDNS that balances DNS packets based on rules. 
 
@@ -76,6 +80,141 @@ pdnsutil check-zone mydomain.com
 # Playground
 docker run --rm -it -p 5353:53 --entrypoint bash wener/pdns:edge
 
+```
+
+## Get Start
+
+```bash
+docker run --rm -it -p 80:80 -p 53:53 -p 53:53/udp -v $PWD:/host -w /host wener/dns bash
+
+# 用于接口请求
+API_KEY=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32)
+WEBSERVER_PASSWORD=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32)
+# /etc/pdns/pdns.conf 标准配置目录
+cat <<EOF | tee pdns.conf > /etc/pdns/pdns.conf
+# backend
+launch=gsqlite3
+gsqlite3-database=$PWD/pdns.sqlite
+# handle dnssec
+gsqlite3-dnssec
+
+# server
+local-port=53
+local-address=0.0.0.0
+daemon=yes
+guardian=yes
+
+# dyndns
+dnsupdate=yes
+allow-dnsupdate-from=
+
+# web/api
+webserver=yes
+webserver-address=0.0.0.0
+webserver-password=$WEBSERVER_PASSWORD
+webserver-loglevel=normal
+webserver-port=80
+
+api=yes
+api-key=$API_KEY
+
+# soa default
+default-soa-name=ns1.wener.me
+default-soa-edit=
+default-soa-edit-signed=
+default-soa-mail=
+soa-expire-default=604800
+soa-minimum-ttl=3600
+soa-refresh-default=10800
+soa-retry-default=3600
+EOF
+# 初始化 sqlite
+curl -LO https://raw.githubusercontent.com/PowerDNS/pdns/master/modules/gsqlite3backend/schema.sqlite3.sql
+sqlite3 pdns.sqlite ".read schema.sqlite3.sql"
+
+# 前台启动
+pdns_server --daemon=no
+
+# 从另外一个会话操作
+
+# 重启 - 修改配置后可以使用
+pdns_control cycle
+
+# 域名管理
+pdnsutil create-zone wener.me
+# 添加记录 - ns1.wener.tech 实际上就是需要指向当前的服务器
+pdnsutil add-record wener.me @ NS ns1.wener.tech
+pdnsutil add-record wener.me @ A 127.0.0.1
+pdnsutil add-record wener.me app A 127.0.0.1
+# 检查
+pdnsutil check-all-zones
+# 所有的记录
+sqlite3 pdns.sqlite "select * from records"
+
+# 将三级域名作为 zone
+pdnsutil create-zone svc.wener.me
+pdnsutil add-record svc.wener.me @ NS ns1.wener.tech
+pdnsutil add-record svc.wener.me @ A 127.0.0.1
+# 在上级添加 NS 记录
+pdnsutil add-record wener.me svc NS ns1.wener.tech
+
+# NSUPDATE
+# --------------------
+# 上级启用 TSIG
+pdnsutil activate-tsig-key wener.me admin master
+# 下级启用 TSIG slave
+pdnsutil activate-tsig-key svc.wener.me admin slave
+# 单域名配置
+pdnsutil generate-tsig-key svc-admin hmac-md5
+pdnsutil set-meta svc.wener.me TSIG-ALLOW-DNSUPDATE svc-admin
+pdnsutil set-meta svc.wener.me ALLOW-DNSUPDATE-FROM 0.0.0.0/0
+
+# 查看
+pdnsutil list-tsig-keys
+# 启用的配置信息
+sqlite3 pdns.sqlite "select * from domainmetadata"
+
+SECRET=$(sqlite3 pdns.sqlite "select secret from tsigkeys where name='svc-admin'")
+# DNS UPDATE
+# 默认只支持 hmac-md5
+nsupdate <<EOF
+server 127.0.0.1 53
+zone svc.wener.me
+update add web.svc.wener.me 3600 A 1.2.3.4
+key svc-admin $SECRET
+send
+EOF
+# 泛域名修改
+nsupdate <<EOF
+server 127.0.0.1 53
+zone svc.wener.me
+update add *.svc.wener.me 3600 A 4.3.2.1
+key svc-admin $SECRET
+send
+EOF
+
+# 修改上级域名会失败
+nsupdate <<EOF
+server 127.0.0.1 53
+zone wener.me
+update add web.wener.me 3600 A 1.2.3.4
+key svc-admin $SECRET
+send
+EOF
+
+# 查看所有域名信息
+dig -t axfr svc.wener.me @127.0.0.1
+
+# DNSSEC
+# --------------------
+pdnsutil secure-zone wener.me
+pdnsutil secure-zone svc.wener.me
+
+# 输出的 DS 添加到上级
+pdnsutil show-zone svc.wener.me
+
+# 关闭 - 记得删除上级的 DS
+pdnsutil disable-dnssec wener.me
 ```
 
 ## GEO
@@ -156,6 +295,11 @@ socket-dir=/var/run
 
 # 缓存数据库域名数据的时间
 domain-metadata-cache-ttl=60
+
+# Server
+# ==========
+# 守护者模式 - 当不通过 supervisor 启动时建议开启
+guardian=yes
 
 # SOA
 # ==========
@@ -344,3 +488,9 @@ webserver=yes
 webserver-port=8082
 api-key=key
 ```
+## FAQ
+
+### TSIG is provided, but domain is not secured with TSIG. Processing continues
+* 通过 nsupdate 修改 - 操作会成功
+* zone 允许 tsig - 但未通过 tsig 加密
+
