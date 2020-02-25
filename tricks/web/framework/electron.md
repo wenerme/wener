@@ -1,3 +1,9 @@
+---
+id: electron
+title: Electron
+---
+
+
 # Electron
 
 ## Tips
@@ -20,6 +26,9 @@
       * 每个工作空间是一个独立进程 - 重构为单进程、组件感知工作空间 - 完全重写
 * Tray 使用 16x16 的 ICON
 * https://electronjs.org/docs/api/native-image
+
+tray
+https://medium.com/@nahoc/lets-build-a-system-tray-cryptocurrency-tracker-for-mac-using-electron-part-1-7888747891b
 
 ```bash
 # 生成 tray 图标

@@ -370,3 +370,38 @@ inventories/
   b/
     hosts
 ```
+
+## FAQ
+### 使用 hasi_vault 安装 hvac 问题
+
+```bash
+ansible -m debug -a 'var=ansible_playbook_python' localhost
+# localhost | SUCCESS => {
+#     "ansible_playbook_python": "/usr/local/Cellar/ansible/2.6.0/libexec/bin/python2.7"
+# }
+source /usr/local/Celler/ansible/2.6.0/libexec/bin/activate
+pip install hvac
+```
+
+### 2.9.0 使用 hashi_vault 返回结果结构不对
+* [#41132](https://github.com/ansible/ansible/pull/41132)
+
+```bash
+# 因为返回了 metadata 和 data 还需要取需要的字段
+ansible -m debug -a "msg={{lookup('hashi_vault', 'secret=secret/data/app:data').db_password}}" localhost
+# consul 的 token
+ansible -m debug -a "msg={{lookup('hashi_vault', 'secret=consul/creds/reader:token')}}" localhost
+```
+
+### objc[37519]: +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called.
+
+```bash
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+```
+
+### 生成 UUID
+
+```bash
+ansible localhost -m shell -a 'uuidgen'
+ansible localhost -m debug -a 'msg="{{ansible_date_time.iso8601_micro | to_uuid}}"'
+```

@@ -144,6 +144,7 @@ exit 0
   * [HN](https://news.ycombinator.com/item?id=10923460)
 * [antonym/netboot.xyz](https://github.com/antonym/netboot.xyz)
   * 所有的脚本 [src/](https://github.com/antonym/netboot.xyz/tree/master/src)
+* [tftp](https://netboot.xyz/booting/tftp/)
 * 启动配置 https://boot.netboot.xyz/boot.cfg
 * memdisk https://boot.netboot.xyz/memdisk
 * 默认脚本 https://boot.netboot.xyz

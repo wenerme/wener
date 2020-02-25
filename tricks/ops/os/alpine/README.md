@@ -51,11 +51,11 @@ setup-alpine
 # 网卡建议使用引导进行设置, 否则需要手动写配置文件
 setup-interfaces
 # 设置完网卡后可能需要重启网络服务
-rc-service networking restart
+service networking restart
 setup-sshd -c openssh
 # 默认情况下不允许 root 远程登陆
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-rc-service sshd restart
+service sshd restart
 # 设置一个密码, 以便于远程登陆
 passwd
 # 注意: 如果远程登陆说密码失效, 可能是时间问题, 先在服务器上开启 ntp 同步时间
@@ -63,7 +63,7 @@ passwd
 
 # 远程证书配置好过后可以考虑关闭远程密码登陆
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
-rc-service sshd restart
+service sshd restart
 
 # 接下来就可以远程操作了
 setup-hostname -n alpine-test
@@ -113,7 +113,12 @@ setup-disk -m sys -s 0 -v /dev/sda
 # BOOTLOADER grub 或 syslinux
 # MBR=/usr/share/syslinux/mbr.bin
 # SYSROOT=/mnt
-# ERASE_DISKS 可以设置成写入的磁盘, 就不会再进行询问
+# ERASE_DISKS=/dev/sda 可以设置成写入的磁盘, 就不会再进行询问
+# MKFS_OPTS_BOOT="-F" MKFS_OPTS_VAR="-F" mkfs 重复创建不询问
+# 会安装的包 根据 fs 类型不同会有不同
+# apk add --quiet sfdisk e2fsprogs
+# 安装动作
+# apk add --root /mnt --initdb --quiet --progress --update-cache --clean-protected --overlay-from-stdin --repository https://mirrors.ustc.edu.cn/alpine/v3.11/main --repository https://mirrors.ustc.edu.cn/alpine/v3.11/community alpine-base e2fsprogs openssh openssl syslinux acct linux-virt alpine-base
 ROOTFS=btrfs BOOTFS=btrfs VARFS=btrfs DISKLABEL=alp-wen setup-disk -m sys -s 0 -v /dev/sda
 
 # 使用 EFI

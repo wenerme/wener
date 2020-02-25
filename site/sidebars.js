@@ -32,6 +32,21 @@ module.exports = {
       },
       'java/library/productive',
     ],
+    前端技术: [
+      {
+        type: 'category',
+        label: '框架',
+        items: [
+          'web/framework/nextjs',
+          'web/framework/nextjs-cookbook',
+          'web/framework/electron',
+          'web/framework/vue',
+          'web/framework/angular',
+          'web/framework/riot',
+          'web/framework/prisma',
+        ],
+      },
+    ],
     语言: [
       'languages/languages',
       'languages/peg',

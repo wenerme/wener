@@ -1,3 +1,8 @@
+---
+id: nextjs
+title: NextJS
+---
+
 # NextJS
 
 ## Tips
@@ -20,6 +25,10 @@
 * 问题
   * https://github.com/zeit/next.js/issues/8311 -  Setting-Up Socket.io-based Serverless API Route
   * https://github.com/kirill-konshin/next-redux-wrapper
+  * [#9965](https://github.com/zeit/next.js/issues/9965) - Server-Sent Events don't work in Next API routes
+  * [#9524](https://github.com/zeit/next.js/issues/9524) - Static Generation / SSG Improvements
+
+
 ## 快速开始
 
 ```bash
@@ -28,8 +37,9 @@ mkdir my-web && cd my-web
 # 依赖
 # npm install --save next react react-dom
 # npm install --save-dev typescript @types/react @types/node
-yarn add next react react-dom
+yarn add next@latest react@latest react-dom@latest
 yarn add --dev typescript @types/react @types/node
+
 # 首页
 mkdir pages
 cat <<INDEX >pages/index.tsx
@@ -47,19 +57,36 @@ INDEX
 # 访问 http://localhost:3000
 
 # 其它常用目录
-mkdir public libs hooks types components modules
+mkdir -p public libs hooks types components modules reducers hooks
 ```
 
 ## Tips
 
 ```bash
 # 常用依赖
-# npm add @zeit/next-css @zeit/next-sass @zeit/next-mdx isomorphic-unfetch isomorphic-ws
-yarn add npm add @zeit/next-css @zeit/next-sass @zeit/next-mdx isomorphic-unfetch isomorphic-ws
+yarn add @zeit/next-css @zeit/next-sass @next/mdx isomorphic-unfetch isomorphic-ws
+
+yarn add next-transpile-modules @next/bundle-analyzer
+
+yarn add dotenv tsconfig-paths-webpack-plugin
+
+yarn add moment lodash
+
+yarn add --dev @types/lodash
+
+yarn add --dev @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
+yarn add --dev babel-plugin-import
 
 # UI 框架
-npm add　antd
+yarn add　antd
 ```
+
+## 版本
+* [9.2](https://nextjs.org/blog/next-9-2)
+  * 内建 CSS 全局样式支持 - 不再需要 `next-css` 依赖
+  * 内建 CSS 模块支持 `.module.css`
+  * 增强代码切分策略
+  * 新增 `[...slug].js` 全部捕获的动态路由
 
 ## 提示
 
@@ -184,6 +211,20 @@ __packages.json__
 }
 ```
 
+__支持自定义端口__
+
+> Heroku 部署需要这样
+
+```js
+{
+  "scripts": {
+    "dev": "next dev -p ${PORT:-3000}",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}"
+  }
+}
+```
+
 ### 常用 tsconfig 配置
 
 ```json5
@@ -205,6 +246,21 @@ __packages.json__
       ],
       "modules/*": [
         "modules/*"
+      ],
+      "utils/*": [
+        "utils/*"
+      ],
+      "apis/*": [
+        "apis/*"
+      ],
+      "db/*": [
+        "db/*"
+      ],
+      "server/*": [
+        "server/*"
+      ],
+      "public/*": [
+        "public/*"
       ]
     }
   }
@@ -326,6 +382,9 @@ module.exports = {
 ```
 
 ### 支持 CSS
+
+> ⚠️ 9.2 后内建支持 css
+
 ```js
 const withCSS = require('@zeit/next-css')
 module.exports = withCSS({})

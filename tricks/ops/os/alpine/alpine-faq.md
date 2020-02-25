@@ -223,3 +223,10 @@ mount UUID=x-x-x-x /sysroot
 [  149.148603] mlx4_core 0000:82:00.0: device is going to be reset
 [  149.148607] mlx4_core 0000:82:00.0: crdump: FW doesn't support health buffer access, skipping
 ```
+
+## kernel panic-not sycning: IO-APIC + timer doesn't work
+* 内核参数添加 `noapic nolapic acpi=off`
+* 如果是 qemu 可以试试添加参数 ` --cpu qemu64,-svm,+apic`
+```
+[0.032000] kernel panic-not sycning: IO-APIC + timer doesn't work. try booting with apic=debug and send a report. Then try booting with the 'noapic'option [0.032000]
+```

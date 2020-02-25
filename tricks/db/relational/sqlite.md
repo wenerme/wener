@@ -8,6 +8,8 @@ title: SQLite
 ## Tips
 
 * [数据类型](http://sqlite.org/datatype3.html)
+* 语法
+  * [expr](https://www.sqlite.org/lang_expr.html)
 * 注意
   * DATETIME 不会存储毫秒
   * 没有 Base64 函数
@@ -229,7 +231,12 @@ sqlite3 my.sqlar "select name,mode,sz,mtime from sqlar"
 ```sql
 -- 文件 33188 = 0100644
 -- 目录 16877 = 040755
-update sqlar set mode = 40755;
+
+-- 统一修改 mode
+-- 文件
+update sqlar set mode=33188 where data is not null;
+-- 目录
+update sqlar set mode=16877 where data is null;
 ```
 ### sqlarfs
 
@@ -250,6 +257,12 @@ gcc sqlar.c -D_FILE_OFFSET_BITS=64 -lsqlite3 -lz -o sqlar
 ```
 
 ## Node
+
+```bash
+# pre gyp 默认从 s3 下载 - 可指定镜像
+yarn add sqlite3 --sqlite3_binary_host_mirror=https://npm.taobao.org/mirrors/sqlite3/
+```
+
 ```ts
 // 获取版本
 const db = new Database(':memory:');

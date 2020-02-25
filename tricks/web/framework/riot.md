@@ -1,3 +1,8 @@
+---
+id: riotjs
+title: Riot
+---
+
 # riotjs
 
 ## Tips

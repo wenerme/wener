@@ -1,3 +1,9 @@
+---
+id: vue
+title: Vue
+---
+
+
 # Vue
 
 __生命周期__
