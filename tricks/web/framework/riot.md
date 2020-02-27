@@ -1,5 +1,5 @@
 ---
-id: riotjs
+id: riot
 title: Riot
 ---
 

@@ -23,7 +23,7 @@ title: 版本历史
 
 ```bash
 # 修改为 3.11 包
-sed -ir 's/v[.0-9]+/v3.11/' /etc/apk/repositories
+sed -i -r 's/v[.0-9]+/v3.11/' /etc/apk/repositories
 # 升级
 apk update
 apk upgrade
