@@ -13,6 +13,7 @@ title: NextJS
     * 不要能服务端的模块，通过 API 实现调用
   * 请求推荐使用 `isomorphic-unfetch`
 * 页面自定义
+  * [默认特殊页面内容](https://github.com/zeit/next.js/tree/master/packages/next/pages)
   * _document.js
     * 自定义文档内容 - HTML
     * 在 `<Main/>` 之外的组建都不会在页面初始化 - 只做 SSR
@@ -23,11 +24,19 @@ title: NextJS
   * _app.js
       * 自定义应用
 * 问题
-  * https://github.com/zeit/next.js/issues/8311 -  Setting-Up Socket.io-based Serverless API Route
-  * https://github.com/kirill-konshin/next-redux-wrapper
+  * [#8311](https://github.com/zeit/next.js/issues/8311) -  Setting-Up Socket.io-based Serverless API Route
   * [#9965](https://github.com/zeit/next.js/issues/9965) - Server-Sent Events don't work in Next API routes
   * [#9524](https://github.com/zeit/next.js/issues/9524) - Static Generation / SSG Improvements
-
+  * [#706](https://github.com/zeit/next.js/issues/706) - Add support to transpile modules inside node_modules
+    * 跨项目转译 - [martpie/next-transpile-modules](https://github.com/martpie/next-transpile-modules)
+    * 配合 lerna 使用有问题
+    * 被转译模块不能使用绝对路径，除非添加 package
+      * `import 'libs/utils'` 不可以
+      * `import './utils'` 可以
+      * `import '@wener/core/libs/utils'` 可以
+* 参考
+  * https://github.com/kirill-konshin/next-redux-wrapper
+  * i18n https://github.com/isaachinman/next-i18next/issues/274
 
 ## 快速开始
 
@@ -63,25 +72,44 @@ mkdir -p public libs hooks types components modules reducers hooks
 ## Tips
 
 ```bash
-# 常用依赖
-yarn add @zeit/next-css @zeit/next-sass @next/mdx isomorphic-unfetch isomorphic-ws
+# 基础依赖
+yarn add next@latest react@latest react-dom@latest
+yarn add --dev typescript @types/react @types/node
 
+# Next 扩展增强插件
+yarn add @zeit/next-css @zeit/next-sass @next/mdx
 yarn add next-transpile-modules @next/bundle-analyzer
 
 yarn add dotenv tsconfig-paths-webpack-plugin
-
-yarn add moment lodash
-
-yarn add --dev @types/lodash
-
 yarn add --dev @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
 yarn add --dev babel-plugin-import
 
+# 服务端开发
+isomorphic-unfetch isomorphic-ws
+
+# 常用工具
+yarn add moment lodash date-fns
+yarn add --dev @types/lodash
+
 # UI 框架
 yarn add　antd
+
+# 测试
+yarn add --dev ts-node jest ts-jest @types/jest
 ```
 
 ## 版本
+### 9.3
+* [9.3](https://nextjs.org/blog/next-9-3)
+* SSG 服务端静态生成 HTML
+  * 支持 fallback
+* 预览模式 - 条件性跳过 SSG
+* 内建 Sass 全局样式
+* 内建 Sass CSS 模块支持
+* 404 静态优化
+* 运行时减少 32 kB
+
+### 9.2
 * [9.2](https://nextjs.org/blog/next-9-2)
   * 内建 CSS 全局样式支持 - 不再需要 `next-css` 依赖
   * 内建 CSS 模块支持 `.module.css`
@@ -150,6 +178,11 @@ class MyDocument extends Document {
 export default MyDocument
 ```
 
+#### 自定义 _error.js
+
+```js
+```
+
 ### 接口
 * 使用 [micro](https://github.com/zeit/micro) 框架
 
@@ -204,6 +237,7 @@ __packages.json__
 ```js
 {
   "scripts": {
+    "test": "jest --passWithNoTests",
     "dev": "next",
     "build": "next build",
     "start": "next start"
@@ -218,9 +252,23 @@ __支持自定义端口__
 ```js
 {
   "scripts": {
+    "test": "jest --passWithNoTests",
     "dev": "next dev -p ${PORT:-3000}",
     "build": "next build",
     "start": "next start -p ${PORT:-3000}"
+  }
+}
+```
+
+__workspace__
+
+```js
+{
+  "scripts": {
+    "test": "yarn --cwd packages/server test",
+    "dev": "yarn --cwd packages/server dev",
+    "build": "yarn --cwd packages/server build",
+    "start": "yarn --cwd packages/server start"
   }
 }
 ```

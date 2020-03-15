@@ -15,6 +15,13 @@ title: NextJS Cookbook
 const isServer = typeof window === 'undefined'
 ```
 
+## 配置问题排查
+
+```js
+// 输出 Webpack 的匹配规则
+config.module.rules.forEach(rule => console.log(`Rule Test ${rule.test} Use`, rule.use))
+```
+
 ## 页面基础代码
 ```ts
 import React from 'react';
@@ -139,4 +146,77 @@ export default handler;
 
   </body>
 </html>
+```
+
+## CSS 导入字体
+
+```js
+config.module.rules.push({
+  test: /\.(eot|woff|woff2|ttf)$/,
+  use: {
+    loader: 'url-loader',
+    options: {
+      limit: 100000,
+      name: '[name].[ext]'
+    }
+  }
+});
+```
+
+## 导入 SVG
+* url-loader inline 会生成 dataurl - react 可能导致异常
+* [next-images](https://github.com/twopluszero/next-images)
+
+```ts
+// Typescript 确保不会出现类型错误
+declare module '*.svg'
+
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.gif'
+```
+
+### 使用 @svgr/webpack
+* 可以使用 tsconfig 中的 path
+* https://react-svgr.com/docs/webpack/
+* https://github.com/webpack-contrib/url-loader/issues/86
+* Base64 问题
+  * https://github.com/gregberge/svgr/issues/361
+
+```bash
+yarn add --dev @svgr/webpack babel-loader
+```
+
+```js
+config.module.rules.push({
+  test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+  use: [
+    {
+      loader: 'babel-loader',
+    },
+    {
+      loader: '@svgr/webpack',
+      options: {
+        babel: false,
+        icon: true,
+      },
+    },
+  ],
+});
+```
+
+### 使用 inline-react-svg
+* __不可以__ 使用 tsconfig 中的 path
+* 会用 SVGO 优化
+
+```bash
+yarn add --dev babel-plugin-inline-react-svg
+```
+
+```json
+{
+  "presets": [ "next/babel" ],
+  "plugins": [ "inline-react-svg" ]
+}
 ```

@@ -1,6 +1,6 @@
 ---
 id: chan_dahdi
-title: chan_dahdi
+title: DAHDi Channel
 ---
 
 # DAHDi
@@ -12,8 +12,44 @@ title: chan_dahdi
   * [libpri](http://git.asterisk.org/gitweb/?p=libpri.git)
 * [DAHDI Telephony Interface Driver](http://docs.tzafrir.org.il/dahdi-linux/README.html)
 * dahdi tools 实际操作的是 `/dev/dahdi/ctl`
+* [源码下载](https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/) / [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
+* 版本历史
+  * 3.1 - 2019-10-7
+  * 3.0 - 2018-11-15
+  * 2.11 - 2015-12-22
+* 编译问题
+  * 5.4 后 linux/pci-aspm.h 变为 linux/pci.h
+  * 5.0
+    * SUBDIRS=$(PWD) => M=$(shell pwd)
+    * implicit declaration of function `do_gettimeofday`; did you mean 'do_settimeofday64'?
+      * 以前在 `linux/timekeeping32.h` 之后被删除
+      * [xpp patch](http://git.asterisk.org/gitweb/?p=dahdi/linux.git;a=blobdiff;f=drivers/dahdi/xpp/xbus-pcm.c;h=8bb2fe76c66a143242730e022cf8af3a6268b062;hp=37f9260e7ecb1c7b3e00b7bd942eac7bc95d6d05;hb=ffcd08205c71dcb0e060836359418bef20f07ffa;hpb=8468250328b607cbd2774c2209fbe5826be01098)
+      * `do_gettimeofday(&di->last_lost_tick.tv);` -> `di->last_lost_tick = ktime_get();`
+      * `struct timeval now` -> `const ktime_t now`;
+    * implicit declaration of function `touch_softlockup_watchdog`
+      * 以前 `linux/sched.h` 现在在 [linux/nmi.h](https://elixir.bootlin.com/linux/v5.4/ident/touch_softlockup_watchdog)
+  * Openvox 2.11
+    * include/kernel.h `#define dahdi_pci_module pci_register_driver`
+  * Ubuntu 的 DAHDi 补丁可以作为参考 https://launchpad.net/ubuntu/+source/dahdi-linux/+changelog
+  * Alpine 的 DAHDi 驱动带了 zaphfc 的补丁
+    * https://community.asterisk.org/t/dahdi-with-hfc-s-pci-card/39320
+    * https://gitlab.alpinelinux.org/alpine/aports/tree/v3.10.3/main/dahdi-linux-vanilla
+    * https://www.voip-info.org/asterisk-zaphfc/
+* https://wiki.asterisk.org/wiki/display/DAHDI/DAHDI
+* http://git.asterisk.org/gitweb/?p=dahdi/tools.git;a=summary
+* https://wiki.asterisk.org/wiki/display/DAHDI/Quick+Start+From+Source
 
 ```bash
+apk add dahdi-linux-lts
+
+dahdi_genconf modules
+cat /etc/dahdi/modules
+modprobe <previously listed detected drivers>
+dahdi_genconf system
+dahdi_cfg
+
+
+
 # 先查看所有的
 lspci
 # 然后可以查看单个的详情, 可以看到使用的模块

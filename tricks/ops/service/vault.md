@@ -33,7 +33,6 @@
   * VAULT_ADDR 服务端地址
   * VAULT_TOKEN 请求的 Token
 
-
 ```bash
 # macOS
 brew instal vault
@@ -259,11 +258,12 @@ vault write sys/plugins/catalog/secrets-gen \
 vault secrets enable -path=gen -plugin-name=secrets-gen plugin
 
 vault write gen/password length=36 symbols=0
-```
 
 vault write sys/plugins/catalog/secrets-gen \
     sha_256="${SHA256}" \
     command="vault-secrets-gen"
+```
+
 
 ## 配置
 * https://www.vaultproject.io/docs/configuration/

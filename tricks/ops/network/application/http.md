@@ -9,8 +9,6 @@ title: HTTP
 * 301 vs 302
   * 301 Moved Permanently
   * 302 Found / Moved Temporarily
-* Cache
-  * MDN [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
 
 
 ```

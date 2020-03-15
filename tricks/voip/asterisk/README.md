@@ -14,7 +14,7 @@ title: Asterisk
       * 目前在维护周期的 LTS 有 13、16
   * [源码](https://gerrit.asterisk.org/) / [asterisk/asterisk](https://github.com/asterisk/asterisk)
   * [公共下载目录](http://downloads.asterisk.org/pub/)
-  * [文档索引](http://www.asterisk.org/community/documentation)
+  * 官方 [文档索引](http://www.asterisk.org/community/documentation)
 * 语音文件 https://www.asterisksounds.org
 * [Asterisk NOW](http://www.asterisk.org/downloads/asterisknow-6-64) - 是一个立即可用的系统镜像
 * [Asterisk The Definitive Guide](http://www.asteriskdocs.org/)
