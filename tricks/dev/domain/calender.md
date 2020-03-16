@@ -14,6 +14,9 @@ title: 日历
   * ics
 * [infinet/lunar](https://github.com/infinet/lunar-calendar) - iCal农历, 节气, 传统节日
 * [Comparison of CalDAV and CardDAV implementations](https://en.wikipedia.org/wiki/Comparison_of_CalDAV_and_CardDAV_implementations)
+* ical, caldav, exchange, ews
+  * MS Exchange EWS
+  * caldav - https://www.google.com/calendar/dav/username@gmail.com/events/
 
 ## FAQ
 
