@@ -6,7 +6,10 @@ title: Docker Swarm
 # Docker Swarm
 
 ## Tips
-
+* 什么时候用 Docker - 而不是 K8S
+  * 当一台机器性能不足时
+  * 当节点小于 10 时
+  * 当容器数量小于 1000 时
 * 可备份 swarm 的状态,以便以后恢复 `/var/lib/docker/swarm/raft`
 
 ```bash

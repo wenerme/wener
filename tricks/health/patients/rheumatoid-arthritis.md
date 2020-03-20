@@ -29,6 +29,9 @@ title: 类风湿性关节炎
   * [【TED-Ed】为什么我们还不能治愈关节炎](https://www.bilibili.com/video/av94091035)
 
 ## 处理
+* [Management of Rheumatoid Arthritis](https://patient.info/doctor/management-of-rheumatoid-arthritis)
+* [EULAR recommendations for the management of rheumatoid arthritis with synthetic and biological disease-modifying antirheumatic drugs: 2013 update](https://ard.bmj.com/content/73/3/492.full)
+
 ### 生活习惯
 * 规律的运动能维持肌肉力量和生理机能
   * 目前暂无证据表明运动对长期治疗有害
