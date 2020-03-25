@@ -3,7 +3,7 @@
 * [sshd_config](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd_config.5)
 
 ## Tips
-
+* Host key `/etc/ssh/ssh_host_*`
 * 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
 
 Verify that the .pem file has permissions of 0400, not 0777
@@ -81,3 +81,27 @@ autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
 ## FAQ
 ### key_load_public: No such file or directory
 找不到 `~/.ssh/id_rsa.pub`，不影响使用
+
+### 端口转发
+* -L/LocalForward 本地转发
+* -R/RemoteForward 远程转发
+
+```bash
+# 访问本地 80 会被转发到 SERVER:8080
+ssh -L 8080:localhost:80 SERVER -o ExitOnForwardFailure=yes
+
+# 访问 SERVER:80 会被转发到本地 8080 端口
+# -g 允许外部访问
+ssh -g -R 80:localhost:8080 SERVER -o ExitOnForwardFailure=yes
+```
+
+允许端口转发
+
+__/etc/ssh/sshd_config__
+
+```conf
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+# 允许 -g
+GatewayPorts yes
+```

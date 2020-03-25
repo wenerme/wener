@@ -6,14 +6,17 @@ title: FUSE
 
 # FUSE
 
-
 ## Tips
 
 * Golang
   * [bazil/fuse](https://github.com/bazil/fuse)
+* https://github.com/fuse-friends/fuse-native
 
 
 ```bash
+# Docker 内使用 FUSE
+docker run --rm -it --privileged --cap-add SYS_ADMIN --cap-add MKNOD --device /dev/fuse -v $PWD:/host -w /host wener/base:alpine
+
 # 挂载 loop
 losetup -P /dev/loop2 harddrive.img
 ```

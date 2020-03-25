@@ -1,5 +1,7 @@
 # Webcast
 
+* [HLS Latency Sucks, But Here’s How to Fix It](https://www.wowza.com/blog/hls-latency-sucks-but-heres-how-to-fix-it)
+
 ## spreed-webrtc
 [Spreed WebRTC](https://github.com/strukturag/spreed-webrtc) implements a WebRTC audio/video call and conferencing server and web client.
 

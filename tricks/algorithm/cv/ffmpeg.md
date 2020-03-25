@@ -211,6 +211,9 @@ MP4Box -h dash
 # ==========
 ffmpeg -i in.mov -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > out.gif
 
+# keep scale
+ffmpeg -i in.mov -pix_fmt rgb24 -r 18 -f gif - | gifsicle --optimize=3 --delay=3 > out.gif
+
 # Web Media
 # ========
 pv in.mp4 | ffmpeg -v warning -y -i pipe:0 -vcodec h264 -vf scale=576:-1 -acodec aac output3.mp4

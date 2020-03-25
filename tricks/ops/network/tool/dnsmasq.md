@@ -19,12 +19,25 @@ title: dnsmasq
   * [DNS resolution happenning only after timeout](http://www.openwall.com/lists/musl/2017/09/28/1)
   * [Functional differences from glibc](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
 * address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
+* [reload](https://serverfault.com/a/934681)
+  * SIGHUP
+  * /etc/hosts /etc/ethers 
+  * --dhcp-hostsfile
+  * --dhcp-hostsdir
+  * --dhcp-optsfile
+  * --dhcp-optsdir
+  * --dhcp-optsdir
+  * --addn-hosts
+  * --hostsdir
 
 
 ```bash
 # 速度测试
 time ping -c 1 baidu.com
 time ping -4 -c 1 baidu.com
+# 如果不方便 ping 也可以 wget
+time wget --spider -q baidu.com
+
 # 查看当前使用的 dns
 cat /etc/resolv.conf
 # 安装
@@ -497,4 +510,14 @@ tftp-port-range=<start>,<end>
 pxe-service=[tag:<tag>,]<CSA>,<menu text>[,<basename>|<bootservicetype>][,<server address>|<server_name>]
 # 设置提示信息
 pxe-prompt=[tag:<tag>,]<prompt>[,<timeout>]
+```
+
+## FAQ
+
+### dnsmasq: setting capabilities failed: Operation not permitted
+* Docker 里遇到
+* 用 root 启动
+
+```bash
+dnsmasq --user=root
 ```

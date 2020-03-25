@@ -48,7 +48,7 @@ start({ dir }, port, args['--hostname'])
 ```
 
 ## 最简自定义 server
-* 使用自定义 server 则不需要依赖 next start
+* 使用自定义 server 则不需要 next start
 
 ```js
 const {createServer} = require('http');

@@ -1,6 +1,26 @@
 # Git
 
 ## Tips
+* 使用 alias 来简化操作
+* 使用 IDE 集成的 git 工具
+* 避免直接操作主分支
+* 避免管理大的二进制文件
+* 常提交,早提交,提交以工作任务为单位
+* 为提交写上详细的注释
+* 谨慎 PUSH
+* 相关开发人员统一代码风格
+* 使用自动补全
+* 在切换分之前使用 stash
+* 学会使用 Markdown
+* 有问题问谷歌
+
+# 参考
+* [Pro Git（中文版）](http://git.oschina.net/progit/)
+* [Git for beginners: The definitive practical guide](http://stackoverflow.com/questions/315911/)
+* [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
+* [git 与 svn 命令比较](http://git.or.cz/course/svn.html)
+* [我的 .gitconfig](https://github.com/wenerme/dotfiles/blob/master/.gitconfig)
+
 
 ```bash
 # 直接通过 SSH 进行仓库推送
@@ -73,6 +93,9 @@ brew install bfg
 bfg --delete-files id_{dsa,rsa}  my-repo.git
 bfg --strip-blobs-bigger-than 50M  my-repo.git
 bfg --delete-folders dirname  my-repo.git
+
+# 清理
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
 ```
 
 ### 文件太大
@@ -127,10 +150,10 @@ from [here](http://stackoverflow.com/questions/927358)
 ### 显示 不同
 
 ```bash
-git diff
-	--cached
-	--staged
-	HEAD 尚未暂存的,当前正在编辑的
+git diff \
+	--cached \
+	--staged \
+	HEAD # 尚未暂存的,当前正在编辑的
 ```
 from [here](http://stackoverflow.com/questions/1587846)
 
@@ -146,10 +169,38 @@ git branch -D temp
 
 ### push tags
 
-```
+```bash
 git push --tags
 # 只 push 一个
 git push origin <tag_name>
+```
+
+### clone tag
+
+```bash
+git clone --branch <tag_name> <repo_url>
+```
+
+### 生成 patch
+
+```bash
+# git diff --cached
+git diff > my.patch
+```
+
+### 授权缓存
+* https://stackoverflow.com/questions/5343068
+
+```bash
+# 默认 15m
+git config --global credential.helper "cache --timeout=3600"
+
+# macOS 可以使用 keychain
+# git config --global credential.helper osxkeychain
+
+# 或者 ~/.netrc
+# machine <hostname> login <username> password <password>
+chmod 600 ~/.netrc
 ```
 
 ### 强制 pull
@@ -214,7 +265,16 @@ git checkout --orphan <branchname>
 git rm --cached -r .
 ```
 
-### Migrate git branch to a new repository
+### 迁移子目录为仓库
+* [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
+
+```bash
+# git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME 
+
+git subtree split -P <name-of-folder> -b <name-of-new-branch>
+```
+
+### 迁移分支为仓库
 
 ```bash
 mkdir /path/to/new/repo && cd "$@"
@@ -276,24 +336,3 @@ git svn dcommit
 # 当 SVN 上有比本地更新的内容时,拉取新的内容
 git svn rebase
 ```
-
-# Tips
-* 使用 alias 来简化操作
-* 使用 IDE 集成的 git 工具
-* 避免直接操作主分支
-* 避免管理大的二进制文件
-* 常提交,早提交,提交以工作任务为单位
-* 为提交写上详细的注释
-* 谨慎 PUSH
-* 相关开发人员统一代码风格
-* 使用自动补全
-* 在切换分之前使用 stash
-* 学会使用 Markdown
-* 有问题问谷歌
-
-# 参考
-* [Pro Git（中文版）](http://git.oschina.net/progit/)
-* [Git for beginners: The definitive practical guide](http://stackoverflow.com/questions/315911/)
-* [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
-* [git 与 svn 命令比较](http://git.or.cz/course/svn.html)
-* [我的 .gitconfig](https://github.com/wenerme/dotfiles/blob/master/.gitconfig)

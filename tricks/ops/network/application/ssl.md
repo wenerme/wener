@@ -53,9 +53,11 @@ title: SSL
 
 
 ```bash
-mkdir -p ~/.cert/mail.nixcraft.net/
 # 显示证书
-openssl s_client -showcerts -connect mail.nixcraft.net:443
+openssl s_client -showcerts -connect wener.me:443
+# SNI
+openssl s_client -showcerts -servername wener.me -connect 104.28.26.88:443
+
 # 截取证书部分
 echo "" | openssl s_client -connect dm-101.data.aliyun.com:443 -prexit 2>/dev/null | sed -n -e '/BEGIN\ CERTIFICATE/,/END\ CERTIFICATE/ p'
 

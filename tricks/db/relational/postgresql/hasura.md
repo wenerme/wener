@@ -19,6 +19,9 @@ title: Hasura
 * [接口文档](https://docs.hasura.io/1.0/graphql/manual/api-reference/index.html)
   * `/v1/graphql` - 主要的 GraphQL 入口 - 生产可以只暴露这一个
 * Hasura 的系统信息存储在 `hdb_catalog` 和 `hdb_view` 中
+* 问题
+  * [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
+  * [#519](https://github.com/hasura/graphql-engine/issues/519) upk 查询
 
 ```bash
 # 创建一个数据库
@@ -40,8 +43,16 @@ docker run -it --rm -p 8080:8080 \
   -e HASURA_GRAPHQL_DATABASE_URL=postgres://$USERNAME:$PASSWORD@db:5432/$DATABASE \
   -e HASURA_GRAPHQL_ENABLE_CONSOLE=true \
   -e HASURA_GRAPHQL_ADMIN_SECRET=$TOKEN \
-  hasura/graphql-engine:latest
+  -e HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous \
+  -e HASURA_GRAPHQL_ENABLE_TELEMETRY=false \
+  --name hasura hasura/graphql-engine:latest
 ```
+
+```sql
+-- Hasura 生成 UUID 需要 pgcrypto
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+```
+
 ## JWT 鉴权
 * 通过 `--jwt-secret` 启用 - 需要配置 `HASURA_GRAPHQL_JWT_SECRET`
 * 通过头传递 JWT 信息 `Authorization: Bearer <JWT>`
@@ -92,6 +103,7 @@ __JWT内容__
 
 ## 授权访问控制
 * `X-Hasura-Admin-Secret` 头用于传递管理员密钥 - admin 角色
+* `Authorization: Bearer <JWT>` JWT 鉴权
 * 基于角色的权限控制 - 不支持级联角色 - 角色必须平坦
   * X-Hasura-Role
   * X-Hasura-Allowed-Roles
@@ -103,3 +115,6 @@ __JWT内容__
 * 操作控制
   * CRUD
 * 针对不同角色会生成不同 schema
+* JWT
+  * 必须包含字段 x-hasura-default-role, x-hasura-allowed-roles
+  * 头里可指定 x-hasura-role 来选定角色

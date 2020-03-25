@@ -8,6 +8,28 @@ title: FAQ
 ## How to Upgrade
 可以构造一个包含所有版本的镜像，然后进行升级 - [Dockerfile](https://github.com/postgres/pgadmin4/blob/master/Dockerfile)
 
+## CTID
+
+https://dba.stackexchange.com/questions/203989/what-is-the-data-type-of-the-ctid-system-column-in-postgres
+
+https://postgresql.verite.pro/blog/2019/04/24/oid-column.html
+
+## 切换用户
+
+```sql
+set role user;
+```
+
+## 切换数据库
+* 只能重新链接
+
+## UUID 类型
+
+```sql
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+SELECT gen_random_uuid();
+```
+
 ## VARCHAR vs TEXT
 * 存储完全相同
 * 只是 VARCHAR 会做长度验证

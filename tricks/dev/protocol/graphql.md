@@ -80,6 +80,19 @@
     * `followers(first: Int, after: String, last: Int, before: String): FollowerConnection!`
 
 
+```bash
+# 获取 Schema
+npm install -g graphqurl
+gq https://my-graphql-engine.com/v1/graphql --introspect > schema.graphql
+gq https://my-graphql-engine.com/v1/graphql -H 'X-Hasura-Admin-Secret: adminsecretkey' --introspect > schema.graphql
+gq https://my-graphql-engine.com/v1/graphql --introspect --format json > schema.json
+
+# https://github.com/apollographql/apollo-tooling
+npm install -g apollo
+apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql
+apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql --header 'X-Hasura-Admin-Secret: adminsecretkey'
+```
+
 ## Apollo
 * https://github.com/apollographql
 

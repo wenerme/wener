@@ -2,7 +2,19 @@
 
 ## Tips
 * [Consul 手册](https://www.consul.io/docs/guides/)
+* 环境变量
+  * CONSUL_HTTP_ADDR
+  * CONSUL_HTTP_TOKEN
+* 端口
+  * HTTP 8500
+  * DNS 8600
+  * RPC 8400
+  * HTTPS 默认没开启
 
+```bash
+# Debug
+consul monitor --log-level=debug
+```
 
 ## 快速开始
 
@@ -161,6 +173,7 @@ docker run -d --name=node1 consul agent -client=0.0.0.0 -node=node1 -bind=172.17
 
 
 ## ACL
+* https://learn.hashicorp.com/consul/security-networking/production-acls
 * ACL 可控制的资源主要有
   * agent	Utility operations in the Agent API, other than service and check registration
   * event	Listing and firing events in the Event API
@@ -171,28 +184,98 @@ docker run -d --name=node1 consul agent -client=0.0.0.0 -node=node1 -bind=172.17
   * query	Prepared query operations in the Prepared Query API
   * service	Service-level catalog operations in the Catalog API, Health API, Prepared Query API, and Agent API
   * session	Session operations in the Session API
+* 内建策略
+  * global-management
+    * 用于全局管理
+* [操作需要的权限](https://learn.hashicorp.com/consul/security-networking/managing-acl-policies#required-privileges-for-datacenter-operations)
+
+```bash
+consul acl bootstrap
+```
+
+
+```json
+{
+  "acl":{
+    // 启用 ACL
+    "enable": true,
+    // 默认策略 - 默认为 allow
+    "default_policy": "deny",
+    "tokens": {
+      // 在 primary_datacenter 集群的服务会使用
+      // 管理级别的权限
+      // 用于申请集群 leadership 时使用
+      "master": "",
+      // 默认 TOKEN - 在 agent 请求 服务时使用
+      // 如果为空则为 anonymous 的 ACL
+      "default": "",
+      // 用于客户端和服务端处理内部操作 - 如果没指定，使用 default
+      // 该 TOKEN 至少需要有当前节点的写权限
+      "agent": "",
+      // 用于访问 agent 接口 - 需要 agent 读写权限或节点的读权限
+      "agent_master": "",
+      "replication": ""
+    }
+  }
+}
+```
+
+#### agent
 
 ```hcl
-# Agent Token
-node "" {
-  policy="write"
+node_prefix "" {
+   policy = "write"
 }
-service "" {
-  policy="read"
+service_prefix "" {
+   policy = "read"
 }
+```
 
-# Client Token
-node "" {
-  policy="read"
+#### 只读策略
+```hcl
+node_prefix "" {
+  policy = "read"
 }
+service_prefix "" {
+  policy = "read"
+}
+query_prefix "" {
+  policy = "read"
+}
+key_prefix "" {
+  policy = "read"
+}
+```
 
-# Traefik
-key "traefik" {
+#### registrator
+```hcl
+service_prefix "" {
   policy = "write"
 }
-session "" {
-  policy = "write"
+```
+
+#### anonymous
+
+```hcl
+namespace "default" {
+  policy = "read"
 }
+agent {
+  policy = "read"
+}
+node {
+  policy = "read"
+}
+```
+
+### DNS
+* 节点 `<node>.node[.datacenter].<domain>`
+* 服务 `[tag.]<service>.service[.datacenter].<domain>`
+* RFC 2782 `_<service>._<protocol>[.service][.datacenter][.domain]`
+* 预定义查询 `<query or name>.query[.datacenter].<domain>`
+
+```bash
+dig @127.0.0.1 -p 8600 consul.service.consul SRV
 ```
 
 ### Config
@@ -224,6 +307,12 @@ session "" {
 go get -u github.com/hashicorp/go-sockaddr/cmd/sockaddr
 ~/go/bin/sockaddr eval 'GetPrivateInterfaces |  include "network" "10.0.0.0/8" | attr "address"'
 ```
+
+### dropping node "consul" from result due to ACLs
+* DNS 查询时出现
+* 允许匿名访问 service
+
+### autopilot: Failed to remove dead servers: too many dead servers: 1/1
 
 ### 将 docker 暴露到 consul
 * [gliderlabs/registrator](https://github.com/gliderlabs/registrator)

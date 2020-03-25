@@ -96,7 +96,9 @@ title: PostgresSQL
       * The PostgreSQL forking model is not efficient for lots of connections, or fast connection cycling.
       * While basic RAM statistics can be misleading, each backend does consume a notable amount of memory.
   * [Postgres Hidden Gems](http://www.craigkerstiens.com/2018/01/31/postgres-hidden-gems/)
-
+* Hosted Provider
+  * [Heroku](https://www.heroku.com/pricing) 免费 10K 行数据
+  * [ElephantSQL](https://www.elephantsql.com/plans.html) 免费 20MB 5链接
 
 ```bash
 
@@ -105,6 +107,7 @@ brew postgresql-update database
 
 # POSTGRES_USER=postgres
 # POSTGRES_PASSWORD
+# POSTGRES_DB
 # PGDATA=/var/lib/postgresql/data
 # 可以用任意 --user 启动
 docker run -it --rm -v $PWD/pg:/var/lib/postgresql/data postgres:alpine

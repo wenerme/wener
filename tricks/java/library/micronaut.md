@@ -37,4 +37,35 @@
 sdk install micronaut
 # 或
 brew install micronaut
+
+# 默认为 gradle
+mn create-app hello-world --build maven
+cd hello-world
+./mvnw compile exec:exec
+
+curl http://localhost:8080/hello
+```
+
+```java
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+
+@Controller("/hello") 
+public class HelloController {
+    @Get(produces = MediaType.TEXT_PLAIN) 
+    public String index() {
+        return "Hello World"; 
+    }
+}
+```
+
+```java
+import io.micronaut.runtime.Micronaut;
+
+public class Application {
+    public static void main(String[] args) {
+        Micronaut.run(Application.class);
+    }
+}
 ```

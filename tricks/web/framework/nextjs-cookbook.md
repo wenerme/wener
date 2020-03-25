@@ -183,6 +183,7 @@ declare module '*.gif'
 * https://github.com/webpack-contrib/url-loader/issues/86
 * Base64 问题
   * https://github.com/gregberge/svgr/issues/361
+  * https://github.com/gregberge/svgr/issues/404
 
 ```bash
 yarn add --dev @svgr/webpack babel-loader
@@ -203,6 +204,22 @@ config.module.rules.push({
       },
     },
   ],
+});
+```
+
+```js
+// 区分 js 或 css 导入
+config.module.rules.push({
+  test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+  issuer: {
+    test: /\.[tj]sx?$/
+  },
+  use: ['babel-loader', '@svgr/webpack', 'file-loader']
+});
+
+config.module.rules.push({
+  test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+  loader: 'url-loader'
 });
 ```
 

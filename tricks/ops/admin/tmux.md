@@ -5,6 +5,8 @@
 * Cheat sheet
   * https://gist.github.com/andreyvit/2921703
   * https://gist.github.com/MohamedAlaa/2961058
+* 参考
+  * iTerm2 [tmux Integration Best Practices](https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices)
 
 ```bash
 # 显示指定服务开启的会话
@@ -15,6 +17,8 @@ tmux new -s myname
 tmux a -t myname
 # 关闭会话
 tmux kill-session -t myname
+
+tmuxrc new -A -s main
 ```
 
 ### Commands

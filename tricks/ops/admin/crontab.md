@@ -45,6 +45,7 @@ done
   * 默认的 run-parts 是 busybox 自带的, 也可以额外安装
   * https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/run-parts
   * 检测一个目录下有哪些会被执行 `run-parts --test /etc/periodic/daily`
+  * 里面的脚本 __不要__ 包含 `.sh` 后缀，且确保可执行 `chmod +x`
 
 ```
 # do daily/weekly/monthly maintenance

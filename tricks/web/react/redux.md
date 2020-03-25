@@ -2,7 +2,8 @@
 
 ## Tips
 * http://redux.js.org/docs/
-
+* [paularmstrong/normalizr](https://github.com/paularmstrong/normalizr)
+  * Normalizes nested JSON according to a schema
 
 ```bash
 yarn add redux react-redux @reduxjs/toolkit redux-logger

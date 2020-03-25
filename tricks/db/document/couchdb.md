@@ -19,6 +19,8 @@ title: CouchDB
   * 类似的数据库
     * RealmDB
     * RethinkDB
+  * 配合 [PouchDB](https://pouchdb.com/) 在 JS 使用 - 如果用不上那考虑不要用 CouchDB
+    * 如果只需要 CRUD 考虑使用 PostREST 或 Hasura
 * 注意
   * 不支持单文档读权限控制
   * 不支持默认读取的过滤
