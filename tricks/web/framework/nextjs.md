@@ -98,24 +98,6 @@ yarn add　antd
 yarn add --dev ts-node jest ts-jest @types/jest
 ```
 
-## 版本
-### 9.3
-* [9.3](https://nextjs.org/blog/next-9-3)
-* SSG 服务端静态生成 HTML
-  * 支持 fallback
-* 预览模式 - 条件性跳过 SSG
-* 内建 Sass 全局样式
-* 内建 Sass CSS 模块支持
-* 404 静态优化
-* 运行时减少 32 kB
-
-### 9.2
-* [9.2](https://nextjs.org/blog/next-9-2)
-  * 内建 CSS 全局样式支持 - 不再需要 `next-css` 依赖
-  * 内建 CSS 模块支持 `.module.css`
-  * 增强代码切分策略
-  * 新增 `[...slug].js` 全部捕获的动态路由
-
 ## 提示
 
 ### 目录结构
@@ -319,6 +301,7 @@ __workspace__
 ## 配置
 
 * [next.config.js](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+* [defaultConfig](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/server/config.ts#L12-L63)
 
 ```js
 module.exports = {

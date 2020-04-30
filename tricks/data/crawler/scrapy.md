@@ -1,7 +1,8 @@
 # Scrapy
 
 ## Tips
-
+* https://github.com/scrapy/scrapy/
+* https://github.com/scrapy/scrapyd
 * [commands](https://docs.scrapy.org/en/latest/topics/commands.html)
 * [scrapy-mongodb](https://github.com/sebdah/scrapy-mongodb)
   * 将 Item 存储到 Mongo

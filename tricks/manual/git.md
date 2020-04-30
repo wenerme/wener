@@ -81,6 +81,17 @@ git fetch <remote> <rbranch>:<lbranch>
 git checkout <lbranch>
 ```
 
+### 统计
+* https://github.com/arzzen/git-quick-stats
+
+```bash
+# 统计所有分支的用户提交数
+git shortlog -s -n --all --no-merges
+
+# 统计 LOC
+git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+```
+
 ### 移除历史文件和敏感数据
 * [Removing sensitive data from a repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
 * https://rtyley.github.io/bfg-repo-cleaner/
@@ -284,6 +295,12 @@ git push /path/to/new/repo:optional-new-branch-name branch-name
 ```
 
 from [Here](http://stackoverflow.com/a/2227571/1870054)
+
+### 取第一个 commit
+
+```bash
+git rev-list --max-parents=0 HEAD
+```
 
 ### Rename branch
 ```bash

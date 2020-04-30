@@ -1,3 +1,8 @@
+---
+id: markdown
+title: Markdown
+---
+
 # Markdown
 
 ## Tips
@@ -6,7 +11,11 @@
 * [Github 流 Markdown 语法指南](https://guides.github.com/features/mastering-markdown/)
 * 主题
   * 类 [github](https://github.com/sindresorhus/github-markdown-css)
+* 书写指导
+  * Google [Markdown style guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
 * 参考
+  * [CommonMark](https://commonmark.org/) - A strongly defined, highly compatible specification of Markdown
+  * [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)
   * [Pandoc](http://pandoc.org/) - Markup Document 互转 Word, HTML, PDF, TeX, EPUB 等
 * 编辑器
   * [StackEdit](https://stackedit.io/) 支持云同步和较多扩展语法

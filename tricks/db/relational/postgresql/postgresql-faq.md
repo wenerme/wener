@@ -23,21 +23,17 @@ set role user;
 ## 切换数据库
 * 只能重新链接
 
-## UUID 类型
+## 密码存储
+* [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html)
+* [Hashed Passwords with PostgreSQL's pgcrypto](https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html)
+* https://stackoverflow.com/questions/15733196/where-2x-prefix-are-used-in-bcrypt
 
 ```sql
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-SELECT gen_random_uuid();
+-- 生成 Hash
+select crypt('12345', gen_salt('bf', 8));
+-- 判断密码相等
+select crypt('12345', password) = password
 ```
-
-## VARCHAR vs TEXT
-* 存储完全相同
-* 只是 VARCHAR 会做长度验证
-* 建议都使用 TEXT
-
-## INT vs BIGINT
-* 在 64 位的机器上两者占用的大小基本是一致的
-* 可以尽量使用 BIGINT
 
 ## Calculating and Saving Space in PostgreSQL
 * [Column Tetris](https://stackoverflow.com/a/7431468/1870054)
@@ -111,17 +107,6 @@ Data page checksum version:           1
 Mock authentication nonce:            32f8310a0cf344f7c1432dd733d3cf6065b748697485724af31fbaf7605f50bc
 ```
 
-## 如何选择金额类型
-* [money](https://www.postgresql.org/docs/current/static/datatype-money.html)
-  * 功能有限
-  * 比 `numeric` 性能更好
-  * 历史遗留
-* `decimal` 是 `numeric` 的别名
-* 可以考虑直接使用 `integer` 来存分
-* 大部分情况会使用 `decimal(12,2)`
-* 参考
-  * [PostgreSQL: Which Datatype should be used for Currency?](https://stackoverflow.com/q/15726535/1870054)
-  * [数字类型](https://www.postgresql.org/docs/current/static/datatype-numeric.html)
 
 ## unsupported Unicode escape sequence
 
@@ -134,7 +119,3 @@ Mock authentication nonce:            32f8310a0cf344f7c1432dd733d3cf6065b7486974
 # 直接命令行使用
 psql -c '\timing' -c 'select 1'
 ```
-
-## 选择存储经纬度的类型
-* https://stackoverflow.com/a/8150944/1870054
-* 一般来说 float8 即可
