@@ -155,14 +155,13 @@ pandoc makrdown.md -f markdown -t latex -o output.pdf
 
 
 ### 代码块
-<pre>
-&#96;&#96;&#96;
-class Obj{
-	int a;
-	void method(){}
-}
-&#96;&#96;&#96;
-</pre>
+
+    ```
+    class Obj{
+    	int a;
+    	void method(){}
+    }
+    ```
 
 ```
 class Obj{

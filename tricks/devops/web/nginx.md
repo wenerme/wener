@@ -27,18 +27,18 @@ title: Nginx
   * [NAXSI](https://github.com/nbs-system/naxsi)
      * is an open-source, high performance, low rules maintenance WAF for NGINX
      * NAXSI means Nginx Anti XSS & SQL Injection.
-
-Virtual Hosts on nginx
-https://gist.github.com/soheilhy/8b94347ff8336d971ad0
+* [denji/homebrew-nginx](https://github.com/denji/homebrew-nginx)
+* [Virtual Hosts on nginx](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
 
 
 ```bash
-# Homebrew Install
-brew install nginx --with-gunzip --with-debug --with-http2 --with-libressl --with-passenger --with-webdav
-# 额外模块
-brew tap homebrew/nginx
-# 也可以使用 nginx-full 来安装模块
-brew info nginx-full
+# brew 安装
+brew install nginx
+# 查看已安装模块
+nginx -V 2>&1 | tr -- - '\n' | grep 'module[^a-z=]'
+
+# 基于当前目录启动
+nginx -p $PWD -c nginx.conf -g 'daemon off;'
 ```
 
 ### 常用配置

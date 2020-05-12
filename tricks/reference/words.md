@@ -3,15 +3,57 @@ id: words
 title: 词汇对比
 ---
 
+## message vs enent vs command
+* event
+  * 只关心发出
+  * fire and forget
+* message
+  * 有明确目标
+  * 通信方式
+* command
+  * 有明确寓意
+
+## event bus vs message queue
+* event bus
+  * 强调实时通信
+  * 一般没有缓冲机制
+  * 可能同步执行
+* message queue
+  * 强调队列、阻塞、缓冲
+  * 可能被批处理
+  * 一般异步执行
+
+## relationship vs association
+* relationship
+  * 泛指关系
+  * ERM - 实体关系模型
+  * relate - 名词 - 关系
+* association
+  * 具体关系
+  * User associated with Order
+  * 用户与账单一对多的关联关系
+  * associate - 动词、名词 - 关联
+
+## property vs attribute
+* property
+  * 固有属性
+  * 改变 property 则不是同一个物体
+* attribute
+  * 自有属性
+  * 相同 property 下每个物体有不同的属性
+
+
 ## state vs status
 * state
   * 一般指瞬时，当前状态
   * 例如 任务的状态：停止
   * 例如 物体的状态：液态的、固态的
+  * 固有的状态
 * status
   * 一般可枚举，指有那些状态
   * 可指在固定状态中流转
   * 例如 任务状态：停止、运行、初始化
+  * 具体情况，例如 status of stop state - 描述停止的原因
 
 ## Concurrency vs Parallelism / 并发 vs 并行
 

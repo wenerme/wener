@@ -1,3 +1,8 @@
+---
+id: privoxy
+title: Privoxy
+---
+
 # Privoxy
 
 ## Tips
@@ -8,6 +13,7 @@
 * 支持通过浏览器配置 - 需要安装了模板
   * http://config.privoxy.org
   * http://p.p
+* https://www.privoxy.org/user-manual/index.html
 
 ```bash
 # macOS
@@ -34,11 +40,13 @@ docker run -d --restart always \
 ```
 
 ## 配置
+* https://www.privoxy.org/faq/configuration.html
+
 ```conf
 # 配置目录
 confdir /etc/privoxy
 # 模板目录 - 默认为 confdir/template
-# templdir /etc/privoxy/template
+# templdir /etc/privoxy/templates
 # 临时目录
 # temporary-directory /tmp
 # 日志目录
@@ -179,22 +187,3 @@ trust-x-forwarded-for 0
 receive-buffer-size 5000
 ```
 
-## Action
-* [Action file](https://www.privoxy.org/3.0.26/user-manual/actions-file.html)
-### match-all.action
-```ini
-{ \
-# 移除 X-Forwarded-For
-+change-x-forwarded-for{block} \
-# 针对不同类型添加标记
-+client-header-tagger{css-requests} \
-+client-header-tagger{image-requests} \
-+client-header-tagger{range-requests} \
-# 移除邮箱
-+hide-from-header{block} \
-# 设置如何阻塞图片
-+set-image-blocker{pattern} \
-}
-# 匹配所有 URL
-/
-```

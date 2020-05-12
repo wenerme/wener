@@ -11,6 +11,12 @@ title: 私有网络
   * https_proxy
   * http_proxy
   * all_proxy
+* VPN
+  * https://github.com/ntop
+  * https://github.com/SoftEtherVPN/SoftEtherVPN
+  * Configuration & ease of use: ZT > Tinc Connectivity: Tinc > ZT
+  * https://github.com/StreisandEffect/streisand
+  * https://github.com/trailofbits/algo
 
 ### iOS
 * https://github.com/chrisballinger/ProxyKit
@@ -147,7 +153,31 @@ proxychains4 curl google.com
 
 ## FAQ
 
-### Tinc vs ZeroTier vs Wireguard vs IPSec
+### SOCKS vs HTTP vs HTTPS
+* HTTP
+  * 支持最广泛的协议
+  * 基于 HTTP 的 CONNECT 方法 - 7 层协议
+  * wget 只支持 http
+  * 一般支持 Basic 鉴权
+  * 请求是明文感知更多细节
+  * 支持复杂转发逻辑
+    * 路径
+    * 域名
+    * 头
+  * 可以配合缓存服务使用
+    * 例如 squid
+  * 可以做 TCP 通道
+* SOCKS
+  * 支持程度仅次于 HTTP
+  * TCP 协议 - 5 层协议
+  * 支持 UDP
+  * 最容易的协议 - `ssh -d 1080`
+  * 基于握手进行协商，一个地址一个端口进行映射
+  * DNS 在远程进行解析
+* HTTPS
+  * 使用极少
+
+### Tinc vs ZeroTier vs Wireguard vs IPSec vs SoftEther
 * 共同点
   * P2P 协议
   * 支持加密
@@ -162,8 +192,11 @@ proxychains4 curl google.com
   * 实现简单 LOC ~ 3k
 * ZeroTier 有中心控制器，能够进行验证授权，使用简单，有管理接口和页面
   * 闭源 Android 和 iOS 应用 - 可在应用商店安装
+  * 对于 SelfHost 中心节点不友好 - 简单配置是基于使用 ZeroTier 的服务之上
   * QoS 控制
   * 基于 TCP
+  * 支持文本配置路由
+  * 网络连接性 < TINC、配置性 > TINC
 * Wireguard
   * 目前没有比较好的 mesh 方案 - 需要所有节点配置
   * 节点不能自动发现
@@ -181,6 +214,9 @@ proxychains4 curl google.com
   * 服务端初次配置相对复杂
   * 高性能 - 如果只在服务端使用需要很高的性能则优先选择 IPSec - 1Gb 网络基本能达到 900+Mb
   * Android 和 iOS 原生支持
+* [SoftEther](https://en.wikipedia.org/wiki/SoftEther_VPN)
+  * 支持多路负载
+  * 权限控制
 
 __性能对比__
 
