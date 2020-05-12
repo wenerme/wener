@@ -288,14 +288,13 @@ http://github.com/wenerme
 行|行|行|行<br/>换行|行<br/>换行<br/>换行
 
 ### 指定代码块语法
-<pre>
-&#96;&#96;&#96;java
-class Obj{
-	int a;
-	void method(){}
-}
-&#96;&#96;&#96;
-</pre>
+
+    ```java
+    class Obj{
+    	int a;
+    	void method(){}
+    }
+    ```
 
 ```java
 class Obj{
