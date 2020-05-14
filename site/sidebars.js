@@ -157,6 +157,8 @@ module.exports = {
         items: [
           'db/relational/postgresql/postgresql',
           'db/relational/postgresql/timescale',
+          'db/relational/postgresql/fts',
+          'db/relational/postgresql/version',
           'db/relational/postgresql/faq',
         ]
       },

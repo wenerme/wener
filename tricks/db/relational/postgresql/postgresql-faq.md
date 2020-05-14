@@ -1,6 +1,6 @@
 ---
 id: faq
-title: FAQ
+title: 常见问题
 ---
 
 # PostgreSQL FAQ
@@ -33,6 +33,12 @@ set role user;
 select crypt('12345', gen_salt('bf', 8));
 -- 判断密码相等
 select crypt('12345', password) = password
+
+-- PG 无法处理 2b - 或者插入时修改为 2a
+select *
+from users
+where username = 'admin'
+  and  regexp_replace(password,'^[$]2b','$2a') = crypt('admin', regexp_replace(salt,'^[$]2b','$2a'));
 ```
 
 ## Calculating and Saving Space in PostgreSQL
