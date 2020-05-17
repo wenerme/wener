@@ -11,8 +11,10 @@ title: Asterisk 版本
 * [edge/main/x86_64/asterisk](https://pkgs.alpinelinux.org/package/edge/main/x86_64/asterisk)
   * edge 版
 * JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
+* [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
 
 ## 17
+
 ### 新增
 * ARI 支持应用事件过滤
 * AttendedTransfer
@@ -33,6 +35,7 @@ title: Asterisk 版本
 
 ## 16 / LTS / 2018-10-09 - 2022-10-09
 * LTS 版本
+* PG 12 https://github.com/asterisk/asterisk/commit/52ade18420b346449dff40d6bdb071444cf29e2d
 
 ### 新增
 * WebRTC
@@ -52,6 +55,8 @@ title: Asterisk 版本
 * cdr_syslog 模块废弃, 并且默认不会构建
 * app_fax 模块废弃, 使用 res_fax
 
+* 16.7
+* 16.6.2
 
 ### 15
 * 默认使用 bundled pjproject

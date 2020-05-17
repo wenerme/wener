@@ -248,6 +248,8 @@ module.exports = {
         items: [
           'ops/network/private/intro',
           'ops/network/private/tinc',
+          'ops/network/private/privoxy',
+          'ops/network/private/privoxy-action',
           'ops/network/private/ipsec',
           'ops/network/private/wireguard',
         ]
@@ -262,7 +264,7 @@ module.exports = {
           'ops/network/tool/ifconfig',
           'ops/network/tool/iproute2',
           'ops/network/tool/iptables',
-          // 'ops/network/tool/mitmproxy',
+          'ops/network/tool/mitmproxy',
           'ops/network/tool/nmap',
           'ops/network/tool/powerdns',
           'ops/network/tool/wireshark',

@@ -3,7 +3,7 @@
 ## Tips
 * [webpack](https://webpack.js.org/)
   * webpack is a module bundler for modern JavaScript applications
-
+* [#7526](https://github.com/webpack/webpack/issues/7526) - Import a Prebuilt Webpack Bundle at Runtime
 
 ## Configuration
 * [configuration](https://webpack.js.org/configuration/)
