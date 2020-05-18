@@ -84,7 +84,7 @@ select levenshtein('今天天气很好，你还好么？','今天你好么');
   * tsvector (lexemes + positions) < 1Mb
   * lexemes 数量 < 2^64
   * tsvector 中的位置 > 0 < 16383
-  * The match distance in a <N> (FOLLOWED BY) tsquery operator cannot be more than 16,384
+  * The match distance in a `<N>` (FOLLOWED BY) tsquery operator cannot be more than 16,384
   * 每个 lexeme 不超过 256 个位置
   * The number of nodes (lexemes + operators) in a tsquery must be less than 32,768
 * 类型
