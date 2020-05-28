@@ -157,10 +157,13 @@ module.exports = {
         label: 'PostgreSQL',
         items: [
           'db/relational/postgresql/postgresql',
-          'db/relational/postgresql/timescale',
+          'db/relational/postgresql/datatype',
           'db/relational/postgresql/fts',
           'db/relational/postgresql/version',
           'db/relational/postgresql/faq',
+          'db/relational/postgresql/timescale',
+          'db/relational/postgresql/postgrest-hello',
+          'db/relational/postgresql/hasura',
         ]
       },
       {

@@ -1,14 +1,21 @@
+---
+id: datatype
+title: 数据类型
+---
+
 # Postgres 数据类型
 
 
 ## VARCHAR vs TEXT
 * 存储完全相同
 * 只是 VARCHAR 会做长度验证
-* 建议都使用 TEXT
+* 建议都使用 TEXT, 在应用层做限制
+* 参考
+  * [PostgreSQL: Difference between text and varchar (character varying)](https://stackoverflow.com/a/4849030/1870054)
 
 ## INT vs BIGINT
-* 在 64 位的机器上两者占用的大小基本是一致的
-* 可以尽量使用 BIGINT
+* 在 64 位的服务器上, 两者占用的空间相同
+* 因此建议使用 bigint
 
 ## UUID
 * 原生支持 `uuid` 类型
@@ -16,6 +23,7 @@
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
+-- pg 13 后不需要扩展也能使用该函数
 SELECT gen_random_uuid();
 ```
 

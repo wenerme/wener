@@ -23,7 +23,9 @@ title: 版本历史
 * 工具命令
   * `VACUUM PARALLEL` - vacuum 并行
   * 支持 `FETCH FIRST WITH TIES` 语法 - 如果最后一行是一样的则继续返回
+    * [demo](https://www.db-fiddle.com/f/dMTYXbeacpQ53itrxR6iaR/0)
   * `EXPLAIN` 返回计划时的 `BUFFER` 使用情况
+    * `explain (analyze, buffers) select * from test;` [demo](https://www.db-fiddle.com/f/585uC9XZ73MXLzofH8HXrn/0)
   * `ALTER TABLE DROP EXPRESSION` 移除列上的生成属性
   * `ALTER VIEW RENAME COLUMN` - 之前只能 `ALTER TABLE RENAME COLUMN`
   * `DROP DATABASE WITH FORCE` - 强制断开用户使删除库成功
