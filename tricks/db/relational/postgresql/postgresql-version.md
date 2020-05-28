@@ -7,6 +7,51 @@ title: 版本历史
 * [发布历史](https://en.wikipedia.org/wiki/PostgreSQL#Release_history)
   * 现在一般每年 Q4 发布新版本，最近大多为 10 月
 
+## 13
+* [PostgreSQL 13 Release Notes](https://www.postgresql.org/docs/13/release-13.html)
+* 索引
+  * B Tree 索引优化对重复数据的处理，减少索引大小
+* 性能
+  * 增量排序 - 查询结果已排序的情况下可加速数据排序
+    * 配置 [enable_incrementalsort](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-ENABLE-INCREMENTALSORT)
+  * 大数据 HASH 聚合可使用磁盘存储
+    * 之前如果 HASH 聚合超过 `work_mem` 则不会选择 HASH 聚合
+    * 配置 [enable_hashagg_disk](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-ENABLE-HASHAGG-DISK)
+  * grouping sets 可使用 hash 聚合 - 如果启用了 enable_hashagg_disk
+  * insert 可触发 autovacuum
+  * TOAST 支持请求部分解压 - 之前是全量
+* 工具命令
+  * `VACUUM PARALLEL` - vacuum 并行
+  * 支持 `FETCH FIRST WITH TIES` 语法 - 如果最后一行是一样的则继续返回
+  * `EXPLAIN` 返回计划时的 `BUFFER` 使用情况
+  * `ALTER TABLE DROP EXPRESSION` 移除列上的生成属性
+  * `ALTER VIEW RENAME COLUMN` - 之前只能 `ALTER TABLE RENAME COLUMN`
+  * `DROP DATABASE WITH FORCE` - 强制断开用户使删除库成功
+* 数据类型
+  * 多态数据类型 - [anycompatible](https://www.postgresql.org/docs/13/datatype-pseudo.html#DATATYPE-PSEUDOTYPES-TABLE)
+  * `xid8` - FullTransactionId
+  * `ROW` 支持后缀访问成员 `(ROW(4, 5.0)).f1`
+* 函数
+  * `jsonb_setI()` - 对 NULL 做特殊处理
+  * jsonpath `.datetime()` 将 JSON 值转换为 SQL 时间戳类型
+  * `NORMALIZE()`, `IS NORMALIZED` - 范化和检查 Uicode 字符串是否范化
+  * Unicode 转义 - `E'\u####'`, `U&'\####'`
+    * 允许任意字符 - 以前处理 `\0` 非常痛苦
+  * `to_date()` `to_timestamp()` 支持非英文的 月、日 名字
+  * 内建 `gen_random_uuid()` 生成 UUIDv4
+    * 不需要安装扩展
+  * 添加 gcd 和 lcm 来计算最大公约数和最小公倍数
+  * `min_scale()` `trim_scale()` 处理浮点数
+* 服务端应用
+  * `pg_verifybackup` - 验证备份
+  * `pg_dump --include-foreign-data` - 导出外部数据
+  * `vacuumdb --parallel` - 并行 vacuum
+  * `reindexdb --jobs` - 并行重新索引
+* 额外模块
+  * 可信扩展 - 指定允许普通用户安装的扩展
+  * 允许非特权用户不带密码连接 `postgres_fdw`
+    * 通过 `alter user mapping xxx set password_required false` 禁用
+
 ## 12
 * [PostgreSQL 12 Released!](https://www.postgresql.org/about/news/1976/)
 * [Release 12](https://www.postgresql.org/docs/12/release-12.html)
