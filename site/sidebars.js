@@ -52,6 +52,7 @@ module.exports = {
       'languages/peg',
       'languages/php',
       'languages/zig',
+      'languages/go/hello-cgo',
     ],
     开发运维: [
       'devops/tracing/tracing',
