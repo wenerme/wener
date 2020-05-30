@@ -80,6 +80,7 @@ module.exports = {
         label: '平台服务',
         items: [
           'devops/xaas/db-schema',
+          'devops/xaas/pass/dokku',
         ],
       },
     ],
