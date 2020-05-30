@@ -14,6 +14,11 @@ https://dba.stackexchange.com/questions/203989/what-is-the-data-type-of-the-ctid
 
 https://postgresql.verite.pro/blog/2019/04/24/oid-column.html
 
+## NULL 字符 / `\0` 字符
+* PG 不允许字符串包含 `\0`
+* 传入之前替换或用 bytea 存储
+* JSON 也不允许包含空字符
+
 ## 切换用户
 
 ```sql

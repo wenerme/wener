@@ -38,7 +38,6 @@ title: 版本历史
   * jsonpath `.datetime()` 将 JSON 值转换为 SQL 时间戳类型
   * `NORMALIZE()`, `IS NORMALIZED` - 范化和检查 Uicode 字符串是否范化
   * Unicode 转义 - `E'\u####'`, `U&'\####'`
-    * 允许任意字符 - 以前处理 `\0` 非常痛苦
   * `to_date()` `to_timestamp()` 支持非英文的 月、日 名字
   * 内建 `gen_random_uuid()` 生成 UUIDv4
     * 不需要安装扩展

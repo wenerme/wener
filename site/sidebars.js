@@ -49,7 +49,9 @@ module.exports = {
     ],
     语言: [
       'languages/languages',
+      'languages/parsing',
       'languages/peg',
+      'languages/pegjs',
       'languages/php',
       'languages/zig',
       'languages/go/hello-cgo',
@@ -317,6 +319,26 @@ module.exports = {
           'ops/storage/service/nextcloud',
         ]
       },
+    ],
+    运维: [
+      {
+        type: 'category',
+        label: '服务',
+        items: [
+          'ops/service/nexus',
+          'ops/service/remote-desktop',
+          'ops/service/matomo',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Gitlab',
+        items: [
+          'ops/service/gitlab-config',
+          'ops/service/gitlab-cicd',
+          'ops/service/gitlab-k8s',
+        ],
+      }
     ],
     VoIP: [
       'voip/voip-intro',

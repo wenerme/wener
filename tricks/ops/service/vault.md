@@ -1,3 +1,8 @@
+---
+id: vault
+title: Vault
+---
+
 # Vault
 
 ## Tips
@@ -252,7 +257,7 @@ storage "postgresql" {
 
 ```bash
 vault write sys/plugins/catalog/secrets-gen \
-  sha_256=$(docker run --rm incos/vault sha256sum /etc/vault/plugins/vault-secrets-gen|cut -d ' ' -f 1) \
+  sha_256=$(docker run --rm wener/vault sha256sum /etc/vault/plugins/vault-secrets-gen|cut -d ' ' -f 1) \
   command=vault-secrets-gen
 
 vault secrets enable -path=gen -plugin-name=secrets-gen plugin

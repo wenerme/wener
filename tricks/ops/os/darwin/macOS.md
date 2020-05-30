@@ -573,3 +573,9 @@ sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.app
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
 ```
 
+
+### 网络存储设备不写 DS_Store 文件
+
+```bash
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+```
