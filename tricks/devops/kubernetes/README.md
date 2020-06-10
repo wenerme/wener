@@ -8,8 +8,7 @@ title: Kubernates
 * [Reference](http://kubernetes.io/docs/user-guide)
 * [Guide](http://kubernetes.io/docs)
 * [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
-
-[Kubernetes vs Openshift vs Tectonic](https://blog.netsil.com/kubernetes-vs-openshift-vs-tectonic-comparing-enterprise-options-e3a34dc60519)
+* [Kubernetes vs Openshift vs Tectonic](https://blog.netsil.com/kubernetes-vs-openshift-vs-tectonic-comparing-enterprise-options-e3a34dc60519)
 
 ## Install
 

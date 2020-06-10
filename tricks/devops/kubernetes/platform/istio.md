@@ -6,6 +6,7 @@ title: Istio 服务网格
 # Istio
 
 ## Tips
+* connect, manage, and secure microservices by Google, IBM, and Lyft
 * 注意
   * ingressgateway 默认需要 LoadBalaner - 因此需要集群能获取到 IP - 在不更改配置的前提下可以使用 [metallb](./metallb)
 * 架构

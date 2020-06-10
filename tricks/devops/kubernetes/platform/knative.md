@@ -6,6 +6,9 @@ title: Knative
 # Knative
 
 ## Tips
+* KNative 提供标准化的 serverless 开发所需组件 - 提供基石
+  * OpenFaas、OpenWhisk 可以运行在 KNative 之上
+* Gitlab 集成了 KNative 作为 Serveless 运行环境
 * 注意
   * 最低系统要求 3节点 6vCPU 22.5G内存 启用 RBAC
   * knative 还不支持 istio 的 mTLS
@@ -17,9 +20,10 @@ title: Knative
   * knative-monitoring - 监控和日志 - elastic/kibana/fluentd/prometheus
 
 ## 安装
+* https://knative.dev/docs/install/any-kubernetes-cluster/
+
 ```bash
 # 任意 k8s 的安装逻辑
-# https://knative.dev/docs/install/knative-with-any-k8s
 # 目前还没有正式发布 - 20191130 - 因此取到的是预发布版本
 knative_version=$(curl -s https://api.github.com/repos/knative/serving/releases | jq -r '.[0].tag_name')
 

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+
+spec:
+  ports:
+    - name: http
+      port: 80
+  selector:
+    app: containous
+    task: whoami

@@ -36,6 +36,7 @@
     * 支持更多功能
   * Traefik [Kubernetes Ingress Controller](https://docs.traefik.io/providers/kubernetes-ingress/)
   * istio [Ingress](https://istio.io/docs/tasks/traffic-management/ingress/)
+  * [projectcontour/contour](https://github.com/projectcontour/contour)
 * 参考
   * [The Right Ingress Controller for Your K8s](https://lab.wallarm.com/choose-the-right-ingress-controller-for-your-kubernetes-environment/)
   * [Comparison of Kubernetes Top Ingress Controllers](https://caylent.com/kubernetes-top-ingress-controllers)

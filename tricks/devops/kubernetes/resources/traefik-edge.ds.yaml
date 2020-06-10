@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: traefik-edge
+  labels:
+    app: traefik-edge
+spec:
+  selector:
+    matchLabels:
+      name: traefik-edge
+  template:
+    metadata:
+      labels:
+        name: traefik-edge
+    spec:
+      nodeSelector:
+        # 自定义节点标签
+        node.type: edge
+      containers:
+      - name: traefik
+        image: traefik:2.2
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+      terminationGracePeriodSeconds: 30
+

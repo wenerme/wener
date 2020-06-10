@@ -1,0 +1,54 @@
+---
+id: k8s-glossary
+title: K8S 词汇表
+---
+
+# K8S 词汇表
+* [标准化词汇表](https://kubernetes.io/zh/docs/reference/glossary)
+
+
+## Controller
+* 控制器
+* ReplicaSet - 副本集
+* ReplicationController - 副本控制器
+* Deployments - 部署
+* StatefulSets - 状态集
+* DaemonSet - 守护集
+* Garbage Collection - 垃圾收集
+* TTL Controller for Finished Resources - 完成资源的 TTL 控制器
+* Jobs - 单次执行任务
+* CronJob - 周期执行任务
+
+# DaemonSet
+* 确保每个节点上都执行了 Pod
+* 用于部署系统守护进程（例如 日志采集，监控）
+
+## Deployment
+* API 对象 - 声明 Pods 和 ReplicaSets 的更新
+  * 描述期望状态，控制器会修改实际状态以达到期望值
+* 管理应用副本
+* 一般运行 Pods 且没有本地状态
+* 每个副本为一个 Pod
+
+## Pod
+
+* 最小最简单的对象
+* 一个 Pod 标示一组运行的容器
+* 可运行 sidecar 来添加额外特性
+* 一般由 Deployment 管理
+
+## Rollback
+* 回滚
+
+## Rollout
+* 发布
+
+## Workload
+* 工作负载
+* 实际需要执行的资源对象
+  * 例如服务定义，是不需要执行的
+* = Pod + Controller
+
+## Zone
+* 可用区
+* https://kubernetes.io/docs/setup/best-practices/multiple-zones/
