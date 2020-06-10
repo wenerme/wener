@@ -25,20 +25,44 @@ title: MetalLB
 
 
 ```bash
-# 通过 manifests 安装最新发布版
-kubectl apply -f https://raw.githubusercontent.com/danderson/metallb/$(curl -s https://api.github.com/repos/danderson/metallb/releases/latest | jq -r .tag_name)/manifests/metallb.yaml
-
 # 通过 arping 检测网络互通
 # interface 和地址需要对应
 arping -I eth0 192.168.10.1
 
 # 在另外的节点上可以通过 tcpdump 检测网络互通
 tcpdump -n -i eth0 arp src host 192.168.1.240
+
+# metallb
+# 下载到本地安装
+ver=$(curl -Ls https://api.github.com/repos/danderson/metallb/releases/latest | jq -r .tag_name)
+curl https://raw.githubusercontent.com/danderson/metallb/$ver/manifests/metallb.yaml -Lo metallb-$ver.yaml
+curl https://raw.githubusercontent.com/danderson/metallb/$ver/manifests/namespace.yaml -Lo metallb-namespace-$ver.yaml
+kubectl apply -f metallb-namespace-$ver.yaml
+kubectl apply -f metallb-$ver.yaml
+
+# 第一次安装
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+
+# 配置生效
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.128.0/17
+EOF
 ```
 
 ## 配置
 * [example-config.yaml](https://github.com/danderson/metallb/blob/main/manifests/example-config.yaml)
-* [配置](https://metallb.universe.tf/configuration)
+* [配置文档](https://metallb.universe.tf/configuration)
 
 ### L2
 

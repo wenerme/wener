@@ -1,3 +1,8 @@
+---
+id: grpc
+title: gRPC
+---
+
 # gRPC
 
 * [gRPC](https://github.com/grpc/)
@@ -205,6 +210,13 @@ protoc --plugin=$GEN_SWIFT/protoc-gen-swiftgrpc --swiftgrpc_out=./swift -I . pro
 # Node
 # =========
 protoc --js_out=./node --grpc_out=./node --plugin=protoc-gen-grpc=$GRPC_BIN/grpc_node_plugin -I . proto/**/*.proto
+
+# 使用 grpc-tools 生成
+yarn global add grpc-tools
+protoc -I=. ./protos/product.proto \
+  --js_out=import_style=commonjs,binary:./server \
+  --grpc_out=./server \
+  --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin`
 
 # ts-protoc-gen
 # =========

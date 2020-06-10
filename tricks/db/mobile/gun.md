@@ -26,6 +26,7 @@
     * 用户名并不唯一
     * 密码不可重置
     * 密码并不安全
+  * 所有节点都会存储数据 - browsers, nodejs, phones
 
 ```bash
 # 本地 gun signaling server

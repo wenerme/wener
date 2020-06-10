@@ -18,6 +18,14 @@ dokku plugin:install https://github.com/expa/dokku-app-user.git
 # 使用 Buildpack 构建
 dokku config:set <app> DOKKU_APP_USER=expauser
 git push dokku@dokku.me:<app> master
+
+# Docker 镜像部署
+# 将应用镜像拉到本地
+docker pull registry.gitlab.com/wenerme/myapp:master
+# tag 为 dokku 下 myapp 的 v1
+docker tag registry.gitlab.com/wenerme/myapp:master dokku/myapp:v1
+# 部署 v1
+dokku tags:deploy myapp v1
 ```
 
 ## Notes
@@ -26,6 +34,19 @@ git push dokku@dokku.me:<app> master
   * 但使用 Dokku 一般是单机 Docker
 * 提供类似 Heroku 的接口
 * 每个应用暴露端口，通过内置的 Nginx 进行域名反向代理
+* Nginx
+  * 访问日志 `/var/log/nginx/${APP}-access.log`
+  * 错误日志 `/var/log/nginx/${APP}-error.log`
+  * `dokku nginx:report` 查看 Nginx 信息
+  * `dokku nginx:show-config` 查看生成的配置
+  * `dokku nginx:validate-config` 配置校验
+* [自定义 Nginx 配置](http://dokku.viewdocs.io/dokku/configuration/nginx/#customizing-the-nginx-configuration)
+  * 配置模板使用 [gliderlabs/sigil](https://github.com/gliderlabs/sigil) 生成
+  * 模版 [nginx.conf.sigil](https://github.com/dokku/dokku/blob/master/plugins/nginx-vhosts/templates/nginx.conf.sigil) 放到 WORKDIR 或 `/app` 目录
+  * 默认会 include `nginx.conf.d/` 下的配置 - 可以在这里配置自定义而不是全量替换
+    * 例如 `/home/dokku/myapp/nginx.conf.d/upload.conf`
+    * 重载 nginx 生效 `service nginx reload`
+
 
 ## 安装
 

@@ -240,7 +240,7 @@ docker run --rm -it \
   * LetsEncrypt 配置调整
   * 日志不在作为全局配置，配置在 log 区块下
   * 移除了所有全局设置
-  * __v2 的 provider 支持较少__
+  * __v2 的 provider 支持较少__ - 会逐渐完善
 * 参考
   * [v2](https://blog.containo.us/traefik-2-0-6531ec5196c2)
   * [v1 迁移 v2](https://docs.traefik.io/migration/v1-to-v2/)

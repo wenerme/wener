@@ -27,6 +27,10 @@ exp
   * 使用 LA 来解决分歧
 * Parser Combinator - 组合解析
 * Parser Generator - 生成解析
+  * [Comparison of parser generators](https://en.wikipedia.org/wiki/Comparison_of_parser_generators)
+* Lexing - 词法解析 - 词法分析
+  * lexical analysis, tokenization
+* Grammar - 语法解析
 * 参考
   * [https://github.com/sap/chevrotain](https://github.com/sap/chevrotain) - Parser Building Toolkit for JavaScript
   * [When to use a Parser Combinator? When to use a Parser Generator?](https://softwareengineering.stackexchange.com/questions/338665)

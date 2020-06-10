@@ -9,6 +9,9 @@ title: MySQL
 * [Common MySQL Queries](http://www.artfulsoftware.com/infotree/queries.php)
 
 ```sql
+-- 用户可登陆状况
+select host,user from mysql.user;
+
 -- 设置 binlog 超时时间
 SET GLOBAL expire_logs_days=7
 
@@ -134,3 +137,11 @@ TINYTEXT    |           255 (2 8−1) bytes
 TEXT        |        65,535 (216−1) bytes = 64 KiB
 MEDIUMTEXT  |    16,777,215 (224−1) bytes = 16 MiB
 LONGTEXT    | 4,294,967,295 (232−1) bytes =  4 GiB
+
+## FAQ
+
+### 修改密码
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```

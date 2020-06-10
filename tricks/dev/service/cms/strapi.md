@@ -14,13 +14,19 @@
 * 开发
   * [文件结构](https://strapi.io/documentation/3.0.0-beta.x/concepts/file-structure.html)
   * [strapi/strapi-examples](https://github.com/strapi/strapi-examples) - 集成参考
+* 参考
+  * [将 Strapi 转为 Typescript](https://medium.com/@alexdevmotion/1cc852fbf504)
+
+```bash
+yarn create strapi-app my-strapi --quickstart
+```
 
 ## FAQ
 
 ### 升级
 ```bash
 yarn oudated
-sed '/strapi/s/3.0.0-beta.18.7/3.0.0-beta.19.3/g'  package.json -i
+sed '/strapi/s/3.0.0-beta.18.7/3.0.1/g'  package.json -i
 yarn
 yarn build
 ```

@@ -14,6 +14,8 @@
 * 注意 ⚠️
   * 默认不支持 HTTPS 的缓存 [Features/HTTPS](https://wiki.squid-cache.org/Features/HTTPS)
     * HTTPS 会使用 CONNECT 的方式进行 TUNNEL 代理
+    * 支持 HTTPS 需要客户端安装 CA 证书
+    * 如果安装了 CA 证书也能实现透明代理
 
 ```bash
 cat <<CONF > squid.conf

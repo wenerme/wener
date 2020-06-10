@@ -3,6 +3,8 @@
 ## Tips
 * [qemu.org](https://www.qemu.org/)
 * [QEMU:wiki](https://en.wikipedia.org/wiki/QEMU)
+* https://www.qemu.org/docs/master/
+* https://qemu.weilnetz.de/doc/qemu-doc.html
 * VirtualBox , Xen 和 KVM 基于 QEMU
 * 安卓虚拟机基于 QEMU ARM 虚拟
 * QEMU-SystemC 使用 QEMU 来模拟使用 SystemC 开发的硬件
@@ -16,6 +18,9 @@ https://wiki.archlinux.org/index.php/QEMU_(简体中文)
 https://wiki.gentoo.org/wiki/QEMU/Options
 
 http://www.tightvnc.com/download.php
+
+https://wiki.qemu.org/Documentation/Platforms/ARM
+https://wiki.qemu.org/Features/CPUModels
 
 ```bash
 # Mac 安装
@@ -84,13 +89,13 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
 
 快捷键   | 作用 
 --------|-----
-<M-f>   | 全屏切换
-<M-+>   | 增大屏幕
-<M-->   | 缩小屏幕
-<M-u>   | 恢复屏幕大小
-<M-n>   | 切换为虚拟控制台 'n', 1: 目标系统显示, 2: 监视器, 3: 串口
-<C-A>   | 切换键盘和鼠标捕获
-<C-a h> | 在 `-nographic` 显示帮助
+M-f   | 全屏切换
+M-+   | 增大屏幕
+M--   | 缩小屏幕
+M-u   | 恢复屏幕大小
+M-n   | 切换为虚拟控制台 'n', 1: 目标系统显示, 2: 监视器, 3: 串口
+C-A   | 切换键盘和鼠标捕获
+C-a h | 在 `-nographic` 显示帮助
 
 
 ## 特性
@@ -143,6 +148,45 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
 ## CHANGLOG
 * https://wiki.qemu.org/Planning
 * https://wiki.qemu.org/ChangeLog
+
+### 5.0
+* https://www.qemu.org/2020/04/29/qemu-5-0-0/
+* virtiofsd - 映射主机目录
+  * Linux 5.4 支持 VirtIO-FS 
+* D-Bus QEMU 进程 Live-Migration
+* block
+  * 支持压缩备份镜像
+  * qemu-img measure 支持 LUKS， convert 支持调过 zero
+  * qemu-storage-daemon 支持访问存储，不需要启动 VM
+
+```bash
+# ./virtiofsd -o vhost_user_socket=/tmp/vhostqemu -o source=$TESTDIR -o cache=always
+
+qemu-system-x86_64 -M pc -cpu host --enable-kvm -smp 2 \
+  -m 4G -object memory-backend-file,id=mem,size=4G,mem-path=/dev/shm,share=on -numa node,memdev=mem \
+  -chardev socket,id=char0,path=/tmp/vhostqemu -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=myfs \
+  -chardev stdio,mux=on,id=mon -mon chardev=mon,mode=readline -device virtio-serial-pci -device virtconsole,chardev=mon -vga none -display none \
+  -drive if=virtio,file=rootfsimage.qcow2
+
+mount -t virtiofs myfs /mnt
+
+# DAX
+#  -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=myfs,cache-size=2G
+```
+
+### 4.2.0
+* https://www.qemu.org/2019/12/13/qemu-4-2-0/
+* x86
+  * VMX 可通过 `-cpu` 启用或停用
+  * microvm 使用 virtio-mmio 而不是 PCI 作为性能基线优化
+  * macOS `-accel hvf` 稳定
+
+### 4.1.0
+* https://www.qemu.org/2019/08/16/qemu-4-1-0/
+
+### 4.0.0
+* https://www.qemu.org/2019/04/24/qemu-4-0-0/
+
 
 ### 3.1.0
 * https://www.qemu.org/2018/12/12/qemu-3-1-0/

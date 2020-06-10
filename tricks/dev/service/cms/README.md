@@ -20,7 +20,7 @@
   * 动态
     * 半静态
 * 相关技术
-  * JAMstack - Javascript And Markup
+  * JAMstack - Javascript Apis Markup
   * [Rendering on the Web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
     * SR
       * JSP、PHP
@@ -34,3 +34,5 @@
     * Full CSR
       * 大多数应用
       * CRA-reate-react-app
+* https://slite.com/
+  * https://slite.com/solutions/knowledge-base

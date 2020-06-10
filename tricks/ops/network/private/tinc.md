@@ -210,7 +210,7 @@ brew install tinc-pre
 tinc set DeviceType utun
 
 # 确保路径存在, 否则 pid 会存在当前目录
-mkdir -p /usr/local/Cellar/tinc/1.1pre15/var/run/
+mkdir -p /usr/local/Cellar/tinc/1.1pre17/var/run/
 
 # tun/tap
 # ===============
@@ -430,6 +430,15 @@ Digest = sha1
 ```
 
 ## FAQ
+
+### traps: tincd[3995] general protection fault ip:7f6ad09944eb sp:7ffda3da5ea8 error:0 in ld-musl-x86_64.so.1[7f6ad098b000+46000]
+TBD
+
+### 相同 key 或相同 名字？
+* tinc 允许相同 key - 但不建议，存在安全隐患
+* tinc 不允许相同 name
+  * name 在节点里是唯一标识的
+* https://www.tinc-vpn.org/pipermail/tinc/2015-May/004137.html
 
 ### Peer  tries to roll back protocol version to 17.0
 

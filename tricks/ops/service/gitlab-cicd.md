@@ -22,6 +22,7 @@ title: GitaLab持续集成持续交付
   * 默认需要暴露 8080
 * 注意
   * 构建的应用镜像需要 PUSH 到仓库 - 因此需要配置仓库信息
+  * [#21619](https://gitlab.com/gitlab-org/gitlab/-/issues/21619) - 如果镜像不是 latest 标签不会每次拉
 * [CI变量说明](https://docs.gitlab.com/ee/ci/variables)
 * 参考
   * [Gitlab 仓库 vs Nexus](https://about.gitlab.com/devops-tools/sonatype-nexus-repo-vs-gitlab.html)

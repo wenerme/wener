@@ -6,14 +6,24 @@ title: HELM 包管理器
 # Helm
 
 ## Tips
+* [helm.sh](https://helm.sh/)
 * nexus 可通过插件支持 helm [sonatype-nexus-community/nexus-repository-helm](https://github.com/sonatype-nexus-community/nexus-repository-helm)
 * 注意
   * 3.0 过后没有 tiller 了
 
 
 ```bash
+brew install helm
+
 # 客户端版本
 helm version
+
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm search repo stable
+
+helm show values stable/nextcloud
+helm pull stable/nextcloud
+helm pull stable/nextcloud --untar
 ```
 
 
