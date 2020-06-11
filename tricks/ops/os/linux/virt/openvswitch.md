@@ -2,11 +2,8 @@
 
 ## Tips
 * http://containertutorials.com/network/ovs_docker.html
-
-https://github.com/floodlight/floodlight
-SDN OpenFlow Controller
-
-https://www.slideshare.net/rajdeep/openvswitch-deep-dive
+* [SDN OpenFlow Controller](https://github.com/floodlight/floodlight)
+* https://www.slideshare.net/rajdeep/openvswitch-deep-dive
 
 ## FAQ
 ### OpenVSwitch vs Linux Bridge

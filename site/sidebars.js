@@ -100,9 +100,10 @@ module.exports = {
     ],
     Kubernetes: [
       'devops/kubernetes/k8s-intro',
+      'devops/kubernetes/k3s',
+      'devops/kubernetes/k3d',
+      'devops/kubernetes/k8s-glossary',
       'devops/kubernetes/helm-intro',
-      'devops/kubernetes/knative-intro',
-      'devops/kubernetes/istio-intro',
       'devops/kubernetes/rancher-intro',
       'devops/kubernetes/rancher-rke',
       {
@@ -110,7 +111,17 @@ module.exports = {
         label: '网络',
         items: [
           'devops/kubernetes/network/k8s-network',
+          'devops/kubernetes/network/kong-ingress',
           'devops/kubernetes/network/metallb',
+          'devops/kubernetes/network/flannel',
+        ],
+      },
+      {
+        type: 'category',
+        label: '平台',
+        items: [
+          'devops/kubernetes/platform/knative-intro',
+          'devops/kubernetes/platform/istio-intro',
         ],
       },
     ],
@@ -132,6 +143,12 @@ module.exports = {
           'howto/network/tinc-transparency-proxy',
         ]
       },
+    ],
+    虚拟化: [
+      'ops/os/linux/virt/qemu-doc',
+      'ops/os/linux/virt/qemu-monitor',
+      'ops/os/linux/virt/libvirt-faq',
+      'ops/os/linux/virt/virsh',
     ],
     工具: [
       {

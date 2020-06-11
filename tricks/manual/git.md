@@ -50,6 +50,15 @@ brew install git-flow-avh
 
 ## FAQ
 
+## 切换分支但不捡出文件
+
+```bash
+# 文件变为暂存状态
+git symbolic-ref HEAD refs/heads/其他分支
+# 可以取消暂存
+git reset
+```
+
 ## 修正用户名
 ```bash
 git commit --amend --author="Author Name <email@address.com>"

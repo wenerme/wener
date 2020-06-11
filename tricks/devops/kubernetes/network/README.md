@@ -1,11 +1,51 @@
 ---
 id: k8s-network
-title: Kubernates网络
+title: Kubernates 网络
 ---
 
 # Kubernates Network
 
-## 网络
+## 集群网络
+* [Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/)
+* [网络设计文档](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/network/networking.md)
+* 四种网络类型
+  1. 容器 到 容器
+    * 对于容器本身来说它就像运行在同一个主机上
+  2. Pod 到 Pod
+    * 每个都有真实独立 IP
+    * IP 跨节点唯一、通信
+  3. Pod 到 Service
+  4. 外部 到 Service
+* 要求
+  * Pod 之间互通 - 无 NAT
+  * 节点上 Agent 和 Pod 互通
+  * 支持 Host 网络平台 - Pod 在主机网络下能与其他 Pod 互通 - 无 NAT
+* 实现
+  * Linux L2 层桥接网络
+    * [Tinc](https://www.tinc-vpn.org/)
+  * [coreos/flannel](https://github.com/coreos/flannel)
+  * [projectcalico/calico](https://github.com/projectcalico/calico)
+  * [ovn-org/ovn-kubernetes](https://github.com/ovn-org/ovn-kubernetes)
+
+## 服务发现
+* [Service Discovery Proposal](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/network/service-discovery.md)
+
+__推荐 Annotation__
+
+```json
+{
+  "api.service.kubernetes.io/protocol"              : "REST",
+  "api.service.kubernetes.io/scheme"                : "http",
+  "api.service.kubernetes.io/path"                  : "cxfcdi",
+  "api.service.kubernetes.io/description-path"      : "cxfcdi/swagger.json",
+  "api.service.kubernetes.io/description-language"  : "SwaggerJSON"
+}
+```
+
+## resolv.conf
+* [Custom /etc/resolv.conf](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/network/pod-resolv-conf.md)
+
+## 服务网络
 * [Kubernetes NodePort vs LoadBalancer vs Ingress? When should I use what?](https://medium.com/google-cloud/922f010849e0)
 
 ### ClusterIP

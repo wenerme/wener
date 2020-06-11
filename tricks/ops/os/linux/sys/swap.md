@@ -11,6 +11,7 @@ Linux 中的交换文件称为  `swappiness`,swappiness 的值为当内存达到
 # 默认 60
 # 当内存还有多少空闲时使用交换区 - 10 则时当内存还有 10% 空闲 - 即已经使用 90% 的时候激活交换
 sysctl vm.swappiness=10
+
 # 清除所有交换
 swapoff -a
 # 启用所有交换.
@@ -36,6 +37,14 @@ vmstat
 vm_stat
 # 查看使用的交换文件
 ls -lh /private/var/vm/swapfile*
+
+# AlpineLinux
+# 自动设置参数
+echo vm.swappiness=10 > /etc/sysctl.d/swap.conf
+# 可以重新加载
+/etc/init.d/sysctl rstart
+# 开机挂载 swap
+rc-update add swap
 ```
 
 

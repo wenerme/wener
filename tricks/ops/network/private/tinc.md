@@ -434,6 +434,12 @@ Digest = sha1
 ### traps: tincd[3995] general protection fault ip:7f6ad09944eb sp:7ffda3da5ea8 error:0 in ld-musl-x86_64.so.1[7f6ad098b000+46000]
 TBD
 
+### Failed to verify SIG record from infra
+签名验证失败，尝试重新 invite
+
+### Got REQ_KEY from node while we already started a SPTPS session!
+* [#203](https://github.com/gsliepen/tinc/issues/203)
+
 ### 相同 key 或相同 名字？
 * tinc 允许相同 key - 但不建议，存在安全隐患
 * tinc 不允许相同 name
