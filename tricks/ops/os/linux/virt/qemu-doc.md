@@ -1,3 +1,8 @@
+---
+id: qemu-doc
+title: QEMU 文档
+---
+
 # QEMU Document
 
 ## Tips

@@ -6,6 +6,10 @@ title: K8S 词汇表
 # K8S 词汇表
 * [标准化词汇表](https://kubernetes.io/zh/docs/reference/glossary)
 
+## ConfigMap
+* API 对象 - 以 KV 存储非私密性数据
+* 可用作环境变量、命令行参数、挂载为配置文件
+* [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
 ## Controller
 * 控制器
@@ -48,6 +52,18 @@ title: K8S 词汇表
 * 实际需要执行的资源对象
   * 例如服务定义，是不需要执行的
 * = Pod + Controller
+
+## Service
+* 将一组 Pod 抽象为一个网络服务
+* 通过 selector 来选择目标  Pods
+* 服务确保网络能指向到工作的 Pods
+* 服务会有 ClusterIP
+* 如果服务没有指定 selector 则可以手动指定 Endpoint
+  * Endpoint 为 IP+Port
+* 定义服务后支持服务发现
+  * 环境变量
+  * DNS
+* [规范](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#service-v1-core)
 
 ## Zone
 * 可用区

@@ -26,6 +26,8 @@ docker run -d \
   --name watchtower containrrr/watchtower \
   --interval 180 --cleanup
 
-# 单个容器单次运行
-docker run --rm -it   -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.docker/config.json:/config.json containrrr/watchtower -R strapi
+# 升级单个容器
+docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.docker/config.json:/config.json containrrr/watchtower -R <NAME>
+# 升级单个容器 - 不带鉴权信息
+docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -R <NAME>
 ```

@@ -19,7 +19,7 @@ title: Kubernates 网络
 * 要求
   * Pod 之间互通 - 无 NAT
   * 节点上 Agent 和 Pod 互通
-  * 支持 Host 网络平台 - Pod 在主机网络下能与其他 Pod 互通 - 无 NAT
+  * 支持 Host 网络的平台 - Pod 在主机网络下能与其他 Pod 互通 - 无 NAT
 * 实现
   * Linux L2 层桥接网络
     * [Tinc](https://www.tinc-vpn.org/)

@@ -5,7 +5,37 @@
   * [FAQ](https://www.linux-kvm.org/page/FAQ)
 
 
+## KVM internal error. Suberror: 3
+* 确认参数是否正确
+  * 例如 `-m` 是不是没有给单位导致给的太小
 
+```
+KVM internal error. Suberror: 3
+extra data[0]: 80000306
+extra data[1]: 31
+extra data[2]: 182
+extra data[3]: 32efe0
+EAX=fffffffb EBX=00000000 ECX=00000000 EDX=00000000
+ESI=00000000 EDI=00000000 EBP=00000000 ESP=0032efe4
+EIP=00000007 EFL=00010287 [--S--PC] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0028 00000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+CS =0020 00000000 ffffffff 00c09b00 DPL=0 CS32 [-RA]
+SS =0028 00000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0028 00000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+FS =0000 00000000 ffffffff 00c00000
+GS =0000 00000000 ffffffff 00c00000
+LDT=0000 00000000 ffffffff 00c00000
+TR =0008 00000580 00000067 00008b00 DPL=0 TSS32-busy
+GDT=     00009400 0000002f
+IDT=     00003008 000007ff
+CR0=00000011 CR2=00000000 CR3=00000000 CR4=00000000
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000000
+Code=00 00 00 00 53 ff 00 <f0> c3 e2 00 f0 53 ff 00 f0 53 ff 00 f0 54 ff 00 f0 53 ff 00 f0 53 ff 00 f0 a5 fe 00 f0 87 e9 00 f0 70 d4 00 f0 70 d4 00 f0 70 d4
+```
+
+egrep -c '(vmx|svm)' /proc/cpuinfo
 
 ```bash
 sudo apk add qemu qemu-system-x86_64 qemu-ui-curses qemu-block-ssh qemu-img
@@ -98,3 +128,6 @@ qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-
 -curses
 
 brew cask install vnc-viewer
+
+
+

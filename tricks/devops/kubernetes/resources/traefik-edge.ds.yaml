@@ -1,3 +1,22 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: traefik-edge
+  namespace: default
+  labels:
+    app: traefik-edge
+data:
+  traefik.yml: |
+    providers:
+      kubernetesIngress:
+        ingressClass: "traefik-edge"
+        namespaces:
+          - "default"
+          - "production"
+    api:
+      insecure: true
+
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -7,11 +26,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: traefik-edge
+      app: traefik-edge
   template:
     metadata:
       labels:
-        name: traefik-edge
+        app: traefik-edge
     spec:
       nodeSelector:
         # 自定义节点标签
@@ -25,5 +44,46 @@ spec:
           requests:
             cpu: 100m
             memory: 200Mi
+        volumeMounts:
+        - name: config
+          mountPath: "/etc/traefik/"
+          readOnly: true
       terminationGracePeriodSeconds: 30
+
+      volumes:
+        - name: config
+          configMap:
+            name: traefik-edge
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-edge
+spec:
+  ports:
+    - name: http
+      port: 80
+    - name: https
+      port: 443
+    - name: ui
+      port: 8080
+  selector:
+    app: traefik-edge
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-edge
+spec:
+  ports:
+    - name: http
+      port: 80
+    - name: https
+      port: 443
+    - name: ui
+      port: 8080
+  selector:
+    app: traefik-edge
 

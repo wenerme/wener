@@ -20,8 +20,10 @@ title: MetalLB
   * 网络变化时会有一瞬间的中断
   * 一般使用基于 hash 的负载均衡 - 部分场景下会有问题
 * MetalLB 安装后如果不配置也是没有开始工作的
-* `metallb-system/controller` deployment 处理 IP 分发
-* `metallb-system/speaker` daemonset 在每个节点上响应路由
+* 原理
+  * `metallb-system/controller` deployment 处理 IP 分发
+  * `metallb-system/speaker` daemonset 在每个节点上响应路由
+    * 响应 ARP，申明节点有 IP 并返回 MAC
 
 
 ```bash

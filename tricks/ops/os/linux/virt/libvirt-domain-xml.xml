@@ -1,5 +1,7 @@
 <!-- 格式 https://libvirt.org/format.html -->
 <!-- 校验 virt-xml-validate myvm.xml -->
+
+<!-- 驱动类型 kvm、qemu、lxv、vbox 等 - 对应 /usr/lib/libvirt/connection-driver 下的驱动 -->
 <domain type='kvm'>
   <!-- 虚拟机名字 -->
   <name>myvm</name>
@@ -128,6 +130,7 @@
     </channel>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
+    <!-- VNC 允许外部访问 -->
     <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
       <listen type='address' address='0.0.0.0'/>
     </graphics>

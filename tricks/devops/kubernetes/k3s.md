@@ -51,6 +51,8 @@ title: K3S
       * httpn 8880
   * servicelb - 内嵌负载均衡
     * [rancher/klipper-lb](https://github.com/rancher/klipper-lb)
+      * https://github.com/rancher/klipper-lb/blob/master/entry
+      * This works by using a host port for each service load balancer and setting up iptables to forward the request to the cluster IP. The regular k8s scheduler will find a free host port. If there are no free host ports, the service load balancer will stay in pending.
   * 内嵌网络策略控制器
   * local-storage
   * metrics-server
@@ -58,6 +60,9 @@ title: K3S
     * [kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 * 参考
   * [Using a k3s Kubernetes Cluster for Your GitLab Project](https://medium.com/better-programming/b0b035c291a9)
+* 问题
+  * Replace traefik with nginx - [#1466](https://github.com/rancher/k3s/pull/1466/files)
+    * 已经被回退
 
 ```bash
 apk add util-linux
@@ -86,6 +91,7 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 * [Advanced Options and Configuration](https://rancher.com/docs/k3s/latest/en/advanced/)
 * `--docker` - 使用 docker - 默认 [containerd](https://containerd.io/)
 * 在 `/var/lib/rancher/k3s/server/manifests` 下面的文件会被自动部署 - kubectl apply
+  * 默认安装内容 - [rancher/k3s/tree/master/manifests](https://github.com/rancher/k3s/tree/master/manifests)
 * 默认使用 `containerd`, 启动 agent 的时候添加 `--docker` 可使用 docker
 * 针对 `containerd` 生成的配置位于 `/var/lib/rancher/k3s/agent/etc/containerd/config.toml`
   * 如果在目录下创建了 `config.toml.tmpl` 则会被使用
@@ -96,9 +102,21 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 * 非 root 数据存放于 `~/.rancher/k3s/data`
 * root 数据存放于 `/var/lib/rancher/k3s/data`
 * 集群 cidr `10.42.0.0/16`
+  * 节点 IP
+  * cni0 - 本地网口 - 附带 IP
+  * flannel1.1 - 集群通信
+  * 会分配给每个 Pod
+  * 每个节点一个 `/24` 地址 - 不同节点之间进行转发
 * 服务 cidr `10.43.0.0/16`
+  * 服务 IP
+  * 不能 ping
+  * 虚拟地址，通过 iptables 配置
 * 集群域名 cluster.local
 * coredns `10.43.0.10`
+* [网络](https://rancher.com/docs/k3s/latest/en/networking/)
+  * 默认使用 flannel 作为 CNI，使用 VXLAN 后端
+  * flannel [配置](https://github.com/rancher/k3s/blob/fe7337937155af41f1aebeb87d1acd07091b71de/pkg/agent/flannel/setup.go#L42)
+* 私有仓库 `/etc/rancher/k3s/registries.yaml`
 
 ### get.k3s.io
 * [get.k3s.io](https://get.k3s.io) 安装脚本
