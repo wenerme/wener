@@ -22,7 +22,16 @@
 dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k; rm -f test
 # 磁盘性能
 hdparm -Tt /dev/sda
+
+cd "/usr/local/share/ca-certificates" && curl "https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem" | csplit -f "rds-" - '/-----BEGIN CERTIFICATE-----/' '{*}'
 ```
+
+
+## http
+ab
+https://github.com/rakyll/hey
+https://github.com/JoeDog/siege
+
 
 ## Network
 

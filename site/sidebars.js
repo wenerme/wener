@@ -144,6 +144,10 @@ module.exports = {
         ]
       },
     ],
+    系统管理: [
+      'ops/admin/htop',
+      'ops/admin/mosh',
+    ],
     虚拟化: [
       'ops/os/linux/virt/qemu-doc',
       'ops/os/linux/virt/qemu-monitor',

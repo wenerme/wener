@@ -1,3 +1,8 @@
+---
+id: mosh
+title: MOSH
+---
+
 # MOSH
 
 ## Why
@@ -13,6 +18,21 @@
 ## Tips
 * 远程服务器如果没有相应的 LC 可能会导致连接不上
   * `locale-gen zh_CN.UTF-8`
+* https://git.zx2c4.com/mosh-cleaner/about/
+
+```bash
+mosh user@example.com --ssh="ssh -p 2222"
+
+mosh-server new -l LANG=en_US.UTF-8 -p 60500
+```
+
+```bash
+curl -O https://git.zx2c4.com/mosh-cleaner/plain/clean-mosh.c
+```
+
+pgrep -u "$USER" mosh-server | tr ' ' '\n' | grep -v "$PPID" | xargs kill
+
+who | grep -v 'via mosh' | grep -oP '(?<=mosh \[)(\d+)(?=\])' | xargs kill
 
 ## 使用鼠标滚动查看历史
 
