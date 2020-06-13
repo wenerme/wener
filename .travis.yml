@@ -28,7 +28,8 @@ deploy:
     repo: wenerme/wenerme.github.io
     token: $GITHUB_TOKEN
     # delete all the files created during the build, which will probably delete what you are trying to upload.
-    cleanup: true
+    # skip_cleanup: true
+    cleanup: false
     # git push --force
     keep_history: false
     # org page
@@ -44,7 +45,8 @@ deploy:
     repo: wenerme/wener.tech
     token: $GITHUB_TOKEN
     # delete all the files created during the build, which will probably delete what you are trying to upload.
-    cleanup: true
+    # skip_cleanup: true
+    cleanup: false
     # git push --force
     keep_history: false
     # org page
