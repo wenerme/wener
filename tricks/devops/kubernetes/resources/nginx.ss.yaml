@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ss
+  labels:
+    app: nginx
+spec:
+  ports:
+  - port: 80
+    name: web
+  selector:
+    app: nginx-ss
+  type: NodePort
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-ss
+  labels:
+    app: nginx-ss
+spec:
+  replicas: 3
+  serviceName: nginx-ss
+  selector:
+    matchLabels:
+      app: nginx-ss
+  template:
+    metadata:
+      name: nginx-ss
+      labels:
+        app: nginx-ss
+    spec:
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: nginx:stable-alpine
+        resources:
+          requests:
+            cpu: 50m
+            memory: 25Mi
+          limits:
+            cpu: 100m
+            memory: 50Mi
+        ports:
+        - containerPort: 80
+        # ext4 挂载后有 lost+found
+        livenessProbe:
+          exec:
+            command:
+              - ls
+              - /usr/share/nginx/html/lost+found
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html/
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "longhorn"
+      resources:
+        requests:
+          storage: 1Gi

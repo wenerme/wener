@@ -100,6 +100,7 @@ module.exports = {
     ],
     Kubernetes: [
       'devops/kubernetes/k8s-intro',
+      'devops/kubernetes/k8s-dashboard',
       'devops/kubernetes/k3s',
       'devops/kubernetes/k3d',
       'devops/kubernetes/k8s-glossary',

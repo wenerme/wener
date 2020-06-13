@@ -10,6 +10,32 @@ title: Libvirt常见问题
 * 注意
   * uuid 和 mac 类字段如果没有，则导入的时候生成
 
+## console 没有终端
+
+__确保定义有Serial__
+
+```xml
+<serial type='pty'>
+  <target port='0'/>
+</serial>
+<console type='pty'>
+  <target type='serial' port='0'/>
+</console>
+```
+
+如果还是没有，则尝试添加 kernel 参数
+
+```
+console=tty0 console=ttyS0
+```
+
+或
+
+```
+console=ttyS0,19200 earlyprint=serial,ttyS0,19200
+```
+
+
 ## guest CPU doesn't match specification: missing features: spec-ctrl,stibp,ssbd
 * https://www.berrange.com/posts/2018/06/29/cpu-model-configuration-for-qemu-kvm-on-x86-hosts/
 * https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/x86/include/asm/cpufeatures.h

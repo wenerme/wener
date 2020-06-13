@@ -8,7 +8,7 @@ title: Wireshark
 ## Tips
 * http://packetlife.net/library/cheat-sheets/
 * [Wireshark 工具](https://www.wireshark.org/tools/)
-
+* How I use Wireshark https://news.ycombinator.com/item?id=17344342
 
 ## Filter
 * Display
@@ -38,3 +38,8 @@ and &&
 or ||
 not !
 ```
+
+## Remote
+* https://www.wireshark.org/docs/man-pages/sshdump.html
+* Provide interfaces to capture from a remote host through SSH using a remote capture binary.
+* tshark

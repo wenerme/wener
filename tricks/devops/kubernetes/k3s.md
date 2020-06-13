@@ -208,3 +208,42 @@ k3s server --cluster-init --alsologtostderr --log $PWD/k3s-server.log --docker
 * 节点上的 `/etc/rancher/node` 目录被移除后密码会被从新生成，或由服务端移除。
 * 启动时可为节点附加唯一节点标示，`--with-node-id`。
 
+
+## FAQ
+### K3S 安装清理
+```bash
+# 如果通过 get.k3s.io 安装会有该脚本
+/usr/local/bin/k3s-killall.sh
+# 删除的配置 iptables-save | grep -v KUBE- | grep -v CNI- | iptables-restore
+# iptable 可能删除不干净，可以手动清理
+# iptables-save | grep -v 10.4[2,3] | iptables-restore
+
+# 常规清理
+docker stop $(docker ps -aq)
+docker system prune --volumes -f
+docker system prune -f
+sudo umount $(mount -v | grep '/var/lib/kubelet' | awk '{print $3}')
+sudo rm -rf /var/lib/rancher
+sudo rm -rf /var/lib/kubelet
+
+sudo rm -rf /var/log/containers/*
+sudo rm -rf /var/log/pods/*
+
+# 如果用了数据库
+echo drop table if exists kine | psql -d $DATABASE_URL
+# 如果有日志文件，例如 --log k3s-server.log --alsologtostderr
+rm k3s-server.log -f
+```
+
+## docker vs containerd
+* 建议使用 docker
+* docker
+  * 操作运维熟悉
+  * 可独立使用
+  * docker 命令好用
+  * 镜像、缓存会更加友好 - 虽然 containerd 有 docker shim
+* containerd
+  * 
+  * docker 底层也是使用的 containerd
+  * 因此使用 docker 会额外消耗一些内存
+  * 没有专用的 cli - crictl 主要用于调试
