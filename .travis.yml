@@ -5,6 +5,7 @@ before_script:
   - echo building $TRAVIS_BUILD_DIR
   - node --version && yarn --version
   - cd ..
+  - rm -rf docusaurus
   - git clone --branch v2.0.0-alpha.40 --depth 1 https://github.com/facebook/docusaurus
   - cd docusaurus
   - mv $TRAVIS_BUILD_DIR wener
@@ -22,17 +23,33 @@ script:
 
 # deploy to github pages
 deploy:
-  fqdn: wener.me
-  repo: wenerme/wenerme.github.io
-  provider: pages
-  github_token: $GITHUB_TOKEN
-  # delete all the files created during the build, which will probably delete what you are trying to upload.
-  skip_cleanup: true
-  # git push --force
-  keep_history: false
-  # org page
-  target_branch: master
-  # from ~/wenerme/wener
-  local_dir: site/build
-  on:
-    branch: master
+  - provider: pages
+    fqdn: wener.me
+    repo: wenerme/wenerme.github.io
+    token: $GITHUB_TOKEN
+    # delete all the files created during the build, which will probably delete what you are trying to upload.
+    cleanup: true
+    # git push --force
+    keep_history: false
+    # org page
+    target_branch: master
+    # from ~/wenerme/wener
+    local_dir: site/build
+    on:
+      branch: master
+
+  # https://github.com/wenerme/wener.tech
+  - provider: pages
+    fqdn: www.wener.tech
+    repo: wenerme/wener.tech
+    token: $GITHUB_TOKEN
+    # delete all the files created during the build, which will probably delete what you are trying to upload.
+    cleanup: true
+    # git push --force
+    keep_history: false
+    # org page
+    target_branch: master
+    # from ~/wenerme/wener
+    local_dir: site/build
+    on:
+      branch: master
