@@ -119,10 +119,25 @@ module.exports = {
       },
       {
         type: 'category',
+        label: '存储',
+        items: [
+          'devops/kubernetes/storage/k8s-storage',
+          'devops/kubernetes/storage/longhorn',
+        ],
+      },
+      {
+        type: 'category',
         label: '平台',
         items: [
           'devops/kubernetes/platform/knative-intro',
           'devops/kubernetes/platform/istio-intro',
+        ],
+      },
+      {
+        type: 'category',
+        label: '应用',
+        items: [
+          'devops/kubernetes/app/cert-manager',
         ],
       },
     ],

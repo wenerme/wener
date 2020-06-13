@@ -31,6 +31,12 @@ title: Rancher UI
 ## 安装
 
 - [安装要求](https://rancher.com/docs/rancher/v2.x/en/installation/requirements/)
+- [集群安装要求](https://rancher.com/docs/rancher/v2.x/en/installation/k8s-install/create-nodes-lb/)
+  - K3S 两个节点
+  - RKE 三个节点
+  - 负载均衡
+    - 安装完成会创建 Ingress
+  - DNS
 
 ### Docker 单机
 
@@ -80,6 +86,29 @@ docker run -d --restart=unless-stopped \
 | ------ | ---- | ---- | ---- | ----- | ------------------------- |
 | Small  | 150  | 1500 | 2    | 8 GB  | 2 cores, 4 GB + 1000 IOPS |
 | Medium | 300  | 3000 | 4    | 16 GB | 2 cores, 4 GB + 1000 IOPS |
+
+```bash
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+kubectl create namespace cattle-system
+
+
+# ingress.tls.source
+#   rancher 使用自己分发的 - 需要安装 cert-manager - 默认
+#   secret 自行提供 - 之后添加 tls - https://rancher.com/docs/rancher/v2.x/en/installation/options/tls-secrets/
+helm install rancher rancher-stable/rancher \
+  --namespace cattle-system \
+  --set hostname=rancher.my.org \
+  --set ingress.tls.source=secret
+
+# 添加已有的 TLS 证书和 Key
+kubectl -n cattle-system create secret tls tls-rancher-ingress \
+  --cert=tls.crt \
+  --key=tls.key
+
+# 验证安装状态
+kubectl -n cattle-system rollout status deploy/rancher
+kubectl -n cattle-system get deploy rancher
+```
 
 ### RKE
 
@@ -131,18 +160,19 @@ kubectl -n cattle-system get deploy rancher
 ```
 
 ## 集群导入
-* 创建集群角色 `proxy-clusterrole-kubeapiserver`
-  * 允许操作 `kube-apiserver`
-* 创建命名空间 `cattle-system`
-* 创建服务账号 `cattle` 管理 `cattle-system`
-  * 添加 `cattle-admin` 角色
-* 创建密钥包含 URL 和 TOKEN
-* 授权 `cattle-admin` 操作所有 API 和 资源
-* 部署 `cattle-cluster-agent`
-  * cluster-register 镜像为 [rancher/rancher-agent](https://hub.docker.com/r/rancher/rancher-agent)
-  * 挂载之前的授权信息
-* 部署节点守护进程 `cattle-node-agent`
-  * agent 镜像为 [rancher/rancher-agent](https://hub.docker.com/r/rancher/rancher-agent)
+
+- 创建集群角色 `proxy-clusterrole-kubeapiserver`
+  - 允许操作 `kube-apiserver`
+- 创建命名空间 `cattle-system`
+- 创建服务账号 `cattle` 管理 `cattle-system`
+  - 添加 `cattle-admin` 角色
+- 创建密钥包含 URL 和 TOKEN
+- 授权 `cattle-admin` 操作所有 API 和 资源
+- 部署 `cattle-cluster-agent`
+  - cluster-register 镜像为 [rancher/rancher-agent](https://hub.docker.com/r/rancher/rancher-agent)
+  - 挂载之前的授权信息
+- 部署节点守护进程 `cattle-node-agent`
+  - agent 镜像为 [rancher/rancher-agent](https://hub.docker.com/r/rancher/rancher-agent)
 
 ```
 curl --insecure -sfL -o import.yaml https://rancher.example.com/v3/import/<TOKEN>.yaml
