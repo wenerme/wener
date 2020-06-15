@@ -24,6 +24,13 @@ docker-compose up --scale agent=3
 # kubeconfig is written to current dir
 kubectl --kubeconfig kubeconfig.yaml get node
 
+# 启动 server
+docker run --rm -it \
+  --tmpfs /run --tmpfs /var/run \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  rancher/k3s k3s server --docker
+
+
 # 只启动 agent
 # docker-compose up agent 
 # 或者直接 docker 启动
@@ -32,5 +39,5 @@ sudo docker run \
   --tmpfs /var/run \
   -e K3S_URL=${SERVER_URL} \
   -e K3S_TOKEN=${NODE_TOKEN} \
-  --privileged rancher/k3s:vX.Y.Z
+  --privileged rancher/k3s
 ```

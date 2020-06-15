@@ -135,7 +135,7 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
   * `INSTALL_K3S_SYMLINK` - 创建 kubectl，crictl，ctr 符号链接 - 设置为 `skip` 会调过，设置为 force 会覆盖
   * `INSTALL_K3S_SKIP_ENABLE` - 不启用和启动 k3s - 即不会 add openrc 的 service 也不会 start
   * `INSTALL_K3S_SKIP_START` - 不启动服务
-  * `INSTALL_K3S_BIN_DIR` - 下载目录 - 默认 `/usr/local/bin`
+  * `INSTALL_K3S_BIN_DIR` - 安装目录 - 默认 `/usr/local/bin`
   * `INSTALL_K3S_EXEC` - 指向命令
     * 默认 agent 除非有 K3S_URL
   * `INSTALL_K3S_CHANNEL_URL` - 默认 https://update.k3s.io/v1-release/channels
@@ -243,7 +243,6 @@ rm k3s-server.log -f
   * docker 命令好用
   * 镜像、缓存会更加友好 - 虽然 containerd 有 docker shim
 * containerd
-  * 
   * docker 底层也是使用的 containerd
   * 因此使用 docker 会额外消耗一些内存
   * 没有专用的 cli - crictl 主要用于调试

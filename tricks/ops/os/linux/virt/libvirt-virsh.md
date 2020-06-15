@@ -19,6 +19,10 @@ virsh console DOMAIN
 
 # 定义主机
 virsh define domain.xml
+
+# 重命名
+# 如果通过 xml 需要 undefine 再 define
+virsh domrename {domain} {new-name}
 ```
 
 ## FAQ

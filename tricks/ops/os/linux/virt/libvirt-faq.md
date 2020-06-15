@@ -10,6 +10,40 @@ title: Libvirt常见问题
 * 注意
   * uuid 和 mac 类字段如果没有，则导入的时候生成
 
+## CPU 资源配额
+* 参考 [CPUTuning](https://libvirt.org/formatdomain.html#elementsCPUTuning)
+* shares - 每个 vCPU
+* period、quota - 每个 vCPU，但会首 quota 定义限制
+* emulator_period、emulator_quota - 每个模拟线程，主机 40-80% 性能
+
+## 动态 CPU 和内存
+
+```xml
+<maxMemory slots='16' unit='GiB'>64</maxMemory>
+<memory unit='GiB'>32</memory>
+<currentMemory unit='GiB'>32</currentMemory>
+<vcpu placement='static' current='8'>16</vcpu>
+<cpu>
+  <numa>
+    <cell id='0' cpus='0-8' memory='4' unit='GiB'/>
+  </numa>
+  <!-- 其他内容 -->
+</cpu>
+```
+
+## At least one numa node has to be configured when enabling memory hotplug
+
+配置热插拔内存后需要配置 numa
+
+```xml
+<cpu>
+  <numa>
+    <cell id='0' cpus='0-8' memory='4' unit='GiB'/>
+  </numa>
+  <!-- 其他内容 -->
+</cpu>
+```
+
 ## console 没有终端
 
 __确保定义有Serial__

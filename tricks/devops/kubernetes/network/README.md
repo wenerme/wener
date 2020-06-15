@@ -5,6 +5,55 @@ title: Kubernates 网络
 
 # Kubernates Network
 
+## 网络设计
+* 物理网络 - Phycial Net - OS Net
+  * 节点之际网络通信
+  * 宿主机实际网络 - 例如 eth0
+  * 地址为 node-ip
+* 容器网络 - Pod Net
+  * 容器之间互通的网络
+  * 每个容器都有唯一独立 IP
+  * 通常实现是一个节点一个子网，让给 Pod 分配子网进行通信
+  * Pod 网络流量在物理网络上看不到 - 例如 eth0 上看不到
+  * CNI - Container Network Interface - 容器网络接口 - 标准化了容器之间网络实现接口
+    * JSON 配置 - 插件化
+    * kubelet 在每次启动 pod 前都会调用 cni 插件
+    * `/etc/cni/net.d`
+    * `/opt/cni/bin`
+    * 常见后端
+      * linux-bridge
+      * ipvlan
+      * macvlan
+      * Open vSwitch
+  * 有非常多不同的实现
+    * flannel - 会在节点上创建 flannel1.1 网卡来通信
+* 服务网络 - Service Net
+  * 集群内部服务发现、流量分发
+  * 服务发现 - 例如 nginx.default.svc.cluser.local 域名
+  * 没有访问控制、没有流量控制
+  * 虚拟地址 - VIP - Virtual IP
+  * 三种模式
+    * ClusterIP
+    * LoadBalancer
+    * NodePort
+  * kube-proxy - 配置 iptables 暴露服务
+    * 通过修改 iptables 来实现流量转发
+    * iptables 指向每个 endpoint
+    * 每个包打随机数用来实现负载 - 但不精确
+  * iptables-save 会看到 `KUBE-SERVICE` 相关的规则
+  * service-cird 指定了 ClusterIP 的地址段
+  * 服务之下为 Endpoint - 通常为 Pod，也可以直接定义 Endpoint
+* Ingress
+  * Kubernates 的网络入口，将服务暴露到外部
+  * 直接与 Pod 通信而不是与服务通信
+  * 通常为 7 层 HTTP - 部分支持 4 层 TCP
+  * 大多实现也支持 CRD 方式，支持更复杂的定义逻辑
+* Egress - 出口流量
+  * 使用较少，目前 calico 支持
+* 参考
+  * [The Easy--Don't Drive Yourself Crazy--Way to Kubernetes Networking [B] - Gerard Hickey](https://www.youtube.com/watch?v=H5Zl_kDOwBU)
+  * [An illustrated guide to Kubernetes Networking](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727)
+
 ## 集群网络
 * [Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/)
 * [网络设计文档](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/network/networking.md)
