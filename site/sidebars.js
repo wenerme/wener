@@ -366,6 +366,8 @@ module.exports = {
           'ops/service/nexus',
           'ops/service/remote-desktop',
           'ops/service/matomo',
+          'dev/service/auth/keycloak-dev',
+          'dev/service/auth/keycloak-faq',
         ],
       },
       {

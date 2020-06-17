@@ -144,6 +144,7 @@ spec:
     port: 80
     targetPort: 80
     # 不指定则随机分配
+    # 30000-32767
     nodePort: 30036
     protocol: TCP
 ```

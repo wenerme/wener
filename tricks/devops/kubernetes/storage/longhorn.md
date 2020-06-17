@@ -164,6 +164,8 @@ kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/master/depl
 
 # 或者下载下来安装
 curl -LOC- https://raw.githubusercontent.com/longhorn/longhorn/master/deploy/longhorn.yaml
+# 可以修改部分参数 - 例如存储节点选择、是否运行单节点执行
+kubectl applu -f longhorn.yaml
 
 # 查看安装状态
 kubectl get pods \
@@ -189,6 +191,7 @@ mountPropagation: Bidirectional
 ```bash
 # 将 root 修改为 share
 sudo mount --make-rshared /
+# sudo mount --make-rshared /var/lib/longhorn/
 ```
 
 ## 示例

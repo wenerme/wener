@@ -117,6 +117,8 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
   * 默认使用 flannel 作为 CNI，使用 VXLAN 后端
   * flannel [配置](https://github.com/rancher/k3s/blob/fe7337937155af41f1aebeb87d1acd07091b71de/pkg/agent/flannel/setup.go#L42)
 * 私有仓库 `/etc/rancher/k3s/registries.yaml`
+* [服务配置](https://rancher.com/docs/k3s/latest/en/installation/install-options/server-config/)
+
 
 ### get.k3s.io
 * [get.k3s.io](https://get.k3s.io) 安装脚本
