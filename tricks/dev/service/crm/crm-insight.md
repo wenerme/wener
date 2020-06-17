@@ -1,3 +1,8 @@
+---
+id: crm-insight
+title: 理解 CRM
+---
+
 # CRM
 
 * [Customer relationship management](https://en.wikipedia.org/wiki/Customer_relationship_management)

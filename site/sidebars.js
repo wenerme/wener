@@ -358,6 +358,31 @@ module.exports = {
         ]
       },
     ],
+    开发:[
+      {
+        type: 'category',
+        label: 'Auth',
+        items: [
+          'dev/service/auth/auth',
+          'dev/service/auth/keycloak-dev',
+          'dev/service/auth/keycloak-faq',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'CMS',
+        items: [
+          'dev/service/cms/cms',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'CRM',
+        items: [
+          'dev/service/crm/crm-insight',
+        ],
+      },
+    ],
     运维: [
       {
         type: 'category',
@@ -366,8 +391,6 @@ module.exports = {
           'ops/service/nexus',
           'ops/service/remote-desktop',
           'ops/service/matomo',
-          'dev/service/auth/keycloak-dev',
-          'dev/service/auth/keycloak-faq',
         ],
       },
       {
