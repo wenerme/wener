@@ -366,6 +366,7 @@ module.exports = {
           'dev/service/auth/auth',
           'dev/service/auth/keycloak-dev',
           'dev/service/auth/keycloak-faq',
+          'dev/service/auth/louketo',
         ],
       },
       {

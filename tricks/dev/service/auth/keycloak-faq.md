@@ -15,6 +15,7 @@ title: Keycloak 常见问题
 * https://stackoverflow.com/questions/55606931/keycloak-js-library-iframe-redirect-when-alreadylogged-in
 * https://github.com/keycloak/keycloak/pull/6131
 
+## invalid_grant: Code not valid
 
 ## invalid_client_credentials CODE_TO_TOKEN_ERROR
 如果是纯前端，需要生成 Token

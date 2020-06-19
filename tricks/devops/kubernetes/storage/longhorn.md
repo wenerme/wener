@@ -31,6 +31,7 @@ title: Longhorn
     * CentOS 7/8
 * 注意 ⚠️
   * 不支持 ReadWriteMany [#73](https://github.com/longhorn/longhorn/issues/73#issuecomment-392869189)
+  * 反向代理 UI 不行 [#1082](https://github.com/longhorn/longhorn/issues/1082)
 
 ```bash
 curl -sSfLO https://raw.githubusercontent.com/longhorn/longhorn/master/scripts/environment_check.sh
