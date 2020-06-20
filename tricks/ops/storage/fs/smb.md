@@ -93,6 +93,8 @@ smbclient  //127.0.0.1/public -U wener
 # 挂载 smb, 修改密码为之前输入的密码
 mount -t smbfs //wener:wener@localhost/public ~/mnt/smb/
 mount –t smbfs //localhost/public ~/mnt/smb/ –o username=wener
+
+mount -t cifs -o user=luke //192.168.1.104/share /mnt/linky_share
 ```
 
 https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html

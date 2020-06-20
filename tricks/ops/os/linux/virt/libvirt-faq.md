@@ -25,7 +25,7 @@ title: Libvirt常见问题
 <vcpu placement='static' current='8'>16</vcpu>
 <cpu>
   <numa>
-    <cell id='0' cpus='0-8' memory='4' unit='GiB'/>
+    <cell id='0' cpus='0-8' memory='32' unit='GiB'/>
   </numa>
   <!-- 其他内容 -->
 </cpu>

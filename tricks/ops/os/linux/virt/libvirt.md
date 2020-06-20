@@ -82,6 +82,11 @@ rc-service libvirtd restart
 virsh -c qemu+ssh://username@hostname/system
 ```
 
+## 驱动
+https://pkgs.alpinelinux.org/contents?file=&path=%2Fusr%2Flib%2Flibvirt%2Fconnection-driver&name=&branch=edge&arch=x86_64
+
+## invalid argument: Failed to parse user 'qemu'
+
 ## XML
 
 * https://libvirt.org/format.html

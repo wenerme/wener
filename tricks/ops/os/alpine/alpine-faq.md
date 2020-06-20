@@ -30,7 +30,7 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened/APKBUILD
 https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 
 * 区别在于不同的内核编译参数和安全补丁
-* hardened
+* hardened < 3.10
   * 支持架构: x86_64, x86, armhf
   * 启用了内核安全模块
   * grsecurity
@@ -38,13 +38,13 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
   * 安装完成后 500m 左右, boot 20m 左右
     * 固件: 210m
     * 内核模块: 270m
-* virthardened
+* virthardened < 3.10
   * 支持架构: x86_64, x86
   * 安全和 hardened 相同
   * 调整内核参数以适应虚拟化环境
   * 镜像更小, 更快, 没有默认驱动和固件
   * 安装完成后 100m 左右, boot 13m 左右
-* vanilla
+* vanilla < 3.10
   * 支持架构: x86_64, x86, s390x, ppc64le, ppc, armhf, aarch64
   * 适用于调试
   * 适用于其他风格不支持的架构
@@ -52,9 +52,9 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 * virt
   * 支持架构: x86_64, x86
   * 适用于虚拟化环境
-
-
-* virt
+* lts
+  * LTS 版本的 Linux 内核
+* standard - 打包包含更多内容
   * 电源管理
   * CPU 管理
   * PCI 控制器
@@ -81,6 +81,10 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
   * 添加 XEN
   * 移除 JFFS, UBIFS
 
+
+## rc-update: failed to add service `loadkmap' to runlevel `boot': No such file or directory
+* 确保 `/etc/init.d/loadkmap` 存在
+* 确保 `/etc/runlevels/boot/` 目录存在
 
 ## virt vs standard
 
@@ -173,6 +177,7 @@ microcode: Microcode Update Driver: v2.2
   * 通常出现在使用 usb 启动的情况
   * 因为 rootdelay 这样的参数在 extlinux 挂载时还未生效，可能系统启动但设备还未发现
   * 尝试修改启动脚本，增加 sleep 10
+    * https://github.com/alpinelinux/mkinitfs/blob/master/initramfs-init.in#L474
   * 第一次出现时候可以考虑手动挂载
   * 也可以考虑多重启几次，有一定几率进入系统
 

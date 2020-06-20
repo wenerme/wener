@@ -77,22 +77,24 @@ yarn add next@latest react@latest react-dom@latest
 yarn add --dev typescript @types/react @types/node
 
 # Next 扩展增强插件
-yarn add @zeit/next-css @zeit/next-sass @next/mdx
+# 已内建
+# yarn add @zeit/next-css @zeit/next-sass @next/mdx
 yarn add next-transpile-modules @next/bundle-analyzer
 
-yarn add dotenv tsconfig-paths-webpack-plugin
+# 已内建
+# yarn add dotenv tsconfig-paths-webpack-plugin
 yarn add --dev @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
 yarn add --dev babel-plugin-import
 
 # 服务端开发
-isomorphic-unfetch isomorphic-ws
+# isomorphic-unfetch isomorphic-ws
 
 # 常用工具
 yarn add moment lodash date-fns
 yarn add --dev @types/lodash
 
 # UI 框架
-yarn add　antd
+yarn add antd
 
 # 测试
 yarn add --dev ts-node jest ts-jest @types/jest
@@ -254,49 +256,6 @@ __workspace__
   }
 }
 ```
-
-### 常用 tsconfig 配置
-
-```json5
-{
-  "compilerOptions":{
-    "baseUrl": ".",
-    "paths": {
-      "components/*": [
-        "components/*"
-      ],
-      "types/*": [
-        "types/*"
-      ],
-      "libs/*": [
-        "libs/*"
-      ],
-      "hooks/*": [
-        "hooks/*"
-      ],
-      "modules/*": [
-        "modules/*"
-      ],
-      "utils/*": [
-        "utils/*"
-      ],
-      "apis/*": [
-        "apis/*"
-      ],
-      "db/*": [
-        "db/*"
-      ],
-      "server/*": [
-        "server/*"
-      ],
-      "public/*": [
-        "public/*"
-      ]
-    }
-  }
-}
-```
-
 
 ## 配置
 

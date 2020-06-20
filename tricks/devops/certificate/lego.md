@@ -8,7 +8,7 @@
   * `--http-timeout` - HTTP 验证的超时时间，默认 0
   * `--dns.disable-cp` - 不等待 TXT 被传播到所有 AS 服务器
     * 相对耗时，如果直接指定的正确的 DNS，则不需要等待传播
-
+  * `--path` - 指定工作目录，默认为 `./.lego`
 
 ```bash
 lego --email="foo@bar.com" --domains="example.com" --http run
@@ -44,7 +44,7 @@ lego --dns alidns --domains my.domain.com --email my@email.com run
 # https://go-acme.github.io/lego/dns/pdns/
 PDNS_API_KEY=api-key \
 PDNS_API_URL=http://127.0.0.1:8080 \
-lego --dns alidns --domains my.domain.com --email my@email.com run
+lego --dns pdns --domains my.domain.com --email my@email.com run
 
 # custom csr
 lego --email="foo@bar.com" --http --csr=/path/to/csr.pem run

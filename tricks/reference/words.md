@@ -23,8 +23,8 @@ title: 词汇对比
   * 可能被批处理
   * 一般异步执行
 
-## relationship vs association
-* relationship
+## relation vs association
+* relation
   * 泛指关系
   * ERM - 实体关系模型
   * relate - 名词 - 关系
@@ -33,6 +33,12 @@ title: 词汇对比
   * User associated with Order
   * 用户与账单一对多的关联关系
   * associate - 动词、名词 - 关联
+
+## relationship vs relation
+* relation
+  * 如何进行关联的 - how to connect
+* relationship
+  * 关联本身 - the connection
 
 ## property vs attribute
 * property

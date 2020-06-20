@@ -32,6 +32,7 @@ title: Asterisk 版本
   * 支持 IPv4/IPv6 双绑定
 * 新增 res_mwi_devstate 模块
   * 订阅语音信箱状态事件
+* [Prometheus](https://wiki.asterisk.org/wiki/display/AST/Asterisk+17+Configuration_res_prometheus) exporter
 
 ## 16 / LTS / 2018-10-09 - 2022-10-09
 * LTS 版本

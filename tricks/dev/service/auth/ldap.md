@@ -1,3 +1,8 @@
+---
+id: ldap
+title: LADP
+---
+
 # LADP
 
 ## Tips
@@ -70,6 +75,7 @@ https://github.com/github/github-ldap
 
 * [LDAP - Object Classes and Attributes](http://www.zytrax.com/books/ldap/ape/)
 
+https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html
 
 Kerberos 5
 http://searchsecurity.techtarget.com/definition/Kerberos
@@ -89,102 +95,20 @@ http://directory.apache.org/
 * ldif
   * https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
 
+https://github.com/Pryz/terraform-provider-ldap
+
 ```bash
 # 以简化操作
 alias ldapsearch="ldapsearch -H ldap://127.0.0.1:10389 -D 'uid=admin,ou=system' -w secret"
 # 检测用户是否在组中
 ldapsearch -b 'cn=developer,ou=groups,dc=example,dc=com' '(&(member=uid=wener,ou=users,dc=example,dc=com))'
 
+
 ```
 
 
 
 cn=developer,ou=groups,dc=wener,dc=me
-## ApacheDS
-* ldapServer
-  * 10389 unencrypted or StartTLS
-  * 10636 SSL
-
-
-changePasswordServer
-默认未启用
-tcp/udp 60464
-httpServer
-http 8080
-https 8443
-kerberosServer
-默认未启用
-tcp/udp 60088
-
-LDAP 端口为
-389
-
-默认用户
-uid=admin,ou=system
-secret
-
-* 注意
-  * 新增域名需要先添加分片, 添加分片后需要重启后生效
-  * 部分 schema 是禁用的, 需要在 `ou=schema` 下启用
-    * 例如 posixAccount 需要启用 nis , 在 `cn=nis,ou=schema` 中, 把 m-disable 设置为 false
-
-https://www.ldap.com/basic-ldap-concepts
-http://archive.oreilly.com/pub/a/perl/excerpts/system-admin-with-perl/ten-minute-ldap-utorial.html
-
-
-https://www.manageengine.com/products/ad-manager/help/csv-import-management/active-directory-ldap-attributes.html
-http://www.kouti.com/tables/userattributes.htm
-
-https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
-
-字段|全称|含义
-----|----|----
-dn| distinguished name |
-cn| Common Name | 全名
-dc| Domain Component | wener.me -> dc=wener,dc=me
-ou| Organizational Unit
-sn| surname | 姓
-
-
-https://www.ietf.org/rfc/rfc2253.txt
-
-String  | X.500 AttributeType
-------------------------------
-CN      | commonName
-L       | localityName
-ST      | stateOrProvinceName
-O       | organizationName
-OU      | organizationalUnitName
-C       | countryName
-STREET  | streetAddress
-DC      | domainComponent
-UID     | userid
-
-
-
-
-```bash
-# 当前最新版为 2.0.0-M24
-wget http://mirrors.aliyun.com/apache/directory/apacheds/dist/2.0.0-M24/apacheds-2.0.0-M24.zip
-unzip apacheds-2.0.0-M24.zip
-cd apacheds-2.0.0-M24
-
-# apacheds.sh [<instance name>] <action>
-# instance 默认为 default, action 为 run,start,stop,status,repair
-chmod +x ./bin/apacheds.sh
-# 启动服务
-./bin/apacheds.sh start
-
-# 测试服务器是否启动成功
-ldapmodify -H ldap://127.0.0.1:10389
-
-# 备份现有数据
-ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=example,dc=com" -s sub "(ObjectClass=*)" '*' + > backup.ldif
-
-# 判断用户是否归属组
-ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=example,dc=com" -s sub  "(&(objectClass=person)(uid=wener)(memberof=CN=developer,OU=users,DC=example,DC=com))"
-
-```
 
 ### fortress
 * https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-DOCKER-APACHEDS.md

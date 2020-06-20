@@ -8,6 +8,15 @@ title: Virsh
 ## Tips
 
 ```bash
+# 开机
+start {domain}
+# 关机、断电
+destroy {domain}
+# 触发关机 - 需要支持 ACPI
+shutdown {doamin}
+# 重启 - 需要支持 ACPI
+reboot  {doamin}
+
 # 运行的主机列表
 virsh list
 # 所有的主机列表
@@ -23,6 +32,9 @@ virsh define domain.xml
 # 重命名
 # 如果通过 xml 需要 undefine 再 define
 virsh domrename {domain} {new-name}
+
+# 内存状态
+dommemstat {domain}
 ```
 
 ## FAQ

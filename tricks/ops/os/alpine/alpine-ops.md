@@ -924,7 +924,7 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 1. mbr 坏了但分区是好的
 ```bash
-dd if=/usr/share/syslinux/mbr.bin of=/dev/sdc
+dd bs=440 conv=notrunc count=1 if=/usr/share/syslinux/mbr.bin of=/dev/sdc
 ```
 
 2. 启动分区坏了

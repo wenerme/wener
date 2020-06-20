@@ -19,3 +19,11 @@
 * https://pkgs.alpinelinux.org/package/v3.6/community/x86_64/targetcli
 * https://pkgs.alpinelinux.org/package/v3.6/main/x86_64/open-iscsi
 * High performance, transport independent, multi-platform iSCSI initiator
+
+
+```bash
+# 发现
+iscsiadm -m discovery -t sendtargets -p 192.168.1.1
+# 登陆
+iscsiadm --mode node --targetname iqn.2001-05.com.doe:test --portal 192.168.1.1:3260 --login
+```

@@ -55,6 +55,7 @@ module.exports = {
       'languages/php',
       'languages/zig',
       'languages/go/hello-cgo',
+      'languages/go/go-template',
     ],
     开发运维: [
       'devops/tracing/tracing',
@@ -364,9 +365,13 @@ module.exports = {
         label: 'Auth',
         items: [
           'dev/service/auth/auth',
+          'dev/service/auth/keycloak',
           'dev/service/auth/keycloak-dev',
           'dev/service/auth/keycloak-faq',
           'dev/service/auth/louketo',
+          'dev/service/auth/ldap',
+          'dev/service/auth/ldif',
+          'dev/service/auth/apacheds',
         ],
       },
       {
