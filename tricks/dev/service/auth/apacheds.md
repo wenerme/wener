@@ -7,6 +7,7 @@ title: Apache Directory
 * [Apache Directory™](http://directory.apache.org/)
 
 ## Tips
+* 阿里云镜像下载 http://mirrors.aliyun.com/apache/directory/
 * 默认授权
   * uid=admin,ou=system
   * secret
@@ -19,7 +20,43 @@ title: Apache Directory
   * Fortress - 基于角色和属性的访问控制授权系统，将管理和密码策略交由后端 LDAP 服务
   * SCIMple
   * Kerby - Java Kerberos
+    * 可以独立运行 KDC
+    * 包含不少 KDC 工具
+* 默认端口
+  * 10389 - LDAP
+  * 10636 - LDAPs
+  * 60088 - Kerberos
+  * 60464 - Kerberos 修改密码服务
+* 注意
+  * 新增域名需要先添加分片, 添加分片后需要重启后生效
+  * 部分 schema 是禁用的, 需要在 `ou=schema` 下启用
+    * 例如 posixAccount 需要启用 nis , 在 `cn=nis,ou=schema` 中, 把 `m-disable` 设置为 false
 
-ldapmodify
-Admin
-https://directory.apache.org/conference-materials.data/ac-us-06-FR20-ErsinEr-ApacheDS_Access_Control_Administration_The_X.500_Way.pdf
+```bash
+# 如果需要 kerberos -p 60088:60088 -p 60464:60464  -p 60088:60088/udp -p 60464:60464/udp
+docker run --rm -it -e TZ=Asia/Shanghai \
+    -p 10389:10389 -p 10636:10636 \
+    -v $PWD/apacheds:/opt/apacheds/instances \
+    --name apacheds wener/apacheds
+
+# 测试服务器是否启动成功
+ldapmodify -H ldap://127.0.0.1:10389
+# 备份现有数据
+ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=example,dc=com" -s sub "(ObjectClass=*)" '*' + > backup.ldif
+# 判断用户是否归属组
+ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=example,dc=com" -s sub  "(&(objectClass=person)(uid=wener)(memberof=CN=developer,OU=users,DC=example,DC=com))"
+```
+
+## 手动安装
+```bash
+# 当前最新版为 2.0.0-M26
+ver=2.0.0.M26
+wget http://mirrors.aliyun.com/apache/directory/apacheds/dist/$ver/apacheds-$ver.zip
+unzip apacheds-$ver.zip
+cd apacheds-$ver
+
+# apacheds.sh [<instance name>] <action>
+# instance 默认为 default, action 为 run,start,stop,status,repair
+# 启动服务
+sh ./bin/apacheds.sh run
+```

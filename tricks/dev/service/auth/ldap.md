@@ -38,7 +38,7 @@ title: LADP
       * [Can Windows integrate with LDAP?](https://serverfault.com/q/2769/190601)
     * Samba
       * [将 LDAP 目录用于 Samba 认证](https://www.ibm.com/developerworks/cn/education/linux/smb-ldap/smb-ldap.html)
-      * [Samba & LDAP](https://wiki.samba.org/index.php/Samba_%26_LDAP)
+      * [Samba & LDAP](https://wiki.samba.org/index.php/Samba_&_LDAP)
       * Ubuntu [Samba and Ldap](https://help.ubuntu.com/lts/serverguide/samba-ldap.html)
     * MySQL [LDAP Authentication without Proxy Users](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/pam-authentication-ldap-without-proxy.html)
     * MongoDB

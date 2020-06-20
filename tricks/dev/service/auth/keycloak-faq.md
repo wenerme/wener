@@ -4,6 +4,8 @@ title: Keycloak 常见问题
 ---
 
 # Keycloak FAQ
+
+
 ## 主域 Master Realm
 * 主要用于超管进行系统管理
 * 不要将 Master Realm 用于业务
@@ -30,3 +32,6 @@ curl -L -X POST 'http://localhost:8080/auth/realms/whatever-realm/protocol/openi
   --data-urlencode 'username=emuhamma' \
   --data-urlencode 'password=1'
 ```
+
+## Could not modify attribute for DN
+如果使用了 federation，修改密码可能被禁止

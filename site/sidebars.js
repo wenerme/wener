@@ -355,11 +355,10 @@ module.exports = {
         label: '存储服务',
         items: [
           'ops/storage/service/minio',
-          'ops/storage/service/nextcloud',
         ]
       },
     ],
-    开发:[
+    开发服务:[
       {
         type: 'category',
         label: 'Auth',
@@ -372,20 +371,29 @@ module.exports = {
           'dev/service/auth/ldap',
           'dev/service/auth/ldif',
           'dev/service/auth/apacheds',
+          'dev/service/auth/apacheds-kerberos',
+          'dev/service/auth/kerberos',
         ],
       },
       {
         type: 'category',
-        label: 'CMS',
+        label: '内容管理',
         items: [
           'dev/service/cms/cms',
         ],
       },
       {
         type: 'category',
-        label: 'CRM',
+        label: '客户关系管理',
         items: [
           'dev/service/crm/crm-insight',
+        ],
+      },
+      {
+        type: 'category',
+        label: '文件',
+        items: [
+          'dev/service/file/nextcloud',
         ],
       },
     ],
