@@ -189,7 +189,15 @@ module.exports = {
           'ops/os/darwin/macos',
           'ops/os/darwin/brew',
         ]
-      }
+      },
+      {
+        type: 'category',
+        label: 'Windows',
+        items: [
+          'ops/os/windows/windows',
+          'ops/os/windows/windows-faq',
+        ]
+      },
     ],
     数据库: [
       'db/db',
@@ -205,13 +213,6 @@ module.exports = {
           'db/relational/postgresql/timescale',
           'db/relational/postgresql/postgrest-hello',
           'db/relational/postgresql/hasura',
-        ]
-      },
-      {
-        type: 'category',
-        label: 'OLAP',
-        items: [
-          // 'db/olap/olap',
         ]
       },
       {
@@ -373,9 +374,11 @@ module.exports = {
           'dev/service/auth/apacheds',
           'dev/service/auth/apacheds-kerberos',
           'dev/service/auth/kerberos',
+          'dev/service/auth/kerberos-faq',
           'dev/service/auth/oauth',
           'dev/service/auth/jwt',
           'dev/service/auth/auth-protocol',
+          'dev/service/auth/auth-glossary',
         ],
       },
       {

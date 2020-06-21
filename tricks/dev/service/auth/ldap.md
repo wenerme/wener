@@ -6,7 +6,9 @@ title: LADP
 # LADP
 
 ## Tips
-
+* 端口
+  * 389 ldap
+  * 636 ldaps
 * LDAP vs Kerberos
   * LDAP 主要用过集中账户管理
   * Kerberos 主要用于 SSO

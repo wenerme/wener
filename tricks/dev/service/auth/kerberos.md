@@ -17,8 +17,11 @@ title: Kerberos
 - Windows 环境下大量使用
 - 应用
   - Samba
-- 主要端口就 88/udp/tcp 和 464/udp/tcp
+- 主要端口 88/udp/tcp 和 464/udp/tcp
 - 可以使用 SVR 避免指定端口
+- 参考
+  - ArchLinux [Kerberos](https://wiki.archlinux.org/index.php/Kerberos)
+  - [Getting Started](https://web.mit.edu/kerberos/kfw-4.1/kfw-4.1/kfw-4.1-help/html/getting_started.htm)
 
 | 端口 | 说明                                              |
 | ---- | ------------------------------------------------- |
@@ -95,7 +98,42 @@ klist -k wener.keytab
 file wener.keytab
 ```
 
+## SSH
+* 提前为服务端生成 keytab
 
+__/etc/ssh/sshd_config__
+
+```ini
+# GSSAPI Options
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials yes
+```
+
+__/etc/ssh/ssh_config__
+
+```
+Host *
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+```
+
+## NFS
+
+__/etc/exports__
+
+* sec=krb5 - 只用于认证，传输不认证不加密
+* sec=krb5i - 用于认证和完整性（integrity）检测，传输不加密
+* sec=krb5p - 用于认证和加密
+
+```
+/srv/export *(rw,async,no_subtree_check,no_root_squash,sec=krb5p)
+```
+
+```bash
+# 可能需要 -t nfs4 -o sec=krb5p
+# 可加 -vv 调试
+mount nfsserver:/srv/export /mnt/
+```
 ## 词汇
 ### KVNO - Key Version Number
 * Kerberos Pricinple

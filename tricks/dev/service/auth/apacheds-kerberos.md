@@ -4,23 +4,59 @@ title: ApacheDS Kerberos
 ---
 
 # ApacheDS Kerberos
+
 ## Tips
 
-* [ApacheDS 2.0 Kerberos User Guide](https://directory.apache.org/apacheds/kerberos-user-guide.html)
-  * KDC (Key DIstribution Center)
-  * TGS (Ticket Granting Server) 
-  * AS (Authentication Server)
-* 实现了 Kerberos V5
-* 支持加密 - des-cbc-md5, des3-cbc-sha1-kd, aes128-cts-hmac-sha1-96, aes256-cts-hmac-sha1-96, rc4-hmac encryption
-* 支持 UDP TCP
-* 每次修改密码 version 会增加
-* 注意
-  * 必须要明文密码生成 krb5 key
-    * 密码最终也会以 SHA
+- [ApacheDS 2.0 Kerberos User Guide](https://directory.apache.org/apacheds/kerberos-user-guide.html)
+  - KDC (Key DIstribution Center)
+  - TGS (Ticket Granting Server)
+  - AS (Authentication Server)
+- 实现了 Kerberos V5
+- 支持加密 - des-cbc-md5, des3-cbc-sha1-kd, aes128-cts-hmac-sha1-96, aes256-cts-hmac-sha1-96, rc4-hmac encryption
+- 支持 UDP TCP
+- 每次修改密码 version 会增加
+- 实现的 RFC [标准](https://directory.apache.org/apacheds/kerberos-ug/1.2.3-standards.html)
+- 注意
+  - 必须要明文密码生成 krb5 key
+    - 密码最终也会以 SHA
+
+## kerby
+
+- [Kerby User Guide](https://directory.apache.org/kerby/user-guide.html)
+- 后端存储支持
+  - 内存
+  - Json
+  - Zookeeper
+  - LDAP
+  - Mavibot
+- 支持的加密
+  - des, des3, rc4, aes, camellia
+  - 部分依赖 JCE - 需要额外安装
+    - OpenJDK 或新版有自带
+
+| Encryption Type                                    | Description                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------------- |
+| des-cbc-crc                                        | DES cbc mode with CRC-32 (weak)                                     |
+| des-cbc-md4                                        | DES cbc mode with RSA-MD4 (weak)                                    |
+| des-cbc-md5                                        | DES cbc mode with RSA-MD5 (weak)                                    |
+| des3-cbc-sha1 des3-hmac-sha1 des3-cbc-sha1-kd      | Triple DES cbc mode with HMAC/sha1                                  |
+| des-hmac-sha1                                      | DES with HMAC/sha1 (weak)                                           |
+| aes256-cts-hmac-sha1-96 aes256-cts AES-256         | CTS mode with 96-bit SHA-1 HMAC                                     |
+| aes128-cts-hmac-sha1-96 aes128-cts AES-128         | CTS mode with 96-bit SHA-1 HMAC                                     |
+| arcfour-hmac rc4-hmac arcfour-hmac-md5             | RC4 with HMAC/MD5                                                   |
+| arcfour-hmac-exp rc4-hmac-exp arcfour-hmac-md5-exp | Exportable RC4 with HMAC/MD5 (weak)                                 |
+| camellia256-cts-cmac camellia256-cts               | Camellia-256 CTS mode with CMAC                                     |
+| camellia128-cts-cmac camellia128-cts               | Camellia-128 CTS mode with CMAC                                     |
+| des                                                | The DES family: des-cbc-crc, des-cbc-md5, and des-cbc-md4 (weak)    |
+| des3                                               | The triple DES family: des3-cbc-sha1                                |
+| aes                                                | The AES family: aes256-cts-hmac-sha1-96 and aes128-cts-hmac-sha1-96 |
+| rc4                                                | The RC4 family: arcfour-hmac                                        |
+| camellia                                           | The Camellia family: camellia256-cts-cmac and camellia128-cts-cmac  |
 
 # 本地实验
 
 ## 启动
+
 ```bash
 # 映射目录后本地也可以使用
 docker run --rm -it -e TZ=Asia/Shanghai \
@@ -31,9 +67,10 @@ docker run --rm -it -e TZ=Asia/Shanghai \
 ```
 
 ## 初始配置
-* 创建服务
-* 参考
-  * http://directory.apache.org/apacheds/kerberos-ug/4-using-kerberos.html
+
+- 创建服务
+- 参考
+  - http://directory.apache.org/apacheds/kerberos-ug/4-using-kerberos.html
 
 ```ldif
 # 基础顶层架构
@@ -109,7 +146,7 @@ ou: KPasswd
 
 相同节点客户端配置，修改 hosts `example.com` 指向本地
 
-__/etc/krb5.conf__
+**/etc/krb5.conf**
 
 ```ini
  [logging]
@@ -142,12 +179,12 @@ allow_weak_crypto = yes
 EXAMPLE.COM = EXAMPLE.COM
 ```
 
-
 ## FAQ
 
 ### Server not found in Kerberos database while getting initial credentials
-* 可能是加密算法需要安全扩展，尝试调整
-* 可能是没有创建相应的服务
+
+- 可能是加密算法需要安全扩展，尝试调整
+- 可能是没有创建相应的服务
 
 ```
 [21:35:42] ERROR [org.apache.directory.server.KERBEROS_LOG] - ERR_152 Unexpected exception: null
