@@ -373,6 +373,9 @@ module.exports = {
           'dev/service/auth/apacheds',
           'dev/service/auth/apacheds-kerberos',
           'dev/service/auth/kerberos',
+          'dev/service/auth/oauth',
+          'dev/service/auth/jwt',
+          'dev/service/auth/auth-protocol',
         ],
       },
       {
@@ -394,6 +397,7 @@ module.exports = {
         label: '文件',
         items: [
           'dev/service/file/nextcloud',
+          'dev/service/file/nextcloud-config',
         ],
       },
     ],

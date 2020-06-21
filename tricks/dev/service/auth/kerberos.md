@@ -68,3 +68,39 @@ klist
 # 修改密码
 kpasswd
 ```
+
+## Keytab
+* 包含 principals 和 encrypted keys 
+  * 加密密钥由密码衍生而成 = 加密算法(密码)
+* 使用 keytab 访问无需密码
+* 修改密码时需要从新生成
+* 主要用于脚本自动授权
+* 可使用 `KRB5_KTNAME` `KRB5_CLIENT_KTNAME` 指定
+* 配置指定 `default_keytab_name` `default_client_keytab_name`
+* 参考
+  * [keytab](https://web.mit.edu/kerberos/www/krb5-latest/doc/basic/keytab_def.html)
+  * [Use a keytab](https://kb.iu.edu/d/aumh)
+
+```bash
+# 生成 Keytab
+ktutil
+# 需要注意 -k 是 KVNO 需要与存储的一致
+addent -password -p wener@EXAMPLE.COM -k 0 -e aes128-cts-hmac-sha1-96
+wkt wener.keytab
+quite
+
+kinit wener@EXAMPLE.COM -k -t wener.keytab
+klist -k wener.keytab
+# 可查看 tab 内信息
+file wener.keytab
+```
+
+
+## 词汇
+### KVNO - Key Version Number
+* Kerberos Pricinple
+
+### GSSAPI - Generic Security Services Application Program Interface
+* 代码层面的标准接口
+* 底层可使用不同 Kerberos 实现
+* https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface

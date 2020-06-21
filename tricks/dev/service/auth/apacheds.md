@@ -31,8 +31,11 @@ title: Apache Directory
   * 新增域名需要先添加分片, 添加分片后需要重启后生效
   * 部分 schema 是禁用的, 需要在 `ou=schema` 下启用
     * 例如 posixAccount 需要启用 nis , 在 `cn=nis,ou=schema` 中, 把 `m-disable` 设置为 false
+* 参考
+  * [CreateKeytab.java](https://github.com/kwart/kerberos-using-apacheds/blob/master/src/main/java/org/jboss/test/kerberos/CreateKeytab.java)
 
 ```bash
+# Docker 启动
 # 如果需要 kerberos -p 60088:60088 -p 60464:60464  -p 60088:60088/udp -p 60464:60464/udp
 docker run --rm -it -e TZ=Asia/Shanghai \
     -p 10389:10389 -p 10636:10636 \

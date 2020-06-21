@@ -57,6 +57,11 @@ title: OAuth
   * [Auth0](https://auth0.com/)
   
 
+https://oauth.net/2/grant-types/
+* response_type
+  * code
+
+https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 
 ## OAuth 2.0
 * [Auth 2](http://oauth.net/2/)
