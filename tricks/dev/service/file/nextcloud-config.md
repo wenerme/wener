@@ -1,3 +1,8 @@
+---
+id: nextcloud-config
+title: Nextcloud 配置
+---
+
 # Nextcloud 配置
 
 ## Tips
@@ -88,30 +93,3 @@ $CONFIG = array(
 
 )
 ```
-
-## OIDC
-
-https://lachlanlife.net/nextcloud-part-3-single-sign-on-with-keycloak/
-
-Nextcloud Single-Sign-On with Auth0
-https://medium.com/@mathiasconradt/nextcloud-single-sign-on-with-auth0-a546cdf1fccf
-
-## SAML
-
-
-(Realm) -> Client Scopes -> role_list (saml) -> Mappers tab -> role list -> 'Single Role Attribute'.
-先创建一个 saml，拷贝到 nextcloud 即可
-然后导出 metadata
-然后再导入
-
-Account is not provisioned
-
-Auto provisioning not allowed and user wener does not exist
-
-only do the authentication via SAML and get the user info from a separately set up LDAP, that uses the same usernames
-
-
-when enabling SAML with "user has to exist in some other backend like LDAP" option the user is not able to sign in > ERROR: not provisioned
-https://github.com/nextcloud/user_saml/issues/12#issuecomment-423335779
-
-https://help.nextcloud.com/t/user-saml-account-not-provisioned/18650/5

@@ -64,6 +64,8 @@ title: NextCloud
 docker run -it --rm \
   -v $PWD/nextcloud/config:/var/www/html/config \
   -v $PWD/nextcloud/data:/var/www/html/data \
+  -v $PWD/nextcloud/themes:/var/www/html/themes \
+  -v $PWD/nextcloud/custom_apps:/var/www/html/custom_apps \
   -p 80:80 \
   -e SQLITE_DATABASE=nextcloud \
   -e NEXTCLOUD_ADMIN_USER=nextcloud \
