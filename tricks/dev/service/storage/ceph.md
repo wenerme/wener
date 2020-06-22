@@ -1,6 +1,12 @@
+---
+id: ceph
+title: Ceph
+---
+
 # Ceph
 
 * [Ceph 文档](http://docs.ceph.com/docs/master/)
+* imixs [Ceph](https://github.com/imixs/imixs-cloud/blob/master/doc/CEPH.md)
 
 ## 安装
 

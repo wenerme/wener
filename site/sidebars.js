@@ -106,6 +106,7 @@ module.exports = {
       'devops/kubernetes/k3d',
       'devops/kubernetes/k8s-glossary',
       'devops/kubernetes/helm-intro',
+      'devops/kubernetes/helm2',
       'devops/kubernetes/rancher-intro',
       'devops/kubernetes/rancher-rke',
       {
@@ -355,13 +356,6 @@ module.exports = {
           'ops/storage/network/sshfs',
         ]
       },
-      {
-        type: 'category',
-        label: '存储服务',
-        items: [
-          'ops/storage/service/minio',
-        ]
-      },
     ],
     开发服务:[
       {
@@ -409,13 +403,27 @@ module.exports = {
           'dev/service/file/nextcloud-config',
         ],
       },
+      {
+        type: 'category',
+        label: '存储',
+        items: [
+          'dev/service/storage/minio',
+          'dev/service/storage/ceph',
+        ],
+      },
+      {
+        type: 'category',
+        label: '仓库',
+        items: [
+          'dev/service/repository/nexus',
+        ],
+      },
     ],
     运维: [
       {
         type: 'category',
         label: '服务',
         items: [
-          'ops/service/nexus',
           'ops/service/remote-desktop',
           'ops/service/matomo',
         ],
