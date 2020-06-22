@@ -32,6 +32,9 @@ title: Longhorn
 * 注意 ⚠️
   * 不支持 ReadWriteMany [#73](https://github.com/longhorn/longhorn/issues/73#issuecomment-392869189)
   * 反向代理 UI 不行 [#1082](https://github.com/longhorn/longhorn/issues/1082)
+  * 扩容只支持离线
+* 数据对应关系
+  * PVC -> PV -> Volume -> Replica -> Node
 
 ```bash
 curl -sSfLO https://raw.githubusercontent.com/longhorn/longhorn/master/scripts/environment_check.sh
@@ -179,6 +182,8 @@ kubectl -n longhorn-system get pod
 
 
 ## FAQ
+* [Troubleshooting the data corruption](https://github.com/yasker/longhorn/wiki/Troubleshooting-the-data-corruption-%5BDRAFT%5D)
+
 ### Error response from daemon: path /var/lib/longhorn is mounted on / but it is not a shared mount
 * Fail to start longhorn with k3d [#206](https://github.com/rancher/k3d/issues/206)
 
@@ -194,6 +199,9 @@ mountPropagation: Bidirectional
 sudo mount --make-rshared /
 # sudo mount --make-rshared /var/lib/longhorn/
 ```
+
+### failed to start expansion: controller data doesn't support on-line expansion, frontend: tgt-blockdev
+可能是由于挂载的时候进行扩容导致，如果一直不恢复，尝试 detache
 
 ## 示例
 * https://longhorn.io/docs/1.0.0/references/examples/
@@ -231,4 +239,42 @@ spec:
     - name: block-vol
       persistentVolumeClaim:
         claimName: longhorn-block-vol
+```
+
+## CRD
+
+```yaml
+# PATCH 修改 Tag
+apiVersion: longhorn.io/v1beta1
+kind: Node
+metadata:
+  name: my-node-1
+  namespace: longhorn-system
+spec:
+  tags:
+    - node.can.longhorn
+---
+# 定义卷
+apiVersion: longhorn.io/v1beta1
+kind: Volume
+metadata:
+  name: test
+  namespace: longhorn-system
+  labels:
+    longhornvolume: test
+spec:
+  Standby: false
+  baseImage: ''
+  fromBackup: ''
+  disableFrontend: false
+  diskSelector: []
+  # 最好指定 - 否则会出现找不到 engine
+  engineImage: 'longhornio/longhorn-engine:v1.0.0'
+  frontend: blockdev
+  nodeSelector:
+    - node.can.longhorn
+  numberOfReplicas: 3
+  recurringJobs: null
+  size: '20000000'
+  staleReplicaTimeout: 20
 ```

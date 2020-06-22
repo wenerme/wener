@@ -12,10 +12,15 @@ title: LDIF
 * 每个对象之间使用空行分割
 * 每行可以包含
   * LDAP 属性
-  * changetype - add, delete, modify, moddn/modrdn
-  * 修改操作 add, delete, replace
+  * changetype
+    * add - 添加 Entry - 默认
+    * delete - 删除 Entry
+    * modify - 修改属性 - 对属性增删也是使用 modify
+    * moddn/modrdn - 移动 Entry
+  * 修改操作 - `changetype: modify`
+    * add, delete, replace
   * 注释 `#`
-  * 分割 `-`
+  * 分割 `-` 操作
 
 ```ldif
 # 新增 - 默认为新增

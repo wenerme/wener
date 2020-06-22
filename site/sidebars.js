@@ -124,6 +124,8 @@ module.exports = {
         items: [
           'devops/kubernetes/storage/k8s-storage',
           'devops/kubernetes/storage/longhorn',
+          'devops/kubernetes/storage/k8s-nfs',
+          'devops/kubernetes/storage/rook',
         ],
       },
       {
@@ -139,6 +141,8 @@ module.exports = {
         label: '应用',
         items: [
           'devops/kubernetes/app/cert-manager',
+          'devops/kubernetes/app/k8s-consul',
+          'devops/kubernetes/app/harbor',
         ],
       },
     ],
@@ -370,8 +374,10 @@ module.exports = {
           'dev/service/auth/keycloak-faq',
           'dev/service/auth/louketo',
           'dev/service/auth/ldap',
+          'dev/service/auth/ldap-schema',
           'dev/service/auth/ldif',
           'dev/service/auth/apacheds',
+          'dev/service/auth/apacheds-ops',
           'dev/service/auth/apacheds-kerberos',
           'dev/service/auth/kerberos',
           'dev/service/auth/kerberos-faq',

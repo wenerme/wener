@@ -16,6 +16,7 @@ title: NextCloud
 - [Config.php](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/config_sample_php_parameters.html)
   - [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
 - 默认推荐应用 - calendar,contacts,talk,mail,collaborative editing
+- 发布变更内容 https://nextcloud.com/changelog/
 
 ## Docker
 
@@ -61,16 +62,30 @@ title: NextCloud
 ```bash
 # 指定数据库和账号密码则不需要进入到安装页面
 # SQLite 文件在 /var/www/html/data/nextcloud.db
+# 启动脚本 https://github.com/nextcloud/docker/blob/master/docker-entrypoint.sh
+# 启动会检测 /var/www/html/version.php 版本号 - 如果没有则认为是新安装
+
+# 单独目录映射
 docker run -it --rm \
   -v $PWD/nextcloud/config:/var/www/html/config \
   -v $PWD/nextcloud/data:/var/www/html/data \
   -v $PWD/nextcloud/themes:/var/www/html/themes \
   -v $PWD/nextcloud/custom_apps:/var/www/html/custom_apps \
+  -v $PWD/nextcloud/html:/var/www/html \
   -p 80:80 \
   -e SQLITE_DATABASE=nextcloud \
   -e NEXTCLOUD_ADMIN_USER=nextcloud \
   -e NEXTCLOUD_ADMIN_PASSWORD=nextcloud \
-  --name nextcloud nextcloud:apache
+  --name nextcloud nextcloud:18
+
+# 单个目录映射 - 会安装 300M 左右 - macos 较慢
+docker run -it --rm \
+  -v $PWD/nextcloud:/var/www/html \
+  -p 80:80 \
+  -e SQLITE_DATABASE=nextcloud \
+  -e NEXTCLOUD_ADMIN_USER=nextcloud \
+  -e NEXTCLOUD_ADMIN_PASSWORD=nextcloud \
+  --name nextcloud nextcloud:18
 
 # 使用 www-data 账号进行操作
 docker exec -it -u www-data nextcloud bash
@@ -91,7 +106,8 @@ done
 ```
 
 ## occ
-```bash
+
+```
 Nextcloud 19.0.0
 
 Usage:

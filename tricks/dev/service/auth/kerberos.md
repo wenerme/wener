@@ -38,6 +38,7 @@ title: Kerberos
 | 1109 | Kerberos Post Office Protocol                     |
 
 ## 客户端
+
 ```ini
 [logging]
 # 默认配置
@@ -73,16 +74,17 @@ kpasswd
 ```
 
 ## Keytab
-* 包含 principals 和 encrypted keys 
-  * 加密密钥由密码衍生而成 = 加密算法(密码)
-* 使用 keytab 访问无需密码
-* 修改密码时需要从新生成
-* 主要用于脚本自动授权
-* 可使用 `KRB5_KTNAME` `KRB5_CLIENT_KTNAME` 指定
-* 配置指定 `default_keytab_name` `default_client_keytab_name`
-* 参考
-  * [keytab](https://web.mit.edu/kerberos/www/krb5-latest/doc/basic/keytab_def.html)
-  * [Use a keytab](https://kb.iu.edu/d/aumh)
+
+- 包含 principals 和 encrypted keys
+  - 加密密钥由密码衍生而成 = 加密算法(密码)
+- 使用 keytab 访问无需密码
+- 修改密码时需要从新生成
+- 主要用于脚本自动授权
+- 可使用 `KRB5_KTNAME` `KRB5_CLIENT_KTNAME` 指定
+- 配置指定 `default_keytab_name` `default_client_keytab_name`
+- 参考
+  - [keytab](https://web.mit.edu/kerberos/www/krb5-latest/doc/basic/keytab_def.html)
+  - [Use a keytab](https://kb.iu.edu/d/aumh)
 
 ```bash
 # 生成 Keytab
@@ -99,9 +101,10 @@ file wener.keytab
 ```
 
 ## SSH
-* 提前为服务端生成 keytab
 
-__/etc/ssh/sshd_config__
+- 提前为服务端生成 keytab
+
+**/etc/ssh/sshd_config**
 
 ```ini
 # GSSAPI Options
@@ -109,7 +112,7 @@ GSSAPIAuthentication yes
 GSSAPICleanupCredentials yes
 ```
 
-__/etc/ssh/ssh_config__
+**/etc/ssh/ssh_config**
 
 ```
 Host *
@@ -119,11 +122,11 @@ Host *
 
 ## NFS
 
-__/etc/exports__
+**/etc/exports**
 
-* sec=krb5 - 只用于认证，传输不认证不加密
-* sec=krb5i - 用于认证和完整性（integrity）检测，传输不加密
-* sec=krb5p - 用于认证和加密
+- sec=krb5 - 只用于认证，传输不认证不加密
+- sec=krb5i - 用于认证和完整性（integrity）检测，传输不加密
+- sec=krb5p - 用于认证和加密
 
 ```
 /srv/export *(rw,async,no_subtree_check,no_root_squash,sec=krb5p)
@@ -134,11 +137,15 @@ __/etc/exports__
 # 可加 -vv 调试
 mount nfsserver:/srv/export /mnt/
 ```
+
 ## 词汇
+
 ### KVNO - Key Version Number
-* Kerberos Pricinple
+
+- Kerberos Pricinple
 
 ### GSSAPI - Generic Security Services Application Program Interface
-* 代码层面的标准接口
-* 底层可使用不同 Kerberos 实现
-* https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface
+
+- 代码层面的标准接口
+- 底层可使用不同 Kerberos 实现
+- https://en.wikipedia.org/wiki/Generic_Security_Services_Application_Program_Interface

@@ -29,6 +29,28 @@ title: Cert Manager
     * [Webhook](https://cert-manager.io/docs/configuration/acme/dns01/webhook/)
       * [pragkent/alidns-webhook](https://github.com/pragkent/alidns-webhook)
 
+
+## 安装
+
+```bash
+ver=$(curl -Ls https://api.github.com/repos/jetstack/cert-manager/releases/latest | jq -r .tag_name)
+# 安装自定义资源
+curl -sfLO https://github.com/jetstack/cert-manager/releases/download/$ver/cert-manager.crds.yaml
+kubectl apply -f cert-manager.crds.yaml
+
+# 创建 NS
+kubectl create namespace cert-manager
+
+# Helm 安装
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version $ver
+```
+
 ## ACME
 
 ```yaml
@@ -96,26 +118,4 @@ spec:
           apiKeySecretRef:
             name: cloudflare-api-key-secret
             key: api-key
-```
-
-
-## 安装
-
-```bash
-ver=$(curl -Ls https://api.github.com/repos/jetstack/cert-manager/releases/latest | jq -r .tag_name)
-# 安装自定义资源
-curl -sfLO https://github.com/jetstack/cert-manager/releases/download/$ver/cert-manager.crds.yaml
-kubectl apply -f cert-manager.crds.yaml
-
-# 创建 NS
-kubectl create namespace cert-manager
-
-# Helm 安装
-helm repo add jetstack https://charts.jetstack.io
-helm repo update
-
-helm install \
-  cert-manager jetstack/cert-manager \
-  --namespace cert-manager \
-  --version $ver
 ```
