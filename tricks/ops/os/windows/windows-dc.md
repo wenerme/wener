@@ -1,3 +1,8 @@
+---
+id: windows-dc
+title: Windows 域控
+---
+
 # Windows 域控
 
 ## Tips

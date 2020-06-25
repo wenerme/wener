@@ -1,3 +1,8 @@
+---
+id: windows-faq
+title: Windows FAQ
+---
+
 # AD vs LDAP
 
 * LDAP

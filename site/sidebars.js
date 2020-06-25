@@ -200,6 +200,7 @@ module.exports = {
         label: 'Windows',
         items: [
           'ops/os/windows/windows',
+          'ops/os/windows/windows-dc',
           'ops/os/windows/windows-faq',
         ]
       },
