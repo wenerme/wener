@@ -1,6 +1,6 @@
 ---
-id: habor
-title: Habor
+id: harbor
+title: Harbor
 ---
 
 # Habor

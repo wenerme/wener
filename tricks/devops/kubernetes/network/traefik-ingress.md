@@ -169,7 +169,7 @@ metadata:
     # 终端
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     # 中间件
-    traefik.ingress.kubernetes.io/router.middlewares: auth@file,prefix@kubernetescrd,cb@file
+    traefik.ingress.kubernetes.io/router.middlewares: <namespace>-<name>@kubernetescrd,cb@file
     # 优先级
     traefik.ingress.kubernetes.io/router.priority: "42"
     # 路径匹配方式 Path, PathPrefix
