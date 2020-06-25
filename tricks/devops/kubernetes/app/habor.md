@@ -1,5 +1,5 @@
 ---
-id: k8s-habor
+id: habor
 title: Habor
 ---
 

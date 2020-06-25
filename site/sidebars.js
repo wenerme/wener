@@ -401,6 +401,7 @@ module.exports = {
         items: [
           'dev/service/file/nextcloud',
           'dev/service/file/nextcloud-config',
+          'dev/service/file/nextcloud-faq',
         ],
       },
       {

@@ -50,14 +50,6 @@ ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=examp
 ldapsearch -D "uid=admin,ou=system" -w secret -p 10389 -h localhost -b "dc=example,dc=com" -s sub  "(&(objectClass=person)(uid=wener)(memberof=CN=developer,OU=users,DC=example,DC=com))"
 ```
 
-```ldif
-# 修改默认 admin 密码
-dn:uid=admin,ou=system
-changetype: modify
-replace: userPassword
-# 新的密码
-userPassword: secret
-```
 
 ## Schema
 * 所有预定义 [Schema](https://github.com/apache/directory-ldap-api/tree/master/ldap/schema/data/src/main/resources/schema/ou%3Dschema)
@@ -76,40 +68,6 @@ dn: cn=nis,ou=schema
 changetype: modify
 delete: m-disabled
 ```
-
-### ApacheDS 目录设计
-
-- DN
-  - ou=users - 用户
-    - uid=test.cs
-  - ou=groups - 分组、组织架构
-    - uid=company
-      - objectclass: groupOfNames
-  - ou=roles - 角色
-    - uid=admin
-      - objectclass: groupOfNames
-  - ou=services - 服务账号
-    - uid=keycloak
-    - uid=nextcloud
-  - ou=security - 安全相关
-    - ou=services - 安全服务
-      - uid=krbtgt
-        - krb5PrincipalName: krbtgt/EXAMPLE.COM@EXAMPLE.COM
-        - userPassword: randomKey
-      - uid=kpasswd
-        - krb5PrincipalName: kadmin/changepw@EXAMPLE.COM
-      - uid=ldap
-        - krb5PrincipalName: ldap/example.net@EXAMPLE.COM
-- 类选择
-  - 主体 inetOrgPerson
-    - 参照 [rfc2798](https://tools.ietf.org/html/rfc2798) 选用属性
-  - 分组 groupOfNames
-  - 角色 groupOfNames
-- 属性选择
-  - uid 用于唯一标示
-    - uid 不是 inetOrgPerson 强制属性
-    - cn 和 sn 是强制属性
-
 
 ## 手动安装
 ```bash

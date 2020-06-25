@@ -199,6 +199,28 @@ cat /opt/k3s/k3s-images.txt | xargs -n 1 docker pull
 k3s server --cluster-init --alsologtostderr --log $PWD/k3s-server.log --docker
 ```
 
+## registries
+* `/etc/rancher/k3s/registries.yaml`
+* 启动时检测，containerd 会使用这里的定义
+
+```yaml
+mirrors:
+  # 镜像 DockerHub
+  docker.io:
+    endpoint:
+      - "https://mycustomreg.com:5000"
+configs:
+  # 添加授权和证书
+  "mycustomreg:5000":
+    auth:
+      username: xxxxxx # this is the registry username
+      password: xxxxxx # this is the registry password
+    tls:
+      cert_file: # path to the cert file used in the registry
+      key_file:  # path to the key file used in the registry
+      ca_file:   # path to the ca file used in the registry
+```
+
 ## 笔记
 * kubeconfig 位于 `/etc/rancher/k3s/k3s.yaml`
 * K3S_TOKEN 位于 `/var/lib/rancher/k3s/server/node-token`

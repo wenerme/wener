@@ -16,8 +16,8 @@ $CONFIG = array(
 // 实例唯一标识符
 'instanceid' => '',
 // 默认语言 - 默认 en
-'default_language' => 'zh',
-'default_locale' => 'zh_CN',
+'default_language' => 'zh_CN',
+'default_locale' => 'zh',
 // 默认打开应用
 'defaultapp' => 'files',
 // 信任域名

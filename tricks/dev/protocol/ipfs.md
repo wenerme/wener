@@ -37,6 +37,8 @@ title: IPFS
     * 资源少
   * 文件分发较慢
   * 开发公司重心转向 filecoin
+* 参考
+  * https://github.com/cloudflare/ipfs-ext
 
 ```bash
 # macOS

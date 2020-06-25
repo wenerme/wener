@@ -20,6 +20,7 @@ title: Kubernates 存储
   * 本质上类似于一个目录
   * volumeMounts 指定 Pod 要挂载的卷
   * volumes 指定卷怎么提供
+* [A Basic Guide to Kubernetes Storage: PVS, PVCs, Statefulsets](https://portworx.com/basic-guide-kubernetes-storage/)
 * 卷类型
   * awsElasticBlockStore
   * azureDisk
