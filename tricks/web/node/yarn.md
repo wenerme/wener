@@ -50,6 +50,8 @@ yarn plugin import version
 yarn plugin import interactive-tools
 # yarn stage - 将 yarn 相关文件添加到 git
 yarn plugin import stage
+# 自动添加 @types 依赖
+yarn plugin import typescript
 
 # 当前插件列表
 yarn plugin list
@@ -78,4 +80,18 @@ yarn -v
 curl -LC- -o .yarn/plugins/@yarnpkg/plugin-version.js https://github.com/yarnpkg/berry/raw/master/packages/plugin-version/bin/@yarnpkg/plugin-version.js
 # 再次 import 也可以
 yarn plugin import version
+```
+
+
+## FAQ
+### yarn set version 慢
+
+可以从现有项目拷贝，免安装
+
+* 酌情考虑是否需要拷贝缓存 - 一般本地有全局缓存，不拷问题不大
+
+```bash
+PROJ=/other/porject
+cp $PROJ/.yarnrc.yml ./
+rsync -a --include=releases --include=plugins $PROJ/.yarn/ .yarn/
 ```

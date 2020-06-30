@@ -94,7 +94,7 @@ smbclient  //127.0.0.1/public -U wener
 mount -t smbfs //wener:wener@localhost/public ~/mnt/smb/
 mount –t smbfs //localhost/public ~/mnt/smb/ –o username=wener
 
-mount -t cifs -o user=luke //192.168.1.104/share /mnt/linky_share
+mount -t cifs -o user=luke //192.168.1.1/share /mnt
 ```
 
 https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html

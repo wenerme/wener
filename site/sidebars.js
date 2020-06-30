@@ -171,6 +171,7 @@ module.exports = {
       'ops/admin/mosh',
     ],
     虚拟化: [
+      'ops/os/linux/virt/virt',
       'ops/os/linux/virt/qemu-doc',
       'ops/os/linux/virt/qemu-monitor',
       'ops/os/linux/virt/libvirt-faq',

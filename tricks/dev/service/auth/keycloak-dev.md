@@ -15,6 +15,10 @@ title: Keycloak 开发
     * [kkzxak47/keycloak-services-social-wechatwork](https://github.com/kkzxak47/keycloak-services-social-wechatwork)
       * [使用企业微信登录keycloak](https://www.kkzxak47.com/2019/07/30/使用企业微信登录keycloak)
   * 钉钉
+* 注意
+  * 获取到的 attributes 是 `Map<String, List<String>>  attributes;`
+    * user 会处理对象转数组
+    * group 不会处理，需要提前处理好
 
 ```bash
 # 启动开发实例

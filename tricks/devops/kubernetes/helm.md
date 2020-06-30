@@ -8,6 +8,7 @@ title: HELM 包管理器
 ## Tips
 
 - [helm.sh](https://helm.sh/)
+- [Helm Charts Best Practices](https://jfrog.com/blog/helm-charts-best-practices/)
 - nexus 可通过插件支持 helm [sonatype-nexus-community/nexus-repository-helm](https://github.com/sonatype-nexus-community/nexus-repository-helm)
 - 注意
   - 3.0 过后没有 tiller 了

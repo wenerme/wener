@@ -4,6 +4,9 @@
 * [webpack](https://webpack.js.org/)
   * webpack is a module bundler for modern JavaScript applications
 * [#7526](https://github.com/webpack/webpack/issues/7526) - Import a Prebuilt Webpack Bundle at Runtime
+* https://webpack.js.org/comparison/
+*  243B + 20B per module + 4B per dependency
+* https://engineering.velocityapp.com/webpack-vs-browersify-vs-systemjs-for-spas-95b349a41fa0
 
 ## Configuration
 * [configuration](https://webpack.js.org/configuration/)

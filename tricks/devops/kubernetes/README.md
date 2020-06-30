@@ -9,6 +9,7 @@ title: Kubernates
 * [Guide](http://kubernetes.io/docs)
 * [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
 * [Kubernetes vs Openshift vs Tectonic](https://blog.netsil.com/kubernetes-vs-openshift-vs-tectonic-comparing-enterprise-options-e3a34dc60519)
+* [ramitsurana/awesome-kubernetes](https://github.com/ramitsurana/awesome-kubernetes)
 
 ## Install
 

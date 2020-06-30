@@ -37,6 +37,7 @@ title: NextJS
 * 参考
   * https://github.com/kirill-konshin/next-redux-wrapper
   * i18n https://github.com/isaachinman/next-i18next/issues/274
+  * [unicodeveloper/awesome-nextjs](https://github.com/unicodeveloper/awesome-nextjs)
 
 ## 快速开始
 

@@ -1,4 +1,9 @@
-# Virt
+---
+id: virt
+title: 虚拟化
+---
+
+# 虚拟化
 
 ## Tips
 * [Comparison of platform virtualization software](https://en.wikipedia.org/wiki/Comparison_of_platform_virtualization_software)
@@ -7,18 +12,36 @@
   * News from QEMU, KVM, libvirt, libguestfs, virt-manager and related tools
 * SMP?
 * HVM
-  * https://en.wikipedia.org/wiki/Hardware-assisted_virtualization
-  * Hardware-assisted virtualization
+  * [Hardware-assisted virtualization](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization)
   * Intel VT-x
   * AMD-V
 
-## Virtio
-https://wiki.libvirt.org/page/Virtio
-https://www.linux-kvm.org/page/Virtio
-http://wiki.osdev.org/Virtio
-https://www.ibm.com/developerworks/library/l-virtio/
-https://fedoraproject.org/wiki/Windows_Virtio_Drivers
-https://en.wikibooks.org/wiki/QEMU/Devices/Virtio
-https://wiki.qemu.org/Features/VirtioVsock
+# FAQ
+## OpenVZ vs KVM vs Xen
+* KVM - Kernel-based
+  * Linux 内核模块 - 为第三方工具（QEMU）提供虚拟化支持
+  * 通过 virtio 提供 IO 设备虚拟化
+* Xen
+  * Type 1 全虚拟化
+  * 支持虚拟化场景可以使用 Xen-PV - Paravirtualization
+  * 不支持场景会使用 Xen-HVM - Hardware Virtual Machine - 使用 QEMU 虚拟硬件
+  * dom0 上运行 domU
+  * 有管理能力 - 类似于 KVM+Libvirt 或 KVM+其他管理软件
+* OpenVZ
+  * 基于容器 - 共享内核
+  * 一般无法使用 docker、nftables、wg 等 - 需要 host 额外支持 - OpenVZ 7
 
-https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso
+---
+
+* Red Hat 收购了 Qumranet, KVM 创始公司
+* Xen 后的商业公司
+  * Citrix
+  * Oracle
+  * AWS 是 XEN 但在向 KVM 迁移
+* KVM 后的商业公司
+  * IBM
+  * Red Hat
+
+* 参考
+  * [Why is the market moving away from xen to kvm?](https://www.reddit.com/r/sysadmin/comments/7cjpe8)
+  * [OpenVZ vs KVM vs Xen](https://www.booleanworld.com/openvz-vs-kvm-vs-xen-virtualization-technologies-explained/)

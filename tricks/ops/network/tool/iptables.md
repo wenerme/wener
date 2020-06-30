@@ -12,6 +12,8 @@ title: IPTables
 * http://www.netfilter.org/
 * https://wiki.archlinux.org/index.php/Iptables_(简体中文)
 * http://ipset.netfilter.org/iptables-extensions.man.html
+* 参考
+  * [详解 iptables 概念](http://www.zsythink.net/archives/1199)
 * [IPTables packet traverse map](http://www.adminsehow.com/2011/09/iptables-packet-traverse-map/)
 * [第九章、防火墙与 NAT 服务器](http://cn.linux.vbird.org/linux_server/0250simple_firewall.php)
 * [How can I port forward with iptables?](https://serverfault.com/questions/140622)
@@ -152,7 +154,7 @@ iptables -p icmp -h
 * 五个 Hook 点
   * PREROUTING, INPUT, FORWARD, POSTROUTING, OUTPUT
 * 三个内建的表
-  * filter, mangle, nat.
+  * filter, mangle, nat
 * 內建目标
   * ACCEPT, DROP, QUEUE, RETURN
 
