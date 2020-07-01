@@ -87,6 +87,16 @@ User root
 ProxyCommand ssh -q qc-sh-1 nc -q0 1.2.3.100 22
 ```
 
+## Key
+
+```bash
+# 生成 key
+ssh-keygen -t rsa -b 2048 -C "email@example.com"
+
+# 无密码不询问
+ssh-keygen -t rsa -b 2048 -f /tmp/sshkey -q -N ""
+```
+
 ## Tunnel
 在工作中常常需要较多的代理和转发,为每个代理和转发都进行一次 SSH 未免太过麻烦,使用 `~/.ssh/config` 可以将常用的转发一次配置
 

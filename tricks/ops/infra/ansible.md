@@ -1,3 +1,8 @@
+---
+id: ansible
+title: Ansible
+---
+
 # Ansible
 
 ## Tips

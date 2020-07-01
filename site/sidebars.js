@@ -170,6 +170,12 @@ module.exports = {
       'ops/admin/htop',
       'ops/admin/mosh',
     ],
+    基础设施: [
+      'ops/infra/infra',
+      'ops/infra/ansible',
+      'ops/infra/ansible-awx',
+      'ops/infra/ansible-faq',
+    ],
     虚拟化: [
       'ops/os/linux/virt/virt',
       'ops/os/linux/virt/qemu-doc',
