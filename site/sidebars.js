@@ -175,6 +175,7 @@ module.exports = {
       'ops/infra/ansible',
       'ops/infra/ansible-awx',
       'ops/infra/ansible-faq',
+      'ops/infra/terraform',
     ],
     虚拟化: [
       'ops/os/linux/virt/virt',

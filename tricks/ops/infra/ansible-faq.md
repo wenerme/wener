@@ -5,6 +5,39 @@ titleL: Ansible FAQ
 
 # Ansible FAQ
 
+
+## include_task vs import_task
+- 建议
+  - 需要 `when` 、循环、名字时是变量 使用 include
+  - 除此之外都使用 import
+- import
+  - 在解析时处理 - 静态
+  - 建议用于逻辑单元 - 例如拆分长 playbook
+  - 不能循环
+  - 能够 `--list-tags` 和 `--list-tasks`
+  - 可以导入 playbook
+  - 使用 `when` 条件会被应用到所有导入的 `tasks`，大多数时候都是不期望的，使用 `include`
+- include
+  - 在执行时处理 - 动态
+  - 用于带条件的情况
+  - 只有 include 才可以 `include_tasks: prerequisites_{{ ansible_os_family | lower }}.yml`
+
+- 参考
+  - [Reuse includes](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_includes.html)
+  - [dynamic vs. static](https://docs.ansible.com/ansible/devel/user_guide/playbooks_reuse.html#dynamic-vs-static)
+  - [Applying ‘when’ to roles, imports, and includes](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html#applying-when-to-roles-imports-and-includes)
+
+
+## gitlab - got an unexpected keyword argument 'email'
+
+* [#65189](https://github.com/ansible/ansible/issues/65189)
+
+```bash
+$(brew --prefix ansible)/libexec/bin/pip uninstall python-gitlab
+# 需要低版本
+$(brew --prefix ansible)/libexec/bin/pip install -U 'python-gitlab<1.13'
+```
+
 ## 测试 docker 模块
 
 ```bash
@@ -57,4 +90,92 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 ```bash
 ansible localhost -m shell -a 'uuidgen'
 ansible localhost -m debug -a 'msg="{{ansible_date_time.iso8601_micro | to_uuid}}"'
+```
+
+## 快速获取地址
+
+```bash
+ansible -i hosts all -m setup
+ansible -i k8s all -m debug -a 'msg={{ansible_default_ipv4.address}}'
+```
+
+## has no attribute 'ansible_default_ipv4', 'address'
+
+此时需要从新收集主机信息,然后再继续之前操作
+
+```bash
+ansible -i hosts -m setup all
+```
+
+确保该操作成功,如果仍然还是出现没有`address` 的错误,那可能是由于 ansible 无法收集到默认地址,也需要确保 `ifconfig` 有地址.
+
+Ansible 是使用 `ip -4 route get 8.8.8.8` (参考[这里](https://github.com/ansible/ansible/blob/837f3dd24d2a3f6acdfcd6184d4b1830af551100/lib/ansible/module_utils/facts.py#L1939))
+
+- 解决办法 参考 [这里](http://stackoverflow.com/a/29496135/1870054)
+  - 通过手动添加路由来尝试修改这个问题
+  - 通过 set_facts 来覆盖配置
+  - 通过定制 facts 来实现该配置
+
+## Java 环境不正确或没有
+
+因为安装部署是通过 SSH 进行操作,是非交互式的 SHELL, 可通过以下命令验证环境是否正确,
+
+```bash
+ssh user@host 'java -version'
+```
+
+可将所需的 JAVA 环境变量添加到 `~/.bashrc` 的 **最上面**. 因为非交互式的启动脚本执行路径可能有所不同.
+
+## Aborting, target uses selinux but python bindings aren't installed!
+
+在执行时可能遇到以下错误
+
+```
+TASK [es : My Task] *****************************************
+fatal: [host-1]: FAILED! => {"changed": false, "checksum": "4bd3ef681e70faefe3a66c6eb3419b5d4a0e2714", "failed": true, "msg": "Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!"}
+```
+
+是由于开启了 SELinux, 但没有安装 Python 绑定库导致的, 只需要安装该库即可.
+
+```
+yum install libselinux-python
+```
+
+## env 'python' no such file
+
+```bash
+# 是因为找不到 python - 可能是因为使用的 python3
+env python
+# 确保 python3 存在
+env python3
+# 创建软链接
+ln -s `which python3` /usr/bin/python
+```
+
+## 拆分主机到多个文件
+
+目录结构可以为
+
+```
+inventories/
+  a.yaml
+  b.yaml
+  c.yaml
+```
+
+```bash
+# 指向 inventories/ 作为仓库即可
+ansible -i inventories/ all --list-hosts
+# 需要的时候也可以单个指定
+ansible -i inventories/a.yaml -i inventories/b.yaml all --list-hosts
+```
+
+目录结构也可以为 - 适用于不同环境区别较大的时候
+
+```
+inventories/
+  a/
+    hosts
+  b/
+    hosts
 ```

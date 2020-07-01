@@ -36,4 +36,5 @@ title: 基础设施
   * 可以是 Declarative 和 Imperative - 定义式或过程式
   * 无状态，在执行时判断是否已经达到期望状态再决定是否执行
   * 可以指定各种语义 - 脚本
-
+  * 可以理解成是 Terraform 的超集，但在 Terraform 的领域还是 Terraform 做的更好
+  * 可以操作 Terraform，最好配合使用
