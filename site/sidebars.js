@@ -399,6 +399,15 @@ module.exports = {
       },
       {
         type: 'category',
+        label: 'Office',
+        items: [
+          'dev/service/office/office',
+          'dev/service/office/collabora',
+          'dev/service/office/onlyoffice',
+        ],
+      },
+      {
+        type: 'category',
         label: '客户关系管理',
         items: [
           'dev/service/crm/crm-insight',
