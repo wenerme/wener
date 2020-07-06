@@ -16,3 +16,10 @@ title: Nextcloud FAQ
 
 ## cURL error 28: Operation timed out after XXXXXX milliseconds 
 * [#18103](https://github.com/nextcloud/server/issues/18103)
+
+## Error when trying to connect (Host violates local access rules)
+配置
+
+```php
+'allow_local_remote_servers'=>true
+```

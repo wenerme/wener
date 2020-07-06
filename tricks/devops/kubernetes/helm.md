@@ -8,10 +8,17 @@ title: HELM 包管理器
 ## Tips
 
 - [helm.sh](https://helm.sh/)
-- [Helm Charts Best Practices](https://jfrog.com/blog/helm-charts-best-practices/)
 - nexus 可通过插件支持 helm [sonatype-nexus-community/nexus-repository-helm](https://github.com/sonatype-nexus-community/nexus-repository-helm)
 - 注意
   - 3.0 过后没有 tiller 了
+  - HELM 可以单纯的作为模板引擎来使用 - 但是失去了 helm 管理注册应用的能力
+    - 如果用作模板引擎，那还可以选择 Kustomize, k8comp, kdeploy, ktmpl, kuku, jinja, sed, awk, gotpl
+    - 失去的能力： 清单分组、应用或包依赖、查看集群安装应用、注册应用、应用版本回滚
+  - 仓库不是必要的，一个 helm charts 就是一个 tgz
+  - 相同版本可重复安装，revision 会有变化，本地开发时经常这样
+- 参考
+  - [Helm Charts Best Practices](https://jfrog.com/blog/helm-charts-best-practices/)
+  - [HELM Best practices](https://codefresh.io/docs/docs/new-helm/helm-best-practices/)
 
 ```bash
 brew install helm
@@ -36,6 +43,7 @@ helm pull stable/nextcloud --untar
 | Windows | `%TEMP%\helm`               | `%APPDATA%\helm`                 | `%APPDATA%\helm`          |
 
 ## 常用仓库
+* [helm/charts](https://github.com/helm/charts)
 
 | NAME      | URL                                               |
 | --------- | ------------------------------------------------- |
@@ -45,7 +53,32 @@ helm pull stable/nextcloud --untar
 | hashicorp | https://helm.releases.hashicorp.com               |
 | harbor    | https://helm.goharbor.io                          |
 
-### Helm 模板
+## 仓库
+* [The Chart Repository Guide](https://helm.sh/docs/topics/chart_repository)
+  * HTTP
+  * 提供 index.yaml 访问
+* [helm/chartmuseum](https://github.com/helm/chartmuseum)
+  * Golang chart 仓库
+  * 支持较多后端 - 主要的有
+    * S3
+    * 阿里云 OSS
+    * Minio
+  * 支持上传
+  * [支持认证](https://github.com/helm/chartmuseum#basic-auth)
+* Helm 支持 [Registry](https://helm.sh/docs/topics/registries/) 来存储 charts
+
+```bash
+# 本地存储
+docker run --rm -it \
+  -p 8080:8080 \
+  -e DEBUG=1 \
+  -e STORAGE=local \
+  -e STORAGE_LOCAL_ROOTDIR=/charts \
+  -v $(pwd)/charts:/charts \
+  chartmuseum/chartmuseum:latest
+```
+
+## Helm 模板
 
 - https://pkg.go.dev/text/template
 - https://masterminds.github.io/sprig/

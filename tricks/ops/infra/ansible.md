@@ -78,6 +78,10 @@ networks_cli_compatible=yes
 force_valid_group_names=ignore
 ```
 
+## 变量查找路径
+
+* [Variable precedence: Where should I put a variable?](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)
+
 ## 最佳实践
 
 - [Best Practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)

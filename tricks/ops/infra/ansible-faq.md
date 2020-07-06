@@ -5,8 +5,8 @@ titleL: Ansible FAQ
 
 # Ansible FAQ
 
-
 ## include_task vs import_task
+
 - 建议
   - 需要 `when` 、循环、名字时是变量 使用 include
   - 除此之外都使用 import
@@ -18,6 +18,7 @@ titleL: Ansible FAQ
   - 可以导入 playbook
   - 使用 `when` 条件会被应用到所有导入的 `tasks`，大多数时候都是不期望的，使用 `include`
 - include
+
   - 在执行时处理 - 动态
   - 用于带条件的情况
   - 只有 include 才可以 `include_tasks: prerequisites_{{ ansible_os_family | lower }}.yml`
@@ -27,10 +28,85 @@ titleL: Ansible FAQ
   - [dynamic vs. static](https://docs.ansible.com/ansible/devel/user_guide/playbooks_reuse.html#dynamic-vs-static)
   - [Applying ‘when’ to roles, imports, and includes](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html#applying-when-to-roles-imports-and-includes)
 
+## raw vs command vs shell
+
+- shell - 由 `/bin/sh` 执行 - 因此能使用变量和一些语法
+- command - 直接执行 - 因此不能使用 `<`,`>`,`|`,`;` 等
+- raw - 由 ssh 直接执行，不依赖 python
+
+## 常用依赖组件
+
+| module   | pip      |
+| -------- | -------- |
+| postgres | psycopg2 |
+| vault    | hvac     |
+| docker   | docker   |
+
+## psycopg2 ld: library not found for -lssl
+
+- 路径来自于 `pg_config --ldflags`
+
+```bash
+env LDFLAGS='-L/usr/local/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib' $(brew --prefix ansible)/libexec/bin/pip install psycopg2
+```
+
+## synchronize 不支持 ProxyCommand
+
+- rsync 使用 jumphost 会有问题，可尝试 sshuttle 或者使用 copy
+- copy 比 rsync 慢 - 不会做差分
+
+```bash
+rsync -azv -e 'ssh -o "ProxyCommand ssh -A PROXYHOST -W %h:%p"' foo/ dest:./foo/
+# ssh 7.4+
+rsync -azv -e 'ssh -A -J USER@PROXYHOST:PORT' foo/ dest:./foo/
+```
+
+```yaml
+rsync_opts: '-e XXXXX'
+```
+
+## 使用 dotenv
+
+- 更推荐使用变量或 vault
+
+```bash
+cat <<CONF > .env
+export TENANT_NAME=test
+CONF
+# 注意使用 dotenv
+# https://github.com/bkeepers/dotenv
+dotenv ansible -m debug -a 'msg={{lookup("env","TENANT_NAME")}}' localhost
+```
+
+## 获取当前工作目录
+- 角色等相关的目录都是相对于 playbook 的
+
+```yaml
+- set_fact:
+    # 如果是 git
+    awd: "{{ lookup('pipe', 'git rev-parse --show-toplevel') }}"
+```
+
+- [38771](https://github.com/ansible/ansible/issues/38771)
+
+## json 文件作为变量
+
+```yaml
+- hosts: your_host
+  vars:
+    jsonVar: "{{ lookup('file', 'var.json') | from_json }}"
+  tasks:
+    - name: test loop
+      with_dict: "{{ jsonVar['queue'] }}"
+      shell: |
+        if echo "blue" | grep -q "{{ item.value.color }}" ; then
+            echo "success"
+        fi
+```
 
 ## gitlab - got an unexpected keyword argument 'email'
 
-* [#65189](https://github.com/ansible/ansible/issues/65189)
+- [#65189](https://github.com/ansible/ansible/issues/65189)
 
 ```bash
 $(brew --prefix ansible)/libexec/bin/pip uninstall python-gitlab
@@ -52,7 +128,7 @@ pip3 install docker
 
 ## macOS 使用 hasi_vault 安装 hvac 问题
 
-* 安装其他包也是一样 - 例如 docker
+- 安装其他包也是一样 - 例如 docker
 
 ```bash
 # 当前使用的 python
@@ -66,7 +142,6 @@ $(brew --prefix ansible)/libexec/bin/pip install hvac
 # source $(brew --prefix ansible)/libexec/bin/activate
 # pip install hvac
 ```
-
 
 ## 2.9.0 使用 hashi_vault 返回结果结构不对
 

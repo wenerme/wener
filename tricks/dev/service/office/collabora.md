@@ -2,7 +2,7 @@
 id: collabora
 title: Collabora Online
 ---
-a
+
 # Collabora Online
 
 * 服务端运行 Libreoffice

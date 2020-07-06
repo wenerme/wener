@@ -6,6 +6,10 @@ title: Terraform
 # Terraform
 * [functions](https://www.terraform.io/docs/configuration/functions.html)
 * 模板语法 [string-templates](https://www.terraform.io/docs/configuration/expressions.html#string-templates)
+* [Provisioners](https://www.terraform.io/docs/provisioners/index.html)
+  * 本地或远程服务器执行特定动作
+  * 用于准备服务或其他基础设施对象
+  * 不建议使用，作为最后的方式
 
 ## 配置
 
