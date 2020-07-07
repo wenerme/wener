@@ -8,9 +8,12 @@ title: Traefik Ingress
 ## Tips
 * Traefik 的 K8S 分为 CRD 方式和标准的 IngressController
   * CRD 支持更多功能 - Helm 安装
+* 注意
+  * 只有 repilca 为 1 才支持 acme
 
 ```bash
-
+# 转发 9000
+kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" -n traefik --output=name) 9000:9000 -n traefik
 ```
 
 ## CRD

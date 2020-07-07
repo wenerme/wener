@@ -57,6 +57,10 @@ LANG=C 7za x your-zip-file.zip
 convmv -f GBK -t utf8 --notest -r .
 # brew install unar
 unar -e gb18030 gb18030.zip
+
+# 批量
+# ====
+unzip \*.zip
 ```
 
 ## gzip

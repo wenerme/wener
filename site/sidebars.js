@@ -115,6 +115,8 @@ module.exports = {
         items: [
           'devops/kubernetes/network/k8s-network',
           'devops/kubernetes/network/kong-ingress',
+          'devops/kubernetes/network/nginx-ingress',
+          'devops/kubernetes/network/traefik-ingress',
           'devops/kubernetes/network/metallb',
           'devops/kubernetes/network/flannel',
         ],
@@ -176,6 +178,8 @@ module.exports = {
       'ops/infra/ansible-awx',
       'ops/infra/ansible-faq',
       'ops/infra/terraform',
+      'ops/infra/terraform-provider',
+      'ops/infra/terraform-cookbook',
     ],
     虚拟化: [
       'ops/os/linux/virt/virt',

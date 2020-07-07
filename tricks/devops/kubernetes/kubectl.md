@@ -10,6 +10,72 @@ title: Kubectl
 
 ```bash
 brew install kubectl kubectx
+# k9s - k8s 的 top - 可以 shell、log 等
+brew install derailed/k9s/k9s
+
+# 补全
+source <(kubectl completion bash)
+
+# 可以用别名
+alias k=kubectl
+complete -F __start_kubectl k
+
+# 查看所有上下文
+kubectx
+# 查看命名空间
+kubens
+
+# K9S 所有命名空间 不显示头
+k9s -A --headless
+```
+
+## 端口映射
+
+```bash
+# 单个部署
+kubectl port-forward pod/mypod 5000 6000
+# 使用 deploy 选择
+kubectl port-forward deployment/mydeployment 5000 6000
+# 服务
+kubectl port-forward service/myservice 5000 6000
+# 本地监听地址
+kubectl port-forward --address 0.0.0.0 pod/mypod 8888:5000
+
+# 转发 kubernetes-dashboard
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard 8443:https
+```
+
+## 私有仓库
+
+```bash
+# 使用已有的认证信息创建
+kubectl create secret generic regcred \
+    --from-file=.dockerconfigjson=$HOME/.docker/config.json \
+    --type=kubernetes.io/dockerconfigjson
+
+# 提供账号密码创建
+# 镜像地址，例如 https://index.docker.io/v1/  或者 registry.gitlab.com
+kubectl create secret docker-registry regcred \
+  -docker-server=<your-registry-server> \
+  --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+
+kubectl get secret regcred --output=yaml
+# 明文
+kubectl get secret regcred --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode | jq
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: private-reg-container
+    image: <your-private-image>
+  imagePullSecrets:
+  # 使用私钥
+  - name: regcred
 ```
 
 ## 配置

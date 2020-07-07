@@ -22,10 +22,19 @@ title: Kubernates 面板
     * https://github.com/hjacobs/kube-resource-report/
 
 ```bash
+# HELM 安装参考 
+# ==========
+# https://hub.helm.sh/charts/k8s-dashboard/kubernetes-dashboard
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+# 默认不会安装 metric scraper
+helm install kubernetes-dashboard/kubernetes-dashboard --name kubernetes-dashboard --namespace kubernetes-dashboard
+
+# 手动安装
+# ==========
 # 安装最新发布版
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/$(curl -Ls https://api.github.com/repos/kubernetes/dashboard/releases/latest | jq -r .tag_name)/aio/deploy/recommended.yaml
 
-# 创建账号
+# 创建管理员级别账号
 cat <<YAML | kubectl apply -f -
 apiVersion: v1
 kind: ServiceAccount
@@ -55,6 +64,13 @@ kubectl -n kubernetes-dashboard describe secret admin-user-token |grep ^token
 # 开启代理
 kubectl proxy
 # 访问
-# http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+# http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:https/proxy/
 ```
 
+## TLS
+* [Certificate management](https://github.com/kubernetes/dashboard/blob/master/docs/user/certificate-management.md)
+
+- '--tls-cert-file=/tls.crt'
+- '--tls-key-file=/tls.key'
+- '--auto-generate-certificates'
+- '--namespace=kubernetes-dashboard'

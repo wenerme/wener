@@ -17,6 +17,7 @@ title: Traefik
 * 注意
   * 如果 EndPoint 是 HTTPS 但是 router 未指定 tls 会无法匹配出现 404 - router 相当于是匹配 HTTP
   * V2 不支持高可用部署 [#5792](https://github.com/containous/traefik/issues/5792)
+  * 不支持重写 Host
 
 ```bash
 # 启动

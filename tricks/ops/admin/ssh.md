@@ -171,12 +171,31 @@ ssh -f -nNT -R 1100:localhost:22 somehost
 ssh localhost -p 1100
 ```
 
+## 跳板机
+```bash
+# 默认支持 -J 用于跳板场景
+# 需要 PortForward
+ssh -J admin@jumphost admin@internal
+
+# 使用 ProxyCommand
+# -W host:port
+# 请求转发 IO 到指定机器的端口，隐含了 -N, -T, ExitOnForwardFailure, ClearAllForwardings
+ssh -o ProxyCommand="ssh -W %h:%p -q admin@jumphost" admin@internal
+
+# nc 转发 - 不需要 PortForward
+# 可以添加 -o StrictHostKeyChecking=no 避免询问指纹
+ssh -o ProxyCommand="ssh -q admin@jumphost nc %h %p" admin@internal
+```
+
 ## HTTP + SSH 多路
 * https://github.com/yrutschle/sslh
 
 ## FAQ
 ### key_load_public: No such file or directory
 找不到 `~/.ssh/id_rsa.pub`，不影响使用
+
+### channel 0: open failed: administratively prohibited: open failed - stdio forwarding failed
+不允许 PortForward，需要开启
 
 ### 端口转发
 * -L/LocalForward 本地转发

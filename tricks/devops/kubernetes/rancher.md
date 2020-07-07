@@ -27,6 +27,11 @@ title: Rancher UI
     - Grafana `https://rancher.wener.me/k8s/clusters/local/api/v1/namespaces/cattle-prometheus/services/http:access-grafana:80/proxy/`
     - Prometheus `https://rancher.wener.me/k8s/clusters/local/api/v1/namespaces/cattle-prometheus/services/http:access-prometheus:80/proxy/graph`
     - Prometheus 端口映射的是 9796
+- 参考
+  - [Setting up Kubernetes Clusters in Rancher](https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/)
+    - Rancher 启动的
+    - 托管的
+    - 导入的
 
 ## 安装
 

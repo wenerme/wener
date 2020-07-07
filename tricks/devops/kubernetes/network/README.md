@@ -253,3 +253,27 @@ spec:
   externalIPs:
     - 80.11.12.10
 ```
+
+## FAQ
+### NodePort vs HostPort vs HostNetwork
+
+* 都是为了在虚拟节点上暴露端口
+* TLS 场景如果想要获取到客户端 IP 则需要暴露端口到主机 - 否则使用 tcp proxy - 很麻烦
+* NodePort
+  * 推荐方式
+  * Kubernetes 管理 - 端口范围 30000–32767
+  * 可以转发服务 - 不需要节点运行 POD
+* HostPort
+  * 不推荐使用 - 除非不得已 - node daemon
+  * Kubernetes 预留端口
+  * 节点需要运行 POD
+  * 取决于 CNI 实现
+  * 会影响 pod 调度 - 因为端口冲突
+* HostNetwork
+  * 不依赖 CNI
+  * 在宿主机网络空间
+  * 能访问 lookback 设备、服务 等
+  * 能够获取节点上的网络活动
+  * DaemonSet 时可以使用
+* 参考
+  * https://github.com/kubernetes/kubernetes/issues/23920
