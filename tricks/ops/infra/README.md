@@ -26,6 +26,14 @@ title: 基础设施
 ## Terraform vs Ansible
 
 * 都是 IaC - Infrastructure as code
+
+* Ansible
+  * 擅长部署 - 因为指令式，一次性执行，无状态
+* Terraform
+  * 擅长运维 - 定义状态进行维护，通过 GitOps 维护资源
+
+---
+
 * Terraform
   * 操作 __接口__
   * 只能是 Declarative - 定义式
@@ -38,3 +46,4 @@ title: 基础设施
   * 可以指定各种语义 - 脚本
   * 可以理解成是 Terraform 的超集，但在 Terraform 的领域还是 Terraform 做的更好
   * 可以操作 Terraform，最好配合使用
+  * 可以用于生成 Terraform 脚本

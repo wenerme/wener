@@ -33,6 +33,7 @@ title: Longhorn
   * 不支持 ReadWriteMany [#73](https://github.com/longhorn/longhorn/issues/73#issuecomment-392869189)
   * 反向代理 UI 不行 [#1082](https://github.com/longhorn/longhorn/issues/1082)
   * 扩容只支持离线
+  * 必须安装在 `longhorn-system` 空间
 * 数据对应关系
   * PVC -> PV -> Volume -> Replica -> Node
 
@@ -163,6 +164,13 @@ sudo apk add open-iscsi
 sudo service iscsid start
 sudo apk add curl findmnt grep gawk blkid lsblk util-linux
 
+# HELM 安装
+# ==========
+git clone https://github.com/longhorn/longhorn && cd longhorn
+helm install longhorn ./longhorn/chart/ --namespace longhorn-system --create-namespace
+
+# 手动安装
+# ==========
 # 安装
 kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/master/deploy/longhorn.yaml
 

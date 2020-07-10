@@ -46,15 +46,17 @@ helm pull stable/nextcloud --untar
 
 - [helm/charts](https://github.com/helm/charts)
 
-| NAME                       | URL                                                 |
-| -------------------------- | --------------------------------------------------- |
-| stable                     | https://kubernetes-charts.storage.googleapis.com/   |
-| traefik                    | https://containous.github.io/traefik-helm-chart     |
-| jetstack                   | https://charts.jetstack.io                          |
-| hashicorp                  | https://helm.releases.hashicorp.com                 |
-| harbor                     | https://helm.goharbor.io                            |
-| stable<br/>azure mirror    | http://mirror.azure.cn/kubernetes/charts/           |
-| incubator<br/>azure mirror | http://mirror.azure.cn/kubernetes/charts-incubator/ |
+| NAME                       | URL                                                        |
+| -------------------------- | ---------------------------------------------------------- |
+| stable                     | https://kubernetes-charts.storage.googleapis.com/          |
+| incubator                  | https://kubernetes-charts-incubator.storage.googleapis.com |
+| traefik                    | https://containous.github.io/traefik-helm-chart            |
+| jetstack                   | https://charts.jetstack.io                                 |
+| hashicorp                  | https://helm.releases.hashicorp.com                        |
+| harbor                     | https://helm.goharbor.io                                   |
+| stable<br/>azure mirror    | http://mirror.azure.cn/kubernetes/charts/                  |
+| incubator<br/>azure mirror | http://mirror.azure.cn/kubernetes/charts-incubator/        |
+| wener<br/>offcial collection | https://wenerme.github.io/charts        |
 
 ## 仓库
 
@@ -80,6 +82,7 @@ helm repo reindex local-repo
 ```
 
 ### chartmuseum
+
 ```bash
 # 本地存储
 docker run --rm -it \

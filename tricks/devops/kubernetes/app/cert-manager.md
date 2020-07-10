@@ -84,6 +84,8 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # 生产地址
+    # server: https://acme-v02.api.letsencrypt.org/directory
     # 账号
     email: user@example.com
     # 存储 ACME 账号私钥的 secret 名字

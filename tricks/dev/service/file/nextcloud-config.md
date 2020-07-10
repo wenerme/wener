@@ -9,7 +9,6 @@ title: Nextcloud 配置
 * [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
 
 ```php
-
 <?php
 
 $CONFIG = array(

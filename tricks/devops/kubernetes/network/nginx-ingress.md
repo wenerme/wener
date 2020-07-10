@@ -5,6 +5,18 @@ title: Nginx Ingress
 
 # Nginx Ingress
 
+## Tips
+* 模版路径 [/etc/nginx/template/nginx.tmpl](https://github.com/kubernetes/ingress-nginx/blob/master/rootfs/etc/nginx/template/nginx.tmpl)
+* 支持自定义 [Lua 插件](https://github.com/kubernetes/ingress-nginx/blob/master/rootfs/etc/nginx/lua/plugins/README.md)
+* 无法全局添加 cert
+  * 可以设置默认 `--default-ssl-certificate` 指向 secret - 例如 `default/foo-tls`
+  * 默认使用 self-signed
+* [Websocket](https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/#websockets)
+  * proxy-read-timeout 和 proxy-send-timeout 默认 60s
+  * 对于 websocket 建议 3600
+* 插件
+  * https://kubernetes.github.io/ingress-nginx/kubectl-plugin/
+
 ```bash
 POD_NAME=$(kubectl get pods --selector "app.kubernetes.io/name=ingress-nginx" --all-namespaces --output=name | head -1)
 # 查看 Nginx 配置
@@ -97,4 +109,46 @@ spec:
           serviceName: http-svc
           servicePort: 80
         path: /something(/|$)(.*)
+```
+
+## FastCGI
+
+```yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/backend-protocol: "FCGI"
+    nginx.ingress.kubernetes.io/fastcgi-index: "index.php"
+    # 存放额外参数
+    nginx.ingress.kubernetes.io/fastcgi-params-configmap: "example-cm"
+    # nginx.ingress.kubernetes.io/fastcgi-params-configmap: "example-namespace/example-configmap"
+  name: example-app
+spec:
+  rules:
+  - host: app.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: example-service
+          servicePort: fastcgi
+```
+
+## 默认 backend
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: no-rules-map
+spec:
+  tls:
+    - hosts:
+      - "wener.me"
+      - "*.wener.me"
+      secretName: wener-me-cert
+  backend:
+    serviceName: def
+    servicePort: 80
 ```

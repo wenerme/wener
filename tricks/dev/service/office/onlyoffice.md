@@ -36,20 +36,22 @@ title: ONLYOFFICE
   * Hieroglyph support
   * 支持格式: DOC, DOCX, TXT, ODT, RTF, ODP, EPUB, ODS, XLS, XLSX, CSV, PPTX, HTML
 * 配置
+  * 只要配置的 host 不是 localhost 就会使用外部服务而不是本地
   * mq
     * AMQP_SERVER_URL - AMQP URL
     * AMQP_SERVER_TYPE - rabbitmq 或 activemq
   * pg
-    * POSTGRESQL_SERVER_HOST
-    * POSTGRESQL_SERVER_PORT
-    * POSTGRESQL_SERVER_DB_NAME
-    * POSTGRESQL_SERVER_USER
-    * POSTGRESQL_SERVER_PASS
+    * DB_TYPE = postgres mariadb
+    * DB_HOST
+    * DB_PORT
+    * DB_NAME
+    * DB_USER
+    * DB_PWD
   * redis
     * REDIS_SERVER_HOST
     * REDIS_SERVER_PORT
   * jwt
-    * JWT_ENABLED
+    * JWT_ENABLED - 开启 jwt secret 校验
     * JWT_SECRET - 用于校验 jwt token 的 secret
     * JWT_HEADER - jwt 的 http 头 - 默认 Authorization
 * 配置
@@ -65,4 +67,55 @@ title: ONLYOFFICE
 # CPU 2 GHz RAM 2 GB Swap 4 GB
 # 镜像特别大 700MB+
 docker run --rm -it -p 8088:80 --name ds onlyoffice/documentserver
+```
+### 配置
+* 这些配置都可以通过环境变量配置
+
+```json
+{
+  "services": {
+    "CoAuthoring": {
+      "sql": {
+        "type": "postgres",
+        "dbHost": "localhost",
+        "dbPort": "5432",
+        "dbName": "onlyoffice",
+        "dbUser": "onlyoffice",
+        "dbPass": "onlyoffice"
+      },
+      "redis": {
+        "host": "localhost"
+      },
+      "token": {
+        "enable": {
+          "request": {
+            "inbox": false,
+            "outbox": false
+          },
+          "browser": false
+        },
+        "inbox": {
+          "header": "Authorization"
+        },
+        "outbox": {
+          "header": "Authorization"
+        }
+      },
+      "secret": {
+        "inbox": {
+          "string": "secret"
+        },
+        "outbox": {
+          "string": "secret"
+        },
+        "session": {
+          "string": "secret"
+        }
+      }
+    }
+  },
+  "rabbitmq": {
+    "url": "amqp://guest:guest@localhost"
+  }
+}
 ```

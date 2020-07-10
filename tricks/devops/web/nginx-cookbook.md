@@ -5,6 +5,12 @@ title: Nginx 常用配置
 
 # Nginx 常用配置
 
+## 注意
+* [rewrite](http://wiki.nginx.org/HttpRewriteModule#rewrite)
+  * 如果替代字符串是 `http://` 打头，那么客户端会被重定向，之后的 rewrite 都会被中止
+* auth
+  * https://oauth2-proxy.github.io/oauth2-proxy/configuration#configuring-for-use-with-the-nginx-auth_request-directive
+
 ## 主机映射
 * [map](http://nginx.org/en/docs/http/ngx_http_map_module.html#map)
 
@@ -21,6 +27,71 @@ server {
         proxy_pass http://rubyapp.com;
         proxy_set_header Host $served_host;
     }
+}
+```
+
+---
+
+```
+map $request_uri $redirect_uri {
+  ~/(?<lang>(en|de|fr))/oldname    /$lang/newname;
+}
+map $http_host $served_host {
+    default $http_host;
+    ~(?<name>[^.]+).example.com $name.example.net;
+}
+```
+
+## 子域名重写
+* `http://www.*.domain.com` -> `http://*.domain.com`
+
+__#1__
+
+```nginx
+if ($host ~* www\.(.*)) {
+  set $host_without_www $1;
+  rewrite ^(.*)$ http://$host_without_www$1 permanent; # $1 contains '/foo', not 'www.mydomain.com/foo'
+}
+```
+
+__#2__
+
+```nginx
+server {
+  server_name www.domain.com;
+  rewrite ^ http://domain.com$request_uri permanent;
+}
+```
+
+## 替代域名
+
+```nginx
+server
+{
+  listen 80; 
+  server_name a.com b.com c.com;
+
+  location ~* ^/comment/(.*) {
+    proxy_set_header HOST shared.com;
+    # $1 - stores capture from the location on top
+    # $is_args will return ? if there are query params
+    # $args stores query params
+    proxy_pass http://comment/$1$is_args$args;
+  }
+
+}
+
+server {
+  listen 80;
+  server shared.com;
+
+  location / {
+    # Proxy to some app handler
+  }
+}
+
+upstream comment {
+  server localhost; # or any other host essentially
 }
 ```
 

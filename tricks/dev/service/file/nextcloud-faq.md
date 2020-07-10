@@ -21,5 +21,9 @@ title: Nextcloud FAQ
 配置
 
 ```php
-'allow_local_remote_servers'=>true
+'allow_local_remote_servers'=>true,
+```
+
+```bash
+sudo -u www-data ./occ config:system:set allow_local_remote_servers --value=true --type=boolean
 ```

@@ -15,7 +15,7 @@
     * webpack [external](https://webpack.js.org/configuration/externals/#root)
     * rollup [external](https://rollupjs.org/guide/en/#external)
   * import map - [Import maps](https://developers.google.com/web/updates/2019/03/kv-storage#import_maps)
-  * systemjs
+  * [systemjs/systemjs](https://github.com/systemjs/systemjs)
   * NextJS [multi-zone](https://nextjs.org/docs/advanced-features/multi-zones) - url 切分
 * 本身是反应 microservice 概念 - isolation
 * 参考
@@ -24,7 +24,7 @@
   * [single-spa/single-spa#103](https://github.com/single-spa/single-spa/issues/103) - RFC: Server Rendering
   * [vercel/next.js#6040](https://github.com/vercel/next.js/issues/6040) - Feasibility of micro frontends
   * [webpack/webpack#10352](https://github.com/webpack/webpack/issues/10352) - Module federation and code sharing between bundles. Many builds act as one
-  
+
 
 ```html
 <!-- The import map is inlined into your page -->

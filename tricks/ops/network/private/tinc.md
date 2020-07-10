@@ -47,7 +47,7 @@ title: Tinc
 * [SPTPS](https://www.tinc-vpn.org/documentation-1.1/Simple-Peer_002dto_002dPeer-Security.html)
   * Simple Peer-to-Peer Security
   * based on TLS 1.2, but has been simplified: there is no support for exchanging public keys, and there is no cipher suite negotiation. Instead, SPTPS always uses a very strong cipher suite: peers authenticate each other using 521 bits ECC keys, Diffie-Hellman using ephemeral 521 bits ECC keys is used to provide perfect forward secrecy (PFS), AES-256-CTR is used for encryption, and HMAC-SHA-256 for message authentication.
-* 655/tcp 655/udp
+* 常用端口 655/tcp 655/udp
 * macOS
   * https://www.tinc-vpn.org/pipermail/tinc/2016-January/004336.html
   * http://tuntaposx.sourceforge.net/

@@ -10,18 +10,21 @@ title: Ansible
 - 系统要求
   - 控制节点 - python \*nix
   - 管理节点 - python sftp/scp
-- 注意
+- 注意 ⚠️
   - 分组名包含 `-` 会告警
     - `force_valid_group_names=ignore` 可关闭
   - docker_container 模块网络有所调整 - 之后默认不会添加 default 网络 - 与 docker 保持一直
     - 建议 `networks_cli_compatible=yes` 提前与 docker 网络保持一致
   - 建议使用 yaml 写 inventory - 比 ini 的模式好管理 - 结构也更加清晰
+  - 相同 set_fact 不能互相依赖 [#40239](https://github.com/ansible/ansible/issues/40239)
 - 参考
   - [Ansible tutorial](https://github.com/leucos/ansible-tuto)
   - [List all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
   - [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的 ansible.cfg 配置
   - 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
   - [YAML Syntax](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)
+- 学习
+  - [geerlingguy/ansible-for-devops](https://github.com/geerlingguy/ansible-for-devops)
 - 界面
   - [ansible-semaphore/semaphore](https://github.com/ansible-semaphore/semaphore)
     - Go 实现
