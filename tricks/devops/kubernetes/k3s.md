@@ -61,8 +61,15 @@ title: K3S
 * 参考
   * [Using a k3s Kubernetes Cluster for Your GitLab Project](https://medium.com/better-programming/b0b035c291a9)
 * 问题
-  * Replace traefik with nginx - [#1466](https://github.com/rancher/k3s/pull/1466/files)
+  * 使用 Nginx 替代 Traefik - [#1466](https://github.com/rancher/k3s/pull/1466/files)
     * 已经被回退
+  * K3S 有 [server-ca 和 client-ca](https://github.com/rancher/k3s/issues/684#issuecomment-517032871)
+    * 默认 CSR 是使用 servert-ca，导致创建的证书无法使用
+      * issueser 是 k3s-server-ca
+    * 需要从服务器取 client-ca 创建证书
+    * [#1768](https://github.com/rancher/k3s/pull/1768) - 默认使用 ClientCA 而不是 ServerCA
+    * [自行创建脚本](https://github.com/rancher/k3s/issues/684#issuecomment-517501120)
+  * 目前(1.18) admin 默认是密码 - [#1616](https://github.com/rancher/k3s/issues/1616) - 默认使用证书
 
 ```bash
 apk add util-linux

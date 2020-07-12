@@ -92,6 +92,29 @@ ifenslave -c bond0 eth1
 
 
 ## 配置案例
+* 需要安装 bonding 才能使用 bond-slaves 这样的指令
+
+### 命令控制
+
+```
+auto bond0
+iface bond0 inet manual
+  down ip link set $IFACE down
+  post-down rmmod bonding
+  pre-up modprobe bonding mode=4 miimon=200
+  up ip link set $IFACE up mtu 9000
+  up udevadm trigger
+
+allow-hotplug eth0
+iface eth0 inet manual
+  up ifenslave bond0 $IFACE
+  down ifenslave -d bond0 $IFACE 2> /dev/null
+
+allow-hotplug eth1
+iface eth1 inet manual
+  up ifenslave bond0 $IFACE
+  down ifenslave -d bond0 $IFACE 2> /dev/null
+```
 
 ### 最简单的配置
 

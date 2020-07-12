@@ -1,5 +1,5 @@
 ---
-id: nginx-ignress
+id: nginx-ingress
 title: Nginx Ingress
 ---
 
