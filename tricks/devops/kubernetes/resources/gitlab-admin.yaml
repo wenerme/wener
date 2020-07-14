@@ -1,0 +1,21 @@
+# Gitlab 使用的账号权限
+# https://gitlab.com/help/user/project/clusters/add_remove_clusters.md#add-existing-cluster
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gitlab-admin
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: gitlab-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: gitlab-admin
+    namespace: kube-system
