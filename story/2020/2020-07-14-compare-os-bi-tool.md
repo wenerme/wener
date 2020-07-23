@@ -7,13 +7,14 @@ title: 开源 BI 产品比较
 
 比较 Metabase、Redash、Superset 这几款开源的 BI 产品。
 
-<!-- more -->
 
 | Name     | License | Stars | Languages | Deps          | Github                                                                    |
 | -------- | ------- | ----- | --------- | ------------- | ------------------------------------------------------------------------- |
 | Metabase | AGPL    | 21k   | Clojure   | H2/PostgreSQL | [metabase/metabase](https://github.com/metabase/metabase)                 |
 | Redash   | BSD     | 16k   | JS        | Redis+DB      | [getredash/redash](https://github.com/getredash/redash)                   |
 | Superset | Apache  | 29k   | Python    | Cache+DB      | [apache/incubator-superset](https://github.com/apache/incubator-superset) |
+
+<!-- more -->
 
 - metabase
   - 界面操作友好

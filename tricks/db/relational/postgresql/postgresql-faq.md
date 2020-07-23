@@ -5,6 +5,9 @@ title: 常见问题
 
 # PostgreSQL FAQ
 
+## 维护
+* [postgres_queries_and_commands.sql](https://gist.github.com/rgreenjr/3637525) - Useful PostgreSQL Queries and Commands
+
 ## How to Upgrade
 可以构造一个包含所有版本的镜像，然后进行升级 - [Dockerfile](https://github.com/postgres/pgadmin4/blob/master/Dockerfile)
 

@@ -5,9 +5,26 @@ title: CMS 概览
 
 # CMS
 ## Tips
+* 编辑器
+  * [outline/rich-markdown-editor](https://github.com/outline/rich-markdown-editor)
+* 构建器
+  * [artf/grapesjs](https://github.com/artf/grapesjs)
+    * BSD
+    * 目前开源功能最为强大的 PageBuilder
+    * 生成 HTML 代码
+  * [tinacms/tinacms](https://github.com/tinacms/tinacms) -  toolkit for building cms
+  * [prevwong/craft.js](https://github.com/prevwong/craft.js) - extensible drag and drop page editors
+  * [ly525/luban-h5](https://github.com/ly525/luban-h5) - 可视化搭建，拖拽生成移动端页面
+    * Vue+Strapi
+  * [elementor/elementor](https://github.com/elementor/elementor) - WordPress Page Builder
+  * [BuilderIO/builder](https://github.com/BuilderIO/builder)
 * 索引
-  * https://nodecms.guide/
   * https://headlesscms.org/
+  * https://nodecms.guide/
+
+## Notes
+
+* CMS=Storage + API + Editor + Builder + Redner
 * CMS 常见方向
   * 无界面
     * 接口生成

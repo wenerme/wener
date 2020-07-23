@@ -34,6 +34,9 @@ title: NextJS
       * `import 'libs/utils'` 不可以
       * `import './utils'` 可以
       * `import '@wener/core/libs/utils'` 可以
+  * [#5054](https://github.com/vercel/next.js/issues/5054) - Truly static pages without react app
+    * PR [#11949](https://github.com/vercel/next.js/pull/11949)
+      * 页面导出 `const config={unstable_runtimeJS: false}`
 * 参考
   * https://github.com/kirill-konshin/next-redux-wrapper
   * i18n https://github.com/isaachinman/next-i18next/issues/274

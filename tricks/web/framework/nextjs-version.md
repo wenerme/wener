@@ -1,6 +1,12 @@
-# Next 版本
+---
+id: nextks-version
+title: NextJS 版本历史
+---
+
+# NextJS 版本历史
 
 ## 9.4
+* [9.4](https://nextjs.org/blog/next-9-4) - 2020-5-11
 * 快速刷新
   * 基于 [React Refresh](https://github.com/facebook/react/tree/master/packages/react-refresh)
   * 尽量只刷新组件不丢失状态，异常友好显示
@@ -29,11 +35,17 @@ export default MyApp
   * 识别 jsconfig.json 和 tsconfig.json 中的配置
 * 内建 Sass 支持配置
 * 优化日志输出
-
-
+* 纯静态实验支持 - `unstable_runtimeJS`
+  * 不会包含 React 和 NextJS 的脚本
+```js
+export const config = {
+  unstable_runtimeJS: false
+}
+export default () => <h1>My page</h1>
+```
 
 ## 9.3
-* [9.3](https://nextjs.org/blog/next-9-3)
+* [9.3](https://nextjs.org/blog/next-9-3) - 2020-3-10
 * SSG 服务端静态生成 HTML
   * `getStaticProps` -  构建时获取数据 - 静态生成
     * 支持预览模式 - cookie

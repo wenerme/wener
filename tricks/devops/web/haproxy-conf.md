@@ -15,33 +15,37 @@ title: HAProxy 配置
 
 ```haproxy
 global
-    log /dev/log    local0
-    log /dev/log    local1 notice
-    chroot /var/lib/haproxy
-    stats socket /run/haproxy/admin.sock mode 660 level admin
-    stats timeout 30s
-    user haproxy
-    group haproxy
-    daemon
+  log /dev/log    local0
+  log /dev/log    local1 notice
+  chroot /var/lib/haproxy
+  # 常见位置
+  # /run/haproxy/admin.sock
+  # /var/run/haproxy.sock
+  stats socket /var/lib/haproxy/stats mode 660 level admin
+  # stats socket ipv4@192.168.0.1:9999 level admin
+  stats timeout 30s
+  user haproxy
+  group haproxy
+  daemon
 
 defaults
-    log global
-    retries 2
-    option  dontlognull
-    timeout connect 10000
-    timeout server 600000
-    timeout client 600000
+  log global
+  retries 2
+  option  dontlognull
+  timeout connect 10000
+  timeout server 600000
+  timeout client 600000
 
 frontend https
-    bind 0.0.0.0:443
-    default_backend https
+  bind 0.0.0.0:443
+  default_backend https
 
 backend https
-    mode tcp
-    balance roundrobin
-    option tcp-check
-    # traefik 后端也支持 proxy 协议
-    server traefik 192.168.128.5:9443 check fall 3 rise 2 send-proxy
+  mode tcp
+  balance roundrobin
+  option tcp-check
+  # traefik 后端也支持 proxy 协议
+  server traefik 192.168.128.5:9443 check fall 3 rise 2 send-proxy
 ```
 
 ```bash
@@ -64,4 +68,35 @@ echo 0 > /proc/sys/net/ipv4/conf/enp0s8/rp_filter
 # 允许ICMP重定向
 echo 1 > /proc/sys/net/ipv4/conf/all/send_redirects
 echo 1 > /proc/sys/net/ipv4/conf/enp0s8/send_redirects
+```
+
+## 保留状态
+* 不会保留统计信息
+
+```
+global
+  # 状态文件
+  server-state-file /var/lib/haproxy/server-state
+  stats socket /var/lib/haproxy/stats
+
+defaults
+  # 加载统计
+  load-server-state-from-file global
+```
+
+```bash
+# 保留状态
+echo "show servers state" | socat /var/lib/haproxy/stats stdio > /var/lib/haproxy/server-state
+```
+
+## 交互命令
+* [Unix Socket commands](https://cbonte.github.io/haproxy-dconv/2.2/management.html#9.3)
+
+```bash
+# 脚本一次执行
+# socat 可能需要 sudo
+echo "show info;show stat;show table" | socat /var/lib/haproxy/stats stdio
+# 交互式
+socat /var/lib/haproxy/stats readline
+# prompt
 ```
