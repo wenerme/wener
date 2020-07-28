@@ -77,7 +77,14 @@ brew install dnsmasq
 
 ## 配置
 * [dnsmasq.conf.example](http://thekelleys.org.uk/gitweb/?p=dnsmasq.git;a=blob_plain;f=dnsmasq.conf.example;hb=HEAD)
+* [dnsmasq-man](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
 * 配置的内容也是命令行接受的参数
+
+```bash
+# 默认配置
+# conf-dir=/etc/dnsmasq.d/,*.conf
+egrep '^[^#]' /etc/dnsmasq.conf
+```
 
 ### 常用配置
 ```ini
@@ -243,7 +250,10 @@ no-dhcp-interface=<interface name>
 # 监听地址
 listen-address=<ipaddr>
 
+# 绑定到网卡 - 例如 指定了 interface，则只监听 interface - 需要平台支持，linux 可以
 bind-interfaces
+# 介于 bind-interfaces 和 默认 之间，会绑定到新出现的地址
+# 仅 Linux，非 Linux 回退到 bind-interfaces 模式
 bind-dynamic
 
 # 从 /etc/hosts 返回结果
@@ -520,4 +530,35 @@ pxe-prompt=[tag:<tag>,]<prompt>[,<timeout>]
 
 ```bash
 dnsmasq --user=root
+```
+
+## dnsmasq: failed to bind DHCP server socket: Address in use
+
+* 67 端口被占用
+* 使用 bind-interfaces
+
+## libvirtd dnsmasq
+
+```bash
+/usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib/libvirt/libvirt_leaseshelper
+```
+
+```
+##WARNING:  THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+##OVERWRITTEN AND LOST.  Changes to this configuration should be made using:
+##    virsh net-edit default
+## or other application using the libvirt API.
+##
+## dnsmasq conf file created by libvirt
+strict-order
+pid-file=/var/run/libvirt/network/default.pid
+except-interface=lo
+bind-dynamic
+interface=virbr0
+dhcp-range=192.168.122.2,192.168.122.254,255.255.255.0
+dhcp-no-override
+dhcp-authoritative
+dhcp-lease-max=253
+dhcp-hostsfile=/var/lib/libvirt/dnsmasq/default.hostsfile
+addn-hosts=/var/lib/libvirt/dnsmasq/default.addnhosts
 ```

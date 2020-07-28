@@ -85,6 +85,8 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 ## rc-update: failed to add service `loadkmap' to runlevel `boot': No such file or directory
 * 确保 `/etc/init.d/loadkmap` 存在
 * 确保 `/etc/runlevels/boot/` 目录存在
+* chroot 添加 boot runlevel 有问题
+* 使用 ln - `ln -s /etc/init.d/$svc /etc/runlevels/boot`
 
 ## virt vs standard
 
