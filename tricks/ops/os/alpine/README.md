@@ -4,14 +4,23 @@ title: Alpine
 ---
 
 ## Tips
-* [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
-  * Search file in package from command line
+* ARCH - 架构支持
+  * x86_64
+  * x86
+  * armhf
+  * armv7
+  * aarch64
+  * s390x
+  * mips64 - mips64be
+  * ppc64le
 * [adelielinux](https://adelielinux.org/)
   * 基于 Alpine 针对桌面的系统
   * https://code.foxkit.us/groups/adelie
 * https://postmarketos.org/
   * 基于 Alpine 的移动操作系统
 * GitLab 上关于 [安全的问题](https://gitlab.alpinelinux.org/alpine/aports/issues?state=closed&label_name%5B%5D=T-Security)
+* [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
+  * Search file in package from command line
 
 ```bash
 # 计算块设备容量

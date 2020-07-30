@@ -6,7 +6,7 @@ title: QEMU监视器
 # QEMU Monitor
 
 * [QEMU Monitor](https://qemu.weilnetz.de/doc/qemu-doc.html#pcsys_005fmonitor)
-* [QEMU/Monitor](https://en.wikibooks.org/wiki/QEMU/Monitor)
+* wikibooks [QEMU/Monitor](https://en.wikibooks.org/wiki/QEMU/Monitor)
 * [使用 monitor command 监控 QEMU 运行状态](https://www.ibm.com/developerworks/cn/linux/l-cn-qemu-monitor/)
 * 如何访问 Monitor
   * curses
@@ -36,6 +36,23 @@ Setup monitor on chardev name. pretty turns on JSON pretty printing easing human
 Redirect the debug console to host device dev (same devices as the serial port). The debug console is an I/O port which is typically port 0xe9; writing to that I/O port sends output to this device. The default device is vc in graphical mode and stdio in non graphical mode.
 ```
 
+```bash
+# telnet 监听
+qemu-system-i386 -monitor telnet:127.0.0.1:55555,server,nowait;
+echo system_powerdown |telnet 127.0.0.1 55555
+# tcp 监听
+qemu-system-i386 -monitor tcp:127.0.0.1:55555,server,nowait;
+echo 'info kvm' |nc -N 127.0.0.1 55555
+echo system_powerdown |nc -N 127.0.0.1 55555
+
+# unix
+# -qmp JSON 协议
+qemu-system-i386 monitor unix:qemu-monitor-socket,server,nowai
+socat -,echo=0,icanon=0 unix-connect:qemu-monitor-socket
+
+echo "info status" | socat - unix-connect:qemu-monitor-socket
+echo "info status" | socat - unix-connect:qemu-monitor-socket | tail --lines=+2 | grep -v '^(qemu)'
+```
 
 ```bash
 # 查看版本

@@ -37,13 +37,44 @@ virsh domrename {domain} {new-name}
 dommemstat {domain}
 ```
 
-## FAQ
+# FAQ
 
+## error from service: CheckAuthorization: The name org.freedesktop.PolicyKit1 was not provided by any .service files
+* `qemu+ssh://admin@host/system` - 可能是没有权限
 
-### sudo virsh hang
-```bash
-killall -9  dmidecode
+__/etc/libvirt/libvirtd.conf__
+
+```ini
+# 允许分组访问
+unix_sock_group = "libvirt"
+unix_sock_rw_perms = "0770"
 ```
+
+```bash
+# 添加用户到分组
+usermod -G libvirtd -a username
+
+# 验证
+virsh -c qemu:///system list
+```
+
+## Unable to get DBus system bus connection: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+* 确保 dbus 启动
+* 可能还需要重启 libvirtd
+
+## error from service: CheckAuthorization: The name org.freedesktop.PolicyKit1 was not provided by any .service files
+
+```bash
+apk add polkit
+```
+
+## sudo virsh hang
+```bash
+killall -9 dmidecode
+```
+
+## virsh list hang
+
 
 ## Help
 

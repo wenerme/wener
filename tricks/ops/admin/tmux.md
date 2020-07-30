@@ -9,6 +9,9 @@
   * iTerm2 [tmux Integration Best Practices](https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices)
 
 ```bash
+# 新建或 attach 到会话
+tmuxrc new -A -s main
+
 # 显示指定服务开启的会话
 tmux -S /tmp/extratmuxserver/tmuxserver ls
 # 创建新会话
@@ -17,8 +20,6 @@ tmux new -s myname
 tmux a -t myname
 # 关闭会话
 tmux kill-session -t myname
-
-tmuxrc new -A -s main
 ```
 
 ### Commands

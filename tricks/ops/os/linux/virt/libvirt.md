@@ -1,3 +1,8 @@
+---
+id: libvirt
+title: Libvirt
+---
+
 # Libvirt
 
 ## Tips
@@ -7,7 +12,7 @@
 * [libvirt]
   * LXC – lightweight Linux container system
   * OpenVZ – lightweight Linux container system
-  * Kernel-based Virtual Machine/QEMU (KVM) – open source hypervisor for Linux and SmartOS[11]
+  * Kernel-based Virtual Machine/QEMU (KVM) – open source hypervisor for Linux and SmartOS
   * Xen – Bare-Metal hypervisor
   * User-mode Linux (UML) paravirtualized kernel
   * VirtualBox – hypervisor by Oracle (formerly Sun) for Windows, Linux, Mac OS X, and Solaris
@@ -19,40 +24,13 @@
   * Bhyve – hypervisor for FreeBSD 10+.
 * [QEMUSwitchToLibvirt](https://wiki.libvirt.org/page/QEMUSwitchToLibvirt)
 * [UbuntuKVMWalkthrough](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough)
-
-https://github.com/digitalocean/go-libvirt
-https://github.com/libvirt/libvirt-go
-http://www.cnblogs.com/popsuper1982/p/4056158.html
-
-
-https://libvirt.org/api.html
-https://libvirt.org/internals/rpc.html
-https://github.com/libvirt/libvirt
-
-https://github.com/libvirt/libvirt/blob/master/src/rpc/virnetprotocol.x
-https://github.com/digitalocean/go-libvirt/blob/master/internal/lvgen/gen/main.go
-https://github.com/libvirt/libvirt/blob/master/src/remote/remote_protocol.x
-
-https://github.com/digitalocean/go-libvirt/blob/master/internal/lvgen/sunrpc.y
-
-https://en.wikipedia.org/wiki/External_Data_Representation
-https://tools.ietf.org/html/rfc4506
-https://tools.ietf.org/html/rfc4506#section-6.3
-https://github.com/antlr/grammars-v4/blob/master/oncrpc/xdr.g4
-
-Open Network Computing Remote Procedure Call (ONCRPC) aka SunRPC is a remote procedure call system that uses XDR for serialization. version 2 is defined by RFC 5531
-
-ONCRPC is the rpc mechanism that NFS (Network File System) is built on.
-https://github.com/dCache/oncrpc4j
-
-https://github.com/Kerbaya/ieee754lib
-https://github.com/EMCECS/nfs-client-java/blob/master/src/main/java/com/emc/ecs/nfsclient/rpc/Xdr.java
-
-Handling a quadruple precision floating point (128-bit) number in java
-https://stackoverflow.com/a/21071907/1870054
-
-https://libosinfo.org/
-https://gitlab.com/libosinfo/libosinfo
+* [libvirt cloud-init with static networking](https://gist.github.com/itzg/2577205f2036f787a2bd876ae458e18e)
+* 概念 - [API](https://libvirt.org/api.html)
+  * domain
+    * Guest Host
+  * network
+  * storage pool
+  * storage volume
 
 ```bash
 # macOS
@@ -64,11 +42,31 @@ apk add virt-install
 
 # 启动服务进程
 libvirtd -v
+
 # 客户端连接
+# https://libvirt.org/uri.html
+# https://libvirt.org/remote.html
 virsh -c vbox:///session
 # 日志控制
 LIBVIRT_LOG_FILTERS=1:vbox virsh -c vbox:///session
+# export LIBVIRT_DEFAULT_URI="qemu+ssh://root@192.168.1.100/system"
+virsh -c 'qemu+ssh://root@192.168.1.2/system'
 
+# 问题排查
+# user 会使用 /usr/local/var/run/libvirt/libvirt-sock
+LIBVIRT_LOG_FILTERS=1:*  virsh -c 'qemu+ssh://admin@192.168.1.2/system' list
+# 修改使用的 socket
+virsh -c 'qemu+ssh://admin@192.168.1.2/system?socket=/var/run/libvirt/libvirt-sock' list
+
+# user 会使用 /usr/local/var/run/libvirt/libvirt-sock
+virsh -c 'unix+ssh://admin@192.168.1.2/run/libvirt/libvirt-sock' list
+# 如果是非 root，先验证能访问
+virsh -c unix:///run/libvirt/libvirt-sock list
+# 可以转发 unix socket
+ssh -R /run/libvirt/libvirt-sock:127.0.0.1:16509 admin@192.168.1.2 -Nv
+
+export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
+virsh list --all
 
 # 虚拟机列表
 virsh list
