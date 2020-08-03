@@ -4,12 +4,15 @@ Linux 下执行其他架构的内核模块.
 
 ## Tips
 
+https://github.com/multiarch/qemu-user-static/issues/101
+
 ```bash
 cat /boot/config-hardened | grep BINFMT
 modprobe binfmt_misc
 lsmod | grep binfmt
 modinfo binfmt_misc
 mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+# mount -t binfmt_misc none /proc/sys/fs/binfmt_misc
 
 # 注册 qemu-arm
 # 可能会出现错误 bash: echo: write error: Invalid argument 但会成功

@@ -24,7 +24,7 @@ https://wiki.qemu.org/Features/CPUModels
 
 ```bash
 # Mac 安装
- brew install qemu --with-libssh2 --with-sdl2 --with-vde
+brew install qemu
 
 # 生成随机 mac 地址到 macaddr
 printf -v macaddr "52:54:%02x:%02x:%02x:%02x" $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff )) $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff ))
@@ -156,7 +156,7 @@ C-a h | 在 `-nographic` 显示帮助
 * D-Bus QEMU 进程 Live-Migration
 * block
   * 支持压缩备份镜像
-  * qemu-img measure 支持 LUKS， convert 支持调过 zero
+  * qemu-img measure 支持 LUKS， convert 支持跳过 zero
   * qemu-storage-daemon 支持访问存储，不需要启动 VM
 
 ```bash

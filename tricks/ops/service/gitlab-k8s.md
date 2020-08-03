@@ -8,6 +8,7 @@ title: GitLab K8S 集成
 * 问题
   * 集成 Helm 3 [#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037)
     * [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
+    * [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
   * 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
   * 使用现有的 Knative [#27173](https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/27173)
   * [#41614](https://gitlab.com/gitlab-org/gitlab/issues/20556) - Kubernetes cluster integration shall only install Helm Tiller or Ingress if not available already

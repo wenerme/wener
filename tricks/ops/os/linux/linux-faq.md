@@ -1,5 +1,26 @@
 # FAQ
 
+## 从新扫描分区
+
+```bash
+partprobe
+mdev -s
+
+# 强制内核读取分区
+hdparm -z /dev/sda
+
+# 手动创建
+mknod /dev/hdc1 b 22 1
+# 验证可读
+cat /dev/hdc1 > /dev/null
+
+# 直接读取分区 - 挂载为 loop
+losetup /dev/loop0 /dev/hdc -o $((63*512))
+mount /dev/loop0 /mnt/hdc1
+# 查看
+fdisk -l -u /dev/hdc
+```
+
 ## The NVM Checksum Is Not Valid
 
 ```

@@ -19,7 +19,7 @@
 ```bash
 # 简单的文件写入性能
 # 因为写入的 0 需要注意底层系统是否会进行压缩
-dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k; rm -f test
+dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k status=progress; rm -f test
 # 磁盘性能
 hdparm -Tt /dev/sda
 
@@ -105,36 +105,6 @@ sysbench fileio prepare
 sysbench fileio run --file-test-mode=rndwr --threads=$(nproc) --warmup-time=10 --time=20
 ```
 
-## fio
-* fio - I/O benchmark and stress test
-* http://git.kernel.dk/cgit/fio/
-* https://github.com/axboe/fio
-* http://www.storagereview.com/fio_flexible_i_o_tester_synthetic_benchmark
-* https://wsgzao.github.io/post/fio/
-* http://fio.readthedocs.io/en/latest/
-* https://linux.die.net/man/1/fio
-
-
-```bash
-apk add fio
-
-# 4k 100% Read or 100% Write 100% 4k
-fio --filename=/data/test --direct=1 --rw=randrw --refill_buffers --norandommap --randrepeat=0 --bs=4k --size=2g --rwmixread=100 --iodepth=16 --numjobs=16 --runtime=60 --group_reporting --name=4ktest
-
-# 8k 70/30 70% Read, 30% Write 100% 8k
-fio --filename=/data/test --rw=randrw --refill_buffers --norandommap --randrepeat=0 --bs=8k --rwmixread=70 --size=2g --iodepth=16 --numjobs=16 --runtime=60 --group_reporting --name=8k7030test
-
-# 测试随机写IOPS
-fio -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试随机读IOPS
-fio -direct=1 -iodepth=128 -rw=randread -ioengine=libaio -bs=4k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试写吞吐量
-fio -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-# 测试读吞吐量
-fio -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=64k -size=10G -numjobs=1 -runtime=1000 -group_reporting -name=/path/testfile
-
-fio -iodepth=1 -numjobs=1 -direct=1 -rw=randwrite
-```
 
 ## cryptsetup benchmark
 

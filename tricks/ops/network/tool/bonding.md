@@ -72,6 +72,7 @@ echo bonding | sudo tee -a /etc/modules
 # 查看模式
 cat /sys/class/net/bond0/bonding/mode
 # 查看状态
+# 能看到组成网卡的实际 mac 地址
 cat /proc/net/bonding/bond0
 
 ethtool eth0

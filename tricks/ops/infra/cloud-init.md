@@ -11,6 +11,7 @@ title: Cloud Init
   * [Document](http://cloudinit.readthedocs.io/en/latest/index.html)
   * GitHub mirror [cloud-init/cloud-init](https://github.com/cloud-init/cloud-init)
 * AlpineLinux
+  * [cloud-init](https://pkgs.alpinelinux.org/packages?name=cloud-init&branch=edge)
   * [testing/cloud-init/APKBUILD](https://git.alpinelinux.org/cgit/aports/tree/testing/cloud-init/APKBUILD)
 * Ubuntu
   * [CloudInit](https://help.ubuntu.com/community/CloudInit)
@@ -21,3 +22,7 @@ title: Cloud Init
   * 配置 hostname
   * 生成 SSH 密钥
   * 配置临时挂载点
+* 支持
+  * terraform-provider-libvirt [libvirt_cloudinit_disk](https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/cloudinit.html.markdown)
+  * Ansible [cloud_init_data_facts_module](https://docs.ansible.com/ansible/latest/modules/cloud_init_data_facts_module.html)
+    * 获取 cloud init 配置信息

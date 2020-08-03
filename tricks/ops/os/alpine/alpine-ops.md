@@ -153,6 +153,7 @@ rc-update add docker
 # 手动分区
 # fdisk /dev/sda
 # 或直接分区
+apk add util-linux
 echo -e 'd\n\nn\n\n\n\n\n\np\nw\n' | fdisk /dev/sda
 
 # 重启

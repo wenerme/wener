@@ -23,6 +23,7 @@ title: Packer
 - 注意
   - Builder 不支持依赖
   - 自动加载[变量](https://www.packer.io/guides/hcl/variables) `*.auto.pkrvars.hcl`
+  - `PACKER_LOG=1` 开启日志
 
 ```bash
 brew install packer
@@ -336,4 +337,20 @@ build {
     ]
   ]
 }
+```
+
+### qemu
+* 启动参数
+
+```ini
+-cdrom /xxx/packer_cache/xxx.iso
+-name packer-alpine
+-vnc 127.0.0.1:92
+-boot once=d
+-netdev user,id=user.0,hostfwd=tcp::4287-:22
+-device virtio-net,netdev=user.0 
+# 挂载为 /dev/vda
+-drive file=output-alpine/packer-alpine,if=virtio,cache=writeback,discard=ignore,format=qcow2
+-m 512M
+-machine type=pc,accel=hvf
 ```

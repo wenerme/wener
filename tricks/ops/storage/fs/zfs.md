@@ -281,6 +281,8 @@ zpool remove main device
 zpool add main raidz dev1 dev2
 # 添加缓存
 zpool add main cache dev
+# -f 格式化
+sudo zpool add main -f cache /dev/disk/by-id/wwn-0x500000000abcd
 
 # 查看压缩信息
 # compressratio, compression, refcompressratio
@@ -321,3 +323,8 @@ https://news.ycombinator.com/item?id=14591452
 * [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
 * [The 'Hidden' Cost of Using ZFS for Your Home NAS](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
 
+## SSD
+* https://linuxhint.com/configuring-zfs-cache/
+* https://www.reddit.com/r/zfs/comments/7bd797/ssd_caching/
+* SLOG is a write cache. This is the one you'd want to mirror and you'd also want to use an SSD that can finish in flight writes in the case of a power outage
+* Something with a battery or capacitor

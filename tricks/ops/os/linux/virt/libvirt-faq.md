@@ -9,12 +9,62 @@ title: Libvirt常见问题
 * 网络 [xml](https://libvirt.org/formatnetwork.html)
 * 注意
   * uuid 和 mac 类字段如果没有，则导入的时候生成
+* 三种配置状态
+  * live - 运行状态
+    * 修改立即生效
+  * inactive - 不活跃的状态
+    * 修改需要重启后生效
+  * current - 当前状态
+    * 指向 live 或 inactive
 
 ## CPU 资源配额
 * 参考 [CPUTuning](https://libvirt.org/formatdomain.html#elementsCPUTuning)
 * shares - 每个 vCPU
 * period、quota - 每个 vCPU，但会首 quota 定义限制
 * emulator_period、emulator_quota - 每个模拟线程，主机 40-80% 性能
+
+## 重启网络
+
+* https://aboullaite.me/effectively-restarting-kvm-libvirt-network/
+  * https://github.com/aboullaite/useful-scripts/blob/master/kvm-restart-network.sh
+
+```bash
+NET_NAME=default
+NET_HOOK=/etc/libvirt/hooks/qemu
+
+virsh net-destroy $NET_NAME
+virsh net-start $NET_NAME
+
+VMS=$( virsh list | tail -n +3 | head -n -1 | awk '{ print $2; }' )
+
+for m in $VMS ; do
+
+    echo "$m"
+    MAC_ADDR=$(virsh domiflist "$m" |grep -o -E "([0-9a-f]{2}:){5}([0-9a-f]{2})")
+    NET_MODEL=$(virsh domiflist "$m" | tail -n +3 | head -n -1 | awk '{ print $4; }')
+
+    set +e
+    virsh detach-interface "$m" network --mac "$MAC_ADDR" && sleep 3
+    virsh attach-interface "$m" network $NET_NAME --mac "$MAC_ADDR" --model "$NET_MODEL"
+    set -e
+
+    $NET_HOOK "$m" stopped && sleep 3
+    $NET_HOOK "$m" start
+
+done
+```
+
+
+## 实时修改网络配置
+
+```bash
+# 立即生效，不需要重启
+virsh net-update --config --live default add ip-dhcp-host \
+  "<host mac='52:54:00:01:02:03' name='xyz.example.com' ip='192.168.122.25'/>"
+```
+
+## host-model vs host-passthrough
+https://www.reddit.com/r/VFIO/comments/a20bf7/hostmodel_vs_hostpassthrough_super_poor_cache/
 
 ## 动态 CPU 和内存
 

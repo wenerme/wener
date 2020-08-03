@@ -13,6 +13,8 @@ title: Asterisk 版本
 * JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
 * [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
 
+## 18 / LTS / 2020-10 - 2024-10
+
 ## 17
 
 ### 新增
@@ -98,7 +100,7 @@ title: Asterisk 版本
   * [ASTERISK-25506] - [patch]CONFBRIDGE failure after an app_confbrige.so module reload results in segfault or error/warning messages.
   * [ASTERISK-26606] - tcptls: Incorrect OpenSSL function call leads to misleading error report
 
-## 13
+## 13 / LTS / 2014-10-24 - 2020-10-24
 * REST
 * WebSocket
 * Stasis

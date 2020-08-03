@@ -12,6 +12,9 @@
   * HTTPS 默认没开启
 
 ```bash
+# 启动
+consul agent -bootstrap -server -data-dir $PWD/data -bind 0.0.0.0 -advertise 127.0.0.1 -ui
+
 # Debug
 consul monitor --log-level=debug
 ```

@@ -15,8 +15,27 @@ title: 虚拟化
   * [Hardware-assisted virtualization](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization)
   * Intel VT-x
   * AMD-V
+* Full virtualization 
+* paravirtualization
 
 # FAQ
+## /dev/sda vs /dev/vda
+* sda
+  * IDE/SATA/SCSI 类型设备
+  * 完全虚拟化
+* vda
+  * 半虚拟化 - virtio
+  * 比 sda 快
+* 参考
+  * [what is the difference between /dev/vda and /dev/sda](https://serverfault.com/a/803391/190601)
+
+```bash
+# sda
+qemu-system-x86_64 -hda alpine.qcow2
+# vda
+qemu-system-x86_64 -drive file=alpine.qcow2,if=virtio
+```
+
 ## OpenVZ vs KVM vs Xen
 * KVM - Kernel-based
   * Linux 内核模块 - 为第三方工具（QEMU）提供虚拟化支持

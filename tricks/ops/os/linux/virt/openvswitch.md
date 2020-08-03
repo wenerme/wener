@@ -1,6 +1,20 @@
 # Open vSwitch
 
 ## Tips
+* [Open vSwitch](https://www.openvswitch.org/)
+  * Apache 2.0
+  * Linux 3.3
+  * VM 交互 - NetFlow、sFlow
+  * LACP - 链路聚合控制协议
+  * VLAN
+  * QoS
+  * HFSC
+  * Per Interface Policy
+* Why
+  * 分布式虚拟化部署
+  * 动态终端
+  * 逻辑抽象
+  * 硬件集成或 OffLoad
 * http://containertutorials.com/network/ovs_docker.html
 * [SDN OpenFlow Controller](https://github.com/floodlight/floodlight)
 * https://www.slideshare.net/rajdeep/openvswitch-deep-dive

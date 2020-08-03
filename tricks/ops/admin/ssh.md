@@ -190,6 +190,19 @@ ssh -o ProxyCommand="ssh -q admin@jumphost nc %h %p" admin@internal
 ## HTTP + SSH 多路
 * https://github.com/yrutschle/sslh
 
+## ForwardAgent
+* https://www.ssh.com/ssh/agent/
+* 转发 agent 后可以直接在远程节点使用本地添加的 ssh 密钥
+* 注意
+  * root 能访问其他用户的 auth sock
+
+```bash
+# 会暴露 SSH_AUTH_SOCK - 例如 /tmp/ssh-abcd/agent.6379
+# 可以在没有的会话设置变量也能直接使用
+ssh -A user@myhost.com
+```
+
+
 ## FAQ
 ### key_load_public: No such file or directory
 找不到 `~/.ssh/id_rsa.pub`，不影响使用

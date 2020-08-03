@@ -39,6 +39,35 @@ cryptsetup luksAddKey /dev/sdb2 new-key.txt -d key.txt
 dmsetup deps -o devname /dev/mapper/decrypted
 ```
 
+## 密钥管理
+
+```bash
+# 所有 slot
+cryptsetup luksDump /dev/sdb2
+
+# 测试密码
+cryptsetup open --verbose --test-passphrase /dev/sda2
+
+# 判断 slot
+# 一个个尝试
+cryptsetup open --test-passphrase --key-slot 0 /dev/sda2
+# 会显示 key slot 信息
+cryptsetup --verbose open --test-passphrase /dev/sda2
+
+# 移除未知的 key slot
+cryptsetup -v luksKillSlot /dev/sdb2 1
+
+dmsetup table --showkeys
+
+# 导出 master key
+cryptsetup luksDump --dump-master-key /dev/loop0p2 -d key.txt
+
+xxd -r -p masker-key.txt masker-key.bin
+
+# 使用 master key 则不需要密码
+cryptsetup luksAddKey /dev/sdb1 --master-key-file <(cat masker-key.bin)
+```
+
 ## Root 分区加密安装
 
 ```bash
@@ -176,12 +205,26 @@ cryptsetup luksFormat --type luks2 <device> --cipher chacha20-random --integrity
 # LUKS2 Token
 # 添加 Token
 cryptsetup token add --key-description "my_token" <device>
-# 设置密码
+# 添加密码到 keyring user sessing
 echo -n <passphrase> | keyctl padd user my_token @u
 # 如果找到了密码则自动会打开
 cryptsetup open <device> <name>
+```
 
+## 调整分区大小
 
+```bash
+apk add util-linux
+# 确保 luks 分区已经填满
+echo -e 'd\n\nn\n\n\n\n\n\np\nw\n' | fdisk /dev/sdb
+
+# 调整大小
+cryptsetup open /dev/sdb2 root
+cryptsetup resize root
+
+# 扩展文件系统
+apk add e2fsprogs-extra
+resize2fs /dev/mapper/root
 ```
 
 ## help

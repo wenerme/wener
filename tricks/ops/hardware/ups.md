@@ -12,6 +12,8 @@
     * 价格最贵
     * 通过电池吸引过滤，不存在切换
     * 将连接设备与实际供点隔离
+* [Network UPS Tools](https://en.wikipedia.org/wiki/Network_UPS_Tools) - NUT
+* SNMP Telnet 485 PDU
 * 参考
   * [APC UPS 选择器](https://www.apc.com/shop/cn/zh/tools/ups_selector/) / [APC UPS Selector](https://www.apc.com/shop/us/en/tools/ups_selector)
   * [How to Select an Uninterruptible Power Supply (UPS) for Your Computer](https://www.howtogeek.com/161479/how-to-select-a-battery-backup-for-your-computer/)

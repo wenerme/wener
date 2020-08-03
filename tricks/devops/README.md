@@ -1,7 +1,6 @@
 # DevOps
 
-
-
+* https://www.guru99.com/devops-tools.html
 
 ## Kubernetes vs Docker Swarm
 

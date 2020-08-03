@@ -9,13 +9,13 @@ title: Virsh
 
 ```bash
 # 开机
-start {domain}
+virsh start {domain}
 # 关机、断电
-destroy {domain}
+virsh destroy {domain}
 # 触发关机 - 需要支持 ACPI
-shutdown {doamin}
+virsh shutdown {doamin}
 # 重启 - 需要支持 ACPI
-reboot  {doamin}
+virsh reboot  {doamin}
 
 # 运行的主机列表
 virsh list
@@ -34,7 +34,14 @@ virsh define domain.xml
 virsh domrename {domain} {new-name}
 
 # 内存状态
-dommemstat {domain}
+virsh dommemstat {domain}
+```
+
+## migration
+* https://libvirt.org/migration.html
+
+```bash
+virsh migrate web1 qemu+ssh://desthost/system
 ```
 
 # FAQ
@@ -79,7 +86,30 @@ killall -9 dmidecode
 ## Help
 
 ```
- Domain Management (help keyword 'domain'):
+$ virsh --help
+
+virsh [options]... [<command_string>]
+virsh [options]... <command> [args...]
+
+  options:
+    -c | --connect=URI      hypervisor connection URI
+    -d | --debug=NUM        debug level [0-4]
+    -e | --escape <char>    set escape sequence for console
+    -h | --help             this help
+    -k | --keepalive-interval=NUM
+                            keepalive interval in seconds, 0 for disable
+    -K | --keepalive-count=NUM
+                            number of possible missed keepalive messages
+    -l | --log=FILE         output logging to file
+    -q | --quiet            quiet mode
+    -r | --readonly         connect readonly
+    -t | --timing           print timing information
+    -v                      short version
+    -V                      long version
+         --version[=TYPE]   version, TYPE is short or long (default short)
+  commands (non interactive mode):
+
+ Domain Management (help keyword 'domain')
     attach-device                  attach device from an XML file
     attach-disk                    attach disk device
     attach-interface               attach network interface
@@ -185,7 +215,7 @@ killall -9 dmidecode
     domblkthreshold                set the threshold for block-threshold event for a given block device or it's backing chain element
     guestinfo                      query information about the guest (via agent)
 
- Domain Monitoring (help keyword 'monitor'):
+ Domain Monitoring (help keyword 'monitor')
     domblkerror                    Show errors on block devices
     domblkinfo                     domain block device size information
     domblklist                     list all domain blocks
@@ -202,7 +232,7 @@ killall -9 dmidecode
     domtime                        domain time
     list                           list domains
 
- Host and Hypervisor (help keyword 'host'):
+ Host and Hypervisor (help keyword 'host')
     allocpages                     Manipulate pages pool size
     capabilities                   capabilities
     cpu-baseline                   compute baseline CPU
@@ -225,7 +255,7 @@ killall -9 dmidecode
     uri                            print the hypervisor canonical URI
     version                        show version
 
- Checkpoint (help keyword 'checkpoint'):
+ Checkpoint (help keyword 'checkpoint')
     checkpoint-create              Create a checkpoint from XML
     checkpoint-create-as           Create a checkpoint from a set of args
     checkpoint-delete              Delete a domain checkpoint
@@ -235,7 +265,7 @@ killall -9 dmidecode
     checkpoint-list                List checkpoints for a domain
     checkpoint-parent              Get the name of the parent of a checkpoint
 
- Interface (help keyword 'interface'):
+ Interface (help keyword 'interface')
     iface-begin                    create a snapshot of current interfaces settings, which can be later committed (iface-commit) or restored (iface-rollback)
     iface-bridge                   create a bridge device and attach an existing network device to it
     iface-commit                   commit changes made since iface-begin and free restore point
@@ -248,10 +278,10 @@ killall -9 dmidecode
     iface-name                     convert an interface MAC address to interface name
     iface-rollback                 rollback to previous saved configuration created via iface-begin
     iface-start                    start a physical host interface (enable it / "if-up")
-    iface-unbridge                 undefine a bridge device after detaching its slave device
+    iface-unbridge                 undefine a bridge device after detaching its device(s)
     iface-undefine                 undefine a physical host interface (remove it from configuration)
 
- Network Filter (help keyword 'filter'):
+ Network Filter (help keyword 'filter')
     nwfilter-define                define or update a network filter from an XML file
     nwfilter-dumpxml               network filter information in XML
     nwfilter-edit                  edit XML configuration for a network filter
@@ -262,7 +292,7 @@ killall -9 dmidecode
     nwfilter-binding-dumpxml       network filter information in XML
     nwfilter-binding-list          list network filter bindings
 
- Networking (help keyword 'network'):
+ Networking (help keyword 'network')
     net-autostart                  autostart a network
     net-create                     create a network from an XML file
     net-define                     define an inactive persistent virtual network or modify an existing persistent one from an XML file
@@ -283,7 +313,7 @@ killall -9 dmidecode
     net-port-dumpxml               network port information in XML
     net-port-delete                delete the specified network port
 
- Node Device (help keyword 'nodedev'):
+ Node Device (help keyword 'nodedev')
     nodedev-create                 create a device defined by an XML file on the node
     nodedev-destroy                destroy (stop) a device on the node
     nodedev-detach                 detach node device from its device driver
@@ -293,7 +323,7 @@ killall -9 dmidecode
     nodedev-reset                  reset node device
     nodedev-event                  Node Device Events
 
- Secret (help keyword 'secret'):
+ Secret (help keyword 'secret')
     secret-define                  define or modify a secret from an XML file
     secret-dumpxml                 secret attributes in XML
     secret-event                   Secret Events
@@ -302,7 +332,7 @@ killall -9 dmidecode
     secret-set-value               set a secret value
     secret-undefine                undefine a secret
 
- Snapshot (help keyword 'snapshot'):
+ Snapshot (help keyword 'snapshot')
     snapshot-create                Create a snapshot from XML
     snapshot-create-as             Create a snapshot from a set of args
     snapshot-current               Get or set the current snapshot
@@ -314,11 +344,11 @@ killall -9 dmidecode
     snapshot-parent                Get the name of the parent of a snapshot
     snapshot-revert                Revert a domain to a snapshot
 
- Backup (help keyword 'backup'):
+ Backup (help keyword 'backup')
     backup-begin                   Start a disk backup of a live domain
     backup-dumpxml                 Dump XML for an ongoing domain block backup job
 
- Storage Pool (help keyword 'pool'):
+ Storage Pool (help keyword 'pool')
     find-storage-pool-sources-as   find potential storage pool sources
     find-storage-pool-sources      discover potential storage pool sources
     pool-autostart                 autostart a pool
@@ -341,7 +371,7 @@ killall -9 dmidecode
     pool-event                     Storage Pool Events
     pool-capabilities              storage pool capabilities
 
- Storage Volume (help keyword 'volume'):
+ Storage Volume (help keyword 'volume')
     vol-clone                      clone a volume.
     vol-create-as                  create a volume from a set of args
     vol-create                     create a vol from an XML file
@@ -359,7 +389,7 @@ killall -9 dmidecode
     vol-upload                     upload file contents to a volume
     vol-wipe                       wipe a vol
 
- Virsh itself (help keyword 'virsh'):
+ Virsh itself (help keyword 'virsh')
     cd                             change the current directory
     echo                           echo arguments
     exit                           quit this interactive terminal
@@ -367,4 +397,9 @@ killall -9 dmidecode
     pwd                            print the current directory
     quit                           quit this interactive terminal
     connect                        (re)connect to hypervisor
+
+
+  (specify help <group> for details about the commands in the group)
+
+  (specify help <command> for details about the command)
 ```

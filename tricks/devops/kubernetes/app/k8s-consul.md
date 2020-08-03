@@ -7,12 +7,13 @@ title: Consol
 
 ## Tips
 
-* K8S 使用场景
+* [Consul K8S](https://github.com/hashicorp/consul-k8s) 使用场景
   * 部署 Consul 集群服务
   * 允许 Consol 客户端打通服务
   * Connect Service Mesh
   * 同步 K8S 服务到 Consul
 * 安装依赖 PV 存储
+* [文档](https://www.consul.io/docs/k8s)
 
 ```bash
 helm repo add hashicorp https://helm.releases.hashicorp.com
@@ -30,5 +31,5 @@ helm install consul hashicorp/consul \
 
 # 转发 UI
 # 默认没有 tls 和 acl
-kubectl port-forward -n service consul-server-0 8500:8500
+kubectl port-forward -n service svc/consul-server 8500:8500
 ```

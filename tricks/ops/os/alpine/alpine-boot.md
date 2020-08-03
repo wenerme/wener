@@ -93,6 +93,8 @@ password=''
 - 基础文件
   - /usr/share/mkinitfs
   - /etc/mkinitfs/features.d
+- [mkinitfs](https://github.com/alpinelinux/mkinitfs/blob/master/mkinitfs.in)
+  - source 配置文件
 
 ```bash
 # 所有特性
@@ -112,6 +114,10 @@ mkinitfs -l -n -c /mnt/etc/mkinitfs/mkinitfs.conf -b /mnt/ $(ls /mnt/lib/modules
 
 # chroot 安装
 mkinitfs -c /mnt/etc/mkinitfs/mkinitfs.conf -b /mnt/ $(ls /mnt/lib/modules/)
+
+# 不设置 -P 默认使用当前主机的 features.d
+# 不设置 -i 默认使用当前主机的 initramfs-init
+mkinitfs -P /mnt/etc/mkinitfs/features.d -c /mnt/etc/mkinitfs/mkinitfs.conf -i /mnt/usr/share/mkinitfs/initramfs-init -b /mnt/ $(ls /mnt/lib/modules/)
 ```
 
 ```
@@ -191,14 +197,15 @@ options:
 | rootfstype    |                               | `ext4`, `zfs`, `btrfs`                                                                    |
 | s390x_net     |                               | modprobe `qeth qeth_l2 qeth_l3`                                                           |
 | single,s,1    |                               | SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh |
-| splash        |                               | 无 root 时                                                                                |
+| splash        | yes                           | 无 root 时, 默认使用 `/media/*/fbsplash.ppm`,`/media/*/fbsplash$num.ppm`                  |
 | ssh_key       |
 | usbdelay      |                               | `nlplug-findfs -t` delay, second                                                          |
 
 > 排序: `pbpaste | sort | pbcopy`
 
 ## inittab
-* debian [inittab.5](https://manpages.debian.org/jessie/sysvinit-core/inittab.5.en.html)
+
+- debian [inittab.5](https://manpages.debian.org/jessie/sysvinit-core/inittab.5.en.html)
 
 ```
 <id>:<runlevels>:<action>:<process>

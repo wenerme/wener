@@ -6,8 +6,7 @@ title: 硬件设备
 # VoIP Hardware
 
 ## Tips
-https://wiki.freepbx.org/display/PC/Telephony+Card+Hardware+Overview
-
+* https://wiki.freepbx.org/display/PC/Telephony+Card+Hardware+Overview
 * PSTN(E1) -> 数字 -> Asterisk -> 模拟 -> FXS -> 座机
 * [Digium Board selector](https://store.digium.com/boards)
 * 电信光纤 -> ?

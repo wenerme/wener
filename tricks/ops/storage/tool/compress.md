@@ -40,6 +40,10 @@ bzip2 -dk filename.bz2
 # 利用 pv 可以查看压缩进度
 pv dict.db | pigz -vfk9 > dict.db.gz
 
+# 可以直接替换
+ln -s /usr/bin/pigz /usr/local/bin/gzip
+ln -s /usr/bin/unpigz /usr/local/bin/gunzip
+
 # 强制覆写, 暴露原始文件, 9 级压缩
 gzip -vfk9 data.db > data.db.gz
 

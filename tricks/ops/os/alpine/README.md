@@ -11,7 +11,7 @@ title: Alpine
   * armv7
   * aarch64
   * s390x
-  * mips64 - mips64be
+  * mips64 - __mips64be__
   * ppc64le
 * [adelielinux](https://adelielinux.org/)
   * 基于 Alpine 针对桌面的系统
