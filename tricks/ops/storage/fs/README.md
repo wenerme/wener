@@ -16,6 +16,7 @@ title: Filesystem
   * 如果不确定就用 EXT4
 * [Solid State Drives](https://wiki.archlinux.org/index.php/Solid_State_Drives)
 * [Flash file system](https://en.wikipedia.org/wiki/Flash_file_system)
+* https://unix.stackexchange.com/questions/198590
 
 
 N/A | Minix |	Ext | Ext2 | Xia

@@ -1,7 +1,7 @@
 # CSS
 
 ## Tips
-
+* [Things I Wish I’d Known About CSS ](https://news.ycombinator.com/item?id=23868355)
 * [Reset/remove CSS styles for element only](https://stackoverflow.com/q/15901030/1870054)
 * Library
   * [voxel.css](http://www.voxelcss.com/)

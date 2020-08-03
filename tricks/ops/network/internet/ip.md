@@ -29,6 +29,7 @@ Start       | End             | Count     | Class | CIDR
 172.16.0.0  |	172.31.255.255	| 1048576   | B     | 172.16.0.0/12
 192.168.0.0 | 192.168.255.255 | 65536     | B     | 192.168.0.0/16
 
+https://www.cloudflare.com/ips/
 
 ## Google
 * https://md5calc.com/google/ip
@@ -84,3 +85,9 @@ ipcalc <ADDRESS>/<NETMASK> --s a b c
 ### IP-address ending with zero?
 * [IP-address ending with zero?](https://stackoverflow.com/questions/14915188)
 * 现在来说是没问题的, 20年前有隐性的子网约定, .0 代表网络, .255 代表广播, 许多硬件设备和软件规则有基于这样的假设, 现在都是以 CIDR 为标准, 因此 .0 和 .255 都是有效的地址
+
+### Tools
+https://ipjisuanqi.com/
+https://dnsdaquan.com/
+https://ipchaxun.com/
+https://icplishi.com/jiashule.com/

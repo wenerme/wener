@@ -5,7 +5,21 @@ title: Keycloak 常见问题
 
 # Keycloak FAQ
 
-## 主域 Master Realm
+## 服务账号 - Service Account
+* 客户端直接申请获取 Token，然后使用申请到的 Token 访问服务
+* 不涉及用户和浏览器交互
+* 用于服务之间鉴权，例如 服务端 API 授权
+
+https://medium.com/@mihirrajdixit/getting-started-with-service-accounts-in-keycloak-c8f6798a0675
+great for administrative tasks executed on behalf of a service instead of individual user.
+
+https://planet.jboss.org/post/service_accounts_support_in_keycloak
+allows to authenticate the client application with Keycloak server and retrieve the access token dedicated to this application.
+
+https://www.keycloak.org/docs/latest/server_admin/index.html#_service_accounts
+
+
+## 主域 - Master Realm
 
 - 主要用于超管进行系统管理
 - 不要将 Master Realm 用于业务

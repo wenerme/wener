@@ -7,6 +7,7 @@ title: Redis
 
 ## Tips
 
+
 * [redis.conf](http://download.redis.io/redis-stable/redis.conf)
 * 参考
   * [5 Key Takeaways for Developing with Redis](https://redislabs.com/blog/5-key-takeaways-for-developing-with-redis)
@@ -29,6 +30,8 @@ brew install redis
 # 通过 docker 启动
 # 数据存储于 ~/data/redis
 docker run --rm -it -v ~/data/redis:/data -p 6379:6379 --name my-redis redis redis-server --appendonly ye
+
+redis-server --bind=0.0.0.0
 ```
 
 ## Stream

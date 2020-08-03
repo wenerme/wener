@@ -7,3 +7,5 @@
 https://en.wikipedia.org/wiki/X.509
 
 ## AES
+
+https://github.com/PowerDNS/weakforced

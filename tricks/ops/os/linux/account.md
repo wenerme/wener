@@ -7,6 +7,50 @@ usermod -p '*' admin
 passwd -u admin
 ```
 
+adm: Group adm is used for system monitoring tasks. Members of this group can read many log files in /var/log, and can use xconsole. Historically, /var/log was /usr/adm (and later /var/adm), thus the name of the group.
+
+
+FIRST_USER_NAME=pi
+
+apk add sudo
+
+for GRP in spi i2c gpio; do
+	addgroup --system $GRP
+done
+
+adduser -s /bin/bash -D $FIRST_USER_NAME
+
+for GRP in adm dialout cdrom audio users video games input gpio spi i2c netdev; do
+  adduser $FIRST_USER_NAME $GRP
+done
+
+echo "pi:raspberry" | /usr/sbin/chpasswd
+echo "pi ALL=NOPASSWD: ALL" >> /etc/sudoers
+
+```
+mark:$6$.n.:17736:0:99999:7:::
+[--] [----] [---] - [---] ----
+|      |      |   |   |   |||+-----------> 9. 保留
+|      |      |   |   |   ||+------------> 8. 失效日期
+|      |      |   |   |   |+-------------> 7. 不活跃周期
+|      |      |   |   |   +--------------> 6. 警告周期
+|      |      |   |   +------------------> 5. 最大密码有效期
+|      |      |   +----------------------> 4. 最小密码有效期
+|      |      +--------------------------> 3. 上次密码修改时间
+|      +---------------------------------> 2. 加密后的密码
++----------------------------------------> 1. 用户名
+```
+
+$1$ – MD5
+$2a$ – Blowfish
+$2y$ – Eksblowfish
+$5$ – SHA-256
+$6$ – SHA-512
+
+
+chage 修改信息
+pwck 检查完整性
+
 /etc/passwd – Contains one line for each user account.
 /etc/shadow – Contains the password information in encrypted formatfor the system’s accounts and optional account aging information.
 /etc/group – Defines the groups on the system.

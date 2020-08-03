@@ -5,7 +5,7 @@
   * 寄存器内存无法在非为其设计的主板上使用
   * 寄存器内存与非寄存器内存不能混用
 * [DIMM]() 双列直插式内存模块
-  * RDIMM - Registered DIMM
+  * RDIMM - Registered DIMM - Buffered
   * UDIMM - Unregistered DIMM
     * 比较少，价格高，建议用 RDIMM
 * 无缓冲内存（unbuffered memory）或非寄存器内存（unregistered memory）

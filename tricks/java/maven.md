@@ -57,7 +57,11 @@ mvn -q -Dexec.executable="echo" -Dexec.args='${project.artifactId}' --non-recurs
 mvn clean install -U
 ```
 
+总量
+https://search.maven.org/stats
 
+官方 mirror
+http://repo.maven.apache.org/maven2/.meta/repository-metadata.xml
 
 ## pom.xml
 * [POM Reference](https://maven.apache.org/pom.html)
@@ -102,6 +106,10 @@ mvn clean install -U
 > ⚠️ 注意
 > 阿里云 Maven 仓库镜像同步相对较慢,可能几天或者十几天才能同步
 
+https://repo.maven.apache.org/maven2/
+https://repo1.maven.apache.org/maven2/
+
+
 ```xml
 <repositories>
     <repository>
@@ -140,6 +148,9 @@ mvn clean install -U
 
 也可以在 `settings.xml` 里配置
 
+Android
+https://maven.google.com/web/index.html
+
 ```xml
 <settings>
   <mirrors>
@@ -177,6 +188,27 @@ mvn clean install -U
     * package - maven-jar-plugin:jar
     * install - maven-install-plugin:install
     * deploy - maven-deploy-plugin:deploy
+
+mvn dependency:resolve -Dclassifier=javadoc
+mvn dependency:resolve -Dclassifier=sources
+
+<!-- add the profile under profiles section -->
+
+    <profile>
+        <id>downloadSources</id>
+        <properties>
+            <downloadSources>true</downloadSources>
+            <downloadJavadocs>true</downloadJavadocs>           
+        </properties>
+    </profile>
+
+<!-- activate the profile under activeProfiles section -->
+
+  <activeProfiles>
+    <activeProfile>downloadSources</activeProfile>
+  </activeProfiles>
+
+mvn -N io.takari:maven:0.7.7:wrapper -Dmaven=3.6.3
 
 ### maven-install-plugin
 

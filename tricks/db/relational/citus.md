@@ -1,5 +1,9 @@
 # Citus
 
+* [Microsoft Acquires Citus Data](https://www.citusdata.com/blog/2019/01/24/microsoft-acquires-citus-data/)
+  * [HN](https://news.ycombinator.com/item?id=18990469)
+
+  http://docs.citusdata.com/en/stable/
 
 https://hub.docker.com/r/citusdata/citus/
 
@@ -9,8 +13,12 @@ https://docs.citusdata.com/en/stable/index.html
 https://docs.citusdata.com/en/stable/reference/user_defined_functions.html
 
 
+
+http://docs.citusdata.com/en/master/admin_guide/cluster_management.html
+
+
 ```
-bash install citus
+brew install citus
 
 echo "shared_preload_libraries = 'citus'" >> postgresql.conf
 ```
@@ -120,3 +128,44 @@ DROP FOREIGN TABLE cstore_table_n;
 DROP SERVER cstore_server;
 DROP EXTENSION cstore_fdw;
 ```
+
+
+http://docs.citusdata.com/en/stable/installation/single_machine_docker.html
+
+https://raw.githubusercontent.com/citusdata/docker/master/docker-compose.yml
+
+```yaml
+version: '2.1'
+
+services:
+  master:
+    container_name: "${COMPOSE_PROJECT_NAME:-citus}_master"
+    image: 'citusdata/citus:9.2.2'
+    ports: ["${MASTER_EXTERNAL_PORT:-5432}:5432"]
+    labels: ['com.citusdata.role=Master']
+  worker:
+    image: 'citusdata/citus:9.2.2'
+    labels: ['com.citusdata.role=Worker']
+    depends_on: { manager: { condition: service_healthy } }
+  manager:
+    container_name: "${COMPOSE_PROJECT_NAME:-citus}_manager"
+    image: 'citusdata/membership-manager:0.2.0'
+    volumes: ['/var/run/docker.sock:/var/run/docker.sock']
+    depends_on: { master: { condition: service_healthy } }
+```
+
+```sql
+SELECT * FROM master_get_active_worker_nodes();
+```
+
+## Citus MX
+http://docs.citusdata.com/en/stable/arch/mx.html
+
+* hash-distributed tables from any node
+* direct reading and writing from worker nodes
+* 不支持所有命令
+  * DDL commands.
+  * Citus Utility Functions that change Citus metadata.
+  * Queries accessing append distributed tables.
+* 不支持 FDW
+* seerial 列必须为 bigserial

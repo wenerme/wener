@@ -8,6 +8,17 @@
   * 自 2.9 支持使用 HAXM, 类似于 Linux 的 KVM
 * Windows XP 最后版本为 2.7.0
 
+curl -LOC- https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-101.1.0-1.el7ev/qemu-ga-x86_64.msi
+curl -LOC- https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+virtio
+https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers
+
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/index.html#virtio-win-direct-downloads
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-qemu-ga/
+
 
 http://lassauge.free.fr/qemu/
 
@@ -45,7 +56,7 @@ Windows UWP samples (latest)
 Windows Subsystem for Linux enabled with Ubuntu installed
 Developer mode, bash, and containers enabled
 
-
+https://fedoraproject.org/wiki/Windows_Virtio_Drivers
 
 
 ## Windows

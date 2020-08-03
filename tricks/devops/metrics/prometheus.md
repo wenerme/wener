@@ -3,17 +3,28 @@ id: prometheus
 title: Prometheus
 ---
 
+https://github.com/m3db/m3
+Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
+
+https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster
+VictoriaMetrics - fast, cost-effective and scalable time series database, long-term remote storage for Prometheus
+
+https://news.ycombinator.com/item?id=22758402
+
+https://github.com/OpenObservability/OpenMetrics
+
 # Prometheus
 
 ## Tips
-* [Prometheus](https://prometheus.io)
-* Prometheus [vs](https://prometheus.io/docs/introduction/comparison/)
-* Prometheus 可以和 Grafana 集成, 在 https://grafana.net/dashboards 可以找到很多预定义的面板定义
-* Prometheus vs TICK
-  * Pull vs Push
-* [prometheus/pushgateway](https://github.com/prometheus/pushgateway)
-* 参考
-  * [Rate then sum, never sum then rate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
+
+- [Prometheus](https://prometheus.io)
+- Prometheus [vs](https://prometheus.io/docs/introduction/comparison/)
+- Prometheus 可以和 Grafana 集成, 在 https://grafana.net/dashboards 可以找到很多预定义的面板定义
+- Prometheus vs TICK
+  - Pull vs Push
+- [prometheus/pushgateway](https://github.com/prometheus/pushgateway)
+- 参考
+  - [Rate then sum, never sum then rate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
 
 ```bash
 # 安装
@@ -83,67 +94,24 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   grafana/grafana
 ```
 
-## Exporter
-* [exporters and integration](https://prometheus.io/docs/instrumenting/exporters/)
-
-__端口__
-
-服务|默认端口|监控面板
-----|----|----
-prometheus| 9090
-grafana| 3000
-[mysqld-exporter](https://github.com/prometheus/mysqld_exporter) | 9104
-[redis-exporter]((https://github.com/oliver006/redis_exporter)) | 9121|[Prometheus Redis](https://grafana.net/dashboards/763)
-[node-exporter](https://github.com/prometheus/node_exporter)| 9100|[Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22)
-[container-exporter](https://github.com/docker-infra/container_exporter)| 9104|[Docker Dashboard](https://grafana.net/dashboards/179)
-[nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)|n/a|[Nginx Overview](https://grafana.net/dashboards/462)
-
-* [node_exporter](https://github.com/prometheus/node_exporter) 节点监控
-  * [Guide](https://prometheus.io/docs/guides/node-exporter/)
-```bash
-brew install node_exporter
-
-# 从源码编译
-go get -u -v github.com/prometheus/node_exporter
-cd ~/gp/src/github.com/prometheus/node_exporter
-make
-./node_exporter
-```
-
-* [redis_exporter](https://github.com/oliver006/redis_exporter)
-```bash
-go get github.com/oliver006/redis_exporter
-redis_exporter
-# Prometheus Redis https://grafana.net/dashboards/763
-```
-
-* [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)
-```bash
-go get github.com/prometheus/mysqld_exporter
-export DATA_SOURCE_NAME='login:password@(hostname:port)/'
-mysqld_exporter
-```
-
-* [jmx_exporter](https://github.com/prometheus/jmx_exporter)
-
-
 ## Config
+
 ```yaml
 # 全局配置
 global:
   # 抓取间隔，默认 1m
-  scrape_interval:      15s
+  scrape_interval: 15s
   # 抓取超时，默认 10s
-  scrape_timeout:       10s
+  scrape_timeout: 10s
   # 计算规则间隔，默认 1m
-  evaluation_interval:  15s
+  evaluation_interval: 15s
 
 # 告警配置
 alerting:
   alertmanagers:
-  - static_configs:
-    - targets:
-      # - alertmanager:9093
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
 
 # 周期性计算的规则文件
 rule_files:
@@ -160,17 +128,18 @@ scrape_configs:
     scheme: 'http'
     # 静态配置
     static_configs:
-    # 抓取目标
-    - targets: ['localhost:9090']
+      # 抓取目标
+      - targets: ['localhost:9090']
 ```
 
 ## PromQL
-* [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
-* [QUERY EXAMPLES](https://prometheus.io/docs/prometheus/latest/querying/examples/)
-* [PromQL tutorial for beginners and humans](https://medium.com/@valyala/9ab455142085)
-* 支持 PromQL 的应用
-  * [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)
-    * long-term remote storage for Prometheus
+
+- [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+- [QUERY EXAMPLES](https://prometheus.io/docs/prometheus/latest/querying/examples/)
+- [PromQL tutorial for beginners and humans](https://medium.com/@valyala/9ab455142085)
+- 支持 PromQL 的应用
+  - [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)
+    - long-term remote storage for Prometheus
 
 ```
 # 指标
@@ -215,3 +184,125 @@ depend() {
 ```
 
 -->
+
+## Exporter
+
+- [exporters and integration](https://prometheus.io/docs/instrumenting/exporters/)
+
+**端口**
+
+| 服务                                                                     | 默认端口 | 说明                              | 监控面板                                                                                                                                |
+| ------------------------------------------------------------------------ | -------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| prometheus                                                               | 9090     |
+| grafana                                                                  | 3000     |
+| blackbox_exporter                                                        | 9115     | 检测 HTTP, HTTPS, DNS, TCP, ICMP. |
+| [mysqld-exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                   |
+| [redis-exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                   | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
+| node-exporter                                                            | 9100     | 节点状态信息                      | [Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22) |
+| [container-exporter](https://github.com/docker-infra/container_exporter) | 9104     |                                   | [Docker Dashboard](https://grafana.net/dashboards/179)                                                                                  |
+| [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)    | n/a      |                                   | [Nginx Overview](https://grafana.net/dashboards/462)                                                                                    |
+
+- [blackbox_exporter](https://github.com/prometheus/blackbox_exporter)
+- [node_exporter](https://github.com/prometheus/node_exporter) 节点监控
+  - [Guide](https://prometheus.io/docs/guides/node-exporter/)
+
+```bash
+brew install node_exporter
+
+# 从源码编译
+go get -u -v github.com/prometheus/node_exporter
+cd ~/gp/src/github.com/prometheus/node_exporter
+make
+./node_exporter
+```
+
+- [redis_exporter](https://github.com/oliver006/redis_exporter)
+
+```bash
+go get github.com/oliver006/redis_exporter
+redis_exporter
+# Prometheus Redis https://grafana.net/dashboards/763
+```
+
+- [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)
+
+```bash
+go get github.com/prometheus/mysqld_exporter
+export DATA_SOURCE_NAME='login:password@(hostname:port)/'
+mysqld_exporter
+```
+
+- [jmx_exporter](https://github.com/prometheus/jmx_exporter)
+
+### blackbox-exporter
+
+- [prometheus/blackbox_exporter](https://github.com/prometheus/blackbox_exporter)
+- `http://localhost:9115/probe?target=google.com&module=http_2xx` , debug=true 会包含额外信息
+  - probe_success
+- `SIGHUP`, `POST /-/reload`
+- ICMP 需要更高的权限
+
+__blackbox.yml__
+* [配置](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md)
+* [example.yml](https://github.com/prometheus/blackbox_exporter/blob/master/example.yml)
+
+```yaml
+# 模块配置 - probe 时进行引用
+modules:
+  http_2xx:
+    # 底层 probe 类型
+    # http, tcp, dns, icmp
+    prober: http
+  http_post_2xx:
+    prober: http
+    http:
+      method: POST
+  tcp_connect:
+    prober: tcp
+  pop3s_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: "^+OK"
+      tls: true
+      tls_config:
+        insecure_skip_verify: false
+  ssh_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: "^SSH-2.0-"
+  irc_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - send: "NICK prober"
+      - send: "USER prober prober prober :prober"
+      - expect: "PING :([^ ]+)"
+        send: "PONG ${1}"
+      - expect: "^:[^ ]+ 001"
+  icmp:
+    prober: icmp
+```
+
+__prometheus.yml__
+
+```yaml
+scrape_configs:
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    static_configs:
+      - targets:
+        - http://prometheus.io    # Target to probe with http.
+        - https://prometheus.io   # Target to probe with https.
+        - http://example.com:8080 # Target to probe with http on port 8080.
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115  # The blackbox exporter's real hostname:port.
+```

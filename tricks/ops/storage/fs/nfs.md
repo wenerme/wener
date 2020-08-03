@@ -89,8 +89,6 @@ mount -t nfs -o resvport 192.168.1.1:/ ~/mnt/alpine/
 mount.nfs: access denied by server while mounting
 -o v3
 
-https://www.ibm.com/support/knowledgecenter/zh/ST5Q4U_1.5.0/com.ibm.storwize.v7000.unified.150.doc/adm_MacOSX_limitations.html
-
 
 nfsstat -m
 

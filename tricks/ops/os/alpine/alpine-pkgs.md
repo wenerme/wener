@@ -11,7 +11,7 @@ title: Alpine 包维护
 * https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
 * [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
 * [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
-
+* 镜像状态 - https://mirrors.alpinelinux.org/status.json
 * Golang
   * https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
 * 提交新的包
@@ -19,7 +19,10 @@ title: Alpine 包维护
   * 添加新的包
   * 提交 PR
   * 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
-  * 提交的信息格式应该为 `${repo}/${pkgname}: new aport`
+  * 提交的信息格式
+    * `${repo}/${pkgname}: new aport`
+    * `${repo}/${pkgname}: move from testing`
+    * `${repo}/${pkgname}: upgrade to 3.1.0`
   * 确保使用 Tab 而不是空格
 
 
@@ -86,12 +89,26 @@ docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u bui
   * 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
   * 因为部分项目构建是无法将 `musl` 识别为 `gnu`
 
+## 生成和使用 Patch
+
+```bash
+cd src/dahdi-linux-3.1.0/
+cp include/kernel.h include/kernel.h.new
+nano include/kernel.h.new
+diff -u include/kernel.h include/kernel.h.new > ../../kernel-compact-5.4.patch
+
+# 添加 patch
+nano APKBUILD
+abuild checksum
+# 验证 patch 正确性
+rm -rf src; abuild prepare && abuild prepare
+# 构建
+abuild -r
+```
+
 ### 开发
-https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
+* https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
 
-```
-
-```
 
 ```
 $ abuild -h

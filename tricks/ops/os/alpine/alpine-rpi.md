@@ -24,6 +24,13 @@ Booting AArch64 Linux
 https://www.kernel.org/doc/Documentation/arm64/booting.txt
 
 
+https://github.com/garrym/raspberry-pi-alpine
+https://github.com/knoopx/alpine-raspberry-pi
+
+```bash
+git clone https://github.com/knoopx/alpine-raspberry-pi
+```
+
 drive_add 0 file=hotplug.raw,format=raw,if=none,id=usb_disk1
 device_add usb-storage,drive=usb_disk1,id=usb_disk11,removable=on
 device_del  usb_disk11
@@ -215,6 +222,8 @@ https://github.com/raspberrypi/linux/issues/2098
 
 ## ARM
 
+http://odroid.us/mediawiki/index.php?title=Step-by-step_Using_qemu_to_Boot_an_Emulated_Odroid
+
 ```bash
 # Alpine - ARM
 
@@ -235,7 +244,91 @@ qemu-system-arm -M vexpress-a9 -kernel boot/vmlinuz-hardened \
   -initrd boot/initramfs-hardened -dtb boot/dtbs/vexpress-v2p-ca9.dtb \
   -append "console=ttyAMA0 verbose debug root=/dev/mmcblk0" -nographic
 
+qemu-system-arm -kernel ~/qemu_vms/<your-kernel-qemu> -cpu arm1176 -m 256 -M versatilepb -serial stdio -append "root=/dev/sda2 rootfstype=ext4 rw" -hda ~/qemu_vms/<your-jessie-image.img> -redir tcp:5022::22 -no-reboot
 
+qemu-system-arm -kernel kernel7.img -cpu arm1176 -m 256 -M versatilepb -serial stdio -append "root=/dev/sda2 rootfstype=ext4 rw" -hda armhf.img -redir tcp:5022::22 -no-reboot
+
+qemu-system-aarch64 -kernel aarch64/boot/vmlinuz-rpi \
+  -M raspi3 \
+  -serial stdio -append "root=/dev/sda2 rootfstype=ext4 rw" \
+  -hda armhf.raw -no-reboot \
+  -dtb aarch64/bcm2710-rpi-3-b-plus.dtb
+
+qemu-system-aarch64 -kernel aarch64/boot/vmlinuz-rpi \
+  -M raspi3 \
+  -serial stdio \
+  -dtb aarch64/bcm2710-rpi-3-b-plus.dtb \
+  -append "root=/dev/sda2 rootfstype=ext4 rw" \
+  -hda aarch64.img
+
+bcm2837-rpi-3-b.dtb
+
+# cat /proc/cmdline
+# console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait
+# serial
+qemu-system-arm \
+  -kernel armhf/boot/vmlinuz-rpi2 \
+  -initrd armhf/boot/initramfs-rpi2 \
+  -M raspi2 \
+  -serial stdio \
+  -dtb armhf/bcm2709-rpi-2-b.dtb \
+  -sd armhf.raw
+
+ physmap.enabled=0
+
+docker run --rm -it --privileged -v /dev:/dev -v $PWD:/build -w /build wener/base
+
+/sbin/init
+media=cdrom
+media=dist
+
+qemu-system-arm \
+  -kernel armhf/boot/vmlinuz-rpi2 \
+  -initrd armhf/boot/initramfs-rpi2 \
+  -M raspi2 \
+  -serial stdio \
+  -dtb armhf/bcm2709-rpi-2-b.dtb \
+  -append "console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 root=/dev/mmcblk0 rootfstype=ext4 rootwait" \
+  -sd armhf.img \
+  -hda armhf-2.img
+
+  -append "root=/dev/sda2 rootfstype=ext4 rw" \
+  -hda armhf.raw
+```
+
+https://github.com/dhruvvyas90/qemu-rpi-kernel
+
+## building
+```bash
+OUTPUT_IMG="target.img"
+
+rm -Rf "$OUTPUT_IMG"
+truncate -s 2G "$OUTPUT_IMG"
+
+fdisk -H 255 -S 63 "$OUTPUT_IMG" <<-EOF
+o
+n
+p
+1
+
++128MB
+t
+c
+n
+p
+2
+
+
+w
+EOF
+
+
+mkfs.fat -F32 -n ALPINE "$BOOT_DEV"
+mkfs.ext4 "$ROOT_DEV"
+mkdir -p /alpine
+mount --make-private "$ROOT_DEV" /alpine
+mkdir -p /alpine/boot
+mount --make-private "$BOOT_DEV" /alpine/boot
 
 ```
 

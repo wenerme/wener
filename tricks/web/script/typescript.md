@@ -1,5 +1,6 @@
 # Typescript
 
+https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
 ## Tips
 * [declaration-files introduction](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)
   * http://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html
@@ -24,8 +25,11 @@
   * Record
     * `Record<'prop1' | 'prop2' | 'prop3', string>`
       * 定义有三个 string 类型字段的类型
+* 参考
+  * https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
+* 注意
+  * `abstract` 方法不会在 prototype 里，不会生成任何内容，只是类型校验
 
-https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
 
 ```bash
 npm install -g typescript@next
@@ -70,6 +74,8 @@ yarn run tsc -- --init
     "build": "tsc"
   },
 ```
+
+## ts-node
 
 ## FAQ
 

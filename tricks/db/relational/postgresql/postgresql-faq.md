@@ -17,6 +17,46 @@ https://dba.stackexchange.com/questions/203989/what-is-the-data-type-of-the-ctid
 
 https://postgresql.verite.pro/blog/2019/04/24/oid-column.html
 
+## 时区问题
+* PG 实际存储的是 UTC 不会存储时区
+* 时区信息会用于转换
+
+```sql
+-- 当前时区
+show timezone;
+show timezone_abbreviations;
+-- 可用时区
+SELECT * FROM pg_timezone_names;
+
+-- date 转 tz 应该是正常的
+select ('2020-01-02'::date)::TIMESTAMPTZ;
+
+-- session 有效
+SET TIME ZONE TO 'UTC';
+SET TIMEZONE TO 'UTC';
+-- 也可以直接指定 offset
+SET timezone=-4;
+
+-- 当前时间
+-- UTC 可以使用 localtime
+SELECT LOCALTIMESTAMP AT TIME ZONE 'Asia/Shanghai';
+-- timestamp 不显示 TZ 信息
+SELECT NOW()::TIMESTAMP;
+-- current_timestamp 是 timestamptz
+-- 可以提取 tz 信息 秒、小时
+select current_timestamp,
+       pg_typeof(current_timestamp),
+       extract(timezone from current_timestamp::timestamptz),
+       extract(timezone_h from current_timestamp::timestamptz)
+;
+
+-- db 配置
+ALTER SYSTEM SET timezone = 'UTC';
+
+-- 修改角色时区
+ALTER ROLE my_role SET TIMEZONE = '+1';
+```
+
 ## NULL 字符 / `\0` 字符
 * PG 不允许字符串包含 `\0`
 * 传入之前替换或用 bytea 存储

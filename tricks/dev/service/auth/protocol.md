@@ -20,3 +20,7 @@ title: 协议
 * SSO
   * OIDC
   * SAML
+
+
+https://spin.atomicobject.com/2016/05/30/openid-oauth-saml/
+https://openappstack.net/2019/01/31/comparison-of-free-and-open-source-single-sign-on-solutions.html

@@ -1,5 +1,5 @@
-
-## dotCMS
+# dotCMS
+## Tips
 * [dotCMS/core](https://github.com/dotCMS/core)
   * Java
   * GPL-3.0

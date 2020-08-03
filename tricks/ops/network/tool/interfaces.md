@@ -1,17 +1,38 @@
 # interfaces
 ## Tips
+* [interfaces.5](https://manpages.debian.org/stretch/ifupdown/interfaces.5.en.html)
 * /etc/network/interfaces
   * 网络接口配置
-  * 通过 ifupdown 操作 - busybox 有提供
+  * 通过 [ifupdown](https://git.busybox.net/busybox/tree/networking/ifupdown.c) 操作 - busybox 有提供
+    * `/var/run/ifstate` 记录状态 - 有可能在 `/etc/network/run/ifstate`
   * 根据提供 ifupdown 的包不同，功能可能不同
   * 命令可通过其他包扩展
-* man [interfaces.5](https://manpages.debian.org/stretch/ifupdown/interfaces.5.en.html)
-* 执行阶段 pre-up up/post-up down/pre-down post-down
+  * 执行阶段 pre-up up/post-up down/pre-down post-down
 * 参考
   * [Obtain IP from DHCP sever but set DNS servers statically on Debian](https://unix.stackexchange.com/questions/346967)
   * [/etc/network/*](https://pkgs.alpinelinux.org/contents?file=&path=%2Fetc%2Fnetwork%2F*&name=&branch=edge&arch=x86_64)
     * interfaces 指令处理脚本
+  * [Good detailed explanation of /etc/network/interfaces syntax?](https://unix.stackexchange.com/questions/128439)
 * network-extras
+
+IFACE
+The physical name of the interface being processed, or "--all" (see below).
+LOGICAL
+The logical name of the interface being processed, or "auto" (see below).
+ADDRFAM
+The address family of the interface, or "meta" (see below).
+METHOD
+The method of the interface (e.g., static), or "none" (see below).
+CLASS
+The class of interfaces being processed. This is a copy of the value given to the --allow option when running ifup or ifdown, otherwise it is set to "auto" when the --all option is used.
+MODE
+start if run from ifup, stop if run from ifdown.
+PHASE
+As per MODE, but with finer granularity, distinguishing the pre-up, post-up, pre-down and post-down phases.
+VERBOSITY
+Indicates whether --verbose was used; set to 1 if so, 0 if not.
+PATH
+The command search path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 
 ```bash
