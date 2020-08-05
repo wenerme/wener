@@ -73,6 +73,13 @@ title: Asterisk 版本
   * testing of Asterisk's (15+) multistream capabilities
 
 ### 14
+* 核心 DNS 支持 - libunbound 支持 PJSIP NAPTR SRV 
+* 发布 extension 状态到 SIP 订阅服务器 - 例如 Kamailio
+  * 能基于设备状态自动在拨号计划里生成 hint
+* 所有应用支持播放 HTTP 媒体
+* ARI 支持批量媒体资源管理
+* ARI 创建的通道可以转交给 Stasis 应用进行外部控制 - 可以在接通前进行额外操作，例如启用特定的媒体场景
+
 * 14.6.2 - 2017-09-19
 * 14.6.1 - 2017-08-31
   * [5902](https://gerrit.asterisk.org/#/c/5902/) res_pjsip: `dtmf_mode` 添加 `auto_info`

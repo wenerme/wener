@@ -35,6 +35,12 @@ go get -v -u github.com/prometheus/prometheus/cmd/...
 # 启动 默认前端页面 localhost:9090
 prometheus --config.file ~/.config/prometheus.yml
 
+# docker 启动
+docker run \
+  -p 9090:9090 \
+  -v /etc/prometheus:/etc/prometheus \
+  prom/prometheus
+
 # 或通过 brew 启动服务
 # 如果没有 --storage.tsdb.path 可能出现权限问题
 echo "--config.file $HOME/.config/prometheus.yml --storage.tsdb.path $HOME/.data/prometheus" > /usr/local/etc/prometheus.args
@@ -184,6 +190,52 @@ depend() {
 ```
 
 -->
+
+## 服务发现
+* [支持配置](https://prometheus.io/docs/prometheus/latest/configuration/configuration)
+  * azure
+  * consul - 服务 catalog
+  * digitalocean
+  * dockerswarm
+  * dns - SVR 记录
+  * ec2
+  * openstack
+  * file - 检测文件变化
+    * 格式与 static_config 相同
+  * gce
+  * kubernetes
+    * node、service、pod、endpoints、ingress
+  * marathon
+  * nerve
+  * serverset
+  * triton
+* mDNS
+  * [#2537](https://github.com/prometheus/prometheus/issues/2537) - Cannot scrape targets specified by mDNS name
+  * [msiebuhr/prometheus-mdns-sd](https://github.com/msiebuhr/prometheus-mdns-sd)
+    * 写入文件，使用文件发现
+
+
+```bash
+# _prometheus-http._tcp
+# _prometheus-https._tcp
+go get github.com/msiebuhr/prometheus-mdns-sd
+#
+prometheus-mdns-sd -out /etc/prometheus/mdns-sd.json
+
+cat <<XML > /etc/avahi/services/node-exporter.service
+<service-group>
+  <name replace-wildcards="yes">%h</name>
+
+  <service>
+    <type>_prometheus-http._tcp</type>
+    <port>9100</port>
+  </service>
+</service-group>
+XML
+
+# macOS
+dns-sd -R "node_exporter metrics" _prometheus-http._tcp. . 9100 path=/metrics
+```
 
 ## Exporter
 

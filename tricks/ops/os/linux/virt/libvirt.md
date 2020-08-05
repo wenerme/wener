@@ -31,6 +31,10 @@ title: Libvirt
   * network
   * storage pool
   * storage volume
+* 问题
+  * libvirtd 未正常关闭导致 hang - 6.6.0 应该会修复
+    * [alpine/aports#11602](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602)
+    * [libvirt/libvirt#52](https://gitlab.com/libvirt/libvirt/-/issues/52)
 
 ```bash
 # macOS

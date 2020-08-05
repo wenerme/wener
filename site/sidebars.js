@@ -467,7 +467,8 @@ module.exports = {
     ],
     VoIP: [
       'voip/voip-intro',
-      'voip/hardware',
+      'voip/hardware/intro',
+      'voip/sip/provider',
       'voip/glossary',
       {
         'type': 'category',

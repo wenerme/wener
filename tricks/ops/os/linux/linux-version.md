@@ -2,8 +2,12 @@
 
 ## Tips
 * https://kernelnewbies.org/LinuxVersions
-* https://en.wikipedia.org/wiki/Linux_kernel
-* https://www.kernel.org/category/releases.html
+* [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
+* [Active kernel releases](https://www.kernel.org/category/releases.html)
+
+## 5.8
+* Raspberry Pi 4 
+* Broadcom BCM2711
 
 ## 4.8
 * Support for using Transparent Huge Pages in the page cache

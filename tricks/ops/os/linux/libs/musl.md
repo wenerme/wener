@@ -2,7 +2,10 @@
 
 ## Tips
 * [musl](https://musl.libc.org/) - MIT
+  * [FAQ](https://www.musl-libc.org/faq.html)
 * [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
+* 不支持 nsswitch
+  * [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
 
 ## DNS 问题
 
