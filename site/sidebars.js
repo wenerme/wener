@@ -192,6 +192,10 @@ module.exports = {
       'ops/os/linux/virt/libvirt-faq',
       'ops/os/linux/virt/virsh',
     ],
+    启动: [
+      'ops/os/linux/boot/syslinux',
+      'ops/os/linux/boot/uboot',
+    ],
     工具: [
       {
         type:'category',

@@ -1,3 +1,8 @@
+---
+id: centos-newbie
+title: CentOS 新手
+---
+
 玩我的 CentOS / Play CentOS
 ===================
 
@@ -10,6 +15,7 @@
 > 下载我的[dotfiles](https://github.com/wenerme/dotfiles)
 > 其他步骤则按需进行
 
+<!-- more -->
 
 初始 minimal 配置
 ---------------

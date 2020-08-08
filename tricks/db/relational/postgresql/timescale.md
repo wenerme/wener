@@ -21,6 +21,7 @@ title: TimeScale
   * https://docs.timescaledb.com/using-timescaledb/telemetry
     * `timescaledb.telemetry_level=off`
     * `ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=off`
+  * [timescale/timescaledb#638](https://github.com/timescale/timescaledb/issues/638) - List of recommended ZFS/Zpool settings
 
 ```bash
 # 基于 postgres 上游构建的镜像

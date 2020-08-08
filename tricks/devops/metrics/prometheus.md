@@ -23,8 +23,6 @@ https://github.com/OpenObservability/OpenMetrics
 - Prometheus vs TICK
   - Pull vs Push
 - [prometheus/pushgateway](https://github.com/prometheus/pushgateway)
-- 参考
-  - [Rate then sum, never sum then rate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
 
 ```bash
 # 安装
@@ -138,36 +136,6 @@ scrape_configs:
       - targets: ['localhost:9090']
 ```
 
-## PromQL
-
-- [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
-- [QUERY EXAMPLES](https://prometheus.io/docs/prometheus/latest/querying/examples/)
-- [PromQL tutorial for beginners and humans](https://medium.com/@valyala/9ab455142085)
-- 支持 PromQL 的应用
-  - [VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)
-    - long-term remote storage for Prometheus
-
-```
-# 指标
-node_cpu_seconds_total
-# 标签过滤，支持操作符号 = != 匹配 =~ 不匹配 !~
-node_cpu_seconds_total{mode="user"}
-# 5 分钟均值
-rate(node_cpu_seconds_total{mode="user"}[5m])
-# 聚合结果
-sum(rate(node_cpu_seconds_total{mode="user"}[5m]))
-# 按照 mode 分组
-sum(rate(node_cpu_seconds_total[5m])) by (mode)
-# 不看 idle 和 nice
-sum(rate(node_cpu_seconds_total{mode!~"idle|nice"}[5m])) by (mode)
-# 只看 user 和 system
-sum(rate(node_cpu_seconds_total{mode=~"user|system"}[5m])) by (mode)
-# 分别返回
-# by (mode) 是必须的，如果丢失了 label，则会认为是同样的指标，会被丢弃
-sum(rate(node_cpu_seconds_total{mode="user"}[5m])) by (mode) or sum(rate(node_cpu_seconds_total{mode="system"}[5m])) by (mode)
-# 结果加上另外一个指标
-sum(rate(node_cpu_seconds_total{mode=~"user|system"}[5m])) by (mode) or node_load15
-```
 
 <!--
 https://gitlab.awesome-it.de/overlays/awesome/blob/master/net-analyzer/prometheus-node-exporter/files/prometheus-node-exporter-initd
@@ -237,124 +205,36 @@ XML
 dns-sd -R "node_exporter metrics" _prometheus-http._tcp. . 9100 path=/metrics
 ```
 
-## Exporter
+## 集成
+* [INTEGRATIONS](https://prometheus.io/docs/operating/integrations)
+* 支持读写的存储
+  * Azure Data Explorer
+  * Cortex
+  * CrateDB
+  * Google BigQuery
+  * Google Cloud Spanner
+  * InfluxDB
+  * IRONdb
+  * M3DB
+  * MetricFire
+  * PostgreSQL/TimescaleDB
+  * QuasarDB
+  * Splunk
+  * TiKV
+  * Thanos
 
-- [exporters and integration](https://prometheus.io/docs/instrumenting/exporters/)
+## Pushing
+* https://prometheus.io/docs/practices/pushing/
+* only valid use case for the Pushgateway is for capturing the outcome of a service-level batch job
 
-**端口**
-
-| 服务                                                                     | 默认端口 | 说明                              | 监控面板                                                                                                                                |
-| ------------------------------------------------------------------------ | -------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| prometheus                                                               | 9090     |
-| grafana                                                                  | 3000     |
-| blackbox_exporter                                                        | 9115     | 检测 HTTP, HTTPS, DNS, TCP, ICMP. |
-| [mysqld-exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                   |
-| [redis-exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                   | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
-| node-exporter                                                            | 9100     | 节点状态信息                      | [Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22) |
-| [container-exporter](https://github.com/docker-infra/container_exporter) | 9104     |                                   | [Docker Dashboard](https://grafana.net/dashboards/179)                                                                                  |
-| [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)    | n/a      |                                   | [Nginx Overview](https://grafana.net/dashboards/462)                                                                                    |
-
-- [blackbox_exporter](https://github.com/prometheus/blackbox_exporter)
-- [node_exporter](https://github.com/prometheus/node_exporter) 节点监控
-  - [Guide](https://prometheus.io/docs/guides/node-exporter/)
-
-```bash
-brew install node_exporter
-
-# 从源码编译
-go get -u -v github.com/prometheus/node_exporter
-cd ~/gp/src/github.com/prometheus/node_exporter
-make
-./node_exporter
-```
-
-- [redis_exporter](https://github.com/oliver006/redis_exporter)
-
-```bash
-go get github.com/oliver006/redis_exporter
-redis_exporter
-# Prometheus Redis https://grafana.net/dashboards/763
-```
-
-- [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)
-
-```bash
-go get github.com/prometheus/mysqld_exporter
-export DATA_SOURCE_NAME='login:password@(hostname:port)/'
-mysqld_exporter
-```
-
-- [jmx_exporter](https://github.com/prometheus/jmx_exporter)
-
-### blackbox-exporter
-
-- [prometheus/blackbox_exporter](https://github.com/prometheus/blackbox_exporter)
-- `http://localhost:9115/probe?target=google.com&module=http_2xx` , debug=true 会包含额外信息
-  - probe_success
-- `SIGHUP`, `POST /-/reload`
-- ICMP 需要更高的权限
-
-__blackbox.yml__
-* [配置](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md)
-* [example.yml](https://github.com/prometheus/blackbox_exporter/blob/master/example.yml)
-
-```yaml
-# 模块配置 - probe 时进行引用
-modules:
-  http_2xx:
-    # 底层 probe 类型
-    # http, tcp, dns, icmp
-    prober: http
-  http_post_2xx:
-    prober: http
-    http:
-      method: POST
-  tcp_connect:
-    prober: tcp
-  pop3s_banner:
-    prober: tcp
-    tcp:
-      query_response:
-      - expect: "^+OK"
-      tls: true
-      tls_config:
-        insecure_skip_verify: false
-  ssh_banner:
-    prober: tcp
-    tcp:
-      query_response:
-      - expect: "^SSH-2.0-"
-  irc_banner:
-    prober: tcp
-    tcp:
-      query_response:
-      - send: "NICK prober"
-      - send: "USER prober prober prober :prober"
-      - expect: "PING :([^ ]+)"
-        send: "PONG ${1}"
-      - expect: "^:[^ ]+ 001"
-  icmp:
-    prober: icmp
-```
-
-__prometheus.yml__
+## Proxy
+* https://github.com/prometheus-community/PushProx
 
 ```yaml
 scrape_configs:
-  - job_name: 'blackbox'
-    metrics_path: /probe
-    params:
-      module: [http_2xx]  # Look for a HTTP 200 response.
-    static_configs:
-      - targets:
-        - http://prometheus.io    # Target to probe with http.
-        - https://prometheus.io   # Target to probe with https.
-        - http://example.com:8080 # Target to probe with http on port 8080.
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9115  # The blackbox exporter's real hostname:port.
+- job_name: node
+  # 代理
+  proxy_url: http://proxy:8080/
+  static_configs:
+    - targets: ['client:9100']  # Presuming the FQDN of the client is "client".
 ```

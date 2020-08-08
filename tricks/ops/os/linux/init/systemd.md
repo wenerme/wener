@@ -43,8 +43,22 @@ systemctl edit --full nginx.service
 
 ## Unit
 
-## Example
+# Example
 * [docker systemd](https://github.com/docker/docker/blob/master/contrib/init/systemd/)
+
+__/etc/systemd/system/prometheus-node-exporter.service__
+
+```ini
+[Unit]
+Description=Prometheus Node Exporter
+After=network-online.target
+
+[Service]
+# User=prometheus
+Restart=on-failure
+
+ExecStart=/opt/prometheus/bin/node_exporter
+```
 
 ## help
 ```

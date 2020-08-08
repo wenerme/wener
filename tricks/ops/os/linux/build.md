@@ -14,4 +14,7 @@ ldd exec
 objdump -p exec
 lsof -P -T -p $(pidof exec)
 readelf -d /bin/ls | grep 'NEEDED'
+
+# macOS
+otool -L exec
 ```

@@ -24,6 +24,11 @@ title: Asterisk
   * [Connecting Non-SIP IP Camera to Your PBX - AstriCon 2014](https://youtu.be/yiQHVq4UzO4)
   * [How to implement an alarm system with Asterisk and a webcam](https://www.voip-info.org/how-to-implement-an-alarm-system-with-asterisk-and-a-webcam/)
 
+```bash
+apk add asterisk asterisk-sample-config
+asterisk -fc
+```
+
 ## Ports/Firewall
 * [Asterisk firewall rules](https://www.voip-info.org/asterisk-firewall-rules/)
 * [Ports used on your PBX](https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX)

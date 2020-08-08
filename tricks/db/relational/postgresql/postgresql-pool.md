@@ -1,24 +1,36 @@
 # PostgreSQL 链接池
-
 ## Tips
-* [yandex/odyssey](https://github.com/yandex/odyssey) - BSD 3
-  * 多线程
-  * Transaction pooling
-    * 断开链接时支持 cancel 或 rollback
-    * 客户端复用上次链接
-  * Database+User 纬度 pooling 控制
-  * SSL/TLS、md5、clear text
-  * 日志汇总 - 每个 client 一个 uuid
+* 每个链接一个进程
+* 最大链接数 max_connections
+* 进程内存分为 - 默认每个链接 10M 左右
+  * 本地内存
+    * work_mem - 默认 4M
+      * ORDER BY, DISTINCT, JOIN
+    * maintenance_work_mem
+      * autovacuum_work_mem
+      * VACUUM
+    * temp_buffers - 默认 8M
+      * 临时表
+  * 共享内存
+    * shared_buffers
+    * wal_buffers
+    * Commit Log
+* 参考
+  * [What to Check if PostgreSQL Memory Utilization is High](https://severalnines.com/database-blog/what-check-if-postgresql-memory-utilization-high)
+  * [Scaling Connections in Postgres](https://www.citusdata.com/blog/2017/05/10/scaling-connections-in-postgres)
+  * https://pgtune.leopard.in.ua/
+  * https://gist.github.com/rgreenjr/3637525
 
-# FAQ
-## odyssey vs pgbouncer
-* odyssey
-  * 单进程多线程
-  * 链接断开 rollback
-  * 尽量转发原本的错误
-  * 支持 show stats, show servers, show clients, show lists
-  * 不支持  configuration file reload by signal, support for unix sockets, authentication by PAM and HBA.
-* pgbouncer
-  * 可以多进程同端口
+```sql
+select * from pg_stat_activity;
+select * FROM pg_stat_activity where state <> 'idle';
 
-* https://github.com/yandex/odyssey/issues/3
+show max_connections;
+
+show work_mem;
+show autovacuum_work_mem;
+show maintenance_work_mem;
+show temp_buffers;
+show shared_buffers;
+show wal_buffers;
+```

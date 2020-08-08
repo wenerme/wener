@@ -84,3 +84,33 @@ type=sqlite3
 [analytics]
 reporting_enabled = false
 ```
+## 配置
+* 所有的配置都可以通过环境变量配置
+  * `GF_<SectionName>_<KeyName>`
+
+```ini
+[database]
+# mysql, postgres, sqlite3
+type=postgres
+# SQLite3
+path=
+host=
+name=
+user=
+password=
+# mysql://user:secret@host:port/database
+# mysql://user:secret@host:port/database
+url=
+# pg - disable, require, verify-full
+# mysql - true, false, skip-verify
+ssl_mode=
+
+[remote_cache]
+# redis, memcached, database
+type=database
+# database, redis, memcache
+connstr=
+database=
+redis=addr=127.0.0.1:6379,pool_size=100,db=0,ssl=false
+memcache=127.0.0.1:11211
+```

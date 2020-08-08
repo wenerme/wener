@@ -1,6 +1,16 @@
+---
+id: syslinux
+title: Syslinux
+---
+
 # Syslinux
 
-* https://shallowsky.com/linux/extlinux.html
+## Tips
+* 只支持 X86
+* 分为 extlinux、isolinux
+* 支持 mbr、efi、gpt
+* 参考
+  * [How to install extlinux (syslinux) as a bootloader](https://shallowsky.com/linux/extlinux.html)
 
 ## config
 * [Config](https://wiki.syslinux.org/wiki/index.php?title=Config)

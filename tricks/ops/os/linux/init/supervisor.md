@@ -92,9 +92,3 @@ unlink run/ncat-echo
 # 所有服务状态
 for svc in services/*; do echo -n $(basename $svc)' ';s6-svok $svc && echo ok || echo down;done
 ```
-
-## OpenRC
-* http://wiki.alpinelinux.org/wiki/Alpine_Linux_Init_System
-* https://wiki.gentoo.org/wiki/Project:OpenRC
-* https://en.wikipedia.org/wiki/OpenRC
-* https://github.com/openrc/openrc/
