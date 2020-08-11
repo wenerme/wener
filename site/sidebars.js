@@ -38,6 +38,7 @@ module.exports = {
         label: '框架',
         items: [
           'web/framework/nextjs',
+          'web/framework/nextjs-version',
           'web/framework/nextjs-cookbook',
           'web/framework/electron',
           'web/framework/vue',

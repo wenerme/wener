@@ -5,6 +5,100 @@ title: NextJS 版本历史
 
 # NextJS 版本历史
 
+## 9.5
+* [9.5](https://nextjs.org/blog/next-9-5) - 2020-7-28
+* 增量静态生成 - 稳定阶段
+* 自定义 base path
+  * 方便与现有站点共存
+  * baseUrl
+  * contextPath
+* 支持重写、重定向、Header 自定义
+  * 例如 静态页面添加 header，重定向到旧站点
+* 支持 url 尾部 `/`
+* 页面级持久缓存
+  * 未变化的页面不会重新构建
+  * 构建路径包含 hash
+  * 以前 hash 是 build 级别
+  * 之前 `/_next/static/ovgxWYrvKyjnlM15qtz7h/pages/about.js`
+  * 现在 `/_next/static/chunks/pages/about.qzfS4o5gIEXRME6sTEahL.js`
+* 增强快速刷新
+* 支持 React Profiling - [How it works](https://nextjs.org/docs/basic-features/fast-refresh)
+  * `next build --profile`
+* 页面支持捕获所有的路由
+  * SEO-driven use-cases
+  * `pages/blog/[[...slug]].js`
+  * 之前是 api 支持
+* Webpack 5 - beta
+  * PnP
+  * yarn `resolutions` 设置 `^5.0.0-beta.22`
+* 增强 macOS 的文件监听
+
+```js
+export async function getStaticProps() {
+  return {
+    props: await getDataFromCMS(),
+    // 增量静态生成 - 最多 1 秒 1 次
+    // stale-while-revalidate https://tools.ietf.org/html/rfc5861
+    revalidate: 1
+  }
+}
+```
+
+```js
+// next.config.js
+module.exports = {
+  // 所有资源也都会使用该路径
+  // <Link> 也会自动添加前缀
+  basePath: '/docs',
+
+  // url 是否添加最后的 /
+  trailingSlash: true,
+
+  // 重写 - 类似于 nginx 的 proxy_pass
+  async rewrites() {
+    return [
+      { source: '/backend/:path*', destination: 'https://example.com/:path*' },
+      // 如果路径不存在则尝试使用后端 - 可以实现逐步替换为 NextJS
+      {
+        source: '/:path*',
+        destination: '/:path*'
+      },
+      {
+        source: '/:path*',
+        destination: `https://example.com/:path*`
+      }
+    ]
+  },
+
+  // 重定向
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+        permanent: true
+      }
+    ]
+  },
+
+  // 自定义 header
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Feature-Policy',
+            // Disable microphone and geolocation
+            value: "microphone 'none'; geolocation 'none'"
+          }
+        ]
+      }
+    ]
+  },
+}
+```
+
 ## 9.4
 * [9.4](https://nextjs.org/blog/next-9-4) - 2020-5-11
 * 快速刷新
