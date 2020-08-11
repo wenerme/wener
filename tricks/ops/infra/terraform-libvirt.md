@@ -25,3 +25,20 @@ resource "libvirt_domain" "terraform_test" {
   name = "terraform_test"
 }
 ```
+
+```
+ # IMPORTANT
+ # Ubuntu can hang is a isa-serial is not present at boot time.
+ # If you find your CPU 100% and never is available this is why
+ console {
+   type        = "pty"
+   target_port = "0"
+   target_type = "serial"
+ }
+
+ console {
+   type        = "pty"
+   target_type = "virtio"
+   target_port = "1"
+ }
+```

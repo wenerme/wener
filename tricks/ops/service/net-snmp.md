@@ -11,8 +11,13 @@ title: NetSNMP
   * [snmpd](https://wiki.archlinux.org/index.php/Snmpd)
 * 版本
   * 1
+    * getnext
   * 2c
+    * buildget
   * 3 - 加密通信、认证
+* /usr/share/snmp/mibs
+* 注意
+  * unifi 控制器启用 snmp 是启用 AP 的 snmp 不是自己的
 
 ```bash
 # 扫描有 SNMP 的设备
@@ -44,4 +49,9 @@ snmpbulkget -c public -v 2c 192.0.2.19 .1.3.6.1.2.1.55.1
 snmpbulkwalk -v2c -Os -c public sys1 system
 # udp tcp uptime interface
 snmpbulkwalk -v2c -c public  192.0.2.19 udp
+
+# 开发
+apk add net-snmp-dev
+# 参数
+net-snmp-config --agent-libs
 ```

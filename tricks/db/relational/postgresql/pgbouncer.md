@@ -30,6 +30,8 @@ title: PgBouncer
   * 在线 restart/upgrade
 * 管理
   * [kwent/pgbouncerhero](https://github.com/kwent/pgbouncerhero) - PgBouncer WebUI
+* 注意
+  * prepared statements 只能在 session 模式下，且 `server_reset_query = DISCARD ALL;` 或 `DEALLOCATE ALL;`
 
 ## 配置
 * [配置](http://www.pgbouncer.org/config.html)

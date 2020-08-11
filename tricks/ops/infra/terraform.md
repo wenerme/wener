@@ -11,6 +11,11 @@ title: Terraform
   * 用于准备服务或其他基础设施对象
   * 不建议使用，作为最后的方式
 
+
+```bash
+TERRAFORM_LOG=1 terraform apply
+```
+
 ## 配置
 
 ```hcl

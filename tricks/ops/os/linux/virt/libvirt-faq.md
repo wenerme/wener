@@ -54,6 +54,38 @@ for m in $VMS ; do
 done
 ```
 
+## 处理 libvirt hang 的问题
+* https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602
+
+```bash
+if [ "$1" = 'start' ]; then
+  modprobe tun
+  sleep 1
+  service virtlogd start
+  sleep 1
+  service virtqemud start
+  sleep 1
+  service virtnetworkd start
+  sleep 1
+  service virtstoraged start
+  sleep 1
+  service libvirtd start
+elif [ "$1" = 'stop' ]; then
+  service libvirtd stop
+  sleep 1
+  service virtlogd stop
+  sleep 1
+  service virtstoraged stop
+  sleep 1
+  service virtnetworkd stop
+  sleep 1
+  service virtqemud stop
+  killall -9 dnsmasq
+else
+  printf "Usage $0: start | stop\n"
+fi
+```
+
 
 ## 实时修改网络配置
 

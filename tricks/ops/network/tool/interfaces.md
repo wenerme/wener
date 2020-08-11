@@ -1,39 +1,40 @@
 # interfaces
+
 ## Tips
-* [interfaces.5](https://manpages.debian.org/stretch/ifupdown/interfaces.5.en.html)
-* /etc/network/interfaces
-  * 网络接口配置
-  * 通过 [ifupdown](https://git.busybox.net/busybox/tree/networking/ifupdown.c) 操作 - busybox 有提供
-    * `/var/run/ifstate` 记录状态 - 有可能在 `/etc/network/run/ifstate`
-  * 根据提供 ifupdown 的包不同，功能可能不同
-  * 命令可通过其他包扩展
-  * 执行阶段 pre-up up/post-up down/pre-down post-down
-* 参考
-  * [Obtain IP from DHCP sever but set DNS servers statically on Debian](https://unix.stackexchange.com/questions/346967)
-  * [/etc/network/*](https://pkgs.alpinelinux.org/contents?file=&path=%2Fetc%2Fnetwork%2F*&name=&branch=edge&arch=x86_64)
-    * interfaces 指令处理脚本
-  * [Good detailed explanation of /etc/network/interfaces syntax?](https://unix.stackexchange.com/questions/128439)
-* network-extras
 
-IFACE
-The physical name of the interface being processed, or "--all" (see below).
-LOGICAL
-The logical name of the interface being processed, or "auto" (see below).
-ADDRFAM
-The address family of the interface, or "meta" (see below).
-METHOD
-The method of the interface (e.g., static), or "none" (see below).
-CLASS
-The class of interfaces being processed. This is a copy of the value given to the --allow option when running ifup or ifdown, otherwise it is set to "auto" when the --all option is used.
-MODE
-start if run from ifup, stop if run from ifdown.
-PHASE
-As per MODE, but with finer granularity, distinguishing the pre-up, post-up, pre-down and post-down phases.
-VERBOSITY
-Indicates whether --verbose was used; set to 1 if so, 0 if not.
-PATH
-The command search path: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+- debian [interfaces.5](https://manpages.debian.org/stretch/ifupdown/interfaces.5.en.html)
+- /etc/network/interfaces
+  - 网络接口配置
+  - 通过 [ifupdown](https://git.busybox.net/busybox/tree/networking/ifupdown.c) 操作 - busybox 有提供
+    - `/var/run/ifstate` 记录状态 - 有可能在 `/etc/network/run/ifstate`
+    - inet - manual wvdial ppp static bootp dhcp loopback
+    - inet6 - static manual loopback v4tunnel
+  - 根据提供 ifupdown 的包不同，功能可能不同
+  - 命令可通过其他包扩展
+  - 执行阶段 pre-up up/post-up down/pre-down post-down
+- 参考
+  - [Obtain IP from DHCP sever but set DNS servers statically on Debian](https://unix.stackexchange.com/questions/346967)
+  - [/etc/network/\*](https://pkgs.alpinelinux.org/contents?file=&path=%2Fetc%2Fnetwork%2F*&name=&branch=edge&arch=x86_64)
+    - interfaces 指令处理脚本
+    - static-routing tunnel bonding vlan vde2 bridge openvswitch fwsnort sqm-scripts
+  - [Good detailed explanation of /etc/network/interfaces syntax?](https://unix.stackexchange.com/questions/128439)
+- network-extras
+- class
+  - auto
+  - allow-hotplug
 
+
+| var       | desc                                                           |
+| --------- | -------------------------------------------------------------- |
+| IFACE     | 名字 或 `--all`                                                |
+| LOGICAL   | 逻辑名 或 `auto`                                               |
+| ADDRFAM   | 地址类型 或 `meta`                                             |
+| METHOD    | 配置方式 或 `none`                                             |
+| CLASS     | 接口类型 `--allow` 的值，使用 `--all` 时为 `auto`              |
+| MODE      | `start`,`stop`                                                 |
+| PHASE     | pre-up, post-up, pre-down, post-down                           |
+| VERBOSITY | `--verbose` 值， 1 或 0                                        |
+| PATH      | `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin` |
 
 ```bash
 # 检查 table 是否存
@@ -43,8 +44,16 @@ install -Dv /dev/null /etc/udhcpc/udhcpc.conf
 echo IF_PEER_DNS=no >> /etc/udhcpc/udhcpc.conf
 ```
 
-
 ```bash
+# 修改名字
+rename foo=bar
+
+# [VARIABLE]/VALUE[/[OPTIONS]][=LOGICAL]
+auto /eth*=eth
+iface eth inet dhcp
+
+auto eth0 eth1
+
 # 多接口
 # ===================
 # https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System
@@ -111,11 +120,284 @@ iface bond0 inet dhcp
 
 ```
 
+# Methods
+## inet
+### static
+
+```ini
+# Address (dotted quad/netmask) required
+address address
+# Netmask (dotted quad or number of bits) deprecated
+netmask mask
+# Broadcast address (dotted quad, + or -) deprecated. Default value: "+"
+broadcast broadcast_address
+# Routing metric for default gateway (integer)
+metric metric
+# Default gateway (dotted quad)
+gateway address
+# Address of other end point (dotted quad). Note the spelling of "point-to".
+pointopoint address
+# Link local address or "random".
+hwaddress address
+# MTU size
+mtu size
+# Address validity scope. Possible values: global, link, host
+scope
+```
+
+### manual
+
+```ini
+# Link local address or "random".
+hwaddress address
+# MTU size
+mtu size
+```
+
+### dhcp
+```ini
+# Hostname to be requested (pump, dhcpcd, udhcpc)
+hostname hostname
+# Metric for added routes (dhclient)
+metric metric
+# Preferred lease time in hours (pump)
+leasehours leasehours
+# Preferred lease time in seconds (dhcpcd)
+leasetime leasetime
+# Vendor class identifier (dhcpcd)
+vendor vendor
+# Client identifier (dhcpcd)
+client client
+# Hardware address.
+hwaddress address
+```
+
+### bootp
+```ini
+# Tell the server to use file as the bootfile.
+bootfile file
+# Use the IP address address to communicate with the server.
+server address
+# Use addr as the hardware address instead of whatever it really is.
+hwaddr addr
+```
+
+### tunnel
+* This method is used to create GRE or IPIP tunnels. You need to have the ip binary from the iproute package. For GRE tunnels, you will need to load the ip_gre module and the ipip module for IPIP tunnels.
+
+```ini
+# Local address (dotted quad) required
+address address
+# Tunnel type (either GRE or IPIP) required
+mode type
+# Address of other tunnel endpoint required
+endpoint address
+# Remote address (remote address inside tunnel)
+dstaddr address
+# Address of the local endpoint
+local address
+# Routing metric for default gateway (integer)
+metric metric
+# Default gateway
+gateway address
+# TTL setting
+ttl time
+# MTU size
+mtu size
+```
+
+### ppp
+This method uses pon/poff to configure a PPP interface
+
+```ini
+# Use name as the provider (from /etc/ppp/peers).
+provider name
+# Use number as the ppp unit number.
+unit number
+# Pass string as additional options to pon.
+options string
+```
+
+### wvdial
+This method uses wvdial to configure a PPP interface. See that command for more details.
+
+```ini
+# Use name as the provider (from /etc/wvdial.conf).
+provider name
+```
+
+
+### ipv4ll
+
+This method uses avahi-autoipd to configure an interface with an IPv4 Link-Layer address (169.254.0.0/16 family). This method is also known as APIPA or IPAC, and often colloquially referred to as "Zeroconf address".
+
+## ipx
+### static
+This method may be used to setup an IPX interface. It requires the ipx_interface command.
+Options
+
+```ini
+# type of Ethernet frames to use (e.g. 802.2)
+frame type
+# Network number
+netnum id
+```
+### dynamic
+
+```ini
+# type of Ethernet frames to use (e.g. 802.2)
+frame type
+```
+
+## inet6
+### auto
+
+This method may be used to define interfaces with automatically assigned IPv6 addresses. Using this method on its own doesn't mean that RDNSS options will be applied, too. To make this happen, rdnssd daemon must be installed, properly configured and running. If stateless DHCPv6 support is turned on, then additional network configuration parameters such as DNS and NTP servers will be retrieved from a DHCP server. Please note that on ifdown, the lease is not currently released (a known bug).
+
+```ini
+# Privacy extensions (RFC4941) (0=off, 1=assign, 2=prefer)
+privext int
+# Accept router advertisements (0=off, 1=on, 2=on+forwarding). Default value: "2"
+accept_ra int
+# Use stateless DHCPv6 (0=off, 1=on)
+dhcp int
+# Request a prefix through DHCPv6 Prefix Delegation (0=off, 1=on). Default value: "0"
+request_prefix int
+# Number of attempts to wait for a link-local address. Default value: "60"
+ll-attempts
+# Link-local address polling interval in seconds. Default value: "0.1"
+ll-interval
+```
+
+### loopback
+
+### static
+
+```ini
+# Address (colon delimited/netmask) required
+address address
+# Netmask (number of bits, eg 64) deprecated
+netmask mask
+# Routing metric for default gateway (integer)
+metric metric
+# Default gateway (colon delimited)
+gateway address
+# Medium type, driver dependent
+media type
+# Hardware address or "random"
+hwaddress address
+# MTU size
+mtu size
+# Accept router advertisements (0=off, 1=on, 2=on+forwarding)
+accept_ra int
+# Perform stateless autoconfiguration (0=off, 1=on). Default value: "0"
+autoconf int
+# Privacy extensions (RFC3041) (0=off, 1=assign, 2=prefer)
+privext int
+# Address validity scope. Possible values: global, site, link, host
+scope
+# Time that address remains preferred
+preferred-lifetime int
+# Number of attempts to settle DAD (0 to disable DAD). Default value: "60"
+dad-attempts
+# DAD state polling interval in seconds. Default value: "0.1"
+dad-interval
+```
+
+### manual
+
+```ini
+# Hardware address or "random"
+hwaddress address
+# MTU size
+mtu size
+```
+
+### dhcp
+
+```ini
+# Hardware address or "random"
+hwaddress address
+# Accept router advertisements (0=off, 1=on, 2=on+forwarding). Default value: "1"
+accept_ra int
+# Perform stateless autoconfiguration (0=off, 1=on)
+autoconf int
+# Request a prefix through DHCPv6 Prefix Delegation (0=off, 1=on). Default value: "0"
+request_prefix int
+# Number of attempts to wait for a link-local address. Default value: "60"
+ll-attempts
+# Link-local address polling interval in seconds. Default value: "0.1"
+ll-interval
+```
+
+### v4tunnel
+IPv6-over-IPv4 tunnel. It requires the ip command from the iproute package.
+
+```ini
+# Address (colon delimited/netmask) required
+address address
+# Netmask (number of bits, eg 64) deprecated
+netmask mask
+# Address of other tunnel endpoint (IPv4 dotted quad) required
+endpoint address
+# Address of the local endpoint (IPv4 dotted quad)
+local address
+# Routing metric for default gateway (integer)
+metric metric
+# Default gateway (colon delimited)
+gateway address
+# TTL setting
+ttl time
+# MTU size
+mtu size
+# Time that address remains preferred
+preferred-lifetime int
+```
+
+### 6to4
+
+This method may be used to setup an 6to4 tunnel. It requires the ip command from the iproute package.
+
+```ini
+# Address of the local endpoint (IPv4 dotted quad) required
+local address
+# Routing metric for default gateway (integer)
+metric metric
+# TTL setting
+ttl time
+# MTU size
+mtu size
+# Time that address remains preferred
+preferred-lifetime int
+```
+
+### can
+This method may be used to setup an Controller Area Network (CAN) interface. It requires the the ip command from the iproute
+
+```ini
+# bitrate (1..1000000) required
+bitrate bitrate       
+# sample point (0.000..0.999)
+samplepoint samplepoint
+# loop back CAN Messages (on|off)
+loopback loopback      
+# listen only mode (on|off)
+listenonly listenonly
+# activate triple sampling (on|off)
+triple triple  
+# one shot mode (on|off)
+oneshot oneshot        
+# activate berr reporting (on|off)
+berr berr              
+```
+
 ## FAQ
+
 ### 多网口
-* 如果多网口，则不要使用相同网段
-* 如果要使用相同网段则配置多个路由表
-* Linux 默认会响应所有本地 IP - 即便对应网口未配置
+
+- 如果多网口，则不要使用相同网段
+- 如果要使用相同网段则配置多个路由表
+- Linux 默认会响应所有本地 IP - 即便对应网口未配置
 
 ```ini
 # 调整 arp 配置
@@ -132,12 +414,13 @@ net.ipv4.conf.eth1.arp_ignore = 1
 ```
 
 ### macvtap vs macvlan
-* macvlan
-  * 可以认为是主网卡的子网口 - 例如 eth0.0
-* macvtap
-  * 是类似于 macvlan 的 tap 虚拟网络设备
-  * 主要用于 libvirt/KVM
-  * 实现在不需要桥接的情况下直接与底层设备交互实现类似桥接的效果
+
+- macvlan
+  - 可以认为是主网卡的子网口 - 例如 eth0.0
+- macvtap
+  - 是类似于 macvlan 的 tap 虚拟网络设备
+  - 主要用于 libvirt/KVM
+  - 实现在不需要桥接的情况下直接与底层设备交互实现类似桥接的效果
 
 ```bash
 # macvtap
@@ -147,7 +430,7 @@ ip link show macvtap2
 
 ```
 
-* [notes on macvlan/macvtap](https://backreference.org/2014/03/20/some-notes-on-macvlanmacvtap/)
+- [notes on macvlan/macvtap](https://backreference.org/2014/03/20/some-notes-on-macvlanmacvtap/)
 
 ## 多口
 

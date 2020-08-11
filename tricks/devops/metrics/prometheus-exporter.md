@@ -6,20 +6,23 @@
 
 **端口**
 
-| 服务                                                                     | 默认端口 | 说明                              | 监控面板                                                                                                                                |
-| ------------------------------------------------------------------------ | -------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| prometheus                                                               | 9090     |
-| grafana                                                                  | 3000     |
-| [blackbox_exporter](https://github.com/prometheus/blackbox_exporter)     | 9115     | 检测 HTTP, HTTPS, DNS, TCP, ICMP. |
-| [mysqld-exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                   |
-| [redis-exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                   | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
-| [node_exporter](https://github.com/prometheus/node_exporter)             | 9100     | 节点状态信息                      | [Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22) |
-| [container-exporter](https://github.com/docker-infra/container_exporter) | 9104     |                                   | [Docker Dashboard](https://grafana.net/dashboards/179)                                                                                  |
-| [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)    | n/a      |                                   | [Nginx Overview](https://grafana.net/dashboards/462)                                                                                    |
-| [postgres_exporter](https://github.com/wrouesnel/postgres_exporter)      | 9178     |
+<!-- pbpaste | sort | pbcopy -->
+
+| 服务                                                                     | 默认端口 | 说明                                      | 监控面板                                                                                                                                |
+| ------------------------------------------------------------------------ | -------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [blackbox_exporter](https://github.com/prometheus/blackbox_exporter)     | 9115     |  检测 HTTP, HTTPS, DNS, TCP, ICMP.         |
+| [container-exporter](https://github.com/docker-infra/container_exporter) | 9104     |                                           | [Docker Dashboard](https://grafana.net/dashboards/179)                                                                                  |
 | [jmx_exporter](https://github.com/prometheus/jmx_exporter)               |
+| [mysqld-exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                           |
 | [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)         |
+| [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)    | n/a      |                                           | [Nginx Overview](https://grafana.net/dashboards/462)                                                                                    |
+| [node_exporter](https://github.com/prometheus/node_exporter)             | 9100     | 节点状态信息                              | [Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22) |
+| [postgres_exporter](https://github.com/wrouesnel/postgres_exporter)      | 9178     |
+| [redis-exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                           | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
 | [redis_exporter](https://github.com/oliver006/redis_exporter)            |
+| [snmp_exporter](https://github.com/prometheus/snmp_exporter)             | 9116     | http://localhost:9116/snmp?target=1.2.3.4 |
+| grafana                                                                  | 3000     |
+| prometheus                                                               | 9090     |
 
 ```bash
 brew install node_exporter
@@ -31,7 +34,7 @@ make
 ./node_exporter
 ```
 
-__redis_exporter__
+**redis_exporter**
 
 ```bash
 go get github.com/oliver006/redis_exporter
@@ -39,7 +42,7 @@ redis_exporter
 # Prometheus Redis https://grafana.net/dashboards/763
 ```
 
-__mysqld_exporter__
+**mysqld_exporter**
 
 ```bash
 go get github.com/prometheus/mysqld_exporter
@@ -54,6 +57,7 @@ mysqld_exporter
   - probe_success
 - `SIGHUP`, `POST /-/reload`
 - ICMP 需要更高的权限
+- IP Hash 转换 `(3057428492).toString(2).match(/.{8}/g).map(v=>parseInt(v,2)).join('.')`
 
 **blackbox.yml**
 
@@ -129,7 +133,23 @@ scrape_configs:
 - https://github.com/percona/grafana-dashboards/blob/master/dashboards/PostgreSQL_Overview.json
 
 ## snmp-exporter
-
+- 默认 [snmp.yml](https://github.com/prometheus/snmp_exporter/blob/master/snmp.yml)
+  - apcups
+  - arista_sw
+  - cisco_wlc
+  - ddwrt
+  - if_mib
+  - infrapower_pdu
+  - keepalived
+  - nec_ix
+  - paloalto_fw
+  - printer_mib
+  - paritan
+  - servertech_sentry3
+  - synology
+  - ubiquiti_airfiber
+  - ubiquiti_airmax
+  - ubiquiti_unifi
 - /usr/share/snmp/mibs
 
 ```bash

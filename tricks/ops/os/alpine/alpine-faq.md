@@ -25,6 +25,20 @@ apk fix
 * busybox 的 ifup 会调用 ip li set eth0 up
 * 3.10 是 0.7.x 版本的，下一个大版本应该可用
 
+## 没有提示登陆
+* 可能是 tty 不对
+* 尝试修改 `/etc/inittab` 里的 `ttyS0::respawn:/sbin/getty -L ttyS0 115200 vt100`
+* qemu aarch64 使用的 ttyAMA0
+
+## Login incorrect - 没有询问密码
+* 可能 root 关闭了 serial console 登陆
+* 允许的 tty `/etc/securetty`
+* 如果使用的 ttyAMA0 可以添加
+
+## process '/sbin/getty -L ttyAMA0 115200 vt100' (pid 1929) exited. Scheduling for restart.
+
+## getty: console: TIOCSCTTY: Operation not permitted
+
 ## 内核风格/kernel flavors
 https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened/APKBUILD
 https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla

@@ -35,6 +35,8 @@ virsh -c qemu:///system list
 
 ## libvirt.conf
 * 客户端配置
+* 当前用户配置位于 `$XDG_CONFIG_HOME/libvirt/libvirt.conf`
+  * 一般 `XDG_CONFIG_HOME=$HOME/.config`
 
 ```ini
 # 链接别名

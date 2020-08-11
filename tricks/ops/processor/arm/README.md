@@ -1,4 +1,6 @@
-
+# ARM
+## Tips
+* [What is the booting process for ARM?](https://stackoverflow.com/questions/6139952)
 
 # profilee
 * A - Application
