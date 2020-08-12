@@ -1,5 +1,5 @@
 ---
-id: nextks-version
+id: nextjs-version
 title: NextJS 版本历史
 ---
 

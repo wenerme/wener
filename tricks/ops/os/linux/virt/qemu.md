@@ -22,6 +22,9 @@ http://www.tightvnc.com/download.php
 https://wiki.qemu.org/Documentation/Platforms/ARM
 https://wiki.qemu.org/Features/CPUModels
 
+machine
+https://remimin.github.io/2019/07/09/qemu_machine_type/
+
 ```bash
 # Mac 安装
 brew install qemu
@@ -145,68 +148,6 @@ C-a h | 在 `-nographic` 显示帮助
   * Linux 支持 NWFPE FPU
   * 能运行大部分 ARM Linux 二进制文件
 
-## CHANGLOG
-* https://wiki.qemu.org/Planning
-* https://wiki.qemu.org/ChangeLog
-
-### 5.0
-* https://www.qemu.org/2020/04/29/qemu-5-0-0/
-* virtiofsd - 映射主机目录
-  * Linux 5.4 支持 VirtIO-FS 
-* D-Bus QEMU 进程 Live-Migration
-* block
-  * 支持压缩备份镜像
-  * qemu-img measure 支持 LUKS， convert 支持跳过 zero
-  * qemu-storage-daemon 支持访问存储，不需要启动 VM
-
-```bash
-# ./virtiofsd -o vhost_user_socket=/tmp/vhostqemu -o source=$TESTDIR -o cache=always
-
-qemu-system-x86_64 -M pc -cpu host --enable-kvm -smp 2 \
-  -m 4G -object memory-backend-file,id=mem,size=4G,mem-path=/dev/shm,share=on -numa node,memdev=mem \
-  -chardev socket,id=char0,path=/tmp/vhostqemu -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=myfs \
-  -chardev stdio,mux=on,id=mon -mon chardev=mon,mode=readline -device virtio-serial-pci -device virtconsole,chardev=mon -vga none -display none \
-  -drive if=virtio,file=rootfsimage.qcow2
-
-mount -t virtiofs myfs /mnt
-
-# DAX
-#  -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=myfs,cache-size=2G
-```
-
-### 4.2.0
-* https://www.qemu.org/2019/12/13/qemu-4-2-0/
-* x86
-  * VMX 可通过 `-cpu` 启用或停用
-  * microvm 使用 virtio-mmio 而不是 PCI 作为性能基线优化
-  * macOS `-accel hvf` 稳定
-
-### 4.1.0
-* https://www.qemu.org/2019/08/16/qemu-4-1-0/
-
-### 4.0.0
-* https://www.qemu.org/2019/04/24/qemu-4-0-0/
-
-
-### 3.1.0
-* https://www.qemu.org/2018/12/12/qemu-3-1-0/
-* ARM
-* qemu-img tool can now generate LUKS-encrypted files through ‘convert’ command
-### 3.0.0
-* https://www.qemu.org/2018/08/15/qemu-3-0-0/
-* 完整的 ARM 7 模拟
-* Sparc32
-* Sparc64
-* SDL 2
-* GTK 3
-
-
-### 2.12 - 2018-04-24
-* [ChangeLog/2.12](https://wiki.qemu.org/ChangeLog/2.12)
-* Initial support for Raspberry Pi 3 machine model
-* Experimental support for two new virtualization accelerators: Apple's Hypervisor.framework ("-accel hvf") and Microsoft's Windows Hypervisor Platform Extensions ("-accel whpx")
-* `-nic` 取代 `-net` 参数
-  * `-nic user` -> `-net nic -net user`
 
 ## qemu-system-x86_64 -h
 ```

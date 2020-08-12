@@ -91,6 +91,9 @@ module.exports = {
       'ops/os/alpine/alpine-intro',
       'ops/os/alpine/alpine-ops',
       'ops/os/alpine/alpine-pkgs',
+      'ops/os/alpine/alpine-lbu',
+      'ops/os/alpine/alpine-boot',
+      'ops/os/alpine/alpine-version',
       'ops/os/alpine/alpine-faq',
     ],
     Docker: [
@@ -188,6 +191,7 @@ module.exports = {
       'ops/os/linux/virt/virt',
       'ops/os/linux/virt/qemu-doc',
       'ops/os/linux/virt/qemu-monitor',
+      'ops/os/linux/virt/qemu-version',
       'ops/os/linux/virt/libvirt',
       'ops/os/linux/virt/libvirtd',
       'ops/os/linux/virt/libvirt-faq',

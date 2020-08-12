@@ -109,6 +109,9 @@ abuild -r
 ### 开发
 * https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
 
+```bash
+apk del '.makedepends-*'
+```
 
 ```
 $ abuild -h
