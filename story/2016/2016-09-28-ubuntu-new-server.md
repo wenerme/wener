@@ -1,4 +1,9 @@
-# How
+---
+id: ubuntu-new-server
+title: Ubuntu 新服务器配置
+---
+
+# Ubuntu 新服务器配置
 
 ```bash
 # 修改主机名

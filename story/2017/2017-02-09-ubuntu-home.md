@@ -1,3 +1,8 @@
+---
+id: ubuntu-home
+title: Ubuntu 家用
+---
+
 # Ubuntu 家用
 
 * Ubuntu 桌面版

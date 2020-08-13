@@ -177,6 +177,9 @@ ssh localhost -p 1100
 # 需要 PortForward
 ssh -J admin@jumphost admin@internal
 
+# 多次跳转
+ssh -J user1@host1:port1,user2@host2:port2 user3@host3
+
 # 使用 ProxyCommand
 # -W host:port
 # 请求转发 IO 到指定机器的端口，隐含了 -N, -T, ExitOnForwardFailure, ClearAllForwardings
@@ -185,6 +188,12 @@ ssh -o ProxyCommand="ssh -W %h:%p -q admin@jumphost" admin@internal
 # nc 转发 - 不需要 PortForward
 # 可以添加 -o StrictHostKeyChecking=no 避免询问指纹
 ssh -o ProxyCommand="ssh -q admin@jumphost nc %h %p" admin@internal
+```
+
+```
+Host behindbeta
+  HostName behindbeta.example.org
+  ProxyJump  betajump
 ```
 
 ## HTTP + SSH 多路

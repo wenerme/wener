@@ -20,6 +20,13 @@ tmux new -s myname
 tmux a -t myname
 # 关闭会话
 tmux kill-session -t myname
+
+# 命令行控制
+# ==========
+# Zoom In
+tmux list-panes -F '#F' | grep -q Z || tmux resize-pane -Z
+# Zoom Out
+tmux list-panes -F '#F' | grep -q Z && tmux resize-pane -Z
 ```
 
 ### Commands

@@ -75,6 +75,12 @@ modules:
     prober: http
     http:
       method: POST
+  # IPv4
+  http_2xx_ipv4:
+    prober: http
+    timeout: 5s
+    http:
+      preferred_ip_protocol: "ip4"
   tcp_connect:
     prober: tcp
   pop3s_banner:

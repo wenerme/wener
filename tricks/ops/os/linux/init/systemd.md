@@ -37,6 +37,9 @@ systemctl unmask nginx.service
 systemctl edit nginx.service
 # 编辑完整的文件,而不是一个片段,会生成部分内容
 systemctl edit --full nginx.service
+
+# 服务状态
+systemctl status prometheus-node-exporter.service
 ```
 
 ## Service

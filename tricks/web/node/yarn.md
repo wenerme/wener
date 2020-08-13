@@ -85,9 +85,25 @@ curl -LC- -o .yarn/plugins/@yarnpkg/plugin-version.js https://github.com/yarnpkg
 yarn plugin import version
 ```
 
+## yarnrc.yml
 
-## FAQ
-### yarn set version 慢
+```yaml
+packageExtensions:
+  webpack@*:
+    dependencies:
+      lodash: "^4.15.0"
+    peerDependencies:
+      webpack-cli: "*"
+  # 注意引号
+  "@storybook/core@*":
+    dependencies:
+      "@storybook/addon-essentials": "*"
+
+
+```
+
+# FAQ
+## yarn set version 慢
 
 可以从现有项目拷贝，免安装
 

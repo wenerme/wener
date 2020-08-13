@@ -91,3 +91,20 @@ npm install --save react react-dom next
 mkdir pages
 next
 ```
+
+## 命名
+- [React components naming convention](https://medium.com/@wittydeveloper/b50303551505)
+- `[Domain]|[Page/Context]|ComponentName|[Type]`
+  - Domain
+    - 业务域名词 - 划分模块或产品
+  - Page/Content
+    - 使用的位置上下文 - 最近上下文
+    - 例如 Sidebar
+  - ComponentName
+    - 组件目的，用于做什么的
+  - Type
+    - View - 视图，只展现数据
+    - Button
+    - 表单类 - Input、Upload
+    - Component - HOC 类组件，原有组件保持原有名字
+    - Container - 容器类，提供交互接口数据

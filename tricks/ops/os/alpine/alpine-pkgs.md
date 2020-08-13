@@ -4,9 +4,6 @@ title: Alpine 包维护
 ---
 
 ## Tips
-* https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md
-
-
 * [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
 * https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
 * [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
@@ -14,8 +11,9 @@ title: Alpine 包维护
 * 镜像状态 - https://mirrors.alpinelinux.org/status.json
 * Golang
   * https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
+* aports [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)
 * 提交新的包
-  * Fort aports
+  * fork aports
   * 添加新的包
   * 提交 PR
   * 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
@@ -24,42 +22,40 @@ title: Alpine 包维护
     * `${repo}/${pkgname}: move from testing`
     * `${repo}/${pkgname}: upgrade to 3.1.0`
   * 确保使用 Tab 而不是空格
-
+* 参考
+  * [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
 
 ```bash
-# 环境设置
-DEV_USER=dev
+# 准备
+mkdir buiild && cd build
+git clone --depth 50 https://gitlab.alpinelinux.org/alpine/aports
 
-apk add alpine-sdk
-adduser $DEV_USER
-echo "$DEV_USER  ALL=(ALL) ALL" >> /etc/sudoers
+# 启动环境
+# 配置缓存
+docker run --rm -it \
+    -v $PWD:/build \
+    -v $PWD/distfiles:/var/cache/distfiles \
+    -v $PWD/cache:/etc/apk/cache \
+    --name builder wener/base:builder
 
-# 修改 PACKAGER 信息
-vi /etc/abuild.conf
-# echo 'PACKAGER="wener <wenermail@gmail.com>"' >> /etc/abuild.conf
-# 里面的 JOB 参数可修改为核数
-addgroup $DEV_USER abuild
+# 更新仓库
+sudo apk update
 
-# 缓存目录
-mkdir -p /var/cache/distfiles
-# 给所有人写的权限
-# 也可以只给 abuild 组 chgrp abuild /var/cache/distfiles; chmod g+w /var/cache/distfiles
-chmod a+w /var/cache/distfiles
+# git 用户配置
+git config --global user.name "Your Full Name"
+git config --global user.email "your@email.address"
+# 个人信息
+[ -e ~/.abuild/abuild.conf ] || { mkdir -p ~/.abuild; echo "PACKAGER=\"$(git config --global user.name) <$(git config --global user.email)>\"" > ~/.abuild/abuild.conf; }
+# 生成密钥
+grep PACKAGER_PRIVKEY ~/.abuild/abuild.conf || abuild-keygen -ani
 
-# 切换为 $DEV_USER 登陆
-# 生成秘钥
-# 会生成到 $HOME/.abuild 如果已经有了，直接拷贝即可
-abuild-keygen -a -i
-# /etc/apk/keys
-# echo /build/.abuild/build.rsa | abuild-keygen -a -i
-
-#git config --global user.name "Your Full Name"
-#git config --global user.email "your@email.address"
-mkdir -p /gits
-cd /gits
-git clone git://git.alpinelinux.org/aports
-# 查看相关帮助
-abuild -h
+# 打包
+# community/grpc
+cd aports/community/grpc
+# 编译构建到 ~/packages
+# -K 保留 src 和 pkg - 用于开发调试
+# -r 安装依赖
+abuild -Kr
 ```
 
 ```bash
@@ -73,21 +69,53 @@ abuild -Kf
 # 针对单个包操作
 abuild package dev
 
+# 移除所有构建时安装的依赖
+# 直接编辑 /etc/apk/world 然后 apk fix 也可以
+apk del '.makedepends-*'
+
 rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild/
 ```
 
-```bash
-docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder wener/edge:builder
 
-docker run --rm -it -v $PWD:/src --entrypoint bash wener/base:builder
+## abuild.conf
+* [abuild.conf](https://github.com/alpinelinux/abuild/blob/master/abuild.conf)
 
-chown 1000:1000 -R build/
-docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u builder --entrypoint bash wener/base:builder
+```shell
+export CFLAGS="-Os -fomit-frame-pointer"
+export CXXFLAGS="$CFLAGS"
+export CPPFLAGS="$CFLAGS"
+export LDFLAGS="-Wl,--as-needed"
+export GOFLAGS="-buildmode=pie"
+# Do note that these should work with at least GDC and LDC
+export DFLAGS="-Os"
+
+export JOBS=2
+export MAKEFLAGS=-j$JOBS
+
+# remove line below to disable colors
+USE_COLORS=1
+
+# uncomment line below to enable ccache support.
+#USE_CCACHE=1
+
+SRCDEST=/var/cache/distfiles
+
+# uncomment line below to store built packages in other location
+# The package will be stored as $REPODEST/$repo/$pkgname-$pkgver-r$pkgrel.apk
+# where $repo is the name of the parent directory of $startdir.
+REPODEST=$HOME/packages/
+
+# PACKAGER and MAINTAINER are used by newapkbuild when creating new aports for
+# the APKBUILD's "Contributor:" and "Maintainer:" comments, respectively.
+#PACKAGER="Your Name <your@email.address>"
+#MAINTAINER="$PACKAGER"
+
+# what to clean up after a successful build
+CLEANUP="srcdir bldroot pkgdir deps"
+
+# what to cleanup after a failed build
+ERROR_CLEANUP="bldroot deps"
 ```
-
-* Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
-  * 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
-  * 因为部分项目构建是无法将 `musl` 识别为 `gnu`
 
 ## 生成和使用 Patch
 
@@ -109,10 +137,6 @@ abuild -r
 ### 开发
 * https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
 
-```bash
-apk del '.makedepends-*'
-```
-
 ```
 $ abuild -h
 usage: abuild [options] [-P REPODEST] [-s SRCDEST] [-D DESCRIPTION] [cmd] ...
@@ -122,19 +146,16 @@ Options:
  -c  Enable colored output
  -d  Disable dependency checking
  -D  Set APKINDEX description (default: $repo $(git describe))
- -f  Force specified cmd, even if they are already done
+ -f  Force specified cmd (skip checks: apk up to date, arch, libc)
  -F  Force run as root
  -h  Show this help
- -i  Install PKG after successful build
  -k  Keep built packages, even if APKBUILD or sources are newer
  -K  Keep buildtime temp dirs and files (srcdir/pkgdir/deps)
  -m  Disable colors (monochrome)
  -P  Set REPODEST as the repository location for created packages
  -q  Quiet
  -r  Install missing dependencies from system repository (using sudo)
- -R  Recursively build and install missing dependencies (using sudo)
  -s  Set source package destination directory
- -u  Recursively build and upgrade all dependencies (using sudo)
  -v  Verbose: show every command as it is run (very noisy)
 
 Commands:
@@ -146,10 +167,10 @@ Commands:
   cleanoldpkg Remove binary packages except current version
   cleanpkg    Remove already built binary and source package
   deps        Install packages listed in makedepends and depends
-  fetch       Fetch sources to $SRCDEST and verify checksums
+  fetch       Fetch sources to $SRCDEST (consider: 'abuild fetch verify')
   index       Regenerate indexes in $REPODEST
   listpkg     List target packages
-  package     Create package in $REPODEST
+  package     Install project into
   prepare     Apply patches
   rootbld     Build package in clean chroot
   rootpkg     Run 'package', the split functions and create apks as fakeroot
@@ -168,34 +189,7 @@ To activate cross compilation specify in environment:
 ```
 
 
-
-## Docker 环境设置
-
-```bash
-# 基于 Docker 搭建开发环境
-# ==========
-# 使用 abuild 目录作为工作空间
-mkdir -p abuild && cd abuild
-
-# distfiles 存放构建过程中下载的源码
-# wener 存放 aports 等源码
-mkdir -p {wener,distfiles}
-# builder 用户的 uid 为 1000
-docker run --rm -it -v $PWD:/build -v $PWD/distfiles:/var/cache/distfiles -u 1000 wener/base:builder
-
-# 更新包索引
-sudo apk update
-# 第一次运行生成秘钥
-abuild-keygen -a
-
-# 添加公钥和本地仓库
-echo /build/packages/wener | sudo tee -a /etc/apk/repositories
-sudo cp ~/*.rsa.pub /etc/apk/keys/
-
-# 拉取 aports 仓库
-git clone https://github.com/alpinelinux/aports
-# 到具体的项目
-cd aports/main/asterisk
-# 构建
-abuild
-```
+# FAQ
+## Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
+* 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
+* 因为部分项目构建是无法将 `musl` 识别为 `gnu`

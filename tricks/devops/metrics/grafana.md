@@ -85,6 +85,7 @@ type=sqlite3
 reporting_enabled = false
 ```
 ## 配置
+* [Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/)
 * 所有的配置都可以通过环境变量配置
   * `GF_<SectionName>_<KeyName>`
 
