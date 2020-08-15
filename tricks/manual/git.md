@@ -312,6 +312,13 @@ from [Here](http://stackoverflow.com/a/2227571/1870054)
 git rev-list --max-parents=0 HEAD
 ```
 
+## 搜索文件
+```bash
+git log --all -- '*.wmv'
+# 只显示 hash
+git rev-list --all -- '*.wmv'
+```
+
 ### Rename branch
 ```bash
 # Rename old-branch-name to a non exists new-branch-name

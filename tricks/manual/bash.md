@@ -84,6 +84,20 @@ echo $y
 #> file.gif
 ```
 
+## 替换
+
+```bash
+a=abc/da
+# zbc/da
+echo ${a/a/z}
+# // 是所有
+# zbc/dz
+echo ${a//a/z}
+# 转意
+# abczda
+echo ${a//\//z}
+```
+
 ## Parallels
 
 ```bash

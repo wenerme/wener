@@ -1,3 +1,8 @@
+---
+id: go-intro
+title: Golang
+---
+
 # Golang
 
 

@@ -55,7 +55,6 @@ module.exports = {
       'languages/pegjs',
       'languages/php',
       'languages/zig',
-      'languages/go/hello-cgo',
       'languages/go/go-template',
     ],
     开发运维: [
@@ -241,6 +240,7 @@ module.exports = {
           'db/relational/postgresql/fts',
           'db/relational/postgresql/version',
           'db/relational/postgresql/faq',
+          'db/relational/postgresql/postgresql-sql-faq',
           'db/relational/postgresql/timescale',
           'db/relational/postgresql/postgrest-hello',
           'db/relational/postgresql/hasura',

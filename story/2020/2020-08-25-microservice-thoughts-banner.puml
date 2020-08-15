@@ -1,0 +1,32 @@
+@startdot
+digraph G {
+node[shape=box,style=filled,color=transparent]
+graph [ nodesep=1,rankdir="LR"]
+
+user -> gateway
+
+gateway -> service_a
+gateway -> service_b
+
+
+{rank=same; service_a service_b}
+
+user[label=<客户端>, fillcolor="#BBDEFB"]
+gateway[label=<网关>, fillcolor="#C8E6C9"]
+service_a[label=<服务A>,fillcolor="#FFCDD2"]
+service_b[label=<服务B>,fillcolor="#FFCDD2"]
+node_a[label=<节点A>,fillcolor="#FFF9C4"]
+node_b[label=<节点B>,fillcolor="#FFF9C4"]
+db_a[label=<数据库A>,fillcolor="#dddddd"]
+
+service_b -> service_a
+
+service_a -> node_a
+service_a -> node_b
+service_b -> node_a
+
+node_a -> db_a
+
+label="微服务杂念 - https://www.wener.tech"
+}
+@enddot

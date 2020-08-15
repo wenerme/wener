@@ -5,6 +5,9 @@
 7 ways we harden our KVM hypervisor at Google Cloud: security in plaintext
 https://cloudplatform.googleblog.com/2017/01/7-ways-we-harden-our-KVM-hypervisor-at-Google-Cloud-security-in-plaintext.html
 
+## RNG
+
+"kvm ... -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0,bus=pci.0,addr=0x7"
 
 ## 访问远程镜像
 
