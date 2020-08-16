@@ -55,6 +55,7 @@ module.exports = {
       'languages/pegjs',
       'languages/php',
       'languages/zig',
+      'languages/go/go-intro',
       'languages/go/go-template',
     ],
     开发运维: [
