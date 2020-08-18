@@ -26,6 +26,10 @@ title: Grafana
   * 面板热门排序
   * 查找未使用面板
   * 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
+* 问题
+  * [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
+* 注意
+  * Value Mapping 不支持文本匹配
 
 ```bash
 brew install grafana

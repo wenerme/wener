@@ -38,6 +38,11 @@ sum(rate(node_cpu_seconds_total{mode=~"user|system"}[5m])) by (mode) or node_loa
 
 # unifiVapNumStations 结果 join unifiVapEssId label
 sum(unifiVapNumStations * on(unifiVapIndex,instance) group_left(unifiVapEssId) unifiVapEssId{}) by (unifiVapEssId)
+
+# 替换标签
+# grafana 里能让一列出现两次
+# 但 grafana 不能全文匹配 https://github.com/grafana/grafana/issues/11418
+label_replace(unifiIfMac, "unifiLabel", "$0", "unifiIfMac", ".+")
 ```
 
 # FAQ

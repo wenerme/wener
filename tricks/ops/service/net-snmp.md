@@ -55,3 +55,84 @@ apk add net-snmp-dev
 # 参数
 net-snmp-config --agent-libs
 ```
+
+## EdgeOS system
+
+```
+$ snmpwalk -Os -c public -v 1 192.168.1.1 system
+sysDescr.0 = STRING: EdgeOS v2.0.1.5174690.190312.1614
+sysObjectID.0 = OID: enterprises.41112.1.5
+sysUpTimeInstance = Timeticks: (3210) 0:00:32.10
+sysContact.0 = STRING: root
+sysName.0 = STRING: ubnt
+sysLocation.0 = STRING: Unknown
+sysServices.0 = INTEGER: 14
+sysORLastChange.0 = Timeticks: (14) 0:00:00.14
+sysORID.1 = OID: snmpMPDCompliance
+sysORID.2 = OID: usmMIBCompliance
+sysORID.3 = OID: snmpFrameworkMIBCompliance
+sysORID.4 = OID: snmpMIB
+sysORID.5 = OID: vacmBasicGroup
+sysORID.6 = OID: tcpMIB
+sysORID.7 = OID: ip
+sysORID.8 = OID: udpMIB
+sysORID.9 = OID: snmpNotifyFullCompliance
+sysORID.10 = OID: notificationLogMIB
+sysORDescr.1 = STRING: The MIB for Message Processing and Dispatching.
+sysORDescr.2 = STRING: The management information definitions for the SNMP User-based Security Model.
+sysORDescr.3 = STRING: The SNMP Management Architecture MIB.
+sysORDescr.4 = STRING: The MIB module for SNMPv2 entities
+sysORDescr.5 = STRING: View-based Access Control Model for SNMP.
+sysORDescr.6 = STRING: The MIB module for managing TCP implementations
+sysORDescr.7 = STRING: The MIB module for managing IP and ICMP implementations
+sysORDescr.8 = STRING: The MIB module for managing UDP implementations
+sysORDescr.9 = STRING: The MIB modules for managing SNMP Notification, plus filtering.
+sysORDescr.10 = STRING: The MIB module for logging SNMP Notifications.
+sysORUpTime.1 = Timeticks: (11) 0:00:00.11
+sysORUpTime.2 = Timeticks: (11) 0:00:00.11
+sysORUpTime.3 = Timeticks: (11) 0:00:00.11
+sysORUpTime.4 = Timeticks: (13) 0:00:00.13
+sysORUpTime.5 = Timeticks: (13) 0:00:00.13
+sysORUpTime.6 = Timeticks: (13) 0:00:00.13
+sysORUpTime.7 = Timeticks: (13) 0:00:00.13
+sysORUpTime.8 = Timeticks: (13) 0:00:00.13
+sysORUpTime.9 = Timeticks: (14) 0:00:00.14
+sysORUpTime.10 = Timeticks: (14) 0:00:00.14
+```
+
+## unifi system
+
+```
+sysDescr.0 = STRING: UAP-AC-Lite 4.3.20.11298
+sysObjectID.0 = OID: netSnmpAgentOIDs.10
+sysUpTimeInstance = Timeticks: (35927661) 4 days, 3:47:56.61
+sysContact.0 = STRING: root@localhost
+sysName.0 = STRING: D
+sysLocation.0 = STRING: Unknown
+sysServices.0 = INTEGER: 79
+sysORLastChange.0 = Timeticks: (67) 0:00:00.67
+sysORID.1 = OID: ip
+sysORID.2 = OID: snmpMIB
+sysORID.3 = OID: udpMIB
+sysORID.4 = OID: vacmBasicGroup
+sysORID.5 = OID: snmpFrameworkMIBCompliance
+sysORID.6 = OID: snmpMPDCompliance
+sysORID.7 = OID: usmMIBCompliance
+sysORID.8 = OID: transmission.131
+sysORDescr.1 = STRING: The MIB module for managing IP and ICMP implementations
+sysORDescr.2 = STRING: The MIB module for SNMPv2 entities
+sysORDescr.3 = STRING: The MIB module for managing UDP implementations
+sysORDescr.4 = STRING: View-based Access Control Model for SNMP.
+sysORDescr.5 = STRING: The SNMP Management Architecture MIB.
+sysORDescr.6 = STRING: The MIB for Message Processing and Dispatching.
+sysORDescr.7 = STRING: The management information definitions for the SNMP User-based Security Model.
+sysORDescr.8 = STRING: RFC 2667 TUNNEL-MIB implementation for Linux 2.2.x kernels.
+sysORUpTime.1 = Timeticks: (35) 0:00:00.35
+sysORUpTime.2 = Timeticks: (35) 0:00:00.35
+sysORUpTime.3 = Timeticks: (35) 0:00:00.35
+sysORUpTime.4 = Timeticks: (35) 0:00:00.35
+sysORUpTime.5 = Timeticks: (35) 0:00:00.35
+sysORUpTime.6 = Timeticks: (35) 0:00:00.35
+sysORUpTime.7 = Timeticks: (36) 0:00:00.36
+sysORUpTime.8 = Timeticks: (67) 0:00:00.67
+```

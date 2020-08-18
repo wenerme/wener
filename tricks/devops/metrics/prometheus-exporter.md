@@ -139,6 +139,8 @@ scrape_configs:
 - https://github.com/percona/grafana-dashboards/blob/master/dashboards/PostgreSQL_Overview.json
 
 ## snmp-exporter
+- 默认端口 9116
+- 默认 [generator.yaml](https://github.com/prometheus/snmp_exporter/blob/master/generator/generator.yml)
 - 默认 [snmp.yml](https://github.com/prometheus/snmp_exporter/blob/master/snmp.yml)
   - apcups
   - arista_sw
@@ -159,7 +161,19 @@ scrape_configs:
 - /usr/share/snmp/mibs
 
 ```bash
+# 安装
 apk add -X https://mirrors.aliyun.com/alpine/edge/testing/ prometheus-snmp-exporter
+
+# /usr/share/snmp/mibs/
+apk add net-snmp
+# prepare mibs
+mkdir -p $HOME/.snmp/mibs
+curl -O https://raw.githubusercontent.com/prometheus/snmp_exporter/master/generator/Makefile
+make mibs MIBDIR=$HOME/.snmp/mibs
+curl -LOC- https://raw.githubusercontent.com/prometheus/snmp_exporter/master/generator/generator.yml
+
+# docker 启动
+docker run --rm -it -p 9116:9116 prom/snmp-exporter
 ```
 
 ```yaml
@@ -249,4 +263,26 @@ modules:
                              #   EnumAsInfo: An enum for which a single timeseries is created. Good for constant values.
                              #   EnumAsStateSet: An enum with a time series per state. Good for variable low-cardinality enums.
                              #   Bits: An RFC 2578 BITS construct, which produces a StateSet with a time series per bit.
+```
+
+## cadvisor
+* [docker metric](https://docs.docker.com/config/daemon/prometheus/)
+  * 实验阶段
+* [google/cadvisor](https://github.com/google/cadvisor)
+
+```bash
+# 版本 https://github.com/google/cadvisor/releases
+# google/cadvisor 没有新版本 tag
+docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:ro \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --volume=/dev/disk/:/dev/disk:ro \
+  --publish=8080:8080 \
+  --detach=true \
+  --name=cadvisor \
+  --privileged \
+  --device=/dev/kmsg \
+  gcr.io/cadvisor/cadvisor:v0.36.0
 ```

@@ -136,7 +136,6 @@ scrape_configs:
       - targets: ['localhost:9090']
 ```
 
-
 <!--
 https://gitlab.awesome-it.de/overlays/awesome/blob/master/net-analyzer/prometheus-node-exporter/files/prometheus-node-exporter-initd
 
@@ -160,28 +159,28 @@ depend() {
 -->
 
 ## 服务发现
-* [支持配置](https://prometheus.io/docs/prometheus/latest/configuration/configuration)
-  * azure
-  * consul - 服务 catalog
-  * digitalocean
-  * dockerswarm
-  * dns - SVR 记录
-  * ec2
-  * openstack
-  * file - 检测文件变化
-    * 格式与 static_config 相同
-  * gce
-  * kubernetes
-    * node、service、pod、endpoints、ingress
-  * marathon
-  * nerve
-  * serverset
-  * triton
-* mDNS
-  * [#2537](https://github.com/prometheus/prometheus/issues/2537) - Cannot scrape targets specified by mDNS name
-  * [msiebuhr/prometheus-mdns-sd](https://github.com/msiebuhr/prometheus-mdns-sd)
-    * 写入文件，使用文件发现
 
+- [支持配置](https://prometheus.io/docs/prometheus/latest/configuration/configuration)
+  - azure
+  - consul - 服务 catalog
+  - digitalocean
+  - dockerswarm
+  - dns - SVR 记录
+  - ec2
+  - openstack
+  - file - 检测文件变化
+    - 格式与 static_config 相同
+  - gce
+  - kubernetes
+    - node、service、pod、endpoints、ingress
+  - marathon
+  - nerve
+  - serverset
+  - triton
+- mDNS
+  - [#2537](https://github.com/prometheus/prometheus/issues/2537) - Cannot scrape targets specified by mDNS name
+  - [msiebuhr/prometheus-mdns-sd](https://github.com/msiebuhr/prometheus-mdns-sd)
+    - 写入文件，使用文件发现
 
 ```bash
 # _prometheus-http._tcp
@@ -206,35 +205,73 @@ dns-sd -R "node_exporter metrics" _prometheus-http._tcp. . 9100 path=/metrics
 ```
 
 ## 集成
-* [INTEGRATIONS](https://prometheus.io/docs/operating/integrations)
-* 支持读写的存储
-  * Azure Data Explorer
-  * Cortex
-  * CrateDB
-  * Google BigQuery
-  * Google Cloud Spanner
-  * InfluxDB
-  * IRONdb
-  * M3DB
-  * MetricFire
-  * PostgreSQL/TimescaleDB
-  * QuasarDB
-  * Splunk
-  * TiKV
-  * Thanos
+
+- [INTEGRATIONS](https://prometheus.io/docs/operating/integrations)
+- 支持读写的存储
+  - Azure Data Explorer
+  - Cortex
+  - CrateDB
+  - Google BigQuery
+  - Google Cloud Spanner
+  - InfluxDB
+  - IRONdb
+  - M3DB
+  - MetricFire
+  - PostgreSQL/TimescaleDB
+  - QuasarDB
+  - Splunk
+  - TiKV
+  - Thanos
 
 ## Pushing
-* https://prometheus.io/docs/practices/pushing/
-* only valid use case for the Pushgateway is for capturing the outcome of a service-level batch job
+
+- https://prometheus.io/docs/practices/pushing/
+- only valid use case for the Pushgateway is for capturing the outcome of a service-level batch job
 
 ## Proxy
-* https://github.com/prometheus-community/PushProx
+
+- https://github.com/prometheus-community/PushProx
 
 ```yaml
 scrape_configs:
-- job_name: node
-  # 代理
-  proxy_url: http://proxy:8080/
+  - job_name: node
+    # 代理
+    proxy_url: http://proxy:8080/
+    static_configs:
+      - targets: ['client:9100'] # Presuming the FQDN of the client is "client".
+```
+
+## label
+
+- `__` 开头的为内部 label
+- `__meta` 可能由 Service Discovery 添加
+- `__tmp` 可由用户使用
+
+| Label            | Desc       |
+| ---------------- | ---------- |
+| `__address__`    | 目标地址   |
+| `__schema__`     | http/https |
+| `__name__`       | 标签名字   |
+| `__param_target` | `?target=` |
+| `__param_module` | `?module=` |
+
+```yaml
+- job_name: "printer"
   static_configs:
-    - targets: ['client:9100']  # Presuming the FQDN of the client is "client".
+    - targets:
+      - 192.168.1.2
+  metrics_path: /snmp
+  params:
+    module: [printer_mib]
+  relabel_configs:
+    # __param_target=__address__
+    - source_labels: [__address__]
+      target_label: __param_target
+    # instance=__param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      # snmp exporter 地址
+      replacement: 192.168.1.3:9116
+
 ```

@@ -32,3 +32,22 @@ proxy:
   username: [username]
   password: [password]
 ```
+
+## apis
+* [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api)
+
+```bash
+# docker hub 所有 tag
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/wener/base/tags?page_size=1024'|jq '."results"[].name'
+
+# 判断 tag 是否存在
+curl --silent -f -lSL https://index.docker.io/v1/repositories/wener/base/tags/latest > /dev/null
+
+# 判断是否支持 v2
+curl https://index.docker.io/v2/
+
+# 检测 tag 存在
+DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect wener/base:latest
+
+DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect registry.cn-shanghai.aliyuncs.com/gcr-sync/cadvisor_cadvisor:v0.36.0
+```

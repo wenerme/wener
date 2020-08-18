@@ -15,14 +15,39 @@ title: Vault
   * 便于撤销
 * 默认服务端口 8200
 * 支持多种授权方式
+  * AppRole
+  * alicloud
   * LDAP
   * GitHub
   * JWT/OIDC
   * RADIUS
   * Username/Password
   * Tokens
+  * Kubernetes
+  * Kerberos
 * 支持多种后端存储
+  * postgresql
+  * inmem
+  * file
+  * consul
 * 支持多种密钥引擎
+  * ad - Active Directory
+  * alicloud - 阿里云
+  * cubbyhole - token 独立空间 - 类似于 session/cookie
+  * consul
+  * 数据库
+    * cassandra
+    * elasticsearch
+    * mysql
+    * postgresql
+  * kv
+  * identity
+  * nomad
+  * openldap - LDAP v3
+  * pki
+  * ssh
+  * totp
+  * transit
 * 概念
   * 后端存储
     * 存储的是 Vault 的信息
@@ -45,7 +70,10 @@ brew instal vault
 # 启动开发模式的服务 - 用于本地实验
 # 会输出 root token - 用于登陆授权
 # unseal key
-vault server -dev
+# 固定 root token 方便调试
+vault server -dev -dev-root-token-id="root"
+export VAULT_ADDR='http://127.0.0.1:8200'
+vault plugin list
 
 # docker 启动 - 开发模式
 # VAULT_LOCAL_CONFIG 可以用 JSON 进行配置
@@ -272,3 +300,66 @@ vault write sys/plugins/catalog/secrets-gen \
 
 ## 配置
 * https://www.vaultproject.io/docs/configuration/
+
+```hcl
+# 存储
+storage "consul" {
+  address = "127.0.0.1:8500"
+  path    = "vault"
+  # token   = "abcd1234"
+}
+
+listener "tcp" {
+  address     = "127.0.0.1:8200"
+  tls_disable = 1
+}
+
+ui = true
+
+#telemetry {
+#  statsite_address = "127.0.0.1:8125"
+#  disable_hostname = true
+#}
+```
+
+```bash
+vault server -config=vault.hcl
+export VAULT_ADDR='http://127.0.0.1:8200'
+vault operator init
+# 输入指定次数 unseal token
+vault operator unseal
+# 使用 root token 登陆
+vault login
+```
+
+__consul.acl.json__
+
+```json
+{
+  "key_prefix": {
+    "vault/": {
+      "policy": "write"
+    }
+  },
+  "node_prefix": {
+    "": {
+      "policy": "write"
+    }
+  },
+  "service": {
+    "vault": {
+      "policy": "write"
+    }
+  },
+  "agent_prefix": {
+    "": {
+      "policy": "write"
+    }
+  },
+  "session_prefix": {
+    "": {
+      "policy": "write"
+    }
+  }
+}
+```
