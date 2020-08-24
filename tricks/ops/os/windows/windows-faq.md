@@ -14,3 +14,6 @@ title: Windows FAQ
   * 是一个私有软件应用
   * 是一个数据库，提高了认证，目录，策略等
   * 支持 LDAP 的方式进行交互
+
+# DC vs. AD - Domain Controllers vs. Active Directory
+* DC 提供 AD 服务

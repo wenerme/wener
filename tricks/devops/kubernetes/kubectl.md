@@ -28,6 +28,12 @@ kubens
 
 # K9S 所有命名空间 不显示头
 k9s -A --headless
+
+# 移除节点
+# https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+kubectl drain node-3 --delete-local-data --ignore-daemonsets --force
+# 保留节点在集群中 - 维护模式
+# kubectl uncordon node-3
 ```
 
 ## 端口映射

@@ -70,6 +70,24 @@ title: K3S
     * [#1768](https://github.com/rancher/k3s/pull/1768) - 默认使用 ClientCA 而不是 ServerCA
     * [自行创建脚本](https://github.com/rancher/k3s/issues/684#issuecomment-517501120)
   * 目前(1.18) admin 默认是密码 - [#1616](https://github.com/rancher/k3s/issues/1616) - 默认使用证书
+* 资源内存占用
+  * AlpineLinux - 50M 
+    * 显存 32M
+    * sshd,tincd,dbus
+  * dockerd - 97M + shim/8M
+  * containerd - 50M + shim/11M
+    * docker 也依赖 containerd
+  * server 550M
+    * `--disable=traefik，servicelb`
+    * server 也会启动 agent
+    * 容器
+      * metrics-server
+      * coredns
+      * local-path-provisioner
+  * agent 180M
+  * 运行基础服务 - ingress-nginx, metallb, cert-manager, kubernetes-dashboard
+    * server - 1G
+    * agent - 450M
 
 ```bash
 apk add util-linux
@@ -205,6 +223,16 @@ cat /opt/k3s/k3s-images.txt | xargs -n 1 docker pull
 
 k3s server --cluster-init --alsologtostderr --log $PWD/k3s-server.log --docker
 ```
+
+## containerd
+* 会生成配置
+  * /var/lib/rancher/k3s/agent/etc/containerd/config.toml
+  * 如果有 config.toml.tmpl 则会使用
+  * 默认模板 [templates.go#ContainerdConfigTemplate](https://github.com/rancher/k3s/blob/master/pkg/agent/templates/templates.go#L16-L72)
+* 没有 docker 可以少 80m 内存
+* 每个 containerd-shim 比 containerd-shim-runc-v2 少几 m 内存
+  * containerd-shim 是 docker 的
+  * containerd-shim-runc-v2 是 containerd 的
 
 ## registries
 * `/etc/rancher/k3s/registries.yaml`

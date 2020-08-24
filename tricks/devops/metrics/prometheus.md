@@ -275,3 +275,11 @@ scrape_configs:
       replacement: 192.168.1.3:9116
 
 ```
+
+# FAQ
+## Push vs Pull
+* Push
+  * IoT 场景
+  * 网络隔离场景
+  * 数据导入
+* [Pros/Cons of allowing push in Prometheus](https://docs.google.com/document/d/1H47v7WfyKkSLMrR8_iku6u9VB73WrVzBHb2SB6dL9_g)

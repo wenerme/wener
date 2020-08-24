@@ -10,7 +10,12 @@ title: Terraform
   * 本地或远程服务器执行特定动作
   * 用于准备服务或其他基础设施对象
   * 不建议使用，作为最后的方式
-
+* 注意
+  * Provider configurations can be defined only in a root Terraform module.
+  * 被调用模块不能定义 `provider`
+  * 0.10 旧的模块不支持 `for_each`, `count`, `depends_on`
+  * 移除 `provider` 之前确保所有资源删除
+  * 模块会集成默认 provider - 没有别名的 provider
 
 ```bash
 TERRAFORM_LOG=1 terraform apply
@@ -34,6 +39,27 @@ terraform {
 }
 ```
 
+## terraformrc
+* https://www.terraform.io/docs/commands/cli-config.html
+
+```bash
+cat <<HCL > ~/.terraformrc
+plugin_cache_dir   = "$HOME/.terraform.d/plugin-cache"
+disable_checkpoint = true
+
+provider_installation {
+  filesystem_mirror {
+    path    = "$HOME/.terraform.d/plugins"
+    include = ["terraform.wener.me/*/*","registry.terraform.io/*/*"]
+  }
+}
+HCL
+
+mkdir -p $HOME/.terraform.d/plugin-cache $HOME/.terraform.d/plugins
+
+# 在 tf 项目下运行
+terraform providers mirror ~/.terraform.d/plugins
+```
 
 ## 变量
 * 输入变量

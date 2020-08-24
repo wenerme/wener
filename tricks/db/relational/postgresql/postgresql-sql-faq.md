@@ -29,3 +29,46 @@ select * from json_each_text('{"a":1,"b":2}') as d;
 SELECT *
 FROM (VALUES (1, 'one'), (2, 'two'), (3, 'three')) AS t (num, letter);
 ```
+
+## 分组聚合
+* [cube](https://www.postgresql.org/docs/current/cube.html)
+* [GROUPING SETS, CUBE, ROLLUP](https://www.postgresql.org/docs/devel/queries-table-expressions.html#QUERIES-GROUPING-SETS)
+* `rollup(a,b,c)` => `grouping sets((a,b,c),(a,b),(a),())`
+* cube((a),(b),(c))  grouping sets((a,b,c),(a,b),(a,c),(a),(b,c),(b),(c),()) 
+
+```sql
+GROUP BY a, b, c
+-- 对等
+
+
+ROLLUP ( a, b , c)
+-- 对等
+GROUPING SETS (
+    ( a, b, c ),
+    ( a, b    ),
+    ( a       ),
+    (         )
+)
+
+CUBE ( a, b, c )
+-- 对等
+GROUPING SETS (
+    ( a, b, c ),
+    ( a, b    ),
+    ( a,    c ),
+    ( a       ),
+    (    b, c ),
+    (    b    ),
+    (       c ),
+    (         )
+)
+
+CUBE ( (a, b), (c, d) )
+-- 对等
+GROUPING SETS (
+    ( a, b, c, d ),
+    ( a, b       ),
+    (       c, d ),
+    (            )
+)
+```

@@ -1,3 +1,8 @@
+---
+id: consul
+title: Consul
+---
+
 # Consul
 
 ## Tips
@@ -10,10 +15,39 @@
   * DNS 8600
   * RPC 8400
   * HTTPS 默认没开启
+* 运行模式
+  * server
+    * 服务节点
+    * 一个 dc 不超过 5 个服务节点
+    * 参与 raft 一致性事务修改
+    * 与其他 dc 的网关进行 WAN gossip 通信
+    * 可转发 dc 流量
+  * agent
+    * 一般每个节点都会启动
+    * 与 server 通信
+    * 提供缓存、代理、节点监控
+  * bootstrap
+    * 启动模式
+    * 一个 dc 应该只有一个 server 节点以该模式运行
+    * 允许选举自己为主节点
+    * 集群启动后则不需要使用该模式
+    * 相当于 `bootstrap_expect` 为 1
 
 ```bash
+# alpine install
+# 3.12 还没有，需要从 edge 安装
+apk add -X https://mirrors.aliyun.com/alpine/edge/community/ consul
+
+# macOS install
+brew install consul
+
 # 启动
 consul agent -bootstrap -server -data-dir $PWD/data -bind 0.0.0.0 -advertise 127.0.0.1 -ui
+
+# 绑定动态地址
+# {{ GetPrivateInterfaces | include "network" "10.0.0.0/8" | attr "address" }}
+# {{ GetAllInterfaces | include "name" "^eth" | include "flags" "forwardable|up" | attr "address" }}
+consul agent -bind '{{ GetInterfaceIP "eth0" }}' -server -dev
 
 # Debug
 consul monitor --log-level=debug
@@ -55,6 +89,9 @@ echo '{"encrypt":"'$(consul keygen)'"}' > encrypt.json
 # 启动
 consul agent -config-dir /etc/consul
 ```
+
+## 选项
+* https://www.consul.io/docs/agent/options
 
 ## 操作
 
@@ -201,7 +238,7 @@ consul acl bootstrap
 {
   "acl":{
     // 启用 ACL
-    "enable": true,
+    "enabled": true,
     // 默认策略 - 默认为 allow
     "default_policy": "deny",
     "tokens": {
@@ -298,6 +335,155 @@ dig @127.0.0.1 -p 8600 consul.service.consul SRV
   ],
   "telemetry": {
      "statsite_address": "127.0.0.1:2180"
+  }
+}
+```
+
+## consul cluster
+* 三个 server，
+
+__consul.auto.tfvars.json__
+
+```json
+{
+  "consul": {
+    "datacenter": "wener",
+    "master_token": "<UUID>"
+  }
+}
+```
+
+__consul.tf__
+
+```hcl
+provider "docker" {}
+
+resource "docker_network" "service" {
+  name = "service"
+  check_duplicate = true
+}
+
+resource "docker_image" "consul" {
+  name = "consul:latest"
+  keep_locally = true
+}
+
+variable "consul" {}
+
+locals {
+  server_conf = {
+    datacenter: var.consul.datacenter
+    disable_update_check: true
+    disable_remote_exec: true
+    discard_check_output: true
+    acl: {
+      enabled: true
+      default_policy: "deny"
+      enable_token_persistence: true
+      tokens: {
+        master: var.consul.master_token
+      }
+    },
+    connect: {
+      enabled: true
+      enable_mesh_gateway_wan_federation: true
+    }
+  }
+}
+
+# config-dir /consul/config/
+# data-dir /consul/data/
+resource "docker_container" "consul_1" {
+  name  = "consul_1"
+  hostname  = "consul_1"
+  image = docker_image.consul.latest
+
+  upload {
+    file = "/consul/config/server.json"
+    content = jsonencode(local.server_conf)
+    source_hash = sha256(jsonencode(local.server_conf))
+  }
+
+  command = [
+    "agent", "-server",
+    "-advertise", "{{ GetInterfaceIP `eth0` }}",
+    "-bind", "0.0.0.0",
+    "-client", "0.0.0.0",
+    "-bootstrap-expect", "3",
+    "-ui",
+  ]
+  ports {
+    internal = 8500
+    external = 8500
+  }
+
+  networks_advanced {
+    name = "service"
+  }
+}
+
+resource "docker_container" "consul_2" {
+  name  = "consul_2"
+  hostname  = "consul_2"
+  image = docker_image.consul.latest
+  upload {
+    file = "/consul/config/server.json"
+    content = jsonencode(local.server_conf)
+    source_hash = sha256(jsonencode(local.server_conf))
+  }
+  command = [
+    "agent", "-server",
+    "-advertise", "{{ GetInterfaceIP `eth0` }}",
+    "-bind", "0.0.0.0",
+    "-client", "0.0.0.0",
+    "-retry-join","consul_1"
+  ]
+
+  networks_advanced {
+    name = "service"
+  }
+}
+
+resource "docker_container" "consul_3" {
+  name  = "consul_3"
+  hostname  = "consul_3"
+  image = docker_image.consul.latest
+  upload {
+    file = "/consul/config/server.json"
+    content = jsonencode(local.server_conf)
+    source_hash = sha256(jsonencode(local.server_conf))
+  }
+  command = [
+    "agent", "-server",
+    "-advertise", "{{ GetInterfaceIP `eth0` }}",
+    "-bind", "0.0.0.0",
+    "-client", "0.0.0.0",
+    "-retry-join","consul_1",
+    "-retry-join","consul_2",
+  ]
+
+  networks_advanced {
+    name = "service"
+  }
+}
+
+# agent
+resource "docker_container" "consul_4" {
+  name  = "consul_4"
+  hostname  = "consul_4"
+  image = docker_image.consul.latest
+  command = [
+    "agent",
+    "-advertise", "{{ GetInterfaceIP `eth0` }}",
+    "-bind", "0.0.0.0",
+    "-client", "0.0.0.0",
+    "-retry-join","consul_1",
+    "-retry-join","consul_2",
+    "-retry-join","consul_3",
+  ]
+
+  networks_advanced {
+    name = "service"
   }
 }
 ```

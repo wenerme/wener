@@ -210,6 +210,37 @@ Do NOT screenscrape this tool, we don't consider its output stable.
 iwconfig wlan0
 ```
 
+## iwd
+* [iwd](https://pkgs.alpinelinux.org/contents?branch=edge&name=iwd&arch=x86_64&repo=community)
+  * `/usr/libexec/iwd` - 守护进程
+  * /usr/libexec/ead -  Ethernet authentication daemon
+  * /usr/bin/iwmon - 监听 RF 包
+  * /usr/bin/iwctl - 通过 dbus 与 iwd 交互
+    * 设备有三种模式
+      * station
+      * ap
+      * ad-hoc
+        * [WANET](https://en.wikipedia.org/wiki/Wireless_ad_hoc_network)
+    * 三种模式分别使用相同名字的命令去控制
+
+```bash
+# 
+device list
+device wlan0 show
+device wlan0 set-property Powered on
+device wlan0 set-property Mode station
+
+station wlan0 scan
+# 连接 - 会提示输入密码
+station wlan0 connect <SSID>
+
+# 查看设备信息
+adapter list
+adapter wlan0 show
+# 查看连接过的网络
+# 可以设置 AutoConnect - 默认开启
+known-networks list
+```
 
 ## WPA_supplicant
 * [How to setup multiple WiFi networks?](https://raspberrypi.stackexchange.com/q/11631/38420)
@@ -337,6 +368,19 @@ MHz/c 通道宽度
 [Understanding WiFi Signal Strength](https://support.metageek.com/hc/en-us/articles/201955754-Understanding-WiFi-Signal-Strength)
 
 ## FAQ
+
+## adhoc vs ap
+* adhoc
+  * 没有接入点 - P2P - 点对点连接
+  * 每一个节点都相当于路由
+  * 类似于蓝牙
+  * 用于临时互联
+  * Wi-Fi Direct 基于 adhoc
+* ap - Infrastructure
+  * 桥接网络
+  * 工作性质类似于交换机
+  * 数据通过一个节点进行分发传输
+* [Wireless access point vs. ad hoc network](https://en.wikipedia.org/wiki/Wireless_access_point#Wireless_access_point_vs._ad_hoc_network)
 
 ### WiFi authentication times out
 * [WiFi authentication times out](https://superuser.com/questions/911635)

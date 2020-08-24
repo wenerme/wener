@@ -363,3 +363,13 @@ __consul.acl.json__
   }
 }
 ```
+
+## secret engine
+### consul
+```bash
+vault secrets enable consul
+
+vault write consul/config/access \
+    address=127.0.0.1:8500 \
+    token=E2A500CD-0599-409E-949B-E321135FAAD5
+```

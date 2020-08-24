@@ -77,7 +77,7 @@ stringData:
 
 # letsencrypt staging 环境
 apiVersion: cert-manager.io/v1alpha2
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
   namespace: default

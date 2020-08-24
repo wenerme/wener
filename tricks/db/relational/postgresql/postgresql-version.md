@@ -50,6 +50,7 @@ title: 版本历史
   * `reindexdb --jobs` - 并行重新索引
 * 额外模块
   * 可信扩展 - 指定允许普通用户安装的扩展
+    * 之前只有 superuser 能安装
   * 允许非特权用户不带密码连接 `postgres_fdw`
     * 通过 `alter user mapping xxx set password_required false` 禁用
 
@@ -107,6 +108,7 @@ create table test(
   name_upper text generated always as upper(name) stored
 );
 ```
+
 ## 11
 * [POSTGRESQL 11 BETA 1 RELEASED!](https://www.postgresql.org/about/news/1855/)
   * [HN](https://news.ycombinator.com/item?id=17144221)
