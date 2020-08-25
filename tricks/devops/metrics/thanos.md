@@ -1,3 +1,8 @@
+---
+id: thanos
+title: Thanos
+---
+
 # Thanos
 ## Tips
 * 多租户方案

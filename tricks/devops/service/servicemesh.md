@@ -58,3 +58,18 @@ title: Service Mesh
     * Traffic Specs
     * Traffic Split
   * [Service Mesh Comparison](https://servicemesh.es/)
+
+## Notes
+* Service Mesh 的结构都是 CP+DP
+* DP 为应用的 Sidecar
+* Service Mesh 就是将应用通信网络层的基础功能抽象为 DP
+  * 服务发现 - 如何请求 服务 A
+  * 日志
+  * 跟踪
+  * 服务权限
+  * 指标监控
+  * 例如 dubbo RPC 中关于客户端与注册中心通信这部分功能
+* Service Mesh 的 Service 是应用纬度，不是 `me.wener.test.PingService` 这样的接口纬度
+* 面向 Service 更像是面向 Dataplane
+* 要求平坦的网络结构 - 节点互通
+* Dataplane 类似一个节点的网关，处理所有的出入流量

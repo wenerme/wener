@@ -1,6 +1,58 @@
+---
+id: asterisk-moduls 
+title: Asterisk Modules
+---
+
 # Asterisk Modules
 
 ## Tips
+
+```bash
+asterisk -x 'module show'
+```
+
+## res_statsd
+* [Integrating Asterisk with StatsD](https://www.asterisk.org/integrating-asterisk-with-statsd/)
+* [Utilizing the StatsD Dialplan Application](https://wiki.asterisk.org/wiki/display/AST/Utilizing+the+StatsD+Dialplan+Application)
+* [res/res_endpoint_stats.c](https://github.com/asterisk/asterisk/blob/master/res/res_endpoint_stats.c)
+
+__statsd.conf__
+
+```ini
+[general]
+# 是否启用 statsd 指标
+enabled = yes
+# statsd 服务端地址
+# server[:port] - 默认端口 8125
+server = 127.0.0.1
+# 指标前缀 - 如果有多个实例则建议添加
+prefix = ast-1
+# 添加换行
+# 方便使用 nc -lu 8125 测试时
+;add_newline = no
+```
+
+```
+ast-1.PJSIP.contacts.1876;@47519c5004a0a52468bd2e1570095db4.rtt:19|ms
+ast-1.PJSIP.contacts.states.Created:+1|g
+ast-1.PJSIP.contacts.states.Created:-1|g
+ast-1.PJSIP.contacts.states.Reachable:+1|g
+```
+
+[statsd_exporter](https://github.com/prometheus/statsd_exporter) 映射规则
+
+```yaml
+mappings:
+- match: "([^.]+)[.]PJSIP[.]contacts[.]([^;]+)(;[^.]*)?[.]rtt"
+  match_type: regex
+  name: "pjsip_contacts_rtt"
+  labels:
+    asterisk: "$1"
+    conact: "$2"
+```
+
+## res_prometheus
+* [res/res_prometheus.c](https://github.com/asterisk/asterisk/blob/master/res/res_prometheus.c)
 
 ## res_snmp
 * [Asterisk SNMP Support](https://wiki.asterisk.org/wiki/display/AST/Simple+Network+Management+Protocol+%28SNMP%29+Support)

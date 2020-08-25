@@ -66,6 +66,26 @@ module.exports = {
         items: [
           'devops/metrics/metrics',
           'devops/metrics/prometheus',
+          'devops/metrics/promql',
+          'devops/metrics/prometheus-exporter',
+          'devops/metrics/statsd_exporter',
+          'devops/metrics/prometheus-k8s',
+          'devops/metrics/grafana',
+          'devops/metrics/thanos',
+          'devops/metrics/cortex',
+        ],
+      },
+      {
+        type: 'category',
+        label: '服务',
+        items: [
+          'devops/service/microservices',
+          'devops/service/servicemesh',
+          'devops/service/linkerd',
+          'devops/service/kuma',
+          'devops/service/consul',
+          'devops/service/consul-conf',
+          'devops/service/consul-connect',
         ],
       },
       {
@@ -486,6 +506,7 @@ module.exports = {
         'items': [
           'voip/asterisk/intro',
           'voip/asterisk/version',
+          'voip/asterisk/asterisk-moduls',
           'voip/asterisk/dev',
           'voip/asterisk/conf',
           'voip/asterisk/dialplan',

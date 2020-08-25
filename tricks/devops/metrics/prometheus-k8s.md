@@ -1,3 +1,8 @@
+---
+id: prometheus-k8s
+title: Prometheus K8S
+---
+
 # Prometheus K8S
 ## Tips
 * [metrics-server](https://github.com/kubernetes-sigs/metrics-server)
@@ -7,6 +12,8 @@
   * 使用极少的资源 -  0.5m CPU, 4 MB 每节点
 * [kubernetes-monitoring/kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin)
   * Grafana dashboards and Prometheus alerts for Kubernetes.
+* [kubernetes/kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+  * Add-on agent to generate and expose cluster-level metrics.
 
 ## kubernetes_sd_config
 * [kubernetes_sd_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config)
@@ -40,3 +47,4 @@
 ## stable/prometheus-operator
 * helm [stable/prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator)
 * 类似于 kube-prometheus，但通过 helm 安装
+* 更新维护较慢

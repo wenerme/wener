@@ -1,3 +1,8 @@
+---
+id: prometheus-exporter
+title: Prometheus Exporter
+---
+
 # Prometheus Exporter
 
 ## Tips
