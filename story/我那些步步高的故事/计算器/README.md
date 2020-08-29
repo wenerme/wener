@@ -9,8 +9,8 @@ date: 2011-03-11 13:44:00
 ---
 
 
-![黑色主题截图](http://upload.eebbk.net/UploadFile/2011-3/201131223455072125.gif)
-![蓝色主题截图](http://upload.eebbk.net/UploadFile/2011-3/20113122346761807.gif)
+![黑色主题截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E8%AE%A1%E7%AE%97%E5%99%A8/Cal.gif)
+![蓝色主题截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E8%AE%A1%E7%AE%97%E5%99%A8/B_Cal.gif)
 
 原帖[链接](http://club.eebbk.com/bbkbbs/showtopic/255060/1)
 
