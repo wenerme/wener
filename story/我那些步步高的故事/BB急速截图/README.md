@@ -8,7 +8,7 @@ tags:
 date: 2011-03-22 1:56:00
 ---
 
-![运行截图](http://upload.eebbk.net/UploadFile/2011-3/201132713331481771.gif)
+![运行截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/BB%E6%80%A5%E9%80%9F%E6%88%AA%E5%9B%BE/%E6%88%AA%E5%9B%BE.gif)
 
 原帖[链接](http://club.eebbk.com/bbkbbs/showtopic/255787/1)
 
