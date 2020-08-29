@@ -12,7 +12,7 @@ date: 2011-02-04 02:21:00
 
 原帖子[链接](http://club.eebbk.com/bbkbbs/showtopic/252670/1)
 
-![游戏截图](http://upload.eebbk.net/UploadFile/2011-2/20112426037026.gif "运行效果")
+![游戏截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE/%E8%B6%A3%E5%91%B3%E6%8B%BC%E5%9B%BE.gif "运行效果")
 
 <!-- more -->
 
