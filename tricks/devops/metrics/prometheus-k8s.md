@@ -31,6 +31,7 @@ title: Prometheus K8S
   * 通过 CRD 来部署管理 Prometheus，Alertmanager 等组件
   * 简化配置 - versions, persistence, retention policies, replicas 
   * Prometheus Target 配置 - 自动监控目标配置 - 通过 annotation 发现
+* 之前是 coreos/prometheus-operator，自 0.41 开始去 coreos，移到独立组织 prometheus-operator 下
 
 ## kube-prometheus
 * 通过 jsonet 定制化和安装
@@ -48,3 +49,37 @@ title: Prometheus K8S
 * helm [stable/prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator)
 * 类似于 kube-prometheus，但通过 helm 安装
 * 更新维护较慢
+  * 目前还是基于 coreos/prometheus-operator 0.38
+* 内容
+  * stable/kube-state-metrics
+  * stable/prometheus-node-exporter
+  * stable/grafana
+  * alertmanager
+* 默认导入 [kubernetes-monitoring/kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin) 图表
+
+## stable/prometheus
+* 单纯部署 prometheus
+* 包含
+  * alertmanager
+  * node-exporter
+  * pushgateway
+  * configmap-reload - https://github.com/jimmidyson/configmap-reload
+  * kube-state-metrics
+* Pod 注解
+  * prometheus.io/scrape: "true"
+  * prometheus.io/path: /metrics
+  * prometheus.io/port: "8080"
+* prometheus 默认 `--storage.tsdb.retention.time` 15d
+
+```yaml
+server:
+  persistentVolume:
+    enabled: false
+  global:
+    scrape_interval: 10s
+
+alertmanager:
+  enabled: false
+pushgateway:
+  enabled: false
+```

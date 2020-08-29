@@ -1,3 +1,8 @@
+---
+id: cortex
+title: Cortex
+---
+
 # cortex
 ## Tips
 * [cortexproject/cortex](https://github.com/cortexproject/cortex)

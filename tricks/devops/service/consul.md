@@ -6,32 +6,38 @@ title: Consul
 # Consul
 
 ## Tips
-* [Consul 手册](https://www.consul.io/docs/guides/)
-* 环境变量
-  * CONSUL_HTTP_ADDR
-  * CONSUL_HTTP_TOKEN
-* 端口
-  * HTTP 8500
-  * DNS 8600
-  * RPC 8400
-  * HTTPS 默认没开启
-* 运行模式
-  * server
-    * 服务节点
-    * 一个 dc 不超过 5 个服务节点
-    * 参与 raft 一致性事务修改
-    * 与其他 dc 的网关进行 WAN gossip 通信
-    * 可转发 dc 流量
-  * agent
-    * 一般每个节点都会启动
-    * 与 server 通信
-    * 提供缓存、代理、节点监控
-  * bootstrap
-    * 启动模式
-    * 一个 dc 应该只有一个 server 节点以该模式运行
-    * 允许选举自己为主节点
-    * 集群启动后则不需要使用该模式
-    * 相当于 `bootstrap_expect` 为 1
+
+- [Consul 手册](https://www.consul.io/docs/guides/)
+- 端口
+  - HTTP 8500
+  - HTTPS 8501 - 默认没开启
+  - gRPC 8502
+  - DNS 8600
+  - RPC 8400
+- 运行模式
+  - server
+    - 服务节点
+    - 一个 dc 不超过 5 个服务节点
+    - 参与 raft 一致性事务修改
+    - 与其他 dc 的网关进行 WAN gossip 通信
+    - 可转发 dc 流量
+  - agent
+    - 一般每个节点都会启动
+    - 与 server 通信
+    - 提供缓存、代理、节点监控
+  - bootstrap
+    - 启动模式
+    - 一个 dc 应该只有一个 server 节点以该模式运行
+    - 允许选举自己为主节点
+    - 集群启动后则不需要使用该模式
+    - 相当于 `bootstrap_expect` 为 1
+
+| env                    | default               | desc            |
+| ---------------------- | --------------------- | --------------- |
+| CONSUL_HTTP_ADDR       | http://127.0.0.1:5800 |
+| CONSUL_HTTP_TOKEN      |
+| CONSUL_HTTP_TOKEN_FILE |                       | HTTP Basic auth |
+| CONSUL_GRPC_ADDR       | 127.0.0.1:8502        | envoy 集成需要  |
 
 ```bash
 # alpine install
@@ -51,6 +57,10 @@ consul agent -bind '{{ GetInterfaceIP "eth0" }}' -server -dev
 
 # Debug
 consul monitor --log-level=debug
+
+# 注销服务
+curl -v -X PUT http://localhost:8500/v1/agent/service/deregister/web-test
+consul services deregister -id web-test
 ```
 
 ## 快速开始
@@ -91,7 +101,8 @@ consul agent -config-dir /etc/consul
 ```
 
 ## 选项
-* https://www.consul.io/docs/agent/options
+
+- https://www.consul.io/docs/agent/options
 
 ## 操作
 
@@ -104,6 +115,7 @@ killall -HUP consul
 ## 配置
 
 ### 最小服务配置
+
 ```json
 {
   "data_dir": "/var/consul",
@@ -116,9 +128,10 @@ killall -HUP consul
 ```
 
 ### 服务定义
-* [Services](https://www.consul.io/docs/agent/services.html)
 
-__定义单个服务__
+- [Services](https://www.consul.io/docs/agent/services.html)
+
+**定义单个服务**
 
 ```json
 {
@@ -135,14 +148,11 @@ __定义单个服务__
 }
 ```
 
-__定义多个服务__
+**定义多个服务**
 
 ```json
 {
-  "services":[
-    {"name":"svc-a"},
-    {"name":"svc-b"},
-  ]
+  "services": [{ "name": "svc-a" }, { "name": "svc-b" }]
 }
 ```
 
@@ -211,32 +221,31 @@ docker run -d --name=node0 consul agent -server -client=0.0.0.0 -node=node0 -boo
 docker run -d --name=node1 consul agent -client=0.0.0.0 -node=node1 -bind=172.17.0.3 -data-dir=/tmp/consul -join=172.17.0.2
 ```
 
-
 ## ACL
-* https://learn.hashicorp.com/consul/security-networking/production-acls
-* ACL 可控制的资源主要有
-  * agent	Utility operations in the Agent API, other than service and check registration
-  * event	Listing and firing events in the Event API
-  * key	Key/value store operations in the KV Store API
-  * keyring	Keyring operations in the Keyring API
-  * node	Node-level catalog operations in the Catalog API, Health API, Prepared Query API, Network Coordinate API, and Agent API
-  * operator	Cluster-level operations in the Operator API, other than the Keyring API
-  * query	Prepared query operations in the Prepared Query API
-  * service	Service-level catalog operations in the Catalog API, Health API, Prepared Query API, and Agent API
-  * session	Session operations in the Session API
-* 内建策略
-  * global-management
-    * 用于全局管理
-* [操作需要的权限](https://learn.hashicorp.com/consul/security-networking/managing-acl-policies#required-privileges-for-datacenter-operations)
+
+- https://learn.hashicorp.com/consul/security-networking/production-acls
+- ACL 可控制的资源主要有
+  - agent Utility operations in the Agent API, other than service and check registration
+  - event Listing and firing events in the Event API
+  - key Key/value store operations in the KV Store API
+  - keyring Keyring operations in the Keyring API
+  - node Node-level catalog operations in the Catalog API, Health API, Prepared Query API, Network Coordinate API, and Agent API
+  - operator Cluster-level operations in the Operator API, other than the Keyring API
+  - query Prepared query operations in the Prepared Query API
+  - service Service-level catalog operations in the Catalog API, Health API, Prepared Query API, and Agent API
+  - session Session operations in the Session API
+- 内建策略
+  - global-management
+    - 用于全局管理
+- [操作需要的权限](https://learn.hashicorp.com/consul/security-networking/managing-acl-policies#required-privileges-for-datacenter-operations)
 
 ```bash
 consul acl bootstrap
 ```
 
-
 ```json
 {
-  "acl":{
+  "acl": {
     // 启用 ACL
     "enabled": true,
     // 默认策略 - 默认为 allow
@@ -272,6 +281,7 @@ service_prefix "" {
 ```
 
 #### 只读策略
+
 ```hcl
 node_prefix "" {
   policy = "read"
@@ -288,6 +298,7 @@ key_prefix "" {
 ```
 
 #### registrator
+
 ```hcl
 service_prefix "" {
   policy = "write"
@@ -309,10 +320,11 @@ node {
 ```
 
 ### DNS
-* 节点 `<node>.node[.datacenter].<domain>`
-* 服务 `[tag.]<service>.service[.datacenter].<domain>`
-* RFC 2782 `_<service>._<protocol>[.service][.datacenter][.domain]`
-* 预定义查询 `<query or name>.query[.datacenter].<domain>`
+
+- 节点 `<node>.node[.datacenter].<domain>`
+- 服务 `[tag.]<service>.service[.datacenter].<domain>`
+- RFC 2782 `_<service>._<protocol>[.service][.datacenter][.domain]`
+- 预定义查询 `<query or name>.query[.datacenter].<domain>`
 
 ```bash
 dig @127.0.0.1 -p 8600 consul.service.consul SRV
@@ -340,9 +352,10 @@ dig @127.0.0.1 -p 8600 consul.service.consul SRV
 ```
 
 ## consul cluster
-* 三个 server，
 
-__consul.auto.tfvars.json__
+- 三个 server，
+
+**consul.auto.tfvars.json**
 
 ```json
 {
@@ -353,7 +366,7 @@ __consul.auto.tfvars.json__
 }
 ```
 
-__consul.tf__
+**consul.tf**
 
 ```hcl
 provider "docker" {}
@@ -498,19 +511,21 @@ go get -u github.com/hashicorp/go-sockaddr/cmd/sockaddr
 ```
 
 ### dropping node "consul" from result due to ACLs
-* DNS 查询时出现
-* 允许匿名访问 service
+
+- DNS 查询时出现
+- 允许匿名访问 service
 
 ### autopilot: Failed to remove dead servers: too many dead servers: 1/1
 
 ### 将 docker 暴露到 consul
-* [gliderlabs/registrator](https://github.com/gliderlabs/registrator)
-* 配置项
-  * 标示 SERVICE_ID - 默认是 主机名:服务名:端口
-  * 名字 SERVICE_NAME
-  * 忽略 SERVICE_IGNORE
-  * 标签 SERVICE_TAGS=master,backups
-  * 属性 SERVICE_xxoo=abc 会记录到服务属性
+
+- [gliderlabs/registrator](https://github.com/gliderlabs/registrator)
+- 配置项
+  - 标示 SERVICE_ID - 默认是 主机名:服务名:端口
+  - 名字 SERVICE_NAME
+  - 忽略 SERVICE_IGNORE
+  - 标签 SERVICE_TAGS=master,backups
+  - 属性 SERVICE_xxoo=abc 会记录到服务属性
 
 ```bash
 # master 为最新 - latest 为 4 年前最后版本

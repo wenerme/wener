@@ -77,11 +77,11 @@ title: Kuma
 - 参考
   - [Webinar: Kuma: Service Mesh and the Future of Application Connectivity](https://www.youtube.com/watch?v=Bu0-y9h8V5w)
 
+## kuma k8s
 ```bash
 brew install kumactl
 
 ver=0.7.1
-
 # 使用私有仓库
 # registry-vpc.cn-hongkong.aliyuncs.com/cmi
 cat <<IMAGES | xargs -n1 -I {} sh -c 'docker pull kong-docker-kuma-docker.bintray.io/{}; docker tag kong-docker-kuma-docker.bintray.io/{} registry-vpc.cn-hongkong.aliyuncs.com/cmi/{}; docker push registry-vpc.cn-hongkong.aliyuncs.com/cmi/{}'
@@ -99,6 +99,7 @@ IMAGES
 # kong-docker-kuma-docker.bintray.io/kuma-prometheus-sd:0.7.1
 # kong-docker-kuma-docker.bintray.io/kuma-init:0.7.1
 
+# 默认安装到 kuma-system
 # --control-plane-version 0.7.1
 # --control-plane-image kong-docker-kuma-docker.bintray.io/kuma-cp
 # --dataplane-image kong-docker-kuma-docker.bintray.io/kuma-dp
@@ -108,25 +109,151 @@ kumactl install control-plane \
   --dataplane-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-dp \
   --dataplane-init-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-init \
   --control-plane-version 0.7.1 | kubectl apply -f -
+
+kubectl port-forward svc/kuma-control-plane -n kuma-system 5681:5681
+
+echo "
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-demo
+  labels:
+    app: nginx-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-demo
+  template:
+    metadata:
+      name: nginx-demo
+      labels:
+        app: nginx-demo
+      annotations:
+        kuma.io/direct-access-services: '*'
+        kuma.io/mesh: default
+        kuma.io/sidecar-injected: 'true'
+        kuma.io/transparent-proxying: enabled
+        kuma.io/transparent-proxying-inbound-port: '15006'
+        kuma.io/transparent-proxying-outbound-port: '15001'
+    spec:
+      containers:
+      - name: nginx-demo
+        image: nginx:alpine
+        ports:
+        - containerPort: 80" | kubectl apply -f -
+
+echo "
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-demo
+  namespace: default
+  annotations:
+    80.service.kuma.io/protocol: http
+    ingress.kubernetes.io/service-upstream: 'true'
+spec:
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80" | kubectl apply -f -
+
+# 空间添加注入
+echo "apiVersion: v1
+kind: Namespace
+metadata: 
+  name: default
+  namespace: default
+  labels: 
+    kuma.io/sidecar-injection: enabled
+    kuma.io/mesh: default" | kubectl apply -f - && kubectl delete pod --all -n default
+
+# default mesh 启用 mtls
+echo "apiVersion: kuma.io/v1alpha1
+kind: Mesh
+metadata:
+  name: default
+spec:
+  mtls:
+    enabledBackend: ca-1
+    backends:
+    - name: ca-1
+      type: builtin" | kubectl apply -f -
+
+# metrics
+kumactl install metrics \
+  --kuma-prometheus-sd-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-prometheus-sd \
+  --kuma-prometheus-sd-version 0.7.1 | kubectl apply -f -
+
+echo "apiVersion: kuma.io/v1alpha1
+kind: Mesh
+metadata:
+  name: default
+spec:
+  mtls:
+    enabledBackend: ca-1
+    backends:
+    - name: ca-1
+      type: builtin
+  metrics:
+    enabledBackend: prometheus-1
+    backends:
+    - name: prometheus-1
+      type: prometheus" | kubectl apply -f -
+
+kubectl port-forward svc/grafana -n kuma-metrics 3000:80
+```
+
+### 卸载
+```bash
+kumactl install metrics \
+  --kuma-prometheus-sd-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-prometheus-sd \
+  --kuma-prometheus-sd-version 0.7.1 | kubectl delete -f -
+
+kumactl install control-plane \
+  --control-plane-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-cp \
+  --dataplane-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-dp \
+  --dataplane-init-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-init \
+  --control-plane-version 0.7.1 | kubectl delete -f -
 ```
 
 ## docker
+* 单 docker 部署
+* 类似于 vm 部署
+* multi-zone 模式
+
 ```bash
+# 构建环境
+# ==========
+docker run -u $(id -u) --rm -it -v $PWD:/host kong-docker-kuma-docker.bintray.io/kumactl:0.7.1 cp /usr/bin/kumactl /host
+docker run -u $(id -u) --rm -it -v $PWD:/host --entrypoint sh kong-docker-kuma-docker.bintray.io/kuma-cp:0.7.1 -c 'cp /usr/bin/kuma-cp /host'
+
+cat <<EOF > Dockerfile
+FROM kong-docker-kuma-docker.bintray.io/kuma-dp:0.7.1
+
+COPY kumactl /usr/bin/
+COPY kuma-cp /usr/bin/
+
+ENTRYPOINT [ "/bin/sh" ]
+EOF
+
+docker build -t kuma .
+
 # http://localhost:5681/gui/
 docker run --rm -it \
   -p 5681:5681 \
-  --name kuma-cp kong-docker-kuma-docker.bintray.io/kuma-cp:0.7.1 run
+  -p 8080:8080 \
+  -w /tmp/kuma \
+  -u 0 \
+  --name kuma kuma
 
-docker run -u $(id -u) --rm -it -v $PWD:/host kong-docker-kuma-docker.bintray.io/kumactl:0.7.1 cp /usr/bin/kumactl /host
-docker cp kumactl kuma-cp:/usr/bin/kumactl
+# 启动 kuma
+kuma-cp run &
 
-# envoy 无法直接在 alpine 上运行 - 依赖 glibc
-# /usr/bin/envoy
-# docker run -u $(id -u) --rm -it -v $PWD:/host --entrypoint sh kong-docker-kuma-docker.bintray.io/kuma-dp:0.7.1 -c 'cp $(which kuma-dp) /host'
-# docker cp kuma-dp kuma-cp:/usr/bin/kuma-dp
+kumactl get meshes
 
-# as root user
-alias kumactl="docker exec -u 0 -i kuma-cp kumactl"
 # enable mtls
 echo "type: Mesh
 name: default
@@ -148,6 +275,28 @@ destinations:
   - match:
       kuma.io/service: '*'
 EOF
+
+# create dp
+echo "type: Dataplane
+mesh: default
+name: web-dp
+networking:
+  address: 127.0.0.1
+  inbound:
+    - port: 80
+      servicePort: 8080
+      tags:
+        kuma.io/service: web
+        kuma.io/protocol: http" | kumactl apply -f -
+# generate dp token
+kumactl generate dataplane-token --dataplane=web-dp > kuma-token-web-dp
+
+# start dp
+kuma-dp run --name web-dp --mesh=default --dataplane-token-file=kuma-token-web-dp
+```
+
+## kumactl
+```bash
 #
 cat <<EOF | kumactl apply -f -
 type: Mesh
@@ -163,29 +312,6 @@ metrics:
   - name: prometheus-1
     type: prometheus
 EOF
-
-# create dp
-echo "type: Dataplane
-mesh: default
-name: web-dp
-networking:
-  address: 192.168.1.1
-  inbound:
-    - port: 80
-      servicePort: 8080
-      tags:
-        kuma.io/service: web
-        kuma.io/protocol: http" | kumactl apply -f -
-# generate dp token
-kumactl generate dataplane-token --dataplane=web-dp > kuma-token-web-dp
-
-# start dp
-# -e KUMA_CONTROL_PLANE_API_SERVER_URL=http://172.17.0.2:5681 \
-docker run --rm -it \
-  -p 8080:8080 \
-  -v $PWD:/host \
-  --name kuma-dp kong-docker-kuma-docker.bintray.io/kuma-dp:0.7.1 \
-  run --cp-address http://172.17.0.2:5681 --name web-dp --dataplane-token-file=/host/kuma-token-web-dp
 ```
 
 ## 证书配置

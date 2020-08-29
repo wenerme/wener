@@ -23,6 +23,15 @@ https://github.com/OpenObservability/OpenMetrics
 - Prometheus vs TICK
   - Pull vs Push
 - [prometheus/pushgateway](https://github.com/prometheus/pushgateway)
+- 磁盘空间
+  - `needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample`
+    - bytes_per_sample 一般为 1、2 bytes
+    - `--storage.tsdb.retention.time` 默认 15d
+    - node_exporter 大约 3000 指标
+    - scrape_interval 15s
+    - `(3000/15*2 * 15*24*60*60) /1000/1000 = 518M`
+- 参考
+  - https://www.robustperception.io/configuring-prometheus-storage-retention
 
 ```bash
 # 安装

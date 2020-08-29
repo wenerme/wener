@@ -5,6 +5,30 @@ title: Linkerd
 
 # Linkerd
 ## Tips
+* 优势
+  * linkerd2-proxy
+    * 非常轻量快速
+  * top/tap/routes
+    * 已经包含了用于快速调试和检查流量的功能
+  * prometheus/grafana - 内建集成
+* 劣势
+  * linkerd2-proxy
+    * 针对性开发 - 功能相对简单
+    * 不能支持类似 envoy、nginx 之类的协议层基础功能
+  * 不支持 Circuit Breaker
+  * 不支持 Auth
+  * CP 不能管理多集群
+  * 不支持 Service-to-Service 授权
+  * 不支持 Header 路由
+    * [#3165](https://github.com/linkerd/linkerd2/issues/3165)
+* 问题
+  * [linkerd/linkerd2#3403](https://github.com/linkerd/linkerd2/issues/3403) - Injected nginx ingress controller doesn't have access to the remote client IP
+  * [linkerd/linkerd2#3207](https://github.com/linkerd/linkerd2/issues/3207) - TCP mTLS
+  * [linkerd/linkerd2#2846](https://github.com/linkerd/linkerd2/issues/2846) - Circuit Breaker
+  * [linkerd/linkerd2#3165](https://github.com/linkerd/linkerd2/issues/3165) - Header based routing 
+* 注意
+  * linkerd2 相对较新，功能上可能还有缺失
+  * Prometheus 可能会占用较多资源，可以使用外部实例 - [#2980](https://github.com/linkerd/linkerd2/issues/2980)
 * [架构](https://linkerd.io/2/reference/architecture/)
   * 组件
     * cp
@@ -112,6 +136,8 @@ title: Linkerd
   * deploy/linkerd-grafana
     * svc/linkerd-grafana
     * cm/linkerd-grafana-config
+* 参考
+  * [Linkerd v2: How Lessons from Production Adoption Resulted in a Rewrite of the Service Mesh](https://www.infoq.com/articles/linkerd-v2-production-adoption/)
 
 ```bash
 brew install linkerd
@@ -148,4 +174,176 @@ linkerd install --disable-heartbeat --registry registry.cn-hongkong.aliyuncs.com
 linkerd install | grep 'image: ' | sed -r 's/\s*image:\s*(.*)/\1/' | sort -u
 
 linkerd install | grep 'image: ' | sed -r 's/\s*image:\s*(.*)/\1/' | sort -u | xargs -n 1 -I {} echo A {} B
+```
+
+## 实验
+
+```bash
+cat <<YAML | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine
+  namespace: default
+  annotations:
+    linkerd.io/inject: enabled
+spec:
+  containers:
+  - name: alpine
+    image: wener/base
+    command:
+    - tail
+    args:
+    - -f
+    - /dev/null
+YAML
+```
+
+## Service Profile
+* https://linkerd.io/2/reference/service-profiles/
+
+```bash
+# linkerd 内部的 sp 定义
+linkerd install-sp
+
+# 有 sp 信息的会附加 rt_route 到指标
+linkerd tap -o wide <target> | grep req | grep -v rt_route
+
+
+# 检测流量生成 profile
+linkerd profile -n emojivoto web-svc --tap deploy/web --tap-duration 10s
+# 通过 pb 生成
+linkerd profile --proto web.proto web-svc
+# 通过 swagger 生成
+linkerd profile --open-api webapp.swagger webapp
+```
+
+```yaml
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: nginx-demo.default.svc.cluster.local
+  namespace: default
+spec:
+  routes:
+  - name: me.wener.apis.test.PingService#ping
+    condition:
+      method: POST
+      pathRegex: /api/service/me.wener.apis.test.PingService/ping
+    isRetryable: true
+    timeout: 3s
+    responseClasses:
+    - condition:
+        not:
+          status:
+            min: 200
+            max: 399
+      isFailure: true
+  - name: me.wener.apis.test.PingService
+    condition:
+      method: POST
+      pathRegex: /api/service/me.wener.apis.test.PingService/.*
+    isRetryable: false
+  retryBudget:
+    # 最多有 20% 被重试
+    retryRatio: 0.2
+    # 允许的每秒重试次数
+    minRetriesPerSecond: 10
+    # 计算 retryRatio 的时间窗口
+    ttl: 10s
+```
+
+## tracing
+* [Distributed tracing with Linkerd](https://linkerd.io/2/tasks/distributed-tracing/)
+* [Distributed tracing in the service mesh: four myths](https://linkerd.io/2019/08/09/service-mesh-distributed-tracing-myths/)
+  * 并不需要跟踪 检测 监控、延时、吞吐
+  * 并不需要跟踪 才知道服务之间的调用依赖关系
+  * 想要知道时间片段里的调用关系必须要修改代码
+* linkerd 有类似 tracing 的功能
+  * tap
+  * top
+  * service profile
+  * 服务拓扑
+* 注意
+  * Linkerd 使用 [openzipkin/b3-propagation](https://github.com/openzipkin/b3-propagation) 格式
+  * `OpenCensus` 支持环境变量 `OC_AGENT_HOST=linkerd-collector.linkerd:55678`
+  * 如果要使用 Tracing 则一定要对 Ingress 也开启，因为 Ingress 会创建最开始的 Span
+
+
+```bash
+cat << EOF >> config.yaml
+tracing:
+  enabled: true
+EOF
+# 部署
+# linker-collector 
+# linkerd-jaeger
+linkerd upgrade --addon-config config.yaml | kubectl apply -f -
+
+kubectl -n linkerd rollout status deploy/linkerd-collector
+kubectl -n linkerd rollout status deploy/linkerd-jaeger
+
+# POD Annotation
+# config.linkerd.io/trace-collector: linkerd-collector.linkerd:55678
+# config.alpha.linkerd.io/trace-collector-service-account: linkerd-collector
+
+# 设置环境变量支持
+kubectl -n emojivoto set env --all deploy OC_AGENT_HOST=linkerd-collector.linkerd:55678
+
+kubectl -n linkerd port-forward svc/linkerd-jaeger 16686
+```
+
+## 代理配置
+* [Proxy Configuration](https://linkerd.io/2/reference/proxy-configuration/)
+
+## addons
+* [Enabling Add-Ons](https://linkerd.io/2/tasks/enabling-addons/)
+
+```yaml
+tracing:
+  enabled: true
+  collector:
+    resources:
+      cpu:
+        limit: 100m
+        request: 10m
+      memory:
+        limit: 100Mi
+        request: 50Mi
+```
+
+## linker1 配置
+* dtabs - delegate tables — a backtracking, hierarchical, suffix-preserving routing language used by Finagle
+* https://api.linkerd.io/head/linkerd/index.html
+
+```yaml
+# 名字 -> 地址
+namers:
+# Consul 服务发现
+# /svc => /#/io.l5d.consul/dc1/prod;
+- kind: io.l5d.consul
+  # 直接访问服务 - 如果访问 agent 则是 $HOST_IP:8500
+  host: consul-server.consul
+  port: 8500
+  # token:
+  includeTag: true
+  useHealthCheck: false
+  healthStatuses:
+    - "passing"
+    - "warning"
+  setHost: true
+  consistencyMode: stale
+  # 通过 tag 关联权重
+  weights:
+   - tag: experimental
+     weight: 0.1
+   - tag: primary
+     weight: 5.0
+
+# 重写
+# /svc => /#/rewrite
+- kind: io.l5d.rewrite
+  prefix: /rewrite
+  pattern: "/{service}/api"
+  name: "/srv/{service}"
 ```
