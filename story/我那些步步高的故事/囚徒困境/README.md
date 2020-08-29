@@ -9,7 +9,7 @@ tags:
 date: 2011-03-05 21:31:00
 ---
 
-![游戏截图](http://upload.eebbk.net/UploadFile/2011-3/20113521241757170.gif "运行效果")
+![游戏截图](https://github.com/wenerme/wener/raw/master/story/%E6%88%91%E9%82%A3%E4%BA%9B%E6%AD%A5%E6%AD%A5%E9%AB%98%E7%9A%84%E6%95%85%E4%BA%8B/%E5%9B%9A%E5%BE%92%E5%9B%B0%E5%A2%83/QT.gif "运行效果")
 
 原帖**[连接](http://club.eebbk.com/bbkbbs/showtopic/254672/1)**
 
