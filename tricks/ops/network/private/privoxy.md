@@ -14,6 +14,15 @@ title: Privoxy
   * http://config.privoxy.org
   * http://p.p
 * https://www.privoxy.org/user-manual/index.html
+* 注意
+  * 不支持 auth，可以转发 auth
+    * `enable-proxy-authentication-forwarding`
+
+### privoxy
+* 提供 HTTP 代理
+* 支持将二级代理
+  * 例如将 SOCKS 代理转为 HTTP 代理
+* [privoxy](https://www.privoxy.org/)
 
 ```bash
 # macOS
@@ -23,7 +32,7 @@ brew install privoxy
 apk add privoxy
 
 # 监听 7777 转发到 8888 SOCKS 端口
-cat <<CONF
+cat <<CONF > privoxy.conf
 listen-address 0.0.0.0:7777
 forward-socks5t / 127.0.0.1:8888 .
 CONF

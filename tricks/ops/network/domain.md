@@ -17,6 +17,17 @@
   * .me
   * .ws
     * Web Service
+* 本地使用
+  * .test
+  * .example
+  * .invalid
+  * .localhost
+  * .local
+  * .corp
+  * .home
+  * .mail
+* 参考
+  * [It's official: .corp, .home, .mail will never be top-level domains on the 'net](https://forums.theregister.com/forum/all/2018/02/12/icann_corp_home_mail_gtlds/)
 
 domains.google
 Google Domains 定价和支持的 TLD

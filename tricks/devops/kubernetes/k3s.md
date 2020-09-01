@@ -88,6 +88,9 @@ title: K3S
   * 运行基础服务 - ingress-nginx, metallb, cert-manager, kubernetes-dashboard
     * server - 1G
     * agent - 450M
+    * +linkerd
+      * server 1.55G
+      * agent 920M
 
 ```bash
 apk add util-linux

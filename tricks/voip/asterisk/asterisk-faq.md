@@ -411,7 +411,7 @@ Content-Length: 0
 * [Mysterious 'everybody is busy/congested at this time' error in Asterisk](https://feeding.cloud.geek.nz/posts/asterisk-everyone-busy-congested-at-this-time/)
   * 原因是被叫返回了 `Do Not Disturb`
 
-
+## WARNING[14901][C-00000d1b]: res_rtp_asterisk.c:2524 __rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
 
 ### 发起通话的事件间隔很长
 

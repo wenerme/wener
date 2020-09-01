@@ -115,6 +115,7 @@ title: Tinc
   * https://www.tinc-vpn.org/packages/
   * https://github.com/gsliepen/tinc
   * https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
+  * [freifunk/icvpn](https://github.com/freifunk/icvpn) - InterCity-VPN
 
 ```bash
 # 推荐使用 tinc-pre 1.1 版本

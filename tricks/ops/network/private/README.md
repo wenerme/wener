@@ -70,54 +70,6 @@ docker run -d --restart always --privileged \
 * 因为部分的工具只能使用 HTTP 代理
   * 例如 wget
 
-
-### tinyproxy
-* [tinyproxy](https://tinyproxy.github.io/)
-* [tinyproxy.conf](https://github.com/tinyproxy/tinyproxy/blob/master/etc/tinyproxy.conf.in)
-* 轻量级的 HTTP/HTTPS 代理
-
-```bash
-# macOS 安装
-brew info tinyproxy
-
-# AlpineLinux
-apk add tinyproxy
-```
-
-
-### privoxy
-* 提供 HTTP 代理
-* 支持将二级代理
-  * 例如将 SOCKS 代理转为 HTTP 代理
-* [privoxy](https://www.privoxy.org/)
-
-
-```bash
-# macOS
-brew install privoxy
-
-# AlpineLinux
-apk add privoxy
-# 配置文件检测
-privoxy --config-test privoxy.conf
-# 在前台运行
-privoxy --no-daemon privoxy.conf
-
-# 通过 ip 限制访问
-docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
-  -p 127.0.0.1:7777:7777 \
-  --name privoxy wener/privoxy
-```
-
-__privoxy.conf__
-```conf
-# 极简配置, 将 socks 转为 http
-listen-address  0.0.0.0:7777
-# 不转发会直接通过本地访问 - 取决于部署在本地还是服务器
-forward-socks5t /             127.0.0.1:8888 .
-```
-
-
 ## SOCKS
 * 性能比 HTTP 更高，但不是所有软件都支持
 * [armon/go-socks5](https://github.com/armon/go-socks5)

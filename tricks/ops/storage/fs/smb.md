@@ -40,6 +40,21 @@ docker run --rm -it -p 139:139 -p 445:445 -v $PWD:/share -w /share wener/samba s
 
 # 或者 APK 安装
 apk add samba samba-dc
+
+# Linux
+mount -t cifs -o username=username,password=password,uid=33,gid=33,rw,nounix,iocharset=utf8,file_mode=0777,dir_mode=0777 //192.168.1.120/storage /mnt/storage
+mount -t cifs -o credentials=/root/.the-creds-file,uid=33,gid=33,rw,nounix,iocharset=utf8,file_mode=0777,dir_mode=0777 //192.168.1.120/storage /mnt/storage
+# this-creds-file
+# username=winuser
+# password=winpass
+
+# fstab
+# //192.168.1.120/storage /mnt/storage        cifs    credentials=/root/.smbcredentials,uid=33,gid=33,rw,nounix,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+
+# Windows
+net use Z: \\computer_name\share_name /PERSISTENT:YES
+# 断开连接
+net use  Z: /delete
 ```
 
 ## Quick start
@@ -60,8 +75,6 @@ state directory = $PWD/state
 usershare path = $PWD/usershare
 private dir = $PWD/private
 smb passwd file = $PWD/private/smbpasswd
-
-
 
 [public]
 comment = Public share
@@ -100,6 +113,15 @@ mount -t cifs -o user=luke //192.168.1.1/share /mnt
 https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 
 ## smb.conf
+* [smb.conf.5](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
+* 特殊 section
+  * global
+    * 全局配置或默认配置
+  * homes
+    * 如果配置了，则支持自动创建 HOME 目录
+    * `%S` 用户宏 `path = /data/users/%S`
+  * printers
+    * 类似于 homes，但是用于打印机
 
 tdb (idmap_tdb(8)), tdb2 (idmap_tdb2(8)), ldap (idmap_ldap(8)), rid (idmap_rid(8)), hash (idmap_hash(8)), autorid (idmap_autorid(8)), ad (idmap_ad(8)), nss (idmap_nss(8)), and rfc2307 (idmap_rfc2307(8)).
 
@@ -209,6 +231,31 @@ docker run --rm -it --cap-add SYS_ADMIN --cap-add DAC_READ_SEARCH -v $PWD:/share
 
 mount -t cifs //10.88.2.202/share $PWD/mnt -o user=user,password=pass
 
+```ini
+[global]
+workgroup = MYGROUP
+server string = Samba Server
+server role = standalone server
+log file = /usr/local/samba/var/log.%m
+max log size = 50
+dns proxy = no
+
+idmap config * : backend = tdb
+
+hosts allow = 192.168.0.
+
+[public]
+comment = Public share
+path = /data/share
+read only = No
+valid users = share
+
+browsable = yes
+writable = yes
+create mask = 0775
+directory mask = 0755
+```
+
 ## smbd --help
 
 ```
@@ -253,6 +300,14 @@ https://community.spiceworks.com/topic/2085366-can-samba-active-directory-and-af
 ### NT_STATUS_INVALID_NETWORK_RESPONSE
 可能是 min protocol 导致的
 https://www.linuxquestions.org/questions/linux-networking-3/samba-min-protocol-%3D-smb2-causes-protocol-negotiation-failed-nt_status_invalid_network_response-4175597669/
+
+## NTLMv1 NT_STATUS_WRONG_PASSWORD
+* Samba 默认只允许 NTLMv2
+  * 修改为允许 v1 `ntlm auth = ntlmv1-permitted`
+* 或者 Windows 修改为使用 v2
+  * `secpol.msc`
+  * NTLMv2 response only/refuse LM and NTLM.
+* Windows 7 开始默认 NTLMv2 但有可能开启共享时被配置成了 v1
 
 ### mounting cifs: “Operation not supported”
 

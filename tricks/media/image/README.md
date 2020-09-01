@@ -15,3 +15,8 @@
 
 * [Building the Google Photos Web UI](https://medium.com/google-design/45b714dfbed1)
   * [Pure CSS implementation of Google Photos / 500px image layout](https://github.com/xieranmaya/blog/issues/6)
+* http://www.jhlabs.com/ip/filters/index.html
+  * Java Image Processing
+* https://github.com/imageprocessor/cv4j
+* https://hipacc-lang.org/
+  * A Domain-Specific Language and Compiler for Image Processing

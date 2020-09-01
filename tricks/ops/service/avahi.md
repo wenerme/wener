@@ -1,10 +1,12 @@
 # Avahi
+
 ## Tips
-* archlinux [Avahi](https://wiki.archlinux.org/index.php/Avahi)
-* Alpine 没有 nsswitch
-  * [gliderlabs/docker-alpine#367](https://github.com/gliderlabs/docker-alpine/issues/367)
-  * musl 不支持 nsswitch
-* https://linux.die.net/man/5/avahi.service
+
+- archlinux [Avahi](https://wiki.archlinux.org/index.php/Avahi)
+- Alpine 没有 nsswitch
+  - [gliderlabs/docker-alpine#367](https://github.com/gliderlabs/docker-alpine/issues/367)
+  - musl 不支持 nsswitch
+- https://linux.die.net/man/5/avahi.service
 
 ```bash
 # tools https://pkgs.alpinelinux.org/contents?branch=edge&name=avahi-tools&arch=x86_64&repo=main
@@ -29,8 +31,32 @@ cat <<XML > /etc/avahi/services/node-exporter.service
   </service>
 </service-group>
 XML
-# macOS - 暴露服务
+
+# macOS
+# ==========
+# 暴露服务
 dns-sd -R "My test server with metrics-endpoint" _prometheus-http._tcp. . 9000 path=/metrics
+# 扫描
+dns-sd -B
+# 所有服务
+dns-sd -B _services._dns-sd._udp local.
+# 查找打印机
+dns-sd -B _ipp._tcp local.
+# 查看内容里的 adminurl
+dns-sd -Z _ipp._tcp local.
+# 获取 IP
+dns-sd -Gv4v6 LenovoAB66CD.local.
+
+# 域名 zone 格式
+# PTR SRV TXT
+dns-sd -Z
+
+# 直接查找并打印
+ippfind _ipp._tcp --print
+# 获取 hostname
+ippfind _ipp._tcp,_universal --exec echo '{service_hostname}' \;
+# 查找 airprint
+avahi-browse -rt _universal._sub._ipp._tcp
 ```
 
 ```xml
@@ -61,6 +87,7 @@ dns-sd -R "My test server with metrics-endpoint" _prometheus-http._tcp. . 9000 p
 ```
 
 ## services
+
 ```xml
 <service-group>
   <name replace-wildcards="yes">%h</name>
@@ -88,5 +115,16 @@ dns-sd -R "My test server with metrics-endpoint" _prometheus-http._tcp. . 9000 p
 </service-group>
 ```
 
+```xml
+<service-group>
+ <name replace-wildcards="yes">SMB on %h</name>
+ <service>
+   <type>_smb._tcp</type>
+   <port>445</port>
+ </service>
+</service-group>
+```
+
 # FAQ
+
 ## dbus_bus_request_name(): Connection ":1.3" is not allowed to own the service "org.freedesktop.Avahi" due to security policies in the configuration file

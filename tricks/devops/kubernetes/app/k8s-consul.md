@@ -32,4 +32,47 @@ helm install consul hashicorp/consul \
 # 转发 UI
 # 默认没有 tls 和 acl
 kubectl port-forward -n service svc/consul-server 8500:8500
+# 如果启用了 ACL
+kubectl get-n service secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -D
+
+# 访问 consul
+# 每个节点都有 agent 因此直接使用 HOST_IP 即可
+export CONSUL_HTTP_ADDR="${HOST_IP}:8500"
+consul kv put hello world
+```
+
+## DNS
+
+```bash
+
+# KubeDNS
+# ==========
+CONSUL_DNS_IP=$(kubectl get svc consul-dns -o jsonpath='{.spec.clusterIP}' -n service)
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+  name: kube-dns
+  namespace: kube-system
+data:
+  stubDomains: |
+    {"consul": ["$CONSUL_DNS_IP"]}
+EOF
+
+kubectl get configmap kube-dns -n kube-system -o yaml
+
+# CoreDNS
+# ==========
+kubectl edit configmap coredns -n kube-system
+# Corefile: |
+#   consul {
+#     errors
+#     cache 30
+#     forward . <consul-dns-service-cluster-ip>
+#   }
+
+# 测试解析
+kubectl run --rm -i -t dns-test --image=wener/base --restart=Never -- nslookup consul.service.consul
 ```

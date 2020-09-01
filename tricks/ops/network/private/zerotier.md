@@ -6,6 +6,9 @@ title: Zerotier
 # Zerotier
 ## Tips
 * [Manual](https://www.zerotier.com/manual)
+* [Router Configuration Tips](https://zerotier.atlassian.net/wiki/spaces/SD/pages/6815768/Router+Configuration+Tips)
+* 默认端口 9993
+* 支持 uPnP 或 NAT-PMP 直接映射端口能更容易直连
 
 ## controller
 * zerotier-one [one.cpp](https://github.com/zerotier/ZeroTierOne/blob/master/one.cpp)

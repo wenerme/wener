@@ -1,6 +1,7 @@
 # Local Path
 ## Tips
 * [rancher/local-path-provisioner](https://github.com/rancher/local-path-provisioner)
+* `storageClassName: local-path`
 
 __k3s 默认配置__
 ```json

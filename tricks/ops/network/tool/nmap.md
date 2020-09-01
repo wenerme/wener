@@ -6,7 +6,7 @@ title: NMap
 # nmap
 
 ## Tips
-
+* https://nmap.org/nsedoc/scripts/smb-protocols.html
 * https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
 
 ```bash
@@ -15,6 +15,12 @@ title: NMap
 # 可能会不准 https://en.wikipedia.org/wiki/Port_scanner#UDP_scanning
 sudo nmap -sU -p port target
 
+# 枚举 smb 贡献
+nmap --script smb-enum-shares.nse -p445
+
+# 协议探测
+nmap -p445 --script smb-protocols 192.168.0.0/24
+nmap -p139 --script smb-protocols
 
 # UDP
 # Listen

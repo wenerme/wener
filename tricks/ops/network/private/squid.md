@@ -1,3 +1,8 @@
+---
+id: squid
+title: Squid
+---
+
 # Squid
 ## Tips
 * Web 缓存服务器 - 用于缓存网页内容以便于快速返回
@@ -16,6 +21,7 @@
     * HTTPS 会使用 CONNECT 的方式进行 TUNNEL 代理
     * 支持 HTTPS 需要客户端安装 CA 证书
     * 如果安装了 CA 证书也能实现透明代理
+  * 如果希望用于 入网缓存，不配置 CA 则没意义
 
 ```bash
 cat <<CONF > squid.conf
