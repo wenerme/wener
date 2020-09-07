@@ -6,6 +6,15 @@ title: K8S 词汇表
 # K8S 词汇表
 * [标准化词汇表](https://kubernetes.io/zh/docs/reference/glossary)
 
+## IaC
+* Infrastructure as Code
+* 通过代码来定义基础设施
+* 例如： CDR 定义部署一个 prometheus，CDR 定义 dns 解析
+
+## Operator
+* Software Bot App
+* 部署机器人
+
 ## ConfigMap
 * API 对象 - 以 KV 存储非私密性数据
 * 可用作环境变量、命令行参数、挂载为配置文件

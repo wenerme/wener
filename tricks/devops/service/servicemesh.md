@@ -59,6 +59,9 @@ title: Service Mesh
     * Canary - progressive traffic shifting
     * A/B Testing - HTTP headers and cookies traffic routing
     * Blue/Green - traffic switching and mirroring
+* 注意⚠️ - 目前=2020
+  * istio 是目前功能最为完善的 service mesh，但体积和资源占用也是相当可观
+  * linkerd2 是目前极为轻量，侵入性极小，功能有限但能上生产的的 service mesh
 
 ## Notes
 * 微服务的 observability, reliability, security

@@ -410,10 +410,12 @@ module.exports = {
         label: 'Auth',
         items: [
           'dev/service/auth/auth',
+          'dev/service/auth/auth-faq',
           'dev/service/auth/keycloak',
           'dev/service/auth/keycloak-dev',
           'dev/service/auth/keycloak-faq',
           'dev/service/auth/louketo',
+          'dev/service/auth/oauth2-proxy',
           'dev/service/auth/ldap',
           'dev/service/auth/ldap-schema',
           'dev/service/auth/ldif',

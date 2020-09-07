@@ -35,15 +35,15 @@ nginx.ingress.kubernetes.io/configuration-snippet: |
   more_set_headers "Request-Id: $req_id";
 # server 自定义
 nginx.ingress.kubernetes.io/server-snippet: |
-    set $agentflag 0;
+  set $agentflag 0;
 
-    if ($http_user_agent ~* "(Mobile)" ){
-      set $agentflag 1;
-    }
+  if ($http_user_agent ~* "(Mobile)" ){
+    set $agentflag 1;
+  }
 
-    if ( $agentflag = 1 ) {
-      return 301 https://m.example.com;
-    }
+  if ( $agentflag = 1 ) {
+    return 301 https://m.example.com;
+  }
 
 # 访问 service 而不是 pod
 nginx.ingress.kubernetes.io/service-upstream: "false"
@@ -51,6 +51,31 @@ nginx.ingress.kubernetes.io/service-upstream: "false"
 nginx.ingress.kubernetes.io/upstream-vhost: ""
 # 别名
 nginx.ingress.kubernetes.io/server-alias: "<alias 1>,<alias 2>"
+```
+
+### 粘性会话
+
+```yaml
+nginx.ingress.kubernetes.io/affinity: cookie
+# 默认 balanced 模式 - 扩缩容的时候会变
+nginx.ingress.kubernetes.io/affinity-mode: persistent
+# 默认 INGRESSCOOKIE
+nginx.ingress.kubernetes.io/session-cookie-name: _sticky
+# 默认为 ingress match 的路径
+# nginx.ingress.kubernetes.io/session-cookie-path: /
+# None, Lax, Strict
+# nginx.ingress.kubernetes.io/session-cookie-samesite: None
+
+# Will omit SameSite=None attribute for older browsers which reject the more-recently defined SameSite=None value
+# nginx.ingress.kubernetes.io/session-cookie-conditional-samesite-none: 'true'
+
+# Expires
+nginx.ingress.kubernetes.io/session-cookie-expires: '172800'
+# Max-Age
+nginx.ingress.kubernetes.io/session-cookie-max-age: '172800'
+
+# 默认 false - 当请求上游失败时修改 cookie
+nginx.ingress.kubernetes.io/session-cookie-change-on-failure: 'true'
 ```
 
 ### ConfigMap
@@ -79,7 +104,7 @@ whitelist-source-range: ""
 
 ## 安装
 ```bash
-# HELM 
+# HELM
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install my-release ingress-nginx/ingress-nginx
 

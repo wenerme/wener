@@ -18,7 +18,8 @@ title: Terraform
   * 模块会集成默认 provider - 没有别名的 provider
 
 ```bash
-TERRAFORM_LOG=1 terraform apply
+# 日志
+TF_LOG=1 terraform apply
 ```
 
 ## 配置

@@ -5,7 +5,6 @@ metadata:
   labels:
     app: containous
     name: whoami
-
 spec:
   replicas: 2
   selector:

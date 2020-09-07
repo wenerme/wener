@@ -52,4 +52,16 @@ socat -u TCP-LISTEN:12456,keepalive,reuseaddr,rcvbuf=131071 STDOUT
 socat exec:'bash -li',pty,stderr,setsid  tcp-listen:8999,reuseaddr
 # cli
 socat tcp-connect:127.0.0.1:8999 file:`tty`,raw,echo=0
+
+# over socks
+# socks 10.10.1.1:1080
+socat TCP-LISTEN:8080 SOCKS:10.10.1.1:216.58.200.238:80,socksport=1080
+curl localhost:8080
+
+# dns udp
+socat -v UDP-LISTEN:15353,fork,reuseaddr SOCKS:10.10.1.1:8.8.8.8:53,socksport=1080
+
+# 配合 SSH 使用
+# ProxyCommand socat - socks:127.0.0.1:%h:%p,socksport=3333
+
 ```

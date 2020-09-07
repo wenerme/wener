@@ -73,3 +73,79 @@ spec:
   - [多可用区实践](https://kubernetes.io/docs/setup/best-practices/multiple-zones/)
 
 ## running "VolumeBinding" filter plugin for pod "web-0": pod has unbound immediate PersistentVolumeClaims
+
+## error: unable to retrieve the complete list of server APIs: write: broken pipe
+* 网络不稳定也可能导致
+  * 例如 在使用 sshuttle 的时候偶尔就会出现
+  * 可以考虑使用 ssh 转发 - `ssh -vNL 6443:10.10.1.1:6443 admin@192.168.1.2 -o ExitOnForwardFailure=yes`
+* an error on the server ("") has prevented the request from succeeding
+
+```bash
+# 概率失败
+kubectl api-resources
+
+# 确保 metric 正常
+kubectl get apiservices
+# 确保 系统服务 正常
+kubectl get pods -n kube-system
+```
+
+* https://github.com/prometheus-operator/kube-prometheus/issues/275
+
+## dns 不通
+* 现象 - 所有 服务 504，网关超时
+* 排查
+  * 验证 kube-dns 53 能否解析
+  * 所有节点都有问题还是单个节点
+    * 所有节点都有问题则可能是服务的问题
+    * 单个节点则可能是环境问题
+  * ping 后端 endpoint
+  * ping 不通则说明可能是 flannel 插件之类异常或者使用的底层 interface 异常
+* 解决
+  * 尝试重启 k3s
+  * 尝试重启 网络
+  * 尝试重启 系统
+
+```bash
+# 验证 DNS 能否解析
+# k3s 默认使用 10.43.0.10
+# kube-dns.kube-system.svc
+nslookup wener.me 10.43.0.10 
+# 或
+dig @10.43.0.10 wener.me
+```
+
+## MountVolume.SetUp failed for volume "config-volume" : failed to sync secret cache: timed out waiting for the condition
+
+* 条件未满足，无法继续执行，且等待超时
+* 解决办法
+  * 等待 或 删除 Pod
+
+查看条件
+
+```yaml
+status:
+  phase: Pending
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-09-04T10:09:51Z'
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2020-09-04T10:09:51Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [alertmanager config-reloader]'
+    # 这一步未能成功
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2020-09-04T10:09:51Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [alertmanager config-reloader]'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2020-09-04T10:09:51Z'
+```

@@ -30,9 +30,10 @@ title: Louketo Proxy
   * `/oauth/token` 返回当前 AccessToken
   * `/oauth/metrics` Prometheus 指标
 * 注意
-  * 无法配合 Traefik 的 ForwardAuth
+  * 无法配合 Traefik 的 ForwardAuth - [#672](https://github.com/louketo/louketo-proxy/issues/672) Support for Forward Auth/ External Auth
   * 无法配合 Nginx auth_request 使用 [#537](https://github.com/louketo/louketo-proxy/issues/537)
     * 因为 oidc 流程相对复杂，直接的 auth_request 难以实现
+    * 可以使用 /expired 
 
 
 ```bash

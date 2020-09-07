@@ -95,6 +95,13 @@ virsh net-update --config --live default add ip-dhcp-host \
   "<host mac='52:54:00:01:02:03' name='xyz.example.com' ip='192.168.122.25'/>"
 ```
 
+## Refusing to undefine while domain managed save image exists
+
+```bash
+virsh managedsave-remove vm
+virsh undefine vm
+```
+
 ## host-model vs host-passthrough
 https://www.reddit.com/r/VFIO/comments/a20bf7/hostmodel_vs_hostpassthrough_super_poor_cache/
 

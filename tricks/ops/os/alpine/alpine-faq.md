@@ -129,13 +129,7 @@ pstore: decompression failed: -22
 rm /sys/fs/pstore/dmesg*
 ```
 
-## AER: Corrected error received
-```
-pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
-pcieport 0000:00:1c.7: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Recei
-pcieport 0000:00:1c.7:   device [8086:a297] error status/mask=00000001/00002000
-pcieport 0000:00:1c.7:    [ 0] RxErr                  (First)
-```
+## pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
 
 * 内核参数 - 建议依次尝试
   * `pci=nomsi` - 关闭部分中断 - MSI=Message Signaled Interrupts - PCI_MSI 编译内核参数
@@ -147,6 +141,40 @@ pcieport 0000:00:1c.7:    [ 0] RxErr                  (First)
   * [PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)](https://bbs.archlinux.org/viewtopic.php?id=242182)
     * 可能是带宽问题
     * Corrected 消息不影响，链路层自动矫正。Uncorrected 有问题
+
+__定位问题__
+
+```
+[519708.849337] pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
+[519708.849346] pcieport 0000:00:1c.7: AER: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
+[519708.849349] pcieport 0000:00:1c.7: AER:   device [8086:a297] error status/mask=00000001/00002000
+[519708.849352] pcieport 0000:00:1c.7: AER:    [ 0] RxErr
+```
+
+```bash
+lspci -vs 0000:00:1c.7
+```
+
+```
+00:1c.7 PCI bridge: Intel Corporation 200 Series PCH PCI Express Root Port #8 (rev f0) (prog-if 00 [Normal decode])
+	Flags: bus master, fast devsel, latency 0, IRQ 124
+	Bus: primary=00, secondary=03, subordinate=03, sec-latency=0
+	I/O behind bridge: [disabled]
+	Memory behind bridge: df100000-df1fffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Capabilities: <access denied>
+	Kernel driver in use: pcieport
+```
+
+### perf: interrupt took too long
+
+```
+[109932.035738] perf: interrupt took too long (2511 > 2500), lowering kernel.perf_event_max_sample_rate to 79500
+[110540.025443] perf: interrupt took too long (3146 > 3138), lowering kernel.perf_event_max_sample_rate to 63300
+[111374.568374] perf: interrupt took too long (3935 > 3932), lowering kernel.perf_event_max_sample_rate to 50700
+[112979.009891] perf: interrupt took too long (4927 > 4918), lowering kernel.perf_event_max_sample_rate to 40500
+[121152.410414] perf: interrupt took too long (6159 > 6158), lowering kernel.perf_event_max_sample_rate to 32400
+```
 
 ### The NVM Checksum Is Not Valid
 ```
@@ -250,4 +278,53 @@ mount UUID=x-x-x-x /sysroot
 * 如果是 qemu 可以试试添加参数 ` --cpu qemu64,-svm,+apic`
 ```
 [0.032000] kernel panic-not sycning: IO-APIC + timer doesn't work. try booting with apic=debug and send a report. Then try booting with the 'noapic'option [0.032000]
+```
+
+## ext4 filesystem being mounted at /boot supports timestamps until 2038 (0x7fffffff)
+
+## lpc_ich: Resource conflict(s) found affecting gpio_ich
+
+##
+[    5.019593] ACPI Warning: SystemIO range 0x0000000000001C00-0x0000000000001C2F conflicts with OpRegion 0x0000000000001C00-0x0000000000001FFF (\GPR) (20190816/utaddress-204)
+[    5.019594] ACPI: If an ACPI driver is available for this device, you should use it instead of the native driver
+
+
+[    4.297023] wmi_bus wmi_bus-PNP0C14:00: WQBC data block query control method not found
+
+[    0.172443] pmd_set_huge: Cannot satisfy [mem 0xf8000000-0xf8200000] with a huge-page mapping due to MTRR override.
+
+[    0.172443] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
+
+
+
+```
+[    0.165743] MDS: Mitigation: Clear CPU buffers
+[    0.165864] Freeing SMP alternatives memory: 28K
+[    0.166679] smpboot: CPU0: Intel(R) Xeon(R) CPU E3-1265L v3 @ 2.50GHz (family: 0x6, model: 0x3c, stepping: 0x3)
+[    0.166754] Performance Events: PEBS fmt2+, Haswell events, 16-deep LBR, full-width counters, Intel PMU driver.
+[    0.166766] ... version:                3
+[    0.166767] ... bit width:              48
+[    0.166767] ... generic registers:      4
+[    0.166768] ... value mask:             0000ffffffffffff
+[    0.166768] ... max period:             00007fffffffffff
+[    0.166768] ... fixed-purpose events:   3
+[    0.166769] ... event mask:             000000070000000f
+[    0.166792] rcu: Hierarchical SRCU implementation.
+[    0.167184] NMI watchdog: Enabled. Permanently consumes one hw-PMU counter.
+[    0.167241] smp: Bringing up secondary CPUs ...
+[    0.167292] x86: Booting SMP configuration:
+[    0.167292] .... node  #0, CPUs:      #1 #2 #3 #4
+[    0.167683] MDS CPU bug present and SMT on, data leak possible. See https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/mds.html for more details.
+[    0.167683]  #5 #6 #7
+[    0.169202] smp: Brought up 1 node, 8 CPUs
+[    0.169202] smpboot: Max logical packages: 1
+[    0.169202] ----------------
+[    0.169202] | NMI testsuite:
+[    0.169202] --------------------
+[    0.169202]   remote IPI:  ok  |
+[    0.169202]    local IPI:  ok  |
+[    0.169202] --------------------
+[    0.169202] Good, all   2 testcases passed! |
+[    0.169202] ---------------------------------
+[    0.169202] smpboot: Total of 8 processors activated (39924.80 BogoMIPS)
 ```

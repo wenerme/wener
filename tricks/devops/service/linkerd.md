@@ -29,6 +29,17 @@ title: Linkerd
 * 注意
   * linkerd2 相对较新，功能上可能还有缺失
   * Prometheus 可能会占用较多资源，可以使用外部实例 - [#2980](https://github.com/linkerd/linkerd2/issues/2980)
+  * ECDSA 证书需要 P256
+  * egress 支持不太好 - 只支持 HTTP
+    * TCP 外部流量无法监控
+    * [#3190](https://github.com/linkerd/linkerd2/issues/3190) - Egress HTTPS Metrics
+    * [#2192](https://github.com/linkerd/linkerd2/issues/2192) - Monitoring outbound HTTPS external call
+  * TCP 支持不好
+    * 不支持 mTLS [#3207](https://github.com/linkerd/linkerd2/issues/3207)
+    * 不支持 LB 和转发 [#3445](https://github.com/linkerd/linkerd2/issues/3445)
+  * 注意 Ingress 远程 IP 问题
+    * [#3403](https://github.com/linkerd/linkerd2/issues/3403)
+    * 添加 annotations - `config.linkerd.io/skip-inbound-ports: '80,443'`
 * [架构](https://linkerd.io/2/reference/architecture/)
   * 组件
     * cp
@@ -138,6 +149,12 @@ title: Linkerd
     * cm/linkerd-grafana-config
 * 参考
   * [Linkerd v2: How Lessons from Production Adoption Resulted in a Rewrite of the Service Mesh](https://www.infoq.com/articles/linkerd-v2-production-adoption/)
+* tls
+  * secret/linkerd-identity-issuer
+    * 包含了 issuer 证书
+    * 如果 schema 为 kubernetes.io/tls 则需要 tls.crt, tls.key, ca.crt
+    * 如果 schema 为 linkerd.io/tls 则需要 crt.pem, key.pem
+  * secret/linkerd-trust-anchor
 
 ```bash
 brew install linkerd
@@ -158,6 +175,77 @@ linkerd -n linkerd top deploy/linkerd-web
 kubectl get -n emojivoto deploy -o yaml \
   | linkerd inject - \
   | kubectl apply -f -
+
+# 卸载
+linkerd install --ignore-cluster | kubectl delete -f -
+
+
+# 注入空间
+kubectl get ns monitoring -o yaml | linkerd inject - | kubectl apply -f -
+# 重启后全部生效
+kubectl rollout restart -n monitoring deployment
+kubectl rollout restart -n monitoring daemonset
+kubectl rollout restart -n monitoring statefulset
+
+kubectl get ns kubernetes-dashboard -o yaml | linkerd inject - | kubectl apply -f -
+kubectl rollout restart -n kubernetes-dashboard deployment
+```
+
+## 问题排查
+
+```bash
+# 检查 proxy 是否正常
+# --context default 指定其他上下文
+# 确保 linkerd 是正常的
+linkerd check --proxy -n linkerd
+# 检查其他空间
+linkerd check --proxy -n ingress-nginx
+
+# config.linkerd.io/enable-debug-sidecar=true
+# --enable-debug-sidecar
+linkerd inject --enable-debug-sidecar whoami.deploy.yaml | kubectl -n default apply -f -
+```
+
+### error: unable to retrieve the complete list of server APIs: tap.linkerd.io/v1alpha1: the server is currently unable to handle the request
+
+```bash
+# 验证服务正常
+kubectl get apiservices
+kubectl get pods -n kube-system
+
+# hook 存在
+kubectl get validatingwebhookconfigurations 
+kubectl get mutatingwebhookconfigurations
+
+linkerd -n linkerd tap deploy/web
+# Error: HTTP error, status Code [503] (unexpected API response: Error trying to reach service: 'x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0')
+
+# 重启 linkerd
+kubectl rollout restart -n linkerd deployment
+
+# 查看事件
+kubectl get events --field-selector reason=IssuerUpdated -n linkerd
+```
+
+### linkerd-proxy-injector - remote error: tls: bad certificate
+* [#3754](https://github.com/linkerd/linkerd2/issues/3754)
+
+```bash
+linkerd upgrade --identity-trust-anchors-file=./ca.crt
+```
+
+### cni
+
+```bash
+# 安装 CNI
+linkerd install-cni | kubectl apply -f -
+# 安装后
+linkerd install --linkerd-cni-enabled | kubectl apply -f -
+
+# HELM
+helm install linkerd2-cni linkerd2/linkerd2-cni
+# check
+linkerd check --pre --linkerd-cni-enabled
 ```
 
 ## 安装
@@ -175,6 +263,45 @@ linkerd install | grep 'image: ' | sed -r 's/\s*image:\s*(.*)/\1/' | sort -u
 
 linkerd install | grep 'image: ' | sed -r 's/\s*image:\s*(.*)/\1/' | sort -u | xargs -n 1 -I {} echo A {} B
 ```
+
+### Helm 安装
+
+```bash
+# 生成证书
+brew install step
+
+step certificate create identity.linkerd.cluster.local ca.crt ca.key --profile root-ca --no-password --insecure
+
+step certificate create identity.linkerd.cluster.local issuer.crt issuer.key --ca ca.crt --ca-key ca.key --profile intermediate-ca --not-after 8760h --no-password --insecure
+
+# Helm 安装
+# https://linkerd.io/2/tasks/install-helm/
+# helm repo add linkerd-edge https://helm.linkerd.io/edge
+helm repo add linkerd https://helm.linkerd.io/stable
+
+# set expiry date one year from now
+# in Mac:
+# exp=$(date -v+8760H +"%Y-%m-%dT%H:%M:%SZ")
+# in Linux:
+# exp=$(date -d '+8760 hour' +"%Y-%m-%dT%H:%M:%SZ")
+
+# 如果有 CNI --set global.cniEnabled=true
+# 默认安装到 linkerd 空间
+# 自己提供 prometheus
+# https://linkerd.io/2/tasks/external-prometheus/
+# --set global.prometheusUrl: existing-prometheus.xyz:9090
+helm install linkerd2 \
+  --set-file global.identityTrustAnchorsPEM=ca.crt \
+  --set-file identity.issuer.tls.crtPEM=issuer.crt \
+  --set-file identity.issuer.tls.keyPEM=issuer.key \
+  --set identity.issuer.crtExpiry=$(date -d '+8760 hour' +"%Y-%m-%dT%H:%M:%SZ") \
+  --set installNamespace=false \
+  --create-namespace \
+  linkerd/linkerd2
+```
+
+## TLS 证书更新
+* https://linkerd.io/2/tasks/automatically-rotating-control-plane-tls-credentials/
 
 ## 实验
 
@@ -253,6 +380,17 @@ spec:
     ttl: 10s
 ```
 
+## ingress
+* 注意
+  * 会导致 nginx 的粘性会话无效
+
+```yaml
+# nginx annotation
+nginx.ingress.kubernetes.io/configuration-snippet: >
+  proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+  grpc_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+```
+
 ## tracing
 * [Distributed tracing with Linkerd](https://linkerd.io/2/tasks/distributed-tracing/)
 * [Distributed tracing in the service mesh: four myths](https://linkerd.io/2019/08/09/service-mesh-distributed-tracing-myths/)
@@ -295,6 +433,17 @@ kubectl -n linkerd port-forward svc/linkerd-jaeger 16686
 
 ## 代理配置
 * [Proxy Configuration](https://linkerd.io/2/reference/proxy-configuration/)
+
+```yaml
+spec:
+  template:
+    metadata:
+      annotations:
+        config.linkerd.io/proxy-cpu-limit: "1.5"
+        config.linkerd.io/proxy-cpu-request: "0.2"
+        config.linkerd.io/proxy-memory-limit: 2Gi
+        config.linkerd.io/proxy-memory-request: 128Mi
+```
 
 ## addons
 * [Enabling Add-Ons](https://linkerd.io/2/tasks/enabling-addons/)

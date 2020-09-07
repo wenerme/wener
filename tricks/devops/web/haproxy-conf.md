@@ -4,6 +4,59 @@ title: HAProxy 配置
 ---
 
 # HAProxy 配置
+## balance
+* [balance](https://www.haproxy.com/documentation/hapee/latest/onepage/#4.2-balance)
+* roundrobin
+  * 根据 weight 轮训 - weight 可动态调整
+  * 最多 4095 server
+* static-rr
+  * 同 roundrobin 但不支持调整 weight，不限制 server 数量
+* leastconn
+  * 选择最少连接数的 server
+  * 在 server 中使用 rr 就行选择 - 支持动态 weight
+  * 适用于长链接 （例如：LDAP, SQL, TSE） 不适用于短链接 （例如： HTTP）
+* first
+  * 通过 server id 顺序选择第一个 slot - id 默认为 server 顺序
+  * 当 server 达到 maxconn 时选择下一个 - 使用该算法要设置了 maxconn 才有意义
+  * 该算法可以使后面的 server 按需启动 - 配合基础设施动态控制服务器起停
+  * 忽略 weight，更适用于长链接
+  * 可使用 `http-check send-state` 告知服务器负载
+* source
+  * 通过 IP hash 取模选择 server
+  * 修改 server 数量会影响选取结果 - server up、down 也会影响
+  * 默认静态 weight 无效，可配置 hash-type
+* uri
+  * URL hash 取模选择 server
+  * URL 使用路径 `?` 前面部分，可指定为 `whole` 使用所有
+  * 可增加缓存命中，只适用于 HTTP 后端
+  * 默认静态 weight 无效，可配置 hash-type
+  * 参数
+    * len - 截取长度
+    * depth - 目录深度
+* url_param
+  * 使用 HTTP GET 请求上的 URL 参数
+  * 未找到参数则使用 rr
+  * 默认静态 weight 无效，可配置 hash-type
+  * 参数
+    * check_post - 针对 POST 也检测
+* `hdr(<name>)`
+  * 使用 HTTP 头 `<name>` - 大小写不敏感，不存在则使用 rr
+  * 默认静态 weight 无效，可配置 hash-type
+  * 参数
+    * use_domain_only - HASH 域名，也就是 `Host` 头
+* `random`, `random(<draws>)`
+  * 随机数，一致性 hash - weight 动态
+  * 适用于 server 数量多且频繁加减场景 - 比 roundrobin 和 leastconn 影响更小
+  * `<draws>` - number of draws before selecting the least loaded of these servers
+    * 默认 2
+  * 参数
+    * hash-balance-factor 
+      * 可增强公平性
+  * [Power of Two Random Choices](http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf)
+* rdp-cookie, `rdp-cookie(<name>)`
+  * name 默认 `mstshash`
+  * 需要 `tcp-request content accept` + `req_rdp_cookie_cnt`
+  * 默认静态 weight 无效，可配置 hash-type
 
 ## HAProxy 透明代理+Traefik
 * [haproxy/proxy-protocol](https://www.haproxy.com/blog/haproxy/proxy-protocol)
