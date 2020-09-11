@@ -235,6 +235,9 @@ linkerd upgrade --identity-trust-anchors-file=./ca.crt
 ```
 
 ### cni
+* 自动重写 Pod 的 iptables 规则
+* 安装后则不再需要 init - 该 Container 需要 NET_ADMIN 权限
+* 适用于集群对权限限制的比较严谨的场景
 
 ```bash
 # 安装 CNI
@@ -242,7 +245,7 @@ linkerd install-cni | kubectl apply -f -
 # 安装后
 linkerd install --linkerd-cni-enabled | kubectl apply -f -
 
-# HELM
+# HELM 安装 CNI
 helm install linkerd2-cni linkerd2/linkerd2-cni
 # check
 linkerd check --pre --linkerd-cni-enabled
@@ -386,7 +389,14 @@ spec:
 
 ```yaml
 # nginx annotation
-nginx.ingress.kubernetes.io/configuration-snippet: >
+nginx.ingress.kubernetes.io/configuration-snippet: |
+  proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+  grpc_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+
+# with auth url
+nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+nginx.ingress.kubernetes.io/auth-snippet: |
   proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
   grpc_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
 ```

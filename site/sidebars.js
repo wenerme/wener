@@ -466,8 +466,13 @@ module.exports = {
         type: 'category',
         label: '存储',
         items: [
+          'dev/service/storage/seaweedfs',
           'dev/service/storage/minio',
+          'dev/service/storage/minio-operator',
           'dev/service/storage/ceph',
+          'dev/service/storage/ceph-glossary',
+          'dev/service/storage/ceph-k8s',
+          'dev/service/storage/ceph-ubuntu-16-install',
         ],
       },
       {

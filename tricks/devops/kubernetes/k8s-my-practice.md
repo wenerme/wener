@@ -26,7 +26,9 @@ title: 我的 K8S 实践
     - 数据库
     - 对象存储
 
-- StatefulSet 可以用于获取稳定的 Hostname 和 IP - 不一定是因为需要使用存储
+- StatefulSet 其他作用
+  - 可以用于获取稳定的 Hostname 和 IP - 不一定是因为需要使用存储
+  - Pod 的名字可以更短 - 避免超出限制或被截取
 - 集群小的时候 mount 主机目录或者使用 local pvc 也不失为管理存储的办法
 
 ## 资源

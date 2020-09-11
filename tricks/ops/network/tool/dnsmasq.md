@@ -19,9 +19,10 @@ title: dnsmasq
   * [DNS resolution happenning only after timeout](http://www.openwall.com/lists/musl/2017/09/28/1)
   * [Functional differences from glibc](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
 * address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
-* [reload](https://serverfault.com/a/934681)
+* [reload](https://serverfault.com/a/934681) - 清除缓存重载部分配置文件
   * SIGHUP
-  * /etc/hosts /etc/ethers 
+  * /etc/hosts
+  * /etc/ethers 
   * --dhcp-hostsfile
   * --dhcp-hostsdir
   * --dhcp-optsfile
@@ -29,7 +30,6 @@ title: dnsmasq
   * --dhcp-optsdir
   * --addn-hosts
   * --hostsdir
-
 
 ```bash
 # 速度测试
@@ -71,8 +71,31 @@ rc-service dnsmasq restart
 # 查看消息
 tail -f /var/log/message
 
-# macOS 安装
+# macOS 安装 - 可以使用 dnsmasq 来替代 hosts
 brew install dnsmasq
+# 配置文件 /usr/local/etc/dnsmasq.
+cat <<CONF > /usr/local/etc/dnsmasq.conf
+# 上游
+server=114.114.114.114
+server=223.5.5.5
+server=223.6.6.6
+
+# 缓存数量
+cache-size=655360
+# 10m 缓存时间
+min-cache-ttl=600
+
+# 自定义解析 - 替代 /etc/hosts
+# 所有 *.localhost 都会被解析到该地址
+address=/localhost/127.0.0.1
+# 其他测试服务地址
+address=/cluster.internal/192.168.1.2
+address=/cluster.lan/192.168.1.3
+CONF
+# 验证能启动
+sudo dnsmasq -d -C /usr/local/etc/dnsmasq.conf
+# 没问题后使用 brew 启动
+brew service start dnsmasq
 ```
 
 ## 配置

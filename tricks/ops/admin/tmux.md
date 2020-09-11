@@ -1,3 +1,8 @@
+---
+id: tmux
+title: Tmux
+---
+
 # Tmux
 
 ## Tips
@@ -29,12 +34,43 @@ tmux list-panes -F '#F' | grep -q Z || tmux resize-pane -Z
 tmux list-panes -F '#F' | grep -q Z && tmux resize-pane -Z
 ```
 
+## 窗口管理
+* 会话 - session
+  * 窗口 - window
+    * 面板 - pane
+
+```bash
+# 隐藏面板
+# 将当前面板放到后台（-d）窗口，显示相关信息（-P）
+# 显示位置 例如 1:2.0 表示 会话:窗口.面板
+break-pane -dP
+
+# 恢复隐藏面板
+# -v 水平分割 -s 来源面板
+join-pane -vs 1:2.0
+```
+
 ### Commands
 
-```
+```bash
 # 是其他链接全都 detach, 使得当前窗口能够最大化
 # detach -> detach-client
 detach -a
+```
+
+```bash
+# 移动面板
+# ==========
+# 显示
+bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
+# 隐藏
+bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+
+bind-key   @ choose-window 'join-pane -h -s "%%"'
+bind-key C-@ choose-window 'join-pane    -s "%%"'
+
+# 添加到最近访问窗口
+bind-key @ join-pane -h -s !
 ```
 
 
@@ -126,13 +162,23 @@ wait-for (wait) [-L|-S|-U] channel
 
 ## ~/.tmux.conf
 
-```
+```bash
 new-session
+# 启用鼠标
+set -g mouse on
+# 允许鼠标选择面板
+set -g mouse-select-pane on
+# 允许鼠标调整面板大小
+set -g mouse-resize-pane on
+# 允许滚动的历史
+set -g history-limit 30000
 
 ##########################################
-# STATUS BAR
+# 状态栏
+# UTF8
 set -g status-utf8 on
-set -g status-keys vi
+# vi Style Editing
+# set -g status-keys vi
 set -g status-interval 1
 set -g status-attr bright
 set -g status-fg white
@@ -146,45 +192,47 @@ setw -g window-status-format '#I#F#W'
 
 
 ##########################################
-# TERMINAL EMULATOR TITLES
+# 模拟终端标题
 set -g set-titles on
 set -g set-titles-string "#(tmux ls | awk -F: '{print $1}' | xargs | sed 's/\ / | /g')"
 
 
 ##########################################
-# KEY BINDINGS
+# 按键绑定
 # C-a = prefix
+# 默认 Ctrl+b 为前缀 - 取消默认
 unbind C-b
+# 使用 Ctrl+a 为前缀
 set -g prefix C-a
 
-# C-a = last-window
+# 上一个窗口
 unbind l
 bind C-a last-window
 
-# C-c = new-window
+# 下一个窗口
 bind C-c new-window
 
-# Esc = copy-mode
+# 复制模式
 unbind [
 bind Escape copy-mode
 
-# | = horizontal split
+# 垂直分割
 unbind %
 bind | split-window -h
 
-# - = vertical split
+# 水平分割
 unbind '"'
 bind - split-window -v
 
-# " = choose-window
+# 选择窗口
 bind '"' choose-window
 
 # h = display cheatsheet
-bind h run "cat ~/.tmux_cheatsheet"
+# bind h run "cat ~/.tmux_cheatsheet"
 
 # r = tmux renumbering script
-unbind r
-bind r run "~/bin/tmux_renum"
+# unbind r
+# bind r run "~/bin/tmux_renum"
 
 # r = respawn after exit or disconnect (zombie)
 bind C-r respawn-window
@@ -194,23 +242,13 @@ bind C-k kill-window
 
 
 ##########################################
-# BASIC CONFIG
-# utf8 ability
+# 基础配置
+# UTF8
 setw -g utf8 on
 
-# vi Style Editing
-setw -g mode-keys vi
-# Make mouse useful in copy mode
-setw -g mode-mouse on
-
-# Allow mouse to select which pane to use
-set -g mouse-select-pane on
-
 # Allow xterm titles in terminal window, terminal scrolling with scrollbar, and setting overrides of C-Up, C-Down, C-Left, C-Right
-set -g terminal-overrides "xterm*:XT:smcup@:rmcup@:kUP5=\eOA:kDN5=\eOB:kLFT5=\eOD:kRIT5=\eOC"
+#set -g terminal-overrides "xterm*:XT:smcup@:rmcup@:kUP5=\eOA:kDN5=\eOB:kLFT5=\eOD:kRIT5=\eOC"
 
-# Scroll History
-set -g history-limit 30000
 
 # Set ability to capture on start and restore on exit window data when running an application
 setw -g alternate-screen on
@@ -218,4 +256,72 @@ setw -g alternate-screen on
 # Lower escape timing from 500ms to 50ms for quicker response to scroll-buffer access.
 set -s escape-time 50
 
+set -g status-interval 1
+set -g status-justify centre # center align window list
+set -g status-left-length 20
+set -g status-right-length 140
+set -g status-left '#[fg=green]#H #[fg=black]• #[fg=green,bright]#(uname -r | cut -c 1-6)#[default]'
+set -g status-right '#[fg=green,bg=default,bright]#(tmux-mem-cpu-load 1) #[fg=red,dim,bg=default]#(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") #[fg=white,bg=default]%a%l:%M:%S %p#[default] #[fg=blue]%Y-%m-%d'
+
+# C-b is not acceptable -- Vim uses it
+set-option -g prefix C-a
+bind-key C-a last-window
+
+# Start numbering at 1
+set -g base-index 1
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+# setw -g aggressive-resize on
+
+# Allows us to use C-a a <command> to send commands to a TMUX session inside
+# another TMUX session
+bind-key a send-prefix
+
+# Activity monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Vi copypaste mode
+# set-window-option -g mode-keys vi
+# bind-key -t vi-copy 'v' begin-selection
+# bind-key -t vi-copy 'y' copy-selection
+
+# hjkl 面板选择
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind-key C command-prompt -p "Name of new window: " "new-window -n '%%'"
+
+# 配置重载
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# 自动重命名窗口
+set-window-option -g automatic-rename
+set -g allow-rename on
+
+# https://github.com/edkolev/dots/blob/master/tmux.conf
+# Updates for tmux 1.9's current pane splitting paths.
+if-shell "[[ `tmux -V` == *1.9* ]]" 'unbind c; bind c new-window -c "#{pane_current_path}"'
+if-shell "[[ `tmux -V` == *1.9* ]]" 'unbind s; bind s split-window -v -c "#{pane_current_path}"'
+if-shell "[[ `tmux -V` == *1.9* ]]" "unbind '\"'; bind '\"' split-window -v -c '#{pane_current_path}'"
+if-shell "[[ `tmux -V` == *1.9* ]]" 'unbind v; bind v split-window -h -c "#{pane_current_path}"'
+if-shell "[[ `tmux -V` == *1.9* ]]" 'unbind %; bind % split-window -h -c "#{pane_current_path}"'
+
+# Use xterm flavor
+# set -g default-terminal "xterm-256color"
+# set -g xterm-keys o
+setw -g xterm-keys on
+
+# 同步面板操作
+bind F2 setw synchronize-panes on
+bind F3 setw synchronize-panes off
+
+set -g default-terminal "xterm"
 ```

@@ -1,0 +1,55 @@
+---
+id: ceph-glossary
+title: Ceph 术语
+---
+# Ceph 术语
+
+- [CEPH GLOSSARY](https://docs.ceph.com/docs/mimic/glossary/)
+
+- OSD
+  - Object Storage Device
+  - 物理硬盘或逻辑存储单元(LUN)
+  - 对象存储设备,为 Ceph 中最底层的存储设备,一般为硬盘
+- RADOS - Ceph Object Store - Ceph Storage Cluster
+  - Reliable Autonomic Distributed Object Store
+  - 可靠的分布式对象原子存储
+  - =MON+OSD
+  - Ceph 核心
+- Cluster Map
+  - Monitor map, OSD map, PG map, MDS map, CRUSH map
+- RGW/radosgw
+  - RADOS Gateway - Ceph Object Gateway - RADOS 网关
+  - 基于 librados, 通过 REST 暴露接口,实现与 S3(Simple Storage Service),Swift 等兼容的接口
+  - 不会使用 Metadata 服务器
+- librados
+  - 用于操作 RADOS 的库,支持 PHP, Ruby, Java, Python, C, 和 C++ 语言
+  - 为 RBD, RGW 和 CephFS 的实现提供了基础
+- MDS
+  - Ceph Metadata Server
+  - 跟踪 CephFS 的文件层级结构和元数据
+- CephFS
+  - Ceph File System
+  - 基于 MDS 实现的 POSIX 兼容的文件系统
+- RBD
+  - RADOS Block Device - Ceph Block Device
+  - 提供基于块的存储,类似于磁盘块,可直接被挂载或格式化
+  - Linux 2.6.39 后集成了 RBD 驱动 Kernel RBD (KRBD)
+- librbd
+  - 操作 RBD 的库,基于 librados
+- CRUSH
+  - Controlled Replication Under Scalable Hashing
+  - 底层对象的 Hash 算法,是 Ceph 的核心,通过取得集群的映射可以在客户端执行,避免 SPOF, 去中心化
+- MON
+  - Ceph Monitor
+  - Ceph 监控进程,监控集群健康状态,通过一个映射反映集群状态,其中映射包含了 OSD, MON, PG, 和 CRUSH 的映射
+- PG
+  - Placement Group
+  - Ceph 中对象副本的逻辑分组
+  - PG 数 = (OSD 总数 x 100) / 最大副本数 - 结果归约到最近的 2 的平方数
+  - 每个 Pool 的 PG 数 = (OSD 总数 x 100) / 最大副本数 / Pool 数量 - 结果归约到最近的 2 的平方数
+  - 即便如果计算的数量为 100 则选择 128, 如果结果为 1000 则用 1024
+- BlueStore
+  - 新 RADOS 后端
+  - v11+ 开始稳定
+  - 不同于 filestore，直接存储对象到块设备不使用文件系统
+- Beast
