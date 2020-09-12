@@ -70,6 +70,7 @@ module.exports = {
           'devops/metrics/prometheus-exporter',
           'devops/metrics/statsd_exporter',
           'devops/metrics/prometheus-k8s',
+          'devops/metrics/prometheus-storage',
           'devops/metrics/grafana',
           'devops/metrics/thanos',
           'devops/metrics/cortex',

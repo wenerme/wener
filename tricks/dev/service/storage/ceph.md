@@ -6,13 +6,49 @@ title: Ceph
 # Ceph
 
 ## Tips
-
+- 适用场景
+  - 单独存储集群
+  - 大存储集群 - TB+ PB+
+- 不适用场景
+  - 不太适合于直接部署到 k8s 小集群作为微服务存储使用
+  - 简单的分布式文件系统
 - [ceph/ceph](https://github.com/ceph/ceph)
   - [文档](http://docs.ceph.com/docs/master/)
 - imixs [Ceph](https://github.com/imixs/imixs-cloud/blob/master/doc/CEPH.md)
 - 默认日志路径为 `/var/lib/ceph/osd/$cluster-$id/journal`, 可将该文件挂在到其它磁盘以增加性能
 - Ceph 使用副本或 EC 来保护数据
 - CephFS 默认端口为 6789
+- 参考
+  - [Bluestore vs. Filestore: A Functional Comparison and a Benchmark](https://www.youtube.com/watch?v=VFeDB7PQHZ4)
+
+**最佳实践**
+
+- 每个 OSD 预留 2G 内存,每个 OSD 一个磁盘,冗余 NIC
+- 如果有 SSD, 可将 SSD 作为日志磁盘, 使用机械盘作为存储磁盘, 如果 SSD 较少,可多个 OSD 共用一个 SSD(一个 SSD 损坏影响多个 OSD)
+- 使用 SSD 前最好事先测试出顺序和随机读写的性能
+- MON 位于单独服务器, 不需要太多的 RAM 和磁盘,冗余 NIC
+- 如果单个主机上 OSD 较多(例如 >20),建议增大系统线程数 `kernel.pid_max = 4194303`
+- [推荐硬件](http://docs.ceph.com/docs/master/start/hardware-recommendations/)
+  - 不推荐和计算集群一起部署 - k8s
+  - ceph-mds - metadata
+    - 4 CPU+
+    - 1GB+
+  - ceph-osd
+    - 2 CPU+
+    - 默认 4GB， 2-4GB 可用，不推荐小于 2GB 
+    - 小文件多建议 4GB+，大数据传输建议 256GB+
+    - 磁盘推荐 1TB+
+    - 不推荐 1硬盘 1OSD 1MSD，不推荐 1硬盘多OSD
+    - 分离 日志、数据、系统 盘
+    - 推荐使用 SSD 作为 日志 盘
+    - 确保网络带宽大于总磁盘带宽
+    - 10Gbps+ - 1T 副本 20分钟
+  - ceph-mgr
+    - 1-2 GB 小集群，5-10 GB 大集群 - 随集群扩容 - 基本 1G/1T
+  - ceph-mon - monitor
+    - CPU 要求不高
+    - 1-2 GB 小集群，5-10 GB 大集群 - 同 ceph-mgr
+- 参考 [推荐操作系统](http://docs.ceph.com/docs/master/start/os-recommendations/)
 
 
 | **对象存储/rados**       | **块设备/RBD**            | **文件系统/CephFS**       |
@@ -144,16 +180,6 @@ mount -t ceph 地址:6789:/ /mnt/cfs -o name=admin,secret=上面的secret值
 # mount -t ceph 地址:6789:/ /mnt/cfs -o name=admin,secretfile=文件路径
 
 ```
-
-**最佳实践**
-
-- 每个 OSD 预留 2G 内存,每个 OSD 一个磁盘,冗余 NIC
-- 如果有 SSD, 可将 SSD 作为日志磁盘, 使用机械盘作为存储磁盘, 如果 SSD 较少,可多个 OSD 共用一个 SSD(一个 SSD 损坏影响多个 OSD)
-- 使用 SSD 前最好事先测试出顺序和随机读写的性能
-- MON 位于单独服务器, 不需要太多的 RAM 和磁盘,冗余 NIC
-- 如果单个主机上 OSD 较多(例如 >20),建议增大系统线程数 `kernel.pid_max = 4194303`
-- 参考 [推荐硬件](http://docs.ceph.com/docs/master/start/hardware-recommendations/)
-- 参考 [推荐操作系统](http://docs.ceph.com/docs/master/start/os-recommendations/)
 
 ## Troubleshooting
 

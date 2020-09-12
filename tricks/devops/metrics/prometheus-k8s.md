@@ -54,8 +54,28 @@ title: Prometheus K8S
   * stable/kube-state-metrics
   * stable/prometheus-node-exporter
   * stable/grafana
+  * prometheus-operator
+  * prometheus
   * alertmanager
+  * node-exporter
+  * kube-state-metrics
+  * service monitors
+    * 监控 kube 组件
+    * kube-apiserver、kube-scheduler、kube-controller-manager、etcd、kube-dns/coredns、kube-proxy
+  * 会配置 dashboards 和 alters
 * 默认导入 [kubernetes-monitoring/kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin) 图表
+* 与 stable/prometheus 相比
+  * 多了 grafana
+    * 面板配置
+  * 多了 kube 组件监控
+  * 多了 operator 用于部署
+    * Prometheus
+    * Alertmanager
+    * ThanosRuler
+    * ServiceMonitor
+    * PodMonitor
+    * Probe
+    * PrometheusRule
 
 ## stable/prometheus
 * 单纯部署 prometheus
@@ -82,4 +102,23 @@ alertmanager:
   enabled: false
 pushgateway:
   enabled: false
+```
+
+## bitnami/kube-prometheus
+* https://github.com/bitnami/charts/tree/master/bitnami/kube-prometheus
+* 包含
+  * Prometheus Operator
+  * Prometheus
+    * 会通过 Operator 部署
+  * Alertmanager
+* 默认 scrapeInterval: 30s
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install kube-prometheus -n monitoring bitnami/kube-prometheus
+
+kubectl -n monitoring describe svc/kube-prometheus-prometheus
+
+# http://127.0.0.1:9090
+kubectl -n monitoring port-forward svc/kube-prometheus-prometheus 9090
 ```
