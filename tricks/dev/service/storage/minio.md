@@ -6,6 +6,10 @@ title: Minio
 # Minio
 
 ## Tips
+- 注意
+  - 集群模式不支持增加节点
+    - 支持联邦进行 bucket 分流
+    - 不能减少
 - Reed-Solomon code
 - [minio/awesome-minio](https://github.com/minio/awesome-minio)
 - https://play.minio.io:9000

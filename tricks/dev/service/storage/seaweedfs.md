@@ -61,7 +61,8 @@ title: seaweedfs
 * Filer
   * 元信息需要存储
   * Cassandra, Mongodb, Redis, Elastic Search, MySql, Postgres, MemSql, TiDB, CockroachDB, Etcd
-  * 为确保原子性可使用 MySql, Postgres
+  * 为确保原子性可使用 Postgres, MySql
+    * 文件重命名、目录重命名需要原子性支持
   * 支持订阅文件变化发送消息
   * __不支持递归目录删除__
   * __如果 Filter 元信息丢失，则会导致文件结构信息丢失__ - 无法恢复，基本等同于文件丢失，且无法访问
@@ -173,5 +174,26 @@ unlock
 * assign 时可指定 dc
 
 ## Kubernetes
-* [seaweedfs/seaweedfs-csi-driver](https://github.com/seaweedfs/seaweedfs-csi-driver)
+* [seaweedfs/seaweedfs-csi-driver](https://github.com/seaweedfs/seaweedfs-csi-driver) - 创建 sc 指向 filer
+  * storageclass - `seaweedfs-storage`
+    * 会被设置成默认，按需编辑 yaml 取消
+    * provisioner: `com.seaweedfs.csi`
+  * SEAWEEDFS_FILER - 指向 filer
+    * 编辑 yaml 修改
 * [seaweedfs/seaweedfs-operator](https://github.com/seaweedfs/seaweedfs-operator)
+* helm [chart](https://github.com/chrislusf/seaweedfs/tree/master/k8s)
+  * 不推荐使用，可用于参考
+  * master/filer/volume
+    * statefulsets 
+    * anti-affinity on hostname
+    * memsql(mysql) filer backend
+    * secret-seaweedfs-db.yaml - mysql password
+  * host path
+    * /storage/logs/seaweedfs - 日志 `-logdir`
+      * master
+      * volume
+      * filer
+    * /ssd/seaweed-master/ - master 元数据 `-mdir`
+    * /storage/object_store/ - volume 数据 `-dir`
+  * 目前数据账号密码是硬编码 - YourSWUser:HardCodedPassword
+  * 默认会创建 ingress - 且无法自定义

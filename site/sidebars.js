@@ -350,6 +350,7 @@ module.exports = {
           'ops/network/private/privoxy-action',
           'ops/network/private/ipsec',
           'ops/network/private/wireguard',
+          'ops/network/private/vpn-faq',
         ]
       },
       {
@@ -473,6 +474,7 @@ module.exports = {
           'dev/service/storage/ceph-glossary',
           'dev/service/storage/ceph-k8s',
           'dev/service/storage/ceph-ubuntu-16-install',
+          'dev/service/storage/distributed-storage',
         ],
       },
       {
