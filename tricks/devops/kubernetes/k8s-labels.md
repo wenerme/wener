@@ -41,6 +41,12 @@ kubectl label node-2 node-role.kubernetes.io/worker=true
 | failure-domain.beta.kubernetes.io/region |       | !v1.17         |
 | failure-domain.beta.kubernetes.io/zone   |       | !v1.17         |
 
+## 资源标签
+
+| kind         | annotation                                  | demo | desc              |
+| ------------ | ------------------------------------------- | ---- | ----------------- |
+| StorageClass | storageclass.kubernetes.io/is-default-class | true | 默认 StorageClass |
+
 ## 应用标签
 
 - [Recommanded Lables](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/)
@@ -73,6 +79,23 @@ podAntiAffinity:
 | label                        | example |
 | ---------------------------- | ------- |
 | app.kubernetes.io/managed-by | Helm    |
+
+```yaml
+# 资源 label
+labels:
+  app.kubernetes.io/component: controller
+  app.kubernetes.io/instance: ingress-nginx
+  app.kubernetes.io/managed-by: Helm
+  app.kubernetes.io/name: ingress-nginx
+  app.kubernetes.io/version: 0.35.0
+  helm.sh/chart: ingress-nginx-2.16.0
+
+# selector label
+matchLabels:
+  app.kubernetes.io/component: controller
+  app.kubernetes.io/instance: ingress-nginx
+  app.kubernetes.io/name: ingress-nginx
+```
 
 ## Helm 注解
 

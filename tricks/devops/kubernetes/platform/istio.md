@@ -61,9 +61,10 @@ title: Istio 服务网格
 - [架构](https://istio.io/latest/docs/ops/deployment/architecture/)
 - [Performance and Scalability](https://istio.io/latest/docs/ops/deployment/performance-and-scalability/)
   - envoy - 0.5 vCPU, 50 MB / 1000 requests / second
-    - envoy proxy +3.12 ms to the 90th percentile latency.
+    - envoy proxy +2.76 ms to the 90th percentile latency.
   - istio-telemetry - 0.6 vCPU / 1000 mesh-wide requests / second for deployments that use Mixer.
   - pilot - 1 vCPU, 1.5 GB
+  - istiod - 1 vCPU and 1.5 GB of memory support 1000 services, 2000 sidecars
 - 资源
   - 至少准备 4 CPU 8G
 - 参考

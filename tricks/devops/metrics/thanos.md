@@ -32,27 +32,90 @@ title: Thanos
   - 不参与集群
   - 压缩 OSS 数据
   - 下采样 - downsampling
-    - 40h -> 5m
-    - 10d -> 1h
+    - 大于 40 小时创建 5m 采样
+    - 大于 10 天创建 1h 采样
+  - 默认永久保留 `--retention.resolution-X=0d` - X 为采样类型 - raw,5m,1h
   - 执行保留策略 - 删除旧数据
   - 一个 bucket 部署一个 - 并行部署多个会有问题
+  - 下采样并不会节省空间，每个原始区块会添加额外的下采样区块数据 - 只比原始的小一点点
+    - 相当于容量增加 3 倍
+  - 提升范围查询性能
+  - 运行需要本地临时存储
+    - 建议 100G
+    - 可重启后删除 - 不需要持久
+  - kube-thanos 将 compact 部署为 sts 而不是 cronjob
 - query
-  - 唯一可扩容的节点
+  - 无状态，可扩容
   - 实现 Prometheus HTTP v1 API
   - PromQL
   - 从 StoreAPI 获取数据
-    - 数据去重、合并、填充
+    - 部分返回
+      - `?partial_response=1` - 请求接受部分响应
+      - `--query.partial-response` - 控制是否开启和策略
+      - `--query.timeout=2m` - 查询超时
+      - `--query.lookback-delta=5m` - 回查时间，过短会产生 gap，至少设置为抓取时间两倍
+      - `--store.response-timeout` - 存储响应超时
+      - `--no-query.partial-response` - 强制关闭
+    - 支持指定副本 label 就行去重
+      - `?replicaLabels=replicaA&replicaLabels=replicaB`
+    - 数据去重
+      - `?dedup`
+      - ` --query.replica-label` - 基于副本标签进行去重
     - 自动下采样
+      - `?max_source_resolution=5m` - 0 禁用，可设置为 1h
+      - `--query.auto-downsampling` - 默认为 step/5
+    - 并发 select
+      - `--query.max-concurrent-select=4` - 每次请求的最大并发 select
+      - `--query.max-concurrent=20` - 最大并发查询数
+    - 支持自定义返回字段
+    - 支持过滤 store
+      - `?query=up&dedup=true&partial_response=true&storeMatch[]={__address__=~"prometheus-foo.*"}`
+  - grafana 可配置查询参数 `max_source_resolution=1h&partial_response=true`
 - query-frontend
+  - 无状态，可扩容
+  - 实际使用时影响查询性能的关键组件
   - 处理 `/api/v1/query_range`
-  - 切分查询、记录慢查询、重试、缓存
+  - `--query-frontend.downstream-url` - 下游 Prometheus 地址 - 一般为 Thanos Query 暴露地址
+  - `--query-frontend.compress-responses` - 响应结果压缩
+  - 并行
+    - `-query-range.max-query-length=0` - 限制查询长度
+    - `--query-range.max-query-parallelism=14` - 最大并行查询
+  - 切分查询
+    - `--query-range.split-interval=24h` - 切分并行查询的间隔 `response-cache-config`
+    - 可以避免 query 查询过大数据导致 OOM
+    - 并行查询效率更好
+    - query 负载均衡
+  - 重试
+    - `--query-range.max-retries-per-request=5`
+  - 缓存
+    - 下次查询时复用
+    - 缺少数据会并行查询就行补齐
+    - 支持 IN-MEMORY 和 MEMCACHED
+    - `--query-range.response-cache-max-freshness=1m` - 缓存的最新时间 - 小于该时间不缓存
+    - `--query-range.response-cache-config-file`
+    - `--query-range.response-cache-config`
+  - 记录慢查询
+    - `--query-frontend.log-queries-longer-than`
 - receive
   - 实现 Prometheus 远程写入接口，写入本地 tsdb
   - 目前只支持单个 tsdb
   - 暴露 StoreAPI
   - 实现基于推送的指标采集
   - 用于网络不互通、外部指标采集环境
+  - 可继续传递到 receive
+    - 支持多副本
   - 可以用支持多租户
+    - 租户头 `--receive.tenant-header=THANOS-TENANT` 可用于分流
+  - 注意 ⚠️
+    - write 地址为 `/api/v1/receive`
+    - 节点调整时确保数据被刷到 存储
+    - 重启后可能会收到大量 Prometheus 请求需要控制好流量
+    - 默认会添加 `tenant_id="default-tenant"` - 可自行控制
+    - 资源占用较多，反向代理也会占用资源
+      - 4k/s 大约 0.1 CPU, 250M 内存
+      - 0 负载的 nginx 多了 1 的 CPU
+  - 参考
+    - [Thanos Remote Write](https://thanos.io/tip/proposals/201812_thanos-remote-receive.md/)
 - rule
   - 对查询求值 - 提供 StoreAPI，结果写入磁盘
   - 类似一个简单的 Prometheus 实例
@@ -69,6 +132,8 @@ title: Thanos
   - 默认不会上传已压缩数据
     - tsdb 块下 meta.json 里的 `compaction.level` 表示了压缩级别 - 1 为未压缩
     - `--shipper.upload-compacted` 上传压缩数据 - 用于第一次迁移
+  - 注意 ⚠️
+    - 无法 flush 数据 - prometheus 无法 flush wal，因此可能会丢失 2h 数据
 - store
   - 存储网关 - Store Gateway
   - 读取 对象存储 暴露 StoreAPI
@@ -77,6 +142,10 @@ title: Thanos
     - memcached
   - 支持 Bucket 缓存 - 缓存 Prometheus 区块数据
     - memcached
+  - 默认内存缓存 250M
+  - 支持文件缓存 index-header, in-mem cache items, meta.jsons
+  - 注意
+    - 初始索引过程可能会耗费大量内存
 - tools
   - bucket 管理工具
     - ls、verify、downsampling、inspect、replicate、web
@@ -147,8 +216,8 @@ config:
   endpoint: "minio.cluster.internal"
   insecure: true
   signature_version2: false
-  access_key: "VS8RNK4LTCSUI1Q3ZMR2"
-  secret_key: "uyMmzlJ5ZDxAyK0NAk4rVz+yMZj1nX+WFO3PMs0i"
+  access_key: "key"
+  secret_key: "secretsecret"
 YAML
 # Sidecar 上传 chunk 暴露 prometheus 为 StoreAPI
 # 默认 http://localhost:10902 grpc://localhost:10901
@@ -186,6 +255,40 @@ thanos compact \
   --data-dir=thanos-compact \
   --objstore.config-file=thanos-store.yaml \
   --wait
+```
+
+## Tool
+
+```bash
+# 查看 bucket 分布情况
+# http://localhost:10902/
+thanos tools bucket web --objstore.config-file=truth-bucket.yaml
+```
+
+## 缓存配置
+```yaml
+# 文件缓存
+type: IN-MEMORY
+config:
+  max_size: 0
+  max_size_items: 2048
+  # 缓存时效
+  validity: 6h
+
+---
+
+type: MEMCACHED
+config:
+  addresses: []
+  timeout: 0s
+  max_idle_connections: 0
+  max_async_concurrency: 0
+  max_async_buffer_size: 0
+  max_get_multi_concurrency: 0
+  max_item_size: 0
+  max_get_multi_batch_size: 0
+  dns_provider_update_interval: 0s
+  expiration: 0s
 ```
 
 ## 存储配置
@@ -252,3 +355,86 @@ config:
   secret_key: ""
   secret_id: ""
 ```
+
+## Kubernetest
+* [thanos-io/kube-thanos](https://github.com/thanos-io/kube-thanos) - jsonnet manifest
+  * [examples/all/manifests](https://github.com/thanos-io/kube-thanos/blob/master/examples/all/manifests)
+    * 示例，值得参考
+* [banzaicloud/thanos-operator](https://github.com/banzaicloud/thanos-operator)
+
+## Tracing
+* [Tracing](https://thanos.io/tip/thanos/tracing.md/)
+
+```yaml
+type: JAEGER
+config:
+  service_name: ""
+  disabled: false
+  rpc_metrics: false
+  tags: ""
+  sampler_type: ""
+  sampler_param: 0
+  sampler_manager_host_port: ""
+  sampler_max_operations: 0
+  sampler_refresh_interval: 0s
+  reporter_max_queue_size: 0
+  reporter_flush_interval: 0s
+  reporter_log_spans: false
+  endpoint: ""
+  user: ""
+  password: ""
+  agent_host: ""
+  agent_port: 0
+```
+
+## FAQ
+
+## Sidecar 上传历史文件
+
+```bash
+thanos sidecar \
+  --tsdb.path=/var/lib/prometheus/data/ \
+  --prometheus.url=http://localhost:9090 \
+  --objstore.config-file=thanos-bucket.yaml \
+  --shipper.upload-compacted
+```
+
+### Sidecar 暴露 Prometheus 为 StoreAPI
+
+```bash
+thanos sidecar --prometheus.url=http://localhost:9090
+```
+
+## 跨网络部署方案
+
+1. Prometheus Remote Write + Thanos Receive
+  - 优点
+    - 部署简单
+    - 不丢数据
+  - 缺点
+    - 性能扩容问题
+    - 稳定性问题
+    - thanos receive 有状态 - 本地记录 tsdb
+  - 参考
+    - [Thanos Remote Write](https://thanos.io/tip/proposals/201812_thanos-remote-receive.md/)
+1. Prometheus + Sidecar + Prometheus Remote Write + Thanos Receive
+  - Sidecar 上传 2h
+  - Receive 查询最近 2h
+  - 优点 - thanos receive 状态无所谓，可丢弃
+  - 缺点 - 多部署一个 sidecar
+1. Prometheus + Sidecar + StoreAPI tunnel
+  - StoreAPI 默认 h2c 
+  - 缺点
+    - grpc 不能 tunnel 到子路径，需要使用子域名或独立端口
+    - 需要额外的 tunnel 部署
+  - 优点
+    - 简单易理解
+    - 打通所需服务网络
+1. Prometheus + Sidecar + Prometheus:8080 tunnel + Sidecar
+  - 可以将 9090 tunnel 到子路径
+  - 内网 sidecar 将 tunnel 暴露为 StoreAPI
+  - 缺点
+    - 多部署一个 sidecar 到内网
+  - 优点
+    - 可 tunnel 到子路径
+    - 打通所监控的 prometheus

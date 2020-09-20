@@ -27,3 +27,4 @@ title: Cortex
     * GCS
     * Azure
     * 本地文件 - 单节点
+* [#865](https://github.com/cortexproject/cortex/issues/865) - 对比其他实现

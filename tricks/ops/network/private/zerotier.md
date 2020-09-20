@@ -9,6 +9,10 @@ title: Zerotier
 * [Router Configuration Tips](https://zerotier.atlassian.net/wiki/spaces/SD/pages/6815768/Router+Configuration+Tips)
 * 默认端口 9993
 * 支持 uPnP 或 NAT-PMP 直接映射端口能更容易直连
+* 注意
+  * 如果大量传输数据可能导致被官方 ZTC block，状态一直处于 REQUESTING_CONFIGURATION
+    * 删除本地 ID 重连应该可以解决
+    * `/var/lib/zerotier-one/identity.*`
 
 ## controller
 * zerotier-one [one.cpp](https://github.com/zerotier/ZeroTierOne/blob/master/one.cpp)
@@ -48,3 +52,8 @@ zerotier-one -p9993
 
 
 [mkworld.cpp](https://github.com/zerotier/ZeroTierOne/blob/master/attic/world/mkworld.cpp) 初始化基础信息，包含所有的 root 服务器，需要跳过这些服务器则需要修改从新生成。
+
+### REQUESTING_CONFIGURATION
+* [#1214](https://github.com/zerotier/ZeroTierOne/issues/1214)
+* 尝试减少 network 后恢复了
+  * 非常麻烦，不好恢复

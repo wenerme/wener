@@ -9,6 +9,7 @@ title: krew
 * https://sigs.k8s.io/krew-index/plugins.md
 
 ```bash
+# 安装
 (
   set -x; cd "$(mktemp -d)" &&
   curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.{tar.gz,yaml}" &&

@@ -3,16 +3,6 @@ id: prometheus
 title: Prometheus
 ---
 
-https://github.com/m3db/m3
-Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
-
-https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster
-VictoriaMetrics - fast, cost-effective and scalable time series database, long-term remote storage for Prometheus
-
-https://news.ycombinator.com/item?id=22758402
-
-https://github.com/OpenObservability/OpenMetrics
-
 # Prometheus
 
 ## Tips
@@ -30,6 +20,8 @@ https://github.com/OpenObservability/OpenMetrics
     - node_exporter 大约 3000 指标
     - scrape_interval 15s
     - `(3000/15*2 * 15*24*60*60) /1000/1000 = 518M`
+- 注意 ⚠️
+  - Prometheus 不支持 auth，如果要对外暴露建议添加反向代理
 - 参考
   - https://www.robustperception.io/configuring-prometheus-storage-retention
 

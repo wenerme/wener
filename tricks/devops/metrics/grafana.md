@@ -28,6 +28,9 @@ title: Grafana
   * 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
 * 问题
   * [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
+  * Legend 无法格式化，使用 prometheus 可以修改 label
+  * `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
+  * `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
 * 注意
   * Value Mapping 不支持文本匹配
 

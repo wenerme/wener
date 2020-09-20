@@ -32,7 +32,18 @@ printcap name = /dev/null
 * 相关端口
   * 901 SWAT service (not related to client communication)
   * 445 microsoft-ds 域控
-
+* 组件
+  * smbd
+  * nmbd
+* 工具
+  * smbstatus - 查看服务状态
+    * 当前文件锁
+  * eventlogadm
+* samba-dc
+  * samba-tool
+  * samba - gpupdate dnsupdate downgrade_db kcc spnupdate upgradedns
+* samba-winbind
+  * winbindd
 
 ```bash
 # 带 samba 的镜像
@@ -55,6 +66,9 @@ mount -t cifs -o credentials=/root/.the-creds-file,uid=33,gid=33,rw,nounix,iocha
 net use Z: \\computer_name\share_name /PERSISTENT:YES
 # 断开连接
 net use  Z: /delete
+
+smbcontrol all reload-config
+# killall -HUP smbd nmbd
 ```
 
 ## Quick start

@@ -57,6 +57,8 @@ module.exports = {
       'languages/zig',
       'languages/go/go-intro',
       'languages/go/go-template',
+      'languages/lua/lua',
+      'languages/lua/lua-version',
     ],
     开发运维: [
       'devops/tracing/tracing',
@@ -134,6 +136,8 @@ module.exports = {
       'devops/kubernetes/helm2',
       'devops/kubernetes/rancher-intro',
       'devops/kubernetes/rancher-rke',
+      'devops/kubernetes/tool/kustomize',
+      'devops/kubernetes/tool/krew',
       {
         type: 'category',
         label: '网络',

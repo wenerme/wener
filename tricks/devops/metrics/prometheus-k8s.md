@@ -32,6 +32,107 @@ title: Prometheus K8S
   * 简化配置 - versions, persistence, retention policies, replicas 
   * Prometheus Target 配置 - 自动监控目标配置 - 通过 annotation 发现
 * 之前是 coreos/prometheus-operator，自 0.41 开始去 coreos，移到独立组织 prometheus-operator 下
+* CRD
+  * Prometheus - 部署 Prometheus
+  * Alertmanager - 部署 Alertmanager
+  * ThanosRuler - 部署 thano rule
+  * ServiceMonitor - 配置 service 监控
+  * PodMonitor - 配置 pod 监控
+  * Probe - 配置静态监控目标
+  * PrometheusRule - 配置 告警/记录 规则
+
+```yaml
+kind: Prometheus
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  name: kube-prometheus-prometheus
+  namespace: monitoring
+spec:
+  affinity: {} # 节点亲和
+  alerting:
+    alertmanagers:
+      - name: kube-prometheus-alertmanager
+        namespace: monitoring
+        pathPrefix: /
+        port: http
+  enableAdminAPI: false
+  externalLabels:
+    cluster: zhensi
+  externalUrl: 'http://kube-prometheus-prometheus.monitoring:9090/'
+  image: 'docker.io/bitnami/prometheus:2.20.1-debian-10-r12'
+  listenLocal: false
+  logFormat: logfmt
+  logLevel: info
+  paused: false
+  podMetadata:
+    labels:
+      app.kubernetes.io/component: prometheus
+      app.kubernetes.io/instance: kube-prometheus
+      app.kubernetes.io/name: kube-prometheus
+  podMonitorNamespaceSelector: {}
+  podMonitorSelector: {}
+  probeNamespaceSelector: {}
+  probeSelector: {}
+  # 远程写 - 配置类似于 prometheus 的 remote_write
+  remoteWrite:
+    - name: my-remote
+      remoteTimeout: 120s
+      url: 'https://receive.example.com/api/v1/receive'
+      # proxyUrl: ''
+      # tlsConfig: {}
+      # writeRelabelConfigs: {}
+
+      # basic auth 的 secret
+      basicAuth:
+        password:
+          key: password
+          name: prometheus-basic-auth
+          optional: false
+        username:
+          key: username
+          name: prometheus-basic-auth
+          optional: false
+      # 队列配置 - 调优时使用
+      queueConfig:
+        # 默认 5s
+        batchSendDeadline: 10s
+        # 默认 500
+        capacity: 2500
+
+        # 目前 promethues 是没有实现的
+        maxRetries: 0
+        # 默认 100
+        maxSamplesPerSend: 5000
+        maxShards: 1000
+        minShards: 1
+
+        minBackoff: 30ms
+        maxBackoff: 100ms
+  remoteRead: []
+  replicas: 1
+  resources: {}
+  retention: 10d
+  retentionSize: 6GB
+  routePrefix: /
+  ruleNamespaceSelector: {}
+  ruleSelector: {}
+  securityContext:
+    fsGroup: 1001
+    runAsUser: 1001
+  serviceAccountName: kube-prometheus-prometheus
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
+  # Prometheus 本地存储
+  storage:
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 8Gi
+        storageClassName: local-path
+```
 
 ## kube-prometheus
 * 通过 jsonet 定制化和安装

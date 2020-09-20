@@ -65,7 +65,7 @@ title: K3S
     * 已经被回退
   * K3S 有 [server-ca 和 client-ca](https://github.com/rancher/k3s/issues/684#issuecomment-517032871)
     * 默认 CSR 是使用 servert-ca，导致创建的证书无法使用
-      * issueser 是 k3s-server-ca
+      * issuer 是 k3s-server-ca
     * 需要从服务器取 client-ca 创建证书
     * [#1768](https://github.com/rancher/k3s/pull/1768) - 默认使用 ClientCA 而不是 ServerCA
     * [自行创建脚本](https://github.com/rancher/k3s/issues/684#issuecomment-517501120)
