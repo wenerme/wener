@@ -31,6 +31,11 @@ module.exports = {
         ],
       },
       'java/library/productive',
+      'java/library/hazelcast',
+      'java/library/hibernate-orm',
+      'java/library/hibernate-enver',
+      'java/library/quarkus',
+      'java/library/guava',
     ],
     前端技术: [
       {
@@ -57,6 +62,7 @@ module.exports = {
       'languages/zig',
       'languages/go/go-intro',
       'languages/go/go-template',
+      'languages/go/go-pkg-net-rpc',
       'languages/lua/lua',
       'languages/lua/lua-version',
     ],
@@ -94,19 +100,12 @@ module.exports = {
       {
         type: 'category',
         label: 'Web',
-        items: [
-          'devops/web/nginx',
-          'devops/web/caddy',
-          'devops/web/traefik',
-        ],
+        items: ['devops/web/nginx', 'devops/web/caddy', 'devops/web/traefik'],
       },
       {
         type: 'category',
         label: '平台服务',
-        items: [
-          'devops/xaas/db-schema',
-          'devops/xaas/paas/dokku',
-        ],
+        items: ['devops/xaas/db-schema', 'devops/xaas/paas/dokku'],
       },
     ],
     AlpineLinux: [
@@ -163,10 +162,7 @@ module.exports = {
       {
         type: 'category',
         label: '平台',
-        items: [
-          'devops/kubernetes/platform/knative-intro',
-          'devops/kubernetes/platform/istio-intro',
-        ],
+        items: ['devops/kubernetes/platform/knative-intro', 'devops/kubernetes/platform/istio-intro'],
       },
       {
         type: 'category',
@@ -180,27 +176,22 @@ module.exports = {
     ],
     指南: [
       {
-        type:'category',
-        label:'运维',
-        items:[
-          'howto/ops/alpine-admin-ansible',
-        ]
+        type: 'category',
+        label: '运维',
+        items: ['howto/ops/alpine-admin-ansible'],
       },
       {
-        type:'category',
-        label:'网络',
-        items:[
+        type: 'category',
+        label: '网络',
+        items: [
           'howto/network/dns-prevent-spoofing',
           'howto/network/tinc-get-started',
           'howto/network/tinc-multi-path-failover',
           'howto/network/tinc-transparency-proxy',
-        ]
+        ],
       },
     ],
-    系统管理: [
-      'ops/admin/htop',
-      'ops/admin/mosh',
-    ],
+    系统管理: ['ops/admin/htop', 'ops/admin/mosh'],
     基础设施: [
       'ops/infra/infra',
       'ops/infra/ansible',
@@ -222,37 +213,24 @@ module.exports = {
       'ops/os/linux/virt/libvirt-faq',
       'ops/os/linux/virt/virsh',
     ],
-    启动: [
-      'ops/os/linux/boot/syslinux',
-      'ops/os/linux/boot/uboot',
-    ],
+    启动: ['ops/os/linux/boot/syslinux', 'ops/os/linux/boot/uboot'],
     工具: [
       {
-        type:'category',
-        label:'网络',
-        items:[
-          'tool/network/ip-lookup',
-        ]
-      }
+        type: 'category',
+        label: '网络',
+        items: ['tool/network/ip-lookup'],
+      },
     ],
     操作系统: [
       {
         type: 'category',
         label: 'Darwin',
-        items: [
-          'ops/os/darwin/darwin',
-          'ops/os/darwin/macos',
-          'ops/os/darwin/brew',
-        ]
+        items: ['ops/os/darwin/darwin', 'ops/os/darwin/macos', 'ops/os/darwin/brew'],
       },
       {
         type: 'category',
         label: 'Windows',
-        items: [
-          'ops/os/windows/windows',
-          'ops/os/windows/windows-dc',
-          'ops/os/windows/windows-faq',
-        ]
+        items: ['ops/os/windows/windows', 'ops/os/windows/windows-dc', 'ops/os/windows/windows-faq'],
       },
     ],
     数据库: [
@@ -270,35 +248,22 @@ module.exports = {
           'db/relational/postgresql/timescale',
           'db/relational/postgresql/postgrest-hello',
           'db/relational/postgresql/hasura',
-        ]
+        ],
       },
       {
         type: 'category',
         label: '关系型',
-        items: [
-          'db/relational/mysql',
-          'db/relational/mysql-gtid',
-          'db/relational/sqlite',
-        ]
+        items: ['db/relational/mysql', 'db/relational/mysql-gtid', 'db/relational/sqlite'],
       },
       {
         type: 'category',
         label: '文档型',
-        items: [
-          'db/document/mongodb',
-          'db/document/rethinkdb',
-          'db/document/couchdb',
-        ]
+        items: ['db/document/mongodb', 'db/document/rethinkdb', 'db/document/couchdb'],
       },
       {
         type: 'category',
         label: '键值型',
-        items: [
-          'db/kv/kv',
-          'db/kv/redis',
-          'db/kv/lmdb',
-          'db/kv/leveldb',
-        ]
+        items: ['db/kv/kv', 'db/kv/redis', 'db/kv/lmdb', 'db/kv/leveldb'],
       },
     ],
     参考: [
@@ -306,44 +271,29 @@ module.exports = {
       {
         type: 'category',
         label: '软件',
-        items: [
-          'reference/software/saas',
-          'reference/software/glossary',
-        ],
+        items: ['reference/software/saas', 'reference/software/glossary'],
       },
       {
         type: 'category',
         label: '用户增长',
-        items: [
-          'reference/growth/formula',
-          'reference/growth/glossary',
-        ],
+        items: ['reference/growth/formula', 'reference/growth/glossary'],
       },
       {
         type: 'category',
         label: '烹饪',
-        items: [
-          'reference/cook/glossary',
-        ],
+        items: ['reference/cook/glossary'],
       },
     ],
     网络: [
       {
         type: 'category',
         label: '应用',
-        items: [
-          'ops/network/application/dns',
-          'ops/network/application/http',
-          'ops/network/application/ssl',
-        ]
+        items: ['ops/network/application/dns', 'ops/network/application/http', 'ops/network/application/ssl'],
       },
       {
         type: 'category',
         label: '链路',
-        items: [
-          'ops/network/link/wireless',
-          'ops/network/link/infiniband',
-        ]
+        items: ['ops/network/link/wireless', 'ops/network/link/infiniband'],
       },
       {
         type: 'category',
@@ -356,7 +306,7 @@ module.exports = {
           'ops/network/private/ipsec',
           'ops/network/private/wireguard',
           'ops/network/private/vpn-faq',
-        ]
+        ],
       },
       {
         type: 'category',
@@ -372,7 +322,7 @@ module.exports = {
           'ops/network/tool/nmap',
           'ops/network/tool/powerdns',
           'ops/network/tool/wireshark',
-        ]
+        ],
       },
       'ops/network/standard/ieee-802',
     ],
@@ -381,11 +331,7 @@ module.exports = {
       {
         type: 'category',
         label: '块存储',
-        items: [
-          'ops/storage/block/raid',
-          'ops/storage/block/mdadm',
-          'ops/storage/block/lvm',
-        ]
+        items: ['ops/storage/block/raid', 'ops/storage/block/mdadm', 'ops/storage/block/lvm'],
       },
       {
         type: 'category',
@@ -399,18 +345,15 @@ module.exports = {
           'ops/storage/fs/smb',
           'ops/storage/fs/ntfs',
           // 'ops/storage/fs/zfs-tuning',
-        ]
+        ],
       },
       {
         type: 'category',
         label: '网络存储',
-        items: [
-          'ops/storage/network/share',
-          'ops/storage/network/sshfs',
-        ]
+        items: ['ops/storage/network/share', 'ops/storage/network/sshfs'],
       },
     ],
-    开发服务:[
+    开发服务: [
       {
         type: 'category',
         label: 'Auth',
@@ -439,34 +382,22 @@ module.exports = {
       {
         type: 'category',
         label: '内容管理',
-        items: [
-          'dev/service/cms/cms',
-        ],
+        items: ['dev/service/cms/cms'],
       },
       {
         type: 'category',
         label: 'Office',
-        items: [
-          'dev/service/office/office',
-          'dev/service/office/collabora',
-          'dev/service/office/onlyoffice',
-        ],
+        items: ['dev/service/office/office', 'dev/service/office/collabora', 'dev/service/office/onlyoffice'],
       },
       {
         type: 'category',
         label: '客户关系管理',
-        items: [
-          'dev/service/crm/crm-insight',
-        ],
+        items: ['dev/service/crm/crm-insight'],
       },
       {
         type: 'category',
         label: '文件',
-        items: [
-          'dev/service/file/nextcloud',
-          'dev/service/file/nextcloud-config',
-          'dev/service/file/nextcloud-faq',
-        ],
+        items: ['dev/service/file/nextcloud', 'dev/service/file/nextcloud-config', 'dev/service/file/nextcloud-faq'],
       },
       {
         type: 'category',
@@ -485,29 +416,20 @@ module.exports = {
       {
         type: 'category',
         label: '仓库',
-        items: [
-          'dev/service/repository/nexus',
-        ],
+        items: ['dev/service/repository/nexus'],
       },
     ],
     运维: [
       {
         type: 'category',
         label: '服务',
-        items: [
-          'ops/service/remote-desktop',
-          'ops/service/matomo',
-        ],
+        items: ['ops/service/remote-desktop', 'ops/service/matomo'],
       },
       {
         type: 'category',
         label: 'Gitlab',
-        items: [
-          'ops/service/gitlab-config',
-          'ops/service/gitlab-cicd',
-          'ops/service/gitlab-k8s',
-        ],
-      }
+        items: ['ops/service/gitlab-config', 'ops/service/gitlab-cicd', 'ops/service/gitlab-k8s'],
+      },
     ],
     VoIP: [
       'voip/voip-intro',
@@ -515,9 +437,9 @@ module.exports = {
       'voip/sip/provider',
       'voip/glossary',
       {
-        'type': 'category',
-        'label': 'Asterisk',
-        'items': [
+        type: 'category',
+        label: 'Asterisk',
+        items: [
           'voip/asterisk/intro',
           'voip/asterisk/version',
           'voip/asterisk/asterisk-moduls',
@@ -531,8 +453,8 @@ module.exports = {
           'voip/asterisk/glossory',
           'voip/asterisk/faq',
           'voip/asterisk/the-definitive-guide-4th',
-        ]
-      }
+        ],
+      },
     ],
   },
 };

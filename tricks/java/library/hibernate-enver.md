@@ -1,3 +1,8 @@
+---
+id: hibernate-enver
+title: Hibernate Enver
+---
+
 # Hibernate Enver
 
 ## Tips

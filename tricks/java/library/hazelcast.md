@@ -1,9 +1,14 @@
+---
+id: hazelcast
+title: Hazelcast
+---
+
 # Hazelcast
 
 * IMDG - In Memory Data Grid - 内存数据网格
 * Near Cache - 近缓存,会将从集群中获取到的数据缓存在本地
 
-* [文档](http://docs.hazelcast.org/docs/latest/manual/html-single/index.html)
+* [文档](https://docs.hazelcast.org/docs/latest-dev/manual/html-single/)
 
 ## Tips
 * [hazelcast/hazelcast](https://github.com/hazelcast/hazelcast)

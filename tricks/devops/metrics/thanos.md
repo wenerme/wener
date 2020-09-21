@@ -62,7 +62,8 @@ title: Thanos
       - `?dedup`
       - ` --query.replica-label` - 基于副本标签进行去重
     - 自动下采样
-      - `?max_source_resolution=5m` - 0 禁用，可设置为 1h
+      - `?max_source_resolution=5m` - 0s 禁用，可设置为 1h 或 auto
+        - 如果发现数据有 gap 可禁用
       - `--query.auto-downsampling` - 默认为 step/5
     - 并发 select
       - `--query.max-concurrent-select=4` - 每次请求的最大并发 select
@@ -70,7 +71,7 @@ title: Thanos
     - 支持自定义返回字段
     - 支持过滤 store
       - `?query=up&dedup=true&partial_response=true&storeMatch[]={__address__=~"prometheus-foo.*"}`
-  - grafana 可配置查询参数 `max_source_resolution=1h&partial_response=true`
+  - grafana 可配置查询参数 `max_source_resolution=auto&partial_response=true`
 - query-frontend
   - 无状态，可扩容
   - 实际使用时影响查询性能的关键组件
@@ -412,8 +413,12 @@ thanos sidecar --prometheus.url=http://localhost:9090
     - 部署简单
     - 不丢数据
   - 缺点
-    - 性能扩容问题
+    - RW 性能扩容问题
+      - 默认 max_samples_per_send 为 100，指标上去后很容易 qps 上百
+      - 如果使用了反向代理，反向代理也会有一定性能问题
+      - 增大单次批量会占用较多内存，例如 max_samples_per_send 5000 capacity 1000 启动发送后内存达到 1G+
     - 稳定性问题
+      - 需要额外维护 thanos receive
     - thanos receive 有状态 - 本地记录 tsdb
   - 参考
     - [Thanos Remote Write](https://thanos.io/tip/proposals/201812_thanos-remote-receive.md/)
@@ -438,3 +443,23 @@ thanos sidecar --prometheus.url=http://localhost:9090
   - 优点
     - 可 tunnel 到子路径
     - 打通所监控的 prometheus
+
+## 自动下采样
+* `?max_source_resolution`
+  * 0s - 禁用
+  * 5m
+  * 1h
+  * auto - 自动
+* 使用 rate 可能会导致 gap
+* 参考
+  * [#813](https://github.com/thanos-io/thanos/issues/813)
+
+```promql
+# 5m 使用下采样会有 gap
+avg(irate(node_cpu_seconds_total{mode="system"}[5m])) by (instance) *100
+# 10m 则没有问题
+avg(irate(node_cpu_seconds_total{mode="system"}[10m])) by (instance) *100
+
+# grafana
+avg(irate(node_cpu_seconds_total{mode="system"}[$__interval])) by (instance) *100
+```

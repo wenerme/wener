@@ -29,8 +29,9 @@ title: Grafana
 * 问题
   * [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
   * Legend 无法格式化，使用 prometheus 可以修改 label
-  * `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
-  * `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
+    * `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
+    * `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
+  * [#11170](https://github.com/grafana/grafana/issues/11170) - 无法隐藏 Table 的 Filter for value
 * 注意
   * Value Mapping 不支持文本匹配
 

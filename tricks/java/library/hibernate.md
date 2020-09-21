@@ -1,4 +1,10 @@
-# 文档路径
+---
+id: hibernate-orm
+title: Hibernate
+---
+
+# Hibernate
+## 文档路径
 https://docs.jboss.org/hibernate/orm
 
 https://github.com/hibernate/hibernate-orm/blob/master/hibernate-core/src/main/antlr/hql.g

@@ -370,3 +370,16 @@ rm -rf /etc/ssh/ssh_host_*
 ```
 
 * [Memory hotplug with Qemu/KVM and libvirt](https://medium.com/@juergen_thomann/558f1c635972)
+
+## memory ballooning
+* https://www.linux-kvm.org/page/Projects/auto-ballooning
+* `-device virtio-balloon,automatic=true`
+* deflate-on-oom=on
+* https://libvirt.org/formatdomain.html#elementsMemBalloon
+* 默认添加
+* When you use KVM and want to overcommit memory you can try to enable “kernel same-page merging” (KSM) in the linux kernel on the hypervisor.
+* https://packages.debian.org/stretch/ksmtuned
+
+```xml
+<memballoon model='virtio' autodeflate='on'>
+```
