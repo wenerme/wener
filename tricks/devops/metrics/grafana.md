@@ -123,3 +123,6 @@ database=
 redis=addr=127.0.0.1:6379,pool_size=100,db=0,ssl=false
 memcache=127.0.0.1:11211
 ```
+
+## FAQ
+## msg="Failed to look up user based on cookie" logger=context error="user token not found"

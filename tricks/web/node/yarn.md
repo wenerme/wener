@@ -35,11 +35,14 @@ yarn global dir
   * 配置 [nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker) 为 `node-modules` 可使用以前的方式
 
 ```bash
-# 安装
+# 安装/升级
 # yarn >= 1.22
 yarn set version berry
 # yarn < v1.22
 yarn policies set-version berry
+
+yarn config set enableTelemetry 0
+yarn config set --home enableTelemetry 0
 
 # 常用插件
 # ====================

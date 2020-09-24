@@ -63,6 +63,7 @@ module.exports = {
       'languages/go/go-intro',
       'languages/go/go-template',
       'languages/go/go-pkg-net-rpc',
+      'languages/go/go-kit',
       'languages/lua/lua',
       'languages/lua/lua-version',
     ],
