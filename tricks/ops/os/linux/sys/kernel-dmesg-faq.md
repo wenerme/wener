@@ -16,7 +16,6 @@ modprobe ipmi_si
 modprobe acpi_ipmi
 ```
 
-
 ```
 ACPI Error: No handler for Region [POWR] (00000000a03df149) [IPMI] (20190816/evregion-127)
 ACPI Error: Region IPMI (ID=7) has no handler (20190816/exfldio-261)
@@ -143,7 +142,7 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 ## lpc_ich: Resource conflict(s) found affecting gpio_ich
 
 
-## TODO
+```
 [    5.019593] ACPI Warning: SystemIO range 0x0000000000001C00-0x0000000000001C2F conflicts with OpRegion 0x0000000000001C00-0x0000000000001FFF (\GPR) (20190816/utaddress-204)
 [    5.019594] ACPI: If an ACPI driver is available for this device, you should use it instead of the native driver
 
@@ -153,7 +152,7 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 [    0.172443] pmd_set_huge: Cannot satisfy [mem 0xf8000000-0xf8200000] with a huge-page mapping due to MTRR override.
 
 [    0.172443] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
-
+```
 
 
 ```

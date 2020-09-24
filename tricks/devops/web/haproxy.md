@@ -31,3 +31,6 @@ title: HAProxy
   * [5 Ways to Extend HAProxy with Lua](https://www.haproxy.com/blog/5-ways-to-extend-haproxy-with-lua/)
   * [Using HAProxy as an API Gateway](https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-3-health-checks/)
 
+## metrics
+* https://www.haproxy.com/blog/haproxy-exposes-a-prometheus-metrics-endpoint/
+* https://www.haproxy.com/blog/exploring-the-haproxy-stats-page/

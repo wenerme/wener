@@ -32,7 +32,7 @@ title: oauth2-proxy
   * /oauth2/auth - 返回 202 Accepted 或 401 Unauthorized；用于 nginx auth_request
 * 参考
   * ingress-nginx [oauth external auth](https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/)
-
+  * [Setup ingress auth to use keycloak oauth](https://docs.syseleven.de/metakube/de/tutorials/setup-ingress-auth-to-use-keycloak-oauth)
 
 ```yaml
 # Keycloak
@@ -145,4 +145,18 @@ title: oauth2-proxy
 # cookie_refresh = ""
 # cookie_secure = true
 # cookie_httponly = true
+```
+
+## Ingress
+
+```yaml
+# 原始 Ingress
+kind: Ingress
+metdata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
+    nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+    # 需要 set-xauthrequest: true
+    nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
 ```

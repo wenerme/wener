@@ -6,6 +6,7 @@ title: Lua
 # Lua
 
 ## Tips
+- [lua/lua](https://github.com/lua/lua)
 - [5.4/manual](https://www.lua.org/manual/5.4/manual.html)
 - 注意
   - 不能直接为 Table 添加额外方法, 因为每个 Table 都有自己的 Metadata

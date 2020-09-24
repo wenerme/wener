@@ -205,3 +205,11 @@ case $space in
   ;;
 esac
 ```
+
+## 使用变量名字访问变量
+* [Shell Parameter Expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
+```bash
+a=PATH
+echo ${!a}
+```

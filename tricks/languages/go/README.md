@@ -8,6 +8,9 @@ title: Golang
 
 ## Tips
 
+* 注意
+  * [#31529](https://github.com/golang/go/issues/31529) - `go get` 不会下载源码到 `~/go/src` 了
+
 * JSON
   * [json-iterator/go](https://github.com/json-iterator/go) - A high-performance 100% compatible drop-in replacement of "encoding/json" 
   * [esnme/ultrajson](https://github.com/esnme/ultrajson) - Ultra fast JSON decoder and encoder written in C with Python bindings 

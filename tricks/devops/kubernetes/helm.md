@@ -114,7 +114,7 @@ chartmuseum --debug --port=8080 \
   --storage-alibaba-endpoint="oss-cn-beijing.aliyuncs.com"
 ```
 
-### registru
+### registry
 
 ```bash
 export HELM_EXPERIMENTAL_OCI=1
@@ -139,6 +139,11 @@ helm chart pull index.docker.io/v1/wcharts/alpinelinux:0.1.0
 # https://helm.sh/docs/chart_template_guide/
 helm install --debug --dry-run goodly-guppy ./mychart
 
-# 渲染模板
-helm template . --show-only templates/values.yaml > values.yaml
+# 渲染单个模板 - 用于测试排查问题
+helm template ./mychart --show-only templates/values.yaml > values.yaml
+# 渲染整个 chart
+helm template ./mychart
 ```
+
+## Helm Operator
+* [fluxcd/helm-operator](https://github.com/fluxcd/helm-operator)

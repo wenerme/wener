@@ -6,7 +6,8 @@ title: GitLab K8S 集成
 # GitLab K8S
 
 * 问题
-  * 集成 Helm 3 [#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037)
+  * 集成 Helm 3
+    * [#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)
     * [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
     * [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
   * 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)

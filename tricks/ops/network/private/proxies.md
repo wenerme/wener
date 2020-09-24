@@ -13,6 +13,13 @@ curl -x http://127.0.0.1:8080 icanhazip.com -v
 # 相同
 curl -x http://127.0.0.1:8080 https://icanhazip.com -v
 curl -x http://127.0.0.1:8080/proxy https://icanhazip.com -v
+
+# http2
+# ==========
+# HTTP Upgrade
+curl -v --http2 http://localhost:8000
+# GET / HTTP/2
+curl -v --http2-prior-knowledge http://localhost:8000
 ```
 
 # 库

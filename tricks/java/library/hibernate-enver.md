@@ -30,7 +30,7 @@ title: Hibernate Enver
   * `REVINFO`
   * `TRACKING_REVINFO`
   * 列 `_MOD`
-  REVCHANGES
+  * `REVCHANGES`
 
 * 配置 `org.hibernate.envers.configuration.EnversSettings`
 

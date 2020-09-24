@@ -37,3 +37,20 @@ inlets client --remote 127.0.0.1:8000 --upstream http://127.0.0.1:8123
 
 ## kubernetes operator
 * [inlets/inlets-operator](https://github.com/inlets/inlets-operator)
+
+## 笔记
+* 使用 websocket 进行 tunnel
+  * 类似项目 [google/huproxy](https://github.com/google/huproxy) - 非常简单，好理解
+  * 使用 [rancher/remotedialer](https://github.com/rancher/remotedialer) 实现 TCP over HTTP WebSocket
+  * 通过 client 发起 dial，通过 ws 建立通道
+* HTTP 头
+  * `x-inlets-id` - 客户端 uuid
+  * `x-inlets-upstream` - 需要客户端请求的上游
+* 没有处理 http2
+  * pro 有
+  * 因此无法使用 grpc2
+  * 检测 http2 支持 `curl -sI https://curl.haxx.se -o/dev/null -w '%{http_version}\n'`
+* 路由逻辑在 `pkg/router`
+* server
+  * `/` - 前端代理
+  * `/tunnel` - client 过来的通道

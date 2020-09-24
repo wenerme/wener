@@ -8,6 +8,8 @@
   * JForg
   * [Portus](https://github.com/SUSE/Portus)
 * containerd [registry](https://github.com/containerd/cri/blob/master/docs/registry.md)
+* [google/go-containerregistry](https://github.com/google/go-containerregistry)
+* [docker/distribution](https://github.com/docker/distribution)
 
 ## docker registry
 * [配置](https://docs.docker.com/registry/configuration/)

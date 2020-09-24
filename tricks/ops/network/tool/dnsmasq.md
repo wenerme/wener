@@ -545,9 +545,9 @@ pxe-service=[tag:<tag>,]<CSA>,<menu text>[,<basename>|<bootservicetype>][,<serve
 pxe-prompt=[tag:<tag>,]<prompt>[,<timeout>]
 ```
 
-## FAQ
+# FAQ
 
-### dnsmasq: setting capabilities failed: Operation not permitted
+## dnsmasq: setting capabilities failed: Operation not permitted
 * Docker 里遇到
 * 用 root 启动
 
@@ -584,4 +584,24 @@ dhcp-authoritative
 dhcp-lease-max=253
 dhcp-hostsfile=/var/lib/libvirt/dnsmasq/default.hostsfile
 addn-hosts=/var/lib/libvirt/dnsmasq/default.addnhosts
+```
+
+## dnsmasq as
+
+```ini
+auth-server=localhost
+auth-zone=localhost,127.0.0.0/24
+# 会解析所有的 cluster.internal 结尾域名
+# x.cluster.internal
+# x.x.cluster.internal
+address=/cluster.internal/192.168.1.1
+```
+
+## 所有域名 CNAME 为其他域名
+
+```ini
+# 所有 example.com 都会 CNAME 为 wener.me
+cname=*.example.com,wener.me,180
+auth-server=example.com
+auth-zone=example.com
 ```

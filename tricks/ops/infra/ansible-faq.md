@@ -50,6 +50,13 @@ titleL: Ansible FAQ
 env LDFLAGS='-L/usr/local/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib' $(brew --prefix ansible)/libexec/bin/pip install psycopg2
 ```
 
+## winrm
+
+```bash
+$(brew --prefix ansible)/libexec/bin/pip install "pywinrm>=0.3.0"
+```
+
+
 ## synchronize 不支持 ProxyCommand
 
 - rsync 使用 jumphost 会有问题，可尝试 sshuttle 或者使用 copy

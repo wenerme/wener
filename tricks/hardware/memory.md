@@ -4,10 +4,13 @@
 * [REG](https://en.wikipedia.org/wiki/Registered_memory) / 寄存器内存
   * 寄存器内存无法在非为其设计的主板上使用
   * 寄存器内存与非寄存器内存不能混用
-* [DIMM]() 双列直插式内存模块
-  * RDIMM - Registered DIMM - Buffered
-  * UDIMM - Unregistered DIMM
+* [DIMM](http://en.wikipedia.org/wiki/DIMM) 双列直插式内存模块
+  * RDIMM - Buffered/Registered DIMM
+  * UDIMM - Unbuffered/Unregistered DIMM
     * 比较少，价格高，建议用 RDIMM
+  * FBDIMM - Buffered/Registered
+  * SO-DIMM
+    * 笔记本内存
 * 无缓冲内存（unbuffered memory）或非寄存器内存（unregistered memory）
 * [How Much Power Does Memory Use?](https://www.crucial.com/support/articles-faq-memory/how-much-power-does-memory-use)
   * 3w 8G
@@ -35,3 +38,15 @@ Non-ECC UDIMM和ECC UDIMM都不会采用x4排列(颗粒数太多), 所以要想1
 
 ## 三星
 * [DDR4 SDRAM Memory](https://www.samsung.com/semiconductor/global.semi/file/resource/2018/06/DDR4_Product_guide_May.18.pdf)
+
+# FAQ
+## UDIMM vs RDIMM
+* UDIMM
+  * 小服务器，两条内存
+  * 只能双通道
+  * 单通道时性能会好一点
+* RDIMM 
+  * 大服务器
+  * 双通道或三通道时候带宽更高
+* 参考
+  * https://serverfault.com/a/289102/190601

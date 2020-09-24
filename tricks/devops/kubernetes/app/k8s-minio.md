@@ -16,3 +16,8 @@ title: Minio
   * direct.csi.min.io
   * Direct Volume Access
   * 直接访问挂载的磁盘，而不是通过文件的方式访问
+
+```bash
+# https://charts.wener.tech/
+helm show chart wener/minio
+```

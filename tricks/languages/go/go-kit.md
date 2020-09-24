@@ -16,7 +16,7 @@ title: go-kit
 | --------- | --------------------------------------------------------------------------------- |
 | Transport | http<br/>nats<br/>jsonrpc<br/>grpc<br/>thrift<br/>amqp<br/>httprp                 |
 | Endpoint  | metrics<br/>balance<br/>limiting                                                  |
-| Service   | business analytics<br/>application logging <br>service metrics<br/>business login |
+| Service   | business analytics<br/>application logging<br/>service metrics<br/>business login |
 
 ## 模块
 
