@@ -96,6 +96,7 @@ module.exports = {
           'devops/service/consul',
           'devops/service/consul-conf',
           'devops/service/consul-connect',
+          'devops/service/fabio',
         ],
       },
       {

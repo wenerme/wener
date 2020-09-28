@@ -31,6 +31,20 @@ title: Consul
     - 允许选举自己为主节点
     - 集群启动后则不需要使用该模式
     - 相当于 `bootstrap_expect` 为 1
+- Watch
+  - consul 使用 http blocking query 实现 watch
+  - 通过 index 或 content hash 来判断变化
+  - [#1065](https://github.com/hashicorp/consul-template/issues/1065) - When watching all services, consul-template is DOSing the Consul agent
+  - 当监控量大的时候考虑客户端去重，间隔查询，避免长链接
+  - 可 Watch 的类型 - key、keyprefix、services、nodes、service、checks、event
+- 注意
+  - Value 最大 512KB - 不要将 KV 用于通用存储，用于存储基本状态和配置足以
+  - meta 最多 64 个 KV，key 只能是 `[-_a-zA-Z0-9]{,128}`,值最长 512
+  - 区别使用 tag 和 meta
+    - tags 例如： primary、secondary
+    - metas 例如： version、name
+- 参考
+  - [FAQ](https://www.consul.io/docs/troubleshoot/faq)
 
 | env                    | default               | desc            |
 | ---------------------- | --------------------- | --------------- |
@@ -62,6 +76,11 @@ consul monitor --log-level=debug
 curl -v -X PUT http://localhost:8500/v1/agent/service/deregister/web-test
 consul services deregister -id web-test
 ```
+
+## Catalog
+* Service
+* Node
+* Datacenter
 
 ## 快速开始
 

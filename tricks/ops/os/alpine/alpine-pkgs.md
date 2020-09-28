@@ -76,6 +76,18 @@ apk del '.makedepends-*'
 rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild/
 ```
 
+## abuild
+```bash
+# 默认环境
+startdir="${APKBUILD%/*}"
+srcdir=${srcdir:-"$startdir/src"}
+pkgbasedir=${pkgbasedir:-"$startdir/pkg"}
+
+repo=${startdir%/*}
+repo=${repo##*/}
+
+builddir=${builddir:-"$srcdir/$pkgname-$pkgver"}
+```
 
 ## abuild.conf
 * [abuild.conf](https://github.com/alpinelinux/abuild/blob/master/abuild.conf)
