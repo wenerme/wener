@@ -93,6 +93,7 @@ HCL
 ```
 
 
+<!--
 
 /metrics path for Prometheus or /healthz for kubelet liveness checks.
 
@@ -102,3 +103,5 @@ Path (string: "") - The HTTP path to expose. The path must be prefixed by a slas
 LocalPathPort (int: 0) - The port where the local service is listening for connections to the path.
 ListenerPort (int: 0) - The port where the proxy will listen for connections. This port must be available for the listener to be set up. If the port is not free then Envoy will not expose a listener for the path, but the proxy registration will not fail.
 Protocol (string: "http") - Sets the protocol of the listener. One of http or http2. For gRPC use http2
+
+-->
