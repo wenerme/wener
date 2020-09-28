@@ -26,19 +26,41 @@ helm repo add hashicorp https://helm.releases.hashicorp.com
 # --set server.affinity=null 允许安装到单机
 # server.storageClass 修改存储类型
 helm install consul hashicorp/consul \
-  -n service --create-namespace \
+  -n consul --create-namespace \
   --set global.name=consul --set global.datacenter=center
 
 # 转发 UI
 # 默认没有 tls 和 acl
-kubectl port-forward -n service svc/consul-server 8500:8500
+kubectl port-forward -n consul svc/consul-server 8500:8500
 # 如果启用了 ACL
-kubectl get-n service secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -D
+kubectl get -n consul secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d
 
 # 访问 consul
 # 每个节点都有 agent 因此直接使用 HOST_IP 即可
 export CONSUL_HTTP_ADDR="${HOST_IP}:8500"
 consul kv put hello world
+```
+
+```yaml
+env:
+- name: ADVERTISE_IP
+  valueFrom:
+    fieldRef:
+      fieldPath: status.podIP
+- name: NAMESPACE
+  valueFrom:
+    fieldRef:
+      fieldPath: metadata.namespace
+- name: NODE
+  valueFrom:
+    fieldRef:
+      fieldPath: status.nodeName
+- name: HOST_IP
+  valueFrom:
+    fieldRef:
+      fieldPath: status.hostIP
+- name: CONSUL_HTTP_ADDR
+  value: $(HOST_IP):8500
 ```
 
 ## DNS
@@ -76,3 +98,6 @@ kubectl edit configmap coredns -n kube-system
 # 测试解析
 kubectl run --rm -i -t dns-test --image=wener/base --restart=Never -- nslookup consul.service.consul
 ```
+
+## ACL
+* [Kubernetes Auth Method](https://www.consul.io/docs/security/acl/auth-methods/kubernetes)

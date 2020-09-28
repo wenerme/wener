@@ -51,6 +51,14 @@ title: Consul
 | CONSUL_HTTP_ADDR       | http://127.0.0.1:5800 |
 | CONSUL_HTTP_TOKEN      |
 | CONSUL_HTTP_TOKEN_FILE |                       | HTTP Basic auth |
+| CONSUL_HTTP_AUTH       |                       | user:pass       |
+| CONSUL_HTTP_SSL        | false                 |
+| CONSUL_CACERT          |
+| CONSUL_CAPATH          |
+| CONSUL_CLIENT_CERT     |
+| CONSUL_CLIENT_KEY      |
+| CONSUL_TLS_SERVER_NAME |
+| CONSUL_HTTP_SSL_VERIFY | true
 | CONSUL_GRPC_ADDR       | 127.0.0.1:8502        | envoy 集成需要  |
 
 ```bash
@@ -78,9 +86,10 @@ consul services deregister -id web-test
 ```
 
 ## Catalog
-* Service
-* Node
-* Datacenter
+
+- Service
+- Node
+- Datacenter
 
 ## 快速开始
 

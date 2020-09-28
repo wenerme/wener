@@ -33,6 +33,11 @@ title: Minio
     - ObjectACL (Use bucket policies instead)
     - ObjectTorrent
 - Cyberduck s3 http https://svn.cyberduck.io/trunk/profiles/S3%20(HTTP).cyberduckprofile
+- 注意
+  - access key 至少 3 字符
+  - secret key 至少 8 字符
+- 参考
+  - [Set up Nginx proxy with MinIO Server](https://docs.minio.io/docs/setup-nginx-proxy-with-minio)
 
 | 限制           | 值            |
 | -------------- | ------------- |
@@ -45,8 +50,11 @@ title: Minio
 | 块大小         | 5 MiB - 5 GiB |
 
 ```bash
+# minio 仓库 - 可能更新
 # brew install minio/stable/minio
 # brew install minio/stable/mc
+# 官方仓库
+brew install minio-c minio
 
 docker pull minio/minio
 # 单节点启动
@@ -134,6 +142,10 @@ rclone lsd oss:
 
 ```
 
+## 配置
+* https://docs.min.io/docs/minio-server-configuration-guide.html
+* 现在配置会存储到后端存储目录下， `.minio.sys`
+
 ## Docker
 
 ```bash
@@ -192,8 +204,8 @@ cat > consoleAdmin.json << EOF
   ]
 }
 EOF
-mc admin policy add test consoleAdmin consoleAdmin.json
-mc admin policy set test consoleAdmin user=console
+mc admin policy add test ConsoleAdmin consoleAdmin.json
+mc admin policy set test ConsoleAdmin user=console
 
 # export CONSOLE_HMAC_JWT_SECRET=YOURJWTSIGNINGSECRET
 #required to encrypt jwet payload
@@ -239,3 +251,9 @@ docker run --rm -it \
 ```bash
 brew install certbot
 ```
+
+### Unable to initialize config system: Invalid credentials
+
+key/secret 错误
+
+### This 'admin' API is not supported by server in 'mode-server-fs'.
