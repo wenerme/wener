@@ -5,6 +5,8 @@ title: seaweedfs
 
 # seaweedfs
 ## Tips
+* 注意
+  * 默认构建的单 `weed volume` 只支持 30G - 对分布式文件系统来说太小了
 * [chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
   * 起源于 [Facebook's Haystack design paper](http://www.usenix.org/event/osdi10/tech/full_papers/Beaver.pdf)
   * 每个文件 40byte 元数据
@@ -104,8 +106,14 @@ title: seaweedfs
   * 类似于分片/Sharding
   * 写入到所有 replica 才算成功
   * 如果失败，则标记 volume 只读，下次分配其他可写入 volume id
+* Volume Server - `weed volume`
+  * 最多 30G - 构建添加 tag 5BytesOffset 支持可最多 8T
+  * 提供 volume 存储 - 默认最多 8 个 volume id
+    * 相当于平均单个 volume id 最多 30G/8 ~ 3.75G
 * Usually hot data are fresh and warm data are old
   * newly created volumes on local servers, and optionally upload the older volumes on the cloud
+* collection
+  * volume 集合 - 相当于将用到的 volume 进行分类，方便统一管理
 
 ```bash
 # 下载 https://github.com/chrislusf/seaweedfs/releases
@@ -134,6 +142,12 @@ weed master -mdir=./meta-data -port=9333
 weed volume -dir=$PWD/v1 -max=5  -mserver=localhost:9333 -port=8080
 weed volume -dir=$PWD/v2 -max=10 -mserver=localhost:9333 -port=8081
 
+# 性能测试
+# 1M 1k 的文件
+# 两个 volume - 5808.88 #/sec 5987.44 Kbytes/sec
+# 运行完成后删除 collection - http://localhost:9333/col/delete?collection=benchmark
+weed benchmark -master=localhost:9333
+
 # 文件系统
 weed filer -port=8888
 
@@ -144,8 +158,43 @@ weed filer -port=8888
 # -umask
 weed mount -filer=localhost:8888 -cacheDir=$PWD/mnt-cache -dir=$PWD/mnt -dirAutoCreate
 
-weed s3 -port=8333 -filer=localhost:8888
+# 匿名读 public
+# admin 管理
+# test 访问 test bucket
+cat <<JSON > s3.json
+{
+  "identities": [
+    {
+      "name": "anonymous",
+      "actions": ["Read:public"]
+    },
+    {
+      "name": "admin",
+      "credentials": [
+        {
+          "accessKey": "admin",
+          "secretKey": "secret"
+        }
+      ],
+      "actions": ["Admin", "Read", "Write"]
+    },
+    {
+      "name": "test",
+      "credentials": [
+        {
+          "accessKey": "test",
+          "secretKey": "test"
+        }
+      ],
+      "actions": ["Read:test", "Read:test", "Write:test"]
+    }
+  ]
+}
+JSON
+weed s3 -port=8333 -filer=localhost:8888 -config s3.json
 ```
+
+## volume
 
 ## weed shell
 * [weed-shell](https://github.com/chrislusf/seaweedfs/wiki/weed-shell)
@@ -165,6 +214,10 @@ volume.fix.replication
 
 # 修改之后 unlock
 unlock
+
+# 删除
+# volume-server volume-id
+volume.delete 127.0.0.1:8080 157
 ```
 
 ## 优化
