@@ -9,14 +9,14 @@ title: Bonding
 
 
 ## Link aggregation
-* [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation)
+* [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation) - LACP
 * Linux [bonding](https://wiki.linuxfoundation.org/networking/bonding)
 * kernel doc [bonding.txt](https://www.kernel.org/doc/Documentation/networking/bonding.txt)
 * http://www.linux-kvm.org/page/HOWTO_BONDING
 
 
 * [Bonding Modes](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html/Installation_Guide/Bonding_Modes.html)
-* 模式
+* 模式 - 默认 balance-rr
   * balance-rr - 0 - 轮询负载
     * 唯一单 TCP/IP 流能利用多个网口的模式
     * 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
@@ -30,8 +30,11 @@ title: Bonding
     * 需要交换机配置 etherchannel 或 trunking
   * broadcast - 3 - 广播
     * 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
-  * 802.3ad - 4 - IEEE 802.3ad
+  * 802.3ad - 4 - IEEE 802.3ad - LACP
     * 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
+    * 实现方式也是基于 hash
+      * 通常包括 src ip/mac/port/protocol, dst ip/mac/port/protocol
+    * 因此较多连接的时候才会有明显的效果
   * balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
     * 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
   * balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
@@ -95,15 +98,57 @@ ifenslave -c bond0 eth1
 ## 配置案例
 * 需要安装 bonding 才能使用 bond-slaves 这样的指令
 
+### bonding if hook
+
+```shell
+auto eth0
+iface eth0 inet manual
+
+auto wlan0
+iface wlan0 inet manual
+  # 可直接设置 master
+  bond-master eth0
+auto bond0
+iface bond0 inet dhcp
+  # 所有选项位于
+  # /sys/class/net/bond0/bonding
+  # 无
+  bond-slaves none
+  # 所有 eth
+  bond-slaves all
+  # 列表
+  bond-slaves eth0 wlan0
+  # 也可以直接使用 slaves
+  slaves eth0 wlan0
+
+  # 以下选项均可选
+  # 默认为 slaves 的第一个
+  bond-primary eth0
+  # 热 slave
+  bond-active-slave wlan0
+
+  # 默认
+  bond-mode balance-rr
+  bond-miimon 0
+  bond-use-carrier 1
+  bond-updelay 0
+  bond-downdelay 0
+  bond-arp-validate none 0
+  bond-fail-over_mac none 0
+  bond-xmit-hash-policy layer2 0
+  bond-lacp-rate slow 0
+  bond-arp-ip-target ""
+```
+
 ### 命令控制
 
 ```
 auto bond0
-iface bond0 inet manual
-  down ip link set $IFACE down
+iface bond0 inet dhcp
+  down 'servicenk set $IFACE down
   post-down rmmod bonding
   pre-up modprobe bonding mode=4 miimon=200
-  up ip link set $IFACE up mtu 9000
+  up 'servicenk set $IFACE up mtu 9000
   up udevadm trigger
 
 allow-hotplug eth0

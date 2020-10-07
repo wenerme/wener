@@ -1,5 +1,35 @@
 # Go FAQ
 
+## Struct 是否使用指针
+* 尽量不使用指针 - 直接使用 Struct 会更快
+  * 使用指针会用到全局堆，使用 struct 副本可直接放到栈
+  * 用到堆就会涉及到 GC
+* 使用 Pointer
+  * 调用密度高
+  * 不需要副本场景
+* 使用 Struct
+  * 数据密度高但不需要经常调用
+* 如果 Struct 包含了不可复制对象，则一定要用指针 - 例如 sycn.Mutex
+* 参考
+  * [Go: Should I Use a Pointer instead of a Copy of my Struct?](https://medium.com/a-journey-with-go/44b43b104963)
+
+```golang
+type Server struct {
+  // 内部配置对象可使用 Struct
+  conf ServerConf
+}
+// 因为会对 conf 进行默认值补齐 - 因此传入指针
+func NewServer(conf *ServerConf)*Server{
+  // 修改
+  if conf.Bind == "" {
+    conf.Bind = "0.0.0.0"
+  }
+  // 复制一个 conf 避免外部更改
+  // Server 使用指针，因为不需要副本
+  return &Server{ Conf = *conf }
+}
+```
+
 ## text/template vs html/template
 * html/template
   * 输出内容被转义，避免代码注入
