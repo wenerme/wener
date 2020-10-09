@@ -4,11 +4,15 @@
 
 - [digistump/DigistumpArduino](https://github.com/digistump/DigistumpArduino)
 - http://digistump.com/package_digistump_index.json
-- https://github.com/digistump/arduino-boards-index/raw/master/package_digistump_index.json
+  - https://github.com/digistump/arduino-boards-index/raw/master/package_digistump_index.json
 - https://digistump.com/wiki/digispark/tutorials/connecting
 - https://github.com/jaromaz/DigiOS
 - https://github.com/SpenceKonde/ATTinyCore
 - https://github.com/J-Rios/Digispark_DigiUSB-SoftSerial
+- idVendor=16d0, idProduct=0753
+- https://digistump.com/wiki/digispark/tutorials/linuxtroubleshooting
+- 注意
+  - 插上后 5s 会启动 - 启动后没有 tty
 
 ## Spec
 

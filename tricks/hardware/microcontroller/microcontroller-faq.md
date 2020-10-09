@@ -12,6 +12,7 @@
   * 通常是一个完整系统 - SoC
     * 有 ROM、RAM、外设等
   * 针脚可编程
+  * 包含 内存+应用 代码
 
 ## 单片机定义
 
@@ -19,7 +20,7 @@
   * microcontroller
   * microcontroller unit - MCU
   * single chip microcomputer
-  * system on chip - SoC
+  * system on chip - SoC - 一定程度区别于 microcontroller
 * 没有明确定义，根据上下文定位单片机
 * 常见组件
   * CPU、RAM、ROM、IO

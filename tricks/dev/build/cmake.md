@@ -121,3 +121,27 @@ https://cmake.org/cmake/help/latest/command/configure_file.html
 configure_file(config.h.in config.h)
 ```
 
+
+## static and shared
+```cmake
+add_library(MyLib SHARED source1.c source2.c)
+add_library(MyLibStatic STATIC source1.c source2.c)
+
+set_target_properties(MyLibStatic PROPERTIES OUTPUT_NAME MyLib)
+```
+
+__#2__
+
+```
+set(libsrc source1.c source2.c)
+
+# this is the "object library" target: compiles the sources only once
+add_library(objlib OBJECT ${libsrc})
+
+# shared libraries need PIC
+set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
+
+# shared and static libraries built from the same object files
+add_library(MyLib_shared SHARED $<TARGET_OBJECTS:objlib>)
+add_library(MyLib_static STATIC $<TARGET_OBJECTS:objlib>)
+```

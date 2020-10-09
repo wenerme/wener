@@ -36,11 +36,20 @@ iptables -A FORWARD -i testnet -o eth0 -m conntrack --ctstate ESTABLISHED,RELATE
 # 默认拒绝
 iptables -P FORWARD DROP
 
-# eth0:80 -> 10.10.2.1
-iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 10.10.2.1
-# eth0:80 -> 10.10.2.1 from 10.10.1.1
-iptables -t nat -A POSTROUTING -o testnet -p tcp --dport 80 -d 10.10.2.1 -j SNAT --to-source 10.10.1.1
 
 # 从外部可以通过，但是本地是不可以的
 curl 192.168.1.2
+```
+
+## DNAT
+* 不同网口转发需要控制好 SNAT 地址
+
+```bash
+# 允许转发 - 实际使用时建议进行更精细化控制 - 防火墙
+iptables -A FORWARD -j ACCEPT
+
+# DNAT eth0:80 -> 10.10.2.1
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 10.10.2.1
+# SNAT eth0:80 -> 10.10.2.1 from 10.10.1.1
+iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 80 -d 10.10.2.1 -j SNAT --to-source 10.10.1.1
 ```
