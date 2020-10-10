@@ -28,6 +28,16 @@ title: EdgeOS
     - 即便是不用负载能力
     - iptable mark -> ip rule -> ip route table 201
 
+```bash
+# 监听 nat
+show nat translations 
+
+show ip route
+show ip route table 102
+
+show firewall modify PBR statistics
+```
+
 # 配置
 
 ## ssh key
@@ -56,8 +66,179 @@ set service snmp community public network 192.168.0.0/16
 set service snmp listen-address 192.168.1.1 interface eth0
 ```
 
+## 端口转发
+* 端口转发默认会添加防火墙规则
+* 简化配置 DNAT
+
+```shell
+# 端口转发
+# ==========
+# 8001 -> 192.168.1.2:80
+# DNAT
+-A UBNT_PFOR_DNAT_RULES -p tcp -m tcp --dport 8001 -j DNAT --to-destination 192.168.1.2:80
+# SNAT
+-A UBNT_PFOR_SNAT_RULES -d 192.168.1.2/32 -o eth2 -p tcp -m set --match-set NETv4_eth2 src -m tcp --dport 80 -j MASQUERADE
+# 防火墙
+-A UBNT_PFOR_FW_RULES -d 192.168.1.2/32 -p tcp -m tcp --dport 80 -j ACCEPT
+
+# 防火墙
+# ==========
+# 端口转发防火墙规则
+-A UBNT_PFOR_FW_HOOK -i pppoe0 -j UBNT_PFOR_FW_RULES
+# 允许端口转发的目标通过
+-A UBNT_PFOR_FW_RULES -d 192.168.1.2/32 -p tcp -m tcp --dport 80 -j ACCEPT
+```
+
+## PBR
+* [DNAT - connections not sticky ?](https://community.ui.com/questions/DNAT-connections-not-sticky/6da29ace-e0c5-4e0c-b1cf-07a7b91c11db#answer/9d66551c-0adf-48e7-a77f-2e4c1d6e57f4)
+
+## ipatbles
+
+```shell
+# NAT 表处理逻辑
+*nat
+-A PREROUTING -j MINIUPNPD
+# 端口转发
+-A PREROUTING -j UBNT_PFOR_DNAT_HOOK
+-A PREROUTING -j VYATTA_PRE_DNAT_HOOK
+-A PREROUTING -j UBNT_SUSPEND_DNAT_HOOK
+# 自定义 DNAT
+-A PREROUTING -j VYATTA_DNAT
+-A POSTROUTING -j UBNT_VPN_IPSEC_SNAT_HOOK
+-A POSTROUTING -j MINIUPNPD-POSTROUTING
+-A POSTROUTING -j UBNT_PFOR_SNAT_HOOK
+-A POSTROUTING -j VYATTA_PRE_SNAT_HOOK
+# 自定义 SNAT
+-A POSTROUTING -j VYATTA_SNAT
+
+# 包处理
+*mangle
+-A PREROUTING -j MINIUPNPD
+-A PREROUTING -j VYATTA_FW_IN_HOOK
+-A PREROUTING -j UBNT_FW_MSS_CLAMP_I
+# 负载均衡
+-A INPUT -j UBNT_HOOK_WLBL
+-A FORWARD -j UBNT_QOS_FW_IN_HOOK
+-A FORWARD -j UBNT_HOOK_WLBI
+-A OUTPUT -j UBNT_HOOK_WLBO
+-A POSTROUTING -j VYATTA_FW_OUT_HOOK
+-A POSTROUTING -j UBNT_FW_MSS_CLAMP
+-A POSTROUTING -j UBNT_QOS_FW_OUT_HOOK
+
+# RAW
+*raw
+-A PREROUTING -j UBNT_PREROUTING_HOOK
+-A PREROUTING -j VYATTA_CT_IGNORE
+-A PREROUTING -j UBNT_CT_BRIDGE
+-A PREROUTING -j VYATTA_CT_PREROUTING_HOOK
+-A PREROUTING -j UBNT_WLB
+-A PREROUTING -j NAT_CONNTRACK
+-A PREROUTING -j PFOR_CONNTRACK
+-A PREROUTING -j FW_CONNTRACK
+-A PREROUTING -j QOS_CONNTRACK
+-A PREROUTING -j NOTRACK
+-A OUTPUT -j VYATTA_CT_IGNORE
+-A OUTPUT -j VYATTA_CT_OUTPUT_HOOK
+-A OUTPUT -j UBNT_WLB
+-A OUTPUT -j NAT_CONNTRACK
+-A OUTPUT -j PFOR_CONNTRACK
+-A OUTPUT -j FW_CONNTRACK
+-A OUTPUT -j QOS_CONNTRACK
+-A OUTPUT -j NOTRACK
+-A FW_CONNTRACK -j ACCEPT
+-A NAT_CONNTRACK -j ACCEPT
+-A PFOR_CONNTRACK -j ACCEPT
+-A QOS_CONNTRACK -j RETURN
+-A UBNT_WLB -j ACCEPT
+-A VYATTA_CT_IGNORE -j RETURN
+-A VYATTA_CT_OUTPUT_HOOK -j RETURN
+-A VYATTA_CT_PREROUTING_HOOK -j RETURN
+
+# 防火墙
+*filter
+-A INPUT -j UBNT_VPN_IPSEC_FW_HOOK
+-A INPUT -j VYATTA_FW_LOCAL_HOOK
+-A INPUT -j VYATTA_POST_FW_IN_HOOK
+-A FORWARD -j MINIUPNPD
+-A FORWARD -j UBNT_VPN_IPSEC_FW_IN_HOOK
+-A FORWARD -j UBNT_PFOR_FW_HOOK
+-A FORWARD -j UBNT_FW_IN_SUSPEND_HOOK
+-A FORWARD -j VYATTA_FW_IN_HOOK
+-A FORWARD -j VYATTA_FW_OUT_HOOK
+-A FORWARD -j VYATTA_POST_FW_FWD_HOOK
+-A OUTPUT -j VYATTA_POST_FW_OUT_HOOK
+```
+
+
+
 ## 负载均衡
 * https://community.ui.com/questions/503d5b81-7cb5-4fe5-ba39-72df1f5eb98f
+
+```shell
+*nat
+# 规则 HOOK 位置
+# 标记
+-A INPUT -j UBNT_HOOK_WLBL
+-A FORWARD -j UBNT_QOS_FW_IN_HOOK
+# IN
+-A FORWARD -j UBNT_HOOK_WLBI
+# OUT
+-A OUTPUT -j UBNT_HOOK_WLBO
+
+-A UBNT_HOOK_WLBI -j UBNT_WLBI_LB
+-A UBNT_HOOK_WLBL -j UBNT_WLBL_LB
+-A UBNT_HOOK_WLBO -j UBNT_WLBO_LB
+
+# 后端
+-A UBNT_WLBE_LB -o eth1 -j RETURN
+-A UBNT_WLBE_LB -o pppoe0 -j RETURN
+-A UBNT_WLBE_LB -j ACCEPT
+
+# 恢复 mark
+-A UBNT_WLBI_LB -j CONNMARK --restore-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+# mark 不匹配 返回
+-A UBNT_WLBI_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
+# 设置 mark
+-A UBNT_WLBI_LB -i eth1 -m state --state NEW -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLBI_LB -i pppoe0 -m state --state NEW -j MARK --set-xmark 0x32800000/0x7f800000
+-A UBNT_WLBI_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLBI_LB -j RETURN
+
+# 恢复 mark
+-A UBNT_WLBL_LB -j CONNMARK --restore-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+# mark 不匹配 返回
+-A UBNT_WLBL_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
+# 设置 mark
+-A UBNT_WLBL_LB -i eth1 -m state --state NEW -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLBL_LB -i pppoe0 -m state --state NEW -j MARK --set-xmark 0x32800000/0x7f800000
+# 无 mark 则设置
+-A UBNT_WLBL_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+# DONE
+-A UBNT_WLBL_LB -j RETURN
+
+# 后端处理
+-A UBNT_WLBO_LB -j UBNT_WLBE_LB
+# mark 处理
+-A UBNT_WLBO_LB -j CONNMARK --restore-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
+-A UBNT_WLBO_LB -o eth1 -p icmp -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLBO_LB -o pppoe0 -p icmp -j MARK --set-xmark 0x32800000/0x7f800000
+-A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
+# 随机选择
+-A UBNT_WLBO_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0"  -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLBO_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -j MARK --set-xmark 0x32800000/0x7f800000
+-A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLBO_LB -j RETURN
+
+# 负载逻辑
+-A UBNT_WLB_LB -j CONNMARK --restore-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLB_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
+-A UBNT_WLB_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0"  -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLB_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -j MARK --set-xmark 0x32800000/0x7f800000
+-A UBNT_WLB_LB -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
+-A UBNT_WLB_LB -j RETURN
+```
 
 # 笔记
 

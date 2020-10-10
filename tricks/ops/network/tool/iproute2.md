@@ -97,12 +97,6 @@ ip link set br0 up
 ip li add veth0 type veth
 ```
 
-## table
-- Table 映射配置 `/etc/iproute2/rt_tables`
-
-```bash
-```
-
 ### 相同网口进出
 
 ```
@@ -117,6 +111,7 @@ iface eth2 inet static
 ```
 
 ## table
+- Table 映射配置 `/etc/iproute2/rt_tables`
 * local
   * 特殊表
   * 包含高优先的本地路由和广播地址
@@ -130,6 +125,9 @@ iface eth2 inet static
 ip route show table all
 # 有效 table 列表
 ip route show table all | grep -Po 'table \K[^\s]+' | sort -u
+
+# 清除 table
+ip route flush table 11
 ```
 
 ## rule
@@ -158,6 +156,7 @@ ip route show table all | grep -Po 'table \K[^\s]+' | sort -u
 
 ## mark
 * [iproute rt_table and mark not working on linux](https://serverfault.com/questions/733705)
+* https://superuser.com/questions/950031/routing-subnet-to-specific-routing-table-with-fwmark-direct-to-isp-and-vpn
 
 ## macvlan
 

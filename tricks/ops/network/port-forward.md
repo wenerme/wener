@@ -52,4 +52,89 @@ iptables -A FORWARD -j ACCEPT
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 10.10.2.1
 # SNAT eth0:80 -> 10.10.2.1 from 10.10.1.1
 iptables -t nat -A POSTROUTING -o eth0 -p tcp --dport 80 -d 10.10.2.1 -j SNAT --to-source 10.10.1.1
+
+# 可以一个网口配置一个 SNAT - 所有出去的都是相同的 IP
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 10.10.1.1
+
+# 如果是动态 IP 也可以直接使用 MASQUERADE
+iptables -t nat -A POSTROUTING -j MASQUERADE
+```
+
+## DNAT+SNAT
+
+* GUEST
+  * 192.168.1.3/24
+* HOST
+  * eth0 192.168.1.2/24
+  * testnet 10.10.1.1
+* TARGET
+  * testnet 10.10.2.1
+
+```bash
+# 准备
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -A FORWARD -j ACCEPT
+
+# 调试
+tcpdump -ni any 'port 2222 or (host 10.10.2.1 and port 22)'
+
+# DNAT
+# 192.168.1.3=>192.168.1.2:2222 -> 192.168.1.2=>10.10.2.1:22
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 2222 -j DNAT --to-destination 10.10.2.1:22
+# 也可以
+# iptables -t nat -A PREROUTING -d 192.168.1.2 -p tcp -m tcp --dport 2222 -j DNAT --to-destination 10.10.2.1:22
+
+# SNAT
+# 192.168.1.2=>10.10.2.1:22 -> 10.10.1.1=>10.10.2.1:22
+iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j SNAT --to-source 10.10.1.1
+# 也可以
+# iptables -t nat -A POSTROUTING -o testnet -j SNAT --to-source 10.10.1.1
+```
+
+以上规则转换为 nftables
+
+```
+# DNAT+SNAT
+table ip nat {
+	chain PREROUTING {
+		type nat hook prerouting priority dstnat; policy accept;
+		iifname "eth0" meta l4proto tcp # xt_tcp counter packets 1 bytes 64 # xt_DNAT
+	}
+
+	chain INPUT {
+		type nat hook input priority 100; policy accept;
+	}
+
+	chain POSTROUTING {
+		type nat hook postrouting priority srcnat; policy accept;
+		oifname "testnet" counter packets 2 bytes 124 # xt_SNAT
+	}
+
+	chain OUTPUT {
+		type nat hook output priority -100; policy accept;
+	}
+}
+# 允许转发
+table ip filter {
+	chain INPUT {
+		type filter hook input priority filter; policy accept;
+	}
+
+	chain FORWARD {
+		type filter hook forward priority filter; policy accept;
+		counter packets 9 bytes 509 accept
+	}
+
+	chain OUTPUT {
+		type filter hook output priority filter; policy accept;
+	}
+}
+```
+
+## 本地端口转发
+
+```bash
+# 8001 -> 80
+iptables -t nat -A PREROUTING -s 127.0.0.1 -p tcp --dport 8001 -j REDIRECT --to 80
+iptables -t nat -A OUTPUT -s 127.0.0.1 -p tcp --dport 8001 -j REDIRECT --to 80
 ```

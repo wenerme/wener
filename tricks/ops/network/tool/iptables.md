@@ -21,8 +21,10 @@ title: IPTables
 
 * SNAT
   * Source NAT
+  * 内部访问外部
 * NAT/DNAT
   * Destination NAT
+  * 外部访问内部
 * 操作对象 Table/Chain
   * filter - 默认
     * INPUT - 目标是本地的包
@@ -105,23 +107,61 @@ title: IPTables
   * --save-mark [--mask mask] 保存 mark
   * --restore-mark [--mask mask] 恢复 mark
   * --notrack 关闭链接跟踪
+* 五个 Hook 点
+  * PREROUTING, INPUT, FORWARD, POSTROUTING, OUTPUT
+* 三个内建的表
+  * filter, mangle, nat
+  * 默认操作 filter
+* 內建目标
+  * ACCEPT, DROP, QUEUE, RETURN, REJECT
+* 连接状态
+  * INVALID - 无法识别、内存溢出、ICMP 错误
+  * ESTABLISHED - 包已关联连接 - 双向
+  * NEW - 包会创建新的连接或关联未知的连接
+  * RELATED - 创建新的连接但关联已知连接或 ICMP 错误 - 例如 FTP 双端口
+  * UNTRACKED - 在 raw 中使用 NOTRACK
+* DROP vs REJECT
+  * REJECT 返回失败 - 客户端接收到无法到达
+  * DROP 客户端会超时 - 安全相关端口使用 DROP 更好
 
-   
-
+```
+        IN                                             OUT
+         +                                              ^
+         |                                              |
+         |                                              |
++--------v--------+                            +-----------------+
+|PREROUTING       |                            |POSTROUTING      |
+| nat             |                            | nat             |
+| mangle          |                            | raw             |
+| raw             |                            | mangle          |
++-----------------+     +----------------+     +--------^--------+
+         |              |FORWARD         |              |
+         +--------------> filter         +--------------+
+     localhost          | mangle         |              |
++-----------------+     +----------------+     +-----------------+
+|INPUT            |                            |OUTPUT           |
+| filter          |                            | filter          |
+| mangle          +---------> LOCAL +--------->+ nat             |
+|                 |                            | mangle          |
+|                 |                            | raw             |
++-----------------+                            +-----------------+
+```
 
 ```bash
 # 重置 iptables
+# ===============
+# 设置默认策略为 ACCEPT
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 iptables -t nat -F
 iptables -t mangle -F
+# 删除规则
 iptables -F
+# 删除额外 CHAIN
 iptables -X
-
-# 重置
-iptables -F; iptables -t nat -F; iptables -t mangle -F
-
+# 重置 counter
+iptables -Z
 
 # -C --check 检测是否存在
 iptables -C FORWARD -i eth0 -j ACCEPT 
@@ -130,6 +170,15 @@ iptables-save | grep -- "-A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT"
 
 # 查看状态
 iptables -nvL
+
+# 查看所有规则
+# -c 包含包和字节计数
+# -t 指定表
+iptables-save 
+# 纯规则 - 便于进行 diff
+iptables-save | grep -v '^#' | sed -r 's/(^:[^[]]+).*/\1[0:0]/'
+# 排除规则 - 排除 libvirt 相关规则
+iptables-save | grep -v LIBVIRT
 
 # 查看 nat 路由表
 iptables -t nat -v -L -n --line-number
@@ -150,14 +199,6 @@ iptables -A INPUT -i eth1 -m comment --comment "my local LAN"
 iptables -p icmp -h
 ```
 
-
-* 五个 Hook 点
-  * PREROUTING, INPUT, FORWARD, POSTROUTING, OUTPUT
-* 三个内建的表
-  * filter, mangle, nat
-* 內建目标
-  * ACCEPT, DROP, QUEUE, RETURN
-
 __NAT 表__
 ```
 NIC +----> PREROUTING +-------------------> Local
@@ -168,10 +209,28 @@ NIC +----> PREROUTING +-------------------> Local
 NIC <----+ POSTROUTING <----+ OUTPUT <----+ Local
 ```
 
-__filter 表__
+## empty
 
-__mangle 表__
-
+```
+*mangle
+:PREROUTING ACCEPT [8:584]
+:INPUT ACCEPT [8:584]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [6:616]
+:POSTROUTING ACCEPT [6:616]
+COMMIT
+*nat
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
+*filter
+:INPUT ACCEPT [8:584]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [11:1432]
+COMMIT
+```
 
 ## Notes
 
@@ -180,3 +239,5 @@ __mangle 表__
 ### How to do the port forwarding from one ip to another ip in same network?
 * https://serverfault.com/q/586486/190601
 * https://torguard.net/knowledgebase.php?action=displayarticle&id=239
+
+* https://unix.stackexchange.com/questions/499791/is-there-any-way-to-view-nfmark-like-ctmark
