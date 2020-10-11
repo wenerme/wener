@@ -4,14 +4,22 @@ title: nftables 规则
 ---
 
 ## 表达式
-
+- 地址类型
+  - ip - IPv4 - 默认
+  - ip6 - IPv6
+  - inet - IPv4/IPv6
+  - arp - IPv4 ARP
+  - bridge - 经过桥接设备的包
+  - netdev - 入口设备
+- hook
+  - ip,ip6,inet,bridge - prerouting,input,forward,output,postrouting
+  - arp - input,output
+  - netdav - ingress
 - accept、drop、queue、continue、return、jump chain、goto chain
 - masquerade - 源地址自动设置为出口地址
 - type
   - filter、route、nat
-- hook
-  - ip、ip6、inet - prerouting、input、forward、output、postrouting
-  - netdav - ingress
+
 
 ### 优先级
 

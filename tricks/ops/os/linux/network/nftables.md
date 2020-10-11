@@ -26,4 +26,8 @@ nft flush table foo
 # 清空链
 nft flush chain foo bar
 nft delete rule ip6 foo bar
+
+nft describe tcp flags
+nft describe ct_state
+nft describe icmp_type
 ```

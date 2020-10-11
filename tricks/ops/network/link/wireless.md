@@ -6,17 +6,18 @@ title: 无线网络
 # 无线网络
 
 ## Tips
-* Linux Kernel Wireless
-  * https://wireless.wiki.kernel.org/
-  * [documentation](https://wireless.wiki.kernel.org/en/users/documentation)
-  * iw
-  * wpa_supplicant
-  * hostapd
-* [Connecting to a wireless access point](https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point)
-* [Linux Find Wireless Driver Chipset Information](https://www.cyberciti.biz/faq/linux-find-wireless-driver-chipset/)
-* [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
-* NOTE
-  * 博通 b43 固件需要自己编译安装
+
+- Linux Kernel Wireless
+  - https://wireless.wiki.kernel.org/
+  - [documentation](https://wireless.wiki.kernel.org/en/users/documentation)
+  - iw
+  - wpa_supplicant
+  - hostapd
+- [Connecting to a wireless access point](https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point)
+- [Linux Find Wireless Driver Chipset Information](https://www.cyberciti.biz/faq/linux-find-wireless-driver-chipset/)
+- [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
+- NOTE
+  - 博通 b43 固件需要自己编译安装
 
 ```bash
 # 常用的无线工具
@@ -55,8 +56,9 @@ iw list
 ```
 
 ## iw
-* [iw](https://wireless.wiki.kernel.org/en/users/Documentation/iw)
-  * 替代 wireless-tools
+
+- [iw](https://wireless.wiki.kernel.org/en/users/Documentation/iw)
+  - 替代 wireless-tools
 
 monitor
 managed [also station]
@@ -92,6 +94,7 @@ iw phy phy0 interface add moni0 type monitor
 ```
 
 ### iw help
+
 ```
 Usage:	iw [options] command
 Options:
@@ -196,59 +199,29 @@ Do NOT screenscrape this tool, we don't consider its output stable.
 ```
 
 ## wireless-tools
-* [wireless-tools](http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html)
-  * 很久没有更新了
-  * [contents](https://pkgs.alpinelinux.org/contents?branch=edge&name=wireless-tools&arch=x86_64&repo=main)
-  * iwconfig 基本无线参数管理
-  * iwlist 列表扫描
-  * iwspy 获取每个节点的信号强度
-  * iwpriv 管理无线扩展相关的驱动
-  * ifrename 网卡命名
+
+- [wireless-tools](http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html)
+  - 很久没有更新了
+  - [contents](https://pkgs.alpinelinux.org/contents?branch=edge&name=wireless-tools&arch=x86_64&repo=main)
+  - iwconfig 基本无线参数管理
+  - iwlist 列表扫描
+  - iwspy 获取每个节点的信号强度
+  - iwpriv 管理无线扩展相关的驱动
+  - ifrename 网卡命名
 
 ```bash
 # 查看无线信息
 iwconfig wlan0
 ```
 
-## iwd
-* [iwd](https://pkgs.alpinelinux.org/contents?branch=edge&name=iwd&arch=x86_64&repo=community)
-  * `/usr/libexec/iwd` - 守护进程
-  * /usr/libexec/ead -  Ethernet authentication daemon
-  * /usr/bin/iwmon - 监听 RF 包
-  * /usr/bin/iwctl - 通过 dbus 与 iwd 交互
-    * 设备有三种模式
-      * station
-      * ap
-      * ad-hoc
-        * [WANET](https://en.wikipedia.org/wiki/Wireless_ad_hoc_network)
-    * 三种模式分别使用相同名字的命令去控制
-
-```bash
-# 
-device list
-device wlan0 show
-device wlan0 set-property Powered on
-device wlan0 set-property Mode station
-
-station wlan0 scan
-# 连接 - 会提示输入密码
-station wlan0 connect <SSID>
-
-# 查看设备信息
-adapter list
-adapter wlan0 show
-# 查看连接过的网络
-# 可以设置 AutoConnect - 默认开启
-known-networks list
-```
-
 ## WPA_supplicant
-* [How to setup multiple WiFi networks?](https://raspberrypi.stackexchange.com/q/11631/38420)
-* [WPA_supplicant](https://wiki.archlinux.org/index.php/WPA_supplicant)
-  * man [wpa_supplicant](https://linux.die.net/man/8/wpa_supplicant)
-  * man [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf)
-* man [iwconfig](https://linux.die.net/man/8/iwconfig)
-* man [iwlist](https://linux.die.net/man/8/iwlist)
+
+- [How to setup multiple WiFi networks?](https://raspberrypi.stackexchange.com/q/11631/38420)
+- [WPA_supplicant](https://wiki.archlinux.org/index.php/WPA_supplicant)
+  - man [wpa_supplicant](https://linux.die.net/man/8/wpa_supplicant)
+  - man [wpa_supplicant.conf](https://linux.die.net/man/5/wpa_supplicant.conf)
+- man [iwconfig](https://linux.die.net/man/8/iwconfig)
+- man [iwlist](https://linux.die.net/man/8/iwlist)
 
 ```bash
 # 启用网卡
@@ -285,8 +258,9 @@ udhcpc -fqi wlan0
 ```
 
 ## 热点
-* https://wiki.archlinux.org/index.php/software_access_point
-* http://wireless.kernel.org/en/users/Documentation/hostapd
+
+- https://wiki.archlinux.org/index.php/software_access_point
+- http://wireless.kernel.org/en/users/Documentation/hostapd
 
 ```bash
 # Supported interface modes:
@@ -341,8 +315,9 @@ iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 ```
 
 ## wavemon
-* 网络信号监控
-* [uoaerg/wavemon](https://github.com/uoaerg/wavemon)
+
+- 网络信号监控
+- [uoaerg/wavemon](https://github.com/uoaerg/wavemon)
 
 ```bash
 apk add wavemon
@@ -351,45 +326,49 @@ wavemon
 
 ## 802
 
-* [IEEE 802.11](https://en.wikipedia.org/wiki/IEEE_802.11)
+- [IEEE 802.11](https://en.wikipedia.org/wiki/IEEE_802.11)
 
-802.11  | Mb/c  | MHz/c         | Max c | 操作频率 (MHz) |
---------|-------|---------------|-------|-------
-a       | 54    | 20            | A     | 3.7/5
-b       | 11    | 20            | A     | 2.4
-g       | 54    | 20            | A     | 2.4
-n       | 150   | 20/40         | 4     | 2.4/5
-ac      | 866   | 20/40/80/160  | 8     | 5
+| 802.11 | Mb/c | MHz/c        | Max c | 操作频率 (MHz) |
+| ------ | ---- | ------------ | ----- | -------------- |
+| a      | 54   | 20           | A     | 3.7/5          |
+| b      | 11   | 20           | A     | 2.4            |
+| g      | 54   | 20           | A     | 2.4            |
+| n      | 150  | 20/40        | 4     | 2.4/5          |
+| ac     | 866  | 20/40/80/160 | 8     | 5              |
 
 Mb/c 单通道最大速度
 MHz/c 通道宽度
 
 ## DBm
+
 [Understanding WiFi Signal Strength](https://support.metageek.com/hc/en-us/articles/201955754-Understanding-WiFi-Signal-Strength)
 
 ## FAQ
 
 ## adhoc vs ap
-* adhoc
-  * 没有接入点 - P2P - 点对点连接
-  * 每一个节点都相当于路由
-  * 类似于蓝牙
-  * 用于临时互联
-  * Wi-Fi Direct 基于 adhoc
-* ap - Infrastructure
-  * 桥接网络
-  * 工作性质类似于交换机
-  * 数据通过一个节点进行分发传输
-* [Wireless access point vs. ad hoc network](https://en.wikipedia.org/wiki/Wireless_access_point#Wireless_access_point_vs._ad_hoc_network)
+
+- adhoc
+  - 没有接入点 - P2P - 点对点连接
+  - 每一个节点都相当于路由
+  - 类似于蓝牙
+  - 用于临时互联
+  - Wi-Fi Direct 基于 adhoc
+- ap - Infrastructure
+  - 桥接网络
+  - 工作性质类似于交换机
+  - 数据通过一个节点进行分发传输
+- [Wireless access point vs. ad hoc network](https://en.wikipedia.org/wiki/Wireless_access_point#Wireless_access_point_vs._ad_hoc_network)
 
 ### WiFi authentication times out
-* [WiFi authentication times out](https://superuser.com/questions/911635)
+
+- [WiFi authentication times out](https://superuser.com/questions/911635)
 
 ```bash
 echo "options iwlwifi 11n_disable=1 wd_disable=1" | sudo tee /etc/modprobe.d/iwlwifi.conf
 ```
 
 ### brcmfmac: brcmf_cfg80211_scan: scan error
+
 ```
 brcmfmac: brcmf_run_escan: error (-52)
 brcmfmac: brcmf_cfg80211_scan: scan error (-52)
@@ -400,4 +379,39 @@ brcmfmac: brcmf_escan_timeout: timer expired
 echo 'options 8192cu rtw_power_mgnt=0 rtw_enusbss=0' >> /etc/modprobe.d/8192cu.conf
 ```
 
-* [#1342](https://github.com/raspberrypi/linux/issues/1342)
+- [#1342](https://github.com/raspberrypi/linux/issues/1342)
+
+## 接口能力
+* IBSS
+* managed
+* AP
+* AP/VLAN
+* monitor
+* P2P-client
+* P2P-GO
+* P2P-device
+* mesh point
+
+## 扩展特性
+* [ VHT_IBSS ]: VHT-IBSS
+* [ RRM ]: RRM
+* [ SCAN_START_TIME ]: scan start timestamp
+* [ BSS_PARENT_TSF ]: BSS last beacon/probe TSF
+* [ SET_SCAN_DWELL ]: scan dwell setting
+* [ FILS_STA ]: STA FILS (Fast Initial Link Setup)
+* [ CONTROL_PORT_OVER_NL80211 ]: control port over nl80211
+* [ TXQS ]: FQ-CoDel-enabled intermediate TXQs
+
+## 组合方式
+* { managed } <= 1
+* { AP, P2P-client, P2P-GO } <= 1
+* { P2P-device } <= 1
+* total <= 3
+* channels <= 2
+  * 允许工作在不同信道
+
+```bash
+# 创建虚拟网口 - ap+sta
+iw dev wlan0 interface add wlan0_sta type managed
+iw dev wlan0 interface add wlan0_ap type managed
+```
