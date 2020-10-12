@@ -1,5 +1,5 @@
 ---
-id: ubuntu-home
+slug: ubuntu-home
 title: Ubuntu 家用
 ---
 

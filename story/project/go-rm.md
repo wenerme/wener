@@ -1,6 +1,6 @@
 ---
 title: Go Redis module
-id: go-rm
+slug: go-rm
 date: 2016-08-09
 tags:
   - 项目

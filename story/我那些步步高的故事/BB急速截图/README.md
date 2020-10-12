@@ -1,6 +1,6 @@
 ---
 title: BB急速截图
-id: bbk-quick-screenshot
+slug: bbk-quick-screenshot
 tags:
 - 编程
 - 步步高

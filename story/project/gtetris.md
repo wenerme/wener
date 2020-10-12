@@ -1,6 +1,6 @@
 ---
 title: 俄罗斯方块
-id: gtetris
+slug: gtetris
 type: post
 date: 2013-08-12
 tags:

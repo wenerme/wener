@@ -1,6 +1,6 @@
 ---
 title: 贪吃蛇-控制台版
-id: greedy_snake
+slug: greedy_snake
 date: 2013-05-14
 tags:
   - 项目

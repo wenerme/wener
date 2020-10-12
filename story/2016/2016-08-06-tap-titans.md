@@ -1,3 +1,10 @@
+---
+date: 2016-8-6 23:43
+tags:
+- Game
+- Android
+---
+
 # Play Titans using shell
 
 [Tap Titans](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans) on Play Store
@@ -22,7 +29,8 @@
 * Bash
 
 ## Get started
- * Start game
+* Start game
+* Get source [tap-titans-play.sh](https://github.com/wenerme/wener/tree/master/story/2016/tap-titans-play.sh)
 
  ```bash
  chmod +x play.sh
@@ -45,4 +53,4 @@ Use screen capture, then use the image magic to check the color,kind of slowly, 
 
 ## More
 
-Check the [source](./play.sh)
+Check the [source](https://github.com/wenerme/wener/tree/master/story/2016/tap-titans-play.sh)

@@ -1,6 +1,6 @@
 ---
 title: Wener's APIs
-id: wener-apis
+slug: wener-apis
 date: 2020-01-28
 tags:
   - 项目

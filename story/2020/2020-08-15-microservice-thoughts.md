@@ -1,5 +1,5 @@
 ---
-id: microservice-thoughts
+slug: microservice-thoughts
 title: 微服务杂念
 ---
 

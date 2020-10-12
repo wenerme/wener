@@ -1,5 +1,5 @@
 ---
-id: kubernetes-vs-openstack
+slug: kubernetes-vs-openstack
 title: Kubernetes vs OpenStack
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: ubuntu-new-server
+slug: ubuntu-new-server
 title: Ubuntu 新服务器配置
 ---
 

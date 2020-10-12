@@ -1,5 +1,5 @@
 ---
-id: stage-four-of-life
+slug: stage-four-of-life
 title: 人生第四阶段
 ---
 

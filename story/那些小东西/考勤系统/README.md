@@ -1,5 +1,5 @@
 ---
-id: student-checking-sys
+slug: student-checking-sys
 title: 学生考勤系统
 date: 2013-12-27T04:24:19
 tags:
@@ -96,7 +96,7 @@ f.RefreshShadow();
 在 DataGridView 中使用 DateTimePicker
 -------------------------------------
 
-这个忘记了具体是在哪里找的了,使用 `CalendarColumn` 
+这个忘记了具体是在哪里找的了,使用 `CalendarColumn`
 和 `CalendarCell` 即可.在设计时可以直接选择.
 
 圆角边框
@@ -116,5 +116,5 @@ public static extern IntPtr CreateRoundRectRgn
 
 // in form load
 Region = Region.FromHrgn(Win32.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-	
+
 ```

@@ -1,6 +1,6 @@
 ---
 title: Java with GraphQL
-id: jraphql
+slug: jraphql
 date: 2018-05-21
 tags:
   - 项目

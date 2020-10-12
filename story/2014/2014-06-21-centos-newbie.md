@@ -1,5 +1,5 @@
 ---
-id: centos-newbie
+slug: centos-newbie
 title: CentOS 新手
 ---
 
@@ -313,7 +313,7 @@ added the following line to /etc/modprobe.d/blacklist.conf file
 Bully + Aircrack-ng + Reaver
 -------------------
 
-> [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz)  
+> [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz)
 > [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz)
 > reaver 的替代 [bully](https://github.com/bdpurcell/bully)
 
@@ -381,7 +381,7 @@ ifconfig wlan0
 iwconfig wlan0 essid NETWORK_ID key WIRELESS_KEY
 dhclient wlan0
 ```
-`NETWORK_ID` 为无线名  
+`NETWORK_ID` 为无线名
 `WIRELESS_KEY` 搞不清楚,应该是密码吧. 默认为 16 进制的值,可以用 `s:WIRELESS_KEY` 来使用ascii
 
 通过命令行连接无线网

@@ -1,6 +1,6 @@
 ---
 title: Guava 简介
-id: guava-intro
+slug: guava-intro
 date: 2015-10-02
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: js解析lib图片文件列表
-id: bbk-bbimg-js
+slug: bbk-bbimg-js
 tags:
 - 编程
 - 步步高

@@ -1,5 +1,5 @@
 ---
-id: compare-os-bi-tool
+slug: compare-os-bi-tool
 title: 开源 BI 产品比较
 ---
 

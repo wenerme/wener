@@ -1,6 +1,6 @@
 ---
 title: 四个函数和bb编辑器
-id: bbk-libs
+slug: bbk-libs
 tags:
 - 编程
 - 步步高

@@ -1,6 +1,6 @@
 ---
 title: BBVM - BeBasic Virtual Machine
-id: bbvm
+slug: bbvm
 date: 2015-10-30
 tags:
   - 项目

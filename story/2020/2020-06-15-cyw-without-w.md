@@ -1,5 +1,5 @@
 ---
-id: cyw-without-w
+slug: cyw-without-w
 title: 你就是你
 ---
 

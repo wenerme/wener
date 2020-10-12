@@ -1,6 +1,6 @@
 ---
 title: 囚徒困境
-id: bbk-game-prisoner-dilemma
+slug: bbk-game-prisoner-dilemma
 tags:
 - 编程
 - 游戏
