@@ -29,10 +29,14 @@ title: iptables 规则
 
 # 立即 REJECT 而不是等待超时
 -A INPUT -p tcp -s 192.168.1.0/24 --dport 443 -j REJECT --reject-with tcp-reset
+
+# 如果想要限定 forward 规则，可以在最后添加一个 accept 来判断是否还有未允许的
+-A FORWARD  -j ACCEPT
 ```
 
 ## Multi WAN
 * https://unix.stackexchange.com/a/87999/47774
+* https://unix.stackexchange.com/a/71834/47774
 
 ```bash
 # reset
@@ -67,3 +71,29 @@ for extip in «list of external IPs»; do
 done
 ```
 
+
+```bash
+ip rule flush
+ip rule add from all               pref 1000  lookup main 
+ip rule add from A.B.C.D/29        pref 1500  lookup comcast # these IPs are the external ranges (we have multiple IPs on each connection)
+ip rule add from E.F.G.H/29        pref 1501  lookup cavtel
+ip rule add from I.J.K.L/31        pref 1502  lookup vzdsl
+ip rule add from M.N.O.P/31        pref 1502  lookup vzdsl # yes, you can have multiple ranges
+ip rule add fwmark $MARK_COMCAST   pref 2000  lookup comcast
+ip rule add fwmark $MARK_CAVTEL    pref 2001  lookup cavtel
+ip rule add fwmark $MARK_VZDSL     pref 2002  lookup vzdsl
+ip rule add                        pref 2500  lookup comcast # the pref order here determines the default—we default to Comcast.
+ip rule add                        pref 2501  lookup cavtel
+ip rule add                        pref 2502  lookup vzdsl
+ip rule add                        pref 32767 lookup default
+```
+
+__/etc/networking/interfaces__
+
+```bash
+iface comcast inet static
+    address A.B.C.Q
+    netmask 255.255.255.248
+    up ip route add table comcast default via A.B.C.R dev comcast
+    down ip route flush table comcast
+```

@@ -12,6 +12,10 @@
 https://www.cockroachlabs.com/docs/stable/migrate-from-mysql.html
 https://www.cockroachlabs.com/docs/stable/migrate-from-postgres.html
 
+
+https://www.cockroachlabs.com/docs/stable/postgresql-compatibility.html
+CockroachDB is compatible with PostgreSQL 9.5 and works with majority of PostgreSQL database
+
 ```bash
 
 brew install cockroach

@@ -3,8 +3,7 @@
 ## Tips
 * [RPi-Distro/firmware-nonfree](https://github.com/RPi-Distro/firmware-nonfree/)
 * https://wiki.alpinelinux.org/wiki/Raspberry_Pi
-* 参考
-  * [Raspberry Pi 3 - Configuring it as wireless access point -AP Mode](https://wiki.alpinelinux.org/wiki/Raspberry_Pi_3_-_Configuring_it_as_wireless_access_point_-AP_Mode)
+
 
 Raspberry Pi 3 Alpine Linux arm64
 https://a-delacruz.github.io/alpine/alpine-linux.html
@@ -347,7 +346,7 @@ mkdir aarch64
 tar zxvf alpine-rpi-3.8.0-aarch64.tar.gz -C aarch64 --no-same-owner
 
 # config-rpi  initramfs-rpi  modloop-rpi  vmlinuz-rpi
-qemu-system-aarch64 -M raspi3 -m 1g -kernel boot/vmlinuz-rpi -initrd boot/initramfs-rpi -cdrom 
+qemu-system-aarch64 -M raspi3 -m 1g -kernel boot/vmlinuz-rpi -initrd boot/initramfs-rpi -cdrom
 ```
 
 ## 制作安装盘

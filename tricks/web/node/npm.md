@@ -22,4 +22,31 @@ npm config set scope wener
 
 # 使用淘宝镜像安装依赖
 npm i --registry=https://registry.npm.taobao.org
+
+npm_config_registry=https://registry.npm.taobao.orgnpx @scoped/package
+```
+
+https://registry.npm.taobao.org
+https://registry.npmjs.org
+
+ yarn outdated --registry https://registry.npm.taobao.org
+
+yarn cache dir
+/usr/local/share/.cache/yarn/v6
+https://classic.yarnpkg.com/en/docs/cli/cache/
+
+YARN_CACHE_FOLDER
+
+##
+https://docs.npmjs.com/misc/scripts
+
+不能自定义 publish 目录
+https://stackoverflow.com/questions/38935176/how-to-npm-publish-specific-folder-but-as-package-root
+
+https://blog.izs.me/2013/02/why-no-directorieslib-in-node-the-less-snarky
+Why No directories.lib in Node
+
+
+```ini
+
 ```

@@ -92,6 +92,60 @@ lspci -vs 0000:00:1c.7
 [121152.410414] perf: interrupt took too long (6159 > 6158), lowering kernel.perf_event_max_sample_rate to 32400
 ```
 
+## Longhorn iSCSI 异常后日志
+
+```dmesg
+ata1.00: exception Emask 0x0 SAct 0x140180 SErr 0x0 action 0x6
+ata1.00: irq_stat 0x40000008
+ata1.00: failed command: READ FPDMA QUEUED
+ata1.00: cmd 60/20:40:00:37:c7/00:00:47:00:00/40 tag 8 ncq dma 16384 in
+         res 41/84:20:00:37:c7/00:00:47:00:00/00 Emask 0x410 (ATA bus error) <F>
+ata1.00: status: { DRDY ERR }
+ata1.00: error: { ICRC ABRT }
+ata1: hard resetting link
+ata1: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+ata1.00: configured for UDMA/133
+sd 0:0:0:0: [sda] tag#8 UNKNOWN(0x2003) Result: hostbyte=0x00 driverbyte=0x08
+sd 0:0:0:0: [sda] tag#8 Sense Key : 0xb [current]
+sd 0:0:0:0: [sda] tag#8 ASC=0x47 ASCQ=0x0
+sd 0:0:0:0: [sda] tag#8 CDB: opcode=0x28 28 00 47 c7 37 00 00 00 20 00
+blk_update_request: I/O error, dev sda, sector 1204238080 op 0x0:(READ) flags 0x80700 phys_seg 4 prio class 0
+ata1: EH complete
+scsi host4: iSCSI Initiator over TCP/IP
+scsi 4:0:0:0: RAID              IET      Controller       0001 PQ: 0 ANSI: 5
+scsi 4:0:0:1: Direct-Access     IET      VIRTUAL-DISK     0001 PQ: 0 ANSI: 5
+sd 4:0:0:1: Power-on or device reset occurred
+sd 4:0:0:1: [sdb] 41943040 512-byte logical blocks: (21.5 GB/20.0 GiB)
+sd 4:0:0:1: [sdb] Write Protect is off
+sd 4:0:0:1: [sdb] Mode Sense: 69 00 10 08
+sd 4:0:0:1: [sdb] Write cache: enabled, read cache: enabled, supports DPO and FUA
+sd 4:0:0:1: [sdb] Attached SCSI disk
+ session2: session recovery timed out after 120 secs
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 0 op 0x1:(WRITE) flags 0x800 phys_seg 0 prio class 0
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 0 op 0x1:(WRITE) flags 0x800 phys_seg 0 prio class 0
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 0 op 0x1:(WRITE) flags 0x800 phys_seg 0 prio class 0
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 0 op 0x1:(WRITE) flags 0x800 phys_seg 0 prio class 0
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 21241888 op 0x1:(WRITE) flags 0x20800 phys_seg 1 prio class 0
+buffer_io_error: 24 callbacks suppressed
+Buffer I/O error on dev sdc, logical block 2655236, lost sync page write
+JBD2: Error -5 detected when updating journal superblock for sdc-8.
+Aborting journal on device sdc-8.
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 21241888 op 0x1:(WRITE) flags 0x20800 phys_seg 1 prio class 0
+Buffer I/O error on dev sdc, logical block 2655236, lost sync page write
+JBD2: Error -5 detected when updating journal superblock for sdc-8.
+sd 5:0:0:1: rejecting I/O to offline device
+blk_update_request: I/O error, dev sdc, sector 0 op 0x1:(WRITE) flags 0x20800 phys_seg 1 prio class 0
+Buffer I/O error on dev sdc, logical block 0, lost sync page write
+EXT4-fs: 24 callbacks suppressed
+EXT4-fs (sdc): I/O error while writing superblock
+```
+
 # TODO
 
 

@@ -91,3 +91,13 @@ https://ipjisuanqi.com/
 https://dnsdaquan.com/
 https://ipchaxun.com/
 https://icplishi.com/jiashule.com/
+
+## apnic
+
+https://www.apnic.net/about-apnic/corporate-documents/documents/resource-guidelines/rir-statistics-exchange-format/
+
+https://github.com/DanielPLSH/apnic
+根据apnic发布的最新IP地址，分析电信、联通、移动等IP地址段
+
+version|registry|serial|records|startdate|enddate|UTCoffset
+http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest

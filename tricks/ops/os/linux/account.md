@@ -1,11 +1,32 @@
 # Account
 
+## Tips
+* https://docs.ansible.com/ansible/latest/modules/user_module.html
+* https://en.wikipedia.org/wiki/Linux_PAM
+
 ```bash
-# 密码设置为 * 禁止登录
+# 密码设置为 ! 或 * 禁止登录
 usermod -p '*' admin
 # 解锁用户 - 锁定的用户无法登录
 passwd -u admin
+
+# 验证密码
+su -c true root
+
+# 用户
+cut -d: -f1 /etc/passwd
+getent passwd
 ```
+
+/etc/login.defs
+UID_MIN          1000
+UID_MAX         60000
+
+getent passwd {1000..60000}
+
+shadow
+timestamp
+chage -l root
 
 adm: Group adm is used for system monitoring tasks. Members of this group can read many log files in /var/log, and can use xconsole. Historically, /var/log was /usr/adm (and later /var/adm), thus the name of the group.
 

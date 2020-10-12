@@ -135,5 +135,6 @@ title: iptables 参考
   - 服务类型
   - TTL
   - Mark
+  - POSTROUTING 在路由决策之前，因此 mark 标记进入不同的路由表比较重要
 - nat
   - 地址转换

@@ -29,6 +29,8 @@ udevadm monitor
 udevadm info -p /devices/pci0000:00/0000:00:14.0/usb1/1-1
 udevadm info -q path -n input/mouse1
 udevadm test /devices/pci0000:00/0000:00:14.0/usb1/1-1
+
+udevadm control --reload-rules
 ```
 
 # FAQ

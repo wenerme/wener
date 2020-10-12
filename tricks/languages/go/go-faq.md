@@ -9,6 +9,7 @@
   * 不需要副本场景
 * 使用 Struct
   * 数据密度高但不需要经常调用
+  * 确保数据不发生变化
 * 如果 Struct 包含了不可复制对象，则一定要用指针 - 例如 sycn.Mutex
 * 参考
   * [Go: Should I Use a Pointer instead of a Copy of my Struct?](https://medium.com/a-journey-with-go/44b43b104963)

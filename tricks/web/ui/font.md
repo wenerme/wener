@@ -25,6 +25,10 @@ system_profiler SPFontsDataType
 fc-list: file family |grep \/Library
 ```
 
+cursive
+```
+<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'/>
+```
 
 Value	| Common weight name
 ------|-------------------

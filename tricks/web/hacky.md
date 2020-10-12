@@ -2,6 +2,8 @@
 
 * http://desowin.org/usbpcap/
 * https://github.com/dominicgs/USBProxy
+* onlinehashcrack.com
+* https://github.com/jvinet/knock
 
 ## tampermonkey
 tampermonkey 是一款很棒的用户脚本管理工具,以下的一些操作都是使用 tampermonkey 运行的.

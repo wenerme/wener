@@ -14,3 +14,7 @@ http://code.runnable.com/mongoose
 https://github.com/edwardhotchkiss/mongoose-paginate
 https://github.com/madhums/node-express-mongoose-demo
 https://github.com/biggora/caminte
+
+
+Tail Log
+https://github.com/NarrativeScience/log.io

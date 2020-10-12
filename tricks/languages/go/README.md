@@ -10,6 +10,8 @@ title: Golang
 
 * 注意
   * [#31529](https://github.com/golang/go/issues/31529) - `go get` 不会下载源码到 `~/go/src` 了
+* 参考
+  * [Design Philosophy On Data And Semantics](https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html)
 
 * JSON
   * [json-iterator/go](https://github.com/json-iterator/go) - A high-performance 100% compatible drop-in replacement of "encoding/json" 
@@ -123,6 +125,10 @@ Golang 实现的游戏服务器框架
 https://github.com/veandco/go-sdl2
 https://github.com/fogleman/gg
 https://github.com/andlabs/ui
+
+## Scripts
+* https://github.com/peterh/liner
+* https://github.com/dop251/goja/blob/master/goja/main.go
 
 ## Tips
 

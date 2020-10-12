@@ -50,7 +50,7 @@ title: HAProxy 配置
   * `<draws>` - number of draws before selecting the least loaded of these servers
     * 默认 2
   * 参数
-    * hash-balance-factor 
+    * hash-balance-factor
       * 可增强公平性
   * [Power of Two Random Choices](http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf)
 * rdp-cookie, `rdp-cookie(<name>)`
@@ -153,3 +153,28 @@ echo "show info;show stat;show table" | socat /var/lib/haproxy/stats stdio
 socat /var/lib/haproxy/stats readline
 # prompt
 ```
+
+
+## SNI Proxy
+* http://blog.haproxy.com/2012/04/13/enhanced-ssl-load-balancing-with-server-name-indication-sni-tls-extension/
+* [HAProxy selective TLS termination](https://www.liip.ch/en/blog/haproxy-selective-tls-termination)
+
+```ini
+backend bk_ssl
+  mode tcp
+  no option checkcache
+  no option httpclose
+  tcp-request inspect-delay 5s
+  tcp-request content accept if { req.ssl_hello_type 1 }
+  tcp-request content reject
+  use-server server1 if { req.ssl_sni -m beg app1. }
+  server server1 server1:8443 check id 1 weight 0
+```
+-m end
+use_backend apache if { ssl_fc_sni_end domain.com }
+
+
+
+hdr(host)
+hdr_end(host) -i .wener.me
+hdr_beg(host) -i .wener.me
