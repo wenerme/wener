@@ -115,7 +115,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          path: "./contents/tricks",
+          path: "./contents/notes",
           routeBasePath: "notes",
         },
         blog: {

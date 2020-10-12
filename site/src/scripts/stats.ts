@@ -6,11 +6,11 @@ async function main() {
     console.log("story", (await files).length);
   }
   {
-    const files = globby("contents/tricks/**/*.{md,mdx}");
+    const files = globby("contents/notes/**/*.{md,mdx}");
     console.log("notes", (await files).length);
   }
   {
-    const files = globby("contents/tricks/**/*.{jpg,jpeg,png,svg,gif}");
+    const files = globby("contents/**/*.{jpg,jpeg,png,svg,gif}");
     console.log("images", (await files).length);
   }
 }
