@@ -1,5 +1,8 @@
 
-ci: sync process build stats
+ci: install sync process build stats
+
+install:
+	yarn install
 
 sync:
 	node -r ts-node/register src/scripts/sync.ts -dir=../story/ > story.list.txt
