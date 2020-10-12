@@ -9,7 +9,7 @@ date: 2018-02-26
 > Small. Simple. Secure.
 >
 > Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.
-> 
+>
 > Alpine Linux 是一个基于 musl libc 和 busybox, 面向安全, 轻量级的 Linux 发布版.
 
 <!-- more -->
@@ -84,7 +84,7 @@ date: 2018-02-26
   * 扩展镜像
   * 附带了常用包, 安装不需要网络连接; 适用于路由和服务器
 * VANILLA
-  * 未 [Hardened](../linux/grsecurity.md) 的镜像
+  * 未 [Hardened](../linux/security/grsecurity) 的镜像
   * 自 3.8 开始，已经没有 hardened 的内核了
 * VIRTUAL
   * 适用于虚拟机的镜像

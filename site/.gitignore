@@ -4,3 +4,9 @@ build
 src/**/*.d.ts
 src/**/*.d.ts.map
 src/**/*.js
+node_modules
+
+!contents/*
+contents/*/
+
+*.list.txt

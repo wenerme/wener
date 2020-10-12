@@ -472,7 +472,7 @@ module.exports = {
     ],
     硬件: [
       {
-        type: 'hardware',
+        type: 'category',
         label: '硬件',
         items: [
           'hardware/battery/battery',

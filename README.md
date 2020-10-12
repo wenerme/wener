@@ -1,10 +1,8 @@
-站点 | 静态内容 | 持续集成
-----|----|----
-[wener.me](https://wener.me) | [wenerme.github.io](https://github.com/wenerme/wenerme.github.io)/[部署状态](https://github.com/wenerme/wenerme.github.io/deployments) | [![Build Status](https://travis-ci.com/wenerme/wener.svg?branch=master)](https://travis-ci.com/wenerme/wener)
+| 站点                         | 静态内容                                                                                                                               | 持续集成                                                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [wener.me](https://wener.me) | [wenerme.github.io](https://github.com/wenerme/wenerme.github.io)/[部署状态](https://github.com/wenerme/wenerme.github.io/deployments) | [![Build Status](https://travis-ci.com/wenerme/wener.svg?branch=master)](https://travis-ci.com/wenerme/wener) |
 
-
-笔记
-====
+# 笔记
 
 这里算是我的杂物箱了,囤积了我大部分的乱七八糟的东西,
 虽然乱七八糟,但是我还是想尽量的分类好啊!

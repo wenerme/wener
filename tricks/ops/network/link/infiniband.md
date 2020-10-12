@@ -29,8 +29,6 @@ title: InfiniBand
   * [How to achieve low latency with 10Gbps Ethernet](https://blog.cloudflare.com/how-to-achieve-low-latency/)
 * 注意
   * 在 `/etc/network/interface` 下配置的顺序会影响默认网卡, 将 ib 配置在第一位即可
-* 工具
-  * [网络性能测试](../admin/benchmark.md#network)
 
 ```bash
 # 查看邮件

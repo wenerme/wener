@@ -4,26 +4,32 @@ node_js:
 before_script:
   - echo building $TRAVIS_BUILD_DIR
   - node --version && yarn --version
-  - cd ..
-  - rm -rf docusaurus
-  - git clone --branch v2.0.0-alpha.40 --depth 1 https://github.com/facebook/docusaurus
-  - cd docusaurus
-  - mv $TRAVIS_BUILD_DIR wener
-  - git apply wener/site/docusaurus.patch
+  # - cd ..
+  # - rm -rf docusaurus
+  # - git clone --branch v2.0.0-alpha.40 --depth 1 https://github.com/facebook/docusaurus
+  # - cd docusaurus
+  # - mv $TRAVIS_BUILD_DIR wener
+  # - git apply wener/site/docusaurus.patch
 script:
-  - yarn upgrade && yarn
-  # preprocess - fetch external resoruces
-  - cd wener/site && yarn tsc && node src/preprocessors/processor.js && cd -
-  - NODE_ENV=production yarn workspace wener-website build
-  # restore
-  - mv wener ..
+  # - yarn upgrade && yarn
+  # # preprocess - fetch external resoruces
+  # - cd wener/site && yarn tsc && node src/preprocessors/processor.js && cd -
+  # - NODE_ENV=production yarn workspace wener-website build
+  # # restore
+  # - mv wener ..
   # - cd ${TRAVIS_BUILD_DIR}
   # customized public material
   # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
 
   # sync assets
-  - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/story/ /docusaurus/wener/site/build/blog/
-  - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/tricks/ /docusaurus/wener/site/build/notes/
+  # - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/story/ /docusaurus/wener/site/build/blog/
+  # - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/tricks/ /docusaurus/wener/site/build/notes/
+
+  - cd site
+  - yarn install
+  - make ci
+  - cd ${TRAVIS_BUILD_DIR}
+
 # deploy to github pages
 deploy:
   - provider: pages

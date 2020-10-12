@@ -1,3 +1,8 @@
+---
+slug: gitbook
+title: Gitbook
+---
+
 # Gitbook
 [Gitbook](https://www.gitbook.com/) 是一个用 Markdown 作为主要语法,使用 Git 作为存储管理的书籍编辑器.可添加目录和术语等扩展内容.
 

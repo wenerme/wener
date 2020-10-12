@@ -1,3 +1,8 @@
+---
+slug: grsecurity
+title: Grsecurity
+---
+
 # Grsecurity
 
 https://grsecurity.net/

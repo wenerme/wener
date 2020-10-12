@@ -18,6 +18,8 @@ title: Kubernetes vs OpenStack
 | 主要调度资源 | 计算/VM<br/>存储<br/>网络 | 容器<br/>及配套周边资源<br/>自定义资源 |
 | 主要编写语言 | Python                    | Golang                                 |
 
+<!-- more -->
+
 ## 区别
 
 OpenStack 与 Kubernetes 的区别就等同于虚拟机与容器的区别，Docker 与 VirtualBox 的区别。
