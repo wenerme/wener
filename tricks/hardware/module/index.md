@@ -8,3 +8,5 @@
 * IN 3V~40V
 * OUT 1.5V～35V
   * Max 3A
+* 参考
+  * 淘宝 [LM2596S](https://detail.tmall.com/item.htm?id=41307963557)
