@@ -38,11 +38,11 @@ jobs:
           BRANCH: gh-pages
           FOLDER: site/build
 
-      - run: echo wener.tech > site/build/CNAME
+      - run: echo www.wener.tech > site/build/CNAME
       - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: master
+          BRANCH: gh-pages
           FOLDER: site/build
           REPOSITORY_NAME: wenerme/wener.tech

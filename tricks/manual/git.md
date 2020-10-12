@@ -1,3 +1,8 @@
+---
+slug: git
+title: Git
+---
+
 # Git
 
 ## Tips
@@ -76,17 +81,17 @@ git config --local user.email "email@address.com"
 ```bash
 git pull --recurse-submodules
 # 或者递归拉取
-git clone --recursive <URL> 
+git clone --recursive <URL>
 ```
 
 ### 拉取远程分支
 
 ```bash
 # 检出远程分支
-git clone -b stable <URL> 
+git clone -b stable <URL>
 
 # 或检出后
-git fetch <remote> <rbranch>:<lbranch> 
+git fetch <remote> <rbranch>:<lbranch>
 git checkout <lbranch>
 ```
 
@@ -162,7 +167,7 @@ git subtree add -P <prefix> <repo> <rev>
 ```
 git commit ...
 git reset --soft 'HEAD^'
-edit                       
+edit
 git add ....
 git commit -c ORIG_HEAD
 ```
@@ -281,16 +286,36 @@ git clone git://localhost/reponame
 
 ### 开始空的新分支
 
-```
+```bash
 git checkout --orphan <branchname>
 git rm --cached -r .
 ```
+
+### 重置分支
+
+```bash
+# 先切到非 master 分支
+git checkout -B temp
+
+git branch -D master
+git checkout --orphan master
+git rm -rf *
+
+echo '# My Project' > README.md
+git add README.md
+git commit -m 'initial commit'
+
+git branch -D temp
+
+git push --all -f
+```
+
 
 ### 迁移子目录为仓库
 * [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
 
 ```bash
-# git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME 
+# git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME
 
 git subtree split -P <name-of-folder> -b <name-of-new-branch>
 ```
