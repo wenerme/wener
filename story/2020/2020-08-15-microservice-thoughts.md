@@ -3,7 +3,7 @@ id: microservice-thoughts
 title: 微服务杂念
 ---
 
-[![](http://www.plantuml.com/plantuml/svg/TP51I-D068Rlyok6x3NTiikoM3Mb9csyUF9QYinqFjjWceIPqLfABmL12Zs8UDE3NeKgY8Y2-ckI-ZFCcCOqjSqflFDyxpnyKn6ISCbyYPZJuYHeustSHvxFe2xQ9023-iUwa3qNZ7t7TO7fJT_rkI4vyKH0E7YoWPB1EbPZ0WBZZnwV7Z276zhEhjP0w500nuKoRX49NT93QFQZilZeo6d27baMKeHGNvKPWdHW8uCpOf3Krrr2mJKsmybDTFeqlRqhwrWP9xhQBzEircnJQwItfFpqzImyULY0hRNQVwiKmz_tfNXqEGv7rrjbVHwtRQjQ_Jk7qpnkhi3LlhBgZz5mEdp-KMsNh7yfI_EikO9bT4xuuZuQJyANyuLYzlN5S2QTUuqi9ofFL9TaD3UVSaftHYaPX18RBNoR92k9heRX-oCkuBQKWLWl5hlW0V_T0GqDK0Kyndpv2G00)](https://wener.me)
+[![](https://www.plantuml.com/plantuml/svg/TP51I-D068Rlyok6x3NTiikoM3Mb9csyUF9QYinqFjjWceIPqLfABmL12Zs8UDE3NeKgY8Y2-ckI-ZFCcCOqjSqflFDyxpnyKn6ISCbyYPZJuYHeustSHvxFe2xQ9023-iUwa3qNZ7t7TO7fJT_rkI4vyKH0E7YoWPB1EbPZ0WBZZnwV7Z276zhEhjP0w500nuKoRX49NT93QFQZilZeo6d27baMKeHGNvKPWdHW8uCpOf3Krrr2mJKsmybDTFeqlRqhwrWP9xhQBzEircnJQwItfFpqzImyULY0hRNQVwiKmz_tfNXqEGv7rrjbVHwtRQjQ_Jk7qpnkhi3LlhBgZz5mEdp-KMsNh7yfI_EikO9bT4xuuZuQJyANyuLYzlN5S2QTUuqi9ofFL9TaD3UVSaftHYaPX18RBNoR92k9heRX-oCkuBQKWLWl5hlW0V_T0GqDK0Kyndpv2G00)](https://wener.me)
 
 # 微服务杂念
 
@@ -120,8 +120,8 @@ __非 HTTP 语义__
     * 如果是主动，则可能注册中心会成为瓶颈
   * 受网络影响较大
     * 部署节点变更可能需要一定时间才能更正为新的地址
-    * 影响因素主要有： 
-      1. 检测到服务下线的时间 
+    * 影响因素主要有：
+      1. 检测到服务下线的时间
         * 对于被动场景则是 心跳间隔*失败次数 - 一般为 `15s * 3 = 45s` - 不进行主动干预的情况
       2. 客户端检测到新服务信息的时间
     * 为了减少网络影响，可能抽象服务为 VIP
