@@ -29,6 +29,7 @@ jobs:
           key: ${{ runner.os }}-build-cache
 
       - run: cd site && make ci
+      - run: cp -r site/build site/tech-build
 
       - run: echo wener.me > site/build/CNAME
       - name: Deploy Pages
@@ -44,5 +45,5 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: site/build
+          FOLDER: site/tech-build
           REPOSITORY_NAME: wenerme/wener.tech
