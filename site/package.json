@@ -1,6 +1,6 @@
 {
   "name": "wener-website",
-  "version": "2.0.0-alpha.40",
+  "version": "v2.0.0-alpha.65",
   "private": true,
   "scripts": {
     "tsc": "tsc",
@@ -10,13 +10,13 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.40",
-    "@docusaurus/plugin-ideal-image": "^2.0.0-alpha.40",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.40",
-    "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.40",
-    "@docusaurus/plugin-google-analytics":"^2.0.0-alpha.40",
-    "@docusaurus/plugin-google-gtag":"^2.0.0-alpha.40",
-    "@docusaurus/plugin-sitemap":"^2.0.0-alpha.40",
+    "@docusaurus/core": "^v2.0.0-alpha.65",
+    "@docusaurus/plugin-ideal-image": "^v2.0.0-alpha.65",
+    "@docusaurus/preset-classic": "^v2.0.0-alpha.65",
+    "@docusaurus/theme-live-codeblock": "^v2.0.0-alpha.65",
+    "@docusaurus/plugin-google-analytics":"^v2.0.0-alpha.65",
+    "@docusaurus/plugin-google-gtag":"^v2.0.0-alpha.65",
+    "@docusaurus/plugin-sitemap":"^v2.0.0-alpha.65",
     "classnames": "^2.2.6",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.15.0",

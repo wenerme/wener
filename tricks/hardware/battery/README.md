@@ -1,3 +1,8 @@
+---
+id: battery
+title: 电池
+---
+
 # 电池
 
 ## Tips

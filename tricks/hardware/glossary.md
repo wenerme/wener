@@ -1,8 +1,13 @@
+---
+id: glossary
+title: 硬件词汇
+---
+
 # Glossary
 * 参考
   * [](https://www.electronics-lab.com/hardware-acronyms-sip-soc-som-com-sbc/)
 
-* SoC - System on Chip / Single-chip microcomputer / Microcontroller / MCU
+* SoC - System on Chip / Single-chip microcomputer / Microcontroller * MCU
   * 系统级芯片
   * 单片机
   * 是芯片

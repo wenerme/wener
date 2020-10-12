@@ -164,7 +164,10 @@ module.exports = {
       {
         type: 'category',
         label: '平台',
-        items: ['devops/kubernetes/platform/knative-intro', 'devops/kubernetes/platform/istio-intro'],
+        items: [
+          'devops/kubernetes/platform/knative-intro',
+          'devops/kubernetes/platform/istio-intro',
+        ],
       },
       {
         type: 'category',
@@ -227,12 +230,20 @@ module.exports = {
       {
         type: 'category',
         label: 'Darwin',
-        items: ['ops/os/darwin/darwin', 'ops/os/darwin/macos', 'ops/os/darwin/brew'],
+        items: [
+          'ops/os/darwin/darwin',
+          'ops/os/darwin/macos',
+          'ops/os/darwin/brew',
+        ],
       },
       {
         type: 'category',
         label: 'Windows',
-        items: ['ops/os/windows/windows', 'ops/os/windows/windows-dc', 'ops/os/windows/windows-faq'],
+        items: [
+          'ops/os/windows/windows',
+          'ops/os/windows/windows-dc',
+          'ops/os/windows/windows-faq',
+        ],
       },
     ],
     数据库: [
@@ -255,12 +266,20 @@ module.exports = {
       {
         type: 'category',
         label: '关系型',
-        items: ['db/relational/mysql', 'db/relational/mysql-gtid', 'db/relational/sqlite'],
+        items: [
+          'db/relational/mysql',
+          'db/relational/mysql-gtid',
+          'db/relational/sqlite',
+        ],
       },
       {
         type: 'category',
         label: '文档型',
-        items: ['db/document/mongodb', 'db/document/rethinkdb', 'db/document/couchdb'],
+        items: [
+          'db/document/mongodb',
+          'db/document/rethinkdb',
+          'db/document/couchdb',
+        ],
       },
       {
         type: 'category',
@@ -290,7 +309,11 @@ module.exports = {
       {
         type: 'category',
         label: '应用',
-        items: ['ops/network/application/dns', 'ops/network/application/http', 'ops/network/application/ssl'],
+        items: [
+          'ops/network/application/dns',
+          'ops/network/application/http',
+          'ops/network/application/ssl',
+        ],
       },
       {
         type: 'category',
@@ -331,7 +354,11 @@ module.exports = {
       {
         type: 'category',
         label: '块存储',
-        items: ['ops/storage/block/raid', 'ops/storage/block/mdadm', 'ops/storage/block/lvm'],
+        items: [
+          'ops/storage/block/raid',
+          'ops/storage/block/mdadm',
+          'ops/storage/block/lvm',
+        ],
       },
       {
         type: 'category',
@@ -387,7 +414,11 @@ module.exports = {
       {
         type: 'category',
         label: 'Office',
-        items: ['service/office/office', 'service/office/collabora', 'service/office/onlyoffice'],
+        items: [
+          'service/office/office',
+          'service/office/collabora',
+          'service/office/onlyoffice',
+        ],
       },
       {
         type: 'category',
@@ -397,7 +428,11 @@ module.exports = {
       {
         type: 'category',
         label: '文件',
-        items: ['service/file/nextcloud', 'service/file/nextcloud-config', 'service/file/nextcloud-faq'],
+        items: [
+          'service/file/nextcloud',
+          'service/file/nextcloud-config',
+          'service/file/nextcloud-faq',
+        ],
       },
       {
         type: 'category',
@@ -428,7 +463,20 @@ module.exports = {
       {
         type: 'category',
         label: 'Gitlab',
-        items: ['ops/service/gitlab-config', 'ops/service/gitlab-cicd', 'ops/service/gitlab-k8s'],
+        items: [
+          'ops/service/gitlab-config',
+          'ops/service/gitlab-cicd',
+          'ops/service/gitlab-k8s',
+        ],
+      },
+    ],
+    硬件: [
+      {
+        type: 'hardware',
+        label: '硬件',
+        items: [
+          'hardware/battery/battery',
+        ],
       },
     ],
     VoIP: [
