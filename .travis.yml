@@ -34,9 +34,10 @@ script:
 
 # deploy to github pages
 deploy:
+  # https://github.com/wenerme/wener.me
   - provider: pages
     fqdn: wener.me
-    repo: wenerme/wenerme.github.io
+    repo: wenerme/wener.me
     token: $GITHUB_TOKEN
     # delete all the files created during the build, which will probably delete what you are trying to upload.
     # skip_cleanup: true
