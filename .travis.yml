@@ -21,6 +21,9 @@ script:
   # customized public material
   # - rsync -avrc /docusaurus/wener/site/public /docusaurus/wener/site/build
 
+  # sync assets
+  - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/story/ /docusaurus/wener/site/build/blog/
+  - rsync --include="*/" --include '*.jpg' --include '*.png' --include '*.gif' --exclude '*' --prune-empty-dirs -avrc /docusaurus/wener/tricks/ /docusaurus/wener/site/build/notes/
 # deploy to github pages
 deploy:
   - provider: pages
