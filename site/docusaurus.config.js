@@ -68,10 +68,9 @@ module.exports = {
               html: `
               <div>
               <a class="footer__link-item" href="https://github.com/wenerme/wener">Wener</a>
-              - <a class="footer__link-item" href="https://travis-ci.com/wenerme/wener" title="wenerme/wener - travis-ci">
-                <img style="vertical-align: middle;opacity: .4;" src="https://travis-ci.com/wenerme/wener.svg?branch=master"/>
+              - <a class="footer__link-item" href="https://github.com/wenerme/wener/actions" title="wenerme/wener - ci">
+                <img style="vertical-align: middle;opacity: .4;" src="https://github.com/wenerme/wener/workflows/Build/badge.svg"/>
                 </a>
-              - <a class="footer__link-item" href="https://github.com/wenerme/wenerme.github.io/deployments" title="GitHub Pages 部署">部署状态</a>
               </div>
               `,
             },

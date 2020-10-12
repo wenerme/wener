@@ -2,6 +2,8 @@
 title: Guava 简介
 slug: guava-intro
 date: 2015-10-02
+tags:
+- Java
 ---
 
 Overviews - Five Ws

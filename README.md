@@ -1,6 +1,6 @@
-| 站点                         | 静态内容                                                                                                                               | 持续集成                                                                                                      |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [wener.me](https://wener.me) | [wenerme.github.io](https://github.com/wenerme/wenerme.github.io)/[部署状态](https://github.com/wenerme/wenerme.github.io/deployments) | [![Build Status](https://travis-ci.com/wenerme/wener.svg?branch=master)](https://travis-ci.com/wenerme/wener) |
+| 站点                                                              | 静态内容                                                 | 持续集成                                                                                                         |
+| ----------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| [wener.me](https://wener.me)/[wener.tech](https://www.wener.tech) | [部署状态](https://github.com/wenerme/wener/deployments) | [![Build](https://github.com/wenerme/wener/workflows/Build/badge.svg)](https://github.com/wenerme/wener/actions) |
 
 # 笔记
 
