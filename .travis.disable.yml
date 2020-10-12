@@ -1,3 +1,7 @@
+# build failed
+# https://travis-ci.com/github/wenerme/wener/jobs/398361295#L372
+# Could not copy /home/travis/build/wenerme/wener/site/build
+
 language: node_js
 node_js:
   - "12"
