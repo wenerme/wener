@@ -28,7 +28,9 @@ script:
   - cd site
   - yarn install
   - make ci
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd ..
+  - pwd
+  - ls -d site/build/*/
 
 # deploy to github pages
 deploy:

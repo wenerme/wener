@@ -3,10 +3,10 @@ ci: sync process build stats
 
 sync:
 	node -r ts-node/register src/scripts/sync.ts -dir=../story/ > story.list.txt
-	rsync -a --files-from=story.list.txt ../ ./contents/ -v
+	rsync -a --files-from=story.list.txt ../ ./contents/
 
 	node -r ts-node/register src/scripts/sync.ts -dir=../tricks/ > notes.list.txt
-	rsync -a --files-from=notes.list.txt ../ ./contents/ -v
+	rsync -a --files-from=notes.list.txt ../ ./contents/
 
 process:
 	node -r ts-node/register src/scripts/process.ts
