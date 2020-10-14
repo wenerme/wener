@@ -17,6 +17,11 @@ module.exports = {
     gtag: {
       trackingID: "UA-30404720-1",
     },
+    algolia: {
+      apiKey: '5b06ecc9e2da821fc3e1520eb6ba6363',
+      indexName: 'wener',
+      searchParameters: {},
+    },
     navbar: {
       title: "Wener",
       logo: {

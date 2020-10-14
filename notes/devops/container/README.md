@@ -1,6 +1,11 @@
 # Container
 
 ## Tips
+* 容器相关
+  * 镜像
+  * 运行时
+  * 网络
+  * 存储
 * [Container Runtime](https://insujang.github.io/2019-10-31/container-runtime)
 * CRI-O
 * OCI
@@ -38,17 +43,3 @@
   Docker based PaaS
   * [dokku/dokku](https://github.com/dokku/dokku)
 
-# FAQ
-## docker vs containerd
-* docker
-  * 底层使用 containerd
-  * 管理 volume、网络、swarm、service 等
-* containerd
-  * 暴露为 unix socket
-  * grpc 接口
-  * 封装容器运行时为统一接口
-  * Linux 底层使用 runc
-* containerd-shim
-  * docker 启动的每个容器的父进程
-  * 不对 docker 直接依赖，允许升级 docker 守护进程
-  * 维护 STDIO 和 fds
