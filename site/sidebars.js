@@ -213,10 +213,12 @@ module.exports = {
       'ops/os/linux/virt/qemu-doc',
       'ops/os/linux/virt/qemu-monitor',
       'ops/os/linux/virt/qemu-version',
+      'ops/os/linux/virt/qemu-qmp',
       'ops/os/linux/virt/libvirt',
       'ops/os/linux/virt/libvirtd',
       'ops/os/linux/virt/libvirt-faq',
       'ops/os/linux/virt/virsh',
+      'ops/os/linux/virt/vmware',
     ],
     启动: ['ops/os/linux/boot/syslinux', 'ops/os/linux/boot/uboot'],
     工具: [
@@ -476,6 +478,16 @@ module.exports = {
         label: '硬件',
         items: [
           'hardware/battery/battery',
+          'hardware/microcontroller/dev/arduino',
+        ],
+      },
+    ],
+    算法: [
+      {
+        type: 'category',
+        label: '计算机视觉',
+        items: [
+          'algorithm/cv/imagemagick',
         ],
       },
     ],

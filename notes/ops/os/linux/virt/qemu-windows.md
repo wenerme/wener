@@ -1,12 +1,7 @@
 # Qemu Windows
 
 ## Tips
-* https://qemu.weilnetz.de/
-  * QEMU Binaries for Windows and QEMU Documentation
-  * https://qemu.weilnetz.de/w64/
-* `-enable-hax`
-  * 自 2.9 支持使用 HAXM, 类似于 Linux 的 KVM
-* Windows XP 最后版本为 2.7.0
+
 
 curl -LOC- https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-qemu-ga/qemu-ga-win-101.1.0-1.el7ev/qemu-ga-x86_64.msi
 curl -LOC- https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso

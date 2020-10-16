@@ -15,3 +15,13 @@
   * 例如 C、JS、Golang、Lua
 * 选择平台还意味着选择芯片 - esp32、attiny、stm32
 * 选择外设接口同样重要
+
+## Dev
+* Golang
+  * [Mainflux/mainflux](https://github.com/Mainflux/mainflux) - Messaging and Device Management Platform
+  * https://www.mainflux.com/
+
+## 平台
+* [taosdata/TDengine](https://github.com/taosdata/TDengine)
+  * [taosdata.com](https://www.taosdata.com)
+  * [中文文档](https://www.taosdata.com/cn/documentation20)

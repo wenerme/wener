@@ -1,3 +1,8 @@
+---
+slug: arduino
+title: Arduino
+---
+
 # Arduino
 
 * [arduino/arduino-cli](https://github.com/arduino/arduino-cli)

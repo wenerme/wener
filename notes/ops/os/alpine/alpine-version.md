@@ -11,7 +11,7 @@ title: 版本历史
 - 注意
   - 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
 
-__我的贡献数 - wener/wenerme__
+**我的贡献数 - wener/wenerme**
 
 | version | commits |
 | ------- | ------- |

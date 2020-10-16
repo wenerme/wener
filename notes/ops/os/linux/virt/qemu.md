@@ -10,7 +10,7 @@ title: QEMU
 - [qemu.org](https://www.qemu.org/)
 - [QEMU:wiki](https://en.wikipedia.org/wiki/QEMU)
 - https://www.qemu.org/docs/master/
-- https://qemu.weilnetz.de/doc/qemu-doc.html
+- https://qemu.weilnetz.de/doc/latest/
 - VirtualBox , Xen 和 KVM 基于 QEMU
 - 安卓虚拟机基于 QEMU ARM 虚拟
 - QEMU-SystemC 使用 QEMU 来模拟使用 SystemC 开发的硬件
@@ -44,6 +44,11 @@ title: QEMU
   - kvm - Linux
   - hax - Intel 平台 - macOS/Windows
   - whpa - hyperv
+- 显示
+  - -serial stdio - stdio 作为串口
+  - -curses - 使用 ncurses 显示
+  - -no-graphics - 无显示
+  - -vnc :1 - VNC 5901
 
 https://wiki.archlinux.org/index.php/QEMU_(简体中文)
 https://wiki.gentoo.org/wiki/QEMU/Options

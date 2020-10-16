@@ -71,3 +71,6 @@ remote_write:
 remote_read:
   - url: "http://localhost:9201/read"
 ```
+
+## Notes
+* [Architecture & Concepts](https://docs.timescale.com/introduction/architecture)

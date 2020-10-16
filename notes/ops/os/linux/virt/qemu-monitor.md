@@ -5,7 +5,7 @@ title: QEMU监视器
 
 # QEMU Monitor
 
-* [QEMU Monitor](https://qemu.weilnetz.de/doc/qemu-doc.html#pcsys_005fmonitor)
+* [QEMU Monitor](https://www.qemu.org/docs/master/system/monitor.html)
 * wikibooks [QEMU/Monitor](https://en.wikibooks.org/wiki/QEMU/Monitor)
 * [使用 monitor command 监控 QEMU 运行状态](https://www.ibm.com/developerworks/cn/linux/l-cn-qemu-monitor/)
 * 如何访问 Monitor
@@ -58,7 +58,7 @@ echo "info status" | socat - unix-connect:qemu-monitor-socket | tail --lines=+2 
 # 查看版本
 info version
 
-# qemu -vnc :1,password 
+# qemu -vnc :1,password
 # 给 VNC 设置密码
 change vnc password
 
@@ -70,15 +70,6 @@ c
 system_powerdown
 
 qemu-system-i386 -net nic,model=rtl8139 -net user,hostfwd=tcp::3389-:3389 -redir tcp:443::443 -redir tcp:992::992 -redir tcp:1194::1194 -redir tcp:5555::5555 -redir udp:1194::1194 -redir udp:500::500 -redir udp:4500::4500 -m 512M -localtime -cpu core2duo,+nx -smp 2 -usbdevice tablet -k en-us -hda win.img -nographic
-
-## QMP - QEMU Machine Protocol
-* [qmp-shell](https://github.com/qemu/qemu/blob/master/scripts/qmp/qmp-shell)
-  * Low-level QEMU shell on top of QMP
-
-https://www.nico.schottelius.org/blog/control-and-shutdown-qemu-kvm-vm-via-unix-socket/
-https://wiki.qemu.org/Documentation/QMP
-
-* `-qmp unix:./qmp-sock,server`
 
 
 ## 磁盘热插拔
