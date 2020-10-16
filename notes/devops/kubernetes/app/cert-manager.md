@@ -6,9 +6,12 @@ title: Cert Manager
 # cert-manager
 
 ## Tips
-
+- 是什么？
+  - 自颁发 CA 证书管理
+  - ACME 自动证书申请
+  - 外部证书管理集成
 - [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
-- crds
+- crds - 自定义资源
   - issuers.cert-manager.io
   - orders.acme.cert-manager.io
   - certificaterequests.cert-manager.io

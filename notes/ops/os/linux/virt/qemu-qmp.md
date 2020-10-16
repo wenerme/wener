@@ -18,6 +18,18 @@ title: QEMU QMP
   - system_reset
   - system_wakeup
   - query-status
+- 开发
+  - [digitalocean/go-qemu](https://github.com/digitalocean/go-qemu)
+    - 基于 [2.11/qapi-schema.json](https://raw.githubusercontent.com/qemu/qemu/stable-2.11/qapi-schema.json)
+- schema
+  - https://github.com/qemu/qemu/blob/v5.1.0/qapi/qapi-schema.json
+    - qapi
+  - https://github.com/qemu/qemu/blob/v5.1.0/qga/qapi-schema.json
+    - guest agent
+  - https://github.com/qemu/qemu/blob/v5.1.0/storage-daemon/qapi/qapi-schema.json
+    - storage-daemon 与主 qapi 类似，但接口更少
+  - [scripts/qapi-gen.py](https://github.com/qemu/qemu/blob/stable-5.0/scripts/qapi-gen.py)
+    - 用于生成 c 代码
 
 ```json
 // 服务端响应
