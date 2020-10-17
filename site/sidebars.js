@@ -3,7 +3,7 @@ const fs = require('fs');
 
 module.exports = {
   docs: {
-    Java: YAML.parse(fs.readFileSync('sidebars-java.yaml')),
+    Java: YAML.parse(fs.readFileSync('sidebars-java.yaml').toString()),
     前端技术: [
       {
         type: 'category',
@@ -426,30 +426,6 @@ module.exports = {
         items: ['algorithm/cv/imagemagick'],
       },
     ],
-    VoIP: [
-      'voip/voip-intro',
-      'voip/hardware/intro',
-      'voip/sip/provider',
-      'voip/glossary',
-      {
-        type: 'category',
-        label: 'Asterisk',
-        items: [
-          'voip/asterisk/intro',
-          'voip/asterisk/version',
-          'voip/asterisk/asterisk-moduls',
-          'voip/asterisk/dev',
-          'voip/asterisk/conf',
-          'voip/asterisk/dialplan',
-          'voip/asterisk/codec',
-          'voip/asterisk/chan_dahdi',
-          'voip/asterisk/chan_dongle',
-          'voip/asterisk/reference',
-          'voip/asterisk/glossory',
-          'voip/asterisk/faq',
-          'voip/asterisk/the-definitive-guide-4th',
-        ],
-      },
-    ],
+    VoIP: YAML.parse(fs.readFileSync('sidebars-voip.yaml').toString()),
   },
 };
