@@ -194,6 +194,8 @@ module.exports = {
       'ops/os/linux/virt/libvirtd',
       'ops/os/linux/virt/libvirt-faq',
       'ops/os/linux/virt/virsh',
+      'ops/os/linux/virt/haxm',
+      'ops/os/linux/virt/hyperv',
       'ops/os/linux/virt/vmware',
     ],
     启动: ['ops/os/linux/boot/syslinux', 'ops/os/linux/boot/uboot'],
