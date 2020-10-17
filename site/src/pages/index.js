@@ -55,7 +55,7 @@ function Home() {
                 'button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('blog/wener-is-my-name')}>
+              to={useBaseUrl('story/wener-is-my-name')}>
               Get to know me
             </Link>
           </div>

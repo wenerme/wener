@@ -363,7 +363,7 @@ module.exports = {
       {
         type: 'category',
         label: '内容管理',
-        items: ['service/cms/cms'],
+        items: ['service/cms/cms','service/cms/docusaurus',],
       },
       {
         type: 'category',

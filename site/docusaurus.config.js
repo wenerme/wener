@@ -118,14 +118,22 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          path: "./contents/notes",
           routeBasePath: "notes",
+          path: "./contents/notes",
+          sidebarPath: require.resolve("./sidebars.js"),
+
+          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+
+          showLastUpdateTime: true,
+          disableVersioning: true,
+          showLastUpdateAuthor: true,
         },
         blog: {
+          path: 'story',
           path: "./contents/story",
           include: ["**/*.md", "**/*.mdx"],
           truncateMarker: /<!--\s*more\s*-->/,
+          editUrl: 'https://github.com/wenerme/wener/edit/master/',
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
