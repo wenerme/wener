@@ -62,7 +62,7 @@ module.exports = {
       {
         type: 'category',
         label: '日志',
-        items: ['devops/logging/logging', 'devops/logging/syslog', 'devops/logging/loki', 'devops/logging/fluentbit'],
+        items: ['service/logging/logging', 'service/logging/syslog', 'service/logging/loki', 'service/logging/fluentbit'],
       },
       {
         type: 'category',

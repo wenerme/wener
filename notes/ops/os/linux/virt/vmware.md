@@ -1,5 +1,5 @@
 ---
-slug: vmware
+id: vmware
 title: VmWare
 ---
 

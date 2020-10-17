@@ -1,5 +1,5 @@
 ---
-slug: arduino
+id: arduino
 title: Arduino
 ---
 

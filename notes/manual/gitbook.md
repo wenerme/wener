@@ -1,5 +1,5 @@
 ---
-slug: gitbook
+id: gitbook
 title: Gitbook
 ---
 

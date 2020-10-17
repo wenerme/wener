@@ -1,5 +1,5 @@
 ---
-slug: imagemagick
+id: imagemagick
 title: ImageMagick
 ---
 

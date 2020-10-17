@@ -1,5 +1,5 @@
 ---
-slug: qemu-qmp
+id: qemu-qmp
 title: QEMU QMP
 ---
 
@@ -52,6 +52,9 @@ title: QEMU QMP
 { "execute": "query-memdev" }
 //
 {"return": [{"prealloc": false, "host-nodes": [], "size": 134217728, "merge": true, "dump": true, "policy": "default", "id": "pc.ram"}]}
+
+//
+{ "execute": "system_powerdown" }
 ```
 
 ## QMP 命令

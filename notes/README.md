@@ -1,5 +1,5 @@
 ---
-slug: note
+id: note
 title: 笔记
 ---
 

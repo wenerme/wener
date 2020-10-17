@@ -1,5 +1,5 @@
 ---
-slug: ip-address
+id: ip-address
 title: IP 地址
 ---
 

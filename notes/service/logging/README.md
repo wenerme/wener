@@ -1,5 +1,5 @@
 ---
-slug: logging
+id: logging
 title: 日志
 ---
 

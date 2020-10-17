@@ -1,5 +1,5 @@
 ---
-slug: qemu-windows-host
+id: qemu-windows-host
 title: QEMU Windows 宿主机
 ---
 

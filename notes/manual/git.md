@@ -1,5 +1,5 @@
 ---
-slug: git
+id: git
 title: Git
 ---
 

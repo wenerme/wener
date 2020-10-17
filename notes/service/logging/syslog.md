@@ -1,5 +1,5 @@
 ---
-slug: syslog
+id: syslog
 title: Syslog
 ---
 

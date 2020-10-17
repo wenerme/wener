@@ -1,5 +1,5 @@
 ---
-slug: qemu
+id: qemu
 title: QEMU
 ---
 

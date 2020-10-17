@@ -1,5 +1,5 @@
 ---
-slug: windows-env
+id: windows-env
 title: Windows 环境
 ---
 

@@ -1,5 +1,5 @@
 ---
-slug: go-gui
+id: go-gui
 title: Go 图形界面
 ---
 

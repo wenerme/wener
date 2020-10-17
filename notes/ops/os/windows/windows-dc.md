@@ -17,9 +17,8 @@ title: Windows 域控
 ```bash
 ntlm_auth --allow-mschapv2 --request-nt-key --domain=COMPANY --username=domainuser --password=userpassword
 
-ntlm_auth = "/usr/bin/ntlm_auth --allow-mschapv2 --request-nt-key 
---username=%{%{Stripped-User-Name}:-%{%{User-Name}:-None}} 
---challenge=%{%{mschap:Challenge}:-00} 
+ntlm_auth = "/usr/bin/ntlm_auth --allow-mschapv2 --request-nt-key
+--username=%{%{Stripped-User-Name}:-%{%{User-Name}:-None}}
+--challenge=%{%{mschap:Challenge}:-00}
 --nt-response=%{%{mschap:NT-Response}:-00}"
-
 ```

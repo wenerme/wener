@@ -1,5 +1,5 @@
 ---
-slug: grsecurity
+id: grsecurity
 title: Grsecurity
 ---
 

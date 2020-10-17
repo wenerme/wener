@@ -1,5 +1,5 @@
 ---
-slug: loki
+id: loki
 title: Loki
 ---
 

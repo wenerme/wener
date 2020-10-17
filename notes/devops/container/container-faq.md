@@ -1,5 +1,5 @@
 ---
-slug: container-faq
+id: container-faq
 title: 容器常见问题
 ---
 

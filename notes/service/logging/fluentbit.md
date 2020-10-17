@@ -1,5 +1,5 @@
 ---
-slug: fluentbit
+id: fluentbit
 title: Fluentbit
 ---
 

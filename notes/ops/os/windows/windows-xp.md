@@ -1,5 +1,5 @@
 ---
-slug: windows-xp
+id: windows-xp
 title: Windows XP
 ---
 

@@ -1,5 +1,5 @@
 ---
-slug: go-windows
+id: go-windows
 title: Golang Windows
 ---
 
