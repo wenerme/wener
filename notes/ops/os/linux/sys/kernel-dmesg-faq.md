@@ -23,6 +23,13 @@ ACPI Error: Aborting method \_SB.PMI0._PMM due to previous error (AE_NOT_EXIST) 
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 ```
 
+## FW version command failed -5
+
+```
+mei 0000:00:16.0-56213584-9a29-4916-badf-0fb7ed682aeb: Could not read FW version
+mei 0000:00:16.0-56213584-9a29-4916-badf-0fb7ed682aeb: FW version command failed -5
+```
+
 
 ## EDAC DEBUG: ie31200_check: MC0
 * 内存问题，尝试更换内存。

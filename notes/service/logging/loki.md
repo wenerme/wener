@@ -1,3 +1,8 @@
+---
+slug: loki
+title: Loki
+---
+
 # Loki
 ## Tips
 * [grafana/loki](https://github.com/grafana/loki)
@@ -63,4 +68,3 @@
   3. distributor 将每个流转发给对应的 ingesters 和 副本
   4. ingester 会将流写入 chunk - chunk 在租户的 labelset 下唯一
   5. distributor 返回成功
-  

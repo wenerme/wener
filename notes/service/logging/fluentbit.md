@@ -1,3 +1,8 @@
+---
+slug: fluentbit
+title: Fluentbit
+---
+
 # Fluentbit
 ## Tips
 * [fluentbit](https://fluentbit.io/)

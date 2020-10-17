@@ -1,0 +1,29 @@
+- java/java
+- java/maven
+- type: category
+  label: 版本
+  items:
+  - java/version/version
+  - java/version/java-11
+  - java/version/java-10
+  - java/version/java-9
+  - java/version/java-8
+  - java/version/java-7
+  - java/version/java-6
+- type: category
+  label: Spring
+  items:
+  - java/spring/spring
+  - java/spring/boot
+  - java/spring/data
+  - java/spring/data-rest
+  - java/spring/security
+  - java/spring/security-oauth2
+  - java/spring/cloud
+  - java/spring/releases
+- java/library/productive
+- java/library/hazelcast
+- java/library/hibernate-orm
+- java/library/hibernate-enver
+- java/library/quarkus
+- java/library/guava

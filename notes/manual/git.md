@@ -310,6 +310,19 @@ git branch -D temp
 git push --all -f
 ```
 
+## 切换到远程分支
+```bash
+# 查看所有分支
+# -r 远程
+git branch -a
+
+git fetch origin
+git checkout --track origin/3.12-stable
+
+# git fetch <remote> <rbranch>:<lbranch>
+git fetch origin 3.12-stable:3.12-stable
+git checkout 3.12-stable
+```
 
 ### 迁移子目录为仓库
 * [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
