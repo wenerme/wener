@@ -9,7 +9,25 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "wenerme",
   projectName: "wener",
-  plugins: [],
+  plugins: [
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/story",
+            from: ["/blog"],
+          },
+        ],
+        createRedirects: function (existingPath) {
+          if (existingPath.startsWith("/story/")) {
+            return ["/blog/" + existingPath.substring("/story/".length)];
+          }
+          return [];
+        },
+      },
+    ],
+  ],
   themeConfig: {
     googleAnalytics: {
       trackingID: "UA-30404720-1",
@@ -18,8 +36,8 @@ module.exports = {
       trackingID: "UA-30404720-1",
     },
     algolia: {
-      apiKey: '5b06ecc9e2da821fc3e1520eb6ba6363',
-      indexName: 'wener',
+      apiKey: "5b06ecc9e2da821fc3e1520eb6ba6363",
+      indexName: "wener",
       searchParameters: {},
     },
     navbar: {
@@ -30,7 +48,7 @@ module.exports = {
       },
       items: [
         { to: "notes/java/java", label: "笔记", position: "left" },
-        { to: "blog", label: "故事", position: "left" },
+        { to: "story", label: "故事", position: "left" },
         {
           href: "https://github.com/wenerme/wener",
           label: "GitHub",
@@ -90,7 +108,7 @@ module.exports = {
           items: [
             {
               label: "Blog",
-              to: "blog",
+              to: "story",
             },
             {
               label: "GitHub",
@@ -119,21 +137,20 @@ module.exports = {
       {
         docs: {
           routeBasePath: "notes",
-          path: "./contents/notes",
+          path: "notes",
           sidebarPath: require.resolve("./sidebars.js"),
 
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+          editUrl: "https://github.com/wenerme/wener/edit/master/",
 
           showLastUpdateTime: true,
-          disableVersioning: true,
           showLastUpdateAuthor: true,
         },
         blog: {
-          path: 'story',
-          path: "./contents/story",
+          routeBasePath: "story",
+          path: "story",
           include: ["**/*.md", "**/*.mdx"],
           truncateMarker: /<!--\s*more\s*-->/,
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+          editUrl: "https://github.com/wenerme/wener/edit/master/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

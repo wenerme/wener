@@ -6,10 +6,10 @@ install:
 
 sync:
 	node -r ts-node/register src/scripts/sync.ts -dir=../story/ > story.list.txt
-	rsync -a --files-from=story.list.txt ../ ./contents/
+	rsync -a --files-from=story.list.txt ../ ./
 
 	node -r ts-node/register src/scripts/sync.ts -dir=../notes/ > notes.list.txt
-	rsync -a --files-from=notes.list.txt ../ ./contents/
+	rsync -a --files-from=notes.list.txt ../ ./
 
 process:
 	node -r ts-node/register src/scripts/process.ts
@@ -19,5 +19,8 @@ stats:
 
 build:
 	yarn build
+
+dev:
+	yarn start
 
 .PHONY: build ci

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "^v2.0.0-alpha.65",
+    "@docusaurus/plugin-client-redirects": "^v2.0.0-alpha.65",
     "@docusaurus/plugin-google-analytics": "^v2.0.0-alpha.65",
     "@docusaurus/plugin-google-gtag": "^v2.0.0-alpha.65",
     "@docusaurus/plugin-ideal-image": "^v2.0.0-alpha.65",
