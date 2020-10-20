@@ -155,6 +155,7 @@ module.exports = {
         ],
       },
     ],
+    ...YAML.parse(fs.readFileSync('sidebars-os.yaml').toString()),
     指南: [
       {
         type: 'category',
@@ -184,38 +185,11 @@ module.exports = {
       'ops/infra/packer',
       'ops/infra/cloud-init',
     ],
-    虚拟化: [
-      'os/linux/virt/virt',
-      'os/linux/virt/qemu-doc',
-      'os/linux/virt/qemu-monitor',
-      'os/linux/virt/qemu-version',
-      'os/linux/virt/qemu-qmp',
-      'os/linux/virt/libvirt',
-      'os/linux/virt/libvirtd',
-      'os/linux/virt/libvirt-faq',
-      'os/linux/virt/virsh',
-      'os/linux/virt/haxm',
-      'os/linux/virt/hyperv',
-      'os/linux/virt/vmware',
-    ],
-    启动: ['os/linux/boot/syslinux', 'os/linux/boot/uboot'],
     工具: [
       {
         type: 'category',
         label: '网络',
         items: ['tool/network/ip-lookup'],
-      },
-    ],
-    操作系统: [
-      {
-        type: 'category',
-        label: 'Darwin',
-        items: ['os/darwin/darwin', 'os/darwin/macos', 'os/darwin/brew'],
-      },
-      {
-        type: 'category',
-        label: 'Windows',
-        items: ['os/windows/windows', 'os/windows/windows-dc', 'os/windows/windows-faq'],
       },
     ],
     数据库: [

@@ -70,7 +70,7 @@ module.exports = {
             },
             {
               label: "AlpineLinux",
-              to: "notes/ops/os/alpine/alpine",
+              to: "notes/os/alpine/alpine",
             },
             {
               label: "Kubernates",

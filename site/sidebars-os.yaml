@@ -1,0 +1,28 @@
+操作系统:
+  - type: 'category'
+    label: 'Darwin'
+    items: ['os/darwin/darwin', 'os/darwin/macos', 'os/darwin/brew']
+
+  - type: 'category'
+    label: 'Windows'
+    items: ['os/windows/windows', 'os/windows/windows-dc', 'os/windows/windows-faq']
+
+  - type: 'category'
+    label: '启动'
+    items: ['os/linux/boot/syslinux', 'os/linux/boot/uboot']
+
+  - type: 'category'
+    label: '虚拟化'
+    items:
+      - os/virt/virt
+      - os/virt/qemu-doc
+      - os/virt/qemu-monitor
+      - os/virt/qemu-version
+      - os/virt/qemu-qmp
+      - os/virt/libvirt
+      - os/virt/libvirtd
+      - os/virt/libvirt-faq
+      - os/virt/virsh
+      - os/virt/haxm
+      - os/virt/hyperv
+      - os/virt/vmware
