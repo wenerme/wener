@@ -4,9 +4,8 @@ title: Packer
 ---
 
 # Packer
-
-## Tips
-
+- 是什么？
+  - 自动化多平台镜像构建工具
 - 使用场景
   - CD
   - Dev/Prod Parity
@@ -14,7 +13,7 @@ title: Packer
 - 核心流程
   - 启动 builder，提供一致的环境
     - vm、docker
-  - 执行 provisioners
+  - 执行 provisioners - 服务开通
     - 构建 artifact
     - file provisioner 下载 artifact 到本地
   - 执行 post-processor
@@ -26,6 +25,7 @@ title: Packer
   - `PACKER_LOG=1` 开启日志
 
 ```bash
+# macOS
 brew install packer
 
 packer version
@@ -114,7 +114,7 @@ build {
   post-processor "shell-local" {
     inline = ["echo Down working"]
   }
-  
+
   post-processor "checksum" {
     checksum_types = [ "md5", "sha512" ]
     keep_input_artifact = true
@@ -348,7 +348,7 @@ build {
 -vnc 127.0.0.1:92
 -boot once=d
 -netdev user,id=user.0,hostfwd=tcp::4287-:22
--device virtio-net,netdev=user.0 
+-device virtio-net,netdev=user.0
 # 挂载为 /dev/vda
 -drive file=output-alpine/packer-alpine,if=virtio,cache=writeback,discard=ignore,format=qcow2
 -m 512M

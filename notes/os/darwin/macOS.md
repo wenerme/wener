@@ -259,7 +259,7 @@ log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24
       * sharingd
       * backupd
       * AddressBookSourceSync
-* 
+*
 
 ```bash
 # 当前系统状态
@@ -274,18 +274,18 @@ pmset -g assertionslog
 log show --style syslog --start '2019-05-27 17:50:00' | grep "Wake reason"
 ```
 
-  
+
 Shutdown the computer, wait 30 seconds, restart the computer.
-  
+
 Disconnect all third-party peripherals.
 Resetting your Mac’s PRAM and NVRAM
 Reset the System Management Controller (SMC)
 Reset your Startup Disk and Sound preferences.
 Start the computer in Safe Mode. Test in safe mode to see if the problem persists, then restart normally.
 Use Apple Hardware Test to see if there is any hardware malfunction.
-  
+
 Repair the disk by booting from the Recovery HD. Immediately after the chime hold down the Command and R keys until the Utility Menu appears. Choose Disk Utility and click on the Continue button. Select the indented (usually, Macintosh HD) volume entry from the side list.  Click on the First Aid button in the toolbar. Wait for the Done button to appear. Quit Disk Utility and return to the Utility Menu. Restart the computer from the Apple Menu.
-  
+
 Repair permissions on the Home folder: Resolve issues caused by changing the permissions of items in your home folder.
 
 reset NVRAM
@@ -294,7 +294,7 @@ https://support.apple.com/en-us/HT204063
 Option, Command, P, and R. You can release the keys after about 20 seconds, during which your Mac might appear to restart.
 
 On Mac computers that play a startup sound, you can release the keys after the second startup sound.
-On Mac computers that have the Apple T2 Security Chip, you can release the keys after the Apple logo appears and disappears for the second time. 
+On Mac computers that have the Apple T2 Security Chip, you can release the keys after the Apple logo appears and disappears for the second time.
 
 https://support.apple.com/zh-cn/HT201295
 
@@ -348,7 +348,7 @@ OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件�
 # High Sierra
 sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
 # Sierra
-sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ macOS\ Sierra.app --volume /Volumes/MyVolume 
+sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ macOS\ Sierra.app --volume /Volumes/MyVolume
 # El Capitan
 sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app --volume /Volumes/MyVolume
 # Yosemite
@@ -453,7 +453,7 @@ ll /dev/tap*
 ifconfig tap0 create
 # 在 root shell 中执行该命令会创建
 # https://sourceforge.net/p/tuntaposx/mailman/message/30457237/
-# The idea is that interfaces only get created when a program opens the corresponding /dev/tapX or /dev/tunX device. 
+# The idea is that interfaces only get created when a program opens the corresponding /dev/tapX or /dev/tunX device.
 # To try, do exec 3<>/dev/tap0 on a root shell.
 exec 3<>/dev/tap0
 
@@ -579,3 +579,6 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.pli
 ```bash
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
+
+### syslog
+* [How to use logger command on Sierra?](https://apple.stackexchange.com/questions/256769)

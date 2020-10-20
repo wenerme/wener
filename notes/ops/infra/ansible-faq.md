@@ -5,6 +5,27 @@ titleL: Ansible FAQ
 
 # Ansible FAQ
 
+## 常用依赖组件
+
+| module         | pip            |
+| -------------- | -------------- |
+| postgres       | psycopg2       |
+| vault          | hvac           |
+| docker         | docker         |
+| docker-compose | docker-compose |
+| libvirt        | libvirt-python |
+| k8s            | openshift      |
+
+```bash
+# libvirt / CentOS / awx-task
+yum install libvirt-devel gcc
+pip3 install libvirt-python
+
+# k8s / AlpineLinux
+apk add py3-pip
+pip3 install openshift
+```
+
 ## include_task vs import_task
 
 - 建议
@@ -34,14 +55,6 @@ titleL: Ansible FAQ
 - command - 直接执行 - 因此不能使用 `<`,`>`,`|`,`;` 等
 - raw - 由 ssh 直接执行，不依赖 python
 
-## 常用依赖组件
-
-| module   | pip      |
-| -------- | -------- |
-| postgres | psycopg2 |
-| vault    | hvac     |
-| docker   | docker   |
-
 ## psycopg2 ld: library not found for -lssl
 
 - 路径来自于 `pg_config --ldflags`
@@ -55,7 +68,6 @@ env LDFLAGS='-L/usr/local/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/read
 ```bash
 $(brew --prefix ansible)/libexec/bin/pip install "pywinrm>=0.3.0"
 ```
-
 
 ## synchronize 不支持 ProxyCommand
 
@@ -86,7 +98,8 @@ dotenv ansible -m debug -a 'msg={{lookup("env","TENANT_NAME")}}' localhost
 ```
 
 ## 获取当前工作目录
-- 角色等相关的目录都是相对于 playbook 的
+
+-  角色等相关的目录都是相对于 playbook 的
 
 ```yaml
 - set_fact:

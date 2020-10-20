@@ -21,6 +21,17 @@ title: 版本历史
 | 3.9     | 3       |
 | 3.8     | 6       |
 
+## 3.13
+- 关注的包变化
+  - iproute2-minial/tc/ss
+    - 单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包
+    - alpine-base 会包含， bb 的 ip 功能比较受限
+    - [commit](https://gitlab.alpinelinux.org/alpine/aports/commit/62c858b85bb379fb014cfe188f4cb25ed75f76e3)
+  - cloud-init
+  - cni-plugins
+  - [ ] k3s
+  - [ ] fluent-bit
+
 ## 3.12
 
 - [3.12](https://alpinelinux.org/posts/Alpine-3.12.0-released.html)

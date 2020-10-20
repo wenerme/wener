@@ -115,6 +115,11 @@ title: seaweedfs
 * collection
   * volume 集合 - 相当于将用到的 volume 进行分类，方便统一管理
 
+:::note
+- volume -fileSizeLimitMB=256 - 默认单文件最大 256MB，配置过大可能导致 OOM
+  - [Large file handleing](https://github.com/chrislusf/seaweedfs/wiki/Large-File-Handling)
+:::
+
 ```bash
 # 下载 https://github.com/chrislusf/seaweedfs/releases
 # 安装
@@ -237,7 +242,7 @@ volume.delete 127.0.0.1:8080 157
 * helm [chart](https://github.com/chrislusf/seaweedfs/tree/master/k8s)
   * 不推荐使用，可用于参考
   * master/filer/volume
-    * statefulsets 
+    * statefulsets
     * anti-affinity on hostname
     * memsql(mysql) filer backend
     * secret-seaweedfs-db.yaml - mysql password

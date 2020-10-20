@@ -26,3 +26,12 @@ title: Cloud Init
   * terraform-provider-libvirt [libvirt_cloudinit_disk](https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/cloudinit.html.markdown)
   * Ansible [cloud_init_data_facts_module](https://docs.ansible.com/ansible/latest/modules/cloud_init_data_facts_module.html)
     * 获取 cloud init 配置信息
+
+```bash
+# < 3.13
+# ifupdown-ng
+apk add ifupdown-ng iproute2-minimal -X https://mirrors.aliyun.com/alpine/edge/main/
+apk add cloud-init -X https://mirrors.aliyun.com/alpine/edge/community/
+```
+
+* [cloud init to install docker on ubuntu](https://gist.github.com/syntaqx/9dd3ff11fb3d48b032c84f3e31af9163)

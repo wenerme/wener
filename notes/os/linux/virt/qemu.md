@@ -65,8 +65,11 @@ https://remimin.github.io/2019/07/09/qemu_machine_type/
 # Mac 安装
 brew install qemu
 
-# 使用硬件加速启动一个空虚拟机
+# 使用硬件加速启动一个空虚拟机 - 验证是否支持虚拟化
 qemu-system-x86_64 -machine accel=kvm
+
+# 显示支持的 accel
+qemu-system-x86_64  -accel help
 
 # 生成随机 mac 地址到 macaddr
 printf -v macaddr "52:54:%02x:%02x:%02x:%02x" $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff )) $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff ))

@@ -1,3 +1,7 @@
+---
+id: ccache
+---
+
 # ccache
 ## Tips
 * man [ccache](https://ccache.dev/manual/latest.html)
@@ -5,7 +9,7 @@
   * 不处理多文件编译和链接
 
 ```bash
-# 安装使用
+# 安装使用 - 通过包安装的一般会自己做这一步
 cp ccache /usr/local/bin/
 ln -s ccache /usr/local/bin/gcc
 ln -s ccache /usr/local/bin/g++

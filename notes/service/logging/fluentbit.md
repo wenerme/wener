@@ -25,8 +25,30 @@ title: Fluentbit
   * output - 多个
 
 ```bash
-# 读取 kernel 消息，输出到 stdio
+# macOS
+brew install fluent-bit
+
+# 读取 kernel 消息，输出到 stdout
 fluent-bit -i kmsg -t kernel -o stdout -m '*'
+# Windows Event Log 输出到 stdout
+fluent-bit -i winlog -p 'channels=Setup,Windows PowerShell' -o stdout
+
+# 监听 MQTT - 0.0.0.0:1883
+fluent-bit -i mqtt -t data -o stdout -m '*'
+# 发送 MQTT
+mosquitto_pub  -m '{"key1": 123, "key2": 456}' -t some/topic
+# Listen=0.0.0.0
+# macOS /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf
+fluent-bit -R /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf -i syslog -p path=/tmp/flb_syslog -o stdout
+logger -u /tmp/flb_syslog my_ident my_message
+
+# syslog
+# rfc3164 - 废弃的 BSD syslog 协议
+# rfc5424 - 新的格式
+fluent-bit -R /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf \
+  -i syslog -p mode=tcp -p listen=0.0.0.0 -p port=5140 -o stdout
+# 日志
+logger -T -n 127.0.0.1 -P 5140 wener
 ```
 
 ## 配置
@@ -91,14 +113,57 @@ fluent-bit -i kmsg -t kernel -o stdout -m '*'
 
 ## Input
 * [Input Plugins](https://github.com/fluent/fluent-bit#input-plugins)
+* collectd
+* dummy - 随机生成日志
+* exec - 执行外部命令
+* forwad
+* head - 读取文件前面几行
+* health - TCP 健康检查
+* 系统 - cpu、disk、mem、netif、proc、thermal
+* kmsg - 内核日志
+* mqtt - MQTT 服务
+* random - 生成随机样本
+* serial - 串口
+* stdin
+* syslog
+* systemd
+* tail
+* tcp
+* winlog - Windows Event Log
 
 ## Fliter
 * [Fliter Plugins](https://github.com/fluent/fluent-bit#filter-plugins)
+* expect - 条件过滤
+* grep
+* kubernetes - 添加元信息
+* lua
+* parser - 解析记录
+* record_modifier - 修改记录
+* rewrite_tag - 标签重写
+* stdout
+* throttle
+* nest - 嵌套记录
+* modify
 
 ## Output
 * [Output Plugins](https://github.com/fluent/fluent-bit#output-plugins)
-* [out_loki](https://grafana.com/docs/loki/latest/clients/fluentbit/)
-* https://github.com/grafana/loki/tree/master/cmd/fluent-bit
+* es - Elasticsearch
+* file
+* forward
+* http
+* influxdb
+* kafka
+* kafka-rest
+* nats
+* null
+* stdout
+* tcp
+
+## 插件
+* [fluent/fluent-bit-go](https://github.com/fluent/fluent-bit-go) - Golang package to build Fluentbit plugins
+
+## Build
+* https://docs.fluentbit.io/manual/installation/sources/build-and-install
 
 # FAQ
 

@@ -4,11 +4,16 @@ title: Ansible AWX
 ---
 
 # Ansible AWX
-* Ansible [AWX vs Tower](https://www.redhat.com/en/resources/awx-and-ansible-tower-datasheet)
-  * AWX 是快速开发的上游
+* 是什么
+  * 基于 Ansible 的 Web 管理平台、REST API
+  * 提供任务执行引擎，项目管理，用户权限管理
+  * AWX -> [AnsibleWorks](https://github.com/ansible/awx/commit/5c6895e6065a81f4483dfb6bc7650706f8866e1e)
+* [ansible/awx](https://github.com/ansible/awx)
 * 参考
   * [用户手册](https://docs.ansible.com/ansible-tower/latest/html/userguide/overview.html)
   * [管理文档](https://docs.ansible.com/ansible-tower/latest/html/administration/index.html)
+  * Ansible [AWX vs Tower](https://www.redhat.com/en/resources/awx-and-ansible-tower-datasheet)
+    * AWX 是快速开发的上游
 * 注意
   * Ansible 也可以操作 Tower
 
@@ -58,7 +63,7 @@ awx credentials create --credential_type 'Machine' \
 
 ```bash
 VER=$(curl https://api.github.com/repos/ansible/awx/tags -s | jq '.[0].name' -r)
-curl -LC- -o ansible-awx-$VER.tar.gz https://github.com/ansible/awx/archive/$VER.tar.gz 
+curl -LC- -o ansible-awx-$VER.tar.gz https://github.com/ansible/awx/archive/$VER.tar.gz
 tar xvfz ansible-awx-$VER.tar.gz
 # 安装
 cd awx-$VER/installer

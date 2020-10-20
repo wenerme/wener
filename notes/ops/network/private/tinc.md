@@ -6,6 +6,8 @@ title: Tinc
 # tinc
 
 ## Tips
+* 是什么？
+  * 2层、3层 NAT 穿透直连组网的 Mesh VPN
 * 什么时候可用
   * 基础设施组网 - 管理
     * Tinc 连接性好

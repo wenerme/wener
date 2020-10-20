@@ -15,6 +15,10 @@ title: Loki
 * Promtail
 * FluentD & Fluent-bit
 
+### fluentbit
+* [out_loki](https://grafana.com/docs/loki/latest/clients/fluentbit/)
+* https://github.com/grafana/loki/tree/master/cmd/fluent-bit
+
 ## 存储
 * [Loki Storage](https://grafana.com/docs/loki/latest/operations/storage/)
 * writes a chunk per stream

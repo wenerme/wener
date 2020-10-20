@@ -11,6 +11,7 @@ title: Golang Windows
   * [golang使用execCommand调用的时候子进程如何杀掉处理方法](https://studygolang.com/articles/7497)
     * Linux 可以使用 Setpgid
   * [go-cmd/cmd](https://github.com/go-cmd/cmd)
+  * [AllenDang/w32](https://github.com/AllenDang/w32)
 
 ```bash
 # CGO 交叉编译
@@ -54,6 +55,30 @@ __main.exe.manifest__
 </assembly>
 ```
 
+## code
+
+```go
+import "github.com/gonutz/ide/w32"
+
+func hideConsole() {
+    console := w32.GetConsoleWindow()
+    if console == 0 {
+        return // no console attached
+    }
+    // If this application is the process that created the console window, then
+    // this program was not compiled with the -H=windowsgui flag and on start-up
+    // it created a console along with the main application window. In this case
+    // hide the console window.
+    // See
+    // http://stackoverflow.com/questions/9009333/how-to-check-if-the-program-is-run-from-a-console
+    _, consoleProcID := w32.GetWindowThreadProcessId(console)
+    if w32.GetCurrentProcessId() == consoleProcID {
+        w32.ShowWindowAsync(console, w32.SW_HIDE)
+    }
+}
+```
+
 # FAQ
-# is incompatible with i386:x86-64 output .rsrc merge failure: corrupt .rsrc section
+## is incompatible with i386:x86-64 output .rsrc merge failure: corrupt .rsrc section
 * 添加 `-64` 参数
+

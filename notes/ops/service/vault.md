@@ -4,8 +4,11 @@ title: Vault
 ---
 
 # Vault
-
-## Tips
+* 是什么？
+  * Secret as a Service - 密钥即服务
+  * 提供密钥管理、证书管理、外部授权集成
+  * 提供角色访问密钥权限控制
+  * 实现 CA 服务
 * [Vault project](https://www.vaultproject.io/)
 * 为什么使用 Vault
   * 避免密钥到处放

@@ -6,6 +6,8 @@ hide_title: true
 
 # Docusaurus
 
+## 目录结构
+
 * /
   * blog
   * docs
@@ -20,7 +22,6 @@ hide_title: true
   * docusaurus.config.js
   * package.json
   * sidebars.js
-
 
 ```bash
 # [name] [template]
@@ -78,10 +79,11 @@ Warning! You better pay attention!
 Danger danger, mayday!
 :::
 
-### 支持引用文件
+### 代码块支持标题
 
-  ```jsx title="/src/components/HelloCodeTitle.js"
-  function HelloCodeTitle(props) {
-    return <h1>Hello, {props.name}</h1>;
-  }
-  ```
+```jsx {2-3} title="/src/components/HelloCodeTitle.js"
+function HelloCodeTitle(props) {
+  // Hello there
+  return <h1>Hello, {props.name}</h1>;
+}
+```
