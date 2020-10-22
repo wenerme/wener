@@ -33,7 +33,7 @@ module.exports = {
         type: 'category',
         label: 'Golang',
         items: [
-          'languages/go/go-intro',
+          'languages/go/go',
           'languages/go/go-template',
           'languages/go/go-pkg-net-rpc',
           'languages/go/go-kit',
@@ -114,7 +114,7 @@ module.exports = {
       'devops/kubernetes/k8s-glossary',
       'devops/kubernetes/helm-intro',
       'devops/kubernetes/helm2',
-      'devops/kubernetes/rancher-intro',
+      'devops/kubernetes/platform/rancher-intro',
       'devops/kubernetes/rancher-rke',
       'devops/kubernetes/tool/kustomize',
       'devops/kubernetes/tool/krew',

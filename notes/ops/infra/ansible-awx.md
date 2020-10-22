@@ -15,7 +15,10 @@ title: Ansible AWX
   * Ansible [AWX vs Tower](https://www.redhat.com/en/resources/awx-and-ansible-tower-datasheet)
     * AWX 是快速开发的上游
 * 注意
-  * Ansible 也可以操作 Tower
+  * Ansible 也可以操作 Tower/AWX
+  * 会自动下载 requirements.yml 中的依赖
+* 特性
+  * 支持外部授权 - LDAP、SAML 2.0、OAuth、RADIUS
 
 ## awxkit
 * [AWX Command Line Interface](https://docs.ansible.com/ansible-tower/latest/html/towercli/index.html)
@@ -55,7 +58,10 @@ awx credentials create --credential_type 'Machine' \
     * 会启动 PostgreSQL 和 Redis
     * 实际启动配置模板 [local_docker/templates](https://github.com/ansible/awx/tree/devel/installer/roles/local_docker/templates)
   * Kubernetes
-    * PG 会部署为 sts
+    * stable/postgresql
+      * PG 会部署为 sts
+  * HELM
+    * [AdWerx/charts/awx](https://github.com/AdWerx/charts/tree/master/awx)
   * OpenShift
 * 配置
   * pg_hostname - 如果使用外部 pg 则配置外部主机
@@ -72,13 +78,47 @@ cd awx-$VER/installer
 pip3 install docker docker-compose
 
 # 需要提前配置好 inventory
+code inventory
 # 默认会存储到 ~/.awx
+# 启动后可登陆 http://localhost/#/login
 ansible-playbook -i inventory install.yml
 # 确认安装日志
 docker logs -f awx_task
 
 # 命令行
 pip3 install awxkit
+```
+
+__inventory__
+
+```ini
+# 管理员账号密码
+admin_user=awx
+admin_password=awx
+
+# DB
+pg_hostname=postgresql
+pg_port=5432
+pg_username=awx
+pg_password=awx
+pg_database=awx
+pg_sslmode=prefer
+
+# 创建展示用的数据
+create_preload_data=True
+
+# 用于加密授权信息的密钥
+secret_key=00000000-0000-0000-0000-000000000000
+broadcast_websocket_secret=00000000-0000-0000-0000-000000000000
+
+# Kubernetes - 可选
+kubernetes_context=default
+kubernetes_namespace=awx
+kubernetes_web_svc_type=ClusterIP
+kubernetes_ingress_hostname=awx.example.com
+# 自定义注解 - 启用 ACME
+kubernetes_ingress_annotations={'cert-manager.io/cluster-issuer': 'letsencrypt'}
+kubernetes_ingress_tls_secret=awx-ingress-cert
 ```
 
 ## 核心概念
@@ -185,3 +225,48 @@ pip install ansible-tower-cli
     name: Nexus
     state: absent
 ```
+
+## 执行环境
+* [Execution Environments](https://docs.ansible.com/ansible-tower/latest/html/administration/external_execution_envs.html)
+  * 实例组
+    * 继承关系 Job Template > Inventory > Organization
+    * 启动的 AWX 会关联到实例组
+  * 容器组 - 临时运行环境
+    * K8S Pod
+* Docker 启动的 awx_task 是 CentOS
+  * HOME=/var/lib/awx
+    * projects/ - 项目目录
+      * _ID__NAME/ - 项目目录 - 例如 git
+  * /var/log/tower/ - 日志
+    * callback_receiver.log
+    * dispatcher.log
+    * management_playbooks.log
+    * rsyslog.err
+    * task_system.log
+    * tower.log
+    * tower_rbac_migrations.log
+    * tower_system_tracking_migrations.log
+    * wsbroadcast.log
+  * 日志使用 rsyslog - 可以聚合
+* /api/v2/metrics - 指标监控
+* 默认 venv - /var/lib/awx/venv/ansible
+  * 可修改
+
+## 最佳实践
+* 建议 Job 隔离
+* 输出的 Json `https://<tower server name>/api/v2/jobs/<job_id>/job_events/`
+* 参考
+  * [Security Best Practices](https://docs.ansible.com/ansible-tower/latest/html/administration/security_best_practices.html)
+  * [Tower Tips and Tricks](https://docs.ansible.com/ansible-tower/latest/html/administration/tipsandtricks.html)
+  * [凭证管理](https://docs.ansible.com/ansible-tower/3.7.3/html/userguide/credential_plugins.html)
+
+```bash
+# venv 安装时建议 umask 0022
+source /var/lib/awx/venv/ansible/bin/activate
+umask 0022
+pip install --upgrade pywinrm
+deactivate
+```
+
+## awx-manager
+* https://docs.ansible.com/ansible-tower/latest/html/administration/tower-manage.html

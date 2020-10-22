@@ -55,6 +55,13 @@ ansible localhost -m setup
 # 节点上本地设置的内容 - 文件为 ini 格式
 # /etc/ansible/facts.d/preferences.fact
 ansible hostname -m setup -a "filter=ansible_local"
+
+# docker 启动环境
+docker run --rm -it \
+  -e TZ=Asia/Shanghai \
+  -v $HOME/.ansible:/root/.ansible \
+  -v $PWD:/host -w /host \
+  --name ansible wener/ansible
 ```
 
 ## 安装

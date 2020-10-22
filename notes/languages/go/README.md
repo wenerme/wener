@@ -1,5 +1,5 @@
 ---
-id: go-intro
+id: go
 title: Golang
 ---
 
@@ -14,8 +14,8 @@ title: Golang
   * [Design Philosophy On Data And Semantics](https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html)
 
 * JSON
-  * [json-iterator/go](https://github.com/json-iterator/go) - A high-performance 100% compatible drop-in replacement of "encoding/json" 
-  * [esnme/ultrajson](https://github.com/esnme/ultrajson) - Ultra fast JSON decoder and encoder written in C with Python bindings 
+  * [json-iterator/go](https://github.com/json-iterator/go) - A high-performance 100% compatible drop-in replacement of "encoding/json"
+  * [esnme/ultrajson](https://github.com/esnme/ultrajson) - Ultra fast JSON decoder and encoder written in C with Python bindings
   * [ugorji/go](https://github.com/ugorji/go) - idiomatic codec and rpc lib for msgpack, cbor, json, etc.
   * [pquerna/ffjson](https://github.com/pquerna/ffjson) - faster JSON serialization for Go
   * [mailru/easyjson](https://github.com/mailru/easyjson) - Fast JSON serializer for golang.
@@ -46,7 +46,7 @@ https://syslog.ravelin.com/go-in-a-scratch-vm-a28c14e82a51
 * https://github.com/asciimoo/wuzz
   * Interactive cli tool for HTTP inspection
 * https://github.com/goreleaser/goreleaser
-  * Deliver Go binaries as fast and easily as possible 
+  * Deliver Go binaries as fast and easily as possible
 
 ### Console
 * https://github.com/jroimartin/gocui

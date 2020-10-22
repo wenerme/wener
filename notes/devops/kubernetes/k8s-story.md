@@ -1,3 +1,7 @@
+---
+id: k3s-story
+title: K8S 使用经验
+---
 
 ## 两年 K8S 心得
 
