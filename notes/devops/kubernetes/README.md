@@ -1,5 +1,5 @@
 ---
-id: kubernates
+id: kubernetes
 title: Kubernates
 ---
 

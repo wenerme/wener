@@ -62,7 +62,12 @@ module.exports = {
       {
         type: 'category',
         label: '日志',
-        items: ['service/logging/logging', 'service/logging/syslog', 'service/logging/loki', 'service/logging/fluentbit'],
+        items: [
+          'service/logging/logging',
+          'service/logging/syslog',
+          'service/logging/loki',
+          'service/logging/fluentbit',
+        ],
       },
       {
         type: 'category',
@@ -115,8 +120,7 @@ module.exports = {
       'devops/kubernetes/k8s-glossary',
       'devops/kubernetes/app/helm',
       'devops/kubernetes/app/helm2',
-      'devops/kubernetes/platform/rancher-intro',
-      'devops/kubernetes/rancher-rke',
+      'devops/kubernetes/ops/rke',
       'devops/kubernetes/tool/kustomize',
       'devops/kubernetes/tool/krew',
       {
@@ -144,7 +148,11 @@ module.exports = {
       {
         type: 'category',
         label: '平台',
-        items: ['devops/kubernetes/platform/knative-intro', 'devops/kubernetes/platform/istio-intro'],
+        items: [
+          'devops/kubernetes/platform/rancher',
+          'devops/kubernetes/platform/knative',
+          'devops/kubernetes/platform/istio',
+        ],
       },
       {
         type: 'category',
@@ -341,7 +349,7 @@ module.exports = {
       {
         type: 'category',
         label: '内容管理',
-        items: ['service/cms/cms','service/cms/docusaurus',],
+        items: ['service/cms/cms', 'service/cms/docusaurus'],
       },
       {
         type: 'category',
