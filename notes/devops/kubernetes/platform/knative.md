@@ -1,5 +1,5 @@
 ---
-id: knative-intro
+id: knative
 title: Knative
 ---
 

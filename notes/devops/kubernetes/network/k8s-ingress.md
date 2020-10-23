@@ -38,6 +38,8 @@
   * istio [Ingress](https://istio.io/docs/tasks/traffic-management/ingress/)
   * [projectcontour/contour](https://github.com/projectcontour/contour)
 * 参考
+  * [Comparison of Kubernetes Ingress controllers](https://docs.google.com/spreadsheets/d/191WWNpjJ2za6-nbG4ZoUMXMpUK8KlCIosvQB0f-oq3k/htmlview)
+    * Ingress 网关多纬度比较
   * [The Right Ingress Controller for Your K8s](https://lab.wallarm.com/choose-the-right-ingress-controller-for-your-kubernetes-environment/)
   * [Comparison of Kubernetes Top Ingress Controllers](https://caylent.com/kubernetes-top-ingress-controllers)
   * [Managing Kubernetes Ingresses](https://caylent.com/managing-kubernetes-ingresses)

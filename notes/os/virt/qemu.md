@@ -20,8 +20,8 @@ title: QEMU
 - https://en.wikipedia.org/wiki/Network_block_device
 - https://www.gitbook.com/book/stamp711/vexpress-a9-on-qemu/details
 
-- qemu-system-\$ARCH - 系统虚拟化
-- qemu-\$ARCH - 用户空间模拟
+- qemu-system-ARCH - 系统虚拟化
+- qemu-ARCH - 用户空间模拟
 - qemu-edid - edid generator 测试工具
 - [qemu-ga](https://www.qemu.org/docs/master/interop/qemu-ga.html) - Guest Agent
   - 宿主机获取信息
@@ -37,6 +37,7 @@ title: QEMU
 - qemu-nbd - Disk Network Block Device Server
 - qemu-storage-daemon
   - provides access to QEMU block-layer/QMP features like blocks jobs or built-in NBD server without starting a full VM
+  - 暴露 NBD 服务
 - [qemu-pr-helper](https://www.qemu.org/docs/master/interop/pr-helper.html) - Persistent Reservation helper
   - SCSI 设备透传, scsi-block, scsi-generic
 - accel - 硬件加速
@@ -69,7 +70,7 @@ brew install qemu
 qemu-system-x86_64 -machine accel=kvm
 
 # 显示支持的 accel
-qemu-system-x86_64  -accel help
+qemu-system-x86_64 -accel help
 
 # 生成随机 mac 地址到 macaddr
 printf -v macaddr "52:54:%02x:%02x:%02x:%02x" $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff )) $(( $RANDOM & 0xff)) $(( $RANDOM & 0xff ))

@@ -154,11 +154,11 @@ for ROLE in "apache" "web";do mkdir -p roles/${ROLE}/{files,handlers,tasks}; don
 
 ### SSH 多播选项
 
-| Option         | Value                                   |
-| -------------- | --------------------------------------- |
-| ControlMaster  | auto                                    |
+| Option         | Value                                    |
+| -------------- | ---------------------------------------- |
+| ControlMaster  | auto                                     |
 | ControlPath    | `$HOME/.ansible/cp/ansible-ssh-%h-%p-%r` |
-| ControlPersist | 60s                                     |
+| ControlPersist | 60s                                      |
 
 ### AnsibleModule 参数属性
 

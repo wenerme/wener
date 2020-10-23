@@ -24,6 +24,12 @@ title: IPRoute2
 - [iproute2 rules and iptables NAT… what is the difference?](https://serverfault.com/q/135053/190601)
 - [Task-centered iproute2 user guide](https://baturin.org/docs/iproute2)
 
+| Command | Desc |
+| ------- | ---- |
+| ip      |
+| ss      |
+| tc      |
+
 | Legacy utility | Obsoleted by               | Note                               |
 | -------------- | -------------------------- | ---------------------------------- |
 | ifconfig       | ip addr, ip link, ip -s    | Address and link configuration     |
@@ -35,6 +41,7 @@ title: IPRoute2
 | netstat        | ip -s, ss, ip route        | Show various networking statistics |
 
 ## bridge
+
 - [docker/libnetwork#2310](https://github.com/docker/libnetwork/issues/2310) - docker 不能在不影响 docker0 的前提下使用现有的 bridge 网口
 - docker network [macvlan](https://docs.docker.com/network/macvlan)
 
@@ -111,14 +118,16 @@ iface eth2 inet static
 ```
 
 ## table
+
 - Table 映射配置 `/etc/iproute2/rt_tables`
+
 * local
-  * 特殊表
-  * 包含高优先的本地路由和广播地址
+  - 特殊表
+  - 包含高优先的本地路由和广播地址
 * main
-  * 包含所有非策略路由
+  - 包含所有非策略路由
 * default
-  * 空的
+  - 空的
 
 ```bash
 # 所有路由表规则
@@ -131,18 +140,19 @@ ip route flush table 11
 ```
 
 ## rule
-* routing policy database - RPDB - 路由策略数据库
-* [ip-rule.8](https://man7.org/linux/man-pages/man8/ip-rule.8.html)
-* 传统路由基于目标地址，策略路由可基于包的其他字段
-  * 来源地址、IP协议、端口、包内容
-* rule=selector+action predicate
-* 使用降序 - 数字越低越优先
-* 类型
-  * unicast
-  * blackhole
-  * unreachable
-  * prohibit
-  * nat
+
+- routing policy database - RPDB - 路由策略数据库
+- [ip-rule.8](https://man7.org/linux/man-pages/man8/ip-rule.8.html)
+- 传统路由基于目标地址，策略路由可基于包的其他字段
+  - 来源地址、IP 协议、端口、包内容
+- rule=selector+action predicate
+- 使用降序 - 数字越低越优先
+- 类型
+  - unicast
+  - blackhole
+  - unreachable
+  - prohibit
+  - nat
 
 ```ini
 # 默认
@@ -155,8 +165,9 @@ ip route flush table 11
 ```
 
 ## mark
-* [iproute rt_table and mark not working on linux](https://serverfault.com/questions/733705)
-* https://superuser.com/questions/950031/routing-subnet-to-specific-routing-table-with-fwmark-direct-to-isp-and-vpn
+
+- [iproute rt_table and mark not working on linux](https://serverfault.com/questions/733705)
+- https://superuser.com/questions/950031/routing-subnet-to-specific-routing-table-with-fwmark-direct-to-isp-and-vpn
 
 ## macvlan
 
@@ -165,4 +176,3 @@ ip route flush table 11
 ### Stateless NAT with iproute2
 
 - [Stateless NAT with iproute2](http://linux-ip.net/html/nat-stateless.html)
-

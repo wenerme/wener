@@ -9,8 +9,28 @@
   * inet 只能用于 filter 不能用于 nat
 * 参考
   * [Quick reference-nftables in 10 minutes](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes)
+* 开发
+  * [google/nftables](https://github.com/google/nftables) - Golang
 
 ```bash
+# 所有规则
+nft list ruleset
+# 导出为 JSON
+nft -j list ruleset
+
+# 清除规则
+nft flush ruleset
+
+# 清除单个 famliy 规则
+nft flush ruleset arp
+nft flush ruleset ip
+nft flush ruleset ip6
+nft flush ruleset bridge
+nft flush ruleset inet
+
+# 应用规则
+nft -f rule.nft
+
 # 转义
 # nft add rule ip filter INPUT tcp dport 22 ct state new counter accept
 iptables-translate -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -j ACCEPT

@@ -3,6 +3,14 @@ title: CentOS FAQ
 ---
 
 # CentOS FAQ
+* https://wiki.centos.org/FAQ/CentOS8
+
+## CentOS 8 os vs kickstart
+* kickstart
+  * 不会更想，发布点的仓库状态
+* os
+  * 包会更新
+  * 没有了 update 仓库
 
 ## 使用 alpine 下依赖 musl 的二进制
 

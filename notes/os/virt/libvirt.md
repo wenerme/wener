@@ -9,8 +9,8 @@ title: Libvirt
 * [libvirt/libvirt](https://github.com/libvirt/libvirt)
   * 绑定: c#, go, java, ocaml. perl, python, php, ruby
   * API 分为: common, domain, domain snapshot, error, event, host, interface, network, node device, network filter, secret, storage, stream
-* [libvirt]
-  * LXC – lightweight Linux container system
+* [libvirt](https://libvirt.org/drivers.html)
+  * LXC – Linux Container - 容器
   * OpenVZ – lightweight Linux container system
   * Kernel-based Virtual Machine/QEMU (KVM) – open source hypervisor for Linux and SmartOS
   * Xen – Bare-Metal hypervisor
@@ -103,7 +103,7 @@ virt-xml-validate /path/to/XML/file
 virt-install --virt-type kvm --name xp \
 --location http://httpredir.debian.org/debian/dists/squeeze/main/installer-amd64/ \
 --extra-args "console=ttyS0" -v --os-variant debiansqueeze \
---disk size=4 --memory 512 
+--disk size=4 --memory 512
 -n xp --vcpus 2 --import winxp
 ```
 
@@ -117,7 +117,7 @@ virt-install \
      --cdrom /root/alpine-standard-3.8.0-x86_64.iso \
      --os-variant=generic \
      --dry-run --print-xml
-     
+
 
 https://wiki.debian.org/KVM
 

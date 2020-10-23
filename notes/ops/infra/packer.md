@@ -23,6 +23,8 @@ title: Packer
   - Builder 不支持依赖
   - 自动加载[变量](https://www.packer.io/guides/hcl/variables) `*.auto.pkrvars.hcl`
   - `PACKER_LOG=1` 开启日志
+- 参考
+  - [geerlingguy/packer-boxes](https://github.com/geerlingguy/packer-boxes)
 
 ```bash
 # macOS

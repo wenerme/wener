@@ -37,7 +37,8 @@ lxc image list tuna-images:
 
 ## KVM in LXC/LXD
 * 可以尝试
-
+* 参考
+  * [LXD 4.0 quick recipe: LXC and KVM coexisting](https://discourse.ubuntu.com/t/15222)
 ```ini
 # /dev/kvm
 lxc.cgroup.devices.allow = c 10:232 rwm

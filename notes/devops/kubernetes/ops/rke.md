@@ -1,11 +1,11 @@
 ---
-id: rancher-rke
+id: rke
 title: RKE - 安装器
 ---
 
 # RKE
-## Tips
-* RKE 主要用于安装 K8S 集群
+* 是什么
+  * K8S 集群安装器
 * [配置项](https://rancher.com/docs/rke/latest/en/config-options/)
   * [cluster-example.yaml](https://rancher.com/docs/rke/latest/en/example-yamls/)
 * 系统镜像 [k8s_rke_system_images.go](https://github.com/rancher/kontainer-driver-metadata/blob/master/rke/k8s_rke_system_images.go)

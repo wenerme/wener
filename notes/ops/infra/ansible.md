@@ -105,6 +105,8 @@ networks_cli_compatible=yes
 force_valid_group_names=ignore
 ```
 
+* ansible_sudo_pass
+
 ## 变量查找路径
 
 * [Variable precedence: Where should I put a variable?](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)

@@ -5,10 +5,11 @@ title: Vault
 
 # Vault
 * 是什么？
-  * Secret as a Service - 密钥即服务
   * 提供密钥管理、证书管理、外部授权集成
   * 提供角色访问密钥权限控制
   * 实现 CA 服务
+  * Secret as a Service - 密钥即服务
+    * 例如 阿里云 KMS、AWS KMS
 * [Vault project](https://www.vaultproject.io/)
 * 为什么使用 Vault
   * 避免密钥到处放
@@ -16,6 +17,8 @@ title: Vault
   * 加密服务
   * 审计日志
   * 便于撤销
+  * 服务应用集成
+    * 例如 自动创建 db 账号密码、SSH密钥管理
 * 默认服务端口 8200
 * 支持多种授权方式
   * AppRole
@@ -28,36 +31,17 @@ title: Vault
   * Tokens
   * Kubernetes
   * Kerberos
-* 支持多种后端存储
-  * postgresql
-  * inmem
-  * file
-  * consul
-* 支持多种密钥引擎
-  * ad - Active Directory
-  * alicloud - 阿里云
-  * cubbyhole - token 独立空间 - 类似于 session/cookie
-  * consul
-  * 数据库
-    * cassandra
-    * elasticsearch
-    * mysql
-    * postgresql
-  * kv
-  * identity
-  * nomad
-  * openldap - LDAP v3
-  * pki
-  * ssh
-  * totp
-  * transit
+* 支持多种后端存储 - consul,etcd,file,inmem,mysql,postgresql,raft,s3,zppkeeper
 * 概念
   * 后端存储
     * 存储的是 Vault 的信息
   * 密钥引擎
-    * 如何存取密钥
-    * 密钥格式用途
-    * 内外密钥引擎对接
+    * 存储、生成、加密数据
+    * 被挂载到一个目录
+    * 部分直接存储数据，部分与外部系统交互
+    * 生命周期： Enable、Disable、Move、Tune
+      * Tune 类似于配置
+    * 引擎只能看到挂载目录下内容 - 类似于 chroot
 * Consul vs Vault
   * 最大的区别是一个强调加密一个强调服务发现
   * Consul 的配置是 KV
@@ -365,14 +349,4 @@ __consul.acl.json__
     }
   }
 }
-```
-
-## secret engine
-### consul
-```bash
-vault secrets enable consul
-
-vault write consul/config/access \
-    address=127.0.0.1:8500 \
-    token=E2A500CD-0599-409E-949B-E321135FAAD5
 ```

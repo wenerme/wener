@@ -104,7 +104,7 @@ fstrim -av
 # 转换后会变小
 qemu-img convert -O qcow2 alpine.img shrink.qcow2
 # 也可以进行压缩，会更小，但启动时会恢复
-qemu-img convert -O -c qcow2 alpine.img shrink.qcow2
+qemu-img convert -O qcow2 alpine.img shrink.qcow2 -c
 ```
 
 # FAQ

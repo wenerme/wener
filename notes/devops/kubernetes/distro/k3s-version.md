@@ -1,3 +1,7 @@
+---
+title: K3S Version
+---
+
 # K3S Version
 
 ## 1.19

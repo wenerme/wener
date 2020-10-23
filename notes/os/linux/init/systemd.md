@@ -1,15 +1,17 @@
+---
+id: systemd
+---
 # Systemd
-
 
 ## Tips
 
-* [systemd.unit](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
-* [systemctl manpage](https://www.freedesktop.org/software/systemd/man/systemctl.html)
-* [How To Use Systemctl to Manage Systemd Services and Units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
-* 配置目录
-  * `/etc/systemd/system/docker.service.d/*.conf`
-  * `/etc/systemd/system/`
-  * `/lib/systemd/system/`
+- [systemd.unit](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
+- [systemctl manpage](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+- [How To Use Systemctl to Manage Systemd Services and Units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
+- 配置目录
+  - `/etc/systemd/system/docker.service.d/*.conf`
+  - `/etc/systemd/system/`
+  - `/lib/systemd/system/`
 
 https://wiki.archlinux.org/index.php/Systemd-networkd
 
@@ -42,14 +44,50 @@ systemctl edit --full nginx.service
 systemctl status prometheus-node-exporter.service
 ```
 
+| command                            | mean                            |
+| ---------------------------------- | ------------------------------- |
+| 查询                               | -                               |
+| systemctl list-dependencies        | unit 依赖                       |
+| systemctl list-sockets             | sockets 状态                    |
+| systemctl list-jobs                | 活跃 jobs                       |
+| systemctl list-unit-files          | unit 文件和状态                 |
+| systemctl list-units               | units loaded/active             |
+| systemctl get-default              | default target (like run level) |
+| 服务                               | -                               |
+| systemctl stop _service_           | 停止                            |
+| systemctl start _service_          | 启动                            |
+| systemctl restart _service_        | 重启                            |
+| systemctl reload _service_         | 配置重载                        |
+| systemctl daemon-reload            | 重载 unit 文件                  |
+| systemctl status _service_         | 服务状态                        |
+| systemctl --failed                 | 失败的服务                      |
+| systemctl reset-failed             | 重置失败的状态                  |
+| systemctl enable _service_         | 服务自启动                      |
+| systemctl disable _service_        | 关闭自启动                      |
+| systemctl show _service_           | 服务信息                        |
+| systemctl edit _service_           | 编辑 unit                       |
+| systemctl edit --full _service_    | 编辑服务                        |
+| systemctl -H _host_ status network | 远程执行                        |
+| 系统状态                           | -                               |
+| systemctl reboot                   | 重启 / reboot.target            |
+| systemctl poweroff                 | 关机 / poweroff.target          |
+| systemctl emergency                | emergency.target                |
+| systemctl default                  | 恢复到默认 multi-user.target    |
+| 日志                               | -                               |
+| journalctl                         | 所有日志                        |
+| journalctl -u network.service      | 网络服务日志                    |
+| journalctl -f                      | 跟随显示                        |
+| journalctl -k                      | 内核日志                        |
+
 ## Service
 
 ## Unit
 
 # Example
-* [docker systemd](https://github.com/docker/docker/blob/master/contrib/init/systemd/)
 
-__/etc/systemd/system/prometheus-node-exporter.service__
+- [docker systemd](https://github.com/docker/docker/blob/master/contrib/init/systemd/)
+
+**/etc/systemd/system/prometheus-node-exporter.service**
 
 ```ini
 [Unit]
@@ -64,6 +102,7 @@ ExecStart=/opt/prometheus/bin/node_exporter
 ```
 
 ## help
+
 ```
 systemctl [OPTIONS...] {COMMAND} ...
 

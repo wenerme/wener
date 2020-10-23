@@ -1,12 +1,11 @@
 ---
-id: helm-intro
+id: helm
 title: HELM 包管理器
 ---
 
 # Helm
-
-## Tips
-
+- 是什么
+  - Kubernetes 上的包管理器
 - [helm.sh](https://helm.sh/)
 - nexus 可通过插件支持 helm [sonatype-nexus-community/nexus-repository-helm](https://github.com/sonatype-nexus-community/nexus-repository-helm)
 - 注意

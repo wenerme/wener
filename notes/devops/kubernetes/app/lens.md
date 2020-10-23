@@ -1,3 +1,6 @@
+---
+title: Lens
+---
 
 # Lens
 ## Tips
@@ -44,7 +47,7 @@ helm upgrade --set server.global.scrape_interval=30s prometheus stable/prometheu
 
 ### kube-prometheus
 * [#180](https://github.com/lensapp/lens/issues/180) - Documentation is incorrect for Prometheus troubleshooting
-* [#656](https://github.com/lensapp/lens/issues/656) - What are the requirements to make my prometheus deployment compatible with Lens? 
+* [#656](https://github.com/lensapp/lens/issues/656) - What are the requirements to make my prometheus deployment compatible with Lens?
 * 支持需要 [relabel](https://github.com/lensapp/lens/blob/master/troubleshooting/custom-prometheus.md#kube-prometheus)
   * 该说明有问题
 * 选择 helm 安装，指定 `monitoring/kube-prometheus-prometheus:9090`

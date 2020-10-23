@@ -1,5 +1,5 @@
 ---
-id: istio-intro
+id: istio
 title: Istio 服务网格
 ---
 

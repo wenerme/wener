@@ -27,6 +27,8 @@ title: Fluentbit
 ```bash
 # macOS
 brew install fluent-bit
+# AlpineLinux < 3.13
+apk add fluent-bit -X https://mirrors.aliyun.com/alpine/edge/testing/
 
 # 读取 kernel 消息，输出到 stdout
 fluent-bit -i kmsg -t kernel -o stdout -m '*'
@@ -39,13 +41,14 @@ fluent-bit -i mqtt -t data -o stdout -m '*'
 mosquitto_pub  -m '{"key1": 123, "key2": 456}' -t some/topic
 # Listen=0.0.0.0
 # macOS /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf
+# alpinelinux
 fluent-bit -R /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf -i syslog -p path=/tmp/flb_syslog -o stdout
 logger -u /tmp/flb_syslog my_ident my_message
 
 # syslog
 # rfc3164 - 废弃的 BSD syslog 协议
 # rfc5424 - 新的格式
-fluent-bit -R /usr/local/opt/fluent-bit/etc/fluent-bit/parsers.conf \
+fluent-bit -R /etc/fluent-bit/parsers.conf \
   -i syslog -p mode=tcp -p listen=0.0.0.0 -p port=5140 -o stdout
 # 日志
 logger -T -n 127.0.0.1 -P 5140 wener
@@ -158,12 +161,35 @@ logger -T -n 127.0.0.1 -P 5140 wener
 * null
 * stdout
 * tcp
+* postgresql
+* cockroachdb - v1.6+
 
 ## 插件
 * [fluent/fluent-bit-go](https://github.com/fluent/fluent-bit-go) - Golang package to build Fluentbit plugins
 
 ## Build
 * https://docs.fluentbit.io/manual/installation/sources/build-and-install
+* [nih-at/libzip#98](https://github.com/nih-at/libzip/issues/98) - undefined reference to `fts_read' and 'fts_close'
+
+```bash
+if [ "$CBUILD" != "$CHOST" ]; then
+  CMAKE_CROSSOPTS="-DCMAKE_SYSTEM_NAME=Linux -DCMAKE_HOST_SYSTEM_NAME=Linux"
+fi
+
+# default CORE_STACK_SIZE=((3 * PTHREAD_STACK_MIN) / 2)=3072 is invalid
+# based on https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/configuration-file
+# set default to 24576
+cmake -B build \
+  -DCMAKE_INSTALL_PREFIX=/usr \
+  -DCMAKE_INSTALL_LIBDIR=lib \
+  -DCMAKE_BUILD_TYPE=None \
+  -DFLB_CORO_STACK_SIZE=24576 \
+  -DFLB_TESTS_INTERNAL=Yes \
+  -DFLB_TLS=On \
+  -DFLB_JEMALLOC=Off \
+  $CMAKE_CROSSOPTS .
+make -C build
+```
 
 # FAQ
 

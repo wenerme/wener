@@ -18,6 +18,12 @@ yum localinstall jdk-8u131-linux-x64.rpm
 
 ```
 
+## 忽略依赖
+```bash
+yum install -y yum-utils
+rpm -Uvh --nodeps $(repoquery --location kernel-core)
+```
+
 ## Download only
 
 ```bash

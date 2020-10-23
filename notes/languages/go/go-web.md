@@ -1,3 +1,3 @@
 # Golang Web Dev
 ## Tips
-* [mingrammer/go-web-framework-stars(https://github.com/mingrammer/go-web-framework-stars)
+* [mingrammer/go-web-framework-stars](https://github.com/mingrammer/go-web-framework-stars)

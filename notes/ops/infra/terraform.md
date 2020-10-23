@@ -18,7 +18,17 @@ title: Terraform
   * 模块会集成默认 provider - 没有别名的 provider
 * 转换函数
   * yamldecode
-
+* 后端
+  * local - 本地存储 terraform.tfstate
+  * remote - Terraform Enterprise
+  * artifactory - 无锁
+  * consul
+  * etcdv3
+  * http - 可选锁 - REST 接口
+  * kubernetes - secret 限制了最大 1MB - 不建议使用
+  * 阿里云 oss、腾讯云 cos
+  * pg
+  * s3 - DynamoDB 支持锁
 ```bash
 # 日志
 TF_LOG=1 terraform apply
@@ -31,7 +41,7 @@ terraform {
   backend "local" {}
 
   # experiments = [example]
-  
+
   required_providers {
     # aws = ">= 2.7.0"
 

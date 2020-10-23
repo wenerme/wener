@@ -1,5 +1,5 @@
 ---
-id: k8s-intro
+id: kubernates
 title: Kubernates
 ---
 
@@ -133,11 +133,11 @@ helmc repo add deis https://github.com/deis/charts
 
 # 具体版本可查看 https://github.com/deis/charts
 # fetches the chart into a local workspace
-helmc fetch deis/workflow-v2.4.1            
+helmc fetch deis/workflow-v2.4.1
 # generates various secrets
 helmc generate -x manifests workflow-v2.4.1
 # injects resources into  your cluster
-helmc install workflow-v2.4.1               
+helmc install workflow-v2.4.1
 # 检查安装状态
 kubectl --namespace=deis get pods
 

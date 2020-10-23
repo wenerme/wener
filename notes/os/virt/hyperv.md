@@ -11,8 +11,6 @@ title: HyperV
   * CPU 支持 VM Monitor Mode Extension (VT-c on Intel CPUs)
   * 4 GB 内存+
 
-
-
 ## 启动
 
 * [Install Hyper-V on Windows 10](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)

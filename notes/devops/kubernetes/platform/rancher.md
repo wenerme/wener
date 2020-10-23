@@ -1,16 +1,17 @@
 ---
-id: rancher-intro
+id: rancher
 title: Rancher UI
 ---
 
 # Rancher
 
 ## Tips
-
+- 是什么
+  - Kubernetes 多集群管理平台 - 偏运维
 - [Rancher](http://rancher.com/) - 定位于 K8S 的 UI
   - [rancher/rancher](https://github.com/rancher/rancher)
 - 问题
-  - 支持 Helm 3 [#20596](https://github.com/rancher/rancher/issues/20596)
+  - ~~支持 Helm 3 [#20596](https://github.com/rancher/rancher/issues/20596)~~
 - 注意
   - 如果 rancher 是作为工作负载运行在 k8s 集群，那么集群名字默认就为 local
   - HA 部署是通过 Helm 部署在 k8s 集群

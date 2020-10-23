@@ -1,3 +1,7 @@
+---
+title: Home Assistant
+hide_title: true
+---
 
 # Home Assistant
 ## Tips
@@ -6,21 +10,30 @@
   * [架构](https://developers.home-assistant.io/docs/architecture_index/)
   * [Demo](https://demo.home-assistant.io/)
 * [安装](https://www.home-assistant.io/docs/installation/)
+* 端口
+  * http 8123
+  * HomeKit 桥接 51828
 
 ```bash
+# try
 docker run --rm -it \
   -e TZ=Asia/Shanghai \
   --net=host \
   --name="homeassistant" homeassistant/home-assistant:stable
+
+# run
+docker run -d --restart always \
+  -e TZ=Asia/Shanghai \
+  -p 8123:8123 \
+  -v /data/home-assistant/config:/config \
+  --name="homeassistant" homeassistant/home-assistant:stable
 ```
 
-* http 8123
-* HomeKit 桥接 51828
 
 ## 配置
 * https://www.home-assistant.io/docs/configuration/
-* /config
-* ~/.homeassistant
+* /config - docker/Home Assistant
+* ~/.homeassistant - 直接安装时的目录 - macOS/Linux
 
 ```yaml
 homeassistant:

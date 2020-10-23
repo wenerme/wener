@@ -1,5 +1,7 @@
+---
+title: elasticsearch.yml v2.x
+---
 ## elasticsearch.yml
-
 
 * 配置文件中可通过 `${...}` 来引用环境变量,例如:
 ```yml

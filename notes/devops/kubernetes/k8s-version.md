@@ -4,8 +4,6 @@ id: k8s-version
 
 # Kubernetes 版本
 
-## Tips
-
 ## 1.19
 * [CHANGELOG-1.19](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md)
 * EndpointSlices 默认启用
