@@ -1,5 +1,5 @@
 ---
-id: intro
+id: asterisk
 title: Asterisk
 ---
 
@@ -44,7 +44,7 @@ iptables -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
 iptables -A INPUT -p udp -m udp --dport 5036 -j ACCEPT
 
 # RTP - the media stream
-# (related to the port range in /etc/asterisk/rtp.conf) 
+# (related to the port range in /etc/asterisk/rtp.conf)
 iptables -A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
 
 

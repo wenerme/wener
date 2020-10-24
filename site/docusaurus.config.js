@@ -74,11 +74,11 @@ module.exports = {
             },
             {
               label: "Kubernates",
-              to: "notes/devops/kubernetes/k8s-intro",
+              to: "notes/devops/kubernetes/kubernetes",
             },
             {
               label: "VoIP",
-              to: "notes/voip/voip-intro",
+              to: "notes/voip/voip",
             },
           ],
         },

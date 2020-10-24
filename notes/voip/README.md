@@ -1,5 +1,5 @@
 ---
-id: voip-intro
+id: voip
 title: VoIP
 ---
 

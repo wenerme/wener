@@ -1,11 +1,11 @@
-- voip/voip-intro
+- voip/voip
 - voip/hardware/intro
 - voip/sip/provider
 - voip/glossary
 - type: category
   label: Asterisk
   items:
-  - voip/asterisk/intro
+  - voip/asterisk/asterisk
   - voip/asterisk/version
   - voip/asterisk/asterisk-moduls
   - voip/asterisk/dev
