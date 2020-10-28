@@ -32,7 +32,7 @@ title: Ansible
 - 界面
   - [ansible-semaphore/semaphore](https://github.com/ansible-semaphore/semaphore)
     - Go 实现
-    - 有 Web界面 和 [API](https://ansible-semaphore.github.io/semaphore/)
+    - 有 Web 界面 和 [API](https://ansible-semaphore.github.io/semaphore/)
   - [ansible/awx](https://github.com/ansible/awx) - Ansible Tower 上游开源项目
     - 可 Docker Compose 启动
 - 环境变量
@@ -64,9 +64,24 @@ docker run --rm -it \
   --name ansible wener/ansible
 ```
 
+| Command            | Desc                                                                     |
+| ------------------ | ------------------------------------------------------------------------ |
+| ansible            | 执行 AdHoc 命令                                                          |
+| ansible-config     | 查看当前所有配置                                                         |
+| ansible-connection | 连接到远程设备                                                           |
+| ansible-console    | REPL 方式执行 Ansible Task                                               |
+| ansible-doc        | 文档查询                                                                 |
+| ansible-galaxy     | Role 和 Collection 依赖管理                                              |
+| ansible-inventory  | 查询机器清单                                                             |
+| ansible-playbook   | 执行 Playbook                                                            |
+| ansible-pull       | 配合 cron 从 VSC 拉取 playbook 然后本地执行 - 适用于大规模周期性任务执行 |
+| ansible-test       | Role 和 Collection 开发的测试工具                                        |
+| ansible-vault      | Ansible 加密数据操作                                                     |
+
 ## 安装
-* 2.10 需要先卸载 ansible 再安装
-* [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+- 2.10 需要先卸载 ansible 再安装
+- [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ```bash
 # macOS
@@ -105,11 +120,11 @@ networks_cli_compatible=yes
 force_valid_group_names=ignore
 ```
 
-* ansible_sudo_pass
+- ansible_sudo_pass
 
 ## 变量查找路径
 
-* [Variable precedence: Where should I put a variable?](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)
+- [Variable precedence: Where should I put a variable?](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)
 
 ## 最佳实践
 

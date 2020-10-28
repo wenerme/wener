@@ -9,6 +9,8 @@ title: Ansible Version
 * 将非 base 模块划分为小的 collection，由 galaxy 分发
   * collection 能够包含几乎所有的 ansible 扩展点 - roles, plugins, modules, playbooks
   * 替代之前 galaxy 的 role 分发模式
+  * ansible-base 3 MB 安装后 14 MB
+  * ansible 44 MB 安装后 334 MB
 * 内置 [collection](https://docs.ansible.com/ansible/2.10/collections/index.html) 列表
 * 新增 ansible-base 包
 * [CHANGELOG-v2.10](https://github.com/ansible/ansible/blob/stable-2.10/changelogs/CHANGELOG-v2.10.rst)

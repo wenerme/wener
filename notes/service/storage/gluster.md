@@ -1,3 +1,7 @@
+---
+id: gluster
+title: Gluster
+---
 
 # glusterfs
 

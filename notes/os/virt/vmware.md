@@ -18,6 +18,13 @@ title: VmWare
   * VMware Horizon View - virtual desktop infrastructure (VDI)
   * VMware vSphere
     * VMware Infrastructure 4 之前名字
+* vCenter Server Appliance with an Embedded Platform Services Controller (PSC)
+
+```bash
+# QCOW2 转 vmdk
+# flat 格式，能导入，但是是完整大小镜像，上传非常慢
+qemu-img convert -f qcow2 -O vmdk -o adapter_type=lsilogic,subformat=monolithicFlat alpine.qcow2 alpine.vmdk
+```
 
 # FAQ
 ## ESXi vs vSphere vs vCenter
@@ -30,7 +37,7 @@ title: VmWare
     * 迁移
     * 远程管理
 * vCenter
-  * 集中管理
+  * 集中管理 - 管理 ESXi 集群
   * 一般虚拟机方式安装
   * 功能
     * 单点登陆
@@ -39,3 +46,7 @@ title: VmWare
     * 主机信息
 * ESXi
   * Hypervisor
+  * 直接安装在物理机上
+  * 实际运行虚拟机
+  * 类似于 Xen 的 dom0
+  * 单节点

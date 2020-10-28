@@ -33,6 +33,9 @@ title: Rancher UI
     - Rancher 启动的
     - 托管的
     - 导入的
+  - Rancher 镜像
+    - http://mirror.cnrancher.com
+    - Docker 镜像 registry.cn-hangzhou.aliyuncs.com/rancher
 
 ## 安装
 

@@ -6,17 +6,19 @@ title: Flannel
 # Flannel
 
 ## Tips
-* 支持后端
+* [支持后端](https://github.com/coreos/flannel/blob/master/Documentation/backends.md)
   * vxlan
+    * 大多时候默认
+    * DirectRouting 可以在相同 subnet 时直连 - 类似 host-gw
   * host-gw
+    * 性能更好 - ip ro add 的方式添加路由
+    * 需要 2 层直连 - TincVPN 可以
 * [执行方式](https://github.com/coreos/flannel/tree/master/dist)
 
 ```bash
 # kube-flannel - vxlan
 # https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-
 ```
-
 
 <!--
 The flannel host-gw option was the first solution I evaluated. This backend takes the PodCIDR addresses assigned to all of the nodes and creates routing table entries so the workers can reach each other through the cluster IP range. In addition, flanneld will NAT the cluster IPs to the host IP if a pod needs to contact a host outside of the local broadcast domain. The flannel daemon (flanneld) runs as a DaemonSet so one pod (and one flanneld daemon) will be created on each worker. Setting up the flannel host-gw is ridiculously easy. To begin, you will need to download the deployment

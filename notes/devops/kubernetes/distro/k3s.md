@@ -8,7 +8,7 @@ title: K3S
 ## Tips
 * 注意
   * 节点的名字需要唯一
-    * 默认使用 hostname 
+    * 默认使用 hostname
     * 可使用 `K3S_NODE_NAME` 或 `--node-name` 修改
   * k3s 会读取 `/etc/machine-id` 或 `/var/lib/dbus/machine-id` 作为节点 UUID
   * kubconfig 文件 `/etc/rancher/k3s/k3s.yaml`
@@ -70,27 +70,6 @@ title: K3S
     * [#1768](https://github.com/rancher/k3s/pull/1768) - 默认使用 ClientCA 而不是 ServerCA
     * [自行创建脚本](https://github.com/rancher/k3s/issues/684#issuecomment-517501120)
   * 目前(1.18) admin 默认是密码 - [#1616](https://github.com/rancher/k3s/issues/1616) - 默认使用证书
-* 资源内存占用
-  * AlpineLinux - 50M 
-    * 显存 32M
-    * sshd,tincd,dbus
-  * dockerd - 97M + shim/8M
-  * containerd - 50M + shim/11M
-    * docker 也依赖 containerd
-  * server 550M
-    * `--disable=traefik，servicelb`
-    * server 也会启动 agent
-    * 容器
-      * metrics-server
-      * coredns
-      * local-path-provisioner
-  * agent 180M
-  * 运行基础服务 - ingress-nginx, metallb, cert-manager, kubernetes-dashboard
-    * server - 1G
-    * agent - 450M
-    * +linkerd
-      * server 1.55G
-      * agent 920M
 
 ```bash
 apk add util-linux
@@ -221,7 +200,7 @@ ssh k3s -- "sudo sh -c 'mkdir -p /opt/k3s && chown admin:admin /opt/k3s'"
 scp k3s k3s:/opt/k3s
 scp k3s-images.txt k3s:/opt/k3s
 
-# ssh k3s -- 
+# ssh k3s --
 cat /opt/k3s/k3s-images.txt | xargs -n 1 docker pull
 
 k3s server --cluster-init --alsologtostderr --log $PWD/k3s-server.log --docker
@@ -269,42 +248,3 @@ configs:
 * Agent 会使用集群的密钥和随机生成的密码注册，密码存储于 `/etc/rancher/node/password`，服务端会存储节点的密码到 `/var/lib/rancher/k3s/server/cred/node-passwd`。
 * 节点上的 `/etc/rancher/node` 目录被移除后密码会被从新生成，或由服务端移除。
 * 启动时可为节点附加唯一节点标示，`--with-node-id`。
-
-
-## FAQ
-### K3S 安装清理
-```bash
-# 如果通过 get.k3s.io 安装会有该脚本
-/usr/local/bin/k3s-killall.sh
-# 删除的配置 iptables-save | grep -v KUBE- | grep -v CNI- | iptables-restore
-# iptable 可能删除不干净，可以手动清理
-# iptables-save | grep -v 10.4[2,3] | iptables-restore
-
-# 常规清理
-docker stop $(docker ps -aq)
-docker system prune --volumes -f
-docker system prune -f
-sudo umount $(mount -v | grep '/var/lib/kubelet' | awk '{print $3}')
-sudo rm -rf /var/lib/rancher
-sudo rm -rf /var/lib/kubelet
-
-sudo rm -rf /var/log/containers/*
-sudo rm -rf /var/log/pods/*
-
-# 如果用了数据库
-echo drop table if exists kine | psql -d $DATABASE_URL
-# 如果有日志文件，例如 --log k3s-server.log --alsologtostderr
-rm k3s-server.log -f
-```
-
-## docker vs containerd
-* 建议使用 docker
-* docker
-  * 操作运维熟悉
-  * 可独立使用
-  * docker 命令好用
-  * 镜像、缓存会更加友好 - 虽然 containerd 有 docker shim
-* containerd
-  * docker 底层也是使用的 containerd
-  * 因此使用 docker 会额外消耗一些内存
-  * 没有专用的 cli - crictl 主要用于调试

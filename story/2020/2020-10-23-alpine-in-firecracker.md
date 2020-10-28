@@ -13,11 +13,11 @@ __优点__
 * 内存占用少 < 5mb
 * Rust 实现
 * musl 静态链接
-* firecracker 自身约 1.6 MB - __无依赖__
+* firecracker 自身约 __1.6 MB__ - __无依赖__
 
 <!-- more -->
 
-__设计目标/缺点__
+__设计目标/缺陷__
 
 * 基于 KVM 实现
   * 只有 Linux 平台
@@ -43,7 +43,7 @@ __为什么选择 Alpine？__
 
 一些注意事项写在前面：
 
-:::note
+:::info Firecracker 注意点
 
 - 没有电源管理，因此不支持重启，会直接退出
 - 系统内 poweroff 或 halt 不会退出 - reboot 会
@@ -63,7 +63,7 @@ Firecracker 的[发布页](https://github.com/firecracker-microvm/firecracker/re
 # 下载安装 firecracker 到 /usr/local/bin/firecracker
 latest=$(basename $(curl -fsSLI -o /dev/null -w  %{url_effective} https://github.com/firecracker-microvm/firecracker/releases/latest))
 sudo curl -L -o /usr/local/bin/firecracker https://github.com/firecracker-microvm/firecracker/releases/download/${latest}/firecracker-${latest}-$(uname -m)
-chmod +x /usr/local/bin/firecracker
+sudo chmod +x /usr/local/bin/firecracker
 ```
 
 ## rootfs
@@ -180,7 +180,7 @@ firecracker 有两种启动方式
   * 配置文件等同于接口请求
   * 参数内容和路径与接口一致
 
-这里使用方法 #2，因为书写可编辑简单。
+这里使用方法 #2，因为方便书写编辑简单。
 
 ```bash
 # 生成 alpine.json 配置
@@ -213,9 +213,9 @@ firecracker --api-sock /tmp/firecracker.socket --config-file alpine.json
 ```
 
 ## 停止
-:::warn
+:::caution Firecracker 不能正常关机
 
-firecracker 不能使用 poweroff 关机
+firecracker 不能使用 poweroff 关机，如果使用了 poweroff 则只能 kill 进程来退出。
 
 :::
 
@@ -238,7 +238,7 @@ Firecracker 使用起来蛮惊艳，能成功的快速的启动系统，启动�
 
 因为 Firecracker 优缺点非常明显，这里总结一下适用场景：
 
-* serveless 场景 - 需要快速起停
+* serveless 场景 - 需要快速起停，安全隔离，环境独立
 * 处于安全考虑进行容器执行环境隔离 - 作为容器运行时
 * 将应用打包为系统进行分发，使用 firecracker 屏蔽系统差异
 
@@ -255,3 +255,4 @@ Firecracker 相对较新，集成使用方面还有所欠缺，但在 Firecracke
 * [boot-alpine-in-firecracker.sh](https://gist.github.com/wenerme/97a2f088496bb3e6492ef7e8fe23da8a) - 以上所有代码
 * [firecracker-microvm/firecracker](https://github.com/firecracker-microvm/firecracker) - 核心仓库
 * [firecracker-microvm/firectl](https://github.com/firecracker-microvm/firectl) - Golang 实现用于管理 firecracker 虚拟机的辅助工具
+* [firecracker-microvm/firecracker-go-sdk](https://github.com/firecracker-microvm/firecracker-go-sdk) - Golang 直接操作 Firecracker
