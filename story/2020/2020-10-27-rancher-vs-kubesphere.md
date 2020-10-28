@@ -6,34 +6,34 @@ hide_title: true
 
 # Rancher vs. Kubesphere
 
-| info.                 | Rancher                                               | Kubesphere                                                        |
-| --------------------- | ----------------------------------------------------- | ----------------------------------------------------------------- |
-| 开发者                | Rancher/SUSE                                          | 青云开源                                                          |
-| 源码                  | [rancher/rancher](https://github.com/rancher/rancher) | [kubesphere/kubesphere](https://github.com/kubesphere/kubesphere) |
-| Stars                 | 15.5k                                                 | 4.4k                                                              |
-| 安装                  | Helm                                                  | ks-installer(Ansible)+CDR                                         |
-| 部署 K8S              | rke/rancher                                           | kubekey                                                           |
-| 版本                  | v2.5                                                  | v3.0                                                              |
-| 监控                  | Grafana+Prometheus                                    | Prometheus+前段集成                                               |
-| 告警                  | Grafana/Altermanager                                  | 邮件、企业微信、Slack                                             |
-| 日志                  | Banzi Operator                                        | Elasticseach, fluentbit                                           |
-| ServiceMesh           | Istio                                                 | Istio                                                             |
-| DevOps                | rancher-pipeline/Jinkins/docker-registry/minio        | Jinkins                                                           |
-| 应用商店              | Helm Repo                                             | [openpitrix/openpitrix](https://github.com/openpitrix/openpitrix) |
-| 角色权限管理          | ✅                                                    | ✅                                                                |
-| 配置方式              | Web UI                                                | 编辑 CDR/yaml                                                     |
-| 应用                  | Helm                                                  | Helm/[CDR](https://github.com/kubernetes-sigs/application)        |
-| 实现依赖              | -                                                     | etcd+redis+minio+openldap+mysql                                   |
-| 实现服务              | rancher+fleet                                         | ks-controller-manager+ks-apiserver+ks-console                     |
-| 多集群                | ⭐️⭐️⭐️                                             | ⭐️                                                               |
-| UI 美观               | ⭐️⭐️                                                | ⭐️⭐️⭐️                                                         |
-| UI 功能               | ⭐️⭐️⭐️                                             | ⭐️⭐️                                                            |
-| 云平台集成            | ⭐️⭐️⭐️                                             | ❌                                                                |
-| 文档                  | ⭐️⭐️                                                | ⭐️                                                               |
-| 开发友好              | ⭐️                                                   | ⭐️⭐️⭐️                                                         |
-| 运维友好              | ⭐️⭐️⭐️                                             | ⭐️                                                               |
-| 使用者对 K8S 掌握程度 | 高                                                    | 低                                                                |
-| 核心体验              | 多集群运维部署管理                                    | 友好的一体化开发管理                                              |
+| info.                 | Rancher                                                                    | Kubesphere                                                        |
+| --------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 开发者                | Rancher/SUSE                                                               | 青云开源                                                          |
+| 源码                  | [rancher/rancher](https://github.com/rancher/rancher)                      | [kubesphere/kubesphere](https://github.com/kubesphere/kubesphere) |
+| Stars                 | 15.5k                                                                      | 4.4k                                                              |
+| 安装                  | Helm                                                                       | ks-installer(Ansible)+CDR                                         |
+| 部署 K8S              | rke/rancher                                                                | kubekey                                                           |
+| 版本                  | v2.5                                                                       | v3.0                                                              |
+| 监控                  | Grafana+Prometheus                                                         | Prometheus+前端集成                                               |
+| 告警                  | Grafana/Altermanager                                                       | 邮件、企业微信、Slack                                             |
+| 日志                  | Banzi Operator                                                             | Elasticseach, fluentbit + 前端集成<br/>事件日志，审计日志                                          |
+| ServiceMesh           | Istio                                                                      | Istio                                                             |
+| DevOps                | 2.5 之前 - rancher-pipeline/Jenkins/docker-registry/minio<br/>Fleet GitOps | Jenkins                                                           |
+| 应用商店              | Helm Repo                                                                  | [openpitrix/openpitrix](https://github.com/openpitrix/openpitrix) |
+| 角色权限管理          | ✅                                                                         | ✅                                                                |
+| 配置方式              | Web UI                                                                     | 编辑 CDR/yaml                                                     |
+| 应用                  | Helm                                                                       | Helm/[CDR](https://github.com/kubernetes-sigs/application)        |
+| 实现依赖              | -                                                                          | etcd+redis+minio+openldap+mysql                                   |
+| 实现服务              | rancher+fleet                                                              | ks-controller-manager+ks-apiserver+ks-console                     |
+| 多集群                | ⭐️⭐️⭐️                                                                  | ⭐️                                                               |
+| UI 美观               | ⭐️⭐️                                                                     | ⭐️⭐️⭐️                                                         |
+| UI 功能               | ⭐️⭐️⭐️                                                                  | ⭐️⭐️                                                            |
+| 云平台集成            | ⭐️⭐️⭐️                                                                  | ❌                                                                |
+| 文档                  | ⭐️⭐️                                                                     | ⭐️                                                               |
+| 开发友好              | ⭐️                                                                        | ⭐️⭐️⭐️                                                         |
+| 运维友好              | ⭐️⭐️⭐️                                                                  | ⭐️                                                               |
+| 使用者对 K8S 掌握程度 | 高                                                                         | 低                                                                |
+| 核心体验              | 多集群运维部署管理                                                         | 友好的一体化开发管理                                              |
 
 <!-- more -->
 
@@ -51,7 +51,6 @@ hide_title: true
   - 如果需要整合云平台资源
 
 :::
-
 
 综合使用下来后觉得 Kubesphere 与 Rancher 应用场景并不特别重复，按自己的需求选择即可，实际情况可能是两个都用。Ranher 用于管理和开通集群，Kubesphere 用于给开发者操作单个集群。
 
@@ -73,6 +72,7 @@ hide_title: true
   - Fleet GitOps
 
 ### 缺点
+
 - 要求使用人员对 Kubernetes 有一定认识和运维能力
 - 2.5 还在 latest 阶段，尚未进入 stable - 应该快了
 - 2.5 的 Exploere 还没有中文，不过已有多语言支持
@@ -86,7 +86,7 @@ hide_title: true
 - 界面友好美观
 - 集成监控
 - 集成日志
-- 集成DevOps
+- 集成 DevOps
 - 集成应用一体化体验 - 不需要去 Grafana 看监控，不需要去 Kibana 看日志
 - 面向内部的应用商店比 Helm Repo 在实际开发时更有实际意义
 
@@ -124,7 +124,8 @@ Rancher 和 Kubesphere 都没有很好的集成 metric-server，导致没有安�
 Rancher 和 Kubesphere 从管理上超越了 Kubernetes Dashboard/Lens，但实际体验和使用上却仍有不足。
 
 ## 开发能力集成
-平台、CI/CD、代码，我认为开发相关的能力应该与代码更接近而非平台，因此对于早起 Rancher Pipeline 和现在 Kubesphere 集成的 Jinkins 的做法都不太认可。
+
+平台、CI/CD、代码，我认为开发相关的能力应该与代码更接近而非平台，因此对于早起 Rancher Pipeline 和现在 Kubesphere 集成的 Jenkins 的做法都不太认可。
 
 Rancher 现在转向了 fleet，是专门用于集群资源管理的 GitOps，这是远比 Pipeline 更适合 Rancher 的方向。
 看似都是资源部署，但 Kubesphere 的 DevOps 着重于从代码到镜像到应用的整个过程，而非最终的应用映射为 K8S 资源部署的过程。开发的 CI/CD 无论怎么做我相信都无法比过代码仓库直接集成。
@@ -139,9 +140,11 @@ Rancher 现在转向了 fleet，是专门用于集群资源管理的 GitOps，�
 且 Gitlab 本来就有 Kubernetes 集成。代码仓库集成运行时，这才是应用管理正确的方向。
 
 # 总结
+
 选择 Rancher 和 Kubesphere 并不冲突，两者发展方向也不尽相同。因此根据实际情况和项目需要选择即可。
 
 # 参考
+
 - [rancher/rancher](https://github.com/rancher/rancher)
 - [kubesphere/kubesphere](https://github.com/kubesphere/kubesphere)
 - [A Buyer’s Guide to Enterprise Kubernetes Management Platforms](https://info.rancher.com/hubfs/eBooks,%20reports,%20and%20whitepapers/%5BBuyers%20Guide%5D%20Rancher,%20Openshift,%20Tanzu,%20Anthos%2020200911.pdf)
