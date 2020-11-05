@@ -1,3 +1,7 @@
+---
+title: Go FAQ
+---
+
 # Go FAQ
 
 ## Struct 是否使用指针
@@ -69,4 +73,16 @@ ethers:         db files
 rpc:            db files
 
 netgroup:       nis
+```
+
+## Windows 安装
+* https://golang.org/dl/ - 下载 MSI 或 Zip
+  * MSI 默认安装在 `C:\GO`
+
+```bash
+# msys 下
+export GOPATH=$HOME/go
+export PATH="$PATH:/c/GO/bin:$HOME/go/bin"
+export GO111MODULE=on
+export GOPROXY=https://goproxy.io
 ```

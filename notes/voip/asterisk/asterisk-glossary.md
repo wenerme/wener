@@ -3,18 +3,21 @@ id: glossory
 title: Asterisk 词汇
 ---
 
-# Asterisk Glossory
+# Asterisk 词汇
+
 * [ADSI](https://www.voip-info.org/adsi/)
   * Analog Display Services Interface
-* AGI
+* AGI - Asterisk Gateway Interface
   * 执行 Dialplan 中的脚本
   * 针对单次通话
-* AMI
+* AMI - Asterisk Manage Interface
   * `manager.conf`
   * 实时接口
   * Telnet
   * 针对整个 PBX
-* ARI
+  * Actions
+  * Events
+* ARI - Asterisk Restful Interface
   * `ari.conf`
   * 通过接口的方式而不是 C 的方式来写应用
   * HTTP GET POST DELETE
@@ -25,7 +28,7 @@ title: Asterisk 词汇
 * [ALSA](https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture)
   * Advanced Linux Sound Architecture - 高级Linux声音体系
 * [AOR](https://wiki.asterisk.org/wiki/display/~jcolp/AORs%2C+Contacts%2C+Device+State)
-  * Address of Records - 地址记录  
+  * Address of Records - 地址记录
 * CDR
   * Call detail recording - 呼叫详情记录
 * CEL

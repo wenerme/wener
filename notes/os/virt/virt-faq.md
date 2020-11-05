@@ -46,3 +46,13 @@ title: 虚拟化常见问题
 | Dynamic Resource Allocation | No             | Yes             |
 | Failover                    | No             | Yes             |
 | Live Migration              | No             | Yes             |
+
+## VNC vs SPICE
+* VNC
+  * 读取显存查分压缩发送到客户端
+  * RFB 协议
+* SPICE
+  * 模拟 X11 驱动，捕获 X 协议和操作
+  * QXL 协议
+* 参考
+  * [VNC vs SPICE](http://zee-nix.blogspot.com/2011/06/welcome-to-virtual-world.html)

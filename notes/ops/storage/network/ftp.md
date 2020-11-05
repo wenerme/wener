@@ -1,28 +1,24 @@
-# FTP
+---
+title: FTP
+---
 
-## Tips
+# FTP
+* 是什么？
+  * 文件传输协议 - File Transfer Protocol
+  * 分为控制通道和数据通道
+* wikipedia [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol)
+* active
+  * 客户端监听数据端口，告诉服务端端口号，服务端连接客户端的 20 和 数据端口。
+  * 如今已很少使用
+* passive
+  * 客户端直接连接控制端口，发送 PASV 命令，服务端返回数据通道的地址和端口号，客户端连接数据端口。
+  * 不受防火墙影响
+* [Comparison of FTP server software packages](https://en.wikipedia.org/wiki/Comparison_of_FTP_server_software_packages)
 * [goftp/server](https://github.com/goftp/server)
   * A FTP server framework written by Golang
 * [CrossFTP](http://www.crossftp.com/)
   * FTP & Amazon S3 Client
 * [pkg/sftp](https://github.com/pkg/sftp)
-
-```bash
-```
-
-http://www.slacksite.com/other/ftp.html
-
-https://stackoverflow.com/questions/15022629/lftp-active-mode-with-servers-that-do-not-recognize-the-port-command
-
-lftp -e 'debug 10;set ftp:passive-mode off; set ftp:auto-passive-mode no; ls; bye;' -u user,password ftp://ftp.site.com
-
-lftp -e 'debug 10;set ftp:passive-mode off; set ftp:auto-passive-mode no; ls; bye;' -u user,password ftp://ftp.site.com
-
-lftp -e 'debug 10;set ftp:passive-mode on; set ftp:auto-passive-mode no'  ftp://shyqmes009.w263.cndns5.com -u 'shyqmes009,shiui^&23'
-
-
-telnet shyqmes009.w263.cndns5.com 21
-
 
 ## 530 User cannot log in, home directory inaccessible.
 

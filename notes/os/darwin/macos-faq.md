@@ -1,4 +1,7 @@
-# macOS FAQ
+---
+title: macOS FAQ
+---
+# macOS 常见问题
 
 ## 窗口只能看到边缘没有 Title 如何拖动
 * 鼠标放到边缘，变成箭头

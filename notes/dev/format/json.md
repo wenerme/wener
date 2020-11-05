@@ -24,6 +24,10 @@ https://json-diff.com/
 https://github.com/benjamine/jsondiffpatch/blob/master/docs/formatters.md
 https://benjamine.github.io/jsondiffpatch
 
+* [google/diff-match-patch](https://github.com/google/diff-match-patch)
+* [Mendoza: Use stack machines to compute efficient JSON diffs](https://www.sanity.io/blog/mendoza)
+  * [HN](https://news.ycombinator.com/item?id=24943775)
+
 ## FAQ
 ### 时间格式选择
 

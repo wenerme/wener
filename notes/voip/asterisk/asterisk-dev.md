@@ -2,9 +2,7 @@
 id: dev
 title: 开发
 ---
-
-
-# Dev
+# Asterisk 开发
 
 ## Tips
 * https://github.com/ttacon/libphonenumber
@@ -27,14 +25,14 @@ title: 开发
   * Calendaring
     * 对多各种标准的日历协议进行读写
     * 拨号计划可利用日历事件信息
-  * Database Connectivity	
+  * Database Connectivity
     * ODBC, MySQL, PostgreSQL
-  * Distributed Device State	
+  * Distributed Device State
     * 提供用于在多个实例之间状态分发的机制.
   * SNMP
     * 基本的 SNMP 支持
     * 活动监控
-  * Speech Recognition API	
+  * Speech Recognition API
   * StatsD
     * 是一个拨号计划中的应用
     * 用于发送统计信息
@@ -104,7 +102,7 @@ docker exec ast asterisk -rx 'sip reload'
 # 在 Mac 下可能导致文件不同步, 那只能尝试别的办法了, 例如
 rsync -avz -e ssh $HOME/data/asterisk/ root@192.168.1.1:/data/asterisk/
 
-# 
+#
 docker run -d --restart=always \
    -e POSTGRES_USER=ast -e POSTGRES_PASSWORD=ast -p 5432:5432 -v /data/pg/data:/var/lib/postgresql/data --name ast-pg postgres:alpine
 ```
@@ -113,10 +111,10 @@ __sip.conf__
 ```conf
 ; 打开 tcp 和 ws
 [general]
-context=public               
-allowoverlap=no  
-udpbindaddr=0.0.0.0  
-rtpbindaddr=0.0.0.0  
+context=public
+allowoverlap=no
+udpbindaddr=0.0.0.0
+rtpbindaddr=0.0.0.0
 tcpenable=yes
 tcpbindaddr=0.0.0.0
 websocket_enabled = true
@@ -161,7 +159,7 @@ inbound_auth/password = 9002
 
 ```bash
 # 基础
-apk add openssh-client openssl curl busybox file nano grep 
+apk add openssh-client openssl curl busybox file nano grep
 
 apk add shadow bash
 chsh root -s /bin/bash
@@ -216,7 +214,7 @@ dahdi_cfg -vvvvvv
 # Monitors signal level on analog channel allows you to record audio from it
 # Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2
 # example: dahdi_monitor 1 -vv
-# note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed. 
+# note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed.
 #   Use sox to convert to a wav. sox -r 8000 -s -w rx.raw rx.wav
 
 # 导入配置
@@ -875,7 +873,7 @@ apt install curl libedit-dev uuid-dev libjansson-dev libxml2-dev libsqlite3-dev
 		--with-srtp
 
 
- 
+
 
 
 

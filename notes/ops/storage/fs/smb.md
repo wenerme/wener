@@ -6,6 +6,16 @@ title: Samba
 # SMB
 
 ## Tips
+* 是什么？
+  * Server Message Block
+  * 1983 IBM 创建
+* 版本
+  * 1983 SMBv1
+    * 自 Windows Server 2003，Windows 2000
+    * Windows Server 2012 R2 废弃支持
+    * Windows Server 2016，Windows 10 无 SMBv1 支持
+  * 2006 SMBv2
+    * 自 Windows Vista in 2006，Windows Server 2008
 * [Samba3 by Example](https://www.samba.org/samba/docs/Samba3-ByExample.pdf)
 * [Samba3 How to](https://www.samba.org/samba/docs/Samba3-HOWTO.pdf)
 * [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)
@@ -13,6 +23,7 @@ title: Samba
 * Wikipedia [Samba](https://en.wikipedia.org/wiki/Samba_(software))
 * 添加的用户名必须要先存在于系统中,即需要先 `useradd`
 * 禁用打印机服务
+
 ```ini
 load printers = no
 printing = bsd
@@ -160,7 +171,7 @@ idmap config * : script = /usr/local/samba/bin/idmap_script.sh
 
 不建议使用 hash
 
-The idmap_ad plugin provides a way for Winbind to read id mappings from an AD server that uses RFC2307/SFU schema extensions. 
+The idmap_ad plugin provides a way for Winbind to read id mappings from an AD server that uses RFC2307/SFU schema extensions.
 
 
 "map to guest = Bad User" will reject a user if that user is in the server's samba password database but has the wrong password. But if the client user name doesn't exist in the samba password database he is converted to the guest account and then it's up to a given share definition to determine if he can gain access.
@@ -298,12 +309,15 @@ Common samba options:
 ## FAQ
 
 ### CIFS vs SMB
-* [CIFS vs SMB](https://blog.varonis.com/cifs-vs-smb/)
-
-* CIFS 是 SMB 的方言
+* CIFS - Common Internet File System
+  * SMB 的方言
+  * SMB 由 IBM 创建
+  * 1996 微软 尝试重命名为 CIFS， 对应 SMBv1，添加了新的功能
+  * Linux 的 CIFS 模块支持 SMBv2
 * 建议统一使用 SMB
 * Windows Vista/Windows 2006 SMBv2
 * Windows 8/Windows 2012 SMBv3
+* [CIFS vs SMB](https://blog.varonis.com/cifs-vs-smb/)
 
 ### NT_STATUS_BAD_NETWORK_NAME
 可能是因为目录没有权限

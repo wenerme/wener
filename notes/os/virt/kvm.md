@@ -3,7 +3,7 @@
 * [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
 * [Linux KVM](https://www.linux-kvm.org)
   * [FAQ](https://www.linux-kvm.org/page/FAQ)
-
+* [kvm-forum-2016-security.pdf](https://people.redhat.com/berrange/kvm-forum-2016/kvm-forum-2016-security.pdf)
 
 ## KVM internal error. Suberror: 3
 * 确认参数是否正确
@@ -40,7 +40,7 @@ egrep -c '(vmx|svm)' /proc/cpuinfo
 ```bash
 sudo apk add qemu qemu-system-x86_64 qemu-ui-curses qemu-block-ssh qemu-img
 
-sudo apk add qemu-system-x86_64 libvirt 
+sudo apk add qemu-system-x86_64 libvirt
 
 sudo apk add libvirt-daemon dbus polkit
  modprobe kvm-intel
@@ -120,7 +120,7 @@ qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-
 
 qemu -nographic -serial mon:stdio -append 'console=ttyS0' binary.img
 
-qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -vnc :1 -hda base.raw 
+qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -vnc :1 -hda base.raw
 qemu-system-x86_64 -smp 4 -m 8G -accel kvm -net nic -net user,hostfwd=tcp::2223-:22 -hda virt.qcow2 -nographic
 
 -monitor stdio

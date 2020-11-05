@@ -1,3 +1,7 @@
+---
+title: gitlab-ci.yml
+---
+
 # gitlab-ci.yml
 
 ## Tips

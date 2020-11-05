@@ -1,14 +1,31 @@
 ---
-title: K3S 实践
+title: K3S Cookbook
+hide_title: true
 ---
 
-# K3S 实践
+# K3S 操作手册
+
+- 内部透传配置项
+  - kube-apiserver-arg - [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)
+  - kube-cloud-controller-manager-arg - [kube-cloud-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-cloud-controller-manager/)
+  - kube-controller-manager-arg - [kube-controller-manager](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)
+  - kube-proxy-arg - [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)
+  - kube-scheduler-arg - [kube-scheduler](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)
+  - kubelet-arg - [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
+
+:::info
+
+- 推荐使用 Yaml 配置
+- 推荐尽量使用默认配置
+
+:::
 
 ## 简单启动
 
 ```bash
 mkdir -p /etc/rancher/k3s
 cat <<YAML > /etc/rancher/k3s/config.yaml
+# 推荐 docker 启动
 docker: true
 # 主机名作为节点名字
 node-name: $(hostname)
@@ -65,8 +82,9 @@ YAML
 ```
 
 ## 清空 K3S 服务
-* 前提是用的 docker
-* containerd 得 kill 进程
+
+- 前提是用的 docker
+- containerd 得 kill 进程
 
 ```bash
 # 停止 k3s 避免创建 pod

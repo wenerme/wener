@@ -14,7 +14,14 @@ title: Asterisk 版本
 * [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
 
 ## 18 / LTS / 2020-10 - 2024-10
-
+* [CHANGES](https://raw.githubusercontent.com/asterisk/asterisk/18/CHANGES)
+* logger 新增 plain 格式 - 包含文件名，方法代码行
+* 支持 H.265/HEVC
+* 支持 [AudioSocket](https://wiki.asterisk.org/wiki/display/AST/AudioSocket) 协议
+  * chan_audiosocket, app_audiosocket
+  * 基于 TCP 的音频传输协议 - 适用于局域网实现音频处理 server - 例如 AI
+  * [CyCoreSystems/audiosocket](https://github.com/CyCoreSystems/audiosocket)
+  * [Audio Pipes : playing with real-time audio with Asterisk](https://www.youtube.com/watch?v=tjduXbZZEgI)
 ## 17
 
 ### 新增
@@ -73,7 +80,7 @@ title: Asterisk 版本
   * testing of Asterisk's (15+) multistream capabilities
 
 ### 14
-* 核心 DNS 支持 - libunbound 支持 PJSIP NAPTR SRV 
+* 核心 DNS 支持 - libunbound 支持 PJSIP NAPTR SRV
 * 发布 extension 状态到 SIP 订阅服务器 - 例如 Kamailio
   * 能基于设备状态自动在拨号计划里生成 hint
 * 所有应用支持播放 HTTP 媒体

@@ -6,12 +6,16 @@ title: IPSec
 # IPSec
 
 ## Tips
-
+- 一套协议而不是单个协议
+- 加密数据
+- 验证来源
+- 验证数据完整性
 - [IPsec](https://en.wikipedia.org/wiki/IPsec) - Internet Protocol Security
 - 参考
   - [Full-mesh IPsec network](https://www.usenix.org/sites/default/files/conference/protected-files/srecon16europe_slides_garcia.pdf)
     - [n2n](https://github.com/ntop/n2n) 迁移 IPSec
-    - 不要使用 ipsec-tools
+    - 不要使用 ipsec-tools/racoon
+  - [IPSec over NAT](http://docs.ruckuswireless.com/fastiron/08.0.80/fastiron-08080-securityguide/GUID-0F5E2C64-B9B8-4900-A446-F44FBEA493C1.html)
 
 ```bash
 # ip xfrm
@@ -45,6 +49,7 @@ cat /proc/net/xfrm_stat
 - 协议方式
   - AH - Authentication Header - 数据完整性和来源校验
   - ESP - Encapsulating Security Payload - 数据加密
+  - AH+ESP
 - SP - Security Policy - 安全策略
   - 存储在 SPD - Security Policy Database
   - 由内核使用，表述如下语义

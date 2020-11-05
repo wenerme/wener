@@ -11,29 +11,29 @@ hide_title: true
 | 开发者                | Rancher/SUSE                                                               | 青云开源                                                          |
 | 源码                  | [rancher/rancher](https://github.com/rancher/rancher)                      | [kubesphere/kubesphere](https://github.com/kubesphere/kubesphere) |
 | Stars                 | 15.5k                                                                      | 4.4k                                                              |
-| 安装                  | Helm                                                                       | ks-installer(Ansible)+CDR                                         |
+| 安装                  | Helm                                                                       | ks-installer(Ansible)+CRD                                         |
 | 部署 K8S              | rke/rancher                                                                | kubekey                                                           |
 | 版本                  | v2.5                                                                       | v3.0                                                              |
 | 监控                  | Grafana+Prometheus                                                         | Prometheus+前端集成                                               |
 | 告警                  | Grafana/Altermanager                                                       | 邮件、企业微信、Slack                                             |
-| 日志                  | Banzi Operator                                                             | Elasticseach, fluentbit + 前端集成<br/>事件日志，审计日志                                          |
+| 日志                  | Banzi Operator                                                             | Elasticseach, fluentbit + 前端集成<br/>事件日志，审计日志         |
 | ServiceMesh           | Istio                                                                      | Istio                                                             |
 | DevOps                | 2.5 之前 - rancher-pipeline/Jenkins/docker-registry/minio<br/>Fleet GitOps | Jenkins                                                           |
 | 应用商店              | Helm Repo                                                                  | [openpitrix/openpitrix](https://github.com/openpitrix/openpitrix) |
 | 角色权限管理          | ✅                                                                         | ✅                                                                |
-| 配置方式              | Web UI                                                                     | 编辑 CDR/yaml                                                     |
-| 应用                  | Helm                                                                       | Helm/[CDR](https://github.com/kubernetes-sigs/application)        |
+| 配置方式              | Web UI                                                                     | 编辑 CRD/yaml                                                     |
+| 应用                  | Helm                                                                       | Helm/[CRD](https://github.com/kubernetes-sigs/application)        |
 | 实现依赖              | -                                                                          | etcd+redis+minio+openldap+mysql                                   |
 | 实现服务              | rancher+fleet                                                              | ks-controller-manager+ks-apiserver+ks-console                     |
-| 多集群                | ⭐️⭐️⭐️                                                                  | ⭐️                                                               |
+| 多集群                | ✅                                                                         | ✅                                                                |
 | UI 美观               | ⭐️⭐️                                                                     | ⭐️⭐️⭐️                                                         |
 | UI 功能               | ⭐️⭐️⭐️                                                                  | ⭐️⭐️                                                            |
-| 云平台集成            | ⭐️⭐️⭐️                                                                  | ❌                                                                |
+| 云平台集成            | ⭐️⭐️                                                                     | ❌                                                                |
 | 文档                  | ⭐️⭐️                                                                     | ⭐️                                                               |
 | 开发友好              | ⭐️                                                                        | ⭐️⭐️⭐️                                                         |
 | 运维友好              | ⭐️⭐️⭐️                                                                  | ⭐️                                                               |
 | 使用者对 K8S 掌握程度 | 高                                                                         | 低                                                                |
-| 核心体验              | 多集群运维部署管理                                                         | 友好的一体化开发管理                                              |
+| 核心体验              | 多集群运维部署                                                             | 友好的一体化开发                                                  |
 
 <!-- more -->
 
@@ -73,33 +73,33 @@ hide_title: true
 
 ### 缺点
 
-- 要求使用人员对 Kubernetes 有一定认识和运维能力
-- 2.5 还在 latest 阶段，尚未进入 stable - 应该快了
+- 要求使用人员对 Kubernetes 有一定认知和运维能力
+- 2.5 还在 latest 阶段，尚未进入 stable
 - 2.5 的 Exploere 还没有中文，不过已有多语言支持
 - WebUI 使用起来总有种卡顿的感觉
 - 2.5 的新 UI 目前加载总会闪烁 - Loadding
 
 ## Kubesphere
 
-### 优势
+### 优点
 
-- 界面友好美观
+- __界面友好美观__
 - 集成监控
 - 集成日志
 - 集成 DevOps
 - 集成应用一体化体验 - 不需要去 Grafana 看监控，不需要去 Kibana 看日志
 - 面向内部的应用商店比 Helm Repo 在实际开发时更有实际意义
 
-### 缺陷
+### 缺点
 
-- **不支持 k8s v1.19** - 在 v1.19 已经发布两个月后
+- **不兼容 k8s v1.19** - 在 v1.19 已经发布两个月后
   - csr v1
-- 通过编辑 CDR 启动功能
+- 通过编辑 CRD 启动功能
   - 不知道状态和错误 - 只能看日志
 - Ansible 控制功能
   - 开启容易，关闭难
   - Ansible 本身无状态，没有 Helm 的卸载概念
-- 列表不能设置每页数量
+- 列表不能设置每页数量 - 默认 10条目/页
 - 翻页不便操作
 - 包含青云集成功能
 
@@ -135,9 +135,11 @@ Rancher 现在转向了 fleet，是专门用于集群资源管理的 GitOps，�
 - GitHub Action
 - 公有 Gitlab CI/CD
 - 私有 Gitlab CI/CD
-- 公有 Gitlab + Runner
+- 公有 Gitlab + 私有 Runner
+- 支持仓库集成的 CI/CD
+  - 能在 Gitlab/Github/Gitea 中直接看到 CI/CD 过程状态
 
-且 Gitlab 本来就有 Kubernetes 集成。代码仓库集成运行时，这才是应用管理正确的方向。
+Gitlab 有 Kubernetes 集成，能查看监控和日志。代码仓库集成运行时管理，我认为这才是应用管理正确的方向。
 
 # 总结
 
