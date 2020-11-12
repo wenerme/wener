@@ -144,6 +144,41 @@ helm install my-release ingress-nginx/ingress-nginx
 ver=$(curl -Ls https://api.github.com/repos/kubernetes/ingress-nginx/releases/latest | jq -r .tag_name)
 curl -LC- https://raw.githubusercontent.com/kubernetes/ingress-nginx/$ver/deploy/static/provider/baremetal/deploy.yaml -o nginx-ingress-baremetal-$ver.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/baremetal/deploy.yaml
+
+# wener helm charts
+helm repo add wener https://charts.wener.tech
+helm install ingress-nginx wener/ingress-nginx -n ingress-nginx -v nginx.values.yaml
+```
+
+__values.yaml__
+
+```yaml
+config:
+  hide-headers: "Server"
+controller:
+  image:
+    # use mirror
+    # k8s.gcr.io/ingress-nginx/controller
+    repository: registry.cn-hongkong.aliyuncs.com/cmi/ingress-nginx_controller
+    # disable digest
+    digest: ""
+  # 以 DaemonSet 安装
+  kind: DaemonSet
+  # 80 端口
+  hostPort:
+    enabled: true
+  # 是否启用 /metrics
+  metrics:
+    enabled: true
+    # 是否安装 kube-prometheus
+    serviceMonitor:
+      enabled: false
+  prometheusRule:
+    enabled: false
+  admissionWebhooks:
+    patch:
+      image:
+        repository: registry.cn-hongkong.aliyuncs.com/cmi/jettech_kube-webhook-certgen
 ```
 
 ## Examples

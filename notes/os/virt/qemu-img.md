@@ -45,7 +45,7 @@ fallocate -d tmp2.raw
 
 # dd 支持 sparse
 # https://man7.org/linux/man-pages/man1/dd.1.html
-dd if=test.raw of=tmp3.raw conv=sparse status=progress
+dd if=test.raw of=tmp3.raw conv=sparse status=progress bs=128MB
 
 # ddrescue 支持写入 sparse
 ddrescue -S -b8M /dev/sda1 /mount/external/backup/sda1.raw
@@ -110,23 +110,24 @@ qemu-img convert -O qcow2 alpine.img shrink.qcow2 -c
 ## LUKS
 * QCOW2 支持 LUKS
 * https://www.qemu.org/docs/master/system/qemu-block-drivers.html
-* LUKS 实际占用磁盘空间会更大
+* 直接使用 LUKS 等同于 RAW 加密
 
 ```bash
 # 创建无密码磁盘
 qemu-img create -f qcow2 demo.qcow2 10M
-# LUKS 加密，密码为 123
-qemu-img create -f luks --object secret,data=123,id=sec0  \
- -o key-secret=sec0 demo.luks 10M
+# RAW LUKS 加密，密码为 123
+qemu-img create -f luks --object secret,data=123,id=sec0 -o key-secret=sec0 demo.luks 10M
 # 写入 LUKS
-qemu-img convert --target-image-opts \
-    --object secret,data=123,id=sec0 -f qcow2 demo.qcow2 -n \
-    driver=luks,file.filename=demo.luks,key-secret=sec0
+qemu-img convert --target-image-opts --object secret,data=123,id=sec0 -f qcow2 demo.qcow2 -n driver=luks,file.filename=demo.luks,key-secret=sec0
+
+# QCOW2 LUKS
+qemu-img create -f qcow2 --object secret,data=123,id=sec0 -o encrypt.format=luks -o encrypt.key-secret=sec0 demo.luks 10M
+qemu-img convert --target-image-opts --object secret,data=123,id=sec0 -f qcow2 demo.qcow2 -n driver=qcow2,file.filename=demo.luks,encrypt.key-secret=sec0
 
 # QEMU 使用
 # -drive file=demo.luks,format=luks,key-secret=sec0,if=virtio -object secret,data=123,id=sec0
 
-# AES 加密
+# AES 加密密钥
 openssl rand -base64 32 > key.b64
 KEY=$(base64 -d key.b64 | hexdump  -v -e '/1 "%02X"')
 openssl rand -base64 16 > iv.b64

@@ -16,6 +16,8 @@ title: HyperV
 * [Install Hyper-V on Windows 10](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
 
 ```powershell
+Install-WindowsFeature-Name Hyper-V-Restart
+
 # 启用 HyperV
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```

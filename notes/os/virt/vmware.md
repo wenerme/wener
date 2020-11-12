@@ -24,6 +24,9 @@ title: VmWare
 # QCOW2 转 vmdk
 # flat 格式，能导入，但是是完整大小镜像，上传非常慢
 qemu-img convert -f qcow2 -O vmdk -o adapter_type=lsilogic,subformat=monolithicFlat alpine.qcow2 alpine.vmdk
+# https://kb.vmware.com/s/article/2144687
+qemu-img convert -f qcow2 -O vmdk -o subformat=streamOptimized alpine.qcow2 alpine.vmdk
+printf '\x03' | dd conv=notrunc of=alpine.vmdk bs=1 seek=$((0x4))
 ```
 
 # FAQ

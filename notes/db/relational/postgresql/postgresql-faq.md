@@ -8,8 +8,37 @@ title: 常见问题
 ## 维护
 * [postgres_queries_and_commands.sql](https://gist.github.com/rgreenjr/3637525) - Useful PostgreSQL Queries and Commands
 
-## How to Upgrade
+## 升级
+* https://www.xf.is/2019/02/26/convert-postgresql-cluster-to-use-page-checksums/
+  * `show data_checksums`
+
 可以构造一个包含所有版本的镜像，然后进行升级 - [Dockerfile](https://github.com/postgres/pgadmin4/blob/master/Dockerfile)
+
+```bash
+# https://github.com/tianon/docker-postgres-upgrade
+docker run --rm \
+	-v PGDATAOLD:/var/lib/postgresql/OLD/data \
+	-v PGDATANEW:/var/lib/postgresql/NEW/data \
+	tianon/postgres-upgrade:OLD-to-NEW
+```
+
+```bash
+pg_upgrade --old-datadir /var/lib/pgsql/data/ --new-datadir /var/lib/pgsql/10/data/ \
+--old-bindir /usr/bin/ --new-bindir /usr/pgsql-10/bin/
+```
+
+## Dump
+* [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html)
+* https://www.postgresql.org/docs/current/app-pgdump.html
+* https://www.postgresql.org/docs/current/app-pgrestore.html
+* https://www.percona.com/blog/2019/03/27/postgresql-upgrade-using-pg_dump-pg_restore/
+
+
+```bash
+# -Z compress
+pg_dump -Fc -Z 9 -j $(nproc) --file=file.dump myDb
+pg_restore -Fc -j $(nproc)  file.dump
+```
 
 ## CTID
 

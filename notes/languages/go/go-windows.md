@@ -12,6 +12,7 @@ title: Golang Windows
     * Linux 可以使用 Setpgid
   * [go-cmd/cmd](https://github.com/go-cmd/cmd)
   * [AllenDang/w32](https://github.com/AllenDang/w32)
+  * [golang.org/x/sys/windows/svc/mgr](https://pkg.go.dev/golang.org/x/sys/windows/svc/mgr)
 
 ```bash
 # CGO 交叉编译

@@ -1,8 +1,9 @@
 ---
 id: kubesphere
+title: Kubesphere
 ---
 
-# kubesphere
+# Kubesphere
 
 - 是什么
   - 国产青云 开源的 kubesphere 管理平台

@@ -19,7 +19,24 @@ title: FTP
 * [CrossFTP](http://www.crossftp.com/)
   * FTP & Amazon S3 Client
 * [pkg/sftp](https://github.com/pkg/sftp)
+* server
+  * lftp
+  * proftp
+  * pure-ftp
 
 ## 530 User cannot log in, home directory inaccessible.
 
 一般是权限问题
+
+
+## busybox ftpd
+
+__inetd.conf__
+
+```conf
+21 stream tcp nowait root ftpd ftpd /files/to/serve
+```
+
+```bash
+tcpsvd -vE 0.0.0.0 21 ftpd /files/to/serve
+```

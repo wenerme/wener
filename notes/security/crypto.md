@@ -38,7 +38,7 @@ title: Crypto
   * x509
 * [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
   * [Public Key Cryptography: RSA Encryption Algorithm](https://youtu.be/wXB-V_Keiu8)
-* [DES]() - Data Encryption Standard
+* DES - Data Encryption Standard
   * 已经不是一种安全的加密方法，主要因为它使用的56位密钥过短
 * DER
 * [X.509](https://en.wikipedia.org/wiki/X.509)

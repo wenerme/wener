@@ -15,8 +15,10 @@ title: 虚拟化
   * [Hardware-assisted virtualization](https://en.wikipedia.org/wiki/Hardware-assisted_virtualization)
   * Intel VT-x
   * AMD-V
-* Full virtualization 
+* Full virtualization
 * paravirtualization
+* RHEL [CONFIGURING AND MANAGING VIRTUALIZATION](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/index)
+  * 很好很长的文档
 
 # FAQ
 ## /dev/sda vs /dev/vda

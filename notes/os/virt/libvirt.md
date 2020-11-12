@@ -35,6 +35,7 @@ title: Libvirt
   * libvirtd 未正常关闭导致 hang - 6.6.0 应该会修复
     * [alpine/aports#11602](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602)
     * [libvirt/libvirt#52](https://gitlab.com/libvirt/libvirt/-/issues/52)
+* [libvirt-client](https://pkgs.alpinelinux.org/contents?branch=edge&name=libvirt-client&arch=x86_64&repo=community)
 
 ```bash
 # macOS
@@ -43,6 +44,9 @@ brew install libvirt
 
 # alpine
 apk add virt-install
+
+# 检测宿主机支持情况
+virt-host-validate
 
 # 启动服务进程
 libvirtd -v

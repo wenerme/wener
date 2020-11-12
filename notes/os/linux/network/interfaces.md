@@ -125,7 +125,30 @@ iface bond0 inet dhcp
 
 # bridge
 # ===================
+auto br0
+iface br0 inet dhcp
+  # 有该配置说明是桥接
+  # 特殊值 none all
+  bridge-ports vnet0 vnet1
+  # 等待端口
+  # bridge-waitport 0
+  # bridge-ageing 0
+  # bridge-bridgeprio 0
+  # forward delay - 默认 30s
+  # bridge-fd 30
+  # bridge-gcint 0
+  # bridge-hello 0
+  # bridge-maxage 0
+  # bridge-pathcost 0
+  # 0-65535
+  # bridge-portprio 0
+  # 是否开启 STP - 如果不是唯一的 bridge 则需要打开
+  # bridge-stp on
+```
 
+```bash
+# 当前的 mac 信息
+bridge fdb
 ```
 
 # Methods

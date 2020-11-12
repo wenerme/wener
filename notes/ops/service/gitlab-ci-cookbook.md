@@ -7,6 +7,31 @@ title: Gitlab CI 技巧
 ## Tips
 * `.` 开头的任务不会执行
 
+## Hello World
+```yaml
+stage:
+- build
+
+Hello CI:
+  stage: build
+  script:
+  - echo Hello Gitlab CI !
+```
+
+## docker 构建
+
+```yaml
+Build in Docker:
+  image: wener/go:win
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - go env
+```
+
+## 生成
+
 ## 构建之间传递变量
 
 ```yaml

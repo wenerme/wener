@@ -23,12 +23,12 @@ title: Apache Superset
 - Dashboard 只读基础权限
   - can explore json on Superset
   - can dashboard on Superset
-  - can list on CssTemplateAsyncModelView - 否则会出一个错误信息
+  - can list on CssTemplateModelView - 否则会出一个错误信息
   - datasource access on xxx.xxx
   - can csrf token on Superset
   - can show on DashboardModelView
 - 问题
-  - [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409) - Calendar heatmap dates shifted by one (converting to local time zone) 
+  - [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409) - Calendar heatmap dates shifted by one (converting to local time zone)
 
 ## 配置
 * [缓存配置](https://superset.incubator.apache.org/installation.html#caching)
@@ -40,7 +40,7 @@ SESSION_COOKIE_HTTPONLY = False
 #HTTP_HEADERS = {'X-Frame-Options': 'ALLOW-FROM http://localhost:8080'}
 #HTTP_HEADERS = {'Content-Security-Policy': 'frame-ancestors \'self\' localhost:8081','Access-Control-Allow-Origin':'*'}
 
-# 
+#
 ROW_LIMIT = 5000
 SUPERSET_WORKERS = 2
 
@@ -63,7 +63,7 @@ WTF_CSRF_ENABLED = True
 WTF_CSRF_EXEMPT_LIST = []
 MAPBOX_API_KEY = ''
 
-# 
+#
 MAPBOX_API_KEY = os.getenv('MAPBOX_API_KEY', '')
 CACHE_CONFIG = {
     'CACHE_TYPE': 'redis',

@@ -159,3 +159,33 @@ rootwait	[KNL] Wait (indefinitely) for root device to show up.
 rw		[KNL] Mount root device read-write on boot
 
 ```
+
+手动设置用于 Linux 引导的“nomodeset”内核引导行选项
+https://www.dell.com/support/article/zh-hk/sln306327
+
+https://itectec.com/ubuntu/ubuntu-what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean/
+
+You have booted with nomodeset. This means your GPU drivers are DISABLED
+Any video related functionality will be severely degraded, and you may not even be able tospend the system properly
+Unless you actually understand what nomodeset does, you should reboot without enabling it
+
+## 解压
+
+```bash
+curl -LOC- https://mirrors.aliyun.com/alpine/v3.12/releases/x86_64/netboot/vmlinuz-virt
+
+# extract-vmlinux
+# ===========
+curl -LOC- https://raw.githubusercontent.com/torvalds/linux/master/scripts/extract-vmlinux
+chmod +x extract-vmlinux
+./extract-vmlinux $PWD/vmlinuz-virt > vmlinux-virt
+
+# valid kernel
+readelf -h ./vmlinux-virt
+
+# bzImage 原始方法
+# ==========
+od -A d -t x1 vmlinuz-virt | grep '1f 8b 08 00'
+# offset 0017328 + colume 1
+dd if=vmlinuz-virt bs=1 skip=17329 | zcat > vmlinux-virt
+```

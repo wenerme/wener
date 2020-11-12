@@ -22,6 +22,7 @@ title: Asterisk 版本
   * 基于 TCP 的音频传输协议 - 适用于局域网实现音频处理 server - 例如 AI
   * [CyCoreSystems/audiosocket](https://github.com/CyCoreSystems/audiosocket)
   * [Audio Pipes : playing with real-time audio with Asterisk](https://www.youtube.com/watch?v=tjduXbZZEgI)
+
 ## 17
 
 ### 新增

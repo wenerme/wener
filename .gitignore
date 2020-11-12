@@ -18,3 +18,4 @@ ignored.md
 node_modules
 
 .history
+*-ignored*

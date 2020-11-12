@@ -6,10 +6,12 @@ title: QEMU
 # QEMU
 
 ## Tips
-
+- 是什么？
+  - 开源模拟器、虚拟机
+  - 支持硬件加速
 - [qemu.org](https://www.qemu.org/)
 - [QEMU:wiki](https://en.wikipedia.org/wiki/QEMU)
-- https://www.qemu.org/docs/master/
+- [QEMU Documentation](https://www.qemu.org/docs/master/)
 - https://qemu.weilnetz.de/doc/latest/
 - VirtualBox , Xen 和 KVM 基于 QEMU
 - 安卓虚拟机基于 QEMU ARM 虚拟

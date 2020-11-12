@@ -48,6 +48,28 @@ title: CNI
 | sbr               | 基于来源的路由                                |
 | firewall          | 基于 iptables 或 firewalld 的防火墙控制       |
 
+## spec
+* add,delete,version
+* stdin, stdout
+* CNI_ARGS, CAP_ARGS
+
+```bash
+cat <<CONF > bridge.conf
+{
+  "name": "mynet",
+  "type": "bridge",
+  "ipam": {
+    "type":"host-local",
+    "subnet": "10.10.1.0/24"
+  }
+}
+CONF
+ip netns add ns1
+
+CNI_COMMAND=ADD CNI_CONTAINERID=ns1 CNI_NETNS=/var/run/netns/ns1 CNI_IFNAME=eth2 CNI_PATH="$PWD" \
+bridge < bridge.conf
+```
+
 ## bridge
 
 ```json
@@ -81,3 +103,34 @@ title: CNI
   // "vlan":0
 }
 ```
+
+
+## Windows
+* win-overlay
+* win-bridge
+* host-local
+* flannel
+
+```bash
+cat <<CONF > overlay.conf
+{
+	"name": "mynet",
+	"type": "win-overlay",
+	"ipMasq": true,
+	"endpointMacPrefix": "0E-2A",
+	"ipam": {
+		"type": "host-local",
+		"subnet": "10.10.0.0/16"
+	},
+  "loopbackDSR": true,
+  "capabilites": {
+      "dns": true
+  }
+}
+CONF
+
+CNI_COMMAND=ADD CNI_CONTAINERID=ns1 CNI_NETNS=/var/run/netns/ns1 CNI_IFNAME=eth2 CNI_PATH="$PWD" \
+./win-overlay < overlay.conf
+```
+
+## error while GETHNSNewtorkByName(mynet): hnsCall failed in Win32: The specified module could not be found. (0x7e)

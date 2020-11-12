@@ -5,6 +5,72 @@ title: NextJS 版本历史
 
 # NextJS 版本历史
 
+## 10
+* [10](https://nextjs.org/blog/next-10)
+* `next/image` - 图片组件，自动图片优化
+  * WebP、JPEG
+* 国际化路由
+* [Analytics](http://nextjs.org/analytics) - 性能分析
+* [Commerce](https://nextjs.org/commerce) - 电商模版
+* React 17
+* `getStaticProps` / `getServerSideProps` Fast Refresh 支持
+* `@next/mdx` Fast Refresh 支持
+* 从 NPM 导入组件 CSS
+* 自动处理 `href` 属性，可以不用 `as`
+* @next/codemod - nextjs 升级代码转换
+* 允许阻塞 getStaticPaths - 之前是 fallback
+
+```js
+// 国际化路由
+module.exports = {
+  i18n: {
+    locales: ['en', 'nl'],
+    defaultLocale: 'en',
+    domains: [
+      {
+        domain: 'example.com',
+        defaultLocale: 'en'
+      },
+      {
+        domain: 'example.nl',
+        defaultLocale: 'nl'
+      }
+    ]
+  }
+}
+```
+
+```js
+import DatePicker from 'react-datepicker'
+// 支持导入 css - 之前需要在 _app.js 导入
+import 'react-datepicker/dist/react-datepicker.css'
+```
+
+```js
+export function getStaticPaths() {
+  return {
+    // enables blocking mode for the fallback behavior
+    fallback: 'blocking'
+  }
+}
+```
+
+```js
+export function getStaticProps() {
+  return {
+    // returns the default 404 page with a status code of 404
+    notFound: true,
+
+    // returns a redirect to an internal page `/another-page`
+    redirect: {
+      destination: '/another-page',
+      // destination: 'https://example.com',
+      permanent: false
+    }
+  }
+}
+```
+
 ## 9.5
 * [9.5](https://nextjs.org/blog/next-9-5) - 2020-7-28
 * 增量静态生成 - 稳定阶段

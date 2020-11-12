@@ -15,6 +15,10 @@ cp rclone ~/bin
 # 使用情况
 rclone about gd:
 
+# 不创建配置的使用方式
+rclone lsd --webdav-url http://192.168.1.1:8080 :webdav:
+rclone lsd --sftp-host example.com :sftp:
+rclone lsd --ftp-host 192.168.1.1 --ftp-port 21 --ftp-user anonymous --ftp-pass $(rclone obscure anonymous) :ftp:
 
 # 下载失败可能会创建空文件
 # 查看实际占用空间
@@ -43,3 +47,6 @@ rclone mount gd: /tmp/gd \
   --poll-interval 1m0s \
   --drive-v2-download-min-size 0
 ```
+
+# FAQ
+## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF

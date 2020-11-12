@@ -20,6 +20,7 @@ title: Firecracker
     - 实现通过 containerd 管理 microVM
   - [firecracker-microvm/firectl](https://github.com/firecracker-microvm/firectl) - 辅助运行 firecracker
   - [weaveworks/ignite](https://github.com/weaveworks/ignite) - 类似 Docker 管理容器一样管理 microVM
+  - qemu [docs/microvm](https://github.com/qemu/qemu/blob/master/docs/microvm.rst) - QEMU 支持 microvm
 - 问题
   - [#1571](https://github.com/firecracker-microvm/firecracker/issues/1571) - virtio memory balloon
 
@@ -326,6 +327,14 @@ vsock:
 ip tuntap add dev fc0 mode tap
 ip li set fc0 master virbr0
 ip li set fc0 up
+
+
+sudo ip link add name br0 type bridge
+sudo ip addr add 172.20.0.1/24 dev br0
+sudo ip link set dev br0 up
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables --table nat --append POSTROUTING --out-interface enp3s0 -j MASQUERADE
+sudo iptables --insert FORWARD --in-interface br0 -j ACCEPT
 ```
 
 ```json

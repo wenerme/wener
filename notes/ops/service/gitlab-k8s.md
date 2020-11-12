@@ -7,7 +7,8 @@ title: GitLab K8S 集成
 
 * 问题
   * 集成 Helm 3
-    * [#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)
+    * ~~[#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)~~
+      * 不在直接使用 Helm
     * [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
     * [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
   * 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
@@ -109,7 +110,7 @@ __activator__ 错误信息
 {"level":"error","ts":"2019-11-30T06:15:36.850Z","logger":"activator","caller":"websocket/connection.go:158","msg":"Failed to send ping message","knative.dev/controller":"activator","error":"connection has not yet been established","stacktrace":"github.com/knative/serving/vendor/github.com/knative/pkg/websocket.NewDurableConnection.func3\n\t/home/prow/go/src/github.com/knative/serving/vendor/github.com/knative/pkg/websocket/connection.go:158"}
 ```
 
-#### Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work. 
+#### Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
 * knative 容器启动的时候可能有这个异常信息
 
 #### pod is not yet backed by activator, cannot scale to zero
@@ -142,7 +143,7 @@ kubectl delete ClusterRoleBinding gitlab-admin
 # 删除 Token
 # kubectl delete Secret gitlab-token
 
-# tiller 
+# tiller
 kubectl delete sa tiller -n kube-system
 kubectl delete ClusterRoleBinding tiller-admin
 ```
@@ -167,10 +168,10 @@ helm init --tiller-tls --tiller-tls-verify --tls-ca-cert gitlab-tiller/ca.pem --
 # 空间下 helm 相关资源
 kubectl get all -l app=helm
 # 验证
-helm version --tls --tls-verify --tls-ca-cert gitlab-tiller/ca.pem --tls-cert gitlab-tiller/cert.pem --tls-key gitlab-tiller/key.pem 
+helm version --tls --tls-verify --tls-ca-cert gitlab-tiller/ca.pem --tls-cert gitlab-tiller/cert.pem --tls-key gitlab-tiller/key.pem
 
 # 安装后 tiller-deploy 的证书位于 /etc/certs
-# /helm version --tls --tls-verify --tls-ca-cert /etc/certs/ca.crt --tls-cert /etc/certs/tls.crt --tls-key /etc/certs/tls.key --host 
+# /helm version --tls --tls-verify --tls-ca-cert /etc/certs/ca.crt --tls-cert /etc/certs/tls.crt --tls-key /etc/certs/tls.key --host
 
 # 删除 Helm 相关资源
 kubectl delete all -l app=helm

@@ -9,6 +9,10 @@ title: Windows 环境
 
 ## 环境变量
 
+- 目录注册表
+  - `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders`
+  - `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders`
+
 | Environment Variable           | Vista+                                 | XP                                                       |
 | ------------------------------ | -------------------------------------- | -------------------------------------------------------- |
 | `%ALLUSERSPROFILE%`            | C:\ProgramData                         | C:\Documents and Settings\All Users                      |
