@@ -86,19 +86,19 @@ yum install rng-tools -y
 
 rd.emergency=[reboot|poweroff|halt]
 specify, what action to execute in case of a critical failure. rd.shell=0 also be specified.
-rd.driver.blacklist=<drivername>[,<drivername>,…]
-do not load kernel module <drivername>. This parameter can be specified multiple times.
-rd.driver.pre=<drivername>[,<drivername>,…]
-force loading kernel module <drivername>. This parameter can be specified multiple times.
-rd.driver.post=<drivername>[,<drivername>,…]
-force loading kernel module <drivername> after all automatic loading modules have been loaded. This parameter can be specified multiple times.
-rd.retry=<seconds>
+rd.driver.blacklist=`<drivername>[,<drivername>,…]`
+do not load kernel module `<drivername>`. This parameter can be specified multiple times.
+rd.driver.pre=`<drivername>[,<drivername>,…]`
+force loading kernel module `<drivername>`. This parameter can be specified multiple times.
+rd.driver.post=`<drivername>[,<drivername>,…]`
+force loading kernel module `<drivername>` after all automatic loading modules have been loaded. This parameter can be specified multiple times.
+rd.retry=`<seconds>`
 specify how long dracut should retry the initqueue to configure devices. The default is 30 seconds. After 2/3 of the time, degraded raids are force started. If you have hardware, which takes a very long time to announce its drives, you might want to extend this value.
-rd.timeout=<seconds>
+rd.timeout=`<seconds>`
 specify how long dracut should wait for devices to appear. The default is 0, which means forever. Note that this timeout should be longer than rd.retry to allow for proper configuration.
 rd.noverifyssl
 accept self-signed certificates for ssl downloads.
-rd.ctty=<terminal device>
+rd.ctty=`<terminal device>`
 specify the controlling terminal for the console. This is useful, if you have multiple "console=" arguments.
 
 cp -r usr/lib/modules/4.18.0-193.19.1.el8_2.x86_64 lib/modules/
