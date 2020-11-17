@@ -26,6 +26,11 @@ apk add py3-pip
 pip3 install openshift
 ```
 
+## The `lxml` module is not importable. Check the requirements.
+```bash
+apk add py3-lxml
+```
+
 ## include_task vs import_task
 
 - 建议

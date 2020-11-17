@@ -20,7 +20,9 @@ title: 基础设施
 * 参考
   * [Infrastructure as code 工具](https://en.wikipedia.org/wiki/Infrastructure_as_code#Tools)
   * [Comparison of open-source configuration management software](https://en.wikipedia.org/wiki/Comparison_of_open-source_configuration_management_software)
-
+* 配置 - 幂等
+  * 需要更新
+* 开通服务 - Provisioning - 通常是一次性操作
 
 # FAQ
 ## Terraform vs Ansible

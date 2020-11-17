@@ -45,7 +45,10 @@ service k3s start
 mkdir -p /etc/rancher/k3s
 cat <<YAML > /etc/rancher/k3s/config.yaml
 docker: true
+# 嵌入 etcd
 datastore-endpoint: etcd
+# 外部数据库
+# datastore-endpoint: postgresql://user:password@postgres:5432/k3s
 write-kubeconfig-mode: '0644'
 
 token: $(uuidgen)
@@ -58,6 +61,8 @@ flannel-backend: host-gw
 flannel-iface: kubenet
 node-ip: 10.10.1.1
 node-name: $(hostname)
+# 证书添加额外域名
+# tls-san: kube.my.org
 YAML
 
 # 可用于前端 DEBUG 启动看日志
