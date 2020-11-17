@@ -5,6 +5,23 @@ title: Tinc 常见问题
 # Tinc FAQ
 
 
+## Peer had unknown identity
+
+```
+Peer 1.2.3.4 port 53291 had unknown identity (node_1)
+Error while processing ID from node_1 (1.2.3.4 port 53291)
+```
+
+## Error while decrypting routines:EVP_EncryptUpdate:invalid operation
+* libssl - [tinc: breaks after upgrading libssl1.1 to v1.1.1b-1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=923438)
+* pre+`ExperimentalProtocol=no` 会出现
+  * 因此要嘛启用 1.1 协议，要嘛使用 1.0 版本 tinc
+
+```
+Error while decrypting: error:060A7094:digital envelope routines:EVP_EncryptUpdate:invalid operation
+Error while decrypting metadata from node_1 (1.2.3.4 port 39080)
+```
+
 ## Handshake phase not finished yet
 * 尝试 `ExperimentalProtocol = no`
 * 参考

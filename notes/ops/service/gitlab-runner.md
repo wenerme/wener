@@ -9,8 +9,18 @@ title: Gitlab Runner
   * 支持架构 x86, AMD64, ARM64, ARM, s390x
   * 支持平台 Linux, Windows, macOS, FreeBSD
   * 部署方式 Docker, Helm, Shell
-
-
+* Runner 类型
+  * shell
+    * 直接 Shell 执行脚本，最快，不需要启动容器 - 例如构建 Golang 可能只需要十来秒
+    * 需要环境需要提前准备好
+    * 建议使用 root 权限，因此建议通过 docker 来使用
+  * docker
+    * 支持 image 指定镜像
+  * ssh
+    * 通过 SSH 执行命令，CI 执行任务时可能更有意义
+  * kubernetes
+    * 在集群环境下
+  * docker-windows, docker-ssh, parallels, virtualbox, docker+machine, docker-ssh+machine
 
 
 ```bash
@@ -20,6 +30,7 @@ docker run --rm -it gitlab/gitlab-runner:alpine register --help
 docker run --rm -it gitlab/gitlab-runner:alpine register
 # 非交互式注册
 TOKEN=""
+# 注册为 docker executor
 docker run --rm \
   -v /data/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner:alpine register \
   --non-interactive \
@@ -268,4 +279,20 @@ gitlab-runner register \
 cat config.toml
 # 在 runner 下执行 - build 和 cache 也在该目录下
 gitlab-runner run -d ./runner
+```
+
+## AlpineLinux
+
+```bash
+# 最新版
+apk add gitlab-runner -X https://mirrors.aliyun.com/alpine/edge/community/
+# register
+# 配置文件 /etc/gitlab-runner/config.toml
+
+# 默认使用 gitlab-runner 用户和分组
+# 如果在 docker 里使用 root 更方便
+cat <<CONF > /etc/conf.d/gitlab-runner
+GITLAB_RUNNER_USER="root"
+GITLAB_RUNNER_GROUP="root"
+CONF
 ```

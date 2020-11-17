@@ -16,6 +16,7 @@ title: IPSec
     - [n2n](https://github.com/ntop/n2n) 迁移 IPSec
     - 不要使用 ipsec-tools/racoon
   - [IPSec over NAT](http://docs.ruckuswireless.com/fastiron/08.0.80/fastiron-08080-securityguide/GUID-0F5E2C64-B9B8-4900-A446-F44FBEA493C1.html)
+  - RHEL 8 [CONFIGURING A VPN WITH IPSEC](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/configuring-a-vpn-with-ipsec_securing-networks)
 
 ```bash
 # ip xfrm

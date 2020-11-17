@@ -118,6 +118,7 @@ module.exports = {
       'devops/kubernetes/distro/k3s-version',
       'devops/kubernetes/distro/k3d',
       'devops/kubernetes/k8s-glossary',
+      'devops/kubernetes/app/app-cookbook',
       'devops/kubernetes/app/helm',
       'devops/kubernetes/app/helm2',
       'devops/kubernetes/ops/rke',
