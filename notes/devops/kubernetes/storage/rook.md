@@ -5,7 +5,7 @@ title: Rook
 
 # Rook
 ## Tips
-* [rook.io](https://rook.io/) 
+* [rook.io](https://rook.io/)
   * 存储管理框架
   * 以 CRD 的方式 文件、块、对象、NoSQL 存储服务
   * 支持管理服务
@@ -31,3 +31,9 @@ title: Rook
       * 小于该版本限额不生效
   * NFS
     * 安装 nfs-utils
+
+## nfs
+```bash
+ver=v1.5.0
+curl -L --remote-name-all https://github.com/rook/rook/raw/$ver/cluster/examples/kubernetes/nfs/{common,operator,webhook,psp,rbac}.yaml
+```

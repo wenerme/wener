@@ -94,7 +94,9 @@ sentry_dsn=false
   executor = "docker"
   # bash, sh, powershell, pwsh (PowerShell Core)
   shell=""
+  # 构建目录 - Locally, Docker, SSH
   # builds_dir=/build
+  # 缓存目录 - Locally, Docker, SSH - docker 环境需要该目录在 volume 中
   # cache_dir=/cache
   # 环境变量
   # environment=["ENV=value", "LC_ALL=en_US.UTF-8"]
@@ -114,7 +116,12 @@ sentry_dsn=false
   # debug_trace_disabled
   # Extra job monitoring workers that pass their results as job artifacts to GitLab
   # referees
-  [runners.custom_build_dir]
+
+# 自定义构建目录
+# GIT_CLONE_PATH
+[runners.custom_build_dir]
+# 默认启用环境 kubernetes, docker, docker-ssh, docker+machine, docker-ssh+machine
+  # enabled = true
 [runners.docker]
   # 优先使用 DOCKER_HOST
   host=unix:///var/run/docker.sock
@@ -295,4 +302,70 @@ cat <<CONF > /etc/conf.d/gitlab-runner
 GITLAB_RUNNER_USER="root"
 GITLAB_RUNNER_GROUP="root"
 CONF
+```
+
+## Shell in Docker
+* 有些构建环境可能还会需要 py3，gcc
+
+```bash
+# wener/gitlab-runner include docker, make, git
+docker run -d --restart always \
+  -v $PWD:/etc/gitlab-runner \
+  -v $PWD/builds:/builds \
+  -v $PWD/cache:/cache \
+  -e TZ=Asia/Shanghai \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --name gitlab-runner-shell wener/gitlab-runner
+```
+
+__最小配置__
+
+```ini
+concurrent = 1
+check_interval = 0
+# 不运行没有指定 tag 的 - 相当于默认 runner - 一般 docker 会通用一点
+run_untagged=false
+shell="bash"
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "linux-shell-runner"
+  url = "https://gitlab.com/"
+  token = "$TOKEN"
+  executor = "shell"
+```
+
+__go__
+
+```bash
+apk add go -X https://mirrors.aliyun.com/alpine/edge/community
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.32.2
+```
+
+__nodejs__
+
+```bash
+apk add nodejs npm nghttp2
+```
+
+__自定义 Runner__
+```bash
+cat <<DOCKERFILE > Dockerfile
+FROM wener/gitlab-runner
+RUN apk add --no-cache util-linux coreutils python3
+RUN apk add --no-cache nodejs npm nghttp2
+RUN apk add --no-cache go -X https://mirrors.aliyun.com/alpine/edge/community
+DOCKERFILE
+
+docker build -t runner .
+
+docker run -d --restart always \
+  -v $PWD:/etc/gitlab-runner \
+  -v $PWD/builds:/builds \
+  -v $PWD/cache:/cache \
+  -e TZ=Asia/Shanghai \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --name gitlab-runner-shell runner
 ```

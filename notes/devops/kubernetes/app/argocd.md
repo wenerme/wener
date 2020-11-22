@@ -30,9 +30,35 @@ title: ArgoCD
   * A directory of YAML/JSON/Jsonnet manifests, including Jsonnet
   * 自定义配置管理工具
 
+:::caution
+
+* 应用名字要求全局唯一
+  * 应用就是 helm 的 release 名字 - helm 不要求全局唯一，因此迁移过程可能冲突
+* Kustomize 不可以后处理 Helm
+  * 如果一定需要，可以考虑[插件](https://dev.to/camptocamp-ops/use-kustomize-to-post-render-helm-charts-in-argocd-2ml6)
+  * 或者预先生成好
+
+:::
+
 ```bash
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# forward to local
+# https://localhost:8080
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+# 账号 admin
+# 密码
+kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+
+# argocd 命令行工具
+brew install argocd
+# 登陆
+argocd login localhost:8080
+
+# 如果配置了 ingress 需要 grpc-web 访问
+# 除非开启 ssl-paththrough - nginx 开启对性能影响很大
+argocd login argocd.my.lan:443 --grpc-web
 ```
 
 ## 应用发现
@@ -51,3 +77,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ## 密钥管理
 * [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
+
+## 命令行
+* https://argoproj.github.io/argo-cd/user-guide/commands/argocd/
+* `~/.argocd/config`

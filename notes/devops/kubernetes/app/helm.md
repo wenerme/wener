@@ -4,6 +4,7 @@ title: HELM 包管理器
 ---
 
 # Helm
+
 - 是什么
   - Kubernetes 上的包管理器
 - [helm.sh](https://helm.sh/)
@@ -46,17 +47,17 @@ helm pull stable/nextcloud --untar
 
 - [helm/charts](https://github.com/helm/charts)
 
-| NAME                       | URL                                                        |
-| -------------------------- | ---------------------------------------------------------- |
-| stable                     | https://kubernetes-charts.storage.googleapis.com/          |
-| incubator                  | https://kubernetes-charts-incubator.storage.googleapis.com |
-| traefik                    | https://containous.github.io/traefik-helm-chart            |
-| jetstack                   | https://charts.jetstack.io                                 |
-| hashicorp                  | https://helm.releases.hashicorp.com                        |
-| harbor                     | https://helm.goharbor.io                                   |
-| stable<br/>azure mirror    | http://mirror.azure.cn/kubernetes/charts/                  |
-| incubator<br/>azure mirror | http://mirror.azure.cn/kubernetes/charts-incubator/        |
-| wener<br/>offcial collection | https://wenerme.github.io/charts        |
+| NAME                         | URL                                                             |
+| ---------------------------- | --------------------------------------------------------------- |
+| stable                       | https://kubernetes-charts.storage.googleapis.com/               |
+| incubator                    | https://kubernetes-charts-incubator.storage.googleapis.com      |
+| traefik                      | https://containous.github.io/traefik-helm-chart                 |
+| jetstack                     | https://charts.jetstack.io                                      |
+| hashicorp                    | https://helm.releases.hashicorp.com                             |
+| harbor                       | https://helm.goharbor.io                                        |
+| stable<br/>azure mirror      | http://mirror.azure.cn/kubernetes/charts/                       |
+| incubator<br/>azure mirror   | http://mirror.azure.cn/kubernetes/charts-incubator/             |
+| wener<br/>offcial collection | https://wenerme.github.io/charts<br/>https://charts.wener.tech/ |
 
 ## 仓库
 
@@ -145,4 +146,5 @@ helm template ./mychart
 ```
 
 ## Helm Operator
-* [fluxcd/helm-operator](https://github.com/fluxcd/helm-operator)
+
+- [fluxcd/helm-operator](https://github.com/fluxcd/helm-operator)

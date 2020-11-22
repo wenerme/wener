@@ -25,8 +25,20 @@ title: Mirrors
 | Debian | https://www.debian.org/mirror/list.zh-cn.html                                                                                                                |
 
 ## Docker
-
-- https://docker.mirrors.ustc.edu.cn
+- docker.io
+  - https://fogjl973.mirror.aliyuncs.com
+  - https://8x40wsit.mirror.aliyuncs.com
+  - https://f1361db2.m.daocloud.io
+  - https://docker.mirrors.ustc.edu.cn
+  - https://reg-mirror.qiniu.com
+  - https://registry-1.docker.io
+- gcr.io
+- k8s.gcr.io -> gcr.io/google-containers
+  - googlecontainersmirror - docker
+  - registry.aliyuncs.com/google_containers
+- quay.io
+  - quay-mirror.qiniu.com
+  - quay.mirrors.ustc.edu.cn
 
 ```bash
 docker pull nginx:alpine
