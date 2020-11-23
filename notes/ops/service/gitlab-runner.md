@@ -350,6 +350,12 @@ __nodejs__
 apk add nodejs npm nghttp2
 ```
 
+__k8s__
+
+```bash
+apk add kubectl -X https://mirrors.aliyun.com/alpine/edge/testing/
+```
+
 __自定义 Runner__
 ```bash
 cat <<DOCKERFILE > Dockerfile

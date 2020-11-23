@@ -39,3 +39,6 @@ title: Go 模板
 * js - 返回转意后的 JS
 * len - 返回长度
 * urlquery - URL 编码
+
+## sprig
+* Go [Playground](https://play.golang.org/p/bbQDtcGKWFf)

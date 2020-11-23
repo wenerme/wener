@@ -1,9 +1,12 @@
+---
+title: Rollup
+---
+
 # Rollup
 
 ## Tips
-
-- 插件
-  - [rollup/plugins](https://github.com/rollup/plugins)
+- [rollupjs](https://rollupjs.org/)
+- [Repl](https://rollupjs.org/repl/)
 - 注意
   - `d.ts` 需要使用 tsc 生成
 - 问题
@@ -19,11 +22,15 @@
       - 使其恢复原有的方式
     - 类似问题
       - [faastjs/faast.js#36](https://github.com/faastjs/faast.js/issues/36) - Can't use default import with Babel
+* 参考
+  * [rollup/awesome](https://github.com/rollup/awesome)
+
+
 ```bash
 npm install --global rollup
 
 # 常用插件
-yarn add -D rollup @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve 
+yarn add -D rollup @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve
 # Babel + Typescript
 yarn add -D @babel/preset-env @babel/preset-typescript
 # + React
@@ -87,6 +94,21 @@ function createConfig(format) {
 
 export default [createConfig('system'),createConfig('umd')];
 ```
+
+## 插件
+- [rollup/plugins](https://github.com/rollup/plugins)
+
+## rollup-plugin-replace
+* 替代进行优化
+
+```js
+require('rollup-plugin-replace')({
+  'process.env.NODE_ENV': JSON.stringify('production')
+})
+```
+
+## babel
+* https://github.com/rollup/plugins/tree/master/packages/babel
 
 # FAQ
 

@@ -59,6 +59,9 @@ mount -t nfs -o vers=4 servername:/srv/nfs/music /mountpoint/on/client
 | /var/lib/nfs/etab  | 导出的主表         |
 | /var/lib/nfs/rmtab | 访问服务端的客户端 |
 
+## exports
+* https://linux.die.net/man/5/exports
+
 # FAQ
 
 ## Neither 'subtree_check' or 'no_subtree_check' specified for export
@@ -69,3 +72,13 @@ mount -t nfs -o vers=4 servername:/srv/nfs/music /mountpoint/on/client
 ```
 
 ## mount.nfs: rpc.statd is not running but is required for remote locking. mount.nfs: Either use '-o nolock' to keep locks local, or start statd
+
+* 当客户端在 NAT 后时可能会有这个问题 - 因为端口从新映射后不会是保留端口
+* exports 添加 `insecure` 选项即可
+  * 默认开启了 secure，要求端口 小于 1024 IPPORT_RESERVED
+
+```
+mount.nfs: rpc.statd is not running but is required for remote locking.
+mount.nfs: Either use '-o nolock' to keep locks local, or start statd.
+mount.nfs: Operation not permitted
+```

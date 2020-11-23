@@ -3,6 +3,11 @@ title: ArgoCD
 ---
 
 # ArgoCD
+* 是什么？
+  * 声明式 K8S 持续集成/CD 服务/控制器
+  * GitOps
+  * 有 __直观的__ WebUI 可供管理和问题排查
+  * 支持多集群、统一登录、权限管理
 * [argoproj/argo-cd](https://github.com/argoproj/argo-cd)
   * [DEMO](https://cd.apps.argoproj.io/)
 * 特性
@@ -26,9 +31,9 @@ title: ArgoCD
 * 应用定义
   * Kustomize
   * Helm
-  * ~~Ksonnet~~
   * A directory of YAML/JSON/Jsonnet manifests, including Jsonnet
   * 自定义配置管理工具
+  * ~~Ksonnet~~
 
 :::caution
 
@@ -37,14 +42,18 @@ title: ArgoCD
 * Kustomize 不可以后处理 Helm
   * 如果一定需要，可以考虑[插件](https://dev.to/camptocamp-ops/use-kustomize-to-post-render-helm-charts-in-argocd-2ml6)
   * 或者预先生成好
+* 使用稳定的 Git 服务
+  * 避免使用 Gitlab, Github - 因为访问不稳定会导致 argocd 很慢或者同步状态不可知
+  * 可以考虑集群内部署 gitea 然后镜像外部仓库 - 配置好 Webhook 触发可实现秒级同步
 
 :::
 
 ```bash
+# 安装
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-# forward to local
+# 转发到本地直接访问
 # https://localhost:8080
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 # 账号 admin
@@ -76,7 +85,16 @@ argocd login argocd.my.lan:443 --grpc-web
   * 管理 Git 本地缓存，管理应用清单
 
 ## 密钥管理
-* [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
+* 问题根源
+  * 因为 GitOps 要求所有内容都在仓库，因此密钥也需要存储在仓库
+  * 出于安全考虑不能直接放明文的 Secret，因此需要曲线提供 Secret
+  * 部分要求在 helm values.yaml 提供密钥的还需要先生成 chart 然后修改为另外的方式提供密钥
+* 方案
+  * [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+    * 生成不可逆的密钥存储在仓库，控制器生成对应 Secret - 非对称加密
+    * 最简单实用
+* 参考
+  * [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
 
 ## 命令行
 * https://argoproj.github.io/argo-cd/user-guide/commands/argocd/

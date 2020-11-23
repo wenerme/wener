@@ -47,5 +47,50 @@ helm repo add harbor https://helm.goharbor.io
 ## 安装
 * docker 安装过程会使用 `goharbor/prepare` 进行构建需要的 docker compose
 
-# 配置
+## 配置
 * https://goharbor.io/docs/2.0.0/install-config/configure-yml-file/
+
+## 组件
+* postgresql
+* redis
+* clari
+* beego
+* chartmuseum
+* docker/distribution
+* docker/notary
+* helm
+* swagger-ui
+
+## Helm
+```yaml
+harborAdminPassword: "Harbor12345"
+
+# 部署组件
+# =========
+# 不使用 Ingress 则会部署 nginx
+nginx:
+portal:
+core:
+jobservice:
+registry:
+chartmuseum:
+clair:
+trivy:
+notary:
+
+database:
+  # 设置为 external 使用外部数据库
+  type: internal
+  # 配置外部数据库
+  external:
+    host: "192.168.0.1"
+    port: "5432"
+    username: "user"
+    password: "password"
+    # coreDatabase: "registry"
+    # clairDatabase: "clair"
+    # notaryServerDatabase: "notary_server"
+    # notarySignerDatabase: "notary_signer"
+redis:
+  type: internal
+```

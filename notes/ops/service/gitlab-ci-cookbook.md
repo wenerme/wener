@@ -33,6 +33,31 @@ Build in Docker:
     - go env
 ```
 
+## Docker DinD
+```yaml
+Build Image:
+  stage: build
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    # See https://github.com/docker-library/docker/pull/166
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    # - yarn
+    # - yarn build
+    - echo Building image "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+    # tagged as v20200601121212
+    - CI_REGISTRY_IMAGE_DATA_VER="$CI_REGISTRY_IMAGE:v`date +"%Y%m%d%H%M%S"`"
+    - docker tag "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "$CI_REGISTRY_IMAGE_DATA_VER"
+    - docker push "$CI_REGISTRY_IMAGE_DATA_VER"
+```
+
 ## Golang
 * 缓存 GOPATH
 * 启动之前修改 GOPATH 使其能被缓存
@@ -115,4 +140,33 @@ job:
     - schedules
   script:
     - make build
+```
+
+## Page
+
+```yaml
+pages:
+  script:
+    - yarn
+    - yarn build:public
+  artifacts:
+    # 路径必须 public
+    paths:
+      - public
+  only:
+    - master
+```
+
+## Node
+
+### Publish NPM
+
+```yaml
+Publish NPM:
+  stage: deploy
+  script:
+    - echo '//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}'>.npmrc
+    - yarn lerna publish from-git --yes --registry "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/"
+  only:
+    - tags
 ```

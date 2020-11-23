@@ -350,6 +350,29 @@ from [Here](http://stackoverflow.com/a/2227571/1870054)
 git rev-list --max-parents=0 HEAD
 ```
 
+## 仓库信息
+```bash
+# 当前分支
+git branch --show-current
+# 当前 Commit
+git rev-parse HEAD
+
+# 最近 tag
+git describe --tags --abbrev=0
+# 当前 tag
+git describe --tags --abbrev=0 --exact-match
+git describe --tags --abbrev=0 --exact-match 2>/dev/null || echo dev
+
+git tag --points-at HEAD
+
+# 生成当前时间
+date --iso-8601=seconds
+
+# 当前
+# de9733b (HEAD -> master, origin/master, origin/HEAD) minor update
+git show --oneline -s
+```
+
 ## 搜索文件
 ```bash
 git log --all -- '*.wmv'

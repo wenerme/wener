@@ -188,6 +188,9 @@ ssh -o ProxyCommand="ssh -W %h:%p -q admin@jumphost" admin@internal
 # nc 转发 - 不需要 PortForward
 # 可以添加 -o StrictHostKeyChecking=no 避免询问指纹
 ssh -o ProxyCommand="ssh -q admin@jumphost nc %h %p" admin@internal
+
+# 直接两次 ssh 也行
+ssh -At admin@jumphost ssh admin@internal
 ```
 
 ```

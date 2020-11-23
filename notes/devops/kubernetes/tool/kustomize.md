@@ -6,7 +6,7 @@ title: kustomize
 # kustomize
 ## Tips
 * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
-* kustomize [reference](https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html)
+* kustomize [reference](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [kubectl apply -k](https://kubectl.docs.kubernetes.io/pages/app_management/introduction.html)
   * v1.14+
   * [#1500](https://github.com/kubernetes-sigs/kustomize/issues/1500) - 升级到新版受到阻碍
@@ -40,6 +40,7 @@ title: kustomize
 
 
 ```bash
+# macOS
 brew install kustomize
 ```
 

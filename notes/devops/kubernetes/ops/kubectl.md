@@ -119,6 +119,13 @@ kubectl config set-context --current --namespace=myapp
 kubectl --kubeconfig=config-demo config unset users.<name>
 kubectl --kubeconfig=config-demo config unset clusters.<name>
 kubectl --kubeconfig=config-demo config unset contexts.<name>
+
+# 创建一个完整配置
+kubectl config --kubeconfig=test set-cluster default --server=https://5.6.7.8 --insecure-skip-tls-verify
+# 使用 TOKEN 方式 - serviceToken 容易获取
+kubectl config --kubeconfig=test set-credentials default --token=ABCD
+kubectl config --kubeconfig=test set-context default --cluster=default --namespace=default --user=default
+kubectl config --kubeconfig=test use-context default
 ```
 
 ```yaml
