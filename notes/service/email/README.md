@@ -1,8 +1,15 @@
+---
+id: email
+---
+
 # 邮件
 
 ## Server
 * [Comparison of mail servers](https://en.wikipedia.org/wiki/Comparison_of_mail_servers)
 * iRedMail
+* [foxcpp/maddy](https://github.com/foxcpp/maddy) - all-in-one mail server
+  * Golang
+  * GPLv3
 
 ## 实现
 * https://blitiri.com.ar/p/chasquid/
