@@ -6,6 +6,16 @@ title: K3S 常见问题
 
 # K3S 常见问题
 
+## 访问 K3S 的 ETCD
+* 只支持部分接口
+
+```bash
+# kine 不支持 --keys-only
+ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock get /registry/clusterrolebindings/system:kube-dns
+# 所有
+# ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock get / --prefix
+```
+
 ## docker vs containerd
 * 建议使用 docker
 * docker

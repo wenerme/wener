@@ -28,33 +28,33 @@ title: 开发用词字典
 
 ## 常见词汇
 
-| 英文            | 含义                                                               | 释义 |
-| --------------- | ------------------------------------------------------------------ | ---- |
-| list            | 列表                                                               |
-| detail          | 详情                                                               |
-| resource/res    | 资源                                                               |
-| number/no       | 编号                                                               |
-| count           | 数量                                                               |
-| service         | 服务                                                               |
-| management/mgmt | 管理                                                               |
-| dashboard       | 工作台                                                             |
-| logo            | 商标                                                               |
-| icon            | 图标                                                               |
-| avatar          | 头像                                                               |
-| picture         | 图片                                                               |
-| banner          | 旗帜                                                               |
-| photo           | 照片                                                               |
-| category        | 分类                                                               |
-| amount          | 数额/金额                                                          |
-| mobile          | 手机号                                                             |
-| telephone       | 座机                                                               |
-| gender          | 性别                                                               |
-| working         | 在职                                                               |
-| leave           | 离职                                                               |
-| rank            | 等级, 主动, 例如: 客户星级,产品评价                                |
-| grade           | 等级, 被动, 例如: 成绩,商品                                        |
-| property        | 属性, 多指固有的,本身的,proper                                     |
-| attribute       | 属性, 多指特征的,可变的,tribute                                    |
+| 英文            | 含义                                                                | 释义 |
+| --------------- | ------------------------------------------------------------------- | ---- |
+| list            | 列表                                                                |
+| detail          | 详情                                                                |
+| resource/res    | 资源                                                                |
+| number/no       | 编号                                                                |
+| count           | 数量                                                                |
+| service         | 服务                                                                |
+| management/mgmt | 管理                                                                |
+| dashboard       | 工作台                                                              |
+| logo            | 商标                                                                |
+| icon            | 图标                                                                |
+| avatar          | 头像                                                                |
+| picture         | 图片                                                                |
+| banner          | 旗帜                                                                |
+| photo           | 照片                                                                |
+| category        | 分类                                                                |
+| amount          | 数额/金额                                                           |
+| mobile          | 手机号                                                              |
+| telephone       | 座机                                                                |
+| gender          | 性别                                                                |
+| working         | 在职                                                                |
+| leave           | 离职                                                                |
+| rank            | 等级, 主动, 例如: 客户星级,产品评价                                 |
+| grade           | 等级, 被动, 例如: 成绩,商品                                         |
+| property        | 属性, 多指固有的,本身的,proper                                      |
+| attribute       | 属性, 多指特征的,可变的,tribute                                     |
 | referral        | 引荐, 主动, 掌握关系主动方<br/>例如: 别人引荐你给我, 你和我直接联系 |
 | introduction    | 推荐, 被动, 位于关系被动方<br/>例如: 别人介绍你给我, 由别人产生联系 |
 
@@ -73,6 +73,7 @@ title: 开发用词字典
 | ----------------- | ----------------- | ------------------------- |
 | bsp               | 服务商            | bussness service provider |
 | provider          | 供应商            |
+| vendor            | 供应商            |
 | supplier          | 供应商,偏重第三方 |
 | operation/op      | 操作              |
 | contract          | 合同              |
@@ -93,19 +94,23 @@ title: 开发用词字典
 
 ### 客户关系管理
 
-| 英文            | 含义              | 释义                             |
-| --------------- | ----------------- | -------------------------------- |
-| CRM             | 客户关系管理      | Customer Relationship Management |
-| public customer | 公海客户          |
-| contact         | 联系人            |
-| source          | 来源              |
-| rank            | 星级              |
-| track           | 跟进              |
-| track log       | 跟进记录/跟进日志 |
-| tracker         | 顾问              | Who track the customer           |
-| intension       | 意向              |
-| sales           | 销售              |
-| seller          | 销售人员/卖家     |
+| 英文              | 含义              | 释义                             |
+| ----------------- | ----------------- | -------------------------------- |
+| CRM               | 客户关系管理      | Customer Relationship Management |
+| public customer   | 公海客户          |
+| contact           | 联系人            |
+| lead              | 线索              |
+| opportunity       | 商机              |
+| account           | 账户、客户        |
+| source            | 来源              |
+| rank              | 星级              |
+| track             | 跟进              |
+| track log         | 跟进记录/跟进日志 |
+| tracker           | 顾问              | Who track the customer           |
+| intension         | 意向              |
+| sales             | 销售              |
+| seller            | 销售人员/卖家     |
+| prospective sales | 预期销售          |
 
 ### 交易支付
 
@@ -221,6 +226,26 @@ title: 开发用词字典
   - 接受服务或信息的个体 - 一般不是产品
 - account
   - 你或你公司 与 其他人或公司 建立的联系
+    - 联系类型： 客户、合作伙伴、供应商
   - 持续提供信息，产品，服务等咨询
 - user
   - 按照合约使用信息、产品、服务的个体
+
+## username vs user name vs userName
+* username - 用户名
+  * 唯一性
+* user name/userName - 用户的名字
+  * 类似于 FirstName，Full name 之类的含义
+  * 不具有唯一性
+  * 尽量使用 FullName 避免不必要的混淆
+
+## activity vs event
+* event
+  * 最原子的事件
+  * 使用一个 点 表示
+  * 可以被独立标示
+* activity
+  * 活动 - 通常有开始结束
+  * 通常表示状态变化，类似于一个链接
+  * 达成活动可能有一定条件 - 例如 A 转变为 B 还是 C 取决于一定条件
+  * 活动底层也是通过事件驱动
