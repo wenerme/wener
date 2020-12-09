@@ -19,3 +19,12 @@ gosec -conf gosec.conf.json ./...
 
 ## golangci-lint
 * https://github.com/golangci/golangci-lint/blob/master/.golangci.yml
+
+```go
+//nolint
+//nolint:golint,unused
+```
+
+```bash
+curl -LO https://github.com/golangci/golangci-lint/releases/download/v1.32.2/golangci-lint-1.32.2-linux-amd64.tar.gz
+```

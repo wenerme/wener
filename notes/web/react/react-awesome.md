@@ -3,6 +3,7 @@ title: React Awesome
 ---
 
 # React Awesome
+* [React Patterns](https://reactpatterns.com/)
 
 :::tip
 
@@ -79,6 +80,15 @@ title: React Awesome
     * 简单方便
 * [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
   * 功能最为强大的日历组件 - 支持 React 绑定
+* [popperjs/react-popper](https://github.com/popperjs/react-popper)
+  * 显示弹出气泡
+
+### 编辑器
+* Markdown
+  * [andrerpena/react-mde](https://github.com/andrerpena/react-mde)
+  * [HarryChen0506/react-markdown-editor-lite](https://github.com/HarryChen0506/react-markdown-editor-lite)
+  * [uiwjs/react-md-editor](https://github.com/uiwjs/react-md-editor)
+
 ## 功能组件
 * [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   * 实现各种 table 功能
@@ -97,13 +107,35 @@ title: React Awesome
     * 基于 react-window 实现的 tree 渲染
 * [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
   * 功能比 react-window 多但更复杂 - 目前不推荐使用
-* [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖拽
+* [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
+  * Drag & Drop
+* [gregberge/loadable-components](https://github.com/gregberge/loadable-components)
+  * 异步加载组件
 
 ## 样式
 * styled-components
   * 包装现有组件，添加 className
 * emotion
   * 生成 className
+
+## 状态管理
+* 订阅
+  * [dai-shi/react-tracked](https://github.com/dai-shi/react-tracked)
+  * [dai-shi/use-context-selector](https://github.com/dai-shi/use-context-selector)
+  * [reactivex/rxjs](https://github.com/reactivex/rxjs)
+    * rxjs 能非常简单的实现基于订阅的状态管理
+  * [reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit)
+    * redux-toolkit 简化了使用 redux 的难度
+    * 定义了使用规范
+* [jamiebuilds/unstated-next](https://github.com/jamiebuilds/unstated-next)
+  * 简单封装 context+state - 共享业务状态逻辑，在状态基础上添加操作
+  * 反转 useHook
+* [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
+  * 用于在实现状态管理时快速比较是否发生变化
+  * 减少变化，避免刷新
+* [immerjs/use-immer](https://github.com/immerjs/use-immer)
+  * useImmer - 基于 immer 的状态更新
+  * 当状态较多时能很大程度简化操作 - 从 `setState(s=>({...s,loading:true}))` 变为 `update(s=>{s.loading=true})`
 
 ## 开发工具
 * [storybookjs/storybook](https://github.com/storybookjs/storybook)
