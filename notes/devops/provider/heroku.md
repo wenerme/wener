@@ -13,6 +13,7 @@
   * 之后 55s 响应窗口
 * [自定义域名 SSL](https://devcenter.heroku.com/articles/ssl-endpoint)
   * 需要购买证书
+* [限制](https://devcenter.heroku.com/articles/limits)
 
 ```bash
 # 安装命令行工具
@@ -29,7 +30,7 @@ $(heroku autocomplete:script bash)
 printf "$(heroku autocomplete:script bash)" >> ~/.bashrc; source ~/.bashrc
 
 # 创建应用
-# 访问地址 https://myapp.herokuapp.com/ 
+# 访问地址 https://myapp.herokuapp.com/
 # 仓库地址 https://git.heroku.com/myapp.git
 heroku apps:create myapp
 

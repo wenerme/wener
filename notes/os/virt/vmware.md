@@ -19,6 +19,7 @@ title: VmWare
   * VMware vSphere
     * VMware Infrastructure 4 之前名字
 * vCenter Server Appliance with an Embedded Platform Services Controller (PSC)
+* Wikipedia [VMFS](https://en.wikipedia.org/wiki/VMware_VMFS)
 
 ```bash
 # QCOW2 转 vmdk

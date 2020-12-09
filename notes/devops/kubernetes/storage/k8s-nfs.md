@@ -8,7 +8,7 @@ title: NFS
 * [nfs-provisioner](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs)
   * 提供 NFS 服务
   * 但数据不会持久化
-* [nfs-client](https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client)
+* [nfs-client](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner)
   * 作为 NFS 客户端提供存储 - 需要现有 NFS 服务
   * 创建子目录 - `${namespace}-${pvcName}-${pvName}`
 

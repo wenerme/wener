@@ -9,6 +9,8 @@ title: Gradle
 
 * [Userguide](https://docs.gradle.org/current/userguide/userguide.html)
 * [Building Java 9 Modules](https://guides.gradle.org/building-java-9-modules/)
+* [maven 2 gradle](https://sagioto.github.io/maven2gradle/)
+  * 转换 dependency
 
 ```bash
 # https://docs.gradle.org/current/userguide/build_init_plugin.html

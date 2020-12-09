@@ -350,6 +350,12 @@ __nodejs__
 apk add nodejs npm nghttp2
 ```
 
+__java__
+
+```bash
+apk add openjdk11
+```
+
 __k8s__
 
 ```bash

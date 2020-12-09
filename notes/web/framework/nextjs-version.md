@@ -6,7 +6,7 @@ title: NextJS 版本历史
 # NextJS 版本历史
 
 ## 10
-* [10](https://nextjs.org/blog/next-10)
+* [10](https://nextjs.org/blog/next-10) - 2020-10-27
 * `next/image` - 图片组件，自动图片优化
   * WebP、JPEG
 * 国际化路由

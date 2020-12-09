@@ -10,6 +10,8 @@ npm i -g @vercel/ncc
 
 ## NextJS
 * 需要同时拷贝 .next 和 public 目录
+* 参考
+  * [#8574](https://github.com/vercel/next.js/issues/8574#issuecomment-701428665)
 
 ```js
 // next.config.js

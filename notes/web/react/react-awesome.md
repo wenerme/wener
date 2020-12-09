@@ -82,6 +82,8 @@ title: React Awesome
   * 功能最为强大的日历组件 - 支持 React 绑定
 * [popperjs/react-popper](https://github.com/popperjs/react-popper)
   * 显示弹出气泡
+* [signavio/react-mentions](https://github.com/signavio/react-mentions)
+  * 支持 `@username`
 
 ### 编辑器
 * Markdown
