@@ -11,8 +11,16 @@
   * Json Schema 生成 Pojo
 
 ## Patch
-* [rfc6902](https://tools.ietf.org/html/rfc6902) - JavaScript Object Notation (JSON) Patch
+* [rfc6902](https://tools.ietf.org/html/rfc6902) - JSON Patch
+  * 基于操作 - op, path, value - 更适用于复杂场景
+  * op = add, remove, replace, move, copy, test
+  * test 用于断言，断言失败则操作失败
+    * 例如 `{ "op": "test", "path": "/a/b/c", "value": "foo" }`
 * [rfc7396](https://tools.ietf.org/html/rfc7396) - JSON Merge Patch
+  * 基于文档合并 - `{"key":"new value"}` - 适用于简单场景
+  * 设置 key 为 null 表示删除
+  * 数组只能替换
+  * 合并操作不会出错
 * [jsonpatch](http://jsonpatch.com/)
 * [flipkart-incubator/zjsonpatch](https://github.com/flipkart-incubator/zjsonpatch)
 
@@ -29,6 +37,11 @@ https://benjamine.github.io/jsondiffpatch
   * [HN](https://news.ycombinator.com/item?id=24943775)
 
 ## FAQ
+### JSON Patch and JSON Merge Patch
+* rfc6902 vs rfc7396
+* 参考
+  * [JSON Patch and JSON Merge Patch](https://erosb.github.io/post/json-patch-vs-merge-patch/)
+
 ### 时间格式选择
 
 * [The “right” JSON date format](https://stackoverflow.com/q/10286204/1870054)

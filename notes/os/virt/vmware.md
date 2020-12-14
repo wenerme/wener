@@ -20,6 +20,11 @@ title: VmWare
     * VMware Infrastructure 4 之前名字
 * vCenter Server Appliance with an Embedded Platform Services Controller (PSC)
 * Wikipedia [VMFS](https://en.wikipedia.org/wiki/VMware_VMFS)
+* 参考
+  * [Virtual machine hardware versions](https://kb.vmware.com/s/article/1003746)
+    * ESXi 7.0 vmx-17+
+    * ESXi 6.0 vmx-11+
+    * ESXi 5.0 vmx-8+
 
 ```bash
 # QCOW2 转 vmdk

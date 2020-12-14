@@ -19,13 +19,13 @@ hide_title: true
 | 告警                  | Grafana/Altermanager                                    | 邮件、企业微信、Slack                                               |
 | 日志                  | Banzi Operator                                          | Elasticseach, fluentbit + 前端集成<br/>事件日志，审计日志           |
 | ServiceMesh           | Istio                                                   | Istio                                                               |
-| DevOps                | 2.5 之后 Fleet GitOps<br/>~~2.5 之前 rancher-pipeline~~ | Jenkins                                                             |
+| DevOps                | 2.5 之后 Fleet GitOps<br/>~~2.5 之前 Pipeline/Jenkins~~ | Jenkins                                                             |
 | 应用商店              | Helm Repo                                               | [openpitrix/openpitrix](https://github.com/openpitrix/openpitrix)   |
 | 角色权限管理          | ✅                                                      | ✅                                                                  |
-| 配置方式              | Web UI                                                  | 编辑 CRD/yaml                                                       |
+| 配置方式              | Web UI/CRD                                              | 编辑 CRD/yaml                                                       |
 | 应用                  | Helm                                                    | Helm/[CRD](https://github.com/kubernetes-sigs/application)          |
 | 实现依赖              | -                                                       | etcd+redis+minio+openldap+mysql                                     |
-| 实现服务              | rancher+fleet                                           | ks-controller-manager+ks-apiserver+ks-console                       |
+| 实现服务              | rancher+fleet                                           | ks-controller-manager<br/>ks-apiserver+ks-console                   |
 | 多集群                | ✅                                                      | ✅                                                                  |
 | UI 美观               | ⭐️⭐️                                                  | ⭐️⭐️⭐️                                                           |
 | UI 功能               | ⭐️⭐️⭐️                                               | ⭐️⭐️                                                              |
@@ -35,7 +35,7 @@ hide_title: true
 | 运维友好              | ⭐️⭐️⭐️                                               | ⭐️                                                                 |
 | 使用者对 K8S 掌握程度 | 高                                                      | 低                                                                  |
 | 核心体验              | 多集群运维部署                                          | 友好的一体化开发<br/>友好=美观的界面<br/>一体化开发=Jenkins+Elastic |
-| 核心竞争力            | 多集群、资源管理运维、核心应用集成                      | 集成多功能的美观界面 / AGPL-3.0                                     |
+| 核心竞争力            | 多集群<br/>资源管理运维<br/>核心应用集成                | 集成多功能的**美观界面** / AGPL-3.0                                 |
 
 <!-- more -->
 
@@ -46,6 +46,7 @@ hide_title: true
   - 如果追求界面美观
   - 如果工作以开发为主
   - 如果希望定制化产出自己平台管理
+    - 界面 AGPL-3.0 ,定制后的闭源商业产品需付费
 - 选择 Rancher
   - 如果对 Kubernetes 掌握透彻
   - 如果需要管理多集群
@@ -245,6 +246,7 @@ Kubernetes Dashboard 和 Lens 都是非常简洁明了的集群管理工具，Le
 1. 角色权限管理 - 多用户
 1. 应用生命周期管理 - Helm 应用
 1. 资源集成管理 - 使用 UI 而非 Yaml 的方式编辑资源
+1. 多集群
 
 Rancher 和 Kubesphere 都很好的完成了这些目标。
 

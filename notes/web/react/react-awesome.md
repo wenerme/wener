@@ -24,6 +24,9 @@ title: React Awesome
   * CSS 样式定义 + React 封装组件
   * 很多组件都可以直接 HTML + CSS 类定义达到效果 - 非常清晰明了
   * npm 包含源码 - IDE 能直接看到组件源码
+  * `@blueprintjs/select`
+    * 多功能 select 组件
+    * 不控制样式，以逻辑为主
 * [rsuite/rsuite](https://github.com/rsuite/rsuite)
   * 各方面神似 AntD - 但比 AntD 轻的多
 * [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
@@ -84,6 +87,10 @@ title: React Awesome
   * 显示弹出气泡
 * [signavio/react-mentions](https://github.com/signavio/react-mentions)
   * 支持 `@username`
+* [jedwatson/react-select](https://github.com/jedwatson/react-select)
+  * 功能完善的 select 组件
+  * 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
+
 
 ### 编辑器
 * Markdown
@@ -129,6 +136,13 @@ title: React Awesome
   * [reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit)
     * redux-toolkit 简化了使用 redux 的难度
     * 定义了使用规范
+  * [storeon/storeon](https://github.com/storeon/storeon) - 185 bytes event-based Redux-like state manager
+    * 事件驱动 - 内建 `@init`, `@dispatch`, `@changed` - 初始化，分发，变化检测
+    * `const { dispatch, users, projects } = useStoreon('users', 'projects')`
+      * 本质上是监听 @changed 来触发状态变化进行渲染
+    * storeon - [index.js](https://github.com/storeon/storeon/blob/main/index.js)
+    * React hook - [react/index.js](https://github.com/storeon/storeon/blob/main/react/index.js)
+    * 结构逻辑比 redux 清晰的多
 * [jamiebuilds/unstated-next](https://github.com/jamiebuilds/unstated-next)
   * 简单封装 context+state - 共享业务状态逻辑，在状态基础上添加操作
   * 反转 useHook
