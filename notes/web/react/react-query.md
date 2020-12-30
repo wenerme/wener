@@ -4,13 +4,40 @@ title: React Query
 
 # React Query
 
-- 默认:
+- 默认
   - 开启 refetchOnMount, refetchOnWindowFocus, refetchOnReconnect
   - cacheTime 5 分钟 - 不再使用的的数据保留 5 分钟
   - retry=3, retryDelay exponential
 - 参考
   - [vs SWR vs Apollo Client](https://react-query.tanstack.com/docs/comparison)
+    - vs SWR - 支持修改，更好的缓存状态管理
+    - vs Apollo - 支持 GraphQL 和 一般请求，针对 GraphQL 的 entity 缓存没有 apollo 强
+- [v3](https://react-query.tanstack.com/guides/migrating-to-react-query-3) - 2020-12-15
+  - 拆分 QueryCache 为 QueryClient 和更底层的 MutationCache, QueryCache
+  - useQueryCache -> useQueryClient
+  - QueryClientProvider 取代 ReactQueryConfigProvider 和 ReactQueryCacheProvider
+  - 新增 useQueries
+  - 包含 devtools - `react-query/devtools`
+  - useQuery 参数不再是 key
+    - 推荐通过 lambada 传递参数
+    - 如果还是要 key `useQuery(['post', id], context => fetchPost(context.queryKey[1]))`
+    - enabled 选项必须为 boolean - 否则会警告
+    - 支持 select 部分数据 - 减少重新渲染
+      - `useQuery('user',fetchUser,{select:user=>user.username})`
+  - 废弃 usePaginatedQuery, 添加 `keepPreviousData: true` 实现类似功能
+  - useInfiniteQuery 支持前后双向查询
+  - useMutation
+    - 返回对象
+      - 之前 `const [mutate, { status, reset }] = useMutation()`
+      - 现在 `const { mutate, mutateAsync, status, reset } = useMutation()`
+        - mutate 不返回 promise, mutateAsync 返回 promise
+        - mutate 支持回调 `mutate('todo',{onSuccess(){},onError(){},onSettled(){}})`
+    - 支持 retry - 断线重联会重试，默认失败不会重试
+    - 支持持久化然后恢复
+  - QueryObserver, InfiniteQueryObserver, QueriesObserver - 可用于监听数据变化
+  - useIsFetching - 支持 key 参数
 
+## v2.x
 
 ```ts
 import { useQuery, QueryCache, ReactQueryCacheProvider } from 'react-query';

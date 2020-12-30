@@ -127,3 +127,15 @@ title: Go Awesome
 * [ThreeDotsLabs/watermill](https://github.com/ThreeDotsLabs/watermill)
 * [trustmaster/goflow](https://github.com/trustmaster/goflow)
 * [flowbase/flowbase](https://github.com/flowbase/flowbase)
+
+## Markdown
+* [yuin/goldmark](https://github.com/yuin/goldmark)
+  * 易于扩展 - 内建较多扩展
+  * 实现扩展需要阅读源码添加
+* [gomarkdown/markdown](https://github.com/gomarkdown/markdown)
+  * 自带部分扩展功能
+* [russross/blackfriday](https://github.com/russross/blackfriday)
+  * 不兼容 CommonMark
+  * 无法扩展
+  * [microcosm-cc/bluemonday](https://github.com/microcosm-cc/bluemonday)
+    * html sanitizer

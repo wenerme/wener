@@ -55,7 +55,7 @@ label="TINC - 办公地点网络打通"
 
 ### 傍路由
 * 不管在哪里，只要联网就能管理网络
-* 例如 
+* 例如
   * IoT 场景 - 只要网络接入就能进行数据通信
   * 家庭网络 - 任何地方都能直接访问家里的 NAS
 
@@ -66,7 +66,7 @@ label="TINC - 办公地点网络打通"
 ## 简介
 * 默认端口为 655
 * Tinc 工作在用户空间 - 使用 tun/tap 设备
-* Tinc 以 mesh 的形式进行工作 
+* Tinc 以 mesh 的形式进行工作
   * 尝试对每个节点都进行直接链接
   * 如果链接失败会通过节点进行中专
 * Tinc 支持 Route 或 Switch 工作模式
@@ -91,7 +91,7 @@ label="TINC - 办公地点网络打通"
 > 由于 tinc-pre 1.17 在 AlpineLinux 3.10 上编译测试用例未通过，因此官方仓库没有。下面使用 [wenerme/repository](https://github.com/wenerme/repository) 仓库中的 tinc-pre 1.16 进行部署。
 
 
-> 💡提示 
+> 💡提示
 >
 > 如果需要配置为 Switch 模式，只需要在最开始节点的 tinc.conf 里添加 `Mode=Switch` 即可
 
@@ -210,9 +210,9 @@ docker run --rm -it -v $PWD/node_1:/etc/tinc/mynet \
 # 以下命令需要 root 用户操作
 sudo su
 
-# 添加仓库
-(cd /etc/apk/keys; curl -LO https://repo.wener.me/alpine/wenermail@gmail.com-5dc8c7cd.rsa.pub )
-echo https://repo.wener.me/alpine/v3.10/community | tee -a /etc/apk/repositories
+# 添加仓库 <= 3.10
+# (cd /etc/apk/keys; curl -LO https://repo.wener.me/alpine/wenermail@gmail.com-5dc8c7cd.rsa.pub )
+# echo https://repo.wener.me/alpine/v3.10/community | tee -a /etc/apk/repositories
 # 安装
 apk add --no-cache tinc-pre
 
@@ -259,9 +259,9 @@ tinc -n mynet invite node_1
 # 以下命令需要 root 用户操作
 sudo su
 
-# 添加仓库
-(cd /etc/apk/keys; curl -LO https://repo.wener.me/alpine/wenermail@gmail.com-5dc8c7cd.rsa.pub )
-echo https://repo.wener.me/alpine/v3.10/community | tee -a /etc/apk/repositories
+# 添加仓库 <= 3.10
+# (cd /etc/apk/keys; curl -LO https://repo.wener.me/alpine/wenermail@gmail.com-5dc8c7cd.rsa.pub )
+# echo https://repo.wener.me/alpine/v3.10/community | tee -a /etc/apk/repositories
 # 安装
 apk add --no-cache tinc-pre
 

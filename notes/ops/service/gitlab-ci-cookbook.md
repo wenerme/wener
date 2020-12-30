@@ -38,7 +38,9 @@ Build in Docker:
 Build Image:
   stage: build
   services:
-    - docker:dind
+    - name: docker:dind
+      # 可以修改镜像
+      # command: ["--registry-mirror", "https://registry-mirror.example.com"]
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2

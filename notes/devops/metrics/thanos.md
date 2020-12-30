@@ -428,7 +428,7 @@ thanos sidecar --prometheus.url=http://localhost:9090
   - 优点 - thanos receive 状态无所谓，可丢弃
   - 缺点 - 多部署一个 sidecar
 1. Prometheus + Sidecar + StoreAPI tunnel
-  - StoreAPI 默认 h2c 
+  - StoreAPI 默认 h2c
   - 缺点
     - grpc 不能 tunnel 到子路径，需要使用子域名或独立端口
     - 需要额外的 tunnel 部署
@@ -463,3 +463,14 @@ avg(irate(node_cpu_seconds_total{mode="system"}[10m])) by (instance) *100
 # grafana
 avg(irate(node_cpu_seconds_total{mode="system"}[$__interval])) by (instance) *100
 ```
+
+# 版本
+## 0.17
+
+* BlockViewer 支持下载 meta.json - Compact/Web UI
+* `thanos query-frontend` - 支持 label 名字和值 查询分片、重试
+* `thanos tools bucket replicate` - 支持通过 ID 和时间段 复制
+* `thanos query` - using dynamic lookback delta when downsampled data is used by default
+* Compactor 会注意 64GB 索引限制，会避免进行压缩 - 通过上传 no-compact-mark.json 也能控制不压缩
+* `thanos tools bucket mark` 标记不压缩或删除
+* `--store.enable-index-header-lazy-reader` - 启用后 store 只会 mmap 部分必要信息，下一个版本为默认开启

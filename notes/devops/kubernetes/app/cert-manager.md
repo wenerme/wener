@@ -91,6 +91,35 @@ helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --version $ver
+
+# Helm 安装 - 通过镜像
+helm repo add wener https://charts.wener.tech
+helm repo update
+
+cat <<YAML > cert-manager.values.yaml
+image:
+  repository: registry.cn-hongkong.aliyuncs.com/cmi/jetstack_cert-manager-controller
+webhook:
+  image:
+    repository: registry.cn-hongkong.aliyuncs.com/cmi/jetstack_cert-manager-webhook
+cainjector:
+  image:
+    repository: registry.cn-hongkong.aliyuncs.com/cmi/jetstack_cert-manager-cainjector
+installCRDs: true
+# 版本相关
+extraArgs:
+  - --acme-http01-solver-image=registry.cn-hongkong.aliyuncs.com/cmi/jetstack_cert-manager-acmesolver:$ver
+YAML
+
+helm install \
+  cert-manager wener/cert-manager \
+  --namespace cert-manager --create-namespace \
+  --version $ver -f cert-manager.values.yaml
+
+# 查看安装状态
+kubectl -n cert-manager rollout status deploy/cert-manager
+# 验证安装
+kubectl -n cert-manager get deploy
 ```
 
 ## ACME

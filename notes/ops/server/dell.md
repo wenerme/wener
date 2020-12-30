@@ -2,7 +2,7 @@
 
 ## Tips
 * Dell [服务器列表](https://en.wikipedia.org/wiki/List_of_Dell_PowerEdge_Servers)
-
+* [Dell Linux repository](https://linux.dell.com/repo/hardware/)
 
 ## Server
 

@@ -72,8 +72,8 @@ title: 开发用词字典
 | 英文              | 含义              | 释义                      |
 | ----------------- | ----------------- | ------------------------- |
 | bsp               | 服务商            | bussness service provider |
-| provider          | 供应商            |
-| vendor            | 供应商            |
+| provider          | 提供商            |
+| vendor            | 厂商              |
 | supplier          | 供应商,偏重第三方 |
 | operation/op      | 操作              |
 | contract          | 合同              |
@@ -232,20 +232,73 @@ title: 开发用词字典
   - 按照合约使用信息、产品、服务的个体
 
 ## username vs user name vs userName
-* username - 用户名
-  * 唯一性
-* user name/userName - 用户的名字
-  * 类似于 FirstName，Full name 之类的含义
-  * 不具有唯一性
-  * 尽量使用 FullName 避免不必要的混淆
+
+- username - 用户名
+  - 唯一性
+- user name/userName - 用户的名字
+  - 类似于 FirstName，Full name 之类的含义
+  - 不具有唯一性
+  - 尽量使用 FullName 避免不必要的混淆
+
+## group vs department vs team
+* group
+  * 人或事务的集合 - 与人多对多
+    * 例如一个群组里可能有用户也可能有机器人
+  * 单纯用于分组 - 弱业务性质和上下级关系
+    * A组、B组
+* department
+  * 人的集合 - 与人多对一
+  * 具有业务属性和上下级关系
+    * 财务部 - 表示财务相关的业务
+* team
+  * 人的集合 - 与人多对多
+  * 组织架构中类似 group - 但更具有管理属性
+  * 主要便于跨部门协作
+
+## business unit vs division vs deparment
+* 组织架构三层关系
+* business unit - 业务单元 - 例如 出版署
+  * 位于某个地点
+* division - 分部 - 例如 市场分部、消费者分部
+  * 位于某个地点的某些办公室或者区域
+* deparment - 部门 - 例如 编辑部、较对部
+  * 位于公司某个区域
+
+* 参考
+  * [Developing the Organizational Hierarchy](https://www.archibus.net/ai/abizfiles/v21.2_help/archibus_help/Subsystems/webc/Content/background_gen/org_hierarchy.htm)
+  * wikipedia [Corporate structure](https://en.wikipedia.org/wiki/Corporate_structure)
+  * [Corporate structure](https://corporatefinanceinstitute.com/resources/knowledge/finance/corporate-structure/)
 
 ## activity vs event
-* event
-  * 最原子的事件
-  * 使用一个 点 表示
-  * 可以被独立标示
-* activity
-  * 活动 - 通常有开始结束
-  * 通常表示状态变化，类似于一个链接
-  * 达成活动可能有一定条件 - 例如 A 转变为 B 还是 C 取决于一定条件
-  * 活动底层也是通过事件驱动
+
+- event
+  - 最原子的事件
+  - 使用一个 点 表示
+  - 可以被独立标示
+- activity
+  - 活动 - 通常有开始结束
+  - 通常表示状态变化，类似于一个链接
+  - 达成活动可能有一定条件 - 例如 A 转变为 B 还是 C 取决于一定条件
+  - 活动底层也是通过事件驱动
+
+## Supplier vs. Vendor
+
+- Supplier
+  - B2B 关系 - 产品供应商
+  - 是上游
+  - 一般指生产资料供应商，而非直接产品
+  - Supplier 之间对比的是质量和影响关系
+- Vendor
+  - B2B 或 B2C 关系
+  - 批量采购进行售卖的角色
+  - 销售的内容是产品
+  - Vendor 之间对比的是价格
+
+## Subject vs Catalog
+
+- Catalog
+  - 目录、商品目录
+- Subject
+  - 主题、科目
+
+都有分类的含义，但分类的方式和内容不同。Subjet 更客观，更规范的分类。Catalog 一般是由人主观进行编撰的。

@@ -71,6 +71,12 @@ title: React Awesome
   * [primefaces/primereact](https://github.com/primefaces/primereact)
   * [DevExpress/devextreme-reactive](https://github.com/DevExpress/devextreme-reactive)
     * 功能强大的 [Scheduler](https://devexpress.github.io/devextreme-reactive/react/scheduler/demos/featured/overview/)
+  * [uiwjs/uiw](https://github.com/uiwjs/uiw)
+    * 国产
+    * 包含一些特殊组件 - PIN码、评分、日历
+    * markdown 编辑器、高德地图、百度地图
+    * [uiwjs/province-city-china](https://github.com/uiwjs/province-city-china) - 省市区数据
+
 ## 特殊 UI 组件
 * [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
   * 模仿 macOS High Sierra 和 Windows 10 的组件
@@ -90,7 +96,6 @@ title: React Awesome
 * [jedwatson/react-select](https://github.com/jedwatson/react-select)
   * 功能完善的 select 组件
   * 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
-
 
 ### 编辑器
 * Markdown
@@ -128,6 +133,19 @@ title: React Awesome
   * 生成 className
 
 ## 状态管理
+* [facebookexperimental/Recoil](https://github.com/facebookexperimental/Recoil)
+  * [Recoil: State Management for Today's React](https://youtu.be/_ISAA_Jt9kI)
+* [paol-imi/react-reparenting](https://github.com/paol-imi/react-reparenting)
+  * 实现切换 parent 不丢失状态
+* [jamiebuilds/unstated-next](https://github.com/jamiebuilds/unstated-next)
+  * 简单封装 context+state - 共享业务状态逻辑，在状态基础上添加操作
+  * 反转 useHook
+* [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
+  * 用于在实现状态管理时快速比较是否发生变化
+  * 减少变化，避免刷新
+* [immerjs/use-immer](https://github.com/immerjs/use-immer)
+  * useImmer - 基于 immer 的状态更新
+  * 当状态较多时能很大程度简化操作 - 从 `setState(s=>({...s,loading:true}))` 变为 `update(s=>{s.loading=true})`
 * 订阅
   * [dai-shi/react-tracked](https://github.com/dai-shi/react-tracked)
   * [dai-shi/use-context-selector](https://github.com/dai-shi/use-context-selector)
@@ -143,15 +161,11 @@ title: React Awesome
     * storeon - [index.js](https://github.com/storeon/storeon/blob/main/index.js)
     * React hook - [react/index.js](https://github.com/storeon/storeon/blob/main/react/index.js)
     * 结构逻辑比 redux 清晰的多
-* [jamiebuilds/unstated-next](https://github.com/jamiebuilds/unstated-next)
-  * 简单封装 context+state - 共享业务状态逻辑，在状态基础上添加操作
-  * 反转 useHook
-* [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
-  * 用于在实现状态管理时快速比较是否发生变化
-  * 减少变化，避免刷新
-* [immerjs/use-immer](https://github.com/immerjs/use-immer)
-  * useImmer - 基于 immer 的状态更新
-  * 当状态较多时能很大程度简化操作 - 从 `setState(s=>({...s,loading:true}))` 变为 `update(s=>{s.loading=true})`
+
+## 图表
+* [recharts/recharts](https://github.com/recharts/recharts)
+  * 基于 d3 封装
+  * 功能比较原始 - 自定义能力较强
 
 ## 开发工具
 * [storybookjs/storybook](https://github.com/storybookjs/storybook)

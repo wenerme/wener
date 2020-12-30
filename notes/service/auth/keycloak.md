@@ -20,6 +20,13 @@ title: Keycloak
 - 通过 jgroups 实现集群
 - vault 支持 K8S secrets
   - 挂载到 `$JBOSS_HOME/secrets`
+- 参考
+  - [Use mobile numbers for user authentication in Keycloak](https://developers.redhat.com/blog/2020/10/23/use-mobile-numbers-for-user-authentication-in-keycloak)
+- 地址
+  - /auth
+  - /auth/console
+  - /auth/realms/${REALM}/protocol/openid-connect/auth
+  - /auth/admin/${REALM}/console
 
 ## Docker
 
@@ -55,22 +62,23 @@ title: Keycloak
 ```bash
 # 默认启动使用 H2
 # 映射出数据可重复启动不丢配置
+# 需要添加的用户会生成配置到 /opt/jboss/keycloak/standalone/configuration/keycloak-add-user.json
 docker run --rm -it \
   -p 8080:8080 \
   -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin \
-  -v $PWD/keycloak:/opt/jboss/keycloak/standalone/data \
+  -v $PWD/keycloak/data:/opt/jboss/keycloak/standalone/data \
   --name keycloak jboss/keycloak
 
 docker run --rm -it --entrypoint bash \
   -e -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin \
-  -v $PWD/.keycloak:/opt/jboss/.keycloak \
+  -v $PWD/keycloak:/opt/jboss/.keycloak \
   -v $PWD:/host -w /host \
   --name keycloak jboss/keycloak
 
 # 配置文件
 # $HOME/.keycloak/kcadm.config
 docker run --rm -it --entrypoint bash \
-  -v $PWD/.keycloak:/opt/jboss/.keycloak \
+  -v $PWD/keycloak:/opt/jboss/.keycloak \
   -v $PWD:/host -w /host \
   --name keycloak jboss/keycloak
 

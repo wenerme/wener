@@ -1,3 +1,7 @@
+---
+title: crontab
+---
+
 # crontab
 
 ## Tips
@@ -78,6 +82,16 @@ sudo nano /etc/syslog.conf
 # 重启 syslog
 sudo launchctl unload /System/Library/LaunchDaemons/com.apple.syslogd.plist
 sudo launchctl load /System/Library/LaunchDaemons/com.apple.syslogd.plist
+```
+
+## 常见清理
+
+```bash
+# Docker GC
+docker system prune --force
+
+# ZFS scrub
+zpoll scrub main
 ```
 
 ## help

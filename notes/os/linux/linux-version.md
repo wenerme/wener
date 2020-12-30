@@ -1,13 +1,35 @@
+---
+title: Linux Releases
+---
+
 # Linux Releases
 
 ## Tips
 * https://kernelnewbies.org/LinuxVersions
 * [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
 * [Active kernel releases](https://www.kernel.org/category/releases.html)
+  * 一般年底的最后一个版本会变成 LTS
+
+## 5.10 - LTS
+* EXT4
+  * 支持 fast commit - fsync 和元数据操作更快 - mkfs 启用
+  * 优化文件覆写
+* XFS
+  * 时间戳 2038 -> 2468
+* Nintendo Switch Joy Cons 和 Pro 手柄控制器 - USB 和 蓝牙
+* Raspberry Pi 4 VC4
+* RISC-V boot EFI
+* [Linux 5.10](https://kernelnewbies.org/Linux_5.10)
 
 ## 5.8
-* Raspberry Pi 4 
+* Raspberry Pi 4
 * Broadcom BCM2711
+
+## 5.4
+* virtio-fs
+* fs-verity - 检测文件修改
+  * 块级别，类似 dm-verity，支持 ext4、f2fs
+* [Linux 5.10](https://kernelnewbies.org/Linux_5.4)
 
 ## 4.8
 * Support for using Transparent Huge Pages in the page cache

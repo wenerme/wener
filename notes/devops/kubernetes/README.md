@@ -1,6 +1,6 @@
 ---
 id: kubernetes
-title: Kubernates
+title: Kubernetes
 ---
 
 # Kubernetes

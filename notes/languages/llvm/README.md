@@ -1,9 +1,15 @@
+---
+title: LLVM
+---
+
 # LLVM
 
 ## Tips
-* doxygen [Doc](http://llvm.org/doxygen/)
+* LLVM [Language Reference Manual](https://llvm.org/docs/LangRef.html)
 * 其他语言
   * Emscripten: An LLVM to JavaScript Compiler
+* 参考
+  * [A Complete Guide to LLVM for Programming Language Creators](https://mukulrathi.co.uk/create-your-own-programming-language/llvm-ir-cpp-api-tutorial/)
 
 ```bash
 # brew 安装位置 /usr/local/opt/llvm

@@ -167,6 +167,8 @@ sentry_dsn=false
   network_mode=
   wait_for_services_timeout=
   volumes = ["/certs/client", "/cache"]
+  # 映射现有镜像配置
+  # volumes = ["/opt/docker/daemon.json:/etc/docker/daemon.json:ro"]
   volumes_from=[]
   volume_driver=[]
   extra_hosts=[]
@@ -184,6 +186,11 @@ sentry_dsn=false
   [[runners.docker.services]]
     name = "redis:5"
     alias = "cache"
+
+  [[runners.docker.services]]
+    name = "docker:dind"
+    # 全局修改 dind 镜像
+    command = ["--registry-mirror", "https://registry-mirror.example.com"]
 
 [runners.parallels]
   base_name=""

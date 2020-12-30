@@ -1,63 +1,77 @@
 # Webcast
+- [EasyDarwin/EasyDarwin](https://github.com/EasyDarwin/EasyDarwin)
+  - RTSP流媒体服务器
 
-* [HLS Latency Sucks, But Here’s How to Fix It](https://www.wowza.com/blog/hls-latency-sucks-but-heres-how-to-fix-it)
+Go语言搭建流媒体服务器分享
+https://blog.csdn.net/qq_44291044/article/details/99703150
+
+- [HLS Latency Sucks, But Here’s How to Fix It](https://www.wowza.com/blog/hls-latency-sucks-but-heres-how-to-fix-it)
+
+| Protocol | Tras | Container | Delay | Data Segement | HTML5 | Case                        |
+| -------- | ---- | --------- | ----- | ------------- | ----- | --------------------------- |
+| RTMP     | TCP  | flv tag   | 2s    | stream        | -     | 互动直播，点播 在线教育     |
+| HTTP-FLV | HTTP | flv       | 2s    | stream        | x     | H5, 互动直播，点播 在线教育 |
+| HLS      | HTTP | m3u8,ts   | 10s+  | Segement      | x     | H5, 互动直播，点播 在线教育 |
 
 ## spreed-webrtc
+
 [Spreed WebRTC](https://github.com/strukturag/spreed-webrtc) implements a WebRTC audio/video call and conferencing server and web client.
 
 ## Red5
 
 [Red5](https://github.com/Red5/red5-server) is an Open Source Flash Server written in Java that supports:
 
-* Streaming Video (FLV, F4V, MP4, 3GP)
-* Streaming Audio (MP3, F4A, M4A, AAC)
-* Recording Client Streams (FLV and AVC+AAC in FLV container)
-* Shared Objects
-* Live Stream Publishing
-* Remoting
-* Protocols: RTMP, RTMPT, RTMPS, and RTMPE
+- Streaming Video (FLV, F4V, MP4, 3GP)
+- Streaming Audio (MP3, F4A, M4A, AAC)
+- Recording Client Streams (FLV and AVC+AAC in FLV container)
+- Shared Objects
+- Live Stream Publishing
+- Remoting
+- Protocols: RTMP, RTMPT, RTMPS, and RTMPE
 
 Additional features supported via plugin:
 
-* [WebSocket (ws and wss)](https://github.com/Red5/red5-websocket)
-* [RTSP (From Axis-type cameras)](https://github.com/Red5/red5-rtsp-restreamer)
-* [HLS](https://github.com/Red5/red5-hls-plugin)
+- [WebSocket (ws and wss)](https://github.com/Red5/red5-websocket)
+- [RTSP (From Axis-type cameras)](https://github.com/Red5/red5-rtsp-restreamer)
+- [HLS](https://github.com/Red5/red5-hls-plugin)
 
 ## icecast
+
 [Icecast](http://www.icecast.org/) is a streaming media (audio/video) server which currently supports Ogg (Vorbis and Theora), Opus, WebM and MP3 streams.
 
-* Icecast 主要用于音频流, WebM 是最新的 2.4 添加的支持.
-* 提供 Libshout 来为 Icecast 提供源
-* Libshout 提供 Java, Python 绑定
-* 提供 ezstream 命令行工具来提供源
+- Icecast 主要用于音频流, WebM 是最新的 2.4 添加的支持.
+- 提供 Libshout 来为 Icecast 提供源
+- Libshout 提供 Java, Python 绑定
+- 提供 ezstream 命令行工具来提供源
 
 https://en.wikipedia.org/wiki/Icecast
 https://wiki.archlinux.org/index.php/Icecast
 
-
 https://www.xiph.org/
 OPUS FLAC ICECAST VORBIS DAALA THEORA SPEEX XSPF
 
-
 ## mistserver
+
 [mistserver](https://github.com/DDVTECH/mistserver) is a streaming media server that works well in any streaming environment.
 http://www.mistserver.com/
 
 ## FFServer
+
 是 FFMpeg 的组件之一
 
 http://ffmpeg.org/ffserver-all.html
 http://blog.chinaunix.net/uid-9688646-id-3399113.html
 
 ## WebRTC
+
 https://github.com/muaz-khan/WebRTC-Experiment
 https://github.com/streamproc/MediaStreamRecorder
 https://github.com/strukturag/spreed-webrtc
 https://github.com/keroserene/go-webrtc
 
-* [peerjs](http://peerjs.com/)
-  * 已经停止开发
-https://simplewebrtc.com/
+- [peerjs](http://peerjs.com/)
+  - 已经停止开发
+    https://simplewebrtc.com/
 
 https://github.com/priologic/easyrtc
 
@@ -65,28 +79,28 @@ https://github.com/muaz-khan/WebRTC-Experiment/
 https://github.com/muaz-khan/RecordRTC
 
 ## Jitsi
-* [jitsi.org](https://jitsi.org/)
-* [github/jitsi](https://github.com/jitsi)
-* The most innovative opensource video conferencing community.
-* [jitsi/jitsi-videobridge](https://github.com/jitsi/jitsi-videobridge)
-  * Jitsi Videobridge is a WebRTC compatible video router or SFU that lets build highly scalable video conferencing infrastructure (i.e., up to hundreds of conferences per server)
-* [jitsi/jitsi](https://github.com/jitsi/jitsi)
-  * Jitsi is an audio/video and chat communicator that supports protocols such as SIP, XMPP/Jabber, AIM/ICQ, IRC and many other useful features.
-* [jitsi/ice4j](https://github.com/jitsi/ice4j)
+
+- [jitsi.org](https://jitsi.org/)
+- [github/jitsi](https://github.com/jitsi)
+- The most innovative opensource video conferencing community.
+- [jitsi/jitsi-videobridge](https://github.com/jitsi/jitsi-videobridge)
+  - Jitsi Videobridge is a WebRTC compatible video router or SFU that lets build highly scalable video conferencing infrastructure (i.e., up to hundreds of conferences per server)
+- [jitsi/jitsi](https://github.com/jitsi/jitsi)
+  - Jitsi is an audio/video and chat communicator that supports protocols such as SIP, XMPP/Jabber, AIM/ICQ, IRC and many other useful features.
+- [jitsi/ice4j](https://github.com/jitsi/ice4j)
 
 ## Kurento
 
-* [Kurento and Asterisk: A powerful couple](https://webrtc.ventures/2017/02/kurento-asterisk-powerful-couple/)
-* [Kurento/kurento-media-server](https://github.com/Kurento/kurento-media-server)
-* Kurento media server
-* C++
-* Features
-  * Networked streaming protocols, including HTTP, RTP and WebRTC.
-  * Group communications (MCUs and SFUs functionality) supporting both media mixing and media routing/dispatching.
-  * Generic support for computational vision and augmented reality filters.
-  * Media storage supporting writing operations for WebM and MP4 and playing in all formats supported by GStreamer.
-  * Automatic media transcodification between any of the codecs supported by GStreamer including VP8, H.264, H.263, AMR, OPUS, Speex, G.711, etc.
-
+- [Kurento and Asterisk: A powerful couple](https://webrtc.ventures/2017/02/kurento-asterisk-powerful-couple/)
+- [Kurento/kurento-media-server](https://github.com/Kurento/kurento-media-server)
+- Kurento media server
+- C++
+- Features
+  - Networked streaming protocols, including HTTP, RTP and WebRTC.
+  - Group communications (MCUs and SFUs functionality) supporting both media mixing and media routing/dispatching.
+  - Generic support for computational vision and augmented reality filters.
+  - Media storage supporting writing operations for WebM and MP4 and playing in all formats supported by GStreamer.
+  - Automatic media transcodification between any of the codecs supported by GStreamer including VP8, H.264, H.263, AMR, OPUS, Speex, G.711, etc.
 
 ## Feed
 
@@ -97,56 +111,58 @@ https://github.com/blackjack/webcam
 
 ## Player
 
-* Web
-  * [video.js](https://github.com/videojs/video.js)
-  * [dash.js](https://github.com/Dash-Industry-Forum/dash.js)
-  * https://github.com/google/shaka-player
-* Desktop
-  * VLC
+- Web
+  - [video.js](https://github.com/videojs/video.js)
+  - [dash.js](https://github.com/Dash-Industry-Forum/dash.js)
+  - https://github.com/google/shaka-player
+- Desktop
+  - VLC
 
 ## DASH
 
 ## Streaming
 
-* Protocol
-  * RTP
-    * RTCP
-  * RTMP
-  * WebRTC
-    * SIP
-* https://obsproject.com/
+- Protocol
+  - RTP
+    - RTCP
+  - RTMP
+  - WebRTC
+    - SIP
+- https://obsproject.com/
 
 ## 速率
-* [数据速率单位](https://en.wikipedia.org/wiki/Data_rate_units)
-* kbps
-  * Kilobit per second
-  * 1,000 bits per second
-  * 125 bytes per second
-* 计算器
-  * http://www.dr-lex.be/info-stuff/videocalc.html
-  * https://toolstud.io/
+
+- [数据速率单位](https://en.wikipedia.org/wiki/Data_rate_units)
+- kbps
+  - Kilobit per second
+  - 1,000 bits per second
+  - 125 bytes per second
+- 计算器
+  - http://www.dr-lex.be/info-stuff/videocalc.html
+  - https://toolstud.io/
 
 示例 kbps
 
-视频尺寸 | kbps
----|---
-320x180   | 250
-480x270   | 400
-640x360   | 800
-960x540   | 1200
-1280x720  | 2400
-1920x1080 | 4800
+| 视频尺寸  | kbps |
+| --------- | ---- |
+| 320x180   | 250  |
+| 480x270   | 400  |
+| 640x360   | 800  |
+| 960x540   | 1200 |
+| 1280x720  | 2400 |
+| 1920x1080 | 4800 |
 
 ## Reference
-* [知乎:如何搭建一个完整的视频直播系统？](https://www.zhihu.com/question/42162310)
-* [Coturn](https://github.com/coturn/coturn) [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server
-* [STUN+TURN servers list](https://gist.github.com/yetithefoot/7592580)
-* [Best approach to real time http streaming to HTML5 video client](http://stackoverflow.com/questions/21921790)
-* [Live streaming web audio and video](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
-* [List of streaming media systems](https://en.wikipedia.org/wiki/List_of_streaming_media_systems)
-* [流媒简介](http://blog.ucloud.cn/archives/author/usmd)
 
-* [](http://stackoverflow.com/questions/16571044)
+- [知乎:如何搭建一个完整的视频直播系统？](https://www.zhihu.com/question/42162310)
+- [Coturn](https://github.com/coturn/coturn) [TURN](https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT) server
+- [STUN+TURN servers list](https://gist.github.com/yetithefoot/7592580)
+- [Best approach to real time http streaming to HTML5 video client](http://stackoverflow.com/questions/21921790)
+- [Live streaming web audio and video](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
+- [List of streaming media systems](https://en.wikipedia.org/wiki/List_of_streaming_media_systems)
+- [流媒简介](http://blog.ucloud.cn/archives/author/usmd)
+
+- [](http://stackoverflow.com/questions/16571044)
 
 https://github.com/videojs/video.js
 http://www.cuplayer.com/player/PlayerCodeCourse/2015/03271844.html
@@ -167,9 +183,6 @@ https://github.com/xlab/libvpx-go
 WebM streaming server written in Go
 https://github.com/izacus/gortmpd
 
-
-
-
 https://github.com/blackjack/webcam
 https://github.com/abhishekkr/capture
 
@@ -181,6 +194,5 @@ https://wmspanel.com/nimble
 http://www.unified-streaming.com/
 
 https://www.scriptcam.com/
-
 
 https://github.com/gpac/gpac

@@ -101,9 +101,9 @@ helm upgrade -i ingress-nginx wener/ingress-nginx -n ingress-nginx --create-name
 ```bash
 
 # latest
-helm repo add rancher https://releases.rancher.com/server-charts/latest
+# helm repo add rancher https://releases.rancher.com/server-charts/latest
 # stable
-# helm repo add rancher https://releases.rancher.com/server-charts/stable
+helm repo add rancher https://releases.rancher.com/server-charts/stable
 
 # https://rancher.com/docs/rancher/v2.x/en/installation/resources/chart-options
 cat <<YAML > rancher.values.yaml
@@ -113,14 +113,18 @@ hostname: rancher.my.corp
 # privateCA: true
 # rancher mirror
 systemDefaultRegistry: registry.cn-hangzhou.aliyuncs.com
-# for test only
+# 1 for test only - default 3
 replicas: 1
 YAML
 
 helm upgrade -i rancher rancher/rancher -n cattle-system --create-namespace -f rancher.values.yaml
 
+# 查看安装状态
 kubectl -n cattle-system rollout status deploy/rancher
-# verify
+# 验证安装
 kubectl -n cattle-system get deploy rancher
+
+# 转发访问 rancher
+kubectl port-forward -n cattle-system svc/rancher --address 0.0.0.0 8080:80
 ```
 
