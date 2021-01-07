@@ -165,7 +165,35 @@ title: React Awesome
 ## 图表
 * [recharts/recharts](https://github.com/recharts/recharts)
   * 基于 d3 封装
-  * 功能比较原始 - 自定义能力较强
+  * 功能比较原始 - 自定义能力较强 - 自定义 svg - 随意画图
+  * 类似于通过 react 渲染 svg - 但需要熟悉 svg 语法
+  * children 可以直接写 svg
+* [airbnb/visx](https://github.com/airbnb/visx)
+  * React 渲染 SVG
+  * 预设了较多样式和图表元素
+* [FormidableLabs/victory](https://github.com/FormidableLabs/victory)
+* [plouc/nivo](https://github.com/plouc/nivo)
+* [uber/react-vis](https://github.com/uber/react-vis)
+  * 不太活跃
+* [plotly/react-plotly.js](https://github.com/plotly/react-plotly.js/)
+  * React 封装 plotly.js
+  * [plotly.js](https://github.com/plotly/plotly.js) - 所有图表都可以通过序列化的 JSON 表示
+    * 支持非常多的预设图表
+    * 显示支持一定程度自定义
+* [alibaba/BizCharts](https://github.com/alibaba/BizCharts)
+  * 阿里 BizCharts - 基于 G2 封装 React
+  * 封装程度高 - 支持较多类型图表
+* G2Plot
+  * 基于 G2 封装的默认可用图表
+* @ant-design/charts
+  * 基于 G2Plot 封装 React
+
+* [sbstjn/timesheet.js](https://github.com/sbstjn/timesheet.js)
+* [projectstorm/react-diagrams](https://github.com/projectstorm/react-diagrams)
+  * 节点流程图
+* [antvis/G2](https://github.com/antvis/G2)
+* [chartjs/Chart.js](https://github.com/chartjs/Chart.js)
+  * 基于 canvas
 
 ## 开发工具
 * [storybookjs/storybook](https://github.com/storybookjs/storybook)

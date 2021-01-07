@@ -4,14 +4,18 @@ title: 版本历史
 ---
 
 # AlpineLinux 版本历史
-
-- 每年两个版本 - 5 月左右一个，11 月左右一个
-- 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
-- [发布版本历史日期](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
+- 发布频率
+  - 每年两个版本 - 5 月左右一个，11 月左右一个
+  - 每年年底的 Linux 版本一般为 LTS - 因此下半年版本一般也会更新内核版本
+  - 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
+  - 每次发布前会先编译所有包，当包都有后才会正式发布
+  - [发布版本历史日期](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
 - 注意
   - 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
+  - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
+  - 3.11 内核 vanilla 变为 lts
 
-**我的贡献数 - wener/wenerme**
+**贡献数 - wener/wenerme**
 
 | version | commits |
 | ------- | ------- |
@@ -23,15 +27,39 @@ title: 版本历史
 | 3.8     | 6       |
 
 ## 3.13
-
-- 关注的包变化
+- Linux Kernel 5.10 LTS
+- 包变化
+  - musl 1.2
+    - time_t 在 32 位系统上为 64 位
+    - 1.2.1 使用了新的 [malloc](https://github.com/richfelker/mallocng-draft), 也能配合 jemalloc 使用
   - iproute2-minial/tc/ss
     - 单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包
-    - alpine-base 会包含， bb 的 ip 功能比较受限
+    - alpine-base 会包含， busybox 的 ip 功能比较受限
     - [commit](https://gitlab.alpinelinux.org/alpine/aports/commit/62c858b85bb379fb014cfe188f4cb25ed75f76e3)
+  - ifupdown -> [ifupdown-ng](https://github.com/ifupdown-ng/ifupdown-ng/)
+    - 默认包含了 vlan，不再需要额外安装
+    - 兼容 /etc/network/if-X.d 脚本但倾向于 `/usr/libexec/ifupdown-ng`
+    - 配置 /etc/network/ifupdown-ng.conf
+      - use_hostname_for_dhcp 默认 开启 - `hostname $(hostname)`
+    - 支持依赖关系 - `requires eth0`
+    - 手动指定 executor - `use bond`
+  - gcc 10
+    - 默认开启了 `-fno-common` - 某些包编译可能异常
+  - busybox 组件变化
+    - ❌ 移除 hdparm - 使用 hdparm
+    - ❌ 移除 fdformat,readprofile - 使用 util-linux
+    - ❌ 移除 lspci - 使用 pciutils
+    - ❌ 移除 sendmail - 使用 ssmtp, opensmtpd, dma, exim, nullmailer, postfix
+    - ❌ 移除 conspy, smemcap, dumpleases
+- 语言
+  - 新增 php8 - 默认依然为 php7
+  - nodejs 14
+  - go 1.15
+    - 1.16 支持 embded - 但是 2021-2 发布，应该赶不上
+- ✅ 新增包
+  - k3s
   - cloud-init
   - cni-plugins
-  - [ ] k3s
   - [ ] fluent-bit
 
 ## 3.12

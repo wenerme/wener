@@ -302,3 +302,31 @@ title: 开发用词字典
   - 主题、科目
 
 都有分类的含义，但分类的方式和内容不同。Subjet 更客观，更规范的分类。Catalog 一般是由人主观进行编撰的。
+
+## up-sell & cross-sell & down-sell
+* up-sell
+  * 向上销售 - 提更高价产品
+  * 提高产品价值，提升单价销售
+  * 例如 买车的时候推销更高端的座椅配件、提高免费维保
+  * 手段
+    * Upgrade
+    * Offer a Limited-Time Discount
+    * Do a Free Service
+    * Provide an Ongoing Service
+    * Tell Them What You Can Do
+* cross-sell
+  * 交叉销售 - 提其他类似产品
+  * 例如 买车的时候推销车险
+* down-sell
+  * 向下销售
+
+## association, relationship & correlation
+* association - 关联
+  * 是一种 relationship
+  * 将两者进行关联 - 相对更加主观，强调关联动作
+* relationship - 关系
+  * 表明两者有相关性 - 客观关系
+  * 表明两者之间有链接
+* correlation - 相关性
+  * measure of association and mathematical tools are provided to measure the magnitude of the correlation.
+  * 度量 association/relationship

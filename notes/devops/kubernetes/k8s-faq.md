@@ -29,6 +29,24 @@ title: K8S 常见问题
 | 251-500 | n1-standard-16 | 16 核 64G  |
 | 500+    | n1-standard-32 | 32 核 128G |
 
+## 导出资源忽略状态字段
+* 常见字段
+  * status
+  * metadata.managedFields
+  * metadata
+    * annotations
+      * kubectl.kubernetes.io/last-applied-configuration
+      * deployment.kubernetes.io/revision
+    * resourceVersion
+    * selfLink
+    * uid
+    * creationTimestamp
+    * generation
+
+```bash
+kubectl get -o=yaml deploy whoami | yq d - status | yq d - 'metadata.managedFields'
+```
+
 ## 删除卡在 Terminating 状态
 
 ```bash

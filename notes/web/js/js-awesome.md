@@ -1,5 +1,25 @@
+---
+title: JavaScript Awesome
+---
 
 # JavaScript Awesome
+
+## Tricks
+* [Virtual Machine Detection In The Browser](https://bannedit.github.io/Virtual-Machine-Detection-In-The-Browser.html)
+
+```js
+var canvas = document.createElement('canvas');
+var gl = canvas.getContext('webgl');
+
+var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+var vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+
+console.log(vendor);
+console.log(renderer);
+```
+
+* [enkimute/ganja.js](https://github.com/enkimute/ganja.js) - 几何代数
 
 ## UI
 * react like
