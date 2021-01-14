@@ -2,6 +2,7 @@
 
 ## Tips
 * Parser
+  * [Operator-precedence parser](https://en.wikipedia.org/wiki/Operator-precedence_parser)
 * Lexer
   * http://jflex.de/
     * https://github.com/jflex-de/jflex

@@ -8,12 +8,25 @@ title: SQLite
 ## Tips
 
 * [数据类型](http://sqlite.org/datatype3.html)
+  * NULL
+  * INTEGER - 1, 2, 3, 4, 6, 8
+  * REAL - 8 byte
+  * TEXT - UTF-8, UTF-16BE, UTF-16LE
+  * BLOB
 * 语法
   * [expr](https://www.sqlite.org/lang_expr.html)
+  * [pragma](https://www.sqlite.org/pragma.html)
 * 注意
   * DATETIME 不会存储毫秒
   * 没有 Base64 函数
   * BLOB 作为二进制存储部分语言的 Driver 支持不太好
+  * 默认最多 999 个变量
+  * 可以配合 zfs 进行压缩 - 注意使用相同的 page size
+    * page_size 一般 4096, cache_size 一般 -2000 即 2000 kb
+    * `PRAGMA schema.page_size`, `PRAGMA schema.cache_size`
+* 限制
+  * [Limits In SQLite](https://www.sqlite.org/limits.html)
+  * [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)
 
 ```bash
 # macOS 安装
@@ -64,7 +77,7 @@ select strftime('%s', 'now');
 * WHERE 条件分析
   * 索引选择
 * BETWEEN 优化
-  * 转换为 >= <= 
+  * 转换为 >= <=
   * 与索引判断
 * OR 优化
   * 相同列语意上可转换为 IN

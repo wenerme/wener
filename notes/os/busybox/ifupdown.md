@@ -1,3 +1,7 @@
+---
+title: ifupdown
+---
+
 # ifupdown
 ## Tips
 * [networking/ifupdown.c](https://sourcegraph.com/github.com/mirror/busybox/-/blob/networking/ifupdown.c)

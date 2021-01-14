@@ -15,7 +15,7 @@ title: 版本历史
   - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
   - 3.11 内核 vanilla 变为 lts
 
-**贡献数 - wener/wenerme**
+**Commits of wener/wenerme**
 
 | version | commits |
 | ------- | ------- |
@@ -27,10 +27,16 @@ title: 版本历史
 | 3.8     | 6       |
 
 ## 3.13
+- 2020-01-14
 - Linux Kernel 5.10 LTS
 - 包变化
   - musl 1.2
     - time_t 在 32 位系统上为 64 位
+      - 在 64 位上跑 32 位的容器可能有问题
+      - __影响在其他 Disto 上跑 Alpine 容器的问题__
+      - Docker 版本需要大于 19.03.9 - 否则会有兼容问题
+      - libseccomp >= 2.4.2
+        - 执行 `scmp_sys_resolver -a x86 clock_gettime64` 返回 403 就是支持的
     - 1.2.1 使用了新的 [malloc](https://github.com/richfelker/mallocng-draft), 也能配合 jemalloc 使用
   - iproute2-minial/tc/ss
     - 单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包
@@ -60,7 +66,8 @@ title: 版本历史
   - k3s
   - cloud-init
   - cni-plugins
-  - [ ] fluent-bit
+- 参考
+  - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)
 
 ## 3.12
 

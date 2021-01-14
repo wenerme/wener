@@ -12,3 +12,10 @@ title: macOS FAQ
 ```bash
 xattr -r -d com.apple.quarantine $HOME/Development/graalvm/
 ```
+
+## 刷新 Finder
+* 例如挂载 smb 的时候远程目录发生变化
+
+```bash
+osascript -e 'tell application "Finder" to tell front window to update every item'
+```

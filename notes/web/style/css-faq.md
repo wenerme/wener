@@ -2,6 +2,9 @@
 title: CSS 常见问题
 ---
 
+# 常见问题
+* [CSS](http://help.dottoro.com/lcsdaoxj.php) Reference
+
 ## 父节点 min-heigh, 子节点百分比 heigh 无效
 * Fix
   1. parent 添加 `height:1px;`
@@ -104,3 +107,21 @@ https://caniuse.com/#feat=css-snappoints
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap
 
 https://codepen.io/argyleink/pen/RwPWqKe
+
+```css
+@supports (scroll-snap-type: y mandatory) {
+  .scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  section {
+    height: 100vh;
+    scroll-snap-align: center;
+  }
+}
+```
+
+## webkit-scrollbar
+* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar

@@ -19,6 +19,14 @@ title: Keycloak 开发
   * 获取到的 attributes 是 `Map<String, List<String>>  attributes;`
     * user 会处理对象转数组
     * group 不会处理，需要提前处理好
+* realm endpoints
+  * /protocol/openid-connect/auth
+  * /protocol/openid-connect/token
+  * /protocol/openid-connect/logout
+  * /protocol/openid-connect/login-status-iframe.html
+  * /protocol/openid-connect/3p-cookies/step1.html
+  * /protocol/openid-connect/registrations'
+  * /protocol/openid-connect/userinfo
 
 ```bash
 # 启动开发实例
