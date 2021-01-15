@@ -106,6 +106,8 @@ title: React Awesome
   - [andrerpena/react-mde](https://github.com/andrerpena/react-mde)
   - [HarryChen0506/react-markdown-editor-lite](https://github.com/HarryChen0506/react-markdown-editor-lite)
   - [uiwjs/react-md-editor](https://github.com/uiwjs/react-md-editor)
+- [margox/braft-editor](https://github.com/margox/braft-editor)
+  - [margox/braft-extensions](https://github.com/margox/braft-extensions) - 扩展包
 
 ## 路由
 
@@ -170,6 +172,8 @@ title: React Awesome
 - yup
   - js 书写方便
   - 但不方便序列化
+- props-type
+  - React 组件属性校验
 
 ## Form
 

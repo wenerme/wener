@@ -1,0 +1,60 @@
+// MiniQuery peg grammar
+// ==============
+// https://github.com/wenerme/wener/tree/master/tricks/languages/peg/miniquery.peggo
+// https://github.com/pointlander/peg
+
+package miniquery
+
+type MiniQueryPeg Peg {
+  *Tree
+}
+
+
+Grammar             <- _ Expression _ EndOfFile
+Expression          <- LogicExpression
+
+LogicExpression     <- NotExpression ( Logic NotExpression {p.PopLogic()})*
+NotExpression       <- CompareExpression / _ 'not' __ CompareExpression {p.PopNot()}
+CompareExpression   <- PredicateExpression ( Compare PredicateExpression {p.PopCompare()})*
+PredicateExpression <- BetweenExpression ( Match {p.PopPredicate()})?
+BetweenExpression   <- PrimaryExpression ( _ <('not' __)? 'between'> {p.AddOperation(text)} _ (Value _ 'and' _ Value / '[' _ Value _ ',' _ Value _ ']') {p.PopBetween()})?
+PrimaryExpression   <- '(' _ Expression _ ')' {p.PopParentheses()}
+                    / Value
+                    / Identifier ArgumentList {p.PopFunction()}
+                    / Reference
+
+ArgumentList        <- '(' {p.AddMark()} (Argument (',' Argument)* ','?)? ')' {p.PopArray()}
+Argument            <- Value / Identifier
+
+Reference     <- Identifier '.' Reference
+              / JsonReference
+              / Identifier
+
+JsonReference <- Identifier '->' (JsonReference / Identifier)
+Identifier    <- !'not' <[a-zA-Z]([_a-zA-Z0-9])*> {p.AddName(text)}
+
+Compare <- _ <( '>=' / '<=' / '==' / '!=' /  '>' / '<'  / '<>' / '=' )> _ {p.AddCompare(text)}
+        / _ <( 'gt' / 'lt' / 'gte' / 'lte' / 'eq' / 'neq' )> _ {p.AddCompare(text)}
+        / _ <( 'like' / 'not' __ 'like' )> _ {p.AddCompare(text)}
+        / _ <( 'in' / 'not' __ 'in'  )> _ {p.AddCompare(text)}
+
+Logic <- _ <('and' / 'or')> _ {p.AddLogic(text)}
+      / _ <( '&&' / '||' )> _ {p.AddLogic(text)}
+
+Match <- __ <'isnull' / 'notnull' / 'is' __ ('true'/'false'/'null') / 'is' __ 'not' __ ('true'/'false'/'null') > _ {p.AddMatch(text)}
+
+Value         <- Literal / Array
+Array         <- '[' {p.AddMark()} (Literal (',' Literal)* ','?)? ']' {p.PopArray()}
+Literal       <- String / Integer / Boolean / Null
+Integer       <- <'0' / [1-9][0-9]*> {p.AddInteger(text)}
+Boolean       <- <'true' / 'false'> {p.AddBoolean(text)}
+Null          <- 'null' {p.AddNull()}
+String        <- "'" <[^']*> "'" {p.AddString(text)}/ '"' <[^"]*> '"' {p.AddString(text)}
+
+SpaceComment  <- (Space / Comment)
+_             <- SpaceComment*
+__            <- SpaceComment+
+Comment		    <- ('--' / '//') (!EndOfLine .)* EndOfLine
+Space		      <- ' ' / '\t' / EndOfLine
+EndOfLine	    <- '\r\n' / '\n' / '\r'
+EndOfFile	    <- !.
