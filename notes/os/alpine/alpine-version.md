@@ -4,6 +4,7 @@ title: 版本历史
 ---
 
 # AlpineLinux 版本历史
+
 - 发布频率
   - 每年两个版本 - 5 月左右一个，11 月左右一个
   - 每年年底的 Linux 版本一般为 LTS - 因此下半年版本一般也会更新内核版本
@@ -19,6 +20,7 @@ title: 版本历史
 
 | version | commits |
 | ------- | ------- |
+| 3.13    | 29      |
 | 3.12.1  | 2       |
 | 3.12    | 16      |
 | 3.11    | 11      |
@@ -27,13 +29,14 @@ title: 版本历史
 | 3.8     | 6       |
 
 ## 3.13
+
 - 2020-01-14
-- Linux Kernel 5.10 LTS
+- Linux Kernel [5.10 LTS](https://wener.me/notes/os/linux/linux-version/#510---lts)
 - 包变化
   - musl 1.2
     - time_t 在 32 位系统上为 64 位
       - 在 64 位上跑 32 位的容器可能有问题
-      - __影响在其他 Disto 上跑 Alpine 容器的问题__
+      - **影响在其他 Disto 上跑 Alpine 容器的问题**
       - Docker 版本需要大于 19.03.9 - 否则会有兼容问题
       - libseccomp >= 2.4.2
         - 执行 `scmp_sys_resolver -a x86 clock_gettime64` 返回 403 就是支持的
@@ -49,6 +52,9 @@ title: 版本历史
       - use_hostname_for_dhcp 默认 开启 - `hostname $(hostname)`
     - 支持依赖关系 - `requires eth0`
     - 手动指定 executor - `use bond`
+    - 上游支持 hotplug 但目前 3.13 不会支持 - ifmond
+    - 后续可能会支持 ifreload
+    - 之后版本可能会移除 busybox 中的 ifupdown
   - gcc 10
     - 默认开启了 `-fno-common` - 某些包编译可能异常
   - busybox 组件变化
@@ -57,15 +63,30 @@ title: 版本历史
     - ❌ 移除 lspci - 使用 pciutils
     - ❌ 移除 sendmail - 使用 ssmtp, opensmtpd, dma, exim, nullmailer, postfix
     - ❌ 移除 conspy, smemcap, dumpleases
+  - 内核
+    - lts 添加了 RBD 模块 - 之前只有 virt 有 - ceph 需要
 - 语言
-  - 新增 php8 - 默认依然为 php7
-  - nodejs 14
-  - go 1.15
-    - 1.16 支持 embded - 但是 2021-2 发布，应该赶不上
-- ✅ 新增包
+  - 新增 php8 -
+- 🆕 新增包
   - k3s
   - cloud-init
   - cni-plugins
+  - php8 - php 默认依然为 php7
+- 🆙 升级包
+  - nodejs 14
+  - go 1.15
+    - 1.16 支持 embded - 但是 2021-2 发布
+  - qemu 5.2
+  - zfs 2.0.1 - 之前是 0.8
+    - zfs 调整了开发模式 - ZoL -> OpenZFS
+    - Linux 和 BSD 使用相同的核心代码 - 自 2018 年开始进行调整 - 增加了很多特性
+    - 新特性
+      - Sequential resilver - 快速构建镜像 vdev
+        - `zpool replace|attach -s`
+      - Persistent L2ARC - 重启后 L2ARC 缓存依然有效
+      - ZStandard 压缩 - 比 gzip 和 lzm 更好
+      - zfs send/receive - 支持部分数据
+        - `zfs redact`, `zfs send --redact`, `zfs send --saved`
 - 参考
   - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)
 

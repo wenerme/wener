@@ -139,3 +139,13 @@ title: Go Awesome
   * 无法扩展
   * [microcosm-cc/bluemonday](https://github.com/microcosm-cc/bluemonday)
     * html sanitizer
+
+## 语言
+* [rogchap/v8go](https://github.com/rogchap/v8go)
+  * 内含预编译的静态 libv8
+* [augustoroman/v8](https://github.com/augustoroman/v8)
+  * V8 Binding
+
+## 有趣
+* [fogleman/primitive](https://github.com/fogleman/primitive)
+  * 将图像转换为原子图形

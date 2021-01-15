@@ -1,16 +1,6 @@
 // PEG.js Grammer
 // ==============
 // https://github.com/wenerme/wener/tree/master/tricks/languages/antlr/PEG.g4
-//
-// Changes
-// - Add `extend by name` syntax
-// - Allowed use keyword as name
-// - Allowed directives on directive definition, add DIRECTIVE_DEFINITION location
-// - Allowed schema has optional name
-//
-// Notes
-// - Change type to typeSpce for Go target to prevent name conflict
-//
 
 grammar PEG;
 peg: initializer? ruleDefinition+ EOF;

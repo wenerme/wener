@@ -102,3 +102,19 @@ rm -rf /var/lib/cni/*
     * server 1.55G
     * agent 920M
 
+## 区分 worker 和 cp
+* `--node-taint k3s-controlplane=true:NoExecute`
+
+## 生成的证书自定义域名
+* `--tls-san YOUR_IP_OR_HOSTNAME_HERE`
+
+## x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0
+
+```
+E0905 23:03:57.992668   12600 controller.go:114] loading OpenAPI spec for "v1alpha1.tap.linkerd.io" failed with: failed to retrieve openAPI spec, http error: ResponseCode: 503, Body: Error trying to reach service: 'x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0', Header: map[Content-Type:[text/plain; charset=utf-8] X-Content-Type-Options:[nosniff]]
+```
+
+```bash
+# 启动时添加环境变量
+GODEBUG=x509ignoreCN=0
+```

@@ -269,3 +269,9 @@ brew link ruby -- dir_s_mkdir permission denied
 find /usr/local -not -uid $(id -u)
 find /usr/local -not -uid $(id -u) | xargs -n 1 sudo chown -R $(whoami)
 ```
+
+### openjdk
+```bash
+sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+# export PATH="/usr/local/opt/openjdk/bin:$PATH"
+```

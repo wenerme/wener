@@ -60,6 +60,7 @@ title: K3S
     * [kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
 * 参考
   * [Using a k3s Kubernetes Cluster for Your GitLab Project](https://medium.com/better-programming/b0b035c291a9)
+  * [架构](https://rancher.com/docs/k3s/latest/en/architecture)
 * 问题
   * 使用 Nginx 替代 Traefik - [#1466](https://github.com/rancher/k3s/pull/1466/files)
     * 已经被回退

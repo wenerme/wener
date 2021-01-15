@@ -17,6 +17,7 @@ title: SQLite
   * [expr](https://www.sqlite.org/lang_expr.html)
   * [pragma](https://www.sqlite.org/pragma.html)
 * 注意
+  * SQLite 的核心限制是并发写入性能 - 如果需要并发写入，不建议用 SQLite
   * DATETIME 不会存储毫秒
   * 没有 Base64 函数
   * BLOB 作为二进制存储部分语言的 Driver 支持不太好
@@ -24,6 +25,7 @@ title: SQLite
   * 可以配合 zfs 进行压缩 - 注意使用相同的 page size
     * page_size 一般 4096, cache_size 一般 -2000 即 2000 kb
     * `PRAGMA schema.page_size`, `PRAGMA schema.cache_size`
+    * [compressed sqlite3 database file?](https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg114729.html)
 * 限制
   * [Limits In SQLite](https://www.sqlite.org/limits.html)
   * [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)

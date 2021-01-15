@@ -3,6 +3,7 @@
 // https://github.com/wenerme/wener/tree/master/tricks/languages/antlr/GraphQL.g4
 //
 // Appendix B -- Grammar Summary.md https://github.com/facebook/graphql/blob/master/spec/Appendix%20B%20--%20Grammar%20Summary.md
+// commit 02fd71f816139b7e040f969860778d23df288d32 - 2020-02-07
 //
 // Changes - search `//extension` in grammer to find out where has been extended
 // - Add `extend by name` syntax for object and interface
@@ -12,7 +13,7 @@
 // - Allowed optional '&' for interface
 //
 // Notes
-// - Change type to typeSpce for Go target to prevent name conflict
+// - Change type to typeSpec for Go target to prevent name conflict
 //
 
 grammar GraphQL;
@@ -20,9 +21,17 @@ grammar GraphQL;
 graphql : document ;
 
 // 2.1 Source Text
+WS : Ignored+ -> skip;
+
 // SourceCharacter : [\u0009\u000A\u000D\u0020-\uFFFF] ;
 
-Ignored: (UnicodeBOM | WhiteSpace | LineTerminator | Comma) -> skip;
+Ignored
+  : UnicodeBOM
+  | WhiteSpace
+  | LineTerminator
+  | Comment
+  | Comma
+  ;
 
 UnicodeBOM : [\uFEFF];
 
@@ -33,7 +42,7 @@ WhiteSpace : [\u0009\u0020];
 // [\u000A] | '\u000D\u000A' | [\u000D]
 LineTerminator : [\u000D\u000A]+;
 
-Comment : '#' ~[\n\r\u2028\u2029]* -> channel(2);
+Comment : '#' ~[\u000D\u000A]* -> skip;
 // NOTE overlap with NAME
 // CommentChar : ~[\u000D\u000A] ; // TODO SourceCharacter but not LineTerminator
 
@@ -43,32 +52,23 @@ Comma : ',' ;
 // NOTE: Allowed keyword as name
 name
   : NAME
-  | 'type' | 'fragment' | 'extend' | 'implements' | 'schema'
+  | 'type' | 'on' | 'fragment' | 'extend' | 'implements' | 'schema'
   | 'enum' | 'union' | 'interface' | 'input' | 'scalar' | 'directive'
   | 'query' | 'mutation' | 'subscription'
   | DirectiveLocation
   // | 'true' | 'false' | 'null' // NOTE boolean and null is NOT allowed
   | 'by' // keyword used by extensions
-  // | 'on' // will confuse inline spread
   ;
 
 // 2.2 Query Document
 document
    : definition+ EOF
    ;
-//extension
-executableDocument
-   : executableDefinition+ EOF
-   ;
-
-//extension
-typeSystemDocument
-   : typeSystemDefinition+ EOF
-   ;
 
 definition
   : executableDefinition
   | typeSystemDefinition
+  | typeSystemExtension
   ;
 
 executableDefinition
@@ -170,9 +170,15 @@ booleanValue : 'true' | 'false' ;
 stringValue
   : StringConst
   ;
-StringConst : '""' | '"' StringCharacter+ '"';
+
+StringConst
+  : '"""' BlockStringCharacter* '"""' // todo need to test
+  | '""'
+  | '"' StringCharacter+ '"'
+  ;
+
 fragment StringCharacter
-  : [\u0009\u0020\u0021\u0023-\u005B\u005D-\uFFFF] // SourceCharacter bit not " \u0022 or \ \u005C or LineTerminator
+  : [\u0009\u0020\u0021\u0023-\u005B\u005D-\uFFFF] // SourceCharacter but not " \u0022 or \ \u005C or LineTerminator
   | '\\u' EscapedUnicode
   | '\\' EscapedCharacter
   ;
@@ -180,6 +186,10 @@ fragment StringCharacter
 fragment EscapedUnicode : [0-9A-Fa-f] [0-9A-Fa-f] [0-9A-Fa-f] [0-9A-Fa-f];
 
 fragment EscapedCharacter : ["\\/bfnrt];
+
+fragment SourceCharacter : [\u0009\u000A\u000D\u0020-\uFFFF] ;
+
+fragment BlockStringCharacter : [\u0009\u000A\u000D\u0020-\uFFFF] ;
 
 // 2.9.5 Null Value
 nullValue : 'null' ;
@@ -205,11 +215,11 @@ objectField : name ':' value ;
 // 2.10 Variables
 variable : '$' name ;
 variableDefinitions : '(' variableDefinition+ ')' ;
-variableDefinition : variable ':' type ( '='? defaultValue)? ;
+variableDefinition : variable ':' typeSpec defaultValue? directives? ;
 defaultValue : value ;
 
 // 2.11 Input Types
-type
+typeSpec
   : namedType
   | listType
   | nonNullType
@@ -217,7 +227,7 @@ type
 
 namedType : name ;
 
-listType : '[' type ']' ;
+listType : '[' typeSpec ']' ;
 
 nonNullType : namedType '!' | listType '!' ;
 
@@ -231,15 +241,25 @@ directive : '@' name arguments? ;
 typeSystemDefinition
   : schemaDefinition
   | typeDefinition
-  | typeExtension
   | directiveDefinition
+  ;
+
+typeSystemExtension
+  : schemaExtension
+  | typeExtension
   ;
 
 //extension name?
 schemaDefinition
-: 'schema' name? directives? '{' operationTypeDefinition+ '}'
+: description? 'schema' name? directives? '{' rootOperationTypeDefinition+ '}'
 ;
-operationTypeDefinition : operationType ':' namedType;
+
+schemaExtension
+  : 'extend' 'schema' directives? '{' rootOperationTypeDefinition+ '}'
+  | 'extend' 'schema' directives
+  ;
+
+rootOperationTypeDefinition : operationType ':' namedType;
 
 description : stringValue ;
 
@@ -281,18 +301,18 @@ implementsInterfaces
 
 fieldsDefinition : '{' fieldDefinition+ '}' ;
 
-fieldDefinition : description? name argumentsDefinition?  ':'  type  directives? ;
+fieldDefinition : description? name argumentsDefinition?  ':'  typeSpec  directives? ;
 
 argumentsDefinition : '(' inputValueDefinition* ')' ;
 
-inputValueDefinition : description? name ':' type ('='? defaultValue)? directives? ; // NOTE add '=' for default value
+inputValueDefinition : description? name ':' typeSpec ('='? defaultValue)? directives? ; // NOTE add '=' for default value
 
 interfaceTypeDefinition : description? 'interface' name directives? fieldsDefinition? ;
 
 interfaceTypeExtension
-  : 'extend' 'interface' name directives? fieldsDefinition
-  | 'extend' 'interface' name directives
-  | 'extend' 'interface' name 'by' name directives? fieldsDefinition? //extension
+  : 'extend' 'interface' name implementsInterfaces? directives? fieldsDefinition
+  | 'extend' 'interface' name implementsInterfaces? directives
+  | 'extend' 'interface' name implementsInterfaces? 'by' name directives? fieldsDefinition? //extension
   ;
 
 unionTypeDefinition : description? 'union' name directives? unionMemberTypes? ;
@@ -328,7 +348,7 @@ inputObjectTypeExtension
   | 'extend' 'input' name directives
   ;
 //extension directives? allowed directive on directive
-directiveDefinition : description? 'directive' '@' name directives? argumentsDefinition? 'on' directiveLocations;
+directiveDefinition : description? 'directive' '@' name directives? argumentsDefinition? 'repeatable'? 'on' directiveLocations;
 
 // Recursion '|'? _ DirectiveLocation / DirectiveLocations _ '|' _ DirectiveLocation
 directiveLocations
@@ -350,6 +370,7 @@ ExecutableDirectiveLocation
   | 'FRAGMENT_DEFINITION'
   | 'FRAGMENT_SPREAD'
   | 'INLINE_FRAGMENT'
+  | 'VARIABLE_DEFINITION'
   ;
 
 TypeSystemDirectiveLocation
@@ -366,6 +387,8 @@ TypeSystemDirectiveLocation
   | 'INPUT_FIELD_DEFINITION'
   | 'DIRECTIVE' //extension
   ;
+
+// Punctuator :: one of ! $ & ( ) ... : = @ [ ] { | }
 
 // Must in the last
 NAME : [_a-zA-Z] [_a-zA-Z0-9]* ;
