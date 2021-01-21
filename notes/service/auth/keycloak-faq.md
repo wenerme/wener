@@ -70,3 +70,39 @@ curl -L -X POST 'http://localhost:8080/auth/realms/whatever-realm/protocol/openi
 | Friendly Name             |
 | SAML Attribute Name       | username      |
 | SAML Attribute NameFormat | Basic         |
+
+## Access to XMLHttpRequest at keycloak from origin 'http://127.0.0.1:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+* 逻辑上来说是需要配置 Client 的 Web Origins
+* 配置后还是出现
+* curl 测试正常
+* 浏览器没有发起 OPTIONS 请求
+* 如果只是前端使用，一定选择 __public__
+
+```bash
+# 直接测试有返回
+curl \
+--verbose \
+--request OPTIONS \
+https://keycloak \
+--header 'Origin: http://127.0.0.1:3000' \
+--header 'Access-Control-Request-Headers: Origin, Accept, Content-Type' \
+--header 'Access-Control-Request-Method: POST'
+```
+
+```
+date: Fri, 15 Jan 2021 15:41:37 GMT
+content-length: 0
+access-control-allow-headers: Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization
+x-xss-protection: 1; mode=block
+referrer-policy: no-referrer
+access-control-allow-origin: http://127.0.0.1:3000
+access-control-allow-credentials: true
+strict-transport-security: max-age=15724800; includeSubDomains
+x-content-type-options: nosniff
+access-control-allow-methods: POST, OPTIONS
+access-control-max-age: 3600
+```
+
+## JWKs 没有签名的公钥
+* 不是所有算法都有
+* 可以设置为有 Public key 的算法

@@ -11,6 +11,7 @@ title: Linkerd
   * top/tap/routes
     * 已经包含了用于快速调试和检查流量的功能
   * prometheus/grafana - 内建集成
+  * mTLS
 * 劣势
   * linkerd2-proxy
     * 针对性开发 - 功能相对简单
@@ -23,9 +24,8 @@ title: Linkerd
     * [#3165](https://github.com/linkerd/linkerd2/issues/3165)
 * 问题
   * [linkerd/linkerd2#3403](https://github.com/linkerd/linkerd2/issues/3403) - Injected nginx ingress controller doesn't have access to the remote client IP
-  * [linkerd/linkerd2#3207](https://github.com/linkerd/linkerd2/issues/3207) - TCP mTLS
   * [linkerd/linkerd2#2846](https://github.com/linkerd/linkerd2/issues/2846) - Circuit Breaker
-  * [linkerd/linkerd2#3165](https://github.com/linkerd/linkerd2/issues/3165) - Header based routing 
+  * [linkerd/linkerd2#3165](https://github.com/linkerd/linkerd2/issues/3165) - Header based routing
 * 注意
   * linkerd2 相对较新，功能上可能还有缺失
   * Prometheus 可能会占用较多资源，可以使用外部实例 - [#2980](https://github.com/linkerd/linkerd2/issues/2980)
@@ -35,8 +35,8 @@ title: Linkerd
     * [#3190](https://github.com/linkerd/linkerd2/issues/3190) - Egress HTTPS Metrics
     * [#2192](https://github.com/linkerd/linkerd2/issues/2192) - Monitoring outbound HTTPS external call
   * TCP 支持不好
-    * 不支持 mTLS [#3207](https://github.com/linkerd/linkerd2/issues/3207)
-    * 不支持 LB 和转发 [#3445](https://github.com/linkerd/linkerd2/issues/3445)
+    * ~~不支持 mTLS [#3207](https://github.com/linkerd/linkerd2/issues/3207)~~
+    * ~~不支持 LB 和转发 [#3445](https://github.com/linkerd/linkerd2/issues/3445)~~
   * 注意 Ingress 远程 IP 问题
     * [#3403](https://github.com/linkerd/linkerd2/issues/3403)
     * 添加 annotations - `config.linkerd.io/skip-inbound-ports: '80,443'`
@@ -214,7 +214,7 @@ kubectl get apiservices
 kubectl get pods -n kube-system
 
 # hook 存在
-kubectl get validatingwebhookconfigurations 
+kubectl get validatingwebhookconfigurations
 kubectl get mutatingwebhookconfigurations
 
 linkerd -n linkerd tap deploy/web
@@ -256,7 +256,7 @@ linkerd check --pre --linkerd-cni-enabled
 # https://linkerd.io/2/reference/cli/install/
 # --addon-config - 自定义配置
 # --controller-replicas=1
-# --disable-heartbeat 
+# --disable-heartbeat
 # --registry=gcr.io/linkerd-io 默认镜像仓库
 # cmi - https://github.com/wenerme/container-mirror
 linkerd install --disable-heartbeat --registry registry.cn-hongkong.aliyuncs.com/cmi
@@ -424,7 +424,7 @@ tracing:
   enabled: true
 EOF
 # 部署
-# linker-collector 
+# linker-collector
 # linkerd-jaeger
 linkerd upgrade --addon-config config.yaml | kubectl apply -f -
 
@@ -506,3 +506,13 @@ namers:
   pattern: "/{service}/api"
   name: "/srv/{service}"
 ```
+
+# 版本
+## 2.9
+* mTLS
+* ARM
+* proxy 支持多核
+* 支持 [Service Topology](https://kubernetes.io/docs/concepts/services-networking/service-topology/)
+  * 例如优先请求本节点
+* 支持外部 Prometheus
+* [Announcing Linkerd 2.9](https://linkerd.io/2020/11/09/announcing-linkerd-2.9/)

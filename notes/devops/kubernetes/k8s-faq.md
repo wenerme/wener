@@ -29,6 +29,11 @@ title: K8S 常见问题
 | 251-500 | n1-standard-16 | 16 核 64G  |
 | 500+    | n1-standard-32 | 32 核 128G |
 
+## Docker 与 CRI 对 K8S 的影响
+* invalid capacity 0 on image filesystem
+  * [kubernetes/kubernetes#51798](https://github.com/kubernetes/kubernetes/issues/51798#issuecomment-481366041)
+  * [k3s-io/k3s#1857](https://github.com/k3s-io/k3s/issues/1857#issuecomment-637852959)
+
 ## 导出资源忽略状态字段
 * 常见字段
   * status

@@ -28,6 +28,14 @@ id: interfaces
   - allow-hotplug
 
 
+:::caution
+
+* ifupdown 不同 interfaces 会有些微的不同
+* interfaces 本质是将执行的脚本以配置化的方式呈现
+  * imperative -> declartive
+
+:::
+
 | var       | desc                                                           |
 | --------- | -------------------------------------------------------------- |
 | IFACE     | 名字 或 `--all`                                                |
@@ -475,4 +483,33 @@ iface eth4 inet static
   pre-up ip ro li tab tgbe &>/dev/null || echo '10 tgbe' >> /etc/iproute2/rt_tables
   post-up ip ru add from 192.168.1.101 table tgbe
   post-up ip ro add default via 192.168.1.1 dev eth4 table tgbe
+```
+
+## 配置命令映射
+
+```
+auto eth0
+iface eth0 inet dhcp
+  hostname my-host
+```
+
+```bash
+ip li set eth0
+udhcpc -i eth0 -h my-host
+```
+
+---
+
+```
+auto bond0
+iface bond0 inet dhcp
+  bond-member eth0
+```
+
+```bash
+ip li add bond0 type bond
+ifenslave bond0 eth0
+ip li set eth0 up
+ip li set bond0 up
+udhcpc -i bond0
 ```

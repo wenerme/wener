@@ -6,11 +6,11 @@
   * 1x PCIe 3.0 x16
   * Integrated IPMI 2.0 with KVM and Dedicated LAN (RTL8211E)
   * Intel i210 x1 + Intel i219 x1
-* Samsung M391A1G43BB1-CRCB1
-  * 8G 2400 UDDIM
+* Samsung M391A1G43BB1-CRCB1 - 纯ECC
+  * 8G 2400 UDIMM
 * Intel(R) Xeon(R) CPU [E3-1235L](https://ark.intel.com/content/www/us/en/ark/products/88170/intel-xeon-processor-e3-1235l-v5-8m-cache-2-00-ghz.html) v5 @ 2.00GHz
   * Tubor 3.00 GHz
   * TPD 25 W
 * Disk
   * 6T * 4
-  * raidz1
+  * zfs - raidz1
