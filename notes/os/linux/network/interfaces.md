@@ -58,6 +58,8 @@ ip ro li tab mytab 2>/dev/null || echo NO
 
 install -Dv /dev/null /etc/udhcpc/udhcpc.conf
 echo IF_PEER_DNS=no >> /etc/udhcpc/udhcpc.conf
+# 不要修改 resolve.conf
+echo RESOLV_CONF=no >> /etc/udhcpc/udhcpc.conf
 ```
 
 ```bash

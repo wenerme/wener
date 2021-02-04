@@ -25,6 +25,7 @@ title: IP 地址
     - [ip-ranges.json](https://ip-ranges.amazonaws.com/ip-ranges.json)
 - S3
   - https://aws.amazon.com/cn/premiumsupport/knowledge-center/s3-find-ip-address-ranges
+- [EH IPs](https://ehwiki.org/wiki/IPs)
 
 ## Github 下载
 会跳转到 aws, 例如 github-production-release-asset-2e65be.s3.amazonaws.com。

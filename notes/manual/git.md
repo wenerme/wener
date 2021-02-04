@@ -344,7 +344,7 @@ git push /path/to/new/repo:optional-new-branch-name branch-name
 
 from [Here](http://stackoverflow.com/a/2227571/1870054)
 
-### 取第一个 commit
+## 取第一个 commit
 
 ```bash
 git rev-list --max-parents=0 HEAD

@@ -3,6 +3,7 @@ title: Selfhost Awesome
 ---
 
 # Selfhost Awesome
+* [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 * 相册
   * [photoprism/photoprism](https://github.com/photoprism/photoprism)
     * Golang、不挪动照片位置、机器学习人脸识别
@@ -15,7 +16,6 @@ title: Selfhost Awesome
     * 基于 Google Photos Library API 备份照片
 * 有趣的服务
   * [hay-kot/mealie](https://github.com/hay-kot/mealie) 菜谱
-* [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 * Gitops
   * flux
   * helm

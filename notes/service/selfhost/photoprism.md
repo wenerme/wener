@@ -12,6 +12,8 @@
   - json - exif
   - yaml - 元信息备份
   - xmp
+- 注意
+  - 只支持单用户 - [#98](https://github.com/photoprism/photoprism/issues/98)
 
 | env                           | val                      | desc                                                               |
 | ----------------------------- | ------------------------ | ------------------------------------------------------------------ |
@@ -46,8 +48,8 @@ docker run --rm -it \
   -e PHOTOPRISM_DATABASE_DRIVER=sqlite \
   -e PHOTOPRISM_ADMIN_PASSWORD=password \
   -v $PWD/photos:/photoprism/originals \
-  -v $PWD/data/photoprism/import:/photoprism/import \
-  -v $PWD/data/photoprism/storage:/photoprism/storage \
+  -v $PWD/photoprism/import:/photoprism/import \
+  -v $PWD/photoprism/storage:/photoprism/storage \
   --name photoprism photoprism/photoprism:latest
 ```
 

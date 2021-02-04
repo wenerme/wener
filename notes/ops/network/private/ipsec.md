@@ -17,6 +17,7 @@ title: IPSec
     - 不要使用 ipsec-tools/racoon
   - [IPSec over NAT](http://docs.ruckuswireless.com/fastiron/08.0.80/fastiron-08080-securityguide/GUID-0F5E2C64-B9B8-4900-A446-F44FBEA493C1.html)
   - RHEL 8 [CONFIGURING A VPN WITH IPSEC](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/configuring-a-vpn-with-ipsec_securing-networks)
+  - [“On the fly” IPsec VPN with iproute2](https://backreference.org/2014/11/12/on-the-fly-ipsec-vpn-with-iproute2/)
 
 ```bash
 # ip xfrm
@@ -56,10 +57,13 @@ cat /proc/net/xfrm_stat
   - 由内核使用，表述如下语义
     - 从 A 到 B 使用 ESP 的传输模式
     - 从 C 到 D 的 443 端口不使用 IPSec
+- SPD - Security Policy Database - 安全策略数据库
+  - 定义 SA 路由 - 包 匹配 得出目标 SA
 - SA - Security Association - 安全关系
   - 单向的点之间安全配置
   - 包含点的基本信息
   - 存储在 SAD
+  - wikipedia [SA](https://en.wikipedia.org/wiki/Security_association)
 - IKE - Internet Key Exchange
   - 协商用于建立安全通道的算法和密钥
   - 协商完成后的信息记录为 SA

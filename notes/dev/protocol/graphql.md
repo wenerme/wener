@@ -1,3 +1,7 @@
+---
+title: GraphQL
+---
+
 # GraphQL
 
 ## Tips
@@ -66,6 +70,7 @@
     * 鉴权
     * 判断用户是否进行相关操作
   * [Reusable GraphQL schema directives](https://dev-blog.apollodata.com/131fb3a177d1)
+  * [Principled GraphQL](https://principledgraphql.com/)
 * Relay
   * [facebook/relay](https://facebook.github.io/relay/)
   * [Learn Relay](https://www.learnrelay.org)
@@ -78,6 +83,11 @@
   * 返回链接
     * `collections(first: Int!, after: String, reverse: Boolean): CollectionConnection!`
     * `followers(first: Int, after: String, last: Int, before: String): FollowerConnection!`
+* 客户端
+  * Apollo [React](https://www.apollographql.com/docs/react/)
+  * [prisma-labs/graphql-request](https://github.com/prisma-labs/graphql-request)
+    * 非常简单的客户端 - 配合 react-query 使用
+    * [react-query vs apollo client](https://react-query.tanstack.com/comparison)
 
 
 ```bash
@@ -138,3 +148,83 @@ DataLoader is a generic utility to be used as part of your application's data fe
 https://blog.datank.ai/graphql-grpc-part-1-54d92a109619
 GraphQL & gRPC
 
+# apollo/client
+* ApolloClient
+  * 包含 cache 和 link
+* link - 通信层
+  * httpLink 最常用
+* cache - 泛化缓存层
+* fetch 策略
+  * 'cache-first' | 'network-only' | 'cache-only' | 'no-cache' | 'standby'
+* WatchQueryFetchPolicy = FetchPolicy | 'cache-and-network'
+* ErrorPolicy = 'none' | 'ignore' | 'all'
+* 注意
+  * ⚠️ 不支持 fast refresh、不支持 suspense
+    * 开发体验十分糟糕
+  * issues 里不少影响使用的问题 - 开发不太活跃
+  * apollo 比较大 - bundle 可能 50k+
+  * notifyOnNetworkStatusChange 默认关闭
+  * errorPolicy 默认 none - runtime error
+* 优势
+  * 泛化缓存
+  * mutation 自动失效 - 不一定准
+  * 数据字段存在不会再次查询 - 比 react query 基于 key 的模式粒度更细
+  * devtools - 集成 iql，能直接查询可直观的看到 gql，能看泛化后的缓存数据
+* 个人感受
+  * retry 通过 link 实现 - 相对麻烦
+  * Devtools
+    * 似乎对 hmr/fast refresh 支持不好
+      * [#5870](https://github.com/apollographql/apollo-client/issues/5870)
+    * 无法失效数据 - 数据没有状态概念 - 因为没有单次查询概念
+    * 查询要写 displayName - 否则不方便看
+* 参考
+  * [React Query vs Apollo](https://react-query.tanstack.com/comparison)
+    * 劣势
+      * Devtools - 非 web 集成 - 使用没有 react query 的方便
+      * Lagged Query Data - react query 支持直接返回上次数据 - apollo 3 后添加了 previousData
+      * Render Optimization - react query 会优化状态变触发的 rerender - 可以选择性的部分状态从新渲染
+      * Auto Garbage Collection
+        * apollo 手动 gc
+        * react query 因为有 mount 概念，可以自动 gc 不用数据
+      * Stale While Revalidate
+      * Partial Query Matching
+        * react query 有 key 概念，数组可以部分匹配
+      * Stale Time 配置
+        * apollo 不支持
+      * Pre-usage Query/Mutation Configuration - 每次使用独立配置
+        * apollo 不支持
+      * Window Focus Refetching - 窗口获取焦点自动刷新
+      * Suspense - apollo 不支持 - [#162](https://github.com/apollographql/apollo-feature-requests/issues/162)
+  * [GraphQL Concepts Visualized](https://www.apollographql.com/blog/bc68bd819be3/)
+
+# urql
+* 优势
+  * 支持泛化缓存
+  * Schema 感知
+    * 开启后支持部分结果返回 - 请求的字段未被缓存但是是 nullable 则先返回 - 因为不影响语义
+    * 页面切换数据显示更顺畅
+  * stale 查询 - @urql/exchange-request-policy
+* vs Apollo
+  * 缓存为可选组件
+* 请求策略
+  * cache-first - 默认
+    * 默认返回 cache 结果，不存在则请求
+  * cache-and-network
+    * 返回 cache 结果，也请求更新
+  * network-only
+    * 忽略缓存
+  * cache-only
+    * 返回缓存或者 null
+* exchange - 扩展点 - 默认 dedupExchange, cacheExchange, fetchExchange
+  * 类似 apollo 的 link - 但更通用
+* 参考
+  * [vs Apollo](https://formidable.com/open-source/urql/docs/comparison/)
+    * 更小更灵活
+    * 支持提供 schema 实现更多功能
+    * 支持 offline
+    * 支持 window focus 触发请求
+
+```ts
+type ExchangeIO = (Source<Operation>) => Source<OperationResult>;
+type Exchange = ExchangeInput => ExchangeIO;
+```

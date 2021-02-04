@@ -28,8 +28,6 @@ title: Privoxy
 # macOS
 # macOS 下的配置目录为 /usr/local/etc/privoxy
 brew install privoxy
-# AlpineLinux
-apk add privoxy
 
 # 监听 7777 转发到 8888 SOCKS 端口
 cat <<CONF > privoxy.conf
@@ -46,6 +44,17 @@ privoxy --no-daemon privoxy.conf
 docker run -d --restart always \
   -p 127.0.0.1:7777:7777 \
   --name privoxy wener/privoxy
+
+# AlpineLinux
+apk add privoxy
+cat <<CONF > /etc/privoxy/config
+listen-address 0.0.0.0:7777
+# forward-socks5t / 127.0.0.1:8888 .
+CONF
+service privoxy start
+curl 127.0.0.1:7777 icanhazip.com
+
+rc-update add privoxy
 ```
 
 ## 配置
@@ -105,9 +114,9 @@ enforce-blocks 0
 
 # ACLs
 # ==========
-# 来源-目标 
+# 来源-目标
 # src_addr[:port][/src_masklen] [dst_addr[:port][/dst_masklen]]
-# 允许访问 
+# 允许访问
 permit-access 192.168.2.0/24
 permit-access www.privoxy.org/24 www.example.com/32
 

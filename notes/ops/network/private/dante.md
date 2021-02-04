@@ -1,3 +1,7 @@
+---
+title: Dante
+---
+
 # Dante
 ## Tips
 * [dante](http://www.inet.no/dante/)

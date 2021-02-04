@@ -286,3 +286,12 @@ spec:
   size: '20000000'
   staleReplicaTimeout: 20
 ```
+
+# 版本
+## v1.1 - 2020-10-18
+* 试验性 RWX
+* ARM64
+* CSI Snapshotter
+* Prometheus Metrics
+* [Data Locality](https://longhorn.io/docs/1.1.0/high-availability/data-locality/)
+* K8S v1.16+

@@ -65,3 +65,24 @@ fse_binary_host_mirror=https://npm.taobao.org/mirrors/fsevents
 sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 electron_mirror=http://cdn.npm.taobao.org/dist/electron/
 ```
+
+# Version
+## v7 - NodeJS 15
+* workspace
+* 自动安装 peer 依赖
+  * 解析版本会有冲突 - 之前不安装无影响
+* package-lock v2 - 支持 yarn.lock
+* `npx -y` 自动安装 - 不询问
+
+```bash
+# 安装
+npm i -g npm@7
+
+# 只显示顶级依赖
+npm ls
+# 之前行为
+npm ls --all
+
+# 有点类似 yarn why
+npm ls react
+```
