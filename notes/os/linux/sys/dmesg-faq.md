@@ -7,7 +7,7 @@ title: Linux Kernel 日志常见问题
 
 
 
-## No handler for Region [POWR]
+## ACPI Error: No handler for Region [POWR]
 > 添加 acpi_ipmi 后异常停止
 
 ```bash
@@ -22,6 +22,41 @@ ACPI Error: Region IPMI (ID=7) has no handler (20190816/exfldio-261)
 ACPI Error: Aborting method \_SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (20190816/psparse-529)
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 ```
+
+## ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length
+* 可能和 ACPI 电源监控有关
+* 如果是 HP 服务器可能是由于 HP ACPI 不符合标准导致
+  * https://partner-bugzilla.redhat.com/show_bug.cgi?id=616449#c3
+
+```
+ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length 66, found length 32 (20180810/exfield-393)
+ACPI Error: Method parse/execution failed \_SB.PMI0._PMM, AE_AML_BUFFER_LIMIT (20180810/psparse-516)
+ACPI Error: AE_AML_BUFFER_LIMIT, Evaluating _PMM (20180810/power_meter-338)
+```
+
+```bash
+# 如果使用了 lm_sensors
+# 此时的电源显示应该为 0
+sensors
+```
+
+配置关闭电源监控
+
+__/etc/sensors3.conf__
+
+```
+chip "power_meter-acpi-0"
+  ignore power1
+```
+
+
+```bash
+# 尝试关闭电源监控
+echo "blacklist acpi_power_meter" >> /etc/modprobe.d/hwmon.conf
+```
+
+## ext4 filesystem being remounted at /newroot/run/redis supports timestamps until 2038 (0x7fffffff)
+* 警告 ext4 时间支持问题
 
 ## FW version command failed -5
 

@@ -30,17 +30,18 @@ __功能区别__
   * 功能简单，每个语言一般都有实现，语法不同但相似
   * 一般按需捕获 text 内容
   * 书写复杂语法需要注意优先级 - [Operator-precedence parser](https://en.wikipedia.org/wiki/Operator-precedence_parser)
+  * 不能左递归
 * Antlr
   * 功能强大，支持非常多语言
   * 周边工具较多 - IDE 支持
 
 ```antlr
-// PEG 优先级
+// PEG 优先级 - 有序，无歧义
 AddExp: MultiExp ( '+' MultiExp)*
 MultiExp: Primary ( '*' Primary)
 Primary: [0-9]+
 
-// Antlr 优先级
+// Antlr 优先级 - 左递归
 expression
   : expression '*' expression
   | expression '+' expression
@@ -48,3 +49,6 @@ expression
   ;
 Int: [0-9]+ ;
 ```
+
+* 参考
+  * [Left Recursion in Parsing Expression Grammars](https://arxiv.org/abs/1207.0443)

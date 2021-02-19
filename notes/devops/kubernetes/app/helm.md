@@ -8,6 +8,7 @@ title: HELM 包管理器
 - 是什么
   - Kubernetes 上的包管理器
 - [helm.sh](https://helm.sh/)
+  - [环境变量列表](https://helm.sh/docs/helm/helm)
 - nexus 可通过插件支持 helm [sonatype-nexus-community/nexus-repository-helm](https://github.com/sonatype-nexus-community/nexus-repository-helm)
 - 注意
   - 3.0 过后没有 tiller 了

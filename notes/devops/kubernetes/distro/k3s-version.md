@@ -4,6 +4,12 @@ title: K3S Version
 
 # K3S Version
 
+## 1.20
+
+- 删除节点时会清除节点密码
+- 设置 `--data-dir` 后不会再存储任何文件在 `/var/lib/rancher/k3s`
+- 减少影响不大的日志
+
 ## 1.19
 
 - 支持嵌入式 etcd - 实验阶段

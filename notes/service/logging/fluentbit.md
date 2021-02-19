@@ -9,7 +9,7 @@ title: Fluentbit
 * [fluent/fluent-bit](https://github.com/fluent/fluent-bit)
 * [Build Options](https://docs.fluentbit.io/manual/installation/sources/build-and-install)
 * 注意
-  * 不支持 musl - https://github.com/fluent/fluent-bit/issues/1315
+  * 官方不支持 musl - https://github.com/fluent/fluent-bit/issues/2464
 * 数据处理流程
   * input - `-i, --input`
   * parser - `-R, --parser`
@@ -27,7 +27,7 @@ title: Fluentbit
 ```bash
 # macOS
 brew install fluent-bit
-# AlpineLinux < 3.13
+# AlpineLinux
 apk add fluent-bit -X https://mirrors.aliyun.com/alpine/edge/testing/
 
 # 读取 kernel 消息，输出到 stdout
@@ -224,4 +224,16 @@ resources:
   limits:
     cpu: 50m
     memory: 60Mi
+```
+
+## core stack size
+* PTHREAD_STACK_MIN
+  * musl 下为 2048
+* `FLB_CORO_STACK_SIZE=((3 * PTHREAD_STACK_MIN) / 2)`
+  * musl 下为 3072 - 是无效的 core stack size
+  * 可以考虑设置为 24576
+
+```c
+// 默认
+#define FLB_CORO_STACK_SIZE      ((3 * PTHREAD_STACK_MIN) / 2)
 ```

@@ -12,8 +12,7 @@ id: email
   * GPLv3
 
 ## 实现
-* https://blitiri.com.ar/p/chasquid/
-  * [albertito/chasquid](https://github.com/albertito/chasquid) 镜像
+* [albertito/chasquid](https://github.com/albertito/chasquid)
   * SMTP (email) server.
   * Golang
   * 特性

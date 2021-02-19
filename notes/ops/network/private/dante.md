@@ -12,6 +12,8 @@ title: Dante
 * socksify - 基于 LD_PRELOAD 的代理
 * https://lvii.gitbooks.io/outman/content/dante.html
 * [sockd.conf.5](https://www.inet.no/dante/doc/1.4.x/sockd.conf.5.html)
+* 注意
+  * 如果配置了 ipsec，则 external 需要配置 ipsec 的 left 地址 - 否则不会经过 ipsec
 
 ```bash
 # macOS 安装

@@ -27,6 +27,7 @@ title: HAProxy
   * L4 重试
   * 简单熔断机制
 * 参考
+  * HAproxy [Starter Guide](https://cbonte.github.io/haproxy-dconv/2.3/intro.html)
   * [HAProxy at GitHub](https://www.haproxy.com/user-spotlight-series/inside-the-github-load-balancer/)
   * [5 Ways to Extend HAProxy with Lua](https://www.haproxy.com/blog/5-ways-to-extend-haproxy-with-lua/)
   * [Using HAProxy as an API Gateway](https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-3-health-checks/)

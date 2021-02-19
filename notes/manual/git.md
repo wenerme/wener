@@ -324,6 +324,26 @@ git fetch origin 3.12-stable:3.12-stable
 git checkout 3.12-stable
 ```
 
+## 获取远程分支
+```bash
+branch=
+git ls-remote origin $branch
+git fetch origin $branch:refs/remotes/$branch/$branch
+```
+
+## 部分克隆转完整克隆
+
+```bash
+git fetch --unshallow
+```
+
+## signoff
+
+```bash
+git commit --amend --no-edit --signoff
+git push --force-with-lease origin $(git rev-parse --abbrev-ref HEAD)
+```
+
 ### 迁移子目录为仓库
 * [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
 

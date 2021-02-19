@@ -204,6 +204,9 @@ title: Go Awesome
   * `clause.Builder` - WriteString, AddVar, WriteQuoted - 构建上下文
   * `clause.Interface` - 带 Name 的 表达式 - 可以被合并和替换 - 例如 LIMIT, SELECT
   * `clause.Table`, `clause.Column`
+* Relationship 关联的 Schema 可能和实际 Schema 不同 - 导致无法 Preload
+* Embed Struct 也是当作 embedded 来处理的，只不过没有前缀
+  * 现在嵌套多层解析的 schema 会有问题 - [#3964](https://github.com/go-gorm/gorm/issues/3964)
 
 ```go
 // 直接调用 processor

@@ -1,46 +1,51 @@
+---
+title: ffmpeg
+---
+
 # FFMpeg
 
-* [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)
+- [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)
 
-* 库
-  * libavcodec 提供大量的编码实现
-  * libavformat 实现流体协议,容器格式和基本的 IO 访问
-  * libavutil 提供哈希, 解压等其他辅助工具
-  * libavfilter 提供一系列过滤器用于修改编码的视频音频
-  * libavdevice 提供设备捕捉和重播的访问抽象
-  * libswresample 实现音频混合和重新取样
-  * libswscale 实现颜色转换和缩放
-* 工具
-  * ffmpeg 命令行工具用于操作转换和流媒内容
-  * ffplay 多媒体播放器
-  * ffprobe 多媒体内容分析工具
-  * ffserver 多媒体流体服务器用于实时广播
-  * 其他的一些小工具例如 aviocat, ismindex 和 qt-faststart 等
+- 库
+  - libavcodec 提供大量的编码实现
+  - libavformat 实现流体协议,容器格式和基本的 IO 访问
+  - libavutil 提供哈希, 解压等其他辅助工具
+  - libavfilter 提供一系列过滤器用于修改编码的视频音频
+  - libavdevice 提供设备捕捉和重播的访问抽象
+  - libswresample 实现音频混合和重新取样
+  - libswscale 实现颜色转换和缩放
+- 工具
+  - ffmpeg 命令行工具用于操作转换和流媒内容
+  - ffplay 多媒体播放器
+  - ffprobe 多媒体内容分析工具
+  - ffserver 多媒体流体服务器用于实时广播
+  - 其他的一些小工具例如 aviocat, ismindex 和 qt-faststart 等
 
 ## Tips
-* 常用参数
-  * `-r 17` 修改帧率
-  * `-an` 移除所有音频, `-vn` 同理
-  * `-acodec copy` 直接复制内容,用户修改容器格式时, `-acodec copy` 同理
-  * `-s 324x576` 修改大小
-  * `-vcodec h264 -profile:v high -level 4.2`
-    * iOS iPhone 5s 后兼容的最高 h264 压缩 [来源](https://trac.ffmpeg.org/wiki/Encode/H.264#iOS)
-    * 查看 h264 相关信息 `ffmpeg -h encoder=libx264`
-  * `-movflags +faststart`
-    * 将部分信息添加到开头,以保证在 web 中未下载完成时也能播放
-  * `-c:v libx265 -preset medium`
-    * h265 压缩更好,但是目前设备支持有限
-    * `-x265-params` 查看可行参数
-  * `-threads`
-    * `0` 优化选择
-    * 线程数
-    * 多线程需要取决于编码器是否支持
-* 参考
-  * [VP9 encoding limited to 4 threads?](https://stackoverflow.com/a/41384506/1870054)
-  * [Encoding Video](https://gist.github.com/Vestride/278e13915894821e1d6f)
-  * [Video Encoding: Multiple Resolutions](https://www.muvi.com/help/video-encoding-multiple-resolutions.html)
-  * [Debate libav-provider ffmpeg](https://wiki.debian.org/Debate/libav-provider/ffmpeg)
-    * 为什么应该选择 FFmpeg
+
+- 常用参数
+  - `-r 17` 修改帧率
+  - `-an` 移除所有音频, `-vn` 同理
+  - `-acodec copy` 直接复制内容,用户修改容器格式时, `-acodec copy` 同理
+  - `-s 324x576` 修改大小
+  - `-vcodec h264 -profile:v high -level 4.2`
+    - iOS iPhone 5s 后兼容的最高 h264 压缩 [来源](https://trac.ffmpeg.org/wiki/Encode/H.264#iOS)
+    - 查看 h264 相关信息 `ffmpeg -h encoder=libx264`
+  - `-movflags +faststart`
+    - 将部分信息添加到开头,以保证在 web 中未下载完成时也能播放
+  - `-c:v libx265 -preset medium`
+    - h265 压缩更好,但是目前设备支持有限
+    - `-x265-params` 查看可行参数
+  - `-threads`
+    - `0` 优化选择
+    - 线程数
+    - 多线程需要取决于编码器是否支持
+- 参考
+  - [VP9 encoding limited to 4 threads?](https://stackoverflow.com/a/41384506/1870054)
+  - [Encoding Video](https://gist.github.com/Vestride/278e13915894821e1d6f)
+  - [Video Encoding: Multiple Resolutions](https://www.muvi.com/help/video-encoding-multiple-resolutions.html)
+  - [Debate libav-provider ffmpeg](https://wiki.debian.org/Debate/libav-provider/ffmpeg)
+    - 为什么应该选择 FFmpeg
 
 ```bash
 # 安装
@@ -137,7 +142,7 @@ ffmpeg -i input.mp4 -profile:v baseline -level 3.0 -s 640x360 -start_number 0 -h
 # https://docs.peer5.com/guides/production-ready-hls-vod/
 # 单个码率
 # 文件结构
-# raw.mp4 480.m3u8 480/*.ts 
+# raw.mp4 480.m3u8 480/*.ts
 # mkdir 360 480 720 1080
 ffmpeg -hide_banner -y -i raw.mp4 \
   -vf scale=w=842:h=480:force_original_aspect_ratio=decrease -c:a aac -ar 48000 -c:v h264 -profile:v main -crf 20 -sc_threshold 0 -g 48 -keyint_min 48 -hls_time 4 -hls_playlist_type vod -b:v 1400k -maxrate 1498k -bufsize 2100k -b:a 128k -hls_base_url 480/ -hls_segment_filename 480/%03d.ts 480.m3u8
@@ -158,7 +163,7 @@ ffmpeg -hide_banner -y -i beach.mkv \
   -vf scale=w=1280:h=720:force_original_aspect_ratio=decrease -c:a aac -ar 48000 -c:v h264 -profile:v main -crf 20 -sc_threshold 0 -g 48 -keyint_min 48 -hls_time 4 -hls_playlist_type vod -b:v 2800k -maxrate 2996k -bufsize 4200k -b:a 128k -hls_base_url 720/ -hls_segment_filename 720/%03d.ts 720.m3u8 \
   -vf scale=w=1920:h=1080:force_original_aspect_ratio=decrease -c:a aac -ar 48000 -c:v h264 -profile:v main -crf 20 -sc_threshold 0 -g 48 -keyint_min 48 -hls_time 4 -hls_playlist_type vod -b:v 5000k -maxrate 5350k -bufsize 7500k -b:a 192k -hls_base_url 1080/ -hls_segment_filename 1080/%03d.ts 1080.m3u8
 
-  
+
 
 # 针对不同分辨率做不同的片段
 # http://ffmpeg.org/ffmpeg-all.html#segment_002c-stream_005fsegment_002c-ssegment
@@ -221,6 +226,7 @@ pv in.mp4 | ffmpeg -v warning -y -i pipe:0 -vcodec h264 -vf scale=576:-1 -acodec
 ```
 
 ### 视频录制
+
 ```bash
 # 视频捕捉
 #   https://trac.ffmpeg.org/wiki/Capture/Webcam
@@ -338,11 +344,13 @@ ffmpeg \
 ```
 
 ### RTSP
+
 ```bash
 ffmpeg -i space.mp4 -vcodec libx264 -tune zerolatency -crf 18 http://localhost:1234/feed1.ff
 ```
 
-__ffserver.conf__
+**ffserver.conf**
+
 ```
 HTTPPort 1234
 RTSPPort 1235
@@ -371,9 +379,7 @@ RTSPPort 1235
 mpv rtsp://192.168.0.xxx:1235/test1.sdp
 ```
 
-
-
-### ff* 通用选项
+### ff\* 通用选项
 
 ```
 -L Show license.
@@ -391,80 +397,79 @@ mpv rtsp://192.168.0.xxx:1235/test1.sdp
 
 ### 视频尺寸和缩写
 
-缩写 | 尺寸
-----------|----
-ntsc      | 720x480
-pal       | 720x576
-qntsc     | 352x240
-qpal      | 352x288
-sntsc     | 640x480
-spal      | 768x576
-film      | 352x240
-ntsc-film | 352x240
-sqcif     | 128x96
-qcif      | 176x144
-cif       | 352x288
-4cif      | 704x576
-16cif     | 1408x1152
-qqvga     | 160x120
-qvga      | 320x240
-vga       | 640x480
-svga      | 800x600
-xga       | 1024x768
-uxga      | 1600x1200
-qxga      | 2048x1536
-sxga      | 1280x1024
-qsxga     | 2560x2048
-hsxga     | 5120x4096
-wvga      | 852x480
-wxga      | 1366x768
-wsxga     | 1600x1024
-wuxga     | 1920x1200
-woxga     | 2560x1600
-wqsxga    | 3200x2048
-wquxga    | 3840x2400
-whsxga    | 6400x4096
-whuxga    | 7680x4800
-cga       | 320x200
-ega       | 640x350
-hd480     | 852x480
-hd720     | 1280x720
-hd1080    | 1920x1080
-2k        | 2048x1080
-2kflat    | 1998x1080
-2kscope   | 2048x858
-4k        | 4096x2160
-4kflat    | 3996x2160
-4kscope   | 4096x1716
-nhd       | 640x360
-hqvga     | 240x160
-wqvga     | 400x240
-fwqvga    | 432x240
-hvga      | 480x320
-qhd       | 960x540
-2kdci     | 2048x1080
-4kdci     | 4096x2160
-uhd2160   | 3840x2160
-uhd4320   | 7680x4320
+| 缩写      | 尺寸      |
+| --------- | --------- |
+| ntsc      | 720x480   |
+| pal       | 720x576   |
+| qntsc     | 352x240   |
+| qpal      | 352x288   |
+| sntsc     | 640x480   |
+| spal      | 768x576   |
+| film      | 352x240   |
+| ntsc-film | 352x240   |
+| sqcif     | 128x96    |
+| qcif      | 176x144   |
+| cif       | 352x288   |
+| 4cif      | 704x576   |
+| 16cif     | 1408x1152 |
+| qqvga     | 160x120   |
+| qvga      | 320x240   |
+| vga       | 640x480   |
+| svga      | 800x600   |
+| xga       | 1024x768  |
+| uxga      | 1600x1200 |
+| qxga      | 2048x1536 |
+| sxga      | 1280x1024 |
+| qsxga     | 2560x2048 |
+| hsxga     | 5120x4096 |
+| wvga      | 852x480   |
+| wxga      | 1366x768  |
+| wsxga     | 1600x1024 |
+| wuxga     | 1920x1200 |
+| woxga     | 2560x1600 |
+| wqsxga    | 3200x2048 |
+| wquxga    | 3840x2400 |
+| whsxga    | 6400x4096 |
+| whuxga    | 7680x4800 |
+| cga       | 320x200   |
+| ega       | 640x350   |
+| hd480     | 852x480   |
+| hd720     | 1280x720  |
+| hd1080    | 1920x1080 |
+| 2k        | 2048x1080 |
+| 2kflat    | 1998x1080 |
+| 2kscope   | 2048x858  |
+| 4k        | 4096x2160 |
+| 4kflat    | 3996x2160 |
+| 4kscope   | 4096x1716 |
+| nhd       | 640x360   |
+| hqvga     | 240x160   |
+| wqvga     | 400x240   |
+| fwqvga    | 432x240   |
+| hvga      | 480x320   |
+| qhd       | 960x540   |
+| 2kdci     | 2048x1080 |
+| 4kdci     | 4096x2160 |
+| uhd2160   | 3840x2160 |
+| uhd4320   | 7680x4320 |
 
 ### 视频速率和缩写
 
-缩写 | 速率
-----|----
-ntsc      | 30000/1001
-pal       | 25/1
-qntsc     | 30000/1001
-qpal      | 25/1
-sntsc     | 30000/1001
-spal      | 25/1
-film      | 24/1
-ntsc-film | 24000/1001
-
+| 缩写      | 速率       |
+| --------- | ---------- |
+| ntsc      | 30000/1001 |
+| pal       | 25/1       |
+| qntsc     | 30000/1001 |
+| qpal      | 25/1       |
+| sntsc     | 30000/1001 |
+| spal      | 25/1       |
+| film      | 24/1       |
+| ntsc-film | 24000/1001 |
 
 ## ffserver
 
-* [ffserver](https://ffmpeg.org/ffserver.html)
-* [ffserver-all](https://ffmpeg.org/ffserver-all.html)
+- [ffserver](https://ffmpeg.org/ffserver.html)
+- [ffserver-all](https://ffmpeg.org/ffserver-all.html)
 
 ```bash
 
@@ -474,6 +479,7 @@ ffserver -f ffserver.conf
 ```
 
 ## farm
+
 https://www.ffmpeg.org/ffmpeg-devices.html
 http://www.squidnetsoftware.com/
 
@@ -491,23 +497,23 @@ ffmpeg -i frameserver.avs -f mpegts  tcp://[IP address of your server]:[open por
 
 ### video:23799kB audio:1406kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
 
-
 ### Invalid frame dimensions 0x0
+
 出现这样的错误时,不必关心,一会儿过后就能正常播放了.
 
 ### tbr tbn tbc
 
 FFMpeg 会使用三种不同的时间戳来做不同的工作.
 
-* tbr
-  * tbr is guessed from the video stream and is the value users want to see when they look for the video frame rate
-  * 代表帧率,和 demuxer 相关
-* tbn
-  * the time base in AVStream that has come from the container  
-  * 代表文件层(st)的时间精度，即1S=1200k，和duration相关；
-* tbc
-  * the time base in AVCodecContext for the codec used for a particular stream
-  * tbc代表视频层(st->codec)的时间精度，即1S=50，和strem->duration和时间戳相关。
+- tbr
+  - tbr is guessed from the video stream and is the value users want to see when they look for the video frame rate
+  - 代表帧率,和 demuxer 相关
+- tbn
+  - the time base in AVStream that has come from the container
+  - 代表文件层(st)的时间精度，即 1S=1200k，和 duration 相关；
+- tbc
+  - the time base in AVCodecContext for the codec used for a particular stream
+  - tbc 代表视频层(st->codec)的时间精度，即 1S=50，和 strem->duration 和时间戳相关。
 
 例如: `25 tbr 90k tbn 50 tbc`
 
