@@ -9,6 +9,7 @@ title: Libvirt常见问题
 * 网络 [xml](https://libvirt.org/formatnetwork.html)
 * 注意
   * uuid 和 mac 类字段如果没有，则导入的时候生成
+  * 不要使用非 root virsh
 * 三种配置状态
   * live - 运行状态
     * 修改立即生效

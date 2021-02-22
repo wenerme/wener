@@ -1,3 +1,7 @@
+---
+title: Grammar Glossary
+---
+
 # Glossary
 
 | Abbr. | Word                               | Desc                      |

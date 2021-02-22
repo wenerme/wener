@@ -10,12 +10,14 @@ title: NMap
 * https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
 
 ```bash
+apk add nmap nmap-scripts
+
 # UDP 端口扫描
 # 需要 ICMP, 所以要 sudo
 # 可能会不准 https://en.wikipedia.org/wiki/Port_scanner#UDP_scanning
 sudo nmap -sU -p port target
 
-# 枚举 smb 贡献
+# 枚举 smb 共享
 nmap --script smb-enum-shares.nse -p445
 
 # 协议探测

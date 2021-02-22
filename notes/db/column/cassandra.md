@@ -1,3 +1,7 @@
+---
+title: Apache Cassandra
+---
+
 # Cassandra
 
 ## Tips
@@ -16,6 +20,7 @@
   * JDBC https://github.com/datastax/java-driver/tree/3.x/manual/shaded_jar
 * 数据模型
   * [Data modeling concepts](http://docs.datastax.com/en/cql/3.3/cql/ddl/dataModelingApproach.html)
+* 硬件要求 - 生产最低 2核8G，推荐 8核 32G
 
 ```bash
 # 启动用于测试的服务

@@ -91,6 +91,11 @@ http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/c
 # testing 有些尚未发布的, 有时候会用到
 echo "@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
 
+# 上海交大的镜像更新最快
+# http://mirrors.sjtug.sjtu.edu.cn/alpine/
+echo "http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
+http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
+
 # 或者直接用 edge
 echo "http://mirrors.aliyun.com/alpine/edge/main
 http://mirrors.aliyun.com/alpine/edge/community
@@ -378,7 +383,7 @@ if [ -z "$flock" ] ; then
   exec env flock=1 flock -n $lockfile "$0" "$@"
 fi
 
-src=rsync://rsync.alpinelinux.org/alpine/ 
+src=rsync://rsync.alpinelinux.org/alpine/
 dest=/var/www/localhost/htdocs/alpine/
 
 # uncomment this to exclude old v2.x branches

@@ -11,62 +11,56 @@ title: 版本历史
   - 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
   - 每次发布前会先编译所有包，当包都有后才会正式发布
   - [发布版本历史日期](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
-- 注意
+- ⚠️ 注意
   - 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
-  - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
   - 3.11 内核 vanilla 变为 lts
-
-**Commits of wener/wenerme**
-
-| version | commits |
-| ------- | ------- |
-| 3.13    | 29      |
-| 3.12.1  | 2       |
-| 3.12    | 16      |
-| 3.11    | 11      |
-| 3.10    | 1       |
-| 3.9     | 3       |
-| 3.8     | 6       |
+  - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
 
 ## 3.13
 
 - 2020-01-14
 - Linux Kernel [5.10 LTS](https://wener.me/notes/os/linux/linux-version/#510---lts)
-- 包变化
-  - musl 1.2
-    - time_t 在 32 位系统上为 64 位
-      - 在 64 位上跑 32 位的容器可能有问题
-      - **影响在其他 Disto 上跑 Alpine 容器的问题**
-      - Docker 版本需要大于 19.03.9 - 否则会有兼容问题
-      - libseccomp >= 2.4.2
-        - 执行 `scmp_sys_resolver -a x86 clock_gettime64` 返回 403 就是支持的
-    - 1.2.1 使用了新的 [malloc](https://github.com/richfelker/mallocng-draft), 也能配合 jemalloc 使用
-  - iproute2-minial/tc/ss
-    - 单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包
-    - alpine-base 会包含， busybox 的 ip 功能比较受限
-    - [commit](https://gitlab.alpinelinux.org/alpine/aports/commit/62c858b85bb379fb014cfe188f4cb25ed75f76e3)
-  - ifupdown -> [ifupdown-ng](https://github.com/ifupdown-ng/ifupdown-ng/)
-    - 默认包含了 vlan，不再需要额外安装
-    - 兼容 /etc/network/if-X.d 脚本但倾向于 `/usr/libexec/ifupdown-ng`
-    - 配置 /etc/network/ifupdown-ng.conf
-      - use_hostname_for_dhcp 默认 开启 - `hostname $(hostname)`
-    - 支持依赖关系 - `requires eth0`
-    - 手动指定 executor - `use bond`
-    - 上游支持 hotplug 但目前 3.13 不会支持 - ifmond
-    - 后续可能会支持 ifreload
-    - 之后版本可能会移除 busybox 中的 ifupdown
-  - gcc 10
-    - 默认开启了 `-fno-common` - 某些包编译可能异常
-  - busybox 组件变化
-    - ❌ 移除 hdparm - 使用 hdparm
-    - ❌ 移除 fdformat,readprofile - 使用 util-linux
-    - ❌ 移除 lspci - 使用 pciutils
-    - ❌ 移除 sendmail - 使用 ssmtp, opensmtpd, dma, exim, nullmailer, postfix
-    - ❌ 移除 conspy, smemcap, dumpleases
-  - 内核
-    - lts 添加了 RBD 模块 - 之前只有 virt 有 - ceph 需要
-- 语言
-  - 新增 php8 -
+- 参考
+  - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)
+
+### 变化
+- musl 1.2
+  - time_t 在 32 位系统上为 64 位
+    - 在 64 位上跑 32 位的容器可能有问题
+    - **影响在其他 Disto 上跑 Alpine 容器的问题**
+    - Docker 版本需要大于 19.03.9 - 否则会有兼容问题
+    - libseccomp >= 2.4.2
+      - 执行 `scmp_sys_resolver -a x86 clock_gettime64` 返回 403 就是支持的
+  - 1.2.1 使用了新的 [malloc](https://github.com/richfelker/mallocng-draft), 也能配合 jemalloc 使用
+- iproute2-minial/tc/ss
+  - 单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包
+  - alpine-base 会包含， busybox 的 ip 功能比较受限
+  - [commit](https://gitlab.alpinelinux.org/alpine/aports/commit/62c858b85bb379fb014cfe188f4cb25ed75f76e3)
+- ifupdown -> [ifupdown-ng](https://github.com/ifupdown-ng/ifupdown-ng/)
+  - 默认包含了 vlan，不再需要额外安装
+  - 兼容 /etc/network/if-X.d 脚本但倾向于 `/usr/libexec/ifupdown-ng`
+  - 配置 /etc/network/ifupdown-ng.conf
+    - use_hostname_for_dhcp 默认 开启 - `hostname $(hostname)`
+  - 支持依赖关系 - `requires eth0`
+  - 手动指定 executor - `use bond`
+  - 上游支持 hotplug 但目前 3.13 不会支持 - ifmond
+  - 后续可能会支持 ifreload
+  - 之后版本可能会移除 busybox 中的 ifupdown
+  - ⚠️ 虽然 ifupdown-ng 支持 bond 和 bridge，但 alpinelinux 包中移除了脚本，`bonding` 和 `bridge` 包依然需要
+    - [main/ifupdown-ng/APKBUILD](https://gitlab.alpinelinux.org/alpine/aports/-/blob/e249384af27cdc09490bfbb02ae5153eab1d49e9/main/ifupdown-ng/APKBUILD#L22-27)
+- gcc 10
+  - 默认开启了 `-fno-common` - 某些包编译可能异常
+- busybox 组件变化
+  - ❌ 移除 hdparm - 使用 hdparm
+  - ❌ 移除 fdformat,readprofile - 使用 util-linux
+  - ❌ 移除 lspci - 使用 pciutils
+  - ❌ 移除 sendmail - 使用 ssmtp, opensmtpd, dma, exim, nullmailer, postfix
+  - ❌ 移除 conspy, smemcap, dumpleases
+- 内核
+  - lts 添加了 RBD 模块 - 之前只有 virt 有 - ceph 需要
+
+### 升级
+
 - 🆕 新增包
   - k3s
   - cloud-init
@@ -87,8 +81,7 @@ title: 版本历史
       - ZStandard 压缩 - 比 gzip 和 lzm 更好
       - zfs send/receive - 支持部分数据
         - `zfs redact`, `zfs send --redact`, `zfs send --saved`
-- 参考
-  - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)
+      - dRAID
 
 ## 3.12
 
@@ -242,3 +235,18 @@ apk add --upgrade linux-hardened spl-hardened zfs-hardened
 sync
 reboot
 ```
+
+## 我的提交数
+
+> Commits of wener/wenerme
+
+| version | commits |
+| ------- | ------- |
+| 3.13.1  | 2       |
+| 3.13    | 29      |
+| 3.12.1  | 2       |
+| 3.12    | 16      |
+| 3.11    | 11      |
+| 3.10    | 1       |
+| 3.9     | 3       |
+| 3.8     | 6       |

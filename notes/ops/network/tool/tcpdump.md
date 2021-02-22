@@ -1,3 +1,7 @@
+---
+title: tcpdump
+---
+
 # tcpdump
 ## Tips
 * 参考
@@ -11,8 +15,12 @@
 tcpdump -nni eth0 icmp
 # NAT 包
 tcpdump -qnn
-# 广播包 - DHCP
+# 广播包 - DHCP, ARP
 tcpdump -n -i mynet broadcast
+# DHCP - 匹配 Client MAC
+tcpdump -i br0 -vvv -s 1500 '((port 67 or port 68) and (udp[38:4] = 0x3e0ccf08))'
+# DHCP - DISCOVER, REQUEST, INFORM
+tcpdump -i br0 -vvv -s 1500 '((port 67 or port 68) and (udp[8:1] = 0x1))'
 
 tcpdump port 80 -w capture_file
 tcpdump -r capture_file

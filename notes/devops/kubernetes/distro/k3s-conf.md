@@ -10,5 +10,112 @@ title: K3S 配置
     * 参数基本与命令行参数一致
   * /etc/rancher/k3s/k3s.yaml - KUBECONFIG
 
-## 配置
+## server
 
+```yaml
+# 数据库配置
+datastore-endpoint:
+# TLS 连接 - 比如 PG
+datastore-cafile:
+datastore-certfile:
+datastore-keyfile:
+
+# 加入 server 和 agent
+token:
+token-file:
+
+# 写入 kubeconfig
+write-kubeconfig: /etc/rancher/k3s/k3s.yml
+write-kubeconfig-mode: '0644'
+
+# Agent 配置 - server 也会运行 agent，配置同 agent 配置
+#
+
+# 监听配置
+bind-address: 0.0.0.0
+https-listen-port: 6443
+advertise-address: #node-external-ip/node-ip
+advertise-port:
+# 如果希望证书在某个域名下可使用则需要添加 SAN
+tls-san:
+
+# 如果非 ROOT ${HOME}/.rancher/k3s
+data-dir: /var/lib/rancher/k3s
+
+# 网络
+cluster-cidr: 10.42.0.0/16
+service-cidr: 10.43.0.0/16
+# CoreDNS
+cluster-dns: 10.43.0.10
+cluster-domain: cluster.local
+# none,vxlan,ipsec,host-gw,wireguard
+flannel-backend: vxlan
+
+# 自定义
+kube-apiserver-arg:
+kube-scheduler-arg:
+kube-controller-manager-arg:
+kube-cloud-controller-manager-arg:
+
+kubelet-arg:
+kube-proxy-arg:
+
+# 默认本地基于 path 的 sc 存储路径
+default-local-storage-path:
+
+# 组件
+# coredns, servicelb, traefik, local-storage, metrics-server
+disable:
+  - servicelb
+  - traefik
+disable-scheduler: false
+disable-cloud-controller: false
+disable-network-policy: false
+
+# 实验阶段
+rootless: false
+agent-token:
+agent-token-file:
+server:
+
+# --cluster-init
+# --cluster-reset
+
+# Secret encryption at rest
+secrets-encryption: false
+```
+
+## agent
+* [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
+
+```yaml
+token: value
+token-file: k3s-agent.token
+server: value
+
+data-dir: /var/lib/rancher/k3s
+
+# Note
+node-name: hostname
+# with-node-id: true
+# node-label
+# node-taint
+
+# Runtime
+docker: true
+container-runtime-endpoint:
+pause-image: docker.io/rancher/pause:3.1
+private-registry: /etc/rancher/k3s/registries.yaml
+
+# Networking
+# node-ip:
+# node-external-ip:
+# resolv-conf
+flannel-iface:
+flannel-conf:
+
+kubelet-arg:
+kube-proxy-arg:
+
+rootless: true
+```

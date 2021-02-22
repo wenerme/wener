@@ -161,3 +161,8 @@ qemu-img commit test.qcow2
 # 移除旧的文件
 mv tmp.qcow2 test.qcow2
 ```
+
+## ZFS
+* ZVOL 性能可能会比 QEMU2 好一点，但是不值得
+* QEMU2 更好管理维护，支持更多功能
+* 可以考虑开启 zfs 压缩 - lz4 解压快，zstd 压缩比高

@@ -15,7 +15,7 @@ virsh destroy {domain}
 # 触发关机 - 需要支持 ACPI
 virsh shutdown {doamin}
 # 重启 - 需要支持 ACPI
-virsh reboot  {doamin}
+virsh reboot {doamin}
 
 # 运行的主机列表
 virsh list
@@ -35,6 +35,12 @@ virsh domrename {domain} {new-name}
 
 # 内存状态
 virsh dommemstat {domain}
+```
+
+## clone
+
+```bash
+virt-clone --original base --name k3s --file /data/vm/images/k3s.qcow2
 ```
 
 ## migration
