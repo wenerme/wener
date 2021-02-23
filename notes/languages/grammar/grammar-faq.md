@@ -4,6 +4,14 @@ title: Grammar FAQ
 
 # Grammar FAQ
 ## Antlr vs PEG
+
+* PEG - Parsing expression grammar
+  * 是一套通用的 解析表达文法
+  * 不同语言有不同实现，但能力和处理逻辑相同
+* Antlr
+  * 是一个 `LL(*)` 语法解析器实现
+  * 核心为 Java 语言，可以生成不同目标语言
+
 __书写语法区别__
 
 * PEG

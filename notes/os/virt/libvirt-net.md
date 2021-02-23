@@ -46,7 +46,7 @@ CONF
 sysctl -p /etc/sysctl.d/kvm.conf
 ```
 
-### 定义桥接
+### Libvirt 定义桥接
 
 ```xml
 <network>
@@ -73,6 +73,22 @@ sysctl -p /etc/sysctl.d/kvm.conf
   <mac address='00:16:3e:1a:b3:4a'/>
   <model type='virtio'/>
 </interface>
+```
+
+### QEMU 桥接
+
+```bash
+# /etc/qemu/bridge.conf root:qemu 0640
+echo allow vmbr0 >> /etc/qemu/bridge.conf
+
+# /usr/lib/qemu/qemu-bridge-helper
+# qemu linux.img -netdev bridge,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
+# qemu linux.img -netdev tap,helper=/usr/local/libexec/qemu-bridge-helper,id=hn0 -device virtio-net-pci,netdev=hn0,id=nic1
+
+qemu-system-x86_64 -accel kvm -m 4G -smp 2 base.qcow2  -vnc :1 -serial stdio \
+  -device virtio-net-pci,netdev=n1 -netdev tap,id=n1,"helper=/usr/lib/qemu/qemu-bridge-helper"
+
+# -netdev bridge,br=vmbr0,id=n1 -device virtio-net,netdev=n
 ```
 
 ## 透传

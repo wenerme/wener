@@ -134,6 +134,28 @@ lspci -vs 0000:00:1c.7
 [121152.410414] perf: interrupt took too long (6159 > 6158), lowering kernel.perf_event_max_sample_rate to 32400
 ```
 
+## ata1.00: exception Emask 0x0 SAct 0x80800000 SErr 0x0 action 0x6
+硬盘异常
+
+```
+ata1.00: exception Emask 0x0 SAct 0x1e020 SErr 0x0 action 0x6
+ata1.00: irq_stat 0x40000008
+ata1.00: failed command: READ FPDMA QUEUED
+ata1.00: cmd 60/88:28:78:2d:07/00:00:3f:00:00/40 tag 5 ncq dma 69632 in
+         res 41/84:88:c0:2d:07/00:00:3f:00:00/00 Emask 0x410 (ATA bus error) <F>
+ata1.00: status: { DRDY ERR }
+ata1.00: error: { ICRC ABRT }
+ata1: hard resetting link
+ata1: SATA link up 1.5 Gbps (SStatus 113 SControl 310)
+ata1.00: configured for UDMA/33
+sd 0:0:0:0: [sda] tag#5 UNKNOWN(0x2003) Result: hostbyte=0x00 driverbyte=0x08
+sd 0:0:0:0: [sda] tag#5 Sense Key : 0xb [current]
+sd 0:0:0:0: [sda] tag#5 ASC=0x47 ASCQ=0x0
+sd 0:0:0:0: [sda] tag#5 CDB: opcode=0x28 28 00 3f 07 2d 78 00 00 88 00
+blk_update_request: I/O error, dev sda, sector 1057435000 op 0x0:(READ) flags 0x80700 phys_seg 16 prio class 0
+ata1: EH complete
+```
+
 ## Longhorn iSCSI 异常后日志
 
 ```dmesg

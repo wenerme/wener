@@ -6,7 +6,7 @@ title: inlets 通道
 # inlets
 ## Tips
 * [inlets/inlets](https://github.com/inlets/inlets) - L7 HTTP/HTTPS 通道 - MIT
-  * tunnel 客户端和服务端
+  * 反向通道 客户端和服务端 - 类似 ngrok, argo tunnel
   * 一个进程一个 tunnel
   * 自动重连
   * 支持 ws 和 wss 通讯
@@ -15,7 +15,8 @@ title: inlets 通道
   * 注意 ⚠️ 不支持 __gRPC__
 * inlets-pro - L4 通道 - 商业授权
   * 支持 TCP 自动 TLS 加密
-  * 个人 180/年，商业 5 通道 1860/年 额外通道 20/月
+  * ⚠️ 个人 2 通道 180/年，商业 5 通道 1860/年 额外通道 20/月
+    * 个人认为不值得 - 如果使用较多建议自行实现
 * [inlets/inletsctl](https://github.com/inlets/inletsctl)
   * 自动安装配置
 
