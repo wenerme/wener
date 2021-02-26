@@ -43,11 +43,22 @@ title: ArgoCD
   - 多集群支持较弱 - fleedcd 相对做的更好
     - 一个 App 只能指定一个集群 [#1673](https://github.com/argoproj/argo-cd/issues/1673)
     - 无 agent, 无 crd 定义 - app of apps 只能在 argocd 所在集群
+      - 因为目标集群没有 argocd 因此设置 application 无效
+    - 因为相同应用要放在同一个 argocd 空间，因此需要名字前缀，例如 `dev-cert-manager`
+    - 因为加了名字前缀，要注意所有的 helm 最好指定固定的 releaseName, 例如 cert-manager
+      - 复写 releaseName 会有[问题](https://argoproj.github.io/argo-cd/user-guide/helm/#helm-release-name)
+        - argocd 依赖 `app.kubernetes.io/instance` 匹配应用
+        - 复写可能会修改该 label 导致无法匹配部分资源
+        - 可以在 `argocd-cm.yaml` 修改配置 `application.instanceLabelKey`
+    - 跨集群应用无法删除资源
 
 :::caution
 
 - 应用名字要求全局唯一
   - 应用就是 helm 的 release 名字 - helm 不要求全局唯一，因此迁移过程可能冲突
+- 务必修改 `application.instanceLabelKey` 配置 - 否则 helm 自定义 releaseName 会有问题
+  - 例如修改为 `app.kubernetes.io/argocd-instance`
+  - 默认与 helm 常用冲突 `app.kubernetes.io/instance`
 - Kustomize 不可以后处理 Helm
   - 如果一定需要，可以考虑[插件](https://dev.to/camptocamp-ops/use-kustomize-to-post-render-helm-charts-in-argocd-2ml6)
   - 或者预先生成好
@@ -143,17 +154,93 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
 ```
 
+```yaml
+syncPolicy:
+  automated:
+    prune: true
+  syncOptions:
+  # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
+  - ApplyOutOfSyncOnly=true
+```
+
 | options                          | desc                                     |
 | -------------------------------- | ---------------------------------------- |
 | Prune=false                      | 不删除资源                               |
 | Validate=false                   | `kubectl --validate=false` - 不校验 YAML |
 | SkipDryRunOnMissingResource=true | 新增 CRD 时避免 DryRun 失败              |
 
+## 配置
+* [argocd-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-cm.yaml)
+  * 基础配置
+* [argocd-secret.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-secret.yaml)
+  * Password, Certificates, Signing Key
+* [argocd-rbac-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-rbac-cm.yaml)
+* 参考
+  * [Declarative Setup](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/)
+
+### argocd-cm
+
 ```yaml
-syncPolicy:
-  syncOptions:
-    # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
-    - ApplyOutOfSyncOnly=true
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+ga.trackingid: ""
+repositories: |
+  # 仓库列表
+
+# 用来匹配 Application - 如果不修改会导致 helm 自定义 releaseName 有问题
+application.instanceLabelKey: app.kubernetes.io/instance
+# 建议修改
+# application.instanceLabelKey: app.kubernetes.io/argocd-instance
+```
+
+__repositories__
+
+```yaml
+# 定义 Git 仓库账号密码
+- passwordSecret:
+    key: password
+    name: repo-12345
+  usernameSecret:
+    key: username
+    name: repo-12345
+  type: git
+  url: https://gitlab.com/wener/repo.git
+# 定义 Git 仓库 SSH 密钥
+- insecure: true
+  insecureIgnoreHostKey: true
+  sshPrivateKeySecret:
+    key: sshPrivateKey
+    name: repo-1234
+  type: git
+  url: git@gitea-ssh.gitea:dev/dev-cluster
+```
+
+
+## ArgoCD 管理 ArgoCD
+* [Manage Argo CD Using Argo CD](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#manage-argo-cd-using-argo-cd)
+* https://github.com/argoproj/argoproj-deployments/tree/master/argocd
+
+__kustomization.yaml__
+
+```yaml
+bases:
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v1.0.1
+
+# additional resources like ingress rules, cluster and repository secrets.
+resources:
+- clusters-secrets.yaml
+- repos-secrets.yaml
+
+# 修改配置
+patchesStrategicMerge:
+- overlays/argo-cd-cm.yaml
 ```
 
 # FAQ

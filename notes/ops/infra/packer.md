@@ -59,7 +59,9 @@ jq 'walk(if type == "object" then del(._comment) else . end)' commented_template
 
 # 手动安装
 # https://packer.io/downloads.html
-curl -LOC- https://releases.hashicorp.com/packer/1.6.0/packer_1.6.0_linux_amd64.zip
+ver=$(curl -sfL https://api.github.com/repos/hashicorp/packer/releases/latest | jq .tag_name -r)
+ver=${ver##v}
+curl -LOC- https://releases.hashicorp.com/packer/${ver}/packer_${ver}_linux_amd64.zip
 ```
 
 ## HCL2

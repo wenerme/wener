@@ -31,7 +31,8 @@ title: Apache Superset
   - [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409) - Calendar heatmap dates shifted by one (converting to local time zone)
 
 ## 配置
-* [缓存配置](https://superset.incubator.apache.org/installation.html#caching)
+* [缓存配置](https://superset.apache.org/docs/installation/cache)
+* [config.py](https://github.com/apache/superset/blob/master/superset/config.py)
 
 ```py
 PUBLIC_ROLE_LIKE_GAMMA = True
@@ -65,6 +66,10 @@ MAPBOX_API_KEY = ''
 
 #
 MAPBOX_API_KEY = os.getenv('MAPBOX_API_KEY', '')
+
+# Flask 缓存
+# https://flask-caching.readthedocs.io/en/latest/#configuring-flask-caching
+# Superset 自己缓存
 CACHE_CONFIG = {
     'CACHE_TYPE': 'redis',
     'CACHE_DEFAULT_TIMEOUT': 300,
@@ -73,6 +78,18 @@ CACHE_CONFIG = {
     'CACHE_REDIS_PORT': 6379,
     'CACHE_REDIS_DB': 1,
     'CACHE_REDIS_URL': 'redis://redis:6379/1'}
+
+# 数据库缓存
+DATA_CACHE_CONFIG = {
+    'CACHE_TYPE': 'redis',
+    'CACHE_DEFAULT_TIMEOUT': 60 * 60 * 24, # 1 day default (in secs)
+    'CACHE_KEY_PREFIX': 'superset_results',
+    'CACHE_REDIS_URL': 'redis://localhost:6379/0',
+}
+
+# SQL Lab 查询结果存储
+# RESULTS_BACKEND
+
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://superset:superset@postgresql:5432/superset'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SECRET_KEY = ''
@@ -154,4 +171,9 @@ html:not([mode='edit']) .chart-header>.header>.dropdown {
 html:not([mode='edit']) .dragdroppable-tab .anchor-link-container {
     display: none !important;
 }
+```
+
+```js
+// 显示
+$('html').attr('mode','edit')
 ```

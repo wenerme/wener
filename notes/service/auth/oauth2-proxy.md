@@ -13,7 +13,7 @@ title: oauth2-proxy
     * 使用 `cookie-secret` 加密 cookie
     * 并发操作可能会冲突导致需要从新认证
   * redis
-    * Cookie 记录 ticket 
+    * Cookie 记录 ticket
     * `{CookieName}-{ticketID}.{secret}`
       * CookieName 默认 _oauth2_proxy
       * ticketID - 128 bit, hex

@@ -3,6 +3,10 @@
 * Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 * Awesome [Web](https://www.awesomeweb.com/)
 
+## e2e test
+* [codeceptjs/CodeceptJS](https://github.com/codeceptjs/CodeceptJS)
+* [webdriverio/webdriverio](https://github.com/webdriverio/webdriverio)
+
 ## Bootstrap
 * [Bootstrap Zero](http://www.bootstrapzero.com/)
 * [Top Github Repo](https://github.com/search?o=desc&q=Bootstrap&s=stars&type=Repositories)

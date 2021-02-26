@@ -10,6 +10,8 @@ title: 资源站
 
 ## BT
 * [ed2000k.com](https://www.ed2000k.com/)
+* [torrent.extto.com](http://torrent.extto.com/)
+* [rarbgprx.org](https://rarbgprx.org/)
 
 ## Tools
 * [raryelcostasouza/pyTranscriber](https://github.com/raryelcostasouza/pyTranscriber)

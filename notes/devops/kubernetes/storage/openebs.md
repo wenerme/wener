@@ -12,19 +12,18 @@ title: OpenEBS
   - Quorum
   - Backup / Restore
   - UI
-- OpenEBS cStor - Disks/SSDs/Cloud Volumes
-- OpenEBS Jiva - hostpath or external mounted storage
--
+
+**存储类型**
 
 | Volume              | Storage                  | Requirement                                           |
 | ------------------- | ------------------------ | ----------------------------------------------------- |
-| OpenEBS cStor       | Disks/SSDs/Cloud Volumes | 保护节点异常，同步副本，快照，克隆，Thin provisioning |
-| OpenEBS Jiva        | hostpath, 外部挂载       | 保护节点异常，同步副本，Thin provisioning             |
-| Local PV - Hostpath | hostpath, 外部挂载       | 低延时，本地持久卷                                    |
-| Local PV - Device   | Disks/SSDs/Cloud Volumes | 低延时，本地持久卷                                    |
-| Local PV - ZFS      | Disks/SSDs/Cloud Volumes | 低延时，本地持久卷，快照，克隆                        |
-| OpenEBS Mayastor    |
-| Local PV - Rawfile  |                          | 低延时，本地持久卷                                    |
+| OpenEBS Mayastor    | SSDs/Cloud Volumes       | 低延时, HA, 同步副本, 快照, 克隆, Thin provisioning   |
+| OpenEBS cStor       | Disks/SSDs/Cloud Volumes | 保护节点异常, 同步副本, 快照, 克隆, Thin provisioning |
+| OpenEBS Jiva        | hostpath, 外部挂载       | 保护节点异常, 同步副本, Thin provisioning             |
+| Local PV - Hostpath | hostpath, 外部挂载       | 低延时, 本地持久卷                                    |
+| Local PV - Device   | Disks/SSDs/Cloud Volumes | 低延时, 本地持久卷                                    |
+| Local PV - ZFS      | Disks/SSDs/Cloud Volumes | 低延时, 本地持久卷, 快照, 克隆                        |
+| Local PV - Rawfile  |                          | 低延时, 本地持久卷                                    |
 
 ```bash
 # 需要先安装 iscsi

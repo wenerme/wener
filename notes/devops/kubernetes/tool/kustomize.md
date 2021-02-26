@@ -77,5 +77,28 @@ kubectl apply -k ~/ldap/overlays/production --context production
         └── replica_count.yaml
 ```
 
+## 示例
+* https://github.com/kubernetes-sigs/kustomize/tree/master/examples/transformerconfigs
 
+
+## 批量合并修改
+
+__kustomization.yaml__
+```yml
+patches:
+- target:
+    kind: Application
+  path: patch.yaml
+```
+
+__patch.yaml__
+```yml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # 匹配所有
+  name: "*"
+spec:
+  project: dev-cluster
+```
 

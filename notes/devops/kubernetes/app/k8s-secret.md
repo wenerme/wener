@@ -7,27 +7,17 @@ title: K8S Secrets
 * 注意
   * secret 使用 subPath 不会接收更新
 
-## sealed-secrets
-* 注意
-  * SealdSecret 是绑定 namespace，kubeseal 的时候指定或原 secret 包含，不可修改
-* [stable/sealed-secrets](https://github.com/helm/charts/tree/master/stable/sealed-secrets)
+## 密钥方案
+- [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+  - 生成不可逆的密钥存储在仓库，控制器生成对应 Secret - 非对称加密
+  - 最简单实用
+- [banzaicloud/bank-vaults](https://github.com/banzaicloud/bank-vaults)
+- [hashicorp/vault](https://github.com/hashicorp/vault)
+  - Secret as a Service, Encryption as a Servic
+  - 如何与 K8S 集成是个问题
+- 参考
+  - [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
 
-```bash
-# 集群安装
-# 查看版本 https://github.com/bitnami-labs/sealed-secrets/releases
-kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.13.1/controller.yaml
-
-brew install kubeseal
-
-# 正常 secret
-echo -n bar | kubectl create secret generic mysecret --dry-run=client --from-file=foo=/dev/stdin -o json >mysecret.json
-# seal
-kubeseal <mysecret.json >mysealedsecret.json
-# 创建 seal
-kubectl create -f mysealedsecret.json
-# 生成 secret
-kubectl get secret mysecret
-```
 
 ## docker
 
@@ -43,3 +33,9 @@ kubectl create secret docker-registry regcred \
   --docker-password=<your-pword> \
   --docker-email=<your-email>
 ```
+
+## GitOps 密钥
+- 因为 GitOps 要求所有内容都在仓库，因此密钥也需要存储在仓库
+- 出于安全考虑不能直接放明文的 Secret，因此需要曲线提供 Secret
+- 部分要求在 helm values.yaml 提供密钥的还需要先生成 chart 然后修改为另外的方式提供密钥
+

@@ -20,7 +20,7 @@ title: Firecracker
     - 实现通过 containerd 管理 microVM
   - [firecracker-microvm/firectl](https://github.com/firecracker-microvm/firectl) - 辅助运行 firecracker
   - [weaveworks/ignite](https://github.com/weaveworks/ignite) - 类似 Docker 管理容器一样管理 microVM
-  - qemu [docs/microvm](https://github.com/qemu/qemu/blob/master/docs/microvm.rst) - QEMU 支持 microvm
+  - qemu [docs/system/i386/microvm](https://github.com/qemu/qemu/blob/master/docs/system/i386/microvm.rst) - QEMU 支持 microvm
 - 问题
   - [#1571](https://github.com/firecracker-microvm/firecracker/issues/1571) - virtio memory balloon
 
@@ -353,4 +353,4 @@ sudo iptables --insert FORWARD --in-interface br0 -j ACCEPT
 ## mount: mounting /dev/vda on /sysroot failed: No such device
 
 - 可能不支持 ext4
-- cat /proc/filesystem
+- cat /proc/filesystems

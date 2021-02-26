@@ -22,6 +22,11 @@ virsh net-start default
 ### 系统创建桥接
 * [net.bridge.bridge-nf-call](https://wiki.libvirt.org/page/Net.bridge.bridge-nf-call_and_sysctl.conf)
 
+```bash
+# alpine 3.13 还需要安装 bridge 包 - 虽然 ifupdown-ng 支持
+apk add bridge
+```
+
 ```
 auto eth0
 iface eth0 inet manual
@@ -44,6 +49,15 @@ net.bridge.bridge-nf-call-iptables = 0
 net.bridge.bridge-nf-call-arptables = 0
 CONF
 sysctl -p /etc/sysctl.d/kvm.conf
+```
+
+veth 可本地创建多个虚拟网卡来接入桥接
+
+```
+auto veth0
+iface veth0 inet manual
+	pre-up ip tuntap add dev $IFACE mode tap
+	post-down ip tuntap del dev $IFACE mode tap
 ```
 
 ### Libvirt 定义桥接
@@ -88,7 +102,7 @@ echo allow vmbr0 >> /etc/qemu/bridge.conf
 qemu-system-x86_64 -accel kvm -m 4G -smp 2 base.qcow2  -vnc :1 -serial stdio \
   -device virtio-net-pci,netdev=n1 -netdev tap,id=n1,"helper=/usr/lib/qemu/qemu-bridge-helper"
 
-# -netdev bridge,br=vmbr0,id=n1 -device virtio-net,netdev=n
+# -netdev bridge,br=vmbr0,id=n1 -device virtio-net,netdev=n1
 ```
 
 ## 透传
