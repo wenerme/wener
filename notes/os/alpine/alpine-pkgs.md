@@ -146,8 +146,41 @@ rm -rf src; abuild prepare && abuild prepare
 abuild -r
 ```
 
+## 新增
+```bash
+# -c 添加 init.d 和 conf.d
+newapkbuild -n frp \
+  -d 'A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.' \
+  -l 'Apache-2.0' \
+  -u https://github.com/fatedier/frp \
+  -c \
+  https://github.com/fatedier/frp/archive/v0.35.1.tar.gz
+```
+
 ### 开发
 * https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
+
+```
+Usage: newapkbuild [-n PKGNAME] [-d PKGDESC] [-l LICENSE] [-u URL]
+       [-a | -C | -m | -p | -y | -r] [-s] [-c] [-f] [-h]
+       PKGNAME[-PKGVER] | SRCURL
+Options:
+  -n  Set package name to PKGNAME (only use with SRCURL)
+  -d  Set package description to PKGDESC
+  -l  Set package license to LICENSE, use identifiers from:
+      <https://spdx.org/licenses/>
+  -u  Set package URL
+  -a  Create autotools package (use ./configure ...)
+  -C  Create CMake package (Assume cmake/ is there)
+  -m  Create meson package (Assume meson.build is there)
+  -p  Create perl package (Assume Makefile.PL is there)
+  -y  Create python package (Assume setup.py is there)
+  -r  Crate rust package (Assume Cargo.toml is there)
+  -s  Use sourceforge source URL
+  -c  Copy a sample init.d, conf.d, and install script
+  -f  Force even if directory already exists
+  -h  Show this help
+```
 
 ```
 $ abuild -h

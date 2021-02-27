@@ -1,3 +1,7 @@
+---
+title: Intellij IDEA
+---
+
 # Intellij IDEA
 
 ## Tips

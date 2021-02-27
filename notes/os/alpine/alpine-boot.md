@@ -82,9 +82,12 @@ password=''
 
 ## mkinitfs
 
+- 特性
+  - v3.13 ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio
+  - v3.12 ata base ide scsi usb virtio ext4
 - [alpinelinux/mkinitfs](https://github.com/alpinelinux/mkinitfs)
   - `mkinitfs -L` - 特性 [features.d](https://github.com/alpinelinux/mkinitfs/tree/master/features.d)
-  - `/etc/mkinitfs/mkinitfs.conf` - 默认 `ata base ide scsi usb virtio ext4`
+  - `/etc/mkinitfs/mkinitfs.conf`
 - features
   - cryptsetup
     - LUKS

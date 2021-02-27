@@ -1,3 +1,6 @@
+---
+title: Docker 仓库
+---
 
 # Docker Registry
 ## Tips
@@ -17,7 +20,35 @@
 * 授权: silly、token、htpasswd、none
 
 ```bash
-docker run -d -p 5000:5000 --name registry registry:2
+docker run -d --restart=always \
+  -p 5000:5000 \
+  -v /data/docker-registry:/var/lib/registry \
+  -v $PWD/config.yml:/etc/docker/registry/config.yml \
+  --add-host 8x40wsit.mirror.aliyuncs.com:116.62.81.173 \
+  --name registry registry:2
+```
+
+```yaml
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+  cache:
+    blobdescriptor: inmemory
+  filesystem:
+    rootdirectory: /var/lib/registry
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
+proxy:
+  remoteurl: https://8x40wsit.mirror.aliyuncs.com
 ```
 
 ```yaml

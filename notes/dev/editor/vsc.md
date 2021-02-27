@@ -25,6 +25,9 @@ docker exec sshd apk add musl libgcc libstdc++
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@127.0.0.1 -p 2222
 
 # glibc
+
+# 远程打开
+# code --remote ssh-remote+root@server.com <your-directory>
 ```
 
 ### code-server

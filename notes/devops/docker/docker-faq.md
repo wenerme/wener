@@ -1,3 +1,7 @@
+---
+title: Docker FAQ
+---
+
 # Docker FAQ
 
 ## 非 root 绑定私有端口
@@ -10,6 +14,25 @@
 
 ```bash
 docker stop $(docker ps -aq)
+```
+
+## 迁移数据目录
+* /var/lib/docker 对 docker 性能影响较大
+
+```bash
+# 停止服务迁移数据
+service docker stop
+mkdir -p /data/docker
+sudo rsync -aP /var/lib/docker/ /data/docker/
+
+# 添加 data-root 配置
+# { "data-root": "/data/docker" }
+nano /etc/docker/daemon.json
+
+# 启动
+service docker start
+# 查看新的配置
+docker info | grep 'Root Dir'
 ```
 
 ## No swap limit support
