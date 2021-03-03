@@ -5,28 +5,30 @@ const all = JSON.parse(fs.readFileSync('docs.json').toString());
 const verbose = process.env.verbose;
 
 function items(opt, opt2) {
+  let parent;
   if (typeof opt === 'string') {
-    const s = opt;
+    let s = (parent = opt);
     let { excludes = [] } = opt2 || {};
     excludes = excludes.map((v) => `${s}/${v}`);
+    if (typeof s === 'string') {
+      s = new RegExp(`^${s}(-|/|$)`);
+    }
     opt = { prefix: s, excludes };
   }
 
   const { prefix, excludes = [] } = opt;
+  parent = parent || prefix;
 
-  let r = all.filter((v) => v.refId.startsWith(prefix));
+  let r = all.filter((v) => match(prefix, v.refId));
   for (const ex of excludes) {
     r = r.filter((v) => !v.refId.startsWith(ex));
   }
-  r.filter((v) => {
+  r = r.filter((v) => {
     const ok = !v.refed;
     v.refed = v.refed || prefix;
     return ok;
   });
-  verbose && console.log(`items ${prefix} - [${excludes.join(',')}] :`, r.length);
-  if (r.length === 0) {
-    console.error(`items ${prefix} - [${excludes.join(',')}] : No items`);
-  }
+  (verbose || !r.length) && console.log(`items ${parent} - [${excludes.join(',')}] :`, r.length);
   return r.map((v) => v.refId);
 }
 
@@ -34,7 +36,7 @@ function match(m, v) {
   if (m.test) {
     return m.test(v);
   }
-  return m.startsWith(v);
+  return v.startsWith(m);
 }
 
 function mark(...a) {
@@ -80,11 +82,11 @@ module.exports = {
       ...items({ prefix: 'web' }),
     ],
     语言: [
-      ...items({ prefix: 'languages', excludes: ['go'] }),
+      ...items('languages', { excludes: ['go'] }),
       {
         type: 'category',
         label: 'Golang',
-        items: items({ prefix: 'languages/go' }),
+        items: items('languages/go'),
       },
     ],
     开发: [
@@ -100,34 +102,39 @@ module.exports = {
       {
         type: 'category',
         label: '指标监控',
-        items: items({ prefix: 'devops/metrics' }),
+        items: items('devops/metrics'),
       },
       {
         type: 'category',
         label: '调用链',
-        items: items({ prefix: 'devops/tracing' }),
+        items: items('devops/tracing'),
       },
       {
         type: 'category',
         label: '日志',
-        items: items({ prefix: 'service/logging' }),
+        items: items('service/logging'),
       },
       {
         type: 'category',
         label: '服务',
-        items: items({ prefix: 'devops/service' }),
+        items: items('devops/service'),
       },
       {
         type: 'category',
         label: 'Web',
-        items: items({ prefix: 'devops/web' }),
+        items: items('devops/web'),
       },
       {
         type: 'category',
         label: '平台服务',
-        items: items({ prefix: 'devops/xaas' }),
+        items: items('devops/xaas'),
       },
-      ...items({ prefix: 'devops' }),
+      {
+        type: 'category',
+        label: '容器',
+        items: items('devops/container'),
+      },
+      ...items('devops', { excludes: [''] }),
     ],
     AlpineLinux: [...items({ prefix: 'os/alpine' })],
     Docker: [...items({ prefix: 'devops/docker' })],
