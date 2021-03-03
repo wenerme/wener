@@ -1,6 +1,9 @@
 ---
 slug: kubernetes-vs-openstack
 title: Kubernetes vs OpenStack
+tags:
+- Kubernetes
+- 虚拟化
 ---
 
 ![10年趋势](./2020-09-28-kubernetes-vs-openstack-10y-trend.jpg)

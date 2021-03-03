@@ -1,6 +1,9 @@
 ---
 slug: understand-baby-vision
 title: 理解孩子的视力
+tags:
+- 学习
+- 成长
 ---
 
 # 理解关注孩子的视力

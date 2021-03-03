@@ -1,6 +1,10 @@
 ---
 slug: alpinelinux-setup-xfce
 title: AlpineLinux 安装 Xfce 桌面
+tags:
+- AlpineLinux
+- 桌面
+- Xfce
 ---
 
 # AlpineLinux 安装 Xfce 桌面

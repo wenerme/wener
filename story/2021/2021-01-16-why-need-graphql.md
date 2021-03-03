@@ -1,6 +1,10 @@
 ---
 slug: why-need-graphql
 title: 为什么需要 GraphQL
+tags:
+- 开发
+- 架构
+- GraphQL
 ---
 
 # 为什么需要 GraphQL

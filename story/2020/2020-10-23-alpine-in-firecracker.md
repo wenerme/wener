@@ -1,6 +1,9 @@
 ---
 slug: alpine-in-firecracker
 title: Firecracker 运行 AlpineLinux
+tags:
+- AlpineLinux
+- Firecracker
 ---
 
 # Firecracker 运行 AlpineLinux

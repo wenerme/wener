@@ -2,15 +2,15 @@ import globby from "globby";
 
 async function main() {
   {
-    const files = globby("contents/story/**/*.{md,mdx}");
+    const files = globby("story/**/*.{md,mdx}");
     console.log("story", (await files).length);
   }
   {
-    const files = globby("contents/notes/**/*.{md,mdx}");
+    const files = globby("notes/**/*.{md,mdx}");
     console.log("notes", (await files).length);
   }
   {
-    const files = globby("contents/**/*.{jpg,jpeg,png,svg,gif}");
+    const files = globby("**/*.{jpg,jpeg,png,svg,gif}");
     console.log("images", (await files).length);
   }
 }

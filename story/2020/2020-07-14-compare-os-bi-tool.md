@@ -1,6 +1,9 @@
 ---
 slug: compare-os-bi-tool
 title: 开源 BI 产品比较
+tags:
+- BI
+- 大数据
 ---
 
 # 开源 BI 产品比较

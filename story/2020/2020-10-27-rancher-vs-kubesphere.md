@@ -2,6 +2,9 @@
 slug: rancher-vs-kubesphere
 title: Rancher vs. Kubesphere
 hide_title: true
+tags:
+- Kubernetes
+- 运维
 ---
 
 # Rancher vs. Kubesphere

@@ -1,6 +1,8 @@
 ---
 slug: cyw-without-w
 title: 你就是你
+tags:
+- 成长
 ---
 
 ![YUN](./yun-explained.png)

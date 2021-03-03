@@ -1,6 +1,8 @@
 ---
 slug: stage-four-of-life
 title: 人生第四阶段
+tags:
+- 成长
 ---
 
 # 人生第四阶段

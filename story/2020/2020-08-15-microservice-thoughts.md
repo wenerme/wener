@@ -1,6 +1,9 @@
 ---
 slug: microservice-thoughts
 title: 微服务杂念
+tags:
+- 架构
+- 微服务
 ---
 
 [![](https://www.plantuml.com/plantuml/svg/TP51I-D068Rlyok6x3NTiikoM3Mb9csyUF9QYinqFjjWceIPqLfABmL12Zs8UDE3NeKgY8Y2-ckI-ZFCcCOqjSqflFDyxpnyKn6ISCbyYPZJuYHeustSHvxFe2xQ9023-iUwa3qNZ7t7TO7fJT_rkI4vyKH0E7YoWPB1EbPZ0WBZZnwV7Z276zhEhjP0w500nuKoRX49NT93QFQZilZeo6d27baMKeHGNvKPWdHW8uCpOf3Krrr2mJKsmybDTFeqlRqhwrWP9xhQBzEircnJQwItfFpqzImyULY0hRNQVwiKmz_tfNXqEGv7rrjbVHwtRQjQ_Jk7qpnkhi3LlhBgZz5mEdp-KMsNh7yfI_EikO9bT4xuuZuQJyANyuLYzlN5S2QTUuqi9ofFL9TaD3UVSaftHYaPX18RBNoR92k9heRX-oCkuBQKWLWl5hlW0V_T0GqDK0Kyndpv2G00)](https://wener.me)

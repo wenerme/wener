@@ -25,7 +25,7 @@ function fetch(url: RequestInfo, init: RequestInit = {}): Promise<Response> {
 }
 
 async function main() {
-  const paths = await globby("./contents/**/*.md");
+  const paths = await globby("./story/**/*.md");
   let files: FileData[] = await Promise.all(
     paths.map(async (v) => {
       const content = (await fs.readFile(v)).toString();
@@ -76,8 +76,9 @@ function markdownResolveLink(s: string, base: string): string {
     if (/^#/.test(href)) {
       return p;
     }
-    console.log("Resolve", href, base);
-    return `[${label}](${new URL(href, base).toString()})`;
+    const target = new URL(href, base).toString()
+    console.log(`resolve ${href}\n\tto ${target} based on ${base}`);
+    return `[${label}](${target})`;
   });
 }
 

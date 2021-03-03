@@ -2,6 +2,8 @@
 slug: issues-system-design
 title: 工单系统设计实现
 hide_title: true
+tags:
+- 架构
 ---
 
 # 工单系统设计实现
