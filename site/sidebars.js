@@ -275,7 +275,6 @@ module.exports = {
           'ops/network/private/privoxy-action',
           'ops/network/private/ipsec',
           'ops/network/private/wireguard',
-          'ops/network/private/vpn-faq',
         ],
       },
       {
