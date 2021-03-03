@@ -1,417 +1,396 @@
 const YAML = require('yaml');
 const fs = require('fs');
+const all = JSON.parse(fs.readFileSync('docs.json').toString());
+
+const verbose = process.env.verbose;
+
+function items(opt, opt2) {
+  if (typeof opt === 'string') {
+    const s = opt;
+    let { excludes = [] } = opt2 || {};
+    excludes = excludes.map((v) => `${s}/${v}`);
+    opt = { prefix: s, excludes };
+  }
+
+  const { prefix, excludes = [] } = opt;
+
+  let r = all.filter((v) => v.refId.startsWith(prefix));
+  for (const ex of excludes) {
+    r = r.filter((v) => !v.refId.startsWith(ex));
+  }
+  r.filter((v) => {
+    const ok = !v.refed;
+    v.refed = v.refed || prefix;
+    return ok;
+  });
+  verbose && console.log(`items ${prefix} - [${excludes.join(',')}] :`, r.length);
+  if (r.length === 0) {
+    console.error(`items ${prefix} - [${excludes.join(',')}] : No items`);
+  }
+  return r.map((v) => v.refId);
+}
+
+function match(m, v) {
+  if (m.test) {
+    return m.test(v);
+  }
+  return m.startsWith(v);
+}
+
+function mark(...a) {
+  return a;
+}
 
 module.exports = {
   docs: {
-    Java: YAML.parse(fs.readFileSync('sidebars-java.yaml').toString()),
+    Java: [
+      ...items('java', { excludes: ['version', 'spring', 'library'] }),
+      {
+        type: 'category',
+        label: '版本',
+        items: items({ prefix: 'java/version' }),
+      },
+      {
+        type: 'category',
+        label: 'Spring',
+        items: items({ prefix: 'java/spring' }),
+      },
+      {
+        type: 'category',
+        label: 'Library',
+        items: items({ prefix: 'java/library' }),
+      },
+    ],
     前端技术: [
       {
         type: 'category',
         label: '框架',
-        items: [
-          'web/framework/nextjs',
-          'web/framework/nextjs-version',
-          'web/framework/nextjs-cookbook',
-          'web/framework/electron',
-          'web/framework/vue',
-          'web/framework/angular',
-          'web/framework/riot',
-          'web/framework/prisma',
-        ],
+        items: items({ prefix: 'web/framework' }),
       },
+      {
+        type: 'category',
+        label: 'React',
+        items: items({ prefix: 'web/react' }),
+      },
+      {
+        type: 'category',
+        label: 'NodeJS',
+        items: items({ prefix: 'web/node' }),
+      },
+      ...items({ prefix: 'web' }),
     ],
     语言: [
-      'languages/languages',
-      'languages/parsing',
-      'languages/peg',
-      'languages/pegjs',
-      'languages/php',
-      'languages/zig',
-      'languages/lua/lua',
-      'languages/lua/lua-version',
+      ...items({ prefix: 'languages', excludes: ['go'] }),
       {
         type: 'category',
         label: 'Golang',
-        items: [
-          'languages/go/go',
-          'languages/go/go-template',
-          'languages/go/go-pkg-net-rpc',
-          'languages/go/go-kit',
-          'languages/go/go-windows',
-        ],
+        items: items({ prefix: 'languages/go' }),
       },
     ],
+    开发: [
+      {
+        type: 'category',
+        label: '构建',
+        items: items('dev/build'),
+      },
+      ...items('dev'),
+    ],
     开发运维: [
-      'devops/tracing/tracing',
+      ...items('devops/intro'),
       {
         type: 'category',
         label: '指标监控',
-        items: [
-          'devops/metrics/metrics',
-          'devops/metrics/prometheus',
-          'devops/metrics/promql',
-          'devops/metrics/prometheus-exporter',
-          'devops/metrics/statsd_exporter',
-          'devops/metrics/prometheus-k8s',
-          'devops/metrics/prometheus-storage',
-          'devops/metrics/grafana',
-          'devops/metrics/thanos',
-          'devops/metrics/cortex',
-        ],
+        items: items({ prefix: 'devops/metrics' }),
+      },
+      {
+        type: 'category',
+        label: '调用链',
+        items: items({ prefix: 'devops/tracing' }),
       },
       {
         type: 'category',
         label: '日志',
-        items: [
-          'service/logging/logging',
-          'service/logging/syslog',
-          'service/logging/loki',
-          'service/logging/fluentbit',
-        ],
+        items: items({ prefix: 'service/logging' }),
       },
       {
         type: 'category',
         label: '服务',
-        items: [
-          'devops/service/microservices',
-          'devops/service/servicemesh',
-          'devops/service/linkerd',
-          'devops/service/kuma',
-          'devops/service/consul',
-          'devops/service/consul-conf',
-          'devops/service/consul-connect',
-          'devops/service/fabio',
-        ],
+        items: items({ prefix: 'devops/service' }),
       },
       {
         type: 'category',
         label: 'Web',
-        items: ['devops/web/nginx', 'devops/web/caddy', 'devops/web/traefik'],
+        items: items({ prefix: 'devops/web' }),
       },
       {
         type: 'category',
         label: '平台服务',
-        items: ['devops/xaas/db-schema', 'devops/xaas/paas/dokku'],
+        items: items({ prefix: 'devops/xaas' }),
       },
+      ...items({ prefix: 'devops' }),
     ],
-    AlpineLinux: [
-      'os/alpine/alpine',
-      'os/alpine/alpine-intro',
-      'os/alpine/alpine-ops',
-      'os/alpine/alpine-pkgs',
-      'os/alpine/alpine-lbu',
-      'os/alpine/alpine-boot',
-      'os/alpine/alpine-version',
-      'os/alpine/alpine-faq',
-    ],
-    Docker: [
-      'devops/docker/docker-intro',
-      'devops/docker/docker-network',
-      'devops/docker/docker-storage',
-      'devops/docker/docker-swarm',
-      'devops/docker/docker-cookbook',
-    ],
+    AlpineLinux: [...items({ prefix: 'os/alpine' })],
+    Docker: [...items({ prefix: 'devops/docker' })],
     Kubernetes: [
-      'devops/kubernetes/kubernetes',
-      'devops/kubernetes/k8s-dashboard',
-      'devops/kubernetes/distro/k3s',
-      'devops/kubernetes/distro/k3s-version',
-      'devops/kubernetes/distro/k3d',
-      'devops/kubernetes/k8s-glossary',
-      'devops/kubernetes/app/app-cookbook',
-      'devops/kubernetes/app/helm',
-      'devops/kubernetes/app/helm2',
-      'devops/kubernetes/ops/rke',
-      'devops/kubernetes/tool/kustomize',
-      'devops/kubernetes/tool/krew',
+      ...items('devops/kubernetes', {
+        excludes: ['network', 'storage', 'app', 'platform'],
+      }),
       {
         type: 'category',
         label: '网络',
-        items: [
-          'devops/kubernetes/network/k8s-network',
-          'devops/kubernetes/network/kong-ingress',
-          'devops/kubernetes/network/nginx-ingress',
-          'devops/kubernetes/network/traefik-ingress',
-          'devops/kubernetes/network/metallb',
-          'devops/kubernetes/network/flannel',
-        ],
+        items: items('devops/kubernetes/network'),
       },
       {
         type: 'category',
         label: '存储',
-        items: [
-          'devops/kubernetes/storage/k8s-storage',
-          'devops/kubernetes/storage/longhorn',
-          'devops/kubernetes/storage/k8s-nfs',
-          'devops/kubernetes/storage/rook',
-        ],
+        items: items('devops/kubernetes/storage'),
       },
       {
         type: 'category',
         label: '平台',
-        items: [
-          'devops/kubernetes/platform/rancher',
-          'devops/kubernetes/platform/knative',
-          'devops/kubernetes/platform/istio',
-        ],
+        items: items('devops/kubernetes/platform'),
       },
       {
         type: 'category',
         label: '应用',
-        items: [
-          'devops/kubernetes/app/cert-manager',
-          'devops/kubernetes/app/k8s-consul',
-          'devops/kubernetes/app/harbor',
-        ],
+        items: items('devops/kubernetes/app'),
       },
     ],
-    ...YAML.parse(fs.readFileSync('sidebars-os.yaml').toString()),
+    Linux: [
+      ...items('os/linux/linux'),
+      {
+        type: 'category',
+        label: '启动',
+        items: items('os/linux/boot'),
+      },
+      {
+        type: 'category',
+        label: '网络',
+        items: items('os/linux/network'),
+      },
+      ...items('os/linux'),
+    ],
+    虚拟化: [...items('os/virt')],
+    操作系统: [
+      {
+        type: 'category',
+        label: 'Darwin',
+        items: items('os/darwin'),
+      },
+      {
+        type: 'category',
+        label: 'Windows',
+        items: items('os/windows'),
+      },
+      {
+        type: 'category',
+        label: 'Centos',
+        items: items('os/centos'),
+      },
+      {
+        type: 'category',
+        label: 'Busybox',
+        items: items('os/busybox'),
+      },
+      {
+        type: 'category',
+        label: '网络操作系统',
+        items: items('os/network'),
+      },
+      ...items('os'),
+    ],
     指南: [
       {
         type: 'category',
         label: '运维',
-        items: ['howto/ops/alpine-admin-ansible'],
+        items: items('howto/ops'),
       },
       {
         type: 'category',
         label: '网络',
-        items: [
-          'howto/network/dns-prevent-spoofing',
-          'howto/network/tinc-get-started',
-          'howto/network/tinc-multi-path-failover',
-          'howto/network/tinc-transparency-proxy',
-        ],
+        items: items('howto/network'),
       },
+      ...items('howto'),
     ],
-    系统管理: ['ops/admin/htop', 'ops/admin/mosh'],
-    基础设施: [
-      'ops/infra/infra',
-      'ops/infra/ansible',
-      'ops/infra/ansible-awx',
-      'ops/infra/ansible-faq',
-      'ops/infra/terraform',
-      'ops/infra/terraform-provider',
-      'ops/infra/terraform-cookbook',
-      'ops/infra/packer',
-      'ops/infra/cloud-init',
-    ],
+    系统管理: items('ops/admin'),
+    基础设施: items('ops/infra'),
     工具: [
       {
         type: 'category',
         label: '网络',
-        items: ['tool/network/ip-lookup'],
+        items: items('tool/network'),
       },
     ],
     数据库: [
-      'db/db',
+      ...items('db/db'),
       {
         type: 'category',
         label: 'PostgreSQL',
-        items: [
-          'db/relational/postgresql/postgresql',
-          'db/relational/postgresql/datatype',
-          'db/relational/postgresql/fts',
-          'db/relational/postgresql/version',
-          'db/relational/postgresql/faq',
-          'db/relational/postgresql/postgresql-sql-faq',
-          'db/relational/postgresql/timescale',
-          'db/relational/postgresql/postgrest-hello',
-          'db/relational/postgresql/hasura',
-        ],
+        items: items('db/relational/postgresql'),
       },
       {
         type: 'category',
         label: '关系型',
-        items: ['db/relational/mysql', 'db/relational/mysql-gtid', 'db/relational/sqlite'],
+        items: items('db/relational', { excludes: ['postgresql'] }),
       },
       {
         type: 'category',
         label: '文档型',
-        items: ['db/document/mongodb', 'db/document/rethinkdb', 'db/document/couchdb'],
+        items: items('db/document'),
       },
       {
         type: 'category',
         label: '键值型',
-        items: ['db/kv/kv', 'db/kv/redis', 'db/kv/lmdb', 'db/kv/leveldb'],
+        items: items('db/kv'),
       },
+      ...items('db'),
     ],
     参考: [
-      'reference/words',
+      ...items('reference', { excludes: ['software', 'growth', 'cook'] }),
       {
         type: 'category',
         label: '软件',
-        items: ['reference/software/saas', 'reference/software/glossary'],
+        items: items('reference/software'),
       },
       {
         type: 'category',
         label: '用户增长',
-        items: ['reference/growth/formula', 'reference/growth/glossary'],
+        items: items('reference/growth'),
       },
       {
         type: 'category',
         label: '烹饪',
-        items: ['reference/cook/glossary'],
+        items: items('reference/cook'),
       },
     ],
     网络: [
       {
         type: 'category',
         label: '应用',
-        items: ['ops/network/application/dns', 'ops/network/application/http', 'ops/network/application/ssl'],
+        items: items('ops/network/application'),
       },
       {
         type: 'category',
         label: '链路',
-        items: ['ops/network/link/wireless', 'ops/network/link/infiniband'],
+        items: items('ops/network/link'),
       },
       {
         type: 'category',
         label: '私有',
-        items: [
-          'ops/network/private/intro',
-          'ops/network/private/tinc',
-          'ops/network/private/tinc-conf',
-          'ops/network/private/privoxy',
-          'ops/network/private/privoxy-action',
-          'ops/network/private/ipsec',
-          'ops/network/private/wireguard',
-        ],
+        items: items('ops/network/private'),
       },
       {
         type: 'category',
         label: '工具',
-        items: [
-          'ops/network/tool/intro',
-          'ops/network/tool/bonding',
-          'ops/network/tool/dnsmasq',
-          'ops/network/tool/ifconfig',
-          'ops/network/tool/mitmproxy',
-          'ops/network/tool/nmap',
-          'ops/network/tool/powerdns',
-          'ops/network/tool/wireshark',
-        ],
+        items: items('ops/network/tool'),
       },
-      'ops/network/standard/ieee-802',
+      ...items('ops/network'),
     ],
     存储: [
-      'ops/storage/intro',
+      ...items('ops/storage', { excludes: ['block', 'fs', 'network'] }),
       {
         type: 'category',
         label: '块存储',
-        items: ['ops/storage/block/raid', 'ops/storage/block/mdadm', 'ops/storage/block/lvm'],
+        items: items('ops/storage/block'),
       },
       {
         type: 'category',
         label: '文件存储',
-        items: [
-          'ops/storage/fs/intro',
-          'ops/storage/fs/zfs',
-          'ops/storage/fs/btrfs',
-          'ops/storage/fs/fuse',
-          'ops/storage/fs/nfs',
-          'ops/storage/fs/smb',
-          'ops/storage/fs/ntfs',
-          // 'ops/storage/fs/zfs-tuning',
-        ],
+        items: items('ops/storage/fs'),
       },
       {
         type: 'category',
         label: '网络存储',
-        items: ['ops/storage/network/share', 'ops/storage/network/sshfs'],
+        items: items('ops/storage/network'),
       },
     ],
-    开发服务: [
+    服务: [
       {
         type: 'category',
         label: 'Auth',
-        items: [
-          'service/auth/auth',
-          'service/auth/auth-faq',
-          'service/auth/keycloak',
-          'service/auth/keycloak-dev',
-          'service/auth/keycloak-faq',
-          'service/auth/louketo',
-          'service/auth/oauth2-proxy',
-          'service/auth/ldap',
-          'service/auth/ldap-schema',
-          'service/auth/ldif',
-          'service/auth/apacheds',
-          'service/auth/apacheds-ops',
-          'service/auth/apacheds-kerberos',
-          'service/auth/kerberos',
-          'service/auth/kerberos-faq',
-          'service/auth/oauth',
-          'service/auth/jwt',
-          'service/auth/auth-protocol',
-          'service/auth/auth-glossary',
-        ],
+        items: items('service/auth'),
       },
       {
         type: 'category',
         label: '内容管理',
-        items: ['service/cms/cms', 'service/cms/docusaurus'],
+        items: items('service/cms'),
       },
       {
         type: 'category',
         label: 'Office',
-        items: ['service/office/office', 'service/office/collabora', 'service/office/onlyoffice'],
+        items: items('service/office'),
       },
       {
         type: 'category',
         label: '客户关系管理',
-        items: ['service/crm/crm-insight'],
+        items: items('service/crm'),
       },
       {
         type: 'category',
         label: '文件',
-        items: ['service/file/nextcloud', 'service/file/nextcloud-config', 'service/file/nextcloud-faq'],
+        items: items('service/file'),
       },
       {
         type: 'category',
         label: '存储',
-        items: [
-          'service/storage/seaweedfs',
-          'service/storage/minio',
-          'service/storage/minio-operator',
-          'service/storage/ceph',
-          'service/storage/ceph-glossary',
-          'service/storage/ceph-k8s',
-          'service/storage/ceph-ubuntu-16-install',
-          'service/storage/distributed-storage',
-        ],
+        items: items('service/storage'),
+      },
+      {
+        type: 'category',
+        label: '网络',
+        items: items('service/network'),
       },
       {
         type: 'category',
         label: '仓库',
-        items: ['service/repository/nexus'],
+        items: items('service/repository'),
       },
+      ...items('service'),
     ],
     运维: [
       {
         type: 'category',
         label: '服务',
-        items: ['ops/service/remote-desktop', 'ops/service/matomo'],
+        items: items('ops/service', { excludes: ['gitlab-'] }),
       },
       {
         type: 'category',
         label: 'Gitlab',
-        items: ['ops/service/gitlab-config', 'ops/service/gitlab-cicd', 'ops/service/gitlab-k8s'],
+        items: items('ops/service/gitlab'),
       },
     ],
     硬件: [
       {
         type: 'category',
         label: '硬件',
-        items: ['hardware/battery/battery', 'hardware/microcontroller/dev/arduino'],
+        items: [...items('hardware')],
       },
     ],
     算法: [
       {
         type: 'category',
         label: '计算机视觉',
-        items: ['algorithm/cv/imagemagick'],
+        items: [...items('algorithm/cv')],
       },
     ],
-    VoIP: YAML.parse(fs.readFileSync('sidebars-voip.yaml').toString()),
+    VoIP: [
+      ...items('voip', { excludes: ['asterisk'] }),
+      {
+        type: 'category',
+        label: 'Asterisk',
+        items: items('voip/asterisk'),
+      },
+    ],
+    医学: [...items('medicine')],
   },
 };
+
+const rest = all.filter((v) => !v.refed);
+console.log(`outof sidebar :`, rest.length);
+fs.writeFileSync(
+  'sidebar.rest.txt',
+  rest
+    .map((v) => v.refId)
+    .sort()
+    .join('\n'),
+);

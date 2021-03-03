@@ -12,10 +12,12 @@ sync:
 	rsync -a --files-from=notes.list.txt ../ ./
 
 process:
-	node -r ts-node/register src/scripts/process.ts
+	node -r ts-node/register src/scripts/process.ts $(ARGS)
 
 stats:
 	node -r ts-node/register src/scripts/stats.ts
+sidebar:
+	node -r ts-node/register src/scripts/sidebar.ts $(ARGS)
 
 build:
 	yarn build

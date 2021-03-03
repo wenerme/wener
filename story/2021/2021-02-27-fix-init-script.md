@@ -1,6 +1,9 @@
 ---
 slug: fix-init-script
 title: 记录一次修复 init 脚本的经历
+tags:
+- AlpineLinux
+- 运维
 ---
 
 # 记录一次修复 init 脚本的经历

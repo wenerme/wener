@@ -1,49 +1,78 @@
-import globby from "globby";
-import fs from "fs-extra";
-import nodeFetch from "node-fetch";
-import type { RequestInfo, RequestInit, Response } from "node-fetch";
-import { HttpProxyAgent, HttpsProxyAgent } from "hpagent";
-import { SocksProxyAgent } from "socks-proxy-agent";
+import globby from 'globby';
+import fs from 'fs-extra';
+import { argo, buildContent, createSpec, FileSpec } from './utils';
+import path from 'path';
+import { fetch } from './fetch';
 
-function getAgent(proxy: string): any {
-  if (/^socks.?:/.test(proxy)) {
-    return new SocksProxyAgent(proxy);
-  }
-  if (proxy.startsWith("https:")) {
-    return new HttpsProxyAgent({ proxy });
-  }
-  return new HttpProxyAgent({ proxy });
-}
+const setting = {
+  offline: false,
+  verbose: false,
+};
 
-function fetch(url: RequestInfo, init: RequestInit = {}): Promise<Response> {
-  const proxy = process.env.https_proxy;
-  if (proxy) {
-    init = { ...init, agent: getAgent(proxy) };
-  }
-
-  return nodeFetch(url, init);
-}
-
+// 预处理
 async function main() {
-  const paths = await globby("./story/**/*.md");
-  let files: FileData[] = await Promise.all(
-    paths.map(async (v) => {
-      const content = (await fs.readFile(v)).toString();
-      return { content, raw: content, filename: v };
-    })
-  );
-  files = files.filter((v) => v.content.startsWith("---"));
+  const args = argo();
+  setting.offline = Boolean(args.offline);
+  setting.verbose = Boolean(args.verbose);
 
-  for (const file of files) {
-    await processing(file);
+  const cwd = args['cwd'] || path.resolve('.');
+  console.info(`processing on ${cwd}`);
+
+  {
+    const paths = await globby('./story/**/*.md');
+    let files: FileSpec[] = await Promise.all(
+      paths.map(async (v) => {
+        return createSpec(v);
+      }),
+    );
+
+    for (const file of files) {
+      await processing(file);
+    }
+
+    const changed = files.filter((v) => v.changed);
+
+    for (const v of changed) {
+      await fs.writeFile(v.path, buildContent(v));
+      setting.verbose && console.log(`${v.id}`);
+    }
+    console.log('Processed', changed.length, '/', files.length);
   }
+  //
+  {
+    const paths = await globby('./notes/**/*.md');
+    let files: FileSpec[] = await Promise.all(
+      paths.map(async (v) => {
+        return createSpec(v);
+      }),
+    );
+    files.forEach((v) => (v.type = 'doc'));
 
-  files = files.filter((v) => v.content !== v.raw);
-  console.log("Processed", files.length);
-  files.map((v) => v.filename).forEach((v) => console.log(v));
+    for (const file of files) {
+      await processing(file);
+    }
 
-  for (const v of files) {
-    await fs.writeFile(v.filename, v.content);
+    for (const file of files) {
+      const pre = file.path.substr('./notes/'.length);
+      file.refId = `${path.dirname(pre)}/${file.id}`;
+    }
+
+    await fs.writeFile(
+      'docs.json',
+      JSON.stringify(
+        files.map(({ id, title, path, refId }) => ({ id, title, path, refId })),
+        null,
+        2,
+      ),
+    );
+
+    const changed = files.filter((v) => v.changed);
+
+    for (const v of changed) {
+      await fs.writeFile(v.path, buildContent(v));
+      setting.verbose && console.log(`${v.id}`);
+    }
+    console.log('Processed', changed.length, '/', files.length);
   }
 }
 
@@ -56,18 +85,28 @@ async function main() {
   }
 })();
 
-interface FileData {
-  filename: string;
-  raw: string;
-  changed?: boolean;
-  content: string;
-}
-
-async function processing(data: FileData): Promise<FileData> {
-  data.content = await processInstruction(data.content);
+async function processing(data: FileSpec): Promise<FileSpec> {
+  const neo = await processInstruction(data.content);
+  if (neo.length !== data.content.length) {
+    data.content = neo;
+    data.changed = true;
+  }
+  removeDuplicateTitle(data);
   return data;
 }
 
+function removeDuplicateTitle(f: FileSpec) {
+  const regTitle = /#\s*(?<title>[^\n]+)/s;
+  const title = f.content.match(regTitle)?.groups?.title;
+
+  if (f.meta.title === title) {
+    console.log(`${f.id}: dup title ${title}`);
+    f.content = f.content.replace(regTitle, '');
+    f.changed = true;
+  }
+}
+
+// 替换 markdown 内的相对路径为绝对路径
 function markdownResolveLink(s: string, base: string): string {
   return s.replace(/\[([^\]]*)]\(([^)]+)\)/g, (p, label, href) => {
     if (/^https?:/.test(href)) {
@@ -76,12 +115,13 @@ function markdownResolveLink(s: string, base: string): string {
     if (/^#/.test(href)) {
       return p;
     }
-    const target = new URL(href, base).toString()
-    console.log(`resolve ${href}\n\tto ${target} based on ${base}`);
+    const target = new URL(href, base).toString();
+    console.log(`resolve ${href}\n\tto ${target}\n\tbased on ${base}`);
     return `[${label}](${target})`;
   });
 }
 
+// 指令处理 - 例如 引入外部的 markdown
 const imports = {};
 async function processInstruction(s: string): Promise<string> {
   const a = parseInstruction(s);
@@ -89,22 +129,26 @@ async function processInstruction(s: string): Promise<string> {
     return s;
   }
   for (const v of a) {
-    if (typeof v !== "string") {
+    if (typeof v !== 'string') {
       switch (v.cmd) {
-        case "import":
-          v.replace = imports[v.args] || (await fetch(v.args).then((v) => v.text()));
-          v.replace = markdownResolveLink(v.replace, v.args);
-          console.log("import", v.args);
+        case 'import':
+          console.log('import', v.args);
+          if (!setting.offline) {
+            v.replace = imports[v.args] || (await fetch(v.args).then((v) => v.text()));
+            v.replace = markdownResolveLink(v.replace, v.args);
+          } else {
+            console.log('import - offline skip');
+          }
           break;
 
         default:
-          console.log(`ignore cmd`, v.cmd);
+          console.warn(`ignore cmd`, v.cmd);
           break;
       }
     }
   }
 
-  return a.join("");
+  return a.join('');
 }
 
 type Instruction = { cmd: string; args: string; raw: string; replace?: string; [k: string]: any };
@@ -117,7 +161,7 @@ function parseInstruction(s: string): null | Array<string | Instruction> {
   const itor = sp[Symbol.iterator]();
   const o = [];
   for (let v = itor.next(); !v.done; v = itor.next()) {
-    if (v.value.startsWith("<!--") && v.value.endsWith("-->")) {
+    if (v.value.startsWith('<!--') && v.value.endsWith('-->')) {
       o.push({
         cmd: itor.next().value,
         args: itor.next().value,
