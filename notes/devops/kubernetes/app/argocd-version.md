@@ -1,6 +1,7 @@
 # ArgoCD 版本
 
-* 镜像 argoproj/argocd
+* 镜像 argoproj/argocd:v1.8.4
+  * 可以考虑提前拉好
 
 ```bash
 # 安装和升级是一样的 - 仓库的 stable tag 总是指向最新 stable 版本

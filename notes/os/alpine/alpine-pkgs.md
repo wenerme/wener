@@ -157,6 +157,18 @@ newapkbuild -n frp \
   https://github.com/fatedier/frp/archive/v0.35.1.tar.gz
 ```
 
+## init tips
+
+```bash
+# 支持多 init
+[ "${RC_SVCNAME}" != "${RC_SVCNAME##*.}" ] && INSTANCE=${RC_SVCNAME##*.}
+```
+
+```bash
+# 检查包内内容
+tar -tvf ~/packages/testing/x86_64/frp-openrc-*.apk
+```
+
 ### 开发
 * https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
 

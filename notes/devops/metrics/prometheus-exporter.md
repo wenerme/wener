@@ -136,13 +136,6 @@ scrape_configs:
         replacement: 127.0.0.1:9115 # The blackbox exporter's real hostname:port.
 ```
 
-## postgresql-exporter
-
-- [wrouesnel/postgres_exporter](https://github.com/wrouesnel/postgres_exporter)
-- https://grafana.com/grafana/dashboards/12273
-- https://github.com/lstn/misc-grafana-dashboards
-- https://github.com/percona/grafana-dashboards/blob/master/dashboards/PostgreSQL_Overview.json
-
 ## snmp-exporter
 - 默认端口 9116
 - 默认 [generator.yaml](https://github.com/prometheus/snmp_exporter/blob/master/generator/generator.yml)

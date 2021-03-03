@@ -38,6 +38,12 @@ title: kustomize
 * 参考
   * [Declarative Management of Kubernetes Objects Using Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
 
+:::caution
+
+* 不支持移除资源 - [#1593](https://github.com/kubernetes-sigs/kustomize/issues/1593)
+
+:::
+
 
 ```bash
 # macOS

@@ -65,6 +65,8 @@ title: ArgoCD
 - 使用稳定的 Git 服务
   - 避免使用 Gitlab, Github - 因为访问不稳定会导致 argocd 很慢或者同步状态不可知
   - 可以考虑集群内部署 gitea 然后镜像外部仓库 - 配置好 Webhook 触发可实现秒级同步
+- 直接应用 manifest 升级可能导致配置丢失 [#3537](https://github.com/argoproj/argo-cd/issues/3537)
+  - 可能会覆盖 argocd-cm
 
 :::
 
@@ -246,8 +248,8 @@ patchesStrategicMerge:
 # FAQ
 
 ## the server could not find the requested resource
-
-CRD 定义不存在
+* CRD 定义不存在
+* Namespace 不存在
 
 特殊情况可以考虑跳过
 

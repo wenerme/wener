@@ -61,7 +61,7 @@ sudo umount $(mount -v | grep '/var/lib/kubelet' | awk '{print $3}')
 sudo rm -rf /var/lib/rancher
 sudo rm -rf /var/lib/kubelet
 # kubeconf
-rm /etc/rancher/k3s/k3s.yaml -f
+sudo rm -f /etc/rancher/k3s/k3s.yaml
 # 日志清理
 sudo rm -rf /var/log/containers/*
 sudo rm -rf /var/log/pods/*
@@ -118,3 +118,6 @@ E0905 23:03:57.992668   12600 controller.go:114] loading OpenAPI spec for "v1alp
 # 启动时添加环境变量
 GODEBUG=x509ignoreCN=0
 ```
+
+## k3s etcd 备份
+* 默认快照目录 /server/db/snapshots

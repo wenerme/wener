@@ -11,8 +11,6 @@ title: AlpineLinux 安装 Xfce 桌面
 
 安装 X server 和基础硬件驱动
 
-<!-- more -->
-
 ```bash
 # xfce + xorg
 setup-xorg-base xfce4 xfce4-terminal dbus-x11 sudo

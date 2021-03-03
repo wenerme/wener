@@ -91,6 +91,8 @@ body {
 # 字体下载, 需要使用代理
 # http://fonts.googleapis.com/earlyaccess/notosanssc.css
 curl -L --remote-name-all  fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.{woff2,woff,otf}
+
+curl -L --remote-name-all -J-  fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.woff2
 ```
 
 **notosanssc.css**

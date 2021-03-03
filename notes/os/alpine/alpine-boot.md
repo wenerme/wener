@@ -5,8 +5,6 @@ title: Alpin Boot
 
 # Alpin Boot
 
-## Tips
-
 - 启动顺序
   - POST - 硬件自检
   - BIOS
@@ -121,31 +119,126 @@ mkinitfs -c /mnt/etc/mkinitfs/mkinitfs.conf -b /mnt/ $(ls /mnt/lib/modules/)
 # 不设置 -P 默认使用当前主机的 features.d
 # 不设置 -i 默认使用当前主机的 initramfs-init
 mkinitfs -P /mnt/etc/mkinitfs/features.d -c /mnt/etc/mkinitfs/mkinitfs.conf -i /mnt/usr/share/mkinitfs/initramfs-init -b /mnt/ $(ls /mnt/lib/modules/)
+
+# zstd -19
+# features="ata base ide scsi usb virtio ext4"
+# gzip 13M -> 10M - 78%
+#
+# features="ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio"
+# gzip 39M -> 23M - 59%
+apk add zstd
+mkinitfs -C zstd -o /tmp/initramfs-zstd
 ```
 
 ```
 usage: mkinitfs [-hkKLln] [-b basedir] [-c configfile] [-F features] [-f fstab]
-		[-C initramfs compression] [-i initfile] [-o outfile]
-		[-P featuresdir] [-t tempdir] [kernelversion]
+                [-C initramfs compression] [-i initfile] [-o outfile]
+                [-P featuresdir] [-t tempdir] [kernelversion]
 options:
-	-b  prefix files and kernel modules with basedir
-	-c  use configfile instead of /etc/mkinitfs/mkinitfs.conf
-	-C  initramfs compression (gzip|xz defaults to gzip)
-	-f  use fstab instead of /usr/share/mkinitfs/fstab
-	-F  use specified features
-	-h  print this help
-	-i  use initfile as init instead of /usr/share/mkinitfs/initramfs-init
-	-k  keep tempdir
-	-K  copy also host keys to initramfs
-	-l  only list files that would have been used
-	-L  list available features
-	-n  don't include kernel modules or firmware
-	-o  set another outfile
-	-P  prepend features.d search path
-	-q  Quiet mode
-	-s  Include modloop signature
-	-t  use tempdir when creating initramfs image
+  -b  prefix files and kernel modules with basedir
+  -c  use configfile instead of /etc/mkinitfs/mkinitfs.conf
+  -C  initramfs compression (gzip|xz defaults to gzip)
+  -f  use fstab instead of /usr/share/mkinitfs/fstab
+  -F  use specified features
+  -h  print this help
+  -i  use initfile as init instead of /usr/share/mkinitfs/initramfs-init
+  -k  keep tempdir
+  -K  copy also host keys to initramfs
+  -l  only list files that would have been used
+  -L  list available features
+  -n  don't include kernel modules or firmware
+  -o  set another outfile
+  -P  prepend features.d search path
+  -q  Quiet mode
+  -s  Include modloop signature
+  -t  use tempdir when creating initramfs image
 ```
+
+### features
+
+[features.d](https://github.com/alpinelinux/mkinitfs/tree/master/features.d)
+
+| feature    | pkgs        | desc                                                    |
+| ---------- | ----------- | ------------------------------------------------------- |
+| 9p         |             | virtio-fs-9p<br/>虚拟化直接映射目录                     |
+| ata        |             |
+| base       |             | busybox, sh,mdev,apk,modprobe.d,mdev.conf,nlplug-findfs |
+| bootchart  |             | [bootchart](https://www.bootchart.org/)集成             |
+| btrfs      | btrfs-progs | /sbin/btrfs                                             |
+| cdrom      |             | driver/cdrom, isofs                                     |
+| cramfs     |
+| cryptkey   |             | /crypto_keyfile.bin                                     |
+| cryptsetup | cryptsetup  |
+| dasd_mod   |
+| dhcp       |             | `/usr/share/udhcpc/default.script`<br/>af_packet        |
+| ena        |
+| ext2       |
+| ext3       |
+| ext4       |
+| f2fs       |
+| floppy     |
+| gfs2       |             | Global File System 2                                    |
+| https      | ssl_client  | `/usr/bin/ssl_client`                                   |
+| jfs        |
+| keymap     |
+| kms        |
+| lvm        |
+| mmc        |
+| nbd        |
+| network    |
+| nvme       |
+| ocfs2      |
+| qeth       |
+| raid       |
+| reiserfs   |
+| scsi       |
+| squashfs   |
+| ubifs      |
+| usb        |             | drivers/usb,drivers/hid,fat,nls                         |
+| virtio     |
+| xenpci     |
+| xfs        | xfsprogs    | `/sbin/xfs_repair`                                      |
+| zfcp       |
+| zfs        | zfs         |
+
+- fs
+  - fat
+  - isofs
+  - btrfs
+  - cramfs
+  - ext2,ext3,ext4
+  - zfs
+  - [gfs2](https://en.wikipedia.org/wiki/GFS2) - Global File System 2
+    - 分布式文件系统
+  - f2fs
+  - [jfs](<https://en.wikipedia.org/wiki/JFS_(file_system)>) - Journaled File System
+    - Linux 2.4.18+
+    - 使用较少, 性能弱于 ext4, 支持大小写无关
+  - reiserfs
+  - squashfs
+  - [nlsfs](https://en.wikipedia.org/wiki/NILFS) - New Implementation of a Log-structured File System
+    - Linux 2.6.30+
+  - xfs
+- 虚拟化
+  - virtio, 9p
+  - kms
+- 存储驱动
+  - cdrom
+  - cryptsetup
+  - lvm
+  - floppy
+  - mmc
+  - nbd
+  - nvme
+  - raid
+  - usb
+- 网络
+  - dhcp
+  - https
+  - network
+- 版本特性
+  - v3.13 ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio
+  - v3.12 ata base ide scsi usb virtio ext4
 
 ### initramfs
 

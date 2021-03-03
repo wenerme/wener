@@ -45,6 +45,20 @@ sum(unifiVapNumStations * on(unifiVapIndex,instance) group_left(unifiVapEssId) u
 label_replace(unifiIfMac, "unifiLabel", "$0", "unifiIfMac", ".+")
 ```
 
+## 常用
+
+```promql
+# 查询在线节点
+{__name__=~"probe_success|up"}
+# 成功率
+sum({__name__=~"probe_success|up"})/count({__name__=~"probe_success|up"})*100
+# 全节点信息
+label_replace({__name__=~"probe_success|up"}, "instance_ip", "$2", "instance", "(192[.]168[.]|http?://)?([0-9.+]+|.*).*")
+
+# 排除 kube 内置组件
+{job!~"apiserver|kubelet"}
+```
+
 # FAQ
 ## irate vs rate
 * 只用于 counter - 增长值

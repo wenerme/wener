@@ -50,9 +50,7 @@ title: ffmpeg
 ```bash
 # 安装
 # macOS
-brew reinstall ffmpeg --with-{chromaprint,fontconfig,freetype,opus,rtmpdump,sdl2,snappy,speex,tesseract,tools,webp,xz,zeromq} \
-  --with-lib{gsm,modplug,soxr,ssh,vorbis,vpx} \
-  --with-open{jpeg,ssl}
+brew install ffmpeg
 
 # 显示进度
 pv input.avi | ffmpeg -i pipe:0 -v warning {arguments}
