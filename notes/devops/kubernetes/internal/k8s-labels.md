@@ -1,9 +1,8 @@
 ---
-id: k8s-labels
 title: Kubernetes 标签
 ---
 
-# Kubernetes 标签注解
+# Kubernetes 标签
 
 - https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints
 

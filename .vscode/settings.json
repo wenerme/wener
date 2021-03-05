@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "*.md":"mdx"
-  }
+    "*.md": "mdx"
+  },
+  "git.decorations.enabled": true
 }

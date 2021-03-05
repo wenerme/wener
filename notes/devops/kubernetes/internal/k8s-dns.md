@@ -1,3 +1,7 @@
+---
+title: Kubernetes DNS
+---
+
 # Kubernetes DNS
 
 * [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
@@ -5,7 +9,7 @@
   * A/AAAA - `my-svc.my-namespace.svc.cluster-domain.example`
   * SRV - `_my-port-name._my-port-protocol.my-svc.my-namespace.svc.cluster-domain.example`
 * Pod
-  * A/AAAA 
+  * A/AAAA
     * `<pod-ip-address>.my-namespace.pod.cluster-domain.example`
     * `172-17-0-3.default.pod.cluster.local`
   * hostname, subdomain

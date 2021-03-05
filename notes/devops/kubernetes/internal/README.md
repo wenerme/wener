@@ -1,7 +1,11 @@
+---
+id: internal
+title: Kubernetes Internal
+---
+
 # Kubernetes Internal
 ## Tips
 * 主要
-
   * 执行调度
 
 ## 状态管理

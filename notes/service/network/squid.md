@@ -1,5 +1,4 @@
 ---
-id: squid
 title: Squid
 ---
 
