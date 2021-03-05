@@ -1,6 +1,6 @@
 {
   "name": "wener-website",
-  "version": "v2.0.0-alpha.65",
+  "version": "v2.0.0-alpha.70",
   "private": true,
   "scripts": {
     "tsc": "tsc",
@@ -10,24 +10,22 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^v2.0.0-alpha.65",
-    "@docusaurus/plugin-client-redirects": "^v2.0.0-alpha.65",
-    "@docusaurus/plugin-google-analytics": "^v2.0.0-alpha.65",
-    "@docusaurus/plugin-google-gtag": "^v2.0.0-alpha.65",
-    "@docusaurus/plugin-ideal-image": "^v2.0.0-alpha.65",
-    "@docusaurus/plugin-sitemap": "^v2.0.0-alpha.65",
-    "@docusaurus/preset-classic": "^v2.0.0-alpha.65",
-    "@docusaurus/theme-live-codeblock": "^v2.0.0-alpha.65",
+    "@docusaurus/core": "^v2.0.0-alpha.70",
+    "@docusaurus/plugin-client-redirects": "^v2.0.0-alpha.70",
+    "@docusaurus/plugin-google-analytics": "^v2.0.0-alpha.70",
+    "@docusaurus/plugin-google-gtag": "^v2.0.0-alpha.70",
+    "@docusaurus/plugin-ideal-image": "^v2.0.0-alpha.70",
+    "@docusaurus/plugin-sitemap": "^v2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "^v2.0.0-alpha.70",
+    "@docusaurus/theme-live-codeblock": "^v2.0.0-alpha.70",
     "classnames": "^2.2.6",
-    "isomorphic-fetch": "^2.2.1",
-    "mobx": "^5.15.0",
-    "mobx-react": "^6.1.4",
+    "isomorphic-fetch": "^3",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.33",
     "node-fetch": "^2.6.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "styled-components": "^4.4.1"
+    "react": "^17",
+    "react-dom": "^17",
+    "styled-components": "^5"
   },
   "browserslist": {
     "production": [
@@ -42,16 +40,15 @@
     ]
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.2",
-    "@types/node": "^14.11.8",
-    "@types/node-fetch": "^2.5.4",
-    "fs-extra": "^9.0.1",
-    "got": "^11.7.0",
+    "@types/fs-extra": "^9.0.8",
+    "@types/node": "^14.14.31",
+    "@types/node-fetch": "^2.5.8",
+    "fs-extra": "^9.1.0",
     "hpagent": "^0.1.1",
     "https-proxy-agent": "^5.0.0",
     "socks-proxy-agent": "^5.0.0",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.3",
-    "yaml": "^1.10.0"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "yaml": "^1"
   }
 }
