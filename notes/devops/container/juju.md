@@ -1,5 +1,11 @@
-# juju
+---
+title: juju
+---
 
+# juju
+* 是什么？
+  * Operator Lifecycle Manager (OLM) that provides model-driven application management and next-generation infrastructure-as-code
+  * 由 Canonical 开发
 * [Document](https://jujucharms.com/docs/stable/)
 
 ## Install

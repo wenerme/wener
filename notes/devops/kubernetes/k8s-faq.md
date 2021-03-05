@@ -227,3 +227,8 @@ status:
       lastProbeTime: null
       lastTransitionTime: '2020-09-04T10:09:51Z'
 ```
+
+## kubernetes swap
+不建议使用 swap
+
+* [kubernetes/kubernetes#3533](https://github.com/kubernetes/kubernetes/issues/53533) - Kubelet/Kubernetes should work with Swap Enabled

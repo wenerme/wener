@@ -60,7 +60,7 @@ title: Thanos
       - `?replicaLabels=replicaA&replicaLabels=replicaB`
     - 数据去重
       - `?dedup`
-      - ` --query.replica-label` - 基于副本标签进行去重
+      - `--query.replica-label` - 基于副本标签进行去重
     - 自动下采样
       - `?max_source_resolution=5m` - 0s 禁用，可设置为 1h 或 auto
         - 如果发现数据有 gap 可禁用
@@ -264,9 +264,26 @@ thanos compact \
 # 查看 bucket 分布情况
 # http://localhost:10902/
 thanos tools bucket web --objstore.config-file=truth-bucket.yaml
+
+# 查看 bucket
+thanos tools bucket ls
+# 以 table 显示 bucket 信息
+# | ULID | FROM | UNTIL | RANGE | UNTIL-DOWN | #SERIES | #SAMPLES | #CHUNKS | COMP-LEVEL | COMP-FAILED | LABELS | RESOLUTION | SOURCE |
+thanos tools bucket inspect
+
+# 标记删除或不压缩
+# tools bucket mark --id=ID --marker=MARKER --details=DETAILS
+# Marker - deletion-mark.json,no-compact-mark.json
+# mark 或删除在 web 上不会刷新，需要停止从开
+thanos tools bucket mark --id 01EJD9PS4P3MJMF3TGJGTJTE25 --marker deletion-mark.json --details 'useless bucket'
+
+# 立即清除被 mark bucket
+# 默认由 compactor 来清理
+thanos tools bucket cleanup
 ```
 
 ## 缓存配置
+
 ```yaml
 # 文件缓存
 type: IN-MEMORY
@@ -277,7 +294,6 @@ config:
   validity: 6h
 
 ---
-
 type: MEMCACHED
 config:
   addresses: []
@@ -293,19 +309,20 @@ config:
 ```
 
 ## 存储配置
-* [Storage](https://thanos.io/tip/thanos/storage.md)
+
+- [Storage](https://thanos.io/tip/thanos/storage.md)
 
 ```yaml
 ---
 # S3 常用配置
 type: S3
 config:
-  bucket: ""
-  endpoint: ""
+  bucket: ''
+  endpoint: ''
   # HTTP 还是 HTTPS
   insecure: true
-  access_key: ""
-  secret_key: ""
+  access_key: ''
+  secret_key: ''
   # 部分 S3 实现需要设置为 false
   signature_version2: false
   # multipart 上传的单块 大小 - 部分 S3 实现需要修改
@@ -316,13 +333,13 @@ config:
 # S3 完整配置
 type: S3
 config:
-  bucket: ""
-  endpoint: ""
-  region: ""
-  access_key: ""
+  bucket: ''
+  endpoint: ''
+  region: ''
+  access_key: ''
   insecure: false
   signature_version2: false
-  secret_key: ""
+  secret_key: ''
   put_user_metadata: {}
   http_config:
     idle_conn_timeout: 1m30s
@@ -332,59 +349,61 @@ config:
     enable: false
   part_size: 134217728
   sse_config:
-    type: ""
-    kms_key_id: ""
+    type: ''
+    kms_key_id: ''
     kms_encryption_context: {}
-    encryption_key: ""
+    encryption_key: ''
 
 ---
 # 阿里云 OSS
 type: ALIYUNOSS
 config:
-  endpoint: ""
-  bucket: ""
-  access_key_id: ""
-  access_key_secret: ""
+  endpoint: ''
+  bucket: ''
+  access_key_id: ''
+  access_key_secret: ''
 
 ---
 # 腾讯云 COS
 type: COS
 config:
-  bucket: ""
-  region: ""
-  app_id: ""
-  secret_key: ""
-  secret_id: ""
+  bucket: ''
+  region: ''
+  app_id: ''
+  secret_key: ''
+  secret_id: ''
 ```
 
 ## Kubernetest
-* [thanos-io/kube-thanos](https://github.com/thanos-io/kube-thanos) - jsonnet manifest
-  * [examples/all/manifests](https://github.com/thanos-io/kube-thanos/blob/master/examples/all/manifests)
-    * 示例，值得参考
-* [banzaicloud/thanos-operator](https://github.com/banzaicloud/thanos-operator)
+
+- [thanos-io/kube-thanos](https://github.com/thanos-io/kube-thanos) - jsonnet manifest
+  - [examples/all/manifests](https://github.com/thanos-io/kube-thanos/blob/master/examples/all/manifests)
+    - 示例，值得参考
+- [banzaicloud/thanos-operator](https://github.com/banzaicloud/thanos-operator)
 
 ## Tracing
-* [Tracing](https://thanos.io/tip/thanos/tracing.md/)
+
+- [Tracing](https://thanos.io/tip/thanos/tracing.md/)
 
 ```yaml
 type: JAEGER
 config:
-  service_name: ""
+  service_name: ''
   disabled: false
   rpc_metrics: false
-  tags: ""
-  sampler_type: ""
+  tags: ''
+  sampler_type: ''
   sampler_param: 0
-  sampler_manager_host_port: ""
+  sampler_manager_host_port: ''
   sampler_max_operations: 0
   sampler_refresh_interval: 0s
   reporter_max_queue_size: 0
   reporter_flush_interval: 0s
   reporter_log_spans: false
-  endpoint: ""
-  user: ""
-  password: ""
-  agent_host: ""
+  endpoint: ''
+  user: ''
+  password: ''
+  agent_host: ''
   agent_port: 0
 ```
 
@@ -409,50 +428,58 @@ thanos sidecar --prometheus.url=http://localhost:9090
 ## 跨网络部署方案
 
 1. Prometheus Remote Write + Thanos Receive
-  - 优点
-    - 部署简单
-    - 不丢数据
-  - 缺点
-    - RW 性能扩容问题
-      - 默认 max_samples_per_send 为 100，指标上去后很容易 qps 上百
-      - 如果使用了反向代理，反向代理也会有一定性能问题
-      - 增大单次批量会占用较多内存，例如 max_samples_per_send 5000 capacity 1000 启动发送后内存达到 1G+
-    - 稳定性问题
-      - 需要额外维护 thanos receive
-    - thanos receive 有状态 - 本地记录 tsdb
-  - 参考
-    - [Thanos Remote Write](https://thanos.io/tip/proposals/201812_thanos-remote-receive.md/)
+
+- 优点
+  - 部署简单
+  - 不丢数据
+- 缺点
+  - RW 性能扩容问题
+    - 默认 max_samples_per_send 为 100，指标上去后很容易 qps 上百
+    - 如果使用了反向代理，反向代理也会有一定性能问题
+    - 增大单次批量会占用较多内存，例如 max_samples_per_send 5000 capacity 1000 启动发送后内存达到 1G+
+  - 稳定性问题
+    - 需要额外维护 thanos receive
+  - thanos receive 有状态 - 本地记录 tsdb
+- 参考
+  - [Thanos Remote Write](https://thanos.io/tip/proposals/201812_thanos-remote-receive.md/)
+
 1. Prometheus + Sidecar + Prometheus Remote Write + Thanos Receive
-  - Sidecar 上传 2h
-  - Receive 查询最近 2h
-  - 优点 - thanos receive 状态无所谓，可丢弃
-  - 缺点 - 多部署一个 sidecar
+
+- Sidecar 上传 2h
+- Receive 查询最近 2h
+- 优点 - thanos receive 状态无所谓，可丢弃
+- 缺点 - 多部署一个 sidecar
+
 1. Prometheus + Sidecar + StoreAPI tunnel
-  - StoreAPI 默认 h2c
-  - 缺点
-    - grpc 不能 tunnel 到子路径，需要使用子域名或独立端口
-    - 需要额外的 tunnel 部署
-  - 优点
-    - 简单易理解
-    - 打通所需服务网络
+
+- StoreAPI 默认 h2c
+- 缺点
+  - grpc 不能 tunnel 到子路径，需要使用子域名或独立端口
+  - 需要额外的 tunnel 部署
+- 优点
+  - 简单易理解
+  - 打通所需服务网络
+
 1. Prometheus + Sidecar + Prometheus:8080 tunnel + Sidecar
-  - 可以将 9090 tunnel 到子路径
-  - 内网 sidecar 将 tunnel 暴露为 StoreAPI
-  - 缺点
-    - 多部署一个 sidecar 到内网
-  - 优点
-    - 可 tunnel 到子路径
-    - 打通所监控的 prometheus
+
+- 可以将 9090 tunnel 到子路径
+- 内网 sidecar 将 tunnel 暴露为 StoreAPI
+- 缺点
+  - 多部署一个 sidecar 到内网
+- 优点
+  - 可 tunnel 到子路径
+  - 打通所监控的 prometheus
 
 ## 自动下采样
-* `?max_source_resolution`
-  * 0s - 禁用
-  * 5m
-  * 1h
-  * auto - 自动
-* 使用 rate 可能会导致 gap
-* 参考
-  * [#813](https://github.com/thanos-io/thanos/issues/813)
+
+- `?max_source_resolution`
+  - 0s - 禁用
+  - 5m
+  - 1h
+  - auto - 自动
+- 使用 rate 可能会导致 gap
+- 参考
+  - [#813](https://github.com/thanos-io/thanos/issues/813)
 
 ```promql
 # 5m 使用下采样会有 gap

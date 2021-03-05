@@ -345,7 +345,14 @@ module.exports = {
       {
         type: 'category',
         label: '网络',
-        items: items('service/network'),
+        items: [
+          {
+            type: 'category',
+            label: 'Tinc',
+            items: items('service/network/tinc'),
+          },
+          ...items('service/network'),
+        ],
       },
       {
         type: 'category',

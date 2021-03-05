@@ -12,6 +12,13 @@ title: sealed-secrets
   * namespace-wide - 相同 namespace 内可修改 name
   * cluster-wide - 可修改 namespace 和 name
 
+:::caution
+
+* 如果一个 yaml 包含多个 secret 只有第一个会 seal - [#114](https://github.com/bitnami-labs/sealed-secrets/issues/114)
+
+:::
+
+
 ```bash
 # 集群安装
 # 查看版本 https://github.com/bitnami-labs/sealed-secrets/releases

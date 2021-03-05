@@ -6,11 +6,19 @@ title: Kaniko
 * 是什么？
   * 构建容器镜像的工具
   * 不依赖 Docker，不需要 root 权限
+  * 可复现的容器镜像构建
 * [GoogleContainerTools/kaniko](https://github.com/GoogleContainerTools/kaniko)
 * gcr.io/kaniko-project/executor:latest
 * gcr.io/kaniko-project/executor:debug - 包含 shell
 * 参考
   * GitLab runner use [Kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html)
+
+:::caution
+
+* 只支持 x86_64
+* 不支持 multi-arch 和 manifest
+
+:::
 
 ```bash
 docker run --rm -it -w /workspace --entrypoint sh registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:debug

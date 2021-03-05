@@ -20,6 +20,14 @@ title: Nginx Ingress
 - https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/
 
 
+:::caution
+
+* 默认 ssl-passthrough 未开启，不支持 SNI
+  * 启用对性能影响很大
+
+:::
+
+
 ```bash
 POD_NAME=$(kubectl get pods --selector "app.kubernetes.io/name=ingress-nginx" --all-namespaces --output=name | head -1)
 # 查看 Nginx 配置

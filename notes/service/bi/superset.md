@@ -23,7 +23,9 @@ title: Apache Superset
 - Dashboard 只读基础权限
   - can explore json on Superset
   - can dashboard on Superset
-  - can list on CssTemplateModelView - 否则会出一个错误信息
+  - can read on CssTemplateModelView
+    - 没有权限会出一个错误信息
+    - 旧版本为 can list on CssTemplateModelView
   - datasource access on xxx.xxx
   - can csrf token on Superset
   - can show on DashboardModelView

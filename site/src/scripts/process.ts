@@ -98,7 +98,9 @@ async function processing(data: FileSpec): Promise<FileSpec> {
 function removeDuplicateTitle(f: FileSpec) {
   const regTitle = /#\s*(?<title>[^\n]+)/s;
   const title = f.content.match(regTitle)?.groups?.title;
-
+  if(f.meta.hide_title){
+    return
+  }
   if (f.meta.title === title) {
     console.log(`${f.id}: dup title ${title}`);
     f.content = f.content.replace(regTitle, '');
