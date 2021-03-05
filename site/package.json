@@ -20,6 +20,8 @@
     "@docusaurus/theme-live-codeblock": "^v2.0.0-alpha.70",
     "classnames": "^2.2.6",
     "isomorphic-fetch": "^3",
+    "mobx": "^6.1.8",
+    "mobx-react": "^7.1.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.33",
     "node-fetch": "^2.6.0",

@@ -1,5 +1,5 @@
 ---
-id: k8s-network
+id: network
 title: Kubernates 网络
 ---
 
@@ -106,13 +106,13 @@ __推荐 Annotation__
 ```yaml
 apiVersion: v1
 kind: Service
-metadata:  
+metadata:
   name: my-internal-service
 spec:
-  selector:    
+  selector:
     app: my-app
   type: ClusterIP
-  ports:  
+  ports:
   - name: http
     port: 80
     targetPort: 80
@@ -133,13 +133,13 @@ spec:
 ```yaml
 apiVersion: v1
 kind: Service
-metadata:  
+metadata:
   name: my-nodeport-service
 spec:
-  selector:    
+  selector:
     app: my-app
   type: NodePort
-  ports:  
+  ports:
   - name: http
     port: 80
     targetPort: 80

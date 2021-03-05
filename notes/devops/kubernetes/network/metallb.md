@@ -1,5 +1,4 @@
 ---
-id: metallb
 title: MetalLB
 ---
 

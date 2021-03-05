@@ -1,5 +1,4 @@
 ---
-id: kong-ingress
 title: Kong Ingress
 ---
 

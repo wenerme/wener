@@ -10,7 +10,7 @@ curl https://github.com/wenerme.keys >> ~/.ssh/authorized_keys
 curl https://api.github.com/users/wenerme/keys
 ```
 
-## Git LFS 
+## Git LFS
 * [限制](https://docs.github.com/en/github/managing-large-files/about-git-large-file-storage)
   * 单文件最大 2 GB
 * [容量和带宽限制](https://docs.github.com/en/github/managing-large-files/about-storage-and-bandwidth-usage)

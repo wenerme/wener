@@ -1,3 +1,7 @@
+---
+title: Kubernetes Ingress
+---
+
 # Kubernetes Ingress
 
 ## Tips
