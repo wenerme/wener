@@ -275,3 +275,27 @@ find /usr/local -not -uid $(id -u) | xargs -n 1 sudo chown -R $(whoami)
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 ```
+
+### 迁移
+
+```bash
+brew list > formulas.txt
+
+brew fetch $(cat formulas.txt)
+brew unlink $(cat formulas.txt)
+brew link --overwrite $(cat formulas.txt)
+brew reinstall $(cat formulas.txt)
+
+brew doctor check_for_stray_headers
+brew doctor check_for_stray_headers 2>&1 | grep /protobuf | xargs rm
+brew doctor check_for_stray_headers 2>&1 | grep '^  /' | xargs rm
+
+brew doctor check_for_stray_static_libs
+brew doctor check_for_stray_static_libs 2>&1 | grep '^  /' | xargs rm
+
+brew doctor check_for_stray_dylibs
+brew doctor check_for_stray_dylibs 2>&1 | grep '^  /' | xargs rm
+
+brew prune
+brew missing
+```

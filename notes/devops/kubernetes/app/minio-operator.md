@@ -1,12 +1,11 @@
 ---
-id: minio-operator
 title: MinIO Kubernetes Operator
 ---
 
 # MinIO Kubernetes Operator
-## Tips
-* [minio/operator](https://github.com/minio/operator)
-  * 推荐 PV 使用 [direct csi](https://github.com/minio/operator/blob/master/docs/using-direct-csi.md) 插件
+* 是什么？
+  * __AGPLv3__ - 基本意味着部署的服务不能给别人使用，提供商业授权
+  * minio k8s operator
   * 支持多租户 - ns 隔离
   * 支持扩容
     * __通过 Zone 实现__
@@ -15,8 +14,12 @@ title: MinIO Kubernetes Operator
     * 扩容会有 down 时间
     * 会删除所有 StatefulSet 进行重建
     * 要求 StatefulSet 的 PV 不被回收 - policy 设置为 retain
+* [minio/operator](https://github.com/minio/operator)
+  * __AGPLv3__
+  * 推荐 PV 使用 [direct csi](https://github.com/minio/operator/blob/master/docs/using-direct-csi.md) 插件
 * 注意
-  * 如果不要求多租户，还不如直接使用 Helm 部署
+  * 如果不要求多租户集群，建议直接使用 Helm 部署
+    * Minio 是 Apache 2.0 协议
     * 简单直观易维护
   * minio 支持多用户
 

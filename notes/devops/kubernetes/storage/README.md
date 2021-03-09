@@ -75,15 +75,15 @@ kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storagec
 kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-| Plugin     | ReadWriteOnce | ReadOnlyMany | ReadWriteMany | Storage Type |
-| ---------- | ------------- | ------------ | ------------- | ------------ |
-| CephFS     | ✓             | ✓            | ✓             | Filesystem   |
-| Cinder     | ✓             | -            | -             | Block        |
-| CSI        | -             | -            | -             | Interface    |
-| FC         | ✓             | ✓            | -             | Block        |
-| FlexVolume | ✓             | ✓            | -             | Block        |
-| Glusterfs  | ✓             | ✓            | ✓             | Filesystem   |
-| HostPath   | ✓             | -            | -             | Filesystem   |
-| iSCSI      | ✓             | ✓            | -             | Block        |
-| NFS        | ✓             | ✓            | ✓             | Filesystem   |
-| RBD        | ✓             | ✓            | -             | Block        |
+| Plugin     | RWO | ROM | RWM | Storage Type |
+| ---------- | --- | --- | --- | ------------ |
+| CephFS     | ✓   | ✓   | ✓   | Filesystem   |
+| Cinder     | ✓   | -   | -   | Block        |
+| CSI        | -   | -   | -   | Interface    |
+| FC         | ✓   | ✓   | -   | Block        |
+| FlexVolume | ✓   | ✓   | -   | Block        |
+| Glusterfs  | ✓   | ✓   | ✓   | Filesystem   |
+| HostPath   | ✓   | -   | -   | Filesystem   |
+| iSCSI      | ✓   | ✓   | -   | Block        |
+| NFS        | ✓   | ✓   | ✓   | Filesystem   |
+| RBD        | ✓   | ✓   | -   | Block        |

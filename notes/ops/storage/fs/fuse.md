@@ -1,12 +1,9 @@
 ---
-id: fuse
 title: FUSE
 ---
 
 
 # FUSE
-
-## Tips
 
 * Golang
   * [bazil/fuse](https://github.com/bazil/fuse)

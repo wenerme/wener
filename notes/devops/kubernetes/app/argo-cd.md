@@ -51,6 +51,12 @@ title: ArgoCD
         - 复写可能会修改该 label 导致无法匹配部分资源
         - 可以在 `argocd-cm.yaml` 修改配置 `application.instanceLabelKey`
     - 跨集群应用无法删除资源
+- 参考
+  - Kustomize 后处理 Helm - - [kustomized-helm](https://github.com/argoproj/argocd-example-apps/tree/master/plugins/kustomized-helm)
+    - 官方明确不会内建支持，只能通过自定义实现
+    - Helm 3.1+ 支持 `--post-renderer`
+    - [#3882](https://github.com/argoproj/argo-cd/issues/3882), [#3698](https://github.com/argoproj/argo-cd/issues/3698)
+    - 可能存在 argocd 环境无法访问 chart 问题
 
 :::caution
 

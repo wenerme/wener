@@ -4,8 +4,11 @@ title: Minio
 ---
 
 # Minio
-
-## Tips
+- 是什么？
+  - 提供 S3 对象存储协议的服务 - Apache 2.0
+  - 支持分布式高可用
+  - 支持用户、分组、策略、KMS等
+  - [console](https://github.com/minio/console) 提供管理界面 - AGPL 3.0
 - 注意
   - 集群模式不支持增加节点
     - 支持联邦进行 bucket 分流

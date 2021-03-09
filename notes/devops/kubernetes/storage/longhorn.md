@@ -4,14 +4,15 @@ title: Longhorn
 ---
 
 # Longhorn
-## Tips
-* [longhorn/longhorn](https://github.com/longhorn/longhorn) - Kubernetes 分布式块存储
-  * 企业级分布式块存储
+* 是什么？
+  * Kubernetes 分布式块存储服务
   * 增量快照
   * 二级备份 - NFS、S3
   * 快照、备份恢复
   * 平滑升级
   * 内建 UI
+* [longhorn/longhorn](https://github.com/longhorn/longhorn)
+  * 企业级分布式块存储
 * 要求
   * [安装要求](https://longhorn.io/docs/1.0.0/deploy/install/#installation-requirements)
     * docker 1.13+
@@ -30,7 +31,8 @@ title: Longhorn
     * Ubuntu 18.04
     * CentOS 7/8
 * 注意 ⚠️
-  * 不支持 ReadWriteMany [#73](https://github.com/longhorn/longhorn/issues/73#issuecomment-392869189)
+  * ~不支持 ReadWriteMany [#73](https://github.com/longhorn/longhorn/issues/73#issuecomment-392869189)~
+    * 最新通过内置 NFS 支持 RWM
   * 反向代理 UI 不行 [#1082](https://github.com/longhorn/longhorn/issues/1082)
   * 扩容只支持离线
   * 必须安装在 `longhorn-system` 空间

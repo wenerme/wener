@@ -32,6 +32,8 @@ title: Tinc 配置
   - invitation-created - 邀请创建
   - invitation-accepted - 邀请接受
 
+__环境变量__
+
 | env             | desc                         |
 | --------------- | ---------------------------- |
 | NETNAME         |

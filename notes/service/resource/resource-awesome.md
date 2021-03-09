@@ -19,6 +19,11 @@ title: 资源站
 * [agalwood/Motrix](https://github.com/agalwood/Motrix)
   * 下载器
 
+## Bot
+* [tgbot-collection/YYeTsBot](https://github.com/tgbot-collection/YYeTsBot)
+* [yyets.dmesg.app](https://yyets.dmesg.app/)
+  * https://yyets.dmesg.app/data/yyets_mongo.gz
+
 # FAQ
 
 ```bash

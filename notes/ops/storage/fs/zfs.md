@@ -1,5 +1,4 @@
 ---
-id: zfs
 title: ZFS
 ---
 
@@ -39,7 +38,7 @@ title: ZFS
 * ARC - Adaptive Replacement Cache.
 * [faq](https://github.com/zfsonlinux/zfs/wiki/faq)
   * 选择创建 pool 的名字
-    * 开发,测试 /dev/hdX,/dev/sdX 
+    * 开发,测试 /dev/hdX,/dev/sdX
     * < 10 /dev/disk/by-id
     * > 10 /dev/disk/by-path
     * > 10 最好 /dev/disk/by-vdev
@@ -49,6 +48,8 @@ title: ZFS
 * http://www.zfsbuild.com/2010/05/26/zfs-raid-levels/
 * [ZFS Raidz Performance, Capacity and Integrity](https://calomel.org/zfs_raid_speed_capacity.html)
 * https://forum.proxmox.com/threads/zfs-with-ssds-am-i-asking-for-a-headache-in-the-near-future.25967/
+* 参考
+  * [ZFS / RAIDZ Capacity Calculator](https://wintelguy.com/zfs-calc.pl)
 
 ## NOTES
 * zpool
@@ -218,7 +219,7 @@ df -h |grep tank
 # 从新挂载
 zfs mount tank/joey
 # 获取所有属性
-# SOURCE: '-' 只读 default 默认值 local 本地修改的值 inherited 继承自父文件系统的值 temporary 
+# SOURCE: '-' 只读 default 默认值 local 本地修改的值 inherited 继承自父文件系统的值 temporary
 zfs get all tank/joey
 zfs get -Hp -o name,property,value used,available tank/joey
 

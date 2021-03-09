@@ -67,6 +67,9 @@ cat /proc/net/xfrm_stat
 - IKE - Internet Key Exchange
   - 协商用于建立安全通道的算法和密钥
   - 协商完成后的信息记录为 SA
+- 工作方式
+  - 通道模式
+  - 传输模式 - transport
 
 **工作模式**
 

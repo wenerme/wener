@@ -1,23 +1,23 @@
 ---
-id: macos
 title: macOS
 ---
 
 # macOs
 
 ## Tips
-* [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
-* [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
-* [Identify your iPad model](https://support.apple.com/en-us/HT201471)
-* [Where does Mac OS X come from?](https://unix.stackexchange.com/q/695/47774)
-* 好看的屏保 https://github.com/JohnCoates/Aerial
-  * `brew cask install aerial`
-* [iousbhiddriver](https://github.com/thefloweringash/iousbhiddriver-descriptor-override)
-  * 支持 Noppoo Choc 的驱动
-* 参考
-  * [OS X 技巧](http://apple.stackexchange.com/questions/400)
-  * [Assign a shortcut to running a script in OS X](http://superuser.com/a/264943/242730)
-* [Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
+
+- [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
+- [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
+- [Identify your iPad model](https://support.apple.com/en-us/HT201471)
+- [Where does Mac OS X come from?](https://unix.stackexchange.com/q/695/47774)
+- 好看的屏保 https://github.com/JohnCoates/Aerial
+  - `brew cask install aerial`
+- [iousbhiddriver](https://github.com/thefloweringash/iousbhiddriver-descriptor-override)
+  - 支持 Noppoo Choc 的驱动
+- 参考
+  - [OS X 技巧](http://apple.stackexchange.com/questions/400)
+  - [Assign a shortcut to running a script in OS X](http://superuser.com/a/264943/242730)
+- [Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
 
 ```bash
 # 查看可用的分辨率
@@ -61,8 +61,6 @@ killall Finder /System/Library/CoreServices/Finder.app
 defaults write com.apple.finder AppleShowAllFiles NO
 ```
 
-
-
 打开取色器
 
 ```applescript
@@ -72,30 +70,42 @@ on run {input, parameters}
 end run
 ```
 
-__文件目录结构__
+**文件目录结构**
+
 ```
 /Library
   /Screen Savers # 屏保程序
 ```
 
 ## Brew
+
 Brew 是 OS X 上必不可少的软件包管理器, 具体使用可参考[这里](https://github.com/wenerme/wener/blob/master/tricks/manual/brew.md)
 
 ## 移动磁盘格式选择
+
 如果想要将移动磁盘与 PC 和 Mac 共用,最好选择 ExtFAT,支持大文件(>4G), 都能被识别和读写,在 Mac 上格式化的时候,需要选择使用主引导记录而不是 GUID, 否则 Windows 识别不了.
 
 ## 启动选项
-启动键 |	描述
-------|----
-Command-R 	|	启动为恢复模式
-Alt/Option 	|	访问启动管理器
-C						| 从 CD, DVD, 或 USB 启动
-N						| NetBoot
-Shift				| 安全启动
-Command-V		| 详细模式
-Command-S		| 单用户模式
-Command-Option-P-R	| 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063)
-T						| 启动目标磁盘模式
+
+| 启动键             | 描述                                                   |
+| ------------------ | ------------------------------------------------------ |
+| Command-R          | 恢复模式                                               |
+| Command-Option-R   | 网络恢复模式                                           |
+| Alt/Option         | 访问启动管理器                                         |
+| C                  | 从 CD, DVD, 或 USB 启动                                |
+| N                  | NetBoot                                                |
+| Shift              | 安全启动                                               |
+| Command-V          | 详细模式                                               |
+| Command-S          | 单用户模式                                             |
+| Command-Option-P-R | 重置 [NVRAM](https://support.apple.com/zh-cn/HT204063) |
+| T                  | 启动目标磁盘模式                                       |
+
+常用键盘映射
+
+| Windows     | macOS   |
+| ----------- | ------- |
+| Windows Key | Command |
+| Alt         | Option  |
 
 ## 证书
 
@@ -106,23 +116,25 @@ sudo security remove-trusted-cert -d cert.cer
 
 ## Finder
 
-* Finder 的主要问题
-  * 不能复制当前地址
-  * 不能新建文件
-  * 不能剪切
-* [xtrafinder](http://www.trankynam.com/xtrafinder/)
-  * XtraFinder add Tabs and features to Mac Finder.
-* [FinderPath](http://bahoom.com/finderpath/)
-  * 地址栏
+- Finder 的主要问题
+  - 不能复制当前地址
+  - 不能新建文件
+  - 不能剪切
+- [xtrafinder](http://www.trankynam.com/xtrafinder/)
+  - XtraFinder add Tabs and features to Mac Finder.
+- [FinderPath](http://bahoom.com/finderpath/)
+  - 地址栏
 
 ## Install Xcode
+
 ```
 xcode-select --install
 ```
 
 ## 资源下载
-* [mac-torrent-download](http://mac-torrent-download.net/)
-* http://www.macbed.com/
+
+- [mac-torrent-download](http://mac-torrent-download.net/)
+- http://www.macbed.com/
 
 ## 终端启用换行
 
@@ -137,9 +149,8 @@ tput smam
 
 ## pmset
 
-* [Pmset](https://en.wikipedia.org/wiki/Pmset)
-* [pmset](https://www.dssw.co.uk/reference/pmset.html) man
-
+- [Pmset](https://en.wikipedia.org/wiki/Pmset)
+- [pmset](https://www.dssw.co.uk/reference/pmset.html) man
 
 ```bash
 # 查看当前配置
@@ -201,15 +212,15 @@ pmset noidel
 
 ```
 
-* 休眠模式
-  * 0 不会将内存持久化到存储.在断电时内存数据会丢失.
-  * 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
-    * 默认为该选项
-  * 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
-    * 省电,电池寿命更久
-    * 但睡眠和唤醒更慢
-* 如果系统支持 standby, 则在超过 standbydely 后就会写一个休眠镜像
-* 如果要完全禁止休眠,可将 hibernatemode, standby 和 autopoweroff 设置为 0
+- 休眠模式
+  - 0 不会将内存持久化到存储.在断电时内存数据会丢失.
+  - 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
+    - 默认为该选项
+  - 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
+    - 省电,电池寿命更久
+    - 但睡眠和唤醒更慢
+- 如果系统支持 standby, 则在超过 standbydely 后就会写一个休眠镜像
+- 如果要完全禁止休眠,可将 hibernatemode, standby 和 autopoweroff 设置为 0
 
 ### csrutil
 
@@ -235,6 +246,7 @@ Available commands:
             Remove an IPv4 address from the list of allowed NetBoot sources.
 ```
 
+```
 /System
 /sbin
 /bin
@@ -246,20 +258,21 @@ Available commands:
 ** /Applications is protected for apps that are pre-installed with Mac OS (Calendar, Photos, Safari, Terminal, Console, App Store, Notes, etc)
 
 log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
+```
 
 ## FAQ
 
 ### 未进入休眠
 
-* 在 Console.app 中搜索 `PreventUserIdleSystemSleep`
-* `pmset -g` 确认当前的配置信息
-  * 时间
-  * sleep 是否有 prevent 信息
-    * 常见阻碍线程
-      * sharingd
-      * backupd
-      * AddressBookSourceSync
-*
+- 在 Console.app 中搜索 `PreventUserIdleSystemSleep`
+- `pmset -g` 确认当前的配置信息
+  - 时间
+  - sleep 是否有 prevent 信息
+    - 常见阻碍线程
+      - sharingd
+      - backupd
+      - AddressBookSourceSync
+-
 
 ```bash
 # 当前系统状态
@@ -274,6 +287,7 @@ pmset -g assertionslog
 log show --style syslog --start '2019-05-27 17:50:00' | grep "Wake reason"
 ```
 
+```
 
 Shutdown the computer, wait 30 seconds, restart the computer.
 
@@ -284,7 +298,7 @@ Reset your Startup Disk and Sound preferences.
 Start the computer in Safe Mode. Test in safe mode to see if the problem persists, then restart normally.
 Use Apple Hardware Test to see if there is any hardware malfunction.
 
-Repair the disk by booting from the Recovery HD. Immediately after the chime hold down the Command and R keys until the Utility Menu appears. Choose Disk Utility and click on the Continue button. Select the indented (usually, Macintosh HD) volume entry from the side list.  Click on the First Aid button in the toolbar. Wait for the Done button to appear. Quit Disk Utility and return to the Utility Menu. Restart the computer from the Apple Menu.
+Repair the disk by booting from the Recovery HD. Immediately after the chime hold down the Command and R keys until the Utility Menu appears. Choose Disk Utility and click on the Continue button. Select the indented (usually, Macintosh HD) volume entry from the side list. Click on the First Aid button in the toolbar. Wait for the Done button to appear. Quit Disk Utility and return to the Utility Menu. Restart the computer from the Apple Menu.
 
 Repair permissions on the Home folder: Resolve issues caused by changing the permissions of items in your home folder.
 
@@ -297,7 +311,6 @@ On Mac computers that play a startup sound, you can release the keys after the s
 On Mac computers that have the Apple T2 Security Chip, you can release the keys after the Apple logo appears and disappears for the second time.
 
 https://support.apple.com/zh-cn/HT201295
-
 
 有 T2 芯片的 Mac 笔记本电脑
 先尝试以下操作：
@@ -312,6 +325,7 @@ https://support.apple.com/zh-cn/HT201295
 在 Mac 关机后，按住右 Shift 键、左 Option 键和左 Control 键 7 秒钟。然后，在按住电源按钮的同时继续按住这些按键 7 秒钟。
 松开所有三个按键和电源按钮，然后等待几秒钟。
 再次按下电源按钮以开启 Mac。
+```
 
 ### Diskutil
 
@@ -331,68 +345,43 @@ networksetup -setmanual Ethernet 192.168.31.2 255.255.255.0 192.168.1.1
 # 设置完成后也可以将 IPv6 设置为自动
 ```
 
-
 ### NTFS 不能写
+
 OS X 因为版权原因不支持 NTFS 的写操作,需要安装第三方软件才能进行写操作.
 
-* Tuxera NTFS
+- Tuxera NTFS
 
 ### 使用 USB 以太网
+
 需要安装 [HoRNDIS](https://github.com/jwise/HoRNDIS) 来支持
 
-### 制作安装盘
-当下载好安装器后可直接使用安装器里附带的程序制作安装包
-
-```bash
-# 替换 MyVolume 为实际的挂载盘
-# High Sierra
-sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
-# Sierra
-sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ macOS\ Sierra.app --volume /Volumes/MyVolume
-# El Capitan
-sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app --volume /Volumes/MyVolume
-# Yosemite
-sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Yosemite.app --volume /Volumes/MyVolume
-# Mavericks
-sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --volume /Volumes/MyVolume
-```
-
-* [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
-* [Disk Maker X](http://diskmakerx.com/)
-* 操作系统下载
-  * App Store [macOS Sierra](https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=11&path=mac%2fmacossierra)
-
 #### 在 x86 上安装
-* [UniBeast: Install macOS Sierra on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/)
-* [unibeast 7](https://www.tonymacx86.com/resources/unibeast-7-1-1.333/)
-  * 支持 macOS Sierra
 
-#### Installer can't verified 安装器不能被验证
-使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避
-```bash
-# 在安装前进入终端执行
-date 0101010116
-```
+- [UniBeast: Install macOS Sierra on Any Supported Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-sierra-on-any-supported-intel-based-pc.200564/)
+- [unibeast 7](https://www.tonymacx86.com/resources/unibeast-7-1-1.333/)
+  - 支持 macOS Sierra
 
 #### 更新未能被验证
+
 可参考[该文章](http://matrix.sspai.com/p/dd9c2d80).
 
 解决办法,前往 [苹果组合更新下载页面](https://support.apple.com/downloads/combo), 下载需要的版本, 手动进行安装更新.
 
 #### 常见问题诊断
-* 重置 NVRAM
-* 重置 [SMC](https://support.apple.com/zh-cn/HT201295)
-* 磁盘检测 fsck -fy
-  * [fsck](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck.8.html)
-  * [fsck_hfs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck_hfs.8.html)
-  * http://www.thegeekstuff.com/2012/08/fsck-command-examples
-* 安全启动
-* 无法挂载磁盘
-  * http://apple.stackexchange.com/a/59166/103557
-  * 可以尝试 [asr](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/asr.8.html)
-  * https://en.wikipedia.org/wiki/Apple_Software_Restore
-* http://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition
-* http://www.insanelymac.com/forum/topic/312038-how-to-fix-a-bad-or-broken-efi-partition-to-be-working-with-uefi-booters/
+
+- 重置 NVRAM
+- 重置 [SMC](https://support.apple.com/zh-cn/HT201295)
+- 磁盘检测 fsck -fy
+  - [fsck](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck.8.html)
+  - [fsck_hfs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/fsck_hfs.8.html)
+  - http://www.thegeekstuff.com/2012/08/fsck-command-examples
+- 安全启动
+- 无法挂载磁盘
+  - http://apple.stackexchange.com/a/59166/103557
+  - 可以尝试 [asr](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/asr.8.html)
+  - https://en.wikipedia.org/wiki/Apple_Software_Restore
+- http://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition
+- http://www.insanelymac.com/forum/topic/312038-how-to-fix-a-bad-or-broken-efi-partition-to-be-working-with-uefi-booters/
 
 ```bash
 # Ubuntu
@@ -405,6 +394,7 @@ mount -t hfsplus -o force,rw /dev/sdb2 /media/mntpoint
 ```
 
 ### 清除 DNS 缓存
+
 ```bash
 # OS X 12 (Sierra) and later
 sudo killall -HUP mDNSResponder
@@ -423,7 +413,8 @@ netstat -nr
 ```
 
 ### 桥接
-* 对 wifi 支持不太好
+
+- 对 wifi 支持不太好
 
 ```bash
 sudo ifconfig bridge0 create
@@ -438,8 +429,9 @@ man ifconfig
 ```
 
 ### tuntap
-* http://tuntaposx.sourceforge.net/
-* macOS 支持 utun
+
+- http://tuntaposx.sourceforge.net/
+- macOS 支持 utun
 
 ```bash
 brew cask install tuntap
@@ -467,13 +459,12 @@ sudo ifconfig bridge0 addm tap0
 
 ### 转发
 
-* [How do I bridge a connection from Wi-Fi to TAP on Mac OS X? (for the emulator QEMU)](https://superuser.com/questions/596095)
-* [How do I create a wifi network bridge with qemu on OS X?](https://superuser.com/questions/670545)
-* [qemu-tap.sh](https://github.com/ckujau/scripts/blob/master/qemu-tap.sh)
+- [How do I bridge a connection from Wi-Fi to TAP on Mac OS X? (for the emulator QEMU)](https://superuser.com/questions/596095)
+- [How do I create a wifi network bridge with qemu on OS X?](https://superuser.com/questions/670545)
+- [qemu-tap.sh](https://github.com/ckujau/scripts/blob/master/qemu-tap.sh)
 
-* 新版没有 natd 和 ipfw 了 统一使用 pfctl
-* PF - [Network Address Translation](https://www.openbsd.org/faq/pf/nat.html)
-
+- 新版没有 natd 和 ipfw 了 统一使用 pfctl
+- PF - [Network Address Translation](https://www.openbsd.org/faq/pf/nat.html)
 
 ```bash
 INTERFACE=en0
@@ -504,8 +495,9 @@ route add -host 9.8.7.6 tun0
 ```
 
 ### 防火墙
-* [OS X PF Manual](https://murusfirewall.com/Documentation/OS%20X%20PF%20Manual.pdf)
-* A Cheat Sheet For Using pf in OS X Lion and Up http://krypted.com/mac-os-x/a-cheat-sheet-for-using-pf-in-os-x-lion-and-up/
+
+- [OS X PF Manual](https://murusfirewall.com/Documentation/OS%20X%20PF%20Manual.pdf)
+- A Cheat Sheet For Using pf in OS X Lion and Up http://krypted.com/mac-os-x/a-cheat-sheet-for-using-pf-in-os-x-lion-and-up/
 
 ```bash
 cat /etc/pf.conf
@@ -519,41 +511,18 @@ pfctl -f /etc/pf.conf
 
 ### DocumentRevisions-V100
 
-* `/.DocumentRevisions-V100` 可能会占用非常多的空间
-* [What will occur if the .DocumentRevisions-V100 folder is deleted?](https://apple.stackexchange.com/a/313112/103557)
-
-### Migration
-
-```bash
-brew list > formulas.txt
-
-brew fetch $(cat formulas.txt)
-brew unlink $(cat formulas.txt)
-brew link --overwrite $(cat formulas.txt)
-brew reinstall $(cat formulas.txt)
-
-brew doctor check_for_stray_headers
-brew doctor check_for_stray_headers 2>&1 | grep /protobuf | xargs rm
-brew doctor check_for_stray_headers 2>&1 | grep '^  /' | xargs rm
-
-brew doctor check_for_stray_static_libs
-brew doctor check_for_stray_static_libs 2>&1 | grep '^  /' | xargs rm
-
-brew doctor check_for_stray_dylibs
-brew doctor check_for_stray_dylibs 2>&1 | grep '^  /' | xargs rm
-
-brew prune
-brew missing
-```
+- `/.DocumentRevisions-V100` 可能会占用非常多的空间
+- [What will occur if the .DocumentRevisions-V100 folder is deleted?](https://apple.stackexchange.com/a/313112/103557)
 
 ### 常见网络名称
-* lo0 = loopback
-* gif0 = Software Network Interface
-* stf0 = 6to4 tunnel interface
-* en0 = Ethernet 0
-* fw0 = Firewire
-* en1 = Ethernet 1
-* vmnet1 = Virtual Interface
+
+- lo0 = loopback
+- gif0 = Software Network Interface
+- stf0 = 6to4 tunnel interface
+- en0 = Ethernet 0
+- fw0 = Firewire
+- en1 = Ethernet 1
+- vmnet1 = Virtual Interface
 
 ### Develope
 
@@ -573,12 +542,6 @@ sudo defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.app
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
 ```
 
-
-### 网络存储设备不写 DS_Store 文件
-
-```bash
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-```
-
 ### syslog
-* [How to use logger command on Sierra?](https://apple.stackexchange.com/questions/256769)
+
+- [How to use logger command on Sierra?](https://apple.stackexchange.com/questions/256769)
