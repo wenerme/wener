@@ -56,3 +56,6 @@ proxy_service:
   web_listen_addr: 0.0.0.0:3080
   tunnel_listen_addr: 0.0.0.0:3024
 ```
+
+## access plugin
+* https://github.com/gravitational/teleport-plugins/tree/master/access

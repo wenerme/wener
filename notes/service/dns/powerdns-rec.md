@@ -1,5 +1,4 @@
 ---
-id: powerdns-rec
 title: PowerDNS Recursor
 ---
 

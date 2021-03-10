@@ -1,5 +1,5 @@
 ---
-id: k8s-version
+title: Kubernetes 版本
 ---
 
 # Kubernetes 版本

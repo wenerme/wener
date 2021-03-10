@@ -1,12 +1,10 @@
 ---
-id: powerdns
 title: PowerDNS
 ---
 
 
 # PowerDNS
 
-## Tips
 * [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
 * Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
 * https://doc.powerdns.com/authoritative/indexTOC.html
@@ -29,7 +27,7 @@ title: PowerDNS
   * 通过修改 DB - 可以远程使用
 
 
-dnsdist is a DNS loadbalancer from the people behind PowerDNS that balances DNS packets based on rules. 
+dnsdist is a DNS loadbalancer from the people behind PowerDNS that balances DNS packets based on rules.
 
 ```bash
 # macOS 安装
@@ -483,7 +481,7 @@ forward-zones=.=8.8.8.8
 # ==========
 # webserver
 # ==========
-# 
+#
 webserver=yes
 webserver-port=8082
 api-key=key

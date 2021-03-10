@@ -1,10 +1,8 @@
 ---
-id: powerdns-lua
 title: PowerDNS LUA
 ---
 
 # PowerDNS LUA
-## Tips
 * 自 4.2 开始支持
 * [所有函数](https://doc.powerdns.com/authoritative/lua-records/functions.html)
 * [LUA Reference](https://doc.powerdns.com/authoritative/lua-records/reference/index.html)

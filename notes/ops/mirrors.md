@@ -1,5 +1,4 @@
 ---
-id: mirrors
 title: Mirrors
 ---
 

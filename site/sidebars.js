@@ -139,9 +139,20 @@ module.exports = {
     AlpineLinux: [...items({ prefix: 'os/alpine' })],
     Docker: [...items({ prefix: 'devops/docker' })],
     Kubernetes: [
-      ...items('devops/kubernetes', {
-        excludes: ['network', 'storage', 'app', 'platform'],
-      }),
+      ...items('devops/kubernetes/kubernetes'),
+      ...items('devops/kubernetes/k8s'),
+      {
+        type: 'category',
+        label: '发行版',
+        items: [
+          {
+            type: 'category',
+            label: 'K3S',
+            items: items('devops/kubernetes/disto/k3s'),
+          },
+          ...items('devops/kubernetes/disto'),
+        ],
+      },
       {
         type: 'category',
         label: '网络',
@@ -162,6 +173,7 @@ module.exports = {
         label: '应用',
         items: items('devops/kubernetes/app'),
       },
+      ...items('devops/kubernetes'),
     ],
     Linux: [
       ...items('os/linux/linux'),
@@ -353,6 +365,11 @@ module.exports = {
           },
           ...items('service/network'),
         ],
+      },
+      {
+        type: 'category',
+        label: 'DNS',
+        items: items('service/dns'),
       },
       {
         type: 'category',

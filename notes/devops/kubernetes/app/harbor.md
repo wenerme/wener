@@ -33,6 +33,8 @@ title: Harbor
   - 80
   - 4443
     - Notary - Docker Content Trust
+- 文档
+  - [Harbor Compatibility List](https://goharbor.io/docs/2.2.0/install-config/harbor-compatibility-list/)
 
 | Resource | Minimum | Recommended |
 | -------- | ------- | ----------- |

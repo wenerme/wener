@@ -1,3 +1,7 @@
+---
+title: PowerDNS FAQ
+---
+
 # PowerDNS FAQ
 
 ## Attempt to bind more parameters than query has

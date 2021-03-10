@@ -32,6 +32,7 @@ title: FRP
   * 但 a.b.c.com 也会认为是 c.com 子域名
 * subdomain 不能包含 `.` 和 `*`
 * frps 没有 reload 因此修改配置需要重启
+* visitor 端需要配置 server_name
 
 :::
 
@@ -505,3 +506,6 @@ inotifywait -e attrib -m --format "%e %f" /etc/frp/frpc.ini
 # FAQ
 ## get sid from visitor error
 nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他方案, 例如 tinc.
+
+## start new visitor connection error: custom listener for [] doesn't exist
+visitor 端出现, 应该是没有配置 server_name

@@ -1,5 +1,4 @@
 ---
-id: krew
 title: krew
 ---
 

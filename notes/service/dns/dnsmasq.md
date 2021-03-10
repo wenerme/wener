@@ -1,5 +1,4 @@
 ---
-id: dnsmasq
 title: dnsmasq
 ---
 
@@ -22,7 +21,7 @@ title: dnsmasq
 * [reload](https://serverfault.com/a/934681) - 清除缓存重载部分配置文件
   * SIGHUP
   * /etc/hosts
-  * /etc/ethers 
+  * /etc/ethers
   * --dhcp-hostsfile
   * --dhcp-hostsdir
   * --dhcp-optsfile
