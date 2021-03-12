@@ -4,6 +4,14 @@ title: Docker FAQ
 
 # Docker FAQ
 
+## 在 docker 中使用 docker
+
+直接映射 /var/run/docker.sock
+
+```bash
+docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock --name box wener/demo:test
+```
+
 ## 非 root 绑定私有端口
 * 一般来说添加 CAP_NET_BIND_SERVICE 即可，但是对非 root 无效
 * 设置 sysctl `net.ipv4.ip_unprivileged_port_start=0` 即可

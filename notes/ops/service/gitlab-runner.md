@@ -218,9 +218,11 @@ sentry_dsn=false
 
 # 缓存配置
 [runners.cache]
-# s3, gcs
+# s3, gcs, azure
 Type=s3
+# 缓存 URL prefix
 Path=
+# Runner 之间共享缓存
 Shared=false
 
   # S3 配置

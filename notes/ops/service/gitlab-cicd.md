@@ -30,6 +30,13 @@ title: GitaLab持续集成持续交付
     * Gitlab 只有 Docker 仓库是免费使用的
   * [Gitlab CI 中使用 Nexus](https://blog.sonatype.com/how-to-use-gitlab-ci-with-nexus)
 
+:::caution
+
+* 变量不能包含美元符 `$` [#16442](https://gitlab.com/gitlab-org/gitlab/-/issues/16442)
+  * 会被展开 - 直接写 `$$`
+
+:::
+
 ## serverless
 * [knative-examplesknative-examples)
 

@@ -131,6 +131,14 @@ helm chart push index.docker.io/v1/wcharts/alpinelinux:0.1.0
 helm chart pull index.docker.io/v1/wcharts/alpinelinux:0.1.0
 ```
 
+### repo
+
+```bash
+helm repo add --username=admin myrepo https://xx.xx.xx.xx
+# helm plugin install https://github.com/chartmuseum/helm-push
+helm push hello-helm-0.1.0.tgz myrepo
+```
+
 ## Helm 模板
 
 - https://pkg.go.dev/text/template
@@ -149,3 +157,16 @@ helm template ./mychart
 ## Helm Operator
 
 - [fluxcd/helm-operator](https://github.com/fluxcd/helm-operator)
+
+# FAQ
+## oci registry vs chart repository
+* OCI
+  * 实验阶段
+  * 可直接使用现有 Docker 仓库基础设施
+  * 仓库方可能对 chart 支持还不是很好 - Chart 元信息可能展现不完善
+  * 部分仓库还不支持
+  * Helm 3+
+* Repo
+  * Helm 2+
+  * 简单易理解 - HTTP 静态文件服务 - 提供 index.yaml 作为索引
+  * 现有仓库功能相对完善

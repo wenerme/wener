@@ -18,9 +18,11 @@ go list -u -m -f '{{if .Update}}{{.}}{{end}}' all
 go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all
 
 # 更新 minor 和 patch
-go get -u
+go get -u -v ./...
 # 更新 patch
-go get -u=patch
+go get -u=patch -v ./...
+# 更新测试依赖
+go get -t -u ./...
 ```
 
 ## Struct 是否使用指针

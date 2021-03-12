@@ -21,6 +21,16 @@ title: acme-dns
   - [Traefik](https://github.com/containous/traefik)
   - [Windows ACME Simple (WACS)](https://www.win-acme.com)
 
+:::caution
+
+- 一个账号对应一个域名
+  - 因为一个账号只能处理两个 record - `domain.tld`,`*.domain.tld`
+  - __不能__ 共享账号给不同域名
+  - [#110](https://github.com/joohoi/acme-dns/issues/110) Allow more than two records?
+  - [#233](https://github.com/joohoi/acme-dns/issues/233) Register multiple domains under single login?
+
+:::
+
 ```bash
 curl -v -X POST https://auth.acme-dns.io/register
 ```
@@ -51,5 +61,5 @@ spec:
           host: https://acme.example.com
           accountSecretRef:
             name: acme-dns
-            key: acmedns.json
+            key: acme-dns.json
 ```

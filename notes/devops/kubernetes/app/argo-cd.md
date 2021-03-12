@@ -76,6 +76,12 @@ title: ArgoCD
 
 :::
 
+:::tip
+
+* 每 3分钟 拉取一次 Git
+
+:::
+
 ```bash
 # 安装
 kubectl create namespace argocd
@@ -250,6 +256,84 @@ resources:
 patchesStrategicMerge:
 - overlays/argo-cd-cm.yaml
 ```
+
+## Resource Hook
+* [Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks)
+  * 选择性同步时不会执行
+* PreSync
+* Sync
+* PostSync
+* SyncFail
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: schema-migrate-
+  annotations:
+    # 定义 Hook 类型
+    argocd.argoproj.io/hook: PreSync
+    # PostSync
+    # 删除策略 HookSucceeded HookFailed BeforeHookCreation
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+```
+
+## Annotations
+
+```yaml
+# 比较选项
+# ==========
+# 忽略无关 - 例如 cert-manager 预先生成 secret 包含 labels 和 annotations
+argocd.argoproj.io/compare-options: IgnoreExtraneous
+
+# 同步选项
+# ==========
+# 不删除
+argocd.argoproj.io/sync-options: Prune=false
+# 不校验
+argocd.argoproj.io/sync-options: Validate=false
+# 不校验 CRD
+argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+
+argocd.argoproj.io/sync-wave: "5"
+# 添加外部链接 - 类似 Ingress
+link.argocd.argoproj.io/external-link: http://my-grafana.com/pre-generated-link
+```
+
+```yaml
+syncPolicy:
+  syncOptions:
+    # 只同步不同步资源 - 选择性同步
+    # 当资源非常多时适用
+    - ApplyOutOfSyncOnly=true
+```
+
+## Sync
+* The phase
+* The wave they are in (lower values first)
+* By kind (e.g. namespaces first)
+* By name
+
+## Tricks
+
+```yaml
+bases:
+# latest
+- github.com/argoproj/argo-cd//manifests/cluster-install
+# tag
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.1
+```
+
+构建环境
+
+* ARGOCD_APP_NAME
+* ARGOCD_APP_NAMESPACE
+* ARGOCD_APP_REVISION
+* ARGOCD_APP_SOURCE_PATH
+* ARGOCD_APP_SOURCE_REPO_URL
+* ARGOCD_APP_SOURCE_TARGET_REVISION | master
+* KUBE_VERSION
+* KUBE_API_VERSIONS
 
 # FAQ
 

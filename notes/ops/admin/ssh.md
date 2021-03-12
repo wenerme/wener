@@ -245,3 +245,9 @@ AllowTcpForwarding yes
 # 允许 -g
 GatewayPorts yes
 ```
+
+### 不校验主机
+
+```bash
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
+```

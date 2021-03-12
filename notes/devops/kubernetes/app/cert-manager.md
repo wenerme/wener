@@ -33,6 +33,14 @@ title: Cert Manager
     - [Webhook](https://cert-manager.io/docs/configuration/acme/dns01/webhook/)
       - [pragkent/alidns-webhook](https://github.com/pragkent/alidns-webhook)
 
+
+:::caution
+
+* 尽量不要创建相同证书 - 如果需要可考虑同步
+* DNS01 才支持泛域名证书 - 最简单是使用 ACMEDNS
+
+:::
+
 ## Ingress
 
 - [Supported Annotations](https://cert-manager.io/docs/usage/ingress/#supported-annotations)
@@ -190,4 +198,78 @@ spec:
             apiKeySecretRef:
               name: cloudflare-api-key-secret
               key: api-key
+```
+
+# FAQ
+
+## account credentials not found for domain
+如果是 dns, 可能是域名不匹配.
+
+例如 申请 sub.domain.tld. 需要配置的是子域名, 不会自动匹配泛域名, 例如配置过 `_acme_changlle.domain.tld` 也不会生效
+
+## Error creating new order :: Domain name "sub.domain.tld" is redundant with a wildcard domain in the same request
+
+```yaml
+dnsNames:
+- domain.tld
+- '*.domain.tld'
+# 不能添加这个域名 - 已经被上面覆盖
+# - sub.domain.tld
+- '*.sub.domain.tld'
+```
+
+## 证书跨空间
+1. 配置 ingress 设置默认 tls secret, 然后之后的 ingress 不配置 secret
+  * 修改较大，不建议
+2. 同步
+  * 目前无法修改 secret annotations - [#977](https://github.com/jetstack/cert-manager/issues/977)
+  * 可以使用预先存在的 secret - 然后配合 kubed 使用
+    * 在来源上定义，同步到目标
+  * [emberstack/kubernetes-reflector](https://github.com/emberstack/kubernetes-reflector)
+    * 可替代 kubed - 支持证书 secret 同步
+    * 先定义目标再定义来源
+
+__kubed__
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: default-cert
+  annotations:
+    # 避免 argocd 删除和同步
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+    kubed.appscode.com/sync: ""
+stringData:
+  tls.crt: ''
+  tls.key: ''
+```
+
+__reflector__
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+ name: default-cert
+ namespace: another
+ annotations:
+   reflector.v1.k8s.emberstack.com/reflects: "default/default-cert"
+   argocd.argoproj.io/compare-options: IgnoreExtraneous
+data: {}
+```
+
+直接支持证书
+
+```yaml
+apiVersion: cert-manager.io/v1alpha1
+kind: Certificate
+metadata:
+  name: default-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/secret-reflection-allowed: "true"
+    reflector.v1.k8s.emberstack.com/secret-reflection-allowed-namespaces: "namespace-1,namespace-2,namespace-[0-9]*"
+spec:
+  secretName: certificate-secret
 ```
