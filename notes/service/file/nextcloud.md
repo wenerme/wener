@@ -93,39 +93,39 @@ docker exec -it -u www-data nextcloud bash
 # 禁用意义不大的应用
 ./occ app:disable firstrunwizard federation nextcloud_announcements support survey_client updatenotification
 # 精选常用应用
-for i in announcementcenter external impersonate limit_login_to_ip files_automatedtagging files_accesscontrol groupfolders notes user_ldap user_saml; do 
+for i in announcementcenter external impersonate limit_login_to_ip files_automatedtagging files_accesscontrol groupfolders notes user_ldap user_saml; do
   ./occ app:enable $i
 done
 
 # 安装常用应用
-for i in admin_audit extract files_external files_texteditor group_everyone metadata user_ldap user_saml; do 
+for i in admin_audit extract files_external files_texteditor group_everyone metadata user_ldap user_saml; do
   ./occ app:enable $i
 done
 
 # 官方推荐应用 - calendar,contacts,talk,mail,collaborative editing
 
 # 社交应用
-for i in circles talk social; do 
+for i in circles talk social; do
   ./occ app:enable $i
 done
 
 # 事务应用
-for i in calendar contacts mail deck tasks; do 
+for i in calendar contacts mail deck tasks; do
   ./occ app:enable $i
 done
 
 # 办公应用 - 功能重复
-for i in onlyoffice richdocuments; do 
+for i in onlyoffice richdocuments; do
   ./occ app:enable $i
 done
 
 # 管理应用
-for i in occweb; do 
+for i in occweb; do
   ./occ app:enable $i
 done
 
 # 工具
-for i in files_rightclick checksum; do 
+for i in files_rightclick checksum; do
   ./occ app:enable $i
 done
 ```

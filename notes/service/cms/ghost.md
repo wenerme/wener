@@ -1,3 +1,7 @@
+---
+title: Ghost
+---
+
 # Ghost
 
 ## Tips

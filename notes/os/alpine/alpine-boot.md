@@ -186,7 +186,7 @@ options:
 | mmc        |
 | nbd        |
 | network    |
-| nvme       |
+| nvme       |             | 加载 nvme 驱动 - 例如使用了 M.2 启动                    |
 | ocfs2      |
 | qeth       |
 | raid       |

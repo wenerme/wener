@@ -1,5 +1,4 @@
 ---
-id: grpc
 title: gRPC
 ---
 
@@ -75,7 +74,7 @@ COMMON_ARGS="$(echo -I . apis/**/*.proto)"
 # Generate Java
 protoc $COMMON_ARGS --plugin=$(which protoc-gen-grpc-java) --java_out=./java --grpc-java_out=./java
 # Generate Java Nano
-protoc $COMMON_ARGS --plugin=$(which protoc-gen-grpc-java) --java_out=nano:./javanano --grpc-java_out=./javanano 
+protoc $COMMON_ARGS --plugin=$(which protoc-gen-grpc-java) --java_out=nano:./javanano --grpc-java_out=./javanano
 # Generate Go by protowrap
 # The last -I apis is required
 protowrap $COMMON_ARGS --go_out=plugins=grpc:$HOME/go/src -I apis/
@@ -314,7 +313,7 @@ class Tests{
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-$creds = 
+$creds =
   // 无 TLS
   Grpc\ChannelCredentials::createInsecure()
   // 只配置 CA 如果服务端不要求客户端认证
@@ -395,7 +394,7 @@ GODEBUG=http2debug=2   # ... even more verbose, with frame dumps
 package main
 
 func main(){
-  
+
 }
 ```
 ### Server
@@ -527,7 +526,7 @@ go get .
 ```
 
 ## Auth
-* [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md) 
+* [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md)
 * guides/[auth](https://grpc.io/docs/guides/auth.html)
   * SSL/TLS 双向认证
   * 基于 Token

@@ -160,3 +160,43 @@ metdata:
     # 需要 set-xauthrequest: true
     nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
 ```
+
+__映射到其他空间__
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: oauth2-proxy
+  namespace: longhorn-system
+spec:
+  type: ExternalName
+  externalName: oauth2-proxy.auth.svc.cluster.local
+  ports:
+    - port: 80
+      name: http
+      targetPort: 80
+---
+# 例如 为 Longhorn UI 添加
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: longhorn-oauth2-ingress
+  namespace: longhorn-system
+spec:
+  tls:
+  - hosts:
+    - longhorn.example.com
+    secretName: longhorn-example-com-cert
+  rules:
+  - host: longhorn.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: oauth2-proxy
+            port:
+              name: http
+        path: /oauth2
+        pathType: ImplementationSpecific
+```

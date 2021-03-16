@@ -25,6 +25,16 @@ title: Go Awesome
 * 参考
   * [mingrammer/go-web-framework-stars](https://github.com/mingrammer/go-web-framework-stars)
   * https://golangroadmap.com/
+
+## 数据库驱动
+* [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
+  * DNS - https://www.sqlite.org/uri.html
+    * `file:test.db?cache=shared&mode=memory`
+    * mode ro, rw, rwc, memory
+      * rwc - Read, Write, Create
+    * cache shared, private - https://www.sqlite.org/sharedcache.html
+    * _foreign_keys/_fk - `PRAGMA foreign_keys` - 外键约束
+
 ## Web
 
 :::tip
@@ -255,3 +265,41 @@ func TestPreloadOnly(t *testing.T){
   * `ValidationDidStart(context.Context) (context.Context, ValidationFinishFunc)`
   * `ExecutionDidStart(context.Context) (context.Context, ExecutionFinishFunc)`
   * `ResolveFieldDidStart(context.Context, *ResolveInfo) (context.Context, ResolveFieldFinishFunc)`
+
+## 99designs/gqlgen
+* [99designs/gqlgen](https://github.com/99designs/gqlgen)
+  * 基于生成的 GraphQL 引擎
+  * Schema first - 需要 DSL 定义 GraphQL Schema
+  * 类型安全
+* [gqlgen vs gophers vs graphql-go vs thunder](https://gqlgen.com/feature-comparison/)
+
+## entgo
+* 基于代码生成的数据库引擎
+  * 支持 MySQL, MariaDB, PostgreSQL, SQLite, Gremlin
+* 项目源自 facebook
+* 支持的类型
+  * 所有 golang 数字类型
+  * bool
+  * string
+  * time.Time
+  * []byte
+  * JSON
+  * Enum
+  * UUID
+  * Other - 自定义 DB 类型和 Go 类型
+
+:::tip
+
+* 内建 id 字段 - 可覆盖
+
+:::
+
+:::caution
+
+* 不支持 upsert - [ent/ent#139](https://github.com/ent/ent/issues/139)
+* 不支持 软删除 - [ent/ent#252](https://github.com/ent/ent/issues/252)
+* 关联关系不支持自定义属性
+* 不支持级联删除 - [ent/ent#407](https://github.com/ent/ent/issues/407)
+* 目前 GoType 要求为 struct 或可映射类型
+
+:::

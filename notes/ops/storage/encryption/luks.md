@@ -27,6 +27,11 @@ title: LUKS
   - [qemu luks](https://blog.csdn.net/isclouder/article/details/80731388)
 
 ```bash
+apk add cryptsetup util-linux
+# userspace DM 管理
+# dmsetup dmstats
+apk add device-mapper
+
 blkid -t TYPE=crypto_LUKS
 
 # 修改密码
@@ -45,18 +50,19 @@ dmsetup deps -o devname /dev/mapper/decrypted
 # 所有 slot
 cryptsetup luksDump /dev/sdb2
 
-# 测试密码
-cryptsetup open --verbose --test-passphrase /dev/sda2
-
 # 判断 slot
 # 一个个尝试
 cryptsetup open --test-passphrase --key-slot 0 /dev/sda2
-# 会显示 key slot 信息
-cryptsetup --verbose open --test-passphrase /dev/sda2
+
+# 测试密码
+# --verbose 会显示 key slot 信息
+cryptsetup open --verbose --test-passphrase /dev/sda2
+cryptsetup open --verbose --test-passphrase /dev/sda2 -d key
 
 # 移除未知的 key slot
 cryptsetup -v luksKillSlot /dev/sdb2 1
 
+# 查看当前的 DM
 dmsetup table --showkeys
 
 # 导出 master key
@@ -66,6 +72,7 @@ xxd -r -p masker-key.txt masker-key.bin
 
 # 使用 master key 则不需要密码
 cryptsetup luksAddKey /dev/sdb1 --master-key-file <(cat masker-key.bin)
+cryptsetup luksAddKey /dev/sdb2 -d key.txt < new-key.txt
 ```
 
 ## Root 分区加密安装
@@ -153,7 +160,7 @@ cryptsetup close cryptroot
   * sector 级别完整性校验 - Linux 4.12 - dm-integrity
     * `integritysetup` - 命令
   * veritysetup 支持设备 FEC（Forward Error Correction） - 安装 Linux 4.5 已有在使用
-  * sector 最大支持 4096 
+  * sector 最大支持 4096
     * 确保硬件使用相同大小，如果硬件 sector 更小可能导致数据损坏 - 部分 sector 写入
   * 使用 Argon2i 和 Argon2id 作为 PBKDF
     * memory-hard - 增加内存使用 - 是的 GPU 攻击更难 - 因为 GPU 内存成本高

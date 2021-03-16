@@ -232,3 +232,6 @@ status:
 不建议使用 swap
 
 * [kubernetes/kubernetes#3533](https://github.com/kubernetes/kubernetes/issues/53533) - Kubelet/Kubernetes should work with Swap Enabled
+
+## didn't have free ports for the requested pod ports
+deploy 如果只有一个节点，使用 Recreate， RollingUpdate 会失败。

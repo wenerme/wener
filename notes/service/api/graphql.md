@@ -228,3 +228,6 @@ GraphQL & gRPC
 type ExchangeIO = (Source<Operation>) => Source<OperationResult>;
 type Exchange = ExchangeInput => ExchangeIO;
 ```
+
+# relay
+* [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)

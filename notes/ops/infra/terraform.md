@@ -29,6 +29,7 @@ title: Terraform
   * 阿里云 oss、腾讯云 cos
   * pg
   * s3 - DynamoDB 支持锁
+
 ```bash
 # 日志
 TF_LOG=1 terraform apply

@@ -5,8 +5,6 @@ title: Keycloak
 
 # Keycloak
 
-# Tips
-
 - [授权服务](https://www.keycloak.org/docs/latest/authorization_services/)
   - 访问控制方式
     - ABAC - Attribute-based access control - 基于属性

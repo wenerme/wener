@@ -283,7 +283,8 @@ metadata:
 ```yaml
 # 比较选项
 # ==========
-# 忽略无关 - 例如 cert-manager 预先生成 secret 包含 labels 和 annotations
+# 忽略额外的 - 例如部分工具生成对象
+# 似乎有点问题 https://github.com/argoproj/argo-cd/issues/4487
 argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 # 同步选项
@@ -306,6 +307,58 @@ syncPolicy:
     # 只同步不同步资源 - 选择性同步
     # 当资源非常多时适用
     - ApplyOutOfSyncOnly=true
+```
+
+## 不同步部分字段
+* 例如 cert-manager 预先生成 secret 包含 labels 和 annotations, 但内容不需要同步
+* 可应用纬度配置或全局配置
+* [Diffing Customization¶](https://argoproj.github.io/argo-cd/user-guide/diffing/)
+
+```yaml
+# 应用 spec 配置
+spec:
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: guestbook
+    namespace: default
+    jsonPointers:
+    - /spec/replicas
+```
+
+```yaml
+# argocd-cm 配置
+data:
+  resource.customizations: |
+    admissionregistration.k8s.io/MutatingWebhookConfiguration:
+      ignoreDifferences: |
+        jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
+```
+
+### 常见忽略 Diff
+```yaml
+# 如果使用 argocd 部署 argocd
+# 忽略 argocd-cm 部分
+- group: core
+  kind: ConfigMap
+  name: argocd-cm
+  jsonPointers:
+  - /data
+
+# longhorn Volume 忽略部分会变字段
+- group: longhorn.io
+  kind: Volume
+  jsonPointers:
+  - /spec/nodeID
+  - /spec/lastAttachedBy
+
+# 忽略指定 Secret 数据
+- group: core
+  kind: Secret
+  name: default-cert
+  jsonPointers:
+  - /data
 ```
 
 ## Sync

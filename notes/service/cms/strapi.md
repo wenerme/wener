@@ -1,3 +1,7 @@
+---
+title: Strapi
+---
+
 # Strapi
 ## Tips
 * 半开发半可视化操作的 Headless CMS

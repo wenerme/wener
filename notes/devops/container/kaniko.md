@@ -12,6 +12,7 @@ title: Kaniko
 * gcr.io/kaniko-project/executor:debug - 包含 shell
 * 参考
   * GitLab runner use [Kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html)
+* 专注于在 Kubernetes 构建镜像
 
 :::caution
 
@@ -21,6 +22,7 @@ title: Kaniko
 :::
 
 ```bash
+# debug 环境
 docker run --rm -it -w /workspace --entrypoint sh registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:debug
 
 mkdir -p /workspace /images /cache
@@ -46,7 +48,52 @@ mkdir -p /kaniko/.docker
 echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
 # 构建并推送
 /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+
+# 直接构建
+# registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:latest
+# gcr.io/kaniko-project/executor:latest
+docker run \
+  -v "$HOME"/.config/gcloud:/root/.config/gcloud \
+  -v /path/to/context:/workspace \
+  registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:latest \
+  --dockerfile /workspace/Dockerfile \
+  --destination "$PROJECT_ID/$IMAGE_NAME:$TAG" \
+  --context dir:///workspace/
 ```
+
+## dockerhub
+
+```bash
+cat <<JSON > config.json
+{
+	"auths": {
+		"https://index.docker.io/v1/": {
+			"auth": "$(echo -n $USER:$PASSWORD | base64)"
+		}
+	}
+}
+JSON
+docker run --rm -it $PWD/config:/kaniko/.docker/config.json --destination=yourimagename
+```
+
+* https://github.com/GoogleContainerTools/kaniko/issues/1209
 
 ## 参数
 * [Additional Flags](https://github.com/GoogleContainerTools/kaniko#additional-flags)
+
+# FAQ
+## 拷贝根目录异常阻塞
+
+```dockerfile
+FROM alpine:3.11 as rootfs
+RUN echo 7777
+
+FROM alpine:3.11
+# 阻塞
+COPY --from=rootfs / /sysroot/
+```
+
+* https://github.com/GoogleContainerTools/kaniko/issues/960
+
+## snapshot 阻塞
+* https://github.com/GoogleContainerTools/kaniko/issues/970

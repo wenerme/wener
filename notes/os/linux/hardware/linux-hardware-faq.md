@@ -1,3 +1,6 @@
+---
+title: Linux Hardware FAQ
+---
 
 ## Intel Corporation Ethernet Connection (2) I219-V notworking
 * e1000e

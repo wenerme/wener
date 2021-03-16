@@ -22,8 +22,9 @@ apk add wpa_supplicant e2fsprogs-extra
 ```bash
 # Bash
 apk add shadow bash
+usermod --shell /bin/bash admin
 # 该步骤要求输入密码
-chsh root -s /bin/bash
+# chsh root -s /bin/bash
 
 # 补全
 apk add bash-completion
@@ -254,14 +255,14 @@ zpool status
 #  state: ONLINE
 #   scan: none requested
 # config:
-# 
+#
 # 	NAME                                       STATE     READ WRITE CKSUM
 # 	p1                                         ONLINE       0     0     0
 # 	  raidz1-0                                 ONLINE       0     0     0
 # 	    ata-VBOX_HARDDISK_VB63cffc10-3a66b288  ONLINE       0     0     0
 # 	    ata-VBOX_HARDDISK_VBfb21373d-56cc6c57  ONLINE       0     0     0
 # 	    ata-VBOX_HARDDISK_VB91ae7aad-d4a73895  ONLINE       0     0     0
-# 
+#
 # errors: No known data errors
 
 # 此时可以重启测试看看 pool 是否还在
@@ -308,7 +309,7 @@ modprobe -r zfs
   * [Gotchas](https://btrfs.wiki.kernel.org/index.php/Gotchas)
     * 不建议使用 RAID5, RAID6
   * [Using Btrfs with Multiple Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices)
-  
+
 * Debian [Btrfs](https://wiki.debian.org/Btrfs)
   * 不要使用 4.11.x
   * quotas 和 qgroups 有问题
@@ -494,7 +495,7 @@ http://scst.sourceforge.net/
 # init: iscsid
 # bin: iscsi_discovery, iscsiadm, iscsi-iname
 # sbin: iscsid, iscsistart
-# conf: 
+# conf:
 #   /etc/iscsi/initiatorname.iscsi
 #   /etc/iscsi/iscsid.conf
 #   /etc/iscsi/ifaces/iface
@@ -514,7 +515,7 @@ apk add open-iscsi
 
 ```bash
 stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.9;}' < /proc/meminfo)k --vm-keep -m 1
-stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)k --vm-keep -m 10 
+stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)k --vm-keep -m 10
 ```
 
 ## disk
@@ -818,7 +819,7 @@ ip a
 * 重启
 
 ### find: /sys/module/pcc_cpufreq
- 
+
 * 查看 linux/cpufreq
 
 
@@ -862,7 +863,7 @@ RLIMIT_STACK //最大的进程堆栈，以字节为单位。
 
 ### ip: RTNETLINK answers: File exists
 * ip addr add 时出现
-* usually indicates that a route already exists and you are trying to add it again. 
+* usually indicates that a route already exists and you are trying to add it again.
 * [rtnetlink.7](http://man7.org/linux/man-pages/man7/rtnetlink.7.html)
   * Linux IPv4 routing socket
 * 网络启停时是依据 `/var/run/ifstate` 中的 if 状态进行操作
@@ -894,7 +895,7 @@ nano /var/run/ifstate
 ### node docker seg fault
 * [sass/node-sass#2031](https://github.com/sass/node-sass/issues/2031) Segmentation fault on Node 8 alpine (docker)
 * 是由于线程栈太小了导致
-* jubel-han 的 [Dockerfile](https://github.com/jubel-han/dockerfiles/blob/master/node/Dockerfile) 提供了一个 LD_PRELOAD 
+* jubel-han 的 [Dockerfile](https://github.com/jubel-han/dockerfiles/blob/master/node/Dockerfile) 提供了一个 LD_PRELOAD
 * [What is the LD_PRELOAD trick?](https://stackoverflow.com/q/426230/1870054)
 * http://wiki.musl-libc.org/wiki/Functional_differences_from_glibc#Thread_stack_size
 
