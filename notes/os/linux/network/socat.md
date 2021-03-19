@@ -1,5 +1,4 @@
 ---
-id: socat
 title: socat
 ---
 

@@ -2,6 +2,25 @@
 title: 网络常见问题
 ---
 
+# VTI vs XFRM
+> XFRM 比 VTI 更好
+
+* VTI - Linux 3.6+
+  * L3 通道，指定终端地址
+  * 单地址族
+  * 只支持通道模式
+* XFRM - Linux 4.19+
+  * 不需要配置通道地址
+    * 避免 VTI SAs:interface 的 1:1 关系
+    * SAs peers 共享 interface
+  * 同时支持 IPv4 IPv6
+  * 支持包括通道的其他模式
+  * XFRM interface ID 配置
+    * 避免 GRP key 和 XFRM mark 配置
+
+* 参考
+  * [RouteBasedVPN](https://wiki.strongswan.org/projects/strongswan/wiki/RouteBasedVPN)
+
 # VPN vs Mesh Network
 * VPN
   * 通常指传统 VPN - 例如 OpenVPN, IPSec

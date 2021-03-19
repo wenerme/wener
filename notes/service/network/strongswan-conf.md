@@ -1,8 +1,99 @@
+---
+title: strongSwan 配置
+---
+
 # strongSwan 配置
 * [ConfigurationFiles](https://wiki.strongswan.org/projects/strongswan/wiki/ConfigurationFiles)
 
-### ipsec.conf
+## strongswan.conf
+* [strongswan.conf](https://wiki.strongswan.org/projects/strongswan/wiki/StrongswanConf)
+
+Daemon 配置, 默认是 stroke 插件, starter 启动 ipsec.conf
+
+* ${sysconfdir} - ${prefix}/etc
+* ${piddir} - /var/run
+
+__基础配置__
+```
+charon {
+    load_modular = yes
+    plugins {
+        include strongswan.d/charon/*.conf
+    }
+}
+
+include strongswan.d/*.conf
+```
+
+### strongswan.d
+* charon/ - 插件配置目录
+* charon-logging.conf
+* charon.conf
+* pki.conf
+* pool.conf
+* scepclient.conf
+* starter.conf
+* swanctl.conf
+
+## swanctl.conf
+* [swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Swanctlconf)
+* /etc/swanctl/swanctl.conf
+
+```
+connections {
+  connection-name {
+    # 0 - 响应 IKEv1, IKEv2; 使用 IKEv2
+    # 1 - IKEv1/ISAKMP
+    # 2 - IKEv2
+    version=0
+
+    # XFRM
+    if_id_in=0
+    if_id_out=0
+
+    # ipsec left
+    # 添加后缀指定多个 local-2, local-3
+    local {
+    }
+    # ipsec right
+    remote {
+    }
+    children {
+      child-name {
+      }
+    }
+  }
+}
+# 虚拟地址
+# ipsec rightsourceip, rightdns
+pools {
+}
+# 类似 ipsec.secrets
+secrets {
+}
+# ipsec.conf ca
+authorities {
+}
+```
+
+* `connections.<conn>.remote<suffix>.auth`
+* `connections.<conn>.children.<child>.local_ts`
+
+```bash
+# connections
+swanctl --load-conns
+# pools
+swanctl --load-pools
+# secrets
+swanctl --load-creds
+# authorities
+swanctl --load-authorities
+```
+
+## ipsec.conf
 * [IKEv2 Cipher Suites](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites)
+* [ipsec.conf](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf)
+* /etc/ipsec.conf
 
 ```ini
 # 通用配置
@@ -202,3 +293,15 @@ auto=start
 ```
 
 > 参考 https://serverfault.com/a/970035/190601
+
+## ipsec.conf to swanctl.conf
+* [Migration from ipsec.conf to swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Fromipsecconf)
+  * [Thermi/ipsec2swanctl](https://gitlab.com/Thermi/ipsec2swanctl)
+
+```bash
+curl -LO https://gitlab.com/Thermi/ipsec2swanctl/-/raw/master/ipsec2swanctl.py
+
+python3 ipsec2swanctl.py --ipsecconf /etc/ipsec.conf -o swanctl.conf -d -w
+
+swanctl --load-conns --file swanctl.conf
+```

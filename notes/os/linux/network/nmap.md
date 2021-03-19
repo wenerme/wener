@@ -1,5 +1,4 @@
 ---
-id: nmap
 title: NMap
 ---
 

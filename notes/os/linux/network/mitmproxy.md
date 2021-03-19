@@ -1,5 +1,4 @@
 ---
-id: mitmproxy
 title: MitmProxy
 ---
 
