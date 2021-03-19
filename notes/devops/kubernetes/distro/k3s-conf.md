@@ -4,13 +4,38 @@ title: K3S 配置
 
 # K3S 配置
 * 自 v1.19 支持 yaml 配置
-* server
-  * /etc/rancher/k3s/config.yaml - K3S_CONFIG_FILE, --config, -c
-    * yaml 配置
-    * 参数基本与命令行参数一致
-  * /etc/rancher/k3s/k3s.yaml - KUBECONFIG
+* /etc/rancher/k3s/config.yaml - K3S_CONFIG_FILE, --config, -c
+  * yaml 配置
+  * 参数基本与命令行参数一致
+* /etc/rancher/k3s/k3s.yaml - KUBECONFIG
+* /etc/rancher/k3s/registries.yaml - 容器镜像仓库配置
 
-## server
+## registries.yaml
+
+```yaml
+mirrors:
+  # 针对 docker.io 的镜像仓库
+  docker.io:
+    endpoint:
+      - https://fogjl973.mirror.aliyuncs.com
+      - https://8x40wsit.mirror.aliyuncs.com
+      - https://docker.mirrors.ustc.edu.cn
+      - https://registry-1.docker.io
+# 私有仓库还需要配置认证信息
+# configs:
+#   # 添加授权和证书
+#   "mycustomreg:5000":
+#     auth:
+#       username: xxxxxx
+#       password: xxxxxx
+#     tls:
+#       cert_file:
+#       key_file:
+#       ca_file:
+```
+
+## config.yaml
+### server
 
 ```yaml
 # 数据库配置
@@ -85,7 +110,7 @@ server:
 secrets-encryption: false
 ```
 
-## agent
+### agent
 * [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
 
 ```yaml

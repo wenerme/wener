@@ -6,8 +6,9 @@ title: Go 模板
 # Go Template
 
 ## Tips
-* [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
-* [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
+
+- [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
+- [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
 
 ## 语法
 
@@ -28,17 +29,20 @@ title: Go 模板
 | `print (.F1 arg1) (.F2 arg2) (.StructValuedMethod "arg").Field` | 可以括号、对象可以通过 `.` 访问、可以直接调用函数                    |
 
 ## 内建函数
-* 逻辑 and、or、not
-* 比较 eq、ne、lt、le、gt、ge
-* 输出 print、printf、println
-* call
-* html
-* index - 索引访问 - map、slice、array
-* slice - 切分第一个参数
-  * `slice x 1 2` -> `x[1:2]`
-* js - 返回转意后的 JS
-* len - 返回长度
-* urlquery - URL 编码
+
+- 逻辑 and、or、not
+- 比较 eq、ne、lt、le、gt、ge
+- 输出 print、printf、println
+- call
+- html - HTMLEscaper
+- index - 索引访问 - map、slice、array
+- slice - 切分第一个参数
+  - `slice x 1 2` -> `x[1:2]`
+- js - JSEscaper - 返回转义后的 JS
+- len - 返回长度
+- urlquery - URLQueryEscaper - URL 编码
+- print, printf, println
 
 ## sprig
-* Go [Playground](https://play.golang.org/p/bbQDtcGKWFf)
+
+- Go [Playground](https://play.golang.org/p/bbQDtcGKWFf)

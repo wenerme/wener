@@ -97,6 +97,22 @@ title: Go Awesome
       * 聊天产品、实时通知、消息集成、事件驱动
       * 类似于 Kafka，但是是面向 C 端产品
 
+## 代码生成
+* [cmd/stringer/stringer.go](https://github.com/golang/tools/blob/master/cmd/stringer/stringer.go)
+  * 为 int 枚举生成 String 方法
+  * `//go:generate stringer -type=Pill`
+  * `-type`
+  * `-output`
+  * `-trimprefix`
+  * `-tags`
+  * `-linecomment` - String 返回 Comment 内容
+* [google/addlicense](https://github.com/google/addlicense)
+  * 添加 License
+  * `//go:generate go run github.com/google/addlicense -c Wener -y 2019-present ./`
+* 功能性
+  * [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
+  * [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
+
 ## JSON
 * [json-iterator/go](https://github.com/json-iterator/go)
   * 替代 `encoding/json`
@@ -271,7 +287,17 @@ func TestPreloadOnly(t *testing.T){
   * 基于生成的 GraphQL 引擎
   * Schema first - 需要 DSL 定义 GraphQL Schema
   * 类型安全
+  * 支持 Plugin - 修改配置, 生成代码
 * [gqlgen vs gophers vs graphql-go vs thunder](https://gqlgen.com/feature-comparison/)
+
+:::caution
+
+* embeded 相同 struct 需要重复写 resolver
+  * [99designs/gqlgen#592](https://github.com/99designs/gqlgen/issues/592) - resolve 逻辑不能定义在 interface 上
+  * [99designs/gqlgen#626](https://github.com/99designs/gqlgen/issues/626) - 生成类型不支持 embedded
+* enum 不支持 int - [99designs/gqlgen#366](https://github.com/99designs/gqlgen/issues/366)
+
+:::
 
 ## entgo
 * 基于代码生成的数据库引擎
@@ -301,5 +327,6 @@ func TestPreloadOnly(t *testing.T){
 * 关联关系不支持自定义属性
 * 不支持级联删除 - [ent/ent#407](https://github.com/ent/ent/issues/407)
 * 目前 GoType 要求为 struct 或可映射类型
+* 不支持多态 - [#1048](https://github.com/ent/ent/issues/1048)
 
 :::

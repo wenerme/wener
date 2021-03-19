@@ -231,9 +231,9 @@ sudo mount --make-rshared /
 
 可能是由于挂载的时候进行扩容导致，如果一直不恢复，尝试 detache
 
-## The volume <volume> share should be available before the mount
+## The volume `volume` share should be available before the mount
 
-## Volume <volume> hasn't been attached yet
+## Volume `volume` hasn't been attached yet
 
 ## snapshot vs backup
 * snapshot

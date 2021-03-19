@@ -3,7 +3,9 @@ id: qemu-qmp
 title: QEMU QMP
 ---
 
-# QEMU QEMU Machine Protocol
+# QEMU QMP
+
+> QMP - QEMU Machine Protocol
 
 ## Tips
 

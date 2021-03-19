@@ -5,6 +5,26 @@ title: 认证授权常见问题
 
 # 认证授权常见问题
 
+## OIDC vs OAuth
+* OIDC - OpenID Connect
+  * 标准化了使用 OAuth 2.0 认证的逻辑
+  * 有被 授权/用户/subject 对象
+  * 有 subject 的基础属性
+    * profile, emial, 唯一标识符, group
+  * 有 subject 授权上下文
+    * issuer, 时间
+* OAuth 2.0
+  * 不是认证协议
+  * 主要在于 代理/委托/delegated 访问资源
+  * 没有被授权对象/用户 概念
+  * 适用于客户端场景
+* [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
+
+## Authentication vs Authorization
+* Authentication
+  * 当前用户是不是它所代表的用户
+    * 例如 一个声称 admin 的 token 是不是代表的实际的 admin
+
 ## Proxy Auth vs Forward Auth
 * Proxy - 代理授权
   * 拦截所有请求

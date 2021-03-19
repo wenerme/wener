@@ -1,9 +1,4 @@
----
-id: software
-title: 软件
----
-
-# VoIP 软件
+# VoIP Awesome
 
 * 参考
   * [比较 VoIP 软件](https://en.wikipedia.org/wiki/Comparison_of_VoIP_software)
@@ -13,7 +8,6 @@ title: 软件
 ## 客户端
 
 ## 服务端
-
 * PBX/IVR
   * Asterisk
   * Elastix
@@ -31,3 +25,7 @@ title: 软件
 * [FusionPBX](https://www.fusionpbx.com/)
 * [BlueBox](https://wiki.gentoo.org/wiki/BlueBox)
   * GUI for FreeSWITCH and Asterisk
+
+## 其他
+* [sipcapture](https://github.com/sipcapture)
+  * homer - SIP / VoIP Packet Capture & Monitoring

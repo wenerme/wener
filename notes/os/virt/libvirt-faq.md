@@ -96,6 +96,20 @@ virsh net-update --config --live default add ip-dhcp-host \
   "<host mac='52:54:00:01:02:03' name='xyz.example.com' ip='192.168.122.25'/>"
 ```
 
+## 磁盘空间扩容
+
+```bash
+virsh blockresize DOMAIN FULL_DISK_PATH 1000G
+
+# 使用 QEMU 方式
+# 当前 vm Disk 信息
+# 注意 alias - 例如 virtio-disk0
+virsh dumpxml test | xpath -e /domain/devices/disk
+
+# drive-<alias> 即为实际 disk
+virsh qemu-monitor-command test block_resize drive-virtio-disk0 100G --hmp
+```
+
 ## Refusing to undefine while domain managed save image exists
 
 ```bash
