@@ -146,3 +146,16 @@ keywords:
 - 连接地域上分离的两个网络
 - 例如
   - 开发人员 -VPN-> Site to Site VPN --> 阿里云内网
+
+## L2TP vs IPSec vs L2TP/IPSec
+* L2TP - Layer 2 Tunneling Protocol - 2层通道协议
+  * 工作在 2 层
+  * 没有认证和加密
+* IPSec
+  * 工作在 3 层 - IP 层
+  * 提供认证和加密
+* L2TP over IPSec
+  * IPSec 提供认证和加密通道
+  * L2TP 提供网络
+  * IP 包之上添加 L2TP 包头
+

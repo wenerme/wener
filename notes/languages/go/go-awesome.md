@@ -313,6 +313,13 @@ func TestPreloadOnly(t *testing.T){
   * Enum
   * UUID
   * Other - 自定义 DB 类型和 Go 类型
+* 支持全局唯一 ID - int 类型
+  * migrate.WithGlobalUniqueID
+  * ID 前面部分为 Table 索引
+  * ent_types 表维护 表名->索引 关系
+  * 因此一个 ID 能获取到类型信息
+  * graphql Node ID 需要该能力
+  * github gql 使用 String ID - 格式为 base64 `04:User583231`
 
 :::tip
 

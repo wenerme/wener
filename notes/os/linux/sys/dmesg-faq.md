@@ -243,7 +243,6 @@ EXT4-fs (sdc): I/O error while writing superblock
 
 ## EDAC sbridge: Failed to register device with error -19.
 
-
 ### The NVM Checksum Is Not Valid
 ```
 e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
@@ -303,4 +302,14 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 [    0.169202] Good, all   2 testcases passed! |
 [    0.169202] ---------------------------------
 [    0.169202] smpboot: Total of 8 processors activated (39924.80 BogoMIPS)
+```
+
+
+```
+Buffer I/O error on dev sdb, logical block 2655236, lost sync page write
+JBD2: Error -5 detected when updating journal superblock for sdb-8.
+Aborting journal on device sdb-8.
+Buffer I/O error on dev sdb, logical block 2655236, lost sync page write
+JBD2: Error -5 detected when updating journal superblock for sdb-8.
+sd 3:0:0:1: [sdc] Synchronizing SCSI cache
 ```

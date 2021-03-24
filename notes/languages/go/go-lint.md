@@ -26,5 +26,7 @@ gosec -conf gosec.conf.json ./...
 ```
 
 ```bash
+curl -LO https://github.com/golangci/golangci-lint/releases/download/v1.38.0/golangci-lint-1.38.0-darwin-amd64.tar.gz
+
 curl -LO https://github.com/golangci/golangci-lint/releases/download/v1.32.2/golangci-lint-1.32.2-linux-amd64.tar.gz
 ```

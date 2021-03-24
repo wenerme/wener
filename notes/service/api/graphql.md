@@ -231,3 +231,12 @@ type Exchange = ExchangeInput => ExchangeIO;
 
 # relay
 * [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)
+* [Pagination](https://graphql.org/learn/pagination/)
+
+## global id
+* https://docs.github.com/cn/graphql/guides/using-global-node-ids
+  * github ID 格式 - `04:User583231`
+  * [New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql/)
+* 支持用于接口处理 - `labelableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Labelable")`
+* [Global Object Identification](https://graphql.org/learn/global-object-identification/)
+* [graphile/global-ids](https://github.com/graphile/global-ids)
