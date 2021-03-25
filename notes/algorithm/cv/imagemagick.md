@@ -33,4 +33,13 @@ convert a.png b.png -append full.png
 convert -resize ${resize}x${resize} -unsharp 1x4
 
 mogrify -resize 16x12 -quality 100 -path ../new-thumbs *.jpg
+
+# 合并 PDF
+convert -density 150 *.pdf output.pdf
+convert -density 600 file1.pdf file2.pdf -resize 50% new.pdf
+
+# ghostscript
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=temp.pdf pdf1.pdf pdf2.pdf
+# PDF Toolkit
+pdftk pdf1.pdf pdf2.pdf cat output temp.pdf
 ```

@@ -251,3 +251,28 @@ GatewayPorts yes
 ```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
 ```
+
+### no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
+__~/.ssh/config__
+
+```
+KexAlgorithms +diffie-hellman-group1-sha1
+```
+
+### no matching cipher found. Their offer: aes128-cbc,3des-cbc,aes256-cbc,twofish256-cbc,twofish-cbc,twofish128-cbc,blowfish-cbc
+服务端提供的 cipher 客户端不支持
+
+#### 修改客户端支持 cipher
+```
+Host gitlab.com
+     Ciphers aes256-ctc
+```
+
+#### 修改服务端 cipher
+__/etc/ssh/ssh_config__
+
+添加 cipher
+
+```
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+```
