@@ -10,6 +10,13 @@ title: 电信术语
   - GSM over IP
   - SIM -> SIP 语音网关
 - VoLTE - Voice over Long-Term Evolution
+- UMTS - Universal Mobile Telecommunications System - 通用移动通讯系统
+  - 3G
+- Gobinet & QMI-WWAN - 高通 4G 解决方案
+  - GobiNet 内核外模块
+  - Linux 3.4 添加 QMI-WWAN - 功能少于 GobiNet，可由用户空间应用补齐
+    - ofono, uqmi, libqmi
+  - [GobiNet vs libqmi](https://wiki.postmarketos.org/wiki/QMI#GobiNet_vs_libqmi)
 
 ## 卡池 - Card Pool
 

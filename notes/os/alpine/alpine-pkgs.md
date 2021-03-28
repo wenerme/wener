@@ -8,7 +8,8 @@ title: Alpine 包维护
 * https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
 * [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
 * [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
-* 镜像状态 - https://mirrors.alpinelinux.org/status.json
+* 镜像状态 https://mirrors.alpinelinux.org/status.json
+* 镜像列表 http://nl.alpinelinux.org/alpine/MIRRORS.txt
 * Golang
   * https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
 * aports [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)

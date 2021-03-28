@@ -197,37 +197,6 @@ GraphQL & gRPC
       * Suspense - apollo 不支持 - [#162](https://github.com/apollographql/apollo-feature-requests/issues/162)
   * [GraphQL Concepts Visualized](https://www.apollographql.com/blog/bc68bd819be3/)
 
-# urql
-* 优势
-  * 支持泛化缓存
-  * Schema 感知
-    * 开启后支持部分结果返回 - 请求的字段未被缓存但是是 nullable 则先返回 - 因为不影响语义
-    * 页面切换数据显示更顺畅
-  * stale 查询 - @urql/exchange-request-policy
-* vs Apollo
-  * 缓存为可选组件
-* 请求策略
-  * cache-first - 默认
-    * 默认返回 cache 结果，不存在则请求
-  * cache-and-network
-    * 返回 cache 结果，也请求更新
-  * network-only
-    * 忽略缓存
-  * cache-only
-    * 返回缓存或者 null
-* exchange - 扩展点 - 默认 dedupExchange, cacheExchange, fetchExchange
-  * 类似 apollo 的 link - 但更通用
-* 参考
-  * [vs Apollo](https://formidable.com/open-source/urql/docs/comparison/)
-    * 更小更灵活
-    * 支持提供 schema 实现更多功能
-    * 支持 offline
-    * 支持 window focus 触发请求
-
-```ts
-type ExchangeIO = (Source<Operation>) => Source<OperationResult>;
-type Exchange = ExchangeInput => ExchangeIO;
-```
 
 # relay
 * [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)

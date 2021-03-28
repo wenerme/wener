@@ -1,5 +1,4 @@
 ---
-id: glossory
 title: Asterisk 词汇
 ---
 

@@ -1,3 +1,7 @@
+---
+title: Avahi
+---
+
 # Avahi
 
 ## Tips
