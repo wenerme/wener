@@ -17,3 +17,6 @@ title: Windows FAQ
 
 # DC vs. AD - Domain Controllers vs. Active Directory
 * DC 提供 AD 服务
+
+# Extending Shortcut Menus
+https://docs.microsoft.com/en-us/windows/win32/shell/context

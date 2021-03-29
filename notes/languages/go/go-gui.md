@@ -21,6 +21,7 @@ title: Go 图形界面
     * 依赖 DLL
       * [#366](https://github.com/webview/webview/issues/366) - Embed DLLs?
   * [asticode/go-astilectron](https://github.com/asticode/go-astilectron) - 基于 Electron
+    * Go binding [asticode/astilectron](https://github.com/asticode/astilectron) - Electron API over TCP
   * [sciter-sdk/go-sciter](https://github.com/sciter-sdk/go-sciter)
     * 嵌入式 HTML/CSS/Script 引擎 - 不依赖浏览器
     * 目前只允许动态链接 - 8-15 MB
@@ -41,10 +42,11 @@ title: Go 图形界面
   * https://golangr.com/gui/
 * 结论
   1. fyne - 如果限制能满足
-  1. libui - 如果不需要基于 web 的界面
-  2. 打开 本地浏览器 - 使用 tray
-  3. 集成 sciter 浏览器
-  4. walk - 如果只需支持 windows 且界面简单
+  2. libui - 如果不需要基于 web 的界面
+  3. 打开 本地浏览器 - 使用 tray
+  4. sciter - 集成浏览器，基础 web 功能
+  5. walk - 如果只需支持 windows 且界面简单
+  6. go-astilectron - 完整 web 功能 + 扩展
 * 注意
   * macOS 要求在主线程操作 GUI - 多个 UI 库无法同时使用
 

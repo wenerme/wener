@@ -461,12 +461,13 @@ reg05: base=0x03c800000 (  968MB), size=    4MB, count=1: uncachable
 ```
 
 **/proc/mounts**
-| dev | size | path | fs |
+
+| dev            | size   | path     | fs       |
 | -------------- | ------ | -------- | -------- |
-| /dev/mmcblk0p6 | 487.9M | /etc/cfg | ext4 |
-| /dev/mmcblk0p7 | 487.9M | /data | ext4 |
-| /dev/mmcblk0p2 | 92.8M | /boot | ext4 |
-| /dev/mmcblk0p4 | 28.9M | /gateway | squashfs |
+| /dev/mmcblk0p6 | 487.9M | /etc/cfg | ext4     |
+| /dev/mmcblk0p7 | 487.9M | /data    | ext4     |
+| /dev/mmcblk0p2 | 92.8M  | /boot    | ext4     |
+| /dev/mmcblk0p4 | 28.9M  | /gateway | squashfs |
 
 **modules**
 
@@ -493,7 +494,6 @@ reg05: base=0x03c800000 (  968MB), size=    4MB, count=1: uncachable
 - /webservice -> /gateway/webservice
 - /version -> /gateway/version
 - /www -> /gateway/www
-- /gateway - 完整网关系统
 - /conf
 - /data
   - log/
@@ -501,7 +501,7 @@ reg05: base=0x03c800000 (  968MB), size=    4MB, count=1: uncachable
     - smsinbox.db
     - smsoutbox.db
 - /etc
-  - cfg/ - Asteris 配置
+  - cfg/ - Asteris 配置 - 独立挂载 - 可备份
     - gw/ - 网关配置
       - n2n/ - 2 层 Mesh 组网
       - sim840w.conf - SIM 模块配置 - AT 命令之类
@@ -519,6 +519,9 @@ reg05: base=0x03c800000 (  968MB), size=    4MB, count=1: uncachable
 - /usr/sbin/cloudMain
 - /usr/sbin/cloudExternal
 - /usr/sbin/cloudNat
+- /gateway - 完整网关系统 - 独立挂载
+  - www/ - PHP 网站
+  - my_tools/ - 工具集
 
 ## Asterisk
 

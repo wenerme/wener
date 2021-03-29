@@ -8,7 +8,9 @@ title: VoIP Awesome
   * [比较 VoIP 软件](https://en.wikipedia.org/wiki/Comparison_of_VoIP_software)
   * [SIP 软件列表](https://en.wikipedia.org/wiki/List_of_SIP_software)
   * [视频通讯服务和产品列表](https://en.wikipedia.org/wiki/List_of_video_telecommunication_services_and_product_brands)
-
+  * https://awesome-tech.readthedocs.io/voip/
+  * [rtckit/awesome-rtc](https://github.com/rtckit/awesome-rtc)
+  * [QXIP/awesome-voip-rtc](https://github.com/QXIP/awesome-voip-rtc)
 
 * [sipwise/rtpengine](https://github.com/sipwise/rtpengine) - RTP Proxy
   * 包含 Linux 内核模块

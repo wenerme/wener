@@ -6,6 +6,17 @@ title: strongSwan FAQ
 
 ## no IDi configured, fall back on IP address
 
+## ipsec.conf 自动重连
+
+```ini
+# 启动自动启动
+auto=start
+
+dpdaction=restart
+closeaction=restart
+keyingtries=%forever
+```
+
 ## peer didn't accept DH group ECP_256, it requested MODP_2048
 
 注意选择 cipher suit, 如果服务端不支持则会出现该异常

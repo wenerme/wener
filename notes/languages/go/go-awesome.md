@@ -6,8 +6,12 @@ title: Go Awesome
 
 * ORM
   * [go-gorm/gorm](https://github.com/go-gorm/gorm) - ⭐️
+    * 基于反射
     * 目前 Go 里实现最为优美的 ORM
     * XORM 被 gogs 和 gitea 使用，是 gogs 原作者开发 - 但认为比不上 gorm
+  * [ent/ent](https://github.com/ent/ent) - ⭐️
+    * 基于代码生成
+    * Meta信息完善，更适合复杂业务逻辑
 * 命令行
   * [spf13/cobra](https://github.com/spf13/cobra) - ⭐️
     * 目前使用最多
@@ -34,6 +38,9 @@ title: Go Awesome
       * rwc - Read, Write, Create
     * cache shared, private - https://www.sqlite.org/sharedcache.html
     * _foreign_keys/_fk - `PRAGMA foreign_keys` - 外键约束
+
+## 数据库迁移
+* [golang-migrate/migrate](github.com/golang-migrate/migrate)
 
 ## Web
 
@@ -166,6 +173,15 @@ title: Go Awesome
   * [microcosm-cc/bluemonday](https://github.com/microcosm-cc/bluemonday)
     * html sanitizer
 
+## 认证授权/Auth
+* [dexidp/dex](https://github.com/dexidp/dex) - OIDC, IdP
+* [ory](https://github.com/ory)
+  * hydra - OIDC, IdP
+  * kratos - 用户注册管理
+  * oathkeeper - 访问代理 - 注入授权信息
+  * keto - 访问控制服务
+  * fosite - Golang OAuth2 框架
+
 ## 语言
 * [rogchap/v8go](https://github.com/rogchap/v8go)
   * 内含预编译的静态 libv8
@@ -176,86 +192,9 @@ title: Go Awesome
 * [fogleman/primitive](https://github.com/fogleman/primitive)
   * 将图像转换为原子图形
 
-# Inside
-
-## graphql-go/graphql
-* [graphql-go/graphql](https://github.com/graphql-go/graphql)
-* Golang GraphQL - 包含解析和执行
-* 构建过程和执行过程可以使用 thunk 模式 - 返回函数，用到的时候再执行
-* 因为存在循环依赖，延迟执行也能进行其他优化
-* resolve - `func(p ResolveParams) (interface{}, error)`
-  * DefaultResolveFn - field 默认 resolve
-    * 支持 map 和 struct - 不支持 Embed struct
-    * 字段比较忽略大小写
-  * source 也可以实现 FieldResolver - 这样可以交由返回结果判断如何 resolve
-  * 执行过程
-    * 收集字段
-    * 执行字段
-    * resolve 字段
-    * 计算值 - 处理 promise、序列化 scalars、执行下级字段
-      * thunk 延迟
-      * null 检查
-      * list 展开
-      * union 和 interface 实际类型检测
-      * object 展开 - 向下求值
-* 扩展
-  * `ParseDidStart(context.Context) (context.Context, ParseFinishFunc)`
-  * `ValidationDidStart(context.Context) (context.Context, ValidationFinishFunc)`
-  * `ExecutionDidStart(context.Context) (context.Context, ExecutionFinishFunc)`
-  * `ResolveFieldDidStart(context.Context, *ResolveInfo) (context.Context, ResolveFieldFinishFunc)`
-
-## 99designs/gqlgen
-* [99designs/gqlgen](https://github.com/99designs/gqlgen)
-  * 基于生成的 GraphQL 引擎
-  * Schema first - 需要 DSL 定义 GraphQL Schema
-  * 类型安全
-  * 支持 Plugin - 修改配置, 生成代码
-* [gqlgen vs gophers vs graphql-go vs thunder](https://gqlgen.com/feature-comparison/)
-
-:::caution
-
-* embeded 相同 struct 需要重复写 resolver
-  * [99designs/gqlgen#592](https://github.com/99designs/gqlgen/issues/592) - resolve 逻辑不能定义在 interface 上
-  * [99designs/gqlgen#626](https://github.com/99designs/gqlgen/issues/626) - 生成类型不支持 embedded
-* enum 不支持 int - [99designs/gqlgen#366](https://github.com/99designs/gqlgen/issues/366)
-
-:::
-
-## entgo
-* 基于代码生成的数据库引擎
-  * 支持 MySQL, MariaDB, PostgreSQL, SQLite, Gremlin
-* 项目源自 facebook
-* 支持的类型
-  * 所有 golang 数字类型
-  * bool
-  * string
-  * time.Time
-  * []byte
-  * JSON
-  * Enum
-  * UUID
-  * Other - 自定义 DB 类型和 Go 类型
-* 支持全局唯一 ID - int 类型
-  * migrate.WithGlobalUniqueID
-  * ID 前面部分为 Table 索引
-  * ent_types 表维护 表名->索引 关系
-  * 因此一个 ID 能获取到类型信息
-  * graphql Node ID 需要该能力
-  * github gql 使用 String ID - 格式为 base64 `04:User583231`
-
-:::tip
-
-* 内建 id 字段 - 可覆盖
-
-:::
-
-:::caution
-
-* 不支持 upsert - [ent/ent#139](https://github.com/ent/ent/issues/139)
-* 不支持 软删除 - [ent/ent#252](https://github.com/ent/ent/issues/252)
-* 关联关系不支持自定义属性
-* 不支持级联删除 - [ent/ent#407](https://github.com/ent/ent/issues/407)
-* 目前 GoType 要求为 struct 或可映射类型
-* 不支持多态 - [#1048](https://github.com/ent/ent/issues/1048)
-
-:::
+## 控制理论 / Control theory
+* [Reactive planning and reconciliation in Go](https://gianarb.it/blog/reactive-planning-and-reconciliation-in-go)
+* [spotahome/gontroller](https://github.com/spotahome/gontroller)
+  * [Gontroller: a Go library to create reliable feedback loop controllers](https://product.spotahome.com/832d4a9522ea)
+* [gianarb/planner](https://github.com/gianarb/planner)
+* [konimarti/lti](https://github.com/konimarti/lti)

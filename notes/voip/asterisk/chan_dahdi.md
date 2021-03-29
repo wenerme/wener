@@ -6,10 +6,11 @@ title: DAHDi Channel
 # DAHDi
 
 ## Tips
-* [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
-  * [dahdi/linux](http://git.asterisk.org/gitweb/?p=dahdi/linux.git)
-* [asterisk/libpri](https://github.com/asterisk/libpri)
-  * [libpri](http://git.asterisk.org/gitweb/?p=libpri.git)
+
+- [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
+  - [dahdi/linux](http://git.asterisk.org/gitweb/?p=dahdi/linux.git)
+- [asterisk/libpri](https://github.com/asterisk/libpri)
+  - [libpri](http://git.asterisk.org/gitweb/?p=libpri.git)
 
 ```bash
 apk add dahdi-linux-lts
@@ -52,9 +53,23 @@ asterisk -rx "dahdi show version"
 asterisk -rx "pri show version"
 ```
 
-* modprobe dahdi
-* modprobe wctdm
-* /sys/bus/dahdi_devices
-* dahdi -> crc_ccitt
-* oct612x -> dahdi
-* wct4xxp -> oct612x,dahdi
+- modprobe dahdi
+- modprobe wctdm
+- /sys/bus/dahdi_devices
+- dahdi -> crc_ccitt
+- oct612x -> dahdi
+- wct4xxp -> oct612x,dahdi
+
+| cli                                   | desc                                        |
+| ------------------------------------- | ------------------------------------------- |
+| dahdi create channels                 | 创建通道                                    |
+| dahdi destroy channels                | 删除通道                                    |
+| dahdi restart                         | 完全重启通道                                |
+| dahdi set dnd                         | 设置/重置通道 勿扰模式 DND (Do Not Disturb) |
+| `dahdi set hwgain {rx|tx}`            | Set hardware gain on a channel              |
+| `dahdi set swgain {rx|tx}`            | Set software gain on a channel              |
+| dahdi show cadences                   | List cadences                               |
+| `dahdi show channels [group|context]` | Show active DAHDI channels                  |
+| dahdi show channel                    | 通道信息                                    |
+| dahdi show status                     | 所有 DAHDI 卡状态                           |
+| dahdi show version                    | DAHDI 版本                                  |
