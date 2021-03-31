@@ -1,18 +1,15 @@
 ---
-id: bonding
 title: Bonding
 ---
 
 # Bonding
-
-## Tips
-
 
 ## Link aggregation
 * [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation) - LACP
 * Linux [bonding](https://wiki.linuxfoundation.org/networking/bonding)
 * kernel doc [bonding.txt](https://www.kernel.org/doc/Documentation/networking/bonding.txt)
 * http://www.linux-kvm.org/page/HOWTO_BONDING
+* [RHEL7 Using Channel Bonding](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-using_channel_bonding)
 
 
 * [Bonding Modes](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html/Installation_Guide/Bonding_Modes.html)
@@ -89,6 +86,10 @@ ifenslave bond0 eth0 eth1 eth2
 ifenslave -d bond0 eth1
 # 连接
 ifenslave -c bond0 eth1
+
+cat /sys/class/net/bonding_masters
+# 修改配置
+echo balance-rr > /sys/class/net/bond0/bonding/mode
 ```
 
 
@@ -213,7 +214,7 @@ iface wlan0 inet manual
     bond-master bond0
     bond-mode active-backup
     bond-miimon 100 # checks link status every 100 msec
-    bond-give-a-chance 10 # when wlan comes up wait up to 10 seconds for it to 
+    bond-give-a-chance 10 # when wlan comes up wait up to 10 seconds for it to
 
 allow-hotplug bond0
 iface bond0 inet static
@@ -345,4 +346,24 @@ iface bond0 inet static
 ├── tx_queue_len
 ├── type
 └── uevent
+```
+
+
+# FAQ
+
+## write error: Directory not empty
+bond 为 down 且无 slave 时才能修改
+
+```
+bond0: option mode: unable to set because the bond device has slaves
+```
+
+## bond0: (slave eth1): invalid new link 3 on slave
+* 5.10.26 Linux kernel error
+  * https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-rolling-lts&id=9392b8219b62b0536df25c9de82b33f8a00881ef
+
+## the permanent HWaddr of slave - < mac > - is still in use by bond - set the HWaddr of slave to a different address to avoid conflicts
+
+```bash
+ifconfig | grep HWaddr
 ```

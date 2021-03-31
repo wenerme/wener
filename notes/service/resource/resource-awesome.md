@@ -24,6 +24,9 @@ title: 资源站
 * [yyets.dmesg.app](https://yyets.dmesg.app/)
   * https://yyets.dmesg.app/data/yyets_mongo.gz
 
+## share
+* [reruin/sharelist](https://github.com/reruin/sharelist)
+
 # FAQ
 
 ```bash

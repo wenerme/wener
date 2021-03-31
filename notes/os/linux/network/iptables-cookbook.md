@@ -47,3 +47,10 @@ ip ro add default dev ipsec0 src $VIP
   * AH protocol cannot be masqueraded
   * transport-mode ESP also cannot be reliably masqueraded
 * [NAT#IPsec](https://en.wikipedia.org/wiki/NAT_traversal#IPsec)
+
+
+## stun/turn
+* https://askubuntu.com/a/1044171/267103
+
+```bash
+```

@@ -121,3 +121,29 @@ GODEBUG=x509ignoreCN=0
 
 ## k3s etcd 备份
 * 默认快照目录 /server/db/snapshots
+
+## 迁移 k3s data-dir
+
+> data-dir 包含 etc, local-path StorageClass, longhorn 存储 - 影响性能
+
+```bash
+service k3s stop
+# 如果没有 k3s-killal 可以考虑关闭 k3s 开机自动启动然后重启
+k3s-killall
+
+mkdir -p /data/k3s
+rsync -aP /var/lib/rancher/k3s/ /data/k3s/
+
+# 修改 data-dir 启动服务
+echo 'data-dir: /data/k3s' >> /etc/rancher/k3s/config.yaml
+service k3s start
+
+# busybox 的 lsof 不支持过滤路径
+apk search lsof
+lsof +D /data/k3s | wc -l
+# 输出 0 则迁移完成
+lsof +D /var/lib/rancher/k3s | wc -l
+
+# 清除
+rm -rf /var/lib/rancher/k3s
+```

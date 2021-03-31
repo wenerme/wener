@@ -1,5 +1,5 @@
 ---
-id: asterisk-moduls 
+id: asterisk-moduls
 title: Asterisk Modules
 ---
 
@@ -9,6 +9,74 @@ title: Asterisk Modules
 
 ```bash
 asterisk -x 'module show'
+```
+
+## sip common
+
+```ini
+load => res_adsi.so
+load => res_timing_pthread.so
+;load => res_timing_dahdi.so
+load => res_agi.so
+load => res_crypto.so
+load => res_pktccops.so
+load => res_smdi.so
+load => res_stun_monitor.so
+load => res_rtp_asterisk.so
+load => res_rtp_msp.so
+load => res_curl.so
+load => res_clioriginate.so
+load => pbx_config.so
+load => bridge_multiplexed.so
+load => app_dial.so
+load => app_exec.so
+load => app_system.so
+load => app_macro.so
+load => app_cdr.so
+load => app_chanisavail.so
+load => app_grppolicy.so
+load => app_mixmonitor.so
+load => app_sayunixtime.so
+load => app_originate.so
+load => app_playback.so
+load => app_disa.so
+load => app_authenticate.so
+load => format_wav.so
+load => format_gsm.so
+load => func_math.so
+load => func_cdr.so
+load => func_strings.so
+load => func_channel.so
+load => func_callerid.so
+load => func_timeout.so
+load => func_shell.so
+load => func_rand.so
+load => func_realtime.so
+load => func_dialplan.so
+load => func_curl.so
+load => func_uri.so
+load => func_blacklist.so
+load => func_db.so
+load => func_cut.so
+load => cdr_manager.so
+load => cdr_syslog.so
+load => codec_alaw.so
+load => codec_ulaw.so
+load => codec_adpcm.so
+load => codec_a_mu.so
+load => codec_g722.so
+load => codec_g723.so
+load => codec_g726.so
+load => codec_g729.so
+load => codec_gsm.so
+load => codec_lpc10.so
+;load => codec_c1k.so
+load => chan_extra.so
+load => res_srtp.so
+load => chan_sip.so
+load => chan_iax2.so
+load => res_musiconhold.so
+load => func_env.so
 ```
 
 ## res_statsd

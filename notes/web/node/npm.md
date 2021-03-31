@@ -75,9 +75,6 @@ electron_mirror=http://cdn.npm.taobao.org/dist/electron/
 * `npx -y` 自动安装 - 不询问
 
 ```bash
-# 安装
-npm i -g npm@7
-
 # 只显示顶级依赖
 npm ls
 # 之前行为

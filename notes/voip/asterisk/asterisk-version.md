@@ -14,9 +14,21 @@ title: Asterisk 版本
 - JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
 - [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
 
-## 18 / LTS / 2020-10 - 2024-10
+| Ver | Type     | Release    | EOL        |
+| --- | -------- | ---------- | ---------- |
+| 18  | LTS      | 2020-10-20 | 2024-10-20 |
+| 17  | Standard | 2019-10-28 | 2021-10-28 |
+| 16  | LTS      | 2018-10-09 | 2022-10-09 |
+| 15  | Standard | 2017-10-03 | 2019-10-03 |
+| 14  | Standard | 2016-09-26 | 2018-09-26 |
+| 13  | LTS      | 2014-10-24 | 2020-10-24 |
+| 11  | LTS      | 2012-10-25 | 2017-10-25 |
+| 1.8 | LTS      | 2010-10-21 | 2015-10-21 |
+| 1.4 | LTS      | 2006-12-23 | 2012-04-21 |
 
-- [CHANGES](https://raw.githubusercontent.com/asterisk/asterisk/18/CHANGES)
+## Asterisk 18
+
+- LTS | 2020-10-20 - 2024-10-20
 - logger 新增 plain 格式 - 包含文件名，方法代码行
 - 支持 H.265/HEVC
 - 支持 [AudioSocket](https://wiki.asterisk.org/wiki/display/AST/AudioSocket) 协议
@@ -24,8 +36,9 @@ title: Asterisk 版本
   - 基于 TCP 的音频传输协议 - 适用于局域网实现音频处理 server - 例如 AI
   - [CyCoreSystems/audiosocket](https://github.com/CyCoreSystems/audiosocket)
   - [Audio Pipes : playing with real-time audio with Asterisk](https://www.youtube.com/watch?v=tjduXbZZEgI)
+- [CHANGES](https://raw.githubusercontent.com/asterisk/asterisk/18/CHANGES)
 
-## 17
+## Asterisk 17
 
 ### 新增
 
@@ -47,7 +60,7 @@ title: Asterisk 版本
   - 订阅语音信箱状态事件
 - [Prometheus](https://wiki.asterisk.org/wiki/display/AST/Asterisk+17+Configuration_res_prometheus) exporter
 
-## 16 / LTS / 2018-10-09 - 2022-10-09
+## Asterisk 16
 
 - LTS 版本
 - PG 12 https://github.com/asterisk/asterisk/commit/52ade18420b346449dff40d6bdb071444cf29e2d
@@ -74,7 +87,7 @@ title: Asterisk 版本
 - 16.7
 - 16.6.2
 
-### 15
+## Asterisk 15
 
 - 默认使用 bundled pjproject
 - 支持 RTCP Multiplexing 和 BUNDLE
@@ -86,8 +99,9 @@ title: Asterisk 版本
 - [asterisk/cyber_mega_phone_2k](https://github.com/asterisk/cyber_mega_phone_2k)
   - testing of Asterisk's (15+) multistream capabilities
 
-### 14
+## Asterisk 14
 
+- Standard | 2016-09-26 - 2018-09-26
 - 核心 DNS 支持 - libunbound 支持 PJSIP NAPTR SRV
 - 发布 extension 状态到 SIP 订阅服务器 - 例如 Kamailio
   - 能基于设备状态自动在拨号计划里生成 hint
@@ -122,16 +136,57 @@ title: Asterisk 版本
   - [ASTERISK-25506] - [patch]CONFBRIDGE failure after an app_confbrige.so module reload results in segfault or error/warning messages.
   - [ASTERISK-26606] - tcptls: Incorrect OpenSSL function call leads to misleading error report
 
-## 13 / LTS / 2014-10-24 - 2020-10-24
+## Asterisk 13
 
+- LTS | 2014-10-24 - 2020-10-24
 - REST
 - WebSocket
 - Stasis
 
-## 其他
+## Asterisk 11
 
-| Ver | Type | Release    | EOL        |
-| --- | ---- | ---------- | ---------- |
-| 1.4 | LTS  | 2006-12-23 | 2012-04-21 |
-| 1.8 | LTS  | 2010-10-21 | 2015-10-21 |
-| 11  | LTS  | 2012-10-25 | 2017-10-25 |
+- LTS | 2012-10-25 |- 2017-10-25
+- Call Identifier Logging
+- Named Callgroups and Pickupgroups
+- 基础 WebRTC 支持 - ICE, DTLS-SRTP, SIP over Websockets
+- 支持 ICE - [Interactive Connectivity Establishment (ICE) in Asterisk](https://wiki.asterisk.org/wiki/display/AST/Interactive+Connectivity+Establishment+%28ICE%29+in+Asterisk)
+  - NAT 是 Asterisk 里老大难的问题
+- Named ACLs
+
+**sip.conf**
+
+```ini
+[general]
+icesupport=yes
+```
+
+**rtp.conf**
+
+```ini
+stunaddr=setyourphaserson.stun.org
+
+turnaddr=4everyseason.turn.org
+turnusername=relayme
+turnpassword=please
+```
+
+## Asterisk 1.8
+
+> 很多旧的 VoIP 网关使用该版本 - 且可能永远不会升级
+
+- LTS | 2010-10-21 - 2015-10-21
+- 第二个 LTS 版本 - 大量使用
+- SRTP
+- SIP IPv6
+- Connected Party Identification - COLP and CONP
+- 日历集成 - CalDAV, iCal, Exchange, EWS calendars
+- Channel Event Logging - CEL
+- Distributed Device State - Message Waiting Indicator - Jabber/XMPP PubSub
+- 支持 Call Completion Supplementary Services - CCSS
+  - Call Completion on Busy Subscriber - CCBS
+  - Call Completion on No Response - CCNR
+- Advice of Charge - AOC-S, AOC-D, AOC-E
+- Multicast RTP
+- ISDN Q.SIG Call Rerouting and Call Deflection
+- Google Talk, Google Voice integration
+- Audio Pitch Shifting

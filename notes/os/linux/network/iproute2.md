@@ -30,15 +30,15 @@ title: IPRoute2
 | ss      |
 | tc      |
 
-| Legacy utility | Obsoleted by               | Note                               |
-| -------------- | -------------------------- | ---------------------------------- |
-| ifconfig       | ip addr, ip link, ip -s    | Address and link configuration     |
-| route          | ip route                   | Routing tables                     |
-| arp            | ip neigh                   | Neighbors                          |
-| iptunnel       | ip tunnel                  | Tunnels                            |
-| nameif         | ifrename, ip link set name | Rename network interfaces          |
-| ipmaddr        | ip maddr                   | Multicast                          |
-| netstat        | ip -s, ss, ip route        | Show various networking statistics |
+| Legacy utility | Obsoleted by               | Note           |
+| -------------- | -------------------------- | -------------- |
+| ifconfig       | ip addr, ip link, ip -s    | 地址、链路配置 |
+| route          | ip route                   | 路由表         |
+| arp            | ip neigh                   | Neighbors      |
+| iptunnel       | ip tunnel                  | 通道           |
+| nameif         | ifrename, ip link set name | 网络设备别名   |
+| ipmaddr        | ip maddr                   | Multicast      |
+| netstat        | ip -s, ss, ip route        | 网络统计       |
 
 ## bridge
 
@@ -172,6 +172,12 @@ ip route flush table 11
 ## macvlan
 
 ## FAQ
+
+## 所有 table
+
+```bash
+ip route show table all | egrep -o "table \S+" | sed 's/table\s//' | sort -u
+```
 
 ### Stateless NAT with iproute2
 

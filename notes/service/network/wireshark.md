@@ -43,3 +43,11 @@ not !
 * https://www.wireshark.org/docs/man-pages/sshdump.html
 * Provide interfaces to capture from a remote host through SSH using a remote capture binary.
 * tshark
+
+```bash
+ssh admin@192.168.1.2 tcpdump -U -s0 'not port 22' -i eth0 -w - | wireshark -k -i -
+
+mkfifo /tmp/remote
+wireshark -k -i /tmp/remote
+ssh root@firewall "tcpdump -s 0 -U -n -w - -i eth0 not port 22" > /tmp/remote
+```

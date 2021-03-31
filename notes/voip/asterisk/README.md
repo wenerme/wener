@@ -27,6 +27,9 @@ title: Asterisk
 ```bash
 apk add asterisk asterisk-sample-config
 asterisk -fc
+
+# 方便测试
+apk add asterisk-sounds-en asterisk-sounds-moh
 ```
 
 ## Ports/Firewall

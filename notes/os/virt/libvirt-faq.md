@@ -48,10 +48,10 @@ for m in $VMS ; do
     virsh detach-interface "$m" network --mac "$MAC_ADDR" && sleep 3
     virsh attach-interface "$m" network $NET_NAME --mac "$MAC_ADDR" --model "$NET_MODEL"
     set -e
-
-    $NET_HOOK "$m" stopped && sleep 3
-    $NET_HOOK "$m" start
-
+    [ ! -e $NET_HOOK ] || {
+      $NET_HOOK "$m" stopped && sleep 3
+      $NET_HOOK "$m" start
+    }
 done
 ```
 

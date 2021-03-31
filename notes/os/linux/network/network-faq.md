@@ -90,3 +90,12 @@ title: 网络常见问题
 iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 192.168.8.2
 ```
+
+# Nginx/Haproxy 端口转发 vs IPTables 端口转发
+* IPTables
+  * 性能最好
+  * 不中断
+* Nginx/Haproxy
+  * 应用层功能更强
+
+# ping: sendto: Invalid argument

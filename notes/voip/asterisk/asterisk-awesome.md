@@ -7,6 +7,7 @@ title: Asterisk Awesome
 * [davetroy/astmanproxy](https://github.com/davetroy/astmanproxy) - Asterisk Manager Proxy
 
 ## 学习参考
+* [AsteriskFAQs](https://asteriskfaqs.org/)
 * [Asterisk Audio and Video Capabilities](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Audio+and+Video+Capabilities)
 * [Applications](https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+Dialplan+Applications)
 * [Functions](https://wiki.asterisk.org/wiki/display/AST/Asterisk+14+Dialplan+Functions)

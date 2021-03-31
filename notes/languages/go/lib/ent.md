@@ -32,6 +32,9 @@ title: entgo
   * 因此一个 ID 能获取到类型信息
   * graphql Node ID 需要该能力
   * github gql 使用 String ID - 格式为 base64 `04:User583231`
+* 参考
+  * [Neptune / Gremlin - experience compared to SQL backends](https://github.com/ent/ent/issues/452#issuecomment-619430120)
+    * ent 早期后端为 Gremlin
 
 :::tip
 
@@ -47,6 +50,7 @@ title: entgo
 * 不支持级联删除 - [ent/ent#407](https://github.com/ent/ent/issues/407)
 * 目前 GoType 要求为 struct 或可映射类型
 * 不支持多态 - [#1048](https://github.com/ent/ent/issues/1048)
+* entql 嵌套分页 N+1 问题 - [#1180](https://github.com/ent/ent/issues/1180)
 
 :::
 

@@ -42,7 +42,7 @@ core show threads
 core show calls uptime
 # 查看通道信息
 core show channels
-# 终止一个 channel 
+# 终止一个 channel
 channel request hangup SIP/4003-00000a2f
 
 # 查看注册的 PBX 交换
@@ -59,6 +59,50 @@ pjsip set logger on
 ## 终端问题排查
 * 确保 context 正确
 * 尝试关闭 ICE
+
+## verbose 3 Remote UNIX connection
+* verbose 设置为 3 时非常多这个日志
+* AMI 请求导致 - 例如 freepbx 或者其他网关接口请求
+* SNMP 请求导致
+* asterisk -r 导致
+
+```
+-- Remote UNIX connection
+-- Remote UNIX connection disconnected
+-- Remote UNIX connection
+-- Remote UNIX connection disconnected
+```
+
+__asterisk.conf__
+```ini
+[options]
+# 隐藏 remote console 连接信息
+hideconnect=yes
+```
+
+```bash
+# 修改后重启
+asterisk -rx 'core restart now'
+```
+
+## chan_sip vs chan_pjsip
+* chan_sip
+  * 2014 年前 - SIP 早期
+  * Asterisk <= 11
+* chan_pjsip
+  * Asterisk >= 12
+  * 基于 PJSIP 库 - 独立于 Asterisk
+
+* 如果只处理 VoIP - chan_sip 足矣
+  * 传统的电话网关都使用非常老版本的 asterisk - 例如 1.8
+* 如果需要处理现代化通讯 - 使用 chan_pjsip
+  * Websocket
+  * WebRTC
+  * 视频
+  * 新的编码 - Opus, VP8, VP9
+
+* 参考
+  * [Migrating from chan_sip to res_pjsip](https://wiki.asterisk.org/wiki/display/AST/Migrating+from+chan_sip+to+res_pjsip)
 
 ## 常见 HTTP 异常状态码
 
@@ -101,7 +145,7 @@ Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_aut
 
 ## translate.c:407 framein: no samples for ulawtolin
 * http://lists.digium.com/pipermail/asterisk-users/2012-October/275509.html
-  * It means that one of clients, is using 'silence suppression' mechanism 
+  * It means that one of clients, is using 'silence suppression' mechanism
 * [RTP Silence Suppression](https://www.voip-info.org/wiki/view/RTP+Silence+Suppression)
 * [Asterisk config sip.conf](https://www.voip-info.org/wiki/view/Asterisk+config+sip.conf)
 * [Silence suppression:wiki](https://en.wikipedia.org/wiki/Silence_suppression)

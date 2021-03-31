@@ -59,5 +59,5 @@ title: 数据库
 * Data Lake
   * 存储原始数据，保持低廉的存储成本
   * 规模和数据量比 DW 大，处理更慢，读取时定义数据结构
-  * Hadoop 是 DL，而在这之上的 HBase 则是 DW 
+  * Hadoop 是 DL，而在这之上的 HBase 则是 DW
   * 一般数据不允许更新
