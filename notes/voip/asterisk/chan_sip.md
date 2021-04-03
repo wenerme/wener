@@ -28,7 +28,7 @@ noload => res_pjsip_log_forwarder.so
 | cli                                                         | desc                                                       |
 | ----------------------------------------------------------- | ---------------------------------------------------------- |
 | sip notify                                                  | Send a notify packet to a SIP peer                         |
-| `sip prune realtime [peer [<name>|all|like <pattern>]|all]` | Prune cached Realtime users/peers                          |
+| `sip prune realtime [peer [< name >|all|like < pattern >]|all]` | Prune cached Realtime users/peers                          |
 | sip qualify peer                                            | Send an OPTIONS packet to a peer                           |
 | sip reload                                                  | Reload SIP configuration                                   |
 | `sip set debug {on|off|ip|peer}`                            | Enable/Disable SIP debugging                               |

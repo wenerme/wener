@@ -368,6 +368,11 @@ module.exports = {
       },
       {
         type: 'category',
+        label: '电信',
+        items: items('service/telecom'),
+      },
+      {
+        type: 'category',
         label: 'DNS',
         items: items('service/dns'),
       },
