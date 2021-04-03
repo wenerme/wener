@@ -46,6 +46,20 @@ Failed to decrypt and verify packet from master_1 (192.168.1.2 port 655)
 * 配置 Address 让本地更容易发现
 * 使用 iperf3 预热一下网络 - 看网络是否会变平稳
 
+## ping -s 1389 可以, 1390 不可以
+在 tinc 一段时间未使用后, `ping -s 1389` 可通, 但大的请求会卡顿。
+
+ping -s 1389 实际发送 1397+20=1417
+
+* [Use a smarter algorithm for choosing MTU discovery probe sizes](https://github.com/gsliepen/tinc/commit/24d28adf64934c8d726959e25dce8c10dbd10d1f)
+  * 初始 mtu 发现 - 8 次 probe
+  * 1339, 1417 ~1450
+  * `minmtu + powf(interval, multiplier * cycle_position / (probes_per_cycle - 1))`
+    * multiplier = 0.982
+    * cycle_position = probes_per_cycle - (n->mtuprobes % probes_per_cycle) - 1
+    * minmtu 最小 64
+    * interval = maxmtu - minmtu
+
 ## PMTU - Path MTU
 
 - 自己到自己 9018

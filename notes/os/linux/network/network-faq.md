@@ -98,4 +98,18 @@ iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 192.168.8.2
 * Nginx/Haproxy
   * 应用层功能更强
 
+# ifconfig eth0:0 语法
+* 是 ifconfig 支持多 ip 的写法，等同于 iproute2 的 `ip addr add`
+* 后面的名字是地址的标签, linux 2.0 网络别名, 以设备名字+`:`为开头, 最长 15
+* ip addr add 没有标签 ifconfig 则不会显示
+
+```bash
+ifconfig eth0:0 192.168.1.2 netmask 255.255.255.0
+# 对等语法
+ip addr add 192.168.1.2/24 dev eth0 label eth0:0
+```
+
+* 参考
+  * [ip-address.8](http://manpages.ubuntu.com/manpages/hirsute/en/man8/ip-address.8.html)
+
 # ping: sendto: Invalid argument

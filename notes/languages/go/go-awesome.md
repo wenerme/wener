@@ -40,7 +40,7 @@ title: Go Awesome
     * _foreign_keys/_fk - `PRAGMA foreign_keys` - 外键约束
 
 ## 数据库迁移
-* [golang-migrate/migrate](github.com/golang-migrate/migrate)
+* [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
 
 ## Web
 

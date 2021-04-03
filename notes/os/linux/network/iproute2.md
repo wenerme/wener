@@ -40,6 +40,26 @@ title: IPRoute2
 | ipmaddr        | ip maddr                   | Multicast      |
 | netstat        | ip -s, ss, ip route        | 网络统计       |
 
+| net-tools                                                 | iproute2                                             |
+| --------------------------------------------------------- | ---------------------------------------------------- |
+| arp -a                                                    | ip neigh                                             |
+| arp -v                                                    | ip -s neigh                                          |
+| arp -s 192.168.1.1 1:2:3:4:5:6                            | ip neigh add 192.168.1.1 lladdr 1:2:3:4:5:6 dev eth1 |
+| arp -i eth1 -d 192.168.1.1                                | ip neigh del 192.168.1.1 dev eth1                    |
+| ifconfig -a                                               | ip addr                                              |
+| ifconfig eth0 down                                        | ip link set eth0 down                                |
+| ifconfig eth0 up                                          | ip link set eth0 up                                  |
+| ifconfig eth0 192.168.1.1                                 | ip addr add 192.168.1.1/24 dev eth0                  |
+| ifconfig eth0 netmask 255.255.255.0                       | ip addr add 192.168.1.1/24 dev eth0                  |
+| ifconfig eth0 mtu 9000                                    | ip link set eth0 mtu 9000                            |
+| ifconfig eth0:0 192.168.1.2                               | ip addr add 192.168.1.2/24 dev eth0                  |
+| netstat                                                   | ss                                                   |
+| netstat -neopa                                            | ss -neopa                                            |
+| netstat -g                                                | ip maddr                                             |
+| route                                                     | ip route                                             |
+| route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0 | ip route add 192.168.1.0/24 dev eth0                 |
+| route add default gw 192.168.1.1                          | ip route add default via 192.168.1.1                 |
+
 ## bridge
 
 - [docker/libnetwork#2310](https://github.com/docker/libnetwork/issues/2310) - docker 不能在不影响 docker0 的前提下使用现有的 bridge 网口
