@@ -190,3 +190,4 @@ turnpassword=please
 - ISDN Q.SIG Call Rerouting and Call Deflection
 - Google Talk, Google Voice integration
 - Audio Pitch Shifting
+- [New in 1.8](https://wiki.asterisk.org/wiki/display/AST/New+in+1.8)

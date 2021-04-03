@@ -76,8 +76,8 @@ __基础服务__
 port = 5060
 bindaddr = 0.0.0.0
 context = error
-qualify=no
-srvlookup=yes
+qualify = no
+srvlookup = yes
 ```
 
 ```ini
@@ -132,6 +132,12 @@ media_address =
 tcpdump -n dst portrange 10000-11000
 
 tcpdump -i bond3 udp port 5060 or udp portrange 10000-20000
+```
+
+## wireshark
+
+```bash
+ssh 192.168.1.2 sudo tcpdump -U -s0 'port 5060 or udp portrange 10000-20000' -i eth0 -w - | wireshark -k -i -
 ```
 
 ## nftables 转发

@@ -147,3 +147,12 @@ lsof +D /var/lib/rancher/k3s | wc -l
 # 清除
 rm -rf /var/lib/rancher/k3s
 ```
+
+## ContainerStatus from runtime service failed: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial unix: missing address"
+似乎是 containerd 的问题
+
+* https://github.com/k3s-io/k3s/issues/1901
+
+
+## 出现很奇怪的 probe 失败，看不到日志，重启 pod 也无法修复
+可能是是 k3s 网络 proxy 异常了，尝试重启 k3s 服务。

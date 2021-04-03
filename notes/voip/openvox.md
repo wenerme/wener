@@ -93,7 +93,7 @@ title: OpenVox
   - GSM: 900/1800MHz
   - Avahi - WirelessGateway _burn._tcp - 169.254.8.223
   - 支持 SIM 模块类型
-    - EC20
+    - EC20 CE-HDLG
     - M26
     - M35 - LTE 4G
     - MCU

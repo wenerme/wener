@@ -6,9 +6,12 @@ title: chan_dongle
 
 - 是什么？
   - Asterisk 支持外置 GSM 模块
+- [Requirements and Limitations](https://github.com/bg111/asterisk-chan-dongle/wiki/Requirements-and-Limitations)
 - 源码
   - 目前大多使用 [oleg-krv/asterisk-chan-dongle](https://github.com/oleg-krv/asterisk-chan-dongle)
     - 最近提交 fork [phcoder/asterisk-chan-dongle](https://github.com/phcoder/asterisk-chan-dongle)
+- 参考
+  - [OpenWRT通过3G Modem加asterisk将GSM通话转为SIP](https://zhuanlan.zhihu.com/p/100809316)
 
 ```bash
 apk add asterisk-chan-dongle

@@ -3,7 +3,15 @@ title: OpenRC
 ---
 
 # OpenRC
-
+* [OpenRC](https://github.com/OpenRC/openrc) 是什么？
+  * 跨平台轻量级 init 系统
+    * 支持 Linux, FreeBSD, NetBSD
+    * 核心 900k
+  * 2 BSD 协议
+  * C+Shell 实现
+  * 脚本结构上类似于 sysvinit - 但更简单
+  * 支持 supervise-daemon 0.21+
+  * 支持 /sbin/init - 0.25+
 
 ## /etc/inittab
 ```ini
@@ -37,3 +45,11 @@ tty6::respawn:/sbin/getty 38400 tty6
 ```bash
 for svc in $BOOT_SERVICES; do ln -fs /etc/init.d/$svc /etc/runlevels/boot; done
 ```
+
+## is the name of a real and virtual service
+* virtual service
+  * 是 openrc 中 provide 后面的内容
+* real service
+  * 是 /etc/init.d 下名字
+
+provide 的名字和实际服务名字冲突

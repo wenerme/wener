@@ -18,6 +18,8 @@ title: 电信术语
     - ofono, uqmi, libqmi
   - [GobiNet vs libqmi](https://wiki.postmarketos.org/wiki/QMI#GobiNet_vs_libqmi)
 
+## wwan
+
 ## 卡池 - Card Pool
 
 -  多个 SIM 口，同时只用一个 SIM 卡

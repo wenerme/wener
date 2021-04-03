@@ -76,8 +76,8 @@ noload => res_pjsip_log_forwarder.so
 
 | asterisk | nat                                                      |
 | -------- | -------------------------------------------------------- |
-| >= 1.8   | no, force_rport, comedia, auto_force_rport, auto_comedia |
-| < 1.8    | no, yes, never, route                                    |
+| `>= 1.8` | no, force_rport, comedia, auto_force_rport, auto_comedia |
+| `< 1.8`  | no, yes, never, route                                    |
 
 ### chan_sip nat vs chan_pjsip
 

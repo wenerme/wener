@@ -1,6 +1,11 @@
+---
+title: PCI
+---
+
 # PCI
 
 ## Tips
+* https://github.com/pciutils/pciutils
 * https://wiki.debian.org/HowToIdentifyADevice/PCI
 * http://pci-ids.ucw.cz/
 The PCI ID Repository

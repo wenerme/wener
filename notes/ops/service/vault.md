@@ -42,10 +42,6 @@ title: Vault
     * 生命周期： Enable、Disable、Move、Tune
       * Tune 类似于配置
     * 引擎只能看到挂载目录下内容 - 类似于 chroot
-* Consul vs Vault
-  * 最大的区别是一个强调加密一个强调服务发现
-  * Consul 的配置是 KV
-  * Vault 的是目录格式 - 两个形式上有些类似
 * 环境变量
   * VAULT_ADDR 服务端地址
   * VAULT_TOKEN 请求的 Token
@@ -350,3 +346,9 @@ __consul.acl.json__
   }
 }
 ```
+
+# FAQ
+## Consul vs Vault
+* 最大的区别是一个强调加密一个强调服务发现
+* Consul 的配置是 KV
+* Vault 的是目录格式 - 两个形式上有些类似

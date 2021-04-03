@@ -51,17 +51,32 @@ __环境变量__
 ## tinc.conf
 
 - [tinc.conf.5](https://www.tinc-vpn.org/documentation-1.1/tinc.conf.5)
+- 没有 ConnectTo 且 `AutoConnect=no` 可以认为是服务端
+- 有 ConnectTo 且 `AutoConnect=yes` 可以认为是客户端
+
 
 ```ini
-# 影响监听和外部 sockets 包, any 会根据操作系统进行创建 ipv4 和 ipv6
-# ipv4 | ipv6 | any
-AddressFamily = any
+# 节点名字 - 唯一、必须
+# 可以指定为 $HOST - 如果环境变了不存在则 gethostname()
+Name = name
+# router | switch | hub
+Mode = router
+
+# 启动时连接到的节点 - meta 节点
+# 可以指定多个
+# 如果一个都不指定且也不指定 AutoConnect 则节点处于只接受链接的状态
+ConnectTo = name
 
 # 如果启用, 会自动尝试与其他节点建立 meta 链接, 而不需要设置 ConnectTo
 # 不能链接 Port=0 的节点 - 系统随机端口
 # 试验阶段
 # yes | no
 AutoConnect = yes
+
+
+# 影响监听和外部 sockets 包, any 会根据操作系统进行创建 ipv4 和 ipv6
+# ipv4 | ipv6 | any
+AddressFamily = any
 
 # 类似于 ListenAddress，但出去的流量也会使用
 # 有多路出口时有用
@@ -78,11 +93,6 @@ Broadcast = mst
 # 定义广播地址
 # 标准的广播地址已包含
 # BroadcastSubnet = address[/prefixlength]
-
-# 启动时连接到的节点 - meta 节点
-# 可以指定多个
-# 如果一个都不指定且也不指定 AutoConnect 则节点处于只接受链接的状态
-ConnectTo = name
 
 # 转发前减小 ipv4 包 ttl 和 ipv6 包的 Hop Limit
 # switc 模式且需要 ipv6 则不要启用
@@ -157,14 +167,10 @@ MaxConnectionBurst=100
 # 最大重连延时
 MaxTimeout=900
 
-# router | switch | hub
-Mode=router
 
-# 节点名字 - 唯一、必须
-# 可以指定为 $HOST - 如果环境变了不存在则 gethostname()
-Name=name
-
+# ping 间隔 - 发现 mtu 检测节点
 PingInterval=60
+# 超时后中断 meta 链接
 PingTimeout=5
 
 # UDP 继承 TCP 的 TOS 字段

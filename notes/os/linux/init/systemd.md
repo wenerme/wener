@@ -1,10 +1,13 @@
 ---
 id: systemd
 ---
+
 # Systemd
 
 ## Tips
 
+- [systemd](https://www.freedesktop.org/wiki/Software/systemd)
+- wikipedia [systemd](https://en.wikipedia.org/wiki/Systemd)
 - [systemd.unit](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 - [systemctl manpage](https://www.freedesktop.org/software/systemd/man/systemctl.html)
 - [How To Use Systemctl to Manage Systemd Services and Units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
@@ -12,8 +15,9 @@ id: systemd
   - `/etc/systemd/system/docker.service.d/*.conf`
   - `/etc/systemd/system/`
   - `/lib/systemd/system/`
-
-https://wiki.archlinux.org/index.php/Systemd-networkd
+- 参考
+  - https://wiki.archlinux.org/index.php/Systemd-networkd
+  - [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 
 ```bash
 # 查看配置
@@ -40,8 +44,35 @@ systemctl edit nginx.service
 # 编辑完整的文件,而不是一个片段,会生成部分内容
 systemctl edit --full nginx.service
 
+# 系统状态
+systemctl status
 # 服务状态
 systemctl status prometheus-node-exporter.service
+# 远程服务状态
+systemctl -H root@127.0.0.1 status httpd.service
+# is-active, is-failed, is-enabled
+systemctl is-active prometheus-node-exporter.service
+# 管理
+# start stop restart kill reload show
+systemctl start apache.service
+# 查看属性
+systemctl show -P CPUShare apache.service
+# 设置属性
+systemctl set-property httpd.service CPUShares=500
+#
+systemctl daemon-reload
+
+# 查看依赖
+# --all - 所有
+systemctl list-dependencies nginx.service
+
+# enabled disabled static masked
+# static - 无 [Install]， 只能被依赖
+# masked - 被禁止
+systemctl list-unit-files --type=service
+
+# 查看内容
+systemctl cat atd.service
 ```
 
 | command                            | mean                            |
@@ -79,9 +110,137 @@ systemctl status prometheus-node-exporter.service
 | journalctl -f                      | 跟随显示                        |
 | journalctl -k                      | 内核日志                        |
 
-## Service
+| util            | desc               |
+| --------------- | ------------------ |
+| systemctl       | 主要命令           |
+| journalctl      |
+| notify          |
+| systemd-analyze | 查看启动耗时       |
+| cgls            |
+| cgtop           |
+| loginctl        | 当前登陆用户       |
+| nspwan          |
+| hostnamectl     | 查看和管理主机信息 |
+| localectl       | 本地化配置         |
+| timedatectl     | 时区               |
 
-## Unit
+| daemon       | desc |
+| ------------ | ---- |
+| systemd      |
+| journald     |
+| networkd     |
+| logind       |
+| user session |
+
+| unit      | desc                           |
+| --------- | ------------------------------ |
+| Service   | 系统服务                       |
+| Target    | 多个 Unit 构成的一个组         |
+| Device    | 硬件设备                       |
+| Mount     | 文件系统的挂载点               |
+| Automount | 自动挂载点                     |
+| Path      | 文件或路径                     |
+| Scope     | 不是由 Systemd 启动的外部进程  |
+| Slice     | 进程组                         |
+| Snapshot  | Systemd 快照，可以切回某个快照 |
+| Socket    | 进程间通信的 socket            |
+| Swap      | swap 文件                      |
+| Timer     | 定时器                         |
+
+## Unit 文件
+
+```ini
+[Unit]
+Description=描述
+Documentation=文档地址
+
+Requires=强依赖 Unit
+Wants=弱依赖 Unit
+BindsTo=添加依赖到 Unit - 指定 Unit 退出则当前 Unit 会退出
+Before=
+After=
+Conflicts=不能同时运行 Unit
+Condition=
+Assert=
+
+[Install]
+WantedBy=指定 Target 会 link 到 /etc/systemd/system/<Target>.wants
+RequiredBy=指定 Target 会 link 到 /etc/systemd/system/<Target>.required
+Alias=
+Also=同时启动其他 Unit
+
+[Service]
+# simple - 执行 ExecStart
+# forking
+# oneshot - 一次性，执行完成后继续
+# dbus - 通过 DBus 启动
+# notify - 执行完毕通知 systemd
+# idle - 有其他任务当前任务才执行
+Type=simple
+
+ExecStart=
+ExecStartPre=
+ExecStartPost=
+
+ExecReload=
+
+ExecStop=
+ExecStopPost=
+
+RestartSec=
+# 重启情况 - always, on-success, on-failure, on-abnormal, on-abort, on-watchdog
+Restart=
+
+TimeoutSec=
+Environment=
+```
+
+## Target
+
+> Unit 组, 类似于其他 init 的 runlevel 概念
+
+| runlevel   | target name      | link              |
+| ---------- | ---------------- | ----------------- |
+| Runlevel 0 | runlevel0.target | poweroff.target   |
+| Runlevel 1 | runlevel1.target | rescue.target     |
+| Runlevel 2 | runlevel2.target | multi-user.target |
+| Runlevel 3 | runlevel3.target | multi-user.target |
+| Runlevel 4 | runlevel4.target | multi-user.target |
+| Runlevel 5 | runlevel5.target | graphical.target  |
+| Runlevel 6 | runlevel6.target | reboot.target     |
+
+
+```bash
+# 查看当前系统的所有 Target
+systemctl list-unit-files --type=target
+
+# 查看一个 Target 包含的所有 Unit
+systemctl list-dependencies multi-user.target
+
+# 查看启动时的默认 Target
+systemctl get-default
+
+# 设置启动时的默认 Target
+sudo systemctl set-default multi-user.target
+
+# 切换 Target 时，默认不关闭前一个 Target 启动的进程，
+# systemctl isolate 命令改变这种行为，
+# 关闭前一个 Target 里面所有不属于后一个 Target 的进程
+sudo systemctl isolate multi-user.target
+```
+
+## Target vs init/RunLevel
+* init/RunLevel
+  * 默认 RunLevel /etc/inittab
+  * 脚本位于 /etc/init.d - 等同于 Unit
+  * 启动的脚本 link 到 /etc/rc.d 或 /etc/runlevels/
+  * init 配置位于 `/etc/sysconfig` 或 `/etc/rc.conf`
+* Target
+  * 默认 /etc/systemd/system/default.target
+    * link 到 multi-user.target 或 graphical.target
+  * Unit 位于 /lib/systemd/system
+  * 启动后位于 /etc/systemd/system
+  * systemd 配置 /lib/systemd, /etc/systemd
 
 # Example
 
@@ -101,150 +260,8 @@ Restart=on-failure
 ExecStart=/opt/prometheus/bin/node_exporter
 ```
 
-## help
+# FAQ
+## Why archlinux migrate to systemd
 
-```
-systemctl [OPTIONS...] {COMMAND} ...
+* [Archlinux is moving to systemd](https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530) - 2012-08
 
-Query or send control commands to the systemd manager.
-
-  -h --help           Show this help
-     --version        Show package version
-     --system         Connect to system manager
-     --user           Connect to user service manager
-  -H --host=[USER@]HOST
-                      Operate on remote host
-  -M --machine=CONTAINER
-                      Operate on local container
-  -t --type=TYPE      List units of a particular type
-     --state=STATE    List units with particular LOAD or SUB or ACTIVE state
-  -p --property=NAME  Show only properties by this name
-  -a --all            Show all properties/all units currently in memory,
-                      including dead/empty ones. To list all units installed on
-                      the system, use the 'list-unit-files' command instead.
-     --failed         Same as --state=failed
-  -l --full           Don't ellipsize unit names on output
-  -r --recursive      Show unit list of host and local containers
-     --reverse        Show reverse dependencies with 'list-dependencies'
-     --job-mode=MODE  Specify how to deal with already queued jobs, when
-                      queueing a new job
-     --show-types     When showing sockets, explicitly show their type
-     --value          When showing properties, only print the value
-  -i --ignore-inhibitors
-                      When shutting down or sleeping, ignore inhibitors
-     --kill-who=WHO   Who to send signal to
-  -s --signal=SIGNAL  Which signal to send
-     --now            Start or stop unit in addition to enabling or disabling it
-     --dry-run        Only print what would be done
-  -q --quiet          Suppress output
-     --wait           For (re)start, wait until service stopped again
-     --no-block       Do not wait until operation finished
-     --no-wall        Don't send wall message before halt/power-off/reboot
-     --no-reload      Don't reload daemon after en-/dis-abling unit files
-     --no-legend      Do not print a legend (column headers and hints)
-     --no-pager       Do not pipe output into a pager
-     --no-ask-password
-                      Do not ask for system passwords
-     --global         Enable/disable/mask unit files globally
-     --runtime        Enable/disable/mask unit files temporarily until next
-                      reboot
-  -f --force          When enabling unit files, override existing symlinks
-                      When shutting down, execute action immediately
-     --preset-mode=   Apply only enable, only disable, or all presets
-     --root=PATH      Enable/disable/mask unit files in the specified root
-                      directory
-  -n --lines=INTEGER  Number of journal entries to show
-  -o --output=STRING  Change journal output mode (short, short-precise,
-                             short-iso, short-iso-precise, short-full,
-                             short-monotonic, short-unix,
-                             verbose, export, json, json-pretty, json-sse, cat)
-     --firmware-setup Tell the firmware to show the setup menu on next boot
-     --plain          Print unit dependencies as a list instead of a tree
-
-Unit Commands:
-  list-units [PATTERN...]             List units currently in memory
-  list-sockets [PATTERN...]           List socket units currently in memory,
-                                      ordered by address
-  list-timers [PATTERN...]            List timer units currently in memory,
-                                      ordered by next elapse
-  start UNIT...                       Start (activate) one or more units
-  stop UNIT...                        Stop (deactivate) one or more units
-  reload UNIT...                      Reload one or more units
-  restart UNIT...                     Start or restart one or more units
-  try-restart UNIT...                 Restart one or more units if active
-  reload-or-restart UNIT...           Reload one or more units if possible,
-                                      otherwise start or restart
-  try-reload-or-restart UNIT...       If active, reload one or more units,
-                                      if supported, otherwise restart
-  isolate UNIT                        Start one unit and stop all others
-  kill UNIT...                        Send signal to processes of a unit
-  is-active PATTERN...                Check whether units are active
-  is-failed PATTERN...                Check whether units are failed
-  status [PATTERN...|PID...]          Show runtime status of one or more units
-  show [PATTERN...|JOB...]            Show properties of one or more
-                                      units/jobs or the manager
-  cat PATTERN...                      Show files and drop-ins of specified units
-  set-property UNIT PROPERTY=VALUE... Sets one or more properties of a unit
-  help PATTERN...|PID...              Show manual for one or more units
-  reset-failed [PATTERN...]           Reset failed state for all, one, or more
-                                      units
-  list-dependencies [UNIT]            Recursively show units which are required
-                                      or wanted by this unit or by which this
-                                      unit is required or wanted
-
-Unit File Commands:
-  list-unit-files [PATTERN...]        List installed unit files
-  enable [UNIT...|PATH...]            Enable one or more unit files
-  disable UNIT...                     Disable one or more unit files
-  reenable UNIT...                    Reenable one or more unit files
-  preset UNIT...                      Enable/disable one or more unit files
-                                      based on preset configuration
-  preset-all                          Enable/disable all unit files based on
-                                      preset configuration
-  is-enabled UNIT...                  Check whether unit files are enabled
-  mask UNIT...                        Mask one or more units
-  unmask UNIT...                      Unmask one or more units
-  link PATH...                        Link one or more units files into
-                                      the search path
-  revert UNIT...                      Revert one or more unit files to vendor
-                                      version
-  add-wants TARGET UNIT...            Add 'Wants' dependency for the target
-                                      on specified one or more units
-  add-requires TARGET UNIT...         Add 'Requires' dependency for the target
-                                      on specified one or more units
-  edit UNIT...                        Edit one or more unit files
-  get-default                         Get the name of the default target
-  set-default TARGET                  Set the default target
-
-Machine Commands:
-  list-machines [PATTERN...]          List local containers and host
-
-Job Commands:
-  list-jobs [PATTERN...]              List jobs
-  cancel [JOB...]                     Cancel all, one, or more jobs
-
-Environment Commands:
-  show-environment                    Dump environment
-  set-environment VARIABLE=VALUE...   Set one or more environment variables
-  unset-environment VARIABLE...       Unset one or more environment variables
-  import-environment [VARIABLE...]    Import all or some environment variables
-
-Manager Lifecycle Commands:
-  daemon-reload                       Reload systemd manager configuration
-  daemon-reexec                       Reexecute systemd manager
-
-System Commands:
-  is-system-running                   Check whether system is fully running
-  default                             Enter system default mode
-  rescue                              Enter system rescue mode
-  emergency                           Enter system emergency mode
-  halt                                Shut down and halt the system
-  poweroff                            Shut down and power-off the system
-  reboot [ARG]                        Shut down and reboot the system
-  kexec                               Shut down and reboot the system with kexec
-  exit [EXIT_CODE]                    Request user instance or container exit
-  switch-root ROOT [INIT]             Change to a different root file system
-  suspend                             Suspend the system
-  hibernate                           Hibernate the system
-  hybrid-sleep                        Hibernate and suspend the system
-```

@@ -122,6 +122,28 @@ keywords:
     - 出现节点一直处于 REQUESTING_CONFIGURATION 状态
       - __目前无解__
 
+## Tinc vs Nebula
+* 相同点
+  * 点对点网络
+* Tinc
+  * GPL 2.0
+  * 多用于服务端组网 - 没有 Android 和 iOS
+  * 节点基于密钥认证 - 对等
+  * L2、L3 组网
+  * 通过 meta 节点 - 对外暴露节点组网
+  * 支持节点 relay
+* Nebula - 受 tinc 启发
+  * MIT
+  * 多用于服务访问 - 有 Android 和 iOS
+  * 通过 lighthouse PKI 认证 组网
+  * 非 lighthouse 节点只有 key 和 cert 没有 ca
+  * lighthouse 类似 tinc 的 meta 节点
+  * L3 组网
+  * 不支持 relay
+  * 网络安全性管控 - 默认不允许访问非节点网 - unsafe_routes
+    * tinc 可配置任意, L2 可路由任意
+  * lighthouse 中心化管控
+
 ## StrongSwan vs Openswan vs Libreswan vs Freeswan
 
 - FreeS/WAN

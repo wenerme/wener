@@ -1,5 +1,4 @@
 ---
-id: vault-k8s
 title: Vault on Kubernetes
 sidebar_title: Vault on K8S
 ---

@@ -54,3 +54,6 @@ done
 ```
 
 ## driver name driver.longhorn.io not found in the list of registered CSI drivers
+
+## Still connecting to unix:///csi/csi.sock
+* longhorn-csi-plugin 启动失败
