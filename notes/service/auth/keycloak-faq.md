@@ -27,10 +27,11 @@ https://www.keycloak.org/docs/latest/server_admin/index.html#_service_accounts
 - 参考
   - [The Master Realm](https://www.keycloak.org/docs/latest/server_admin/#the-master-realm)
 
-## login-status-iframe.html/init 异常
-
-- https://stackoverflow.com/questions/55606931/keycloak-js-library-iframe-redirect-when-alreadylogged-in
-- https://github.com/keycloak/keycloak/pull/6131
+## login-status-iframe.html/init 403 异常
+- 确保开启 Implicit Flow Enabled
+- 确保 client_id 正确
+  - 如果 client_id 错了会 403，但没有任何地方提示 client_id 错误
+  - 非常难排查
 
 ## invalid_grant: Code not valid
 

@@ -1,5 +1,4 @@
 ---
-id: vpn-faq
 title: 私有虚拟网络常见问题
 keywords:
 - VPN FAQ

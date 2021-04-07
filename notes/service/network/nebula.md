@@ -53,6 +53,18 @@ lighthouse:
 listen:
   host: 0.0.0.0
   port: 4242
+firewall:
+  outbound:
+  - port: any
+    proto: any
+    host: any
+  inbound:
+  - port: any
+    proto: icmp
+    host: any
+  - port: 22
+    proto: tcp
+    group: ssh
 LH
 # 同步证书到 lighthouse 节点
 scp ca.crt lh-1.yaml lh-1.crt lh-1.key admin@my-lighthouse:~
@@ -60,6 +72,7 @@ scp ca.crt lh-1.yaml lh-1.crt lh-1.key admin@my-lighthouse:~
 ssh admin@my-lighthouse sudo ./nebula -config lh-1.yaml
 
 # laptop
+# 添加 ssh 分组即可访问 lh-1 的 22 端口
 nebula-cert sign -name "laptop" -ip "192.168.100.2/24" -groups "laptop,home,ssh"
 cat <<LH > laptop.yaml
 pki:
@@ -74,6 +87,15 @@ lighthouse:
 listen:
   host: 0.0.0.0
   port: 4242
+firewall:
+  outbound:
+  - port: any
+    proto: any
+    host: any
+  inbound:
+  - port: any
+    proto: icmp
+    host: any
 LH
 sudo nebula -config laptop.yaml
 ```
@@ -297,7 +319,9 @@ logging:
   # after receiving the response for lighthouse queries
   #trigger_buffer: 64
 
-# Nebula security group configuration
+# 防火墙安全配置
+# 进出规则默认 deny - 所有配置都是配置允许
+# 匹配逻辑 port AND proto AND (ca_sha OR ca_name) AND (host OR group OR groups OR cidr)
 firewall:
   conntrack:
     tcp_timeout: 12m
@@ -305,27 +329,31 @@ firewall:
     default_timeout: 10m
     max_connections: 100000
 
-  # The firewall is default deny. There is no way to write a deny rule.
-  # Rules are comprised of a protocol, port, and one or more of host, group, or CIDR
-  # Logical evaluation is roughly: port AND proto AND (ca_sha OR ca_name) AND (host OR group OR groups OR cidr)
-  # - port: Takes `0` or `any` as any, a single number `80`, a range `200-901`, or `fragment` to match second and further fragments of fragmented packets (since there is no port available).
-  #   code: same as port but makes more sense when talking about ICMP, TODO: this is not currently implemented in a way that works, use `any`
-  #   proto: `any`, `tcp`, `udp`, or `icmp`
-  #   host: `any` or a literal hostname, ie `test-host`
-  #   group: `any` or a literal group name, ie `default-group`
-  #   groups: Same as group but accepts a list of values. Multiple values are AND'd together and a certificate would have to contain all groups to pass
-  #   cidr: a CIDR, `0.0.0.0/0` is any.
-  #   ca_name: An issuing CA name
-  #   ca_sha: An issuing CA shasum
-
   outbound:
-    # Allow all outbound traffic from this node
+    # 允许所有出去流量
     - port: any
       proto: any
       host: any
 
+    # 0, any, 80, 1000-200, fragment
+  - port: any
+    # 类似 port 但在 ICMP 这样的协议中使用 code 更合理 - 目前未实现
+    code: any
+    # tcp, udp, icmp
+    proto: any
+    # 主机名 - test-host
+    host: any
+    # 在证书中包含的分组
+    group: any
+    # 等同于 group, 但支持多个值, 要求都匹配
+    groups: []
+    # 地址限定
+    cidr: 0.0.0.0/0
+  #   ca_name: An issuing CA name
+  #   ca_sha: An issuing CA shasum
+
   inbound:
-    # Allow icmp between any nebula hosts
+    # 允许 ICMP - 能 Ping
     - port: any
       proto: icmp
       host: any

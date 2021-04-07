@@ -1,19 +1,19 @@
 ---
-id: wikijs
 title: Wiki.js
 ---
 
 # Wiki.js
-* 是什么？
+* [Requarks/wiki](https://github.com/Requarks/wiki) 是什么？
+  * AGPL-3.0
   * 支持 Markdown 的 Wiki
   * 类似于语雀但是支持 Markdown
   * 支持文件，支持图片，支持 Git 后端，支持搜索
-  * Nodejs 实现 AGPL-3.0 协议
-* [Requarks/wiki](https://github.com/Requarks/wiki)
-  * AGPL-3.0
+  * Nodejs 10.12+
+  * 支持 MySQL, MariaDB, PostgreSQL, MSSQL or SQLite3
+    * 推荐使用 PostgreSQL
+    * 多副本只支持 PostgreSQL
 * 要求
   * 2 CPU 1G 内存
-  * PostgreSQL - 下一个大版本可能只支持 PostgreSQL
 * [授权](https://docs.requarks.io/auth)
   * CAS、LDAP/AD、SAML 2.0、Local
 

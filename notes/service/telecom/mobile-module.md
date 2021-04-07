@@ -51,6 +51,9 @@ title: 模块
 > 1. CEHDLG 是支持语音的，但是不知道为什么查到的不是
 > 2. MiniPCIe 和 LCC 封装
 
+- EC20 CEFHLG / EC20HCLG
+  - USB Dongle
+
 **频段**
 
 | Type     | Detail              | DL/bps                           | UL/bps               |
@@ -114,6 +117,24 @@ TCP/UDP/PPP/FTP/HTTP/NTP/PING/QMI/NITZ/CMUX/HTTPS/SMTP/MMS/FTPS/SMTPS/SSL/FILE
 
 - 串口 - AT, DM, NMEA
 
+## 宽翼 bm806u
+
+| Version    | FDD-LTE                             | TDD-LTE                   | HSPA+/WCDMA/ - HSPA/UMTS  | TD-SCDMA | GSM/GPRS/EDGE        | EVDO/CDMA |
+| ---------- | ----------------------------------- | ------------------------- | ------------------------- | -------- | -------------------- | --------- |
+| BM806U     | B1/B3/B8                            | B38/B39/B40/B41           | 900/2100MHz               | B34/B39  | 900/1800MHz          |
+| BM806U-C1  | B1/B3/B5/B8                         | B38/B39/B40/B41           | 900/850/2100MHz           | B34/B39  | 850/900/1800MHz      | BC0       |
+| BM806U-T1  | B1/B2/B3/B5/B7/B8/B28               | B38/B39/B40/B41           | 900/850/1800/1900/2100MHz | B34/B39  | 850/900/1800/1900MHz |
+| BM806U-E1  | B1/B2/B3/B5/B7/B8/B20               | B38/B40                   | 900/850/1800/1900/2100MHz |          | 850/900/1800/1900MHz |
+| BM806U-C1+ | B1/B3/B5/B8                         | B34/B38/B39/B40/B41(120M) | B1/B5/B8                  |          | B3/B8                | BC0       |
+| BM806U-E1+ | B1/B2/B3/B5/B7/B8/B20               | B38/B40/B41(120M)         | B1/B2/B5/B8               |          | B2/B3/B5/B8          |
+| BM806U-A1+ | B2/B3/B4/B5/B12/B13/B17/B25/B26/B66 | B41(200M)                 | B2/B4/B5                  |          | B2/B5                |
+| BM806U-T1+ | B1/B2/B3/B4/B5/B7/B8/B20/B28/B66    | B34/B38/B39/B40/B41(200M) | B1/B2/B4/B5/B8            |          | B2/B3/B5/B8          | BC0       |
+
+- [BM806U+ Series](http://www.broadmobi.com/en/module_show.php?id=8)
+  - LTE Cat.4
+  - TTS, DTMF, FOTA, GNSS, Android RIL, VoLTE, Gobinet, Linux QMI Driver, NDIS, SIM Detection
+  - HTTP/HTTPS/FTP/FTPS/SMTP/POP3/DNS/MMS
+
 ## Provider
 
 - [Quectel](https://www.quectel.com) - 移远
@@ -121,5 +142,6 @@ TCP/UDP/PPP/FTP/HTTP/NTP/PING/QMI/NITZ/CMUX/HTTPS/SMTP/MMS/FTPS/SMTPS/SSL/FILE
 - 有方
 - 广和通
 - 域格
-- 宽翼
+- broadmobi 宽翼
+- zte - 中兴
 - 华为云市场 物联网/模组 - https://marketplace.huaweicloud.com/search/internet/804/

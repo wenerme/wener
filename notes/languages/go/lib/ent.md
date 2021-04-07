@@ -65,3 +65,20 @@ go generate ./ent
 # edge
 go run entgo.io/ent/cmd/ent init Car Group
 ```
+
+## Note
+* Validator 不能获取到上下文，会 cast 成实际类型
+* Save 顺序
+  * 设置默认值
+  * 没有 hooks
+    * 校验字段
+    * 保存
+  * 有 hooks
+    * 生成 Mutator - 校验、保存
+    * 执行 hook
+* ent.Policy - 访问策略控制
+  * 通过拦截控制查询和修改 - 没有 Action 概念，只有 Query 和 Mutation
+  * 三种决策结果
+    * privacy.Allow
+    * privacy.Deny
+    * privacy.Skip

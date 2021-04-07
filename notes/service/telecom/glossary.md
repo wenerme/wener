@@ -18,6 +18,13 @@ title: 电信术语
     - ofono, uqmi, libqmi
   - [GobiNet vs libqmi](https://wiki.postmarketos.org/wiki/QMI#GobiNet_vs_libqmi)
 
+## HSDPA - High-Speed Downlink Packet Access - 高速封包存取
+packet-based mobile telephony protocol used in 3G UMTS radio networks to increase data capacity and speed up transfer rates.
+
+W-CDMA 第一个进化技术, 比早期 UMTS 快至少 5 倍, 14.4Mbps/cell DL, 2Mbps/cell UL. 但一般使用在 400-700 Kbps,最高 1 Mbps.
+
+对比 EV-DO 可以同时传输语音和数据。
+
 ## wwan
 
 ## 卡池 - Card Pool

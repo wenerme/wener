@@ -5,16 +5,6 @@ title: Keycloak
 
 # Keycloak
 
-- [授权服务](https://www.keycloak.org/docs/latest/authorization_services/)
-  - 访问控制方式
-    - ABAC - Attribute-based access control - 基于属性
-    - RBAC- Role-based access control - 基于角色
-    - UBAC - User-based access control - 基于用户
-    - CBAC - Context-based access control - 基于上下文
-    - Rule-based access control - 基于规则
-      - 可以使用 JavaScript
-    - Time-based access control - 基于时间
-    - 通过策略 SPI (Service Provider Interface) 自定义访问控制机制 (ACMs - access control mechanisms)
 - 通过 jgroups 实现集群
 - vault 支持 K8S secrets
   - 挂载到 `$JBOSS_HOME/secrets`
@@ -23,8 +13,8 @@ title: Keycloak
 - 地址
   - /auth
   - /auth/console
-  - /auth/realms/${REALM}/protocol/openid-connect/auth
-  - /auth/admin/${REALM}/console
+  - `/auth/realms/${REALM}/protocol/openid-connect/auth`
+  - `/auth/admin/${REALM}/console`
 
 ## Docker
 

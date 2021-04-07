@@ -29,6 +29,39 @@ ipsec 使用 aes128-sha256 AES_CBC_128/HMAC_SHA1_96, 但 swanctl 不会优先尝
 selected proposal: IKE:AES_CBC_128/HMAC_SHA1_96/PRF_HMAC_SHA1/MODP_2048
 ```
 
-* ipsec.conf 配置 esp 或者 ah
-* swanctl.conf 配置 esp_proposal
+- ipsec.conf 配置 esp 或者 ah
+- swanctl.conf 配置 esp_proposal
 
+## giving up after 5 retransmits
+
+```
+12[IKE] establishing IKE_SA failed, peer not responding
+```
+
+**ipsec.conf**
+
+```ini
+dpdaction=restart
+retransmit_tries=5
+# default 3
+keyingtries=%forever
+```
+
+**swanctl.conf**
+
+```
+connections {
+  conn {
+    # default 1
+    keyingtries=0
+    children {
+      child {
+        dpd_action=start
+      }
+    }
+  }
+}
+```
+
+- 参考
+  - https://wiki.strongswan.org/issues/2665
