@@ -8,8 +8,6 @@ title: Kubernetes 版本
 
 - 13 stable, 16 beta, 20 alpha, 2 废弃
 - Kustomize 从 v2.0.3 升级到 v4.0.5 - 之前因为依赖问题被 block
-- Pod 默认容器标签 `kubectl.kubernetes.io/default-container`
-  - 设置后 `kubectl exec` 可以不在指定容器 - 使用上会方便很多
 - kubelet 支持结构化日志
 - TokenRequest, TokenRequestProjection - 默认开启
 - Stable/GA
@@ -18,6 +16,7 @@ title: Kubernetes 版本
     - kubelet 不 watch 变化，减少 apiserver 负载
   - ServiceNodeExclusion, NodeDisruptionExclusion, LegacyNodeRoleBehavior
   - KEP-85 policy/v1/PodDisruptionBudget - 1.5 beta
+  - KEP-23 支持 sysctl - 自 1.4
 - Beta
   - IPv4/IPv6 dual-stack
   - CSI Service Account Token
@@ -41,9 +40,12 @@ title: Kubernetes 版本
     - 默认 0
     - 影响 ReplicaSet 缩容调度 逻辑
   - KEP-2214 Job 索引
-    - batch/v1/Job completionMode 支持 Indexed, completions 为完成索引
+    - batch/v1/Job completionMode 支持 Indexed
+    - [Completion mode](https://kubernetes.io/docs/concepts/workloads/controllers/job/#completion-mode)
   - KEP-2232 停止 Job
     - `.spec.suspend=true` 停止，设置为 false 恢复调度
+  - KEP_2227 Pod 默认容器标签 `kubectl.kubernetes.io/default-container`
+    - 设置后 `kubectl exec` 可以不在指定容器 - 使用上会方便很多
 - 废弃
   - PodSecurityPolicy - 1.25 移除, 1.8 beta, opt-in
     - 用于解耦底层 Linux 安全和部署安全
@@ -61,6 +63,59 @@ title: Kubernetes 版本
 - 参考
   - [Kubernetes 1.21: Power to the Community](https://kubernetes.io/blog/2021/04/08/kubernetes-1-21-release-announcement/)
   - sysdig [What’s new in Kubernetes 1.21](https://sysdig.com/blog/whats-new-kubernetes-1-21/)
+
+**POD**
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sysctl-example
+  annotations:
+    # 旧的 sysctl 控制
+    security.alpha.kubernetes.io/sysctls: kernel.shm_rmid_forced=1
+    # 定义 kubectl 的默认 容器
+    kubectl.kubernetes.io/default-container: 'test'
+    # 删除成本 Alpha
+    # 影响调度
+    controller.kubernetes.io/pod-deletion-cost: '10'
+spec:
+  securityContext:
+    # 新的 sysctl 控制
+    sysctls:
+      - name: kernel.shm_rmid_forced
+        value: 1
+  # 优雅停止 - Alpha
+  # Pod 级别
+  terminationGracePeriodSeconds: 3600
+  containers:
+    containers:
+      - name: test
+        image: alpine
+        annotations:
+        livenessProbe:
+          # 容器覆盖 Pod 级别配置
+          terminationGracePeriodSeconds: 60
+```
+
+**JOB**
+
+```yaml
+apiVersion: batch/v1
+ kind: Job
+ metadata:
+   name: 'indexed-job'
+ spec:
+  # 停止的 Job
+  suspend: true
+
+  completions: 5
+  parallelism: 3
+  # 索引 Job
+  # 每个 Pod 的索引为 0 到 completions-1
+  # 默认 NonIndexed
+  completionMode: Indexed
+```
 
 ## 1.20 - 2020-12-08
 
