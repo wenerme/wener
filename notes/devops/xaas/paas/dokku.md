@@ -30,7 +30,7 @@ dokku tags:deploy myapp v1
 
 ## Notes
 * Dokku 控制 Docker
-  * 也可以通过 Nomand 或 Kubernates 调度
+  * 也可以通过 Nomad 或 Kubernates 调度
   * 但使用 Dokku 一般是单机 Docker
 * 提供类似 Heroku 的接口
 * 每个应用暴露端口，通过内置的 Nginx 进行域名反向代理
@@ -52,7 +52,7 @@ dokku tags:deploy myapp v1
 
 __需求__
 
-* Ubuntu 16.04/18.04 x64, Debian 9+ x64 or CentOS 7 x64 
+* Ubuntu 16.04/18.04 x64, Debian 9+ x64 or CentOS 7 x64
 * 1GB 内存
 
 ```bash

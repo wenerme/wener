@@ -23,3 +23,7 @@ title: Auth Awesome
 * WSO2
 * [keycloak/keycloak](https://github.com/keycloak/keycloak)
 * [apereo/cas](https://github.com/apereo/cas) - Central Authentication Service
+
+## Reference
+* Google [Authentication/Authorization for Enterprise SPI Guide](https://support.google.com/gsa/answer/6329233)
+* [How to Design a Permissions Framework](https://itnext.io/7c054a009c52)

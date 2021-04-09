@@ -12,11 +12,13 @@ title: 电信术语
 - VoLTE - Voice over Long-Term Evolution
 - UMTS - Universal Mobile Telecommunications System - 通用移动通讯系统
   - 3G
-- Gobinet & QMI-WWAN - 高通 4G 解决方案
-  - GobiNet 内核外模块
-  - Linux 3.4 添加 QMI-WWAN - 功能少于 GobiNet，可由用户空间应用补齐
-    - ofono, uqmi, libqmi
-  - [GobiNet vs libqmi](https://wiki.postmarketos.org/wiki/QMI#GobiNet_vs_libqmi)
+- QMI - Qualcomm MSM Interface
+  - 高通私有协议
+  - 替代 Hayes command set/AT 命令 中的 cellular extensions/V.250
+  - 一般通过共享内存交互
+  - Android RIL 可与 QMI 交互
+- WDS - Wireless Data Service - 无线数据服务
+- SMD - Shared Memory Device - 共享内存设备
 
 ## HSDPA - High-Speed Downlink Packet Access - 高速封包存取
 packet-based mobile telephony protocol used in 3G UMTS radio networks to increase data capacity and speed up transfer rates.

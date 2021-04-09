@@ -1,8 +1,12 @@
+---
+id: react
+title: React
+---
+
 # React
 
 ## Tips
 
-* [#16604](https://github.com/facebook/react/issues/16604) - How should we set up apps for HMR now that Fast Refresh replaces react-hot-loader?
 * [Presentational and Container Components](https://medium.com/@dan_abramov/7ca2f9a7c7d0)
   * presentational
     * 关心 “看起来怎么样”
@@ -27,18 +31,8 @@
     * 有状态、无状态
     * 累、函数
     * Pure、Impure
-
-aeksco/react-typescript-chrome-extension-starter
-https://github.com/aeksco/react-typescript-chrome-extension-starter
-
-http://cn.redux.js.org/
-
-https://github.com/streamich/react-use
-https://usehooks.com
-https://github.com/antonioru/beautiful-react-hooks
-
-
-https://github.com/oychao/react-router-alive
+* suspense 通过 throw prmies 实现
+  * [vigzmv/react-promise-suspense](https://github.com/vigzmv/react-promise-suspense/blob/master/lib/index.ts)
 
 ```bash
 # 常用工具
@@ -52,37 +46,14 @@ npm i --save react-redux redux-persist
 
 # Native
 npm i --save react-base react-native-vector-icons
-
-
 ```
 
-## 中文资源
-* https://github.com/ele828/react-native-guide
-* https://github.com/vczero/react-native-lesson
-* https://github.com/justjavac/free-programming-books-zh_CN
-
-
-https://github.com/chenglou/react-motion
-https://github.com/xgrommx/awesome-redux
-https://github.com/jondot/awesome-react-native
-
-
-facebook/react - View
-reactjs/redux - App State
-rethinkdb/horizon - Realtime Database Sync
-flipace/horizon-react - Connect View + Data
-gaearon/react-hot-loader - Hot Reloading of React Components
-webpack/webpack - Builds & Dev-Server
-
-
-https://github.com/mattkrick/meatier
 
 ## FAQ
-### Rect vs MobX
+### React vs MobX
 * https://www.reddit.com/r/reactjs/comments/885bxa/redux_vs_mobx/
 * [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
   * by Redux Author
-
 
 ## Nextjs
 

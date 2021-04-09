@@ -98,6 +98,7 @@ gq https://my-graphql-engine.com/v1/graphql -H 'X-Hasura-Admin-Secret: adminsecr
 gq https://my-graphql-engine.com/v1/graphql --introspect --format json > schema.json
 
 # https://github.com/apollographql/apollo-tooling
+# schema.json
 npm install -g apollo
 apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql
 apollo schema:download --endpoint https://my-graphql-engine.com/v1/graphql --header 'X-Hasura-Admin-Secret: adminsecretkey'

@@ -116,6 +116,9 @@ title: Go Awesome
 * [google/addlicense](https://github.com/google/addlicense)
   * 添加 License
   * `//go:generate go run github.com/google/addlicense -c Wener -y 2019-present ./`
+* [fatih/gomodifytags](https://github.com/fatih/gomodifytags)
+  * 添加 json tag
+  * `gomodifytags -file demo.go -struct Server -add-tags json -add-options json=omitempty -transform camelcase --skip-unexported`
 * 功能性
   * [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
   * [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite

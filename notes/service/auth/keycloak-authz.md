@@ -130,8 +130,49 @@ public interface EvaluationContext {
 - [Policy Enforcers](https://www.keycloak.org/docs/latest/authorization_services/#_enforcer_overview)
 
 ## UMA
-* [Managing Resource Permissions using the Policy API](https://www.keycloak.org/docs/latest/authorization_services/index.html#_service_authorization_uma_policy_api)
+
+- [Managing Resource Permissions using the Policy API](https://www.keycloak.org/docs/latest/authorization_services/index.html#_service_authorization_uma_policy_api)
 
 ```
 http://${host}:${port}/auth/realms/${realm_name}/authz/protection/uma-policy/{resource_id}
 ```
+
+## Example
+
+- https://github.com/keycloak/keycloak-quickstarts/blob/latest/app-authz-uma-photoz/photoz-realm.json
+
+| Resource              | Type                      | URI        | Scopes                      |
+| --------------------- | ------------------------- | ---------- | --------------------------- |
+| Admin Resources       | http://photoz.com/admin   | `/admin/*` | admin:manage                |
+| User Profile Resource | http://photoz.com/profile | /profile   | profile:view                |
+| Album Resource        | http://photoz.com/album   | `/album/*` | album:delete<br/>album:view |
+
+**Policies**
+
+- Only Owner and Administrators Policy
+  - type=aggregate AFFIRMATIVE
+  - Administration Policy,Only Owner Policy
+- Administration Policy
+  - type=aggregate
+  - Any Admin Policy,Only From a Specific Client Address
+- Only Owner Policy
+  - script-only-owner.js
+- Any Admin Policy
+  - type=role logic=POSITIVE
+  - roles=admin
+- Only From a Specific Client Address
+  - script-only-keycloak-domain-or-admin.js
+- Any User Policy
+  - type=role logic=POSITIVE
+  - roles=user,photoz-restful-api/manage-albums
+- Admin Resource Permission
+  - type=resource logic=POSITIVE
+  - defaultResourceType=http://photoz.com/admin
+  - default=true
+- Album Resource Permission
+  - type=scope logic=POSITIVE
+  - scopes=album:view,album:delete
+  - resources=Album Resource
+- View User Permission
+  - type=scope logic=POSITIVE
+  - scopes=profile:view

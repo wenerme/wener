@@ -287,3 +287,9 @@ title: React Awesome
   - 组件 Doc 和 开发
   - 基于 MDX
 - [react-cosmos/react-cosmos](https://github.com/react-cosmos/react-cosmos)
+
+## 工具
+* [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
+* [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
+  * fork 自 fast-deep-equal
+  * 添加 react 类型处理，避免循环依赖
