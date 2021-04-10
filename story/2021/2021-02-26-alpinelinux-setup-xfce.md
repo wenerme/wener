@@ -2,14 +2,16 @@
 slug: alpinelinux-setup-xfce
 title: AlpineLinux 安装 Xfce 桌面
 tags:
-- AlpineLinux
-- 桌面
-- Xfce
+  - AlpineLinux
+  - 桌面
+  - Xfce
 ---
 
 # AlpineLinux 安装 Xfce 桌面
 
 > 假设已经有一个基础可用的 AlpineLinux, 如果没有可前往 [wenerme/alpine-image](https://github.com/wenerme/alpine-image) 下载或自行制作
+
+<!-- more -->
 
 ## setup xorg
 
@@ -130,17 +132,19 @@ flatpak run com.visualstudio.code
 | org.filezillaproject.Filezilla | Filezilla   | 文件     |
 
 ### AppImage
+
 不通过 flatpak 需要安装，AppImage 是封装好的一体化应用，类似容器，类似 macOS 应用。
 但目前由于 glibc 兼容问题 Alpine 无法运行 AppImage 参见 [AppImage/AppImageKit#1015](https://github.com/AppImage/AppImageKit/issues/1015)。
 
-__已知提供 AppImage 的应用__
+**已知提供 AppImage 的应用**
 
-* Jetbrain Toolbox
-* Lens - Kubernetes IDE
+- Jetbrain Toolbox
+- Lens - Kubernetes IDE
 
 ## 其他服务
-* xrdp - RDP 服务端 - 支持 Windows 直接远程登陆
-* gvncviewer - VNC 客户端
+
+- xrdp - RDP 服务端 - 支持 Windows 直接远程登陆
+- gvncviewer - VNC 客户端
 
 # FAQ
 
@@ -162,7 +166,8 @@ apk add inxi
 inxi -AG
 ```
 
-## kernel: i915 0000:00:02.0: [drm] *ERROR* CPU pipe A FIFO underrun
+## kernel: i915 0000:00:02.0: [drm] _ERROR_ CPU pipe A FIFO underrun
+
 如果该错误导致闪烁可添加启动参数避免 `i915.enable_psr=0`
 
 > [Intel graphics#Screen flickering](https://wiki.archlinux.org/index.php/Intel_graphics#Screen_flickering)

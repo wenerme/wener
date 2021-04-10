@@ -5,8 +5,10 @@ title: Ubuntu 家用
 
 # Ubuntu 家用
 
-* Ubuntu 桌面版
-* 安装至少需要 1024*768 的显示器
+- Ubuntu 桌面版
+- 安装至少需要 `1024*768` 的显示器
+
+<!-- more -->
 
 ```bash
 apt update
@@ -84,6 +86,7 @@ docker run --net home-net --ip 172.18.1.30  -d --restart always -v /etc/localtim
 ```
 
 ### caddy.Dockerfile
+
 ```Dockerfile
 FROM alpine
 MAINTAINER wener <wener@wener.me>
@@ -100,6 +103,7 @@ CMD ["-conf","/etc/Caddyfile","-log","./internal/log"]
 ```
 
 ### grafana.ini
+
 ```ini
 ##################### Grafana Configuration Example #####################
 #
@@ -387,11 +391,11 @@ enabled = false
 url = https://grafana.net
 ```
 
-
 ### prom.yaml
+
 ```yaml
 global:
-  scrape_interval:     5s
+  scrape_interval: 5s
   # Attach these labels to any time series or alerts when communicating with
   # external systems (federation, remote storage, Alertmanager).
   external_labels:
@@ -414,18 +418,19 @@ scrape_configs:
 
   - job_name: container_exporter
     static_configs:
-    - targets: ['172.18.1.21:9104']
+      - targets: ['172.18.1.21:9104']
 
   - job_name: node_exporter
     static_configs:
-    - targets: [ '172.18.1.1:9100']
+      - targets: ['172.18.1.1:9100']
 
   - job_name: caddy
     static_configs:
-    - targets: [ '172.18.1.30:2000']
+      - targets: ['172.18.1.30:2000']
 ```
 
 ### Caddyfile
+
 ```
 :80 {
   log internal/access.log {

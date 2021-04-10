@@ -14,6 +14,8 @@ tags:
 
 这里的动态策略指，现在以 A 方式来做某件事，在过程中可能被切换为 B 方案，但对上层来说是无感的。策略可以映射为策略模式（Strategy Pattern），例如
 
+<!-- more -->
+
 _图片缺失_
 
 <!-- ![undefined](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/140424/1565334699201-7c97dc59-48a8-4327-aa3e-4bd562230017.png) -->

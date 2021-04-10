@@ -34,7 +34,7 @@ type Exchange = ExchangeInput => ExchangeIO;
 - 默认有 Document Caching - 适用于高度依赖静态数据的站点
   - 缓存 key 为 `hash(query,variables)`
   - 根据 mutation 返回类型进行失效
-  - 如果返回空 list, 则不会包含 \_\_typename, 此时无法失效 - 可在上下文添加 additionalTypenames
+  - 如果返回空 list, 则不会包含 `__typename`, 此时无法失效 - 可在上下文添加 additionalTypenames
 - Graphcache - 由 cacheExchange 提供
   - Normalized Caching -  范化缓存
     - 缓存 key 为 `__typename + id`
