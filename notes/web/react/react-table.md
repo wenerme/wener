@@ -1,0 +1,92 @@
+---
+title: react-table
+---
+
+# react-table
+
+- [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
+  - 基于 Hook 功能强大的 Table 组件
+
+:::caution
+
+- 不支持 sticky 行列
+  - 可使用 [GuillaumeJasmin/react-table-sticky](https://github.com/GuillaumeJasmin/react-table-sticky)
+
+:::
+
+## Note
+
+- react-table 核心功能
+  - 状态管理
+  - 操作 reduce
+  - 行列处理
+  - 其他功能由插件提供
+
+## 插件
+
+```ts
+export const usePagination = (hooks) => {
+  hooks.stateReducers.push(reducer);
+  hooks.useInstance.push(useInstance);
+};
+
+// 状态处理
+function reducer(state, action: { type }, previousState, instance) {
+  // 初始化
+  if (action.type === actions.init) {
+    return {
+      pageSize: 10,
+      pageIndex: 0,
+      ...state,
+    };
+  }
+}
+
+// 会在 hook 中循环调用 - 可以使用 react hook 实现插件状态
+// 可添加额外方法到 instance
+function useInstance(instance) {}
+```
+
+## usePagination
+
+- 受控分页
+  - 对 row 数据进行分页
+  - 基于行数计算 pageCount
+- 非受控分页
+  - 用于服务端接口场景
+  - 提供 pageCount
+
+```ts
+interface PaginationState {
+  pageIndex;
+  pageSize;
+}
+
+interface PaginationInstance {
+  pageCount: number;
+  pageOptions: number[];
+  page: Row[];
+
+  canPreviousPage: boolean;
+  canNextPage: boolean;
+
+  // 操作 - 进行 dispatch
+  gotoPage(pageIndex);
+  previousPage();
+  nextPage();
+  setPageSize(pageSize);
+}
+```
+
+## useTokenPagination
+
+- [src/utility-hooks/useTokenPagination.js](https://github.com/tannerlinsley/react-table/blob/master/src/utility-hooks/useTokenPagination.js)
+  - 未包含在正常包里
+  - 独立使用
+- 状态
+  - pageToken
+  - nextPageToken
+  - previousPageTokens
+    - 数组 - 记录经过的 token
+  - pageIndex
+

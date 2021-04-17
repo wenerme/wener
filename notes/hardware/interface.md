@@ -4,6 +4,16 @@ title: 硬件接口
 
 # 硬件接口
 
+## USB
+* [系统结构](https://en.wikipedia.org/wiki/USB#System_design)
+  * Host + one or more downstream ports + multiple peripherals
+  * Hubs - 最多 5 层
+  * 一个 host 可以有多个控制器，每个控制器可以有一个或多个端口
+  * 一个 host 最多 127 设备
+  * 一个设备可以有多个逻辑设备 - device functions
+  * 组合设备可提供多个功能 - webcam + microphone
+  * 复合设备连接逻辑设备到内建 Hub
+
 ## PCIe
 * [PCI Express](https://en.wikipedia.org/wiki/PCI_Express)
 

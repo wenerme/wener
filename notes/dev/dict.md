@@ -199,19 +199,23 @@ title: 开发用词字典
 
 ## 公司企业
 
-| 英文               | 含义         | 释义                         |
-| ------------------ | ------------ | ---------------------------- |
-| brn                | 工商注册号   | Business Registration Number |
-| ucc                | 统一信用代码 | Uniform Credit Code          |
-| org code/oc        | 组织机构代码 | Organization Code            |
-| taxpayer no/tn     | 纳税人编号   | Taxpayer Number              |
-| reg number/reg no  | 注册号       |
-| credit code        | 信用代码     |
-| brand              | 字号         |
-| industry           | 行业         |
-| industry character | 行业特征     |
-| zone               | 区域         |
-| district           | 行政区       |
+| 英文                     | 含义             | 释义                         |
+| ------------------------ | ---------------- | ---------------------------- |
+| brn                      | 工商注册号       | Business Registration Number |
+| ucc                      | 统一信用代码     | Uniform Credit Code          |
+| org code/oc              | 组织机构代码     | Organization Code            |
+| taxpayer no/tn           | 纳税人编号       | Taxpayer Number              |
+| reg number/reg no        | 注册号           |
+| credit code              | 信用代码         |
+| brand                    | 字号             |
+| industry                 | 行业             |
+| industry character       | 行业特征         |
+| zone                     | 区域             |
+| district                 | 行政区           |
+| corporation              | 公司、企业、法人 |
+| legal representative     | 法人代表         |
+| corporate representative | 法人代表         |
+| supervisor               | 监事             |
 
 # FAQ
 
@@ -241,33 +245,35 @@ title: 开发用词字典
   - 尽量使用 FullName 避免不必要的混淆
 
 ## group vs department vs team
-* group
-  * 人或事务的集合 - 与人多对多
-    * 例如一个群组里可能有用户也可能有机器人
-  * 单纯用于分组 - 弱业务性质和上下级关系
-    * A组、B组
-* department
-  * 人的集合 - 与人多对一
-  * 具有业务属性和上下级关系
-    * 财务部 - 表示财务相关的业务
-* team
-  * 人的集合 - 与人多对多
-  * 组织架构中类似 group - 但更具有管理属性
-  * 主要便于跨部门协作
+
+- group
+  - 人或事务的集合 - 与人多对多
+    - 例如一个群组里可能有用户也可能有机器人
+  - 单纯用于分组 - 弱业务性质和上下级关系
+    - A 组、B 组
+- department
+  - 人的集合 - 与人多对一
+  - 具有业务属性和上下级关系
+    - 财务部 - 表示财务相关的业务
+- team
+  - 人的集合 - 与人多对多
+  - 组织架构中类似 group - 但更具有管理属性
+  - 主要便于跨部门协作
 
 ## business unit vs division vs deparment
-* 组织架构三层关系
-* business unit - 业务单元 - 例如 出版署
-  * 位于某个地点
-* division - 分部 - 例如 市场分部、消费者分部
-  * 位于某个地点的某些办公室或者区域
-* deparment - 部门 - 例如 编辑部、较对部
-  * 位于公司某个区域
 
-* 参考
-  * [Developing the Organizational Hierarchy](https://www.archibus.net/ai/abizfiles/v21.2_help/archibus_help/Subsystems/webc/Content/background_gen/org_hierarchy.htm)
-  * wikipedia [Corporate structure](https://en.wikipedia.org/wiki/Corporate_structure)
-  * [Corporate structure](https://corporatefinanceinstitute.com/resources/knowledge/finance/corporate-structure/)
+- 组织架构三层关系
+- business unit - 业务单元 - 例如 出版署
+  - 位于某个地点
+- division - 分部 - 例如 市场分部、消费者分部
+  - 位于某个地点的某些办公室或者区域
+- deparment - 部门 - 例如 编辑部、较对部
+  - 位于公司某个区域
+
+- 参考
+  - [Developing the Organizational Hierarchy](https://www.archibus.net/ai/abizfiles/v21.2_help/archibus_help/Subsystems/webc/Content/background_gen/org_hierarchy.htm)
+  - wikipedia [Corporate structure](https://en.wikipedia.org/wiki/Corporate_structure)
+  - [Corporate structure](https://corporatefinanceinstitute.com/resources/knowledge/finance/corporate-structure/)
 
 ## activity vs event
 
@@ -304,29 +310,31 @@ title: 开发用词字典
 都有分类的含义，但分类的方式和内容不同。Subjet 更客观，更规范的分类。Catalog 一般是由人主观进行编撰的。
 
 ## up-sell & cross-sell & down-sell
-* up-sell
-  * 向上销售 - 提更高价产品
-  * 提高产品价值，提升单价销售
-  * 例如 买车的时候推销更高端的座椅配件、提高免费维保
-  * 手段
-    * Upgrade
-    * Offer a Limited-Time Discount
-    * Do a Free Service
-    * Provide an Ongoing Service
-    * Tell Them What You Can Do
-* cross-sell
-  * 交叉销售 - 提其他类似产品
-  * 例如 买车的时候推销车险
-* down-sell
-  * 向下销售
+
+- up-sell
+  - 向上销售 - 提更高价产品
+  - 提高产品价值，提升单价销售
+  - 例如 买车的时候推销更高端的座椅配件、提高免费维保
+  - 手段
+    - Upgrade
+    - Offer a Limited-Time Discount
+    - Do a Free Service
+    - Provide an Ongoing Service
+    - Tell Them What You Can Do
+- cross-sell
+  - 交叉销售 - 提其他类似产品
+  - 例如 买车的时候推销车险
+- down-sell
+  - 向下销售
 
 ## association, relationship & correlation
-* association - 关联
-  * 是一种 relationship
-  * 将两者进行关联 - 相对更加主观，强调关联动作
-* relationship - 关系
-  * 表明两者有相关性 - 客观关系
-  * 表明两者之间有链接
-* correlation - 相关性
-  * measure of association and mathematical tools are provided to measure the magnitude of the correlation.
-  * 度量 association/relationship
+
+- association - 关联
+  - 是一种 relationship
+  - 将两者进行关联 - 相对更加主观，强调关联动作
+- relationship - 关系
+  - 表明两者有相关性 - 客观关系
+  - 表明两者之间有链接
+- correlation - 相关性
+  - measure of association and mathematical tools are provided to measure the magnitude of the correlation.
+  - 度量 association/relationship

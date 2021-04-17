@@ -1,3 +1,7 @@
+---
+title: Storybook
+---
+
 # Storybook
 
 ## Tips

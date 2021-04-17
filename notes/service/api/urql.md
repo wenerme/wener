@@ -18,9 +18,10 @@ title: URQL
 
 - useQuery 的 context 确保不要变 - useMemo
   - 否则会导致重新请求 - 可能无限循环渲染
-- 客户端模式 Suspense 支持不太好
+- 默认全局 opt-in Suspense
   - createClient 开启 suspense 则默认认为在服务端 - 所有查询开启 suspense
   - useURQL 的 context 可控制关闭 suspense
+  - 对于只希望单次查询 suspense 只能封装现有接口
 
 :::
 
@@ -35,23 +36,40 @@ type Exchange = ExchangeInput => ExchangeIO;
   - 缓存 key 为 `hash(query,variables)`
   - 根据 mutation 返回类型进行失效
   - 如果返回空 list, 则不会包含 `__typename`, 此时无法失效 - 可在上下文添加 additionalTypenames
-- Graphcache - 由 cacheExchange 提供
-  - Normalized Caching -  范化缓存
-    - 缓存 key 为 `__typename + id`
-    - 会缓存字段和关系
-    - 可根据类型自定义缓存 key
-    - 无 key 的结构作为嵌入数据依附在上级文档
-- 请求策略
-  - cache-first - 默认
-    - 默认返回 cache 结果，不存在则请求
-  - cache-and-network
-    - 返回 cache 结果，也请求更新
-  - network-only
-    - 忽略缓存
-  - cache-only
-    - 返回缓存或者 null
 - exchange - 扩展点 - 默认 dedupExchange, cacheExchange, fetchExchange
   - 类似 apollo 的 link - 但更通用
+
+**请求策略**
+
+| RequestPolicy     | Desc                                   |
+| ----------------- | -------------------------------------- |
+| cache-first       | 默认 默认返回 cache 结果，不存在则请求 |
+| cache-and-network | 先返回 cache 结果，也请求更新          |
+| network-only      | 忽略缓存，直接发起请求                 |
+| cache-only        | 返回缓存或者 null                      |
+
+**exchanges**
+
+| exchange                       | desc                                                                  |
+| ------------------------------ | --------------------------------------------------------------------- |
+| @urql/exchange-graphcache      | 提供泛化图缓存                                                        |
+| @urql/exchange-retry           | 重试失败请求                                                          |
+| @urql/exchange-execute         | 本地模拟执行，用于测试或服务端                                        |
+| @urql/exchange-multipart-fetch | 文件上传                                                              |
+| @urql/exchange-persisted-fetch | 基于 hash 查询，避免发送 query                                        |
+| @urql/exchange-request-policy  | 缓存失效和更新，将 cache-first 和 cache-only 上升为 cache-and-network |
+| @urql/exchange-auth            | 请求添加授权信息，例如 JWT                                            |
+| @urql/exchange-refocus         | 窗口获取焦点时重新发起请求                                            |
+
+## @urql/exchange-graphcache
+
+- Normalized Caching -  范化缓存
+  - 缓存 key 为 `__typename:id`
+  - 会缓存字段和关系
+  - 可根据类型自定义缓存 key
+  - 无 key 的结构作为嵌入数据依附在上级文档
+- Local Resolver - 本地解析
+  - 提供 resolvers 直接在客户端处理请求
 
 ```ts
 cache.readQuery({ query: Todos, variables: { from: 0, limit: 10 } });
@@ -168,6 +186,17 @@ cacheExchange({
 });
 ```
 
+### relayPagination
+
+- Resolver
+- 基于 relay 的 connection 进行分页数据合并
+  - 支持 first+last
+  - 支持 before, after
+- mergeMode - 合并模式
+  - inwards - 默认 - 往后合并
+  - outwards - 往前合并
+- 参数变化会重置 - 忽略 first, last, after, before
+
 # FAQ
 
 ## URQL vs Apollo
@@ -179,3 +208,7 @@ cacheExchange({
   - 支持 window focus 触发请求
   - 缓存为可选组件
 - [vs Apollo](https://formidable.com/open-source/urql/docs/comparison/)
+
+## Cannot update a component while rendering a different component
+
+- https://github.com/FormidableLabs/urql/issues/1382#issuecomment-778112684

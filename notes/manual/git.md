@@ -25,7 +25,7 @@ title: Git
 * [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
 * [git 与 svn 命令比较](http://git.or.cz/course/svn.html)
 * [我的 .gitconfig](https://github.com/wenerme/dotfiles/blob/master/.gitconfig)
-
+* [Git in 1k JavaScript](http://gitlet.maryrosecook.com/docs/gitlet.html)
 
 ```bash
 # 直接通过 SSH 进行仓库推送

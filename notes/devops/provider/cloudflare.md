@@ -1,3 +1,7 @@
+---
+title: CloudFlare
+---
+
 # CloudFlare
 
 ## Tips
@@ -7,7 +11,11 @@
   * [Understanding Origin Cache-Control](https://support.cloudflare.com/hc/en-us/articles/115003206852-Understanding-Origin-Cache-Control)
 
 ## Argo Tunnel
-* [价格](https://support.cloudflare.com/hc/zh-cn/articles/115000224192)
+* 实现源端和 Cloudflare 之间加密通讯 - ZeroTrust
+* [价格](https://support.cloudflare.com/hc/zh-cn/articles/115000224192) - Since 2018
+* [免费声明](https://blog.cloudflare.com/tunnel-for-everyone/) - 2021-4-17
+  * 没有 Argo Smart Routing 特性
+  * 重命名为 Cloudflare Tunnel
 
 | Traffic        | `$/Month` | `$/G/Month` |
 | -------------- | --------- | ----------- |
@@ -22,7 +30,7 @@
 * Free
   * 100,000 请求/天
     * 1000 请求/分钟
-  * 单次请求 CPU 10ms 
+  * 单次请求 CPU 10ms
   * 第一次请求后延迟会降低
   * 30 个 Worker
 * Bundled 5$/M

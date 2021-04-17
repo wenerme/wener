@@ -15,6 +15,26 @@ title: GraphQL Awesome
   6. 服务端批处理和缓存 - 避免 N+1 问题 - 利用 [graphql/dataloader](https://github.com/graphql/dataloader) 处理
 - [Gitlab GraphQL API 规范文档](https://docs.gitlab.com/ee/development/api_graphql_styleguide.html)
 
+## Service
+
+- [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
+  - GraphQL Adapter
+  - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
+
+## Tool
+
+- [dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
+  - 基于 GraphQL 生成各种客户端服务端代码
+  - 对 TypeScript 支持非常好
+
+## Client
+
+- apollo
+- urql
+- graphql-request
+  - fetch + gql
+- react-query+graphql-request
+
 ## Public GraphQL
 
 ### GitLab

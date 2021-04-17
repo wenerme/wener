@@ -1,5 +1,6 @@
 # Ops
 
+* [Why All My Servers Have an 8GB Empty File](https://brianschrader.com/archive/why-all-my-servers-have-an-8gb-empty-file/)
 
 ## Tips
 
