@@ -19,5 +19,5 @@ title: Reverse Engineering Awesome
   * Qt C++
 
 ## 参考
-* [USB Reverse Engineering: Down the Rabbit Hole]()
+* [USB Reverse Engineering: Down the Rabbit Hole](http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/)
   * [HN](https://news.ycombinator.com/item?id=17164700)
