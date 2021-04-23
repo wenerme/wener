@@ -201,3 +201,16 @@ host-type := $(shell arch)
 MAKE := ${MAKE} host-type=${host-type} whoami=${whoami}
 endif
 ```
+
+## 带帮助的 Makefile
+```makefile
+build: ## Build
+  echo BUILD
+.PHONY: help
+help: ## 帮助
+	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+```
+
+```bash
+make help
+```

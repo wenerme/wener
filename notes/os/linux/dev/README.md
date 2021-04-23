@@ -1,4 +1,5 @@
 ---
+id: dev
 title: Linux Device
 ---
 

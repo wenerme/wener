@@ -209,6 +209,13 @@ cacheExchange({
   - 缓存为可选组件
 - [vs Apollo](https://formidable.com/open-source/urql/docs/comparison/)
 
+## production 构建后 urql 返回 null
+
+起因是 gqlgen 不支持 fragment 里包含 alias，不会返回字段，urql 检测少字段认为 cache miss 返回 null。
+
+- [99designs/gqlgen#1271](https://github.com/99designs/gqlgen/issues/1271)
+- [FormidableLabs/urql#1557](https://github.com/FormidableLabs/urql/issues/1557)
+
 ## Cannot update a component while rendering a different component
 
 - https://github.com/FormidableLabs/urql/issues/1382#issuecomment-778112684

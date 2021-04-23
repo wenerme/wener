@@ -381,9 +381,18 @@ git rev-parse HEAD
 git describe --tags --abbrev=0
 # 当前 tag
 git describe --tags --abbrev=0 --exact-match
+# 如果没有当前 tag 则用 dev
 git describe --tags --abbrev=0 --exact-match 2>/dev/null || echo dev
 
+git describe --abbrev=0 --tags
+
 git tag --points-at HEAD
+
+# 所有 branch
+git describe --tags `git rev-list --tags --max-count=1`
+
+# Commit 时间
+git log -1 --format=%cd --date=iso8601
 
 # 生成当前时间
 date --iso-8601=seconds
@@ -391,6 +400,11 @@ date --iso-8601=seconds
 # 当前
 # de9733b (HEAD -> master, origin/master, origin/HEAD) minor update
 git show --oneline -s
+
+# short hash
+git rev-parse --short HEAD
+#
+git log -1 --pretty=format:%h
 ```
 
 ## 搜索文件

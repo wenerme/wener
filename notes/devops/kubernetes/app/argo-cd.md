@@ -4,12 +4,11 @@ title: ArgoCD
 
 # ArgoCD
 
-- 是什么？
+- [argoproj/argo-cd](https://github.com/argoproj/argo-cd) 是什么？
   - 声明式 K8S 持续集成/CD 服务/控制器
   - GitOps
   - 有 **直观的** WebUI 可供管理和问题排查
   - 支持多集群、统一登录、权限管理
-- [argoproj/argo-cd](https://github.com/argoproj/argo-cd)
   - [DEMO](https://cd.apps.argoproj.io/)
 - 特性
   - 自动化部署应用到指定环境
@@ -78,7 +77,7 @@ title: ArgoCD
 
 :::tip
 
-* 每 3分钟 拉取一次 Git
+- 每 3 分钟 拉取一次 Git
 
 :::
 
@@ -173,8 +172,8 @@ syncPolicy:
   automated:
     prune: true
   syncOptions:
-  # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
-  - ApplyOutOfSyncOnly=true
+    # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
+    - ApplyOutOfSyncOnly=true
 ```
 
 | options                          | desc                                     |
@@ -184,13 +183,14 @@ syncPolicy:
 | SkipDryRunOnMissingResource=true | 新增 CRD 时避免 DryRun 失败              |
 
 ## 配置
-* [argocd-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-cm.yaml)
-  * 基础配置
-* [argocd-secret.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-secret.yaml)
-  * Password, Certificates, Signing Key
-* [argocd-rbac-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-rbac-cm.yaml)
-* 参考
-  * [Declarative Setup](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/)
+
+- [argocd-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-cm.yaml)
+  - 基础配置
+- [argocd-secret.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-secret.yaml)
+  - Password, Certificates, Signing Key
+- [argocd-rbac-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-rbac-cm.yaml)
+- 参考
+  - [Declarative Setup](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/)
 
 ### argocd-cm
 
@@ -204,7 +204,7 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-ga.trackingid: ""
+ga.trackingid: ''
 repositories: |
   # 仓库列表
 
@@ -214,7 +214,7 @@ application.instanceLabelKey: app.kubernetes.io/instance
 # application.instanceLabelKey: app.kubernetes.io/argocd-instance
 ```
 
-__repositories__
+**repositories**
 
 ```yaml
 # 定义 Git 仓库账号密码
@@ -236,34 +236,35 @@ __repositories__
   url: git@gitea-ssh.gitea:dev/dev-cluster
 ```
 
-
 ## ArgoCD 管理 ArgoCD
-* [Manage Argo CD Using Argo CD](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#manage-argo-cd-using-argo-cd)
-* https://github.com/argoproj/argoproj-deployments/tree/master/argocd
 
-__kustomization.yaml__
+- [Manage Argo CD Using Argo CD](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#manage-argo-cd-using-argo-cd)
+- https://github.com/argoproj/argoproj-deployments/tree/master/argocd
+
+**kustomization.yaml**
 
 ```yaml
 bases:
-- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v1.0.1
+  - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v1.0.1
 
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
-- clusters-secrets.yaml
-- repos-secrets.yaml
+  - clusters-secrets.yaml
+  - repos-secrets.yaml
 
 # 修改配置
 patchesStrategicMerge:
-- overlays/argo-cd-cm.yaml
+  - overlays/argo-cd-cm.yaml
 ```
 
 ## Resource Hook
-* [Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks)
-  * 选择性同步时不会执行
-* PreSync
-* Sync
-* PostSync
-* SyncFail
+
+- [Resource Hooks](https://argoproj.github.io/argo-cd/user-guide/resource_hooks)
+  - 选择性同步时不会执行
+- PreSync
+- Sync
+- PostSync
+- SyncFail
 
 ```yaml
 apiVersion: batch/v1
@@ -310,24 +311,25 @@ syncPolicy:
 ```
 
 ## 不同步部分字段
-* 例如 cert-manager 预先生成 secret 包含 labels 和 annotations, 但内容不需要同步
-* 可应用纬度配置或全局配置
-* [Diffing Customization¶](https://argoproj.github.io/argo-cd/user-guide/diffing/)
+
+- 例如 cert-manager 预先生成 secret 包含 labels 和 annotations, 但内容不需要同步
+- 可应用纬度配置或全局配置
+- [Diffing Customization¶](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/)
 
 ```yaml
 # 应用 spec 配置
 spec:
   ignoreDifferences:
-  - group: apps
-    kind: Deployment
-    name: guestbook
-    namespace: default
-    jsonPointers:
-    - /spec/replicas
+    - group: apps
+      kind: Deployment
+      name: guestbook
+      namespace: default
+      jsonPointers:
+        - /spec/replicas
 ```
 
 ```yaml
-# argocd-cm 配置
+# argocd-cm 配置 - 全局
 data:
   resource.customizations: |
     admissionregistration.k8s.io/MutatingWebhookConfiguration:
@@ -337,6 +339,7 @@ data:
 ```
 
 ### 常见忽略 Diff
+
 ```yaml
 # 如果使用 argocd 部署 argocd
 # 忽略 argocd-cm 部分
@@ -344,55 +347,63 @@ data:
   kind: ConfigMap
   name: argocd-cm
   jsonPointers:
-  - /data
+    - /data
+
+# 忽略部署的 repilca 数量 - 有时候希望运维调整
+- group: apps
+  kind: Deployment
+  jsonPointers:
+    - /spec/replicas
 
 # longhorn Volume 忽略部分会变字段
 - group: longhorn.io
   kind: Volume
   jsonPointers:
-  - /spec/nodeID
-  - /spec/lastAttachedBy
+    - /spec/nodeID
+    - /spec/lastAttachedBy
 
 # 忽略指定 Secret 数据
 - group: core
   kind: Secret
   name: default-cert
   jsonPointers:
-  - /data
+    - /data
 ```
 
 ## Sync
-* The phase
-* The wave they are in (lower values first)
-* By kind (e.g. namespaces first)
-* By name
+
+- The phase
+- The wave they are in (lower values first)
+- By kind (e.g. namespaces first)
+- By name
 
 ## Tricks
 
 ```yaml
 bases:
-# latest
-- github.com/argoproj/argo-cd//manifests/cluster-install
-# tag
-- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.1
+  # latest
+  - github.com/argoproj/argo-cd//manifests/cluster-install
+  # tag
+  - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.1
 ```
 
 构建环境
 
-* ARGOCD_APP_NAME
-* ARGOCD_APP_NAMESPACE
-* ARGOCD_APP_REVISION
-* ARGOCD_APP_SOURCE_PATH
-* ARGOCD_APP_SOURCE_REPO_URL
-* ARGOCD_APP_SOURCE_TARGET_REVISION | master
-* KUBE_VERSION
-* KUBE_API_VERSIONS
+- ARGOCD_APP_NAME
+- ARGOCD_APP_NAMESPACE
+- ARGOCD_APP_REVISION
+- ARGOCD_APP_SOURCE_PATH
+- ARGOCD_APP_SOURCE_REPO_URL
+- ARGOCD_APP_SOURCE_TARGET_REVISION | master
+- KUBE_VERSION
+- KUBE_API_VERSIONS
 
 # FAQ
 
 ## the server could not find the requested resource
-* CRD 定义不存在
-* Namespace 不存在
+
+- CRD 定义不存在
+- Namespace 不存在
 
 特殊情况可以考虑跳过
 
@@ -400,4 +411,15 @@ bases:
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+```
+
+## 升级应用时可能 CRD 有变化导致校验不通过
+
+- 先同步 CRD
+
+## kustomize build 异常
+使用与 argocd 相同版本试试
+
+```bash
+docker run --rm -it -v $PWD:/tmp -w /tmp registry.cn-hongkong.aliyuncs.com/cmi/argoproj_argocd:v2.0.1 bash
 ```

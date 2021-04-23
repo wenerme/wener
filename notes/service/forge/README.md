@@ -1,3 +1,8 @@
+---
+id: forge
+title: Forge
+---
+
 # Forge
 
 > [Forge](https://en.wikipedia.org/wiki/Forge_(software))

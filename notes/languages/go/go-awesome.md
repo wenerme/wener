@@ -42,6 +42,12 @@ title: Go Awesome
 ## 数据库迁移
 * [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
 
+## 数据库操作
+* [kyleconroy/sqlc](https://github.com/kyleconroy/sqlc)
+  * sql 生成 go 代码进行调用
+* [sosedoff/pgweb](https://github.com/sosedoff/pgweb)
+  * Golang Web 管理工具 - MIT, 只读
+
 ## Web
 
 :::tip

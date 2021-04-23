@@ -53,6 +53,7 @@ Why No directories.lib in Node
 
 ## .npmrc
 
+- https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 - https://docs.npmjs.com/cli/v6/configuring-npm/npmrc
 
 ```ini
@@ -65,6 +66,10 @@ phantomjs_cdnurl=http://cdn.npm.taobao.org/dist/phantomjs
 fse_binary_host_mirror=https://npm.taobao.org/mirrors/fsevents
 sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 electron_mirror=http://cdn.npm.taobao.org/dist/electron/
+```
+
+```bash
+npm ci --registry=https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 ```
 
 ## workspaces
@@ -92,6 +97,9 @@ electron_mirror=http://cdn.npm.taobao.org/dist/electron/
 # Version
 
 ## v7 - NodeJS 15
+- 问题
+  - [npm/cli#2800](https://github.com/npm/cli/issues/2800)
+    - npm outdated 不支持 `tailwindcss@npm:@tailwindcss/postcss7-compat`
 
 - workspace
 - 自动安装 peer 依赖

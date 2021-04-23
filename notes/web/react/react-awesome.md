@@ -163,6 +163,7 @@ title: React Awesome
   - 异步加载组件
 
 ## 数据校验
+
 - 一般都不是 react 相关
 - 常用 yup, joi, props-type, json-schema
 - json-schema
@@ -213,6 +214,19 @@ title: React Awesome
 
 ## 状态管理
 
+- [pmndrs/zustand](https://github.com/pmndrs/zustand)
+  - Redux like - 支持 Redux devtools
+  - 状态在 React 之外 - 可外部操作
+  - ![](https://img.shields.io/bundlephobia/min/zustand)
+- [pmndrs/jotai](https://github.com/pmndrs/jotai)
+  - Recoil like
+  - vs Recoil
+    - jotai: Minimalistic API, No string keys, TypeScript
+    - recoil: string key, 序列化支持更好
+  - [vs zustand](https://github.com/pmndrs/jotai/blob/master/docs/introduction/comparison.md)
+  - 替代 useState+useContext
+  - Suspense
+  - ![](https://img.shields.io/bundlephobia/min/jotai)
 - [facebookexperimental/Recoil](https://github.com/facebookexperimental/Recoil)
   - [Recoil: State Management for Today's React](https://youtu.be/_ISAA_Jt9kI)
 - [paol-imi/react-reparenting](https://github.com/paol-imi/react-reparenting)
@@ -241,6 +255,53 @@ title: React Awesome
     - storeon - [index.js](https://github.com/storeon/storeon/blob/main/index.js)
     - React hook - [react/index.js](https://github.com/storeon/storeon/blob/main/react/index.js)
     - 结构逻辑比 redux 清晰的多
+- 常见问题
+  - [zombie child problem](https://react-redux.js.org/api/hooks#stale-props-and-zombie-children)
+  - [react concurrency](https://github.com/bvaughn/rfcs/blob/useMutableSource/text/0000-use-mutable-source.md)
+  - [context loss](https://github.com/facebook/react/issues/13332)
+  - 跨组件状态变化
+
+```ts
+// https://github.com/pmndrs/zustand
+import create from 'zustand';
+import shallow from 'zustand/shallow';
+
+// 定义
+const useStore = create((set, get) => ({
+  count: 0,
+  add: () => set((state) => ({ count: state.count + 1 })),
+  reset: () => set({ count: 0 }),
+  clear: () => set({}, true), // true 表示重置整个 state
+  fetch: async (pond) => {
+    // 支持 async
+    const response = await fetch(pond);
+    set({ fishies: await response.json() });
+  },
+  action: () => {
+    const count = get().count; // 方法内使用 get 访问状态
+  },
+}));
+// 使用
+const state = useStore();
+const count = useStore((state) => state.count);
+const add = useStore((state) => state.add);
+const count = useStore(
+  (state) => state.count,
+  (a, b) => compare(a, b), // 自定义 compare
+);
+// shallow compare
+const [nuts, honey] = useStore((state) => [state.nuts, state.honey], shallow);
+// 建议 Memoizing selector
+const fruit = useStore(useCallback((state) => state.fruits[id], [id]));
+// 直接访问
+useStore.getState().count;
+// 直接设置
+useStore.setState({ paw: false });
+// 订阅 - 可限定变化范围和比较方式
+useStore.subscribe(console.log, (state) => [state.paw, state.fur], shallow);
+// 清除所有 listener
+useStore.destroy();
+```
 
 ## 图表
 
@@ -289,7 +350,23 @@ title: React Awesome
 - [react-cosmos/react-cosmos](https://github.com/react-cosmos/react-cosmos)
 
 ## 工具
-* [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
-* [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
-  * fork 自 fast-deep-equal
-  * 添加 react 类型处理，避免循环依赖
+
+- [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
+- [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
+  - fork 自 fast-deep-equal
+  - 添加 react 类型处理，避免循环依赖
+- [welldone-software/why-did-you-render](https://github.com/welldone-software/why-did-you-render)
+
+## 动画
+
+- [pmndrs/react-spring](https://github.com/pmndrs/react-spring)
+
+## 功能
+- [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
+  - 使用 React 创建 PDF
+  - 支持 Node 和 Web
+- [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
+  - 不支持样式、图表、图片
+  - 性能好
+  - Pro https://sheetjs.com/pro
+- [exceljs/exceljs](https://github.com/exceljs/exceljs)

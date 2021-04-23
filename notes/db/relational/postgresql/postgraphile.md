@@ -1,12 +1,14 @@
+---
+title: PostGraphile
+---
 
 # PostGraphile
-* 是什么？
+* [graphile/postgraphile](https://github.com/graphile/postgraphile) 是什么？
   * GraphQL over PostgreSQL
-  * 强调 DB 设计
+  * 强调 DB 设计 - 先 DB 后 GraphQL
   * TypeScript+NodeJS 实现
-* [graphile/postgraphile](https://github.com/graphile/postgraphile)
-* 可以独立使用也可以嵌入到 NodeJS 使用
-  * 官方推荐作为库使用，因为方便自定义和加插件
+  * 可以独立使用也可以嵌入到 NodeJS 使用
+    * 官方推荐作为库使用，因为方便自定义和加插件
 
 ```bash
 # https://www.graphile.org/postgraphile/usage-cli/

@@ -335,3 +335,14 @@ BEGIN
 END
 $$;
 ```
+
+## 重置 schema
+
+```sql
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+-- 9.3+ 可能需要
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;
+```

@@ -13,6 +13,9 @@ brew install cloudflare/cloudflare/cloudflared
 docker run -v ~/.cloudflared:/etc/cloudflared \
   --name cfd cloudflare/cloudflared:2021.4.0 \
   tunnel --no-autoupdate --hostname demo.wener.me --url http://localhost:8080
+# Linux
+curl -Lo cloudflared https://github.com/cloudflare/cloudflared/releases/download/2021.4.0/cloudflared-linux-amd64
+chmod +x cloudflared
 
 # 升级版本
 cloudflared update

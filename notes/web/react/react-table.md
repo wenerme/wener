@@ -22,7 +22,12 @@ title: react-table
   - 行列处理
   - 其他功能由插件提供
 
-## 插件
+## useTable
+
+- 需要 memoized 的属性
+  - colums, data, getSubRows, getRowId
+
+# 插件
 
 ```ts
 export const usePagination = (hooks) => {
@@ -90,3 +95,46 @@ interface PaginationInstance {
     - 数组 - 记录经过的 token
   - pageIndex
 
+## useRowSelect
+
+- 默认会在 row 上设置 isSelected
+
+```ts
+interface RowSelectOptions {
+  initialState: {
+    selectedRowIds: Record<string: boolean> // rowId
+  }
+  manualRowSelectedKey?:string // 'isSelected'
+  autoResetSelectedRows?:bool // true
+}
+
+
+interface RowSelectInstance {
+  toggleRowSelected(rowPath: string, set?: boolean): void;
+
+  toggleAllRowsSelected(set?: boolean): void;
+
+  toggleAllPageRowsSelected(set?: boolean): void;
+
+  getToggleAllPageRowsSelectedProps(props): RowSelectProps;
+
+  getToggleAllRowsSelectedProps(props): RowSelectProps;
+
+  isAllRowsSelected: boolean;
+  selectedFlatRows: Array<Row>;
+}
+
+interface RowSelectProps {
+  onChange;
+  style: { cursor };
+  indeterminate;
+  title;
+}
+
+interface RowSelectRowProps {
+  isSelected: boolean;
+  isSomeSelected: boolean;
+  toggleRowSelected(set?: boolean);
+  getToggleRowSelectedProps(props): RowSelectProps;
+}
+```
