@@ -4,8 +4,6 @@ id: systemd
 
 # Systemd
 
-## Tips
-
 - [systemd](https://www.freedesktop.org/wiki/Software/systemd)
 - wikipedia [systemd](https://en.wikipedia.org/wiki/Systemd)
 - [systemd.unit](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
@@ -209,7 +207,6 @@ Environment=
 | Runlevel 5 | runlevel5.target | graphical.target  |
 | Runlevel 6 | runlevel6.target | reboot.target     |
 
-
 ```bash
 # 查看当前系统的所有 Target
 systemctl list-unit-files --type=target
@@ -230,17 +227,18 @@ sudo systemctl isolate multi-user.target
 ```
 
 ## Target vs init/RunLevel
-* init/RunLevel
-  * 默认 RunLevel /etc/inittab
-  * 脚本位于 /etc/init.d - 等同于 Unit
-  * 启动的脚本 link 到 /etc/rc.d 或 /etc/runlevels/
-  * init 配置位于 `/etc/sysconfig` 或 `/etc/rc.conf`
-* Target
-  * 默认 /etc/systemd/system/default.target
-    * link 到 multi-user.target 或 graphical.target
-  * Unit 位于 /lib/systemd/system
-  * 启动后位于 /etc/systemd/system
-  * systemd 配置 /lib/systemd, /etc/systemd
+
+- init/RunLevel
+  - 默认 RunLevel /etc/inittab
+  - 脚本位于 /etc/init.d - 等同于 Unit
+  - 启动的脚本 link 到 /etc/rc.d 或 /etc/runlevels/
+  - init 配置位于 `/etc/sysconfig` 或 `/etc/rc.conf`
+- Target
+  - 默认 /etc/systemd/system/default.target
+    - link 到 multi-user.target 或 graphical.target
+  - Unit 位于 /lib/systemd/system
+  - 启动后位于 /etc/systemd/system
+  - systemd 配置 /lib/systemd, /etc/systemd
 
 # Example
 
@@ -261,7 +259,7 @@ ExecStart=/opt/prometheus/bin/node_exporter
 ```
 
 # FAQ
+
 ## Why archlinux migrate to systemd
 
-* [Archlinux is moving to systemd](https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530) - 2012-08
-
+- [Archlinux is moving to systemd](https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530) - 2012-08

@@ -143,4 +143,5 @@ export default {
 
 确保 tailwind 覆盖 blueprintjs 样式
 
+- 开启 webpack5 该方式无效
 - [#16630](https://github.com/vercel/next.js/issues/16630)

@@ -1,0 +1,160 @@
+---
+title: NATS
+---
+
+# NATS
+
+- [nats-io/nats-server](https://github.com/nats-io/nats-server)
+- 端口
+  - 4222 客户端
+  - 8222 HTTP 管理和信息上报
+  - 6222 集群路由
+- 参考
+  - [nats-io/natscli](https://github.com/nats-io/natscli)
+    - 命令行工具
+  - [nats-io/nsc](https://github.com/nats-io/nsc)
+    - nats 账号管理功能
+  - [compare-nats](https://docs.nats.io/compare-nats)
+
+```bash
+# 服务端 - 大约 10mb
+# docker 启动
+docker run -d --name nats-main -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:alpine
+# macOS 安装启动
+brew install nats-server
+nats-server
+
+# nats 工具需要额外 tap 或者直接下载 https://github.com/nats-io/natscli/releases
+brew tap nats-io/nats-tools
+brew install nats-io/nats-tools/nats
+nats --help
+
+nats account info
+nats rtt
+```
+
+## nats-server.conf
+
+```conf
+# Client port of 4222 on all interfaces
+port: 4222
+
+# HTTP monitoring port
+monitor_port: 8222
+
+# NSC 生成的 Operator JWT
+operator: $HOME/.nsc/nats/O/O.jwt
+# Account Server
+resolver: URL(http://localhost:9090/jwt/v1/accounts/)
+
+# This is for clustering multiple servers together.
+cluster {
+
+  # Route connections to be received on any interface on port 6222
+  port: 6222
+
+  # Routes are protected, so need to use them with --routes flag
+  # e.g. --routes=nats-route://ruser:T0pS3cr3t@otherdockerhost:6222
+  authorization {
+    user: ruser
+    password: T0pS3cr3t
+    timeout: 2
+  }
+
+  # Routes are actively solicited and connected to from this server.
+  # This Docker image has none by default, but you can pass a
+  # flag to the gnatsd docker image to create one to an existing server.
+  routes = []
+}
+```
+
+## Notes
+* Subject-Based Messaging
+  * Subject 名字 `[a-z0-9.]+`
+  * 通过 `time.us` 方式实现级联
+  * 单层匹配 `time.*.east`
+  * 多层匹配 `time.us.>`
+* Publish-Subscribe
+* Request-Reply
+* Queue Groups
+* ACK
+* Sequence Numbers
+
+## nsc
+
+- [nats-io/nsc](https://github.com/nats-io/nsc)
+
+```bash
+# 可直接下载 https://github.com/nats-io/nsc/releases
+# 可 docker 启动使用
+docker run --rm -it -v $(pwd)/nsc:/nsc synadia/nats-box:latest
+
+# 环境配置
+nsc env
+
+nsc add operator O
+nsc edit operator --service-url nats://localhost:4222
+nsc add account A
+# ~/.nkeys/creds/O/A/U.creds
+nsc add user U
+
+nsc list keys
+# 私钥
+nsc list keys --show-seeds
+
+nsc describe operator
+nsc describe account
+
+nats-account-server -nsc ~/.nsc/nats/O
+
+# 使用证书监听
+nats-sub -creds ~/.nkeys/creds/O/A/U.creds ">"
+# 使用证书发布
+nats-pub -creds ~/.nkeys/creds/O/A/U.creds hello NATS
+
+nsc sub --user U ">"
+nsc pub --user U hello NATS
+
+# 限定 s 可以 sub, c 可以 pub
+nsc add user s --allow-pub "_INBOX.>" --allow-sub q
+nsc describe user s
+nsc add user c --allow-pub q --allow-sub "_INBOX.>"
+nsc describe user c
+```
+
+```
+~/.nsc/nats
+└── O
+    ├── O.jwt
+    └── accounts
+        └── A
+            ├── A.jwt
+            └── users
+                └── U.jwt
+```
+
+nkeys 包含私钥信息
+
+```
+~/.nkeys
+├── creds
+│   └── O
+│       └── A
+│           └── U.creds
+└── keys
+    ├── A
+    │   └── DE
+    │       └── ADETPT36WBIBUKM3IBCVM4A5YUSDXFEJPW4M6GGVBYCBW7RRNFTV5NGE.nk
+    ├── O
+    │   └── AF
+    │       └── OAFEEYZSYYVI4FXLRXJTMM32PQEI3RGOWZJT7Y3YFM4HB7ACPE4RTJPG.nk
+    └── U
+        └── DB
+            └── UDBD5FNQPSLIO6CDMIS5D4EBNFKYWVDNULQTFTUZJXWFNYLGFF52VZN7.nk
+```
+
+## nats-account-server
+* [nats-io/nats-account-server](https://github.com/nats-io/nats-account-server)
+
+## nats-top
+* [nats-io/nats-top](https://github.com/nats-io/nats-top)

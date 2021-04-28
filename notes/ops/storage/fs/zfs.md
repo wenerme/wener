@@ -39,9 +39,9 @@ title: ZFS
 * [faq](https://github.com/zfsonlinux/zfs/wiki/faq)
   * 选择创建 pool 的名字
     * 开发,测试 /dev/hdX,/dev/sdX
-    * < 10 /dev/disk/by-id
-    * > 10 /dev/disk/by-path
-    * > 10 最好 /dev/disk/by-vdev
+    * 小于 10 硬盘 /dev/disk/by-id
+    * 大于 10 硬盘 /dev/disk/by-path
+    * 大于 10 最好 /dev/disk/by-vdev
 * [zpool.8](https://www.freebsd.org/cgi/man.cgi?query=zpool&sektion=8)
 * [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
 * [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)

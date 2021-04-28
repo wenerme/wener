@@ -17,6 +17,8 @@ title: Reverse Engineering Awesome
   * reverse engineering platform
   * 基于 rizin
   * Qt C++
+* [frida/frida](https://github.com/frida/frida)
+  * Dynamic instrumentation toolkit
 
 ## 参考
 * [USB Reverse Engineering: Down the Rabbit Hole](http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/)
