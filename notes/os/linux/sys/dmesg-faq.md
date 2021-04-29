@@ -5,9 +5,8 @@ title: Linux Kernel 日志常见问题
 
 # Linux Kernel 日志常见问题
 
-
-
 ## ACPI Error: No handler for Region [POWR]
+
 > 添加 acpi_ipmi 后异常停止
 
 ```bash
@@ -19,18 +18,19 @@ modprobe acpi_ipmi
 ```
 ACPI Error: No handler for Region [POWR] (00000000a03df149) [IPMI] (20190816/evregion-127)
 ACPI Error: Region IPMI (ID=7) has no handler (20190816/exfldio-261)
-ACPI Error: Aborting method \_SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (20190816/psparse-529)
+ACPI Error: Aborting method _SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (20190816/psparse-529)
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 ```
 
 ## ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length
-* 可能和 ACPI 电源监控有关
-* 如果是 HP 服务器可能是由于 HP ACPI 不符合标准导致
-  * https://partner-bugzilla.redhat.com/show_bug.cgi?id=616449#c3
+
+- 可能和 ACPI 电源监控有关
+- 如果是 HP 服务器可能是由于 HP ACPI 不符合标准导致
+  - https://partner-bugzilla.redhat.com/show_bug.cgi?id=616449#c3
 
 ```
 ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length 66, found length 32 (20180810/exfield-393)
-ACPI Error: Method parse/execution failed \_SB.PMI0._PMM, AE_AML_BUFFER_LIMIT (20180810/psparse-516)
+ACPI Error: Method parse/execution failed _SB.PMI0._PMM, AE_AML_BUFFER_LIMIT (20180810/psparse-516)
 ACPI Error: AE_AML_BUFFER_LIMIT, Evaluating _PMM (20180810/power_meter-338)
 ```
 
@@ -42,13 +42,12 @@ sensors
 
 配置关闭电源监控
 
-__/etc/sensors3.conf__
+**/etc/sensors3.conf**
 
 ```
 chip "power_meter-acpi-0"
   ignore power1
 ```
-
 
 ```bash
 # 尝试关闭电源监控
@@ -56,7 +55,17 @@ echo "blacklist acpi_power_meter" >> /etc/modprobe.d/hwmon.conf
 ```
 
 ## ext4 filesystem being remounted at /newroot/run/redis supports timestamps until 2038 (0x7fffffff)
-* 警告 ext4 时间支持问题
+
+- 警告 ext4 时间支持问题
+
+## Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+
+- DPO - Disable Page Out
+  - caching hint that indicates the data referenced by the command is not likely to be accessed again and therefore is not a good candidate to keep or maintain within cache.
+- FUA - Force Unit Access
+  - caching hint that indicates the data should be referenced directly from the media of the device. That is cache should be bypassed for this command.
+- 参考
+  - [What do "doesn't support DPO or FUA" and other disk cache messages mean ?](https://access.redhat.com/solutions/1527943)
 
 ## FW version command failed -5
 
@@ -65,20 +74,22 @@ mei 0000:00:16.0-56213584-9a29-4916-badf-0fb7ed682aeb: Could not read FW version
 mei 0000:00:16.0-56213584-9a29-4916-badf-0fb7ed682aeb: FW version command failed -5
 ```
 
-
 ## EDAC DEBUG: ie31200_check: MC0
-* 内存问题，尝试更换内存。
-* 如果是双通道，但是只有一根内存条，尝试补齐
+
+- 内存问题，尝试更换内存。
+- 如果是双通道，但是只有一根内存条，尝试补齐
 
 ## pstore: crypto_comp_decompress failed, ret = -22!
+
 ```
 pstore: crypto_comp_decompress failed, ret = -22!
 pstore: decompression failed: -22
 ```
-* [fs/pstore/platform.c#L280](https://github.com/torvalds/linux/blob/bf929479893052b1c7bfe23a4e7a903643076350/fs/pstore/platform.c#L280)
-* 与该目录相关 `/sys/fs/pstore/`
-* 与升级内核有关
-* 参考 [pstore: crypto_comp_decompress failed](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=902966)
+
+- [fs/pstore/platform.c#L280](https://github.com/torvalds/linux/blob/bf929479893052b1c7bfe23a4e7a903643076350/fs/pstore/platform.c#L280)
+- 与该目录相关 `/sys/fs/pstore/`
+- 与升级内核有关
+- 参考 [pstore: crypto_comp_decompress failed](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=902966)
 
 ```bash
 # root 执行 - sudo 不会展开
@@ -87,18 +98,18 @@ rm /sys/fs/pstore/dmesg*
 
 ## pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
 
-* 内核参数 - 建议依次尝试
-  * `pci=nomsi` - 关闭部分中断 - MSI=Message Signaled Interrupts - PCI_MSI 编译内核参数
-  * `pci=noaer` - 关闭报错 - AER=Advanced Error Reporting - PCIEAER 编译内核参数
-  * `pcie_aspm=off` - 关闭 PCIe 省电管理 - 可能会更耗电 - ASPM=Active State Power Management
-* 参考
-  * [PCIe Bus Error: severity=Corrected, type=Physical Layer, id=00e5(Receiver ID)](https://askubuntu.com/questions/863150)
-    * 可能是由于 PCI 的额电源管理将链路设置为低电模式触发的异常
-  * [PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)](https://bbs.archlinux.org/viewtopic.php?id=242182)
-    * 可能是带宽问题
-    * Corrected 消息不影响，链路层自动矫正。Uncorrected 有问题
+- 内核参数 - 建议依次尝试
+  - `pci=nomsi` - 关闭部分中断 - MSI=Message Signaled Interrupts - PCI_MSI 编译内核参数
+  - `pci=noaer` - 关闭报错 - AER=Advanced Error Reporting - PCIEAER 编译内核参数
+  - `pcie_aspm=off` - 关闭 PCIe 省电管理 - 可能会更耗电 - ASPM=Active State Power Management
+- 参考
+  - [PCIe Bus Error: severity=Corrected, type=Physical Layer, id=00e5(Receiver ID)](https://askubuntu.com/questions/863150)
+    - 可能是由于 PCI 的额电源管理将链路设置为低电模式触发的异常
+  - [PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)](https://bbs.archlinux.org/viewtopic.php?id=242182)
+    - 可能是带宽问题
+    - Corrected 消息不影响，链路层自动矫正。Uncorrected 有问题
 
-__定位问题__
+**定位问题**
 
 ```
 [519708.849337] pcieport 0000:00:1c.7: AER: Corrected error received: 0000:00:1c.7
@@ -123,8 +134,9 @@ lspci -vs 0000:00:1c.7
 ```
 
 ### perf: interrupt took too long
-* Linux [perf](https://perf.wiki.kernel.org/index.php/Main_Page) 日志
-* 对系统没有影响，可以理解为在自动调整处理频率
+
+- Linux [perf](https://perf.wiki.kernel.org/index.php/Main_Page) 日志
+- 对系统没有影响，可以理解为在自动调整处理频率
 
 ```
 [109932.035738] perf: interrupt took too long (2511 > 2500), lowering kernel.perf_event_max_sample_rate to 79500
@@ -135,6 +147,7 @@ lspci -vs 0000:00:1c.7
 ```
 
 ## ata1.00: exception Emask 0x0 SAct 0x80800000 SErr 0x0 action 0x6
+
 硬盘异常
 
 ```
@@ -212,8 +225,8 @@ EXT4-fs (sdc): I/O error while writing superblock
 
 # TODO
 
-
 ## mlx4_core Internal error detected
+
 ```
 [  149.148339] mlx4_core 0000:82:00.0: Internal error detected:
 [  149.148368] mlx4_core 0000:82:00.0:   buf[00]: ffffffff
@@ -236,7 +249,6 @@ EXT4-fs (sdc): I/O error while writing superblock
 [  149.148607] mlx4_core 0000:82:00.0: crdump: FW doesn't support health buffer access, skipping
 ```
 
-
 ## [Firmware Bug]: TSC_DEADLINE disabled due to Errata: please update microcode to version: 0x52 (or later)
 
 ## [Firmware Bug]: the BIOS has corrupted hw-PMU resources (MSR 38d is 30)
@@ -244,6 +256,7 @@ EXT4-fs (sdc): I/O error while writing superblock
 ## EDAC sbridge: Failed to register device with error -19.
 
 ### The NVM Checksum Is Not Valid
+
 ```
 e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
 e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
@@ -252,12 +265,9 @@ e1000e 0000:00:1f.6: The NVM Checksum Is Not Valid
 e1000e: probe of 0000:00:1f.6 failed with error -5
 ```
 
-
-
 ## ext4 filesystem being mounted at /boot supports timestamps until 2038 (0x7fffffff)
 
 ## lpc_ich: Resource conflict(s) found affecting gpio_ich
-
 
 ```
 [    5.019593] ACPI Warning: SystemIO range 0x0000000000001C00-0x0000000000001C2F conflicts with OpRegion 0x0000000000001C00-0x0000000000001FFF (\GPR) (20190816/utaddress-204)
@@ -270,7 +280,6 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 
 [    0.172443] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
 ```
-
 
 ```
 [    0.165743] MDS: Mitigation: Clear CPU buffers
@@ -303,7 +312,6 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 [    0.169202] ---------------------------------
 [    0.169202] smpboot: Total of 8 processors activated (39924.80 BogoMIPS)
 ```
-
 
 ```
 Buffer I/O error on dev sdb, logical block 2655236, lost sync page write

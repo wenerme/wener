@@ -1,0 +1,289 @@
+---
+title: gitlab-ci.yml
+---
+
+# gitlab-ci.yml
+
+- Gitlab CI [YAML](https://docs.gitlab.com/ce/ci/yaml/README.html)
+- [模板](https://gitlab.com/gitlab-org/gitlab/tree/master/lib/gitlab/ci/templates)
+- [示例](https://docs.gitlab.com/ee/ci/examples/)
+- [变量说明](https://docs.gitlab.com/ce/ci/variables/README.html)
+- [预定义的变量](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
+
+```yaml
+# 自定义默认配置
+default:
+  # 基础镜像
+  image: wener/node:docker
+  cache:
+    untracked: true
+    # 缓存按分支划分 - 如果有 tag 这个会是 tag 名字
+    key: '$CI_COMMIT_REF_NAME'
+    # 常见的缓存目录
+    paths:
+      - node_modules/
+      - .yarn/
+      - packages/server/.next/cache/
+```
+
+## 环境变量
+
+| env                     | e.g    | desc                                                              |
+| ----------------------- | ------ | ----------------------------------------------------------------- |
+| CI                      | true   | 表示在运行 CI                                                     |
+| CI_REGISTRY             |        | gitlab registry                                                   |
+| CI_REGISTRY_USER        |        | gitlab registry user                                              |
+| CI_REGISTRY_PASSWORD    |        | gitlab registry password                                          |
+| CI_REGISTRY_IMAGE       |        | 项目容器镜像                                                      |
+| CI_COMMIT_REF_NAME      | master | branch or tag                                                     |
+| CI_COMMIT_REF_SLUG      | master | CI_COMMIT_REF_NAME 用于 url 或名字时,63 位,替代`[^0-9a-z]` 为 `-` |
+| CI_COMMIT_REF_PROTECTED | true   | 保护分支                                                          |
+| CI_COMMIT_BRANCH        | master |
+| CI_COMMIT_SHA           |
+| CI_COMMIT_SHORT_SHA     |
+| CI_COMMIT_TAG           |
+| CI_COMMIT_TIMESTAMP     |        | ISO 8601                                                          |
+
+```bash
+docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+# 常用 $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" ./build
+docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
+```
+
+## job:only/except
+
+:::caution
+
+- 开发不活跃，推荐，使用 rules
+
+:::
+
+```yaml
+build:
+  script: npm run build
+  only:
+    # 简单配置 - refs
+    # 完整匹配 - master 分支运行
+    - master
+    # 支持正则 匹配 tag 或 branch - 如果 排除了 branches 则是匹配 tag
+    - /^issue-.*$/i
+
+    # 高级配置
+    # 不指定默认则是 refs 匹配
+    refs:
+      - master
+      - schedules
+    # 变量匹配
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /run-end-to-end-tests/ # 匹配变量
+      - $RELEASE == "staging" # 变量满足
+      - $STAGING # 有变量
+      # 复杂条件变量
+      - ($CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "develop") && $MY_VARIABLE
+    # 匹配变化文件
+    # 只有在 branches external_pull_requests merge_requests 有效
+    changes:
+      - README.md
+      - "*.md" # 例如 从新生成文档
+      - base/Dockerfile # 例如 重构基础镜像
+      - "**/*.sql" # 例如 数据库迁移
+    # 要求开启了 k8s 服务
+    kubernetes: active
+  except:
+    # 支持使用关键词 - 分支不触发
+    - branches
+    # 可包含仓库信息匹配 - 用于 fork 场景
+    - /^release/.*$/@gitlab-org/gitlab
+```
+
+| value                  | desc                          |
+| ---------------------- | ----------------------------- |
+| api                    | Pipline API 触发              |
+| branches               | ref 是分支                    |
+| chat                   | ChatOps 创建的 Pipeline       |
+| external               | 外部 CI 服务                  |
+| external_pull_requests | 外部仓库 PR，例如 Github      |
+| merge_requests         | 仓库收到 pr                   |
+| pipelines              | 流水线中创建的多项目 pipeline |
+| pushes                 | git push 触发                 |
+| schedules              | 调度触发                      |
+| tags                   | ref 是 tag                    |
+| triggers               | trigger token 触发            |
+| web                    | Web 触发/运行流水线           |
+
+## job:rules
+
+- 限定 job 是否运行
+- 基础语句
+  - if
+    - 类似 only:variables 配置
+    - `&&`, `||`, `==`, `!=`, `=~`, `!~`
+    - CI_PIPELINE_SOURCE 用于支持类似 rules 的关键字
+  - changes
+    - 类似 only:changes 配置
+  - exists
+    - 包含指定文件
+- 语句属性
+  - when - 限定运行条件
+    - on_success, delayed, always
+    - never - 不触发 - 等同于 rules:except
+    - manual - 手动触发时
+  - allow_failure - 是否允许运行错误
+  - changes 文件变化
+  - variables 定义额外变量
+
+```yaml
+build:
+  script: npm run build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: delayed
+      start_in: '3 hours'
+      allow_failure: true
+    # 要求有变化文件
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - Dockerfile
+      when: manual
+      allow_failure: true
+build:
+  script: npm run build
+  rules:
+    # 前两个条件不满足才运行
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - when: on_success
+
+build:
+  script: npm run build
+  rules:
+    # 常见
+    - if: $CI_COMMIT_TAG # 有 tag
+    - if: $CI_COMMIT_BRANCH # 分支推送
+    - if: '$CI_COMMIT_BRANCH == "main"' # 主分支
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH' # 默认分支
+    - if: '$CI_COMMIT_BRANCH =~ /regex-expression/' # 分支匹配
+
+```
+
+| if CI_PIPELINE_SOURCE       | desc                          |
+| --------------------------- | ----------------------------- |
+| api                         | Pipline API 触发              |
+| chat                        | ChatOps 创建的 Pipeline       |
+| external                    | 外部 CI 服务                  |
+| external_pull_request_event | 外部仓库 PR，例如 Github      |
+| merge_request_event         | 仓库收到 pr                   |
+| parent_pipeline             |
+| pipeline                    | 流水线中创建的多项目 pipeline |
+| push                        | git push 触发                 |
+| schedule                    | 调度触发                      |
+| tags                        | ref 是 tag                    |
+| trigger                     | trigger token 触发            |
+| web                         | Web 触发/运行流水线           |
+| webide                      | WebIDE                        |
+
+## cache
+
+**位置**
+
+- cache
+  - 全局 - 不推荐，建议使用 default
+- defaul:cache
+  - job 默认缓存
+- job:cache
+  - job 维度缓存配置
+
+**属性**
+
+- cache:
+  - 可配置为数组 - 多个缓存
+  - key:
+    - 默认 default - 全局共用
+    - 可设置为 `$CI_COMMIT_REF_SLUG` - 分支独立缓存
+    - files:
+      - prefix:
+        - `${CI_JOB_NAME}`
+  - untracked:
+    - 缓存仓库里所有 untracked 文件
+  - paths:
+    - 缓存的目录
+  - when:
+    - on_success - 默认 成功时保存缓存
+    - on_failure
+    - always
+  - policy:
+    - pull-push - 默认 - 启动前拉，完成后推
+    - pull 只拉 - 用于已知不会修改缓存场景
+    - push 只推
+
+```yaml
+cache:
+  paths:
+    - my/files
+
+rspec:
+  script: test
+  cache:
+    key: rspec
+    paths:
+      - binaries/
+```
+
+## workflow
+
+- 限定 pipeline 是否运行/创建
+- 运行时运行覆盖变量
+
+```yaml
+workflow:
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /-draft$/
+      when: never
+    - if: $CI_COMMIT_REF_NAME =~ /feature/
+      variables:
+        IS_A_FEATURE: 'true' # 覆盖变量
+    - when: always #
+```
+
+# FAQ
+
+## 部署 pages
+
+```yaml
+pages:
+  script:
+    - yarn
+    - yarn build:public
+  artifacts:
+    # 必须是 public 目录
+    paths:
+      - public
+  only:
+    - master
+```
+
+## 有 Tag 的时候才执行
+
+- 不能有 tag 且排除分支 - https://gitlab.com/gitlab-org/gitlab-foss/-/issues/23251
+
+```yaml
+build-tag:
+  only:
+    # 指定分支
+    - master
+    # 必须有 tag
+    - tags
+```
+
+或者
+
+```yaml
+rules:
+  # 没有 tag 的时候才执行
+  - if: $CI_COMMIT_TAG != ""
+    when: on_success
+  - when: never
+```

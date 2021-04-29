@@ -1,3 +1,7 @@
+---
+title: UEFI
+---
+
 # UEFI
 
 - 参考
@@ -11,21 +15,23 @@
 
 :::tip
 
-* 使用 UEFI 建议使用 GRUB Bootloader
+- 使用 UEFI 建议使用 GRUB Bootloader
 
 :::
 
 # FAQ
+
 ## Why UEFI / UEFI vs BIOS
-* 相同点
-  * 固件接口
-* BIOS
-  * MBR/Master Boot Record 存储分区
-* UEFI
-  * GPT/GUID partition table 分区
-  * 支持 2TB 存储设备
-  * 支持超过 4 个主分区
-  * 固件支持使系统启动更快
-  * 支持安全启动 - 系统完整性检查
-  * 支持网络
-  * 支持图形界面
+
+- 相同点
+  - 固件接口
+- BIOS
+  - MBR/Master Boot Record 存储分区
+- UEFI
+  - GPT/GUID partition table 分区
+  - 支持 2TB 存储设备
+  - 支持超过 4 个主分区
+  - 固件支持使系统启动更快
+  - 支持安全启动 - 系统完整性检查
+  - 支持网络
+  - 支持图形界面

