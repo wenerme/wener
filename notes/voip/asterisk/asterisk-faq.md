@@ -6,29 +6,41 @@ title: 常见问题
 # Asterisk FAQ
 
 ## Tips
-* [Hangup Cause Mappings](https://wiki.asterisk.org/wiki/display/AST/Hangup+Cause+Mappings)
+
+- [Hangup Cause Mappings](https://wiki.asterisk.org/wiki/display/AST/Hangup+Cause+Mappings)
 
 ## 系统问题排查
 
 1. 硬件的问题
-  * 中断
+
+- 中断
+
 2. 版本问题
-  * 考虑降级测试
+
+- 考虑降级测试
+
 3. 驱动问题
-  * 如果是用的 OpenVox, 那么需要从新编译
-  * 编译驱动时和内核版本有关
+
+- 如果是用的 OpenVox, 那么需要从新编译
+- 编译驱动时和内核版本有关
+
 4. 系统问题
-  * 切换操作系统
-  * AsteriskNow, Alpine, CentOS
+
+- 切换操作系统
+- AsteriskNow, Alpine, CentOS
+
 5. 配置问题
 6. SIP/PJSIP 的问题
-  * 切换使用 `chan_sip` 和 `chan_pjsip` 进行尝试
+
+- 切换使用 `chan_sip` 和 `chan_pjsip` 进行尝试
+
 7. PJSIP 的问题
-  * 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk buddlen 的 pj
+
+- 可能是由于 `pjproject` 的 bug 问题, 使用 asterisk bundle 的 pj
 
 ## 诊断命令
-* [CLI commands useful for debugging](https://wiki.asterisk.org/wiki/display/AST/CLI+commands+useful+for+debugging)
 
+- [CLI commands useful for debugging](https://wiki.asterisk.org/wiki/display/AST/CLI+commands+useful+for+debugging)
 
 ```bash
 # 系统状态 - 内存, 运行时间
@@ -56,15 +68,47 @@ core set debug 4
 pjsip set logger on
 ```
 
+## 发起呼叫设置 CallerID
+
+> 命令行发起无法设置
+
+**#1 AMI 发起**
+
+```
+Action: Originate
+Channel: local/12345@outgoing
+Application: Echo
+CallerID: Asterisk <12345>
+```
+
+**#2 extensions 设置**
+
+```conf
+[outgoing]
+exten => 12345,1,NoOp()
+same => n,Verbose(1, Outgoing Caller ID: {$CALLERID(all)})
+same => n,Dial(SIP/${EXTEN})
+same => n,Hangup()
+
+exten => 12345,1,NoOp()
+same => n,Set(CALLERID(num)=54321)
+same => n,Set(CALLERID(name)=Asterisk)
+same => n,Verbose(1, Outgoing Caller ID: {$CALLERID(all)})
+same => n,Dial(SIP/${EXTEN})
+same => n,Hangup()
+```
+
 ## 终端问题排查
-* 确保 context 正确
-* 尝试关闭 ICE
+
+- 确保 context 正确
+- 尝试关闭 ICE
 
 ## verbose 3 Remote UNIX connection
-* verbose 设置为 3 时非常多这个日志
-* AMI 请求导致 - 例如 freepbx 或者其他网关接口请求
-* SNMP 请求导致
-* asterisk -r 导致
+
+- verbose 设置为 3 时非常多这个日志
+- AMI 请求导致 - 例如 freepbx 或者其他网关接口请求
+- SNMP 请求导致
+- asterisk -r 导致
 
 ```
 -- Remote UNIX connection
@@ -73,7 +117,8 @@ pjsip set logger on
 -- Remote UNIX connection disconnected
 ```
 
-__asterisk.conf__
+**asterisk.conf**
+
 ```ini
 [options]
 # 隐藏 remote console 连接信息
@@ -86,23 +131,26 @@ asterisk -rx 'core restart now'
 ```
 
 ## chan_sip vs chan_pjsip
-* chan_sip
-  * 2014 年前 - SIP 早期
-  * Asterisk <= 11
-* chan_pjsip
-  * Asterisk >= 12
-  * 基于 PJSIP 库 - 独立于 Asterisk
 
-* 如果只处理 VoIP - chan_sip 足矣
-  * 传统的电话网关都使用非常老版本的 asterisk - 例如 1.8
-* 如果需要处理现代化通讯 - 使用 chan_pjsip
-  * Websocket
-  * WebRTC
-  * 视频
-  * 新的编码 - Opus, VP8, VP9
+- chan_sip
+  - 2014 年前 - SIP 早期
+  - Asterisk <= 11
+- chan_pjsip
 
-* 参考
-  * [Migrating from chan_sip to res_pjsip](https://wiki.asterisk.org/wiki/display/AST/Migrating+from+chan_sip+to+res_pjsip)
+  - Asterisk >= 12
+  - 基于 PJSIP 库 - 独立于 Asterisk
+
+- 如果只处理 VoIP - chan_sip 足矣
+  - 传统的电话网关都使用非常老版本的 asterisk - 例如 1.8
+- 如果需要处理现代化通讯 - 使用 chan_pjsip
+
+  - Websocket
+  - WebRTC
+  - 视频
+  - 新的编码 - Opus, VP8, VP9
+
+- 参考
+  - [Migrating from chan_sip to res_pjsip](https://wiki.asterisk.org/wiki/display/AST/Migrating+from+chan_sip+to+res_pjsip)
 
 ## 常见 HTTP 异常状态码
 
@@ -118,25 +166,27 @@ Any 600-class response
 407 Proxy Authentication Required
 
 ## Assertion failed: sess && sess->endpt
-* 该异常后程序会直接崩溃
-* pjproject [sip_auth_client.c#L507](https://github.com/pjsip/pjproject/blob/master/pjsip/src/pjsip/sip_auth_client.c#L507)
-* https://github.com/asterisk/pjproject/blob/master/pjsip/src/pjsip/sip_auth_client.c
-* https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842878
-* asterisk 14.4.1 依赖的 pjproject 2.5.5 未修复
-* 代码
-  * [#1946](https://trac.pjsip.org/repos/ticket/1946) Assertion in deinitializing client auth session when dialog creation fails
-  * [changeset#5401](https://trac.pjsip.org/repos/changeset/5401)
-    * 避免处理未初始化的客户端授权会话
-  * [changeset#5373](https://trac.pjsip.org/repos/changeset/5373)
-    * 添加了断言
-* 建议编译 asterisk 使用 bundle pjproject 的形式, 避免外部依赖, 并且 asterisk 也有不少针对 pjproject 的补丁
+
+- 该异常后程序会直接崩溃
+- pjproject [sip_auth_client.c#L507](https://github.com/pjsip/pjproject/blob/master/pjsip/src/pjsip/sip_auth_client.c#L507)
+- https://github.com/asterisk/pjproject/blob/master/pjsip/src/pjsip/sip_auth_client.c
+- https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842878
+- asterisk 14.4.1 依赖的 pjproject 2.5.5 未修复
+- 代码
+  - [#1946](https://trac.pjsip.org/repos/ticket/1946) Assertion in deinitializing client auth session when dialog creation fails
+  - [changeset#5401](https://trac.pjsip.org/repos/changeset/5401)
+    - 避免处理未初始化的客户端授权会话
+  - [changeset#5373](https://trac.pjsip.org/repos/changeset/5373)
+    - 添加了断言
+- 建议编译 asterisk 使用 bundle pjproject 的形式, 避免外部依赖, 并且 asterisk 也有不少针对 pjproject 的补丁
 
 ```
 Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_auth_clt_deinit: 507)
 ```
 
-## cel_pgsql.c:352 pgsql_log: Reason: ERROR:  value too long for type character varying
-* 将 CEL 的 APPDATA 改为更长的类型, 如果是 pg, 建议直接改为 text
+## cel_pgsql.c:352 pgsql_log: Reason: ERROR: value too long for type character varying
+
+- 将 CEL 的 APPDATA 改为更长的类型, 如果是 pg, 建议直接改为 text
 
 ```
 [Sep 11 09:30:06] WARNING[3434]: cel_pgsql.c:351 pgsql_log: Failed to insert call detail record into database!
@@ -144,44 +194,48 @@ Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_aut
 ```
 
 ## translate.c:407 framein: no samples for ulawtolin
-* http://lists.digium.com/pipermail/asterisk-users/2012-October/275509.html
-  * It means that one of clients, is using 'silence suppression' mechanism
-* [RTP Silence Suppression](https://www.voip-info.org/wiki/view/RTP+Silence+Suppression)
-* [Asterisk config sip.conf](https://www.voip-info.org/wiki/view/Asterisk+config+sip.conf)
-* [Silence suppression:wiki](https://en.wikipedia.org/wiki/Silence_suppression)
-* pjsip [Adaptive Silence Detection](http://www.pjsip.org/pjmedia/docs/html/group__PJMEDIA__SILENCEDET.htm)
-* X-Lite 中可以设置 `Transmit Silence=YES`
-* 在配合 Asterisk 时, 建议都将客户端的 静音抑制 都关闭
-* 讯时网关中有 静音压缩(G.723，GSM，iLBC) 和 静音包丢弃 的相关设置
+
+- http://lists.digium.com/pipermail/asterisk-users/2012-October/275509.html
+  - It means that one of clients, is using 'silence suppression' mechanism
+- [RTP Silence Suppression](https://www.voip-info.org/wiki/view/RTP+Silence+Suppression)
+- [Asterisk config sip.conf](https://www.voip-info.org/wiki/view/Asterisk+config+sip.conf)
+- [Silence suppression:wiki](https://en.wikipedia.org/wiki/Silence_suppression)
+- pjsip [Adaptive Silence Detection](http://www.pjsip.org/pjmedia/docs/html/group__PJMEDIA__SILENCEDET.htm)
+- X-Lite 中可以设置 `Transmit Silence=YES`
+- 在配合 Asterisk 时, 建议都将客户端的 静音抑制 都关闭
+- 讯时网关中有 静音压缩(G.723，GSM，iLBC) 和 静音包丢弃 的相关设置
 
 ```
 [Sep 11 09:25:37] WARNING[1109][C-00000068]: translate.c:407 framein: no samples for ulawtolin
 ```
 
 ## app_dial.c:2472 dial_exec_full: Dial argument takes format (technology/resource)
-* 一般是 Dial 的参数没传, 或者是错误的参数
+
+- 一般是 Dial 的参数没传, 或者是错误的参数
 
 ```
 [Sep 11 09:43:18] WARNING[11181][C-000000bb]: app_dial.c:2472 dial_exec_full: Dial argument takes format (technology/resource)
 ```
 
 ## tcptls.c:746 ast_tcptls_close_session_file: ast_tcptls_close_session_file invoked on session instance without file or file descriptor
-* 调用 ARI 时会触发
-* [ASTERISK-26842](https://issues.asterisk.org/jira/browse/ASTERISK-26842)
-  * 这里提到使用 ARI Websocket 时也会触发
-* [tcptls.c#L780](https://github.com/asterisk/asterisk/blob/1bec535df2e8a7968a810cbef594fa17f7b642bc/main/tcptls.c#L780)
+
+- 调用 ARI 时会触发
+- [ASTERISK-26842](https://issues.asterisk.org/jira/browse/ASTERISK-26842)
+  - 这里提到使用 ARI Websocket 时也会触发
+- [tcptls.c#L780](https://github.com/asterisk/asterisk/blob/1bec535df2e8a7968a810cbef594fa17f7b642bc/main/tcptls.c#L780)
 
 ```
 [Sep 12 11:13:38] ERROR[25317]: tcptls.c:746 ast_tcptls_close_session_file: ast_tcptls_close_session_file invoked on session instance without file or file descriptor
 ```
 
-## Log queue threshold exceeded.  Discarding new message
-* [logger.c#L1980](https://github.com/asterisk/asterisk/blob/master/main/logger.c#L1980)
-* [logger.c#L727](https://github.com/asterisk/asterisk/blob/master/main/logger.c#L727)
-  * `logger.conf` 中配置 `[general]`/`logger_queue_limit` 默认为 1000
-  * 示例配置中没有说明
-* 系统卡顿的时候会出现该问题
-* 请求加压过多时会出现该问题
+## Log queue threshold exceeded. Discarding new message
+
+- [logger.c#L1980](https://github.com/asterisk/asterisk/blob/master/main/logger.c#L1980)
+- [logger.c#L727](https://github.com/asterisk/asterisk/blob/master/main/logger.c#L727)
+  - `logger.conf` 中配置 `[general]`/`logger_queue_limit` 默认为 1000
+  - 示例配置中没有说明
+- 系统卡顿的时候会出现该问题
+- 请求加压过多时会出现该问题
 
 ```
 [Jun 29 11:11:57] WARNING[5024]: logger:0 ***: Log queue threshold (5000) exceeded.  Discarding new messages.
@@ -189,29 +243,30 @@ Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_aut
 ```
 
 ## 系统间歇性卡顿
+
 [Asterisk hanging occasionally](http://forums.asterisk.org/viewtopic.php?f=1&t=79945)
 
 ## Error loading module 'res_pjsip.so': undefined symbol: ast_sip_session_register_supplement
 
-* [ASTERISK-26518](https://issues.asterisk.org/jira/browse/ASTERISK-26518)
-  * 将部分代码注释即可
+- [ASTERISK-26518](https://issues.asterisk.org/jira/browse/ASTERISK-26518)
+  - 将部分代码注释即可
 
 ```bash
 curl -O https://issues.asterisk.org/jira/secure/attachment/54695/ast.diff
 ```
 
 ## Read factory 0xb6d0acb8 was pretty quick last time, waiting for them / DTMF best
-* [ASTERISK-15743](https://issues.asterisk.org/jira/browse/ASTERISK-15743)
-  * Read factory 0xb6d0acb8 was pretty quick last time, waiting for them
-* [audiohook.c#L275](https://github.com/asterisk/asterisk/blob/master/main/audiohook.c#L275)
-  * `"Read factory %p and write factory %p both fail to provide %zu samples\n"`
-* [audiohook.c#L281](https://github.com/asterisk/asterisk/blob/master/main/audiohook.c#L281)
-  * `"Write factory %p was pretty quick last time, waiting for them.\n"`
-* [dsp.c#L735](https://github.com/asterisk/asterisk/blob/master/main/dsp.c#L735)
-  * `"DTMF best '%c' Erow=%.4E Ecol=%.4E Erc=%.4E Et=%.4E\n"`
-* 出现大量这样的日志时, 还会有噪音
-* 可能是线路干扰导致, 尝试调整线路测试噪音是否发生变化
 
+- [ASTERISK-15743](https://issues.asterisk.org/jira/browse/ASTERISK-15743)
+  - Read factory 0xb6d0acb8 was pretty quick last time, waiting for them
+- [audiohook.c#L275](https://github.com/asterisk/asterisk/blob/master/main/audiohook.c#L275)
+  - `"Read factory %p and write factory %p both fail to provide %zu samples\n"`
+- [audiohook.c#L281](https://github.com/asterisk/asterisk/blob/master/main/audiohook.c#L281)
+  - `"Write factory %p was pretty quick last time, waiting for them.\n"`
+- [dsp.c#L735](https://github.com/asterisk/asterisk/blob/master/main/dsp.c#L735)
+  - `"DTMF best '%c' Erow=%.4E Ecol=%.4E Erc=%.4E Et=%.4E\n"`
+- 出现大量这样的日志时, 还会有噪音
+- 可能是线路干扰导致, 尝试调整线路测试噪音是否发生变化
 
 ```
 [Sep 15 10:51:36] DEBUG[27592][C-00000024] audiohook.c: Read factory 0x559839609568 and write factory 0x559839609fa8 both fail to provide 160 samples
@@ -230,8 +285,8 @@ curl -O https://issues.asterisk.org/jira/secure/attachment/54695/ast.diff
 ```
 
 ### Couldn't find mailbox 4021 in context default
-* 注意, DADHI FXS 生成的配置文件会默认添加 voicemail, 会导致出现非常多这样的日志
 
+- 注意, DADHI FXS 生成的配置文件会默认添加 voicemail, 会导致出现非常多这样的日志
 
 ```
 [Sep 25 18:18:46] WARNING[3003]: app_voicemail.c:2476 __messagecount: Couldn't find mailbox 4021 in context default
@@ -241,9 +296,9 @@ curl -O https://issues.asterisk.org/jira/secure/attachment/54695/ast.diff
 No voicemail provider registered.
 ```
 
-
 ### chan_dahdi.c:19031 process_dahdi: Ignoring any changes to 'userbase' (on reload)
-* 只是说这部分配置不能被重载
+
+- 只是说这部分配置不能被重载
 
 ```
 [Sep 11 14:07:34] WARNING[12741]: chan_dahdi.c:19031 process_dahdi: Ignoring any changes to 'userbase' (on reload) at line 23.
@@ -254,14 +309,16 @@ No voicemail provider registered.
 ```
 
 ### pbx.c: sent to invalid extension but no invalid handler: context,exten,priority=from-pstn,s,1
-* DADHI FXO 进入的 exten 为 `s`, 所以需要 `exten => s,1,NoOp()`
+
+- DADHI FXO 进入的 exten 为 `s`, 所以需要 `exten => s,1,NoOp()`
 
 ```
 [Sep 25 18:49:33] WARNING[3328][C-00000004]: pbx.c:4458 __ast_pbx_run: Channel 'DAHDI/2-1' sent to invalid extension but no invalid handler: context,exten,priority=from-pstn,s,1
 ```
 
 ### Unable to create channel of type 'DAHDI' (cause 17 - User busy)
-* DAHDI FXO 可能会出现挂断后通道未释放的情况
+
+- DAHDI FXO 可能会出现挂断后通道未释放的情况
 
 ```
 [Sep 25 18:32:19] WARNING[3709][C-00000005]: app_dial.c:2530 dial_exec_full: Unable to create channel of type 'DAHDI' (cause 17 - User busy)
@@ -274,7 +331,8 @@ No voicemail provider registered.
 ```
 
 ### Couldn't find mailbox 1234 in context default
-* 示例配置中的配置文件中包含了这几个配置, 把相关的配置取消掉即可
+
+- 示例配置中的配置文件中包含了这几个配置, 把相关的配置取消掉即可
 
 ```
   == Parsing '/etc/asterisk/voicemail.conf': Found
@@ -284,21 +342,21 @@ No voicemail provider registered.
 ```
 
 ### sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
-* [sig_pri.c#L6425](https://github.com/asterisk/asterisk/blob/master/channels/sig_pri.c#L6425)
-* pri_check_event [pri.c#L776](https://github.com/asterisk/libpri/blob/master/pri.c#L776)
-  * pri->read_func
-  * q921_receive
-* https://downloads.asterisk.org/pub/telephony/libpri/
-* TODD
-  * 导致该问题的具体原因还不清楚
-  * 会有什么影响也暂不清楚
+
+- [sig_pri.c#L6425](https://github.com/asterisk/asterisk/blob/master/channels/sig_pri.c#L6425)
+- pri_check_event [pri.c#L776](https://github.com/asterisk/libpri/blob/master/pri.c#L776)
+  - pri->read_func
+  - q921_receive
+- https://downloads.asterisk.org/pub/telephony/libpri/
+- TODD
+  - 导致该问题的具体原因还不清楚
+  - 会有什么影响也暂不清楚
 
 PRI locks randomly, hangup cause 102, "recovery on timer expiry".
 [ASTERISK-15529](https://issues.asterisk.org/jira/browse/ASTERISK-15529)
 
 http://lists.digium.com/pipermail/asterisk-users/2009-August/236460.html
 http://lists.digium.com/pipermail/asterisk-users/2014-August/284268.html
-
 
 ```
 [Sep  5 19:42:22] NOTICE[14239]: chan_dahdi.c:2840 my_handle_dchan_exception: Got DAHDI event: HDLC Abort (6) on D-channel of span 1
@@ -311,7 +369,6 @@ http://lists.digium.com/pipermail/asterisk-users/2014-August/284268.html
 [Sep  5 19:42:32] NOTICE[14239]: sig_pri.c:6425 pri_dchannel: pri_check_event returned error 22 (Invalid argument)
 
 ```
-
 
 ```
 PRI Span: 1 < TEI: 0 State 7(Multi-frame established)
@@ -410,7 +467,8 @@ pri_check_event returned error 22 (Invalid argument)
 ```
 
 ### pjproject:0 sip_transport.c Error processing 430 bytes packet from UDP 192.168.8.121:5061 : PJSIP syntax error exception when parsing '' header on line 2 col 6:
-* 网关的问题, 重启下网关就好了
+
+- 网关的问题, 重启下网关就好了
 
 ```
 [Oct 11 13:06:06] ERROR[15471]: pjproject:0 <?>:               sip_transport.c Error processing 430 bytes packet from UDP 192.168.8.121:5061 : PJSIP syntax error exception when parsing '' header on line 2 col 6:
@@ -431,8 +489,9 @@ Content-Length: 0
 ```
 
 ### res_pjsip.c:3053 ast_sip_create_dialog_uac: Endpoint Could not create dialog to invalid URI
-* 终端未注册上, 在 CONTACTS 中不存在对应记录, 使用 PJSIP 请求所有 CONTACTS 时不会返回任何东西
-* 尝试将终端离线再从新上线
+
+- 终端未注册上, 在 CONTACTS 中不存在对应记录, 使用 PJSIP 请求所有 CONTACTS 时不会返回任何东西
+- 尝试将终端离线再从新上线
 
 ```
 [Oct 11 13:08:04] ERROR[15472]: res_pjsip.c:3053 ast_sip_create_dialog_uac: Endpoint '8380': Could not create dialog to invalid URI '8380'.  Is endpoint registered and reachable?
@@ -447,20 +506,19 @@ Content-Length: 0
 
 ### Everyone is busy/congested at this time (1:0/0/1)
 
-* 开启日志排查 `pjsip set logger on`
-* 遇到过的问题
-  * `488 Not Acceptable Here` Warning: 305 devnull "SDP: Incompatible media format: no common codec"
-    * 被叫返回不支持编码
-    * 尝试 allow=all 来进行调试 - 然后再修改允许的编码
-* [Mysterious 'everybody is busy/congested at this time' error in Asterisk](https://feeding.cloud.geek.nz/posts/asterisk-everyone-busy-congested-at-this-time/)
-  * 原因是被叫返回了 `Do Not Disturb`
+- 开启日志排查 `pjsip set logger on`
+- 遇到过的问题
+  - `488 Not Acceptable Here` Warning: 305 devnull "SDP: Incompatible media format: no common codec"
+    - 被叫返回不支持编码
+    - 尝试 allow=all 来进行调试 - 然后再修改允许的编码
+- [Mysterious 'everybody is busy/congested at this time' error in Asterisk](https://feeding.cloud.geek.nz/posts/asterisk-everyone-busy-congested-at-this-time/)
+  - 原因是被叫返回了 `Do Not Disturb`
 
-## WARNING[14901][C-00000d1b]: res_rtp_asterisk.c:2524 __rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
+## WARNING[14901][c-00000d1b]: res_rtp_asterisk.c:2524 \_\_rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
 
 ### 发起通话的事件间隔很长
 
 ### ISSUES
-
 
 ## TBD
 
@@ -472,9 +530,6 @@ http://lists.digium.com/pipermail/asterisk-users/2011-May/262225.html
   == Primary D-Channel on span 1 down
 [Sep  5 19:36:49] WARNING[14195]: sig_pri.c:1211 pri_find_dchan: Span 1: D-channel is down!
 ```
-
-
-
 
 ```
 [Sep  7 00:17:21] VERBOSE[9550][C-00000005] res_rtp_asterisk.c: PT: 202(Unknown)
@@ -493,7 +548,6 @@ Assertion failed: !"Calling pjlib from unknown/external thread. You must " "regi
 [Sep 18 14:11:42] DEBUG[6106][C-00000002] res_rtp_asterisk.c: 0x5651ad288300 -- Received RTCP report from 192.168.9.126:12723, dropping due to strict RTP protection. Received SSRC '1930845172' but expected '912503297'
 ```
 
-
 ```
 PRI Span: 2 Changing from state 4(TEI assigned) to 5(Awaiting establishment)
 PRI Span: 2 TEI=0 Sending SABME
@@ -515,7 +569,6 @@ PRI Span: 2 SAPI/TEI=0/0 Kick starting link
 PRI Span: 2 TEI=0 Sending SABME
 PRI Span: 2 Changing from state 4(TEI assigned) to 5(Awaiting establishment)
 ```
-
 
 ```
 PJ ICE Rx error status code: 370401 'Unauthorized'.
@@ -536,6 +589,7 @@ PJ ICE Rx error status code: 370401 'Unauthorized'.
 ```
 [Sep 11 14:07:34] ERROR[12741]: codec_dahdi.c:820 find_transcoders: Failed to open /dev/dahdi/transcode: No such file or directory
 ```
+
 ```
 [Sep 11 14:07:34] ERROR[12741]: app_voicemail.c:2833 inboxcount2: Couldn't find mailbox 1234 in context defaul
 [Sep 11 14:07:34] ERROR[12741]: app_voicemail.c:2833 inboxcount2: Couldn't find mailbox 1234 in context other
@@ -546,8 +600,8 @@ PJ ICE Rx error status code: 370401 'Unauthorized'.
 [Sep 14 11:57:08] WARNING[21631][C-00000015]: app_dial.c:2530 dial_exec_full: Unable to create channel of type'DAHDI' (cause 34 - Circuit/channel congestion)
 ```
 
-
 S 口网关拨号异常
+
 ```
 [ 6756.928153] traps: asterisk[3656] general protection ip:6d92805f5b54 sp:6d92557d86c0 error:0
 [ 6756.928157]  in ld-musl-x86_64.so.1[6d92805d2000+89000]
@@ -560,11 +614,9 @@ S 口网关拨号异常
   == Primary D-Channel on span 1 up
 ```
 
-
 ```
 [Sep 12 09:33:08] ERROR[28000]: codec_dahdi.c:820 find_transcoders: Failed to open /dev/dahdi/transcode: No such file or directory
 ```
-
 
 ```
 [255795.036971] dahdi: HDLC Receiver overrun on channel TE2/0/1/16 (master=TE2/0/1/16)
@@ -572,26 +624,18 @@ S 口网关拨号异常
 [255962.284889] grsec: From 192.168.10.25: Segmentation fault occurred at 00007525fadecbb8 in /usr/sbin/asterisk[asterisk:18859] uid/euid:0/0 gid/egid:0/0, parent /bin/bash[bash:3484] uid/euid:0/0 gid/egid:0/0
 ```
 
-
 ```
 [Sep 11 14:07:33] WARNING[12741]: res_phoneprov.c:1231 get_defaults: Unable to find a valid server address or name.
 ```
-
-
-
-
 
 ```
 [Sep 12 11:18:57] NOTICE[25466]: res_pjsip_exten_state.c:418 new_subscribe: Endpoint '8292' state subscription failed: Extension '09198118662' does not exist in context 'inside' or has no associated hint
 ```
 
-
-
 ```
 [Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Not yet handling pre-handle message type USER_INFORMATION (0x20)
 [Oct 24 15:48:58] ERROR[4217] chan_dahdi.c: PRI Span: 1 !! Don't know how to pre-handle message type USER_INFORMATION (0x20)
 ```
-
 
 ```
 [Jun 29 11:28:22] NOTICE[3759]: res_pjsip_exten_state.c:418 new_subscribe: Endpoint '1009' state subscription failed: Extension '185555555555' does not exist in context 'inside' or has no associated hint
@@ -605,8 +649,6 @@ SecurityEvent="SuccessfulAuth",EventTV="2018-07-02T10:27:12.640+0800",Severity="
 ```
 [Jul  2 10:39:00] WARNING[32235]: res_rtp_asterisk.c:2524 __rtp_recvfrom: PJ ICE Rx error status code: 370401 'Unauthorized'.
 ```
-
-
 
 ```
 [Jan 15 18:32:43] WARNING[1855]: res_pjsip/config_transport.c:506 transport_apply: Transport 'transport-udp' is not reloadable, maintaining previous values

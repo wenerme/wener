@@ -2,46 +2,49 @@
 id: dev
 title: 开发
 ---
+
 # Asterisk 开发
 
 ## Tips
-* https://github.com/ttacon/libphonenumber
-* [Asterisk Architecture, The Big Picture](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture)
-* [Interface](https://wiki.asterisk.org/wiki/display/AST/Interfaces)
-  * Asterisk Call Files
-    * 基于纯文件的调用, 将调用文件放到 spool 即可
-  * Asterisk Gateway Interface
-    * pipes, stdin, stdout
-    * Asterisk dialplan 与 外部程序
-    * `main/manager.c`
-      * 源文件中包含了事件和操作的定义
-      * 部分其他的操作和事件在其他源文件中, 但定义的方式是一样的
-  * Asterisk Management Interface
-    * 管理类型的功能, PBX, 呼叫发起, 检测邮箱状态, 通道监控和队列, 命令执行
-    * CS 模式, TCP
-  * Asterisk REST Interface
-    * 异步接口, 暴露内部原始对象, 通道, 桥接, 终端, 媒体等.
-    * 通过 WebSocket 传输 JSON 事件
-  * Calendaring
-    * 对多各种标准的日历协议进行读写
-    * 拨号计划可利用日历事件信息
-  * Database Connectivity
-    * ODBC, MySQL, PostgreSQL
-  * Distributed Device State
-    * 提供用于在多个实例之间状态分发的机制.
-  * SNMP
-    * 基本的 SNMP 支持
-    * 活动监控
-  * Speech Recognition API
-  * StatsD
-    * 是一个拨号计划中的应用
-    * 用于发送统计信息
-* Doxygen [代码文档](http://doxygen.asterisk.org/)
-* NOTES
-  * 构建时生成的 xml 可以用于生成代码
 
-* [corosync](http://www.corosync.org/)
-  * 集群设备状态同步
+- https://github.com/ttacon/libphonenumber
+- [Asterisk Architecture, The Big Picture](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture)
+- [Interface](https://wiki.asterisk.org/wiki/display/AST/Interfaces)
+  - Asterisk Call Files
+    - 基于纯文件的调用, 将调用文件放到 spool 即可
+  - Asterisk Gateway Interface
+    - pipes, stdin, stdout
+    - Asterisk dialplan 与 外部程序
+    - `main/manager.c`
+      - 源文件中包含了事件和操作的定义
+      - 部分其他的操作和事件在其他源文件中, 但定义的方式是一样的
+  - Asterisk Management Interface
+    - 管理类型的功能, PBX, 呼叫发起, 检测邮箱状态, 通道监控和队列, 命令执行
+    - CS 模式, TCP
+  - Asterisk REST Interface
+    - 异步接口, 暴露内部原始对象, 通道, 桥接, 终端, 媒体等.
+    - 通过 WebSocket 传输 JSON 事件
+  - Calendaring
+    - 对多各种标准的日历协议进行读写
+    - 拨号计划可利用日历事件信息
+  - Database Connectivity
+    - ODBC, MySQL, PostgreSQL
+  - Distributed Device State
+    - 提供用于在多个实例之间状态分发的机制.
+  - SNMP
+    - 基本的 SNMP 支持
+    - 活动监控
+  - Speech Recognition API
+  - StatsD
+    - 是一个拨号计划中的应用
+    - 用于发送统计信息
+- Doxygen [代码文档](http://doxygen.asterisk.org/)
+- NOTES
+
+  - 构建时生成的 xml 可以用于生成代码
+
+- [corosync](http://www.corosync.org/)
+  - 集群设备状态同步
 
 ```bash
 # EXTERNALS_CACHE_DIR 可以指定下载文件的缓存目录
@@ -58,32 +61,14 @@ make doc/full-en_US.xml
 ```
 
 ## Tricks
+
 https://www.voip-info.org/asterisk-tips-and-tricks
 
 ## Addon
+
 https://github.com/zaf/Asterisk-eSpeak
 
-## AMI
-* 配置文件 `manager.conf`
-* 默认端口 5038
-* 服务端会主动发送头 `Asterisk Call Manager/3.2.0`
-* 响应均为异步事件
-* 包类型分为: 事件, 响应, 和发送的操作
-* 格式类似于 HTTP 头
-* Action,Response,Event 必须在第一行
-* 请求通过 ActionID, 服务端返回 ActionID 来识别响应
-* 一次请求除了会返回一个响应以外, 可能还会范围一列数据, 此时列数据是通过事件发送的, 没有 ActionID
-  * 例如: 以 `EndpointDetail` 开始, 以 `EndpointDetailComplete` 结束
 
-## ARI
-* [Asterisk Manager Interface](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817239)
-* [Asterisk REST Interface](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=29395573)
-* [asterisk/res/ari](https://github.com/asterisk/asterisk/tree/master/res/ari)
-* https://github.com/asterisk/asterisk/tree/master/rest-api
-* Swagger
-  * http://localhost:8088/ari/api-docs/resources.json
-  * https://raw.githubusercontent.com/asterisk/asterisk/master/rest-api/resources.json
-* http://ari.asterisk.org/
 
 ## Experiment
 
@@ -107,7 +92,8 @@ docker run -d --restart=always \
    -e POSTGRES_USER=ast -e POSTGRES_PASSWORD=ast -p 5432:5432 -v /data/pg/data:/var/lib/postgresql/data --name ast-pg postgres:alpine
 ```
 
-__sip.conf__
+**sip.conf**
+
 ```conf
 ; 打开 tcp 和 ws
 [general]
@@ -136,7 +122,8 @@ secret=0000
 [9005](base)
 ```
 
-__pjsip_wizard.conf__
+**pjsip_wizard.conf**
+
 ```conf
 [user-template](!)
 type = wizard
@@ -228,8 +215,6 @@ echo "#include dahdi-channels.conf" >> /etc/asterisk/chan_dahdi.conf
 
 ```
 
-
-
 ```bash
 apk add --allow-untrusted ~/packages/main/x86_64/pjproject-2.5.5-r3.apk
 
@@ -244,408 +229,11 @@ until asterisk -gcvvvvv -C /data/asterisk/etc/asterisk.conf; do
 done
 ```
 
-* [newt](https://pagure.io/newt/)
-  * Redhat's Newt windowing toolkit development files
-* [isdn4linux](https://www.isdn4linux.de/)
-* [OSP Toolkit](https://sourceforge.net/projects/osp-toolkit/)
-  * a client side implementation of the ETSI OSP VoIP Peering protocol (ETSI TS 101 321)
-
-
-### asterisk ./configure --help
-```
-$ ./configure --help
-`configure' configures asterisk trunk to adapt to many kinds of systems.
-
-Usage: ./configure [OPTION]... [VAR=VALUE]...
-
-To assign environment variables (e.g., CC, CFLAGS...), specify them as
-VAR=VALUE.  See below for descriptions of some of the useful variables.
-
-Defaults for the options are specified in brackets.
-
-Configuration:
-  -h, --help              display this help and exit
-      --help=short        display options specific to this package
-      --help=recursive    display the short help of all the included packages
-  -V, --version           display version information and exit
-  -q, --quiet, --silent   do not print `checking ...' messages
-      --cache-file=FILE   cache test results in FILE [disabled]
-  -C, --config-cache      alias for `--cache-file=config.cache'
-  -n, --no-create         do not create output files
-      --srcdir=DIR        find the sources in DIR [configure dir or `..']
-
-Installation directories:
-  --prefix=PREFIX         install architecture-independent files in PREFIX
-                          [/usr/local]
-  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
-                          [PREFIX]
-
-By default, `make install' will install all the files in
-`/usr/local/bin', `/usr/local/lib' etc.  You can specify
-an installation prefix other than `/usr/local' using `--prefix',
-for instance `--prefix=$HOME'.
-
-For better control, use the options below.
-
-Fine tuning of the installation directories:
-  --bindir=DIR            user executables [EPREFIX/bin]
-  --sbindir=DIR           system admin executables [EPREFIX/sbin]
-  --libexecdir=DIR        program executables [EPREFIX/libexec]
-  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
-  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
-  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
-  --libdir=DIR            object code libraries [EPREFIX/lib]
-  --includedir=DIR        C header files [PREFIX/include]
-  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
-  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
-  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
-  --infodir=DIR           info documentation [DATAROOTDIR/info]
-  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
-  --mandir=DIR            man documentation [DATAROOTDIR/man]
-  --docdir=DIR            documentation root [DATAROOTDIR/doc/asterisk]
-  --htmldir=DIR           html documentation [DOCDIR]
-  --dvidir=DIR            dvi documentation [DOCDIR]
-  --pdfdir=DIR            pdf documentation [DOCDIR]
-  --psdir=DIR             ps documentation [DOCDIR]
-
-System types:
-  --build=BUILD     configure for building on BUILD [guessed]
-  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
-
-Optional Features:
-  --disable-option-checking  ignore unrecognized --enable/--with options
-  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
-  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
-  --enable-dev-mode       Turn on developer mode
-  --enable-coverage       Turn on code coverage tracking (for gcov)
-  --disable-xmldoc        Explicitly disable XML documentation
-  --disable-largefile     omit support for large files
-  --enable-internal-poll  Use Asterisk's poll implementation
-  --disable-asteriskssl   Disable Asterisk's SSL wrapper library
-  --disable-rpath         Disables rpath linker option checking
-
-Optional Packages:
-  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
-  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
-  --with-sounds-cache=PATH
-                          use cached sound tarfiles in PATH
-  --with-externals-cache=PATH
-                          use cached external module tarfiles in PATH
-  --with-pjproject-bundled
-                          Use bundled pjproject libraries
-  --with-asound=PATH      use Advanced Linux Sound Architecture files in PATH
-  --with-bfd=PATH         use Debug symbol decoding files in PATH
-  --with-execinfo=PATH    use Stack Backtrace files in PATH
-  --with-bluetooth=PATH   use Bluetooth files in PATH
-  --with-cap=PATH         use POSIX 1.e capabilities files in PATH
-  --with-cpg=PATH         use Corosync files in PATH
-  --with-curses=PATH      use curses files in PATH
-  --with-crypt=PATH       use password and data encryption files in PATH
-  --with-crypto=PATH      use OpenSSL Cryptography files in PATH
-  --with-dahdi=PATH       use DAHDI files in PATH
-  --with-avcodec=PATH     use Ffmpeg and avcodec files in PATH
-  --with-gsm=PATH         use External GSM files in PATH, use 'internal' GSM
-                          otherwise
-  --with-ilbc=PATH        use System iLBC files in PATH, use 'internal' iLBC
-                          otherwise
-  --with-gtk2=PATH        use gtk2 files in PATH
-  --with-gmime=PATH       use GMime files in PATH
-  --with-h323=PATH        use OpenH323 files in PATH
-  --with-hoard=PATH       use Hoard Memory Allocator files in PATH
-  --with-ical=PATH        use iCal files in PATH
-  --with-iconv=PATH       use Iconv files in PATH
-  --with-iksemel=PATH     use Iksemel Jabber files in PATH
-  --with-imap=PATH        use UW IMAP Toolkit files in PATH
-  --with-inotify=PATH     use inotify support files in PATH
-  --with-iodbc=PATH       use iODBC files in PATH
-  --with-isdnnet=PATH     use ISDN4Linux files in PATH
-  --with-jack=PATH        use Jack Audio Connection Kit files in PATH
-  --with-jansson=PATH     use Jansson JSON library files in PATH
-  --with-uriparser=PATH   use uriparser library files in PATH
-  --with-kqueue=PATH      use kqueue support files in PATH
-  --with-ldap=PATH        use OpenLDAP files in PATH
-  --with-libcurl=PREFIX   look for the curl library in PREFIX/lib and headers
-                          in PREFIX/include
-  --with-libedit=PATH     use NetBSD Editline library files in PATH, use
-                          'internal' Editline otherwise
-  --with-libxml2=PATH     use LibXML2 files in PATH
-  --with-libxslt=PATH     use LibXSLT files in PATH
-  --with-ltdl=PATH        use libtool files in PATH
-  --with-lua=PATH         use Lua files in PATH
-  --with-misdn=PATH       use mISDN user files in PATH
-  --with-mysqlclient=PATH use MySQL client files in PATH
-  --with-nbs=PATH         use Network Broadcast Sound files in PATH
-  --with-ncurses=PATH     use ncurses files in PATH
-  --with-neon=PATH        use neon files in PATH
-  --with-neon29=PATH      use neon29 files in PATH
-  --with-netsnmp=PATH     use Net-SNMP files in PATH
-  --with-newt=PATH        use newt files in PATH
-  --with-ogg=PATH         use OGG files in PATH
-  --with-openr2=PATH      use MFR2 files in PATH
-  --with-opus=PATH        use Opus files in PATH
-  --with-osptk=PATH       use OSP Toolkit files in PATH
-  --with-oss=PATH         use Open Sound System files in PATH
-  --with-postgres=PATH    use PostgreSQL files in PATH
-  --with-pjproject=PATH   use PJPROJECT files in PATH
-  --with-popt=PATH        use popt files in PATH
-  --with-portaudio=PATH   use PortAudio files in PATH
-  --with-pri=PATH         use ISDN PRI files in PATH
-  --with-pwlib=PATH       use PWlib files in PATH
-  --with-radius=PATH      use Radius Client files in PATH
-  --with-resample=PATH    use LIBRESAMPLE files in PATH
-  --with-sdl=PATH         use Sdl files in PATH
-  --with-SDL_image=PATH   use Sdl Image files in PATH
-  --with-spandsp=PATH     use SPANDSP files in PATH
-  --with-ss7=PATH         use ISDN SS7 files in PATH
-  --with-speex=PATH       use Speex files in PATH
-  --with-speex=PATH       use Speex preprocess routines files in PATH
-  --with-speexdsp=PATH    use SpeexDSP files in PATH
-  --with-sqlite=PATH      use SQLite files in PATH
-  --with-sqlite3=PATH     use SQLite files in PATH
-  --with-srtp=PATH        use Secure RTP files in PATH
-  --with-ssl=PATH         use OpenSSL Secure Sockets Layer files in PATH
-  --with-suppserv=PATH    use mISDN Supplemental Services files in PATH
-  --with-tds=PATH         use FreeTDS files in PATH
-  --with-termcap=PATH     use Termcap files in PATH
-  --with-timerfd=PATH     use timerfd files in PATH
-  --with-tinfo=PATH       use Term Info files in PATH
-  --with-tonezone=PATH    use tonezone files in PATH
-  --with-unbound=PATH     use unbound files in PATH
-  --with-unixodbc=PATH    use unixODBC files in PATH
-  --with-vorbis=PATH      use Vorbis files in PATH
-  --with-vpb=PATH         use Voicetronix API files in PATH
-  --with-x11=PATH         use X11 files in PATH
-  --with-z=PATH           use zlib compression files in PATH
-
-Some influential environment variables:
-  CC          C compiler command
-  CFLAGS      C compiler flags
-  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
-              nonstandard directory <lib dir>
-  LIBS        libraries to pass to the linker, e.g. -l<library>
-  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
-              you have headers in a nonstandard directory <include dir>
-  CPP         C preprocessor
-  CXX         C++ compiler command
-  CXXFLAGS    C++ compiler flags
-  CXXCPP      C++ preprocessor
-  PJPROJECT_CONFIGURE_OPTS
-              Additional configure options to pass to bundled pjproject
-  PKG_CONFIG  path to pkg-config utility
-  PKG_CONFIG_PATH
-              directories to add to pkg-config's search path
-  PKG_CONFIG_LIBDIR
-              path overriding pkg-config's built-in search path
-  ILBC_CFLAGS C compiler flags for ILBC, overriding pkg-config
-  ILBC_LIBS   linker flags for ILBC, overriding pkg-config
-  LIBEDIT_CFLAGS
-              C compiler flags for LIBEDIT, overriding pkg-config
-  LIBEDIT_LIBS
-              linker flags for LIBEDIT, overriding pkg-config
-  PJPROJECT_CFLAGS
-              C compiler flags for PJPROJECT, overriding pkg-config
-  PJPROJECT_LIBS
-              linker flags for PJPROJECT, overriding pkg-config
-  PYTHONDEV_CFLAGS
-              C compiler flags for PYTHONDEV, overriding pkg-config
-  PYTHONDEV_LIBS
-              linker flags for PYTHONDEV, overriding pkg-config
-  GMIME_CFLAGS
-              C compiler flags for GMIME, overriding pkg-config
-  GMIME_LIBS  linker flags for GMIME, overriding pkg-config
-  GTK2_CFLAGS C compiler flags for GTK2, overriding pkg-config
-  GTK2_LIBS   linker flags for GTK2, overriding pkg-config
-  SYSTEMD_CFLAGS
-              C compiler flags for SYSTEMD, overriding pkg-config
-  SYSTEMD_LIBS
-              linker flags for SYSTEMD, overriding pkg-config
-
-Use these variables to override the choices made by `configure' or to help
-it to find libraries and programs with nonstandard names/locations.
-
-Report bugs to <https://issues.asterisk.org>.
-```
-
-
-### pjproject ./configure --help
-
-```
-$ ./configure --help
-`configure' configures pjproject 2.x to adapt to many kinds of systems.
-
-Usage: ./aconfigure [OPTION]... [VAR=VALUE]...
-
-To assign environment variables (e.g., CC, CFLAGS...), specify them as
-VAR=VALUE.  See below for descriptions of some of the useful variables.
-
-Defaults for the options are specified in brackets.
-
-Configuration:
-  -h, --help              display this help and exit
-      --help=short        display options specific to this package
-      --help=recursive    display the short help of all the included packages
-  -V, --version           display version information and exit
-  -q, --quiet, --silent   do not print `checking ...' messages
-      --cache-file=FILE   cache test results in FILE [disabled]
-  -C, --config-cache      alias for `--cache-file=config.cache'
-  -n, --no-create         do not create output files
-      --srcdir=DIR        find the sources in DIR [configure dir or `..']
-
-Installation directories:
-  --prefix=PREFIX         install architecture-independent files in PREFIX
-                          [/usr/local]
-  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
-                          [PREFIX]
-
-By default, `make install' will install all the files in
-`/usr/local/bin', `/usr/local/lib' etc.  You can specify
-an installation prefix other than `/usr/local' using `--prefix',
-for instance `--prefix=$HOME'.
-
-For better control, use the options below.
-
-Fine tuning of the installation directories:
-  --bindir=DIR            user executables [EPREFIX/bin]
-  --sbindir=DIR           system admin executables [EPREFIX/sbin]
-  --libexecdir=DIR        program executables [EPREFIX/libexec]
-  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
-  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
-  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
-  --libdir=DIR            object code libraries [EPREFIX/lib]
-  --includedir=DIR        C header files [PREFIX/include]
-  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
-  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
-  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
-  --infodir=DIR           info documentation [DATAROOTDIR/info]
-  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
-  --mandir=DIR            man documentation [DATAROOTDIR/man]
-  --docdir=DIR            documentation root [DATAROOTDIR/doc/pjproject]
-  --htmldir=DIR           html documentation [DOCDIR]
-  --dvidir=DIR            dvi documentation [DOCDIR]
-  --pdfdir=DIR            pdf documentation [DOCDIR]
-  --psdir=DIR             ps documentation [DOCDIR]
-
-System types:
-  --build=BUILD     configure for building on BUILD [guessed]
-  --host=HOST       cross-compile to build programs to run on HOST [BUILD]
-  --target=TARGET   configure for building compilers for TARGET [HOST]
-
-Optional Features:
-  --disable-option-checking  ignore unrecognized --enable/--with options
-  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
-  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
-  --disable-floating-point
-                          Disable floating point where possible
-  --enable-epoll          Use /dev/epoll ioqueue on Linux (experimental)
-  --enable-shared         Build shared libraries
-  --disable-resample      Disable resampling implementations
-  --disable-sound         Exclude sound (i.e. use null sound)
-  --disable-oss           Disable OSS audio (default: not disabled)
-  --disable-video         Disable video feature
-  --enable-ext-sound      PJMEDIA will not provide any sound device backend
-  --disable-small-filter  Exclude small filter in resampling
-  --disable-large-filter  Exclude large filter in resampling
-  --disable-speex-aec     Exclude Speex Acoustic Echo Canceller/AEC
-  --disable-g711-codec    Exclude G.711 codecs from the build
-  --disable-l16-codec     Exclude Linear/L16 codec family from the build
-  --disable-gsm-codec     Exclude GSM codec in the build
-  --disable-g722-codec    Exclude G.722 codec in the build
-  --disable-g7221-codec   Exclude G.7221 codec in the build
-  --disable-speex-codec   Exclude Speex codecs in the build
-  --disable-ilbc-codec    Exclude iLBC codec in the build
-  --enable-libsamplerate  Link with libsamplerate when available.
-  --enable-resample-dll   Build libresample as shared library
-  --disable-sdl           Disable SDL (default: not disabled)
-  --disable-ffmpeg        Disable ffmpeg (default: not disabled)
-  --disable-v4l2          Disable Video4Linux2 (default: not disabled)
-  --disable-openh264      Disable OpenH264 (default: not disabled)
-  --enable-ipp            Enable Intel IPP support. Specify the Intel IPP
-                          package and samples location using IPPROOT and
-                          IPPSAMPLES env var or with --with-ipp and
-                          --with-ipp-samples options
-  --disable-ssl           Exclude SSL support the build (default: autodetect)
-
-  --disable-opencore-amr  Exclude OpenCORE AMR support from the build
-                          (default: autodetect)
-
-  --disable-silk          Exclude SILK support from the build (default:
-                          autodetect)
-
-  --disable-opus          Exclude OPUS support from the build (default:
-                          autodetect)
-
-  --disable-libyuv        Exclude libyuv in the build
-  --disable-libwebrtc     Exclude libwebrtc in the build
-
-Optional Packages:
-  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
-  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-  --with-external-speex   Use external Speex development files, not the one in
-                          "third_party" directory. When this option is set,
-                          make sure that Speex is accessible to use (hint: use
-                          CFLAGS and LDFLAGS env var to set the include/lib
-                          paths)
-  --with-external-gsm     Use external GSM codec library, not the one in
-                          "third_party" directory. When this option is set,
-                          make sure that the GSM include/lib files are
-                          accessible to use (hint: use CFLAGS and LDFLAGS env
-                          var to set the include/lib paths)
-  --with-external-srtp    Use external SRTP development files, not the one in
-                          "third_party" directory. When this option is set,
-                          make sure that SRTP is accessible to use (hint: use
-                          CFLAGS and LDFLAGS env var to set the include/lib
-                          paths)
-  --with-external-yuv     Use external libyuv development files, not the one
-                          in "third_party" directory. When this option is set,
-                          make sure that libyuv is accessible to use (hint:
-                          use CFLAGS and LDFLAGS env var to set the
-                          include/lib paths)
-  --with-external-webrtc  Use external webrtc development files, not the one
-                          in "third_party" directory. When this option is set,
-                          make sure that webrtc is accessible to use (hint:
-                          use CFLAGS and LDFLAGS env var to set the
-                          include/lib paths)
-  --with-external-pa      Use external PortAudio development files, not the
-                          one in "third_party" directory. When this option is
-                          set, make sure that PortAudio is accessible to use
-                          (hint: use CFLAGS and LDFLAGS env var to set the
-                          include/lib paths)
-  --with-sdl=DIR          Specify alternate libSDL prefix
-  --with-ffmpeg=DIR       Specify alternate FFMPEG prefix
-  --with-openh264=DIR     Specify alternate OpenH264 prefix
-  --with-ipp=DIR          Specify the Intel IPP location
-  --with-ipp-samples=DIR  Specify the Intel IPP samples location
-  --with-ipp-arch=ARCH    Specify the Intel IPP ARCH suffix, e.g. "64" or
-                          "em64t. Default is blank for IA32"
-  --with-ssl=DIR          Specify alternate libssl prefix
-  --with-opencore-amrnb=DIR
-                          This option is obsolete and replaced by
-                          --with-opencore-amr=DIR
-  --with-opencore-amr=DIR Specify alternate libopencore-amr prefix
-  --with-opencore-amrwbenc=DIR
-                          Specify alternate libvo-amrwbenc prefix
-  --with-silk=DIR         Specify alternate SILK prefix
-  --with-opus=DIR         Specify alternate OPUS prefix
-
-Some influential environment variables:
-  CC          C compiler command
-  CFLAGS      C compiler flags
-  LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
-              nonstandard directory <lib dir>
-  LIBS        libraries to pass to the linker, e.g. -l<library>
-  CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
-              you have headers in a nonstandard directory <include dir>
-  CXX         C++ compiler command
-  CXXFLAGS    C++ compiler flags
-  CPP         C preprocessor
-
-Use these variables to override the choices made by `configure' or to help
-it to find libraries and programs with nonstandard names/locations.
-
-Report bugs to the package provider.
-```
-
+- [newt](https://pagure.io/newt/)
+  - Redhat's Newt windowing toolkit development files
+- [isdn4linux](https://www.isdn4linux.de/)
+- [OSP Toolkit](https://sourceforge.net/projects/osp-toolkit/)
+  - a client side implementation of the ETSI OSP VoIP Peering protocol (ETSI TS 101 321)
 
 ### Centos
 
@@ -730,12 +318,13 @@ yum install -y opus-devel
 ```
 
 ## 录音文件归档
-* 录音文件归档建议使用 opus 压缩
-  * 1453  wav 405M 压缩后为 91M
-    * 其中有 764 个空白文件
-  * 688   wav 402M 压缩后为 88M
-* wav 空白文件为 44
-* opus 空白文件为 872
+
+- 录音文件归档建议使用 opus 压缩
+  - 1453 wav 405M 压缩后为 91M
+    - 其中有 764 个空白文件
+  - 688 wav 402M 压缩后为 88M
+- wav 空白文件为 44
+- opus 空白文件为 872
 
 ```bash
 # 删除空白文件
@@ -749,6 +338,7 @@ find . -type f ! -newermt 2017-9-29 -delete
 ```
 
 ## 自动拨号文件
+
 /var/spool/asterisk/outgoing/
 
 https://www.voip-info.org/asterisk-call-files
@@ -757,17 +347,18 @@ https://www.voip-info.org/asterisk-auto-dial-out
 http://www.pycall.org/
 a flexible python library for creating and using Asterisk call files.
 
-* 使用场景
-  * Prank call programs.
-  * Wakeup call programs.
-  * Telemarketing campaigns.
-  * Automatic callback systems.
-  * Emergency warning systems.
-  * Advanced conferencing applications.
+- 使用场景
+  - Prank call programs.
+  - Wakeup call programs.
+  - Telemarketing campaigns.
+  - Automatic callback systems.
+  - Emergency warning systems.
+  - Advanced conferencing applications.
 
 ## 性能调优
-* [Asterisk at large](https://www.voip-info.org/wiki/view/Asterisk+at+large)
-* [Asterisk dimensioning](https://www.voip-info.org/wiki/view/Asterisk+dimensioning)
+
+- [Asterisk at large](https://www.voip-info.org/wiki/view/Asterisk+at+large)
+- [Asterisk dimensioning](https://www.voip-info.org/wiki/view/Asterisk+dimensioning)
 
 ```bash
 # 将语言文件放到内存
@@ -801,6 +392,7 @@ lsof | wc -l
 # 查看内核的文件数限制
 sysctl fs.file-nr
 ```
+
 ## debian
 
 https://github.com/alpinelinux/aports/blob/master/main/asterisk/APKBUILD
@@ -894,13 +486,11 @@ make menuselect.makeopts
 make -j $(nproc)
 ```
 
-
 libxml2-dev libncurses5-dev uuid-dev sqlite3 libsqlite3-dev pkg-config libjansson-dev
 
 uuid-dev
 
 xml2,sqlite3,jansson,asound2,newt,pq,pri,resample,spandsp,speex,speexdsp,srtp
-
 
 dahdi
 
@@ -910,91 +500,90 @@ tonezone
 
 dahdi-source
 
-configure: ***
-configure: *** The ALSA installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-asound.
+configure: **_
+configure: _** The ALSA installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-asound.
 
-configure: ***
-configure: *** The BLUETOOTH installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-bluetooth.
+configure: **_
+configure: _** The BLUETOOTH installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-bluetooth.
 
-configure: ***
-configure: *** The DAHDI installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-dahdi.
+configure: **_
+configure: _** The DAHDI installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-dahdi.
 
-configure: ***
-configure: *** The IMAP_TK installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-imap.
+configure: **_
+configure: _** The IMAP_TK installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-imap.
 
-configure: ***
-configure: *** The NEWT installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-newt.
+configure: **_
+configure: _** The NEWT installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-newt.
 
-configure: ***
-configure: *** The PGSQL installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-postgres.
+configure: **_
+configure: _** The PGSQL installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-postgres.
 
-configure: ***
-configure: *** The POPT installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-popt.
+configure: **_
+configure: _** The POPT installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-popt.
 
-configure: ***
-configure: *** The PRI installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-pri.
+configure: **_
+configure: _** The PRI installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-pri.
 
-configure: ***
-configure: *** The RESAMPLE installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-resample.
+configure: **_
+configure: _** The RESAMPLE installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-resample.
 
-configure: ***
-configure: *** The SPANDSP installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-spandsp.
+configure: **_
+configure: _** The SPANDSP installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-spandsp.
 
-configure: ***
-configure: *** The SPEEX installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-speex.
+configure: **_
+configure: _** The SPEEX installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-speex.
 
-configure: ***
-configure: *** The SPEEX_PREPROCESS installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-speex.
+configure: **_
+configure: _** The SPEEX_PREPROCESS installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-speex.
 
-configure: ***
-configure: *** The SRTP installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-srtp.
+configure: **_
+configure: _** The SRTP installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-srtp.
 
-configure: ***
-configure: *** The FREETDS installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-tds.
+configure: **_
+configure: _** The FREETDS installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-tds.
 
-configure: ***
-configure: *** The TONEZONE installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-tonezone.
+configure: **_
+configure: _** The TONEZONE installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-tonezone.
 
-configure: ***
-configure: *** The UNIXODBC installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-unixodbc.
+configure: **_
+configure: _** The UNIXODBC installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-unixodbc.
 
-configure: ***
-configure: *** The ZLIB installation appears to be missing or broken.
-configure: *** Either correct the installation, or run configure
-configure: *** including --without-z.
-
+configure: **_
+configure: _** The ZLIB installation appears to be missing or broken.
+configure: **_ Either correct the installation, or run configure
+configure: _** including --without-z.
 
 http://www.sailpbx.com/mediawiki/index.php/Debian_DAHDI
 
@@ -1003,8 +592,8 @@ apt-get install dahdi-source
 m-a a-i dahdi
 ```
 
-
 ## Ops
+
 https://www.voip-info.org/asterisk-automatic-daily-restart/
 
 ```bash

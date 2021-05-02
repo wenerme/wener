@@ -5,7 +5,12 @@ title: Asterisk
 
 # Asterisk
 
-## Tips
+* Asterisk 是什么？
+  * PBX
+  * 呼叫路由
+  * Accounting/Billing
+  * IVR
+  * Conference
 * Asterisk
   * [文档](https://wiki.asterisk.org/wiki/display/AST/Home)
     * [架构](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Architecture%2C+The+Big+Picture)
@@ -20,6 +25,7 @@ title: Asterisk
 * [Asterisk The Definitive Guide](http://www.asteriskdocs.org/)
 * 注意
   * 录音时尽量选择 .WAV 而非 .wav
+  * 目前大多上下文信息都存储在 channel 的变量中
 * 参考
   * [Connecting Non-SIP IP Camera to Your PBX - AstriCon 2014](https://youtu.be/yiQHVq4UzO4)
   * [How to implement an alarm system with Asterisk and a webcam](https://www.voip-info.org/how-to-implement-an-alarm-system-with-asterisk-and-a-webcam/)

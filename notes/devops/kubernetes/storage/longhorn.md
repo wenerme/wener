@@ -38,6 +38,14 @@ title: Longhorn
 - 数据对应关系
   - PVC -> PV -> Volume -> Replica -> Node
 
+:::caution
+
+- v1.1.0 单机部署每次重启后需要 打捞/salvage 之前的 replica
+  - 开启了 Automatic salvage 发现还是需要手动
+  - v1.1.1 修复 [#2309](https://github.com/longhorn/longhorn/issues/2309)
+
+:::
+
 ```bash
 curl -sSfLO https://raw.githubusercontent.com/longhorn/longhorn/master/scripts/environment_check.sh
 
@@ -236,20 +244,23 @@ sudo mount --make-rshared /
 ## Volume `volume` hasn't been attached yet
 
 ## snapshot vs backup
-* snapshot
-  * 本地 Revision
-  * Delta 修改
-  * 跟随 Volume - 删除 Volume 则删除了 Snapshot
-* backup
-  * 数据存储在外部 - S3/NFS
-  * 不受集群状态影响
-  * 备份基于快照 - backup 之前会创建 snapshot
 
-## controller  doesn't support on-line expansion, frontend: tgt-blockdev
-* https://github.com/longhorn/longhorn/issues/1674
+- snapshot
+  - 本地 Revision
+  - Delta 修改
+  - 跟随 Volume - 删除 Volume 则删除了 Snapshot
+- backup
+  - 数据存储在外部 - S3/NFS
+  - 不受集群状态影响
+  - 备份基于快照 - backup 之前会创建 snapshot
+
+## controller doesn't support on-line expansion, frontend: tgt-blockdev
+
+- https://github.com/longhorn/longhorn/issues/1674
 
 ## 监控
-* https://grafana.com/grafana/dashboards/13032
+
+- https://grafana.com/grafana/dashboards/13032
 
 ## 示例
 

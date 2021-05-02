@@ -143,6 +143,12 @@ title: Asterisk 版本
 - WebSocket
 - Stasis
 
+## Asterisk 12
+
+- 新增 ARI 接口
+- 新增 Stasis 消息总线
+- 新增 chan_pjsip
+
 ## Asterisk 11
 
 - LTS | 2012-10-25 |- 2017-10-25
@@ -170,12 +176,18 @@ turnusername=relayme
 turnpassword=please
 ```
 
+## Asterisk 10
+
+- 内部数据库从 Berkeley DB 切换为 SQLite 3
+
 ## Asterisk 1.8
 
 > 很多旧的 VoIP 网关使用该版本 - 且可能永远不会升级
 
 - LTS | 2010-10-21 - 2015-10-21
 - 第二个 LTS 版本 - 大量使用
+- 支持 AMI
+- 支持 AGI
 - SRTP
 - SIP IPv6
 - Connected Party Identification - COLP and CONP

@@ -4,7 +4,9 @@ title: expect
 
 # expect
 
-```tcl
+- [expect.1](https://man7.org/linux/man-pages/man1/expect.1.html)
+
+```expect
 set username [lindex $argv 0];
 set password [lindex $argv 1];
 
@@ -16,6 +18,7 @@ set argv [lassign $argv username password]
 if {$username eq ""} {set username default_user}
 if {$password eq ""} {set password default_password}
 ```
+
 ## SSH 输入密码
 
 ```bash
@@ -39,3 +42,19 @@ send [exec cat password.txt];
 send "\n"
 interact
 ```
+
+## 嵌入到 Shell
+
+```bash
+expect <(cat << EOD
+# ...
+interact
+EOD
+)
+```
+
+# FAQ
+
+## interact: received eof from spawn_id exp0
+
+避免用 stdin 传入脚本

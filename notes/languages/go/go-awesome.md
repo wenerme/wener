@@ -23,6 +23,10 @@ title: Go Awesome
   - [mingrammer/go-web-framework-stars](https://github.com/mingrammer/go-web-framework-stars)
   - https://golangroadmap.com/
 
+## 学习
+
+- [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
+
 ## 日志
 
 - [uber-go/zap](https://github.com/uber-go/zap) - ⭐️
@@ -30,7 +34,7 @@ title: Go Awesome
   - 需要更多的配置
   - Suger 模式接口友好 - 些微影响性能
 - [sirupsen/logrus](https://github.com/sirupsen/logrus)
-  - 目前处于 __维护模式__ 🚧 - 完成使命
+  - 目前处于 **维护模式** 🚧 - 完成使命
   - 适用于简单快速使用
   - 默认即可使用
 - [rs/zerolog](https://github.com/rs/zerolog)
@@ -225,3 +229,16 @@ title: Go Awesome
   - [Gontroller: a Go library to create reliable feedback loop controllers](https://product.spotahome.com/832d4a9522ea)
 - [gianarb/planner](https://github.com/gianarb/planner)
 - [konimarti/lti](https://github.com/konimarti/lti)
+
+## Lib
+
+- [adhocore/gronx](https://github.com/a\dhocore/gronx) cron parser
+
+## Tool
+
+- [google/bloaty](https://github.com/google/bloaty)
+  - 二进大小分析
+
+## Service
+
+- [umputun/remark42](https://github.com/umputun/remark42) comment egnine

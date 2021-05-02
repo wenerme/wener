@@ -1,53 +1,20 @@
+---
+title: CSS
+---
+
 # CSS
-
-## Tips
-* [Things I Wish I’d Known About CSS ](https://news.ycombinator.com/item?id=23868355)
-* [Reset/remove CSS styles for element only](https://stackoverflow.com/q/15901030/1870054)
-* Library
-  * [voxel.css](http://www.voxelcss.com/)
-  * [peterramsing/lost](https://github.com/peterramsing/lost)
-    * LostGrid is a powerful grid system built in PostCSS that works with any preprocessor and even vanilla CSS.
-  * [mojotech/jeet](https://github.com/mojotech/jeet)
-    * The most advanced, yet intuitive, grid system available for Sass or Stylus
-  * [kumailht/gridforms](https://github.com/kumailht/gridforms)
-    * Data entry can be beautiful
-  * [dogfalo/materialize](https://github.com/dogfalo/materialize)
-    * [Materialize](https://materializecss.com)
-    * Materialize, a CSS Framework based on Material Design
-  * [google/material-design-lite](https://github.com/google/material-design-lite)
-    * [Get MDL](https://getmdl.io/)
-    * Material Design Components in HTML/CSS/JS 
-* [PostCSS.parts](https://www.postcss.parts/)
-  * A searchable catalog of PostCSS plugins
-* https://css-tricks.com/snippets/
-* [Loaders Loading!](https://codepen.io/collection/jifIK)
-
-
-* CSS 参考手册
-  * https://tympanus.net/codrops/css_reference/
-  * https://css-tricks.com/almanac/
-  * [cssreference](http://cssreference.io/)
-    * [HN](https://news.ycombinator.com/item?id=13031492)
-    * 可视化的方式解释 CSS 属性
-  * (htmlreference.io)[http://htmlreference.io/]
-
-* scss
-  * long shadow http://codepen.io/danieltott/pen/AjKay
-
-## Tricks
-* [Orientation Lock](https://css-tricks.com/snippets/css/orientation-lock/)
-* [Aspect Ratio Boxes](https://css-tricks.com/aspect-ratio-boxes/)
 
 ## Topics
 
 ### Print
-* [CSS Generated Content for Paged Media Module](https://www.w3.org/TR/css-gcpm-3)
-* CSS Paged Media Module Level 3 https://drafts.csswg.org/css-page-3
-* [page-break@css-tricks](https://css-tricks.com/almanac/properties/p/page-break/)
-* https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
-* https://developer.mozilla.org/en-US/docs/Web/CSS/@page
-* http://papersizes.io/a/
-* https://www.print-css.rocks/
+
+- [CSS Generated Content for Paged Media Module](https://www.w3.org/TR/css-gcpm-3)
+- CSS Paged Media Module Level 3 https://drafts.csswg.org/css-page-3
+- [page-break@css-tricks](https://css-tricks.com/almanac/properties/p/page-break/)
+- https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/@page
+- http://papersizes.io/a/
+- https://www.print-css.rocks/
 
 ```css
 /*  页眉 */
@@ -56,19 +23,20 @@
     content: element(pageHeader);
   }
 }
-#pageHeader{
+#pageHeader {
   position: running(pageHeader);
 }
 ```
 
 ### CSS 滤镜
-* https://css-tricks.com/almanac/properties/f/filter/
-* http://codepen.io/akademy/pen/FlkzB
-  * 使用 :before 做背景并添加滤镜
+
+- https://css-tricks.com/almanac/properties/f/filter/
+- http://codepen.io/akademy/pen/FlkzB
+  - 使用 :before 做背景并添加滤镜
 
 ```css
 /* 对滤镜使用渐变 */
-.active{
+.active {
   transition: 1s filter linear;
   -webkit-transition: 1s -webkit-filter linear;
   -moz-transition: 1s -moz-filter linear;
@@ -78,28 +46,29 @@
 ```
 
 ### 在 CSS 中使用 FontAwesome
-* [A list of Font Awesome icons and their CSS content values](http://astronautweb.co/snippet/font-awesome/)
+
+- [A list of Font Awesome icons and their CSS content values](http://astronautweb.co/snippet/font-awesome/)
 
 ```css
 .mytextwithicon {
-    position:relative;
-}    
+  position: relative;
+}
 .mytextwithicon:before {
-    content: "\25AE"; /* 修改为需要的值 */
-    font-family: FontAwesome;
-    left:-5px;
-    position:absolute;
-    top:0;
- }
+  content: '\25AE'; /* 修改为需要的值 */
+  font-family: FontAwesome;
+  left: -5px;
+  position: absolute;
+  top: 0;
+}
 ```
 
 ### flex
 
-* [caniuse](http://caniuse.com/#feat=flexbox)
-* [flexbugs](https://github.com/philipwalton/flexbugs) 由社区维护的 flex 在各个浏览器中的 BUG 和解决方法
-* float, clear 和 vertical-align 不影响 flex 元素
-* [A guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [滚动内容](http://stackoverflow.com/a/14964944/1870054)
+- [caniuse](http://caniuse.com/#feat=flexbox)
+- [flexbugs](https://github.com/philipwalton/flexbugs) 由社区维护的 flex 在各个浏览器中的 BUG 和解决方法
+- float, clear 和 vertical-align 不影响 flex 元素
+- [A guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [滚动内容](http://stackoverflow.com/a/14964944/1870054)
 
 ```css
 /* 针对容器的属性 */
@@ -157,6 +126,7 @@
 ```
 
 ### 文本溢出显示省略号
+
 ```css
 .over-test {
   width: 300px;
@@ -166,24 +136,25 @@
 }
 ```
 
-
 ### 避免点击高亮
-* [Remove Gray Highlight When Tapping Links in Mobile Safari](https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/)
+
+- [Remove Gray Highlight When Tapping Links in Mobile Safari](https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/)
 
 ```css
-.button{
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+.button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
 ```
 
 ```js
 // 允许 css 中的 :active 样式在移动端 safari 生效
-document.addEventListener("touchstart", function(){}, true);
+document.addEventListener('touchstart', function () {}, true);
 ```
 
 ### visibility 在动画中的问题
-* 在动画中如果结束 `visibility: hidden`, 那会导致直接不进行动画
+
+- 在动画中如果结束 `visibility: hidden`, 那会导致直接不进行动画
 
 ```css
 .target {
@@ -193,28 +164,30 @@ document.addEventListener("touchstart", function(){}, true);
 ```
 
 ### 避免 div 处理点击事件
-* 当两个 div 重叠的时候, 不希望第一个透明的 div 处理事件
-* 当 `opacity:0` 的时候, 不希望处理事件
-* [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
-* [touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action)
-  * 可用于手势控制
-  * 支持的较好的只有 `manipulation`, 等同于 `pan-x pan-y pinch-zoom`
-  * 左右滑,上下滑,缩放
+
+- 当两个 div 重叠的时候, 不希望第一个透明的 div 处理事件
+- 当 `opacity:0` 的时候, 不希望处理事件
+- [pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
+- [touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action)
+  - 可用于手势控制
+  - 支持的较好的只有 `manipulation`, 等同于 `pan-x pan-y pinch-zoom`
+  - 左右滑,上下滑,缩放
 
 ```css
-.overlay{
+.overlay {
   pointer-events: none;
 }
-.container .button{
+.container .button {
   pointer-events: auto;
 }
 ```
 
 ### 比例宽高
-* 可以用宽百分比+padding
-* 可以用 vh/vw
-* [Maintain the aspect ratio of a div with CSS](http://stackoverflow.com/questions/1495407)
-* [Scaling Responsive Animations](https://css-tricks.com/scaling-responsive-animations/)
+
+- 可以用宽百分比+padding
+- 可以用 vh/vw
+- [Maintain the aspect ratio of a div with CSS](http://stackoverflow.com/questions/1495407)
+- [Scaling Responsive Animations](https://css-tricks.com/scaling-responsive-animations/)
 
 ```css
 .container {
@@ -231,13 +204,9 @@ document.addEventListener("touchstart", function(){}, true);
 }
 ```
 
-aspect ratio  | padding-bottom value
---------------|----------------------
-    16:9      |       56.25%
-    4:3       |       75%
-    3:2       |       66.66%
-    8:5       |       62.5%
-
-
-
-
+| aspect ratio | padding-bottom value |
+| ------------ | -------------------- |
+| 16:9         | 56.25%               |
+| 4:3          | 75%                  |
+| 3:2          | 66.66%               |
+| 8:5          | 62.5%                |

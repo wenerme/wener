@@ -50,3 +50,9 @@ title: Selfhost Awesome
   * metallb
   * cert-manager
   * kube-prometheus
+
+## Clone
+- [mattermost/focalboard](https://github.com/mattermost/focalboard)
+  - trello, notion, asana
+- [guyariely/finder-clone](https://github.com/guyariely/finder-clone)
+  - Web, finder

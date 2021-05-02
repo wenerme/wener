@@ -8,7 +8,11 @@ title: Web Awesome
 - Awesome [Web](https://www.awesomeweb.com/)
 
 ## 技术
+
 - [hotwire](https://hotwire.dev/)
+
+## Build
+- vite
 
 ## 测试
 
@@ -44,3 +48,5 @@ title: Web Awesome
   - 绘制手写效果的图
 - [julianshapiro/velocity](https://github.com/julianshapiro/velocity)
   - Accelerated JavaScript animation.
+- [nextapps-de/winbox](https://github.com/nextapps-de/winbox)
+  - 窗口管理器

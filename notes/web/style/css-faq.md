@@ -6,6 +6,14 @@ title: CSS 常见问题
 
 - [CSS](http://help.dottoro.com/lcsdaoxj.php) Reference
 
+## 子节点有焦点时父节点添加样式
+
+- :focus-within
+
+## 匹配空节点
+
+- :empty
+
 ## display: table 不支持 max-height 和 overflow
 
 - 建议使用 flex 模拟 table

@@ -13,6 +13,17 @@ title: GraphQL Awesome
   4. 字段默认 null - 利用 非 null 设计更好的接口
   5. 分页使用 Connection - 通过 first, last, before, after 实现基于 cursor 分页
   6. 服务端批处理和缓存 - 避免 N+1 问题 - 利用 [graphql/dataloader](https://github.com/graphql/dataloader) 处理
+- [Principled GraphQL](https://principledgraphql.com)
+  1. One Graph
+  2. Federated Implementation
+  3. Track the Schema in a Registry
+  4. Abstract, Demand-Oriented Schema
+  5. Use an Agile Approach to Schema Development
+  6. Iteratively Improve Performance
+  7. Use Graph Metadata to Empower Developers
+  8. Access and Demand Control
+  9. Structured Logging
+  10. Separate the GraphQL Layer from the Service Layer
 - [Gitlab GraphQL API 规范文档](https://docs.gitlab.com/ee/development/api_graphql_styleguide.html)
 
 ## Service
@@ -26,6 +37,17 @@ title: GraphQL Awesome
 - [dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
   - 基于 GraphQL 生成各种客户端服务端代码
   - 对 TypeScript 支持非常好
+- [jensneuse/graphql-go-tools](https://github.com/jensneuse/graphql-go-tools)
+  - 实现了 federation
+  - 可用于实现 graphql 服务应用
+- [anvilco/spectaql](https://github.com/anvilco/spectaql)
+  - 文档生成
+
+## Server
+- [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
+- [Urigo/graphql-mesh](https://github.com/Urigo/graphql-mesh)
+  - REST,DB,RPC 映射为 GraphQL
+  - 收集 API 接口规范、生成 SDK、生成 GraphQL Schema、生成接口映射
 
 ## Client
 
