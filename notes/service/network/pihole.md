@@ -1,9 +1,13 @@
-# Pi Hole
-* 是什么？
-  * 基于 DNS 的 AD/Tracker Block
-* [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole/)
-* 端口
+---
+title: Pi Hole
+---
 
+# Pi Hole
+
+- 是什么？
+  - 基于 DNS 的 AD/Tracker Block
+- [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole/)
+- 端口
 
 ```bash
 cat <<YAML > docker-compose.yaml
@@ -28,7 +32,7 @@ services:
       - './pihole/etc:/etc/pihole/'
       - './pihole/dnsmasq.d:/etc/dnsmasq.d/'
     # Recommended but not required (DHCP needs NET_ADMIN)
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    # https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
@@ -47,20 +51,22 @@ docker run -d --restart always\
 ```
 
 ## internal
-* dnsmasq
-* lighttpd
-* php
-* AdminLTE
-* sqlite3
-* pihole-FTL
-  * 自定义 dnsmasq = 核心 dns+dhcp+api 服务
-  * https://github.com/pi-hole/FTL
-  * `telnet 127.0.0.1 471`
+
+- dnsmasq
+- lighttpd
+- php
+- AdminLTE
+- sqlite3
+- pihole-FTL
+  - 自定义 dnsmasq = 核心 dns+dhcp+api 服务
+  - https://github.com/pi-hole/FTL
+  - `telnet 127.0.0.1 471`
 
 # FAQ
+
 ## 避免解析 local
 
-__/etc/dnsmasq.d/02-pihole.conf__
+**/etc/dnsmasq.d/02-pihole.conf**
 
 ```ini
 local=/lan/

@@ -21,10 +21,23 @@ title: Asterisk AMI
   - CLIENT -> Asterisk -Response-> CLIENT
 - Event
   - Asterisk -> CLIENT
+- 参考
+  - [AMI v2 Specification](https://wiki.asterisk.org/wiki/display/AST/AMI+v2+Specification)
+    - asterisk 12+
+    - 版本号为 2.0.0 - asterisk 1.8 是 1.1
+
+:::caution
+
+- AMI v1 可能内容包含换行
+- UTF8 包含 BOM - EF BB BF
+
+:::
 
 ```bash
-# 显示支持的命令
+# 命令文档
 asterisk -rx 'manager show commands'
+# 事件文档
+asterisk -rx 'manager show events'
 ```
 
 **manager.conf**
@@ -32,8 +45,9 @@ asterisk -rx 'manager show commands'
 - [1.8/configs/manager.conf.sample](https://github.com/asterisk/asterisk/blob/1.8/configs/manager.conf.sample)
 
 ## AMI 协议
-* 初始服务端会发送一条信息包含版本
-  * `Asterisk Call Manager/1.1`
-* 客户端会接收到 FullyBooted 表示启动完成
-* Newchannel - 通道建立
-  * 包含 Uniqueid 可用于持续跟踪通道
+
+- 初始服务端会发送一条信息包含版本
+  - `Asterisk Call Manager/1.1`
+- 客户端会接收到 FullyBooted 表示启动完成
+- Newchannel - 通道建立
+  - 包含 Uniqueid 可用于持续跟踪通道

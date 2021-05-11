@@ -29,14 +29,17 @@ iptables -A FORWARD -i ipsec0 -j ACCEPT
 # 查看当前地址
 ip xfrm policy
 # 如果是使用的 swanctl
-VIP=$(swanctl -l -i vpn -P | grep local-vips -A1 | tail -1 | tr -d ' ')
+VPN=vpn
+VIP=$(swanctl -l -i $VPN -P | grep local-vips -A1 | tail -1 | tr -d ' ')
 # 添加地址 - xfrm 不需要地址也能工作，但 MASQUERADE 需要转换出正确的地址需要
 ip addr add $VIP/32 dev ipsec0
 # 测试
 ip ro add 8.8.8.8 dev ipsec0 src $VIP
+ping 8.8.8.8
+
 # NAT
 iptables -t nat -A POSTROUTING -o ipsec0 -j MASQUERADE
-RIP=$(swanctl -l -i vpn -P | grep remote-host | egrep -o '[0-9.]+')
+RIP=$(swanctl -l -i $VPN -P | grep remote-host | egrep -o '[0-9.]+')
 # 远程 IP 走默认
 ip ro add $RIP dev eth0 src 192.168.1.2 via 192.168.1.1
 # 本地默认路由

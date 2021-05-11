@@ -4,8 +4,8 @@ title: Asterisk Awesome
 
 # Asterisk Awesome
 
-
 ## 接口
+
 - [davetroy/astmanproxy](https://github.com/davetroy/astmanproxy) - Asterisk Manager Proxy
 - [CyCoreSystems/ari-proxy](https://github.com/CyCoreSystems/ari-proxy)
   - NATS Asterisk REST Interface proxy
@@ -17,6 +17,10 @@ title: Asterisk Awesome
   - golang, ari
 - [CyCoreSystems/agi](https://github.com/CyCoreSystems/agi)
   - golang, agi
+- [zaf/agi](https://github.com/zaf/agi)
+  - golang, agi
+- [asterisk-agi](https://www.voip-info.org/asterisk-agi/)
+- [Standard AMI Headers](https://wiki.asterisk.org/wiki/display/AST/Some+Standard+AMI+Headers)
 
 ## 学习参考
 

@@ -214,18 +214,14 @@ title: React Awesome
 
 ## 状态管理
 
+- [use-subscription](https://github.com/facebook/react/tree/master/packages/use-subscription)
+  - 更好的支持 concurrent 模式
 - [pmndrs/zustand](https://github.com/pmndrs/zustand)
   - Redux like - 支持 Redux devtools
   - 状态在 React 之外 - 可外部操作
   - ![](https://img.shields.io/bundlephobia/min/zustand)
 - [pmndrs/jotai](https://github.com/pmndrs/jotai)
   - Recoil like
-  - vs Recoil
-    - jotai: Minimalistic API, No string keys, TypeScript
-    - recoil: string key, 序列化支持更好
-  - [vs zustand](https://github.com/pmndrs/jotai/blob/master/docs/introduction/comparison.md)
-  - 替代 useState+useContext
-  - Suspense
   - ![](https://img.shields.io/bundlephobia/min/jotai)
 - [facebookexperimental/Recoil](https://github.com/facebookexperimental/Recoil)
   - [Recoil: State Management for Today's React](https://youtu.be/_ISAA_Jt9kI)
@@ -362,6 +358,7 @@ useStore.destroy();
 - [pmndrs/react-spring](https://github.com/pmndrs/react-spring)
 
 ## 功能
+
 - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
   - 使用 React 创建 PDF
   - 支持 Node 和 Web

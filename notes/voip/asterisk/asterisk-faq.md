@@ -98,6 +98,16 @@ same => n,Dial(SIP/${EXTEN})
 same => n,Hangup()
 ```
 
+## 接口 originate 一定概率没有声音
+
+- [No voice when using AMI originate between two external destinations](https://community.freepbx.org/t/no-voice-when-using-ami-originate-between-two-external-destinations/40438)
+
+## 查看通话数量和当前开启通道
+
+```bash
+asterisk -rx 'core show channels'
+```
+
 ## 终端问题排查
 
 - 确保 context 正确

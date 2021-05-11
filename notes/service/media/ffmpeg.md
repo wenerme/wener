@@ -94,6 +94,11 @@ ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -strict experimental -map 0:
 # 分离
 ffmpeg -i input.mkv -vn -c:a copy marryme.ogg
 
+# 元数据
+# ========
+# 移除
+# -empty_hdlr_name 1 将 handler_name 设置为空字符串
+ffmpeg -i in.mov -map_metadata -1 -c:v copy -c:a copy out.mov
 ```
 
 ### 编码

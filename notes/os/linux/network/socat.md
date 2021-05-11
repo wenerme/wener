@@ -63,4 +63,7 @@ socat -v UDP-LISTEN:15353,fork,reuseaddr SOCKS:10.10.1.1:8.8.8.8:53,socksport=10
 # 配合 SSH 使用
 # ProxyCommand socat - socks:127.0.0.1:%h:%p,socksport=3333
 
+# 可以指定本地地址
+SOCAT_SOCKADDR=x.y.z.t socat TCP-LISTEN:80,reuseaddr,fork,su=nobody TCP:a.b.c.d:80
+
 ```

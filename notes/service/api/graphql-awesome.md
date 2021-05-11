@@ -4,6 +4,9 @@ title: GraphQL Awesome
 
 # GraphQL Awesome
 
+## 学习
+- [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
+
 ## 设计
 
 - [GraphQL 最佳实践](https://graphql.org/learn/best-practices)

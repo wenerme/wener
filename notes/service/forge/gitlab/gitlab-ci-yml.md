@@ -248,6 +248,113 @@ workflow:
     - when: always #
 ```
 
+## release
+
+- 依赖 [release-cli](https://gitlab.com/gitlab-org/release-cli/-/tree/master/docs) 命令行工具
+  - image: registry.gitlab.com/gitlab-org/release-cli:latest
+- [Release assets as Generic packages](https://gitlab.com/gitlab-org/release-cli/-/tree/master/docs/examples/release-assets-as-generic-package/)
+
+```bash
+# AlpineLinux
+apk add gitlab-release-cli -X https://mirrors.aliyun.com/alpine/edge/testing
+
+# shell executor 需要安装命令行根据
+curl --location --output /usr/local/bin/release-cli "https://release-cli-downloads.s3.amazonaws.com/latest/release-cli-linux-amd64"
+chmod +x /usr/local/bin/release-cli
+
+# 确保可用
+release-cli -v
+```
+
+```yaml
+# 基于 tag release
+job:
+  release:
+    tag_name: $CI_COMMIT_TAG
+    description: 'Release description'
+    # name - 默认为 tag_name
+    # ref - 如果没有 tag_name 可以通过 ref 创建
+    # milestones - 关联里程碑
+    # released_at: '2021-03-15T08:00:00Z' # 不指定会自动生成
+
+---
+# 直接调用命令行 - 可以添加 assets-link
+# gitlab 内置 artifact https://gitlab.com/org/proj/-/jobs/<JOB_ID>/artifacts/browse
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:v0.4.0
+  # 手动触发
+  when: manual
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+
+  script:
+    - >
+      release-cli create --name release-branch-$CI_JOB_ID --description release-branch-$CI_COMMIT_REF_NAME-$CI_JOB_ID
+      --tag-name job-$CI_JOB_ID --ref $CI_COMMIT_SHA
+      --assets-link '{"name":"Asset1","url":"https://<domain>/some/location/1","link_type":"other","filepath":"xzy"}'
+      --assets-link '{"name":"Asset2","url":"https://<domain>/some/location/2"}'
+      --milestone "v1.0.0" --milestone "v1.0.0-rc"
+      --released-at "2020-06-30T07:00:00Z"
+
+---
+release_job:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG # Run this job when a tag is created manually
+  script:
+    - echo 'running release_job'
+  release:
+    name: 'Release $CI_COMMIT_TAG'
+    description: 'Created using the release-cli $EXTRA_DESCRIPTION' # $EXTRA_DESCRIPTION must be defined
+    tag_name: '$CI_COMMIT_TAG' # elsewhere in the pipeline.
+    ref: '$CI_COMMIT_TAG'
+    milestones:
+      - 'm1'
+      - 'm2'
+      - 'm3'
+    released_at: '2020-07-15T08:00:00Z' # Optional, is auto generated if not defined, or can use a variable.
+
+---
+prepare_job:
+  stage: prepare # This stage must run before the release stage
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never # Do not run this job when a tag is created manually
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # Run this job when commits are pushed or merged to the default branch
+  script:
+    - echo "EXTRA_DESCRIPTION=some message" >> variables.env # Generate the EXTRA_DESCRIPTION and TAG environment variables
+    - echo "TAG=v$(cat VERSION)" >> variables.env # and append to the variables.env file
+  artifacts:
+    reports:
+      dotenv: variables.env # Use artifacts:reports:dotenv to expose the variables to other jobs
+
+release_job:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  needs:
+    - job: prepare_job
+      artifacts: true
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never # Do not run this job when a tag is created manually
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # Run this job when commits are pushed or merged to the default branch
+  script:
+    - echo 'running release_job for $TAG'
+  release:
+    name: 'Release $TAG'
+    description: 'Created using the release-cli $EXTRA_DESCRIPTION' # $EXTRA_DESCRIPTION and the $TAG
+    tag_name: '$TAG' # variables must be defined elsewhere
+    ref: '$CI_COMMIT_SHA' # in the pipeline. For example, in the
+    milestones: # prepare_job
+      - 'm1'
+      - 'm2'
+      - 'm3'
+    released_at: '2020-07-15T08:00:00Z' # Optional, is auto generated if not defined, or can use a variable.
+```
+
 # FAQ
 
 ## 部署 pages

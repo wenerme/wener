@@ -1,6 +1,7 @@
 # NPM
 
 - [npm download size](https://arve0.github.io/npm-download-size/)
+- default cache `$HOME.npm`
 
 ```bash
 # 参考

@@ -16,8 +16,13 @@ title: filebrowser
 :::
 
 ```bash
-curl -LOC- https://github.com/filebrowser/filebrowser/releases/download/v2.9.0/linux-amd64-filebrowser.tar.gz
+curl -LOC- https://github.com/filebrowser/filebrowser/releases/download/v2.15.0/linux-amd64-filebrowser.tar.gz
+tar zxvf linux-amd64-filebrowser.tar.gz
+chmod +x filebrowser
+sudo mv filebrowser /usr/local/bin/
 
+# 配置初始化
+filebrowser config init
 # 认证
 # JSON - 默认
 filebrowser config set --auth.method=json
@@ -25,6 +30,8 @@ filebrowser config set --auth.method=json
 filebrowser config set --auth.method=proxy --auth.header=X-My-Header
 # 无授权
 filebrowser config set --auth.method=noauth
+
+filebrowser -a 0.0.0.0
 
 # 自定义标题
 # --branding.name "My Name" \

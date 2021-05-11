@@ -13,9 +13,10 @@ brew install cloudflare/cloudflare/cloudflared
 docker run -v ~/.cloudflared:/etc/cloudflared \
   --name cfd cloudflare/cloudflared:2021.4.0 \
   tunnel --no-autoupdate --hostname demo.wener.me --url http://localhost:8080
-# Linux
+# Linux 安装
 curl -Lo cloudflared https://github.com/cloudflare/cloudflared/releases/download/2021.4.0/cloudflared-linux-amd64
 chmod +x cloudflared
+sudo mv cloudflared /usr/local/bin/
 
 # 升级版本
 cloudflared update
@@ -54,6 +55,17 @@ cloudflared tunnel run dev
 cloudflared tunnel route dns dev demo.wener.me
 # 至此可以通过通道访问服务
 curl -L demo.wener.me
+```
+
+## 远程启动 tunner
+
+```bash
+cloudflared tunnel list
+# 只需要 tunnel json
+TUNNEL_ID=6ff42ae2-765d-4adf-8112-31c55c1551ef
+# rsync 方便创建目录
+rsync --no-owner ~/.cloudflared/$TUNNEL_ID.json admin@192.168.1.1:~/.cloudflared/
+rsync --no-owner ~/.cloudflared/config.yml admin@192.168.1.1:~/.cloudflared/
 ```
 
 ## config.yaml

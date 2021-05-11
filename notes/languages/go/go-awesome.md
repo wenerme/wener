@@ -25,7 +25,15 @@ title: Go Awesome
 
 ## 学习
 
-- [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
+- https://golang.org/doc/effective_go
+- https://github.com/golang/go/wiki/CodeReviewComments
+- https://github.com/golang/go/wiki/Modules
+- https://github.com/golang/go/wiki
+- https://golang.org/ref/spec
+- project layout
+  - [Simple Pojrect Layout](https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/)
+  - [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
+    - rsc: this is not a standard Go project layout - [#117](https://github.com/golang-standards/project-layout/issues/117)
 
 ## 日志
 
@@ -48,11 +56,7 @@ title: Go Awesome
     - mode ro, rw, rwc, memory
       - rwc - Read, Write, Create
     - cache shared, private - https://www.sqlite.org/sharedcache.html
-    - \_foreign_keys/\_fk - `PRAGMA foreign_keys` - 外键约束
-
-## 数据库迁移
-
-- [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
+    - `_foreign_keys/_fk` - `PRAGMA foreign_keys` - 外键约束
 
 ## 数据库操作
 
@@ -60,6 +64,11 @@ title: Go Awesome
   - sql 生成 go 代码进行调用
 - [sosedoff/pgweb](https://github.com/sosedoff/pgweb)
   - Golang Web 管理工具 - MIT, 只读
+- [volatiletech/sqlboiler](https://github.com/volatiletech/sqlboiler)
+  - database-first ORM
+- 迁移
+  - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
+  - [rubenv/sql-migrate](https://github.com/rubenv/sql-migrate)
 
 ## Web
 
@@ -139,6 +148,16 @@ title: Go Awesome
 - [fatih/gomodifytags](https://github.com/fatih/gomodifytags)
   - 添加 json tag
   - `gomodifytags -file demo.go -struct Server -add-tags json -add-options json=omitempty -transform camelcase --skip-unexported`
+- [hexdigest/gowrap](https://github.com/hexdigest/gowrap)
+  - 生成 interface 实现，辅助实现修饰模式
+- [awalterschulze/goderive](https://github.com/awalterschulze/goderive)
+  - 为 Struct 生成 Equal、Compare、DeepCopy、GoString、Hash
+  - 为类型生成 Set 操作
+  - 生成函数式编程方法
+  - 生成并发操作
+- [miku/zek](https://github.com/miku/zek)
+  - XML -> Go Struct
+  - [在线生成](https://www.onlinetool.io/xmltogo)
 - 功能性
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
@@ -154,6 +173,10 @@ title: Go Awesome
   - Get Json Path
 - [tidwall/sjson](https://github.com/tidwall/sjson)
   - Set Json Path
+- [qri-io/jsonschema](https://github.com/qri-io/jsonschema)
+- [xeipuuv/gojsonschema](https://github.com/xeipuuv/gojsonschema)
+
+## IO
 
 ## 数据处理
 
@@ -221,6 +244,13 @@ title: Go Awesome
 
 - [fogleman/primitive](https://github.com/fogleman/primitive)
   - 将图像转换为原子图形
+- [esimov/triangle](https://github.com/esimov/triangle)
+  - 转换为三角形
+- [alecthomas/chroma](https://github.com/alecthomas/chroma)
+  - 代码高亮
+- [mugo](https://benhoyt.com/writings/mugo)
+- [rhu1/fgg](https://github.com/rhu1/fgg)
+  - basic prototype of Featherweight Go and Featherweight Generic Go
 
 ## 控制理论 / Control theory
 
@@ -238,6 +268,8 @@ title: Go Awesome
 
 - [google/bloaty](https://github.com/google/bloaty)
   - 二进大小分析
+- [xo/usql](https://github.com/xo/usql)
+  - SQL 命令行工具
 
 ## Service
 

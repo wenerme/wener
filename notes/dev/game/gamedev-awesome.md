@@ -32,3 +32,4 @@ title: GameDev Awesome
 - [Game Boy Studio](https://www.gbstudio.dev/)
   - [chrismaltby/gb-studio](https://github.com/chrismaltby/gb-studio)
   - [HN](https://news.ycombinator.com/item?id=26979879)
+- [VGA ROM Fonts](http://www.alexandrugroza.ro/microelectronics/essays-research/vga-rom-fonts/index.html)

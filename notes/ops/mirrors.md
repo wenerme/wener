@@ -6,15 +6,17 @@ title: Mirrors
 
 ## 镜像站点
 
-| URL                                   | 地址     | 文档                                                   |
-| ------------------------------------- | -------- | ------------------------------------------------------ |
-| http://mirrors.aliyun.com             | 阿里云   |
-| https://mirrors.tuna.tsinghua.edu.cn/ | 清华     |
-| http://mirror.lzu.edu.cn/             | 兰州大学 |
-| http://mirrors.163.com                | 网易     |
-| http://mirrors.ustc.edu.cn/           | 科大     | [帮助文档](http://mirrors.ustc.edu.cn/help/index.html) |
-| http://mirrors.xjtu.edu.cn/           | 西安交大 |
-| https://mirror.azure.cn/              | Azure    |
+| URL                                  | 地址     | 文档                                                   |
+| ------------------------------------ | -------- | ------------------------------------------------------ |
+| http://mirrors.aliyun.com            | 阿里云   |
+| https://mirrors.tuna.tsinghua.edu.cn | 清华     |
+| http://mirror.lzu.edu.cn             | 兰州大学 |
+| http://mirrors.163.com               | 网易     |
+| http://mirrors.ustc.edu.cn           | 科大     | [帮助文档](http://mirrors.ustc.edu.cn/help/index.html) |
+| http://mirrors.xjtu.edu.cn           | 西安交大 |
+| https://mirror.azure.cn/             | Azure    |
+| https://mirrors.sjtug.sjtu.edu.cn    | 上海交大 |
+| https://mirrors.huaweicloud.com      | 华为     |
 
 ## 镜像列表
 
@@ -23,7 +25,37 @@ title: Mirrors
 | Alpine | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) |
 | Debian | https://www.debian.org/mirror/list.zh-cn.html                                                                                                                |
 
+## NPM
+
+- https://registry.npmjs.org
+- http://r.cnpmjs.org
+- http://registry.npm.taobao.org
+- https://mirrors.sjtug.sjtu.edu.cn/npm-registry
+- https://repo.huaweicloud.com/repository/npm
+- https://mirrors.huaweicloud.com/repository/npm
+
+```ini
+chromedriver_cdnurl=https://repo.huaweicloud.com/chromedriver
+disturl=https://repo.huaweicloud.com/nodejs
+electron_mirror=https://repo.huaweicloud.com/electron/
+operadriver_cdnurl=https://repo.huaweicloud.com/operadriver
+phantomjs_cdnurl=https://repo.huaweicloud.com/phantomjs
+python_mirror=https://repo.huaweicloud.com/python
+sass_binary_site=https://repo.huaweicloud.com/node-sass
+```
+
+```ini
+chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+disturl=https://npm.taobao.org/dist
+electron_mirror=http://cdn.npm.taobao.org/dist/electron
+fse_binary_host_mirror=https://npm.taobao.org/mirrors/fsevents
+operadriver_cdnurl=http://cdn.npm.taobao.org/dist/operadriver
+phantomjs_cdnurl=http://cdn.npm.taobao.org/dist/phantomjs
+sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
+```
+
 ## Docker
+
 - docker.io
   - https://fogjl973.mirror.aliyuncs.com
   - https://8x40wsit.mirror.aliyuncs.com

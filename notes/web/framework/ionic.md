@@ -1,12 +1,13 @@
+---
+title: Ionic
+---
+
 # Ionic
 
-## Tips
-
-* Codepen [Ionic](http://codepen.io/ionic/pens/public/)
-* Plugins
-  * [cordova-plugin-wechat](https://github.com/xu-li/cordova-plugin-wechat)
-
-* https://github.com/yarnpkg/yarn/issues/648
+- Codepen [Ionic](http://codepen.io/ionic/pens/public/)
+- Plugins
+  - [cordova-plugin-wechat](https://github.com/xu-li/cordova-plugin-wechat)
+- https://github.com/yarnpkg/yarn/issues/648
 
 ```bash
 # 安装
@@ -37,11 +38,12 @@ yarn add --dev ionic
 ## FAQ
 
 ### ISSUES
-* Tabs 页面黑屏 https://github.com/driftyco/ionic/issues/8508
-* Uncaught (in promise): nav controller was destroyed https://github.com/driftyco/ionic/issues/11454
-* Ionic v3 - Runtime Error Uncaught (in promise): removeView was not found https://github.com/driftyco/ionic/issues/11443
-* Deferred long-running timer task(s) https://github.com/angular/material/issues/8236
-  * `.md-scroll-mask { position: initial;}`
+
+- Tabs 页面黑屏 https://github.com/driftyco/ionic/issues/8508
+- Uncaught (in promise): nav controller was destroyed https://github.com/driftyco/ionic/issues/11454
+- Ionic v3 - Runtime Error Uncaught (in promise): removeView was not found https://github.com/driftyco/ionic/issues/11443
+- Deferred long-running timer task(s) https://github.com/angular/material/issues/8236
+  - `.md-scroll-mask { position: initial;}`
 
 ### 添加自定义图标
 
@@ -62,18 +64,19 @@ yarn add --dev ionic
 ```
 
 ### No provider for NavController
-* [#5543](https://github.com/ionic-team/ionic/issues/5543)
-* [#9581](https://github.com/ionic-team/ionic/issues/9581)
-* 无法在 Service 中注入 NavController
-* 解决方法
+
+- [#5543](https://github.com/ionic-team/ionic/issues/5543)
+- [#9581](https://github.com/ionic-team/ionic/issues/9581)
+- 无法在 Service 中注入 NavController
+- 解决方法
   1. 通过 `Events` 进行中转
   2. 注入 `App`, 然后
+
 ```js
 get navCtrl(){
   return this.app.getRootNav()
 }
 ```
-
 
 ### 添加页面
 
@@ -108,11 +111,11 @@ class MyPage{
 
 Ionic 使用的内置状态来控制路由, 而不是使用的基于 URL 的路由, 在 Ionic 中,使用 URL 来控制路由的叫做 DeepLinker, 但是由于 Web 的优先级对于开发团队来说相对较低, 因此支持上面有所欠缺.
 
-* Tab 页面路由会有些问题
-  * [DeepLinker generated URL names with tabbed pages causes double /](https://github.com/driftyco/ionic/issues/9012)
-  * [DeepLinker doesn't work smooth with tabbed pages yet](https://github.com/driftyco/ionic/issues/9183)
-* 参考
-  * [Ionic2系列——使用DeepLinker实现指定页面URL](http://www.cnblogs.com/yanxiaodi/p/6086007.html)
+- Tab 页面路由会有些问题
+  - [DeepLinker generated URL names with tabbed pages causes double /](https://github.com/driftyco/ionic/issues/9012)
+  - [DeepLinker doesn't work smooth with tabbed pages yet](https://github.com/driftyco/ionic/issues/9183)
+- 参考
+  - [Ionic2 系列——使用 DeepLinker 实现指定页面 URL](http://www.cnblogs.com/yanxiaodi/p/6086007.html)
 
 ```
 IonicModule.forRoot(MyApp, null,{/* DeepLinkConfig */});

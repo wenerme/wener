@@ -10,6 +10,25 @@ title: musl
 - 不支持 nsswitch
   - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
 
+## 环境变量
+
+- [Environment Variables](https://wiki.musl-libc.org/environment-variables.html)
+
+| Env             | Used by                      | Note                                                      |
+| --------------- | ---------------------------- | --------------------------------------------------------- |
+| PATH            | execvp, execlp, posix_spawnp |
+| TZ              |                              | `stdoffset[dst[offset][,start[/time],end[/time]]` 或 名字 |
+| DATEMSK         | getdate                      |
+| PWD             | get_current_dir_name, getcwd |
+| LOGNAME         | getlogin                     |
+| LD_PRELOAD      | setuid, setgid 忽略          | dl 预加载动态库列表                                       |
+| LD_LIBRARY_PATH | setuid, setgid 忽略          | 动态库搜索目录列表                                        |
+
+- TZ 搜索目录
+  - /usr/share/zoneinfo
+  - /share/zoneinfo
+  - /etc/zoneinfo
+
 ## DNS 问题
 
 - 问题

@@ -1,7 +1,11 @@
+---
+title: limit
+---
+
 # LIMIT
 
-* /etc/security/limits.conf - 全局配置
-* /etc/security/limits.d/ - 通常用于配置单个进程
+- /etc/security/limits.conf - 全局配置
+- /etc/security/limits.d/ - 通常用于配置单个进程
 
 ```bash
 # 其他进程的 limits

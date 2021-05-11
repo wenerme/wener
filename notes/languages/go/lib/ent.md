@@ -84,6 +84,34 @@ go run entgo.io/ent/cmd/ent init Car Group
     - privacy.Deny
     - privacy.Skip
 
+### entql
+
+- 动态 sql 生成
+- 支持函数
+
+| func                   | how                                    | note                                              |
+| ---------------------- | -------------------------------------- | ------------------------------------------------- |
+| equal_fold             | `LOWER(col) = ${strings.ToLower(sub)}` |
+| contains               | `col like ${"%"+sub+"%"}`              |
+| contains_fold          | `col ilike ${"%"+sub+"%"}`             | pg ilike, mysql `COLLATE utf8mb4_general_ci LIKE` |
+| has_prefix             | `col like ${prefix+"%"}`               |
+| has_suffix             | `col like ${"%"+suffix}`               |
+| has_edge(edge,expr...) |                                        |
+
+```sql
+select * from account where has_edge(owningUser)
+--
+select * from account where owning_user_id IS NOT NULL
+
+select * from account where has_edge(owningUser,username = "wener")
+-- args [wener]
+SELECT * FROM "accounts" WHERE "accounts"."owning_user_id" IS NOT NULL AND "accounts"."owning_user_id" IN (SELECT "users"."id" FROM "users" WHERE "username" = $1)
+
+select * from account where has_edge(owningUser,has_edge(department,name = "Test"))
+-- args [Test]
+SELECT * FROM "accounts" WHERE "accounts"."owning_user_id" IN (SELECT "users"."id" FROM "users" WHERE "users"."department_id" IN (SELECT "departments"."id" FROM "departments" WHERE "name" = $1))
+```
+
 # Version
 
 ## 0.8
@@ -93,6 +121,7 @@ go run entgo.io/ent/cmd/ent init Car Group
     - 会添加到 gen.Config
     - 类似于配置 entc
 - entc/schema
+
   - 生成代码使用实际 GoType - [#1428](https://github.com/ent/ent/pull/1428)
     - 之前例如 ID 类型，会生成对应的 SQL 类型 - 例如 `sql.NullString`
   - UpdateOne 支持 Select 字段
