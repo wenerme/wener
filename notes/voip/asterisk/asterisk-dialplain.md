@@ -1,82 +1,79 @@
 ---
-id: dialplan
 title: 拨号计划
 ---
 
 # Asterisk Dialplan
 
-## Tips
-
-* `dialplan reload` 重载配置
-* `dialplan show 88888888@from-app` 测试匹配
-* cointext 名字长度为 80, 但有最后一位 null, 所以是 79
-* 避免使用  `[general]`, `[default]`, 和 `[globals]` 作为名字
-* channel 中 context 名字是通道开始的点
-* 推荐使用非数字而是具体含义的名字作为不可拨号的扩展名
-* 模式匹配规则
-  * `_` 开始
-  * X = `[0-9]`, Z = `[1-9]`, N = `[2-9]`, `[15-7]` = 1|5|6|7
-  * `. = .*`, `! = .+`
-* 搜索顺序
-  * Explicit extensions
-  * Pattern match extensions
-  * Includes
-  * Switches
-* 特殊扩展
-  * a - Assistant extension
-    * 类似于 o, 只有在录语音邮件时按 `*` 触发, 主要用于访问助手.
-  * e - Exception Catchall extension
-    * 用于捕获 `i`, `t`, `T` 扩展. 可使用 `EXCEPTION` 来获取到具体异常信息
-  * h - Hangup extension
-    * 在挂断后会触发
-  * i - Invalid entry extension
-    * 当 `Background`, `WaitExten` 的输入在当前上下文中找不到匹配的扩展时触发
-  * o - Operator extension
-    * 当在录制语言邮件时按 `0` 触发, 主要用于访问操作员
-  * s - Start extension
-    * 当模拟通话接入时触发, 也可以再宏中使用
-    * 并不是用于捕获所有扩展, 只是简单的代表模拟通话和宏的开始.
-  * t - Response timeout extension
-    * `Background` 和 `WaitExten` 时超时
-  * T - Absolute timeout extension
-    * `absolute` 超时时触发
-    * `core show function TIMEOUT`
-* 变量
-  * `${variable_name[:offset[:length]]}`
-    * 裁剪
-    * offset,length 可以为负
-  * 通道变量在转移后,变量不会被继承
-    * `_` 开始的变量会在单次转移后则会失效
-    * `__` 开始的变量会在转移后一直继承
-  * [标准的通道变量](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Standard+Channel+Variables)
-    * `CALLERID(name)`, `CALLERID(name)` 拨号者的名字和号码, 在 Dial 之前
-    * `CHANNEL` 当前通道名
-    * `CONTEXT` 当前上下文
-    * `EXTEN` 当前扩展
-    * `ENV(VAR)` 环境变量
-    * `LEN(VAR)` 变量长度
-    * `PRIORITY` 当前拨号计划的优先级
-    * `UNIQUEID` 当前通话唯一标识符
-* 表达式
-  * `$[1+1]`
-  * 操作符
-    * `|`, `&`, `=`, `>=`, `<=`, `!=`, `>`, `<`, `+`, `-`
-    * `! exp`, `- exp`
-    * `a : b` 字符串正则匹配
-      * 从头开始匹配
-      * 前后的引号会被去除
-      * 匹配成功, 如果有子表达式, 返回 `\1`, 否则返回匹配的字符数
-      * 匹配失败, 如果有字表达式, 返回 `null`, 否则返回 0
-    * `a =~ b`
-      * 同 `:`, 但不从头开始匹配
-    * `a ? b : c`
-    * `a ~~ b`
-      * 字符串链接
-      * 会去除引号
-  * 所有的数字均为浮点数, 表达浮点数必须要以 `D.D` 的形式, 转换为整数 `TRUNC`
-* 参考
-  * [AST/Dialplan](https://wiki.asterisk.org/wiki/display/AST/Dialplan)
-  * [Asterisk Expressions](https://www.voip-info.org/wiki/view/Asterisk+Expressions)
+- `dialplan reload` 重载配置
+- `dialplan show 88888888@from-app` 测试匹配
+- cointext 名字长度为 80, 但有最后一位 null, 所以是 79
+- 避免使用 `[general]`, `[default]`, 和 `[globals]` 作为名字
+- channel 中 context 名字是通道开始的点
+- 推荐使用非数字而是具体含义的名字作为不可拨号的扩展名
+- 模式匹配规则
+  - `_` 开始
+  - X = `[0-9]`, Z = `[1-9]`, N = `[2-9]`, `[15-7]` = 1|5|6|7
+  - `. = .*`, `! = .+`
+- 搜索顺序
+  - Explicit extensions
+  - Pattern match extensions
+  - Includes
+  - Switches
+- 特殊扩展
+  - a - Assistant extension
+    - 类似于 o, 只有在录语音邮件时按 `*` 触发, 主要用于访问助手.
+  - e - Exception Catchall extension
+    - 用于捕获 `i`, `t`, `T` 扩展. 可使用 `EXCEPTION` 来获取到具体异常信息
+  - h - Hangup extension
+    - 在挂断后会触发
+  - i - Invalid entry extension
+    - 当 `Background`, `WaitExten` 的输入在当前上下文中找不到匹配的扩展时触发
+  - o - Operator extension
+    - 当在录制语言邮件时按 `0` 触发, 主要用于访问操作员
+  - s - Start extension
+    - 当模拟通话接入时触发, 也可以再宏中使用
+    - 并不是用于捕获所有扩展, 只是简单的代表模拟通话和宏的开始.
+  - t - Response timeout extension
+    - `Background` 和 `WaitExten` 时超时
+  - T - Absolute timeout extension
+    - `absolute` 超时时触发
+    - `core show function TIMEOUT`
+- 变量
+  - `${variable_name[:offset[:length]]}`
+    - 裁剪
+    - offset,length 可以为负
+  - 通道变量在转移后,变量不会被继承
+    - `_` 开始的变量会在单次转移后则会失效
+    - `__` 开始的变量会在转移后一直继承
+  - [标准的通道变量](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Standard+Channel+Variables)
+    - `CALLERID(name)`, `CALLERID(name)` 拨号者的名字和号码, 在 Dial 之前
+    - `CHANNEL` 当前通道名
+    - `CONTEXT` 当前上下文
+    - `EXTEN` 当前扩展
+    - `ENV(VAR)` 环境变量
+    - `LEN(VAR)` 变量长度
+    - `PRIORITY` 当前拨号计划的优先级
+    - `UNIQUEID` 当前通话唯一标识符
+- 表达式
+  - `$[1+1]`
+  - 操作符
+    - `|`, `&`, `=`, `>=`, `<=`, `!=`, `>`, `<`, `+`, `-`
+    - `! exp`, `- exp`
+    - `a : b` 字符串正则匹配
+      - 从头开始匹配
+      - 前后的引号会被去除
+      - 匹配成功, 如果有子表达式, 返回 `\1`, 否则返回匹配的字符数
+      - 匹配失败, 如果有字表达式, 返回 `null`, 否则返回 0
+    - `a =~ b`
+      - 同 `:`, 但不从头开始匹配
+    - `a ? b : c`
+    - `a ~~ b`
+      - 字符串链接
+      - 会去除引号
+  - 所有的数字均为浮点数, 表达浮点数必须要以 `D.D` 的形式, 转换为整数 `TRUNC`
+- 参考
+  - [AST/Dialplan](https://wiki.asterisk.org/wiki/display/AST/Dialplan)
+  - [Asterisk Expressions](https://www.voip-info.org/wiki/view/Asterisk+Expressions)
 
 ```conf
 ; ==========
@@ -132,135 +129,141 @@ exten => _900X,1,NoOp()
     same => n,Hangup()
 ```
 
-
-* 简单用于测试的拨号计划
+- 简单用于测试的拨号计划
 
 ```conf
 [default]
 exten => _9XXXXXX!,1,NoOp()
-        same => n,Dial(DAHDI/g1/${EXTEN:1})
-        same => n,Hangup()
+  same => n,Dial(DAHDI/g1/${EXTEN:1})
+  same => n,Hangup()
 exten => 1992,1,NoOp()
-        same => n,Answer()
-        same => n,Playback(demo-instruct)
-        same => n,Hangup()
+  same => n,Answer()
+  same => n,Playback(demo-instruct)
+  same => n,Hangup()
 
 [from-pstn]
 exten => _X!,1,NoOp()
-        same => n,Answer()
-        same => n,Playback(demo-instruct)
-        same => n,Hangup()
+  same => n,Answer()
+  same => n,Playback(demo-instruct)
+  same => n,Hangup()
 ```
 
 ## Command
+
 ```bash
 # 请求发起通话
 channel originate SIP/9001 extension 9002@public
 ```
 
-* channel
-  * `originate <tech/data> application <appname> [appdata]`
-  * `originate <tech/data> extension [exten@][context]`
-    * 发起通话
-    * 发起通话时的 CALLER 需要调用者进行设置, 或者在 extension 中设置, 否则默认为 asterisk
-    * 例如在 extension 中设置
-      * `same => n,Set(CALLERID(num)=54321)`
-      * `same => n,Set(CALLERID(name)=Asterisk)`
-  * `redirect <channel> <[[context,]exten,]priority>`
-    * 重定向一个通道到一个扩展
-  * `hangup <channel>|<all>`
-    * 挂断所有或单个通道
+- channel
+  - `originate <tech/data> application <appname> [appdata]`
+  - `originate <tech/data> extension [exten@][context]`
+    - 发起通话
+    - 发起通话时的 CALLER 需要调用者进行设置, 或者在 extension 中设置, 否则默认为 asterisk
+    - 例如在 extension 中设置
+      - `same => n,Set(CALLERID(num)=54321)`
+      - `same => n,Set(CALLERID(name)=Asterisk)`
+  - `redirect <channel> <[[context,]exten,]priority>`
+    - 重定向一个通道到一个扩展
+  - `hangup <channel>|<all>`
+    - 挂断所有或单个通道
 
 ### AEL
-* [Asterisk Extension Language](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4620445)
-* [AEL version 2 BNF](https://wiki.asterisk.org/wiki/display/AST/AEL+version+2+BNF)
-* [conf2ael](https://github.com/asterisk/asterisk/blob/master/utils/conf2ael.c)
-  * conf 转 ael 工具
-* [res/ael](https://github.com/asterisk/asterisk/tree/master/res/ael)
-  * 源码
+
+- [Asterisk Extension Language](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4620445)
+- [AEL version 2 BNF](https://wiki.asterisk.org/wiki/display/AST/AEL+version+2+BNF)
+- [conf2ael](https://github.com/asterisk/asterisk/blob/master/utils/conf2ael.c)
+  - conf 转 ael 工具
+- [res/ael](https://github.com/asterisk/asterisk/tree/master/res/ael)
+  - 源码
 
 ## Applications
 
-* Answer()
-  * 建立通道
-* Playback(filename)
-  * 播放预先录制好的声音文件
-  * 预先附带的文件位于 /var/lib/asterisk/sounds, 但是是有语言限制的,主要注意
-  * core show sounds 查看所有的, core show sound 查看单个
-  * filename 可以是绝对路径,也可以是相对于音频文件夹的相对路径
-  * filename 可以不带扩展类型,会尝试播放最好编码的文件
-* Hangup([code])
-  * code 为 ISDN cause code
-* Progress()
-  * 主要用于返回通话过程信息给对方,部分服务提供商可能对此有要求,当遇到奇怪问题的时候可以试试
-* Goto(context,extension,priority)
-* Goto(extension,priority)
-* Goto(priority)
-  * 跳转到其他的位置
-* Background()
-  * 在后台播放音频,但是是会等待 DTMF
-  * 与 Playback 类似, 但用户马上可以做出操作而不是等待声音播放完成
-* WaitExten([timeout])
-  * 当 Background 播放完成后使用改程序等待 DTMF 数字输入
-  * timeout 如果不传则会使用默认的, 参考 TIMEOUT()
-  * 如果输入的扩展不存在则会使用 i 扩展
-  * 如果超时了则会使用 t
-* Dial(destination[,timeout[,option[,URI]]])
-  * destination
-    * DAHDI/1 模拟电话的 FXS 通道. DAHDI 技术, 资源(通道标识符) 1
-    * SIP/0004F2001122
-    * IAX2/Softphone
-    * 同时多方拨号 DAHDI/1&SIP/0004F2001122&IAX2/Softphone, 但只会接通第一个
-    * 远程 VoIP `technology/user[:password]@remote_host[:port][/remote_extension]`
-  * 如果拨号失败会设置变量 DIALSTATUS 记录失败原因
-  * DIALSTATUS
-    * CHANUNAVAIL
-    * CONGESTION
-    * NOANSWER
-    * BUSY
-    * ANSWER
-    * CANCEL
-    * DONTCALL
-    * TORTURE
-    * INVALIDARGS
-  * Digium 演示服务 Dial(DAHDI/[gGrR]channel_or_group[/remote_extension])
-  * 例如 Dial(IAX2/guest@misery.digium.com/s)
-  * 如果拨号成功则会桥接过去,而不会继续执行
+- Answer()
+  - 建立通道
+- Playback(filename)
+  - 播放预先录制好的声音文件
+  - 预先附带的文件位于 /var/lib/asterisk/sounds, 但是是有语言限制的,主要注意
+  - core show sounds 查看所有的, core show sound 查看单个
+  - filename 可以是绝对路径,也可以是相对于音频文件夹的相对路径
+  - filename 可以不带扩展类型,会尝试播放最好编码的文件
+- Hangup([code])
+  - code 为 ISDN cause code
+- Progress()
+  - 主要用于返回通话过程信息给对方,部分服务提供商可能对此有要求,当遇到奇怪问题的时候可以试试
+- Goto(context,extension,priority)
+- Goto(extension,priority)
+- Goto(priority)
+  - 跳转到其他的位置
+- Background()
+  - 在后台播放音频,但是是会等待 DTMF
+  - 与 Playback 类似, 但用户马上可以做出操作而不是等待声音播放完成
+- WaitExten([timeout])
+  - 当 Background 播放完成后使用改程序等待 DTMF 数字输入
+  - timeout 如果不传则会使用默认的, 参考 TIMEOUT()
+  - 如果输入的扩展不存在则会使用 i 扩展
+  - 如果超时了则会使用 t
+- Dial(destination[,timeout[,option[,URI]]])
+  - destination
+    - DAHDI/1 模拟电话的 FXS 通道. DAHDI 技术, 资源(通道标识符) 1
+    - SIP/0004F2001122
+    - IAX2/Softphone
+    - 同时多方拨号 DAHDI/1&SIP/0004F2001122&IAX2/Softphone, 但只会接通第一个
+    - 远程 VoIP `technology/user[:password]@remote_host[:port][/remote_extension]`
+  - 如果拨号失败会设置变量 DIALSTATUS 记录失败原因
+  - DIALSTATUS
+    - CHANUNAVAIL
+    - CONGESTION
+    - NOANSWER
+    - BUSY
+    - ANSWER
+    - CANCEL
+    - DONTCALL
+    - TORTURE
+    - INVALIDARGS
+  - Digium 演示服务 Dial(DAHDI/[gGrR]channel_or_group[/remote_extension])
+  - 例如 Dial(IAX2/guest@misery.digium.com/s)
+  - 如果拨号成功则会桥接过去,而不会继续执行
+
 ```
 exten => 502,1,Dial(DAHDI/1,10)
   ; 无人接听
   same => n,Playback(vm-nobodyavail)
   same => n,Hangup()
 ```
-  * option 
-    * `A(x)` 播放提示音文件 `x`
-    * `b([[context^]exten^]priority[(arg1[^...][^argN])])`
-      * 在呼出前跳转到指定位置, 使用新的通道
-    * `B([[context^]exten^]priority[(arg1[^...][^argN])])`
-      * 在呼出前跳转到指定位置, 使用当前通道
-    * `R`
-      * 重置当前 CDR
-    * `c`
+
+- option
+  - `A(x)` 播放提示音文件 `x`
+  - `b([[context^]exten^]priority[(arg1[^...][^argN])])`
+    - 在呼出前跳转到指定位置, 使用新的通道
+  - `B([[context^]exten^]priority[(arg1[^...][^argN])])`
+    - 在呼出前跳转到指定位置, 使用当前通道
+  - `R`
+    - 重置当前 CDR
+  - `c`
     t: Allow the called party to transfer the calling party by sending the DTMF
     sequence defined in "features.conf". This setting does not perform policy
     enforcement on transfers initiated by other methods.
 
-    T: Allow the calling party to transfer the called party by sending the DTMF
-    sequence defined in "features.conf". This setting does not perform policy
-    enforcement on transfers initiated by other methods.
-    * m,当在拨号时使用 moh 而不是对方的声音
-  * URI 很少使用, 在支持的环境下可能会打开该 URI 指向的网页
-  * 没有的参数可以留空 Dial(DAHDI/1,,m)
-* Set()
-  * 设置变量
-  * 全局变量
-  * 通道变量
-    * ${EXTEN} 通道名
-  * 环境变量(${ENV(var)})
-  * 变量操作
-    * `${EXTEN:x}` 移除前面 x 位
-    * `${EXTEN:x:y}` y 为长度
-    * x,y 可以为负
+  T: Allow the calling party to transfer the called party by sending the DTMF
+  sequence defined in "features.conf". This setting does not perform policy
+  enforcement on transfers initiated by other methods.
+
+  - m,当在拨号时使用 moh 而不是对方的声音
+
+- URI 很少使用, 在支持的环境下可能会打开该 URI 指向的网页
+- 没有的参数可以留空 Dial(DAHDI/1,,m)
+- Set()
+  - 设置变量
+  - 全局变量
+  - 通道变量
+    - \${EXTEN} 通道名
+  - 环境变量(\${ENV(var)})
+  - 变量操作
+    - `${EXTEN:x}` 移除前面 x 位
+    - `${EXTEN:x:y}` y 为长度
+    - x,y 可以为负
+
 ```conf
 exten => 301,1,Set(LEIF=SIP/0000FFFF0001)
   ; 对变量的应用
@@ -279,29 +282,31 @@ exten => 3,1,Set(CHANNEL(language)=de)
 ; the next priority for extensions 1, 2, or 3 would be handled here
 exten => _[123],n,Goto(menu,s,1)
 ```
-* SayNumber(number)
-  * 报数, number 不能过大
-* SayDigits(digits)
-  * 说出每个数字
-* Verbose([level,]message)
-  * `Verbose(2, Call from VoIP network to ${EXTEN})`
-  * 日志
-* Monitor/StopMonitor
-* MixMonitor(filename.extension[,options[,command]])/StopMixMonitor
-  * 通话录音
-  * 建议使用 Mix, 因为 Monitor 只会录制进的或出的
-  * 建议录制为 wav , 每天归档时可考虑转换为 ogg
-  * 默认存放目录 `/var/spool/asterisk/monitor`
+
+- SayNumber(number)
+  - 报数, number 不能过大
+- SayDigits(digits)
+  - 说出每个数字
+- Verbose([level,]message)
+  - `Verbose(2, Call from VoIP network to ${EXTEN})`
+  - 日志
+- Monitor/StopMonitor
+- MixMonitor(filename.extension[,options[,command]])/StopMixMonitor
+  - 通话录音
+  - 建议使用 Mix, 因为 Monitor 只会录制进的或出的
+  - 建议录制为 wav , 每天归档时可考虑转换为 ogg
+  - 默认存放目录 `/var/spool/asterisk/monitor`
 
 ## Dial
-* `Dial(PJSIP/${EXTEN})`
-  * 呼叫 aor 对应的第一个 contact
-* `Dial(${PJSIP_DIAL_CONTACTS(${EXTEN})})`
-  * 呼叫 aor 对应的所有 contact
-* `Dial(PJSIP/mytrunk/sip:${EXTEN:1}@203.0.113.1:5060)`
-  * 指定线路和 URL
-* `Dial(PJSIP/${EXTEN:1}@mytrunk)`
-  * 选择 aor 中匹配线路的 contact
+
+- `Dial(PJSIP/${EXTEN})`
+  - 呼叫 aor 对应的第一个 contact
+- `Dial(${PJSIP_DIAL_CONTACTS(${EXTEN})})`
+  - 呼叫 aor 对应的所有 contact
+- `Dial(PJSIP/mytrunk/sip:${EXTEN:1}@203.0.113.1:5060)`
+  - 指定线路和 URL
+- `Dial(PJSIP/${EXTEN:1}@mytrunk)`
+  - 选择 aor 中匹配线路的 contact
 
 ### Dial Help
 

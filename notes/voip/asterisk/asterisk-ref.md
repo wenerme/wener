@@ -6,28 +6,33 @@ title: 参考
 # Asterisk Reference
 
 ## Tips
-* [chan-sccp/chan-sccp](https://github.com/chan-sccp/chan-sccp)
-  * http://chan-sccp-b.sourceforge.net/
-  * a replacement Channel Driver for chan_skinny in the Asterisk Channel Driver Library
-* BUGS
-  * [#26423]https://issues.asterisk.org/jira/browse/ASTERISK-26423 res_pjsip_sdp_rtp: Asymmetric RTP codec can cause audio loss and wonkiness
+
+- [chan-sccp/chan-sccp](https://github.com/chan-sccp/chan-sccp)
+  - http://chan-sccp-b.sourceforge.net/
+  - a replacement Channel Driver for chan_skinny in the Asterisk Channel Driver Library
+- BUGS
+  - [#26423]https://issues.asterisk.org/jira/browse/ASTERISK-26423 res_pjsip_sdp_rtp: Asymmetric RTP codec can cause audio loss and wonkiness
 
 ## Install
-* https://git.alpinelinux.org/cgit/aports/tree/main/asterisk/APKBUILD
+
+- https://git.alpinelinux.org/cgit/aports/tree/main/asterisk/APKBUILD
 
 ## FAQ
+
 ### user , peer, friend
-* user 本端做验证, 呼入
-* peer 远端做验证, 呼出
-* friend 两端都要验证
-* agent
-  * 用户代理
-    * 终端
-  * 代理服务
+
+- user 本端做验证, 呼入
+- peer 远端做验证, 呼出
+- friend 两端都要验证
+- agent
+  - 用户代理
+    - 终端
+  - 代理服务
 
 ### Macro vs Sub
-* 首选 Sub
-* Macro 最多 7 层嵌套
+
+- 首选 Sub
+- Macro 最多 7 层嵌套
 
 ### Failed to insert call detail record into database
 
@@ -39,54 +44,56 @@ title: 参考
 ```
 
 ### 对接 O 口网关时, 程序崩溃
+
 可能是由于 UDP 消息截断导致, 打开日志可以看到消息内容应该只有一部分
 
-
 ### CDR vs CEL
-* 都可以对接后端存储
-* CDR
-  * 相对信息更少
-* CEL
-  * 支持用于账单
-  * Control over which Asterisk applications are tracked.
-  * Control over which events should be raised.
-  * Configurable date format.
-  * Integration with the Asterisk Manager Interface.
-  * Integration with RADIUS
-  * Modules for various logging back-ends including customized CEL output, integration with ODBC, PGSQL, SQLite and TDS.
+
+- 都可以对接后端存储
+- CDR
+  - 相对信息更少
+- CEL
+  - 支持用于账单
+  - Control over which Asterisk applications are tracked.
+  - Control over which events should be raised.
+  - Configurable date format.
+  - Integration with the Asterisk Manager Interface.
+  - Integration with RADIUS
+  - Modules for various logging back-ends including customized CEL output, integration with ODBC, PGSQL, SQLite and TDS.
 
 ### DAHDi 有持续性的噪音
-* 可能是打开了 crc4 导致的, 在 `system.conf` 中关闭即可
-* 如果有异常, 那也可能是 crc4 导致的
+
+- 可能是打开了 crc4 导致的, 在 `system.conf` 中关闭即可
+- 如果有异常, 那也可能是 crc4 导致的
 
 ### DAHDi 拨号选项
-* [channels/chan_dahdi.c#L13167](https://github.com/asterisk/asterisk/blob/master/channels/chan_dahdi.c#L13167)
-* `Dial(DAHDI/pseudo[/extension[/options]])`
-* `Dial(DAHDI/<channel#>[c|r<cadance#>|d][/extension[/options]])`
-* `Dial(DAHDI/<subdir>!<channel#>[c|r<cadance#>|d][/extension[/options]])`
-* `Dial(DAHDI/i<span>[/extension[/options]])`
-* `Dial(DAHDI/[i<span>-](g|G|r|R)<group#(0-63)>[c|r<cadance#>|d][/extension[/options]])`
-* i - ISDN span channel restriction.
-  * Used by CC to ensure that the CC recall goes out the same span.
-  * Also to make ISDN channel names dialable when the sequence number is stripped off.  (Used by DTMF attended transfer feature.)
-* g - channel group allocation search forward
-* G - channel group allocation search backward
-* r - channel group allocation round robin search forward
-* R - channel group allocation round robin search backward
-* c - Wait for DTMF digit to confirm answer
-* r<cadance#> - Set distintive ring cadance number
-* d - Force bearer capability for ISDN/SS7 call to digital.
 
+- [channels/chan_dahdi.c#L13167](https://github.com/asterisk/asterisk/blob/master/channels/chan_dahdi.c#L13167)
+- `Dial(DAHDI/pseudo[/extension[/options]])`
+- `Dial(DAHDI/<channel#>[c|r<cadance#>|d][/extension[/options]])`
+- `Dial(DAHDI/<subdir>!<channel#>[c|r<cadance#>|d][/extension[/options]])`
+- `Dial(DAHDI/i<span>[/extension[/options]])`
+- `Dial(DAHDI/[i<span>-](g|G|r|R)<group#(0-63)>[c|r<cadance#>|d][/extension[/options]])`
+- i - ISDN span channel restriction.
+  - Used by CC to ensure that the CC recall goes out the same span.
+  - Also to make ISDN channel names dialable when the sequence number is stripped off. (Used by DTMF attended transfer feature.)
+- g - channel group allocation search forward
+- G - channel group allocation search backward
+- r - channel group allocation round robin search forward
+- R - channel group allocation round robin search backward
+- c - Wait for DTMF digit to confirm answer
+- r<cadance#> - Set distintive ring cadance number
+- d - Force bearer capability for ISDN/SS7 call to digital.
 
 ### PJ ICE Rx error status code: 370401
 
-
 ### Core Dump
-* [Getting a Backtrace](https://wiki.asterisk.org/wiki/display/AST/Getting+a+Backtrace)
-* 需要安装 `gdb`
-* 除非编译时带了 `DEBUG_THREADS`, 否则 `locks` 为空
-* 可以使用 `libbfd`, 在编译时加上 `DONT_OPTIMIZE`, `BETTER_BACKTRACES` 以获得更好的转储信息
-* 默认转储文件位于当前目录下的 `core`, 会遵循 `kernel.core_pattern` 配置将转储存到指定的地方
+
+- [Getting a Backtrace](https://wiki.asterisk.org/wiki/display/AST/Getting+a+Backtrace)
+- 需要安装 `gdb`
+- 除非编译时带了 `DEBUG_THREADS`, 否则 `locks` 为空
+- 可以使用 `libbfd`, 在编译时加上 `DONT_OPTIMIZE`, `BETTER_BACKTRACES` 以获得更好的转储信息
+- 默认转储文件位于当前目录下的 `core`, 会遵循 `kernel.core_pattern` 配置将转储存到指定的地方
 
 ```bash
 sysctl -n kernel.core_pattern
@@ -95,38 +102,45 @@ sysctl -n kernel.core_pattern
 ```
 
 ### `Probation passed` 后程序崩溃
-* 在 cli.conf 中打开全量日志
-* `res_rtp_asterisk.c: Unsupported payload type received`
-  * [res_rtp_asterisk.c#L5109](https://github.com/asterisk/asterisk/blob/master/res/res_rtp_asterisk.c#L5109)
-  * http://asteriskfaqs.org/2017/03/14/asterisk-users/codec-negotiation-or-transcoding-issue.html
-    * https://issues.asterisk.org/jira/browse/ASTERISK-26423
-    * https://issues.asterisk.org/jira/browse/ASTERISK-25676
+
+- 在 cli.conf 中打开全量日志
+- `res_rtp_asterisk.c: Unsupported payload type received`
+  - [res_rtp_asterisk.c#L5109](https://github.com/asterisk/asterisk/blob/master/res/res_rtp_asterisk.c#L5109)
+  - http://asteriskfaqs.org/2017/03/14/asterisk-users/codec-negotiation-or-transcoding-issue.html
+    - https://issues.asterisk.org/jira/browse/ASTERISK-26423
+    - https://issues.asterisk.org/jira/browse/ASTERISK-25676
 
 ### CEL 数据库写入失败, 字段过长
-* 应该是 appdata 字段导致, 可以将数据库的长度改长
+
+- 应该是 appdata 字段导致, 可以将数据库的长度改长
 
 ## DAHDi
-* [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
+
+- [asterisk/dahdi-linux](https://github.com/asterisk/dahdi-linux)
 
 ## DTMF/Dual-tone multi-frequency
-* [DTMF:wikipedia](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling)
-* https://www.voip-info.org/wiki/view/Asterisk+sip+dtmfmode
-* https://www.voip-info.org/wiki/view/DTMF
-* 可选模式包括
-  * inband
-  * rfs2833
-  * info
-  * auto
+
+- [DTMF:wikipedia](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling)
+- https://www.voip-info.org/wiki/view/Asterisk+sip+dtmfmode
+- https://www.voip-info.org/wiki/view/DTMF
+- 可选模式包括
+  - inband
+  - rfs2833
+  - info
+  - auto
 
 ## ADSI/Analog Display Services Interface
-* https://www.voip-info.org/wiki/view/ADSI
-* adsi.conf
-* asterisk.adsi
+
+- https://www.voip-info.org/wiki/view/ADSI
+- adsi.conf
+- asterisk.adsi
 
 ## HA
-* [Asterisk High Availability Design](https://www.voip-info.org/wiki/view/Asterisk+High+Availability+Design)
+
+- [Asterisk High Availability Design](https://www.voip-info.org/wiki/view/Asterisk+High+Availability+Design)
 
 ## Database
+
 ```bash
 # 源码中包含了操作数据库的脚本
 cd ./contrib/ast-db-manage
@@ -143,9 +157,14 @@ alembic -c config.ini upgrade head
 alembic -c config.ini upgrade head --sql
 ```
 
+- sqlite
+  - render_as_batch=True
+
 ### 找不到 `ENUM`
-* [ASTERISK-27272](https://issues.asterisk.org/jira/browse/ASTERISK-27272)
-使用的那个版本配置可能有点问题, 在那个文件里添加以下内容即可
+
+- [ASTERISK-27272](https://issues.asterisk.org/jira/browse/ASTERISK-27272)
+  使用的那个版本配置可能有点问题, 在那个文件里添加以下内容即可
+
 ```python
 from sqlalchemy.dialects.postgresql import ENUM
 YESNO_NAME = 'yesno_values'
@@ -153,8 +172,9 @@ YESNO_VALUES = ['yes', 'no']
 ```
 
 ### 实时配置
-* [Realtime Database Configuration](https://wiki.asterisk.org/wiki/display/AST/Realtime+Database+Configuration)
-* 实时模块主要是抽象数据层的访问, 是可以添加自定义的表的
+
+- [Realtime Database Configuration](https://wiki.asterisk.org/wiki/display/AST/Realtime+Database+Configuration)
+- 实时模块主要是抽象数据层的访问, 是可以添加自定义的表的
 
 ```conf
 ; modules.conf
@@ -180,7 +200,8 @@ realtime load queues name marka
 realtime load staffs no 8002
 ```
 
-__cel.postgres.sql__
+**cel.postgres.sql**
+
 ```sql
 CREATE TABLE cel (
         id serial ,
@@ -208,21 +229,22 @@ CREATE TABLE cel (
 ```
 
 ### Sorcery
-* [Sorcery](https://wiki.asterisk.org/wiki/display/AST/Sorcery)
-* Asterisk 12 添加
-* 数据对象 CURD 抽象层
-  * Asterisk Database
-  * Static Configuration Files
-  * Asterisk Realtime Architecture
-  * In-Memory
-* 提供了缓存服务, 用于从 ARI 推送配置
-* `AST_SORCERY(module_name,object_type,object_id,field_name[,retrieval_method[,retrieval_details]])`
-  * 操作函数
-    * retrieval_method, 默认为 concat
-      * concat, 当有多条数据时进行拼接, 默认使用 `,`
-      * single, 当有多条时返回一条记录, 默认为 `1`
-    * retrieval_details, 控制 concat 的连接符和 single 的位置
-* 先配置 extconfig.conf, 再配置 sorcery.conf 使用 extconfig 中定义的信息
+
+- [Sorcery](https://wiki.asterisk.org/wiki/display/AST/Sorcery)
+- Asterisk 12 添加
+- 数据对象 CURD 抽象层
+  - Asterisk Database
+  - Static Configuration Files
+  - Asterisk Realtime Architecture
+  - In-Memory
+- 提供了缓存服务, 用于从 ARI 推送配置
+- `AST_SORCERY(module_name,object_type,object_id,field_name[,retrieval_method[,retrieval_details]])`
+  - 操作函数
+    - retrieval_method, 默认为 concat
+      - concat, 当有多条数据时进行拼接, 默认使用 `,`
+      - single, 当有多条时返回一条记录, 默认为 `1`
+    - retrieval_details, 控制 concat 的连接符和 single 的位置
+- 先配置 extconfig.conf, 再配置 sorcery.conf 使用 extconfig 中定义的信息
 
 ```
 func_sorcery.so                Get a field from a sorcery object
@@ -234,6 +256,7 @@ res_sorcery_realtime.so        Sorcery Realtime Object Wizard
 ```
 
 #### pjsip 的默认配置
+
 ```conf
 [res_pjsip]
 auth=config,pjsip.conf,criteria=type=auth
@@ -256,7 +279,8 @@ registration=config,pjsip.conf,criteria=type=registration
 ```
 
 #### pjsip 实时配置
-___extconfig.conf__
+
+**\_extconfig.conf**
 
 ```conf
 ps_aors                     => pgsql,asterisk
@@ -276,7 +300,8 @@ ps_systems                  => pgsql,asterisk
 ps_transports               => pgsql,asterisk
 ```
 
-__sorcery.conf__
+**sorcery.conf**
+
 ```conf
 [res_pjsip]
 auth        =realtime,ps_auths
@@ -306,96 +331,100 @@ core show channeltypes
 ```
 
 ### chan_alsa/chan_console/chan_oss
-* 同一时间只能启用一个, 默认启用 oss
-* ALSA - Advanced Linux Sound Architecture
-* OSS - Open Sound System
-  * Linux 2.6 默认为 ALSA, OSS 标记为废弃
-* console - [PortAudio](https://en.wikipedia.org/wiki/PortAudio)
+
+- 同一时间只能启用一个, 默认启用 oss
+- ALSA - Advanced Linux Sound Architecture
+- OSS - Open Sound System
+  - Linux 2.6 默认为 ALSA, OSS 标记为废弃
+- console - [PortAudio](https://en.wikipedia.org/wiki/PortAudio)
 
 ### chan_sip
-* 传输支持: tcp,udp,tls,ws,wss
-  * tcp 和 tls 位于实验阶段
-* 5060: This is the standard port for SIP communications
-* 8089: This is the standard port for Secure Websockets when used with Asterisk's built-in HTTP sever
-* 10000:20000: This is the port range configured in rtp.conf for audio to flow.
+
+- 传输支持: tcp,udp,tls,ws,wss
+  - tcp 和 tls 位于实验阶段
+- 5060: This is the standard port for SIP communications
+- 8089: This is the standard port for Secure Websockets when used with Asterisk's built-in HTTP sever
+- 10000:20000: This is the port range configured in rtp.conf for audio to flow.
 
 #### QoS
-* [IP Quality of Service](https://wiki.asterisk.org/wiki/display/AST/IP+Quality+of+Service)
-* 默认未开启 QoS, 所以 Peer 的状态都是显示的未知
+
+- [IP Quality of Service](https://wiki.asterisk.org/wiki/display/AST/IP+Quality+of+Service)
+- 默认未开启 QoS, 所以 Peer 的状态都是显示的未知
 
 ### res_pjsip
-* 总结: 建议使用 `res_pjsip`, 禁用 `chan_sip`
-* [SIP vs. CHAN_SIP vs. CHAN_PJSIP](https://www.linkedin.com/pulse/faqs-sip-vs-chansip-chanpjsip-kent-adams)
-* [Migrating from chan sip to res pjsip](https://youtu.be/KD-48p0iALg)
-  * [幻灯片](https://www.controlaltdieliet.be/astricon2015/pjsip/presentation/index.html)
-  * [astricon2015](https://www.controlaltdieliet.be/astricon2015/)
-    * 脚本和相关文件配置
-    * 包含数据库 `sippeers` 转 `ps_` 的脚本
-* [PJSIP: Tuning for Performance](https://youtu.be/BDB4Sr9NVSM)
-* WHY
-  * 更好的配置
-  * 多个 aors -> 单个终端
-    * 多个终端共振
-  * NAT 更简单
-  * 没有 user,peer,friend
-  * 更好的设备和邮箱状态
-  * 更简单更快更好的开发
-* 配置类型
-  * transport
-    * 绑定 res_pjsip 到地址端口
-    * 可绑定多个
-    * 不能重载
-  * endpoint
-    * 发起和接收通话的设备
-    * 包含: transport, aor, auth
-    * 配置的 transport 主要用于发送, 所有的都能接收
-  * auth
-    * `auth_type`
-      * 授权类型
-      * nonce_lifetime
-        * 单位 秒
-        * 默认 32
-      * userpass
-        * password 存储明文
-      * md5
-        * md5_cred 存储密文
-        * 格式为 账号:asterisk:密码
-        * asterisk 为 realm, 可以修改
-  * aor
-    * Address of Record
-    * Multiple AORS for 1 device
-    * AORS can be overwritten or not
-    * Can be static or dynamic (qualify)
-  * identify
-    * Endpoint Identification
-    * `res_pjsip_endpoint_identifier_ip`
-      * 基于 IP 的认证
-      * 匹配进入的包 -> 终端
-    * `res_pjsip_endpoint_identifier_user`
-      *  可以从 `From` 头中提取出用户信息由于验证
-    * 使用 IP 还是用用户取决于模块加载顺序
-    * 用于外部线路，直接匹配 IP 来对应 endpoint
-  * registration
-    * 将 Asterisk 连接到另外一个 Asterisk
-    * 以前为 `register => username:password@server/context`
-  * acl
-    * Access Control List
-  * phoneprov
-    * Phone Provisioning
-  * System
-  * Domain alias
-    * 域名别名
-    * 在 AOR 的域名找不到时尝试找别名
-  * outbound-publish
-* Tips
-  * `Dial(PJSIP/${EXTEN})`
-  * `Dial(${PJSIP_DIAL_CONTACTS(${EXTEN})})`
-    * 拨打所有设备
-    * `PJSIP/9001/sip:9001@192.168.1.90:33322&PJSIP/9001/sip:9001@192.168.1.91:58069`
-  * `Dial(PJSIP/mytrunk/sip:${EXTEN:1})`
-  * `Dial(PJSIP/${EXTEN:1}@mytrunk)`
-* PJSIP 使用的表前缀为 `ps_`, 有很多表, 而不像 chan_sip 只有一个 sippeers 表
-  * aors, auths, contacts, endpoints, domain_aliases, endpoint_id_ips, globals, registrations, subscription_persistence, systems, transports
+
+- 总结: 建议使用 `res_pjsip`, 禁用 `chan_sip`
+- [SIP vs. CHAN_SIP vs. CHAN_PJSIP](https://www.linkedin.com/pulse/faqs-sip-vs-chansip-chanpjsip-kent-adams)
+- [Migrating from chan sip to res pjsip](https://youtu.be/KD-48p0iALg)
+  - [幻灯片](https://www.controlaltdieliet.be/astricon2015/pjsip/presentation/index.html)
+  - [astricon2015](https://www.controlaltdieliet.be/astricon2015/)
+    - 脚本和相关文件配置
+    - 包含数据库 `sippeers` 转 `ps_` 的脚本
+- [PJSIP: Tuning for Performance](https://youtu.be/BDB4Sr9NVSM)
+- WHY
+  - 更好的配置
+  - 多个 aors -> 单个终端
+    - 多个终端共振
+  - NAT 更简单
+  - 没有 user,peer,friend
+  - 更好的设备和邮箱状态
+  - 更简单更快更好的开发
+- 配置类型
+  - transport
+    - 绑定 res_pjsip 到地址端口
+    - 可绑定多个
+    - 不能重载
+  - endpoint
+    - 发起和接收通话的设备
+    - 包含: transport, aor, auth
+    - 配置的 transport 主要用于发送, 所有的都能接收
+  - auth
+    - `auth_type`
+      - 授权类型
+      - nonce_lifetime
+        - 单位 秒
+        - 默认 32
+      - userpass
+        - password 存储明文
+      - md5
+        - md5_cred 存储密文
+        - 格式为 账号:asterisk:密码
+        - asterisk 为 realm, 可以修改
+  - aor
+    - Address of Record
+    - Multiple AORS for 1 device
+    - AORS can be overwritten or not
+    - Can be static or dynamic (qualify)
+  - identify
+    - Endpoint Identification
+    - `res_pjsip_endpoint_identifier_ip`
+      - 基于 IP 的认证
+      - 匹配进入的包 -> 终端
+    - `res_pjsip_endpoint_identifier_user`
+      - 可以从 `From` 头中提取出用户信息由于验证
+    - 使用 IP 还是用用户取决于模块加载顺序
+    - 用于外部线路，直接匹配 IP 来对应 endpoint
+  - registration
+    - 将 Asterisk 连接到另外一个 Asterisk
+    - 以前为 `register => username:password@server/context`
+  - acl
+    - Access Control List
+  - phoneprov
+    - Phone Provisioning
+  - System
+  - Domain alias
+    - 域名别名
+    - 在 AOR 的域名找不到时尝试找别名
+  - outbound-publish
+- Tips
+  - `Dial(PJSIP/${EXTEN})`
+  - `Dial(${PJSIP_DIAL_CONTACTS(${EXTEN})})`
+    - 拨打所有设备
+    - `PJSIP/9001/sip:9001@192.168.1.90:33322&PJSIP/9001/sip:9001@192.168.1.91:58069`
+  - `Dial(PJSIP/mytrunk/sip:${EXTEN:1})`
+  - `Dial(PJSIP/${EXTEN:1}@mytrunk)`
+- PJSIP 使用的表前缀为 `ps_`, 有很多表, 而不像 chan_sip 只有一个 sippeers 表
+  - aors, auths, contacts, endpoints, domain_aliases, endpoint_id_ips, globals, registrations, subscription_persistence, systems, transports
 
 ```bash
 # 问题排查
@@ -492,6 +521,7 @@ inbound_auth/password = 9002
 ```
 
 #### 禁用
+
 ```conf
 noload => res_pjsip.so
 noload => res_pjsip_pubsub.so
@@ -505,29 +535,29 @@ noload => res_pjsip_log_forwarder.so
 
 #### 配置
 
-
-* qualify_frequency
-  * QoS
-    
+- qualify_frequency
+  - QoS
 
 ##### NAT
-* rtp_symmetric
-  * Send media to the address and port from which Asterisk receives it, regardless of where SDP indicates that it should be sent
-* force_rport
-  * Send responses to the source IP address and port as though port were present, even if it's not
-* rewrite_contact
-  * Rewrite SIP Contact to the source address and port of the request so that subsequent requests go to that address and port.
-* [Configuring res_pjsip to work through NAT](https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT)
 
-chan_sip/nat    | yes | no | never | route
-----------------|-----|----|-------|------
-rtp_symmetric   | yes | no | no | no
-force_rport     | yes | no | no | yes
-rewrite_contact | yes | no | no | yes
+- rtp_symmetric
+  - Send media to the address and port from which Asterisk receives it, regardless of where SDP indicates that it should be sent
+- force_rport
+  - Send responses to the source IP address and port as though port were present, even if it's not
+- rewrite_contact
+  - Rewrite SIP Contact to the source address and port of the request so that subsequent requests go to that address and port.
+- [Configuring res_pjsip to work through NAT](https://wiki.asterisk.org/wiki/display/AST/Configuring+res_pjsip+to+work+through+NAT)
+
+| chan_sip/nat    | yes | no  | never | route |
+| --------------- | --- | --- | ----- | ----- |
+| rtp_symmetric   | yes | no  | no    | no    |
+| force_rport     | yes | no  | no    | yes   |
+| rewrite_contact | yes | no  | no    | yes   |
 
 ## Modules
-* Tips
-  * `module show` 显示所有模块
+
+- Tips
+  - `module show` 显示所有模块
 
 ```
 app_adsiprog.so                Asterisk ADSI Programming Application    0          Running          extended

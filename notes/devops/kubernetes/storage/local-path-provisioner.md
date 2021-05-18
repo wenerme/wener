@@ -1,25 +1,25 @@
 ---
-id: local-path-provisioner
 title: Local Path Provisioner
 ---
 
 # Local Path
-## Tips
-* [rancher/local-path-provisioner](https://github.com/rancher/local-path-provisioner)
-* `storageClassName: local-path`
-* 自动创建目录 - /var/lib/rancher/k3s/storage
-  * `pvc-<UUID>`
-* 注意
-  * 异常后 PVC 丢失，StatefulSet 无法启动
-    * 删除 Pod 从新部署可恢复
 
-__k3s 默认配置__
+- [rancher/local-path-provisioner](https://github.com/rancher/local-path-provisioner)
+- `storageClassName: local-path`
+- 自动创建目录 - /var/lib/rancher/k3s/storage
+  - `pvc-<UUID>`
+- 注意
+  - 异常后 PVC 丢失，StatefulSet 无法启动
+    - 删除 Pod 从新部署可恢复
+
+**k3s 默认配置**
+
 ```json
 {
-  "nodePathMap":[
+  "nodePathMap": [
     {
-      "node":"DEFAULT_PATH_FOR_NON_LISTED_NODES",
-      "paths":["/var/lib/rancher/k3s/storage"]
+      "node": "DEFAULT_PATH_FOR_NON_LISTED_NODES",
+      "paths": ["/var/lib/rancher/k3s/storage"]
     }
   ]
 }

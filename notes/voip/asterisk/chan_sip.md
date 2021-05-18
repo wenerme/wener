@@ -12,15 +12,18 @@ title: chan_sip
 **modules.conf**
 
 ```ini
+autoload => no
+load => chan_sip
+
 # 自动加载
 autoload => yes
 # 排除 pjsip
-noload => res_pjsip.so
-noload => res_pjsip_pubsub.so
-noload => res_pjsip_session.so
-noload => chan_pjsip.so
-noload => res_pjsip_exten_state.so
-noload => res_pjsip_log_forwarder.so
+noload => chan_pjsip
+noload => res_pjsip
+noload => res_pjsip_exten_state
+noload => res_pjsip_log_forwarder
+noload => res_pjsip_pubsub
+noload => res_pjsip_session
 ```
 
 # 命令

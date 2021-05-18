@@ -49,5 +49,7 @@ asterisk -rx 'manager show events'
 - 初始服务端会发送一条信息包含版本
   - `Asterisk Call Manager/1.1`
 - 客户端会接收到 FullyBooted 表示启动完成
+- 新版本会返回 SuccessfulAuth - 包含账号权限、链接等信息
+- 服务退出或重启会发送 Shutdown
 - Newchannel - 通道建立
   - 包含 Uniqueid 可用于持续跟踪通道

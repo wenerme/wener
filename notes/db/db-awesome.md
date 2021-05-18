@@ -31,3 +31,7 @@ title: Database Awesome
 
 ## Big Data
 - [Practical SQL for Data Analysis](https://hakibenita.com/sql-for-data-analysis)
+
+## Tools
+- [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
+  - Web-based SQL editor and visualizing

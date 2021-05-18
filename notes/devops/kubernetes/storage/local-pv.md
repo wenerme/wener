@@ -1,5 +1,8 @@
+---
+title: Local PV
+---
+
 # Local Persistent Volumes
-## Tips
 * [local/volume](https://kubernetes.io/docs/concepts/storage/volumes/#local)
 * [kubernetes-sigs/sig-storage-local-static-provisioner](https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner)
   * [Best Practices](https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/best-practices.md)

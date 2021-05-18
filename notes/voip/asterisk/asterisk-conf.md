@@ -1,53 +1,53 @@
 ---
-id: conf
 title: Asterisk 配置
 ---
 
 ## 目录
 
-* [文件和目录结构](https://wiki.asterisk.org/wiki/display/AST/Directory+and+File+Structure)
-* `astetcdir => /etc/asterisk`
-  * 用于存储配置文件
-  * 一般为 `.conf` 但也包含 `.lua` 和 `.ael`
-* `astmoddir => /usr/lib/asterisk/modules`
-  * 模块目录
-* `astvarlibdir => /var/lib/asterisk`
-  * 运行时生成的目录
-* `astdbdir => /var/lib/asterisk`
-  * 存储内部数据库
-  * [astdb.sqlite3](https://wiki.asterisk.org/wiki/display/AST/SQLite3+astdb+back-end)
-* `astkeydir => /var/lib/asterisk`
-  * 存储密钥，生成 `keys` 子目录 - 可能会锁定
-* `astdatadir => /var/lib/asterisk`
-  * 系统数据目录
-  * sounds 存储声音
-* `astagidir => /var/lib/asterisk/agi-bin`
-  * 存储 AGI - Asterisk Gateway Interface
-* `astspooldir => /var/spool/asterisk`
-  * 存储各种模块的 spool 文件
-  * 常见的子目录
-    * dictate
-    * meetme
-    * monitor
-    * outgoing
-    * recording
-    * system
-    * tmp
-    * voicemail
-* `astrundir => /var/run/asterisk`
-  * 运行目录
-  * 存储 `asterisk.ctl` `asterisk.pid`
-* `astlogdir => /var/log/asterisk`
-  * 存储[日志](https://wiki.asterisk.org/wiki/display/AST/Logging)
-* `astsbindir => /usr/sbin`
-  * 系统可执行文件
+- [文件和目录结构](https://wiki.asterisk.org/wiki/display/AST/Directory+and+File+Structure)
+- `astetcdir => /etc/asterisk`
+  - 用于存储配置文件
+  - 一般为 `.conf` 但也包含 `.lua` 和 `.ael`
+- `astmoddir => /usr/lib/asterisk/modules`
+  - 模块目录
+- `astvarlibdir => /var/lib/asterisk`
+  - 运行时生成的目录
+- `astdbdir => /var/lib/asterisk`
+  - 存储内部数据库
+  - [astdb.sqlite3](https://wiki.asterisk.org/wiki/display/AST/SQLite3+astdb+back-end)
+- `astkeydir => /var/lib/asterisk`
+  - 存储密钥，生成 `keys` 子目录 - 可能会锁定
+- `astdatadir => /var/lib/asterisk`
+  - 系统数据目录
+  - sounds 存储声音
+- `astagidir => /var/lib/asterisk/agi-bin`
+  - 存储 AGI - Asterisk Gateway Interface
+- `astspooldir => /var/spool/asterisk`
+  - 存储各种模块的 spool 文件
+  - 常见的子目录
+    - dictate
+    - meetme
+    - monitor
+    - outgoing
+    - recording
+    - system
+    - tmp
+    - voicemail
+- `astrundir => /var/run/asterisk`
+  - 运行目录
+  - 存储 `asterisk.ctl` `asterisk.pid`
+- `astlogdir => /var/log/asterisk`
+  - 存储[日志](https://wiki.asterisk.org/wiki/display/AST/Logging)
+  - /var/log/asterisk/message
+  - /var/log/asterisk/queue
+- `astsbindir => /usr/sbin`
+  - 系统可执行文件
 
 ## 配置
 
 ### 配置文件
 
-* 目录解释
-
+- 目录解释
 
 https://wiki.asterisk.org/wiki/display/AST/Asterisk+Configuration+Files
 execincludes=yes
@@ -70,7 +70,6 @@ setting=true
 
 https://github.com/asterisk/asterisk/tree/master/configs/samples
 https://github.com/asterisk/asterisk/tree/master/configs/basic-pbx
-
 
 https://github.com/asterisk/asterisk/tree/master/contrib/ast-db-manage
 
@@ -114,8 +113,8 @@ module show like pgsql
 ```
 
 ## asterisk.conf
-核心配置文件
 
+核心配置文件
 
 ```conf
 # 目录配置
@@ -136,6 +135,7 @@ astsbindir => /usr/sbin
 ```
 
 ## modules.conf
+
 模块配置
 
 ```conf
@@ -221,6 +221,7 @@ noload => res_smdi.so
 ```
 
 ## res_pgsql.conf
+
 ```conf
 [general]
 dbhost=ast-pg
@@ -239,7 +240,9 @@ https://www.voip-info.org/asterisk-config-alsaconf/
 alsa.conf
 
 ## cdr
-* 呼叫详细记录
+
+- 呼叫详细记录
+
 ### cdr.conf
 
 ```conf
@@ -290,6 +293,7 @@ enabled = no
 ```
 
 ### cdr_pgsql.conf
+
 CDR 记录到 PG 数据库
 
 ```conf
@@ -305,6 +309,7 @@ table=cdr		        ; 记录的表名
 ```
 
 ### cdr_beanstalkd.conf
+
 https://github.com/beanstalkd/beanstalkd
 
 Simple and fast general purpose work queue.
@@ -376,7 +381,7 @@ enabled=yes
 show_user_defined=yes
 
 ;
-; RADIUS CEL Backend 
+; RADIUS CEL Backend
 ;
 [radius]
 ;
@@ -390,6 +395,7 @@ show_user_defined=yes
 ```
 
 ### cel_pgsql.conf
+
 ```conf
 [global]
 ; 默认只记录事件名字，开启后会添加 USER_DEFINED 事件类型
@@ -408,7 +414,8 @@ schema=public
 ```
 
 ## sorcery.conf
-* 配置和数据库映射
+
+- 配置和数据库映射
 
 ```conf
 ; 外部 MWI mailbox 映射 - 持久化消息数量
@@ -447,9 +454,9 @@ asterisk-publication  =realtime,ps_asterisk_publications
 ```
 
 ## extconfig.conf
-* 静态和实时外部配置
-* [实时数据库配置](https://wiki.asterisk.org/wiki/display/AST/Realtime+Database+Configuration)
 
+- 静态和实时外部配置
+- [实时数据库配置](https://wiki.asterisk.org/wiki/display/AST/Realtime+Database+Configuration)
 
 ```conf
 [settings]
@@ -484,9 +491,11 @@ ps_subscription_persistence => pgsql,ast
 ps_systems                  => pgsql,ast
 ps_transports               => pgsql,ast
 ```
+
 ## http.conf
-* 内置的 HTTP 服务器
-* 静态 HTTP 位于 `/var/lib/asterisk/static-http`
+
+- 内置的 HTTP 服务器
+- 静态 HTTP 位于 `/var/lib/asterisk/static-http`
 
 ```conf
 [general]
@@ -520,6 +529,7 @@ enablestatic=yes
 ; 上传到 /uploads 的文件会存放在 /var/lib/asterisk/uploads/
 ;uploads = /var/lib/asterisk/uploads/
 ```
+
 ## ari.conf
 
 ```conf
@@ -548,6 +558,7 @@ password_format = plain
 ## pjsip
 
 ### pjsip.conf
+
 ```conf
 ; Anonymous Calls
 ;
@@ -564,17 +575,17 @@ bind=0.0.0.0
 ```
 
 ## extension
+
 ### extensions.conf
 
 ```conf
 
 ```
 
-
-
 ## PG
 
 ### cdr/cel
+
 ```sql
 CREATE TABLE cdr
 (
@@ -632,5 +643,6 @@ CREATE TABLE cel
 ## FAQ
 
 ### dtmfmode
+
 rfc2833
 rfc4733

@@ -98,6 +98,7 @@ same => n,Dial(SIP/${EXTEN})
 same => n,Hangup()
 ```
 
+
 ## 接口 originate 一定概率没有声音
 
 - [No voice when using AMI originate between two external destinations](https://community.freepbx.org/t/no-voice-when-using-ami-originate-between-two-external-destinations/40438)
@@ -193,6 +194,8 @@ Any 600-class response
 ```
 Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_auth_clt_deinit: 507)
 ```
+
+##  Couldn't execute statement: SQL logic error
 
 ## cel_pgsql.c:352 pgsql_log: Reason: ERROR: value too long for type character varying
 

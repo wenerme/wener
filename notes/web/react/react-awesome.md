@@ -8,9 +8,12 @@ title: React Awesome
 
 :::tip
 
-- 专门功能选择专业组件 - 配合 UI 组件达到更为理想的结果
+- 专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果
   - react-table
   - react-hook-form
+  - react-popper
+- 选择样式与组件独立的 UI 库
+  - bluprintjs
 - 避免选择绑定了功能的组件
   - antd
 - 选择组件库的考虑维度
@@ -153,6 +156,7 @@ title: React Awesome
 - [bokuweb/react-rnd](https://github.com/bokuweb/react-rnd) - Resize & Drag
   - 实现类似窗口的效果
 - [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
+  - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
   - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)
     - 基于 react-window 实现的 tree 渲染
 - [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
@@ -347,6 +351,8 @@ useStore.destroy();
 
 ## 工具
 
+- [alexreardon/memoize-one](https://github.com/alexreardon/memoize-one)
+  - 在组件外 memoize
 - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
 - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
   - fork 自 fast-deep-equal
@@ -356,6 +362,18 @@ useStore.destroy();
 ## 动画
 
 - [pmndrs/react-spring](https://github.com/pmndrs/react-spring)
+- [framer/motion](https://github.com/framer/motion)
+- [React-Spring vs Framer Motion: Comparing Examples in Two Animation Libraries](https://smartdevpreneur.com/react-spring-vs-framer-motion-comparing-examples-in-two-animation-libraries)
+  - 实现动画底层逻辑不同
+    - framer-motion - duration-and-location
+      - 使用上会更舒徐
+    - react-spring - spring-physics
+      - 看起来会更真实
+- [reactjs/react-transition-group](https://github.com/reactjs/react-transition-group)
+  - 控制 css 类实现动画
+- [react-motion](https://github.com/chenglou/react-motion)
+  - 不再维护 - 不推荐使用
+- [sghall/react-move](https://github.com/sghall/react-move)
 
 ## 功能
 
