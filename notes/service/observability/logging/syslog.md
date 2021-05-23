@@ -1,5 +1,4 @@
 ---
-id: syslog
 title: Syslog
 ---
 

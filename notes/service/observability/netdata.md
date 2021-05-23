@@ -1,7 +1,12 @@
+---
+title: netdata
+---
+
 # netdata
-## Tips
-* [netdata/netdata](https://github.com/netdata/netdata)
-* 默认精度 1s, 保存 1h
+
+- [netdata/netdata](https://github.com/netdata/netdata) 是什么？
+  - 美观简单的单机实时监控可视化服务
+- 默认精度 1s, 保存 1h
 
 ```bash
 # 缺少部分主机信息

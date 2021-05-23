@@ -141,12 +141,23 @@ title: 开发用词字典
 
 ### 电子商务
 
-| 英文       | 含义     | 释义 |
-| ---------- | -------- | ---- |
-| catalogue  | 商品目录 |
-| article no | 货号     |
-| promotion  | 促销     |
-| promo code | 优惠码   |
+| 英文       | 含义                   | 释义                 |
+| ---------- | ---------------------- | -------------------- |
+| catalogue  | 商品目录               |
+| article no | 货号                   |
+| promotion  | 促销                   |
+| promo code | 优惠码                 |
+| upc        | Universal Product Code | barcode,通用产品代码 |
+| sku        | Stock Keeping Unit     | 库存单位             |
+
+**upc vs sku**
+
+- upc
+  - 用于对外 - 标识唯一产品
+  - 一般 12 位 数字
+- sku
+  - 用于对内 - 标识库存信息
+  - 一般 8 位 字母+数字
 
 ### 业务流程
 
@@ -268,6 +279,7 @@ title: 开发用词字典
 - division - 分部 - 例如 市场分部、消费者分部
   - 位于某个地点的某些办公室或者区域
 - deparment - 部门 - 例如 编辑部、较对部
+
   - 位于公司某个区域
 
 - 参考

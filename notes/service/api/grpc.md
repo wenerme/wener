@@ -4,61 +4,63 @@ title: gRPC
 
 # gRPC
 
-* [gRPC](https://github.com/grpc/)
-* [gRPC Ecosystem](https://github.com/grpc-ecosystem)
-* [Third-Party Add-ons for Protocol Buffers](https://github.com/google/protobuf/blob/master/docs/third_party.md)
-* 服务端暂不支持 PHP
-  * 可以跟踪该帖子 [Servers in PHP?](https://groups.google.com/forum/#!topic/grpc-io/F3IyYaI_6S0)
-* google.protobuf
-  * 默认定义
-  * api.proto
-    * 对服务的轻量级定义
-* 问题
-  * [grpc-go#555](https://github.com/grpc/grpc-go/issues/555) - ServeHTTP doesn't work without TLS
-    * Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
-* 相关服务
-  * [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy)
-    * grpc 反向代理
-  * [improbable-eng/grpc-web](https://github.com/improbable-eng/grpc-web)
-    * gRPC Web implementation for Golang and TypeScript
-* 案例参考
-  * [grpc/grpc-proto](https://github.com/grpc/grpc-proto)
-    * 常用协议
-  * k8s 使用 go-to-protobuf 从 go 生成的 proto
-* 参考
-  * [mfornos/awesome-microservices](https://github.com/mfornos/awesome-microservices)
-  * [gRPC Practical Tutorial - Magic That Generates Code](https://goel.io/grpc-100/)
-  * [LogNet/grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter)
+- [gRPC](https://github.com/grpc/)
+- [gRPC Ecosystem](https://github.com/grpc-ecosystem)
+- [Third-Party Add-ons for Protocol Buffers](https://github.com/google/protobuf/blob/master/docs/third_party.md)
+- 服务端暂不支持 PHP
+  - 可以跟踪该帖子 [Servers in PHP?](https://groups.google.com/forum/#!topic/grpc-io/F3IyYaI_6S0)
+- google.protobuf
+  - 默认定义
+  - api.proto
+    - 对服务的轻量级定义
+- 问题
+  - [grpc-go#555](https://github.com/grpc/grpc-go/issues/555) - ServeHTTP doesn't work without TLS
+    - Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
+- 相关服务
+  - [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy)
+    - grpc 反向代理
+  - [improbable-eng/grpc-web](https://github.com/improbable-eng/grpc-web)
+    - gRPC Web implementation for Golang and TypeScript
+- 案例参考
+  - [grpc/grpc-proto](https://github.com/grpc/grpc-proto)
+    - 常用协议
+  - k8s 使用 go-to-protobuf 从 go 生成的 proto
+- 参考
+  - [mfornos/awesome-microservices](https://github.com/mfornos/awesome-microservices)
+  - [gRPC Practical Tutorial - Magic That Generates Code](https://goel.io/grpc-100/)
+  - [LogNet/grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter)
 
 ## Note
-* guides/[concepts](https://grpc.io/docs/guides/concepts.html)
-  * 服务定义
-  * 使用方式
-  * RPC 生命周期
-    * 单向 RPC
-    * 服务端流
-    * 客户端流
-    * 双向流
-    * 超时
-    * 终端
-    * 取消
-    * 元数据
-    * 通道
-* 实现
-  * 使用 HTTP2 协议
-  * 使用 HTTP2 Trailler 来标识是否还有后续包
-    * Web 无法获取到该信息, 所以无法实现和使用 gRPC
+
+- guides/[concepts](https://grpc.io/docs/guides/concepts.html)
+  - 服务定义
+  - 使用方式
+  - RPC 生命周期
+    - 单向 RPC
+    - 服务端流
+    - 客户端流
+    - 双向流
+    - 超时
+    - 终端
+    - 取消
+    - 元数据
+    - 通道
+- 实现
+  - 使用 HTTP2 协议
+  - 使用 HTTP2 Trailler 来标识是否还有后续包
+    - Web 无法获取到该信息, 所以无法实现和使用 gRPC
 
 ## Docker
-* 避免安装编译等繁杂的过程
-* [Dockerfile](https://github.com/wenerme/dockerfiles/tree/master/grpc)
-* AlpineLinux Packages [grpc](https://github.com/wenerme/statics/tree/master/abuild)
-* grpc
-* grpc-java
-* grpc-go
-  * protowrap
-* [ ] grpc-swift
-* [ ] grpc-slate
+
+- 避免安装编译等繁杂的过程
+- [Dockerfile](https://github.com/wenerme/dockerfiles/tree/master/grpc)
+- AlpineLinux Packages [grpc](https://github.com/wenerme/statics/tree/master/abuild)
+- grpc
+- grpc-java
+- grpc-go
+  - protowrap
+- [ ] grpc-swift
+- [ ] grpc-slate
 
 ```bash
 # 假设 api 位于当前目录下的 apis
@@ -101,16 +103,17 @@ protoc $COMMON_ARGS --plugin=protoc-gen-grpc=$(which grpc_node_plugin)  --js_out
 ```
 
 ## 安装
-* https://github.com/grpc/grpc/blob/master/INSTALL.md
-* https://hub.docker.com/u/grpc/
-* 生成主要依赖插件
-  * protoc-gen-go
-  * protoc-gen-grpc-gateway
-  * protoc-gen-swagger
-  * protoc-gen-grpc-java
-* [Juniper/grpc-c](https://github.com/Juniper/grpc-c)
-  * 支持 C
-* https://github.com/grpc/grpc-java/tree/master/compiler
+
+- https://github.com/grpc/grpc/blob/master/INSTALL.md
+- https://hub.docker.com/u/grpc/
+- 生成主要依赖插件
+  - protoc-gen-go
+  - protoc-gen-grpc-gateway
+  - protoc-gen-swagger
+  - protoc-gen-grpc-java
+- [Juniper/grpc-c](https://github.com/Juniper/grpc-c)
+  - 支持 C
+- https://github.com/grpc/grpc-java/tree/master/compiler
 
 ```bash
 # grpc_cli
@@ -254,8 +257,9 @@ go get -u github.com/pseudomuto/protoc-gen-doc/cmd/...
 ```
 
 ## Java
-* [grpc/grpc-java#3458](https://github.com/grpc/grpc-java/issues/3458) - FR: Port sharing with traditional HTTP services
-  * [netty/netty#3667](https://github.com/netty/netty/issues/3667) - h2childchan: Model streams in HTTP/2 as child channels
+
+- [grpc/grpc-java#3458](https://github.com/grpc/grpc-java/issues/3458) - FR: Port sharing with traditional HTTP services
+  - [netty/netty#3667](https://github.com/netty/netty/issues/3667) - h2childchan: Model streams in HTTP/2 as child channels
 
 ```java
 class Tests{
@@ -342,8 +346,8 @@ echo json_encode(json_decode($reply->serializeToJsonString()), JSON_PRETTY_PRINT
 ```
 
 ## Node
-* [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
 
+- [#8233 Typescript typings for node package](https://github.com/grpc/grpc/issues/8233)
 
 ```bash
 # 最基本的只需要这两个依赖
@@ -364,18 +368,19 @@ const messages = require('./service_pb');
 // 生成 grpc 客户端和服务端
 const services = require('./service_grpc_pb');
 
-let client = new services.ServiceClient('service.wener.me:443',
+let client = new services.ServiceClient(
+  'service.wener.me:443',
   // 无 TLS
   // grpc.credentials.createInsecure(),
   // 使用 self-signed 证书
-  grpc.credentials.createSsl(fs.readFileSync('ca.pem'), fs.readFileSync('cli-key.pem'), fs.readFileSync('cli.pem'))
+  grpc.credentials.createSsl(fs.readFileSync('ca.pem'), fs.readFileSync('cli-key.pem'), fs.readFileSync('cli.pem')),
 );
 
 // 发起请求
 let request = new messages.GetInfoRequest();
 client.getInfo(request, (err, response) => {
-  console.log('Service name', response.getName())
-})
+  console.log('Service name', response.getName());
+});
 ```
 
 ## Golang
@@ -397,7 +402,9 @@ func main(){
 
 }
 ```
+
 ### Server
+
 ```golang
 package main
 
@@ -473,30 +480,34 @@ func (DemoStatus) GetInfo(context.Context, *service.GetInfoRequest) (*service.Ge
 ```
 
 ## Web
-* [gRPC Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)
-* https://github.com/dcodeIO/ProtoBuf.js/
+
+- [gRPC Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)
+- https://github.com/dcodeIO/ProtoBuf.js/
 
 ## Typescript
+
 https://www.npmjs.com/package/ts-protoc-gen
 
 ## grpc-gateway
-* [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
-  * gRPC to JSON proxy generator
-* 支持 googleapis 中的 http 定义
-* Features
-  * Generating JSON API handlers
-  * Method parameters in request body
-  * Method parameters in request path
-  * Method parameters in query string
-  * Enum fields in path parameter (including repeated enum fields).
-  * Mapping streaming APIs to newline-delimited JSON streams
-  * Mapping HTTP headers with Grpc-Metadata- prefix to gRPC metadata (prefixed with grpcgateway-)
-  * Optionally emitting API definition for Swagger.
-  * Setting gRPC timeouts through inbound HTTP Grpc-Timeout header.
-* 可以只拷贝需要的导入文件
-  * `google/api/annotations.proto`
-  * `google/api/http.proto`
-* 然后在 rpc 中添加 http 定义即可
+
+- [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
+  - gRPC to JSON proxy generator
+- 支持 googleapis 中的 http 定义
+- Features
+  - Generating JSON API handlers
+  - Method parameters in request body
+  - Method parameters in request path
+  - Method parameters in query string
+  - Enum fields in path parameter (including repeated enum fields).
+  - Mapping streaming APIs to newline-delimited JSON streams
+  - Mapping HTTP headers with Grpc-Metadata- prefix to gRPC metadata (prefixed with grpcgateway-)
+  - Optionally emitting API definition for Swagger.
+  - Setting gRPC timeouts through inbound HTTP Grpc-Timeout header.
+- 可以只拷贝需要的导入文件
+  - `google/api/annotations.proto`
+  - `google/api/http.proto`
+- 然后在 rpc 中添加 http 定义即可
+
 ```
 rpc SayHello (HelloRequest) returns (HelloReply) {
   option (google.api.http) = {
@@ -526,46 +537,47 @@ go get .
 ```
 
 ## Auth
-* [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md)
-* guides/[auth](https://grpc.io/docs/guides/auth.html)
-  * SSL/TLS 双向认证
-  * 基于 Token
-* 授权分为整个通道和单次请求
-* gRPC 可以自带元数据头, 因此也可以自定义授权
+
+- [grpc/grpc-java/SECURITY.md](https://github.com/grpc/grpc-java/blob/master/SECURITY.md)
+- guides/[auth](https://grpc.io/docs/guides/auth.html)
+  - SSL/TLS 双向认证
+  - 基于 Token
+- 授权分为整个通道和单次请求
+- gRPC 可以自带元数据头, 因此也可以自定义授权
 
 ## 案例
 
-* [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/tree/master/pkg/roachpb)
-* [docker/swarmkit](https://github.com/docker/swarmkit/tree/master/api)
-* https://github.com/gogo/protobuf#users
-
+- [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach/tree/master/pkg/roachpb)
+- [docker/swarmkit](https://github.com/docker/swarmkit/tree/master/api)
+- https://github.com/gogo/protobuf#users
 
 ### GCP
-* [googleapis/googleapis](https://github.com/googleapis/googleapis)
-* [googleapis/toolkit](https://github.com/googleapis/toolkit)
-* [googleapis/artman](https://github.com/googleapis/artman)
-* GAPIC
-* selector
-  * 逗号分隔
-  * 可以使用 `*` 做匹配, 但是只能放在最后
-    * 例如 `foo.*`, 但不能写 `foo.*b`, `foo.*.abc`
-    * 可以使用 `*` 匹配所有
 
-* 服务结构
-  * api
-    * 接口相关的定义
-    * backend.proto
-      * 定义服务的后端
-    * service.proto
-      * 对服务的定义
-    * servicecontrol
-      * 服务控制
-      * 对服务的检查报告
-    * servicemanagement
-      * 服务管理
-      * 对服务的 CRUD, 启用停用
-  * appengine
+- [googleapis/googleapis](https://github.com/googleapis/googleapis)
+- [googleapis/toolkit](https://github.com/googleapis/toolkit)
+- [googleapis/artman](https://github.com/googleapis/artman)
+- GAPIC
+- selector
 
+  - 逗号分隔
+  - 可以使用 `*` 做匹配, 但是只能放在最后
+    - 例如 `foo.*`, 但不能写 `foo.*b`, `foo.*.abc`
+    - 可以使用 `*` 匹配所有
+
+- 服务结构
+  - api
+    - 接口相关的定义
+    - backend.proto
+      - 定义服务的后端
+    - service.proto
+      - 对服务的定义
+    - servicecontrol
+      - 服务控制
+      - 对服务的检查报告
+    - servicemanagement
+      - 服务管理
+      - 对服务的 CRUD, 启用停用
+  - appengine
 
 ```bash
 # artman
@@ -577,188 +589,189 @@ docker run -it --rm -v $PWD/googleapis:/googleapis -v $PWD/artman:/artman -w /go
 
 ```
 
-
 #### Service Control
-* [Google Service Control](https://cloud.google.com/service-control/overview)
-* How to control access to your service.
-* How to validate API keys.
-* How to send logging and monitoring data to both consumers and producers.
-* How to create and manage dashboards to visualize such data.
-* How to scale the control plane components with your service.
+
+- [Google Service Control](https://cloud.google.com/service-control/overview)
+- How to control access to your service.
+- How to validate API keys.
+- How to send logging and monitoring data to both consumers and producers.
+- How to create and manage dashboards to visualize such data.
+- How to scale the control plane components with your service.
 
 ![Architecture](https://cloud.google.com/service-control/images/arch.svg)
 
-* Managed services
-  * Google Service Management 管理每个服务和其配置, 用于定制化 Google Service Control 的行为. 服务配置也被用于 Google Cloud Platform Console 显示其配置, 启用/禁用 等.
-  * For example:
-    * Google Cloud Pub/Sub (pubsub.googleapis.com)
-    * Google Cloud Vision (vision.googleapis.com)
-    * Google Cloud Bigtable (bigtable.googleapis.com)
-    * Google Cloud Datastore (datastore.googleapis.com)
-* Operations
-  * 表示被管理服务的活动, 例如接口调用或资源使用
-  * 每个操作都关联一个被管理的服务,和调用者, 也包含调用的相关信息, 例如调用方法, 资源使用量等
-* Check
-  * Check if the consumer is still active.
-  * Check if the consumer has enabled the service.
-  * Check if the API key is still valid.
-  * 对接口进行检测以保证更好的性能, 更高的可用性
-* Report
+- Managed services
+  - Google Service Management 管理每个服务和其配置, 用于定制化 Google Service Control 的行为. 服务配置也被用于 Google Cloud Platform Console 显示其配置, 启用/禁用 等.
+  - For example:
+    - Google Cloud Pub/Sub (pubsub.googleapis.com)
+    - Google Cloud Vision (vision.googleapis.com)
+    - Google Cloud Bigtable (bigtable.googleapis.com)
+    - Google Cloud Datastore (datastore.googleapis.com)
+- Operations
+  - 表示被管理服务的活动, 例如接口调用或资源使用
+  - 每个操作都关联一个被管理的服务,和调用者, 也包含调用的相关信息, 例如调用方法, 资源使用量等
+- Check
+  - Check if the consumer is still active.
+  - Check if the consumer has enabled the service.
+  - Check if the API key is still valid.
+  - 对接口进行检测以保证更好的性能, 更高的可用性
+- Report
 
 #### Service Management
-* Google [Service Management](https://cloud.google.com/service-management/overview)
-* Service producer
-  * 由谷歌开发者负责发布维护被管理的服务. 每个被管理的服务都由一个服务生产者所有
-* Service consumers
-  * 启用了接口调用的管理服务, 一个被管理的服务可以有很多服务消费者
-* Service configurations
-  * 每个被管理的服务都有自己的配置描述, 包括名字, 标题, RPC 接口定义, REST 接口定义, 文档, 授权等
-* Service rollouts
-  * 流量控制
+
+- Google [Service Management](https://cloud.google.com/service-management/overview)
+- Service producer
+  - 由谷歌开发者负责发布维护被管理的服务. 每个被管理的服务都由一个服务生产者所有
+- Service consumers
+  - 启用了接口调用的管理服务, 一个被管理的服务可以有很多服务消费者
+- Service configurations
+  - 每个被管理的服务都有自己的配置描述, 包括名字, 标题, RPC 接口定义, REST 接口定义, 文档, 授权等
+- Service rollouts
+  - 流量控制
 
 ## 源码和使用分析
-* PB 附带了所有解析后的消息格式定义
-* PB 3 增加了 java-util, 可以进行 JSON 序列化
-  * `JsonFormat` 打印时需要使用 `com.google.protobuf.util.JsonFormat.TypeRegistry` 来反查具体类
-* 优化模式
-  * SPEED
-    * Generate complete code for parsing, serialization, etc.
-  * CODE_SIZE
-    * Use ReflectionOps to implement these methods.
-  * LITE_RUNTIME
-    * Generate code using MessageLite and the lite runtime.
-* 命名空间
-  * 与 Java 命名空间的概念相似
-  * 生成的类的包名可以不同于 proto 的包
-  * 所有定义的消息都有自己的类型和命名空间
-  * 因此 Any 消息才能根据一个 url 和数据来还原消息
-  * 类型的引用也是基于该命名空间
+
+- PB 附带了所有解析后的消息格式定义
+- PB 3 增加了 java-util, 可以进行 JSON 序列化
+  - `JsonFormat` 打印时需要使用 `com.google.protobuf.util.JsonFormat.TypeRegistry` 来反查具体类
+- 优化模式
+  - SPEED
+    - Generate complete code for parsing, serialization, etc.
+  - CODE_SIZE
+    - Use ReflectionOps to implement these methods.
+  - LITE_RUNTIME
+    - Generate code using MessageLite and the lite runtime.
+- 命名空间
+  - 与 Java 命名空间的概念相似
+  - 生成的类的包名可以不同于 proto 的包
+  - 所有定义的消息都有自己的类型和命名空间
+  - 因此 Any 消息才能根据一个 url 和数据来还原消息
+  - 类型的引用也是基于该命名空间
 
 ### Java
-* 服务端支持 Netty
-* 客户端支持 OkHttp 和 Netty
-* 传输层解析出请求的方法
-  * 方法名实际包含了请求类 `foo.bar.Greeter/SayHello`
-* 实际方法触发位置为 `io.grpc.ServerCall.Listener` 的不同实现
-* `ServerServiceDefinition`
-  * 服务定义
-* `ServiceDescriptor`
-  * 服务描述
-* `MethodDescriptor`
-  * 方法描述
-  * 类型
-    * UNARY - 请求 -> 响应
-    * CLIENT_STREAMING -  流请求 -> 响应
-    * SERVER_STREAMING -  请求 -> 流响应
-    * BIDI_STREAMING - 流请求 -> 流响应
-* `HandlerRegistry`
-  * 服务注册中心
-* `ServerInterceptor`
-  * 服务端拦截器
-  * 常见用例
-    * 授权认证
-    * 日志监控
-    * 代理
-* `ServerCallHandler`
-  * 实际请求处理的方法
-* `Stream`
-  * 客户端和服务端的通讯流
-* `io.grpc.Context`
-  * 跨线程的处理上下文
-* 速度优化
-  * 会生成 `MethodHandlers`
-  * 统一方法调用
-  * 实现所有类型的方法调用接口
-    * `io.grpc.stub.ServerCalls.UnaryMethod`
-    * `io.grpc.stub.ServerCalls.ServerStreamingMethod`
-    * `io.grpc.stub.ServerCalls.ClientStreamingMethod`
-    * `io.grpc.stub.ServerCalls.BidiStreamingMethod`
-  * 实际调用时使用 `switch` 和事先给定的方法 id 进行请求, 避免使用反射
-* `io.grpc.Server`
-  * 服务端
-  * `InternalServer`
-    * 用于不同链接层实现的接口
-    * 建立新的链接时回调 `ServerListener#transportCreated`
-* `io.grpc.Status`
-  * 表达异常和状态
-* 基础
-  * `Stream`
-  * `StreamListener`
-  * 基本流程
-    * 方法 -> Call -> Stream
-    * 生成 Call 时会创建对应的 Feature
-    * 同步请求是循环等待 Feature 完成
-  * 完整方法名的命名规则为
-    * `完整的服务名/方法名`
-    * `wener.scel.v1.Scel/Search`
-* 客户端
-  * `ClientCall`
-    * `ClientCall.Listener`
-      * `onHeaders(Metadata)`
-      * `onMessage(RespT)`
-      * `onClose(Status,Metadata)`
-    * 处理流程
-    * 职责
-  * `ManagedChannelBuilder`
-  * `ClientTransport`
-    * `ManagedClientTransport`
-      * 有生命周期管理
-      * `ConnectionClientTransport`
-        * 基于链接
-        * 有属性
-  * `ClientStream`
-  * `ClientStreamListener`
-  * 生成的客户端分为三种类型
-    * Stub
-      * 有所有的方法
-      * 响应均为 `io.grpc.stub.StreamObserver`
-    * BlockingStub
-      * 阻塞接口
-      * 响应为直接的对象
-      * 流响应为 Iterator
-      * 不生成流请求
-    * FeatureStub
-      * 以 Feature 作为返回状态
-* 服务端
-  * `ServerCall`
-    * 处理流程
-      * `ServerStream` -> `ServerStreamListener`
-      * `ServerStreamListener#messageRead`
-        * 会对请求对象进行解析
-      * `ServerCall.Listener#onMessage`
-        * 拦截处理在这一层发生
-        * `ServerCallHandler` 负责从 `ServerCall` 创建 `ServerCall.Listener`
-        * 即实际的方法处理发生在这里
-    * `ServerCalls`
-      * 提供 `ServerCall` 到 `ServerCallHandler` 的适配
-      * 主要用于简化实现
-      * `ServerCall` -> `ServerCall.Listener`
-      * 一个方法 `MethodDescriptor` 对应一个 `ServerCallHandler`
-    * 职责
-      * `ServerCall.Listener` 用于接收消息
-      * `ServerCall` 用于发送和向客户端请求消息
-      * `ServerCallHandler` 方法处理
-  * `ServerBuilder`
-  * `ServerTransport`
-  * `ServerStream`
-  * `ServerStreamListener`
-* Netty
-  * `NettyServerProvider`
-  * `NettyChannelProvider`
-  * `NettyServer`
-  * `NettyServerHandler`
-    * 服务端 GRPC 处理
-    * 执行上下文
-  * 服务端
-    * `NettyServerTransport`
-    * `NettyServerStream`
-  * 客户端
-    * `NettyClientTransport`
-    * `NettyClientStream`
 
+- 服务端支持 Netty
+- 客户端支持 OkHttp 和 Netty
+- 传输层解析出请求的方法
+  - 方法名实际包含了请求类 `foo.bar.Greeter/SayHello`
+- 实际方法触发位置为 `io.grpc.ServerCall.Listener` 的不同实现
+- `ServerServiceDefinition`
+  - 服务定义
+- `ServiceDescriptor`
+  - 服务描述
+- `MethodDescriptor`
+  - 方法描述
+  - 类型
+    - UNARY - 请求 -> 响应
+    - CLIENT_STREAMING - 流请求 -> 响应
+    - SERVER_STREAMING - 请求 -> 流响应
+    - BIDI_STREAMING - 流请求 -> 流响应
+- `HandlerRegistry`
+  - 服务注册中心
+- `ServerInterceptor`
+  - 服务端拦截器
+  - 常见用例
+    - 授权认证
+    - 日志监控
+    - 代理
+- `ServerCallHandler`
+  - 实际请求处理的方法
+- `Stream`
+  - 客户端和服务端的通讯流
+- `io.grpc.Context`
+  - 跨线程的处理上下文
+- 速度优化
+  - 会生成 `MethodHandlers`
+  - 统一方法调用
+  - 实现所有类型的方法调用接口
+    - `io.grpc.stub.ServerCalls.UnaryMethod`
+    - `io.grpc.stub.ServerCalls.ServerStreamingMethod`
+    - `io.grpc.stub.ServerCalls.ClientStreamingMethod`
+    - `io.grpc.stub.ServerCalls.BidiStreamingMethod`
+  - 实际调用时使用 `switch` 和事先给定的方法 id 进行请求, 避免使用反射
+- `io.grpc.Server`
+  - 服务端
+  - `InternalServer`
+    - 用于不同链接层实现的接口
+    - 建立新的链接时回调 `ServerListener#transportCreated`
+- `io.grpc.Status`
+  - 表达异常和状态
+- 基础
+  - `Stream`
+  - `StreamListener`
+  - 基本流程
+    - 方法 -> Call -> Stream
+    - 生成 Call 时会创建对应的 Feature
+    - 同步请求是循环等待 Feature 完成
+  - 完整方法名的命名规则为
+    - `完整的服务名/方法名`
+    - `wener.scel.v1.Scel/Search`
+- 客户端
+  - `ClientCall`
+    - `ClientCall.Listener`
+      - `onHeaders(Metadata)`
+      - `onMessage(RespT)`
+      - `onClose(Status,Metadata)`
+    - 处理流程
+    - 职责
+  - `ManagedChannelBuilder`
+  - `ClientTransport`
+    - `ManagedClientTransport`
+      - 有生命周期管理
+      - `ConnectionClientTransport`
+        - 基于链接
+        - 有属性
+  - `ClientStream`
+  - `ClientStreamListener`
+  - 生成的客户端分为三种类型
+    - Stub
+      - 有所有的方法
+      - 响应均为 `io.grpc.stub.StreamObserver`
+    - BlockingStub
+      - 阻塞接口
+      - 响应为直接的对象
+      - 流响应为 Iterator
+      - 不生成流请求
+    - FeatureStub
+      - 以 Feature 作为返回状态
+- 服务端
+  - `ServerCall`
+    - 处理流程
+      - `ServerStream` -> `ServerStreamListener`
+      - `ServerStreamListener#messageRead`
+        - 会对请求对象进行解析
+      - `ServerCall.Listener#onMessage`
+        - 拦截处理在这一层发生
+        - `ServerCallHandler` 负责从 `ServerCall` 创建 `ServerCall.Listener`
+        - 即实际的方法处理发生在这里
+    - `ServerCalls`
+      - 提供 `ServerCall` 到 `ServerCallHandler` 的适配
+      - 主要用于简化实现
+      - `ServerCall` -> `ServerCall.Listener`
+      - 一个方法 `MethodDescriptor` 对应一个 `ServerCallHandler`
+    - 职责
+      - `ServerCall.Listener` 用于接收消息
+      - `ServerCall` 用于发送和向客户端请求消息
+      - `ServerCallHandler` 方法处理
+  - `ServerBuilder`
+  - `ServerTransport`
+  - `ServerStream`
+  - `ServerStreamListener`
+- Netty
+  - `NettyServerProvider`
+  - `NettyChannelProvider`
+  - `NettyServer`
+  - `NettyServerHandler`
+    - 服务端 GRPC 处理
+    - 执行上下文
+  - 服务端
+    - `NettyServerTransport`
+    - `NettyServerStream`
+  - 客户端
+    - `NettyClientTransport`
+    - `NettyClientStream`
 
-
-__protoc --help__
+**protoc --help**
 
 ```
 $ protoc --help
@@ -887,7 +900,6 @@ message RecvAllRequest {
 }
 ```
 
-
 ```
 syntax = "proto3";
 
@@ -993,9 +1005,8 @@ message BroadcastMsg {
 ```
 
 ## FAQ
+
 ### all SubConns are in TransientFailure
-* https://groups.google.com/forum/#!topic/grpc-io/yCUwuHycNWk
-* 超时后会恢复
 
-
-
+- https://groups.google.com/forum/#!topic/grpc-io/yCUwuHycNWk
+- 超时后会恢复

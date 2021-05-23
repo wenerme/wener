@@ -6,34 +6,35 @@ title: Grafana
 # Grafana
 
 ## Tips
-* 要求
-  * 255 MB，1 CPU
-  * 数据库
-    * SQLite
-    * MySQL
-    * PostgreSQL
-* [插件列表](https://grafana.com/grafana/plugins)
-* 支持授权方式
-  * basic、generic oauth、anonymous、azuread、github、gitlab、google、grafana_com、grafananet、ldap、okta、proxy、saml
-* 企业版
-  * 数据源权限
-  * 报表
-  * SAML
-  * 增强 LDAP
-  * 团队同步 - LDAP, GitHub OAuth, Auth Proxy, Okta - Grafana 作为 IdP
-  * White labeling
-  * 使用统计
-  * 面板热门排序
-  * 查找未使用面板
-  * 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
-* 问题
-  * [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
-  * Legend 无法格式化，使用 prometheus 可以修改 label
-    * `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
-    * `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
-  * [#11170](https://github.com/grafana/grafana/issues/11170) - 无法隐藏 Table 的 Filter for value
-* 注意
-  * Value Mapping 不支持文本匹配
+
+- 要求
+  - 255 MB，1 CPU
+  - 数据库
+    - SQLite
+    - MySQL
+    - PostgreSQL
+- [插件列表](https://grafana.com/grafana/plugins)
+- 支持授权方式
+  - basic、generic oauth、anonymous、azuread、github、gitlab、google、grafana_com、grafananet、ldap、okta、proxy、saml
+- 企业版
+  - 数据源权限
+  - 报表
+  - SAML
+  - 增强 LDAP
+  - 团队同步 - LDAP, GitHub OAuth, Auth Proxy, Okta - Grafana 作为 IdP
+  - White labeling
+  - 使用统计
+  - 面板热门排序
+  - 查找未使用面板
+  - 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
+- 问题
+  - [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
+  - Legend 无法格式化，使用 prometheus 可以修改 label
+    - `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
+    - `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
+  - [#11170](https://github.com/grafana/grafana/issues/11170) - 无法隐藏 Table 的 Filter for value
+- 注意
+  - Value Mapping 不支持文本匹配
 
 ```bash
 brew install grafana
@@ -73,7 +74,7 @@ code /opt/grafana/grafana.ini
 grafana-server --config /opt/grafana/grafana.ini --homepath /usr/local/share/grafana --packaging=brew
 ```
 
-__基本配置__
+**基本配置**
 
 ```ini
 [path]
@@ -92,10 +93,12 @@ type=sqlite3
 [analytics]
 reporting_enabled = false
 ```
+
 ## 配置
-* [Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/)
-* 所有的配置都可以通过环境变量配置
-  * `GF_<SectionName>_<KeyName>`
+
+- [Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/)
+- 所有的配置都可以通过环境变量配置
+  - `GF_<SectionName>_<KeyName>`
 
 ```ini
 [database]
@@ -125,4 +128,5 @@ memcache=127.0.0.1:11211
 ```
 
 ## FAQ
+
 ## msg="Failed to look up user based on cookie" logger=context error="user token not found"

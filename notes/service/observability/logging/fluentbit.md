@@ -1,28 +1,29 @@
 ---
-id: fluentbit
 title: Fluentbit
 ---
 
 # Fluentbit
+
 ## Tips
-* [fluentbit](https://fluentbit.io/)
-* [fluent/fluent-bit](https://github.com/fluent/fluent-bit)
-* [Build Options](https://docs.fluentbit.io/manual/installation/sources/build-and-install)
-* 注意
-  * 官方不支持 musl - https://github.com/fluent/fluent-bit/issues/2464
-* 数据处理流程
-  * input - `-i, --input`
-  * parser - `-R, --parser`
-  * fliter - `-F, --fliter`
-  * buffer
-    * `-b  --storage_path=PATH`
-    * `-f, --flush=SECONDS`
-  * router
-    * 匹配
-      * `-m, --match` - 等同于 `-p match=abc`
-      * `-t, --tag` - 设置 tag，等同于 `-p tag=abc`
-      * `-p, --prop="A=B"` - 设置插件属性
-  * output - 多个
+
+- [fluentbit](https://fluentbit.io/)
+- [fluent/fluent-bit](https://github.com/fluent/fluent-bit)
+- [Build Options](https://docs.fluentbit.io/manual/installation/sources/build-and-install)
+- 注意
+  - 官方不支持 musl - https://github.com/fluent/fluent-bit/issues/2464
+- 数据处理流程
+  - input - `-i, --input`
+  - parser - `-R, --parser`
+  - fliter - `-F, --fliter`
+  - buffer
+    - `-b --storage_path=PATH`
+    - `-f, --flush=SECONDS`
+  - router
+    -  匹配
+      - `-m, --match` - 等同于 `-p match=abc`
+      - `-t, --tag` - 设置 tag，等同于 `-p tag=abc`
+      - `-p, --prop="A=B"` - 设置插件属性
+  - output - 多个
 
 ```bash
 # macOS
@@ -55,7 +56,8 @@ logger -T -n 127.0.0.1 -P 5140 wener
 ```
 
 ## 配置
-* [Configuring Fluent Bit](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit)
+
+- [Configuring Fluent Bit](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit)
 
 ```ini
 # 引入文件
@@ -115,61 +117,66 @@ logger -T -n 127.0.0.1 -P 5140 wener
 ```
 
 ## Input
-* [Input Plugins](https://github.com/fluent/fluent-bit#input-plugins)
-* collectd
-* dummy - 随机生成日志
-* exec - 执行外部命令
-* forwad
-* head - 读取文件前面几行
-* health - TCP 健康检查
-* 系统 - cpu、disk、mem、netif、proc、thermal
-* kmsg - 内核日志
-* mqtt - MQTT 服务
-* random - 生成随机样本
-* serial - 串口
-* stdin
-* syslog
-* systemd
-* tail
-* tcp
-* winlog - Windows Event Log
+
+- [Input Plugins](https://github.com/fluent/fluent-bit#input-plugins)
+- collectd
+- dummy - 随机生成日志
+- exec - 执行外部命令
+- forwad
+- head - 读取文件前面几行
+- health - TCP 健康检查
+- 系统 - cpu、disk、mem、netif、proc、thermal
+- kmsg - 内核日志
+- mqtt - MQTT 服务
+- random - 生成随机样本
+- serial - 串口
+- stdin
+- syslog
+- systemd
+- tail
+- tcp
+- winlog - Windows Event Log
 
 ## Fliter
-* [Fliter Plugins](https://github.com/fluent/fluent-bit#filter-plugins)
-* expect - 条件过滤
-* grep
-* kubernetes - 添加元信息
-* lua
-* parser - 解析记录
-* record_modifier - 修改记录
-* rewrite_tag - 标签重写
-* stdout
-* throttle
-* nest - 嵌套记录
-* modify
+
+- [Fliter Plugins](https://github.com/fluent/fluent-bit#filter-plugins)
+- expect - 条件过滤
+- grep
+- kubernetes - 添加元信息
+- lua
+- parser - 解析记录
+- record_modifier - 修改记录
+- rewrite_tag - 标签重写
+- stdout
+- throttle
+- nest - 嵌套记录
+- modify
 
 ## Output
-* [Output Plugins](https://github.com/fluent/fluent-bit#output-plugins)
-* es - Elasticsearch
-* file
-* forward
-* http
-* influxdb
-* kafka
-* kafka-rest
-* nats
-* null
-* stdout
-* tcp
-* postgresql
-* cockroachdb - v1.6+
+
+- [Output Plugins](https://github.com/fluent/fluent-bit#output-plugins)
+- es - Elasticsearch
+- file
+- forward
+- http
+- influxdb
+- kafka
+- kafka-rest
+- nats
+- null
+- stdout
+- tcp
+- postgresql
+- cockroachdb - v1.6+
 
 ## 插件
-* [fluent/fluent-bit-go](https://github.com/fluent/fluent-bit-go) - Golang package to build Fluentbit plugins
+
+- [fluent/fluent-bit-go](https://github.com/fluent/fluent-bit-go) - Golang package to build Fluentbit plugins
 
 ## Build
-* https://docs.fluentbit.io/manual/installation/sources/build-and-install
-* [nih-at/libzip#98](https://github.com/nih-at/libzip/issues/98) - undefined reference to `fts_read' and 'fts_close'
+
+- https://docs.fluentbit.io/manual/installation/sources/build-and-install
+- [nih-at/libzip#98](https://github.com/nih-at/libzip/issues/98) - undefined reference to `fts_read' and 'fts_close'
 
 ```bash
 if [ "$CBUILD" != "$CHOST" ]; then
@@ -227,11 +234,12 @@ resources:
 ```
 
 ## core stack size
-* PTHREAD_STACK_MIN
-  * musl 下为 2048
-* `FLB_CORO_STACK_SIZE=((3 * PTHREAD_STACK_MIN) / 2)`
-  * musl 下为 3072 - 是无效的 core stack size
-  * 可以考虑设置为 24576
+
+- PTHREAD_STACK_MIN
+  - musl 下为 2048
+- `FLB_CORO_STACK_SIZE=((3 * PTHREAD_STACK_MIN) / 2)`
+  - musl 下为 3072 - 是无效的 core stack size
+  - 可以考虑设置为 24576
 
 ```c
 // 默认
