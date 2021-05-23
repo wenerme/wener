@@ -1,23 +1,25 @@
+---
+title: VirtualBox
+---
+
 # VirtualBox
 
-## Tips
-
-* 磁盘类型
-  * VDI
-    * vbox 自己的磁盘格式
-  * VMDK
-    * 最先由 vm 提出,大多虚拟环境都支持
-    * 支持划分为 2G 小文件功能
-  * VHD
-    * 主要在 Windows 中使用
-    * HyperV 默认磁盘类型
-  * VHDX
-    * [#12616](https://www.virtualbox.org/ticket/12616)
-    * 暂时只能只读
-    * 可以转换为其他格式再挂载 `VBoxManage clonemedium disk <input VHDX> <output image>`
-* [vboxvfs seems to have problems with mmapped access to files => retry with 3.1.4](https://www.virtualbox.org/ticket/819)
-  * vbox 映射的目录不能做 mmap
-  * 导致 boot2docker 很镜像多不能用, mongodb, realmdb, ipfs 等
+- 磁盘类型
+  - VDI
+    - vbox 自己的磁盘格式
+  - VMDK
+    - 最先由 vm 提出,大多虚拟环境都支持
+    - 支持划分为 2G 小文件功能
+  - VHD
+    - 主要在 Windows 中使用
+    - HyperV 默认磁盘类型
+  - VHDX
+    - [#12616](https://www.virtualbox.org/ticket/12616)
+    - 暂时只能只读
+    - 可以转换为其他格式再挂载 `VBoxManage clonemedium disk <input VHDX> <output image>`
+- [vboxvfs seems to have problems with mmapped access to files => retry with 3.1.4](https://www.virtualbox.org/ticket/819)
+  - vbox 映射的目录不能做 mmap
+  - 导致 boot2docker 很镜像多不能用, mongodb, realmdb, ipfs 等
 
 ```bash
 # Download and install vbox and extension pack
@@ -34,6 +36,7 @@ VBoxManage internalcommands converttoraw Ubuntu.vdi Ubuntu.raw
 ```
 
 ### 添加 USB 设备
+
 ```bash
 # 启用 USB 设备控制器,需要虚拟机未运行
 # ohci -> usb1.0, echi -> usb2.0 ,xchi -> usb3.0
@@ -132,6 +135,7 @@ vboxmanage unregistervm $vmname --delete
 ## Vagrant
 
 ## Vagrantfile
+
 ```ruby
 Vagrant.configure(2) do |config|
   # 配置可参考https://docs.vagrantup.com.
@@ -177,6 +181,7 @@ end
 ```
 
 ### 添加额外磁盘和分区
+
 ```ruby
 Vagrant.configure(2) do |config|
 
@@ -253,6 +258,7 @@ end
 ```
 
 #### 磁盘控制
+
 ```bash
 # 查看当前磁盘
 lsblk -io KNAME,TYPE,SIZE,MODEL
@@ -280,15 +286,16 @@ mount -t ext4 /dev/sdb1 /data
 df  -h
 ```
 
-
-
 ## Vagrant Tips
 
-* 启动后运行命令
+- 启动后运行命令
+
 ```ruby
 config.vm.provision "shell", inline: "echo Hello"
 ```
-* 同时启动多个虚拟机
+
+- 同时启动多个虚拟机
+
 ```ruby
 (1..3).each do |i|
   config.vm.define "node-#{i}" do |node|
@@ -297,12 +304,16 @@ config.vm.provision "shell", inline: "echo Hello"
   end
 end
 ```
-* 只启动配置中的指定虚拟机
+
+- 只启动配置中的指定虚拟机
+
 ```bash
 vagrant up node-1
 vagrant up /node-(1|2)/
 ```
-* 传递环境变量
+
+- 传递环境变量
+
 ```ruby
 ENV["LC_ALL"] = "en_US.UTF-8"
 
@@ -310,14 +321,18 @@ Vagrant.configure("2") do |config|
   # ...
 end
 ```
-* 网络配置
+
+- 网络配置
+
 ```ruby
 # 端口转发
 config.vm.network "forwarded_port", guest: 80, host: 8080
 # 指定公网地址
 config.vm.network "public_network", ip: "192.168.0.17"
 ```
-* 共享目录
+
+- 共享目录
+
 ```ruby
 # create 自动创建主机中的目录
 # disabled 禁用
@@ -325,16 +340,22 @@ config.vm.synced_folder "src/", "/srv/website", create: true, owner: "root", gro
 # 禁用默认挂载目录
 config.vm.synced_folder '.', '/vagrant', disabled: true
 ```
-* 手动安装 box
+
+- 手动安装 box
+
 ```bash
 vagrant box add laravel/homestead path/to/your/box/file.box
 ```
-* 常用 BOX
+
+- 常用 BOX
+
 ```
 centos/7
 ubuntu/trusty64
 ```
-* 常用命令
+
+- 常用命令
+
 ```bash
 vagrant up # 启动
 vagrant halt # 关机
@@ -345,41 +366,44 @@ vagrant ssh # SSH 进入机器
 vagrant reload # 重启机器
 vagrant global-status # 查看所有虚拟机的运行状态,不需要当前目录有 Vagrantfile
 ```
-* 常用插件
-  * landrush
-  * vagrant-vbguest
-  * vagrant-cachier
-  * vagrant-omnibus
-  * vagrant-proxyconf
-  * vagrant-share
-* 添加额外磁盘分区和修改磁盘大小和通过定制化参数实现,具体可参考[这里](https://github.com/mitchellh/vagrant/issues/2339#issuecomment-33064917)
-* 搜索 BOX
-  * [vagrantbox](http://www.vagrantbox.es/)
-  * [boxes/search](https://atlas.hashicorp.com/boxes/search)
-* 官方网站
-  * [Vagrantup](https://www.vagrantup.com/)
-  * [软件下载](https://www.vagrantup.com/downloads.html)
-  * [官方文件文档](https://www.vagrantup.com/docs/)
-  * [配置文件文档](https://www.vagrantup.com/docs/vagrantfile/)
 
+- 常用插件
+  - landrush
+  - vagrant-vbguest
+  - vagrant-cachier
+  - vagrant-omnibus
+  - vagrant-proxyconf
+  - vagrant-share
+- 添加额外磁盘分区和修改磁盘大小和通过定制化参数实现,具体可参考[这里](https://github.com/mitchellh/vagrant/issues/2339#issuecomment-33064917)
+- 搜索 BOX
+  - [vagrantbox](http://www.vagrantbox.es/)
+  - [boxes/search](https://atlas.hashicorp.com/boxes/search)
+- 官方网站
+  - [Vagrantup](https://www.vagrantup.com/)
+  - [软件下载](https://www.vagrantup.com/downloads.html)
+  - [官方文件文档](https://www.vagrantup.com/docs/)
+  - [配置文件文档](https://www.vagrantup.com/docs/vagrantfile/)
 
 ## FAQ
 
 ### 找不到 64bit 的虚拟
+
 可能由于 CPU 不支持硬件虚拟化技术(Intel VT-x 或 AMD-v),或者被其他程序占用,例如装了 HyperV.
 
 ### VBoxManage: error: Could not rename the directory
+
 ```bash
 vagrant destroy -f
 rm ~/VirtualBox\ VMs/YOUR_NAME_HERE
 ```
 
 ### Vagrant 在当前目录下创建了大量文件
-这是由于临时目录异常导致的,可参考
-* [#3493](https://github.com/mitchellh/vagrant/issues/3493)
-* [#3514](https://github.com/mitchellh/vagrant/issues/3514)
-* Vagrant 判断该目录的[代码](https://github.com/ruby/ruby/blob/2254fc650b681c2582f25aa0d2be2cc8aba3cb8e/lib/tmpdir.rb#L25)
 
+这是由于临时目录异常导致的,可参考
+
+- [#3493](https://github.com/mitchellh/vagrant/issues/3493)
+- [#3514](https://github.com/mitchellh/vagrant/issues/3514)
+- Vagrant 判断该目录的[代码](https://github.com/ruby/ruby/blob/2254fc650b681c2582f25aa0d2be2cc8aba3cb8e/lib/tmpdir.rb#L25)
 
 ```bash
 # 确保属性正确
@@ -389,7 +413,8 @@ chmod +s /tmp
 ```
 
 ## Windows 下开机启动
-```bash
+
+```batch
 # Win 10 的开启启动目录是隐藏的
 shell:startup
 # 或者直接打开
@@ -400,4 +425,4 @@ start C:\Users\$USER\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Start
 
 作为服务使用
 
-* http://stackoverflow.com/a/19017826/1870054
+- http://stackoverflow.com/a/19017826/1870054

@@ -3,11 +3,12 @@ title: ArgoCD Image Updater
 ---
 
 # ArgoCD Image Updater
-* [argoproj-labs/argocd-image-updater](https://github.com/argoproj-labs/argocd-image-updater)
-  * 基于 argocd 自动更新镜像
-  * 支持写回到仓库
-* ConfigMap argocd-image-updater-config
-* semver 使用 [Masterminds/semver](https://github.com/Masterminds/semver) 实现
+
+- [argoproj-labs/argocd-image-updater](https://github.com/argoproj-labs/argocd-image-updater)
+  - 基于 argocd 自动更新镜像
+  - 支持写回到仓库
+- ConfigMap argocd-image-updater-config
+- semver 使用 [Masterminds/semver](https://github.com/Masterminds/semver) 实现
 
 ```bash
 # 安装

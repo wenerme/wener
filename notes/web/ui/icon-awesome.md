@@ -9,3 +9,4 @@ title: Icon Awesome
   - Outline, Solid
   - [heroicons](https://heroicons.com)
 - [tancredi/fantasticon](https://github.com/tancredi/fantasticon)
+- [iconic.app](https://iconic.app/)

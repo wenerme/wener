@@ -4,31 +4,32 @@ title: Terraform
 ---
 
 # Terraform
-* [functions](https://www.terraform.io/docs/configuration/functions.html)
-* 模板语法 [string-templates](https://www.terraform.io/docs/configuration/expressions.html#string-templates)
-* [Provisioners](https://www.terraform.io/docs/provisioners/index.html)
-  * 本地或远程服务器执行特定动作
-  * 用于准备服务或其他基础设施对象
-  * 不建议使用，作为最后的方式
-* 注意
-  * Provider configurations can be defined only in a root Terraform module.
-  * 被调用模块不能定义 `provider`
-  * 0.10 旧的模块不支持 `for_each`, `count`, `depends_on`
-  * 移除 `provider` 之前确保所有资源删除
-  * 模块会集成默认 provider - 没有别名的 provider
-* 转换函数
-  * yamldecode
-* 后端
-  * local - 本地存储 terraform.tfstate
-  * remote - Terraform Enterprise
-  * artifactory - 无锁
-  * consul
-  * etcdv3
-  * http - 可选锁 - REST 接口
-  * kubernetes - secret 限制了最大 1MB - 不建议使用
-  * 阿里云 oss、腾讯云 cos
-  * pg
-  * s3 - DynamoDB 支持锁
+
+- [functions](https://www.terraform.io/docs/configuration/functions.html)
+- 模板语法 [string-templates](https://www.terraform.io/docs/configuration/expressions.html#string-templates)
+- [Provisioners](https://www.terraform.io/docs/provisioners/index.html)
+  - 本地或远程服务器执行特定动作
+  - 用于准备服务或其他基础设施对象
+  - 不建议使用，作为最后的方式
+- 注意
+  - Provider configurations can be defined only in a root Terraform module.
+  - 被调用模块不能定义 `provider`
+  - 0.10 旧的模块不支持 `for_each`, `count`, `depends_on`
+  - 移除 `provider` 之前确保所有资源删除
+  - 模块会集成默认 provider - 没有别名的 provider
+- 转换函数
+  - yamldecode
+- 后端
+  - local - 本地存储 terraform.tfstate
+  - remote - Terraform Enterprise
+  - artifactory - 无锁
+  - consul
+  - etcdv3
+  - http - 可选锁 - REST 接口
+  - kubernetes - secret 限制了最大 1MB - 不建议使用
+  - 阿里云 oss、腾讯云 cos
+  - pg
+  - s3 - DynamoDB 支持锁
 
 ```bash
 # 日志
@@ -54,7 +55,8 @@ terraform {
 ```
 
 ## terraformrc
-* https://www.terraform.io/docs/commands/cli-config.html
+
+- https://www.terraform.io/docs/commands/cli-config.html
 
 ```bash
 cat <<HCL > ~/.terraformrc
@@ -76,24 +78,24 @@ terraform providers mirror ~/.terraform.d/plugins
 ```
 
 ## 变量
-* 输入变量
-  * __使用变量必须先定义变量__
-  * 读取顺序
-    * 环境变量
-    * 变量文件 `terraform.tfvars` `terraform.tfvars.json`
-      * HCL 或 JSON
-    * 变量文件 `*.auto.tfvars` `*.auto.tfvars.json`
-    * 参数 `-var`, `-var-file`
-  * 会检测环境变量，例如 `name` 则会使用 `TF_VAR_name`
-* 本地变量
-  * 直接写在文件里的变量
-  * 可重复使用
-* 输出变量
-  * 类似于一个模块的返回值
-  * 子模块可通过输出变量暴露信息给上级
-  * root 模块可输出到命令行
-  * 当使用远程状态时，root模块输出变量能够被其他配置访问到， `terraform_remote_state`
 
+- 输入变量
+  - **使用变量必须先定义变量**
+  - 读取顺序
+    - 环境变量
+    - 变量文件 `terraform.tfvars` `terraform.tfvars.json`
+      - HCL 或 JSON
+    - 变量文件 `*.auto.tfvars` `*.auto.tfvars.json`
+    - 参数 `-var`, `-var-file`
+  - 会检测环境变量，例如 `name` 则会使用 `TF_VAR_name`
+- 本地变量
+  - 直接写在文件里的变量
+  - 可重复使用
+- 输出变量
+  - 类似于一个模块的返回值
+  - 子模块可通过输出变量暴露信息给上级
+  - root 模块可输出到命令行
+  - 当使用远程状态时，root 模块输出变量能够被其他配置访问到， `terraform_remote_state`
 
 ```hcl
 terraform {

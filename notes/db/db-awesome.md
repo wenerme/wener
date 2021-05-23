@@ -21,6 +21,15 @@ title: Database Awesome
   - 基于 PostgreSQL
   - 类比 Firebase
 
+## 时序
+- [questdb/questdb](https://github.com/questdb/questdb)
+  - Java, Apache 2.0
+  - PostgreSQL 兼容协议
+
+## OLAP
+- [duckdb/duckdb](https://github.com/duckdb/duckdb)
+  - SQLite for OLAP, C++, MIT
+
 ## 消息队列
 - [Comparison of messaging patterns](https://github.com/obsidiandynamics/goharvest/wiki/Comparison-of-messaging-patterns)
 

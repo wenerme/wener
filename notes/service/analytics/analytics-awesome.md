@@ -6,3 +6,6 @@ title: Analytics Awesome
 - [mikecao/umami](https://github.com/mikecao/umami)
   - MIT、简单、移动端友好
   - Node + PostgreSQL/MySQL
+- [zgoat/goatcounter](https://github.com/zgoat/goatcounter)
+  - EUPL
+  - Go

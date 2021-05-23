@@ -215,14 +215,14 @@ exten = 101,1,Verbose("Call to AudioSocket via Channel interface")
 
 ## bridge
 
-| module                           | desc |
-| -------------------------------- | ---- |
+| module                           | desc                                                  |
+| -------------------------------- | ----------------------------------------------------- |
 | bridge_builtin_features          |
 | bridge_builtin_interval_features |
-| bridge_holding                   |
-| bridge_native_rtp                |
+| bridge_holding                   | store channels in bridge for holding, parking, queues |
+| bridge_native_rtp                | Native RTP bridging                                   |
 | bridge_simple                    |
-| bridge_softmix                   |
+| bridge_softmix                   | 多方，软 mix                                          |
 
 ## func
 
@@ -308,7 +308,7 @@ exten = 101,1,Verbose("Call to AudioSocket via Channel interface")
 | app_directory         |
 | app_disa              | Direct Inward System Access          |
 | app_dumpchan          |
-| app_echo              | 测试应用, 感受延时, 确认是否有声音
+| app_echo              | 测试应用, 感受延时, 确认是否有声音   |
 | app_exec              |
 | app_externalivr       |
 | app_festival          |
@@ -359,8 +359,8 @@ exten = 101,1,Verbose("Call to AudioSocket via Channel interface")
 
 ## res
 
-| res module                | desc                                         |
-| ------------------------- | -------------------------------------------- |
+| res module                | desc                                          |
+| ------------------------- | --------------------------------------------- |
 | res_adsi                  |
 | res_ael_share             |
 | res_agi                   |
@@ -392,24 +392,24 @@ exten = 101,1,Verbose("Call to AudioSocket via Channel interface")
 | res_limit                 |
 | res_manager_devicestate   |
 | res_manager_presencestate |
-| res_monitor               |
+| res_monitor               | Monitor 功能, 现在更多推荐使用 app_mixmonitor |
 | res_musiconhold           |
 | res_mutestream            |
 | res_mwi_devstate          |
 | res_parking               |
 | res_phoneprov             |
-| res_prometheus            | prometheus 监控                              |
+| res_prometheus            | prometheus 监控                               |
 | res_realtime              |
 | res_resolver_unbound      |
-| res_rtp_asterisk          | RTP，RTCP with Symmetric RTP support for NAT |
+| res_rtp_asterisk          | RTP，RTCP with Symmetric RTP support for NAT  |
 | res_rtp_multicast         |
 | res_security_log          |
 | res_smdi                  |
-| res_snmp                  | SNMP 集成                                    |
+| res_snmp                  | SNMP 集成                                     |
 | res_speech                |
 | res_srtp                  |
-| res_statsd                | stattsd 监控                                 |
-| res_stir_shaken           | STIR/SHAKEN                                  |
+| res_statsd                | stattsd 监控                                  |
+| res_stir_shaken           | STIR/SHAKEN                                   |
 | res_stun_monitor          |
 | res_timing_dahdi          |
 | res_timing_pthread        |

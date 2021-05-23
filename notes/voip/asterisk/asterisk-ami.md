@@ -53,3 +53,55 @@ asterisk -rx 'manager show events'
 - 服务退出或重启会发送 Shutdown
 - Newchannel - 通道建立
   - 包含 Uniqueid 可用于持续跟踪通道
+  - 然后会有很多 VarSet - SIPURI
+
+## 一次呼叫过程产生的事件
+
+```
+Event: Newchannel
+Privilege: call,all
+ChannelState: 0
+CallerIDNum: 6003
+AccountCode:
+Channel: SIP/6003-000000de
+ChannelStateDesc: Down
+CallerIDName:
+Exten: 10085
+Context: sipinbound
+Uniqueid: 1621433208.393
+```
+
+- SIPURI=sip:6003@192.168.1.2
+- SIPDOMAIN=192.168.1.2
+- SIPCALLID=NKEVsn22tE
+- SIPROUTE=sip-6003 - 应用自定义
+- Newstate - Ring
+- Newexten - 执行的 extension 序列
+- Macro 包含的变量
+  - MACRO_EXTEN
+  - MACRO_CONTEXT
+  - MACRO_PRIORITY
+  - MACRO_DEPTH
+- Newchannel - EXTRA/7-1 对方通道
+  - DIALEDPEERNUMBER=7/10086
+  - NewCallerid EXTRA/7-1
+- Newstate - Dialing
+- Dial
+- RTCPReceived
+- RTCPSent
+- Newstate - Up
+- DIALSTATUS=ANSWER
+- DIALEDPEERNAME=EXTRA/7-1
+- BRIDGEPEER=EXTRA/7-1 - 两个通达设置对方为 peer
+- BRIDGEPEER=SIP/6003-000000de
+- Bridge
+- BRIDGEPVTCALLID=NKEVsn22tE
+- Unlink - 断开 bridge
+- ANSWEREDTIME=16
+- ExtraUp - 板卡 Board=1
+- Hangup - EXTRA/7-1
+- RTPAUDIOQOS=ssrc=1662980482;themssrc=2301022491;lp=0;rxjitter=0.014852;rxcount=1238;txjitter=0.000000;txcount=1238;rlp=0;rtt=0.005000
+  - RTP QOS 信息
+- Hangup - SIP/6003-000000de
+  - CallerIDNum: 6003
+  - Uniqueid: 1621433208.393

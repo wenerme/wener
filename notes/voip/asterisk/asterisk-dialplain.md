@@ -107,6 +107,58 @@ exten => example,1,Set(__MyVariable=thisValue)
 exten => example,1,Verbose(1,Value of MyVariable is: ${MyVariable})
 ```
 
+## 应用控制流
+
+- Goto
+  - 参数 named_priority; `[[context,]extension,]priority`
+  - 跳转失败执行 `i` (invalid) extension
+    - 不存在则执行 `h`
+    - 不存在则直接 hangup
+- GotoIf(condition?label1:label2)
+- GotoIfTime(times,days_of_week,days_of_month,months?label)
+  - time - 时间,24 小时制
+  - `GotoIfTime(09:00-17:59,mon-fri,*,*?open,s,1)`
+  - `GotoIfTime(09:00-11:59,sat,*,*?open,s,1)`
+- `Gosub([context,[exten,]]priority[(arg1,[...][argN]]))`
+- GosubIf(condition?labeliftrue:labeliffalse)
+  - `GosubIf($["${CALLERID(num)}" = ""]?setcallerid,1)`
+  - label 为 `[[context,]extension,]priority`
+- `Return([value])`
+- Macro(macroname,arg1,arg2...)
+  - 实际执行为 `macro-macroname`, s extension
+  - 执行 macro 会将 context 变为当前 macro
+  - 最多 7 层
+  - MACRO_EXTEN
+  - MACRO_CONTEXT
+  - MACRO_PRIORITY
+  - ARG1...ARGN
+  - MACRO_OFFSET - 结束时设置则会跳转到 MACRO_OFFSET+n+1 如果不存在调整 n+1
+- MacroExit
+- StackPop
+  - 弹出栈 - 移除上一次 Gosub 位置
+- `Exec(appname(arguments))`
+- `ExecIf(expression?appiftrue:[appiffalse])`
+- `ExecIfTime(times,weekdays,mdays,months,[timezone]?appname[(appargs]))`
+- TryExec(appname(arguments))
+
+**Goto vs GoSub**
+
+- Goto
+  - 修改当前上下文
+- GoSub
+  - 保留当前上下文
+  - 可以 Return
+
+## 函数控制流
+
+- `IF(expr?[true][:false])`
+  - 例如 `exten => 123,1,Set(something=${IF($[2 > 1]?foo:bar)})`
+- `IFTIME(times,days_of_week,days_of_month,months?[true][:false])`
+- DIALPLAN_EXISTS(context,extension,priority)
+- EXISTS(data)
+
+## Demo
+
 ```conf
 # 将拨打到 900X 的转发到 SIP, 并进行录音
 exten => _900X,1,NoOp()
@@ -233,6 +285,7 @@ exten => 502,1,Dial(DAHDI/1,10)
 ```
 
 - option
+
   - `A(x)` 播放提示音文件 `x`
   - `b([[context^]exten^]priority[(arg1[^...][^argN])])`
     - 在呼出前跳转到指定位置, 使用新的通道
@@ -241,9 +294,10 @@ exten => 502,1,Dial(DAHDI/1,10)
   - `R`
     - 重置当前 CDR
   - `c`
-    t: Allow the called party to transfer the calling party by sending the DTMF
-    sequence defined in "features.conf". This setting does not perform policy
-    enforcement on transfers initiated by other methods.
+
+  t: Allow the called party to transfer the calling party by sending the DTMF
+  sequence defined in "features.conf". This setting does not perform policy
+  enforcement on transfers initiated by other methods.
 
   T: Allow the calling party to transfer the called party by sending the DTMF
   sequence defined in "features.conf". This setting does not perform policy

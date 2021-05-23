@@ -1,5 +1,4 @@
 ---
-id: ceph
 title: Ceph
 ---
 
@@ -35,7 +34,7 @@ title: Ceph
     - 1GB+
   - ceph-osd
     - 2 CPU+
-    - 默认 4GB， 2-4GB 可用，不推荐小于 2GB 
+    - 默认 4GB， 2-4GB 可用，不推荐小于 2GB
     - 小文件多建议 4GB+，大数据传输建议 256GB+
     - 磁盘推荐 1TB+
     - 不推荐 1硬盘 1OSD 1MSD，不推荐 1硬盘多OSD

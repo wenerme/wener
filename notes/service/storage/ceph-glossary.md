@@ -1,5 +1,4 @@
 ---
-id: ceph-glossary
 title: Ceph 术语
 ---
 # Ceph 术语

@@ -1,18 +1,18 @@
 ---
-id: minio
-title: Minio
+title: MinIO
 ---
 
-# Minio
-- 是什么？
-  - 提供 S3 对象存储协议的服务 - Apache 2.0
+# MinIO
+
+- [minio](https://github.com/minio/minio) 是什么？
+  - MinIO 全线产品 AGPL 协议
+  - 提供 S3 对象存储协议的服务
   - 支持分布式高可用
-  - 支持用户、分组、策略、KMS等
-  - [console](https://github.com/minio/console) 提供管理界面 - AGPL 3.0
-- 注意
-  - 集群模式不支持增加节点
-    - 支持联邦进行 bucket 分流
-    - 不能减少
+  - 支持用户、分组、策略、KMS
+  - 支持 OpenID 和 LDAP
+  - Audit Webhook、Logger Webhook
+  - 内置压缩能力
+  - [console](https://github.com/minio/console) 提供管理界面
 - Reed-Solomon code
 - [minio/awesome-minio](https://github.com/minio/awesome-minio)
 - https://play.minio.io:9000
@@ -36,11 +36,19 @@ title: Minio
     - ObjectACL (Use bucket policies instead)
     - ObjectTorrent
 - Cyberduck s3 http https://svn.cyberduck.io/trunk/profiles/S3%20(HTTP).cyberduckprofile
-- 注意
-  - access key 至少 3 字符
-  - secret key 至少 8 字符
 - 参考
   - [Set up Nginx proxy with MinIO Server](https://docs.minio.io/docs/setup-nginx-proxy-with-minio)
+
+:::caution
+
+- access key 至少 3 字符
+- secret key 至少 8 字符
+- 集群模式不支持增加节点
+  - 支持联邦进行 bucket 分流
+  - 不能减少
+
+:::
+
 
 | 限制           | 值            |
 | -------------- | ------------- |
@@ -146,8 +154,10 @@ rclone lsd oss:
 ```
 
 ## 配置
-* https://docs.min.io/docs/minio-server-configuration-guide.html
-* 现在配置会存储到后端存储目录下， `.minio.sys`
+
+- https://docs.min.io/docs/minio-server-configuration-guide.html
+- 现在配置会存储到后端存储目录下， `.minio.sys`
+- https://github.com/minio/minio/tree/master/docs/config
 
 ## Docker
 
@@ -181,7 +191,10 @@ mc admin policy set myminio sites-admin user=sites
 ```
 
 ## console
-* [minio/console](https://github.com/minio/console)
+
+- [minio/console](https://github.com/minio/console)
+  - 支持 operator - `CONSOLE_OPERATOR_MODE=on`
+    - 需要生成 JWT 登陆 - operator 的 ServiceAccount
 
 ```bash
 mc config host add test http://minio.cluster.internal/ YOURACCESSKEY YOURSECRETKEY
@@ -225,10 +238,11 @@ docker run --rm -it \
 ```
 
 ## 集群
+
 - [Distributed MinIO Quickstart Guide](https://docs.minio.io/docs/distributed-minio-quickstart-guide.html)
 - 集群
   - 至少需要 4 个节点，最多 32 个节点，最多
-  - 集群启动后 __节点不可增加__
+  - 集群启动后 **节点不可增加**
   - 启动需要双数磁盘
   - 最多 16 个磁盘, erasure code
   - 在 (n/2 + 1) 磁盘有效时, 集群有效, 可写，可创建 Bucket
@@ -236,27 +250,28 @@ docker run --rm -it \
   - 一个节点可以包含多个磁盘
 
 ## 联邦
-* [Federation Quickstart Guide](https://docs.minio.io/docs/minio-federation-quickstart-guide.html)
-* 多个集群 Bucket 分流
-* 依赖
-  * etcd
-  * CoreDNS - 可选
 
-## FAQ
+- [Federation Quickstart Guide](https://docs.minio.io/docs/minio-federation-quickstart-guide.html)
+- 多个集群 Bucket 分流
+- 依赖
+  - etcd
+  - CoreDNS - 可选
 
-### Unsupported backend format
+# FAQ
+
+## Unsupported backend format
 
 - [#4104](https://github.com/minio/minio/issues/4104)
 - 删除旧的启动文件
 
-### Let's Encrypt Certbot
+## Let's Encrypt Certbot
 
 ```bash
 brew install certbot
 ```
 
-### Unable to initialize config system: Invalid credentials
+## Unable to initialize config system: Invalid credentials
 
 key/secret 错误
 
-### This 'admin' API is not supported by server in 'mode-server-fs'.
+## This 'admin' API is not supported by server in 'mode-server-fs'.

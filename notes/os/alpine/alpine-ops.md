@@ -1,5 +1,4 @@
 ---
-id: alpine-ops
 title: Alpine 运维笔记
 ---
 
@@ -158,8 +157,8 @@ apk add util-linux
 echo -e 'd\n\nn\n\n\n\n\n\np\nw\n' | fdisk /dev/sda
 
 # 重启
-# 不重启应该也是可以的
-reboot
+# 不重启应该也是可以的 - ext4 支持在线扩容
+# reboot
 
 # 扩展文件系统
 apk add e2fsprogs-extra

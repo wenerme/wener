@@ -210,6 +210,13 @@ title: Go Awesome
 - [trustmaster/goflow](https://github.com/trustmaster/goflow)
 - [flowbase/flowbase](https://github.com/flowbase/flowbase)
 
+## Service
+
+- [AsynkronIT/protoactor-go](https://github.com/AsynkronIT/protoactor-go)
+  - Proto Actor - Ultra fast distributed actors for Go, C# and Java/Kotlin
+- [wasmCloud/wasmCloud](https://github.com/wasmCloud/wasmCloud)
+  - wasm actor 平台 - 支持 tinygo
+
 ## Markdown
 
 - [yuin/goldmark](https://github.com/yuin/goldmark)
@@ -274,3 +281,8 @@ title: Go Awesome
 ## Service
 
 - [umputun/remark42](https://github.com/umputun/remark42) comment egnine
+
+## Performance
+
+- [bspaans/jit-compiler](https://github.com/bspaans/jit-compiler)
+- [Writing a JIT compiler in Golang](https://medium.com/kokster/964b61295f)
