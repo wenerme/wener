@@ -101,18 +101,23 @@ module.exports = {
       ...items('devops/intro'),
       {
         type: 'category',
+        label: '日志',
+        items: items('service/observability/logging'),
+      },
+      {
+        type: 'category',
         label: '指标监控',
-        items: items('devops/metrics'),
+        items: items('service/observability/metrics'),
       },
       {
         type: 'category',
         label: '调用链',
-        items: items('devops/tracing'),
+        items: items('service/observability/tracing'),
       },
       {
         type: 'category',
-        label: '日志',
-        items: items('service/logging'),
+        label: '可见性',
+        items: items('service/observability'),
       },
       {
         type: 'category',
