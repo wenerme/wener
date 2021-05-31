@@ -4,9 +4,9 @@ title: Loki
 
 # Loki
 
-- 是什么
-  - 面向日志的 Prometheus
-- [grafana/loki](https://github.com/grafana/loki)
+- [grafana/loki](https://github.com/grafana/loki) 是什么 ?
+  - AGPL
+  - 日志界的 Prometheus
 - [Architecture](https://grafana.com/docs/loki/latest/architecture/)
 - 参考
   - [An introduction to Loki, the Prometheus-inspired open source logging system](https://grafana.com/blog/2020/05/12/an-only-slightly-technical-introduction-to-loki-the-prometheus-inspired-open-source-logging-system/)
@@ -29,23 +29,26 @@ title: Loki
 - writes a chunk per stream
 - chunk_target_size (around 1MB), max_chunk_age (increase beyond 1h), chunk_idle_period (increase to match max_chunk_age)
 - index
+  - BoltDB Shipper - 本地和远程同步 - 依赖对象存储
+    - 24h 周期索引时工作最好
+    - 类似于 Thanos
+  - Apache Cassandra - 兼容 scylladb
   - Amazon DynamoDB
   - Google Bigtable
-  - Apache Cassandra
   - BoltDB - 单机
-  - BoltDB Shipper - 实验阶段
 - chunk
-  - Amazon DynamoDB
-  - Google Bigtable
   - Apache Cassandra
   - Amazon S3
     - 权限
       - s3:ListBucket
       - s3:PutObject
       - s3:GetObject
-  - Google Cloud Storage
+      - s3:DeleteObject - Single Store (boltdb-shipper) compactor
   - Filesystem - 单机，除非 NFS - NFS 体验不好
     - 单目录最多 5.5m [#1502](https://github.com/grafana/loki/issues/1502)
+  - Amazon DynamoDB
+  - Google Bigtable
+  - Google Cloud Storage
 
 ## 组件
 

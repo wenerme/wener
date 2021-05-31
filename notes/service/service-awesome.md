@@ -8,3 +8,14 @@ title: Service Awesome
   - platform for building developer portals
   - 开发者门户网站
   - 管理服务、基础设施、文档
+
+## Avatar
+
+- [getavataaars](https://getavataaars.com/)
+  - [fangpenlin/avataaars-generator](https://github.com/fangpenlin/avataaars-generator)
+  - react 组件
+  - 头像相对比较好看
+- [boringavatars](https://boringavatars.com/)
+  - [boringdesigners/boring-avatars](https://github.com/boringdesigners/boring-avatars)
+  - 简单的头像
+  - React 组件 - 基于 SVG

@@ -341,13 +341,20 @@ useStore.destroy();
 ## 开发工具
 
 - [storybookjs/storybook](https://github.com/storybookjs/storybook)
+  将 UI 开发从主应用分离
   - 不清楚如何选择，那就选择 Storybook
+  - 非常重
+  - 可能和项目内其他组件冲突 - React 17, PostCSS
+  - 支持多框架和平台 - React, Vue, WebComponent, React Native, Ember, Svelte, Preact, Marionette.js, Mithril, Marko, Riot, Rax, Flutter
 - [styleguidist/react-styleguidist](https://github.com/styleguidist/react-styleguidist)
   - 类似于 storybook，提供独立环境
+  - 实时编辑器
 - [doczjs/docz](https://github.com/doczjs/docz)
   - 组件 Doc 和 开发
   - 基于 MDX
+  - 开发不活跃
 - [react-cosmos/react-cosmos](https://github.com/react-cosmos/react-cosmos)
+  Sandbox for developing and testing UI components in isolation
 
 ## 工具
 

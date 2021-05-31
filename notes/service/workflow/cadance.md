@@ -4,14 +4,14 @@ title: Cadence
 
 # Cadence
 
-- 是什么？
+- [uber/cadence](https://github.com/uber/cadence) 是什么？
   - 分布式，大规模，持久化，高可用的异构调度引擎
   - 用于异步长时间运行的业务逻辑
-- [uber/cadence](https://github.com/uber/cadence)
-  - Golang
+  - Fault Tolerant Actor Framework
+  - fault-oblivious stateful workflow
+  - Golang 实现
   - 提供 Java SDK、Go SDK
   - Cadence 更像是一个执行平台 - 例如 BNMP、Airflow DAG 可以在其之上运行
-  - fault-oblivious stateful workflow
 - 使用场景
   - 周期执行 / 分布式 CRON
   - 微服务编排
@@ -41,6 +41,10 @@ title: Cadence
     - History
       - 包含 Cross DC replication
     - Worker
+- 高级特性
+  - 高级可视化
+  - 工作流归档
+  - 跨数据中心复制
 - 参考
   - [uber/cadence-web](https://github.com/uber/cadence-web)
     - 查看运行的流程
@@ -52,7 +56,28 @@ brew install cadence-workflow
 docker run --rm ubercadence/cli:master
 ```
 
+## 启动
+
+```bash
+# 使用 postgres
+curl -o docker-compose.yml https://raw.githubusercontent.com/uber/cadence/master/docker/docker-compose-postgres.yml
+curl -O https://raw.githubusercontent.com/uber/cadence/master/docker/prometheus_config.yml
+# UI localhost:8088
+# postgres :5432,prometheus :9090,grafana :3000,cadence 8000-8003,7933-3935,7939,cadence-web :8088
+docker-compose up
+
+# 注册 domain
+docker run --network=host --rm ubercadence/cli:master --do test-domain domain register -rd 1
+# domian 信息
+docker run --network=host --rm ubercadence/cli:master --do test-domain domain describe
+```
+
+## Golang
+
+- [helloworld/main.go](https://github.com/uber-common/cadence-samples/blob/master/cmd/samples/recipes/helloworld/main.go)
+
 ## Java
+
 ```java
 // 流程接口
 public interface TransferWorkflow {

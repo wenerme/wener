@@ -46,19 +46,22 @@ helm pull stable/nextcloud --untar
 
 ## 常用仓库
 
-- [helm/charts](https://github.com/helm/charts)
-
 | NAME                         | URL                                                             |
 | ---------------------------- | --------------------------------------------------------------- |
-| stable                       | https://kubernetes-charts.storage.googleapis.com/               |
-| incubator                    | https://kubernetes-charts-incubator.storage.googleapis.com      |
+| wener<br/>offcial collection | https://wenerme.github.io/charts<br/>https://charts.wener.tech/ |
 | traefik                      | https://containous.github.io/traefik-helm-chart                 |
 | jetstack                     | https://charts.jetstack.io                                      |
 | hashicorp                    | https://helm.releases.hashicorp.com                             |
 | harbor                       | https://helm.goharbor.io                                        |
+| Deprecaed                    | ⚠️                                                              |
+| stable                       | https://kubernetes-charts.storage.googleapis.com/               |
+| incubator                    | https://kubernetes-charts-incubator.storage.googleapis.com      |
 | stable<br/>azure mirror      | http://mirror.azure.cn/kubernetes/charts/                       |
 | incubator<br/>azure mirror   | http://mirror.azure.cn/kubernetes/charts-incubator/             |
-| wener<br/>offcial collection | https://wenerme.github.io/charts<br/>https://charts.wener.tech/ |
+
+- [bitnami/charts](https://github.com/bitnami/charts)
+- [banzaicloud/banzai-charts](https://github.com/banzaicloud/banzai-charts)
+- [helm/charts](https://github.com/helm/charts)
 
 ## 仓库
 
@@ -159,14 +162,16 @@ helm template ./mychart
 - [fluxcd/helm-operator](https://github.com/fluxcd/helm-operator)
 
 # FAQ
+
 ## oci registry vs chart repository
-* OCI
-  * 实验阶段
-  * 可直接使用现有 Docker 仓库基础设施
-  * 仓库方可能对 chart 支持还不是很好 - Chart 元信息可能展现不完善
-  * 部分仓库还不支持
-  * Helm 3+
-* Repo
-  * Helm 2+
-  * 简单易理解 - HTTP 静态文件服务 - 提供 index.yaml 作为索引
-  * 现有仓库功能相对完善
+
+- OCI
+  - 实验阶段
+  - 可直接使用现有 Docker 仓库基础设施
+  - 仓库方可能对 chart 支持还不是很好 - Chart 元信息可能展现不完善
+  - 部分仓库还不支持
+  - Helm 3+
+- Repo
+  - Helm 2+
+  - 简单易理解 - HTTP 静态文件服务 - 提供 index.yaml 作为索引
+  - 现有仓库功能相对完善

@@ -20,6 +20,32 @@ dapr run --app-id example-service \
 dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
 ```
 
+## SDK
+
+| Language | Status | Client |    Server    |       Actor        |
+| -------- | :----- | :----: | :----------: | :----------------: |
+| .NET     | Stable |   ✔    | ASP.NET Core |         ✔          |
+| Python   | Stable |   ✔    |     gRPC     | FastAPI<br />Flask |
+| Java     | Stable |   ✔    | Spring Boot  |         ✔          |
+| Go       | Stable |   ✔    |      ✔       |         ❌         |
+| PHP      | Stable |   ✔    |      ✔       |         ✔          |
+
+- Client
+  - 服务方法请求
+  - 状态存储
+  - PubSub
+  - 绑定操作
+  - Secret 获取
+  - Virtual Actor 交互
+- Server 扩展 - Dapr 服务扩展
+  - 能被其他服务调用
+  - 订阅主题
+- Actor
+  - 方法被请求
+  - 状态保存获取
+  - Timer 回调
+  - 持久化 reminder
+
 ## Sidecar
 
 - 默认端口 3500
@@ -123,4 +149,55 @@ CONF
 dapr run --app-id myapp --dapr-http-port 3500 --components-path ./my-components
 # 请求 json 中的内容
 curl http://localhost:3500/v1.0/secrets/my-secret-store/my-secret
+```
+
+## 配置
+
+- CDR Configuration
+- 通过 `dapr.io/config: "zipkin"` 使用
+
+```yaml
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: zipkin
+  namespace: default
+spec:
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      # 可以 selfhost
+      endpointAddress: "http://localhost:9411/api/v2/spans"
+      # k8s
+      endpointAddress: "http://zipkin.default.svc.cluster.local:9411/api/v2/spans"
+
+  # API ACL
+  api:
+    allowed:
+    - name: state # state, invoke, secrets, bindings, publish, actors, metadata
+      version: v1.0
+      protocol: http # http, grpc
+
+  # 服务访问控制
+  accessControl:
+    defaultAction: deny
+    trustDomain: "public"
+    policies:
+    - appId: app1
+      defaultAction: allow
+      trustDomain: 'public'
+      namespace: "default"
+    - appId: app1
+      defaultAction: deny
+      trustDomain: 'public'
+      namespace: "default"
+      operations:
+      - name: /op1 # /op1/*
+        httpVerb: ['POST', 'PUT'] # ['*']
+        action: allow
+
+  # 预览特性
+  features:
+  - name: Feature1
+    enabled: true
 ```

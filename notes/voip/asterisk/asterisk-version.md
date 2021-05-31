@@ -13,6 +13,7 @@ title: Asterisk 版本
   - edge 版
 - JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
 - [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
+- debian asterisk [tracker](https://tracker.debian.org/pkg/asterisk)
 
 | Ver | Type     | Release    | EOL        |
 | --- | -------- | ---------- | ---------- |
@@ -26,6 +27,11 @@ title: Asterisk 版本
 | 1.8 | LTS      | 2010-10-21 | 2015-10-21 |
 | 1.4 | LTS      | 2006-12-23 | 2012-04-21 |
 
+```bash
+# 获取给的版本源码
+curl -O https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz
+```
+
 ## Asterisk 18
 
 - LTS | 2020-10-20 - 2024-10-20
@@ -36,15 +42,16 @@ title: Asterisk 版本
   - 基于 TCP 的音频传输协议 - 适用于局域网实现音频处理 server - 例如 AI
   - [CyCoreSystems/audiosocket](https://github.com/CyCoreSystems/audiosocket)
   - [Audio Pipes : playing with real-time audio with Asterisk](https://www.youtube.com/watch?v=tjduXbZZEgI)
+- STIR/SHAKEN - Secure Telephony Identity Revisited / Signature-based Handling of Asserted information using toKENs
+  - 避免伪造 callerid
 - [CHANGES](https://raw.githubusercontent.com/asterisk/asterisk/18/CHANGES)
 
 ## Asterisk 17
 
-### 新增
-
+- 废弃 **chan_sip**
 - ARI 支持应用事件过滤
-- AttendedTransfer
-- BlindTransfer
+- AttendedTransfer - queue up attended transfer to the given extensio
+- BlindTransfer - redirect all channels currently bridged to the caller channel to the specified destination
 - ConfBridge
   - remb_behavior 选项新增 average_all, highest_all, lowest_all
     - bridge 级别而不是每个来源级别控制
@@ -52,10 +59,10 @@ title: Asterisk 版本
   - RINGTIME 和 RINGTIME_MS 变量 - 秒和毫秒 - 创建通话通道和收到第一个 RINGING 信号的间隔
   - PROGRESSTIME 和 PROGRESSTIME_MS - 同上 - 处理 PROGRESS 信号 - 最低值应该为 PDD (Post Dial Delay)
   - DIALEDTIME_MS 和 ANSWEREDTIME_MS - DIALEDTIME 和 ANSWEREDTIME 的毫秒版本
+- ReadExten - 添加 `p` 选项当用户按 `#` 时停止
 - RTP/ICE
   - 可以使用 ice_host_candidate 本地地址
-- DUNDi
-  - 支持 IPv4/IPv6 双绑定
+- pbx_dundi - DUNDi 支持 IPv4/IPv6 双绑定
 - 新增 res_mwi_devstate 模块
   - 订阅语音信箱状态事件
 - [Prometheus](https://wiki.asterisk.org/wiki/display/AST/Asterisk+17+Configuration_res_prometheus) exporter

@@ -350,3 +350,13 @@ title: 开发用词字典
 - correlation - 相关性
   - measure of association and mathematical tools are provided to measure the magnitude of the correlation.
   - 度量 association/relationship
+
+## Register vs Registry
+- Register - A recording of items, names, or actions
+  - 事情
+- Registry - A place where you Register
+  - 地点
+- Registrar - One who registers
+  - 人
+- Registration - the act of registering
+  - 动作

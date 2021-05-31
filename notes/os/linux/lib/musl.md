@@ -9,6 +9,8 @@ title: musl
 - [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
 - 不支持 nsswitch
   - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
+- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
+  - 其他软件已知因为 musl 导致的 bug
 
 ## 环境变量
 

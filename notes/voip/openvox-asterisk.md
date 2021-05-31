@@ -31,6 +31,13 @@ channel originate SIP/6003 extension 10086@sip-6003
 
 :::
 
+:::caution ⚠️
+
+- wg 系列没有 app_stack
+  - 基于 Debian 8, Linux 4.19.81, asterisk 1.8.20
+
+:::
+
 - rtg - 路由分组
 - 一个路由规则会基于目标生成 N 个 context - `rtg-test-1`
 - 每个目标 include 一个
@@ -85,3 +92,26 @@ exten => s,n,Hangup(42)
 # 默认 SIP 路由
 SIPROUTE=sipdefault
 ```
+
+
+## macro
+
+- dial-failover
+  - gsm
+    - `Macro(dial-failover,,${EXTEN},${POLICY_GROUP-RND-OUT},RET)`
+      - 例如 `Macro("SIP/6003-0000000c", "dial-failover,,10086,extra/7,0,gsm-4,RET")`
+    - ARG1 forward callee id
+    - ARG2 dial extension
+    - ARG3 设备
+    - ARG4 extension flag
+    - ARG5 CDR_TOCHAN
+  - wg - `Macro(dial-failover,,${CDR_CALLEEID},RET,extra/r1,0,0)`
+    - ARG1 呼转号码
+    - ARG2 补叫号
+    - ARG3 返回 - nocarrier, hangup, congestion
+    - ARG4 设备
+    - ARG5 额外标识
+    - ARG6 CDR 中的 TO
+    - 4，5，6 变量在每一次 failover 会递增
+
+

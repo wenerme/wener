@@ -263,3 +263,16 @@ ExecStart=/opt/prometheus/bin/node_exporter
 ## Why archlinux migrate to systemd
 
 - [Archlinux is moving to systemd](https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530) - 2012-08
+
+## 查看开启的服务
+
+```bash
+systemctl list-unit-files --state=enabled
+systemctl list-unit-files --state=enabled --type=service
+systemctl list-unit-files | grep enabled
+```
+
+## crontab
+- /var/spool/cron/root - 全局，无用户
+- /etc/crontab - root，需要指定用户
+- /etc/cron.d/ - 需要指定用户

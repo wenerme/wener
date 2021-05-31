@@ -130,3 +130,13 @@ relfect 不允许访问未导出字段
 - ReadLine 不返回换行，类似 Scanner，但返回 `[]byte` - **不推荐** 使用
 - ReadString - 读取直到指定分隔符，返回分隔符 - 类似 Scanner
 - 实现 `io.Reader` - 很多时候这个是选择的 _决定因素_
+
+## pq vs pgx
+
+> pq 作者推荐推荐使用 pgx
+
+- [pq](https://github.com/lib/pq)
+  - 项目处于维护模式
+- [pgx](https://github.com/jackc/pgx)
+  - 支持所有 native 类型
+  - 支持逻辑复制协议

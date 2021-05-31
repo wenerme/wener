@@ -6,8 +6,8 @@ title: crontab
 
 ## Tips
 
-* [crontab.guru](https://crontab.guru)
-  * 时间编辑器
+- [crontab.guru](https://crontab.guru)
+  - 时间编辑器
 
 ```bash
 # 推荐使用一个自己的 crontab 文件, 这样便于管理
@@ -39,17 +39,18 @@ done
 ```
 
 ## 默认周期性任务
-* 守护进程配置 /etc/conf.d/crond
-  * 默认 CRON_OPTS="-c /etc/crontabs"
-  * 可以修改为 CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"
-* 默认位置 /etc/crontabs
-* 默认周期性任务 /etc/crontabs/root
-  * /var/spool/cron/root
-* run-parts 会执行一个目录下的脚本
-  * 默认的 run-parts 是 busybox 自带的, 也可以额外安装
-  * https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/run-parts
-  * 检测一个目录下有哪些会被执行 `run-parts --test /etc/periodic/daily`
-  * 里面的脚本 __不要__ 包含 `.sh` 后缀，且确保可执行 `chmod +x`
+
+- 守护进程配置 /etc/conf.d/crond
+  - 默认 CRON_OPTS="-c /etc/crontabs"
+  - 可以修改为 CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"
+- 默认位置 /etc/crontabs
+- 默认周期性任务 /etc/crontabs/root
+  - /var/spool/cron/root
+- run-parts 会执行一个目录下的脚本
+  - 默认的 run-parts 是 busybox 自带的, 也可以额外安装
+  - https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/run-parts
+  - 检测一个目录下有哪些会被执行 `run-parts --test /etc/periodic/daily`
+  - 里面的脚本 **不要** 包含 `.sh` 后缀，且确保可执行 `chmod +x`
 
 ```
 # do daily/weekly/monthly maintenance
@@ -66,12 +67,12 @@ done
 0 4 * * 6 test $((10#$(date +\%W)\%2)) -eq 1 && run-parts /etc/periodic/bi-weekly
 ```
 
-
 ## macOS
+
 虽然不推荐使用 crontab, 因为其功能都已经被 lanuchd 替代,但简单的工作还是 crontab 更简单
 
-* http://stackoverflow.com/a/23880156/1870054
-* [ScheduledJobs](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html)
+- http://stackoverflow.com/a/23880156/1870054
+- [ScheduledJobs](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html)
 
 ```bash
 # 重定向 cron 日志
@@ -95,6 +96,7 @@ zpoll scrub main
 ```
 
 ## help
+
 ```
 $ crond --help
 BusyBox v1.27.2 (2017-11-28 16:17:30 GMT) multi-call binary.

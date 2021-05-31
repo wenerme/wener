@@ -1,24 +1,28 @@
 ---
-id: gitlab-k8s
 title: GitLab K8S 集成
 ---
 
 # GitLab K8S
 
-* 问题
-  * 集成 Helm 3
-    * ~~[#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)~~
-      * 不在直接使用 Helm
-    * [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
-    * [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
-  * 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
-  * 使用现有的 Knative [#27173](https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/27173)
-  * [#41614](https://gitlab.com/gitlab-org/gitlab/issues/20556) - Kubernetes cluster integration shall only install Helm Tiller or Ingress if not available already
-    * 如果集群里已经有 Tiller 再次安装会有问题
-* 注意
-  * k8s 空间为 gitlab-managed-apps
-  * 安装 tiller 需要修改镜像 - 默认是 gcr.io
-  * 安装器是使用的 registry.gitlab.com/gitlab-org/cluster-integration 下面的镜像
+- 问题
+  - 集成 Helm 3
+    - ~~[#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)~~
+      - 不在直接使用 Helm
+    - [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
+    - [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
+  - 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
+  - 使用现有的 Knative [#27173](https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/27173)
+  - [#41614](https://gitlab.com/gitlab-org/gitlab/issues/20556) - Kubernetes cluster integration shall only install Helm Tiller or Ingress if not available already
+    - 如果集群里已经有 Tiller 再次安装会有问题
+
+:::caution
+
+- k8s 空间为 gitlab-managed-apps
+- helmv2 安装 tiller 需要修改镜像 - 默认是 gcr.io
+- 安装器是使用的 registry.gitlab.com/gitlab-org/cluster-integration 下面的镜像
+- 需要外网能访问 - agent 不需要
+
+:::
 
 ```bash
 # 修改 namespace 为 gitlab-managed-apps
@@ -61,12 +65,20 @@ YAML
 kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep gitlab-admin-token | awk '{print $1}') -o jsonpath='{.data.token}' | base64 --decode | pbcopy
 ```
 
+## Kubernetes Agent
+
+- **PREMIUM**
+- GitLab.com wss://kas.gitlab.com
+- Pull based, 基于 [argoproj/gitops-engine](https://github.com/argoproj/gitops-engine)
+
 ## FAQ
+
 ### 常见安装问题
-* Helm 安装失败
-  * __给 default 空间去掉 istio 注入标签__ - `istio-injection`
-  * 安装失败 [cluster-integration/helm-install-image#3](https://gitlab.com/gitlab-org/cluster-integration/helm-install-image/issues/3) - is not a valid chart repository or cannot be reached
-  * epics [#1202](https://gitlab.com/groups/gitlab-org/-/epics/1202#note_163944373) - Make all GitLab K8s/Auto DevOps/Serverless features compatible with Cloud Run
+
+- Helm 安装失败
+  - **给 default 空间去掉 istio 注入标签** - `istio-injection`
+  - 安装失败 [cluster-integration/helm-install-image#3](https://gitlab.com/gitlab-org/cluster-integration/helm-install-image/issues/3) - is not a valid chart repository or cannot be reached
+  - epics [#1202](https://gitlab.com/groups/gitlab-org/-/epics/1202#note_163944373) - Make all GitLab K8s/Auto DevOps/Serverless features compatible with Cloud Run
 
 ```bash
 # hostname 为 install/uninstall-服务名
@@ -90,8 +102,10 @@ kubectl get apiservice v1beta1.custom.metrics.k8s.io -o yaml
 # 将该 api 删除后再从新操作即可
 kubectl delete apiservice v1beta1.custom.metrics.k8s.io
 ```
+
 #### Containers with unready status: [autoscaler] / Containers with unready status: [activator]
-* [knative/serving#4407](https://github.com/knative/serving/issues/4407)
+
+- [knative/serving#4407](https://github.com/knative/serving/issues/4407)
 
 ```bash
 # 会发现 autoscaler 和 activator 状态不正常
@@ -101,25 +115,34 @@ pod=$(kubectl -n knative-serving get pods -o name | grep autoscaler- | head -1)
 
 ```
 
-__activator__ 错误信息
+**activator** 错误信息
 
-* 应该是与 autoscaler 建立 websoket 失败
-* 如果 autoscaler 失败那么 activator 也会失败
+- 应该是与 autoscaler 建立 websoket 失败
+- 如果 autoscaler 失败那么 activator 也会失败
 
 ```json
-{"level":"error","ts":"2019-11-30T06:15:36.850Z","logger":"activator","caller":"websocket/connection.go:158","msg":"Failed to send ping message","knative.dev/controller":"activator","error":"connection has not yet been established","stacktrace":"github.com/knative/serving/vendor/github.com/knative/pkg/websocket.NewDurableConnection.func3\n\t/home/prow/go/src/github.com/knative/serving/vendor/github.com/knative/pkg/websocket/connection.go:158"}
+{
+  "level": "error",
+  "ts": "2019-11-30T06:15:36.850Z",
+  "logger": "activator",
+  "caller": "websocket/connection.go:158",
+  "msg": "Failed to send ping message",
+  "knative.dev/controller": "activator",
+  "error": "connection has not yet been established",
+  "stacktrace": "github.com/knative/serving/vendor/github.com/knative/pkg/websocket.NewDurableConnection.func3\n\t/home/prow/go/src/github.com/knative/serving/vendor/github.com/knative/pkg/websocket/connection.go:158"
+}
 ```
 
-#### Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
-* knative 容器启动的时候可能有这个异常信息
+#### Neither --kubeconfig nor --master was specified. Using the inClusterConfig. This might not work.
+
+- knative 容器启动的时候可能有这个异常信息
 
 #### pod is not yet backed by activator, cannot scale to zero
 
-
 ### Ingress 和 Knative Endpoint 一直等待
-* 是因为 LoadBalancer 没有获取到 IP
-* 如果是私有集群，需要考虑使用 metallb 来实现 LoadBalancer 控制器
 
+- 是因为 LoadBalancer 没有获取到 IP
+- 如果是私有集群，需要考虑使用 metallb 来实现 LoadBalancer 控制器
 
 ```bash
 # gitlab knative
@@ -149,6 +172,7 @@ kubectl delete ClusterRoleBinding tiller-admin
 ```
 
 ### 手动安装 Helm
+
 ```bash
 export TILLER_NAMESPACE=gitlab-managed-apps
 export HELM_VERSION=2.16.1
@@ -178,7 +202,8 @@ kubectl delete all -l app=helm
 ```
 
 ### install-helm
-* [cluster-integration/helm-install-image](https://gitlab.com/gitlab-org/cluster-integration/helm-install-image)
+
+- [cluster-integration/helm-install-image](https://gitlab.com/gitlab-org/cluster-integration/helm-install-image)
 
 ```bash
 set -xeo pipefail
@@ -205,7 +230,7 @@ helm repo update
 helm upgrade knative knative/knative --install --reset-values --tls --tls-ca-cert /data/helm/knative/config/ca.pem --tls-cert /data/helm/knative/config/cert.pem --tls-key /data/helm/knative/config/key.pem --version 0.7.0 --set rbac.create\=true,rbac.enabled\=true --namespace gitlab-managed-apps -f /data/helm/knative/config/values.yaml
 ```
 
-__value.yaml__
+**value.yaml**
 
 ```yaml
 domain: knative.wener.me
@@ -221,7 +246,7 @@ helm repo update
 helm upgrade prometheus stable/prometheus --install --reset-values --tls --tls-ca-cert /data/helm/prometheus/config/ca.pem --tls-cert /data/helm/prometheus/config/cert.pem --tls-key /data/helm/prometheus/config/key.pem --version 6.7.3 --set rbac.create\=true,rbac.enabled\=true --namespace gitlab-managed-apps -f /data/helm/prometheus/config/values.yaml
 ```
 
-__values.yaml__
+**values.yaml**
 
 ```yaml
 alertmanager:
@@ -239,7 +264,7 @@ pushgateway:
   enabled: false
 
 server:
-  fullnameOverride: "prometheus-prometheus-server"
+  fullnameOverride: 'prometheus-prometheus-server'
   image:
     tag: v2.4.3
 
@@ -255,7 +280,7 @@ serverFiles:
       - job_name: prometheus
         static_configs:
           - targets:
-            - localhost:9090
+              - localhost:9090
       - job_name: kubernetes-cadvisor
         scheme: https
         tls_config:
@@ -270,15 +295,15 @@ serverFiles:
           - target_label: __address__
             replacement: kubernetes.default.svc:443
           - source_labels:
-            - __meta_kubernetes_node_name
-            regex: "(.+)"
+              - __meta_kubernetes_node_name
+            regex: '(.+)'
             target_label: __metrics_path__
-            replacement: "/api/v1/nodes/${1}/proxy/metrics/cadvisor"
+            replacement: '/api/v1/nodes/${1}/proxy/metrics/cadvisor'
         metric_relabel_configs:
           - source_labels:
-            - pod_name
+              - pod_name
             target_label: environment
-            regex: "(.+)-.+-.+"
+            regex: '(.+)-.+-.+'
       - job_name: 'kubernetes-service-endpoints'
         kubernetes_sd_configs:
           - role: endpoints
@@ -321,15 +346,15 @@ serverFiles:
           - target_label: __address__
             replacement: kubernetes.default.svc:443
           - source_labels:
-            - __meta_kubernetes_node_name
-            regex: "(.+)"
+              - __meta_kubernetes_node_name
+            regex: '(.+)'
             target_label: __metrics_path__
-            replacement: "/api/v1/nodes/${1}/proxy/metrics"
+            replacement: '/api/v1/nodes/${1}/proxy/metrics'
         metric_relabel_configs:
           - source_labels:
-            - pod_name
+              - pod_name
             target_label: environment
-            regex: "(.+)-.+-.+"
+            regex: '(.+)-.+-.+'
       - job_name: kubernetes-pods
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -339,29 +364,29 @@ serverFiles:
           - role: pod
         relabel_configs:
           - source_labels:
-            - __meta_kubernetes_pod_annotation_prometheus_io_scrape
+              - __meta_kubernetes_pod_annotation_prometheus_io_scrape
             action: keep
             regex: 'true'
           - source_labels:
-            - __meta_kubernetes_pod_annotation_prometheus_io_path
+              - __meta_kubernetes_pod_annotation_prometheus_io_path
             action: replace
             target_label: __metrics_path__
-            regex: "(.+)"
+            regex: '(.+)'
           - source_labels:
-            - __address__
-            - __meta_kubernetes_pod_annotation_prometheus_io_port
+              - __address__
+              - __meta_kubernetes_pod_annotation_prometheus_io_port
             action: replace
-            regex: "([^:]+)(?::[0-9]+)?;([0-9]+)"
-            replacement: "$1:$2"
+            regex: '([^:]+)(?::[0-9]+)?;([0-9]+)'
+            replacement: '$1:$2'
             target_label: __address__
           - action: labelmap
             regex: __meta_kubernetes_pod_label_(.+)
           - source_labels:
-            - __meta_kubernetes_namespace
+              - __meta_kubernetes_namespace
             action: replace
             target_label: kubernetes_namespace
           - source_labels:
-            - __meta_kubernetes_pod_name
+              - __meta_kubernetes_pod_name
             action: replace
             target_label: kubernetes_pod_name
       # Sourced from Knative monitoring config: https://github.com/knative/serving/blob/master/config/monitoring/metrics/prometheus/100-prometheus-scrape-config.yaml
@@ -369,104 +394,109 @@ serverFiles:
         scrape_interval: 3s
         scrape_timeout: 3s
         kubernetes_sd_configs:
-        - role: pod
+          - role: pod
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app, __meta_kubernetes_pod_container_port_name]
-          action: keep
-          regex: knative-serving;autoscaler;metrics
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app, __meta_kubernetes_pod_container_port_name]
+            action: keep
+            regex: knative-serving;autoscaler;metrics
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
       - job_name: activator
         scrape_interval: 3s
         scrape_timeout: 3s
         kubernetes_sd_configs:
-        - role: pod
+          - role: pod
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app, __meta_kubernetes_pod_container_port_name]
-          action: keep
-          regex: knative-serving;activator;metrics-port
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_app, __meta_kubernetes_pod_container_port_name]
+            action: keep
+            regex: knative-serving;activator;metrics-port
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
       # Istio mesh
       - job_name: istio-mesh
         scrape_interval: 5s
         kubernetes_sd_configs:
-        - role: endpoints
+          - role: endpoints
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          action: keep
-          regex: istio-system;istio-telemetry;prometheus
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: istio-system;istio-telemetry;prometheus
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
       - job_name: istio-policy
         scrape_interval: 5s
         kubernetes_sd_configs:
-        - role: endpoints
+          - role: endpoints
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          action: keep
-          regex: istio-system;istio-policy;http-monitoring
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: istio-system;istio-policy;http-monitoring
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
       # Istio telemetry
       - job_name: istio-telemetry
         scrape_interval: 5s
         kubernetes_sd_configs:
-        - role: endpoints
+          - role: endpoints
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          action: keep
-          regex: istio-system;istio-telemetry;http-monitoring
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: istio-system;istio-telemetry;http-monitoring
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
       # Istio pilot
       - job_name: istio-pilot
         scrape_interval: 5s
         kubernetes_sd_configs:
-        - role: endpoints
+          - role: endpoints
         relabel_configs:
-        # Scrape only the the targets matching the following metadata
-        - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-          action: keep
-          regex: istio-system;istio-pilot;http-monitoring
-        # Rename metadata labels to be reader friendly
-        - source_labels: [__meta_kubernetes_namespace]
-          target_label: namespace
-        - source_labels: [__meta_kubernetes_pod_name]
-          target_label: pod
-        - source_labels: [__meta_kubernetes_service_name]
-          target_label: service
-
+          # Scrape only the the targets matching the following metadata
+          - source_labels:
+              [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: istio-system;istio-pilot;http-monitoring
+          # Rename metadata labels to be reader friendly
+          - source_labels: [__meta_kubernetes_namespace]
+            target_label: namespace
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+          - source_labels: [__meta_kubernetes_service_name]
+            target_label: service
 ```
 
 ## node pages

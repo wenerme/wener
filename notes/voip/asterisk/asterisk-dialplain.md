@@ -133,6 +133,7 @@ exten => example,1,Verbose(1,Value of MyVariable is: ${MyVariable})
   - MACRO_PRIORITY
   - ARG1...ARGN
   - MACRO_OFFSET - 结束时设置则会跳转到 MACRO_OFFSET+n+1 如果不存在调整 n+1
+  - Macro 里不能使用 h - Gosub 可以
 - MacroExit
 - StackPop
   - 弹出栈 - 移除上一次 Gosub 位置
@@ -140,6 +141,11 @@ exten => example,1,Verbose(1,Value of MyVariable is: ${MyVariable})
 - `ExecIf(expression?appiftrue:[appiffalse])`
 - `ExecIfTime(times,weekdays,mdays,months,[timezone]?appname[(appargs]))`
 - TryExec(appname(arguments))
+
+```ini
+  same => n,NoOp(Macro From ${MACRO_CONTEXT},${MACRO_EXTEN},${MACRO_PRIORITY})
+  ; same => n,Goto(${MACRO_CONTEXT},${MACRO_EXTEN},${MATH(${MACRO_PRIORITY}+1,int)})
+```
 
 **Goto vs GoSub**
 

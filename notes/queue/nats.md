@@ -4,7 +4,10 @@ title: NATS
 
 # NATS
 
-- [nats-io/nats-server](https://github.com/nats-io/nats-server)
+- [nats-io/nats-server](https://github.com/nats-io/nats-server) 是什么？
+  - 偏向通讯协议，用作 消息队列
+  - 默认没有持久化
+  - 协议支持 MQTT, NATS, WebSocket
 - 端口
   - 4222 客户端
   - 8222 HTTP 管理和信息上报
@@ -15,6 +18,7 @@ title: NATS
   - [nats-io/nsc](https://github.com/nats-io/nsc)
     - nats 账号管理功能
   - [compare-nats](https://docs.nats.io/compare-nats)
+  - [Client Protocol](https://docs.nats.io/nats-protocol/nats-protocol)
 
 ```bash
 # 服务端 - 大约 10mb

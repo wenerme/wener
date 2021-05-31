@@ -158,3 +158,19 @@ output "instance_ip_addr" {
   ]
 }
 ```
+
+## 后端
+- Enhanced - 可存储状态和执行操作
+  - local, remote
+- Standard - 远程存储，依赖 local 执行
+  - consul, etcd, etcdv3
+  - artifactory, pg, swift, http
+  - azurerm, gcs, cos, oss, manta
+  - s3
+    - 通过 Dynamo DB 可支持 locking 和 一致性检查
+    - 建议开启版本
+  - kubernetes - 存储为 secret, 最多 1MB 限制
+    - `tfstate-{workspace}-{secret_suffix}`
+- 特性支持
+  - [State Locking](https://www.terraform.io/docs/language/state/locking.html)
+    - 避免并发操作

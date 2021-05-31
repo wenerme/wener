@@ -202,6 +202,18 @@ Assertion failed: sess && sess->endpt (../src/pjsip/sip_auth_client.c: pjsip_aut
 
 看看是不是数据库没有权限
 
+## CallerID presentation
+
+- allowed_not_screened - Presentation Allowed, Not Screened.
+- allowed_passed_screen - Presentation Allowed, Passed Screen.
+- allowed_failed_screen - Presentation Allowed, Failed Screen.
+- allowed - Presentation Allowed, Network Number.
+- prohib_not_screened - Presentation Prohibited, Not Screened.
+- prohib_passed_screen - Presentation Prohibited, Passed Screen.
+- prohib_failed_screen - Presentation Prohibited, Failed Screen.
+- prohib - Presentation Prohibited, Network Number.
+- unavailable - Number Unavailable.
+
 ## cel_pgsql.c:352 pgsql_log: Reason: ERROR: value too long for type character varying
 
 - 将 CEL 的 APPDATA 改为更长的类型, 如果是 pg, 建议直接改为 text

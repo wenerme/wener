@@ -7,11 +7,21 @@ title: Queue Awesome
 ## Protocol
 
 - STOMP - Simple Text Oriented Message Protocol
+  - 端口 61613
   - 类 HTTP
   - 基于文本 frame 通讯
   - Client: SEND, SUBSCRIBE/UNSCRIBE, ACK/NACK
   - Server: MESSAGE, RECEIPT, ERROR
+  - 1.1 - 支持心跳, NACK, Virtual Host
+  - 1.2 - 2012-10-22
+    - 支持 `\r\n` 而不只是 `\n`， ACK 头
+    - 支持重复 Frame 头, content-length & content-type 头
+    - 要求服务端支持 STOMP frame
+    - 链接驻留
+    - 订阅和事务的 Scope 和唯一标识
+    - RECEIPT
 - MQTT - Message Queue Telemetry Transport
+  - 端口 1883
   - 由 IBM 为嵌入式设备 Telemetry 设计
   - 适用于 Low Bandwid、High Latency、Data Limit、Fragile Connection 场景
   - 二进制格式 - 2 byte 头
@@ -21,9 +31,13 @@ title: Queue Awesome
   - 简单
   - Connect/Disconnect + Publish + Subscribe/Unscribe
 - AMQP - Advanced Message Queue Protocol
+  - 端口 5672
   - 2006 JP Morgan
   - 作为中间件 - 解决业务耦合问题
   - 设计为可替代的消息中间件 - 很多实现
+  - 0.9.1 和 1.0 不兼容 - RabbitMQ 为 0.9.1, ActiveMQ 为 1.0
+- Openwire
+  - 端口 61616
 
 ## Server
 

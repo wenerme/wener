@@ -3,9 +3,10 @@ title: kubed
 ---
 
 # kubed
-* 是什么？
-  * 空间、集群之间同步 ConfigMap 和 Secret
-  * 在需要同步的资源上定义
+
+- [kubeops-tools/kubed](https://github.com/kubeops-tools/kubed) 是什么？
+  - 空间、集群之间同步 ConfigMap 和 Secret
+  - 在需要同步的资源上定义
 
 ```yaml
 # 待同步资源通过 annotation 控制同步
