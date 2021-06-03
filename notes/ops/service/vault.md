@@ -4,47 +4,48 @@ title: Vault
 ---
 
 # Vault
-* 是什么？
-  * 提供密钥管理、证书管理、外部授权集成
-  * 提供角色访问密钥权限控制
-  * 实现 CA 服务
-  * Secret as a Service - 密钥即服务
-    * 例如 阿里云 KMS、AWS KMS
-* [Vault project](https://www.vaultproject.io/)
-* 为什么使用 Vault
-  * 避免密钥到处放
-  * 提供动态密钥
-  * 加密服务
-  * 审计日志
-  * 便于撤销
-  * 服务应用集成
-    * 例如 自动创建 db 账号密码、SSH密钥管理
-* 默认服务端口 8200
-* 支持多种授权方式
-  * AppRole
-  * alicloud
-  * LDAP
-  * GitHub
-  * JWT/OIDC
-  * RADIUS
-  * Username/Password
-  * Tokens
-  * Kubernetes
-  * Kerberos
-* 支持多种后端存储 - consul,etcd,file,inmem,mysql,postgresql,raft,s3,zppkeeper
-* 概念
-  * 后端存储
-    * 存储的是 Vault 的信息
-  * 密钥引擎
-    * 存储、生成、加密数据
-    * 被挂载到一个目录
-    * 部分直接存储数据，部分与外部系统交互
-    * 生命周期： Enable、Disable、Move、Tune
-      * Tune 类似于配置
-    * 引擎只能看到挂载目录下内容 - 类似于 chroot
-* 环境变量
-  * VAULT_ADDR 服务端地址
-  * VAULT_TOKEN 请求的 Token
+
+- [hashicorp/vault](https://github.com/hashicorp/vault) 是什么？
+  - 提供密钥管理、证书管理、外部授权集成
+  - 提供角色访问密钥权限控制
+  - 实现 CA 服务
+  - Secret as a Service - 密钥即服务
+    - 例如 阿里云 KMS、AWS KMS
+- [Vault project](https://www.vaultproject.io/)
+- 为什么使用 Vault
+  - 避免密钥到处放
+  - 提供动态密钥
+  - 加密服务
+  - 审计日志
+  - 便于撤销访问
+  - 服务应用集成
+    - 例如 自动创建 db 账号密码、SSH 密钥管理
+- 默认服务端口 8200
+- 支持多种授权方式
+  - AppRole
+  - alicloud
+  - LDAP
+  - GitHub
+  - JWT/OIDC
+  - RADIUS
+  - Username/Password
+  - Tokens
+  - Kubernetes
+  - Kerberos
+- 支持多种后端存储 - consul,etcd,file,inmem,mysql,postgresql,raft,s3,zppkeeper
+- 概念
+  - 后端存储
+    - 存储的是 Vault 的信息
+  - 密钥引擎
+    - 存储、生成、加密数据
+    - 被挂载到一个目录
+    - 部分直接存储数据，部分与外部系统交互
+    - 生命周期： Enable、Disable、Move、Tune
+      - Tune 类似于配置
+    - 引擎只能看到挂载目录下内容 - 类似于 chroot
+- 环境变量
+  - VAULT_ADDR 服务端地址
+  - VAULT_TOKEN 请求的 Token
 
 ```bash
 # macOS
@@ -110,6 +111,7 @@ vault read -field=value secret/password
 ```
 
 ## approle
+
 ```bash
 # 先使用 ROOT 登陆
 vault login
@@ -162,10 +164,11 @@ vault login $TOKEN
 ```
 
 ## vault agent
-* 自动授权
-* 缓存
-* 模板
-* Agent 配置对象定义 [config.go](https://gopkgs.io/src/github.com/hashicorp/vault/command/agent/config/config.go)
+
+- 自动授权
+- 缓存
+- 模板
+- Agent 配置对象定义 [config.go](https://gopkgs.io/src/github.com/hashicorp/vault/command/agent/config/config.go)
 
 ```bash
 # APP ROLE 拿到的角色信息
@@ -220,8 +223,9 @@ vault read auth/token/lookup-self
 ```
 
 ## Consul Secret
-* 基于 Consul 的 ACL 策略动态生成 Consul API 的 Token
-* 依赖 global-management 的 token
+
+- 基于 Consul 的 ACL 策略动态生成 Consul API 的 Token
+- 依赖 global-management 的 token
 
 ```bash
 # 如果没有配置过 token
@@ -280,9 +284,9 @@ vault write sys/plugins/catalog/secrets-gen \
     command="vault-secrets-gen"
 ```
 
-
 ## 配置
-* https://www.vaultproject.io/docs/configuration/
+
+- https://www.vaultproject.io/docs/configuration/
 
 ```hcl
 # 存储
@@ -315,7 +319,7 @@ vault operator unseal
 vault login
 ```
 
-__consul.acl.json__
+**consul.acl.json**
 
 ```json
 {
@@ -348,7 +352,9 @@ __consul.acl.json__
 ```
 
 # FAQ
+
 ## Consul vs Vault
-* 最大的区别是一个强调加密一个强调服务发现
-* Consul 的配置是 KV
-* Vault 的是目录格式 - 两个形式上有些类似
+
+- 最大的区别是一个强调加密一个强调服务发现
+- Consul 的配置是 KV
+- Vault 的是目录格式 - 两个形式上有些类似

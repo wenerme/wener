@@ -1,5 +1,4 @@
 ---
-id: ip-address
 title: IP 地址
 ---
 

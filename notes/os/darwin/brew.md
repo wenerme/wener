@@ -1,14 +1,15 @@
 ---
-id: brew
 title: Brew
 ---
 
 # Brew
 
 ## Tips
-* [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
 
-> __⚠️__
+- [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
+
+> **⚠️**
+>
 > 1. 安装过程中可能会需要代理
 > 2. 代理建议使用 https_proxy 进行设置或全局代理
 > 3. 如果使用 https_proxy 建议使用 http 代理
@@ -121,6 +122,7 @@ chsh -s /usr/local/bin/bash
 ```
 
 ### Font
+
 ```bash
 # 添加字体库
 brew tap caskroom/fonts
@@ -132,11 +134,12 @@ brew tap caskroom/fonts
 ```
 
 ### FUSE
+
 [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) 是 [用户空间文件系统](https://zh.wikipedia.org/wiki/FUSE),比较常见的使用情况
 
-* 将远程服务器通过 SFTP 或者 FTP 挂在到本地
-* 添加操作系统不支持的文件系统类型支持
-* 文件系统加密
+- 将远程服务器通过 SFTP 或者 FTP 挂在到本地
+- 添加操作系统不支持的文件系统类型支持
+- 文件系统加密
 
 ```bash
 # OS X 自身没有 FUSE 支持,需要额外安装 osxfuse
@@ -171,6 +174,7 @@ brew install btfs
 ```
 
 ### Tex
+
 ```bash
 # 完整的 MacTex 相当大,可以只安装 BasicTex 然后通过 tlmgr 安装额外的包
 # http://www.tug.org/mactex/morepackages.html
@@ -181,7 +185,8 @@ brew cask install basictex
 ```
 
 ### PHP
-* [homebrew-php](https://github.com/Homebrew/homebrew-php)
+
+- [homebrew-php](https://github.com/Homebrew/homebrew-php)
 
 ```bash
 brew tap homebrew/dupes
@@ -194,6 +199,7 @@ brew install php56
 多版本 PHP 可使用 [php-version](https://github.com/wilmoore/php-version) 控制
 
 ### 容器相关
+
 如果想要使用例如 Docker 之类的容器技术,可安装下列软件包
 
 ```bash
@@ -205,6 +211,7 @@ brew install {docker,docker-machine,docker-compose,vagrant}-completion docker-ma
 ```
 
 ## Linuxbrew
+
 [Linuxbrew](http://linuxbrew.sh/) 是 Brew 的 Linux 移植版, 支持大多的安装包.
 
 ```bash
@@ -231,19 +238,18 @@ for v in gcc c++ g++ cpp; do unlink $v; done
 
 ## FAQ
 
-
 ### 缓存目录
 
-* Homebrew
-  * `~/Library/Caches/Homebrew`
-  * `/usr/local/Hombrew`
-* Cask
-  * 早期存储于 `/opt/homebrew-cask/Caskroom/`
-  * 后迁移至 `/usr/local/Caskroom/`
-  * 再后来 `/usr/local/Hombrew/Cask`
-
+- Homebrew
+  - `~/Library/Caches/Homebrew`
+  - `/usr/local/Hombrew`
+- Cask
+  - 早期存储于 `/opt/homebrew-cask/Caskroom/`
+  - 后迁移至 `/usr/local/Caskroom/`
+  - 再后来 `/usr/local/Hombrew/Cask`
 
 ### 手动下载未下载完成的安装包
+
 ```bash
 cd /Library/Caches/Homebrew/
 for f in `echo *.incomplete`; do
@@ -253,6 +259,7 @@ done
 ```
 
 ### xcode 版本检测错误
+
 ```bash
 # 显示当前使用的版本
 xcode-select -p
@@ -262,7 +269,7 @@ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 ### dir_s_mkdir permission denied
 
-* [#19789](https://github.com/Homebrew/homebrew-core/issues/19789)
+- [#19789](https://github.com/Homebrew/homebrew-core/issues/19789)
 
 ```bash
 brew link ruby -- dir_s_mkdir permission denied
@@ -271,6 +278,7 @@ find /usr/local -not -uid $(id -u) | xargs -n 1 sudo chown -R $(whoami)
 ```
 
 ### openjdk
+
 ```bash
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
@@ -298,4 +306,15 @@ brew doctor check_for_stray_dylibs 2>&1 | grep '^  /' | xargs rm
 
 brew prune
 brew missing
+```
+
+## no such reg
+
+卸载重装
+
+```bash
+brew uninstall --force tinc-pre
+brew cleanup --force -s tinc-pre
+brew cleanup --prune-prefix
+brew install tinc-pre
 ```

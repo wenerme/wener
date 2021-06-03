@@ -12,7 +12,12 @@ title: Web Awesome
 - [hotwire](https://hotwire.dev/)
 
 ## Build
+
 - vite
+- rollup
+- esbuild
+- webpack
+- parcel
 
 ## 测试
 
@@ -50,3 +55,10 @@ title: Web Awesome
   - Accelerated JavaScript animation.
 - [nextapps-de/winbox](https://github.com/nextapps-de/winbox)
   - 窗口管理器
+
+## tty
+
+- [xtermjs/xterm.js](https://github.com/xtermjs/xterm.js)
+- [yudai/gotty](https://github.com/yudai/gotty)
+- [maxmcd/webtty](https://github.com/maxmcd/webtty)
+- [wrfly/container-web-tty](https://github.com/wrfly/container-web-tty)

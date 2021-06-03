@@ -4,6 +4,47 @@ title: 桥接网络
 
 # Bridge
 
+```interfaces
+auto eth0
+iface eth0 inet manual
+
+auto br0
+iface br0 inet dhcp
+	bridge-ports eth0
+	bridge-stp on
+  # 自定义 mac 确保 dhcp 稳定
+	# bridge-hw 00:00:00:00:00:00
+```
+
+```bash
+# ip link set dev $IFACE type bridge ageing_time $IF_BRIDGE_AGEING
+# brctl setageing
+
+# ip link set dev $IFACE type bridge priority $IF_BRIDGE_BRIDGEPRIO
+# brctl setbridgeprio
+
+# ip link set dev $IFACE type bridge forward_delay $IF_BRIDGE_FD
+# brctl setfd
+
+# ip link set dev $IFACE type bridge hello_time $IF_BRIDGE_HELLO
+# brctl sethello
+
+# ip link set dev $IFACE type bridge max_age $IF_BRIDGE_MAXAGE
+# brctl setmaxage
+
+# bridge link set dev $IFACE cost $IF_BRIDGE_PATHCOST
+# brctl setpathcost
+
+# bridge link set dev $IFACE priority $IF_BRIDGE_PORTPRIO
+# brctl setportprio
+
+# ip link set dev $IFACE type bridge stp $(yesno $IF_BRIDGE_STP)
+brctl stp br0 off
+
+# vlan
+# ip link set dev $IFACE type bridge vlan_filtering $(yesno $IF_BRIDGE_VLAN_AWARE)
+```
+
 ## STP
 
 - BPDU - Bridge Protocol Data Unit
@@ -51,16 +92,29 @@ brctl addif 添加 slave 的时候也会变
 1. 添加 slave 的时候记录 mac 再设置回去
 2. 将虚拟网卡的 mac 设置高一点
 
+- 推荐
+
 ```bash
-# 1
+# 方法 1
 mac=$(cat /etc/tinc/br0/address)
 ip li set $IFACE master br0
 ip li set br0 address $mac
 
-# 2
+# 方法 2
 ip link set $IFACE address fe:12:34:56:78:9a
 ```
 
 - 参考
   - [Bridge Interface MAC address assignment](https://lists.linuxfoundation.org/pipermail/bridge/2006-January/003036.html)
   - [hansode/linux-bridge-mac-addresses-and-dynamic-ports](https://github.com/hansode/linux-bridge-mac-addresses-and-dynamic-ports)
+
+## tinc 节点避免 mac 冲突
+
+设置高 mac
+
+```bash
+ip li set $INTERFACE address fe:fe:12:34:56:78
+ip li set $INTERFACE master br0
+ip li set $INTERFACE up
+ip addr add 10.10.1.1/16 dev br0
+```

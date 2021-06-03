@@ -28,21 +28,22 @@ osascript -e 'tell application "Finder" to tell front window to update every ite
 ```
 
 ## macOS vs Darwin
-* macOS
-  * 平台
-  * 包含框架和服务
-  * 界面
-  * 软件程序包
-* Darwin
-  * 操作系统
-  * 基础软件
-* XUN
-  * 内核
-  * 资源管理
 
-* 参考 [What's the difference between Mac OS X, Darwin OS and a popular Linux distribution like Ubuntu? What can be done on Darwin?](https://www.quora.com/Whats-the-difference-between-Mac-OS-X-Darwin-OS-and-a-popular-Linux-distribution-like-Ubuntu-What-can-be-done-on-Darwin)
+- macOS
+  - 平台
+  - 包含框架和服务
+  - 界面
+  - 软件程序包
+- Darwin
+  - 操作系统
+  - 基础软件
+- XUN
+  - 内核
+  - 资源管理
+- 参考 [What's the difference between Mac OS X, Darwin OS and a popular Linux distribution like Ubuntu? What can be done on Darwin?](https://www.quora.com/Whats-the-difference-between-Mac-OS-X-Darwin-OS-and-a-popular-Linux-distribution-like-Ubuntu-What-can-be-done-on-Darwin)
 
 ## 载入更新失败
+
 进入恢复模式关闭 sip - System Integrity Protection
 
 ```bash
@@ -54,7 +55,6 @@ csrutil disable
 ```bash
 csrutil enable
 ```
-
 
 ## 制作安装盘
 
@@ -85,7 +85,6 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 - 操作系统下载
   - App Store [macOS Sierra](https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=11&path=mac%2fmacossierra)
 
-
 ## Installer can't verified 安装器不能被验证
 
 使用旧的安装应用, 2016.2.14 之前,可能会由于证书过期导致无法使用,通过修改系统时间来规避
@@ -102,14 +101,22 @@ diskutil resetFusion
 ```
 
 ## SIP 影响
-* [System Integrity Protection Guide Introduction](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html)
-* 文件系统保护
-* 运行时保护
-* 内核保护
 
+- [System Integrity Protection Guide Introduction](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/Introduction/Introduction.html)
+- 文件系统保护
+- 运行时保护
+- 内核保护
 
 ## 网络存储设备不写 DS_Store 文件
 
 ```bash
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+```
+
+## interface 添加地址
+
+```bash
+sudo ifconfig en0 alias 128.133.123.83/24 up
+# 移除
+sudo ifconfig en0 -alias 128.133.123.83/24 up
 ```

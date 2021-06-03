@@ -10,6 +10,9 @@ title: Asterisk Modules
 ls /usr/lib/asterisk/modules | egrep -o '^[a-z]+' | sort | uniq -c | sort -nr
 ls /usr/lib/asterisk/modules | xargs -n 1 basename | sed 's/.so$//' | sort | grep func_
 
+# 模块支持状态
+grep -rP '^\t<support_level>' $(find . -name '*.c') | sed -re 's#</?support_level>##g' | sort
+
 asterisk -x 'module show'
 ```
 

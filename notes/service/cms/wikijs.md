@@ -3,19 +3,20 @@ title: Wiki.js
 ---
 
 # Wiki.js
-* [Requarks/wiki](https://github.com/Requarks/wiki) 是什么？
-  * AGPL-3.0
-  * 支持 Markdown 的 Wiki
-  * 类似于语雀但是支持 Markdown
-  * 支持文件，支持图片，支持 Git 后端，支持搜索
-  * Nodejs 10.12+
-  * 支持 MySQL, MariaDB, PostgreSQL, MSSQL or SQLite3
-    * 推荐使用 PostgreSQL
-    * 多副本只支持 PostgreSQL
-* 要求
-  * 2 CPU 1G 内存
-* [授权](https://docs.requarks.io/auth)
-  * CAS、LDAP/AD、SAML 2.0、Local
+
+- [Requarks/wiki](https://github.com/Requarks/wiki) 是什么？
+  - AGPL-3.0
+  - 支持 Markdown 的 Wiki
+  - 类似于语雀但是支持 Markdown
+  - 支持文件，支持图片，支持 Git 后端，支持搜索
+  - Nodejs 10.12+
+  - 支持 MySQL, MariaDB, PostgreSQL, MSSQL or SQLite3
+    - 推荐使用 PostgreSQL
+    - 多副本只支持 PostgreSQL
+- 要求
+  - 2 CPU 1G 内存
+- [授权](https://docs.requarks.io/auth)
+  - CAS、LDAP/AD、SAML 2.0、Local
 
 ```bash
 # Docker 安装
@@ -41,8 +42,9 @@ docker run -d --restart unless-stopped \
 ```
 
 ## 配置
-* [Configuration](https://docs.requarks.io/install/config)
-* [config.sample.yml](https://github.com/Requarks/wiki/blob/dev/config.sample.yml)
+
+- [Configuration](https://docs.requarks.io/install/config)
+- [config.sample.yml](https://github.com/Requarks/wiki/blob/dev/config.sample.yml)
 
 ```yaml
 bindIP: 0.0.0.0
@@ -63,7 +65,6 @@ ha: true
 # 临时数据目录
 dataPath: ./data
 ---
-
 db:
   type: postgres
   host: localhost
@@ -93,7 +94,6 @@ ssl:
 
   # format: pfx
   # pfx: path/to/cert.pfx
-
 ---
 # ACME
 ssl:
@@ -106,9 +106,10 @@ ssl:
 ```
 
 ## Kubernetes
-* [dev/helm](https://github.com/Requarks/wiki/tree/dev/dev/helm)
 
-__values.yaml__
+- [dev/helm](https://github.com/Requarks/wiki/tree/dev/dev/helm)
+
+**values.yaml**
 
 ```yaml
 image:

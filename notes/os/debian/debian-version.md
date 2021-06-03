@@ -11,6 +11,11 @@ title: Debian 版本
 - [release-critical](https://bugs.debian.org/release-critical/) - 影响发布的主要 Bug
 - [发行说明](https://www.debian.org/releases/testing/releasenotes)
 
+| version     | from       | to      | sec     |
+| ----------- | ---------- | ------- | ------- |
+| 10 Buster   | 2019-07-06 | 2022-07 | 2024-06 |
+| 11 Bullseye |
+
 ## Debian 11 Bullseye
 
 - Linux 5.10
@@ -22,5 +27,4 @@ title: Debian 版本
 
 ## Debian 10 Buster
 
-- 2019-07-06 - 2022-07 - 2024-06
 - 4.19

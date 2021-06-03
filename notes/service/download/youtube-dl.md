@@ -11,6 +11,8 @@ title: youtube-dl
 - ~/.cache/youtube-dl 缓存部分 yt 信息
 - 参考
   - [支持站点](https://github.com/ytdl-org/youtube-dl/blob/master/docs/supportedsites.md)
+  - [ytdl-org/youtube-dl#9302](https://github.com/ytdl-org/youtube-dl/issues/9302)
+  - [Youtube Format IDs](https://gist.github.com/AgentOak/34d47c65b1d28829bb17c24c04a0096f)
 
 ```bash
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
@@ -31,6 +33,37 @@ youtube-dl --config-location $PWD
 
 # 可以同时利用全局配置
 youtube-dl $(cat youtube-dl.conf)
+
+# 查看所有格式
+# -f best 不一定会选择最佳 audio - 最佳 video+最佳 audio 不一定存在
+# 可以单独下载最佳 audio
+youtube-dl -F J9bjJEjK2dQ
+# -f best 也可以会选择差的
+youtube-dl -F anbrb2u9GYI
+
+# 最好的 mp4 或其他任意格式
+youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+# 最好 video 但小于 480p
+youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+# 最好 video 但小于 50M
+youtube-dl -f 'best[filesize<50M]'
+# HTTP/HTTPS 直接链接下载
+youtube-dl -f '(bestvideo+bestaudio/best)[protocol^=http]'
+# 最好的音频和视频但不合并
+youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'
+
+# -f bestvideo[vcodec=vp9]+bestaudio[acodec=opus]/best
+# -xf bestaudio[acodec=opus]
+# -f bestvideo[vcodec=av1]+bestaudio[acodec=opus]/best
+
+# -f 'bestvideo[vcodec=av1]+bestaudio[acodec=opus]/bestvideo[vcodec=vp9]+bestaudio[acodec=opus]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best'
+
+# archiving videos
+# bestvideo[ext=webm]+251/bestvideo[ext=mp4]+(258/256/140)/bestvideo[ext=webm]+(250/249)/best
+# archiving audio
+# 258/251/22/256/140/250/18/249/139
+# streaming videos
+# bestvideo+bestaudio/best
 ```
 
 | Option                          | Desc                                                          |

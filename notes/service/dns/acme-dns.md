@@ -4,7 +4,7 @@ title: acme-dns
 
 # acme-dns
 
-- 是什么？
+- [joohoi/acme-dns](https://github.com/joohoi/acme-dns) 是什么？
   - 专门用于辅助申请 cert 的 dns 服务 - 提供 HTTP 接口
   - 将现有 `_acme-challenge.domain.tld.` CNAME 到从该服务申请的二级域名 - 例如 `abc.auth.example.org`
   - 避免操作现有 DNS 服务
@@ -25,7 +25,7 @@ title: acme-dns
 
 - 一个账号对应一个域名
   - 因为一个账号只能处理两个 record - `domain.tld`,`*.domain.tld`
-  - __不能__ 共享账号给不同域名
+  - **不能** 共享账号给不同域名
   - [#110](https://github.com/joohoi/acme-dns/issues/110) Allow more than two records?
   - [#233](https://github.com/joohoi/acme-dns/issues/233) Register multiple domains under single login?
 
@@ -45,7 +45,6 @@ curl -v -X POST https://auth.acme-dns.io/register
 }
 ```
 
-
 ## cert-manager
 
 ```yaml
@@ -56,10 +55,10 @@ metadata:
 spec:
   acme:
     solvers:
-    - dns01:
-        acmeDNS:
-          host: https://acme.example.com
-          accountSecretRef:
-            name: acme-dns
-            key: acme-dns.json
+      - dns01:
+          acmeDNS:
+            host: https://acme.example.com
+            accountSecretRef:
+              name: acme-dns
+              key: acme-dns.json
 ```

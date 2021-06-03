@@ -1,134 +1,132 @@
 ---
-id: tinc
 title: Tinc
 ---
 
 # tinc
 
-## Tips
-* 是什么？
-  * 2层、3层 NAT 穿透直连组网的 Mesh VPN
-* 什么时候可用
-  * 基础设施组网 - 管理
-    * Tinc 连接性好
-  * 业务应用集群
-    * Layer 2 方便应用
-  * 需要 2 层协议
-    * mdns, upnp
-* 什么时候不用
-  * 数据中心 - 考虑使用 wireguard
-    * 数据量过大，Tinc 不适合
-  * 移动设备接入
-    * 目前没有移动客户端，适用于服务端场景
-* Tiny VPN
-  * 支持路由模式
-    * IP 协议交换
-    * 不支持广播
-  * 支持交换模式
-    * Ethernet 协议
-    * 支持广播
-  * 协议加密
-  * NAT 穿透
-  * 支持 UDP
-  * 支持网段
-  * 支持转发
-  * 运行在用户空间
-  * [多台支持](https://www.tinc-vpn.org/platforms/)
-    * iOS/Android
-    * macOS/utun
-    * Windows/Cygwin/tap64/i386/x86_64
-    * Windows/MinGW/tap64/i386/x86_64
-    * Linux
-    * DragonFlyBSD
-    * FreeBSD
-    * OpenBSD
-    * NetBSD
-    * Solaris/sparc32
-  * 非常小
-    * 二进制 150k, 内存占用 2m 左右
-* 类似
-  * [meshbird/meshbird](https://github.com/meshbird/meshbird)
-  * FreeS/WAN
-  * IPSeC
-  * Wireguard
-* Arch [Tinc](https://wiki.archlinux.org/index.php/Tinc)
-* 1.1 后的协议和之前版本的有兼容问题
-  * 想要兼容, 需要在所有 pre 版本的配置里添加
-    * `ExperimentalProtocol = no`
-  * 目前 ubuntu 想用新版只能自己编译
-    * https://nwgat.ninja/quick-easy-tinc-1-1-2/
-* [SPTPS](https://www.tinc-vpn.org/documentation-1.1/Simple-Peer_002dto_002dPeer-Security.html)
-  * Simple Peer-to-Peer Security
-  * based on TLS 1.2, but has been simplified: there is no support for exchanging public keys, and there is no cipher suite negotiation. Instead, SPTPS always uses a very strong cipher suite: peers authenticate each other using 521 bits ECC keys, Diffie-Hellman using ephemeral 521 bits ECC keys is used to provide perfect forward secrecy (PFS), AES-256-CTR is used for encryption, and HMAC-SHA-256 for message authentication.
-* 常用端口 655/tcp 655/udp
-* macOS
-  * https://www.tinc-vpn.org/pipermail/tinc/2016-January/004336.html
-  * http://tuntaposx.sourceforge.net/
-* https://www.tinc-vpn.org/documentation/tinc.conf.5
-* https://www.tinc-vpn.org/documentation-1.1/How-connections-work.html
-* 如果有 NAT 问题, 可以在另外一台上不直接连接外部节点, 先连接内部, 连接上后, 网络都能互通
-* 工作模式 - Mode
-  * router
-    * 默认
-    * 基于子网信息构建路由表
-    * 支持基于 ip 的单播通讯
-    * tun 设备
-      * mac tun 只支持点对点 - 例如 ifconfig tun0 inet 10.2.1.1 10.2.1.2 up
-      * 其他需要手动添加路由 route add -net 10.2 -interface tun0
-  * switch
-    * 基于 mac 信息构建路由表
-    * 支持基于 ethernet的单播,广播通讯
-    * tap 设备
-  * hub
-    * 不维护路由表, 只做转发
-* 支持的设备类型 - DeviceType
-  * dummy
-    * 测试
-    * 该节点只负责为其他节点转发包
-  * raw_socket
-    * 绑定到现有 interface 的 socket.
-    * 所有包从该 interface 读. 从本地节点收到的包会写到 raw socket.
-    * 在 linux 下, os 不会处理目的为本地节点的包
-  * multicast
-    * 多播 udp socket, 绑定到地址和端口, 空格分割, ttl 参数可选
-    * 包从广播 socket 读写
-    * 可用于连接 UML, QEMU, KVM, 所有实例监听相同的广播地址.
-    * 不要连接多个 tinc 到相同的多播地址, 对导致循环路由
-    * 错误的配置可能会导致加密的 vpn 包发到外网
-  * fd
-    * 使用文件描述符
-  * uml
-    * 默认未编译
-    * unix socket
-    * 如果未指定 Device, 则为 /var/run/NETNAME.umlsocket
-    * 会等待太湖连接该 socket
-  * vde
-    * 默认未编译
-    * 使用 libvdeplug 连接 vde 交换机, 使用 unix socket 或 /var/run/vde.ctl
-  * tun
-  * tunnohead
-    * 没有地址头
-  * tunifhead
-    * 有地址头
-    * 支持 ipv4 和 ipv6
-  * utun
-    * macOS
-    * 支持 ipv4 和 ipv6
-  * tap
-    * 包带 Ethernet 头
-* 参考
-  * [How Do I Reach Local Subnet Behind Tinc VPN](https://serverfault.com/q/640020/190601)
-  * [Tinc 配置笔记](https://www.jianshu.com/p/e030dabafd61)
-  * [使用 Tinc 建立 VPN 连接并配置 NAT 网关](https://groverchou.com/blog/2017/07/23/使用-Tinc-建立-VPN-连接并配置-NAT-网关/)
-  * [How to set up OpenVPN to let the VPN clients to access all the servers inside the server LAN?](https://serverfault.com/q/418354/190601)
-  * [How to use two gateways with the same IP address?](https://unix.stackexchange.com/q/91123/47774)
-  * [用RouterOS/QEMU在Tinc TAP VPN内部实现DHCP](https://blog.swineson.me/use-routeros-qemu-as-tinc-tap-vpn-dhcp-server/)
-  * https://www.tinc-vpn.org/faq/
-  * [Large scale tinc tests](https://www.tinc-vpn.org/pipermail/tinc-devel/2015-September/000790.html)
-  * https://www.tinc-vpn.org/packages/
-  * https://github.com/gsliepen/tinc
-  * https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
-  * [freifunk/icvpn](https://github.com/freifunk/icvpn) - InterCity-VPN
+- 是什么？
+  - 2 层、3 层 NAT 穿透直连组网的 Mesh VPN
+- 什么时候可用
+  - 基础设施组网 - 管理
+    - Tinc 连接性好
+  - 业务应用集群
+    - Layer 2 方便应用
+  - 需要 2 层协议
+    - mdns, upnp
+- 什么时候不用
+  - 数据中心 - 考虑使用 wireguard
+    - 数据量过大，Tinc 不适合
+  - 移动设备接入
+    - 目前没有移动客户端，适用于服务端场景
+- Tiny VPN
+  - 支持路由模式
+    - IP 协议交换
+    - 不支持广播
+  - 支持交换模式
+    - Ethernet 协议
+    - 支持广播
+  - 协议加密
+  - NAT 穿透
+  - 支持 UDP
+  - 支持网段
+  - 支持转发
+  - 运行在用户空间
+  - [多台支持](https://www.tinc-vpn.org/platforms/)
+    - iOS/Android
+    - macOS/utun
+    - Windows/Cygwin/tap64/i386/x86_64
+    - Windows/MinGW/tap64/i386/x86_64
+    - Linux
+    - DragonFlyBSD
+    - FreeBSD
+    - OpenBSD
+    - NetBSD
+    - Solaris/sparc32
+  - 非常小
+    - 二进制 150k, 内存占用 2m 左右
+- 类似
+  - [meshbird/meshbird](https://github.com/meshbird/meshbird)
+  - FreeS/WAN
+  - IPSeC
+  - Wireguard
+- Arch [Tinc](https://wiki.archlinux.org/index.php/Tinc)
+- 1.1 后的协议和之前版本的有兼容问题
+  - 想要兼容, 需要在所有 pre 版本的配置里添加
+    - `ExperimentalProtocol = no`
+  - 目前 ubuntu 想用新版只能自己编译
+    - https://nwgat.ninja/quick-easy-tinc-1-1-2/
+- [SPTPS](https://www.tinc-vpn.org/documentation-1.1/Simple-Peer_002dto_002dPeer-Security.html)
+  - Simple Peer-to-Peer Security
+  - based on TLS 1.2, but has been simplified: there is no support for exchanging public keys, and there is no cipher suite negotiation. Instead, SPTPS always uses a very strong cipher suite: peers authenticate each other using 521 bits ECC keys, Diffie-Hellman using ephemeral 521 bits ECC keys is used to provide perfect forward secrecy (PFS), AES-256-CTR is used for encryption, and HMAC-SHA-256 for message authentication.
+- 常用端口 655/tcp 655/udp
+- macOS
+  - https://www.tinc-vpn.org/pipermail/tinc/2016-January/004336.html
+  - http://tuntaposx.sourceforge.net/
+- https://www.tinc-vpn.org/documentation/tinc.conf.5
+- https://www.tinc-vpn.org/documentation-1.1/How-connections-work.html
+- 如果有 NAT 问题, 可以在另外一台上不直接连接外部节点, 先连接内部, 连接上后, 网络都能互通
+- 工作模式 - Mode
+  - router
+    - 默认
+    - 基于子网信息构建路由表
+    - 支持基于 ip 的单播通讯
+    - tun 设备
+      - mac tun 只支持点对点 - 例如 ifconfig tun0 inet 10.2.1.1 10.2.1.2 up
+      - 其他需要手动添加路由 route add -net 10.2 -interface tun0
+  - switch
+    - 基于 mac 信息构建路由表
+    - 支持基于 ethernet 的单播,广播通讯
+    - tap 设备
+  - hub
+    - 不维护路由表, 只做转发
+- 支持的设备类型 - DeviceType
+  - dummy
+    - 测试
+    - 该节点只负责为其他节点转发包
+  - raw_socket
+    - 绑定到现有 interface 的 socket.
+    - 所有包从该 interface 读. 从本地节点收到的包会写到 raw socket.
+    - 在 linux 下, os 不会处理目的为本地节点的包
+  - multicast
+    - 多播 udp socket, 绑定到地址和端口, 空格分割, ttl 参数可选
+    - 包从广播 socket 读写
+    - 可用于连接 UML, QEMU, KVM, 所有实例监听相同的广播地址.
+    - 不要连接多个 tinc 到相同的多播地址, 对导致循环路由
+    - 错误的配置可能会导致加密的 vpn 包发到外网
+  - fd
+    - 使用文件描述符
+  - uml
+    - 默认未编译
+    - unix socket
+    - 如果未指定 Device, 则为 /var/run/NETNAME.umlsocket
+    - 会等待太湖连接该 socket
+  - vde
+    - 默认未编译
+    - 使用 libvdeplug 连接 vde 交换机, 使用 unix socket 或 /var/run/vde.ctl
+  - tun
+  - tunnohead
+    - 没有地址头
+  - tunifhead
+    - 有地址头
+    - 支持 ipv4 和 ipv6
+  - utun
+    - macOS
+    - 支持 ipv4 和 ipv6
+  - tap
+    - 包带 Ethernet 头
+- 参考
+  - [How Do I Reach Local Subnet Behind Tinc VPN](https://serverfault.com/q/640020/190601)
+  - [Tinc 配置笔记](https://www.jianshu.com/p/e030dabafd61)
+  - [使用 Tinc 建立 VPN 连接并配置 NAT 网关](https://groverchou.com/blog/2017/07/23/使用-Tinc-建立-VPN-连接并配置-NAT-网关/)
+  - [How to set up OpenVPN to let the VPN clients to access all the servers inside the server LAN?](https://serverfault.com/q/418354/190601)
+  - [How to use two gateways with the same IP address?](https://unix.stackexchange.com/q/91123/47774)
+  - [用 RouterOS/QEMU 在 Tinc TAP VPN 内部实现 DHCP](https://blog.swineson.me/use-routeros-qemu-as-tinc-tap-vpn-dhcp-server/)
+  - https://www.tinc-vpn.org/faq/
+  - [Large scale tinc tests](https://www.tinc-vpn.org/pipermail/tinc-devel/2015-September/000790.html)
+  - https://www.tinc-vpn.org/packages/
+  - https://github.com/gsliepen/tinc
+  - https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
+  - [freifunk/icvpn](https://github.com/freifunk/icvpn) - InterCity-VPN
 
 ```bash
 # 推荐使用 tinc-pre 1.1 版本
@@ -207,7 +205,6 @@ docker run -d --restart always \
   --net host --cap-add=NET_ADMIN --device=/dev/net/tun \
   -e NETNAME=$NETNAME -v $PWD/tinc:/etc/tinc \
   --name tinc-$NETNAME wener/tinc
-
 ```
 
 ```bash
@@ -216,7 +213,7 @@ docker run -d --restart always \
 # 新版没有了 devel 参数
 # https://github.com/Homebrew/homebrew-core/tree/master/Formula/tinc.rb
 curl https://raw.githubusercontent.com/wenerme/homebrew-core/tinc-pre/Formula/tinc-pre.rb > /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tinc-pre.rb
-brew install tinc-pre
+brew install --build-from-source tinc-pre
 
 # utun
 # ===============
@@ -258,11 +255,10 @@ sudo kextutil /Volumes/Tunnelblick/Tunnelblick.app/Contents/Resources/tun-signed
 sudo kextutil /Library/Extensions/tun.kext
 # Memory allocation failure.
 # Untrusted kexts are not allowed
-
 ```
 
+**tinc-up**
 
-__tinc-up__
 ```bash
 #!/bin/sh
 brctl addif br0 $INTERFACE
@@ -273,7 +269,8 @@ ifconfig $INTERFACE 0.0.0.0 promisc up
 # iptables -t nat -A POSTROUTING -d 10.88.0.0/16 -o $INTERFACE -j MASQUERADE
 ```
 
-__tinc-fw__
+**tinc-fw**
+
 ```bash
 #!/bin/sh
 iptables -I INPUT -p udp --dport 20656 -j ACCEPT
@@ -381,28 +378,28 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   --name tinc-$NETNAME-$NODE wener/tinc
 ```
 
-## 新手教程
-
-### 基于容器组件网络
-
 ## FAQ
 
 ### traps: tincd[3995] general protection fault ip:7f6ad09944eb sp:7ffda3da5ea8 error:0 in ld-musl-x86_64.so.1[7f6ad098b000+46000]
-TBD
+
+tinc pre 运行不稳定，务必配置 openrc 自动重启
 
 ### Failed to verify SIG record from infra
+
 签名验证失败，尝试重新 invite
 
 ### Got REQ_KEY from node while we already started a SPTPS session!
-* [#203](https://github.com/gsliepen/tinc/issues/203)
+
+- [#203](https://github.com/gsliepen/tinc/issues/203)
 
 ### 相同 key 或相同 名字？
-* tinc 允许相同 key - 但不建议，存在安全隐患
-* tinc 不允许相同 name
-  * name 在节点里是唯一标识的
-* https://www.tinc-vpn.org/pipermail/tinc/2015-May/004137.html
 
-### Peer  tries to roll back protocol version to 17.0
+- tinc 允许相同 key - 但不建议，存在安全隐患
+- tinc 不允许相同 name
+  - name 在节点里是唯一标识的
+- https://www.tinc-vpn.org/pipermail/tinc/2015-May/004137.html
+
+### Peer tries to roll back protocol version to 17.0
 
 使用 1.0 协议
 
@@ -421,7 +418,7 @@ echo tun >> /etc/modules
 
 ### route
 
-* https://wiki.archlinux.org/index.php/Network_bridge
+- https://wiki.archlinux.org/index.php/Network_bridge
 
 ```bash
 sysctl net.ipv4.ip_forward
@@ -470,3 +467,9 @@ Linux IP Masquerade HOWTO
 http://tldp.org/HOWTO/IP-Masquerade-HOWTO/
 
 iptables -I FORWARD -i brwenet -j ACCEPT
+
+## tinc 1.0 升级 1.1
+
+```bash
+tinc -n NETNAME generate-ed25519-keys
+```

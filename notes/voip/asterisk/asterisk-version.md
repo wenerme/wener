@@ -14,6 +14,12 @@ title: Asterisk 版本
 - JIRA [Change Log](https://issues.asterisk.org/jira/browse/ASTERISK/?selectedTab=com.atlassian.jira.jira-projects-plugin:changelog-panel)
 - [res_pjsip: Enable DNS support.](https://reviewboard.asterisk.org/r/3343/diff/)
 - debian asterisk [tracker](https://tracker.debian.org/pkg/asterisk)
+- [Certified Asterisk](https://www.asterisk.org/products/software/certified-asterisk/)
+  - 一年发布 2-4 次
+  - 确保更加稳定 - 官方提供支持确保 SLA
+  - 提供商业服务支持
+  - 默认只包含 core 模块
+  - 16 LTS
 
 | Ver | Type     | Release    | EOL        |
 | --- | -------- | ---------- | ---------- |

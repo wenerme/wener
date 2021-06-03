@@ -21,3 +21,8 @@ title: Level UP in China
 - 产品经理 NPDP
 - 受控环境下项目管理 PRINCE2
 - 项目群 MSP
+
+## 上海居住证
+
+- http://jzzjf.rsj.sh.gov.cn/jzzjf/
+- [紧缺专业目录](http://jzzjf.rsj.sh.gov.cn/jzzjf/pingfen/jqzyml.htm)

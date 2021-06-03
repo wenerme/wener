@@ -146,19 +146,15 @@ asterisk -rx 'core restart now'
   - 2014 年前 - SIP 早期
   - Asterisk <= 11
 - chan_pjsip
-
   - Asterisk >= 12
   - 基于 PJSIP 库 - 独立于 Asterisk
-
 - 如果只处理 VoIP - chan_sip 足矣
   - 传统的电话网关都使用非常老版本的 asterisk - 例如 1.8
 - 如果需要处理现代化通讯 - 使用 chan_pjsip
-
   - Websocket
   - WebRTC
   - 视频
   - 新的编码 - Opus, VP8, VP9
-
 - 参考
   - [Migrating from chan_sip to res_pjsip](https://wiki.asterisk.org/wiki/display/AST/Migrating+from+chan_sip+to+res_pjsip)
 

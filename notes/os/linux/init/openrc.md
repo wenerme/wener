@@ -57,3 +57,19 @@ for svc in $BOOT_SERVICES; do ln -fs /etc/init.d/$svc /etc/runlevels/boot; done
   - 是 /etc/init.d 下名字
 
 provide 的名字和实际服务名字冲突
+
+## restart
+
+```bash
+# 默认 0
+respawn_delay=5
+# 默认 10
+respawn_max=0
+```
+
+或
+
+```bash
+# 默认 SIGTERM/5
+retry="${TINC_RETRY:-TERM/60/KILL/10}"
+```

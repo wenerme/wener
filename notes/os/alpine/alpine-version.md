@@ -9,12 +9,18 @@ title: 版本历史
   - 每年两个版本 - 5 月左右一个，11 月左右一个
   - 每年年底的 Linux 版本一般为 LTS - 因此下半年版本一般也会更新内核版本
   - 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
+    - main 仓库支持两年
+    - community 仓库支持到下一个稳定版 - 一般半年
   - 每次发布前会先编译所有包，当包都有后才会正式发布
-  - [发布版本历史日期](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
-- ⚠️ 注意
-  - 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
-  - 3.11 内核 vanilla 变为 lts
-  - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
+  - [发布版本历史日期](https://alpinelinux.org/releases/)
+
+:::caution
+
+- 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
+- 3.11 内核 vanilla 变为 lts
+- 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
+
+:::
 
 ## 3.13
 
@@ -24,6 +30,7 @@ title: 版本历史
   - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)
 
 ### 变化
+
 - musl 1.2
   - time_t 在 32 位系统上为 64 位
     - 在 64 位上跑 32 位的容器可能有问题

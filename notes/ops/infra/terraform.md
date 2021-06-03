@@ -160,6 +160,7 @@ output "instance_ip_addr" {
 ```
 
 ## 后端
+
 - Enhanced - 可存储状态和执行操作
   - local, remote
 - Standard - 远程存储，依赖 local 执行
@@ -174,3 +175,96 @@ output "instance_ip_addr" {
 - 特性支持
   - [State Locking](https://www.terraform.io/docs/language/state/locking.html)
     - 避免并发操作
+    - remote, sql, s3+dynamo, kubernetes
+
+```hcl
+terraform {
+  backend "kubernetes" {
+    # tfstate-{workspace}-state
+    secret_suffix = "state"
+    # ~/.kube/config
+    load_config_file = true
+    config_context = "demo"
+    # 默认使用 context 关联 ns
+    namespace = "demo"
+  }
+
+  # remote
+  backend "http" {
+  }
+}
+```
+
+## GitLab Terraform State Backend
+
+```bash
+STATE_NAME=staging
+PROJECT_ID=
+USERNAME=
+PTA=
+terraform init \
+    -backend-config="address=https://gitlab.com/api/v4/projects/$PROJECT_ID/terraform/state/$STATE_NAME" \
+    -backend-config="lock_address=https://gitlab.com/api/v4/projects/$PROJECT_ID/terraform/state/$STATE_NAME/lock" \
+    -backend-config="unlock_address=https://gitlab.com/api/v4/projects/$PROJECT_ID/terraform/state/$STATE_NAME/lock" \
+    -backend-config="username=$USERNAME" \
+    -backend-config="password=$PTA" \
+    -backend-config="lock_method=POST" \
+    -backend-config="unlock_method=DELETE" \
+    -backend-config="retry_wait_min=5"
+```
+
+```yaml
+image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+
+variables:
+  TF_ROOT: ${CI_PROJECT_DIR}/environments/example/production
+  TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/example-production
+
+cache:
+  key: example-production
+  paths:
+    - ${TF_ROOT}/.terraform
+
+before_script:
+  - cd ${TF_ROOT}
+
+stages:
+  - prepare
+  - validate
+  - build
+  - deploy
+
+init:
+  stage: prepare
+  script:
+    - gitlab-terraform init
+
+validate:
+  stage: validate
+  script:
+    - gitlab-terraform validate
+
+plan:
+  stage: build
+  script:
+    - gitlab-terraform plan
+    - gitlab-terraform plan-json
+  artifacts:
+    name: plan
+    paths:
+      - ${TF_ROOT}/plan.cache
+    reports:
+      terraform: ${TF_ROOT}/plan.json
+
+apply:
+  stage: deploy
+  environment:
+    name: production
+  script:
+    - gitlab-terraform apply
+  dependencies:
+    - plan
+  when: manual
+  only:
+    - master
+```
