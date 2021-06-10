@@ -73,3 +73,18 @@ asterisk -rx "pri show version"
 | dahdi show channel                    | 通道信息                                    |
 | dahdi show status                     | 所有 DAHDI 卡状态                           |
 | dahdi show version                    | DAHDI 版本                                  |
+
+## DAHDi Trunk
+
+```conf
+TRUNK=DAHDI/G2
+```
+
+- 在 chan_dahdi.conf 定义的分组 2
+
+| option | select                                                                  | aka                              |
+| ------ | ----------------------------------------------------------------------- | -------------------------------- |
+| g      | lowest-numbered non-busy DAHDI                                          | ascending sequential hunt group  |
+| G      | highest-numbered non-busy DAHDI                                         | descending sequential hunt group |
+| r      | round-robin search, starting at the next highest channel than last time | ascending rotary hunt group      |
+| R      | round-robin search, starting at the next lowest channel than last time  | descending rotary hunt group     |

@@ -8,7 +8,20 @@ title: Grafana Version
 
 ## 8.0
 
+- Library panels - 可复用面板
+- centralizes alerting
+- Real-time streaming
+  - MQTT
+  - /api/live/push endpoint
+- Prometheus metrics browser
 - PieChart GA
+- Bar chart  beta
+- State timeline visualization beta
+- Status history visualization beta
+- Histogram visualization beta
+- Plugin catalog
+- JWT Auth
+- Generic OAuth
 
 ## 7.5
 

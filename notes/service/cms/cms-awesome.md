@@ -11,10 +11,18 @@ title: CMS Awesome
   - 功能强大, 体系复杂
 - Ghost
 
-## Headless
+## Headless CMS
 
 - [strapi/strapi](https://github.com/strapi/strapi)
-  - MIT+企业版特性 License
+  - MIT+企业版特性, NodeJS
+- [directus/directus](https://github.com/directus/directus)
+  - GPL-3.0, Typescript
+- [agentejo/cockpit](https://github.com/agentejo/cockpit)
+  - MIT, PHP
+- [webiny/webiny-js](https://github.com/webiny/webiny-js)
+  - MIT, Typescript
+  - Page Builder, Form Builder, File Manager
+  - 依赖 AWS ElasticsearchService
 - [bramw/baserow](https://gitlab.com/bramw/baserow)
   - Airtable Alternative
   - Django + Nuxt.js + PostgreSQL
@@ -28,6 +36,12 @@ title: CMS Awesome
   - Typescript
 - [craftcms/cms](https://github.com/craftcms/cms)
   - PHP
+- [gentics/mesh](https://github.com/gentics/mesh)
+  - Apache-2.0, Java
+- [daptin/daptin](https://github.com/daptin/daptin)
+  - AGPL-3.0, Go
+  - BAAS, GraphQL/JSON-API
+  - 用户, 数据, 存储, 站点, 集成, 邮件
 
 ## API for Database
 

@@ -1,5 +1,4 @@
 ---
-id: k8s-faq
 title: K8S 常见问题
 ---
 
@@ -30,23 +29,25 @@ title: K8S 常见问题
 | 500+    | n1-standard-32 | 32 核 128G |
 
 ## Docker 与 CRI 对 K8S 的影响
-* invalid capacity 0 on image filesystem
-  * [kubernetes/kubernetes#51798](https://github.com/kubernetes/kubernetes/issues/51798#issuecomment-481366041)
-  * [k3s-io/k3s#1857](https://github.com/k3s-io/k3s/issues/1857#issuecomment-637852959)
+
+- invalid capacity 0 on image filesystem
+  - [kubernetes/kubernetes#51798](https://github.com/kubernetes/kubernetes/issues/51798#issuecomment-481366041)
+  - [k3s-io/k3s#1857](https://github.com/k3s-io/k3s/issues/1857#issuecomment-637852959)
 
 ## 导出资源忽略状态字段
-* 常见字段
-  * status
-  * metadata.managedFields
-  * metadata
-    * annotations
-      * kubectl.kubernetes.io/last-applied-configuration
-      * deployment.kubernetes.io/revision
-    * resourceVersion
-    * selfLink
-    * uid
-    * creationTimestamp
-    * generation
+
+- 常见字段
+  - status
+  - metadata.managedFields
+  - metadata
+    - annotations
+      - kubectl.kubernetes.io/last-applied-configuration
+      - deployment.kubernetes.io/revision
+    - resourceVersion
+    - selfLink
+    - uid
+    - creationTimestamp
+    - generation
 
 ```bash
 kubectl get -o=yaml deploy whoami | yq d - status | yq d - 'metadata.managedFields'
@@ -68,9 +69,10 @@ kubectl patch ns -p '{"metadata":{"finalizers":[]}}' --type=merge $(kubectl get 
 ```
 
 ## 删除 rancher 项目空间
-* 主要难点在于 get all 不会返回所有资源
-  * 可尝试 [ketall](https://github.com/corneliusweig/ketall#via-krew)
-* 部分资源需要先 patch 才能删除
+
+- 主要难点在于 get all 不会返回所有资源
+  - 可尝试 [ketall](https://github.com/corneliusweig/ketall#via-krew)
+- 部分资源需要先 patch 才能删除
 
 ```bash
 for ns in local p-66lfd ; do
@@ -153,10 +155,11 @@ spec:
 ## running "VolumeBinding" filter plugin for pod "web-0": pod has unbound immediate PersistentVolumeClaims
 
 ## error: unable to retrieve the complete list of server APIs: write: broken pipe
-* 网络不稳定也可能导致
-  * 例如 在使用 sshuttle 的时候偶尔就会出现
-  * 可以考虑使用 ssh 转发 - `ssh -vNL 6443:10.10.1.1:6443 admin@192.168.1.2 -o ExitOnForwardFailure=yes`
-* an error on the server ("") has prevented the request from succeeding
+
+- 网络不稳定也可能导致
+  - 例如 在使用 sshuttle 的时候偶尔就会出现
+  - 可以考虑使用 ssh 转发 - `ssh -vNL 6443:10.10.1.1:6443 admin@192.168.1.2 -o ExitOnForwardFailure=yes`
+- an error on the server ("") has prevented the request from succeeding
 
 ```bash
 # 概率失败
@@ -168,21 +171,22 @@ kubectl get apiservices
 kubectl get pods -n kube-system
 ```
 
-* https://github.com/prometheus-operator/kube-prometheus/issues/275
+- https://github.com/prometheus-operator/kube-prometheus/issues/275
 
 ## dns 不通
-* 现象 - 所有 服务 504，网关超时
-* 排查
-  * 验证 kube-dns 53 能否解析
-  * 所有节点都有问题还是单个节点
-    * 所有节点都有问题则可能是服务的问题
-    * 单个节点则可能是环境问题
-  * ping 后端 endpoint
-  * ping 不通则说明可能是 flannel 插件之类异常或者使用的底层 interface 异常
-* 解决
-  * 尝试重启 k3s
-  * 尝试重启 网络
-  * 尝试重启 系统
+
+- 现象 - 所有 服务 504，网关超时
+- 排查
+  - 验证 kube-dns 53 能否解析
+  - 所有节点都有问题还是单个节点
+    - 所有节点都有问题则可能是服务的问题
+    - 单个节点则可能是环境问题
+  - ping 后端 endpoint
+  - ping 不通则说明可能是 flannel 插件之类异常或者使用的底层 interface 异常
+- 解决
+  - 尝试重启 k3s
+  - 尝试重启 网络
+  - 尝试重启 系统
 
 ```bash
 # 验证 DNS 能否解析
@@ -195,9 +199,9 @@ dig @10.43.0.10 wener.me
 
 ## MountVolume.SetUp failed for volume "config-volume" : failed to sync secret cache: timed out waiting for the condition
 
-* 条件未满足，无法继续执行，且等待超时
-* 解决办法
-  * 等待 或 删除 Pod
+- 条件未满足，无法继续执行，且等待超时
+- 解决办法
+  - 等待 或 删除 Pod
 
 查看条件
 
@@ -229,9 +233,18 @@ status:
 ```
 
 ## kubernetes swap
+
 不建议使用 swap
 
-* [kubernetes/kubernetes#3533](https://github.com/kubernetes/kubernetes/issues/53533) - Kubelet/Kubernetes should work with Swap Enabled
+- [kubernetes/kubernetes#3533](https://github.com/kubernetes/kubernetes/issues/53533) - Kubelet/Kubernetes should work with Swap Enabled
 
 ## didn't have free ports for the requested pod ports
+
 deploy 如果只有一个节点，使用 Recreate， RollingUpdate 会失败。
+
+## scale to zero
+
+使用 keda 或者 knative
+
+- keda 简单 - 负责 autoscaler
+- knative 复杂 - 整套开发逻辑

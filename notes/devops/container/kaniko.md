@@ -3,21 +3,24 @@ title: Kaniko
 ---
 
 # Kaniko
-* 是什么？
-  * 构建容器镜像的工具
-  * 不依赖 Docker，不需要 root 权限
-  * 可复现的容器镜像构建
-* [GoogleContainerTools/kaniko](https://github.com/GoogleContainerTools/kaniko)
-* gcr.io/kaniko-project/executor:latest
-* gcr.io/kaniko-project/executor:debug - 包含 shell
-* 参考
-  * GitLab runner use [Kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html)
-* 专注于在 Kubernetes 构建镜像
+
+- [GoogleContainerTools/kaniko](https://github.com/GoogleContainerTools/kaniko) 是什么？
+  - 构建容器镜像的工具
+  - 不依赖 Docker，不需要 root 权限
+  - 可复现的容器镜像构建
+- gcr.io/kaniko-project/executor:latest
+- gcr.io/kaniko-project/executor:debug - 包含 shell
+- 参考
+  - GitLab runner use [Kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html)
+- 专注于在 Kubernetes 构建镜像
 
 :::caution
 
-* 只支持 x86_64
-* 不支持 multi-arch 和 manifest
+- 只支持 x86_64
+- 不支持 multi-arch 和 manifest
+- 不能使用本地 layer 缓存
+- 性能可能弱于 dind - [GoogleContainerTools/kaniko#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
+- registry-mirror 不支持前缀，例如 `registry.example.com/dockerhub`
 
 :::
 
@@ -76,12 +79,14 @@ JSON
 docker run --rm -it $PWD/config:/kaniko/.docker/config.json --destination=yourimagename
 ```
 
-* https://github.com/GoogleContainerTools/kaniko/issues/1209
+- https://github.com/GoogleContainerTools/kaniko/issues/1209
 
 ## 参数
-* [Additional Flags](https://github.com/GoogleContainerTools/kaniko#additional-flags)
+
+- [Additional Flags](https://github.com/GoogleContainerTools/kaniko#additional-flags)
 
 # FAQ
+
 ## 拷贝根目录异常阻塞
 
 ```dockerfile
@@ -93,7 +98,8 @@ FROM alpine:3.11
 COPY --from=rootfs / /sysroot/
 ```
 
-* https://github.com/GoogleContainerTools/kaniko/issues/960
+- https://github.com/GoogleContainerTools/kaniko/issues/960
 
 ## snapshot 阻塞
-* https://github.com/GoogleContainerTools/kaniko/issues/970
+
+- https://github.com/GoogleContainerTools/kaniko/issues/970

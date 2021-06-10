@@ -3,11 +3,11 @@ id: k3s-faq
 title: K3S 常见问题
 ---
 
-
 # K3S 常见问题
 
 ## 访问 K3S 的 ETCD
-* 只支持部分接口
+
+- 只支持部分接口
 
 ```bash
 # kine 不支持 --keys-only
@@ -17,31 +17,33 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 ```
 
 ## docker vs containerd
-* 建议使用 docker
-* docker
-  * 操作运维熟悉
-  * 可独立使用
-  * docker 命令好用
-  * 镜像、缓存会更加友好 - 虽然 containerd 有 docker shim
-* containerd
-  * docker 底层也是使用的 containerd
-  * 因此使用 docker 会额外消耗一些内存
-  * 没有专用的 cli - crictl 主要用于调试
 
+- 建议使用 docker
+- docker
+  - 操作运维熟悉
+  - 可独立使用
+  - docker 命令好用
+  - 镜像、缓存会更加友好 - 虽然 containerd 有 docker shim
+- containerd
+  - docker 底层也是使用的 containerd
+  - 因此使用 docker 会额外消耗一些内存
+  - 没有专用的 cli - crictl 主要用于调试
 
 ## k3s 状态清理
-* K3S 节点重置
-* cni0 和 flannel.1 不一定存在
-  * 取决于安装方式
-  * /var/lib/cni
 
-__脚本清理__
+- K3S 节点重置
+- cni0 和 flannel.1 不一定存在
+  - 取决于安装方式
+  - /var/lib/cni
+
+**脚本清理**
 
 ```bash
 # 如果通过 get.k3s.io 安装会有该脚本
 /usr/local/bin/k3s-killall.sh
 ```
-__手动清理__
+
+**手动清理**
 
 ```bash
 # 清理 iptables 规则
@@ -78,35 +80,36 @@ ip li del flannel.1
 rm -rf /var/lib/cni/*
 ```
 
-
 ## K3S 部署资源使用情况分析
 
-* AlpineLinux - 50M
-  * 显存 32M
-  * sshd,tincd,dbus
-* dockerd - 97M + shim/8M
-* containerd - 50M + shim/11M
-  * docker 也依赖 containerd
-* server 550M
-  * `--disable=traefik，servicelb`
-  * server 也会启动 agent
-  * 容器
-    * metrics-server
-    * coredns
-    * local-path-provisioner
-* agent 180M
-* 运行基础服务 - ingress-nginx, metallb, cert-manager, kubernetes-dashboard
-  * server - 1G
-  * agent - 450M
-  * +linkerd
-    * server 1.55G
-    * agent 920M
+- AlpineLinux - 50M
+  - 显存 32M
+  - sshd,tincd,dbus
+- dockerd - 97M + shim/8M
+- containerd - 50M + shim/11M
+  - docker 也依赖 containerd
+- server 550M
+  - `--disable=traefik，servicelb`
+  - server 也会启动 agent
+  - 容器
+    - metrics-server
+    - coredns
+    - local-path-provisioner
+- agent 180M
+- 运行基础服务 - ingress-nginx, metallb, cert-manager, kubernetes-dashboard
+  - server - 1G
+  - agent - 450M
+  - +linkerd
+    - server 1.55G
+    - agent 920M
 
 ## 区分 worker 和 cp
-* `--node-taint k3s-controlplane=true:NoExecute`
+
+- `--node-taint k3s-controlplane=true:NoExecute`
 
 ## 生成的证书自定义域名
-* `--tls-san YOUR_IP_OR_HOSTNAME_HERE`
+
+- `--tls-san YOUR_IP_OR_HOSTNAME_HERE`
 
 ## x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0
 
@@ -120,7 +123,8 @@ GODEBUG=x509ignoreCN=0
 ```
 
 ## k3s etcd 备份
-* 默认快照目录 /server/db/snapshots
+
+- 默认快照目录 /server/db/snapshots
 
 ## 迁移 k3s data-dir
 
@@ -149,10 +153,17 @@ rm -rf /var/lib/rancher/k3s
 ```
 
 ## ContainerStatus from runtime service failed: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial unix: missing address"
+
 似乎是 containerd 的问题
 
-* https://github.com/k3s-io/k3s/issues/1901
-
+- https://github.com/k3s-io/k3s/issues/1901
 
 ## 出现很奇怪的 probe 失败，看不到日志，重启 pod 也无法修复
+
 可能是是 k3s 网络 proxy 异常了，尝试重启 k3s 服务。
+
+## k3s 占用大量带宽
+
+- master 之间交互跑完了 50M 带宽
+
+重启 k3s 解决

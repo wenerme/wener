@@ -709,6 +709,10 @@ snmpwalk -v 3 -u asteriskUser -l authPriv -a MD5 -A <your password> -x DES -X <y
 ## 常用配置
 
 ```ini
+; debgging
+load => app_verbose
+load => app_dumpchan
+
 load => res_rtp_multicast
 load => chan_rtp
 ; rtp engine

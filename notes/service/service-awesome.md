@@ -8,6 +8,10 @@ title: Service Awesome
   - platform for building developer portals
   - 开发者门户网站
   - 管理服务、基础设施、文档
+- [pimcore/pimcore](https://github.com/pimcore/pimcore)
+  Data & Experience Management Platform
+- [zentralopensource/zentral](https://github.com/zentralopensource/zentral)
+  infrastructure monitoring and endpoint event stream processing
 
 ## Avatar
 

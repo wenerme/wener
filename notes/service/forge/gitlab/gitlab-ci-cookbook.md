@@ -31,6 +31,7 @@ Hello CI:
 publish:
   stage: publish
   image:
+    #name: registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:v1.6.0-debug
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: ['']
   script:

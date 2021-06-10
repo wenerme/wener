@@ -148,6 +148,12 @@ title: React Awesome
 
 - [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   - 实现各种 table 功能
+- [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
+  - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
+  - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)
+    - 基于 react-window 实现的 tree 渲染
+- [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
+  - 功能比 react-window 多但包更大
 - [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
   - 异步查询缓存更新
 - [vercel/swr](https://github.com/vercel/swr)
@@ -155,12 +161,12 @@ title: React Awesome
   - 支持 SSR
 - [bokuweb/react-rnd](https://github.com/bokuweb/react-rnd) - Resize & Drag
   - 实现类似窗口的效果
-- [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
-  - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
-  - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)
-    - 基于 react-window 实现的 tree 渲染
-- [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
-  - 功能比 react-window 多但更复杂 - 目前不推荐使用
+  - react-draggable+[bokuweb/re-resizable](https://github.com/bokuweb/re-resizable)
+- [react-grid-layout/react-draggable](https://github.com/react-grid-layout/react-draggable)
+  - 非常简单的拖动组件
+- [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
+  - 动态网格布局组件
+  - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
 - [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
   - Drag & Drop
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)

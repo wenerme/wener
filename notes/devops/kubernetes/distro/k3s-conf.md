@@ -3,12 +3,13 @@ title: K3S 配置
 ---
 
 # K3S 配置
-* 自 v1.19 支持 yaml 配置
-* /etc/rancher/k3s/config.yaml - K3S_CONFIG_FILE, --config, -c
-  * yaml 配置
-  * 参数基本与命令行参数一致
-* /etc/rancher/k3s/k3s.yaml - KUBECONFIG
-* /etc/rancher/k3s/registries.yaml - 容器镜像仓库配置
+
+- 自 v1.19 支持 yaml 配置
+- /etc/rancher/k3s/config.yaml - K3S_CONFIG_FILE, --config, -c
+  - yaml 配置
+  - 参数基本与命令行参数一致
+- /etc/rancher/k3s/k3s.yaml - KUBECONFIG
+- /etc/rancher/k3s/registries.yaml - 容器镜像仓库配置
 
 ## registries.yaml
 
@@ -35,6 +36,7 @@ mirrors:
 ```
 
 ## config.yaml
+
 ### server
 
 ```yaml
@@ -111,7 +113,8 @@ secrets-encryption: false
 ```
 
 ### agent
-* [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
+
+- [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
 
 ```yaml
 token: value

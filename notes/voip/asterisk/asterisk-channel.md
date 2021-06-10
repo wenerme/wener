@@ -14,7 +14,6 @@ core show channeltypes
 
 ## 通道类型
 
-- chan_mobile 和 chan_dongle 没显示 - 因为注册失败
 - chan_oss、chan_alsa、chan_console 只能注册一个 - 因为在做同一件事
 - SIP 功能可由 chan_sip 和 chan_pjsip 提供 - 目前建议使用 pjsip
 - IAX 是 asterisk 之间的通讯协议 - 用于实现多实例，互相发现，外部线路等
@@ -39,21 +38,42 @@ core show channeltypes
 | UnicastRTP   | Unicast RTP Media Channel Driver         | no          | no            | no          | no       |
 | USTM         | UNISTIM Channel Driver                   | no          | no            | yes         | no       |
 
+> chan_mobile 和 chan_dongle 没显示 - 因为注册失败
+
 ## 通道模块
 
-```
-Module                         Description                              Use Count  Status      Support Level
-chan_bridge_media.so           Bridge Media Channel Driver              0          Running              core
-chan_dahdi.so                  DAHDI Telephony w/PRI                    0          Running              core
-chan_dongle.so                 Huawei 3G Dongle Channel Driver          0          Not Running      extended
-chan_iax2.so                   Inter Asterisk eXchange (Ver 2)          0          Running              core
-chan_mgcp.so                   Media Gateway Control Protocol (MGCP)    0          Running          extended
-chan_mobile.so                 Bluetooth Mobile Device Channel Driver   0          Not Running      extended
-chan_oss.so                    OSS Console Channel Driver               0          Running        deprecated
-chan_pjsip.so                  PJSIP Channel Driver                     0          Running              core
-chan_rtp.so                    RTP Media Channel                        0          Running              core
-chan_sip.so                    Session Initiation Protocol (SIP)        0          Running          extended
-chan_skinny.so                 Skinny Client Control Protocol (Skinny)  0          Running          extended
-chan_unistim.so                UNISTIM Protocol (USTM)                  0          Running          extended
-12 modules loaded
-```
+| Module               | Description                             | Support Level |
+| -------------------- | --------------------------------------- | ------------: |
+| chan_bridge_media.so | Bridge Media Channel Driver             |          core |
+| chan_dahdi.so        | DAHDI Telephony w/PRI                   |          core |
+| chan_dongle.so       | Huawei 3G Dongle Channel Driver         |      extended |
+| chan_iax2.so         | Inter Asterisk eXchange (Ver 2)         |          core |
+| chan_mgcp.so         | Media Gateway Control Protocol (MGCP)   |      extended |
+| chan_mobile.so       | Bluetooth Mobile Device Channel Driver  |      extended |
+| chan_oss.so          | OSS Console Channel Driver              |    deprecated |
+| chan_pjsip.so        | PJSIP Channel Driver                    |          core |
+| chan_rtp.so          | RTP Media Channel                       |          core |
+| chan_sip.so          | Session Initiation Protocol (SIP)       |      extended |
+| chan_skinny.so       | Skinny Client Control Protocol (Skinny) |      extended |
+| chan_unistim.so      | UNISTIM Protocol (USTM)                 |      extended |
+
+
+# FAQ
+
+## chan_sip vs chan_pjsip
+
+- chan_sip
+  - 2014 年前 - SIP 早期
+  - Asterisk <= 11
+- chan_pjsip
+  - Asterisk >= 12
+  - 基于 PJSIP 库 - 独立于 Asterisk
+- 如果只处理 VoIP - chan_sip 足矣
+  - 传统的电话网关都使用非常老版本的 asterisk - 例如 1.8
+- 如果需要处理现代化通讯 - 使用 chan_pjsip
+  - Websocket
+  - WebRTC
+  - 视频
+  - 新的编码 - Opus, VP8, VP9
+- 参考
+  - [Migrating from chan_sip to res_pjsip](https://wiki.asterisk.org/wiki/display/AST/Migrating+from+chan_sip+to+res_pjsip)

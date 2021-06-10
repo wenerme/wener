@@ -9,35 +9,11 @@ title: 拨号计划
 - cointext 名字长度为 80, 但有最后一位 null, 所以是 79
 - 避免使用 `[general]`, `[default]`, 和 `[globals]` 作为名字
 - channel 中 context 名字是通道开始的点
-- 推荐使用非数字而是具体含义的名字作为不可拨号的扩展名
-- 模式匹配规则
-  - `_` 开始
-  - X = `[0-9]`, Z = `[1-9]`, N = `[2-9]`, `[15-7]` = 1|5|6|7
-  - `. = .*`, `! = .+`
 - 搜索顺序
   - Explicit extensions
   - Pattern match extensions
   - Includes
   - Switches
-- 特殊扩展
-  - a - Assistant extension
-    - 类似于 o, 只有在录语音邮件时按 `*` 触发, 主要用于访问助手.
-  - e - Exception Catchall extension
-    - 用于捕获 `i`, `t`, `T` 扩展. 可使用 `EXCEPTION` 来获取到具体异常信息
-  - h - Hangup extension
-    - 在挂断后会触发
-  - i - Invalid entry extension
-    - 当 `Background`, `WaitExten` 的输入在当前上下文中找不到匹配的扩展时触发
-  - o - Operator extension
-    - 当在录制语言邮件时按 `0` 触发, 主要用于访问操作员
-  - s - Start extension
-    - 当模拟通话接入时触发, 也可以再宏中使用
-    - 并不是用于捕获所有扩展, 只是简单的代表模拟通话和宏的开始.
-  - t - Response timeout extension
-    - `Background` 和 `WaitExten` 时超时
-  - T - Absolute timeout extension
-    - `absolute` 超时时触发
-    - `core show function TIMEOUT`
 - 变量
   - `${variable_name[:offset[:length]]}`
     - 裁剪
@@ -45,15 +21,6 @@ title: 拨号计划
   - 通道变量在转移后,变量不会被继承
     - `_` 开始的变量会在单次转移后则会失效
     - `__` 开始的变量会在转移后一直继承
-  - [标准的通道变量](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Standard+Channel+Variables)
-    - `CALLERID(name)`, `CALLERID(name)` 拨号者的名字和号码, 在 Dial 之前
-    - `CHANNEL` 当前通道名
-    - `CONTEXT` 当前上下文
-    - `EXTEN` 当前扩展
-    - `ENV(VAR)` 环境变量
-    - `LEN(VAR)` 变量长度
-    - `PRIORITY` 当前拨号计划的优先级
-    - `UNIQUEID` 当前通话唯一标识符
 - 表达式
   - `$[1+1]`
   - 操作符
@@ -74,6 +41,22 @@ title: 拨号计划
 - 参考
   - [AST/Dialplan](https://wiki.asterisk.org/wiki/display/AST/Dialplan)
   - [Asterisk Expressions](https://www.voip-info.org/wiki/view/Asterisk+Expressions)
+
+:::tip
+
+- 使用非数字而是具体含义的名字作为不可拨号的扩展名
+- function 名字为 大写
+- application 名字 大小写无关
+- application 如果没有参数可以不写括号
+- 不要使用 macro, 使用 sub routine
+
+:::
+
+:::caution
+
+- 很多 SIP 客户端在没 Answer 之前无法处理 DTMF
+
+:::
 
 ```conf
 ; ==========
@@ -106,6 +89,128 @@ exten => example,1,Set(__MyVariable=thisValue)
 ; 在别的通道使用变量
 exten => example,1,Verbose(1,Value of MyVariable is: ${MyVariable})
 ```
+
+## extension.conf
+
+- general 默认配置, global 全局变量会在, 除此之外均为 context 定义
+- sip.conf allowguest=no 默认会使用 public context
+
+```conf
+[general]
+; 是否允许 pbx_config 修改文件 - 会丢失注释
+static=yes
+; 是否允许 dialplan save
+writeprotect=no
+
+; 默认运行完成后会以 BUSY, CONGESTION, HANGUP 结束 - 而不是继续运行下一个匹配 extension
+autofallthrough=no
+
+; 新的匹配算法 - extension 很多的时候速度更快 - 例如超过 50 个时可尝试开启
+; dialplan set extenpatternmatchnew false
+extenpatternmatchnew=no
+
+; reload 时是否重新解析全局变量
+clearglobalvars=no
+
+; user.conf 使用的 context
+userscontext=default
+
+; 全局变量定义
+; 使用方式 ${GLOBAL(VARIABLE)}
+; ${${GLOBAL(VARIABLE)}}, ${text${GLOBAL(VARIABLE)}}, ${ENV(VARIABLE)}
+[globals]
+TENANT=demo
+
+[context]
+; 自动创建设备 hint extension
+autohints=no
+
+; extension 语法
+;exten => someexten,{priority|label{+|-}offset}[(alias)],application(arg1,arg2,...)
+; hint 语法
+;exten => 6245,hint,SIP/Grandstream1&SIP/Xlite1(Joe Schmoe)
+;exten => 6600,hint,park:701@parkedcalls
+;exten => 8502,hint,Queue:markq
+;exten => 8501,hint,Queue:markq_avail
+
+; include 语法
+; 时间语法 <time range>,<days of week>,<days of month>,<months>[,<timezone>]
+;include => daytime,9:00-17:00,mon-fri,*,*
+;include => weekend,*,sat-sun,*,*
+;include => weeknights,17:02-8:58,mon-fri,*,*
+
+; ignorepat => 9
+
+; 使用远程的 PBX
+; switch => IAX2/user:password@bigserver/local
+; l->literal - 不处理变量，由远程处理
+; lswitch => Loopback/12${EXTEN}@othercontext
+; e-> evaluation - 处理变量
+; eswitch => IAX2/context@${CURSERVER}
+```
+
+| pattern  | regex                                                       |
+| -------- | ----------------------------------------------------------- |
+| `_`      | 类似 JS 中的 `/`, e.g: `/.*/` <br/>将之后的内容作为模式匹配 |
+| X        | `[0-9]`                                                     |
+| Z        | `[1-9]`                                                     |
+| N        | `[2-9]`                                                     |
+| .        | `.*`                                                        |
+| !        | `.+`                                                        |
+| `[15-7]` | `1|5|6|7`                                                   |
+
+| priority | mean              |
+| -------- | ----------------- |
+| 1        | 1                 |
+| next,n   | priority+1        |
+| same,s   | 同上一个 priority |
+| s+1      | =n                |
+
+### 特殊 Extension
+
+| exten | mean             |
+| ----- | ---------------- |
+| s     | start            |
+| h     | hangup           |
+| a     | assistant        |
+| e     | exception        |
+| i     | invalid          |
+| o     | operator         |
+| t     | response timeout |
+| T     | absolute timeout |
+
+[特殊 extension]
+
+- a - Assistant extension
+  - 类似于 o, 只有在录语音邮件时按 `*` 触发, 主要用于访问助手.
+- e - Exception Catchall extension
+  - 用于捕获 `i`, `t`, `T` 扩展. 可使用 `EXCEPTION` 来获取到具体异常信息
+- h - Hangup extension
+  - 在挂断后会触发
+- i - Invalid entry extension
+  - 当 `Background`, `WaitExten` 的输入在当前上下文中找不到匹配的扩展时触发
+- o - Operator extension
+  - 当在录制语言邮件时按 `0` 触发, 主要用于访问操作员
+- s - Start extension
+  - 当模拟通话接入时触发, 也可以再宏中使用
+  - 并不是用于捕获所有扩展, 只是简单的代表模拟通话和宏的开始.
+- t - Response timeout extension
+  - `Background` 和 `WaitExten` 时超时
+- T - Absolute timeout extension
+  - `absolute` 超时时触发
+  - `core show function TIMEOUT`
+
+## 变量
+
+- [标准的通道变量](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Standard+Channel+Variables)
+  - `CALLERID(name)`, `CALLERID(name)` 拨号者的名字和号码, 在 Dial 之前
+  - `CHANNEL` 当前通道名
+  - `CONTEXT` 当前上下文
+  - `EXTEN` 当前扩展
+  - `ENV(VAR)` 环境变量
+  - `LEN(VAR)` 变量长度
+  - `PRIORITY` 当前拨号计划的优先级
+  - `UNIQUEID` 当前通话唯一标识符
 
 ## 应用控制流
 
@@ -162,6 +267,112 @@ exten => example,1,Verbose(1,Value of MyVariable is: ${MyVariable})
 - `IFTIME(times,days_of_week,days_of_month,months?[true][:false])`
 - DIALPLAN_EXISTS(context,extension,priority)
 - EXISTS(data)
+
+## Application
+
+### Dial
+
+```
+Dial([Technology/Resource[&Technology2/Resource2[&...]]][,timeout[,options[,URL]]])
+```
+
+- A(x)
+  - 播放 announcement
+- a
+  - 立即响应
+- `b([[context^]exten^]priority[(arg1[^...][^argN])])`
+- `B([[context^]exten^]priority[(arg1[^...][^argN])])`
+  - dial 多个时
+- C - 重置 CDR
+- c - 如果呼叫取消，将 HANGUPCAUSE 设置为 answered elsewhere
+- d
+- `D([called][:calling[:progress]])`
+  - 被叫接通后发送 DTMF
+  - called 发送给被叫，calling 发送给主叫，progress 接收到 PROGRESS 后发送
+- e - 呼叫结束后执行 `h`
+- `f([x])`
+- `F([[context^]exten^]priority)`
+- F
+- g - hangup 后继续执行
+- `G([[context^]exten^]priority)` - 接通后跳转
+- h - 被叫发送 DTMF 挂断 - `features.conf` 定义
+- H - 主叫发送 DTMF 挂断 - `features.conf` 定义
+- i - 忽略 forward
+- I
+- k - 被叫发送 DTMF parking - `features.conf` 定义
+- K - 主叫发送 DTMF parking - `features.conf` 定义
+- `L(x[:y[:z]])` - 呼叫时长限制
+  - x 最大呼叫时间 - ms
+  - y 到时间播放 warning - ms
+  - z 播放 warning 重复时间 - ms
+  - LIMIT_PLAYAUDIO_CALLER
+  - LIMIT_PLAYAUDIO_CALLEE
+  - LIMIT_TIMEOUT_FILE
+  - LIMIT_CONNECT_FILE
+  - LIMIT_WARNING_FILE
+- `m([class])`
+  - Provide hold music
+- `M(macro[^arg[^...]])` - 在被叫接通前执行 macro
+- `n([delete])`
+  - delete=1 删除录音 introduction
+- N
+- `o([x])`
+- `O([mode])`
+  - operator services
+- p - screening mode
+- `P([x])` - privacy mode
+- Q(cause)
+  - 未接通端返回指定结果 - 默认 ANSWERED_ELSEWHERE
+  - `Q.850/Q.931 <cause>` - NO_ANSWER, USER_BUSY, CALL_REJECTED, ANSWERED_ELSEWHERE
+- `r([tone])` - Indicate ringing to the calling party, even if the called party isn't actually ringing.
+  - tone 在 indications.conf 定义
+- R - 同 r, Allow interruption of the ringback if early media is received on the channel.
+- S(x) - 接通 x 秒后挂断
+- s(x) - outgoing CallerID tag parameter
+- t - DTMF transfer
+- T
+- `U(x[^arg[^...]])`
+- u(x)
+  - x
+    'allowed_not_screened'
+    'allowed_passed_screen' 'allowed_failed_screen' 'allowed'
+    'prohib_not_screened' 'prohib_passed_screen' 'prohib_failed_screen'
+    'prohib' 'unavailable'
+- w - one-touch recording
+- W - one-touch recording
+- x - 被叫发送 DTMF 录音 - one-touch automixmonitor
+- X - 主叫发送 DTMF 录音
+- z - when call forward, cancel any dial timeout
+
+| var              | desc                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| DIALEDTIME       | time from dialing a channel until when it is disconnected.                            |
+| DIALEDTIME_MS    |
+| ANSWEREDTIME     | 实际通话时间                                                                          |
+| ANSWEREDTIME_MS  |
+| RINGTIME         | 第一个 RING 事件时间，如果没有响铃则没有                                              |
+| RINGTIME_MS      |
+| PROGRESSTIME     | 第一个 PROGRESS 事件                                                                  |
+| PROGRESSTIME_MS  |
+| DIALEDPEERNAME   | name of the outbound channel that answered the call.                                  |
+| DIALEDPEERNUMBER | number that was dialed for the answered outbound channel.                             |
+| FORWARDERNAME    | If a call forward occurred, the name of the forwarded channel.                        |
+| DIALSTATUS       | CHANUNAVAIL, CONGESTION, NOANSWER, BUSY, ANSWER, CANCEL, DONTCALL,TORTURE,INVALIDARGS |
+
+- DONTCALL
+  For the Privacy and Screening Modes. Will be set if the called
+  party chooses to send the calling party to the 'Go Away' script.
+- TORTURE
+  For the Privacy and Screening Modes. Will be set if the called
+  party chooses to send the calling party to the 'torture' script.
+
+```conf
+# dial 两个 - 45s 超时
+Dial(PJSIP/alice&PJIP/bob,45)
+
+# 未接通的端返回 NO_ANSWER 而不是 ANSWERED_ELSEWHERE
+Dial(PJSIP/alice&PJSIP/bob,,Q(NO_ANSWER))
+```
 
 ## Demo
 

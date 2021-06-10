@@ -3,25 +3,25 @@ title: Gitlab Runner
 ---
 
 # Gitlab Runner
-* 是什么？
-  * Gitlab 运行 CI/CD 任务的终端
-  * Golang 实现
-  * 支持架构 x86, AMD64, ARM64, ARM, s390x
-  * 支持平台 Linux, Windows, macOS, FreeBSD
-  * 部署方式 Docker, Helm, Shell
-* Runner 类型
-  * shell
-    * 直接 Shell 执行脚本，最快，不需要启动容器 - 例如构建 Golang 可能只需要十来秒
-    * 需要环境需要提前准备好
-    * 建议使用 root 权限，因此建议通过 docker 来使用
-  * docker
-    * 支持 image 指定镜像
-  * ssh
-    * 通过 SSH 执行命令，CI 执行任务时可能更有意义
-  * kubernetes
-    * 在集群环境下
-  * docker-windows, docker-ssh, parallels, virtualbox, docker+machine, docker-ssh+machine
 
+- 是什么？
+  - Gitlab 运行 CI/CD 任务的终端
+  - Golang 实现
+  - 支持架构 x86, AMD64, ARM64, ARM, s390x
+  - 支持平台 Linux, Windows, macOS, FreeBSD
+  - 部署方式 Docker, Helm, Shell
+- Runner 类型
+  - shell
+    - 直接 Shell 执行脚本，最快，不需要启动容器 - 例如构建 Golang 可能只需要十来秒
+    - 需要环境需要提前准备好
+    - 建议使用 root 权限，因此建议通过 docker 来使用
+  - docker
+    - 支持 image 指定镜像
+  - ssh
+    - 通过 SSH 执行命令，CI 执行任务时可能更有意义
+  - kubernetes
+    - 在集群环境下
+  - docker-windows, docker-ssh, parallels, virtualbox, docker+machine, docker-ssh+machine
 
 ```bash
 # 查看注册参数
@@ -54,10 +54,11 @@ docker run -d --restart always -e TZ=Asia/Shanghai \
 ```
 
 ## 配置
-* /etc/gitlab-runner/config.toml - `*nix`
-* ~/.gitlab-runner/config.tom - `*nix` 非 root
-* `./config.toml` - 其他
-* [Advanced configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
+
+- /etc/gitlab-runner/config.toml - `*nix`
+- ~/.gitlab-runner/config.tom - `*nix` 非 root
+- `./config.toml` - 其他
+- [Advanced configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
 
 ```ini
 concurrent=4
@@ -254,21 +255,25 @@ Shared=false
     metric_queries = []
 ```
 
-
 https://about.gitlab.com/releases/2019/07/31/docker-in-docker-with-docker-19-dot-03/
 
 ## Docker in Docker
-* `volumes = ["/certs/client", "/cache"]`
-* [gitlab-org/gitlab-runner#4566](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4566)
-* [gitlab-org/gitlab-runner#4501](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4501) - Docker in Docker 19.03 service fails
+
+- `volumes = ["/certs/client", "/cache"]`
+- [gitlab-org/gitlab-runner#4566](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4566)
+- [gitlab-org/gitlab-runner#4501](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/4501) - Docker in Docker 19.03 service fails
 
 ## 将共享 runner 修改为 私有
+
 移除 runner 从新添加
 
 ## Windows
+
 0. 下载安装 Git https://git-scm.com/download/win
-  * 建议下载 Portable 解压即可
-  * 如果想安装 Runner 为 Service 则需要用 msi
+
+- 建议下载 Portable 解压即可
+- 如果想安装 Runner 为 Service 则需要用 msi
+
 0. 下载 [Windows Runner](https://docs.gitlab.com/runner/install/windows.html)
 
 ```bash
@@ -314,7 +319,8 @@ CONF
 ```
 
 ## Shell in Docker
-* 有些构建环境可能还会需要 py3，gcc
+
+- 有些构建环境可能还会需要 py3，gcc
 
 ```bash
 # wener/gitlab-runner include docker, make, git
@@ -327,7 +333,7 @@ docker run -d --restart always \
   --name gitlab-runner-shell wener/gitlab-runner
 ```
 
-__最小配置__
+**最小配置**
 
 ```ini
 concurrent = 1
@@ -346,32 +352,33 @@ shell="bash"
   executor = "shell"
 ```
 
-__go__
+**go**
 
 ```bash
 apk add go -X https://mirrors.aliyun.com/alpine/edge/community
 curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.32.2
 ```
 
-__nodejs__
+**nodejs**
 
 ```bash
 apk add nodejs npm nghttp2
 ```
 
-__java__
+**java**
 
 ```bash
 apk add openjdk11
 ```
 
-__k8s__
+**k8s**
 
 ```bash
 apk add kubectl -X https://mirrors.aliyun.com/alpine/edge/testing/
 ```
 
-__自定义 Runner__
+**自定义 Runner**
+
 ```bash
 cat <<DOCKERFILE > Dockerfile
 FROM wener/gitlab-runner
@@ -390,3 +397,8 @@ docker run -d --restart always \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name gitlab-runner-shell runner
 ```
+
+## Kubernetes Executor
+
+- 默认 runner 镜像 `gitlab/gitlab-runner:alpine-v{VERSION}`
+  - https://hub.docker.com/r/gitlab/gitlab-runner

@@ -176,8 +176,6 @@ title: Go Awesome
 - [qri-io/jsonschema](https://github.com/qri-io/jsonschema)
 - [xeipuuv/gojsonschema](https://github.com/xeipuuv/gojsonschema)
 
-## IO
-
 ## 数据处理
 
 - [go-playground/validator](https://github.com/go-playground/validator)
@@ -195,6 +193,10 @@ title: Go Awesome
   - 高性能、轻量级、非阻塞的事件驱动 Go 网络框架。
 - [magma/magma](https://github.com/magma/magma)
   - Platform for building access networks and modular network services
+- [koding/websocketproxy](https://github.com/koding/websocketproxy)
+  WebSocket reverse proxy
+- [soheilhy/cmux](https://github.com/soheilhy/cmux)
+  Connection multiplexer - serve different services on the same port
 
 ## 事件驱动
 
@@ -210,13 +212,16 @@ title: Go Awesome
 - [trustmaster/goflow](https://github.com/trustmaster/goflow)
 - [flowbase/flowbase](https://github.com/flowbase/flowbase)
 
-## Service
+## Service Framework
 
+- [asim/go-micro](https://github.com/asim/go-micro)
 - [AsynkronIT/protoactor-go](https://github.com/AsynkronIT/protoactor-go)
   - Proto Actor - Ultra fast distributed actors for Go, C# and Java/Kotlin
 - [wasmCloud/wasmCloud](https://github.com/wasmCloud/wasmCloud)
   - wasm actor 平台 - 支持 tinygo
 - [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+- [smallnest/rpcx](https://github.com/smallnest/rpcx)
+  - 微服务框架
 
 ## Markdown
 
@@ -263,6 +268,8 @@ title: Go Awesome
   - Turn any program that uses STDIN/STDOUT into a WebSocket server
 - [jeromer/mumbojumbo](https://github.com/jeromer/mumbojumbo)
   字符串混淆
+- [esimov/caire](https://github.com/esimov/caire)
+  内容感知的图像缩放
 
 ## 控制理论 / Control theory
 
@@ -292,6 +299,7 @@ title: Go Awesome
 - [bspaans/jit-compiler](https://github.com/bspaans/jit-compiler)
 - [Writing a JIT compiler in Golang](https://medium.com/kokster/964b61295f)
 - [Go Performance Tools Cheat Sheet](https://steveazz.xyz/blog/go-performance-tools-cheat-sheet/)
+- [CPU Utilization is Wrong](http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html)
 
 ## Linux System
 
