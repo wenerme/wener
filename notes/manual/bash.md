@@ -1,6 +1,8 @@
-# Bash
+---
+title: Bash
+---
 
-## Tips
+# Bash
 
 
 ```bash

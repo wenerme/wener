@@ -1,12 +1,18 @@
 ---
 title: 私有虚拟网络常见问题
 keywords:
-- VPN FAQ
-- VPN 常见问题
+  - VPN FAQ
+  - VPN 常见问题
 ---
 
-
 # 私有虚拟网络常见问题
+
+:::caution
+
+- macOS 目前没有好的 tap 设备实现， L2 组网困难
+- macOS 原生支持 utun - 等同于 tun 设备
+
+:::
 
 ## SOCKS vs HTTP vs HTTPS
 
@@ -119,29 +125,56 @@ keywords:
   - 稳定性问题
     - 偶现 daemon 异常 cpu 100% - 一段时间后恢复或重启 ZeroTier One
     - 出现节点一直处于 REQUESTING_CONFIGURATION 状态
-      - __目前无解__
+      - **目前无解**
 
 ## Tinc vs Nebula
-* 相同点
-  * 点对点网络
-* Tinc
-  * GPL 2.0
-  * 多用于服务端组网 - 没有 Android 和 iOS
-  * 节点基于密钥认证 - 对等
-  * L2、L3 组网
-  * 通过 meta 节点 - 对外暴露节点组网
-  * 支持节点 relay
-* Nebula - 受 tinc 启发
-  * MIT
-  * 多用于服务访问 - 有 Android 和 iOS
-  * 通过 lighthouse PKI 认证 组网
-  * 非 lighthouse 节点只有 key 和 cert 没有 ca
-  * lighthouse 类似 tinc 的 meta 节点
-  * L3 组网
-  * 不支持 relay
-  * 网络安全性管控 - 默认不允许访问非节点网 - unsafe_routes
-    * tinc 可配置任意, L2 可路由任意
-  * lighthouse 中心化管控
+
+- 相同点
+  - 点对点网络
+- Tinc
+  - GPL 2.0
+  - 多用于服务端组网 - 没有 Android 和 iOS
+  - 节点基于密钥认证 - 对等
+  - L2、L3 组网
+  - 通过 meta 节点 - 对外暴露节点组网
+  - 支持节点 relay
+- Nebula - 受 tinc 启发
+  - MIT
+  - 多用于服务访问 - 有 Android 和 iOS
+  - 通过 lighthouse PKI 认证 组网
+  - 非 lighthouse 节点只有 key 和 cert 没有 ca
+  - lighthouse 类似 tinc 的 meta 节点
+  - L3 组网
+  - 不支持 relay
+  - 网络安全性管控 - 默认不允许访问非节点网 - unsafe_routes
+    - tinc 可配置任意, L2 可路由任意
+  - lighthouse 中心化管控
+
+## Tinc vs N2N
+
+- 相同点
+  - 支持 L2 Mesh
+  - 依赖 tuntap
+  - 单线程
+- n2n
+  - 节点分为 supernode 和 edge
+  - 中心化 supernode signal - 不支持中继
+  - 一个 supernode 支持多个网络
+  - 大多时候需要自己编译 - 官方提供部分下载
+  - 固定 MTU - 支持开启 PMTU
+  - 只支持 L2 网络 - TAP
+  - 开发活跃
+  - 内建流量控制 - ACL
+  - 支持自动分配 IP
+  - 应用可以控制包转发
+- tinc
+  - 完全去中心化 - 节点关系相同
+  - 所有节点都连接的节点的称为 metanode - 和普通节点相同 - 支持中继
+  - 一个网络需要一个 metanode
+  - 大多平台都可以直接安装
+  - 动态自适应 MTU - MSS clamping- PMTU
+  - 支持 L2 和 L3 网络 - TAP/TUN
+  - 开发停滞
 
 ## StrongSwan vs Openswan vs Libreswan vs Freeswan
 
@@ -169,14 +202,14 @@ keywords:
   - 开发人员 -VPN-> Site to Site VPN --> 阿里云内网
 
 ## L2TP vs IPSec vs L2TP/IPSec
-* L2TP - Layer 2 Tunneling Protocol - 2层通道协议
-  * 工作在 2 层
-  * 没有认证和加密
-* IPSec
-  * 工作在 3 层 - IP 层
-  * 提供认证和加密
-* L2TP over IPSec
-  * IPSec 提供认证和加密通道
-  * L2TP 提供网络
-  * IP 包之上添加 L2TP 包头
 
+- L2TP - Layer 2 Tunneling Protocol - 2 层通道协议
+  - 工作在 2 层
+  - 没有认证和加密
+- IPSec
+  - 工作在 3 层 - IP 层
+  - 提供认证和加密
+- L2TP over IPSec
+  - IPSec 提供认证和加密通道
+  - L2TP 提供网络
+  - IP 包之上添加 L2TP 包头

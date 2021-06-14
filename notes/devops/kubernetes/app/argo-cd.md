@@ -57,11 +57,20 @@ title: ArgoCD
     - [#3882](https://github.com/argoproj/argo-cd/issues/3882), [#3698](https://github.com/argoproj/argo-cd/issues/3698)
     - 可能存在 argocd 环境无法访问 chart 问题
 
+:::tip
+
+- 每 3 分钟 拉取一次 Git
+- hlem chart 版本支持范围匹配 - 使用 Hard Refresh 刷新会触发新的版本部署
+  - 默认刷新不会触发是因为有 repo 缓存 `--repo-cache-expiration`
+  - 例如 `1.1.*`, `~0.1.57`
+
+:::
+
 :::caution
 
 - 应用名字要求全局唯一
   - 应用就是 helm 的 release 名字 - helm 不要求全局唯一，因此迁移过程可能冲突
-- 务必修改 `application.instanceLabelKey` 配置 - 否则 helm 自定义 releaseName 会有问题
+- 可以修改 `application.instanceLabelKey` 配置 - 这样 helm 自定义 releaseName 才不会冲突
   - 例如修改为 `app.kubernetes.io/argocd-instance`
   - 默认与 helm 常用冲突 `app.kubernetes.io/instance`
 - Kustomize 不可以后处理 Helm
@@ -72,12 +81,6 @@ title: ArgoCD
   - 可以考虑集群内部署 gitea 然后镜像外部仓库 - 配置好 Webhook 触发可实现秒级同步
 - 直接应用 manifest 升级可能导致配置丢失 [#3537](https://github.com/argoproj/argo-cd/issues/3537)
   - 可能会覆盖 argocd-cm
-
-:::
-
-:::tip
-
-- 每 3 分钟 拉取一次 Git
 
 :::
 
@@ -93,7 +96,10 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl port-forward svc/argocd-server -n argocd 8443:443
 # 账号 admin
 # 密码
-kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+# kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+# 获取密码后 建议删除 argocd-initial-admin-secret
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+kubectl -n argocd delete secret argocd-initial-admin-secret
 
 # argocd 命令行工具
 brew install argocd
@@ -418,6 +424,7 @@ metadata:
 - 先同步 CRD
 
 ## kustomize build 异常
+
 使用与 argocd 相同版本试试
 
 ```bash

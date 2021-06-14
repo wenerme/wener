@@ -1,5 +1,4 @@
 ---
-id: syslinux
 title: Syslinux
 ---
 

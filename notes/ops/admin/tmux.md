@@ -1,17 +1,15 @@
 ---
-id: tmux
 title: Tmux
 ---
 
 # Tmux
 
-## Tips
-* [tmux.1](http://man.openbsd.org/OpenBSD-current/man1/tmux.1)
-* Cheat sheet
-  * https://gist.github.com/andreyvit/2921703
-  * https://gist.github.com/MohamedAlaa/2961058
-* 参考
-  * iTerm2 [tmux Integration Best Practices](https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices)
+- [tmux.1](http://man.openbsd.org/OpenBSD-current/man1/tmux.1)
+- Cheat sheet
+  - https://gist.github.com/andreyvit/2921703
+  - https://gist.github.com/MohamedAlaa/2961058
+- 参考
+  - iTerm2 [tmux Integration Best Practices](https://gitlab.com/gnachman/iterm2/-/wikis/tmux-Integration-Best-Practices)
 
 ```bash
 # 新建或 attach 到会话
@@ -35,9 +33,10 @@ tmux list-panes -F '#F' | grep -q Z && tmux resize-pane -Z
 ```
 
 ## 窗口管理
-* 会话 - session
-  * 窗口 - window
-    * 面板 - pane
+
+- 会话 - session
+  - 窗口 - window
+    - 面板 - pane
 
 ```bash
 # 隐藏面板
@@ -72,7 +71,6 @@ bind-key C-@ choose-window 'join-pane    -s "%%"'
 # 添加到最近访问窗口
 bind-key @ join-pane -h -s !
 ```
-
 
 ```
 attach-session (attach) [-dEr] [-c working-directory] [-t target-session]

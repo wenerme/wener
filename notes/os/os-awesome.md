@@ -10,6 +10,7 @@ title: OS Awesome
   - GPL-3.0, Vlang
 - [zephyrproject-rtos/zephyr](https://github.com/zephyrproject-rtos/zephyr)
   - Apache 2.0
+  - RTOS
 - [cloudius-systems/osv](https://github.com/cloudius-systems/osv)
   OSv - os for the cloud.
 - [FuchsiaOS](https://fuchsia.dev/)
@@ -20,10 +21,20 @@ title: OS Awesome
   - [dahliaOS](https://github.com/dahliaOS)
     - FuchsiaOS on Linux/Zircon
     - Emulator, Prebuild Image
-- [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
-  项目停止
+- [SerenityOS/serenity](https://github.com/SerenityOS/serenity)
+  - BSD-3, C++
+  - Unix-like, 90 年代风格, x86_32
+- [haiku/haiku](https://github.com/haiku/haiku)
+  - MIT
+- [reactos/reactos](https://github.com/reactos/reactos)
+  兼容 Windows 的 Linux
+  - GPL-2
 
-## Interesting
+## 不活跃
+
+- [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
+
+## Distro
 
 - [lakka.tv](http://www.lakka.tv/)
   - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
@@ -34,7 +45,7 @@ title: OS Awesome
 
 - [jjyr/bootgo](https://github.com/jjyr/bootgo)
   barebones OS kernel
-  - Golang
+  - MIT, Go
 
 ## Emulator
 

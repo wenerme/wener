@@ -1,30 +1,30 @@
 ---
-id: alpine-pkgs
 title: Alpine 包维护
 ---
 
 ## Tips
-* [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
-* https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
-* [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
-* [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
-* 镜像状态 https://mirrors.alpinelinux.org/status.json
-* 镜像列表 http://nl.alpinelinux.org/alpine/MIRRORS.txt
-* Golang
-  * https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
-* aports [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)
-* 提交新的包
-  * fork aports
-  * 添加新的包
-  * 提交 PR
-  * 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
-  * 提交的信息格式
-    * `${repo}/${pkgname}: new aport`
-    * `${repo}/${pkgname}: move from testing`
-    * `${repo}/${pkgname}: upgrade to 3.1.0`
-  * 确保使用 Tab 而不是空格
-* 参考
-  * [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
+
+- [Creating an Alpine package](https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package)
+- https://wiki.alpinelinux.org/wiki/APKBUILD_Reference
+- [Apkindex format](https://wiki.alpinelinux.org/wiki/Apkindex_format)
+- [Abuild and Helpers](https://wiki.alpinelinux.org/wiki/Abuild_and_Helpers)
+- 镜像状态 https://mirrors.alpinelinux.org/status.json
+- 镜像列表 http://nl.alpinelinux.org/alpine/MIRRORS.txt
+- Golang
+  - https://git.alpinelinux.org/cgit/aports/tree/community/godep/APKBUILD
+- aports [How to contribute](https://github.com/alpinelinux/aports/blob/master/.github/CONTRIBUTING.md)
+- 提交新的包
+  - fork aports
+  - 添加新的包
+  - 提交 PR
+  - 新的包只能添加到 `testing/`, 在结果一段时间测试后才会移动到 `main/` 或 `community/`
+  - 提交的信息格式
+    - `${repo}/${pkgname}: new aport`
+    - `${repo}/${pkgname}: move from testing`
+    - `${repo}/${pkgname}: upgrade to 3.1.0`
+  - 确保使用 Tab 而不是  空格
+- 参考
+  - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
 
 ```bash
 # 准备
@@ -78,6 +78,7 @@ rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild
 ```
 
 ## abuild
+
 ```bash
 # 默认环境
 startdir="${APKBUILD%/*}"
@@ -91,7 +92,8 @@ builddir=${builddir:-"$srcdir/$pkgname-$pkgver"}
 ```
 
 ## abuild.conf
-* [abuild.conf](https://github.com/alpinelinux/abuild/blob/master/abuild.conf)
+
+- [abuild.conf](https://github.com/alpinelinux/abuild/blob/master/abuild.conf)
 
 ```shell
 export CFLAGS="-Os -fomit-frame-pointer"
@@ -148,6 +150,7 @@ abuild -r
 ```
 
 ## 新增
+
 ```bash
 # -c 添加 init.d 和 conf.d
 newapkbuild -n frp \
@@ -156,6 +159,32 @@ newapkbuild -n frp \
   -u https://github.com/fatedier/frp \
   -c \
   https://github.com/fatedier/frp/archive/v0.35.1.tar.gz
+```
+
+## APKBUILD
+```bash
+install="$pkgname.pre-install $pkgname.post-install"
+
+# cmake check
+check() {
+  CTEST_OUTPUT_ON_FAILURE=1 make -C build check
+}
+```
+
+```bash
+# 测试打包脚本
+rm -rf pkg && abuild rootpkg
+```
+
+__pre.install__
+
+```bash
+#!/bin/sh
+
+addgroup -S nebula 2>/dev/null
+adduser -S -D -H -s /bin/false -G nebula -g nebula nebula 2>/dev/null
+
+exit 0
 ```
 
 ## init tips
@@ -170,8 +199,36 @@ newapkbuild -n frp \
 tar -tvf ~/packages/testing/x86_64/frp-openrc-*.apk
 ```
 
+```bash
+#!/sbin/openrc-run
+name="Nebula Networking"
+description="Scalable overlay networking tool"
+
+instance=${RC_SVCNAME##*.}
+cfgfile="/etc/nebula/${instance:-config}.yml"
+command="/usr/sbin/nebula"
+command_args="-config $cfgfile"
+command_user="nebula"
+supervisor="supervise-daemon"
+output_log="/var/log/${RC_SVCNAME}.log"
+error_log="/var/log/${RC_SVCNAME}.log"
+
+depend() {
+        need net
+        use logger dns
+        after firewall
+}
+
+start_pre() {
+        $command -config $cfgfile -test
+        checkpath -f -m 0644 -o "$command_user" "$output_log" "$error_log"
+        checkpath -f -m 0640 -o "$command_user" "$cfgfile"
+}
+```
+
 ### 开发
-* https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
+
+- https://wiki.alpinelinux.org/wiki/Creating_an_Alpine_package
 
 ```
 Usage: newapkbuild [-n PKGNAME] [-d PKGDESC] [-l LICENSE] [-u URL]
@@ -246,8 +303,9 @@ To activate cross compilation specify in environment:
   CTARGET     Arch or hostspec of machine to generate compiler for
 ```
 
-
 # FAQ
+
 ## Invalid configuration `x86_64-alpine-linux-musl`: machine `x86_64-alpine-linux` not recognized
-* 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
-* 因为部分项目构建是无法将 `musl` 识别为 `gnu`
+
+- 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
+- 因为部分项目构建是无法将 `musl` 识别为 `gnu`

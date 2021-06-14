@@ -37,5 +37,18 @@ grep -rP '^\t<support_level>' $(find . -name '*.c') | sed -re 's#</?support_leve
 - Dial 时 WebSocket 发送 DTMF
   - Debian 16.16 crash
 - Echo 应用按任意键
+  - 18 alpinelinux crash
 - Asterisk crashes during call transfer [ASTERISK-29168](https://issues.asterisk.org/jira/browse/ASTERISK-29168)
   - pbx_realtime diaplans
+
+## There are no local system nameservers configured, resorting to system resolution
+
+musl 不支持
+
+- 导致 pjsip 无法使用 DNS SRV 而使用 A 和 AAAA 解析
+
+## AlpineLinux musl 问题
+
+- segfault
+  - agi dump html
+- pjsip 无法获取 nameserver

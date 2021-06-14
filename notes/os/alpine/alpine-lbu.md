@@ -5,12 +5,11 @@ title: Alpine local backup
 
 # Alpine local backup
 
-* apkvol
-* lbu - [Alpine local backup](https://wiki.alpinelinux.org/wiki/Alpine_local_backup)
-  * 默认只关心 /etc 下内容，不包含 `/etc/init.d`
-  * 相当于把所有 /etc 下的内容进行备份或恢复
-  * 安装所需包
-
+- apkvol
+- lbu - [Alpine local backup](https://wiki.alpinelinux.org/wiki/Alpine_local_backup)
+  - 默认只关心 /etc 下内容，不包含 `/etc/init.d`
+  - 相当于把所有 /etc 下的内容进行备份或恢复
+  - 安装所需包
 
 ```bash
 # 制作 rootfs.apkvol

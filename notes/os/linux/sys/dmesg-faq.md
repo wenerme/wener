@@ -225,6 +225,11 @@ EXT4-fs (sdc): I/O error while writing superblock
 
 # TODO
 
+```
+mei_hdcp 0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627000: bound 0000:00:02.0 (ops i915_hdcp_component_ops [i915])
+snd_hda_codec_hdmi hdaudioC0D2: Monitor plugged-in, Failed to power up codec ret=[-13]
+```
+
 ## mlx4_core Internal error detected
 
 ```

@@ -5,10 +5,9 @@ title: tinyproxy
 
 # tinyproxy
 
-## Tips
-* [tinyproxy](https://tinyproxy.github.io/)
-* [tinyproxy.conf](https://github.com/tinyproxy/tinyproxy/blob/master/etc/tinyproxy.conf.in)
-* 轻量级的 HTTP/HTTPS 代理
+- [tinyproxy](https://tinyproxy.github.io/)
+- [tinyproxy.conf](https://github.com/tinyproxy/tinyproxy/blob/master/etc/tinyproxy.conf.in)
+- 轻量级的 HTTP/HTTPS 代理
 
 ```bash
 # macOS 安装
@@ -32,8 +31,7 @@ tinyproxy -dc ./tinyproxy.conf
 curl -x admin:password@127.0.0.1:8888 icanhazip.com
 ```
 
-
-__默认配置__
+**默认配置**
 
 ```ini
 User tinyproxy

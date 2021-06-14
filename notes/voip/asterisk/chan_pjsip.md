@@ -140,15 +140,23 @@ hint_application=Dial(${HINT})
 
 # FAQ
 
-## There are no local system nameservers configured, resorting to system resolution
+## res_pjsip_outbound_registration.c:1061 handle_registration_response: Fatal response '401' received from 'sip:192.168.1.2' on registration attempt to 'sip:6001@192.168.2.2', stopping outbound registration
 
-musl 不支持
+初次注册成功，之后注册都失败
 
-- 导致 pjsip 无法使用 DNS SRV 而使用 A 和 AAAA 解析
+```bash
+pjsip send registry trunk-6001-reg-0
+```
 
-## AlpineLinux musl 问题
+尝试修改配置增加重试机制
 
-- segfault
-  - agi dump html
-  - Echo 客户端按任意键
-- pjsip 无法获取 nameserver
+```conf
+expiration = 300
+auth_rejection_permanent = no
+retry_interval = 30
+forbidden_retry_interval = 60
+fatal_retry_interval = 120
+max_retries = 120
+```
+
+- [pjsip.conf#fatal_retry_interval](https://github.com/asterisk/asterisk/blob/35437879e55b67d46cb9d0e558edef1e1609a28d/configs/samples/pjsip.conf.sample#L1335)

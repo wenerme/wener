@@ -1,3 +1,7 @@
+---
+title: Languages Awesome
+---
+
 # Languages Awesome
 
 ## 工具

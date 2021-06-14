@@ -431,7 +431,9 @@ man ifconfig
 ### tuntap
 
 - http://tuntaposx.sourceforge.net/
+  - 目前最新版已经不会加载该扩展
 - macOS 支持 utun
+- [The Future of Tun and Tap VPNs on macOS](https://tunnelblick.net/cTunTapConnections.html)
 
 ```bash
 brew cask install tuntap

@@ -39,6 +39,8 @@ title: Selfhost Awesome
 - Media
   - Jellyfin
   - Plex - 相对封闭，使用很多限制
+  - [airsonic/airsonic](https://github.com/airsonic/airsonic)
+    - GPL-3.0, Java
 - Network
   - PiHole
 - [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs)

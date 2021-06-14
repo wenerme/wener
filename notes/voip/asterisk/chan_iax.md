@@ -8,6 +8,10 @@ title: chan_iax
   - 单 TCP 支持多线路
   - 早期用于客服 NAT 问题
   - 2015 年 后相关开发较少
+  - 默认端口 4569/udp
+  - AES-128
+  - [rfc5456](https://datatracker.ietf.org/doc/html/rfc5456)
+    IAX: Inter-Asterisk eXchange Version 2
 - [Why IAX2?](https://wiki.asterisk.org/wiki/pages/viewpage.action?pageId=4817138)
   - NAT
   - High performance, low overhead protocol

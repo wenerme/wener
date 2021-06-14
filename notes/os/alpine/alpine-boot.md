@@ -1,5 +1,4 @@
 ---
-id: alpine-boot
 title: Alpin Boot
 ---
 
@@ -85,7 +84,7 @@ password=''
   - v3.12 ata base ide scsi usb virtio ext4
 - [alpinelinux/mkinitfs](https://github.com/alpinelinux/mkinitfs)
   - `mkinitfs -L` - 特性 [features.d](https://github.com/alpinelinux/mkinitfs/tree/master/features.d)
-  - `/etc/mkinitfs/mkinitfs.conf`
+  - `/etc/mkinitfs/mkinitfs.conf` - 配置
 - features
   - cryptsetup
     - LUKS
@@ -158,35 +157,35 @@ options:
 
 [features.d](https://github.com/alpinelinux/mkinitfs/tree/master/features.d)
 
-| feature    | pkgs        | desc                                                    |
-| ---------- | ----------- | ------------------------------------------------------- |
-| 9p         |             | virtio-fs-9p<br/>虚拟化直接映射目录                     |
+| feature    | pkgs        | desc                                                   |
+| ---------- | ----------- | ------------------------------------------------------ |
+| 9p         |             | virtio-fs-9p<br/>虚拟化直接映射目录                    |
 | ata        |             |
-| base       |             | busybox, sh,mdev,apk,modprobe.d,mdev.conf,nlplug-findfs |
-| bootchart  |             | [bootchart](https://www.bootchart.org/)集成             |
-| btrfs      | btrfs-progs | /sbin/btrfs                                             |
-| cdrom      |             | driver/cdrom, isofs                                     |
+| base       |             | busybox,sh,mdev,apk,modprobe.d,mdev.conf,nlplug-findfs |
+| bootchart  |             | [bootchart](https://www.bootchart.org/)集成            |
+| btrfs      | btrfs-progs | /sbin/btrfs                                            |
+| cdrom      |             | driver/cdrom, isofs                                    |
 | cramfs     |
-| cryptkey   |             | /crypto_keyfile.bin                                     |
-| cryptsetup | cryptsetup  |
+| cryptkey   |             | /crypto_keyfile.bin                                    |
+| cryptsetup | cryptsetup  | modprobe dm-crypt                                      |
 | dasd_mod   |
-| dhcp       |             | `/usr/share/udhcpc/default.script`<br/>af_packet        |
+| dhcp       |             | `/usr/share/udhcpc/default.script`<br/>af_packet       |
 | ena        |
 | ext2       |
 | ext3       |
 | ext4       |
 | f2fs       |
 | floppy     |
-| gfs2       |             | Global File System 2                                    |
-| https      | ssl_client  | `/usr/bin/ssl_client`                                   |
+| gfs2       |             | Global File System 2                                   |
+| https      | ssl_client  | `/usr/bin/ssl_client`                                  |
 | jfs        |
 | keymap     |
-| kms        |
+| kms        |             | agp,gpu,i2c,video,fbdev,vc4                                |
 | lvm        |
 | mmc        |
 | nbd        |
 | network    |
-| nvme       |             | 加载 nvme 驱动 - 例如使用了 M.2 启动                    |
+| nvme       |             | 加载 nvme 驱动 - 例如使用了 M.2 启动                   |
 | ocfs2      |
 | qeth       |
 | raid       |
@@ -194,10 +193,10 @@ options:
 | scsi       |
 | squashfs   |
 | ubifs      |
-| usb        |             | drivers/usb,drivers/hid,fat,nls                         |
+| usb        |             | drivers/usb,drivers/hid,fat,nls                        |
 | virtio     |
 | xenpci     |
-| xfs        | xfsprogs    | `/sbin/xfs_repair`                                      |
+| xfs        | xfsprogs    | `/sbin/xfs_repair`                                     |
 | zfcp       |
 | zfs        | zfs         |
 
@@ -297,8 +296,6 @@ options:
 | ssh_key       |
 | usbdelay      |                               | `nlplug-findfs -t` delay, second                                                          |
 
-> 排序: `pbpaste | sort | pbcopy`
-
 ## inittab
 
 - debian [inittab.5](https://manpages.debian.org/jessie/sysvinit-core/inittab.5.en.html)
@@ -356,4 +353,15 @@ tty6::respawn:/sbin/getty 38400 tty6
 
 # Stuff to do before rebooting
 ::shutdown:/sbin/openrc shutdown
+```
+
+## grub
+
+**/etc/default/grub**
+
+```ini
+GRUB_TIMEOUT=2
+GRUB_DISABLE_SUBMENU=y
+GRUB_DISABLE_RECOVERY=true
+GRUB_CMDLINE_LINUX_DEFAULT="modules=sd-mod,usb-storage,ext4 quiet rootfstype=ext4"
 ```

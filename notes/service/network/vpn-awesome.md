@@ -5,7 +5,9 @@ title: VPN Awesome
 # VPN Awesome
 
 - [wiretrustee/wiretrustee](https://github.com/wiretrustee/wiretrustee)
-  Wireguard+Mesg
+  Wireguard+Mesh
+  - BSD-3, Go
+  - WebRTC, STUN, TURN
 - [gravitl/netmaker](https://github.com/gravitl/netmaker)
   SSPL
 - [dswd/vpncloud](https://github.com/dswd/vpncloud)

@@ -197,6 +197,8 @@ title: Go Awesome
   WebSocket reverse proxy
 - [soheilhy/cmux](https://github.com/soheilhy/cmux)
   Connection multiplexer - serve different services on the same port
+- [songgao/water](https://github.com/songgao/water)
+  TUN/TAP library written in native Go
 
 ## 事件驱动
 

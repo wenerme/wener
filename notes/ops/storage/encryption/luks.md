@@ -1,12 +1,10 @@
 ---
-id: luks
 title: LUKS
 ---
 
 # LUKS
 
-## Tips
-- [Linux Unified Key Setup](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
+- LUKS - [Linux Unified Key Setup](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
   - [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)
 - [admin-guide/device-mapper/dm-crypt](https://www.kernel.org/doc/html/latest/admin-guide/device-mapper/dm-crypt.html)
 - 注意
@@ -146,56 +144,56 @@ umount -R /mnt
 cryptsetup close cryptroot
 ```
 
-
 # FAQ
 
 ## WARNING: Locking directory /run/cryptsetup is missing!
 
 ## LUKS vs LUKS2
-* LUKS2
-  * Full disk authenticated (FDA) 提供数据 confidentiality 和 data integrity protection
-    * Integrity cannot prevent a replay attack
-  * `cryptsetup luksFormat --type luks2 <device>`
-  * 新的格式，与 LUKS1 不兼容
-  * sector 级别完整性校验 - Linux 4.12 - dm-integrity
-    * `integritysetup` - 命令
-  * veritysetup 支持设备 FEC（Forward Error Correction） - 安装 Linux 4.5 已有在使用
-  * sector 最大支持 4096
-    * 确保硬件使用相同大小，如果硬件 sector 更小可能导致数据损坏 - 部分 sector 写入
-  * 使用 Argon2i 和 Argon2id 作为 PBKDF
-    * memory-hard - 增加内存使用 - 是的 GPU 攻击更难 - 因为 GPU 内存成本高
-    * 赢得 Password Hashing Competition 的算法
-  * 默认 Argon2i (data independent variant) - 内存 cost 128MB，时间 cost 800ms，并行取决于 CPU <= 4
-    * 单独配置 --pbkdf, --pbkdf-memory, --pbkdf-parallel, --iter-time
-    * 迭代周期 --pbkdf-force-iterations
-  * 使用 Token 独立抽象 cryptsetup 硬件部分
-  * `--persistent` - 持久打开，之后打开不需要密钥
-  * Linux kernel keyring
-    * 避免每次 ioctl 发送密钥
-    * 自动解锁 - 例如使用 TMP 存储用户密钥
-    * [keyrings.7](https://www.man7.org/linux/man-pages/man7/keyrings.7.html)
-      * `apk add keyutils`
-    * [KERNEL KEY RETENTION SERVICE](https://www.kernel.org/doc/Documentation/security/keys.txt)
-  * Keyslot priorities
-    * normal,prefer,ignore
-    * `cryptsetup config <device> --key-slot 1 --priority prefer`
-  * LUKS2 label and subsystem
-    * `cryptsetup config <device> --label my_device --subsystem ""`
-  * 支持转换
-    * `cryptsetup convert <device> --type luks2`
-    * `cryptsetup convert <device> --type luks1`
-    * 验证 `cryptsetup luksDump <device>`
-* LUKS1
-  * Full disk encryption (FDE)
-  * 保留长度加密 - length-preserving - encryption - 明文密文长度相同
-    * 提供数据可信 （confidentiality），但不保证数据完整性
-  * 使用 PBKDF (Password-Based Key Derivation Function) 增加攻击者耗时
-  * PBKDF2 增加迭代次数
-    * 目前 GPU 已经可以并行执行
 
-* 参考
-  * [Cryptsetup 2.0.0 Release Notes](https://gitlab.com/cryptsetup/cryptsetup/blob/master/docs/v2.0.0-ReleaseNotes)
+- LUKS2
+  - Full disk authenticated (FDA) 提供数据 confidentiality 和 data integrity protection
+    - Integrity cannot prevent a replay attack
+  - `cryptsetup luksFormat --type luks2 <device>`
+  - 新的格式，与 LUKS1 不兼容
+  - sector 级别完整性校验 - Linux 4.12 - dm-integrity
+    - `integritysetup` - 命令
+  - veritysetup 支持设备 FEC（Forward Error Correction） - 安装 Linux 4.5 已有在使用
+  - sector 最大支持 4096
+    - 确保硬件使用相同大小，如果硬件 sector 更小可能导致数据损坏 - 部分 sector 写入
+  - 使用 Argon2i 和 Argon2id 作为 PBKDF
+    - memory-hard - 增加内存使用 - 是的 GPU 攻击更难 - 因为 GPU 内存成本高
+    - 赢得 Password Hashing Competition 的算法
+  - 默认 Argon2i (data independent variant) - 内存 cost 128MB，时间 cost 800ms，并行取决于 CPU <= 4
+    - 单独配置 --pbkdf, --pbkdf-memory, --pbkdf-parallel, --iter-time
+    - 迭代周期 --pbkdf-force-iterations
+  - 使用 Token 独立抽象 cryptsetup 硬件部分
+  - `--persistent` - 持久打开，之后打开不需要密钥
+  - Linux kernel keyring
+    - 避免每次 ioctl 发送密钥
+    - 自动解锁 - 例如使用 TMP 存储用户密钥
+    - [keyrings.7](https://www.man7.org/linux/man-pages/man7/keyrings.7.html)
+      - `apk add keyutils`
+    - [KERNEL KEY RETENTION SERVICE](https://www.kernel.org/doc/Documentation/security/keys.txt)
+  - Keyslot priorities
+    - normal,prefer,ignore
+    - `cryptsetup config <device> --key-slot 1 --priority prefer`
+  - LUKS2 label and subsystem
+    - `cryptsetup config <device> --label my_device --subsystem ""`
+  - 支持转换
+    - `cryptsetup convert <device> --type luks2`
+    - `cryptsetup convert <device> --type luks1`
+    - 验证 `cryptsetup luksDump <device>`
+- LUKS1
 
+  - Full disk encryption (FDE)
+  - 保留长度加密 - length-preserving - encryption - 明文密文长度相同
+    - 提供数据可信 （confidentiality），但不保证数据完整性
+  - 使用 PBKDF (Password-Based Key Derivation Function) 增加攻击者耗时
+  - PBKDF2 增加迭代次数
+    - 目前 GPU 已经可以并行执行
+
+- 参考
+  - [Cryptsetup 2.0.0 Release Notes](https://gitlab.com/cryptsetup/cryptsetup/blob/master/docs/v2.0.0-ReleaseNotes)
 
 ```bash
 # aes-xts-plain64 + hmac-sha256 / hmac-sha512 作为 authentication tag - IEEE 1619.1

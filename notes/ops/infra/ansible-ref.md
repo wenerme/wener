@@ -208,3 +208,75 @@ for ROLE in "apache" "web";do mkdir -p roles/${ROLE}/{files,handlers,tasks}; don
 | Module         | M(apt)                    | Module names          |
 | Italics        | I(port)                   | Parameter names       |
 | Constant-width | C(/bin/bash)              | File and option names |
+
+## functions
+
+| fn             | args                          |
+| -------------- | ----------------------------- |
+| default        | def,when_empty_or_false=false |
+| ternary        | true,false,null               |
+| mandatory      |
+| type_debug     |
+| human_readable | isbites,unit                  |
+| human_to_bytes | isbits                        |
+
+```yaml
+# omit 可选
+mode: "{{ item.mode | default(omit) }}"
+# 如果要 chain 则使用 None
+mode: "{{ foo | default(None) | some_filter or omit }}"
+# 必须要的变量
+required: "{{ variable | mandatory }}"
+```
+
+## Tests
+
+- [Tests](https://docs.ansible.com/ansible/latest/user_guide/playbooks_tests.html)
+
+| test         | args/meaning                                        |
+| ------------ | --------------------------------------------------- |
+| is truthy    | convert_bool=True                                   |
+| is falsy     | convert_bool=True                                   |
+| is version   | (str,operator,strict='False',version_type='semver') |
+| is superset  |
+| is subset    |
+| is all       | all true                                            |
+| is any       | any true                                            |
+| is failed    | test result                                         |
+| is changed   |
+| is succeeded |
+| is success   |
+| is skipped   |
+
+**检测控制器上文件存在情况**
+
+- is directory,file,link,exists,same_file(path),mount,abs
+
+```yaml
+vars:
+  lacp_groups:
+    - master: lacp0
+      network: 10.65.100.0/24
+      gateway: 10.65.100.1
+      dns4:
+        - 10.65.100.10
+        - 10.65.100.11
+      interfaces:
+        - em1
+        - em2
+
+    - master: lacp1
+      network: 10.65.120.0/24
+      gateway: 10.65.120.1
+      dns4:
+        - 10.65.100.10
+        - 10.65.100.11
+      interfaces:
+        - em3
+        - em4
+
+# Test list contains value
+tasks:
+  - debug:
+      msg: "{{ (lacp_groups|selectattr('interfaces', 'contains', 'em1')|first).master }}"
+```
