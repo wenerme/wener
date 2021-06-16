@@ -5,16 +5,16 @@ title: SSH
 
 # SSH
 
-* [sshd_config](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd_config.5)
+- [sshd_config](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd_config.5)
 
 ## Tips
-* Host key `/etc/ssh/ssh_host_*`
-* 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
-* http://quark.humbug.org.au/publications/ssh/ssh-tricks.html
-* Verify that the .pem file has permissions of 0400, not 0777
 
+- Host key `/etc/ssh/ssh_host_*`
+- 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
+- http://quark.humbug.org.au/publications/ssh/ssh-tricks.html
+- Verify that the .pem file has permissions of 0400, not 0777
 
-__ESCAPE__
+**ESCAPE**
 
 ```
  ~.   - terminate connection (and any multiplexed sessions)
@@ -39,7 +39,7 @@ Commands:
       -KD[bind_address:]port                 Cancel dynamic forward
 ```
 
-__常用配置__
+**常用配置**
 
 ```bash
 # 配置使用的端口
@@ -64,12 +64,6 @@ Match User dev
 # 禁止部分用户使用 TTY
 Match User player
   PermitTTY no
-```
-
-```bash
-# 强制使用密码
-ssh user:@example.com
-ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```
 
 ## config
@@ -98,6 +92,7 @@ ssh-keygen -t rsa -b 2048 -f /tmp/sshkey -q -N ""
 ```
 
 ## Tunnel
+
 在工作中常常需要较多的代理和转发,为每个代理和转发都进行一次 SSH 未免太过麻烦,使用 `~/.ssh/config` 可以将常用的转发一次配置
 
 ```bash
@@ -120,13 +115,14 @@ autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
 ```
 
 ## 多路复用
-* https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Multiplexing
-* 好处
-  * 减少连接时间 - 特别是机器多、ssh命令多、ack延时高的时候
-  * 连接复用
-* 注意
-  * 连接过多可能不问题
-  * 不要用来传大文件 - 直接连接会更快
+
+- https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Multiplexing
+- 好处
+  - 减少连接时间 - 特别是机器多、ssh 命令多、ack 延时高的时候
+  - 连接复用
+- 注意
+  - 连接过多可能不问题
+  - 不要用来传大文件 - 直接连接会更快
 
 ```
 Host *
@@ -172,6 +168,7 @@ ssh localhost -p 1100
 ```
 
 ## 跳板机
+
 ```bash
 # 默认支持 -J 用于跳板场景
 # 需要 PortForward
@@ -200,13 +197,15 @@ Host behindbeta
 ```
 
 ## HTTP + SSH 多路
-* https://github.com/yrutschle/sslh
+
+- https://github.com/yrutschle/sslh
 
 ## ForwardAgent
-* https://www.ssh.com/ssh/agent/
-* 转发 agent 后可以直接在远程节点使用本地添加的 ssh 密钥
-* 注意
-  * root 能访问其他用户的 auth sock
+
+- https://www.ssh.com/ssh/agent/
+- 转发 agent 后可以直接在远程节点使用本地添加的 ssh 密钥
+- 注意
+  - root 能访问其他用户的 auth sock
 
 ```bash
 # 会暴露 SSH_AUTH_SOCK - 例如 /tmp/ssh-abcd/agent.6379
@@ -214,17 +213,20 @@ Host behindbeta
 ssh -A user@myhost.com
 ```
 
-
 ## FAQ
+
 ### key_load_public: No such file or directory
+
 找不到 `~/.ssh/id_rsa.pub`，不影响使用
 
 ### channel 0: open failed: administratively prohibited: open failed - stdio forwarding failed
+
 不允许 PortForward，需要开启
 
 ### 端口转发
-* -L/LocalForward 本地转发
-* -R/RemoteForward 远程转发
+
+- -L/LocalForward 本地转发
+- -R/RemoteForward 远程转发
 
 ```bash
 # 访问本地 80 会被转发到 SERVER:8080
@@ -237,7 +239,7 @@ ssh -g -R 80:localhost:8080 SERVER -o ExitOnForwardFailure=yes
 
 允许端口转发
 
-__/etc/ssh/sshd_config__
+**/etc/ssh/sshd_config**
 
 ```conf
 AllowAgentForwarding yes
@@ -253,26 +255,37 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -
 ```
 
 ### no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
-__~/.ssh/config__
+
+**~/.ssh/config**
 
 ```
 KexAlgorithms +diffie-hellman-group1-sha1
 ```
 
 ### no matching cipher found. Their offer: aes128-cbc,3des-cbc,aes256-cbc,twofish256-cbc,twofish-cbc,twofish128-cbc,blowfish-cbc
+
 服务端提供的 cipher 客户端不支持
 
 #### 修改客户端支持 cipher
+
 ```
 Host gitlab.com
      Ciphers aes256-ctc
 ```
 
 #### 修改服务端 cipher
-__/etc/ssh/ssh_config__
+
+**/etc/ssh/ssh_config**
 
 添加 cipher
 
 ```
 Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+```
+
+## 强制密码登陆
+
+```bash
+ssh user:@example.com
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```

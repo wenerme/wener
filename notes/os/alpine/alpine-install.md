@@ -47,7 +47,7 @@ qemu-system-x86_64 -smp 2 -m 4G -accel hvf -cdrom alpine-extended-3.13.5-x86_64.
 
 # UEFI 启动
 # -accel hvf 启动会失败
-qemu-system-x86_64 -m 4G -smp 2  -net nic -nic user,hostfwd=tcp::2222-:22 -drive file=efi.raw,if=virtio -display cocoa -bios bios.bin
+qemu-system-x86_64 -m 4G -smp 2 -net nic -nic user,hostfwd=tcp::2222-:22 -drive file=efi.raw,if=virtio -display cocoa -bios bios.bin
 ```
 
 ## setup-disk

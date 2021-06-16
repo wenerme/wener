@@ -17,6 +17,7 @@ title: Terraform
   - 0.10 旧的模块不支持 `for_each`, `count`, `depends_on`
   - 移除 `provider` 之前确保所有资源删除
   - 模块会集成默认 provider - 没有别名的 provider
+  - 如果发现网络不通，确保本地可以打开 https://registry.terraform.io/.well-known/terraform.json
 - 转换函数
   - yamldecode
 - 后端

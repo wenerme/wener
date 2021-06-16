@@ -16,12 +16,55 @@ title: 版本历史
 :::caution
 
 - 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
+- 3.14 musl 开启了 faccessat2, 对 docker 和 libseccomp 有要求
+  - 不然可能会出现类似无权限访问的问题
+  - Linux 5.8 增加 faccessat2
 - 3.11 内核 vanilla 变为 lts
 - 3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代
 
 :::
 
 ## 3.14
+
+:::caution
+
+- 如果升级容器建议先升级主机，因为 faccessat2 对 docker 版本 和 libseccomp 有要求
+  - 3.13 最新版 docker 是 20.10, libseccomp 是 2.5 都支持
+  - 运行 `scmp_sys_resolver faccessat2` 确保不是返回 -1
+
+:::
+
+
+:::tip
+
+- 下一个版本预计会支持 riscv64
+
+:::
+
+- 2020-07-15
+- Linux Kernel 5.10.43
+- 🆕 新增包
+  - n2n
+  - openssh-server-krb5, openssh-client-krb5
+    - ssh 支持 krb5 和 pam 的 flavor
+- 🆙 升级包
+  - python 3.9
+  - lua 5.4.3
+  - node 14
+  - nginx 1.20.0, njs 0.5.3
+  - [haproxy 2.4](https://wener.me/notes/devops/web/haproxy-version/#24---2021-05-13) - 更新非常大,值得关注
+  - PostgreSQL 13
+  - QEMU 6
+  - k3s 1.21.1
+- 变化
+  - musl 启用 faccessat2
+    - 要求 docker 20.10.0+, libseccomp 2.4.4
+    - 检查系统支持 scmp_sys_resolver faccessat2
+    - 直接升级遇到这个问题的可能性非常高
+    - [opencontainers/runc#2151](https://github.com/opencontainers/runc/issues/2151)
+    - [alpine/aports#12321](https://gitlab.alpinelinux.org/alpine/aports/-/issues/12321)
+      3.13.0 vs. edge - cmake fails to detect C compiler ABI info
+  - 移除 xf86-input-{mouse,keyboard}, 使用 xf86-input-evdev, xf86-input-libinput
 
 ## 3.13
 
@@ -250,6 +293,7 @@ reboot
 
 | version | commits |
 | ------- | ------- |
+| 3.14.0  | 12      |
 | 3.13.1  | 2       |
 | 3.13.0  | 29      |
 | 3.12.1  | 2       |

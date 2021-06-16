@@ -9,7 +9,7 @@ keywords:
 
 :::caution
 
-- macOS 目前没有好的 tap 设备实现， L2 组网困难
+- macOS 目前 tuntap 安装相对麻烦
 - macOS 原生支持 utun - 等同于 tun 设备
 
 :::
@@ -156,25 +156,32 @@ keywords:
   - 支持 L2 Mesh
   - 依赖 tuntap
   - 单线程
-- n2n
+- n2n - since 2008
   - 节点分为 supernode 和 edge
   - 中心化 supernode signal - 不支持中继
   - 一个 supernode 支持多个网络
   - 大多时候需要自己编译 - 官方提供部分下载
   - 固定 MTU - 支持开启 PMTU
   - 只支持 L2 网络 - TAP
-  - 开发活跃
+  - **开发活跃** - 2.8 发布于 2020, 2021-06 尚未发布 2.9, 会直接发布 3.0
   - 内建流量控制 - ACL
   - 支持自动分配 IP
   - 应用可以控制包转发
-- tinc
+  - 使用比 tinc 更加友好简单 - 体验类似 zerotier
+- tinc - since 1998
   - 完全去中心化 - 节点关系相同
   - 所有节点都连接的节点的称为 metanode - 和普通节点相同 - 支持中继
   - 一个网络需要一个 metanode
   - 大多平台都可以直接安装
   - 动态自适应 MTU - MSS clamping- PMTU
   - 支持 L2 和 L3 网络 - TAP/TUN
-  - 开发停滞
+  - **开发停滞** - 1.0 稳定, 1.1-pre 问题不少
+
+:::caution
+
+- tinc 和 n2n 同时运行可能导致 n2n 实际走的 tinc 网络
+
+:::
 
 ## StrongSwan vs Openswan vs Libreswan vs Freeswan
 

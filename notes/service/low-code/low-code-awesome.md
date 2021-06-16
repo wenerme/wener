@@ -43,6 +43,9 @@ title: Low Code Awesome
     - 基于 JSXLite
 - [saltcorn/saltcorn](https://github.com/saltcorn/saltcorn)
   - MIT
+- [ToolJet/ToolJet](https://github.com/ToolJet/ToolJet)
+  no-code platform for building and deploying internal tools
+  - GPL-3
 
 ## 商业
 

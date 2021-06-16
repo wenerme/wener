@@ -20,3 +20,6 @@ title: Languages Awesome
   - 包含常用服务客户端 - twitter, graphql, openapi
   - 服务集成 - awslambda, azure_functions
   - 流程图形化 - 序列图, 函数图, 客户端对象图
+- [terralang/terra](https://github.com/terralang/terra)
+  low-level system programming language embedded Lua
+  - MIT

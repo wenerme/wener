@@ -1,6 +1,9 @@
 # IPv6
 
 
+- [NICMx/Jool](https://github.com/NICMx/Jool)
+  SIIT and NAT64 for Linux
+
 ```bash
 [ -f /proc/net/if_inet6 ] && echo 'IPv6: yes' || echo 'IPv6: no'
 

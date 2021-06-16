@@ -8,9 +8,6 @@ title: OS Awesome
   - MIT, Rust
 - [vlang/vinix](https://github.com/vlang/vinix)
   - GPL-3.0, Vlang
-- [zephyrproject-rtos/zephyr](https://github.com/zephyrproject-rtos/zephyr)
-  - Apache 2.0
-  - RTOS
 - [cloudius-systems/osv](https://github.com/cloudius-systems/osv)
   OSv - os for the cloud.
 - [FuchsiaOS](https://fuchsia.dev/)
@@ -57,3 +54,5 @@ title: OS Awesome
 - [POKEGB: a gameboy emulator that only plays Pokémon blue](https://binji.github.io/posts/pokegb/)
   - [pokegb.cc](https://gist.github.com/binji/395669d45e9005950232043ab4378abe)
     未混淆的原始代码
+- [uxn](https://100r.co/site/uxn.html)
+  portable 8-bit virtual computer

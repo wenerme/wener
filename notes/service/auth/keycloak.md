@@ -10,6 +10,10 @@ title: Keycloak
   - 挂载到 `$JBOSS_HOME/secrets`
 - 参考
   - [Use mobile numbers for user authentication in Keycloak](https://developers.redhat.com/blog/2020/10/23/use-mobile-numbers-for-user-authentication-in-keycloak)
+  - [mrparkers/terraform-provider-keycloak](https://github.com/mrparkers/terraform-provider-keycloak)
+    Terraform 管理 Keycloak
+  - [adorsys/keycloak-config-cli](https://github.com/adorsys/keycloak-config-cli)
+    命令行配置导入
 - 地址
   - /auth
   - /auth/console

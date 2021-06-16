@@ -48,6 +48,7 @@ title: ML Awesome
 - ResNet152v2
 - MobileNet
 - MobileNetv2
+- https://modelplace.ai/models
 
 ## STT
 
