@@ -25,6 +25,8 @@ title: chan_iax
   - Single socket design
 - 参考
   - [Is IAX2 still best trunk type for Internal Calling between FreePBX Systems?](https://community.freepbx.org/t/is-iax2-still-best-trunk-type-for-internal-calling-between-freepbx-systems-specifically-related-to-encryption/61907/7)
+- 出局 `IAX2/[<user>[:<secret>]@]<peer>[:<port_number>][/<extension>[@<context>][/<option>]]`
+- 入局 `IAX2/[[<username>@]<host>]/<call_number>`
 
 :::tip
 
@@ -33,18 +35,28 @@ title: chan_iax
 
 :::
 
+```conf
+load => chan_iax2
+; trunk 需要 timing interface
+load => res_timing_timerfd
+```
 
 ## iax.conf
+
 - type=user
-  - 服务端定义
+  - 服务端定义 - 接受客户端 - 接受呼叫
 - type=peer
-  - 客户端定义
+  - 客户端定义 - 注册到对方 - 发起呼叫
+  - 如果 host 为 dynamic 则需要 register 注册
 - type=friend
   - 创建 user+peer
+  - 如果设置了 host=hostname,domain.ext 则会限定可发起请求的 peer
 
 ```bash
 iax2 reload
 ```
+
+### general
 
 ```conf
 [general]
@@ -170,46 +182,26 @@ jitterbuffer=no
 ; 强制加密 - 隐含 encryption=yes
 ;forceencryption=yes
 
-; This option defines the maximum payload in bytes an IAX2 trunk can support at
-; a given time.  The best way to explain this is to provide an example.  If the
-; maximum number of calls to be supported is 800, and each call transmits 20ms
-; frames of audio using ulaw:
+; IAX2 trunk 最大 payload - 单位 byte
+; 例如 最大800通话， 20ms 每 frame，使用 ulaw
 ;
 ;     (8000hz / 1000ms) * 20ms * 1 byte per sample = 160 bytes per frame
 ;
-; The maximum load in bytes is:
+; 最大带宽为:
 ;
 ;     (160 bytes per frame) * (800 calls) = 128000 bytes
 ;
-; Once this limit is reached, calls may be dropped or begin to lose audio.
-; Depending on the codec in use and number of channels to be supported this value
-; may need to be raised, but in most cases the default value is large enough.
-;
-; trunkmaxsize = 128000 ; defaults to 128000 bytes, which supports up to 800
-                        ; calls of ulaw at 20ms a frame.
+; 超过限制呼叫可能会被忽略
+; 默认 128000 - 128k
+; trunkmaxsize = 128000
 
-; With a large amount of traffic on IAX2 trunks, there is a risk of bad voice
-; quality when allowing the Linux system to handle fragmentation of UDP packets.
-; Depending on the size of each payload, allowing the OS to handle fragmentation
-; may not be very efficient. This setting sets the maximum transmission unit for
-; IAX2 UDP trunking. The default is 1240 bytes which means if a trunk's payload
-; is over 1240 bytes for every 20ms it will be broken into multiple 1240 byte
-; messages.  Zero disables this functionality and let's the OS handle
-; fragmentation.
-;
-; trunkmtu = 1240    ; trunk data will be sent in 1240 byte messages.
+; 流量大的时候由系统处理 udp 分片可能影响通话质量
+; 设置 mtu 避免系统处理 udp 分片 - 设置为 0 则由系统处理
+; trunkmtu = 1240
 
-; trunkfreq sets how frequently trunk messages are sent in milliseconds. This
-; value is 20ms by default, which means the trunk will send all the data queued
-; to it in the past 20ms.  By increasing the time between sending trunk messages,
-; the trunk's payload size will increase as well.  Note, depending on the size
-; set by trunkmtu, messages may be sent more often than specified.  For example
-; if a trunk's message size grows to the trunkmtu size before 20ms is reached
-; that message will be sent immediately.  Acceptable values are between 10ms and
-; 1000ms.
-;
-; trunkfreq=20    ; How frequently to send trunk msgs (in ms). This is 20ms by
-                  ; default.
+; 消息发送频率 - 单位 ms 默认 20ms，接受 10ms - 1000ms
+; 如果消息达到了 trunkmtu 也会发送
+; trunkfreq=20
 
 ; Should we send timestamps for the individual sub-frames within trunk frames?
 ; There is a small bandwidth use for these (less than 1kbps/call), but they
@@ -220,8 +212,7 @@ jitterbuffer=no
 ;
 ; trunktimestamps=yes
 
-; Minimum and maximum amounts of time that IAX2 peers can request as a
-; registration expiration interval (in seconds).
+; 注册间隔 - 单位 秒
 ; minregexpire = 60
 ; maxregexpire = 60
 
@@ -233,19 +224,15 @@ jitterbuffer=no
 ; Establishes the number of extra dynamic threads that may be spawned to handle I/O
 ; iaxmaxthreadcount = 100
 
-;
-; We can register with another IAX2 server to let him know where we are
-; in case we have a dynamic IP address for example
-;
-; Register with tormenta using username marko and password secretpass
+; 注册到另外一个 IAX2 服务器 - 发现 IP
 ;
 ;register => marko:secretpass@tormenta.linux-support.net
 ;
-; Register joe at remote host with no password
+; 无密码
 ;
 ;register => joe@remotehost:5656
 ;
-; Register marko at tormenta.linux-support.net using RSA key "torkey"
+; RSA key 注册
 ;
 ;register => marko:[torkey]@tormenta.linux-support.net
 ;
@@ -267,60 +254,33 @@ jitterbuffer=no
 ; FWD number and "passwd" with your password.
 ;
 ;register => FWDNumber:passwd@iax.fwdnet.net
-;
-; Through the use of the res_stun_monitor module, Asterisk has the ability to detect when the
-; perceived external network address has changed.  When the stun_monitor is installed and
-; configured, chan_iax will renew all outbound registrations when the monitor detects any sort
-; of network change has occurred. By default this option is enabled, but only takes effect once
-; res_stun_monitor is configured.  If res_stun_monitor is enabled and you wish to not
-; generate all outbound registrations on a network change, use the option below to disable
-; this feature.
-;
-; subscribe_network_change_event = yes ; on by default
-;
-; You can enable authentication debugging to increase the amount of
-; debugging traffic.
-;
+
+
+; 开启 res_stun_monitor 模块后可订阅网络变化，网络变化后重新注册
+; 默认开启
+; subscribe_network_change_event = yes
+
+; 开启认证调试日志
 ;authdebug = yes
 ;
 ; See https://wiki.asterisk.org/wiki/display/AST/IP+Quality+of+Service for a description of these parameters.
 ;tos=ef
 ;cos=5
-;
-; If regcontext is specified, Asterisk will dynamically create and destroy
-; a NoOp priority 1 extension for a given peer who registers or unregisters
-; with us.  The actual extension is the 'regexten' parameter of the registering
-; peer or its name if 'regexten' is not provided.  More than one regexten
-; may be supplied if they are separated by '&'.  Patterns may be used in
-; regexten.
-;
+
+; 设置后会动态创建 NoOp extension
+; & 分隔指定多个
 ;regcontext=iaxregistrations
-;
-; If we don't get ACK to our NEW within 2000ms, and autokill is set to yes,
-; then we cancel the whole thing (that's enough time for one retransmission
-; only).  This is used to keep things from stalling for a long time for a host
-; that is not available, but would be ill advised for bad connections.  In
-; addition to 'yes' or 'no' you can also specify a number of milliseconds.
-; See 'qualify' for individual peers to turn on for just a specific peer.
-;
+
+; NEW 后 2000ms 未响应 ACK 则 自动 kill - 避免异常导致卡死
+; 也可以直接指定 时间 - 单位 ms
+; 单个 peer 使用 qualify 控制
 autokill=yes
-;
-; codecpriority controls the codec negotiation of an inbound IAX2 call.
-; This option is inherited to all user entities.  It can also be defined
-; in each user entity separately which will override the setting in general.
-;
-; The valid values are:
-;
-; caller   - Consider the callers preferred order ahead of the host's.
-; host     - Consider the host's preferred order ahead of the caller's.
-; disabled - Disable the consideration of codec preference altogether.
-;            (this is the original behaviour before preferences were added)
-; reqonly  - Same as disabled, only do not consider capabilities if
-;            the requested format is not available the call will only
-;            be accepted if the requested format is available.
-;
-; The default value is 'host'
-;
+
+; 编码协商逻辑 - 默认 host
+; caller - 优先 caller 定义的编码
+; host - host 定义的编码
+; disabled
+; reqonly - 类似 disabled，但如果编码不支持可以请求新的编码
 ;codecpriority=host
 ;
 ; allowfwdownload controls whether this host will serve out firmware to
@@ -330,7 +290,7 @@ autokill=yes
 ; IAXy firmware has not been updated for at least 18 months, so unless
 ; you are provisioning IAXys in a secure network, we recommend that you
 ; leave this option to the default, off.
-;
+; IAXy 相关
 ;allowfwdownload=yes
 
 ;rtcachefriends=yes ; Cache realtime friends by adding them to the internal list
@@ -370,118 +330,51 @@ autokill=yes
 ; only a global option.
 ;
 ;calltokenoptional=209.16.236.73/255.255.255.0
-;
-; By setting 'requirecalltoken=no', call token validation becomes optional for
-; that peer/user.  By setting 'requirecalltoken=auto', call token validation
-; is optional until a call token supporting peer registers successfully using
-; call token validation.  This is used as an indication that from now on, we
-; can require it from this peer.  So, requirecalltoken is internally set to yes.
-; requirecalltoken may only be used in peer/user/friend definitions,
-; not in the global scope.
-; By default, 'requirecalltoken=yes'.
-;
+
+; 设置为 no 则不需要验证 call token - 在定义 peer/user/friend 时使用
+; 默认 yes
 ;requirecalltoken=no
-;
-; Maximum time allowed for call token authentication handshaking. Default is 10 seconds.
-; Use higher values in lagged or high packet loss networks.
-;
+; 最大 call token 认证握手时间 -  单位 秒
 ;calltokenexpiration=10
 
-;
-; These options are used to limit the amount of call numbers allocated to a
-; single IP address.  Before changing any of these values, it is highly encouraged
-; to read the user guide associated with these options first.  In most cases, the
-; default values for these options are sufficient.
-;
-; The 'maxcallnumbers' option limits the amount of call numbers allowed for each
-; individual remote IP address.  Once an IP address reaches it's call number
-; limit, no more new connections are allowed until the previous ones close.  This
-; option can be used in a peer definition as well, but only takes effect for
-; the IP of a dynamic peer after it completes registration.
-;
+; 每个远程 IP 允许的拨号数量 - 超过不再建立新链接
 ;maxcallnumbers=512
-;
-; The 'maxcallnumbers_nonvalidated' is used to set the combined number of call
-; numbers that can be allocated for connections where call token  validation
-; has been disabled.  Unlike the 'maxcallnumbers' option, this limit is not
-; separate for each individual IP address.  Any connection resulting in a
-; non-call token validated call number being allocated contributes to this
-; limit.  For use cases, see the call token user guide.  This option's
-; default value of 8192 should be sufficient in most cases.
-;
+; 该限制不区分 IP - 计算未验证 call token 的数量
+; 默认 8192
 ;maxcallnumbers_nonvalidated=1024
-;
-; The [callnumberlimits] section allows custom call number limits to be set
-; for specific IP addresses and IP address ranges.  These limits take precedence
-; over the global 'maxcallnumbers' option, but may still be overridden by a
-; peer defined 'maxcallnumbers' entry.  Note that these limits take effect
-; for every individual address within the range, not the range as a whole.
-;
+
+; 根据 IP 限定呼叫数量
 ;[callnumberlimits]
+; 范围内独立 IP 限制而不是 IP 段总数
 ;10.1.1.0/255.255.255.0 = 24
 ;10.1.2.0/255.255.255.0 = 32
-;
 
-; The shrinkcallerid function removes '(', ' ', ')', non-trailing '.', and '-' not
-; in square brackets.  For example, the Caller*ID value 555.5555 becomes 5555555
-; when this option is enabled.  Disabling this option results in no modification
-; of the Caller*ID value, which is necessary when the Caller*ID represents something
-; that must be preserved.  This option can only be used in the [general] section.
-; By default this option is on.
-;
+; 移除 '(', ' ', ')', non-trailing '.', and '-' not in square brackets
+; 例如 555.5555 -> 5555555
+; 默认 开启
 ;shrinkcallerid=yes     ; on by default
+```
 
+### user/peer
+- register 映射 peer - 动态 IP 场景
+  - 反向注册到对方，而不是对方通过 peer 定义链接
+- 用户认证方式 - username+secret
+- 密钥方式
+  - plaintext
+  - md5
+  - rsa
+    - inkeys - 接受的 pubkey - `/var/lib/asterisk/keys/<name>.pub`
+      - `:` 分割
+    - outkey - 发起请求的 key - `/var/lib/asterisk/keys/<name>.key`
+      - 3DES encrypted
+- 访问控制 - permit,deny,acl
+
+```conf
 ; guest 配置未认证连接请求 - 可配置 secret
 [guest]
 type=user
 context=public
 callerid="Guest IAX User"
-
-; Trust Caller*ID Coming from iaxtel.com
-[iaxtel]
-type=user
-context=default
-auth=rsa
-inkeys=iaxtel
-
-; Trust Caller*ID Coming from iax.fwdnet.net
-[iaxfwd]
-type=user
-context=default
-auth=rsa
-inkeys=freeworlddialup
-
-; Trust Caller*ID delivered over DUNDi/e164
-;[dundi]
-;type=user
-;dbsecret=dundi/secret
-;context=dundi-e164-local
-
-;
-; Further user sections may be added, specifying a context and a secret used
-; for connections with that given authentication name.  Limited IP based
-; access control is allowed by use of "permit", "deny", and "acl" keywords.
-; Multiple rules are permitted. Multiple permitted contexts may be specified,
-; in which case the first will be the default.  You can also override
-; Caller*ID so that when you receive a call you set the Caller*ID to be what
-; you want instead of trusting what the remote user provides
-;
-; There are three authentication methods that are supported:  md5, plaintext,
-; and rsa.  The least secure is "plaintext", which sends passwords cleartext
-; across the net.  "md5" uses a challenge/response md5 sum arrangement, but
-; still requires both ends have plain text access to the secret.  "rsa" allows
-; unidirectional secret knowledge through public/private keys.  If "rsa"
-; authentication is used, "inkeys" is a list of acceptable public keys on the
-; local system that can be used to authenticate the remote peer, separated by
-; the ":" character.  "outkey" is a single, private key to use to authenticate
-; to the other side.  Public keys are named /var/lib/asterisk/keys/<name>.pub
-; while private keys are named /var/lib/asterisk/keys/<name>.key.  Private
-; keys should always be 3DES encrypted.
-;
-;
-; NOTE: All hostnames and IP addresses in this file are for example purposes
-;       only; you should not expect any of them to actually be available for
-;       your use.
 
 ; 用户配置
 ;[markster]
@@ -489,6 +382,7 @@ inkeys=freeworlddialup
 ;context=default
 ;context=local
 ;auth=md5,plaintext,rsa
+; 可写多行 secret 实现多密码
 ;secret=markpasswd
 ;setvar=ATTENDED_TRANSFER_COMPLETE_SOUND=beep   ; This channel variable will
                                                 ; cause the given audio file to
@@ -506,16 +400,14 @@ inkeys=freeworlddialup
                              ; any further authentication will be blocked, until
                              ; the pending requests expire or a reply is
                              ; received.
+; 覆盖 CallerID
 ;callerid="Mark Spencer" <(256) 428-6275>
 ;deny=0.0.0.0/0.0.0.0
-;accountcode=markster0101
 ;permit=209.16.236.73/255.255.255.0
+;accountcode=markster0101
 ;language=en                 ; Use english as default language
-;encryption=yes              ; Enable IAX2 encryption.  The default is no.
-;keyrotate=off               ; This is a compatibility option for older versions
-                             ; of IAX2 that do not support key rotation with
-                             ; encryption.  This option will disable the
-                             ; IAX_COMMAND_RTENC message.  The default is on.
+;encryption=yes              ; 开启加密
+;keyrotate=off               ; 默认开启 - 旧版本不知支持 - IAX_COMMAND_RTENC
 
 ;
 ; 定义远程节点 peer
@@ -524,6 +416,7 @@ inkeys=freeworlddialup
 ;type=peer
 ;username=asterisk
 ;secret=supersecret
+; 主机
 ;host=192.168.10.10
 ; iax2 show peers 描述
 ;description=My IAX2 Peer
@@ -535,34 +428,23 @@ inkeys=freeworlddialup
 ;qualifysmoothing = yes     ; Use an average of the last two PONG results to
                             ; reduce falsely detected LAGGED hosts.  The default
                             ; is 'no.'
-;qualifyfreqok = 60000      ; How frequently to ping the peer when everything
-                            ; seems to be OK, in milliseconds.
-;qualifyfreqnotok = 10000   ; How frequently to ping the peer when it's either
-                            ; LAGGED or UNAVAILABLE, in milliseconds.
+;qualifyfreqok = 60000      ; OK 状态 PING 间隔 - 单位 ms
+;qualifyfreqnotok = 10000   ; 非 OK（LAGGED/UNAVAILABLE） 状态 PING 间隔 - 单位 ms
 ;jitterbuffer=no            ; Turn off jitter buffer for this peer
 ;
-;encryption=yes             ; Enable IAX2 encryption.  The default is no.
-;keyrotate=off              ; This is a compatibility option for older versions
-                            ; of IAX2 that do not support key rotation with
-                            ; encryption.  This option will disable the
-                            ; IAX_COMMAND_RTENC message.  The default is 'on.'
+;encryption=yes             ; 默认不开启
+;keyrotate=off              ; 默认不开启
 
 ; Peers can remotely register as well, so that they can be mobile.  Default
 ; IPs can also optionally be given but are not required.  Caller*ID can be
 ; suggested to the other side as well if it is for example a phone instead of
 ; another PBX.
-;connectedline=yes ; Set if connected line and redirecting information updates
-;                  ; are passed between Asterisk servers for this peer.
-;                  ; yes - Sending and receiving updates are enabled.
-;                  ; send - Only send updates.
-;                  ; receive - Only process received updates.
-;                  ; no - Sending and receiving updates are disabled.
-;                  ; Default is "no".
-;                  ;
-;                  ; Note: Because of an incompatibility between Asterisk v1.4
-;                  ; and Asterisk v1.8 or later, this option must be set
-;                  ; to "no" toward the Asterisk v1.4 peer.  A symptom of the
-;                  ; incompatibility is the call gets disconnected unexpectedly.
+; yes - 发送接受 connected line
+; send - 只发送
+; receive
+; no - Asterisk v1.4 peer 需要设置 no
+; 不兼容表现为通话异常中断
+;connectedline=yes
 
 
 ;[dynamichost]
@@ -611,4 +493,75 @@ inkeys=freeworlddialup
 ;secret=moofoo	; when immediate=yes is specified, secret is required
 ;context=number-please ; we start at the s extension in this context
 ;
+
+; Trust Caller*ID Coming from iaxtel.com
+[iaxtel]
+type=user
+context=default
+auth=rsa
+inkeys=iaxtel
+
+; Trust Caller*ID Coming from iax.fwdnet.net
+[iaxfwd]
+type=user
+context=default
+auth=rsa
+inkeys=freeworlddialup
+
+; Trust Caller*ID delivered over DUNDi/e164
+;[dundi]
+;type=user
+;dbsecret=dundi/secret
+;context=dundi-e164-local
+```
+
+# FAQ
+
+## Unable to support trunking on peer without a timing interface
+
+加载一个 timing interface 实现
+
+- res_timing_timerfd
+- res_timing_pthread
+- res_timing_dahdi
+- res_timing_kqueue
+
+```bash
+module load res_timing_timerfd
+```
+
+# FAQ
+
+## IAX2 Trunk
+
+- 互相 register
+- 互相添加 friend
+- 可以通过 deny+permit 来提高安全性
+
+**A/iax.conf**
+
+```
+[general]
+register => B:B@192.168.1.2
+
+[B]
+type=friend
+host=dynamic
+trunk=yes
+secret=B
+context=iaxinbound
+```
+
+**B/iax.conf**
+
+```
+[general]
+register => A:A@192.168.1.2
+
+[A]
+type=friend
+host=dynamic
+trunk=yes
+secret=A
+context=iaxinbound
 ```

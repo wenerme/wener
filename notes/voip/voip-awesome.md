@@ -23,22 +23,29 @@ title: VoIP Awesome
 ## 服务端
 
 - PBX/IVR
-  - Asterisk
-  - Elastix
-    - 2.5 - 开源 GPL
-      - 基于 Asterisk, FreePBX, HylaFAX, Openfire, Postfix.
-    - 5.0 - 私有
-      - 基于 3CX
 - 路由交换
   - Kamailio
   - OpenSIPS
-- [FreeSwitch](https://en.wikipedia.org/wiki/FreeSWITCH)
-  - 位于纯路由和 PBX、IVR 之间
 - [opensips](https://www.opensips.org/)
   - [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips)
+
+## Asterisk PBX
+
+- FreePBX
+- PBX in a Flash
+- Elastix
+  - 2.5 - 开源 GPL
+    - 基于 Asterisk, FreePBX, HylaFAX, Openfire, Postfix.
+  - 5.0 - 私有
+    - 基于 3CX
+
+## FreeSWITCH PBX
+
+- [FreeSwitch](https://en.wikipedia.org/wiki/FreeSWITCH)
 - [FusionPBX](https://www.fusionpbx.com/)
+  GUI for FreeSWITCH and Asterisk
+  - 收费, PHP
 - [BlueBox](https://wiki.gentoo.org/wiki/BlueBox)
-  - GUI for FreeSWITCH and Asterisk
 
 ## 其他
 

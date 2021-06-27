@@ -1,8 +1,8 @@
 ---
-title: Go 图形界面
+title: Go GUI Awesome
 ---
 
-# Go 图形界面
+# Go GUI Awesome
 
 - [fyne-io/fyne](https://github.com/fyne-io/fyne)
   - [#283](https://github.com/fyne-io/fyne/issues/283) - tray 支持
@@ -51,3 +51,17 @@ title: Go 图形界面
 ## Keyboard
 
 - [micmonay/keybd_event](https://github.com/micmonay/keybd_event) - simulates the key press on a keyboard
+
+## Misc
+
+- [fogleman/gg](https://github.com/fogleman/gg)
+  2D rendering in Go
+
+## Game
+
+- [hajimehoshi/ebiten](https://github.com/hajimehoshi/ebiten)
+  2D game library
+  - Apache-2.0
+- [faiface/pixel](https://github.com/faiface/pixel)
+  hand-crafted 2D game library
+  - MIT

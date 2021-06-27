@@ -1,31 +1,38 @@
+---
+title: Compress
+---
+
 # Compress
 
 ## Tips
-* [google/zopfli](https://github.com/google/zopfli)
-  * Zopfli Compression Algorithm is a compression library programmed in C to perform very good, but slow, deflate or zlib compression.
-* [google/brotli](https://github.com/google/brotli)
-  * 通用无损压缩
-  * combination of a modern variant of the LZ77 algorithm, Huffman coding and 2nd order context modeling, with a compression ratio comparable to the best currently available general-purpose compression methods
-  * 速度与 deflate 相似, 但压缩率更高
-  * [kothar/brotli-go](https://github.com/kothar/brotli-go)
-    * Go bindings for the Brotli compression library
-* [google/draco](https://github.com/google/draco)
-  * Draco is a library for compressing and decompressing 3D geometric meshes and point clouds. It is intended to improve the storage and transmission of 3D graphics. 
-* [dsnet/compress](https://github.com/dsnet/compress)
-  * Collection of compression related Go packages.
-* [facebook/zstd](https://github.com/facebook/zstd)
-  * [zstd](http://facebook.github.io/zstd/)
-  * Zstandard - Fast real-time compression algorithm
-* Benchmark
-  * [Squash Compression Benchmark](https://quixdb.github.io/squash-benchmark/)
-  * [Large Text Compression Benchmark](http://mattmahoney.net/dc/text.html)
-  * [Gzip vs Bzip2 vs LZMA vs XZ vs LZ4 vs LZO](https://catchchallenger.first-world.info/wiki/Quick_Benchmark:_Gzip_vs_Bzip2_vs_LZMA_vs_XZ_vs_LZ4_vs_LZO)
-* JS
-  * [nodeca/pako](https://github.com/nodeca/pako)
-    * high speed zlib port to javascript, works in browser & node.js
-* [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
+
+- [google/zopfli](https://github.com/google/zopfli)
+  - Zopfli Compression Algorithm is a compression library programmed in C to perform very good, but slow, deflate or zlib compression.
+- [google/brotli](https://github.com/google/brotli)
+  - 通用无损压缩
+  - combination of a modern variant of the LZ77 algorithm, Huffman coding and 2nd order context modeling, with a compression ratio comparable to the best currently available general-purpose compression methods
+  - 速度与 deflate 相似, 但压缩率更高
+  - [kothar/brotli-go](https://github.com/kothar/brotli-go)
+    - Go bindings for the Brotli compression library
+- [google/draco](https://github.com/google/draco)
+  - Draco is a library for compressing and decompressing 3D geometric meshes and point clouds. It is intended to improve the storage and transmission of 3D graphics.
+- [dsnet/compress](https://github.com/dsnet/compress)
+  - Collection of compression related Go packages.
+- [facebook/zstd](https://github.com/facebook/zstd)
+  - [zstd](http://facebook.github.io/zstd/)
+  - Zstandard - Fast real-time compression algorithm
+- Benchmark
+  - [Squash Compression Benchmark](https://quixdb.github.io/squash-benchmark/)
+  - [Large Text Compression Benchmark](http://mattmahoney.net/dc/text.html)
+  - [Gzip vs Bzip2 vs LZMA vs XZ vs LZ4 vs LZO](https://catchchallenger.first-world.info/wiki/Quick_Benchmark:_Gzip_vs_Bzip2_vs_LZMA_vs_XZ_vs_LZ4_vs_LZO)
+- JS
+  - [nodeca/pako](https://github.com/nodeca/pako)
+    - high speed zlib port to javascript, works in browser & node.js
+- [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
 
 ```bash
+cd staged && mytar cf - . | ssh root@localhost "cd / && tar xvf -"
+
 # bz2
 # ==========
 # 解压
@@ -68,4 +75,5 @@ unzip \*.zip
 ```
 
 ## gzip
-* [gzip format](http://www.onicos.com/staff/iz/formats/gzip.html)
+
+- [gzip format](http://www.onicos.com/staff/iz/formats/gzip.html)

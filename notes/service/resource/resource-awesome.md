@@ -10,6 +10,8 @@ title: 资源站
 - [动漫花园](https://dmhy.anoneko.com/)
 - [ed2000k.com](https://www.ed2000k.com/)
 - [torrent.extto.com](http://torrent.extto.com/)
+- [it-ebooks](https://gist.github.com/baiwfg2/af827b8b75eebf8ab29f5531a0d265ce)
+  - https://oiipdf.com/
 
 ## 字幕
 

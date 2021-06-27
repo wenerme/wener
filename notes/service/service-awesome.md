@@ -12,6 +12,9 @@ title: Service Awesome
   Data & Experience Management Platform
 - [zentralopensource/zentral](https://github.com/zentralopensource/zentral)
   infrastructure monitoring and endpoint event stream processing
+- [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
+  web conferencing system
+  - LGPLv3, JS,Java
 
 ## Avatar
 

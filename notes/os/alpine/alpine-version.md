@@ -10,8 +10,9 @@ title: 版本历史
   - 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
     - main 仓库支持两年
     - community 仓库支持到下一个稳定版 - 一般半年
-  - 每次发布前会先编译所有包，当包都有后才会正式发布
-  - [发布版本历史日期](https://alpinelinux.org/releases/)
+- 每次发布前会先编译所有包，当包都有后才会正式发布
+  - 但部分 test 无法通过的包会被暂时禁止 - 如果发现可以提出
+- [发布版本历史日期](https://alpinelinux.org/releases/)
 
 :::caution
 

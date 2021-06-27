@@ -5,20 +5,22 @@ title: Virtio
 
 ## Virtio
 
-* virtio-net
-* virtio-blk
-  * /sys/block/vda
-* virtio-scsi
-* [virtio-fs](https://virtio-fs.gitlab.io/)
-  * 9p
-* https://blogs.oracle.com/linux/how-to-emulate-block-devices-with-qemu
-* virtio-balloon
-  * [virtio-balloon-stats](https://github.com/qemu/qemu/blob/master/docs/virtio-balloon-stats.txt)
-  * https://pmhahn.github.io/virtio-balloon/
-* virtio-serial-pci
-* virtio-balloon-pci
-* virtio-blk	-drive file=disk.img,if=virtio
-* virtio-scsi-pci	-device virtio-scsi-pci -drive file=disk.img,if=none,id=hd0 -device scsi-hd,drive=hd0
+- virtio-net
+  - 使用中断和 DMA 技术实现的 PCI 设备
+  - 可以使用 lspci 查看信息 - Red Hat, Inc Virtio network device
+- virtio-blk
+  - /sys/block/vda
+- virtio-scsi
+- [virtio-fs](https://virtio-fs.gitlab.io/)
+  - 9p
+- https://blogs.oracle.com/linux/how-to-emulate-block-devices-with-qemu
+- virtio-balloon
+  - [virtio-balloon-stats](https://github.com/qemu/qemu/blob/master/docs/virtio-balloon-stats.txt)
+  - https://pmhahn.github.io/virtio-balloon/
+- virtio-serial-pci
+- virtio-balloon-pci
+- virtio-blk -drive file=disk.img,if=virtio
+- virtio-scsi-pci -device virtio-scsi-pci -drive file=disk.img,if=none,id=hd0 -device scsi-hd,drive=hd0
 
 ```bash
 qemu-system-x86_64 \
@@ -69,7 +71,6 @@ qemu-system-x86_64 \
 </domain>
 ```
 
-
 ```bash
 # cluster_size 提高性能
 qemu-img create -f qcow2 -o cluster_size=2M my.qcow2 100G
@@ -83,10 +84,12 @@ qemu-system-x86_64 -drive file=my.qcow2,if=none,id=drive0,aio=native,cache=none,
 # full - 填 0 预留
 qemu-img create -f $fmt -o preallocation=$mode test.img 100G
 ```
+
 # virtio-fs
-* /usr/lib/qemu/virtiofsd
-* [virtiofsd](https://www.qemu.org/docs/master/interop/virtiofsd.html)
-* [virtfs-proxy-helper](https://www.qemu.org/docs/master/interop/virtfs-proxy-helper.html)
+
+- /usr/lib/qemu/virtiofsd
+- [virtiofsd](https://www.qemu.org/docs/master/interop/virtiofsd.html)
+- [virtfs-proxy-helper](https://www.qemu.org/docs/master/interop/virtfs-proxy-helper.html)
 
 ```bash
 # 启动 daemon
@@ -108,6 +111,7 @@ mount -t virtiofs myfs /mnt
 ```
 
 ## ref
+
 https://www.linux-kvm.org/page/9p_virtio
 https://blog.csdn.net/gatieme/article/details/82912921
 https://wiki.libvirt.org/page/Virtio

@@ -56,3 +56,4 @@ title: OS Awesome
     未混淆的原始代码
 - [uxn](https://100r.co/site/uxn.html)
   portable 8-bit virtual computer
+- [VitorVilela7/wide-snes](https://github.com/VitorVilela7/wide-snes)

@@ -10,6 +10,7 @@ title: OpenVox Asterisk
 ```bash
 # 发起呼叫
 channel originate SIP/6003 extension 10086@sip-6003
+channel originate IAX2/dev/6003 extension 10086@iax-dev
 ```
 
 | conf         | val                       |

@@ -6,39 +6,40 @@ title: IPFS
 # IPFS
 
 ## Tips
-* the InterPlanetary File System
-* [ipfs](https://github.com/ipfs)
-* [ipfs.pics](https://github.com/ipfspics/ipfspics-server)
-  * Distributed image hosting
-* [ipfstube](https://github.com/download13/ipfstube)
-* Why
-  * 提供块级去重, 使得总体数据量得到压缩
-  * 参考
-    * [Comparison of IPFS and BitTorrent for Archives](https://github.com/ipfs/notes/issues/208)
-    * [How does IPFS compare with X?](https://discuss.ipfs.io/t/how-does-ipfs-compare-with-x/465)
-* 端口
-  * 4001 - Swarm TCP
-  * 4002 - Swarm uTP
-  * 5001 - API
-    * `/webui` Web 管理端
-  * 8080 - Gateway
-  * 8081 - Swarm Websockets
-* 参考
-  * [Is it possible to use IPFS for LIVE video streaming?](https://discuss.ipfs.io/t/is-it-possible-to-use-ipfs-for-live-video-streaming/1115)
-* [IPFS公共网关检测](https://apis.wener.me/ipfs/gateway/checker)
-* 优势
-  * 支持 gateway - 可以通过 HTTP 直接访问
-  * 支持 MFS/虚拟目录
-  * 目标是替代 internet 而不是单纯的 P2P 文件共享
-  * ipns 替代 dns，ipfs 替代 internet
-* 劣势
-  * IPFS 网络相对 torrent 没那么成熟
-    * 意味着节点少
-    * 资源少
-  * 文件分发较慢
-  * 开发公司重心转向 filecoin
-* 参考
-  * https://github.com/cloudflare/ipfs-ext
+
+- the InterPlanetary File System
+- [ipfs](https://github.com/ipfs)
+- [ipfs.pics](https://github.com/ipfspics/ipfspics-server)
+  - Distributed image hosting
+- [ipfstube](https://github.com/download13/ipfstube)
+- Why
+  - 提供块级去重, 使得总体数据量得到压缩
+  - 参考
+    - [Comparison of IPFS and BitTorrent for Archives](https://github.com/ipfs/notes/issues/208)
+    - [How does IPFS compare with X?](https://discuss.ipfs.io/t/how-does-ipfs-compare-with-x/465)
+- 端口
+  - 4001 - Swarm TCP
+  - 4002 - Swarm uTP
+  - 5001 - API
+    - `/webui` Web 管理端
+  - 8080 - Gateway
+  - 8081 - Swarm Websockets
+- 参考
+  - [Is it possible to use IPFS for LIVE video streaming?](https://discuss.ipfs.io/t/is-it-possible-to-use-ipfs-for-live-video-streaming/1115)
+- [IPFS 公共网关检测](https://apis.wener.me/ipfs/gateway/checker)
+- 优势
+  - 支持 gateway - 可以通过 HTTP 直接访问
+  - 支持 MFS/虚拟目录
+  - 目标是替代 internet 而不是单纯的 P2P 文件共享
+  - ipns 替代 dns，ipfs 替代 internet
+- 劣势
+  - IPFS 网络相对 torrent 没那么成熟
+    - 意味着节点少
+    - 资源少
+  - 文件分发较慢
+  - 开发公司重心转向 filecoin
+- 参考
+  - https://github.com/cloudflare/ipfs-ext
 
 ```bash
 # macOS
@@ -87,14 +88,15 @@ ipfs files read /hello.txt
 ```
 
 ## libp2p
-* [libp2p/libp2p](https://github.com/libp2p/libp2p)
-* [libp2p/go-libp2p](https://github.com/libp2p/go-libp2p)
 
-功能 | 目的 | 实现
-----|----|----
-使用数据 | applications | IPFS
-定义数据 | naming<br/>merkledag | IPNS<br/>IPLD
-移动数据 | exchange<br/>routing<br/>network | libp2p
+- [libp2p/libp2p](https://github.com/libp2p/libp2p)
+- [libp2p/go-libp2p](https://github.com/libp2p/go-libp2p)
+
+| 功能     | 目的                             | 实现          |
+| -------- | -------------------------------- | ------------- |
+| 使用数据 | applications                     | IPFS          |
+| 定义数据 | naming<br/>merkledag             | IPNS<br/>IPLD |
+| 移动数据 | exchange<br/>routing<br/>network | libp2p        |
 
 https://github.com/ipld/specs/tree/master/ipld
 https://blog.cloudflare.com/distributed-web-gateway/
@@ -108,10 +110,10 @@ ipfs config --json Experimental.FilestoreEnabled true
 ```
 
 ## gateway
-* https://github.com/ipfs/go-ipfs/blob/master/docs/gateway.md
-* https://github.com/ipfs/infra/blob/master/ipfs/gateway/nginx.conf
-* https://rklaehn.github.io/2018/06/08/running-ipfs-gateway/
 
+- https://github.com/ipfs/go-ipfs/blob/master/docs/gateway.md
+- https://github.com/ipfs/infra/blob/master/ipfs/gateway/nginx.conf
+- https://rklaehn.github.io/2018/06/08/running-ipfs-gateway/
 
 ```bash
 ipfs swarm connect $peer

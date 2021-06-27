@@ -1,6 +1,9 @@
+---
+title: ESXi
+---
+
 # ESXi
 
-## Tips
 - wikipedia [VMFS](https://en.wikipedia.org/wiki/VMware_VMFS)
 - [VMware ESXi](https://en.wikipedia.org/wiki/VMware_ESXi)
   - Elastic Sky X integrated
@@ -23,7 +26,8 @@ qemu-img convert -f qcow2 -O vmdk -o adapter_type=lsilogic,subformat=monolithicF
 ```
 
 ## esxcli
-* [ESXi 7.0 ESXCLI Command Reference](https://code.vmware.com/docs/11743/esxi-7-0-esxcli-command-reference)
+
+- [ESXi 7.0 ESXCLI Command Reference](https://code.vmware.com/docs/11743/esxi-7-0-esxcli-command-reference)
 
 ```bash
 # 服务器信息

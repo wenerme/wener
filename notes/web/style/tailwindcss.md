@@ -11,6 +11,11 @@ title: Tailwind CSS
   - prune 可缩减大小 - 默认 未压缩 3.8 MB,Minified 3 MB, Gzip 300 KB, Brotli 75 KB
 - 问题
   - [storybookjs/storybook#12668](https://github.com/storybookjs/storybook/issues/12668) - PostCSS 8 兼容问题
+- 参考
+  - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
+    Tailwind Components
+  - [windicss/windicss](https://github.com/windicss/windicss)
+    - 类似 Tailwind+JIT
 
 ```bash
 # 基础依赖

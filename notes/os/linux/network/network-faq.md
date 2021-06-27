@@ -2,36 +2,54 @@
 title: 网络常见问题
 ---
 
+# 网络常见问题
+
+# 词汇
+
+| abbr | mean                         |
+| ---- | ---------------------------- |
+| GSO  | Generic Segmentation Offload |
+| GRO  | Generic Receive Offload      |
+| TSO  | TCP Segmentation Offload     |
+| USO  | UDP Segmentation Offload     |
+| IPIP |
+| SIT  |
+| GRE  |
+| SCTP |
+
 # VTI vs XFRM
+
 > XFRM 比 VTI 更好
 
-* VTI - Linux 3.6+
-  * L3 通道，指定终端地址
-  * 单地址族
-  * 只支持通道模式
-* XFRM - Linux 4.19+
-  * 不需要配置通道地址
-    * 避免 VTI SAs:interface 的 1:1 关系
-    * SAs peers 共享 interface
-  * 同时支持 IPv4 IPv6
-  * 支持包括通道的其他模式
-  * XFRM interface ID 配置
-    * 避免 GRP key 和 XFRM mark 配置
+- VTI - Linux 3.6+
+  - L3 通道，指定终端地址
+  - 单地址族
+  - 只支持通道模式
+- XFRM - Linux 4.19+
 
-* 参考
-  * [RouteBasedVPN](https://wiki.strongswan.org/projects/strongswan/wiki/RouteBasedVPN)
+  - 不需要配置通道地址
+    - 避免 VTI SAs:interface 的 1:1 关系
+    - SAs peers 共享 interface
+  - 同时支持 IPv4 IPv6
+  - 支持包括通道的其他模式
+  - XFRM interface ID 配置
+    - 避免 GRP key 和 XFRM mark 配置
+
+- 参考
+  - [RouteBasedVPN](https://wiki.strongswan.org/projects/strongswan/wiki/RouteBasedVPN)
 
 # VPN vs Mesh Network
-* VPN
-  * 通常指传统 VPN - 例如 OpenVPN, IPSec
-  * 所有 Endpoint 连上一个 Server, 网络通过指定的节点出
-  * 多为 Client, Server 模式
-  * 多面消费端 - Consumer
-* Mesh Network
-  * 用于组建私有网络的技术 - VPN
-  * 点对点直连
-  * 多为平等节点关系 - Server to Server
-  * 多用于基础网络建设
+
+- VPN
+  - 通常指传统 VPN - 例如 OpenVPN, IPSec
+  - 所有 Endpoint 连上一个 Server, 网络通过指定的节点出
+  - 多为 Client, Server 模式
+  - 多面消费端 - Consumer
+- Mesh Network
+  - 用于组建私有网络的技术 - VPN
+  - 点对点直连
+  - 多为平等节点关系 - Server to Server
+  - 多用于基础网络建设
 
 # bridge vs macvlan
 
@@ -91,17 +109,19 @@ iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 192.168.8.2
 ```
 
-# Nginx/Haproxy 端口转发 vs IPTables 端口转发
-* IPTables
-  * 性能最好
-  * 不中断
-* Nginx/Haproxy
-  * 应用层功能更强
+# Nginx/HAProxy 端口转发 vs IPTables 端口转发
+
+- IPTables
+  - 性能最好
+  - 不中断
+- Nginx/HAProxy
+  - 应用层功能更强
 
 # ifconfig eth0:0 语法
-* 是 ifconfig 支持多 ip 的写法，等同于 iproute2 的 `ip addr add`
-* 后面的名字是地址的标签, linux 2.0 网络别名, 以设备名字+`:`为开头, 最长 15
-* ip addr add 没有标签 ifconfig 则不会显示
+
+- 是 ifconfig 支持多 ip 的写法，等同于 iproute2 的 `ip addr add`
+- 后面的名字是地址的标签, linux 2.0 网络别名, 以设备名字+`:`为开头, 最长 15
+- ip addr add 没有标签 ifconfig 则不会显示
 
 ```bash
 ifconfig eth0:0 192.168.1.2 netmask 255.255.255.0
@@ -109,7 +129,7 @@ ifconfig eth0:0 192.168.1.2 netmask 255.255.255.0
 ip addr add 192.168.1.2/24 dev eth0 label eth0:0
 ```
 
-* 参考
-  * [ip-address.8](http://manpages.ubuntu.com/manpages/hirsute/en/man8/ip-address.8.html)
+- 参考
+  - [ip-address.8](http://manpages.ubuntu.com/manpages/hirsute/en/man8/ip-address.8.html)
 
 # ping: sendto: Invalid argument

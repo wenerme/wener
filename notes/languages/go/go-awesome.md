@@ -223,7 +223,9 @@ title: Go Awesome
   - wasm actor 平台 - 支持 tinygo
 - [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
-  - 微服务框架
+  - 国产微服务框架
+- [RichardKnop/machinery](https://github.com/RichardKnop/machinery)
+  asynchronous task queue/job queue based on distributed message passing
 
 ## Markdown
 
@@ -295,6 +297,8 @@ title: Go Awesome
 ## Service
 
 - [umputun/remark42](https://github.com/umputun/remark42) comment egnine
+- [ortuman/jackal](https://github.com/ortuman/jackal)
+  - XMPP
 
 ## Performance
 
