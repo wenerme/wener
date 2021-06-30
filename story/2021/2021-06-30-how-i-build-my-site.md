@@ -38,8 +38,8 @@ npx @docusaurus/init@latest init my-website classic
 归根结底，docusaurus 是一个 npm 库，因此实现自定义需要基于一个 node 项目。
 站点的构建项目位于 [site](https://github.com/wenerme/wener/tree/master/site) 目录下，构建过程为
 
-- 同步 /story 到 /side/story
-- 同步 /notes 到 /side/notes
+- 同步 /story 到 /site/story
+- 同步 /notes 到 /site/notes
 
 :::tip
 
@@ -82,8 +82,8 @@ A wener.me 185.199.108.153
 
 :::
 
-wener.tech 使用阿里云 dcdn/全站加速 实现，添加域名 www.wener.tech，指向 185.199.108.153 和 185.199.109.153。
-添加完成后前往域名解析，将 www.wener.tech CNAME 到 www.wener.tech.w.kunluncan.com。完成后建议开启 https。
+wener.tech 使用阿里云 dcdn/全站加速 实现，添加域名 www.wener.tech ，指向 185.199.108.153 和 185.199.109.153。
+添加完成后前往域名解析，将 www.wener.tech CNAME 到 www.wener.tech.w.kunluncan.com 。完成后建议开启 https。
 
 至此 www.wener.tech 可以被访问。
 
