@@ -73,3 +73,8 @@ Constructed -> Initial -> Establishing -> Established -> Terminating -> Terminat
 [Summary of SIP Usage of the Offer/Answer Model]
 
 > [rfc6337#section-2.2](https://datatracker.ietf.org/doc/html/rfc6337#section-2.2)
+
+## SDP
+
+- [clux/sdp-transform](https://github.com/clux/sdp-transform)
+  simple parser/writer for the Session Description Protocol

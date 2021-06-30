@@ -6,6 +6,7 @@ title: GameDev Awesome
 
 - [ellisonleao/magictools](https://github.com/ellisonleao/magictools)
   - A list of Game Development resources to make magic happen
+- [LDtk](https://deepnight.itch.io/ldtk)
 
 ## Engine
 

@@ -7,10 +7,6 @@ title: musl
 - [musl](https://musl.libc.org/) - MIT
   - [FAQ](https://www.musl-libc.org/faq.html)
 - [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
-- 不支持 nsswitch
-  - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
-- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
-  - 其他软件已知因为 musl 导致的 bug
 
 ## 环境变量
 
@@ -80,3 +76,14 @@ iptables -I OUTPUT 1 -p udp --dport 53 -j AAAA
 # drop 会导致超时 - 最好是返回 NXDATA 或者 NXDOMAIN
 iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
 ```
+
+## musl 问题
+
+- 不支持 nsswitch
+  - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
+- 不支持 res_uinit
+  - asterisk 无法获取 nameserver
+- [golang/go#13492](https://github.com/golang/go/issues/13492)
+  runtime: c-shared builds fail with musllibc
+- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
+  - 其他软件已知因为 musl 导致的 bug

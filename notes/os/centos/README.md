@@ -3,17 +3,28 @@ id: centos
 ---
 
 # CentOS
-* 下载
-  * [cloud.centos.org/centos](https://cloud.centos.org/centos)
-* kernel-core - 安装后 70MB
-  * 包含内核，依赖 linux-firmware
-    * linux-firmware 安装后 350MB
+
+- 下载
+  - [cloud.centos.org/centos](https://cloud.centos.org/centos)
+- kernel-core - 安装后 70MB
+  - 包含内核，依赖 linux-firmware
+    - linux-firmware 安装后 350MB
+
+:::caution
+
+- 2020-12-08 宣布项目于 2021 年底停止 - 最后版本 8.4.2105, 7.9-2009
+- 后继 OS
+  - RockyLinux - 由 CentOS 创建者维护 - 由 AWS 和 Google 赞助
+  - AlmaLinux - 由 CloudLinux 维护
+
+:::
 
 ```bash
 yum module list virt
 ```
 
 ## rootfs
+
 ```bash
 # rootfs - 这个 rootfs 是用于 docker 的
 curl -LOC- https://github.com/CentOS/sig-cloud-instance-images/raw/CentOS-8-x86_64/docker/centos-8-x86_64.tar.xz
@@ -37,9 +48,10 @@ exit
 ```
 
 ## install
-* [Boot options](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_kickstart-and-advanced-boot-options/)
-* minimal 安装完 1.7 G
-* 默认 lvm
+
+- [Boot options](https://docs.centos.org/en-US/8-docs/advanced-install/assembly_kickstart-and-advanced-boot-options/)
+- minimal 安装完 1.7 G
+- 默认 lvm
 
 ```bash
 curl -OC- http://mirrors.aliyun.com/centos/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-minimal.iso
@@ -49,4 +61,5 @@ qemu-system-x86_64 -accel kvm -m 4G -smp 2 -net nic -nic user,hostfwd=tcp::2222-
 ```
 
 ## kernel
-* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/index
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/index

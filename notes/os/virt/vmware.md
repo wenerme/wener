@@ -59,3 +59,12 @@ printf '\x03' | dd conv=notrunc of=alpine.vmdk bs=1 seek=$((0x4))
   * 实际运行虚拟机
   * 类似于 Xen 的 dom0
   * 单节点
+
+## 磁盘没有 UUID
+- ESX/ESXi 4.1 增加参数 disk.enableUUID
+- 早起版本迁移可能会有冲突
+- 将 disk.enableUUID 设置为 true 启用 UUID
+- 参考
+  - https://kb.vmware.com/s/article/2009065
+  - [Why is disk.enableuuid=TRUE not the default?](https://communities.vmware.com/t5/VMware-vSphere-Discussions/Why-is-disk-enableuuid-TRUE-not-the-default/td-p/518472)
+    - 主要影响 clone

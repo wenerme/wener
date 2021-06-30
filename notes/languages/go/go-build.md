@@ -4,9 +4,13 @@ title: Go Build
 
 # Go Build
 
+- [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
+
 ```bash
 # 所有交叉编译列表
 go tool dist list
+# 包含 cgo 支持情况
+go tool dist list -json
 ```
 
 | buildmode | desc                                 |

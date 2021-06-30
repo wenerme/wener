@@ -19,3 +19,69 @@ echo 'int main(){}' > test.c
 $CC -o test test.c
 file test
 ```
+
+## 编译过程
+
+```
+          |
+          |---->  Input is Source file(.c)
+          |
+          V
++=================+
+|                 |
+| C Preprocessor  |
+|                 |
++=================+
+          |
+          | ---> Pure C file ( comd:cc -E <file.name> )
+          |
+          V
++=================+
+|                 |
+| Lexical Analyzer|
+|                 |
++-----------------+
+|                 |
+| Syntax Analyzer |
+|                 |
++-----------------+
+|                 |
+| Semantic Analyze|
+|                 |
++-----------------+
+|                 |
+| Pre Optimization|
+|                 |
++-----------------+
+|                 |
+| Code generation |
+|                 |
++-----------------+
+|                 |
+| Post Optimize   |
+|                 |
++=================+
+          |
+          |--->  Assembly code (comd: cc -S <file.name> )
+          |
+          V
++=================+
+|                 |
+|   Assembler     |
+|                 |
++=================+
+          |
+          |--->  Object file (.obj) (comd: cc -c <file.name>)
+          |
+          V
++=================+
+|     Linker      |
+|      and        |
+|     loader      |
++=================+
+          |
+          |--->  Executable (.Exe/a.out) (com:cc <file.name> )
+          |
+          V
+Executable file(a.out)
+```

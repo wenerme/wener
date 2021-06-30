@@ -1,15 +1,13 @@
 ---
-id: qemu-img
 title: Qemu Image
 ---
 
 # Qemu Image
 
-## Tips
-* 参考
-  * [Copying a 1TB sparse file](https://stackoverflow.com/questions/13252682)
-    * 结论 - GNU tar 最快，内核 3.1+ 支持 SEEK_HOLE
-  * [Sparse file](https://wiki.archlinux.org/index.php/sparse_file)
+- 参考
+  - [Copying a 1TB sparse file](https://stackoverflow.com/questions/13252682)
+    - 结论 - GNU tar 最快，内核 3.1+ 支持 SEEK_HOLE
+  - [Sparse file](https://wiki.archlinux.org/index.php/sparse_file)
 
 ```bash
 # 查看映射情况
@@ -52,6 +50,7 @@ ddrescue -S -b8M /dev/sda1 /mount/external/backup/sda1.raw
 ```
 
 ## 磁盘格式
+
 - raw - 原始磁盘格式
   - 性能最好，占用空间最多
   - fallocate 可以预留空间
@@ -88,7 +87,8 @@ ls -lsh test.raw
 ```
 
 ## holes
-* virt-sparsify - libguestfs
+
+- virt-sparsify - libguestfs
 
 ## 磁盘压缩
 
@@ -108,9 +108,10 @@ qemu-img convert -O qcow2 alpine.img shrink.qcow2 -c
 ```
 
 ## LUKS
-* QCOW2 支持 LUKS
-* https://www.qemu.org/docs/master/system/qemu-block-drivers.html
-* 直接使用 LUKS 等同于 RAW 加密
+
+- QCOW2 支持 LUKS
+- https://www.qemu.org/docs/master/system/qemu-block-drivers.html
+- 直接使用 LUKS 等同于 RAW 加密
 
 ```bash
 # 创建无密码磁盘
@@ -163,6 +164,7 @@ mv tmp.qcow2 test.qcow2
 ```
 
 ## ZFS
-* ZVOL 性能可能会比 QEMU2 好一点，但是不值得
-* QEMU2 更好管理维护，支持更多功能
-* 可以考虑开启 zfs 压缩 - lz4 解压快，zstd 压缩比高
+
+- ZVOL 性能可能会比 QEMU2 好一点，但是不值得
+- QEMU2 更好管理维护，支持更多功能
+- 可以考虑开启 zfs 压缩 - lz4 解压快，zstd 压缩比高

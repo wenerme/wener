@@ -5,6 +5,25 @@ title: 常见问题
 
 # Asterisk FAQ
 
+## 多租户方式
+
+- 可以实现简单的多租户
+  - 使用 context 隔离租户路由
+  - 使用 realm 隔离租户用户
+- 复杂多租户很难实现
+  - 例如 难以支持 meetme, message, transfer 等
+  - 多套部署可能会简单点
+- 其他方案
+  - 使用 FreeSwitch - 对多租户和大规模支持更好
+  - 使用 Kamailio 前端分流和负载
+- 类似场景商业产品
+  - [MiRTA PBX](https://www.mirtapbx.com/architecture.html)
+  - [Vital PBX](https://www.vitalpbx.org/)
+  - [iHostPBX: Your Multi-Tenant PBX Setup Using Asterisk](https://www.indosoft.com/multi-tenant-pbx.htm)
+- 参考
+  - [a4business/MPBX](https://github.com/a4business/MPBX)
+    Multitenant PBX
+
 ## Everyone is busy/congested at this time (1:0/0/1)
 
 - 开启日志排查 `pjsip set logger on`
@@ -106,3 +125,35 @@ No voicemail provider registered.
 ## Dial 接通之前没有铃声
 
 可以在 Dial 之前先 Answer
+
+## The canary is no more. He has ceased to be!
+
+```c
+static void *canary_thread(void *unused)
+{
+	struct stat canary_stat;
+	struct timeval now;
+
+	/* Give the canary time to sing */
+	sleep(120);
+
+	for (;;) {
+		now = ast_tvnow();
+		if (stat(canary_filename, &canary_stat) || now.tv_sec > canary_stat.st_mtime + 60) {
+			ast_log(LOG_WARNING,
+				"The canary is no more.  He has ceased to be!  "
+				"He's expired and gone to meet his maker!  "
+				"He's a stiff!  Bereft of life, he rests in peace.  "
+				"His metabolic processes are now history!  He's off the twig!  "
+				"He's kicked the bucket.  He's shuffled off his mortal coil, "
+				"run down the curtain, and joined the bleeding choir invisible!!  "
+				"THIS is an EX-CANARY.  (Reducing priority)\n");
+			set_priority_all(0);
+			pthread_exit(NULL);
+		}
+
+		/* Check the canary once a minute */
+		sleep(60);
+	}
+}
+```

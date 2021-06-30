@@ -19,6 +19,15 @@ title: Build Asterisk
 - debian
   - 共享资源位于 /usr/share/asterisk
 
+:::caution
+
+- opus 编码模块不是开源的 - 默认安装是用官方下载 - 会 phonehome 到 stats.asterisk.org
+  - debian 的 opus 基于 [traud/asterisk-opus](https://github.com/traud/asterisk-opus)
+  - 主要包含 codec_opus 和 format_ogg_opus
+  - debian 源码 [pkg-voip-team/asterisk-opus](https://salsa.debian.org/pkg-voip-team/asterisk-opus)
+
+:::
+
 ```bash
 # 构建 doc xml
 # 可用于生成代码或文档
@@ -46,6 +55,13 @@ grep -rP '^\t<support_level>' $(find . -name '*.c') | sed -re 's#</?support_leve
 musl 不支持
 
 - 导致 pjsip 无法使用 DNS SRV 而使用 A 和 AAAA 解析
+- 参考
+  - [res/res_pjsip/config_system.c#L266-L270](https://github.com/asterisk/asterisk/blob/b4347c486150653ec7ce1d129e8f9017c69344da/res/res_pjsip/config_system.c#L266-L270)
+    - 跑出异常的地方
+  - [configure.ac#L1415-L1471](https://github.com/asterisk/asterisk/blob/b4347c486150653ec7ce1d129e8f9017c69344da/configure.ac#L1415-L1471)
+    - 依赖的系统函数
+  - musl 未实现 res_ninit
+  - 可以尝试该 patch [0002-resolve-musl-does-not-implement-res_ninit.patch](https://github.com/openembedded/openembedded-core/blob/master/meta/recipes-connectivity/connman/connman/0002-resolve-musl-does-not-implement-res_ninit.patch)
 
 ## AlpineLinux musl 问题
 

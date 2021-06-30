@@ -4,8 +4,6 @@ title: macOS
 
 # macOs
 
-## Tips
-
 - [Identify your Mac mini](https://support.apple.com/en-us/HT201894)
 - [Identify your MacBook Pro](https://support.apple.com/en-us/HT201300)
 - [Identify your iPad model](https://support.apple.com/en-us/HT201471)
@@ -547,3 +545,24 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.pli
 ### syslog
 
 - [How to use logger command on Sierra?](https://apple.stackexchange.com/questions/256769)
+
+## 历史
+
+- 乔布斯离开苹果创建 NeXT
+- NeXT 专注于个人工作站 - NeXT Computer, NeXTstation, NeXTcube
+- NeXT 研发的操作系统 NeXTStep - 基于 BSD, Mach 微内核
+  - 添加 OO 系统库，Frameworks， Toolkits - kits
+  - 基于 OO 的桌面
+  - ObjectC
+  - Xcode Interface Builder
+  - App Store
+- NeXT 分离高层框架为 OpenStep for Mach - 面向 Windows NT, Sun Solaris
+- Apple 多次尝试完善 MacOS 以失败告终
+- Apple 并购 NeXT - 乔布斯回到 Apple
+- MacOS 基于 OpenStep 完善
+  - 基于 xnu 内核
+  - 构建 Cocoa API
+- 未完成 Rhapsody ，完成部分发布为 MacOS X Server 1.0
+- Rhapsody -> MacOS X, OS X, macOS
+- 参考
+  - https://apple.stackexchange.com/a/401881/103557

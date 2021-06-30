@@ -38,3 +38,6 @@ title: K8S Awesome
   diagnostic tool to understand the state of a Kubernetes cluster by running a set of Kubernetes conformance tests
 - [kvdi/kvdi](https://github.com/kvdi/kvdi)
   Kubernetes-native Virtual Desktop Infrastructure
+- [kris-nova/naml](https://github.com/kris-nova/naml)
+  replacing Kubernetes YAML with Go
+- [cdk8s-team/cdk8s](https://github.com/cdk8s-team/cdk8s)

@@ -175,6 +175,9 @@ title: Go Awesome
   - Set Json Path
 - [qri-io/jsonschema](https://github.com/qri-io/jsonschema)
 - [xeipuuv/gojsonschema](https://github.com/xeipuuv/gojsonschema)
+- [ugorji/go](https://github.com/ugorji/go)
+  diomatic codec and rpc lib for msgpack, cbor, json, etc.
+
 
 ## 数据处理
 
@@ -199,6 +202,10 @@ title: Go Awesome
   Connection multiplexer - serve different services on the same port
 - [songgao/water](https://github.com/songgao/water)
   TUN/TAP library written in native Go
+- [name5566/leaf](https://github.com/name5566/leaf)
+  game server framework in Go
+- [xtaci/gonet](https://github.com/xtaci/gonet)
+  Game Server Skeleton in golang.
 
 ## 事件驱动
 
@@ -274,6 +281,7 @@ title: Go Awesome
   字符串混淆
 - [esimov/caire](https://github.com/esimov/caire)
   内容感知的图像缩放
+- [Go in a scratch VM](https://syslog.ravelin.com/a28c14e82a51)
 
 ## 控制理论 / Control theory
 
@@ -313,6 +321,13 @@ title: Go Awesome
   - process manager for UNIX systems
 - [ochinchina/supervisord](https://github.com/ochinchina/supervisord)
 
+## ML/机器学习
+
+- [sjwhitworth/golearn](https://github.com/sjwhitworth/golearn) is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.
+- [cdipaolo/goml](https://github.com/cdipaolo/goml) is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.
+- [chewxy/gorgonia](https://github.com/chewxy/gorgonia) is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.
+
+
 ## SIP/WebRTC
 
 - [rtctunnel/rtctunnel](https://github.com/rtctunnel/rtctunnel)
@@ -327,3 +342,74 @@ title: Go Awesome
   Golang SIP framework
 - [sip client.go](https://github.com/framsc/sip-client-in-golang/blob/master/sip%20client.go)
   - 简单处理 Register
+
+# TBD
+
+### Utils
+
+- [jinzhu/now](https://github.com/jinzhu/now)
+  Now is a time toolkit for golang
+- [benmanns/goworker](https://github.com/benmanns/goworker)
+  Go-based background worker
+- [dustin/go-humanize](https://github.com/dustin/go-humanize)
+  - 格式化数据大小, 时间和数字等
+- [dropbox/godropbox](https://github.com/dropbox/godropbox)
+  Common libraries for writing Go services/applications.
+- [asciimoo/wuzz](https://github.com/asciimoo/wuzz)
+  Interactive cli tool for HTTP inspection
+- [goreleaser/goreleaser](https://github.com/goreleaser/goreleaser)
+  Deliver Go binaries as fast and easily as possible
+
+### Console
+
+- [jroimartin/gocui](https://github.com/jroimartin/gocui)
+  Minimalist Go package aimed at creating Console User Interfaces.
+- [nsf/termbox-go](https://github.com/nsf/termbox-go)
+  Pure Go termbox implementation
+
+### Data
+
+- https://github.com/Workiva/go-datastructures
+- https://github.com/emirpasic/gods
+
+### Web
+
+- https://github.com/valyala/fasthttp
+  - Fast HTTP package for Go. Tuned for high performance. Zero memory allocations in hot paths. Up to 10x faster than net/http
+- [Web Frameworks](https://awesome-go.com/#web-frameworks)
+- https://github.com/kataras/iris
+- https://github.com/labstack/echo
+- Auth
+  - https://github.com/markbates/goth
+    - Package goth provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.
+- https://github.com/go-kit/kit
+  - A standard library for microservices.
+- https://github.com/micro/micro
+  - A microservice toolkit for distributed systems development
+
+### Test
+
+- https://github.com/smartystreets/goconvey
+
+### Misc
+
+https://github.com/alexflint/go-restructure
+https://github.com/pointlander/peg Peg, Parsing Expression Grammar
+https://github.com/hanwen/go-fuse
+
+### Hardware
+
+- https://github.com/ycoroneos/golang_embedded
+- [ycoroneos/G.E.R.T](https://github.com/ycoroneos/G.E.R.T)
+  - Golang Embedded Run-Time
+  - https://news.ycombinator.com/item?id=15591847
+  - https://news.ycombinator.com/item?id=14590847
+- https://bugs.alpinelinux.org/issues/4276
+  - gcc-arm-none-eabi
+
+## Scripts
+
+- https://github.com/peterh/liner
+  line editor with history
+- https://github.com/dop251/goja
+  ECMAScript/JavaScript engine

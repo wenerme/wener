@@ -3,14 +3,16 @@ title: CentOS FAQ
 ---
 
 # CentOS FAQ
-* https://wiki.centos.org/FAQ/CentOS8
+
+- https://wiki.centos.org/FAQ/CentOS8
 
 ## CentOS 8 os vs kickstart
-* kickstart
-  * 不会更想，发布点的仓库状态
-* os
-  * 包会更新
-  * 没有了 update 仓库
+
+- kickstart
+  - 不会更想，发布点的仓库状态
+- os
+  - 包会更新
+  - 没有了 update 仓库
 
 ## 使用 alpine 下依赖 musl 的二进制
 
@@ -20,8 +22,9 @@ wget https://copr.fedorainfracloud.org/coprs/ngompa/musl-libc/repo/epel-7/ngompa
 yum install musl-libc-static
 ```
 
-## 修改网卡名为 eth* 的形式
-* [Linux : How to rename the network interface in CentOS/RHEL7](http://www.itechlounge.net/2016/04/linux-how-to-rename-the-network-interface-in-centosrhel7/)
+## 修改网卡名为 eth\* 的形式
+
+- [Linux : How to rename the network interface in CentOS/RHEL7](http://www.itechlounge.net/2016/04/linux-how-to-rename-the-network-interface-in-centosrhel7/)
 
 ```bash
 nano /etc/default/grub

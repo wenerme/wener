@@ -1,5 +1,4 @@
 ---
-id: asterisk-moduls
 title: Asterisk Modules
 ---
 

@@ -15,6 +15,8 @@ title: Service Awesome
 - [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
   web conferencing system
   - LGPLv3, JS,Java
+- [osnvr/os-nvr](https://gitlab.com/osnvr/os-nvr)
+  lightweight extensible CCTV system
 
 ## Avatar
 

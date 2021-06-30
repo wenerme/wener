@@ -25,145 +25,231 @@ turnserver
 turnutils_stunclient 127.0.0.1
 ```
 
-| cli                     | desc                                              |
-| ----------------------- | ------------------------------------------------- |
-| turnadmin -> turnserver | TURN relay administration tool - 管理 Server 账户 |
+| cli                     | desc                                               |
+| ----------------------- | -------------------------------------------------- |
+| turnadmin -> turnserver | TURN relay administration tool - 管理 Server 账户  |
 | turnserver              |
-| turnutils_natdiscovery  |
-| turnutils_oauth         |
-| turnutils_peer          |
-| turnutils_stunclient    |
-| turnutils_uclient       |
-| /etc/init.d/turnserver  | OpenRC init                                       |
+| turnutils_natdiscovery  | RFC5780 nat 发现                                   |
+| turnutils_oauth         | 生成，校验 access_token                            |
+| turnutils_peer          | UDP echo 后端服务, 用于配合 turnutils_uclient 测试 |
+| turnutils_rfc5769check  | 检测 STUN/TURN 实现准确                            |
+| turnutils_stunclient    | STUN RFC 5389 UDP 客户端                           |
+| turnutils_uclient       | 测试应用                                           |
+| /etc/init.d/turnserver  | OpenRC init                                        |
 
 ## 配置
 
-```conf
-# 监听端口
-listening-port=3478
+- 配置也可以通过命令行参数传递，部分参数有短参模式
+- 推荐 TCP SSLv3, TLS 1.0,1.1,1.2、UDP DTLSv1
+- -c 配置文件 - 默认 turnserver.conf
+- -n 不使用配置文件
 
+```conf
+# -d 监听设备 - 不建议使用 - linux 的 interface
+# listening-device=
+# -p 监听端口
+# TLS 和 DTLS 可以共用端口，会字段识别类型
+listening-port=3478
 tls-listening-port=5349
 
-# 端口的额外监听端口
-# alt-listening-port<port>	<port>
+# 端口的额外监听端口 - STUN CHANGE_REQUEST - RFC 5780
+# alt-listening-port<port> = <port>
+# alt-tls-listening-port = <port>
 
-# 监听地址
+# tcp proxy 协议 - https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
+# 用于支持负载均衡
+# tcp-proxy-port=
+
+# -L 监听地址，支持多个
 listening-ip=0.0.0.0
+# 辅助服务地址
+# 辅助服务不支持 alternative ports, 不支持 CHANGE REQUEST
+# aux-server = <ip:port>
 
-# 辅助地址
-# aux-server=<ip:port>
+# 仅用于旧的 Linux - 自动与 auxiliary 服务均衡 UDP 流量
+udp-self-balance
 
-# 中继地址
+# -i 中继设备 - 不推荐
+# relay-device = <device-name>
+# -E 中继地址
 # relay-ip=<ip>
 
-# 外部地址
-# external-ip=<public-ip[/private-ip]>
+# -X 外部地址
+# external-ip = <public-ip[/private-ip]>
 
-# 允许本地地址
+# 允许本地地址 - 127.x.x.x,::1
 allow-loopback-peers
 # 不允许广播地址 - 224.0.0.0, FFXX:*
 no-multicast-peers
+# -m 中继线程数量 - 0 为单线程模式, 默认会使用 cpu 数
+# relay-threads = <number>
 
-# UDP 端口范围
+# 中继 UDP 端口范围
 min-port=49152
 max-port=65535
 
 # Production mode - 隐藏服务端版本
-prod
-
+# 之前是 prod
+no-software-attribute
+# -f 在 TURN 消息中添加指纹
+fingerprint
+# -a long-term credential mechanism
+lt-cred-mech
 # 无认证 - 允许匿名访问
 no-auth
-
 # 用户账号
-# user=<user:pwd>
-# 用户域
-# realm=<realm>
-
+# user = <user:pwd>
+# 默认域
+# realm = <realm>
 # 要求请求的 ORIGIN 相同
 check-origin-consistency
 
-# 单用户配额
-# user-quota=<number>
-# 总配额
-# total-quota=<number>
+# -q 单用户配额 - 一个用户可以创建多少并发
+# user-quota = <number>
+# -Q 总配额 - 全局并发限制
+# total-quota = <number>
+# TURN 限流 - sessoion bytes-per-second
+# max-bps = <number>
+# 服务器流量 - bytes-per-second
+# bps-capacity = <number>
 
-# TURN 限流
-# max-bps=<number>
-# 服务器流量
-# bps-capacity=<number>
-
-# SQLite DB
+# -b,--userdb SQLite DB
+# /usr/local/var/db/turndb, /var/lib/turn/turndb.
 # db=/var/db/turndb
 
+# -e, --psql-userdb, --sql-userdb
+# http://www.postgresql.org/docs/9.2/static/libpq-connect.html#LIBPQ-CONNSTRING
+# psql-userdb = <conn-string>
+
+# -N
+# host=<ip-addr> dbname=<db-number> password=<database-user-password> port=<db-port> connect_timeout=<seconds>
+# redis-userdb = <connection-string
+# -O redisl 统计和状态 db，支持事件订阅
+# redis-statsdb = <connection-string>
+
+# TURN REST API
 # use-auth-secret
-# static-auth-secret=<secret>
-# 默认为 realm 名字
+# 静态 secret - 默认使用 turn_secret 表数据
+# static-auth-secret = <secret>
+# Disable periodic health checks to 'dynamic' auth secret tables
+no-auth-pings
+# 不使用动态的 允许/拒绝 ip 列表
+no-dynamic-ip-list
+# 不使用动态 realm 属性
+no-dynamic-realms
+
+# 用于 oAuth 流程 - 默认为 realm 名字
 # server-name
 # 启用 oAuth
 oauth
 
-# TLS 相关配置
-# cert=<filename>
-# pkey=<filename>
-# pkey-pwd=<password>
-# cipher-list=<"cipher-string">
-# CA-file=<filename>
-# ec-curve-name=<curve-name>
+# TLS
+# ====================
+# cert = <filename>
+# pkey = <filename>
+# pkey-pwd = <password>
+# 默认值为 DEFAULT
+# cipher-list = <"cipher-string">
+# 设置 CA 后会验证客户端证书
+# CA-file = <filename>
+# 默认 prime256v1
+# ec-curve-name = <curve-name>
+# 566 bits predefined DH TLS key - 默认 2066.
+# dh566
+# 1066 bits predefined DH TLS key - 默认 2066.
+# dh1066
+# DH TLS key - pem 格式
+# dh-file = <dh-file-name>
 
+no-tlsv1
+no-tlsv1_1
+no-tlsv1_2
+
+# 协议配置
+# ====================
+# 不监听 协议
 no-udp
 no-udp
 no-tls
 no-dtls
+# 禁止 udp relay - 只使用 tcp
 no-udp-relay
+# 禁止 tcp relay - 只使用 udp
 no-tcp-relay
+# 服务端中继 - 非标准逻辑 - 仅用于特殊场景
+# server-relay
 
-# 文件名可以使用 stdout 和 -
-# log-file=<filename>
+# 日志配置
+# ====================
+# -l 文件名可以使用 syslog,stdout 和 -
+# 会尝试目录 /var/log/turnserver/, /var/log, /var/tmp, /tmp, .
+# log-file = <filename>
+# 不输出 stdout - 默认是 log 文件+stdout
 no-stdout-log
 syslog
+# log 文件名不添加 pid 和日期信息
+simple-log
+
+# ISO-8601
+new-log-timestamp
+# strftime
+# new-log-timestamp-format = <format>
+# STUN binding request - 默认关闭 - 避免 DoS
+# log-binding
 
 # 失效时间 - 秒
 stale-nonce=600
 max-allocate-lifetime=3600
 channel-lifetime=600
+# 生产不建议修改
 permission-lifetime=300
+max-allocate-timeout=60
 
+# -S 拒绝所有 turn 请求
 stun-only
+# 拒绝所有 sturn 请求
 no-stun
-# alternate-server=<ip:port>
-# tls-alternate-server=<ip:port>
-
 # stun 要求验证
 secure-stun
 
+# 用于负载的服务 - 会重定向
+# alternate-server = <ip:port>
+# tls-alternate-server=<ip:port>
+
+# -C timestamp/username 分割
 rest-api-separator=:
+# 重定向 ^/.well-known/acme-challenge/(.*)
+# acme-redirect = <URL>
 
-allowed-peer-ip=<ip[-ip]>
-denied-peer-ip=<ip[-ip]>
+# allowed-peer-ip = <ip[-ip]>
+# denied-peer-ip = <ip[-ip]>
 
-; pidfile <"pid-file-name">
-
-; proc-user <user-name>
-; proc-group <group-name>
+# 会尝试 /var/run/turnserver.pid, /var/tmp/turnserver.pid
+# pidfile = <"pid-file-name">
+# 进程运行身份
+# proc-user = <user-name>
+# proc-group = <group-name>
 
 # 支持 MICE - Mobility with ICE
 mobility
+# -K 基于通讯选择地址 - RFC6156 section-4.2 要求默认 IPv4
+# keep-address-family
 
-keep-address-family
-
-no-cli
+# 禁用 CLI 支持
+# no-cli
 cli-ip=127.0.0.1
 cli-port=5766
-cli-password=<password>
-
+# 建议使用 turnadmin -P 生成加密密钥
+# cli-password = <password>
 cli-max-output-sessions
 
+# 启用 web-admin
 web-admin
 web-admin-ip=127.0.0.1
 web-admin-port=8080
+# 出于安全考虑默认关闭
 web-admin-listen-on-workers
 
-; server-relay
 ```
 
 **/etc/turnserver.conf**

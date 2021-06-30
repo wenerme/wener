@@ -11,6 +11,7 @@ title: ML Awesome
 
 - [LabML Neural Networks](https://nn.labml.ai/)
   - PyTorch
+- [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
 
 ## Framework
 
