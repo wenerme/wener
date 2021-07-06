@@ -25,7 +25,6 @@ title: 开发用词字典
 | word | zh_CN |
 | ---- | ----- |
 
-
 ## 常见词汇
 
 | 英文            | 含义                                                                | 释义 |
@@ -352,6 +351,7 @@ title: 开发用词字典
   - 度量 association/relationship
 
 ## Register vs Registry
+
 - Register - A recording of items, names, or actions
   - 事情
 - Registry - A place where you Register
@@ -360,3 +360,24 @@ title: 开发用词字典
   - 人
 - Registration - the act of registering
   - 动作
+
+## setting vs configuration vs properties vs options vs preferences
+
+- properties
+  - 通常影响整个组件或程序
+  - 相对泛指
+  - 可能影响应用行为
+- configuration
+  - 针对应用和用户自定义
+  - 通常有默认值 - 基础
+  - 通常在运行前发生
+- option
+  - 类似配置 - 但可能指更小的范围
+  - 通常在运行时发生
+  - 例如一个方法有很多选项
+- setting
+  - 由行为操作发生变化
+  - 整个应用维度
+- preferences
+  - 由用户行为操作发生变化
+  - 强调偏好 - 有主体 - 通常为用户

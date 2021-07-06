@@ -6,11 +6,11 @@ title: ImageMagick
 # imagemagick
 
 ## Tips
-* http://www.imagemagick.org/
-* http://www.imagemagick.org/script/formats.php
-  * PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, and SVG
-* resize, flip, mirror, rotate, distort, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves.
 
+- http://www.imagemagick.org/
+- http://www.imagemagick.org/script/formats.php
+  - PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, and SVG
+- resize, flip, mirror, rotate, distort, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves.
 
 ```bash
 # 添加 svg 和 opencl 支持
@@ -23,7 +23,8 @@ brew reinstall imagemagick --with-librsvg --with-opencl
 ```
 
 ## Convert
-* http://www.imagemagick.org/script/convert.php
+
+- http://www.imagemagick.org/script/convert.php
 
 ```bash
 # -append 自上至下合并
