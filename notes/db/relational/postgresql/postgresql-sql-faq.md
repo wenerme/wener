@@ -4,7 +4,8 @@ title: Pg SQL 常见问题
 ---
 
 # PostgreSQL SQL 问题
-* [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
+
+- [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 
 ## JSON 数组转行
 
@@ -31,10 +32,11 @@ FROM (VALUES (1, 'one'), (2, 'two'), (3, 'three')) AS t (num, letter);
 ```
 
 ## 分组聚合
-* [cube](https://www.postgresql.org/docs/current/cube.html)
-* [GROUPING SETS, CUBE, ROLLUP](https://www.postgresql.org/docs/devel/queries-table-expressions.html#QUERIES-GROUPING-SETS)
-* `rollup(a,b,c)` => `grouping sets((a,b,c),(a,b),(a),())`
-* cube((a),(b),(c))  grouping sets((a,b,c),(a,b),(a,c),(a),(b,c),(b),(c),()) 
+
+- [cube](https://www.postgresql.org/docs/current/cube.html)
+- [GROUPING SETS, CUBE, ROLLUP](https://www.postgresql.org/docs/devel/queries-table-expressions.html#QUERIES-GROUPING-SETS)
+- `rollup(a,b,c)` => `grouping sets((a,b,c),(a,b),(a),())`
+- cube((a),(b),(c)) grouping sets((a,b,c),(a,b),(a,c),(a),(b,c),(b),(c),())
 
 ```sql
 GROUP BY a, b, c

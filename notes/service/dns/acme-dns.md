@@ -9,8 +9,9 @@ title: acme-dns
   - 将现有 `_acme-challenge.domain.tld.` CNAME 到从该服务申请的二级域名 - 例如 `abc.auth.example.org`
   - 避免操作现有 DNS 服务
   - 支持 selfhost - acme-dns.io 国内不一定能访问
+    - 支持 SQLite3 和 PostgreSQL
   - 适用于单个域名需要证书，域名使用的外部 DNS 服务且指向的内部 IP
-  - 适用于泛域名证书
+  - 适用于泛域名证书 - `domain.tld`, `*.domain.tld`
 - 支持客户端
   - [acme.sh](https://github.com/Neilpang/acme.sh)
   - [Certify The Web](https://github.com/webprofusion/certify)

@@ -4,7 +4,6 @@ title: Rollup
 
 # Rollup
 
-## Tips
 - [rollupjs](https://rollupjs.org/)
 - [Repl](https://rollupjs.org/repl/)
 - 注意
@@ -22,9 +21,8 @@ title: Rollup
       - 使其恢复原有的方式
     - 类似问题
       - [faastjs/faast.js#36](https://github.com/faastjs/faast.js/issues/36) - Can't use default import with Babel
-* 参考
-  * [rollup/awesome](https://github.com/rollup/awesome)
-
+- 参考
+  - [rollup/awesome](https://github.com/rollup/awesome)
 
 ```bash
 npm install --global rollup
@@ -59,6 +57,7 @@ yarn add -D @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin
 ```
 
 ## rollup commonjs
+
 ```ts
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -72,15 +71,13 @@ function createConfig(format) {
       sourcemap: true,
       format,
     },
-    external: [
-      'react',
-    ],
+    external: ['react'],
     plugins: [
       nodeResolve({ browser: true, extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
       babel({
         babelHelpers: 'bundled',
         babelrc: false,
-        presets: [['@babel/preset-typescript',{allowNamespaces:true}], '@babel/preset-react'],
+        presets: [['@babel/preset-typescript', { allowNamespaces: true }], '@babel/preset-react'],
         plugins: [
           ['@babel/plugin-proposal-decorators', { legacy: true }],
           ['@babel/plugin-proposal-class-properties', { loose: true }],
@@ -92,30 +89,21 @@ function createConfig(format) {
   };
 }
 
-export default [createConfig('system'),createConfig('umd')];
+export default [createConfig('system'), createConfig('umd')];
 ```
 
-## 插件
-- [rollup/plugins](https://github.com/rollup/plugins)
-
-## rollup-plugin-replace
-* 替代进行优化
-
-```js
-require('rollup-plugin-replace')({
-  'process.env.NODE_ENV': JSON.stringify('production')
-})
-```
 
 ## babel
-* https://github.com/rollup/plugins/tree/master/packages/babel
+
+- https://github.com/rollup/plugins/tree/master/packages/babel
 
 # FAQ
 
 ## `this` has been rewritten to `undefined`
-* 配合 typescript 会出现，不影响使用，但很烦
 
-__忽略该错误__
+- 配合 typescript 会出现，不影响使用，但很烦
+
+**忽略该错误**
 
 ```js
 {
@@ -128,9 +116,10 @@ __忽略该错误__
 }
 ```
 
-* [this-is-undefined](https://rollupjs.org/guide/en/#error-this-is-undefined)
+- [this-is-undefined](https://rollupjs.org/guide/en/#error-this-is-undefined)
 
 ## Rollup requires that your Babel configuration keeps ES6 module syntax intact.
+
 ```js
 {
   plugins: [
@@ -144,23 +133,28 @@ __忽略该错误__
 ```
 
 ## SyntaxError: Unexpected token: punc (.)
-* [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-* 调整 transpile 或者 ts 的 target
+
+- [Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- 调整 transpile 或者 ts 的 target
 
 ## Missing class properties transform.
-* `@babel/plugin-proposal-class-properties`
+
+- `@babel/plugin-proposal-class-properties`
 
 ## 'default' is not exported by
-* 导入方式的问题
+
+- 导入方式的问题
+- commonjs 问题
 
 ```ts
 // 这样不会使用 default
 // TS 中的 allowSyntheticDefaultImports 参数
-import * as Abc from './abc'
+import * as Abc from './abc';
 ```
 
 ## xxx.default is not a function
-* 一般是 commonjs 的问题
+
+- 一般是 commonjs 的问题
 
 可以手动添加命名导出
 
@@ -174,5 +168,9 @@ commonjs({
 }),
 ```
 
-## 'default' is not exported by
-* commonjs 问题
+## lodash 没能 剔除/tree shake
+
+使用 lodash-es，不要使用 lodash
+
+- lodash 是 cjs
+- lodash-es 是 esm

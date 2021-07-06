@@ -19,4 +19,14 @@ title: API Awesome
 
 ## 规范
 
-- [AIP](https://google.aip.dev/general) - API Improvement Proposals
+- Google [AIP](https://google.aip.dev/general) - API Improvement Proposals
+- [Financial-grade API](https://fapi.openid.net)
+
+## Gateway
+
+- CNCF [API Gateway Landscape](https://landscape.cncf.io/card-mode?category=api-gateway&grouping=category)
+- [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/)
+  - GatewayClass, Gateway, HTTPRoute
+  - [Implementations](https://gateway-api.sigs.k8s.io/references/implementations/)
+- [apache/apisix](https://github.com/apache/apisix)
+- Kong

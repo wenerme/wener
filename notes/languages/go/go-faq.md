@@ -25,6 +25,15 @@ go get -u=patch -v ./...
 go get -t -u ./...
 ```
 
+## 查看模块所在位置
+
+```bash
+go list -f '{{.Dir}}' -m github.com/pkg/errors
+
+# 模块缓存目录
+go env GOMODCACHE
+```
+
 ## Struct 是否使用指针
 
 - 尽量不使用指针 - 直接使用 Struct 会更快

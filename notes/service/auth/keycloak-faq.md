@@ -5,10 +5,23 @@ title: Keycloak 常见问题
 
 # Keycloak FAQ
 
+## 默认 mapper 字段
+
+| scope       | mapper                | field                              | to                              |
+| ----------- | --------------------- | ---------------------------------- | ------------------------------- |
+| roles       | realm roles           | realm_access.roles                 | User Realm Role                 |
+| ^           | client roles          | resource_access.${client_id}.roles | User Client Role                |
+| web-origins | allowed web origins   | allowed-origins                    | Allowed Web Origins             |
+| phone       | phone number          | phone_number                       | Attribute - phoneNumber         |
+| ^           | phone number verified | phone_number_verified              | Attribute - phoneNumberVerified |
+| email       | email                 | email                              | Property - phoneNumber          |
+| ^           | email verified        | email_verified                     | Property - emailVerified        |
+
 ## 服务账号 - Service Account
-* 客户端直接申请获取 Token，然后使用申请到的 Token 访问服务
-* 不涉及用户和浏览器交互
-* 用于服务之间鉴权，例如 服务端 API 授权
+
+- 客户端直接申请获取 Token，然后使用申请到的 Token 访问服务
+- 不涉及用户和浏览器交互
+- 用于服务之间鉴权，例如 服务端 API 授权
 
 https://medium.com/@mihirrajdixit/getting-started-with-service-accounts-in-keycloak-c8f6798a0675
 great for administrative tasks executed on behalf of a service instead of individual user.
@@ -17,7 +30,6 @@ https://planet.jboss.org/post/service_accounts_support_in_keycloak
 allows to authenticate the client application with Keycloak server and retrieve the access token dedicated to this application.
 
 https://www.keycloak.org/docs/latest/server_admin/index.html#_service_accounts
-
 
 ## 主域 - Master Realm
 
@@ -28,8 +40,9 @@ https://www.keycloak.org/docs/latest/server_admin/index.html#_service_accounts
   - [The Master Realm](https://www.keycloak.org/docs/latest/server_admin/#the-master-realm)
 
 ## login-status-iframe.html/init 403 异常
+
 - 确保开启 Implicit Flow Enabled
-- 确保 client_id 正确
+- 确保 client_id  正确
   - 如果 client_id 错了会 403，但没有任何地方提示 client_id 错误
   - 非常难排查
 
@@ -51,7 +64,8 @@ curl -L -X POST 'http://localhost:8080/auth/realms/whatever-realm/protocol/openi
 ```
 
 ## Could not modify attribute for DN
-* 如果使用了 federation，修改密码可能被禁止
+
+- 如果使用了 federation，修改密码可能被禁止
 
 ## Found an Attribute element with duplicated Name
 
@@ -73,11 +87,12 @@ curl -L -X POST 'http://localhost:8080/auth/realms/whatever-realm/protocol/openi
 | SAML Attribute NameFormat | Basic         |
 
 ## Access to XMLHttpRequest at keycloak from origin 'http://127.0.0.1:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-* 逻辑上来说是需要配置 Client 的 Web Origins
-* 配置后还是出现
-* curl 测试正常
-* 浏览器没有发起 OPTIONS 请求
-* 如果只是前端使用，一定选择 __public__
+
+- 逻辑上来说是需要配置 Client 的 Web Origins
+- 配置后还是出现
+- curl 测试正常
+- 浏览器没有发起 OPTIONS 请求
+- 如果只是前端使用，一定选择 **public**
 
 ```bash
 # 直接测试有返回
@@ -105,5 +120,13 @@ access-control-max-age: 3600
 ```
 
 ## JWKs 没有签名的公钥
-* 不是所有算法都有
-* 可以设置为有 Public key 的算法
+
+- 不是所有算法都有
+- 可以设置为有 Public key 的算法
+
+## 域名映射域
+
+没有很好的办法
+
+- 参考
+  - [One domain per realm, disabling unrelated keycloak pages](https://keycloak.discourse.group/t/1833)

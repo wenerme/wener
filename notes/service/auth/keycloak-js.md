@@ -4,9 +4,9 @@ title: Keycloak JS SDK
 
 # Keycloak JS SDK
 
-* 是什么？
-  * Keycloak 提供的 JS SDK
-  * 支持登陆、注册、SSO检测、个人信息URL、自动刷新、退出登陆等功能
+- 是什么？
+  - Keycloak 提供的 JS SDK
+  - 支持登陆、注册、SSO 检测、个人信息 URL、自动刷新、退出登陆等功能
 
 ```js
 const kc = Keycloak({
@@ -46,31 +46,31 @@ kc.authenticated
 kc.updateToken(45)
 ```
 
-* check-sso
-  * loginIframe.enable == true
-    * setup login iframe
-    * check login iframe
-    * silentCheckSsoRedirectUri
-      * 有 - checkSsoSilently
-      * 无 - doLogin
-  * loginIframe.enable == false
-    * silentCheckSsoRedirectUri
-      * 有 - checkSsoSilently
-      * 无 - doLogin
-* login-required
-  * doLogin - kc.login
-* checkSsoSilently
-  * 创建 iframe
-  * src=`kc.createLoginUrl({prompt: 'none', redirectUri: kc.silentCheckSsoRedirectUri})`
-  * 接受 postMessage - 包含结果 href
-* 非 implicit 取到 token 后会请求 kc 获取 access_token 和 refresh_token
-* standard
-  * code, state, session_state, kc_action_status
-* implicit
-  * access_token, token_type, id_token, state, session_state, expires_in, kc_action_status
-* hybrid
-  * access_token, id_token, code, state, session_state, kc_action_status
-* 异常参数 - error, error_description, error_uri
+- check-sso
+  - loginIframe.enable == true
+    - setup login iframe
+    - check login iframe
+    - silentCheckSsoRedirectUri
+      - 有 - checkSsoSilently
+      - 无 - doLogin
+  - loginIframe.enable == false
+    - silentCheckSsoRedirectUri
+      - 有 - checkSsoSilently
+      - 无 - doLogin
+- login-required
+  - doLogin - kc.login
+- checkSsoSilently
+  - 创建 iframe
+  - src=`kc.createLoginUrl({prompt: 'none', redirectUri: kc.silentCheckSsoRedirectUri})`
+  - 接受 postMessage - 包含结果 href
+- 非 implicit 取到 token 后会请求 kc 获取 access_token 和 refresh_token
+- standard
+  - code, state, session_state, kc_action_status
+- implicit
+  - access_token, token_type, id_token, state, session_state, expires_in, kc_action_status
+- hybrid
+  - access_token, id_token, code, state, session_state, kc_action_status
+- 异常参数 - error, error_description, error_uri
 
 ```ts
 // loadUserProfile
@@ -86,6 +86,6 @@ interface KeycloakProfile {
   totp?: boolean;
   createdTimestamp?: number;
   // 注意 - 值是数组
-  attributes?: Record<string,string[]>
+  attributes?: Record<string, string[]>;
 }
 ```

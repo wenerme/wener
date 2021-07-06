@@ -133,3 +133,15 @@ npm exec foo@latest bar --package=@npmcli/foo
 # 建议使用 -- 分割命令
 npm exec -- foo@latest bar --package=@npmcli/foo
 ```
+
+# FAQ
+
+## ESBuild
+没有 hasInstallScript，导致没有调用安装脚本。
+
+```bash
+# 在不修改 packages-lock.json 的情况下手动安装是最简单的
+node ./node_modules/esbuild/install.js
+```
+
+- [npm/cli#2606](https://github.com/npm/cli/issues/2606)

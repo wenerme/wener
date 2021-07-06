@@ -19,10 +19,10 @@
 
 ## Featured
 
-* [AlpineLinux](https://www.wener.tech/notes/os/alpine/alpine)
-* [Auth 服务](https://www.wener.tech/notes/service/auth/auth)
-* [Golang](http://www.wener.tech/notes/languages/go/go)
-* [Java](http://www.wener.tech/notes/java/java)
-* [Kubernetes](https://www.wener.tech/notes/devops/kubernetes/kubernetes)
-* [VoIP](https://www.wener.tech/notes/voip/voip)
-* [虚拟化](https://www.wener.tech/notes/os/virt/virt)
+- [AlpineLinux](https://www.wener.tech/notes/os/alpine/alpine)
+- [Auth 服务](https://www.wener.tech/notes/service/auth/auth)
+- [Golang](https://www.wener.tech/notes/languages/go/go)
+- [Java](https://www.wener.tech/notes/java/java)
+- [Kubernetes](https://www.wener.tech/notes/devops/kubernetes/kubernetes)
+- [VoIP](https://www.wener.tech/notes/voip/voip)
+- [虚拟化](https://www.wener.tech/notes/os/virt/virt)

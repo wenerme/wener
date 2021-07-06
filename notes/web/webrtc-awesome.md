@@ -21,12 +21,52 @@ title: WebRTC Awesome
 - [obsproject/obs-studio](https://github.com/obsproject/obs-studio)
   video recording and live streaming
 
+## 参考/References
+
+- [Explaining the WebRTC Secure Real-Time Transport Protocol (SRTP)](https://www.callstats.io/blog/2018/05/16/explaining-webrtc-secure-real-time-transport-protocol-srtp)
+- [A Study of WebRTC Security](https://webrtc-security.github.io)
+- [WebRTC 安全性的研究](https://webrtc.org.cn/webrtc-security)
+
 ## stun
 
 - stun.stunprotocol.org:3478
+- stun.l.google.com:19302
+- stun1.l.google.com:19302
+- stun2.l.google.com:19302
+- stun3.l.google.com:19302
+- stun4.l.google.com:19302
+- stun01.sipphone.com
+- stun.ekiga.net
+- stun.fwdnet.net
+- stun.ideasip.com
+- stun.iptel.org
+- stun.rixtelecom.se
+- stun.schlund.de
+- stunserver.org
+- stun.softjoys.com
+- stun.voiparound.com
+- stun.voipbuster.com
+- stun.voipstunt.com
+- stun.voxgratia.org
+- stun.xten.com
+- stun.fwdnet.net
+- stun.voxgratia.org
+- stun.xten.com
+- s1.taraba.net
+- s2.taraba.net
+- s1.voipstation.jp
+- s2.voipstation.jp
+- numb.viagenie.ca
+- stun.counterpath.com
+
+---
+
+- stuns https://gist.github.com/zziuni/3741933
 - [coturn/coturn](https://github.com/coturn/coturn)
   - BSD-3, C TURN/STUN Server
 - [pion/turn](https://github.com/pion/turn)
   Golang, TURN Server/Client
 
 ## turn
+
+- turn2.l.google.com

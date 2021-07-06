@@ -9,6 +9,12 @@ title: ArgoCD Image Updater
   - 支持写回到仓库
 - ConfigMap argocd-image-updater-config
 - semver 使用 [Masterminds/semver](https://github.com/Masterminds/semver) 实现
+- 限制
+  - 只能更新 ArgoCD 管理的容器
+  - 只能更新 Kustomize 或 Helm 生成的容器
+  - pull secrets 必须在相同集群
+- Application 维度 添加 annotation
+  - image-list 监听的镜像
 
 ```bash
 # 安装
@@ -72,6 +78,13 @@ argocd-image-updater.argoproj.io/<alias>.update-strategy: name
 argocd-image-updater.argoproj.io/image-list: dex=quay.io/dexidp/dex
 argocd-image-updater.argoproj.io/dex.helm.image-name: dex.image.name
 argocd-image-updater.argoproj.io/dex.helm.image-tag: dex.image.tag
+
+# Helm 多镜像
+argocd-image-updater.argoproj.io/image-list: fooalias=foo/bar, baralias=bar/foo
+argocd-image-updater.argoproj.io/fooalias.helm.image-name: foo.image
+argocd-image-updater.argoproj.io/fooalias.helm.image-tag: foo.tag
+argocd-image-updater.argoproj.io/baralias.helm.image-name: bar.image
+argocd-image-updater.argoproj.io/baralias.helm.image-tag: bar.tag
 ```
 
 ```yaml
@@ -83,4 +96,22 @@ data:
     {{ range .AppChanges -}}
     updates image {{ .Image }} tag '{{ .OldTag }}' to '{{ .NewTag }}'
     {{ end -}}
+```
+
+## 配置
+- cm argocd-image-updater-config
+
+```yaml
+data:
+  applications_api: argocd
+  # The address of Argo CD API endpoint - defaults to argocd-server.argocd
+  argocd.server_addr: <FQDN or IP of your Argo CD server>
+  # Whether to use GRPC-web protocol instead of GRPC over HTTP/2
+  argocd.grpc_web: true
+  # Whether to ignore invalid TLS cert from Argo CD API endpoint
+  argocd.insecure: false
+  # Whether to use plain text connection (http) instead of TLS (https)
+  argocd.plaintext: false
+
+  argocd.token:
 ```

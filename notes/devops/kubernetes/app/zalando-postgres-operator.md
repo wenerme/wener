@@ -1,8 +1,9 @@
 ---
-title: postgres-operator
+title: zalando/postgres-operator
 ---
 
-# postgres-operator
+# zalando/postgres-operator
+
 - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
   - [文档](https://postgres-operator.readthedocs.io/en/latest/)
 - Operator 可通过 ConfigMap 或 CRD 配置 - 推荐 CRD 配置
@@ -22,12 +23,24 @@ title: postgres-operator
 
 :::caution
 
-* S3 bukect 是全局的，不支持每个集群独立配置
-* pod_environment_secret 目前只挂载在了 operator 上
-  * 逻辑备份无法使用该配置
-  * [#1348](https://github.com/zalando/postgres-operator/issues/1348)
-* 非 AWS S3 只能使用 WAL-G - 因为 WAL-E 开启了 SSE
-  * 例如 Minio
+- cluster-name 必须匹配 {TEAM}-{NAME} 格式
+  - 即 postgresql crd 的名字
+- 数据库名字限制和 PG 不同 - 必须 `^[a-zA-Z_][a-zA-Z0-9_]*$`
+  - 数据库名字不可以包含 `-` - 需要 quote
+  - [#667](https://github.com/zalando/postgres-operator/issues/667)
+- 用户名不要包含 `_` - 因为生成 secret 不支持名字包含 `_`
+
+:::
+
+
+:::caution 备份注意事项
+
+- S3 bukect 是全局的，不支持每个集群独立配置
+- pod_environment_secret 目前只挂载在了 operator 上
+  - 逻辑备份无法使用该配置
+  - [#1348](https://github.com/zalando/postgres-operator/issues/1348)
+- 非 AWS S3 只能使用 WAL-G - 因为 WAL-E 开启了 SSE
+  - 例如 Minio
 
 :::
 
@@ -431,19 +444,21 @@ spec:
   # https://patroni.readthedocs.io/en/latest/SETTINGS.html
   patroni:
 ```
+
 # FAQ
 
 ## Spilo 环境变量
-* [ENVIRONMENT](https://github.com/zalando/spilo/blob/master/ENVIRONMENT.rst)
+
+- [ENVIRONMENT](https://github.com/zalando/spilo/blob/master/ENVIRONMENT.rst)
 
 ## S3 相关环境变量
 
-* WAL_BUCKET_SCOPE_SUFFIX
-  * `/{uid}`
-* LOG_BUCKET_SCOPE_SUFFIX
-  * `/{uid}`
-* WAL_BUCKET_SCOPE_PREFIX
-* LOG_BUCKET_SCOPE_PREFIX
+- WAL_BUCKET_SCOPE_SUFFIX
+  - `/{uid}`
+- LOG_BUCKET_SCOPE_SUFFIX
+  - `/{uid}`
+- WAL_BUCKET_SCOPE_PREFIX
+- LOG_BUCKET_SCOPE_PREFIX
 
 ```yaml
 apiVersion: v1
@@ -452,20 +467,21 @@ metadata:
   name: pod-var-custom
 data:
   BACKUP_NUM_TO_RETAIN: '5'
-  BACKUP_SCHEDULE:      '00 01 * * *'
-  AWS_ACCESS_KEY_ID: "****"
-  AWS_SECRET_ACCESS_KEY: "****"
+  BACKUP_SCHEDULE: '00 01 * * *'
+  AWS_ACCESS_KEY_ID: '****'
+  AWS_SECRET_ACCESS_KEY: '****'
   # AWS_ENDPOINT: "s3.eu-west-1.amazonaws.com"
-  AWS_REGION: "eu-west-1"
-  WAL_S3_BUCKET: "somebucket"
+  AWS_REGION: 'eu-west-1'
+  WAL_S3_BUCKET: 'somebucket'
 
-  USE_WALG_BACKUP: "false"
-  USE_WALG_RESTORE: "false"
-  WALG_DOWNLOAD_CONCURRENCY: "1"
-  WALG_DISABLE_S3_SSE: "true"
+  USE_WALG_BACKUP: 'false'
+  USE_WALG_RESTORE: 'false'
+  WALG_DOWNLOAD_CONCURRENCY: '1'
+  WALG_DISABLE_S3_SSE: 'true'
 ```
 
-__$HOME/pgdata/pgroot/pg_log/postgres-?.log__
+**$HOME/pgdata/pgroot/pg_log/postgres-?.log**
+
 ```yaml
 archive_command:  `envdir "{WALE_ENV_DIR}" {WALE_BINARY} wal-push "%p"`
 restore_command:  `envdir "{{WALE_ENV_DIR}}" /scripts/restore_command.sh "%f" "%p"`
@@ -510,41 +526,45 @@ metadata:
   namespace: postgres-operator-system
 data:
   # 环境变量控制
-  USE_WALG_BACKUP: "true"
-  USE_WALG_RESTORE: "true"
-  CLONE_USE_WALG_RESTORE: "true"
+  USE_WALG_BACKUP: 'true'
+  USE_WALG_RESTORE: 'true'
+  CLONE_USE_WALG_RESTORE: 'true'
   # minio 需要
-  AWS_S3_FORCE_PATH_STYLE: "true"
+  AWS_S3_FORCE_PATH_STYLE: 'true'
 ```
 
 ## 逻辑备份注意事项
-* 不能从逻辑备份恢复 - 不能作为 point-in-time recovery
-* 只是当作数据快照
-* [镜像](https://github.com/zalando/postgres-operator/tree/master/docker/logical-backup/Dockerfile)内包含 pg_dumpall 工具 - dump 后压缩上传 s3
-* 依赖 cronjob - 不太稳定
-* __不会删除旧的备份__
-* 自定义镜像要处理好重启和并发请求 - [Handling Pod and container failures](https://kubernetes.io/docs/concepts/workloads/controllers/job/#handling-pod-and-container-failures)
-* RBAC 添加 batch 接口 cronjobs 资源
-  * [operator-service-account-rbac](https://github.com/zalando/postgres-operator/blob/master/manifests/operator-service-account-rbac.yaml)
+
+- 不能从逻辑备份恢复 - 不能作为 point-in-time recovery
+- 只是当作数据快照
+- [镜像](https://github.com/zalando/postgres-operator/tree/master/docker/logical-backup/Dockerfile)内包含 pg_dumpall 工具 - dump 后压缩上传 s3
+- 依赖 cronjob - 不太稳定
+- **不会删除旧的备份**
+- 自定义镜像要处理好重启和并发请求 - [Handling Pod and container failures](https://kubernetes.io/docs/concepts/workloads/controllers/job/#handling-pod-and-container-failures)
+- RBAC 添加 batch 接口 cronjobs 资源
+  - [operator-service-account-rbac](https://github.com/zalando/postgres-operator/blob/master/manifests/operator-service-account-rbac.yaml)
 
 ## The request signature we calculated does not match the signature you provided. Check your key and signing method.
+
 同步到 S3 异常。可能是 access_key 错误。
 
 ## Server side encryption specified but KMS is not configured
+
 同步到 S3 异常。取消参数 logical_backup_s3_sse
 
-* wal-e 默认开启 sse
-  * 无法关闭
-  * [wal-e/wal-e#404](https://github.com/wal-e/wal-e/issues/404)
-  * [wal-e/wal-e#410](https://github.com/wal-e/wal-e/pull/410)
+- wal-e 默认开启 sse
+  - 无法关闭
+  - [wal-e/wal-e#404](https://github.com/wal-e/wal-e/issues/404)
+  - [wal-e/wal-e#410](https://github.com/wal-e/wal-e/pull/410)
 
 ## cannot perform switch over before re-creating the pod: no replicas
+
 可能由于 secret 冲突或者不同步导致异常
 
-
 ## 清理已删除集群
-* operator 可能会删除 sts，可能有资源不会被删除。
-  * 取决于删除集群时的状态。
+
+- operator 可能会删除 sts，可能有资源不会被删除。
+  - 取决于删除集群时的状态。
 
 ```bash
 CLUSTER_NAME=acid-demo
@@ -557,10 +577,11 @@ kubectl delete pvc -l cluster-name=$CLUSTER_NAME
 ```
 
 ## operator-ui backup 错误
-* [ui/operator_ui/main.py#L73](https://github.com/zalando/postgres-operator/blob/master/ui/operator_ui/main.py#L73)
-  * 支持的配置参数
-* [#937](https://github.com/zalando/postgres-operator/issues/937)
-* operator ui helm 不支持自定义 env - 比较麻烦
+
+- [ui/operator_ui/main.py#L73](https://github.com/zalando/postgres-operator/blob/master/ui/operator_ui/main.py#L73)
+  - 支持的配置参数
+- [#937](https://github.com/zalando/postgres-operator/issues/937)
+- operator ui helm 不支持自定义 env - 比较麻烦
 
 ```yaml
 # Minio 环境变量配置
@@ -592,6 +613,7 @@ operator_ui.main ERROR    Exception on /stored_clusters [GET]
 ```
 
 ### OSError: [Errno 101] Network unreachable
+
 应该是 S3 地址配置错误。同时配置 AWS_ENDPOINT 和 WALE_S3_ENDPOINT
 
 注意 WALE_S3_ENDPOINT schema 是 https+path
@@ -601,20 +623,31 @@ WALE_S3_ENDPOINT=https+path://minio.example.com:443
 ```
 
 ### No snapshots found
-* 目前无解，需要修改源码
-* [#1365](https://github.com/zalando/postgres-operator/issues/1365)
+
+- 目前无解，需要修改源码
+- [#1365](https://github.com/zalando/postgres-operator/issues/1365)
+
+# 容器内容
+- /home/postgres/
+  - pgdata/
+    - pgroot/
+      - data/
+        - pg_hba.conf
+
+## pg_hba.conf rejects connection for host
 
 ## 其他问题
-* 异常 resync 重启
-  * 日志查看 resync 原因
-  * [#927](https://github.com/zalando/postgres-operator/issues/927)
-    * resync_period 间隔重启
-  * [#1397](https://github.com/zalando/postgres-operator/issues/1397)
-  * [#1377](https://github.com/zalando/postgres-operator/issues/1377) Rolling restart/update at every sync cycle since v1.6.1
-    * v1.6.1 有问题 - 已 fix [#1380](https://github.com/zalando/postgres-operator/pull/1380)
-    * 修复 `configKubernetes.additional_pod_capabilities=SYS_NICE`
-    * 空 capabilities 会添加 SYS_NICE，导致每次同步 security context 都不一致
-* pod_environment_secret 目前只挂载在了 operator 上
-  * 逻辑备份无法使用该配置 - cronjob, backup 镜像
-  * [#1348](https://github.com/zalando/postgres-operator/issues/1348)
-  * 在问题修复之前只能使用 pod_environment_configmap
+
+- 异常 resync 重启
+  - 日志查看 resync 原因
+  - [#927](https://github.com/zalando/postgres-operator/issues/927)
+    - resync_period 间隔重启
+  - [#1397](https://github.com/zalando/postgres-operator/issues/1397)
+  - [#1377](https://github.com/zalando/postgres-operator/issues/1377) Rolling restart/update at every sync cycle since v1.6.1
+    - v1.6.1 有问题 - 已 fix [#1380](https://github.com/zalando/postgres-operator/pull/1380)
+    - 修复 `configKubernetes.additional_pod_capabilities=SYS_NICE`
+    - 空 capabilities 会添加 SYS_NICE，导致每次同步 security context 都不一致
+- pod_environment_secret 目前只挂载在了 operator 上
+  - 逻辑备份无法使用该配置 - cronjob, backup 镜像
+  - [#1348](https://github.com/zalando/postgres-operator/issues/1348)
+  - 在问题修复之前只能使用 pod_environment_configmap

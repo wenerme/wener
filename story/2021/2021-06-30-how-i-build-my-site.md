@@ -9,7 +9,7 @@ slug: how-i-build-my-site
 
 <!-- more -->
 
-## docusaurus
+## Docusaurus
 
 站点基于 [docusaurus](https://docusaurus.io/) 2.0-alpha 构建，docusaurus 处于 2.0-alpha 已经很长一段时间了，最近进入了 beta 阶段。早期对中文支持有缺陷，提交几个修复后都能正常使用了。
 

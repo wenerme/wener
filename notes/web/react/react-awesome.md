@@ -217,10 +217,23 @@ title: React Awesome
 
 ## 样式
 
-- styled-components
+- [styled-components](https://github.com/styled-components/styled-components)
   - 包装现有组件，添加 className
-- emotion
+- [emotion-js/emotion](https://github.com/emotion-js/emotion)
   - 生成 className
+- [jsjoeio/styled-components-vs-emotion](https://github.com/jsjoeio/styled-components-vs-emotion)
+- [callstack/linaria](https://github.com/callstack/linaria)
+  - 基于 babel 插件
+- [css-modules/css-modules](https://github.com/css-modules/css-modules)
+- [vercel/styled-jsx](https://github.com/vercel/styled-jsx)
+- [modulz/stitches](https://github.com/modulz/stitches)
+  - 支持 variant - 不只是单纯央视
+- [styletron/styletron](https://github.com/styletron/styletron)
+- [robinweser/fela](https://github.com/robinweser/fela)
+  State-Driven Styling
+- [cristianbote/goober](https://github.com/cristianbote/goober)
+- [linkedin/css-blocks](https://github.com/linkedin/css-blocks)
+  - 没有维护了
 
 ## 状态管理
 

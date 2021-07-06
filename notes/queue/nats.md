@@ -5,7 +5,7 @@ title: NATS
 # NATS
 
 - [nats-io/nats-server](https://github.com/nats-io/nats-server) 是什么？
-  - 偏向通讯协议，用作 消息队列
+  -  偏向通讯协议，用作 消息队列
   - 默认没有持久化
   - 协议支持 MQTT, NATS, WebSocket
 - 端口
@@ -94,6 +94,94 @@ cluster {
 - Sequence Numbers
 - Leaf Nodes
   - 路由消息到其他集群
+
+## auth
+
+- nats 通过 account 实现租户隔离
+- 使用 account 需要设置 auth
+- 认证方式
+  - token - 可以配置明文或 bcrypt 加密的 token
+  - user+password - 密码支持 bcrypt 加密
+  - tls
+  - nkey
+- 授权
+  - publish
+  - subscribe
+  - allow_responses - max,expires
+
+```
+authorization {
+  default_permissions = {
+    publish = "SANDBOX.*"
+    subscribe = ["PUBLIC.>", "_INBOX.>"]
+  }
+  ADMIN = {
+    publish = ">"
+    subscribe = ">"
+  }
+  REQUESTOR = {
+    publish = ["req.a", "req.b"]
+    subscribe = "_INBOX.>"
+  }
+  RESPONDER = {
+    subscribe = ["req.a", "req.b"]
+    publish = "_INBOX.>"
+  }
+  users = [
+    {user: admin,   password: $ADMIN_PASS, permissions: $ADMIN}
+    {user: client,  password: $CLIENT_PASS, permissions: $REQUESTOR}
+    {user: service,  password: $SERVICE_PASS, permissions: $RESPONDER}
+    {user: other, password: $OTHER_PASS}
+    {
+      user: test
+      password: test
+      permissions: {
+          publish: {
+              deny: ">"
+          },
+          subscribe: {
+              allow: "client.>"
+          }
+      }
+    }
+    { user: b, password: b, permissions: {subscribe: "q", allow_responses: true } },
+    { user: c, password: c, permissions: {subscribe: "q", allow_responses: { max: 5, expires: "1m" } } }
+  ]
+}
+
+accounts: {
+  A: {
+    users: [
+      {user: a, password: a}
+    ]
+    exports: [
+      {stream: puba.>}
+      {service: pubq.>}
+      {stream: b.>, accounts: [B]}
+      {service: q.b, accounts: [B]}
+    ]
+  },
+  B: {
+    users: [
+      {user: b, password: b}
+    ]
+    imports: [
+      {stream: {account: A, subject: b.>}}
+      {service: {account: A, subject: q.b}}
+    ]
+  },
+  C: {
+    users: [
+      {user: c, password: c}
+    ]
+    imports: [
+      {stream: {account: A, subject: puba.>}, prefix: from_a}
+      {service: {account: A, subject: pubq.C}, to: Q}
+    ]
+  }
+}
+no_auth_user: a
+```
 
 ## nsc
 

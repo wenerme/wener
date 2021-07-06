@@ -21,11 +21,17 @@ title: K8S Awesome
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
 
+## Secret & ConfigMap
+- kubed
+- sealed-secret
+
 ## 应用
 
 - [oam-dev/spec](https://github.com/oam-dev/spec)
-  - Open Application Model
+  Open Application Model
 - [oam-dev/kubevela](https://github.com/oam-dev/kubevela)
+- [openkruise/kruise](https://github.com/openkruise/kruise)
+  Automate application management
 
 ## Notify
 

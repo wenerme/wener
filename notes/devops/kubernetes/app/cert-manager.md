@@ -5,13 +5,10 @@ title: Cert Manager
 
 # cert-manager
 
-## Tips
-
-- 是什么？
+- [jetstack/cert-manager](https://github.com/jetstack/cert-manager) 是什么？
   - 自颁发 CA 证书管理
   - ACME 自动证书申请
   - 外部证书管理集成
-- [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
 - crds - 自定义资源
   - issuers.cert-manager.io
   - orders.acme.cert-manager.io
@@ -78,6 +75,67 @@ spec:
             backend:
               serviceName: kuard
               servicePort: 80
+```
+
+## Certificate
+
+```yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-com
+  namespace: sandbox
+spec:
+  # Secret names are always required.
+  secretName: example-com-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  subject:
+    organizations:
+    - jetstack
+  # The use of the common name field has been deprecated since 2000 and is
+  # discouraged from being used.
+  commonName: example.com
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  # At least one of a DNS Name, URI, or IP address is required.
+  dnsNames:
+  - example.com
+  - www.example.com
+  uris:
+  - spiffe://cluster.local/ns/sandbox/sa/example
+  ipAddresses:
+  - 192.168.0.5
+  # Issuer references are always required.
+  issuerRef:
+    name: ca-issuer
+    # We can reference ClusterIssuers by changing the kind here.
+    # The default value is Issuer (i.e. a locally namespaced Issuer)
+    kind: Issuer
+    # This is optional since cert-manager will default to this value however
+    # if you are using an external issuer, change this to that issuer group.
+    group: cert-manager.io
+```
+
+```yaml
+# ingress 生成的 certificate
+spec:
+  dnsNames:
+    - web.example.com
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt
+  secretName: web-cert
+  usages:
+    - digital signature
+    - key encipherment
 ```
 
 ## 安装

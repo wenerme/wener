@@ -3,25 +3,41 @@ id: nftables-rule
 title: nftables 规则
 ---
 
-## 表达式
-- 地址类型
-  - ip - IPv4 - 默认
-  - ip6 - IPv6
-  - inet - IPv4/IPv6
-  - arp - IPv4 ARP
-  - bridge - 经过桥接设备的包
-  - netdev - 入口设备
-- hook
-  - ip,ip6,inet,bridge - prerouting,input,forward,output,postrouting
-  - arp - input,output
-  - netdav - ingress
+# 表达式
+
 - accept、drop、queue、continue、return、jump chain、goto chain
 - masquerade - 源地址自动设置为出口地址
 - type
   - filter、route、nat
 
+| family | -                |
+| ------ | ---------------- |
+| ip     | IPv4 - 默认      |
+| ip6    | IPv6             |
+| inet   | IPv4/IPv6        |
+| arp    | IPv4 ARP         |
+| bridge | 经过桥接设备的包 |
+| netdev | 入口设备         |
 
-### 优先级
+[地址类型]
+
+| hook        | desc                                                       |
+| ----------- | ---------------------------------------------------------- |
+| prerouting  | 所有进入系统的包，在路由之前处理，可用于过滤和修改属性     |
+| input       | 进入 本地 系统的包                                         |
+| forward     | 转发到其他 host 的包                                       |
+| output      | 本地 发出的包                                              |
+| postrouting | 所有离开系统的包                                           |
+| ingress     | 所有进入系统的包， L3 之前，早于 prerouting，只能用于 inet |
+
+[Hook 类型]
+
+- 地址 支持的 hook
+  - ip,ip6,inet,bridge - prerouting,input,forward,output,postrouting
+  - arp - input,output
+  - netdav - ingress
+
+## 优先级
 
 | PRI  | name     | def                        | desc                                                                              |
 | ---- | -------- | -------------------------- | --------------------------------------------------------------------------------- |
@@ -37,7 +53,16 @@ title: nftables 规则
 | 225  |          | NF_IP_PRI_SELINUX_LAST     | SELinux at packet exit                                                            |
 | 300  |          | NF_IP_PRI_CONNTRACK_HELPER | connection tracking at exit                                                       |
 
-### 匹配
+**bridge 优先级**
+
+| Name   | Value ｜ Hooks |
+| ------ | -------------- | ----------- |
+| dstnat | -300           | prerouting  |
+| filter | -200           | all         |
+| out    | 100            | output      |
+| srcnat | 300            | postrouting |
+
+## 匹配
 
 - meta （元属性，如接口）
   - oif、iif、oifname、iifname
@@ -68,6 +93,116 @@ title: nftables 规则
 # 查看端口
 nft describe tcp dport
 ```
+
+## nft
+
+- `\` 续行
+- `#` 注释
+- 标识符 `^[a-zA-Z][a-zA-Z0-9/\_.]*`
+  - 可使用双引号避免冲突
+- [nft.8](https://man.archlinux.org/man/nft.8)
+
+```nft
+# 引入文件
+# -I/--includepath
+# 忽略 . 开头文件
+include filename
+
+# 定义变量
+define variable = expr
+# 使用变量
+$variable
+```
+
+## nft cli
+
+```bash
+# 描述信息
+nft describe tcp flags
+nft describe ct_state
+nft describe icmp type
+```
+
+**主要操作对象**
+
+- rulset - 所有的 table 和 chain
+  - `{list | flush} ruleset [family]`
+- table
+  - chain 容器
+  - 通过 地址类型和名字标识
+
+```
+{add | create} table [family] table [{ flags flags ; }]
+{delete | list | flush} table [family] table
+list tables [family]
+delete table [family] handle handle
+```
+
+- chain
+  - rule 容器
+  - 区分 base chian 和 regular chain
+  - base - entry point for packets from the networking stack
+    - 支持 policy - 默认 accept
+  - regular - may be used as jump target and is used for better rule organization
+  - chain type
+
+| type   | families      | hooks                                  |
+| ------ | ------------- | -------------------------------------- |
+| filter | all           | all                                    |
+| nat    | ip, ip6, inet | prerouting, input, output, postrouting |
+| route  | ip, ip6       | output                                 |
+
+- nat 通过做 NAT 处理，只处理第一个包 - 用于 created conntrack entry
+
+```
+{add | create} chain [family] table chain [{ type type hook hook [device device] priority priority ; [policy policy ;] }]
+{delete | list | flush} chain [family] table chain
+list chains [family]
+delete chain [family] table handle handle
+rename chain [family] table chain newname
+```
+
+- rule
+  - 实际操作规则
+
+```
+{add | insert} rule [family] table chain [handle handle | index index] statement ... [comment comment]
+replace rule [family] table chain handle handle statement ... [comment comment]
+delete rule [family] table chain handle handle
+```
+
+- set - `{80,443}`
+  - 区分匿名集合和有名字的集合
+  - 用于辅助定义
+  - 用过 `@set_name` 引用
+
+```
+add set [family] table set { type type | typeof expression ; [flags flags ;] [timeout timeout ;] [gc-interval gc-interval ;] [elements = { element[, ...] } ;] [size size ;] [policy policy ;] [auto-merge ;] }
+{delete | list | flush} set [family] table set
+list sets [family]
+delete set [family] table handle handle
+{add | delete} element [family] table set { element[, ...] }
+```
+
+- map
+- element
+- flowtable
+  - accelerate packet forwarding in software
+  - layer 3/4
+- 状态对象
+  - counter
+  - quota
+- ct helper
+  - 定义 connection tracking helper
+  - 用于 ct helper set
+- ct timeout
+  - update connection tracking timeout
+- ct expectation
+  - create connection expectations
+  - 用于 ct expectation set
+- counter
+- quota
+
 
 ## 默认规则
 

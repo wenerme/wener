@@ -57,8 +57,15 @@ ls /usr/lib/asterisk/modules | grep pj | sort
   - 例如 销售组一个订阅、服务组一个订阅
 
 ## pjsip_wizard.conf
-
+- res_pjsip_config_wizard
 - 聚合配置 endpoint, aor, auth, identify, registration, phoneprov
+
+
+:::caution
+
+- 不支持 reload
+
+:::
 
 ```ini
 [user](!)
@@ -295,6 +302,7 @@ type=acl
 ```
 
 ### transport
+
 - res_pjsip_transport_websocket
 
 ```conf
@@ -560,11 +568,6 @@ allow_transfer=yes
 ; String used for the SDP session s line
 ;sdp_session=Asterisk
 
-;tos_audio=0    ; DSCP TOS bits for audio streams (default: "0")
-;tos_video=0    ; DSCP TOS bits for video streams (default: "0")
-;cos_audio=0    ; Priority for audio streams (default: "0")
-;cos_video=0    ; Priority for video streams (default: "0")
-
 ; endpoint is allowed to initiate subscriptions
 allow_subscribe=yes
 ; The minimum allowed expiry time for subscriptions initiated by the endpoint
@@ -655,6 +658,35 @@ allow_subscribe=yes
                            ; NOTE: This option is deprecated in favor
                            ; of incoming_call_offer_pref.  Setting both
                            ; options is unsupported.
+
+
+; 媒体配置
+; ====================
+; yes => rtcp_mux, use_avpf, ice_support, use_received_transport
+; 默认
+;   media_encryption=dtls
+;   dtls_verify=fingerprint
+;   dtls_setup=actpass
+; dtls_cert_file, dtls_ca_file
+webrtc=no
+max_audio_streams=1 ; The maximum number of allowed negotiated audio streams
+                    ; (default: 1)
+;
+max_video_streams=1 ; The maximum number of allowed negotiated video streams
+                    ; (default: 1)
+
+;tos_audio=0    ; DSCP TOS bits for audio streams (default: "0")
+;tos_video=0    ; DSCP TOS bits for video streams (default: "0")
+;cos_audio=0    ; Priority for audio streams (default: "0")
+;cos_video=0    ; Priority for video streams (default: "0")
+
+; RTP 配置
+; ====================
+; SDP answer to use the media transport as received in the SDP offer
+media_use_received_transport=yes
+; force the usage of 'RTP/AVP', 'RTP/AVPF', 'RTP/SAVP', or 'RTP/SAVPF' as the media transport type in SDP offers depending on settings, even when DTLS is used for media encryption.
+force_avp=no
+use_avpf=no
 ; 允许发送接收不同编码 - 不自动匹配
 asymmetric_rtp_codec=no
 refer_blind_progress=yes ; Whether to notifies all the progress details on blind
@@ -666,19 +698,8 @@ refer_blind_progress=yes ; Whether to notifies all the progress details on blind
                               ; The value "yes" is useful for some SIP phones
                               ; (Cisco SPA) to be able to indicate and pick up
                               ; ringing devices.
-max_audio_streams=1 ; The maximum number of allowed negotiated audio streams
-                    ; (default: 1)
-;
-max_video_streams=1 ; The maximum number of allowed negotiated video streams
-                    ; (default: 1)
+rtcp_mux=no
 
-; yes => rtcp_mux, use_avpf, ice_support, use_received_transport
-; 默认
-;   media_encryption=dtls
-;   dtls_verify=fingerprint
-;   dtls_setup=actpass
-; dtls_cert_file, dtls_ca_file
-webrtc=no
 ;incoming_mwi_mailbox = ; Mailbox name to use when incoming MWI NOTIFYs are
                         ; received.
                         ; If an MWI NOTIFY is received FROM this endpoint,
@@ -824,3 +845,9 @@ max_retries = 120
 ```
 
 - [pjsip.conf#fatal_retry_interval](https://github.com/asterisk/asterisk/blob/35437879e55b67d46cb9d0e558edef1e1609a28d/configs/samples/pjsip.conf.sample#L1335)
+
+## pjproject: .Error sending STUN request: Network is unreachable
+
+- 参考
+  - https://community.asterisk.org/t/83908/2
+    - Occurs due to usage of IPv6 link local addresses as ICE candidates. If media is flowing, there’s nothing to do there. You can ignore them.

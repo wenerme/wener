@@ -4,10 +4,9 @@ title: IPTables Cookbook
 
 # IPTables Cookbook
 
-
 ## 允许一个网卡路由转发到另外一个网卡
 
-* 允许 wlan1 -> wlan0
+- 允许 wlan1 -> wlan0
 
 ```bash
 iptables -A FORWARD -i wlan1 -o wlan0 -j ACCEPT
@@ -46,14 +45,15 @@ ip ro add $RIP dev eth0 src 192.168.1.2 via 192.168.1.1
 ip ro add default dev ipsec0 src $VIP
 ```
 
-* [IPsec masquerade technical notes and special security considerations](https://tldp.org/HOWTO/VPN-Masquerade-HOWTO-6.html)
-  * AH protocol cannot be masqueraded
-  * transport-mode ESP also cannot be reliably masqueraded
-* [NAT#IPsec](https://en.wikipedia.org/wiki/NAT_traversal#IPsec)
-
+- [IPsec masquerade technical notes and special security considerations](https://tldp.org/HOWTO/VPN-Masquerade-HOWTO-6.html)
+  - AH protocol cannot be masqueraded
+  - transport-mode ESP also cannot be reliably masqueraded
+- [NAT#IPsec](https://en.wikipedia.org/wiki/NAT_traversal#IPsec)
 
 ## stun/turn
-* https://askubuntu.com/a/1044171/267103
+
+- https://askubuntu.com/a/1044171/267103
 
 ```bash
+
 ```

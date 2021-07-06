@@ -4,21 +4,21 @@ title: NFTables
 
 # NFTables
 
-* 是什么？
-  * iptables 后继
-* [nft.8](https://jlk.fjfi.cvut.cz/arch/manpages/man/nft.8)
-* 注意
-  * 默认规则会包含目录内配置 - `include "/etc/nftables.d/*.nft"`
-    * save 后不会有该 include 语句 - 不要 save
-    * 尽量使用 reload
-  * inet 只能用于 filter 不能用于 nat
-* 参考
-  * [Quick reference-nftables in 10 minutes](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes)
-  * [Migrating my iptables setup to nftables](https://developers.redhat.com/blog/2017/01/10/migrating-my-iptables-setup-to-nftables/)
-  * [What comes after 'iptables'? Its successor, of course: `nftables`](https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables/)
-  * [Benchmarking nftables](https://developers.redhat.com/blog/2017/04/11/benchmarking-nftables/)
-* 开发
-  * [google/nftables](https://github.com/google/nftables) - Golang
+- 是什么？
+  - iptables 后继
+- [nft.8](https://jlk.fjfi.cvut.cz/arch/manpages/man/nft.8)
+- 注意
+  - 默认规则会包含目录内配置 - `include "/etc/nftables.d/*.nft"`
+    - save 后不会有该 include 语句 - 不要 save
+    - 尽量使用 reload
+  - inet 只能用于 filter 不能用于 nat
+- 参考
+  - [Quick reference-nftables in 10 minutes](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes)
+  - [Migrating my iptables setup to nftables](https://developers.redhat.com/blog/2017/01/10/migrating-my-iptables-setup-to-nftables/)
+  - [What comes after 'iptables'? Its successor, of course: `nftables`](https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables/)
+  - [Benchmarking nftables](https://developers.redhat.com/blog/2017/04/11/benchmarking-nftables/)
+- 开发
+  - [google/nftables](https://github.com/google/nftables) - Golang
 
 ```bash
 # 所有规则
@@ -59,3 +59,7 @@ nft describe tcp flags
 nft describe ct_state
 nft describe icmp_type
 ```
+
+# FAQ
+
+## Error: Could not process rule: File exists

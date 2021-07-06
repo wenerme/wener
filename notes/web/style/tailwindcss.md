@@ -16,6 +16,7 @@ title: Tailwind CSS
     Tailwind Components
   - [windicss/windicss](https://github.com/windicss/windicss)
     - 类似 Tailwind+JIT
+  - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
 
 ```bash
 # 基础依赖
@@ -51,10 +52,11 @@ import 'tailwindcss/tailwind.css';
 ```
 
 ## tailwind.config.js
-* [配置](https://tailwindcss.com/docs/configuration)
-* 默认配置 [stubs/defaultConfig.stub.js](https://unpkg.com/browse/tailwindcss/stubs/defaultConfig.stub.js)
-  * 84 颜色
-  * 5 breakpoint
+
+- [配置](https://tailwindcss.com/docs/configuration)
+- 默认配置 [stubs/defaultConfig.stub.js](https://unpkg.com/browse/tailwindcss/stubs/defaultConfig.stub.js)
+  - 84 颜色
+  - 5 breakpoint
 
 ```js
 module.exports = {

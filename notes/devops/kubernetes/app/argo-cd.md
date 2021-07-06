@@ -404,6 +404,81 @@ bases:
 - KUBE_VERSION
 - KUBE_API_VERSIONS
 
+## Application spec
+
+```yaml
+spec:
+  destination:
+    # name: 集群名字
+    namespace: demo-system
+    server: 'https://kubernetes.default.svc'
+  project: default
+  revisionHistoryLimit: 10
+  ignoreDifferences:
+    - group:
+      kind:
+      name:
+      namespace:
+      jqPathExpressions: []
+      jsonPointers: []
+  info:
+    - name:
+      value:
+  source:
+    # Git 或 Helm repo
+    repoURL: 'https://github.com/wenerme/kube-stub-cluster.git'
+    # Git 目录
+    path: postgres-operator-ui
+    # Helm repo 的 chart 名
+    # chart: chart-name
+    # Git 或 Helm repo 版本
+    targetRevision: HEAD
+    helm:
+      releaseName: postgres-operator-ui
+      # version: 3
+      fileParameters:
+        - name: name
+          path: file/path.txt
+      parameters:
+        - name: name
+          value: value
+          # 是否检测 value 类型为 number 或 boolean
+          forceString: false
+      valueFiles:
+        # 相对路径
+        - values.yaml
+        # 多个 values 文件
+        - ../same/repo/postgres-operator-ui-values.yaml
+      values: |
+        # values
+    kustomize:
+      commonAnnotations:
+      commonLabels:
+      forceCommonAnnotations: false
+      forceCommonLabels: false
+      # 覆盖 image
+      images: []
+      namePrefix:
+      nameSuffix:
+      version:
+    ksonnet:
+      environment: ''
+      parameters:
+        - name:
+          value:
+          component:
+    jsonnet:
+      extVars:
+        - name:
+          value:
+          code: false
+      libs: []
+      tlas: # Top-level Arguments
+        - name:
+          value:
+          code: false
+```
+
 # FAQ
 
 ## the server could not find the requested resource
@@ -418,6 +493,20 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 ```
+
+## the server has asked for the client to provide credentials
+
+有可能是 k8s 集群发生了 cert 轮换
+
+- 在 argocd 空间找到对应集群 secret，secret 有标签 `argocd.argoproj.io/secret-type=cluster`
+- 修改 secret 里的 config 字段
+  - 修改 certData
+  - 修改 keyData
+  - 保存即可
+
+---
+
+- [argoproj/argo-cd#3941](https://github.com/argoproj/argo-cd/issues/3941)
 
 ## 升级应用时可能 CRD 有变化导致校验不通过
 

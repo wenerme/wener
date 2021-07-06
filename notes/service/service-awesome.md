@@ -17,6 +17,9 @@ title: Service Awesome
   - LGPLv3, JS,Java
 - [osnvr/os-nvr](https://gitlab.com/osnvr/os-nvr)
   lightweight extensible CCTV system
+- [CachetHQ/Cachet](https://github.com/CachetHQ/Cachet)
+  status page
+  - BSD-3, PHP
 
 ## Avatar
 

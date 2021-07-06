@@ -5,12 +5,44 @@ title: 常见问题
 
 # PostgreSQL FAQ
 
+## 限制
+
+- db 名字
+  - 最长 63 byte
+
+## 服务重载
+
+1. pg_ctl
+
+```bash
+su postgres
+pg_ctl reload
+```
+
+2. sql
+
+```bash
+psql -U postgres
+```
+
+```sql
+SELECT pg_reload_conf();
+```
+
+3. service
+
+```bash
+service postgresql restart
+```
+
 ## 维护
-* [postgres_queries_and_commands.sql](https://gist.github.com/rgreenjr/3637525) - Useful PostgreSQL Queries and Commands
+
+- [postgres_queries_and_commands.sql](https://gist.github.com/rgreenjr/3637525) - Useful PostgreSQL Queries and Commands
 
 ## 升级
-* https://www.xf.is/2019/02/26/convert-postgresql-cluster-to-use-page-checksums/
-  * `show data_checksums`
+
+- https://www.xf.is/2019/02/26/convert-postgresql-cluster-to-use-page-checksums/
+  - `show data_checksums`
 
 可以构造一个包含所有版本的镜像，然后进行升级 - [Dockerfile](https://github.com/postgres/pgadmin4/blob/master/Dockerfile)
 
@@ -28,11 +60,11 @@ pg_upgrade --old-datadir /var/lib/pgsql/data/ --new-datadir /var/lib/pgsql/10/da
 ```
 
 ## Dump
-* [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html)
-* https://www.postgresql.org/docs/current/app-pgdump.html
-* https://www.postgresql.org/docs/current/app-pgrestore.html
-* https://www.percona.com/blog/2019/03/27/postgresql-upgrade-using-pg_dump-pg_restore/
 
+- [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html)
+- https://www.postgresql.org/docs/current/app-pgdump.html
+- https://www.postgresql.org/docs/current/app-pgrestore.html
+- https://www.percona.com/blog/2019/03/27/postgresql-upgrade-using-pg_dump-pg_restore/
 
 ```bash
 # -Z compress
@@ -47,8 +79,9 @@ https://dba.stackexchange.com/questions/203989/what-is-the-data-type-of-the-ctid
 https://postgresql.verite.pro/blog/2019/04/24/oid-column.html
 
 ## 时区问题
-* PG 实际存储的是 UTC 不会存储时区
-* 时区信息会用于转换
+
+- PG 实际存储的是 UTC 不会存储时区
+- 时区信息会用于转换
 
 ```sql
 -- 当前时区
@@ -87,9 +120,10 @@ ALTER ROLE my_role SET TIMEZONE = '+1';
 ```
 
 ## NULL 字符 / `\0` 字符
-* PG 不允许字符串包含 `\0`
-* 传入之前替换或用 bytea 存储
-* JSON 也不允许包含空字符
+
+- PG 不允许字符串包含 `\0`
+- 传入之前替换或用 bytea 存储
+- JSON 也不允许包含空字符
 
 ## 切换用户
 
@@ -98,12 +132,14 @@ set role user;
 ```
 
 ## 切换数据库
-* 只能重新链接
+
+- 只能重新链接
 
 ## 密码存储
-* [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html)
-* [Hashed Passwords with PostgreSQL's pgcrypto](https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html)
-* https://stackoverflow.com/questions/15733196/where-2x-prefix-are-used-in-bcrypt
+
+- [pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html)
+- [Hashed Passwords with PostgreSQL's pgcrypto](https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html)
+- https://stackoverflow.com/questions/15733196/where-2x-prefix-are-used-in-bcrypt
 
 ```sql
 -- 生成 Hash
@@ -119,13 +155,14 @@ where username = 'admin'
 ```
 
 ## Calculating and Saving Space in PostgreSQL
-* [Column Tetris](https://stackoverflow.com/a/7431468/1870054)
-* [HN](https://news.ycombinator.com/item?id=16471242)
-* 每种数据类型都有特定的对齐要求 - [pg-type](https://www.postgresql.org/docs/current/static/catalog-pg-type.html)
-* [pg_controldata](https://www.postgresql.org/docs/current/static/app-pgcontroldata.html)
-  * 可以获取数据的族群信息
-  * Maximum data alignment 显示数据的对齐要求
-* [Database Object Size Functions](https://www.postgresql.org/docs/current/static/functions-admin.html#FUNCTIONS-ADMIN-DBSIZE)
+
+- [Column Tetris](https://stackoverflow.com/a/7431468/1870054)
+- [HN](https://news.ycombinator.com/item?id=16471242)
+- 每种数据类型都有特定的对齐要求 - [pg-type](https://www.postgresql.org/docs/current/static/catalog-pg-type.html)
+- [pg_controldata](https://www.postgresql.org/docs/current/static/app-pgcontroldata.html)
+  - 可以获取数据的族群信息
+  - Maximum data alignment 显示数据的对齐要求
+- [Database Object Size Functions](https://www.postgresql.org/docs/current/static/functions-admin.html#FUNCTIONS-ADMIN-DBSIZE)
 
 ```bash
 pg_controldata data/
@@ -190,13 +227,13 @@ Data page checksum version:           1
 Mock authentication nonce:            32f8310a0cf344f7c1432dd733d3cf6065b748697485724af31fbaf7605f50bc
 ```
 
-
 ## unsupported Unicode escape sequence
 
 一般是因为 `\u0000`, 替换掉即可, pg 的字符串不支持 `\u0000`
 
 ## psql 开启时间记录
-* `\timing`
+
+- `\timing`
 
 ```bash
 # 直接命令行使用
@@ -204,23 +241,27 @@ psql -c '\timing' -c 'select 1'
 ```
 
 ## 数组索引
+
 GIN 索引是反向索引(inverted indexes), 适用于包含多个值的情况.
 
-* 支持的操作符
-  * `<@`
-  * `@>`
-  * `=`
-  * `&&`
+- 支持的操作符
+  - `<@`
+  - `@>`
+  - `=`
+  - `&&`
 
 ## 数组外键
-* 不支持
 
-## ERROR:  cannot alter type of a column used by a view or rule
+- 不支持
+
+## ERROR: cannot alter type of a column used by a view or rule
+
 必须要先 drop view 再操作, 目前没有比较好的操作方式, 但操作都可以在一个事务中完成
 
 有些修改可以通过直接修改 pg_attribute 来达到目的, 但是非常不建议.
 
 ## 时间戳上的毫秒处理
+
 目前没有比较好的处理方式
 
 ```sql
@@ -230,22 +271,24 @@ ALTER TABLE  my_info
 ```
 
 ## 查询语句的最大大小
-* 目前为 1G
-* [Is there a maximum length constraint for a postgres query?](https://dba.stackexchange.com/q/131399)
-* [src/common/psprintf.c#L28](https://github.com/postgres/postgres/blob/REL_10_1/src/common/psprintf.c#L28)
+
+- 目前为 1G
+- [Is there a maximum length constraint for a postgres query?](https://dba.stackexchange.com/q/131399)
+- [src/common/psprintf.c#L28](https://github.com/postgres/postgres/blob/REL_10_1/src/common/psprintf.c#L28)
 
 ```c
 #define MaxAllocSize   ((Size) 0x3fffffff) /* 1 gigabyte - 1 */
 ```
 
 ## IN vs any
-* https://stackoverflow.com/a/28995514/1870054
-* IN
-  * Bitmap 扫描
-  * 数据量大时, 执行时间更慢计划时间更久
-* ANY
-  * 会使用临时表做 JOIN
-  * 数据量大时, 执行时间更久计划时间更快
+
+- https://stackoverflow.com/a/28995514/1870054
+- IN
+  - Bitmap 扫描
+  - 数据量大时, 执行时间更慢计划时间更久
+- ANY
+  - 会使用临时表做 JOIN
+  - 数据量大时, 执行时间更久计划时间更快
 
 ```sql
 CREATE TABLE test (
@@ -345,4 +388,13 @@ CREATE SCHEMA public;
 -- 9.3+ 可能需要
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO public;
+```
+
+## psql 使用连接字符串
+
+```bash
+psql -Atx "host=localhost port=5432 dbname=taop user=taop" -c 'select current_date'
+
+# -d database
+psql -d "host=localhost port=5432 dbname=taop user=taop"
 ```
