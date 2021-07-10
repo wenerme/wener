@@ -25,6 +25,8 @@ title: Build Asterisk
   - debian 的 opus 基于 [traud/asterisk-opus](https://github.com/traud/asterisk-opus)
   - 主要包含 codec_opus 和 format_ogg_opus
   - debian 源码 [pkg-voip-team/asterisk-opus](https://salsa.debian.org/pkg-voip-team/asterisk-opus)
+  - [Opus for Asterisk](https://web.archive.org/web/20161003135358/http://blogs.digium.com/2016/09/30/opus-in-asterisk/)
+    - 官方的说法是因为法律关系所以不开放源码
 
 :::
 

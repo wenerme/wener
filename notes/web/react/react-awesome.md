@@ -164,6 +164,18 @@ title: React Awesome
   - react-draggable+[bokuweb/re-resizable](https://github.com/bokuweb/re-resizable)
 - [react-grid-layout/react-draggable](https://github.com/react-grid-layout/react-draggable)
   - 非常简单的拖动组件
+  - 传递 style, className, onMouseDown, onMouseUp, onTouchStart, onTouchEnd 给 child 实现功能
+    - style: transform: translate(538.5px, 22px);
+    - className: react-draggable react-draggable-dragging react-draggable-dragged
+  - child 需要能 ref
+  - 组件
+    - Draggable - 包含基础状态，可受控的拖拽组件
+    - DraggableCore - 无状态功能组件
+- [react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
+  - 简单的 resize 组件
+  - 组件
+    - ResizableBox - 维护 div 状态实现简单 resize - `<div {...props} />`
+    - Resizable - 无状态基础功能组件
 - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
   - 动态网格布局组件
   - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)

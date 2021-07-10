@@ -1,5 +1,4 @@
 ---
-id: ansible-faq
 titleL: Ansible FAQ
 ---
 
@@ -27,6 +26,7 @@ pip3 install openshift
 ```
 
 ## The `lxml` module is not importable. Check the requirements.
+
 ```bash
 apk add py3-lxml
 ```
@@ -44,11 +44,9 @@ apk add py3-lxml
   - 可以导入 playbook
   - 使用 `when` 条件会被应用到所有导入的 `tasks`，大多数时候都是不期望的，使用 `include`
 - include
-
   - 在执行时处理 - 动态
   - 用于带条件的情况
   - 只有 include 才可以 `include_tasks: prerequisites_{{ ansible_os_family | lower }}.yml`
-
 - 参考
   - [Reuse includes](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_includes.html)
   - [dynamic vs. static](https://docs.ansible.com/ansible/devel/user_guide/playbooks_reuse.html#dynamic-vs-static)

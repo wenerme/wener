@@ -1,3 +1,7 @@
-# 软件仓库
+---
+id: repository
+---
 
-* wikipedia [Software repository](https://en.wikipedia.org/wiki/Software_repository)
+# 仓库
+
+- wikipedia [Software repository](https://en.wikipedia.org/wiki/Software_repository)

@@ -25,6 +25,7 @@ title: SIP Awesome
 | rfc3262 | Reliability of Provisional Responses              |
 | rfc3265 | Event Notification                                | rfc6665      |
 | rfc3581 | Symmetric Response Routing                        |
+| rfc3666 | PSTN Call Flows                                   |
 | rfc3959 | The Early Session Disposition Type                |
 | rfc5373 | Requesting Answering Modes                        |
 | rfc5839 | Events for Conditional Event Notification         |

@@ -5,12 +5,23 @@ title: Go Build
 # Go Build
 
 - [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
+- [Go package guidelines](https://wiki.archlinux.org/title/Go_package_guidelines)
+
+:::caution
+
+- [golang/go#13492](https://github.com/golang/go/issues/13492)
+  runtime: c-shared builds fail with musllibc
+
+:::
 
 ```bash
 # 所有交叉编译列表
 go tool dist list
 # 包含 cgo 支持情况
 go tool dist list -json
+
+# 移除 mod 缓存
+go clean -modcache
 ```
 
 | buildmode | desc                                 |
@@ -29,11 +40,23 @@ go tool dist list -json
 | -w                                  | disable DWARF generation |
 | -s                                  | disable symbol table     |
 | -X 'wener.me/gou/build.Version=123' | add definition           |
+| -linkmode=external                  |
+| -extldflags "$LDFLAGS"              |
+
+| flags                 | desc                             |
+| --------------------- | -------------------------------- |
+| -modcacherw           | 新的 mod 缓存 rw - 可以 `rm -rf` |
+| -trimpath             | 移除环境相关路径，reproduceable  |
+| -ldflags "$GOLDFLAGS" |
+| -mod=readonly         | 不动 go.mod                      |
+| -buildmode=pie        |
 
 | env        | default | desc        |
 | ---------- | ------- | ----------- |
 | GOMAXPROCS |         | Max Thread  |
 | GOGC       | 100     | off 关闭 GC |
+| GOOS       |
+| GOARCH     |
 
 ## 自定义常量
 

@@ -4,22 +4,23 @@ title: Verdaccio
 
 # verdaccio
 
-* 插件
-  * https://github.com/verdaccio/monorepo/tree/9.x/plugins
-  * [Alexandre-io/verdaccio-ldap](https://github.com/Alexandre-io/verdaccio-ldap)
-  * [verdaccio-aws-s3-storage](https://www.npmjs.com/package/verdaccio-aws-s3-storage)
-    * 支持 minio
-    * https://github.com/verdaccio/verdaccio/blob/master/docker-examples/v4/amazon-s3-docker-example/s3Plugin/Dockerfile
-  * [verdaccio-minio](https://www.npmjs.com/package/verdaccio-minio)
-    * 基于 Minio SDK
-    * https://github.com/barolab/verdaccio-minio/blob/master/Dockerfile
-* 默认端口 4873
-* 参考
-  * [Verdaccio私仓搭建](https://juejin.cn/post/6844904193501691917)
+- 插件
+  - https://github.com/verdaccio/monorepo/tree/9.x/plugins
+  - [Alexandre-io/verdaccio-ldap](https://github.com/Alexandre-io/verdaccio-ldap)
+  - [verdaccio-aws-s3-storage](https://www.npmjs.com/package/verdaccio-aws-s3-storage)
+    - 支持 minio
+    - https://github.com/verdaccio/verdaccio/blob/master/docker-examples/v4/amazon-s3-docker-example/s3Plugin/Dockerfile
+  - [verdaccio-minio](https://www.npmjs.com/package/verdaccio-minio)
+    - 基于 Minio SDK
+    - https://github.com/barolab/verdaccio-minio/blob/master/Dockerfile
+- 默认端口 4873
+- 参考
+  - [Verdaccio 私仓搭建](https://juejin.cn/post/6844904193501691917)
 
 ## docker
-* /verdaccio/storage/htpasswd
-* /verdaccio/conf/config.yaml
+
+- /verdaccio/storage/htpasswd
+- /verdaccio/conf/config.yaml
 
 ```bash
 htpasswd -bc htpasswd admin admin
@@ -36,7 +37,8 @@ uplinks:
 ```
 
 ## minio
-* barolab/verdaccio
+
+- barolab/verdaccio
 
 ```Dockerfile
 FROM verdaccio/verdaccio:4
@@ -50,7 +52,7 @@ RUN yarn global add verdaccio-minio && \
 USER verdaccio
 ```
 
-__/verdaccio/conf/config.yaml__
+**/verdaccio/conf/config.yaml**
 
 ```yaml
 # This points to the plugin folder above

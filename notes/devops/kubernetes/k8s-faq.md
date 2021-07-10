@@ -28,6 +28,17 @@ title: K8S 常见问题
 | 251-500 | n1-standard-16 | 16 核 64G  |
 | 500+    | n1-standard-32 | 32 核 128G |
 
+## 操作系统要求 / Linux Kernel Requirement
+
+- Linux Kernel 3.10+
+- moby [contrib/check-config.sh](https://github.com/moby/moby/blob/master/contrib/check-config.sh)
+- Calico [System requirements](https://docs.projectcalico.org/getting-started/kubernetes/requirements)
+  - Linux Kernel 3.10+
+
+```bash
+./check-config.sh kernel.config
+```
+
 ## Docker 与 CRI 对 K8S 的影响
 
 - invalid capacity 0 on image filesystem

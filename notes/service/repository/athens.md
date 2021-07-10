@@ -4,8 +4,19 @@ title: athens
 
 # athens
 
-- Golang Module Proxy
-- 支持 disk, mongo, gcs, s3, minio, 外部存储
+- [gomods/athens](https://github.com/gomods/athens) 是什么？
+  - Go module datastore and proxy
+  - 支持 disk, mongo, gcs, s3, minio, 外部存储/自定义
+  - 支持 etcd, redis, redis-sentinel, gcp, azureblob 锁
+
+:::caution
+
+- 不支持 checksum
+- 不支持认证
+  - [gomods/athens#1166](https://github.com/gomods/athens/issues/1166)
+  - [golang/go#26232](https://github.com/golang/go/issues/26232)
+
+:::
 
 ```bash
 # 使用本地磁盘存储
@@ -19,6 +30,7 @@ docker run -d --restart always \
 ```
 
 ## 配置
+
 - [config.dev.toml](https://github.com/gomods/athens/blob/main/config.dev.toml)
 
 ```toml
@@ -60,4 +72,30 @@ download "github.com/pkg/*" {
     mode = "redirect"
     downloadURL = "https://gocenter.io"
 }
+```
+
+## 私有仓库
+
+- git SSH 密钥
+  - 映射 /root/.ssh 提供密钥
+    - config
+    - id_rsa
+  - 映射 /root/.gitconfig 配置重写规则
+- git SSH Agent
+  - 提供 SSH_AUTH_SOCK
+
+**.ssh/config**
+
+```config
+Host git.example.com
+Hostname git.example.com
+StrictHostKeyChecking no
+IdentityFile /root/.ssh/id_rsa
+```
+
+**.gitconfig**
+
+```ini
+[url "ssh://git@git.example.com:7999"]
+	insteadOf = https://git.example.com/scm
 ```

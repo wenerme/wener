@@ -11,6 +11,7 @@ title: coturn
   - 支持中继协议 UDP, TCP
   - 支持用户数据库 SQLite, MySQL, PostgreSQL, Redis, MongoDB
   - prometheus metrics :9641
+    - 构建依赖 [digitalocean/prometheus-client-c](https://github.com/digitalocean/prometheus-client-c)
   - 支持多平台- Linux, BSD, macOS, Windows/cygwin
 - 参考
   - [TURN server installation Guide](https://www.webrtc-experiment.com/docs/TURN-server-installation-guide.html)
@@ -30,7 +31,9 @@ title: coturn
   - [chromium/webrtc#4907](https://bugs.chromium.org/p/webrtc/issues/detail?id=4907)
   - [coturn/coturn#448](https://github.com/coturn/coturn/issues/448)
 - webrtc 本身没有 realm 概念 - 是通过换取 token 后包含了 realm
-  - 推荐使用 TURN REST API 方式授权
+  - realm 无意义 [stun-origin status is it dead?](https://mailarchive.ietf.org/arch/msg/tram/rKb19tMU71Wn4BootKOOtIi0z54/)
+  - TLS SNI 可用于虚拟主机
+- 推荐使用 TURN REST API 方式授权
 
 :::
 
@@ -176,7 +179,7 @@ no-tlsv1_1
 no-software-attribute
 
 # Block connections to IP ranges which shouldn't be reachable
-no-loopback-peers
+# no-loopback-peers
 no-multicast-peers
 
 # IPv4 Private-Use
@@ -213,6 +216,10 @@ denied-peer-ip=2002::-2002:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 - [examples/etc/turnserver.conf](https://github.com/coturn/coturn/blob/master/examples/etc/turnserver.conf)
 - use-auth-secret 与 lt-cred-mech 冲突
   - 推荐 use-auth-secret，但要复杂一点
+- AlpineLinux turndb /var/lib/coturn/turndb
+- prometheus 需要启用了模块才能使用
+- 4.5.1 no-loopback-peers 替换为 allow-loopback-peers
+- 4.5.3 keep-address-family 替换为 allocation-default-address-family
 
 ```conf
 # -d 监听设备 - 不建议使用 - linux 的 interface
@@ -294,10 +301,11 @@ check-origin-consistency
 # -b,--userdb SQLite DB
 # /usr/local/var/db/turndb, /var/lib/turn/turndb.
 # db=/var/db/turndb
+# userdb=/var/db/turndb
 
 # -e, --psql-userdb, --sql-userdb
 # http://www.postgresql.org/docs/9.2/static/libpq-connect.html#LIBPQ-CONNSTRING
-# psql-userdb = <conn-string>
+# psql-userdb = "host=<host> dbname=<database-name> user=<database-user> password=<database-user-password> connect_timeout=30"
 
 # -N
 # host=<ip-addr> dbname=<db-number> password=<database-user-password> port=<db-port> connect_timeout=<seconds>
@@ -467,6 +475,7 @@ prometheus
 ```
 
 ## TURN REST API
+
 - 使用 use-auth-secret+static-auth-secret 授权方式相对更安全
 - password=`base64(hmac(usercombo = "${timestamp}:${username}", secret))`
 - timestamp 为失效时间
@@ -477,7 +486,6 @@ prometheus
     - 服务端验证客户端，从 coturn 生成 token
   - 客户端取到 token 进行 turn 操作
 - [A REST API For Access To TURN Services](https://datatracker.ietf.org/doc/html/draft-uberti-behave-turn-rest-00)
-
 
 ```go
 func hashPassword(name, ts, secret string) (string, string) {
@@ -518,7 +526,6 @@ function getTURNCredentials(name, secret) {
 }
 ```
 
-
 # FAQ
 
 ## server stun returned an error with code=701
@@ -531,3 +538,10 @@ function getTURNCredentials(name, secret) {
 openssl req -x509 -newkey rsa:2048 -keyout turn_server_pkey.pem -out turn_server_cert.pem -days 3650 -nodes
 turnserver -n -L 0.0.0.0 -v -a -f -r example -u test:test --cert turn_server_cert.pem --pkey turn_server_pkey.pem --oauth --web-admin
 ```
+
+## incoming packet CREATE_PERMISSION processed, error 443: Peer Address Family Mismatch (4)
+
+- 1 - handle_turn_refresh
+- 2 - handle_turn_connect
+- 3 - handle_turn_channel_bind
+- 4 - handle_turn_create_permission

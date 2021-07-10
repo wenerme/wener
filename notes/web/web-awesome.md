@@ -62,3 +62,17 @@ title: Web Awesome
 - [yudai/gotty](https://github.com/yudai/gotty)
 - [maxmcd/webtty](https://github.com/maxmcd/webtty)
 - [wrfly/container-web-tty](https://github.com/wrfly/container-web-tty)
+
+## Browser
+
+- [RenderingNG](https://developer.chrome.com/blog/renderingng)
+
+## Audio
+
+- [Theodeus/tuna](https://github.com/Theodeus/tuna)
+  audio effects library
+- [Tonejs/Tone.js](https://github.com/Tonejs/Tone.js)
+- [bit101/tones](https://github.com/bit101/tones)
+- 参考
+  - [What's In A Sound?](https://www.soundonsound.com/techniques/whats-sound)
+  - youtube [Synthesizer Basics: Amplitude, Oscillators, Timbre](https://www.youtube.com/watch?v=c3udLCvoCC0)

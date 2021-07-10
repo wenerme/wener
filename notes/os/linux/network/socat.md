@@ -4,8 +4,8 @@ title: socat
 
 # socat
 
-* [man page](http://www.dest-unreach.org/socat/doc/socat.html)
-* [EXAMPLES](https://github.com/craSH/socat/blob/master/EXAMPLES)
+- [man page](http://www.dest-unreach.org/socat/doc/socat.html)
+- [EXAMPLES](https://github.com/craSH/socat/blob/master/EXAMPLES)
 
 ```bash
 # 转发本地的 8080 到 百度
@@ -65,5 +65,21 @@ socat -v UDP-LISTEN:15353,fork,reuseaddr SOCKS:10.10.1.1:8.8.8.8:53,socksport=10
 
 # 可以指定本地地址
 SOCAT_SOCKADDR=x.y.z.t socat TCP-LISTEN:80,reuseaddr,fork,su=nobody TCP:a.b.c.d:80
-
 ```
+
+|   opt | desc                          |
+| ----: | ----------------------------- |
+|    -d | fatal                         |
+|   -dd | notice                        |
+|  -ddd | info                          |
+| -dddd | debug                         |
+|    -D | log file descriptors          |
+|    -u | 双向模式 - 第一个读，第二个写 |
+|    -U | 双向模式 - 第一个写，第二个读 |
+|    -4 | IPv4                          |
+|    -6 | IPv6                          |
+
+| address type     | short |
+| ----------- | ----- |
+| tcp-connect | tcp   |
+| tcp-listen  | tcp-l |

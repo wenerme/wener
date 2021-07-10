@@ -5,7 +5,8 @@ title: Ansible
 
 # Ansible
 
-- 是什么？
+- [ansible](https://github.com/ansible/ansible) 是什么？
+  - GPL-3.0, Python
   - 自动化 服务开通、配置管理、应用部署 工具
   - 实现 Infrastructure as code - 基础设施即代码
   - 支持 Linux、Windows 及 网络设备
@@ -13,7 +14,6 @@ title: Ansible
 - 系统要求
   - 控制节点 - python linix/windows
   - 管理节点 - python sftp/scp
-- [ansible/ansible](https://github.com/ansible/ansible)
 - 注意 ⚠️
   - 分组名包含 `-` 会告警
     - `force_valid_group_names=ignore` 可关闭
@@ -23,7 +23,8 @@ title: Ansible
   - 相同 set_fact 不能互相依赖 [#40239](https://github.com/ansible/ansible/issues/40239)
 - 参考
   - [Ansible tutorial](https://github.com/leucos/ansible-tuto)
-  - [List all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
+  - [List all modules](https://docs.ansible.com/ansible/latest/collections/index.html)
+    - collection [ansible.builtin](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
   - [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的 ansible.cfg 配置
   - 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
   - [YAML Syntax](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)

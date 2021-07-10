@@ -5,8 +5,9 @@ title: NMap
 # nmap
 
 ## Tips
-* https://nmap.org/nsedoc/scripts/smb-protocols.html
-* https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
+
+- https://nmap.org/nsedoc/scripts/smb-protocols.html
+- https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/
 
 ```bash
 apk add nmap nmap-scripts

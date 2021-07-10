@@ -79,58 +79,74 @@ title: Go Awesome
 
 :::
 
-- 路由
-  - [gorilla/mux](https://github.com/gorilla/mux) - ⭐️
-    - 非常便于使用的路由，增强 go http 功能
-  - [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
-    - 牺牲功能换取性能
-    - 不适用于 RESTful 接口
-    - 不能区分路由 `/users/like`, `/users/:userId`
-- 辅助增强
-- 框架
-  - [gin-gonic/gin](https://github.com/gin-gonic/gin)
-    - 默认处理逻辑将请求和响应封装为了 Context
-    - 能 Wrap http 的 Handler
-    - 基于 httprouter 路由 - 不能区分路由 `/users/like`, `/users/:userId`
-    - 不适用于 RESTful 接口
-  - beego
-    - 用于快速开发的完整框架 - All in one
-    - 不推崇，尽量避免使用
-    - 除非所有理念刚好匹配
-  - echo
-  - chi
-  - revel
-- HTTP
-  - [valyala/fasthttp](http://github.com/valyala/fasthttp)
-    - 重写的 http 处理
-    - 注重性能
-    - Zero memory allocations in hot paths. Up to 10x faster than net/http
-- Websocket
-  - [gorilla/websocket](https://github.com/gorilla/websocket)
-    - 实现 ws 的首选库
-    - 功能比 `golang.org/x/net/websocket` 丰富完善
-  - [olahol/melody](https://github.com/olahol/melody)
-    - 基于 gorilla/websocket 封装的简单消息处理库
-    - 不再维护，如需修改可以拷贝出来使用
-  - [centrifugal/centrifugo](https://github.com/centrifugal/centrifugo)
-    - 实时消息服务 - Websocket as a Service
-      - 作为独立服务存在
-      - JWT 认证
-      - 暴露 HTTP, GRPC 接口
-      - 可以将 RPC Websocket 请求转换为 HTTP 请求
-    - MIT 协议
-    - language-agnostic - 语言无关
-    - Websocket - JSON, Protobuf
-    - SockJS - polyfill
-    - 类似商业产品
-      - https://pusher.com/websockets
-    - 适用场景
-      - php+html - php 不易处理 ws，但使用该服务可以 php --POST-> centrifugo --WS-> html
-      - vercel 部署请求必须 10s 内 - 则可以 NextJS 后端 -> centrifugo -> 前端
-      - AWS Lambda 场景 - 没有长链接，需要支持通知
-      - Function as a Service 场景 - 没有链接概念，需要支持通知
-      - 聊天产品、实时通知、消息集成、事件驱动
-      - 类似于 Kafka，但是是面向 C 端产品
+### 路由
+
+- [gorilla/mux](https://github.com/gorilla/mux) - ⭐️
+  - 非常便于使用的路由，增强 go http 功能
+  - 变量匹配路由 - `O(n)`
+- [go-chi/chi](https://github.com/go-chi/chi)
+  - 标准接口
+  - 开发比 mux 活跃
+  - radix trie - 类似 httprouter - 性能优于 mux
+  - 自带较多 middleware
+- [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
+  - 牺牲功能换取性能
+  - 不适用于 RESTful 接口 - 不能区分路由 `/users/like`, `/users/:userId`
+- 参考
+  - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
+
+### 增强处理
+- [go-chi/render](https://github.com/go-chi/render)
+  - 辅助处理请求响应内容
+
+### 框架
+
+- [gin-gonic/gin](https://github.com/gin-gonic/gin)
+  - 默认处理逻辑将请求和响应封装为了 Context
+  - 能 Wrap http 的 Handler
+  - 基于 httprouter 路由 - 不能区分路由 `/users/like`, `/users/:userId`
+  - 不适用于 RESTful 接口
+- beego
+  - 用于快速开发的完整框架 - All in one
+  - 不推崇，尽量避免使用
+  - 除非所有理念刚好匹配
+- echo
+- revel
+
+### Websocket
+
+- [gorilla/websocket](https://github.com/gorilla/websocket)
+  - 实现 ws 的首选库
+  - 功能比 `golang.org/x/net/websocket` 丰富完善
+- [olahol/melody](https://github.com/olahol/melody)
+  - 基于 gorilla/websocket 封装的简单消息处理库
+  - 不再维护，如需修改可以拷贝出来使用
+- [centrifugal/centrifugo](https://github.com/centrifugal/centrifugo)
+  - 实时消息服务 - Websocket as a Service
+    - 作为独立服务存在
+    - JWT 认证
+    - 暴露 HTTP, GRPC 接口
+    - 可以将 RPC Websocket 请求转换为 HTTP 请求
+  - MIT 协议
+  - language-agnostic - 语言无关
+  - Websocket - JSON, Protobuf
+  - SockJS - polyfill
+  - 类似商业产品
+    - https://pusher.com/websockets
+  - 适用场景
+    - php+html - php 不易处理 ws，但使用该服务可以 php --POST-> centrifugo --WS-> html
+    - vercel 部署请求必须 10s 内 - 则可以 NextJS 后端 -> centrifugo -> 前端
+    - AWS Lambda 场景 - 没有长链接，需要支持通知
+    - Function as a Service 场景 - 没有链接概念，需要支持通知
+    - 聊天产品、实时通知、消息集成、事件驱动
+    - 类似于 Kafka，但是是面向 C 端产品
+
+### Misc
+
+- [valyala/fasthttp](http://github.com/valyala/fasthttp)
+  - 重写的 net/http 处理
+  - 注重性能
+  - Zero memory allocations in hot paths. Up to 10x faster than net/http
 
 ## 代码生成
 
@@ -177,7 +193,6 @@ title: Go Awesome
 - [xeipuuv/gojsonschema](https://github.com/xeipuuv/gojsonschema)
 - [ugorji/go](https://github.com/ugorji/go)
   diomatic codec and rpc lib for msgpack, cbor, json, etc.
-
 
 ## 数据处理
 
@@ -301,6 +316,10 @@ title: Go Awesome
   - 二进大小分析
 - [xo/usql](https://github.com/xo/usql)
   - SQL 命令行工具
+- [google/gops](https://github.com/google/gops)
+  - Go 进程诊断
+- [google/ko](https://github.com/google/ko)
+  Build and deploy Go applications on Kubernetes
 
 ## Service
 
@@ -326,7 +345,6 @@ title: Go Awesome
 - [sjwhitworth/golearn](https://github.com/sjwhitworth/golearn) is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.
 - [cdipaolo/goml](https://github.com/cdipaolo/goml) is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.
 - [chewxy/gorgonia](https://github.com/chewxy/gorgonia) is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.
-
 
 ## SIP/WebRTC
 

@@ -12,20 +12,20 @@ title: chan_pjsip
 ls /usr/lib/asterisk/modules | grep pj | sort
 ```
 
-| type          | meaning                 | desc                             |
-| ------------- | ----------------------- | -------------------------------- |
-| acl           | Access Control List     | res_pjsip_acl, acl.conf 引用     |
+| type          | meaning                 | desc                                       |
+| ------------- | ----------------------- | ------------------------------------------ |
+| acl           | Access Control List     | res_pjsip_acl, acl.conf 引用               |
 | aor           | Address of Record       |
 | auth          | Authentication          |
 | contact       |
-| domain_alias  | Domain Alias            | 域名别名                         |
+| domain_alias  | Domain Alias            | 域名别名                                   |
 | endpoint      |
-| identify      | Endpoint Identification | host to endpoint                 |
-| phoneprov     | Phone Provisioning      | res_phoneprov                    |
-| registration  |                         | outbound SIP                     |
+| identify      | Endpoint Identification | host to endpoint                           |
+| phoneprov     | Phone Provisioning      | res_pjsip_phoneprov_provider,res_phoneprov |
+| registration  |                         | outbound SIP                               |
 | resource_list | Resource lists          |
-| transport     |                         | udp,tcp,tls,ws,wss,flow          |
-| wizard        |                         | 聚合配置,res_pjsip_config_wizard |
+| transport     |                         | udp,tcp,tls,ws,wss,flow                    |
+| wizard        |                         | 聚合配置,res_pjsip_config_wizard           |
 
 - 匹配规则
   - From in inbound SIP -> endpoint
@@ -57,9 +57,9 @@ ls /usr/lib/asterisk/modules | grep pj | sort
   - 例如 销售组一个订阅、服务组一个订阅
 
 ## pjsip_wizard.conf
+
 - res_pjsip_config_wizard
 - 聚合配置 endpoint, aor, auth, identify, registration, phoneprov
-
 
 :::caution
 
@@ -400,6 +400,40 @@ auth_type=userpass
 ;realm=
 ; Lifetime of a nonce
 nonce_lifetime=32
+```
+
+### phoneprovr
+
+- 集成 res_pjsip 和 res_phoneprov
+
+```conf
+[1000]
+type = phoneprovr
+endpoint = ep1000
+; 必须 - 用户的 mac 地址
+MAC = deadbeef4dad
+; 必须 - phoneprov profile
+PROFILE = grandstream2
+
+; 任意自定义变量
+LINEKEYS = 2
+LINE = 1
+OTHERVAR = othervalue
+
+; 从定义的 endpoint 生成的变量
+USERNAME
+SECRET
+CALLERID
+DISPLAY_NAME
+; id of the phoneprov section
+LABEL
+
+; 其他变量
+ENDPOINT_ID
+; endpoint -> transport
+TRANSPORT_ID
+; endpoint -> auth
+AUTH_ID
 ```
 
 ### endpoint

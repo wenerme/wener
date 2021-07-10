@@ -1,17 +1,17 @@
 ---
-id: ansible-collection
 title: Ansible Collection
 ---
 
 # Ansible Collection
-* Collection 是 Ansible Galaxy Role 的继承者
-* 不只能包含 role，还能包含各种插件，文档，任务等
-* 参考
-  * [使用文档](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html)
-* 默认安装目录 `~/.ansible/collections` - COLLECTIONS_PATHS,
-* 默认服务器 https://galaxy.ansible.com - GALAXY_SERVER
-* server_list 或 GALAXY_SERVER_LIST 可指定一组服务
-* 内建 collections 安装位置 `/usr/lib/python3.8/site-packages/ansible_collections`
+
+- Collection 是 Ansible Galaxy Role 的继承者
+- 不只能包含 role，还能包含各种插件，文档，任务等
+- 默认安装目录 `~/.ansible/collections` - COLLECTIONS_PATHS,
+- 默认服务器 https://galaxy.ansible.com - GALAXY_SERVER
+- server_list 或 GALAXY_SERVER_LIST 可指定一组服务
+- 内建 collections 安装位置 `/usr/lib/python3.8/site-packages/ansible_collections`
+- 参考
+  - [使用文档](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html)
 
 ```bash
 # namespace.collection
@@ -46,6 +46,26 @@ ansible-galaxy collection list -p '/opt/ansible/collections:/etc/ansible/collect
 ansible-galaxy collection verify wenerme.alpine -vvv
 ```
 
+## dev
+- [Developing collections](https://docs.ansible.com/ansible/latest/dev_guide/developing_collections.html)
+
+```bash
+ansible-galaxy collection init my_namespace.my_collection
+```
+
+## lint
+
+```bash
+# 查看所有规则
+ansible-lint -L
+# 只执行部分规则
+ansible-lint --enable-list command-instead-of-shell
+
+# auto lint
+ansible-lint
+```
+
+
 ## playbook
 
 ```yaml
@@ -73,23 +93,24 @@ ansible-galaxy collection verify wenerme.alpine -vvv
 ```
 
 ## requirements.yml
+
 ```yaml
 # Ansible Galaxy 角色
 roles:
-- name: geerlingguy.java
-  version: 1.9.6
+  - name: geerlingguy.java
+    version: 1.9.6
 
 collections:
-# 名字
-- wenerme.alpine
-# 详细信息
-- name: https://github.com/organization/repo_name.git
-  type: git
-  version: devel
+  # 名字
+  - wenerme.alpine
+  # 详细信息
+  - name: https://github.com/organization/repo_name.git
+    type: git
+    version: devel
 
-- name: geerlingguy.php_roles
-  version: 0.9.3
-  source: https://galaxy.ansible.com
+  - name: geerlingguy.php_roles
+    version: 0.9.3
+    source: https://galaxy.ansible.com
 ```
 
 ## ansible.cfg
@@ -128,5 +149,6 @@ token=my_test_token
 ```
 
 ## 内置
-* [Collection Index](https://docs.ansible.com/ansible/latest/collections/index.html)
-  * [ansible.builtin](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
+
+- [Collection Index](https://docs.ansible.com/ansible/latest/collections/index.html)
+  - [ansible.builtin](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)

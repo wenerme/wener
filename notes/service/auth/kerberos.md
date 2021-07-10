@@ -9,18 +9,21 @@ title: Kerberos
 
 - [Kerberos: The Network Authentication Protocol](https://web.mit.edu/kerberos/)
   - [文档](https://web.mit.edu/kerberos/krb5-latest/doc/)
-- network authentication protocol
-- 密码不会被传输 - 使用有 TTL 的 Tickets
-- SSO 体系 - 单个 Tickets 可以访问较多的服务
-- KDC 作为可信的第三方 - 管理所有的用户和服务
-- 双向鉴权系统 - 类似 mTLS
-- Windows 环境下大量使用
+  - network authentication protocol
+  - 密码不会被传输 - 使用有 TTL 的 Tickets
+  - SSO 体系 - 单个 Tickets 可以访问较多的服务
+  - KDC 作为可信的第三方 - 管理所有的用户和服务
+  - 双向鉴权系统 - 类似 mTLS
+  - Windows 环境下大量使用
 - 应用
   - Samba
+  - SSH
+  - NFS
+  - 浏览器 - Chrome, Firefox
 - 主要端口 88/udp/tcp 和 464/udp/tcp
 - 可以使用 SVR 避免指定端口
 - 参考
-  - ArchLinux [Kerberos](https://wiki.archlinux.org/index.php/Kerberos)
+  - ArchLinux [Kerberos](https://wiki.archlinux.org/title/Kerberos)
   - [Getting Started](https://web.mit.edu/kerberos/kfw-4.1/kfw-4.1/kfw-4.1-help/html/getting_started.htm)
 
 | 端口 | 说明                                              |
@@ -138,7 +141,42 @@ Host *
 mount nfsserver:/srv/export /mnt/
 ```
 
+## Manual
+
+- [Kerberos Documentation](https://web.mit.edu/kerberos/krb5-latest/doc/index.html)
+  - [Database administration](https://web.mit.edu/kerberos/krb5-latest/doc/admin/database.html)
+- 支持数据库类型
+  - db2 - Berkeley database
+  - klmdb
+  - kldap
+
 ## 词汇
+
+- KDC - Key Distribut Center
+- SPNEGO - Simple and Protected GSSAPI Negotiation Mechanism
+- PAC
+- Server <- NTLM Auth -> KDC
+- Client <- Kerberos Auth -> KDC
+  - -> AS_REQ
+  - <- AS_REP - ticket
+  - -> TGS_REQ -> Ticket Granting Server
+  - <- TGS_REP - service ticket
+  - --> AP_REQ -> Server - service ticket
+  - <-- AP_REP <-- Server - UDP, TCP/large ticket
+- SPN - Service Principal Name
+- TGT - Ticket Granting Ticket
+- Delegation - constrained & proxy
+  - client --> server --> db
+  - tgt --> delegate --> db
+- Protocol Transition
+  - validate user
+  - kerberos ticket request on user's behalf
+    - service for user to self
+  - perform constrained delegation
+- APM - Access Policy Manager
+- BIG-IP APM
+- APM Session
+- VPE
 
 ### KVNO - Key Version Number
 

@@ -157,3 +157,29 @@ static void *canary_thread(void *unused)
 	}
 }
 ```
+
+## app_dial.c: Unable to create channel of type 'IAX2' (cause 20 - Subscriber absent)
+
+表示 iax 未注册上
+
+```bash
+iax2 show peers
+```
+
+## 端口检测
+
+```bash
+# 检测 iax2 端口是否开放
+nmap -sU --script iax2-version.nse -p 4569 192.168.1.2
+
+# SIP 探测
+nmap -sU --script sip-methods -p 4569 192.168.1.2
+# 伪造拨号
+nmap --script=sip-call-spoof -sU -p 5060 --script-args 'sip-call-spoof.ua=Nmap, sip-call-spoof.from=Boss' <targets>
+# 枚举用户
+nmap --script=sip-enum-users -sU -p 5060 <targets> --script-args 'sip-enum-users.padding=4, sip-enum-users.minext=1000,sip-enum-users.maxext=9999'
+
+# STUN
+nmap -sU --script stun-version -p 3478 <target>
+nmap -sV -PN -sU -p 3478 --script stun-info <ip>
+```

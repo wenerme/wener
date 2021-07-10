@@ -10,6 +10,17 @@ title: curl
 curl -vik --resolve example.com:8443:127.0.0.1 https://example.com:8443/
 ```
 
+## 测试 CORS
+
+```bash
+curl --head \
+  -H "Origin: http://example.com" \
+  -H "Access-Control-Request-Method: POST" \
+  -H "Access-Control-Request-Headers: X-Requested-With" \
+  -X OPTIONS --verbose \
+  https://www.googleapis.com/discovery/v1/apis
+```
+
 ## 延时
 
 ```bash

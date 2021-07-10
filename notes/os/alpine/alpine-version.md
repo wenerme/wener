@@ -14,9 +14,19 @@ title: 版本历史
   - 但部分 test 无法通过的包会被暂时禁止 - 如果发现可以提出
 - [发布版本历史日期](https://alpinelinux.org/releases/)
 
-:::caution
+:::tip Roadmap
 
-- 如果升级了 openssh 需要重启 sshd，否则不会接受新的链接
+- 3.15 预计会支持 riscv64
+- s6 开发者在为 alpine 开发 openrc 后继服务管理
+- Linux 5.13 后可能支持 Apple M1
+  - 可能会新增 linux-m1 内核
+  - 16K page
+
+:::
+
+:::caution 版本升级注意事项
+
+- 如果升级了 openssh 建议重启 sshd，否则可能不会接受新的链接
 - 3.14 musl 开启了 faccessat2, 对 docker 和 libseccomp 有要求
   - 不然可能会出现类似无权限访问的问题
   - Linux 5.8 增加 faccessat2
@@ -32,13 +42,6 @@ title: 版本历史
 - 如果升级容器建议先升级主机，因为 faccessat2 对 docker 版本 和 libseccomp 有要求
   - 3.13 最新版 docker 是 20.10, libseccomp 是 2.5 都支持
   - 运行 `scmp_sys_resolver faccessat2` 确保不是返回 -1
-
-:::
-
-
-:::tip
-
-- 下一个版本预计会支持 riscv64
 
 :::
 

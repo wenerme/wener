@@ -41,17 +41,16 @@ rtpend=31000
 ; RTP checksum
 ;rtpchecksums=no
 
-; The amount of time a DTMF digit with no 'end' marker should be
-; allowed to continue (in 'samples', 1/8000 of a second)
-;
+; DTMF digit with no 'end' marker 连续时间 (in 'samples', 1/8000 of a second)
 ;dtmftimeout=3000
-; rtcpinterval = 5000 	; Milliseconds between rtcp reports
-			;(min 500, max 60000, default 5000)
+; rtcp reports 间隔 - 单位 ms
+; min 500, max 60000
+rtcpinterval = 5000
+
+; 启用严格 RTP 保护
+; 丢弃 RTP 流中未知来源的 RTP 包
+; 在建立连接前和处理连接中都会校验来源 (e.g., transfers and direct media)
 ;
-; Enable strict RTP protection.  This will drop RTP packets that do not come
-; from the recoginized source of the RTP stream.  Strict RTP qualifies RTP
-; packet stream sources before accepting them upon initial connection and
-; when the connection is renegotiated (e.g., transfers and direct media).
 ; Initial connection and renegotiation starts a learning mode to qualify
 ; stream source addresses.  Once Asterisk has recognized a stream it will
 ; allow other streams to qualify and replace the current stream for 5
@@ -63,8 +62,8 @@ rtpend=31000
 ; to make sure the sequence number is correct rather than checking the time
 ; interval as well.
 ; This option is enabled by default.
-; strictrtp=yes
-;
+strictrtp=yes
+
 ; Number of packets containing consecutive sequence values needed
 ; to change the RTP source socket address. This option only comes
 ; into play while using strictrtp=yes. Consider changing this value
@@ -84,16 +83,10 @@ rtpend=31000
 ; This option is enabled by default.
 ; srtpreplayprotection=yes
 ;
-; Whether to enable or disable ICE support. This option is enabled by default.
-; icesupport=false
-;
-; Hostname or address for the STUN server used when determining the external
-; IP address and port an RTP session can be reached at. The port number is
-; optional. If omitted the default value of 3478 will be used. This option is
-; disabled by default.
-;
-; e.g. stundaddr=mystun.server.com:3478
-;
+; 启用 ICE 支持
+icesupport=true
+
+; STUN 地址，默认端口 3478
 ; stunaddr=
 ;
 ; Some multihomed servers have IP interfaces that cannot reach the STUN
@@ -114,41 +107,28 @@ rtpend=31000
 ; stun_acl = named_acl
 ; stun_deny = 0.0.0.0/0
 ; stun_permit = 1.2.3.4/32
-;
-; For historic reasons stun_blacklist is an alias for stun_deny.
-;
-; Hostname or address for the TURN server to be used as a relay. The port
-; number is optional. If omitted the default value of 3478 will be used.
-; This option is disabled by default.
-;
-; e.g. turnaddr=myturn.server.com:34780
-;
+; stun_deny 别名
+; stun_blacklist=
+
+; TURN 服务，默认端口 3478
 ; turnaddr=
-;
-; Username used to authenticate with TURN relay server.
+; TURN relay 用户名
 ; turnusername=
-;
-; Password used to authenticate with TURN relay server.
+; TURN relay 密钥
 ; turnpassword=
-;
-; An ACL can be used to determine which discovered addresses to include for
-; ICE, srflx and relay discovery.  This is useful to optimize the ICE process
-; where a system has multiple host address ranges and/or physical interfaces
-; and certain of them are not expected to be used for RTP. For example, VPNs
-; and local interconnections may not be suitable or necessary for ICE. Multiple
-; subnets may be listed. If left unconfigured, all discovered host addresses
-; are used.
-;
+
+
+; 控制 ICE 发现地址的 ACL - srflx and relay discovery
+; 可列多个，默认所有都接受
 ; ice_acl = named_acl
 ; ice_deny = 0.0.0.0/0
 ; ice_permit = 1.2.3.4/32
-;
-; For historic reasons ice_blacklist is an alias for ice_deny.
-;
-; The MTU to use for DTLS packet fragmentation. This option is set to 1200
-; by default. The minimum MTU is 256.
-; dtls_mtu = 1200
-;
+; ice_deny 别名
+; ice_blacklist =
+
+; DTLS 包分片 MTU - 最低 256
+dtls_mtu = 1200
+
 [ice_host_candidates]
 ;
 ; When Asterisk is behind a static one-to-one NAT and ICE is in use, ICE will

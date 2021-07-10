@@ -29,33 +29,6 @@ title: 词汇表
 * [IETF](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force)
   * [ietf.org](http://ietf.org/)
 
-## 协议
-
-Protocol | Mean | Notes
-----|----|----
-SIP   | Session Initiation Protocol          | SIP 基于标准的协议,大多数 VoIP 电话和服务都在使用或提供响应支持.
-SCCP  | Cisco Skinny Client Control Protocol | SCCP 是私有协议,主要用于 Cisco's Call Manager 和 IP 电话
-MGCP  | MGCP 很老的 VoIP 协议,已经很少使用了.
-H.323 | 类似于 MGCP , 是很老的 VoIP 协议,已经很少使用了.
-
-
-## 语音编码
-
-编码 | 速率 | Fidelity
-----|----
-GSM   | 13 Kbps| 8k
-iLBC  | 15 Kbps
-G.711 | 64 Kbps
-G.722 | 48/56/64 Kbps
-G.726 | 16/24/32/40 Kbps
-G.728 | 16 Kbps
-G.729 | 8 Kbps
-SPEEX Narrowband | 14Kps-23Kps | 8k
-SPEEX Wideband | 20800-58400 | 16k
-OPUS | 6k-51k | 48k
-G.722 | 8K-80k | 16k
-
-
 
 ## 视频编码
 

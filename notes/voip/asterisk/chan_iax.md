@@ -41,6 +41,11 @@ load => chan_iax2
 load => res_timing_timerfd
 ```
 
+```bash
+# 检测 iax2 端口是否开放
+nmap -sU --script iax2-version.nse -p 4569 192.168.1.2
+```
+
 ## iax.conf
 
 - type=user
@@ -51,6 +56,8 @@ load => res_timing_timerfd
 - type=friend
   - 创建 user+peer
   - 如果设置了 host=hostname,domain.ext 则会限定可发起请求的 peer
+- 参考
+  - [Asterisk iax qualify](https://www.voip-info.org/asterisk-iax-qualify/)
 
 ```bash
 iax2 reload
@@ -356,6 +363,7 @@ autokill=yes
 ```
 
 ### user/peer
+
 - register 映射 peer - 动态 IP 场景
   - 反向注册到对方，而不是对方通过 peer 定义链接
 - 用户认证方式 - username+secret
@@ -564,4 +572,20 @@ host=dynamic
 trunk=yes
 secret=A
 context=iaxinbound
+```
+
+## unmonitored
+
+- reload
+- qualify
+  - 无 qualify 会变成 unmonitored
+  - qualify 后可能是 offline
+- restart
+  - 如果一直 offline，注册有发送，尝试重启远程 asterisk
+  - 遇到过几次
+
+```bash
+# 尝试 reload
+module unload chan_iax2
+module load chan_iax2
 ```

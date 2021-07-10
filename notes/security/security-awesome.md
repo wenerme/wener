@@ -9,6 +9,10 @@ title: Security Awesome
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
 
+## Password
+
+- [project-rainbowcrack](http://project-rainbowcrack.com/)
+
 ## Firewall
 
 - [shorewall](https://shorewall.org/)

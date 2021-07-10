@@ -1,8 +1,11 @@
+---
+title: Ansible Network
+---
 
 # Ansible Network
-## Tips
-* [网络模块](https://docs.ansible.com/ansible/latest/modules/list_of_network_modules.html)
-* https://github.com/claytono/edgerouter-ansible
+
+- [网络模块](https://docs.ansible.com/ansible/2.9/modules/list_of_network_modules.html)
+- https://github.com/claytono/edgerouter-ansible
 
 ## EdgeRouter 配置
 
@@ -29,7 +32,8 @@ edgerouter:
       connection: network_cli
 ```
 
-__net-facts.yaml__
+**net-facts.yaml**
+
 ```yaml
 - name: Network facts
   connection: network_cli
@@ -43,9 +47,9 @@ __net-facts.yaml__
     - name: Display the config
       debug:
         msg:
-        - "Hostname : {{ansible_net_hostname}}"
-        - "Model    : {{ansible_net_model}} v{{ ansible_net_version }}"
-        - "Serial   : {{ansible_net_serialnum}}"
+          - 'Hostname : {{ansible_net_hostname}}'
+          - 'Model    : {{ansible_net_model}} v{{ ansible_net_version }}'
+          - 'Serial   : {{ansible_net_serialnum}}'
 ```
 
 ```bash
@@ -54,5 +58,3 @@ ansible-playbook net-facts.yaml
 ```
 
 ### socket_path must be a value
-
-

@@ -20,6 +20,9 @@ title: WebRTC Awesome
   Secure, Simple and Scalable Video Conferences
 - [obsproject/obs-studio](https://github.com/obsproject/obs-studio)
   video recording and live streaming
+- [peers/peerjs](https://github.com/peers/peerjs)
+  - MIT, Typescript
+- [peers/peerjs-server](https://github.com/peers/peerjs-server)
 
 ## 参考/References
 

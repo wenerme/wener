@@ -16,3 +16,28 @@ title: Network FAQ
   - 实现中继代理请求
   - 资源占用高，服务器流量大
   - 不存在公共的 turn 服务 - 通常需要授权
+
+## 简单的端口排查
+
+```bash
+# nc - busybox
+# ==========
+# UDP
+nc -u -l -p 12345 -e cat
+echo test | nc -u -w 2 127.0.0.1 12345
+# TCP
+nc -l -p 12345 -e cat
+echo test | nc -w 2 127.0.0.1 12345
+
+# ncat - nmap
+# ==========
+ncat -ulk -e /bin/cat 12345
+
+# socat
+# ==========
+socat -u udp-l:12345,fork exec:/bin/cat
+echo "test" | socat -u - udp:127.0.0.1:12345
+
+socat -u tcp-l:12345,fork exec:/bin/cat
+echo "test" | socat -u - tcp:127.0.0.1:12345
+```

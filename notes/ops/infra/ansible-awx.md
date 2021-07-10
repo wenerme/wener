@@ -1,5 +1,4 @@
 ---
-id: ansible-awx
 title: Ansible AWX
 ---
 
