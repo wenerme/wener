@@ -164,6 +164,7 @@ mount nfsserver:/srv/export /mnt/
   - --> AP_REQ -> Server - service ticket
   - <-- AP_REP <-- Server - UDP, TCP/large ticket
 - SPN - Service Principal Name
+  - svc/name@realm - HTTP/www.mydomain.org@MYDOMAIN.ORG
 - TGT - Ticket Granting Ticket
 - Delegation - constrained & proxy
   - client --> server --> db

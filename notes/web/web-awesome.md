@@ -55,6 +55,8 @@ title: Web Awesome
   - Accelerated JavaScript animation.
 - [nextapps-de/winbox](https://github.com/nextapps-de/winbox)
   - 窗口管理器
+- [niklasvh/html2canvas](https://github.com/niklasvh/html2canvas)
+  - 截屏
 
 ## tty
 
@@ -73,6 +75,10 @@ title: Web Awesome
   audio effects library
 - [Tonejs/Tone.js](https://github.com/Tonejs/Tone.js)
 - [bit101/tones](https://github.com/bit101/tones)
+- [nick-thompson/elementary](https://github.com/nick-thompson/elementary)
+- [nick-thompson/react-juce](https://github.com/nick-thompson/react-juce)
+  - [juce-framework/JUCE](https://github.com/juce-framework/JUCE)
 - 参考
   - [What's In A Sound?](https://www.soundonsound.com/techniques/whats-sound)
   - youtube [Synthesizer Basics: Amplitude, Oscillators, Timbre](https://www.youtube.com/watch?v=c3udLCvoCC0)
+  - [Functional, Declarative Audio Applications](https://www.nickwritesablog.com/functional-declarative-audio-applications/)

@@ -96,6 +96,7 @@ title: Go Awesome
   - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
 
 ### 增强处理
+
 - [go-chi/render](https://github.com/go-chi/render)
   - 辅助处理请求响应内容
 
@@ -174,6 +175,9 @@ title: Go Awesome
 - [miku/zek](https://github.com/miku/zek)
   - XML -> Go Struct
   - [在线生成](https://www.onlinetool.io/xmltogo)
+- [mholt/json-to-go](https://github.com/mholt/json-to-go)
+  - JSON -> Go Struct
+  - [在线生成](https://mholt.github.io/json-to-go/)
 - 功能性
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
@@ -236,18 +240,43 @@ title: Go Awesome
 - [trustmaster/goflow](https://github.com/trustmaster/goflow)
 - [flowbase/flowbase](https://github.com/flowbase/flowbase)
 
-## Service Framework
+## 服务框架/Service Framework
 
-- [asim/go-micro](https://github.com/asim/go-micro)
+- [dapr/dapr](https://github.com/dapr/dapr)
+  portable, event-driven, runtime for building distributed applications
+  - Sidecar 模式
+  - 微软 项目
 - [AsynkronIT/protoactor-go](https://github.com/AsynkronIT/protoactor-go)
   - Proto Actor - Ultra fast distributed actors for Go, C# and Java/Kotlin
 - [wasmCloud/wasmCloud](https://github.com/wasmCloud/wasmCloud)
   - wasm actor 平台 - 支持 tinygo
-- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
-- [smallnest/rpcx](https://github.com/smallnest/rpcx)
-  - 国产微服务框架
 - [RichardKnop/machinery](https://github.com/RichardKnop/machinery)
   asynchronous task queue/job queue based on distributed message passing
+- [twitchtv/twirp](https://github.com/twitchtv/twirp)
+  simple RPC framework with protobuf service definitions
+  - protobuf+net/http
+
+## 微服务框架/Microservices Framework
+
+大多微服务框架着重于 RPC、服务发现、配置，并提供基础的中间件 监控、Trace。
+
+- [go-kit/kit](https://github.com/go-kit/kit)
+  standard library for microservices
+  - 简单灵活自由拼装 - 因此定位是 kit 和 库
+  - 很多抽象接口值得学习
+- [asim/go-micro](https://github.com/asim/go-micro)
+  standalone framework for distributed systems development
+- [nytimes/gizmo](https://github.com/nytimes/gizmo)
+
+**国产**
+
+- [go-kratos/kratos](https://github.com/go-kratos/kratos)
+  framework for microservices
+  - grpc,wire
+  - kratos 命令行工具
+- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+- [smallnest/rpcx](https://github.com/smallnest/rpcx)
+- [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 
 ## Markdown
 
@@ -320,6 +349,7 @@ title: Go Awesome
   - Go 进程诊断
 - [google/ko](https://github.com/google/ko)
   Build and deploy Go applications on Kubernetes
+- [go-task/task](https://github.com/go-task/task)
 
 ## Service
 

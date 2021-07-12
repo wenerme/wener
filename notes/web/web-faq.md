@@ -22,13 +22,13 @@ title: Web FAQ
   - pound ("#").
 - 一般认为不安全
   - space (" ")
-  - less than and greater than ("<>")
-  - open and close brackets ("[]")
-  - open and close braces ("{}")
-  - pipe ("|")
-  - backslash ("")
-  - caret ("^")
-  - percent ("%")
+  - less than and greater than (`<>`)
+  - open and close brackets (`[]`)
+  - open and close braces (`{}`)
+  - pipe (`|`)
+  - backslash (`\`)
+  - caret (`^`)
+  - percent (`%`)
 - 参考
   - [rfc3986#section-2](https://datatracker.ietf.org/doc/html/rfc3986#section-2)
 

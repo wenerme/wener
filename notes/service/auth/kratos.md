@@ -4,13 +4,14 @@ title: Kratos
 
 # Kratos
 
-- API first 用户管理
-- Identity Infrastructure Service
-  - 对比 Identity and Access Management (IAM), Identity Management (IdM), Identity Provider (IP/IdP), Identity as a Service (IDaaS)
-- Username + Password -> Cookie, Token
-- Email + Password -> Cookie, Token
-- Passwordless login -> Cookie, Token
-- 可当作库来使用
+- [ory/kratos](https://github.com/ory/kratos) 是什么 ?
+  - API first 用户管理
+  - Identity Infrastructure Service
+    - 对比 Identity and Access Management (IAM), Identity Management (IdM), Identity Provider (IP/IdP), Identity as a Service (IDaaS)
+  - Username + Password -> Cookie, Token
+  - Email + Password -> Cookie, Token
+  - Passwordless login -> Cookie, Token
+  - 可当作库来使用
 - 主要解决问题
   - 凭证管理 - 密码、恢复邮箱、安全问题
   - 认证 - 安全登录、会话、设备
@@ -19,10 +20,16 @@ title: Kratos
   - 身份信息管理 - 名字、照片、生日
 - 适用场景
   - 不涉及第三方登陆，希望登陆后拿到 Token
+  - Self-service Login and Registration
+  - Multi-Factor Authentication
+  - Account Verification
+  - Account Recovery
+  - Profile and Account Management
+  - Admin APIs
 
 :::caution
 
-- 不要在浏览器使用 API flow - 使用 HTML __form__
+- 不要在浏览器使用 API flow - 使用 HTML **form**
 - 目前不支持 MFA - 多因素验证 - 不支持短信
 - 前端需要自行实现，但相对容易
 
@@ -36,14 +43,12 @@ title: Kratos
   - /self-service/login/browser
 - 注销
 - 验证
- - `/self-service/verification/methods/link?token=${TOKEN}`
+- `/self-service/verification/methods/link?token=${TOKEN}`
 - User Settings
 - Account Recovery
 - Address Verification
 - User-Facing Error
 - 2FA / MFA
-
-
 
 ## 配置
 
@@ -53,53 +58,54 @@ kratos hashers argon2 calibrate 1s
 ```
 
 ## SDK
-* [REST API](https://www.ory.sh/kratos/docs/reference/api/)
-* Go [client](https://github.com/ory/kratos-client-go)
-* Admin
-  * 系统信息接口
-    * /health/alive
-    * /health/ready
-    * /metrics/prometheus
-  * 业务接口
-    * /identities
-    * /recovery/link
-* Public
-  * /schemas/{id}
-  * /self-service/browser/flows/logout
-  * /self-service/browser/flows/registration/strategies/oidc/settings/connections
-  * /self-service/errors?error=string
-  * /version
-  * 登陆/login 流程
-    * /self-service/login/browser - 初始化浏览器登陆流程
-    * /self-service/login/api - 初始化 API 登陆流程
-      * 不要在浏览器使用
-      * 用于 移动设备，智能电视 等
-    * `/self-service/login/flows?flow=string` - 获取注册流程信息
-    * `/self-service/login/methods/password?flow=string` - 完成密码登陆流程
-  * 注册/registration 流程
-    * /self-service/registration/browser
-    * /self-service/registration/api
-    * `/self-service/registration/flows?flow=string`
-    * /self-service/registration/methods/password
-  * 恢复/recovery 流程
-    * /self-service/recovery/browser
-    * /self-service/recovery/api
-    * `/self-service/recovery/flows?id=string`
-    * /self-service/recovery/methods/link
-  * 设置/setting
-    * /self-service/settings/api
-    * /self-service/settings/browser/flows
-    * /self-service/settings/flows?id=string
-    * /self-service/settings/methods/password - 修改密码
-    * /self-service/settings/methods/profile - 修改信息
-  * 验证/verification
-    * /self-service/verification/api
-    * /self-service/verification/browser
-    * /self-service/verification/flows?id=string
-    * /self-service/verification/methods/link
-  * 会话管理
-    * DELETE /sessions - `{"session_token": "string"}`
-    * GET /sessions/whoami
+
+- [REST API](https://www.ory.sh/kratos/docs/reference/api/)
+- Go [client](https://github.com/ory/kratos-client-go)
+- Admin
+  - 系统信息接口
+    - /health/alive
+    - /health/ready
+    - /metrics/prometheus
+  - 业务接口
+    - /identities
+    - /recovery/link
+- Public
+  - /schemas/{id}
+  - /self-service/browser/flows/logout
+  - /self-service/browser/flows/registration/strategies/oidc/settings/connections
+  - /self-service/errors?error=string
+  - /version
+  - 登陆/login 流程
+    - /self-service/login/browser - 初始化浏览器登陆流程
+    - /self-service/login/api - 初始化 API 登陆流程
+      - 不要在浏览器使用
+      - 用于 移动设备，智能电视 等
+    - `/self-service/login/flows?flow=string` - 获取注册流程信息
+    - `/self-service/login/methods/password?flow=string` - 完成密码登陆流程
+  - 注册/registration 流程
+    - /self-service/registration/browser
+    - /self-service/registration/api
+    - `/self-service/registration/flows?flow=string`
+    - /self-service/registration/methods/password
+  - 恢复/recovery 流程
+    - /self-service/recovery/browser
+    - /self-service/recovery/api
+    - `/self-service/recovery/flows?id=string`
+    - /self-service/recovery/methods/link
+  - 设置/setting
+    - /self-service/settings/api
+    - /self-service/settings/browser/flows
+    - /self-service/settings/flows?id=string
+    - /self-service/settings/methods/password - 修改密码
+    - /self-service/settings/methods/profile - 修改信息
+  - 验证/verification
+    - /self-service/verification/api
+    - /self-service/verification/browser
+    - /self-service/verification/flows?id=string
+    - /self-service/verification/methods/link
+  - 会话管理
+    - DELETE /sessions - `{"session_token": "string"}`
+    - GET /sessions/whoami
 
 ## Serve
 

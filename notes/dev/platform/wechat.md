@@ -26,3 +26,7 @@ title: WeChat
 - SQLCipher
 - 解密密码=Left(Md5(IMEI 码+UIN 码),7)
   - IMEI - `*#06#`
+
+## 表情
+- gif 1-104
+  - https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/69.gif

@@ -48,3 +48,14 @@ title: 电信常见问题
   - 迁移到 NB-IoT/4G Cat1
 - 参考
   - [关于 2G 退网，这篇可以说是很全面了](https://network.51cto.com/art/202006/618545.htm)
+
+## UMTS vs GSM
+
+- UMTS
+  - 3G
+  - CDMA-based
+- GSM
+  - 2G, 2.5G
+  - TDMA
+- 参考
+- [Difference between UMTS and GSM](https://www.geeksforgeeks.org/difference-between-umts-and-gsm/)

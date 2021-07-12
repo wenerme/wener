@@ -68,6 +68,7 @@ title: React Awesome
     - 集成了 ACE 编辑器、Markdown 编辑器、DND
     - Search、Suggest、Expression 等查询组件功能强大
 - 其他风格
+  - [mantinedev/mantine](https://github.com/mantinedev/mantine)
   - [grommet/grommet](https://github.com/grommet/grommet)
   - [rebassjs/rebass](https://github.com/rebassjs/rebass)
     - 基于 theme-ui 和 styled-system 的基础组件
