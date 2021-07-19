@@ -8,6 +8,12 @@ title: K8S 常见问题
 
 - [#396](https://github.com/rancher/k3s/issues/396) - Initializing eviction metric for zone
 
+## taint
+
+- node.kubernetes.io/disk-pressure:NoSchedule
+- 为 pod 设置 priorityClassName 确保调度，避免驱逐
+  - system-node-critical,system-cluster-critical
+
 ## 集群限制
 
 - 5000 节点

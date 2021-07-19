@@ -17,8 +17,6 @@ title: OpenRC
 ## /etc/inittab
 
 ```ini
-# /etc/inittab
-
 ::sysinit:/sbin/openrc sysinit
 ::sysinit:/sbin/openrc boot
 ::wait:/sbin/openrc default

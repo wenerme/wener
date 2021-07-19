@@ -147,14 +147,14 @@ title: React Awesome
 
 ## 功能组件
 
+- carousel
+  - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
+    图片浏览
+  - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
+  - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
+  - [akiran/react-slick](https://github.com/akiran/react-slick)
 - [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   - 实现各种 table 功能
-- [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
-  - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
-  - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)
-    - 基于 react-window 实现的 tree 渲染
-- [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
-  - 功能比 react-window 多但包更大
 - [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
   - 异步查询缓存更新
 - [vercel/swr](https://github.com/vercel/swr)
@@ -184,6 +184,16 @@ title: React Awesome
   - Drag & Drop
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)
   - 异步加载组件
+
+### 虚拟滚动
+- [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
+  - 基于 Hook
+- [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
+  - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
+  - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)
+    - 基于 react-window 实现的 tree 渲染
+- [bvaughn/react-virtualized](https://github.com/bvaughn/react-virtualized)
+  - 功能比 react-window 多但包更大
 
 ## 数据校验
 

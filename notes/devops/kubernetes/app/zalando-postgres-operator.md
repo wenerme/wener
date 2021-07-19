@@ -32,7 +32,6 @@ title: zalando/postgres-operator
 
 :::
 
-
 :::caution 备份注意事项
 
 - S3 bukect 是全局的，不支持每个集群独立配置
@@ -328,7 +327,7 @@ spec:
       # 扩展配置
       # https://github.com/dimitri/pgextwlist
       # SHOW extwlist.extensions;
-      # btree_gin,btree_gist,citext,hstore,intarray,ltree,pgcrypto,pgq,pg_trgm,postgres_fdw,tablefunc,uuid-ossp,hypopg,pg_partman
+      # btree_gin,btree_gist,citext,hstore,intarray,ltree,pgcrypto,pgq,pg_trgm,postgres_fdw,tablefunc,uuid-ossp,hypopg,timescaledb,pg_partman
       extensions:
         pg_partman: public
         postgis: data
@@ -446,10 +445,6 @@ spec:
 ```
 
 # FAQ
-
-## Spilo 环境变量
-
-- [ENVIRONMENT](https://github.com/zalando/spilo/blob/master/ENVIRONMENT.rst)
 
 ## S3 相关环境变量
 
@@ -628,6 +623,7 @@ WALE_S3_ENDPOINT=https+path://minio.example.com:443
 - [#1365](https://github.com/zalando/postgres-operator/issues/1365)
 
 # 容器内容
+
 - /home/postgres/
   - pgdata/
     - pgroot/

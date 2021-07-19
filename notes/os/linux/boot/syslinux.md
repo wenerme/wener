@@ -6,9 +6,18 @@ title: Syslinux
 
 - 只支持 X86
 - 分为 extlinux、isolinux
-- 支持 mbr、efi、gpt
+- 支持 mbr
 - 参考
   - [How to install extlinux (syslinux) as a bootloader](https://shallowsky.com/linux/extlinux.html)
+  - [文件系统支持情况](https://wiki.syslinux.org/wiki/index.php?title=Filesystem)
+
+:::caution
+
+- UEFI 支持不好 - 不建议使用
+- 不支持 exFAT
+- 6.04+ 支持 ext4 64bit
+
+:::
 
 ## config
 

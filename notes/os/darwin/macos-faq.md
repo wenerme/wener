@@ -4,6 +4,10 @@ title: macOS FAQ
 
 # macOS 常见问题
 
+## AXIS AX88179 网卡用不了
+
+到官网下载最新驱动 https://asix.com.tw/en/product/USBEthernet/Super-SpeedUSBEthernet/AX88179
+
 ## 窗口只能看到边缘没有 Title 如何拖动
 
 - 鼠标放到边缘，变成箭头

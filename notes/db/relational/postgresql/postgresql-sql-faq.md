@@ -1,5 +1,4 @@
 ---
-id: postgresql-sql-faq
 title: Pg SQL 常见问题
 ---
 
@@ -73,4 +72,23 @@ GROUPING SETS (
     (       c, d ),
     (            )
 )
+```
+
+## function vs procedure
+
+- function
+  - 不可以操作事物
+  - 使用 SELECT 调用
+- procedure
+  - 没有返回值
+  - 有 INOUT 参数
+  - 可以 commit 和 rollback
+  - 使用 CALL 调用
+  - 不可以嵌套到其他 DDL - SELECT,INSERT,UPDATE,DELETE
+
+## 函数返回影响行
+
+```sql
+get diagnostics cnt = row_count;
+return cnt;
 ```

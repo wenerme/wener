@@ -10,3 +10,5 @@ title: Skia
   - 被用于 Chrome, Firefox, LibreOffice 7+, Flutter
 - 参考
   - wikipedia [Skia Graphics Engine](https://en.wikipedia.org/wiki/Skia_Graphics_Engine)
+  - [JetBrains/Skija](https://github.com/JetBrains/Skija)
+    Java binding

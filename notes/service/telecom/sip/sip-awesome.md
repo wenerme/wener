@@ -6,7 +6,7 @@ title: SIP Awesome
 
 - [fonoster/fonos](https://github.com/fonoster/fonos)
   open-source alternative to Twilio
-  - MIT, Nodejs+Resit
+  - MIT, Nodejs+Redis
 - [fonoster/routr](https://github.com/fonoster/routr)
   - MIT, Nodejs+Resit
   - sip proxy, location server, registrar
@@ -16,6 +16,12 @@ title: SIP Awesome
   - 生成呼叫流
 - https://web.archive.org/web/20120106005622/https://www.iptel.org/~sipsc/
 - https://en.wikipedia.org/wiki/List_of_SIP_response_codes
+- SIP Proxy
+  - Kamailio
+  - OpenSIPS
+- PBX
+  - Asterisk
+  - FreeSwitch
 
 ## SIP
 

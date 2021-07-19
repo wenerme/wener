@@ -14,6 +14,15 @@ title: CSS 常见问题
 
 - :empty
 
+## 避免 flex 容器溢出
+
+- 添加 min-width: 0
+- [Why](https://stackoverflow.com/a/66689926/1870054)
+  - 默认 `min-width: auto` 允许元素占用更多空间
+
+## 播放 png 精灵图
+- https://codepen.io/zjun/pen/dGPqzQ
+
 ## display: table 不支持 max-height 和 overflow
 
 - 建议使用 flex 模拟 table
@@ -42,9 +51,7 @@ background: aqua; }
 <!-- language: lang-html -->
 
 <div id="parent">
-  <div id="child">
-    Hello World!
-  </div>
+  <div id="child">Hello World!</div>
 </div>
 
 <!-- end snippet -->
@@ -55,7 +62,8 @@ background: aqua; }
 ```css
 body {
   /* font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif; */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

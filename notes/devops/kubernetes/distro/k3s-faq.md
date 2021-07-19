@@ -1,9 +1,23 @@
 ---
-id: k3s-faq
 title: K3S 常见问题
 ---
 
 # K3S 常见问题
+
+## K3S 网络结构
+
+- 容器 10.42.0.0/16 - 可以 ping 通
+- 服务 10.43.0.0/16 - 不可以 ping
+- 每个节点一个 /24 网络 - 也就是说最多 255 个节点
+- 每个节点最多获取到 255 个 容器 IP 和 服务 IP
+  - 默认限制每个节点 110 个 Pod - 一般来说是足够的
+
+:::caution
+
+- 使用 host-gw, 重启/重建 tun 设备后路由丢失，目前通过重启 k3s 服务解决。
+  - [flannel-io/flannel#1070](https://github.com/flannel-io/flannel/issues/1070)
+
+:::
 
 ## 访问 K3S 的 ETCD
 

@@ -14,6 +14,12 @@ title: WeChat
 - [chanxuehong/wechat.v2](https://github.com/chanxuehong/wechat.v2)
   - 微信 Go SDK
 
+## 接口
+
+- [huan/docker-wechat](https://github.com/huan/docker-wechat)
+  - Wine
+- [UOS Web 协议](https://wechaty.js.org/2021/04/13/wechaty-uos-web/)
+
 ## 备份
 
 - [BlueMatthew/WechatExporter](https://github.com/BlueMatthew/WechatExporter)
@@ -23,10 +29,31 @@ title: WeChat
 
 ## EnMicroMsg
 
-- SQLCipher
+- SQLCipher3
 - 解密密码=Left(Md5(IMEI 码+UIN 码),7)
   - IMEI - `*#06#`
+- [chg-hou/EnMicroMsg.db-Password-Cracker](https://github.com/chg-hou/EnMicroMsg.db-Password-Cracker)
 
 ## 表情
+
 - gif 1-104
   - https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/69.gif
+
+## macOs
+
+- ~/Library/Containers/com.tencent.xinWeChat/
+  - Data/Library/Application Support/com.tencent.xinWeChat/
+    - 版本/
+- 参考
+  - LLDB 获取 SQLCipher 密钥
+    - http://xferris.cn/dao-chu-wei-xin-bei-fen-de-mac/
+      - backup 时获取
+    - https://www.v2ex.com/t/466053
+      - 登陆时获取
+
+```bash
+ls ~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/com.tencent.xinWeChat/*/*/Message/*.db
+
+# 判断最大的目录
+du -s * | sort -h
+```

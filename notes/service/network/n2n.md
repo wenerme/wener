@@ -49,6 +49,51 @@ nc -u 127.0.0.1 5645
 nc -u 127.0.0.1 5644
 ```
 
+## 选项
+
+**edge 2.8**
+
+| flag              | param        | desc                                                      |
+| ----------------- | ------------ | --------------------------------------------------------- |
+| -d                | tun device   | tun 设备名字 - 否则就是 tun0 这样的名字                   |
+| -a                | mode:address | 地址 - DHCP 可使用 '-r -a dhcp:0.0.0.0'                   |
+| -c                | community    | community 名字                                            |
+| -k                | encrypt key  | N2N_KEY                                                   |
+| -s                | netmask      | 掩码 - 255.255.255.0 格式                                 |
+| -l,supernode-list | host:port    | Supernode 地址:端口                                       |
+| -i                | reg_interval | 注册间隔，用于 NAT 穿透 - 默认 20 秒                      |
+| -L                | reg_ttl      | NAT 穿透 时 UDP 注册的 TTL - 默认 0 未设置                |
+| -p                | local port   | 本地固定 UDP 端口                                         |
+| -u                | UID          | 运行 UID                                                  |
+| -g                | GID          | 运行 GID                                                  |
+| -f                |              | 前台运行                                                  |
+| -m                | MAC address  | 固定 mac 地址                                             |
+| -M                | mtu          | 接口 MTU - 默认 1290                                      |
+| -D                |              | 启用 PMTU 发现 - 支持场景可减少分包，不支持可能导致包延时 |
+| -r                |              | 启用包转发                                                |
+| -H                |              | 头加密 - 要求 supernode 配置固定 community                |
+| -z,z1,z2          |              | 包压缩 - -z1 or -z = lzo1x (default=disabled).            |
+| -E                |              | 支持多播 MAC - 默认丢弃                                   |
+| -S                |              | 不尝试 P2P - 通过 supernode 中转                          |
+| -T                | tos          | TOS for packets - 例如 SSH 为 0x48                        |
+| -n                | cidr:gateway | 路由给定网络 - 可使用 0.0.0.0/0 路由默认网络              |
+| -v                |              | 详细日志 - 可多次指定                                     |
+| -t                | port         | 管理 UDP 端口                                             |
+
+### 加密
+
+- n2n 内建算法 - 也可以编译的时候 link openssl
+- 通过 `-k $KEY` 或者 N2N_KEY 提供密钥
+- 默认 -A3/AES
+- -A1 为不加密，不提供 `-k` 时的默认
+
+| Flag |  Cipher  | Mode | Block Size |     Key Size      | IV length | Speed | Built-In | Origin                                    |
+| :--: | :------: | :--: | :--------: | :---------------: | :-------: | :---: | -------- | ----------------------------------------- |
+| -A2  | Twofish  | CTS  |  128 bits  |      256 bit      |  128 bit  | -..O  | Y        | Bruce Schneier                            |
+| -A3  |   AES    | CTS  |  128 bits  | 128, 192, 256 bit |  128 bit  | O..+  | Y        | Joan Daemen, Vincent Rijmen, NSA-approved |
+| -A4  | ChaCha20 | CTR  |   Stream   |      256 bit      |  128 bit  | +..++ | Y        | Daniel J. Bernstein                       |
+| -A5  |  SPECK   | CTR  |   Stream   |      256 bit      |  128 bit  |  ++   | Y        | NSA                                       |
+
 ## NOTES
 
 - 多个 supernode 可组联邦 - community=\*Federation
@@ -69,17 +114,3 @@ nc -u 127.0.0.1 5644
   - 开启 头 加密后名字不能使用正则 - 只能是固定名字
     - 可以使用 `.*` 来允许任意
   - 可被认为是简单的密码 - 只有知道 community 才能加入网络
-
-## 加密
-
-- n2n 内建算法 - 也可以编译的时候 link openssl
-- 通过 `-k $KEY` 或者 N2N_KEY 提供密钥
-- 默认 -A3/AES
-- -A1 为不加密，不提供 `-k` 时的默认
-
-| Flag |  Cipher  | Mode | Block Size |     Key Size      | IV length | Speed | Built-In | Origin                                    |
-| :--: | :------: | :--: | :--------: | :---------------: | :-------: | :---: | -------- | ----------------------------------------- |
-| -A2  | Twofish  | CTS  |  128 bits  |      256 bit      |  128 bit  | -..O  | Y        | Bruce Schneier                            |
-| -A3  |   AES    | CTS  |  128 bits  | 128, 192, 256 bit |  128 bit  | O..+  | Y        | Joan Daemen, Vincent Rijmen, NSA-approved |
-| -A4  | ChaCha20 | CTR  |   Stream   |      256 bit      |  128 bit  | +..++ | Y        | Daniel J. Bernstein                       |
-| -A5  |  SPECK   | CTR  |   Stream   |      256 bit      |  128 bit  |  ++   | Y        | NSA                                       |

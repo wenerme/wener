@@ -58,15 +58,22 @@ Why No directories.lib in Node
 - https://docs.npmjs.com/cli/v6/configuring-npm/npmrc
 
 ```ini
-registry=https://registry.npm.taobao.org
-
-disturl=https://npm.taobao.org/dist
-chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
-operadriver_cdnurl=http://cdn.npm.taobao.org/dist/operadriver
-phantomjs_cdnurl=http://cdn.npm.taobao.org/dist/phantomjs
-fse_binary_host_mirror=https://npm.taobao.org/mirrors/fsevents
-sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
-electron_mirror=http://cdn.npm.taobao.org/dist/electron/
+# package-lock=false
+registry="https://registry.npm.taobao.org"
+disturl="https://npm.taobao.org/dist"
+chromedriver_cdnurl="https://npm.taobao.org/mirrors/chromedriver"
+electron_mirror="http://npm.taobao.org/mirrors/electron/"
+fse_binary_host_mirror="https://npm.taobao.org/mirrors/fsevents"
+node_inspector_cdnurl="https://npm.taobao.org/mirrors/node-inspector"
+nodejs_org_mirror="http://npm.taobao.org/mirrors/node"
+nvm_nodejs_org_mirror="http://npm.taobao.org/mirrors/node"
+operadriver_cdnurl="https://npm.taobao.org/mirrors/operadriver"
+phantomjs_cdnurl="https://npm.taobao.org/mirrors/phantomjs"
+profiler_binary_host_mirror="http://npm.taobao.org/mirrors/node-inspector/"
+puppeteer_download_host="https://npm.taobao.org/mirrors"
+sass_binary_site="http://npm.taobao.org/mirrors/node-sass"
+selenium_cdnurl="http://npm.taobao.org/mirrors/selenium"
+SQLITE3_BINARY_SITE="http://npm.taobao.org/mirrors/sqlite3"
 ```
 
 ```bash

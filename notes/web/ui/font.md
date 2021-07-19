@@ -2,7 +2,6 @@
 
 ## Tips
 
-- https://fonts.google.com/
 - https://en.wikipedia.org/wiki/Monospaced_font
 - https://en.wikipedia.org/wiki/Web_Open_Font_Format
   - 是对 SNFT 类型字体(TrueType,Opentype)的封装

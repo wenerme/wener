@@ -23,6 +23,14 @@ title: WebRTC Awesome
 - [peers/peerjs](https://github.com/peers/peerjs)
   - MIT, Typescript
 - [peers/peerjs-server](https://github.com/peers/peerjs-server)
+- [livekit/livekit-server](https://github.com/livekit/livekit-server)
+  Distributed audio/video rooms over WebRTC
+  - Apache-2.0, Go
+
+## Server
+
+- [meetecho/janus-gateway](https://github.com/meetecho/janus-gateway)
+  - GPL-3.0, C
 
 ## 参考/References
 

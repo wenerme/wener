@@ -1,31 +1,20 @@
 ---
-id: electron
 title: Electron
 ---
 
-
 # Electron
 
-## Tips
-* [中文](https://github.com/electron/electron/blob/master/docs-translations/zh-CN/project/README.md)
-  * [文档](https://github.com/electron/electron/tree/master/docs-translations/zh-CN)
-* 应用
-  * [angular/angular-electron](https://github.com/angular/angular-electron)
-  * [joaogarin/angular-electron](https://github.com/joaogarin/angular-electron)
-    * 更新
-  * [akveo/ng2-admin](https://github.com/akveo/ng2-admin)
-    * Angular admin dashboard framework
-* 参考
-  * [AngularClass/awesome-angular](https://github.com/AngularClass/awesome-angular)
-  * [When a rewrite isn’t: rebuilding Slack on the desktop](https://slack.engineering/308d6fe94ae4)
-    * Slack 资源占用降低
-      * 2G -> 300M
-    * 问题
-      * 基于 HTML 模板的手动 DOM 更新 - 重构为使用 React - 响应式更新
-      * 过早的数据家在 - 数据缓存、所有数据都假设为懒加载
-      * 每个工作空间是一个独立进程 - 重构为单进程、组件感知工作空间 - 完全重写
-* Tray 使用 16x16 的 ICON
-* https://electronjs.org/docs/api/native-image
+- [electron/electron](https://github.com/electron/electron)
+- 参考
+  - [When a rewrite isn’t: rebuilding Slack on the desktop](https://slack.engineering/308d6fe94ae4)
+    - Slack 资源占用降低
+      - 2G -> 300M
+    - 问题
+      - 基于 HTML 模板的手动 DOM 更新 - 重构为使用 React - 响应式更新
+      - 过早的数据加载 - 数据缓存、所有数据都假设为懒加载
+      - 每个工作空间是一个独立进程 - 重构为单进程、组件感知工作空间 - 完全重写
+- Tray 使用 16x16 的 ICON
+- https://electronjs.org/docs/api/native-image
 
 tray
 https://medium.com/@nahoc/lets-build-a-system-tray-cryptocurrency-tracker-for-mac-using-electron-part-1-7888747891b
@@ -67,32 +56,73 @@ iconutil -c icns app-icon.iconset
 rm -R app-icon.iconset
 ```
 
+## Notes
+
+- [发布时间线和版本关系](https://www.electronjs.org/docs/tutorial/electron-timelines)
+- 上下文隔离 - Electron 12+ 默认开启
+  - 开启后 preload 访问的 window 不是实际的 window
+  - 通过 contextBridge 交互
+- Fuses - Package time feature toggles
+- MessagePort - 类似 window.postMessage，但指定 MessageChannel
+  - 浏览器自有接口
+  - 使用 ipcRenderer.postMessage 和 WebContents.postMessage 进行交互
+  - electron 在主进程支持 MessagePortMain, MessageChannelMain 实现类似语意
+  - 新增 close
+
+默认 userAgent 包含了 electron 版本信息，可自定义
+
+```js
+function createWindow() {
+  win = new BrowserWindow({ width: 800, height: 600 });
+  win.loadURL('http://www.whoishostingthis.com/tools/user-agent/', { userAgent: 'Chrome' });
+
+  win.on('closed', () => {
+    win = null;
+  });
+}
+```
+
+#### 主进程
+
+- BrowserWindow - 窗口
+- BrowserView - 视图
+- ipcMain - 通讯
+- webContents - 页面渲染和控制
+- webFrame - 自定义当前页面渲染
+- webFrameMain - 控制页面也 iframe
+- WebRequest - 拦截和修改请求
+- session - 管理浏览器会话、cookie、缓存、代理设置
+
+#### 渲染进程
+
+- ipcRenderer - 通讯
 
 ## FAQ
 
 ### vs NW.js vs Neutralinojs
-* [neutralinojs/evaluation](https://github.com/neutralinojs/evaluation) - Neutralinojs vs Electron vs Nw.js
-* [Electron vs NW](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
-* [Why I prefer NW.js over Electron? ](https://hackernoon.com/e60b7289752)
-  * 支持 chrome.* 接口
-  * 支持 chrome 扩展
-  * 支持 bytecode
-    * electron 可以自己手动添加
-  * 支持移除 dev 工具
-  * 支持旧系统
-  * 入口可以是 js 或 html
-  * 原生 PDF 插件
-  * 最新版 Chromium
-  * NW.js 支持直接使用 --url 打开一个页面
-* Electron
-  * 内建自动更新
-  * 更大的社区
-  * 对 gyp 模块支持的更好
-    * electron-rebuild
 
+- [neutralinojs/evaluation](https://github.com/neutralinojs/evaluation) - Neutralinojs vs Electron vs Nw.js
+- [Electron vs NW](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
+- [Why I prefer NW.js over Electron? ](https://hackernoon.com/e60b7289752)
+  - 支持 chrome.\* 接口
+  - 支持 chrome 扩展
+  - 支持 bytecode
+    - electron 可以自己手动添加
+  - 支持移除 dev 工具
+  - 支持旧系统
+  - 入口可以是 js 或 html
+  - 原生 PDF 插件
+  - 最新版 Chromium
+  - NW.js 支持直接使用 --url 打开一个页面
+- Electron
+  - 内建自动更新
+  - 更大的社区
+  - 对 gyp 模块支持的更好
+    - electron-rebuild
 
 ### Mac 打包后非常大
-* [electron/electron#2003](https://github.com/electron/electron/issues/2003)
+
+- [electron/electron#2003](https://github.com/electron/electron/issues/2003)
 
 ```
 osx       - 117.3 mb

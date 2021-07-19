@@ -5,29 +5,30 @@ title: Libvirt常见问题
 
 # Libvirt FAQ
 
-* domain [xml](https://libvirt.org/formatdomain.html)
-* 网络 [xml](https://libvirt.org/formatnetwork.html)
-* 注意
-  * uuid 和 mac 类字段如果没有，则导入的时候生成
-  * 不要使用非 root virsh
-* 三种配置状态
-  * live - 运行状态
-    * 修改立即生效
-  * inactive - 不活跃的状态
-    * 修改需要重启后生效
-  * current - 当前状态
-    * 指向 live 或 inactive
+- domain [xml](https://libvirt.org/formatdomain.html)
+- 网络 [xml](https://libvirt.org/formatnetwork.html)
+- 注意
+  - uuid 和 mac 类字段如果没有，则导入的时候生成
+  - 不要使用非 root virsh
+- 三种配置状态
+  - live - 运行状态
+    - 修改立即生效
+  - inactive - 不活跃的状态
+    - 修改需要重启后生效
+  - current - 当前状态
+    - 指向 live 或 inactive
 
 ## CPU 资源配额
-* 参考 [CPUTuning](https://libvirt.org/formatdomain.html#elementsCPUTuning)
-* shares - 每个 vCPU
-* period、quota - 每个 vCPU，但会首 quota 定义限制
-* emulator_period、emulator_quota - 每个模拟线程，主机 40-80% 性能
+
+- 参考 [CPUTuning](https://libvirt.org/formatdomain.html#elementsCPUTuning)
+- shares - 每个 vCPU
+- period、quota - 每个 vCPU，但会首 quota 定义限制
+- emulator_period、emulator_quota - 每个模拟线程，主机 40-80% 性能
 
 ## 重启网络
 
-* https://aboullaite.me/effectively-restarting-kvm-libvirt-network/
-  * https://github.com/aboullaite/useful-scripts/blob/master/kvm-restart-network.sh
+- https://aboullaite.me/effectively-restarting-kvm-libvirt-network/
+  - https://github.com/aboullaite/useful-scripts/blob/master/kvm-restart-network.sh
 
 ```bash
 NET_NAME=default
@@ -56,7 +57,8 @@ done
 ```
 
 ## 处理 libvirt hang 的问题
-* https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602
+
+- https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602
 
 ```bash
 if [ "$1" = 'start' ]; then
@@ -86,7 +88,6 @@ else
   printf "Usage $0: start | stop\n"
 fi
 ```
-
 
 ## 实时修改网络配置
 
@@ -118,6 +119,7 @@ virsh undefine vm
 ```
 
 ## host-model vs host-passthrough
+
 https://www.reddit.com/r/VFIO/comments/a20bf7/hostmodel_vs_hostpassthrough_super_poor_cache/
 
 ## 动态 CPU 和内存
@@ -150,7 +152,7 @@ https://www.reddit.com/r/VFIO/comments/a20bf7/hostmodel_vs_hostpassthrough_super
 
 ## console 没有终端
 
-__确保定义有Serial__
+**确保定义有 Serial**
 
 ```xml
 <serial type='pty'>
@@ -173,11 +175,11 @@ console=tty0 console=ttyS0
 console=ttyS0,19200 earlyprint=serial,ttyS0,19200
 ```
 
-
 ## guest CPU doesn't match specification: missing features: spec-ctrl,stibp,ssbd
-* https://www.berrange.com/posts/2018/06/29/cpu-model-configuration-for-qemu-kvm-on-x86-hosts/
-* https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/x86/include/asm/cpufeatures.h
-* https://unix.stackexchange.com/questions/43539/what-do-the-flags-in-proc-cpuinfo-mean
+
+- https://www.berrange.com/posts/2018/06/29/cpu-model-configuration-for-qemu-kvm-on-x86-hosts/
+- https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/x86/include/asm/cpufeatures.h
+- https://unix.stackexchange.com/questions/43539/what-do-the-flags-in-proc-cpuinfo-mean
 
 ```xml
 <!-- 最简单的修复方式是使用主机的模型 -->
@@ -203,7 +205,6 @@ console=ttyS0,19200 earlyprint=serial,ttyS0,19200
     <feature policy='require' name='ssbd'/>
   </cpu>
 
-
 ## 获取主机 IP
 
 ```bash
@@ -214,6 +215,7 @@ arp -a | grep $MAC | awk '{ print $2 }' | sed ‘s/[()]//g’
 ```
 
 ## 克隆主机的注意事项
+
 ```bash
 # 持久化的网卡信息 - alpine 默认没有
 rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -222,7 +224,7 @@ rm -f /etc/udev/rules.d/70-persistent-net.rules
 rm -rf /etc/ssh/ssh_host_*
 ```
 
-* [CLONING VIRTUAL MACHINES](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/cloning_virtual_machines)
+- [CLONING VIRTUAL MACHINES](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/cloning_virtual_machines)
 
 ## 网络
 
@@ -251,8 +253,9 @@ rm -rf /etc/ssh/ssh_host_*
 ```
 
 ### 基本配置
-* connections - 当前连接数 在运行中的网络看得到
-* libvirt 会维护一个 dnsmasq 实例
+
+- connections - 当前连接数 在运行中的网络看得到
+- libvirt 会维护一个 dnsmasq 实例
 
 ```xml
 <network ipv6='yes' trustGuestRxFilters='no' connections='10'>
@@ -316,8 +319,9 @@ rm -rf /etc/ssh/ssh_host_*
 ```
 
 ### 使用 macvtap
-* 类似于桥接，但不需要主机存在桥接网卡
-* 主机该网卡与虚拟机不互通
+
+- 类似于桥接，但不需要主机存在桥接网卡
+- 主机该网卡与虚拟机不互通
 
 ```xml
 <network>
@@ -328,7 +332,6 @@ rm -rf /etc/ssh/ssh_host_*
   </forward>
 </network>
 ```
-
 
 ### 使用主机网卡
 
@@ -347,6 +350,7 @@ rm -rf /etc/ssh/ssh_host_*
 ```
 
 ### 使用主机网卡下挂载的虚拟网卡
+
 ```xml
 <network>
   <name>host-passthrough-vnet</name>
@@ -359,8 +363,9 @@ rm -rf /etc/ssh/ssh_host_*
 ## 域
 
 ### 显存调整
-* kvm 可以使用 cirrus 做更好的显示
-* 注意显存大小 - 过小会导致显示出问题
+
+- kvm 可以使用 cirrus 做更好的显示
+- 注意显存大小 - 过小会导致显示出问题
 
 ```xml
 <video>
@@ -370,6 +375,7 @@ rm -rf /etc/ssh/ssh_host_*
 ```
 
 ### 动态内存
+
 ```xml
 <maxMemory slots='16' unit='GiB'>16</maxMemory>
 <!-- memory 和 currentMemory 参数可选 -->
@@ -384,16 +390,17 @@ rm -rf /etc/ssh/ssh_host_*
 </cpu>
 ```
 
-* [Memory hotplug with Qemu/KVM and libvirt](https://medium.com/@juergen_thomann/558f1c635972)
+- [Memory hotplug with Qemu/KVM and libvirt](https://medium.com/@juergen_thomann/558f1c635972)
 
 ## memory ballooning
-* https://www.linux-kvm.org/page/Projects/auto-ballooning
-* `-device virtio-balloon,automatic=true`
-* deflate-on-oom=on
-* https://libvirt.org/formatdomain.html#elementsMemBalloon
-* 默认添加
-* When you use KVM and want to overcommit memory you can try to enable “kernel same-page merging” (KSM) in the linux kernel on the hypervisor.
-* https://packages.debian.org/stretch/ksmtuned
+
+- https://www.linux-kvm.org/page/Projects/auto-ballooning
+- `-device virtio-balloon,automatic=true`
+- deflate-on-oom=on
+- https://libvirt.org/formatdomain.html#elementsMemBalloon
+- 默认添加
+- When you use KVM and want to overcommit memory you can try to enable “kernel same-page merging” (KSM) in the linux kernel on the hypervisor.
+- https://packages.debian.org/stretch/ksmtuned
 
 ```xml
 <memballoon model='virtio' autodeflate='on'>

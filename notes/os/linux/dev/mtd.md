@@ -3,18 +3,19 @@ title: mtd
 ---
 
 # mtd
-* 是什么？
-  * memory technology device - Linux 访问 内存设备(rom, flash) 的子系统
-  * 常用于嵌入式设备 Flash 存储
-* [mtd-utils](http://www.linux-mtd.infradead.org/)
-* flash, jffs, nand, ubi
-* `/dev/mtdN` - 字符设备
-  * ioctl
-  * MEMGETINFO, MEMERASE
-* `/dev/mtdblockN` - 伪装块设备
-* 参考
-  * https://my.oschina.net/shelllife/blog/123482
-  * https://unix.stackexchange.com/questions/513415
+
+- 是什么？
+  - memory technology device - Linux 访问 内存设备(rom, flash) 的子系统
+  - 常用于嵌入式设备 Flash 存储
+- [mtd-utils](http://www.linux-mtd.infradead.org/)
+- flash, jffs, nand, ubi
+- `/dev/mtdN` - 字符设备
+  - ioctl
+  - MEMGETINFO, MEMERASE
+- `/dev/mtdblockN` - 伪装块设备
+- 参考
+  - https://my.oschina.net/shelllife/blog/123482
+  - https://unix.stackexchange.com/questions/513415
 
 ```bash
 # 查看 mtd 和 ubi 分区

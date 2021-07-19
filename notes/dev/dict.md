@@ -381,3 +381,10 @@ title: 开发用词字典
 - preferences
   - 由用户行为操作发生变化
   - 强调偏好 - 有主体 - 通常为用户
+
+## picture vs image
+
+- picture - 图片
+  - 更多指打印的，物理的
+- image - 图像
+  - 更多指数字的，光学成像产生的

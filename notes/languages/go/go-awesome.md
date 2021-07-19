@@ -141,6 +141,8 @@ title: Go Awesome
     - Function as a Service 场景 - 没有链接概念，需要支持通知
     - 聊天产品、实时通知、消息集成、事件驱动
     - 类似于 Kafka，但是是面向 C 端产品
+- [gobwas/ws](https://github.com/gobwas/ws)
+  Tiny WebSocket library for Go
 
 ### Misc
 
@@ -148,6 +150,8 @@ title: Go Awesome
   - 重写的 net/http 处理
   - 注重性能
   - Zero memory allocations in hot paths. Up to 10x faster than net/http
+- [golobby/container](https://github.com/golobby/container)
+  - IoC Container
 
 ## 代码生成
 

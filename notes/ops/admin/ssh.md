@@ -1,5 +1,4 @@
 ---
-id: ssh
 title: SSH
 ---
 

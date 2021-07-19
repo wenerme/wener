@@ -18,6 +18,7 @@ title: 版本历史
 
 - 3.15 预计会支持 riscv64
 - s6 开发者在为 alpine 开发 openrc 后继服务管理
+  - [A new service manager for Linux distributions](https://skarnet.com/projects/service-manager.html)
 - Linux 5.13 后可能支持 Apple M1
   - 可能会新增 linux-m1 内核
   - 16K page

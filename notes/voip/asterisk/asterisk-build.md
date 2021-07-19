@@ -10,7 +10,7 @@ title: Build Asterisk
     - meetme -> ConfBridge
 - alpine 能安装 18 - 最新  lts 版 - 但有些场景可能 crash
   - 可以考虑基于 frolvlad/alpine-glibc 从新构建
-  - 没有 codec_opus_open_source
+  - 没有 codec_opus_open_source - [#12808](https://gitlab.alpinelinux.org/alpine/aports/-/issues/12808)
 - 如果需要 certificated asterisk 版本只能自己构建
 - 参考
   - aports [main/asterisk/APKBUILD](https://github.com/alpinelinux/aports/blob/master/main/asterisk/APKBUILD)

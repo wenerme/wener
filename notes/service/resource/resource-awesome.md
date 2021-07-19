@@ -50,17 +50,11 @@ wget --recursive --page-requisites --adjust-extension --span-hosts --convert-lin
 - HMAX - HBO Max
 - NF - Netflix
 - WEBRip
+  - 从网站捕捉或录制的 - 经过额外编码
+- WEB-DL
+  - 从网站直接下载 - 未额外编码
+  - 一般优于 WEBRip
 - WEB
-- 720p
-- 1080p
-- DD2.0
-- h264
-- x264
-- x265
-- 10bit
-- HDR
-- TrueHD
-- DDP5.1
 - Remux > BDrip > BRrip
 - blu-ray remux
   - remux is downsized: same quality movie without extra features
@@ -71,4 +65,16 @@ wget --recursive --page-requisites --adjust-extension --span-hosts --convert-lin
   - compressed version of an already ripped Blu-ray disc.
 - BDrip
   - movie ripped directly from a Blu-ray disc
+  - 优于 WEB-DL
 - BD - Blu-ray disc
+- 720p
+- 1080p
+- DD2.0
+- h264
+- x264
+- x265 HEVC
+- 10bit
+- HDR
+- TrueHD
+- DDP5.1
+

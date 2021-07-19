@@ -59,6 +59,24 @@ brew install git-flow-avh
 
 ## FAQ
 
+## 分支操作
+```bash
+git branch --current-branch
+git branch --set-upstream-to=origin/branch
+
+git branch -av
+
+# 查看分支引用关系
+git rev-parse --abbrev-ref --symbolic-full-name 3.13-stable
+git for-each-ref --format='%(upstream:short)' "$(git symbolic-ref -q HEAD)"
+
+git remote show origin
+# 修改当前
+git branch --set-upstream-to=origin/branch
+# 修改其他分支
+git branch 3.14-stable --set-upstream-to=origin/branch
+```
+
 ## 切换分支但不捡出文件
 
 ```bash

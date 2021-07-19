@@ -1,5 +1,4 @@
 ---
-id: thanos
 title: Thanos
 ---
 
@@ -270,7 +269,7 @@ thanos compact \
 ```bash
 # 查看 bucket 分布情况
 # http://localhost:10902/
-thanos tools bucket web --objstore.config-file=truth-bucket.yaml
+thanos tools bucket web --objstore.config-file=thanos-bucket.yaml
 
 # 查看 bucket
 thanos tools bucket ls
@@ -287,6 +286,11 @@ thanos tools bucket mark --id 01EJD9PS4P3MJMF3TGJGTJTE25 --marker deletion-mark.
 # 立即清除被 mark bucket
 # 默认由 compactor 来清理
 thanos tools bucket cleanup
+
+# 筛选 1 年的 id
+thanos tools bucket inspect --log.level error --objstore.config-file=thanos-store.yaml | grep -P '\d\d-\d\d-2020' | grep -vP '\d\d-2021' | cut -d '|' -f 2 | tr -d ' ' > ids.txt
+# 批量标记删除 - 需要有 compact 实际删除 - 或者执行 compact --delete-delay=0
+cat ids.txt | sed 's/^/--id=/' | xargs thanos tools bucket mark --marker deletion-mark.json --details 'delete' --objstore.config-file=thanos-store.yaml
 ```
 
 ## 缓存配置
@@ -415,6 +419,22 @@ config:
 ```
 
 ## FAQ
+
+## Expire
+
+```bash
+# --delete-delay=0 - 立即删除 - 默认 48h
+thanos compact \
+  --http-address=0.0.0.0:12902 \
+  --data-dir=thanos-compact \
+  --objstore.config-file=thanos-store.yaml \
+  --wait \
+  --compact.concurrency=32 \
+  --retention.resolution-raw=30d \
+  --retention.resolution-5m=90d \
+  --retention.resolution-1h=180d \
+  --delete-delay=0
+```
 
 ## Sidecar 上传历史文件
 

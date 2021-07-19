@@ -98,7 +98,7 @@ https://unix.stackexchange.com/questions/34140/tell-fs-to-free-space-from-delete
 https://serverfault.com/questions/232525/df-in-linux-not-showing-correct-free-space-after-file-removal/232526
 
 ls -l /proc/*/fd/ | grep deleted
-lsof +L1 
+lsof +L1
 
 df -ah
 du -sh

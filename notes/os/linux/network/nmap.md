@@ -50,3 +50,17 @@ man ncat
 # NCAT_PROTO
 ncat -l localhost 8080 --sh-exec "ncat wener.me 80"
 ```
+
+## scripts
+
+- [Service and Application Version Detection](https://nmap.org/book/vscan.html)
+
+```bash
+# 自动扫描
+nmap -v -sV -p 30543 127.0.0.1
+
+# 基于 port 信息匹配协议
+nmap -v --script brute -sV -p 5432 <ip>
+# + skip version detection - force script run
+nmap -v --script +pgsql-brute -p 5432 <ip>
+```

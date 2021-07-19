@@ -31,12 +31,15 @@ title: OS Awesome
 
 - [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
 
-## Distro
+## Linux Distro
 
 - [lakka.tv](http://www.lakka.tv/)
-  - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
+  - 电视、复古游戏
   - 基于 LibreELEC, RetroArch
+  - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
   - [libretro/RetroArch](https://github.com/libretro/RetroArch)
+- [reactos](https://github.com/reactos/reactos)
+  - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
 
 ## Kernel
 
@@ -57,3 +60,14 @@ title: OS Awesome
 - [uxn](https://100r.co/site/uxn.html)
   portable 8-bit virtual computer
 - [VitorVilela7/wide-snes](https://github.com/VitorVilela7/wide-snes)
+- [Myself086/Project-Nested](https://github.com/Myself086/Project-Nested)
+  - NES emulator running on SNES
+- [NES Architecture](https://www.copetti.org/writings/consoles/nes/)
+- [SNES Architecture](https://www.copetti.org/writings/consoles/super-nintendo/)
+- [GBA Architecture](https://www.copetti.org/writings/consoles/game-boy/)
+- [NMOS 6502 Opcodes](http://www.6502.org/tutorials/6502opcodes.html)
+- [Statically Recompiling NES Games into Native Executables with LLVM and Go](https://andrewkelley.me/post/jamulator.html)
+- wikipedia [MOS Technology 6502](https://en.wikipedia.org/wiki/MOS_Technology_6502)
+- [ROM Hack](https://www.romhacking.net/)
+- [The Cutting Room Floor](https://tcrf.net/)
+- [C64 BASIC & KERNAL ROM Disassembly](https://www.pagetable.com/c64ref/c64disasm/)

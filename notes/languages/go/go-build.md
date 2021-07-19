@@ -6,6 +6,7 @@ title: Go Build
 
 - [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
 - [Go package guidelines](https://wiki.archlinux.org/title/Go_package_guidelines)
+- 常用 `-trimpath -ldflags '-s -w -extldflags "-static"'`
 
 :::caution
 

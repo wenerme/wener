@@ -85,3 +85,18 @@ Sec-WebSocket-Protocol: sip
 Sec-WebSocket-Version: 13
 Upgrade: websocket
 ```
+
+## a 的 download 不生效
+
+- 如果 HTTP 有 Content-Disposition 头 则优先
+- 非 same-origin download 属性无效
+
+可以选择预先下载 base64 然后下载
+
+```html
+<!-- same orgin -->
+<a href="/wp-content/uploads/file.mp4" download="file.mp4">
+  <!-- pre-download -->
+  <a download href="data:application/octet-stream;base64,PD94ANDSOON">Download Me</a></a
+>
+```

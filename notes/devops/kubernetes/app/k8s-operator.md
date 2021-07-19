@@ -1,8 +1,12 @@
+---
+title: Kubernetes Operators
+---
+
 # Kubernetes Operators
 
-## Tips
-
 - [operator-framework/awesome-operators](https://github.com/operator-framework/awesome-operators)
+- [banzaicloud/logging-operator](https://github.com/banzaicloud/logging-operator)
+  Logging operator for Fluentd and FluentBit
 
 | application  | operator                                                                                              |
 | ------------ | ----------------------------------------------------------------------------------------------------- |

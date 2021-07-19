@@ -5,14 +5,18 @@ title: Thanos 版本
 # Thanos 版本
 
 ## 0.21
+
 - api 添加 tls 和 basic auth
 - ui 支持 暗黑主题
+- label matcher
 
 ## 0.20
+
 - query 联邦 exemplars 接口
 - ui 默认 react 版
 
 ## 0.19
+
 - frontend 添加 --query-range.request-downsampled
   - 响应为空或不完整时请求下采样的数据
 - cache 支持内存缓存 bucket

@@ -5,34 +5,61 @@ title: Yarn
 
 # Yarn
 
-## Tips
-* [nohoist in Workspaces](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/)
+- [nohoist in Workspaces](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/)
 
 ```bash
 # $HOME/.yarn/global
 yarn global dir
+# 可升级依赖
+yarn outdated
+# 升级依赖
+yarn upgrade
+```
+
+## .yarnrc
+
+```
+registry "https://registry.npm.taobao.org"
+disturl "https://npm.taobao.org/dist"
+
+network-timeout 60000
+
+chromedriver_cdnurl "http://cdn.npm.taobao.org/dist/chromedriver"
+electron_mirror "http://cdn.npm.taobao.org/dist/electron/"
+fse_binary_host_mirror "https://npm.taobao.org/mirrors/fsevents"
+node_inspector_cdnurl "https://npm.taobao.org/mirrors/node-inspector"
+NODEJS_ORG_MIRROR "http://npm.taobao.org/mirrors/node"
+nvm_nodejs_org_mirror "http://npm.taobao.org/mirrors/node"
+operadriver_cdnurl "https://npm.taobao.org/mirrors/operadriver"
+phantomjs_cdnurl "https://npm.taobao.org/mirrors/phantomjs"
+profiler_binary_host_mirror "http://npm.taobao.org/mirrors/node-inspector/"
+puppeteer_download_host "https://npm.taobao.org/mirrors"
+sass_binary_site "http://npm.taobao.org/mirrors/node-sass"
+selenium_cdnurl "http://npm.taobao.org/mirrors/selenium"
+SQLITE3_BINARY_SITE "http://npm.taobao.org/mirrors/sqlite3"
 ```
 
 ## berry
-* 为什么用 yarn2
-  * 没有 node_moduels
-  * 依赖以压缩包形式存在
-    * 占用空间更少
-    * 文件数少
-  * 依赖压缩包不可变
-    * 缓存
-    * 构建更加快速
-    * 能实现离线安装构建
-  * 访问界限更加严谨
-    * 如果没有定义依赖，则 impor 会失败
-    * node_moduels 时只要有都能 import
-  * 构建速度更快
-  * 支持插件
-  * 新增 dlx 命令 - 等同于 `npm dlx`
-* 所有 .yarnrc.yml 中的配置都可以用环境变量
-  * 例如 YARN_HTTPS_PROXY - 不会使用 HTTPS_PROXY
-* 注意
-  * 配置 [nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker) 为 `node-modules` 可使用以前的方式
+
+- 为什么用 yarn2
+  - 没有 node_moduels
+  - 依赖以压缩包形式存在
+    - 占用空间更少
+    - 文件数少
+  - 依赖压缩包不可变
+    - 缓存
+    - 构建更加快速
+    - 能实现离线安装构建
+  - 访问界限更加严谨
+    - 如果没有定义依赖，则 impor 会失败
+    - node_moduels 时只要有都能 import
+  - 构建速度更快
+  - 支持插件
+  - 新增 dlx 命令 - 等同于 `npm dlx`
+- 所有 .yarnrc.yml 中的配置都可以用环境变量
+  - 例如 YARN_HTTPS_PROXY - 不会使用 HTTPS_PROXY
+- 注意
+  - 配置 [nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker) 为 `node-modules` 可使用以前的方式
 
 ```bash
 # 安装/升级
@@ -94,23 +121,22 @@ yarn plugin import version
 packageExtensions:
   webpack@*:
     dependencies:
-      lodash: "^4.15.0"
+      lodash: '^4.15.0'
     peerDependencies:
-      webpack-cli: "*"
+      webpack-cli: '*'
   # 注意引号
-  "@storybook/core@*":
+  '@storybook/core@*':
     dependencies:
-      "@storybook/addon-essentials": "*"
-
-
+      '@storybook/addon-essentials': '*'
 ```
 
 # FAQ
+
 ## yarn set version 慢
 
 可以从现有项目拷贝，免安装
 
-* 酌情考虑是否需要拷贝缓存 - 一般本地有全局缓存，不拷问题不大
+- 酌情考虑是否需要拷贝缓存 - 一般本地有全局缓存，不拷问题不大
 
 ```bash
 PROJ=/other/porject
