@@ -25,4 +25,4 @@ title: Awesome Font
   - 来自微软
 - Menlo
   - 会连 fi - 导致代码视觉上未对其
-- [source-code-pro](github.com/adobe-fonts/source-code-pro)
+- [source-code-pro](https://github.com/adobe-fonts/source-code-pro)

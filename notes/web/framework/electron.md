@@ -56,7 +56,7 @@ iconutil -c icns app-icon.iconset
 rm -R app-icon.iconset
 ```
 
-## Notes
+# Notes
 
 - [发布时间线和版本关系](https://www.electronjs.org/docs/tutorial/electron-timelines)
 - 上下文隔离 - Electron 12+ 默认开启
@@ -82,7 +82,7 @@ function createWindow() {
 }
 ```
 
-#### 主进程
+### 主进程
 
 - BrowserWindow - 窗口
 - BrowserView - 视图
@@ -93,13 +93,26 @@ function createWindow() {
 - WebRequest - 拦截和修改请求
 - session - 管理浏览器会话、cookie、缓存、代理设置
 
-#### 渲染进程
+### 渲染进程
 
 - ipcRenderer - 通讯
 
-## FAQ
+### 无框窗口
 
-### vs NW.js vs Neutralinojs
+- [frameless-window](https://www.electronjs.org/docs/api/frameless-window)
+
+```css
+.titlebar {
+  /* 拖动 - 子元素可设置 no-drag */
+  -webkit-app-region: drag;
+  /* 避免拖动和选择冲突 */
+  -webkit-user-select: none;
+}
+```
+
+# FAQ
+
+## vs NW.js vs Neutralinojs
 
 - [neutralinojs/evaluation](https://github.com/neutralinojs/evaluation) - Neutralinojs vs Electron vs Nw.js
 - [Electron vs NW](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
@@ -120,7 +133,7 @@ function createWindow() {
   - 对 gyp 模块支持的更好
     - electron-rebuild
 
-### Mac 打包后非常大
+## Mac 打包后非常大
 
 - [electron/electron#2003](https://github.com/electron/electron/issues/2003)
 

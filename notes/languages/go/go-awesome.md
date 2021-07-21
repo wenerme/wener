@@ -395,6 +395,17 @@ title: Go Awesome
 - [sip client.go](https://github.com/framsc/sip-client-in-golang/blob/master/sip%20client.go)
   - 简单处理 Register
 
+## 语言
+
+- [mvdan/sh](https://github.com/mvdan/sh)
+  Shell parser, formatter, interpreter
+  - source APKBUILD https://gitlab.alpinelinux.org/kdaudt/atools-go
+
+## Command Line
+
+- [charmbracelet/bubbletea](https://github.com/charmbracelet/bubbletea)
+  TUI framework
+
 # TBD
 
 ### Utils

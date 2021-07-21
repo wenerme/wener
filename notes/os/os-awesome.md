@@ -71,3 +71,7 @@ title: OS Awesome
 - [ROM Hack](https://www.romhacking.net/)
 - [The Cutting Room Floor](https://tcrf.net/)
 - [C64 BASIC & KERNAL ROM Disassembly](https://www.pagetable.com/c64ref/c64disasm/)
+
+## 开发
+
+- https://wiki.osdev.org

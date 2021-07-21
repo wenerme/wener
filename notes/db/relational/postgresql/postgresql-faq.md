@@ -398,3 +398,18 @@ psql -Atx "host=localhost port=5432 dbname=taop user=taop" -c 'select current_da
 # -d database
 psql -d "host=localhost port=5432 dbname=taop user=taop"
 ```
+
+## query has no destination for result data
+
+存储过程如果不需要结果，则不要用 select 用 execute
+
+```sql
+create or replace function sync_events_trigger() returns trigger
+as
+$$
+begin
+  -- 不要使用 select，使用 execute
+  execute sync_events();
+end;
+$$ language plpgsql;
+```

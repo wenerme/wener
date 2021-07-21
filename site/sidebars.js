@@ -422,7 +422,7 @@ module.exports = {
         items: items('voip/asterisk'),
       },
     ],
-    医学: [...items('medicine')],
+    健康: [...items('healthcare')],
   },
 };
 

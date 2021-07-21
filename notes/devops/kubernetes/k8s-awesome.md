@@ -22,6 +22,7 @@ title: K8S Awesome
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
 
 ## Secret & ConfigMap
+
 - kubed
 - sealed-secret
 
@@ -32,6 +33,11 @@ title: K8S Awesome
 - [oam-dev/kubevela](https://github.com/oam-dev/kubevela)
 - [openkruise/kruise](https://github.com/openkruise/kruise)
   Automate application management
+
+## 开发
+
+- [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
+- [solo-io/squash](https://github.com/solo-io/squash)
 
 ## Notify
 

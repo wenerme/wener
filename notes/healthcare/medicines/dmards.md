@@ -1,5 +1,4 @@
 ---
-id: dmards
 title: 抗风湿药物
 ---
 
