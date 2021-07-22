@@ -3,51 +3,52 @@ slug: issues-system-design
 title: 工单系统设计实现
 hide_title: true
 tags:
-- 架构
+  - 架构
 ---
 
 # 工单系统设计实现
+
 工单/Issues 系统都不会陌生，Github、Gitlab、Gitea 中每天都在接触的系统。想要学习如何设计实现最简单的是直接从别人的系统逻辑参考理解。
 
 我理解的工单系统
 
-* 元数据丰富
-* 分类标签体系
-* 基于时间线呈现活动
-* 可扩展性强
-* 能封装出上层管理体系
-  * 看板
-  * 里程碑
-  * 日历
+- 元数据丰富
+- 分类标签体系
+- 基于时间线呈现活动
+- 可扩展性强
+- 能封装出上层管理体系
+  - 看板
+  - 里程碑
+  - 日历
 
 <!-- more -->
 
 ## Gitea
-* Issues 特性
-  * 上下文切换 - 组织、当前用户
-  * 模板
-  * 里程碑
-  * 标签
-  * 指派
-  * 时间跟踪
-  * 回应 - 表情
-  * 过滤
-    * Open
-    * Closed
-    * 你的仓库
-    * 被指派工单
-    * 你创建的工单
-    * 仓库
-  * 排序： 最老的、最近更新、评论数量
-  * 搜索、评论、附件
-* 数据模型位于 [models](https://github.com/go-gitea/gitea/tree/master/models)
-  * 13 个关于用户的模型文件
-  * 23 个关于仓库的模型文件
-  * __28__ 个关于工单的模型文件 - 是系统中最多的模块
-* 评论作为活动/指令，Issues 基于时间关联评论修改操作
+
+- Issues 特性
+  - 上下文切换 - 组织、当前用户
+  - 模板
+  - 里程碑
+  - 标签
+  - 指派
+  - 时间跟踪
+  - 回应 - 表情
+  - 过滤
+    - Open
+    - Closed
+    - 你的仓库
+    - 被指派工单
+    - 你创建的工单
+    - 仓库
+  - 排序： 最老的、最近更新、评论数量
+  - 搜索、评论、附件
+- 数据模型位于 [models](https://github.com/go-gitea/gitea/tree/master/models)
+  - 13 个关于用户的模型文件
+  - 23 个关于仓库的模型文件
+  - **28** 个关于工单的模型文件 - 是系统中最多的模块
+- 评论作为活动/指令，Issues 基于时间关联评论修改操作
 
 核心 Issue 模型
-
 
 ```go
 // Issue represents an issue or pull request of repository.
@@ -100,11 +101,11 @@ type Issue struct {
 
 关联内容
 
-* 上下文关联: Repo, Project
-* 元信息关联: Poster, OriginalAuthor, PullRequest
-* 分类关联: Labels, Milestone
-* 指派关联: Assignee, Assignees
-* 内容关联: Attachments, Comments, Reactions
+- 上下文关联: Repo, Project
+- 元信息关联: Poster, OriginalAuthor, PullRequest
+- 分类关联: Labels, Milestone
+- 指派关联: Assignee, Assignees
+- 内容关联: Attachments, Comments, Reactions
 
 评论核心模型
 
@@ -235,31 +236,32 @@ const (
 评论类型非常详细，因为 Issues 是基于时间线的事件，评论等同于注释，每个注释都是一个命令，使用命令的方式才能实现时间线变化。
 
 ## Gitlab
+
 Gitlab 相比 Gitea 的 Issues 功能更加强大
 
-__Issues [功能特性](https://docs.gitlab.com/ee/user/project/issues/)__
+**Issues [功能特性](https://docs.gitlab.com/ee/user/project/issues/)**
 
-* 内容: 标题, 描述, 任务
-* 人员: 作者, 指派人
-* 状态: 打开/关闭, 健康状态, 可信度, 任务完成度
-* 计划和跟踪: 里程碑, 截止日期，权重，时间跟踪，标签，投票，表情，工单关联，Epic关联，唯一的编号和地址
-* 其他相关功能
-  * 看板
-  * Epic
-  * 服务台/Service Deck
-  * 外部集成
-  * 带范围支持层级的 Label
-  * 用户 Todo List
-  * 燃尽图
-  * 分组管理 - 组级别可统计和管理组内项目
-  * 迭代
-  * 设计管理
-  * 价值流
-  * 洞察
+- 内容: 标题, 描述, 任务
+- 人员: 作者, 指派人
+- 状态: 打开/关闭, 健康状态, 可信度, 任务完成度
+- 计划和跟踪: 里程碑, 截止日期，权重，时间跟踪，标签，投票，表情，工单关联，Epic 关联，唯一的编号和地址
+- 其他相关功能
+  - 看板
+  - Epic
+  - 服务台/Service Deck
+  - 外部集成
+  - 带范围支持层级的 Label
+  - 用户 Todo List
+  - 燃尽图
+  - 分组管理 - 组级别可统计和管理组内项目
+  - 迭代
+  - 设计管理
+  - 价值流
+  - 洞察
 
 Issues 对于 Gitlab 来说不只是工单管理，在最基础的功能上实现了更多管理和分析相关的功能，作为有一定规模的团队，这些附加的功能都是很有必要的。
 
-核心 [issues](https://github.com/gitlabhq/gitlabhq/blob/2eaa60e4555bb11ad5c0af905217f0fa61cf7cc9/db/structure.sql#L13105) 表
+核心 [issues](https://github.com/gitlabhq/gitlabhq/blob/2eaa60e4555bb11ad5c0af905217f0fa61cf7cc9/db/structure.sql#L13105)  表
 
 - API [Reference](https://docs.gitlab.com/ee/api/api_resources.html)
 - GraphQL [explorer](https://gitlab.com/-/graphql-explorer)

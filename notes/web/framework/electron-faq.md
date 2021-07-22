@@ -4,6 +4,26 @@ title: Electron FAQ
 
 # Electron FAQ
 
+## 无边控窗口偶尔无法拖动
+
+- [electron/electron#21621](https://github.com/electron/electron/issues/21621)
+
+## 如何检测运行在 electron
+
+```js
+window && window.process && window.process.type;
+
+process.versions['electron'];
+
+// Electron/
+navigator.userAgent;
+
+// 如果 contextBridge.exposeInMainWorld
+globalThis.electron;
+```
+
+- [electron/electron#2288](https://github.com/electron/electron/issues/2288)
+
 ## BrowserView vs webview
 
 - BrowserWindow - 用于替代 webview 标签
@@ -44,3 +64,5 @@ electron 高版本 插件加载失败
 ## 安全相关问题
 
 - https://www.electronjs.org/docs/tutorial/security
+
+## Electron Helper (Renderer) CoreText note: Client requested name ".PingFangSC-Semibold", it will get Times-Roman rather than the intended font. All system UI font access should be through proper APIs such as CTFontCreateUIFontForLanguage() or +[NSFont systemFontOfSize:].

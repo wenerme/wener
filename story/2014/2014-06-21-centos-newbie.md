@@ -3,11 +3,10 @@ slug: centos-newbie
 title: CentOS 新手
 ---
 
-玩我的 CentOS / Play CentOS
-===================
+# 玩我的 CentOS / Play CentOS
 
 > 记录我玩 centos 的经历
-> 很多时候需要 sudo 等 root 权限的时候需要自行判断.尽量不直接用root帐户.
+> 很多时候需要 sudo 等 root 权限的时候需要自行判断.尽量不直接用 root 帐户.
 
 > 我自己使用时的主要安装过程
 >
@@ -17,9 +16,9 @@ title: CentOS 新手
 
 <!-- more -->
 
-初始 minimal 配置
----------------
-```
+## 初始 minimal 配置
+
+```bash
 # 首先是打开网络咯
 ifconfig eth0 up
 dhclient
@@ -37,10 +36,9 @@ logout
 # 用之前创建的帐号登录
 ```
 
-非 minimal 的准备
--------
+## 非 minimal 的准备
 
-```
+```bash
 # Download ISOs
 # UNETBootin
 # Install
@@ -52,9 +50,9 @@ su root
 yum upgrade
 ```
 
-添加其他的 repo
----------------
-```
+## 添加其他的 repo
+
+```bash
 # add rpmforge
 # fllow this http://wiki.centos.org/AdditionalResources/Repositories/RPMForge
 rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
@@ -66,9 +64,9 @@ rpm -i rpmforge-release-*.rpm
 yum upgrade
 ```
 
-杂项
------
-```
+## 杂项
+
+```bash
 # lscpi
 yum install pciutils -y
 # iwconfig 等无线工具
@@ -95,12 +93,13 @@ timeout 1 bash -c 'cat < /dev/null > /dev/tcp/192.168.56.101/8087'
 echo $?
 ```
 
-CentOS 下 安装的wpa_supplicant 没有wpa_gui,可以参见 [这里](http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wpa_supplicant.html),主要是因为 centos的wpa_supplicant 版本太老了,0.7的,现在最新的是2.1的,查看[官方主页](http://w1.fi/wpa_supplicant/)可下载.但是这个软件的依赖项对centos来说 版本太高了,安装起来非常复杂.
+CentOS 下 安装的 wpa_supplicant 没有 wpa_gui,可以参见 [这里](http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wpa_supplicant.html),主要是因为 centos 的 wpa_supplicant 版本太老了,0.7 的,现在最新的是 2.1 的,查看[官方主页](http://w1.fi/wpa_supplicant/)可下载.但是这个软件的依赖项对 centos 来说 版本太高了,安装起来非常复杂.
 
-启动不带窗口的vbox
-------------------
+## 启动不带窗口的 vbox
+
 很多时候只需要让系统运行, 然后远程 ssh 访问, 同时也节约点内存.
-```
+
+```bash
 # 方法一. 使用命令行
 # 知道启动系统的名字或UUID
 VBoxManager list vms
@@ -111,32 +110,32 @@ VBoxManager -s 系统名字
 # 方法二. 在点启动按钮的时候,按住 Shift 即可
 ```
 
-安装前提
---------
+## 安装前提
 
 ```
 # 在进行下列安装的时候 假设已经设置好了 rpmforg 已经安装了开发tao#套件 groupinstall "Development tools" -y
 ```
 
-Install 7z
------------
-```
+## Install 7z
+
+```bash
 # Install 7zip, centos can not uncompress some zip file.
 yum install p7zip -y
 ```
 
-安装 GUI, 只针对于 minimal 安装的
-----------------------------------
-```
+## 安装 GUI, 只针对于 minimal 安装的
+
+```bash
 yum -y groupinstall "X Window System" "Desktop" "Fonts" "General Purpose Desktop"
 # 默认是没有火狐的,自己手动安装
 yum -y firefox
 ```
 
-安装virtual-box的附加扩展
---------------------------
+## 安装 virtual-box 的附加扩展
+
 一般直接安装扩展的时候安装主模块有可能失败.
-```
+
+```bash
 # 参考 http://wiki.centos.org/HowTos/Virtualization/VirtualBox/CentOSguest
 # 需要先配置好 rpmforge
 yum -y install dkms
@@ -144,9 +143,9 @@ yum -y groupinstall "Development Tools"
 yum -y install kernel-devel
 ```
 
-安装 git
---------
-```
+## 安装 git
+
+```bash
 # 因为 git 版本太低了,所以打算自己安装git
 yum --enablerepo=updates clean metadata
 yum install perl-devel -y
@@ -170,18 +169,17 @@ exit
 hash -d git
 ```
 
+## Intsall ntfs-3g
 
-Intsall ntfs-3g
-----------------
-```
+```bash
 # Add ntfs filesystem support, because I install centos with win7
 # fllow this http://wiki.centos.org/TipsAndTricks/NTFS
 yum install ntfs-3g -y
 ```
 
-Install iBus
---------------
-```
+## Install iBus
+
+```bash
 # fllow this http://code.google.com/p/ibus/wiki/CentOS
 # 1.Install necessary packages
 yum install ibus ibus-gtk ibus-qt
@@ -192,9 +190,9 @@ yum install im-chooser
 # 4.Re-login
 ```
 
-Install python2.7 for goagent
------------------------------
-```
+## Install python2.7 for goagent
+
+```bash
 # Setup Development tools
 yum groupinstall "Development tools" -y
 # basic lib
@@ -216,9 +214,9 @@ cd Python-${PYTHON_VERSION}
 make -j 8 && make altinstall
 ```
 
-Install python-openssl for python2.7
-------------------------------------
-```
+## Install python-openssl for python2.7
+
+```bash
 # Install python-openssl for goagent
 mkdir -p ~/src && cd $_
 yum install openssl openssl-devel -y
@@ -231,9 +229,9 @@ python2.7 setup.py build
 python2.7 setup.py install
 ```
 
-Install goagent
------------------
-```
+## Install goagent
+
+```bash
 # Download goagent and run it, because I have to install chrome
 mkdir -p ~/app && cd $_
 wget https://goagent.googlecode.com/archive/3.0.zip
@@ -247,9 +245,9 @@ vim goagent/local/proxy.ini
 python2.7  goagent/local/goagent-gtk.py &
 ```
 
-Install chrome
---------------
-```
+## Install chrome
+
+```bash
 # Setup wget proxy for download chrome
 # append the proxy setting to '/etc/wgetrc'
 # Reamove it, when you do not need this
@@ -266,9 +264,9 @@ chmod u+x install_chrome.sh
 ./install_chrome.sh
 ```
 
-Install gvim7.4
----------------
-```
+## Install gvim7.4
+
+```bash
 mkdir -p ~/src && cd $_
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar -jxvf vim-7.4.tar.bz2
@@ -282,17 +280,16 @@ VIM_FLAG='--enable-luainterp=yes --enable-cscope --enable-multibyte --enable-fon
 make -j 8 && make test -j 8 && make install
 ```
 
-Install vim
----------------
-```
+## Install vim
+
+```bash
 # 直接使用yum搜索到的 为了使用简单
 yum install vim-enhanced -y
-
 ```
 
-Install Nvidia-driver
-----------------------
-```
+## Install Nvidia-driver
+
+```bash
 # find out you card info
 lspic | grep VGA
 # download form nvidia http://www.nvidia.in/Download/index.aspx
@@ -306,15 +303,9 @@ yum install kernel-devel kernel-headers gcc make
 added the following line to /etc/modprobe.d/blacklist.conf file
 ```
 
+## Bully + Aircrack-ng + Reaver
 
-
-
-
-Bully + Aircrack-ng + Reaver
--------------------
-
-> [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz)
-> [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz)
+> [reaver](https://reaver-wps.googlecode.com/files/reaver-1.4.tar.gz) > [aircrack-ng-1.2-beta1](http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz)
 > reaver 的替代 [bully](https://github.com/bdpurcell/bully)
 
 ```bash
@@ -356,8 +347,7 @@ make
 make install
 ```
 
-pin creack
-----------
+## pin creack
 
 ```bash
 ifconfig wlan0 down
@@ -371,8 +361,8 @@ wash -i mon0
 reaver -a -S -vv -i mon0 -b `MAC`
 ```
 
-通过命令行连接无线网, 简单版
-----------------------------
+## 通过命令行连接无线网, 简单版
+
 来自 [connect-to-a-wireless-network-via-command-line](http://www.ghacks.net/2009/04/14/connect-to-a-wireless-network-via-command-line/)
 
 ```bash
@@ -381,11 +371,11 @@ ifconfig wlan0
 iwconfig wlan0 essid NETWORK_ID key WIRELESS_KEY
 dhclient wlan0
 ```
-`NETWORK_ID` 为无线名
-`WIRELESS_KEY` 搞不清楚,应该是密码吧. 默认为 16 进制的值,可以用 `s:WIRELESS_KEY` 来使用ascii
 
-通过命令行连接无线网
---------------------
+`NETWORK_ID` 为无线名
+`WIRELESS_KEY` 搞不清楚,应该是密码吧. 默认为 16 进制的值,可以用 `s:WIRELESS_KEY` 来使用 ascii
+
+## 通过命令行连接无线网
 
 来自 [how-to-connect-to-wpawpa2-wifi-network](http://linuxcommando.blogspot.com/2013/10/how-to-connect-to-wpawpa2-wifi-network.html)
 
@@ -490,8 +480,7 @@ default via 192.168.1.254 dev wlan0
 $ ping 8.8.8.8
 ```
 
-自动连接无线的配置
--------------
+## 自动连接无线的配置
 
 参考官方的 [wpa_supplicant 配置](http://wiki.centos.org/HowTos/Laptops/WpaSupplicant)
 这里没有提到给 wlan0 配置自动的 dhcp
@@ -507,21 +496,20 @@ $ ping 8.8.8.8
 wp _supplicantwpaa_supplicant -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -d
 ```
 
-忘记密码
---------
+## 忘记密码
 
 在 `grub` 启动的时候, 中断自动启动, 看到选择列表的时候, 按 `a`, 删除 `rhgb quiet` 然后输入 `1` 回车, 即可进入单用户模式. 随后使用 passwd 修改完成密码后重启就可以回到多用户模式了.
 
 参考 [ResetRootPassword](http://wiki.centos.org/TipsAndTricks/ResetRootPassword)
 
-安装开发环境
-=============
+# 安装开发环境
 
-Install JDK
-----
+## Install JDK
+
 考虑需要安装的 jdk 发布商, 选择 openJDK 还是 oracle 的 jdk
-可参考这里[webupd8](https://launchpad.net/~webupd8team/+archive/java) 来安装 oracle 的jdk.
+可参考这里[webupd8](https://launchpad.net/~webupd8team/+archive/java) 来安装 oracle 的 jdk.
 或者参考[这个](http://d.stavrovski.net/blog/post/how-to-install-and-setup-oracle-java-jdk-in-centos-6)安装步骤,还可以参考[这里](https://wiki.powerfolder.com/display/PFS/Installing+Oracle+Java+on+Linux)
+
 ```
 # 查看 repo 中支持的 jdk 版本, 一般 centos 的repo中只有 openjdk
 yum search java-1
@@ -529,22 +517,22 @@ yum search java-1
 rpm -qa | grep java-
 # 如果有的话 则删除syum remove java-1.6.0-openjdkayn`
 ```
-我选择的手[动下](http://www.oracle.com/technetwork/java/javase/downloads/index.html)载 oracle 的 jdk,毕竟 oracle 的jdk更稳定些.
+
+我选择的手[动下](http://www.oracle.com/technetwork/java/javase/downloads/index.html)载 oracle 的 jdk,毕竟 oracle 的 jdk 更稳定些.
 
 我安装 JDK8 的下载地址
 http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.rpm
 
-```
+```bash
 wget --no-check-certificate --no-cookies \
     --header "Cookie: oraclelicense=accept-securebackup-cookie"\
     "http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.rpm"
 rpm -Uvh jdk-*.rpm
 ```
 
+## Install nodejs
 
-Install nodejs
----------------
-```
+```bash
 mkdir -p ~/src && cd $_
 wget -e "http_proxy = http://127.0.0.1:8087/"  http://nodejs.org/dist/node-latest.tar.gz
 tar zxvf node-latest.tar.gz
@@ -553,9 +541,9 @@ make && make install
 # Already installed npm with nodejs source
 ```
 
-Install nginx
--------------
-```
+## Install nginx
+
+```bash
 # add nginx repo
 cat > /etc/yum.repos.d/nginx.repo <<WEN
 [nginx]
@@ -570,25 +558,24 @@ yum repolist
 yum install nginx -y
 ```
 
-Install php
-------------
-```
+## Install php
+
+```bash
 yum groupinstall 'PHP Support'
 ```
-安装服务
-=============
 
-Install vsftpd
----------------
+# 安装服务
 
-```
+## Install vsftpd
+
+```bash
 # 确定有
 yum search vsftpd
 ```
 
-Install openssh-server
--------------------
-```
+## Install openssh-server
+
+```bash
 # 参考 http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-openssh-server-config.html
 yum install openssh-server -y
 # 配置文件为 /etc/ssh/sshd_config
@@ -598,9 +585,9 @@ yum install openssh-server -y
 # ssh 用户名@该linux机器的IP
 ```
 
-Install tomcat
-----------
-```
+## Install tomcat
+
+```bash
 tar -zxvf apache-tomcat*.tar.gz
 mv apache-tomcat* /opt/tomcat
 # 启动
@@ -613,14 +600,15 @@ iptables -I INPUT 5 -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT -m
 service iptables save
 ```
 
-Install hadoop
---------------
+## Install hadoop
+
 参考[这里](http://tecadmin.net/steps-to-install-hadoop-on-centosrhel-6/)
 
-Install apache
---------------
+## Install apache
+
 [apache-inshttpd](https://www.centos.org/docs/5/html/Cluster_Administration/s1-apache-inshttpd-CA.html)
-```
+
+```bash
 yum install httpd
 # 完成后 需要在 /etc/httpd/conf/httpd.conf 中添加一句
 # ServerName localhost
@@ -628,8 +616,10 @@ yum install httpd
 # 关于使用 status 出现错误的情况 参考
 # http://www.mydigitallife.info/request-url-server-status-or-404-page-not-found-apache-error/
 ```
+
 想要使用 apachectl status 在 httpd.conf 中添加如下配置
-```
+
+```bash
 ExtendedStatus on
 <IfModule mod_status.c>
     # Allow server status reports generated by mod_status,
@@ -645,7 +635,8 @@ ExtendedStatus on
 ```
 
 ### 配置 mod_jk
-```
+
+```bash
 # 使用的时候 只有 1.2.40 版本
 # 可以查看其他版本 http://www.apache.org/dist/tomcat/tomcat-connectors/jk/
 wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.40-src.zip
@@ -662,9 +653,9 @@ make install
 
 集群配置完成个可以通过刷新 http://cloud01/manager/status 这个页面, 观察 IP address 来判断是否成功.
 
-Install MySQL
----------------
-```
+## Install MySQL
+
+```bash
 yum -y groupinstall 'MySQL Database server' 'MySQL Database client'
 yum -y install php-mysql
 #/sbin/service mysqld start

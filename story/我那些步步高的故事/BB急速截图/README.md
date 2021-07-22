@@ -2,9 +2,9 @@
 title: BB急速截图
 slug: bbk-quick-screenshot
 tags:
-- 编程
-- 步步高
-- BBVM
+  - 编程
+  - 步步高
+  - BBVM
 date: 2011-03-22 1:56:00
 ---
 
@@ -14,7 +14,7 @@ date: 2011-03-22 1:56:00
 
 <!-- more -->
 
-<pre>
+```
 '//=========截图类函数v1.0==========//
 '作者 Wener
 '论坛Id a3160586 (club.eebbk.com   编程区)
@@ -62,4 +62,4 @@ supper函数中包含了大量计算，难以避免的有点点卡，在淡出�
 其实我那样命名也是为了在区别汇编和bb  bb中是scrp 汇编中是 screenPrint.  screenCapture只有两次
 
 在使用的时候请将ScreenPrint.lib一起复制，这个文件只是个空文件，只是为了为lib的存储“占地盘”，存放索引。转换为lib的结果都在这个文件当中。
-</pre>
+```

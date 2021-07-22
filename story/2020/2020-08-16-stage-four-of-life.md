@@ -2,7 +2,7 @@
 slug: stage-four-of-life
 title: 人生第四阶段
 tags:
-- 成长
+  - 成长
 ---
 
 # 人生第四阶段
@@ -11,7 +11,7 @@ tags:
 
 鲁道夫·施泰纳的人智学理论，定义人的发展每七年一个阶段。
 
-> 鲁道夫·施泰纳 - Rudolf Steiner，1861年2月27日－1925年3月30日，奥地利的哲学家、改革家、建筑师和教育家
+> 鲁道夫·施泰纳 - Rudolf Steiner，1861 年 2 月 27 日－1925 年 3 月 30 日，奥地利的哲学家、改革家、建筑师和教育家
 
 <!-- more -->
 
@@ -44,7 +44,8 @@ But, I have to keep going.
 > May the path be with you.
 
 ## 参考
-* https://tommonte.com/the-7-year-cycles-of-life/
-  * The 7-Year Cycles of Life
-* 原文 - https://wener.me/blog/stage-four-of-life
-  * Markdown - https://github.com/wenerme/wener/blob/master/story/2020/2020-08-16-stage-four-of-life.md
+
+- https://tommonte.com/the-7-year-cycles-of-life/
+  - The 7-Year Cycles of Life
+- 原文 - https://wener.me/blog/stage-four-of-life
+  - Markdown - https://github.com/wenerme/wener/blob/master/story/2020/2020-08-16-stage-four-of-life.md
