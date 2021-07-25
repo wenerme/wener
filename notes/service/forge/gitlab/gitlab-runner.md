@@ -290,7 +290,7 @@ gitlab-runner register \
   --url "https://gitlab.com/" \
   --registration-token "$TOKEN" \
   --description windows-runner \
-  --tag-list "windows,bash,internal" \
+  --tag-list "windows,shell,bash" \
   --run-untagged=false \
   --locked=false \
   --access-level=not_protected \

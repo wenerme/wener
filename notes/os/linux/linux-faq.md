@@ -1,4 +1,17 @@
-# FAQ
+---
+title: Linux FAQ
+---
+
+# Linux FAQ
+
+## kernel-ml vs kernel-lt
+
+RHEL 内核 flavor
+
+- kernel-ml - mainline
+  - Linux 主线版本 - 更新，更新更快更多
+- kernel-lt - long term
+  - Linux 长期支持版本 - 更稳定，更新更少
 
 ## 从新扫描分区
 
@@ -36,25 +49,27 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
 启动参数添加 `pcie_aspm=off`
 
 ## halt vs poweroff vs shutdown
-* halt
-  * 终止所有进程并关闭 CPU
-* poweroff
-  * 与 halt 相似,但也会关闭 PC 自身.会发送 ACPI 命令到主板, PSU 然后切断电源
-* shutdown -t now
-  * 与 poweroff 相似,但会执行关机脚本
-  * 最优雅的关机方式
-  * 会先 `kill -15 `然后 `kill -9`
-  * 现代的 `halt` 和 `reboot` 一般也会调用 shutdown
 
+- halt
+  - 终止所有进程并关闭 CPU
+- poweroff
+  - 与 halt 相似,但也会关闭 PC 自身.会发送 ACPI 命令到主板, PSU 然后切断电源
+- shutdown -t now
+  - 与 poweroff 相似,但会执行关机脚本
+  - 最优雅的关机方式
+  - 会先 `kill -15 `然后 `kill -9`
+  - 现代的 `halt` 和 `reboot` 一般也会调用 shutdown
 
 ## 'RTLD_NEXT' undeclared
-* gcc 添加 `-D_GNU_SOURCE`
-* 因为不是标准的 POSIX 定义
+
+- gcc 添加 `-D_GNU_SOURCE`
+- 因为不是标准的 POSIX 定义
 
 ## mmap: Operation not permitted
-* 可能是由于内核开启了 `CONFIG_STRICT_DEVMEM` 导致, 出于安全考虑, 在用户空间不允进行超过 1MB 的物理内存操作
-* http://blog.sina.com.cn/s/blog_6f5b220601012xbc.html
-* 有可能是因为 mmap 包含了 `PROT_EXEC`, 在 PaX 下会失败
+
+- 可能是由于内核开启了 `CONFIG_STRICT_DEVMEM` 导致, 出于安全考虑, 在用户空间不允进行超过 1MB 的物理内存操作
+- http://blog.sina.com.cn/s/blog_6f5b220601012xbc.html
+- 有可能是因为 mmap 包含了 `PROT_EXEC`, 在 PaX 下会失败
 
 ```bash
 sysctl dev.mem.restricted
@@ -67,11 +82,12 @@ sysctl -w kernel.pax.softmode=1
 ```
 
 ## 查看内核配置
-* 常见配置路径
-  * `/boot/config`
-  * `/boot/config-$(uname -r)`
-  * `/proc/config.gz`
-    * 需要加载模块
+
+- 常见配置路径
+  - `/boot/config`
+  - `/boot/config-$(uname -r)`
+  - `/proc/config.gz`
+    - 需要加载模块
 
 ```bash
 cat /proc/config.gz | gunzip > running.config
@@ -91,13 +107,14 @@ modprobe configs
 rm 不一定会释放空间, 可以 cp /dev/null xx
 lsof | grep deleted
 
+# TBD
 
 https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace
 https://unix.stackexchange.com/questions/34140/tell-fs-to-free-space-from-deleted-files-now
 
 https://serverfault.com/questions/232525/df-in-linux-not-showing-correct-free-space-after-file-removal/232526
 
-ls -l /proc/*/fd/ | grep deleted
+ls -l /proc/\*/fd/ | grep deleted
 lsof +L1
 
 df -ah
@@ -105,9 +122,7 @@ du -sh
 
 df -i
 
-
 dumpe2fs /dev/sda1 | grep -i reserved
-
 
 Most Linux filesystems reserve 5% space for use only the root user.
 

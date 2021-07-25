@@ -12,7 +12,7 @@ title: QMI
     - 操作命令参考
   - wikipedia [Qualcomm MSM Interface](https://en.wikipedia.org/wiki/Qualcomm_MSM_Interface)
   - https://osmocom.org/projects/quectel-modems/wiki/QMI
-  - S5P4418 android 5.1 EC20 R2.0 PCIE接口调试记录 https://blog.csdn.net/hnjztyx/article/details/72495433
+  - S5P4418 android 5.1 EC20 R2.0 PCIE 接口调试记录 https://blog.csdn.net/hnjztyx/article/details/72495433
 
 | dev           | desc                         |
 | ------------- | ---------------------------- |
@@ -58,5 +58,6 @@ qmicli --device=/dev/cdc-wdm0 --device-open-proxy --dms-get-ids
   - [GobiNet vs libqmi](https://wiki.postmarketos.org/wiki/QMI#GobiNet_vs_libqmi)
 
 ## PPP vs QMI vs AT
-* https://unix.stackexchange.com/questions/523321
-* https://www.outdoorrouter.com/4g-mobile-interface-protocol-qmi-and-ppp/
+
+- https://unix.stackexchange.com/questions/523321
+- https://www.outdoorrouter.com/4g-mobile-interface-protocol-qmi-and-ppp/

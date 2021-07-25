@@ -25,6 +25,8 @@ title: Alpine 包维护
   - 确保使用 Tab 而不是  空格
 - 参考
   - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
+  - [build.alpinelinux.org](https://build.alpinelinux.org/)
+    构建状态
 
 ```bash
 # 准备
@@ -309,3 +311,13 @@ To activate cross compilation specify in environment:
 
 - 可以将 `--build` 和 `--host` 设置为 `x86_64-alpine-linux`
 - 因为部分项目构建是无法将 `musl` 识别为 `gnu`
+
+## 升级包也需要升级依赖
+
+```bash
+apk add lua-aports
+# 在 aports 仓库下运行 - 每个仓库都要
+# ap revdep grpc-dev
+echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'cd {}; ap revdep grpc-dev'
+# 将依赖的 rev 增加
+```

@@ -3,11 +3,12 @@ title: sipp
 ---
 
 # sipp
-* [SIPp/sipp](https://github.com/SIPp/sipp) 是什么？
-  * SIP 协议测试工具
-* SER - Session Establishment Rate
-* 参考
-  * [SIP Performance Benchmark](https://www.youtube.com/watch?v=LWjfA06443g)
+
+- [SIPp/sipp](https://github.com/SIPp/sipp) 是什么？
+  - SIP 协议测试工具
+- SER - Session Establishment Rate
+- 参考
+  - [SIP Performance Benchmark](https://www.youtube.com/watch?v=LWjfA06443g)
 
 ```bash
 # macOS

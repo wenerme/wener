@@ -14,7 +14,7 @@ title: 延迟数
 - [Grace Hopper explains Nanoseconds](https://www.youtube.com/watch?v=JEpsKnWZrJ8)
 - [Global Ping](https://wondernetwork.com/pings/)
 
-| operation                          |     nano seconds | micro seconds | milliseconds | relative                    |
+| computer latency                   |     nano seconds | micro seconds | milliseconds | relative                    |
 | ---------------------------------- | ---------------: | ------------: | -----------: | --------------------------- |
 | L1 cache reference                 |           0.5 ns |               |              |                             |
 | Branch mispredict                  |           5.0 ns |               |              |                             |
@@ -31,9 +31,35 @@ title: 延迟数
 | Read 1 MB sequentially from disk   |  20,000,000.0 ns |     20,000 us |        20 ms | 80x memory, 20X SSD         |
 | Send packet CA->Netherlands->CA    | 150,000,000.0 ns |    150,000 us |       150 ms |                             |
 
-## Notes
+## Misc
 
-1 ns = 10^-9 seconds
-1 us = 10^-6 seconds = 1,000 ns
-1 ms = 10^-3 seconds = 1,000 us = 1,000,000 ns
+| common latency |    ms |       s |
+| -------------: | ----: | ------: |
+|        120 fps |  8 ms | 1/120 s |
+|         60 fps | 16 ms |  1/60 s |
+|         24 fps | 41 ms |  1/24 s |
 
+|      human lantency |         ms |         s |
+| ------------------: | ---------: | --------: |
+|           eye blink | 100-150 ms | 0.1-0.5 s |
+| human reaction time |     250 ms |    0.25 s |
+
+- Nerve conduction velocity/神经传导速度 ~ 40m/s
+- 音速 - 343 m/s
+- 光速 - 299,792,458 m / s
+
+## Unit
+
+| unit |    stand for | n    | mean |
+| ---: | -----------: | ---- | ---: |
+|   ns |  nano second | 10^9 | 纳秒 |
+|   us | micro second | 10^6 | 微秒 |
+|   ms | milli second | 10^3 | 毫秒 |
+|    s |       second | 1    |   秒 |
+
+| ns   | us    | ms    | s     |
+| ---- | ----- | ----- | ----- |
+| 1    | 10^-3 | 10^-6 | 10^-9 |
+| 1000 | 1     | 10^-3 | 10^-6 |
+| 10^6 | 1000  | 1     | 10^-3 |
+| 10^9 | 10^6  | 1000  | 1     |

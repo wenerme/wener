@@ -17,6 +17,7 @@ yarn upgrade
 ```
 
 ## .yarnrc
+- https://npm.taobao.org/mirrors
 
 ```
 registry "https://registry.npm.taobao.org"
@@ -26,6 +27,7 @@ network-timeout 60000
 
 chromedriver_cdnurl "http://cdn.npm.taobao.org/dist/chromedriver"
 electron_mirror "http://cdn.npm.taobao.org/dist/electron/"
+ELECTRON_BUILDER_BINARIES_MIRROR http://npm.taobao.org/mirrors/electron-builder-binaries/
 fse_binary_host_mirror "https://npm.taobao.org/mirrors/fsevents"
 node_inspector_cdnurl "https://npm.taobao.org/mirrors/node-inspector"
 NODEJS_ORG_MIRROR "http://npm.taobao.org/mirrors/node"

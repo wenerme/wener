@@ -1,3 +1,7 @@
+---
+title: make
+---
+
 # make
 
 - [Automatic-Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html)
@@ -6,6 +10,9 @@
 - [Special Built-in Target Names](https://www.gnu.org/software/make/manual/make.html#Special-Built_002din-Target-Names)
 
 ```Makefile
+# 修改默认 shell
+SHELL=/bin/bash
+
 # 保留中间文件
 .PRECIOUS: public/modules/wener-apis-%.system.js
 # 二次求值 $$

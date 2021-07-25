@@ -13,11 +13,29 @@ title: Electron
       - 基于 HTML 模板的手动 DOM 更新 - 重构为使用 React - 响应式更新
       - 过早的数据加载 - 数据缓存、所有数据都假设为懒加载
       - 每个工作空间是一个独立进程 - 重构为单进程、组件感知工作空间 - 完全重写
+  - [发布时间线和版本关系](https://www.electronjs.org/docs/tutorial/electron-timelines)
+    - Electron 版本, Chrome 版本, Node 版本关系
+  - [nodejs release](https://nodejs.org/en/download/releases/)
+    - Node 版本 <-> 模块版本
 - Tray 使用 16x16 的 ICON
 - https://electronjs.org/docs/api/native-image
 
 tray
 https://medium.com/@nahoc/lets-build-a-system-tray-cryptocurrency-tracker-for-mac-using-electron-part-1-7888747891b
+
+:::tip
+
+- electron 主要是提供环境
+- 可以区分开发应用和打包应用
+  - 开发使用自己熟悉的工具即可
+  - 打包使用 electron-builder
+- electron 区分 render 和 main 进程
+  - main 运行在 node 环境
+  - render 运行在 web 环境
+  - Web 和 后端/main 通过 ipc 交互
+- 前后端推荐使用 preload+contextBridge 进行建立 ipc 通讯
+
+:::
 
 ```bash
 # 生成 tray 图标
@@ -36,6 +54,15 @@ ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ npm install electron --s
 ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ npm install electron -g
 # 或者
 ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ yarn global add electron
+
+# Node ABI 版本
+yarn run -- electron -a
+
+# -i,--interactive 交互式命令行
+# -r,--require 预加载模块
+# -a,--abi 显示 Node ABI
+# 应用入口 index.js, folder/package.json, folder/index.js, .html/.htm, http://,https://,file://
+electron --inspect=5858 -r ./.erb/scripts/babel-register ./src/main/main.dev.ts
 
 # Mac 下需要 icns 作为图标, 如果安装了 libicns 可以使用命令转换
 png2icns app-icon.icns favicon-16x16.png favicon-32x32.png
@@ -58,7 +85,6 @@ rm -R app-icon.iconset
 
 # Notes
 
-- [发布时间线和版本关系](https://www.electronjs.org/docs/tutorial/electron-timelines)
 - 上下文隔离 - Electron 12+ 默认开启
   - 开启后 preload 访问的 window 不是实际的 window
   - 通过 contextBridge 交互
@@ -79,34 +105,6 @@ function createWindow() {
   win.on('closed', () => {
     win = null;
   });
-}
-```
-
-### 主进程
-
-- BrowserWindow - 窗口
-- BrowserView - 视图
-- ipcMain - 通讯
-- webContents - 页面渲染和控制
-- webFrame - 自定义当前页面渲染
-- webFrameMain - 控制页面也 iframe
-- WebRequest - 拦截和修改请求
-- session - 管理浏览器会话、cookie、缓存、代理设置
-
-### 渲染进程
-
-- ipcRenderer - 通讯
-
-### 无框窗口
-
-- [frameless-window](https://www.electronjs.org/docs/api/frameless-window)
-
-```css
-.titlebar {
-  /* 拖动 - 子元素可设置 no-drag */
-  -webkit-app-region: drag;
-  /* 避免拖动和选择冲突 */
-  -webkit-user-select: none;
 }
 ```
 

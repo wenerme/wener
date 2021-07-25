@@ -17,6 +17,8 @@ title: OpenLDAP
   - archlinux [OpenLDAP](https://wiki.archlinux.org/index.php/OpenLDAP)
   - [leenooks/phpLDAPadmin](https://github.com/leenooks/phpLDAPadmin)
     - [demo](http://demo.phpldapadmin.org/)
+  - [OpenLDAP multi-tenant like ACL](https://stackoverflow.com/questions/22606811)
+    - [Sets in Access Controls](https://www.openldap.org/faq/data/cache/1133.html)
 
 ## Note
 

@@ -70,3 +70,22 @@ FOREIGN DATA WRAPPER dblink_fdw
 OPTIONS (host 'postgres.demoproject.aivencloud.com', dbname 'db2', port '11254');
 SELECT * FROM dblink('myconn','SELECT * FROM foo') AS t(a int);
 ```
+
+## sqlite_fdw
+
+- [pgspider/sqlite_fdw](https://github.com/pgspider/sqlite_fdw)
+- 不支持 COPY
+- 不支持分片表
+
+```sql
+CREATE EXTENSION sqlite_fdw;
+
+CREATE SERVER sqlite_server FOREIGN DATA WRAPPER sqlite_fdw OPTIONS (database '/tmp/test.db');
+CREATE FOREIGN TABLE t1(a integer, b text) SERVER sqlite_server OPTIONS (table 't1_sqlite');
+-- 需要 key 支持更新
+CREATE FOREIGN TABLE t1(a integer OPTIONS (key 'true'), b text) SERVER sqlite_server OPTIONS (table 't1_sqlite');
+-- int 转 timestamp
+CREATE FOREIGN TABLE t1(a integer, b text, c timestamp without time zone OPTIONS (column_type 'INT')) SERVER sqlite_server OPTIONS (table 't1_sqlite');
+
+IMPORT FOREIGN SCHEMA public FROM SERVER sqlite_server INTO public;
+```

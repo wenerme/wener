@@ -4,8 +4,11 @@ title: Electron FAQ
 
 # Electron FAQ
 
+- ASAR
+
 ## 无边控窗口偶尔无法拖动
 
+- 目前无解，缩放一下可以拖动
 - [electron/electron#21621](https://github.com/electron/electron/issues/21621)
 
 ## 如何检测运行在 electron
@@ -66,3 +69,32 @@ electron 高版本 插件加载失败
 - https://www.electronjs.org/docs/tutorial/security
 
 ## Electron Helper (Renderer) CoreText note: Client requested name ".PingFangSC-Semibold", it will get Times-Roman rather than the intended font. All system UI font access should be through proper APIs such as CTFontCreateUIFontForLanguage() or +[NSFont systemFontOfSize:].
+
+不影响使用
+
+## Extension server error: Object not found: top"
+
+did-frame-finish-load 之后 打开 devtool
+
+## partition vs session
+
+## electron Failed to load URL: with error: ERR_UNKNOWN_URL_SCHEME
+
+尝试不用 file 协议 或者自行处理
+
+```js
+import { protocol } from "electron";
+
+
+protocol.registerFileProtocol('file', (request, cb) => {
+  const url = request.url.replace('file:///', '');
+  const decodedUrl = decodeURIComponent(url);
+  try {
+    return cb(decodedUrl);
+  } catch (error) {
+    console.error('ERROR: registerLocalResourceProtocol: Could not get file path:', error);
+  }
+});
+```
+
+- https://github.com/electron/electron/issues/23757
