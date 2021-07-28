@@ -4,6 +4,20 @@ title: OS Awesome
 
 # OS Awesome
 
+**Cross OS Components Compare**
+
+| vs.                 | Windows    | macOS   | AlpineLinux | Debian  | RHEL  | OpenWRT | FreeBSD |
+| ------------------- | ---------- | ------- | ----------- | ------- | ----- | ------- | ------- |
+| Kernel              | Windows NT | XUN     | Linux       | Linux   | Linux | Linux   | BSD     |
+| Package Manager     | nuget      | brew    | apk         | apt     | yum   | opkg    | pkg     |
+| init                |            | launchd | openrc/bbox | systemd |
+| Service Management  |            | launchd | openrc      | systemd |
+| Desktop Environment |            | Aqua    |             |         |
+| Firewall            |            | pf      | iptables    |         |       |         | pf,ipfw |
+| Virtualization      | hyperv/hax | hvf/hax | kvm         | kvm     | kvm   | -       | bhyve   |
+
+---
+
 - [redox-os/redox](https://github.com/redox-os/redox)
   - MIT, Rust
 - [vlang/vinix](https://github.com/vlang/vinix)

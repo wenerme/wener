@@ -52,8 +52,10 @@ title: K8S Awesome
 
 - healmap
 - lens
+- kubernetes dashboard
 - k9s
   命令行
+- portainer
 
 ## Distribution
 
