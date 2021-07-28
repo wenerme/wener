@@ -26,3 +26,4 @@ title: Reverse Engineering Awesome
 
 - [USB Reverse Engineering: Down the Rabbit Hole](http://devalias.net/devalias/2018/05/13/usb-reverse-engineering-down-the-rabbit-hole/)
   - [HN](https://news.ycombinator.com/item?id=17164700)
+- [Reversing for dummies - x86 assembly and C code](https://0x41.cf/reversing/2021/07/21/reversing-x86-and-c-code-for-beginners.html)

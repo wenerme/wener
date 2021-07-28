@@ -25,4 +25,5 @@
 - [Java](https://www.wener.tech/notes/java/java)
 - [Kubernetes](https://www.wener.tech/notes/devops/kubernetes/kubernetes)
 - [VoIP](https://www.wener.tech/notes/voip/voip)
+- [纪念那些在 BBK 的时光](https://wener.me/story/bbk-memory)
 - [虚拟化](https://www.wener.tech/notes/os/virt/virt)

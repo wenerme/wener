@@ -1,15 +1,14 @@
 ---
-id: winrm
 title: Windows Remote Management
 ---
 
 # Windows Remote Management
-## Tips
-* 默认端口 HTTP 5985, HTTPS 5986
-* Windows Remote Shell (WinRS)
-  * Windows 2008+
-* 参考
-  * https://pentestlab.blog/tag/winrm/
+
+- 默认端口 HTTP 5985, HTTPS 5986
+- Windows Remote Shell (WinRS)
+  - Windows 2008+
+- 参考
+  - https://pentestlab.blog/tag/winrm/
 
 ```bash
 apk add nmap-scripts nmap-nselibs

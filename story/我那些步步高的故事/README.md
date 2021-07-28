@@ -1,5 +1,5 @@
 ---
-title: 纪念那些在BBK的时光
+title: 纪念那些在 BBK 的时光
 slug: bbk-memory
 tags:
   - 故事

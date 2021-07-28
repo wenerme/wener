@@ -8,6 +8,7 @@ tags:
   - Java
   - 游戏
   - 虚拟机
+  - 步步高
 baseUrl: https://raw.githubusercontent.com/wenerme/bbvm/master/
 ---
 

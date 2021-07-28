@@ -4,11 +4,65 @@ title: K3S Version
 
 # K3S Version
 
+## 1.21
+
+- Dual-stack IPv4/IPv6
+  - 但 Flannel, ServiceLB, Network Policy Controller 还不支持
+- 支持配置目录 /etc/rancher/k3s/config.yaml.d/
+- airgap 支持 zstd 压缩
+- 支持 Service Account Issuer Discovery
+- Traefik v2
+- ContainerD 支持 私有 仓库重写
+- 固定 LB 端口
+  - 6443, 6444
+- k3s etcd-snapshot 查看 快照列表
+- k3s 支持 --system-default-registry
+- k3s 支持删除快照
+
+| component | ver    |
+| --------- | ------ |
+| CoreDNS   | v1.8.3 |
+| Traefik   | v2.4.8 |
+
+**before**
+
+```
+2379 k3s/rke2 etcd client port on server if running etcd
+     k3s/rke server LB tunnel to etcd client port on server if not running etcd
+2380 k3s/rke2 server etcd peer port if running etcd
+6443 k3s supervisor + external apiserver on server if running apiserver
+     rke2 apiserver on server if running apiserver
+6444 k3s local apiserver if running apiserver
+     k3s LB tunnel to supervisor + external apiserver on server if not running apiserver
+     rke2 LB tunnel to supervisor on server if not running apiserver
+6445 rke2 tunnel to apiserver on server if not running apiserver
+9345 rke2 supervisor on server
+XXXX k3s LB tunnel to supervisor + external apiserver on agent (randomly selected on startup)
+     rke2 LB tunnel to supervisor on agent (randomly selected on startup)
+YYYY rke2 LB tunnel to apiserver on agent (randomly selected on startup)
+```
+
+**after**
+
+```
+2379 k3s/rke2 etcd client port on server if running etcd
+     k3s/rke2 LB tunnel to etcd client port on server if not running etcd
+2380 k3s/rke2 etcd peer port on server if running etcd
+6443 k3s supervisor + external apiserver on server if running apiserver
+     rke2 apiserver on server if running apiserver
+     rke2 LB tunnel to apiserver on agent, and server if not running apiserver
+6444 k3s local apiserver on server if running apiserver
+     k3s LB tunnel to supervisor + external apiserver on agent, and server if not running apiserver
+     rke2 LB tunnel to supervisor on agent, and server if not running apiserver
+9345 rke2 supervisor on server
+```
+
 ## 1.20
 
 - 删除节点时会清除节点密码
 - 设置 `--data-dir` 后不会再存储任何文件在 `/var/lib/rancher/k3s`
 - 减少影响不大的日志
+- 支持 cgroupv2
 
 ## 1.19
 

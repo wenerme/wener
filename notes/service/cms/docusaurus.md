@@ -8,20 +8,21 @@ hide_title: true
 
 ## 目录结构
 
-* /
-  * blog
-  * docs
-  * src
-    * css
-      * custom.css
-    * pages
-      * styles.module.css
-      * index.js
-  * static/
-    * img/
-  * docusaurus.config.js
-  * package.json
-  * sidebars.js
+- /
+  - blog
+  - docs
+  - src
+    - theme
+    - css
+      - custom.css
+    - pages
+      - styles.module.css
+      - index.js
+  - static/
+    - img/
+  - docusaurus.config.js
+  - package.json
+  - sidebars.js
 
 ```bash
 # [name] [template]
@@ -31,7 +32,8 @@ npx @docusaurus/init@next init my-website classic
 ```
 
 ## Docs
-* https://v2.docusaurus.io/docs/markdown-features
+
+- https://v2.docusaurus.io/docs/markdown-features
 
 ```yaml
 # 默认为文件名
@@ -59,24 +61,35 @@ image: https://i.imgur.com/mErPwqL.png
 ```
 
 ### 支持提示信息
+
 :::note
-The content and title *can* include markdown.
+
+The content and title _can_ include markdown.
+
 :::
 
-:::tip You can specify an optional title
+:::tip 自定义标题
+
 Heads up! Here's a pro-tip.
+
 :::
 
 :::info
+
 Useful information.
+
 :::
 
 :::caution
+
 Warning! You better pay attention!
+
 :::
 
 :::danger
+
 Danger danger, mayday!
+
 :::
 
 ### 代码块支持标题
@@ -87,3 +100,37 @@ function HelloCodeTitle(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
+
+### Mermaid
+
+```bash
+yarn add mermaid
+```
+
+```jsx title="src/theme/Mermaid.js"
+import React, { useEffect } from 'react';
+import mermaid from 'mermaid';
+
+mermaid.initialize({
+  startOnLoad: true,
+});
+
+const Mermaid = ({ chart }) => {
+  useEffect(() => {
+    mermaid.contentLoaded();
+  }, []);
+  return <div className="mermaid">{chart}</div>;
+};
+
+export default Mermaid;
+```
+
+    import Mermaid from '@theme/Mermaid';
+    ```
+    <Mermaid chart={`
+      graph LR;
+        A-->B;
+        B-->C;
+        B-->D[plop lanflz eknlzeknfz];
+    `}/>
+    ```

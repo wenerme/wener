@@ -6,8 +6,16 @@ title: Serverless Awesome
 
 ## 实现
 
+- [kedacore/keda](https://github.com/kedacore/keda)
+  Kubernetes-based Event Driven Autoscaling component
 - [knative](https://github.com/knative)
   - 源自 Google
+- [kyma-project/kyma](https://github.com/kyma-project/kyma)
+- [webiny/webiny-js](https://github.com/webiny/webiny-js)
+  - MIT, Typescript
+  - 只支持 AWS
+- [dapr/dapr](https://github.com/dapr/dapr)
+  portable, event-driven, runtime
 - [serverless/serverless](https://github.com/serverless/serverless)
 - [openfaas/faas](https://github.com/openfaas/faas)
   - 源自 VMWare
@@ -28,6 +36,7 @@ title: Serverless Awesome
   - [A Comparison of Serverless Frameworks for Kubernetes: OpenFaas, OpenWhisk, Fission, Kubeless and more](https://winderresearch.com/a-comparison-of-serverless-frameworks-for-kubernetes-openfaas-openwhisk-fission-kubeless-and-more/)
   - [Comparison of Kubernetes Serverless Frameworks](https://www.vshn.ch/en/blog/a-very-quick-comparison-of-kubernetes-serverless-frameworks/)
   - [Examining the FaaS on K8S Market](https://blogs.cisco.com/cloud/examining-the-faas-on-k8s-market)
+
 # FAQ
 
 ## OpenFaas vs Serverless

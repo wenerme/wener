@@ -22,6 +22,7 @@ title: 版本历史
 - Linux 5.13 后可能支持 Apple M1
   - 可能会新增 linux-m1 内核
   - 16K page
+- WIP dkms - 需要 apk trigger 支持
 
 :::
 

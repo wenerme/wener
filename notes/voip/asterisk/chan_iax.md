@@ -35,6 +35,15 @@ title: chan_iax
 
 :::
 
+:::caution
+
+- iax 需要双向注册 - 取决于网络情况，可能会有点麻烦
+  - A -> B
+  - A <- B
+- iax 出现无法注册，需要重启才能注册上的问题
+
+:::
+
 ```conf
 load => chan_iax2
 ; trunk 需要 timing interface

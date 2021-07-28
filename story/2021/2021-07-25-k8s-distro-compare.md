@@ -2,8 +2,8 @@
 title: K8S Distro Compare
 slug: k8s-distro-compare
 tags:
-  - kubernetes
-  - devops
+  - Kubernetes
+  - DevOps
 ---
 
 # K8S Distro K3S vs K0S
@@ -91,11 +91,21 @@ kubeadm 和 k0s, k3s 都属于第二种场景，第一种场景的工具例如
   - traefik
   - klipper-lb
   - local-path-provisioner
+  - metrics-server
   - coredns
+  - kube-router
 - k0s
+  - metrics-server
   - coredns
+  - kube-router
 
-k3s 默认包含较多组件，部署后 可使用性 更高，但部分组件不建议生产使用，提供这些组件更多是保证功能完备。
+k3s 默认包含较多组件，部署后 可使用性 更高，但部分组件（ traefik,klipper-lb,local-path-provisioner ）不建议生产使用，提供这些组件更多是保证功能完整。
+
+### k3s & k0s
+
+面向相同用户群体和使用场景，因此非常类似。
+
+k0s 也使用 k3s 的 kine，核心组件相同，两者区别不大，只是 k3s 事件更长更成熟，默认安装后可用的组件更多。
 
 ## 组件简介
 
@@ -114,3 +124,4 @@ k3s 默认包含较多组件，部署后 可使用性 更高，但部分组件�
   - 支持部署 helm chart
   - 通过 CDR 控制
 - [cloudnativelabs/kube-router](https://github.com/cloudnativelabs/kube-router)
+  - 网络解决方案

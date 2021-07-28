@@ -1,6 +1,14 @@
+---
+title: Windows Registry
+---
+
 # Windows Registry
 
+# FAQ
+
 ## sip protocol registry
+
+- 大部分 sip 会自行注册，但可能需要初次启动使用管理员身份
 
 ```reg
 Windows Registry Editor Version 5.00

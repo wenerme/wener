@@ -1,44 +1,41 @@
-# Proxy
+---
+title: 爬虫代理
+---
 
-## Tips
-* https://scrapinghub.com/crawlera
+# 爬虫代理
 
+## Crawlera
 
+- https://scrapinghub.com/crawlera
+- https://github.com/scrapinghub/splash
 
-__Crawlera__
-
-                   |C10  |C50  |C100 |C200 |ENTERPRISE
--------------------|-----|-----|-----|-----|------
-PRICE              |$25  |$100 |$250 |$500 |Custom
-MONTHLY REQUESTS   |150K |1M	 |3M   |9M	 |Custom
-CONCURRENT REQUESTS|10	 |50	 |100  |200	 |Custom
-
-
-https://github.com/scrapinghub/splash
-
+| -                   | C10  | C50  | C100 | C200 | ENTERPRISE |
+| ------------------- | ---- | ---- | ---- | ---- | ---------- |
+| PRICE               | $25  | $100 | $250 | $500 | Custom     |
+| MONTHLY REQUESTS    | 150K | 1M   | 3M   | 9M   | Custom     |
+| CONCURRENT REQUESTS | 10   | 50   | 100  | 200  | Custom     |
 
 ## Luminati
-http://luminati.io/
 
-* 分为住宅 IP
-  * 按流量收费, 不限 IP
-* 数据中心 IP
-  * 可租赁 IP
-  * 30 IP 1$/天 不限流量
-* Super Proxy
-  * 统一代理点
-* Proxy Peer
-  * 代理终端
-  * 代理出口
-  * http://zproxy.luminati.io:22225
-* session-id
-  * 是一个任意的数字和字符串
-  * 使用同样的值会尽可能的使用同样的代理点
-  * 但要保证使用同样的 Super Proxy
-  * 有一分钟的空闲时间, 超时后会回到池中
-  * 加 `glob_` 前缀来使用全局 session, 忽略客户端 IP
-* 常见被屏蔽的状态码 403, 429, 502, 503
-
+- http://luminati.io/
+- 分为住宅 IP
+  - 按流量收费, 不限 IP
+- 数据中心 IP
+  - 可租赁 IP
+  - 30 IP 1$/天 不限流量
+- Super Proxy
+  - 统一代理点
+- Proxy Peer
+  - 代理终端
+  - 代理出口
+  - http://zproxy.luminati.io:22225
+- session-id
+  - 是一个任意的数字和字符串
+  - 使用同样的值会尽可能的使用同样的代理点
+  - 但要保证使用同样的 Super Proxy
+  - 有一分钟的空闲时间, 超时后会回到池中
+  - 加 `glob_` 前缀来使用全局 session, 忽略客户端 IP
+- 常见被屏蔽的状态码 403, 429, 502, 503
 
 ```yaml
 # 返回的头
@@ -54,20 +51,20 @@ http://lumtest.com/myip.json
 
 ```json
 {
-    "asn": {
-        "asnum": 21769,
-        "org_name": "Colocation America Corporation"
-    },
-    "country": "CN",
-    "geo": {
-        "city": "Beijing",
-        "latitude": 39.9289,
-        "longitude": 116.3883,
-        "postal_code": "",
-        "region": "11",
-        "tz": "Asia/Shanghai"
-    },
-    "ip": "66.78.39.151"
+  "asn": {
+    "asnum": 21769,
+    "org_name": "Colocation America Corporation"
+  },
+  "country": "CN",
+  "geo": {
+    "city": "Beijing",
+    "latitude": 39.9289,
+    "longitude": 116.3883,
+    "postal_code": "",
+    "region": "11",
+    "tz": "Asia/Shanghai"
+  },
+  "ip": "66.78.39.151"
 }
 ```
 
