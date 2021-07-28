@@ -1,7 +1,5 @@
 ---
-id: docusaurus
 title: Docusaurus
-hide_title: true
 ---
 
 # Docusaurus
@@ -125,12 +123,26 @@ const Mermaid = ({ chart }) => {
 export default Mermaid;
 ```
 
-    import Mermaid from '@theme/Mermaid';
-    ```
-    <Mermaid chart={`
-      graph LR;
-        A-->B;
-        B-->C;
-        B-->D[plop lanflz eknlzeknfz];
-    `}/>
-    ```
+```mdx title="doc.md"
+import Mermaid from '@theme/Mermaid';
+
+<Mermaid
+  chart={`
+  graph LR;
+    A-->B;
+    B-->C;
+    B-->D[plop lanflz eknlzeknfz];
+`}
+/>
+```
+
+import Mermaid from '@theme/Mermaid';
+
+<Mermaid
+  chart={`
+  graph LR;
+    A-->B;
+    B-->C;
+    B-->D[plop lanflz eknlzeknfz];
+`}
+/>
