@@ -4,36 +4,6 @@ title: Go FAQ
 
 # Go FAQ
 
-## 依赖更新
-
-```bash
-# 查看有更新的模块
-go list -u -m all
-# 查看直接依赖
-# https://pkg.go.dev/cmd/go/internal/modinfo#ModulePublic
-go list -u -m -f '{{.}}{{if .Indirect}} IAMINDIRECT{{end}}' all
-# 只显示有更新的
-go list -u -m -f '{{if .Update}}{{.}}{{end}}' all
-# 只显示直接依赖
-go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all
-
-# 更新 minor 和 patch
-go get -u -v ./...
-# 更新 patch
-go get -u=patch -v ./...
-# 更新测试依赖
-go get -t -u ./...
-```
-
-## 查看模块所在位置
-
-```bash
-go list -f '{{.Dir}}' -m github.com/pkg/errors
-
-# 模块缓存目录
-go env GOMODCACHE
-```
-
 ## Struct 是否使用指针
 
 - 尽量不使用指针 - 直接使用 Struct 会更快

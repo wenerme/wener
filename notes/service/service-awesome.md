@@ -20,6 +20,9 @@ title: Service Awesome
 - [CachetHQ/Cachet](https://github.com/CachetHQ/Cachet)
   status page
   - BSD-3, PHP
+- [Kopano-dev/kopano-core](https://github.com/Kopano-dev/kopano-core)
+  - Groupware
+  - AGPL-3.0
 
 ## Avatar
 

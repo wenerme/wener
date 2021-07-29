@@ -3,6 +3,7 @@ title: NATS JetStream
 ---
 
 # NATS JetStream
+
 - [nats-io/jetstream](https://github.com/nats-io/jetstream)
 - 特性
   - At-least-once delivery; exactly once within a window
@@ -13,6 +14,7 @@ title: NATS JetStream
   - Cleanse specific messages (GDPR)
   - Horizontal scalability
   - Persist Streams and replay via Consumers
+  - WebSocket
 - Replica
   - Source
     - 创建的 stream 指定 source 后会去消费，可多个 source
@@ -39,10 +41,9 @@ title: NATS JetStream
   - [nats-io/nack](https://github.com/nats-io/nack)
     - K8S Controller
 
+:::info
 
-:::
-
-* 存储尚不支持集群
+- 存储尚不支持集群
 
 :::
 

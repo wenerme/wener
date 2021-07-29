@@ -27,3 +27,20 @@
 - [VoIP](https://www.wener.tech/notes/voip/voip)
 - [纪念那些在 BBK 的时光](https://wener.me/story/bbk-memory)
 - [虚拟化](https://www.wener.tech/notes/os/virt/virt)
+
+## Projects Working On
+
+| Kubernetes                            | Golang                  | DevOps                              |
+| ------------------------------------- | ----------------------- | ----------------------------------- |
+| [charts] - helm repo agg & cdn        | [go-req] - http request | [ansible-collection-wenerme-alpine] |
+| [container-mirror] - ali image mirror | [go-magic] - libmagic   | [alpine-image]                      |
+| [kube-stub-cluster] - deploy stub     | [astgo] - asterisk      |
+
+[go-req]: https://github.com/wenerme/go-req
+[go-magic]: https://github.com/wenerme/go-magic
+[astgo]: https://github.com/wenerme/astgo
+[charts]: https://github.com/wenerme/charts
+[container-mirror]: https://github.com/wenerme/container-mirror
+[kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
+[ansible-collection-wenerme-alpine]: https://github.com/wenerme/ansible-collection-wenerme-alpine
+[alpine-image]: https://github.com/wenerme/alpine-image

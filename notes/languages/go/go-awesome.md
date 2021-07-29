@@ -15,13 +15,16 @@ title: Go Awesome
 - 命令行
   - [spf13/cobra](https://github.com/spf13/cobra) - ⭐️
     - 目前使用最多
-    - 比 urfave/cli 更 Opinioned， 但觉得是更好的 opinion
+    - flag 由 pflag 处理，配置由 viper 处理
+    - 比 urfave/cli 更 unopinioned
+    - urfave/cli 更加 declarative
 - Observerable
   - Prometheus Metrics
   - Jaeger
 - 参考
   - [mingrammer/go-web-framework-stars](https://github.com/mingrammer/go-web-framework-stars)
-  - https://golangroadmap.com/
+
+<!-- - https://golangroadmap.com/ -->
 
 ## 学习
 
@@ -305,12 +308,36 @@ title: Go Awesome
   - keto - 访问控制服务
   - fosite - Golang OAuth2 框架
 
+## 扩展
+
+- [plugin](https://pkg.go.dev/plugin)
+  - -buildmode=plugin
+    - 只支持 Linux, FreeBSD, macOS - dlopen
+    - 需要 cgo
+  - Lookup symbol 强转类型进行使用 - 类似 dlopen - 底层使用 dlopen
+  - main 下 exported 的符号都可以使用
+  - 加载时所有包的 init 都会触发
+  - plugin 不支持 close - go 涉及到 gc 和全局状态
+  - 交互不需要序列化 - 相同内存空间
+- [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)
+  - 基于 RPC 的插件系统
+    - 交互信息需要序列化
+    - 用于专门的场景 - 例如不能用于 Hook HTTP 请求
+  - 多进程
+    - 隔离 cgo
+    - 避免 crash
+    - 支持热升级
+    - 多语言
+
 ## 语言
 
 - [rogchap/v8go](https://github.com/rogchap/v8go)
   - 内含预编译的静态 libv8
 - [augustoroman/v8](https://github.com/augustoroman/v8)
   - V8 Binding
+- [mvdan/sh](https://github.com/mvdan/sh)
+  Shell parser, formatter, interpreter
+  - source APKBUILD https://gitlab.alpinelinux.org/kdaudt/atools-go
 
 ## 有趣
 
@@ -394,12 +421,6 @@ title: Go Awesome
   Golang SIP framework
 - [sip client.go](https://github.com/framsc/sip-client-in-golang/blob/master/sip%20client.go)
   - 简单处理 Register
-
-## 语言
-
-- [mvdan/sh](https://github.com/mvdan/sh)
-  Shell parser, formatter, interpreter
-  - source APKBUILD https://gitlab.alpinelinux.org/kdaudt/atools-go
 
 ## Command Line
 

@@ -4,9 +4,12 @@ title: Golang 模块
 
 # Golang 模块
 
-- 注意
-  - 不支持 Git 子目录 - [#34055](https://github.com/golang/go/issues/34055)
-    - 已接受，实现中
+:::caution
+
+- 不支持 Git 子目录 - [#34055](https://github.com/golang/go/issues/34055)
+  - 已接受，实现中
+
+:::
 
 ```bash
 # 依赖管理
@@ -37,6 +40,36 @@ replace github.com/dep/one => github.com/fork/one
 
 ```html
 <meta name="go-import" content="nhooyr.io/websocket git https://github.com/nhooyr/websocket mod" />
+```
+
+## 依赖更新
+
+```bash
+# 查看有更新的模块
+go list -u -m all
+# 查看直接依赖
+# https://pkg.go.dev/cmd/go/internal/modinfo#ModulePublic
+go list -u -m -f '{{.}}{{if .Indirect}} IAMINDIRECT{{end}}' all
+# 只显示有更新的
+go list -u -m -f '{{if .Update}}{{.}}{{end}}' all
+# 只显示直接依赖
+go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all
+
+# 更新 minor 和 patch
+go get -u -v ./...
+# 更新 patch
+go get -u=patch -v ./...
+# 更新测试依赖
+go get -t -u ./...
+```
+
+## 查看模块所在位置
+
+```bash
+go list -f '{{.Dir}}' -m github.com/pkg/errors
+
+# 模块缓存目录
+go env GOMODCACHE
 ```
 
 ## GOPROXY

@@ -1,5 +1,5 @@
 ---
-# date: 2016-8-6 23:43 # TODO
+date: 2016-8-6 23:43
 tags:
   - Game
   - Android
