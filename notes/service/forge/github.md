@@ -28,3 +28,7 @@ version https://git-lfs.github.com/spec/v1
 oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
 size 84977953
 ```
+
+## 快速添加 License
+
+- https://github.com/wenerme/wener/community/license/new?template=CC-BY-SA-4.0

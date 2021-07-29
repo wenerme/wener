@@ -44,3 +44,5 @@
 [kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
 [ansible-collection-wenerme-alpine]: https://github.com/wenerme/ansible-collection-wenerme-alpine
 [alpine-image]: https://github.com/wenerme/alpine-image
+
+<img alt="cc-by-sa-4.0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
