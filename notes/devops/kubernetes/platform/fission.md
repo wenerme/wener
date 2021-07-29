@@ -12,6 +12,7 @@ title: fission
     - 支持命名参数 `/guestbook/{name}/{age:[0-9]+}`
     - `X-Fission-Params-Name: <name>` - 注意名字会转换
   - 支持 WebSocket
+  - 底层基于 keda
 - helm [fission/fission-charts](https://github.com/fission/fission-charts)
   - fission-all - nats, influxdb
   - fission-core

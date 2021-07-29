@@ -125,3 +125,7 @@ k0s 也使用 k3s 的 kine，核心组件相同，两者区别不大，只是 k3
   - 通过 CDR 控制
 - [cloudnativelabs/kube-router](https://github.com/cloudnativelabs/kube-router)
   - 网络解决方案
+
+## 参考
+
+- [certified-kubernetes-installer](https://landscape.cncf.io/card-mode?category=certified-kubernetes-installer&grouping=category)

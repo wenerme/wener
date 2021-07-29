@@ -5,6 +5,7 @@ title: K8S Awesome
 # Kubernetes Awesome
 
 - [cncf landscape](https://landscape.cncf.io/)
+- [awesome-cloud-native](https://jimmysong.io/awesome-cloud-native)
 
 ## by Wener
 
@@ -56,6 +57,7 @@ title: K8S Awesome
 - k9s
   命令行
 - portainer
+- [vmware-tanzu/octant](https://github.com/vmware-tanzu/octant)
 
 ## Distribution
 
@@ -98,6 +100,8 @@ title: K8S Awesome
 - PostgreSQL
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
+  - [sorintlab/stolon](https://github.com/sorintlab/stolon)
+    - Apache-2.0, Go
 
 ## Secret & ConfigMap
 
@@ -116,6 +120,11 @@ title: K8S Awesome
 
 - [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
 - [solo-io/squash](https://github.com/solo-io/squash)
+- [goodrain/rainbond](https://github.com/goodrain/rainbond)
+  云原生应用管理平台
+  - LGPL-3.0, Go
+- [open-hand/choerodon](https://github.com/open-hand/choerodon)
+  Multi-Cloud Integrated Platform
 
 ## Notify
 
@@ -131,3 +140,53 @@ title: K8S Awesome
 - [kris-nova/naml](https://github.com/kris-nova/naml)
   replacing Kubernetes YAML with Go
 - [cdk8s-team/cdk8s](https://github.com/cdk8s-team/cdk8s)
+- [ovh/cds](https://github.com/ovh/cds)
+  Continuous Delivery Service
+- [Qihoo360/wayne](https://github.com/Qihoo360/wayne)
+  multi-cluster management and publishing platform
+- [nuclio/nuclio](https://github.com/nuclio/nuclio)
+  Serverless event and data processing platform
+- [kyverno/kyverno](https://github.com/kyverno/kyverno/)
+  Kubernetes Native Policy Management
+
+## API Gateway
+
+- [luraproject/lura](https://github.com/luraproject/lura)
+  - builder , proxy generator, aggregator
+  - client -> lura -> N\*Service
+- [kubernetes-sigs/service-catalog](https://github.com/kubernetes-sigs/service-catalog)
+- [openservicebrokerapi/servicebroker](https://github.com/openservicebrokerapi/servicebroker)
+
+## Conf
+
+- consul
+  - [Caiyeon/goldfish](https://github.com/Caiyeon/goldfish)
+    - UI, 已停止, 可参考
+- [ctripcorp/apollo](https://github.com/ctripcorp/apollo)
+  - Apache-2.0, Java
+  - 携程
+  - 配置管理系统
+
+## Tool
+
+- [txn2/kubefwd](https://github.com/txn2/kubefwd)
+  Bulk port forwarding
+- [stakater/Reloader](https://github.com/stakater/Reloader)
+  watch changes in ConfigMap and Secrets and do rolling upgrades on Pod
+- [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
+  Local development against a remote Kubernetes
+
+## Install
+
+- [easzlab/kubeasz](https://github.com/easzlab/kubeasz)
+  Ansible 脚本安装 K8S 集群
+- [talos-systems/talos](https://github.com/talos-systems/talos)
+  modern OS for Kubernetes
+  - MPL-2.0, Go
+  - secure, immutable, minimal
+  - 通过 API 管理系统 - 无 shell
+  - mTLS
+- [KubeOperator/KubeOperator](https://github.com/KubeOperator/KubeOperator)
+  KubeOperator 是一个开源的轻量级 Kubernetes 发行版
+- [kubernetes-sigs/kubespray](https://github.com/kubernetes-sigs/kubespray)
+  Deploy a Production Ready Kubernetes Cluster
