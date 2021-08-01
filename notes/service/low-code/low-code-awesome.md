@@ -28,6 +28,9 @@ title: Low Code Awesome
 
 ---
 
+- [lowdefy/lowdefy](https://github.com/lowdefy/lowdefy)
+  build internal tools, web apps, admin panels, BI dashboards, workflows, and CRUD apps with YAML or JSON.
+  - Apache-2.0, JS
 - [concrete-utopia/utopia](https://github.com/concrete-utopia/utopia)
   - MIT, TypeScript
 - [appsmithorg/appsmith](https://github.com/appsmithorg/appsmith)

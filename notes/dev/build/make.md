@@ -18,7 +18,13 @@ SHELL=/bin/bash
 # 二次求值 $$
 # 这个需要放在前面
 .SECONDEXPANSION:
+
+# 总是执行
 .PHONEY: always
+always:
+
+# export 所有变量
+.EXPORT_ALL_VARIABLES:
 
 # makefile 所在目录
 cwd := $(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST))))))
@@ -30,6 +36,7 @@ empty:=
 space:= $(empty) $(empty)
 rel  := $(subst $(space),$(comma),${text})
 
+# @ 不输出这行命令
 ok:
 	@echo OK
 # 二次求值
@@ -44,8 +51,6 @@ ifneq ("$$(wildcard src/modules/$*/Makefile)","")
 else
 	@echo Skip - no makefile
 endif
-
-always:
 
 
 # 循环
@@ -65,8 +70,32 @@ foo : bar/lose
   gobble $(@F) > ../$@
 ```
 
+## 要求环境变量
+
+```makefile
+check-env:
+ifndef ENV
+	$(error ENV is undefined)
+endif
+```
+
+## 接收任意额外参数
+
+```makefile
+CMD_ARGS = $(filter-out $@,$(MAKECMDGOALS))
+%:
+	@:
+run:
+  @echo RUN $(CMD_ARGS)
+```
+
+```bash
+make run app
+```
+
 ## 帮助文档
-* [Self-Documented Makefile](https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html)
+
+- [Self-Documented Makefile](https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html)
 
 ```makefile
 .PHONY: help
@@ -191,7 +220,8 @@ endif
 | .POSIX                | POSIX 兼容模式                               |
 
 ## 函数
-* https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
+
+- https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
 
 ## Recipes
 
@@ -210,6 +240,7 @@ endif
 ```
 
 ## 带帮助的 Makefile
+
 ```makefile
 build: ## Build
   echo BUILD

@@ -3,17 +3,21 @@ title: Gitea
 ---
 
 # Gitea
-* 注意
-  * 不支持环境变量配置
-    * [#350](https://github.com/go-gitea/gitea/issues/350)
+
+:::caution
+
+- 不支持环境变量配置 - [#350](https://github.com/go-gitea/gitea/issues/350)
+  - secret 需要在 config file - GitOps 部署配置麻烦
+
+:::
 
 ```bash
 docker run -d --name=gitea -p 10022:22 -p 10080:3000 -v /var/lib/gitea:/data gitea/gitea:latest
 ```
 
-
 ## 配置
-* [配置](https://docs.gitea.io/zh-cn/config-cheat-sheet/)
+
+- [配置](https://docs.gitea.io/zh-cn/config-cheat-sheet/)
 
 ```ini
 [database]

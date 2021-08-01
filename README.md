@@ -44,5 +44,22 @@
 [kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
 [ansible-collection-wenerme-alpine]: https://github.com/wenerme/ansible-collection-wenerme-alpine
 [alpine-image]: https://github.com/wenerme/alpine-image
+[wenerme/wener]: https://github.com/wenerme/wener
 
-<img alt="cc-by-sa-4.0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+## Status watch
+
+- [wenerme/charts][charts]
+  [![Build Pages](https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg)](https://github.com/wenerme/charts/actions/workflows/pages.yaml)
+- [wenerme/wener]
+  [![Build](https://github.com/wenerme/wener/workflows/Build/badge.svg)](https://github.com/wenerme/wener/actions)
+- [wenerme/container-mirror][container-mirror]
+  [![Sync](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml/badge.svg)](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml)
+- [go-req]
+  [![CI](https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg)](https://github.com/wenerme/go-req/actions/workflows/ci.yml)
+
+## License
+
+[![CC BY-SA 4.0][cc-by-sa-img]][cc-by-sa]
+
+[cc-by-sa-img]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/

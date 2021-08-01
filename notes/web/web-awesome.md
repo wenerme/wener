@@ -57,6 +57,8 @@ title: Web Awesome
   - 窗口管理器
 - [niklasvh/html2canvas](https://github.com/niklasvh/html2canvas)
   - 截屏
+- [ian-nai/In-Browser-OCR](https://github.com/ian-nai/In-Browser-OCR)
+  - Tesseract.js
 
 ## tty
 

@@ -2,30 +2,28 @@
 title: PowerDNS
 ---
 
-
 # PowerDNS
 
-* [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
-* Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
-* https://doc.powerdns.com/authoritative/indexTOC.html
-* [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
-* 特性
-  * 多种后端
-  * 多种复制方式
-  * 修改不需要重启
-  * 定制缓存
-  * Supermaster
-    * 当为一个节点设置了 Supermaster 后,在主节点上创建 zone,所有子节点会自动创建相应的 zone, 并发起一个 AXFR 请求
-    * bind 中需要手动为所有子节点添加 zone
-* NOTES
-  * 当找到一条匹配的后不会再尝试使用通配符查找
-    * 例如 *.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
-* 参考
-  * [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
-* pdnsutil
-  * 域名管理工具
-  * 通过修改 DB - 可以远程使用
-
+- [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
+- Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
+- https://doc.powerdns.com/authoritative/indexTOC.html
+- [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
+- 特性
+  - 多种后端
+  - 多种复制方式
+  - 修改不需要重启
+  - 定制缓存
+  - Supermaster
+    - 当为一个节点设置了 Supermaster 后,在主节点上创建 zone,所有子节点会自动创建相应的 zone, 并发起一个 AXFR 请求
+    - bind 中需要手动为所有子节点添加 zone
+- NOTES
+  - 当找到一条匹配的后不会再尝试使用通配符查找
+    - 例如 \*.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
+- 参考
+  - [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
+- pdnsutil
+  - 域名管理工具
+  - 通过修改 DB - 可以远程使用
 
 dnsdist is a DNS loadbalancer from the people behind PowerDNS that balances DNS packets based on rules.
 
@@ -216,9 +214,11 @@ pdnsutil disable-dnssec wener.me
 ```
 
 ## GEO
+
 https://doc.powerdns.com/md/authoritative/backend-geo/
 
 ## Setting
+
 https://doc.powerdns.com/authoritative/settings.html
 
 ```ini
@@ -359,7 +359,7 @@ webserver-print-arguments=no
 launch=
 ```
 
-__pdns.conf__
+**pdns.conf**
 
 ```ini
 cache-ttl=60
@@ -380,74 +380,60 @@ webserver=no
 wildcards=yes
 ```
 
-## CHANGELOG
-### 4.2
-* [changelog](https://doc.powerdns.com/authoritative/changelog/4.2.html) / [发布申明](https://blog.powerdns.com/2019/08/30/powerdns-authoritative-server-4-2-0/)
-* LUA 记录支持
-* LMDB 后端支持
+## 后端
 
-### 4.1
-* [changelog](https://doc.powerdns.com/authoritative/changelog/4.1.html)
-* api 添加 metadata 接口
-* 移除了 as 中的 recursor
-  1. 通过 recursor 转发到 as
-  2. 通过 dnsdist 负载均衡基于规则进行分发
-
-* [Migrating from using recursion on the Authoritative Server to using a Recursor](https://doc.powerdns.com/authoritative/guides/recursion.html)
-
-
-### 后端
-* 后端模块
-  * sql
-    * sqlite
-    * oracle
-    * mysql
-    * pgsql
-    * odbc
-    * opendb
-  * bind
-  * tinydns
-  * remote
-  * pipe
-  * lua
-  * ldap
-* 后端方法分类
-  * minimal
-    * list
-      * 用于支持 AXFR
-    * lookup
-    * get
-    * getSOA
-  * master
-    * getUpdatedMasters
-    * setNotifed
-  * slave
-    * getDomainInfo
-    * isMaster
-    * getUnfreshSlaveInfos
-    * setFresh
-    * startTransaction
-    * commitTransaction
-    * abortTransaction
-    * feedRecord
-  * supermaster
-    * superMasterBackend
-    * createSlaveDomain
-  * dnssec
-  * 其他
-* 主要接口
-  * `BackendFactory`
-    * `DNSBackend` 的工厂类
-  * `DNSBackend`
-    * 后端接口
-  * `XXXLoader`
-    * 静态初始化类
-    * 用于注册工厂方法
-    * `BackendMakers().report(new XXXFactory)`
-* 需要实现 `pdns/dnsbackend.hh` 中的 DNSBackend
-* AXFR
+- 后端模块
+  - sql
+    - sqlite
+    - oracle
+    - mysql
+    - pgsql
+    - odbc
+    - opendb
+  - bind
+  - tinydns
+  - remote
+  - pipe
+  - lua
+  - ldap
+- 后端方法分类
+  - minimal
+    - list
+      - 用于支持 AXFR
+    - lookup
+    - get
+    - getSOA
+  - master
+    - getUpdatedMasters
+    - setNotifed
+  - slave
+    - getDomainInfo
+    - isMaster
+    - getUnfreshSlaveInfos
+    - setFresh
+    - startTransaction
+    - commitTransaction
+    - abortTransaction
+    - feedRecord
+  - supermaster
+    - superMasterBackend
+    - createSlaveDomain
+  - dnssec
+  - 其他
+- 主要接口
+  - `BackendFactory`
+    - `DNSBackend` 的工厂类
+  - `DNSBackend`
+    - 后端接口
+  - `XXXLoader`
+    - 静态初始化类
+    - 用于注册工厂方法
+    - `BackendMakers().report(new XXXFactory)`
+- 需要实现 `pdns/dnsbackend.hh` 中的 DNSBackend
+- AXFR
 
 ## recursor
+
 https://doc.powerdns.com/md/recursor/settings/
 
 ```bash
@@ -486,9 +472,3 @@ webserver=yes
 webserver-port=8082
 api-key=key
 ```
-## FAQ
-
-### TSIG is provided, but domain is not secured with TSIG. Processing continues
-* 通过 nsupdate 修改 - 操作会成功
-* zone 允许 tsig - 但未通过 tsig 加密
-

@@ -155,6 +155,8 @@ title: Go Awesome
   - Zero memory allocations in hot paths. Up to 10x faster than net/http
 - [golobby/container](https://github.com/golobby/container)
   - IoC Container
+- [zhenghaoz/gorse](https://github.com/zhenghaoz/gorse)
+  recommender system service
 
 ## 代码生成
 

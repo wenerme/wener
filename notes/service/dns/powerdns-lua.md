@@ -3,11 +3,16 @@ title: PowerDNS LUA
 ---
 
 # PowerDNS LUA
-* 自 4.2 开始支持
-* [所有函数](https://doc.powerdns.com/authoritative/lua-records/functions.html)
-* [LUA Reference](https://doc.powerdns.com/authoritative/lua-records/reference/index.html)
-* __注意__
-  0. 默认会添加 `return`，如果语句不是返回值，可以添加 `;` 前缀，然后自己写 `return`。
+
+- 自 4.2 开始支持
+- [所有函数](https://doc.powerdns.com/authoritative/lua-records/functions.html)
+- [LUA Reference](https://doc.powerdns.com/authoritative/lua-records/reference/index.html)
+
+:::caution
+
+- 默认会添加 `return`，如果语句不是返回值，可以添加 `;` 前缀，然后自己写 `return`。
+
+:::
 
 ```sql
 -- 针对域名启用 LUA

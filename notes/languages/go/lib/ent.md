@@ -121,12 +121,10 @@ SELECT * FROM "accounts" WHERE "accounts"."owning_user_id" IN (SELECT "users"."i
     - 会添加到 gen.Config
     - 类似于配置 entc
 - entc/schema
-
   - 生成代码使用实际 GoType - [#1428](https://github.com/ent/ent/pull/1428)
     - 之前例如 ID 类型，会生成对应的 SQL 类型 - 例如 `sql.NullString`
   - UpdateOne 支持 Select 字段
   - 允许查询关闭 DISTINCT - 默认开启
-
 - [v0.8.0](https://github.com/ent/ent/releases/tag/v0.8.0)
 
 ```go

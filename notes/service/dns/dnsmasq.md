@@ -4,31 +4,30 @@ title: dnsmasq
 
 # dnsmasq
 
-## Tips
-* [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
-  * 轻量级的 DNS, TFTP, PXE, router advertisement 和 DHCP 服务
-  * 支持 DNSSEC
-  * 可以作为小型的 DNS AS/授权服务器 - 直接提供域名记录
-* Archlinux [dnsmasq](https://wiki.archlinux.org/index.php/dnsmasq)/[简体中文](https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-* Debian HowTo [dnsmasq](https://wiki.debian.org/HowTo/dnsmasq)
-* musl dns
-  * [docker-alpine](https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns)
-    * dns domain 搜索不生效
-    * 并发 dns 服务有问题
-  * [DNS resolution happenning only after timeout](http://www.openwall.com/lists/musl/2017/09/28/1)
-  * [Functional differences from glibc](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
-* address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
-* [reload](https://serverfault.com/a/934681) - 清除缓存重载部分配置文件
-  * SIGHUP
-  * /etc/hosts
-  * /etc/ethers
-  * --dhcp-hostsfile
-  * --dhcp-hostsdir
-  * --dhcp-optsfile
-  * --dhcp-optsdir
-  * --dhcp-optsdir
-  * --addn-hosts
-  * --hostsdir
+- [dnsmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+  - 轻量级的 DNS, TFTP, PXE, router advertisement 和 DHCP 服务
+  - 支持 DNSSEC
+  - 可以作为小型的 DNS AS/授权服务器 - 直接提供域名记录
+- Archlinux [dnsmasq](https://wiki.archlinux.org/index.php/dnsmasq)/[简体中文](<https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)>)
+- Debian HowTo [dnsmasq](https://wiki.debian.org/HowTo/dnsmasq)
+- musl dns
+  - [docker-alpine](https://github.com/gliderlabs/docker-alpine/blob/master/docs/caveats.md#dns)
+    - dns domain 搜索不生效
+    - 并发 dns 服务有问题
+  - [DNS resolution happenning only after timeout](http://www.openwall.com/lists/musl/2017/09/28/1)
+  - [Functional differences from glibc](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
+- address=/.domain.tld/192.168.0.1 -> address=/domain.tld/192.168.0.1
+- [reload](https://serverfault.com/a/934681) - 清除缓存重载部分配置文件
+  - SIGHUP
+  - /etc/hosts
+  - /etc/ethers
+  - --dhcp-hostsfile
+  - --dhcp-hostsdir
+  - --dhcp-optsfile
+  - --dhcp-optsdir
+  - --dhcp-optsdir
+  - --addn-hosts
+  - --hostsdir
 
 ```bash
 # 速度测试
@@ -98,9 +97,10 @@ brew service start dnsmasq
 ```
 
 ## 配置
-* [dnsmasq.conf.example](http://thekelleys.org.uk/gitweb/?p=dnsmasq.git;a=blob_plain;f=dnsmasq.conf.example;hb=HEAD)
-* [dnsmasq-man](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
-* 配置的内容也是命令行接受的参数
+
+- [dnsmasq.conf.example](http://thekelleys.org.uk/gitweb/?p=dnsmasq.git;a=blob_plain;f=dnsmasq.conf.example;hb=HEAD)
+- [dnsmasq-man](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+- 配置的内容也是命令行接受的参数
 
 ```bash
 # 默认配置
@@ -109,6 +109,7 @@ egrep '^[^#]' /etc/dnsmasq.conf
 ```
 
 ### 常用配置
+
 ```ini
 # --no-daemon 前台运行
 # 配置目录
@@ -143,6 +144,7 @@ group=dnsmasq
 ```
 
 ### 基础配置
+
 ```ini
 conf-file=<file>
 conf-dir=<directory>[,<file-extension>......],
@@ -162,12 +164,15 @@ group=<groupname>
 ```
 
 ### 系统相关
+
 ```ini
 # 记录 conntrack 标示 - 主要用于防火墙或统计
 conntrack
 ```
+
 ### DNSSEC
-* 需要安装 __dnsmasq-dnssec__ 而不是 dnsmasq
+
+- 需要安装 **dnsmasq-dnssec** 而不是 dnsmasq
 
 ```ini
 # 启动 dnssec - 编译时需要 HAVE_DNSSEC
@@ -522,6 +527,7 @@ dhcp-client-update
 ```
 
 ### TFTP
+
 ```ini
 # 启用 TFTP
 enable-tftp[=<interface>[,<interface>]]
@@ -537,70 +543,10 @@ tftp-port-range=<start>,<end>
 ```
 
 ### PXE
+
 ```ini
 # 配置 PXE 服务
 pxe-service=[tag:<tag>,]<CSA>,<menu text>[,<basename>|<bootservicetype>][,<server address>|<server_name>]
 # 设置提示信息
 pxe-prompt=[tag:<tag>,]<prompt>[,<timeout>]
-```
-
-# FAQ
-
-## dnsmasq: setting capabilities failed: Operation not permitted
-* Docker 里遇到
-* 用 root 启动
-
-```bash
-dnsmasq --user=root
-```
-
-## dnsmasq: failed to bind DHCP server socket: Address in use
-
-* 67 端口被占用
-* 使用 bind-interfaces
-
-## libvirtd dnsmasq
-
-```bash
-/usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib/libvirt/libvirt_leaseshelper
-```
-
-```
-##WARNING:  THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
-##OVERWRITTEN AND LOST.  Changes to this configuration should be made using:
-##    virsh net-edit default
-## or other application using the libvirt API.
-##
-## dnsmasq conf file created by libvirt
-strict-order
-pid-file=/var/run/libvirt/network/default.pid
-except-interface=lo
-bind-dynamic
-interface=virbr0
-dhcp-range=192.168.122.2,192.168.122.254,255.255.255.0
-dhcp-no-override
-dhcp-authoritative
-dhcp-lease-max=253
-dhcp-hostsfile=/var/lib/libvirt/dnsmasq/default.hostsfile
-addn-hosts=/var/lib/libvirt/dnsmasq/default.addnhosts
-```
-
-## dnsmasq as
-
-```ini
-auth-server=localhost
-auth-zone=localhost,127.0.0.0/24
-# 会解析所有的 cluster.internal 结尾域名
-# x.cluster.internal
-# x.x.cluster.internal
-address=/cluster.internal/192.168.1.1
-```
-
-## 所有域名 CNAME 为其他域名
-
-```ini
-# 所有 example.com 都会 CNAME 为 wener.me
-cname=*.example.com,wener.me,180
-auth-server=example.com
-auth-zone=example.com
 ```

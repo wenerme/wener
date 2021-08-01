@@ -4,6 +4,8 @@ title: K3S Version
 
 # K3S Version
 
+- 跟随 Kubernetes 版本发布
+
 ## 1.21
 
 - Dual-stack IPv4/IPv6

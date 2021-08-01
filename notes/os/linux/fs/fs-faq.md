@@ -35,19 +35,6 @@ title: FAQ
 mount -o rw,remount /
 ```
 
-## New size results in too many block group descriptors
-
-```bash
-e2fsck -f /dev/XXX
-resize2fs /dev/XXX
-```
-
-或
-
-```bash
-resize2fs -f /dev/sdb2
-```
-
 ## Do you want to remove the signature?
 
 如果不希望删除 fs 则选择 No

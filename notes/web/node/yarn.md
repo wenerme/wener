@@ -1,5 +1,4 @@
 ---
-id: yarn
 title: Yarn
 ---
 

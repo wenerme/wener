@@ -4,7 +4,104 @@ title: Kubernetes 版本
 
 # Kubernetes 版本
 
-## 1.21 - 2021-04-08
+- feature groups
+  - api-machinery
+  - apps
+  - auth
+  - cli
+  - cluster-lifecycle
+  - cluster-provider
+  - instrumentation - kubelet 自身相关
+  - network
+  - node
+  - scheduling
+  - storage
+  - windows
+
+| ver. | release    |
+| ---- | ---------- |
+| 1.22 |            |
+| 1.21 | 2021-04-08 |
+| 1.20 | 2020-12-08 |
+
+- 参考
+  - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
+
+## 1.22
+
+- 新的 PodSecurity admission 控制器 作为 PSP 替代
+- Rootless 模式容器
+  - KubeletInUserNamespace
+- Seccomp
+  - SeccompDefault - 支持默认开启
+- 支持 swap
+  - NodeMemorySwap
+  - --fail-on-swap
+  - kubelet MemorySwap.SwapBehavior=UnlimitedSwap
+- cgroupsv2
+  - Memory QoS - min,max,low,high
+- 稳定 API
+  - Server-side Apply - kubectl apply 功能迁移到服务端 - 1.14+
+  - 废弃接口告警机制 - 1.19+
+  - namespace 不可变 label - kubernetes.io/metadata.name - 1.21+
+  - CronJobs - 1.4+
+  - PodDisruptionBudget - 1.4+
+  - EndpointSlice - 解决 pod 多 IP 问题
+    - 1.22 会为超过 1000 的 Endpoints 添加 endpoints.kubernetes.io/over-capacity: truncated
+      - 之前是 endpoints.kubernetes.io/over-capacity: warning
+  - AppProtocol - Services 和 Endpoints 自定义协议
+  - HugePageStorageMediumSize - 1.18+
+  - Pod `hostnameFQDN: true` - hotsname 设置为 FQDN - 1.19+
+  - CSIServiceAccountToken
+  - Windows CSI 插件 - 1.16+
+- Beta API
+  - APIPriorityAndFairness
+  - Job .spec.suspend
+  - CRS 有效期 - CertificateSigningRequestSpec.ExpirationSeconds
+  - Service LoadBalancer Class - 支持多 LB
+  - .spec.egress.ports.endPort - 配置端口段
+  - 临时容器 - kubectl debug
+  - emptyDir.sizeLimit - 限制 tmpfs 内存使用
+  - 存储 volume DataSource - 支持预先包含数据
+- Alpha
+  - MaxDNSSearchPathsExpanded - 扩展 DNS 长度
+    - MaxDNSSearchPaths 6 -> 32
+    - MaxDNSSearchListChars 256 -> 2048
+  - 存储 ReadWriteOncePod - 单几点 RWM，只允许一个节点
+- 移除废弃 Beta API
+  - Ingress
+  - CustomResourceDefinition
+  - ValidatingWebhookConfiguration
+  - MutatingWebhookConfiguration
+  - CertificateSigningRequest
+- 功能废弃
+  - StreamingProxyRedirects
+  - ServiceTopology - 使用 Topology Aware Hints / 1.17+
+  - DynamicKubeletConfig
+- 参考
+  - [1.22: Here’s What You Need To Know](https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22/)
+  - [Kubernetes 1.22 – What’s new?](https://sysdig.com/blog/kubernetes-1-22-whats-new/)
+
+```yaml
+apiVersion: apiserver.config.k8s.io/v1
+kind: AdmissionConfiguration
+plugins:
+  - name: PodSecurity
+    configuration:
+      defaults: # Defaults applied when a mode label is not set.
+        enforce: <default enforce policy level>
+        enforce-version: <default enforce policy version>
+        audit: <default audit policy level>
+        audit-version: <default audit policy version>
+        warn: <default warn policy level>
+        warn-version: <default warn policy version>
+      exemptions:
+        usernames: [<array of authenticated usernames to exempt>]
+        runtimeClassNames: [<array of runtime class names to exempt>]
+        namespaces: [<array of namespaces to exempt>]
+```
+
+## 1.21
 
 - 13 stable, 16 beta, 20 alpha, 2 废弃
 - Kustomize 从 v2.0.3 升级到 v4.0.5 - 之前因为依赖问题被 block
@@ -117,7 +214,7 @@ apiVersion: batch/v1
   completionMode: Indexed
 ```
 
-## 1.20 - 2020-12-08
+## 1.20
 
 - 11 stable, 15 beta, 16 alpha
 - 废弃 dockershim

@@ -113,3 +113,7 @@ type ReadWriteCloser interface {
 
 - arch
   - js/wasm
+
+## 1.7
+
+- context - https://golang.org/pkg/context

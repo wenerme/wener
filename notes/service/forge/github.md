@@ -1,8 +1,13 @@
+---
+title: Github
+---
+
 # Github
 
 - [chrishunt/github-auth](https://github.com/chrishunt/github-auth)
 - 参考
   - https://gist.github.com/toolbear/ac62691d6f59812a6710
+    GitHub as an authority for SSH public keys
 
 ```bash
 curl https://github.com/wenerme.keys >> ~/.ssh/authorized_keys

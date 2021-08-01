@@ -3,7 +3,6 @@ title: PowerDNS Recursor
 ---
 
 # PowerDNS Recursor
-## Tips
 
 ```bash
 # 安装
@@ -18,7 +17,8 @@ Dec 04 16:00:22 Answer to google.com|A for 127.0.0.1:50371 validates as Bogus
 -->
 
 ## 配置
-* https://doc.powerdns.com/recursor/settings.html
+
+- https://doc.powerdns.com/recursor/settings.html
 
 ```ini
 # 基础配置
@@ -61,4 +61,3 @@ query-local-address6=::
 curl -v -H 'X-API-Key: KEY' http://localhost:5380/api/v1/servers/localhost | jq
 curl -v -H 'X-API-Key: KEY' http://localhost:5380/api/v1/servers/localhost/zones | jq
 ```
-

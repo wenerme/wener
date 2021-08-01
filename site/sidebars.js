@@ -153,9 +153,9 @@ module.exports = {
           {
             type: 'category',
             label: 'K3S',
-            items: items('devops/kubernetes/disto/k3s'),
+            items: items('devops/kubernetes/distro/k3s'),
           },
-          ...items('devops/kubernetes/disto'),
+          ...items('devops/kubernetes/distro'),
         ],
       },
       {

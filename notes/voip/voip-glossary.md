@@ -15,6 +15,10 @@ title: 词汇表
   * Usually should be enabled to the settings used by your device for CONNECTEDLINE() functionality to work if supported by the endpoint.
 * PAI - P-Asserted-Identity 头
 * ICE - Interactive Connectivity Establishment
+* noise reduction - 降噪
+  * asterisk `Set(DENOISE(rx)=on)`
+* echo cancellation - 回声消除
+  * [Causes of Echo](https://www.voip-info.org/causes-of-echo/)
 
 ## 电话号码
 * [Is there a standard for phone numbers?](https://stackoverflow.com/a/21001896/1870054)

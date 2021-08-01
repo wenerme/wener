@@ -17,6 +17,7 @@ title: Tailwind CSS
   - [windicss/windicss](https://github.com/windicss/windicss)
     - 类似 Tailwind+JIT
   - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
+  - [shuffle.dev](https://shuffle.dev) - 模板生成
 
 ```bash
 # 基础依赖

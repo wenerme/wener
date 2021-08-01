@@ -6,6 +6,7 @@ title: fx
 
 - [uber-go/fx](https://github.com/uber-go/fx)
   - 基于反射的动态 IoC 容器
+  - 内部为 [uber-go/dig](https://github.com/uber-go/dig) - DI
 
 ```go
 type HandlerParams struct {

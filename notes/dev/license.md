@@ -36,6 +36,11 @@ title: License
 - [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
 - [choose](https://creativecommons.org/choose/)
+- OKI - Open Knowledge International
+- 参考
+  - https://creativecommons.org/about/downloads
+  - [知识共享许可协议](https://zh.wikipedia.org/wiki/知识共享许可协议)
+  - [自由文化作品](https://zh.wikipedia.org/wiki/自由文化作品定义)
 
 | abbr.    | 署名 | 混合 | 商业 | 自由文化作品 | OKI |
 | -------- | ---- | ---- | ---- | ------------ | --- |
@@ -53,3 +58,19 @@ title: License
 - SA - ShareAlike - 相同方式共享
 - NC - Noncommercial - 非商业性使用
 - ND - No Derivative Works
+
+**图标**
+
+| typ.        | img                                                                           | url                                                                      |
+| ----------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| normal      | ![](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)                      | https://i.creativecommons.org/l/by-sa/4.0/88x31.png                      |
+| normal svg  | ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg) | https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg |
+| compact     | ![](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)                      | https://i.creativecommons.org/l/by-sa/4.0/80x15.png                      |
+| cpmpact svg | ![](https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg) | https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg |
+
+```
+[![CC BY-SA 4.0][cc-by-sa-img]][cc-by-sa]
+
+[cc-by-sa-img]: https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+```

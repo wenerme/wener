@@ -125,7 +125,7 @@ module.exports = {
         alt: 'Wener Site',
         src: 'img/wener-logo.svg',
       },
-      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt="cc-by-sa-4.0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> - Build @${moment()
+      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt="cc-by-sa-4.0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" /> - Build @${moment()
         .tz('Asia/Shanghai')
         .format('YYYY-MM-DD HH:mm')}`,
     },
