@@ -1,4 +1,4 @@
-ci: ci-install sync process build stats
+ci: ci-install sync process notes.json build stats
 
 ci-install:
 	npm ci
@@ -28,3 +28,8 @@ dev:
 	npm run start
 
 .PHONY: build ci
+
+docs.json:
+	node -r ts-node/register src/scripts/process.ts $(ARGS)
+notes.json: sb.ts docs.json
+	node -r ts-node/register sb.ts

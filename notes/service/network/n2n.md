@@ -19,6 +19,13 @@ title: n2n
 - edge
   - 5644/udp - 管理
 
+:::caution
+
+- bridge 支持有点问题
+- 没有可用的 ios 应用 - [ntop/n2n#381](https://github.com/ntop/n2n/issues/381)
+
+:::
+
 ```bash
 # macOS
 brew install --cash tuntap

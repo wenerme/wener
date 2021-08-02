@@ -72,6 +72,7 @@ title: LADP
     * [The MIT Kerberos Administrator’s How-to Guide](http://www.kerberos.org/software/adminkerberos.pdf)
     * [whykerberos](http://www.kerberos.org/software/whykerberos.pdf)
     * [Kerberos: The Definitive Guide](https://doc.lagout.org/network/Kerberos%20The%20Definitive%20Guide%202003.pdf)
+* 推荐通过 安全协议 使用 - LDAPS, StartTLS
 
 https://github.com/github/github-ldap
 

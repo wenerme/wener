@@ -1,11 +1,9 @@
 ---
-id: nginx
 title: Nginx
 ---
 
 
-# NGINX
-## Tips
+# Nginx
 
 * `/usr/share/nginx/html` 静态文件目录
 * `/etc/nginx/nginx.conf` 配置目录

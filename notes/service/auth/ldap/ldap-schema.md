@@ -1,5 +1,4 @@
 ---
-id: ldap-schema
 title: LDAP Schema
 ---
 
@@ -11,7 +10,7 @@ title: LDAP Schema
 - [Active Directory to OpenLdap](https://github.com/dkoudela/active-directory-to-openldap)
   - 将 Active Directory 转为 OpenLdap
 
-| 字段 | 全称                | 含义                       |
+| name | stand for           | 含义                       |
 | ---- | ------------------- | -------------------------- |
 | dn   | distinguished name  | 专有名称                   |
 | cn   | Common Name         | 通用名、全名               |

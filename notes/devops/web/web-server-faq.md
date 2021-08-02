@@ -61,9 +61,9 @@ title: Web Server FAQ
 - v2
   - 通过接口配置 - 更加灵活
 
-## HAproxy vs Keepalived
+## HAProxy vs Keepalived
 
-- HAproxy
+- HAProxy
   - 支持 4 层 TCP 和 7 层 HTTP
   - 感知部分 4 层协议 - 例如 syslog
 - Keepalived

@@ -265,3 +265,7 @@ deploy 如果只有一个节点，使用 Recreate， RollingUpdate 会失败。
 
 - keda 简单 - 负责 autoscaler
 - knative 复杂 - 整套开发逻辑
+
+## The StorageClass is invalid: provisioner: Forbidden: updates to provisioner are forbidden.
+
+provisioner 名字不匹配，还 sc 名字或删了重建。

@@ -30,11 +30,22 @@
 
 ## Projects Working On
 
-| Kubernetes                            | Golang                  | DevOps                              |
-| ------------------------------------- | ----------------------- | ----------------------------------- |
-| [charts] - helm repo agg & cdn        | [go-req] - http request | [ansible-collection-wenerme-alpine] |
-| [container-mirror] - ali image mirror | [go-magic] - libmagic   | [alpine-image]                      |
-| [kube-stub-cluster] - deploy stub     | [astgo] - asterisk      |
+| Kubernetes                            | CI                                                                                                                                                                    |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [charts] - helm repo agg & cdn        | [![Build Pages](https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg)](https://github.com/wenerme/charts/actions/workflows/pages.yaml)            |
+| [container-mirror] - ali image mirror | [![Sync](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml/badge.svg)](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml) |
+| [kube-stub-cluster] - deploy stub     |
+
+| Golang                  | CI                                                                                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| [go-req] - http request | [![CI](https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg)](https://github.com/wenerme/go-req/actions/workflows/ci.yml) |
+| [go-magic] - libmagic   |
+| [astgo] - asterisk      |
+
+| DevOps                              |
+| ----------------------------------- |
+| [ansible-collection-wenerme-alpine] |
+| [alpine-image]                      |
 
 [go-req]: https://github.com/wenerme/go-req
 [go-magic]: https://github.com/wenerme/go-magic
@@ -48,18 +59,9 @@
 
 ## Status watch
 
-- [wenerme/charts][charts]
-  [![Build Pages](https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg)](https://github.com/wenerme/charts/actions/workflows/pages.yaml)
-- [wenerme/wener]
-  [![Build](https://github.com/wenerme/wener/workflows/Build/badge.svg)](https://github.com/wenerme/wener/actions)
-- [wenerme/container-mirror][container-mirror]
-  [![Sync](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml/badge.svg)](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml)
-- [go-req]
-  [![CI](https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg)](https://github.com/wenerme/go-req/actions/workflows/ci.yml)
-
 ## License
 
 [![CC BY-SA 4.0][cc-by-sa-img]][cc-by-sa]
 
-[cc-by-sa-img]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+[cc-by-sa-img]: https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/

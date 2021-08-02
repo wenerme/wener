@@ -1,9 +1,9 @@
 ---
-id: traefik-v1
 title: Traefik V1
 ---
 
 # Traefik V1
+
 ## Notes
 
 ### Docker
@@ -16,62 +16,63 @@ docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO
 ```
 
 ### 基本概念
-* 入口
-  * http
-  * https
-* 前端
-  * 定义从入口进入的请求如何转发到后端
-  * 注意, 正则里的名字并没有任何意义, 只是因为依赖的 [gorilla/mux](https://github.com/gorilla/mux) 要求必须要有
-  * 可以使用 `passHostHeader` 将头完全传递到后端
-  * 可以使用 `passTLSCert` 将客户端证书也转发到后端
-  * 默认优先级为规则长度的反序, 避免路径重叠, 可以使用 `priority` 修改
-  * 可以添加自定义头
-  * 安全相关的头可以使用简化的方式启用
-    * [unrolled/secure#available-options](https://github.com/unrolled/secure#available-options)
-  * Modifiers
-    * 不管顺序怎么样, 会在 `Matchers` 之后执行
-    * 修改请求, 不影响路由
-    * `AddPrefix: /products`
-    * `ReplacePath: /serverless-path`
-      * 替换路径并添加 `X-Replaced-Path` 头
-  * Matchers
-    * 定义请求如何转发到后端
-    * `,` 分隔符用于定义多个 `或` 条件
-    * `;` 定义多个 `与` 条件
-    * `Headers: Content-Type, application/json`
-      * 头匹配, 接受使用 `,` 分割的 kv 值
-    * `HeadersRegexp: Content-Type, application/(text/json)`
-      * 头匹配, 接受使用 `,` 分割的 kv 值
-      * 值可以为正则
-    * `Host: traefik.io, www.traefik.io`
-    * `HostRegexp: traefik.io, {subdomain:[a-z]+}.traefik.io`
-    * `Method: GET, POST, PUT`
-    * `Path: /products/, /articles/{category}/{id:[0-9]+}`
-    * `PathStrip: /products/`
-      * 路径完全匹配, 转发到后端的时候会去掉路径
-      * 会将原路径保存到 `X-Forwarded-Prefix`
-    * `PathStripRegex: /articles/{category}/{id:[0-9]+}`
-    * `PathPrefix: /products/, /articles/{category}/{id:[0-9]+}`
-    * `PathPrefixStrip: /products/`
-    * `PathPrefixStripRegex: /articles/{category}/{id:[0-9]+}`
-    * `Query: foo=bar, bar=baz`
-* 后端
-  * 将前端的请求负载到一组服务器
-  * 负载方式
-    * wrr 基于权重的轮询
-    * drr 动态轮询
-  * 支持熔断机制
-    * 方法: LatencyAtQuantileMS, NetworkErrorRatio, ResponseCodeRatio
-    * 操作: AND, OR, EQ, NEQ, LT, LE, GT, GE
-  * 最大连接数控制
-    * 对链接分组可以使用 `request.host` , `client.ip`, `request.header.ANY_HEADER`
-    * 达到阀值会返回 `429 Too Many Requests`
-  * 粘性会话, 需要指定 `cookieName`
-  * 健康检查
-    * 可指定路径, 间隔, 端口, 要求是 http
-  * 服务定义
-    * 主要为 url, 路径可以在 Modifier 中指定
-    * 可以指定 weight
+
+- 入口
+  - http
+  - https
+- 前端
+  - 定义从入口进入的请求如何转发到后端
+  - 注意, 正则里的名字并没有任何意义, 只是因为依赖的 [gorilla/mux](https://github.com/gorilla/mux) 要求必须要有
+  - 可以使用 `passHostHeader` 将头完全传递到后端
+  - 可以使用 `passTLSCert` 将客户端证书也转发到后端
+  - 默认优先级为规则长度的反序, 避免路径重叠, 可以使用 `priority` 修改
+  - 可以添加自定义头
+  - 安全相关的头可以使用简化的方式启用
+    - [unrolled/secure#available-options](https://github.com/unrolled/secure#available-options)
+  - Modifiers
+    - 不管顺序怎么样, 会在 `Matchers` 之后执行
+    - 修改请求, 不影响路由
+    - `AddPrefix: /products`
+    - `ReplacePath: /serverless-path`
+      - 替换路径并添加 `X-Replaced-Path` 头
+  - Matchers
+    - 定义请求如何转发到后端
+    - `,` 分隔符用于定义多个 `或` 条件
+    - `;` 定义多个 `与` 条件
+    - `Headers: Content-Type, application/json`
+      - 头匹配, 接受使用 `,` 分割的 kv 值
+    - `HeadersRegexp: Content-Type, application/(text/json)`
+      - 头匹配, 接受使用 `,` 分割的 kv 值
+      - 值可以为正则
+    - `Host: traefik.io, www.traefik.io`
+    - `HostRegexp: traefik.io, {subdomain:[a-z]+}.traefik.io`
+    - `Method: GET, POST, PUT`
+    - `Path: /products/, /articles/{category}/{id:[0-9]+}`
+    - `PathStrip: /products/`
+      - 路径完全匹配, 转发到后端的时候会去掉路径
+      - 会将原路径保存到 `X-Forwarded-Prefix`
+    - `PathStripRegex: /articles/{category}/{id:[0-9]+}`
+    - `PathPrefix: /products/, /articles/{category}/{id:[0-9]+}`
+    - `PathPrefixStrip: /products/`
+    - `PathPrefixStripRegex: /articles/{category}/{id:[0-9]+}`
+    - `Query: foo=bar, bar=baz`
+- 后端
+  - 将前端的请求负载到一组服务器
+  - 负载方式
+    - wrr 基于权重的轮询
+    - drr 动态轮询
+  - 支持熔断机制
+    - 方法: LatencyAtQuantileMS, NetworkErrorRatio, ResponseCodeRatio
+    - 操作: AND, OR, EQ, NEQ, LT, LE, GT, GE
+  - 最大连接数控制
+    - 对链接分组可以使用 `request.host` , `client.ip`, `request.header.ANY_HEADER`
+    - 达到阀值会返回 `429 Too Many Requests`
+  - 粘性会话, 需要指定 `cookieName`
+  - 健康检查
+    - 可指定路径, 间隔, 端口, 要求是 http
+  - 服务定义
+    - 主要为 url, 路径可以在 Modifier 中指定
+    - 可以指定 weight
 
 ```toml
 # 入口定义
@@ -167,10 +168,11 @@ docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO
 ```
 
 ### 配置
-* 配置路径
-  * `/etc/traefik/`
-  * `$HOME/.traefik/`
-  * `.`
+
+- 配置路径
+  - `/etc/traefik/`
+  - `$HOME/.traefik/`
+  - `.`
 
 ```toml
 # 全局配置

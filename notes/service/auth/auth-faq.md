@@ -1,5 +1,4 @@
 ---
-id: auth-faq
 title: 认证授权常见问题
 ---
 

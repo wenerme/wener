@@ -45,7 +45,6 @@ title: Container Awesome
 ### Tools
 
 - [GoogleContainerTools/container-diff](https://github.com/GoogleContainerTools/container-diff)
-
 - 参考
   - [构建容器的最佳做法](https://cloud.google.com/solutions/best-practices-for-building-containers)
 

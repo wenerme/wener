@@ -19,6 +19,8 @@ title: OpenLDAP
     - [demo](http://demo.phpldapadmin.org/)
   - [OpenLDAP multi-tenant like ACL](https://stackoverflow.com/questions/22606811)
     - [Sets in Access Controls](https://www.openldap.org/faq/data/cache/1133.html)
+  - [osixia/docker-openldap](https://github.com/osixia/docker-openldap)
+  - [jp-gouin/helm-openldap](https://github.com/jp-gouin/helm-openldap)
 
 ## Note
 

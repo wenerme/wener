@@ -95,11 +95,14 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 # https://localhost:8080
 kubectl port-forward svc/argocd-server -n argocd 8443:443
 # 账号 admin
-# 密码
+# 密码 旧的方式为 deploy 名字
 # kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+# 新的方式会保存初始密码
 # 获取密码后 建议删除 argocd-initial-admin-secret
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 kubectl -n argocd delete secret argocd-initial-admin-secret
+
+# 可通过修改 argocd-secret admin.password 来修改密码
 
 # argocd 命令行工具
 brew install argocd

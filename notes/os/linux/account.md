@@ -68,6 +68,17 @@ $2y$ – Eksblowfish
 $5$ – SHA-256
 $6$ – SHA-512
 
+```bash
+# MD5
+# 自定义 salt -salt yoursalt
+openssl passwd -1
+
+# 2y
+# apache-utils
+htpasswd -bnBC 10 "" password | tr -d ':\n'
+# 2y 和 2a 基本可互换使用
+htpasswd -bnBC 10 "" password | tr -d ':\n' | sed 's/$2y/$2a/'
+```
 
 chage 修改信息
 pwck 检查完整性

@@ -4,26 +4,25 @@ title: MetalLB
 
 # MetalLB
 
-* 注意
-  * 不能 PING https://github.com/danderson/metallb/issues/259
-  * 支持 `externalTrafficPolicy` 选项 - BGP 和 L2 行为不一样
-  * [网络兼容](https://metallb.universe.tf/installation/network-addons/)
-    * Canal Cilium Flannel
-* [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - 配置简单
-  * 会监听所有网卡
-  * 流量只会到 __一个节点__ 不是真正的负载均衡
-  * 实现了 failover 机制 - 旧的 leader 有 10s 的租约
-* [BGP](https://metallb.universe.tf/concepts/bgp/) - 配置相对复杂
-  * 每个节点于网络路由器建立 BGP 会话
-  * 如果路由配置了多路支持 - 那么配合 metallb 宣告的地址则能实现 __真正的负载均衡__ - 而不只是使用一个作为 下一跳/nexthop
-  * 网络变化时会有一瞬间的中断
-  * 一般使用基于 hash 的负载均衡 - 部分场景下会有问题
-* MetalLB 安装后如果不配置也是没有开始工作的
-* 原理
-  * `metallb-system/controller` deployment 处理 IP 分发
-  * `metallb-system/speaker` daemonset 在每个节点上响应路由
-    * 响应 ARP，申明节点有 IP 并返回 MAC
-
+- 注意
+  - 不能 PING https://github.com/danderson/metallb/issues/259
+  - 支持 `externalTrafficPolicy` 选项 - BGP 和 L2 行为不一样
+  - [网络兼容](https://metallb.universe.tf/installation/network-addons/)
+    - Canal Cilium Flannel
+- [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - 配置简单
+  - 会监听所有网卡
+  - 流量只会到 **一个节点** 不是真正的负载均衡
+  - 实现了 failover 机制 - 旧的 leader 有 10s 的租约
+- [BGP](https://metallb.universe.tf/concepts/bgp/) - 配置相对复杂
+  - 每个节点于网络路由器建立 BGP 会话
+  - 如果路由配置了多路支持 - 那么配合 metallb 宣告的地址则能实现 **真正的负载均衡** - 而不只是使用一个作为 下一跳/nexthop
+  - 网络变化时会有一瞬间的中断
+  - 一般使用基于 hash 的负载均衡 - 部分场景下会有问题
+- MetalLB 安装后如果不配置也是没有开始工作的
+- 原理
+  - `metallb-system/controller` deployment 处理 IP 分发
+  - `metallb-system/speaker` daemonset 在每个节点上响应路由
+    - 响应 ARP，申明节点有 IP 并返回 MAC
 
 ```bash
 # 通过 arping 检测网络互通
@@ -62,8 +61,9 @@ EOF
 ```
 
 ## 配置
-* [example-config.yaml](https://github.com/danderson/metallb/blob/main/manifests/example-config.yaml)
-* [配置文档](https://metallb.universe.tf/configuration)
+
+- [example-config.yaml](https://github.com/danderson/metallb/blob/main/manifests/example-config.yaml)
+- [配置文档](https://metallb.universe.tf/configuration)
 
 ### L2
 
@@ -105,6 +105,7 @@ data:
 ```
 
 ## 服务特殊配置
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -117,17 +118,18 @@ metadata:
     metallb.universe.tf/allow-shared-ip: true
 spec:
   ports:
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     app: nginx
   type: LoadBalancer
 ```
 
 ## FAQ
+
 ### 修改 IP 地址池
 
-* [danderson/metallb#308](https://github.com/danderson/metallb/issues/308)
+- [danderson/metallb#308](https://github.com/danderson/metallb/issues/308)
 
 ```bash
 # 确认上次分发的 IP
@@ -143,3 +145,7 @@ kubectl -n metallb-system get pods -w
 # 查看新获取到的 IP
 kubectl get svc
 ```
+
+## Annotations
+
+- metallb.universe.tf/allow-shared-ip

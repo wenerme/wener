@@ -377,3 +377,5 @@ type: Opaque
 data:
   secret: XXX
 ```
+
+## Failed to retrieve Order resource: 404 urn:ietf:params:acme:error:malformed

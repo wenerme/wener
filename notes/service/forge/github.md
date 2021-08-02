@@ -37,3 +37,23 @@ size 84977953
 ## 快速添加 License
 
 - https://github.com/wenerme/wener/community/license/new?template=CC-BY-SA-4.0
+
+
+## 获取最新版本
+- https://docs.github.com/en/rest/reference/repos#get-the-latest-release
+- https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
+
+```bash
+github-latest-version(){
+  set -o pipefail
+  curl -sfL https://api.github.com/repos/$1/releases/latest | jq .tag_name -r
+  local r=$?
+  set +o pipefail
+  return $r
+}
+```
+
+```bash
+# 但这种有多个 tag 的无解
+github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
+```
