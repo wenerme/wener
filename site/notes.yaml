@@ -58,8 +58,16 @@
   items:
     - label: 启动
       prefix: ./boot
+    - label: Init
+      prefix: ./init
+    - label: 系统
+      prefix: ./sys
     - label: 网络
       prefix: ./network
+    - label: 设备
+      prefix: ./dev
+    - label: 硬件
+      prefix: ./hardware
 - label: 虚拟化
   prefix: os/virt
 - label: 操作系统
@@ -87,6 +95,12 @@
   items:
     - label: 构建
       prefix: ./build
+    - label: 协议
+      prefix: ./protocol
+    - label: 理论
+      prefix: ./theory
+    - label: 文件格式
+      prefix: ./format
 
 - label: DevOps
   prefix: devops
@@ -128,6 +142,8 @@
 - label: 服务
   prefix: service
   items:
+    - label: API
+      prefix: ./api
     - label: Auth
       prefix: ./auth
       items:
@@ -157,7 +173,7 @@
     - label: DNS
       prefix: ./dns
     - label: 仓库
-      prefix: ./category
+      prefix: ./repository
     - label: Forge
       prefix: ./forge
       items:

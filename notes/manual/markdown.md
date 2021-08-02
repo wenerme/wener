@@ -19,7 +19,6 @@ title: Markdown
   * [Pandoc](http://pandoc.org/) - Markup Document 互转 Word, HTML, PDF, TeX, EPUB 等
 * 编辑器
   * [StackEdit](https://stackedit.io/) 支持云同步和较多扩展语法
-  * [Gitbook](./gitbook) 使用 Markdown 来撰写书籍
 * 扩展
   * [redbug312/markdown-it-multimd-table](https://github.com/redbug312/markdown-it-multimd-table)
   * [MultiMarkdown](https://fletcher.github.io/MultiMarkdown-6/)

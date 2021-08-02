@@ -1,6 +1,5 @@
 const YAML = require('yaml');
 import fs from 'fs-extra';
-import { type } from 'os';
 
 const all: Doc[] = JSON.parse(fs.readFileSync('docs.json').toString());
 all.sort((a, b) => a.refId.localeCompare(b.refId));
