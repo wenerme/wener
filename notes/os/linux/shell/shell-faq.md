@@ -4,6 +4,16 @@ title: Shell FAQ
 
 # Shell FAQ
 
+## Terminal vs Console vs Shell
+
+- console = physical terminal
+  - 物理实体
+- terminal = tty = text input/output environment
+  - 链路协议接口
+- shell = command line interpreter
+  - 上层抽象行为概念
+  - 逻辑协议
+
 ## 批量重命名
 
 ```bash

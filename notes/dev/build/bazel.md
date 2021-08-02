@@ -1,8 +1,11 @@
+---
+title: Bazel
+---
+
 # Bazel
 
-## Tips
-* [bazelbuild/examples](https://github.com/bazelbuild/examples)
-* [google/bazel-common](https://github.com/google/bazel-common)
+- [bazelbuild/examples](https://github.com/bazelbuild/examples)
+- [google/bazel-common](https://github.com/google/bazel-common)
 
 ```bash
 brew install bazel
@@ -18,21 +21,22 @@ bazel shutdown
 ```
 
 ## Starlark
+
 https://docs.bazel.build/versions/master/skylark/language.html
 
-
 ## Java
-* `_deploy.jar`
-  * 包含所有依赖
-* 应用
-  * [google/dagger](https://github.com/google/dagger)
-  * [angular/angular/BUILD.bazel](https://github.com/angular/angular/blob/master/BUILD.bazel)
-* 参考
-  * [How to choose the right build unit granularity](https://medium.com/wix-engineering/a58a8142c549)
-  * [How to Decide on CI Server and remote execution / caching](https://medium.com/wix-engineering/be561f455c37)
-* [bazelbuild/rules_gwt](https://github.com/bazelbuild/rules_gwt)
-* [johnynek/bazel-deps](https://github.com/johnynek/bazel-deps) - Generate bazel dependencies for maven artifacts
-* [wix/exodus](https://github.com/wix/exodus) - Easily migrate your JVM code from Maven to Bazel
+
+- `_deploy.jar`
+  - 包含所有依赖
+- 应用
+  - [google/dagger](https://github.com/google/dagger)
+  - [angular/angular/BUILD.bazel](https://github.com/angular/angular/blob/master/BUILD.bazel)
+- 参考
+  - [How to choose the right build unit granularity](https://medium.com/wix-engineering/a58a8142c549)
+  - [How to Decide on CI Server and remote execution / caching](https://medium.com/wix-engineering/be561f455c37)
+- [bazelbuild/rules_gwt](https://github.com/bazelbuild/rules_gwt)
+- [johnynek/bazel-deps](https://github.com/johnynek/bazel-deps) - Generate bazel dependencies for maven artifacts
+- [wix/exodus](https://github.com/wix/exodus) - Easily migrate your JVM code from Maven to Bazel
 
 ```bash
 bazel build //:java-maven
@@ -64,10 +68,11 @@ java_library(
 ```
 
 ### Maven
-* [rules_jvm_external](https://github.com/bazelbuild/rules_jvm_external) - Java 构建外部依赖
-  * Maven
-* [google/bazel-common/maven](https://github.com/google/bazel-common/tree/master/tools/maven)
-  * 支持生成 pom.xml
+
+- [rules_jvm_external](https://github.com/bazelbuild/rules_jvm_external) - Java 构建外部依赖
+  - Maven
+- [google/bazel-common/maven](https://github.com/google/bazel-common/tree/master/tools/maven)
+  - 支持生成 pom.xml
 
 ```bash
 # 查看所有依赖，输出为 BUILD
@@ -81,7 +86,7 @@ load("@rules_jvm_external//:defs.bzl", "artifact")
 # 可以使用 artifact("junit:junit") 而不是 @maven//:junit_junit
 ```
 
-__WORKSPACE__
+**WORKSPACE**
 
 ```
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
@@ -117,7 +122,7 @@ maven_install(
 )
 ```
 
-__BUILD__
+**BUILD**
 
 ```
 java_library(
@@ -138,8 +143,9 @@ android_library(
 ```
 
 ## Remote
-* [Remote Execution](https://docs.bazel.build/versions/master/remote-execution.html)
-* [Remote Caching](https://docs.bazel.build/versions/master/remote-caching.html)
-* Self Host
-  * [twitter/scoot](https://github.com/twitter/scoot)
-  * [bazelbuild/bazel-buildfarm](https://github.com/bazelbuild/bazel-buildfarm)
+
+- [Remote Execution](https://docs.bazel.build/versions/master/remote-execution.html)
+- [Remote Caching](https://docs.bazel.build/versions/master/remote-caching.html)
+- Self Host
+  - [twitter/scoot](https://github.com/twitter/scoot)
+  - [bazelbuild/bazel-buildfarm](https://github.com/bazelbuild/bazel-buildfarm)

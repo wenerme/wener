@@ -1,10 +1,15 @@
+---
+title: Terminal
+---
+
 # Terminal
 
 ## screen
-* [Screen quick reference](http://aperiodic.net/screen/quick_reference)
-* [Screen manual](http://www.gnu.org/software/screen/manual/screen.html)
-* FAQ
-  * 当连接串口, 强制把 screen kill 后, screen 可能出现 100% CPU 占用, 此时只能重启了
+
+- [Screen quick reference](http://aperiodic.net/screen/quick_reference)
+- [Screen manual](http://www.gnu.org/software/screen/manual/screen.html)
+- FAQ
+  - 当连接串口, 强制把 screen kill 后, screen 可能出现 100% CPU 占用, 此时只能重启了
 
 ```bash
 # 查看所有的会话
@@ -15,10 +20,9 @@ screen -X -S ${SESSION} quit
 screen -r ${SESSION}
 ```
 
-
 ## minicom
 
-* 默认 Meta 为 ESC
+- 默认 Meta 为 ESC
 
 ```
 +-------------------------------------------------------------------+

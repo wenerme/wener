@@ -1,6 +1,8 @@
-# Git Hook
+---
+title: Git Hook
+---
 
-## Tips
+# Git Hook
 
 - 默认目录 `.git/hooks`
 - 参考

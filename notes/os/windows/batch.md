@@ -1,7 +1,12 @@
+---
+title: Batch
+---
 
-# Windows
+# Batch
 
-```cmd
+- Windows 批处理
+
+```batch
 :: 实现一个 CMDRC, 每次启动
 reg add "hklm\software\Microsoft\Command Processor" /f /v AutoRun /d "C:\cmdrc.cmd" > NUL
 :: 还算简单的一个提示符
@@ -23,15 +28,3 @@ sc create asperacentral binPath= "C:\Program Files\Aspera\Enterprise Server\bin\
 :: 跳转菜单中的最近列表
 :: %appdata%\microsoft\windows\recent\automaticdestinations
 ```
-
-## Tips
-* http://www.dependencywalker.com/
-
-
-* 常见依赖
-  * [VS 2015](https://www.microsoft.com/zh-cn/download/details.aspx?id=48145)
-  * [VS 2013](https://www.microsoft.com/zh-cn/download/details.aspx?id=40784)
-  * [VS 2010](https://www.microsoft.com/zh-cn/download/details.aspx?id=5555)
-  * [VS 2008](https://www.microsoft.com/zh-cn/download/details.aspx?id=29)
-  * [VS 2008 x64](https://www.microsoft.com/zh-cn/download/details.aspx?id=15336)
-  * [VS 2008 x64 SP1](https://www.microsoft.com/zh-cn/download/details.aspx?id=5582)

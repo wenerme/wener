@@ -31,5 +31,5 @@ dev:
 
 docs.json:
 	node -r ts-node/register src/scripts/process.ts $(ARGS)
-notes.json: sb.ts docs.json
-	node -r ts-node/register sb.ts
+notes.json: notes.ts notes.yaml docs.json
+	node -r ts-node/register notes.ts

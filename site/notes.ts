@@ -3,22 +3,24 @@ import fs from 'fs-extra';
 import { type } from 'os';
 
 const all: Doc[] = JSON.parse(fs.readFileSync('docs.json').toString());
+all.sort((a, b) => a.refId.localeCompare(b.refId));
 
 const verbose = process.env.verbose;
 
-const items: Array<Item> = YAML.parse(fs.readFileSync('./sidebars.yaml').toString());
+const items: Array<Item> = YAML.parse(fs.readFileSync('./notes.yaml').toString());
 
 function resolve(item: ItemType, last?: Item): ItemType | ItemType[] {
   if (typeof item === 'string') {
     return item;
   }
   if (item.prefix?.startsWith('./')) {
-    item.prefix = last.prefix + item.prefix.substr(1);
+    item.prefix = last.prefix + item.prefix.substr(1).replace(/[/]{2,}/g, '/');
   }
 
   if (item.label && item.prefix) {
     item.items ??= [];
-    const base = item.prefix.match(/[^/]+$/)[0];
+    // prefix with trailing slash to prevent match: git -> gitlab
+    const base = item.prefix.match(/([^/]+)[/]?$/)[1];
     item.items.unshift({ prefix: `${item.prefix}/${base}` });
     item.items.push({ prefix: item.prefix });
   }
@@ -38,12 +40,11 @@ function resolve(item: ItemType, last?: Item): ItemType | ItemType[] {
   console.error('invalid item', item);
 }
 
-const notes = {}
+const notes = {};
 items.forEach((v) => {
   const item = resolve(v) as Item;
-  notes[item.label] = item.items
+  notes[item.label] = item.items;
 });
-
 
 fs.writeJsonSync('notes.json', notes, { spaces: '  ' });
 
@@ -56,7 +57,6 @@ fs.writeFileSync(
     .sort()
     .join('\n'),
 );
-
 
 type ItemType = Item | string;
 interface Item {

@@ -55,6 +55,10 @@ title: OS Awesome
 - [reactos](https://github.com/reactos/reactos)
   - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
 
+## BSD
+
+- [OpenBSD Router Guide](https://openbsdrouterguide.net/)
+
 ## Kernel
 
 - [jjyr/bootgo](https://github.com/jjyr/bootgo)

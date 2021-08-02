@@ -1,6 +1,5 @@
 ---
-id: rsync
-title: Rsync
+title: rsync
 ---
 
 # rsync

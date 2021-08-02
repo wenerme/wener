@@ -22,4 +22,12 @@ PKG_CONFIG_PATH=/usr/local/opt/openexr/lib/pkgconfig:/usr/local/opt/imath/lib/pk
 
 # 所有 brew 的 pkgconfig
 echo /usr/local/opt/*/lib/pkgconfig | tr ' ' ':'
+
+# 检测某个库是否存在, 如果不存在会显示
+# ld: cannot find -luv
+gcc -luv
+
+ldconfig -p | grep libjpeg
+pkg-config --cflags jpeg
+pkg-config --libs jpeg
 ```

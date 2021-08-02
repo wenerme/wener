@@ -108,14 +108,6 @@
     - label: 容器
       prefix: devops/container
 
-- label: 指南
-  prefix: howto
-  items:
-    - label: 运维
-      prefix: ./ops
-    - label: 网络
-      prefix: ./network
-
 - label: 数据库
   prefix: db
   items:
@@ -127,6 +119,11 @@
       prefix: ./document
     - label: 键值型
       prefix: ./kv
+- label: 消息队列
+  prefix: queue
+
+- label: 安全
+  prefix: security
 
 - label: 服务
   prefix: service
@@ -164,6 +161,8 @@
     - label: Forge
       prefix: ./forge
       items:
+        - label: Git
+          prefix: ./git/
         - label: Gitlab
           prefix: ./gitlab
 
@@ -202,6 +201,14 @@
       items:
         - label: Gitlab
           prefix: ./gitlab
+
+- label: 指南
+  prefix: howto
+  items:
+    - label: 运维
+      prefix: ./ops
+    - label: 网络
+      prefix: ./network
 
 - label: 硬件
   prefix: hardware

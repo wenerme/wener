@@ -1,7 +1,12 @@
+---
+title: rclone
+---
+
 # Rclone
 
 ## Tips
-* 默认配置文件 `~/.rclone.conf`
+
+- 默认配置文件 `~/.rclone.conf`
 
 ```bash
 brew install rclone
@@ -32,11 +37,12 @@ find . -type d -empty -delete
 ```
 
 ## google drive
-* [#3625](https://github.com/rclone/rclone/issues/3625) - Add gdrive file id support
-* [donwa/gclone](https://github.com/donwa/gclone)
-  * 基于 rclone，支持替换 sa
-* [xyou365/AutoRclone](https://github.com/xyou365/AutoRclone)
-  * 切换 sa 上传
+
+- [#3625](https://github.com/rclone/rclone/issues/3625) - Add gdrive file id support
+- [donwa/gclone](https://github.com/donwa/gclone)
+  - 基于 rclone，支持替换 sa
+- [xyou365/AutoRclone](https://github.com/xyou365/AutoRclone)
+  - 切换 sa 上传
 
 ```bash
 rclone mount gd: /tmp/gd \
@@ -49,4 +55,5 @@ rclone mount gd: /tmp/gd \
 ```
 
 # FAQ
+
 ## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF
