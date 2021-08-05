@@ -1,5 +1,4 @@
 ---
-id: rheumatoid-arthritis
 title: 类风湿性关节炎
 ---
 
