@@ -1,5 +1,4 @@
 ---
-id: caddy
 title: Caddy
 ---
 
@@ -7,7 +6,7 @@ title: Caddy
 
 ## 概述
 
-* [#1806](https://github.com/mholt/caddy/issues/1806) - Watch Caddyfile for changes
+- [#1806](https://github.com/mholt/caddy/issues/1806) - Watch Caddyfile for changes
 
 ```bash
 # macOS 安装
@@ -22,7 +21,7 @@ caddy -plugins
 caddy -validate -conf Caddyfile
 
 # Docker 启动
-# 配置 /etc/Caddyfile 
+# 配置 /etc/Caddyfile
 # root /srv
 # cert /root/.caddy 或 CADDYPATH
 # 该镜像不包含插件, 插件需要自己构建
@@ -47,19 +46,19 @@ caddy -conf Caddyfile
 
 ## 信号量处理
 
-Signal|Behavior
-----|----
-TERM|Forcefully exits the process without executing shutdown hooks.
-INT|Forcefully exits the process after executing shutdown hooks. This is the only "signal" that works on Windows (Ctrl+C). A second SIGINT forces immediate termination, even if shutdown hooks are still running.
-HUP|Gracefully stops the server, but does not execute shutdown hooks.
-QUIT|Gracefully stops the server after executing shutdown hooks.
-USR1|Reloads the configuration file, then gracefully restarts the server. This spins up a process with a different process ID.
+| Signal | Behavior                                                                                                                                                                                                       |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TERM   | Forcefully exits the process without executing shutdown hooks.                                                                                                                                                 |
+| INT    | Forcefully exits the process after executing shutdown hooks. This is the only "signal" that works on Windows (Ctrl+C). A second SIGINT forces immediate termination, even if shutdown hooks are still running. |
+| HUP    | Gracefully stops the server, but does not execute shutdown hooks.                                                                                                                                              |
+| QUIT   | Gracefully stops the server after executing shutdown hooks.                                                                                                                                                    |
+| USR1   | Reloads the configuration file, then gracefully restarts the server. This spins up a process with a different process ID.                                                                                      |
 
 ## 日志配置
 
-* 格式
-  * `{common}` - `{remote} - {user} [{when}] \"{method} {uri} {proto}\" {status} {size}`
-  * `{combined}` - `{common} \"{>Referer}\" \"{>User-Agent}\"`
+- 格式
+  - `{common}` - `{remote} - {user} [{when}] \"{method} {uri} {proto}\" {status} {size}`
+  - `{combined}` - `{common} \"{>Referer}\" \"{>User-Agent}\"`
 
 ```
 log requests.log {
@@ -71,6 +70,7 @@ log requests.log {
 ```
 
 ## Example
+
 ```
 # 内部文件文档服务
 localhost:2016 {
@@ -136,10 +136,11 @@ localhost:2016 {
 ## CHANGELOG
 
 ### 0.10.12
-* [Caddy 0.10.12 Released with ACMEv2 and Wildcard Certificates](https://caddyserver.com/blog/caddy-0_10_12-released)
-* ACMEv2 通配符
-* 支持共享挂载 `~/.caddy/acme`
-* `{labelN}` 占位符
+
+- [Caddy 0.10.12 Released with ACMEv2 and Wildcard Certificates](https://caddyserver.com/blog/caddy-0_10_12-released)
+- ACMEv2 通配符
+- 支持共享挂载 `~/.caddy/acme`
+- `{labelN}` 占位符
 
 ```
 // 1.
@@ -173,7 +174,7 @@ rewrite {
 }
 ```
 
-PDNS_API_KEY 
+PDNS_API_KEY
 PDNS_API_URL 地址要以 / 结尾
 
 https://github.com/xenolf/lego/blob/master/providers/dns/pdns/pdns.go
@@ -182,9 +183,9 @@ https://github.com/xenolf/lego/blob/master/providers/dns/pdns/pdns.go
 
 ### 禁用重定向 http 到 https
 
-* [#504](https://github.com/mholt/caddy/issues/504)
-* https://caddyserver.com/docs/automatic-https
-* 目前只能用配置两个的方式来避免
+- [#504](https://github.com/mholt/caddy/issues/504)
+- https://caddyserver.com/docs/automatic-https
+- 目前只能用配置两个的方式来避免
 
 ```
 http://yousite.com {
@@ -200,4 +201,5 @@ https://yousite.com {
 ```
 
 ### 在日志文件名中使用占位符
-* https://github.com/mholt/caddy/issues/1396
+
+- https://github.com/mholt/caddy/issues/1396

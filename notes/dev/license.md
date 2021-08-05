@@ -15,6 +15,9 @@ title: License
     - Nethack General Public License
     - NPL, QPL, Sleepycat License, PresubmitR Open Hardware License
     - qmail Terms of Distribution
+- [openbsd.org/policy](https://www.openbsd.org/policy.html)
+  - 反对 Apache 2.0
+  - 推荐 ISC
 
 # AGPL
 

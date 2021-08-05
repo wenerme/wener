@@ -1,4 +1,8 @@
-# photoprism
+---
+title: PhotoPrism
+---
+
+# PhotoPrism
 
 - [docker-compose.yml](https://dl.photoprism.org/docker/docker-compose.yml)
   - mariadb + photoprism

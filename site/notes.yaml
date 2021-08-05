@@ -3,6 +3,12 @@
 # prefix -> type: prefix
 # label+prefix -> type: category, items: [ prefix/prefix, ..., prefix ]
 
+- label: 笔记
+  items:
+    - note
+- label: 自我成长
+  prefix: evolve
+
 - label: Java
   prefix: java
   items:

@@ -57,8 +57,6 @@
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener
 
-## Status watch
-
 ## License
 
 [![CC BY-SA 4.0][cc-by-sa-img]][cc-by-sa]

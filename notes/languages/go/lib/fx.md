@@ -8,6 +8,14 @@ title: fx
   - 基于反射的动态 IoC 容器
   - 内部为 [uber-go/dig](https://github.com/uber-go/dig) - DI
 
+:::tip
+
+- fx.Supply 不能直接提供 interface
+  - Go 类型检测不到, 使用 constructor 返回
+- fx.In 和 fx.Out 要求字段 exported
+
+:::
+
 ```go
 type HandlerParams struct {
   fx.In // consume - 多入参 - 增强可读性

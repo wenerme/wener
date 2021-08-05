@@ -1,5 +1,4 @@
 ---
-id: auth-glossary
 title: 词汇
 ---
 

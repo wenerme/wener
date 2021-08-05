@@ -4,6 +4,40 @@ title: 医学词汇表
 
 # 医学词汇表
 
+- 封闭针 - 封闭疗法 - 注射 盐酸普鲁卡因/Procaine Hydrochloride
+- Procaine - 普鲁卡因 - 麻醉药
+  - 商品名 奴佛卡因 / Novocaine
+  - 被 利多卡因 替代 - 退出美国市场
+- -caine - 具有麻醉作用的生物碱常用的词尾
+- 盐酸普鲁卡因 - [Procaine-hydrochloride](https://pubchem.ncbi.nlm.nih.gov/compound/Procaine-hydrochloride)
+- Toxicity - 毒性
+- Acute Effects - 急性效应
+- 核磁共振成像 - NMRI - Nuclear Magnetic Resonance Imaging
+  - 磁共振成像 - MRI - Magnetic Resonance Imaging
+- CT - Computerized Tomography - 计算机层析成像
+
+## CT vs MRI
+
+- X 射线 - 1901 年
+- CT - 1979 年
+  - X 光 - 有辐射 - 电离辐射损伤
+  - 只能获取与人体长轴垂直的横断面
+- MRI - 2003 年
+  - 磁场扫描 - 没有辐射 - 安全、快速、准确
+  - 软组织分辨力更好 - 膀胱、直肠、子宫、阴道、骨、关节、肌肉
+  - 自由选择所需剖面
+  - 缺点
+    - 有噪音 - 会提供耳机或者耳塞
+    - 部分检查弱于 CT - 肺部、肝脏、胰腺、肾上腺、前列腺
+    - 胃肠道病变不如内窥镜
+    - 扫描时间长，空间分辨力不够理想
+
+| en       | cn     |
+| -------- | ------ |
+| diabetes | 糖尿病 |
+
+## 儿童相关词汇
+
 | en                  | cn             |
 | ------------------- | -------------- |
 | learning disability | 学习障碍       |

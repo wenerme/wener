@@ -13,3 +13,7 @@ title: PostgreSQL Awesome
   - Graph + Realtime
   - openCypher
   - 受 AgensGraph 启发
+- [arkhipov/temporal_tables](https://github.com/arkhipov/temporal_tables)
+  - Temporal - 记录数据变化
+  - 将数据修改归档到历史表
+  - 暂不支持 PG13

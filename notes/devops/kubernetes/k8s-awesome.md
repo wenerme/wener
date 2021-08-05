@@ -48,6 +48,16 @@ title: K8S Awesome
 - [k8snetworkplumbingwg/multus-cni](https://github.com/k8snetworkplumbingwg/multus-cni)
   CNI meta-plugin for multi-homed pods in Kubernetes
 - [kubevirt/macvtap-cni](https://github.com/kubevirt/macvtap-cni)
+- Validate
+  - [instrumenta/kubeval](https://github.com/instrumenta/kubeval)
+  - [zegl/kube-score](https://github.com/zegl/kube-score)
+  - [Validating Kubernetes YAML for best practice and policies](https://learnk8s.io/validating-kubernetes-yaml)
+- DevOps
+  - awx
+- Kubernetes Basic
+  - metallb
+  - cert-manager
+  - kube-prometheus
 
 ## Dashboard
 
@@ -190,3 +200,8 @@ title: K8S Awesome
   KubeOperator 是一个开源的轻量级 Kubernetes 发行版
 - [kubernetes-sigs/kubespray](https://github.com/kubernetes-sigs/kubespray)
   Deploy a Production Ready Kubernetes Cluster
+
+## Security
+
+- [kuadrant/authorino](https://github.com/kuadrant/authorino)
+  Cloud-native AuthN/AuthZ enforcer

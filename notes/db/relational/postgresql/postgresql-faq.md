@@ -413,3 +413,43 @@ begin
 end;
 $$ language plpgsql;
 ```
+
+## control reached end of trigger procedure without RETURN
+
+使用 trigger 时出现，添加 return null
+
+```sql
+create or replace function sync_events_trigger() returns trigger
+as
+$$
+BEGIN
+    -- ...
+    return null; -- this is important
+END;
+$$ language plpgsql volatile;
+```
+
+## query has no destination for result data
+
+在函数中 select 需要指定输出
+
+- 可以将返回类型指定为 table
+- 可以 `select into`
+- 可以 返回 `return(select * from tab)`
+- 可以使用 perform 如果不想要结果
+
+```sql
+CREATE OR REPLACE FUNCTION tst_dates_func()
+RETURNS TABLE( v int) as
+$$
+    select 1;
+$$ LANGUAGE sql;
+
+RETURN QUERY (select 1);
+RETURN(SELECT dblink_disconnect());
+
+SELECT 1 into result;
+RETURN result;
+
+PERFORM select 1;
+```

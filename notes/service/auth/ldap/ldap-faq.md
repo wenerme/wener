@@ -4,6 +4,11 @@ title: LDAP FAQ
 
 # LDAP FAQ
 
+## 属性命名
+
+- `[a-zA-Z0-9-]`
+- [Best Practices For LDAP Naming Attributes](https://ldapwiki.com/wiki/Best%20Practices%20For%20LDAP%20Naming%20Attributes)
+
 ## 认证方式
 
 | method         | value |

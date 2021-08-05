@@ -1,5 +1,4 @@
 ---
-id: sqlite
 title: SQLite
 ---
 
@@ -29,6 +28,13 @@ title: SQLite
 - 限制
   - [Limits In SQLite](https://www.sqlite.org/limits.html)
   - [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)
+
+:::caution
+
+- SQLite 的类型是动态的 - 不强制
+
+:::
+
 
 ```bash
 # macOS 安装

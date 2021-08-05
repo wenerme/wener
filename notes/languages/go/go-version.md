@@ -6,6 +6,8 @@ title: Go Version
 
 - [Go-Release-Cycle](https://github.com/golang/go/wiki/Go-Release-Cycle)
   - 一年两个版本 - 2 月，8 月
+- bugfix backports 一个版本
+- security backports 两个版本
 
 :::tip
 
@@ -15,6 +17,7 @@ title: Go Version
 
 | ver  |        | macOS                   | Windows          |
 | ---- | ------ | ----------------------- | ---------------- |
+| 1.18 | 2022-2 | -                       |
 | 1.17 | 2021-8 | macOS 10.13 High Sierra |
 | 1.16 | 2021-2 | -                       |
 | 1.15 | 2020-8 | macOS 10.12 Sierra      |
@@ -22,6 +25,7 @@ title: Go Version
 | 1.13 | 2019-8 | macOS 10.11 El Capitan  | Windows 7        |
 | 1.12 | 2019-2 | -                       | -                |
 | 1.11 | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
+| 1.10 | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
 
 ## 1.17
 

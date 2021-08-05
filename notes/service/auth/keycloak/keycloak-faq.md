@@ -130,3 +130,11 @@ access-control-max-age: 3600
 
 - 参考
   - [One domain per realm, disabling unrelated keycloak pages](https://keycloak.discourse.group/t/1833)
+
+## Unexpected error when authenticating with identity provider
+
+可开启 login 日志排查具体错误
+
+如果对方没出问题，检查配置。
+
+发现 开启 back-channel logout 且设置为 basic auth 解决了问题。

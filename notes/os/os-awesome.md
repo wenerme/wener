@@ -40,6 +40,9 @@ title: OS Awesome
 - [reactos/reactos](https://github.com/reactos/reactos)
   兼容 Windows 的 Linux
   - GPL-2
+- [mszoek/airyx](https://github.com/mszoek/airyx)
+  - BSD, ObjC
+  - 尝试兼容 macOS 并提供相同的体验
 
 ## 不活跃
 
@@ -64,6 +67,9 @@ title: OS Awesome
 - [jjyr/bootgo](https://github.com/jjyr/bootgo)
   barebones OS kernel
   - MIT, Go
+- [vvaltchev/tilck](https://github.com/vvaltchev/tilck)
+  Tiny Linux-Compatible Kernel
+  - BSD-2, C
 
 ## Emulator
 
