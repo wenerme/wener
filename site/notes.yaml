@@ -6,7 +6,7 @@
 - label: 自我成长
   prefix: evolve
   items:
-  - note
+    - note
 
 - label: Java
   prefix: java
@@ -186,6 +186,13 @@
           prefix: ./git/
         - label: Gitlab
           prefix: ./gitlab
+    - label: 数据
+      prefix: ./data
+      items:
+        - label: 国标
+          prefix: ./gb
+        - label: 爬虫
+          prefix: ./crawler
 
 - label: 运维
   prefix: ops
