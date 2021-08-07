@@ -56,6 +56,34 @@ yarn add -D typescript tslib @rollup/plugin-typescript
 yarn add -D @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve
 ```
 
+## rollup ts
+
+```ts
+import typescript from '@rollup/plugin-typescript';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+
+export default [
+  {
+    input: './src/standalone.ts',
+    output: {
+      file: `dist/standalone.umd.js`,
+      sourcemap: true,
+      format: 'umd',
+      name: 'Standalone',
+    },
+    external: [],
+    plugins: [
+      nodeResolve(),
+      commonjs(),
+      typescript({
+        tsconfig: 'tsconfig.json',
+      }),
+    ],
+  },
+];
+```
+
 ## rollup commonjs
 
 ```ts
@@ -91,7 +119,6 @@ function createConfig(format) {
 
 export default [createConfig('system'), createConfig('umd')];
 ```
-
 
 ## babel
 
@@ -174,3 +201,14 @@ commonjs({
 
 - lodash 是 cjs
 - lodash-es 是 esm
+
+## angularCompilerOptions
+
+- https://angular.io/guide/angular-compiler-options
+
+```json
+{
+  "fullTemplateTypeCheck": true,
+  "preserveWhitespaces": true
+}
+```

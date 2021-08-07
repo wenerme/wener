@@ -4,9 +4,16 @@ title: prettier
 
 # prettier
 
-- [prettier/prettier](https://github.com/prettier/prettier)
+- [prettier/prettier](https://github.com/prettier/prettier) 是什么?
   - opinionated code formatter
-  - Web/Node 开发的 gofmt
+  - Web/Node 开发的 gofmt - JS/TS/Flow/JSX, CSS/SCSS/LESS, Vue, Angular
+  - 支持 Markdown, GraphQL, YAML, JSON
+- 参考
+  - [plugins](https://prettier.io/docs/en/plugins.html)
+    - php, pug, ruby, xml
+    - 社区: go-template, java, kotlin, properties, svelte, toml, sh
+  - [benjie/prettier-plugin-pg](https://github.com/benjie/prettier-plugin-pg)
+    PostgreSQL
 
 **prettier.config.js**
 

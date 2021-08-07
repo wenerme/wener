@@ -23,3 +23,5 @@ title: Languages Awesome
 - [terralang/terra](https://github.com/terralang/terra)
   low-level system programming language embedded Lua
   - MIT
+- [openai/triton](https://github.com/openai/triton)
+  writing highly efficient custom Deep-Learning primitives

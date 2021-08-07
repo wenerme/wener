@@ -3,11 +3,10 @@
 # prefix -> type: prefix
 # label+prefix -> type: category, items: [ prefix/prefix, ..., prefix ]
 
-- label: 笔记
-  items:
-    - note
 - label: 自我成长
   prefix: evolve
+  items:
+  - note
 
 - label: Java
   prefix: java
@@ -243,6 +242,11 @@
 
 - label: 健康
   prefix: healthcare
+  items:
+    - label: 疾病
+      prefix: ./disease
+    - label: 药物
+      prefix: ./medicines
 
 - label: 参考
   prefix: reference

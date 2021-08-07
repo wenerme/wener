@@ -100,6 +100,8 @@ title: K8S Awesome
   Kubernetes ingress controller using Envoy proxy
 - [projectcontour/gimbal](https://github.com/projectcontour/gimbal)
   ingress load balancing capable of routing traffic to multiple Kubernetes
+- [voyagermesh/voyager](https://github.com/voyagermesh/voyager)
+  L7/L4 (HAProxy) Ingress Controller
 
 ## Operator
 
@@ -158,6 +160,8 @@ title: K8S Awesome
   Serverless event and data processing platform
 - [kyverno/kyverno](https://github.com/kyverno/kyverno/)
   Kubernetes Native Policy Management
+- [Grafeas/Grafeas](https://github.com/Grafeas/Grafeas)
+  Artifact Metadata API
 
 ## API Gateway
 

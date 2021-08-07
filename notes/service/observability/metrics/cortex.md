@@ -9,7 +9,7 @@ title: Cortex
 - [架构](https://cortexmetrics.io/docs/architecture/)
   - 提供远程写入接口
   - 存储支持 cassandra
-  - Chunks 存储 - 默认/稳定
+  - ~~Chunks 存储~~ 废弃
     - index
       - DynamoDB
       - Bigtable

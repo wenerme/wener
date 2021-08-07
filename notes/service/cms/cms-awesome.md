@@ -43,6 +43,12 @@ title: CMS Awesome
   - BAAS, GraphQL/JSON-API
   - 用户, 数据, 存储, 站点, 集成, 邮件
 
+## Note
+
+- [laurent22/joplin](https://github.com/laurent22/joplin)
+- [BoostIO/BoostNote.next](https://github.com/BoostIO/BoostNote.next)
+- [athensresearch/athens](https://github.com/athensresearch/athens)
+
 ## API for Database
 
 > 将数据库暴露为接口，应用开发直接使用。

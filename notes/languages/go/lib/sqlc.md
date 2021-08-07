@@ -3,27 +3,28 @@ title: sqlc
 ---
 
 # sqlc
-* [kyleconroy/sqlc](https://github.com/kyleconroy/sqlc) 是什么？
-  * SQL 文件生成 Go 代码进行 DB 操作
-  * 适用于复杂 SQL 场景
-* [Playground](https://play.sqlc.dev/)
+
+- [kyleconroy/sqlc](https://github.com/kyleconroy/sqlc) 是什么？
+  - SQL 文件生成 Go 代码进行 DB 操作
+  - 适用于复杂 SQL 场景
+- [Playground](https://play.sqlc.dev/)
 
 ```bash
 go get github.com/kyleconroy/sqlc/cmd/sqlc
 docker run --rm -v $(pwd):/src -w /src kjconroy/sqlc generate
 ```
 
-__sqlc.yaml__
+**sqlc.yaml**
 
 ```yaml
-ersion: "1"
+ersion: '1'
 # 生成包
 packages:
-  - name: "db" # 生成包名 - 默认 path 的 basename
-    path: "internal/db" # 生成位置
-    queries: "./sql/query/" # 查询 SQL 位置
-    schema: "./sql/schema/" # Schema SQL 位置
-    engine: "postgresql" # postgresql, mysql
+  - name: 'db' # 生成包名 - 默认 path 的 basename
+    path: 'internal/db' # 生成位置
+    queries: './sql/query/' # 查询 SQL 位置
+    schema: './sql/schema/' # Schema SQL 位置
+    engine: 'postgresql' # postgresql, mysql
     emit_db_tags: false # 生成 db tag
     emit_prepared_queries: false # 生成 prepare
     emit_interface: false # Querier 接口
@@ -34,29 +35,29 @@ packages:
   - overrides: []
 overrides:
   # 类型覆盖
-  - go_type: "github.com/gofrs/uuid.UUID"
-    db_type: "uuid"
+  - go_type: 'github.com/gofrs/uuid.UUID'
+    db_type: 'uuid'
     nullable: false
   # 列覆盖
-  - column: "authors.id"
-    go_type: "github.com/segmentio/ksuid.KSUID"
+  - column: 'authors.id'
+    go_type: 'github.com/segmentio/ksuid.KSUID'
 
 # Struct 字段名映射
 rename:
-  spotify_url: "SpotifyURL"
+  spotify_url: 'SpotifyURL'
 ```
 
 ```sql
 -- name: <name> <command>
 ```
 
-* name 作为方法名
-* command
-  * `:exec` - `func (q *Queries) Name(ctx context.Context) error`
-  * `:execresult` - `func (q *Queries) Name(ctx context.Context) (sql.Result, error)`
-  * `:execrows` - `func (q *Queries) Name(ctx context.Context) (int64, error)`
-  * `:many` - `func (q *Queries) Name(ctx context.Context) ([]Schema, error)`
-  * `:one` - `func (q *Queries) Name(ctx context.Context) (Schema, error)`
+- name 作为方法名
+- command
+  - `:exec` - `func (q *Queries) Name(ctx context.Context) error`
+  - `:execresult` - `func (q *Queries) Name(ctx context.Context) (sql.Result, error)`
+  - `:execrows` - `func (q *Queries) Name(ctx context.Context) (int64, error)`
+  - `:many` - `func (q *Queries) Name(ctx context.Context) ([]Schema, error)`
+  - `:one` - `func (q *Queries) Name(ctx context.Context) (Schema, error)`
 
 ```sql
 CREATE TABLE authors (

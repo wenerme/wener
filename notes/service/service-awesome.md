@@ -23,6 +23,10 @@ title: Service Awesome
 - [Kopano-dev/kopano-core](https://github.com/Kopano-dev/kopano-core)
   - Groupware
   - AGPL-3.0
+- [SaaS Blocks](https://saasblocks.io/)
+- [Open Source Alternatives](https://www.btw.so/open-source-alternatives)
+- [calendso/calendso](https://github.com/calendso/calendso)
+  - MIT, TypeScript
 
 ## Avatar
 

@@ -4,8 +4,7 @@ title: ML Awesome
 
 # Machine Learning Awesome
 
-- [tonybeltramelli/pix2code](https://github.com/tonybeltramelli/pix2code)
-  - GUI Screenshot -> Code
+- [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
 
 ## Learn
 
@@ -13,18 +12,25 @@ title: ML Awesome
   - PyTorch
 - [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
 
+![](http://dlib.net/ml_guide.svg)
+
 ## Framework
 
+- caffe
 - [flashlight/flashlight](https://github.com/flashlight/flashlight)
   - C++ standalone library for machine learning
   - from Facebook AI Research Speech team, creators of Torch and Deep Speech
 - [arrayfire/arrayfire](https://github.com/arrayfire/arrayfire)
-  - general purpose GPU library
+  general purpose GPU library
 - [tensorflow/lingvo](https://github.com/tensorflow/lingvo)
   - building sequence models neural networks in Tensorflow
   - ASR, MT
+- dlib
+- [clab/dynet](https://github.com/clab/dynet)
+- [bennylp/awesome-cpp-ml](https://github.com/bennylp/awesome-cpp-ml)
 
 ## Language
+
 - [JetBrains/KotlinDL](https://github.com/JetBrains/KotlinDL)
   - Kotlin DSL for ML
 
@@ -32,6 +38,8 @@ title: ML Awesome
 
 - [ZHKKKe/MODNet](https://github.com/ZHKKKe/MODNet)
   - 背景消除
+- [tonybeltramelli/pix2code](https://github.com/tonybeltramelli/pix2code)
+  - GUI Screenshot -> Code
 
 ## Models
 

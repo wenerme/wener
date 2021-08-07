@@ -1,13 +1,17 @@
+---
+title: Scrapy
+---
+
 # Scrapy
 
-## Tips
-* https://github.com/scrapy/scrapy/
-* https://github.com/scrapy/scrapyd
-* [commands](https://docs.scrapy.org/en/latest/topics/commands.html)
-* [scrapy-mongodb](https://github.com/sebdah/scrapy-mongodb)
-  * 将 Item 存储到 Mongo
-  * 建议拷贝到项目中使用, 只有单个文件
-  * `pip install scrapy-mongodb`
+- https://github.com/scrapy/scrapy/
+- https://github.com/scrapy/scrapyd
+- [commands](https://docs.scrapy.org/en/latest/topics/commands.html)
+- [scrapy-mongodb](https://github.com/sebdah/scrapy-mongodb)
+  - 将 Item 存储到 Mongo
+  - 建议拷贝到项目中使用, 只有单个文件
+  - `pip install scrapy-mongodb`
+
 ```python
 ITEM_PIPELINES = [
   'scrapy_mongodb.MongoDBPipeline',
@@ -31,31 +35,33 @@ MONGODB_ADD_TIMESTAMP = True
 # 可设置缓冲, 默认未开启
 MONGODB_BUFFER_DATA = 10
 ```
-* [scrapy-random-useragent](https://github.com/cnu/scrapy-random-useragent)
-  * 使用一个 UA 列表
-  * http://useragentstring.com/
-  * https://udger.com/resources/ua-list
-* [alecxe/scrapy-fake-useragent](https://github.com/alecxe/scrapy-fake-useragent)
-  * 生成 UA
-  * `pip install scrapy-fake-useragent`
+
+- [scrapy-random-useragent](https://github.com/cnu/scrapy-random-useragent)
+  - 使用一个 UA 列表
+  - http://useragentstring.com/
+  - https://udger.com/resources/ua-list
+- [alecxe/scrapy-fake-useragent](https://github.com/alecxe/scrapy-fake-useragent)
+  - 生成 UA
+  - `pip install scrapy-fake-useragent`
+
 ```python
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
 }
 ```
-* `start_urls = ["file:///home/my/test.html"]`
-  * 不要指定 `allowed_domains`
-  * 可用于直接访问本地文件
-* 默认 Telnet 端口 `6023`
-* Spider 可以指定 `custom_settings` 来设置单个 Spider 的配置
-* 选择器
-  * `/html/head/following-sibling::body` 找兄弟节点
-  * `//div[@id="abc"]` 属性匹配的节点
-  * `//*[@id="abc"]` 任意标签类型
-  * `//div[contains(@class,"top")]` 属性包含判断
-  * `//div[@id="abc" and contains(@class,"top")]` 逻辑条件
 
+- `start_urls = ["file:///home/my/test.html"]`
+  - 不要指定 `allowed_domains`
+  - 可用于直接访问本地文件
+- 默认 Telnet 端口 `6023`
+- Spider 可以指定 `custom_settings` 来设置单个 Spider 的配置
+- 选择器
+  - `/html/head/following-sibling::body` 找兄弟节点
+  - `//div[@id="abc"]` 属性匹配的节点
+  - `//*[@id="abc"]` 任意标签类型
+  - `//div[contains(@class,"top")]` 属性包含判断
+  - `//div[@id="abc" and contains(@class,"top")]` 逻辑条件
 
 ```bash
 #########
@@ -75,10 +81,11 @@ scrapy crawl basic -o item.json
 ```
 
 ## Settings
-* [Settings](https://doc.scrapy.org/en/latest/topics/settings.html)
-* 默认配置文件 `scrapy/settings/default_settings.py`
 
-__生成的默认配置__
+- [Settings](https://doc.scrapy.org/en/latest/topics/settings.html)
+- 默认配置文件 `scrapy/settings/default_settings.py`
+
+**生成的默认配置**
 
 ```python
 BOT_NAME = 'abcd'
@@ -173,7 +180,6 @@ class CleanupPipeline(object):
         return item
 ```
 
-
 ### 配置说明
 
 ```python
@@ -205,8 +211,9 @@ FEED_EXPORT_ENCODING = 'utf-8'
 ```
 
 ### 管道
-* `scrapy.pipelines`
-* [Item Pipeline](https://doc.scrapy.org/en/latest/topics/item-pipeline.html)
+
+- `scrapy.pipelines`
+- [Item Pipeline](https://doc.scrapy.org/en/latest/topics/item-pipeline.html)
 
 ```python
 class DummyPipeline(object):
@@ -231,11 +238,12 @@ class DummyPipeline(object):
 ```
 
 #### `scrapy.pipelines.files.FilesPipeline`
-* 文件下载管道
-* 继承自 `scrapy.pipelines.media.MediaPipeline`
-* 会最小化网络传输和文件处理
-* 文件路径为 url 的 sha1 值
-* 文件的校验和为 md5
+
+- 文件下载管道
+- 继承自 `scrapy.pipelines.media.MediaPipeline`
+- 会最小化网络传输和文件处理
+- 文件路径为 url 的 sha1 值
+- 文件的校验和为 md5
 
 ```python
 # 文件存储路径
@@ -255,8 +263,9 @@ FILES_RESULT_FIELD='files'
 ```
 
 #### `scrapy.pipelines.images.ImagesPipeline`
-* 图片下载管道
-* 继承自 `scrapy.pipelines.files.FilesPipeline`
+
+- 图片下载管道
+- 继承自 `scrapy.pipelines.files.FilesPipeline`
 
 ```python
 # 存储位置
@@ -278,9 +287,10 @@ IMAGES_MIN_HEIGHT=0
 ```
 
 ### Feed
-* 用于序列化和存储
 
-__默认配置__
+- 用于序列化和存储
+
+**默认配置**
 
 ```python
 FEED_TEMPDIR = None
@@ -313,18 +323,19 @@ FEED_EXPORT_INDENT = 0
 ```
 
 ### 扩展
-* [Extensions](https://doc.scrapy.org/en/latest/topics/extensions.html)
-* scrapy.extensions.logstats.LogStats
-* scrapy.extensions.corestats.CoreStats
-* scrapy.extensions.telnet.TelnetConsole
-  * TELNETCONSOLE_ENABLED
-  * TELNETCONSOLE_PORT
-* scrapy.extensions.memusage.MemoryUsage
-* scrapy.extensions.memdebug.MemoryDebugger
-* scrapy.extensions.closespider.CloseSpider
-* scrapy.extensions.statsmailer.StatsMailer
-* scrapy.extensions.debug.StackTraceDump
-* scrapy.extensions.debug.Debugger
+
+- [Extensions](https://doc.scrapy.org/en/latest/topics/extensions.html)
+- scrapy.extensions.logstats.LogStats
+- scrapy.extensions.corestats.CoreStats
+- scrapy.extensions.telnet.TelnetConsole
+  - TELNETCONSOLE_ENABLED
+  - TELNETCONSOLE_PORT
+- scrapy.extensions.memusage.MemoryUsage
+- scrapy.extensions.memdebug.MemoryDebugger
+- scrapy.extensions.closespider.CloseSpider
+- scrapy.extensions.statsmailer.StatsMailer
+- scrapy.extensions.debug.StackTraceDump
+- scrapy.extensions.debug.Debugger
 
 ```python
 # 默认
@@ -347,43 +358,45 @@ EXTENSIONS = {
 ```
 
 ### 下载器中间件
-* [Downloader Middleware](https://doc.scrapy.org/en/latest/topics/downloader-middleware.html)
-* `scrapy.downloadermiddlewares.cookies.CookiesMiddleware`
+
+- [Downloader Middleware](https://doc.scrapy.org/en/latest/topics/downloader-middleware.html)
+- `scrapy.downloadermiddlewares.cookies.CookiesMiddleware`
+
 ```python
 COOKIES_ENABLED=True
 COOKIES_DEBUG=False
 ```
-* `scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware`
-* `scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware`
-* `scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware`
-* `scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware`
-  * `HTTPCACHE_STORAGE`
-    * 存储
-    * `scrapy.extensions.httpcache.FilesystemCacheStorage`
-      * 文件系统
-    * `scrapy.extensions.httpcache.DbmCacheStorage`
-      * 默认使用 `HTTPCACHE_DBM_MODULE=anydbm`
-      * DBM
-    * `scrapy.extensions.httpcache.LeveldbCacheStorage`
-      * LevelDB
-      * `pip install leveldb`
-  * `HTTPCACHE_POLICY`
-    * 缓存策略
-    * `scrapy.extensions.httpcache.RFC2616Policy`
-      * RFC2616
-    * `scrapy.extensions.httpcache.DummyPolicy`
-      * 默认
-      * 总是缓存
-* `scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware`
-* `scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware`
-* `scrapy.downloadermiddlewares.redirect.RedirectMiddleware`
-* `scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware`
-* `scrapy.downloadermiddlewares.retry.RetryMiddleware`
-* `scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware`
-* `scrapy.downloadermiddlewares.stats.DownloaderStats`
-* `scrapy.downloadermiddlewares.useragent.UserAgentMiddleware`
-* `scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware`
 
+- `scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware`
+- `scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware`
+- `scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware`
+- `scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware`
+  - `HTTPCACHE_STORAGE`
+    - 存储
+    - `scrapy.extensions.httpcache.FilesystemCacheStorage`
+      - 文件系统
+    - `scrapy.extensions.httpcache.DbmCacheStorage`
+      - 默认使用 `HTTPCACHE_DBM_MODULE=anydbm`
+      - DBM
+    - `scrapy.extensions.httpcache.LeveldbCacheStorage`
+      - LevelDB
+      - `pip install leveldb`
+  - `HTTPCACHE_POLICY`
+    - 缓存策略
+    - `scrapy.extensions.httpcache.RFC2616Policy`
+      - RFC2616
+    - `scrapy.extensions.httpcache.DummyPolicy`
+      - 默认
+      - 总是缓存
+- `scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware`
+- `scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware`
+- `scrapy.downloadermiddlewares.redirect.RedirectMiddleware`
+- `scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware`
+- `scrapy.downloadermiddlewares.retry.RetryMiddleware`
+- `scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware`
+- `scrapy.downloadermiddlewares.stats.DownloaderStats`
+- `scrapy.downloadermiddlewares.useragent.UserAgentMiddleware`
+- `scrapy.downloadermiddlewares.ajaxcrawl.AjaxCrawlMiddleware`
 
 ```python
 class DownloaderMiddleware:
@@ -426,15 +439,16 @@ DOWNLOADER_MIDDLEWARES = {
 ```
 
 ### 爬虫中间件
-* `scrapy.spidermiddlewares`
-* [Spider Middleware](https://doc.scrapy.org/en/latest/topics/spider-middleware.html)
-* `scrapy.spidermiddlewares.depth.DepthMiddleware`
-* `scrapy.spidermiddlewares.httperror.HttpErrorMiddleware`
-* `scrapy.spidermiddlewares.offsite.OffsiteMiddleware`
-* `scrapy.spidermiddlewares.referer.RefererMiddleware`
-* `scrapy.spidermiddlewares.urllength.UrlLengthMiddleware`
 
-__默认配置__
+- `scrapy.spidermiddlewares`
+- [Spider Middleware](https://doc.scrapy.org/en/latest/topics/spider-middleware.html)
+- `scrapy.spidermiddlewares.depth.DepthMiddleware`
+- `scrapy.spidermiddlewares.httperror.HttpErrorMiddleware`
+- `scrapy.spidermiddlewares.offsite.OffsiteMiddleware`
+- `scrapy.spidermiddlewares.referer.RefererMiddleware`
+- `scrapy.spidermiddlewares.urllength.UrlLengthMiddleware`
+
+**默认配置**
 
 ```python
 SPIDER_LOADER_CLASS = 'scrapy.spiderloader.SpiderLoader'
@@ -478,38 +492,38 @@ class DummyMiddlewares:
 
 ```
 
-
-
 ## FAQ
 
 ### 命令行工具
-* 全局目录
-  * startproject
-    * 创建项目
-  * genspider
-    * 生成爬虫
-    * `-l` 支持的爬虫模板
-    * `-t` 指定爬虫模板
-  * settings
-    * 获取设置
-  * runspider
-    * 不创建项目运行爬虫
-  * shell
-  * fetch
-  * view
-  * version
-* 项目相关命令
-  * crawl
-  * check
-  * list
-  * edit
-  * parse
-  * bench
+
+- 全局目录
+  - startproject
+    - 创建项目
+  - genspider
+    - 生成爬虫
+    - `-l` 支持的爬虫模板
+    - `-t` 指定爬虫模板
+  - settings
+    - 获取设置
+  - runspider
+    - 不创建项目运行爬虫
+  - shell
+  - fetch
+  - view
+  - version
+- 项目相关命令
+  - crawl
+  - check
+  - list
+  - edit
+  - parse
+  - bench
 
 ### 返回单个值而不是数组
+
 默认情况下取到的都是数组
 
-``` python
+```python
 # 方法 1. 为字段设置预处理
 class MyItemClass(Item):
     url = Field(output_processor=TakeFirst())

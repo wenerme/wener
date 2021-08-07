@@ -40,6 +40,8 @@ title: entgo
 :::tip
 
 - 内建 id 字段 - 可覆盖
+- 不支持 查询 Hook - [ent/ent#833](https://github.com/ent/ent/issues/833)
+  - 可以使用 [privacy](https://entgo.io/docs/privacy/#multi-tenancy) 实现类型功能
 
 :::
 

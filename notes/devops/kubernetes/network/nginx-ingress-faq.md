@@ -8,7 +8,9 @@ title: Nginx Ingress 常见问题
 
 ```yaml
 annotations:
-  ingress.kubernetes.io/server-alias: '*.my-company.com'
+  # 只支持一条 rule - 可考虑拆分 ingress
+  nginx.ingress.kubernetes.io/server-alias: '*.my-company.com'
+  #ingress.kubernetes.io/server-alias: '*.my-company.com'
 ```
 
 ## 正则路径匹配

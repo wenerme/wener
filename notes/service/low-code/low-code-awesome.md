@@ -51,6 +51,8 @@ title: Low Code Awesome
 - [ToolJet/ToolJet](https://github.com/ToolJet/ToolJet)
   no-code platform for building and deploying internal tools
   - GPL-3
+- [Budibase/budibase](https://github.com/Budibase/budibase)
+- [nocodb/nocodb](https://github.com/nocodb/nocodb)
 
 ## 商业
 

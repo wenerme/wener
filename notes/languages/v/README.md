@@ -16,6 +16,8 @@ title: V
   - 语言特性 - 默认不可变、无 null、无全局状态、并发
   - 内建 GUI 库
   - v run 可以交互式或以类似 shell 方式运行
+- 参考
+  - [V is for Vaporware](https://christine.website/blog/v-vaporware-2019-06-23)
 
 
 :::caution

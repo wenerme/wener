@@ -4,10 +4,10 @@ id: n8n
 
 # n8n
 
-- 是什么
+- [n8n-io/n8n](https://github.com/n8n-io/n8n) 是什么
   - 带图形化界面的工作流自动化服务
   - Vue+Typescript+TypeORM
-- [n8n-io/n8n](https://github.com/n8n-io/n8n)
+- 参考
   - HN [N8n.io – Workflow automation alternative to Zapier](https://news.ycombinator.com/item?id=21191676)
 
 :::note

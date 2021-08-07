@@ -59,9 +59,10 @@ title: 开发用词字典
 
 ## 技术词汇
 
-| abbr.  | stand for | zh_CN                 |
-| ------ | --------- | --------------------- |
-| distro |           | distribution - 发行版 |
+| abbr.  | stand for                    | zh_CN          |
+| ------ | ---------------------------- | -------------- |
+| distro | distribution                 | 发行版         |
+| TSC    | Technical Steering Committee | 技术指导委员会 |
 
 ## 服务商
 

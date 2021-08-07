@@ -8,6 +8,7 @@ title: dnsmasq
   - 轻量级的 DNS, TFTP, PXE, router advertisement 和 DHCP 服务
   - 支持 DNSSEC
   - 可以作为小型的 DNS AS/授权服务器 - 直接提供域名记录
+  - DNS forwarder
 - Archlinux [dnsmasq](https://wiki.archlinux.org/index.php/dnsmasq)/[简体中文](<https://wiki.archlinux.org/index.php/Dnsmasq_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)>)
 - Debian HowTo [dnsmasq](https://wiki.debian.org/HowTo/dnsmasq)
 - musl dns
