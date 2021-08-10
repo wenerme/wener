@@ -1,11 +1,8 @@
 ---
-id: riot
 title: Riot
 ---
 
 # riotjs
-
-## Tips
 
 ## 直接通过浏览器使用
 
@@ -32,22 +29,23 @@ var tags = `
     ul { color: #999 }
   </style>
 </pusher>
-`
+`;
 
-if(!window.jQuery){
-  document.head.appendChild(Object.assign(document.createElement('script'),{src:'https://code.jquery.com/jquery-2.2.3.js',onload: setup}));
-}else {
-  setup()
+if (!window.jQuery) {
+  document.head.appendChild(
+    Object.assign(document.createElement('script'), { src: 'https://code.jquery.com/jquery-2.2.3.js', onload: setup }),
+  );
+} else {
+  setup();
 }
 
-function setup(){
+function setup() {
   $.getScript('https://cdn.jsdelivr.net/riot/2.3/riot+compiler.min.js')
-  .done(()=>$('pusher, script[type="riot/tag"]').remove())
-  .done(()=>$('body').append($('<script type="riot/tag"></script>').text(tags)).append($(`<pusher></pusher>`)))
-  .done(()=>riot.mount('pusher'))
+    .done(() => $('pusher, script[type="riot/tag"]').remove())
+    .done(() => $('body').append($('<script type="riot/tag"></script>').text(tags)).append($(`<pusher></pusher>`)))
+    .done(() => riot.mount('pusher'));
 }
 ```
-
 
 ```html
 <!-- mount point -->
@@ -67,10 +65,9 @@ function setup(){
 <!-- include riot.js and the compiler -->
 <script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
 
-
 <!-- mount normally -->
 <script>
-riot.compile(my_tag.innerHTML)
-riot.mount('*')
+  riot.compile(my_tag.innerHTML);
+  riot.mount('*');
 </script>
 ```

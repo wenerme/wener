@@ -5,6 +5,7 @@ title: Pg SQL 常见问题
 # PostgreSQL SQL 问题
 
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
+- `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
 
 ## JSON 数组转行
 
@@ -91,4 +92,68 @@ GROUPING SETS (
 ```sql
 get diagnostics cnt = row_count;
 return cnt;
+```
+
+## 时间日期处理
+
+- to_timestamp 转 timestamptz
+- to_date 转 date
+- to_char 转 text
+- 参考
+  - [Data Type Formatting Functions](https://www.postgresql.org/docs/current/functions-formatting.html)
+
+```sql
+SELECT TO_DATE('20170103','YYYYMMDD');
+SELECT TO_DATE('2020年7月28日','YYYY年MM月DD日');
+SELECT TO_CHAR(TO_DATE('2020年7月28日','YYYY年MM月DD日'),'YYYY-MM-DD');
+```
+
+## 正则
+
+```
+regexp_match(string, pattern [, flags ]) returns text[]
+```
+
+- flags
+  - g - global
+
+```sql
+SELECT (regexp_match('200万人民币', '[\d.]+'))[1];
+SELECT (regexp_match('200万人民币', '\D+$'))[1];
+```
+
+## 生成带前缀的 UUID 主键
+
+- 例如用于 GraphQL 通过 ID 判断类型
+
+```sql
+create table test
+(
+    id    text default 'test-' || public.gen_random_uuid() primary key,
+    value text
+);
+
+insert into test(value)
+values ('test');
+
+select *
+from test;
+```
+
+## 推荐主键创建方式
+
+- 对比 serial
+  - 有归属关系
+  - 更加规范
+
+```sql
+CREATE TABLE users (
+   id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+);
+-- 也可以针对生成设置更多参数
+CREATE TABLE users (
+   id bigint GENERATED ALWAYS AS IDENTITY
+             (MINVALUE 0 START WITH 0 CACHE 20)
+             PRIMARY KEY,
+);
 ```

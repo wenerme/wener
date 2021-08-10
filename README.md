@@ -30,29 +30,41 @@
 
 ## Projects Working On
 
-| Kubernetes                            | CI                                                                                                                                                                    |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [charts] - helm repo agg & cdn        | [![Build Pages](https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg)](https://github.com/wenerme/charts/actions/workflows/pages.yaml)            |
-| [container-mirror] - ali image mirror | [![Sync](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml/badge.svg)](https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml) |
-| [kube-stub-cluster] - deploy stub     |
+| Kubernetes          | CI                                               | Desc                               |
+| ------------------- | ------------------------------------------------ | ---------------------------------- |
+| [charts]            | [![][charts-img]][charts-ci]                     | helm repo agg & cdn                |
+| [container-mirror]  | [![][container-mirror-img]][container-mirror-ci] | ali image mirror                   |
+| [kube-stub-cluster] |                                                  | ArgoCD/Helm/Kubernetes deploy stub |
 
-| Golang                  | CI                                                                                                                                        |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [go-req] - http request | [![CI](https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg)](https://github.com/wenerme/go-req/actions/workflows/ci.yml) |
-| [go-magic] - libmagic   |
-| [astgo] - asterisk      |
+[charts]: https://github.com/wenerme/charts
+[charts-ci-img]: https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg
+[charts-ci]: https://github.com/wenerme/charts/actions/workflows/pages.yaml
+[container-mirror]: https://github.com/wenerme/container-mirror
+[container-mirror-ci-img]: https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml/badge.svg
+[container-mirror-ci]: https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml
+[kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
 
-| DevOps                              |
-| ----------------------------------- |
-| [ansible-collection-wenerme-alpine] |
-| [alpine-image]                      |
+| Golang     | CI                              | Desc                           |
+| ---------- | ------------------------------- | ------------------------------ |
+| [go-req]   | [![][go-req-ci-img]][go-req-ci] | HTTP Request                   |
+| [go-gb]    | [![][go-gb-ci-img]][go-gb-ci]   | Chinese Guobiao impl in Golang |
+| [go-magic] |                                 | libmagic                       |
+| [astgo]    |                                 | asterisk AMI, AGI              |
 
 [go-req]: https://github.com/wenerme/go-req
+[go-req-ci-img]: https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg
+[go-req-ci]: https://github.com/wenerme/go-req/actions/workflows/ci.yml
 [go-magic]: https://github.com/wenerme/go-magic
 [astgo]: https://github.com/wenerme/astgo
-[charts]: https://github.com/wenerme/charts
-[container-mirror]: https://github.com/wenerme/container-mirror
-[kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
+[go-gb]: https://github.com/wenerme/go-gb
+[go-gb-ci-img]: https://github.com/wenerme/go-gb/actions/workflows/ci.yml/badge.svg
+[go-gb-ci]: https://github.com/wenerme/go-gb/actions/workflows/ci.yml
+
+| DevOps                              | Desc                                        |
+| ----------------------------------- | ------------------------------------------- |
+| [ansible-collection-wenerme-alpine] | Ansible roles/tasks for AlpineLinux         |
+| [alpine-image]                      | AlpineLinux image builder & prebuild images |
+
 [ansible-collection-wenerme-alpine]: https://github.com/wenerme/ansible-collection-wenerme-alpine
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener

@@ -1,28 +1,24 @@
 ---
-id: prisma
 title: Prisma
 ---
 
-
 # Prisma
 
-## Tips
-
-* 注意
-  * 生成的客户端只能服务端执行 [#3142](https://github.com/prisma/prisma/issues/3142)
-    * 浏览器端只能通过 GraphQL 使用
-* Prisma 介于 ORM 和 CMS 之间 - 定位类似于 RoR 的数据模块
-* 主要特性
-  * 支持 GraphQL 接口
-  * [支持多数据库](https://www.prisma.io/features/databases) - PostgreSQL MySQL
-  * 支持生成客户端 - TS JS GO
-    * 支持实时订阅
-  * 数据模型通过 DSL 定义 - 支持自动迁移
-* 架构: 应用 -> Prisma Client -> Prisma Server -> Database
-* 现有的一些问题
-  * [Postgraphile vs Hasura vs Prisma vs AppSync experiences?](https://www.reddit.com/r/graphql/comments/ah27k1/postgraphile_vs_hasura_vs_prisma_vs_appsync/)
-  * 因为抽象了 DB 层 - 因此与具体的某个 DB 结合的没那么好
-    * 比如与 Postgre 没有 Hasura 结合的好 - 性能和功能
+- 注意
+  - 生成的客户端只能服务端执行 [#3142](https://github.com/prisma/prisma/issues/3142)
+    - 浏览器端只能通过 GraphQL 使用
+- Prisma 介于 ORM 和 CMS 之间 - 定位类似于 RoR 的数据模块
+- 主要特性
+  - 支持 GraphQL 接口
+  - [支持多数据库](https://www.prisma.io/features/databases) - PostgreSQL MySQL
+  - 支持生成客户端 - TS JS GO
+    - 支持实时订阅
+  - 数据模型通过 DSL 定义 - 支持自动迁移
+- 架构: 应用 -> Prisma Client -> Prisma Server -> Database
+- 现有的一些问题
+  - [Postgraphile vs Hasura vs Prisma vs AppSync experiences?](https://www.reddit.com/r/graphql/comments/ah27k1/postgraphile_vs_hasura_vs_prisma_vs_appsync/)
+  - 因为抽象了 DB 层 - 因此与具体的某个 DB 结合的没那么好
+    - 比如与 Postgre 没有 Hasura 结合的好 - 性能和功能
 
 ```bash
 # 安装命令行工具
@@ -42,13 +38,15 @@ prisma deploy
 ```
 
 ## 命令行
+
 ```bash
 # 通过数据库生成模型
 prisma introspect
 ```
 
 ## prisma.yml
-* [prisma.yml](https://www.prisma.io/docs/prisma-cli-and-configuration/prisma-yml-5cy7/) - [schema.json](https://github.com/prisma/prisma-json-schema/blob/master/src/schema.json)
+
+- [prisma.yml](https://www.prisma.io/docs/prisma-cli-and-configuration/prisma-yml-5cy7/) - [schema.json](https://github.com/prisma/prisma-json-schema/blob/master/src/schema.json)
 
 ```yaml
 # prisma 的服务端地址 - 格式 https|https://<地址>/<服务>/<环境/stage>
@@ -90,8 +88,9 @@ custom:
 ```
 
 ## 导入导出
-* 导入接口 `http://localhost:4466/my-app/dev/import`
-* 导出接口 `http://localhost:4466/my-app/dev/export`
+
+- 导入接口 `http://localhost:4466/my-app/dev/import`
+- 导出接口 `http://localhost:4466/my-app/dev/export`
 
 ```bash
 # 导入
@@ -102,10 +101,11 @@ curl '__SERVICE_ENDPOINT__/export' -H 'Content-Type: application/json' -H 'Autho
 ```
 
 ## DSL
-* 语法类似于 GraphQL
 
+- 语法类似于 GraphQL
 
 ### 简单模型
+
 ```prisma
 type User {
   id: ID! @id
@@ -117,14 +117,14 @@ type User {
   // 默认值
   isAdmin: Boolean @default(value: "false")
   role: UserRole @default(value: "USER")
-  
+
   // 会创建一个中间表 _UserLikedPosts{A,B}
   likedPost: [Post!]!  @relation(name: "UserLikedPosts")
 
   // 元数据字段
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  
+
   // JSON 字段 - 默认 256K
   data: Json
 }

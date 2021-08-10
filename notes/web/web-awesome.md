@@ -59,6 +59,7 @@ title: Web Awesome
   - 截屏
 - [ian-nai/In-Browser-OCR](https://github.com/ian-nai/In-Browser-OCR)
   - Tesseract.js
+- [krausest/js-framework-benchmark](https://github.com/krausest/js-framework-benchmark)
 
 ## tty
 

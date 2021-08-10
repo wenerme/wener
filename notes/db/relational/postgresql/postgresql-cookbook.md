@@ -1,17 +1,20 @@
+---
+title: PostgreSQL Cookbook
+---
+
 # PostgreSQL Cookbook
 
-## Tips
-* [String Functions and Operators](https://www.postgresql.org/docs/current/static/functions-string.html)
-* 常用函数
-  * `quote_literal` - 避免注入
-  * `format(formatstr text [, formatarg "any" [, ...] ])`
-    * `%[position][flags][width]type`
-      * type
-        * s 简单字符串, null 输出空字符串
-        * I 作为 SQL 的标识符可能会加双引号, 不允许 null, 等同于 `quote_ident`
-        * L 作为 SQL 中的文本对待进行加引号, null 输出 NULL, 等同于 `quote_nullable`
-    * 格式化字符串
-    * 构建 SQL
+- [String Functions and Operators](https://www.postgresql.org/docs/current/static/functions-string.html)
+- 常用函数
+  - `quote_literal` - 避免注入
+  - `format(formatstr text [, formatarg "any" [, ...] ])`
+    - `%[position][flags][width]type`
+      - type
+        - s 简单字符串, null 输出空字符串
+        - I 作为 SQL 的标识符可能会加双引号, 不允许 null, 等同于 `quote_ident`
+        - L 作为 SQL 中的文本对待进行加引号, null 输出 NULL, 等同于 `quote_nullable`
+    - 格式化字符串
+    - 构建 SQL
 
 ```sql
 -- 包含其他表的定义
@@ -32,6 +35,7 @@ from (select '[
 ```
 
 ## 数据转换
+
 array to rows unset
 
 ## 字符串
@@ -41,6 +45,7 @@ select substring('abcdefgh' from n for 2) from generate_series(1, length( 'abcde
 ```
 
 ## 统计
+
 https://github.com/postgres-plr/plr
 
 https://www.joeconway.com/presentations/oscon-pres-2003-1.pdf
@@ -50,16 +55,16 @@ PL/R User’s Guide - R Procedural
 Language
 http://www.joeconway.com/plr/doc/plr-US.pdf
 
-
 http://www.joeconway.com/plr/
 
 ## 机器学习
+
 http://madlib.apache.org/
 https://wiki.postgresql.org/wiki/Ecosystem:Machine_learning
 
 /usr/local/madlib/bin/madpack -s madlib -p postgres -c [user[/password]@][host][:port][/database] install
 
-MADlib works with Python 2.6 and 2.7.  Currently, Python 3.x is not supported.
+MADlib works with Python 2.6 and 2.7. Currently, Python 3.x is not supported.
 
 ## UUID
 
@@ -72,6 +77,7 @@ SELECT uuid_generate_v4();
 ```
 
 ## 商业
+
 https://www.cybertec-postgresql.com/
 
 ## 数据迁移
@@ -142,6 +148,7 @@ WHERE tab.cid IS NULL;
 ```
 
 ## null 安全的 json 提取
+
 ```sql
 CREATE OR REPLACE FUNCTION json_fetch(object json, variadic nodes text[])
 RETURNS json AS $$
@@ -174,6 +181,7 @@ FROM books;
 ## Functions
 
 ### table_size
+
 ```sql
 -- 查看表空间大小信息
 -- table_size show statistic table size
@@ -242,9 +250,10 @@ $$;
 ```
 
 ## 查询外键和索引
-* 一定要索引外键
-* 参考
-  * [ARE YOUR FOREIGN KEYS INDEXED?](https://www.cybertec-postgresql.com/en/index-your-foreign-key/)
+
+- 一定要索引外键
+- 参考
+  - [ARE YOUR FOREIGN KEYS INDEXED?](https://www.cybertec-postgresql.com/en/index-your-foreign-key/)
 
 ```sql
 SELECT c.conrelid::regclass                    AS "table",

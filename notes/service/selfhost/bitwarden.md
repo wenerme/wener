@@ -3,9 +3,14 @@ title: bitwarden
 ---
 
 # bitwarden
-
-- 必须要求 HTTPS
-- 密码管理器
+- bitwarden
+  - 密码管理器
+- [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
+  - 非官方 bitwarden 兼容服务实现
+  - 支持 LDAP
+  - Feature Requests [dani-garcia/vaultwarden#246](https://github.com/dani-garcia/vaultwarden/issues/246)
+    - 不支持 SSO
+  - 必须要求 HTTPS
 - SIGNUPS_ALLOWED=false - 禁止注册 - 但还是可以邀请
 - INVITATIONS_ALLOWED - 是否允许邀请
 - ADMIN_TOKEN - 开启 admin

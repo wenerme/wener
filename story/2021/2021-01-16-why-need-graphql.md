@@ -47,7 +47,9 @@ tags:
 ## GraphQL 不适合场景
 
 - 快速进入开发 - 如果项目刚开始想要速度快，那最好还是 REST
+  - 没有时间投入了解 GraphQL 方案
 - 一个前端一个后端，前端逻辑确定，后端不需要变动则没必要使用 GraphQL
+  - 一次性工作，项目不需要演进
 
 ## 应用场景举例
 
@@ -160,3 +162,16 @@ object User {
 ## 总结
 
 需要 GraphQL 的理由其实很简单，就是当后端的查询代码写的 “很烦” 的时候，需要从中解脱出来，那么就可以选择使用 GraphQL，给前端更大的选择和控制权。
+
+:::tip 使用注意事项
+
+- GraphQL 本身就包含了文档
+  - 不像 REST 还要维护 Swagger/OpenAPI
+- 前后端尽量选择支持生成 GraphQL 的 方式/框架/工具
+- 生成区分为 先 Schema 或 先 Entity - 看情况按需
+- 前端使用 TypeScript 能够利用 GraphQL Schema 类型信息
+- 最好是额外提供 Entity Schema/Metadata/JSONSchema 给前端
+  - 重数据场景前端组件可直接生成
+  - 前端可按照 Schema 生成查询
+
+:::

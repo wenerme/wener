@@ -1,21 +1,20 @@
 ---
-id: go-template
 title: Go 模板
 ---
 
-# Go Template
+# Go 模板
 
 :::tip
 
-* GoLand 支持添加类型注释 `{{/* gotype: entgo.io/ent/entc/gen.Graph */}}`
-  * 添加后可对模板进行补全
+- GoLand 支持添加类型注释 `{{/* gotype: entgo.io/ent/entc/gen.Graph */}}`
+  - 添加后可对模板进行补全
+- 推荐使用 `.tmpl` 后缀
 
 :::
 
-## Tips
-
-- [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
-- [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
+- 参考
+  - [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
+  - [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
 
 ## 语法
 

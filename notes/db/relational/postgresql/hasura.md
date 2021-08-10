@@ -5,23 +5,22 @@ title: Hasura
 
 # Hasura
 
-## Tips
-* [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
-  * Haskell
-* [Working with schemaless data using GraphQL on Postgres](https://blog.hasura.io/574a1ee2e87f)
-* [配置](https://docs.hasura.io/1.0/graphql/manual/deployment/graphql-engine-flags/reference.html)
-  * `--unauthorized-role`/`HASURA_GRAPHQL_UNAUTHORIZED_ROLE` - 匿名角色
-    * 例如配置为 `anonymous`
-  * `--admin-secret`/`HASURA_GRAPHQL_ADMIN_SECRET` - 管理员密钥
-  * `--cors-domain <DOMAINS>`/`HASURA_GRAPHQL_CORS_DOMAIN` - CORS 域名
-  * `--disable-cors`
-  * `--enable-telemetry <true|false>`/`HASURA_GRAPHQL_ENABLE_TELEMETRY`
-* [接口文档](https://docs.hasura.io/1.0/graphql/manual/api-reference/index.html)
-  * `/v1/graphql` - 主要的 GraphQL 入口 - 生产可以只暴露这一个
-* Hasura 的系统信息存储在 `hdb_catalog` 和 `hdb_view` 中
-* 问题
-  * [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
-  * [#519](https://github.com/hasura/graphql-engine/issues/519) upk 查询
+- [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
+  - Haskell
+- [Working with schemaless data using GraphQL on Postgres](https://blog.hasura.io/574a1ee2e87f)
+- [配置](https://docs.hasura.io/1.0/graphql/manual/deployment/graphql-engine-flags/reference.html)
+  - `--unauthorized-role`/`HASURA_GRAPHQL_UNAUTHORIZED_ROLE` - 匿名角色
+    - 例如配置为 `anonymous`
+  - `--admin-secret`/`HASURA_GRAPHQL_ADMIN_SECRET` - 管理员密钥
+  - `--cors-domain <DOMAINS>`/`HASURA_GRAPHQL_CORS_DOMAIN` - CORS 域名
+  - `--disable-cors`
+  - `--enable-telemetry <true|false>`/`HASURA_GRAPHQL_ENABLE_TELEMETRY`
+- [接口文档](https://docs.hasura.io/1.0/graphql/manual/api-reference/index.html)
+  - `/v1/graphql` - 主要的 GraphQL 入口 - 生产可以只暴露这一个
+- Hasura 的系统信息存储在 `hdb_catalog` 和 `hdb_view` 中
+- 问题
+  - [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
+  - [#519](https://github.com/hasura/graphql-engine/issues/519) upk 查询
 
 ```bash
 # 创建一个数据库
@@ -54,12 +53,12 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 ```
 
 ## JWT 鉴权
-* 通过 `--jwt-secret` 启用 - 需要配置 `HASURA_GRAPHQL_JWT_SECRET`
-* 通过头传递 JWT 信息 `Authorization: Bearer <JWT>`
-* `X-Hasura-Role` 当前角色
 
+- 通过 `--jwt-secret` 启用 - 需要配置 `HASURA_GRAPHQL_JWT_SECRET`
+- 通过头传递 JWT 信息 `Authorization: Bearer <JWT>`
+- `X-Hasura-Role` 当前角色
 
-__HASURA_GRAPHQL_JWT_SECRET__
+**HASURA_GRAPHQL_JWT_SECRET**
 
 ```json
 {
@@ -81,7 +80,7 @@ __HASURA_GRAPHQL_JWT_SECRET__
 }
 ```
 
-__JWT内容__
+**JWT 内容**
 
 ```json
 {
@@ -91,7 +90,7 @@ __JWT内容__
   "iat": 1516239022,
   "https://hasura.io/jwt/claims": {
     // 允许的角色 - 自定义 - 对应后台配置的权限
-    "x-hasura-allowed-roles": ["editor","user", "mod"],
+    "x-hasura-allowed-roles": ["editor", "user", "mod"],
     // 默认角色 - 可以直接头部指定 x-hasura-role
     "x-hasura-default-role": "user",
     "x-hasura-user-id": "1234567890",
@@ -102,19 +101,20 @@ __JWT内容__
 ```
 
 ## 授权访问控制
-* `X-Hasura-Admin-Secret` 头用于传递管理员密钥 - admin 角色
-* `Authorization: Bearer <JWT>` JWT 鉴权
-* 基于角色的权限控制 - 不支持级联角色 - 角色必须平坦
-  * X-Hasura-Role
-  * X-Hasura-Allowed-Roles
-* 列控制
-  * 可见性
-* 行控制
-  * 自定义表达式
-    * `{"user_id":{"_eq":"X-Hasura-User-Id"}}` - 其中的 `X-Hasura-*` 会被替换
-* 操作控制
-  * CRUD
-* 针对不同角色会生成不同 schema
-* JWT
-  * 必须包含字段 x-hasura-default-role, x-hasura-allowed-roles
-  * 头里可指定 x-hasura-role 来选定角色
+
+- `X-Hasura-Admin-Secret` 头用于传递管理员密钥 - admin 角色
+- `Authorization: Bearer <JWT>` JWT 鉴权
+- 基于角色的权限控制 - 不支持级联角色 - 角色必须平坦
+  - X-Hasura-Role
+  - X-Hasura-Allowed-Roles
+- 列控制
+  - 可见性
+- 行控制
+  - 自定义表达式
+    - `{"user_id":{"_eq":"X-Hasura-User-Id"}}` - 其中的 `X-Hasura-*` 会被替换
+- 操作控制
+  - CRUD
+- 针对不同角色会生成不同 schema
+- JWT
+  - 必须包含字段 x-hasura-default-role, x-hasura-allowed-roles
+  - 头里可指定 x-hasura-role 来选定角色

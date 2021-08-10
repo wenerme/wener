@@ -1,10 +1,10 @@
 ---
-id: minidlna
 title: MiniDLNA
 ---
 
 # MiniDLNA
-* 轻量级的 DLNA/UPnP-AV 服务
+
+- 轻量级的 DLNA/UPnP-AV 服务
 
 ```bash
 # macOS
@@ -18,7 +18,7 @@ minidlnad -f ./minidlna.conf -P $PWD/minidlna.pid -d
 
 ## 配置
 
-__/etc/minidlna.conf__
+**/etc/minidlna.conf**
 
 ```ini
 # HTTP 端口 - descriptions, SOAP, media transfer

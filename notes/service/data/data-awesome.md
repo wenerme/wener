@@ -38,6 +38,10 @@ title: Data Awesome
 - [freereadorg/awesome-libgen](https://github.com/freereadorg/awesome-libgen)
   - [repository_torrent](http://libgen.rs/scimag/repository_torrent/)
 
+## Dataset
+
+- [datasets/awesome-data](https://github.com/datasets/awesome-data)
+
 ## Misc
 
 - [facebookresearch/AugLy](https://github.com/facebookresearch/AugLy)

@@ -341,6 +341,11 @@ title: Go Awesome
 - [mvdan/sh](https://github.com/mvdan/sh)
   Shell parser, formatter, interpreter
   - source APKBUILD https://gitlab.alpinelinux.org/kdaudt/atools-go
+- [mvdan/gofumpt](https://github.com/mvdan/gofumpt)
+  stricter gofmt
+- [burrowers/garble](https://github.com/burrowers/garble)
+  Obfuscate Go builds
+- [mjibson/sqlfmt](https://github.com/mjibson/sqlfmt)
 
 ## 有趣
 

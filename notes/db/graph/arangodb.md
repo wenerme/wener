@@ -7,6 +7,8 @@ title: ArangoDB
 - [arangodb/arangodb](https://github.com/arangodb/arangodb)
   - Apache-2.0, C++, JS
   - Graph+Document
+  - 后端存储 rocksdb
+  - 内置 V8
 - [AQL vs SQL](https://www.arangodb.com/why-arangodb/sql-aql-comparison/)
 - [Shell cheatsheet](https://www.arangodb.com/wp-content/uploads/2016/05/shell-reference-card.pdf)
 - Admin
@@ -25,11 +27,17 @@ title: ArangoDB
   - [DocumentKeys](https://docs.arangodb.com/3.1/Manual/DataModeling/NamingConventions/DocumentKeys.html)
   - `[_-:.@()+,=;$!*'%0-9a-zA-Z]{1,254}`
   - UTF8 不能作为 key, 可以先 SHA 后作为 KEY
+- ARANGO_RANDOM_ROOT_PASSWORD=1
+- ARANGO_NO_AUTH=1
+- ARANGO_ROOT_PASSWORD=somepassword
+- 限制资源使用
+  - ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY
+  - ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES
+- 如果升级了版本，第一次启动添加 --database.auto-upgrade
 
 ```bash
-
-docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
-  -e ARANGO_RANDOM_ROOT_PASSWORD=1 \
+docker run --rm -it -v /etc/localtime:/etc/localtime:ro \
+  -e ARANGO_ROOT_PASSWORD=password \
   -v $PWD/arangodb/data:/var/lib/arangodb3 -v $PWD/arangodb/apps:/var/lib/arangodb3-apps \
   -p 8529:8529 \
   --name arangodb arangodb --tcp.reuse-address=true --http.hide-product-header=true --query.cache-mode=on
@@ -72,7 +80,21 @@ FOR doc IN documents
 
 https://www.arangodb.com/why-arangodb/sql-aql-comparison/
 
+## FTS
+
+```
+RETURN TOKENS("今天的天气真的很好", "text_zh")
+```
+
 ## ChangeLog
+
+- [Release Notes](https://www.arangodb.com/docs/stable/release-notes.html)
+
+### 3.5
+
+- ArangoSearch 搜索支持中文
+  - TFIDF BM25
+  - 不支持中文
 
 ### 3.2
 

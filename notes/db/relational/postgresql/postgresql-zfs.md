@@ -1,17 +1,22 @@
+---
+title: PostgreSQL & ZFS
+---
+
 # PostgreSQL & ZFS
-* 为什么？
-  * 利用 ZFS 存储特性 - 快照、恢复、克隆、压缩、一致
-* PostgreSQL 配置
-  * full_page_writes
-  * random_page_cost
-  * effective_io_concurrency
 
-* 参考
-  * [postgresql-zfs-best-practices](https://www.slideshare.net/SeanChittenden/postgresql-zfs-best-practices)
-  * [PostgreSQL optimize](https://gist.github.com/artizirk/e144065165b07dff1accc608c7e83f5a)
-  * [Tuning ZFS + Postgres to outperform EXT4 + Postgres](https://gist.github.com/saurabhnanda/5258207935bf23cd112be292d22f00d5)
+- 为什么？
+  - 利用 ZFS 存储特性 - 快照、恢复、克隆、压缩、一致
+- PostgreSQL 配置
+  - full_page_writes
+  - random_page_cost
+  - effective_io_concurrency
+- 参考
+  - [postgresql-zfs-best-practices](https://www.slideshare.net/SeanChittenden/postgresql-zfs-best-practices)
+  - [PostgreSQL optimize](https://gist.github.com/artizirk/e144065165b07dff1accc608c7e83f5a)
+  - [Tuning ZFS + Postgres to outperform EXT4 + Postgres](https://gist.github.com/saurabhnanda/5258207935bf23cd112be292d22f00d5)
 
-__postgresql.conf__
+**postgresql.conf**
+
 ```ini
 # ZFS 总是一致的 - 2倍性能
 full_page_writes=false
@@ -29,7 +34,7 @@ random_page_cost = 4
 effective_io_concurrency = 2
 ```
 
-__zfs__
+**zfs**
 
 ```ini
 atime = off
@@ -44,9 +49,10 @@ primarycache = metadata
 ```
 
 ## 异步提交
-* 接受异常丢失部分数据
-* 换取 __20倍__ 的性能
-* 适用于 数仓场景或大量写入场景
+
+- 接受异常丢失部分数据
+- 换取 **20 倍** 的性能
+- 适用于 数仓场景或大量写入场景
 
 ```bash
 # 1s 超时, 最多丢失 1s 数据
@@ -54,12 +60,14 @@ echo 1 > /sys/module/zfs/parameters/zfs_txg_timeout
 echo 'options zfs zfs_txg_timeout=1' >> /etc/modprobe.d/zfs.conf
 ```
 
-__zfs__
+**zfs**
+
 ```ini
 logbias=throughput
 ```
 
-__pg__
+**pg**
+
 ```ini
 # 关闭同步提交
 synchronous_commit = off

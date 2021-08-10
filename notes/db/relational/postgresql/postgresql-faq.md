@@ -399,21 +399,6 @@ psql -Atx "host=localhost port=5432 dbname=taop user=taop" -c 'select current_da
 psql -d "host=localhost port=5432 dbname=taop user=taop"
 ```
 
-## query has no destination for result data
-
-存储过程如果不需要结果，则不要用 select 用 execute
-
-```sql
-create or replace function sync_events_trigger() returns trigger
-as
-$$
-begin
-  -- 不要使用 select，使用 execute
-  execute sync_events();
-end;
-$$ language plpgsql;
-```
-
 ## control reached end of trigger procedure without RETURN
 
 使用 trigger 时出现，添加 return null
@@ -436,7 +421,7 @@ $$ language plpgsql volatile;
 - 可以将返回类型指定为 table
 - 可以 `select into`
 - 可以 返回 `return(select * from tab)`
-- 可以使用 perform 如果不想要结果
+- 可以使用 perform/execute 如果不想要结果
 
 ```sql
 CREATE OR REPLACE FUNCTION tst_dates_func()
@@ -453,3 +438,7 @@ RETURN result;
 
 PERFORM select 1;
 ```
+
+## could not resize shared memory segment "/PostgreSQL.153520683" to 1073812480 bytes: No space left on device
+
+增加 docker 的 shm_size

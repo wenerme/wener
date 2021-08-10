@@ -71,6 +71,7 @@ title: 版本历史
 
 - 索引
   - B Tree 索引优化对重复数据的处理，减少索引大小
+    - 经测试，一个表的索引从 6G 减少到 2.5G
 - 性能
   - 增量排序 - 查询结果已排序的情况下可加速数据排序
     - 配置 [enable_incrementalsort](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-ENABLE-INCREMENTALSORT)
@@ -114,6 +115,7 @@ title: 版本历史
   - 允许非特权用户不带密码连接 `postgres_fdw`
     - 通过 `alter user mapping xxx set password_required false` 禁用
 - [PostgreSQL 13 Release Notes](https://www.postgresql.org/docs/13/release-13.html)
+- [Deduplication for B-tree](https://www.cybertec-postgresql.com/en/b-tree-index-deduplication/)
 
 ## 12
 

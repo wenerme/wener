@@ -31,17 +31,31 @@ title: Media FAQ
     - 音频最高 2 channels/48 kHz
     - 音频 MPEG-4 AAC LC - 低复杂度编码
 
+## 浏览器不支持 H.265 / HEVC
+
+因为专利费用过高，目前基本没有浏览器支持 HEVC。
+
+推荐使用 webm 包装。
+
+厂商们联合构建了 [AOMedia](https://aomedia.org/about/) 来反抗 HEVC，使用 AV1 编码。
+
+- Can I Use [hevc](https://caniuse.com/hevc)
+  - safari 支持
+    - 但是 jellyfin 播放的时候还是转码了
+    - 原始视频编码 HEVC Main
+- Can I Use [webm](https://caniuse.com/webm/embed/)
+- Can I Use [av1](https://caniuse.com/av1)
+- [Supported Media for Google Cast](https://developers.google.com/cast/docs/media)
+
 ## 目录结构 / 命名标准
 
 - Kodi [Naming video files](https://kodi.wiki/view/Naming_video_files)
-
   - Movies
   - TV Shows
     - 特殊季使用 S00
     - 分组目录
       - Star Trek Series - 系列分组
       - A-M - 名字分组
-
 - TV Shows
   - Name (2020)
     - Name (2020) S01E01.mkv

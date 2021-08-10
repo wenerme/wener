@@ -1,15 +1,19 @@
+---
+title: Cayley
+---
+
 # Cayley
 
-## Tips
-* https://github.com/cayleygraph/cayley
-  * https://cayley.io/
-  * https://cayley.gitbook.io/cayley/
-* 支持的存储
-   - KVs: Bolt, LevelDB
-   - NoSQL: MongoDB
-   - SQL: PostgreSQL, CockroachDB, MySQL
-   - In-memory, ephemeral
-
+- [cayleygraph/cayley](https://github.com/cayleygraph/cayley)
+  - https://cayley.io/
+  - https://cayley.gitbook.io/cayley/
+- 支持的存储
+  - KVs: Bolt, LevelDB
+  - NoSQL: MongoDB
+  - SQL: PostgreSQL, CockroachDB, MySQL
+  - In-memory, ephemeral
+- https://www.cs.bham.ac.uk/~petitcz/files/Cayley.pdf
+- 返回所有属性 https://discourse.cayley.io/t/get-vertex-with-all-predicates/1416/2
 
 ```bash
 brew add cayley
@@ -30,41 +34,27 @@ cayley repl
 ```
 
 ## gizmo
-* https://cayley.gitbook.io/cayley/gizmoapi
+
+- https://cayley.gitbook.io/cayley/gizmoapi
 
 ```js
 // 基本查询
 g.V().getLimit(5);
 
 // 属性查询
-g.V()
-  .has("<name>", "Humphrey Bogart")
-  .all();
+g.V().has('<name>', 'Humphrey Bogart').all();
 
 // 复杂路径 - 可以预定义路径
-var filmToActor = g
-  .Morphism()
-  .out("</film/film/starring>")
-  .out("</film/performance/actor>");
+var filmToActor = g.Morphism().out('</film/film/starring>').out('</film/performance/actor>');
 
-g.V()
-  .has("<name>", "Casablanca")
-  .follow(filmToActor)
-  .out("<name>")
-  .all();
+g.V().has('<name>', 'Casablanca').follow(filmToActor).out('<name>').all();
 ```
 
-https://www.cs.bham.ac.uk/~petitcz/files/Cayley.pdf
-
-返回所有属性
-https://discourse.cayley.io/t/get-vertex-with-all-predicates/1416/2
-
-
-```bash
+```js
 var result = {};
-var person = g.V("wener");
-result['id'] = 'wener'
-person.outPredicates().forEach(function(d) {
+var person = g.V('wener');
+result['id'] = 'wener';
+person.outPredicates().forEach(function (d) {
   result[d.id] = person.out(d.id).toValue();
 });
 

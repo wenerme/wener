@@ -59,6 +59,7 @@ SQLITE3_BINARY_SITE "http://npm.taobao.org/mirrors/sqlite3"
   - 新增 dlx 命令 - 等同于 `npm dlx`
 - 所有 .yarnrc.yml 中的配置都可以用环境变量
   - 例如 YARN_HTTPS_PROXY - 不会使用 HTTPS_PROXY
+    - 只支持 HTTP 代理
 - 注意
   - 配置 [nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker) 为 `node-modules` 可使用以前的方式
 
