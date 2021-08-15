@@ -124,3 +124,20 @@ sudo ifconfig en0 alias 128.133.123.83/24 up
 # 移除
 sudo ifconfig en0 -alias 128.133.123.83/24 up
 ```
+
+## QuickLookSatellite
+
+用于生成 QuickLook，例如 媒体文件预览图。
+
+异常高 CPU 占用，不停重启。
+
+---
+
+可能是因为 Finder 打开的某个目录，目录下媒体文件有异常。
+
+例如 我 Finder 一个目录下的 AVI 文件异常，导致不停出现 QuickLookSatellite，且 CPU 非常高，关闭 Finder 即可。
+
+---
+
+- 参考
+  - https://superuser.com/a/617672/242730

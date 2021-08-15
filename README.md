@@ -30,11 +30,11 @@
 
 ## Projects Working On
 
-| Kubernetes          | CI                                               | Desc                               |
-| ------------------- | ------------------------------------------------ | ---------------------------------- |
-| [charts]            | [![][charts-img]][charts-ci]                     | helm repo agg & cdn                |
-| [container-mirror]  | [![][container-mirror-img]][container-mirror-ci] | ali image mirror                   |
-| [kube-stub-cluster] |                                                  | ArgoCD/Helm/Kubernetes deploy stub |
+| Kubernetes          | CI                                                  | Desc                               |
+| ------------------- | --------------------------------------------------- | ---------------------------------- |
+| [charts]            | [![][charts-ci-img]][charts-ci]                     | helm repo agg & cdn                |
+| [container-mirror]  | [![][container-mirror-ci-img]][container-mirror-ci] | ali image mirror                   |
+| [kube-stub-cluster] |                                                     | ArgoCD/Helm/Kubernetes deploy stub |
 
 [charts]: https://github.com/wenerme/charts
 [charts-ci-img]: https://github.com/wenerme/charts/actions/workflows/pages.yaml/badge.svg

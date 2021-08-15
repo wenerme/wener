@@ -6,6 +6,8 @@ title: graphql-code-generator
 
 - [dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator) 是什么？
   - 基于 GraphQL 的代码生成工具
+  - 支持的前端框架 urql, apollo, react-query, react, vue, svelte
+  - 支持的后端 Java Resolver, Kotlin, Java, Java Apollo Android
 
 ```yaml
 overwrite: true

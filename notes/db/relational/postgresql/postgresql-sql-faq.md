@@ -157,3 +157,10 @@ CREATE TABLE users (
              PRIMARY KEY,
 );
 ```
+
+## Operator
+
+```sql
+-- 操作符也是函数
+SELECT 3 OPERATOR(pg_catalog.+) 4;
+```

@@ -186,6 +186,11 @@
           prefix: ./git/
         - label: Gitlab
           prefix: ./gitlab
+    - label: CN
+      prefix: ./cn
+      items:
+        - label: 国标
+          prefix: ./gb
     - label: 数据
       prefix: ./data
       items:
@@ -201,6 +206,11 @@
       prefix: ./admin
     - label: 基础设施
       prefix: ./infra
+      items:
+        - label: Ansible
+          prefix: ./ansible
+        - label: Terraform
+          prefix: ./terraform
 
     - label: 网络
       prefix: ./network

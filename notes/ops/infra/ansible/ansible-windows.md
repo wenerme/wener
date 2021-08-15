@@ -24,7 +24,6 @@ title: Ansible Windows
   - 安全策略
   - 共享
   - SNMP 服务
-  -
 - 参考
   - [Setting up a Windows Host](https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html)
   - [ConfigureRemotingForAnsible.ps1](https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1)

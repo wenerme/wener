@@ -1,0 +1,47 @@
+---
+title: K8S Network FAQ
+---
+
+# K8S Network FAQ
+
+## LB/Load Balance vs Ingress vs ClusterIP vs API Gateway
+
+- LB/Load Balance - 负载均衡
+  - 只是一种概念
+  - 表示聚合了后端多个服务/节点，对外进行统一暴露
+  - 基本功能
+    - 上游监控状态监控 - 忽略异常节点/服务
+    - 轮询
+- Ingress - 流量入口
+  - 能感知 7 层协议的 LB - TCP/UDP/HTTP
+    - 基于 4 层实现 7 层
+  - 因为能感知 7 层协议，所以可以支持更多的路由功能
+  - 基本功能 - 基于 HTTP 协议 Host+Path 的 LB
+    - 基于 Hots/主机名 路由
+    - 基于 路径 路由
+    - TLS Offload
+  - 常见实现: nginx, haproxy, envoy, traefik
+- ClusterIP
+  - 4 层协议的 LB - IP
+    - 可基于 2 层实现 4 层 - MAC
+  - 实现虚拟 IP - 该 IP 可以是私有的，也可以是平台提供的公网 IP
+  - 是一种服务
+  - 基本功能 - 基于 IP 的 LB
+  - 常见实现: metallb
+- API Gateway - 接口网关
+  - 在应用层协议之上集成更多功能
+  - API Gateway 是 Ingress 超集
+  - 提供更上层的能力
+    - 感知更多协议 - 例如 gRPC/MQTT/MySQL/PostgreSQL/GraphQL
+    - 能基于服务进行路由
+      - gRPC 不同服务进行路由
+      - MQTT 路由
+    - 能感知客户端更多信息 - 例如 实现 Auth、限流 等功能
+    - 能对输入输出进行操作
+      - 修改 HTTP 返回 JSON 内容
+      - 对请求响应进行 Instrument - 例如 tracing
+    - 更接近开发 - 通常支持 Hook 代码或外部应用进行处理
+    - 编排接口
+    - 可与服务发现结合使用
+  - 通常会抽象更高层的概念 - 服务、路由、Consumer、Plugin
+  - 常见实现: ambassador, kong, apisix

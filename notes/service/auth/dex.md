@@ -10,6 +10,7 @@ id: dex
   * sqlite3, mysql, postgres
   * etcd
   * kubernetes - CRD
+    * 相当于无状态部署
 * 可作为嵌入使用
 * 支持 [Kubernetes 授权](https://dexidp.io/docs/kubernetes/) 是核心场景
 * Connector

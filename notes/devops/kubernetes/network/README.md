@@ -55,6 +55,12 @@ title: Kubernates 网络
   - [The Easy--Don't Drive Yourself Crazy--Way to Kubernetes Networking [B] - Gerard Hickey](https://www.youtube.com/watch?v=H5Zl_kDOwBU)
   - [An illustrated guide to Kubernetes Networking](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727)
 
+## 资源
+- ServiceLoadBalancerClass - v1.22 beta
+  - spec.loadBalancerClass
+- IngressClass
+  - spec.parameters.scope: Namespace - Namespace 纬度 IngressClass v1.22 beta
+
 ## 集群网络
 
 - [Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking/)

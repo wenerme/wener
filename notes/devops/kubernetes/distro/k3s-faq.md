@@ -32,7 +32,6 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 
 ## docker vs containerd
 
-- 建议使用 docker
 - docker
   - 操作运维熟悉
   - 可独立使用
@@ -42,6 +41,10 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
   - docker 底层也是使用的 containerd
   - 因此使用 docker 会额外消耗一些内存
   - 没有专用的 cli - crictl 主要用于调试
+
+---
+
+如果已经运行了 docker 建议使用 docker，否则没必要额外安装，直接使用内置 containerd。
 
 ## k3s 状态清理
 

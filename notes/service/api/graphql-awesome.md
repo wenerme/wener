@@ -5,6 +5,7 @@ title: GraphQL Awesome
 # GraphQL Awesome
 
 ## 学习
+
 - [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
 
 ## 设计
@@ -47,6 +48,7 @@ title: GraphQL Awesome
   - 文档生成
 
 ## Server
+
 - [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
 - [Urigo/graphql-mesh](https://github.com/Urigo/graphql-mesh)
   - REST,DB,RPC 映射为 GraphQL

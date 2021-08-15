@@ -95,6 +95,12 @@ title: Go Awesome
 - [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
   - 牺牲功能换取性能
   - 不适用于 RESTful 接口 - 不能区分路由 `/users/like`, `/users/:userId`
+- [emicklei/go-restful](https://github.com/emicklei/go-restful)
+  - 辅助构建 RESTful 类型接口
+  - 抽象 Resource 概念
+  - 抽象 Entity 编码处理
+  - 支持 JSON 和 XML
+  - 支持定义 OpenAPI
 - 参考
   - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
 

@@ -167,7 +167,7 @@ title: K8S Awesome
 
 - [luraproject/lura](https://github.com/luraproject/lura)
   - builder , proxy generator, aggregator
-  - client -> lura -> N\*Service
+  - client -> lura -> `N*Service`
 - [kubernetes-sigs/service-catalog](https://github.com/kubernetes-sigs/service-catalog)
 - [openservicebrokerapi/servicebroker](https://github.com/openservicebrokerapi/servicebroker)
 

@@ -7,6 +7,7 @@ title: Traefik Ingress
 - [Traefik Ingress](https://doc.traefik.io/traefik/providers/kubernetes-ingress/)
 - Traefik 的 K8S 分为 CRD 方式和标准的 IngressController
   - CRD 支持更多功能 - Helm 安装
+- Traefik 支持非常多的功能 - ACME, SNI, Dashboard, Tracing, Metrics
 
 :::caution
 
@@ -16,6 +17,8 @@ title: Traefik Ingress
   - [#5426](https://github.com/traefik/traefik/issues/5426#issuecomment-533598163)
     官方表明 社区版 不考虑集群
 - Middleware 通过 CRD 引用 - 使用相对麻烦
+- 使用 Ingress 方式很多功能得使用 annotation 非常不方便
+  - 但直接使用 IngressRoute 会导致 Vendor Lockin
 
 :::
 
@@ -88,7 +91,7 @@ spec:
     - kind: Rule
       # 路由匹配规则
       match: Host(`test.example.com`)
-      # 匹配攸县酒
+      # 匹配优先级
       priority: 10
       # 引用中间件
       middlewares:

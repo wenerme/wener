@@ -81,6 +81,8 @@ select levenshtein('今天天气很好，你还好么？','今天你好么');
   - `<span class="keyword">fast</span>`
 - [pgroonga_tokenize](https://pgroonga.github.io/reference/functions/pgroonga-tokenize.html)
 - 默认 TokenBigram
+- double precision pgroonga_score(tableoid, ctid)
+  - 分数 - 多少个词匹配
 
 ```bash
 # 基于 postgres:12-alpine

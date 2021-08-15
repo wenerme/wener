@@ -5,8 +5,8 @@ title: Harbor
 
 # Habor
 
-## Tips
-
+- Habor
+  - Kubernetes 上的容器镜像仓库
 - [goharbor/harbor-helm](https://github.com/goharbor/harbor-helm) - trusted cloud native repository for Kubernetes
 - 属于 CI 和 CD 之间，Nexus 偏向开发，Harbor 偏向生产部署交付
 - 特性
@@ -47,25 +47,29 @@ helm repo add harbor https://helm.goharbor.io
 ```
 
 ## 安装
-* docker 安装过程会使用 `goharbor/prepare` 进行构建需要的 docker compose
+
+- docker 安装过程会使用 `goharbor/prepare` 进行构建需要的 docker compose
 
 ## 配置
-* https://goharbor.io/docs/2.0.0/install-config/configure-yml-file/
+
+- https://goharbor.io/docs/2.0.0/install-config/configure-yml-file/
 
 ## 组件
-* postgresql
-* redis
-* clari
-* beego
-* chartmuseum
-* docker/distribution
-* docker/notary
-* helm
-* swagger-ui
+
+- postgresql
+- redis
+- clari
+- beego
+- chartmuseum
+- docker/distribution
+- docker/notary
+- helm
+- swagger-ui
 
 ## Helm
+
 ```yaml
-harborAdminPassword: "Harbor12345"
+harborAdminPassword: 'Harbor12345'
 
 # 部署组件
 # =========
@@ -85,10 +89,10 @@ database:
   type: internal
   # 配置外部数据库
   external:
-    host: "192.168.0.1"
-    port: "5432"
-    username: "user"
-    password: "password"
+    host: '192.168.0.1'
+    port: '5432'
+    username: 'user'
+    password: 'password'
     # coreDatabase: "registry"
     # clairDatabase: "clair"
     # notaryServerDatabase: "notary_server"

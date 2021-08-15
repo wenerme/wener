@@ -49,6 +49,12 @@ title: Database Awesome
 - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL
+- [ULID](https://github.com/ulid/spec)
+  - [#41](https://github.com/ulid/spec/issues/41)
+    PostgreSQL
+  - [iCyberon/pg_ulid](https://github.com/iCyberon/pg_ulid)
+  - [UUIDv6](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00)
+    有点类似 ULID
 
 ## Big Data
 

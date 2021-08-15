@@ -9,6 +9,7 @@ title: Dev Awesome
   - fast accurate code counter
 
 ## Service Discovery
+
 - consul
 - zookeeper
 - mDNS
@@ -18,3 +19,7 @@ title: Dev Awesome
 - consul
 - zookeeper
 - [ctripcorp/apollo](https://github.com/ctripcorp/apollo)
+
+## Audio
+
+- [emicklei/melrose](https://github.com/emicklei/melrose)

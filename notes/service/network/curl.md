@@ -3,7 +3,9 @@ title: curl
 ---
 
 # curl
-* [manpage](https://curl.se/docs/manpage.html)
+
+- [manpage](https://curl.se/docs/manpage.html)
+- -C- 继续下载
 
 ```bash
 # 测试 SNI
@@ -31,7 +33,7 @@ cat <<EOF > curl-formt.txt
     time_pretransfer:  %{time_pretransfer}s\n
        time_redirect:  %{time_redirect}s\n
   time_starttransfer:  %{time_starttransfer}s\n
-                     ----------\n
+                      ----------\n
           time_total:  %{time_total}s\n
 EOF
 curl https://wener.me  -o /dev/null -s -w "@curl-format.txt"
@@ -44,6 +46,6 @@ curl https://wener.me  -o /dev/null -s -w "@curl-format.txt"
     time_pretransfer:  1.708254s
        time_redirect:  0.000000s
   time_starttransfer:  1.962050s
-                     ----------
+                      ----------
           time_total:  1.971632s
 ```

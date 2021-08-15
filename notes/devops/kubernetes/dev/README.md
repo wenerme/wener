@@ -13,3 +13,8 @@ title: Kubernetes 开发
 - 参考
   - [kubernetes-sigs/kubebuilder](https://github.com/kubernetes-sigs/kubebuilder)
   - [client-libraries](https://kubernetes.io/docs/reference/using-api/client-libraries)
+- 在 Kubernetes 上开发
+  - skaffold - Generic Source to Kubernetes
+  - [google/ko](https://github.com/google/ko) - For Golang
+    - source to image
+    - 适用于无系统依赖无 cgo 场景

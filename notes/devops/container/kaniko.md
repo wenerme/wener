@@ -87,6 +87,10 @@ docker run --rm -it $PWD/config:/kaniko/.docker/config.json --destination=yourim
 
 # FAQ
 
+## 性能问题
+- https://github.com/GoogleContainerTools/kaniko/issues/875
+  Kaniko build's performance much slower comparing with DID solution
+
 ## 拷贝根目录异常阻塞
 
 ```dockerfile
@@ -96,6 +100,8 @@ RUN echo 7777
 FROM alpine:3.11
 # 阻塞
 COPY --from=rootfs / /sysroot/
+# Workaround https://github.com/GoogleContainerTools/kaniko/issues/960
+COPY --from=rootfs /rootfs/ /sysroot/
 ```
 
 - https://github.com/GoogleContainerTools/kaniko/issues/960

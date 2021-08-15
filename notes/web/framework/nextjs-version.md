@@ -5,6 +5,40 @@ title: NextJS 版本历史
 
 # NextJS 版本历史
 
+:::tip
+
+- 大版本升级时建议出 .1 时再升级
+- 目前还不适合用 yarn2/yarn berry
+
+:::
+
+:::note 值得关注的问题
+
+- [vercel/next.js#16368](https://github.com/vercel/next.js/issues/16368)
+  Module Federation Support
+
+:::
+
+## 11
+
+- Webpack 5
+
+:::caution
+
+- styled-components 可能会有问题
+  - [vercel/next.js#26799](https://github.com/vercel/next.js/issues/26799)
+
+:::
+
+> swc 的开发者加入了 vercel，集成 swc 开发体验会有所提高。
+
+## 11.1
+
+- ESM 实验阶段 - `{experimental: { esmExternals: true }}`
+- 使用 SWC 替代 Babel 和 Terser
+- 渲染使用 keep-alive 增加数据请求速度
+- 内置 ESLint - `next lint`
+
 ## 10
 
 - [10](https://nextjs.org/blog/next-10) - 2020-10-27
@@ -20,6 +54,8 @@ title: NextJS 版本历史
 - 自动处理 `href` 属性，可以不用 `as`
 - @next/codemod - nextjs 升级代码转换
 - 允许阻塞 getStaticPaths - 之前是 fallback
+
+> Webpack 开发者加入 Vercel
 
 ```js
 // 国际化路由

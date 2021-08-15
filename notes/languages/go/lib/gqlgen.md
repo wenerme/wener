@@ -14,9 +14,8 @@ title: gqlgen
   - 文档少
   - 插件能力弱，且没什么 Demo
 - [gqlgen vs gophers vs graphql-go vs thunder](https://gqlgen.com/feature-comparison/)
-- 问题
-  - [99designs/gqlgen#1516](https://github.com/99designs/gqlgen/issues/1516)
-    - 不兼容 gqlparser 2.2 - 升级的时候注意
+  - gqlgen 最近开发不活跃 - 2021-08
+  - graphql-go/graphql 开发不活跃
 
 :::caution
 
@@ -26,8 +25,19 @@ title: gqlgen
   - [99designs/gqlgen#592](https://github.com/99designs/gqlgen/issues/592) - resolve 逻辑不能定义在 interface 上
   - [99designs/gqlgen#626](https://github.com/99designs/gqlgen/issues/626) - 生成类型不支持 embedded
 - enum 不支持 int - [99designs/gqlgen#366](https://github.com/99designs/gqlgen/issues/366)
+- [99designs/gqlgen#1516](https://github.com/99designs/gqlgen/issues/1516)
+  - 不兼容 gqlparser 2.2 - 升级的时候注意
+- [99designs/gqlgen#1031](https://github.com/99designs/gqlgen/issues/1031)
+  federation 只支持单个 @key
 
 :::
+
+```bash
+go get -u github.com/99designs/gqlgen
+go run github.com/99designs/gqlgen init
+
+go run github.com/99designs/gqlgen generate
+```
 
 ## Note
 
@@ -49,4 +59,25 @@ type HandlerExtension interface {
 | |  RESPONSE  { "data": { "chat": { "message": "byee" } } }           | |
 | +--------------------------------------------------------------------+ |
 +------------------------------------------------------------------------+
+```
+
+```graphql
+directive @goModel(model: String, models: [String!]) on OBJECT | INPUT_OBJECT | SCALAR | ENUM | INTERFACE | UNION
+directive @goField(forceResolver: Boolean, name: String) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+scalar Time
+scalar Any
+scalar Map
+scalar Upload
+```
+
+## 禁用 Introspection
+
+```go
+srv.AroundOperations(func(ctx context.Context, next graphql.OperationHandler) graphql.ResponseHandler {
+  if !isUserAdmin(ctx) {
+    graphql.GetOperationContext(ctx).DisableIntrospection = true
+  }
+  return next(ctx)
+})
 ```

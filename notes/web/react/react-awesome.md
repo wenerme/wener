@@ -189,6 +189,7 @@ title: React Awesome
 
 - [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
   - 基于 Hook
+  - 推荐 - 因为 react-virtualized 不活跃
 - [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
   - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
   - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)

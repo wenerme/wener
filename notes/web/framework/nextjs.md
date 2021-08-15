@@ -5,12 +5,6 @@ title: NextJS
 
 # NextJS
 
-- 注意
-  - getInitialProps
-    - 只能用于页面组件不能用于子组件
-    - 在第一次渲染会执行，之后会在客户端做转换
-    - 不要能服务端的模块，通过 API 实现调用
-  - 请求推荐使用 `isomorphic-unfetch`
 - 页面自定义
   - [默认特殊页面内容](https://github.com/zeit/next.js/tree/master/packages/next/pages)
   - `_document.js`
@@ -40,6 +34,16 @@ title: NextJS
   - https://github.com/kirill-konshin/next-redux-wrapper
   - i18n https://github.com/isaachinman/next-i18next/issues/274
   - [unicodeveloper/awesome-nextjs](https://github.com/unicodeveloper/awesome-nextjs)
+
+:::tips
+
+- getInitialProps
+  - 只能用于页面组件不能用于子组件
+  - 在第一次渲染会执行，之后会在客户端做转换
+  - 不要能服务端的模块，通过 API 实现调用
+- 内置了 node-fetch
+
+:::
 
 ## 快速开始
 

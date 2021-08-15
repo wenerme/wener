@@ -161,11 +161,12 @@ const promise = mutate(variables, {
 });
 ```
 
-
 # FAQ
+
 ## isLoading vs isFetching
-* isLoading 是 status=loading
-  * 适用于第一次 loading 判断
-* isFetching 是后台正在获取
-  * 即便是正在获取，isLoading 也可能为 false - 因为有上次数据
-  * 适用于数据加载判断 - 刷新加载过程显示
+
+- isLoading 是 status=loading
+  - 适用于第一次 loading 判断
+- isFetching 是后台正在获取
+  - 即便是正在获取，isLoading 也可能为 false - 因为有上次数据
+  - 适用于数据加载判断 - 刷新加载过程显示

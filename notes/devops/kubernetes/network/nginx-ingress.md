@@ -19,14 +19,12 @@ title: Nginx Ingress
   - https://kubernetes.github.io/ingress-nginx/kubectl-plugin/
 - https://kubernetes.github.io/ingress-nginx/user-guide/miscellaneous/
 
-
 :::caution
 
-* 默认 ssl-passthrough 未开启，不支持 SNI
-  * 启用对性能影响很大
+- 默认 ssl-passthrough 未开启，不支持 SNI
+  - 启用对性能影响很大
 
 :::
-
 
 ```bash
 POD_NAME=$(kubectl get pods --selector "app.kubernetes.io/name=ingress-nginx" --all-namespaces --output=name | head -1)
@@ -65,7 +63,7 @@ nginx.ingress.kubernetes.io/upstream-vhost: ''
 nginx.ingress.kubernetes.io/server-alias: '<alias 1>,<alias 2>'
 
 # 默认关闭 buffer
-nginx.ingress.kubernetes.io/proxy-buffering: "off"
+nginx.ingress.kubernetes.io/proxy-buffering: 'off'
 ```
 
 | name                   | desc        |
@@ -101,7 +99,7 @@ nginx.ingress.kubernetes.io/session-cookie-change-on-failure: 'true'
 
 ```yaml
 # 修改后端
-nginx.ingress.kubernetes.io/backend-protocol: "GRPCS"
+nginx.ingress.kubernetes.io/backend-protocol: 'GRPCS'
 # 如果要使用 stream 考虑设置长一点的超时
 nginx.ingress.kubernetes.io/server-snippet: |
   grpc_read_timeout "1200s";
@@ -110,10 +108,11 @@ nginx.ingress.kubernetes.io/server-snippet: |
 ```
 
 ### cors
+
 ```yaml
-nginx.ingress.kubernetes.io/enable-cors: "true"
+nginx.ingress.kubernetes.io/enable-cors: 'true'
 # 默认所有
-nginx.ingress.kubernetes.io/cors-allow-origin: "https://wener.me"
+nginx.ingress.kubernetes.io/cors-allow-origin: 'https://wener.me'
 ```
 
 ### ConfigMap
@@ -158,18 +157,18 @@ helm repo add wener https://charts.wener.tech
 helm install ingress-nginx wener/ingress-nginx -n ingress-nginx -v nginx.values.yaml
 ```
 
-__values.yaml__
+**values.yaml**
 
 ```yaml
 config:
-  hide-headers: "Server"
+  hide-headers: 'Server'
 controller:
   image:
     # use mirror
     # k8s.gcr.io/ingress-nginx/controller
     repository: registry.cn-hongkong.aliyuncs.com/cmi/ingress-nginx_controller
     # disable digest
-    digest: ""
+    digest: ''
   # 以 DaemonSet 安装
   kind: DaemonSet
   # 80 端口
@@ -345,6 +344,7 @@ spec:
         - mydomain.com
       secretName: tls-secret
 ```
+
 ## controller
 
 ```
