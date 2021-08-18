@@ -17,3 +17,8 @@ title: Linux Awesome
 
 - [zhaojh329/oui](https://github.com/zhaojh329/oui)
 - [cockpit-project/cockpit](https://github.com/cockpit-project/cockpit)
+
+## Firmware
+
+- [fwupd](https://fwupd.org/)
+  Linux Vendor Firmware Service

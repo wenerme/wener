@@ -86,9 +86,3 @@ title: Web Awesome
   - [What's In A Sound?](https://www.soundonsound.com/techniques/whats-sound)
   - youtube [Synthesizer Basics: Amplitude, Oscillators, Timbre](https://www.youtube.com/watch?v=c3udLCvoCC0)
   - [Functional, Declarative Audio Applications](https://www.nickwritesablog.com/functional-declarative-audio-applications/)
-
-## Archive
-
-- [hartator/wayback-machine-downloader](https://github.com/hartator/wayback-machine-downloader)
-- [jsvine/waybackpack](https://github.com/jsvine/waybackpack)
-- [ArchiveBox/ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)

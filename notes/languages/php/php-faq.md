@@ -1,7 +1,12 @@
+---
+title: PHP FAQ
+---
+
 # PHP FAQ
 
 ## Timezone
-* 默认使用 TZ 环境变量
+
+- 默认使用 TZ 环境变量
 
 ```php
 <?php
@@ -15,7 +20,7 @@ if (strcmp($script_tz, ini_get('date.timezone'))){
 }
 ```
 
-__php.ini__
+**php.ini**
 
 ```ini
 [Date]

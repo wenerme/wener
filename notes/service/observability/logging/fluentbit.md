@@ -9,8 +9,6 @@ title: Fluentbit
 - [fluentbit](https://fluentbit.io/)
 - [fluent/fluent-bit](https://github.com/fluent/fluent-bit)
 - [Build Options](https://docs.fluentbit.io/manual/installation/sources/build-and-install)
-- 注意
-  - 官方不支持 musl - https://github.com/fluent/fluent-bit/issues/2464
 - 数据处理流程
   - input - `-i, --input`
   - parser - `-R, --parser`
@@ -24,6 +22,13 @@ title: Fluentbit
       - `-t, --tag` - 设置 tag，等同于 `-p tag=abc`
       - `-p, --prop="A=B"` - 设置插件属性
   - output - 多个
+
+:::caution
+
+- [fluent/fluent-bit#464](https://github.com/fluent/fluent-bit/issues/2464) 官方不支持 musl
+  - Go 在 musl 下不支持插件
+
+:::
 
 ```bash
 # macOS

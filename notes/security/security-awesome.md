@@ -16,3 +16,8 @@ title: Security Awesome
 ## Firewall
 
 - [shorewall](https://shorewall.org/)
+
+## Reference
+
+- [scaredos/cfresearch](https://github.com/scaredos/cfresearch)
+  research from CloudFlare's Anti-DDoS challenges.

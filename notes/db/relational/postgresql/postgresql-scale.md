@@ -4,7 +4,14 @@ title: Postgresql Scale
 
 # Postgresql Scale
 
+:::tip
+
+PostgreSQL 并不是 OLAP 数据库，能力有上限，当发现有更多的时间和资源投入 数据仓库 时，可以考虑选择一个真正的数仓数据库。
+
+:::
+
 ## Table Partitioning
+
 - 查询性能提升
   - 当主要查询的数据都在一个分片里时，索引加载到内存使用率更高
 - 当更新和查询单个分片时性能提升
@@ -35,8 +42,6 @@ title: Postgresql Scale
 - 临时表和持久表不可以混用
 
 :::
-
-
 
 **分表策略**
 

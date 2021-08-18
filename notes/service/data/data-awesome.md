@@ -37,6 +37,14 @@ title: Data Awesome
 
 - [freereadorg/awesome-libgen](https://github.com/freereadorg/awesome-libgen)
   - [repository_torrent](http://libgen.rs/scimag/repository_torrent/)
+- [ArchiveBox/ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)
+
+## Wayback Machine
+
+- [hartator/wayback-machine-downloader](https://github.com/hartator/wayback-machine-downloader)
+- [jsvine/waybackpack](https://github.com/jsvine/waybackpack)
+- [oduwsdl/archivenow](https://github.com/oduwsdl/archivenow)
+
 
 ## Dataset
 

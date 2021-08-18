@@ -28,7 +28,7 @@ title: Loki
 - [Loki Storage](https://grafana.com/docs/loki/latest/operations/storage/)
 - writes a chunk per stream
 - chunk_target_size (around 1MB), max_chunk_age (increase beyond 1h), chunk_idle_period (increase to match max_chunk_age)
-- index
+- index - range -> chunkids
   - BoltDB Shipper - 本地和远程同步 - 依赖对象存储
     - 24h 周期索引时工作最好
     - 类似于 Thanos
@@ -36,7 +36,7 @@ title: Loki
   - Amazon DynamoDB
   - Google Bigtable
   - BoltDB - 单机
-- chunk
+- chunk - chunkid -> blob
   - Apache Cassandra
   - Amazon S3
     - 权限

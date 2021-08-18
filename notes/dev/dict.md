@@ -216,12 +216,13 @@ title: 开发用词字典
 
 ## 公司企业
 
-| 英文                     | 含义             | 释义                         |
-| ------------------------ | ---------------- | ---------------------------- |
-| brn                      | 工商注册号       | Business Registration Number |
-| ucc                      | 统一信用代码     | Uniform Credit Code          |
-| org code/oc              | 组织机构代码     | Organization Code            |
-| taxpayer no/tn           | 纳税人编号       | Taxpayer Number              |
+| abbr./word               | meaning          | stand for                        |
+| ------------------------ | ---------------- | -------------------------------- |
+| brn                      | 工商注册号       | Business Registration Number     |
+| usci                     | 统一社会信用代码 | unified social credit identifier |
+| ucc                      | 统一信用代码     | Uniform Credit Code              |
+| org code/oc              | 组织机构代码     | Organization Code                |
+| taxpayer no/tn           | 纳税人编号       | Taxpayer Number                  |
 | reg number/reg no        | 注册号           |
 | credit code              | 信用代码         |
 | brand                    | 字号             |

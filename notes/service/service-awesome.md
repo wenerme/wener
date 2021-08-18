@@ -27,6 +27,8 @@ title: Service Awesome
 - [Open Source Alternatives](https://www.btw.so/open-source-alternatives)
 - [calendso/calendso](https://github.com/calendso/calendso)
   - MIT, TypeScript
+- [qarmin/czkawka](https://github.com/qarmin/czkawka)
+  - 查找重复图片、文件
 
 ## Avatar
 

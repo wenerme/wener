@@ -5,6 +5,7 @@ title: PostgreSQL FDW
 # PostgreSQL FDW
 
 - [Foreign data wrappers](https://wiki.postgresql.org/wiki/Foreign_data_wrappers)
+- [adjust/clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)
 
 ## mysql_fdw
 

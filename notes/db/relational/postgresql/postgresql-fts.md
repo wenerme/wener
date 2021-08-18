@@ -86,7 +86,7 @@ select levenshtein('今天天气很好，你还好么？','今天你好么');
 
 ```bash
 # 基于 postgres:12-alpine
-docker pull groonga/pgroonga latest-alpine-12
+docker pull groonga/pgroonga:latest-alpine-12
 ```
 
 ```sql

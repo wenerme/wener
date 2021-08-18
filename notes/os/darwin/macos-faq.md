@@ -141,3 +141,10 @@ sudo ifconfig en0 -alias 128.133.123.83/24 up
 
 - 参考
   - https://superuser.com/a/617672/242730
+
+## syncpolicyd
+
+- introduced in macOS 10.7.3 with the Gatekeeper feature.
+- act as the centralized daemon for answering Gatekeeper questions.
+. In addition to assessing applications before running, the daemon also handles authorizing the loading of KEXTs as well as tracking legacy applications that the user has run. In Mojave syspolicyd has expanded again and is responsible for handling software notarization checks as well. We’ll start with a very high level look at the daemon startup process and then dive deeper into each of syspolicyd’s subsystems.
+

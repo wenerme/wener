@@ -119,3 +119,28 @@ relfect 不允许访问未导出字段
 - [pgx](https://github.com/jackc/pgx)
   - 支持所有 native 类型
   - 支持逻辑复制协议
+
+## gc vs gccgo
+
+- gc - 默认 Golang 实现
+  - 半年升级一次 - 跟随 spec 版本
+  - 1.5 后不再依赖 C 编译器
+  - 跨平台编译 - 不依赖 CGO 时
+  - 静态编译 - 体积大 - HelloWorld 2M+
+- gccgo - 基于 GCC 实现
+  - 随 GCC 升级 - 版本一般落后，升级慢
+  - 依赖 OS 提供 GCC 包 - 一般落后主 GCC 版本
+  - 编译更快，但支持更多优化 - 重 CPU 场景性能更好
+  - 默认支持 CGO
+  - 支持更多平台 - 所有 GCC 支持的平台
+  - 交叉编译非常难
+  - 动态链接 - 体积非常小 - HelloWorld 250K
+    - libgo, libm, libgcc, libz, libpthread, ld.so, linux-vdso.so - virtual shared object
+
+```bash
+# go 可直接使用 gccgo 编译
+go build -compiler gccgo myprog
+
+# gccgo flags
+go build -gccgoflags "-s -w" main.go
+```

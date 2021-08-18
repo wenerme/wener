@@ -45,11 +45,6 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 ```
 
 ```sql
--- 导入 csv
-create table foo(a, b);
-.mode csv
-.import test.csv foo
-
 -- 日期函数
 -- https://sqlite.org/lang_datefunc.html
 -- 转换时间戳
@@ -71,6 +66,21 @@ ATTACH 'cache.db' AS cache;
 .tables
 -- 显示 create 表
 .schema urls
+```
+
+## 数据操作
+### 导入 csv
+```sql
+-- 可以不用创建
+create table foo(a, b);
+.mode csv
+.import test.csv foo
+```
+### 导出 csv
+
+```sql
+.output data.csv
+select * from foo;
 ```
 
 ## DateTime

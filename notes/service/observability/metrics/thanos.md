@@ -27,8 +27,8 @@ title: Thanos
 
 :::caution
 
-* 一个租户需要一个 Bucket
-  * [#1318](https://github.com/thanos-io/thanos/issues/1318) 提议添加前缀 - 但工作量很大
+- 一个租户需要一个 Bucket
+  - [#1318](https://github.com/thanos-io/thanos/issues/1318)  提议添加前缀 - 但工作量很大
 
 :::
 

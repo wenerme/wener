@@ -11,6 +11,14 @@ title: CGO
   - [rainycape/dl](https://github.com/rainycape/dl) - dlopen / dlsym
 - 参考
   - [golang/go#18296](https://github.com/golang/go/issues/18296) - runtime: dlopen/dlsym without CGo
+  - [类型转换](https://gist.github.com/zchee/b9c99695463d8902cd33)
+
+:::caution
+
+- 避免 Go 的名字和 C 里的名字冲突，否则无法直接使用 `C.<name>`
+  - 例如 如果 Go 里有 MyStruct，则无法使用 C.MyStruct
+
+:::
 
 ## dlopen
 
@@ -43,6 +51,7 @@ package dlopen
 ```
 
 ## sqlite
+
 - [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
   - `-tags libsqlite3` 可 link libsqlite3.so
 - No CGO
