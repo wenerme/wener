@@ -3,24 +3,41 @@ title: Squid
 ---
 
 # Squid
-## Tips
-* Web 缓存服务器 - 用于缓存网页内容以便于快速返回
-  * 对于动态内容会相对较慢
-  * 可用于反向代理 - 出网缓存 - 服务端
-    * 例如缓存静态站点，类似于 Vanish 角色
-  * 可用于转发代理 - 入网缓存 - 客户端
-    * 例如缓存 Windows 更新
-    * 当终端多时可加速静态内容访问
-* 默认端口 3128
-* 参考
-  * [How to monitor Squid proxy server](https://www.monitis.com/blog/how-to-monitor-squid-proxy-server/)
-  * [Setting up Explicit Squid Proxy](https://wiki.alpinelinux.org/wiki/Setting_up_Explicit_Squid_Proxy)
-* 注意 ⚠️
-  * 默认不支持 HTTPS 的缓存 [Features/HTTPS](https://wiki.squid-cache.org/Features/HTTPS)
-    * HTTPS 会使用 CONNECT 的方式进行 TUNNEL 代理
-    * 支持 HTTPS 需要客户端安装 CA 证书
-    * 如果安装了 CA 证书也能实现透明代理
-  * 如果希望用于 入网缓存，不配置 CA 则没意义
+
+- [squid-cache/squid](https://github.com/squid-cache/squid)
+  - Web 缓存服务器 - 用于缓存网页内容以便于快速返回
+  - 对于动态内容会相对较慢
+  - 可用于反向代理 - 出网缓存 - 服务端
+    - 例如缓存静态站点，类似于 Vanish 角色
+  - 可用于转发代理 - 入网缓存 - 客户端
+    - 例如缓存 Windows 更新
+    - 当终端多时可加速静态内容访问
+- 默认端口 3128
+- 参考
+  - [How to monitor Squid proxy server](https://www.monitis.com/blog/how-to-monitor-squid-proxy-server/)
+  - [Setting up Explicit Squid Proxy](https://wiki.alpinelinux.org/wiki/Setting_up_Explicit_Squid_Proxy)
+
+:::tip
+
+- 建议配置 HTTPS CA 证书
+- 可用于爬虫前置请求代理/缓存
+- 可配置 privoxy 作为唯一 cache_peer
+  - 实现 https 基于域名转发
+  - 支持 socks
+
+:::
+
+:::caution
+
+- 默认不支持 HTTPS 的缓存 [Features/HTTPS](https://wiki.squid-cache.org/Features/HTTPS)
+  - HTTPS 会使用 CONNECT 的方式进行 TUNNEL 代理
+  - 支持 HTTPS 需要客户端安装 CA 证书
+  - 如果安装了 CA 证书也能实现透明代理
+- 默认不支持 SOCKS
+- SSL Bump 时无法根据域名选择 cache_peer
+- 没有 Web 管理端
+
+:::
 
 ```bash
 cat <<CONF > squid.conf
@@ -59,14 +76,24 @@ squidclient -h 127.0.0.1 -p 3128 cache_object://www.baidu.com/favicon.ico mgr:ut
 squidclient -h 127.0.0.1 -p 3128 cache_object://www.baidu.com/favicon.ico mgr:info
 ```
 
-## HTTPS
-* 证书可存放于 - /etc/squid/certs/
-* 参考
-  * [Using Squid to Proxy SSL Sites](https://elatov.github.io/2019/01/using-squid-to-proxy-ssl-sites/)
-  * [Intercept HTTPS CONNECT messages with SSL-Bump](https://wiki.squid-cache.org/ConfigExamples/Intercept/SslBumpExplicit)
-  * [SslBump Peek and Splice](https://wiki.squid-cache.org/Features/SslPeekAndSplice)
+**命中缓存会添加的头**
 
-__初始化__
+```
+X-Cache: HIT from localhost
+X-Cache-Lookup: HIT from localhost:3128
+Via: 1.1 localhost (squid)
+Age: 51
+```
+
+## HTTPS
+
+- 证书可存放于 - /etc/squid/certs/
+- 参考
+  - [Using Squid to Proxy SSL Sites](https://elatov.github.io/2019/01/using-squid-to-proxy-ssl-sites/)
+  - [Intercept HTTPS CONNECT messages with SSL-Bump](https://wiki.squid-cache.org/ConfigExamples/Intercept/SslBumpExplicit)
+  - [SslBump Peek and Splice](https://wiki.squid-cache.org/Features/SslPeekAndSplice)
+
+**初始化**
 
 ```bash
 # macOS 需要使用额外安装的 openssl
@@ -83,9 +110,11 @@ brew --prefix squid
 
 # 初始化 ssl_db
 /usr/local/opt/squid/libexec/security_file_certgen -c -s ssl_db -M 16 MB
+# AlpineLinux
+/usr/lib/squid/security_file_certgen -c -s ssl_db -M 16 MB
 ```
 
-__配置__
+**配置**
 
 ```
 # 监听配置
@@ -104,7 +133,7 @@ ssl_bump bump all
 ssl_bump splice all
 ```
 
-__校验__
+**校验**
 
 ```bash
 # 失败
@@ -122,124 +151,25 @@ acl api_google_ssl ssl::server_name_regex .*\.google\.com
 acl api_google_ssl ssl::server_name_regex .*\.cloud\.google\.com
 ```
 
-## 配置
-* 参考
-  * http://www.squid-cache.org/Doc/config/
-  * https://gist.github.com/kipyegonmark/ef54ea4fb7a11f4d0470
-  * https://docs.netgate.com/pfsense/en/latest/cache-proxy/squid-package-tuning.html
-  * https://filterlists.com/
+## CacheManager
 
-### 基础配置
-```ini
-# 监听端口
-http_port 7777
+- [Features/CacheManager](https://wiki.squid-cache.org/Features/CacheManager)
+- 简单的 Web 界面 - 用于查看运行状态
+- https://wiki.squid-cache.org/ManagerCgiTool
+- http://host/cgi-bin/cachemgr.cgi
 
-# 定义本地网络
-acl localnet src 127.0.0.0/24
-acl localnet src 192.168.0.0/16
-acl localnet src 10.0.0.0/8
-http_access allow localnet
+### SNMP
 
-# 缓存目录 - 500MB - 第一级 16 - 第二级 256
-cache_dir ufs .caache 500 16 256
-```
-
-### 上级转发配置
-
-```ini
-# 上级缓存
-cache_peer 127.0.0.1 parent 7777 7 no-query
-
-# FTP 不转发 - 直接访问
-acl ftp proto FTP
-always_direct allow ftp
-
-# 全部走 cache_peer
-never_direct allow all
-```
-
-### 推荐配置
-```ini
-# 最小缓存对象
-maximum_object_size 1 MB
-# 不发送版本信息
-httpd_suppress_version_string on
-
-# 定义本地网络
-acl localnet src 10.0.0.0/8
-acl localnet src 172.16.0.0/12
-acl localnet src 192.168.0.0/16
-acl localnet src fc00::/7
-acl localnet src fe80::/10
-
-# acl localnet src all
-
-# 定义安全端口
-acl SSL_ports port 443
-acl Safe_ports port 80		# http
-acl Safe_ports port 21		# ftp
-acl Safe_ports port 443		# https
-acl Safe_ports port 70		# gopher
-acl Safe_ports port 210		# waiss
-acl Safe_ports port 1025-65535	# unregistered ports
-acl Safe_ports port 280		# http-mgmt
-acl Safe_ports port 488		# gss-http
-acl Safe_ports port 591		# filemaker
-acl Safe_ports port 777		# multiling http
-
-# 识别 CONNECT 方法
-acl CONNECT method CONNECT
-# 识别查询参数
-acl QUERY urlpath_regex cgi-bin \? asp aspx jsp
-# 带参数不缓存
-cache deny QUERY
-
-# 只允许安全端口
-http_access deny !Safe_ports
-
-# 只允许 CONNECT SSL 端口
-http_access deny CONNECT !SSL_ports
-
-# 只允许本地访问 cachemgr
-http_access allow localhost manager
-http_access deny manager
-
-# 不允许访问本地
-http_access deny to_localhost
-
-# 允许本地访问
-http_access allow localnet
-http_access allow localhost
-http_access deny all
-```
-
-## refresh_pattern
-* [refresh_pattern](http://www.squid-cache.org/Doc/config/refresh_pattern/)
-  * `refresh_pattern [-i] regex min percent max [options]`
-    * `-i` 大小写不敏感
-    * `min` 默认最小失效时间 - 分钟
-    * `percent` 失效时间比例 - 例如虽然指定 1h 但达到 50% 的时候就失效
-    * `max` 最大失效时间
+- [Features/Snmp](https://wiki.squid-cache.org/Features/Snmp)
 
 ```
-# windows 更新
-refresh_pattern -i windowsupdate.com/.*\.(cab|exe|ms[i|u|f|p]|[ap]sf|wm[v|a]|dat|zip|psf) 43200 80% 129600 reload-into-ims
-refresh_pattern -i microsoft.com/.*\.(cab|exe|ms[i|u|f|p]|[ap]sf|wm[v|a]|dat|zip|psf) 43200 80% 129600 reload-into-ims
-refresh_pattern -i windows.com/.*\.(cab|exe|ms[i|u|f|p]|[ap]sf|wm[v|a]|dat|zip|psf) 43200 80% 129600 reload-into-ims
-refresh_pattern -i microsoft.com.akadns.net/.*\.(cab|exe|ms[i|u|f|p]|[ap]sf|wm[v|a]|dat|zip|psf) 43200 80% 129600 reload-into-ims
-refresh_pattern -i deploy.akamaitechnologies.com/.*\.(cab|exe|ms[i|u|f|p]|[ap]sf|wm[v|a]|dat|zip|psf) 43200 80% 129600 reload-into-ims
-range_offset_limit none
-
-# mac 更新
-refresh_pattern ([^.]+.|)(download|adcdownload).(apple.|)com/.*\.(pkg|dmg) 4320 100% 43200 reload-into-ims
-
-# avg 更新
-refresh_pattern ([^.]+.|)avg.com/.*\.(bin) 4320 100% 43200 reload-into-ims
-refresh_pattern ([^.]+.|)spywareblaster.net/.*\.(dtb) 4320 100% 64800 reload-into-ims
-refresh_pattern ([^.]+.|)symantecliveupdate.com/.*\.(zip|exe) 43200 100% 43200 reload-into-ims
-refresh_pattern ([^.]+.|)avast.com/.*\.(vpu|vpaa) 4320 100% 43200 reload-into-ims
+snmp_port 3401
+acl snmppublic snmp_community public
+snmp_access allow snmppublic
+snmp_access deny all
+snmp_incoming_address 0.0.0.0
+snmp_outgoing_address 255.255.255.255
 ```
-
 
 ### 镜像站点
 
@@ -257,8 +187,10 @@ refresh_pattern -i .deb$ 129600 100% 129600 refresh-ims override-expire
 ```
 
 ## FAQ
+
 ### Your cache is running out of filedescriptors
-* `max_filedescriptors 65535` 可指定最大 fd
+
+- `max_filedescriptors 65535` 可指定最大 fd
 
 ```bash
 # 环境下的限制
@@ -280,7 +212,8 @@ squidclient mgr:info | grep 'File descriptor' -A 7
 ```
 
 ### SSL_CTX_use_certificate:passed a null parameter
-* https://www.spinics.net/lists/squid/msg90936.html
+
+- https://www.spinics.net/lists/squid/msg90936.html
 
 ```
 2020/05/17 20:08:00 kid1| TLS error: failed to allocate handle: error:140AB043:SSL routines:SSL_CTX_use_certificate:passed a null parameter
@@ -288,3 +221,6 @@ squidclient mgr:info | grep 'File descriptor' -A 7
 2020/05/17 20:08:00 kid1| ERROR: could not create TLS server context for local=127.0.0.1:3130 remote=127.0.0.1:55424 FD 16 flags=1
 ```
 
+### 默认不支持 socks
+- alpine 未构建 socks 支持
+- https://wiki.squid-cache.org/Features/Socks

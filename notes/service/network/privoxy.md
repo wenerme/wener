@@ -5,24 +5,24 @@ title: Privoxy
 
 # Privoxy
 
-## Tips
-* 提供 HTTP 代理
-* 支持将二级代理
-  * 例如将 SOCKS 代理转为 HTTP 代理
-* [privoxy](https://www.privoxy.org/)
-* 支持通过浏览器配置 - 需要安装了模板
-  * http://config.privoxy.org
-  * http://p.p
-* https://www.privoxy.org/user-manual/index.html
-* 注意
-  * 不支持 auth，可以转发 auth
-    * `enable-proxy-authentication-forwarding`
+- 提供 HTTP 代理
+- 支持将二级代理
+  - 例如将 SOCKS 代理转为 HTTP 代理
+- [privoxy](https://www.privoxy.org/)
+- 支持通过浏览器配置 - 需要安装了模板
+  - http://config.privoxy.org
+  - http://p.p
+- https://www.privoxy.org/user-manual/index.html
+- 注意
+  - 不支持 auth，可以转发 auth
+    - `enable-proxy-authentication-forwarding`
 
 ### privoxy
-* 提供 HTTP 代理
-* 支持将二级代理
-  * 例如将 SOCKS 代理转为 HTTP 代理
-* [privoxy](https://www.privoxy.org/)
+
+- 提供 HTTP 代理
+- 支持将二级代理
+  - 例如将 SOCKS 代理转为 HTTP 代理
+- [privoxy](https://www.privoxy.org/)
 
 ```bash
 # macOS
@@ -58,7 +58,8 @@ rc-update add privoxy
 ```
 
 ## 配置
-* https://www.privoxy.org/faq/configuration.html
+
+- https://www.privoxy.org/faq/configuration.html
 
 ```conf
 # 配置目录
@@ -204,4 +205,3 @@ trust-x-forwarded-for 0
 # 接收缓存大小
 receive-buffer-size 5000
 ```
-

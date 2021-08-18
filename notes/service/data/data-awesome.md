@@ -56,6 +56,7 @@ title: Data Awesome
   data augmentations library for audio, image, text, and video
 - [Profil3r – OSINT Tool To Find Social Media Profiles & Their Email Addresses](https://skynettools.com/profil3r-osint-tool-to-find-social-media-profiles-their-email-addresses/)
 - [Open-source intelligence](https://en.wikipedia.org/wiki/Open-source_intelligence)
+- [ml874/Data-Science-Cheatsheet](https://github.com/ml874/Data-Science-Cheatsheet)
 
 ## Visualization
 
