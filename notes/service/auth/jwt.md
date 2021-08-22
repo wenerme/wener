@@ -35,16 +35,22 @@ https://auth0.com/blog/cookies-vs-tokens-definitive-guide/
 - Token 不能被回收
 - 需要 Token 有个较短的失效周期
 
-| 字段 | 全称            | 含义            |
-| ---- | --------------- | --------------- |
-| iss  | Issuer          | 发出者          |
-| sub  | Subject         | 一般为用户 id   |
-| aud  | Audience        | 接受者          |
-| exp  | Expiration time | 失效时间        |
-| nbf  | Not before      | 在这之前不生效  |
-| iat  | Issued at       | 发出时间        |
-| jti  | JWT ID          |
-| typ  | Type            | 类型,由用户扩展 |
+| field     | stand for       | meanning                 |
+| --------- | --------------- | ------------------------ |
+| iss       | Issuer          | 发出者                   |
+| sub       | Subject         | 一般为用户 id            |
+| aud       | Audience        | 接受者                   |
+| exp       | Expiration time | 失效时间                 |
+| nbf       | Not before      | 在这之前不生效           |
+| iat       | Issued at       | 发出时间                 |
+| jti       | JWT ID          |
+| typ       | Type            | 类型,由用户扩展, e.g. ID |
+| azp       |
+| nonce     |
+| acr       |
+| sid       |
+| at_hash   |
+| auth_time |
 
 常见算法
 

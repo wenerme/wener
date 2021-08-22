@@ -23,3 +23,4 @@ title: Dev Awesome
 ## Audio
 
 - [emicklei/melrose](https://github.com/emicklei/melrose)
+- [katspaugh/wavesurfer.js](https://github.com/katspaugh/wavesurfer.js)

@@ -30,11 +30,39 @@ title: GraphQL Awesome
   10. Separate the GraphQL Layer from the Service Layer
 - [Gitlab GraphQL API 规范文档](https://docs.gitlab.com/ee/development/api_graphql_styleguide.html)
 
+## Gateway
+
+- apollo gateway
+  - 配合 Apollo Studio 体验会很好 - 但是一般不会使用 Apollo Studio
+  - federation 功能强
+    - 但推荐使用预先生成的 schema
+    - 逻辑相对复杂
+- [movio/bramble](https://github.com/movio/bramble)
+  - Golang
+  - 比 apollo 简单但功能更弱
+  - 基于 service 合成 - 支持部分简单 directive
+  - 不支持 subscriptions
+  - [Introducing Bramble: A Federated GraphQL Gateway Implemented In Go](https://movio.co/blog/building-a-new-api-platform-for-movio/)
+- [nautilus/gateway](https://github.com/nautilus/gateway)
+  - MIT, Golang
+  - Introspect schema，自动合并 - 不需要 directive
+  - 不支持 subscriptions
+  - [A Guide to GraphQL Schema Federation, Part 1](https://itnext.io/a-guide-to-graphql-schema-federation-part-1-995b639ac035)
+
 ## Service
 
+- [APIs-guru/graphql-faker](https://github.com/APIs-guru/graphql-faker)
+  - mock graphql
 - [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
   - GraphQL Adapter
   - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
+- [graphql-go/graphql](https://github.com/graphql-go/graphql)
+  - 类似 graphql-js 接口
+- [99designs/gqlgen](https://github.com/99designs/gqlgen)
+  - Golang, GraphQL Schema 生成 Resolver
+- [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
+  - 基于反射自动绑定
+  - [graph-gophers/dataloader](https://github.com/graph-gophers/dataloader)
 
 ## Tool
 

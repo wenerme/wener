@@ -45,6 +45,14 @@ title: NextJS
 
 :::
 
+:::caution
+
+- 无法按页面切分 CSS
+  - 最终会生成单个 css 文件
+  - 只有 _app 可以导入全局 css
+
+:::
+
 ## 快速开始
 
 ```bash

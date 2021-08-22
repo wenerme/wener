@@ -17,7 +17,7 @@ title: Go Version
 
 | ver  |        | macOS                   | Windows          |
 | ---- | ------ | ----------------------- | ---------------- |
-| 1.18 | 2022-2 | -                       |
+| 1.18 | 2022-2 | -                       | 64-bit ARM       |
 | 1.17 | 2021-8 | macOS 10.13 High Sierra |
 | 1.16 | 2021-2 | -                       |
 | 1.15 | 2020-8 | macOS 10.12 Sierra      |
@@ -40,11 +40,12 @@ title: Go Version
 - `// +build` -> `//go:build`
 - go run 支持版本 - `go run example.com/cmd@v1.0.0`
 - `runtime/cgo.Handle` - cgo 和 go 互转
+- 如果 go 版本不同 vendor/modules.txt 会记录版本
 - arch
   - macOS 10.13 High Sierra
   - windows/arm64
   - openbsd/mips64 cgo
-- [go1.17](https://tip.golang.org/doc/go1.17)
+- [go1.17](https://golang.org/doc/go1.17)
 
 ## 1.16
 

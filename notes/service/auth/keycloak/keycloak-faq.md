@@ -138,3 +138,16 @@ access-control-max-age: 3600
 如果对方没出问题，检查配置。
 
 发现 开启 back-channel logout 且设置为 basic auth 解决了问题。
+
+## ISPN000474: Error processing request 4@sparkle-stack-keycloak-76f867dd87-nkpcl: protostream.com.google.protobuf.InvalidProtocolBufferException: While parsing a protocol message, the input ended unexpectedly in the middle of a field. This could mean either that the input has been truncated or that an embedded message misreported its own length.
+
+Kubernetes 上部署修改发现逻辑为 KUBE_PING
+
+```yaml
+env:
+  # https://github.com/codecentric/helm-charts/issues/149
+  - name: JGROUPS_DISCOVERY_PROTOCOL
+    value: kubernetes.KUBE_PING
+  - name: JGROUPS_DISCOVERY_PROPERTIES
+    value: dump_requests=true,port_range=0,namespace={{.Release.Namespace}}
+```

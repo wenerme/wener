@@ -27,6 +27,7 @@ title: Web Awesome
   - automate Chromium, Firefox, WebKit
 - [codeceptjs/CodeceptJS](https://github.com/codeceptjs/CodeceptJS)
 - [webdriverio/webdriverio](https://github.com/webdriverio/webdriverio)
+- [Tencent/vConsole](https://github.com/Tencent/vConsole)
 
 ## Bootstrap
 

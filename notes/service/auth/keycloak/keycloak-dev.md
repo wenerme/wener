@@ -11,6 +11,8 @@ title: Keycloak 开发
     - https://github.com/search?q=keycloak+sms
 - https://github.com/keycloak/keycloak/blob/master/services/src/main/java/org/keycloak/authentication/authenticators/resetcred/ResetCredentialChooseUser.java
   - 微信
+    - [jyqq163/keycloak-services-social-weixin](https://github.com/jyqq163/keycloak-services-social-weixin)
+      - 最新 fork [zmlgit/keycloak-services-social-weixin](https://github.com/zmlgit/keycloak-services-social-weixin)
   - 企业微信
     - [kkzxak47/keycloak-services-social-wechatwork](https://github.com/kkzxak47/keycloak-services-social-wechatwork)
       - [使用企业微信登录 keycloak](https://www.kkzxak47.com/2019/07/30/使用企业微信登录keycloak)
@@ -62,6 +64,43 @@ docker run --rm -it \
   -v $PWD/themes:/opt/jboss/keycloak/themes \
   --name keycloak jboss/keycloak
 ```
+
+## token
+
+- id_token
+  - openid scope
+  - identity information about the user is encoded right into the token and
+  - the token can be definitively verified to prove that it hasn’t been tampered with.
+  - auth_time - 实际授权时间
+  - 用于获取用户 profile
+  - 不会用于 API 请求
+- access_token
+  - bearer token
+
+```json
+{
+  "access_token": "",
+  "expires_in": 300,
+  "refresh_expires_in": 1800,
+  "refresh_token": "",
+  "token_type": "Bearer",
+  "id_token": "",
+  "not-before-policy": 1623227705,
+  "session_state": "UUID",
+  "scope": "openid email profile"
+}
+```
+
+## keycloak-services-social-wechatwork
+
+- [kkzxak47/keycloak-services-social-wechatwork](https://github.com/kkzxak47/keycloak-services-social-wechatwork)
+- 支持 qr 扫码登陆
+- 支持 企业微信环境 直接跳转 - ua 包含 wxwork
+- 默认添加 attributes
+  - gender,mobile,status,enable,userid
+- firstName 为邮箱前面部分
+- lastName 为 name
+- username 和 brokerUserId 均为 userid
 
 ## 服务端开发
 
@@ -201,3 +240,25 @@ my-script-mapper.js
   - 关于集成外部 Vault 的讨论
 - 通过实现 `org.keycloak.vault.VaultProvider` SPI 可以做到和外部系统集成
 - 用于隔离一些敏感信息
+
+## Provider
+
+- SPI
+  - org.keycloak.broker.provider.IdentityProviderMapper - Provider 用户属性映射
+    - preprocessFederatedIdentity
+    - importNewUser - 导入用户回调
+    - updateBrokeredUser - 更新用户回调
+  - org.keycloak.broker.social.SocialIdentityProviderFactory
+- AbstractOAuth2IdentityProvider
+  - performLogin
+    - createAuthorizationUrl - 创建授权跳转 URL
+  - callback - 返回回调 Endpoint 处理 - 处理 GET 请求
+    - 处理回调回来的 code, error, state 等
+    - 返回 error, cancelled, authenticated
+  - generateTokenRequest - 通过 code 生成第三方 token 的请求
+  - getFederatedIdentity - 第三方换取 token 生成 context
+    - BrokeredIdentityContext - 包含泛化后的身份信息
+  - supportsExternalExchange - 默认 false，通过对外授权的设置为 true
+  - exchangeExternal
+    - extractIdentityFromProfile
+      - 提取第三方返回的结果，生成 context

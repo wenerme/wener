@@ -7,6 +7,8 @@
   prefix: evolve
   items:
     - note
+    - label: rankao
+      prefix: 软考
 
 - label: Java
   prefix: java

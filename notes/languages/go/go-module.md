@@ -8,6 +8,10 @@ title: Golang 模块
 
 - 不支持 Git 子目录 - [#34055](https://github.com/golang/go/issues/34055)
   - 已接受，实现中
+- 私有模块目前不好使用 **Not Ready**
+  - 本地开发 + CI/CD 都会遇到很多问题
+  - 考虑 monorepo + replace
+  - 考虑 vendor
 
 :::
 
@@ -72,6 +76,16 @@ go list -f '{{.Dir}}' -m github.com/pkg/errors
 go env GOMODCACHE
 ```
 
+## go get
+
+- [go-import](https://golang.org/cmd/go/#hdr-Remote_import_paths)
+- [go-source](https://github.com/golang/gddo/wiki/Source-Code-Links)
+
+## 自定义导入路径
+
+- [GoogleCloudPlatform/govanityurls](https://github.com/GoogleCloudPlatform/govanityurls)
+- [rsc/go-import-redirector](https://github.com/rsc/go-import-redirector)
+
 ## GOPROXY
 
 - [proxy.golang.org](https://proxy.golang.org/) - Go Module Mirror, Index, and Checksum Database
@@ -104,10 +118,21 @@ go env -w GONOSUMDB='gitlab.com/my/project,<previous value>'
 
 ## 私有模块
 
+:::caution
+
+- 私有模块使用起来非常麻烦
+
+:::
+
+- https://github.com/golang/go/issues/29953
+
 ```bash
 # 指定 private repo
 go env -w GOPRIVATE=github.com/myrepo
-# git 添加授权信息
+# 整个组织
+go env -w GOPRIVATE=gitlab.com/myorg/*
+
+# git 添加授权信息 - 如果本地有 ssh-agent 应该可以直接访问
 # 可以 SSH url."git@github.com".insteadOf "https://github.com"
 # 可以 netrc
 git config --global url."https://$USERNAME:$ACCESS_TOKEN@github.com".insteadOf "https://github.com"
@@ -128,3 +153,8 @@ machine <url> login <username> password <token>
 [url "ssh://git@git.example.com:7999"]
 	insteadOf = https://git.example.com/scm
 ```
+
+## vendor
+
+- vendor/
+  - modules.txt

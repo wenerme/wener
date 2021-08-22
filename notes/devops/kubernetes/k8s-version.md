@@ -29,6 +29,13 @@ title: Kubernetes 版本
 
 ## 1.22
 
+:::caution
+
+- ingress 移除了 networking.k8s.io/v1beta1 , 建议等下一个大版本再升级
+  - 因为很多周边配套服务还没有升级使用 networking.k8s.io/v1
+
+:::
+
 - 新的 PodSecurity admission 控制器 作为 PSP 替代
 - Rootless 模式容器
   - KubeletInUserNamespace

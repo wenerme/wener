@@ -94,3 +94,7 @@ title: 认证授权常见问题
     - 不支持 cookie-refresh
     - 无法访问原始 jwt 信息
     - 无法正确 logout
+
+## Tokens
+
+- https://www.c-sharpcorner.com/article/accesstoken-vs-id-token-vs-refresh-token-what-whywhen/

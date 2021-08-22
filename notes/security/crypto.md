@@ -4,59 +4,57 @@ title: Crypto
 
 # Crypto
 
-## Tips
-* [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
-* [Symmetric Algorithm Survey: A Comparative Analysis](https://arxiv.org/pdf/1405.0398.pdf)
-* 非对称加密 - Asymmetric
-  * DH
-  * RSA
-  * SSL
-  * SSH
-* 对称加密 - Symmetric
-  * AES - Advanced Encryption Standard
-    * 取代了 DES
-  * Blow Fish - Drop-in replacement for DES or IDEA
-  * Rijndael
-  * DES - Data Encryption Standard
-  * 3DES
-  * CAS
-  * RC6
-  * TEA
-  * Mars
-  * IDEA - International Data Encryption Algorithm
-  * Serpent
-  * Two Fish
-  * RC4 - Rivest Cipher 4
-  * RC5 - Rivest Cipher 5
-  * RC6 - Rivest Cipher 6
-* 对称加密分为 块、流 算法
-* TLS - Transport Layer Security
-* SSL - Secure Sockets Layer
-  * TLS 前任
-* csr - Certificate Signing Request
-* crt - certificate
-  * x509
-* [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
-  * [Public Key Cryptography: RSA Encryption Algorithm](https://youtu.be/wXB-V_Keiu8)
-* DES - Data Encryption Standard
-  * 已经不是一种安全的加密方法，主要因为它使用的56位密钥过短
-* DER
-* [X.509](https://en.wikipedia.org/wiki/X.509)
-* PKI - Publick Key Infra
-* rc2/rc4
-* [PKCS](https://en.wikipedia.org/wiki/PKCS) - Public Key Cryptography Standards
-* ec - Elliptic Curves
-* .pem – Privacy-enhanced Electronic Mail
-  * Base64 encoded DER certificate, enclosed between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----"
-* .cer, .crt, .der
-  * usually in binary DER form, but Base64-encoded certificates are common too (see .pem above)
-* .p7b, .p7c
-  * PKCS#7 SignedData structure without data, just certificate(s) or CRL(s)
-* .p12
-  * PKCS#12, may contain certificate(s) (public) and private keys (password protected)
-* .pfx
-  * predecessor of PKCS#12 (usually contains data in PKCS#12 format, e.g., with PFX files generated in IIS)
-
+- [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
+- [Symmetric Algorithm Survey: A Comparative Analysis](https://arxiv.org/pdf/1405.0398.pdf)
+- 非对称加密 - Asymmetric
+  - DH
+  - RSA
+  - SSL
+  - SSH
+- 对称加密 - Symmetric
+  - AES - Advanced Encryption Standard
+    - 取代了 DES
+  - Blow Fish - Drop-in replacement for DES or IDEA
+  - Rijndael
+  - DES - Data Encryption Standard
+  - 3DES
+  - CAS
+  - RC6
+  - TEA
+  - Mars
+  - IDEA - International Data Encryption Algorithm
+  - Serpent
+  - Two Fish
+  - RC4 - Rivest Cipher 4
+  - RC5 - Rivest Cipher 5
+  - RC6 - Rivest Cipher 6
+- 对称加密分为 块、流 算法
+- TLS - Transport Layer Security
+- SSL - Secure Sockets Layer
+  - TLS 前任
+- csr - Certificate Signing Request
+- crt - certificate
+  - x509
+- [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>)
+  - [Public Key Cryptography: RSA Encryption Algorithm](https://youtu.be/wXB-V_Keiu8)
+- DES - Data Encryption Standard
+  - 已经不是一种安全的加密方法，主要因为它使用的 56 位密钥过短
+- DER
+- [X.509](https://en.wikipedia.org/wiki/X.509)
+- PKI - Publick Key Infra
+- rc2/rc4
+- [PKCS](https://en.wikipedia.org/wiki/PKCS) - Public Key Cryptography Standards
+- ec - Elliptic Curves
+- .pem – Privacy-enhanced Electronic Mail
+  - Base64 encoded DER certificate, enclosed between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----"
+- .cer, .crt, .der
+  - usually in binary DER form, but Base64-encoded certificates are common too (see .pem above)
+- .p7b, .p7c
+  - PKCS#7 SignedData structure without data, just certificate(s) or CRL(s)
+- .p12
+  - PKCS#12, may contain certificate(s) (public) and private keys (password protected)
+- .pfx
+  - predecessor of PKCS#12 (usually contains data in PKCS#12 format, e.g., with PFX files generated in IIS)
 
 ```bash
 # 使用 brew 安装的 openssl
@@ -66,7 +64,8 @@ alias openssl=$(brew --prefix openssl)/bin/openssl
 ```
 
 ## OpenSSL
-* [manpages](https://www.openssl.org/docs/manpages.html)
+
+- [manpages](https://www.openssl.org/docs/manpages.html)
 
 ```
 Standard commands
@@ -204,11 +203,11 @@ openssl s_client -connect localhost:465 -quiet > /dev/null
 echo HEAD / | openssl s_client -connect localhost:443 -quiet > /dev/null
 ```
 
-
 ### 配置
-* 可以使用 `OPENSSL_CONF` 环境变量来制定配置文件路径
-* 默认配置文件名为 `openssl.cnf`
-* 配置分为说明和默认值
+
+- 可以使用 `OPENSSL_CONF` 环境变量来制定配置文件路径
+- 默认配置文件名为 `openssl.cnf`
+- 配置分为说明和默认值
 
 ```bash
 # -batch  不询问问题
@@ -218,7 +217,8 @@ echo HEAD / | openssl s_client -connect localhost:443 -quiet > /dev/null
 openssl req -new -x509 -keyout wener.key.pem -out wener.crt.pem -days 365
 ```
 
-__req 默认配置__
+**req 默认配置**
+
 ```
 Country Name (2 letter code) [AU]:
 State or Province Name (full name) [Some-State]:
@@ -229,7 +229,8 @@ Common Name (e.g. server FQDN or YOUR name) []:
 Email Address []:
 ```
 
-__req 配置示例__
+**req 配置示例**
+
 ```ini
 openssl_conf = conf
 [conf]

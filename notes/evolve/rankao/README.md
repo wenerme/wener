@@ -5,6 +5,8 @@ id: ruankao
 
 # 软考
 
+- 笔记
+  - [软件设计师考试笔记](https://wener.me/story/rk-software-designer/)
 - [软考](https://www.ruankao.org.cn/)
   - [报考](https://bm.ruankao.org.cn/sign/welcome)
   - [查询](https://query.ruankao.org.cn/score/main)

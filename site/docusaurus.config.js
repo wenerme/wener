@@ -1,5 +1,7 @@
 const path = require('path');
 const moment = require('moment-timezone');
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 module.exports = {
   title: 'Wener Live & Life',
@@ -144,6 +146,9 @@ module.exports = {
 
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
+
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           routeBasePath: 'story',
@@ -151,6 +156,9 @@ module.exports = {
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/',
+
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -163,5 +171,12 @@ module.exports = {
         },
       },
     ],
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
+      integrity: 'sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc',
+      crossorigin: 'anonymous',
+    },
   ],
 };

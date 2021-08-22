@@ -1,12 +1,13 @@
 http://tips4java.wordpress.com/2008/10/09/uimanager-defaults/
 
 显示默认的UIManager值
-```
+
+```java
 import javax.swing.*;
 import java.util.*;
- 
+
 public class UIManagerList {
- 
+
     public static void main(String[] args) {
         UIDefaults defaults = UIManager.getDefaults();
         System.out.println(defaults.size()+ " properties deffined !");

@@ -3,14 +3,20 @@ title: bitwarden
 ---
 
 # bitwarden
+
 - bitwarden
   - 密码管理器
+  - [Chrome extension](https://github.com/bitwarden/browser)
+    - GPL-3.0, TypeScript
+    - 只支持一个账号
 - [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
   - 非官方 bitwarden 兼容服务实现
   - 支持 LDAP
+  - 必须要求 HTTPS
+  - 支持 SQLite, MySQL, PostgreSQL
   - Feature Requests [dani-garcia/vaultwarden#246](https://github.com/dani-garcia/vaultwarden/issues/246)
     - 不支持 SSO
-  - 必须要求 HTTPS
+    - 暂不支持 2FA 管理
 - SIGNUPS_ALLOWED=false - 禁止注册 - 但还是可以邀请
 - INVITATIONS_ALLOWED - 是否允许邀请
 - ADMIN_TOKEN - 开启 admin

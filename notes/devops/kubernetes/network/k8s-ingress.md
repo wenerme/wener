@@ -83,6 +83,14 @@ spec:
         number: 80
 ```
 
+- pathType
+  - ImplementationSpecific - 大多实现默认为 Prefix
+  - Exact - 完整匹配
+  - Prefix - 前缀匹配
+    - 路径 Prefix 而不是 字符串 Prefix
+    - 例如 /a 匹配 /a/ 和 /a/b 但是不匹配 /aa
+  - Mixed - Prefix+Exact
+
 ## IngressClass
 
 ```yaml

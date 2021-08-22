@@ -269,3 +269,20 @@ deploy 如果只有一个节点，使用 Recreate， RollingUpdate 会失败。
 ## The StorageClass is invalid: provisioner: Forbidden: updates to provisioner are forbidden.
 
 provisioner 名字不匹配，还 sc 名字或删了重建。
+
+## 预留资源
+
+- [Reserve Compute Resources for System Daemons](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/)
+
+```
+--kube-reserved=[cpu=100m][,][memory=100Mi][,][ephemeral-storage=1Gi][,][pid=1000]
+--system-reserved=[cpu=100m][,][memory=100Mi][,][ephemeral-storage=1Gi][,][pid=1000]
+--reserved-cpus=0-3
+# 开始驱逐的阀值
+--eviction-hard=[memory.available<500Mi]
+--enforce-node-allocatable=pods[,][system-reserved][,][kube-reserved]
+
+# 指向现有的 cgroup
+--kube-reserved-cgroup=
+--system-reserved-cgroup=
+```

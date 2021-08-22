@@ -5,6 +5,8 @@ title: ML Awesome
 # Machine Learning Awesome
 
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
+- [tangramdotdev/tangram](https://github.com/tangramdotdev/tangram)
+  - [HN](https://news.ycombinator.com/item?id=28221043)
 
 ## Learn
 

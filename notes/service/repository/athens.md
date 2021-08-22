@@ -8,6 +8,9 @@ title: athens
   - Go module datastore and proxy
   - 支持 disk, mongo, gcs, s3, minio, 外部存储/自定义
   - 支持 etcd, redis, redis-sentinel, gcp, azureblob 锁
+- 可用于对内的 模块 代理
+  - 避免开放所有 git 访问
+  - 由 athens 中转请求
 
 :::caution
 

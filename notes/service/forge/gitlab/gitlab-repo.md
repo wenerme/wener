@@ -26,5 +26,10 @@ go env -w GONOSUMDB='gitlab.com/my/project,<previous value>'
 ```
 
 ```netrc title="~/.netrc"
-machine <url> login <username> password <token>
+machine gitlab.com login <username> password <token>
+```
+
+```bash
+# 测试 token
+curl -u "user:token" https://server/api/v4/projects/:id/repository/archive.zip
 ```

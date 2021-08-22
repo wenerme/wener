@@ -5,6 +5,7 @@ title: OpenLDAP
 # OpenLDAP
 
 - [openldap/openldap](https://github.com/openldap/openldap)
+  - 支持 SQL 后端 - PostgreSQL
 - 使用场景 - 用户联邦, 数据存储
   - Linux PAM
   - SSH PAM

@@ -60,3 +60,10 @@ title: React FAQ
   - 支持动态行高 CellMeasurer - 自己也可以实现
 - [How is react-window different from react-virtualized?](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
 - [Windowing wars: React-virtualized vs. react-window](https://blog.logrocket.com/windowing-wars-react-virtualized-vs-react-window)
+
+## 动态加载 script
+
+react-helmet, next/head 支持 script 标签，但无法检测状态。
+react-helmet 可以支持一个 onChangeClientState 来检测。
+
+可以考虑 [useScript](https://usehooks.com/useScript/) 自行封装一个。

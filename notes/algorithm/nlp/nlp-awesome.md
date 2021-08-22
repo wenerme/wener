@@ -8,6 +8,12 @@ title: NPL Awesome
   - MIT, Golang
   - tokenization, part-of-speech tagging, named-entity extraction
   - 只支持英语
+- [PaddlePaddle/ERNIE](https://github.com/PaddlePaddle/ERNIE)
+- [google-research/bert](https://github.com/google-research/bert)
+- [botpress/botpress](https://github.com/botpress/botpress)
+- [sebastianruder/NLP-progress](https://github.com/sebastianruder/NLP-progress)
+- https://nlp.stanford.edu/projects/chinese-nlp.shtml
+- https://nlp.stanford.edu/software/segmenter.shtml
 
 ## 中文
 
@@ -20,6 +26,8 @@ title: NPL Awesome
   - 中文 NLP 资源库
 - [blmoistawinde/HarvestText](https://github.com/blmoistawinde/HarvestText)
   - 文本挖掘和预处理工具
+- [NLPchina/ansj_seg](https://github.com/NLPchina/ansj_seg)
+- [中文分词](http://www.hankcs.com/nlp/segment/)
 
 ### 公司机构名称
 

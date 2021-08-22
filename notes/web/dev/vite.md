@@ -12,6 +12,7 @@ title: Vite
 - 参考
   - [Why We Switched From Webpack To Vite](https://blog.replit.com/vite)
   - [Comparisons with Other No-Bundler Solutions](https://vitejs.dev/guide/comparisons.html)
+  - [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
 
 # FAQ
 

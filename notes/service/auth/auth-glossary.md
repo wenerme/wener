@@ -22,3 +22,12 @@ title: 词汇
 - principal - 例如 终端用户
 - service provider - 例如 网站，principal 尝试访问
 - identity provider - 持有 principal 认证和授权信息的服务
+
+## bearer token - 不记名令牌
+
+bearer (who hold the access token) can access authorized resources without further identification
+
+access token 为 bearer token
+
+## id token - 身份令牌
+contains Claims(claims are name/value pairs that contain information about a user) about the Authentication of an End-User by an Authorization Server

@@ -16,7 +16,7 @@ tags:
   * pom - Project Object Model
   * jar - Java Application Archive
   * ear - Enterprise Application Archive
-  * war - Web Application Archive 
+  * war - Web Application Archive
   * rar - Resource Adapter Archive
 
 
@@ -198,7 +198,7 @@ mvn dependency:resolve -Dclassifier=sources
         <id>downloadSources</id>
         <properties>
             <downloadSources>true</downloadSources>
-            <downloadJavadocs>true</downloadJavadocs>           
+            <downloadJavadocs>true</downloadJavadocs>
         </properties>
     </profile>
 
@@ -573,3 +573,5 @@ test      | -       | Y     | -       | -
 provided  | Y       | Y     | -       | -
 runtime   | -       | Y     | Y       | Y
 system    | Y       | Y     | -       | Y
+
+## Current maven session contains banned repository urls, please double check your pom or settings.xml
