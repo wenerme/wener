@@ -9,6 +9,9 @@
     - note
     - label: rankao
       prefix: 软考
+      items:
+        - label: project-mgmt
+          prefix: 项目管理
 
 - label: Java
   prefix: java
