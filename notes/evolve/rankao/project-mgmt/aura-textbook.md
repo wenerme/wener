@@ -139,6 +139,75 @@ title: 项目管理课本笔记
   - 监控 - 监控项目工作、整体变更控制
   - 收尾 - 结束项目或阶段
 
+---
+
+| 制定项目章程 | 内容                                                       |
+| ------------ | ---------------------------------------------------------- |
+| 依据         | 协议、项目工作说明书、商业论证、事业环境因素、组织过程资产 |
+| 结果         | 项目章程                                                   |
+| 工具和技术   | 专家判断                                                   |
+
+| 制订项目管理计划 | 内容                                                     |
+| ---------------- | -------------------------------------------------------- |
+| 依据             | 项目章程、其他过程的输出结果、事业环境因素、组织过程资产 |
+| 结果             | 项目管理计划                                             |
+| 工具和技术       | 引导技术                                                 |
+
+| 指导和管理项目执行 | 内容                                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| 依据               | 项目管理计划、事业环境因素、组织过程资产                           |
+| 结果               | 可交付成果、工作绩效数据、变更请求、项目管理计划更新、项目文件更新 |
+| 工具和技术         | 专家判断、项目管理信息系统、会议                                   |
+
+| 监控项目工作 | 内容                                                                                   |
+| ------------ | -------------------------------------------------------------------------------------- |
+| 依据         | 项目管理计划、进度预测、成本预测、确认的变更、工作绩效信息、事业环境因素、组织过程资产 |
+| 结果         | 变更请求、工作绩效报告、项目管理计划更新、项目文件更新                                 |
+| 工具和技术   | 专家判断、分析技术、项目管理信息系统、会议                                             |
+
+| 整体变更控制 | 内容                                                             |
+| ------------ | ---------------------------------------------------------------- |
+| 依据         | 项目管理计划、工作绩效报告、变更请求、事业环境因素、组织过程资产 |
+| 结果         | 批准的变更请求、变更日志、项目管理计划更新、项目文件更新         |
+| 工具和技术   | 专家判断、会议、变更控制工具                                     |
+
+| 结束项目或阶段 | 内容                                         |
+| -------------- | -------------------------------------------- |
+| 依据           | 项目管理计划、验收的可交付成果、组织过程资产 |
+| 结果           | 最终产品、服务或成果的移交；组织过程资产更新 |
+| 工具和技术     | 专家判断、分析技术、会议                     |
+
+---
+
+![](https://kroki.io/plantuml/svg/eNqtVNlu2kAUfZ-vsOir-wlUEeryEVEeTHCbSBZG4IdWVaXSUuwQliQUggJtMQqhm8apBKTYTfmZ2fiLjj0kMrGphJTHuXN8lnvveKtgKHkjoxsgs_8ir-T2pGfSa5DVM-p2YU_Jqcm0_lIuGK80Nfl8X9PUjLyra3o-aeSVbCGn5NWssQM0Ja1qycTCntEuJK0xum5SaNOjckJcafpuMg0AtqYYngkU_dGnXw-3fU5BmHiQSj1-8jSV2PFxDA6WuICHQRtbJ_FoUjWx8wefVAV0aeJgxOxq_Ae0e0zqI4HDV0N03VtDHATBjQ7pjvkH3NUaPq9JPn1Z6lrtRWdK4CQeCnCtwSCUpbA6c8akU0ezC1nCrTL6fcagy5yiLCH3kJ9o3cGD97jbp-O-LFGvRD2TzU3ePTYpIXckPXwkRTvrV8NnED5woQ9T5LUFDT0rsb9NbLp-kM-9DXVjJxVSD1VBtLSJ2H8GHXhpOMg9R16HWEdBDNFd6n0jLYu0LkmN911MkzlX5Nc7OcaiP-r25c0NaZvIm4parHk272L3YjEokQlvqi_c-3lzojZk8Jw3V2iu-kFzmxSdTdJHt1aEDudZSVwZ4uPKPWSMI12V3WCEkSfFq-Rghs3ybaNuwwjU6RDPT-8hxuJ7lXycBip39mRNv-NedZCh95Z6FkfhZpH0arhi82vBxdnpyOPscaRLbyC6lsEgI8sB7hgN3tSaEOAN2FKzGf4b_wdKyIrD)
+
+```plantuml
+@startdot
+digraph G {
+node[shape=box,style=filled,color=transparent]
+label="项目整体管理关系"
+labelloc=b
+
+制定项目章程[fillcolor="#BBDEFB"]
+制订项目管理计划[fillcolor="#BBDEFB"]
+指导和管理项目执行[fillcolor="#BBDEFB"]
+监控项目工作[fillcolor="#BBDEFB"]
+整体变更控制[fillcolor="#BBDEFB"]
+结束项目或阶段[fillcolor="#BBDEFB"]
+
+协议, 项目工作说明书, 商业论证, 事业环境因素, 组织过程资产 -> 制定项目章程 -> 项目章程
+项目章程, 其他过程的输出结果, 事业环境因素, 组织过程资产 -> 制订项目管理计划 -> 项目管理计划
+项目管理计划, 事业环境因素, 组织过程资产 -> 指导和管理项目执行 -> 可交付成果, 工作绩效数据, 变更请求, 项目管理计划更新, 项目文件更新
+项目管理计划, 进度预测, 成本预测, 确认的变更, 工作绩效信息, 事业环境因素, 组织过程资产 -> 监控项目工作 -> 变更请求, 工作绩效报告, 项目管理计划更新, 项目文件更新
+项目管理计划, 工作绩效报告, 变更请求, 事业环境因素, 组织过程资产 -> 整体变更控制 ->批准的变更请求, 变更日志, 项目管理计划更新, 项目文件更新
+项目管理计划, 验收的可交付成果, 组织过程资产 -> 结束项目或阶段 -> 最终产品服务或成果的移交, 组织过程资产更新
+
+工作绩效数据 -> 工作绩效信息
+可交付成果 -> 验收的可交付成果
+}
+@enddot
+```
+
 ### 3.2 制订项目章程
 
 - 项目章程是 正式批准 项目/阶段 的文件
@@ -405,7 +474,9 @@ $$
   - 预防测试 - 项目工作的未来绩效 符合项目管理计划
   - 缺陷补救 - 修正不一致的产品或服务组件
 - 项目管理计划更新
+  - 范围、进度、成本、质量管理计划、过程改进计划、人流资源管理计划、风夏安采购管理计划、干系人管理计划、项目范围成本、进度基准
 - 项目文件更新
+  - 需求文件、项目日志、风险登记册、干系人登记册
 
 ### 3.5 监控项目工作
 
@@ -568,6 +639,10 @@ $$
 | 输出       | 工作绩效信息、变更请求、项目管理计划更新、项目文件更新、组织过程资产更新 |
 | 工具与技术 | 偏差分析                                                                 |
 
+<!-- https://kroki.io/ -->
+
+![](https://kroki.io/plantuml/svg/eNqtVMtO20AU3fsrorCdfoIRikr7AV10gVg42AUkK44cL0CoUh9p4ooQUFVQGkckroDwkJxQQkJsVfzMvPIXHXtCO5EnEYvufO-cOffcc-94peRotqNbjqJvb9pacSvzOrOnFCzdWCttaUVDzVs7oOTsmob6bts0DR1sWKZlq46tFUpFzTYKzrpiannDVLMTf0y8gNY-I29AAp8cVdCXO3IXZTnAtDbUvKLQbhm530TUWszMabNLudzL1Ve57LqCvw8nXmXS-oBvP8kRKGjC8VfONAfheigK3-beyI-JH9DgbBEBrneRO1yEUHjXvBMa-Kw3ME3ddMjlPoDhPnxoknoP_WQsHTLoABKVSVSlj1V2Tu_LMOxmXixn0sawrBg-sSeWiClm6nNgAI1_sXHAMJyv9h_kR0SDPqrUYmniLOKYf-GTKoyGYBrRUZs-XJP21aRxLxck1plhkPshjjcpKqwX7Q1wow7HF1NWToS9AT7pLyieuiyqePag_m5VMrWEErVDVK1Ixcj2Qyybdg_wvSTNMjrswfAMRg3sHuHTFkCjc_i7RaIrfOzi4z4-CGIJ4honRl3X2MBk1w8bOG5_xArOcMFHH3_s_S_5aZVzjBRfV2JsWtKM5LQWrlIiXFJx2tF7ZcUo6OyP9wfFIwFZ)
+
 ```plantuml
 @startdot
 digraph G {
@@ -593,9 +668,25 @@ labelloc=b
 项目管理计划,需求文件,需求跟踪矩阵,确认的可交付成果,工作绩效数据 -> 确认范围 -> 验收的可交付成果,变更请求,工作绩效信息,项目文件更新
 
 项目管理计划,需求文件,需求跟踪矩阵,工作绩效数据,组织过程资产 -> 控制范围 -> 工作绩效信息,变更请求,项目管理计划更新,项目文件更新,组织过程资产更新
-
 }
 @enddot
+```
+
+```mermaid
+graph TD
+    项目管理计划 & 项目章程 & 事业环境因素 & 组织过程资产 --> 规划范围管理 -.->范围管理计划 & 需求管理计划
+    范围管理计划 & 需求管理计划 & 干系人管理计划 & 项目章程 & 干系人登记册 --> 收集需求 -.-> 需求文件 & 需求跟踪矩阵
+    范围管理计划 & 项目章程 & 需求文件 & 组织过程资产 --> 定义范围 --> 项目范围说明书 & 项目文件更新
+    范围管理计划 & 项目范围说明书 & 需求文件 & 事业环境因素 & 组织过程资产 --> 创建WBS -.-> 范围基准 & 项目文件更新
+    项目管理计划 & 需求文件 & 需求跟踪矩阵 & 确认的可交付成果 & 工作绩效数据 --> 确认范围 -.-> 验收的可交付成果 & 变更请求 & 工作绩效信息 & 项目文件更新
+    项目管理计划 & 需求文件 & 需求跟踪矩阵 & 工作绩效数据 & 组织过程资产 --> 控制范围 -.-> 工作绩效信息 & 变更请求 & 项目管理计划更新 & 项目文件更新 & 组织过程资产更新
+
+    style 规划范围管理  fill:#BBDEFB
+    style 收集需求  fill:#BBDEFB
+    style 定义范围  fill:#BBDEFB
+    style 创建WBS  fill:#BBDEFB
+    style 确认范围  fill:#BBDEFB
+    style 控制范围  fill:#BBDEFB
 ```
 
 ### 4.2 规划范围管理
