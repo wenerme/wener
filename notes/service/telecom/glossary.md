@@ -17,8 +17,17 @@ title: 电信术语
   - 替代 Hayes command set/AT 命令 中的 cellular extensions/V.250
   - 一般通过共享内存交互
   - Android RIL 可与 QMI 交互
-- WDS - Wireless Data Service - 无线数据服务
-- SMD - Shared Memory Device - 共享内存设备
+
+
+| abbr. | stand for                                  | meanning           |
+| ----- | ------------------------------------------ | ------------------ |
+| VoLTE | Voice over Long-Term Evolution             |
+| UMTS  | Universal Mobile Telecommunications System | 通用移动通讯系统   |
+| GoIP  | GSM over IP                                |
+| QMI   | Qualcomm MSM Interface                     | 高通 MSM 接口      |
+| WDS   | Wireless Data Service                      | 无线数据服务       |
+| SMD   | Shared Memory Device                       | 共享内存设备       |
+| HSDPA | High-Speed Downlink Packet Access          | 高速封包存取       |
 
 ## HSDPA - High-Speed Downlink Packet Access - 高速封包存取
 

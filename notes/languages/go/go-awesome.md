@@ -18,6 +18,7 @@ title: Go Awesome
     - flag 由 pflag 处理，配置由 viper 处理
     - 比 urfave/cli 更 unopinioned
     - urfave/cli 更加 declarative
+  - [urfave/cli](https://github.com/urfave/cli)
 - Observerable
   - Prometheus Metrics
   - Jaeger

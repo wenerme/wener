@@ -1,8 +1,8 @@
 ---
-title: 模块
+title: 移动通信模块
 ---
 
-# 模块
+# 移动通信模块
 
 ## Quectel M25MA-04-STD
 

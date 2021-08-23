@@ -110,6 +110,7 @@ title: K8S Awesome
 ## Database
 
 - PostgreSQL
+  - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)

@@ -144,3 +144,5 @@ go build -compiler gccgo myprog
 # gccgo flags
 go build -gccgoflags "-s -w" main.go
 ```
+
+## Cipher CBC / ECB / CFB / GCM
