@@ -7,8 +7,8 @@
   prefix: evolve
   items:
     - note
-    - label: rankao
-      prefix: 软考
+    - label: 软考
+      prefix: ruankao
       items:
         - label: project-mgmt
           prefix: 项目管理
