@@ -2,20 +2,26 @@
 slug: compare-os-bi-tool
 title: 开源 BI 产品比较
 tags:
-- BI
-- 大数据
+  - BI
+  - 大数据
 ---
 
 # 开源 BI 产品比较
 
 比较 Metabase、Redash、Superset 这几款开源的 BI 产品。
 
+| Name     | License | Stars               | Languages | Deps          | Github                        |
+| -------- | ------- | ------------------- | --------- | ------------- | ----------------------------- |
+| Metabase | AGPL    | ![][metabase-stars] | Clojure   | H2/PostgreSQL | [metabase/metabase][metabase] |
+| Redash   | BSD     | ![][redash-stars]   | JS        | Redis+DB      | [getredash/redash][redash]    |
+| Superset | Apache  | ![][superset-stars] | Python    | Cache+DB      | [apache/superset][superset]   |
 
-| Name     | License | Stars | Languages | Deps          | Github                                                                    |
-| -------- | ------- | ----- | --------- | ------------- | ------------------------------------------------------------------------- |
-| Metabase | AGPL    | 21k   | Clojure   | H2/PostgreSQL | [metabase/metabase](https://github.com/metabase/metabase)                 |
-| Redash   | BSD     | 16k   | JS        | Redis+DB      | [getredash/redash](https://github.com/getredash/redash)                   |
-| Superset | Apache  | 29k   | Python    | Cache+DB      | [apache/incubator-superset](https://github.com/apache/incubator-superset) |
+[metabase]: https://github.com/metabase/metabase
+[redash]: https://github.com/getredash/redash
+[superset]: https://github.com/apache/superset
+[metabase-stars]: https://img.shields.io/github/stars/metabase/metabase
+[redash-stars]: https://img.shields.io/github/stars/getredash/redash
+[superset-stars]: https://img.shields.io/github/stars/apache/superset
 
 <!-- more -->
 
@@ -36,7 +42,7 @@ tags:
   - 纯 SQL
   - 图表使用 PlotlyJS
     - 可以理解为 Redash 只负责处理数据
-  - 支持最多的数据源
+  - 支持最多的数据源/JDBC
   - 没有本地化
 - superset
   - 支持最多的图表

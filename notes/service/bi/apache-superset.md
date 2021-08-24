@@ -1,16 +1,9 @@
 ---
-id: apache-superset
 title: Apache Superset
 ---
 
 # Apache Superset
 
-## Tips
-
-- 注意
-  - 前端会显示为 UTC，导致时间 -8
-    - [#3928](https://github.com/apache/incubator-superset/issues/3928)
-  - 分享添加 `?standalone=true` 可以隐藏不必要的内容
 - 参考
   - [自定义授权实现分享](https://medium.com/@sairamkrish/8217956273c1)
   - [Apache superset dashboard in webpage](https://stackoverflow.com/questions/54219101/apache-superset-dashboard-in-webpage)
@@ -29,12 +22,26 @@ title: Apache Superset
   - datasource access on xxx.xxx
   - can csrf token on Superset
   - can show on DashboardModelView
-- 问题
-  - [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409) - Calendar heatmap dates shifted by one (converting to local time zone)
+
+:::tip
+
+- 分享添加 `?standalone=true` 可以隐藏不必要的内容
+
+:::
+
+:::caution
+
+- 前端会显示为 UTC，导致时间 -8
+  - [#3928](https://github.com/apache/incubator-superset/issues/3928)
+- Calendar Heatmap 时间偏差一天
+  [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409)
+
+:::
 
 ## 配置
-* [缓存配置](https://superset.apache.org/docs/installation/cache)
-* [config.py](https://github.com/apache/superset/blob/master/superset/config.py)
+
+- [缓存配置](https://superset.apache.org/docs/installation/cache)
+- [config.py](https://github.com/apache/superset/blob/master/superset/config.py)
 
 ```py
 PUBLIC_ROLE_LIKE_GAMMA = True
@@ -119,10 +126,12 @@ AND date >= DATE_ADD({{date_ref}}, INTERVAL -7 DAYS)
 | filter_values(column, default=None) | any  | form_data 里的数据 |
 
 # FAQ
+
 ## 前端显示的 UTC 日期
-* [#3928](https://github.com/apache/incubator-superset/issues/3928) - Timestamps are not displayed in the client's local timezone
-* [#9304](https://github.com/apache/incubator-superset/issues/9304#issuecomment-609524741)
-  * Superset decided to always UTC time to keep things simple. It'd be quite some work if we want to add custom timezone support.
+
+- [#3928](https://github.com/apache/incubator-superset/issues/3928) - Timestamps are not displayed in the client's local timezone
+- [#9304](https://github.com/apache/incubator-superset/issues/9304#issuecomment-609524741)
+  - Superset decided to always UTC time to keep things simple. It'd be quite some work if we want to add custom timezone support.
 
 ```py
 SUPERSET_D3_LOCALE = """
@@ -162,20 +171,20 @@ SUPERSET_D3_LOCALE = """
 
 ```css
 html:not([mode='edit']) .dashboard-header > .button-container {
-    display: none !important;
+  display: none !important;
 }
 html:not([mode='edit']) header.top {
-    display: none;
+  display: none;
 }
-html:not([mode='edit']) .chart-header>.header>.dropdown {
-    display: none !important;
+html:not([mode='edit']) .chart-header > .header > .dropdown {
+  display: none !important;
 }
 html:not([mode='edit']) .dragdroppable-tab .anchor-link-container {
-    display: none !important;
+  display: none !important;
 }
 ```
 
 ```js
 // 显示
-$('html').attr('mode','edit')
+$('html').attr('mode', 'edit');
 ```

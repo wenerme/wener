@@ -58,16 +58,6 @@ title: Data Awesome
 - [Open-source intelligence](https://en.wikipedia.org/wiki/Open-source_intelligence)
 - [ml874/Data-Science-Cheatsheet](https://github.com/ml874/Data-Science-Cheatsheet)
 
-## Visualization
-
-- [JavaScript Open-Source Spreadsheets and Data Grids](https://jspreadsheets.com/)
-- [Handsoncode](https://handsontable.com)
-  - 使用 RuleJS 实现公式
-- [Formulas in Microsoft Excel](http://chandoo.org/excel-formulas/index.shtml)
-- [epochjs/epoch](https://github.com/epochjs/epoch)
-  A general purpose, real-time visualization library.
-- [antvis/g2](https://github.com/antvis/g2)
-
 ## Understand
 
 ![](http://dlib.net/ml_guide.svg)

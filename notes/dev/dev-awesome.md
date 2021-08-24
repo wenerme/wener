@@ -4,6 +4,12 @@ title: Dev Awesome
 
 # Dev Awesome
 
+## Read
+
+- [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
+
+## Misc
+
 - [google/or-tools](https://github.com/google/or-tools)
 - [boyter/scc](https://github.com/boyter/scc)
   - fast accurate code counter

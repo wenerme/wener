@@ -4,6 +4,7 @@ title: 企业微信开发
 
 # 企业微信开发
 
+- CorpID/SuitID - ww000000000000000a
 - 参考
   - [所有 JS 接口列表](https://work.weixin.qq.com/api/doc/90000/90136/90507)
   - [wenerme/go-wecom](https://github.com/wenerme/go-wecom)

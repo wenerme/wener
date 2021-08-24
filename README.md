@@ -30,6 +30,12 @@
 
 ## Projects Working On
 
+| Project | CI  | Desc                                       |
+| ------- | --- | ------------------------------------------ |
+| [bbvm]  |     | BeBasic Virtual Machine / 步步高早期 Basic |
+
+[bbvm]: https://github.com/wenerme/bbvm
+
 | Kubernetes          | CI                                                  | Desc                               |
 | ------------------- | --------------------------------------------------- | ---------------------------------- |
 | [charts]            | [![][charts-ci-img]][charts-ci]                     | helm repo agg & cdn                |
@@ -44,21 +50,37 @@
 [container-mirror-ci]: https://github.com/wenerme/container-mirror/actions/workflows/sync.yaml
 [kube-stub-cluster]: https://github.com/wenerme/kube-stub-cluster
 
-| Golang     | CI                              | Desc                           |
-| ---------- | ------------------------------- | ------------------------------ |
-| [go-req]   | [![][go-req-ci-img]][go-req-ci] | HTTP Request                   |
-| [go-gb]    | [![][go-gb-ci-img]][go-gb-ci]   | Chinese Guobiao impl in Golang |
-| [go-magic] |                                 | libmagic                       |
-| [astgo]    |                                 | asterisk AMI, AGI              |
+| Golang         | CI                                          | Desc                           |
+| -------------- | ------------------------------------------- | ------------------------------ |
+| [go-req]       | [![][go-req-ci-img]][go-req-ci]             | Declarative HTTP Request       |
+| [go-gb]        | [![][go-gb-ci-img]][go-gb-ci]               | Chinese Guobiao/国标           |
+| [go-wecom]     | [![][go-wecom-ci-img]][go-wecom-ci]         | Wechat Work/Wecom/企业微信 SDK |
+| [go-miniquery] | [![][go-miniquery-ci-img]][go-miniquery-ci] | SQL like filter expression     |
+| [go-magic]     | [![][go-magic-ci-img]][go-magic-ci]         | libmagic                       |
+| [astgo]        |                                             | asterisk AMI, AGI              |
+| [scel]         |                                             | 搜狗 scel 词库                 |
+| [stardict]     |                                             | 星际译王                       |
+| [telattr]      |                                             | 电话归属地                     |
 
 [go-req]: https://github.com/wenerme/go-req
 [go-req-ci-img]: https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg
 [go-req-ci]: https://github.com/wenerme/go-req/actions/workflows/ci.yml
 [go-magic]: https://github.com/wenerme/go-magic
+[go-magic-ci]: https://github.com/wenerme/go-magic/actions/workflows/ci.yml
+[go-magic-ci-img]: https://github.com/wenerme/go-magic/actions/workflows/ci.yml/badge.svg
 [astgo]: https://github.com/wenerme/astgo
 [go-gb]: https://github.com/wenerme/go-gb
 [go-gb-ci-img]: https://github.com/wenerme/go-gb/actions/workflows/ci.yml/badge.svg
 [go-gb-ci]: https://github.com/wenerme/go-gb/actions/workflows/ci.yml
+[go-wecom]: https://github.com/wenerme/go-wecom
+[go-wecom-ci]: https://github.com/wenerme/go-wecom/actions/workflows/ci.yml
+[go-wecom-ci-img]: https://github.com/wenerme/go-wecom/actions/workflows/ci.yml/badge.svg
+[go-miniquery]: https://github.com/wenerme/go-miniquery
+[go-miniquery-ci]: https://github.com/wenerme/go-miniquery/actions/workflows/ci.yml
+[go-miniquery-ci-img]: https://github.com/wenerme/go-miniquery/actions/workflows/ci.yml/badge.svg
+[scel]: https://github.com/wenerme/scel
+[stardict]: https://github.com/wenerme/stardict
+[telattr]: https://github.com/wenerme/telattr
 
 | DevOps                              | Desc                                        |
 | ----------------------------------- | ------------------------------------------- |

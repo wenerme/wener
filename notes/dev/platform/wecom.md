@@ -18,6 +18,12 @@ title: 企业微信
 
 :::caution
 
+- 企业微信会话存档保存最长为90天
+
+:::
+
+:::caution
+
 - access_token 是全局的，不能返回到前端
 - 授权认证时的 code 只是使用 access_token 去 **校验** 而不是为用户换取属于用户的 access_token
 - 默认 scope 为 snsapi_base

@@ -23,6 +23,13 @@ title: 企业微信服务商
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like Gecko)wxwork/3.1.12 (MicroMessenger/6.2) WeChat/2.0.4
 ```
 
+:::caution
+
+- 数据回调URL & 指令回调URL 验证时 ReceiveID 为 CorpID
+- 在第三方回调事件中使用加解密算法 ReceiveID 内容为 SuiteID
+
+:::
+
 ## Auth
 
 - 企业接口 Token - access_token
@@ -50,3 +57,8 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
   - GET+POST
     - GET 用于验证
   - AES 加密
+
+## 回调
+- https://work.weixin.qq.com/api/doc/10982
+  - 在第三方回调事件中使用加解密算法，receiveid的内容为suiteid
+  - 收到推送后都必须直接返回字符串 success
