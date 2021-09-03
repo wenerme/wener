@@ -28,3 +28,7 @@ title: BI Awesome
 - [epochjs/epoch](https://github.com/epochjs/epoch)
   A general purpose, real-time visualization library.
 - [antvis/g2](https://github.com/antvis/g2)
+- [cytoscape/cytoscape.js](https://github.com/cytoscape/cytoscape.js)
+- [visjs/vis-network](https://github.com/visjs/vis-network)
+- [naver/billboard.js](https://github.com/naver/billboard.js)
+- [chartbrew/chartbrew](https://github.com/chartbrew/chartbrew)

@@ -8,13 +8,21 @@ title: VictoriaMetrics
   - 时序数据库
   - 高性能、低成本、大规模
   - 支持集群
-- 默认推荐但节点 - 小于 百万/s 的指标速率推荐单节点版本 - 通过垂直扩容/增加 CPU 内存来提升性能
+- 默认推荐单节点 - 小于 百万/s 的指标速率推荐单节点版本 - 通过垂直扩容/增加 CPU 内存来提升性能
   - 高压缩率 - 磁盘占用空间小 - IO 高
   - 单节点性能可参考 [measuring-vertical-scalability](https://valyala.medium.com/92550d78d8ae)
     - 1vCPU 4G - 500k/s
     - 2vCPU 8G - 800k/s
     - 64vCPU 240G - 19M/s
     - 基本呈线性增长 - 1.6-1.8x
+- http://victoriametrics:8428/api/v1/write
+
+:::caution
+
+- 不支持下 采样
+- 单节点不支持多租户
+
+:::
 
 ## 集群
 
@@ -28,17 +36,25 @@ title: VictoriaMetrics
   - 自动创建，只关心数据维度划分，不关心授权之类
   - 会自动负载到 vmstorage
   - **不支持单个请求查询多个租户**
-- 组件
-  - vmstorage - 存储数据 - shared noting 结构 - 节点之间不互相感知
-    - vCPUs = ingestion_rate / 150K
-    - `RAM = 2 * active_time_series * 1KB * replicationFactor`
-    - active_time_series - 1h 内有读写
-    - `storage_space = ingestion_rate * retention_seconds`
-  - vminsert - 代理分发到多个 vmstorage - 一致性 Hash
-    - vCPUs = ingestion_rate / 150K
-    - 单个性能应该与 vmstorage 相同
-    - 内存 1G+
-  - vmselect - 通过 vmselect 聚合查询数据
+- vmstorage - 存储数据 - shared noting 结构 - 节点之间不互相感知
+  - vCPUs = ingestion_rate / 150K
+  - `RAM = 2 * active_time_series * 1KB * replicationFactor`
+  - active_time_series - 1h 内有读写
+  - `storage_space = ingestion_rate * retention_seconds`
+- vminsert - 代理分发到多个 vmstorage - 一致性 Hash
+  - vCPUs = ingestion_rate / 150K
+  - 单个性能应该与 vmstorage 相同
+  - 内存 1G+
+- vmagent - 采集
+- vmselect - 通过 vmselect 聚合查询数据
+- vmauth - auth 代理 - LB
+  - 支持 bearer token, basic auth
+- vmbackup - 将 snapshot 备份到其他存储
+- vmrestore - 将 backup 的内容恢复
+- vmalert - 告警 和 记录
+- vmctl - 命令行工具 - 数据迁移
+- vmgateway - 收费组件
+- vmbackupmanager - 收费组件
 
 # FAQ
 

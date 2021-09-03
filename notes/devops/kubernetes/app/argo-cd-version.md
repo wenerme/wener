@@ -17,6 +17,48 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 ```
 
+## 2.1
+
+- 拆分 Argo CD Core
+  - 不集成 RBAC 和权限
+- 增加 Repo 缓存确保一个 revision 只请求一次 git - 提高性能和速度
+- argocd-cm 支持引用 secret 进行配置
+  - [argocd-cmd-params-cm.yaml](https://argoproj.github.io/argo-cd/operator-manual/argocd-cmd-params-cm.yaml)
+- 对比忽略支持 jq 路径
+
+```yaml
+# 单个应用
+spec:
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jqPathExpressions:
+        - .spec.template.spec.initContainers[] | select(.name == "injected-init-container")
+# 全局配置
+data:
+  resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
+    jqPathExpressions:
+    - '.webhooks[]?.clientConfig.caBundle'
+```
+
+- 支持 Secret Repositor - 不再需要修改 argocd-cm
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    managed-by: argocd.argoproj.io
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  name: my-repo-secret
+stringData:
+  username: my-username
+  password: my-password
+  type: git
+  url: https://github.com/argoproj/argocd-example-apps
+```
+
 ## 2.0
 
 - Pods View

@@ -5,7 +5,7 @@ title: Loki
 # Loki
 
 - [grafana/loki](https://github.com/grafana/loki) 是什么 ?
-  - AGPL
+  - AGPL-3.0, Go
   - 日志界的 Prometheus
 - [Architecture](https://grafana.com/docs/loki/latest/architecture/)
 - 参考

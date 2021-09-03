@@ -17,6 +17,9 @@ title: Security Awesome
 
 - [shorewall](https://shorewall.org/)
 
+## Tools
+- [samuel-lucas6/Kryptor](https://github.com/samuel-lucas6/Kryptor)
+
 ## Reference
 
 - [scaredos/cfresearch](https://github.com/scaredos/cfresearch)

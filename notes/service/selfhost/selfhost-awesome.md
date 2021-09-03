@@ -4,6 +4,7 @@ title: Selfhost Awesome
 
 # Selfhost Awesome
 
+- [danistefanovic/build-your-own-x](https://github.com/danistefanovic/build-your-own-x)
 - [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 - 相册
   - [photoprism/photoprism](https://github.com/photoprism/photoprism)
@@ -71,3 +72,7 @@ title: Selfhost Awesome
 ## Form
 
 - [ohmyform/ohmyform](https://github.com/ohmyform/ohmyform)
+
+## Download
+
+- [varbhat/exatorrent](https://github.com/varbhat/exatorrent)

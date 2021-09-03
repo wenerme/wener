@@ -1,8 +1,12 @@
-# Kubernetest 存储问题
+---
+title: Kubernetest 存储常见问题
+---
+
+# Kubernetest 存储常见问题
 
 ## pv 删除不了
-尝试删除 finalizer
 
+尝试删除 finalizer
 
 ## volume already bound to a different claim
 
@@ -13,8 +17,9 @@ kubectl patch pv my-pv-name -p '{"spec":{"claimRef": null}}'
 ```
 
 ## driver name driver.longhorn.io not found in the list of registered CSI drivers
-* csi 插件目录 /var/lib/kubelet/plugins_registry
-* hostpath /var/lib/kubelet/plugins/csi-hostpath
-* /var/lib/kubelet/plugins
-* k3s 可能目录 /var/lib/rancher/k3s/agent/kubelet
-* [kubernetes-csi/csi-driver-host-path#71](https://github.com/kubernetes-csi/csi-driver-host-path/issues/71)
+
+- csi 插件目录 /var/lib/kubelet/plugins_registry
+- hostpath /var/lib/kubelet/plugins/csi-hostpath
+- /var/lib/kubelet/plugins
+- k3s 可能目录 /var/lib/rancher/k3s/agent/kubelet
+- [kubernetes-csi/csi-driver-host-path#71](https://github.com/kubernetes-csi/csi-driver-host-path/issues/71)

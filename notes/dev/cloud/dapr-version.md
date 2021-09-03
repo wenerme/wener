@@ -23,7 +23,30 @@ title: Dapr Version
 
 :::
 
-## 1.2 - 2021-05-27
+| ver | release date |
+| --- | ------------ |
+| 1.4 | 2021-09-14   |
+| 1.3 | 2021-07-27   |
+| 1.2 | 2021-05-27   |
+| 1.1 | 2021-04-02   |
+| 1.0 | 2021-02-17   |
+
+## 1.4
+
+- Block cross Pods calls to Dapr sidecar
+- state store 加密
+- actor timers / reminder ttl
+
+## 1.3
+
+- state store ttl
+- graphql binding
+- preview
+  - grpc proxying to enable bring-your-own-proto
+  - actor reentrancy
+  - actor reminder storage partitioning
+
+## 1.2
 
 - Pub/Sub without [CloudEvents](https://github.com/cloudevents/spec)
 - Sidecar API ACL
@@ -41,9 +64,9 @@ title: Dapr Version
   - 阿里 Sentinel 中间件
   - Consule name resolution 组件
 
-  ## 1.1 - 2021-04-02
+  ## 1.1
 
   - Sidecar env var
   - Local storage 绑定
 
-  ## 1.0 - 2021-02-17
+  ## 1.0

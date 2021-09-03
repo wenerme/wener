@@ -64,6 +64,9 @@ nginx.ingress.kubernetes.io/server-alias: '<alias 1>,<alias 2>'
 
 # 默认关闭 buffer
 nginx.ingress.kubernetes.io/proxy-buffering: 'off'
+
+# 默认 1m 太小
+nginx.ingress.kubernetes.io/proxy-body-size: '50m'
 ```
 
 | name                   | desc        |

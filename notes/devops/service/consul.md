@@ -5,8 +5,6 @@ title: Consul
 
 # Consul
 
-## Tips
-
 - [Consul 手册](https://www.consul.io/docs/guides/)
 - 端口
   - HTTP 8500

@@ -7,6 +7,14 @@ title: Pg SQL 常见问题
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
 
+## JSON FAQ
+
+:::caution
+
+- `data->'field' is not null` 无法检测 null 数据 - 通过 `->>` 可以检测到 null
+
+:::
+
 ## JSON 数组转行
 
 ```sql
@@ -101,11 +109,17 @@ return cnt;
 - to_char 转 text
 - 参考
   - [Data Type Formatting Functions](https://www.postgresql.org/docs/current/functions-formatting.html)
+- ts 支持小数点后六位 - nano 精度
 
 ```sql
 SELECT TO_DATE('20170103','YYYYMMDD');
 SELECT TO_DATE('2020年7月28日','YYYY年MM月DD日');
 SELECT TO_CHAR(TO_DATE('2020年7月28日','YYYY年MM月DD日'),'YYYY-MM-DD');
+
+-- ms 转 ts - 支持小数点
+select to_timestamp(1630402380252::float / 1000);
+-- ts 转 epoch - 包含小数点
+select extract(epoch from now());
 ```
 
 ## 正则
@@ -163,4 +177,27 @@ CREATE TABLE users (
 ```sql
 -- 操作符也是函数
 SELECT 3 OPERATOR(pg_catalog.+) 4;
+```
+
+## 分组里选择最后一条数据
+
+1. distinct - 推荐
+
+```sql
+select distinct on (id) id, date, another_info
+from the_table
+order by id, date desc;
+```
+
+2. window
+
+```sql
+select data
+from (
+        select data,
+                row_number()
+                over (partition by data ->> 'groupId' order by item_date desc) as rn
+        from pulled_items
+    ) lt
+where rn = 1
 ```

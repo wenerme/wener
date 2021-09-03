@@ -9,6 +9,8 @@ title: 常见问题
 
 - db 名字
   - 最长 63 byte
+- 最多 32767 参数占位 - `?` - 范围为 smallint
+- https://www.postgresql.org/docs/current/limits.html
 
 ## 服务重载
 

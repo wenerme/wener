@@ -7,11 +7,18 @@ title: QEMU Version
 
 - https://wiki.qemu.org/Planning
 - https://wiki.qemu.org/ChangeLog
+- https://github.com/airbus-seclab/qemu_blog
+
+| ver   | date       |
+| ----- | ---------- |
+| 6.0   | 2020-04-30 |
+| 5.0   | 2020-04-29 |
+| 4.2.0 | 2019-12-13 |
+| 4.0.0 | 2019-04-24 |
 
 ## 6.0
 
-- 2020-04-30
-- tcp 支持 macOS ARM
+- tcg 支持 macOS ARM
 - 68k virt mahcine
 - arm
   - ARMv8.1-M Helium arch, Cortex-M55 CPU
@@ -104,23 +111,23 @@ mount -t virtiofs myfs /mnt
 
 ## 3.1.0
 
-- https://www.qemu.org/2018/12/12/qemu-3-1-0/
 - ARM
 - qemu-img tool can now generate LUKS-encrypted files through ‘convert’ command
+- https://www.qemu.org/2018/12/12/qemu-3-1-0/
 
 ## 3.0.0
 
-- https://www.qemu.org/2018/08/15/qemu-3-0-0/
 - 完整的 ARM 7 模拟
 - Sparc32
 - Sparc64
 - SDL 2
 - GTK 3
+- https://www.qemu.org/2018/08/15/qemu-3-0-0/
 
 ## 2.12 - 2018-04-24
 
-- [ChangeLog/2.12](https://wiki.qemu.org/ChangeLog/2.12)
 - Initial support for Raspberry Pi 3 machine model
 - Experimental support for two new virtualization accelerators: Apple's Hypervisor.framework ("-accel hvf") and Microsoft's Windows Hypervisor Platform Extensions ("-accel whpx")
 - `-nic` 取代 `-net` 参数
   - `-nic user` -> `-net nic -net user`
+- [ChangeLog/2.12](https://wiki.qemu.org/ChangeLog/2.12)

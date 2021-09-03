@@ -5,11 +5,9 @@ title: Tracing Awesome
 # Tracing Awesome
 
 - 主流 Jaeger、Zipkin、Apache SkyWalking、CAT、Pinpoint、Elastic APM
-- [Tracing](<https://en.wikipedia.org/wiki/Tracing_(software)>)
-- Google [Dapper](https://research.google.com/pubs/pub36356.html)
-  - a Large-Scale Distributed Systems Tracing Infrastructure
-- [opentracing](http://opentracing.io/)
-  - Vendor-neutral APIs and instrumentation for distributed tracing
+
+## Service
+
 - [openzipkin/zipkin](https://github.com/openzipkin/zipkin)
   - Java
 - [jaegertracing/jaeger](https://github.com/jaegertracing/jaeger)
@@ -19,16 +17,30 @@ title: Tracing Awesome
   - https://jaegertracing.io/
 - [apache/skywalking](https://github.com/apache/incubator-skywalking)
   - Java
+
+## Integration
+
 - [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)
   - [参考手册](https://cloud.spring.io/spring-cloud-sleuth/reference/html/)
   - spring-cloud-sleuth-zipkin 支持集成 Zipkin，默认发送到 `http://localhost:9411`，通过 `spring.zipkin.baseUrl` 配置
   - 会记录 trace 信息到 Slf4J MDC
 - [openzipkin-contrib/brave-opentracing](https://github.com/openzipkin-contrib/brave-opentracing)
   - OpenTracing 适配 Zipkin
+
+## Spec
+
+- [opentracing](http://opentracing.io/)
+  - Vendor-neutral APIs and instrumentation for distributed tracing
 - W3C [trace-context](https://github.com/w3c/trace-context)
   - HTTP 添加 trace 头 traceparent,traceparent
   - 头中信息包含 version、trace-id、parent-id、trace-flags
-- APM (application performance monitor)
+
+## Reference
+
+- [Tracing](<https://en.wikipedia.org/wiki/Tracing_(software)>)
+- Google [Dapper](https://research.google.com/pubs/pub36356.html)
+  - a Large-Scale Distributed Systems Tracing Infrastructure
+- APM - application performance monitor
 
 # FAQ
 
@@ -39,8 +51,6 @@ title: Tracing Awesome
   - 更适用于 Kubernates 环境
   - 分为 agent、collector、query 等角色
   - 默认 0.1% 采样
-  - [spring-cloud-sleuth#628](https://github.com/spring-cloud/spring-cloud-sleuth/issues/628) - Jaeger integration
-    - 可通过 [brave-opentracing](https://github.com/openzipkin-contrib/brave-opentracing) 来使用，但会丢失一些 jaeger 的特性
 - Zipkin
   - Java
   - 在容器化潮流前便已存在
@@ -48,7 +58,6 @@ title: Tracing Awesome
   - Spring Cloud Sleuth 有集成
 
 **jaeger**
-
 [![jaeger architecture](https://www.jaegertracing.io/img/architecture-v1.png)](https://www.jaegertracing.io/docs/1.12/architecture/)
 
 **zipkin**

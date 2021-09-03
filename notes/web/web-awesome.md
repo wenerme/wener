@@ -10,6 +10,10 @@ title: Web Awesome
 ## 技术
 
 - [hotwire](https://hotwire.dev/)
+- [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
+  - Build desktop applications with a web frontend
+  - 基于 Rust tao
+  - 类似于 Electron - 但底层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
 
 ## Build
 
@@ -61,6 +65,8 @@ title: Web Awesome
 - [ian-nai/In-Browser-OCR](https://github.com/ian-nai/In-Browser-OCR)
   - Tesseract.js
 - [krausest/js-framework-benchmark](https://github.com/krausest/js-framework-benchmark)
+- [josdejong/mathjs](https://github.com/josdejong/mathjs)
+- [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
 
 ## tty
 

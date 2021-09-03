@@ -17,14 +17,26 @@ title: svelte
   - 类 React
     - 状态处理
     - 类 JSX 语法
-  - 特殊语法 - 需要编译器预处理
+  - compiler 能力非常强 - 大部分 svelte 的能力是编译器底层支持的
+    - 实际代码顺序不一定是执行的代码顺序
     - 语法直观
   - 内置状态管理
+  - 内置 motion 处理 - tweend, spring
+  - 内置转换处理 - fade, fly, slide, crossfade
+  - 内置动画 - flip
   - CSS 样式集成度很高
+  - `$:` label 会 watch 该语句用到的变量 - 变化会从新执行 - reactive - 核心特性
+  - 支持 context 概念 - `setContext(key,{})`, `getContext(key)`
+    - 非 reactive - 可以包含 store 来实现
+  - 通过 `export let prop` 暴露组件属性
 - 参考
   - [sveltejs/kit](https://github.com/sveltejs/kit)
     - 类似 NextJS 之于 React
-    - 类似 Vite
+    - 底层基于 Vite
+  - [matyunya/smelte](https://github.com/matyunya/smelte)
+    - material components + Tailwind CSS
+- 集成
+  - webstorm 有 svelte 插件
 
 ```html
 <script>
@@ -144,12 +156,25 @@ declare module '*.svelte' {
 
 ## 语法
 
+:::tip
+
+- inline 的事件处理写成 string 方式 - 同 vue
+  - 官方不排斥 inline 事件处理 - 编译器会处理
+- inline style 为字符串 - 而不是 react 那样的对象
+- `$` 前缀变量为订阅 store 的变量 - 不能自己使用该前缀变量
+- `$$` 前缀为内置特殊变量 - slot, props, restProps
+- 属性区分一般属性和 dom - 使用 slot - 类似 vue 不同于 react
+  - 可使用 `<svelte:component this={component}/>` 传递动态组件
+
+:::
+
 - `$:` 表示状态 reactive
 - `$<变量名>` 获取 reactive 变量值 - 类似订阅状态变化
 - `$$props` 所有 props
 - `$$restProps` 处理剩下的 props
 - 控制流语法 `{#if }{:else}{/if}`
-  - if, each, await, key
+  - if(:else), each, await(:then,:cache), key
+  - `{#each things as thing (thing.key)}` 添加 key 的方式 - key 可以为整个对象 - 内部使用 Map
 - `{@html }` - 注入 html 内容
 - `{@debug }` - console.log
 - on:eventname
@@ -199,3 +224,55 @@ declare module '*.svelte' {
   - head
   - options - compiler options
   - fragment
+- 特殊绑定属性
+  - clientWidth, clientHeight, offsetWidth, offsetHeight
+- 生命周期
+  - onMount, onDestroy, beforeUpdate, afterUpdate
+  - tick - resolve pendding state change
+- store - 全局，类似 [pmndrs/zustand](https://github.com/pmndrs/zustand)
+  - 构造
+    - writable
+    - `readable(initial,(set)=>{return ()=>{/*cleanup*/}})`
+    - derived($store,selector)
+  - 方法
+    - update, set, subscribe
+  - 语法糖
+    - `$count` - 等同于针对 count store 创建一个变量 `$count`, 并 subscribe 更新
+- 特殊元素
+  - slot
+  - svelte:self - 使用当前组件 - 类似递归调用 - 因为 svelte 组件没有名字，需要使用特殊方法引用
+  - svelte:component - 动态组件
+  - svelte:window - 监听窗口事件
+  - svelte:body
+  - svelte:head - 添加 额外 head 元素
+  - svelte:options - 编译器选项
+    - immutable
+    - accessors
+    - namespace
+    - tag
+  - svelte:fragment
+
+```ts
+import { onDestroy } from 'svelte';
+
+export function onInterval(callback, milliseconds) {
+  const interval = setInterval(callback, milliseconds);
+
+  onDestroy(() => {
+    clearInterval(interval);
+  });
+}
+```
+
+```html
+<!-- module 维度代码 - 类似 react 组件里的全局代码 -->
+<script context="module">
+	let current;
+  export function stopAll(){}
+</script>
+```
+
+```svelte
+<!-- 当 user 变化的时候触发 debugger -->
+{@debug user}
+```

@@ -4,30 +4,32 @@ title: Syslog
 
 # Syslog
 
-## Tips
-* 实现
-  * busybox syslog
-  * rsyslog
-  * syslog-ng
-  * fluentbit
-* 参考
-  * [What is the difference between syslog, rsyslog and syslog-ng?](https://serverfault.com/questions/692309)
+- 实现
+  - busybox syslog
+  - rsyslog
+  - syslog-ng
+  - fluentbit
+- 参考
+  - [What is the difference between syslog, rsyslog and syslog-ng?](https://serverfault.com/questions/692309)
 
 ## busybox syslog
-* syslogd
-* [/etc/syslog.conf](https://git.busybox.net/busybox/tree/docs/syslog.conf.txt)
+
+- syslogd
+- [/etc/syslog.conf](https://git.busybox.net/busybox/tree/docs/syslog.conf.txt)
 
 ## rsyslog
-* rsyslog [Configuration Wizard](http://www.rsyslog.com/rsyslog-configuration-builder/)
+
+- rsyslog [Configuration Wizard](http://www.rsyslog.com/rsyslog-configuration-builder/)
 
 ```bash
 brew install rsyslog
 ```
 
 ## syslog-ng
-* [syslog-ng.conf.doc](https://github.com/balabit/syslog-ng/blob/master/contrib/syslog-ng.conf.doc)
-* [syslog-ng.conf](https://github.com/balabit/syslog-ng/blob/master/contrib/rhel-packaging/syslog-ng.conf)
-* [Administration Guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.22/administration-guide/12)
+
+- [syslog-ng.conf.doc](https://github.com/balabit/syslog-ng/blob/master/contrib/syslog-ng.conf.doc)
+- [syslog-ng.conf](https://github.com/balabit/syslog-ng/blob/master/contrib/rhel-packaging/syslog-ng.conf)
+- [Administration Guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.22/administration-guide/12)
 
 ```conf
 @version: 3.9

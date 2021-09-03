@@ -6,8 +6,30 @@ title: Dapr
 
 - [dapr/dapr](https://github.com/dapr/dapr) 是什么？
   - 云原生开发工具集
+  - 支持多语言 - sidecar 暴露 http 和 grpc 接口
+  - 支持多环境 - 不限制在 kube 集群
+  - Sidecar 模式 - 轻 sdk 重 sidecar
+
+:::caution
+
+- http-max-request-size 默认限制 4m
+  - 因此单个 gRPC/HTTP 请求最大 4mb
+
+:::
+
+:::tip
+
+- Go SDK 不支持 actor - [dapr/go-sdk#21](https://github.com/dapr/go-sdk/issues/21)
+- WIP
+  - 配置组件 - [dapr/dapr#2988](https://github.com/dapr/dapr/issues/2988)
+  - Lock
+  - Circuit Breaking
+  - Search
+
+:::
 
 ```bash
+# macOS 安装 dapr 命令行
 brew install dapr/tap/dapr-cli
 
 # 本地启动 Go 应用
@@ -45,6 +67,7 @@ dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
   - 状态保存获取
   - Timer 回调
   - 持久化 reminder
+- [SDKs](https://docs.dapr.io/developing-applications/sdks/)
 
 ## Sidecar
 
@@ -74,7 +97,6 @@ dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
 
 - [Actor](https://en.wikipedia.org/wiki/Actor_model) - lowest-level “unit of computation”
 - [Virtual Actors](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/)
-- Go 不支持 actor
 - actor
   - 支持 state
   - 不支持 sub - 可以 pub
@@ -109,6 +131,8 @@ dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
 # self-host 初始化 - docker - placement :50005, redis :6379, zipkin :9411
 # --network 指定 docker network
 dapr init
+# 不需要 docker
+# 可手动启动 $HOME/.dapr/bin/placement
 dapr init -s # slim self-hosted - 不启动 placement service, Redis, Zipkin
 
 # k8s 初始化
@@ -116,7 +140,7 @@ dapr init -s # slim self-hosted - 不启动 placement service, Redis, Zipkin
 # --enable-mtls - 默认开启
 # -n dapr-system
 dapr init -k
-dapr init -k --wait --timeout 600 --runtime-version 1.1.0 # 指定版本、超时、等待完成
+dapr init -k --wait --timeout 600 --runtime-version 1.3.0 # 指定版本、超时、等待完成
 
 # 面板 - 目前功能比较简单
 dapr dashboard -p 9999

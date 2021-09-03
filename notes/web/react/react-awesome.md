@@ -114,6 +114,7 @@ title: React Awesome
   - [andrerpena/react-mde](https://github.com/andrerpena/react-mde)
   - [HarryChen0506/react-markdown-editor-lite](https://github.com/HarryChen0506/react-markdown-editor-lite)
   - [uiwjs/react-md-editor](https://github.com/uiwjs/react-md-editor)
+  - [Saul-Mirone/milkdown](https://github.com/Saul-Mirone/milkdown)
 - [margox/braft-editor](https://github.com/margox/braft-editor)
   - [margox/braft-extensions](https://github.com/margox/braft-extensions) - 扩展包
 
@@ -246,6 +247,10 @@ title: React Awesome
 
 ## 样式
 
+- [modulz/stitches](https://github.com/modulz/stitches)
+  - 写 Object 而不是写 string 的 css
+  - 类似 styled-components 和 emotion 的中间形态
+  - 相对性能更好，打包更小
 - [styled-components](https://github.com/styled-components/styled-components)
   - 包装现有组件，添加 className
 - [emotion-js/emotion](https://github.com/emotion-js/emotion)
@@ -445,3 +450,6 @@ useStore.destroy();
 
 - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
   React renderer for Three.js
+
+## 参考
+- [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)

@@ -29,6 +29,9 @@ title: Service Awesome
   - MIT, TypeScript
 - [qarmin/czkawka](https://github.com/qarmin/czkawka)
   - 查找重复图片、文件
+- [laymonage/giscus](https://github.com/laymonage/giscus)
+  - 基于 Github Disscuss 的评论系统
+- [public-apis/public-apis](https://github.com/public-apis/public-apis)
 
 ## Avatar
 
@@ -40,6 +43,11 @@ title: Service Awesome
   - [boringdesigners/boring-avatars](https://github.com/boringdesigners/boring-avatars)
   - 简单的头像
   - React 组件 - 基于 SVG
+
+## OCR
+- https://gitee.com/ZZK-1989/tianruoocr
+- https://github.com/AnyListen/tianruoocr/
+- https://github.com/tianruoyouxin/tianruoocr_last
 
 ## Chatbot
 

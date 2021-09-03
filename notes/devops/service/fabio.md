@@ -5,10 +5,13 @@ title: fabio
 
 # fabio
 
-## Tips
-- 注意 ⚠️
-  - 目前该项目开发不太活跃，不建议用来做主要的路由或 Ingress 角色
-  - 用来将 consul 上的服务对外暴露还是可以的，但不建议作为唯一依赖
+:::caution 注意 ⚠️
+
+- 目前该项目开发不太活跃，不建议用来做主要的路由或 Ingress 角色
+- 用来将 consul 上的服务对外暴露还是可以的，但不建议作为唯一依赖
+
+:::
+
 - [fabiolb/fabio](https://github.com/fabiolb/fabio) - Consul 内的服务 Load-Balancing
 - 特性
   - 访问日志
@@ -35,6 +38,9 @@ title: fabio
     - `urlprefix-/foo/bar proto=https tlsskipverify=true strip=/foo`
     - `urlprefix-:3306 proto=tcp` - TCP 路由
 - [fabio.properties](https://github.com/fabiolb/fabio/blob/master/fabio.properties)
+- 参考
+  - [weibocom/nginx-upsync-module](https://github.com/weibocom/nginx-upsync-module)
+    - consul 生成 nginx 配置
 
 ```bash
 # go

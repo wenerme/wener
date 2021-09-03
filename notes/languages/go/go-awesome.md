@@ -1,5 +1,7 @@
 ---
 title: Go Awesome
+tags:
+  - Awesome
 ---
 
 # Golang Awesome
@@ -272,6 +274,7 @@ title: Go Awesome
 - [twitchtv/twirp](https://github.com/twitchtv/twirp)
   simple RPC framework with protobuf service definitions
   - protobuf+net/http
+- [gogf/gf](https://github.com/gogf/gf)
 
 ## 微服务框架/Microservices Framework
 
@@ -292,6 +295,7 @@ title: Go Awesome
   - grpc,wire
   - kratos 命令行工具
 - [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+  - 好未来技术
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 

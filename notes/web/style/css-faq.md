@@ -21,6 +21,7 @@ title: CSS 常见问题
   - 默认 `min-width: auto` 允许元素占用更多空间
 
 ## 播放 png 精灵图
+
 - https://codepen.io/zjun/pen/dGPqzQ
 
 ## display: table 不支持 max-height 和 overflow
@@ -152,3 +153,13 @@ https://codepen.io/argyleink/pen/RwPWqKe
 ## webkit-scrollbar
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+
+## iPhone X 页面内容 padding
+
+- [“The Notch” and CSS](https://css-tricks.com/the-notch-and-css/)
+
+```css
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+```

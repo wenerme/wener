@@ -5,8 +5,6 @@ title: Kuma
 
 # Kuma
 
-## Tips
-
 - Built by Envoy contributors at Kong
 - 特性
   - UI 管理
@@ -46,7 +44,7 @@ title: Kuma
   - Circuit Breaker
   - Proxy Template
     - 配置 envoy
-- Data Plane 
+- Data Plane
   - 基于 Envoy
   - L4/L7
   - Service Dataplane
@@ -78,6 +76,7 @@ title: Kuma
   - [Webinar: Kuma: Service Mesh and the Future of Application Connectivity](https://www.youtube.com/watch?v=Bu0-y9h8V5w)
 
 ## kuma k8s
+
 ```bash
 brew install kumactl
 
@@ -163,10 +162,10 @@ spec:
 # 空间添加注入
 echo "apiVersion: v1
 kind: Namespace
-metadata: 
+metadata:
   name: default
   namespace: default
-  labels: 
+  labels:
     kuma.io/sidecar-injection: enabled
     kuma.io/mesh: default" | kubectl apply -f - && kubectl delete pod --all -n default
 
@@ -207,6 +206,7 @@ kubectl port-forward svc/grafana -n kuma-metrics 3000:80
 ```
 
 ### 卸载
+
 ```bash
 kumactl install metrics \
   --kuma-prometheus-sd-image registry.cn-hongkong.aliyuncs.com/cmi/kuma-prometheus-sd \
@@ -220,9 +220,10 @@ kumactl install control-plane \
 ```
 
 ## docker
-* 单 docker 部署
-* 类似于 vm 部署
-* multi-zone 模式
+
+- 单 docker 部署
+- 类似于 vm 部署
+- multi-zone 模式
 
 ```bash
 # 构建环境
@@ -296,6 +297,7 @@ kuma-dp run --name web-dp --mesh=default --dataplane-token-file=kuma-token-web-d
 ```
 
 ## kumactl
+
 ```bash
 #
 cat <<EOF | kumactl apply -f -
@@ -535,11 +537,11 @@ docker run --rm -it \
 }
 ```
 
-
 ## 网络
-* https://kuma.io/docs/latest/documentation/networking
 
-__Standalone Control Plane__
+- https://kuma.io/docs/latest/documentation/networking
+
+**Standalone Control Plane**
 
 | port     | protocol                                                                                                                                                                                                              | desc |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |

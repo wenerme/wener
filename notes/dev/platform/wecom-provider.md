@@ -26,6 +26,7 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
 :::caution
 
 - 数据回调URL & 指令回调URL 验证时 ReceiveID 为 CorpID
+  - 但实际推送时为 SuiteID
 - 在第三方回调事件中使用加解密算法 ReceiveID 内容为 SuiteID
 
 :::

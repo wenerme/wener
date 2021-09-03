@@ -47,6 +47,8 @@ title: Service Mesh
     - mTLS
     - CA 证书管理/集成
     - 鉴权规则
+  - 连接
+    - 集群、VM、容器
 - 组成部分
   - control plane
   - data plane
@@ -54,6 +56,7 @@ title: Service Mesh
 - Traffic Shiffting
   - Istio [Traffic Shifting](https://istio.io/latest/docs/tasks/traffic-management/traffic-shifting/)
 - 参考
+  - [Service Mesh Landscape](https://layer5.io/service-mesh-landscape/)
   - [Service Mesh Comparison](https://servicemesh.es/)
   - [flagger](https://flagger.app/) - Progressive Delivery Operator for Kubernetes
     - Canary - progressive traffic shifting

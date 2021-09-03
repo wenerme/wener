@@ -1,5 +1,7 @@
 ---
 title: Linkerd Version
+tags:
+  - Version
 ---
 
 # Linkerd Version
@@ -8,6 +10,8 @@ title: Linkerd Version
 | ---- | ------------ |
 | 2.10 | 2021-03-11   |
 | 2.9  | 2021-11-7    |
+
+## 2.11
 
 ## 2.10
 

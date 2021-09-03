@@ -18,6 +18,8 @@ title: Data Awesome
 
 ## Pipeline
 
+- [apache/arrow-datafusion](https://github.com/apache/arrow-datafusion)
+  - https://news.ycombinator.com/item?id=28296227
 - [apache/airflow](https://github.com/apache/airflow)
 - [polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
   Machine Learning Platform for Kubernetes
@@ -45,7 +47,6 @@ title: Data Awesome
 - [jsvine/waybackpack](https://github.com/jsvine/waybackpack)
 - [oduwsdl/archivenow](https://github.com/oduwsdl/archivenow)
 
-
 ## Dataset
 
 - [datasets/awesome-data](https://github.com/datasets/awesome-data)
@@ -57,6 +58,16 @@ title: Data Awesome
 - [Profil3r – OSINT Tool To Find Social Media Profiles & Their Email Addresses](https://skynettools.com/profil3r-osint-tool-to-find-social-media-profiles-their-email-addresses/)
 - [Open-source intelligence](https://en.wikipedia.org/wiki/Open-source_intelligence)
 - [ml874/Data-Science-Cheatsheet](https://github.com/ml874/Data-Science-Cheatsheet)
+
+## Tools
+
+- [TomWright/dasel](https://github.com/TomWright/dasel)
+- [johnkerl/miller](https://github.com/johnkerl/miller)
+- [simeji/jid](https://github.com/simeji/jid)
+- [fiatjaf/jiq](https://github.com/fiatjaf/jiq)
+- [tomnomnom/gron](https://github.com/tomnomnom/gron)
+- [saulpw/visidata](https://github.com/saulpw/visidata)
+  - terminal spreadsheet
 
 ## Understand
 

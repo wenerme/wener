@@ -28,3 +28,4 @@ title: ScyllaDB
   - scylladb 监控平台
   - Prometheus + Grafana
 - [scylladb/scylla-operator](https://github.com/scylladb/scylla-operator)
+- Why C++ https://news.ycombinator.com/item?id=28294546

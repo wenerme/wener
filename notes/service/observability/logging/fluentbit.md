@@ -4,8 +4,6 @@ title: Fluentbit
 
 # Fluentbit
 
-## Tips
-
 - [fluentbit](https://fluentbit.io/)
 - [fluent/fluent-bit](https://github.com/fluent/fluent-bit)
 - [Build Options](https://docs.fluentbit.io/manual/installation/sources/build-and-install)

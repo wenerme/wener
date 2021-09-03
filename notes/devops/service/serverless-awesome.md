@@ -1,5 +1,7 @@
 ---
 title: Serverless Awesome
+tags:
+- Awesome
 ---
 
 # Serverless Awesome

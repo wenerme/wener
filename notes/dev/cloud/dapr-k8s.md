@@ -9,8 +9,8 @@ title: Dapr Kubernetes
 
 ## 组件
 
-- dapr-operator
-- dapr-sidecar-injector
+- dapr-operator - 组件部署
+- dapr-sidecar-injector - 注入 sidecar
 - dapr-placement - actor instance -> Pod
 - dapr-sentry - mTLS, CA
 
@@ -51,8 +51,8 @@ annotations:
   dapr.io/app-ssl: 'false'
   dapr.io/metrics-port: '9090'
 
-  dapr.io/sidecar-cpu-| ''
-  dapr.io/sidecar-memory-| ''
+  dapr.io/sidecar-cpu: ''
+  dapr.io/sidecar-memory: ''
   dapr.io/sidecar-cpu-request: ''
   dapr.io/sidecar-memory-request: ''
 

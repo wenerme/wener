@@ -17,6 +17,10 @@ title: Java版本
     - 增强 Native 交互/跨语言交互
   - [Project Loom](https://openjdk.java.net/projects/loom/)
     - 虚拟线程
+  - [JEP 386](https://openjdk.java.net/jeps/386) Alpine Linux Port
+    - 16 开始移除 musl 包，通过该 JEP 支持 musl
+    - [adoptium/containers#1](https://github.com/adoptium/containers/issues/1)
+    - [Project Portola](https://openjdk.java.net/projects/portola)
 
 ```bash
 # 检测 class 文件版本

@@ -35,6 +35,7 @@ title: K8S Awesome
 
 ## Awesomes
 
+- [alexellis/arkade](https://github.com/alexellis/arkade)
 - [kubedex](https://kubedex.com/)
 - [devtron-labs/devtron](https://github.com/devtron-labs/devtron)
   - Software Delivery Workflow For Kubernetes
@@ -138,6 +139,7 @@ title: K8S Awesome
   - LGPL-3.0, Go
 - [open-hand/choerodon](https://github.com/open-hand/choerodon)
   Multi-Cloud Integrated Platform
+- [metacontroller/metacontroller](https://github.com/metacontroller/metacontroller)
 
 ## Notify
 

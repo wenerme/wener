@@ -4,12 +4,19 @@ title: ML Awesome
 
 # Machine Learning Awesome
 
+- [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
+- [wunderwuzzi23/mlattacks](https://github.com/wunderwuzzi23/mlattacks)
 - [tangramdotdev/tangram](https://github.com/tangramdotdev/tangram)
   - [HN](https://news.ycombinator.com/item?id=28221043)
+- [facebookresearch/moco-v3](https://github.com/facebookresearch/moco-v3)
+- [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI)
+  - [BlenderBot 2.0: An open source chatbot that builds long-term memory and searches the internet](https://parl.ai/projects/blenderbot2/)
+  - InfoQ [BlenderBot 2.0 Chatbot](https://www.infoq.com/news/2021/08/facebook-blenderbot-2/)
 
 ## Learn
 
+- [microsoft/ML-For-Beginners](https://github.com/microsoft/ML-For-Beginners)
 - [LabML Neural Networks](https://nn.labml.ai/)
   - PyTorch
 - [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
@@ -60,6 +67,10 @@ title: ML Awesome
 - MobileNet
 - MobileNetv2
 - https://modelplace.ai/models
+
+## GAN
+
+- [orpatashnik/StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
 
 ## STT
 
