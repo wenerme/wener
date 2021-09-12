@@ -1,6 +1,6 @@
 {
   "name": "wener-website",
-  "version": "v2.0.0-beta.4",
+  "version": "v2.0.0-beta.6",
   "private": true,
   "scripts": {
     "tsc": "tsc",
@@ -10,14 +10,14 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^v2.0.0-beta.4",
-    "@docusaurus/plugin-client-redirects": "^v2.0.0-beta.4",
-    "@docusaurus/plugin-google-analytics": "^v2.0.0-beta.4",
-    "@docusaurus/plugin-google-gtag": "^v2.0.0-beta.4",
-    "@docusaurus/plugin-ideal-image": "^v2.0.0-beta.4",
-    "@docusaurus/plugin-sitemap": "^v2.0.0-beta.4",
-    "@docusaurus/preset-classic": "^v2.0.0-beta.4",
-    "@docusaurus/theme-live-codeblock": "^v2.0.0-beta.4",
+    "@docusaurus/core": "^v2.0.0-beta.6",
+    "@docusaurus/plugin-client-redirects": "^v2.0.0-beta.6",
+    "@docusaurus/plugin-google-analytics": "^v2.0.0-beta.6",
+    "@docusaurus/plugin-google-gtag": "^v2.0.0-beta.6",
+    "@docusaurus/plugin-ideal-image": "^v2.0.0-beta.6",
+    "@docusaurus/plugin-sitemap": "^v2.0.0-beta.6",
+    "@docusaurus/preset-classic": "^v2.0.0-beta.6",
+    "@docusaurus/theme-live-codeblock": "^v2.0.0-beta.6",
     "classnames": "^2.3.1",
     "hast-util-is-element": "^1.1.0",
     "isomorphic-fetch": "^3",
@@ -26,7 +26,7 @@
     "mobx-react": "^7.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.33",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rehype-katex": "^4.0.0",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^14.17.6",
-    "@types/node-fetch": "^2.5.12",
+    "@types/node-fetch": "^3",
     "fs-extra": "^10",
     "hpagent": "^0.1.2",
     "https-proxy-agent": "^5.0.0",
