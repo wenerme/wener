@@ -1,5 +1,7 @@
 ---
 title: Virt Awesome
+tags:
+- Awesome
 ---
 
 # Virt Awesome

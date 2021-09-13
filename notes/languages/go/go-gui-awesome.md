@@ -1,5 +1,7 @@
 ---
 title: Go GUI Awesome
+tags:
+- Awesome
 ---
 
 # Go GUI Awesome
@@ -90,6 +92,8 @@ title: Go GUI Awesome
 - [azul3d/engine](https://github.com/azul3d/engine)
   3D game engine written in Go!
 - https://go-talks.appspot.com/github.com/guregu/slides/comiket/comiket.slide
+- [g3n/engine](https://github.com/g3n/engine)
+  - Go 3D Game Engine
 
 ## Mobile
 

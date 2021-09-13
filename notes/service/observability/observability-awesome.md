@@ -1,5 +1,7 @@
 ---
 title: Observability Awesome
+tags:
+- Awesome
 ---
 
 # Observability Awesome

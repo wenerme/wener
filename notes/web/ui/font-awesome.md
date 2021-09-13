@@ -1,5 +1,7 @@
 ---
 title: Awesome Font
+tags:
+- Awesome
 ---
 
 # Awesome Font
@@ -26,3 +28,23 @@ title: Awesome Font
 - Menlo
   - 会连 fi - 导致代码视觉上未对其
 - [source-code-pro](https://github.com/adobe-fonts/source-code-pro)
+
+## Emoji
+
+- [hfg-gmuend/openmoji](https://github.com/hfg-gmuend/openmoji)
+  - CC BY-SA 4.0 [#155](https://github.com/hfg-gmuend/openmoji/issues/155)
+    - BY - 要求申明出处
+    - SA - 保护修改 - 修改需要开放
+  - 所有 [openmoji](https://hfg-gmuend.github.io/openmoji/)
+  - [HN](https://news.ycombinator.com/item?id=28403672)
+- [twitter/twemoji](https://github.com/twitter/twemoji)
+- [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
+- https://emojipedia.org/
+- [Full Emoji List](https://unicode.org/emoji/charts/full-emoji-list.html)
+- [emoji-cheat-sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+
+## Unicode
+
+- [GNOME/gucharmap](https://gitlab.gnome.org/GNOME/gucharmap)
+  - Unicode Character Map
+- ufas [UNICODE FONTS FOR ANCIENT SCRIPTS](https://dn-works.com/ufas/)

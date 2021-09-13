@@ -1,5 +1,7 @@
 ---
 title: ArgoCD 版本
+tags:
+- Version
 ---
 
 # ArgoCD 版本

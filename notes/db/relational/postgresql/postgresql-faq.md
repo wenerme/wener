@@ -444,3 +444,38 @@ PERFORM select 1;
 ## could not resize shared memory segment "/PostgreSQL.153520683" to 1073812480 bytes: No space left on device
 
 增加 docker 的 shm_size
+
+## set-returning functions are not allowed in UPDATE
+
+- 替换 unnest(array_value) -> `array_value[1]`
+- 替换 `(regexp_matches(album, '^6,(?:(.+),)?tv\d+'))[1]` -> `substring (album FROM '^6,(?:(.+),)?tv\d+')`
+
+## Tuning
+
+- https://news.ycombinator.com/item?id=28489340
+- https://postgresqlco.nf/
+- Why Uber Engineering Switched from Postgres to MySQL - 2016
+  - MySQL used as key-value storage layer of homegrown sharded non-relational database
+  - https://eng.uber.com/postgres-to-mysql-migration/
+    - https://news.ycombinator.com/item?id=17280239
+    - https://news.ycombinator.com/item?id=12166585
+    - https://news.ycombinator.com/item?id=26283348
+  - Postgres better for read heavy
+  - MySQL for write heavy
+- Pain Point https://pgdash.io/blog/postgresql-six-not-so-easy-pieces.html
+- https://sql-info.de/postgresql/postgres-gotchas.html
+
+## Sale Point
+- transactional ddl
+- JSONB,JSON
+- Extension
+- Native Array
+- window function
+- custom type
+- MySQL 8
+ - atomic ddl - 弱于 transactional ddl
+ - window function
+ - arbitrary check
+ - JSON
+- https://sql-info.de/mysql/gotchas.html
+- https://fromdual.com/mysql-limitations

@@ -1,5 +1,7 @@
 ---
 title: ACME
+tags:
+- Awesome
 ---
 
 # ACME

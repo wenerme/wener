@@ -1,5 +1,7 @@
 ---
 title: CRM Awesome
+tags:
+- Awesome
 ---
 
 # CRM Awesome

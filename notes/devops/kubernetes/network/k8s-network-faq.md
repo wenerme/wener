@@ -4,6 +4,24 @@ title: K8S Network FAQ
 
 # K8S Network FAQ
 
+## Ingress vs Gateway
+
+- Ingress
+  - 内容更多 - 包含了 Host 配置和 规则配置
+  - 只定义了 HTTP Host+Path 规则
+  - 通常暴露 80 和 443 两个端口
+- Gateway - gateway.networking.k8s.io
+  - 区分了 Gateway 和 HTTPRoute - 打散规则
+  - Gateway 通过 selector 选择要包含的 HTTPRoute
+  - Gateway 和 Route 是 对对多 关系
+    - 例如 一个 dev 一个 test 但使用部分相同 Route
+  - 可以将 HTTPRoute 的配置下放到开发人员
+  - 支持非 HTTP 路由
+    - TLSRoute - 基于 SNI 路由
+    - TCPRoute, UDPRoute - 基于目标端口路由
+  - 明确支持透传 HTTPS
+  - 暴在 80 和 443 之上支持暴露额外端口
+
 ## LB/Load Balance vs Ingress vs ClusterIP vs API Gateway
 
 - LB/Load Balance - 负载均衡

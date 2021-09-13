@@ -1,5 +1,7 @@
 ---
 title: OS Awesome
+tags:
+- Awesome
 ---
 
 # OS Awesome
@@ -52,6 +54,10 @@ title: OS Awesome
   - [libretro/RetroArch](https://github.com/libretro/RetroArch)
 - [reactos](https://github.com/reactos/reactos)
   - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
+- [LibreELEC](http://libreelec.tv/)
+  - Kodi
+  - RPi 4 支持 HEVC/H.265 硬解
+  - RPi 2+ 支持 H.264 硬解
 
 ## BSD
 
@@ -90,6 +96,10 @@ title: OS Awesome
 - [ROM Hack](https://www.romhacking.net/)
 - [The Cutting Room Floor](https://tcrf.net/)
 - [C64 BASIC & KERNAL ROM Disassembly](https://www.pagetable.com/c64ref/c64disasm/)
+- [aappleby/MetroBoy](https://github.com/aappleby/MetroBoy)
+  - gate-level simulators and for Game Boy
+  - [HN](https://news.ycombinator.com/item?id=28396927)
+- [Exploring the Amiga - Part 1](https://www.thedigitalcatonline.com/blog/2018/05/28/exploring-the-amiga-1/)
 
 ## 开发
 

@@ -1,5 +1,7 @@
 ---
 title: K8S Awesome
+tags:
+- Awesome
 ---
 
 # Kubernetes Awesome
@@ -59,6 +61,12 @@ title: K8S Awesome
   - metallb
   - cert-manager
   - kube-prometheus
+- [armosec/kubescape](https://github.com/armosec/kubescape)
+  -  testing if Kubernetes is deployed securely
+- [open-policy-agent/opa](https://github.com/open-policy-agent/opa)
+- [anchore/syft](https://github.com/anchore/syft)
+- [sigstore/cosign](https://github.com/sigstore/cosign)
+- [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
 
 ## Dashboard
 

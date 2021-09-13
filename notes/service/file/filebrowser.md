@@ -4,7 +4,7 @@ title: filebrowser
 
 # filebrowser
 
-- 是什么？
+- [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser) 是什么？
   - 简单的文件浏览器
 
 :::caution
@@ -16,7 +16,7 @@ title: filebrowser
 :::
 
 ```bash
-curl -LOC- https://github.com/filebrowser/filebrowser/releases/download/v2.15.0/linux-amd64-filebrowser.tar.gz
+curl -LOC- https://github.com/filebrowser/filebrowser/releases/download/v2.17.2/linux-amd64-filebrowser.tar.gz
 tar zxvf linux-amd64-filebrowser.tar.gz
 chmod +x filebrowser
 sudo mv filebrowser /usr/local/bin/

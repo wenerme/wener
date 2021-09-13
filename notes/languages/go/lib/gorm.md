@@ -65,6 +65,14 @@ title: GORM
 - [go-gorm/datatypes](https://github.com/go-gorm/datatypes) - gorm.io/datatypes
   - 实现了其他数据类型 - 例如 JSON
 
+:::caution
+
+- 不建议字段设置为 default:null
+  - OnConflict UpdateAll 不会处理
+  - Null 无法被读取为 非 Ptr 或 非 sql.Null
+
+:::
+
 ```go
 // 直接调用 processor
 func TestPreloadOnly(t *testing.T){
@@ -96,6 +104,21 @@ func TestPreloadOnly(t *testing.T){
 db.Where(User{Name: "non_existing"}).Assign(User{Age: 20}).FirstOrCreate(&user)
 ```
 
+## Model
+
+```go
+import (
+  "github.com/google/uuid"
+  "github.com/lib/pq"
+)
+
+type Post struct {
+  ID     uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4()"`
+  Title  string
+  Tags   pq.StringArray `gorm:"type:text[]"` // 需要指定类型
+}
+```
+
 ## 钩子
 
 - 创建和更新
@@ -123,6 +146,20 @@ func (u *User) BeforeCreate(tx *gorm.DB) error {
   // ...
   return err
 }
+```
+
+## Upsert
+
+```go
+db.Clauses(clause.OnConflict{
+  Columns:   []clause.Column{{Name: "id"}},
+  DoUpdates: clause.AssignmentColumns([]string{"name", "age"}),
+}).Create(&users)
+
+db.Clauses(clause.OnConflict{
+  Columns:   []clause.Column{{Name: "id"}},
+  DoUpdates: clause.Assignments(map[string]interface{}{"role": "user"}),
+}).Create(&users)
 ```
 
 ## DryRun 查看执行语句

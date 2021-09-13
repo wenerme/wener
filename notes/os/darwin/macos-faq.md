@@ -9,6 +9,7 @@ title: macOS FAQ
 到官网下载最新驱动 https://asix.com.tw/en/product/USBEthernet/Super-SpeedUSBEthernet/AX88179
 
 ## tuntap
+
 - 11.5 macOS BigSur 后内核扩展不可用
 
 ## 窗口只能看到边缘没有 Title 如何拖动

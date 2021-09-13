@@ -1,5 +1,7 @@
 ---
 title: Linux Awesome
+tags:
+- Awesome
 ---
 
 # Linux Awesome

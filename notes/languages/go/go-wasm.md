@@ -1,8 +1,11 @@
-# Go Wasm
+---
+title: Go WASM
+---
 
-## Tips
-* Go [WebAssembly](https://github.com/golang/go/wiki/WebAssembly)
-* [tinygo-org/tinygo](https://github.com/tinygo-org/tinygo) - 可用于生成更小的 wasm
+# Go WASM
+
+- Go [WebAssembly](https://github.com/golang/go/wiki/WebAssembly)
+- [tinygo-org/tinygo](https://github.com/tinygo-org/tinygo) - 可用于生成更小的 wasm
 
 ```bash
 # 测试应用

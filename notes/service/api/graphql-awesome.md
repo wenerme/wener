@@ -1,5 +1,7 @@
 ---
 title: GraphQL Awesome
+tags:
+- Awesome
 ---
 
 # GraphQL Awesome

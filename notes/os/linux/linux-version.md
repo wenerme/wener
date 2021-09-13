@@ -10,6 +10,7 @@ title: Linux Releases
 - [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
 - [Active kernel releases](https://www.kernel.org/category/releases.html)
   - 一般年底的最后一个版本会变成 LTS
+- http://phb-crystal-ball.org/
 
 ## 5.10 - LTS
 

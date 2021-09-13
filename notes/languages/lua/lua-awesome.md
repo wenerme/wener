@@ -1,5 +1,7 @@
 ---
 title: Lua Awesome
+tags:
+- Awesome
 ---
 
 # Lua Awesome

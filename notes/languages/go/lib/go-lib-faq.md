@@ -53,3 +53,20 @@ title: Golang 库常见问题
   - 通过 CLI 快速提供 go-micro 所需的平台服务 - dashboard, API gateway
 - 参考
   - [Asim Aslam on Microservices, go-micro, and PaaS 3.0](https://www.infoq.com/podcasts/microservices-go-micro-paas3/)
+
+## yaml.v2 vs yaml.v3
+
+- yaml.v2
+  - yaml 1.1 spec
+  - off/on/yes/no 都会解析成 bool
+- yaml.v3 - 推荐
+  - yaml 1.2 spec
+    - anchors & aliases
+    - 8 进制
+  - 只有 true/false 解析成 bool
+  - AST 包含 Comment
+  - 自定义 indentation - 默认 4 space
+  - time.Duration 拒绝纯 int
+- 参考
+  - https://ubuntu.com/blog/api-v3-of-the-yaml-package-for-go-is-available
+  - https://github.com/spf13/viper/issues/942

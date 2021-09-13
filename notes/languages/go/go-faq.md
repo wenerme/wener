@@ -4,6 +4,11 @@ title: Go FAQ
 
 # Go FAQ
 
+## JSON string to int
+
+- json.Number - encode 保留 number
+- `json:",string"` - encode 会转 string
+
 ## Struct 是否使用指针
 
 - 尽量不使用指针 - 直接使用 Struct 会更快
@@ -146,3 +151,9 @@ go build -gccgoflags "-s -w" main.go
 ```
 
 ## Cipher CBC / ECB / CFB / GCM
+
+## memstats.gc_sys undefined (type mstats has no field or method gc_sys)
+
+升级后出现，尝试卸载重装。
+
+尝试删除目录 /usr/lib/go/ 后重装。

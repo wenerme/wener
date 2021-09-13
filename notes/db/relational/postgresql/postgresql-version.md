@@ -1,6 +1,8 @@
 ---
 id: version
 title: 版本历史
+tags:
+  - Version
 ---
 
 # Version
@@ -129,6 +131,8 @@ title: 版本历史
   - 创建分片表可以使用表达式 - 之前是常量值，但表达式是在创建时进行计算
 - 索引
   - btree 使用的空间减少
+  - [Bottom-up Index Deletion](https://www.postgresql.org/docs/14/btree-implementation.html)
+    - 减少写放大问题
 - 优化起
   - 支持多列 常见值(most-common-value MVC) 统计
     - 对于大数据来说很有价值

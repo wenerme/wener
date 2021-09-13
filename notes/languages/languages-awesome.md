@@ -1,5 +1,7 @@
 ---
 title: Languages Awesome
+tags:
+- Awesome
 ---
 
 # Languages Awesome

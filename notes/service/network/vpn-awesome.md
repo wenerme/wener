@@ -1,5 +1,7 @@
 ---
 title: VPN Awesome
+tags:
+- Awesome
 ---
 
 # VPN Awesome

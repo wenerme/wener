@@ -153,10 +153,10 @@ window.setTimeout(() => {
 - **Extension code - Full access to all permitted [`chrome.*`][1] APIs.**<br/>
  This includes the [background page][2], and all pages which have direct access to it via [`chrome.extension.getBackgroundPage()`][3], such as the [browser pop-ups][4].
 
-- **[Content scripts][5] (via the manifest file or [`chrome.tabs.executeScript`][6]) - [Partial][7] access to some of the `chrome` APIs**, full access to the page's DOM (**not** to any of the `window` objects, including frames).  
+- **[Content scripts][5] (via the manifest file or [`chrome.tabs.executeScript`][6]) - [Partial][7] access to some of the `chrome` APIs**, full access to the page's DOM (**not** to any of the `window` objects, including frames).
 Content scripts run in a scope between the extension and the page. The global `window` object of a Content script is distinct from the page/extension's global namespace.
 
-- Injected scripts (via [this method][8] in a Content script) - Full access to all properties in the page. **No access to any of the `chrome.*` APIs.**  
+- Injected scripts (via [this method][8] in a Content script) - Full access to all properties in the page. **No access to any of the `chrome.*` APIs.**
  Injected scripts behave as if they were included by the page itself, and are not connected to the extension in any way. See [this post][9] to learn more information on the various injection methods.
 
 To send a message from the injected script to the content script, events have to be used. See [this answer][10] for an example. Note: Message transported within an extension from one context to another are **automatically (JSON)-serialised and parsed**.
@@ -190,3 +190,6 @@ Also, when you use `chrome.tabs.onUpdated`, make sure that you test whether the 
 
 * http://stackoverflow.com/a/9916089/1870054
 * [How to inject code from content script](http://stackoverflow.com/a/9517879/1870054)
+
+## Headless
+- https://github.com/chromedp/docker-headless-shell

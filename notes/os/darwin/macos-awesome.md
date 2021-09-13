@@ -1,5 +1,7 @@
 ---
 title: macOS Awesome
+tags:
+- Awesome
 ---
 
 # macOS Awesome

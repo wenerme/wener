@@ -1,5 +1,7 @@
 ---
 title: Dapr Version
+tags:
+- Version
 ---
 
 # Dapr Version

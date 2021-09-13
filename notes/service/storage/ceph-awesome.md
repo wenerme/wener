@@ -1,5 +1,7 @@
 ---
 title: Ceph Awesome
+tags:
+- Awesome
 ---
 
 # Ceph Awesome

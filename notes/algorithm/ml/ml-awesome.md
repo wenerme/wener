@@ -1,5 +1,7 @@
 ---
 title: ML Awesome
+tags:
+- Awesome
 ---
 
 # Machine Learning Awesome
@@ -13,6 +15,8 @@ title: ML Awesome
 - [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI)
   - [BlenderBot 2.0: An open source chatbot that builds long-term memory and searches the internet](https://parl.ai/projects/blenderbot2/)
   - InfoQ [BlenderBot 2.0 Chatbot](https://www.infoq.com/news/2021/08/facebook-blenderbot-2/)
+- [JianshuZhang/WAP](https://github.com/JianshuZhang/WAP)
+- [salesforce/warp-drive](https://github.com/salesforce/warp-drive)
 
 ## Learn
 

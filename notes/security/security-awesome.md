@@ -1,5 +1,7 @@
 ---
 title: Security Awesome
+tags:
+- Awesome
 ---
 
 # Security Awesome
@@ -18,9 +20,26 @@ title: Security Awesome
 - [shorewall](https://shorewall.org/)
 
 ## Tools
+
 - [samuel-lucas6/Kryptor](https://github.com/samuel-lucas6/Kryptor)
+- [FiloSottile/age](https://github.com/FiloSottile/age)
+  - file encryption tool
+  - [HN](https://news.ycombinator.com/item?id=28435613)
+- [Ex0dIa-dev/ssh-honeypot-go](https://github.com/Ex0dIa-dev/ssh-honeypot-go)
 
 ## Reference
 
 - [scaredos/cfresearch](https://github.com/scaredos/cfresearch)
   research from CloudFlare's Anti-DDoS challenges.
+
+## Web
+
+- [jptosso/coraza-waf](https://github.com/jptosso/coraza-waf)
+
+## AES
+
+- 建议 Key 至少 256
+- CBC/CTR/GCM/CCM/EAX
+- 不要使用 ECB
+- used by
+  - US Government to protect their own files - [FIPS 197](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)

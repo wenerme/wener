@@ -23,3 +23,20 @@ chmod +x busybox
   - `.opk`
 - 早期使用 ipkg, 之后被 opkg 替代
 - 类似 apt/dpkg
+
+# applets
+
+- [utmp.5](https://man7.org/linux/man-pages/man5/utmp.5.html) - https://en.wikipedia.org/wiki/Utmp
+  - keep track of all logins and logouts
+  - 被依赖 who, last
+  - AlpineLinux 目前没开启 bb 的这个组件，目前仓库有 skarnet 的 [utmps](https://skarnet.org/software/utmps/)
+- wtmp
+  - historical utmp
+- btmp
+  - records failed login attempts
+
+```
+/var/run/utmp
+/var/log/wtmp
+/var/log/btmp
+```

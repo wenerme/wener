@@ -21,7 +21,7 @@ title: Dapr
 
 - Go SDK 不支持 actor - [dapr/go-sdk#21](https://github.com/dapr/go-sdk/issues/21)
 - WIP
-  - 配置组件 - [dapr/dapr#2988](https://github.com/dapr/dapr/issues/2988)
+  - Configuration - [dapr/dapr#2988](https://github.com/dapr/dapr/issues/2988)
   - Lock
   - Circuit Breaking
   - Search

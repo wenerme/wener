@@ -8,6 +8,14 @@ title: sqlc
   - SQL 文件生成 Go 代码进行 DB 操作
   - 适用于复杂 SQL 场景
 - [Playground](https://play.sqlc.dev/)
+- 参考
+  - [How We Went All In on sqlc/pgx for Postgres + Go](https://brandur.org/sqlc)
+
+:::tip
+
+- sql 里需要包含 table 定义 - 辅助生成
+
+:::
 
 ```bash
 go get github.com/kyleconroy/sqlc/cmd/sqlc

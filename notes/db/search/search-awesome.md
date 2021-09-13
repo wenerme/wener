@@ -1,5 +1,7 @@
 ---
 title: Search Engine Awesome
+tags:
+- Awesome
 ---
 
 # Search Engine Awesome

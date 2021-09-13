@@ -1,5 +1,7 @@
 ---
 title: P2P Awesome
+tags:
+- Awesome
 ---
 
 # P2P Awesome

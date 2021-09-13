@@ -1,5 +1,7 @@
 ---
 title: Torrent Awesome
+tags:
+- Awesome
 ---
 
 # Torrent

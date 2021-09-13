@@ -1,5 +1,7 @@
 ---
 title: API Awesome
+tags:
+- Awesome
 ---
 
 # API Awesome
@@ -21,3 +23,45 @@ title: API Awesome
 
 - Google [AIP](https://google.aip.dev/general) - API Improvement Proposals
 - [Financial-grade API](https://fapi.openid.net)
+
+## RPC
+
+- JSON RPC
+- gRPC
+- Thrift
+- Avro
+- Dubbo
+- [only-cliches/NoProto](https://github.com/only-cliches/NoProto)
+
+## Serialization
+
+- ASN.1 PER
+- Avro, CapnProto, Protobufs, Flatbuffers
+- Schema-ful, copying: Protobuf, Thrift, plenty more
+- Schema-ful, zero-copy: Cap'n'proto, Flatbuffers
+- Schema-less, copying: Json (binary and other variants included), XML
+- Schema-less, zero-copy: Flexbuffers (Any others? This seems new to me)
+- Avro is also another data serialization format. Schema-Ful,
+- Arrow would be schema-ful, zero-copy
+
+## Data Gateway
+
+- Hasura
+- graphile
+- PostREST
+- Prisma2
+- [stargate/stargate](https://github.com/stargate/stargate)
+  - Java, Apache-2.0
+- [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
+  - GraphQL Adapter
+  - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
+
+## API Gateway
+
+> API 生命周期管理
+
+- [apache/apisix](https://github.com/apache/apisix)
+- Kong
+- Tyk
+- [luraproject/lura](https://github.com/luraproject/lura)
+- [How to choose the right API Gateway for your platform](https://www.moesif.com/blog/technical/api-gateways/How-to-Choose-The-Right-API-Gateway-For-Your-Platform-Comparison-Of-Kong-Tyk-Apigee-And-Alternatives/)

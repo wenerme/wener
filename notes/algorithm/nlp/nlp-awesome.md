@@ -1,5 +1,7 @@
 ---
 title: NPL Awesome
+tags:
+- Awesome
 ---
 
 # NPL Awesome

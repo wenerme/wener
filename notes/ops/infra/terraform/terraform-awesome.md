@@ -1,5 +1,7 @@
 ---
 title: Terraform Awesome
+tags:
+- Awesome
 ---
 
 # Terraform Awesome

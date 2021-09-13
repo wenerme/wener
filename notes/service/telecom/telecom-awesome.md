@@ -1,5 +1,7 @@
 ---
 title: Telecom Awesome
+tags:
+- Awesome
 ---
 
 # Telecom Awesome

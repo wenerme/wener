@@ -1,3 +1,8 @@
+---
+tags:
+- Awesome
+---
+
 # Printing Awesome
 
 * [OpenPrinting/cups](https://github.com/OpenPrinting/cups)

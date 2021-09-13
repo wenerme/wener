@@ -53,6 +53,10 @@ tags:
   - 默认即可使用
 - [rs/zerolog](https://github.com/rs/zerolog)
   - Zero Allocation JSON Logger
+- benchmark
+  - https://github.com/rs/logbench
+    - http://hackemist.com/logbench/
+  - https://github.com/uber-go/zap#performance
 
 ## 数据库驱动
 
@@ -63,6 +67,13 @@ tags:
       - rwc - Read, Write, Create
     - cache shared, private - https://www.sqlite.org/sharedcache.html
     - `_foreign_keys/_fk` - `PRAGMA foreign_keys` - 外键约束
+- [jackc/pgx](https://github.com/jackc/pgx)
+  - 推荐 - 纯 Go
+  - [jackc/pgtype](https://github.com/jackc/pgtype)
+    - 接口没有 pq 提供的类型方便操作
+  - vs pq
+    - [sourcegraph/sourcegraph#16575](https://github.com/sourcegraph/sourcegraph/issues/16575#issuecomment-747923724)
+- [lib/pq](https://github.com/lib/pq)
 
 ## 数据库操作
 
@@ -199,6 +210,8 @@ tags:
   - [在线生成](https://mholt.github.io/json-to-go/)
 - 功能性
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
+  - [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
+    - gqlgen 客户端
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
 
 ## JSON
@@ -299,6 +312,20 @@ tags:
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 
+## 工具
+
+- 配置
+  - viper - 重量级
+    - 会 lowercase YAML key
+    - break space
+  - [knadh/koanf](https://github.com/knadh/koanf)
+    - 轻量 - 功能按需引入 - binary 小
+
+## 国内环境
+
+- [wenerme/go-req](https://github.com/wenerme/go-req)
+- [go-pay/gopay](https://github.com/go-pay/gopay)
+
 ## Markdown
 
 - [yuin/goldmark](https://github.com/yuin/goldmark)
@@ -391,6 +418,8 @@ tags:
 
 ## Tool
 
+- [jondot/goweight](https://github.com/jondot/goweight)
+  - 分析 go 模块大小
 - [google/bloaty](https://github.com/google/bloaty)
   - 二进大小分析
 - [xo/usql](https://github.com/xo/usql)
@@ -400,6 +429,12 @@ tags:
 - [google/ko](https://github.com/google/ko)
   Build and deploy Go applications on Kubernetes
 - [go-task/task](https://github.com/go-task/task)
+
+```bash
+go install github.com/jondot/goweight@latest
+cd cmd/server
+goweight
+```
 
 ## Service
 
@@ -414,11 +449,12 @@ tags:
 - [Go Performance Tools Cheat Sheet](https://steveazz.xyz/blog/go-performance-tools-cheat-sheet/)
 - [CPU Utilization is Wrong](http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html)
 
-## Linux System
+## System
 
 - [rainycape/governator](https://github.com/rainycape/governator)
   - process manager for UNIX systems
 - [ochinchina/supervisord](https://github.com/ochinchina/supervisord)
+- [willscott/go-nfs](https://github.com/willscott/go-nfs)
 
 ## ML/机器学习
 
@@ -516,3 +552,4 @@ https://github.com/hanwen/go-fuse
   line editor with history
 - https://github.com/dop251/goja
   ECMAScript/JavaScript engine
+- https://github.com/elves/elvish

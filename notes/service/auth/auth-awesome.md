@@ -1,5 +1,7 @@
 ---
 title: Auth Awesome
+tags:
+- Awesome
 ---
 
 # Auth Awesome

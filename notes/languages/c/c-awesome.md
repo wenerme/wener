@@ -1,5 +1,7 @@
 ---
 title: C Awesome
+tags:
+- Awesome
 ---
 
 # C Awesome

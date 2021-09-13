@@ -1,5 +1,7 @@
 ---
 title: Data Awesome
+tags:
+- Awesome
 ---
 
 # Data Awesome

@@ -1,5 +1,7 @@
 ---
 title: UI Awesome
+tags:
+- Awesome
 ---
 
 # UI Awesome

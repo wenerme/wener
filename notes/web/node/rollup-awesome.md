@@ -1,5 +1,7 @@
 ---
 title: Rollup Awesome
+tags:
+- Awesome
 ---
 
 # Rollup Awesome

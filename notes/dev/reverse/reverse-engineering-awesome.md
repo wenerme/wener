@@ -1,5 +1,7 @@
 ---
 title: Reverse Engineering Awesome
+tags:
+- Awesome
 ---
 
 # Reverse Engineering Awesome

@@ -10,24 +10,28 @@ title: Kubernetes 标签
 
 - kubernetes.io/ingress.class
 
-| label                            | demo      | desc        |
-| -------------------------------- | --------- | ----------- |
-| k3s.io/hostname                  | node-3    |
-| k3s.io/internal-ip               | 10.10.1.1 |
-| kubernetes.io/arch               | amd64     | +v1.14      |
-| kubernetes.io/hostname           | node-3    |
-| kubernetes.io/os                 | linux     | +v1.14      |
-| node-role.kubernetes.io/`<role>` | true      |
-| node-role.kubernetes.io/master   | true      | Master node |
-| node.kubernetes.io/instance-type | k3s       |
-| topology.kubernetes.io/region    |           | +v1.17      |
-| topology.kubernetes.io/zone      |           | +v1.17      |
+| label                                 | demo      | desc        |
+| ------------------------------------- | --------- | ----------- |
+| k3s.io/hostname                       | node-3    |
+| k3s.io/internal-ip                    | 10.10.1.1 |
+| kubernetes.io/arch                    | amd64     | +v1.14      |
+| kubernetes.io/hostname                | node-3    |
+| kubernetes.io/os                      | linux     | +v1.14      |
+| node-role.kubernetes.io/`<role>`      | true      |
+| node-role.kubernetes.io/master        | true      | Master node |
+| node-role.kubernetes.io/control-plane | true      | cp          |
+| node.kubernetes.io/instance-type      | k3s       |
+| topology.kubernetes.io/region         |           | +v1.17      |
+| topology.kubernetes.io/zone           |           | +v1.17      |
 
 ```bash
 # 设置 node role 为 worker
 # role 名字任意
 # value 不重要，主要是存在该 label
-kubectl label node-2 node-role.kubernetes.io/worker=true
+kubectl label node node-2 node-role.kubernetes.io/worker=true
+# 规划 region 和 zone
+kubectl label node master-1 topology.kubernetes.io/region=sh
+kubectl label node master-1 topology.kubernetes.io/zone=sh-dc1
 ```
 
 ### Deprecated
@@ -102,3 +106,16 @@ matchLabels:
 | ------------------------------ | -------- | ---- |
 | meta.helm.sh/release-name      | linkerd2 |
 | meta.helm.sh/release-namespace | linkerd  |
+
+# FAQ
+
+## region vs zone
+
+- region - 区域
+  - 地区/zone  集合
+  - 同区域 高带宽、低延迟
+- zone - 可用区 `<region>-<zone>`
+  - us-central1
+  - us-central1-a - zone 内区域
+- https://cloud.google.com/compute/docs/regions-zones
+- https://kubernetes.io/docs/setup/best-practices/multiple-zones/

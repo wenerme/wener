@@ -1,5 +1,7 @@
 ---
 title: Init Awesome
+tags:
+- Awesome
 ---
 
 # Init Awesome

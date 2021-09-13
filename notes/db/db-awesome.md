@@ -1,5 +1,7 @@
 ---
 title: Database Awesome
+tags:
+- Awesome
 ---
 
 # Database Awesome

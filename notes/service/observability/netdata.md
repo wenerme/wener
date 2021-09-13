@@ -33,3 +33,15 @@ touch /etc/netdata/.opt-out-from-anonymous-statistics
 # 启动后可保存完整配置
 curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
 ```
+
+## conf
+
+
+```conf
+[global]
+  # memory mode
+  memory mode = dbengine
+```
+
+## registry
+- https://learn.netdata.cloud/docs/agent/registry/#run-your-own-registry

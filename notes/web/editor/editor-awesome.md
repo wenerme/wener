@@ -1,5 +1,7 @@
 ---
 title: Editor Awesome
+tags:
+- Awesome
 ---
 
 # Editor Awesome

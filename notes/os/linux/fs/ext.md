@@ -164,3 +164,31 @@ resize2fs /dev/XXX
 ```bash
 resize2fs -f /dev/sdb2
 ```
+
+## kernel error
+
+```
+blk_update_request: critical target error, dev sda, sector 1875240 op 0x1:(WRITE) flags 0x800 phys_seg 2 prio class 0
+Aborting journal on device sda2-8.
+
+blk_update_request: critical target error, dev sda, sector 1837056 op 0x1:(WRITE) flags 0x800 phys_seg 1 prio class 0
+Buffer I/O error on dev sda2, logical block 196608, lost sync page write
+JBD2: Error -5 detected when updating journal superblock for sda2-8.
+
+EXT4-fs (sda2): I/O error while writing superblock
+EXT4-fs error (device sda2): ext4_journal_check_start:83: Detected aborted journal
+EXT4-fs (sda2): Remounting filesystem read-only
+```
+
+尝试修复
+
+```
+fsck
+```
+
+```
+Journal checksum error found in /dev/sda2
+fsck.ext4: unable to set superblock flags on /dev/sda2
+```
+
+应该是 SD 卡异常了，尝试更换硬件设备。

@@ -25,9 +25,13 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
 
 :::caution
 
-- 数据回调URL & 指令回调URL 验证时 ReceiveID 为 CorpID
-  - 但实际推送时为 SuiteID
 - 在第三方回调事件中使用加解密算法 ReceiveID 内容为 SuiteID
+- 无法获取用户的 Name
+  - 调用时返回 userid 以代替 name
+  - 自建应用需要管理员授权才返回
+  - 对于非第三方创建的成员，第三方通讯录应用也不可获取
+  - 未返回 name 的情况需要通过通讯录展示组件来展示名字
+- 很多个人信息第三方都是无法获取的
 
 :::
 
@@ -58,8 +62,25 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
   - GET+POST
     - GET 用于验证
   - AES 加密
+- 接口差异
+  - 消息推送
+    - 不支持发送到群聊
+    - 不支持发送到互联
 
 ## 回调
+
 - https://work.weixin.qq.com/api/doc/10982
-  - 在第三方回调事件中使用加解密算法，receiveid的内容为suiteid
+  - 在第三方回调事件中使用加解密算法，receiveid 的内容为 suiteid
   - 收到推送后都必须直接返回字符串 success
+- SuiteTicket
+  - 有效期 30 分钟
+  - 一般每隔 11 分钟会推送一次
+  - 最长为 512 字节
+
+## 会话存档
+- RSA2048 pkcs1
+
+```bash
+openssl genrsa -out private-key.pem 2048
+openssl rsa -in private-key.pem -pubout -out public-key.pem
+```

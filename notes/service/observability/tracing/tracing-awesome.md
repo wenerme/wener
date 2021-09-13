@@ -1,5 +1,7 @@
 ---
 title: Tracing Awesome
+tags:
+- Awesome
 ---
 
 # Tracing Awesome

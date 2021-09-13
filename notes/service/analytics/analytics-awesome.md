@@ -1,5 +1,7 @@
 ---
 title: Analytics Awesome
+tags:
+- Awesome
 ---
 
 # Analytics Awesome

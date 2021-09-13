@@ -32,6 +32,27 @@ select * from json_to_recordset('[{"a":1,"b":"first"},{"a":2,"b":"second"}]') as
 select * from json_each_text('{"a":1,"b":2}') as d;
 ```
 
+## XML xpath 返回结果包含 CDATA
+
+- [BUG #16046: xpath returns CDATA tag along with the value in postgres 12](https://www.postgresql.org/message-id/5DB23068.3080601%40anastigmatix.net)
+
+```sql
+-- PG 12+ 返回  <![CDATA[text]]>
+-- PG 11 返回 text
+select unnest(xpath('/s/text()','<s><![CDATA[text]]></s>'));
+-- 添加 string 转换返回正常
+select unnest(xpath('string(/s)','<s><![CDATA[text]]></s>'::xml));
+```
+
+## 系统信息
+
+```sql
+select version();
+show server_version;
+show server_version_num;
+show server_encoding;
+```
+
 ## 静态数据行
 
 ```sql

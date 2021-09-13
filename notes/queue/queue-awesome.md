@@ -1,5 +1,7 @@
 ---
 title: Queue Awesome
+tags:
+- Awesome
 ---
 
 # Queue Awesome

@@ -1,5 +1,7 @@
 ---
 title: BI Awesome
+tags:
+- Awesome
 ---
 
 # BI Awesome

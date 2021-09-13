@@ -1,5 +1,7 @@
 ---
 title: Style Awesome
+tags:
+- Awesome
 ---
 
 # Style Awesome

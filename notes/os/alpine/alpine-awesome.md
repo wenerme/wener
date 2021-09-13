@@ -1,5 +1,7 @@
 ---
 title: AlpineLinux Awesome
+tags:
+- Awesome
 ---
 
 # AlpineLinux Awesome

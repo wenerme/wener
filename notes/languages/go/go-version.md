@@ -1,5 +1,7 @@
 ---
 title: Go Version
+tags:
+- Version
 ---
 
 # Go Version
@@ -8,6 +10,7 @@ title: Go Version
   - 一年两个版本 - 2 月，8 月
 - bugfix backports 一个版本
 - security backports 两个版本
+- [Release History](https://golang.org/doc/devel/release)
 
 :::tip
 
@@ -31,8 +34,6 @@ title: Go Version
 
 - go.mod
   - 支持 lazy 模块
-  - `go mod tidy -go=1.17` - 升级 go.mod
-  - `go mod tidy -compat=1.17` - 降级兼容
   - 支持 `//Deprecated:` 废弃
 - `&T[N]` 转 `*[N]T` - slice 转数组指针 - 长度不够则 `panic`
 - `unsafe.Add(ptr, len)` - 指针运算
@@ -46,6 +47,15 @@ title: Go Version
   - windows/arm64
   - openbsd/mips64 cgo
 - [go1.17](https://golang.org/doc/go1.17)
+- time
+  - 新增 time.UnixMills - 比较好用 - 等同 JS 和 Java 里的 时间戳
+
+```bash
+# 升级 go.mod
+go mod tidy -go=1.17
+# 降级兼容
+go mod tidy -compat=1.17
+```
 
 ## 1.16
 

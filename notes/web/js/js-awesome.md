@@ -1,5 +1,7 @@
 ---
 title: JavaScript Awesome
+tags:
+- Awesome
 ---
 
 # JavaScript Awesome

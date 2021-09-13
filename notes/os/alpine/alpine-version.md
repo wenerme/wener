@@ -1,5 +1,7 @@
 ---
 title: 版本历史
+tags:
+- Version
 ---
 
 # AlpineLinux 版本历史

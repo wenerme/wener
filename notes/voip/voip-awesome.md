@@ -1,5 +1,7 @@
 ---
 title: VoIP Awesome
+tags:
+- Awesome
 ---
 
 # VoIP Awesome

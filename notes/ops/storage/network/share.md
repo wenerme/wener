@@ -5,22 +5,22 @@ title: Share
 
 # File Share
 
-## Tips
-* [AFP vs. SMB and NFS file sharing for network clients](https://www.helios.de/web/EN/news/AFP_vs_SMB-NFS.html)
+- [AFP vs. SMB and NFS file sharing for network clients](https://www.helios.de/web/EN/news/AFP_vs_SMB-NFS.html)
 
 ## FTP
 
-* [pure-ftpd](http://www.pureftpd.org/project/pure-ftpd)
-  * [Pure-FTPd:wikipedia](https://en.wikipedia.org/wiki/Pure-FTPd)
-  * Pure-FTPd 非常简单的 FTP 服务, 只需要 `pure-ftpd &` 即可.
-* [vsftpd](https://security.appspot.com/vsftpd.html)
-  * [vsftpd:wikipedia](https://en.wikipedia.org/wiki/Vsftpd)
-  * 相对较为安全并且迅速稳定.
-* [ProFTPD](http://www.proftpd.org/)
-  * [ProFTPD:wikipedia](https://en.wikipedia.org/wiki/ProFTPD)
-  * 有较多的特性
+- [pure-ftpd](http://www.pureftpd.org/project/pure-ftpd)
+  - [Pure-FTPd:wikipedia](https://en.wikipedia.org/wiki/Pure-FTPd)
+  - Pure-FTPd 非常简单的 FTP 服务, 只需要 `pure-ftpd &` 即可.
+- [vsftpd](https://security.appspot.com/vsftpd.html)
+  - [vsftpd:wikipedia](https://en.wikipedia.org/wiki/Vsftpd)
+  - 相对较为安全并且迅速稳定.
+- [ProFTPD](http://www.proftpd.org/)
+  - [ProFTPD:wikipedia](https://en.wikipedia.org/wiki/ProFTPD)
+  - 有较多的特性
 
 ### OS X
+
 ```bash
 # 自带的 FTP 文件共享
 sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
@@ -31,6 +31,7 @@ sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist
 ```
 
 ### Pure-FTPd
+
 ```bash
 # Create a group for Pure-FTPD.
 # OS X http://serverfault.com/questions/20702
@@ -65,7 +66,9 @@ pure-ftpd restart
 ```
 
 ### vsftp
+
 #### vsftpd.conf.example
+
 ```conf
 # Example config file /etc/vsftpd.conf
 #
@@ -186,23 +189,22 @@ listen=YES
 #listen_ipv6=YES
 ```
 
-
-
 ## Share
-* [ProjectSend](https://github.com/ignacionelson/ProjectSend)
-  * Star < 100
-* [SparkleShare](https://github.com/hbons/SparkleShare)
-  * C#
-  * Star 3k
-* [Syncany](https://github.com/syncany/syncany)
-  * Java
-  * Star 1k
-* [seafile](https://github.com/haiwen/seafile)
-  * C++
-  * Star 3k
-* [ownCloud](https://github.com/owncloud/core)
-  * PHP
-  * Star 4k
+
+- [ProjectSend](https://github.com/ignacionelson/ProjectSend)
+  - Star < 100
+- [SparkleShare](https://github.com/hbons/SparkleShare)
+  - C#
+  - Star 3k
+- [Syncany](https://github.com/syncany/syncany)
+  - Java
+  - Star 1k
+- [seafile](https://github.com/haiwen/seafile)
+  - C++
+  - Star 3k
+- [ownCloud](https://github.com/owncloud/core)
+  - PHP
+  - Star 4k
 
 ## Syncany
 

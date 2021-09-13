@@ -1,5 +1,7 @@
 ---
 title: CSS Awesome
+tags:
+- Awesome
 ---
 
 # CSS Awesome

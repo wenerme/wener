@@ -4,7 +4,6 @@ title: 企业微信开发
 
 # 企业微信开发
 
-- CorpID/SuitID - ww000000000000000a
 - 参考
   - [所有 JS 接口列表](https://work.weixin.qq.com/api/doc/90000/90136/90507)
   - [wenerme/go-wecom](https://github.com/wenerme/go-wecom)
@@ -22,20 +21,79 @@ title: 企业微信开发
 
 - ExternalUserId - 企业微信外部联系人的标识
   - 同一个外部联系人，不同调用方（企业/第三方服务商）获取到的 ExternalUserId 是不同的
+  - 同一个人在不同群 ID 是不一样的
 - 不同调用方（企业/第三方服务商）获取到的 chat_id 是不同的
 
 :::
 
-```html
-<!-- 微信 SDK -->
-<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<!-- 企业微信 SDK -->
-<script src="https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js"></script>
+| secret                             | valid/refresh | desc                                                |
+| ---------------------------------- | ------------- | --------------------------------------------------- |
+| corp_id                            |               | 企业身份                                            |
+| agent_id                           |               | 企业应用身份编号                                    |
+| corp_secret                        | 7200          | 企业 **应用** 的凭证密钥                            |
+| access_token                       |               | corp_id+corp_secret                                 |
+| js_api_ticket                      | 7200          | access_token                                        |
+| js_config_signature                |               | 微信 JS SDK 签名 - corp_id+js_api_ticket            |
+| agent_ticket                       | 7200          | access_token                                        |
+| agent_config_signature             |               | 企业微信 JS SDK 签名 - agent_id+agent_ticket        |
+| contacts_sync_secret               |               | 通讯录同步密钥                                      |
+| message_archiving_secret           |               | 消息存档密钥                                        |
+| token+encoding_aes_key+receiver_id |               | 消息回调密钥组 - receiver_id 为 corp_id 或 suite_id |
+| suite_id                           |               | 应用套件                                            |
+| suite_secret                       |               | 应用密钥                                            |
+| suite_ticket                       | 1800/660      | 应用票据 - 通过推送接收                             |
+| suite_access_token                 | 7200          | suite_id+suite_secret+suite_ticket                  |
+| provider_secret                    |               | 服务商密钥                                          |
+| provider_access_token              | 7200          | corp_id+provider_secret                             |
+| pre_auth_code                      | 1200          | 预授权码 - 企业授权时的第三方服务商安全验证         |
+| auth_code                          | 600           | 应用安装完成回调参数                                |
+| permanent_code                     |               | 企业微信永久授权码 - 使用 auth_code 换取            |
+| auth_corp_access_token             | 7200          | suite_access_token+auth_corpid+permanent_code       |
+| ServiceCorpId                      |               | 服务商 corpid - push event                          |
+| AuthCorpId                         |               | 企业 corpid - push event                            |
 
-<!-- 基于 TS 的 企业微信 SDK - 调试阶段 - 不建议使用 -->
-<!-- https://developers.weixin.qq.com/community/develop/article/doc/00066e5ca6ca78537a1b56b1056c13 -->
-<script src="https://wwcdn.weixin.qq.com/node/open/js/jwecom-1.0.3.js"></script>
-```
+- 接收消息场景
+  - 消息推送
+  - 事件推送
+  - 通讯录变更推送
+  - 会话内容存档
+  - 服务商
+    - 数据回调 - 接收托管企业微信应用 的 用户消息
+      - 用户消息、进入应用事件、通讯录变更事件
+      - receiver_id 为 corp_id
+    - 指令回调 - 应用授权变更 + ticket
+      - 应用添加、删除、修改
+      - receiver_id 为 suite_id
+  - 安装完成回调域名
+    - 包含临时 auth_code，再用此 code 换取永久授权码
+
+| ID Prefix | stand for             | demo                             |
+| --------- | --------------------- | -------------------------------- |
+| oa        | union id              |
+| ww        | CorpID/SuitID         | ww000000000000000a               |
+| wr        | room id               | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
+| wm        | external open/user id | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
+| wo        | open id               |
+| tj        | suite id/早期套件     | tjddddccc7775555aaa              |
+| 1000000   | 自建 agent id         | 1000001                          |
+| 2000000   | 系统应用 agent id     | 2000004 会话归档                 |
+| 3000000   | 管理应用 agent id     | 3010084 日程                     |
+
+## Limit
+
+|       API limit |    min |      hour |
+| --------------: | -----: | --------: |
+|        Corp/api | 10,000 |   150,000 |
+|          IP/api | 20,000 |   600,000 |
+| Provider/IP/api | 40,000 | 1,200,000 |
+
+| message            | limit               |
+| ------------------ | ------------------- |
+| Agent/Message      | 帐号上限数\*200/day |
+| Agent/User/Message | 30/min              |
+
+- [访问频率限制](https://work.weixin.qq.com/api/doc/90000/90139/90312)
+- [企业微信发送文件的限制](https://open.work.weixin.qq.com/help2/pc/cat?person_id=1&is_tencent=&doc_id=14908)
 
 ## 配置
 
@@ -51,6 +109,17 @@ title: 企业微信开发
 - getCurExternalChat
   - 自建 客户联系功能权限
   - 第三方 企业客户权限->客户基础信息
+
+```html
+<!-- 微信 SDK -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<!-- 企业微信 SDK -->
+<script src="https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js"></script>
+
+<!-- 基于 TS 的 企业微信 SDK - 调试阶段 - 不建议使用 -->
+<!-- https://developers.weixin.qq.com/community/develop/article/doc/00066e5ca6ca78537a1b56b1056c13 -->
+<script src="https://wwcdn.weixin.qq.com/node/open/js/jwecom-1.0.3.js"></script>
+```
 
 ## api
 
@@ -72,8 +141,8 @@ title: 企业微信开发
 | 微信客服     | /kf               |
 | ^            | /kf/account       | 账号         |
 | ^            | /kf/servicer      | 接待人员     |
-| 应用管理     |
-| 消息推送     |
+| 应用管理     | /agent            |
+| 消息推送     | /message          |
 | 素材管理     |
 | OA           |
 | ^            |                   | 打卡         |
@@ -83,7 +152,8 @@ title: 企业微信开发
 | ^            |                   | 会议室       |
 | ^            |                   | 紧急通知应用 |
 | 效率工具     |
-| ^            |                   | 日程         |
+| ^            | /oa/calendar      | 日历         |
+| ^            | /oa/schedule      | 日程         |
 | ^            |                   | 会议         |
 | ^            |                   | 直播         |
 | ^            |                   | 微盘         |
@@ -98,3 +168,12 @@ title: 企业微信开发
 ## 客户联系
 
 - 独立的一套开发接口
+
+# FAQ
+
+## 60011: no privilege to access/modify contact/party/agent
+
+- 修改应用的 可见范围
+  - 操作会触发 change_auth 事件
+  - 新可见用户会发送 subscribe 事件
+  - 不可见用户会发送 unsubscribe 事件

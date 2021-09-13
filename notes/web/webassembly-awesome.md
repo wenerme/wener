@@ -1,8 +1,11 @@
 ---
 title: WASM Awesome
+tags:
+- Awesome
 ---
 
 # WASM Awesome
+
 - bytecodealliance
   - [bytecodealliance/lucet](https://github.com/bytecodealliance/lucet)
     Sandboxing WebAssembly Compiler.
@@ -18,3 +21,8 @@ title: WASM Awesome
   - MIT, Rust
   - [wasmerio/wasmer-go](https://github.com/wasmerio/wasmer-go)
     runtime for Go
+- [aduros/wasm4](https://github.com/aduros/wasm4)
+  - Build retro games using WebAssembly
+- [wasm3/wasm3](https://github.com/wasm3/wasm3)
+  - MIT, C
+  - interpreter

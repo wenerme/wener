@@ -1,5 +1,7 @@
 ---
 title: React Awesome
+tags:
+- Awesome
 ---
 
 # React Awesome

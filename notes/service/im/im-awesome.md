@@ -1,5 +1,7 @@
 ---
 title: IM Awesome
+tags:
+- Awesome
 ---
 
 # IM Awesome

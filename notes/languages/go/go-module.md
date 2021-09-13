@@ -30,6 +30,11 @@ go mod tidy                               # 组织/清理 go.mod go.sum
 go mod download                           # 下载依赖到缓存
 go mod why -m github.com/path/to/module   # 依赖原因
 go install github.com/path/to/bin@latest  # 安装
+
+# 升级 go.mod
+go mod tidy -go=1.17
+# 用 1.6 选择逻辑 然后升级 1.7
+go mod tidy -go=1.16 && go mod tidy -go=1.17
 ```
 
 ```go.mod
@@ -40,6 +45,9 @@ require (
 )
 exclude github.com/dep/legacy v1.9.2
 replace github.com/dep/one => github.com/fork/one
+
+# use vendored
+replace github.com/wenerme/go-wecom => ./modules/wecom
 ```
 
 ```html
@@ -75,6 +83,15 @@ go list -f '{{.Dir}}' -m github.com/pkg/errors
 # 模块缓存目录
 go env GOMODCACHE
 ```
+
+## 依赖管理
+
+- [managing-dependencies](https://golang.org/doc/modules/managing-dependencies)
+
+## go.work
+
+- 多空间 - monorepo
+- https://go.googlesource.com/proposal/+/master/design/45713-workspace.md
 
 ## go get
 

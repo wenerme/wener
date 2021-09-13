@@ -6,9 +6,12 @@ title: PostgreSQL Awesome
 
 - [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
   - 实时增量固化查询
+- PipelineDB
+- Superbase
 
 ## Extension
 
+- TimescaleDB
 - [apache/incubator-age](https://github.com/apache/incubator-age)
   - Graph + Realtime
   - openCypher
@@ -25,3 +28,20 @@ title: PostgreSQL Awesome
 - [plv8/plv8](https://github.com/plv8/plv8)
 - [pllua/pllua](https://github.com/pllua/pllua)
 - [tada/pljava](https://github.com/tada/pljava)
+
+## Read
+
+- [HN](https://news.ycombinator.com/item?id=28425379)
+
+# FAQ
+
+## HA vs Horizontal Scale
+
+- HA
+  - 可以是 master-master 方式
+  - 可以是 master-slave 方式
+  - 但每个节点是完整数据
+  - 强调可用
+- HS
+  - 每个节点数据不是完整的 - sharding
+  - 目前只有 citus 提供这样的能力

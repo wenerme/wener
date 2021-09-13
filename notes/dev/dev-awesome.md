@@ -1,5 +1,7 @@
 ---
 title: Dev Awesome
+tags:
+- Awesome
 ---
 
 # Dev Awesome
@@ -7,6 +9,7 @@ title: Dev Awesome
 ## Read
 
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
+- [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 
 ## Misc
 

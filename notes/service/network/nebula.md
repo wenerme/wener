@@ -19,15 +19,20 @@ title: nebula
 - lighthouse 辅助 nat punch
 - 参考
   - [Creating a Fast, Secure, Location Agnostic Mesh Network with Nebula - Ryan Huber](https://youtu.be/qy2cgqglt3o)
+  - [slackhq/nebula#33](https://github.com/slackhq/nebula/issues/33)
 
 :::caution
 
-- 目前直连为主，没有类似 tinc 的通过节点路由的逻辑 - [#218](https://github.com/slackhq/nebula/issues/218)
+- 目前直连为主，没有类似 tinc 的通过节点路由的逻辑
   - 通过 lighthouse 支持路由一个网络
+  - [#218](https://github.com/slackhq/nebula/issues/218) Route traffic through other nodes like Tinc VPN
+  - [#204](https://github.com/slackhq/nebula/issues/204) Nebula does not reroute through lighthouse if hole punching does not work
 - 不支持 unsafe_routes 之外自定义路由 - [#274](https://github.com/slackhq/nebula/issues/274)
   - 只能使用预先定义的网络 - 不能 `ip ro add`
   - 不支持 flannel+nebula
 - NAT 不是特别稳定，不一定能穿透
+  - 如果出现
+- macOS CPU 占用很高 - 100M 跑满 CPU, Linux 大约 20%
 
 :::
 

@@ -286,3 +286,23 @@ provisioner 名字不匹配，还 sc 名字或删了重建。
 --kube-reserved-cgroup=
 --system-reserved-cgroup=
 ```
+
+## node(s) had volume node affinity conflict
+
+- 如果是 pv 无法迁移，切影响不大，可以考虑删除了从建
+
+可能 pvc 和 pod zone 冲突，可以针对 zone 创建 sc
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: region1storageclass
+provisioner: kubernetes.io/aws-ebs
+volumeBindingMode: WaitForFirstConsumer
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: failure-domain.beta.kubernetes.io/zone
+        values:
+          - eu-west-2b
+```

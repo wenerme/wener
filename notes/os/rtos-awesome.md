@@ -1,5 +1,7 @@
 ---
 title: RTOS Awesome
+tags:
+- Awesome
 ---
 
 # RTOS Awesome

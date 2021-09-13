@@ -1,5 +1,7 @@
 ---
 title: Service Awesome
+tags:
+- Awesome
 ---
 
 # Service Awesome
@@ -32,6 +34,8 @@ title: Service Awesome
 - [laymonage/giscus](https://github.com/laymonage/giscus)
   - 基于 Github Disscuss 的评论系统
 - [public-apis/public-apis](https://github.com/public-apis/public-apis)
+- [vendure-ecommerce/vendure](https://github.com/vendure-ecommerce/vendure)
+- [medusajs/medusa](https://github.com/medusajs/medusa)
 
 ## Avatar
 

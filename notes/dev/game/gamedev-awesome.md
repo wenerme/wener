@@ -1,5 +1,7 @@
 ---
 title: GameDev Awesome
+tags:
+- Awesome
 ---
 
 # GameDev Awesome

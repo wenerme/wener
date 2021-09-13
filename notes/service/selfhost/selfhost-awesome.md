@@ -1,5 +1,7 @@
 ---
 title: Selfhost Awesome
+tags:
+  - Awesome
 ---
 
 # Selfhost Awesome
@@ -53,6 +55,19 @@ title: Selfhost Awesome
     - PHP
 - [Prowlarr/Prowlarr](https://github.com/Prowlarr/Prowlarr)
 - [bastienwirtz/homer](https://github.com/bastienwirtz/homer)
+- [stashapp/stash](https://github.com/stashapp/stash)
+  - AGPL-3.0, Go
+  - organizer for your porn
+- CalDAV/CardDAV
+  - [Kozea/Radicale](https://github.com/Kozea/Radicale)
+    - GPL-3.0, Python
+  - [sabre-io/Baikal](https://github.com/sabre-io/Baikal)
+    - GPL-3.0, Go
+- [jonaswinkler/paperless-ng](https://github.com/jonaswinkler/paperless-ng)
+  - GPL-3.0, Python
+  - archive physical documents by scan
+- [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
+- [BookStackApp/BookStack](https://github.com/BookStackApp/BookStack)
 - 参考
   - [NX211/workbench](https://github.com/NX211/workbench)
 
@@ -76,3 +91,7 @@ title: Selfhost Awesome
 ## Download
 
 - [varbhat/exatorrent](https://github.com/varbhat/exatorrent)
+
+## Misc
+
+- [luminoleon/epicgames-claimer](https://github.com/luminoleon/epicgames-claimer)

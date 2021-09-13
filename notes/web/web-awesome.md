@@ -1,5 +1,7 @@
 ---
 title: Web Awesome
+tags:
+- Awesome
 ---
 
 # Web Awesome
@@ -10,10 +12,16 @@ title: Web Awesome
 ## 技术
 
 - [hotwire](https://hotwire.dev/)
+
+## Desktop
+
 - [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
   - Build desktop applications with a web frontend
   - 基于 Rust tao
-  - 类似于 Electron - 但底层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
+  - 层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
+- [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
+  - 使用 Native WebView
+- [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 
 ## Build
 

@@ -1,5 +1,7 @@
 ---
 title: Embedded Awesome
+tags:
+- Awesome
 ---
 
 # Embedded Awesome
