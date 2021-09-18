@@ -21,10 +21,16 @@ title: License
 
 # AGPL
 
+- AGPL - GNU Affero General Public License
 - 基于 GNU GPL - 增加通过网络提供服务的条款
 - 避免 GPL 的 Application Service Provider 场景
 - [List of software under the GNU AGPL](https://en.wikipedia.org/wiki/List_of_software_under_the_GNU_AGPL)
   - 值得注意的项目: Minio, Grafana, Nextcloud, OnlyOffice, Wiki.js
+- 对 derived work of the AGPL software 的定义模糊
+  - 通常理解是没有 AGPL 软件无法使用
+- 对 user 的定义不同于 GPL
+  - 包含通过网络使用服务的用户
+- GPL 和 AGPL 都是影响 modified versions
 - 参考
   - Choose [AGPL 3.0](https://choosealicense.com/licenses/agpl-3.0/)
   - Google [AGPL Policy](https://opensource.google/docs/using/agpl-policy/)
@@ -77,3 +83,11 @@ title: License
 [cc-by-sa-img]: https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 ```
+
+# FAQ
+
+## LGPL vs GPL vs AGPL
+
+- LGPL: you can link against and don't have to release source code as long as you don't modify the library itself
+- GPL: you have to release source code if you link against and distribute the binary, but don't if you just provide a service
+- AGPL: you have to allow the source to be downloaded even if you never distribute the binary but do provide a service

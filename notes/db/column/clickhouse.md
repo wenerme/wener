@@ -17,6 +17,7 @@ title: ClickHouse
   - [wiki/ClickHouse](https://en.wikipedia.org/wiki/ClickHouse)
   - [clickhouse.yandex](https://clickhouse.yandex/)
   - https://clickhouse.yandex/docs/en/development/architecture/
+  - [Altinity/clickhouse-operator](https://github.com/Altinity/clickhouse-operator)
 
 :::tip
 

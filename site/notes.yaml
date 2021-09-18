@@ -173,6 +173,9 @@
       prefix: ./file
     - label: 存储
       prefix: ./storage
+      items:
+        - label: Ceph
+          prefix: ./ceph
     - label: 网络
       prefix: ./network
       items:

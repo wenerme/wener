@@ -156,3 +156,23 @@ sudo ifconfig en0 -alias 128.133.123.83/24 up
 
 - connect to pancake.apple.com
 - phone home to verify that your device is authorised for home sharing
+
+## qlgenerator - QuickLook Generator
+
+- macOS Catalina+ /Library/QuickLook/
+- ~/Library/QuickLook/
+
+## Install qlgenerator
+
+```bash
+sudo mv ~/Downloads/AVIFQuickLook.qlgenerator /Library/QuickLook/
+xattr -d -r com.apple.quarantine /Library/QuickLook/AVIFQuickLook.qlgenerator
+qlmanage -r
+
+qlmanage -p input.avif    # preview
+qlmanage -t input.avif -x # generate thumnail
+
+# if using ~/Library/QuickLook/
+mkdir -p ~/Library/QuickLook/
+xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
+```

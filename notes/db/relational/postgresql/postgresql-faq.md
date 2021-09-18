@@ -1,6 +1,8 @@
 ---
 id: faq
 title: 常见问题
+tags:
+  - FAQ
 ---
 
 # PostgreSQL FAQ

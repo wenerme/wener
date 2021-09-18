@@ -1,5 +1,7 @@
 ---
 title: Pg SQL 常见问题
+tags:
+  - FAQ
 ---
 
 # PostgreSQL SQL 问题
@@ -115,6 +117,16 @@ GROUPING SETS (
   - 可以 commit 和 rollback
   - 使用 CALL 调用
   - 不可以嵌套到其他 DDL - SELECT,INSERT,UPDATE,DELETE
+
+## plpgsql vs sql
+
+- sql
+  - 简单
+  - 已经熟悉 SQL
+- plpgsql
+  - 支持复杂语法
+  - 支持控制流 - 能做到单个 SQL 做不到的事情
+- https://stackoverflow.com/a/24771561/1870054
 
 ## 函数返回影响行
 

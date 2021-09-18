@@ -36,9 +36,11 @@ tags:
 - [yyets.dmesg.app](https://yyets.dmesg.app/)
   - https://yyets.dmesg.app/data/yyets_mongo.gz
 
-## share
+## list
 
 - [reruin/sharelist](https://github.com/reruin/sharelist)
+- [Xhofe/alist](https://github.com/Xhofe/alist)
+  - 阿里云盘列表
 
 # FAQ
 

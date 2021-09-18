@@ -100,6 +100,8 @@ tags:
   - gate-level simulators and for Game Boy
   - [HN](https://news.ycombinator.com/item?id=28396927)
 - [Exploring the Amiga - Part 1](https://www.thedigitalcatonline.com/blog/2018/05/28/exploring-the-amiga-1/)
+- [AlexAltea/orbital](https://github.com/AlexAltea/orbital)
+  - PS4
 
 ## 开发
 

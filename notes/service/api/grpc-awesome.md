@@ -42,8 +42,10 @@ tags:
   - gRPC Web 实现
   - 支持 Websocket 模式
   - [improbable-eng/ts-protoc-gen](https://github.com/improbable-eng/ts-protoc-gen)
-- https://github.com/google/gnostic
+- [google/gnostic](https://github.com/google/gnostic)
   - JSON and YAML OpenAPI descriptions to and from equivalent Protocol Buffer representations
+- [googleapis/api-linter](https://github.com/googleapis/api-linter)
+- [tmc/grpcutil](https://github.com/tmc/grpcutil)
 
 ## GUI
 

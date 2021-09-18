@@ -1,5 +1,7 @@
 ---
 title: Format Awesome
+tags:
+- Awesome
 ---
 
 # Format Awesome

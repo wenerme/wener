@@ -1,10 +1,10 @@
 ---
 title: Ceph
+id: ceph
 ---
 
 # Ceph
 
-## Tips
 - 适用场景
   - 单独存储集群
   - 大存储集群 - TB+ PB+
@@ -12,13 +12,14 @@ title: Ceph
   - 不太适合于直接部署到 k8s 小集群作为微服务存储使用
   - 简单的分布式文件系统
 - [ceph/ceph](https://github.com/ceph/ceph)
-  - [文档](http://docs.ceph.com/docs/master/)
+  - LGPL-2.1+LGPL-3.0, C++
 - imixs [Ceph](https://github.com/imixs/imixs-cloud/blob/master/doc/CEPH.md)
 - 默认日志路径为 `/var/lib/ceph/osd/$cluster-$id/journal`, 可将该文件挂在到其它磁盘以增加性能
 - Ceph 使用副本或 EC 来保护数据
 - CephFS 默认端口为 6789
 - 参考
   - [Bluestore vs. Filestore: A Functional Comparison and a Benchmark](https://www.youtube.com/watch?v=VFeDB7PQHZ4)
+  - [文档](http://docs.ceph.com/docs/master/)
 
 **最佳实践**
 

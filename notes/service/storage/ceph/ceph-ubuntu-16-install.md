@@ -4,8 +4,9 @@ title: Ubuntu 16.04 安装 Ceph
 ---
 
 # Ubuntu 16.04 安装 Ceph
-* [Configure Ceph Cluster on Ubuntu 16.04](https://www.server-world.info/en/note?os=Ubuntu_16.04&p=ceph)
-* [Quick Ceph Deploy](http://docs.ceph.com/docs/master/start/quick-ceph-deploy/)
+
+- [Configure Ceph Cluster on Ubuntu 16.04](https://www.server-world.info/en/note?os=Ubuntu_16.04&p=ceph)
+- [Quick Ceph Deploy](http://docs.ceph.com/docs/master/start/quick-ceph-deploy/)
 
 ```bash
 # 准备机器 node-1 node-2 node-3 node-4

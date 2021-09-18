@@ -54,7 +54,11 @@ tags:
 - [ULID](https://github.com/ulid/spec)
   - [#41](https://github.com/ulid/spec/issues/41)
     PostgreSQL
-  - [iCyberon/pg_ulid](https://github.com/iCyberon/pg_ulid)
+  - extension
+    - [edoceo/pg-ulid](https://github.com/edoceo/pg-ulid)
+    - [iCyberon/pg_ulid](https://github.com/iCyberon/pg_ulid)
+  - plpgsql
+    - [geckoboard/pgulid](https://github.com/geckoboard/pgulid)
   - [UUIDv6](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00)
     有点类似 ULID
 

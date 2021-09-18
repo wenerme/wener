@@ -34,6 +34,19 @@ iPhone7 32G 用了几年后，微信占了 10G，如果能把微信备份后清�
     - .mbdb - 二进制文件，需要自定义解码逻辑
     - .db - sqlite3 - 新版一般是 sqlite3
 
+```bash
+# 打开 Manifest.db
+sqlite3 Manifest.db
+```
+
+```sql title="常用操作"
+-- 查看表
+.tables
+.tables Chat_%
+-- 查看表结构
+.schema Chat_ID
+```
+
 ```sql
 -- 关心的文件
 select fileID,relativePath from Files
@@ -56,7 +69,7 @@ where domain = 'AppDomain-com.tencent.xin';
 - 备份后包含微信数据
   - `message_%d.sqlite` - 聊天对话
     - ChatExt2_ID
-    - Chat_ID
+    - Chat_ID - 对应一个聊天会话
     - Hello_ID
   - WCDB_Contact.sqlite - 联系人
     - Friend - 好友
@@ -77,6 +90,12 @@ where domain = 'AppDomain-com.tencent.xin';
     - QQContact
     - RevokeMsgTable
     - friend_meta
+- 特殊数据
+  - 100000000@chatroom - 群组会话
+  - wxid_ - 标准微信 ID
+  - QQ1000000000
+  - gh_123456789abc - 公众号
+  - v1_xxxx@stranger - 加密后陌生人姓名
 
 # 附录
 

@@ -9,6 +9,7 @@ title: Golang
 
 - `go get` 不会下载源码到 `~/go/src` 了 - [#31529](https://github.com/golang/go/issues/31529)
 - c-shared 不支持 musl - [golang/go#13492](https://github.com/golang/go/issues/13492)
+- json omitempty 不支持 struct [golang/go#11939](https://github.com/golang/go/issues/11939)
 
 :::
 

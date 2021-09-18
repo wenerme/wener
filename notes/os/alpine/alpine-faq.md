@@ -187,3 +187,7 @@ mount UUID=x-x-x-x /sysroot
 ```bash
 sudo sysctl kernel.dmesg_restrict=0
 ```
+
+## mirrors
+
+- https://mirrors.alpinelinux.org

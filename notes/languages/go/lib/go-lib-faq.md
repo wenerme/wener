@@ -43,7 +43,7 @@ title: Golang 库常见问题
 
 ---
 
-- go-micro
+- [asim/go-micro](https://github.com/asim/go-micro)
   - Apache-2.0
   - library - 面向分布式微服务开发 - RPC, 事件驱动
   - 类似 Spring for Java 和 Rails for Ruby 角色

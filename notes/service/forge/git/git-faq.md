@@ -1,5 +1,7 @@
 ---
 title: Git FAQ
+tags:
+- FAQ
 ---
 
 # Git FAQ

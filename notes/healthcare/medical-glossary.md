@@ -16,11 +16,20 @@ title: 医学词汇表
   - 磁共振成像 - MRI - Magnetic Resonance Imaging
 - CT - Computerized Tomography - 计算机层析成像
 
-## CT vs MRI
+## X-ray vs CT vs MRI
 
-- X 射线 - 1901 年
+- X 射线 - X-Ray - 1901 年
+  - 2D 成像
+  - 检测异常
+  - 检测组织
+  - 要求更简单、成本更低
 - CT - 1979 年
-  - X 光 - 有辐射 - 电离辐射损伤
+  - 3D 成像
+  - vs X 射线
+    - 更详细
+    - 能扫描骨、软组织、blood vessels
+    - 辐射是 xray 的 10～100倍
+  - 有辐射 - 电离辐射损伤
   - 只能获取与人体长轴垂直的横断面
 - MRI - 2003 年
   - 磁场扫描 - 没有辐射 - 安全、快速、准确
@@ -35,6 +44,8 @@ title: 医学词汇表
 | en       | cn     |
 | -------- | ------ |
 | diabetes | 糖尿病 |
+
+- https://www.health.harvard.edu/cancer/radiation-risk-from-medical-imaging
 
 ## 儿童相关词汇
 

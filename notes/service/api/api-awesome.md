@@ -23,6 +23,10 @@ tags:
 
 - Google [AIP](https://google.aip.dev/general) - API Improvement Proposals
 - [Financial-grade API](https://fapi.openid.net)
+- [Microsoft Graph](https://docs.microsoft.com/zh-cn/graph/overview)
+  - github [microsoftgraph](https://github.com/microsoftgraph)
+  - [graph-explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer)
+- [WangNingkai/OLAINDEX](https://github.com/WangNingkai/OLAINDEX)
 
 ## RPC
 

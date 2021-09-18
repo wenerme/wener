@@ -9,6 +9,24 @@ title: Go FAQ
 - json.Number - encode 保留 number
 - `json:",string"` - encode 会转 string
 
+## sql null
+
+- 直接使用指针
+  - 简单、无外部依赖
+  - json、mapstructure 能正确处理
+  - 代码逻辑复杂一点
+  - 可能导致未预期的修改
+- sql.NullType
+  - 代码逻辑清晰，不会导致指针修改
+  - json、mapstructure 无法正确处理
+  - mapstructure 需要自定义 Hook
+- null.Type - [guregu/null](https://github.com/guregu/null)
+  - 引入外部库
+  - 提供便捷方法
+  - 支持 json
+  - mapstructure 无法正确处理
+  - mapstructure 需要自定义 Hook
+
 ## Struct 是否使用指针
 
 - 尽量不使用指针 - 直接使用 Struct 会更快

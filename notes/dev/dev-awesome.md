@@ -1,7 +1,7 @@
 ---
 title: Dev Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Dev Awesome
@@ -44,3 +44,7 @@ tags:
 
 - A simple way to build collaborative web apps
   - [HN](https://news.ycombinator.com/item?id=28209736)
+
+## Microservices
+
+- [Event-Driven Data Management for Microservices](https://www.nginx.com/blog/event-driven-data-management-microservices/)
