@@ -61,5 +61,5 @@ avifenc -l input.png png.avif
 # Batch
 ls *.jpg | xargs basename -s .jpg | xargs -I {} avifenc -j 12 --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim  {}.jpg ../avif/{}.avif
 find input -type d | xargs -I {} mkdir -p "avif/{}"
-find input -type f -iname '*.jpg' | sed 's/.jpg$//' | xargs -I {} avifenc -j 12 --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -a color:aq-mode=1 -a color:sharpness=2 -a color:enable-chroma-deltaq=1 -a color:qm-min=0 {}.jpg avif/{}.avif
+find input -type f -iname '*.jpg' | sed 's/.jpg$//' | xargs -I {} avifenc -j $(nproc) --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -a color:aq-mode=1 -a color:sharpness=2 -a color:enable-chroma-deltaq=1 -a color:qm-min=0 {}.jpg avif/{}.avif
 ```

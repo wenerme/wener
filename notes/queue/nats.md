@@ -263,3 +263,7 @@ nkeys 包含私钥信息
 ## nats-top
 
 - [nats-io/nats-top](https://github.com/nats-io/nats-top)
+
+# FAQ
+
+## cannot create a queue subscription for a consumer without a deliver group
