@@ -16,6 +16,7 @@ title: VictoriaMetrics
     - 64vCPU 240G - 19M/s
     - 基本呈线性增长 - 1.6-1.8x
 - http://victoriametrics:8428/api/v1/write
+- 存储设计参考 ClickHouse
 
 :::caution
 

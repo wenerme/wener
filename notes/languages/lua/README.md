@@ -5,13 +5,14 @@ title: Lua
 
 # Lua
 
-## Tips
 - [lua/lua](https://github.com/lua/lua)
 - [5.4/manual](https://www.lua.org/manual/5.4/manual.html)
-- 注意
-  - 不能直接为 Table 添加额外方法, 因为每个 Table 都有自己的 Metadata
-- 参考
-  - [openresty/luajit2](https://github.com/openresty/luajit2) - OpenResty 的 LuaJIT fork
+
+:::caution
+
+- 不能直接为 Table 添加额外方法, 因为每个 Table 都有自己的 Metadata
+
+:::
 
 ```lua
 -- 自定义加载目录
@@ -85,7 +86,7 @@ end)()
 - 元表 - 操作重载
 
 | method                | demo      |
-| --------------------- | --------- |
+| --------------------- | --------- | ---------------------- |
 | `__add(a, b)`         | `a + b`   |
 | `__sub(a, b)`         | `a - b`   |
 | `__mul(a, b)`         | `a * b`   |

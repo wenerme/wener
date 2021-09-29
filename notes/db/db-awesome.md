@@ -1,7 +1,7 @@
 ---
 title: Database Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Database Awesome
@@ -61,6 +61,7 @@ tags:
     - [geckoboard/pgulid](https://github.com/geckoboard/pgulid)
   - [UUIDv6](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00)
     有点类似 ULID
+- [Sharding & IDs at Instagram](https://instagram-engineering.com/1cf5a71e5a5c)
 
 ## Big Data
 

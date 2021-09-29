@@ -54,6 +54,10 @@ rclone mount gd: /tmp/gd \
   --drive-v2-download-min-size 0
 ```
 
+## one drive
+- [#4062](https://github.com/rclone/rclone/issues/4062) Implement OneDrive shared with me
+- https://rclone.org/webdav/#sharepoint-online
+
 # FAQ
 
 ## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF

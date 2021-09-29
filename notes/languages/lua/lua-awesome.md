@@ -9,7 +9,14 @@ tags:
 - 参考
   - [MegaBedder/my-awesome-lua](https://github.com/MegaBedder/my-awesome-lua)
 
-## Lua VM
+## Runtime
+
+- [LuaJIT/LuaJIT](https://github.com/LuaJIT/LuaJIT)
+  - Lua 5.1
+- [openresty/luajit2](https://github.com/openresty/luajit2)
+  - OpenResty fork LuaJIT
+
+## Lua VM Internal
 
 - [Lua VM FAQ](https://gist.github.com/zeux/bb646a63c02ff2828117092036d2d174)
 - [Lua 5.3 Bytecode Reference](https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html)
@@ -24,7 +31,7 @@ tags:
     - tail-recursive
 - [yuin/gopher-lua](https://github.com/yuin/gopher-lua)
   - Lua 5.1 VM and Compiler
-- [aarzilli/golua/](https://github.com/aarzilli/golua/)
+- [aarzilli/golua](https://github.com/aarzilli/golua)
   - Go bindings for Lua C API
 
 ## stdlib

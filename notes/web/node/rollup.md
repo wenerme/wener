@@ -192,7 +192,7 @@ commonjs({
   namedExports: {
   'node_modules/@emotion/memoize/dist/memoize.cjs.js':['memoize']
   },
-}),
+})
 ```
 
 ## lodash 没能 剔除/tree shake

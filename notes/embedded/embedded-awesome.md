@@ -1,7 +1,7 @@
 ---
 title: Embedded Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Embedded Awesome
@@ -69,3 +69,10 @@ tags:
 ## GUI
 
 - [lvgl/lvgl](https://github.com/lvgl/lvgl)
+
+## Lang
+
+- [cesanta/elk](https://github.com/cesanta/elk)
+  - GPLv2, C
+  - 单文件实现大部分 es5 功能 -  1400 loc [elk.c](https://github.com/cesanta/elk/blob/master/elk.c)
+  - https://news.ycombinator.com/item?id=28614092

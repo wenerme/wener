@@ -1,7 +1,7 @@
 ---
 title: API Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # API Awesome
@@ -69,3 +69,9 @@ tags:
 - Tyk
 - [luraproject/lura](https://github.com/luraproject/lura)
 - [How to choose the right API Gateway for your platform](https://www.moesif.com/blog/technical/api-gateways/How-to-Choose-The-Right-API-Gateway-For-Your-Platform-Comparison-Of-Kong-Tyk-Apigee-And-Alternatives/)
+
+## Doc
+
+- [slatedocs/slate](https://github.com/slatedocs/slate)
+- swagger
+- graphql

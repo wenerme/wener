@@ -42,6 +42,10 @@ title: Database FAQ
   - Hadoop 是 DL，而在这之上的 HBase 则是 DW
   - 一般数据不允许更新
 
+## OLTP vs OLAP
+
+- https://www.stitchdata.com/resources/oltp-vs-olap/
+
 ## Connect String / DSN
 
 ### PostgreSQL

@@ -89,6 +89,11 @@ title: Kubernetes 版本
   - [1.22: Here’s What You Need To Know](https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22/)
   - [Kubernetes 1.22 – What’s new?](https://sysdig.com/blog/kubernetes-1-22-whats-new/)
 
+```bash
+# 当前使用的 ingress 版本
+kubectl get ing --all-namespaces -o $'go-template={{range $k,$v := .items}}{{.apiVersion}}\n{{end}}' | sort -n -u
+```
+
 ```yaml
 apiVersion: apiserver.config.k8s.io/v1
 kind: AdmissionConfiguration

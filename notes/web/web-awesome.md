@@ -75,6 +75,7 @@ tags:
 - [krausest/js-framework-benchmark](https://github.com/krausest/js-framework-benchmark)
 - [josdejong/mathjs](https://github.com/josdejong/mathjs)
 - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
+- [BuilderIO/partytown](https://github.com/BuilderIO/partytown)
 
 ## tty
 

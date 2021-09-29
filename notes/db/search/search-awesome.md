@@ -6,6 +6,14 @@ tags:
 
 # Search Engine Awesome
 
+- [Search Benchmark](https://mosuka.github.io/search-benchmark-game/)
+- [tantivy-search/tantivy](https://github.com/tantivy-search/tantivy)
+- [toshi-search/Toshi](https://github.com/toshi-search/Toshi)
+  - 基于 Tantivy
+- [pisa-engine/pisa](https://github.com/pisa-engine/pisa)
+- [bayard-search/bayard](https://github.com/bayard-search/bayard)
+- [mosuka/blast](https://github.com/mosuka/blast)
+  - 基于 bleve
 - [valeriansaliou/sonic](https://github.com/valeriansaliou/sonic)
   - MPL-2.0, Rust
   - schema-less search backend

@@ -108,25 +108,32 @@ digraph process{
 
 :::
 
+| -   | V     | C     |
+| --- | ----- | ----- |
+| SV  | EV-PV |
+| SPI | EV/PV |
+| CV  |       | EV-AC |
+| CPI |       | EV/AC |
+
 ## 主要公式
 
-| name                     | formula                    | cn         |
-| ------------------------ | -------------------------- | ---------- | ----------------------------------------------------------- |
-| Standard Devision        | = (P-O)/6                  | 标准差     |
-| PERT                     | = (O + 4M + P) / 6         |
-| Total Float              | = LS-ES = LF-EF            |
-| Comm Channels            | = N(N-1)/2                 | 沟通渠道   | N=项目成员                                                  |
-| Benefit Cost Ratio       | =Cost / Benefit            |            | < 1 不好、拒绝<br/> > 1 越高越好                            |
-| Net Present Value        | =FV/(1+r)^n                | 净现值     |
-| Future Value             | =PV(1+i)^n                 |
-| ROI/Return of investment |                            | 投资回报率 |
-| NPV/Net present value    | $=\sum_{t=1}^{n}A/(1+r)^t$ | 净现值     | t - 现金流持续时间<br/> A - 每年现金流<br/> r - 折现率<br/> |
+| name                     | formula                       | cn           |
+| ------------------------ | ----------------------------- | ------------ | ----------------------------------------------------------- |
+| Standard Devision        | = (P-O)/6                     | 标准差       |
+| PERT                     | = (O + 4M + P) / 6            | 计划评审技术 |
+| TF/Total Float           | = LS-ES = LF-EF               | 总时差       |
+| Comm Channels            | = N(N-1)/2                    | 沟通渠道     | N=项目成员                                                  |
+| Benefit Cost Ratio       | =Cost / Benefit               |              | < 1 不好、拒绝<br/> > 1 越高越好                            |
+| Net Present Value        | =FV/(1+r)^n                   | 净现值       |
+| Future Value             | =PV(1+i)^n                    |
+| ROI/Return of investment |                               |
+| NPV/Net present value    | $NPV=\sum_{t=1}^{n}A/(1+r)^t$ | 净现值       | t - 现金流持续时间<br/> A - 每年现金流<br/> r - 折现率<br/> |
 
 - P - Pessimistic - 悲观值、最差的值
 - O - Optimistic - 乐观值、最好的值
 - M - Most likely - 通常值
-- Internal Rate of Return
-  - 越高越好
+- Free float - 自由时差
+  - 下一个节点ES - 当前节点 EF
 
 | Six Sigma |
 | --------- | --------- |
@@ -135,10 +142,25 @@ digraph process{
 | 3σ        | 99.73%    |
 | 6σ        | 99.99966% |
 
-**ROI**
-
 $$
 ROI = 总收益率 = (总折现收益 - 总折现成本)/折现成本
+$$
+
+### 扩展了解
+
+- PBP - 投资回收期 - Payback Period
+  - sum(NPV) > 0
+  - 可以算带小小数点时间
+    - 年+sum(NPM)/367.51
+  - = (p - n)÷p + ny
+  - = 1 + ny - n÷p
+  - https://www.calculator.net/payback-period-calculator.html
+- Cash Flow Return Rate
+- Internal Rate of Return - 越高越好
+- cash inflow - 现金流
+
+$$
+投资收益率 = 1 / 投资回收期
 $$
 
 ## 关于数字的规则

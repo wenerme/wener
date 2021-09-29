@@ -91,3 +91,8 @@ title: License
 - LGPL: you can link against and don't have to release source code as long as you don't modify the library itself
 - GPL: you have to release source code if you link against and distribute the binary, but don't if you just provide a service
 - AGPL: you have to allow the source to be downloaded even if you never distribute the binary but do provide a service
+
+## GPL
+
+- Android, iOS 都排斥在用户空间使用 GPL
+- macOS 因为 Bash GPLv3 替换为 ZSH

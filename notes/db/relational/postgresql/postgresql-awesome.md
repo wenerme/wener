@@ -33,6 +33,14 @@ title: PostgreSQL Awesome
 
 - [HN](https://news.ycombinator.com/item?id=28425379)
 
+## Sync
+
+- [ankane/pgsync](https://github.com/ankane/pgsync)
+  - Ruby
+  - sync table
+- [toluaina/pgsync](https://github.com/toluaina/pgsync)
+  - to elasticsearch
+
 # FAQ
 
 ## HA vs Horizontal Scale

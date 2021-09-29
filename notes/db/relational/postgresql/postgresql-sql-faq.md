@@ -17,6 +17,14 @@ tags:
 
 :::
 
+```sql
+-- 数组移除 null
+select jsonb_path_query_array('{"values": [null, "test", { "key": "value" }]}', '$.values[*] ? (@ != null)');
+
+-- 移除 null 数据
+select json_strip_nulls('[{"f1":1, "f2":null}, 2, null, 3]');
+```
+
 ## JSON 数组转行
 
 ```sql

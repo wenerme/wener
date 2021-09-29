@@ -108,3 +108,12 @@ tags:
 - [cloudevents](https://github.com/cloudevents)
 - [knative/serving](https://github.com/knative/serving)
 - [kedacore/keda](https://github.com/kedacore/keda)
+
+## Comment
+
+- [laymonage/giscus](https://github.com/laymonage/giscus)
+  - Github Discussion
+- [utterance/utterances](https://github.com/utterance/utterances)
+  - Github Issues
+  - [#324](https://github.com/utterance/utterances/issues/324)
+    Github Discussion

@@ -36,7 +36,7 @@ SERVER mysql_server
 
 - 支持 ON CONFLICT DO NOTHING
 - 不支持 ON CONFLICT DO UPDATE
-  - 可以手动实现 [Exceptions with UPDATE/INSERT](https://www.postgresql.org/docs/9.4/plpgsql-control-structures.html#PLPGSQL-UPSERT-EXAMPLE)
+  - 可以手动实现 [Exceptions with UPDATE/INSERT](https://www.postgresql.org/docs/current/plpgsql-control-structures.html#PLPGSQL-UPSERT-EXAMPLE)
 
 :::
 

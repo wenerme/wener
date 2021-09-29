@@ -25,6 +25,9 @@ title: Loki
 
 ## 存储
 
+- 沿用 cortex 逻辑
+  - 作者都是 tomwilkie
+  - distributor, ingester, querier, chunk
 - [Loki Storage](https://grafana.com/docs/loki/latest/operations/storage/)
 - writes a chunk per stream
 - chunk_target_size (around 1MB), max_chunk_age (increase beyond 1h), chunk_idle_period (increase to match max_chunk_age)

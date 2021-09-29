@@ -105,10 +105,10 @@ npm ci --registry=https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 # Version
 
 ## v7 - NodeJS 15
+
 - 问题
   - [npm/cli#2800](https://github.com/npm/cli/issues/2800)
     - npm outdated 不支持 `tailwindcss@npm:@tailwindcss/postcss7-compat`
-
 - workspace
 - 自动安装 peer 依赖
   - 解析版本会有冲突 - 之前不安装无影响
@@ -143,10 +143,15 @@ npm exec -- foo@latest bar --package=@npmcli/foo
 
 # FAQ
 
-## ESBuild
+## lockfileVersion: 2 install script
+
 没有 hasInstallScript，导致没有调用安装脚本。
 
 ```bash
+npx fix-has-install-script
+```
+
+```bash title="ESBuild"
 # 在不修改 packages-lock.json 的情况下手动安装是最简单的
 node ./node_modules/esbuild/install.js
 ```

@@ -22,6 +22,8 @@ title: Gitlab Runner
   - kubernetes
     - 在集群环境下
   - docker-windows, docker-ssh, parallels, virtualbox, docker+machine, docker-ssh+machine
+- 参考
+  - [Best practices to keep your Kubernetes runners moving](https://about.gitlab.com/blog/2020/05/27/best-practices-for-kubernetes-runners/)
 
 ```bash
 # 查看注册参数

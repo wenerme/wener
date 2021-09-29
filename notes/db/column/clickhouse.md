@@ -6,9 +6,14 @@ title: ClickHouse
 
 - [yandex/ClickHouse](https://github.com/yandex/ClickHouse)
   - Apache-2.0, C++
-  - 主要通过 Key 访问
+  - OLAP, 列存储
+    - 每列存一个文件
+  - 支持 Key 访问
 - 默认库 default
 - DataGrip 可以使用 JDBC 连接
+- 适用场景
+  - 应用、系统日志
+  - timeseries-oriented
 - 端口
   - 8123 HTTP
   - 9000 native client
@@ -18,12 +23,27 @@ title: ClickHouse
   - [clickhouse.yandex](https://clickhouse.yandex/)
   - https://clickhouse.yandex/docs/en/development/architecture/
   - [Altinity/clickhouse-operator](https://github.com/Altinity/clickhouse-operator)
+  - [Usage Recommendations](https://clickhouse.com/docs/en/operations/tips/)
+  - [Requirements](https://clickhouse.com/docs/en/operations/requirements/)
+  - Why
+    - [Fast and Reliable Schema-Agnostic Log Analytics Platform](https://eng.uber.com/logging/)
+      - Uber, ES -> ClickHouse
+    - [Our Online Analytical Processing Journey with ClickHouse on Kubernetes](https://tech.ebayinc.com/engineering/ou-online-analytical-processing/)
+      - ebay, Druid -> ClickHouse
+    - [HTTP Analytics for 6M requests per second using ClickHouse](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)
+      - cloudflare, PostgreSQL+Citus -> ClickHouse
+    - https://www.nedmcclain.com/why-devops-love-clickhouse/amp/
+      - 推荐 ext4 而非 zfs
+    - ClickHouse as an alternative to Elasticsearch for log storage and analysis [HN](https://news.ycombinator.com/item?id=26316401)
+    - [A Practical Introduction to Handling Log Data in ClickHouse](https://www.youtube.com/watch?v=pZkKsfr8n3M)
 
 :::tip
 
+- immutable data
 - 暂不支持 UDF
 - 当数据量较少(< 1TB)时不建议使用
 - 插入操作非常快 - 因为是异步的，后台会处理
+- keep non-timeseries data out of clickhouse
 
 :::
 
@@ -33,7 +53,8 @@ title: ClickHouse
 - 不支持 UPDATE, DELETE, REPLACE, MERGE, UPSERT, INSERT UPDATE
   - 可以 DROP PARTITION 实现部分数据删除
   - 支持 mutation `ALTER TABLE name UPDATE/DELETE column=exp WHERE filter`
-    - 后台异步执行，全部数据重写，非原子操作
+    - 后台异步执行，全部数据重写，非原子操作，非常慢
+    - 满足 GDPR 要求
 
 :::
 
@@ -68,6 +89,8 @@ clickhouse-client --host=example.com
 cat my.csv | clickhouse-client --host=example-perftest01j --query="INSERT INTO rankings_tiny FORMAT CSV"
 # 导入 TSV, 并计算时间
 time clickhouse-client --query="INSERT INTO trips FORMAT TabSeparated" < trips.tsv
+
+curl 'http://localhost:8123/?query=SELECT%20NOW()'
 ```
 
 ```sql
@@ -78,6 +101,15 @@ COPY(
 -- 从 PostgreSQL 导入
 COPY ... TO PROGRAM
 ```
+
+## Note
+
+- 列 DEFAULT materializes on merge, MATERIALIZED materializes on INSERT, OPTIMIZE TABLE
+- ENGINE = Null - ETL 表, trigger materialized view
+- index_granularity
+  - how many rows reps index key and pk
+  - lower, point query 更快
+  - 例如 8196
 
 ## 数据类型
 
@@ -203,3 +235,17 @@ echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 
 - Kerberos
 - LDAP
+
+## Stats
+
+```sql
+SELECT
+  tabe, name,
+  sub(data_compressed_bytes) AS compressed,
+  sub(data_uncompressed_bytes) AS uncompressed,
+  floor((compressed/uncompressed)*100,4) as percent
+FROM system.columns WHERE database = currentDatabase()
+GROUP BY table, name
+ORDER BY table ASC, name ASC
+;
+```

@@ -316,7 +316,6 @@ release_job:
       - 'm2'
       - 'm3'
     released_at: '2020-07-15T08:00:00Z' # Optional, is auto generated if not defined, or can use a variable.
-
 ---
 prepare_job:
   stage: prepare # This stage must run before the release stage
@@ -393,4 +392,14 @@ rules:
   - if: $CI_COMMIT_TAG != ""
     when: on_success
   - when: never
+```
+
+## 默认分支
+
+- master 或 main 或 自定义的默认分支
+
+```yaml
+only:
+  variables:
+    - $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
 ```

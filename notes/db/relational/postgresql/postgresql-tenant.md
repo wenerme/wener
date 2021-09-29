@@ -29,12 +29,16 @@ title: PostgreSQL Tenant
 
 ```sql
 -- name, value, local
+-- local 如果为 true 则优先返回 tx 范围 - 不存在不会异常
+-- local 如果为 false 则返回 session 范围 - 不存在会异常
 select set_config('tenant.id', 1000, true);
 set tenant.id = 1000;
 
 -- name, optional
 select current_setting('tenant.id',true);
 show tenant.id;
+
+reset tenant.id;
 
 -- 特殊
 select current_user;

@@ -1,7 +1,7 @@
 ---
 title: BI Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # BI Awesome
@@ -13,6 +13,10 @@ tags:
 - Metabase
 - Redash
 - Superset
+
+## Ingest
+
+- [honeycombio/honeytail](https://github.com/honeycombio/honeytail)
 
 ## Analytical
 
@@ -34,3 +38,4 @@ tags:
 - [visjs/vis-network](https://github.com/visjs/vis-network)
 - [naver/billboard.js](https://github.com/naver/billboard.js)
 - [chartbrew/chartbrew](https://github.com/chartbrew/chartbrew)
+- [tabixio/tabix](https://github.com/tabixio/tabix)

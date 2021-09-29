@@ -15,6 +15,6 @@ title: Schema Design
     - timestamp 48bits + 随机 80bits
     - Crockford base32 - 5 bit/char
     - `ttttttttttrrrrrrrrrrrrrrrr` - t 时间戳, r 随机
-  - 可排序 - 单调递增
+  - 可排序 - 单调递增 - Monotonicity 保证同 ms 内递增
   - 大小写无关
   - 无特殊字符 - URL 安全 - `0123456789ABCDEFGHJKMNPQRSTVWXYZ`

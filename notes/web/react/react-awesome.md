@@ -25,6 +25,8 @@ tags:
 
 :::
 
+- [Glossary + Explain](https://github.com/reactwg/react-18/discussions/46)
+
 ## 通用 UI 组件
 
 - [palantir/blueprint](https://github.com/palantir/blueprint)
@@ -383,9 +385,7 @@ useStore.destroy();
 - G2Plot
   - 基于 G2 封装的默认可用图表
 - @ant-design/charts
-
   - 基于 G2Plot 封装 React
-
 - [sbstjn/timesheet.js](https://github.com/sbstjn/timesheet.js)
 - [projectstorm/react-diagrams](https://github.com/projectstorm/react-diagrams)
   - 节点流程图

@@ -7,6 +7,8 @@ tags:
 
 # PostgreSQL FAQ
 
+- [Errors and Messages](https://www.postgresql.org/docs/current/errcodes-appendix.html)
+
 ## 限制
 
 - db 名字

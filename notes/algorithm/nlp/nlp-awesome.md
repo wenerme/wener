@@ -16,6 +16,7 @@ tags:
 - [sebastianruder/NLP-progress](https://github.com/sebastianruder/NLP-progress)
 - https://nlp.stanford.edu/projects/chinese-nlp.shtml
 - https://nlp.stanford.edu/software/segmenter.shtml
+- https://news.ycombinator.com/item?id=28614699
 
 ## 中文
 

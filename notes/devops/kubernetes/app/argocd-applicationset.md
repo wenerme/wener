@@ -13,6 +13,13 @@ title: ArgoCD ApplicationSet
   - list
   - cluster
   - git
+  - matrix - 多个 generator 同时生成
+  - scmProvider
+    - github, gitlab
+    - 扫描仓库和组织结构
+  - clusterDecisionResource
+    - 基于 external custom resource
+    - configMap
 
 ```bash
 # 安装 applicationset - 要确保先安装了 argocd
@@ -27,37 +34,37 @@ kubectl delete ApplicationSet <NAME> --cascade=false
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
- name: guestbook
+  name: guestbook
 spec:
   generators:
-  # List 生成，变量替代
-  - list:
-     elements:
-     - cluster: engineering-dev
-       url: https://kubernetes.default.svc
-    # generator 也可以定义 模板 - 优先 - 会进行合并
-    template:
-  # 基于集群生成
-  # secret argocd.argoproj.io/secret-type=cluster
-  # 能使用 secret 里的变量，主要是 server 和 name
-  - clusters:
-      # 筛选集群 - 默认所有
-      selector:
-        # 匹配 集群 secret 的 label
-        matchLabels:
-          staging: true
-  # 基于 git 生成
-  - git:
-      repoURL: https://github.com/argoproj-labs/applicationset.git
-      revision: HEAD
-      directories:
-      # 基于目录生成
-      # 可用变量 path, path.basename
-      - path: examples/git-generator-directory/cluster-addons/*
-      # 基于文件生成
-      # 支持解析 JSON,YAML(0.2+)
-      # 可以使用 json 里定义的数据作为变量
-      - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+    # List 生成，变量替代
+    - list:
+        elements:
+          - cluster: engineering-dev
+            url: https://kubernetes.default.svc
+      # generator 也可以定义 模板 - 优先 - 会进行合并
+      template:
+    # 基于集群生成
+    # secret argocd.argoproj.io/secret-type=cluster
+    # 能使用 secret 里的变量，主要是 server 和 name
+    - clusters:
+        # 筛选集群 - 默认所有
+        selector:
+          # 匹配 集群 secret 的 label
+          matchLabels:
+            staging: true
+    # 基于 git 生成
+    - git:
+        repoURL: https://github.com/argoproj-labs/applicationset.git
+        revision: HEAD
+        directories:
+          # 基于目录生成
+          # 可用变量 path, path.basename
+          - path: examples/git-generator-directory/cluster-addons/*
+          # 基于文件生成
+          # 支持解析 JSON,YAML(0.2+)
+          # 可以使用 json 里定义的数据作为变量
+          - path: 'examples/git-generator-files-discovery/cluster-config/**/config.json'
   # Application 模板
   template:
     metadata:

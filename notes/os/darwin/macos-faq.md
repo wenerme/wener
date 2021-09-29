@@ -176,3 +176,9 @@ qlmanage -t input.avif -x # generate thumnail
 mkdir -p ~/Library/QuickLook/
 xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 ```
+
+## Why ZSH
+
+- Bash 4 为 GPLv3
+- 苹果拒绝使用 GPLv3
+- 10 年后迁移为使用 ZSH - MIT
