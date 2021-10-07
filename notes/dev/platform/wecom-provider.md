@@ -51,6 +51,40 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
   - 用于 请求单点登录、注册定制化等接口
   - https://qyapi.weixin.qq.com/cgi-bin/service/get_provider_token
 
+## 网页授权登陆
+
+- scope
+  - snsapi_base - 默认 - 可获取成员的的基础信息（UserId与DeviceId）；
+  - snsapi_userinfo - 可获取成员的详细信息，但不包含手机、邮箱；
+  - snsapi_privateinfo - 手动授权 - 可获取成员的详细信息，包含手机、邮箱
+    - 第三方 **不能** 获取手机和邮箱
+
+
+```pre title="自建应用 oauth2"
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect
+```
+
+- scope 固定为 snsapi_base
+
+```pre title="第三方应用 oauth2"
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+```
+
+- 第三方应用 需要在打开的网页里面携带用户的身份信息
+- 与自建相同 - 但 appid 为 suite_id
+  - ww, wx 开头
+
+```pre title="企业 oauth2"
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&agentid=AGENTID&state=STATE#wechat_redirect
+```
+
+- 企业 需要在打开的网页里面携带用户的身份信息
+- agentid
+  - 没有时则认为是 snsapi_base
+- snsapi_userinfo 或 snsapi_privateinfo 需要 agentid
+  - redirect_uri 匹配 可信域名
+  - 服务商配置的可信域名
+
 ## Dev
 
 - 普通应用 - 只读通讯录

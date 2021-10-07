@@ -4,6 +4,7 @@ title: Service Mesh
 
 # Service Mesh
 
+- Observability, Security, Reliability
 - Why
   - 统一处理 横切关注点/[Cross-cutting_concern](https://en.wikipedia.org/wiki/Cross-cutting_concern)
     - 类似于 AOP 的切面

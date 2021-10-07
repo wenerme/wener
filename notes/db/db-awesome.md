@@ -6,6 +6,24 @@ tags:
 
 # Database Awesome
 
+| name                 | stand for      |
+| -------------------- | -------------- |
+| Relational DBMS      | 关系型数据库   |
+| Key-value stores     | KV 存储        |
+| Document stores      | 文档存储       |
+| Time Series DBMS     | 时序数据库     |
+| Graph DBMS           | 图数据库       |
+| Object oriented DBMS | 面向对象数据库 |
+| Search engines       | 搜索引擎       |
+| RDF stores           | RDF 存储       |
+| Wide column stores   | 宽列存储       |
+| Multivalue DBMS      | 多值数据库     |
+| Native XML DBMS      | XML 数据库     |
+| Spatial DBMS         | 空间数据库     |
+| Event Stores         | 事件存储       |
+| Content stores       | 内容存储       |
+| Navigational DBMS    | 导航数据库     |
+
 ## 分布式
 
 - [rqlite/rqlite](https://github.com/rqlite/rqlite)

@@ -4,8 +4,6 @@ title: Avahi
 
 # Avahi
 
-## Tips
-
 - archlinux [Avahi](https://wiki.archlinux.org/index.php/Avahi)
 - Alpine 没有 nsswitch
   - [gliderlabs/docker-alpine#367](https://github.com/gliderlabs/docker-alpine/issues/367)
@@ -35,25 +33,6 @@ cat <<XML > /etc/avahi/services/node-exporter.service
   </service>
 </service-group>
 XML
-
-# macOS
-# ==========
-# 暴露服务
-dns-sd -R "My test server with metrics-endpoint" _prometheus-http._tcp. . 9000 path=/metrics
-# 扫描
-dns-sd -B
-# 所有服务
-dns-sd -B _services._dns-sd._udp local.
-# 查找打印机
-dns-sd -B _ipp._tcp local.
-# 查看内容里的 adminurl
-dns-sd -Z _ipp._tcp local.
-# 获取 IP
-dns-sd -Gv4v6 LenovoAB66CD.local.
-
-# 域名 zone 格式
-# PTR SRV TXT
-dns-sd -Z
 
 # 直接查找并打印
 ippfind _ipp._tcp --print

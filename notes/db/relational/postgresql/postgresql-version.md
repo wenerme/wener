@@ -10,7 +10,11 @@ tags:
 - [发布历史](https://en.wikipedia.org/wiki/PostgreSQL#Release_history)
   - 现在一般每年 Q4 发布新版本，最近大多为 10 月
 
-## 14
+| PostgreSQL    | Release Date |
+| ------------- | ------------ |
+| PostgreSQL 14 | 2021-09-30   |
+
+## PostgreSQL 14
 
 - SELECT/INSERT
   - 大部分关键词允许被用于列名
@@ -23,7 +27,7 @@ tags:
       - `CYCLE id SET is_cycle USING path`
 - 其他命令
   - `CREATE TRIGGER` 支持 `OR REPLACE`
-  - `REFRESH MATERIALIZED VIEW` 支持并行
+  - `REFRESH MATERIALIZED VIEW` 支持并行查询
   - `GRANT` 和 `REVOKE` 支持 `GRANTED BY`
   - `TRUNCATE` 支持外部表
   - `ALTER SUBSCRIPTION ... ADD/DROP PUBLICATION` - 方便修改 PUBLICATION
@@ -31,6 +35,8 @@ tags:
   - 数字类型支持 `infinity` 和 `-infinity` - 之前浮点数已经支持
   - 除以 `infinity` 返回 0 - 之前异常
   - 除以 NaN 返回 NaN - 之前异常
+  - JSON 支持 `data['name']` 格式访问数据 - subscripts - 其他内嵌数据也可以用这样语法 - 例如 hstore
+  - multirange - RANGE 非连续类型
 - 函数
   - function 和 procedure 支持是 SQL 标准方法体
     - 之前是单引号 或 `$$`
@@ -49,11 +55,17 @@ tags:
   - 新增预定义角色 pg_read_all_data, pg_write_all_data
   - 新增预定义角色 pg_database_owner - 匹配数据库 owner
   - 客户端断开链接则终止长查询 - client_connection_check_interval
+  - postgres_fdw
+    - 新增管理函数 - postgres_fdw_get_connections,postgres_fdw_disconnect,postgres_fdw_disconnect_all
+    - 支持查询并行
+    - 支持导入结构 IMPORT FOREIGN SCHEMA
 - vacuum
   - 允许忽略索引 - INDEX_CLEANUP
-  - 允许忽略 TOST - PROCESS_TOAST
+  - 允许忽略 TOAST - PROCESS_TOAST
   - 提升较多关联关系数据库的 vacuum 速度
   - autovacuum 支持分析分片表 - CONCURRENTLY
+- index
+  - btree - 删除性能提升 - Bottom-up Index Deletion - 避免索引膨胀
 - 分片表
   - 优化 updates/deletes 只影响少部分分区时的性能
   - 允许不阻塞的方式脱离分区
@@ -66,10 +78,31 @@ tags:
   - 提升并行 seq scan 性能
   - 多外部表引用支持并行查询 - postgres_fdw 需要设置 async_capable
   - 提升正则比较性能
-  - TOAST 支持 LZ4 压缩
+  - TOAST 支持 LZ4 压缩 - 保留支持 pglz
+  - 大量连接数场景性能提升 - 2x
 - [PostgreSQL 14 Release Notes](https://www.postgresql.org/docs/14/release-14.html)
 
-## 13
+```sql
+-- 新的访问语法
+SELECT ('{ "postgres": { "release": 14 }}'::jsonb)['postgres']['release'];
+
+-- multirange
+SELECT '{[3,7), [8,9)}'::int4multirange;
+
+-- 导入外部结构 - 可选择或排除表
+IMPORT FOREIGN SCHEMA remote_schema
+--    [ { LIMIT TO | EXCEPT } ( table_name [, ...] ) ]
+    FROM SERVER server_name
+    INTO local_schema
+--    [ OPTIONS ( option 'value' [, ... ] ) ]
+;
+
+-- 日期分桶 - 方便切分
+-- 2020-02-11 15:30:00
+SELECT date_bin('15 minutes', TIMESTAMP '2020-02-11 15:44:17', TIMESTAMP '2001-01-01');
+```
+
+## PostgreSQL 13
 
 - 索引
   - B Tree 索引优化对重复数据的处理，减少索引大小
@@ -119,7 +152,7 @@ tags:
 - [PostgreSQL 13 Release Notes](https://www.postgresql.org/docs/13/release-13.html)
 - [Deduplication for B-tree](https://www.cybertec-postgresql.com/en/b-tree-index-deduplication/)
 
-## 12
+## PostgreSQL 12
 
 - [Release 12](https://www.postgresql.org/docs/12/release-12.html)
   - SQL/JSON path
@@ -177,33 +210,33 @@ create table test(
 );
 ```
 
-## 11
+## PostgreSQL 11
 
 - [PostgreSQL 11 Release Notes](https://www.postgresql.org/docs/11/static/release-11.html)
-  - 分片
-    - 支持使用 hash 键分片
-    - UPDATE 更新分片键时可以将数据更新到正确的分片
-    - SELECT 性能提升
-    - 对于分片表支持 PRIMARY KEY, FOREIGN KEY, 索引和触发器
-  - 并行
-    - 并行 hash join
-    - 并行 CREATE INDEX 创建 B-tree 索引
-    - 并行 CREATE TABLE .. AS, CREATE MATERIALIZED VIEW 和一些 UNION 操作
-  - SQL 存储过程
-    - 支持内嵌事务
-    - 使用 CALL 执行, CREATE/DROP/ALTER PROCEDURE
-    - 也可以使用 DROP/ALTER ROUTINE 删除和修改, 也可以操作函数和聚合
-    - 现在的存储函数是在事务内执行
-    - 事务的操作只能在顶层存储过程
-    - https://www.postgresql.org/docs/11/static/xproc.html
-  - 部分 SQL JIT
-  - 窗口函数支持所有 SQL:2011 标准, 包括 RANGE distance PRECEDING/FOLLOWING, GROUPS mode, and frame exclusion options
-  - 之前 ALTER TABLE .. ADD COLUMN 并且 DEFAULT 为 non-null 时会重写整个表, 现在大部分情况下都不会, 这类操作会相当快
-  - 支持使用 quit 和 exit 退出
+- 分片
+  - 支持使用 hash 键分片
+  - UPDATE 更新分片键时可以将数据更新到正确的分片
+  - SELECT 性能提升
+  - 对于分片表支持 PRIMARY KEY, FOREIGN KEY, 索引和触发器
+- 并行
+  - 并行 hash join
+  - 并行 CREATE INDEX 创建 B-tree 索引
+  - 并行 CREATE TABLE .. AS, CREATE MATERIALIZED VIEW 和一些 UNION 操作
+- SQL 存储过程
+  - 支持内嵌事务
+  - 使用 CALL 执行, CREATE/DROP/ALTER PROCEDURE
+  - 也可以使用 DROP/ALTER ROUTINE 删除和修改, 也可以操作函数和聚合
+  - 现在的存储函数是在事务内执行
+  - 事务的操作只能在顶层存储过程
+  - https://www.postgresql.org/docs/11/static/xproc.html
+- 部分 SQL JIT
+- 窗口函数支持所有 SQL:2011 标准, 包括 RANGE distance PRECEDING/FOLLOWING, GROUPS mode, and frame exclusion options
+- 之前 ALTER TABLE .. ADD COLUMN 并且 DEFAULT 为 non-null 时会重写整个表, 现在大部分情况下都不会, 这类操作会相当快
+- 支持使用 quit 和 exit 退出
 - [POSTGRESQL 11 BETA 1 RELEASED!](https://www.postgresql.org/about/news/1855/)
   - [HN](https://news.ycombinator.com/item?id=17144221)
 
-## 10
+## PostgreSQL 10
 
 - [New in postgres 10](https://wiki.postgresql.org/wiki/New_in_postgres_10)
 - [PostgreSQL 10 New Features With Examples](http://h50146.www5.hpe.com/products/software/oe/linux/mainstream/support/lcc/pdf/PostgreSQL_10_New_Features_en_20170522-1.pdf)

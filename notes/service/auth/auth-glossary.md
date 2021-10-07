@@ -30,4 +30,5 @@ bearer (who hold the access token) can access authorized resources without furth
 access token 为 bearer token
 
 ## id token - 身份令牌
+
 contains Claims(claims are name/value pairs that contain information about a user) about the Authentication of an End-User by an Authorization Server

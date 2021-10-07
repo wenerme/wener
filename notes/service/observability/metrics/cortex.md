@@ -21,7 +21,7 @@ title: Cortex
       - S3
       - GCS
       - Azure
-  - 块存储 - 实验阶段 - 基于 Thanos
+  - 块存储 - 实验阶段 - 部分组件基于 Thanos
     - S3
     - GCS
     - Azure

@@ -4,6 +4,11 @@ title: K8S 常见问题
 
 # K8S 常见问题
 
+## cni-plugins 不再包含 flannel
+
+- flannel 独立出单独的 repo [flannel-io/cni-plugin](https://github.com/flannel-io/cni-plugin)
+- https://github.com/containernetworking/plugins/issues/655
+
 ## K3S 常见问题
 
 - [#396](https://github.com/rancher/k3s/issues/396) - Initializing eviction metric for zone

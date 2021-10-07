@@ -8,6 +8,8 @@ title: PostgreSQL Awesome
   - 实时增量固化查询
 - PipelineDB
 - Superbase
+- [PostgresApp/PostgresApp](https://github.com/PostgresApp/PostgresApp)
+  - macOS 应用
 
 ## Extension
 
@@ -41,6 +43,17 @@ title: PostgreSQL Awesome
 - [toluaina/pgsync](https://github.com/toluaina/pgsync)
   - to elasticsearch
 
+## Scale Stories
+
+- [Herding elephants: Lessons learned from sharding Postgres at Notion](https://www.notion.so/blog/sharding-postgres-at-notion)
+  - [HN](https://news.ycombinator.com/item?id=28776786)
+  - [The data model behind Notion's flexibility](https://www.notion.so/blog/data-model-behind-notion)
+- [Database “sharding” came from UO?](https://www.raphkoster.com/2009/01/08/database-sharding-came-from-uo/)
+- [PostgreSQL at Scale: Database Schema Changes Without Downtime](https://medium.com/paypal-tech/20d3749ed680)
+- [Why you don’t want to shard.](https://www.percona.com/blog/2009/08/06/why-you-dont-want-to-shard/)
+- [Transaction ID Wraparound in Postgres](https://blog.sentry.io/2015/07/23/transaction-id-wraparound-in-postgres)
+- [Re-architecting Slack’s Workspace Preferences: How to Move to an EAV Model to Support Scalability](https://slack.engineering/re-architecting-slacks-workspace-preferences-how-to-move-to-an-eav-model-to-support-scalability/)
+
 # FAQ
 
 ## HA vs Horizontal Scale
@@ -53,3 +66,5 @@ title: PostgreSQL Awesome
 - HS
   - 每个节点数据不是完整的 - sharding
   - 目前只有 citus 提供这样的能力
+  - 强调 partation
+  - 增加节点

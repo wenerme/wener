@@ -12,6 +12,7 @@ title: BaseN
   - [rfc4648](https://datatracker.ietf.org/doc/html/rfc4648)
     - Base16, Base32, Base64
   - [Binary to text encoding](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
+  - [crockford base32](https://www.crockford.com/base32.html)
 
 | encoding | eff      | chars           | rfc      |
 | -------- | -------- | --------------- | -------- |

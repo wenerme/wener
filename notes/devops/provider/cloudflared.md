@@ -4,7 +4,7 @@ title: cloudflared
 
 # cloudflared
 
-* 默认配置 `~/.cloudflared/config.yml`
+- 默认配置 `~/.cloudflared/config.yml`
 
 ```bash
 # macOS 安装
@@ -23,8 +23,9 @@ cloudflared update
 ```
 
 ## tunnel
+
 ```bash
-# 登陆后生成证书 ～/.cloudflared/cert.pem
+# 登陆后生成证书 ~/.cloudflared/cert.pem
 cloudflared tunnel login
 
 # 创建后生成配置 ~/.cloudflared/UUID.json
@@ -69,13 +70,14 @@ rsync --no-owner ~/.cloudflared/config.yml admin@192.168.1.1:~/.cloudflared/
 ```
 
 ## config.yaml
+
 ```yaml
 # 可是名字或者 ID
 # cloudflared tunnel run NAME-OR-ID
 tunnel: dev
 credentials-file: /root/.cloudflared/6ff42ae2-765d-4adf-8112-31c55c1551ef.json
 ingress:
-- service: hello_world
+  - service: hello_world
 ```
 
 ### ingress
@@ -91,7 +93,7 @@ ingress:
     path: /*.(jpg|png|css|js)
     service: https://localhost:8001
   # 泛域名
-  - hostname: "*.example.com"
+  - hostname: '*.example.com'
     service: https://localhost:8002
   # 匹配所有 - 必须包含一个捕获所有的规则
   # 未匹配的请求这个服务
@@ -100,17 +102,17 @@ ingress:
   - service: http_status:404
 ```
 
-__service 规则__
+**service 规则**
 
-* https://localhost:8000
-* ssh://localhost:2222
-  * TCP, RDP, SSH, SMB, kubectl
-* bastion
-  * TCP, RDP, SSH, SMB, kubectl
-  * cloudflared 作为跳板机
-* hello_world
-  * 测试服务
-* tcp://localhost:8000
-* unix:/home/production/echo.sock
-* http_status:404
-  * 返回状态码
+- https://localhost:8000
+- ssh://localhost:2222
+  - TCP, RDP, SSH, SMB, kubectl
+- bastion
+  - TCP, RDP, SSH, SMB, kubectl
+  - cloudflared 作为跳板机
+- hello_world
+  - 测试服务
+- tcp://localhost:8000
+- unix:/home/production/echo.sock
+- http_status:404
+  - 返回状态码

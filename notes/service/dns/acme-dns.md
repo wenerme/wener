@@ -22,17 +22,16 @@ title: acme-dns
   - [Traefik](https://github.com/containous/traefik)
   - [Windows ACME Simple (WACS)](https://www.win-acme.com)
 
-:::caution
+:::caution 一个账号对应一个域名
 
-- 一个账号对应一个域名
-  - 因为一个账号只能处理两个 record - `domain.tld`,`*.domain.tld`
-  - **不能** 共享账号给不同域名
-  - [#110](https://github.com/joohoi/acme-dns/issues/110) Allow more than two records?
-  - [#233](https://github.com/joohoi/acme-dns/issues/233) Register multiple domains under single login?
+- 因为一个账号只能处理两个 record - `domain.tld`,`*.domain.tld`
+- **不能** 共享账号给不同域名
+- [#110](https://github.com/joohoi/acme-dns/issues/110) Allow more than two records?
+- [#233](https://github.com/joohoi/acme-dns/issues/233) Register multiple domains under single login?
 
 :::
 
-```bash
+```bash title="注册生成账号"
 curl -v -X POST https://auth.acme-dns.io/register
 ```
 
@@ -45,6 +44,12 @@ curl -v -X POST https://auth.acme-dns.io/register
   "allowfrom": []
 }
 ```
+
+```pre title="添加域名映射"
+_acme-challenge.domain.tld 6f449871-18d4-4239-851c-8c221d56750f.auth.acme-dns.io
+```
+
+至此 可以配置工具 获取泛域名证书。
 
 ## cert-manager
 
@@ -62,4 +67,25 @@ spec:
             accountSecretRef:
               name: acme-dns
               key: acme-dns.json
+```
+
+acme-dns.json 支持配置多个域名
+
+```json title="acme-dns.json"
+{
+  "dev.wener.me": {
+    "username": "00000000-0000-0000-0000-000000000000",
+    "password": "",
+    "fulldomain": "00000000-0000-0000-0000-000000000000.auth.acme-dns.io",
+    "subdomain": "00000000-0000-0000-0000-000000000000",
+    "allowfrom": []
+  },
+  "test.wener.me": {
+    "username": "00000000-0000-0000-0000-000000000000",
+    "password": "",
+    "fulldomain": "00000000-0000-0000-0000-000000000000.auth.acme-dns.io",
+    "subdomain": "00000000-0000-0000-0000-000000000000",
+    "allowfrom": []
+  }
+}
 ```

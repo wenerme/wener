@@ -6,7 +6,17 @@ title: TypeScript 类型定义
 
 - [sindresorhus/type-fest](https://github.com/sindresorhus/type-fest)
 
+```json title="覆盖 lib"
+{
+ "dependencies": {
+    "@typescript/lib-dom": "npm:@types/web"
+  }
+}
+```
+
 ## 内置
+
+- 4.5 Awaited
 
 ```ts
 type Partial<T> = {

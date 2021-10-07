@@ -10,9 +10,11 @@ tags:
 - [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 - 相册
   - [photoprism/photoprism](https://github.com/photoprism/photoprism)
-    - Golang、不挪动照片位置、机器学习人脸识别
-    - AGPL
+    - AGPL, Golang
+    - 不挪动照片位置、机器学习人脸识别
     - 2 核 4G，MariaDB 10, MySQL 8, SQLite 3
+  - [Piwigo/Piwigo](https://github.com/Piwigo/Piwigo)
+    - GPL, PHP
 - 照片同步
   - [perkeep/gphotos-cdp](https://github.com/perkeep/gphotos-cdp)
     - 基于 Chrome DevTools Protocol, 下载 Google Photos.

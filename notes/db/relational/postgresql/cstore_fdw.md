@@ -8,6 +8,12 @@ title: cstore_fdw
   - 列存
 - 实际使用效果一般
 
+:::caution
+
+- citus 10+ 内置 columnar, 取代 cstore_fdw
+
+:::
+
 ```bash
 # 依赖于 protobuf-c
 # 确保 pg_config 在 PATH 中

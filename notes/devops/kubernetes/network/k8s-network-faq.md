@@ -4,6 +4,20 @@ title: K8S Network FAQ
 
 # K8S Network FAQ
 
+## Endpoints vs EndpointSlices
+
+- EndpointSlices 替代 Endpoints - v1.21
+- Endpoints will be mirrored to EndpointSlices for Services with no spec.selector
+
+## 默认 IngressClass
+
+```bash
+kubectl describe ingressclasses nginx
+kubectl annotate ingressclasses nginx ingressclass.kubernetes.io/is-default-class=true
+```
+
+> ingress does not contain a valid IngressClass
+
 ## Ingress vs Gateway
 
 - Ingress

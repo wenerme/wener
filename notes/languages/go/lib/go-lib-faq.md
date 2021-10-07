@@ -1,5 +1,7 @@
 ---
 title: Golang 库常见问题
+tags:
+  - FAQ
 ---
 
 # Golang 库常见问题
@@ -53,6 +55,19 @@ title: Golang 库常见问题
   - 通过 CLI 快速提供 go-micro 所需的平台服务 - dashboard, API gateway
 - 参考
   - [Asim Aslam on Microservices, go-micro, and PaaS 3.0](https://www.infoq.com/podcasts/microservices-go-micro-paas3/)
+
+## go-micro vs go-kit vs gizmo
+
+- go-micro
+  - 微服务工具库
+  - 思路一致
+- go-kit
+  - 微服务工具集
+  - 感觉是很多离散抽象的集合
+- gizmo
+  - 不活跃不建议使用
+- 参考
+  - https://medium.com/cloud-native-the-gathering/5b396058c5b2
 
 ## yaml.v2 vs yaml.v3
 

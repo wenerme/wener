@@ -396,3 +396,19 @@ title: 开发用词字典
   - 更多指打印的，物理的
 - image - 图像
   - 更多指数字的，光学成像产生的
+
+## module vs plugin vs extension
+
+- module
+  - 自身完整
+  - 新增额外功能
+  - 可以是整体里的一部分 - 例如 组件/Component
+- plugin
+  - 自身不完整
+  - 配合现有体系使用 - 可能是可替代的某个角色
+  - 通常实现某种接口进行服务提供
+- extension
+  - 含义相对宽泛 - 增加了 内容/功能/能力
+  - 甚至是可以是 完整的软件+Plugin 构成的 新的整体
+- 参考
+  - https://softwareengineering.stackexchange.com/a/316231/126631

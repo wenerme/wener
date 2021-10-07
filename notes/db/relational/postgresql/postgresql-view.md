@@ -1,12 +1,18 @@
 ---
-title: 可更新视图
+title: 视图
 ---
+
+# 视图
 
 ## 可更新视图
 
-- 注意
-  - 列没有默认值
-  - `ON CONFLICT` 无效
+:::caution
+
+- 列没有默认值
+- `ON CONFLICT` 无效
+
+:::
+
 - 限制
   - FROM 只能有一个表，可以是另外一个可更新视图
   - 顶级定义不允许包含 WITH, DISTINCT, GROUP BY, HAVING, LIMIT, OFFSET

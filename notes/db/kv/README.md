@@ -25,6 +25,7 @@ title: Key Value
   - 于 2012 Fork LevelDB - 提升在服务端的性能
   - 一般作为其他数据的引擎，功能较多且复杂
   - 使用：ArangoDB、TiDB、Apache Flink、CockroachDB
+  - 支持事务
 - LevelDB
   - 基础概念来源于 Google Bigtable 实现
   - 支持全平台 - 浏览器、移动设备、嵌入式设备

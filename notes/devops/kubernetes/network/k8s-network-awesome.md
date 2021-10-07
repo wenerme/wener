@@ -8,6 +8,8 @@ tags:
 
 - kube-router
 - metallb
+- 参考
+  - [Comparing Kubernetes CNI Providers: Flannel, Calico, Canal, and Weave](https://rancher.com/blog/2019/2019-03-21-comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/)
 
 ## Ingress & Gateway
 
@@ -37,8 +39,12 @@ tags:
 - 需要支持复杂 API 网关场景最好利用多 IngressClass 或 通过服务 进行继承使用
   - 例如 使用 kong 或 apisix 统一管理 API - ingress 执行 网关服务
 - 将 Ingress 看作是反向代理的替代
-- 推荐
-  - ingress-nginx
+- 推荐 - ingress-nginx
+- IngressClass 可配合使用
+  - HAProxy 擅长 TLS、SNI、LB
+  - Nginx 擅长 反向代理
+  - Envoy 擅长 协议感知、定制性高
+  - 自定义网关 擅长 API 管理、集成、Web 可视化管理
 
 :::
 
@@ -74,3 +80,20 @@ tags:
 [easegress]: https://github.com/megaease/easegress
 [tyk]: https://github.com/TykTechnologies/tyk-operator
 [skipper]: https://github.com/zalando/skipper
+[traefik]: https://traefik.io/
+
+## CNI
+
+- flannel
+  - layer 2, overlay
+- calico
+  - layer 3, BGP
+- canal
+- weave
+  - IPsec ESP
+
+## Network
+
+- kube-router
+- tinc
+- n2n

@@ -4,6 +4,18 @@ title: Postgresql Scale
 
 # Postgresql Scale
 
+- scale up
+  - 堆硬件
+- scale out replicas
+  - 读写分离
+  - pub/sub
+- scale out sharding
+  - 分片 - 多节点
+  - 应用分片 - 逻辑映射
+    - 可控性高、特殊场景
+  - 服务分片 - cdb、citus
+    - 使用简单、要求使用 patten 符合
+
 :::tip
 
 PostgreSQL 并不是 OLAP 数据库，能力有上限，当发现有更多的时间和资源投入 数据仓库 时，可以考虑选择一个真正的数仓数据库。

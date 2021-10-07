@@ -23,6 +23,22 @@ title: Citus
       - Queries that return data-heavy ETL results rather than summaries
   - [Microsoft Acquires Citus Data](https://www.citusdata.com/blog/2019/01/24/microsoft-acquires-citus-data/)
     - [HN](https://news.ycombinator.com/item?id=18990469)
+  - [Scaling out Postgres with the Citus open source shard rebalancer](https://www.citusdata.com/blog/2021/03/13/scaling-out-postgres-with-citus-open-source-shard-rebalancer)
+  - [Sharding Postgres on a single Citus node, how why & when](https://www.citusdata.com/blog/2021/03/20/sharding-postgres-on-a-single-citus-node/)
+    - scale-out-ready
+    - query parallelization, multi-shard queries
+    - smaller indexes to create/maintain
+    - smaller tables to auto-vacuum (in parallel!), and
+    - faster bulk data loads
+  - [Choosing Distribution Column](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#choosing-distribution-column)
+
+:::caution
+
+- 开原版 rebalancer 会阻塞，商业版使用 逻辑服复制，不会锁
+- [#906](https://github.com/citusdata/citus/issues/906) 不支持 trigger
+- [#3854](https://github.com/citusdata/citus/issues/3854) 不支持 ARM
+
+:::
 
 ```bash
 # macOS 上使用

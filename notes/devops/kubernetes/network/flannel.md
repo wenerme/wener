@@ -5,15 +5,18 @@ title: Flannel
 
 # Flannel
 
-## Tips
-* [支持后端](https://github.com/coreos/flannel/blob/master/Documentation/backends.md)
-  * vxlan
-    * 大多时候默认
-    * DirectRouting 可以在相同 subnet 时直连 - 类似 host-gw
-  * host-gw
-    * 性能更好 - ip ro add 的方式添加路由
-    * 需要 2 层直连 - TincVPN 可以
-* [执行方式](https://github.com/coreos/flannel/tree/master/dist)
+
+- [flannel-io/flannel](https://github.com/flannel-io/flannel)
+  - layer 2
+  - overlay network
+- [支持后端](https://github.com/flannel-io/flannel/blob/master/Documentation/backends.md)
+  - vxlan
+    - 大多时候默认
+    - DirectRouting 可以在相同 subnet 时直连 - 类似 host-gw
+  - host-gw
+    - 性能更好 - ip ro add 的方式添加路由
+    - 需要 2 层直连 - TincVPN, n2n 可以
+- [执行方式](https://github.com/coreos/flannel/tree/master/dist)
 
 ```bash
 # kube-flannel - vxlan

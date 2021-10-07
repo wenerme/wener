@@ -25,6 +25,7 @@ tags:
 - [LabML Neural Networks](https://nn.labml.ai/)
   - PyTorch
 - [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
+- How to replace estimations and guesses with a Monte Carlo simulation [HN](https://news.ycombinator.com/item?id=28769331)
 
 ![](http://dlib.net/ml_guide.svg)
 

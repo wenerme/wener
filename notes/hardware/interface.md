@@ -36,3 +36,9 @@ title: 硬件接口
   - [WiFi module says “mini PCI-e format” with “USB host interface” - what does this mean?](https://electronics.stackexchange.com/questions/26961)
     - PCIe 接口
     - USB2 data 使用 pin 36, 38
+
+# HDMI
+
+- HDMI 2.1 4K60 HDR10, Dolby Vision
+- HDMI 2.0a 2160p, Dolby Vision, HDR10
+- HDMI 1.4 720p 1080p
