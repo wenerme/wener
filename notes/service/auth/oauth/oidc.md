@@ -59,6 +59,27 @@ title: OpenID Connect
 [openid connect core 1.0]: http://openid.net/specs/openid-connect-core-1_0.html
 
 - oidc = OpenID 2.0 + OpenID Attribute Exchange 1.0 + OAuth 2.0
+- rs - resource server
+  - API 服务 - 使用 token 和 introspect
+  - client_assertion
+  - client_assertion_type - urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+  - POST 请求 issuer 确认 token
+- rp - relaying party - website
+- ua - user agent - browser
+- op - oidc provider
+
+| id token  | required | stand for                              |
+| --------- | -------- | -------------------------------------- |
+| iss       | x        | Issuer Identifier                      |
+| sub       | x        | Subject Identifier                     |
+| aud       | x        | Audience                               |
+| exp       | x        | Expiration time                        |
+| iat       | x        | issued at time                         |
+| auth_time |          | End-User authentication time           |
+| nonce     |          |
+| acr       |          | Authentication Context Class Reference |
+| amr       |          | Authentication Methods References      |
+| azp       |          | Authorized party                       |
 
 ## discovery
 

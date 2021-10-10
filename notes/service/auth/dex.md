@@ -3,18 +3,19 @@ id: dex
 ---
 
 # Dex
-* 是什么？
-  * OIDC, OAuth2 Provider - IdP
-  * 支持插件式的 Connector
-* 存储
-  * sqlite3, mysql, postgres
-  * etcd
-  * kubernetes - CRD
-    * 相当于无状态部署
-* 可作为嵌入使用
-* 支持 [Kubernetes 授权](https://dexidp.io/docs/kubernetes/) 是核心场景
-* Connector
-  * LDAP, GitHub, SAML2.0, Gitlab, OpenID Connect, Google, LinkedIn, Microsoft, AuthProxy, Gitea
+
+- 是什么？
+  - OIDC, OAuth2 Provider - IdP
+  - 支持插件式的 Connector
+- 存储
+  - sqlite3, mysql, postgres
+  - etcd
+  - kubernetes - CRD
+    - 相当于无状态部署
+- 可作为嵌入使用
+- 支持 [Kubernetes 授权](https://dexidp.io/docs/kubernetes/) 是核心场景
+- Connector
+  - LDAP, GitHub, SAML2.0, Gitlab, OpenID Connect, Google, LinkedIn, Microsoft, AuthProxy, Gitea
 
 ```bash
 go get github.com/dexidp/dex/cmd/dex
@@ -22,7 +23,7 @@ go get github.com/dexidp/dex/cmd/dex
 dex serve config-dev.yaml
 ```
 
-__config-dev.yaml__
+**config-dev.yaml**
 
 ```yaml
 # dex 服务地址
@@ -96,36 +97,36 @@ telemetry:
 
 # Default values shown below
 # oauth2:
-    # use ["code", "token", "id_token"] to enable implicit flow for web-only clients
+# use ["code", "token", "id_token"] to enable implicit flow for web-only clients
 #   responseTypes: [ "code" ] # also allowed are "token" and "id_token"
-    # By default, Dex will ask for approval to share data with application
-    # (approval for sharing data from connected IdP to Dex is separate process on IdP)
+# By default, Dex will ask for approval to share data with application
+# (approval for sharing data from connected IdP to Dex is separate process on IdP)
 #   skipApprovalScreen: false
-    # If only one authentication method is enabled, the default behavior is to
-    # go directly to it. For connected IdPs, this redirects the browser away
-    # from application to upstream provider such as the Google login page
+# If only one authentication method is enabled, the default behavior is to
+# go directly to it. For connected IdPs, this redirects the browser away
+# from application to upstream provider such as the Google login page
 #   alwaysShowLoginScreen: false
-    # Uncommend the passwordConnector to use a specific connector for password grants
+# Uncommend the passwordConnector to use a specific connector for password grants
 #   passwordConnector: local
 
 # Instead of reading from an external storage, use this list of clients.
 #
 # If this option isn't chosen clients may be added through the gRPC API.
 staticClients:
-- id: example-app
-  redirectURIs:
-  - 'http://127.0.0.1:5555/callback'
-  name: 'Example App'
-  secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+  - id: example-app
+    redirectURIs:
+      - 'http://127.0.0.1:5555/callback'
+    name: 'Example App'
+    secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 #  - id: example-device-client
 #    redirectURIs:
 #      - /device/callback
 #    name: 'Static Client for Device Flow'
 #    public: true
 connectors:
-- type: mockCallback
-  id: mock
-  name: Example
+  - type: mockCallback
+    id: mock
+    name: Example
 # - type: google
 #   id: google
 #   name: Google
@@ -146,9 +147,9 @@ enablePasswordDB: true
 #
 # If this option isn't chosen users may be added through the gRPC API.
 staticPasswords:
-- email: "admin@example.com"
-  # bcrypt hash of the string "password"
-  hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
-  username: "admin"
-  userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
+  - email: 'admin@example.com'
+    # bcrypt hash of the string "password"
+    hash: '$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W'
+    username: 'admin'
+    userID: '08a8684b-db88-4b73-90a9-3cd1661f5466'
 ```

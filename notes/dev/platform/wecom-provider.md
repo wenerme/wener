@@ -54,11 +54,10 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
 ## 网页授权登陆
 
 - scope
-  - snsapi_base - 默认 - 可获取成员的的基础信息（UserId与DeviceId）；
+  - snsapi_base - 默认 - 可获取成员的的基础信息（UserId 与 DeviceId）；
   - snsapi_userinfo - 可获取成员的详细信息，但不包含手机、邮箱；
   - snsapi_privateinfo - 手动授权 - 可获取成员的详细信息，包含手机、邮箱
     - 第三方 **不能** 获取手机和邮箱
-
 
 ```pre title="自建应用 oauth2"
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect
@@ -84,6 +83,9 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=RE
 - snsapi_userinfo 或 snsapi_privateinfo 需要 agentid
   - redirect_uri 匹配 可信域名
   - 服务商配置的可信域名
+- 第三方 qr 回调包含
+  - auth_code
+  - appid
 
 ## Dev
 
@@ -112,9 +114,16 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=RE
   - 最长为 512 字节
 
 ## 会话存档
+
 - RSA2048 pkcs1
 
 ```bash
 openssl genrsa -out private-key.pem 2048
 openssl rsa -in private-key.pem -pubout -out public-key.pem
 ```
+
+# FAQ
+
+## redirect_uri 与配置的授权完成回调域名不一致
+
+服务商 qr 不能用 js 内嵌

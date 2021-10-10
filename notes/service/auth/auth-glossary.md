@@ -1,5 +1,7 @@
 ---
 title: 词汇
+tags:
+  - Glossary
 ---
 
 # Auth Glossary

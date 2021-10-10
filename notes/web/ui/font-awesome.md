@@ -26,7 +26,7 @@ tags:
   - 适用于 命令行 - 每行文字较多，需要强调行距感
   - 来自微软
 - Menlo
-  - 会连 fi - 导致代码视觉上未对其
+  - 会连 fi - 导致代码视觉上未对齐
 - [source-code-pro](https://github.com/adobe-fonts/source-code-pro)
 
 ## Emoji

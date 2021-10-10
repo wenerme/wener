@@ -74,4 +74,4 @@ https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?
 
 ## redirect_uri 与配置的授权完成回调域名不一致
 
-配置 Web 授权回调郁闷
+配置 Web 授权回调域名

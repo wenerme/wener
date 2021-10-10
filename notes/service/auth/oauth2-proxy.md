@@ -4,52 +4,52 @@ title: oauth2-proxy
 ---
 
 # oauth2-proxy
-## Tips
-* [oauth2-proxy/oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy)
-* 环境变量 + `OAUTH2_PROXY_` 前缀
-* [会话](https://oauth2-proxy.github.io/oauth2-proxy/configuration/sessions) - `--session-store-type`
-  * cookie - 默认
-    * 代理无状态
-    * 使用 `cookie-secret` 加密 cookie
-    * 并发操作可能会冲突导致需要从新认证
-  * redis
-    * Cookie 记录 ticket
-    * `{CookieName}-{ticketID}.{secret}`
-      * CookieName 默认 _oauth2_proxy
-      * ticketID - 128 bit, hex
-      * secret - 128 bit, base64url, no padding
-    * `--session-store-type=redis`
-    * `--redis-connection-url=redis://host[:port][/db-number]`
-* [Endpoints](https://oauth2-proxy.github.io/oauth2-proxy/endpoints)
-  * /robots.txt
-  * /ping - 健康检查
-  * /oauth2/sign_in
-  * /oauth2/sign_out
-    * rd 参数重定向 或者 头 `X-Auth-Request-Redirect`
-  * /oauth2/start - 开始 OAuth，rd 参数为重定向地址
-  * /oauth2/callback - OAuth2 回调地址
-  * /oauth2/userinfo - 返回用户信息
-  * /oauth2/auth - 返回 202 Accepted 或 401 Unauthorized；用于 nginx auth_request
-* 参考
-  * ingress-nginx [oauth external auth](https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/)
-  * [Setup ingress auth to use keycloak oauth](https://docs.syseleven.de/metakube/de/tutorials/setup-ingress-auth-to-use-keycloak-oauth)
+
+- [oauth2-proxy/oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy)
+- 环境变量 + `OAUTH2_PROXY_` 前缀
+- [会话](https://oauth2-proxy.github.io/oauth2-proxy/configuration/sessions) - `--session-store-type`
+  - cookie - 默认
+    - 代理无状态
+    - 使用 `cookie-secret` 加密 cookie
+    - 并发操作可能会冲突导致需要从新认证
+  - redis
+    - Cookie 记录 ticket
+    - `{CookieName}-{ticketID}.{secret}`
+      - CookieName 默认 \_oauth2_proxy
+      - ticketID - 128 bit, hex
+      - secret - 128 bit, base64url, no padding
+    - `--session-store-type=redis`
+    - `--redis-connection-url=redis://host[:port][/db-number]`
+- [Endpoints](https://oauth2-proxy.github.io/oauth2-proxy/endpoints)
+  - /robots.txt
+  - /ping - 健康检查
+  - /oauth2/sign_in
+  - /oauth2/sign_out
+    - rd 参数重定向 或者 头 `X-Auth-Request-Redirect`
+  - /oauth2/start - 开始 OAuth，rd 参数为重定向地址
+  - /oauth2/callback - OAuth2 回调地址
+  - /oauth2/userinfo - 返回用户信息
+  - /oauth2/auth - 返回 202 Accepted 或 401 Unauthorized；用于 nginx auth_request
+- 参考
+  - ingress-nginx [oauth external auth](https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/)
+  - [Setup ingress auth to use keycloak oauth](https://docs.syseleven.de/metakube/de/tutorials/setup-ingress-auth-to-use-keycloak-oauth)
 
 ```yaml
 # Keycloak
 - args:
-  - --provider=keycloak
-  - --email-domain=*
-  - --upstream=file:///dev/null
-  - --http-address=0.0.0.0:4180
-  - --login-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/auth
-  - --redeem-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/token
-  - --validate-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/userinfo
-  - --whitelist-domain=.my.domain.com
-  - --cookie-domain=.my.domain.com
-  - --oidc-issuer-url=https://my.domain.com/auth/realms/authentication
-  - --keycloak-group=/admin
-  - --cookie-name=keycloak
-  - --proxy-prefix=/second-oauth2
+    - --provider=keycloak
+    - --email-domain=*
+    - --upstream=file:///dev/null
+    - --http-address=0.0.0.0:4180
+    - --login-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/auth
+    - --redeem-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/token
+    - --validate-url=https://my.domain.com/auth/realms/authentication/protocol/openid-connect/userinfo
+    - --whitelist-domain=.my.domain.com
+    - --cookie-domain=.my.domain.com
+    - --oidc-issuer-url=https://my.domain.com/auth/realms/authentication
+    - --keycloak-group=/admin
+    - --cookie-name=keycloak
+    - --proxy-prefix=/second-oauth2
 ```
 
 ## 配置
@@ -155,13 +155,13 @@ kind: Ingress
 metdata:
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
-    nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
+    nginx.ingress.kubernetes.io/auth-url: 'https://$host/oauth2/auth'
+    nginx.ingress.kubernetes.io/auth-signin: 'https://$host/oauth2/start?rd=$escaped_request_uri'
     # 需要 set-xauthrequest: true
-    nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email"
+    nginx.ingress.kubernetes.io/auth-response-headers: 'x-auth-request-user, x-auth-request-email'
 ```
 
-__映射到其他空间__
+**映射到其他空间**
 
 ```yaml
 kind: Service
@@ -185,18 +185,18 @@ metadata:
   namespace: longhorn-system
 spec:
   tls:
-  - hosts:
-    - longhorn.example.com
-    secretName: longhorn-example-com-cert
+    - hosts:
+        - longhorn.example.com
+      secretName: longhorn-example-com-cert
   rules:
-  - host: longhorn.example.com
-    http:
-      paths:
-      - backend:
-          service:
-            name: oauth2-proxy
-            port:
-              name: http
-        path: /oauth2
-        pathType: ImplementationSpecific
+    - host: longhorn.example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: oauth2-proxy
+                port:
+                  name: http
+            path: /oauth2
+            pathType: ImplementationSpecific
 ```

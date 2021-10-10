@@ -79,6 +79,12 @@ title: 企业微信开发
 | 2000000   | 系统应用 agent id     | 2000004 会话归档                 |
 | 3000000   | 管理应用 agent id     | 3010084 日程                     |
 
+## UserAgent
+
+```pre
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like Gecko) wxwork/3.1.12 (MicroMessenger/6.2) WeChat/2.0.4"
+```
+
 ## Limit
 
 |       API limit |    min |      hour |
@@ -177,3 +183,14 @@ title: 企业微信开发
   - 操作会触发 change_auth 事件
   - 新可见用户会发送 subscribe 事件
   - 不可见用户会发送 unsubscribe 事件
+
+## 校验请求来源错误
+
+- 只有在服务商后台-通用开发参数-配置登入授权发起域名下的页面才可以发起授权
+- QR 测试的时候也需要 - 无法从本地发起
+- 依赖 referrer - 不能从服务端发起跳转
+  - 必须从 Web 客户端发起点击
+
+## 扫码登陆内容
+
+- https://open.work.weixin.qq.com/wwopen/sso/confirm2?k=0000000000000000

@@ -16,6 +16,7 @@ title: SSO
     - 生物特征 - something you are - fingerprint, retinal scan, facial recognition
 - 2FA - 两阶段验证
 - MFA - 多阶段验证
+- U2F - 通用双重认证设备
 - 参考
   - wikipedia [SSO](https://en.wikipedia.org/wiki/Single_sign-on)
   - [List of single sign-on implementations](https://en.wikipedia.org/wiki/List_of_single_sign-on_implementations)

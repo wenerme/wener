@@ -1,18 +1,17 @@
 ---
 title: Home Assistant
-hide_title: true
 ---
 
 # Home Assistant
-## Tips
-* [home-assistant/core](https://github.com/home-assistant/core)
-  * Python3 + SQLite3
-  * [架构](https://developers.home-assistant.io/docs/architecture_index/)
-  * [Demo](https://demo.home-assistant.io/)
-* [安装](https://www.home-assistant.io/docs/installation/)
-* 端口
-  * http 8123
-  * HomeKit 桥接 51828
+
+- [home-assistant/core](https://github.com/home-assistant/core)
+  - Python3 + SQLite3
+  - [架构](https://developers.home-assistant.io/docs/architecture_index/)
+  - [Demo](https://demo.home-assistant.io/)
+- [安装](https://www.home-assistant.io/docs/installation/)
+- 端口
+  - http 8123
+  - HomeKit 桥接 51828
 
 ```bash
 # try
@@ -29,11 +28,11 @@ docker run -d --restart always \
   --name="homeassistant" homeassistant/home-assistant:stable
 ```
 
-
 ## 配置
-* https://www.home-assistant.io/docs/configuration/
-* /config - docker/Home Assistant
-* ~/.homeassistant - 直接安装时的目录 - macOS/Linux
+
+- https://www.home-assistant.io/docs/configuration/
+- /config - docker/Home Assistant
+- ~/.homeassistant - 直接安装时的目录 - macOS/Linux
 
 ```yaml
 homeassistant:
@@ -46,13 +45,13 @@ homeassistant:
   unit_system: metric
   temperature_unit: C
   time_zone: Asia/Shanghai
-  external_url: "https://www.example.com"
-  internal_url: "http://homeassistant.local:8123"
+  external_url: 'https://www.example.com'
+  internal_url: 'http://homeassistant.local:8123'
   allowlist_external_dirs:
     - /usr/var/dumping-ground
     - /tmp
   allowlist_external_urls:
-    - "http://images.com/image1.png"
+    - 'http://images.com/image1.png'
   media_dirs:
     media: /media
     recordings: /mnt/recordings
@@ -76,7 +75,7 @@ homeassistant:
         192.168.0.0/24:
           - user1_id
           - user2_id
-        "fd00::/8":
+        'fd00::/8':
           - user1_id
           - group: system-users
 
@@ -96,13 +95,15 @@ homeassistant:
 ```
 
 # FAQ
+
 ## Home Assistant vs. Home Assistant Core
-* Core
-  * Python 应用
-  * 独立安装
-* Home Assistant
-  * Core + 工具
-  * 一般通过系统镜像安装
-  * 支持扩展
-  * [安装](https://www.home-assistant.io/hassio/installation/)
-* [Home Assistant vs. Home Assistant Core](https://www.home-assistant.io/faq/ha-vs-hassio/)
+
+- Core
+  - Python 应用
+  - 独立安装
+- Home Assistant
+  - Core + 工具
+  - 一般通过系统镜像安装
+  - 支持扩展
+  - [安装](https://www.home-assistant.io/hassio/installation/)
+- [Home Assistant vs. Home Assistant Core](https://www.home-assistant.io/faq/ha-vs-hassio/)

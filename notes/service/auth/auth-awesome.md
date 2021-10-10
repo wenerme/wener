@@ -6,8 +6,25 @@ tags:
 
 # Auth Awesome
 
+
+|                ver | date       |
+| -----------------: | ---------- |
+|       Kerberos 4.0 | 1980s      |
+|             LDAPv3 | 1997       |
+|       Kerberos 5.0 | 1993       |
+|           SAML 1.0 | 2002       |
+|           SAML 1.1 | 2003       |
+|           SAML 2.0 | 2005       |
+|         OpenID 1.0 | 2006       |
+|         OpenID 2.0 | 2007       |
+|          OAuth 1.0 | 2010       |
+|          OAuth 2.0 | 2012       |
+| OpenID Connect 1.0 | 2014       |
+|   WebAuthn Level 1 | 2019-03-04 |
+
 - IAM - Identity and Access Management
 - [kdeldycke/awesome-iam](https://github.com/kdeldycke/awesome-iam)
+- [keepassxreboot/keepassxc](https://github.com/keepassxreboot/keepassxc)
 
 ## Authorization
 

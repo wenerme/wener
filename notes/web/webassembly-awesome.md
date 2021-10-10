@@ -26,3 +26,8 @@ tags:
 - [wasm3/wasm3](https://github.com/wasm3/wasm3)
   - MIT, C
   - interpreter
+- [suborbital/sat](https://github.com/suborbital/sat)
+  - Apache-2.0, Go
+  - Tiny, blazing fast WebAssembly compute
+  - [HN](https://news.ycombinator.com/item?id=28788303)
+    - 包含作者选型原因

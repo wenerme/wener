@@ -70,3 +70,9 @@ deploy:prod:manually:
     - .deploy
   when: manual
 ```
+
+## 2FA SSH 生成恢复码
+
+```bash
+ssh git@gitlab.com 2fa_recovery_codes
+```

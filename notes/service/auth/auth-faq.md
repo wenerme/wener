@@ -1,23 +1,10 @@
 ---
 title: 认证授权常见问题
+tags:
+- FAQ
 ---
 
 # 认证授权常见问题
-
-|                ver | date       |
-| -----------------: | ---------- |
-|       Kerberos 4.0 | 1980s      |
-|             LDAPv3 | 1997       |
-|       Kerberos 5.0 | 1993       |
-|           SAML 1.0 | 2002       |
-|           SAML 1.1 | 2003       |
-|           SAML 2.0 | 2005       |
-|         OpenID 1.0 | 2006       |
-|         OpenID 2.0 | 2007       |
-|          OAuth 1.0 | 2010       |
-|          OAuth 2.0 | 2012       |
-| OpenID Connect 1.0 | 2014       |
-|   WebAuthn Level 1 | 2019-03-04 |
 
 ## OIDC vs OAuth
 
@@ -94,6 +81,10 @@ title: 认证授权常见问题
     - 不支持 cookie-refresh
     - 无法访问原始 jwt 信息
     - 无法正确 logout
+
+## RADIUS vs TACACS
+
+- [TACACS+ and RADIUS Comparison](https://www.cisco.com/c/en/us/support/docs/security-vpn/remote-authentication-dial-user-service-radius/13838-10.html)
 
 ## Tokens
 

@@ -242,3 +242,12 @@ from (
     ) lt
 where rn = 1
 ```
+
+# ON CONFLICT 多列 UNIQUE
+
+- https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT
+- conflict_target can perform unique index inference
+- 多列 UNIQUE 会有问题 - https://stackoverflow.com/a/38066008/1870054
+  - 建议通过 generate 列调整 uniqe 逻辑
+  - 或者再建一个包含所有 unique 列的索引
+- 如果想要返回 EXCLUDED 可以使用 CTE 多步执行 https://stackoverflow.com/a/35953488/1870054

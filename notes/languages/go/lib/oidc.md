@@ -18,6 +18,13 @@ title: OIDC
   - /end_session - EndSessionEndpoint
   - /keys - KeysEndpoint
 
+```bash
+# http://localhost:9998/.well-known/openid-configuration
+CAOS_OIDC_DEV=1 go run github.com/caos/oidc/example/server/default
+# http://localhost:5556/login
+CLIENT_ID=web CLIENT_SECRET=web ISSUER=http://localhost:9998/ SCOPES=openid PORT=5556 go run github.com/caos/oidc/example/client/app
+```
+
 ```pre
 http://localhost:9999/authorize?client_id=web&response_type=code&scope=openid&redirect_uri=http://localhost:9999/authorize/callback
 ```

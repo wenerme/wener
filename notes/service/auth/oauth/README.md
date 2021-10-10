@@ -55,7 +55,7 @@ title: OAuth
   * [OAuth.io](https://oauth.io/)
     * https://github.com/oauth-io
   * [Auth0](https://auth0.com/)
-  
+
 
 https://oauth.net/2/grant-types/
 * response_type
@@ -611,7 +611,7 @@ X-GitHub-Request-Id: C390:1E82:97CD8EB:B8B4F1D:5A4B13D1
     * Consumer Secret
     * Attributes
       * Basic Profile
-        * name, picture, signup date, twitter description, language, location, twitter screen name, time zone, URL, timezone and verified account. 
+        * name, picture, signup date, twitter description, language, location, twitter screen name, time zone, URL, timezone and verified account.
         * 目前不提供用户邮箱
 * 企业
   * AD/LDAP
