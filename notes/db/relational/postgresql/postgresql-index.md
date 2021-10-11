@@ -34,6 +34,17 @@ title: PostgreSQL Index
   - 表达式索引
   - 唯一索引
   - 多列索引
+- [pg_qualstats] - An extension collecting statistics about quals
+  - quals -> predicates
+- [hypopg] - Hypothetical indexes for PostgreSQL
+  - 评估索引和 Query Plan
+
+[hypopg]: https://github.com/HypoPG/hypopg
+[pg_qualstats]: https://github.com/powa-team/pg_qualstats
+
+- Bitmap Index Scan
+- Bitmap Heap Scan
+- Index Scan
 
 :::tip
 
@@ -52,6 +63,17 @@ title: PostgreSQL Index
 - 排序隐含 NULLS LAST, 默认 ASC NULLS LAST - 因此默认 DESC NULLS LAST **不会**用到索引
 
 :::
+
+```sql title="索引支持的操作"
+SELECT am.amname              AS index_method,
+       opc.opcname            AS opclass_name,
+       opc.opcintype::regtype AS indexed_type,
+       opc.opcdefault         AS is_default
+FROM pg_am am,
+     pg_opclass opc
+WHERE opc.opcmethod = am.oid
+ORDER BY index_method, opclass_name;
+```
 
 ```sql
 -- Hash 索引
@@ -95,6 +117,15 @@ SET max_parallel_workers = 32;
 SET max_parallel_maintenance_workers = 16;
 
 CREATE INDEX CONCURRENTLY idx_address1 ON address(district);
+```
+
+## hypopg
+
+```sql
+SELECT * FROM hypopg_create_index('CREATE INDEX ON test (id)');
+
+SELECT * FROM hypopg_list_indexes();
+EXPLAIN SELECT * FROM test WHERE id = 1;
 ```
 
 # FAQ

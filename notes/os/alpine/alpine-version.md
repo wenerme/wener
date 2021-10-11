@@ -1,7 +1,7 @@
 ---
 title: 版本历史
 tags:
-- Version
+  - Version
 ---
 
 # AlpineLinux 版本历史
@@ -28,6 +28,18 @@ tags:
 
 :::
 
+| version | date       |
+| ------- | ---------- |
+| 3.15    |            |
+| 3.14    | 2020-07-15 |
+| 3.13    | 2020-01-14 |
+| 3.12    | 2020-05-29 |
+| 3.11    | 2019-12-29 |
+| 3.10    | 2019-06-19 |
+| 3.9     | 2019-01-29 |
+| 3.8     | 2018-06-26 |
+| 3.7     | 2017-11-30 |
+
 :::caution 版本升级注意事项
 
 - 如果升级了 openssh 建议重启 sshd，否则可能不会接受新的链接
@@ -49,7 +61,6 @@ tags:
 
 :::
 
-- 2020-07-15
 - Linux Kernel 5.10.43
 - 🆕 新增包
   - n2n
@@ -76,7 +87,6 @@ tags:
 
 ## 3.13
 
-- 2020-01-14
 - Linux Kernel [5.10 LTS](https://wener.me/notes/os/linux/linux-version/#510---lts)
 - 参考
   - [Release Notes for Alpine 3.13.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0)

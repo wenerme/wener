@@ -1,5 +1,5 @@
 ---
-title: K8S Distro Compare
+title: K3S vs K0S
 slug: k8s-distro-compare
 tags:
   - Kubernetes

@@ -177,7 +177,7 @@ ansible -m debug -a "msg={{lookup('hashi_vault', 'secret=secret/data/app:data').
 ansible -m debug -a "msg={{lookup('hashi_vault', 'secret=consul/creds/reader:token')}}" localhost
 ```
 
-## objc[37519]: +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called.
+## objc: +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called.
 
 ```bash
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

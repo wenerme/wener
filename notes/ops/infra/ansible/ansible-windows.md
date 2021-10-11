@@ -32,6 +32,13 @@ title: Ansible Windows
   - [Windows collection](https://docs.ansible.com/ansible/latest/collections/ansible/windows/index.html)
     - [ansible-collections/ansible.windows](https://github.com/ansible-collections/ansible.windows)
 
+```bash
+winrm get winrm/config
+winrm enumerate winrm/config/Listener
+winrm get winrm/config/Service
+winrm get winrm/config/Winrs
+```
+
 ```yaml
 win:
   ansible_host: 192.168.1.2
@@ -40,4 +47,23 @@ win:
   ansible_connection: winrm
   # ansible_winrm_transport: basic
   ansible_winrm_transport: ntlm
+```
+
+## Setup
+- https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html
+
+```ps
+# Remove all listeners
+Remove-Item -Path WSMan:\localhost\Listener\* -Recurse -Force
+
+# Only remove listeners that are run over HTTPS
+Get-ChildItem -Path WSMan:\localhost\Listener | Where-Object { $_.Keys -contains "Transport=HTTPS" } | Remove-Item -Recurse -Force
+```
+
+# FAQ
+
+## Max retries exceeded with url
+
+```
+basic: HTTPSConnectionPool(host='192.168.1.1', port=5986): Max retries exceeded with url: /wsman (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10d353940>: Failed to establish a new connection: [Errno 61] Connection refused')
 ```

@@ -1,7 +1,7 @@
 ---
 title: OS Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # OS Awesome
@@ -106,3 +106,8 @@ tags:
 ## 开发
 
 - https://wiki.osdev.org
+
+## Firmware
+
+- [obdev/v-usb](https://github.com/obdev/v-usb)
+  - Atmel's AVR Microcontrollers
