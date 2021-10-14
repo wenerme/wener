@@ -42,8 +42,20 @@ tags:
   WireGuard+2FA
   - BSD-3
   - 依赖 官方 coordinate 服务
+- [juanfont/headscale](https://github.com/juanfont/headscale)
+  - self-hosted Tailscale control server
 - [tonarino/innernet](https://github.com/tonarino/innernet)
   - MIT, Rust
+- [Place1/wg-access-server](https://github.com/Place1/wg-access-server)
+  - MIT, Go
+  - WireGuard VPN solution + Web UI
+  - [HN](https://news.ycombinator.com/item?id=28719488)
+- [subspacecommunity/subspace](https://github.com/subspacecommunity/subspace)
+  - WireGuard VPN server GUI
+- [firezone/firezone](https://github.com/firezone/firezone)
+  - VPN server and firewall
+- [weejewel/wg-easy](https://github.com/weejewel/wg-easy)
+  - WireGuard VPN + Web-based Admin UI
 
 ## Tunnel/通道
 

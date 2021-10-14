@@ -40,6 +40,7 @@ tags:
   - [Simple Pojrect Layout](https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/)
   - [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
     - rsc: this is not a standard Go project layout - [#117](https://github.com/golang-standards/project-layout/issues/117)
+- [Network Programming with Go](https://tumregels.github.io/Network-Programming-with-Go/) [HN](https://news.ycombinator.com/item?id=28824996)
 
 ## 日志
 
@@ -212,6 +213,8 @@ tags:
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
   - [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
     - gqlgen 客户端
+  - [Khan/genqlient](https://github.com/Khan/genqlient)
+    - type-safe Go GraphQL client
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
 
 ## JSON

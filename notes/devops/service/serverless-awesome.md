@@ -6,6 +6,18 @@ tags:
 
 # Serverless Awesome
 
+- Kubernetes 之前的 FaaS 平台和之后的平台有一定区别
+
+
+:::caution
+
+- faas 会往 wasm 支持上转
+- 大多基于 http 路由 - 基于 http 触发
+  - 重 service 的方式不太行的通 - 例如 grpc
+- 基于 消息 的 faas 相对更底层 - 需要一定基础实现才能实际使用 - 例如 keda
+
+:::
+
 ## 实现
 
 - [kedacore/keda](https://github.com/kedacore/keda)
@@ -21,7 +33,10 @@ tags:
 - [serverless/serverless](https://github.com/serverless/serverless)
 - [openfaas/faas](https://github.com/openfaas/faas)
   - 源自 VMWare
-  - faasd 可独立部署
+  - [openfaas/faas-netes](https://github.com/openfaas/faas-netes)
+    K8S 集成
+  - [openfaas/fassd](https://github.com/openfaas/fassd)
+    lightweight & portable faas engine
 - [kubeless/kubeless](https://github.com/kubeless/kubeless)
   - 源自 Bitnami
   - 开发不是特别活跃
@@ -31,10 +46,11 @@ tags:
   - 源自 IBM
 - [nuclio/nuclio](https://github.com/nuclio/nuclio)
   - 数据流处理
-- fn
+- [fnproject/fn](https://github.com/fnproject/fn)
   - 源自 Oracle
-  - 项目停止
+  - 🚧 项目停止
 - 参考
+  - [anaibol/awesome-serverless](https://github.com/anaibol/awesome-serverless)
   - [A Comparison of Serverless Frameworks for Kubernetes: OpenFaas, OpenWhisk, Fission, Kubeless and more](https://winderresearch.com/a-comparison-of-serverless-frameworks-for-kubernetes-openfaas-openwhisk-fission-kubeless-and-more/)
   - [Comparison of Kubernetes Serverless Frameworks](https://www.vshn.ch/en/blog/a-very-quick-comparison-of-kubernetes-serverless-frameworks/)
   - [Examining the FaaS on K8S Market](https://blogs.cisco.com/cloud/examining-the-faas-on-k8s-market)

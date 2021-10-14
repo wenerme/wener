@@ -1,10 +1,12 @@
 ---
 title: Data Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Data Awesome
+
+- [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)
 
 ## Crawler
 
@@ -17,6 +19,9 @@ tags:
   - [eddycjy/fake-useragent](https://github.com/eddycjy/fake-useragent)
   - [asciimoo/colly](https://github.com/asciimoo/colly)
 - [BruceDone/awesome-crawler](https://github.com/BruceDone/awesome-crawler)
+- 参考
+  - [The State of Web Scraping in 2021](https://mihaisplace.blog/2021/10/03/the-state-of-web-scraping-in-2021/)
+    - [HN](https://news.ycombinator.com/item?id=28827509)
 
 ## Pipeline
 

@@ -96,6 +96,7 @@ title: 微前端
   - 封装组件、语言无关
   - ShadowDom 挑实现框架
   - 组件样式是否需要隔离待商榷
+- [opencomponents/oc](https://github.com/opencomponents/oc)
 - [micro-zoe/micro-app](https://github.com/micro-zoe/micro-app)
   - 京东
   - 基于 CustomElement，类似 iframe 设计体验
@@ -120,3 +121,35 @@ title: 微前端
   // Use `storage` ...
 </script>
 ```
+
+# FAQ
+
+## ShadowDom 样式受全局影响
+
+- 一般样式使用 rem
+  - 受 html font-size 影响
+  - 默认 16px
+- 建议 ShadowDom 的时候最好使用 px
+- 如果是自己的环境，可保留使用 rem - 方便 user-agent 控制字体大小
+
+## microservice vs microfrontend
+
+- 微服务 vs 微前端
+- 微服务
+  - 功能性服务、聚合性服务
+  - 通过 rpc/http/反向代理 方式路由
+  - rpc - version+service name+method name
+  - http - host+path
+  - 通过序列化的请求沟通 - 传递数据
+  - service mesh - Observability, Security, Reliability
+    - 前端不需要关心 - 类似 sentry
+- 微前端
+  - 单个页面
+    - 拆分代码逻辑结构
+  - 单个网站
+    - 基于 URL 路由
+    - 实现部分逻辑共享
+    - SAP
+    - SSR
+  - 比微服务更复杂 - 交互、结构
+  - 比微服务更简单 - 治理

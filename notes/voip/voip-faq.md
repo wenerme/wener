@@ -1,5 +1,7 @@
 ---
 title: VoIP FAQ
+tags:
+  - FAQ
 ---
 
 # VoIP FAQ
@@ -67,3 +69,10 @@ title: VoIP FAQ
 主要用于在拨号时处理歧义, 例如 `23163441`, 在接收到一部分的时候, 可能就已经开始拨号, 这是不对的, 应该等待输入完成
 
 - [What is overlap dialing ?](https://www.3cx.com/blog/voip-howto/overlap-dialing/)
+
+## 带宽
+
+- G711 PCMU, PCMA at ptime=20ms ~= 80kbps
+- G729 ~= 24kbps - 70%
+  - ptime=60ms ~= 13.3kbps
+- IAX2 能一定程度减少带宽

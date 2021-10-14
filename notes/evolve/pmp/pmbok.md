@@ -51,3 +51,7 @@ title: PMBOK
 | ISO 10006 | Quality Management on Projects |
 | ISO 21500 | Project Management             |
 | ISO 31000 | Risk Management                |
+
+## PMBOK 5th
+
+- https://www.pmi.org/-/media/pmi/documents/public/pdf/pmbok-standards/pmbok-guide-5th-errata.pdf

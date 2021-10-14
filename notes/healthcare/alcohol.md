@@ -4,6 +4,8 @@ title: alcohol
 
 # alcohol
 
+- [Current concepts in alcohol metabolism](https://www.sciencedirect.com/science/article/pii/S166526811932143X)
+
 ## alcohol tolerance
 
 - alcohol tolerance

@@ -124,6 +124,7 @@ tags:
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)
     - Apache-2.0, Go
+  - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
 
 ## Secret & ConfigMap
 

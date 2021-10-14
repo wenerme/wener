@@ -80,10 +80,18 @@ tags:
   - [UUIDv6](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00)
     有点类似 ULID
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/1cf5a71e5a5c)
+- [dolthub/dolt](https://github.com/dolthub/dolt)
+  - Git for Data
 
 ## Big Data
 
 - [Practical SQL for Data Analysis](https://hakibenita.com/sql-for-data-analysis)
+
+## Vector
+
+- [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
+  - Benchmarks of approximate nearest neighbor
+- [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
 
 ## Tools
 

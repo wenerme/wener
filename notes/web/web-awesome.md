@@ -1,7 +1,7 @@
 ---
 title: Web Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Web Awesome
@@ -76,6 +76,11 @@ tags:
 - [josdejong/mathjs](https://github.com/josdejong/mathjs)
 - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
 - [BuilderIO/partytown](https://github.com/BuilderIO/partytown)
+- [remotestorage/remotestorage.js](https://github.com/remotestorage/remotestorage.js)
+  - [protocol](https://remotestorage.io/protocol/)
+- [francisrstokes/construct-js](https://github.com/francisrstokes/construct-js)
+- [jsxgraph](https://jsxgraph.org/)
+  - Dynamic Mathematics with JavaScript
 
 ## tty
 

@@ -1,7 +1,7 @@
 ---
 title: GameDev Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # GameDev Awesome
@@ -19,6 +19,8 @@ tags:
     - data-driven
   - [amethyst/amethyst](https://github.com/amethyst/amethyst)
     - data-driven
+- js
+  - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
 
 ## Service
 
@@ -30,9 +32,29 @@ tags:
   - [googleforgames/open-saves](https://github.com/googleforgames/open-saves)
     - 游戏保存
 
+## Retro
 
-# Retro
 - [Game Boy Studio](https://www.gbstudio.dev/)
   - [chrismaltby/gb-studio](https://github.com/chrismaltby/gb-studio)
   - [HN](https://news.ycombinator.com/item?id=26979879)
 - [VGA ROM Fonts](http://www.alexandrugroza.ro/microelectronics/essays-research/vga-rom-fonts/index.html)
+
+## Resources
+
+- http://Kenney.nl
+- http://OpenGameArt.org
+- http://Untamed.wild-refuge.net
+- http://Crateboy.itch.io
+- http://Opengamegraphics.com
+- http://Gameart2d.com
+- http://Wigdetworx.com
+- http://GlitchtheGame.com
+- http://Dumbanex.com
+- http://Reinerstilesets.de
+- http://Sharecg.com
+- http://Roenica.com
+- http://Blogoscoped.com
+- http://Lostgarden.com
+- http://Subtlepatterns.com
+- http://Openclipart.org
+- https://gist.github.com/EndangeredMassa/6b177f36b08a5b0798cf

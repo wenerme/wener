@@ -45,3 +45,9 @@ title: KV DB Awesome
 - RocksDB
 - BoltDB
 - Badger
+
+# FAQ
+
+## redis vs memcache
+
+- https://news.ycombinator.com/item?id=28830007

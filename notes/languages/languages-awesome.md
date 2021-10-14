@@ -27,3 +27,5 @@ tags:
   - MIT
 - [openai/triton](https://github.com/openai/triton)
   writing highly efficient custom Deep-Learning primitives
+- [alshdavid/BorrowScript](https://github.com/alshdavid/BorrowScript)
+  - TypeScript + Borrow Checker

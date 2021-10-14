@@ -11,3 +11,4 @@ title: Algorithm Awesome
   - pure-Go implementation of the BLAKE3
 - [zeebo/blake3](https://github.com/zeebo/blake3)
   - Go implementation of BLAKE3 with AVX2 and SSE4.1 acceleration
+- [Word-aligned Bloom filters](https://lemire.me/blog/2021/10/03/word-aligned-bloom-filters/)

@@ -24,6 +24,8 @@ title: PostgreSQL Awesome
   - 暂不支持 PG13
 - [zombodb/zombodb](https://github.com/zombodb/zombodb)
   - 集成 ES 搜索和分析能力
+- [ankane/pgvector](https://github.com/ankane/pgvector)
+  - 向量搜索
 
 ## PL
 
@@ -31,9 +33,15 @@ title: PostgreSQL Awesome
 - [pllua/pllua](https://github.com/pllua/pllua)
 - [tada/pljava](https://github.com/tada/pljava)
 
-## Read
+## 参考
 
+- [Implementing Incremental View Maintenance for PostgreSQL](https://yugonagata-pgsql.blogspot.com/2021/06/implementing-incremental-view.html?m=1)
 - [HN](https://news.ycombinator.com/item?id=28425379)
+- [Waiting for PostgreSQL 14 – Improvements for handling large number of connections](https://www.depesz.com/2020/08/25/waiting-for-postgresql-14-improvements-for-handling-large-number-of-connections/)
+
+## 工具
+
+- https://pgmodeler.io/
 
 ## Sync
 

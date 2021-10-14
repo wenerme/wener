@@ -18,6 +18,8 @@ title: React Version
 - startTransition
 - React.lazy - streaming server renderer
 - concurrent rendering
+- 参考
+  - What's New in React 18? [HN](https://news.ycombinator.com/item?id=28696748)
 
 ## 17
 
@@ -58,4 +60,5 @@ function App() {
 
 ## 16.8
 
-- 引入 Hooks
+- 新增 Functional Component
+- 新增 Hooks

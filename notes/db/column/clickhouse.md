@@ -55,6 +55,7 @@ title: ClickHouse
   - 支持 mutation `ALTER TABLE name UPDATE/DELETE column=exp WHERE filter`
     - 后台异步执行，全部数据重写，非原子操作，非常慢
     - 满足 GDPR 要求
+- 不支持读写分离 [#18452](https://github.com/ClickHouse/ClickHouse/issues/18452)
 
 :::
 

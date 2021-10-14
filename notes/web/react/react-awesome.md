@@ -189,6 +189,8 @@ tags:
 - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
   - 动态网格布局组件
   - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
+- [nomcopter/react-mosaic](https://github.com/nomcopter/react-mosaic)
+  - tiling window manager
 - [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
   - Drag & Drop
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)

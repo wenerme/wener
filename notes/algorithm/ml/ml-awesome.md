@@ -19,6 +19,7 @@ tags:
 - [salesforce/warp-drive](https://github.com/salesforce/warp-drive)
 - [isl-org/MiDaS](https://github.com/isl-org/MiDaS)
 - [NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)
+- [PaddlePaddle/Knover](https://github.com/PaddlePaddle/Knover)
 
 ## Learn
 
@@ -27,8 +28,16 @@ tags:
   - PyTorch
 - [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
 - How to replace estimations and guesses with a Monte Carlo simulation [HN](https://news.ycombinator.com/item?id=28769331)
+- [Neural Networks from Scratch](https://aegeorge42.github.io/)
+  - [HN](https://news.ycombinator.com/item?id=28806701)
+- How to train large deep learning models as a startup [HN](https://news.ycombinator.com/item?id=28786958)
+- [Red Hot: The 2021 Machine Learning, AI and Data (MAD) Landscape](https://mattturck.com/data2021/)
+- [Guide for building an End-to-End Logistic Regression Model](https://www.analyticsvidhya.com/blog/2021/09/guide-for-building-an-end-to-end-logistic-regression-model/)
+- [SELF-PARKING CAR IN 500 LINES OF CODE](https://trekhleb.dev/blog/2021/self-parking-car-evolution/)
+- [facebookresearch/minihack](https://github.com/facebookresearch/minihack)
 
 ![](http://dlib.net/ml_guide.svg)
+
 
 ## Framework
 
@@ -78,6 +87,9 @@ tags:
 ## GAN
 
 - [orpatashnik/StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
+
+## Music
+- [microsoft/muzic](https://github.com/microsoft/muzic)
 
 ## STT
 
