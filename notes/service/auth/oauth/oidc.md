@@ -13,6 +13,7 @@ title: OpenID Connect
   - client_secret_basic
   - client_secret_post
   - none
+    - PCKE - 一般会使用 verify code
   - private_key_jwt
 - application type
   - web - Confidential
@@ -41,6 +42,18 @@ title: OpenID Connect
   - phone
     - phone_number , phone_number_verified
   - offline_access
+- client_assertion_type
+  - urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+- grant_type
+  - authorization_code
+  - implicit
+  - refresh_token
+  - password
+  - client_credentials
+  - urn:openid:params:grant-type:ciba
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  - urn:ietf:params:oauth:grant-type:token-exchange
 
 | spec                            | year |
 | ------------------------------- | ---- |
@@ -62,7 +75,7 @@ title: OpenID Connect
 - rs - resource server
   - API 服务 - 使用 token 和 introspect
   - client_assertion
-  - client_assertion_type - urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+  - client_assertion_type
   - POST 请求 issuer 确认 token
 - rp - relaying party - website
 - ua - user agent - browser

@@ -151,3 +151,5 @@ env:
   - name: JGROUPS_DISCOVERY_PROPERTIES
     value: dump_requests=true,port_range=0,namespace={{.Release.Namespace}}
 ```
+
+## failed getting JSON response from Kubernetes Client

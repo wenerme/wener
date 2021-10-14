@@ -51,6 +51,13 @@ title: fission
     - 配置 min,max
     - `--minscale 0` 可完全缩容 - 冷启动会慢
 
+:::caution
+
+- 不支持 gRPC 路由 - [fission/fission#250](https://github.com/fission/fission/issues/250)
+- NATS 目前尚未使用 JetStream API
+
+:::
+
 ```bash
 fission env create --name nodejs --image fission/node-env
 curl https://raw.githubusercontent.com/fission/examples/master/nodejs/hello.js > hello.js

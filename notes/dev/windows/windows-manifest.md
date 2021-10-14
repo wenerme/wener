@@ -3,7 +3,8 @@ title: Windows Manifest
 ---
 
 # Windows Manifest
-* [What is a Manifest (in Windows)?](https://www.samlogic.net/articles/manifest.htm)
+
+- [What is a Manifest (in Windows)?](https://www.samlogic.net/articles/manifest.htm)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

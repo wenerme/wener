@@ -34,6 +34,8 @@ helm search repo stable
 helm show values stable/nextcloud
 helm pull stable/nextcloud
 helm pull stable/nextcloud --untar
+
+helm create my-chart
 ```
 
 ## 路径

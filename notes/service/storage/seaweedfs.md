@@ -4,8 +4,12 @@ title: seaweedfs
 
 # seaweedfs
 
-- 注意
-  - 默认构建的单 `weed volume` 只支持 30G - 对分布式文件系统来说太小了
+:::caution
+
+- 默认构建的单 `weed volume` 只支持 30G - 对分布式文件系统来说太小了
+
+:::
+
 - [chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
   - 起源于 [Facebook's Haystack design paper](http://www.usenix.org/event/osdi10/tech/full_papers/Beaver.pdf), f4
   - 每个文件 40byte 元数据

@@ -6,6 +6,11 @@ tags:
 
 # Dev Awesome
 
+## Design
+
+- https://docs.microsoft.com/en-us/azure/architecture/patterns/
+- https://microservices.io/patterns/
+
 ## Read
 
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
@@ -39,6 +44,11 @@ tags:
 
 - cloc
 - [boyter/scc](https://github.com/boyter/scc)
+
+```bash
+# -M '[.]pb[.]' -M 'generated'
+scc --exclude-dir vendor --no-gen .
+```
 
 ## 协作
 

@@ -4,10 +4,22 @@ title: Linux Device
 ---
 
 # Linux Device
-* [List of device bit rates](https://en.wikipedia.org/wiki/List_of_device_bit_rates)
-* 参考
-  * [linux设备模型之kset/kobj/ktype分析](https://mp.weixin.qq.com/s/PybqqhyJejNJbeSdlEaYWQ)
-* /sys/class/tty
+
+- [List of device bit rates](https://en.wikipedia.org/wiki/List_of_device_bit_rates)
+- 参考
+  - [linux 设备模型之 kset/kobj/ktype 分析](https://mp.weixin.qq.com/s/PybqqhyJejNJbeSdlEaYWQ)
+- /sys/class/tty
+
+| dev       | stand for                              |
+| --------- | -------------------------------------- |
+| /dev/loop | loop devices                           |
+| /dev/fd   | file descriptors                       |
+| /dev/sr   | CD-ROM devices                         |
+| /dev/ram  | ramdisks                               |
+| /dev/dm   | device mapper, lvm, luks               |
+| /dev/md   | multiple device, software RAID devices |
+| /dev/rbd  | rados block device, ceph block devices |
+| /dev/zd   | zfs volumes                            |
 
 ```bash
 # 查看所有 USB

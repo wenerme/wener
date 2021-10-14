@@ -12,9 +12,9 @@ tags:
 | ------------------- | ---------- | ------- | ----------- | ------- | ----- | ------- | ------- |
 | Kernel              | Windows NT | XUN     | Linux       | Linux   | Linux | Linux   | BSD     |
 | Package Manager     | nuget      | brew    | apk         | apt     | yum   | opkg    | pkg     |
-| init                |            | launchd | openrc/bbox | systemd |
-| Service Management  |            | launchd | openrc      | systemd |
-| Desktop Environment |            | Aqua    |             |         |
+| init                |            | launchd | openrc/bbox | systemd |       |         |         |
+| Service Management  |            | launchd | openrc      | systemd |       |         |         |
+| Desktop Environment |            | Aqua    |             |         |       |         |         |
 | Firewall            |            | pf      | iptables    |         |       |         | pf,ipfw |
 | Virtualization      | hyperv/hax | hvf/hax | kvm         | kvm     | kvm   | -       | bhyve   |
 
@@ -106,8 +106,19 @@ tags:
 ## 开发
 
 - https://wiki.osdev.org
+- [tuhdo/os01](https://github.com/tuhdo/os01)
+  - Bootstrap yourself to write an OS from scratch
+- [isometimes/rpi4-osdev](https://github.com/isometimes/rpi4-osdev)
+  - [HN](https://news.ycombinator.com/item?id=28774022)
+- https://news.ycombinator.com/favorites?id=Gunax
 
 ## Firmware
 
 - [obdev/v-usb](https://github.com/obdev/v-usb)
   - Atmel's AVR Microcontrollers
+
+## Forth
+
+- http://www.forth.org/svfig/osf.html
+- https://forth-standard.org/systems
+- https://github.com/ForthHub/wiki/wiki/Forth-Systems

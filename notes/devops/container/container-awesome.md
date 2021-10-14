@@ -55,6 +55,9 @@ tags:
 - [containers/skopeo](https://github.com/containers/skopeo)
   - remote images registries - retrieving information, images, signing content
 - [wagoodman/dive](https://github.com/wagoodman/dive)
+- [vicanso/diving](https://github.com/vicanso/diving)
+  - dive web
+
 
 ## Interesting
 

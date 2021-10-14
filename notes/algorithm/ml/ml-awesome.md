@@ -18,6 +18,7 @@ tags:
 - [JianshuZhang/WAP](https://github.com/JianshuZhang/WAP)
 - [salesforce/warp-drive](https://github.com/salesforce/warp-drive)
 - [isl-org/MiDaS](https://github.com/isl-org/MiDaS)
+- [NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)
 
 ## Learn
 
