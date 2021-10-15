@@ -10,6 +10,8 @@ title: SystemJS
   - `import Icon from '@ant-design/icons'` 实际应该取 `Icon.default`
   - 参考 [react-microfrontends/api#1](https://github.com/react-microfrontends/api/issues/1)
     - webpack 4.x 有这个问题
+- [systemjs/systemjs#1971](https://github.com/systemjs/systemjs/issues/1971)
+  Hot reloading workflows
 
 ```js
 // rxjs hack

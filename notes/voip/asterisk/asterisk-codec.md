@@ -34,6 +34,23 @@ core show translation
 core show file format
 ```
 
+| codec           | name                         | ref     |
+| --------------- | ---------------------------- | ------- |
+| AMR             | Adaptive Multi-Rate          | RFC4867 |
+| AMR-WB          |
+| AMR-WB+         |
+| H.264           |                              | RFC6184 |
+| H.265/HEVC      | High Efficiency Video Coding | RFC7798 |
+| Opus            |                              | RFC7587 |
+| PCMA-WB         | ITU-T G.711.1 A-law          | RFC5391 |
+| PCMA,A-Law,alaw | ITU-T G.711 PCM A-Law        | RFC3551 |
+| PCMU-WB         | ITU-T G.711.1 μ-Law          | RFC5391 |
+| PCMU,μ-Law,ulaw | TU-T G.711 PCM μ-Law         | RFC3551 |
+
+- 实时语音基本都是 20ms
+- RTCP NTP timestamp
+  - 1–60 samples per second.
+
 ## VoIP 常用编码
 
 以下编码时钟频率均为 8000, 默认包大小 20
@@ -46,6 +63,10 @@ core show file format
 | PCMA  | 8   | G.711/alaw |
 | G722  | 9   |
 | G729  | 18  | G.729a     |
+
+> PT = RTC Payload Type
+
+- [RTP payload formats](https://en.wikipedia.org/wiki/RTP_payload_formats)
 
 ## 音频编码
 
@@ -214,7 +235,7 @@ rm *.wav
 ## 文件格式说明
 
 | Format  | Name    | Extensions |
-| ------- | ------- | ---------- |
+| ------- | ------- | ---------- | ------ | --- | --- | --- |
 | slin192 | sln192  | sln192     |
 | slin96  | sln96   | sln96      |
 | slin48  | sln48   | sln48      |
@@ -223,7 +244,7 @@ rm *.wav
 | slin24  | sln24   | sln24      |
 | slin16  | sln16   | sln16      |
 | slin12  | sln12   | sln12      |
-| slin    | sln     | sln        | raw |
+| slin    | sln     | sln        | raw    |
 | gsm     | gsm     | gsm        |
 | g719    | g719    | g719       |
 | g729    | g729    | g729       |
@@ -240,8 +261,8 @@ rm *.wav
 | g723    | g723sf  | g723       | g723sf |
 | g722    | g722    | g722       |
 | ulaw    | au      | au         |
-| alaw    | alaw    | alaw       | al | alw |
-| ulaw    | pcm     | pcm        | ulaw | ul | mu | ulw |
+| alaw    | alaw    | alaw       | al     | alw |
+| ulaw    | pcm     | pcm        | ulaw   | ul  | mu  | ulw |
 | siren14 | siren14 | siren14    |
-| gsm     | wav49   | WAV        | wav49 |
+| gsm     | wav49   | WAV        | wav49  |
 | adpcm   | vox     | vox        |

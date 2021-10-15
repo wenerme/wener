@@ -82,6 +82,10 @@ tags:
 - [jsxgraph](https://jsxgraph.org/)
   - Dynamic Mathematics with JavaScript
 
+## Dev
+
+- [modernweb-dev/web](https://github.com/modernweb-dev/web)
+
 ## tty
 
 - [xtermjs/xterm.js](https://github.com/xtermjs/xterm.js)

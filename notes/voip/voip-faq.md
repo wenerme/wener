@@ -9,7 +9,9 @@ tags:
 ## Asterisk vs FreeSWITCH
 
 - Asterisk
-  - 轻量，资源占用少
+  - 轻量
+    - 资源占用少
+    - 适合嵌入式 - 大多硬件网关直接集成
   - 社区支撑更好
   - 模块化程度更高
   - 线程资源共享 - 存在资源锁，性能弱于 fs
@@ -17,7 +19,10 @@ tags:
 - FreeSWITCH
   - 原本是 Asterisk 开发者想要修复问题，最后完全重写
   - 对资源要求更高
-  - 多租户，高并发 - 适用于 SaaS 平台
+  - 多租户，高并发
+    - 适用于 SaaS 平台
+    - 适合二次开发 - 协议允许
+    - 适合集成
   - 集群能力 - 不同实例处理不同功能
   - 通道线程资源独立 - 对资源要求高，性能更高
   - XML 配置
@@ -27,10 +32,10 @@ tags:
   - 支持 Linux, macOS, BSD 等平台
   - libfreeswitch 可作为库来使用
 
-| -          | Since | License | by     | dr                             |
+| -          | Since | License | by     | derivative                     |
 | ---------- | ----- | ------- | ------ | ------------------------------ |
 | Asterisk   | 1999  | GPL     | Digium | FreePBX,Elastix,PBX in a Flash |
-| FreeSWITCH | 2006  | MPL     |        | sipXcom,FusionPBX              |
+| FreeSWITCH | 2006  | **MPL** |        | sipXcom,FusionPBX              |
 
 ---
 

@@ -13,7 +13,7 @@ title: skaffold
 ```bash
 # macOS
 brew install skaffold
-# 手动按照
+# 手动安装
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-darwin-amd64 && \
 sudo install skaffold /usr/local/bin/
 

@@ -1,7 +1,7 @@
 ---
 title: Git FAQ
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Git FAQ
@@ -26,7 +26,6 @@ git pull --recurse-submodules
 # 或者递归拉取
 git clone --recursive <URL>
 ```
-
 
 ## 统计
 
@@ -176,7 +175,6 @@ git fetch --all
 git reset --hard origin/master
 ```
 
-
 ## 部分克隆转完整克隆
 
 ```bash
@@ -238,4 +236,18 @@ git rev-list --max-parents=0 HEAD
 git log --all -- '*.wmv'
 # 只显示 hash
 git rev-list --all -- '*.wmv'
+```
+
+## skip ci
+
+- 一般都支持 message 包含 `[ci skip]`, `[skip ci]`
+- git 2.10 支持选项 git push -o ci.skip
+- 参考
+  - gitlab [Push Options](https://docs.gitlab.com/ee/user/project/push_options.html#push-options-for-gitlab-cicd)
+  - jetbrain 暂不支持 git option [IDEA-202210](https://youtrack.jetbrains.com/issue/IDEA-202210)
+  - [git push -o](https://git-scm.com/docs/git-push#Documentation/git-push.txt--oltoptiongt)
+
+```bash
+git push -o ci.skip
+git push -o ci.variable="MAX_RETRIES=10" -o ci.variable="MAX_TIME=600"
 ```
