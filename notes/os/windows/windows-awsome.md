@@ -14,6 +14,8 @@ tags:
 ## Tools
 
 - [sysinternals](https://technet.microsoft.com/en-us/sysinternals/bb842062)
+  - [sysinternals](https://docs.microsoft.com/zh-cn/sysinternals/)
+  - Github [Sysinternals](https://github.com/Sysinternals)
 - [crazy-max/WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
 - [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
 - [BornToBeRoot/NETworkManager](https://github.com/BornToBeRoot/NETworkManager)

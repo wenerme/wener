@@ -12,9 +12,10 @@ tags:
 - security backports 两个版本
 - [Release History](https://golang.org/doc/devel/release)
 
-:::tip
+:::tip Roadmap
 
 - 1.18 (2022-2) 会包含部分 generic
+- fuzz - https://go.dev/blog/fuzz-beta
 
 :::
 
@@ -29,6 +30,10 @@ tags:
 | 1.12 | 2019-2 | -                       | -                |
 | 1.11 | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
 | 1.10 | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
+
+## 1.18
+- generic
+  - stdlib 这个版本不变
 
 ## 1.17
 

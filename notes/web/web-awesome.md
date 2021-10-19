@@ -25,6 +25,7 @@ tags:
 
 ## Build
 
+- [bundlers.tooling.report](https://bundlers.tooling.report/)
 - vite
 - rollup
 - esbuild

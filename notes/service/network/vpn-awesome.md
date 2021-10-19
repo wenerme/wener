@@ -56,6 +56,7 @@ tags:
   - VPN server and firewall
 - [weejewel/wg-easy](https://github.com/weejewel/wg-easy)
   - WireGuard VPN + Web-based Admin UI
+- [aramperes/onetun](https://github.com/aramperes/onetun)
 
 ## Tunnel/通道
 

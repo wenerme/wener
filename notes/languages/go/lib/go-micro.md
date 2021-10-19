@@ -10,6 +10,7 @@ title: go-micro
 - Broker http :52981
 - GRPC server :53915
 - 参考
+  - [m3o/m3o](https://github.com/m3o/m3o)
   - [micro/services](https://github.com/micro/services)
     - 基于 micro 的服务示例
   - [Asim Aslam on Microservices, go-micro, and PaaS 3.0](https://www.infoq.com/podcasts/microservices-go-micro-paas3/)

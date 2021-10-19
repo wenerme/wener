@@ -31,12 +31,18 @@ title: KV DB Awesome
 - Ehcache
 - Infinispan
 - Geode
+
+## Redis
+
 - [KeyDB](https://github.com/EQ-Alpha/KeyDB)
   - BSD3, C++,C
   - 多线程 Redis
   - ModJS - 可以通过 V8 扩展
   - WIP
     - JSON
+- [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
+  - Mordern Redis Cluster solution
+- [Tencent/Tendis](https://github.com/Tencent/Tendis)
 
 ## 文件
 

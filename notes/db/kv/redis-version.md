@@ -9,6 +9,7 @@ title: Redis Version
 | 6.0 | 2020-04-30 |
 
 ## 6.0
+
 - SSL
 - ACLs
 - RESP3

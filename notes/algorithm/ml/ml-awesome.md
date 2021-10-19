@@ -20,6 +20,11 @@ tags:
 - [isl-org/MiDaS](https://github.com/isl-org/MiDaS)
 - [NVlabs/stylegan3](https://github.com/NVlabs/stylegan3)
 - [PaddlePaddle/Knover](https://github.com/PaddlePaddle/Knover)
+- [google-research-datasets/timedial](https://github.com/google-research-datasets/timedial)
+  - https://arxiv.org/abs/2106.04571
+- [google-research-datasets/disfl-qa](https://github.com/google-research-datasets/disfl-qa)
+  - https://arxiv.org/abs/2106.04016
+- [vijaydwivedi75/gnn-lspe](https://github.com/vijaydwivedi75/gnn-lspe)
 
 ## Learn
 
@@ -52,7 +57,19 @@ tags:
   - ASR, MT
 - dlib
 - [clab/dynet](https://github.com/clab/dynet)
+- CNTK
+- mlpack
+- SHARK
+- Armadillo
+- Faisis
+- OpenNN
+- FANN
 - [bennylp/awesome-cpp-ml](https://github.com/bennylp/awesome-cpp-ml)
+- Boosting
+  - XGBoost
+  - ThunderGBM
+  - LightGBM
+  - CatBoost
 
 ## Language
 

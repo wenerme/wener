@@ -6,6 +6,11 @@ tags:
 
 # Golang Awesome
 
+## 常用库
+
+- mux
+  - chi - ⭐️
+  - gin, mux
 - ORM
   - [go-gorm/gorm](https://github.com/go-gorm/gorm) - ⭐️
     - 基于反射
@@ -21,6 +26,20 @@ tags:
     - 比 urfave/cli 更 unopinioned
     - urfave/cli 更加 declarative
   - [urfave/cli](https://github.com/urfave/cli)
+- IoC - fx
+- JWT
+  - [golang-jwt/jwt](https://github.com/golang-jwt/jwt)
+- JWK
+  - [lestrrat-go/jwx](https://github.com/lestrrat-go/jwx)
+    - jwt,jwk,jwa,jws,jwe
+- OIDC
+  - [caos/oidc](https://github.com/caos/oidc)
+    - op,rs
+- 日志
+  - zap
+  - logrus
+- HTTP Client
+  - [wenerme/go-req](https://github.com/wenerme/go-req)
 - Observerable
   - Prometheus Metrics
   - Jaeger
@@ -40,7 +59,9 @@ tags:
   - [Simple Pojrect Layout](https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/)
   - [golang-standards/project-layout](https://github.com/golang-standards/project-layout)
     - rsc: this is not a standard Go project layout - [#117](https://github.com/golang-standards/project-layout/issues/117)
-- [Network Programming with Go](https://tumregels.github.io/Network-Programming-with-Go/) [HN](https://news.ycombinator.com/item?id=28824996)
+- [Network Programming with Go](https://tumregels.github.io/Network-Programming-with-Go/)
+  - [HN](https://news.ycombinator.com/item?id=28824996)
+- [Gotchas in the Go Network Packages Defaults](https://martin.baillie.id/wrote/gotchas-in-the-go-network-packages-defaults/)
 
 ## 日志
 
@@ -124,6 +145,7 @@ tags:
 - [go-chi/render](https://github.com/go-chi/render)
   - 辅助处理请求响应内容
 - [unrolled/render](https://github.com/unrolled/render)
+- [yuriizinets/kyoto](https://github.com/yuriizinets/kyoto)
 
 ### 框架
 
@@ -216,6 +238,8 @@ tags:
   - [Khan/genqlient](https://github.com/Khan/genqlient)
     - type-safe Go GraphQL client
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
+  - [uber-go/gopatch](https://github.com/uber-go/gopatch)
+    - 根据规则转换代码
 
 ## JSON
 
@@ -239,8 +263,7 @@ tags:
   - struct 标签注解校验 - 类似于 Java 的 Bean Validate
 - [go-ozzo/ozzo-validation](https://github.com/go-ozzo/ozzo-validation)
   - 校验库
-- [mapstruct/mapstruct](https://github.com/mapstruct/mapstruct)
-  - 对象互转 - 基于反射
+- mapstructure
 
 ## 网络
 
@@ -263,6 +286,9 @@ tags:
 
 ## 事件驱动
 
+- [uber/cadence](https://github.com/uber/cadence)
+  - distributed, scalable, durable, and highly available orchestration engine
+  - execute asynchronous long-running business logic
 - [tibcosoftware/flogo](https://github.com/tibcosoftware/flogo)
   - 包含 Web UI
   - 用于实现事件驱动编程
@@ -302,8 +328,11 @@ tags:
   - 很多抽象接口值得学习
 - [asim/go-micro](https://github.com/asim/go-micro)
   standalone framework for distributed systems development
+- [google/go-cloud](https://github.com/google/go-cloud)
+  - Go Cloud Development Kit
 - [nytimes/gizmo](https://github.com/nytimes/gizmo)
 - [ergo-services/ergo](https://github.com/ergo-services/ergo)
+  - design patterns of Erlang/OTP
 
 **国产**
 
@@ -327,7 +356,7 @@ tags:
 
 ## 国内环境
 
-- [wenerme/go-req](https://github.com/wenerme/go-req)
+- [wenerme/go-wecom](https://github.com/wenerme/go-wecom)
 - [go-pay/gopay](https://github.com/go-pay/gopay)
 
 ## Markdown

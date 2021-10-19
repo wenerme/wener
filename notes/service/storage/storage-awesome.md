@@ -1,5 +1,7 @@
 ---
 title: Storage Awesome
+tags:
+  - Awesome
 ---
 
 # Storage Awesome

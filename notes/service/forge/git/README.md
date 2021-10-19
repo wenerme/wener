@@ -20,18 +20,6 @@ title: Git
 - 学会使用 Markdown
 - 有问题问谷歌
 
-# 参考
-
-- [Pro Git（中文版）](http://git.oschina.net/progit/)
-- [Git for beginners: The definitive practical guide](http://stackoverflow.com/questions/315911/)
-- [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
-- [git 与 svn 命令比较](http://git.or.cz/course/svn.html)
-- [我的 .gitconfig](https://github.com/wenerme/dotfiles/blob/master/.gitconfig)
-- [Git in 1k JavaScript](http://gitlet.maryrosecook.com/docs/gitlet.html)
-- [arzzen/git-quick-stats](https://github.com/arzzen/git-quick-stats)
-  - [HN](https://news.ycombinator.com/item?id=26980731)
-- [New in Git: switch and restore](https://www.banterly.net/2021/07/31/new-in-git-switch-and-restore/)
-
 ```bash
 # 直接通过 SSH 进行仓库推送
 ssh user@host 'git init --bare /repo/my-project'
@@ -56,18 +44,7 @@ git config --global user.email=wenermail@gmail.com
 
 基本操作可参考 [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
 
-## gitflow
 
-- [nvie/gitflow](https://github.com/nvie/gitflow)
-- [petervanderdoes/gitflow-avh](https://github.com/petervanderdoes/gitflow-avh)
-  - a collection of Git extensions to provide high-level repository operations for Vincent Driessen's branching model.
-  - adds more functionality to the existing git-flow and several of the internal commands have been rewritten to speed up the software.
-- [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model)
-- [git-flow 工作流程](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
-
-```bash
-brew install git-flow-avh
-```
 
 ## 常用操作
 

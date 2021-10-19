@@ -82,15 +82,28 @@ go build -o bin/cli -ldflags "$DEF_FLAGS" ./cmd/cli
 
 ## 限定 Build Tag
 
+- 内置 Tag
+  - 版本 - 例如 go1.18
+  - cgo
+  - gc, gccgo
+  - GOOS
+  - GOARCH
+
 ```go
-//+build tag
+//go:build tag
+//+build tag1,tag2
+
+// 复杂限定
+//go:build (linux && 386) || (darwin && !cgo)
 
 package main
 ```
 
 ```bash
-go build -tags tag
+go build -tags "tag1 tag2"
 ```
+
+- https://pkg.go.dev/cmd/go#hdr-Build_constraints
 
 ## 交叉编译
 

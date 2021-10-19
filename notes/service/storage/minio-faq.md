@@ -1,5 +1,7 @@
 ---
 title: Minio FAQ
+tags:
+  - FAQ
 ---
 
 # Minio FAQ

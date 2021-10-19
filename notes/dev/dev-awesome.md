@@ -58,3 +58,7 @@ scc --exclude-dir vendor --no-gen .
 ## Microservices
 
 - [Event-Driven Data Management for Microservices](https://www.nginx.com/blog/event-driven-data-management-microservices/)
+
+## Conf
+
+- [Flagsmith/flagsmith](https://github.com/Flagsmith/flagsmith)

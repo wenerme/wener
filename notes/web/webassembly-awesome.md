@@ -6,6 +6,7 @@ tags:
 
 # WASM Awesome
 
+- [roadmap](https://webassembly.org/roadmap/)
 - bytecodealliance
   - [bytecodealliance/lucet](https://github.com/bytecodealliance/lucet)
     Sandboxing WebAssembly Compiler.

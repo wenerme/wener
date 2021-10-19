@@ -5,6 +5,7 @@ title: OpenID Connect
 # OpenID Connect
 
 - [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
+  - [错误码](https://openid.net/specs/openid-connect-core-1_0.html#ErrorContents)
 - 参考
   - Mozilla [OIDC](https://infosec.mozilla.org/guidelines/iam/openid_connect.html)
   - [Token Storage](https://auth0.com/docs/security/data-security/token-storage)

@@ -5,7 +5,7 @@ title: HELM 包管理器
 
 # Helm
 
-- 是什么
+- [helm/helm](https://github.com/helm/helm) 是什么
   - Kubernetes 上的包管理器
 - [helm.sh](https://helm.sh/)
   - [环境变量列表](https://helm.sh/docs/helm/helm)

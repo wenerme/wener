@@ -68,7 +68,7 @@ tags:
 - [sigstore/cosign](https://github.com/sigstore/cosign)
 - [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
 
-## Dashboard
+## Dashboard/UI
 
 - healmap
 - lens
@@ -77,6 +77,7 @@ tags:
   命令行
 - portainer
 - [vmware-tanzu/octant](https://github.com/vmware-tanzu/octant)
+- [kubernetes-sigs/kui](https://github.com/kubernetes-sigs/kui)
 
 ## Distribution
 

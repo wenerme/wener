@@ -5,12 +5,14 @@ title: go-kit
 
 # go-kit
 
-- 微服务开发套件
-- Unopinioned
-- 三层
-  - Transport
-  - Endpoint
-  - Service
+- [go-kit/kit](https://github.com/go-kit/kit)
+  - 开发不活跃、设计可作参考
+  - 微服务开发套件/库
+  - Unopinioned
+  - 三层
+    - Transport
+    - Endpoint
+    - Service
 
 | Layer     | Impl                                                                              |
 | --------- | --------------------------------------------------------------------------------- |

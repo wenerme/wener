@@ -36,9 +36,16 @@ core show file format
 
 | codec           | name                         | ref     |
 | --------------- | ---------------------------- | ------- |
+| ADPCM, IMA      |
 | AMR             | Adaptive Multi-Rate          | RFC4867 |
 | AMR-WB          |
 | AMR-WB+         |
+| B64             |
+| G.722           |
+| G.723           |
+| G.726           |
+| G.729           |
+| GSM             |
 | H.264           |                              | RFC6184 |
 | H.265/HEVC      | High Efficiency Video Coding | RFC7798 |
 | Opus            |                              | RFC7587 |
@@ -46,6 +53,7 @@ core show file format
 | PCMA,A-Law,alaw | ITU-T G.711 PCM A-Law        | RFC3551 |
 | PCMU-WB         | ITU-T G.711.1 μ-Law          | RFC5391 |
 | PCMU,μ-Law,ulaw | TU-T G.711 PCM μ-Law         | RFC3551 |
+| Speex           |
 
 - 实时语音基本都是 20ms
 - RTCP NTP timestamp

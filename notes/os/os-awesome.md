@@ -8,15 +8,15 @@ tags:
 
 **Cross OS Components Compare**
 
-| vs.                 | Windows    | macOS   | AlpineLinux | Debian  | RHEL  | OpenWRT | FreeBSD |
-| ------------------- | ---------- | ------- | ----------- | ------- | ----- | ------- | ------- |
-| Kernel              | Windows NT | XUN     | Linux       | Linux   | Linux | Linux   | BSD     |
-| Package Manager     | nuget      | brew    | apk         | apt     | yum   | opkg    | pkg     |
-| init                |            | launchd | openrc/bbox | systemd |       |         |         |
-| Service Management  |            | launchd | openrc      | systemd |       |         |         |
-| Desktop Environment |            | Aqua    |             |         |       |         |         |
-| Firewall            |            | pf      | iptables    |         |       |         | pf,ipfw |
-| Virtualization      | hyperv/hax | hvf/hax | kvm         | kvm     | kvm   | -       | bhyve   |
+| vs.                 | Windows    | macOS   | AlpineLinux | Debian  | Ubuntu  | RHEL  | OpenWRT | FreeBSD |
+| ------------------- | ---------- | ------- | ----------- | ------- | ------- | ----- | ------- | ------- |
+| Kernel              | Windows NT | XUN     | Linux       | Linux   | Linux   | Linux | Linux   | BSD     |
+| Package Manager     | nuget      | brew    | apk         | apt     | apt     | yum   | opkg    | pkg     |
+| init                |            | launchd | openrc/bbox | systemd | upstart |       |         |         |
+| Service Management  |            | launchd | openrc      | systemd | systemd |       |         |         |
+| Desktop Environment |            | Aqua    |             |         | GNOME   |       |         |         |
+| Firewall            |            | pf      | iptables    |         | ufw     |       |         | pf,ipfw |
+| Virtualization      | hyperv/hax | hvf/hax | kvm         | kvm     | kvm     | kvm   | -       | bhyve   |
 
 ---
 
@@ -59,6 +59,10 @@ tags:
   - RPi 4 支持 HEVC/H.265 硬解
   - RPi 2+ 支持 H.264 硬解
 
+## Retro Game
+
+- [MiSTer-devel/Main_MiSTer](https://github.com/MiSTer-devel/Main_MiSTer)
+
 ## BSD
 
 - [OpenBSD Router Guide](https://openbsdrouterguide.net/)
@@ -71,6 +75,17 @@ tags:
 - [vvaltchev/tilck](https://github.com/vvaltchev/tilck)
   Tiny Linux-Compatible Kernel
   - BSD-2, C
+
+## Boot
+
+- [Ventoy](https://ventoy.net)
+  - bootable USB drive for ISO/WIM/IMG/VHD(x)/EFI
+  - USB/Local Disk/SSD/NVMe/SD Card
+  - MBR, GPT
+  - x86 Legacy BIOS, IA32 UEFI, x86_64 UEFI, ARM64 UEFI, MIPS64EL UEFI
+  - Windows/WinPE/Linux/ChromeOS/Unix/VMware/Xen
+  - [ventoy/Ventoy](https://github.com/ventoy/Ventoy)
+    - GPL-3.0, C
 
 ## Emulator
 
@@ -122,3 +137,8 @@ tags:
 - http://www.forth.org/svfig/osf.html
 - https://forth-standard.org/systems
 - https://github.com/ForthHub/wiki/wiki/Forth-Systems
+
+## assm
+
+- Minias – A mini x86-64 assembler for fun and learning [HN](https://news.ycombinator.com/item?id=28884768)
+- [skilldrick/easy6502](https://github.com/skilldrick/easy6502)

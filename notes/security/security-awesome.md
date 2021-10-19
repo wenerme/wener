@@ -43,3 +43,7 @@ tags:
 - 不要使用 ECB
 - used by
   - US Government to protect their own files - [FIPS 197](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)
+
+## Spam
+
+- [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)

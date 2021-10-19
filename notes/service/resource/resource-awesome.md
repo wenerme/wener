@@ -1,7 +1,7 @@
 ---
 title: 资源站
 tags:
-- Awesome
+  - Awesome
 ---
 
 # 资源站
@@ -18,6 +18,12 @@ tags:
   - 中文 BT 站点
 - https://graph.org/documentaryList-09-11
 - https://torlook.info
+
+## Pdf
+
+- [itdevbooks/pdf](https://github.com/itdevbooks/pdf)
+- [forthespada/CS-Books](https://github.com/forthespada/CS-Books)
+- [royeo/awesome-programming-books](https://github.com/royeo/awesome-programming-books)
 
 ## 字幕
 

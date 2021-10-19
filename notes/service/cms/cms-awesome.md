@@ -48,6 +48,8 @@ title: CMS Awesome
 - [laurent22/joplin](https://github.com/laurent22/joplin)
 - [BoostIO/BoostNote.next](https://github.com/BoostIO/BoostNote.next)
 - [athensresearch/athens](https://github.com/athensresearch/athens)
+- [obsidian](https://obsidian.md/)
+  - knowledge base on top of a local folder of plain text Markdown files
 
 ## API for Database
 

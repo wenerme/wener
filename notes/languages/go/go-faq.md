@@ -4,6 +4,13 @@ title: Go FAQ
 
 # Go FAQ
 
+:::caution
+
+- [golang/go#9200](https://github.com/golang/go/issues/9200)
+  - html/template JS 不能包含 `\``
+
+:::
+
 ## JSON string to int
 
 - json.Number - encode 保留 number

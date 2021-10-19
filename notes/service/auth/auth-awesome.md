@@ -38,13 +38,23 @@ tags:
 
 ## IAM
 
+- [keycloak/keycloak](https://github.com/keycloak/keycloak)
+- [kanidm/kanidm](https://github.com/kanidm/kanidm)
+  - MPL-2.0, Rust
+  - SSH/PAM/RADIUS/Web OAuth
+  - [oauth design](https://github.com/kanidm/kanidm/blob/master/designs/oauth.rst)
 - [compare open-source-sso](https://gist.github.com/bmaupin/6878fae9abcb63ef43f8ac9b9de8fafd)
 - OpenIAM
 - Apache Syncope
 - FreeIPA
+  - Python
 - WSO2
-- [keycloak/keycloak](https://github.com/keycloak/keycloak)
 - [apereo/cas](https://github.com/apereo/cas) - Central Authentication Service
+- Okta
+- FusionAuth
+- LDAP/GSSAPI
+- Kerberos
+  - not use public key crypto
 
 ## Reference
 

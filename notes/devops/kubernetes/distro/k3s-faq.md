@@ -119,6 +119,9 @@ rm -rf /var/lib/cni/*
   - +linkerd
     - server 1.55G
     - agent 920M
+- 参考
+  - [K3s Resource Profiling](https://rancher.com/docs/k3s/latest/en/installation/installation-requirements/resource-profiling/)
+  - [Profiling Lightweight Container Platforms: MicroK8s and K3s in Comparison to Kubernetes](http://ceur-ws.org/Vol-2839/paper11.pdf)
 
 ## 区分 worker 和 cp
 

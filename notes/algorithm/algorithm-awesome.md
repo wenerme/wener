@@ -1,9 +1,13 @@
 ---
 title: Algorithm Awesome
+tags:
+- Awesome
 ---
 
 # Algorithm Awesome
 
+- [Functional Algorithms, Verified!](https://functional-algorithms-verified.org/)
+  - [HN](https://news.ycombinator.com/item?id=28884229)
 - [Practical Reed-Solomon for Programmers](https://berthub.eu/articles/posts/reed-solomon-for-programmers/)
 - [Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 - [trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
@@ -12,3 +16,4 @@ title: Algorithm Awesome
 - [zeebo/blake3](https://github.com/zeebo/blake3)
   - Go implementation of BLAKE3 with AVX2 and SSE4.1 acceleration
 - [Word-aligned Bloom filters](https://lemire.me/blog/2021/10/03/word-aligned-bloom-filters/)
+- http://ezyang.com/

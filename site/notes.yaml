@@ -8,10 +8,10 @@
   items:
     - note
     - label: 软考
-      prefix: ruankao
+      prefix: ./ruankao
       items:
-        - label: project-mgmt
-          prefix: 项目管理
+        - label: 项目管理
+          prefix: ./project-mgmt
 
 - label: Java
   prefix: java
@@ -99,6 +99,8 @@
   items:
     - prefix: voip/asterisk
       label: Asterisk
+    - prefix: voip/freeswitch
+      label: FreeSWITCH
 
 - label: 开发
   prefix: dev
@@ -157,8 +159,14 @@
     - label: Auth
       prefix: ./auth
       items:
+        - label: OAuth
+          prefix: ./oauth
         - label: Keycloak
           prefix: ./keycloak
+        - label: AuthN
+          prefix: ./authn
+        - label: AuthZ
+          prefix: ./authz
         - label: LDAP
           prefix: ./ldap
         - label: Kerberos
@@ -174,6 +182,8 @@
     - label: 存储
       prefix: ./storage
       items:
+        - label: MinIO
+          prefix: ./minio
         - label: Ceph
           prefix: ./ceph
     - label: 网络

@@ -17,6 +17,7 @@ tags:
 - https://nlp.stanford.edu/projects/chinese-nlp.shtml
 - https://nlp.stanford.edu/software/segmenter.shtml
 - https://news.ycombinator.com/item?id=28614699
+- https://analyticsindiamag.com/top-resources-to-learn-nlp-for-free/
 
 ## 中文
 

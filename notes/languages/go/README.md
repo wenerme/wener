@@ -5,6 +5,13 @@ title: Golang
 
 # Golang
 
+:::tip 实践
+
+- 尽量避免 cgo
+- 重复代码尽量 生成
+
+:::
+
 :::caution
 
 - `go get` 不会下载源码到 `~/go/src` 了 - [#31529](https://github.com/golang/go/issues/31529)
@@ -273,5 +280,4 @@ bee run -downdoc=true -gendoc=true
 //go:generate stringer -type=MyType
 // 输出到 strings.go
 //go:generate stringer -type=MyType -output=strings.go
-
 ```

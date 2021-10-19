@@ -5,6 +5,7 @@ title: CGO
 # CGO
 
 - 避免 CGO
+  - [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)
   - [notti/nocgo](https://github.com/notti/nocgo) - dlopen without cgo
     - dlopen, dlclose, dlerror, dlsym
     - ffi 汇编, 支持 386 和 amd64
@@ -17,6 +18,21 @@ title: CGO
 
 - 避免 Go 的名字和 C 里的名字冲突，否则无法直接使用 `C.<name>`
   - 例如 如果 Go 里有 MyStruct，则无法使用 C.MyStruct
+
+:::
+
+:::tip 避免使用 CGO
+
+- CGO 依赖系统
+- 跨平台编译复杂
+- 无 CGO 方便构建 -static binary
+- 方案
+  - 找替代库
+  - 用到 cgo 的作为外部进程通过 io 交互 - 减少 cgo 范围
+  - dlopen
+  - exec
+- 常用的 CGO 依赖
+  - sqlite
 
 :::
 
@@ -67,3 +83,11 @@ package dlopen
       - 不支持 WAL
       - schema format > 1
       - UTF8 encoding
+
+# FAQ
+
+## 查找用到了 cgo 的模块
+
+```bash
+go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./... )
+```

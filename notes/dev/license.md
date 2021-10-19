@@ -4,6 +4,7 @@ title: License
 
 # License
 
+- [Comparison of free and open-source software licences](https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licences)
 - [SPDX License List](https://spdx.org/licenses/)
 - [choosealicense](https://choosealicense.com/appendix/)
 - [CNCF allowed third-party license policy](https://github.com/cncf/foundation/blob/master/allowed-third-party-license-policy.md)
@@ -18,6 +19,14 @@ title: License
 - [openbsd.org/policy](https://www.openbsd.org/policy.html)
   - 反对 Apache 2.0
   - 推荐 ISC
+- Public domain & equivalents
+  - PD, CC0
+- 宽松自由软体授权条款 Permissive free software licence
+  - BSD, MIT, Apache, 	CC-BY
+- Copyleft - 禁止私有化
+  - GPL, AGPL, CC-BY-SA
+- Noncommercial license
+  - JRL, AFPL, CC-BY-NC
 
 # AGPL
 
@@ -84,6 +93,28 @@ title: License
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 ```
 
+## Apache-2.0
+
+- provides explicit patent grant
+- 不兼容 GPL-2.0, LGPL-2.1
+
+## GPL
+
+- Android, iOS 都排斥在用户空间使用 GPL
+- macOS 因为 Bash GPLv3 替换为 ZSH
+
+## MPL-2.0
+
+- 类似 Apache-2.0
+- 但兼容 GPL-2.0+, LGPL-2.1+, AGPL-3.0+
+- https://opensource.stackexchange.com/a/8832
+  - may not charge extra for the source code
+  - sell the product, must provide access to the source code under the MPL-2.0
+- https://www.mozilla.org/en-US/MPL/2.0/FAQ/
+- [MIT/Apache-2 vs. MPL-2.0](https://users.rust-lang.org/t/licensing-mit-apache-2-vs-mpl-2-0/46250)
+- vs Apache-2.0
+  - 更严格，更多限制
+
 # FAQ
 
 ## LGPL vs GPL vs AGPL
@@ -91,8 +122,3 @@ title: License
 - LGPL: you can link against and don't have to release source code as long as you don't modify the library itself
 - GPL: you have to release source code if you link against and distribute the binary, but don't if you just provide a service
 - AGPL: you have to allow the source to be downloaded even if you never distribute the binary but do provide a service
-
-## GPL
-
-- Android, iOS 都排斥在用户空间使用 GPL
-- macOS 因为 Bash GPLv3 替换为 ZSH

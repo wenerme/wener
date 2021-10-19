@@ -37,7 +37,7 @@ tags:
     - queue sub 时，如果没有 consumer 和 duraable 则创建临时 js consumer
   - ConsumerConfig.DeliverGroup consumer 关联 queue
   - ConsumerInfo.PushBound 表示已经绑带 push 关系
-- https://github.com/nats-io/nats-server/releases/tag/v2.4.0
+- [v2.4.0](https://github.com/nats-io/nats-server/releases/tag/v2.4.0)
 
 ## 2.3
 
