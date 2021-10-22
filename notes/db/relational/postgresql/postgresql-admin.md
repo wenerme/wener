@@ -8,7 +8,29 @@ title: PostgreSQL Admin
 - https://www.postgresql.org/docs/current/routine-vacuuming.html
 - https://postgresqlco.nf/doc/en/param/
 
+## Info Schema
+
+- https://www.postgresql.org/docs/current/information-schema.html
+
+```sql
+SELECT column_name,
+       is_nullable,
+       udt_name,
+       character_maximum_length,
+       numeric_precision,
+       numeric_precision_radix,
+       numeric_scale,
+       datetime_precision,
+       8 * typlen
+FROM information_schema.columns AS cols
+         JOIN pg_type AS pgt ON cols.udt_name = pgt.typname
+WHERE table_catalog = 'db'
+  AND table_schema = CURRENT_SCHEMA()
+  AND table_name = 'users';
+```
+
 ## Transaction ID Exhaustion/Wraparound
+
 - [Managing Transaction ID Exhaustion (Wraparound) in PostgreSQL](https://blog.crunchydata.com/blog/managing-transaction-id-wraparound-in-postgresql)
 
 ```sql

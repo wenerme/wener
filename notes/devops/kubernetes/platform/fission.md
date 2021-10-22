@@ -28,7 +28,7 @@ title: fission
 - Trigger - 入口/触发方式
   - HTTP
   - Timer - 定时
-  - Message Queue - Kafka, NATS
+  - Message Queue - KEDA - Kafka, NATS
   - Kubernetes Watch - 当集群变化时
 - https://hub.docker.com/u/fission/
   - `<lang>-env` - 执行环境
@@ -59,6 +59,10 @@ title: fission
 :::
 
 ```bash
+# macOS
+curl -Lo fission https://github.com/fission/fission/releases/download/1.14.1/fission-1.14.1-darwin-amd64 \
+    && chmod +x fission && sudo mv fission /usr/local/bin/
+
 fission env create --name nodejs --image fission/node-env
 curl https://raw.githubusercontent.com/fission/examples/master/nodejs/hello.js > hello.js
 fission function create --name hello --env nodejs --code hello.js
@@ -143,3 +147,12 @@ spec:
   trigger: route-fn-a
   weightincrement: 30
 ```
+
+## cli
+
+- FISSION_NAMESPACE
+- FISSION_ROUTER
+
+## deploy
+
+- https://github.com/fission/fission/tree/master/charts/fission-all

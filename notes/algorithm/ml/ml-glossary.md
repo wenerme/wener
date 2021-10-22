@@ -1,10 +1,10 @@
 ---
-title: ML Glossory
+title: ML Glossary
 tags:
-  - Glossory
+  - Glossary
 ---
 
-# ML Glossory
+# ML Glossary
 
 | abbr. | stand for                      |
 | ----- | ------------------------------ |

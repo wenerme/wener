@@ -23,6 +23,7 @@ tags:
 - [typesense/typesense](https://github.com/typesense/typesense)
   - GPL-3.0, C++
   - 不支持 CJK - [typesense/typesense#228](https://github.com/typesense/typesense/issues/228)
+- [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
 - [pisa-engine/pisa](https://github.com/pisa-engine/pisa)
 - [Apache Lucene Core](https://lucene.apache.org/core/)
 - [olivernn/lunr.js](https://github.com/olivernn/lunr.js)

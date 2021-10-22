@@ -17,6 +17,12 @@ title: Keycloak 常见问题
 | email       | email                 | email                              | Property - phoneNumber          |
 | ^           | email verified        | email_verified                     | Property - emailVerified        |
 
+## OIDC Brokering 无法阻止创建本地账号
+
+- 目前无解
+- https://issues.redhat.com/browse/KEYCLOAK-4429
+- https://developers.redhat.com/blog/2020/12/30/how-to-restrict-users-being-authenticated-in-keycloak-during-identity-brokering#
+
 ## 服务账号 - Service Account
 
 - 客户端直接申请获取 Token，然后使用申请到的 Token 访问服务

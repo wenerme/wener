@@ -8,7 +8,14 @@ tags:
 
 ## Distributed File System
 
-**国内**
+- minio
+- ceph
+- gluster
+- hdfs
+- 参考
+  - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
+
+---
 
 - seaweedfs
   - Apache-2.0, Go
@@ -24,6 +31,8 @@ tags:
   - AGPL-3.0, Go
   - metadata - Redis, TiKV, PG, MySQL
   - data - S3, OSS, Ceph, MinIO
+- [haiwen/seafile](https://github.com/haiwen/seafile)
+  - GPL, C
 
 ## Tools
 

@@ -14,6 +14,11 @@ tags:
 | ------------- | ------------ |
 | PostgreSQL 14 | 2021-09-30   |
 
+- [zheap](https://wiki.postgresql.org/wiki/Zheap)
+  - handle UPDATE in PostgreSQL
+  - 2020 [ZHEAP: REINVENTED POSTGRESQL STORAGE](https://www.cybertec-postgresql.com/en/zheap-reinvented-postgresql-storage/)
+  - 2021 [zheap: What has been done since last time](https://www.cybertec-postgresql.com/en/postgresql-zheap-current-status/)
+
 ## PostgreSQL 14
 
 - SELECT/INSERT

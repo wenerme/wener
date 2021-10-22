@@ -31,6 +31,12 @@ title: Vite
     - esbuild 支持 esm 为主
   - 保持 与 DEV 一致会比较难
 
+```bash
+# template:
+#   vanilla, vanilla-ts, vue, vue-ts, react, react-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts
+npm init vite@latest my-vue-app -- --template react-ts
+```
+
 # FAQ
 
 ## Vite vs Snowpack

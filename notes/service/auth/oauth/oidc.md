@@ -351,3 +351,19 @@ title: OpenID Connect
   - abuses OAuth into an authentication protocol
 - 参考
   - [OAUTH vs OpenID vs OIDC](https://security.stackexchange.com/questions/44611)
+
+## 错误码
+
+| code                       |
+| -------------------------- |
+| account_selection_required |
+| consent_required           |
+| interaction_required       |
+| invalid_request            |
+| invalid_request_object     |
+| invalid_request_uri        |
+| login_required             |
+| registration_not_supported |
+| request_not_supported      |
+| request_uri_not_supported  |
+| server_error               |

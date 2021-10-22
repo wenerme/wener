@@ -17,6 +17,7 @@ tags:
 | Desktop Environment |            | Aqua    |             |         | GNOME   |       |         |         |
 | Firewall            |            | pf      | iptables    |         | ufw     |       |         | pf,ipfw |
 | Virtualization      | hyperv/hax | hvf/hax | kvm         | kvm     | kvm     | kvm   | -       | bhyve   |
+| Shell               | cmd,ps     | zsh     | ash         | bash    | bash    | bash  |         | csh,sh  |
 
 ---
 
@@ -117,6 +118,7 @@ tags:
 - [Exploring the Amiga - Part 1](https://www.thedigitalcatonline.com/blog/2018/05/28/exploring-the-amiga-1/)
 - [AlexAltea/orbital](https://github.com/AlexAltea/orbital)
   - PS4
+- Playstation 3 Architecture [HN](https://news.ycombinator.com/item?id=28934624)
 
 ## 开发
 

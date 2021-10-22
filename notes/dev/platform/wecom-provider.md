@@ -25,7 +25,9 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
 
 :::caution
 
-- 在第三方回调事件中使用加解密算法 ReceiveID 内容为 SuiteID
+- 验证回调 ReceiveID 内容为 ProviderCorpId
+- 命令回调 ReceiveID 内容为 SuiteID
+- 数据回调 ReceiveID 内容为 ToUsername - AuthCorpId
 - 无法获取用户的 Name
   - 调用时返回 userid 以代替 name
   - 自建应用需要管理员授权才返回

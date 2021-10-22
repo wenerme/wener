@@ -191,3 +191,10 @@ sudo sysctl kernel.dmesg_restrict=0
 ## mirrors
 
 - https://mirrors.alpinelinux.org
+
+## 避免 udhcp 修改 DNS
+
+```bash
+mkdir -p /etc/udhcpc
+echo 'RESOLV_CONF=no' > /etc/udhcpc/udhcpc.conf
+```

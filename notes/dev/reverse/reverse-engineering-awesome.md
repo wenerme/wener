@@ -6,6 +6,8 @@ tags:
 
 # Reverse Engineering Awesome
 
+- [rr-debugger/rr](https://github.com/rr-debugger/rr)
+
 ## HEX Editor
 
 - [synalysis](https://www.synalysis.net/)

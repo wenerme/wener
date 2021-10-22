@@ -27,7 +27,7 @@ type Query {
   service: Service!
 }
 
-# 跨服务 类型
+# 跨服务 类型 - 会合并类型
 directive @boundary on OBJECT | FIELD_DEFINITION
 
 # 多个服务可同时在相同 ns 下

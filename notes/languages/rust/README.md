@@ -4,8 +4,6 @@ id: rust
 
 # Rust
 
-## Tips
-
 - [Rust:wiki](<https://en.wikipedia.org/wiki/Rust_(programming_language)>)
 - [The Rust Programming Language](https://doc.rust-lang.org/book/)
 - [rust-lang/rust](https://github.com/rust-lang/rust)

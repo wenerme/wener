@@ -7,6 +7,8 @@ title: keycloak-config-cli
 - [adorsys/keycloak-config-cli](https://github.com/adorsys/keycloak-config-cli) 是什么？
   - Keycloak 命令行配置导入
   - Apache-2.0, Java
+- 参考
+  - 参考 [import-files](https://github.com/adorsys/keycloak-config-cli/tree/main/src/test/resources/import-files)
 
 :::tip
 
@@ -36,18 +38,66 @@ KEYCLOAK_PASSWORD=password
 ```
 
 ```yaml
-- username: wener
-  firstName: Chen
-  lastName: Wener
-  email: example@example.com
-  enabled: true
-  emailVerified: true
-  attributes:
-    jobNumber: 1000
-  credentials:
-    - type: password
-      value: 123456
-      temporary: true
-      # 支持设置初始密码
-      userLabel: initial
+#
+enabled: true
+
+# 域基本信息
+realm: demo
+
+displayName: Demo
+displayNameHtml: "<h2>DemoSSO</h2>"
+
+sslRequired: "external"
+loginWithEmailAllowed: true
+
+internationalizationEnabled: true
+supportedLocales:
+- zh-CN
+- en
+defaultLocale: zh-CN
+
+
+# 角色
+roles:
+  # 域角色
+  realm:
+    - name: admin
+      description: 管理
+      attributes:
+        'example.com/admin':
+          - true
+
+# 用户
+users:
+  - username: wener
+    firstName: Chen
+    lastName: Wener
+    email: example@example.com
+    enabled: true
+    emailVerified: true
+    attributes:
+      jobNumber: 1000
+    credentials:
+      - type: password
+        value: 123456
+        temporary: true
+        # 支持设置初始密码
+        userLabel: initial
+    # 角色
+    realmRoles:
+      - admin
+
+clientScopes:
+
+clients:
+- clientId: demo-web
+
+defaultDefaultClientScopes:
+- role_list
+- profile
+- email
+- roles
+- web-origins
+
+
 ```

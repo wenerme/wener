@@ -1,7 +1,7 @@
 ---
 title: GraphQL Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # GraphQL Awesome
@@ -9,6 +9,7 @@ tags:
 ## 学习
 
 - [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
+- [howtographql](https://github.com/howtographql/howtographql)
 
 ## 设计
 
@@ -51,13 +52,10 @@ tags:
   - 不支持 subscriptions
   - [A Guide to GraphQL Schema Federation, Part 1](https://itnext.io/a-guide-to-graphql-schema-federation-part-1-995b639ac035)
 
-## Service
+## Library
 
 - [APIs-guru/graphql-faker](https://github.com/APIs-guru/graphql-faker)
   - mock graphql
-- [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
-  - GraphQL Adapter
-  - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
 - [graphql-go/graphql](https://github.com/graphql-go/graphql)
   - 类似 graphql-js 接口
 - [99designs/gqlgen](https://github.com/99designs/gqlgen)
@@ -65,6 +63,40 @@ tags:
 - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
   - 基于反射自动绑定
   - [graph-gophers/dataloader](https://github.com/graph-gophers/dataloader)
+- [Khan/genqlient](https://github.com/Khan/genqlient)
+  - type-safe Go GraphQL client
+- [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
+
+## Server
+
+> Server, Federation, Gateway, Adapter
+
+- [movio/bramble](https://github.com/movio/bramble)
+  - 受 nautilus 启发
+- [nautilus/gateway](https://github.com/nautilus/gateway)
+  - 开发不活跃
+- [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
+  - GraphQL Adapter
+  - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
+  - REST,DB,RPC 映射为 GraphQL
+  - 收集 API 接口规范、生成 SDK、生成 GraphQL Schema、生成接口映射
+- [ent/ent](https://github.com/ent/ent)
+- [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
+- [graphile/postgraphile](https://github.com/graphile/postgraphile)
+- [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
+- [parse-community/parse-server](https://github.com/parse-community/parse-server)
+- [dgraph-io/dgraph](https://github.com/dgraph-io/dgraph)
+- [directus/directus](https://github.com/directus/directus)
+- [reactioncommerce/reaction](https://github.com/reactioncommerce/reaction)
+- [spree/spree](https://github.com/spree/spree)
+- [redwoodjs/redwood](https://github.com/redwoodjs/redwood)
+- [VulcanJS/Vulcan](https://github.com/VulcanJS/Vulcan)
+- [api-platform/api-platform](https://github.com/api-platform/api-platform)
+- [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
+- [daptin/daptin](https://github.com/daptin/daptin)
+  - Backend As A Service
+- [dosco/graphjin](https://github.com/dosco/graphjin)
+- [keystonejs/keystone](https://github.com/keystonejs/keystone)
 
 ## Tool
 
@@ -76,13 +108,10 @@ tags:
   - 可用于实现 graphql 服务应用
 - [anvilco/spectaql](https://github.com/anvilco/spectaql)
   - 文档生成
-
-## Server
-
-- [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
-- [Urigo/graphql-mesh](https://github.com/Urigo/graphql-mesh)
-  - REST,DB,RPC 映射为 GraphQL
-  - 收集 API 接口规范、生成 SDK、生成 GraphQL Schema、生成接口映射
+- [APIs-guru/graphql-voyager](https://github.com/APIs-guru/graphql-voyager)
+- [graphql/graphiql](https://github.com/graphql/graphiql)
+- [quicktype/quicktype](https://github.com/quicktype/quicktype)
+- [graphql-editor/graphql-editor](https://github.com/graphql-editor/graphql-editor)
 
 ## Client
 

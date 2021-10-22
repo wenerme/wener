@@ -175,3 +175,9 @@ machine <url> login <username> password <token>
 
 - vendor/
   - modules.txt
+
+## monorepo go mod tidy
+
+```bash
+ls **/*/go.mod | xargs dirname | xargs -I {} sh -c 'cd {}; go mod tidy'
+```

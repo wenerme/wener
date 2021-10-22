@@ -1,10 +1,14 @@
 ---
 title: Keycloak Version
+tags:
+- Version
 ---
 
 # Keycloak Version
 
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
+
+## Keycloak 16
 
 ## Keycloak 15
 

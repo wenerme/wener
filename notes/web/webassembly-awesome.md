@@ -6,6 +6,14 @@ tags:
 
 # WASM Awesome
 
+:::tip
+
+- 推荐 rust, c, c++, zig
+- 推荐 js 加嵌入类型的 engine - duktape
+
+:::
+
+- [Rust & Wasm](https://rustwasm.github.io/book/introduction.html)
 - [roadmap](https://webassembly.org/roadmap/)
 - bytecodealliance
   - [bytecodealliance/lucet](https://github.com/bytecodealliance/lucet)
@@ -17,6 +25,10 @@ tags:
   - [bytecodealliance/wasm-micro-runtime](https://github.com/bytecodealliance/wasm-micro-runtime)
     wasm Micro Runtime
     - Apache-2.0, C
+  - [bytecodealliance/wizer](https://github.com/bytecodealliance/wizer)
+    - Apache-2.0, Rust
+    - WebAssembly Pre-Initializer
+    - 空间换时间
 - [wasmerio/wasmer](https://github.com/wasmerio/wasmer)
   WebAssembly Runtime supporting WASI and Emscripten
   - MIT, Rust
@@ -32,3 +44,26 @@ tags:
   - Tiny, blazing fast WebAssembly compute
   - [HN](https://news.ycombinator.com/item?id=28788303)
     - 包含作者选型原因
+## JS
+- duktape
+- [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
+- quickjs
+  - ES2020
+- [mbbill/JSC.js](https://github.com/mbbill/JSC.js)
+- [maple3142/wasm-jseval](https://github.com/maple3142/wasm-jseval)
+- `<iframe sandbox="allow-scripts"/>`
+- 参考
+  - [How to build a plugin system on the web and also sleep well at night](https://www.figma.com/blog/how-we-built-the-figma-plugin-system/)
+  - [An update on plugin security](https://www.figma.com/blog/an-update-on-plugin-security/)
+  - [Making JavaScript run fast on WebAssembly](https://bytecodealliance.org/articles/making-javascript-run-fast-on-webassembly)
+    - [HN](https://news.ycombinator.com/item?id=27370138)
+    - 使用 wizer 预初始化
+    - [cretz/go-wasm-bake](https://github.com/cretz/go-wasm-bake)
+      - 对 Go 的 Wasm 就行预初始化
+    - [facebook/prepack](https://github.com/facebook/prepack)
+      - 类似的对 js bundle 就行预初始化
+      - [repl](https://prepack.io/repl.html)
+
+## 参考
+
+- YT [WebAssemblySummit](https://www.youtube.com/c/WebAssemblySummit)

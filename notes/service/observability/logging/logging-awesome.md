@@ -6,6 +6,33 @@ tags:
 
 # Logging Awesome
 
+- Logging Stack
+  - ELK
+  - EFK - Elastic, Fluent, Kibana
+  - PLG - Promtail, Loki, Grafana
+  - FIG - Fluent, InfluxDB, Grafana
+- OS Log
+  - linux
+    - kmsg
+    - syslog
+    - /var/log
+  - windows
+    - event log
+  - macos
+    - /var/log
+      - system.log
+      - wifi.log
+      - install.log
+    - /Library/Logs
+    - ~/Library/Logs
+
+---
+
+- [banzaicloud/logging-operator](https://github.com/banzaicloud/logging-operator)
+  - Fluentd and Fluentbit
+
+## Collector
+
 - [fluent/fluentd](https://github.com/fluent/fluentd)
   - Apache-2.0, Ruby+C
   - 去中心化插件系统
@@ -25,6 +52,13 @@ tags:
   - heartbeat
   - functionbeat
 - Splunk
+
+## 日志存储
+
+- [grafana/loki](https://github.com/grafana/loki)
+  - AGPL-3.0, Go
+  - 日志界的 Prometheus
+- influxdb
 
 ## 参考
 

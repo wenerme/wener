@@ -1,5 +1,7 @@
 ---
 title: Vlang FAQ
+tags:
+  - FAQ
 ---
 
 # Vlang FAQ

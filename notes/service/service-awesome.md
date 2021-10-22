@@ -36,6 +36,7 @@ tags:
 - [public-apis/public-apis](https://github.com/public-apis/public-apis)
 - [vendure-ecommerce/vendure](https://github.com/vendure-ecommerce/vendure)
 - [medusajs/medusa](https://github.com/medusajs/medusa)
+- [withspectrum/spectrum](https://github.com/withspectrum/spectrum)
 
 ## Avatar
 
@@ -147,6 +148,7 @@ tags:
 
 - [智能问答与深度学习](https://item.jd.com/12479014.html)
   - [l11x0m7/book-of-qna-code](https://github.com/l11x0m7/book-of-qna-code)
+- [saleor/saleor](https://github.com/saleor/saleor)
 
 ## ChatOps
 

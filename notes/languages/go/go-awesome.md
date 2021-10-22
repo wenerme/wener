@@ -146,6 +146,11 @@ tags:
   - 辅助处理请求响应内容
 - [unrolled/render](https://github.com/unrolled/render)
 - [yuriizinets/kyoto](https://github.com/yuriizinets/kyoto)
+- *SSR* :)
+  - [wolfeidau/hotwire-golang-website](https://github.com/wolfeidau/hotwire-golang-website)
+  - https://www.akmittal.dev/posts/hotwire-go/
+  - [jfyne/live](https://github.com/jfyne/live)
+  - [brendonmatos/golive](https://github.com/brendonmatos/golive)
 
 ### 框架
 

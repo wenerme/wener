@@ -4,20 +4,26 @@ title: udhcpc
 
 # udhcpc
 
-## Tips
-
-- https://udhcp.busybox.net/README.udhcpc
-- /usr/share/udhcpc/default.script
-- https://wiki.alpinelinux.org/wiki/Udhcpc
+- 默认配置 /etc/udhcpc/udhcpc.conf
+  - RESOLV_CONF=no - 不修改 resolve.conf
+- 默认脚本 /usr/share/udhcpc/default.script
+  - 获取到配置后，调用脚本进行配置
+  - udhcpc.conf 内变量影响配置逻辑
 - signals
   - SIGUSR1 - 刷新状态，会从新获取 IP
   - SIGUSR2 - 释放当前租约，进入不活跃状态，发送 SIGUSR1 信号可激活
+- 参考
+  - https://udhcp.busybox.net/README.udhcpc
+  - https://wiki.alpinelinux.org/wiki/Udhcpc
 
 ```bash
+# 手动申请地址
 udhcpc -i eth1 -q
 ```
 
-脚本变量
+## default.script
+
+**脚本变量**
 
 | env       | desc                                            |
 | --------- | ----------------------------------------------- |

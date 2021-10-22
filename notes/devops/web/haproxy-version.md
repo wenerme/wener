@@ -4,7 +4,12 @@ title: HAProxy Version
 
 # HAProxy Version
 
-## 2.4 - 2021-05-13
+| version | release date |
+| ------- | ------------ |
+| 2.4     | 2021-05-13   |
+| 2.3     | 2020-11-05   |
+
+## HAProxy 2.4
 
 > 变化非常大
 
@@ -51,7 +56,7 @@ title: HAProxy Version
 - 参考
   - [Announcing HAProxy 2.4](https://www.haproxy.com/blog/announcing-haproxy-2-4)
 
-## 2.3 - 2020-11-05
+## HAProxy 2.3
 
 - 链接增强 - 为支持 QUIC 和 UDP 做准备
   - 完善 Linux keepalive - 支持 sysctl 修改参数

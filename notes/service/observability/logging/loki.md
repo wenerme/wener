@@ -9,6 +9,7 @@ title: Loki
   - 日志界的 Prometheus
 - [Architecture](https://grafana.com/docs/loki/latest/architecture/)
 - 参考
+  - [vs. EFK](https://grafana.com/docs/loki/latest/overview/comparisons/)
   - [An introduction to Loki, the Prometheus-inspired open source logging system](https://grafana.com/blog/2020/05/12/an-only-slightly-technical-introduction-to-loki-the-prometheus-inspired-open-source-logging-system/)
   - [Loki compared to other log systems](https://grafana.com/docs/loki/latest/overview/comparisons/)
 

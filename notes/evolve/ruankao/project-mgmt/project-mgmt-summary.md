@@ -61,6 +61,20 @@ digraph process{
 
 :::
 
+- 组织过程资产
+- 事业环境因素
+
+实施整体变更控制
+
+## 沟通管理
+
+### 管理沟通
+
+- 项目沟通管理计划
+- 工作绩效报告
+- 事业环境因素
+- 组织过程资产
+
 ## EMV
 
 - EMV - Earned Value Management - 挣值管理
@@ -85,24 +99,41 @@ digraph process{
 
 <!-- ÷× -->
 
-| value | formula                                     | note                                             |
-| ----: | ------------------------------------------- | ------------------------------------------------ |
+| value | formula         | note |
+| ----: | --------------- | ---- |
 |    AC |
-|    EV | =Actual% × BAC                              |
-|    PV | =Planned% × BAC                             |
-|    CV | =EV - AC                                    |
-|   CPI | =EV / AC                                    | < 1 超出预算<br/> = 1 符合预算<br/> > 1 低于预算 |
-|    SV | =EV - PV                                    |
-|   SPI | =EV / PV                                    | < 1 进度滞后<br/> = 1 符合进度<br/> > 1 进度提前 |
-|   EAC | =BAC/CPI<br/> =AC+ETC<br/> =AC+(BAC+EV)/CPI |
-|   ETC | =EAC - AC                                   |
-|   VAC | =BAC - EAC                                  |
+|    EV | =Actual% × BAC  |
+|    PV | =Planned% × BAC |
+|    CV | =EV - AC        |
+|   CPI | =EV / AC        |
+|    SV | =EV - PV        |
+|   SPI | =EV / PV        |
+|   ETC | =EAC - AC       |
+|   VAC | =BAC - EAC      |
+
+1. $EAC = AC+(BAC-EV)/CPI = BAC/CPI$
+
+- 预测型 - 典型性偏差 - 默认场景
+- 将目前的偏差视为典型 - 未来也是这样的偏差
+
+1. $EAC = AC + BAC - EV$
+
+- 例外型 - 非典型性偏差 - 目前偏差为特列，不会再次发生类似偏差
+- 例外指 EV - 所以减去
+
+1. $EAC = AC + ETC$
+
+- 不可预测也非例外 - ETC 为 剩余工作重估
 
 :::tip
 
 - 负的是不好的，正的是好的
 - Variabce = EV -
 - Index = EV /
+- Index 值范围
+  - < 1 超出预算、进度滞后
+  - = 1 符合
+  - > 1 低于预算、进度提前
 - 成本 相关使用 EV
 - 时间 相关使用 PV
 
@@ -114,37 +145,6 @@ digraph process{
 | SPI | EV/PV |
 | CV  |       | EV-AC |
 | CPI |       | EV/AC |
-
-## 主要公式
-
-| name                     | formula                       | cn           |
-| ------------------------ | ----------------------------- | ------------ | ----------------------------------------------------------- |
-| Standard Devision        | = (P-O)/6                     | 标准差       |
-| PERT                     | = (O + 4M + P) / 6            | 计划评审技术 |
-| TF/Total Float           | = LS-ES = LF-EF               | 总时差       |
-| Comm Channels            | = N(N-1)/2                    | 沟通渠道     | N=项目成员                                                  |
-| Benefit Cost Ratio       | =Cost / Benefit               |              | < 1 不好、拒绝<br/> > 1 越高越好                            |
-| Net Present Value        | =FV/(1+r)^n                   | 净现值       |
-| Future Value             | =PV(1+i)^n                    |
-| ROI/Return of investment |                               |
-| NPV/Net present value    | $NPV=\sum_{t=1}^{n}A/(1+r)^t$ | 净现值       | t - 现金流持续时间<br/> A - 每年现金流<br/> r - 折现率<br/> |
-
-- P - Pessimistic - 悲观值、最差的值
-- O - Optimistic - 乐观值、最好的值
-- M - Most likely - 通常值
-- Free float - 自由时差
-  - 下一个节点ES - 当前节点 EF
-
-| Six Sigma |
-| --------- | --------- |
-| 1σ        | 68.27%    |
-| 2σ        | 95.45%    |
-| 3σ        | 99.73%    |
-| 6σ        | 99.99966% |
-
-$$
-ROI = 总收益率 = (总折现收益 - 总折现成本)/折现成本
-$$
 
 ### 扩展了解
 
