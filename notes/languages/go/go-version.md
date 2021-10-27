@@ -80,6 +80,11 @@ go mod tidy -compat=1.17
 - go list - `go list -exported -f {{.Export}}`
 - windows `go build -buildmode=c-shared` 生产 Windows ASLR DLLs
   - 可通过 `--ldflags=-aslr=false` 关闭
+- 包
+  - os
+    - os.DirEntry -> fs.DirEntry
+    - os.DirFS -> fs.FS
+    - 增加辅助目录扫描的方法
 
 ## 1.15
 

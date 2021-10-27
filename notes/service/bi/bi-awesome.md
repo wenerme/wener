@@ -41,3 +41,4 @@ tags:
 - [tabixio/tabix](https://github.com/tabixio/tabix)
 - [finos/perspective](https://github.com/finos/perspective)
 - [d3fc/d3fc](https://github.com/d3fc/d3fc)
+- [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)

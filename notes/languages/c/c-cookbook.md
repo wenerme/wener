@@ -1,5 +1,7 @@
 ---
 title: C Cookbook
+tags:
+- Cookbook
 ---
 
 # C Cookbook

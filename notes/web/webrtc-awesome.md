@@ -1,5 +1,7 @@
 ---
 title: WebRTC Awesome
+tags:
+  - Awesome
 ---
 
 # WebRTC Awesome

@@ -1,5 +1,7 @@
 ---
 title: Electron Awesome
+tags:
+  - Awesome
 ---
 
 # Electron Awesome

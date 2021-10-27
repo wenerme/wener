@@ -1,12 +1,14 @@
 ---
 title: yarn version
+tags:
+  - version
 ---
 
 # yarn version
 
 :::caution
 
-- PnP 不支持 ESM - [yarnpkg/berry#638](https://github.com/yarnpkg/berry/issues/638)
+- ~PnP 不支持 ESM - [yarnpkg/berry#638](https://github.com/yarnpkg/berry/issues/638)~
 - TypeScript 官方尚不支持 PnP - [microsoft/TypeScript#35206](https://github.com/microsoft/TypeScript/pull/35206)
   - yarn 内置 patch
 

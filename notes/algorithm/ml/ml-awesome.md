@@ -25,9 +25,19 @@ tags:
 - [google-research-datasets/disfl-qa](https://github.com/google-research-datasets/disfl-qa)
   - https://arxiv.org/abs/2106.04016
 - [vijaydwivedi75/gnn-lspe](https://github.com/vijaydwivedi75/gnn-lspe)
+- [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
+  - [HN](https://news.ycombinator.com/item?id=28962582)
+- [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
+- PyTorch 1.10 [HN](https://news.ycombinator.com/item?id=28955146)
+- [facebookresearch/salina](https://github.com/facebookresearch/salina)
 
 ## Learn
 
+- https://ai.googleblog.com/
+
+---
+
+- https://learnaifromscratch.github.io/ai.html
 - [microsoft/ML-For-Beginners](https://github.com/microsoft/ML-For-Beginners)
 - [LabML Neural Networks](https://nn.labml.ai/)
   - PyTorch
@@ -40,6 +50,10 @@ tags:
 - [Guide for building an End-to-End Logistic Regression Model](https://www.analyticsvidhya.com/blog/2021/09/guide-for-building-an-end-to-end-logistic-regression-model/)
 - [SELF-PARKING CAR IN 500 LINES OF CODE](https://trekhleb.dev/blog/2021/self-parking-car-evolution/)
 - [facebookresearch/minihack](https://github.com/facebookresearch/minihack)
+- [Using Machine Learning to Denoise Images for Better OCR Accuracy](https://www.pyimagesearch.com/2021/10/20/using-machine-learning-to-denoise-images-for-better-ocr-accuracy/)
+- [Introduction to AutoEncoder and Variational AutoEncoder](https://www.kdnuggets.com/2021/10/introduction-autoencoder-variational-autoencoder-vae.html)
+- [SimVLM: Simple Visual Language Model Pre-training with Weak Supervision](https://ai.googleblog.com/2021/10/simvlm-simple-visual-language-model-pre.html?m=1)
+- [Training a DCGAN in PyTorch](https://www.pyimagesearch.com/2021/10/25/training-a-dcgan-in-pytorch/)
 
 ![](http://dlib.net/ml_guide.svg)
 

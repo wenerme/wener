@@ -35,6 +35,12 @@ https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
 ```bash
 npm install -g typescript@next
 
+# check syntax
+tsc --noEmit
+
+# 添加 @types/ 依赖
+npx typesync
+
 # 使用 typing 类型
 typings install dt~node dt~express dt~body-parser dt~serve-static dt~express-serve-static-core dt~mime --global
 # 使用模块定义类型

@@ -8,10 +8,11 @@ tags:
 
 - [ellisonleao/magictools](https://github.com/ellisonleao/magictools)
   - A list of Game Development resources to make magic happen
-- [LDtk](https://deepnight.itch.io/ldtk)
 
 ## Engine
 
+- [godotengine/godot](https://github.com/godotengine/godot)
+  - MIT, C++
 - rust
   - [arewegameyet](https://arewegameyet.rs/)
     - Rust GameDev 组件
@@ -21,6 +22,12 @@ tags:
     - data-driven
 - js
   - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
+- [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
+
+## Tools
+
+- [LDtk](https://deepnight.itch.io/ldtk)
+  - level editor
 
 ## Service
 

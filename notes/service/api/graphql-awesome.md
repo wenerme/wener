@@ -8,6 +8,7 @@ tags:
 
 ## 学习
 
+- https://spec.graphql.org/October2021/
 - [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
 - [howtographql](https://github.com/howtographql/howtographql)
 
@@ -66,6 +67,12 @@ tags:
 - [Khan/genqlient](https://github.com/Khan/genqlient)
   - type-safe Go GraphQL client
 - [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
+- [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
+  - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+  - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
+- [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
+  - ⚠️ 不活跃，没怎么维护
+  - 推荐 graphql-ws
 
 ## Server
 

@@ -96,6 +96,7 @@ title: CMS Awesome
 - [gilbitron/Raneto ](https://github.com/gilbitron/Raneto)
   - demo http://docs.raneto.com/
 - [mrvautin/openKB](https://github.com/mrvautin/openKB)
+- https://arxiv.org/abs/2003.02320
 
 ## Documentation
 

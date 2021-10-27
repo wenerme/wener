@@ -1,7 +1,7 @@
 ---
 title: CSS Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # CSS Awesome
@@ -47,6 +47,7 @@ tags:
 - [Aspect Ratio Boxes](https://css-tricks.com/aspect-ratio-boxes/)
 
 ## 学习
+
 - [CSS Diner](https://flukeout.github.io/)
   - CSS Selector 游戏
 - [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)

@@ -15,6 +15,7 @@ tags:
 
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
 - [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+- http://static.googleusercontent.com/media/research.google.com/en/us/people/jeff/stanford-295-talk.pdf
 
 ## Misc
 
@@ -62,3 +63,9 @@ scc --exclude-dir vendor --no-gen .
 ## Conf
 
 - [Flagsmith/flagsmith](https://github.com/Flagsmith/flagsmith)
+
+## Benchmark
+
+- [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine)
+  - command-line benchmarking tool
+- [rakyll/hey](https://github.com/rakyll/hey)

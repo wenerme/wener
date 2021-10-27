@@ -1,7 +1,7 @@
 ---
 title: Awesome Font
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Awesome Font

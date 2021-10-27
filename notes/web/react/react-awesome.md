@@ -1,12 +1,13 @@
 ---
 title: React Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # React Awesome
 
 - [React Patterns](https://reactpatterns.com/)
+- [Glossary + Explain](https://github.com/reactwg/react-18/discussions/46)
 
 :::tip
 
@@ -22,10 +23,42 @@ tags:
   - 前端/后端 - C 端/B 端
   - 信息密度
   - 支持平台 - Web/移动端
+- 使用支持 ESM 的库
 
 :::
 
-- [Glossary + Explain](https://github.com/reactwg/react-18/discussions/46)
+
+```bash title="常用依赖"
+# 状态管理
+npm add zustand jotai immer use-immer
+# UI
+npm add classnames
+npm add react-icons
+npx tailwindcss init -p # tailwindcss
+# API
+npm add react-query # generic
+npm add urql        # gql
+
+# 组件
+# blueprintjs - v4 发布后不需要 x2 包
+npm add @blueprintjs/core @blueprintjs/select @blueprintjs/datetime @blueprintjs/popover2
+# 如果需要展示大量数据
+npm add @blueprintjs/table
+
+# 移动端样式组件
+npm add tailwind-mobile
+
+# 交互
+npm add react-virtual     # 虚拟滚动
+npm add @headlessui/react # 纯功能组件
+
+# 数据
+npm add react-hook-form
+npm add react-table
+
+# 工具
+npm add date-fns lodash-es react-fast-compare
+```
 
 ## 通用 UI 组件
 
@@ -59,6 +92,11 @@ tags:
   - 如果选择 MD 风格则非常匹配
   - 完成程度和成熟度远远高于 antd
   - 组件非常多，支持高度样式自定义
+- [arco-design/arco-design](https://github.com/arco-design/arco-design)
+  - 字节跳动
+  - [DouyinFE/semi-design](https://github.com/DouyinFE/semi-design)
+    - 抖音前端
+  - 较多的 AntD 内容
 - 公司相关设计风格组件库
   - [microsoft/fluentui](https://github.com/microsoft/fluentui) - 微软风格
   - [pinterest/gestalt](https://github.com/pinterest/gestalt) - pinterest
@@ -89,6 +127,7 @@ tags:
 
 ## 移动端 UI 组件
 
+- [tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
 - [ant-design/ant-design-mobile](https://github.com/ant-design/ant-design-mobile)
 
 ## 特殊 UI 组件
@@ -111,6 +150,10 @@ tags:
 - [jedwatson/react-select](https://github.com/jedwatson/react-select)
   - 功能完善的 select 组件
   - 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
+- [wbkd/react-flow](https://github.com/wbkd/react-flow)
+  - 流程节点 UI
+- [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
+  - 懒加载 UI 组件
 
 ### 编辑器
 
@@ -158,7 +201,7 @@ tags:
 
 - carousel
   - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
-    图片浏览
+    - 图片浏览
   - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
   - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
   - [akiran/react-slick](https://github.com/akiran/react-slick)
@@ -195,6 +238,8 @@ tags:
   - Drag & Drop
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)
   - 异步加载组件
+- [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
+  - 功能性 headless 组件
 
 ### 虚拟滚动
 
@@ -456,4 +501,5 @@ useStore.destroy();
   React renderer for Three.js
 
 ## 参考
+
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)

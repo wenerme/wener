@@ -15,6 +15,10 @@ title: prettier
   - [benjie/prettier-plugin-pg](https://github.com/benjie/prettier-plugin-pg)
     PostgreSQL
 
+```bash
+npx prettier --write src/**/*.{tsx,css,html}
+```
+
 **prettier.config.js**
 
 ```js
@@ -26,12 +30,33 @@ module.exports = {
 };
 ```
 
+```json title="package.json"
+{
+  "prettier": {
+    "bracketSameLine": false,
+    "importOrder": ["^[^.]", "^[.][.]", "^[.][/]"],
+    "importOrderSeparation": false,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": ["*.html", "*.css"],
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  }
+}
+```
+
 ## 排序 import
 
 - [trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
 
 ```bash
-npm add @trivago/prettier-plugin-sort-imports
+npm add -D @trivago/prettier-plugin-sort-imports
 ```
 
 ```js

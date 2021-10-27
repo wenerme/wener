@@ -1,5 +1,7 @@
 ---
 title: React FAQ
+tags:
+- FAQ
 ---
 
 # React FAQ

@@ -1,8 +1,16 @@
 ---
 title: Web FAQ
+tags:
+  - FAQ
 ---
 
 # Web FAQ
+
+## 图片懒加载
+
+```html
+<img loading="lazy" src="https://" />
+```
 
 ## URL 安全字符 / URL Safe characters
 
@@ -84,4 +92,16 @@ Sec-WebSocket-Key: R9DINzhe/9zYRFOjZEd41A==
 Sec-WebSocket-Protocol: sip
 Sec-WebSocket-Version: 13
 Upgrade: websocket
+```
+
+## 获取当前脚本对象
+
+- document.currentScript
+
+```html
+<script data-option="value" src="lib.js"></script>
+```
+
+```js title="lib.js"
+console.log(document.currentScript.dataset.option);
 ```

@@ -5,7 +5,7 @@ tags:
 - Glossary
 ---
 
-# Glossary
+# 硬件词汇
 
 - 参考
   - [HARDWARE ACRONYMS](https://www.electronics-lab.com/hardware-acronyms-sip-soc-som-com-sbc/)
@@ -28,17 +28,3 @@ tags:
 
 - Chip power-down
 
-## SoC vs SBC
-
-- SoC
-  - 单个芯片
-  - 可独立使用
-  - 使用量大、尺寸小、价格便宜、功能固定
-  - 通常直接烧录代码或运行 RTOS 或非常小的系统
-  - 需要专业工具和知识、功能单一、通常用于成形产品
-- SBC
-  - 印刷版
-  - 一般需要外设 - 例如 树莓派需要存储
-  - 使用量小于 SoC、尺寸更大、价格较高、功能灵活
-  - 通常运行完整系统 - Linux
-  - 易于使用、功能完善、通常用于开发实验

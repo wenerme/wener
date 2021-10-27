@@ -5,7 +5,7 @@ title: entgo
 # entgo
 
 - [ent/ent](https://github.com/ent/ent) 是什么？
-  - 项目源自 facebook
+  - 项目源自 facebook, 加入 LF
   - 支持 RESTful 接口
   - 基于代码生成的 ORM
     - 支持 MySQL, MariaDB, PostgreSQL, SQLite, Gremlin
@@ -36,6 +36,8 @@ title: entgo
 - 参考
   - [Neptune / Gremlin - experience compared to SQL backends](https://github.com/ent/ent/issues/452#issuecomment-619430120)
     - ent 早期后端为 Gremlin
+  - [ariga/entcache](https://github.com/ariga/entcache)
+  - 核心成员成立的公司 https://ariga.io/ operational data graph
 
 :::tip
 

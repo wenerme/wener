@@ -1,6 +1,9 @@
-# 树莓派
+---
+id: rpi
+title: 树莓派
+---
 
-## Tips
+# 树莓派
 
 - wikipedia [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi)
 

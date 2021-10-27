@@ -82,6 +82,7 @@ tags:
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/1cf5a71e5a5c)
 - [dolthub/dolt](https://github.com/dolthub/dolt)
   - Git for Data
+- [ApsaraDB](https://github.com/ApsaraDB)
 
 ## Big Data
 

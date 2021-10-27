@@ -5,6 +5,7 @@ Semantic Modeling for Data
 人件
 人月神话
 
+The Informed Company: How to Build Modern Agile Data Stacks that Drive Winning Insights
 
 **
 The Making of a Manager: What to Do When Everyone Looks to You

@@ -6,6 +6,7 @@ tags:
 
 # Web Awesome
 
+- https://web.dev/ps-on-the-web/
 - Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 - Awesome [Web](https://www.awesomeweb.com/)
 
@@ -15,13 +16,13 @@ tags:
 
 ## Desktop
 
+- [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
+  - 使用 Native WebView
+- [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 - [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
   - Build desktop applications with a web frontend
   - 基于 Rust tao
   - 层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
-- [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
-  - 使用 Native WebView
-- [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 
 ## Build
 
@@ -82,6 +83,7 @@ tags:
 - [francisrstokes/construct-js](https://github.com/francisrstokes/construct-js)
 - [jsxgraph](https://jsxgraph.org/)
   - Dynamic Mathematics with JavaScript
+- [pubkey/client-side-databases](https://github.com/pubkey/client-side-databases)
 
 ## Dev
 
@@ -108,6 +110,8 @@ tags:
 - [nick-thompson/elementary](https://github.com/nick-thompson/elementary)
 - [nick-thompson/react-juce](https://github.com/nick-thompson/react-juce)
   - [juce-framework/JUCE](https://github.com/juce-framework/JUCE)
+- [projectM-visualizer/projectm](https://github.com/projectM-visualizer/projectm)
+  - [HN](https://news.ycombinator.com/item?id=28970988)
 - 参考
   - [What's In A Sound?](https://www.soundonsound.com/techniques/whats-sound)
   - youtube [Synthesizer Basics: Amplitude, Oscillators, Timbre](https://www.youtube.com/watch?v=c3udLCvoCC0)

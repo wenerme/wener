@@ -17,3 +17,4 @@ tags:
   - Go implementation of BLAKE3 with AVX2 and SSE4.1 acceleration
 - [Word-aligned Bloom filters](https://lemire.me/blog/2021/10/03/word-aligned-bloom-filters/)
 - http://ezyang.com/
+- Unconventional Sorting Algorithms [HN](https://news.ycombinator.com/item?id=28946451)

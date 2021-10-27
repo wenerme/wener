@@ -1,5 +1,7 @@
 ---
 title: NodeJS 版本
+tags:
+  - Version
 ---
 
 # NodeJS 版本
@@ -25,7 +27,8 @@ title: NodeJS 版本
 ## 16 LTS
 
 - V8 9.0
-- npm 7
+- npm v7
+- Apple M1
 - 稳定
   - AbortController
   - Source Maps v3

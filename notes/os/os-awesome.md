@@ -46,6 +46,12 @@ tags:
 
 - [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
 
+## Security
+
+- [tock/tock](https://github.com/tock/tock)
+  - MIT, Apache-2.0, Rust
+  - secure embedded os for microcontrollers
+
 ## Linux Distro
 
 - [lakka.tv](http://www.lakka.tv/)
@@ -63,6 +69,8 @@ tags:
 ## Retro Game
 
 - [MiSTer-devel/Main_MiSTer](https://github.com/MiSTer-devel/Main_MiSTer)
+- [atari-2600](https://voxodyssey.com/atari-2600)
+  - [HN](https://news.ycombinator.com/item?id=28931183)
 
 ## BSD
 
@@ -76,6 +84,8 @@ tags:
 - [vvaltchev/tilck](https://github.com/vvaltchev/tilck)
   Tiny Linux-Compatible Kernel
   - BSD-2, C
+- [nuta/kerla](https://github.com/nuta/kerla)
+  - MIT, Apache-2.0, Rust
 
 ## Boot
 

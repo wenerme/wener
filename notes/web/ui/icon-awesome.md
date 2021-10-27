@@ -1,5 +1,7 @@
 ---
 title: Icon Awesome
+tags:
+  - Awesome
 ---
 
 # Icon Awesome

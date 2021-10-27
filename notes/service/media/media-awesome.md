@@ -25,7 +25,6 @@ tags:
 - [mpache/ampache](https://github.com/ampache/ampache)
   - PHP
 
-
 ## Audio
 
 :::tip 音乐最佳选择 AAC
@@ -169,3 +168,8 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
   - scanned documents
 - Kindle - .azw; .azw3 or .kf8; .kfx
 - Mobipocket - .prc, .mobi
+
+## Tools
+
+- [nilaoda/N_m3u8DL-CLI](https://github.com/nilaoda/N_m3u8DL-CLI)
+- [yuanqing/vdx](https://github.com/yuanqing/vdx)

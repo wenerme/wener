@@ -1,6 +1,8 @@
 ---
 id: nextjs-version
 title: NextJS 版本历史
+tags:
+  - version
 ---
 
 # NextJS 版本历史
@@ -19,7 +21,61 @@ title: NextJS 版本历史
 
 :::
 
-## 11
+| version    | date       |
+| ---------- | ---------- |
+| NextJS 12  | 2021-11-27 |
+| NextJS 11  | 2020-06-16 |
+| NextJS 10  | 2020-10-27 |
+| NextJS 9.5 | 2020-7-28  |
+
+## NextJS 12
+
+- swc 替代 babel - 更快的刷新和构建
+  - styled-component 支持还需要完善
+- 中间件 - _middleware.ts
+- 支持 React 18
+- Server-Side Streaming - 实验阶段
+  - 支持 react 18 server-side Suspense
+- React Server Components - 实验阶段
+  - React 服务端组件
+- 支持 ESM
+- URL Imports - 实验阶段
+  - 会生成 next.lock 跟踪远程资源
+- Bot-Aware ISR Fallback
+  - 检测到爬虫使用 `fallback: 'blocking'`
+- next/image - 支持 AVIF
+- @vercel/nft 替代 target - Output File Tracing
+- 支持 next.config.mjs
+- 移除 webpack 4
+
+```js title="next.config.js"
+module.exports = {
+  // opt-in swc minify 7x faster than Terser.
+  swcMinify: true,
+  images: {
+    // opt-in avif
+    formats: ['image/avif', 'image/webp'],
+  },
+  experimental: {
+    // SSS
+    concurrentFeatures: true,
+    serverComponents: true,
+    // opt-in esm url import
+    urlImports: ['https://cdn.skypack.dev'],
+  },
+};
+```
+
+```ts title="pages/_middleware.ts"
+import type { NextFetchEvent, NextRequest } from 'next/server';
+
+export function middleware(req: NextRequest, ev: NextFetchEvent) {
+  // https://developer.mozilla.org/en-US/docs/Web/API/Response
+  return new Response('Hello, world!');
+}
+```
+
+## NextJS 11
 
 - Webpack 5
 
@@ -32,14 +88,24 @@ title: NextJS 版本历史
 
 > swc 的开发者加入了 vercel，集成 swc 开发体验会有所提高。
 
-## 11.1
+- next lint
+- next/script
+- next/image
+  - placeholder
+  - 自动大小
+- Webpack 5
+- npx @next/codemod cra-to-next
+  - 迁移 CRA 到 NextJS
+- 预览发布 Next.js Live
+
+### NextJS 11.1
 
 - ESM 实验阶段 - `{experimental: { esmExternals: true }}`
 - 使用 SWC 替代 Babel 和 Terser
 - 渲染使用 keep-alive 增加数据请求速度
 - 内置 ESLint - `next lint`
 
-## 10
+## NextJS 10
 
 - [10](https://nextjs.org/blog/next-10) - 2020-10-27
 - `next/image` - 图片组件，自动图片优化
@@ -108,7 +174,7 @@ export function getStaticProps() {
 }
 ```
 
-## 9.5
+## NextJS 9.5
 
 - [9.5](https://nextjs.org/blog/next-9-5) - 2020-7-28
 - 增量静态生成 - 稳定阶段
@@ -203,7 +269,7 @@ module.exports = {
 };
 ```
 
-## 9.4
+## NextJS 9.4
 
 - [9.4](https://nextjs.org/blog/next-9-4) - 2020-5-11
 - 快速刷新
@@ -246,7 +312,7 @@ export const config = {
 export default () => <h1>My page</h1>;
 ```
 
-## 9.3
+## NextJS 9.3
 
 - [9.3](https://nextjs.org/blog/next-9-3) - 2020-3-10
 - SSG 服务端静态生成 HTML
@@ -262,7 +328,7 @@ export default () => <h1>My page</h1>;
 - 404 静态优化
 - 运行时减少 32 kB
 
-## 9.2
+## NextJS 9.2
 
 - [9.2](https://nextjs.org/blog/next-9-2)
 - 内建 CSS 全局样式支持 - 不再需要 `next-css` 依赖
@@ -270,7 +336,7 @@ export default () => <h1>My page</h1>;
 - 增强代码切分策略
 - 新增 `[...slug].js` 全部捕获的动态路由
 
-## 9.1
+## NextJS 9.1
 
 - [9.1](https://nextjs.org/blog/next-9-1)
 - 支持 `src/pages` 作为页面目录

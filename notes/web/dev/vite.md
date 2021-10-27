@@ -7,8 +7,7 @@ title: Vite
 - [vitejs/vite](https://github.com/vitejs/vite) 是什么？
   - Dev+Bundle 工具 - No-Bundler - Bundle 为 ESM 独立模块而不是整体 Bundle
   - ESBuild+Rollup
-  - KOA
-    - NextJS 不支持按页面 CSS 分割
+  - Koa
   - 模块 TS, CSS, Static Assets, JSX, JSON, Vue, Glob Import, WebAssembly, Web Worker
   - CSS Code Splitting
 - 参考
@@ -37,6 +36,32 @@ title: Vite
 npm init vite@latest my-vue-app -- --template react-ts
 ```
 
+```ts
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    // 多页应用
+    rollupOptions: {
+      input: {
+        // js bundle 名字
+        main: resolve(__dirname, 'index.html'),
+        // -> dist/assets/auth-error.<hash>.js
+        'auth-error': resolve(__dirname, 'auth/error.html'),
+      },
+    },
+  },
+});
+```
+
+```ts title="异步配置"
+export default defineConfig(async ({ command, mode }) => {
+  const data = await asyncFunction()
+  return {
+    // build specific config
+  }
+})
+```
+
 # FAQ
 
 ## Vite vs Snowpack
@@ -47,3 +72,19 @@ npm init vite@latest my-vue-app -- --template react-ts
   - 插件开发会更容易
 - Snowpack
   - delegates to plugins using webpack/parcel
+
+## Vite vs NextJS
+
+- Vite
+  - ESBuild+Rollup
+    - ESM - 开发无 bundle - 快
+  - SSR 和 SSG WIP 状态
+  - 支持多 HTML 入口 - 按页划分 CSS
+    - 但需要自行配置
+  - 可以打包为 库 - rollup
+- NextJS
+  - Webpack
+    - bundle - 慢
+  - SSR、SSG、增量 SSG 支持很好
+  - 单一 HTML 入口 - \_app.js - 不能划分全局 CSS
+  - 支持路由

@@ -1,5 +1,8 @@
 ---
 title: IAX
+tags:
+  - RFC
+  - Protocol
 ---
 
 # IAX

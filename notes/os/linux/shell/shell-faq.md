@@ -1,5 +1,7 @@
 ---
 title: Shell FAQ
+tags:
+  - FAQ
 ---
 
 # Shell FAQ
@@ -8,7 +10,7 @@ title: Shell FAQ
 
 - console = physical terminal
   - 物理实体
-- terminal = tty = text input/output environment
+- terminal = tty = teletype = text input/output environment
   - 链路协议接口
 - shell = command line interpreter
   - 上层抽象行为概念

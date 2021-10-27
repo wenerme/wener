@@ -35,6 +35,17 @@ tags:
   - 基于 bleve
 - [os-fulltext-search-solutions](https://medevel.com/os-fulltext-search-solutions/)
 
+## Lcoal Search
+
+- [xapian/xapian](https://github.com/xapian/xapian)
+- [searx/searx](https://github.com/searx/searx)
+- [The Lemur Project](http://www.lemurproject.org/)
+- [A Local Search Engine](https://siboehm.com/articles/21/a-local-search-engine)
+- [Building Monocle, a universal personal search engine for life](https://thesephist.com/posts/monocle/)
+- [recoll](https://www.lesbonscomptes.com/recoll/)
+  - desktop full-text search tool
+  - [HN](https://news.ycombinator.com/item?id=28950947)
+
 ## 中文分词
 
 - [fxsjy/jieba](https://github.com/fxsjy/jieba)

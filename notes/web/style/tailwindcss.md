@@ -12,14 +12,17 @@ title: Tailwind CSS
 - 问题
   - [storybookjs/storybook#12668](https://github.com/storybookjs/storybook/issues/12668) - PostCSS 8 兼容问题
 - 参考
-  - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
-    Tailwind Components
   - [windicss/windicss](https://github.com/windicss/windicss)
     - 类似 Tailwind+JIT
-  - [tailwind-mobile/tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
-    - iOS & Android 组件
   - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
   - [shuffle.dev](https://shuffle.dev) - 模板生成
+- 组件
+  - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
+    Tailwind Components
+  - [tailwind-mobile/tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
+    - iOS & Android 样式
+    - React,Vue,Sevlte 组件
+  - [themesberg/flowbite](https://github.com/themesberg/flowbite)
 
 ```bash
 # 基础依赖

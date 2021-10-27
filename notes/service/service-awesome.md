@@ -37,6 +37,7 @@ tags:
 - [vendure-ecommerce/vendure](https://github.com/vendure-ecommerce/vendure)
 - [medusajs/medusa](https://github.com/medusajs/medusa)
 - [withspectrum/spectrum](https://github.com/withspectrum/spectrum)
+- [getferdi/ferdi](https://github.com/getferdi/ferdi)
 
 ## Avatar
 

@@ -19,6 +19,7 @@ tags:
 - [crazy-max/WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
 - [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
 - [BornToBeRoot/NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
+- [kkkgo/vlmcsd](https://github.com/kkkgo/vlmcsd)
 
 ## Dev
 

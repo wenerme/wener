@@ -99,6 +99,10 @@ tags:
 
 ## 数据库操作
 
+- [ariga/sqlcomment](https://github.com/ariga/sqlcomment)
+  - 添加注释 - 用于 trace
+- [qustavo/sqlhooks](https://github.com/qustavo/sqlhooks)
+  - 添加 hook
 - [kyleconroy/sqlc](https://github.com/kyleconroy/sqlc)
   - sql 生成 go 代码进行调用
 - [sosedoff/pgweb](https://github.com/sosedoff/pgweb)
@@ -487,12 +491,14 @@ goweight
 - [Go Performance Tools Cheat Sheet](https://steveazz.xyz/blog/go-performance-tools-cheat-sheet/)
 - [CPU Utilization is Wrong](http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html)
 
-## System
+## OS/操作系统
 
 - [rainycape/governator](https://github.com/rainycape/governator)
   - process manager for UNIX systems
 - [ochinchina/supervisord](https://github.com/ochinchina/supervisord)
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
+- [progrium/macdriver](https://github.com/progrium/macdriver)
+  - Native Mac APIs for Go
 
 ## ML/机器学习
 

@@ -1,7 +1,7 @@
 ---
 title: Nodejs Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Nodejs Awesome

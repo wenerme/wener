@@ -1,7 +1,7 @@
 ---
 title: WASM Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # WASM Awesome
@@ -44,7 +44,9 @@ tags:
   - Tiny, blazing fast WebAssembly compute
   - [HN](https://news.ycombinator.com/item?id=28788303)
     - 包含作者选型原因
+
 ## JS
+
 - duktape
 - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
 - quickjs

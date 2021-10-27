@@ -1,6 +1,10 @@
 ---
 title: NextJS FAQ
+tags:
+  - FAQ
 ---
+
+# NextJS FAQ
 
 ## server vs serverless
 
