@@ -7,6 +7,7 @@ tags:
 # Web Awesome
 
 - https://web.dev/ps-on-the-web/
+  - 图像处理基于 https://halide-lang.org/
 - Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 - Awesome [Web](https://www.awesomeweb.com/)
 

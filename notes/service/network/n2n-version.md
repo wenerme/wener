@@ -4,9 +4,14 @@ title: n2n version
 
 # n2n version
 
-## 2.9
+| version | date       |
+| ------- | ---------- |
+| n2n 3.0 | 2021-10-28 |
+| n2n 2.8 | 2020-08-12 |
 
-- 2.9 与 2.8 不兼容
+## 3.0
+
+- 3.0 与 2.8 不兼容
 - edge
   - -a 地址支持 cidr - 移除 -s 指定 netmask
   - 支持自动 IP - 忽略 -a
@@ -18,3 +23,4 @@ title: n2n version
 - supernode
   - 支持 federation
   - community.list 支持正则
+- [3.0 release](https://github.com/ntop/n2n/releases/tag/3.0)

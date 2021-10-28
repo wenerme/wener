@@ -17,4 +17,7 @@ title: 树莓派
 | 3 B       | BCM2837   | ARMv8 64/32 bit | 1 GB       | 4× Cortex-A53 1.2 GHz   |
 | 3 B+      | BCM2837B0 | ARMv8 64/32 bit | 1 GB       | 4× Cortex-A53 1.4 GHz   |
 | 4 B       | BCM2711   | ARMv8 64/32 bit | 1,2,4,8 GB | 4× Cortex-A72 1.5 GHz   |
+| 400       |
 | Zero W    | BCM2835   | ARMv6Z 32bit    | 512 MB     | 1× ARM1176JZF-S 1 GHz   |
+| Zero 2 W  | BCM2710A1 | ARMv8 64/32 bit | 512 MB     | 4× Cortex-A53 1GHz      |
+| Pico      | RP2040    |                 | 264 KB     |

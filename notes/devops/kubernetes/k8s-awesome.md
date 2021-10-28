@@ -1,13 +1,49 @@
 ---
 title: K8S Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Kubernetes Awesome
 
 - [cncf landscape](https://landscape.cncf.io/)
 - [awesome-cloud-native](https://jimmysong.io/awesome-cloud-native)
+
+## 学习
+
+- [K3s 中文文档](https://docs.rancher.cn/k3s/)
+  - 从 K3S 入门
+  - 单节点，内置 etcd
+- [Kubernetes 文档/概念](https://kubernetes.io/zh/docs/concepts/)
+  - 了解 K8S 基本概念和使用场景
+- 然后
+  - 部署服务
+    - 迁移 docker 上的服务到 k8s
+    - 利用 k8s 简化/优化 现有工作流
+  - 了解内置组件，尝试利用和替换内置组件
+    - Ingress - nginx, gateway
+    - CNI - flannel, calico
+    - CSI - openbsd, longhorn, nfs
+    - Network - tinc, n2n, wg, metallb
+  - 了解配合服务，提示使用体验
+    - cert-manager
+    - 看板 - dashboard, rancher, lens
+    - observability - prometheus, vector, fluntbit, jeager, grafana
+    - gitops - arogocd, fluxcd
+    - mesh - linkerd, istio
+  - 了解 operator，部署和利用更多服务
+    - operator -> 通过定义 Yaml 来部署新的服务栈 - SaaS 能力
+    - 数据库、监控、日志、可视化、服务
+  - 了解 cloud native 开发，调整开发利用云特性
+    - consul
+    - spring cloud
+    - spring alibaba
+    - 服务注册、发现、通讯
+  - 了解新的平台开发方式
+    - serverless
+    - faas - fission, openfaas
+    - baas
+    - low-code
 
 ## by Wener
 
@@ -62,7 +98,7 @@ tags:
   - cert-manager
   - kube-prometheus
 - [armosec/kubescape](https://github.com/armosec/kubescape)
-  -  testing if Kubernetes is deployed securely
+  - testing if Kubernetes is deployed securely
 - [open-policy-agent/opa](https://github.com/open-policy-agent/opa)
 - [anchore/syft](https://github.com/anchore/syft)
 - [sigstore/cosign](https://github.com/sigstore/cosign)
