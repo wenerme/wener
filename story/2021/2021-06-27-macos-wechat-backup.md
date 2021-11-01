@@ -70,12 +70,13 @@ where domain = 'AppDomain-com.tencent.xin';
   - `message_%d.sqlite` - 聊天对话
     - ChatExt2_ID
     - Chat_ID - 对应一个聊天会话
+      - ID 为 userName 或 MD5 的 alias
     - Hello_ID
   - WCDB_Contact.sqlite - 联系人
     - Friend - 好友
     - MassSendContact
     - QQContact - QQ 联系人
-  - MM
+  - MM - 消息
     - BottleContactTable4
     - BottleTable4
     - ChatExt2_ID
@@ -90,12 +91,92 @@ where domain = 'AppDomain-com.tencent.xin';
     - QQContact
     - RevokeMsgTable
     - friend_meta
-- 特殊数据
-  - 100000000@chatroom - 群组会话
-  - wxid_ - 标准微信 ID
-  - QQ1000000000
-  - gh_123456789abc - 公众号
-  - v1_xxxx@stranger - 加密后陌生人姓名
+  - contactlabel.list - 标签列表
+
+## Friend
+
+| column                  | type    | desc                   |
+| ----------------------- | ------- | ---------------------- |
+| userName                | text    | WXID、群 ID、公众号 ID |
+| type                    | integer | 类型                   |
+| certificationFlag       | integer |
+| imgStatus               | integer |
+| encodeUserName          | text    |
+| dbContactLocal          | blob    |
+| dbContactOther          | blob    |
+| dbContactRemark         | blob    | 联系人备注             |
+| dbContactHeadImage      | blob    | 联系人头像             |
+| dbContactProfile        | blob    |
+| dbContactSocial         | blob    |
+| dbContactChatRoom       | blob    | 群信息,XML             |
+| dbContactBrand          | blob    |
+| \_packed_DBContactTable | blob    |
+
+| userName           | desc        |
+| ------------------ | ----------- |
+| 100000000@chatroom | 群组会话    |
+| `wxid_`            | 标准微信 ID |
+| QQ1000000000       |
+| gh_123456789abc    | 公众号      |
+
+| encodeUserName   | desc             |
+| ---------------- | ---------------- |
+| v1_xxxx@stranger | 加密后陌生人姓名 |
+| v3_xxxx@stranger | 加密后陌生人姓名 |
+
+| type  |               bin | desc                       |
+| ----- | ----------------: | -------------------------- |
+| 0     |                 0 | 微信运动                   |
+| 1     |                 1 | 微信应用                   |
+| 2     |                10 | app + 群                   |
+| 3     |                11 | 好友                       |
+| 4     |               100 | 群里面的人                 |
+| 6     |               110 | 群好友，对方加你，你未通过 |
+| 7     |               111 | 群里面的人，而且互为好友   |
+| 11    |              1011 | 拉黑别人                   |
+| 67    |           1000011 | 标星                       |
+| 256   |         100000000 | 删除好友                   |
+| 259   |         100000011 | 不让他看我的朋友圈         |
+| 65539 | 10000000000000011 | 不看他的朋友圈             |
+
+| bit | desc               |
+| --- | ------------------ |
+| 1   | 你是否加对方为好友 |
+| 2   | 对方是否加你为好友 |
+| 3   | 是否群里面的       |
+| 4   | 你主动拉黑对方     |
+| 7   | 标星               |
+
+## Chat
+
+- Chat\_ 聊天信息
+- ChatExt\_ 消息扩展信息
+
+| column     | type    | desc     |
+| ---------- | ------- | -------- |
+| CreateTime | INTEGER |
+| Des        | INTEGER |
+| ImgStatus  | INTEGER |
+| MesLocalID | INTEGER |
+| Message    | TEXT    | 消息内容 |
+| MesSvrID   | INTEGER |
+| Status     | INTEGER |
+| TableVer   | INTEGER |
+| Type       | INTEGER | 消息类型 |
+
+| type  | desc          |
+| ----- | ------------- |
+| 1     | 文本          |
+| 3     | 图片          |
+| 34    | 语音          |
+| 42    | 名片          |
+| 43    | 视频          |
+| 47    | 表情          |
+| 48    | 位置          |
+| 49    | 链接          |
+| 50    | 视频/语音通话 |
+| 62    | 小视频        |
+| 10000 | 系统消息      |
 
 # 附录
 
@@ -300,11 +381,6 @@ CREATE TABLE BottleTable4
     BottleID             text,
     BottleExt            text
 );
-CREATE TABLE sqlite_sequence
-(
-    name,
-    seq
-);
 CREATE TABLE BottleContactTable4
 (
     BottleContactUsrName     text not null primary key on conflict replace,
@@ -441,3 +517,7 @@ CREATE TABLE Hello_ID
     UsrName    TEXT
 );
 ```
+
+# 参考
+
+- https://www.jianshu.com/p/07a8d87e698b

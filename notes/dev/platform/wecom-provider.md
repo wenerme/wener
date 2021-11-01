@@ -31,9 +31,12 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like 
 - 无法获取用户的 Name
   - 调用时返回 userid 以代替 name
   - 自建应用需要管理员授权才返回
-  - 对于非第三方创建的成员，第三方通讯录应用也不可获取
+  - 对于非第三方 **创建的成员**，第三方通讯录应用也不可获取
   - 未返回 name 的情况需要通过通讯录展示组件来展示名字
-- 很多个人信息第三方都是无法获取的
+- 无法获取用户头像
+  - 返回 [空白头像](https://rescdn.qqmail.com/node/wwmng/wwmng/style/images/independent/DefaultAvatar$73ba92b5.png)
+- 第三方 通讯录应用 **创建的成员** 可获取的额外信息
+  - 电话、头像、邮箱、是否部门上级、座机、别名、扩展属性、员工二维码、成员对外属性、地址
 
 :::
 

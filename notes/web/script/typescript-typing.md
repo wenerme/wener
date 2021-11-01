@@ -204,7 +204,7 @@ console.log(testObj.getFullName()); // this works
 
 ## 允许导入其他文件
 
-```ts
+```ts title='types.d.ts'
 declare module '*.module.css' {
   const classes: { readonly [key: string]: string };
   export default classes;
@@ -223,5 +223,10 @@ declare module '*.module.scss' {
 declare module '*.mdx' {
   let MDXComponent: (props) => JSX.Element;
   export default MDXComponent;
+}
+
+declare module '*.yaml' {
+  const data: any;
+  export default data;
 }
 ```

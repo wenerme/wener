@@ -4,9 +4,16 @@ title: Keycloak JS SDK
 
 # Keycloak JS SDK
 
-- 是什么？
+- [adapters/oidc/js/src/main/resources](https://github.com/keycloak/keycloak/tree/master/adapters/oidc/js/src/main/resources) 是什么？
   - Keycloak 提供的 JS SDK
   - 支持登陆、注册、SSO 检测、个人信息 URL、自动刷新、退出登陆等功能
+
+:::caution
+
+- init 参数 的 Typescript 定义没有 scope 参数，实际支持
+  - 必须在 init 也传入，否则 checkSsoSilently 会丢失 scope
+
+:::
 
 ```js
 const kc = Keycloak({
@@ -38,12 +45,24 @@ await kc.init({
   responseType: 'code id_token token',
 
   // timeSkew: 0 ,// 允许的时间倾斜
-  // pkceMethod: 'S256',
+  pkceMethod: 'S256', // 建议 - 默认不使用 pkce
+
+  scope: '', // 其他 scope - 空格分割，默认包含 openid
 })
 // 授权状态
 kc.authenticated
 // token 如果还有 45s 失效则刷新 token
 kc.updateToken(45)
+```
+
+```html title="silent-check-sso.html"
+<html lang="zh">
+<body>
+<script>
+  parent.postMessage(location.href, location.origin)
+</script>
+</body>
+</html>
 ```
 
 - check-sso

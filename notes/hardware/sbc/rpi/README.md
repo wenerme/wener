@@ -20,4 +20,7 @@ title: 树莓派
 | 400       |
 | Zero W    | BCM2835   | ARMv6Z 32bit    | 512 MB     | 1× ARM1176JZF-S 1 GHz   |
 | Zero 2 W  | BCM2710A1 | ARMv8 64/32 bit | 512 MB     | 4× Cortex-A53 1GHz      |
-| Pico      | RP2040    |                 | 264 KB     |
+| Pico      | RP2040    |                 | 264 KB     | 2× Cortex-M0+ 133 MHz   |
+
+- Pico
+  - Flash 2 MB

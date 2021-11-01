@@ -27,6 +27,8 @@ title: React Version
 - children 处理有变化 - 总是作为 props 传递
   - 早期区分是为了在 DEV 时区别静态和动态内容
 - key 独立传递 - `jsx('div', props, key)`
+- depreacted componentWillMount, componentWillReceiveProps, componentWillUpdate
+  - polyfill [react-lifecycles-compat](https://github.com/reactjs/react-lifecycles-compat)
 - 不再需要对事件进行 persist
 
 ```jsx

@@ -25,6 +25,15 @@ title: URQL
 
 :::
 
+```bash
+npm add urql @urql/{core,devtools,exchange-graphcache,exchange-retry,exchange-multipart-fetch}
+```
+
+```ts title="根据后端实现选择"
+import { SubscriptionClient } from 'subscriptions-transport-ws';
+import { createClient as createSubscriptionClient } from 'graphql-ws';
+```
+
 ```ts
 type ExchangeIO = (Source<Operation>) => Source<OperationResult>;
 type Exchange = ExchangeInput => ExchangeIO;

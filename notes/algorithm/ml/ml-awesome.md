@@ -1,7 +1,7 @@
 ---
 title: ML Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Machine Learning Awesome
@@ -30,10 +30,17 @@ tags:
 - [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
 - PyTorch 1.10 [HN](https://news.ycombinator.com/item?id=28955146)
 - [facebookresearch/salina](https://github.com/facebookresearch/salina)
+- [facebookresearch/ppuda](https://github.com/facebookresearch/ppuda)
 
 ## Learn
 
 - https://ai.googleblog.com/
+
+---
+
+**Books**
+
+- [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html)
 
 ---
 
@@ -56,7 +63,6 @@ tags:
 - [Training a DCGAN in PyTorch](https://www.pyimagesearch.com/2021/10/25/training-a-dcgan-in-pytorch/)
 
 ![](http://dlib.net/ml_guide.svg)
-
 
 ## Framework
 
@@ -120,6 +126,7 @@ tags:
 - [orpatashnik/StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
 
 ## Music
+
 - [microsoft/muzic](https://github.com/microsoft/muzic)
 
 ## STT

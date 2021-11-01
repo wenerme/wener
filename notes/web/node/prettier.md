@@ -15,6 +15,14 @@ title: prettier
   - [benjie/prettier-plugin-pg](https://github.com/benjie/prettier-plugin-pg)
     PostgreSQL
 
+:::caution
+
+- YAML 无法调整 array 缩进
+  - [redhat-developer/vscode-yaml#172](https://github.com/redhat-developer/vscode-yaml/issues/172)
+  - [brodybits/prettierx](https://github.com/brodybits/prettierx)
+
+:::
+
 ```bash
 npx prettier --write src/**/*.{tsx,css,html}
 ```

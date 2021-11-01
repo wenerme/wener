@@ -12,6 +12,19 @@ tags:
 
 ## Framework
 
+## Library
+
+- Event
+  - DOM EventTarget - Bus
+  - DOM MessageChannel - 1-1、WebWorker
+  - DOM BroadcastChannel - origin 纬度 - 多窗口
+  - DOM Window.postMessage - 跨 origin、多窗口、iframe
+  - [primus/eventemitter3](https://github.com/primus/eventemitter3)
+  - [developit/mitt](https://github.com/developit/mitt)
+    - ts, 200byte
+    - 建议直接拷到项目使用
+  - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+
 ## JSX
 
 - [ryansolid/solid](https://github.com/ryansolid/solid)
@@ -24,7 +37,6 @@ tags:
 
 - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
   - Tiny, 2D, WebGL
-
 
 ## Template
 

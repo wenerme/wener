@@ -11,6 +11,7 @@ title: zustand
   - 支持 react concurrency
   - Context 可选 - 默认全局 store 单例
   - 可在其它框架使用 - 不依赖 react
+- subscribeWithSelector
 
 :::tip
 

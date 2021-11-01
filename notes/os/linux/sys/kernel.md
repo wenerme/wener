@@ -1,6 +1,8 @@
-# Linux Kernel
+---
+title: Linux Kernel
+---
 
-## Tips
+# Linux Kernel
 
 - [Kernel wiki](https://wiki.kernel.org/)
 - [Linux Kernel Hackers' Guide](http://www.tldp.org/LDP/khg/HyperNews/get/khg.html)
@@ -22,7 +24,7 @@
   - RT Group Scheduling - 2.6.25 - 2008-04
   - CFS bandwidth control - 3.2 - 2012-01
   - Auto Group Scheduling - 2.6.38 - 2011-03
-  -  基于调度域的负载均衡 - [Scheduling domains](http://lwn.net/Articles/80911/) - 2.6.7 - 2004-06
+  - 基于调度域的负载均衡 - [Scheduling domains](http://lwn.net/Articles/80911/) - 2.6.7 - 2004-06
   - HRTICK - 2.6.25 - 2008-04
   - Automatic NUMA balancing - 3.8 - 2013-02
   - [Steps toward power-aware scheduling](https://lwn.net/Articles/655479/)
@@ -45,7 +47,7 @@
   - SLOB - 2.6.16 - 2006-03
   - CMA - Continue Memory Allocation - 3.5 - 2012-07
 - 内存去碎片化
-  - Lumpy Reclaim - 2.6.23引入(2007年7月), 3.5移除(2012年7月)
+  - Lumpy Reclaim - 2.6.23 引入(2007 年 7 月), 3.5 移除(2012 年 7 月)
   - Page Clustering by Page Mobility - 2.6.23 - 2007-07
   - Memory Compaction - 2.6.35 - 2010-08
 - 页表管理
@@ -53,47 +55,47 @@
   - Lazy-TLB flushing
 - 页面回收
   - 页框替换算法(Page Frame Replacement Algorithm, PFRA)
-  - 增强的LRU算法 (2.6前引入, 具体时间难考)
-  - active 与 inactive 链表拆分, 2.6.28(2008年12月)
-  - 再拆分出被锁页的链表, 2.6.28(2008年12月)
-  - 让代码文件缓存页多待一会, 2.6.31(2009年9月发布)
-  - 工作集大小的探测, 3.15(2014年6月发布)
+  - 增强的 LRU 算法 (2.6 前引入, 具体时间难考)
+  - active 与 inactive 链表拆分, 2.6.28(2008 年 12 月)
+  - 再拆分出被锁页的链表, 2.6.28(2008 年 12 月)
+  - 让代码文件缓存页多待一会, 2.6.31(2009 年 9 月发布)
+  - 工作集大小的探测, 3.15(2014 年 6 月发布)
 - 页面写回
-  - 由全局的脏页门槛到每设备脏页门槛 2.6.24(2008年1月发布)
-  - 引入更具体扩展性的回写线程 2.6.32(2009年12月发布)
-  - 动态的脏页生成扼制和写回扼制算法 3.1(2011年11月发布), 3.2(2012年1月发布)
+  - 由全局的脏页门槛到每设备脏页门槛 2.6.24(2008 年 1 月发布)
+  - 引入更具体扩展性的回写线程 2.6.32(2009 年 12 月发布)
+  - 动态的脏页生成扼制和写回扼制算法 3.1(2011 年 11 月发布), 3.2(2012 年 1 月发布)
 - 页面预读
   - 原始的预读方案
-  - 按需预读(On-demand Readahead) 2.6.23(2007年10月发布)
+  - 按需预读(On-demand Readahead) 2.6.23(2007 年 10 月发布)
 - 大内存页支持
-  - HUGETLB支持 (2.6前引入)
-  - 透明大页的支持 2.6.38(2011年3月发布)
+  - HUGETLB 支持 (2.6 前引入)
+  - 透明大页的支持 2.6.38(2011 年 3 月发布)
 - 内存控制组(Memory Cgroup)支持
-  - Memory Cgroup -  2.6.25(2008年4月发布)
+  - Memory Cgroup - 2.6.25(2008 年 4 月发布)
 - 内存热插拔支持
-  - 内存热插入支持 2.6.15(2006年1月发布)
-  - 初步的内存逻辑热拔除支持 2.6.24(2008年1月发布)
-  - 完善的内存逻辑热拔除支持 3.8(2013年2月发布)
-  - 物理热拔除的支持 3.9(2013年4月支持)
+  - 内存热插入支持 2.6.15(2006 年 1 月发布)
+  - 初步的内存逻辑热拔除支持 2.6.24(2008 年 1 月发布)
+  - 完善的内存逻辑热拔除支持 3.8(2013 年 2 月发布)
+  - 物理热拔除的支持 3.9(2013 年 4 月支持)
 - 超然内存(Transcendent Memory)支持
-  - 前端接口之 CLEANCACHE 3.0(2011年7月发布)
-  - 前端接口之 FRONTSWAP 3.5(2012年7月发布)
+  - 前端接口之 CLEANCACHE 3.0(2011 年 7 月发布)
+  - 前端接口之 FRONTSWAP 3.5(2012 年 7 月发布)
   - 后端之 ZCACHE (没能进入内核主线)
-  - 后端之 ZRAM 3.14(2014年3月发布)
-  - 后端之 ZSWAP 3.11(2013年9月发布)
+  - 后端之 ZRAM 3.14(2014 年 3 月发布)
+  - 后端之 ZSWAP 3.11(2013 年 9 月发布)
 - 非易失性内存 (NVDIMM, Non-Volatile DIMM) 支持
-  - libnvdimm 4.2(2015年8月30日发布)
-  - DAX 4.0(2015年4月发布)
+  - libnvdimm 4.2(2015 年 8 月 30 日发布)
+  - DAX 4.0(2015 年 4 月发布)
 - 内存管理调试支持
-  - 页分配的调试支持 2.5(2003年7月之后发布)
+  - 页分配的调试支持 2.5(2003 年 7 月之后发布)
   - SLAB 子系统的调试支持
-  - 错误注入机制 2.6.20(2007年2月发布)
-  - KMEMCHECK - 内存非法访问检测工具 2.6.31(2009年9月发布)
-  - KMEMLEAK - 内存泄漏检测工具 2.6.31(2009年9月发布)
-  - KASan - 内核地址净化器 4.0(2015年4月发布)
+  - 错误注入机制 2.6.20(2007 年 2 月发布)
+  - KMEMCHECK - 内存非法访问检测工具 2.6.31(2009 年 9 月发布)
+  - KMEMLEAK - 内存泄漏检测工具 2.6.31(2009 年 9 月发布)
+  - KASan - 内核地址净化器 4.0(2015 年 4 月发布)
 - Misc
-  - KSM - 内存去重 2.6.32(2009年12月发布)
-  - HWPoison - 内存页错误的处理 2.6.32(2009年12月发布)
+  - KSM - 内存去重 2.6.32(2009 年 12 月发布)
+  - HWPoison - 内存页错误的处理 2.6.32(2009 年 12 月发布)
 
 ```bash
 # module parameters
@@ -108,7 +110,7 @@ cat /proc/modules | cut -f 1 -d " " | while read module; do \
  echo; \
 done
 ```
-
+<!--
 ```
 # norandmaps: Don't use address space randomization. Equivalent to echo 0 > /proc/sys/kernel/randomize_va_space.
 # printk.time=y: log in format: "[time ] msg" for all printk messages.
@@ -153,6 +155,8 @@ https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html
 blkid -o export /dev/root
 
 update-extlinux.conf
+
+-->
 
 ## 参数
 

@@ -17,7 +17,7 @@ title: DAHDI
 - 编译问题
   - 5.4 后 linux/pci-aspm.h 变为 linux/pci.h
   - 5.0
-    - SUBDIRS=$(PWD) => M=$(shell pwd)
+    - `SUBDIRS=$(PWD)` -> `M=$(shell pwd)`
     - implicit declaration of function `do_gettimeofday`; did you mean 'do_settimeofday64'?
       - 以前在 `linux/timekeeping32.h` 之后被删除
       - [xpp patch](http://git.asterisk.org/gitweb/?p=dahdi/linux.git;a=blobdiff;f=drivers/dahdi/xpp/xbus-pcm.c;h=8bb2fe76c66a143242730e022cf8af3a6268b062;hp=37f9260e7ecb1c7b3e00b7bd942eac7bc95d6d05;hb=ffcd08205c71dcb0e060836359418bef20f07ffa;hpb=8468250328b607cbd2774c2209fbe5826be01098)

@@ -30,10 +30,17 @@ title: Vite
     - esbuild 支持 esm 为主
   - 保持 与 DEV 一致会比较难
 
+:::caution
+
+- build 一次只能一个 rollup 配置
+  - 使用多 config 或 环境变量 解决
+
+:::
+
 ```bash
 # template:
 #   vanilla, vanilla-ts, vue, vue-ts, react, react-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts
-npm init vite@latest my-vue-app -- --template react-ts
+npm init vite@latest my-app --template react-ts
 ```
 
 ```ts
@@ -55,14 +62,22 @@ export default defineConfig({
 
 ```ts title="异步配置"
 export default defineConfig(async ({ command, mode }) => {
-  const data = await asyncFunction()
+  const data = await asyncFunction();
   return {
     // build specific config
-  }
-})
+  };
+});
 ```
 
 # FAQ
+
+## 扫描多页
+
+```js
+require('fast-glob')
+  .sync(['./**/*.html', '!dist'])
+  .map((entry) => path.resolve(__dirname, entry));
+```
 
 ## Vite vs Snowpack
 

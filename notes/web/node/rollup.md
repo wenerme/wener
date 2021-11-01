@@ -8,21 +8,31 @@ title: Rollup
 - [Repl](https://rollupjs.org/repl/)
 - 注意
   - `d.ts` 需要使用 tsc 生成
-- 问题
-  - [#287](https://github.com/rollup/plugins/issues/287) - typescript 插件无效
-  - [#2671](https://github.com/rollup/rollup/issues/2671) - 不支持 `export *` commonjs
-  - [#470](https://github.com/rollup/rollup/issues/470#issuecomment-177594250) 不支持 index.js
-    1. 直接 `import {abc} from 'abc/index'`
-    2. 使用 [@rollup/plugin-node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve)
-  - [#1906](https://github.com/rollup/rollup/issues/1906) - Mark dependency as internal?
-  - CommonJS 多了一层 default 问题
-    - [Babel 6 changes how it exports default](https://stackoverflow.com/questions/33505992)
-    - [babel-plugin-add-module-exports](https://www.npmjs.com/package/babel-plugin-add-module-exports)
-      - 使其恢复原有的方式
-    - 类似问题
-      - [faastjs/faast.js#36](https://github.com/faastjs/faast.js/issues/36) - Can't use default import with Babel
 - 参考
   - [rollup/awesome](https://github.com/rollup/awesome)
+  - https://rollupjs.org/repl/
+
+:::caution
+
+- [#2182](https://github.com/rollup/rollup/issues/2182) 不支持缓存
+- [#2072](https://github.com/rollup/rollup/issues/2072) UMD/IIFE 不支持 code splitting
+
+:::
+
+:::info
+
+- [#470](https://github.com/rollup/rollup/issues/470#issuecomment-177594250) 不支持 index.js
+  1. 直接 `import {abc} from 'abc/index'`
+  2. 使用 [@rollup/plugin-node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve)
+- [#1906](https://github.com/rollup/rollup/issues/1906) - Mark dependency as internal?
+- CommonJS 多了一层 default 问题
+  - [Babel 6 changes how it exports default](https://stackoverflow.com/questions/33505992)
+  - [babel-plugin-add-module-exports](https://www.npmjs.com/package/babel-plugin-add-module-exports)
+    - 使其恢复原有的方式
+  - 类似问题
+    - [faastjs/faast.js#36](https://github.com/faastjs/faast.js/issues/36) - Can't use default import with Babel
+
+:::
 
 ```bash
 npm install --global rollup

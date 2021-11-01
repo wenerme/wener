@@ -15,6 +15,8 @@ title: 企业微信开发
 - 绑定微信开发者 ID
   - 小程序、公众号，绑定后可通过 api 接口获取微信联系人对应的唯一身份标识（微信 unionid)
 - 电脑端，聊天工具栏为固定宽度 360px
+- Command+Shift+Control+D 开启 Debug 模式
+  - 帮助栏里可打开 webView 元素审查
 
 :::
 
@@ -72,7 +74,7 @@ title: 企业微信开发
 | --------- | --------------------- | -------------------------------- |
 | oa        | union id              |
 | ww        | CorpID/SuitID         | ww000000000000000a               |
-| wr        | room id               | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
+| wr        | wecom room id         | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
 | wm        | external open/user id | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
 | wo        | open id               |
 | tj        | suite id/早期套件     | tjddddccc7775555aaa              |

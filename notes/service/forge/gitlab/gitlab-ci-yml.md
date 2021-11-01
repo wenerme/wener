@@ -16,6 +16,7 @@ default:
   # 基础镜像
   image: wener/node:docker
   cache:
+    # 缓存仓库里所有 untracked 文件
     untracked: true
     # 缓存按分支划分 - 如果有 tag 这个会是 tag 名字
     key: '$CI_COMMIT_REF_NAME'
@@ -23,6 +24,8 @@ default:
     paths:
       - node_modules/
       - .yarn/
+      - .cache/
+      - .next/
       - packages/server/.next/cache/
 ```
 

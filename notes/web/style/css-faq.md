@@ -163,3 +163,21 @@ body {
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 ```
+
+## font size 适应容器
+
+1. SVG
+
+```xml
+<svg viewBox="0 0 56 18">
+  <text x="0" y="15">Fit Me</text>
+</svg>
+```
+
+2. 外部依赖
+
+- [STRML/textFit](https://github.com/STRML/textFit)
+- [rikschennink/fitty](https://github.com/rikschennink/fitty)
+- https://github.com/kennethormandy/react-fittext/blob/master/src/FitText.js
+- 参考
+  - [fitting-text-to-a-container](https://css-tricks.com/fitting-text-to-a-container/)

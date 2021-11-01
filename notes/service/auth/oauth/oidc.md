@@ -95,6 +95,12 @@ title: OpenID Connect
 | amr       |          | Authentication Methods References      |
 | azp       |          | Authorized party                       |
 
+:::tip
+
+- issuer 不应该包含最后的 /
+
+:::
+
 ## discovery
 
 - /.well-known/openid-configuration

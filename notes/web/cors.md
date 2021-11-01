@@ -7,6 +7,8 @@ title: CORS
 - fetch cookie 跨域需要请求时设置 credentials: include
   - 要求服务端返回 `Access-Control-Allow-Credentials: true`
   - 否则不会 set-cookie
+- 参考
+  - mdn [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 **Preflight 请求**
 

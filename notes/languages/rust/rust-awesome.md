@@ -15,3 +15,11 @@ tags:
 - [learnbyexample/awesome-rewrite-it-in-rust](https://github.com/learnbyexample/awesome-rewrite-it-in-rust)
 - [smoltcp-rs/smoltcp](https://github.com/smoltcp-rs/smoltcp)
   - tcp/ip stack
+
+## Projects
+
+- [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)
+  - GPL 3.0
+  - Remote desktop
+- [cloudflare/boringtun](https://github.com/cloudflare/boringtun)
+  - Userspace WireGuard

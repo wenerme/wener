@@ -154,6 +154,8 @@ npm add date-fns lodash-es react-fast-compare
   - 流程节点 UI
 - [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
   - 懒加载 UI 组件
+- [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
+  - drop 文件
 
 ### 编辑器
 

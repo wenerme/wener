@@ -9,6 +9,17 @@ title: graphql-code-generator
   - 支持的前端框架 urql, apollo, react-query, react, vue, svelte
   - 支持的后端 Java Resolver, Kotlin, Java, Java Apollo Android
 
+```bash
+# 安装 cli - 依赖插件无法 npx
+npm add -D @graphql-codegen/cli @graphql-codegen/typescript
+npx -y graphql-codegen init
+
+npx -y graphql-codegen download-schema http://localhost:8080/query --output schema.json
+
+# 客户端相关
+npm add -D @graphql-codegen/typescript-urql
+```
+
 ```yaml
 overwrite: true
 # 接口
@@ -22,7 +33,16 @@ generates:
       - typescript:
       # 生成 query / mutation / subscription / fragment
       - typescript-operations
+      # gql-tag 的 document
+      - typescript-document-nodes
+
+      # @graphql-codegen/typed-document-node
+      # https://github.com/dotansimha/graphql-typed-document-node
+      # 编译后的 Node - JSON 对象 - 不需要 gql-tag
+      # 体积会更大 - 但不需要运行时 parse
       - typed-document-node
+      # @graphql-codegen/typescript-urql
+      # URQL 客户端 - hook
       - typescript-urql:
           urqlImportFrom: ../client/urql
           documentMode: external
@@ -40,4 +60,20 @@ generates:
   src/generated/urql.schema.json:
     plugins:
       - 'urql-introspection'
+```
+
+## near
+
+```bash
+npm add -D @graphql-codegen/near-operation-file-preset
+```
+
+```yaml
+generates:
+src/:
+ preset: near-operation-file
+ presetConfig:
+   baseTypesPath: types.ts
+ plugins:
+   - typescript-operations
 ```

@@ -412,3 +412,19 @@ title: 开发用词字典
   - 甚至是可以是 完整的软件+Plugin 构成的 新的整体
 - 参考
   - https://softwareengineering.stackexchange.com/a/316231/126631
+
+## job title vs job position
+
+- job title - 职称
+  - 公司指定
+- job position - 工作职位
+  - 描述职责
+  - 工作内容相关
+
+## realm vs tenant
+
+- tenant - 租户
+  - 概念更宽泛
+- realm - 域
+  - 在 auth 环境下的术语 - 概念类似 domain
+  - 虚拟 Identity Provider/IdP，用于认证 tenant 用户

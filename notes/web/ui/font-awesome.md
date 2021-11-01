@@ -9,6 +9,7 @@ tags:
 - [Inter typeface family](https://rsms.me/inter)
 - [Google fonts](https://fonts.google.com)
 - PL - PowerLine
+- [codingfont](https://www.codingfont.com/)
 - 参考
   - [VSC 配置倾斜字体](https://stackoverflow.com/questions/41320848)
 

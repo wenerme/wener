@@ -25,8 +25,9 @@ tags:
     - CNI - flannel, calico
     - CSI - openbsd, longhorn, nfs
     - Network - tinc, n2n, wg, metallb
-  - 了解配合服务，提示使用体验
-    - cert-manager
+  - 了解配合服务，提升使用体验
+    - cert-manager, sealed-secret
+    - helm, kustomize
     - 看板 - dashboard, rancher, lens
     - observability - prometheus, vector, fluntbit, jeager, grafana
     - gitops - arogocd, fluxcd
@@ -44,6 +45,10 @@ tags:
     - faas - fission, openfaas
     - baas
     - low-code
+- 参考
+  - [kubernetes-api](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/)
+    - 当不确定 Yaml 有什么字段，字段有什么含义的时候查阅
+    - `kubectl explain` 也可以
 
 ## by Wener
 

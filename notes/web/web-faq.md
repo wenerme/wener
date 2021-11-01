@@ -105,3 +105,44 @@ Upgrade: websocket
 ```js title="lib.js"
 console.log(document.currentScript.dataset.option);
 ```
+
+## sessionStorage vs localStorage
+
+- sessionStorage
+  - tab/window 纬度 - 关闭则清理
+  - 新 tab/window 会 copy 内容
+  - 修改互相不影响
+  - 5MB
+- localStorage
+  - origin 纬度 - 持久化
+  - 修改可跨 tab 传递
+  - 可监听变化
+
+```js
+// 监听 localStorage
+window.addEventListener('storage', (e) => console.log(e));
+```
+
+## origin
+
+- 浏览器安全隔离的一个纬度
+- schema+host - 不包含路径
+- https://developer.mozilla.org/en-US/docs/Glossary/Origin
+
+```js
+location.origin;
+```
+
+## window 事件
+
+- https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers
+
+
+## websocket auth
+1. cookie - 最简单
+2. 协议内授权
+3. otp 方式
+
+---
+
+- https://devcenter.heroku.com/articles/websocket-security

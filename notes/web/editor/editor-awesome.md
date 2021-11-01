@@ -1,7 +1,7 @@
 ---
 title: Editor Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Editor Awesome
@@ -23,7 +23,12 @@ tags:
 - [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
   - React ContentEditable
 
+## Markdown
+
+- [Tencent/cherry-markdown](https://github.com/Tencent/cherry-markdown)
+
 ## Page Builder
+
 - [react-page/react-page](https://github.com/react-page/react-page)
   Next-gen, highly customizable content editor for the browser - based on React and Redux. WYSIWYG on steroids.
   - MIT, TypeScript+React

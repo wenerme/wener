@@ -15,3 +15,7 @@ title: Cookie
     - 与 same-site 请求一起发送
   - SameSite=Lax
     - same-site, cross-site
+- Access-Control-Allow-Credentials: true
+  - 服务端接受 cookie
+- withCredentials: true
+  - 客户端请求带上 cookie

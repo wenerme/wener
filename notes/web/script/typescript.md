@@ -46,6 +46,8 @@ typings install dt~node dt~express dt~body-parser dt~serve-static dt~express-ser
 # 使用模块定义类型
 yarn add @types/{node,express,body-parser,serve-static,express-serve-static-core,mime}
 
+# 单个文件
+npx tsc --out test.js ./src/test.ts --module system
 ```
 
 ## tsconfig

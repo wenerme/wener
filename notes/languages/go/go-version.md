@@ -1,7 +1,7 @@
 ---
 title: Go Version
 tags:
-- Version
+  - Version
 ---
 
 # Go Version
@@ -32,8 +32,10 @@ tags:
 | 1.10 | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
 
 ## 1.18
+
 - generic
   - stdlib 这个版本不变
+- [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)
 
 ## 1.17
 
