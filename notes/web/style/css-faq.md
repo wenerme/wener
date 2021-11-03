@@ -181,3 +181,7 @@ body {
 - https://github.com/kennethormandy/react-fittext/blob/master/src/FitText.js
 - 参考
   - [fitting-text-to-a-container](https://css-tricks.com/fitting-text-to-a-container/)
+
+## 性能
+- [contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
+  - strict

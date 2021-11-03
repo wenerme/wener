@@ -11,6 +11,9 @@ title: DuckDB
   - 支持查询 Parquet, CSV
   - 向量引擎，并行查询
   - 官方支持 SDK: Python, Java, C++, NodeJS, R
+- 参考
+  - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
+    - 在 Web 内执行，基于 FS API 进行 IO 交互
 
 ```bash
 curl -LO https://github.com/duckdb/duckdb/releases/download/v0.2.7/duckdb_cli-osx-amd64.zip

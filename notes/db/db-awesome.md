@@ -66,6 +66,9 @@ tags:
 
 ## 有趣
 
+- [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html)
+  - TAO - The Associations and Objects
+  - [HN](https://news.ycombinator.com/item?id=29045443)
 - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL

@@ -7,6 +7,8 @@ title: FoundationDB
   - 分布式、事务、KV
 - 参考
   - [FoundationDB/awesome-foundationdb](https://github.com/FoundationDB/awesome-foundationdb)
+  - [FoundationDB/fdb-document-layer](https://github.com/FoundationDB/fdb-document-layer)
+    - MongoDB® wire protocol
   - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html)
     - [HN](https://news.ycombinator.com/item?id=28740497)
   - CouchDB 4 底层可能会迁移到 FoundationDB

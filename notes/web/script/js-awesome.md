@@ -24,6 +24,8 @@ tags:
     - ts, 200byte
     - 建议直接拷到项目使用
   - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+- IoC
+  - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
 
 ## JSX
 

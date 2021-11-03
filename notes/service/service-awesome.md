@@ -38,6 +38,8 @@ tags:
 - [medusajs/medusa](https://github.com/medusajs/medusa)
 - [withspectrum/spectrum](https://github.com/withspectrum/spectrum)
 - [getferdi/ferdi](https://github.com/getferdi/ferdi)
+- [notifirehq/notifire](https://github.com/notifirehq/notifire)
+  - Notification Infrastructure
 
 ## Avatar
 

@@ -12,6 +12,10 @@ title: Linux Releases
   - 一般年底的最后一个版本会变成 LTS
 - http://phb-crystal-ball.org/
 
+## 5.15
+- NTFS
+- ksmbd - in-kernel SMB 3 server
+
 ## 5.10 - LTS
 
 - EXT4

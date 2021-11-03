@@ -5,14 +5,37 @@ title: Zerotier
 
 # Zerotier
 
+- [zerotier/ZeroTierOne](https://github.com/zerotier/ZeroTierOne)
+  - BSL, C++
+  - 中心化 P2P Mesh VPN
+  - 2 层 网络
+  - 支持授权管理
+  - 支持 地址 配置
+  - 支持路由下发
+  - 依赖官方 root 服务器
 - [Manual](https://www.zerotier.com/manual)
 - [Router Configuration Tips](https://zerotier.atlassian.net/wiki/spaces/SD/pages/6815768/Router+Configuration+Tips)
 - 默认端口 9993
 - 支持 uPnP 或 NAT-PMP 直接映射端口能更容易直连
-- 注意
-  - 如果大量传输数据可能导致被官方 ZTC block，状态一直处于 REQUESTING_CONFIGURATION
-    - 删除本地 ID 重连应该可以解决
-    - `/var/lib/zerotier-one/identity.*`
+- 参考
+  - [key-networks/ztncui](https://github.com/key-networks/ztncui)
+    - web controller
+
+:::caution
+
+- 如果大量传输数据可能导致被官方 ZTC block，状态一直处于 REQUESTING_CONFIGURATION
+  - 删除本地 ID 重连应该可以解决
+  - `/var/lib/zerotier-one/identity.*`
+
+:::
+
+```bash
+apk add zerotier-one
+service zerotier-one start
+
+# 前往 https://my.zerotier.com/ 注册创建网络
+zerotier-cli join NETWORK
+```
 
 ## controller
 
@@ -28,7 +51,6 @@ title: Zerotier
 # macOS controller
 # 使用 $PWD/controller 作为 HOME
 sudo /Library/Application\ Support/ZeroTier/One/zerotier-one $PWD/controller
-
 
 # docker controller
 docker run --rm -it -p 9993:9993 wener:edge

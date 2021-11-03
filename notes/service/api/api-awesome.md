@@ -65,6 +65,8 @@ tags:
 > API 生命周期管理
 
 - [apache/apisix](https://github.com/apache/apisix)
+- [apache/incubator-shenyu](https://github.com/apache/incubator-shenyu)
+  - 可扩展、高性能、响应式的 **Java** API 网关
 - Kong
 - Tyk
 - [luraproject/lura](https://github.com/luraproject/lura)

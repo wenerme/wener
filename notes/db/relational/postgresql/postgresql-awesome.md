@@ -27,6 +27,7 @@ title: PostgreSQL Awesome
 - [ankane/pgvector](https://github.com/ankane/pgvector)
   - 向量搜索
 - [pgaudit/pgaudit](https://github.com/pgaudit/pgaudit)
+- [wasmerio/wasmer-postgres](https://github.com/wasmerio/wasmer-postgres)
 
 ## PL
 

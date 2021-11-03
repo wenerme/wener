@@ -33,6 +33,8 @@ tags:
 - quakus
 - [OpenLiberty/open-liberty](https://github.com/OpenLiberty/open-liberty)
   - IBM
+- [oracle/helidon](https://github.com/oracle/helidon)
+  - microservices
 
 ## ORM
 
@@ -68,5 +70,11 @@ tags:
 - antlr
 
 ## Learn
+
 - [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide)
 - [elunez/eladmin](https://github.com/elunez/eladmin)
+
+## GUI
+
+- [JetBrains/compose-jb](https://github.com/JetBrains/compose-jb)
+  - Compose for Desktop

@@ -129,6 +129,7 @@ tags:
 - [AlexAltea/orbital](https://github.com/AlexAltea/orbital)
   - PS4
 - Playstation 3 Architecture [HN](https://news.ycombinator.com/item?id=28934624)
+- Famicom Party: Making NES Games in Assembly [HN](https://news.ycombinator.com/item?id=29069095)
 
 ## 开发
 
@@ -138,6 +139,7 @@ tags:
 - [isometimes/rpi4-osdev](https://github.com/isometimes/rpi4-osdev)
   - [HN](https://news.ycombinator.com/item?id=28774022)
 - https://news.ycombinator.com/favorites?id=Gunax
+- [klange/toaruos](https://github.com/klange/toaruos)
 
 ## Firmware
 

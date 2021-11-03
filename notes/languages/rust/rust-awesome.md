@@ -23,3 +23,6 @@ tags:
   - Remote desktop
 - [cloudflare/boringtun](https://github.com/cloudflare/boringtun)
   - Userspace WireGuard
+
+## 学习
+- [rust learn](https://www.rust-lang.org/zh-CN/learn)

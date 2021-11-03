@@ -505,3 +505,4 @@ useStore.destroy();
 ## 参考
 
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
+- [Bogdan-Lyashenko/Under-the-hood-ReactJS](https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS)
