@@ -19,7 +19,7 @@ async function main() {
   console.info(`processing on ${cwd}`);
 
   {
-    const paths = await globby('./story/**/*.md');
+    const paths = await globby('./story/**/*.{md,mdx}');
     let files: FileSpec[] = await Promise.all(
       paths.map(async (v) => {
         return createSpec(v);
@@ -40,7 +40,7 @@ async function main() {
   }
   //
   {
-    const paths = await globby('./notes/**/*.md');
+    const paths = await globby('./notes/**/*.{md,mdx}');
     let files: FileSpec[] = await Promise.all(
       paths.map(async (v) => {
         return createSpec(v);

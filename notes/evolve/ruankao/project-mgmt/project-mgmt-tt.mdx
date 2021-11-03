@@ -49,6 +49,9 @@ title: 项目管理 工具和方法
 
 ## 储备分析
 
+- 成本
+  - 应急储备 - 单项目 - 已知的未知
+  - 管理储备 - 公司级 - 未知的未知
 - 控制风险: 比较 剩余应急储备 与 剩余风险量, 确定 剩余储备是否合理
 
 ## 投标人会议
@@ -144,5 +147,102 @@ import Mermaid from '@theme/Mermaid';
 graph TD
     项目预算-->成本基准 & 管理储备;
     成本基准-->项目成本 --> 控制账户成本 --> 工作包成本 --> 活动成本;
+    成本基准-->应急储备;
 `}
 />
+
+- 项目资金需求=项目预算=BAC=成本基准+管理储备
+
+## 参数模型
+
+- 基于项目特征参数建立数学模型进行预测
+
+## 挣值管理
+
+| abbr. |                          stand for | note             |
+| ----: | ---------------------------------: | ---------------- |
+|    PV |                      planned value | 计划价值         |
+|  BCWS |    budgeted cost of work scheduled | PV               |
+|    EV |                       earned value | 挣值             |
+|  BCWP |    budgeted cost of work performed | EV               |
+|    AC |                        actual cost | 实际成本         |
+|   BAC |               Budget at completion | 完工预算         |
+|    CV |                      Cost variance | 成本偏差         |
+|   CPI |             Cost performance index | 成本绩效指数     |
+|   EAC |             Estimate at completion | 完工估算         |
+|   ETC |               Estimate to complete | 完工尚需估算     |
+|  TCPI |      To-complete performance index | 完工尚需绩效指数 |
+|  IEAC | Independent estimate at completion |
+|   VAC |             Variance at Completion | 完工偏差         |
+|    SV |                  Schedule Variance | 进度偏差         |
+|   SPI |         Schedule Performance Index | 进度绩效指数     |
+
+- 关注项目 效率 和 进度
+
+| formula                            |
+| ---------------------------------- |
+| PV=Planned% × BAC                  |
+| AC=Actual% × BAC                   |
+| $CV=EV-AC$                         |
+| $CPI=EV/AC$                        |
+| $SV=EV-PV$                         |
+| $SPI=EV/PV$                        |
+| $VAC=BAC-EAC$                      |
+| $ETC=BAC-AC$                       |
+| $TCPI_{BAC}=\frac{BAC-EV}{BAC-AC}$ |
+| $TCPI_{EAC}=\frac{BAC-EV}{EAC-AC}$ |
+
+<!-- https://www.mathjax.org/#demo -->
+<!-- ÷× -->
+
+1. $$EAC = AC+\frac{BAC-EV}{CPI} = BAC/CPI$$
+   - 预测型 - 典型性偏差 - 默认场景
+   - 将目前的偏差视为典型 - 未来也是这样的偏差
+1. $EAC = AC + BAC - EV$
+   - 例外型 - 非典型性偏差 - 目前偏差为特列，不会再次发生类似偏差
+   - 例外指 EV - 所以减去
+1. $EAC = AC + ETC$
+   - 不可预测也非例外 - ETC 为 剩余工作重估
+
+:::tip
+
+- 负的是不好的，正的是好的
+- Variabce = EV -
+- Index = EV /
+- Index 值范围
+  - < 1 超出预算、进度滞后
+  - = 1 符合
+  - \> 1 低于预算、进度提前
+- 成本 相关使用 EV
+- 时间 相关使用 PV
+
+:::
+
+---
+
+- EVM [Earned value management](https://en.wikipedia.org/wiki/Earned_value_management)
+- EVM 相关标准
+  - ANSI EIA 748
+  - Standards Australia AS4817-2006 (2006)
+  - PMI EVM Practice Standard (2011)
+  - AACE Recommended Practices (2014)
+  - [ISO 21508:2018](https://www.iso.org/standard/63582.html)
+    Earned value management in project and programme management
+
+---
+
+**ES/挣得进度**
+
+- 考试不会考 ES，作为扩展了解
+- [Advances in earned schedule and earned value management](https://www.pmi.org/learning/library/advances-earned-schedule-value-management-6217)
+
+**相关概念**
+
+| abbr. |                              stand for | note                 |
+| ----: | -------------------------------------: | -------------------- |
+|    ES |                        Earned Schedule | 挣得进度             |
+|   SAC |                 Schedule at Completion | 完工时间预算         |
+|  TETC |              Time Estimate To Complete | 完工尚需时间估算     |
+|  TEAC |            Time Estimate At Completion | 完工时间估算         |
+|  TVAC |            Time Variance at Completion | 完工时间偏差         |
+|  TSPI | To-Complete Schedule Performance Index | 完工尚需进度绩效指数 |

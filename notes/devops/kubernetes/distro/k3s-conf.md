@@ -10,6 +10,7 @@ title: K3S 配置
   - 参数基本与命令行参数一致
 - /etc/rancher/k3s/k3s.yaml - KUBECONFIG
 - /etc/rancher/k3s/registries.yaml - 容器镜像仓库配置
+- 环境变量 K3S_DATASTORE_ENDPOINT 映射为 datastore-endpoint
 
 ## registries.yaml
 
