@@ -183,5 +183,10 @@ body {
   - [fitting-text-to-a-container](https://css-tricks.com/fitting-text-to-a-container/)
 
 ## 性能
+
 - [contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
   - strict
+
+## Print size
+
+- https://github.com/cognitom/paper-css/blob/master/paper.css

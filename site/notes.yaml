@@ -32,12 +32,21 @@
       prefix: ./react
     - label: NodeJS
       prefix: ./node
+    - label: Style
+      prefix: ./style
+    - label: Script
+      prefix: ./script
+    - label: 浏览器
+      prefix: ./browser
 
 - label: 语言
   prefix: languages
   items:
     - label: Golang
       prefix: ./go
+      items:
+        - label: Library
+          prefix: ./lib
 
 - label: AlpineLinux
   prefix: os/alpine

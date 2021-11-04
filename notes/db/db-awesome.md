@@ -66,6 +66,8 @@ tags:
 
 ## 有趣
 
+- [MangoDB-io/MangoDB](https://github.com/MangoDB-io/MangoDB)
+  - mongodb wire protocol to PostgreSQL
 - [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html)
   - TAO - The Associations and Objects
   - [HN](https://news.ycombinator.com/item?id=29045443)

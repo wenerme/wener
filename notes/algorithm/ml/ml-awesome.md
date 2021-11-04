@@ -31,9 +31,12 @@ tags:
 - PyTorch 1.10 [HN](https://news.ycombinator.com/item?id=28955146)
 - [facebookresearch/salina](https://github.com/facebookresearch/salina)
 - [facebookresearch/ppuda](https://github.com/facebookresearch/ppuda)
+- [wuhaozhe/style_avatar](https://github.com/wuhaozhe/style_avatar)
 
 ## Learn
 
+- [google-research/google-research](https://github.com/google-research/google-research)
+  - [goemotions](https://ai.googleblog.com/2021/10/goemotions-dataset-for-fine-grained.html)
 - https://ai.googleblog.com/
 
 ---

@@ -44,9 +44,22 @@ export const MainRoute: React.FC = () => {
     </Router>
   );
 };
-
 ```
 
+# Version
+
+## React Router v6
+
+- 替代 React Router v3,v4,v5, Reach Router
+- 支持 嵌套路由
+  - `<Outlet/>` 渲染下一个匹配
+- 支持 相对路径
+- 支持 basename - 路由更加通用，方便嵌套
+- 内置 RouterObject - 直接 JS 配置
+- 纯 Hook 重写 - 要求 React 16.8+
+- 不再需要 exact - 使用 `*` 进行任意匹配
+- element 替代 component 和 render
+- https://remix.run/blog/react-router-v6
 
 # FAQ
 

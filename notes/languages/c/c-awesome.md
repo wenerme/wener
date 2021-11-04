@@ -9,3 +9,5 @@ tags:
 - [tccboot](https://bellard.org/tcc/tccboot.html) - TinyCC Boot Loader
 - [simdjson/simdjson](https://github.com/simdjson/simdjson)
 - [yue/yue](https://github.com/yue/yue)
+- https://cppinsights.io/
+- https://c2rust.com/

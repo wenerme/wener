@@ -6,7 +6,7 @@ title: msys2
 
 - mingw/cygwin+包
 - pacman 包管理器
-  提供类似 sudo
+- 提供类似 sudo
 - 推荐本地 bin 位置 `C:\msys64\usr\local\bin`
 - 参考
   - [VSC 集成](https://stackoverflow.com/questions/45836650)

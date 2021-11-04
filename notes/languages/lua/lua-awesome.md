@@ -1,7 +1,7 @@
 ---
 title: Lua Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Lua Awesome
@@ -34,6 +34,14 @@ tags:
 - [aarzilli/golua](https://github.com/aarzilli/golua)
   - Go bindings for Lua C API
 
+## Language
+
+- [leafo/moonscript](https://github.com/leafo/moonscript)
+- [teal-language/tl](https://github.com/teal-language/tl)
+  - typed dialect of Lua
+- [hengestone/lua-languages](https://github.com/hengestone/lua-languages)
+  - Languages that compile to Lua
+
 ## stdlib
 
 - [os](http://lua-users.org/wiki/OsLibraryTutorial)
@@ -42,3 +50,12 @@ tags:
 - [table](http://lua-users.org/wiki/TableLibraryTutorial)
 - [string](http://lua-users.org/wiki/StringLibraryTutorial)
 - Lua 5.3 [stdlib](https://www.lua.org/manual/5.3/manual.html#6)
+
+## Library
+
+- http://www.inf.puc-rio.br/~roberto/lpeg/
+  - PEG for Lua
+
+## 学习
+
+- [Programming in Lua](https://www.lua.org/pil/)

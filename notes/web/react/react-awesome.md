@@ -171,6 +171,7 @@ npm add date-fns lodash-es react-fast-compare
 
 - [ReactTraining/react-router](https://github.com/ReactTraining/react-router)
   - React 16.8 hook 之前已经存在
+  - v6 基于 hook 重写，替代 reach-router
   - v5 添加 hook 支持，Swith 和 Route 组件可选
   - 支持 MemoryRouter，支持 React Native
   - 核心组件
@@ -190,7 +191,14 @@ npm add date-fns lodash-es react-fast-compare
     - 提供了统一配置 route 的逻辑 - 很简单，可以作为参考
     - matchRoutes - 匹配嵌套路由 - 返回匹配的 tree 路由数组
     - renderRoutes - 渲染嵌套路由 - 递归 Switch, 遍历 Route
+- [tannerlinsley/react-location](https://github.com/tannerlinsley/react-location)
+  - 参考/基于 React Router v6
+  - 内置 async import - 异步加载 element
+  - 内置 async load - 异步加载 data/状态 - useMatch 返回
+  - query 参数匹配、状态管理
+  - declarative API
 - [reach/router](https://github.com/reach/router)
+  - React Router v6 后 reach router 不再需要
   - React Router 作者在 hook 出现后进行的尝试
   - 目前 hook 能力已经合并回 react router v5
   - 不使用 Swith 和 Route 组件，而是直接在组件上添加 path 进行匹配
