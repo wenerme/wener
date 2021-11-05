@@ -253,3 +253,8 @@ yarn add apollo-angular apollo-angular-link-http apollo-client apollo-cache-inme
 - 路由的内容会在 `<router-outlet>` 标签中显示
 - 路由可以做多级
 
+## APF
+
+- [Angular Package Format](https://angular.io/guide/angular-package-format)
+- FESM - "flattened" ES module - bundle
+  - [The cost of small modules](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/)

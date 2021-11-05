@@ -8,6 +8,12 @@ title: musl
   - [FAQ](https://www.musl-libc.org/faq.html)
 - [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
 
+:::caution
+
+- malloc 性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
+
+:::
+
 ## 环境变量
 
 - [Environment Variables](https://wiki.musl-libc.org/environment-variables.html)
@@ -87,3 +93,12 @@ iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
   runtime: c-shared builds fail with musllibc
 - [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
   - 其他软件已知因为 musl 导致的 bug
+
+## malloc performance
+
+- musl 1.2.1 启用了重写的 malloc
+  - 2020-06
+- 参考
+  - https://andygrove.io/2020/05/why-musl-extremely-slow/
+  - https://pythonspeed.com/articles/alpine-docker-python/
+  - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/

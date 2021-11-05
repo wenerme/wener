@@ -198,3 +198,10 @@ sudo sysctl kernel.dmesg_restrict=0
 mkdir -p /etc/udhcpc
 echo 'RESOLV_CONF=no' > /etc/udhcpc/udhcpc.conf
 ```
+
+## alpine musl performance
+- musl malloc 性能弱于 glibc malloc
+- [maillist answer](https://lists.alpinelinux.org/~alpine/users/%3C6df8863e77b970b466dbfc9a3a5c2bcec3199f48.camel%40aquilenet.fr%3E#%3C4dcedd5d-e2ce-e8e-e231-874997bbe9f6@dereferenced.org%3E)
+- 参考
+  - https://superuser.com/a/1234279/242730
+  - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/

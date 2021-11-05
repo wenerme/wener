@@ -35,6 +35,15 @@ tags:
   - IBM
 - [oracle/helidon](https://github.com/oracle/helidon)
   - microservices
+- micronaut
+- vertx
+- Sprint Cloud Vendor
+  - Sprint Cloud Alibaba
+  - Sprint Cloud GCP
+  - Sprint Cloud Netflix
+  - Sprint Cloud AWS
+  - Sprint Cloud Azure
+  - Sprint Cloud Huawei
 
 ## ORM
 

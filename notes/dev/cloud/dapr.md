@@ -9,6 +9,7 @@ title: Dapr
   - 支持多语言 - sidecar 暴露 http 和 grpc 接口
   - 支持多环境 - 不限制在 kube 集群
   - Sidecar 模式 - 轻 sdk 重 sidecar
+  - CNCF 孵化项目
 
 :::caution
 
@@ -73,19 +74,25 @@ dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
 
 - 默认端口 3500
 - 元数据 - /v1.0/metadata
+  - 应用自省
 - 健康 - /v1.0/healthz
 - 服务调用 - /v1.0/invoke
   - gRPC, HTTP
   - `/v1.0/invoke/<appId>/method/<method-name>`
     - 例如 `/v1.0/invoke/nodeapp.production/method/neworder`
       - production 为 namespace
-  - NameResolution - consul, dns, kubernetes, mdns
+  - NameResolution - consul, kubernetes, mdns
 - 状态管理 - /v1.0/state
   - 支持 Redis, PostgreSQL, MySQL, Hazelcast, Consul, MongoDB, Zookeeper
 - PubSub - /v1.0/publish, /v1.0/subscribe
   - 支持 Kafka, Hazelcast, MQTT, NATS Streaming, Pulsar, RabbitMQ, Redis
 - Binding - /v1.0/bindings
   - 支持 APN, Cron, HTTP, Kafka, MQTT, MySQL, PostgreSQL, RabbitMQ, Redis, SMTP, Local Storage, AliOSS
+  - 绑定外部服务为 REST 接口 - 外部服务交互
+  - 根据服务不同提供不同操作接口 - 输入输出
+  - 输入 `POST /<binding>`
+  - 输出 `POST /v1.0/bindings/<bidning>`
+    - `{ "data": {}, "operation": "create" }`
 - Actor - /v1.0/actors
   - 依赖 state - etag, tx 支持
   - `/v1.0/actors/<actorType>/<actorId>/<method/state/timers/reminders>`

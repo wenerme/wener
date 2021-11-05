@@ -7,9 +7,6 @@ title: React Hook Form
 - [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form) 是什么？
   - 基于 Hook 的轻量级表单组件 - 5KB
 - [接口](https://react-hook-form.com/zh/api/)
-- 注意 ⚠️
-  - 默认 mode 为 onSubmit - 也就是在提交的时候才会校验
-  - 元素上的 required 会由浏览器处理，而不会添加到 rhf 的规则里
 - 默认通过 ref 的方式进行注册
   - 获取 name, type, value
   - 在设置 ref 时候就会初始化进行注册
@@ -25,7 +22,14 @@ title: React Hook Form
 
 :::tip
 
-* 能使用 ref 尽量使用 ref 注册
+- 能使用 ref 尽量使用 ref 注册
+
+:::
+
+:::caution
+
+- 默认 mode 为 onSubmit - 也就是在提交的时候才会校验
+- 元素上的 required 会由浏览器处理，而不会添加到 rhf 的规则里
 
 :::
 

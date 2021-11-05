@@ -5,7 +5,8 @@ title: AT 指令
 # AT 指令
 
 - Hayes command set/AT command set
-- [https://zh.wikipedia.org/wiki/海斯命令集](https://zh.wikipedia.org/wiki/海斯命令集)
+- [海斯命令集](https://zh.wikipedia.org/wiki/海斯命令集)
+- [AT Commands](https://doc.qt.io/archives/qtextended4.4/atcommands.html)
 
 ```bash
 # http://m2msupport.net/m2msupport/atcardlock-card-lock-command/

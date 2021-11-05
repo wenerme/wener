@@ -20,6 +20,9 @@ title: 项目管理词汇
 | DIPP   |
 | SWOT   | Strength, Weakness, Opportunity, Threat | 优势、劣势、机会、威胁  |
 | MR     | management reserve                      | 管理储备                |
+| PDM    |                                         | 前导图法                |
+| ADM    |                                         | 箭线图                  |
+| AON    |                                         | 单代号网络图            |
 
 [cmmi]: https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration
 [pmis]: https://en.wikipedia.org/wiki/Project_management_information_system

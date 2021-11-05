@@ -16,6 +16,7 @@ tags:
   Trace 支持 OpenTelemetry
 - [dapr/go-sdk#21](https://github.com/dapr/go-sdk/issues/21)
   golang 支持 actor
+- [Dapr Roadmap](https://github.com/orgs/dapr/projects/52)
 
 :::caution
 
@@ -27,6 +28,7 @@ tags:
 
 | ver | release date |
 | --- | ------------ |
+| 1.5 | 2021-11-11   |
 | 1.4 | 2021-09-14   |
 | 1.3 | 2021-07-27   |
 | 1.2 | 2021-05-27   |
