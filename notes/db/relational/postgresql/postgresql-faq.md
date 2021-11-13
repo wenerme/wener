@@ -470,6 +470,7 @@ PERFORM select 1;
 - https://sql-info.de/postgresql/postgres-gotchas.html
 
 ## Sale Point
+
 - transactional ddl
 - JSONB,JSON
 - Extension
@@ -477,9 +478,14 @@ PERFORM select 1;
 - window function
 - custom type
 - MySQL 8
- - atomic ddl - 弱于 transactional ddl
- - window function
- - arbitrary check
- - JSON
+  - atomic ddl - 弱于 transactional ddl
+  - window function
+  - arbitrary check
+  - JSON
 - https://sql-info.de/mysql/gotchas.html
 - https://fromdual.com/mysql-limitations
+
+## ON CONFLICT DO UPDATE command cannot affect row a second time
+
+1. 插入前进行 dedup
+2. CTE 先 select distinct

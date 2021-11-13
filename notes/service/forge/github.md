@@ -38,8 +38,8 @@ size 84977953
 
 - https://github.com/wenerme/wener/community/license/new?template=CC-BY-SA-4.0
 
-
 ## 获取最新版本
+
 - https://docs.github.com/en/rest/reference/repos#get-the-latest-release
 - https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 
@@ -57,3 +57,7 @@ github-latest-version(){
 # 但这种有多个 tag 的无解
 github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
 ```
+
+## Socialify
+
+- [wei/socialify](https://github.com/wei/socialify)

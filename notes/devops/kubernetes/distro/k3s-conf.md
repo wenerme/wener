@@ -11,6 +11,9 @@ title: K3S 配置
 - /etc/rancher/k3s/k3s.yaml - KUBECONFIG
 - /etc/rancher/k3s/registries.yaml - 容器镜像仓库配置
 - 环境变量 K3S_DATASTORE_ENDPOINT 映射为 datastore-endpoint
+- 参考
+  - [K3s Server Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/server-config/)
+  - [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
 
 ## registries.yaml
 
@@ -114,8 +117,6 @@ secrets-encryption: false
 ```
 
 ### agent
-
-- [K3s Agent Configuration Reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/agent-config/)
 
 ```yaml
 token: value

@@ -38,6 +38,8 @@
       prefix: ./script
     - label: 浏览器
       prefix: ./browser
+    - label: 开发
+      prefix: ./dev
 
 - label: 语言
   prefix: languages
@@ -154,6 +156,10 @@
       prefix: ./document
     - label: 键值型
       prefix: ./kv
+    - label: Search
+      prefix: ./search
+    - label: Graph
+      prefix: ./graph
 - label: 消息队列
   prefix: queue
 

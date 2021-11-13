@@ -1,5 +1,7 @@
 ---
 title: Dnsmasq FAQ
+tags:
+  - FAQ
 ---
 
 # Dnsmasq FAQ

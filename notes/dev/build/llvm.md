@@ -10,3 +10,4 @@ title: LLVM IR
 - Learning Almost Nothing About LLVM [HN](https://news.ycombinator.com/item?id=28438296)
 - [llir/llvm](https://github.com/llir/llvm)
   - LLVM IR in pure Go
+- [HOW TO LEARN COMPILERS: LLVM EDITION](https://lowlevelbits.org/how-to-learn-compilers-llvm-edition/)

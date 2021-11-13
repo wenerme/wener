@@ -1,8 +1,12 @@
 ---
 title: Docker FAQ
+tags:
+  - FAQ
 ---
 
 # Docker FAQ
+
+- [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
 ## 在 docker 中使用 docker
 

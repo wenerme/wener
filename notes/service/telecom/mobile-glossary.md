@@ -1,5 +1,7 @@
 ---
 title: 移动通信标准
+tags:
+  - Glossary
 ---
 
 # 移动通信标准

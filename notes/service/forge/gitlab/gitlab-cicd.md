@@ -5,8 +5,6 @@ title: GitaLab持续集成持续交付
 
 # Gitlab CI/CD
 
-## Tips
-
 - `.gitlab-ci.yml`
   - 应用构建定义
   - K8S Runner 下使用 Kaniko 构建镜像

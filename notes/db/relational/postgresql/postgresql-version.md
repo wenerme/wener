@@ -85,6 +85,8 @@ tags:
   - 提升正则比较性能
   - TOAST 支持 LZ4 压缩 - 保留支持 pglz
   - 大量连接数场景性能提升 - 2x
+  - [enable_memoize](https://www.postgresql.org/docs/14/runtime-config-query.html#GUC-ENABLE-MEMOIZE)
+    - nested join 的时候能提升性能
 - [PostgreSQL 14 Release Notes](https://www.postgresql.org/docs/14/release-14.html)
 
 ```sql

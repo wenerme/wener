@@ -1,12 +1,12 @@
 ---
 title: Telecom Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Telecom Awesome
 
-- [dc-unlocker.](https://www.dc-unlocker.com/)
+- [dc-unlocker](https://www.dc-unlocker.com/)
 
 ## Radio
 

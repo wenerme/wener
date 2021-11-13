@@ -6,6 +6,7 @@ tags:
 
 # CSS Awesome
 
+- https://web.dev/patterns/layout/
 - [ethantw/Han](https://github.com/ethantw/Han)
   - 汉子注音排版
 - [Things I Wish I’d Known About CSS ](https://news.ycombinator.com/item?id=23868355)

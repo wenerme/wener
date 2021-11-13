@@ -31,12 +31,12 @@ tags:
 ## 2.4
 
 - JetStream
-  - Push Consumer 行为发生变化 - 客户端和服务端都需要升级
+  - Push Consumer 行为发生变化 - **客户端和服务端都需要升级**
     - 避免相同 durable consumer 重复 sub
     - 避免相同 durable consumer 创建多个 queue group
-    - queue sub 时，如果没有 consumer 和 duraable 则创建临时 js consumer
+    - queue sub 时，如果没有 consumer 和 durable 则创建临时 js consumer
   - ConsumerConfig.DeliverGroup consumer 关联 queue
-  - ConsumerInfo.PushBound 表示已经绑带 push 关系
+  - ConsumerInfo.PushBound 表示已经绑定 push 关系
 - [v2.4.0](https://github.com/nats-io/nats-server/releases/tag/v2.4.0)
 
 ## 2.3

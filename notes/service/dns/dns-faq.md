@@ -1,5 +1,7 @@
 ---
 title: DNS FAQ
+tags:
+  - FAQ
 ---
 
 # DNS FAQ

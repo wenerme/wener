@@ -1,5 +1,7 @@
 ---
 title: 电信常见问题
+tags:
+  - FAQ
 ---
 
 ## 中国 ISP 2G vs 3G vs 4G

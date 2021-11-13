@@ -1,7 +1,7 @@
 ---
 title: SIP Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # SIP Awesome

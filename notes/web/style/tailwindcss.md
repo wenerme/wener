@@ -23,6 +23,7 @@ title: Tailwind CSS
     - iOS & Android 样式
     - React,Vue,Sevlte 组件
   - [themesberg/flowbite](https://github.com/themesberg/flowbite)
+  - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
 
 ```bash
 # 基础依赖

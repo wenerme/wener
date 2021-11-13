@@ -1,5 +1,7 @@
 ---
 title: Go FAQ
+tags:
+  - FAQ
 ---
 
 # Go FAQ
@@ -10,6 +12,19 @@ title: Go FAQ
   - html/template JS 不能包含 `\``
 
 :::
+
+## 使用最新测试版本
+
+```bash
+go install golang.org/dl/gotip@latest
+gotip download
+```
+
+## 查找用到了 cgo 的模块
+
+```bash
+go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./... )
+```
 
 ## JSON string to int
 

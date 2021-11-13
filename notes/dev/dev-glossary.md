@@ -13,6 +13,7 @@ tags:
 
 [raii]: https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization
 
-| abbr. | stand for          | mean |
-| ----- | ------------------ | ---- |
-| RIIR  | Rewrite It In Rust |
+| abbr. | stand for               | mean |
+| ----- | ----------------------- | ---- |
+| RIIR  | Rewrite It In Rust      |
+| DORA  | DevOps research program |

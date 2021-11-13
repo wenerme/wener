@@ -34,6 +34,7 @@ tags:
 - [mosuka/blast](https://github.com/mosuka/blast)
   - 基于 bleve
 - [os-fulltext-search-solutions](https://medevel.com/os-fulltext-search-solutions/)
+- [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
 
 ## Lcoal Search
 

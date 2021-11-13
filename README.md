@@ -91,6 +91,14 @@
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener
 
+| Frontend             | Desc                     |
+| -------------------- | ------------------------ |
+| [pm-exam-cheatsheet] | 软考项目管理考试知识整理 |
+| [apis]               | Dev Utils on Web         |
+
+[pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
+[apis]: https://github.com/wenerme/apis
+
 ## License
 
 [![CC BY-SA 4.0][cc-by-sa-img]][cc-by-sa]

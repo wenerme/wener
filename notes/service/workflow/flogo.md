@@ -1,12 +1,14 @@
 ---
 id: flogo
 ---
+
 # flogo
-* 是什么
-  * 事件驱动开发平台
-  * Golang 实现 - 非常轻量
-* [flogo.io](https://www.flogo.io/)
-  * [TIBCOSoftware/flogo](https://github.com/TIBCOSoftware/flogo)
+
+- 是什么
+  - 事件驱动开发平台
+  - Golang 实现 - 非常轻量
+- [flogo.io](https://www.flogo.io/)
+  - [TIBCOSoftware/flogo](https://github.com/TIBCOSoftware/flogo)
 
 :::caution
 

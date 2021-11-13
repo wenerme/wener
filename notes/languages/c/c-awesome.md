@@ -1,7 +1,7 @@
 ---
 title: C Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # C Awesome
@@ -11,3 +11,4 @@ tags:
 - [yue/yue](https://github.com/yue/yue)
 - https://cppinsights.io/
 - https://c2rust.com/
+- https://c9x.me/compile/

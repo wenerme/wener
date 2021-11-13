@@ -8,7 +8,7 @@ title: SystemJS
   - 代码控制的模块环境
 - [Extras](https://github.com/systemjs/systemjs#extras)
 - [generator.jspm.io](https://generator.jspm.io/)
-
+  - [React ENV](https://generator.jspm.io/#M2VhYGCzD80rySzJSU1hKEpNTC7RTcnPdTA01zPQM4IKFOWXlqQWgcXNgMKGEGEUNVCOflZxhW5RKdC83FSGqtLiksS8FAdjPTM9E1SeflliXmZOTiIArVqpj4AA)
 
 :::caution
 
@@ -23,6 +23,11 @@ title: SystemJS
     - webpack 4.x 有这个问题
 
 :::
+
+```bash
+npm add systemjs
+npx typesync
+```
 
 ```js
 // rxjs hack
@@ -42,4 +47,7 @@ System.register('rxjs-operators.js', [], (_export) => {
   });
   return {};
 });
+
+System.set(System.resolve('vue'), window.Vue);
+System.set(System.resolve('vue-router'), window.VueRouter);
 ```

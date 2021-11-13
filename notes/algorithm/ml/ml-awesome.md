@@ -32,12 +32,23 @@ tags:
 - [facebookresearch/salina](https://github.com/facebookresearch/salina)
 - [facebookresearch/ppuda](https://github.com/facebookresearch/ppuda)
 - [wuhaozhe/style_avatar](https://github.com/wuhaozhe/style_avatar)
+- [facebook/prophet](https://github.com/facebook/prophet)
+  - producing high quality forecasts for time series data
+- [facebookresearch/Kats](https://github.com/facebookresearch/Kats)
+  - analyze time series data
+- [deepinsight/insightface](https://github.com/deepinsight/insightface)
+  - 2D and 3D Face Analysis
+- [VowpalWabbit/vowpal_wabbit](https://github.com/VowpalWabbit/vowpal_wabbit)
+  - frontier of machine learning
+- [wav2vec](https://github.com/pytorch/fairseq/tree/main/examples/wav2vec)
+- https://nv-tlabs.github.io/editGAN/
 
 ## Learn
 
 - [google-research/google-research](https://github.com/google-research/google-research)
   - [goemotions](https://ai.googleblog.com/2021/10/goemotions-dataset-for-fine-grained.html)
 - https://ai.googleblog.com/
+- https://www.kdnuggets.com/
 
 ---
 

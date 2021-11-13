@@ -31,6 +31,7 @@ title: Compress
 - [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
 - 参考
   - [Modern LZ Compression](https://glinscott.github.io/lz/index.html)
+  - [MiloszKrajewski/SilesiaCorpus](https://github.com/MiloszKrajewski/SilesiaCorpus)
 
 ```bash
 cd staged && mytar cf - . | ssh root@localhost "cd / && tar xvf -"

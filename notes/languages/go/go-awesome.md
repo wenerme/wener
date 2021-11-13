@@ -150,7 +150,7 @@ tags:
   - 辅助处理请求响应内容
 - [unrolled/render](https://github.com/unrolled/render)
 - [yuriizinets/kyoto](https://github.com/yuriizinets/kyoto)
-- *SSR* :)
+- _SSR_ :)
   - [wolfeidau/hotwire-golang-website](https://github.com/wolfeidau/hotwire-golang-website)
   - https://www.akmittal.dev/posts/hotwire-go/
   - [jfyne/live](https://github.com/jfyne/live)
@@ -210,6 +210,12 @@ tags:
   - IoC Container
 - [zhenghaoz/gorse](https://github.com/zhenghaoz/gorse)
   recommender system service
+- [davidschlachter/embedded-struct-visualizer](https://github.com/davidschlachter/embedded-struct-visualizer)
+  - struct 关系可视化
+- [orijtech/structslop](https://github.com/orijtech/structslop)
+  - struct 字段顺序调整优化
+- [tmc/reactssr](https://github.com/tmc/reactssr)
+  - React SSR
 
 ## 代码生成
 
@@ -276,6 +282,7 @@ tags:
 
 ## 网络
 
+- https://github.com/inetaf
 - [tidwall/evio](https://github.com/tidwall/evio)
   - event-loop networking for Go
 - [panjf2000/gnet](https://github.com/panjf2000/gnet)
@@ -346,11 +353,9 @@ tags:
 **国产**
 
 - [go-kratos/kratos](https://github.com/go-kratos/kratos)
-  framework for microservices
   - grpc,wire
   - kratos 命令行工具
-- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
-  - 好未来技术
+  - 哔哩哔哩 RPC 框架
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 

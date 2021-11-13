@@ -76,3 +76,23 @@ data                 compressratio         1.47x                 -
 data                 compression           lz4                   local
 data                 logicalused           1.24T                 -
 ```
+
+## zfs compression vs application compression
+
+- zfs 压缩
+  - 全量压缩，简单易用
+  - 压缩率受 block 大小影响
+  - 支持 lz4、zstd
+- 应用 压缩
+  - 涉及到应用功能是否支持
+  - 压缩的范围和 ZFS 压缩的范围不同
+    - 一般应用只压缩 数据
+  - 压缩率 不一定就比 ZFS 压缩率 高
+
+---
+
+- zfs vs pg
+  - PostgreSQL 14 支持 LZ4 TOAST
+    - default_toast_compression=lz4
+    - 可以在建表时设置 `col1 text COMPRESSION lz4`
+  - PostgreSQL 15 支持 LZ4 WAL

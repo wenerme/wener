@@ -1,5 +1,7 @@
 ---
 title: JavaScript 常见问题
+tags:
+  - FAQ
 ---
 
 # JavaScript 常见问题

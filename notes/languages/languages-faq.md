@@ -1,5 +1,7 @@
 ---
 title: Languages FAQ
+tags:
+  - FAQ
 ---
 
 # Languages FAQ

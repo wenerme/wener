@@ -428,3 +428,26 @@ title: 开发用词字典
 - realm - 域
   - 在 auth 环境下的术语 - 概念类似 domain
   - 虚拟 Identity Provider/IdP，用于认证 tenant 用户
+
+## glossary vs terminology vs concept
+
+- glossary - 术语表
+  - 术语列表 - 专用语列表
+    - 一般不会详细说明
+  - 通常关联上下文 - 某某的术语表
+  - 在特定上下文下表述不同含义
+  - 例如： 缩写、专有名词、行业用语、通用说法
+- terminology - 专用语、专用语
+  - 单个
+- concept - 概念
+  - 解释性质
+  - terminology 通常不易于理解，需要解释概念
+
+## status vs state
+
+- status
+  - 结果状态 - 成果、失败
+  - 面向用户 - 404、200
+- state
+  - 中间状态 - 等待、执行
+  - 有限状态 - 状态机 - state machine

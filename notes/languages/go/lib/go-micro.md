@@ -28,7 +28,7 @@ title: go-micro
 
 ```go
 package main
-import "github.com/asim/go-micro/v3"
+import "go-micro.dev/v4"
 
 func main()  {
   // create a new service
@@ -45,12 +45,13 @@ func main()  {
 ```
 
 ```bash
-# gomu 快速生成工具
-go install github.com/asim/go-micro/cmd/gomu@latest
+# micro 快速生成工具
+# go install github.com/asim/go-micro/cmd/gomu@latest
 
-gomu generate skaffold
+go install go-micro.dev/v4/cmd/micro@master
+micro generate skaffold
 
-gomu call helloworld Helloworld.Call '{"name": "John"}'
+micro call helloworld Helloworld.Call '{"name": "John"}'
 ```
 
 ## Components
@@ -88,6 +89,11 @@ gomu call helloworld Helloworld.Call '{"name": "John"}'
     - 提取请求信息
 - auth - AuthN + AuthZ - API 资源角度
 - broker - PubSub
+  - 异步
+- events - 事件
+  - Stream+Store
+  - 支持 ACK
+  - nats, redis
 - cache - 缓存
   - kv+时效
   - 只有 Get+Put+Delete 操作
@@ -218,7 +224,8 @@ gomu call helloworld Helloworld.Call '{"name": "John"}'
 - grpc 适配 micro
 
 ```bash
-go install github.com/asim/go-micro/cmd/protoc-gen-micro/v3@latest
+# go install github.com/asim/go-micro/cmd/protoc-gen-micro/v3@latest
+go install go-micro.dev/v4/cmd/protoc-gen-micro@latest
 ```
 
 # FAQ

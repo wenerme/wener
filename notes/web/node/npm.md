@@ -95,16 +95,22 @@ npm config set scope wener
 {
   "name": "workspace-example",
   "version": "1.0.0",
+  // 两种格式
+  "workspaces": ["packages/*"],
   "workspaces": {
     "packages": ["packages/*"]
   }
 }
 ```
 
-```json
-{
-  "name": "workspace-example",
-  "version": "1.0.0",
-  "workspaces": ["packages/*"]
-}
+```bash
+npm ls
+# 添加依赖到 workspace
+npm add -w @wener/apis-weaver systemjs
+# 依赖另外一个 workspace - 不能在 module add - 会报找不到
+npm add -w @wener/apis-weaver @wener/apis-core
+# npx 在 ws 下执行
+npx -w @wener/apis-weaver typesync
+# run 在 ws 下执行 - 注意 path.resolve 还是基于 ws 路径而不是当前路径
+npm run -w @wener/apis-weaver build
 ```

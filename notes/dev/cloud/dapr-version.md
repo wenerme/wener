@@ -1,15 +1,13 @@
 ---
 title: Dapr Version
 tags:
-- Version
+  - Version
 ---
 
 # Dapr Version
 
 **关注特性**
 
-- [dapr/dapr#2988](https://github.com/dapr/dapr/issues/2988)
-  dapr 支持配置接口
 - [dapr/dapr#1339](https://github.com/dapr/dapr/issues/1339)
   状态查询
 - [dapr/dapr#2836](https://github.com/dapr/dapr/issues/2836)
@@ -28,12 +26,22 @@ tags:
 
 | ver | release date |
 | --- | ------------ |
-| 1.5 | 2021-11-11   |
+| 1.5 | 2021-11-13   |
 | 1.4 | 2021-09-14   |
 | 1.3 | 2021-07-27   |
 | 1.2 | 2021-05-27   |
 | 1.1 | 2021-04-02   |
 | 1.0 | 2021-02-17   |
+
+- 两个月一个版本
+- 因为由 Alibaba+Azure 配合开发，因此大多开发时间会花费在对接自家平台组建，所以从非云角度来说开发的很慢
+
+## 1.5
+
+- Kafka Pub/sub Stable
+- 状态 查询接口 - Alpha
+- 新增 配置 - Alpha
+- Go SDK 支持 Actor
 
 ## 1.4
 

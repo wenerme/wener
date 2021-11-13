@@ -1,5 +1,7 @@
 ---
 title: PowerDNS FAQ
+tags:
+  - FAQ
 ---
 
 # PowerDNS FAQ

@@ -11,6 +11,14 @@ title: nx
   - 通过插件提供生成和构建执行能力
 - 参考
   - [nrwl/nx#4620](https://github.com/nrwl/nx/issues/4620)
+    - 不好发布包
+
+:::caution
+
+- 全局一个 package.json 而不是每个一个 [#1777](https://github.com/nrwl/nx/issues/1777)
+
+:::
+
 
 ```bash
 npx create-nx-workspace --name demo --preset empty --packageManager npm --nx-cloud false

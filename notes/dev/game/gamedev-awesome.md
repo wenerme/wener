@@ -24,6 +24,10 @@ tags:
   - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
 - [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
 
+## Learn
+
+- [Alairion/captal-engine](https://github.com/Alairion/captal-engine)
+
 ## Tools
 
 - [LDtk](https://deepnight.itch.io/ldtk)

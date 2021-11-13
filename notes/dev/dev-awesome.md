@@ -71,5 +71,19 @@ scc --exclude-dir vendor --no-gen .
 - [rakyll/hey](https://github.com/rakyll/hey)
 
 ## Graph
+
 - https://www.singlestore.com/blog/creating-visual-explain/
 - https://github.com/d3/d3-hierarchy
+
+## Tools
+
+- [comby-tools/comby](https://github.com/comby-tools/comby)
+  - structural code search and replace
+
+## Secrets
+
+- [mozilla/sops](https://github.com/mozilla/sops)
+  - editor of encrypted files
+  - AWS KMS, GCP KMS, Azure Key Vault, age, PGP
+- [gopasspw/gopass](https://github.com/gopasspw/gopass)
+  - password manager for teams

@@ -1,3 +1,3 @@
 # NSQ
-## Tips
-* [nsqio/nsq](https://github.com/nsqio/nsq) - realtime distributed messaging platform
+
+- [nsqio/nsq](https://github.com/nsqio/nsq) - realtime distributed messaging platform

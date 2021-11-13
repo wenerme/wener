@@ -4,15 +4,14 @@ title: WAL-G
 
 # WAL-G
 
-- 是什么？
+- [wal-g/wal-g](https://github.com/wal-g/wal-g) 是什么？
+  - Apache 2.0, lzo 部分 GPL 3.0+
   - PostgreSQL 备份、恢复工具
   - WAL-E 后继 - Golang 重写 Python - 性能 x4
   - 支持 PostgreSQL, MySQL/MariaDB, Mongo
   - 支持 S3, GCS, Azure, Swift, 本地, SSH 存储
-- [wal-g/wal-g](https://github.com/wal-g/wal-g)
-  - Apache 2.0, lzo 部分 GPL 3.0+
   - [PostgreSQL](https://github.com/wal-g/wal-g/blob/master/PostgreSQL.md)
-- WAL-E 不支持关闭 S3 SSE - SelfHost 常见不便于使用
+- WAL-E 不支持关闭 S3 SSE - SelfHost 常见,不便于使用
 - 参考
   - [camptocamp/wal-g-prometheus-exporter](https://github.com/camptocamp/wal-g-prometheus-exporter)
     - 监控指标
@@ -61,24 +60,25 @@ wal-g backup-list
 | base_000000020000000000000005 | 2021-03-09T08:07:49Z | 000000020000000000000005 | Tuesday, 09-Mar-21 08:07:43 UTC | Tuesday, 09-Mar-21 08:07:49 UTC | acid-demo | /home/postgres/pgdata/pgroot/data | 130002     | 83886120  | 83927800   | false        |
 | base_000000030000000000000008 | 2021-03-09T08:14:48Z | 000000030000000000000008 | Tuesday, 09-Mar-21 08:14:42 UTC | Tuesday, 09-Mar-21 08:14:48 UTC | acid-demo | /home/postgres/pgdata/pgroot/data | 130002     | 134217768 | 134250592  | false        |
 
-__目录结构__
+**目录结构**
 
-* /
-  * basebackup_005/
-    * base_000000020000000000000005_backup_stop_sentinel.json
-    * base_000000020000000000000005/
-      * metadata.json
-      * tar_partitions/
-        * pg_control.tar.lz4
-        * part_001.tar.lz4
-  * wal_005/
-    * 00000002.history.lz4
-    * 000000020000000000000005.lz4
-    * 000000020000000000000007.partial.lz4
-    * 000000020000000000000005.00000028.backup.lz4
+- /
+  - basebackup_005/
+    - base_000000020000000000000005_backup_stop_sentinel.json
+    - base_000000020000000000000005/
+      - metadata.json
+      - tar_partitions/
+        - pg_control.tar.lz4
+        - part_001.tar.lz4
+  - wal_005/
+    - 00000002.history.lz4
+    - 000000020000000000000005.lz4
+    - 000000020000000000000007.partial.lz4
+    - 000000020000000000000005.00000028.backup.lz4
 
 ## 操作
-* wal-e [Primary Commands](https://github.com/wal-e/wal-e#id1)
+
+- wal-e [Primary Commands](https://github.com/wal-e/wal-e#id1)
 
 ```bash
 # Push base backup
@@ -87,8 +87,7 @@ wal-g backup-push /data
 wal-g wal-push /data
 ```
 
-
-__postgresql.conf__
+**postgresql.conf**
 
 ```ini
 wal_level = archive # hot_standby and logical in 9.x is also acceptable
@@ -102,7 +101,7 @@ wal-g backup-fetch /data LATEST
 wal-g backup-fetch /data base_LONGWALNUMBER_POSITION_NUMBER
 ```
 
-__recovery.conf__
+**recovery.conf**
 
 ```ini
 # https://www.postgresql.org/docs/11/recovery-config.html

@@ -85,3 +85,11 @@ tags:
 - 参考
   - https://ubuntu.com/blog/api-v3-of-the-yaml-package-for-go-is-available
   - https://github.com/spf13/viper/issues/942
+
+## pq: unsupported sslmode "prefer"
+
+```
+pq: unsupported sslmode "prefer"; only "require" (default), "verify-full", "verify-ca", and "disable" supported
+```
+
+- 建议使用 [jackc/pgx](https://github.com/jackc/pgx) 不要使用 [lib/pq](https://github.com/lib/pq)

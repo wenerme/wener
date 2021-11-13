@@ -1,7 +1,7 @@
 ---
 title: Go GUI Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Go GUI Awesome

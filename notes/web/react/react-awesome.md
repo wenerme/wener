@@ -27,7 +27,6 @@ tags:
 
 :::
 
-
 ```bash title="常用依赖"
 # 状态管理
 npm add zustand jotai immer use-immer
@@ -51,6 +50,9 @@ npm add tailwind-mobile
 # 交互
 npm add react-virtual     # 虚拟滚动
 npm add @headlessui/react # 纯功能组件
+
+# 路由
+npm add react-router-dom
 
 # 数据
 npm add react-hook-form
@@ -197,6 +199,7 @@ npm add date-fns lodash-es react-fast-compare
   - 内置 async load - 异步加载 data/状态 - useMatch 返回
   - query 参数匹配、状态管理
   - declarative API
+- [molefrog/wouter](https://github.com/molefrog/wouter)
 - [reach/router](https://github.com/reach/router)
   - React Router v6 后 reach router 不再需要
   - React Router 作者在 hook 出现后进行的尝试
@@ -250,7 +253,21 @@ npm add date-fns lodash-es react-fast-compare
   - 异步加载组件
 - [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
   - 功能性 headless 组件
-
+- timeline
+  - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
+  - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)
+  - [prabhuignoto/react-chrono](https://github.com/prabhuignoto/react-chrono)
+  - [stephane-monnot/react-vertical-timeline](https://github.com/stephane-monnot/react-vertical-timeline)
+    - 营销
+  - [JSainsburyPLC/react-timelines](https://github.com/JSainsburyPLC/react-timelines)
+- 动画
+  - [daybrush/scenejs](https://github.com/daybrush/scenejs)
+- gannt
+  - [frappe/gantt](https://github.com/frappe/gantt)
+    - MIT
+  - https://dhtmlx.com/docs/products/dhtmlxGantt/
+    - https://github.com/DHTMLX
+    - GPL
 ### 虚拟滚动
 
 - [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)

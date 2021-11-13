@@ -1,7 +1,7 @@
 ---
 title: iagram Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Diagram Awesome

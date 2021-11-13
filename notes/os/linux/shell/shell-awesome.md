@@ -6,6 +6,7 @@ tags:
 
 # Shell Awesome
 
+- [ibraheemdev/modern-Unix](https://github.com/ibraheemdev/modern-Unix)
 - [explainshell](https://explainshell.com/)
 - [shellinabox/shellinabox](https://github.com/shellinabox/shellinabox)
 - awk

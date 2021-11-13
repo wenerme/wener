@@ -1,11 +1,14 @@
 ---
 id: docker-cookbook
 title: Docker 常用服务
+tags:
+  - Cookbook
 ---
 
 # Run container
 
 ## 常用选项
+
 ```bash
 # docker run
 --restart always
@@ -25,6 +28,7 @@ docker info
 ```
 
 ## MySQL
+
 ```bash
 DIR=/data/mysql
 # 自定义配置
@@ -47,6 +51,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ```
 
 ## OwnCloud/Nextcloud
+
 ```bash
 # 需要先创建名为 mysql 的 mysql 容器,如果没有,可去除 --link
 # 启动 OwnCloud
@@ -58,7 +63,9 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ```
 
 ### 反向代理
+
 sudo nano /data/owncloud/config/config.php
+
 ```php
 <?php
 /* $CONFIG */
@@ -100,7 +107,8 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 
 官方提供了很多 PHP 版本, 如果需要额外的扩展建议自己 build 一个, 例如
 
-__php.dockerfile__
+**php.dockerfile**
+
 ```dockerfile
 FROM php:5-apache
 RUN apt-get update
@@ -150,6 +158,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ```
 
 ### 更新
+
 ```bash
 docker stop drone
 docker rm drone
@@ -176,8 +185,9 @@ tar -C /var/jenkins_home/go/root -xzf go$GOVERSION.linux-amd64.tar.gz
 ```
 
 ## WatchTower
-* https://github.com/v2tec/watchtower
-* Docker 无法运行后添加 Label [#21721](https://github.com/moby/moby/issues/21721)
+
+- https://github.com/v2tec/watchtower
+- Docker 无法运行后添加 Label [#21721](https://github.com/moby/moby/issues/21721)
 
 ```bash
 # 将主机上的 docker 配置授权映射到容器内以便于拉取私有仓库
@@ -189,8 +199,6 @@ docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   v2tec/watchtower container_to_watch --debug -i 120
 ```
-
-
 
 ## Redis
 
@@ -218,6 +226,7 @@ docker run --rm -it --link dockerd:docker docker info
 ```
 
 ## MongoDB
+
 ```bash
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   -p 27017:27017 \
@@ -228,7 +237,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 docker run -it --link some-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
 ```
 
-* 由于 MongoDB 使用的 memmap, 通过 vbox 的映射不能够做共享数据卷, 但可以使用 xhyve 驱动的 docker-machine
+- 由于 MongoDB 使用的 memmap, 通过 vbox 的映射不能够做共享数据卷, 但可以使用 xhyve 驱动的 docker-machine
 
 ```bash
 # mongo with mongoclient
@@ -317,7 +326,7 @@ docker run -d -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo --name odoo-db pos
 docker run -d -p 8069:8069 -v /data/odoo/addons:/mnt/extra-addons --name odoo --link odoo-db:db -t odoo
 ```
 
-__默认 openerp-server.conf__
+**默认 openerp-server.conf**
 
 ```
 [options]
@@ -361,20 +370,20 @@ auto_reload = True
 ; xmlrpcs_port = 8071
 ```
 
-
 ## XAMPP
-* [tomsik68/xampp](https://hub.docker.com/r/tomsik68/xampp/)
-* mysql
-  * /opt/lampp/var/mysql
-* phpadmin
-  * /opt/lampp/phpmyadmin/config.inc.php
-    * 配置数据库密码等
+
+- [tomsik68/xampp](https://hub.docker.com/r/tomsik68/xampp/)
+- mysql
+  - /opt/lampp/var/mysql
+- phpadmin
+  - /opt/lampp/phpmyadmin/config.inc.php
+    - 配置数据库密码等
+
 ```php
 // 在网页上输入账号密码
 $cfg['Servers'][$i]['auth_type']    = 'cookie';
 $cfg['Servers'][$i]['AllowNoPassword']     = false;
 ```
-
 
 ```bash
 docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
@@ -409,6 +418,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 ## 其他服务
 
 ### cow
+
 ```bash
 curl https://github.com/cyfdecyf/cow/releases/download/0.9.8/cow-linux64-0.9.8.gz -Lo cow-linux64-0.9.8.gz
 gunzip cow-linux64-0.9.8.gz

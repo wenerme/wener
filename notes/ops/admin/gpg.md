@@ -1,33 +1,74 @@
+---
+title: GPG
+---
+
 # GPG
 
-## Tips
-* https://en.wikipedia.org/wiki/GNU_Privacy_Guard
-* GNU Privacy Guard
-* https://gnupg.org/documentation/manuals/gnupg/GPG-Commands.html
-* Cheatsheet
-  * http://stuff.imeos.org/persistent/gpg-cheatsheet.pdf
-  * https://devhints.io/gnupg
-* Public keyservers
-  * pgp.mit.edu
-  * keys.gnupg.net
-  * sks-keyservers.net
+- [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)
+- https://gnupg.org/documentation/manuals/gnupg/GPG-Commands.html
+- Cheatsheet
+  - http://stuff.imeos.org/persistent/gpg-cheatsheet.pdf
+  - https://devhints.io/gnupg
+  - http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/
+- Public keyservers
+  - pgp.mit.edu
+  - keys.gnupg.net
+  - sks-keyservers.net
+- `~/.gnupg/pubring.gpg`
 
 ```bash
 brew install gpg
+# 对话框输入
+brew install pinentry-mac
 
 # 生成秘钥
 gpg --gen-key
 
-gen --list-keys
-gen --list-secret-keys
+# gpg -k
+gpg --list-keys
+gpg --list-secret-keys
 
 # 提交到服务器
-gpg --keyserver hkp://pgp.mit.edu --send-keys $USERID
+gpg --keyserver hkp://pgp.mit.edu --send-keys $KEYID
 # 验证是否成功
-gpg --keyserver hkp://pgp.mit.edu --recv-keys $USERID
+gpg --keyserver hkp://pgp.mit.edu --recv-keys $KEYID
+
+# 导出
+gpg --export-secret-keys $KEYID > private.key
+# 导入
+gpg --import private.key
+
+# 配置信息
+gpgconf --list-components
+# check password
+gpg --dry-run --passwd $KEYID
+```
+
+## gpg-agent.conf
+
+- ~/.gnupg/gpg-agent.conf
+
+```bash
+pinentry-program /usr/local/bin/pinentry-mac
 ```
 
 ## FAQ
+
+### 失效后操作
+
+```bash
+gpg --edit-key $KEYID
+list
+
+key 0
+expire
+
+key 1
+expire
+
+list    # 确认
+save    # 保存退出
+```
 
 ### gpg: lookup_hashtable failed: Unknown system error
 
@@ -41,6 +82,7 @@ gpg --import-ownertrust < otrust.tmp
 ```
 
 ## gpg --help
+
 ```
 gpg (GnuPG) 2.2.5
 libgcrypt 1.8.2

@@ -180,4 +180,6 @@ machine <url> login <username> password <token>
 
 ```bash
 ls **/*/go.mod | xargs dirname | xargs -I {} sh -c 'cd {}; go mod tidy'
+# or
+find . -name go.mod | xargs dirname | xargs -I {} sh -c 'cd {}; go mod tidy'
 ```

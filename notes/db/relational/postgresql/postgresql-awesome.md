@@ -1,5 +1,7 @@
 ---
 title: PostgreSQL Awesome
+tags:
+  - Awesome
 ---
 
 # PostgreSQL Awesome

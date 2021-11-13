@@ -6,7 +6,15 @@ title: K3S Version
 
 - 跟随 Kubernetes 版本发布
 
+| K3S  | AlpineLinux |
+| ---- | ----------- |
+| 1.22 | 3.15        |
+| 1.21 | 3.14        |
+| 1.20 | 3.13        |
+
 ## 1.22
+
+- etcd-member-management
 
 ## 1.21
 

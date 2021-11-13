@@ -1,8 +1,10 @@
 ---
 title: Grammar Glossary
+tags:
+  - Glossary
 ---
 
-# Glossary
+# Grammar Glossary
 
 | Abbr. | Word                               | Desc                      |
 | ----- | ---------------------------------- | ------------------------- |

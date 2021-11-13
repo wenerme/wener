@@ -30,12 +30,35 @@ tags:
 
 ## RPC
 
+:::caution
+
+- rpc 和 serialization 主要的区别在于 **服务** 是否为第一公民
+- 除了 grpc, jsonrpc 其他 rpc 实现基本都是语言相关的
+  - 意味着 非第一方语言的支持相对较弱
+
+:::
+
 - JSON RPC
 - gRPC
 - Thrift
 - Avro
 - Dubbo
 - [only-cliches/NoProto](https://github.com/only-cliches/NoProto)
+  - MIT, Rust
+  - Flexible, Fast & Compact Serialization with RPC
+- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+  - 好未来技术
+  - 自定义 DSL + goctl 生成
+- [cloudwego/kitex](https://github.com/cloudwego/kitex)
+  - Apache-2.0, Go
+  - 字节跳动 RPC 框架
+- [sofastack/sofa-rpc](https://github.com/sofastack/sofa-rpc)
+  - Apache-2.0, Java
+  - 蚂蚁金服 RPC 框架
+- [tarsCloud/tars](https://github.com/tarsCloud/tars)
+  - BSD-3, C++
+  - 腾讯 RPC 框架
+  - 多语言 - Go、Java、NodeJS、PHP、Web
 
 ## Serialization
 
@@ -47,6 +70,8 @@ tags:
 - Schema-less, zero-copy: Flexbuffers (Any others? This seems new to me)
 - Avro is also another data serialization format. Schema-Ful,
 - Arrow would be schema-ful, zero-copy
+- CBOR - Concise Binary Object Representation
+  - 与 JSON 混用
 
 ## Data Gateway
 
@@ -81,3 +106,8 @@ tags:
 ## Tool
 
 - [Kong/insomnia](https://github.com/Kong/insomnia)
+
+## 参考
+
+- [How Uber Engineering Evaluated JSON Encoding and Compression Algorithms to Put the Squeeze on Trip Data](https://eng.uber.com/trip-data-squeeze-json-encoding-compression/)
+  - 2016-02

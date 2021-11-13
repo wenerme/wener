@@ -40,7 +40,7 @@ title: Vite
 ```bash
 # template:
 #   vanilla, vanilla-ts, vue, vue-ts, react, react-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts
-npm init vite@latest my-app --template react-ts
+npm init vite@latest my-app -- --template react-ts
 ```
 
 ```ts

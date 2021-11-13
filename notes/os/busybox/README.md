@@ -5,6 +5,11 @@ id: busybox
 
 # Busybox
 
+- 类似
+  - [landley/toybox](https://github.com/landley/toybox)
+    - BSD, C
+  - [u-root/u-root](https://github.com/u-root/u-root)
+    - BSD, Go
 - [busybox](https://busybox.net/downloads/BusyBox.html)
 - [live bbox](https://www.busybox.net/live_bbox/live_bbox.html)
 

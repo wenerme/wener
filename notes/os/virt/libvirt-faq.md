@@ -7,9 +7,6 @@ title: Libvirt常见问题
 
 - domain [xml](https://libvirt.org/formatdomain.html)
 - 网络 [xml](https://libvirt.org/formatnetwork.html)
-- 注意
-  - uuid 和 mac 类字段如果没有，则导入的时候生成
-  - 不要使用非 root virsh
 - 三种配置状态
   - live - 运行状态
     - 修改立即生效
@@ -17,6 +14,13 @@ title: Libvirt常见问题
     - 修改需要重启后生效
   - current - 当前状态
     - 指向 live 或 inactive
+
+:::caution
+
+- uuid 和 mac 类字段如果没有，则导入的时候生成
+- 不要使用非 root virsh
+
+:::
 
 ## CPU 资源配额
 

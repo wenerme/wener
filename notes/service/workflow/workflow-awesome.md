@@ -1,5 +1,5 @@
 ---
-title: Flow Awesome
+title: Workflow Awesome
 tags:
   - Awesome
 ---

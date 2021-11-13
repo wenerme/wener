@@ -1,5 +1,7 @@
 ---
 title: PowerDNS Version
+tags:
+  - Version
 ---
 
 # PowerDNS Version

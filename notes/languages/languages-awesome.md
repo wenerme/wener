@@ -1,7 +1,7 @@
 ---
 title: Languages Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Languages Awesome
@@ -29,3 +29,7 @@ tags:
   writing highly efficient custom Deep-Learning primitives
 - [alshdavid/BorrowScript](https://github.com/alshdavid/BorrowScript)
   - TypeScript + Borrow Checker
+
+## Low
+
+- [vnmakarov/mir](https://github.com/vnmakarov/mir)

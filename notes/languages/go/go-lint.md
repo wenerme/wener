@@ -8,6 +8,14 @@ title: Golang Linter
 - [securego/gosec](https://github.com/securego/gosec)
 - [dominikh/go-tools](https://github.com/dominikh/go-tools)
 
+## gofumpt
+
+- 替代 gofmt - 更严格
+
+```bash
+go install mvdan.cc/gofumpt@latest
+```
+
 ## gosec
 
 ```bash

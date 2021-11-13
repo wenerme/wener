@@ -1,10 +1,13 @@
 ---
 title: PostgreSQL Cookbook
+tags:
+  - Cookbook
 ---
 
 # PostgreSQL Cookbook
 
 - [String Functions and Operators](https://www.postgresql.org/docs/current/static/functions-string.html)
+- [Lesser Known PostgreSQL Features](https://hakibenita.com/postgresql-unknown-features)
 - 常用函数
   - `quote_literal` - 避免注入
   - `format(formatstr text [, formatarg "any" [, ...] ])`

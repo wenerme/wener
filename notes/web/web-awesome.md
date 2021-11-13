@@ -85,6 +85,8 @@ tags:
 - [jsxgraph](https://jsxgraph.org/)
   - Dynamic Mathematics with JavaScript
 - [pubkey/client-side-databases](https://github.com/pubkey/client-side-databases)
+- [omgovich/colord](https://github.com/omgovich/colord)
+  - tiny yet powerful tool for high-performance color manipulations and conversions
 
 ## Dev
 

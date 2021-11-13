@@ -95,6 +95,8 @@ tags:
 
 ## Vector
 
+- [milvus-io/milvus](https://github.com/milvus-io/milvus)
+  - Apache-2.0, Go
 - [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
   - Benchmarks of approximate nearest neighbor
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)

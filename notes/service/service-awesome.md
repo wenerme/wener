@@ -1,7 +1,7 @@
 ---
 title: Service Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Service Awesome
@@ -10,6 +10,7 @@ tags:
   - platform for building developer portals
   - 开发者门户网站
   - 管理服务、基础设施、文档
+  - 追踪组织生态系统中所有软件的所有权和元数据
 - [pimcore/pimcore](https://github.com/pimcore/pimcore)
   Data & Experience Management Platform
 - [zentralopensource/zentral](https://github.com/zentralopensource/zentral)
@@ -40,6 +41,14 @@ tags:
 - [getferdi/ferdi](https://github.com/getferdi/ferdi)
 - [notifirehq/notifire](https://github.com/notifirehq/notifire)
   - Notification Infrastructure
+- [frappe/erpnext](https://github.com/frappe/erpnext)
+  - GPL, ERP
+- [frappe/frappe](https://github.com/frappe/frappe)
+  - MIT, Python
+  - Low code web framework
+- [netless-io/flat](https://github.com/netless-io/flat)
+  - MIT, Typescript
+  - classroom
 
 ## Avatar
 
@@ -53,6 +62,7 @@ tags:
   - React 组件 - 基于 SVG
 
 ## OCR
+
 - https://gitee.com/ZZK-1989/tianruoocr
 - https://github.com/AnyListen/tianruoocr/
 - https://github.com/tianruoyouxin/tianruoocr_last
@@ -165,3 +175,11 @@ tags:
   chat-ops bot framework
   - Apache-2.0, Python
 - [exAspArk/awesome-chatops](https://github.com/exAspArk/awesome-chatops)
+
+## Kanban
+
+- [wekan/wekan](https://github.com/wekan/wekan)
+  - MIT, Meteor
+- [kanboard/kanboard](https://github.com/kanboard/kanboard)
+  - MIT, PHP
+- Nextcloud Deck

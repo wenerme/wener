@@ -13,6 +13,11 @@ tags:
 - Metabase
 - Redash
 - Superset
+- [jitsucom/jitsu](https://github.com/jitsucom/jitsu)
+  - open-source Segment alternative
+  - [vs-segment](https://jitsu.com/vs-segment)
+- [snowplow/snowplow](https://github.com/snowplow/snowplow)
+- [meltano/meltano](https://gitlab.com/meltano/meltano)
 
 ## Ingest
 
@@ -42,3 +47,5 @@ tags:
 - [finos/perspective](https://github.com/finos/perspective)
 - [d3fc/d3fc](https://github.com/d3fc/d3fc)
 - [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)
+- [frappe/charts](https://github.com/frappe/charts)
+  - SVG Charts, zero dependencies

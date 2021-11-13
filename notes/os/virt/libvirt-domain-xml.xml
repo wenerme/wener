@@ -3,7 +3,7 @@
 
 <!-- 驱动类型 kvm、qemu、lxv、vbox 等 - 对应 /usr/lib/libvirt/connection-driver 下的驱动 -->
 <domain type='kvm'>
-  <!-- 虚拟机名字 -->
+  <!-- 虚拟机名字 -->
   <name>myvm</name>
   <!-- UUID 类字段会自动生成 -->
   <!-- <uuid>b5b92c38-5df2-4d3c-9464-857103b519fc</uuid> -->

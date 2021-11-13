@@ -16,6 +16,7 @@ title: K3S
 
 :::
 
+- [k3s-io/k3s](https://github.com/k3s-io/k3s)
 - [环境要求](https://rancher.com/docs/k3s/latest/en/installation/installation-requirements/)
   - Linux 3.10+
   - Server 内存 512 MB+

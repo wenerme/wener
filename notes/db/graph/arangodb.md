@@ -6,7 +6,7 @@ title: ArangoDB
 
 - [arangodb/arangodb](https://github.com/arangodb/arangodb)
   - Apache-2.0, C++, JS
-  - Graph+Document
+  - Graph+Document+KV
   - 后端存储 rocksdb
   - 内置 V8
 - [AQL vs SQL](https://www.arangodb.com/why-arangodb/sql-aql-comparison/)
