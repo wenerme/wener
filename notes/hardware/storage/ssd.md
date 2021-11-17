@@ -33,4 +33,5 @@ title: SSD
   - 个人通常 2-4，企业通常 10
 - NAND P/E Cycles
   - MLC 128GB SSD, NAND P/E cycles = 3000
-- JESD219
+- JESD219A Solid-State Drive
+  - TWB 计算标准

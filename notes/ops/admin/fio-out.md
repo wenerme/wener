@@ -4,27 +4,30 @@ title: fio 结果
 
 # fio 结果
 
-| product                   | model           | volumn |     profile |         read | read iops |      write | write iops | note  |
-| ------------------------- | --------------- | -----: | ----------: | -----------: | --------- | ---------: | ---------- | ----- |
-| SanDisk Ultra Flair       | [CZ73]          |        |   rnd4kq1t1 |     4.2 MB/s | 1074      |   1.8 MB/s | 452        |
-| ^                         | ^               |        | seq512kq1t1 |     108 MB/s | 205       |  15.9 MB/s | 30         |
-| SanDisk Ultra Fit         | [CZ430]         |        |   rnd4kq1t1 |     5.4 MB/s | 1312      |   1.4 MB/s | 339        |
-| ^                         | ^               |        | seq512kq1t1 |     112 MB/s | 212       |  30.5 MB/s | 58         |
-| SanDisk Extreme           | [CZ810]         |        |   rnd4kq1t1 |    10.0 MB/s | 2451      | **5 KB/s** | 1          |
-| ^                         | ^               |        | seq512kq1t1 | **360 MB/s** | 686       |  83.3 MB/s | 158        |
-| Intel SSD 660P            | [SSDPEKNW512G8] |   512G |   rnd4kq1t1 |    63.2 MB/s | 15.4k     |   288 MB/s | 73.6k      |
-| ^                         | ^               |        | seq512kq1t1 |    1047 MB/s | 1996      |   929 MB/s | 1771       |
-| [KIOXIA-EXCERIA SATA SSD] |                 |   240G |   rnd4kq1t1 |     34.9MB/s | 8525      |   29.8MB/s | 7275       |
-|                           |                 |        |  rnd4kq32t4 |      238MB/s | 58.2k     |   52.5MB/s | 12.8k      |
-|                           |                 |        |   seq1mq1t1 |      296MB/s | 282       |   25.9MB/s | 24         |
-| Lexar JumpDrive           | [S47]           |    64G |   rnd4kq1t1 |      17 MB/s | 4153      |   8.5 MB/s | 2131       |
-| ^                         | ^               |        | rnd128kq1t1 |    98.3 MB/s | 749       |   17.6MB/s | 134        |
-| ^                         | ^               |        |   seq1mq1t1 |     178 MB/s | 169       |  26.6 MB/s | 25         |
-|                           |                 |        | seq128kq1t1 |     240 MB/s | 1829      |  25.8 MB/s | 196        | exfat |
-|                           |                 |        |   seq1mq1t1 |     247 MB/s | 235       |   26.5MB/s | 25         | exfat |
+| product             | model              | volumn |     profile |         read | read iops |      write | write iops | note  |
+| ------------------- | ------------------ | -----: | ----------: | -----------: | --------- | ---------: | ---------- | ----- |
+| SanDisk Ultra Flair | [CZ73]             |        |   rnd4kq1t1 |     4.2 MB/s | 1074      |   1.8 MB/s | 452        |
+| ^                   | ^                  |        | seq512kq1t1 |     108 MB/s | 205       |  15.9 MB/s | 30         |
+| SanDisk Ultra Fit   | [CZ430]            |        |   rnd4kq1t1 |     5.4 MB/s | 1312      |   1.4 MB/s | 339        |
+| ^                   | ^                  |        | seq512kq1t1 |     112 MB/s | 212       |  30.5 MB/s | 58         |
+| SanDisk Extreme     | [CZ810]            |        |   rnd4kq1t1 |    10.0 MB/s | 2451      | **5 KB/s** | 1          |
+| ^                   | ^                  |        | seq512kq1t1 | **360 MB/s** | 686       |  83.3 MB/s | 158        |
+| Intel SSD 660P      | [SSDPEKNW512G8]    |   512G |   rnd4kq1t1 |    63.2 MB/s | 15.4k     |   288 MB/s | 73.6k      |
+| ^                   | ^                  |        | seq512kq1t1 |    1047 MB/s | 1996      |   929 MB/s | 1771       |
+| KIOXIA              | [EXCERIA SATA SSD] |   240G |   rnd4kq1t1 |     34.9MB/s | 8525      |   29.8MB/s | 7275       |
+| ^                   | ^                  |        |  rnd4kq32t4 |      238MB/s | 58.2k     |   52.5MB/s | 12.8k      |
+| ^                   | ^                  |        |   seq1mq1t1 |      296MB/s | 282       |   25.9MB/s | 24         |
+| Lexar JumpDrive     | [S47]              |    64G |   rnd4kq1t1 |      17 MB/s | 4153      |   8.5 MB/s | 2131       |
+| ^                   | ^                  |        | rnd128kq1t1 |    98.3 MB/s | 749       |   17.6MB/s | 134        |
+| ^                   | ^                  |        |   seq1mq1t1 |     178 MB/s | 169       |  26.6 MB/s | 25         |
+| ^                   | ^                  |        | seq128kq1t1 |     240 MB/s | 1829      |  25.8 MB/s | 196        | exfat |
+| ^                   | ^                  |        |   seq1mq1t1 |     247 MB/s | 235       |   26.5MB/s | 25         | exfat |
 
 :::tip
 
+- IOPS=BandWidth/BlockSize
+  - 例如 4MB/s ÷ 4KB = 1000 io/s
+- 随机关心 IOPS，顺序关心 带宽
 - 测试默认 ext4 - 测试 raw disk 速率意义不大
   - 因此测试结果与官方有一定偏差
   - ext4 一般默认 blocksize 为 4k
@@ -41,9 +44,10 @@ title: fio 结果
 
 [cz73]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-ultra-flair-usb-3-0
 [cz430]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-ultra-fit-usb-3-1
+[cz810]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-extreme-go-usb-3-2
 [ssdpeknw512g8]: https://www.intel.com/content/www/us/en/products/sku/149405/intel-ssd-660p-series-512gb-m-2-80mm-pcie-3-0-x4-3d2-qlc/specifications.html
 [s47]: https://www.lexar.com/product/lexar-jumpdrive-s47-usb-3-1-flash-drive/
-[kioxia-exceria sata ssd]: https://personal.kioxia.com/en-emea/ssd/exceria-sata-ssd.html
+[exceria sata ssd]: https://personal.kioxia.com/en-emea/ssd/exceria-sata-ssd.html
 
 - CZ73 - USB 3.0
 - CZ430 - USB 3.1
@@ -59,6 +63,15 @@ title: fio 结果
   - RND4KQ32T4 - Random 4K Queue 32 Thread 4
   - SEQ1MQ1T1
   - SEQ1MQ8T1 - Sequential 1M
+  - SEQ1MQ32T1 - SSD 测 BW 常用
+  - RND4KQ32T8 - SSD 测 IOPS 常用
+
+| product                      | interface |    TBW |
+| ---------------------------- | --------- | -----: |
+| KIOXIA EXCERIA SATA SSD      | SATA      | 240 TB |
+| KIOXIA EXCERIA SSD           | NVMe      | 400 TB |
+| KIOXIA EXCERIA PLUS SSD      | NVMe      | 800 TB |
+| Intel SSD 660P SSDPEKNW512G8 | NVMe      | 100 TB |
 
 ```bash
 # echo seq512k-w seq512k-r | tr ' ' '\n'  | xargs -I {} fio fio.conf --section {} --output {}.out

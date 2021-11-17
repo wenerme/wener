@@ -32,7 +32,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda2       113G  2.2G  106G   2% /
 ```
 
-在使用一段时间后， U 盘 异常，系统被重新挂在为只读。
+在使用一段时间后， U 盘 异常，系统被重新挂载为只读。
 
 ```bash
 touch ~/test
@@ -89,7 +89,7 @@ dmesg 可看到异常信息，几个月前已经出问题了，因为系统还�
 
 :::tip 恢复备份注意事项
 
-- 选择一个可写目录 - tmpfs - 例如: /run, /var/run, /tmp, /dev/shm
+- 选择一个可写目录 - tmpfs,shm - 例如: /run, /var/run, /tmp, /dev/shm
 
 :::
 
@@ -97,7 +97,7 @@ dmesg 可看到异常信息，几个月前已经出问题了，因为系统还�
 
 - 备份盘 /dev/sdb 64G，同 SanDisk CZ430
 
-```
+```pre title="lsblk"
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    1 114.6G  0 disk
 ├─sda1   8:1    1   128M  0 part /boot
@@ -120,7 +120,7 @@ cd /run
 # 这里 dd 130MB - 同时把 boot 分区备份了
 dd if=/dev/sda of=/dev/sdb bs=1M count=130 status=progress
 
-# 备份分区
+# 转储分区表
 sfdisk -d /dev/sda > sda.partition.table.txt
 # 删除第二个分区的大小
 sed -r '$ s/size=\s*\d+,//' -i sda.partition.table.txt
@@ -138,7 +138,7 @@ ls /dev/sdb*
 
 ### root 分区备份
 
-- root 分区一般较大，支持 dd 慢且伤 U 盘
+- root 分区一般较大，直接 dd 慢且伤 U 盘
 - 直接 dd 需要目标相同大小，否则丢数据
 - 这里使用 clone 数据方式
 
@@ -207,6 +207,7 @@ poweroff
 
 系统盘恢复还是相当容易，但 CZ430 确实有点老了，在 2017 年左右上市，相同规格已经卖 4、5 年了，性能各方面有所欠缺，之后会尽量选择 Lexar S47。
 
-- SanDisk CZ430 vs Lexar S47 https://wener.me/notes/ops/admin/fio-out/
+- https://wener.me/notes/ops/admin/fio-out/
+  - SanDisk CZ430, Lexar S47 性能对比
 
-此外使用 U 盘 做系统盘的时候，一定注意修改 docker 之类的数据目录为其他存储，因为跑实际应用的时候 U 盘 性能是不足的，且数据库这种小 BlockSize 的 IO 不适合 U 盘。
+此外使用 U 盘 做系统盘的时候，一定注意修改 docker 之类的数据目录为其他存储，因为跑实际应用的时候 U 盘 性能是不足的，且数据库类型应用的小 BlockSize IO 不适合 U 盘。
