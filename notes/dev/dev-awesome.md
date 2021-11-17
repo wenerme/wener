@@ -48,7 +48,7 @@ tags:
 
 ```bash
 # -M '[.]pb[.]' -M 'generated'
-scc --exclude-dir vendor --no-gen .
+scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 ```
 
 ## 协作

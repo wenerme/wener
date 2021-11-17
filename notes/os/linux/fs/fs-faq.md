@@ -1,5 +1,7 @@
 ---
-title: FAQ
+title: 文件系统常见问题
+tags:
+  - FAQ
 ---
 
 # 文件系统常见问题
@@ -40,3 +42,51 @@ mount -o rw,remount /
 如果不希望删除 fs 则选择 No
 
 - [What is a vfat signature?](https://unix.stackexchange.com/a/478001/47774)
+
+## cluster size for NTFS, FAT, and exFAT
+
+**NTFS**
+
+|        volumn | block |
+| ------------: | ----: |
+|    7 MB–16 TB |  4 KB |
+|   16 TB–32 TB |  8 KB |
+|   32 TB–64 TB | 16 KB |
+|  64 TB–128 TB | 32 KB |
+| 128 TB–256 TB | 64 KB |
+
+**exFAT**
+
+|       volumn |      block |
+| -----------: | ---------: |
+|  7 MB–256 MB |       4 KB |
+| 256 MB–32 GB |      32 KB |
+| 32 GB–256 TB | **128 KB** |
+
+**FAT32**
+
+|        volumn |     block |
+| ------------: | --------: |
+|   32 MB–64 MB | 512 bytes |
+|  64 MB–128 MB |      1 KB |
+| 128 MB–256 MB |      2 KB |
+|   256 MB–8 GB |      4 KB |
+|    8 GB–16 GB |      8 KB |
+|   16 GB–32 GB |     16 KB |
+
+**FAT16**
+
+|        volumn |     block |
+| ------------: | --------: |
+|    8 MB–32 MB | 512 bytes |
+|   32 MB–64 MB |      1 KB |
+|  64 MB–128 MB |      2 KB |
+| 128 MB–256 MB |      4 KB |
+| 256 MB–512 MB |      8 KB |
+|   512 MB–1 GB |     16 KB |
+|     1 GB–2 GB |     32 KB |
+|     2 GB–4 GB |     64 KB |
+
+> NAND flash 大多为 128 KB blocksize，所以 extFAT 很适合闪存
+
+- [Default cluster size for NTFS, FAT, and exFAT](https://support.microsoft.com/en-gb/topic/9772e6f1-e31a-00d7-e18f-73169155af95)

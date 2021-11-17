@@ -207,6 +207,8 @@ docker run --rm -it \
   - 配置数据留存时间
 - TaskList
   - 任务列表、应用分组
+  - 启动的 worker 会 pull 给定的 TaskList
+  - 意味着必须要先确定 TaskList 的名字
 - Worker
   - 守护进程
   - 本地注册 Workflow、Activity
@@ -400,9 +402,46 @@ history:
         # 一般会用不同的库
         databaseName: {{ default .Env.VISIBILITY_DBNAME "cadence_visibility" }}
     es-visibility:
+dynamicConfigClient:
+  filepath: /etc/cadence/config/dynamicconfig/config.yaml
+  pollInterval: 10s
+
+
+```
+
+```yaml
+# 动态配置
+frontend.visibilityListMaxQPS:
+  - value: 1000
+    constraints:
+      domainName: 'domainA'
+  - value: 2000
+    constraints:
+      domainName: 'domainB'
+```
+
+```yaml
+
+# 单节点
+frontend.persistenceMaxQPS: 2000
+# 全局
+frontend.persistenceGlobalMaxQPS: 2000
+# visibility db
+frontend.visibilityListMaxQPS: 10
+frontend.esVisibilityListMaxQPS: 30
+
+matching.persistenceMaxQPS: 3000
+matching.persistenceGlobalMaxQPS: 3000
+matching.persistenceGlobalMaxQPS: 2000
+
+history.persistenceMaxQPS: 9000
+history.persistenceGlobalMaxQPS: 9000
+history.historyVisibilityOpenMaxQPS:
+history.historyVisibilityClosedMaxQPS:
 ```
 
 ## 存储结构
+
 - [schema/postgres](https://github.com/uber/cadence/tree/master/schema/postgres)
 - domains
 - domain_metadata
@@ -433,7 +472,30 @@ history:
 
 ```bash
 go build -o cadence-sql-tool github.com/uber/cadence/cmd/tools/sql
+# 默认存储 和 visibility 都需要
+env $(cat .env | xargs) ./cadence-sql-tool setup-schema -v 0.0
+env $(cat .vis | xargs) ./cadence-sql-tool setup-schema -v 0.0
+# update - 注意 默认 和 visibility 路径不同
+env $(cat .env | xargs) go run ./cmd/tools/sql/ update-schema -d schema/postgres/cadence/versioned/
+env $(cat .vis | xargs) go run ./cmd/tools/sql/ update-schema -d schema/postgres/visibility/versioned/
 ```
+
+```ini title=".env"
+SQL_PLUGIN=postgres
+SQL_HOST=192.168.1.1
+SQL_PORT=5432
+SQL_DATABASE=cadence
+SQL_USER=cadence
+SQL_PASSWORD=
+SQL_CONNECT_ATTRIBUTES=sslmode=require
+```
+
+:::caution
+
+- postgres 开启 --tls 要求提供 ca - 实际不需要，目前要改检测代码
+  - [#4639](https://github.com/uber/cadence/pull/4639)
+
+:::
 
 ## Helm
 
@@ -441,15 +503,28 @@ go build -o cadence-sql-tool github.com/uber/cadence/cmd/tools/sql
   - 同步自 banzai charts
   - banzai 国内无法访问
 - existingSecret 包含 password 字段
+
+:::caution
+
 - helm schema job 不支持 postgres，不支持使用 existingSecret
   - 建议本地迁移
   - [banzaicloud/banzai-charts#1301](https://github.com/banzaicloud/banzai-charts/issues/1301)
     Setup Job doesn't pull value from secret
+- service 未暴露 grpc 端口
+  - [banzaicloud/banzai-charts#1305](https://github.com/banzaicloud/banzai-charts/issues/1305)
 
-
+:::
 
 # FAQ
 
 ## Cannot register global domain when not enabled
 
 cli 注册添加 `--global_domain=false`
+
+## Persistence Max QPS Reached
+
+数据库限制
+
+## Persistence Max QPS Reached for List Operations
+
+visibility 数据库限制

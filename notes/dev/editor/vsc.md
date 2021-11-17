@@ -4,10 +4,10 @@ title: Visual Studio Code
 
 # Visual Studio Code
 
-| 快捷键       | 说明         |
-| ------------ | ------------ |
-| Ctrl+-       | 后退编辑位置 |
-| Shift+Ctrl+- | 前进编辑位置 |
+| 快捷键                  | 说明         |
+| ----------------------- | ------------ |
+| <kbd>Ctrl+-</kbd>       | 后退编辑位置 |
+| <kbd>Shift+Ctrl+-</kbd> | 前进编辑位置 |
 
 ## 插件
 

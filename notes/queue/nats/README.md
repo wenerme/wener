@@ -6,9 +6,12 @@ title: NATS
 # NATS
 
 - [nats-io/nats-server](https://github.com/nats-io/nats-server) 是什么？
-  -  偏向通讯协议，用作 消息队列
+  - 偏向通讯协议，用作 消息队列
   - 默认没有持久化
   - 协议支持 MQTT, NATS, WebSocket
+  - 集成 JetStream - 替代 STAN
+    - 支持 KV、ObjectStore
+    - 支持 持久化
 - 端口
   - 4222 客户端
   - 8222 HTTP 管理和信息上报
@@ -24,7 +27,7 @@ title: NATS
 ```bash
 # 服务端 - 大约 10mb
 # docker 启动
-docker run -d --name nats-main -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:alpine
+docker run --rm -it --name nats-main -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:alpine -js
 # macOS 安装启动
 brew install nats-server
 nats-server
@@ -191,7 +194,3 @@ no_auth_user: a
 ## nats-top
 
 - [nats-io/nats-top](https://github.com/nats-io/nats-top)
-
-# FAQ
-
-## cannot create a queue subscription for a consumer without a deliver group

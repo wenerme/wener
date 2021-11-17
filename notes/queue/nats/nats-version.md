@@ -7,6 +7,7 @@ tags:
 # Nats Version
 
 - https://github.com/nats-io/nats-server/releases
+- https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
 
 :::caution
 
@@ -16,12 +17,26 @@ tags:
 
 | ver | date       | nats.go |
 | --- | ---------- | ------- |
+| 2.7 | 2021-09-22 |         |
+| 2.6 | 2021-09-22 | v1.13   |
 | 2.5 | 2021-09-10 | v1.12.1 |
 | 2.4 | 2021-08-27 | v1.12.0 |
 | 2.3 | 2021-06-24 | v1.11.0 |
 | 2.2 | 2021-03-15 | v1.10.0 |
 | 2.1 | 2019-09-21 |         |
 | 2.0 | 2019-05-05 |         |
+
+## 2.7
+
+- JetStream based KV & Object Store
+  - KV: 支持历史记录，支持限定大小，Watch
+  - Object Store: 支持 Chunks，Watch
+  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-8.md
+
+## 2.6
+
+- JetStream's reserved memory and memory used
+  - /jsz, /varz
 
 ## 2.5
 

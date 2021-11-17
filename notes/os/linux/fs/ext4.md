@@ -1,8 +1,8 @@
 ---
-title: ext
+title: ext4
 ---
 
-## ext
+## ext4
 
 - 参考
   - man [ext4.5](https://man7.org/linux/man-pages/man5/ext4.5.html)

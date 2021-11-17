@@ -60,3 +60,5 @@ tags:
   - QXL 协议
 - 参考
   - [VNC vs SPICE](http://zee-nix.blogspot.com/2011/06/welcome-to-virtual-world.html)
+
+## kvm: vcpu0, guest rIP: disabled perfctr wrmsr: 0xc2 data 0xffff

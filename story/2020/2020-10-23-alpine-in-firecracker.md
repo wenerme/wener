@@ -76,8 +76,7 @@ sudo chmod +x /usr/local/bin/firecracker
 
 ```bash
 # 创建 root 盘
-# qemu-img create -f raw alpine.rootfs.ext4 1G
-fallocate -l 1G ubuntu.rootfs.ext4
+qemu-img create -f raw alpine.rootfs.ext4 1G
 # 格式化为 ext4
 mkfs.ext4 ./alpine.rootfs.ext4
 # 挂载到 /tmp/rootfs

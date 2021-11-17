@@ -268,6 +268,10 @@ npm add date-fns lodash-es react-fast-compare
   - https://dhtmlx.com/docs/products/dhtmlxGantt/
     - https://github.com/DHTMLX
     - GPL
+- Block Editor/Page Builder
+  - [blocks/blocks](https://github.com/blocks/blocks)
+  - [BuilderIO/builder](https://github.com/BuilderIO/builder)
+
 ### 虚拟滚动
 
 - [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)

@@ -4,7 +4,6 @@ title: Bash
 
 # Bash
 
-
 ```bash
 # empty shell
 env -i /usr/local/bin/bash
@@ -75,6 +74,7 @@ du -a . | sort -nr | head
 ```
 
 ### Prefix/Suffix
+
 ```bash
 # 去除前缀和后缀
 x="/foo/fizzbuzz.bar"
@@ -141,6 +141,7 @@ seq 1 | parallel -n0 "http --ignore-stdin POST http://httpbin.org/post url=http:
 ```
 
 ## Base N
+
 ```
 # Encode base62
 BASE62=($(echo {0..9} {a..z} {A..Z}))
@@ -151,8 +152,8 @@ done && echo
 base62_decode() { echo $((62#$1)) }
 ```
 
-
 ## SSH
+
 ```bash
 # download: remote -> local
 # local_file 可以为目录用 -r 递归
@@ -193,10 +194,9 @@ tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
                                >( ... )
 ```
 
-
 ## xargs
 
-* [xargs example](http://www.thegeekstuff.com/2013/12/xargs-examples/)
+- [xargs example](http://www.thegeekstuff.com/2013/12/xargs-examples/)
 
 ## case
 
@@ -221,9 +221,16 @@ esac
 ```
 
 ## 使用变量名字访问变量
-* [Shell Parameter Expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
+
+- [Shell Parameter Expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
 
 ```bash
 a=PATH
 echo ${!a}
+```
+
+## dotenv
+
+```bash
+env $(cat .env | xargs) rails
 ```

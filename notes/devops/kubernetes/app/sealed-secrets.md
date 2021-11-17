@@ -7,7 +7,6 @@ title: sealed-secrets
 - 注意
   - SealdSecret 是绑定 namespace，kubeseal 的时候指定或原 secret 包含，不可修改
     - 或者指定 `sealedsecrets.bitnami.com/cluster-wide": "true"` 集群内可用
-- [stable/sealed-secrets](https://github.com/helm/charts/tree/master/stable/sealed-secrets)
 - 模式
   - strict - 默认 - 名字和 namespace 匹配
   - namespace-wide - 相同 namespace 内可修改 name

@@ -28,7 +28,7 @@ tags:
   - 了解配合服务，提升使用体验
     - cert-manager, sealed-secret
     - helm, kustomize
-    - 看板 - dashboard, rancher, lens
+    - 面板 - dashboard, rancher, lens
     - observability - prometheus, vector, fluntbit, jeager, grafana
     - gitops - arogocd, fluxcd
     - mesh - linkerd, istio
@@ -37,14 +37,15 @@ tags:
     - 数据库、监控、日志、可视化、服务
   - 了解 cloud native 开发，调整开发利用云特性
     - consul
-    - spring cloud
-    - spring alibaba
+    - dapr
+    - spring cloud, spring alibaba
     - 服务注册、发现、通讯
   - 了解新的平台开发方式
     - serverless
     - faas - fission, openfaas
     - baas
     - low-code
+    - sidecar
 - 参考
   - [kubernetes-api](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/)
     - 当不确定 Yaml 有什么字段，字段有什么含义的时候查阅

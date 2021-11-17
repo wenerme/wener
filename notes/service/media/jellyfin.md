@@ -1,10 +1,19 @@
+---
+title: Jellyfin
+---
 
 # Jellyfin
-* 是什么？
-  * 开源媒体系统
-  * 类似 Plex 但更开放
-* [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin)
-  * C#, GPL
+
+- [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin) 是什么？
+  - GPL, C#
+  - 开源媒体系统
+  - 类似 Plex 但更开放
+
+:::info
+
+- 不支持外部音轨 [#177](https://features.jellyfin.org/posts/177)
+
+:::
 
 ```bash
 docker pull jellyfin/jellyfin:latest
@@ -19,4 +28,4 @@ docker run --rm -it \
   --name jellyfin jellyfin/jellyfin:latest
 ```
 
-https://jellyfin.org/docs/general/administration/configuration.html#data-directory
+- https://jellyfin.org/docs/general/administration/configuration.html#data-directory

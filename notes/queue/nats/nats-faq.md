@@ -29,3 +29,7 @@ tags:
   - STAN 所有能力+新的功能
 - 参考
   - [Comparing NATS, NATS Streaming and NATS JetStream](https://gcoolinfo.medium.com/ec2d9f426dc8)
+
+## cannot create a queue subscription for a consumer without a deliver group
+
+- 2.4+ nats

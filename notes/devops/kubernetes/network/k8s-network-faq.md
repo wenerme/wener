@@ -1,8 +1,14 @@
 ---
 title: K8S Network FAQ
+tags:
+  - FAQ
 ---
 
 # K8S Network FAQ
+
+## NodePort 端口范围
+
+- 30000–32767
 
 ## Endpoints vs EndpointSlices
 

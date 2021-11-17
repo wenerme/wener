@@ -13,6 +13,51 @@ title: K8S 常见问题
 
 - [#396](https://github.com/rancher/k3s/issues/396) - Initializing eviction metric for zone
 
+## Pod 时区
+
+1. TZ 环境变量
+
+- 要求 语言/runtime 支持
+- 需要 tzdata
+
+2. 映射 tz 信息
+
+- 可以与 host 保持一致
+- 可以不需要安装 tzdata
+- 要求 host 安装了 tzdata
+- 要求调整 Pod
+
+3. 代码内控制
+
+- bundle tzdata，运行时加载
+- golang `import _ "time/tzdata"`
+  - 增加约 450 KB
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-sleep
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      args:
+        - sleep
+        - '1000000'
+      env:
+        - name: TZ
+          value: Asia/Shanghai
+      volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+  volumes:
+    - name: tz-config
+      hostPath:
+        path: /usr/share/zoneinfo/Asia/Shanghai
+        type: File
+```
+
 ## taint
 
 - node.kubernetes.io/disk-pressure:NoSchedule

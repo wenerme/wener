@@ -43,6 +43,8 @@ tags:
 - Thrift
 - Avro
 - Dubbo
+- [json-api/json-api](https://github.com/json-api/json-api)
+  - application/vnd.api+json
 - [only-cliches/NoProto](https://github.com/only-cliches/NoProto)
   - MIT, Rust
   - Flexible, Fast & Compact Serialization with RPC

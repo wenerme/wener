@@ -15,6 +15,13 @@ title: Golang 模块
 
 :::
 
+- https://golang.org/ref/mod
+- [Package lists and patterns](https://pkg.go.dev/cmd/go#hdr-Package_lists_and_patterns)
+  - main
+  - all
+  - std
+  - cmd
+
 ```bash
 # 依赖管理
 go get -d github.com/path/to/module       # 添加、升级

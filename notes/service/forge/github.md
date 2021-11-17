@@ -61,3 +61,4 @@ github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
 ## Socialify
 
 - [wei/socialify](https://github.com/wei/socialify)
+- [matchai/waka-box](https://github.com/matchai/waka-box)

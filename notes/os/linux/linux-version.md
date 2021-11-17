@@ -1,19 +1,42 @@
 ---
 title: Linux Releases
+tags:
+  - Version
 ---
 
 # Linux Releases
 
-## Tips
+:::tip
+
+- 一般年底的最后一个版本会变成 LTS
+- LTS 支持 6 年
+- 一般 2-3 月 一个版本
+- CIP kernel - SLTS kernel - Super Long Term Support
+  - 支持 25-50 年
+
+:::
+
+| linux version | date       | note  | distro                                         |
+| ------------: | ---------- | ----- | ---------------------------------------------- |
+| 5.15 22nd LTS | 2021-10-32 | NTFS  | alpine 3.15                                    |
+| 5.10 21st LTS | 2020-12-13 |       | alpine 3.14, debian 11 Bullseye                |
+|  5.4 20th LTS | 2019-09-24 | exFAT | alpine 3.13, ubuntu 20.04                      |
+| 4.19 19th LTS | 2019-10-22 |       | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
+|  4.4 16th LTS | 2016-01-10 |       | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
 
 - https://kernelnewbies.org/LinuxVersions
 - [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
 - [Active kernel releases](https://www.kernel.org/category/releases.html)
-  - 一般年底的最后一个版本会变成 LTS
 - http://phb-crystal-ball.org/
+- [cip-project](https://www.cip-project.org/)
+  - CIP - Civil Infrastructure Platform - 民用基础设施平台
+  - 提供 SLTS - 支持 25-50 年
+  - 适用于 工业产品
+  - [CIP Kernel Maintenance](https://wiki.linuxfoundation.org/civilinfrastructureplatform/cipkernelmaintenance)
 
 ## 5.15
-- NTFS
+
+- **NTFS**
 - ksmbd - in-kernel SMB 3 server
 
 ## 5.10 - LTS
@@ -35,6 +58,7 @@ title: Linux Releases
 
 ## 5.4
 
+- **exFAT**
 - virtio-fs
 - fs-verity - 检测文件修改
   - 块级别，类似 dm-verity，支持 ext4、f2fs

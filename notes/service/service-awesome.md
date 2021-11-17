@@ -49,6 +49,9 @@ tags:
 - [netless-io/flat](https://github.com/netless-io/flat)
   - MIT, Typescript
   - classroom
+- [getfider/fider](https://github.com/getfider/fider)
+  - AGPL-3.0, Go
+  - collect and prioritize feedback
 
 ## Avatar
 
