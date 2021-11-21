@@ -5,12 +5,13 @@ title: Apache APISIX
 # Apache APISIX
 
 - [apache/apisix](https://github.com/apache/apisix)
-  - Lua+Nginx/openresty+etcd
+  - Apache-2.0, Lua+Nginx/openresty+etcd
   - 支持 Golang 插件
 - 参考
   - [Admin API](https://apisix.apache.org/docs/apisix/admin-api)
     - X-API-KEY
   - [apache/apisix-docker](https://github.com/apache/apisix-docker)
+  - [apache/apisix-helm-chart](https://github.com/apache/apisix-helm-chart)
 
 ```bash
 # 官方建议自行构建

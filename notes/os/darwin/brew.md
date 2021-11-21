@@ -4,8 +4,6 @@ title: Brew
 
 # Brew
 
-## Tips
-
 - [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
 
 > **⚠️**

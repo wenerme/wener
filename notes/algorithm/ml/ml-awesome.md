@@ -42,6 +42,9 @@ tags:
   - frontier of machine learning
 - [wav2vec](https://github.com/pytorch/fairseq/tree/main/examples/wav2vec)
 - https://nv-tlabs.github.io/editGAN/
+- [bryandlee/animegan2-pytorch](https://github.com/bryandlee/animegan2-pytorch)
+  - AnimeGANv2
+- [yeemachine/kalidokit](https://github.com/yeemachine/kalidokit)
 
 ## Learn
 

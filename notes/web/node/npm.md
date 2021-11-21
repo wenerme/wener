@@ -64,6 +64,8 @@ npm i --registry=https://registry.npm.taobao.org
 npm ci --registry=https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 # npx 使用镜像
 npm_config_registry=https://registry.npm.taobao.org npx @scoped/package
+#
+npx --registry=https://registry.npmjs.org -y cubejs-cli create demo-cube -d postgres
 ```
 
 ## scope

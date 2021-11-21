@@ -45,6 +45,7 @@ title: fio 结果
 [cz73]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-ultra-flair-usb-3-0
 [cz430]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-ultra-fit-usb-3-1
 [cz810]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-extreme-go-usb-3-2
+[cz880]: https://www.westerndigital.com/products/usb-flash-drives/sandisk-extreme-pro-usb-3-2
 [ssdpeknw512g8]: https://www.intel.com/content/www/us/en/products/sku/149405/intel-ssd-660p-series-512gb-m-2-80mm-pcie-3-0-x4-3d2-qlc/specifications.html
 [s47]: https://www.lexar.com/product/lexar-jumpdrive-s47-usb-3-1-flash-drive/
 [exceria sata ssd]: https://personal.kioxia.com/en-emea/ssd/exceria-sata-ssd.html

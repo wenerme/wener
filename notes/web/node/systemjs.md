@@ -29,8 +29,24 @@ npm add systemjs
 npx typesync
 ```
 
+# FAQ
+
+## 使用现有环境
+
 ```js
-// rxjs hack
+import * as React from 'react';
+import * as jsxRuntime from 'react/jsx-runtime';
+
+System.set(System.resolve('react'), React);
+System.set(System.resolve('react/jsx-runtime'), jsxRuntime);
+
+System.set(System.resolve('vue'), window.Vue);
+System.set(System.resolve('vue-router'), window.VueRouter);
+```
+
+## rxjs hack
+
+```js
 const originalResolve = System.resolve;
 
 System.resolve = function (name) {
@@ -47,7 +63,4 @@ System.register('rxjs-operators.js', [], (_export) => {
   });
   return {};
 });
-
-System.set(System.resolve('vue'), window.Vue);
-System.set(System.resolve('vue-router'), window.VueRouter);
 ```

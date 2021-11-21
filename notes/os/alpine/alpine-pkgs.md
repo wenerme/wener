@@ -22,7 +22,7 @@ title: Alpine 包维护
     - `${repo}/${pkgname}: new aport`
     - `${repo}/${pkgname}: move from testing`
     - `${repo}/${pkgname}: upgrade to 3.1.0`
-  - 确保使用 Tab 而不是  空格
+  - 确保使用 Tab 而不是 空格
 - 参考
   - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
   - [build.alpinelinux.org](https://build.alpinelinux.org/)
@@ -72,7 +72,7 @@ abuild -Kf
 # 针对单个包操作
 abuild package dev
 
-# 移除所有构建时安装的依赖
+# 移除所有构建时安装的依赖
 # 直接编辑 /etc/apk/world 然后 apk fix 也可以
 apk del '.makedepends-*'
 

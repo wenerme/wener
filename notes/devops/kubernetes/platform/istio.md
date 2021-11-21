@@ -5,9 +5,8 @@ title: Istio 服务网格
 
 # Istio
 
-## Tips
-
-- connect, manage, and secure microservices by Google, IBM, and Lyft
+- [istio/istio](https://github.com/istio/istio)
+  - connect, manage, and secure microservices by Google, IBM, and Lyft
 - 注意
   - ingressgateway 默认需要 LoadBalaner - 因此需要集群能获取到 IP - 在不更改配置的前提下可以使用 [metallb](../network/metallb)
 - 架构
@@ -60,11 +59,12 @@ title: Istio 服务网格
     - pilot citadel galley
 - [架构](https://istio.io/latest/docs/ops/deployment/architecture/)
 - [Performance and Scalability](https://istio.io/latest/docs/ops/deployment/performance-and-scalability/)
-  - envoy - 0.5 vCPU, 50 MB / 1000 requests / second
-    - envoy proxy +2.76 ms to the 90th percentile latency.
+  - envoy
+    - 0.35 vCPU, 40 MB / 1000 rps
+    - +2.65 ms 90% latency
   - istio-telemetry - 0.6 vCPU / 1000 mesh-wide requests / second for deployments that use Mixer.
   - pilot - 1 vCPU, 1.5 GB
-  - istiod - 1 vCPU and 1.5 GB of memory support 1000 services, 2000 sidecars
+  - istiod - 1 vCPU, 1.5 GB - 1000 services, 2000 sidecars
 - 资源
   - 至少准备 4 CPU 8G
 - 参考

@@ -23,6 +23,7 @@ title: Nginx Ingress
 
 - 默认 ssl-passthrough 未开启，不支持 SNI
   - 启用对性能影响很大
+- 不支持 Gateway API [kubernetes/ingress-nginx#7517](https://github.com/kubernetes/ingress-nginx/issues/7517)
 
 :::
 

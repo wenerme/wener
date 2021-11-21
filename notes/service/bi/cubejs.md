@@ -12,9 +12,12 @@ title: CubeJS
   - 支持多租户
   - 支持生成前端组件
     - React UI 基于 AntD
+  - 支持 JWT Auth
+  - 支持 Redis 缓存
+  - 提供 REST API
+  - 提供 SQL API
+    - 可以对接外部系统 - 例如 exporter 直接抓取作为 metrics
   - Request JSON Object + Schema => SQL
-  - 支持 JWT
-  - 依赖 Redis 缓存
 
 | port        | for                   |
 | ----------- | --------------------- |
@@ -27,6 +30,13 @@ title: CubeJS
 
 - 不建议内嵌 Cube.js 到现有 Express 应用，建议通过 包 扩展
 - web 不支持配置 postgresql ssl
+
+:::
+
+:::caution
+
+- Postgres can not work with table names that longer than 64 symbols
+  - 使用 sqlAlias 解决 schema+table 名字过长的问题
 
 :::
 
@@ -48,42 +58,77 @@ CUBEJS_DB_PASS=
 CUBEJS_DB_SSL=false
 ```
 
-## 配置
+## API
 
-- 环境变量配置
-  - CUBEJS_DEV_MODE=true - 开发模式
-  - CUBEJS_APP - APP ID
-  - [Environment Variables](https://cube.dev/docs/reference/environment-variables)
-- cube.js 配置
-  - https://cube.dev/docs/config
-- dev mode
-  - 无 auth
-  - 单节点 cubestore
-  - background refresh for in-memory cache, cheduled pre-aggregations
-  - log level trace
-  - playground http://localhost:4000
-  - memory as the default cache/queue engine
-  - log incorrect/invalid configuration for for externalRefresh /waitForRenew instead of throwing errors
-- Multitenancy vs Multiple Data Sources
-  - Multitenancy
-    - different datasets for multiple users
-  - Multiple Data Sources
-    - same data but different databases
-- Security Context vs Multitenant Compile Context
-  - Security Context
-    - row-level security within the same database for different users
-  - Multitenant Compile Context
-    - access different databases
-- Security Context vs queryRewrite
-  - Security Context
-    - explicit control
+- Query 支持 JSON 也支持 SQL 查询 - MySQL 兼容协议
 
-```js title="cube.js"
-module.exports = {
-  logger: (msg, params) => {
-    console.log(`${msg}: ${JSON.stringify(params)}`);
-  },
-};
+```http
+### Load data
+POST http://localhost:4000/cubejs-api/v1/load
+Content-Type: application/json
+
+{"query": {"measures":["Users.count"]}}
+
+### SQL
+GET http://localhost:4000/cubejs-api/v1/sql?query={"measures":["Users.count"]}
+
+### Meta
+GET http://localhost:4000/cubejs-api/v1/meta
+
+### Trigger refresh
+GET http://localhost:4000/cubejs-api/v1/run-scheduled-refresh?queryingOptions={"timezone":"UTC"}
+
+### ready
+GET http://localhost:4000/readyz
+
+### live
+GET http://localhost:4000/livez
+```
+
+```json title="query"
+{
+  "measures": ["Stories.count"],
+  "dimensions": ["Stories.category"],
+  "filters": [
+    {
+      // dimension or measure
+      "member": "Stories.isDraft",
+      // 支持的操作 - 类型也会影响
+      // equals, notEquals, contains, notContains
+      // gt, gte, lt, lte
+      // set, notSet
+      // inDateRange, notInDateRange, beforeDate, afterDate
+      "operator": "equals",
+      // date YYYY-MM-DD
+      "values": ["No"]
+    },
+    // 逻辑
+    {
+      "or": [{ "and": [] }]
+    }
+  ],
+  "timeDimensions": [
+    {
+      "dimension": "Stories.time",
+      // 支持相对值
+      // today, yesterday, tomorrow, last year, next month, last 6 months, last week
+      // 支持特殊范围
+      // from N days ago to now or from now to N days from now
+      "dateRange": ["2015-01-01", "2015-12-31"],
+      "granularity": "month",
+      // 比较
+      "compareDateRange": ["this week", ["2020-05-21", "2020-05-28"]]
+    }
+  ],
+  "limit": 100,
+  "offset": 50,
+  // order: {"Stories.time": "asc"}
+  "order": [
+    ["Stories.time", "asc"],
+    ["Stories.count", "asc"]
+  ],
+  "timezone": "Asia/Shanghai"
+}
 ```
 
 ## Notes
@@ -92,7 +137,30 @@ module.exports = {
   - 独立服务，包含所有 driver
 - @cubejs-backend/server-core
   - 核心包，用于自定义扩展
+- @cubejs-client/{core,react,ngx,vue,ws-transport}
+  - react
+    - dashboard 基于 antd
+- [real-time-dashboard](https://github.com/cube-js/cube.js/tree/master/examples/real-time-dashboard)
 - 缓存 redis, memory
+- 扩展方式
+  - 通过配置，动态 fetch schema
+  - 基于 @cubejs-backend
+
+```bash
+# -d postgres, mysql, athena, mongobi, bigquery, redshift, mssql, clickhouse, snowflake, presto, druid
+# -t docker, express, serverless, serverless-aws
+npx -y cubejs-cli create demo-cube -d postgres
+cd demo-cube
+npx cubejs-cli server --debug
+
+cubejs generate -t users,user_profiles
+# Geneate JWT
+# -e 1 day, 30 days
+# -s CUBEJS_API_SECRET
+# -u USER_CONTEXT
+# CUBEJS_DEV_MODE
+# token -e "30 days" -p appId=1 -p userId=2 -u tenantId=12
+```
 
 ## cubestore
 
@@ -100,8 +168,37 @@ module.exports = {
 - 预聚合
 - distributed
 - WIP: 外部存储 MySQL & Postgres
-- mysql+http 协议
 - RocksDB, Apache Parquet, Apache Arrow, datafusion
 - https://github.com/apache/arrow-datafusion
 - https://github.com/cube-js/cube.js/tree/master/rust
 - https://cube.dev/blog/introducing-cubestore/
+
+## Helm
+
+- 社区维护，质量一般
+- https://github.com/cube-js/cube.js/tree/master/examples/helm-charts
+
+# FAQ
+
+## 转译逻辑
+
+```js
+cube(`Users`, {
+  measures: {
+    count: {
+      type: `count`,
+    },
+    // before
+    ratio: {
+      sql: `sum(${CUBE}.amount) / ${count}`,
+      type: `number`,
+    },
+    // after
+    // 因此也可以直接写函数
+    ratio: {
+      sql: (CUBE, count) => `sum(${CUBE}.amount) / ${count}`,
+      type: `number`,
+    },
+  },
+});
+```

@@ -1,7 +1,7 @@
 ---
 title: AlpineLinux Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # AlpineLinux Awesome
@@ -36,3 +36,16 @@ tags:
   Package repository
 - [build.alpinelinux.org](https://build.alpinelinux.org)
   Build status
+
+## Awesome
+
+- https://github.com/jirutka/akms
+- https://pkgs.alpinelinux.org/package/edge/main/x86_64/akms
+- https://github.com/jirutka/efi-mkkeys
+- https://pkgs.alpinelinux.org/package/edge/main/x86_64/efi-mkkeys
+- generate self-signed UEFI keys for Secure Boot
+- https://pkgs.alpinelinux.org/package/edge/main/x86_64/secureboot-hook
+  - kernel hook for generating signed UEFI Unified Kernel Image
+- https://pkgs.alpinelinux.org/package/edge/main/x86_64/sbsigntool
+  - Secure Boot signing tools
+- https://wiki.alpinelinux.org/wiki/UEFI_Secure_Boot

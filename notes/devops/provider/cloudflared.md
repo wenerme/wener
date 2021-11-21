@@ -20,6 +20,9 @@ sudo mv cloudflared /usr/local/bin/
 
 # 升级版本
 cloudflared update
+
+# 手动更新
+curl -Lo `which cloudflared` https://github.com/cloudflare/cloudflared/releases/download/2021.11.0/cloudflared-linux-amd64
 ```
 
 ## tunnel
@@ -89,6 +92,9 @@ ingress:
   - hostname: example.com
     service: https://localhost:8000
   # 域名+路径规则
+  - hostname: '*.example.com'
+    path: /.well-known/acme-challenge/
+    service: https://localhost:8000
   - hostname: static.example.com
     path: /*.(jpg|png|css|js)
     service: https://localhost:8001

@@ -6,6 +6,28 @@ tags:
 
 # Shell FAQ
 
+## string include/match
+
+```bash
+[[ 'abcd' = *'bc'* ]] && echo yes
+[[ 'abcd' =~ 'bc' ]] && echo yes
+str=abcd [ -z "${str##*bc*}" ] && echo yes
+```
+
+## trim space
+
+```bash
+echo "   lol  " | xargs
+# 不会 trim 换行
+echo -e "   lol\r\n  " | xargs | hexdump -C
+# 移除所有空白
+echo -e 'a b c\r' | tr -d '[:space:]'
+# trim left - sed 不能替换 \r\n
+echo -e ' \r\nabc\r\n ' | sed -e 's/^[[:space:]]*//'
+# trim right
+echo -e ' abc ' | sed -e 's/[[:space:]]*$//'
+```
+
 ## Terminal vs Console vs Shell
 
 - console = physical terminal

@@ -1,3 +1,9 @@
+---
+title: Linkerd 常见问题
+tags:
+  - FAQ
+---
+
 # Linkerd 常见问题
 
 ## 问题排查
@@ -37,16 +43,18 @@ kubectl get events --field-selector reason=IssuerUpdated -n linkerd
 ```
 
 ## linkerd-proxy-injector - remote error: tls: bad certificate
-* [#3754](https://github.com/linkerd/linkerd2/issues/3754)
+
+- [#3754](https://github.com/linkerd/linkerd2/issues/3754)
 
 ```bash
 linkerd upgrade --identity-trust-anchors-file=./ca.crt
 ```
 
 ## cni
-* 自动重写 Pod 的 iptables 规则
-* 安装后则不再需要 init - 该 Container 需要 NET_ADMIN 权限
-* 适用于集群对权限限制的比较严谨的场景
+
+- 自动重写 Pod 的 iptables 规则
+- 安装后则不再需要 init - 该 Container 需要 NET_ADMIN 权限
+- 适用于集群对权限限制的比较严谨的场景
 
 ```bash
 # 安装 CNI

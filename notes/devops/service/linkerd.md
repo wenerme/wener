@@ -453,3 +453,7 @@ namers:
     pattern: '/{service}/api'
     name: '/srv/{service}'
 ```
+
+## 多集群
+
+- Ingress 基于 Ambassador

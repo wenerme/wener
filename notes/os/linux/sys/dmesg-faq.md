@@ -22,6 +22,16 @@ ACPI Error: Aborting method _SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 ```
 
+## FS-Cache: Duplicate cookie detected
+
+- NFS 引起
+- 影响不大
+- 参考
+  - https://bugzilla.kernel.org/show_bug.cgi?id=200145
+  - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec0328e46d6e5d0f17372eb90ab8e333c2ac7ca9
+  - https://access.redhat.com/solutions/4644911
+  - RH KB4644911
+
 ## ACPI Error: SMBus/IPMI/GenericSerialBus write requires Buffer of length
 
 - 可能和 ACPI 电源监控有关

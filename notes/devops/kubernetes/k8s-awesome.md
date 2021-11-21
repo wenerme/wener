@@ -130,6 +130,10 @@ tags:
 - rancher
 - rke
 - kubesphere
+- [kcp-dev/kcp](https://github.com/kcp-dev/kcp)
+  - 兼容 kubectl api
+  - 用于实现自定义 cp
+  - 不是实际的 kubernetes
 - [scality/metalk8s](https://github.com/scality/metalk8s)
 - kube-edge - provisioning
 - [gravitational/gravity](https://github.com/gravitational/gravity)

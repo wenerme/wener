@@ -19,6 +19,23 @@ title: Knative
   - knative-eventing - 事件 - 管理和分发事件
   - knative-serving - 服务 - 请求驱动的计算 - 可缩容到 0
   - knative-monitoring - 监控和日志 - elastic/kibana/fluentd/prometheus
+  - 网络 - Gatway API
+    - Istio - 默认
+    - [knative-sandbox/net-kourier](https://github.com/knative-sandbox/net-kourier)
+      - Envoy proxy
+    - Ambassador, Contour, Gloo, Kong
+    - [ingress-nginx#7517](https://github.com/kubernetes/ingress-nginx/issues/7517)
+  - 事件源
+    - Ceph
+    - Apache CouchDB
+    - GitHub
+    - GitLab
+    - Apache Kafka
+    - NATS Streaming
+    - Prometheus
+    - RabbitMQ
+    - Redis
+- knative 没有提供 helm，官方倾向于 operator
 
 ## 安装
 
@@ -206,4 +223,20 @@ debug: 'false'
 
 # 0-1 的采样率
 sample-rate: '0.1'
+```
+
+## operator
+
+- https://knative.dev/docs/install/operator/knative-with-operators/
+
+```bash
+kubectl apply -f https://github.com/knative/operator/releases/download/knative-v1.0.0/operator.yaml
+```
+
+```yaml
+apiVersion: operator.knative.dev/v1alpha1
+kind: KnativeServing
+metadata:
+  name: knative-serving
+  namespace: knative-serving
 ```

@@ -1,5 +1,7 @@
 ---
 title: macOS FAQ
+tags:
+  - FAQ
 ---
 
 # macOS 常见问题
@@ -12,7 +14,7 @@ title: macOS FAQ
 
 - 11.5 macOS BigSur 后内核扩展不可用
 
-## 窗口只能看到边缘没有 Title 如何拖动
+## 窗口只能看到边缘没有 Title 如何拖动？
 
 - 鼠标放到边缘，变成箭头
 - 按住 Cmd 即可拖动
@@ -177,8 +179,13 @@ mkdir -p ~/Library/QuickLook/
 xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 ```
 
+## sysmond
+
+- macOS 的活动监控
+- 如果选择 Memory tab 且显示了 shared memory 和 private memory 会导致高 CPU 占用
+
 ## Why ZSH
 
 - Bash 4 为 GPLv3
 - 苹果拒绝使用 GPLv3
-- 10 年后迁移为使用 ZSH - MIT
+- 10 年后迁移为使用 ZSH - MIT

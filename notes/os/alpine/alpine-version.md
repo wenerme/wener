@@ -28,13 +28,12 @@ tags:
 - Linux 5.13 后可能支持 Apple M1
   - 可能会新增 linux-m1 内核
   - 16K page
-- WIP dkms - 需要 apk trigger 支持
 
 :::
 
 | version | date       |
 | ------- | ---------- |
-| 3.15    | 2021-11-01 |
+| 3.15    | 2021-11-?  |
 | 3.14    | 2021-07-15 |
 | 3.13    | 2020-01-14 |
 | 3.12    | 2020-05-29 |
@@ -55,14 +54,36 @@ tags:
 
 :::
 
+<!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
+
 ## 3.15
 
-- rsicv 架构
+- Linux 5.15
+- 🟠 新的签名 key - alpine-keys-2.4-r0 - 2048 -> 4096 bits
+- ❓ 新增 rsicv 架构
+- 🟢 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
+- 🟢 UEFI Secure Boot - secureboot-hook, efi-mkkeys
+- 🔴 停止 mips64 架构 - EOL
+- Kernel 内核 gzip 压缩
+- 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
+- alpin-conf - setup-disk 支持 加密数据盘、加密系统盘
 - openssl 1.1 - 升级 3.0 很多包有问题，退回到 1.1
 - 🆙 升级包
+  - llvm12
+  - nodejs 16
+  - php 7.4
+  - openjdk 17
+  - openldap 2.6
   - go 1.17
   - node 16
   - PostgreSQL 14
+    - 独立 postgresql-jit
+- ⭐️ 支持多版本 postgresql
+  - postgresql{12,13,14} - 升级迁移方便
+  - 不用害怕升级 postgresql 导致现在服务无法启动
+  - postgresql 默认指向最新版
+- radvd init 默认不开启 ipv6 转发
+  - 可自行开启 `net.ipv6.conf.all.forwarding=1`
 
 ## 3.14
 

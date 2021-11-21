@@ -26,7 +26,7 @@ tags:
   - SPDK, NVMe-oF
   - virtio-fs
 
-## 存储  服务接口类型
+## 存储服务接口类型
 
 - 对象
   - s3

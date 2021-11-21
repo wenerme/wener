@@ -13,6 +13,7 @@ tags:
 
 ## Ingress & Gateway
 
+- Ingress V2 -> Gateway
 - [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/#additional-controllers) 实现
 
 :::tip Ingress 实现情况

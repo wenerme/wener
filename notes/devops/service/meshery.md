@@ -8,6 +8,7 @@ title: meshery
   - servicemesh 管理面板
   - 适配管理多种 servicemesh 服务
   - 支持 docker 部署 - 管理外部 kube 集群
+  - 支持 istio, linkerd, consul, nsm, octarine, kuma, cpx, osm, traefik-mesh, nginx-sm, app-mesh, yanzi-sm
 
 | Components               |                                               |
 | ------------------------ | --------------------------------------------- |

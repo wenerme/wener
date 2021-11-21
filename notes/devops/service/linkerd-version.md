@@ -8,10 +8,19 @@ tags:
 
 | ver  | release date |
 | ---- | ------------ |
+| 2.11 | 2021-09-30   |
 | 2.10 | 2021-03-11   |
-| 2.9  | 2021-11-7    |
+| 2.9  | 2021-11-07   |
 
 ## 2.11
+
+- 服务策略 - 限定服务交互
+  - 内置 all-authenticated、all-unauthenticated、deny
+  - CDR Server、ServerAuthorization
+- gRPC 请求重试
+- 有 Body 的 HTTP 重试 - 最大 64K
+- `linkerd check -o short`
+- [Announcing Linkerd 2.11](https://linkerd.io/2021/09/30/announcing-linkerd-2.11/)
 
 ## 2.10
 

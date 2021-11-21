@@ -5,11 +5,12 @@ title: netdata
 # netdata
 
 - [netdata/netdata](https://github.com/netdata/netdata) 是什么？
+  - GPL-3.0, C
   - 美观简单的单机实时监控可视化服务
 - 默认精度 1s, 保存 1h
 
 ```bash
-# 缺少部分主机信息
+# docker 启动缺少部分主机信息
 docker run -d \
   -p 19999:19999 \
   -v netdataconfig:/etc/netdata \
@@ -26,9 +27,10 @@ docker run -d \
   --security-opt apparmor=unconfined \
   --name=netdata netdata/netdata
 
-# < 3.13
-apk add netdata -X https://mirrors.aliyun.com/alpine/edge/community/
+# < 3.13 -X https://mirrors.aliyun.com/alpine/edge/community/
+apk add netdata
 touch /etc/netdata/.opt-out-from-anonymous-statistics
+service netdata start
 
 # 启动后可保存完整配置
 curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
@@ -36,12 +38,24 @@ curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
 
 ## conf
 
+- /etc/netdata/netdata.conf
+- /var/lib/netdata/
+- [Daemon configuration](https://learn.netdata.cloud/docs/agent/daemon/config)
 
 ```conf
 [global]
-  # memory mode
+  # dbengine 默认 - 通过 page cache size 和 dbengine disk space 进一步控制
+  # save 退出保存，启动加载
+  # map 实时更新缓存
+  # ram 内存
+  # none 禁用监控
+  # alloc 类似 ram，使用 calloc，不支持 ksm
   memory mode = dbengine
+  page cache size = 32
+  dbengine disk space = 256
+  dbengine multihost disk space = 256
 ```
 
 ## registry
+
 - https://learn.netdata.cloud/docs/agent/registry/#run-your-own-registry

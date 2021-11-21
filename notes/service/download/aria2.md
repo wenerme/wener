@@ -51,3 +51,23 @@ follow-torrent=true
 #启用本地节点查找
 bt-enable-lpd=true
 ```
+
+## explain
+
+```
+[#2089b0 400.0KiB/33.2MiB(1%) CN:1 DL:115.7KiB ETA:4m51s]
+```
+
+- #NNNNNN -GID 前 6 位
+- X/Y(Z%) - Completed length, the total file length and its ratio. If --select-file is used, this is the sum of selected file.
+- SEED Share ratio. The client is now seeding. After BitTorrent download finished, size information is replaced with this.
+- CN - 链接数
+- SD - seeder 连接数
+- DL - 下载速率
+
+## bt tracker
+
+```bash
+curl -LO https://github.com/ngosang/trackerslist/raw/master/trackers_all_ip.txt
+echo bt-tracker=$(grep . trackers_all_ip.txt | tr '\n' ',') > ~/.aria2/aria2.conf
+```

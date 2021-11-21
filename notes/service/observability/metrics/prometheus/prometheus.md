@@ -5,8 +5,6 @@ title: Prometheus
 
 # Prometheus
 
-## Tips
-
 - [Prometheus](https://prometheus.io)
 - Prometheus [vs](https://prometheus.io/docs/introduction/comparison/)
 - Prometheus 可以和 Grafana 集成, 在 https://grafana.net/dashboards 可以找到很多预定义的面板定义
