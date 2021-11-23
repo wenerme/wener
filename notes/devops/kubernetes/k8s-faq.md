@@ -1,5 +1,7 @@
 ---
 title: K8S 常见问题
+tags:
+  - FAQ
 ---
 
 # K8S 常见问题
@@ -8,6 +10,8 @@ title: K8S 常见问题
 
 - flannel 独立出单独的 repo [flannel-io/cni-plugin](https://github.com/flannel-io/cni-plugin)
 - https://github.com/containernetworking/plugins/issues/655
+
+## 资源限制
 
 ## K3S 常见问题
 

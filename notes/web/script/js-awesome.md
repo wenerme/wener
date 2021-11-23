@@ -15,7 +15,7 @@ tags:
 ## Library
 
 - Event
-  - DOM EventTarget - Bus
+  - DOM EventTarget - Bus
   - DOM MessageChannel - 1-1、WebWorker
   - DOM BroadcastChannel - origin 纬度 - 多窗口
   - DOM Window.postMessage - 跨 origin、多窗口、iframe
@@ -26,6 +26,20 @@ tags:
   - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
 - IoC
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
+- deep compare
+  - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
+  - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
+    - 基于 fast-deep-equal
+    - 支持 react 元素
+  - [lukeed/dequal](github.com/lukeed/dequal)
+- Date & Time
+  - date-fns
+  - dayjs
+    - Fast 2kB alternative to Moment.js
+    - Immutable
+    - plugins
+      - duration
+  - moment
 
 ## JSX
 

@@ -47,8 +47,12 @@ yarn add -D @babel/preset-react
 # yarn add -D rollup @rollup/plugin-commonjs  @rollup/plugin-node-resolve @rollup/plugin-babel
 # yarn add -D @babel/core @babel/preset-typescript @babel/preset-react @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties
 
-# TS - 但目前不好用
+# TS
 yarn add -D typescript tslib @rollup/plugin-typescript
+
+# rollup
+# -f amd, cjs, es, iife, umd, system
+rollup -i in.js -f es -p node-resolve -o out.js
 ```
 
 | Format           | Fullname                       | When                         | package.json |

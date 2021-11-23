@@ -505,6 +505,11 @@ goweight
 - [progrium/macdriver](https://github.com/progrium/macdriver)
   - Native Mac APIs for Go
 
+## Lower Level
+
+- [mmcloughlin/avo](https://github.com/mmcloughlin/avo)
+  - Generate x86 Assembly with Go
+
 ## ML/机器学习
 
 - [sjwhitworth/golearn](https://github.com/sjwhitworth/golearn) is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.

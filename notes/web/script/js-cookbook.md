@@ -1,7 +1,7 @@
 ---
 title: JS Cookbook
 tags:
-- Cookbook
+  - Cookbook
 ---
 
 # JS Cookbook
@@ -10,20 +10,23 @@ tags:
 
 ```js
 // 切换 tab 后会触发
-document.addEventListener("visibilitychange", (e)=>console.log('visibilitychange',e));
-document.hidden
+document.addEventListener('visibilitychange', (e) => console.log('visibilitychange', e));
+document.hidden;
 
 // 窗口获取焦点后触发
-window.addEventListener("focus", (e)=>console.log('focus',e));
-document.hasFocus()
+window.addEventListener('focus', (e) => console.log('focus', e));
+document.hasFocus();
 ```
 
 ## sessionStorage 跨 Tab
+
 ```js
 // transfers sessionStorage from one tab to another
-var sessionStorage_transfer = function(event) {
-  if(!event) { event = window.event; } // ie suq
-  if(!event.newValue) return;          // do nothing if no value to work with
+var sessionStorage_transfer = function (event) {
+  if (!event) {
+    event = window.event;
+  } // ie suq
+  if (!event.newValue) return; // do nothing if no value to work with
   if (event.key == 'getSessionStorage') {
     // another tab asked for the sessionStorage -> send it
     localStorage.setItem('sessionStorage', JSON.stringify(sessionStorage));
@@ -39,20 +42,18 @@ var sessionStorage_transfer = function(event) {
 };
 
 // listen for changes to localStorage
-if(window.addEventListener) {
-  window.addEventListener("storage", sessionStorage_transfer, false);
+if (window.addEventListener) {
+  window.addEventListener('storage', sessionStorage_transfer, false);
 } else {
-  window.attachEvent("onstorage", sessionStorage_transfer);
-};
-
+  window.attachEvent('onstorage', sessionStorage_transfer);
+}
 
 // Ask other tabs for session storage (this is ONLY to trigger event)
 if (!sessionStorage.length) {
   localStorage.setItem('getSessionStorage', 'foobar');
   localStorage.removeItem('getSessionStorage', 'foobar');
-};
+}
 ```
-
 
 ## 检测虚拟机
 
@@ -77,20 +78,20 @@ console.log(renderer);
 - pretty-bytes
 
 ```js
-function formatBytes(bytes,decimals) {
-   if(bytes == 0) return '0 Bytes';
-   var k = 1024,
-       dm = decimals || 2,
-       sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-       i = Math.floor(Math.log(bytes) / Math.log(k));
-   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+function formatBytes(bytes, decimals) {
+  if (bytes == 0) return '0 Bytes';
+  var k = 1024,
+    dm = decimals || 2,
+    sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+    i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
 // Usage:
 // formatBytes(bytes,decimals)
 
-formatBytes(1024);       // 1 KB
-formatBytes('1024');     // 1 KB
-formatBytes(1234);       // 1.21 KB
-formatBytes(1234, 3);    // 1.205 KB
+formatBytes(1024); // 1 KB
+formatBytes('1024'); // 1 KB
+formatBytes(1234); // 1.21 KB
+formatBytes(1234, 3); // 1.205 KB
 ```

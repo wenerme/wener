@@ -4,11 +4,6 @@ title: MetalLB
 
 # MetalLB
 
-- 注意
-  - 不能 PING https://github.com/danderson/metallb/issues/259
-  - 支持 `externalTrafficPolicy` 选项 - BGP 和 L2 行为不一样
-  - [网络兼容](https://metallb.universe.tf/installation/network-addons/)
-    - Canal Cilium Flannel
 - [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - 配置简单
   - 会监听所有网卡
   - 流量只会到 **一个节点** 不是真正的负载均衡
@@ -23,13 +18,23 @@ title: MetalLB
   - `metallb-system/controller` deployment 处理 IP 分发
   - `metallb-system/speaker` daemonset 在每个节点上响应路由
     - 响应 ARP，申明节点有 IP 并返回 MAC
+- Helm https://github.com/wenerme/charts/tree/master/metallb
+
+:::tip
+
+- 不能 PING https://github.com/danderson/metallb/issues/259
+- 支持 `externalTrafficPolicy` 选项 - BGP 和 L2 行为不一样
+- [网络兼容](https://metallb.universe.tf/installation/network-addons/)
+  - Canal Cilium Flannel
+
+::
 
 ```bash
 # 通过 arping 检测网络互通
 # interface 和地址需要对应
 arping -I eth0 192.168.10.1
 
-# 在另外的节点上可以通过 tcpdump 检测网络互通
+# 在另外的节点上可以通过 tcpdump 检测网络互通
 tcpdump -n -i eth0 arp src host 192.168.1.240
 
 # metallb

@@ -31,17 +31,19 @@ tags:
     - [use-context-selector](https://github.com/dai-shi/use-context-selector)
 - [Will this React global state work in Concurrent Mode?](https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode)
 
-## react-window vs react-virtualized
+## react-virtual vs react-window vs react-virtualized
 
 :::tip 💡 如何选择
 
-1. 简单场景使用 react-window, 复杂场景使用 react-virtualized
-2. 面向客户端，强调性能使用 react-window；后端应用，强调功能使用 react-virtualized
+1. 使用 react-virtual
+2. 实在不能满足 尝试 react-window 或 react-virtualized
 
 :::tip
 
 ---
-
+- [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
+  - 基于 hook
+  - 开发活跃
 - react-window - min 24k ![](https://badgen.net/bundlephobia/min/react-window)
   - 重写 react-virtualized
   - 更加轻量

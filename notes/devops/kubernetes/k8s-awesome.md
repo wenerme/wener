@@ -112,14 +112,38 @@ tags:
 
 ## Dashboard/UI
 
+| ui                     | in     | web | desktop | cli | extensible |
+| ---------------------- | ------ | --- | ------- | --- | ---------- |
+| lens                   |        |     | ✅      |
+| portainer              |        |     | ✅      |
+| k9s                    | Golang |     |         | ✅  |
+| [octant]               | Golang | ✅  | ✅      |     | ⭐️⭐️⭐️  |
+| [kubernetes-dashboard] |        | ✅  |
+| rancher                | Golang | ✅  | ✅      |
+
+[kubernetes-dashboard]: https://github.com/kubernetes/dashboard
+[octant]: https://github.com/vmware-tanzu/octant
+
 - healmap
 - lens
-- kubernetes dashboard
-- k9s
-  命令行
+- [kubernetes/dashboard][kubernetes-dashboard]
+  - 简洁
+- k9s - 命令行
 - portainer
-- [vmware-tanzu/octant](https://github.com/vmware-tanzu/octant)
+  - 早期支持 docker，后来支持 k8s
 - [kubernetes-sigs/kui](https://github.com/kubernetes-sigs/kui)
+  - 增强 kubectl
+  - kubectl kui get pods
+- [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+- [vmware-tanzu/octant][octant]
+  - Highly extensible platform for developers to better understand the complexity of Kubernetes clusters.
+- [weaveworks/scope](https://github.com/weaveworks/scope)
+  - Monitoring, visualisation & management for Docker & Kubernetes
+- [indeedeng/k8dash](https://github.com/indeedeng/k8dash)
+- [hjacobs/kube-ops-view](https://github.com/hjacobs/kube-ops-view)
+  - Kubernetes Operational View - read-only system dashboard for multiple K8s clusters
+- [hjacobs/kube-resource-report](https://github.com/hjacobs/kube-resource-report)
+- [kube-web-view alternatives](https://kube-web-view.readthedocs.io/en/latest/alternatives.html)
 
 ## Distribution
 
@@ -127,8 +151,8 @@ tags:
 - k0s
 - openshift
 - microk8s
-- rancher
 - rke
+- rancher
 - kubesphere
 - [kcp-dev/kcp](https://github.com/kcp-dev/kcp)
   - 兼容 kubectl api

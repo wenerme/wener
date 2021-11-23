@@ -178,6 +178,22 @@ cubejs generate -t users,user_profiles
 - 社区维护，质量一般
 - https://github.com/cube-js/cube.js/tree/master/examples/helm-charts
 
+## container
+
+- [packages/cubejs-docker](https://github.com/cube-js/cube.js/tree/master/packages/cubejs-docker)
+- cubejs/cube:v0.28.59-alpine
+  - 目前没有删除 yarn cache 比较大
+- workdir /cube/conf
+- 包含所有驱动+@cubejs-backend/server+typescript
+- 默认执行 cubejs server
+
+```bash
+docker run --rm -it \
+  -p 4000:4000 \
+  -v $PWD:/cube/conf \
+  cubejs/cube:v0.28.59-alpine
+```
+
 # FAQ
 
 ## 转译逻辑

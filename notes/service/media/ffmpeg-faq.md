@@ -23,8 +23,8 @@ ffmpeg -i in.mp4 -q:a 0 -map a -c copy out.aac      # 提取 #0 音轨
 ```bash
 # 替换 #0
 ffmpeg -i in.mp4 -i in.wav -map 0:v -map 1:a -c:v copy -shortest out.mp4
-# 添加
-ffmpeg -i in.mkv -i in.mp3 -map 0 -map 1:a -c:v copy -shortest out.mkv
+# 添加 并设置语言
+ffmpeg -i in.mkv -i in.mp3 -map 0 -map 1:a -metadata:s:a:1 language=chi -c:v copy -shortest out.mkv
 # 混合
 ffmpeg -i in.mkv -i in.m4a -filter_complex "[0:a][1:a]amerge=inputs=2[a]" -map 0:v -map "[a]" -c:v copy -ac 2 -shortest out.mkv
 ```

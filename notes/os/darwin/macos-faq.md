@@ -181,7 +181,7 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 
 ## sysmond
 
-- macOS 的活动监控
+- macOS 的 Activity Monitor/活动监控 进程
 - 如果选择 Memory tab 且显示了 shared memory 和 private memory 会导致高 CPU 占用
 
 ## Why ZSH

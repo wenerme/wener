@@ -5,6 +5,13 @@ title: Yarn
 # Yarn
 
 - [nohoist in Workspaces](https://classic.yarnpkg.com/blog/2018/02/15/nohoist/)
+- 缓存位置 /usr/local/share/.cache/yarn
+
+:::caution
+
+- yarn install 可能不会安装任何东西 [#2240](https://github.com/yarnpkg/yarn/issues/2240)
+
+:::
 
 ```bash
 # $HOME/.yarn/global
@@ -16,6 +23,7 @@ yarn upgrade
 ```
 
 ## .yarnrc
+
 - https://npm.taobao.org/mirrors
 
 ```

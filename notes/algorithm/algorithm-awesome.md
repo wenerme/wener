@@ -1,7 +1,7 @@
 ---
 title: Algorithm Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Algorithm Awesome
@@ -22,3 +22,4 @@ tags:
 - https://github.com/google/farmhash/blob/master/Understanding_Hash_Functions
 - https://github.com/postgres/postgres/blob/master/src/backend/lib/knapsack.c
 - https://en.wikipedia.org/wiki/Tutte_embedding
+- [algorithm-visualizer/algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)

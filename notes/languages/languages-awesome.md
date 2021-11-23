@@ -33,3 +33,6 @@ tags:
 ## Low
 
 - [vnmakarov/mir](https://github.com/vnmakarov/mir)
+- [Common Language Infrastructure](https://en.wikipedia.org/wiki/Common_Language_Infrastructure)
+  - [ecma-335](https://www.ecma-international.org/publications-and-standards/standards/ecma-335/)
+  - [ISO/IEC 23271:2012](https://www.iso.org/standard/58046.html)

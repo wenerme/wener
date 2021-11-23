@@ -1,28 +1,16 @@
 ---
-id: k8s-dashboard
 title: Kubernates 面板
 ---
 
 # Kubernates 面板
 
-## Tips
+- [kubernetes/dashboard](https://github.com/kubernetes/dashboard)
+  - 非常简洁的 UI 面板
+- [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
-* [kubernetes/dashboard](https://github.com/kubernetes/dashboard)
-  * 非常简洁的 UI 面板
-* [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
-* 参考
-  * [其他的 UI](https://kube-web-view.readthedocs.io/en/latest/alternatives.html)
-    * https://github.com/vmware-tanzu/octant
-      * Highly extensible platform for developers to better understand the complexity of Kubernetes clusters. 
-    * https://github.com/weaveworks/scope
-      * Monitoring, visualisation & management for Docker & Kubernetes
-    * https://github.com/indeedeng/k8dash
-    * https://github.com/hjacobs/kube-ops-view
-      * Kubernetes Operational View - read-only system dashboard for multiple K8s clusters
-    * https://github.com/hjacobs/kube-resource-report/
 
 ```bash
-# HELM 安装参考 
+# HELM 安装参考
 # ==========
 # https://hub.helm.sh/charts/k8s-dashboard/kubernetes-dashboard
 helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
@@ -68,9 +56,10 @@ kubectl proxy
 ```
 
 ## TLS
-* [Certificate management](https://github.com/kubernetes/dashboard/blob/master/docs/user/certificate-management.md)
 
-- '--tls-cert-file=/tls.crt'
-- '--tls-key-file=/tls.key'
-- '--auto-generate-certificates'
-- '--namespace=kubernetes-dashboard'
+- [Certificate management](https://github.com/kubernetes/dashboard/blob/master/docs/user/certificate-management.md)
+
+* '--tls-cert-file=/tls.crt'
+* '--tls-key-file=/tls.key'
+* '--auto-generate-certificates'
+* '--namespace=kubernetes-dashboard'

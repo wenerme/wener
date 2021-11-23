@@ -372,6 +372,9 @@ npm add date-fns lodash-es react-fast-compare
 - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
   - 用于在实现状态管理时快速比较是否发生变化
   - 减少变化，避免刷新
+- [sandiiarov/use-deep-compare](https://github.com/sandiiarov/use-deep-compare)
+  - useDeepCompare{Callback,Effect,Memo,Memoize}
+  - 基于 dequal
 - [immerjs/use-immer](https://github.com/immerjs/use-immer)
   - useImmer - 基于 immer 的状态更新
   - 当状态较多时能很大程度简化操作 - 从 `setState(s=>({...s,loading:true}))` 变为 `update(s=>{s.loading=true})`

@@ -56,6 +56,7 @@ tags:
   - remote images registries - retrieving information, images, signing content
 - [wagoodman/dive](https://github.com/wagoodman/dive)
 - [vicanso/diving](https://github.com/vicanso/diving)
+  - https://diving.npmtrend.com/
   - dive web
 
 
