@@ -6,6 +6,17 @@ tags:
 
 # Shell FAQ
 
+## doas vs sudo
+
+- doas
+  - 95% of the features of sudo with a fraction of the codebase
+  - ~1000 LOC
+- sudo
+  - ~18K LOC
+  - 依赖很多 - eventlog, iolog, logsrv, protobuf-c, zlib
+  - logsrvd
+  - 功能多一些 - 不一定会用得到
+
 ## string include/match
 
 ```bash

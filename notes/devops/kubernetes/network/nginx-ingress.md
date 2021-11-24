@@ -1,12 +1,11 @@
 ---
-id: nginx-ingress
 title: Nginx Ingress
 ---
 
 # Nginx Ingress
 
-## Tips
-
+- [kubernetes/ingress-nginx](https://github.com/kubernetes/ingress-nginx)
+  - 基于 Nginx 实现的 Ingress API
 - 模版路径 [/etc/nginx/template/nginx.tmpl](https://github.com/kubernetes/ingress-nginx/blob/master/rootfs/etc/nginx/template/nginx.tmpl)
 - 支持自定义 [Lua 插件](https://github.com/kubernetes/ingress-nginx/blob/master/rootfs/etc/nginx/lua/plugins/README.md)
 - 无法全局添加 cert
@@ -100,6 +99,12 @@ nginx.ingress.kubernetes.io/session-cookie-change-on-failure: 'true'
 ```
 
 ### grpc
+
+:::info
+
+- 注意 body 默认 4MB 限制
+
+:::
 
 ```yaml
 # 修改后端

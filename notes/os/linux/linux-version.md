@@ -39,7 +39,7 @@ tags:
 - **NTFS**
 - ksmbd - in-kernel SMB 3 server
 
-## 5.10 - LTS
+## 5.10
 
 - EXT4
   - 支持 fast commit - fsync 和元数据操作更快 - mkfs 启用

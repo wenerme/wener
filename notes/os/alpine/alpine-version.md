@@ -1,5 +1,5 @@
 ---
-title: 版本历史
+title: AlpineLinux 版本历史
 tags:
   - Version
 ---
@@ -22,7 +22,9 @@ tags:
 - 3.16
   - OpenSSL 3 - 3.15 迁移不完 - wpa_supplicant,hostap,mariadb
   - rust community -> main
-- 3.15 预计会支持 riscv64
+- 3.15 推迟了 riscv64 支持
+  - 官方没有 **足够好的硬件** 构建整个流程
+  - 之后可能会出非正式的 iso - 可 QEMU 体验
 - s6 开发者在为 alpine 开发 openrc 后继服务管理
   - [A new service manager for Linux distributions](https://skarnet.com/projects/service-manager.html)
 - Linux 5.13 后可能支持 Apple M1
@@ -33,7 +35,7 @@ tags:
 
 | version | date       |
 | ------- | ---------- |
-| 3.15    | 2021-11-?  |
+| 3.15    | 2021-11-24 |
 | 3.14    | 2021-07-15 |
 | 3.13    | 2020-01-14 |
 | 3.12    | 2020-05-29 |
@@ -46,6 +48,7 @@ tags:
 :::caution 版本升级注意事项
 
 - 如果升级了 openssh 建议重启 sshd，否则可能不会接受新的链接
+- 3.15 - Linux 5.15 zfs /dev/zvol 启动时可能没创建 - [#13198](https://gitlab.alpinelinux.org/alpine/aports/-/issues/13198)
 - 3.14 musl 开启了 faccessat2, 对 docker 和 libseccomp 有要求
   - 不然可能会出现类似无权限访问的问题
   - Linux 5.8 增加 faccessat2
@@ -58,32 +61,44 @@ tags:
 
 ## 3.15
 
-- Linux 5.15
+- Linux [5.15](https://wener.me/notes/os/linux/linux-version#515)
+  - NTFS 内核 驱动
 - 🟠 新的签名 key - alpine-keys-2.4-r0 - 2048 -> 4096 bits
-- ❓ 新增 rsicv 架构
+- 🟠 sudo -> [doas](https://wener.me/notes/os/linux/shell/doas/)
+  - 3.15 默认 doas
+  - 3.16 sudo 会挪到 community
 - 🟢 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
 - 🟢 UEFI Secure Boot - secureboot-hook, efi-mkkeys
 - 🔴 停止 mips64 架构 - EOL
 - Kernel 内核 gzip 压缩
 - 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
 - alpin-conf - setup-disk 支持 加密数据盘、加密系统盘
+- mount overlaytmpfs - mkinitfs-bootparams.7
 - openssl 1.1 - 升级 3.0 很多包有问题，退回到 1.1
 - 🆙 升级包
   - llvm12
   - nodejs 16
-  - php 7.4
+  - php 7.4 phase out
   - openjdk 17
   - openldap 2.6
+  - rust 1.56
   - go 1.17
   - node 16
+  - ruby 3.0
   - PostgreSQL 14
-    - 独立 postgresql-jit
+    - 独立 postgresql-jit 包
+  - k3s 1.22.3
+  - n2n 3.0
+  - kea 2.0 - DHCPv4, DHCPv6 server
 - ⭐️ 支持多版本 postgresql
   - postgresql{12,13,14} - 升级迁移方便
   - 不用害怕升级 postgresql 导致现在服务无法启动
   - postgresql 默认指向最新版
+  - pg_versions 可切换版本
+- postgresql-dev -> libpq-dev, libecpg-dev
 - radvd init 默认不开启 ipv6 转发
   - 可自行开启 `net.ipv6.conf.all.forwarding=1`
+- [Draft Release Notes for Alpine 3.15.0](https://wiki.alpinelinux.org/wiki/Draft_Release_Notes_for_Alpine_3.15.0)
 
 ## 3.14
 
@@ -95,7 +110,7 @@ tags:
 
 :::
 
-- Linux Kernel 5.10.43
+- Linux Kernel 5.10
 - 🆕 新增包
   - n2n
   - openssh-server-krb5, openssh-client-krb5
