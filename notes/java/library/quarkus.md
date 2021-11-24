@@ -1,11 +1,8 @@
 ---
-id: quarkus
 title: Quarkus
 ---
 
 # Quarkus
-
-## Tips
 
 - [Quarkus](https://quarkus.io/) - Kubernetes Native Java stack tailored for GraalVM & OpenJDK HotSpot
 - [code.quarkus.io](https://code.quarkus.io/) 项目生成，类似于 spring 的 start

@@ -1,5 +1,7 @@
 ---
 title: BI FAQ
+tags:
+  - FAQ
 ---
 
 # BI FAQ

@@ -79,15 +79,16 @@ tags:
   - 密度热力图
   - 瀑布图
   - 词云图
-  - 小提琴图
+  - violin plot - 小提琴图
   - 韦恩图
   - Circle Packing
   - 分面图
-  - Gantt - 甘特图
+  - Gantt - 甘特图 - Ranged Bar Marks
 - 选择考量标准
   - SVG/Canvas
   - Bundle 大小 - 有的框架动不动就上 MB
     - treeshake
+    - 依赖复用 - 例如 d3, react-spring, lodash, lodash-es
   - 图类型 - 2D, 3D, Geo, 基础, 高级
   - 基于框架 - 更容易自定义, 更好处理事件、渲染
     - React 对 SVG 有天生优势
@@ -102,7 +103,8 @@ tags:
   - 依赖
     - lodash, lodash-es, react-spring
   - 其他功能
-    - BI, 透视/Pivot, crossflair, 动画
+    - BI, 透视/Pivot, crossfilter, 动画
+    - 交互: 拖拉、选择，平滑
   - 可组合使用
     - 例如 BI 时使用 plotly 这种，table 或 其他自定义显示时使用 recharts
 
@@ -111,7 +113,7 @@ tags:
 **React**
 
 - [FormidableLabs/victory](https://github.com/FormidableLabs/victory)
-  - 530K / 130K
+  - 530K
   - React, d3
   - Victory Native 支持 React Native
   - 支持 极坐标、桑基图、BoxPlot
@@ -130,23 +132,39 @@ tags:
   - React
   - 基于 visx
 - [reactchartjs/react-chartjs-2](https://github.com/reactchartjs/react-chartjs-2)
+  - 基于 chart.js
 - [nhn/tui.chart](https://github.com/nhn/tui.chart)
 
 ---
 
 **Declarative**
 
+> Declarative 类型的图和框架一般结合不太好 - 例如: 不方便直接渲染 React, 只能使用 DOM
+
 - [plotly/plotly.js](https://github.com/plotly/plotly.js)
   - 3.5 MB
   - 基于 @plotly/d3
   - 核心包很大，包含所有功能，因为是定义式的，不可以 treeshake
   - 不少 BI 工具都是直接集成 plotly 提供绘图能力
-- [vega/vega](https://github.com/vega/vega)
-  - 500 KB
-  - 基于 D3
-  - 完全基于 JSON 定义
-- [vega/vega-lite](https://github.com/vega/vega-lite)
-  - 300 KB
+- vega
+  - [vega/vega](https://github.com/vega/vega)
+    - 500 KB
+    - 基于 D3
+    - 完全基于 JSON 定义
+    - [editor](https://vega.github.io/editor/)
+  - [vega/vega-lite](https://github.com/vega/vega-lite)
+    - 300 KB
+    - 会编译为 Vega
+    - data, transform, mark, encoding
+    - 数据优先
+    - [vega/vega-lite#1657](https://github.com/vega/vega-lite/issues/1657) Legends & Axes 不支持交互
+  - [vega/react-vega](https://github.com/vega/react-vega)
+    - 基于 vega-embed
+    - [doc](https://github.com/vega/react-vega/tree/master/packages/react-vega)
+  - [vega/voyager](https://github.com/vega/voyager)
+    - http://vega.github.io/voyager/
+  - [vega/vega-embed](https://github.com/vega/vega-embed)
+    - Vega visualizations as embedded web component
 - [apexcharts/apexcharts.js](https://github.com/apexcharts/apexcharts.js)
   - 472 KB
   - 与 plotly 非常相似
@@ -154,6 +172,11 @@ tags:
 - [naver/billboard.js](https://github.com/naver/billboard.js)
   - 300 KB
   - 基于 D3
+- [apache/echarts](https://github.com/apache/echarts)
+  - 百度
+  - 1 MB
+  - zrender 渲染
+  - 图像优先,定数据
 
 ---
 
@@ -188,10 +211,6 @@ tags:
     - React
   - [ant-design/ant-design-charts](https://github.com/ant-design/ant-design-charts)
     - React, G2Plot, G6, X6, L7
-- [apache/echarts](https://github.com/apache/echarts)
-  - 百度
-  - 1 MB
-  - zrender 渲染
 - chart.js
 - [cytoscape/cytoscape.js](https://github.com/cytoscape/cytoscape.js)
 - [visjs/vis-network](https://github.com/visjs/vis-network)
@@ -205,7 +224,11 @@ tags:
 - [britecharts/britecharts](https://github.com/britecharts/britecharts)
 - [ChartsCSS/charts.css](https://github.com/ChartsCSS/charts.css)
 - [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)
+
+---
+
 - [Comparison of JavaScript charting libraries](https://en.wikipedia.org/wiki/Comparison_of_JavaScript_charting_libraries)
+- npmtrends [vs](https://www.npmtrends.com/bizcharts-vs-echarts-vs-plotly.js-vs-recharts-vs-vega-vs-vega-lite-vs-victory-vs-@nivo/core)
 
 ## Visualization
 
@@ -225,6 +248,21 @@ tags:
 - [finos/perspective](https://github.com/finos/perspective)
 - [d3fc/d3fc](https://github.com/d3fc/d3fc)
 - [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)
+
+## dashboard
+
+:::tip
+
+- 自定义 Dashboard 带 Builder 性质
+  - 有些特性和 BlockBuilder、PageBuilder 类似
+  - 序列化
+- 基础大多基于 react-grid-layout
+
+:::
+
+- react-grid-layout
+- https://cumul.io/library/react
+- https://dev.to/sm0ke/react-dashboards-open-source-apps-1c7j
 
 ## ML
 

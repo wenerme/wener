@@ -4,6 +4,7 @@ Semantic Modeling for Data
 
 人件
 人月神话
+别让猴子跳回背上
 
 The Informed Company: How to Build Modern Agile Data Stacks that Drive Winning Insights
 

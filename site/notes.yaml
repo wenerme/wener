@@ -190,6 +190,12 @@
       prefix: ./cms
     - label: 客户关系管理
       prefix: ./crm
+    - label: BI
+      prefix: ./bi
+    - label: Analytics
+      prefix: ./analytics
+    - label: 工作流
+      prefix: ./workflow
     - label: Office
       prefix: ./office
     - label: 文件
@@ -201,11 +207,17 @@
           prefix: ./minio
         - label: Ceph
           prefix: ./ceph
+    - label: Selfhost
+      prefix: ./selfhost
     - label: 网络
       prefix: ./network
       items:
         - label: Tinc
           prefix: ./tinc
+    - label: 即时通讯
+      prefix: ./im
+    - label: 电子邮件
+      prefix: ./email
     - label: 电信
       prefix: ./telecom
     - label: DNS

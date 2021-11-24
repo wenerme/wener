@@ -31,7 +31,7 @@ tags:
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
     - 基于 fast-deep-equal
     - 支持 react 元素
-  - [lukeed/dequal](github.com/lukeed/dequal)
+  - [lukeed/dequal](https://github.com/lukeed/dequal)
 - Date & Time
   - date-fns
   - dayjs
