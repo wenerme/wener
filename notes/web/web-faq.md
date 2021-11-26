@@ -137,8 +137,8 @@ location.origin;
 
 - https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers
 
-
 ## websocket auth
+
 1. cookie - 最简单
 2. 协议内授权
 3. otp 方式
@@ -146,3 +146,5 @@ location.origin;
 ---
 
 - https://devcenter.heroku.com/articles/websocket-security
+
+## cross-origin vs. same-site

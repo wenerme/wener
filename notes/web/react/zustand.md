@@ -23,6 +23,12 @@ title: zustand
 
 :::
 
+:::caution
+
+- 上下文模式必须要求有 Provider/Context - 否则会异常
+
+:::
+
 ```ts
 import create from 'zustand';
 const useStore = create((set) => ({
@@ -92,16 +98,20 @@ const nonReactCallback = () => {
 - 不直接 useStore - 避免 react
 
 ```ts
-const useStore = create(set => ({ scratches: 0, ... }))
+const useStore = create((set) => ({ scratches: 0 }));
 
 function Component() {
   // 初始状态
-  const scratchRef = useRef(useStore.getState().scratches)
+  const scratchRef = useRef(useStore.getState().scratches);
   // 将变化捕获到引用 - 或直接调用外部 set
-  useEffect(() => useStore.subscribe(
-    scratches => (scratchRef.current = scratches),
-    state => state.scratches
-  ), [])
-  return
+  useEffect(
+    () =>
+      useStore.subscribe(
+        (scratches) => (scratchRef.current = scratches),
+        (state) => state.scratches,
+      ),
+    [],
+  );
+  return;
 }
 ```

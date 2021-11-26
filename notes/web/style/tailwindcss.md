@@ -16,6 +16,7 @@ title: Tailwind CSS
     - 类似 Tailwind+JIT
   - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
   - [shuffle.dev](https://shuffle.dev) - 模板生成
+  - [tw-in-js/twind](https://github.com/tw-in-js/twind)
 - 组件
   - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
     Tailwind Components
@@ -23,7 +24,9 @@ title: Tailwind CSS
     - iOS & Android 样式
     - React,Vue,Sevlte 组件
   - [themesberg/flowbite](https://github.com/themesberg/flowbite)
+- Dashboard
   - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
+  - https://demos.creative-tim.com/notus-react
 
 ```bash
 # 基础依赖

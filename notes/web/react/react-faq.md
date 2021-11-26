@@ -1,7 +1,7 @@
 ---
 title: React FAQ
 tags:
-- FAQ
+  - FAQ
 ---
 
 # React FAQ
@@ -11,6 +11,22 @@ tags:
 - 避免 render 阶段修改状态
 - 参考
   - [facebookexperimental/Recoil#12](https://github.com/facebookexperimental/Recoil/issues/12)
+
+```ts
+// from
+if (storeRef.current && !isEqual(preloadRef.current, props)) {
+  console.debug(`DashboardStoreProvider: update preload`);
+  preloadRef.current = props;
+  storeRef.current.setState(props as any);
+}
+
+// to
+useDeepCompareEffect(() => {
+  if (storeRef.current) {
+    storeRef.current.setState(props as any);
+  }
+}, [props]);
+```
 
 ## 上下文变化但不从新渲染
 
@@ -41,6 +57,7 @@ tags:
 :::tip
 
 ---
+
 - [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
   - 基于 hook
   - 开发活跃

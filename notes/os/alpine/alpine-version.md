@@ -61,6 +61,20 @@ tags:
 
 ## 3.15
 
+:::caution
+
+因为升级了 key, 升级 3.15 之前一定确保先将 alpine-keys 升级到 2.4.0+
+
+```bash
+apk update
+apk upgrade alpine-keys
+sed -i 's/v3.14/v3.15/g' /etc/apk/repositories
+apk update
+apk upgrade -a
+```
+
+:::
+
 - Linux [5.15](https://wener.me/notes/os/linux/linux-version#515)
   - NTFS 内核 驱动
 - 🟠 新的签名 key - alpine-keys-2.4-r0 - 2048 -> 4096 bits

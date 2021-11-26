@@ -31,3 +31,9 @@ const Demo = () => {
   );
 };
 ```
+
+## Notes
+
+- resize handle 会作为 children 传入 子元素
+  - 因此 children 会变为数组
+- 自定义元素需要注意处理好 透传 props

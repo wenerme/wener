@@ -235,6 +235,19 @@ title: 开发用词字典
 | corporate representative | 法人代表         |
 | supervisor               | 监事             |
 
+## 统计分析
+
+| abbr. | word                       | stand for      |
+| ----- | -------------------------- | -------------- |
+|       | descriptive statistics     | 描述性统计     |
+|       | insight                    | 洞察           |
+|       | Statistical Analysis       | 统计分析       |
+|       | statistics                 | 分析           |
+| BI    | Business Intelligence      | 商业智能       |
+| CDA   | confirmatory data analysis | 验证性数据分析 |
+| EDA   | exploratory data analysis  | 探索性数据分析 |
+| IDA   | initial data analysis      | 初步数据分析   |
+
 # FAQ
 
 ## customer vs account vs client vs consumer vs user

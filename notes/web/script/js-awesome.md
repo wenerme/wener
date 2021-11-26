@@ -40,6 +40,44 @@ tags:
     - plugins
       - duration
   - moment
+  - d3-time-format
+  - chrono-node
+- number format
+  - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
+    - 基于 numeral
+  - [numeral](https://github.com/adamwdraper/Numeral-js)
+    - 不再维护
+- money
+  - [dinero.js](https://github.com/dinerojs/dinero.js)
+    - create, calculate, format money
+  - [currency.js](https://github.com/scurker/currency.js)
+  - [accounting.js](https://github.com/openexchangerates/accounting.js)
+- flip effect
+  - [react-flip-numbers](https://github.com/bluebill1049/react-flip-numbers)
+  - [react-flipcard](https://github.com/mzabriskie/react-flipcard)
+  - [number-flip] (https://github.com/gaoryrt/flip)
+  - [objectivehtml/FlipClock](https://github.com/objectivehtml/FlipClock)
+    - 不再维护
+- animation
+  - [framer/motion](https://github.com/framer/motion)
+  - react-spring
+  - react-motion
+  - react-move
+  - [danro/easing-js](https://github.com/danro/easing-js)
+- functional
+  - [ramda](https://github.com/ramda/ramda)
+  - [fp-ts](https://github.com/gcanti/fp-ts)
+  - io-ts
+- reactive
+  - rxjs
+- core
+  - core-js
+  - lodash
+  - underscore
+- clone
+  - structuredClone - Chrome 98
+- json
+  - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
 
 ## JSX
 

@@ -103,7 +103,7 @@ tags:
   - 依赖
     - lodash, lodash-es, react-spring
   - 其他功能
-    - BI, 透视/Pivot, crossfilter, 动画
+    - BI, 透视/Pivot, crossfilter, crosshair, 动画
     - 交互: 拖拉、选择，平滑
   - 可组合使用
     - 例如 BI 时使用 plotly 这种，table 或 其他自定义显示时使用 recharts
@@ -122,6 +122,7 @@ tags:
   - React and D3
   - 自定义能力强
   - 支持 桑基图、Treemap、漏斗、放射饼图、雷达图
+  - Support for histogram chart [recharts#1580](https://github.com/recharts/recharts/issues/1580)
 - [plouc/nivo](https://github.com/plouc/nivo)
   - 图表类型为独立包 - 例如 @nivo/bar, @nivo/funnel
 - [airbnb/visx](https://github.com/airbnb/visx/)
@@ -165,6 +166,19 @@ tags:
     - http://vega.github.io/voyager/
   - [vega/vega-embed](https://github.com/vega/vega-embed)
     - Vega visualizations as embedded web component
+  - [vega/falcon](https://github.com/vega/falcon)
+    - Brushing and linking for big data
+- [apache/echarts](https://github.com/apache/echarts)
+  - 百度
+  - 1 MB
+  - zrender 渲染
+  - 图像优先,定数据
+  - Apache Superset 使用 ECharts - 因为同为 Apache 项目 - 替代 NVD3
+    - NVD3 不再维护
+  - ECharts v4 支持 SVG
+  - ECharts v5 支持 [transform](https://echarts.apache.org/handbook/zh/concepts/data-transform/)
+- [observablehq/plot](https://github.com/observablehq/plot)
+  - concise API for exploratory data visualization
 - [apexcharts/apexcharts.js](https://github.com/apexcharts/apexcharts.js)
   - 472 KB
   - 与 plotly 非常相似
@@ -172,11 +186,6 @@ tags:
 - [naver/billboard.js](https://github.com/naver/billboard.js)
   - 300 KB
   - 基于 D3
-- [apache/echarts](https://github.com/apache/echarts)
-  - 百度
-  - 1 MB
-  - zrender 渲染
-  - 图像优先,定数据
 
 ---
 
@@ -232,6 +241,7 @@ tags:
 
 ## Visualization
 
+- [microsoft/datamations](https://github.com/microsoft/datamations)
 - https://github.com/riccardoscalco/textures
 - https://github.com/visgl/deck.gl
 - https://github.com/keplergl/kepler.gl

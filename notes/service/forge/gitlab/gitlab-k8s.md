@@ -4,16 +4,43 @@ title: GitLab K8S 集成
 
 # GitLab K8S
 
-- 问题
-  - 集成 Helm 3
-    - ~~[#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)~~
-      - 不在直接使用 Helm
-    - [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
-    - [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
-  - 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
-  - 使用现有的 Knative [#27173](https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/27173)
-  - [#41614](https://gitlab.com/gitlab-org/gitlab/issues/20556) - Kubernetes cluster integration shall only install Helm Tiller or Ingress if not available already
-    - 如果集群里已经有 Tiller 再次安装会有问题
+## Kubernetes Agent
+
+- [gitlab-agent](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent)
+- 14.5 基础 free
+- GitLab.com wss://kas.gitlab.com
+- Pull based, 基于 [argoproj/gitops-engine](https://github.com/argoproj/gitops-engine)
+
+### 安装
+
+- 仓库中添加配置 `.gitlab/agents/<agent-name>/config.yaml`
+
+```yaml
+gitops:
+  manifest_projects:
+    # The `id` is the path to the Git repository holding your manifest files
+    - id: 'path/to/your-manifest-project-1'
+      paths:
+        - glob: '/**/*.{yaml,yml,json}'
+```
+
+## Gitlab Managed
+
+> 已经废弃
+
+:::info
+
+- 集成 Helm 3
+  - ~~[#29037](https://gitlab.com/gitlab-org/gitlab/issues/29037) - Remove use of tiller from Kubernetes integration (Helm v3)~~
+    - 不在直接使用 Helm
+  - [Support Helm 3](https://gitlab.com/groups/gitlab-org/charts/-/epics/1)
+  - [#2121](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2121) KOTS 集成
+- 部署到 istio [gitlab-org/charts#743](https://gitlab.com/gitlab-org/charts/gitlab/issues/743)
+- 使用现有的 Knative [#27173](https://gitlab.com/gitlab-org/gitlab-foss/merge_requests/27173)
+- [#41614](https://gitlab.com/gitlab-org/gitlab/issues/20556) - Kubernetes cluster integration shall only install Helm Tiller or Ingress if not available already
+  - 如果集群里已经有 Tiller 再次安装会有问题
+
+:::
 
 :::caution
 
@@ -32,7 +59,7 @@ kubectl config set-context --current --namespace=gitlab-managed-apps
 kubectl edit $(kubectl get pods -o name | grep tiller-deploy)
 ```
 
-## 安装参数
+### 安装参数
 
 ```bash
 # 拷贝 API - sed 用于移除颜色
@@ -64,12 +91,6 @@ YAML
 # 拷贝 Token
 kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep gitlab-admin-token | awk '{print $1}') -o jsonpath='{.data.token}' | base64 --decode | pbcopy
 ```
-
-## Kubernetes Agent
-
-- **PREMIUM**
-- GitLab.com wss://kas.gitlab.com
-- Pull based, 基于 [argoproj/gitops-engine](https://github.com/argoproj/gitops-engine)
 
 ## FAQ
 
