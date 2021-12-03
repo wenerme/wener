@@ -22,6 +22,7 @@ tags:
 - [outsideris/citizen](https://github.com/outsideris/citizen)
   Private Terraform Module Registry
 - [shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform)
+- [adobe/tf-manage](https://github.com/adobe/tf-manage)
 
 ## Learn
 

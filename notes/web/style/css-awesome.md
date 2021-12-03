@@ -53,3 +53,8 @@ tags:
   - CSS Selector 游戏
 - [Selectors Explained](https://kittygiraudel.github.io/selectors-explained/)
 - [Guide to Advanced CSS Selectors - Part One](https://moderncss.dev/guide-to-advanced-css-selectors-part-one/)
+
+## Loader
+
+- [vineethtrv/css-loader](https://github.com/vineethtrv/css-loader)
+- [gaoryrt/minimal-loading](https://github.com/gaoryrt/minimal-loading)

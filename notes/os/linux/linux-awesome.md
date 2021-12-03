@@ -33,3 +33,7 @@ tags:
 ## Tools
 
 - [aristocratos/btop](https://github.com/aristocratos/btop)
+
+## 有趣
+- [sbu-fsl/kernel-ml](https://github.com/sbu-fsl/kernel-ml)
+  - Brings ML to Linux kernel

@@ -16,8 +16,20 @@ tags:
   - https://oiipdf.com/
 - https://graph.org/documentaryList-09-11
 - https://torlook.info
+- https://www.alipansou.com/
+  - https://pan.alipanso.com/
+
+---
+
+- https://z-lib.org/
+- https://librivox.org/
+  - free public domain audiobooks
+- [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
+- [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 
 <!--
+alipanso6.com，alipanso7.com，alipanso8.com
+
 - [btbtt](http://btbtt.biz/)
   - 中文 BT 站点
 -->

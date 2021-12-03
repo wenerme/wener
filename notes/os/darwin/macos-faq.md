@@ -123,6 +123,10 @@ diskutil resetFusion
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
 
+## .DS_Store
+- https://eclecticlight.co/2021/11/27/explainer-ds_store-files/
+- https://news.ycombinator.com/item?id=29358932
+
 ## interface 添加地址
 
 ```bash

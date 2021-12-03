@@ -10,6 +10,8 @@ tags:
 
 - https://medium.muz.li/
 - https://dribbble.com/AndrewCoyleDesign
+- [shuffle.dev](https://shuffle.dev/)
+  - [HN](https://news.ycombinator.com/item?id=29349079)
 
 ## Design System
 

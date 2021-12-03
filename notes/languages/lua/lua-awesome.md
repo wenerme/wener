@@ -15,6 +15,7 @@ tags:
   - Lua 5.1
 - [openresty/luajit2](https://github.com/openresty/luajit2)
   - OpenResty fork LuaJIT
+- [akkartik/teliva](https://github.com/akkartik/teliva)
 
 ## Lua VM Internal
 
@@ -26,7 +27,7 @@ tags:
 
 - [Shopify/go-lua](https://github.com/Shopify/go-lua)
   - Lua 5.2 VM in Go
-  - 执行 luac 编译结果
+  - 执行 luac 编译结果
   - fib(35) 6x 慢于 lua, 20% 快于 gopher-lua
     - tail-recursive
 - [yuin/gopher-lua](https://github.com/yuin/gopher-lua)

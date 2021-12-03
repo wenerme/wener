@@ -123,6 +123,8 @@ tags:
   - https://twitter.com/kornelski/status/1328786564416200709
   - https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4
 - compression ratio = uncompressed size / compressed size
+- [Lossless Image Compression in O(n) Time](https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression)
+  - [HN](https://news.ycombinator.com/item?id=29328750)
 
 ```bash
 # squoosh 可通过命令行使用

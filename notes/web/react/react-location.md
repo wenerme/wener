@@ -5,6 +5,8 @@ title: React Location
 # React Location
 
 - [tannerlinsley/react-location](https://github.com/tannerlinsley/react-location)
+- 参考
+  - [vs. React Router](https://react-location.tanstack.com/comparison)
 
 ```js
 import {

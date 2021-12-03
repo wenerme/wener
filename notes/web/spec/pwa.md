@@ -9,6 +9,7 @@ title: PWA
 - service workers
 - manifests
 - 参考
+  - [Learn PWA](https://web.dev/learn/pwa/)
   - [GoogleChrome/workbox](https://github.com/GoogleChrome/workbox)
     - [doc](https://developers.google.com/web/tools/workbox)
   - [Service Worker Cookbook](https://serviceworke.rs/)

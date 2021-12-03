@@ -35,7 +35,7 @@ title: Low Code Awesome
   - MIT, TypeScript
 - [appsmithorg/appsmith](https://github.com/appsmithorg/appsmith)
   Build custom CRUD apps that talk to any API or database
-  - Apache, Typescript+Java
+  - Apache-2.0, Typescript+Java
 - [frappe/frappe](https://github.com/frappe/frappe)
   - MIT, Python+MariaDB
 - [BuilderIO/builder](https://github.com/BuilderIO/builder)
@@ -53,12 +53,28 @@ title: Low Code Awesome
   - MIT
 - [ToolJet/ToolJet](https://github.com/ToolJet/ToolJet)
   no-code platform for building and deploying internal tools
-  - GPL-3
+  - AGPL-3
 - [Budibase/budibase](https://github.com/Budibase/budibase)
+  - GPL v3
+  - https://docs.budibase.com/references-1/budibase-architecture
 - [nocodb/nocodb](https://github.com/nocodb/nocodb)
+
+## Builder
+
+- [prevwong/craft.js](https://github.com/prevwong/craft.js)
+- [premieroctet/openchakra](https://github.com/premieroctet/openchakra)
+- https://webcodesk.com/
+- [plasmicapp/plasmic](https://github.com/plasmicapp/plasmic)
+- [Shopify/hydrogen](https://github.com/Shopify/hydrogen)
+  - React-based framework for building dynamic, Shopify-powered custom storefronts
+
+---
+
+- https://divjoy.com/
 
 ## 商业
 
+- https://responsevault.com/demo/
 - [convertigo/convertigo](https://github.com/convertigo/convertigo)
   - AGPL, Java, Vue
   - Server - MBaaS, Studio - Mobile Builder, SDK, Forms
@@ -81,7 +97,10 @@ title: Low Code Awesome
   - C#
 - [skyvers/skyve](https://github.com/skyvers/skyve)
   - LGPL-2.1, Java
-
+- [blocks/blocks](https://github.com/blocks/blocks)
+  JSX Page Builder
+  - MIT, JS
+  - 开发停滞
 ## 国内项目
 
 - [taowen/awesome-lowcode](https://github.com/taowen/awesome-lowcode)
@@ -136,10 +155,7 @@ title: Low Code Awesome
   vue GUI generator
   - MIT
   - 开发停滞
-- [blocks/blocks](https://github.com/blocks/blocks)
-  JSX Page Builder
-  - MIT, JS
-  - 开发停滞
+
 
 ## 编排
 
@@ -170,4 +186,4 @@ title: Low Code Awesome
   - internal
   - AppGyver
   - Zoho Creator
-  - AppSheet
+  - AppSheet

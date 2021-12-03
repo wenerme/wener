@@ -132,6 +132,10 @@ title: CMS Awesome
 - [jamstack.org](https://jamstack.org/)
   - [best-practices](https://jamstack.org/best-practices/)
 
+## Static Site Generator
+
+- [11ty/eleventy](https://github.com/11ty/eleventy)
+
 ## BAAS
 
 - Backend As A Service

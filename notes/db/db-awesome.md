@@ -66,7 +66,10 @@ tags:
 
 ## 有趣
 
-- [MangoDB-io/MangoDB](https://github.com/MangoDB-io/MangoDB)
+- [facebookincubator/LogDevice](https://github.com/facebookincubator/LogDevice)
+  - Distributed storage for sequential data
+- [FerretDB/FerretDB](https://github.com/FerretDB/FerretDB)
+  - Apache-2.0, Go
   - mongodb wire protocol to PostgreSQL
 - [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html)
   - TAO - The Associations and Objects
@@ -74,6 +77,13 @@ tags:
 - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL
+- [dolthub/dolt](https://github.com/dolthub/dolt)
+  - Git for Data
+- [ApsaraDB](https://github.com/ApsaraDB)
+- [xtdb/xtdb](https://github.com/xtdb/xtdb)
+
+## ID
+
 - [ULID](https://github.com/ulid/spec)
   - [#41](https://github.com/ulid/spec/issues/41)
     PostgreSQL
@@ -84,10 +94,9 @@ tags:
     - [geckoboard/pgulid](https://github.com/geckoboard/pgulid)
   - [UUIDv6](https://datatracker.ietf.org/doc/html/draft-peabody-dispatch-new-uuid-format-00)
     有点类似 ULID
+- [niieani/hashids.js](https://github.com/niieani/hashids.js)
+  - YouTube-like ids
 - [Sharding & IDs at Instagram](https://instagram-engineering.com/1cf5a71e5a5c)
-- [dolthub/dolt](https://github.com/dolthub/dolt)
-  - Git for Data
-- [ApsaraDB](https://github.com/ApsaraDB)
 
 ## Big Data
 

@@ -9,6 +9,7 @@ tags:
 - [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [novnc/noVNC](https://github.com/novnc/noVNC)
 - [felixrieseberg/macintosh.js](https://github.com/felixrieseberg/macintosh.js)
+- [RobinCsl/awesome-js-tooling-not-in-js](https://github.com/RobinCsl/awesome-js-tooling-not-in-js)
 
 ## Framework
 
@@ -78,9 +79,19 @@ tags:
   - structuredClone - Chrome 98
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
+  - [microdiff](https://github.com/AsyncBanana/microdiff)
 - canvas
   - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
     - SVG <-> Canvas
+  - [signature_pad](https://github.com/szimek/signature_pad)
+- color
+  - [Qix-/color](https://github.com/Qix-/color)
+- store
+  - [share/sharedb](https://github.com/share/sharedb)
+    - Realtime database backend based on Operational Transformation (OT)
+- compiler
+  - [wooorm/xdm](https://github.com/wooorm/xdm)
+    - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
 
 ## JSX
 
@@ -102,3 +113,11 @@ tags:
 ## 有趣
 
 - [enkimute/ganja.js](https://github.com/enkimute/ganja.js) - 几何代数
+
+## UX
+
+- [usablica/intro.js](https://github.com/usablica/intro.js)
+
+## 工具
+
+- [CryogenicPlanet/depp](https://github.com/CryogenicPlanet/depp)

@@ -23,3 +23,5 @@ tags:
 - https://github.com/postgres/postgres/blob/master/src/backend/lib/knapsack.c
 - https://en.wikipedia.org/wiki/Tutte_embedding
 - [algorithm-visualizer/algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)
+- [algorithm-archive](https://www.algorithm-archive.org/)
+  - [HN](https://news.ycombinator.com/item?id=29138991)

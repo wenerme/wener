@@ -5,15 +5,17 @@ title: Cayley
 # Cayley
 
 - [cayleygraph/cayley](https://github.com/cayleygraph/cayley)
-  - https://cayley.io/
-  - https://cayley.gitbook.io/cayley/
+  - quadstore
 - 支持的存储
   - KVs: Bolt, LevelDB
   - NoSQL: MongoDB
   - SQL: PostgreSQL, CockroachDB, MySQL
   - In-memory, ephemeral
-- https://www.cs.bham.ac.uk/~petitcz/files/Cayley.pdf
 - 返回所有属性 https://discourse.cayley.io/t/get-vertex-with-all-predicates/1416/2
+- 参考
+  - https://cayley.io/
+  - https://cayley.gitbook.io/cayley/
+  - https://www.cs.bham.ac.uk/~petitcz/files/Cayley.pdf
 
 ```bash
 brew add cayley

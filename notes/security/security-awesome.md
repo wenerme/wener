@@ -10,6 +10,7 @@ tags:
 - https://github.com/zmap
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
+- [ycd/dstp](https://github.com/ycd/dstp)
 
 ## Password
 

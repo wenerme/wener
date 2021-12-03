@@ -12,7 +12,7 @@ title: NextCloud
   - [lib/Files/ObjectStore](https://github.com/nextcloud/server/tree/master/lib/private/Files/ObjectStore)
 - [User Authentication with LDAP](https://docs.nextcloud.com/server/11/admin_manual/configuration_user/user_auth_ldap.html)
   - The LDAP app is not compatible with the User backend using remote HTTP servers app. You cannot use both of them at the same time.
--  数据库可以使用 SQLite, MySQL, PostGreSQL
+- 数据库可以使用 SQLite, MySQL, PostGreSQL
 - [Config.php](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/config_sample_php_parameters.html)
   - [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
 - 默认推荐应用 - calendar,contacts,talk,mail,collaborative editing
@@ -131,8 +131,13 @@ done
 ```
 
 ## ldap
-* `ldap:set-config <configID> <configKey> <configValue>`
+
+- `ldap:set-config <configID> <configKey> <configValue>`
 
 ```bash
 ./occ ldap:set-config s01 ldapUserDisplayName2 displayName
 ```
+
+## Notes
+
+- [admin manual](https://docs.nextcloud.com/server/latest/admin_manual/index.html)

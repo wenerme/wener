@@ -1,7 +1,7 @@
 ---
 title: NPL Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # NPL Awesome
@@ -18,6 +18,7 @@ tags:
 - https://nlp.stanford.edu/software/segmenter.shtml
 - https://news.ycombinator.com/item?id=28614699
 - https://analyticsindiamag.com/top-resources-to-learn-nlp-for-free/
+- [booknlp/booknlp](https://github.com/booknlp/booknlp)
 
 ## 中文
 
@@ -32,6 +33,8 @@ tags:
   - 文本挖掘和预处理工具
 - [NLPchina/ansj_seg](https://github.com/NLPchina/ansj_seg)
 - [中文分词](http://www.hankcs.com/nlp/segment/)
+- https://github.com/PaddlePaddle/PaddleClas
+  - https://arxiv.org/pdf/2111.00775v1.pdf
 
 ### 公司机构名称
 

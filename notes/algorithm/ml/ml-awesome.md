@@ -43,8 +43,17 @@ tags:
 - [wav2vec](https://github.com/pytorch/fairseq/tree/main/examples/wav2vec)
 - https://nv-tlabs.github.io/editGAN/
 - [bryandlee/animegan2-pytorch](https://github.com/bryandlee/animegan2-pytorch)
-  - AnimeGANv2
+  AnimeGANv2
+  [HN](https://news.ycombinator.com/item?id=29162248)
 - [yeemachine/kalidokit](https://github.com/yeemachine/kalidokit)
+- [google-research/ibc](https://github.com/google-research/ibc)
+  - Implicit Behavioral Cloning
+- [bhky/opennsfw2](https://github.com/bhky/opennsfw2)
+  - Yahoo Open-NSFW model
+- [eugeneyan/applied-ml](https://github.com/eugeneyan/applied-ml)
+- [PeterL1n/RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
+- [yuval-alaluf/hyperstyle](https://github.com/yuval-alaluf/hyperstyle)
+- [SysCV/pcan](https://github.com/SysCV/pcan)
 
 ## Learn
 
@@ -78,11 +87,26 @@ tags:
 - [Introduction to AutoEncoder and Variational AutoEncoder](https://www.kdnuggets.com/2021/10/introduction-autoencoder-variational-autoencoder-vae.html)
 - [SimVLM: Simple Visual Language Model Pre-training with Weak Supervision](https://ai.googleblog.com/2021/10/simvlm-simple-visual-language-model-pre.html?m=1)
 - [Training a DCGAN in PyTorch](https://www.pyimagesearch.com/2021/10/25/training-a-dcgan-in-pytorch/)
+- [Self-Supervised Reversibility-Aware Reinforcement Learning](https://ai.googleblog.com/2021/11/self-supervised-reversibility-aware.html)
+- https://arxiv.org/pdf/2109.02869.pdf
+  - https://www.youtube.com/watch?v=m8POyrJ7Pgg&t=1939s
+  - https://attentionneuron.github.io/
+- https://arxiv.org/abs/2106.01345
+  - https://www.youtube.com/watch?v=83QN9S-0I84
+  - https://github.com/kzl/decision-transformer
+- http://proceedings.mlr.press/v139/vicol21a.html
+- https://arxiv.org/abs/2010.01412
+  - https://github.com/google-research/sam
+  - https://github.com/davda54/sam
+- [Machine Learning Research Papers Released In 2021](https://analyticsindiamag.com/top-ml-research-articles/)
 
 ![](http://dlib.net/ml_guide.svg)
 
 ## Framework
 
+- [microsoft/SynapseML](https://github.com/microsoft/SynapseML)
+  - MIT, Scala
+  - Distributed Machine Learning
 - caffe
 - [flashlight/flashlight](https://github.com/flashlight/flashlight)
   - C++ standalone library for machine learning

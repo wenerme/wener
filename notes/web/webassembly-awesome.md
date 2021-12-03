@@ -44,7 +44,11 @@ tags:
   - Tiny, blazing fast WebAssembly compute
   - [HN](https://news.ycombinator.com/item?id=28788303)
     - 包含作者选型原因
-
+- [WasmEdge/WasmEdge](https://github.com/WasmEdge/WasmEdge)
+  - Apache-2.0, C++
+  - WebAssembly runtime for cloud native, edge, and decentralized applications
+  - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
+    - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
 ## JS
 
 - duktape

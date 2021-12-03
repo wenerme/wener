@@ -43,6 +43,91 @@ tags:
 - React Server Components 也是一个趋势
   - 组建级动态
 
+## class components vs function components
+
+```tsx title="React.Component"
+import React from 'react';
+
+class Hello extends React.Component<{ name: string }, { name: string }> {
+  static props = {
+    name: 'Wener',
+  };
+
+  static getDerivedStateFromProps({ name }) {
+    return { name };
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <h1>Hello, {this.state.name}</h1>;
+  }
+
+  componentDidMount() {
+    console.debug(`componentDidMount`);
+  }
+
+  getSnapshotBeforeUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>): any {
+    return {};
+  }
+
+  componentDidUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>, snapshot?: any) {
+    console.debug(`componentDidUpdate`);
+  }
+
+  componentWillUnmount() {
+    console.debug(`componentWillUnmount`);
+  }
+
+  shouldComponentUpdate(
+    nextProps: Readonly<{ name: string }>,
+    nextState: Readonly<{ name: string }>,
+    nextContext: any,
+  ): boolean {
+    return false;
+  }
+
+  /**
+   * ErrorBoundary - 仅 ClassComponent 支持
+   */
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.log(`componentDidCatch`);
+  }
+}
+```
+
+```tsx title="React.FC"
+const HelloFC: React.FC<{ name: string }> = ({ name }) => {
+  const [state, setState] = useState({ name });
+  // getDerivedStateFromProps
+  useEffect(() => {
+    setState({ name });
+  }, [name]);
+  useEffect(() => {
+    console.debug('componentDidMount');
+    return () => {
+      console.debug('componentWillUnmount');
+    };
+  }, []);
+
+  // render
+  return (
+    <h1>
+      Hello, <input value={state.name} onChange={(e) => setState({ name: e.target.name })} />
+    </h1>
+  );
+};
+HelloFC.displayName = 'HelloFC';
+HelloFC.defaultProps = { name: 'Wener' };
+
+const HelloMemo = React.memo(HelloFC, (a, b) => {
+  // shouldComponentUpdate
+  return a.name === b.name;
+});
+```
+
 ## Cannot update a component while rendering a different component
 
 - 避免 render 阶段修改状态
@@ -83,41 +168,6 @@ useDeepCompareEffect(() => {
   - RFC [useContextSelector](https://github.com/reactjs/rfcs/pull/119)
     - [use-context-selector](https://github.com/dai-shi/use-context-selector)
 - [Will this React global state work in Concurrent Mode?](https://github.com/dai-shi/will-this-react-global-state-work-in-concurrent-mode)
-
-## react-virtual vs react-window vs react-virtualized
-
-:::tip 💡 如何选择
-
-1. 使用 react-virtual
-2. 实在不能满足 尝试 react-window 或 react-virtualized
-
-:::tip
-
----
-
-- [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
-  - 基于 hook
-  - 开发活跃
-- react-window - min 24k ![](https://badgen.net/bundlephobia/min/react-window)
-  - 重写 react-virtualized
-  - 更加轻量
-  - 通过额外包提供缺少的功能
-    - 7k react-virtualized-auto-sizer
-    - 3.5k react-window-infinite-loader
-  - 只有 4 个核心组件 - 简单易用
-  - 不支持动态行高
-    - [bvaughn/react-window#6](https://github.com/bvaughn/react-window/issues/6)
-      Support just-in-time measured content
-    - 自行实现参考 [dynamic-size-of-react-window-list-items](https://codesandbox.io/s/dynamic-size-of-react-window-list-items-64o9p?file=/src/ChatMessage.js)
-- react-virtualized - min 118k ![](https://badgen.net/bundlephobia/min/react-virtualized)
-  - 功能更完善
-  - 开发更活跃
-  - 使用的人更多
-  - 5 个核心组件 + 8 个工具组件
-  - 支持 2 维 非 Grid 渲染
-  - 支持动态行高 CellMeasurer - 自己也可以实现
-- [How is react-window different from react-virtualized?](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
-- [Windowing wars: React-virtualized vs. react-window](https://blog.logrocket.com/windowing-wars-react-virtualized-vs-react-window)
 
 ## 动态加载 script
 

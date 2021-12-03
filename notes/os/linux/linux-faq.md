@@ -1,5 +1,7 @@
 ---
 title: Linux FAQ
+tags:
+  - FAQ
 ---
 
 # Linux FAQ

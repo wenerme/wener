@@ -58,12 +58,6 @@ npm i --save react-base react-native-vector-icons
 
 ## FAQ
 
-### Redux vs MobX
-
-- https://www.reddit.com/r/reactjs/comments/885bxa/redux_vs_mobx/
-- [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
-  - by Redux Author
-
 ## Nextjs
 
 ```

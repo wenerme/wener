@@ -6,20 +6,23 @@ tags:
 
 # Web Awesome
 
-- https://web.dev/ps-on-the-web/
-  - 图像处理基于 https://halide-lang.org/
+
 - Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 - Awesome [Web](https://www.awesomeweb.com/)
+- https://dev.to/iainfreestone/series/7129
 
 ## Web
 
 - https://www.photopea.com/
 - http://oskarstalberg.com/Townscaper/
 - https://remove-white-background.imageonline.co/
+- https://teetow.github.io/elementary_grid
 
-## 技术
+## Read
 
 - [hotwire](https://hotwire.dev/)
+- https://web.dev/ps-on-the-web/
+  - 图像处理基于 https://halide-lang.org/
 
 ## Desktop
 
@@ -68,6 +71,12 @@ tags:
 - https://getmdl.io/
 - https://www.polymer-project.org
 - https://react.rocks
+
+## Framework
+
+- remix
+- nextjs
+- [inertiajs/inertia](https://github.com/inertiajs/inertia)
 
 ## JS
 
@@ -125,3 +134,13 @@ tags:
   - [What's In A Sound?](https://www.soundonsound.com/techniques/whats-sound)
   - youtube [Synthesizer Basics: Amplitude, Oscillators, Timbre](https://www.youtube.com/watch?v=c3udLCvoCC0)
   - [Functional, Declarative Audio Applications](https://www.nickwritesablog.com/functional-declarative-audio-applications/)
+
+## Script
+
+- [emscripten-core/emscripten](https://github.com/emscripten-core/emscripten)
+- https://bundlescanner.com/
+
+## Tool
+
+- [atapas/webapis-playground](https://github.com/atapas/webapis-playground)
+  - https://webapis-playground.vercel.app/

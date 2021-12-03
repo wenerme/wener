@@ -46,6 +46,8 @@ tags:
   - JSON and YAML OpenAPI descriptions to and from equivalent Protocol Buffer representations
 - [googleapis/api-linter](https://github.com/googleapis/api-linter)
 - [tmc/grpcutil](https://github.com/tmc/grpcutil)
+- [ktr0731/evans](https://github.com/ktr0731/evans)
+  - expressive universal gRPC client
 
 ## GUI
 

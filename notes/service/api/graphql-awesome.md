@@ -119,6 +119,7 @@ tags:
 - [graphql/graphiql](https://github.com/graphql/graphiql)
 - [quicktype/quicktype](https://github.com/quicktype/quicktype)
 - [graphql-editor/graphql-editor](https://github.com/graphql-editor/graphql-editor)
+- [graphql-editor/graphql-zeus](https://github.com/graphql-editor/graphql-zeus)
 
 ## Client
 

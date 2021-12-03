@@ -35,6 +35,8 @@ tags:
   - 基于 bleve
 - [os-fulltext-search-solutions](https://medevel.com/os-fulltext-search-solutions/)
 - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
+- [gajus/liqe](https://github.com/gajus/liqe)
+  - Lucene-like parser and search engine
 
 ## Lcoal Search
 

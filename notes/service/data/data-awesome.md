@@ -14,6 +14,7 @@ tags:
 - [crawlab-team/crawlab](https://github.com/crawlab-team/crawlab)
   分布式爬虫管理平台，支持任何语言和框架
 - [MontFerret/ferret](https://github.com/MontFerret/ferret)
+  - Declarative web scraping
 - [BruceDone/awesome-crawler](https://github.com/BruceDone/awesome-crawler)
 - Go
   - [eddycjy/fake-useragent](https://github.com/eddycjy/fake-useragent)

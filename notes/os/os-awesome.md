@@ -46,11 +46,13 @@ tags:
 
 - [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
 
-## Security
+## Embedded
 
 - [tock/tock](https://github.com/tock/tock)
   - MIT, Apache-2.0, Rust
   - secure embedded os for microcontrollers
+- [mudita/MuditaOS](https://github.com/mudita/MuditaOS)
+  - Mobile operating system based on FreeRTOS™ optimized for E Ink displays
 
 ## Linux Distro
 

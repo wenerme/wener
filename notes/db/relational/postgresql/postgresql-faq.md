@@ -16,6 +16,31 @@ tags:
 - 最多 32767 参数占位 - `?` - 范围为 smallint
 - https://www.postgresql.org/docs/current/limits.html
 
+## TOAST
+
+- TOAST = The Oversized-Attribute Storage Technique
+- 一行 2kB - TOAST_TUPLE_THRESHOLD
+  - 超过先尝试压缩到 2kB - TOAST_TUPLE_TARGET
+    - 默认 default_toast_compression=pglz, 支持 lz4
+    - 可按列设置 COMPRESSION
+  - 压缩不足，则分 chunk 存储到关联的 toast 表
+- TOAST 使用 oid 跟踪 - 最多 2^32 = 4 十亿 条记录
+- 存储
+  - PLAIN - 不压缩，无 out-of-line - 超过则异常
+  - EXTENDED - 压缩+out-of-line
+  - EXTERNAL - out-of-line
+  - MAIN - 压缩+尝试尽量不 out-of-line
+- 参考
+  - [TOAST storage](https://www.postgresql.org/docs/current/storage-toast.html)
+  - wiki [TOAST](https://wiki.postgresql.org/wiki/TOAST)
+
+```sql
+-- 默认 EXTENDED
+ALTER TABLE users SET STORAGE EXTENDED;
+-- 修改 TOAST_TUPLE_TARGET
+ALTER TABLE users SET (toast_tuple_target = N);
+```
+
 ## 服务重载
 
 1. pg_ctl

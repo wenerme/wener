@@ -50,6 +50,15 @@ tags:
 
 - https://pgmodeler.io/
 
+## Scale
+
+- [yandex/odyssey](https://github.com/yandex/odyssey)
+- [pg-sharding/spqr](https://github.com/pg-sharding/spqr)
+  - Stateless Postgres Query Router
+- [awslabs/pgbouncer-rr-patch](https://github.com/awslabs/pgbouncer-rr-patch)
+- [agroal/pgagroal](https://github.com/agroal/pgagroal)
+  - connection pool
+
 ## Sync
 
 - [ankane/pgsync](https://github.com/ankane/pgsync)

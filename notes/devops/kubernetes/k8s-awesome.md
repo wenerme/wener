@@ -79,6 +79,8 @@ tags:
 
 ## Awesomes
 
+- [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
+  - [Providers](https://cluster-api.sigs.k8s.io/reference/providers.html)
 - [alexellis/arkade](https://github.com/alexellis/arkade)
 - [kubedex](https://kubedex.com/)
 - [devtron-labs/devtron](https://github.com/devtron-labs/devtron)
@@ -108,7 +110,8 @@ tags:
 - [open-policy-agent/opa](https://github.com/open-policy-agent/opa)
 - [anchore/syft](https://github.com/anchore/syft)
 - [sigstore/cosign](https://github.com/sigstore/cosign)
-- [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
+- [Tencent/caelus](https://github.com/Tencent/caelus)
+- [gardener/gardener](https://github.com/gardener/gardener)
 
 ## Dashboard/UI
 

@@ -70,8 +70,15 @@ tags:
   - archive physical documents by scan
 - [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 - [BookStackApp/BookStack](https://github.com/BookStackApp/BookStack)
+- [pawelmalak/flame](https://github.com/pawelmalak/flame)
+  -  startpage for your server
 - Notion
   - https://github.com/japrozs/dino
+  - [AppFlowy-IO/appflowy](https://github.com/AppFlowy-IO/appflowy)
+    - AGPL-3.0, Rust+Dart
+- Music
+  - [sentriz/gonic](https://github.com/sentriz/gonic)
+  - [epoupon/lms](https://github.com/epoupon/lms)
 - 参考
   - [NX211/workbench](https://github.com/NX211/workbench)
 

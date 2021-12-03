@@ -17,6 +17,7 @@ title: Kubernetes 版本
   - scheduling
   - storage
   - windows
+- [Feature Gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/)
 
 | ver. | release    |
 | ---- | ---------- |
@@ -26,6 +27,69 @@ title: Kubernetes 版本
 
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
+
+## 1.23
+
+- 新的 `kubectl events` 命令
+- pvc resize 从失败恢复
+- gRPC probe
+- 参考
+  - [Kubernetes 1.23 – What’s new?](https://sysdig.com/blog/kubernetes-1-23-whats-new/)
+
+| stage  | feature                                | default | until |
+| ------ | -------------------------------------- | ------- | ----- |
+| Alpha  | CPUManagerPolicyExperimentalOptions    |         |
+| Alpha  | GracefulNodeShutdownBasedOnPodPriority |         |
+| Alpha  | GRPCContainerProbe                     |         |
+| Alpha  | PodAndContainerStatsFromCRI            |         |
+| Alpha  | RecoverVolumeExpansionFailure          |         |
+| Alpha  | StatefulSetAutoDeletePVC               |         |
+| Alpha  | HonorPVReclaimPolicy                   |
+| Alpha  | DelegateFSGroupToCSIDriver             |
+| Alpha  | CSIMigrationPortworx                   |
+| Alpha  | CSIMigrationRBD                        |
+| Alpha  | IdentifyPodOS                          |
+| Alpha  | WindowsHostProcessContainers           | true    |
+| Alpha  | UnversionedKubeletConfigMap            |
+| Beta   | CPUManagerPolicyOptions                | false   |
+| Beta   | EphemeralContainers                    | true    |
+| Beta   | JobMutableNodeSchedulingDirectives     | true    |
+| Beta   | KubeletPodResourcesGetAllocatable      | true    |
+| Beta   | PodSecurity                            | true    |
+| Stable | CronJobControllerV2                    |         |
+| Stable | IngressClassNamespacedParams           |         |
+| Stable | IPv6DualStack                          |         |
+| Stable | JobReadyPods                           |         |
+| Stable | JobTrackingWithFinalizers              |         |
+| Stable | StatefulSetMinReadySeconds             |         |
+| Stable | TopologyAwareHints                     |         |
+| Stable | TTLAfterFinished                       |         |
+| Stable | CSIMigrationAWS                        | false   |
+| Stable | ConfigurableFSGroupPolicy              |
+| Stable | CSIVolumeFSGroupPolicy                 |
+| Stable | GenericEphemeralVolume                 |
+
+:::tip
+
+- Stable 阶段一般默认开启,
+- Beta 阶段可能开启
+
+:::
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  # Alpha
+  # sts 异常后的 pvc 回收策略
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Delete
+---
+# Stable
+# ScheduledJobs ->
+kind: CronJobs
+```
 
 ## 1.22
 

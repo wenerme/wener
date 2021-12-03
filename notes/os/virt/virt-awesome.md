@@ -12,8 +12,10 @@ tags:
 - [rustsbi/rustsbi](https://github.com/rustsbi/rustsbi)
 - [firecracker-microvm/firecracker](https://github.com/firecracker-microvm/firecracker)
   - RISC-V Supervisor Binary Interface
+- [Tencent/tat-agent](https://github.com/Tencent/tat-agent)
 
 ## Fun
 
 - [MEGA65/mega65-core](https://github.com/MEGA65/mega65-core)
   - MEGA65 FPGA core
+- [akkartik/mu](https://github.com/akkartik/mu)

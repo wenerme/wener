@@ -4,6 +4,7 @@ title: Linux Kernel
 
 # Linux Kernel
 
+- https://www.kernel.org/doc/man-pages/
 - [Kernel wiki](https://wiki.kernel.org/)
 - [Linux Kernel Hackers' Guide](http://www.tldp.org/LDP/khg/HyperNews/get/khg.html)
   - 讲的 Linux 1.0 结构

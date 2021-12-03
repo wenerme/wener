@@ -126,6 +126,8 @@ npm add date-fns lodash-es react-fast-compare
     - 包含一些特殊组件 - PIN 码、评分、日历
     - markdown 编辑器、高德地图、百度地图
     - [uiwjs/province-city-china](https://github.com/uiwjs/province-city-china) - 省市区数据
+- [supabase/ui](https://github.com/supabase/ui)
+- [ebs-integrator/ebs-design](https://github.com/ebs-integrator/ebs-design)
 
 ## 移动端 UI 组件
 
@@ -158,6 +160,7 @@ npm add date-fns lodash-es react-fast-compare
   - 懒加载 UI 组件
 - [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
   - drop 文件
+- [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
 
 ### 编辑器
 
@@ -419,7 +422,7 @@ const useStore = create((set, get) => ({
     const count = get().count; // 方法内使用 get 访问状态
   },
 }));
-// 使用
+// 使用
 const state = useStore();
 const count = useStore((state) => state.count);
 const add = useStore((state) => state.add);

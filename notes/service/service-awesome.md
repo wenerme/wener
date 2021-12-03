@@ -52,6 +52,15 @@ tags:
 - [getfider/fider](https://github.com/getfider/fider)
   - AGPL-3.0, Go
   - collect and prioritize feedback
+- [medusajs/medusa](https://github.com/medusajs/medusa)
+  - open-source Shopify alternative
+- [Kareadita/Kavita](https://github.com/Kareadita/Kavita)
+  - Reading
+  - [vs.](https://wiki.kavitareader.com/en/faq/compare-to-competition)
+- [imgproxy/imgproxy](https://github.com/imgproxy/imgproxy)
+- [fonoster/fonoster](https://github.com/fonoster/fonoster)
+  - open-source alternative to Twilio
+- https://github.com/zmide/study.zmide.com
 
 ## Avatar
 
@@ -179,6 +188,12 @@ tags:
   - Apache-2.0, Python
 - [exAspArk/awesome-chatops](https://github.com/exAspArk/awesome-chatops)
 
+## Chat
+
+- [adrianhajdin/chat_application](https://github.com/adrianhajdin/chat_application)
+  - React clone of MS team
+- [jovotech/jovo-framework](https://github.com/jovotech/jovo-framework)
+
 ## Kanban
 
 - [wekan/wekan](https://github.com/wekan/wekan)
@@ -186,3 +201,7 @@ tags:
 - [kanboard/kanboard](https://github.com/kanboard/kanboard)
   - MIT, PHP
 - Nextcloud Deck
+
+## Audio
+
+- https://www.sonobus.net/

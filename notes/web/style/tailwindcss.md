@@ -27,6 +27,7 @@ title: Tailwind CSS
 - Dashboard
   - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
   - https://demos.creative-tim.com/notus-react
+  - [themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)
 
 ```bash
 # 基础依赖

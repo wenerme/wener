@@ -13,9 +13,14 @@ tags:
 
 ## Read
 
+- [Theoretical Computer Science Cheat Sheet](https://www.tug.org/texshowcase/cheat.pdf)
+  - [HN](https://news.ycombinator.com/item?id=29347885)
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
 - [The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 - http://static.googleusercontent.com/media/research.google.com/en/us/people/jeff/stanford-295-talk.pdf
+- [42 things I learned from building a production database](https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html)
+- [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
+- [Indirection](https://en.wikipedia.org/wiki/Indirection)
 
 ## Misc
 

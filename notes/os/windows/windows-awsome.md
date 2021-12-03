@@ -20,6 +20,7 @@ tags:
 - [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
 - [BornToBeRoot/NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - [kkkgo/vlmcsd](https://github.com/kkkgo/vlmcsd)
+- [pbatard/rufus](https://github.com/pbatard/rufus)
 
 ## Dev
 
@@ -31,3 +32,8 @@ tags:
 - [DriverPack](https://drp.su)
   - 支持在线、离线
   - 全量离线 - 26G+
+
+## NLTM
+
+- https://github.com/CCob/lsarelayx
+  - NTLM relaying

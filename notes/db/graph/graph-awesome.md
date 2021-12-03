@@ -1,7 +1,7 @@
 ---
 title: GraphDB Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # GraphDB Awesome
@@ -27,6 +27,21 @@ tags:
 - http://giraph.apache.org/
 - http://tinkerpop.apache.org/
   - graph computing framework for both graph databases (OLTP) and graph analytic systems (OLAP).
+- [eBay/akutan](https://github.com/eBay/akutan)
+  - Go
+  - RDF, 不再维护
+- [blazegraph/database](https://github.com/blazegraph/database)
+- [spy16/fabric](https://github.com/spy16/fabric)
+  - Go
+  - RDF, 不再维护
+
+## RDF
+
+- [apache/jena](https://github.com/apache/jena)
+
+---
+
+- w3 [LargeTripleStores](https://www.w3.org/wiki/LargeTripleStores)
 
 ## cypher
 
