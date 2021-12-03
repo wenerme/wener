@@ -78,6 +78,9 @@ tags:
   - structuredClone - Chrome 98
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
+- canvas
+  - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
+    - SVG <-> Canvas
 
 ## JSX
 

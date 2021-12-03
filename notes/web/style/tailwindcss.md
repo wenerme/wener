@@ -115,3 +115,51 @@ module.exports = {
   <footer></footer>
 </div>
 ```
+
+# TailwindCSS Version
+
+## TailwindCSS 3
+
+- 默认 jit
+- Just-in-Time CDN build
+- 默认包含扩张颜色
+- aspect-ratio, accent-color, scroll-snap, scroll-behavior, text-indent
+- column break-before/inside/after
+- touch-action
+- will-change
+- border-x, border-y
+- file: - 文件上传按钮
+- open: - `<details>`, `<dialog>`
+- overflow-clip -> text-clip
+- overflow-ellipsis -> text-ellipsis
+- flex-basis
+- fit-content for min/max-width/height
+- min/max-content  for min/max-height
+- `cursor-*`
+- 添加 `grow-*`, `shrink-*` 废弃 `flex-grow-*` and `flex-shrink-*`
+- text-decoration-color
+- addVariant API
+- print variant
+- 颜色 `fill-*`, `stroke-*`
+```html
+<!-- 自定义配置 -->
+<script src="https://cdn-tailwindcss.vercel.app/"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          tomato: 'tomato',
+        },
+      },
+    },
+  };
+</script>
+<style type="text/tailwindcss">
+  body {
+    @apply bg-pink-500;
+  }
+</style>
+<!-- 插件 -->
+<script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+```

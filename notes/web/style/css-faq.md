@@ -1,10 +1,160 @@
 ---
 title: CSS 常见问题
+tags:
+  - FAQ
 ---
 
 # 常见问题
 
+:::tip
+
+- 布局谨记三个上下文:
+  - containing block - 位置 - 影响 paint, relayout
+  - stacking context - z-index
+  - block formatting context - flow, float
+
+:::
+
 - [CSS](http://help.dottoro.com/lcsdaoxj.php) Reference
+
+## Optimize
+
+- [contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
+  - 声明包含关系，渲染不受 dom tree 影响，提效
+  - strict -> size layout paint
+  - content -> layout paint
+  - size
+    - 不依赖子节点 size
+    - 容器不会被子元素撑开
+    - 子元素可以被渲染到容器外
+  - layout
+    - 内外元素布局互不影响
+    - 例如 z-index
+  - style
+    - 样式隔离 - 例如 counter-increment, counter-set
+    - 该规范 可能会 被移除
+  - paint
+    - 内容不会渲染到容器之外 - 类似 overflow: hidden
+    - 影响上下文
+      - 新的 [containing block] - position = absolute/fixed
+      - 新的 stacking context
+      - 新的 block formatting context
+  - 参考
+    - [caniuse](https://caniuse.com/css-containment)
+      - Chrome 52+
+      - iOS/Saferi 不支持
+    - [Let’s Take a Deep Dive Into the CSS Contain Property](https://css-tricks.com/lets-take-a-deep-dive-into-the-css-contain-property/)
+- [content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility) - 配合 contain 使用
+  - visible
+  - hidden
+    - 隐藏，但保留渲染状态
+    - display: none - 销毁渲染状态，再次显示重新渲染
+    - visibility: hidden - 会保留在 DOM
+    - 例如 用于多窗口 SPA，隐藏窗口用，再次显示不需要从新渲染
+  - auto
+    - 简单易用
+    - 允许 user-agent 操作，例如 find-in-page, tab order navigation
+    - contain 为 layout, style, paint
+  - contain-intrinsic-size - 控制看不见时的 size
+  - 参考
+    - Chrome 85+
+    - https://web.dev/content-visibility/
+- [will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
+  - 当真的有性能问题时在用
+- background-color 为透明时影响 scroll 性能 - 因为需要计算后面
+- 参考
+  - DevTool Rendering 面板支持显示 Layer borders
+    - https://developer.chrome.com/docs/devtools/evaluate-performance/reference/#layer-borders
+  - https://csstriggers.com/
+  - [What forces layout / reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
+
+[containing block]: https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block
+
+## Containing Block
+
+- [Containing Block] 组成
+  1. Content area
+  1. Padding area
+  1. Border area
+  1. Margin area
+- 基于 Containing Block 计算的属性
+  - 百分比 width, height, padding, margin
+  - 位置偏移 - 当 position 为 absolute 或 fixed 时
+- html 为 initial containing block
+- 形成 Containing Block 的场景
+  - 受 positon 影响
+  - position 为 absolute 或 fixed
+
+## stacking context
+
+- [The stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+- 影响 z-index
+- 形成场景
+  - position = absolute or relative 且 z-index != auto
+  - position = fixed or sticky
+  - child of flex 且 z-index != auto
+  - child of grid 且 z-index != auto
+  - opacity < 1
+  - mix-blend-mode != normal
+  - isolate
+  - contain = layout or paint
+
+## block formatting context
+
+- [Block formatting context]
+- 影响 float, flow 布局
+- 形成场景
+  - float != none
+  - position = absolute or relative
+  - display: inline-block
+  - display: table-cell
+  - display: table-caption
+  - overflow != visible or clip
+  - contain: layout, content, or paint
+  - flex items
+  - grid items
+
+[block formatting context]: https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
+
+## Layout mode
+
+- [Layout mode]
+  - Normal flow
+  - Table
+  - Positioned
+  - Multi-column - 内容多列 - 类似 报纸
+  - Flexible
+  - Grid
+
+[layout mode]: https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_mode
+
+## 元素直接支持 resize
+
+```css
+.container {
+  overflow: hidden; /* required by resize:both */
+  resize: both;
+}
+```
+
+## 重置元素所有属性
+
+```css
+.container {
+  /* 重置除了 unicode-bidi 和 direction 之外的所有属性 */
+  all: initial;
+}
+```
+
+## 只有键盘控制时才添加焦点外边框，鼠标点击无外边框
+
+- :focus-visible - 键盘控制产生的 focus
+
+```css
+button:not(:focus-visible) {
+  outline: none;
+}
+```
 
 ## 子节点有焦点时父节点添加样式
 

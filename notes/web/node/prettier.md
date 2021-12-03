@@ -24,7 +24,7 @@ title: prettier
 :::
 
 ```bash
-npx prettier --write src/**/*.{tsx,css,html}
+npx prettier --write src/**/*.{ts,tsx,css,html}
 ```
 
 **prettier.config.js**

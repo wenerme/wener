@@ -34,6 +34,8 @@ title: ArangoDB
   - ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY
   - ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES
 - 如果升级了版本，第一次启动添加 --database.auto-upgrade
+- 参考
+  - [Meet Kaseware: FBI-grade case management for the larger investigative community](https://www.arangodb.com/solutions/case-studies/fbi-grade-case-mgmt-investigative-community/)
 
 ```bash
 docker run --rm -it -v /etc/localtime:/etc/localtime:ro \

@@ -5,25 +5,23 @@ title: MongoDB
 
 # MongoDB
 
-## Tips
-* [管理工具列表](https://docs.mongodb.com/ecosystem/tools/administration-interfaces/)
-* [mongoclient](https://github.com/rsercano/mongoclient) 基于 Web 的管理工具
-* Reference
-  * [mongo-shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
-  * [Connection String](https://docs.mongodb.com/manual/reference/connection-string/)
-    * `mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]`
-      * authSource 使用不同的库做授权
-* 建模
-  * [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
-  * [Data Model](https://docs.mongodb.com/manual/data-modeling/)
-    * [Data Model Examples and Patterns](https://docs.mongodb.com/manual/applications/data-models/)
-    * [DBRef](https://docs.mongodb.com/manual/reference/database-references/)
-* [Glossary](https://docs.mongodb.com/manual/reference/glossary)
-* FAQ
-  * Java 目前无法通过 SSH 转发链接 ReplicaSet
-  * DBRef 的 `$ref` 必须要在 `$id` 之前
-  * SSH 转发 Mongo 可能会导致链接不会被释放
-
+- [管理工具列表](https://docs.mongodb.com/ecosystem/tools/administration-interfaces/)
+- [mongoclient](https://github.com/rsercano/mongoclient) 基于 Web 的管理工具
+- Reference
+  - [mongo-shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
+  - [Connection String](https://docs.mongodb.com/manual/reference/connection-string/)
+    - `mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]`
+      - authSource 使用不同的库做授权
+- 建模
+  - [6 Rules of Thumb for MongoDB Schema Design](https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1)
+  - [Data Model](https://docs.mongodb.com/manual/data-modeling/)
+    - [Data Model Examples and Patterns](https://docs.mongodb.com/manual/applications/data-models/)
+    - [DBRef](https://docs.mongodb.com/manual/reference/database-references/)
+- [Glossary](https://docs.mongodb.com/manual/reference/glossary)
+- FAQ
+  - Java 目前无法通过 SSH 转发链接 ReplicaSet
+  - DBRef 的 `$ref` 必须要在 `$id` 之前
+  - SSH 转发 Mongo 可能会导致链接不会被释放
 
 ```bash
 # 在前台启动
@@ -51,10 +49,11 @@ mongoexport -h localhost -d databse -c collection --csv \
 ```
 
 ## Operaters
-* https://docs.mongodb.com/manual/reference/operator/
-* FAQ
-  * ObjectId 转字符串
-    * 使用 `str` 属性, 不要使用 `toString`
+
+- https://docs.mongodb.com/manual/reference/operator/
+- FAQ
+  - ObjectId 转字符串
+    - 使用 `str` 属性, 不要使用 `toString`
 
 ```js
 // 查看服务状态
@@ -131,57 +130,58 @@ db.col.find({'score.user': { "$gt": {}}});
 ```
 
 ### 索引管理
+
 ```js
 // 创建唯一索引
-db.list.createIndex({cid:-1},{name:'cid_unique',unique:true})
+db.list.createIndex({ cid: -1 }, { name: 'cid_unique', unique: true });
 
 // 获取索引
-db.list.getIndexes()
+db.list.getIndexes();
 ```
 
-### 角色权限管理
-* https://docs.mongodb.com/manual/tutorial/enable-authentication/
-* https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/
-* 启动时需要 `--auth` 来启用授权, 或在配置文件中加 `security.authorization` 配置
-* 內建角色
-  * 数据库用户: read,readWrite
-  * 数据库管理员: dbAdmin, dbOwner, userAdmin
-  * 集群管理: clusterAdmin, clusterManager, clusterMonitor, hostManager
-  * 备份恢复: backup, restore
-  * 所有数据库: readAnyDatabase, readWriteAnyDatabase, userAdminAnyDatabase, dbAdminAnyDatabase
-  * 超级管理员角色: root
-    * readWriteAnyDatabase, dbAdminAnyDatabase, userAdminAnyDatabase, clusterAdmin, restore, backup 
-* https://docs.mongodb.com/v3.0/reference/method/js-user-management/
+### 角色权限管理
 
+- https://docs.mongodb.com/manual/tutorial/enable-authentication/
+- https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/
+- 启动时需要 `--auth` 来启用授权, 或在配置文件中加 `security.authorization` 配置
+- 內建角色
+  - 数据库用户: read,readWrite
+  - 数据库管理员: dbAdmin, dbOwner, userAdmin
+  - 集群管理: clusterAdmin, clusterManager, clusterMonitor, hostManager
+  - 备份恢复: backup, restore
+  - 所有数据库: readAnyDatabase, readWriteAnyDatabase, userAdminAnyDatabase, dbAdminAnyDatabase
+  - 超级管理员角色: root
+    - readWriteAnyDatabase, dbAdminAnyDatabase, userAdminAnyDatabase, clusterAdmin, restore, backup
+- https://docs.mongodb.com/v3.0/reference/method/js-user-management/
 
 ```js
 // use admin;
 // 创建管理员
-db.createUser(
-  {
-    user: "admin",
-    pwd: "abc123",
-    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-  }
-);
-db.changeUserPassword("admin", "myPassword");
-db.getUser("admin");
+db.createUser({
+  user: 'admin',
+  pwd: 'abc123',
+  roles: [{ role: 'userAdminAnyDatabase', db: 'admin' }],
+});
+db.changeUserPassword('admin', 'myPassword');
+db.getUser('admin');
 db.getUsers();
 
-db.getRole("read", { showPrivileges: true});
+db.getRole('read', { showPrivileges: true });
 
 // root 权限
-db.grantRolesToRole('admin',['root']);
+db.grantRolesToRole('admin', ['root']);
 // 指定到某个库
-db.grantRolesToRole('admin',[{role:'readWrite', db: "list"}]);
+db.grantRolesToRole('admin', [{ role: 'readWrite', db: 'list' }]);
 ```
 
 ### 更新无法引用当前值
 
 ```js
 // 修改文档结构, 不改变值
-db.events.find().snapshot().forEach(
-  function (e) {
+db.events
+  .find()
+  .snapshot()
+  .forEach(function (e) {
     // update document, using its own properties
     e.coords = { lat: e.lat, lon: e.lon };
 
@@ -191,36 +191,39 @@ db.events.find().snapshot().forEach(
 
     // save the updated document
     db.events.save(e);
-  }
-);
+  });
 ```
 
 ### parameters
-* https://docs.mongodb.com/v3.4/reference/parameters/
+
+- https://docs.mongodb.com/v3.4/reference/parameters/
 
 ```js
-db.adminCommand({setParameter: 1, disableJavaScriptJIT: true});
+db.adminCommand({ setParameter: 1, disableJavaScriptJIT: true });
 ```
 
 ## Versions
+
 ### 3.2
-* https://docs.mongodb.com/manual/release-notes/3.2/
-* js
-  * V8 更改为 SpiderMonkey
-  * arrow functions
-  * destructuring assignment
-  * for-of loops
-  * generators
+
+- https://docs.mongodb.com/manual/release-notes/3.2/
+- js
+  - V8 更改为 SpiderMonkey
+  - arrow functions
+  - destructuring assignment
+  - for-of loops
+  - generators
 
 ## FAQ
 
-
 ### 启动
+
 ```bash
 mongod --config ./mongo.conf --fork
 ```
 
-__mongod.conf__
+**mongod.conf**
+
 ```yaml
 # https://docs.mongodb.com/manual/reference/configuration-options/
 systemLog:

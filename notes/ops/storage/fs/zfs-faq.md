@@ -1,5 +1,7 @@
 ---
 title: ZFS 常见问题
+tags:
+  - FAQ
 ---
 
 # ZFS 常见问题

@@ -1,6 +1,7 @@
 ---
-id: terraform-cookbook
 title: Terraform 常用脚本
+tags:
+- Cookbook
 ---
 
 # Terraform 常用脚本

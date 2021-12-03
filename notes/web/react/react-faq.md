@@ -6,6 +6,43 @@ tags:
 
 # React FAQ
 
+## React Pattern
+
+- innerRef, elementRef, forwardRef 透传内部引用
+
+## 如何选择运行时框架
+
+最早的 React 开发一般使用 CRA，但 CRA 基于 webpack，异常的慢，在 2021 年不再值得使用。
+
+---
+
+- 选择依据
+  - 单页面 - vite, nextjs
+    - 复杂前端
+    - 动态模块 - systemjs, dynamic import, esm
+  - 多页面 - vite, nextjs, remix
+    - 支持多页面 export
+  - 单 HTML 入口 vs. 多 HTML 入口
+    - vitejs 支持 多 HTMl 入口
+    - nextjs 只支持 单 HTML 入口
+  - 需要 SEO/SSR - nextjs, remix
+  - 全栈 - nextjs, remix
+  - 路由类型
+    - 客户端控制 - SPA - vite
+    - 服务端控制 - nextjs, remix
+  - 网站内容类型
+    - 管理后台 - 单页、复杂、CS 交互
+    - 营销 - SEO、静态、增量
+    - 电商 - 数据、SEO、静态
+  - 部署方式
+    - 静态 - 需要导出
+    - 动态 - 启动服务
+      - 部署 NodeJS 会比较麻烦 - node_modules 很大
+    - Serverless
+- 现在 CS 混合渲染越来越多，值得尝试
+- React Server Components 也是一个趋势
+  - 组建级动态
+
 ## Cannot update a component while rendering a different component
 
 - 避免 render 阶段修改状态

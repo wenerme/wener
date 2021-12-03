@@ -6,6 +6,43 @@ tags:
 
 # Web FAQ
 
+## web worker vs serviceWorker vs worklet
+
+- Worklets
+  - 浏览器处理 pipeline hook
+  - 利用浏览器底层机制 - styling, layout, audio
+  - [CSS Animation Worklet API](https://drafts.css-houdini.org/css-animation-worklet/)
+  - [Layout Worklet](https://drafts.css-houdini.org/css-layout-api-1/#layout-worklet)
+- Service workers
+  - 浏览器 网络的代理
+  - 拦截请求，重定向到缓存，实现离线访问能力
+- Web workers
+  - 多线程
+  - 通用
+
+```js
+// web worker
+const myWorker = new Worker('worker.js');
+myWorker.postMessage('Hello!');
+myWorker.onmessage = function (e) {
+  console.log(e.data);
+};
+
+// serviceWorker
+navigator.serviceWorker.register('/service-worker.js');
+
+// worklet
+CSS.paintWorklet.addModule('myWorklet.js');
+```
+
+|              | Web Workers  | Service Workers  |
+| ------------ | ------------ | ---------------- |
+| Instances    | Many per tab | One for all tabs |
+| Lifespan     | Same as tab  | Independent      |
+| Intended use | Parallelism  | Offline support  |
+
+- https://html5workertest.com/
+
 ## 图片懒加载
 
 ```html
@@ -112,11 +149,12 @@ console.log(document.currentScript.dataset.option);
   - tab/window 纬度 - 关闭则清理
   - 新 tab/window 会 copy 内容
   - 修改互相不影响
-  - 5MB
+  - 限制 5 MB
 - localStorage
   - origin 纬度 - 持久化
   - 修改可跨 tab 传递
   - 可监听变化
+  - 10 MB per origin
 
 ```js
 // 监听 localStorage

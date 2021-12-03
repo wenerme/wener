@@ -13,6 +13,7 @@ tags:
 
 - [godotengine/godot](https://github.com/godotengine/godot)
   - MIT, C++
+- [o3de/o3de](https://github.com/o3de/o3de)
 - rust
   - [arewegameyet](https://arewegameyet.rs/)
     - Rust GameDev 组件

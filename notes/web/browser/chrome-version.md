@@ -8,12 +8,15 @@ tags:
 
 | version | date       |
 | ------- | ---------- |
+| 95      | 2021-09-20 |
 | 90      | 2021-02-28 |
 | 80      | 2019-12-05 |
 | 70      | 2018-08-29 |
 | 60      | 2017-05-23 |
 
-- https://www.chromestatus.com/features
+- 基本一年 8-10 个版本, 大约 30 天一个版本
+- https://chromestatus.com/features
+- https://chromestatus.com/roadmap
 - [What's New in DevTools](https://developer.chrome.com/tags/new-in-devtools/)
 - 参考
   - [Getting started with Trust Tokens](https://web.dev/trust-tokens/)
@@ -23,20 +26,42 @@ tags:
     - [Chrome Origin Trials](https://developer.chrome.com/origintrials/#/trials/active)
   - [Web on Android Trusted Web Activity](https://developer.chrome.com/docs/android/trusted-web-activity/)
     - PWA Android
+  - https://web.dev/reporting-api/
 
 :::tip
 
 - structuredClone - Chrome 98
 - Container Query - WIP
 - blocked ports 554
-  - 5060, 5061
+  - 989, 990 - FTPS
+  - 10080, 554
+    - NAT Slipstream 2.0 attack
+    - samy.pl/slipstream/
+  - 5060, 5061 - SIP
+    - slipstream attack
   - 69, 137, 161, 1719, 1720, 1723, 6566
+    - NAT Slipstream 2.0 attack
+    - 1720 - H.323
 - 部分特性受 Feature-Policy/Permissions-Policy 控制
   - 需要服务端返回 Header 包含
   - 避免被 iframe 滥用
   - mdn [Feature Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy)
 
 :::
+
+## Chrome 98
+
+- self.structuredClone
+
+## Chrome 97
+
+- JavaScript Array, TypedArray findLast, findLastIndex
+- HTMLScriptElement.supports(type)
+- WebTransport
+  - 类似 WebSocket 和 RTCDataChannel 的角色
+  - 期望未来替代 WebSockets
+  - 基于 HTTP/3 UDP
+  - https://web.dev/webtransport/
 
 ## Chrome 96
 
@@ -46,6 +71,11 @@ tags:
   - 支持直接访问 HTTPS
 - WebAssembly Reference Types
 - [URL Protocol Handler Registration for PWAs](https://www.chromestatus.com/features/5151703944921088)
+- DevTool
+  - CSS Overview panel
+  - Emulate the Chrome’s Auto Dark Theme feature
+  - 复制 CSS 为 JS 格式
+  - 网络面板新的 Payload
 
 ## Chrome 95
 

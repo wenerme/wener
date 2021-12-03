@@ -13,6 +13,13 @@ title: react-grid-layout
 - memo children 可以提升性能
 - 自定义 child 要求 React.forwardRef 且接受 style, className
 
+:::tip
+
+- ResponsiveGridLayout 在 container 中，当 container resize 的时候不会变化
+  - [WidthProvide](https://github.com/react-grid-layout/react-grid-layout/blob/master/lib/components/WidthProvider.jsx) 默认只监听了 window resize
+
+:::
+
 ```tsx
 // 基于环境自动检测 width
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -37,3 +44,23 @@ const Demo = () => {
 - resize handle 会作为 children 传入 子元素
   - 因此 children 会变为数组
 - 自定义元素需要注意处理好 透传 props
+
+# FAQ
+
+## Resize based on container
+
+```ts
+import useResizeObserver from 'use-resize-observer';
+import { Responsive, ResponsiveProps } from 'react-grid-layout';
+const ResponsiveGridLayout: React.FC<ResponsiveProps> = (props) => {
+  const { ref, width } = useResizeObserver();
+  const realWidth = useDebounce(width, 200);
+  // measureBeforeMount
+  const w = realWidth ?? width;
+  return (
+    <div className={classNames('h-full w-full')} ref={ref}>
+      {w && <Responsive width={w} {...props} />}
+    </div>
+  );
+};
+```

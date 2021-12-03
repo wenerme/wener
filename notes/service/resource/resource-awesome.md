@@ -14,10 +14,13 @@ tags:
 - [torrent.extto.com](http://torrent.extto.com/)
 - [it-ebooks](https://gist.github.com/baiwfg2/af827b8b75eebf8ab29f5531a0d265ce)
   - https://oiipdf.com/
-- [btbtt](http://btbtt.biz/)
-  - 中文 BT 站点
 - https://graph.org/documentaryList-09-11
 - https://torlook.info
+
+<!--
+- [btbtt](http://btbtt.biz/)
+  - 中文 BT 站点
+-->
 
 ## Pdf
 

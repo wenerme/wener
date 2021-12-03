@@ -6,6 +6,13 @@ tags:
 
 # Storage Awesome
 
+- [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
+  - AGPL-3.0, Go
+  - SFTP server with optional HTTP, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob
+- [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
+  - AGPL-3.0, Go
+  - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql
+
 ## Distributed File System
 
 - minio

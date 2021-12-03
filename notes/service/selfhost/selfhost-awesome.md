@@ -70,6 +70,8 @@ tags:
   - archive physical documents by scan
 - [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 - [BookStackApp/BookStack](https://github.com/BookStackApp/BookStack)
+- Notion
+  - https://github.com/japrozs/dino
 - 参考
   - [NX211/workbench](https://github.com/NX211/workbench)
 

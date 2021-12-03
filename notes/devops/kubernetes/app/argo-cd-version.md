@@ -1,7 +1,7 @@
 ---
 title: ArgoCD 版本
 tags:
-- Version
+  - Version
 ---
 
 # ArgoCD 版本
@@ -17,6 +17,29 @@ tags:
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 # HA
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
+```
+
+## 2.2
+
+- 仓库可以按需定义，不需要预先定义 - 自服务
+- Config Management Plugins V2
+- 支持使用 annotation argocd.argoproj.io/tracking-id 跟踪资源
+  - 之前使用 label app.kubernetes.io/instance 容易冲突
+- argocd-cmp-server
+  - ArgoCD ConfigManagementPlugin Server
+  - sidecar container in reposerver deployment
+  - 提供插件管理能力
+    - apiVersion: argoproj.io/v1alpha1
+    - kind: ConfigManagementPlugin
+- Helm v3.7.1 - pass credentials, OCI
+- 支持限定 cluster,repository 到 project
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+data:
+  # 默认 label - 支持 annotation+label, annotation
+  application.resourceTrackingMethod: annotation
 ```
 
 ## 2.1

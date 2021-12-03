@@ -6,6 +6,29 @@ tags:
 
 # JavaScript 常见问题
 
+## Date.toJSON include timezone
+
+```js
+// 默认 toJSON 为 UTC
+const now = new Date(2021, 12, 12, 0, 0, 0);
+// now.getTimezoneOffset() // local timezone offset
+console.assert(now.toJSON() === now.toISOString());
+JSON.stringify({ now });
+
+Date.prototype.toJSON = function () {
+  // return moment(this).format();
+  // return format(new Date(2016, 0, 1), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx") // date-fns
+  return dayjs(this).format();
+};
+```
+
+| method                                               | format                        |
+| ---------------------------------------------------- | ----------------------------- |
+| now.toJSON()                                         | 2022-01-11T16:00:00.000Z      |
+| moment(now).format()                                 | 2022-01-12T00:00:00+08:00     |
+| dayjs(now).format()                                  | 2022-01-12T00:00:00+08:00     |
+| date-fns format(now, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx") | 2022-01-12T00:00:00.000+08:00 |
+
 ## Primitive vs Object
 
 - [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)

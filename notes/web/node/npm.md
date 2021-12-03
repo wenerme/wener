@@ -14,7 +14,7 @@ title: NPM
 
 :::tip
 
-- NODE_ENV=production 或 --production 时 npm ci 不会安装开发依赖
+- NODE_ENV=production 或 --production 时 npm ci/install 不会安装开发依赖
   - `npm ci --include=dev` 强制安装 dev
 
 :::

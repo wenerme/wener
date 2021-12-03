@@ -1,7 +1,7 @@
 ---
 title: ZFS Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # ZFS Awesome

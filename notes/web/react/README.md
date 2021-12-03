@@ -48,6 +48,14 @@ npm i --save react-redux redux-persist
 npm i --save react-base react-native-vector-icons
 ```
 
+:::tip
+
+- 带 key 的组件不会被复用 [demo](https://codesandbox.io/s/react-keyed-reuse-u2to6)
+  - 可以避免 props 变化问题
+  - 更适用于 memo
+
+:::
+
 ## FAQ
 
 ### Redux vs MobX

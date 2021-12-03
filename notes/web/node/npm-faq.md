@@ -25,10 +25,10 @@ node ./node_modules/esbuild/install.js
 
 ```bash
 # --cache $PWD/.cache 确保利用缓存
-# --only=production 不安装 dev - 看情况
+# --only=production 不安装 dev - 看情况 - 例如 基础容器已经包含
 # --silent
 npm ci --prefer-offline --no-audit
 
-# 或者还是直接用 install
+# 或者还是直接用 install - 保留现有 node_modules
 npm install --no-fund --no-audit
 ```

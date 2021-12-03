@@ -11,6 +11,12 @@ tags:
 - Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 - Awesome [Web](https://www.awesomeweb.com/)
 
+## Web
+
+- https://www.photopea.com/
+- http://oskarstalberg.com/Townscaper/
+- https://remove-white-background.imageonline.co/
+
 ## 技术
 
 - [hotwire](https://hotwire.dev/)

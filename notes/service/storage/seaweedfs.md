@@ -15,6 +15,7 @@ title: seaweedfs
   - 每个文件 40byte 元数据
   - 底层对象存储
   - 通过 filer 实现 POSIX 兼容文件系统
+    - 支持暴露 S3 接口
   - REST 接口 - JSON、JSONP 返回
   - 架构简单
 - 特性
@@ -26,7 +27,7 @@ title: seaweedfs
   - 更新或删除后就行空间回收
   - 支持 TTL
   - 只要有磁盘空间就可以添加总存储空间
-  - 添加删除节点不会导致数据就行从新平衡
+  - 添加删除节点不会导致数据进行从新平衡
   - 图片大小调整 - 可选
   - Tag, Accept-Range, Last-Modified 等
   - in-memory/leveldb/readonly mode tuning for memory/performance balance.
@@ -51,10 +52,6 @@ title: seaweedfs
   - 支持大文件 - TB 级别
   - 支持 FUSE 挂载
     - `weed mount`
-  - S3 兼容接口
-    - `weed s3` 启动 Gateway
-    - Bucket 映射为目录 `/buckets/<bucket_name>`
-    - 不支持 Policy
   - HDFS 兼容接口
   - 异步备份到 S3, Google Cloud Storage, Azure, BackBlaze
   - WebDAV 接口
@@ -63,14 +60,6 @@ title: seaweedfs
   - AES256-GCM 加密存储
   - 支持 TTL
   - Kubernetes CSI 驱动
-- Filer
-  - 元信息需要存储
-  - Cassandra, Mongodb, Redis, Elastic Search, MySql, Postgres, MemSql, TiDB, CockroachDB, Etcd
-  - 为确保原子性可使用 Postgres, MySql
-    - 文件重命名、目录重命名需要原子性支持
-  - 支持订阅文件变化发送消息
-  - **不支持递归目录删除**
-  - **如果 Filter 元信息丢失，则会导致文件结构信息丢失** - 无法恢复，基本等同于文件丢失，且无法访问
 - 场景
   - 相对小文件高并发
   - CDN
@@ -90,12 +79,6 @@ title: seaweedfs
   - 单文件最大为卷大小
 - 文件元信息存储于内存
   - key 16 bytes - `<64bit key, 32bit offset, 32bit size>`
-- fid - 每个被存储的对象的唯一 ID - 文件信息可由外部存储 id 映射进行跟踪
-  - `3,01637037d6` - 字符串最长 33 bytes，二进制存储最长 16 bytes
-    - uint32 volume id=3
-    - uint64 file key=0x01 - 文件数量 - 增加
-      - 大文件 chunk 也会增加
-    - uint32 file cookie=0x637037d6 - 用于避免 URL 猜测文件
 - 副本级别
   - xyz -> 不同 DC|同 DC 不同 Rack|同 Rack
   - 000 - 无
@@ -115,8 +98,6 @@ title: seaweedfs
     - 相当于平均单个 volume id 最多 30G/8 ~ 3.75G
 - Usually hot data are fresh and warm data are old
   - newly created volumes on local servers, and optionally upload the older volumes on the cloud
-- collection
-  - volume 集合 - 相当于将用到的 volume 进行分类，方便统一管理
 
 :::note
 
@@ -151,6 +132,9 @@ weed master -mdir=./meta-data -port=9333
 # -max=8 卷数量
 weed volume -dir=$PWD/v1 -max=5  -mserver=localhost:9333 -port=8080
 weed volume -dir=$PWD/v2 -max=10 -mserver=localhost:9333 -port=8081
+
+# 快捷启动 - 单 master 单 volumn 包含 filer
+weed server -filer=true -s3=true -master.port=9333 -volume.port=8080 -filer.port=8888 -dir="./data"
 
 # 性能测试
 # 1M 1k 的文件
@@ -263,3 +247,182 @@ volume.delete 127.0.0.1:8080 157
     - /storage/object_store/ - volume 数据 `-dir`
   - 目前数据账号密码是硬编码 - YourSWUser:HardCodedPassword
   - 默认会创建 ingress - 且无法自定义
+
+# Notes
+
+- volumn
+  - 副本、冗余、TTL 的最小单位
+  - 默认 30GB，8 volumn
+    - 1.29+ 提供 large_disk 构建的 binary - 8T
+    - volumn 过多也会对 master 造成压力
+  - 如果修改较多，建议 volumn 小一点
+  - 如果大多为只读，使用 large_disk 可以将 volumn 设置大一点
+- collection
+  - volume 集合
+  - s3 buckect 对应 collection
+- rpc
+  - 服务之间 rpc 为 grpc
+  - grpc 端口为默认+10000 - 例如 8080 -> 18080
+    - 可自定义 `<host>:<port>.<grpcPort>`
+  - 支持 HTTP 接口
+- vacuum
+  - when garbage is more than 30%
+  - 立即触发 weed shell `volume.vacuum -garbageThreshold=0.0001`
+- fid - 每个被存储的对象的唯一 ID - 文件信息可由外部存储 id 映射进行跟踪
+  - `3,01637037d6` - 字符串最长 33 bytes，二进制存储最长 16 bytes
+    - uint32 volume id=3
+    - uint64 file key=0x01 - 文件数量 - 增加
+      - 大文件 chunk 也会增加
+    - uint32 file cookie=0x637037d6 - 用于避免 URL 猜测文件
+- ttl
+  - 是 volume 级别的
+  - 因此 assign 指定 ttl 时会尝试找匹配 ttl 的 volumn，如果找不到则会创建 volumn
+  - 会跟踪每个 volumn 里的最大失效时间
+  - 当全失效后经过 `min(10%*ttl, 10m)` 时间则 volumn server 会删除 volumn
+  - 不推荐 频繁 ttl 和 非 ttl volumn 在相同集群
+- Erasure Coding - [f4: Facebook’s Warm BLOB Storage System](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf)
+  - seal 冷数据，利用 EC 节省空间、提高有效性
+  - 默认 `RS(10,4)`
+  - 1GB chunks
+  - ec 后会删除副本
+  - downside
+    - 不能更新，只能删除
+    - 恢复需要传输整个 volumn
+    - 读取会更慢 - 多了网络跳转
+
+| server      | http port | gRPC port |
+| ----------- | --------- | --------- |
+| master      | 9333      | 19333     |
+| volume      | 8080      | 18080     |
+| filer       | 8888      | 18888     |
+| s3          | 8333      |
+| webdav      | 7333      |
+| iam         | 8111      |
+| filer.debug | 6060      |
+
+```shell
+# ec 95% 1h 没操作的 volumn
+ec.encode -fullPercent=95 -quietFor=1h
+# 修复 ec
+ec.rebuild -force
+# 从新平衡 ec volumn 分布
+ec.balance -force
+```
+
+## master service
+
+- http://localhost:9333
+- raft 协议 - 偶数个节点
+- 大多情况下单节点足矣
+- 添加新节点需要重启所有节点 - peers
+
+## volumn service
+
+- http://localhost:8080/ui/index.html
+- 提供存储空间
+- 维护 volumn
+
+```bash
+# 可以将 index 存储在更快的存储提高查询性能
+weed volume -dir.idx=/fast/disk/dir
+```
+
+## filer service
+
+- http://localhost:8888
+- 组织维护 fs 信息
+- 提供 fs 接口
+- 元信息需要存储 - Cassandra, Mongodb, Redis, Elastic Search, MySql, Postgres, MemSql, TiDB, CockroachDB, Etcd
+- 为确保原子性可使用 Postgres, MySQL
+  - 文件重命名、目录重命名需要原子性支持
+- 支持订阅文件变化发送消息
+- **不支持递归目录删除**
+- **如果 filer 元信息丢失，则会导致文件结构信息丢失** - 无法恢复，基本等同于文件丢失，且无法访问
+- 可运行多个 filer - 多租户、负载
+- 支持按 path 配置 filer store
+  - 可以 trim prefix - 因此也能提供类似 mount 能力
+- 文件分 chunk
+  - chunk info 大约 40 bytes
+- 大文件
+  - manifest chunk to hold 1000 pieces of chunk info
+- 支持加密 - AES256-GCM
+  - 每个文件的 key 会存储到 filer store
+  - 写到 volumn 的是加密后的数据
+- 支持 Automatic Peer Discovery
+  - filer 启动会注册到 master
+  - 从 master 发现其他 filer
+- 支持 同步 - embedded store replay 其他 filer
+  - 通过 filer.store.id 识别不同 filer
+    - 启动随机生成 uuid
+- `-saveToFilerLimit=1024` - 小于 1k 的文件直接存储到 filer store
+- 支持 Key-Value 存储
+- 支持监听 filer.meta.tail
+- metadata 事件 /topics/.system/log/yyyy-MM-dd/hh-mm.segment
+
+```shell
+fs.cd /
+# 迁移 filer store
+fs.meta.save            # 备份 meta
+fs.meta.load uuid.meta  # 恢复 meta
+
+# 同步 filer a<->b
+# 支持指定路径 -a.path -b.path
+# -isActivePassive a->b
+filer.sync -a <filer1_host>:<filer1_port> -b <filer2_host>:<filer2_port>
+```
+
+## webdav
+
+- `weed webdav`
+- 暂不支持 auth
+
+## s3 service
+
+- 依赖 filer 存储在 `/buckets/<bucket_name>`
+- 提供 s3 接口
+- filer 可内置启动 `-s3=true`
+- `weed s3` 启动 Gateway
+- 不支持 Policy
+- `weed iam` 支持 IAM
+
+# source
+
+- postgres2
+  - 支持原子操作
+  - 支持 Fast Bucket Deletion
+
+```sql
+CREATE TABLE IF NOT EXISTS "%s" (
+  dirhash   BIGINT,
+  name      VARCHAR(65535),
+  directory VARCHAR(65535),
+  meta      bytea,
+  PRIMARY KEY (dirhash, name)
+);
+```
+
+- https://github.com/viant/ptrie
+  - prefix tree
+  - 匹配 store 路径
+
+
+```go
+type Filer struct {
+  Store               VirtualFilerStore
+  MasterClient        *wdclient.MasterClient
+	RemoteStorage       *FilerRemoteStorage
+	UniqueFileId        uint32
+	MetaAggregator      *MetaAggregator
+  buckets             *FilerBuckets
+}
+```
+
+- VirtualFilerStore
+  - path 匹配映射多个 store
+- MetaAggregator
+  - 聚合多个 filer 元数据
+- `weed filer -webdav -s3 -ima`
+  - 同时启动多个服务，通过端口通讯，而不是直接传递的内部 filer 实现
+- webdav
+  - 基于 golang.org/x/net/webdav 实现
+    - 使用 in-memory LockSystem

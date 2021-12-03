@@ -5,7 +5,7 @@ title: Vite
 # Vite
 
 - [vitejs/vite](https://github.com/vitejs/vite) 是什么？
-  - Dev+Bundle 工具 - No-Bundler - Bundle 为 ESM 独立模块而不是整体 Bundle
+  - Dev+Bundle 工具 - No-Bundler - Bundle 为 ESM 独立模块而不是整体 Bundle
   - ESBuild+Rollup
   - Koa
   - 模块 TS, CSS, Static Assets, JSX, JSON, Vue, Glob Import, WebAssembly, Web Worker
@@ -28,7 +28,7 @@ title: Vite
   - rollup
     - 更成熟 - 功能更完善 - 插件多
     - esbuild 支持 esm 为主
-  - 保持 与 DEV 一致会比较难
+  - 保持 与 DEV 一致会有难度
 
 :::caution
 
@@ -38,9 +38,12 @@ title: Vite
 :::
 
 ```bash
-# template:
-#   vanilla, vanilla-ts, vue, vue-ts, react, react-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts
+# 新项目
+# vanilla, vanilla-ts, vue, vue-ts, react, react-ts, preact, preact-ts, lit, lit-ts, svelte, svelte-ts
 npm init vite@latest my-app -- --template react-ts
+
+# 现有项目
+npm add -D vite @vitejs/plugin-react
 ```
 
 ```ts
@@ -98,8 +101,8 @@ require('fast-glob')
     - 但需要自行配置
   - 可以打包为 库 - rollup
 - NextJS
-  - Webpack
-    - bundle - 慢
+  - Webpack/SWC
+    - bundle - 全量，复杂页面很大很慢
   - SSR、SSG、增量 SSG 支持很好
   - 单一 HTML 入口 - \_app.js - 不能划分全局 CSS
   - 支持路由
