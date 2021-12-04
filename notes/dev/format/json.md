@@ -39,6 +39,7 @@ title: JSON
 - [google/diff-match-patch](https://github.com/google/diff-match-patch)
 - [Mendoza: Use stack machines to compute efficient JSON diffs](https://www.sanity.io/blog/mendoza)
   - [HN](https://news.ycombinator.com/item?id=24943775)
+- https://extendsclass.com/json-diff.html
 
 ## FAQ
 
