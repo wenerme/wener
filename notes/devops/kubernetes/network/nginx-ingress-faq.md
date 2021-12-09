@@ -1,5 +1,7 @@
 ---
 title: Nginx Ingress 常见问题
+tags:
+  - FAQ
 ---
 
 # Nginx Ingress 常见问题
@@ -47,6 +49,16 @@ spec:
 controller:
   extraArgs:
     enable-ssl-passthrough: true
+```
+
+**使用方式**
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
+  nginx.ingress.kubernetes.io/backend-protocol: 'HTTPS'
+  kubernetes.io/ingress.allow-http: 'false'
+  nginx.ingress.kubernetes.io/secure-backends: 'true'
 ```
 
 ## HTTPS SNI 路由

@@ -5,14 +5,14 @@ title: LibreOffice Online
 
 # LibreOffice Online
 
-* LibreOffice Online WebSocket Daemon (loolwsd)
-* 端口 9980
-* WOPI 协议
-* [LibreOffice/online](https://github.com/LibreOffice/online) - MPL
-* 参考
-  * [LibreOffice Online API](https://github.com/LibreOffice/online/blob/master/wsd/reference.md)
-  * [安装新字体](https://help.nextcloud.com/t/installing-new-fonts-in-collabora/22758)
-* 字典 en_US en_GB en_AU en_CA en_NZ en_IE en_ZA en_JM en_BS en_BZ en_TT en_ZW en_PH en_IN en_NA en_GH en_MW 
+- LibreOffice Online WebSocket Daemon (loolwsd)
+- 端口 9980
+- WOPI 协议
+- [LibreOffice/online](https://github.com/LibreOffice/online) - MPL
+- 参考
+  - [LibreOffice Online API](https://github.com/LibreOffice/online/blob/master/wsd/reference.md)
+  - [安装新字体](https://help.nextcloud.com/t/installing-new-fonts-in-collabora/22758)
+- 字典 en_US en_GB en_AU en_CA en_NZ en_IE en_ZA en_JM en_BS en_BZ en_TT en_ZW en_PH en_IN en_NA en_GH en_MW
 
 ```bash
 # https://hub.docker.com/r/libreoffice/online/

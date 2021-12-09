@@ -13,6 +13,8 @@ tags:
 
 ## Framework
 
+- [preactjs/wmr](https://github.com/preactjs/wmr)
+
 ## Library
 
 - Event
@@ -102,6 +104,17 @@ tags:
   - rxjs
 - utils
   - [he](https://github.com/mathiasbynens/he) HTML entities
+- office
+  - [dolanmiu/docx](https://github.com/dolanmiu/docx)
+    - generate .docx files
+- crdt
+  - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
+  - [yjs/yjs](https://github.com/yjs/yjs)
+  - [automerge/automerge](https://github.com/automerge/automerge)
+  - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
+- editor
+  - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
+    - headless, framework-agnostic and extendable rich text editor, based on ProseMirror
 
 ---
 
@@ -135,3 +148,7 @@ tags:
 ## 工具
 
 - [CryogenicPlanet/depp](https://github.com/CryogenicPlanet/depp)
+
+## Engine
+
+- [GoogleChromeLabs/jsvu](https://github.com/GoogleChromeLabs/jsvu)

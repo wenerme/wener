@@ -30,6 +30,8 @@ tags:
   - GPLv3, Golang
   - DNS Forwarder
 - [AdguardTeam/dnsproxy](https://github.com/AdguardTeam/dnsproxy)
+- [looterz/grimd](https://github.com/looterz/grimd)
+  - MIT, Golang
 
 ## Misc
 

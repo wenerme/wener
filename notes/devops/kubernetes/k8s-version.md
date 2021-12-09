@@ -6,13 +6,15 @@ title: Kubernetes 版本
 
 - [Feature Gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/)
   - CSIMigrationXxx - 内置 CSI 迁移为外部 CSI 驱动
+  - [pkg/features/kube_features.go](https://github.com/kubernetes/kubernetes/blob/master/pkg/features/kube_features.go)
 - [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
 
-| ver. | release    |
-| ---- | ---------- |
-| 1.22 |            |
-| 1.21 | 2021-04-08 |
-| 1.20 | 2020-12-08 |
+| ver.            | release    |
+| --------------- | ---------- |
+| Kubernetes 1.23 | 2021-12-07 |
+| Kubernetes 1.22 | 2021-08-04 |
+| Kubernetes 1.21 | 2021-04-08 |
+| Kubernetes 1.20 | 2020-12-08 |
 
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
@@ -52,13 +54,23 @@ title: Kubernetes 版本
 
 :::
 
+[cronjobcontrollerv2]: ./k8s-features#CronJobControllerV2
+[ipv6dualstack]: ./k8s-features#IPv6DualStack
+
 ## 1.23
 
 - 新的 `kubectl events` 命令
 - pvc resize 从失败恢复
 - gRPC probe
+- 废弃 FlexVolume
 - 参考
   - [Kubernetes 1.23 – What’s new?](https://sysdig.com/blog/kubernetes-1-23-whats-new/)
+
+:::tip
+
+- Kubernetes 会逐步把 CSI 移出核心
+
+:::
 
 | stage  | group             | feature                                | default | alpha | beta | stable |
 | ------ | ----------------- | -------------------------------------- | ------- | ----- | ---- | ------ |
@@ -84,13 +96,12 @@ title: Kubernetes 版本
 | Beta   | node              | EphemeralContainers                    | true    |
 | Beta   | node              | KubeletPodResourcesGetAllocatable      | true    |
 | Beta   | scheduling        | JobMutableNodeSchedulingDirectives     | true    |
-| Stable | apps              | CronJobControllerV2                    |         |
 | Stable | apps              | JobReadyPods                           |         |
 | Stable | apps              | JobTrackingWithFinalizers              |         |
 | Stable | apps              | StatefulSetMinReadySeconds             |         |
 | Stable | apps              | TTLAfterFinished                       |         |
 | Stable | network           | IngressClassNamespacedParams           |         |
-| Stable | network           | IPv6DualStack                          |         |
+| Stable | network           | [IPv6DualStack]                        |         |
 | Stable | network           | TopologyAwareHints                     |         |
 | Stable | storage           | ConfigurableFSGroupPolicy              |
 | Stable | storage           | CSIMigrationAWS                        | false   |
@@ -106,9 +117,6 @@ spec:
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: Retain
     whenScaled: Delete
----
-# CronJobControllerV2
-kind: CronJobs
 ```
 
 ## 1.22
@@ -215,7 +223,7 @@ kind: CronJobs
 | Deprecated | StreamingProxyRedirects           | false   |       | 1.5  |
 | Deprecated | ValidateProxyRedirects            | true    | 1.12  | 1.14 |
 | Stable     | BoundServiceAccountTokenVolume    |         | 1.13  | 1.21 | 1.22   |
-| Stable     | CronJobControllerV2               |         | 1.20  | 1.21 | 1.22   |
+| Stable     | [CronJobControllerV2]             |         | 1.20  | 1.21 | 1.22   |
 | Stable     | CSIServiceAccountToken            |         | 1.20  | 1.21 | 1.22   |
 | Stable     | EndpointSliceProxying             |         | 1.18  | 1.19 | 1.22   |
 | Stable     | HugePageStorageMediumSize         |         | 1.18  | 1.19 | 1.22   |
@@ -342,7 +350,7 @@ plugins:
 | Alpha      | TopologyAwareHints                |         | 1.21  |      |
 | Alpha      | VolumeCapacityPriority            |         | 1.21  |      |
 | Beta       | BoundServiceAccountTokenVolume    | true    | 1.13  | 1.21 | 1.22   |
-| Beta       | CronJobControllerV2               | true    | 1.20  | 1.21 | 1.22   |
+| Beta       | [CronJobControllerV2]             | true    | 1.20  | 1.21 | 1.22   |
 | Beta       | CSIMigrationAzureFile             | false   | 1.15  | 1.21 |
 | Beta       | CSIMigrationvSphereComplete       | false   |       | 1.19 |
 | Beta       | CSIServiceAccountToken            | true    | 1.20  | 1.21 | 1.22   |
@@ -355,7 +363,7 @@ plugins:
 | Beta       | GracefulNodeShutdown              | true    | 1.20  | 1.21 |
 | Beta       | HugePageStorageMediumSize         | true    | 1.18  | 1.19 | 1.22   |
 | Beta       | HugePageStorageMediumSize         | true    | 1.18  | 1.19 | 1.22   |
-| Beta       | IPv6DualStack                     | true    | 1.15  | 1.21 |
+| Beta       | [IPv6DualStack]                   | true    | 1.15  | 1.21 |
 | Beta       | NamespaceDefaultLabelName         | true    |       | 1.21 | 1.22   |
 | Beta       | ServerSideApply                   | true    | 1.14  | 1.16 | 1.22   |
 | Beta       | SetHostnameAsFQDN                 | true    | 1.19  | 1.20 | 1.22   |

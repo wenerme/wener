@@ -13,6 +13,13 @@ tags:
 
 - [godotengine/godot](https://github.com/godotengine/godot)
   - MIT, C++
+- [pmgl/microstudio](https://github.com/pmgl/microstudio)
+  - Babylon.js: https://github.com/BabylonJS/Babylon.js
+  - Pixi.js: https://github.com/pixijs
+  - Matter.js: https://github.com/liabru/matter-js
+  - Cannon.js: https://github.com/schteppe/cannon.js
+  - Brython (Python engine in JavaScript): https://github.com/brython-dev/brython
+  - Fengari (Lua engine in JavaScript): https://github.com/fengari-lua
 - [o3de/o3de](https://github.com/o3de/o3de)
 - rust
   - [arewegameyet](https://arewegameyet.rs/)
@@ -24,6 +31,7 @@ tags:
 - js
   - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
 - [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
+- [morgan3d/quadplay](https://github.com/morgan3d/quadplay)
 
 ## Learn
 

@@ -1,6 +1,6 @@
 {
   "git.decorations.enabled": true,
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "editor.wordWrapColumn": 120,
   "[markdown]": {
     "editor.wordWrap": "off"

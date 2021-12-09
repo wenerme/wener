@@ -12,6 +12,8 @@ title: Collabora Online
   - 20 人限制，可自己编译取消限制
   - 两者区别并不大
   - [libreoffice/online](https://hub.docker.com/r/libreoffice/online) 镜像
+- 参考
+  - https://sdk.collaboraonline.com/contents.html
 
 ```bash
 # https://www.collaboraoffice.com/code/docker/

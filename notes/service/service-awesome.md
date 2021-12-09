@@ -179,6 +179,11 @@ tags:
   - https://github.com/gollum/gollum
     - MIT, Ruby
     - Git-powered wiki with a sweet API and local frontend
+- image
+  - [cshum/imagor](https://github.com/cshum/imagor)
+    - Go, libvips
+- git
+  - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
 
 ## 学习
 

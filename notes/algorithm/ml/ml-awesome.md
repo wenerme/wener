@@ -56,6 +56,7 @@ tags:
 - [SysCV/pcan](https://github.com/SysCV/pcan)
 - [tinyfool/VideoRemoveBackground](https://github.com/tinyfool/VideoRemoveBackground)
 - [open-mmlab/mmhuman3d](https://github.com/open-mmlab/mmhuman3d)
+- [BaltiApps/Pixelify-Google-Photos](https://github.com/BaltiApps/Pixelify-Google-Photos)
 
 ## Learn
 
@@ -106,6 +107,7 @@ tags:
 
 ## Framework
 
+- [minitorch/minitorch](https://github.com/minitorch/minitorch)
 - [microsoft/SynapseML](https://github.com/microsoft/SynapseML)
   - MIT, Scala
   - Distributed Machine Learning
