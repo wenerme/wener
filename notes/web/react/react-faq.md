@@ -10,6 +10,15 @@ tags:
 
 - innerRef, elementRef, forwardRef 透传内部引用
 
+## React Context
+
+- Context.Provider value 修改需要 rerender 组件
+- 一般 Provider 都在比较上层，因此可能会有性能问题
+- 使用不会变的 value
+  - 不将状态内容作为 value
+  - 例如 使用 rxjs BehaviorSubject 作为 value 则可以避免变化，也能订阅变化
+  - 可使用 zustand 替代
+
 ## 如何选择运行时框架
 
 最早的 React 开发一般使用 CRA，但 CRA 基于 webpack，异常的慢，在 2021 年不再值得使用。

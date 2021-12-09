@@ -37,6 +37,10 @@ tags:
 - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
 - [gajus/liqe](https://github.com/gajus/liqe)
   - Lucene-like parser and search engine
+- [prabhatsharma/zinc](https://github.com/prabhatsharma/zinc)
+  - Apache-2.0, Go+Vue
+  - alternative to elasticsearch
+  - Index [blugelabs/bluge](https://github.com/blugelabs/bluge)
 
 ## Lcoal Search
 

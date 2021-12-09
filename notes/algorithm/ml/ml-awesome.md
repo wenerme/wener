@@ -54,6 +54,8 @@ tags:
 - [PeterL1n/RobustVideoMatting](https://github.com/PeterL1n/RobustVideoMatting)
 - [yuval-alaluf/hyperstyle](https://github.com/yuval-alaluf/hyperstyle)
 - [SysCV/pcan](https://github.com/SysCV/pcan)
+- [tinyfool/VideoRemoveBackground](https://github.com/tinyfool/VideoRemoveBackground)
+- [open-mmlab/mmhuman3d](https://github.com/open-mmlab/mmhuman3d)
 
 ## Learn
 

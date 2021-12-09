@@ -6,17 +6,22 @@ tags:
 
 # Chrome Version
 
-| version | date       |
-| ------- | ---------- |
-| 95      | 2021-09-20 |
-| 90      | 2021-02-28 |
-| 80      | 2019-12-05 |
-| 70      | 2018-08-29 |
-| 60      | 2017-05-23 |
+| version   | date       | note                                              |
+| --------- | ---------- | ------------------------------------------------- |
+| Chrome 95 | 2021-09-20 |
+| Chrome 90 | 2021-02-28 |
+| Chrome 86 | 2020-10-06 | File System Access API                            |
+| Chrome 80 | 2019-12-05 |
+| Chrome 70 | 2018-08-29 | AV1                                               |
+| Chrome 60 | 2017-05-23 |
+| Chrome 49 | 2016-03-02 | last Windows XP, Vista; Mac OS X 10.6, 10.7, 10.8 |
+| Chrome 28 | 2013-07-09 | Blink                                             |
+| Chrome 1  | 2008-12-11 |
 
 - 基本一年 8-10 个版本, 大约 30 天一个版本
 - https://chromestatus.com/features
 - https://chromestatus.com/roadmap
+  - 关注 Enabled by default
 - [What's New in DevTools](https://developer.chrome.com/tags/new-in-devtools/)
 - 参考
   - [Getting started with Trust Tokens](https://web.dev/trust-tokens/)
@@ -27,11 +32,18 @@ tags:
   - [Web on Android Trusted Web Activity](https://developer.chrome.com/docs/android/trusted-web-activity/)
     - PWA Android
   - https://web.dev/reporting-api/
+  - [Google Chrome version history](https://en.wikipedia.org/wiki/Google_Chrome_version_history)
 
 :::tip
 
 - structuredClone - Chrome 98
+- OPFS - Origin Private File System - Chrome 99
 - Container Query - WIP
+
+:::
+
+:::caution
+
 - blocked ports 554
   - 989, 990 - FTPS
   - 10080, 554
@@ -301,6 +313,9 @@ navigator.scheduling.isInputPending({ includeContinuous: true });
 - WebRTC Insertable Streams
 - Clipboard API 支持 async text/html
   - HTML is sanitized
+- document.fragmentDirective - [scroll-to-text-fragment](https://wicg.github.io/scroll-to-text-fragment)
+  - #:~:text=
+  - 滚动到文字
 
 ```js
 var portal = document.createElement('portal');

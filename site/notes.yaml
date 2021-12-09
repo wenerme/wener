@@ -49,6 +49,19 @@
       items:
         - label: Library
           prefix: ./lib
+    - label: C
+      prefix: ./c
+      items:
+        - label: Library
+          prefix: ./lib
+    - label: PHP
+      prefix: ./php
+    - label: Diagram
+      prefix: ./diagram
+    - label: Lua
+      prefix: ./lua
+    - label: V
+      prefix: ./v
 
 - label: AlpineLinux
   prefix: os/alpine

@@ -161,6 +161,11 @@ npm add date-fns lodash-es react-fast-compare
 - [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
   - drop 文件
 - [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
+- kanban
+  - [asseinfo/react-kanban](https://github.com/asseinfo/react-kanban)
+- notion
+  - [splitbee/react-notion](https://github.com/splitbee/react-notion)
+  - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
 
 ### 编辑器
 

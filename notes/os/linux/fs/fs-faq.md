@@ -10,6 +10,46 @@ tags:
 
 - [What are the file and file system size limitations for Red Hat Enterprise Linux?](https://access.redhat.com/solutions/1532)
 
+## atime, mtime, ctime
+
+| field | mean        | stand for   |
+| ----- | ----------- | ----------- |
+| atime | access time | 访问时间    |
+| mtime | modify time | 修改时间    |
+| ctime | create time | 创建时间    |
+| btime | birth time  | fs 创建时间 |
+
+- btime
+  - crtime EXTFS
+  - Linux 4.11+ 支持 statx 返回 crtime
+- [stat.1](https://man7.org/linux/man-pages/man1/stat.1.html)
+- ext
+  - strictatime - 更严格的 atime 维护，影响性能，特殊场景使用
+  - noatime - 不维护 atime
+  - nodiratime -  不维护目录 atime
+  - relatime - relative atime - 超过 24h 才更新 atime
+
+```bash
+touch hello.txt
+# 查看所有时间
+stat hello.txt
+
+touch hello.txt                           # 修改 atime, mtime
+touch -m hello.txt                        # 修改 mtime
+touch -d "2020-01-15 10:30:45" hello.txt  # 指定 atime, mtime
+
+touch neo.txt
+touch hello.txt -r neo.txt                # 参照修改
+
+# inode
+stat -c $i /etc/profile
+df --output=source /etc/profile | tail -1
+# debugfs 能看到 crtime
+debugfs -R "stat <$(stat -c %i /etc/profile)>" /dev/sda2
+```
+
+<!-- debugfs -R 'stat /path/to/file' /dev/sda1 -->
+
 ## MBR vs GPT
 
 - MBR - Master Boot Record

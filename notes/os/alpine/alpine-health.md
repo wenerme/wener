@@ -1,7 +1,8 @@
+---
+title: Health Check
+---
+
 # Health Check
-
-## Tips
-
 
 ## DISK
 
@@ -25,7 +26,7 @@ badblocks -v /dev/sdb
 
 ### SCSI
 
-* [SCSI - Hot add, remove, rescan of SCSI devices](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Power+Systems/page/SCSI+-+Hot+add,+remove,+rescan+of+SCSI+devices)
+- [SCSI - Hot add, remove, rescan of SCSI devices](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Power+Systems/page/SCSI+-+Hot+add,+remove,+rescan+of+SCSI+devices)
 
 ```bash
 apk add lsscsi
@@ -37,5 +38,4 @@ cat /proc/scsi/scsi
 echo "- - -" > /sys/class/scsi_host/host0/scan
 # 移除设备
 echo 1 > /sys/bus/scsi/drivers/sd/<SCSI-ID>/delete
-
 ```

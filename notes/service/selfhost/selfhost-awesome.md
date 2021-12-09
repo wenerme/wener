@@ -38,12 +38,19 @@ tags:
 - Policy as code
   - [open-policy-agent/gatekeeper](https://github.com/open-policy-agent/gatekeeper)
 - ⁠Storage
-  - rook
   - Nextcloud
   - [kadalu/kadalu](https://github.com/kadalu/kadalu) - GlusterFS in background
+  - [filegator/filegator](https://github.com/filegator/filegator)
+    - MIT, PHP
+    - Multi-User File Manager
+  - [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser)
+    - Apache-2.0, Go+Vue
 - Media
   - Jellyfin
   - Plex - 相对封闭，使用很多限制
+  - [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
+    - AGPL-3.0, Go
+    - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
   - [airsonic/airsonic](https://github.com/airsonic/airsonic)
     - GPL-3.0, Java
 - Network
@@ -71,14 +78,29 @@ tags:
 - [AdguardTeam/AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 - [BookStackApp/BookStack](https://github.com/BookStackApp/BookStack)
 - [pawelmalak/flame](https://github.com/pawelmalak/flame)
-  -  startpage for your server
+  - startpage for your server
 - Notion
   - https://github.com/japrozs/dino
+    - https://dino.japrozsaini.me/
   - [AppFlowy-IO/appflowy](https://github.com/AppFlowy-IO/appflowy)
     - AGPL-3.0, Rust+Dart
+  - https://github.com/mattermost/focalboard
+    - Trello, Notion, Asana
+  - https://github.com/kjk/notionapi
+    - Unofficial Go API for Notion.so
 - Music
   - [sentriz/gonic](https://github.com/sentriz/gonic)
   - [epoupon/lms](https://github.com/epoupon/lms)
+- Document
+  - [tagspaces/tagspaces](https://github.com/tagspaces/tagspaces)
+    - AGPL-3.0, Java+TS
+  - [eikek/docspell](https://github.com/eikek/docspell)
+  - [sismics/docs](https://github.com/sismics/docs)
+- [IceWhaleTech/CasaOS](https://github.com/IceWhaleTech/CasaOS)
+  - Home Cloud system
+
+---
+
 - 参考
   - [NX211/workbench](https://github.com/NX211/workbench)
 

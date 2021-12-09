@@ -128,3 +128,45 @@ file --mime-type --mime-encoding $PWD
 - 参考
   - xdg base dir
   - linux [fhs](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
+
+## meta
+
+- https://www.freedesktop.org/wiki/Specifications/shared-filemetadata-spec/
+- https://www.freedesktop.org/wiki/CommonExtendedAttributes/
+- http://0pointer.de/lennart/projects/mod_mime_xattr/
+- https://man7.org/linux/man-pages/man1/setfattr.1.html
+- https://man7.org/linux/man-pages/man7/xattr.7.html
+
+```
+namespace.attribute
+user.mime_type
+trusted.md5sum,
+system.posix_acl_access
+security.selinux
+```
+
+- namespaces
+  - security - SELinux
+  - system - ACL
+  - trusted
+  - user
+- 255 bytes and values of up to 64 KiB
+- https://en.wikipedia.org/wiki/Extended_file_attributes
+
+## file manager
+
+- Windows Explorer
+- macOS Finder
+- Nemo
+- Nautilus
+- [File manager](https://en.wikipedia.org/wiki/File_manager)
+- [xfce/thunar](https://gitlab.xfce.org/xfce/thunar)
+
+## thumb
+
+- https://en.wikipedia.org/wiki/Windows_thumbnail_cache
+  - [Windows Explorer Thumbnail Cache database file format specification](https://github.com/libyal/libwtcdb/blob/main/documentation/Windows%20Explorer%20Thumbnail%20Cache%20database%20format.asciidoc)
+- WebDAV REPORT
+  - https://lists.w3.org/Archives/Public/w3c-dist-auth/2009AprJun/0012.html
+- https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#SHARED
+- https://github.com/jesjimher/genthumbs/blob/master/genthumbs.sh

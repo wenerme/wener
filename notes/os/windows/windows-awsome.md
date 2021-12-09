@@ -32,6 +32,7 @@ tags:
 - [DriverPack](https://drp.su)
   - 支持在线、离线
   - 全量离线 - 26G+
+  - [DriverPackSolution/DriverPack-Solution](https://github.com/DriverPackSolution/DriverPack-Solution)
 
 ## NLTM
 

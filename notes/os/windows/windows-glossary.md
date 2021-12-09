@@ -15,10 +15,11 @@ tags:
 | GPO        | Group Policy Object                              |
 | IFC        | Install From Media                               |
 | NCSI       | Network Connectivity Status Indicator            |
+| NT         | New Technology                                   |
 | NTDS       |
-| NTLM       |
+| NTLM       | NT LAN Manager                                   |
 | OMA-URI    | Open Mobile Alliance Uniform Resource Identifier |
+| Windows PE | Windows Preinstallation Environment              |
 | WinRM      |
 | WMI        | Windows Management Instrumentation               |
 | WSMan      |
-| Windows PE | Windows Preinstallation Environment              |

@@ -4,20 +4,9 @@ title: Kubernetes 版本
 
 # Kubernetes 版本
 
-- feature groups
-  - api-machinery
-  - apps
-  - auth
-  - cli
-  - cluster-lifecycle
-  - cluster-provider
-  - instrumentation - kubelet 自身相关
-  - network
-  - node
-  - scheduling
-  - storage
-  - windows
 - [Feature Gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/)
+  - CSIMigrationXxx - 内置 CSI 迁移为外部 CSI 驱动
+- [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
 
 | ver. | release    |
 | ---- | ---------- |
@@ -28,6 +17,41 @@ title: Kubernetes 版本
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
 
+**特性分组说明**
+
+| feature groups    | desc             |
+| ----------------- | ---------------- |
+| api-machinery     | 接口             |
+| apps              | 执行             |
+| auth              | 授权             |
+| cli               | 命令行 - kubectl |
+| cluster-lifecycle | 集群生命周期     |
+| cluster-provider  |
+| instrumentation   | kubelet 自身相关 |
+| network           | 网络             |
+| node              | 节点             |
+| scheduling        | 调度 - Pod       |
+| storage           | 存储             |
+| windows           | Windows 相关     |
+
+:::info 特性阶段
+
+- Stable 阶段一般默认开启,
+- Beta 阶段可能开启
+- Alpha 一般为关闭
+
+:::
+
+:::tip 版本关注点
+
+- breaking-change
+  - 移除 depracated - 例如 Ingress 升级过程
+- 默认启用的特性 - Stable, Beta
+- distro 开启的特性 - K3S, K0S
+- 对使用影响大的特性
+
+:::
+
 ## 1.23
 
 - 新的 `kubectl events` 命令
@@ -36,58 +60,54 @@ title: Kubernetes 版本
 - 参考
   - [Kubernetes 1.23 – What’s new?](https://sysdig.com/blog/kubernetes-1-23-whats-new/)
 
-| stage  | feature                                | default | until |
-| ------ | -------------------------------------- | ------- | ----- |
-| Alpha  | CPUManagerPolicyExperimentalOptions    |         |
-| Alpha  | GracefulNodeShutdownBasedOnPodPriority |         |
-| Alpha  | GRPCContainerProbe                     |         |
-| Alpha  | PodAndContainerStatsFromCRI            |         |
-| Alpha  | RecoverVolumeExpansionFailure          |         |
-| Alpha  | StatefulSetAutoDeletePVC               |         |
-| Alpha  | HonorPVReclaimPolicy                   |
-| Alpha  | DelegateFSGroupToCSIDriver             |
-| Alpha  | CSIMigrationPortworx                   |
-| Alpha  | CSIMigrationRBD                        |
-| Alpha  | IdentifyPodOS                          |
-| Alpha  | WindowsHostProcessContainers           | true    |
-| Alpha  | UnversionedKubeletConfigMap            |
-| Beta   | CPUManagerPolicyOptions                | false   |
-| Beta   | EphemeralContainers                    | true    |
-| Beta   | JobMutableNodeSchedulingDirectives     | true    |
-| Beta   | KubeletPodResourcesGetAllocatable      | true    |
-| Beta   | PodSecurity                            | true    |
-| Stable | CronJobControllerV2                    |         |
-| Stable | IngressClassNamespacedParams           |         |
-| Stable | IPv6DualStack                          |         |
-| Stable | JobReadyPods                           |         |
-| Stable | JobTrackingWithFinalizers              |         |
-| Stable | StatefulSetMinReadySeconds             |         |
-| Stable | TopologyAwareHints                     |         |
-| Stable | TTLAfterFinished                       |         |
-| Stable | CSIMigrationAWS                        | false   |
-| Stable | ConfigurableFSGroupPolicy              |
-| Stable | CSIVolumeFSGroupPolicy                 |
-| Stable | GenericEphemeralVolume                 |
-
-:::tip
-
-- Stable 阶段一般默认开启,
-- Beta 阶段可能开启
-
-:::
+| stage  | group             | feature                                | default | alpha | beta | stable |
+| ------ | ----------------- | -------------------------------------- | ------- | ----- | ---- | ------ |
+| Alpha  | api-machinery     | CustomResourceValidationExpressions    |
+| Alpha  | api-machinery     | OpenAPIEnum                            |
+| Alpha  | api-machinery     | OpenApiv3                              |
+| Alpha  | api-machinery     | ServerSideFieldValidation              |
+| Alpha  | apps              | StatefulSetAutoDeletePVC               |         |
+| Alpha  | cluster-lifecycle | UnversionedKubeletConfigMap            |
+| Alpha  | node              | CPUManagerPolicyExperimentalOptions    |         |
+| Alpha  | node              | GracefulNodeShutdownBasedOnPodPriority |         |
+| Alpha  | node              | GRPCContainerProbe                     |         |
+| Alpha  | node              | PodAndContainerStatsFromCRI            |         |
+| Alpha  | storage           | CSIMigrationPortworx                   |
+| Alpha  | storage           | CSIMigrationRBD                        |
+| Alpha  | storage           | DelegateFSGroupToCSIDriver             |
+| Alpha  | storage           | HonorPVReclaimPolicy                   |
+| Alpha  | storage           | RecoverVolumeExpansionFailure          |         |
+| Alpha  | windows           | IdentifyPodOS                          |
+| Alpha  | windows           | WindowsHostProcessContainers           | true    |
+| Beta   | auth              | PodSecurity                            | true    |
+| Beta   | node              | CPUManagerPolicyOptions                | false   |
+| Beta   | node              | EphemeralContainers                    | true    |
+| Beta   | node              | KubeletPodResourcesGetAllocatable      | true    |
+| Beta   | scheduling        | JobMutableNodeSchedulingDirectives     | true    |
+| Stable | apps              | CronJobControllerV2                    |         |
+| Stable | apps              | JobReadyPods                           |         |
+| Stable | apps              | JobTrackingWithFinalizers              |         |
+| Stable | apps              | StatefulSetMinReadySeconds             |         |
+| Stable | apps              | TTLAfterFinished                       |         |
+| Stable | network           | IngressClassNamespacedParams           |         |
+| Stable | network           | IPv6DualStack                          |         |
+| Stable | network           | TopologyAwareHints                     |         |
+| Stable | storage           | ConfigurableFSGroupPolicy              |
+| Stable | storage           | CSIMigrationAWS                        | false   |
+| Stable | storage           | CSIVolumeFSGroupPolicy                 |
+| Stable | storage           | GenericEphemeralVolume                 |
 
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 spec:
-  # Alpha
+  # StatefulSetAutoDeletePVC
   # sts 异常后的 pvc 回收策略
   persistentVolumeClaimRetentionPolicy:
     whenDeleted: Retain
     whenScaled: Delete
 ---
-# Stable
-# ScheduledJobs ->
+# CronJobControllerV2
 kind: CronJobs
 ```
 
@@ -152,6 +172,59 @@ kind: CronJobs
 - 参考
   - [1.22: Here’s What You Need To Know](https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22/)
   - [Kubernetes 1.22 – What’s new?](https://sysdig.com/blog/kubernetes-1-22-whats-new/)
+
+| stage      | feature                           | default | alpha | beta | stable |
+| ---------- | --------------------------------- | ------- | ----- | ---- | ------ |
+| Alpha      | APIServerTracing                  |         | 1.22  |      |
+| Alpha      | CPUManagerPolicyOptions           |         | 1.22  |      |
+| Alpha      | DelegateFSGroupToCSIDriver        |         | 1.22  |      |
+| Alpha      | DisableCloudProviders             |         | 1.22  |      |
+| Alpha      | ExpandedDNSConfig                 |         | 1.22  |      |
+| Alpha      | JobTrackingWithFinalizers         |         | 1.22  |      |
+| Alpha      | KubeletInUserNamespace            |         | 1.22  |      |
+| Alpha      | MemoryQoS                         |         | 1.22  |      |
+| Alpha      | NodeSwap                          |         | 1.22  |      |
+| Alpha      | PodSecurity                       |         | 1.22  |      |
+| Alpha      | ProxyTerminatingEndpoints         |         | 1.22  |      |
+| Alpha      | ReadWriteOncePod                  |         | 1.22  |      |
+| Alpha      | SeccompDefault                    |         | 1.22  |      |
+| Alpha      | StatefulSetMinReadySeconds        |         | 1.22  |      |
+| Alpha      | WindowsHostProcessContainers      |         | 1.22  |      |
+| Alpha      | WindowsHostProcessContainers      |         | 1.22  |      |
+| Beta       | ControllerManagerLeaderMigration  | true    | 1.21  | 1.22 |
+| Beta       | CSRDuration                       | true    |       | 1.22 |
+| Beta       | DaemonSetUpdateSurge              | true    | 1.21  | 1.22 |
+| Beta       | EndpointSliceTerminatingCondition | true    | 1.20  | 1.22 |
+| Beta       | IndexedJob                        | true    | 1.21  | 1.22 |
+| Beta       | IngressClassNamespacedParams      | true    | 1.21  | 1.22 |
+| Beta       | LogarithmicScaleDown              | true    | 1.21  | 1.22 |
+| Beta       | MemoryManager                     | true    | 1.21  | 1.22 |
+| Beta       | NetworkPolicyEndPort              | true    | 1.21  | 1.22 |
+| Beta       | PodAffinityNamespaceSelector      | true    | 1.21  | 1.22 |
+| Beta       | PodDeletionCost                   | true    | 1.21  | 1.22 |
+| Beta       | PreferNominatedNode               | true    | 1.21  | 1.22 |
+| Beta       | ProbeTerminationGracePeriod       | false   | 1.21  | 1.22 |
+| Beta       | ServiceInternalTrafficPolicy      | true    | 1.21  | 1.22 |
+| Beta       | ServiceLBNodePortControl          | true    | 1.20  | 1.22 |
+| Beta       | ServiceLoadBalancerClass          | true    | 1.21  | 1.22 |
+| Beta       | SizeMemoryBackedVolumes           | true    | 1.20  | 1.22 |
+| Beta       | SuspendJob                        | true    | 1.21  | 1.22 |
+| Deprecated | BalanceAttachedNodeVolumes        | false   | 1.11  |      |
+| Deprecated | CSIMigrationvSphereComplete       |         |       | 1.19 |
+| Deprecated | DynamicKubeletConfig              | false   | 1.4   | 1.11 |
+| Deprecated | StreamingProxyRedirects           | false   |       | 1.5  |
+| Deprecated | ValidateProxyRedirects            | true    | 1.12  | 1.14 |
+| Stable     | BoundServiceAccountTokenVolume    |         | 1.13  | 1.21 | 1.22   |
+| Stable     | CronJobControllerV2               |         | 1.20  | 1.21 | 1.22   |
+| Stable     | CSIServiceAccountToken            |         | 1.20  | 1.21 | 1.22   |
+| Stable     | EndpointSliceProxying             |         | 1.18  | 1.19 | 1.22   |
+| Stable     | HugePageStorageMediumSize         |         | 1.18  | 1.19 | 1.22   |
+| Stable     | HugePageStorageMediumSize         |         | 1.18  | 1.19 | 1.22   |
+| Stable     | NamespaceDefaultLabelName         |         |       | 1.21 | 1.22   |
+| Stable     | ServerSideApply                   |         | 1.14  | 1.16 | 1.22   |
+| Stable     | SetHostnameAsFQDN                 |         | 1.19  | 1.20 | 1.22   |
+| Stable     | WarningHeaders                    |         |       | 1.19 | 1.22   |
+| Stable     | WindowsEndpointSliceProxying      |         | 1.19  | 1.21 | 1.22   |
 
 ```bash
 # 当前使用的 ingress 版本
@@ -237,6 +310,78 @@ plugins:
   - [Kubernetes 1.21: Power to the Community](https://kubernetes.io/blog/2021/04/08/kubernetes-1-21-release-announcement/)
   - sysdig [What’s new in Kubernetes 1.21](https://sysdig.com/blog/whats-new-kubernetes-1-21/)
 
+| stage      | feature                           | default | alpha | beta | stable |
+| ---------- | --------------------------------- | ------- | ----- | ---- | ------ |
+| Alpha      | BalanceAttachedNodeVolumes        |         | 1.11  |      |
+| Alpha      | ControllerManagerLeaderMigration  |         | 1.21  | 1.22 |
+| Alpha      | ControllerManagerLeaderMigration  |         | 1.21  | 1.22 |
+| Alpha      | CSIVolumeHealth                   |         | 1.21  |      |
+| Alpha      | DaemonSetUpdateSurge              |         | 1.21  | 1.22 |
+| Alpha      | EndpointSliceTerminatingCondition |         | 1.20  | 1.22 |
+| Alpha      | IndexedJob                        |         | 1.21  | 1.22 |
+| Alpha      | IngressClassNamespacedParams      |         | 1.21  | 1.22 |
+| Alpha      | InTreePluginAWSUnregister         |         | 1.21  |      |
+| Alpha      | InTreePluginAzureDiskUnregister   |         | 1.21  |      |
+| Alpha      | InTreePluginAzureFileUnregister   |         | 1.21  |      |
+| Alpha      | InTreePluginGCEUnregister         |         | 1.21  |      |
+| Alpha      | InTreePluginOpenStackUnregister   |         | 1.21  |      |
+| Alpha      | InTreePluginvSphereUnregister     |         | 1.21  |      |
+| Alpha      | KubeletPodResourcesGetAllocatable |         | 1.21  |      |
+| Alpha      | LogarithmicScaleDown              |         | 1.21  | 1.22 |
+| Alpha      | MemoryManager                     |         | 1.21  | 1.22 |
+| Alpha      | NetworkPolicyEndPort              |         | 1.21  | 1.22 |
+| Alpha      | PodAffinityNamespaceSelector      |         | 1.21  | 1.22 |
+| Alpha      | PodDeletionCost                   |         | 1.21  | 1.22 |
+| Alpha      | PreferNominatedNode               |         | 1.21  | 1.22 |
+| Alpha      | ProbeTerminationGracePeriod       |         | 1.21  | 1.22 |
+| Alpha      | ServiceInternalTrafficPolicy      |         | 1.21  | 1.22 |
+| Alpha      | ServiceLBNodePortControl          |         | 1.20  | 1.22 |
+| Alpha      | ServiceLoadBalancerClass          |         | 1.21  | 1.22 |
+| Alpha      | SizeMemoryBackedVolumes           |         | 1.20  | 1.22 |
+| Alpha      | SuspendJob                        |         | 1.21  | 1.22 |
+| Alpha      | TopologyAwareHints                |         | 1.21  |      |
+| Alpha      | VolumeCapacityPriority            |         | 1.21  |      |
+| Beta       | BoundServiceAccountTokenVolume    | true    | 1.13  | 1.21 | 1.22   |
+| Beta       | CronJobControllerV2               | true    | 1.20  | 1.21 | 1.22   |
+| Beta       | CSIMigrationAzureFile             | false   | 1.15  | 1.21 |
+| Beta       | CSIMigrationvSphereComplete       | false   |       | 1.19 |
+| Beta       | CSIServiceAccountToken            | true    | 1.20  | 1.21 | 1.22   |
+| Beta       | CSIStorageCapacity                | true    | 1.19  | 1.21 |
+| Beta       | DownwardAPIHugePages              | false   | 1.20  | 1.21 |
+| Beta       | DynamicKubeletConfig              | true    | 1.4   | 1.11 |
+| Beta       | EfficientWatchResumption          | true    | 1.20  | 1.21 |
+| Beta       | EndpointSliceProxying             | true    | 1.18  | 1.19 | 1.22   |
+| Beta       | GenericEphemeralVolume            | true    | 1.19  | 1.21 |
+| Beta       | GracefulNodeShutdown              | true    | 1.20  | 1.21 |
+| Beta       | HugePageStorageMediumSize         | true    | 1.18  | 1.19 | 1.22   |
+| Beta       | HugePageStorageMediumSize         | true    | 1.18  | 1.19 | 1.22   |
+| Beta       | IPv6DualStack                     | true    | 1.15  | 1.21 |
+| Beta       | NamespaceDefaultLabelName         | true    |       | 1.21 | 1.22   |
+| Beta       | ServerSideApply                   | true    | 1.14  | 1.16 | 1.22   |
+| Beta       | SetHostnameAsFQDN                 | true    | 1.19  | 1.20 | 1.22   |
+| Beta       | TTLAfterFinished                  | true    | 1.12  | 1.21 |
+| Beta       | ValidateProxyRedirects            | true    | 1.12  | 1.14 |
+| Beta       | WarningHeaders                    | true    |       | 1.19 | 1.22   |
+| Beta       | WindowsEndpointSliceProxying      | true    | 1.19  | 1.21 | 1.22   |
+| Deprecated | CSIMigrationAWSComplete           |         | 1.17  |      |
+| Deprecated | CSIMigrationAzureDiskComplete     |         | 1.17  |      |
+| Deprecated | CSIMigrationAzureFileComplete     |         | 1.17  |      |
+| Deprecated | CSIMigrationGCEComplete           |         | 1.17  |      |
+| Deprecated | CSIMigrationOpenStackComplete     |         | 1.17  |      |
+| Deprecated | StreamingProxyRedirects           | true    |       | 1.5  |
+| Stable     | CRIContainerLogRotation           |         | 1.10  | 1.11 | 1.21   |
+| Stable     | EndpointSlice                     |         | 1.16  | 1.17 | 1.21   |
+| Stable     | EndpointSliceNodeName             |         | 1.20  |      | 1.21   |
+| Stable     | ImmutableEphemeralVolumes         |         | 1.18  | 1.19 | 1.21   |
+| Stable     | LegacyNodeRoleBehavior            | false   | 1.16  | 1.19 | 1.21   |
+| Stable     | NodeDisruptionExclusion           |         | 1.16  | 1.19 | 1.21   |
+| Stable     | PodDisruptionBudget               |         | 1.3   | 1.5  | 1.21   |
+| Stable     | RootCAConfigMap                   |         | 1.13  | 1.20 | 1.21   |
+| Stable     | RunAsGroup                        |         |       | 1.14 | 1.21   |
+| Stable     | ServiceAccountIssuerDiscovery     |         | 1.18  | 1.20 | 1.21   |
+| Stable     | ServiceNodeExclusion              |         | 1.8   | 1.19 | 1.21   |
+| Stable     | Sysctls                           |         |       | 1.11 | 1.21   |
+
 **POD**
 
 ```yaml
@@ -288,6 +433,9 @@ apiVersion: batch/v1
   # 每个 Pod 的索引为 0 到 completions-1
   # 默认 NonIndexed
   completionMode: Indexed
+
+  # TTLAfterFinished
+  ttlSecondsAfterFinished: 100
 ```
 
 ## 1.20
@@ -371,3 +519,38 @@ spec:
   - 生命周期与 pod 绑定
   - 支持使用动态 provisioning 存储作为临时卷 - ALPHA
 - [CHANGELOG-1.19](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md)
+
+## Script
+
+```js title="extract-features.js"
+const version = '1.21';
+function build(ver = version) {
+  const all = Array.prototype.map.call($$('table tbody tr'), ($tr) =>
+    Array.prototype.map.call($tr.querySelectorAll('td'), ($td) => $td.innerText),
+  );
+  const byName = all.reduce((o, [name, _, stage, s]) => {
+    const v = (o[name] ||= {});
+    v[stage] ??= s;
+    return o;
+  }, {});
+
+  let rows = all
+    .filter((v) => v[3] === ver || v[4] === ver)
+    .map(([name, def, stage, s, u]) => {
+      const o = byName[name];
+      stage = stage.replace('GA', 'Stable');
+      def = def.replace('-', '');
+      switch (stage) {
+        case 'Alpha':
+          def = def.replace('false', '');
+          break;
+        case 'Stable':
+          def = def.replace('true', '');
+          break;
+      }
+      return [stage, name, def, o.Alpha, o.Beta, o.GA];
+    });
+
+  copy(rows.map((v) => v.join('|')).join('\n'));
+}
+```

@@ -1,5 +1,7 @@
 ---
 title: Kerberos Awesome
+tags:
+- Awesome
 ---
 
 # Kerberos Awesome

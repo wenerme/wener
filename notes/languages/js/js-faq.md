@@ -29,6 +29,14 @@ Date.prototype.toJSON = function () {
 | dayjs(now).format()                                  | 2022-01-12T00:00:00+08:00     |
 | date-fns format(now, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx") | 2022-01-12T00:00:00.000+08:00 |
 
+## tbody to array
+
+```js
+Array.prototype.map.call($0.querySelectorAll('tr'), ($tr) =>
+  Array.prototype.map.call($tr.querySelectorAll('td'), ($td) => $td.innerText),
+);
+```
+
 ## Primitive vs Object
 
 - [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)

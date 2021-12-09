@@ -87,11 +87,25 @@ tags:
 - color
   - [Qix-/color](https://github.com/Qix-/color)
 - store
+  - [rxdb](https://github.com/pubkey/rxdb)
+    - rxjs
+    - adapters: pouchdb, lokijs
+    - replication: couchdb, graphql
+  - [lokijs](https://github.com/techfort/LokiJS)
+  - [dexie](https://github.com/dfahlander/Dexie.js)
   - [share/sharedb](https://github.com/share/sharedb)
     - Realtime database backend based on Operational Transformation (OT)
 - compiler
   - [wooorm/xdm](https://github.com/wooorm/xdm)
     - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
+- reactive
+  - rxjs
+- utils
+  - [he](https://github.com/mathiasbynens/he) HTML entities
+
+---
+
+- npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
 
 ## JSX
 

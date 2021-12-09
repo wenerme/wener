@@ -6,6 +6,34 @@ tags:
 
 # Storage Awesome
 
+**接口协议**
+
+- 对象存储协议 - KV, 不需要文件语义
+  - s3
+  - swift
+- 文件服务 - 通用, 有文件语意, 不需要 POSIX
+  - webdav - 唯一 Web 环境可用的协议, 支持面广, 简单
+  - ftp,sftp,ftps
+- 本地文件共享 - 对速度和使用环境有要求, 通常是 POSIX 兼容
+  - nfs
+  - smb,cifs
+  - afp
+- 分布式文件 - 数据处理, 代码靠近数据
+  - hdfs
+- 块设备协议
+  - iscsi
+  - nvme-tcp
+  - sata
+  - ide
+- 操作系统接口
+  - fuse
+  - sshfs
+  - rdb
+  - SPDK, NVMe-oF
+  - virtio-fs
+
+---
+
 - [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
   - AGPL-3.0, Go
   - SFTP server with optional HTTP, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob
@@ -24,7 +52,7 @@ tags:
 
 ---
 
-- seaweedfs
+- [chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
   - Apache-2.0, Go
 - [chubaofs/chubaofs](https://github.com/chubaofs/chubaofs)
   - Apache-2.0, Go

@@ -21,6 +21,8 @@ tags:
   - MIT, Golang
   - Simple mDNS client/server library
 - [pion/mdns](https://github.com/pion/mdns)
+  - MIT, Go
+  - Pure Go implementation of Multicast DNS
 
 ## Forwarder/Proxy
 

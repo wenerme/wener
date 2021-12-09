@@ -1,0 +1,91 @@
+---
+title: dexie
+---
+
+# dexie
+
+- dexie-react-hooks
+  - [useLiveQuery](<https://dexie.org/docs/dexie-react-hooks/useLiveQuery()>)
+    - 会 observe 数据变化
+    - 基于 liveQuery 方法
+- dexie-observable
+  - 提供 `db.on('changes')`
+- dexie-export-import
+  - 导入、导出 IndexedDB <-> Blob
+- 参考
+  - https://dexie.org/docs/DerivedWork
+
+```bash
+npm add dexie dexie-react-hooks
+```
+
+- schema
+  - `++` 自增长主键
+  - `&` 唯一索引
+  - `*` 多值索引 - 数组
+  - `[A+B]` 组合索引或主键
+- 索引数据类型
+  - string, number, Date, Array
+  - 不能索引 boolean, null, undefined
+
+```js
+var db = new Dexie('MyDatabase');
+db.version(1).stores({
+  friends: '++id,name,shoeSize', // 自增长 PK id
+  pets: 'id, name, kind', // 非自增长 PK id
+  cars: '++, name', // 自增长 PK, 隐藏
+  enemies: ',name,*weaknesses', // 隐藏非自增长 PK
+  users: 'meta.ssn, addr.city', // keyPath
+  people: '[name+ssn], &ssn', // 组合主键
+});
+```
+
+```js
+const db = new Dexie('MyDatabase');
+db.version(1).stores({
+  // friends: '++id, name, age',
+  users: '$$uuid,name',
+});
+
+// liveQuery 可以 watch 结果
+// https://dexie.org/docs/liveQuery()
+const friendsObservable = Dexie.liveQuery(() => db.friends.where('age').between(18, 25).toArray());
+const subscription = friendsObservable.subscribe({
+  next: (result) => console.log('Got result:', JSON.stringify(result)),
+  error: (error) => console.error(error),
+});
+// 触发 liveQuery
+await db.friends.add({ name: 'wener', age: 20 });
+
+// dexie-observable
+db.on('changes', function (changes) {
+  changes.forEach(function (change) {
+    switch (change.type) {
+      case 1: // CREATED
+        console.log('CREATED: ' + JSON.stringify(change.obj));
+        break;
+      case 2:
+        console.log(`UPDATED ${change.key}: ` + JSON.stringify(change.mods));
+        break;
+      case 3:
+        console.log(`DELETED: ` + JSON.stringify(change.oldObj));
+        break;
+    }
+  });
+});
+```
+
+## Notes
+
+:::tip
+
+- mapToClass, defineClass 可以将数据转为 Class 方便使用
+
+:::
+
+- Table -> IDBObjectStore
+  - hook - creating, reading, updating, deleting
+- Collection
+  - Query builder
+- [Dexie.Syncable](https://dexie.org/docs/Syncable/Dexie.Syncable.js)
+  - 同步协议

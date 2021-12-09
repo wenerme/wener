@@ -6,8 +6,9 @@ tags:
 
 # Diagram Awesome
 
-- [yuzutech/kroki](https://github.com/yuzutech/kroki)
-  统一支持多种语言
+- [kroki](./kroki)
+  - [yuzutech/kroki](https://github.com/yuzutech/kroki)
+  - 统一支持多种语言
   - MIT, Java
   - https://kroki.io
 - [asciiflow](https://asciiflow.com)

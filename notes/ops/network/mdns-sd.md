@@ -15,7 +15,7 @@ title: mDNS 服务定义
 ## macOS
 
 ```bash
-# 暴露服务
+# 暴露服务
 dns-sd -R "My test server with metrics-endpoint" _prometheus-http._tcp. . 9000 path=/metrics
 # 扫描
 dns-sd -B

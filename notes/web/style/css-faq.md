@@ -67,6 +67,7 @@ tags:
     - https://developer.chrome.com/docs/devtools/evaluate-performance/reference/#layer-borders
   - https://csstriggers.com/
   - [What forces layout / reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
+  - [尽可能减少浏览器重排](https://developers.google.com/speed/docs/insights/browser-reflow)
 
 [containing block]: https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block
 

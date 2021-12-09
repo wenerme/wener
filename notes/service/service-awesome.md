@@ -61,6 +61,11 @@ tags:
 - [fonoster/fonoster](https://github.com/fonoster/fonoster)
   - open-source alternative to Twilio
 - https://github.com/zmide/study.zmide.com
+- [nocodb/nocodb](https://github.com/nocodb/nocodb)
+  - Airtable alternative
+  - AGPL-3.0, Typescript+Vue
+- [bramw/baserow](https://gitlab.com/bramw/baserow)
+  - MIT, Python+Vue
 
 ## Avatar
 
@@ -168,6 +173,12 @@ tags:
 - [Conchylicultor/DeepQA](https://github.com/Conchylicultor/DeepQA)
   - Apache-2.0, Python, 停止开发
 - [DopplerHQ/awesome-bots](https://github.com/DopplerHQ/awesome-bots)
+- [outline/outline](https://github.com/outline/outline)
+  - BSL 1.1
+- CMS
+  - https://github.com/gollum/gollum
+    - MIT, Ruby
+    - Git-powered wiki with a sweet API and local frontend
 
 ## 学习
 
