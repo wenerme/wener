@@ -6,6 +6,18 @@ tags:
 
 # Shell FAQ
 
+## pwd vs cwd
+
+```bash
+type -a pwd
+```
+
+| -           | -                          |
+| ----------- | -------------------------- |
+| builtin pwd | echo $PWD                  |
+| /bin/pwd    | pwd -P                     |
+| getcwd      | readlink -f /proc/self/cwd |
+
 ## doas vs sudo
 
 - doas

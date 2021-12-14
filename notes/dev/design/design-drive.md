@@ -176,6 +176,9 @@ security.selinux
 - https://elixir.bootlin.com/linux/latest/source/include/linux/fs.h#L623
 - The Inode Object
   - http://books.gigatux.nl/mirror/kerneldevelopment/0672327201/ch12lev1sec6.html
+- https://en.wikipedia.org/wiki/Fork_(file_system)
+  - alternate data streams - ADS
+- https://en.wikipedia.org/wiki/Sidecar_file
 
 ```c
 struct inode {

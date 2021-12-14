@@ -50,3 +50,17 @@ curl https://wener.me  -o /dev/null -s -w "@curl-format.txt"
                       ----------
           time_total:  1.971632s
 ```
+
+# FAQ
+
+## Mark bundle as not supporting multiuse
+
+- HTTP/2 检测
+- [lib/http.c#L4276-L4279](https://github.com/curl/curl/blob/da973165965962a435a23ade336d9a17daf044ef/lib/http.c#L4276-L4279)
+
+```c
+if(conn->httpversion < 20) {
+   conn->bundle->multiuse = BUNDLE_NO_MULTIUSE;
+   infof(data, "Mark bundle as not supporting multiuse\n");
+}
+```

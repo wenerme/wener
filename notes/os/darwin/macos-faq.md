@@ -124,6 +124,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
 
 ## .DS_Store
+
 - https://eclecticlight.co/2021/11/27/explainer-ds_store-files/
 - https://news.ycombinator.com/item?id=29358932
 
@@ -193,3 +194,17 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 - Bash 4 为 GPLv3
 - 苹果拒绝使用 GPLv3
 - 10 年后迁移为使用 ZSH - MIT
+
+## installd
+
+- PackageKit framework
+- Software Update
+- /System/Library/PrivateFrameworks/PackageKit.framework/Resources/installd
+- CPU 高是因为 compile the current list of software installed on your computer, and compare with the current version list received from Apple's servers
+- 参考
+  - [What is the `installd` process, and why is it eating my CPU?](https://apple.stackexchange.com/a/91963/103557)
+
+## Mach-O universal binary
+
+- x86_64
+- arm64e

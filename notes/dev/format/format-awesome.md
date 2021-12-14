@@ -9,6 +9,7 @@ tags:
 - file format - 文件格式
 - data interchange format - 数据交换格式
 - container format - 容器格式
+- https://en.wikipedia.org/wiki/Container_format_(computing)
 
 ## Parser
 

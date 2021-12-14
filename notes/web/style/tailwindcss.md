@@ -17,6 +17,7 @@ title: Tailwind CSS
   - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
   - [shuffle.dev](https://shuffle.dev) - 模板生成
   - [tw-in-js/twind](https://github.com/tw-in-js/twind)
+  - https://flowbite.com/tools/tailwind-cheat-sheet/
 - 组件
   - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
     Tailwind Components
@@ -119,7 +120,7 @@ module.exports = {
 
 # TailwindCSS Version
 
-## TailwindCSS 3
+## TailwindCSS v3
 
 - 默认 jit
 - Just-in-Time CDN build
@@ -135,13 +136,14 @@ module.exports = {
 - overflow-ellipsis -> text-ellipsis
 - flex-basis
 - fit-content for min/max-width/height
-- min/max-content  for min/max-height
+- min/max-content for min/max-height
 - `cursor-*`
 - 添加 `grow-*`, `shrink-*` 废弃 `flex-grow-*` and `flex-shrink-*`
 - text-decoration-color
 - addVariant API
 - print variant
 - 颜色 `fill-*`, `stroke-*`
+
 ```html
 <!-- 自定义配置 -->
 <script src="https://cdn-tailwindcss.vercel.app/"></script>
@@ -163,4 +165,34 @@ module.exports = {
 </style>
 <!-- 插件 -->
 <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+```
+
+---
+
+- https://tailwindcss.com/docs/upgrade-guide
+- overflow-clip overflow-ellipsis -> text-clip text-ellipsis
+- flex-grow-0 flex-shrink -> grow-0 shrink
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 移除 */
+/* @tailwind screens; */
+@tailwind variants;
+```
+
+```js
+module.exports = {
+  // mode: 'jit', // 默认
+  // purge -> content
+  // purge: ['./src/**/*.tsx'],
+  content: ['./src/**/*.tsx'],
+  // darkMode: false,// 移除 - 默认包含
+  theme: {
+    extend: {},
+  },
+  // variants: { },  // 移除 - 默认包含
+  plugins: [],
+};
 ```

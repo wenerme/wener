@@ -5,6 +5,20 @@ title: React Location
 # React Location
 
 - [tannerlinsley/react-location](https://github.com/tannerlinsley/react-location)
+  - 基于/类似 react-router v6 进行调整 - 更面向 CSR
+  - 支持插件能力 - 部分 react-router 有的能力在 react-location 中需要插件支持
+    - react-location-ranked-routes - 建议开启
+    - react-location-simple-cache
+    - react-location-elements-to-routes
+  - 支持 devtool - react-location-devtools
+  - 不支持 SSR - 主要面向 CSR 场景
+    - WIP
+  - element 支持异步
+  - 添加 CSR 辅助功能
+    - search 处理
+    - loader - 提前异步加载数据，支持缓存
+    - Error Element, Pending Element, Pending Timing - 配合 loader 行为
+  - 支持 promot - react-router v6 暂不支持
 - 参考
   - [vs. React Router](https://react-location.tanstack.com/comparison)
 
@@ -146,3 +160,33 @@ const reactLocation = new ReactLocation({
   stringifySearch,
 });
 ```
+
+## Notes
+
+- Router
+  - LocationContext
+  - routerContext
+  - MatchesProvider
+- Outlet
+  - MatchesProvider
+    - 移除当前顶层 match
+    - 渲染第一个 match
+- Route
+  - element 默认 `<Outlet />`
+- matchRoute
+  - matchByPath
+    - `parsePathname(pathname?: string): Segment[]`
+      - pathname
+      - wildcard - `*`
+      - param - `:`
+    - 对比 segment 是否匹配
+  - matchBySearch
+- Link
+  - Ctrl+Click 或 target!=`_self` 则不会 preventDefault 由浏览器处理点击事件
+
+:::caution
+
+- useMatch 基于 useContext 触发 memo 组件不会被 render
+  - [react#15156](https://github.com/facebook/react/issues/15156#issuecomment-474590693)
+
+:::

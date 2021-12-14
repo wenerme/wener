@@ -24,6 +24,26 @@ apk add e2fsprogs-extra
 badblocks -v /dev/sdb
 ```
 
+## 单个磁盘
+
+- iotop 不支持指定磁盘
+- dstat 已经不再维护
+  - 可尝试 [scottchiefbaker/dool](https://github.com/scottchiefbaker/dool)
+
+```bash
+iostat -d 10 /dev/sdf
+
+dstat -D sda,sdc
+dstat -tdD /dev/sda --top-io
+```
+
+```bash
+# 磁盘只读状态
+cat /sys/block/sda/sda2/ro
+# 将磁盘设置为只读
+echo 1 >/sys/block/sda/sda2/ro
+```
+
 ## SCSI
 
 - [SCSI - Hot add, remove, rescan of SCSI devices](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Power+Systems/page/SCSI+-+Hot+add,+remove,+rescan+of+SCSI+devices)

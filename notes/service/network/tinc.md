@@ -4,8 +4,15 @@ title: Tinc
 
 # tinc
 
-- 是什么？
+- [gsliepen/tinc](https://github.com/gsliepen/tinc) 是什么？
+  - GPLv2+, C
   - 2 层、3 层 NAT 穿透直连组网的 Mesh VPN
+  - 加密、认证、压缩
+  - 自动全 Mesh 路由
+  - NAT 穿透
+  - bridge ethernet segments
+  - 支持 IPv6
+  - 实现简洁 - ~40k loc
 - 什么时候可用
   - 基础设施组网 - 管理
     - Tinc 连接性好
@@ -14,10 +21,13 @@ title: Tinc
   - 需要 2 层协议
     - mdns, upnp
 - 什么时候不用
-  - 数据中心 - 考虑使用 wireguard
-    - 数据量过大，Tinc 不适合
-  - 移动设备接入
+  - 数据中心 - 考虑 wireguard
+    - 数据量过大，Tinc 不适合 - 单线程
+  - 移动设备接入 - 考虑 nebula
     - 目前没有移动客户端，适用于服务端场景
+    - 不能做细粒度控制
+  - 多租户 - 考虑 n2n
+    - 全 mesh，无法控制节点授权
 - Tiny VPN
   - 支持路由模式
     - IP 协议交换

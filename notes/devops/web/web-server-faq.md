@@ -1,5 +1,7 @@
 ---
 title: Web Server FAQ
+tags:
+  - FAQ
 ---
 
 # Web Server FAQ
@@ -7,7 +9,7 @@ title: Web Server FAQ
 ### Caddy vs Traefik
 
 - Caddy
-  -  定位是 Web 服务器
+  - 定位是 Web 服务器
   - 特点是 HTTP2、自动 HTTPS
   - ~~V2 版本还在开发中 - 变化很大~~
   - 支持多 acme 服务商
@@ -54,12 +56,16 @@ title: Web Server FAQ
   - 需要应用层控制
   - 需要实现应用网关
 
-### Caddy v1 vs v2
+### Caddy v1 vs Caddy v2
 
-- v1
-  - 通过配置文件配置
-- v2
-  - 通过接口配置 - 更加灵活
+- Caddy v1
+  - 通过配置文件配置 - 简单/功能有限
+  - 全量 reload
+- Caddy v2
+  - 通过接口配置 - 更加灵活/复杂
+  - 方便拓展
+  - 可以 API 控制
+  - 细粒度动态配置
 
 ## HAProxy vs Keepalived
 

@@ -61,11 +61,7 @@ tags:
 - [fonoster/fonoster](https://github.com/fonoster/fonoster)
   - open-source alternative to Twilio
 - https://github.com/zmide/study.zmide.com
-- [nocodb/nocodb](https://github.com/nocodb/nocodb)
-  - Airtable alternative
-  - AGPL-3.0, Typescript+Vue
-- [bramw/baserow](https://gitlab.com/bramw/baserow)
-  - MIT, Python+Vue
+
 
 ## Avatar
 
@@ -184,6 +180,13 @@ tags:
     - Go, libvips
 - git
   - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
+- zoom, team
+  - [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
+    - WebRTC & SFU
+    - SFU - [versatica/mediasoup](https://github.com/versatica/mediasoup) https://mediasoup.org/
+- office
+  - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
+    - stateless API for PDF files
 
 ## 学习
 

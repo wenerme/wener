@@ -26,6 +26,7 @@ id: spec
 - w3c
   - [FileAPI](https://w3c.github.io/FileAPI)
   - [change-password-url](https://w3c.github.io/webappsec-change-password-url)
+  - [Web Application Manifest](https://w3c.github.io/manifest)
 
 ---
 

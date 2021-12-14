@@ -10,6 +10,13 @@ title: chi
   - 0 外部依赖 - 自己实现 pattern 匹配逻辑
     - 基于 Patricia Radix trie - 性能优于遍历
 
+:::caution
+
+- 额外的 HTTP 方法需要先提前注册,否则不会路由
+  - chi.RegisterMethod
+
+:::
+
 ```go
 // 通配 所有
 r.Method("GET","/admin/*", func(w,r){

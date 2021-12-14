@@ -72,3 +72,13 @@ typeof val === 'object';
 - 参考
   - 性能对比 [typeof vs Object()](https://jsbench.me/epk80dx8xr/1)
     - typeof 更快
+
+## substr vs substring
+
+- [substr]`(startPos, newLen)`
+  - 废弃
+- `substring(startPos, endPos)`
+  - `substr(startPos, newLen)` -> `substring(startPos, startPos+newLen)`
+
+[substr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+[string.prototype.substr]: https://tc39.es/ecma262/#sec-string.prototype.substr

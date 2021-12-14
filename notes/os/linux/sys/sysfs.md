@@ -1,7 +1,9 @@
 # sysfs
 
 ## Tips
-* [/sysfs/class/net](https://www.kernel.org/doc/Documentation/ABI/testing/)
+- [/sysfs/class/net](https://www.kernel.org/doc/Documentation/ABI/testing/)
+- /proc/sysrq-trigger
+- /sys/block/mmcblk0/mmcblk0p2/ro
 
 ```
 find /sys -type f -name power_now 2>/dev/null

@@ -9,7 +9,7 @@ title: Kubernetes 版本
   - [pkg/features/kube_features.go](https://github.com/kubernetes/kubernetes/blob/master/pkg/features/kube_features.go)
 - [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
 
-| ver.            | release    |
+| version         | release    |
 | --------------- | ---------- |
 | Kubernetes 1.23 | 2021-12-07 |
 | Kubernetes 1.22 | 2021-08-04 |
@@ -28,7 +28,7 @@ title: Kubernetes 版本
 | auth              | 授权             |
 | cli               | 命令行 - kubectl |
 | cluster-lifecycle | 集群生命周期     |
-| cluster-provider  |
+| cluster-provider  | 集群供应商       |
 | instrumentation   | kubelet 自身相关 |
 | network           | 网络             |
 | node              | 节点             |
@@ -36,10 +36,10 @@ title: Kubernetes 版本
 | storage           | 存储             |
 | windows           | Windows 相关     |
 
-:::info 特性阶段
+:::info 特性阶段默认
 
-- Stable 阶段一般默认开启,
-- Beta 阶段可能开启
+- Stable 一般默认开启,
+- Beta 可能开启
 - Alpha 一般为关闭
 
 :::
@@ -56,6 +56,7 @@ title: Kubernetes 版本
 
 [cronjobcontrollerv2]: ./k8s-features#CronJobControllerV2
 [ipv6dualstack]: ./k8s-features#IPv6DualStack
+[statefulsetautodeletepvc]: ./k8s-features#StatefulSetAutoDeletePVC
 
 ## 1.23
 
@@ -78,7 +79,7 @@ title: Kubernetes 版本
 | Alpha  | api-machinery     | OpenAPIEnum                            |
 | Alpha  | api-machinery     | OpenApiv3                              |
 | Alpha  | api-machinery     | ServerSideFieldValidation              |
-| Alpha  | apps              | StatefulSetAutoDeletePVC               |         |
+| Alpha  | apps              | [StatefulSetAutoDeletePVC]             |         |
 | Alpha  | cluster-lifecycle | UnversionedKubeletConfigMap            |
 | Alpha  | node              | CPUManagerPolicyExperimentalOptions    |         |
 | Alpha  | node              | GracefulNodeShutdownBasedOnPodPriority |         |
@@ -107,17 +108,6 @@ title: Kubernetes 版本
 | Stable | storage           | CSIMigrationAWS                        | false   |
 | Stable | storage           | CSIVolumeFSGroupPolicy                 |
 | Stable | storage           | GenericEphemeralVolume                 |
-
-```yaml
-apiVersion: apps/v1
-kind: StatefulSet
-spec:
-  # StatefulSetAutoDeletePVC
-  # sts 异常后的 pvc 回收策略
-  persistentVolumeClaimRetentionPolicy:
-    whenDeleted: Retain
-    whenScaled: Delete
-```
 
 ## 1.22
 

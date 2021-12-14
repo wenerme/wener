@@ -73,6 +73,9 @@ tags:
 - [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
   - ⚠️ 不活跃，没怎么维护
   - 推荐 graphql-ws
+- [supabase/pg_graphql](https://github.com/supabase/pg_graphql)
+- [dosco/graphjin](https://github.com/dosco/graphjin)
+  - GraphQL to SQL compiler
 
 ## Server
 

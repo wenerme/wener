@@ -1,5 +1,7 @@
 ---
-title: XDG
+title: XDG Dirs
+tags:
+  - 目录结构
 ---
 
 # XDG

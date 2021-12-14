@@ -1,18 +1,23 @@
 ---
 title: Keycloak Version
 tags:
-- Version
+  - Version
 ---
 
 # Keycloak Version
 
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
+- [keycloak/kc-sig-fapi](https://github.com/keycloak/kc-sig-fapi)
 
 ## Keycloak 16
 
 ## Keycloak 15
 
 - Financial-grade API/FAPI 增强, FAPI CIBA and Open Banking Brasil
+
+**Keycloak 15.1**
+
+- [OpenID Connect Front-Channel Logout 1.0](https://openid.net/specs/openid-connect-frontchannel-1_0.html)
 
 ## Keycloak 14
 

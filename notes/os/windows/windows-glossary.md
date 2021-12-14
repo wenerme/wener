@@ -23,3 +23,5 @@ tags:
 | WinRM      |
 | WMI        | Windows Management Instrumentation               |
 | WSMan      |
+| WCF        | Windows Communication Foundation                 |
+| COM        | Component Object Model                           |

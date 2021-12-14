@@ -4,7 +4,10 @@ title: MetalLB
 
 # MetalLB
 
-- [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - 配置简单
+- [danderson/metallb](https://github.com/danderson/metallb)
+  - 基于主机 L2 提供 LB 能力 - VIP/虚拟 IP/负载均衡
+  - 支持 L2 和 BGP 模式
+- [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - **配置简单**
   - 会监听所有网卡
   - 流量只会到 **一个节点** 不是真正的负载均衡
   - 实现了 failover 机制 - 旧的 leader 有 10s 的租约

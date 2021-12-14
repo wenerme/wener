@@ -57,6 +57,11 @@ tags:
 - [tinyfool/VideoRemoveBackground](https://github.com/tinyfool/VideoRemoveBackground)
 - [open-mmlab/mmhuman3d](https://github.com/open-mmlab/mmhuman3d)
 - [BaltiApps/Pixelify-Google-Photos](https://github.com/BaltiApps/Pixelify-Google-Photos)
+- [sedthh/pyxelate](https://github.com/sedthh/pyxelate)
+- [facebookresearch/theseus](https://github.com/facebookresearch/theseus)
+- [onion-liu/aahq-dataset](https://github.com/onion-liu/aahq-dataset)
+  - Artstation-Artistic-face-HQ Dataset (AAHQ)
+- [parrt/tensor-sensor](https://github.com/parrt/tensor-sensor)
 
 ## Learn
 
@@ -73,6 +78,8 @@ tags:
 
 ---
 
+- [Evaluating Syntactic Abilities of Language Models](https://ai.googleblog.com/2021/12/evaluating-syntactic-abilities-of.html)
+- [RLDS: An Ecosystem to Generate, Share, and Use Datasets in Reinforcement Learning](https://ai.googleblog.com/2021/12/rlds-ecosystem-to-generate-share-and.html)
 - https://learnaifromscratch.github.io/ai.html
 - [microsoft/ML-For-Beginners](https://github.com/microsoft/ML-For-Beginners)
 - [LabML Neural Networks](https://nn.labml.ai/)

@@ -5,7 +5,32 @@ tags:
 
 # React lib FAQ
 
-### Redux vs MobX
+## react-router vs react-location
+
+- react-router
+  - 更成熟，功能更稳定，开发更活跃，文档更完善
+  - 支持 SSR，Native
+  - 接口功能完善
+  - v6 暂无 prompt
+  - useSearchParams
+    - 需要自行序列化
+    - 不能基于之前状态更新
+  - 支持 useRoutes - 使用比较方便
+  - children 绝对路径需要包含 parent 前缀
+- react-location
+  - 用户更少， edge case 可能有问题
+  - 只支持 CSR - 不支持 SSR，Native
+  - 部分 react-router 内置功能通过 plugin 提供
+  - 支持 search 处理
+    - 序列化
+    - 更新
+  - 内置 loader 处理 - element 异步、预先 load 数据、pending 逻辑
+  - Route 有 Generic 类型 - 使用起来更方便
+  - children 绝对路径基于 parent
+- 参考
+  - react-location [vs. React Router](https://react-location.tanstack.com/comparison)
+
+## Redux vs MobX
 
 :::tip
 

@@ -107,14 +107,23 @@ tags:
 - office
   - [dolanmiu/docx](https://github.com/dolanmiu/docx)
     - generate .docx files
+  - [ZEISS/react-view-pdf](https://github.com/ZEISS/react-view-pdf)
+    - react, pdf.js
 - crdt
   - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
   - [yjs/yjs](https://github.com/yjs/yjs)
   - [automerge/automerge](https://github.com/automerge/automerge)
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
+  - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
 - editor
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
     - headless, framework-agnostic and extendable rich text editor, based on ProseMirror
+- ui
+  - [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui)
+    - popover -> floating-ui
+    - react https://floating-ui.com/docs/react-dom
+- ml
+  - [matiasvlevi/Dann](https://github.com/matiasvlevi/Dann)
 
 ---
 
@@ -148,6 +157,13 @@ tags:
 ## 工具
 
 - [CryogenicPlanet/depp](https://github.com/CryogenicPlanet/depp)
+
+```bash
+go install github.com/cryogenicplanet/depp@latest
+# .depp/config.json
+depp init
+depp
+```
 
 ## Engine
 

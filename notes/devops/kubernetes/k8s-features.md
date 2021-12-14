@@ -4,6 +4,19 @@ title: K8S Features
 
 # K8S Features
 
+## StatefulSetAutoDeletePVC
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  # StatefulSetAutoDeletePVC
+  # sts 异常后的 pvc 回收策略
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Delete
+```
+
 ## CronJobControllerV2
 
 | schedule          | =           |
