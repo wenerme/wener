@@ -138,6 +138,44 @@ What happened is happened,but what we can learn from the past ?
 
 这时候我愿称之为： 专家/Master。
 
+## 思维模式
+
+通常学习分为两种场景：
+
+1. 工具技术学习 - 实
+2. 思想方法论学习 - 虚
+
+因为我的主要职责是软件开发，管理对我来说是个“虚”技能，因为并不能直接指导工作。但对于项目经理来说，管理是个“实”技能，而计算机理论则是“虚”技能。
+
+学习项目管理，是更多是为了去了解项目管理的思维模式。
+
+:::tip 模式=锤子=工具
+
+当我们手里拿着锤子时，看到所有东西都是钉子。
+
+-- 工具定律
+
+:::
+
+<!-- 马斯洛的锤子 《科学的心理学》 -->
+
+项目管理思维模式 和 软件设计模式 非常相似，是当我们解决问题时的参照。
+
+但当你没有这个参照，没有这把锤子时，就会陷入困境，不断重复错误。
+
+## 学习主题
+
+学习是一个动作，必然会有目标，学习的主题可以是大而广的，也可以是小而精的。不如说，我们都需要把自己的知识储备磨练成 T 型结构。
+
+![](https://kroki.io/excalidraw/svg/eNrdls1u20YQgN-Fvars_v_opjiOrdR1XNiFHRhCsRbX0tYUSZArWbLha1-gt158aq-9Bn2eBO1jdEjqD6LSCE7ToNVJuzucmZ35dmbuAz_LbNAO7LRvYhfl5varfuyyq9TkUdAKbGxHNvFF0L68D1wEgpHz12PHJ53vh_34ZO-wc6WPLEjO9Zg8T29hOQ3anLOQaa6YFkhTyVvBLGgTqUItNWEKMaHKzVsX-WHQpoiGCsEJoYIShQkcDa0bDH3QRq3AJIPYVv8Kn6c3di-N0xzsfYGqH1i8Mv2bQZ6Ok2hx5nOTFJnJ4QJwfu3i-NTPSi3B0PSH47x0u9Z2XvuAF-uFXJFCTEAK1A6GiS0gDqQVpJnpOw-XwQj8KW1m3agMUW_5_dDkWS0fVC6VlqyF-GGhicYaSdkKJjYvXJrApkLL1XGa9ME01lxIwjQCn1zxHPLgy8-vTVxYuGupc3-Zm2Qcx61gnEXG1zao1gzCzwUGM1nq6gxeohbqtS63RBr1wPXYFH4vHY2cBy0n5UcLzYU3uX_mksglg8WeTaKNnUqqU-Z_aE20Jre2N-fjoTWniT4zL7_pdvvadrPvzu72z05u7iZbaRKahUhLjISmlGuq5jjhUDHKGFOEEbwOFFrxg7UOBUMIM8FAuhT63_BEFZacKoHXeUKswRMwQSBOVD6dJ64gCU2eUKsR38-A0wYxy1gQQTdjobAC8un2p1Vh-e3gIp3-wPeywy_ZgZrI8-TV-etPmPMVjSXpgoZCIiwEwlyQRd1EALrEVDKOscT66eA234cUIYFSQTRFYAee06pacQK1iiu9O5cbLJXCDZKkqI3sBMIHQNoNkW3YNq7d6_0dSZThxqvCAiGOSJmO96BEOjOD2aE9OPdndpQM85sL--LfQkkSHjJCOBNQISRWi6JJQoyZBJoo01J8PErQ5zEUIQRcKokEdJ4VXJqEEjiWUBkg9YirBVyEUwzWMf5n2YJGoOjnZmtLQBpxqGmrIJnuvT5Jzgf7t9PJeEzNy4wd6_6qDXo79XUXlEKHME5xiYnSaFkcOA5hsFJI8XrQmuelbAqLNBD1X256Rfl_1fQY3JYiCO1602OqOURRSaki8ulNT2ClNSiuUtAO_nj85c_ffnz3-FjGIk38qbsDOwTVqxdm5OJZFYJSvhO7ATgWxPba14XEO5iyF9s-zaqIFzZ2SakFPuuDFgOrvLtELs3dwCUmPtv0YK1WzQFZlSrRLFUUmrMQMD29t1SZztHR9CLqjM5y__zg9PTV19fj409fqhi8C0KV0gpRxYSumyCDIVXCoCewxgxIr0CnWoUw6Smp64L28V1w84nMAQPLBPoww7ujuUNtEgQjincgB9S-ffPT2zc_v_v91wYjO6P1YZhWRh56VZ4teH7_8PAXflh1kw==)
+
+:::tip 俗话说
+
+东方不亮西方亮。
+
+:::
+
+不同的角度、观点都会让学习更加容易。
 
 ## 学习过程
 
@@ -147,4 +185,4 @@ What happened is happened,but what we can learn from the past ?
 
 > We are who we are.
 
-学习的参考不应该是别人，而是自己。今天的自己期望明天的自己对比昨天的自己能有所提升，而达成这样的提升就是学习。
+学习的参考不应该是别人，而是自己。今天的自己期望明天的自己对比昨天的自己能有所提升，而达成这样提升的就是学习。
