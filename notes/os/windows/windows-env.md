@@ -1,11 +1,8 @@
 ---
-id: windows-env
 title: Windows 环境
 ---
 
 # Windows 环境信息
-
-## Tips
 
 ## 环境变量
 

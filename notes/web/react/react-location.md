@@ -172,6 +172,7 @@ const reactLocation = new ReactLocation({
     - 移除当前顶层 match
     - 渲染第一个 match
 - Route
+  - path 默认 `*`
   - element 默认 `<Outlet />`
 - matchRoute
   - matchByPath

@@ -464,3 +464,10 @@ title: 开发用词字典
 - state
   - 中间状态 - 等待、执行
   - 有限状态 - 状态机 - state machine
+
+## study vs learn
+
+- study
+  - 过程
+- learn
+  - 结果 - 获取知识

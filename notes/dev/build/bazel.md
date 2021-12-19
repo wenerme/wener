@@ -6,6 +6,13 @@ title: Bazel
 
 - [bazelbuild/examples](https://github.com/bazelbuild/examples)
 - [google/bazel-common](https://github.com/google/bazel-common)
+- https://mirror.bazel.build
+- 参考
+  - [bazelbuild/bazel-gazelle](https://github.com/bazelbuild/bazel-gazelle)
+    - 生成 BUILD.bazel
+  - [Building Uber’s Go Monorepo with Bazel](https://eng.uber.com/go-monorepo-bazel/)
+  - [stellar/go](https://github.com/stellar/go)
+    - Golang monorepo
 
 ```bash
 brew install bazel
@@ -23,6 +30,13 @@ bazel shutdown
 ## Starlark
 
 https://docs.bazel.build/versions/master/skylark/language.html
+
+## Notes
+
+- WORKSPACE
+  - BUILD.bazel
+    - =Makefile
+  - BUILD
 
 ## Java
 

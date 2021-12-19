@@ -6,6 +6,13 @@ tags:
 
 # Shell FAQ
 
+## tree utf8 chartset
+
+```bash
+# -N Print non-printable characters
+tree -N
+```
+
 ## pwd vs cwd
 
 ```bash

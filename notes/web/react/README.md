@@ -56,6 +56,15 @@ npm i --save react-base react-native-vector-icons
 
 :::
 
+:::info
+
+- Context Selectors [react#20646](https://github.com/facebook/react/pull/20646)
+- React.memo + useContext [react#15156](https://github.com/facebook/react/issues/15156#issuecomment-474590693)
+
+:::
+
+- [wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
+
 ## FAQ
 
 ## Nextjs

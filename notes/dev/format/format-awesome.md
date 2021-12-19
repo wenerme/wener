@@ -1,7 +1,7 @@
 ---
 title: Format Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Format Awesome
@@ -16,3 +16,10 @@ tags:
 - [dloss/binary-parsing](https://github.com/dloss/binary-parsing)
   Awesome binary parsing
 - https://github.com/DFDLSchemas
+
+## 3D
+
+- .gtlf
+- .fbx
+- .obj + .mtl
+  - mtl - materials

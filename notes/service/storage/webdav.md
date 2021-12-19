@@ -21,45 +21,13 @@ curl -T test.txt 127.0.0.1:8080/
 curl -X PROPFIND http://127.0.0.1:8080/ | xmllint --format -
 ```
 
-| method        | mean        |
-| ------------- | ----------- |
-| OPTIONS       | stat, allow |
-| GET,HEAD,POST | read file   |
-| DELETE        | rm          |
-| PUT           | write file  |
-| MKCOL         | mkdir       |
-| COPY          | cp          |
-| MOVE          | mv          |
-| LOCK          |
-| UNLOCK        |
-| PROPFIND      | ls          |
-| PROPPATCH     |
-
-- COPY, MOVE
-  - Destination
-  - Depth
-  - Overwrite
-- LOCK
-  - Timeout
-  - Depth
-  - Lock-Token
-- UNLOCK
-  - Lock-Token
-- PROPFIND
-  - Depth
-
-```http
-OPTIONS /hello.txt
-
-# http://www.webdav.org/specs/rfc4918.html#dav.compliance.classes
-DAV: 1, 2
-# http://msdn.microsoft.com/en-au/library/cc250217.aspx
-MS-Author-Via: DAV
-Allow: OPTIONS, LOCK, PUT, MKCOL
-# dir
-Allow: OPTIONS, LOCK, DELETE, PROPPATCH, COPY, MOVE, UNLOCK, PROPFIND
-# file
-Allow: OPTIONS, LOCK, GET, HEAD, POST, DELETE, PROPPATCH, COPY, MOVE, UNLOCK, PROPFIND, PUT
+```http title="cors"
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: ACL, CANCELUPLOAD, CHECKIN, CHECKOUT, COPY, DELETE, GET, HEAD, LOCK, MKCALENDAR, MKCOL, MOVE, OPTIONS, POST, PROPFIND, PROPPATCH, PUT, REPORT, SEARCH, UNCHECKOUT, UNLOCK, UPDATE, VERSION-CONTROL
+Access-Control-Allow-Headers: Overwrite, Destination, Content-Type, Depth, User-Agent, Translate, Range, Content-Range, Timeout, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Location, Lock-Token, If
+Access-Control-Expose-Headers: DAV, content-length, Allow
+Access-Control-Max-Age: 3600
 ```
 
 ## Props

@@ -4,6 +4,8 @@ title: macOS 术语表
 
 # macOS 术语表
 
+- XPCServices
+
 | abbr. | stand for               |
 | ----- | ----------------------- |
 | nib   | Interface Builder       |

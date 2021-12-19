@@ -12,6 +12,7 @@ tags:
 - Uniform Type Identifiers (UTIs)
   - com.apple.bundle
   - com.apple.application-bundle
+- 垃圾箱位于 ~/.Trash
 - 参考
   - [MacOs Directory Structure](https://difyel.com/apple/macos/macos-directory-structure/)
 
@@ -105,6 +106,14 @@ tree -dlL 2 /Volumes
 ---
 
 - /Library
+  - Documentation/
+  - Extensions/ - kext - 内核扩展
+  - Developer/
+    - CommandLineTools/
+      - SDKs/
+      - Library/
+      - usr/
+        - bin/
 - /Users/$USER/Library
 - /System/Library
 
@@ -115,6 +124,8 @@ tree -dlL 2 /Volumes
 - Caches/ - 应用缓存，可能会被删除，不会被备份
 - Frameworks/ - 多用户共享， iOS 不支持自定义框架
 - Preferences/ - 使用 NSUserDefaults 操作，会备份
+- PrivateFrameworks/
+- Developer/
 
 ## BSD
 

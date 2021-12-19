@@ -4,9 +4,7 @@ tags:
   - 目录结构
 ---
 
-# XDG
-
-## dirs
+# XDG Dirs
 
 - /etc/xdg/user-dirs.defaults
   - ~/.config/user-dirs.dirs
