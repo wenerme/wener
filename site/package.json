@@ -10,6 +10,8 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
+    "nth-check": ">=2.0.1",
+    "trim": ">=0.0.3",
     "@docusaurus/core": "v2.0.0-beta.13",
     "@docusaurus/plugin-client-redirects": "v2.0.0-beta.13",
     "@docusaurus/plugin-google-analytics": "v2.0.0-beta.13",
