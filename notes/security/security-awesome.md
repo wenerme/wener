@@ -11,6 +11,9 @@ tags:
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
 - [ycd/dstp](https://github.com/ycd/dstp)
+- [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
+  - wikipedia [NaCl](https://en.wikipedia.org/wiki/NaCl_(software))
+- [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
 
 ## Password
 

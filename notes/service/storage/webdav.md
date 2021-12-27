@@ -57,3 +57,19 @@ Access-Control-Max-Age: 3600
 ## MS-Author-Via: DAV
 
 - http://msdn.microsoft.com/en-au/library/cc250217.aspx
+
+## NGINX
+
+```nginx
+location /cache/ {
+  # The path to the directory where nginx should store the cache contents.
+  root /path/to/cache/dir;
+  # Allow PUT
+  dav_methods PUT;
+  # Allow nginx to create the /ac and /cas subdirectories.
+  create_full_put_path on;
+  # The maximum size of a single file.
+  client_max_body_size 1G;
+  allow all;
+}
+```

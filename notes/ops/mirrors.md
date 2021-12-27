@@ -18,6 +18,11 @@ title: Mirrors
 | https://mirrors.sjtug.sjtu.edu.cn    | 上海交大 |
 | https://mirrors.huaweicloud.com      | 华为     |
 
+## Github
+
+- https://gitcode.net
+  - https://gitcode.net/mirrors/protocolbuffers/protobuf/-/releases/v3.19.1
+
 ## 镜像列表
 
 | 名字   | 地址                                                                                                                                                         |

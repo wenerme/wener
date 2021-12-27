@@ -15,11 +15,47 @@ title: React Version
 ## 18
 
 - automatic batching
-- startTransition
-- React.lazy - streaming server renderer
-- concurrent rendering
+- concurrent feature
+  - startTransition
+  - useTransition
+  - useDeferredValue
+    - 类似 useDebounedValue 但结合 React 并行进行渲染，而不是自行决定 delay 时间
+    - 提升 UX 体验
+  - APIs for library
+    - useId - for ARIA - aria-labaledby
+    - 生成表单元素
+    - useSyncExternalStore
+    - useInsertionEffect
+- streaming server renderer
+  - suspense on server
+    - 细粒度控制 hydration
+      - hydration 不会阻塞浏览器，可能会被中断，根据用户操作进行优先
+- 实验特性
+  - server component - 可通过 nextjs 使用
+  - React.memo - UX vs DX
+    - React Forget - 自动 memo 的编译器
 - 参考
   - What's New in React 18? [HN](https://news.ycombinator.com/item?id=28696748)
+- ReactDOM.render -> ReactDOM.createRoot
+
+```jsx
+// before
+ReactDOM.render(<App />, el);
+// after
+const root = ReactDOM.createRoot(el);
+root.render(<App />);
+
+// 服务端渲染 为 aria 生成唯一 ID
+const MyInputs = () => {
+  const id = useId();
+  return (
+    <>
+      <label htmlForm={`${id}-name`}>Name</label>
+      <input id={`${id}-name`} />
+    </>
+  );
+};
+```
 
 ## 17
 

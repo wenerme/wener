@@ -18,6 +18,10 @@ tags:
     - AlpineLinux 3.15 - 2021-11
   - runas
 
+## Shell
+
+- [janmojzis/tinyssh](https://github.com/janmojzis/tinyssh)
+
 ## Share
 
 - [tmate-io/tmate](https://github.com/tmate-io/tmate)

@@ -48,8 +48,10 @@ tags:
 - [awslabs/diagram-maker](https://github.com/awslabs/diagram-maker)
 - [visjs/vis-network](https://github.com/visjs/vis-network)
 - [varkor/quiver](https://github.com/varkor/quiver)
+- [jwilber/roughViz](https://github.com/jwilber/roughViz)
 
 ## Misc
+
 - [plantuml-stdlib](https://github.com/plantuml-stdlib)
   - [C4-PlantUML](https://github.com/plantuml-stdlib/C4-PlantUML)
 - [CJex/regulex](https://github.com/CJex/regulex)

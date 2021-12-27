@@ -28,8 +28,8 @@ title: Level UP in China
 | MBA     |
 
 ## 上海居住证
-
-- http://jzzjf.rsj.sh.gov.cn/jzzjf/
+- 积分查询登陆 https://jzzjf.rsj.sh.gov.cn/jzzjf/
+- 档案核实进度查询 http://222.68.19.232/webMaster/ggrs/ggrs_cxhs.htm
 - [紧缺专业目录](http://jzzjf.rsj.sh.gov.cn/jzzjf/pingfen/jqzyml.htm)
 
 ## PostgreSQL 证书
@@ -56,3 +56,7 @@ title: Level UP in China
 ## 培训机构
 
 - https://www.aura.cn/
+
+## 继续教育
+
+<!-- 全日制研究生》在职研究生》自考》成考》网教》电大 -->

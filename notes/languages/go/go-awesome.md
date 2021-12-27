@@ -343,6 +343,7 @@ tags:
 
 大多微服务框架着重于 RPC、服务发现、配置，并提供基础的中间件 监控、Trace。
 
+- [stefanprodan/podinfo](https://github.com/stefanprodan/podinfo)
 - [go-kit/kit](https://github.com/go-kit/kit)
   standard library for microservices
   - 简单灵活自由拼装 - 因此定位是 kit 和 库
@@ -436,6 +437,7 @@ tags:
 - [burrowers/garble](https://github.com/burrowers/garble)
   Obfuscate Go builds
 - [mjibson/sqlfmt](https://github.com/mjibson/sqlfmt)
+- [google/starlark-go](https://github.com/google/starlark-go)
 
 ## 有趣
 

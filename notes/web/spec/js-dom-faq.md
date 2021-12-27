@@ -13,6 +13,24 @@ tags:
   - 鼠标事件相关元素
   - 进入、离开
 
+## KeyboardEvent.key
+
+- Chrom 51+
+- [Key Values](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values)
+
+## KeyboardEvent.code
+
+:::caution 尽量使用 KeyboardEvent.key
+
+- KeyboardEvent.code
+  - 忽略用户键盘布局
+  - 更适用于游戏等非输入场景
+
+:::
+
+- Chrom 48+
+- [Code Values](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)
+
 ## Refused to set unsafe header "Content-Length"
 
 - W3C XMLHttpRequest Level 1 4.6.2 定义的不允许修改的头

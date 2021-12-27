@@ -41,6 +41,21 @@ tags:
   - AGPL-3.0, Go
   - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql
 
+## Protocol
+
+- [wthorp/GoSMB](https://github.com/wthorp/GoSMB)
+  - SMB server written in Go
+- [hirochachacha/go-smb2](https://github.com/hirochachacha/go-smb2)
+  - SMB2/3 client
+- [smallfz/libnfs-go](https://github.com/smallfz/libnfs-go)
+  - NFSv4 server
+- [vmware/go-nfs-client](https://github.com/vmware/go-nfs-client)
+  - NFS client
+- [Cyberax/go-nfs-client](https://github.com/Cyberax/go-nfs-client)
+  - NFSv4 client
+- [willscott/go-nfs](https://github.com/willscott/go-nfs)
+  - NFSv3 server
+
 ## Distributed File System
 
 - minio

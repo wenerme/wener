@@ -32,10 +32,10 @@ title: Vite
 
 :::caution
 
+- React hmr 丢失 Context [vitejs/vite#3301](https://github.com/vitejs/vite/issues/3301)
 - build 一次只能一个 rollup 配置
   - 使用多 config 或 环境变量 解决
 - 未内置支持 mdx
-- React hmr 丢失 Context [vitejs/vite#3301](https://github.com/vitejs/vite/issues/3301)
 
 :::
 

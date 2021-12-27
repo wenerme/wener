@@ -62,6 +62,9 @@ tags:
 - [onion-liu/aahq-dataset](https://github.com/onion-liu/aahq-dataset)
   - Artstation-Artistic-face-HQ Dataset (AAHQ)
 - [parrt/tensor-sensor](https://github.com/parrt/tensor-sensor)
+- [mattbradley/dash](https://github.com/mattbradley/dash)
+- https://banmo-www.github.io/
+- https://nn-512.com/
 
 ## Learn
 

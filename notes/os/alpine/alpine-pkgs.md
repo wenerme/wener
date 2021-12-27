@@ -318,6 +318,8 @@ To activate cross compilation specify in environment:
 apk add lua-aports
 # 在 aports 仓库下运行 - 每个仓库都要
 # ap revdep grpc-dev
-echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'cd {}; ap revdep grpc-dev'
+echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'echo {}:;cd {}; ap revdep grpc-dev'
 # 将依赖的 rev 增加
+
+git commit -m '*: rebuild for libgrpc'
 ```

@@ -3,6 +3,7 @@ const moment = require('moment-timezone');
 const math = require('remark-math');
 const katex = require('rehype-katex');
 
+// https://docusaurus.io/docs/api/docusaurus-config
 module.exports = {
   title: 'Wener Live & Life',
   tagline: "Passion I've found",
@@ -167,7 +168,6 @@ module.exports = {
           // cacheTime: 600 * 1000, // 600 sec - cache purge period
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
         },
       },
     ],
@@ -180,4 +180,10 @@ module.exports = {
     //   crossorigin: 'anonymous',
     // },
   ],
+
+  trailingSlash: false,
+  // https://github.com/ToolJet/ToolJet/issues/852
+  // https://github.com/facebook/docusaurus/issues/3136#issuecomment-664941437
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
 };

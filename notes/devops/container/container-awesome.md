@@ -60,7 +60,3 @@ tags:
   - dive web
 
 
-## Interesting
-
-- [golobby/container](https://github.com/golobby/container)
-  - lightweight yet powerful IoC container for Go projects

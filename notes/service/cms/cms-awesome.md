@@ -60,16 +60,18 @@ title: CMS Awesome
   - 包含 Playground 能力
   - 对开发友好
 
-* [PostgREST/postgrest](https://github.com/PostgREST/postgrest)
+---
+
+- [PostgREST/postgrest](https://github.com/PostgREST/postgrest)
   - RESTful for PostgreSQL
-* [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
+- [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
   - GraphQL + PostgreSQL 为主
   - 支持 MS SQL - Metadata 还是需要在 PG
   - 支持 REST
-* [graphile/postgraphile](https://github.com/graphile/postgraphile)
+- [graphile/postgraphile](https://github.com/graphile/postgraphile)
   - Typescript + NodeJS
   - 自定义扩展性强
-* Prisma
+- Prisma
   - 目前感觉定位有点混乱
   - v2 和 v1 变化很大
 
@@ -89,14 +91,25 @@ title: CMS Awesome
 
 > Knowledge Base / 知识库 / Wiki 概念相似
 
+- PKM - personal knowledge management
 - [outline/outline](https://github.com/outline/outline)
   - BSL 1.1 licensed
   - [outline/rich-markdown-editor](https://github.com/outline/rich-markdown-editor) - 编辑器
     - 基于 Prosemirror
-- [gilbitron/Raneto ](https://github.com/gilbitron/Raneto)
+- [gilbitron/Raneto](https://github.com/gilbitron/Raneto)
   - demo http://docs.raneto.com/
 - [mrvautin/openKB](https://github.com/mrvautin/openKB)
 - https://arxiv.org/abs/2003.02320
+- [dendronhq/dendron](https://github.com/dendronhq/dendron)
+  - AGPL-3.0
+- [foambubble/foam](https://github.com/foambubble/foam)
+  - MIT, VSC Extension
+- [austinvhuang/openmemex](https://github.com/austinvhuang/openmemex)
+
+<!--
+https://www.ontotext.com/knowledge-hub/
+https://www.ontotext.com/knowledgehub/fundamentals/how-to-building-knowledge-graphs-in-10-steps/
+-->
 
 ## Documentation
 

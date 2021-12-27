@@ -63,6 +63,8 @@ SQLITE3_BINARY_SITE="http://npm.taobao.org/mirrors/sqlite3"
 | https://registry.npmjs.org                     | 官方     |
 | https://registry.npm.taobao.org                | 淘宝     |
 | https://mirrors.sjtug.sjtu.edu.cn/npm-registry | 上海交大 |
+| https://registry.npmmirror.com                 | 淘宝     |
+| https://r.cnpmjs.org                           |
 
 ```bash
 # 淘宝镜像
