@@ -33,11 +33,11 @@ tags:
   - [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
 - Cloud resource management
   - terraform
-- ⁠Monitoring
+- Monitoring
   - Prometheus / Alertmanager / Grafana
 - Policy as code
   - [open-policy-agent/gatekeeper](https://github.com/open-policy-agent/gatekeeper)
-- ⁠Storage
+- Storage
   - Nextcloud
   - [kadalu/kadalu](https://github.com/kadalu/kadalu) - GlusterFS in background
   - [filegator/filegator](https://github.com/filegator/filegator)
@@ -80,6 +80,9 @@ tags:
 - [pawelmalak/flame](https://github.com/pawelmalak/flame)
   - startpage for your server
 - Notion
+  - [bangle-io/bangle-io](https://github.com/bangle-io/bangle-io)
+    - in markdown
+    - [bangle-io/bangle.dev](https://github.com/bangle-io/bangle.dev)
   - https://github.com/japrozs/dino
     - https://dino.japrozsaini.me/
   - [AppFlowy-IO/appflowy](https://github.com/AppFlowy-IO/appflowy)

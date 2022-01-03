@@ -13,6 +13,8 @@ title: BaseN
     - Base16, Base32, Base64
   - [Binary to text encoding](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
   - [crockford base32](https://www.crockford.com/base32.html)
+  - [ilyakurdyukov/crzy64](https://github.com/ilyakurdyukov/crzy64)
+    - An easy to decode base64 modification
 
 | encoding | eff      | chars           | rfc      |
 | -------- | -------- | --------------- | -------- |

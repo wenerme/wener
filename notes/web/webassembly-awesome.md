@@ -49,6 +49,7 @@ tags:
   - WebAssembly runtime for cloud native, edge, and decentralized applications
   - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
     - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
+
 ## JS
 
 - duktape
@@ -70,7 +71,18 @@ tags:
       - 类似的对 js bundle 就行预初始化
       - [repl](https://prepack.io/repl.html)
 
+## Web
+
+- [slipHQ/run-wasm](https://github.com/slipHQ/run-wasm)
+
+## Misc
+
+- [turbolent/w2c2](https://github.com/turbolent/w2c2)
+  - wasm to c
+
 ## 参考
 
 - YT [WebAssemblySummit](https://www.youtube.com/c/WebAssemblySummit)
 - [modfy/modfy.video](https://github.com/modfy/modfy.video)
+- [Introduction to WebAssembly components](https://radu-matei.com/blog/intro-wasm-components/)
+- [grain-lang](https://grain-lang.org/)

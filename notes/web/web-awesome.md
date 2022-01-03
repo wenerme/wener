@@ -6,9 +6,9 @@ tags:
 
 # Web Awesome
 
-
 - Awesome of [Awesome](https://github.com/sindresorhus/awesome)
 - Awesome [Web](https://www.awesomeweb.com/)
+- [cheatsheet1999/FrontEndCollection](https://github.com/cheatsheet1999/FrontEndCollection)
 - https://dev.to/iainfreestone/series/7129
 
 ## Web
@@ -145,3 +145,24 @@ tags:
 
 - [atapas/webapis-playground](https://github.com/atapas/webapis-playground)
   - https://webapis-playground.vercel.app/
+
+## Application
+
+- [MattKetmo/darkroomjs](https://github.com/MattKetmo/darkroomjs)
+
+## Dev
+
+- [jackdomleo7/Checka11y.css](https://github.com/jackdomleo7/Checka11y.css)
+
+## 有趣
+
+- [airbnb/lottie-web](https://github.com/airbnb/lottie-web)
+- [DustinBrett/daedalOS](https://github.com/DustinBrett/daedalOS)
+- https://aaronos.dev/AaronOS/aosBeta.php
+- https://www.vantajs.com/
+- [copy/v86](https://github.com/copy/v86)
+  - https://copy.sh/v86/
+  - x86 virtualization in browser
+- https://github.com/sharat87/prestige
+  - text-based HTTP client in the browser - interface-less Postman
+- [timc1/kbar](https://github.com/timc1/kbar)

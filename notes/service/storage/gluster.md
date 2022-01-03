@@ -4,6 +4,9 @@ title: Gluster
 
 # glusterfs
 
+- [heketi/heketi](https://github.com/heketi/heketi)
+  - RESTful based volume management framework for GlusterFS
+
 :::caution 注意
 
 - [#268](https://github.com/gluster/glusterfs/issues/268) - 不兼容 alpine musl

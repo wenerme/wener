@@ -7,11 +7,21 @@ title: ONLYOFFICE
 
 - [ONLYOFFICE/CommunityServer](https://github.com/ONLYOFFICE/CommunityServer)
   - Apache-2.0, C#
+- [ONLYOFFICE/DocumentServer](https://github.com/ONLYOFFICE/DocumentServer)
+  - AGPL-3.0
+  - server+core+sdkjs+web-apps+dictionaries+sdkjs-plugins
 - 服务端将文档转换为 JSON
 - 客户端是一个完整的 Office 套件
 - 客户端负责编辑文档
 - 服务端合并 JSON 再回传
-- 社区版限制 20 个用户
+- Community Edition - GNU AGPL v.3
+  - 社区版限制 20 个用户
+  - 无 White label
+  - 无 Mobile web editors
+  - 无 Adding Content control
+  - 无 Comparing Documents
+  - 无 Sheet Views
+- Developer Edition - Proprietary
 
 ## 编辑器
 
@@ -125,3 +135,7 @@ docker run --rm -it -p 8088:80 --name ds onlyoffice/documentserver
   }
 }
 ```
+
+## Dev
+
+- https://api.onlyoffice.com/editors/save

@@ -132,6 +132,8 @@ tags:
   - PS4
 - Playstation 3 Architecture [HN](https://news.ycombinator.com/item?id=28934624)
 - Famicom Party: Making NES Games in Assembly [HN](https://news.ycombinator.com/item?id=29069095)
+- https://sourceforge.net/projects/vm02/
+  - Java 6502
 
 ## 开发
 

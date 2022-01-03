@@ -81,6 +81,8 @@ tags:
   - Git for Data
 - [ApsaraDB](https://github.com/ApsaraDB)
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
+- [codenotary/immudb](https://github.com/codenotary/immudb)
+  - immutable database
 
 ## ID
 
@@ -114,6 +116,22 @@ tags:
 
 - [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
   - Web-based SQL editor and visualizing
+
+## Migration
+
+- flywaydb
+  - SQL
+- liquibase
+  - XML
+- [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
+- [amacneil/dbmate](https://github.com/amacneil/dbmate)
+- [charperbonaroo/pgmigrate](https://github.com/charperbonaroo/pgmigrate)
+  - Write migrations using plain SQL
+- [sqitchers/sqitch](https://github.com/sqitchers/sqitch)
+  - MIT, Perl
+- [skeema](https://github.com/skeema/skeema)
+  - MySQL & MariaDB
+- sqlite [user_version](https://sqlite.org/pragma.html#pragma_user_version)
 
 ## TBD
 

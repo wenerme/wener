@@ -50,6 +50,9 @@ title: CMS Awesome
 - [athensresearch/athens](https://github.com/athensresearch/athens)
 - [obsidian](https://obsidian.md/)
   - knowledge base on top of a local folder of plain text Markdown files
+- [estruyf/vscode-front-matter](https://github.com/estruyf/vscode-front-matter)
+- [CromwellCMS/Cromwell](https://github.com/CromwellCMS/Cromwell)
+  - WordPress-like CMS for Next.js websites
 
 ## API for Database
 

@@ -49,6 +49,9 @@ tags:
 - [visjs/vis-network](https://github.com/visjs/vis-network)
 - [varkor/quiver](https://github.com/varkor/quiver)
 - [jwilber/roughViz](https://github.com/jwilber/roughViz)
+- [rough-stuff/rough](https://github.com/rough-stuff/rough)
+  - [Hand-drawn timelines using RoughJS](https://www.chronoflotimeline.com/blog/entry/hand-drawn-timelines-using-roughjs/)
+- [timqian/chart.xkcd](https://github.com/timqian/chart.xkcd)
 
 ## Misc
 

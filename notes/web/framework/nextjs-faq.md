@@ -149,3 +149,22 @@ export default {
 
 - 开启 webpack5 该方式无效
 - [#16630](https://github.com/vercel/next.js/issues/16630)
+
+## 访问 public 里的 index.html
+
+```js
+module.export = {
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: '/:path*',
+          destination: '/:path*/index.html',
+        },
+      ],
+    };
+  },
+};
+```
+
+- https://github.com/vercel/next.js/discussions/14361#discussioncomment-874019

@@ -100,6 +100,7 @@ npm add date-fns lodash-es react-fast-compare
     - 抖音前端
   - 较多的 AntD 内容
 - 公司相关设计风格组件库
+  - [SAP/openui5](https://github.com/SAP/openui5)
   - [microsoft/fluentui](https://github.com/microsoft/fluentui) - 微软风格
   - [pinterest/gestalt](https://github.com/pinterest/gestalt) - pinterest
   - [JetBrains/ring-ui](https://github.com/JetBrains/ring-ui) - Jetbrains 产品系列
@@ -133,6 +134,8 @@ npm add date-fns lodash-es react-fast-compare
 
 - [tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
 - [ant-design/ant-design-mobile](https://github.com/ant-design/ant-design-mobile)
+- chat
+  - [alibaba/ChatUI](https://github.com/alibaba/ChatUI)
 
 ## 特殊 UI 组件
 
@@ -158,14 +161,82 @@ npm add date-fns lodash-es react-fast-compare
   - 流程节点 UI
 - [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
   - 懒加载 UI 组件
-- [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
-  - drop 文件
 - [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
+- [asabaylus/react-command-palette](https://github.com/asabaylus/react-command-palette)
+- [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride)
 - kanban
   - [asseinfo/react-kanban](https://github.com/asseinfo/react-kanban)
 - notion
   - [splitbee/react-notion](https://github.com/splitbee/react-notion)
   - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
+- https://github.com/bvaughn/planner
+- dnd
+  - [react-dnd/react-dnd](https://github.com/react-dnd/react-dnd)
+  - [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
+  - [bokuweb/react-rnd](https://github.com/bokuweb/react-rnd) - Resize & Drag
+    - 实现类似窗口的效果
+    - react-draggable+[bokuweb/re-resizable](https://github.com/bokuweb/re-resizable)
+  - [react-grid-layout/react-draggable](https://github.com/react-grid-layout/react-draggable)
+    - 非常简单的拖动组件
+    - 传递 style, className, onMouseDown, onMouseUp, onTouchStart, onTouchEnd 给 child 实现功能
+      - style: transform: translate(538.5px, 22px);
+      - className: react-draggable react-draggable-dragging react-draggable-dragged
+    - child 需要能 ref
+    - 组件
+      - Draggable - 包含基础状态，可受控的拖拽组件
+      - DraggableCore - 无状态功能组件
+  - [react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
+    - 简单的 resize 组件
+    - 组件
+      - ResizableBox - 维护 div 状态实现简单 resize - `<div {...props} />`
+      - Resizable - 无状态基础功能组件
+  - [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
+- layout
+  - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
+    - 动态网格布局组件
+    - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
+  - [nomcopter/react-mosaic](https://github.com/nomcopter/react-mosaic)
+    - tiling window manager
+  - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
+    - 移动端屏高问题
+- carousel
+  - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
+    - 图片浏览
+  - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
+  - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
+  - [akiran/react-slick](https://github.com/akiran/react-slick)
+- timeline
+  - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
+  - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)
+  - [prabhuignoto/react-chrono](https://github.com/prabhuignoto/react-chrono)
+  - [stephane-monnot/react-vertical-timeline](https://github.com/stephane-monnot/react-vertical-timeline)
+    - 营销
+  - [JSainsburyPLC/react-timelines](https://github.com/JSainsburyPLC/react-timelines)
+- gannt
+  - [frappe/gantt](https://github.com/frappe/gantt)
+    - MIT
+  - https://dhtmlx.com/docs/products/dhtmlxGantt/
+    - https://github.com/DHTMLX
+    - GPL
+- Block Editor/Page Builder
+  - [blocks/blocks](https://github.com/blocks/blocks)
+  - [BuilderIO/builder](https://github.com/BuilderIO/builder)
+- 动画
+  - [daybrush/scenejs](https://github.com/daybrush/scenejs)
+  - [framer/motion](https://github.com/framer/motion)
+- modal
+  - [eBay/nice-modal-react](https://github.com/eBay/nice-modal-react)
+- link preview
+  - [Dhaiwat10/react-link-preview](https://github.com/Dhaiwat10/react-link-preview)
+    - 依赖后端代理 - [dhaiwat10/rlp-proxy](https://github.com/dhaiwat10/rlp-proxy)
+      - 使用 [html-metadata-parser](https://github.com/nasa8x/html-metadata-parser)
+- autocomplete
+  - [moroshko/react-autosuggest](https://github.com/moroshko/react-autosuggest)
+- input
+  - react-textarea-autosize
+- table
+  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
+  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
 
 ### 编辑器
 
@@ -208,6 +279,8 @@ npm add date-fns lodash-es react-fast-compare
   - query 参数匹配、状态管理
   - declarative API
 - [molefrog/wouter](https://github.com/molefrog/wouter)
+  - 轻量实现 - 很实用 - 可以直接拷贝到项目修改使用
+  - 外部提供 location
 - [reach/router](https://github.com/reach/router)
   - React Router v6 后 reach router 不再需要
   - React Router 作者在 hook 出现后进行的尝试
@@ -220,12 +293,6 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 功能组件
 
-- carousel
-  - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
-    - 图片浏览
-  - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
-  - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
-  - [akiran/react-slick](https://github.com/akiran/react-slick)
 - [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   - 实现各种 table 功能
 - [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
@@ -233,52 +300,11 @@ npm add date-fns lodash-es react-fast-compare
 - [vercel/swr](https://github.com/vercel/swr)
   - 类似于 react-query 但更适合于前端定时刷新场景
   - 支持 SSR
-- [bokuweb/react-rnd](https://github.com/bokuweb/react-rnd) - Resize & Drag
-  - 实现类似窗口的效果
-  - react-draggable+[bokuweb/re-resizable](https://github.com/bokuweb/re-resizable)
-- [react-grid-layout/react-draggable](https://github.com/react-grid-layout/react-draggable)
-  - 非常简单的拖动组件
-  - 传递 style, className, onMouseDown, onMouseUp, onTouchStart, onTouchEnd 给 child 实现功能
-    - style: transform: translate(538.5px, 22px);
-    - className: react-draggable react-draggable-dragging react-draggable-dragged
-  - child 需要能 ref
-  - 组件
-    - Draggable - 包含基础状态，可受控的拖拽组件
-    - DraggableCore - 无状态功能组件
-- [react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
-  - 简单的 resize 组件
-  - 组件
-    - ResizableBox - 维护 div 状态实现简单 resize - `<div {...props} />`
-    - Resizable - 无状态基础功能组件
-- [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
-  - 动态网格布局组件
-  - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
-- [nomcopter/react-mosaic](https://github.com/nomcopter/react-mosaic)
-  - tiling window manager
-- [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
-  - Drag & Drop
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)
   - 异步加载组件
 - [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
   - 功能性 headless 组件
-- timeline
-  - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
-  - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)
-  - [prabhuignoto/react-chrono](https://github.com/prabhuignoto/react-chrono)
-  - [stephane-monnot/react-vertical-timeline](https://github.com/stephane-monnot/react-vertical-timeline)
-    - 营销
-  - [JSainsburyPLC/react-timelines](https://github.com/JSainsburyPLC/react-timelines)
-- 动画
-  - [daybrush/scenejs](https://github.com/daybrush/scenejs)
-- gannt
-  - [frappe/gantt](https://github.com/frappe/gantt)
-    - MIT
-  - https://dhtmlx.com/docs/products/dhtmlxGantt/
-    - https://github.com/DHTMLX
-    - GPL
-- Block Editor/Page Builder
-  - [blocks/blocks](https://github.com/blocks/blocks)
-  - [BuilderIO/builder](https://github.com/BuilderIO/builder)
+- [nandorojo/dripsy](https://github.com/nandorojo/dripsy)
 
 ### 虚拟滚动
 
@@ -370,6 +396,8 @@ npm add date-fns lodash-es react-fast-compare
 - [pmndrs/jotai](https://github.com/pmndrs/jotai)
   - Recoil like
   - ![](https://img.shields.io/bundlephobia/min/jotai)
+- [teafuljs/teaful](https://github.com/teafuljs/teaful)
+  - 基于 proxy 进行 select
 - [facebookexperimental/Recoil](https://github.com/facebookexperimental/Recoil)
   - [Recoil: State Management for Today's React](https://youtu.be/_ISAA_Jt9kI)
 - [paol-imi/react-reparenting](https://github.com/paol-imi/react-reparenting)
@@ -546,3 +574,14 @@ useStore.destroy();
 
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
 - [Bogdan-Lyashenko/Under-the-hood-ReactJS](https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS)
+- [Shopify/hydrogen](https://github.com/Shopify/hydrogen)
+
+## Native
+
+- [Shopify/react-native-skia](https://github.com/Shopify/react-native-skia)
+- [iddan/react-native-canvas](https://github.com/iddan/react-native-canvas)
+
+## 有趣
+
+- [lahmatiy/react-render-tracker](https://github.com/lahmatiy/react-render-tracker)
+- https://github.com/pankod/refine

@@ -27,7 +27,7 @@ curl --head \
 ## 延时
 
 ```bash
-cat <<EOF > curl-formt.txt
+cat <<EOF > curl-format.txt
      time_namelookup:  %{time_namelookup}s\n
         time_connect:  %{time_connect}s\n
      time_appconnect:  %{time_appconnect}s\n
@@ -37,7 +37,9 @@ cat <<EOF > curl-formt.txt
                       ----------\n
           time_total:  %{time_total}s\n
 EOF
-curl https://wener.me  -o /dev/null -s -w "@curl-format.txt"
+# https://everything.curl.dev/usingcurl/verbose/writeout
+curl -o /dev/null -s -w "@curl-format.txt" https://wener.me
+cat curl-format.txt | curl -o /dev/null -s -w @- https://wener.me
 ```
 
 ```

@@ -25,3 +25,9 @@ tags:
 ## Understand
 
 - [Git in 1k JavaScript](http://gitlet.maryrosecook.com/docs/gitlet.html)
+
+## Changelog
+
+- https://docs.gitlab.com/ee/development/changelog.html
+- https://git-scm.com/docs/git-interpret-trailers
+- https://github.com/changesets/changesets

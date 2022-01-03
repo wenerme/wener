@@ -15,6 +15,10 @@ title: Vite
   - [Comparisons with Other No-Bundler Solutions](https://vitejs.dev/guide/comparisons.html)
   - [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
   - Help with monorepo [#1491](https://github.com/vitejs/vite/issues/1491)
+  - [anncwb/vite-plugin-html](https://github.com/anncwb/vite-plugin-html)
+    -  HTML 预处理
+  - [rakkasjs/rakkasjs](https://github.com/rakkasjs/rakkasjs)
+    - Next.js alternative powered by Vite
 - Dev
   - unbundled esm
     - 开发快速 - 方便替代和构建
@@ -33,6 +37,8 @@ title: Vite
 :::caution
 
 - React hmr 丢失 Context [vitejs/vite#3301](https://github.com/vitejs/vite/issues/3301)
+- hmr 不支持 unamed dynamic import [vitejs/vite#2719](https://github.com/vitejs/vite/issues/2719)
+- html script 只能 bundle module - `<script type="module">`
 - build 一次只能一个 rollup 配置
   - 使用多 config 或 环境变量 解决
 - 未内置支持 mdx
@@ -94,6 +100,10 @@ require('fast-glob')
   .sync(['./**/*.html', '!dist'])
   .map((entry) => path.resolve(__dirname, entry));
 ```
+
+## does not provide an export named 'default'
+
+- 需要 esm 模块
 
 ## require() of ES Module vite.config.ts not supported
 

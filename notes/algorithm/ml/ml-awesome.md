@@ -65,6 +65,21 @@ tags:
 - [mattbradley/dash](https://github.com/mattbradley/dash)
 - https://banmo-www.github.io/
 - https://nn-512.com/
+- https://hypernerf.github.io/
+- [babysor/MockingBird](https://github.com/babysor/MockingBird)
+  - 5 秒内克隆您的声音并生成任意语音内容
+  - [HN](https://news.ycombinator.com/item?id=29711051)
+- https://mlconsole.com/
+- [AminRezaei0x443/memory-efficient-attention](https://github.com/AminRezaei0x443/memory-efficient-attention)
+  - Jax, PyTorch
+- [Perceiver IO: a scalable, fully-attentional model that works on any modality](https://huggingface.co/blog/perceiver)
+- [mchong6/JoJoGAN](https://github.com/mchong6/JoJoGAN)
+- [facebookresearch/SLIP](https://github.com/facebookresearch/SLIP)
+  - Self-supervision meets Language-Image Pre-training
+- [alibaba/DeepRec](https://github.com/alibaba/DeepRec)
+  - recommendation engine
+- [open-mmlab/mmdeploy](https://github.com/open-mmlab/mmdeploy)
+- [handtracking-io/yoha](https://github.com/handtracking-io/yoha)
 
 ## Learn
 
@@ -81,10 +96,13 @@ tags:
 
 ---
 
+- [Distributional Reinforcement Learning](https://www.distributional-rl.org/)
+- [A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 - [Evaluating Syntactic Abilities of Language Models](https://ai.googleblog.com/2021/12/evaluating-syntactic-abilities-of.html)
 - [RLDS: An Ecosystem to Generate, Share, and Use Datasets in Reinforcement Learning](https://ai.googleblog.com/2021/12/rlds-ecosystem-to-generate-share-and.html)
 - https://learnaifromscratch.github.io/ai.html
 - [microsoft/ML-For-Beginners](https://github.com/microsoft/ML-For-Beginners)
+- [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)
 - [LabML Neural Networks](https://nn.labml.ai/)
   - PyTorch
 - [Reinforcement Learning: Theory and Algorithms](https://rltheorybook.github.io/)
@@ -112,6 +130,7 @@ tags:
   - https://github.com/google-research/sam
   - https://github.com/davda54/sam
 - [Machine Learning Research Papers Released In 2021](https://analyticsindiamag.com/top-ml-research-articles/)
+- [Interesting Algorithms Released By Google AI In 2021](https://analyticsindiamag.com/interesting-algorithms-released-by-google-ai-in-2021/)
 
 ![](http://dlib.net/ml_guide.svg)
 
@@ -145,6 +164,11 @@ tags:
   - ThunderGBM
   - LightGBM
   - CatBoost
+
+---
+
+- [PyTorch vs TensorFlow in 2022](https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2022/)
+  - [HN](https://news.ycombinator.com/item?id=29552665)
 
 ## Language
 

@@ -1,6 +1,13 @@
+---
+title: React Native FAQ
+tags:
+  - FAQ
+---
+
 # React Native FAQ
 
 ## boost/iterator/iterator_adaptor.hpp file not found
+
 应该是三方依赖未下载好或者有问题
 
 ```bash
@@ -19,4 +26,4 @@ npm i
 
 ## XCode 10 还不支持
 
-* [#19573](https://github.com/facebook/react-native/issues/19573) - Supporting Xcode 10 and the new Xcode build system
+- [#19573](https://github.com/facebook/react-native/issues/19573) - Supporting Xcode 10 and the new Xcode build system

@@ -89,6 +89,8 @@ tags:
       - rwc - Read, Write, Create
     - cache shared, private - https://www.sqlite.org/sharedcache.html
     - `_foreign_keys/_fk` - `PRAGMA foreign_keys` - 外键约束
+- [cznic/sqlite](https://gitlab.com/cznic/sqlite)
+  - pure go SQLite
 - [jackc/pgx](https://github.com/jackc/pgx)
   - 推荐 - 纯 Go
   - [jackc/pgtype](https://github.com/jackc/pgtype)
@@ -109,6 +111,8 @@ tags:
   - Golang Web 管理工具 - MIT, 只读
 - [volatiletech/sqlboiler](https://github.com/volatiletech/sqlboiler)
   - database-first ORM
+- [uptrace/bun](https://github.com/uptrace/bun)
+  - SQL Builder
 - 迁移
   - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
   - [rubenv/sql-migrate](https://github.com/rubenv/sql-migrate)
@@ -279,6 +283,7 @@ tags:
 - [go-ozzo/ozzo-validation](https://github.com/go-ozzo/ozzo-validation)
   - 校验库
 - mapstructure
+- [BWbwchen/MapReduce](https://github.com/BWbwchen/MapReduce)
 
 ## 网络
 

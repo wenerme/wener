@@ -32,3 +32,6 @@ title: GitOps
 - 工具无法正常检测 Git 信息时就会导致状态不可知，且容易超时
 
 :::
+
+- 参考
+  - [OpenGitOps](https://opengitops.dev/)

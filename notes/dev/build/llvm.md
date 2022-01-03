@@ -11,3 +11,4 @@ title: LLVM IR
 - [llir/llvm](https://github.com/llir/llvm)
   - LLVM IR in pure Go
 - [HOW TO LEARN COMPILERS: LLVM EDITION](https://lowlevelbits.org/how-to-learn-compilers-llvm-edition/)
+- [LLVM from a Go perspective](https://aykevl.nl/2019/04/llvm-from-go)

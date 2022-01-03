@@ -4,61 +4,30 @@ title: Bonding
 
 # Bonding
 
-## Link aggregation
-* [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation) - LACP
-* Linux [bonding](https://wiki.linuxfoundation.org/networking/bonding)
-* kernel doc [bonding.txt](https://www.kernel.org/doc/Documentation/networking/bonding.txt)
-* http://www.linux-kvm.org/page/HOWTO_BONDING
-* [RHEL7 Using Channel Bonding](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-using_channel_bonding)
+- Bonding - [Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation) - LACP
+  - 实现链路主备切换 - 容灾
+  - 实现聚合多个链路 - 增加带宽上限，利用交换机 LACP 能力
+- 参考
+  - Linux [bonding](https://wiki.linuxfoundation.org/networking/bonding)
+  - kernel doc [bonding.txt](https://www.kernel.org/doc/Documentation/networking/bonding.txt)
+  - http://www.linux-kvm.org/page/HOWTO_BONDING
+  - [RHEL7 Using Channel Bonding](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-using_channel_bonding)
+  - [Bonding Modes](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html/Installation_Guide/Bonding_Modes.html)
+  - Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
+  - [Achieving 450 MB/s Network File Transfers Using Linux Bonding](http://louwrentius.com/achieving-450-mbs-network-file-transfers-using-linux-bonding.html)
+  - [The basics of SMB Multichannel, a feature of Windows Server 2012 and SMB 3.0](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)
+    - Windows 的 SMB 共享本身支持多通道
+    - 协议支持自动发现多网卡, 并且自动利用多网卡进行网络传输
+    - 和链路聚合有本质区别
+  - [What can you do with a second Ethernet port ?](https://www.linux.com/news/what-can-you-do-second-ethernet-port)
+- ifenslave
 
+:::tip
 
-* [Bonding Modes](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html/Installation_Guide/Bonding_Modes.html)
-* 模式 - 默认 balance-rr
-  * balance-rr - 0 - 轮询负载
-    * 唯一单 TCP/IP 流能利用多个网口的模式
-    * 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
-    * net.ipv4.tcp_reordering 控制拥挤程度
-    * 使用对顺序无要求的协议, 例如 UDP, 基本可以做到线性性能放大
-    * 需要交换机配置 etherchannel 或 trunking
-  * active-backup - 1 - 主备
-    * 保持相同的发送网口
-  * balance-xor - 2 - XOR
-    * 基于 HASH 算法进行负载均衡
-    * 需要交换机配置 etherchannel 或 trunking
-  * broadcast - 3 - 广播
-    * 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
-  * 802.3ad - 4 - IEEE 802.3ad - LACP
-    * 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
-    * 实现方式也是基于 hash
-      * 通常包括 src ip/mac/port/protocol, dst ip/mac/port/protocol
-    * 因此较多连接的时候才会有明显的效果
-  * balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
-    * 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
-  * balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
-    * balance-tlb + receive load balancing (rlb)
-    * 在 5 的基础上, 接收数据也实现负载均衡
-* balance-rr, active-backup, balance-tlb 和 balance-alb 不需要交换机支持
-* balance-alb 和 balance-tlb 不一定所有交换机都能使用
-  * 可能会有 arp 问题, 例如有些机器不能相互连接
-  * 需要对 miimon, updelay 进行调试
-* balance-xor 可能会需要交换机配置
-  * You need to set up an interface group (not LACP) on HP and Cisco switches, but apparently it's not necessary on D-Link, Netgear and Fujitsu switches.
-* 选项
-  * lacp_rate
-  * downdelay
-* 参考
-  * [Achieving 450 MB/s Network File Transfers Using Linux Bonding](http://louwrentius.com/achieving-450-mbs-network-file-transfers-using-linux-bonding.html)
-  * [The basics of SMB Multichannel, a feature of Windows Server 2012 and SMB 3.0](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/)
-    * Windows 的 SMB 共享本身支持多通道
-    * 协议支持自动发现多网卡, 并且自动利用多网卡进行网络传输
-    * 和链路聚合有本质区别
-  * [What can you do with a second Ethernet port ?](https://www.linux.com/news/what-can-you-do-second-ethernet-port)
-* NOTE
-  * 无论如何配置, 单个网络链接都不会超过单个物理链路的速度
-  * 802.3ad 需要交换机支持 LACP 组, 性能最好
-* Alpine [Bonding](https://wiki.alpinelinux.org/wiki/Bonding)
-* ifenslave
+- 无论如何配置, 单个网络链接都不会超过单个物理链路的速度
+- 802.3ad 需要交换机支持 LACP 组, 性能最好
 
+:::
 
 ```bash
 # /etc/network/if-post-down.d/bonding
@@ -92,12 +61,45 @@ cat /sys/class/net/bonding_masters
 echo balance-rr > /sys/class/net/bond0/bonding/mode
 ```
 
+## Notes
 
-
-
+- 模式 - 默认 balance-rr
+  - balance-rr - 0 - 轮询负载
+    - 唯一单 TCP/IP 流能利用多个网口的模式
+    - 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
+    - net.ipv4.tcp_reordering 控制拥挤程度
+    - 使用对顺序无要求的协议, 例如 UDP, 基本可以做到线性性能放大
+    - 需要交换机配置 etherchannel 或 trunking
+  - active-backup - 1 - 主备
+    - 保持相同的发送网口
+  - balance-xor - 2 - XOR
+    - 基于 HASH 算法进行负载均衡
+    - 需要交换机配置 etherchannel 或 trunking
+  - broadcast - 3 - 广播
+    - 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
+  - 802.3ad - 4 - IEEE 802.3ad - LACP
+    - 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
+    - 实现方式也是基于 hash
+      - 通常包括 src ip/mac/port/protocol, dst ip/mac/port/protocol
+    - 因此较多连接的时候才会有明显的效果
+  - balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
+    - 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
+  - balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
+    - balance-tlb + receive load balancing (rlb)
+    - 在 5 的基础上, 接收数据也实现负载均衡
+- balance-rr, active-backup, balance-tlb 和 balance-alb 不需要交换机支持
+- balance-alb 和 balance-tlb 不一定所有交换机都能使用
+  - 可能会有 arp 问题, 例如有些机器不能相互连接
+  - 需要对 miimon, updelay 进行调试
+- balance-xor 可能会需要交换机配置
+  - You need to set up an interface group (not LACP) on HP and Cisco switches, but apparently it's not necessary on D-Link, Netgear and Fujitsu switches.
+- 选项
+  - lacp_rate
+  - downdelay
 
 ## 配置案例
-* 需要安装 bonding 才能使用 bond-slaves 这样的指令
+
+- 需要安装 bonding 才能使用 bond-slaves 这样的指令
 
 ### bonding if hook
 
@@ -176,6 +178,7 @@ iface bond0 inet static
 ```
 
 ### 四网口聚合
+
 ```
 allow-hotplug eth0
 iface eth0 inet manual
@@ -227,9 +230,9 @@ iface bond0 inet static
     bond-miimon 100
 ```
 
-
 ## tree /sys/class/net/bond0
-* 所有信息
+
+- 所有信息
 
 ```
 /sys/class/net/bond0
@@ -348,10 +351,10 @@ iface bond0 inet static
 └── uevent
 ```
 
-
 # FAQ
 
 ## write error: Directory not empty
+
 bond 为 down 且无 slave 时才能修改
 
 ```
@@ -359,8 +362,9 @@ bond0: option mode: unable to set because the bond device has slaves
 ```
 
 ## bond0: (slave eth1): invalid new link 3 on slave
-* 5.10.26 Linux kernel error
-  * https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-rolling-lts&id=9392b8219b62b0536df25c9de82b33f8a00881ef
+
+- 5.10.26 Linux kernel error
+  - https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-rolling-lts&id=9392b8219b62b0536df25c9de82b33f8a00881ef
 
 ## the permanent HWaddr of slave - < mac > - is still in use by bond - set the HWaddr of slave to a different address to avoid conflicts
 

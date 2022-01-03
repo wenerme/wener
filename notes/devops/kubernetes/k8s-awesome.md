@@ -148,6 +148,8 @@ tags:
   - Kubernetes Operational View - read-only system dashboard for multiple K8s clusters
 - [hjacobs/kube-resource-report](https://github.com/hjacobs/kube-resource-report)
 - [kube-web-view alternatives](https://kube-web-view.readthedocs.io/en/latest/alternatives.html)
+- [oslabs-beta/kr8s](https://github.com/oslabs-beta/kr8s)
+  - Docker/Kubernetes Visualization Tool
 
 ## Distribution
 
@@ -158,6 +160,7 @@ tags:
 - rke
 - rancher
 - kubesphere
+- [openshift/okd](https://github.com/openshift/okd) - openshift 社区版
 - [kcp-dev/kcp](https://github.com/kcp-dev/kcp)
   - 兼容 kubectl api
   - 用于实现自定义 cp
@@ -249,6 +252,7 @@ tags:
   Kubernetes Native Policy Management
 - [Grafeas/Grafeas](https://github.com/Grafeas/Grafeas)
   Artifact Metadata API
+
 
 ## API Gateway
 

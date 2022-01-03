@@ -6,6 +6,10 @@ tags:
 
 # Linux Awesome
 
+## Dev
+
+- https://www.openwall.com/
+
 ## Command
 
 - [tldr-pages/tldr](https://github.com/tldr-pages/tldr)

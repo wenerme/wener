@@ -81,10 +81,12 @@ tags:
   - structuredClone - Chrome 98
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
+- diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
-- canvas
+- 2d rendering
   - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
     - SVG <-> Canvas
+  - [jonobr1/two.js](https://github.com/jonobr1/two.js)
   - [signature_pad](https://github.com/szimek/signature_pad)
 - color
   - [Qix-/color](https://github.com/Qix-/color)
@@ -109,6 +111,9 @@ tags:
     - generate .docx files
   - [ZEISS/react-view-pdf](https://github.com/ZEISS/react-view-pdf)
     - react, pdf.js
+  - [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
+    - Apache-2.0
+  - [mengshukeji/Luckysheet](https://github.com/mengshukeji/Luckysheet)
 - crdt
   - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
   - [yjs/yjs](https://github.com/yjs/yjs)
@@ -124,6 +129,59 @@ tags:
     - react https://floating-ui.com/docs/react-dom
 - ml
   - [matiasvlevi/Dann](https://github.com/matiasvlevi/Dann)
+  - [ml5js/ml5-library](https://github.com/ml5js/ml5-library)
+- invariant
+  - [tiny-invariant](https://github.com/alexreardon/tiny-invariant)
+  - [tiny-warning](https://github.com/alexreardon/tiny-warning)
+    - 不 throw
+  - [ts-invariant](https://github.com/apollographql/invariant-packages)
+  - condition build
+    - [babel-plugin-dev-expression](https://www.npmjs.com/package/babel-plugin-dev-expression)
+    - [tsdx](https://github.com/jaredpalmer/tsdx)
+- image
+  - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
+  - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
+    -  image compressor
+- interactive
+  - [transloadit/uppy](https://github.com/transloadit/uppy)
+  - [anvaka/panzoom](https://github.com/anvaka/panzoom)
+  - dnd
+    - [Shopify/draggable](https://github.com/Shopify/draggable)
+- core
+  - core-js
+  - jquery
+  - [fabiospampinato/cash](https://github.com/fabiospampinato/cash)
+- validate
+  - [colinhacks/zod](https://github.com/colinhacks/zod)
+  - [quicktype/quicktype](https://github.com/quicktype/quicktype)
+- math
+  - [josdejong/mathjs](https://github.com/josdejong/mathjs)
+  - [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)
+- markdown
+  - [markdown-it/markdown-it](https://github.com/markdown-it/markdown-it)
+  - [mdx-js/mdx](https://github.com/mdx-js/mdx)
+    - [mdx-js/specification](https://github.com/mdx-js/specification)
+    - [remark-mdx](https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx)
+  - [wooorm/xdm](https://github.com/wooorm/xdm)
+    - MDX compiler
+  - [micromark/micromark](https://github.com/micromark/micromark)
+  - [markedjs/marked](https://github.com/markedjs/marked)
+- Syntax Highlighter
+  - [shikijs/shiki](https://github.com/shikijs/shiki)
+- dev
+  - [nolanlawson/fuite](https://github.com/nolanlawson/fuite)
+    - finding memory leaks in web apps
+  - [sverweij/dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
+- transpile
+  - babel
+  - ts
+  - esbuild
+  - swc
+  - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
+- bundle
+  - webpack
+  - rollup
+  - [developit/microbundle](https://github.com/developit/microbundle)
 
 ---
 
@@ -149,6 +207,10 @@ tags:
 ## 有趣
 
 - [enkimute/ganja.js](https://github.com/enkimute/ganja.js) - 几何代数
+- [lokesh/color-thief](https://github.com/lokesh/color-thief)
+  - 提取 image 颜色
+- [travist/jsencrypt](https://github.com/travist/jsencrypt)
+  - RSA
 
 ## UX
 

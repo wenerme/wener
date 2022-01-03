@@ -5,6 +5,20 @@ tags:
 
 # Anime Awesome
 
+- https://myanimelist.net/topanime.php
+- https://anitrendz.net/charts/top-anime/
+- 资源组
+  - 幻樱字幕组 - http://www.hysub.net/
+  - Ohys-Raws
+  - 喵萌奶茶屋
+  - 云光字幕组
+  - NC-Raws
+  - CASO 华盟动漫
+  - SumiSora 澄空学园 - https://bbs.sumisora.net/
+  - 诸神字幕组
+  - MAGI_ATELIER 魔术师工房
+  - UHA-WINGS
+
 ## TBW
 
 - 少年同盟 https://movie.douban.com/subject/6026035/

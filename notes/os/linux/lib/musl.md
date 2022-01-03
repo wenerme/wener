@@ -10,7 +10,7 @@ title: musl
 
 :::caution
 
-- malloc 性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
+- malloc 大场景性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
 
 :::
 
@@ -85,14 +85,23 @@ iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
 
 ## musl 问题
 
+- [Open Issues](https://wiki.musl-libc.org/open-issues.html)
+  - 不支持 LC_TIME
+  - 无 ucontext.h - obsolescent in POSIX.1-2001
+    - [makecontext](https://pubs.opengroup.org/onlinepubs/009695399/functions/makecontext.html#tag_03_356_08)
+    - [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
+      - glusterfs 不支持 musl
+    - [openssl#7406](https://github.com/openssl/openssl/issues/7406)
+      - 使用 no-async 绕过
+- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
+  - 其他软件已知因为 musl 导致的 bug
 - 不支持 nsswitch
   - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
 - 不支持 res_uinit
   - asterisk 无法获取 nameserver
 - [golang/go#13492](https://github.com/golang/go/issues/13492)
   runtime: c-shared builds fail with musllibc
-- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
-  - 其他软件已知因为 musl 导致的 bug
+  - 无法获取 argc, argv - 基于 glibc 扩展
 
 ## malloc performance
 

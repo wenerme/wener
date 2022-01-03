@@ -21,18 +21,22 @@ tags:
 
 :::
 
-| version    | date       |
-| ---------- | ---------- |
-| NextJS 12  | 2021-11-27 |
-| NextJS 11  | 2020-06-16 |
-| NextJS 10  | 2020-10-27 |
+| version    | date       | blog      |
+| ---------- | ---------- | --------- |
+| NextJS 12  | 2021-11-27 | [next-12] |
+| NextJS 11  | 2021-06-16 | [next-11] |
+| NextJS 10  | 2020-10-27 | [next-10] |
 | NextJS 9.5 | 2020-7-28  |
+
+[next-12]: https://nextjs.org/blog/next-12
+[next-11]: https://nextjs.org/blog/next-11
+[next-10]: https://nextjs.org/blog/next-10
 
 ## NextJS 12
 
 - swc 替代 babel - 更快的刷新和构建
   - styled-component 支持还需要完善
-- 中间件 - _middleware.ts
+- 中间件 - \_middleware.ts
 - 支持 React 18
 - Server-Side Streaming - 实验阶段
   - 支持 react 18 server-side Suspense
@@ -47,6 +51,7 @@ tags:
 - @vercel/nft 替代 target - Output File Tracing
 - 支持 next.config.mjs
 - 移除 webpack 4
+- [next-12](https://nextjs.org/blog/next-12)
 
 ```js title="next.config.js"
 module.exports = {
@@ -107,7 +112,6 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
 
 ## NextJS 10
 
-- [10](https://nextjs.org/blog/next-10) - 2020-10-27
 - `next/image` - 图片组件，自动图片优化
   - WebP、JPEG
 - 国际化路由

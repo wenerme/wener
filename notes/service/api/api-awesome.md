@@ -6,18 +6,77 @@ tags:
 
 # API Awesome
 
-- API 考虑因素
-  - 灵活
-    - 静态结构、动态结构
-  - 性能
-    - 延时要求、服务对服务、服务对客户端
-  - 序列化
-  - 服务兼容
-  - 语言兼容
-    - 需要支持什么语言
-  - 接口模式
-    - 请求响应、流式请求、流式响应
-  - 规范 - 生成友好
+## API/RPC 考虑因素
+
+- 灵活
+  - 静态结构
+  - 动态结构
+  - 兼容性
+- 性能
+  - 延时要求
+  - 服务对服务
+  - 服务对客户端
+- 序列化
+  - 二进制
+  - 文本 - JSON
+- 语言兼容
+  - 需要支持什么语言
+  - 自用只需考虑个别语言
+  - 对外则需要考虑通用
+- 接口模式
+  - 请求响应
+  - 流式请求
+  - 流式响应
+- 规范
+  - 生成友好
+  - 元数据信息完整
+- 场景
+  - 自用 - 满足内部使用即可
+  - 对外 - 采用现有标准规范
+- 生态
+  - 可观察性
+    - Metric
+    - Trace
+  - 网关
+  - 中间件感知
+
+## API Gateway 考虑因素
+
+- 管理能力
+  - 负责 增删改 Endpoint - vendor lockin
+  - 使用现有配置 - 控制能力弱
+- 可观察性能力
+  - Metric 集成
+  - Trace 集成
+  - 内置 - 网关采集、内置显示
+  - 外部 - grafana、jeager、prometheus
+- 控制能力
+  - Auth
+  - Threshold
+  - 注入自定义逻辑 - Hook
+- 协议感知能力
+  - gRPC
+  - HTTP
+  - GraphQL
+  - TCP、UDP
+- 平台集成能力
+  - Kubernetes Service、Annotatation
+  - Consul Service
+  - ETCD、ZK
+- 实现模式
+  - 无侵入 - 直接网络拦截
+    - 网络层处理 - Cilium
+  - 侵入 - 修改代码逻辑
+    - 中间件 - 集成 metric、trace 等能力
+    - SQL Trace
+  - Sidecar - 按应用网络拦截
+    - 获取基础 metric 信息、可能能实现 trace 能力
+    - Agent 能代表应用身份
+    - 通常还能实现 E2E 加密认证
+- 元数据存储方式
+  - CRD
+  - DB - PostgreSQL、MySQL - 需要额外维护、但方便排查使用
+  - KV - ETCD、ZK
 
 ## 规范
 
@@ -98,6 +157,8 @@ tags:
 - Tyk
 - [luraproject/lura](https://github.com/luraproject/lura)
 - [How to choose the right API Gateway for your platform](https://www.moesif.com/blog/technical/api-gateways/How-to-Choose-The-Right-API-Gateway-For-Your-Platform-Comparison-Of-Kong-Tyk-Apigee-And-Alternatives/)
+- [api-platform/api-platform](https://github.com/api-platform/api-platform)
+  - Create REST and GraphQL APIs, scaffold Jamstack webapps, stream changes in real-time.
 
 ## Doc
 

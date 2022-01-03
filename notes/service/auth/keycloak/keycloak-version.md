@@ -11,6 +11,12 @@ tags:
 
 ## Keycloak 16
 
+- [Wildfly 25] - Elytron
+  - 配置方式发生变化
+- Quarkus 2.5.3
+
+[wildfly 25]: https://www.wildfly.org/news/2021/10/05/WildFly25-Final-Released/
+
 ## Keycloak 15
 
 - Financial-grade API/FAPI 增强, FAPI CIBA and Open Banking Brasil

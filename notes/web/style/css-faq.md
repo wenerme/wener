@@ -73,7 +73,6 @@ tags:
 
 ## visibility vs display
 
-
 ## Containing Block
 
 - [Containing Block] 组成
@@ -131,6 +130,17 @@ tags:
   - Grid
 
 [layout mode]: https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_mode
+
+## Boxing
+
+| Box type    | Composition                         |
+| ----------- | ----------------------------------- |
+| Margin box  | margin + border + padding + content |
+| Border box  | border + padding + content          |
+| Padding box | padding + content                   |
+| Content box | content                             |
+
+- https://github.com/alexreardon/css-box-model
 
 ## 元素直接支持 resize
 
@@ -312,10 +322,21 @@ https://codepen.io/argyleink/pen/RwPWqKe
 
 - [“The Notch” and CSS](https://css-tricks.com/the-notch-and-css/)
 
+1. CSS 控制
+
 ```css
 body {
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
+```
+
+2. viewport-fit=cover
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+/>
 ```
 
 ## font size 适应容器

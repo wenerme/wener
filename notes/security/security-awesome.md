@@ -1,7 +1,7 @@
 ---
 title: Security Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Security Awesome
@@ -12,8 +12,12 @@ tags:
   - [ssh-audit.com](https://www.ssh-audit.com/)
 - [ycd/dstp](https://github.com/ycd/dstp)
 - [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
-  - wikipedia [NaCl](https://en.wikipedia.org/wiki/NaCl_(software))
+  - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
 - [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
+
+## Index
+
+- https://fofa.so/
 
 ## Password
 
@@ -51,3 +55,9 @@ tags:
 ## Spam
 
 - [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)
+
+## 参考
+
+- [Reverse Engineering Crypto Functions: AES](https://www.goggleheadedhacker.com/blog/post/reversing-crypto-functions-aes)
+- [klezVirus/vortex](https://github.com/klezVirus/vortex)
+  - VPN Overall Reconnaissance, Testing, Enumeration and Exploitation Toolkit

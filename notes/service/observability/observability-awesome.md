@@ -12,6 +12,7 @@ tags:
   - Apache-2.0, Java
   - 国产
   - 美团点评
+- [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
 
 ## APM
 

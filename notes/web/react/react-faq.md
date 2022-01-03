@@ -184,3 +184,36 @@ react-helmet, next/head 支持 script 标签，但无法检测状态。
 react-helmet 可以支持一个 onChangeClientState 来检测。
 
 可以考虑 [useScript](https://usehooks.com/useScript/) 自行封装一个。
+
+## iframe
+
+```tsx
+class A extends React.Component {
+  render() {
+    return <iframe src="https://www.youtube.com/embed/cWDJoK8zw58" />;
+  }
+}
+class B extends React.Component {
+  render() {
+    return <div dangerouslySetInnerHTML={{ __html: "<iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />" }} />;
+  }
+}
+```
+
+## CSS in JS
+
+1. 动态注入 CSS
+
+- styled, jsx
+
+2. 预定义 Class
+
+- tailwind
+
+3. 动态 Class 注入 CSS
+
+- [tw-in-js/twind](https://github.com/tw-in-js/twind)
+
+---
+
+- [Implementing RUI, Replit's Design System](https://blog.replit.com/rui-eng)

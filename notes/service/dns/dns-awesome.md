@@ -39,6 +39,7 @@ tags:
 - [llccd/netfilter-spooftcp](https://github.com/llccd/netfilter-spooftcp)
   - dns spoof
 - [iptable drop spoof dns](https://twitter.com/gNodeB/status/1443975021840551941)
+- [Mess with DNS](https://jvns.ca/blog/2021/12/15/mess-with-dns/)
 
 ## GFW
 

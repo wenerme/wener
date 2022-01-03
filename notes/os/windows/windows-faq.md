@@ -1,6 +1,8 @@
 ---
 id: windows-faq
 title: Windows FAQ
+tags:
+- FAQ
 ---
 
 # Windows FAQ

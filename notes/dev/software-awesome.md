@@ -5,6 +5,8 @@ tags:
 
 # Software Awesome
 
+- [safing/portmaster](https://github.com/safing/portmaster)
+
 ## Note
 
 - Boostnote

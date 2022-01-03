@@ -1,7 +1,7 @@
 ---
 title: Tracing Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Tracing Awesome
@@ -19,6 +19,9 @@ tags:
   - https://jaegertracing.io/
 - [apache/skywalking](https://github.com/apache/incubator-skywalking)
   - Java
+- [uptrace/uptrace](https://github.com/uptrace/uptrace)
+  - BSL, Golang
+  - 存储使用 ClickHouse
 
 ## Integration
 

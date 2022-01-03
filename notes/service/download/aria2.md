@@ -22,6 +22,9 @@ aria2c --bt-metadata-only=true --bt-save-metadata=true <magnet link>
 aria2c --help=#rpc
 ```
 
+- $XDG_CACHE_HOME/aria2
+- $HOME/.aria2
+
 ```conf
 # default 10M
 disk-cache=128M
@@ -70,4 +73,39 @@ bt-enable-lpd=true
 ```bash
 curl -LO https://github.com/ngosang/trackerslist/raw/master/trackers_all_ip.txt
 echo bt-tracker=$(grep . trackers_all_ip.txt | tr '\n' ',') > ~/.aria2/aria2.conf
+```
+
+## conf demo
+
+```ini
+summary-interval=0
+lowest-speed-limit=50K
+max-concurrent-downloads=10
+max-connection-per-server=10
+min-split-size=5M
+split=10
+
+enable-rpc
+rpc-listen-all
+rpc-allow-origin-all
+rpc-save-upload-metadata
+
+enable-dht
+bt-save-metadata
+bt-load-saved-metadata
+bt-seed-unverified
+bt-max-peers=0
+bt-max-open-files=2000
+bt-request-peer-speed-limit=100K
+bt-tracker-interval=120
+bt-request-peer-speed-limit=5M
+save-session=${HOME}/.aria2/session
+save-session-interval=300
+input-file=${HOME}/.aria2/session
+max-concurrent-downloads=99999
+seed-time=180
+```
+
+```bash
+touch $HOME/.aria2/session
 ```

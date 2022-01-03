@@ -39,8 +39,6 @@ tags:
 - [medusajs/medusa](https://github.com/medusajs/medusa)
 - [withspectrum/spectrum](https://github.com/withspectrum/spectrum)
 - [getferdi/ferdi](https://github.com/getferdi/ferdi)
-- [notifirehq/notifire](https://github.com/notifirehq/notifire)
-  - Notification Infrastructure
 - [frappe/erpnext](https://github.com/frappe/erpnext)
   - GPL, ERP
 - [frappe/frappe](https://github.com/frappe/frappe)
@@ -61,7 +59,25 @@ tags:
 - [fonoster/fonoster](https://github.com/fonoster/fonoster)
   - open-source alternative to Twilio
 - https://github.com/zmide/study.zmide.com
-
+- editor & ide
+  - [opensumi/core](https://github.com/opensumi/core)
+    - by Alibaba
+    - A framework helps you quickly build Cloud or Desktop IDE products.
+- calender
+  - [calendso/calendso](https://github.com/calendso/calendso)
+    - AGPL-3.0, Typescript
+    - Scheduling infrastructure
+- Notification
+  - [notifirehq/notifire](https://github.com/notifirehq/notifire)
+    - Notification Infrastructure
+- airtable - spreadsheet, no-code database
+  - [rowyio/rowy](https://github.com/rowyio/rowy)
+  - [nocodb/nocodb](https://github.com/nocodb/nocodb)
+    - AGPL-3.0, Typescript+Vue
+  - [bramw/baserow](https://gitlab.com/bramw/baserow)
+    - MIT, Python+Vue
+- [growthbook/growthbook](https://github.com/growthbook/growthbook)
+  - A/B Testing
 
 ## Avatar
 

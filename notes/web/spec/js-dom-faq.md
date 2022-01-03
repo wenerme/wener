@@ -5,6 +5,29 @@ tags:
 
 # JS DOM FAQ
 
+## DOM 事件
+
+- [window](https://developer.mozilla.org/en-US/docs/Web/API/Window#event_handlers)
+  - appinstalled
+  - devicemotion, deviceorientation
+  - [WindowEventHandlers](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers)
+    - hash, storage, online, offline, load, unload
+- [document](https://developer.mozilla.org/en-US/docs/Web/API/Document#event_handlers)
+  - afterscriptexecute, beforescriptexecute, fullscreenchange, fullscreenerror, selectionchange, visibilitychange
+  - 大多事件在 window 也能监听到
+- [GlobalEventHandlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)
+  - HTMLElement, Document, Window 都支持的事件
+- 其他
+  - navigator.clipboard - cut, copy, paste
+  - [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) 的子类
+
+## document vs body
+
+- document - HTML
+  - document.documentElement -> `<html>`
+- body
+  - `<body>` or `<frameset>` or null
+
 ## target vs currentTarget vs relatedTarget
 
 - target - 触发事件的元素

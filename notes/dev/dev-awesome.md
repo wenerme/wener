@@ -6,6 +6,17 @@ tags:
 
 # Dev Awesome
 
+- [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
+- [sw-yx/spark-joy](https://github.com/sw-yx/spark-joy)
+- [mtdvio/every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know)
+- [Bogdanp/awesome-advent-of-code](https://github.com/Bogdanp/awesome-advent-of-code)
+- [mehdihadeli/awesome-software-architecture](https://github.com/mehdihadeli/awesome-software-architecture)
+- [geek-cookbook/geek-cookbook](https://github.com/geek-cookbook/geek-cookbook)
+- [jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line)
+- [papers-we-love/papers-we-love](https://github.com/papers-we-love/papers-we-love)
+- jobs
+  - [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards)
+
 ## Design
 
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/
@@ -92,3 +103,6 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
   - AWS KMS, GCP KMS, Azure Key Vault, age, PGP
 - [gopasspw/gopass](https://github.com/gopasspw/gopass)
   - password manager for teams
+
+## 有趣
+- [denigma](https://denigma.app/)
