@@ -12,26 +12,54 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'wenerme',
   projectName: 'wener',
-  plugins: [
+
+  trailingSlash: false,
+  // https://github.com/ToolJet/ToolJet/issues/852
+  // https://github.com/facebook/docusaurus/issues/3136#issuecomment-664941437
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  presets: [
     [
-      '@docusaurus/plugin-client-redirects',
+      '@docusaurus/preset-classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
       {
-        redirects: [
-          {
-            to: '/story',
-            from: ['/blog'],
-          },
-        ],
-        createRedirects: function (existingPath) {
-          if (existingPath.startsWith('/story/')) {
-            return ['/blog/' + existingPath.substring('/story/'.length)];
-          }
-          return [];
+        docs: {
+          routeBasePath: 'notes',
+          path: 'notes',
+          sidebarPath: require.resolve('./sidebars.js'),
+
+          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
+
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+        },
+        blog: {
+          routeBasePath: 'story',
+          path: 'story',
+          include: ['**/*.md', '**/*.mdx'],
+          truncateMarker: /<!--\s*more\s*-->/,
+          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          // cacheTime: 600 * 1000, // 600 sec - cache purge period
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       },
     ],
   ],
-  themeConfig: {
+  themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ {
+    hideableSidebar: true,
     googleAnalytics: {
       trackingID: 'UA-30404720-1',
     },
@@ -50,7 +78,7 @@ module.exports = {
         src: 'img/wener-logo-head.svg',
       },
       items: [
-        { to: 'notes/note', label: '笔记', position: 'left' },
+        { to: 'notes', label: '笔记', position: 'left' },
         { to: 'story', label: '故事', position: 'left' },
         {
           href: 'https://github.com/wenerme/wener',
@@ -58,7 +86,7 @@ module.exports = {
           position: 'right',
         },
         { to: 'notes/howto/network/dns-prevent-spoofing', label: '指南', position: 'left' },
-        { to: 'notes/tool/network/ip-lookup', label: '工具', position: 'left' },
+        // { to: 'notes/tool/network/ip-lookup', label: '工具', position: 'left' },
       ],
     },
     footer: {
@@ -69,19 +97,19 @@ module.exports = {
           items: [
             {
               label: 'Java',
-              to: 'notes/java/java',
+              to: 'notes/java',
             },
             {
               label: 'AlpineLinux',
-              to: 'notes/os/alpine/alpine',
+              to: 'notes/os/alpine',
             },
             {
               label: 'Kubernates',
-              to: 'notes/devops/kubernetes/kubernetes',
+              to: 'notes/devops/kubernetes',
             },
             {
               label: 'VoIP',
-              to: 'notes/voip/voip',
+              to: 'notes/voip',
             },
           ],
         },
@@ -133,45 +161,28 @@ module.exports = {
         .format('YYYY-MM-DD HH:mm')}`,
     },
   },
-  themes: ['@docusaurus/theme-live-codeblock'],
-  presets: [
+  plugins: [
     [
-      '@docusaurus/preset-classic',
+      '@docusaurus/plugin-client-redirects',
       {
-        docs: {
-          routeBasePath: 'notes',
-          path: 'notes',
-          sidebarPath: require.resolve('./sidebars.js'),
-
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
-
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
-
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
-        },
-        blog: {
-          routeBasePath: 'story',
-          path: 'story',
-          include: ['**/*.md', '**/*.mdx'],
-          truncateMarker: /<!--\s*more\s*-->/,
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
-
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-        sitemap: {
-          // cacheTime: 600 * 1000, // 600 sec - cache purge period
-          changefreq: 'weekly',
-          priority: 0.5,
+        redirects: [
+          {
+            to: '/story',
+            from: ['/blog'],
+          },
+        ],
+        createRedirects: function (existingPath) {
+          if (existingPath.startsWith('/story/')) {
+            return ['/blog/' + existingPath.substring('/story/'.length)];
+          }
+          return [];
         },
       },
     ],
   ],
+
+  themes: ['@docusaurus/theme-live-codeblock'],
+
   stylesheets: [
     'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
     // {
@@ -180,10 +191,4 @@ module.exports = {
     //   crossorigin: 'anonymous',
     // },
   ],
-
-  trailingSlash: false,
-  // https://github.com/ToolJet/ToolJet/issues/852
-  // https://github.com/facebook/docusaurus/issues/3136#issuecomment-664941437
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 };
