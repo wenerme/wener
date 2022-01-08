@@ -131,6 +131,8 @@ tags:
   - https://github.com/davda54/sam
 - [Machine Learning Research Papers Released In 2021](https://analyticsindiamag.com/top-ml-research-articles/)
 - [Interesting Algorithms Released By Google AI In 2021](https://analyticsindiamag.com/interesting-algorithms-released-by-google-ai-in-2021/)
+- [A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+- https://brilliant.org/courses/intro-neural-networks/introduction-65/
 
 ![](http://dlib.net/ml_guide.svg)
 

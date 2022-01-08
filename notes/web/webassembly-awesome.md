@@ -56,6 +56,7 @@ tags:
 - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
 - quickjs
   - ES2020
+  - [justjake/quickjs-emscripten](https://github.com/justjake/quickjs-emscripten)
 - [mbbill/JSC.js](https://github.com/mbbill/JSC.js)
 - [maple3142/wasm-jseval](https://github.com/maple3142/wasm-jseval)
 - `<iframe sandbox="allow-scripts"/>`

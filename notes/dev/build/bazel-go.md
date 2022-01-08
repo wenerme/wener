@@ -14,6 +14,7 @@ title: Brazel Go
   - [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
     - buildkite [pipeline](https://buildkite.com/bazel/grpc-ecosystem-grpc-gateway)
   - [google/differential-privacy](https://github.com/google/differential-privacy)
+  - [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
 
 ```bash
 # cross compile no cgo
@@ -105,7 +106,7 @@ go_library(
 )
 ```
 
-##  go_repository does not support file path replacements
+## go_repository does not support file path replacements
 
 ## gazelle
 

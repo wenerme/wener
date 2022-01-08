@@ -141,7 +141,7 @@ tags:
 - image
   - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
   - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
-    -  image compressor
+    - image compressor
 - interactive
   - [transloadit/uppy](https://github.com/transloadit/uppy)
   - [anvaka/panzoom](https://github.com/anvaka/panzoom)
@@ -229,4 +229,16 @@ depp
 
 ## Engine
 
+
+- [saghul/txiki.js](https://github.com/saghul/txiki.js)
+  - QuickJS + libuv
+- [just-js/just](https://github.com/just-js/just)
+  - small v8 for linux only
+  - ~15 MB
 - [GoogleChromeLabs/jsvu](https://github.com/GoogleChromeLabs/jsvu)
+  - JavaScript engine Version Updater
+  - 支持 charkra, gralljs, hermes, JavaScriptCore, quickjs, SpiderMonkey, v8, v8 debug, xs
+- [facebook/hermes](https://github.com/facebook/hermes)
+  - JavaScript engine optimized for React Native
+- IoT
+  - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)

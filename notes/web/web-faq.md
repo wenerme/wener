@@ -6,6 +6,10 @@ tags:
 
 # Web FAQ
 
+## trailing slash
+
+- [slorber/trailing-slash-guide](https://github.com/slorber/trailing-slash-guide)
+
 ## web worker vs serviceWorker vs worklet
 
 - Worklets

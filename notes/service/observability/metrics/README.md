@@ -1,6 +1,5 @@
 ---
-id: metrics
-title: 指标监控
+title: 指标
 ---
 
 # Metrics

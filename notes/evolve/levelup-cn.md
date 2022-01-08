@@ -67,3 +67,4 @@ title: Level UP in China
 ## 财务
 
 - https://www.czj.sh.gov.cn/ACM/userLogin.jsp
+- 全国会计资格评价网 http://kzp.mof.gov.cn

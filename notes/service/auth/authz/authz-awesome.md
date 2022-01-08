@@ -8,6 +8,7 @@ tags:
 
 - casbin
 - [osohq/oso](https://github.com/osohq/oso)
+  - Apache-2.0, Rust+Python
 
 ## Zanzibar
 

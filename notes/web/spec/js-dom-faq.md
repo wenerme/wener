@@ -5,6 +5,17 @@ tags:
 
 # JS DOM FAQ
 
+## query sibling
+
+```js
+function siblings(node, query) {
+  var parent = node.parentElement;
+  var index = [].slice.call(parent.children).indexOf(node) + 1;
+  // nth-child 会匹配到下级
+  return parent.querySelectorAll(`:nth-child(${index}) ~ ${query}`);
+}
+```
+
 ## DOM 事件
 
 - [window](https://developer.mozilla.org/en-US/docs/Web/API/Window#event_handlers)

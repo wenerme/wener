@@ -1,11 +1,11 @@
 ---
-id: observability
-title: Observability
+title: 可观察性
 ---
 
 # Observability
 
-- 事件日志
+- Logging - 日志
+  - 事件
   - 文本
   - 结构化
   - 二进制

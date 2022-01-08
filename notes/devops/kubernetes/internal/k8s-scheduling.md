@@ -6,6 +6,7 @@ title: Kubernetes 调度
 
 - /etc/kubernetes/config/kube-scheduler.yaml
   - [kube-scheduler-config.v1beta1](https://kubernetes.io/docs/reference/config-api/kube-scheduler-config.v1beta1/)
+- [Node-pressure Eviction](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/)
 
 ```bash
 kubectl get pods -n kube-system | grep kube-scheduler

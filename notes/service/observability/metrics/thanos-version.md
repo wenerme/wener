@@ -4,6 +4,8 @@ title: Thanos 版本
 
 # Thanos 版本
 
+- https://github.com/thanos-io/thanos/blob/main/CHANGELOG.md
+
 ## 0.21
 
 - api 添加 tls 和 basic auth

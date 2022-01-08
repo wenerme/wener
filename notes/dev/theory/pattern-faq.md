@@ -1,5 +1,7 @@
 ---
 title: Pattern FAQ
+tags:
+  - FAQ
 ---
 
 # Pattern FAQ

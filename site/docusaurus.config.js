@@ -52,7 +52,7 @@ module.exports = {
         },
         sitemap: {
           // cacheTime: 600 * 1000, // 600 sec - cache purge period
-          changefreq: 'weekly',
+          changefreq: 'daily',
           priority: 0.5,
         },
       },

@@ -20,6 +20,9 @@ title: ArgoCD ApplicationSet
   - clusterDecisionResource
     - 基于 external custom resource
     - configMap
+  - pullRequest
+  - mergeKeys - Merge generator
+    - 基于字段合并 generator
 
 ```bash
 # 安装 applicationset - 要确保先安装了 argocd

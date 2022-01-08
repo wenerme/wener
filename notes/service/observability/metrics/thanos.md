@@ -4,8 +4,9 @@ title: Thanos
 
 # Thanos
 
-## Tips
-
+- [thanos-io/thanos](https://github.com/thanos-io/thanos)
+  - Prometheus 长期存储
+  - 后端使用对象存储服务
 - 多租户方案
   - sidecar 配置 external label，使用多层 query
   - receive 接收多租户，但不推荐
@@ -287,10 +288,11 @@ thanos tools bucket mark --id 01EJD9PS4P3MJMF3TGJGTJTE25 --marker deletion-mark.
 # 默认由 compactor 来清理
 thanos tools bucket cleanup
 
-# 筛选 1 年的 id
-thanos tools bucket inspect --log.level error --objstore.config-file=thanos-store.yaml | grep -P '\d\d-\d\d-2020' | grep -vP '\d\d-2021' | cut -d '|' -f 2 | tr -d ' ' > ids.txt
+# out
+thanos tools bucket inspect --log.level error --objstore.config-file=thanos-store.yaml > out.txt
+# filter & delete
 # 批量标记删除 - 需要有 compact 实际删除 - 或者执行 compact --delete-delay=0
-cat ids.txt | sed 's/^/--id=/' | xargs thanos tools bucket mark --marker deletion-mark.json --details 'delete' --objstore.config-file=thanos-store.yaml
+cat out.txt | grep -P '(01|02|03|04|05|06|07|08)-2021' | cut -d '|' -f 2  | tr -d ' '| sed 's/^/--id=/' | xargs thanos tools bucket mark --marker deletion-mark.json --details 'delete' --objstore.config-file=thanos-store.yaml
 ```
 
 ## 缓存配置
@@ -436,7 +438,7 @@ thanos compact \
   --delete-delay=0
 ```
 
-## Sidecar 上传历史文件
+## Sidecar 上传历史文件
 
 ```bash
 thanos sidecar \

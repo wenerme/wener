@@ -1,11 +1,8 @@
 ---
-id: grafana
 title: Grafana
 ---
 
 # Grafana
-
-## Tips
 
 - 要求
   - 255 MB，1 CPU
