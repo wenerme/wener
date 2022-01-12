@@ -38,15 +38,16 @@ smartctl --all /dev/sdj  | command grep -i Power
 
 ## 硬件
 
-- [Hardware Raid Setup using MegaCli](https://raid.wiki.kernel.org/index.php/Hardware_Raid_Setup_using_MegaCli)
-- [LSI MegaRAID SAS](https://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS)
-- JBOD - Just Bunch Of Disk - RAID 的一种模式
-- HBA
+- JBOD - Just Bunch Of Disk - RAID 卡的一种模式
+- HBA - Host Bus Adapter - 直通卡 - Dell HBA
+- IT - Initiator Target - LSI 固件能力，类似 HBA
 - 基于 IOC 的产品，一般称为 HBA 卡，也就是常说的直连卡，一般支持 Raid0/1/10/1E
 - 基于 ROC 的产品，一般称为 Raid 卡，一般带有缓存，支持 Raid0/1/10/1E/5/50/6/60，可选 BBU，附带的高级软件包括：CacheCade、FashPath、SafeStore 等
 - 1064、1064e、1068、1068e、2008、2308、3008 属于 IOC；2108、2208 属于 ROC；
 - 博通收购了 Mega LSI
 - 参考
+  - [Hardware Raid Setup using MegaCli](https://raid.wiki.kernel.org/index.php/Hardware_Raid_Setup_using_MegaCli)
+  - [LSI MegaRAID SAS](https://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS)
   - 博通 [RAID 控制器](https://www.broadcom.com/products/storage/raid-controllers/)
   - 博通 [HAB](https://www.broadcom.com/products/storage/host-bus-adapters/)
   - [Introduction to LSI's MegaCLI Utility](https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/ucs-c-series-rack-servers/115020-intro-lsi-megacli-00.html)
@@ -60,9 +61,9 @@ smartctl --all /dev/sdj  | command grep -i Power
 ./storcli64 show
 ```
 
-## FAQ
+# FAQ
 
-### 如何选择 RAID
+## 如何选择 RAID
 
 做 RAID 首先要考虑目的
 
@@ -100,9 +101,18 @@ smartctl --all /dev/sdj  | command grep -i Power
 - 快照
 - 去重
 
-### 阵列卡 vs 直通卡
+## 阵列卡 vs 直通卡
 
 > 软 RAID 推荐使用直通卡 HBA
 
 - JBOD 比 MD RAID0 快约 30%
 - [JOBD vs RAID](https://tobert.github.io/post/2014-06-17-jbod-vs-raid.html)
+
+## JBOD vs HBA
+
+- JBOD
+  - RAID 卡功能
+  - 模糊了 HBA 界线
+  - 在没有 HBA 卡的时候使用 RAID 卡的 JBOD 达到相同的目的
+- HBA
+  - 直通卡

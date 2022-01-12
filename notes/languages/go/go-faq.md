@@ -15,9 +15,17 @@ tags:
 
 ## 使用最新测试版本
 
+- $HOME/sdk/go$VERSION/go$VERSION.darwin-amd64.tar.gz
+
 ```bash
+# 下载 tip 版本
 go install golang.org/dl/gotip@latest
 gotip download
+
+# 下载最新版本
+go install golang.org/dl/go1.18beta1@latest
+go1.18beta1 download
+go1.18beta1 env GOROOT
 ```
 
 ## golang.org/x

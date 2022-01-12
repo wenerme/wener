@@ -41,6 +41,11 @@ title: JSON
   - [HN](https://news.ycombinator.com/item?id=24943775)
 - https://extendsclass.com/json-diff.html
 
+## Command line tools
+
+- [antonmedv/fx](https://github.com/antonmedv/fx)
+- [jmespath/jp](https://github.com/jmespath/jp)
+
 ## FAQ
 
 ### JSON Patch and JSON Merge Patch
@@ -51,8 +56,8 @@ title: JSON
 
 ### 时间格式选择
 
-- [The “right” JSON date format](https://stackoverflow.com/q/10286204/1870054)
 - ISO 8601
 - `new Date().toJSON()`
-- 2018-04-16T05:24:53.603Z
+  - 2018-04-16T05:24:53.603Z
 - Java `new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA)`
+- [The “right” JSON date format](https://stackoverflow.com/q/10286204/1870054)

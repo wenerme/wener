@@ -117,7 +117,10 @@ tags:
 - crdt
   - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
   - [yjs/yjs](https://github.com/yjs/yjs)
+    - 实现协作编辑
+    - vs automerge [#145](https://github.com/yjs/yjs/issues/145)
   - [automerge/automerge](https://github.com/automerge/automerge)
+    - 通用状态，自定义 CRDT
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
   - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
 - editor

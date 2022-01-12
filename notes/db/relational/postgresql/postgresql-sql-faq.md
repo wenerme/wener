@@ -243,7 +243,7 @@ from (
 where rn = 1
 ```
 
-# ON CONFLICT 多列 UNIQUE
+## ON CONFLICT 多列 UNIQUE
 
 - https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT
 - conflict_target can perform unique index inference
@@ -251,3 +251,10 @@ where rn = 1
   - 建议通过 generate 列调整 uniqe 逻辑
   - 或者再建一个包含所有 unique 列的索引
 - 如果想要返回 EXCLUDED 可以使用 CTE 多步执行 https://stackoverflow.com/a/35953488/1870054
+
+
+## LATERAL JOIN
+
+- 执行一次
+- 可交叉引用其他 FROM
+- https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-LATERAL

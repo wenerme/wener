@@ -22,8 +22,14 @@ tags:
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/
 - https://microservices.io/patterns/
 
+## Book
+
+- Software Engineering at Google
+  - https://abseil.io/resources/swe-book
+
 ## Read
 
+- https://martinfowler.com/articles/patterns-of-distributed-systems/
 - [Theoretical Computer Science Cheat Sheet](https://www.tug.org/texshowcase/cheat.pdf)
   - [HN](https://news.ycombinator.com/item?id=29347885)
 - [cs-books/influential-cs-books](https://github.com/cs-books/influential-cs-books)
@@ -32,6 +38,11 @@ tags:
 - [42 things I learned from building a production database](https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html)
 - [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
 - [Indirection](https://en.wikipedia.org/wiki/Indirection)
+- [The Architect Elevator](https://architectelevator.com)
+
+## Article
+
+- [Software Architecture and Design InfoQ Trends Report—April 2021](https://www.infoq.com/articles/architecture-trends-2021/)
 
 ## Misc
 
@@ -105,4 +116,5 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
   - password manager for teams
 
 ## 有趣
+
 - [denigma](https://denigma.app/)

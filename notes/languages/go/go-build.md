@@ -18,6 +18,15 @@ title: Go Build
 
 :::
 
+| env        | note | macOS                                |
+| ---------- | ---- | ------------------------------------ |
+| GOENV      |      | ~/Library/Application Support/go/env |
+| GOCACHE    |      | ~/Library/Caches/go-build            |
+| GOMODCACHE |      | ~/go/pkg/mod                         |
+| GOTOOLDIR  |      |
+| GOMOD      |  go.mod 位置
+GOWORK|
+
 ```bash
 # 所有交叉编译列表
 go tool dist list

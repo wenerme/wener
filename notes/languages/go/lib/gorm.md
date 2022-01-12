@@ -73,6 +73,47 @@ title: GORM
 
 :::
 
+| tag                       | mean                               | e.g.                                                    |
+| ------------------------- | ---------------------------------- | ------------------------------------------------------- |
+| column:                   | 列名                               |
+| type:                     |
+| size:                     |
+| primaryKey                |
+| unique                    |
+| default:                  |
+| precision:                |
+| scale:                    |
+| not null                  |
+| autoIncrement             |
+| autoIncrementIncrement:   | 自增步长                           |
+| embedded                  |
+| embeddedPrefix:           |
+| autoCreateTime:nano/milli |                                    |
+| autoUpdateTime:nano/milli |
+| index                     |
+| uniqueIndex               |
+| check:                    |
+| <-                        | 可权限: create,update,false        | `gorm:"<-:create"`                                      |
+| ->                        | 读权限                             | `gorm:"->:false"`                                       |
+| -                         | 忽略字段                           |
+| comment:                  |
+| foreignKey:               | 外建名字 - 默认 `{ForeignModel}ID` |
+| references:               | 被关联对象字段                     |
+| polymorphic:              |
+| polymorphicValue:         |
+| many2many:                | join table                         |
+| joinForeignKey:           |
+| joinReferences:           |
+| constraint:               | OnUpdate,OnDelete                  | `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"` |
+
+```go title="特殊值"
+const (
+	PrimaryKey   string = "~~~py~~~" // primary key
+	CurrentTable string = "~~~ct~~~" // current table
+	Associations string = "~~~as~~~" // associations
+)
+```
+
 ```go
 // 直接调用 processor
 func TestPreloadOnly(t *testing.T){
@@ -151,14 +192,25 @@ func (u *User) BeforeCreate(tx *gorm.DB) error {
 ## Upsert
 
 ```go
+// 更新部分字段
 db.Clauses(clause.OnConflict{
   Columns:   []clause.Column{{Name: "id"}},
   DoUpdates: clause.AssignmentColumns([]string{"name", "age"}),
 }).Create(&users)
 
+// 从新映射
 db.Clauses(clause.OnConflict{
   Columns:   []clause.Column{{Name: "id"}},
-  DoUpdates: clause.Assignments(map[string]interface{}{"role": "user"}),
+  DoUpdates: clause.Assignments(map[string]interface{}{
+    "role": "user"，
+    "count": gorm.Expr("GREATEST(count, VALUES(count))"),
+  }),
+}).Create(&users)
+
+// 更新所有
+db.Clauses(clause.OnConflict{
+  Columns:   []clause.Column{{Name: "id"}},
+  UpdateAll: true,
 }).Create(&users)
 ```
 

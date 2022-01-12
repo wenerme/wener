@@ -24,6 +24,7 @@ tags:
 - [hotwire](https://hotwire.dev/)
 - https://web.dev/ps-on-the-web/
   - 图像处理基于 https://halide-lang.org/
+- https://andreasbm.github.io/web-skills/
 
 ## Desktop
 

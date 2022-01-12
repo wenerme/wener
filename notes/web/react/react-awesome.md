@@ -226,6 +226,7 @@ npm add date-fns lodash-es react-fast-compare
   - [framer/motion](https://github.com/framer/motion)
 - modal
   - [eBay/nice-modal-react](https://github.com/eBay/nice-modal-react)
+  - react-responsive-modal
 - link preview
   - [Dhaiwat10/react-link-preview](https://github.com/Dhaiwat10/react-link-preview)
     - 依赖后端代理 - [dhaiwat10/rlp-proxy](https://github.com/dhaiwat10/rlp-proxy)

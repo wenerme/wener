@@ -1,7 +1,7 @@
 ---
 title: Container Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Container Awesome
@@ -19,6 +19,13 @@ tags:
 - [opencontainers/runc](https://github.com/opencontainers/runc)
 - [containers/crun](https://github.com/containers/crun)
 - containerd
+
+## Registry
+
+- [plexsystems/sinker](https://github.com/plexsystems/sinker)
+  - 同步镜像
+- habor
+- nexus
 
 ## Build
 
@@ -58,5 +65,3 @@ tags:
 - [vicanso/diving](https://github.com/vicanso/diving)
   - https://diving.npmtrend.com/
   - dive web
-
-

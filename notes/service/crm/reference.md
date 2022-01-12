@@ -20,6 +20,7 @@ title: CRM Reference
 ### MS Common Data Model
 
 - [microsoft/CDM](https://github.com/microsoft/CDM)
+  - [在线探索](https://microsoft.github.io/CDM/)
   - DYNAMICS 365: 销售，服务，营销，财务，供应链，贸易
   - 行业加速器: 自动驾驶，银行，医疗记录，高阶教育，非盈利
   - 洞察应用: 客户洞察，产品洞察

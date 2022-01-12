@@ -34,9 +34,20 @@ tags:
 
 ## 1.18
 
-- generic
+- [generic](./go-generic.md)
+  - 支持类型参数
   - stdlib 这个版本不变
-- [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)
+  - [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)
+- 内置 VCS 版本信息 - GOVCS
+  - 减少使用 -X 场景
+  - 构建重现
+- 支持 workspace - GOWORK
+
+| env                                       | mean         |
+| ----------------------------------------- | ------------ | ------------ |
+| `GOVCS=github.com:git,evil.com:off,\*:git | hg`          | 部分允许 VCS |
+| `GOVCS=*:all`                             | 所有允许 VCS |
+| `GOVCS=*:off`                             | 关闭 VCS     |
 
 ## 1.17
 
