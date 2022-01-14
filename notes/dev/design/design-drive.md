@@ -253,3 +253,6 @@ struct inode_operations {
     int (*removexattr) (struct dentry *, const char *);
 };
 ```
+
+## share
+

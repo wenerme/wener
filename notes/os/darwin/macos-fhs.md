@@ -77,7 +77,7 @@ tree -dlL 2 /Volumes
 ---
 
 - /Users/
-  - Shared/
+  - Shared/ - 本地用户共享
   - $USER/
     - Applications/
     - Desktop/
@@ -87,7 +87,7 @@ tree -dlL 2 /Volumes
     - Movies/
     - Music/
     - Pictures/
-    - Public/
+    - Public/ - 共享
     - Sites/
 
 ---

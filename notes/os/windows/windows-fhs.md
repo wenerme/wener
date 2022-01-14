@@ -44,7 +44,8 @@ tags:
   - Microsoft/
     - Windows Defender/
 - Users/
-  - Public/
+  - Public/ - 共享
+  - Default/ - 用于创建新用户
   - %USERNAME%/
     - AppData/
       - Roaming/ - 会同步
@@ -64,6 +65,10 @@ tags:
         - services
   - System64/
 - Temp/
+
+### C:\Users\Public
+
+- Documents/
 
 ## XP
 

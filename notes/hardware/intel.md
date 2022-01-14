@@ -33,3 +33,12 @@ E5-4669 v3      20k
 
 https://en.wikipedia.org/wiki/Computer_form_factor
 https://en.wikipedia.org/wiki/Mini-STX
+
+## CPU
+
+- Xeon - 工作站、服务器
+  - 支持 ECC 内存、支持更多内存
+  - 功耗高
+  - 多媒体能力有限 - 有特定 CPU
+- Core - 桌面
+  - 变频、功耗可控、多媒体能力更强

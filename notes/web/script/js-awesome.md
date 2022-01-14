@@ -160,6 +160,8 @@ tags:
 - math
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
   - [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)
+  - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
+  - [3b1b/manim](https://github.com/3b1b/manim)
 - markdown
   - [markdown-it/markdown-it](https://github.com/markdown-it/markdown-it)
   - [mdx-js/mdx](https://github.com/mdx-js/mdx)

@@ -6,12 +6,13 @@ title: macOS 术语表
 
 - XPCServices
 
-| abbr. | stand for               |
-| ----- | ----------------------- |
-| nib   | Interface Builder       |
-| UTI   | Uniform Type Identifier |
-| `CF*` | Core Foundation         |
-| `NS*` | NextStep                |
+| abbr. | stand for                        |
+| ----- | -------------------------------- |
+| nib   | Interface Builder                |
+| UTI   | Uniform Type Identifier          |
+| `CF*` | Core Foundation                  |
+| `NS*` | NextStep                         |
+| adi   | Apple Distribution International |
 
 | file           | stand for                     |
 | -------------- | ----------------------------- |

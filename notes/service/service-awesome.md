@@ -70,12 +70,15 @@ tags:
 - Notification
   - [notifirehq/notifire](https://github.com/notifirehq/notifire)
     - Notification Infrastructure
+  - [binwiederhier/ntfy](https://github.com/binwiederhier/ntfy)
 - airtable - spreadsheet, no-code database
   - [rowyio/rowy](https://github.com/rowyio/rowy)
   - [nocodb/nocodb](https://github.com/nocodb/nocodb)
     - AGPL-3.0, Typescript+Vue
   - [bramw/baserow](https://gitlab.com/bramw/baserow)
     - MIT, Python+Vue
+- invoicing
+  - [crater-invoice/crater](https://github.com/crater-invoice/crater)
 - [growthbook/growthbook](https://github.com/growthbook/growthbook)
   - A/B Testing
 

@@ -13,3 +13,5 @@ title: Fuchsia
     - FuchsiaOS on Linux/Zircon
     - Emulator, Prebuild Image
   - [concepts](https://fuchsia.dev/fuchsia-src/concepts)
+- 参考
+  - [Building an Operating System from Scratch with LLVM](https://www.youtube.com/watch?v=DYaqzEbU0Vk)

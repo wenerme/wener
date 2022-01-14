@@ -42,6 +42,10 @@ tags:
   - BSD, ObjC
   - 尝试兼容 macOS 并提供相同的体验
 
+---
+
+- [zriyansh/awesome-os](https://github.com/zriyansh/awesome-os)
+
 ## 不活跃
 
 - [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)

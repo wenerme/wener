@@ -9,6 +9,8 @@ tags:
 - [ekzhang/rustpad](https://github.com/ekzhang/rustpad)
   minimal collaborative code editor
   - MIT, Rust
+- [wereturtle/ghostwriter](https://github.com/wereturtle/ghostwriter)
+  - GPL-3.0, C++
 
 ## Web Editor
 
@@ -29,6 +31,8 @@ tags:
   - enjoy live editing (+markdown)
 - [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
   - React ContentEditable
+- [benjamn/kix-standalone](https://github.com/benjamn/kix-standalone)
+  - google doc editor - 2010 - archived
 
 ## Markdown
 

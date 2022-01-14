@@ -28,12 +28,3 @@ tags:
 
 - [multiprocessio/datastation](https://github.com/multiprocessio/datastation)
 
-## node-red vs n8n
-
-- node-red
-  - open source
-  - has lower-level abstractions
-- n8n
-  - source avaliable
-  - automating third-party SaaS
-  - GUI workflow/BPM for SaaS

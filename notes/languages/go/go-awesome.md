@@ -50,6 +50,7 @@ tags:
 
 ## 学习
 
+- https://go-proverbs.github.io/
 - https://golang.org/doc/effective_go
 - https://github.com/golang/go/wiki/CodeReviewComments
 - https://github.com/golang/go/wiki/Modules
@@ -521,6 +522,7 @@ goweight
 
 - [mmcloughlin/avo](https://github.com/mmcloughlin/avo)
   - Generate x86 Assembly with Go
+- [twitchyliquid64/golang-asm](https://github.com/twitchyliquid64/golang-asm)
 
 ## ML/机器学习
 

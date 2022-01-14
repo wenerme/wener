@@ -80,6 +80,18 @@ tags:
   - recommendation engine
 - [open-mmlab/mmdeploy](https://github.com/open-mmlab/mmdeploy)
 - [handtracking-io/yoha](https://github.com/handtracking-io/yoha)
+- [facebookresearch/Detic](https://github.com/facebookresearch/Detic)
+- [Machine-Learning-Tokyo/Interactive_Tools](https://github.com/Machine-Learning-Tokyo/Interactive_Tools)
+- [ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code](https://github.com/ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code)
+- [kmario23/deep-learning-drizzle](https://github.com/kmario23/deep-learning-drizzle)
+- [academic/awesome-datascience](https://github.com/academic/awesome-datascience)
+- [trekhleb/homemade-machine-learning](https://github.com/trekhleb/homemade-machine-learning)
+- [donnemartin/data-science-ipython-notebooks](https://github.com/donnemartin/data-science-ipython-notebooks)
+
+---
+
+- [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python)
+- [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp)
 
 ## Learn
 

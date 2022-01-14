@@ -15,6 +15,7 @@ title: Brazel Go
     - buildkite [pipeline](https://buildkite.com/bazel/grpc-ecosystem-grpc-gateway)
   - [google/differential-privacy](https://github.com/google/differential-privacy)
   - [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
+  - [google/mediapipe](https://github.com/google/mediapipe)
 
 ```bash
 # cross compile no cgo
@@ -107,6 +108,34 @@ go_library(
 ```
 
 ## go_repository does not support file path replacements
+
+## rules_go
+
+- [bazelbuild/rules_go](https://github.com/bazelbuild/rules_go)
+- toolchain
+  - go_register_toolchains -> @go_sdk -> go_download_sdk
+  - go_download_sdk - 下载
+  - go_local_sdk - 指定本地 PATH
+
+```py
+load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
+
+go_rules_dependencies()
+
+go_register_toolchains(version = "1.15.5")
+# 使用 host 的 go 版本 - 编译不一定可重现
+# 但更快，少了下载安装过程
+go_register_toolchains(version = "host")
+```
+
+```bash
+# 交叉编译
+bazel build --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd
+# with CGO
+bazel build --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64_cgo //cmd
+```
+
+- 也可以在 go_binary 设置 goos 和 goarch
 
 ## gazelle
 

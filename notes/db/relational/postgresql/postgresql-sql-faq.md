@@ -252,9 +252,24 @@ where rn = 1
   - 或者再建一个包含所有 unique 列的索引
 - 如果想要返回 EXCLUDED 可以使用 CTE 多步执行 https://stackoverflow.com/a/35953488/1870054
 
-
 ## LATERAL JOIN
 
 - 执行一次
 - 可交叉引用其他 FROM
 - https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-LATERAL
+
+## 不可以再 WHERE 使用别名
+
+- 不可以再 WHERE 和 HAVING 使用别名
+  - https://www.postgresql.org/docs/current/sql-select.html#SQL-SELECT-LIST
+- 如果一定要，可以考虑 CTE 或 subquery
+
+> An output column's name can be used to refer to the column's value in `ORDER BY` and `GROUP BY` clauses, but **not** in the `WHERE` or `HAVING` clauses; there you must write out the expression instead.
+
+```sql
+select username, profiles.age as profile_age
+from users,
+  left join profiles on (profiles.user_id = users.id)
+-- 不支持 引用
+where profile_age > 18;
+```

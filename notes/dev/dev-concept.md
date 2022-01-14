@@ -6,6 +6,7 @@ tags:
 
 # 开发相关概念
 
+- https://bootstrappable.org/projects.html
 - thoughtworks [search](https://www.thoughtworks.com/zh-cn/radar/search)
 
 ## 12 factor

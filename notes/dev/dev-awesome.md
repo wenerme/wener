@@ -39,6 +39,7 @@ tags:
 - [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
 - [Indirection](https://en.wikipedia.org/wiki/Indirection)
 - [The Architect Elevator](https://architectelevator.com)
+- https://learninpublic.org/
 
 ## Article
 

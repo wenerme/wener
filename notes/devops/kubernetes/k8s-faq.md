@@ -360,3 +360,10 @@ allowedTopologies:
         values:
           - eu-west-2b
 ```
+
+## 如何保持负载均衡
+
+1. 配置反亲和
+2. kill pod 触发重新调度
+3. 尝试 rollout 从新调度
+4. 使用类似 [kubernetes-sigs/descheduler](https://github.com/kubernetes-sigs/descheduler) 这样的工具自动维护均衡

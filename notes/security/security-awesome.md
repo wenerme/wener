@@ -34,6 +34,7 @@ tags:
   - file encryption tool
   - [HN](https://news.ycombinator.com/item?id=28435613)
 - [Ex0dIa-dev/ssh-honeypot-go](https://github.com/Ex0dIa-dev/ssh-honeypot-go)
+- [sairson/Yasso](https://github.com/sairson/Yasso)
 
 ## Reference
 

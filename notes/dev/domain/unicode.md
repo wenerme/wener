@@ -1,21 +1,16 @@
 # Unicode
 
-
 ## Tips
 
 https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8
 
 https://en.wikipedia.org/wiki/Language_code
 
-
-
 [Unicode Character Ranges](http://jrgraphix.net/research/unicode.php)
-[CJK Unified Ideographs (Unicode block)](https://en.wikipedia.org/wiki/CJK_Unified_Ideographs_(Unicode_block))
+[CJK Unified Ideographs (Unicode block)](<https://en.wikipedia.org/wiki/CJK_Unified_Ideographs_(Unicode_block)>)
 [What's the complete range for Chinese characters in Unicode?](https://stackoverflow.com/a/1366113/1870054)
 
-
-	1.	U+4E00 - U+62FF
-
+    1.	U+4E00 - U+62FF
 
 ```
 Block                                   Range       Comment
@@ -32,5 +27,10 @@ CJK Compatibility Ideographs Supplement 2F800-2FA1F Unifiable variants
 Detech language
 https://cloud.google.com/translate/docs/reference/rest
 
-
 https://github.com/git/git/tree/master/po
+
+⤷
+
+## Emoji
+
+- https://github.com/github/gemoji

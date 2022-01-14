@@ -34,6 +34,13 @@ title: Level UP in China
 - [紧缺专业目录](http://jzzjf.rsj.sh.gov.cn/jzzjf/pingfen/jqzyml.htm)
 - https://etax.chinatax.gov.cn/
 
+## 会计
+
+- 会计报名 http://kjbm.mof.gov.cn/
+- 全国会计资格评价网 http://kzp.mof.gov.cn
+  - http://kzp.mof.gov.cn/manual.html
+- 上海财政局 https://www.czj.sh.gov.cn/ACM/userLogin.jsp
+
 ## PostgreSQL 证书
 
 - https://www.enterprisedb.com/training/postgres-certification
@@ -57,7 +64,7 @@ title: Level UP in China
 
 ## 培训机构
 
-- https://www.aura.cn/
+- 光环 项目管理 https://www.aura.cn/
 
 ## 继续教育
 
@@ -65,7 +72,3 @@ title: Level UP in China
 
 ## LFS
 
-## 财务
-
-- https://www.czj.sh.gov.cn/ACM/userLogin.jsp
-- 全国会计资格评价网 http://kzp.mof.gov.cn

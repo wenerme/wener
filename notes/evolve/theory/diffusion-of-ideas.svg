@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+  <path fill="none" stroke="#200997" stroke-width="5" stroke-miterlimit="10" d="M0.611,491.754
+	c210.892,0,242.62-223.023,376.06-223.023c133.441,0,195.962,223.023,351.799,223.023"/>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="0.611" y1="506.686" x2="728.47" y2="506.686"/>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="127.52" y1="506.686" x2="127.52" y2="458.375"/>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="231.1" y1="506.686" x2="231.1" y2="365.086"/>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="376.671" y1="506.686" x2="376.671" y2="268.731"/>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="522.242" y1="506.686" x2="522.242" y2="356.992"/>
+  <path fill="none" stroke="#EFBF5A" stroke-width="5" stroke-miterlimit="10" d="M0.611,491.754
+	C419.597,491.754,307.618,84.9,728.47,84.9"/>
+  <rect x="735.559" y="74.47" fill="none" width="33.036" height="17.895"/>
+  <text transform="matrix(1 0 0 1 735.5576 89.708)" font-family="'Myriad-Roman'" font-size="21.4625">100</text>
+  <rect x="735.559" y="177.857" fill="none" width="33.036" height="17.895"/>
+  <text transform="matrix(1 0 0 1 735.5576 193.0947)" font-family="'Myriad-Roman'" font-size="21.4625">75</text>
+  <rect x="735.559" y="283.296" fill="none" width="33.036" height="17.893"/>
+  <text transform="matrix(1 0 0 1 735.5576 298.5337)" font-family="'Myriad-Roman'" font-size="21.4625">50</text>
+  <rect x="735.559" y="386.588" fill="none" width="33.036" height="17.895"/>
+  <text transform="matrix(1 0 0 1 735.5576 401.8252)" font-family="'Myriad-Roman'" font-size="21.4625">25</text>
+  <rect x="735.559" y="491.395" fill="none" width="33.036" height="17.896"/>
+  <text transform="matrix(1 0 0 1 735.5576 506.6328)" font-family="'Myriad-Roman'" font-size="21.4625">0</text>
+  <rect x="773.26" y="205.743" fill="none" width="26.129" height="151.171"/>
+  <text transform="matrix(0 1 -1 0 783.4873 205.7427)" font-family="'Myriad-Roman'" font-size="22.3956">Market share %</text>
+  <rect x="1.544" y="517.416" fill="none" width="112.444" height="55.055"/>
+  <text transform="matrix(1 0 0 1 1.5439 533.3154)">
+    <tspan x="0" y="0" font-family="'Myriad-Roman'" font-size="22.3956">Innovators</tspan>
+    <tspan x="0" y="26.875" font-family="'Myriad-Roman'" font-size="22.3956">2.5 %</tspan>
+  </text>
+  <rect x="130.786" y="517.416" fill="none" width="89.116" height="76.984"/>
+  <text transform="matrix(1 0 0 1 130.7852 533.3154)">
+    <tspan x="0" y="0" font-family="'Myriad-Roman'" font-size="22.3956">Early</tspan>
+    <tspan x="0" y="26.875" font-family="'Myriad-Roman'" font-size="22.3956">Adopters</tspan>
+    <tspan x="0" y="53.75" font-family="'Myriad-Roman'" font-size="22.3956">13.5 %</tspan>
+  </text>
+  <rect x="236.232" y="517.416" fill="none" width="89.583" height="81.65"/>
+  <text transform="matrix(1 0 0 1 236.2314 533.3154)">
+    <tspan x="0" y="0" font-family="'Myriad-Roman'" font-size="22.3956">Early </tspan>
+    <tspan x="0" y="26.875" font-family="'Myriad-Roman'" font-size="22.3956">Majority</tspan>
+    <tspan x="0" y="53.75" font-family="'Myriad-Roman'" font-size="22.3956">34 %</tspan>
+  </text>
+  <rect x="380.404" y="517.416" fill="none" width="103.113" height="82.584"/>
+  <text transform="matrix(1 0 0 1 380.4033 533.3154)">
+    <tspan x="0" y="0" font-family="'Myriad-Roman'" font-size="22.3956">Late</tspan>
+    <tspan x="0" y="26.875" font-family="'Myriad-Roman'" font-size="22.3956">Majority</tspan>
+    <tspan x="0" y="53.75" font-family="'Myriad-Roman'" font-size="22.3956">34 %</tspan>
+  </text>
+  <rect x="524.576" y="517.416" fill="none" width="96.113" height="68.119"/>
+  <text transform="matrix(1 0 0 1 524.5752 533.3154)">
+    <tspan x="0" y="0" font-family="'Myriad-Roman'" font-size="22.3956">Laggards</tspan>
+    <tspan x="0" y="26.875" font-family="'Myriad-Roman'" font-size="22.3956">16 %</tspan>
+  </text>
+  <line fill="none" stroke="#000000" stroke-miterlimit="10" x1="728.47" y1="506.686" x2="728.47" y2="29.844"/>
+</svg>

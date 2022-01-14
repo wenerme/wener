@@ -35,6 +35,7 @@ tags:
   - Build desktop applications with a web frontend
   - 基于 Rust tao
   - 层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
+- [windowjs/windowjs](https://github.com/windowjs/windowjs)
 
 ## Build
 
@@ -150,6 +151,7 @@ tags:
 ## Application
 
 - [MattKetmo/darkroomjs](https://github.com/MattKetmo/darkroomjs)
+- [hoppscotch/hoppscotch](https://github.com/hoppscotch/hoppscotch)
 
 ## Dev
 

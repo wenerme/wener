@@ -18,6 +18,8 @@ title: Notion
   - [bangle-io/bangle-io](https://github.com/bangle-io/bangle-io)
   - [tobi4120/notion-clone](https://github.com/tobi4120/notion-clone)
     - [demo](https://notion-app-clone.herokuapp.com/#/)
+  - [konstantinmuenster/notion-clone](https://github.com/konstantinmuenster/notion-clone)
+    - [How to Build a Text Editor Like Notion](https://medium.com/swlh/c510aedfdfcc)
 - API
   - [kjk/notionapi](https://github.com/kjk/notionapi)
     - Unofficial Go API for Notion.so

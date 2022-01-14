@@ -69,6 +69,8 @@ tags:
   - MIT, Go
 - [fatedier/frp](https://github.com/fatedier/frp)
   - Apache-2.0, Go
+- [rapiz1/rathole](https://github.com/rapiz1/rathole)
+  - Apache-2.0, Rust
 - [stunnel](https://www.stunnel.org/)
 - [ehang-io/nps](https://github.com/ehang-io/nps)
   - GPL-3, Go

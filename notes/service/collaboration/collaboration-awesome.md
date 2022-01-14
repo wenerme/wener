@@ -6,6 +6,7 @@ tags:
 # Collaboration Awesome
 
 - [List of collaborative software](https://en.wikipedia.org/wiki/List_of_collaborative_software)
+- [Local first](https://www.inkandswitch.com/local-first/)
 
 ---
 

@@ -53,6 +53,7 @@ tags:
 ## Scale
 
 - [yandex/odyssey](https://github.com/yandex/odyssey)
+- pgbouncer
 - [pg-sharding/spqr](https://github.com/pg-sharding/spqr)
   - Stateless Postgres Query Router
 - [awslabs/pgbouncer-rr-patch](https://github.com/awslabs/pgbouncer-rr-patch)

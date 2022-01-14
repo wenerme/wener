@@ -153,23 +153,60 @@ tags:
 
 ## Distribution
 
-- k3s
-- k0s
-- openshift
-- microk8s
-- rke
-- rancher
-- kubesphere
-- [openshift/okd](https://github.com/openshift/okd) - openshift 社区版
-- [kcp-dev/kcp](https://github.com/kcp-dev/kcp)
-  - 兼容 kubectl api
-  - 用于实现自定义 cp
-  - 不是实际的 kubernetes
-- [scality/metalk8s](https://github.com/scality/metalk8s)
-- kube-edge - provisioning
-- [gravitational/gravity](https://github.com/gravitational/gravity)
-  Kubernetes application deployments for restricted, regulated or remote environments
-  - 不活跃，停止开发
+- [Rancher vs. Kubesphere](https://wener.me/story/rancher-vs-kubesphere)
+- [K3S vs. K0S](https://wener.me/story/k3s-vs-k0s)
+
+---
+
+- 平台
+  - openshift - [openshift/okd](https://github.com/openshift/okd) - openshift 社区版
+    - by Red Hat
+  - [rancher](https://github.com/rancher/rancher)
+    - by SUSE
+  - [kubesphere](https://github.com/kubesphere/kubesphere)
+    - by 青云
+- Edge/Minimal
+  - [k3s-io/k3s](https://github.com/k3s-io/k3s)
+    - by Rancher, SUSE
+  - [rancher/k3os](https://github.com/rancher/k3os)
+    - 基于 Alpine 的 K3S 系统镜像
+    - 推荐直接使用 Alpine 然后安装 k3s
+    ```bash title="alpinelinux 安装 k3s"
+    apk add k3s
+    ```
+  - [k0sproject/k0s](https://github.com/k0sproject/k0s)
+    - by Team Lens - mirantis
+  - [kubeedge/kubeedge](https://github.com/kubeedge/kubeedge)
+    - CNCF, Huawei
+- 本地开发
+  - microk8s
+  - [kubernetes-sigs/kind](https://github.com/kubernetes-sigs/kind) - Kubernetes in Docker
+    - Apache-2.0, Golang
+  - [rancher/k3d](https://github.com/rancher/k3d) - K3S in Docker
+- Installer
+  - [rancher/rke2](https://github.com/rancher/rke2)
+  - [rancher/rke](https://github.com/rancher/rke)
+    - 推荐使用 rke2
+  - autok3s
+  - [kubeadm](https://github.com/kubernetes/kubeadm)
+  - [kubernetes-sigs/kubespray](https://github.com/kubernetes-sigs/kubespray)
+    - ansible based
+- 正常发行版
+  - [scality/metalk8s](https://github.com/scality/metalk8s)
+    - focus on long-term on-prem
+- 兼容适配
+  - [kcp-dev/kcp](https://github.com/kcp-dev/kcp)
+    - 兼容 kubectl api
+    - 用于实现自定义 cp
+    - 不是实际的 kubernetes
+- 偏商业化版本
+  - [cloudfoundry/cf-for-k8s](https://github.com/cloudfoundry/cf-for-k8s)
+    - 基于 k8s 之上的平台
+  - [vmware-tanzu/community-edition](https://github.com/vmware-tanzu/community-edition)
+    - Tanzu 社区版
+- 不活跃
+  - [gravitational/gravity](https://github.com/gravitational/gravity)
+    Kubernetes application deployments for restricted, regulated or remote environments
 
 ---
 
@@ -252,7 +289,6 @@ tags:
   Kubernetes Native Policy Management
 - [Grafeas/Grafeas](https://github.com/Grafeas/Grafeas)
   Artifact Metadata API
-
 
 ## API Gateway
 
