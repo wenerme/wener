@@ -38,16 +38,48 @@ tags:
   - 支持类型参数
   - stdlib 这个版本不变
   - [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)
-- 内置 VCS 版本信息 - GOVCS
-  - 减少使用 -X 场景
-  - 构建重现
-- 支持 workspace - GOWORK
+- 新增 workspace 工作模式 - [Proposal: Multi-Module Workspaces in cmd/go](https://go.googlesource.com/proposal/+/master/design/45713-workspace.md)
+  - 新增 go.work 配置文件 - -workfile
+    - go.work.sum
+  - 新增 GOWORK 环境变量
+- 新增 fuzzing
+- 新包
+  - constraints
+  - debug/buildinfo - 内置 VCS 版本信息 - GOVCS
+    - 减少使用 -X 场景
+    - 构建重现
+  - net/netip
+- 包变化
+  - runtime/debug.BuildInfo 增加 GoVersion, Settings
+  - testing.F - fuzzing
+- Ports
+  - 新增 [GOAMD64](./go-build#GOAMD64) 环境变量 - 默认 v1
+- 参考
+  - https://tip.golang.org/doc/go1.18
+  - GoLand Generics support - 2022.1 [GO-9515](https://youtrack.jetbrains.com/issue/GO-9515)
+  - GoLand Support Go workspaces - 2022.1 [GO-12167](https://youtrack.jetbrains.com/issue/GO-12167)
 
 | env                                       | mean         |
 | ----------------------------------------- | ------------ | ------------ |
 | `GOVCS=github.com:git,evil.com:off,\*:git | hg`          | 部分允许 VCS |
 | `GOVCS=*:all`                             | 所有允许 VCS |
 | `GOVCS=*:off`                             | 关闭 VCS     |
+
+```bash
+go work init ./mod ./tools
+go work sync
+```
+
+```go.work title="go.work"
+go 1.17
+
+use (
+    ./mod // golang.org/x/mod
+    ./tools // golang.org/x/tools
+)
+
+replace golang.org/x/net => example.com/fork/net v1.4.5
+```
 
 ## 1.17
 

@@ -171,6 +171,34 @@ docker run --rm -it --entrypoint bash \
   --name go-builder quay.io/prometheus/golang-builder:arm
 ```
 
+# Ports
+
+- [MinimumRequirements](https://github.com/golang/go/wiki/MinimumRequirements)
+
+## GOAMD64
+
+> go 1.18 新增 GOAMD64 环境变量
+
+- v1 - 默认
+- v2 - CMPXCHG16B, LAHF, SAHF, POPCNT, SSE3, SSE4.1, SSE4.2, SSSE3
+  - 2009: Nehalem, Jaguar, Intel Atom Silvermont, QEMU
+- v3 - AVX, AVX2, BMI1, BMI2, F16C, FMA, LZCNT, MOVBE, OSXSAVE
+  - 2015 - Haswell, Excavator
+- v4 - AVX512F, AVX512BW, AVX512CD, AVX512DQ, AVX512VL
+- 参考
+  - [GOAMD64](https://github.com/golang/go/wiki/MinimumRequirements#amd64)
+  - [Microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels)
+
+## GOARM
+
+- ARM 浮点数逻辑
+
+> 默认基于构建环境自动监测，监测失败则使用 6
+
+- GOARM=5: use software floating point; when CPU doesn't have VFP co-processor
+- GOARM=6: use VFPv1 only; default if cross compiling; usually ARM11 or better cores (VFPv2 or better is also supported)
+- GOARM=7: use VFPv3; usually Cortex-A cores
+
 # FAQ
 
 ## unrecognized command-line option '-marm'
@@ -217,7 +245,7 @@ file test
 - [prometheus/node_exporter#914](https://github.com/prometheus/node_exporter/issues/914)
 - debian [gcc-arm-linux-gnueabi](https://packages.debian.org/unstable/gcc-arm-linux-gnueabi)
 
-## implicit declaration of function '_beginthread'; did you mean 'OpenThread'
+## implicit declaration of function '\_beginthread'; did you mean 'OpenThread'
 
 换 C 编译器, 尝试用 [TDM-GCC](https://github.com/jmeubank/tdm-gcc)
 
@@ -229,10 +257,8 @@ LC_ALL=c gcc -v
 - https://github.com/golang/go/wiki/InstallFromSource
 - https://github.com/golang/go/issues/12029
 
-
 ## c-shared 内存泄漏
 
 使用 c-shared 的方式很难能保证最后 valgrind 不显示有溢出
 
 - https://github.com/golang/go/issues/30490
-
