@@ -34,7 +34,7 @@ tags:
 
 ## 1.18
 
-- [generic](./go-generic.md)
+- [generic](./go-generic)
   - 支持类型参数
   - stdlib 这个版本不变
   - [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)

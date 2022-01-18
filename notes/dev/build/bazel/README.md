@@ -22,9 +22,22 @@ title: Bazel
     - https://github.com/bazelbuild/rules_python/issues/400#issuecomment-776810051
   - Bazel 镜像
     - https://mirrors.huaweicloud.com/bazel/
-- used by
-  - AOSP, Debian
-- Pants, Buck: created and developed by ex-Googlers at Twitter and Foursquare, and Facebook
+- 参考
+  - [Users](https://bazel.build/users.html)
+    - Abseil, TensorFlow, gRPC
+  - Kubernetes 1.21 移除 bazel 构建 - [KEP#2420](https://github.com/BenTheElder/enhancements/blob/master/keps/sig-testing/2420-reducing-kubernetes-build-maintenance/README.md)
+    - go build cache 足够优秀
+  - Pants, Buck: created and developed by ex-Googlers at Twitter and Foursquare, and Facebook
+
+:::tip When to use Bazel
+
+- 声明式构建
+- 增量编译
+- Remote Cache 和 Remote Execution
+- Reproduce 构建
+- 多语言多平台复杂构建
+
+:::
 
 :::caution
 

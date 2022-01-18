@@ -156,6 +156,8 @@ bazel build --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64_cgo //cmd
 ```bash
 # 命令行生成
 gazelle -go_prefix go-micro.dev/v4 -proto disable
+
+gazelle update
 ```
 
 ## go_sdk
@@ -179,3 +181,15 @@ go_register_toolchains(version = "host")
 ## found but does not contain package
 
 - https://github.com/bazelbuild/bazel-gazelle/issues/953
+
+## is not visible from target
+
+- https://github.com/bazelbuild/bazel-gazelle/issues/1117
+
+## 缓存相关问题
+
+- GO_REPOSITORY_USE_HOST_CACHE
+  - 使用 `go env GOPATH` 而不是使用 bazel 缓存
+- https://github.com/bazelbuild/bazel-gazelle/issues/701
+- https://github.com/bazelbuild/bazel-gazelle/issues/549
+- https://github.com/bazelbuild/bazel-gazelle/issues/543
