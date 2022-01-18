@@ -27,8 +27,9 @@ title: Keycloak 开发
   - /protocol/openid-connect/logout
   - /protocol/openid-connect/login-status-iframe.html
   - /protocol/openid-connect/3p-cookies/step1.html
-  - /protocol/openid-connect/registrations'
+  - /protocol/openid-connect/registrations
   - /protocol/openid-connect/userinfo
+  - /protocol/openid-connect/certs - JWK
 - kc_idp_hint - 提示使用的 provider, 直接跳转
 
 ```bash

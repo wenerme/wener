@@ -61,9 +61,11 @@ tags:
 - minio
 - ceph
 - gluster
+- luster
 - hdfs
 - 参考
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
+  - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
 
 ---
 
@@ -92,3 +94,9 @@ tags:
   - 支持 rclone
   - 支持加密
   - 支持快照
+
+## Sync
+
+- rsync
+- unison https://www.cis.upenn.edu/~bcpierce/unison/
+- DeltaCopy http://www.aboutmyip.com/AboutMyXApp/DeltaCopy.jsp

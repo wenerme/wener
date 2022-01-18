@@ -21,6 +21,10 @@ tags:
 - [BornToBeRoot/NETworkManager](https://github.com/BornToBeRoot/NETworkManager)
 - [kkkgo/vlmcsd](https://github.com/kkkgo/vlmcsd)
 - [pbatard/rufus](https://github.com/pbatard/rufus)
+- CrystalDiskInfo
+- HDDScan - https://hddscan.com/
+- Hard Disk Sentinel - https://www.hdsentinel.com/
+- CPUID
 
 ## Dev
 

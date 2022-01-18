@@ -361,6 +361,8 @@ npm add date-fns lodash-es react-fast-compare
   - [data-driven-forms/form-builder](https://github.com/data-driven-forms/form-builder)
     - 开源的 form builder
     - 尚不成熟
+- [unform/unform](https://github.com/unform/unform)
+- [alibaba/formily](https://github.com/alibaba/formily)
 
 ## 样式
 
@@ -394,6 +396,7 @@ npm add date-fns lodash-es react-fast-compare
   - Redux like - 支持 Redux devtools
   - 状态在 React 之外 - 可外部操作
   - ![](https://img.shields.io/bundlephobia/min/zustand)
+- [rematch/rematch](https://github.com/rematch/rematch)
 - [pmndrs/jotai](https://github.com/pmndrs/jotai)
   - Recoil like
   - ![](https://img.shields.io/bundlephobia/min/jotai)
@@ -415,6 +418,8 @@ npm add date-fns lodash-es react-fast-compare
 - [immerjs/use-immer](https://github.com/immerjs/use-immer)
   - useImmer - 基于 immer 的状态更新
   - 当状态较多时能很大程度简化操作 - 从 `setState(s=>({...s,loading:true}))` 变为 `update(s=>{s.loading=true})`
+- [tinyplex/tinybase](https://github.com/tinyplex/tinybase)
+  - Table, Row, Cell
 - 订阅
   - [dai-shi/react-tracked](https://github.com/dai-shi/react-tracked)
   - [dai-shi/use-context-selector](https://github.com/dai-shi/use-context-selector)
@@ -570,11 +575,12 @@ useStore.destroy();
 
 - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
   React renderer for Three.js
+- [gre/gl-react](https://github.com/gre/gl-react)
+  - WebGL shaders
 
 ## 参考
 
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
-- [Bogdan-Lyashenko/Under-the-hood-ReactJS](https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS)
 - [Shopify/hydrogen](https://github.com/Shopify/hydrogen)
 
 ## Native
@@ -587,3 +593,12 @@ useStore.destroy();
 - [lahmatiy/react-render-tracker](https://github.com/lahmatiy/react-render-tracker)
 - [pankod/refine](https://github.com/pankod/refine)
 - [Aristona/react-phaser-three-game](https://github.com/Aristona/react-phaser-three-game)
+
+## Internal
+
+- [Bogdan-Lyashenko/Under-the-hood-ReactJS](https://github.com/Bogdan-Lyashenko/Under-the-hood-ReactJS)
+- [Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react)
+- [In-depth explanation of state and props update in React](https://indepth.dev/posts/1009/in-depth-explanation-of-state-and-props-update-in-react)
+  - [Level Up Your Reverse Engineering Skills](https://indepth.dev/posts/1005/level-up-your-reverse-engineering-skills)
+- [why on React’s usage of linked list in Fiber to walk the component’s tree](https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7)
+- [Why Do React Elements Have a $$typeof Property?](https://overreacted.io/why-do-react-elements-have-typeof-property/)

@@ -23,3 +23,10 @@ gcc -print-file-name=crt1.o
 - [dockcross/dockcross](https://github.com/dockcross/dockcross)
 - https://android.googlesource.com/platform/prebuilts/gcc/
 
+## Misc
+
+```
+/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginT.o: relocation R_X86_64_32 against hidden symbol `__TMC_END__` can not be used when making a shared object
+```
+
+不能 static link

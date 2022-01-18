@@ -11,6 +11,10 @@ title: musl
 :::caution
 
 - malloc 大场景性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
+- 不支持 utmp/wtmp - last,who,users 命令部分功能不可用
+  - 安全考虑、隐私考虑
+  - 需要实现 suid/sgid 修改 记录
+  - https://wiki.musl-libc.org/faq.html
 
 :::
 

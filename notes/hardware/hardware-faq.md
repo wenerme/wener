@@ -6,6 +6,26 @@ tags:
 
 # Hardware FAQ
 
+## 功耗
+
+- SAS
+  - 空载 5 - 7w
+  - 负载 10 - 14w
+- SSD
+  - 空载 < 2w
+
+---
+
+- 硬盘
+  - 容量高，功耗也会偏高
+- CPU TDP
+  - 最高功率受核心数影响
+  - 区分性能模式和节能模式
+
+**参考**
+
+- https://www.seagate.com/cn/zh/products/enterprise-drives/exos-e/7e10/
+
 ## SoC vs SBC
 
 - SoC

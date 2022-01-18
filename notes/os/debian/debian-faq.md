@@ -1,5 +1,7 @@
 ---
 title: Debian FAQ
+tags:
+  - FAQ
 ---
 
 # Debian FAQ

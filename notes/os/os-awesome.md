@@ -109,6 +109,8 @@ tags:
 - [pokemium/magia](https://github.com/pokemium/magia)
   GBA emulator
   - MIT, Golang
+- [Zekfoo/AGZ](https://github.com/Zekfoo/AGZ)
+  - circuit-level redesign of the Game Boy Advance
 - [JetSetIlly/Gopher2600](https://github.com/JetSetIlly/Gopher2600)
   Atari 2600/VCS Emulator
 - [POKEGB: a gameboy emulator that only plays Pokémon blue](https://binji.github.io/posts/pokegb/)

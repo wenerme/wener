@@ -5,13 +5,20 @@ slug: build-your-own-nas
 
 # 组建你自己的 NAS 服务器
 
-- HP MicroServer 全新微塔 参考价格: ¥4000 , 功耗 60W
+:::tip 目标
+
+- 价格便宜
+- 容量高
+
+:::
+
+- HP MicroServer 全新微塔 - 参考价格: ¥4000 , 功耗 60W
   - HP MicroServer Gen 10
     - 全新 AMD x3216 8G ¥2300
     - 最多 4 个硬盘
   - SAS 6T×4 - ¥1600
   - SAS 卡 - ¥100
-- 二手塔式 参考价格: ¥4700 , 功耗 120W
+- 二手塔式 - 参考价格: ¥4700 , 功耗 120W
   - DDR4 服务器 - ~¥2000
     - 1U 4×3.5 寸盘位
     - 2U 8×3.5 寸盘位
@@ -19,8 +26,23 @@ slug: build-your-own-nas
   - 内存 DDR4 ECC REG 16G×4 - 64G ~¥1000
   - SAS 6T×4 - ¥1600
   - SAS 卡 - ¥100
+- 星际蜗牛 J1900 - 参考价格: ¥2500 , 功耗 30W
+  - 星际蜗牛 DDR3 J1900 8G ~ ¥800
+  - SAS 6T×4 - ¥1600
+  - SAS 卡 - ¥100
+  - 非常入门款，没什么上升空间，没什么折腾的意义
 
 <!-- more -->
+
+:::tip 容量考虑
+
+现在 2022 年，手机平台存储上 T 的已经越来越多，笔记本 SSD 都有几 T 的了，台式机更不用说，几 T 的存储很正常。
+
+- 单盘 < 4T 会比较浪费盘位
+- 单盘 > 10T 恢复非常慢
+- 建议至少 6T×4 - RAID5 可用大约 15T
+
+:::
 
 ## 部件参考价格
 
@@ -29,6 +51,8 @@ slug: build-your-own-nas
 | SAS                 | 6T 3.5 寸 7.2K   | ¥400   | https://item.taobao.com/item.htm?id=560836442610 |
 | SAS                 | 1.2T 2.5 寸 10K  | ¥160   | https://item.taobao.com/item.htm?id=547264783830 |
 | SAS 直通卡          |                  | ¥100   | https://item.taobao.com/item.htm?id=521090584542 |
+| SATA                | 14TB 3.5 寸 7.2K | ¥1200  | https://item.taobao.com/item.htm?id=599544680031 |
+| 内存 DDR3 ECC REG   | 16G              | ~¥120  | https://item.taobao.com/item.htm?id=13978621463  |
 | 内存 DDR4 ECC REG   | 16G              | ~¥250  | https://item.taobao.com/item.htm?id=567468034444 |
 | 内存 DDR4 ECC REG   | 32G              | ~¥600  | https://item.taobao.com/item.htm?id=567468034444 |
 | 内存 DDR4 ECC NOREG | 16G              | ~¥500  |
@@ -65,8 +89,10 @@ slug: build-your-own-nas
     - 扩展能力强 - 通常支持 一个半高+一个全高 PCI - 因此可以配 GPU
     - 如果没有书房、库房或隐瞒角落不推荐
     - 部分服务器噪音也不是特别大
-- 世代选择
+- 平台选择
   - 通常二手都是落后好几个世代，但建议至少选择 DDR4
+  - DDR3 价格是 DDR4 的一半 - 如果预算有限，那也是可以的
+    - 选择 DDR3 CPU 也会便宜一半以上 - 是再上一个世代的平台
 - 配置选择
   - 全新整套主机 - 包含 CPU+内存
     - 性价比不高，但省事

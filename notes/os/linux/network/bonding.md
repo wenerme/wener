@@ -25,7 +25,7 @@ title: Bonding
 :::tip
 
 - 无论如何配置, 单个网络链接都不会超过单个物理链路的速度
-- 802.3ad 需要交换机支持 LACP 组, 性能最好
+- 802.3ad 需要交换机支持 LACP 组, 性能最好 - 基于链接信息 Hash
 
 :::
 
@@ -61,32 +61,35 @@ cat /sys/class/net/bonding_masters
 echo balance-rr > /sys/class/net/bond0/bonding/mode
 ```
 
-## Notes
+## 模式
 
-- 模式 - 默认 balance-rr
-  - balance-rr - 0 - 轮询负载
-    - 唯一单 TCP/IP 流能利用多个网口的模式
-    - 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
-    - net.ipv4.tcp_reordering 控制拥挤程度
-    - 使用对顺序无要求的协议, 例如 UDP, 基本可以做到线性性能放大
-    - 需要交换机配置 etherchannel 或 trunking
-  - active-backup - 1 - 主备
-    - 保持相同的发送网口
-  - balance-xor - 2 - XOR
-    - 基于 HASH 算法进行负载均衡
-    - 需要交换机配置 etherchannel 或 trunking
-  - broadcast - 3 - 广播
-    - 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
-  - 802.3ad - 4 - IEEE 802.3ad - LACP
-    - 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
-    - 实现方式也是基于 hash
-      - 通常包括 src ip/mac/port/protocol, dst ip/mac/port/protocol
-    - 因此较多连接的时候才会有明显的效果
-  - balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
-    - 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
-  - balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
-    - balance-tlb + receive load balancing (rlb)
-    - 在 5 的基础上, 接收数据也实现负载均衡
+- 默认 balance-rr
+- balance-rr - 0 - 轮询负载
+  - 唯一单 TCP/IP 流能利用多个网口的模式
+  - 代价是碎片化,无序,需要 TCP/IP 拥挤协议控制
+  - net.ipv4.tcp_reordering 控制拥挤程度
+  - 使用对顺序无要求的协议, 例如 UDP, 基本可以做到线性性能放大
+  - 需要交换机配置 etherchannel 或 trunking
+- active-backup - 1 - 主备
+  - 保持相同的发送网口
+- balance-xor - 2 - XOR
+  - 基于 HASH 算法进行负载均衡
+  - 需要交换机配置 etherchannel 或 trunking
+- broadcast - 3 - 广播
+  - 所有绑定的网卡都收到相同的数据, 用于特殊需求, 例如两个互相没连接的交换机发送相同的数据
+- 802.3ad - 4 - IEEE 802.3ad - LACP
+  - 要求交换机支持 IEEE 802.3ad, 网卡带宽理论上可以翻倍
+  - 实现方式也是基于 hash
+    - 通常包括 src ip/mac/port/protocol, dst ip/mac/port/protocol
+  - 因此较多连接的时候才会有明显的效果
+- balance-tlb - Adaptive transmit load balancing - 5 - 适配器传输负载均衡
+  - 输出的数据会通过所有被绑定的网卡输出, 接收则只选择其中一个
+- balance-alb - Adaptive load balancing - 6 - 适配器输入/输出负载模式
+  - balance-tlb + receive load balancing (rlb)
+  - 在 5 的基础上, 接收数据也实现负载均衡
+
+---
+
 - balance-rr, active-backup, balance-tlb 和 balance-alb 不需要交换机支持
 - balance-alb 和 balance-tlb 不一定所有交换机都能使用
   - 可能会有 arp 问题, 例如有些机器不能相互连接
@@ -370,4 +373,43 @@ bond0: option mode: unable to set because the bond device has slaves
 
 ```bash
 ifconfig | grep HWaddr
+```
+
+## bond 802.3ad
+
+```
+auto bond0
+iface bond0 inet static
+  bond-slaves eth0 eth1 eth2 eth3
+  bond-mode 802.3ad
+  bond-xmit-hash-policy layer2+3
+  address 192.168.1.100
+  netmask 255.255.255.0
+  gateway 192.168.1.1
+```
+
+```
+bond0: (slave eth0): Enslaving as a backup interface with a down link
+bond0: (slave eth1): Enslaving as a backup interface with a down link
+bond0: (slave eth2): Enslaving as a backup interface with a down link
+bond0: (slave eth3): Enslaving as a backup interface with a down link
+tg3 0000:01:00.0 eth0: Link is up at 1000 Mbps, full duplex
+tg3 0000:01:00.0 eth0: Flow control is off for TX and off for RX
+tg3 0000:01:00.0 eth0: EEE is disabled
+bond0: (slave eth0): link status definitely up, 1000 Mbps full duplex
+bond0: Warning: No 802.3ad response from the link partner for any adapters in the bond
+bond0: active interface up!
+IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
+tg3 0000:01:00.1 eth1: Link is up at 1000 Mbps, full duplex
+tg3 0000:01:00.1 eth1: Flow control is off for TX and off for RX
+tg3 0000:01:00.1 eth1: EEE is disabled
+bond0: (slave eth1): link status definitely up, 1000 Mbps full duplex
+tg3 0000:02:00.0 eth2: Link is up at 1000 Mbps, full duplex
+tg3 0000:02:00.0 eth2: Flow control is off for TX and off for RX
+tg3 0000:02:00.0 eth2: EEE is disabled
+bond0: (slave eth2): link status definitely up, 1000 Mbps full duplex
+tg3 0000:02:00.1 eth3: Link is up at 1000 Mbps, full duplex
+tg3 0000:02:00.1 eth3: Flow control is off for TX and off for RX
+tg3 0000:02:00.1 eth3: EEE is disabled
+bond0: (slave eth3): link status definitely up, 1000 Mbps full duplex
 ```

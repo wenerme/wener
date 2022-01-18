@@ -187,6 +187,8 @@ tags:
   - webpack
   - rollup
   - [developit/microbundle](https://github.com/developit/microbundle)
+- i18n
+  - [lingui/js-lingui](https://github.com/lingui/js-lingui)
 
 ---
 

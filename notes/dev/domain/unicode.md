@@ -34,3 +34,11 @@ https://github.com/git/git/tree/master/po
 ## Emoji
 
 - https://github.com/github/gemoji
+- https://dev.to/jorik/country-code-to-flag-emoji-a21
+
+## CJK
+
+- U+4E00–U+9FA5 - 20,902 汗字, Unicode 1.0.1, Unified Repertoire and Ordering, URO
+- CJK Unified Ideographs
+- 现代汉语与日语最常用的汉字
+- https://zh.wikipedia.org/wiki/中日韓統一表意文字列表

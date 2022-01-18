@@ -125,6 +125,9 @@ go env GOMODCACHE
   - 实现代理协议，通过配置 netrc 来统一支持私有仓库
   - 支持 disk, mongo, gcs, s3, minio, 外部存储
 - [goproxy.io](https://goproxy.io) - 全球代理
+- https://goproxy.cn/ - 七牛
+- https://mirrors.aliyun.com/goproxy/ - 阿里云
+- https://gocenter.io - jfrog
 - [GoogleCloudPlatform/govanityurls](https://github.com/GoogleCloudPlatform/govanityurls)
   - 自定义域名作为导入路径
 

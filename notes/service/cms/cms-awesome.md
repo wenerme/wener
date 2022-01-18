@@ -108,6 +108,8 @@ title: CMS Awesome
 - [foambubble/foam](https://github.com/foambubble/foam)
   - MIT, VSC Extension
 - [austinvhuang/openmemex](https://github.com/austinvhuang/openmemex)
+- [zadam/trilium](https://github.com/zadam/trilium)
+  - AGPL-3.0, JS
 
 <!--
 https://www.ontotext.com/knowledge-hub/

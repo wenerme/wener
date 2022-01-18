@@ -1,9 +1,9 @@
 ---
-id: alpine
 title: Alpine
 ---
 
-## Tips
+# Alpine
+
 * ARCH - 架构支持
   * x86_64
   * x86

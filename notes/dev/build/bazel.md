@@ -19,17 +19,16 @@ title: Bazel
 - [google/bazel-common](https://github.com/google/bazel-common)
 - 镜像
   - https://mirror.bazel.build
+    - https://github.com/bazelbuild/rules_python/issues/400#issuecomment-776810051
   - Bazel 镜像
     - https://mirrors.huaweicloud.com/bazel/
 - used by
   - AOSP, Debian
+- Pants, Buck: created and developed by ex-Googlers at Twitter and Foursquare, and Facebook
 
 :::caution
 
 - Bazel 官方构建的不支持 musl
-  - Using standalone binary on Alpine [#5891](https://github.com/bazelbuild/bazel/issues/5891)
-  - musl support in CI  [#1190](https://github.com/bazelbuild/continuous-integration/issues/1190)
-  - https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/testing/bazel4/APKBUILD
 
 :::
 
@@ -83,7 +82,6 @@ https://docs.bazel.build/versions/master/skylark/language.html
 
 [be]: https://docs.bazel.build/versions/main/be/overview.html
 
-
 ## Remote Execution
 
 - [Remote Execution](https://docs.bazel.build/versions/master/remote-execution.html)
@@ -109,7 +107,6 @@ https://docs.bazel.build/versions/master/skylark/language.html
 - --config_file BAZEL_REMOTE_CONFIG_FILE
 - --experimental_remote_asset_api
 
-
 ```bash
 docker run --rm -it \
   -u 1000 \
@@ -133,7 +130,6 @@ build:cache --remote_download_minimal
 build:cache --remote_cache=http://localhost:8080
 ```
 
-
 ## The remote downloader can only be used in combination with gRPC caching
 
 ```bash
@@ -145,11 +141,16 @@ bazel build //src/main:app --experimental_remote_downloader=grpc://localhost:909
 
 ## Failed to query remote execution capabilities: INTERNAL: http2 exception
 
-
-
 ## .bazelrc
 
 - .bazelignore
+
+:::caution
+
+- 不能使用任意环境变量
+  - 可考虑预先生成 https://github.com/stratum/stratum/pull/878/files
+
+:::
 
 ---
 
@@ -169,8 +170,26 @@ bazel build //src/main:app --experimental_remote_downloader=grpc://localhost:909
   - --nohome_rc
 - --bazelrc
 - https://github.com/tensorflow/tensorflow/blob/master/.bazelrc
+- 变量
+  - %workspace%
 
 ```shell
+build --announce_rc
+build --copt -O0
+build --disk_cache=/tmp/bazel-disk-cache
+# Set convenient location for Bazel files to cache
+startup --output_user_root=/tmp/bazel-cache/output-root
+
+build --verbose_failures=true
+# Profile build
+build --profile=/tmp/bazel.profile.json
+
+# JVM 限制
+# startup --host_jvm_args=-Xmx3g --host_jvm_args=-Xms2g
+
+
+try-import %workspace%/.bazelrc.user
+
 # Include git version info
 build --stamp
 build --workspace_status_command 'echo STABLE_GIT_COMMIT $(git rev-parse HEAD)'
@@ -201,6 +220,7 @@ test --verbose_failures --test_output=errors --test_verbose_timeout_warnings
 
 ## Notes
 
+- https://docs.bazel.build/versions/main/build-ref.html
 - workspace
 - package
   - BUILD
@@ -210,6 +230,8 @@ test --verbose_failures --test_output=errors --test_verbose_timeout_warnings
 ## query
 
 - bazel-collector
+- https://docs.bazel.build/versions/main/query.html
+- https://docs.bazel.build/versions/main/query-how-to.html
 
 ```bash
 bazel query //...
@@ -222,13 +244,18 @@ bazel query rebuildfiles(some-ext.bzl, some-dir/another-ext.bzl)
 
 bazel query kind("*_test", <sub query>)
 bazel query kind("artifact_ci_release", <sub query>)
+
+bazel query "allpaths(//foo, third_party/...)" --notool_deps --output graph | dot -Tsvg > /tmp/deps.svg
 ```
 
 ## bzlmod
 
 - bazel 5.0+
 - MODULE.bazel
+- --experimental_enable_bzlmod
+- https://github.com/bazelbuild/bazel-central-registry
 - https://docs.bazel.build/versions/main/bzlmod.html
+- https://docs.google.com/document/d/1moQfNcEIttsk6vYanNKIy3ZuK53hQUFq1b1r0rmsYVg/edit
 
 # FAQ
 
@@ -291,6 +318,10 @@ bazel query kind("artifact_ci_release", <sub query>)
 - bazel-bin
 - bazel-testlogs
 - bazel-$WORKSPACE
+- TEST_TMPDIR=~/.cache/bazel
+- --output_user_root
+- `project_dir = ctx.path(ctx.attr.file_in_project).dirname`
+  - `__workspace_dir__`
 
 ```bash
 # all go_sdk - 每个 400MB

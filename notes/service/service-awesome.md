@@ -79,6 +79,9 @@ tags:
     - MIT, Python+Vue
 - invoicing
   - [crater-invoice/crater](https://github.com/crater-invoice/crater)
+- grammar
+  - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
+  - https://github.com/JetBrains/intellij-community/tree/master/plugins/grazie
 - [growthbook/growthbook](https://github.com/growthbook/growthbook)
   - A/B Testing
 

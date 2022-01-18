@@ -6,6 +6,14 @@ tags:
 
 # NPL Awesome
 
+## Learn
+
+- https://lena-voita.github.io/nlp_course.html
+  - [HN](https://news.ycombinator.com/item?id=29826233)
+- [Latent semantic analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis)
+
+## Projects
+
 - [jdkato/prose](https://github.com/jdkato/prose)
   - MIT, Golang
   - tokenization, part-of-speech tagging, named-entity extraction

@@ -76,3 +76,21 @@ deploy:prod:manually:
 ```bash
 ssh git@gitlab.com 2fa_recovery_codes
 ```
+
+## gitlab runner 缓存耗时长
+
+不缓存，不做 `git clean -ffdx`。非常适用于大仓库或生成非常多文件的时候。
+
+
+```yaml
+variables:
+  GIT_STRATEGY: fetch
+  GIT_CLEAN_FLAGS: none
+```
+
+- GIT_CLEAN_FLAGS - GitLab Runner 11.10
+  - https://docs.gitlab.com/ee/ci/yaml/#git-clean-flags
+  - https://docs.gitlab.com/ee/ci/large_repositories/#git-clean-flags
+  - https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/1281
+- 问题
+  - https://gitlab.com/gitlab-org/gitlab-runner/-/issues/280#note_39937930

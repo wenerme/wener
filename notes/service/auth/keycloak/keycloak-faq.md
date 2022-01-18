@@ -28,6 +28,7 @@ title: Keycloak 常见问题
 - 客户端直接申请获取 Token，然后使用申请到的 Token 访问服务
 - 不涉及用户和浏览器交互
 - 用于服务之间鉴权，例如 服务端 API 授权
+- https://www.keycloak.org/docs/latest/server_admin/#_service_accounts
 
 https://medium.com/@mihirrajdixit/getting-started-with-service-accounts-in-keycloak-c8f6798a0675
 great for administrative tasks executed on behalf of a service instead of individual user.

@@ -9,13 +9,13 @@ title: Brazel Go
 - deps.bzl
 - 参考
   - [BUILDING A GO PROJECT USING BAZEL](https://www.tweag.io/blog/2021-09-08-rules_go-gazelle/)
-- 参考项目
-  - [thundergolfer/example-bazel-monorepo](https://github.com/thundergolfer/example-bazel-monorepo)
-  - [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
-    - buildkite [pipeline](https://buildkite.com/bazel/grpc-ecosystem-grpc-gateway)
-  - [google/differential-privacy](https://github.com/google/differential-privacy)
-  - [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
-  - [google/mediapipe](https://github.com/google/mediapipe)
+
+:::tip
+
+- 默认开启 trimpath
+- 暂不支持 coverage
+
+:::
 
 ```bash
 # cross compile no cgo
@@ -112,10 +112,17 @@ go_library(
 ## rules_go
 
 - [bazelbuild/rules_go](https://github.com/bazelbuild/rules_go)
+- [Build modes](https://github.com/bazelbuild/rules_go/blob/master/go/modes.rst#mode-attributes)
+  - static, race, msan, pure, strip, debug, gotags, linkmode
+  - 命令行 `--@io_bazel_rules_go//go/config:<mode>`
+  - `go_binary(<mode> = "")`
 - toolchain
   - go_register_toolchains -> @go_sdk -> go_download_sdk
   - go_download_sdk - 下载
   - go_local_sdk - 指定本地 PATH
+- go_binary
+  - out - 输出名字
+    - 默认如果 name 和 dir 名字相同，则会添加下划线
 
 ```py
 load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
@@ -150,3 +157,25 @@ bazel build --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64_cgo //cmd
 # 命令行生成
 gazelle -go_prefix go-micro.dev/v4 -proto disable
 ```
+
+## go_sdk
+
+```bash
+# Host
+go_host_sdk(name="go_sdk")
+# Local
+go_local_sdk(
+    name = "go_sdk",
+    path = "/Users/wener/sdk/go1.18beta1",
+)
+go_register_toolchains()
+
+# Download
+go_register_toolchains(version = "1.17.6")
+# Host
+go_register_toolchains(version = "host")
+```
+
+## found but does not contain package
+
+- https://github.com/bazelbuild/bazel-gazelle/issues/953

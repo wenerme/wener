@@ -15,12 +15,49 @@ tags:
 
 :::
 
-- [adoptium]
-  - AdoptOpenJDK -> Adoptium
-  - Eclipse 维护
+- 发行版
+  - [adoptium]
+    - AdoptOpenJDK -> Adoptium
+    - Eclipse 维护
+  - Amazon Corretto
+  - Alibaba Dragonwell
+  - GraalVM
+  - Eclipse Temurin - adoptium
+  - Java.net
+  - Zulu
+  - Liberica
+  - Liberica NIK
+  - Microsoft
+  - Oracle
+  - Mandrel
+  - SapMachine
+  - Semeru
+  - Trava
+- JVM 实现
+  - Hotpot
+  - OpenJ9
+  - GraalVM
+  - [SubstrateVM](https://github.com/oracle/graal/tree/master/substratevm)
+    - GraalVM Native
 - [whichjdk](https://whichjdk.com/)
+  - https://www.pentalog.com/blog/it-development-technology/java-versions-distributions-platforms
+- Version Manager
+  - https://sdkman.io/
+    - [sdkman/sdkman-cli](https://github.com/sdkman/sdkman-cli)
+      - shell
+  - [jenv/jenv](https://github.com/jenv/jenv)
+    - shell
+  - [shyiko/jabba](https://github.com/shyiko/jabba)
+    - golang
 
 [adoptium]: https://adoptium.net/
+
+```bash
+curl -s https://get.sdkman.io | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk list java
+sdk install java 8.0.312-tem
+```
 
 ## 效率
 

@@ -6,6 +6,21 @@ tags:
 
 # Golang Awesome
 
+## 安装
+
+- https://go.dev/dl/
+  - https://mirrors.ustc.edu.cn/golang/
+
+```bash
+curl -LO https://go.dev/dl/go1.17.6.windows-amd64.zip
+mkdir -p ~/sdk
+unzip go1.17.6.windows-amd64.zip -d ~/sdk
+mv ~/sdk/go ~/sdk/go1.17.6
+~/sdk/go1.17.6/bin/go version
+
+export PATH=$HOME/sdk/go1.17.6/bin:$PATH
+```
+
 ## 常用库
 
 - mux
@@ -221,6 +236,9 @@ tags:
   - struct 字段顺序调整优化
 - [tmc/reactssr](https://github.com/tmc/reactssr)
   - React SSR
+- [razorpay/go-financial](https://github.com/razorpay/go-financial)
+  - numpy-financial
+  - [Go Financial — A pkg for elementary financial functions](https://engineering.razorpay.com/892b1532eb2e)
 
 ## 代码生成
 
@@ -517,6 +535,10 @@ goweight
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
 - [progrium/macdriver](https://github.com/progrium/macdriver)
   - Native Mac APIs for Go
+- [gokrazy/gokrazy](https://github.com/gokrazy/gokrazy)
+  - Go+Linux Kernel+RPi firmware on Board
+- [lmorg/murex](https://github.com/lmorg/murex)
+  - Bash-like
 
 ## Lower Level
 
@@ -592,18 +614,10 @@ goweight
 
 ### Web
 
-- https://github.com/valyala/fasthttp
-  - Fast HTTP package for Go. Tuned for high performance. Zero memory allocations in hot paths. Up to 10x faster than net/http
-- [Web Frameworks](https://awesome-go.com/#web-frameworks)
-- https://github.com/kataras/iris
-- https://github.com/labstack/echo
 - Auth
   - https://github.com/markbates/goth
     - Package goth provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.
-- https://github.com/go-kit/kit
-  - A standard library for microservices.
-- https://github.com/micro/micro
-  - A microservice toolkit for distributed systems development
+- https://gitea.com/lunny/tango
 
 ### Test
 

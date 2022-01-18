@@ -13,19 +13,23 @@ title: Go Build
 
 :::caution
 
-- [golang/go#13492](https://github.com/golang/go/issues/13492)
-  runtime: c-shared builds fail with musllibc
+- c-shared
+  - musl 环境不支持构建 c-shared [golang/go#13492](https://github.com/golang/go/issues/13492)
+    runtime: c-shared builds fail with musllibc
+  - windows 下构建 c-shared 需要使用 TDM-GCC
+  - 无法 dlclose, offload c-shared [#11100](https://github.com/golang/go/issues/11100)
+    - 涉及到 VM
 
 :::
 
-| env        | note | macOS                                |
-| ---------- | ---- | ------------------------------------ |
-| GOENV      |      | ~/Library/Application Support/go/env |
-| GOCACHE    |      | ~/Library/Caches/go-build            |
-| GOMODCACHE |      | ~/go/pkg/mod                         |
-| GOTOOLDIR  |      |
-| GOMOD      |  go.mod 位置
-GOWORK|
+| env        | note        | macOS                                |
+| ---------- | ----------- | ------------------------------------ |
+| GOENV      |             | ~/Library/Application Support/go/env |
+| GOCACHE    |             | ~/Library/Caches/go-build            |
+| GOMODCACHE |             | ~/go/pkg/mod                         |
+| GOTOOLDIR  |             |
+| GOMOD      | go.mod 位置 |
+| GOWORK     |
 
 ```bash
 # 所有交叉编译列表
@@ -212,3 +216,23 @@ file test
 
 - [prometheus/node_exporter#914](https://github.com/prometheus/node_exporter/issues/914)
 - debian [gcc-arm-linux-gnueabi](https://packages.debian.org/unstable/gcc-arm-linux-gnueabi)
+
+## implicit declaration of function '_beginthread'; did you mean 'OpenThread'
+
+换 C 编译器, 尝试用 [TDM-GCC](https://github.com/jmeubank/tdm-gcc)
+
+```bash
+export PATH=/c/TDM-GCC-64/bin:$PATH
+LC_ALL=c gcc -v
+```
+
+- https://github.com/golang/go/wiki/InstallFromSource
+- https://github.com/golang/go/issues/12029
+
+
+## c-shared 内存泄漏
+
+使用 c-shared 的方式很难能保证最后 valgrind 不显示有溢出
+
+- https://github.com/golang/go/issues/30490
+

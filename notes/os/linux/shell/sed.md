@@ -46,3 +46,12 @@ title: sed
 # -i.bak 可生成备份文件
 perl -ipe 's/\n//' file
 ```
+
+## 替换片段
+
+```bash
+lead='^### BEGIN COMMON'
+tail='^### END COMMON'
+sed -e "/$lead/,/$tail/{ /$lead/{p; r stub/Makefile
+}; /$tail/p; d }"  commons/Makefile
+```

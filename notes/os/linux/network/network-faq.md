@@ -1,21 +1,10 @@
 ---
 title: 网络常见问题
+tags:
+- FAQ
 ---
 
 # 网络常见问题
-
-# 词汇
-
-| abbr | mean                         |
-| ---- | ---------------------------- |
-| GSO  | Generic Segmentation Offload |
-| GRO  | Generic Receive Offload      |
-| TSO  | TCP Segmentation Offload     |
-| USO  | UDP Segmentation Offload     |
-| IPIP |
-| SIT  |
-| GRE  |
-| SCTP |
 
 # VTI vs XFRM
 

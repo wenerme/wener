@@ -87,6 +87,13 @@ tags:
 - [academic/awesome-datascience](https://github.com/academic/awesome-datascience)
 - [trekhleb/homemade-machine-learning](https://github.com/trekhleb/homemade-machine-learning)
 - [donnemartin/data-science-ipython-notebooks](https://github.com/donnemartin/data-science-ipython-notebooks)
+- https://github.com/facebookresearch/mae
+  - Masked Autoencoders
+- https://github.com/naver-ai/c3-gan
+- [kaegi/alass](https://github.com/kaegi/alass)
+  - Automatic Language-Agnostic Subtitle Synchronization
+- [SubSync: Subtitle Speech Synchronizer](https://subsync.online/)
+  - [HN](https://news.ycombinator.com/item?id=29794153)
 
 ---
 
@@ -108,6 +115,9 @@ tags:
 
 ---
 
+- [Neural network from scratch](https://sirupsen.com/napkin/neural-net)
+  - [HN](https://news.ycombinator.com/item?id=29796789)
+  - https://www.3blue1brown.com/topics/neural-networks
 - [Distributional Reinforcement Learning](https://www.distributional-rl.org/)
 - [A visual introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
 - [Evaluating Syntactic Abilities of Language Models](https://ai.googleblog.com/2021/12/evaluating-syntactic-abilities-of.html)

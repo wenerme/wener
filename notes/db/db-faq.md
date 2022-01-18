@@ -1,5 +1,7 @@
 ---
 title: Database FAQ
+tags:
+  - FAQ
 ---
 
 # Database FAQ

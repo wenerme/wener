@@ -11,9 +11,13 @@ tags:
 - OpenZFS 2.1+
 - dRAID 区别于之前的 RAIDz 方式处理备盘
   - 之前是物理备盘，现在是逻辑备盘
-  - 没有备盘概念，有备用能力
+  - 没有备盘概念，有容灾能力
+    - 备盘 - 冷备份
+    - 容灾 - 从异常恢复
   - 位置动态分配 - 传统 RAID 盘位角色固定
   - 适用于大规模存储，小规模建议使用传统 RAIDz
+  - group into rows - 16MB
+  - 实现基于 RAIDz，但 allocate 方式有区别
 - dRAID 相当于是在一组数据里增加了一个 strip 作为备用打散到所有盘
 - 格式 `draid[<parity>][:<data>d][:<children>c][:<spares>s]`
   - parity - 1-3, 默认 1
@@ -23,6 +27,7 @@ tags:
   - children - 交叉验证磁盘数量，避免磁盘多的时候配置错误
     - 总的磁盘数量
   - spares - 分布式热备数量 - 默认 0
+    - 异常快速恢复 - S -> D,P
   - 配置的是每 strip
   - draid1:2:0 -> RAIDz1
   - D+P 为一个组，分布到 C-S 个硬盘中
@@ -50,6 +55,56 @@ tags:
   - [module/zfs/vdev_draid.c#L45-L167](https://github.com/openzfs/zfs/blob/c14ad80fcbcfc011686f01a89644eea7c028a879/module/zfs/vdev_draid.c#L45-L167)
   - [dRAID](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/dRAID%20Howto.html)
   - [OpenZFS 2.1 is out—let’s talk about its brand-new dRAID vdevs](https://arstechnica.com/gadgets/2021/07/a-deep-dive-into-openzfs-2-1s-new-distributed-raid-topology/)
+
+:::tip 使用场景
+
+- dRAID 用于磁盘非常多的场景
+  - 牺牲一点使用空间换取更快的恢复速度
+- vdev >= 20 dRAID
+- vdev 10-20 - 酌情
+- vdev <= 8 选择 RAIDz
+
+:::
+
+## Expansion
+
+- [Raid-Z Expansion](https://www.youtube.com/watch?v=yF2KgQGmUic)
+
+**传统 RAID 4/5/6**
+
+| sda | sdb | sdc | sdd  |
+| --- | --- | --- | ---- |
+| 1   | 2   | 3   | P1-3 |
+| 4   | 5   | 6   | P4-6 |
+
+| sda | sdb | sdc | sdd | sde  |
+| --- | --- | --- | --- | ---- |
+| 1   | 2   | 3   | 4   | P1-4 |
+| 5   | 6   | 7   | 8   | P5-8 |
+
+- P - parity group - strip
+- 分组变化
+
+**RAID-Z expansion: reflow**
+
+| sda | sdb | sdc | sdd |
+| --- | --- | --- | --- |
+| 1P  | 2   | 3   | 4   |
+| 5P  | 6   | 7   | 8   |
+| 9P  | 10   | 11   | 12   |
+
+| sda | sdb | sdc | sdd | sde |
+| --- | --- | --- | --- | --- |
+| 1P  | 2   | 3   | 4   | 5P  |
+| 6   | 7   | 8   | 9P  | 10  |
+
+- P - parity group - logical strip
+- 分组没变 - 容灾能力没变
+- 不修改 block 指针
+- 顺序读写
+- strip 独立
+- parity group 迁移时会确保之前数据不被覆盖 - 避免迁移过程异常，丢失数据
+- 迁移过程慢 - 因为全部数据都会动
 
 ## cannot create '/data/db': pool must be upgraded to set this property or value
 

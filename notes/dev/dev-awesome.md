@@ -119,3 +119,8 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 ## 有趣
 
 - [denigma](https://denigma.app/)
+- [Leetcode has taught me that I'm a bad engineer](https://news.ycombinator.com/item?id=29804607)
+
+## Books
+
+- Software Architecture Patterns

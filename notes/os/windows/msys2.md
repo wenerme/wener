@@ -29,6 +29,8 @@ pacman -Su
 
 # 基础开发工具
 pacman -Sy --needed base-devel git mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc
+pacman -Sy gcc
+pacman -Sy unzip zip
 
 # 安装 Go
 pacman -S mingw-w64-x86_64-go

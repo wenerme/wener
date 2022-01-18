@@ -15,8 +15,9 @@ apk add wpa_supplicant e2fsprogs-extra
 ```
 
 ## bash
-* [*-bash-completion](https://pkgs.alpinelinux.org/packages?name=*-bash-completion&branch=v3.6&repo=&arch=x86_64)
-  * 其他的 bash 补全的包
+
+- [\*-bash-completion](https://pkgs.alpinelinux.org/packages?name=*-bash-completion&branch=v3.6&repo=&arch=x86_64)
+  - 其他的 bash 补全的包
 
 ```bash
 # Bash
@@ -32,10 +33,11 @@ source /etc/profile.d/bash_completion.sh
 ```
 
 ## manpages
-* Alpine 默认不会安装 doc 和 man
-* 所有的文档以 -doc 结尾
-* 文档位于 /usr/share/man
-* [How to get regular stuff working](https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working)
+
+- Alpine 默认不会安装 doc 和 man
+- 所有的文档以 -doc 结尾
+- 文档位于 /usr/share/man
+- [How to get regular stuff working](https://wiki.alpinelinux.org/wiki/How_to_get_regular_stuff_working)
 
 ```bash
 apk add --no-cache man man-pages mdocml-apropos less less-doc
@@ -52,6 +54,7 @@ docker run --rm -it -v $PWD/man:/usr/share/man wener/base:man
 ```
 
 ## 基础运维
+
 ```bash
 # 基础工具
 apk add nano file grep htop rsync curl openssl
@@ -141,9 +144,7 @@ apk add docker
 rc-update add docker
 ```
 
-
 ## 磁盘扩展
-
 
 ```bash
 # 扩展分区
@@ -174,7 +175,8 @@ resize2fs /dev/sdb1 400M
 ```
 
 ## udev
-* Gentoo [Eudev](https://wiki.gentoo.org/wiki/Project:Eudev)
+
+- Gentoo [Eudev](https://wiki.gentoo.org/wiki/Project:Eudev)
 
 ```bash
 # 设置 /dev/disk
@@ -203,10 +205,10 @@ udevadm info --export-db
 
 ## zfs
 
-* 先安装 [udev](#udev) 环境
-* 使用 zfs 时最好使用 uuid, 因为名字可能会发生变化
-* 0.6 时, 导致直接系统重启
-* 0.6 的 init 不是 openrc 的脚本, 启动会警告
+- 先安装 [udev](#udev) 环境
+- 使用 zfs 时最好使用 uuid, 因为名字可能会发生变化
+- 0.6 时, 导致直接系统重启
+- 0.6 的 init 不是 openrc 的脚本, 启动会警告
 
 ```bash
 apk add zfs zfs-{scripts,udev,utils-py}
@@ -282,6 +284,7 @@ run-parts /etc/periodic/weekly -v --report
 ```
 
 ### uninstall zfs
+
 ```bash
 # 销毁使用的 pool
 zpool destroy pool
@@ -299,25 +302,27 @@ modprobe -r zfs
 ```
 
 ## btrfs
-* kernel [btrfs](	https://btrfs.wiki.kernel.org/)
-  * [btrfs.5](https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5))
-  * [Status](https://btrfs.wiki.kernel.org/index.php/Status)
-  * [Mount options](https://btrfs.wiki.kernel.org/index.php/Mount_options)
-  * [Incremental Backup](https://btrfs.wiki.kernel.org/index.php/Incremental_Backup)
-  * [FAQ](https://btrfs.wiki.kernel.org/index.php/Problem_FAQ)
-  * [Gotchas](https://btrfs.wiki.kernel.org/index.php/Gotchas)
-    * 不建议使用 RAID5, RAID6
-  * [Using Btrfs with Multiple Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices)
 
-* Debian [Btrfs](https://wiki.debian.org/Btrfs)
-  * 不要使用 4.11.x
-  * quotas 和 qgroups 有问题
-  * subvol 不能够被挂在为不同的选项
-  * compress=lzo 可能比较危险
-  * -o compress 可能会放大碎片
-* Archlinux [Btrfs](https://wiki.archlinux.org/index.php/Btrfs)
-  * [中文](https://wiki.archlinux.org/index.php/Btrfs_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-* raid0, raid1, raid5, raid6, raid10, dup, single
+- kernel [btrfs](https://btrfs.wiki.kernel.org/)
+
+  - [btrfs.5](<https://btrfs.wiki.kernel.org/index.php/Manpage/btrfs(5)>)
+  - [Status](https://btrfs.wiki.kernel.org/index.php/Status)
+  - [Mount options](https://btrfs.wiki.kernel.org/index.php/Mount_options)
+  - [Incremental Backup](https://btrfs.wiki.kernel.org/index.php/Incremental_Backup)
+  - [FAQ](https://btrfs.wiki.kernel.org/index.php/Problem_FAQ)
+  - [Gotchas](https://btrfs.wiki.kernel.org/index.php/Gotchas)
+    - 不建议使用 RAID5, RAID6
+  - [Using Btrfs with Multiple Devices](https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices)
+
+- Debian [Btrfs](https://wiki.debian.org/Btrfs)
+  - 不要使用 4.11.x
+  - quotas 和 qgroups 有问题
+  - subvol 不能够被挂在为不同的选项
+  - compress=lzo 可能比较危险
+  - -o compress 可能会放大碎片
+- Archlinux [Btrfs](https://wiki.archlinux.org/index.php/Btrfs)
+  - [中文](<https://wiki.archlinux.org/index.php/Btrfs_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)>)
+- raid0, raid1, raid5, raid6, raid10, dup, single
 
 ```bash
 # 辅助程序
@@ -379,7 +384,8 @@ echo "UUID=$(blkid -s UUID -o value /dev/sda) /data btrfs defaults 0 0" >> /etc/
 ```
 
 ### failed to read the system array
-* 会导致启动时挂载失败
+
+- 会导致启动时挂载失败
 
 ```bash
 [ 1985.671707] BTRFS info (device sde): disk space caching is enabled
@@ -400,10 +406,10 @@ mount -a
 
 ## networking
 
-* auto
-  * try to `ip link set <dev> up`  at boot.  Best choice for anything PCIe/SoC.
-* allow-hotplug
-  * for kernel+drivers+udev to detect the device, then `ip link set <dev> up` it.  The only thing that can deal with annoying USB, SDIO, etc.
+- auto
+  - try to `ip link set <dev> up` at boot. Best choice for anything PCIe/SoC.
+- allow-hotplug
+  - for kernel+drivers+udev to detect the device, then `ip link set <dev> up` it. The only thing that can deal with annoying USB, SDIO, etc.
 
 ```bash
 apk add ethtool
@@ -427,7 +433,6 @@ ifconfig eth1 192.168.8.182 netmask 255.255.252.0
 # ip addr add 192.168.8.182/255.255.252.0 broadcast 192.168.11.255 	  dev eth1 label eth1
 ifup -v eth1
 ```
-
 
 ```
 # 一个网卡, 多个网关
@@ -466,18 +471,21 @@ iperf3 -c HOST
 ```
 
 ## init
-* openrc
-* `/etc/conf.d/localmount`
-  * 可配置强制挂载点
+
+- openrc
+- `/etc/conf.d/localmount`
+  - 可配置强制挂载点
 
 ```conf
+
 ```
 
 ## iscsi
-* https://github.com/open-iscsi
-* https://github.com/open-iscsi/open-iscsi
-* https://github.com/open-iscsi/targetcli-fb
-* https://wiki.archlinux.org/index.php/ISCSI_Target
+
+- https://github.com/open-iscsi
+- https://github.com/open-iscsi/open-iscsi
+- https://github.com/open-iscsi/targetcli-fb
+- https://wiki.archlinux.org/index.php/ISCSI_Target
 
 http://scst.sourceforge.net/
 
@@ -503,12 +511,13 @@ apk add open-iscsi
 ```
 
 ## netatalk
-* [netatalk](http://netatalk.sourceforge.net)
-* [Netatalk:wiki](https://en.wikipedia.org/wiki/Netatalk)
-* [APF](https://en.wikipedia.org/wiki/Apple_Filing_Protocol) - Apple Filing Protocol
-  * CNID - Catalog Node ID
-  * 使用 ID 引用, 而非路径
-* http://netatalk.sourceforge.net/3.1/htmldocs/configuration.html
+
+- [netatalk](http://netatalk.sourceforge.net)
+- [Netatalk:wiki](https://en.wikipedia.org/wiki/Netatalk)
+- [APF](https://en.wikipedia.org/wiki/Apple_Filing_Protocol) - Apple Filing Protocol
+  - CNID - Catalog Node ID
+  - 使用 ID 引用, 而非路径
+- http://netatalk.sourceforge.net/3.1/htmldocs/configuration.html
 
 ## stress
 
@@ -518,8 +527,9 @@ stress --vm-bytes $(awk '/MemFree/{printf "%d\n", $2 * 0.097;}' < /proc/meminfo)
 ```
 
 ## disk
-* badblocks
-* e2fsprogs-extra
+
+- badblocks
+- e2fsprogs-extra
 
 ```bash
 apk add cdrkit
@@ -531,22 +541,24 @@ isoinfo -d -i is_it_bootable.iso
 # burn iso
 pv spp-2016.10.0.iso | dd bs=4M of=/dev/sdd
 ```
+
 ## QEMU
-* [QEMU](https://www.qemu.org/)
-  * [Doc](https://qemu.weilnetz.de/doc/qemu-doc.html)
+
+- [QEMU](https://www.qemu.org/)
+  - [Doc](https://qemu.weilnetz.de/doc/qemu-doc.html)
 
 If you want to run VM as unprivileged user and let Qemu create tunX devices,
 then you must add that user to the group "qemu".
 If you use KVM for hardware-assisted virtualization, then you may also need
 to add that user to the group "kvm".
 
-
 https://wiki.archlinux.org/index.php/QEMU_(简体中文)
 
 https://allyourco.de/running-vmware-esxi-under-qemu-kvm/
 
 ### kvm
-* https://wiki.alpinelinux.org/wiki/KVM
+
+- https://wiki.alpinelinux.org/wiki/KVM
 
 ```bash
 # 基础
@@ -577,9 +589,10 @@ addgroup $USER libvirt
 ```
 
 ### virtual-disk
-* https://en.wikibooks.org/wiki/QEMU/Images
-* qemu-nbd
-  * QEMU Disk Network Block Device Server
+
+- https://en.wikibooks.org/wiki/QEMU/Images
+- qemu-nbd
+  - QEMU Disk Network Block Device Server
 
 ```bash
 modprobe nbd max_part=16
@@ -596,13 +609,11 @@ qemu-nbd -c /dev/nbd0
 
 ```
 
-
-
 ## ftp
 
-* Archlinux [vsftpd](https://wiki.archlinux.org/index.php/Very_Secure_FTP_Daemon)
-* [vsftpd.conf](http://vsftpd.beasts.org/vsftpd_conf.html)
-* https://security.appspot.com/vsftpd.html
+- Archlinux [vsftpd](https://wiki.archlinux.org/index.php/Very_Secure_FTP_Daemon)
+- [vsftpd.conf](http://vsftpd.beasts.org/vsftpd_conf.html)
+- https://security.appspot.com/vsftpd.html
 
 ```bash
 apk add vsftp
@@ -627,6 +638,7 @@ background=NO
 ```
 
 ## lvm
+
 ```bash
 apk add lvm2
 modprobe dm-mod
@@ -640,13 +652,13 @@ lvs
 mount /dev/SangomaVG/root /mnt/data
 ```
 
-
 ## libguestfs
-* https://en.wikipedia.org/wiki/Libguestfs
-* https://bugs.alpinelinux.org/issues/1792
-* 会编译失败, 因为用了 glibc 特有的 printf 修饰符
-  * https://www.redhat.com/archives/libguestfs/2016-August/msg00002.html
-  * No support for glibc-style extended printf formatters.
+
+- https://en.wikipedia.org/wiki/Libguestfs
+- https://bugs.alpinelinux.org/issues/1792
+- 会编译失败, 因为用了 glibc 特有的 printf 修饰符
+  - https://www.redhat.com/archives/libguestfs/2016-August/msg00002.html
+  - No support for glibc-style extended printf formatters.
 
 ```bash
 
@@ -702,23 +714,25 @@ For more information, see the manpage guestfish(1).
 ```
 
 ## acf
-* [Alpine Configuration Framework Design](https://wiki.alpinelinux.org/wiki/Alpine_Configuration_Framework_Design)
-* [ACF packages](https://wiki.alpinelinux.org/wiki/ACF_packages)
-* [acf-*](https://pkgs.alpinelinux.org/packages?name=acf-*&branch=v3.6&arch=x86_64)
+
+- [Alpine Configuration Framework Design](https://wiki.alpinelinux.org/wiki/Alpine_Configuration_Framework_Design)
+- [ACF packages](https://wiki.alpinelinux.org/wiki/ACF_packages)
+- [acf-\*](https://pkgs.alpinelinux.org/packages?name=acf-*&branch=v3.6&arch=x86_64)
 
 ```bash
+
 ```
 
 ## crond
-* 实际执行时使用的 run-parts
-* busybox 自带的 run-parts 功能较少, 可额外安装
+
+- 实际执行时使用的 run-parts
+- busybox 自带的 run-parts 功能较少, 可额外安装
 
 ```
 echo 'CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"' > /etc/conf.d/crond
 rc-update add crond
 rc-service crond restart
 ```
-
 
 ```
 BusyBox v1.26.2 (2017-10-04 13:37:41 GMT) multi-call binary.
@@ -753,10 +767,9 @@ Usage: run-parts [OPTION]... DIRECTORY
   -h, --help          display this help and exit.
 ```
 
-
 ## wireguard
-* 3.8 还没有，需要使用 edge
 
+- 3.8 还没有，需要使用 edge
 
 ```bash
 qemu-img create -f raw edge-virt.raw 300M
@@ -785,14 +798,17 @@ poweroff
 ```
 
 ## FAQ
+
 ### ip: ioctl 0x8913 failed: no such device
-* 可能是网卡名字发生了改变
+
+- 可能是网卡名字发生了改变
 
 ### 恢复网卡名字
-* 安装 udev 后可能会出现, 因为 udev 可能会进行重命名
-* 此时 eth0 可能就不存在了, 此时可能名字为 enp0s3 这样的
-* 在 udev 中改变 if name 的为独立包, `	eudev-netifnames`, 将该包移除即可
-  * `/lib/udev/rules.d/80-net-name-slot.rules`
+
+- 安装 udev 后可能会出现, 因为 udev 可能会进行重命名
+- 此时 eth0 可能就不存在了, 此时可能名字为 enp0s3 这样的
+- 在 udev 中改变 if name 的为独立包, ` eudev-netifnames`, 将该包移除即可
+  - `/lib/udev/rules.d/80-net-name-slot.rules`
 
 ```bash
 # 查看网络设备名
@@ -810,21 +826,21 @@ ip a
 
 ### 文件系统变成了只读
 
-* 看看 `/etc/fstab` 的 UUID 是否有多的,错误的或重复的
-* 使用 df 查看当前挂载设备
-* blkid 查看设备 UUID
-* 从新挂载为读写 `mount -rw -o remount UUID=<正确的 UUID> /`
-* 修改 `/etc/fstab`
-* 重启
+- 看看 `/etc/fstab` 的 UUID 是否有多的,错误的或重复的
+- 使用 df 查看当前挂载设备
+- blkid 查看设备 UUID
+- 从新挂载为读写 `mount -rw -o remount UUID=<正确的 UUID> /`
+- 修改 `/etc/fstab`
+- 重启
 
 ### find: /sys/module/pcc_cpufreq
 
-* 查看 linux/cpufreq
-
+- 查看 linux/cpufreq
 
 ### traps: rc-status[3854] general protection
-* `rc-status sysinit` 时出现该异常
-* [OpenRC/openrc#168](https://github.com/OpenRC/openrc/issues/168)
+
+- `rc-status sysinit` 时出现该异常
+- [OpenRC/openrc#168](https://github.com/OpenRC/openrc/issues/168)
 
 ```
 [ 6921.149981] traps: rc-status[3854] general protection ip:7ca2e00baa1b sp:7ecdf01d7038 error:0
@@ -846,31 +862,31 @@ ulimit -c 4096
 
 RLIMIT_AS //进程的最大虚内存空间，字节为单位。
 RLIMIT_CORE //内核转存文件的最大长度。
-RLIMIT_CPU //最大允许的CPU使用时间，秒为单位。当进程达到软限制，内核将给其发送SIGXCPU信号，这一信号的默认行为是终止进程的执行。然而，可以捕捉信号，处理句柄可将控制返回给主程序。如果进程继续耗费CPU时间，核心会以每秒一次的频率给其发送SIGXCPU信号，直到达到硬限制，那时将给进程发送 SIGKILL信号终止其执行。
+RLIMIT_CPU //最大允许的 CPU 使用时间，秒为单位。当进程达到软限制，内核将给其发送 SIGXCPU 信号，这一信号的默认行为是终止进程的执行。然而，可以捕捉信号，处理句柄可将控制返回给主程序。如果进程继续耗费 CPU 时间，核心会以每秒一次的频率给其发送 SIGXCPU 信号，直到达到硬限制，那时将给进程发送 SIGKILL 信号终止其执行。
 RLIMIT_DATA //进程数据段的最大值。
-RLIMIT_FSIZE //进程可建立的文件的最大长度。如果进程试图超出这一限制时，核心会给其发送SIGXFSZ信号，默认情况下将终止进程的执行。
+RLIMIT_FSIZE //进程可建立的文件的最大长度。如果进程试图超出这一限制时，核心会给其发送 SIGXFSZ 信号，默认情况下将终止进程的执行。
 RLIMIT_LOCKS //进程可建立的锁和租赁的最大值。
 RLIMIT_MEMLOCK //进程可锁定在内存中的最大数据量，字节为单位。
-RLIMIT_MSGQUEUE //进程可为POSIX消息队列分配的最大字节数。
-RLIMIT_NICE //进程可通过setpriority() 或 nice()调用设置的最大完美值。
-RLIMIT_NOFILE //指定比进程可打开的最大文件描述词大一的值，超出此值，将会产生EMFILE错误。
+RLIMIT_MSGQUEUE //进程可为 POSIX 消息队列分配的最大字节数。
+RLIMIT_NICE //进程可通过 setpriority() 或 nice()调用设置的最大完美值。
+RLIMIT_NOFILE //指定比进程可打开的最大文件描述词大一的值，超出此值，将会产生 EMFILE 错误。
 RLIMIT_NPROC //用户可拥有的最大进程数。
-RLIMIT_RTPRIO //进程可通过sched_setscheduler 和 sched_setparam设置的最大实时优先级。
+RLIMIT_RTPRIO //进程可通过 sched_setscheduler 和 sched_setparam 设置的最大实时优先级。
 RLIMIT_SIGPENDING //用户可拥有的最大挂起信号数。
 RLIMIT_STACK //最大的进程堆栈，以字节为单位。
 
-
 ### ip: RTNETLINK answers: File exists
-* ip addr add 时出现
-* usually indicates that a route already exists and you are trying to add it again.
-* [rtnetlink.7](http://man7.org/linux/man-pages/man7/rtnetlink.7.html)
-  * Linux IPv4 routing socket
-* 网络启停时是依据 `/var/run/ifstate` 中的 if 状态进行操作
-* 如果一开始停止失败, 那么就会导致启动是会, 导致实际的 if 状态和 ifstate 中的状态不一致
-* [Two Default Gateways on One System](https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System)
-* inetfaces 中只能指定一条 gateway
-  * 如果指定了多条会出现该异常
-* [Linux Advanced Routing & Traffic Control](http://lartc.org/)
+
+- ip addr add 时出现
+- usually indicates that a route already exists and you are trying to add it again.
+- [rtnetlink.7](http://man7.org/linux/man-pages/man7/rtnetlink.7.html)
+  - Linux IPv4 routing socket
+- 网络启停时是依据 `/var/run/ifstate` 中的 if 状态进行操作
+- 如果一开始停止失败, 那么就会导致启动是会, 导致实际的 if 状态和 ifstate 中的状态不一致
+- [Two Default Gateways on One System](https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System)
+- inetfaces 中只能指定一条 gateway
+  - 如果指定了多条会出现该异常
+- [Linux Advanced Routing & Traffic Control](http://lartc.org/)
 
 ```bash
 # 例如
@@ -884,21 +900,22 @@ nano /var/run/ifstate
 # 然后就可以正常操作 ifup 和 ifdown 了
 ```
 
-
-
 ### grsec: time set by /sbin/hwclock[hwclock:2863]
+
 ```
 [   14.977686] grsec: time set by /sbin/hwclock[hwclock:2863] uid/euid:0/0 gid/egid:0/0, parent /lib/rc/sh/openrc-run.sh[openrc-run.sh:2838] uid/euid:0/0 gid/egid:0/0
 ```
 
 ### node docker seg fault
-* [sass/node-sass#2031](https://github.com/sass/node-sass/issues/2031) Segmentation fault on Node 8 alpine (docker)
-* 是由于线程栈太小了导致
-* jubel-han 的 [Dockerfile](https://github.com/jubel-han/dockerfiles/blob/master/node/Dockerfile) 提供了一个 LD_PRELOAD
-* [What is the LD_PRELOAD trick?](https://stackoverflow.com/q/426230/1870054)
-* http://wiki.musl-libc.org/wiki/Functional_differences_from_glibc#Thread_stack_size
+
+- [sass/node-sass#2031](https://github.com/sass/node-sass/issues/2031) Segmentation fault on Node 8 alpine (docker)
+- 是由于线程栈太小了导致
+- jubel-han 的 [Dockerfile](https://github.com/jubel-han/dockerfiles/blob/master/node/Dockerfile) 提供了一个 LD_PRELOAD
+- [What is the LD_PRELOAD trick?](https://stackoverflow.com/q/426230/1870054)
+- http://wiki.musl-libc.org/wiki/Functional_differences_from_glibc#Thread_stack_size
 
 ### PHP 下 iconv 有问题
+
 Alpine 下 PHP 的 iconv 有问题 https://github.com/docker-library/php/issues/428
 https://github.com/docker-library/php/issues/240
 
@@ -915,15 +932,16 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 ```
 
 ### rc-status sysinit 异常
-* 可能是由于 zfs-zed 导致
-* https://github.com/OpenRC/openrc/issues/168#issuecomment-349870167
-* https://github.com/zfsonlinux/zfs/issues/6930
-* https://wiki.debian.org/LSBInitScripts
 
+- 可能是由于 zfs-zed 导致
+- https://github.com/OpenRC/openrc/issues/168#issuecomment-349870167
+- https://github.com/zfsonlinux/zfs/issues/6930
+- https://wiki.debian.org/LSBInitScripts
 
 ### 启动分区修复
 
 1. mbr 坏了但分区是好的
+
 ```bash
 dd bs=440 conv=notrunc count=1 if=/usr/share/syslinux/mbr.bin of=/dev/sdc
 ```
@@ -935,9 +953,8 @@ dd bs=440 conv=notrunc count=1 if=/usr/share/syslinux/mbr.bin of=/dev/sdc
 file -s /dev/sdc1
 ```
 
-
-
 ### TBD
+
 ```
 [    0.013013] DMAR-IR: This system BIOS has enabled interrupt remapping
                on a chipset that contains an erratum making that
@@ -948,4 +965,13 @@ file -s /dev/sdc1
 
 
 [ 7785.189928] perf: interrupt took too long (2658 > 2500), lowering kernel.perf_event_max_sample_rate to 75000
+```
+
+## install utmp/wtmp
+
+```bash
+apk add utmps
+# /run/utmp
+service utmpd start
+service wtmpd start
 ```

@@ -365,3 +365,9 @@ body {
 ## Print size
 
 - https://github.com/cognitom/paper-css/blob/master/paper.css
+
+## margin or not
+
+- 推荐使用 gap
+- margin 会影响外部
+- https://mxstbr.com/thoughts/margin/

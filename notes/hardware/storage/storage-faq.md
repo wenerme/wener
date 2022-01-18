@@ -34,3 +34,13 @@ tags:
   - 按页读写
   - 低面积、高容量、低成本
   - 顺序方式连接
+
+## HPC 存储系统
+
+| System      | Year | Peak PFLOPS | # Cores | Storage Capacity | # Disks  |
+| ----------- | ---- | ----------- | ------- | ---------------- | -------- |
+| ASCI Purple | 2005 | 0.1         | 12k     | 2 PB             | 10K      |
+| HPCS        | 2012 | 16          | 500K+   | 40+ PB           | 100K+    |
+| Exascale    | 2018 | 1000        | ~150M   | ~1,000 PB        | ~200K-1M |
+
+- https://www.usenix.org/legacy/events/lisa11/tech/slides/deenadhayalan.pdf

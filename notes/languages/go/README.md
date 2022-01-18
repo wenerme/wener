@@ -1,5 +1,4 @@
 ---
-id: go
 title: Golang
 ---
 

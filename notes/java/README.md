@@ -1,5 +1,4 @@
 ---
-id: java
 title: Java
 ---
 
@@ -8,4 +7,3 @@ title: Java
 > More than a language
 >
 > -wener
-

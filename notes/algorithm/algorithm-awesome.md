@@ -25,3 +25,6 @@ tags:
 - [algorithm-visualizer/algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)
 - [algorithm-archive](https://www.algorithm-archive.org/)
   - [HN](https://news.ycombinator.com/item?id=29138991)
+- Books
+  - Algorithms in a Nutshell
+- Operation Transform

@@ -73,3 +73,14 @@ build:
 ## Stories
 
 - [Building Uber’s Go Monorepo with Bazel](https://eng.uber.com/go-monorepo-bazel/)
+
+## 参考项目
+
+- https://github.com/tensorflow/serving/blob/master/WORKSPACE
+- Golang
+  - [thundergolfer/example-bazel-monorepo](https://github.com/thundergolfer/example-bazel-monorepo)
+  - [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
+    - buildkite [pipeline](https://buildkite.com/bazel/grpc-ecosystem-grpc-gateway)
+  - [google/differential-privacy](https://github.com/google/differential-privacy)
+  - [jetstack/cert-manager](https://github.com/jetstack/cert-manager)
+  - [google/mediapipe](https://github.com/google/mediapipe)

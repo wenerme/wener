@@ -163,6 +163,17 @@ ifeq ($(origin FOO), undefined)
 endif
 ```
 
+```makefile
+%.out: %.input1 %.input2
+    merge $<1 $<2 $@
+%.out: %.input1 %.input2
+    merge $^ $@
+
+doit: project.out
+    # force build
+    touch $@
+```
+
 ### 特殊变量
 
 | var                       | desc          |

@@ -104,6 +104,7 @@ func NewServer(conf *ServerConf)*Server{
 
 - 添加 `/etc/nsswitch.conf` 可以解决
   - `echo "hosts: files dns" > /etc/nsswitch.conf`
+    - [1](https://github.com/gliderlabs/docker-alpine/issues/367#issuecomment-424546457)
 - [#35305](https://github.com/golang/go/issues/35305) - net: prefer /etc/hosts over DNS when no /etc/nsswitch.conf is present
 - [#22846](https://github.com/golang/go/issues/22846) - net: Go DNS resolver does not read /etc/hosts
 
@@ -211,3 +212,14 @@ go build -gccgoflags "-s -w" main.go
 升级后出现，尝试卸载重装。
 
 尝试删除目录 /usr/lib/go/ 后重装。
+
+## go.sum h1
+
+- h1: hash-v1
+  - sha256+base64
+  - https://github.com/vikyd/go-checksum
+
+```go.sum
+<module> <version> <hash>
+<module> <version>/go.mod <hash>
+```
