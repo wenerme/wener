@@ -1,5 +1,4 @@
 ---
-id: kubectl
 title: Kubectl
 ---
 

@@ -10,28 +10,23 @@ tags:
 
 ## 参考
 
+- [wenerme/grpc-protos](https://github.com/wenerme/grpc-protos)
 - [googleapis/googleapis](https://github.com/googleapis/googleapis)
-- https://github.com/googleapis/api-common-protos
-- https://github.com/temporalio/api
-- https://github.com/yandex-cloud/cloudapi
-- https://github.com/dexidp/dex/blob/master/api/api.proto
 - https://github.com/kubernetes/cri-api/blob/master/pkg/apis/runtime/v1/api.proto
 - https://github.com/kubernetes/api/blob/master/core/v1/generated.proto
 - https://github.com/tensorflow/serving/tree/master/tensorflow_serving/apis
-- https://github.com/etcd-io/etcd/tree/main/api/etcdserverpb
 - https://github.com/asim/go-micro/blob/master/api/proto/api.proto
-- https://github.com/containerd/containerd/blob/main/api/services/containers/v1/containers.proto
-- https://github.com/dgraph-io/dgo/blob/master/protos/api.proto
 - https://github.com/kubeflow/katib/tree/master/pkg/apis
 - https://github.com/p4lang/p4runtime/tree/main/proto/p4/v1
-- https://github.com/esphome/esphome/blob/dev/esphome/components/api/api.proto
 - https://github.com/onosproject/onos-api/tree/master/proto
-- https://github.com/cosmos/cosmos-sdk/tree/master/proto/cosmos
 - https://github.com/thanos-io/thanos/search?p=1&q=in%3Apath+proto
-- https://github.com/cockroachdb/cockroach/search?q=in%3Apath+proto
+
+<!-- -path:vendor  filename:*.proto -->
 
 ## 工具
 
+- [Kong/insomnia](https://github.com/Kong/insomnia)
+- [bloomrpc/bloomrpc](https://github.com/bloomrpc/bloomrpc)
 - [envoyproxy/protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate)
   - 生成校验规则
 - [bufbuild/buf](https://github.com/bufbuild/buf)
@@ -66,7 +61,6 @@ tags:
 ## gen
 
 - protoc-gen-c
-- protoc-gen-doc
 - protoc-gen-go
 - protoc-gen-go-grpc
 - protoc-gen-gofast
@@ -88,6 +82,7 @@ tags:
 - protoc-gen-go-drpc
   - [storj/drpc](https://github.com/storj/drpc)
     - 一个更加简单轻量的 RPC 协议
+- [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)
 - 参考
   - [lyft/protoc-gen-star](https://github.com/lyft/protoc-gen-star)
   - 辅助实现插件

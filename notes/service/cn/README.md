@@ -37,3 +37,9 @@ title: CN
 | url                                                      | title            |
 | -------------------------------------------------------- | ---------------- |
 | https://ciac.zjw.sh.gov.cn/jgbQyWsbsnewWeb/qyzz/qyzz.htm | 企业资质标准查询 |
+
+
+## Misc
+
+- [citizenlab/chat-censorship](https://github.com/citizenlab/chat-censorship)
+  - 聊天屏蔽词

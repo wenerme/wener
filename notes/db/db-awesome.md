@@ -24,12 +24,24 @@ tags:
 | Content stores       | 内容存储       |
 | Navigational DBMS    | 导航数据库     |
 
+## 理论
+
+- Sargable - Search ARGument ABLE
+  - wikipedia [Sargable](https://en.wikipedia.org/wiki/Sargable)
+  - 定义查询可利用索引的场景
+
 ## 分布式
 
 - [rqlite/rqlite](https://github.com/rqlite/rqlite)
   - SQLite + Raft
-- [citusdata/citus](https://github.com/citusdata/citus)
-  - PostgreSQL Sharding
+- PostgreSQL
+  - cdb
+  - [citusdata/citus](https://github.com/citusdata/citus)
+    - PostgreSQL Sharding
+  - [yugabyte/yugabyte-db](https://github.com/yugabyte/yugabyte-db)
+- MySQL
+  - Viteness
+  - TiDB
 
 ## 实时数据库
 
@@ -114,6 +126,8 @@ tags:
 
 ## Tools
 
+- [Netflix/ndbench](https://github.com/Netflix/ndbench)
+  - Data Store Benchmark
 - [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
   - Web-based SQL editor and visualizing
 

@@ -6,6 +6,16 @@ tags:
 
 # K8S 常见问题
 
+## headless service
+
+- 不需要 clusterIP 的 service
+- 不用于路由，而是用于 dns 查询 - 返回 endpoint 地址
+
+```yaml
+spec:
+  clusterIP: None
+```
+
 ## cni-plugins 不再包含 flannel
 
 - flannel 独立出单独的 repo [flannel-io/cni-plugin](https://github.com/flannel-io/cni-plugin)

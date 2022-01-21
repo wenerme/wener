@@ -4,12 +4,11 @@ title: rsync
 
 # rsync
 
-## Tips
-* https://www.cheatography.com/richardjh/cheat-sheets/rsync/
-* https://wiki.archlinux.org/index.php/rsync
-* unison
-  * https://www.cis.upenn.edu/~bcpierce/unison/
-* `--info=progress2` 显示速度
+- https://www.cheatography.com/richardjh/cheat-sheets/rsync/
+- https://wiki.archlinux.org/index.php/rsync
+- unison
+  - https://www.cis.upenn.edu/~bcpierce/unison/
+- `--info=progress2` 显示速度
 
 ```bash
 # 使用 SSH 同步
@@ -35,8 +34,9 @@ run_rsync; fswatch -o . | while read f; do run_rsync; done
 ```
 
 ## 并行
-* https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
-* https://unix.stackexchange.com/questions/189878
+
+- https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
+- https://unix.stackexchange.com/questions/189878
 
 ```bash
 rsync -avzm --stats --safe-links --ignore-existing --dry-run \

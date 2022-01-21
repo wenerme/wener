@@ -107,13 +107,18 @@ nginx.ingress.kubernetes.io/session-cookie-change-on-failure: 'true'
 :::
 
 ```yaml
-# 修改后端
-nginx.ingress.kubernetes.io/backend-protocol: 'GRPCS'
-# 如果要使用 stream 考虑设置长一点的超时
-nginx.ingress.kubernetes.io/server-snippet: |
-  grpc_read_timeout "1200s";
-  grpc_send_timeout "1200s";
-  client_body_timeout "1200s";
+annotations:
+  # GRPCS - 后端自行处理 TLS
+  nginx.ingress.kubernetes.io/backend-protocol: 'GRPCS'
+  # GRPC - 由 nginx 处理 TLS
+  nginx.ingress.kubernetes.io/backend-protocol: 'GRPC'
+  nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+
+  # 如果要使用 stream 考虑设置长一点的超时
+  nginx.ingress.kubernetes.io/server-snippet: |
+    grpc_read_timeout "1200s";
+    grpc_send_timeout "1200s";
+    client_body_timeout "1200s";
 ```
 
 ### cors

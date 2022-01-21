@@ -19,3 +19,5 @@ tags:
 | ----- | ----------------------- | ---- |
 | RIIR  | Rewrite It In Rust      |
 | DORA  | DevOps research program |
+
+- futureproofing - 确保不会过时

@@ -27,6 +27,7 @@ docker run -d \
   --security-opt apparmor=unconfined \
   --name=netdata netdata/netdata
 
+# AlpineLinux 启动
 # < 3.13 -X https://mirrors.aliyun.com/alpine/edge/community/
 apk add netdata
 touch /etc/netdata/.opt-out-from-anonymous-statistics
@@ -56,6 +57,24 @@ curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
   dbengine multihost disk space = 256
 ```
 
+```conf
+[global]
+  # save 模式不那么损耗磁盘
+  memory mode = save
+  # 默认 1h - 修改为 6h
+  history = 21600
+```
+
 ## registry
 
 - https://learn.netdata.cloud/docs/agent/registry/#run-your-own-registry
+
+# FAQ
+
+## Preventing more logs from process 'netdata' for 1199 seconds
+
+```
+errors flood protection period = 0
+```
+
+## This agent doesn't have ACLK. (errno 22, Invalid argument)

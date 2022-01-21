@@ -68,7 +68,7 @@ tags:
 ```bash
 apk update
 apk upgrade alpine-keys
-sed -i 's/v3.14/v3.15/g' /etc/apk/repositories
+sed -i 's/v3.1./v3.15/g' /etc/apk/repositories
 apk update
 apk upgrade -a
 ```
@@ -112,6 +112,9 @@ apk upgrade -a
 - postgresql-dev -> libpq-dev, libecpg-dev
 - radvd init 默认不开启 ipv6 转发
   - 可自行开启 `net.ipv6.conf.all.forwarding=1`
+- ifupdown-ng-wifi
+  - 目前只支持 wpa_supplicant
+  - https://github.com/ifupdown-ng/ifupdown-ng/blob/main/executor-scripts/linux/wifi
 - [Draft Release Notes for Alpine 3.15.0](https://wiki.alpinelinux.org/wiki/Draft_Release_Notes_for_Alpine_3.15.0)
 
 ## 3.14

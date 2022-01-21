@@ -83,6 +83,7 @@ tags:
   - AMQP, MQTT, STOMP, HTTP
 - [nats-io/nats-server](https://github.com/nats-io/nats-server)
   - [liftbridge-io/liftbridge](https://github.com/liftbridge-io/liftbridge)
+    - [vs. NATS Streaming](https://liftbridge.io/docs/feature-comparison.html)
   - [nats-io/nats-streaming-server](https://github.com/nats-io/nats-streaming-server)
     - 已废弃 - 使用 jetstream - nats 启动添加 -js
     - Protocol Buffer 编码

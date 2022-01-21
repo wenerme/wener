@@ -35,6 +35,7 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=28435613)
 - [Ex0dIa-dev/ssh-honeypot-go](https://github.com/Ex0dIa-dev/ssh-honeypot-go)
 - [sairson/Yasso](https://github.com/sairson/Yasso)
+- [geemion/Khepri](https://github.com/geemion/Khepri)
 
 ## Reference
 

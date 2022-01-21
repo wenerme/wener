@@ -55,6 +55,8 @@ tags:
 ### Tools
 
 - [GoogleContainerTools/container-diff](https://github.com/GoogleContainerTools/container-diff)
+- [jwilder/dockerize](https://github.com/jwilder/dockerize)
+- [containerd/stargz-snapshotter](https://github.com/containerd/stargz-snapshotter)
 - 参考
   - [构建容器的最佳做法](https://cloud.google.com/solutions/best-practices-for-building-containers)
 

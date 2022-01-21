@@ -42,14 +42,21 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
     - urfave/cli 更加 declarative
   - [urfave/cli](https://github.com/urfave/cli)
 - IoC - fx
-- JWT
+- JWX
   - [golang-jwt/jwt](https://github.com/golang-jwt/jwt)
-- JWK
   - [lestrrat-go/jwx](https://github.com/lestrrat-go/jwx)
     - jwt,jwk,jwa,jws,jwe
 - OIDC
   - [caos/oidc](https://github.com/caos/oidc)
     - op,rs
+  - [golang.org/x/oauth2](https://pkg.go.dev/golang.org/x/oauth2)
+- 配置
+  - viper - 重量级
+    - 会 lowercase YAML key
+    - break space
+  - [caarlos0/env](https://github.com/caarlos0/env)
+  - [knadh/koanf](https://github.com/knadh/koanf)
+    - 轻量 - 功能按需引入 - binary 小
 - 日志
   - zap
   - logrus
@@ -239,6 +246,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [razorpay/go-financial](https://github.com/razorpay/go-financial)
   - numpy-financial
   - [Go Financial — A pkg for elementary financial functions](https://engineering.razorpay.com/892b1532eb2e)
+- [loov/goda](https://github.com/loov/goda)
+  - Go Dependency Analysis toolkit
 
 ## 代码生成
 
@@ -299,6 +308,9 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 - [go-playground/validator](https://github.com/go-playground/validator)
   - struct 标签注解校验 - 类似于 Java 的 Bean Validate
+  - 功能完善
+- [go-validator/validator](https://github.com/go-validator/validator)
+  - 实现简单 - 基础类型基础功能
 - [go-ozzo/ozzo-validation](https://github.com/go-ozzo/ozzo-validation)
   - 校验库
 - mapstructure
@@ -388,15 +400,6 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - 哔哩哔哩 RPC 框架
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
-
-## 工具
-
-- 配置
-  - viper - 重量级
-    - 会 lowercase YAML key
-    - break space
-  - [knadh/koanf](https://github.com/knadh/koanf)
-    - 轻量 - 功能按需引入 - binary 小
 
 ## 国内环境
 

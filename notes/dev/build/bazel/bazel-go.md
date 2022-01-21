@@ -193,3 +193,7 @@ go_register_toolchains(version = "host")
 - https://github.com/bazelbuild/bazel-gazelle/issues/701
 - https://github.com/bazelbuild/bazel-gazelle/issues/549
 - https://github.com/bazelbuild/bazel-gazelle/issues/543
+
+## go: cannot find GOROOT directory: /usr/local/go
+
+/usr/lib/go

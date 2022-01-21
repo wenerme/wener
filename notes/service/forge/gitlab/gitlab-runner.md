@@ -404,3 +404,17 @@ docker run -d --restart always \
 
 - 默认 runner 镜像 `gitlab/gitlab-runner:alpine-v{VERSION}`
   - https://hub.docker.com/r/gitlab/gitlab-runner
+
+# FAQ
+
+## zombie process in Runner
+
+自行构建 runner 的时候注意添加 init
+
+```dockerfile
+RUN apk add --no-cache dumb-init
+ENTRYPOINT ["/usr/bin/dumb-init", "gitlab-ci-runner"]
+CMD ["run"]
+```
+
+- https://gitlab.com/gitlab-org/gitlab-runner/-/issues/989

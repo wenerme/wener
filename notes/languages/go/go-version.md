@@ -42,12 +42,18 @@ tags:
   - 新增 go.work 配置文件 - -workfile
     - go.work.sum
   - 新增 GOWORK 环境变量
-- 新增 fuzzing
+- 新增 fuzzing 测试 - https://go.dev/doc/fuzz/
 - 新包
   - constraints
-  - debug/buildinfo - 内置 VCS 版本信息 - GOVCS
+  - debug/buildinfo - 内置 VCS 版本信息 -
+    - 新增 GOVCS 环境变量
     - 减少使用 -X 场景
     - 构建重现
+    - Settings
+      - vsc.modified=true - dirty
+      - vsc.time
+      - vsc.revision=SHA256
+      - vsc=git
   - net/netip
 - 包变化
   - runtime/debug.BuildInfo 增加 GoVersion, Settings

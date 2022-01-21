@@ -13,6 +13,7 @@ tags:
 | IPIP  |
 | LACP  | Link Aggregation Control Protocol |
 | LAG   | Link Aggregation Group            | 链路聚合分组 |
+| LRO   | Large Receive Offload             |
 | SCTP  |
 | SIT   |
 | STP   | Spanning Tree Protocol            |

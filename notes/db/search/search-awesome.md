@@ -61,3 +61,6 @@ tags:
 ## Tech
 
 - TF-IDF
+- FST - finite state transducer
+  - [Index 1,600,000,000 Keys with Automata and Rust](https://blog.burntsushi.net/transducers/)
+  - [BurntSushi/fst](https://github.com/BurntSushi/fst)

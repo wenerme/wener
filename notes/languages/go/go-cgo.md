@@ -152,6 +152,8 @@ package dlopen
   - [crawshaw/sqlite](https://github.com/crawshaw/sqlite)
     -  low-level Go interface to SQLite 3
     - [Go and SQLite: when database/sql chafes](https://crawshaw.io/blog/go-and-sqlite)
+  - [cznic/sqlite](https://gitlab.com/cznic/sqlite)
+    - CGo-free port of SQLite/SQLite3 v3.37.0
   - [alicebob/sqlittle](https://github.com/alicebob/sqlittle)
     - 直接读取文件 - 不支持 SQL
     - 只读

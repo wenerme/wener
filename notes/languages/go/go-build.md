@@ -10,6 +10,7 @@ title: Go Build
   - [GoArm](https://github.com/golang/go/wiki/GoArm)
   - [go-os-arch.md](https://gist.github.com/asukakenji/f15ba7e588ac42795f421b48b8aede63)
   - [PortingPolicy](https://github.com/golang/go/wiki/PortingPolicy)
+  - [Installing Go from source](https://go.dev/doc/install/source)
 
 :::caution
 
@@ -60,6 +61,11 @@ go clean -modcache
 | -linkmode=external                  |
 | -extldflags "$LDFLAGS"              |
 
+| gcflags | desc                  |
+| ------- | --------------------- |
+| -N      | Disable optimizations |
+| -l      | Disable inlining      |
+
 | flags                 | desc                             |
 | --------------------- | -------------------------------- |
 | -modcacherw           | 新的 mod 缓存 rw - 可以 `rm -rf` |
@@ -67,6 +73,11 @@ go clean -modcache
 | -ldflags "$GOLDFLAGS" |
 | -mod=readonly         | 不动 go.mod                      |
 | -buildmode=pie        |
+
+```bash
+# https://pkg.go.dev/cmd/compile
+go tool compile -help
+```
 
 | env        | default | desc        |
 | ---------- | ------- | ----------- |

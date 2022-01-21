@@ -1,15 +1,14 @@
 ---
-id: php-pecl
 title: PHP Pecl
 ---
 
-# PHP
+# PHP Pecl
 
-## Tips
+:::info
 
-* After Alpine v3.5, the `/usr/bin/php` is php7, before that is php5 in php5-cli package.
+After Alpine v3.5, the `/usr/bin/php` is php7, before that is php5 in php5-cli package.
 
-## PECL
+:::
 
 ```bash
 # igbinary
@@ -20,7 +19,7 @@ pecl install -o -f igbinary
 # OPTIONS: igbinary, lzf
 # https://pecl.php.net/package/redis
 pecl install -o -f redis <<<""
-# build 
+# build
 apk add xz-dev
 pecl install -o -f redis < <(echo -e "yes\nyes")
 # 有些环境下不支持 < <() 语法可以这样

@@ -6,6 +6,11 @@ tags:
 
 # Auth Glossary
 
+| abbr. | stand for              | mean               |
+| ----- | ---------------------- | ------------------ |
+|       | two-legged OAuth 2.0   | client_credentials |
+|       | three-legged OAuth 2.0 |
+
 ## IdP - Identity Provider
 
 - 提供认证信息

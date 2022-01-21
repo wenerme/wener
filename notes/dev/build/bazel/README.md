@@ -36,10 +36,32 @@ title: Bazel
 - Remote Cache 和 Remote Execution
 - Reproduce 构建
 - 多语言多平台复杂构建
+- **大多时候不需要使用 Bazel**
 
 :::
 
-:::caution
+:::caution When **not** to use Bazel
+
+- 所有被依赖的内容都会进行明确定义 - 目录下包含 BUILD.bazel
+- 依赖变化需要重新生成各种 BUILD.bazel
+  - 是一种开发负担 - 因此规模不大时不建议使用 Bazel
+- Bazel 会维护自己的缓存
+  - 不会使用 go 的全局缓存
+  - 不会使用 npm/yarn 的全局缓存
+  - 好处: Remote 执行, 跨主机共享
+  - 坏处: 磁盘空间, 网络环境
+- Bazel 会维护自己的工具链
+  - 每个 WORKSPACE 都会下载 toolchain - 例如 go,node
+  - 好处: 确保环境版本
+  - 坏处: 占用磁盘空间, 国内环境下载可能有问题
+- Bazel 运行环境复杂 - 如果需要分发给其他人编辑构建的场景不建议使用
+  - JDK, Python, coreutils
+- Bazel 启动和分析需要时间 - 如果现行构建时间 < 10m 时不建议使用
+
+:::
+
+
+:::warning
 
 - Bazel 官方构建的不支持 musl
 

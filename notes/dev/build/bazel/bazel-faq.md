@@ -75,3 +75,7 @@ Error relocating /usr/bin/bazel-real: _ZSt28__throw_bad_array_new_lengthv: symbo
 # Missing
 objdump -T /usr/lib/libstdc++.so.6 | grep throw_bad_array
 ```
+
+## glob: recursive wildcard must be its own segment
+
+- `glob("src/**.c")` -> `glob("src/**/*.c")`

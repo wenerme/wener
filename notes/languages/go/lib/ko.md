@@ -31,6 +31,8 @@ kustomize build config | ko resolve -f -
 
 # bash completion
 ko completion
+# go.mod
+ko publish -L --bare --platform=linux/amd64 --push=false -t $(git rev-parse HEAD) .
 ```
 
 ```yaml

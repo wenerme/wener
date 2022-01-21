@@ -407,8 +407,6 @@ history:
 dynamicConfigClient:
   filepath: /etc/cadence/config/dynamicconfig/config.yaml
   pollInterval: 10s
-
-
 ```
 
 ```yaml

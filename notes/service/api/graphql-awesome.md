@@ -85,6 +85,8 @@ tags:
   - 受 nautilus 启发
 - [nautilus/gateway](https://github.com/nautilus/gateway)
   - 开发不活跃
+- [google/rejoiner](https://github.com/google/rejoiner)
+  - Generates a unified GraphQL schema from gRPC microservices and other Protobuf sources
 - [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
   - GraphQL Adapter
   - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j

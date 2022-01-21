@@ -94,6 +94,7 @@ tags:
   - Automatic Language-Agnostic Subtitle Synchronization
 - [SubSync: Subtitle Speech Synchronizer](https://subsync.online/)
   - [HN](https://news.ycombinator.com/item?id=29794153)
+- [gnes-ai/gnes](https://github.com/gnes-ai/gnes)
 
 ---
 

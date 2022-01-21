@@ -1,12 +1,12 @@
 ---
 title: 网络常见问题
 tags:
-- FAQ
+  - FAQ
 ---
 
 # 网络常见问题
 
-# VTI vs XFRM
+## VTI vs XFRM
 
 > XFRM 比 VTI 更好
 
@@ -27,7 +27,7 @@ tags:
 - 参考
   - [RouteBasedVPN](https://wiki.strongswan.org/projects/strongswan/wiki/RouteBasedVPN)
 
-# VPN vs Mesh Network
+## VPN vs Mesh Network
 
 - VPN
   - 通常指传统 VPN - 例如 OpenVPN, IPSec
@@ -40,7 +40,7 @@ tags:
   - 多为平等节点关系 - Server to Server
   - 多用于基础网络建设
 
-# bridge vs macvlan
+## bridge vs macvlan
 
 - bridge
   - 完整功能
@@ -51,7 +51,7 @@ tags:
   - 不会学习 Mac 地址，不会内部转发 - 因此稍微会快一点，内存少一点
 - [Bridge vs Macvlan](https://hicu.be/bridge-vs-macvlan)
 
-# DROP vs REJECT
+## DROP vs REJECT
 
 :::tip
 
@@ -71,7 +71,7 @@ tags:
   - 对于恶意攻击可嗅探则会立即返回增加检测速度
   - 用户体验会更好
 
-# mangle vs nat
+## mangle vs nat
 
 - 两者都是操作、修改包
 - mangle 先于 nat
@@ -83,7 +83,7 @@ tags:
 - nat
   - 地址转换
 
-# MASQUERADE vs SNAT
+## MASQUERADE vs SNAT
 
 > 两者都做 来源地址转换 - Source NAT
 
@@ -98,7 +98,7 @@ iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 192.168.8.2
 ```
 
-# Nginx/HAProxy 端口转发 vs IPTables 端口转发
+## Nginx/HAProxy 端口转发 vs IPTables 端口转发
 
 - IPTables
   - 性能最好
@@ -106,7 +106,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 192.168.8.2
 - Nginx/HAProxy
   - 应用层功能更强
 
-# ifconfig eth0:0 语法
+## ifconfig eth0:0 语法
 
 - 是 ifconfig 支持多 ip 的写法，等同于 iproute2 的 `ip addr add`
 - 后面的名字是地址的标签, linux 2.0 网络别名, 以设备名字+`:`为开头, 最长 15
@@ -121,4 +121,6 @@ ip addr add 192.168.1.2/24 dev eth0 label eth0:0
 - 参考
   - [ip-address.8](http://manpages.ubuntu.com/manpages/hirsute/en/man8/ip-address.8.html)
 
-# ping: sendto: Invalid argument
+## ping: sendto: Invalid argument
+
+## ping Destination Host Unreachable

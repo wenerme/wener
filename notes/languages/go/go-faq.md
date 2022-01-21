@@ -13,9 +13,14 @@ tags:
 
 :::
 
-## 使用最新测试版本
+## 安装指定版本 Golang 环境
 
-- $HOME/sdk/go$VERSION/go$VERSION.darwin-amd64.tar.gz
+- 下载位置
+  - $HOME/sdk/go$VERSION/go$VERSION.darwin-amd64.tar.gz
+- 安装逻辑 [golang.org/dl/internal/version/version.go]（https://cs.opensource.google/go/dl/+/1eec6072:internal/version/version.go
+- 安装完成不会删除压缩包，可自己删除
+- tip 最新 latest
+  - 下载源码进行编译
 
 ```bash
 # 下载 tip 版本
@@ -23,9 +28,40 @@ go install golang.org/dl/gotip@latest
 gotip download
 
 # 下载最新版本
+# 从 dl.google.com 下载
+# 默认安装到 ~/sdk/
 go install golang.org/dl/go1.18beta1@latest
 go1.18beta1 download
 go1.18beta1 env GOROOT
+～/sdk/go1.18beta1/bin/go env
+
+# 安装到别的地方
+HOME=/opt ~/go/bin/go1.18beta1 download
+/opt/sdk/go1.18beta1/bin/go env
+```
+
+## go: cannot find GOROOT directory: /usr/local/go
+
+- 从源码构建默认 GOROOT_FINAL=/usr/local/go
+- AlpineLinux 默认为 /usr/lib/go
+  - 自行构建可修改 - [alpinelinix/go/APKBUILD](https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/community/go/APKBUILD#L135)
+- bazel 安装的 Go 也有这个问题
+
+---
+
+1. 创建目录 - 推荐方式
+
+```bash
+ln -s /opt/sdk/go1.18beta1 /usr/local/go
+```
+
+2. 修改 GOROOT 配置
+
+```bash
+GOROOT=/opt/sdk/go1.18beta1 /opt/sdk/go1.18beta1/bin/go env
+# 写入后便不会报错
+GOROOT=/opt/sdk/go1.18beta1 /opt/sdk/go1.18beta1/bin/go env -w GOROOT=/opt/sdk/go1.18beta1
+/opt/sdk/go1.18beta1/bin/go env
 ```
 
 ## golang.org/x
@@ -194,7 +230,7 @@ relfect 不允许访问未导出字段
   - 默认支持 CGO
   - 支持更多平台 - 所有 GCC 支持的平台
   - 交叉编译非常难
-  - 动态链接 - 体积非常小 - HelloWorld 250K
+  - 动态链接 - 体积非常小 - HelloWorld 250K vs 2MB
     - libgo, libm, libgcc, libz, libpthread, ld.so, linux-vdso.so - virtual shared object
 
 ```bash
@@ -223,3 +259,10 @@ go build -gccgoflags "-s -w" main.go
 <module> <version> <hash>
 <module> <version>/go.mod <hash>
 ```
+
+## GODEBUG
+
+- GODEBUG=netdns=go
+- GODEBUG=netdns=cgo
+- GODEBUG=netdns=go+2
+- GODEBUG=netdns=cgo+2
