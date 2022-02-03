@@ -67,6 +67,7 @@ tags:
   - react-motion
   - react-move
   - [danro/easing-js](https://github.com/danro/easing-js)
+  - [mojs/mojs](https://github.com/mojs/mojs)
 - functional
   - [ramda](https://github.com/ramda/ramda)
   - [fp-ts](https://github.com/gcanti/fp-ts)
@@ -189,6 +190,8 @@ tags:
   - [developit/microbundle](https://github.com/developit/microbundle)
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
+- benchmark
+  - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
 
 ---
 

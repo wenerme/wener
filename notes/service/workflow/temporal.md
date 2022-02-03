@@ -29,34 +29,6 @@ alias tctl="docker exec --env TEMPORAL_CLI_ADDRESS=host.docker.internal:7233 tem
 tctl namespace describe
 ```
 
-## 部署
-
-- Persistence
-  - Cassandra, PostgreSQL, MySQL
-  - SQLite WIP
-- Workflow search
-  - Elasticsearch v6.8+
-- Helm https://github.com/temporalio/helm-charts
-  - 官方不推荐生产直接使用 Helm 部署
-  - https://docs.temporal.io/blog/temporal-and-kubernetes/
-- 限制 - [Server limits](https://docs.temporal.io/docs/server/production-deployment/#server-limits)
-  - gRPC 4MB
-  - TransactionSizeLimit 4MB - 事务大小限制
-  - Blob size limit - 请求包大小
-    - BlobSizeLimitWarn 512KB
-    - BlobSizeLimitError 2MB
-  - History total size limit - 历史大小
-    - HistorySizeLimitWarn 10MB
-    - HistorySizeLimitError 50MB
-  - History total count limit - 历史事件数量
-    - HistoryCountLimitWarn 10000
-    - HistoryCountLimitError 50000
-  - Search Attributes
-    - SearchAttributesNumberOfKeysLimit 100 - 数量
-    - SearchAttributesTotalSizeLimit 2KB - 单个属性大小
-    - SearchAttributesSizeOfValueLimit 40KB - 中大小
-- [Antipatterns & Best practices](https://docs.temporal.io/docs/server/production-deployment#further-things-to-consider)
-
 ## tctl
 
 - https://github.com/temporalio/tctl
@@ -84,6 +56,41 @@ tctl admin
 tctl admin cluster
 ```
 
+## 部署
+
+- Persistence
+  - Cassandra, PostgreSQL, MySQL
+  - SQLite WIP
+- Workflow search
+  - Elasticsearch v6.8+
+- Helm https://github.com/temporalio/helm-charts
+  - 官方不推荐生产直接使用 Helm 部署
+  - https://docs.temporal.io/blog/temporal-and-kubernetes/
+- 限制 - [Server limits](https://docs.temporal.io/docs/server/production-deployment/#server-limits)
+  - gRPC 4MB
+  - TransactionSizeLimit 4MB - 事务大小限制
+  - Blob size limit - 请求包大小
+    - BlobSizeLimitWarn 512KB
+    - BlobSizeLimitError 2MB
+  - History total size limit - 历史大小
+    - HistorySizeLimitWarn 10MB
+    - HistorySizeLimitError 50MB
+  - History total count limit - 历史事件数量
+    - HistoryCountLimitWarn 10000
+    - HistoryCountLimitError **50000**
+  - Search Attributes
+    - SearchAttributesNumberOfKeysLimit 100 - 数量
+    - SearchAttributesTotalSizeLimit 2KB - 单个属性大小
+    - SearchAttributesSizeOfValueLimit 40KB - 中大小
+  - Child Workflow - History 独立于 Parent - 可用于 Partition History 压力
+    - 每个 Workflow 最多 1000 Child Workflow
+      - Child Workflow 的 Child Workflow 不受影响
+      - 可以多层级
+    - 尽量在单层 Workflow History 有压力的时候再使用
+      - 尽量 Activities 都在一层 Workflow
+  - ContinueAsNew - 从新计 History - 用于减缓 History 压力
+- [Antipatterns & Best practices](https://docs.temporal.io/docs/server/production-deployment#further-things-to-consider)
+
 ## Server
 
 - [Temporal Server options](https://docs.temporal.io/docs/server/options)
@@ -101,6 +108,44 @@ tctl admin cluster
   - ServerFx - root fx.App - Bootstrap
   - ServerImpl.Start 会启动所有的 ServicesMetadata
   - resource.BootstrapParams Service 启动上下文
+- Workflow
+  - Workflow Task Timeout - 10s
+  - ChildWorkflow
+    - ParentClosePolicy
+      - ABANDON - Parent 结束, Child 不受影响
+      - TERMINATE - 立即终止
+      - REQUEST_CANCEL - 请求取消
+- Activity
+  - 状态
+    - Scheduled -> Started -> Completed
+    - Scheduled -> Started -> Retry Backoff -> Scheduled
+  - 超时
+    - ScheduleToStart - 默认 ∞
+      - 每次 Scheduled -> Started
+    - StartToClose - 默认=ScheduleToStart
+      - 每次 Started -> Completed
+    - ScheduleToClose - 默认 ∞ - 总体绝对时间
+      - Scheduled -> \* -> Completed
+  - LocalActivity
+    - 用于本地快速执行的函数 - < 10s
+    - 使用更少的 Temporal 服务资源 - 不记录
+    - 本地执行 - 无 队列、流控、限流、路由 能力
+    - 不需要 Heartbeating
+    - 更低延时
+    - 尽量使用 正常 Activity - [LocalActivity vs Activity](https://community.temporal.io/t/local-activity-vs-activity/290/3)
+- TaskQueue
+  - Sticky Execution - 默认开启 - DisableStickyExecution
+    - Worker 完成了 Workflow 的第一个任务，则会开始拉取之后的更新
+    - 集群暂时不需要进行调度
+    - StickyScheduleToStartTimeout=5s - 当粘性 执行/Pull 超时后，集群恢复调度 Workflow
+    - StickyWorkflowCacheSize=10,000
+- Signal
+  - Recipient - WorkflowExecution=Namespace + Workflow Id
+  - Id
+  - Name - queue
+- AdvancedVisibility
+  - [ListFilter](https://docs.temporal.io/docs/content/what-is-a-list-filter/)
+  - [默认搜索属性](https://docs.temporal.io/docs/temporal-explained/visibility#default-search-attributes)
 - 组件
   - frontend - 网关
     - 限流、路由、认证
@@ -126,7 +171,6 @@ tctl admin cluster
     - worker - Worker
     - 其他 - Undefined
   - role 有继承逻辑
-
 
 ```bash
 # 实际会运行的服务
@@ -224,7 +268,6 @@ clusterMetadata:
 }
 ```
 
-
 ## Bootstrap
 
 - install schema
@@ -260,4 +303,31 @@ temporal-sql-tool --ep 127.0.0.1 -p 5432 -u temporal -pw temporal --pl postgres 
 temporal-sql-tool --ep 127.0.0.1 -p 5432 -u temporal -pw temporal --pl postgres create --db temporal_visibility
 temporal-sql-tool --ep 127.0.0.1 -p 5432 -u temporal -pw temporal --pl postgres --db temporal_visibility setup-schema -v 0.0
 temporal-sql-tool --ep 127.0.0.1 -p 5432 -u temporal -pw temporal --pl postgres --db temporal_visibility update-schema -d ./schema/postgresql/v96/visibility/versioned
+```
+
+## temporal-web
+
+- [temporalio/web](https://github.com/temporalio/web)
+  - JS+Vue
+
+```bash
+docker run --rm -it \
+  -v $PWD/config.yml:/usr/app/server/config.yml \
+  -p 8088:8088 \
+  temporalio/web:latest
+```
+
+```yaml title="config.yml"
+auth:
+  enabled: true # Temporal Web checks this first before reading your provider config
+  providers:
+    - label: 'Auth0 oidc' # for internal use; in future may expose as button text
+      type: oidc # for futureproofing; only oidc is supported today
+      issuer: https://myorg.us.auth0.com
+      client_id: xxxxxxxxxxxxxxxxxxxx
+      client_secret: xxxxxxxxxxxxxxxxxxxx
+      scope: openid profile email
+      audience: # identifier of the audience for an issued token (optional)
+      callback_base_uri: http://localhost:8088
+      pass_id_token: false # adds ID token as 'authorization-extras' header with every request to server
 ```

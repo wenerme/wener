@@ -8,9 +8,10 @@ title: deno
   - MIT, Rust
   - 基于 V8
   - 内置 包管理、tsc、fmt、test、bundle、lint、lsp 等功能
-    - 理念类似于 golang
   - 通过 url 引用外部模块 - 运行时下载
   - 严格的权限管理 - 沙盒功能强
+  - 功能理念类似于 golang
+    - stdlib 参照 go 实现
 - Deno 全局命名空间
 
 ```ts

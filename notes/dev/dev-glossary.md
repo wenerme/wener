@@ -12,6 +12,7 @@ tags:
 | [RAII] | Resource acquisition is initialization | 资源获取即初始化 |
 | OOM    | Out of memory                          |
 | NPE    | Null Pointer Exception                 | 空指针异常       |
+| RTTI   | Runtime Type Information               |
 
 [raii]: https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization
 

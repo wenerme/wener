@@ -24,24 +24,36 @@ tags:
   - [The State of Web Scraping in 2021](https://mihaisplace.blog/2021/10/03/the-state-of-web-scraping-in-2021/)
     - [HN](https://news.ycombinator.com/item?id=28827509)
 
-## Pipeline
+## ETL Pipeline
 
+- [singer.io](https://github.com/singer-io)
+- [transferwise/pipelinewise](https://github.com/transferwise/pipelinewise)
+  - Apache-2.0, Python
+  - Tap 为 AGPL-3.0
+  - Data Pipeline Framework using the singer.io spec
+  - postgres tap 基于 wal2json
 - [apache/arrow-datafusion](https://github.com/apache/arrow-datafusion)
   - https://news.ycombinator.com/item?id=28296227
-- [apache/airflow](https://github.com/apache/airflow)
-- [polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
-  Machine Learning Platform for Kubernetes
 - [dask/dask](https://github.com/dask/dask)
   Parallel computing with task scheduling
-- [spotify/luigi](https://github.com/spotify/luigi)
-- [flyteorg/flyte](https://github.com/flyteorg/flyte)
-  Kubernetes-native workflow automation platform - Machine Learning & Data Processing
 - [airbytehq/airbyte](https://github.com/airbytehq/airbyte)
   - MIT, Java+Python+TypeScript
 - [nuclio/nuclio](https://github.com/nuclio/nuclio)
   Serverless event and data processing platform
   - Apache-2.0, Go
 - [pditommaso/awesome-pipeline](https://github.com/pditommaso/awesome-pipeline)
+
+## ML Pipeline
+
+- [flyteorg/flyte](https://github.com/flyteorg/flyte)
+  Kubernetes-native workflow automation platform - Machine Learning & Data Processing
+- [polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
+  Machine Learning Platform for Kubernetes
+
+## Workflow
+
+- [spotify/luigi](https://github.com/spotify/luigi)
+- [apache/airflow](https://github.com/apache/airflow)
 
 ## Archive
 
@@ -66,6 +78,7 @@ tags:
 - [Profil3r – OSINT Tool To Find Social Media Profiles & Their Email Addresses](https://skynettools.com/profil3r-osint-tool-to-find-social-media-profiles-their-email-addresses/)
 - [Open-source intelligence](https://en.wikipedia.org/wiki/Open-source_intelligence)
 - [ml874/Data-Science-Cheatsheet](https://github.com/ml874/Data-Science-Cheatsheet)
+- [looker-open-source/malloy](https://github.com/looker-open-source/malloy)
 
 ## Tools
 

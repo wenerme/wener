@@ -22,6 +22,9 @@ tags:
 - [uptrace/uptrace](https://github.com/uptrace/uptrace)
   - BSL, Golang
   - 存储使用 ClickHouse
+- [lmangani/cLoki](https://github.com/lmangani/cLoki)
+  - AGPL-3.0, JS
+  - Loki+ClickHouse
 
 ## Integration
 

@@ -12,6 +12,8 @@ tags:
 - 基于 Tantivy
   - [toshi-search/Toshi](https://github.com/toshi-search/Toshi)
   - [bayard-search/bayard](https://github.com/bayard-search/bayard)
+  - [quickwit-inc/quickwit](https://github.com/quickwit-inc/quickwit)
+    - AGPL-3.0, Rust
 - [valeriansaliou/sonic](https://github.com/valeriansaliou/sonic)
   - MPL-2.0, Rust
   - schema-less search backend
@@ -37,10 +39,13 @@ tags:
 - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
 - [gajus/liqe](https://github.com/gajus/liqe)
   - Lucene-like parser and search engine
+- [blugelabs/bluge](https://github.com/blugelabs/bluge)
 - [prabhatsharma/zinc](https://github.com/prabhatsharma/zinc)
   - Apache-2.0, Go+Vue
   - alternative to elasticsearch
-  - Index [blugelabs/bluge](https://github.com/blugelabs/bluge)
+  - 基于 bluge
+- [MeiliSearch](https://github.com/meilisearch/MeiliSearch)
+  - MIT, Rust
 
 ## Lcoal Search
 

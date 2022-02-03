@@ -165,10 +165,12 @@ tags:
 - [slatedocs/slate](https://github.com/slatedocs/slate)
 - swagger
 - graphql
+- OpenAPI
 
 ## Tool
 
 - [Kong/insomnia](https://github.com/Kong/insomnia)
+- [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 
 ## 参考
 

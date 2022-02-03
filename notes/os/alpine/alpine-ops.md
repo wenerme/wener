@@ -975,3 +975,19 @@ apk add utmps
 service utmpd start
 service wtmpd start
 ```
+
+## ntpd
+
+- 推荐使用 chrony
+- busybox 的 ntpd 能用
+- https://www.pool.ntp.org/zone/hk
+
+```bash
+# busybox openntpd chrony none
+setup-ntp -c chrony
+adjtimex
+
+# busybox ntpd 手动同步
+ntpd -dn -N -p pool.ntp.org
+ntpd -dn -N -p 3.cn.pool.ntp.org
+```

@@ -83,10 +83,12 @@ tags:
 - [FerretDB/FerretDB](https://github.com/FerretDB/FerretDB)
   - Apache-2.0, Go
   - mongodb wire protocol to PostgreSQL
+- [alash3al/redix](https://github.com/alash3al/redix)
+  - Apache-2.0, Go
+  - redis wire protocol to PostgreSQL
 - [TAO: Facebook’s Distributed Data Store for the Social Graph](https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html)
   - TAO - The Associations and Objects
   - [HN](https://news.ycombinator.com/item?id=29045443)
-- [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL
 - [dolthub/dolt](https://github.com/dolthub/dolt)
@@ -95,6 +97,11 @@ tags:
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
 - [codenotary/immudb](https://github.com/codenotary/immudb)
   - immutable database
+- SQLite
+  - [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
+    - Apache-2.0, Go
+    - Streaming replication for SQLite
+  - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 
 ## ID
 
@@ -166,3 +173,7 @@ tags:
     - Versatile SQL engine enables complex queries, text searches, and aggregations – in real time or against volumes of historic data.
 - [caesar0301/awesome-public-datasets](https://github.com/caesar0301/awesome-public-datasets)
 - https://dbmstools.com/
+
+## Read
+
+- [How and why the Relational Model works for databases](https://blog.the-pans.com/relational/)

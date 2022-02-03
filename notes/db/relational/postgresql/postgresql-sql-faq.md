@@ -14,6 +14,7 @@ tags:
 :::caution
 
 - `data->'field' is not null` 无法检测 null 数据 - 通过 `->>` 可以检测到 null
+- 使用 json_typeof 监测 null - `json_typeof(col->'field') = 'null'`
 
 :::
 

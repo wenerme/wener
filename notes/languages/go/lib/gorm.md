@@ -283,3 +283,13 @@ type Toy struct {
   OwnerUID string
 }
 ```
+
+## 添加 SQL 函数 默认值
+
+```go
+type User struct {
+    ID          int       `sql:"DEFAULT:myfunction"`
+    XID         int       `sql:"type:bigint; DEFAULT:id_generator()"`
+    CreatedAt   time.Time `sql:"DEFAULT:current_timestamp"`
+}
+```

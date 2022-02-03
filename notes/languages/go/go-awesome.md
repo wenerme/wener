@@ -65,6 +65,9 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - Observerable
   - Prometheus Metrics
   - Jaeger
+- Testing
+  - [onsi/ginkgo](https://github.com/onsi/ginkgo)
+  - [smartystreets/goconvey](https://github.com/smartystreets/goconvey)
 - 参考
   - [mingrammer/go-web-framework-stars](https://github.com/mingrammer/go-web-framework-stars)
 
@@ -122,8 +125,10 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
     - [sourcegraph/sourcegraph#16575](https://github.com/sourcegraph/sourcegraph/issues/16575#issuecomment-747923724)
 - [lib/pq](https://github.com/lib/pq)
 
-## 数据库操作
+## 数据库相关
 
+- [guregu/null](https://github.com/guregu/null)
+  - 包装 sql.Null 支持 序列化
 - [ariga/sqlcomment](https://github.com/ariga/sqlcomment)
   - 添加注释 - 用于 trace
 - [qustavo/sqlhooks](https://github.com/qustavo/sqlhooks)
@@ -134,8 +139,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - Golang Web 管理工具 - MIT, 只读
 - [volatiletech/sqlboiler](https://github.com/volatiletech/sqlboiler)
   - database-first ORM
-- [uptrace/bun](https://github.com/uptrace/bun)
-  - SQL Builder
+- [xo/xo](https://github.com/xo/xo)
+  - DB 生成 Go
+- [jmoiron/sqlx](https://github.com/jmoiron/sqlx)
+  - 辅助 sql 操作
+- [xo/dburl](https://github.com/xo/dburl)
+  - Connect String
+- SQL Builder
+  - [Masterminds/squirrel](https://github.com/Masterminds/squirrel)
+  - [uptrace/bun](https://github.com/uptrace/bun)
 - 迁移
   - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
   - [rubenv/sql-migrate](https://github.com/rubenv/sql-migrate)
@@ -190,6 +202,9 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - 能 Wrap http 的 Handler
   - 基于 httprouter 路由 - 不能区分路由 `/users/like`, `/users/:userId`
   - 不适用于 RESTful 接口
+- [gofiber/fiber](https://github.com/gofiber/fiber)
+  - 非 net/http 体系
+  - 基于 fasthttp
 - beego
   - 用于快速开发的完整框架 - All in one
   - 不推崇，尽量避免使用
@@ -398,8 +413,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - grpc,wire
   - kratos 命令行工具
   - 哔哩哔哩 RPC 框架
+- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+  - 好未来技术
+  - 自定义 DSL + goctl 生成
+- [cloudwego/kitex](https://github.com/cloudwego/kitex)
+  - Apache-2.0, Go
+  - 字节跳动 RPC 框架
 - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
+- [unionj-cloud/go-doudou](https://github.com/unionj-cloud/go-doudou)
 
 ## 国内环境
 
@@ -484,6 +506,13 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [esimov/caire](https://github.com/esimov/caire)
   内容感知的图像缩放
 - [Go in a scratch VM](https://syslog.ravelin.com/a28c14e82a51)
+- 游戏
+  - [Lallassu/bintris](https://github.com/Lallassu/bintris)
+- 算法
+  - [smarty-archives/mafsa](https://github.com/smarty-archives/mafsa)
+    - Minimal Acyclic Finite State Automata
+  - [blevesearch/vellum](https://github.com/blevesearch/vellum)
+    - FST
 
 ## 控制理论 / Control theory
 
@@ -510,6 +539,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [google/ko](https://github.com/google/ko)
   Build and deploy Go applications on Kubernetes
 - [go-task/task](https://github.com/go-task/task)
+- [charmbracelet/wish](https://github.com/charmbracelet/wish)
+  - Make SSH apps
 
 ```bash
 go install github.com/jondot/goweight@latest
@@ -535,6 +566,7 @@ goweight
 - [rainycape/governator](https://github.com/rainycape/governator)
   - process manager for UNIX systems
 - [ochinchina/supervisord](https://github.com/ochinchina/supervisord)
+- [immortal/immortal](https://github.com/immortal/immortal)
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
 - [progrium/macdriver](https://github.com/progrium/macdriver)
   - Native Mac APIs for Go
@@ -621,10 +653,6 @@ goweight
   - https://github.com/markbates/goth
     - Package goth provides a simple, clean, and idiomatic way to write authentication packages for Go web applications.
 - https://gitea.com/lunny/tango
-
-### Test
-
-- https://github.com/smartystreets/goconvey
 
 ### Misc
 

@@ -1,5 +1,4 @@
 ---
-id: supervision
 title: Process supervision
 ---
 

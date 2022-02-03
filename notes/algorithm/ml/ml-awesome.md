@@ -95,6 +95,22 @@ tags:
 - [SubSync: Subtitle Speech Synchronizer](https://subsync.online/)
   - [HN](https://news.ycombinator.com/item?id=29794153)
 - [gnes-ai/gnes](https://github.com/gnes-ai/gnes)
+- [apache/tvm](https://github.com/apache/tvm)
+- [facebookresearch/ConvNeXt](https://github.com/facebookresearch/ConvNeXt)
+- [NVlabs/instant-ngp](https://github.com/NVlabs/instant-ngp)
+- [lucidrains/RETRO-pytorch](https://github.com/lucidrains/RETRO-pytorch)
+- [libffcv/ffcv](https://github.com/libffcv/ffcv)
+- [johnnyzn/DW-GAN](https://github.com/johnnyzn/DW-GAN)
+  - CAPTCHA
+- [Kubasinska/MI-EEG-1D-CNN](https://github.com/Kubasinska/MI-EEG-1D-CNN)
+- [google-research/circuit_training](https://github.com/google-research/circuit_training)
+- orgs
+  - [NVlabs](https://github.com/NVlabs)
+  - [facebookresearch](https://github.com/facebookresearch)
+- music
+  - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
+- serving
+  - [johnolafenwa/deepstack](https://github.com/johnolafenwa/deepstack)
 
 ---
 

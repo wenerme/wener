@@ -10,8 +10,10 @@ tags:
   - 一年两个版本 - 2 月，8 月
 - bugfix backports 一个版本
 - security backports 两个版本
-- [Release History](https://golang.org/doc/devel/release)
-- https://dev.golang.org/release
+- 参考
+  - https://gotipplay.golang.org/
+  - [Release History](https://golang.org/doc/devel/release)
+  - https://dev.golang.org/release
 
 :::tip Roadmap
 

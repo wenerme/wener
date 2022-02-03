@@ -57,3 +57,9 @@ ls ~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/
 # 判断最大的目录
 du -s * | sort -h
 ```
+
+## Data
+
+- https://www.showdoc.com.cn/189873290278540/1076946966902629
+- 朋友圈
+  - snsId

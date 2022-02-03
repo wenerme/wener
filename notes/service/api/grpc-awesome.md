@@ -50,6 +50,15 @@ tags:
 - [fullstorydev/grpcui](https://github.com/fullstorydev/grpcui)
 - [rogchap/wombat](https://github.com/rogchap/wombat)
 - [warmuuh/milkman](https://github.com/warmuuh/milkman)
+- IntelliJ IDEA v2021.3+ HTTP Client 支持 gRPC
+
+```
+### helloworld
+GRPC localhost:8888/helloworld.Greeter/SayHello
+
+### health
+GRPC localhost:8888/grpc.health.v1.Health/Check
+```
 
 ## RPC
 

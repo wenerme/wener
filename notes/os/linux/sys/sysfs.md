@@ -4,6 +4,33 @@
 - [/sysfs/class/net](https://www.kernel.org/doc/Documentation/ABI/testing/)
 - /proc/sysrq-trigger
 - /sys/block/mmcblk0/mmcblk0p2/ro
+- /proc/pressure - PSI - Pressure Stall Information  - v4.20 - Facebook 2018
+  - io
+  - cpu
+  - memory
+- /sys/fs/cgroup/cg1/io.pressure
+
+- CONFIG_PSI=y
+- CONFIG_PSI_DEFAULT_DISABLED=y
+  - psi=1
+
+```
+cat /boot/config-lts | grep PSI
+```
+
+```
+for_each_possible_cpu(cpu)
+
+nr_active += cpu_of(cpu)->nr_running + cpu_of(cpu)->nr_uninterruptible;
+
+avenrun[n] = avenrun[0] * exp_n + nr_active * (1 - exp_n)
+```
+
+- avg10、avg60、avg300 分别代表 10s、60s、300s 的时间周期内的阻塞时间百分比。total 是总累计时间，以毫秒为单位。
+- https://facebookmicrosites.github.io/psi/docs/overview
+- https://www.kernel.org/doc/html/latest/accounting/psi.html
+- https://lwn.net/Articles/759658/
+- https://lwn.net/Articles/759781/
 
 ```
 find /sys -type f -name power_now 2>/dev/null
@@ -31,3 +58,4 @@ Capacity                                                    =   49.7 [%]
 
 modprobe i2c-dev
 sensors-detect
+

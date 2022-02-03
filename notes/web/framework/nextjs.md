@@ -35,6 +35,8 @@ title: NextJS
   - i18n https://github.com/isaachinman/next-i18next/issues/274
   - [unicodeveloper/awesome-nextjs](https://github.com/unicodeveloper/awesome-nextjs)
   - [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)
+  - [vercel/platforms](https://github.com/vercel/platforms)
+    - template for site builders and low-code tools.
 
 :::tips
 

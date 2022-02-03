@@ -7,6 +7,7 @@ tags:
 # Reverse Engineering Awesome
 
 - [rr-debugger/rr](https://github.com/rr-debugger/rr)
+- [radareorg/radare2](https://github.com/radareorg/radare2)
 
 ## HEX Editor
 

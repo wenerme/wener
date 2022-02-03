@@ -12,5 +12,6 @@ tags:
   - fork 自 Cadence - 但 cadence web 新的功能没加上 - graph
   - 目前是 **维护状态**
 - temporal-ui - 新的 Web UI
-  - TypeScript+Svelte
+  - 前端: TypeScript+Svelte
+  - 后端: Golang - echo
   - 功能目前不完善 - WIP

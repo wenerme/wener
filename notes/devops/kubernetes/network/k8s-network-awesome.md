@@ -8,6 +8,8 @@ tags:
 
 - kube-router
 - metallb
+- [k8snetworkplumbingwg](https://github.com/k8snetworkplumbingwg)
+  - [multus-cni](https://github.com/k8snetworkplumbingwg/multus-cni)
 - 参考
   - [Comparing Kubernetes CNI Providers: Flannel, Calico, Canal, and Weave](https://rancher.com/blog/2019/2019-03-21-comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/)
 

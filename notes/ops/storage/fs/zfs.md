@@ -50,6 +50,8 @@ title: ZFS
 * https://forum.proxmox.com/threads/zfs-with-ssds-am-i-asking-for-a-headache-in-the-near-future.25967/
 * 参考
   * [ZFS / RAIDZ Capacity Calculator](https://wintelguy.com/zfs-calc.pl)
+  * [ZFSSystemAttributes](https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSSystemAttributes)
+  * [ZFSDRaidNotes](https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSDRaidNotes)
 
 ## NOTES
 * zpool

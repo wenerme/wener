@@ -40,6 +40,7 @@ tags:
 - [Indirection](https://en.wikipedia.org/wiki/Indirection)
 - [The Architect Elevator](https://architectelevator.com)
 - https://learninpublic.org/
+- [Developer-Y/cs-video-courses](https://github.com/Developer-Y/cs-video-courses)
 
 ## Article
 

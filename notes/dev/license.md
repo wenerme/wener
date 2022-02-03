@@ -28,7 +28,7 @@ title: License
 - Noncommercial license
   - JRL, AFPL, CC-BY-NC
 
-# AGPL
+## AGPL
 
 - AGPL - GNU Affero General Public License
 - 基于 GNU GPL - 增加通过网络提供服务的条款
@@ -114,6 +114,16 @@ title: License
 - [MIT/Apache-2 vs. MPL-2.0](https://users.rust-lang.org/t/licensing-mit-apache-2-vs-mpl-2-0/46250)
 - vs Apache-2.0
   - 更严格，更多限制
+
+## ELv2
+
+- Elastic License 2.0
+- 不可以提供 托管服务/Managed Service
+  - 直接 Host 服务 - SaaS
+  - 直接暴露 UI, API
+- 参考
+  - [About Elastic License 2.0](https://docs.airbyte.com/project-overview/licenses/license-faq#about-elastic-license-2.0-elv2)
+  - [Managed Service](https://docs.airbyte.com/project-overview/licenses/license-faq#what-is-the-managed-service-use-case-that-is-not-allowed-under-elv2)
 
 # FAQ
 

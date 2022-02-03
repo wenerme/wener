@@ -62,6 +62,7 @@ tags:
 - [adrai/flowchart.js](https://github.com/adrai/flowchart.js)
   - flowchart DSL & SVG render
 - [wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
+- [whyboris/TypeScript-Call-Graph](https://github.com/whyboris/TypeScript-Call-Graph)
 
 ## 商业化产品
 

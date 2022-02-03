@@ -40,6 +40,8 @@ tags:
   - [andlabs/libui](https://github.com/andlabs/libui) 的 Go 绑定
 - [gotk3/gotk3](https://github.com/gotk3/gotk3)
 - [mattn/go-gtk](https://github.com/mattn/go-gtk) - 不活跃
+- [ying32/govcl](https://github.com/ying32/govcl)
+  - [ying32/liblcl](https://github.com/ying32/liblcl)
 
 ## Webview
 

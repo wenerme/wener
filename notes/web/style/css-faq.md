@@ -17,6 +17,13 @@ tags:
 
 - [CSS](http://help.dottoro.com/lcsdaoxj.php) Reference
 
+```css
+.style {
+  /* 对齐数字 */
+  font-variant-numeric: tabular-nums;
+}
+```
+
 ## Optimize
 
 - [contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)

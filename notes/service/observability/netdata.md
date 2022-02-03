@@ -55,6 +55,10 @@ curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
   page cache size = 32
   dbengine disk space = 256
   dbengine multihost disk space = 256
+
+[web]
+# https://learn.netdata.cloud/docs/agent/web/server/#other-netdataconf-web-section-options
+respect do not track policy=yes
 ```
 
 ```conf
@@ -65,9 +69,33 @@ curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
   history = 21600
 ```
 
+**/var/lib/netdata/cloud.d/cloud.conf**
+
+```ini
+[global]
+enabled = false
+```
+
 ## registry
 
 - https://learn.netdata.cloud/docs/agent/registry/#run-your-own-registry
+- 每个 Netdata 都是 registry
+- `/var/lib/netdata/registry/*.db`
+
+```ini
+[registry]
+enabled = yes # server 启用, 其他禁用
+registry to announce = http://your.registry:19999
+registry hostname = Group1 - Master DB
+```
+
+```ini
+[registry]
+allow from = *
+# allow by dns = heuristic
+# registry save db every new entries
+# enable cookies SameSite and Secure = no
+```
 
 # FAQ
 
@@ -78,3 +106,33 @@ errors flood protection period = 0
 ```
 
 ## This agent doesn't have ACLK. (errno 22, Invalid argument)
+
+## system.clock_sync_state
+
+- 状态基于 [adjtimex](https://man7.org/linux/man-pages/man2/adjtimex.2.html)
+- added https://github.com/netdata/netdata/pull/11177
+- https://learn.netdata.cloud/docs/agent/collectors/timex.plugin
+- http://www.ntp.org/ntpfaq/NTP-s-algo-kernel.htm
+- Busybox ntpd
+  - [What's the easiest way to make Busybox keep correct time?](http://lists.busybox.net/pipermail/busybox/2014-September/081667.html)
+
+```bash
+# adjtimex --print
+adjtimex
+```
+
+```
+    mode:         0
+-o  offset:       19895 us
+-f  freq.adjust:  -1718067 (65536 = 1ppm)
+    maxerror:     16000000
+    esterror:     16000000
+    status:       16449 (PLL | UNSYNC)
+-p  timeconstant: 10
+    precision:    1 us
+    tolerance:    32768000
+-t  tick:         10000 us
+    time.tv_sec:  1642947197
+    time.tv_usec: 741874
+    return value: 5 (clock not synchronized)
+```

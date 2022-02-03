@@ -251,3 +251,5 @@ git rev-list --all -- '*.wmv'
 git push -o ci.skip
 git push -o ci.variable="MAX_RETRIES=10" -o ci.variable="MAX_TIME=600"
 ```
+
+## git ci info

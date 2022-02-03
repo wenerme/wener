@@ -266,3 +266,48 @@ go build -gccgoflags "-s -w" main.go
 - GODEBUG=netdns=cgo
 - GODEBUG=netdns=go+2
 - GODEBUG=netdns=cgo+2
+
+## 常见大写字段名字
+
+```
+ACL
+API
+ASCII
+CPU
+CSS
+DNS
+EOF
+GUID
+HTML
+HTTP
+HTTPS
+ID
+IP
+JSON
+LHS
+QPS
+RAM
+RHS
+RPC
+SLA
+SMTP
+SQL
+SSH
+TCP
+TLS
+TTL
+UDP
+UI
+UID
+URI
+URL
+UTF8
+UUID
+VM
+XML
+XMPP
+XSRF
+XSS
+```
+
+- [commonInitialisms](https://github.com/golang/lint/blob/6edffad5e6160f5949cdefc81710b2706fbcd4f6/lint.go#L770-L809)

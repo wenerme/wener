@@ -22,6 +22,9 @@ tags:
 
 ## DB
 
+- [sequelize/sequelize](https://github.com/sequelize/sequelize)
+  - ORM
+  - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
   - SQL-friendly ORM
 - [typeorm/typeorm](https://github.com/typeorm/typeorm)
@@ -33,9 +36,6 @@ tags:
   - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
 - [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
   - 基于 knex 的 ORM
-- [sequelize/sequelize](https://github.com/sequelize/sequelize)
-  - ORM
-  - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
 
 ## Scraper
 
@@ -43,18 +43,6 @@ tags:
 - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 - [rchipka/node-osmosis](https://github.com/rchipka/node-osmosis)
 - https://www.webscrapingapi.com/
-- jsdom vs cheerio
-  - jsdom
-    - 兼容浏览器 DOM API
-    - 可在浏览器测试逻辑 - 建议禁用 JS，使用 textContent
-    - 不支持 innerText [jsdom/jsdom#1245](https://github.com/jsdom/jsdom/issues/1245)
-      - 可以使用 textContent - 所有自节点 text 集合
-      - innerText 依赖布局渲染信息 - 通过样式隐藏的元素不会被包含
-  - cheerio
-    - 模仿 jQuery 接口
-    - 性能更好
-    - 但 平坦 DOM 处理起来不方便
-    - 只能在 NodeJs 使用
 
 ## Browser Automation
 
@@ -65,3 +53,24 @@ tags:
   - web scraper
 - [segmentio/nightmare](https://github.com/segmentio/nightmare)
   - 基于 Electron
+
+## 工具
+
+- shell
+  - [google/zx](https://github.com/google/zx)
+
+# FAQ
+
+## jsdom vs cheerio
+
+- jsdom
+  - 兼容浏览器 DOM API
+  - 可在浏览器测试逻辑 - 建议禁用 JS，使用 textContent
+  - 不支持 innerText [jsdom/jsdom#1245](https://github.com/jsdom/jsdom/issues/1245)
+    - 可以使用 textContent - 所有自节点 text 集合
+    - innerText 依赖布局渲染信息 - 通过样式隐藏的元素不会被包含
+- cheerio
+  - 模仿 jQuery 接口
+  - 性能更好
+  - 但 平坦 DOM 处理起来不方便
+  - 只能在 NodeJs 使用

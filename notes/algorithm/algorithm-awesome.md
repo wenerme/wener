@@ -28,3 +28,5 @@ tags:
 - Books
   - Algorithms in a Nutshell
 - Operation Transform
+- [Implementing Regular Expressions](https://swtch.com/~rsc/regexp/)
+- [Using Finite State Transducers in Lucene](https://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html)

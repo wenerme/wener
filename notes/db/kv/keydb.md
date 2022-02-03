@@ -10,10 +10,13 @@ title: KeyDB
   - ModJS - 可以通过 V8 扩展
   - fork 自 redis
   - active-replication, multi-master, flash, s3 backup
+- 参考
+  - [EQ-Alpha/ModJS](https://github.com/EQ-Alpha/ModJS)
+    - 基于 V8
 
 :::tip
 
-- [EQ-Alpha/KeyDB#286](https://github.com/EQ-Alpha/KeyDB/issues/286) Multi-Tenancy Support
+- Multi-Tenancy Support [#286](https://github.com/EQ-Alpha/KeyDB/issues/286)
 - WIP JSON
 
 :::

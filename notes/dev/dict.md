@@ -1,5 +1,7 @@
 ---
 title: 开发用词字典
+tags:
+  - Glossary
 ---
 
 # 开发用词字典
@@ -471,3 +473,17 @@ title: 开发用词字典
   - 过程
 - learn
   - 结果 - 获取知识
+
+## sex vs gender
+
+- sex
+  - male, female
+  - 生物特征，出生便决定了
+- gender
+  - 个性 - 可变
+  - 内在自我
+
+---
+
+- 参考
+  - https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21

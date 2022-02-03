@@ -46,6 +46,10 @@ redis-server --bind=0.0.0.0
 - [wenerme/go-rm](https://github.com/wenerme/go-rm)
   - 使用 Golang 写 Redis 模块
 
+## ACL
+
+- [ACL](https://redis.io/topics/acl)
+
 ## FAQ
 
 ### MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled.

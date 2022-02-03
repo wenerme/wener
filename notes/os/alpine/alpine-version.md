@@ -33,17 +33,17 @@ tags:
 
 :::
 
-| version | date       |
-| ------- | ---------- |
-| 3.15    | 2021-11-24 |
-| 3.14    | 2021-07-15 |
-| 3.13    | 2020-01-14 |
-| 3.12    | 2020-05-29 |
-| 3.11    | 2019-12-29 |
-| 3.10    | 2019-06-19 |
-| 3.9     | 2019-01-29 |
-| 3.8     | 2018-06-26 |
-| 3.7     | 2017-11-30 |
+| version          | date       |
+| ---------------- | ---------- |
+| AlpineLinux 3.15 | 2021-11-24 |
+| AlpineLinux 3.14 | 2021-07-15 |
+| AlpineLinux 3.13 | 2020-01-14 |
+| AlpineLinux 3.12 | 2020-05-29 |
+| AlpineLinux 3.11 | 2019-12-29 |
+| AlpineLinux 3.10 | 2019-06-19 |
+| AlpineLinux 3.9  | 2019-01-29 |
+| AlpineLinux 3.8  | 2018-06-26 |
+| AlpineLinux 3.7  | 2017-11-30 |
 
 :::caution 版本升级注意事项
 
@@ -59,7 +59,7 @@ tags:
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
 
-## 3.15
+## AlpineLinux 3.15
 
 :::caution
 
@@ -69,7 +69,6 @@ tags:
 apk update
 apk upgrade alpine-keys
 sed -i 's/v3.1./v3.15/g' /etc/apk/repositories
-apk update
 apk upgrade -a
 ```
 
@@ -117,7 +116,7 @@ apk upgrade -a
   - https://github.com/ifupdown-ng/ifupdown-ng/blob/main/executor-scripts/linux/wifi
 - [Draft Release Notes for Alpine 3.15.0](https://wiki.alpinelinux.org/wiki/Draft_Release_Notes_for_Alpine_3.15.0)
 
-## 3.14
+## AlpineLinux 3.14
 
 :::caution
 
@@ -151,7 +150,7 @@ apk upgrade -a
       3.13.0 vs. edge - cmake fails to detect C compiler ABI info
   - 移除 xf86-input-{mouse,keyboard}, 使用 xf86-input-evdev, xf86-input-libinput
 
-## 3.13
+## AlpineLinux 3.13
 
 - Linux Kernel [5.10 LTS](https://wener.me/notes/os/linux/linux-version/#510---lts)
 - 参考
@@ -218,7 +217,7 @@ apk upgrade -a
         - `zfs redact`, `zfs send --redact`, `zfs send --saved`
       - dRAID
 
-## 3.12
+## AlpineLinux 3.12
 
 - [3.12](https://alpinelinux.org/posts/Alpine-3.12.0-released.html)
 - 新增架构 mips64 be
@@ -227,7 +226,7 @@ apk upgrade -a
 - QEMU 5.0
 - 移除了 python 包 - 按需安装 python2 或 python3
 
-## 3.11
+## AlpineLinux 3.11
 
 - v[3.11](https://alpinelinux.org/posts/Alpine-3.11.0-released.html)
 - 5.4.5 内核
@@ -262,7 +261,7 @@ uname -r
 apk del linux-vanilla
 ```
 
-## 3.10
+## AlpineLinux 3.10
 
 - v[3.10](https://alpinelinux.org/posts/Alpine-3.10.0-released.html)
 - 4.19 内核
@@ -271,7 +270,7 @@ apk del linux-vanilla
 - arm 支持串口和 ethernet
 - 移除 mongodb
 
-## 3.9
+## AlpineLinux 3.9
 
 - v[3.9](https://alpinelinux.org/posts/Alpine-3.9.0-released.html)
 - 4.19 内核
@@ -290,7 +289,7 @@ apk upgrade
 sync
 ```
 
-## 3.8
+## AlpineLinux 3.8
 
 - v[3.8](https://alpinelinux.org/posts/Alpine-3.8.0-released.html) 2018-06-27
 - 4.14 内核
@@ -335,7 +334,7 @@ sync
 reboot
 ```
 
-## 3.7
+## AlpineLinux 3.7
 
 - [3.7.0](https://alpinelinux.org/posts/Alpine-3.7.0-released.html)
 - 查看当前内核版本 https://pkgs.alpinelinux.org/packages?name=linux*&branch=v3.7&repo=main&arch=x86_64

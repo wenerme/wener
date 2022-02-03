@@ -49,6 +49,9 @@ tags:
 ## 工具
 
 - https://pgmodeler.io/
+- [ankane/pghero](https://github.com/ankane/pghero)
+- [ankane/dexter](https://github.com/ankane/dexter)
+- [ankane/pgslice](https://github.com/ankane/pgslice)
 
 ## Scale
 
@@ -59,6 +62,7 @@ tags:
 - [awslabs/pgbouncer-rr-patch](https://github.com/awslabs/pgbouncer-rr-patch)
 - [agroal/pgagroal](https://github.com/agroal/pgagroal)
   - connection pool
+- [Replication, Clustering, and Connection Pooling](https://wiki.postgresql.org/wiki/Replication%2C_Clustering%2C_and_Connection_Pooling)
 
 ## Sync
 
@@ -67,6 +71,9 @@ tags:
   - sync table
 - [toluaina/pgsync](https://github.com/toluaina/pgsync)
   - to elasticsearch
+- [eulerto/wal2json](https://github.com/eulerto/wal2json)
+- [jackc/pglogrepl](https://github.com/jackc/pglogrepl)
+  - PostgreSQL logical replication library for Go
 
 ## Scale Stories
 

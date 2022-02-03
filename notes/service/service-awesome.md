@@ -71,6 +71,11 @@ tags:
   - [notifirehq/notifire](https://github.com/notifirehq/notifire)
     - Notification Infrastructure
   - [binwiederhier/ntfy](https://github.com/binwiederhier/ntfy)
+  - [uniqush/uniqush-push](https://github.com/uniqush/uniqush-push)
+  - [airnotifier/airnotifier](https://github.com/airnotifier/airnotifier)
+  - [gotify/server](https://github.com/gotify/server)
+  - [notifme/notifme-sdk](https://github.com/notifme/notifme-sdk)
+  - [Nickersoft/push.js](https://github.com/Nickersoft/push.js)
 - airtable - spreadsheet, no-code database
   - [rowyio/rowy](https://github.com/rowyio/rowy)
   - [nocodb/nocodb](https://github.com/nocodb/nocodb)
@@ -84,6 +89,11 @@ tags:
   - https://github.com/JetBrains/intellij-community/tree/master/plugins/grazie
 - [growthbook/growthbook](https://github.com/growthbook/growthbook)
   - A/B Testing
+- comment
+  - [umputun/remark42](https://github.com/umputun/remark42)
+- file org
+  - [Cian911/switchboard](https://github.com/Cian911/switchboard)
+    - Auto-magic file organisation for your machines
 
 ## Avatar
 
@@ -95,6 +105,7 @@ tags:
   - [boringdesigners/boring-avatars](https://github.com/boringdesigners/boring-avatars)
   - 简单的头像
   - React 组件 - 基于 SVG
+- [cvbox](https://cvbox.org/)
 
 ## OCR
 

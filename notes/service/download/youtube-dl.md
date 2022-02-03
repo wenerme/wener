@@ -13,6 +13,7 @@ title: youtube-dl
   - [支持站点](https://github.com/ytdl-org/youtube-dl/blob/master/docs/supportedsites.md)
   - [ytdl-org/youtube-dl#9302](https://github.com/ytdl-org/youtube-dl/issues/9302)
   - [Youtube Format IDs](https://gist.github.com/AgentOak/34d47c65b1d28829bb17c24c04a0096f)
+  - yt-dlp
 
 ```bash
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl

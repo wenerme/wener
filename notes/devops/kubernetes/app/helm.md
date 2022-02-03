@@ -46,6 +46,19 @@ helm create my-chart
 | macOS   | `$HOME/Library/Caches/helm` | `$HOME/Library/Preferences/helm` | `$HOME/Library/helm`      |
 | Windows | `%TEMP%\helm`               | `%APPDATA%\helm`                 | `%APPDATA%\helm`          |
 
+- /
+  - cache/
+    - archive/
+  - plugins/
+  - repository/
+    - repositories.lock
+    - repositories.yaml
+    - cache/
+      - ${NAME}-index.yaml
+    - local/
+      - index.yaml
+  - starters/
+
 ## 常用仓库
 
 | NAME                         | URL                                                             |

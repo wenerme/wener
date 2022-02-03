@@ -11,6 +11,9 @@ title: Visual Studio Code
 
 ## 插件
 
+- [zenclabs/previewjs](https://github.com/zenclabs/previewjs)
+  - Preview React, Vue
+
 ### Remote Development
 
 - [ms-vscode-remote.vscode-remote-extensionpack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)

@@ -33,6 +33,10 @@ tags:
 - [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
 - [morgan3d/quadplay](https://github.com/morgan3d/quadplay)
 
+## Studio
+
+- [RPG-Paper-Maker/RPG-Paper-Maker](https://github.com/RPG-Paper-Maker/RPG-Paper-Maker)
+
 ## Learn
 
 - [Alairion/captal-engine](https://github.com/Alairion/captal-engine)
@@ -58,6 +62,10 @@ tags:
   - [chrismaltby/gb-studio](https://github.com/chrismaltby/gb-studio)
   - [HN](https://news.ycombinator.com/item?id=26979879)
 - [VGA ROM Fonts](http://www.alexandrugroza.ro/microelectronics/essays-research/vga-rom-fonts/index.html)
+
+## Emu
+
+- [yuzu-emu/yuzu](https://github.com/yuzu-emu/yuzu)
 
 ## Resources
 
