@@ -113,6 +113,12 @@ tags:
 - [sigstore/cosign](https://github.com/sigstore/cosign)
 - [Tencent/caelus](https://github.com/Tencent/caelus)
 - [gardener/gardener](https://github.com/gardener/gardener)
+- LoadBalance
+  - metallb
+  - openelb
+  - PureLB
+- [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+  - 隔离，进出流量控制
 
 ## Dashboard/UI
 

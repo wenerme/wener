@@ -1,5 +1,7 @@
 ---
 title: Ansible 参考
+tags:
+  - Reference
 ---
 
 # Ansible 参考

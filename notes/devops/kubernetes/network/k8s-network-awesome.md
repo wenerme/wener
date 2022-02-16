@@ -91,6 +91,8 @@ tags:
   - layer 2, overlay
 - calico
   - layer 3, BGP
+- cilium
+  - layer 3, eBPF
 - canal
 - weave
   - IPsec ESP

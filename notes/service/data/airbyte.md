@@ -43,7 +43,7 @@ title: airbyte
   - airbyte/scheduler
   - airbyte/webapp
   - airbyte/server
-  - [airbyte/temporal](airbyte-temporal)
+  - [airbyte/temporal](https://github.com/airbytehq/airbyte/tree/master/airbyte-temporal)
     - 基于 temporal 官方脚本
     - 重新构建添加 M1 支持
     - [temporal/dynamicconfig/development.yaml](https://github.com/airbytehq/airbyte/blob/master/temporal/dynamicconfig/development.yaml)

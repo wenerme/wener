@@ -1,3 +1,7 @@
+---
+title: Ansible for Cloud
+---
+
 # Kubernetes
 
 - [Kubernetes Guide](https://docs.ansible.com/ansible/latest/scenario_guides/guide_kubernetes.html)

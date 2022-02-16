@@ -187,3 +187,11 @@ rm -rf /var/lib/rancher/k3s
 - master 之间交互跑完了 50M 带宽
 
 重启 k3s 解决
+
+## k3s check-config
+
+-  cgroups V1/Hybrid on non-Systemd init - https://github.com/tianon/cgroupfs-mount
+- https://raw.githubusercontent.com/k3s-io/k3s/master/contrib/util/check-config.sh
+  - 还不支持 cgroupv2 [#3897](https://github.com/k3s-io/k3s/issues/3897)
+- cgroupv2
+  - https://github.com/k3s-io/k3s/issues/900

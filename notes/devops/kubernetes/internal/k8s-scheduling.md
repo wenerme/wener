@@ -237,3 +237,19 @@ description: 'This priority class should be used for XYZ service pods only.'
 # 1.19+ beta
 preemptionPolicy: Never
 ```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      imagePullPolicy: IfNotPresent
+  # 针对 Pod
+  priorityClassName: system-node-critical
+```

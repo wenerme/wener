@@ -1,5 +1,4 @@
 ---
-id: tinc-conf
 title: Tinc 配置
 ---
 

@@ -1,5 +1,4 @@
 ---
-id: ansible
 title: Ansible
 ---
 

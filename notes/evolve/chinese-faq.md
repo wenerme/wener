@@ -37,3 +37,8 @@ tags:
 - 参考
   - [Lost (or gained) in translation](https://www.economist.com/graphic-detail/2012/03/30/lost-or-gained-in-translation)
   - 知乎 https://www.zhihu.com/question/294972764/answer/790215150
+
+## 新词
+
+- 新型产业工人
+- 灵活就业

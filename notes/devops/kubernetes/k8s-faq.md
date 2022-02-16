@@ -78,6 +78,19 @@ spec:
 - 为 pod 设置 priorityClassName 确保调度，避免驱逐
   - system-node-critical,system-cluster-critical
 
+```bash
+df -h
+df -Hi
+
+# remove DiskPressure
+kubectl taint nodes <nodename> node.kubernetes.io/disk-pressure-
+```
+
+- 监控来自于 cadvisor
+- https://kubernetes.io/docs/concepts/architecture/garbage-collection/#container-image-lifecycle
+  - HighThresholdPercent
+  - LowThresholdPercent
+
 ## 集群限制
 
 - 5000 节点

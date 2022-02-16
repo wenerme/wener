@@ -1,11 +1,8 @@
 ---
-id: wireless
 title: 无线网络
 ---
 
 # 无线网络
-
-## Tips
 
 - Linux Kernel Wireless
   - https://wireless.wiki.kernel.org/
@@ -13,6 +10,11 @@ title: 无线网络
   - iw
   - wpa_supplicant
   - hostapd
+- 设备模式
+  - wireless repeater
+  - wireless access point
+  - wireless bridge
+  - captive portal
 - [Connecting to a wireless access point](https://wiki.alpinelinux.org/wiki/Connecting_to_a_wireless_access_point)
 - [Linux Find Wireless Driver Chipset Information](https://www.cyberciti.biz/faq/linux-find-wireless-driver-chipset/)
 - [8 Linux Commands: To Find Out Wireless Network Speed, Signal Strength And Other Information](https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html)
@@ -382,33 +384,36 @@ echo 'options 8192cu rtw_power_mgnt=0 rtw_enusbss=0' >> /etc/modprobe.d/8192cu.c
 - [#1342](https://github.com/raspberrypi/linux/issues/1342)
 
 ## 接口能力
-* IBSS
-* managed
-* AP
-* AP/VLAN
-* monitor
-* P2P-client
-* P2P-GO
-* P2P-device
-* mesh point
+
+- IBSS
+- managed
+- AP
+- AP/VLAN
+- monitor
+- P2P-client
+- P2P-GO
+- P2P-device
+- mesh point
 
 ## 扩展特性
-* [ VHT_IBSS ]: VHT-IBSS
-* [ RRM ]: RRM
-* [ SCAN_START_TIME ]: scan start timestamp
-* [ BSS_PARENT_TSF ]: BSS last beacon/probe TSF
-* [ SET_SCAN_DWELL ]: scan dwell setting
-* [ FILS_STA ]: STA FILS (Fast Initial Link Setup)
-* [ CONTROL_PORT_OVER_NL80211 ]: control port over nl80211
-* [ TXQS ]: FQ-CoDel-enabled intermediate TXQs
+
+- [ vht_ibss ]: VHT-IBSS
+- [ rrm ]: RRM
+- [ SCAN_START_TIME ]: scan start timestamp
+- [ BSS_PARENT_TSF ]: BSS last beacon/probe TSF
+- [ SET_SCAN_DWELL ]: scan dwell setting
+- [ FILS_STA ]: STA FILS (Fast Initial Link Setup)
+- [ CONTROL_PORT_OVER_NL80211 ]: control port over nl80211
+- [ TXQS ]: FQ-CoDel-enabled intermediate TXQs
 
 ## 组合方式
-* { managed } <= 1
-* { AP, P2P-client, P2P-GO } <= 1
-* { P2P-device } <= 1
-* total <= 3
-* channels <= 2
-  * 允许工作在不同信道
+
+- { managed } <= 1
+- { AP, P2P-client, P2P-GO } <= 1
+- { P2P-device } <= 1
+- total <= 3
+- channels <= 2
+  - 允许工作在不同信道
 
 ```bash
 # 创建虚拟网口 - ap+sta

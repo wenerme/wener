@@ -8,11 +8,14 @@ tags:
 
 ## 删除 Evicted 的 Pod
 
+- Running
+
 ```bash
 # 筛选查看
-kubectl get pod --field-selector="status.phase==Fialed" --all-namespaces
+# reason Evicted
+kubectl get pods --all-namespaces --field-selector="status.phase=Fialed"
 # 确认删除
-kubectl delete pod --field-selector="status.phase==Fialed" --all-namespaces
+kubectl delete pods --all-namespaces --field-selector="status.phase=Fialed"
 ```
 
 ## 当前集群名字

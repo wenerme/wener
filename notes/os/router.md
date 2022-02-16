@@ -1,7 +1,10 @@
 # Router
 
+- Captive Portal  - nocatsplash
+- [List of router firmware projects](https://en.wikipedia.org/wiki/List_of_router_firmware_projects)
+- [List of router and firewall distributions](https://en.wikipedia.org/wiki/List_of_router_and_firewall_distributions)
+
 ## Tips
-* [List of router and firewall distributions](https://en.wikipedia.org/wiki/List_of_router_and_firewall_distributions)
 * [Comparison of firewalls](https://en.wikipedia.org/wiki/Comparison_of_firewalls)
 * RouterOS
   * MikroTik RouterOS
@@ -39,7 +42,7 @@ pure-Go small home internet router
 
 ## Ubnt
 https://github.com/ShaneMcC/vyatta-tinc
-vyatta/vyos/edgeos/edgemax 
+vyatta/vyos/edgeos/edgemax
 
 ## 参考
 * [Udoo x86](http://www.udoo.org/udoo-x86/) 相当不错的单片机, x86 架构
@@ -73,11 +76,7 @@ VPN 可以使两边内网互通
 http://www.dualwan.cn/index.php/tomato-faq/27-vpn-pptp/512-tomato-dualwan-pptp-serverclient
 
 原版 tomato http://tomato.groov.pl/
-https://github.com/Jackysi/advancedtomato
-https://advancedtomato.com/ tomato 的 GUI
-https://advancedtomato.com/downloads 支持列表
 
-https://en.wikipedia.org/wiki/Tomato_(firmware)
 
 
 CFE

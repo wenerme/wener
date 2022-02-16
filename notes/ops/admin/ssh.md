@@ -65,20 +65,6 @@ Match User player
   PermitTTY no
 ```
 
-## config
-
-```bash
-# 网关服务器
-Host my-gate
-User root
-Hostname 1.2.3.4
-
-# 通过 my-gate 链接 1.2.3.100
-# busybox 的 nc 没有 -q, 需要
-Host my-gate-110
-User root
-ProxyCommand ssh -q qc-sh-1 nc -q0 1.2.3.100 22
-```
 
 ## Key
 

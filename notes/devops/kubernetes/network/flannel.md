@@ -1,5 +1,4 @@
 ---
-id: flannel
 title: Flannel
 ---
 

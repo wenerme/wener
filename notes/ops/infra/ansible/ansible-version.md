@@ -1,6 +1,7 @@
 ---
-id: ansible-version
 title: Ansible Version
+tags:
+  - Version
 ---
 
 # Ansible Version

@@ -29,6 +29,10 @@ title: zalando/postgres-operator
   - 数据库名字不可以包含 `-` - 需要 quote
   - [#667](https://github.com/zalando/postgres-operator/issues/667)
 - 用户名不要包含 `_` - 因为生成 secret 不支持名字包含 `_`
+- pgroot/pg_log
+  - 会占用较大空间 - [#431](https://github.com/zalando/postgres-operator/issues/431)
+  - 默认 7 天内循环写入
+  - 如果占用了很大的空间多半是出了什么问题
 
 :::
 

@@ -23,6 +23,11 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 SELECT gen_random_uuid();
 ```
 
+## OID
+
+- [Object Identifier Types](https://www.postgresql.org/docs/current/datatype-oid.html)
+- regproc
+
 ## 时间日期
 
 - [Date/Time Types](https://www.postgresql.org/docs/current/datatype-datetime.html)

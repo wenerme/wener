@@ -487,3 +487,14 @@ tags:
 
 - 参考
   - https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21
+
+## study vs research
+
+- verbs
+  - 表示系统性学习
+  - study 可表示为一个动作
+- nouns
+  - study
+    - 单次学习
+  - research
+    - 表示一组 study 的集合

@@ -156,6 +156,10 @@ ALTER ROLE my_role SET TIMEZONE = '+1';
 - 传入之前替换或用 bytea 存储
 - JSON 也不允许包含空字符
 
+## unsupported Unicode escape sequence
+
+一般是因为 `\u0000`, 替换掉即可, pg 的字符串不支持 `\u0000`
+
 ## 切换用户
 
 ```sql
@@ -257,10 +261,6 @@ Float8 argument passing:              by value
 Data page checksum version:           1
 Mock authentication nonce:            32f8310a0cf344f7c1432dd733d3cf6065b748697485724af31fbaf7605f50bc
 ```
-
-## unsupported Unicode escape sequence
-
-一般是因为 `\u0000`, 替换掉即可, pg 的字符串不支持 `\u0000`
 
 ## psql 开启时间记录
 

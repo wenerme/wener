@@ -1,11 +1,11 @@
 # Spec
 
-* [Kubernetes API Reference](http://kubernetes.io/docs/api-reference/v1/definitions/)
-* [Kubernetes Swagger UI](http://kubernetes.io/kubernetes/third_party/swagger-ui/)
-* [API 约定](https://github.com/kubernetes/kubernetes/blob/release-1.3/docs/devel/api-conventions.md)
-
+- [Kubernetes API Reference](http://kubernetes.io/docs/api-reference/v1/definitions/)
+- [Kubernetes Swagger UI](http://kubernetes.io/kubernetes/third_party/swagger-ui/)
+- [API 约定](https://github.com/kubernetes/kubernetes/blob/release-1.3/docs/devel/api-conventions.md)
 
 ## 基本
+
 ```yaml
 # 用于标示 REST 请求的资源类型.驼峰格式.服务器也可从客户端请求的接口来推断出来值.不能更新.
 # http://releases.k8s.io/release-1.3/docs/devel/api-conventions.md#types-kinds

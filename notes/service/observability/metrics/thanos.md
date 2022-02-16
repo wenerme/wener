@@ -28,6 +28,14 @@ title: Thanos
 
 :::caution
 
+- compact
+  - raw 格式数据**非常大** - 需要 compact 进行压缩
+  - 如果 raw 导致磁盘空间满，会可能驱逐 compact 进入恶性循环
+  - compact 需要与 存储 服务进行大量数据交互 - 最好在同一个节点或机房
+  - 一个 bucket 只能运行 **一个** compact
+    - 因此有一定规模后 compact 反而可能成为瓶颈
+- receive
+  - 以为需要缓存接收的数据，因此也需要磁盘空间 一般 3-5 G
 - 一个租户需要一个 Bucket
   - [#1318](https://github.com/thanos-io/thanos/issues/1318) 提议添加前缀 - 但工作量很大
 
@@ -288,11 +296,14 @@ thanos tools bucket mark --id 01EJD9PS4P3MJMF3TGJGTJTE25 --marker deletion-mark.
 # 默认由 compactor 来清理
 thanos tools bucket cleanup
 
-# out
+# out.txt
 thanos tools bucket inspect --log.level error --objstore.config-file=thanos-store.yaml > out.txt
+# ids.txt
+cat out.txt | grep -P '\d\d-2021' | cut -d '|' -f 2  | tr -d ' '| sed 's/^/--id=/' > ids.txt
 # filter & delete
 # 批量标记删除 - 需要有 compact 实际删除 - 或者执行 compact --delete-delay=0
 cat out.txt | grep -P '(01|02|03|04|05|06|07|08)-2021' | cut -d '|' -f 2  | tr -d ' '| sed 's/^/--id=/' | xargs thanos tools bucket mark --marker deletion-mark.json --details 'delete' --objstore.config-file=thanos-store.yaml
+cat ids.txt | xargs thanos tools bucket mark --marker deletion-mark.json --details 'delete' --objstore.config-file=thanos-store.yaml
 ```
 
 ## 缓存配置
@@ -518,4 +529,12 @@ avg(irate(node_cpu_seconds_total{mode="system"}[10m])) by (instance) *100
 
 # grafana
 avg(irate(node_cpu_seconds_total{mode="system"}[$__interval])) by (instance) *100
+```
+
+## filter meta in oss
+
+```bash
+ls */meta.json | xargs -n 1 -I {}  sh -c "dirname {} | tr -d '\n';echo -n ' ';jq -r '.maxTime/1000 | todate' {}" > /tmp/dump.txt
+# 强制删除
+cat /tmp/dump.txt | grep '2021-' | awk '{print $1}' | sudo xargs -I {} rm -r {}
 ```

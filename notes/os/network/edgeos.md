@@ -1,5 +1,4 @@
 ---
-id: edgeos
 title: EdgeOS
 ---
 
@@ -30,7 +29,7 @@ title: EdgeOS
 
 ```bash
 # 监听 nat
-show nat translations 
+show nat translations
 
 show ip route
 show ip route table 102
@@ -61,14 +60,16 @@ exit
 ```
 
 ## 启用 snmp
+
 ```
 set service snmp community public network 192.168.0.0/16
 set service snmp listen-address 192.168.1.1 interface eth0
 ```
 
 ## 端口转发
-* 端口转发默认会添加防火墙规则
-* 简化配置 DNAT
+
+- 端口转发默认会添加防火墙规则
+- 简化配置 DNAT
 
 ```shell
 # 端口转发
@@ -90,7 +91,8 @@ set service snmp listen-address 192.168.1.1 interface eth0
 ```
 
 ## PBR
-* [DNAT - connections not sticky ?](https://community.ui.com/questions/DNAT-connections-not-sticky/6da29ace-e0c5-4e0c-b1cf-07a7b91c11db#answer/9d66551c-0adf-48e7-a77f-2e4c1d6e57f4)
+
+- [DNAT - connections not sticky ?](https://community.ui.com/questions/DNAT-connections-not-sticky/6da29ace-e0c5-4e0c-b1cf-07a7b91c11db#answer/9d66551c-0adf-48e7-a77f-2e4c1d6e57f4)
 
 ## ipatbles
 
@@ -169,10 +171,9 @@ set service snmp listen-address 192.168.1.1 interface eth0
 -A OUTPUT -j VYATTA_POST_FW_OUT_HOOK
 ```
 
-
-
 ## 负载均衡
-* https://community.ui.com/questions/503d5b81-7cb5-4fe5-ba39-72df1f5eb98f
+
+- https://community.ui.com/questions/503d5b81-7cb5-4fe5-ba39-72df1f5eb98f
 
 ```shell
 *nat

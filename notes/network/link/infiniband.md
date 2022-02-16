@@ -1,34 +1,31 @@
 ---
-id: infiniband
 title: InfiniBand
 ---
 
 # InfiniBand
 
-## Tips
-
-* [wiki/InfiniBand](https://en.wikipedia.org/wiki/InfiniBand)
-* Current message level
-  * https://www.kernel.org/doc/Documentation/networking/netif-msg.txt
-* Arch
-  * https://wiki.archlinux.org/index.php/InfiniBand
-  * https://wiki.archlinux.org/index.php/Jumbo_frames
-* 10 Gig Eth
-  * 不需要 IB 交换机
-  * Mellanox 带 `_en` 的即为 ethernet 设备
-* jumbo frames
-  * MTU 大于 1500 的 Ethernet 帧
-  * 最多 9000, 根据设备和网络结构可能有所不同
-  * 可能增加延时, 但是能大量提升网络传输速度
-* mellanox
-  * [MLNX_EN_Linux_README.txt](http://www.mellanox.com/related-docs/prod_software/MLNX_EN_Linux_README.txt)
-  * linux [mlx4_en.h](https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/mellanox/mlx4/mlx4_en.h)
-* 参考
-  * [infinibandta](http://www.infinibandta.org/)
-  * [How to fine tune TCP performance on Linux with a 10Gb fiber connection](https://serverfault.com/questions/757961)
-  * [How to achieve low latency with 10Gbps Ethernet](https://blog.cloudflare.com/how-to-achieve-low-latency/)
-* 注意
-  * 在 `/etc/network/interface` 下配置的顺序会影响默认网卡, 将 ib 配置在第一位即可
+- [wiki/InfiniBand](https://en.wikipedia.org/wiki/InfiniBand)
+- Current message level
+  - https://www.kernel.org/doc/Documentation/networking/netif-msg.txt
+- Arch
+  - https://wiki.archlinux.org/index.php/InfiniBand
+  - https://wiki.archlinux.org/index.php/Jumbo_frames
+- 10 Gig Eth
+  - 不需要 IB 交换机
+  - Mellanox 带 `_en` 的即为 ethernet 设备
+- jumbo frames
+  - MTU 大于 1500 的 Ethernet 帧
+  - 最多 9000, 根据设备和网络结构可能有所不同
+  - 可能增加延时, 但是能大量提升网络传输速度
+- mellanox
+  - [MLNX_EN_Linux_README.txt](http://www.mellanox.com/related-docs/prod_software/MLNX_EN_Linux_README.txt)
+  - linux [mlx4_en.h](https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/mellanox/mlx4/mlx4_en.h)
+- 参考
+  - [infinibandta](http://www.infinibandta.org/)
+  - [How to fine tune TCP performance on Linux with a 10Gb fiber connection](https://serverfault.com/questions/757961)
+  - [How to achieve low latency with 10Gbps Ethernet](https://blog.cloudflare.com/how-to-achieve-low-latency/)
+- 注意
+  - 在 `/etc/network/interface` 下配置的顺序会影响默认网卡, 将 ib 配置在第一位即可
 
 ```bash
 # 查看邮件
@@ -91,11 +88,11 @@ ethtool -i eth2
 
 ### 常见的延迟和速度
 
-Mode	    | MTU	  | MB/s	| Latency/us
-----------|-------|-------|--------------
-datagram  | 2044	| 707	  | 19.4
-connected	| 2044	| 353	  | 18.9
-connected	| 65520	| 726	  | 19.6
+| Mode      | MTU   | MB/s | Latency/us |
+| --------- | ----- | ---- | ---------- |
+| datagram  | 2044  | 707  | 19.4       |
+| connected | 2044  | 353  | 18.9       |
+| connected | 65520 | 726  | 19.6       |
 
 ### 内核模块
 
@@ -168,8 +165,8 @@ $ tree /lib/modules/*/kernel/drivers/infiniband/
 
 ### 常见错误
 
-* 速度没上去
-  * 确定是走的正确的网卡, 一般 ib 不是 eth0
+- 速度没上去
+  - 确定是走的正确的网卡, 一般 ib 不是 eth0
 
 ```bash
 # 确保默认路由是 ib 卡

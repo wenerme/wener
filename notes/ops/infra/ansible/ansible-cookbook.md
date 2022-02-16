@@ -1,5 +1,7 @@
 ---
 title: Ansible Cookbook
+tags:
+  - Cookbook
 ---
 
 # Ansible Cookbook

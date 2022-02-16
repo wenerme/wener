@@ -39,6 +39,14 @@ title: Nomad
   - vault - 密钥
 - [hashicorp/go-getter](https://github.com/hashicorp/go-getter) - 获取 artifact
 
+:::tip 适用场景
+
+- Windows, macOS 调度
+- 非标准资源调度 - GPU、外部设备
+- 非标准 CPU arch 调度
+
+:::
+
 ```bash
 # macOS
 brew install nomad

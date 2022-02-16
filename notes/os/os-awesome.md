@@ -60,17 +60,30 @@ tags:
 
 ## Linux Distro
 
-- [lakka.tv](http://www.lakka.tv/)
-  - 电视、复古游戏
-  - 基于 LibreELEC, RetroArch
-  - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
-  - [libretro/RetroArch](https://github.com/libretro/RetroArch)
+
 - [reactos](https://github.com/reactos/reactos)
   - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
-- [LibreELEC](http://libreelec.tv/)
-  - Kodi
-  - RPi 4 支持 HEVC/H.265 硬解
-  - RPi 2+ 支持 H.264 硬解
+- Media Center
+  - [LibreELEC](https://libreelec.tv/)
+    Libre Embedded Linux Entertainment Center
+    - fork of  OpenELEC at 2016
+    - [LibreELEC/LibreELEC.tv](https://github.com/LibreELEC/LibreELEC.tv)
+    - Just enough OS for KODI
+    - RPi 4 支持 HEVC/H.265 硬解
+    - RPi 2+ 支持 H.264 硬解
+  - [osmc.tv](https://osmc.tv/)
+  - OpenELEC
+  - GeeXboX
+  - Recalbox
+  - LinuxMCE
+  - LinHES
+- Gaming
+  - [lakka.tv](https://www.lakka.tv/)
+    - 电视、复古游戏
+    - 基于 LibreELEC, RetroArch
+    - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
+    - [libretro/RetroArch](https://github.com/libretro/RetroArch)
+    - [Hardware-support](https://www.lakka.tv/doc/Hardware-support)
 
 ## Retro Game
 

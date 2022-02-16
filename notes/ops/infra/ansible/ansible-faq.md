@@ -1,8 +1,14 @@
 ---
-titleL: Ansible FAQ
+title: Ansible FAQ
+tags:
+  - FAQ
 ---
 
 # Ansible FAQ
+
+## block & when
+
+- when 会在每个步骤都检测 - 满足则退出
 
 ## 常用依赖组件
 
@@ -102,7 +108,7 @@ dotenv ansible -m debug -a 'msg={{lookup("env","TENANT_NAME")}}' localhost
 
 ## 获取当前工作目录
 
--  角色等相关的目录都是相对于 playbook 的
+- 角色等相关的目录都是相对于 playbook 的
 
 ```yaml
 - set_fact:

@@ -1,5 +1,7 @@
 ---
 title: Ansible Windows
+tags:
+  - Windows
 ---
 
 # Ansible Windows
@@ -50,6 +52,7 @@ win:
 ```
 
 ## Setup
+
 - https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html
 
 ```ps

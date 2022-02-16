@@ -4,6 +4,11 @@ title: cgroup
 
 # cgroup
 
+- /sys/fs/cgroup
+  - /proc/self/cgroup
+- /sys/fs/cgroup/unified - v2/unified - fstype=63677270
+  - /sys/fs/cgroup/cgroup.controllers
+
 ```bash
 # 创建 group
 cgcreate -g "memory:slack_group" -t victor:victor
@@ -19,6 +24,9 @@ echo 0 > /sys/fs/cgroup/memory/slack_group/memory.swappiness
 # OOM kill 评分
 # /proc/${PID}/oom_score
 ```
+
+
+## cgroup v2
 
 ## 内存使用情况
 

@@ -4,6 +4,11 @@ title: Bash
 
 # Bash
 
+- 配置
+  - .inputrc
+  - .bashrc - 交互 shell
+  - .profile,  .bash_profile - 登陆 shell
+
 ```bash
 # empty shell
 env -i /usr/local/bin/bash

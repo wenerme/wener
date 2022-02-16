@@ -22,6 +22,7 @@ title: Mirrors
 
 - https://gitcode.net
   - https://gitcode.net/mirrors/protocolbuffers/protobuf/-/releases/v3.19.1
+- https://ghproxy.com
 
 ## 镜像列表
 

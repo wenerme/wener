@@ -84,6 +84,15 @@ find . -type f | perl -pe 'print $_; s/第(\d+)集/ \1/' | xargs -d "\n" -n2 ech
 find . -type f | perl -pe 'print $_; s/[.](\d+)[.]/.EP\1./' | xargs -d "\n" -n2 echo mv
 ```
 
+## 基于时间搜索
+
+```bash
+# 修改时间在某个时间点之前的目录
+find . -maxdepth 1 -type d -not -newermt 2022-01-01 -ls
+# 递归删除
+find . -maxdepth 1 -type d -not -newermt 2022-01-01 -exec rm -r {} ';'
+```
+
 ## 修复一般文件和目录 mod
 
 ```bash
@@ -93,3 +102,27 @@ find . -type f -exec chmod 0644 {} \;
 # 修复 某个 owner
 find . -type d -user harry -exec chown daisy {} \;
 ```
+
+## zsh vs bash
+
+| vs.               | zsh                   | bash                        |
+| ----------------- | --------------------- | --------------------------- |
+| interactive shell | .zshrc                | .inputrc,.bashrc            |
+| login shell       | .zprofile             | .profile,.bash_profile      |
+| key binding       | bindkey -> zle        | .inputrc `bind` -> readline |
+| prompt PS1 escape | PS1 - `%` 转义        | PS1 - `\`` 转义             |
+| promot command    | precmd + preexec hook | PROMPT_COMMAND              |
+| array index       | start from **1**      | start from **0**            |
+
+- zsh
+  - 多用于用户环境
+    - 交互更好
+    - 功能更多
+- bash
+  - 多用于服务端环境
+    - 默认
+    - 稳定
+
+---
+
+- https://apple.stackexchange.com/a/361957/103557
