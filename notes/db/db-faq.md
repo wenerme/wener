@@ -98,3 +98,29 @@ ALTER ROLE ALL SET search_path = "$user";
 
 SELECT pg_catalog.set_config('search_path', '', false);
 ```
+
+## JDBC
+
+- org.postgresql.Driver
+- org.sqlite.JDBC
+- org.mariadb.jdbc.JDBC
+- com.mysql.jdbc.Driver - MySQL 5.1
+- com.mysql.cj.jdbc.Driver
+- org.h2.Driver
+
+```pre title="DataGrid URL Template"
+jdbc:postgresql://[{host::localhost}[:{port::5432}]][/{database:database/[^?]+:postgres}?][\?<&,user={user:param},password={password:param},{:identifier}={:param}>]
+jdbc:postgresql://\[{host:ipv6:\:\:1}\][:{port::5432}][/{database:database/[^?]+:postgres}?][\?<&,user={user:param},password={password:param},{:identifier}={:param}>]
+jdbc:postgresql:{database:database/(?!//)[^?]+:postgres}[\?<&,user={user:param},password={password:param},{:identifier}={:param}>]
+
+jdbc:sqlite:!(:memory:){file::identifier.sqlite}?
+jdbc:sqlite::memory:
+
+jdbc:mysql://{host::localhost}?[:{port::3306}][/{database}?][\?<&,user={user},password={password},{:identifier}={:param}>]
+jdbc:mysql://address=\(protocol=tcp\)\(<\)\(,host={host:host_ipv6:localhost},port={port::3306},user={user},password={password},{:identifier}={:param}>\)[/{database}][\?<&,{:identifier}={:param}>]
+jdbc:mysql:///{database}?[\?<&,user={user},password={password},junixsocket.file={mysql.socket::/tmp/mysqld.sock},socketFactory={socketFactory:#param:org.newsclub.net.mysql.AFUNIXDatabaseSocketFactoryCJ},{:identifier}={:param}>]
+
+jdbc:h2:tcp://{host::localhost}[:{port::9092}]/{database::default}[;<;,user={user:param},password={password:param},{:identifier}={:param}>]
+jdbc:h2:mem:{database::default}?[;<;,{:identifier}={:param}>]
+jdbc:h2:!(mem:)!(tcp://)[file:]{path:h2_db_file}[;<;,user={user:param},password={password:param},MV_STORE={MV_STORE:#param},{:identifier}={:param}>]
+```

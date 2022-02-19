@@ -44,3 +44,10 @@ tags:
 | Exascale    | 2018 | 1000        | ~150M   | ~1,000 PB        | ~200K-1M |
 
 - https://www.usenix.org/legacy/events/lisa11/tech/slides/deenadhayalan.pdf
+
+## 4K
+
+- 2010 年 - 512 -> 4096
+  - 高级格式化
+- IDEMA - International Disk Drive Equipment and Materials Association - 国际硬盘设备与材料协会
+- http://www.seagate.com/cn/zh/tech-insights/advanced-format-4k-sector-hard-drives-master-ti/

@@ -14,6 +14,7 @@ tags:
 - https://c9x.me/compile/
 - Writing a register based VM in less than 125 lines of C code
   - https://news.ycombinator.com/item?id=29492183
+- Address Sanitizer
 - [valgrind](https://valgrind.org/)
   - 内存溢出检测
   - 源码 [valgrind](https://sourceware.org/git/valgrind)

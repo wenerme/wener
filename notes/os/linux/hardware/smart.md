@@ -296,3 +296,9 @@ ID      Size     Value  Description
 0x0012  2            0  R_ERR response for host-to-device non-data FIS, CRC
 0x0013  2            0  R_ERR response for host-to-device non-data FIS, non-CRC
 ```
+
+##  requires option '-d cciss,N'
+
+```bash
+smartctl -d cciss,1 -a /dev/sda
+```

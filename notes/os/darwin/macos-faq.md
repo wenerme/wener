@@ -208,3 +208,5 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 
 - x86_64
 - arm64e
+
+## com.apple.MobileSoftwareUpdate.UpdateBrainService

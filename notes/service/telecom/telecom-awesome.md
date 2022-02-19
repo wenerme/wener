@@ -25,3 +25,7 @@ tags:
     - reorder tone - 0.25 second ON and 0.25 second OFF
   - high tone - 480 Hz at –17 dBm
 - https://www.npmjs.com/search?q=dtmf
+
+## GSM
+
+- https://shufflingbytes.com/posts/hacking-goip-gsm-gateway/

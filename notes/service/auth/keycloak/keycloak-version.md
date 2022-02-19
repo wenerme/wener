@@ -9,6 +9,12 @@ tags:
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
 - [keycloak/kc-sig-fapi](https://github.com/keycloak/kc-sig-fapi)
 
+## Keycloak 17
+
+- 正式支持 Quarkus
+  - WildFly 支持到 2022-06
+- Quarkus 2.7.0
+
 ## Keycloak 16
 
 - [Wildfly 25] - Elytron

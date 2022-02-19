@@ -91,7 +91,7 @@ tags:
 | --- | --- | --- | --- |
 | 1P  | 2   | 3   | 4   |
 | 5P  | 6   | 7   | 8   |
-| 9P  | 10   | 11   | 12   |
+| 9P  | 10  | 11  | 12  |
 
 | sda | sdb | sdc | sdd | sde |
 | --- | --- | --- | --- | --- |
@@ -153,3 +153,67 @@ data                 logicalused           1.24T                 -
     - default_toast_compression=lz4
     - 可以在建表时设置 `col1 text COMPRESSION lz4`
   - PostgreSQL 15 支持 LZ4 WAL
+
+## ZFS 缓存
+
+- ZIL - ZFS Intent Log - 缓冲 WRITE 操作
+- SLOG - Separate Intent Log
+  - `zpool add tank log`
+  - 不需要特别大的设备 - 例如 16G, 64G SSD 足矣
+- ARC - 缓存 READ 操作 - Adaptive Replacement Cache
+  - 内存
+- L2ARC
+  - `zpool add tank cache`
+  - 不需要特别大的设备 - 例如 128G SSD
+  - 系统重启后缓存依然可用
+
+```bash
+zpool add tank log ada3             # 添加 ZIL - 单磁盘
+zpool add tank log mirror ada3 ada4 # 添加 ZIL - RAID1 - 坏一个 SSD 写入的数据也不会丢
+zpool add tank cache ada3           # 添加 L2ARC
+```
+
+## ZFS 性能估算
+
+> 调优应先找到瓶颈在哪里。
+
+- RAIDZn 顺序 4KB 读取 - 无 cache 场景
+  - RAIDZ1 - `N/(N-1) * IOPS`
+  - RAIDZ2 - `N/(N-2) * IOPS`
+  - RAIDZ3 - `N/(N-3) * IOPS`
+  - 有 cache 时，则上限为 cache 磁盘的 IOPS
+- 写入性能
+  - 无法直接估算，zfs 内部 zil 为异步写入
+  - 额外的 ZIL 设备可提升 write 性能
+  - 默认会在每个磁盘预留空间存储 ZIL
+- 性能影响因素
+  - recordsize - 默认 128k
+  - compression
+  - ashift
+  - dedup - 默认关闭 - 特殊场景去重能提升性能
+  - atime - 默认开启 - 一般不需要，可关闭提升读取性能
+  - logbias - 默认 latency, 可设置为 throughput, 减少使用额外 zil 设备
+  - sync
+    - 关闭最多丢失 30s 数据 - 如果场景允许丢失，则不影响
+    - 通过 UPS 确保存储 比 网络后异常 可考虑关闭 sync
+  - primarycache
+  - secondarycache
+
+## zfs import
+
+- 正常系统启动会从缓存 导入 - zfs import -c /etc/zfs/zpool.cache
+- 如果缓存丢失，则可以直接搜索磁盘
+  - 例如: 更换了系统
+- [zpool-import.8](https://openzfs.github.io/openzfs-docs/man/8/zpool-import.8.html)
+
+```bash
+# 查看 可导入 的 pool
+# 使用 lsblk 搜索
+zpool import
+# 执行导入 - 导入所的
+zpool import -a
+
+
+# 手动指定搜索目录
+zpool import -d /dev/disk/by-id
+```

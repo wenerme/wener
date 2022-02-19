@@ -213,6 +213,9 @@ tags:
 ## Template
 
 - [linkedin/dustjs](https://github.com/linkedin/dustjs)
+- ejs
+- handlebars.js
+- mustache.js
 
 ## 有趣
 

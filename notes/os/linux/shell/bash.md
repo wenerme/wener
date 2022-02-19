@@ -7,7 +7,8 @@ title: Bash
 - 配置
   - .inputrc
   - .bashrc - 交互 shell
-  - .profile,  .bash_profile - 登陆 shell
+  - .profile, .bash_profile - 登陆 shell
+- http://mywiki.wooledge.org/BashPitfalls
 
 ```bash
 # empty shell

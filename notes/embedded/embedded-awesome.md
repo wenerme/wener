@@ -38,6 +38,8 @@ tags:
   - [zephyrproject-rtos/zephyr](https://github.com/zephyrproject-rtos/zephyr)
 - ARM [mbed](https://mbed.com)
   - [ARMmbed/mbed-os](https://github.com/ARMmbed/mbed-os)
+- FS
+  - [littlefs-project/littlefs](https://github.com/littlefs-project/littlefs)
 
 ## DEV
 

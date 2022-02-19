@@ -13,6 +13,7 @@ title: deno
   - 功能理念类似于 golang
     - stdlib 参照 go 实现
 - Deno 全局命名空间
+- ~/.deno/bin - deno install 位置
 
 ```ts
 // HTTP 服务器
@@ -28,6 +29,19 @@ async function serve(conn: Deno.Conn) {
     respondWith(new Response('Hello world'));
   }
 }
+```
+
+```bash
+# bundle 为单个文件 - 输出为 js
+deno bundle scripts/main.ts cli.js
+deno run cli.js
+
+# compile 为可执行文件 - 打包 deno - 约 70MB
+# -A 给所有权限
+# --target 生成其他平台 - 第一次执行会下载 deno 到 DENO_DIR
+# x86_64-unknown-linux-gnu, x86_64-pc-windows-msvc, x86_64-apple-darwin, aarch64-apple-darwin
+deno compile -o cli --allow-write --allow-read scripts/main.ts
+./cli
 ```
 
 ## Node vs Deno
@@ -51,3 +65,14 @@ async function serve(conn: Deno.Conn) {
 | nvm                | deno upgrade                           |
 | tsserver           | deno lsp                               |
 | c8/istanbul        | deno coverage                          |
+
+## deno deploy
+
+- deno 官方提供的 serverless 服务
+- [定价 & 限制](https://deno.com/deploy/docs/pricing-and-limits)
+  - 100k req/day, 1000 req/min
+  - 512 MB, 每次请求 50 ms
+- 参考
+  - https://deno.com/deploy
+  - https://crux.land
+    - 免费托管 ≤ 20kB 的 deno 模块

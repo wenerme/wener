@@ -30,3 +30,4 @@ tags:
 - Operation Transform
 - [Implementing Regular Expressions](https://swtch.com/~rsc/regexp/)
 - [Using Finite State Transducers in Lucene](https://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html)
+- Static B-Trees: A data structure for faster binary search  [HN](https://news.ycombinator.com/item?id=30376140)

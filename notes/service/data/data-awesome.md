@@ -26,6 +26,7 @@ tags:
 
 ## ETL Pipeline
 
+- Apache NiFi
 - [singer.io](https://github.com/singer-io)
 - [transferwise/pipelinewise](https://github.com/transferwise/pipelinewise)
   - Apache-2.0, Python
@@ -70,6 +71,20 @@ tags:
 ## Dataset
 
 - [datasets/awesome-data](https://github.com/datasets/awesome-data)
+
+## File Format
+
+- Parquet - 列格式
+  - 压缩比、存储效率高
+  - 支持嵌套数据结构
+- Avro - 行格式
+  - 包含 schema - JSON
+  - 数据为 Binary
+  - https://zymeworks.github.io/avro-viewer/
+- ORC - Optimized Row Columnar
+  - 记录额外索引信息
+- Arrow - 内存
+  - 主要用于处理
 
 ## Misc
 

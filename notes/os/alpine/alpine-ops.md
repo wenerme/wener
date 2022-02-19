@@ -212,8 +212,8 @@ udevadm info --export-db
 
 ```bash
 apk add zfs zfs-{scripts,udev,utils-py}
-# vanilla 内核
-apk add zfs-vanilla
+# 区分 lts, virt
+apk add zfs-lts
 # 加载内核模块
 modprobe zfs
 echo zfs >> /etc/modules

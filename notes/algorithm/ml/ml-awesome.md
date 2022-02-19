@@ -104,6 +104,7 @@ tags:
   - CAPTCHA
 - [Kubasinska/MI-EEG-1D-CNN](https://github.com/Kubasinska/MI-EEG-1D-CNN)
 - [google-research/circuit_training](https://github.com/google-research/circuit_training)
+- [Justin62628/Squirrel-RIFE](https://github.com/Justin62628/Squirrel-RIFE)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

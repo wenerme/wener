@@ -25,7 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install --lts     # 安装
 nvm use --lts         # 切换版本
-nvm alias default 14  # 设置默认 - 下次不需要再切换版本 - alias 不支持 --lts
+nvm alias default 16  # 设置默认 - 下次不需要再切换版本 - alias 不支持 --lts
 ```
 
 ## AlpineLinux

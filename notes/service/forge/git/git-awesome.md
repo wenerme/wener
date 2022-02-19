@@ -31,3 +31,7 @@ tags:
 - https://docs.gitlab.com/ee/development/changelog.html
 - https://git-scm.com/docs/git-interpret-trailers
 - https://github.com/changesets/changesets
+
+## Misc
+
+- https://oss.gitsense.com/insights/github

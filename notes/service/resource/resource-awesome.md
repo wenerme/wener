@@ -63,6 +63,8 @@ alipanso6.com，alipanso7.com，alipanso8.com
 - [reruin/sharelist](https://github.com/reruin/sharelist)
 - [Xhofe/alist](https://github.com/Xhofe/alist)
   - 阿里云盘列表
+- https://github.com/ronggang/PT-Plugin-Plus
+
 
 # FAQ
 

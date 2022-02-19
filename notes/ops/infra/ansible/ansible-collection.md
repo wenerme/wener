@@ -7,6 +7,7 @@ title: Ansible Collection
 - Collection 是 Ansible Galaxy Role 的继承者
 - 不只能包含 role，还能包含各种插件，文档，任务等
 - 默认安装目录 `~/.ansible/collections` - COLLECTIONS_PATHS,
+- 全局位置 /usr/share/ansible/collections
 - 默认服务器 https://galaxy.ansible.com - GALAXY_SERVER
 - server_list 或 GALAXY_SERVER_LIST 可指定一组服务
 - 内建 collections 安装位置 `/usr/lib/python3.8/site-packages/ansible_collections`

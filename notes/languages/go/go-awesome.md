@@ -302,6 +302,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
   - [uber-go/gopatch](https://github.com/uber-go/gopatch)
     - 根据规则转换代码
+  - [ogen-go/ogen](https://github.com/ogen-go/ogen)
+    - OpenAPI, Golang
 
 ## JSON
 
@@ -310,6 +312,10 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - 更好性能，更多功能
     - 自定义类型解码
     - 宽松名字处理
+- [go-faster/jx](https://github.com/go-faster/jx)
+  - 高性能 JSON encode,decode
+  - 不兼容 encoding/json - 因此才能提供性能优势
+  - 不支持反射
 - [tidwall/gjson](https://github.com/tidwall/gjson)
   - Get Json Path
 - [tidwall/sjson](https://github.com/tidwall/sjson)

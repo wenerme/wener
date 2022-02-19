@@ -146,6 +146,7 @@ tags:
   - XML
 - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
 - [amacneil/dbmate](https://github.com/amacneil/dbmate)
+- [ariga/atlas](https://github.com/ariga/atlas)
 - [charperbonaroo/pgmigrate](https://github.com/charperbonaroo/pgmigrate)
   - Write migrations using plain SQL
 - [sqitchers/sqitch](https://github.com/sqitchers/sqitch)

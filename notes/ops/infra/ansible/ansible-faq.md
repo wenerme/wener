@@ -39,9 +39,13 @@ apk add py3-lxml
 
 ## include_task vs import_task
 
-- 建议
-  - 需要 `when` 、循环、名字时是变量 使用 include
-  - 除此之外都使用 import
+:::tip 建议
+
+- 需要 `when` 、循环、名字是变量时 使用 include
+- 除此之外都使用 import
+
+:::
+
 - import
   - 在解析时处理 - 静态
   - 建议用于逻辑单元 - 例如拆分长 playbook
@@ -283,3 +287,9 @@ inventories/
   b/
     hosts
 ```
+
+## zfsprop was not present after being successfully set
+
+zfs 操作 temporary 的属性有问题
+
+- https://github.com/ansible-collections/community.general/blob/baa721ac2281f9e628821863798f030c9efd4c9d/plugins/modules/storage/zfs/zfs.py#L208-L215

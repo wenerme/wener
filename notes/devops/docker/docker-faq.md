@@ -79,7 +79,7 @@ iptables -A DOCKER -j ACCEPT -p tcp --destination ${CONTAINERIP} --dport ${HOSTP
 - docker 支持 zfs driver
 - 但是有些问题
   - [moby/moby#41055](https://github.com/moby/moby/issues/41055)
-- 是在需要可以考虑 zvol
+- 实在需要可以考虑 zvol
 
 ```bash
 mkdir -p /data/docker

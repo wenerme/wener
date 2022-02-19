@@ -26,6 +26,10 @@ title: OpenWrt
     - [推荐路由](https://openwrt.org/toh/recommended_routers)
   - [gekmihesg/ansible-openwrt](https://github.com/gekmihesg/ansible-openwrt)
   - ansible [opkg](https://docs.ansible.com/ansible/latest/collections/community/general/opkg_module.html)
+  - https://downloads.asu.aparcar.org/apkwrt/
+    - apk3 仓库
+    - 新的 openwrt 用 apk 替代 opkg
+    - apk - alpine package manager
 
 ## Mesh
 

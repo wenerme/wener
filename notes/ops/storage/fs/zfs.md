@@ -42,6 +42,7 @@ title: ZFS
     * 小于 10 硬盘 /dev/disk/by-id
     * 大于 10 硬盘 /dev/disk/by-path
     * 大于 10 最好 /dev/disk/by-vdev
+* [FAQ](https://openzfs.github.io/openzfs-docs/Project%20and%20Community/FAQ.html)
 * [zpool.8](https://www.freebsd.org/cgi/man.cgi?query=zpool&sektion=8)
 * [zfs.8](https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8)
 * [OpenZFS novel algorithms: snapshots, space allocation, RAID-Z - Matt Ahrens](https://www.slideshare.net/MatthewAhrens/openzfs-novel-algorithms-snapshots-space-allocation-raidz-matt-ahrens)
@@ -60,11 +61,11 @@ title: ZFS
 * vdev - Virtual Device - 虚拟设备
   * disk
   * file
-  * mirror
+  * mirror - RAID-1
   * raidz
-    * raidz 等同于 raidz1
-    * raidz1
-    * raidz2
+    * raidz - raidz1
+    * raidz1 - RAID-5
+    * raidz2 - RAID-6
     * raidz3
   * spare
   * log

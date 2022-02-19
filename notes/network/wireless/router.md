@@ -1,5 +1,7 @@
 ---
 title: 无线设备
+tags:
+  - Device
 ---
 
 # 无线设备
@@ -69,15 +71,6 @@ title: 无线设备
   - 咪咕盒子 MG100
 
 ---
-
-- MediaTek [MT7620] - WiSoC
-  - MediaTek MT76x2E 802.11nac
-  - MediaTek MT7620 802.11bgn
-- MediaTek MT7612EN
-  - 2.4/5GHz 802.11abgnac, 2×2 MiMo
-  - 3×100M ethernet
-
-[mt7620]: https://deviwiki.com/wiki/MediaTek_MT7620
 
 :::tip 二手推荐
 

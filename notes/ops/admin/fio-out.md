@@ -33,6 +33,8 @@ title: fio 结果
 - IOPS=BandWidth/BlockSize
   - 例如 4MB/s ÷ 4KB = 1000 io/s
 - 随机关心 IOPS，顺序关心 带宽
+  - IOPS - IO/s - 随机、小块 4-8k
+  - 带宽/吞吐 - MB/s - 顺序、大块 >= 64k
 - 测试默认 ext4 - 测试 raw disk 速率意义不大
   - 因此测试结果与官方有一定偏差
   - ext4 一般默认 blocksize 为 4k
@@ -44,6 +46,7 @@ title: fio 结果
     - 更长的持续 IO 时间
     - latency
     - latency 分布
+    - 温度
 
 :::
 
