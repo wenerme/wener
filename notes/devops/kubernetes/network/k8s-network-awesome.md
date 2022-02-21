@@ -51,39 +51,46 @@ tags:
 
 :::
 
-| -                     | based on     | ingress | gateway | governance    |
-| --------------------- | ------------ | ------- | ------- | ------------- |
-| [ingress-nginx]       | nginx        | 🟢      | 🔴      |
-| [haproxy-ingress]     | haproxy      | 🟢      | 🟢      |
-| [haproxytech-ingress] | haproxy      | 🟢      | 🔴      | haproxytech   |
-| istio                 | envoy        | 🟢      | 🟢      | CNCF/google   |
-| [contour]             | envoy        | 🟢      | 🟢      | CNCF          |
-| [traefik]             | traefik      | 🟢      | 🟢      |
-| [gloo]                | envoy        | 🟢      | 🟡      |
-| Emissary-Ingress      | envoy        | 🟢      | 🟢      |
-| [kong]                | nginx/kong   | 🟢      | 🟡      | Kong          |
-| [apisix]              | nginx/apisix | 🟢      | 🟡      | Apache        |
-| [citrix]              | Citrix ADC   | 🟢      |
-| [enroute]             | envoy        | 🟢      |         | CNCF/saarasio |
-| [easegress]           | easegress    | 🟢      |         | megaease      |
-| [voyager]             | haproxy      | 🟢      |         | AppsCode      |
-| [tyk]                 | typ          | 🟢      |
-| [skipper]             | skipper      | 🟢      |
+| ingress               | stars                        | based on     | ingress | gateway | governance    |
+| --------------------- | ---------------------------- | ------------ | ------- | ------- | ------------- |
+| [ingress-nginx]       | ![ingress-nginx-stars]       | nginx        | 🟢      | 🔴      |
+| [haproxy-ingress]     | ![haproxy-ingress-stars]     | haproxy      | 🟢      | 🟢      |
+| [haproxytech-ingress] | ![haproxytech-ingress-stars] | haproxy      | 🟢      | 🔴      | haproxytech   |
+| istio                 |                              | envoy        | 🟢      | 🟢      | CNCF/google   |
+| [contour]             |                              | envoy        | 🟢      | 🟢      | CNCF          |
+| [traefik]             |                              | traefik      | 🟢      | 🟢      |
+| [gloo]                |                              | envoy        | 🟢      | 🟡      |
+| [Emissary-Ingress]    | ![emissary-ingress-stars]    | envoy        | 🟢      | 🟢      |
+| [kong]                |                              | nginx/kong   | 🟢      | 🟡      | Kong          |
+| [apisix]              |                              | nginx/apisix | 🟢      | 🟡      | Apache        |
+| [citrix]              |                              | Citrix ADC   | 🟢      |
+| [enroute]             |                              | envoy        | 🟢      |         | CNCF/saarasio |
+| [easegress]           | ![easegress-stars]           | easegress    | 🟢      |         | megaease      |
+| [voyager]             |                              | haproxy      | 🟢      |         | AppsCode      |
+| [tyk]                 |                              | typ          | 🟢      |
+| [skipper]             |                              | skipper      | 🟢      |
 
-[ingress-nginx]: https://github.com/kubernetes/ingress-nginx
+[emissary-ingress]: https://github.com/emissary-ingress/emissary
+[emissary-ingress-stars]: https://img.shields.io/github/stars/emissary-ingress/emissary
+[ingress-nginx]: ./nginx-ingress.md
+[ingress-nginx-stars]: https://img.shields.io/github/stars/kubernetes/ingress-nginx
 [apisix]: https://github.com/apache/apisix-ingress-controller
 [gloo]: https://github.com/solo-io/gloo
-[haproxy-ingress]: https://github.com/jcmoraisjr/haproxy-ingress
+[haproxy-ingress]: ./haproxy-ingress.md
+[haproxy-ingress-stars]: https://img.shields.io/github/stars/jcmoraisjr/haproxy-ingress
 [haproxytech-ingress]: https://github.com/haproxytech/kubernetes-ingress
+[haproxytech-ingress-stars]: https://img.shields.io/github/stars/haproxytech/kubernetes-ingress
 [kong]: https://github.com/Kong/kubernetes-ingress-controller
+[kong-stars]: https://img.shields.io/github/stars/Kong/kubernetes-ingress-controller
 [voyager]: https://github.com/voyagermesh/voyager
 [contour]: https://github.com/projectcontour/contour
 [citrix]: https://github.com/citrix/citrix-k8s-ingress-controller
 [enroute]: https://github.com/saarasio/enroute
 [easegress]: https://github.com/megaease/easegress
+[easegress-stars]: https://img.shields.io/github/stars/megaease/easegress
 [tyk]: https://github.com/TykTechnologies/tyk-operator
 [skipper]: https://github.com/zalando/skipper
-[traefik]: https://traefik.io/
+[traefik]: ./traefik-ingress.md
 
 - ingress-nginx
   - ssl passthrough 性能问题 [ingress-nginx#7827](https://github.com/kubernetes/ingress-nginx/issues/7827)
@@ -94,10 +101,10 @@ tags:
 
 | vs.           | starts               | IPv6 | Windows | Policy |
 | ------------- | -------------------- | ---- | ------- | ------ |
-| [calico]      | ![cilium-stars]      | ✅   | ✅      | ✅     |
+| [calico]      | ![calico-stars]      | ✅   | ✅      | ✅     |
 | [kube-router] | ![flannel-stars]     | ❌   | ❌      | ❌     |
 | [flannel]     | ![kube-router-stars] | ❌   | ✅      | ❌     |
-| [cilium]      | ![calico-stars]      | ❌   | ❌      | ✅     |
+| [cilium]      | ![cilium-stars]      | ❌   | ❌      | ✅     |
 
 [cilium]: ./cilium.md
 [flannel]: ./flannel.md
