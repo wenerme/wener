@@ -19,6 +19,10 @@ tags:
   - 2020 [ZHEAP: REINVENTED POSTGRESQL STORAGE](https://www.cybertec-postgresql.com/en/zheap-reinvented-postgresql-storage/)
   - 2021 [zheap: What has been done since last time](https://www.cybertec-postgresql.com/en/postgresql-zheap-current-status/)
 
+## PostgreSQL 15
+
+- toast 支持 zstd 压缩
+
 ## PostgreSQL 14
 
 - SELECT/INSERT

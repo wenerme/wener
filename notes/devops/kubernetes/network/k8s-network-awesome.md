@@ -92,21 +92,29 @@ tags:
 
 ## CNI
 
-| vs.                   | IPv6 | Windows | Policy |
-| --------------------- | ---- | ------- | ------ |
-| calico                | ✅   | ✅      | ✅     |
-| [kube-router]         | ❌   | ❌      | ❌     |
-| [flannel]             | ❌   | ✅      | ❌     |
-| [cilium](./cilium.md) | ❌   | ❌      | ✅     |
+| vs.           | starts               | IPv6 | Windows | Policy |
+| ------------- | -------------------- | ---- | ------- | ------ |
+| [calico]      | ![cilium-stars]      | ✅   | ✅      | ✅     |
+| [kube-router] | ![flannel-stars]     | ❌   | ❌      | ❌     |
+| [flannel]     | ![kube-router-stars] | ❌   | ✅      | ❌     |
+| [cilium]      | ![calico-stars]      | ❌   | ❌      | ✅     |
 
-[cilium]: https://github.com/cilium/cilium
-[flannel]: ./flannel
+[cilium]: ./cilium.md
+[flannel]: ./flannel.md
 [kube-router]: ./kube-router.md
+[calico]: ./calico.md
+[cilium-stars]: https://img.shields.io/github/stars/cilium/cilium
+[flannel-stars]: https://img.shields.io/github/stars/flannel-io/flannel
+[kube-router-stars]: https://img.shields.io/github/stars/cloudnativelabs/kube-router
+[calico-stars]: https://img.shields.io/github/stars/projectcalico/calico
 
 <!--
 [kube-router]: https://github.com/cloudnativelabs/kube-router
 [cilium]: https://github.com/cilium/cilium
 [flannel]: https://github.com/flannel-io/flannel
+[projectcalico/calico]: https://github.com/projectcalico/calico
+[k0s-issues]: https://img.shields.io/github/issues/k0sproject/k0s
+[k0s-stars]: https://img.shields.io/github/stars/k0sproject/k0s
 -->
 
 :::tip
