@@ -31,6 +31,12 @@ https://github.com/git/git/tree/master/po
 
 ⤷
 
+## Symbol
+
+- 数学
+  - +−×÷±≤≥≈
+- ✅❌❓❔❗️❕❎
+
 ## Emoji
 
 - https://github.com/github/gemoji

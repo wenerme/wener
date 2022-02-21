@@ -82,6 +82,8 @@ tags:
     - AGPL-3.0, Typescript+Vue
   - [bramw/baserow](https://gitlab.com/bramw/baserow)
     - MIT, Python+Vue
+  - [gristlabs/grist-core](https://github.com/gristlabs/grist-core)
+    - Backbone, Knockout
 - invoicing
   - [crater-invoice/crater](https://github.com/crater-invoice/crater)
 - grammar

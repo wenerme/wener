@@ -240,3 +240,25 @@ echo ${!a}
 ```bash
 env $(cat .env | xargs) rails
 ```
+
+## heredoc
+
+```bash
+cat << EOF
+PWD=$PWD
+EOF
+# 转义
+cat << "EOF"
+PWD=$PWD
+EOF
+# 移除缩进 - 需要 tab
+cat <<- EOF
+	PWD=$PWD
+	EOF
+```
+
+## 获取一个 Tab
+
+```bash
+echo -ne \\t | pbcopy
+```

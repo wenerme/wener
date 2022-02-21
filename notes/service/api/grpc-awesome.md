@@ -43,6 +43,9 @@ tags:
 - [tmc/grpcutil](https://github.com/tmc/grpcutil)
 - [ktr0731/evans](https://github.com/ktr0731/evans)
   - expressive universal gRPC client
+- [containerd/ttrpc](https://github.com/containerd/ttrpc)
+  - 轻量 grpc
+  - 非 grpc 协议
 
 ## GUI
 

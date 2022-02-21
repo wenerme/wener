@@ -40,10 +40,6 @@ dmidecode -t 17 | grep "Part Number:"
 
 Non-ECC UDIMM 和 ECC UDIMM 都不会采用 x4 排列(颗粒数太多), 所以要想 16GB 单条只能是 2Ranks 的 B-die
 
-## 三星
-
-- [DDR4 SDRAM Memory](https://www.samsung.com/semiconductor/global.semi/file/resource/2018/06/DDR4_Product_guide_May.18.pdf)
-
 # FAQ
 
 ## UDIMM vs RDIMM
@@ -59,5 +55,25 @@ Non-ECC UDIMM 和 ECC UDIMM 都不会采用 x4 排列(颗粒数太多), 所以�
   - https://serverfault.com/a/289102/190601
 
 ## Rank
+
+- 1 Rank - 1 芯片 1 内存 - 1 Rank 1 Bank
+- 2 Rank - 2 个 单 Rank 组成一个模块 - 同时只能访问一个 Rank 内存
+- 4 Rank - 2 个 双 Rank 组成一个模块 - 同时只能访问一个 Rank
+- `2R*8` vs `2R*4` vs `4R*4`
+  - 容量 32G 内存
+  - `2R*8` = `2*2*8` - 每个 Rank 2G
+    - 频率 2666MHz
+    - 价格高
+  - `2R*4` = `2*4*4` - 每个 Rank 4G
+    - 频率 2400MHz
+  - `4R*4` = `4*2*4` - 每个 Rank 2G
+    - 单个 Rank 密度更低
+    - 频率 2133MHz
+    - 价格低
+
+```bash
+# 能看到 Rank 和 频率
+dmidecode -t memory
+```
 
 - https://techlibrary.hpe.com/docs/iss/DL380pGen8/setup_install/advanced/Content/138678.htm

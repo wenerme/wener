@@ -16,13 +16,14 @@ tags:
 
 :::
 
-| linux version | date       | note  | distro                                         |
-| ------------: | ---------- | ----- | ---------------------------------------------- |
-| 5.15 22nd LTS | 2021-10-32 | NTFS  | alpine 3.15                                    |
-| 5.10 21st LTS | 2020-12-13 |       | alpine 3.14, debian 11 Bullseye                |
-|  5.4 20th LTS | 2019-09-24 | exFAT | alpine 3.13, ubuntu 20.04                      |
-| 4.19 19th LTS | 2019-10-22 |       | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
-|  4.4 16th LTS | 2016-01-10 |       | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
+| linux version         | date       | note  | distro                                         |
+| :-------------------- | ---------- | ----- | ---------------------------------------------- |
+| [Linux 5.15] 22nd LTS | 2021-10-32 | NTFS  | alpine 3.15                                    |
+| [Linux 5.10] 21st LTS | 2020-12-13 |       | alpine 3.14, debian 11 Bullseye                |
+| Linux 5.4 20th LTS    | 2019-09-24 | exFAT | alpine 3.13, ubuntu 20.04                      |
+| Linux 4.19 19th LTS   | 2019-10-22 |       | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
+| Linux 4.4 16th LTS    | 2016-01-10 |       | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
+| Linux 3.14            | 2014-03-30 |
 
 - https://kernelnewbies.org/LinuxVersions
 - [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
@@ -34,12 +35,12 @@ tags:
   - 适用于 工业产品
   - [CIP Kernel Maintenance](https://wiki.linuxfoundation.org/civilinfrastructureplatform/cipkernelmaintenance)
 
-## 5.15
+## Linux 5.15
 
 - **NTFS**
 - ksmbd - in-kernel SMB 3 server
 
-## 5.10
+## Linux 5.10
 
 - EXT4
   - 支持 fast commit - fsync 和元数据操作更快 - mkfs 启用
@@ -51,12 +52,12 @@ tags:
 - RISC-V boot EFI
 - [Linux 5.10](https://kernelnewbies.org/Linux_5.10)
 
-## 5.8
+## Linux 5.8
 
 - Raspberry Pi 4
 - Broadcom BCM2711
 
-## 5.4
+## Linux 5.4
 
 - **exFAT**
 - virtio-fs
@@ -64,7 +65,7 @@ tags:
   - 块级别，类似 dm-verity，支持 ext4、f2fs
 - [Linux 5.10](https://kernelnewbies.org/Linux_5.4)
 
-## 4.8
+## Linux 4.8
 
 - Support for using Transparent Huge Pages in the page cache
 - Support for eXpress Data Path
@@ -76,7 +77,7 @@ tags:
 - Add New Vegas TCP congestion control
 - Documentation moved to the reStructuredText format
 
-## 4.7
+## Linux 4.7
 
 - Support for Radeon RX480 GPUs
 - Parallel directory lookups
@@ -89,7 +90,7 @@ tags:
 - Android's sync_file fencing mechanism considered stable
 - LoadPin, a security module to restrict the origin of kernel modules
 
-## 4.6
+## Linux 4.6
 
 - USB 3.1 SuperSpeedPlus (10 Gbps) support
 - Improve the reliability of the Out Of Memory task killer
@@ -103,7 +104,7 @@ tags:
 - Support for cgroup namespaces
 - Add support for the pNFS SCSI layout
 
-### 4.5
+### Linux 4.5
 
 - Copy offloading with new copy_file_range(2) system call
 - Experimental PowerPlay supports brings high performance to the amdgpu driver
@@ -116,7 +117,7 @@ tags:
 - Performance improvements for SO_REUSEPORT UDP sockets
 - Proper control of socket memory usage in the memory controller
 
-### 4.4
+### Linux 4.4
 
 - https://kernelnewbies.org/Linux_4.4
 - Faster and leaner loop device with Direct I/O and Asynchronous I/O support
@@ -132,7 +133,7 @@ tags:
 - Block polling support
 - mlock2() syscall allow users to request memory to be locked on page fault
 
-### 4.3
+### Linux 4.3
 
 - The Ext3 filesystem has been removed
 - userfaultfd(), a system call for handling page-faults in user space

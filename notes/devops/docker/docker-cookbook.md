@@ -1,5 +1,4 @@
 ---
-id: docker-cookbook
 title: Docker 常用服务
 tags:
   - Cookbook
@@ -64,7 +63,9 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 
 ### 反向代理
 
+```bash
 sudo nano /data/owncloud/config/config.php
+```
 
 ```php
 <?php

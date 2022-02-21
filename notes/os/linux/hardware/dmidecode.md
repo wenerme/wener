@@ -26,10 +26,10 @@ title: dmidecode
 ```bash
 apk add dmidecode
 
-# 所有类型
-dmidecode -t
-# 所有字符串
-dmidecode -s
+dmidecode -t        # 所有类型
+dmidecode -t memory # 查看内存信息
+dmidecode -s        # 所有字符串
+
 # 显示所有字符
 dmidecode -s 2>&1 | tail -n +4 | xargs -n 1 -I {} sh -c 'echo -n {}: && dmidecode -s {}'
 
@@ -37,7 +37,7 @@ dmidecode -s 2>&1 | tail -n +4 | xargs -n 1 -I {} sh -c 'echo -n {}: && dmidecod
 # BIOS 中指定, VMware 可修改 uuid.bios, QEMU -uuid
 cat /sys/devices/virtual/dmi/id/product_uuid
 
-# 查看访问的位置
+# 查看访问的位置 可判断读取了那些 系统信息
 sudo strace -f -e open dmidecode > /dev/nul
 ```
 
@@ -51,7 +51,7 @@ sudo strace -f -e open dmidecode > /dev/nul
   - cache
   - connector
   - slot
-- String
+- String
   - bios-vendor
   - bios-version
   - bios-release-date

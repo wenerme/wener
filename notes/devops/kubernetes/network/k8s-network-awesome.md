@@ -85,20 +85,68 @@ tags:
 [skipper]: https://github.com/zalando/skipper
 [traefik]: https://traefik.io/
 
+- ingress-nginx
+  - ssl passthrough 性能问题 [ingress-nginx#7827](https://github.com/kubernetes/ingress-nginx/issues/7827)
+- haproxy-ingress
+  - 支持外部 HAProxy
+
 ## CNI
 
-- flannel
-  - layer 2, overlay
-- calico
-  - layer 3, BGP
-- cilium
-  - layer 3, eBPF
-- canal
-- weave
-  - IPsec ESP
+| vs.           | IPv6 | Windows | Policy |
+| ------------- | ---- | ------- | ------ |
+| calico        | ✅   | ✅      | ✅     |
+| [kube-router] | ❌   | ❌      | ❌     |
+| [flannel]     | ❌   | ✅      | ❌     |
+| [cilium]      | ❌   | ❌      | ✅     |
 
-## Network
+[cilium]: https://github.com/cilium/cilium
+[flannel]: ./flannel
+[kube-router]: https://github.com/cloudnativelabs/kube-router
+
+<!--
+[kube-router]: https://github.com/cloudnativelabs/kube-router
+[cilium]: https://github.com/cilium/cilium
+[flannel]: https://github.com/flannel-io/flannel
+-->
+
+:::tip
+
+- 不支持 IPv6 也不支持 DualStack
+- NetworkPolicy 支持控制 Ingress 和 Egress 网络
+
+:::
 
 - kube-router
+  - layer 3, lvs/ipvs
+- flannel
+  - overlay
+  - 轻量, 专注网络层
+  - 后端: vxlan, host-gw, udp, ipip, ipsec, wireguard
+  - 配置: etcd, k8s api
+- calico
+  - layer 3, overlay, BGP,
+  - 后端: vxlan, pip, eBPF, WindowsHNS
+  - IPv6 IPIP/VXLAN [calico#5206](https://github.com/projectcalico/calico/issues/5206)
+- cilium
+  - layer 3/4/7, eBPF
+  - IPv6 [cilium#13891](https://github.com/cilium/cilium/issues/13891)
+- weave
+  - IPsec ESP
+- canal - 停止 - calico+flannel - 目前 calico 内置 vxlan
+
+**网络组件功能选项**
+
+- Policy
+- IPAM
+- CNI
+- Overlay - VXLAN, IPIP, WG, IPIP, IPSec
+- Routing - BGP, VPC
+
+---
+
+- https://kubernetes.io/docs/concepts/cluster-administration/networking/
+
+## Overlay
+
 - tinc
 - n2n

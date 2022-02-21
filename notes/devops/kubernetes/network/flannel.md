@@ -23,7 +23,11 @@ title: Flannel
 ```
 
 <!--
-The flannel host-gw option was the first solution I evaluated. This backend takes the PodCIDR addresses assigned to all of the nodes and creates routing table entries so the workers can reach each other through the cluster IP range. In addition, flanneld will NAT the cluster IPs to the host IP if a pod needs to contact a host outside of the local broadcast domain. The flannel daemon (flanneld) runs as a DaemonSet so one pod (and one flanneld daemon) will be created on each worker. Setting up the flannel host-gw is ridiculously easy. To begin, you will need to download the deployment
+The flannel host-gw option was the first solution I evaluated.
+This backend takes the PodCIDR addresses assigned to all of the nodes and creates routing table entries so the workers can reach each other through the cluster IP range.
+In addition, flanneld will NAT the cluster IPs to the host IP if a pod needs to contact a host outside of the local broadcast domain.
+The flannel daemon (flanneld) runs as a DaemonSet so one pod (and one flanneld daemon) will be created on each worker.
+Setting up the flannel host-gw is ridiculously easy.
 -->
 
 ## vxlan

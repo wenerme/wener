@@ -53,10 +53,9 @@ tags:
 - 九联科技 - unionman
   - UM002 - UMTC-Wifi5-UM002
     - 中国移动定制型号
-- 中兴 - ZTE
-  - ZXHN-F663N
-    - 中国移动定制型号
-  - GM620 - 吉比特
+- 中国移动
+  - ZXHN-F663N - 中兴
+  - GM620 - 吉比特 - 中兴
     - GPON ONU
     - 中移物联网
     - 开启 Telnet
@@ -67,6 +66,11 @@ tags:
       - 如果无效，则可能需要询问
     - 参考
       - https://pecmd.net/thread-205.htm
+- 中国电信
+  - ZNHE602 - 百兆SDN网关 4口双频 - 深圳兆能通讯
+    - telecomadmin:sdn123456
+    - App 下载 https://a.app.qq.com/o/simple.jsp?pkgname=com.smartriver.networkhome
+      - http://sxwg.sh.189.cn/img/bus/youxi.png
 - 机顶盒
   - 咪咕盒子 MG100
 

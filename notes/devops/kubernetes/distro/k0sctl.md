@@ -8,8 +8,13 @@ title: k0sctl
   - 辅助控制管理工具
   - 批量安装部署集群 - ssh
   - 备份、恢复、安装、卸载、升级
+- 参考
+  - [k0sproject/rig](https://github.com/k0sproject/rig)
+    - SSH+WinRM 远程库
 
 ```bash
+export DISABLE_TELEMETRY=true
+
 # --k0s 包含完整 k0s 配置
 k0sctl init --k0s > k0sctl.yaml
 # 修改 k0sctl.yaml

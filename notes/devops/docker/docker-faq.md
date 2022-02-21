@@ -95,3 +95,22 @@ sudo rsync -aP /var/lib/docker/ /data/docker/
 nano /etc/docker/daemon.json
 service docker start
 ```
+
+## driver "zfs" failed to remove root filesystem
+
+一边退出，另外一边还在操作时可能出现，之后再执行 `docker rm` 即可。
+
+---
+
+如果 `docker rm` 还出现异常
+
+```
+Error response from daemon: container 2736566eac14027e7bf708c2babe894f1978249fc4a674886e158d6aa886479a: driver "zfs" failed to remove root filesystem: exit status 1: "/usr/sbin/zfs fs destroy -r main/docker/9d56a9bde13e6a1d37c6af5a55057cc4a9fb8b684ff454ac25f415b70bc55d0d" => cannot open 'main/docker/9d56a9bde13e6a1d37c6af5a55057cc4a9fb8b684ff454ac25f415b70bc55d0d': dataset does not exist
+```
+
+则可以先创建再执行
+
+```bash
+zfs create main/docker/9d56a9bde13e6a1d37c6af5a55057cc4a9fb8b684ff454ac25f415b70bc55d0d
+docker rm container
+```

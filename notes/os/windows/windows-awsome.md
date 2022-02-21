@@ -42,3 +42,8 @@ tags:
 
 - https://github.com/CCob/lsarelayx
   - NTLM relaying
+
+## Misc
+
+- Download
+  - https://hellowindows.cn/

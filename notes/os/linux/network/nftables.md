@@ -13,12 +13,15 @@ title: NFTables
     - 尽量使用 reload
   - inet 只能用于 filter 不能用于 nat
 - 参考
+  - [Adoption](https://wiki.nftables.org/wiki-nftables/index.php/Adoption)
   - [Quick reference-nftables in 10 minutes](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes)
   - [Migrating my iptables setup to nftables](https://developers.redhat.com/blog/2017/01/10/migrating-my-iptables-setup-to-nftables/)
   - [What comes after 'iptables'? Its successor, of course: `nftables`](https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables/)
   - [Benchmarking nftables](https://developers.redhat.com/blog/2017/04/11/benchmarking-nftables/)
 - 开发
   - [google/nftables](https://github.com/google/nftables) - Golang
+  - [zevenet/nftlb](https://github.com/zevenet/nftlb)
+    nftables load balancer
 
 ```bash
 # 所有规则
