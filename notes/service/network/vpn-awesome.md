@@ -18,7 +18,21 @@ tags:
 
 ## VPN/私有网络
 
-> VPN/私有网络 指整个网络纬度, 区分 L2, L3
+:::tip
+
+- VPN/私有网络 指整个网络纬度, 区分 L2, L3
+
+:::
+
+| vs.       | License | protocol  | TUN/TAP | relay | P2P | mesh | NAT | policy |
+| --------- | ------- | --------- | ------- | ----- | --- | ---- | --- | ------ |
+| tinc      | GPLv2   | UDP/TCP   | ✅/✅   | ✅    | ✅  | ✅   | ✅  | ❌     |
+| n2n       | GPLv3   | UDP       | ❌/✅   | ✅    | ✅  | ✅   | ✅  | ❌     |
+| nebula    | MIT     | UDP/Noise | ✅/❌   | ❌    | ✅  | ✅   | ✅  | ✅     |
+| zerotier  | BSL     | UDP       | ❌/✅   | ✅    | ✅  | ✅   | ✅  | ✅     |
+| wireguard | GPL     | UDP/Noise | ✅/❌   | ❌    | ❌  | ❌   | ❌  | ❌     |
+
+[n2n]: https://github.com/ntop/n2n
 
 - [gsliepen/tinc](https://github.com/gsliepen/tinc)
 - [slackhq/nebula](https://github.com/slackhq/nebula)
@@ -28,6 +42,7 @@ tags:
   - BSL, C++
   - 默认基于官方 controller, 可以 selfhost 但还是会用到官方的节点进行传播
   - 连接稳定性一般, 使用 官方 controller 免费最多 100 节点
+  - relay over moon
 - [dswd/vpncloud](https://github.com/dswd/vpncloud)
   - P2P VPN
   - [vs. Tinc, Nebula, OpenVPN, WG](https://vpncloud.ddswd.de/features/comparison)

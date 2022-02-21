@@ -92,16 +92,16 @@ tags:
 
 ## CNI
 
-| vs.           | IPv6 | Windows | Policy |
-| ------------- | ---- | ------- | ------ |
-| calico        | ✅   | ✅      | ✅     |
-| [kube-router] | ❌   | ❌      | ❌     |
-| [flannel]     | ❌   | ✅      | ❌     |
-| [cilium]      | ❌   | ❌      | ✅     |
+| vs.                   | IPv6 | Windows | Policy |
+| --------------------- | ---- | ------- | ------ |
+| calico                | ✅   | ✅      | ✅     |
+| [kube-router]         | ❌   | ❌      | ❌     |
+| [flannel]             | ❌   | ✅      | ❌     |
+| [cilium](./cilium.md) | ❌   | ❌      | ✅     |
 
 [cilium]: https://github.com/cilium/cilium
 [flannel]: ./flannel
-[kube-router]: https://github.com/cloudnativelabs/kube-router
+[kube-router]: ./kube-router.md
 
 <!--
 [kube-router]: https://github.com/cloudnativelabs/kube-router
