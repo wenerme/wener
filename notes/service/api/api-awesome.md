@@ -86,6 +86,10 @@ tags:
   - github [microsoftgraph](https://github.com/microsoftgraph)
   - [graph-explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer)
 - [WangNingkai/OLAINDEX](https://github.com/WangNingkai/OLAINDEX)
+- https://www.asyncapi.com/docs/specifications/v2.3.0
+  - [swaggest/go-asyncapi](https://github.com/swaggest/go-asyncapi)
+  - https://medium.com/event-driven-utopia/understanding-asyncapis-with-a-practical-example-ee2b4be221d8
+- https://swagger.io/specification/
 
 ## RPC
 

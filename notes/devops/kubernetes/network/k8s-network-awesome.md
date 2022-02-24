@@ -141,7 +141,7 @@ tags:
 - calico
   - layer 3, overlay, BGP,
   - 后端: vxlan, pip, eBPF, WindowsHNS
-  - IPv6 IPIP/VXLAN [calico#5206](https://github.com/projectcalico/calico/issues/5206)
+  - IPv6 不支持 IPIP/VXLAN [calico#5206](https://github.com/projectcalico/calico/issues/5206)
 - cilium
   - layer 3/4/7, eBPF
   - IPv6 [cilium#13891](https://github.com/cilium/cilium/issues/13891)

@@ -12,7 +12,12 @@ tags:
 
 ## tuntap
 
-- 11.5 macOS BigSur 后内核扩展不可用
+- macOS 支持 utun  - 等同于 tun
+  - 但不支持 tap
+- tuntap 扩展 11.5 macOS BigSur 后内核扩展不可用
+- 参考
+  - [Deprecated Kernel Extensions and System Extension Alternatives](https://developer.apple.com/support/kernel-extensions/)
+  - https://tunnelblick.net/cTunTapConnections.html
 
 ## 窗口只能看到边缘没有 Title 如何拖动？
 

@@ -75,4 +75,7 @@ title: 怪物猎人-崛起
 
 # 参考
 
+- https://github.com/mhvuze/MonsterHunterRiseModding
 - https://mhrise.kiranico.com/zh-Hant
+- https://www.bilibili.com/read/cv11295649
+  - 职业护石推荐

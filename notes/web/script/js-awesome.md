@@ -89,6 +89,8 @@ tags:
     - SVG <-> Canvas
   - [jonobr1/two.js](https://github.com/jonobr1/two.js)
   - [signature_pad](https://github.com/szimek/signature_pad)
+  - [yisibl/resvg-js](https://github.com/yisibl/resvg-js)
+    - SVG renderer, powered by Rust based resvg and napi-rs
 - color
   - [Qix-/color](https://github.com/Qix-/color)
 - store
@@ -124,6 +126,7 @@ tags:
     - 通用状态，自定义 CRDT
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
   - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
+  - [inkandswitch/peritext](https://github.com/inkandswitch/peritext)
 - editor
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
     - headless, framework-agnostic and extendable rich text editor, based on ProseMirror

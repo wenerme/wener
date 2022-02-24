@@ -177,4 +177,12 @@ tags:
 - https://github.com/sharat87/prestige
   - text-based HTTP client in the browser - interface-less Postman
 - [timc1/kbar](https://github.com/timc1/kbar)
-- https : //www.67tool.com/
+- https://www.67tool.com/
+- https://github.com/yf-dev/mahjong-hand-guessing-game
+  - https://mahjong-handle.update.sh/
+- https://calculator.apps.chrome/
+- [HughChen/qr_image](https://github.com/HughChen/qr_image)
+  - generate valid QR codes with readable images
+- [1History/1History](https://github.com/1History/1History)
+  - history in one file
+- http://radio.garden/

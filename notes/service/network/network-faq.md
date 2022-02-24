@@ -1,5 +1,7 @@
 ---
 title: Network FAQ
+tags:
+  - FAQ
 ---
 
 # Network FAQ

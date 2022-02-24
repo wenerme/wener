@@ -20,6 +20,8 @@ tags:
 
 ## Shell
 
+- [warpdotdev/Warp](https://github.com/warpdotdev/Warp)
+  - Rust based GPU-accelerated termina
 - [janmojzis/tinyssh](https://github.com/janmojzis/tinyssh)
 
 ## Share
@@ -31,3 +33,5 @@ tags:
 
 - [muesli/duf](https://github.com/muesli/duf)
   - a better df
+- [wader/fq](https://github.com/wader/fq)
+  - jq for binary formats

@@ -31,6 +31,9 @@ tags:
   - OpenSIPS
 - [opensips](https://www.opensips.org/)
   - [OpenSIPS/opensips](https://github.com/OpenSIPS/opensips)
+- [fonoster/fonoster](https://github.com/fonoster/fonoster)
+  - MIT, JS+TS
+  - open-source alternative to Twilio
 
 ## Asterisk PBX
 
@@ -54,3 +57,5 @@ tags:
 
 - [sipcapture](https://github.com/sipcapture)
   - homer - SIP / VoIP Packet Capture & Monitoring
+- [somleng/somleng](https://github.com/somleng/somleng)
+  - Twilio's REST API

@@ -8,10 +8,25 @@ title: TypeScript 类型定义
 
 ```json title="覆盖 lib"
 {
- "dependencies": {
+  "dependencies": {
     "@typescript/lib-dom": "npm:@types/web"
   }
 }
+```
+
+## RequireOne
+
+```ts
+type RequireOne<T, K extends keyof T> = {
+  [X in Exclude<keyof T, K>]?: T[X];
+} &
+  {
+    [P in K]-?: T[P];
+  };
+```
+
+```ts
+type Conf = RequireOne<Options, 'https' | 'http' | 'websocket'>;
 ```
 
 ## 内置

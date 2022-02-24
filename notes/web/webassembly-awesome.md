@@ -29,6 +29,7 @@ tags:
     - Apache-2.0, Rust
     - WebAssembly Pre-Initializer
     - 空间换时间
+  - [bytecodealliance/wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
 - [wasmerio/wasmer](https://github.com/wasmerio/wasmer)
   WebAssembly Runtime supporting WASI and Emscripten
   - MIT, Rust
@@ -49,7 +50,32 @@ tags:
   - WebAssembly runtime for cloud native, edge, and decentralized applications
   - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
     - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
-
+- https://webvm.io/
+  - https://github.com/leaningtech/webvm
+  - https://github.com/leaningtech/cheerpx
+- [zandaqo/iswasmfast](https://github.com/zandaqo/iswasmfast)
+- [wasmx/fizzy](https://github.com/wasmx/fizzy)
+- [WAVM/WAVM](https://github.com/WAVM/WAVM)
+  - WebAssembly Virtual Machine
+- [ewasm/design](https://github.com/ewasm/design)
+  - Ethereum flavored WebAssembly
+- [suborbital/atmo](https://github.com/suborbital/atmo)
+  - framework for cloud native WebAssembly
+- [lunatic-solutions/lunatic](https://github.com/lunatic-solutions/lunatic)
+  - Erlang-inspired runtime for WebAssembly
+- [wasmCloud/wasmCloud](https://github.com/wasmCloud/wasmCloud)
+- [deislabs/hippo](https://github.com/deislabs/hippo)
+  - WebAssembly PaaS
+- [WebAssembly/component-model](https://github.com/WebAssembly/component-model)
+- https://wapm.io/
+- [CosmWasm/cosmwasm](https://github.com/CosmWasm/cosmwasm)
+  - building smart contracts in Wasm for the Cosmos SDK
+- [EOSIO/eos-vm](https://github.com/EOSIO/eos-vm)
+  - WebAssembly Backend Library
+- https://krustlet.dev/
+  - [krustlet/krustlet](https://github.com/krustlet/krustlet)
+  - Run WebAssembly workloads in Kubernetes
+- https://v8.dev/blog/emscripten-standalone-wasm
 ## JS
 
 - duktape
@@ -87,3 +113,7 @@ tags:
 - [modfy/modfy.video](https://github.com/modfy/modfy.video)
 - [Introduction to WebAssembly components](https://radu-matei.com/blog/intro-wasm-components/)
 - [grain-lang](https://grain-lang.org/)
+
+## Learn
+
+- https://wiki.polkadot.network/docs/learn-wasm

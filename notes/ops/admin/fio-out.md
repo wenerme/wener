@@ -1,5 +1,7 @@
 ---
 title: fio 结果
+tags:
+  - Benchmark
 ---
 
 # fio 结果

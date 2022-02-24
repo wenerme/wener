@@ -105,6 +105,29 @@ tags:
 - [Kubasinska/MI-EEG-1D-CNN](https://github.com/Kubasinska/MI-EEG-1D-CNN)
 - [google-research/circuit_training](https://github.com/google-research/circuit_training)
 - [Justin62628/Squirrel-RIFE](https://github.com/Justin62628/Squirrel-RIFE)
+- [automl/auto-sklearn](https://github.com/automl/auto-sklearn)
+- [open-mmlab/mmrotate](https://github.com/open-mmlab/mmrotate)
+  - Rotated Object Detection
+- [google-research/frame-interpolation](https://github.com/google-research/frame-interpolation)
+  - Frame Interpolation for Large Motion
+- [patrick-kidger/diffrax](https://github.com/patrick-kidger/diffrax)
+- [dynamite-ready/movie-parser](https://github.com/dynamite-ready/movie-parser)
+- [Nixtla/neuralforecast](https://github.com/Nixtla/neuralforecast)
+  - forecasting algorithms for time series data
+- [ouhenio/stylegan3-projector](https://github.com/ouhenio/stylegan3-projector)
+  - StyleGAN3 + Inversion
+- [victordibia/handtrack.js](https://github.com/victordibia/handtrack.js)
+  - [HN](https://news.ycombinator.com/item?id=25619440)
+- [facebookincubator/gloo](https://github.com/facebookincubator/gloo)
+- [horovod/horovod](https://github.com/horovod/horovod)
+  - Distributed training framework for TensorFlow, Keras, PyTorch, and Apache MXNet
+- [facebookresearch/contriever](https://github.com/facebookresearch/contriever)
+- https://bishopfox.com/blog/unredacter-tool-never-pixelation
+  - unmask
+- [GPT-J is self-hosted open-source analog of GPT-3](https://tracklify.com/blog/gpt-j-is-self-hosted-open-source-analog-of-gpt-3-how-to-run-in-docker/)
+- [jokenox/Goopt](https://github.com/jokenox/Goopt)
+  - 文本内容生成
+- [fastai/fastcore](https://github.com/fastai/fastcore)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)
@@ -133,6 +156,11 @@ tags:
 
 ---
 
+- [ML and NLP Research Highlights of 2021](https://ruder.io/ml-highlights-2021/)
+- [Machine Learning Algorithms Cheat Sheet](https://www.accel.ai/anthology/2022/1/24/machine-learning-algorithms-cheat-sheet)
+  - [HN](https://news.ycombinator.com/item?id=30401043)
+- https://probml.github.io/pml-book/
+- https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
 - [Neural network from scratch](https://sirupsen.com/napkin/neural-net)
   - [HN](https://news.ycombinator.com/item?id=29796789)
   - https://www.3blue1brown.com/topics/neural-networks
@@ -276,7 +304,7 @@ tags:
 - [Nvidia/NeMo](https://github.com/Nvidia/NeMo)
   - toolkit for conversational AI
   - ASR, NLP, TTS
-- [PaddlePaddle/DeepSpeech](https://github.com/PaddlePaddle/DeepSpeech)
+- [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech)
   - ASR toolkit
   - 百度 [Deep Speech: Scaling up end-to-end speech recognition](https://arxiv.org/abs/1412.5567)
 - [mozilla/DeepSpeech](https://github.com/mozilla/DeepSpeech)
@@ -290,6 +318,8 @@ tags:
   - 命令行工具
   - 中文模型基于 pocketsphinx
   - [HN](https://news.ycombinator.com/item?id=27235970)
+- [NATSpeech/NATSpeech](https://github.com/NATSpeech/NATSpeech)
+  - Non-Autoregressive Text-to-Speech (NAR-TTS) framework
 
 **术语**
 

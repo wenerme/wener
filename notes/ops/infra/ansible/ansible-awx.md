@@ -14,6 +14,7 @@ title: Ansible AWX
   - [管理文档](https://docs.ansible.com/ansible-tower/latest/html/administration/index.html)
   - Ansible [AWX vs Tower](https://www.redhat.com/en/resources/awx-and-ansible-tower-datasheet)
     - AWX 是快速开发的上游
+  - [ansible/awx-operator](https://github.com/ansible/awx-operator)
 - 注意
   - Ansible 也可以操作 Tower/AWX
   - 会自动下载 requirements.yml 中的依赖

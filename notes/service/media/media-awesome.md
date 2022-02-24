@@ -13,6 +13,8 @@ tags:
 - [ant-media/Ant-Media-Server](https://github.com/ant-media/Ant-Media-Server)
   - GPL-3.0, Java
     - Red5 fork
+- [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
+  - MIT, Elixir
 
 ## music
 
@@ -175,3 +177,4 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 
 - [nilaoda/N_m3u8DL-CLI](https://github.com/nilaoda/N_m3u8DL-CLI)
 - [yuanqing/vdx](https://github.com/yuanqing/vdx)
+- [MiSTer-devel/Presets_MiSTer](https://github.com/MiSTer-devel/Presets_MiSTer)

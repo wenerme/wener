@@ -40,6 +40,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
     - flag 由 pflag 处理，配置由 viper 处理
     - 比 urfave/cli 更 unopinioned
     - urfave/cli 更加 declarative
+    - [muesli/coral](https://github.com/muesli/coral)
+      - cobra fork with only 4 dependencies
   - [urfave/cli](https://github.com/urfave/cli)
 - IoC - fx
 - JWX
@@ -356,6 +358,9 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   game server framework in Go
 - [xtaci/gonet](https://github.com/xtaci/gonet)
   Game Server Skeleton in golang.
+- [nadoo/glider](https://github.com/nadoo/glider)
+  - forward proxy with multiple protocols support
+- [cilium/ebpf](https://github.com/cilium/ebpf)
 
 ## 协议
 
@@ -547,6 +552,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [go-task/task](https://github.com/go-task/task)
 - [charmbracelet/wish](https://github.com/charmbracelet/wish)
   - Make SSH apps
+- ssh
+  - [golang.org/x/crypto/ssh](https://pkg.go.dev/golang.org/x/crypto/ssh)
+    - x/crypto/ssh: rsa-sha2-256/rsa-sha2-512 [#49952](https://github.com/golang/go/issues/49952)
+    - 服务端 /etc/ssh/sshd_config 添加 `PubkeyAcceptedAlgorithms +ssh-rsa` 可临时解决
+    - AlpineLinux 3.15 新版本 openssh server 默认不允许 ssh-rsa
+      - openssh 8.8 废弃 ssh-rsa
+  - [k0sproject/rig](https://github.com/k0sproject/rig)
+  - [appleboy/easyssh-proxy](https://github.com/appleboy/easyssh-proxy)
+  - [owenthereal/upterm](https://github.com/owenthereal/upterm)
 
 ```bash
 go install github.com/jondot/goweight@latest

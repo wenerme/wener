@@ -30,6 +30,8 @@ tags:
   - 向量搜索
 - [pgaudit/pgaudit](https://github.com/pgaudit/pgaudit)
 - [wasmerio/wasmer-postgres](https://github.com/wasmerio/wasmer-postgres)
+- [pgq/pgq](https://github.com/pgq/pgq)
+  - Queue for PostgreSQL
 
 ## PL
 
@@ -52,6 +54,7 @@ tags:
 - [ankane/pghero](https://github.com/ankane/pghero)
 - [ankane/dexter](https://github.com/ankane/dexter)
 - [ankane/pgslice](https://github.com/ankane/pgslice)
+- [keithf4/pg_bloat_check](https://github.com/keithf4/pg_bloat_check)
 
 ## Scale
 

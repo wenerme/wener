@@ -16,3 +16,4 @@ tags:
 ## 参考
 
 - https://www.konicaminolta.eu/eu-en/support/download-centre
+- [Machine Identification Code](https://en.wikipedia.org/wiki/Machine_Identification_Code)

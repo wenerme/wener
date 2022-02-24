@@ -74,7 +74,21 @@ ssh-keygen -t rsa -b 2048 -C "email@example.com"
 
 # 无密码不询问
 ssh-keygen -t rsa -b 2048 -f /tmp/sshkey -q -N ""
+
+# 查看 key 信息
+ssh-keygen -l -f key
+openssl pkey -in key -noout -text
 ```
+
+- ssh-rsa
+  - https://www.rfc-editor.org/rfc/rfc4253#section-6.6
+- rsa-sha2-256, rsa-sha2-512
+
+---
+
+- [golang/go#49952](https://github.com/golang/go/issues/49952)
+  x/crypto/ssh 不支持 rsa-sha2-256, rsa-sha2-512
+- https://superuser.com/a/1444343/242730
 
 ## Tunnel
 

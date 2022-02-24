@@ -8,6 +8,8 @@ tags:
 - WOPI - Web Application Open Platform Interface Protocol
   - https://docs.microsoft.com/en-us/microsoft-365/cloud-storage-partner-program/rest/
 - [Office Open XML](https://en.wikipedia.org/wiki/Office_Open_XML)
+- LibreOffice running natively in the browser via WebAssembly
+  - [HN](https://news.ycombinator.com/item?id=30356020)
 
 ## Library
 

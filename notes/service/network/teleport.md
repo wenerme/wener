@@ -8,7 +8,7 @@ title: Teleport
   - 支持 CA,加密,认证授权的反向代理
   - 支持协议 SSH, Kubernetes, Web
   - kubectl exec
--  端口
+- 端口
   - 3023, 3024, 3025, 3080
   - 3022 - Node - SSH
   - 3023 - Proxy -> 3022

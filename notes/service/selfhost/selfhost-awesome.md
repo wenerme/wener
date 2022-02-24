@@ -20,6 +20,8 @@ tags:
     - 基于 Chrome DevTools Protocol, 下载 Google Photos.
   - [gilesknap/gphotos-sync](https://github.com/gilesknap/gphotos-sync)
     - 基于 Google Photos Library API 备份照片
+  - [alextran1502/immich](https://github.com/alextran1502/immich)
+    - photo and video backup solution directly from your mobile phone
 - 有趣的服务
   - [hay-kot/mealie](https://github.com/hay-kot/mealie) 菜谱
 - Gitops
@@ -91,9 +93,13 @@ tags:
     - Trello, Notion, Asana
   - https://github.com/kjk/notionapi
     - Unofficial Go API for Notion.so
+  - [ohsayan/jotsy](https://github.com/ohsayan/jotsy)
 - Music
   - [sentriz/gonic](https://github.com/sentriz/gonic)
   - [epoupon/lms](https://github.com/epoupon/lms)
+  - [OpenKJ/OpenKJ](https://github.com/OpenKJ/OpenKJ)
+  - [UltraStar-Deluxe/Play](https://github.com/UltraStar-Deluxe/Play)
+  - [Vocaluxe/Vocaluxe](https://github.com/Vocaluxe/Vocaluxe)
 - Document
   - [tagspaces/tagspaces](https://github.com/tagspaces/tagspaces)
     - AGPL-3.0, Java+TS

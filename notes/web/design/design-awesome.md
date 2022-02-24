@@ -6,12 +6,17 @@ tags:
 
 # Design Aewsome
 
+- [penpot/penpot](https://github.com/penpot/penpot)
+  - design & prototyping platform
+  - [HN](https://news.ycombinator.com/item?id=30407913)
+
 ## Reference
 
 - https://medium.muz.li/
 - https://dribbble.com/AndrewCoyleDesign
 - [shuffle.dev](https://shuffle.dev/)
   - [HN](https://news.ycombinator.com/item?id=29349079)
+- Product design course [HN](https://news.ycombinator.com/item?id=30426569)
 
 ## Design System
 

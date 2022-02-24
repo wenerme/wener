@@ -24,6 +24,7 @@ tags:
 
 ## Native
 
+- https://pkg.go.dev/golang.org/x/exp/shiny
 - [fyne-io/fyne](https://github.com/fyne-io/fyne)
   - [#283](https://github.com/fyne-io/fyne/issues/283) - tray 支持
   - OpenGL 2.0+
@@ -31,6 +32,7 @@ tags:
 - [gio](https://git.sr.ht/~eliasnaur/gio)
   Immediate mode GUI programs in Go for Android, iOS, macOS, Linux, FreeBSD, OpenBSD, Windows, and WebAssembly
   - [gioui/gio](https://github.com/gioui/gio)
+- [zhuah/kita](https://github.com/zhuah/kita)
 
 ## Binding
 
@@ -96,6 +98,8 @@ tags:
 - https://go-talks.appspot.com/github.com/guregu/slides/comiket/comiket.slide
 - [g3n/engine](https://github.com/g3n/engine)
   - Go 3D Game Engine
+- [oakmound/oak](https://github.com/oakmound/oak)
+  - pure Go game engine
 
 ## Mobile
 

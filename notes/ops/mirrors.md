@@ -6,17 +6,18 @@ title: Mirrors
 
 ## 镜像站点
 
-| URL                                  | 地址     | 文档                                                   |
-| ------------------------------------ | -------- | ------------------------------------------------------ |
-| https://mirrors.aliyun.com            | 阿里云   |
-| https://mirrors.tuna.tsinghua.edu.cn | 清华     |
-| https://mirror.lzu.edu.cn             | 兰州大学 |
-| https://mirrors.163.com               | 网易     |
-| https://mirrors.ustc.edu.cn           | 科大     | [帮助文档](http://mirrors.ustc.edu.cn/help/index.html) |
-| https://mirrors.xjtu.edu.cn           | 西安交大 |
-| https://mirror.azure.cn/             | Azure    |
-| https://mirrors.sjtug.sjtu.edu.cn    | 上海交大 |
-| https://mirrors.huaweicloud.com      | 华为     |
+| URL                                  | 地址           | 文档                                                   |
+| ------------------------------------ | -------------- | ------------------------------------------------------ |
+| https://mirrors.aliyun.com           | 阿里云         |
+| https://mirrors.tuna.tsinghua.edu.cn | 清华           |
+| https://mirror.lzu.edu.cn            | 兰州大学       |
+| https://mirrors.163.com              | 网易           |
+| https://mirrors.ustc.edu.cn          | 科大           | [帮助文档](http://mirrors.ustc.edu.cn/help/index.html) |
+| https://mirrors.xjtu.edu.cn          | 西安交大       |
+| https://mirror.azure.cn/             | Azure          |
+| https://mirrors.sjtug.sjtu.edu.cn    | 上海交大       |
+| https://mirrors.huaweicloud.com      | 华为           |
+| https://mirrors.bfsu.edu.cn/         | 北京外国语大学 |
 
 ## Github
 

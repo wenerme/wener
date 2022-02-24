@@ -1,5 +1,7 @@
 ---
 title: strongSwan FAQ
+tags:
+- FAQ
 ---
 
 # strongSwan FAQ
@@ -67,6 +69,7 @@ connections {
   - https://wiki.strongswan.org/issues/2665
 
 ## virtual ip 总是返回同一个
+
 修改 id 会返回不同 ip
 
 ```
@@ -85,4 +88,5 @@ connections {
 ```
 
 ## 多个客户端访问会掉
+
 检查是不是 id 相同，获取到的 vip 相同，导致一个上另外一个会被挤下去。

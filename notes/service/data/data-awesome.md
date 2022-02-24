@@ -71,6 +71,8 @@ tags:
 ## Dataset
 
 - [datasets/awesome-data](https://github.com/datasets/awesome-data)
+- [Denied Persons List](https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/denied-persons-list)
+  - https://bis.doc.gov/dpl/dpl.txt
 
 ## File Format
 
@@ -94,6 +96,8 @@ tags:
 - [Open-source intelligence](https://en.wikipedia.org/wiki/Open-source_intelligence)
 - [ml874/Data-Science-Cheatsheet](https://github.com/ml874/Data-Science-Cheatsheet)
 - [looker-open-source/malloy](https://github.com/looker-open-source/malloy)
+- [thalo-rs/thalo](https://github.com/thalo-rs/thalo)
+  - Event sourcing suite for Rust
 
 ## Tools
 

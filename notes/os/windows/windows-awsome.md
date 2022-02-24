@@ -47,3 +47,5 @@ tags:
 
 - Download
   - https://hellowindows.cn/
+  - https://tb.rg-adguard.net/public.php
+  - itellyou

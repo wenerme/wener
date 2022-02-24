@@ -9,19 +9,57 @@ tags:
 
 - [发布历史](https://en.wikipedia.org/wiki/PostgreSQL#Release_history)
   - 现在一般每年 Q4 发布新版本，最近大多为 10 月
+- [版本支持说明](https://www.postgresql.org/support/versioning/)
+  - 发布后支持 5 年
 
-| PostgreSQL    | Release Date |
-| ------------- | ------------ |
-| PostgreSQL 14 | 2021-09-30   |
+| PostgreSQL      | Release Date |
+| --------------- | ------------ |
+| [PostgreSQL 15] |              |
+| [PostgreSQL 14] | 2021-09-30   |
+| [PostgreSQL 13] | 2020-09-24   |
+| [PostgreSQL 12] | 2019-10-03   |
+| [PostgreSQL 11] | 2018-10-18   |
 
 - [zheap](https://wiki.postgresql.org/wiki/Zheap)
   - handle UPDATE in PostgreSQL
   - 2020 [ZHEAP: REINVENTED POSTGRESQL STORAGE](https://www.cybertec-postgresql.com/en/zheap-reinvented-postgresql-storage/)
   - 2021 [zheap: What has been done since last time](https://www.cybertec-postgresql.com/en/postgresql-zheap-current-status/)
 
+[postgresql 15]: #postgresql-15
+[postgresql 14]: #postgresql-14
+[postgresql 13]: #postgresql-13
+[postgresql 12]: #postgresql-12
+[postgresql 11]: #postgresql-11
+
 ## PostgreSQL 15
 
 - toast 支持 zstd 压缩
+- 逻辑复制支持限定 表 和 Schema
+  - 新增 pg_publication_namespace 记录 PUBLICATION 信息
+- UNIQUE null 处理选项
+  - `nulls distinct` - null 要求唯一
+  - `nulls not distinct` - null 不要求唯一 - 目前的默认逻辑
+
+```sql
+-- 逻辑复制限定
+-- ===================
+-- FOR ALL TABLES IN SCHEMA
+CREATE PUBLICATION pub1 FOR ALL TABLES IN SCHEMA sch1,sch2;
+-- ADD ALL TABLES IN SCHEMA
+ALTER PUBLICATION pub1 ADD ALL TABLES IN SCHEMA sch3,sch4;
+-- 限定表
+CREATE PUBLICATION pub1 FOR ALL TABLES IN SCHEMA sch1,sch2, TABLE tbl1, tbl2;
+-- 修改表
+ALTER PUBLICATION pub1 ADD ALL TABLES IN SCHEMA sch3,sch4, TABLE tbl3, tbl4;
+
+-- UNIQUE NULL 处理逻辑
+-- ===================
+create table test2 (
+    id serial primary key,
+    codename text,
+    unique NULLS NOT DISTINCT (codename)
+);
+```
 
 ## PostgreSQL 14
 
@@ -223,7 +261,6 @@ create table test(
 
 ## PostgreSQL 11
 
-- [PostgreSQL 11 Release Notes](https://www.postgresql.org/docs/11/static/release-11.html)
 - 分片
   - 支持使用 hash 键分片
   - UPDATE 更新分片键时可以将数据更新到正确的分片
@@ -246,6 +283,7 @@ create table test(
 - 支持使用 quit 和 exit 退出
 - [POSTGRESQL 11 BETA 1 RELEASED!](https://www.postgresql.org/about/news/1855/)
   - [HN](https://news.ycombinator.com/item?id=17144221)
+- [PostgreSQL 11 Release Notes](https://www.postgresql.org/docs/11/static/release-11.html)
 
 ## PostgreSQL 10
 

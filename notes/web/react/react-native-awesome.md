@@ -80,3 +80,8 @@ tags:
 - function
   - [itinance/react-native-fs](https://github.com/itinance/react-native-fs)
   - [react-native-webrtc](https://github.com/react-native-webrtc/react-native-webrtc)
+
+## Story
+
+- https://reactnative.dev/blog/2022/01/21/react-native-h2-2021-recap
+  - https://medium.com/coox-tech/deep-dive-into-react-natives-new-architecture-fb67ae615ccd

@@ -1,5 +1,4 @@
 ---
-id: http
 title: HTTP
 ---
 
@@ -8,6 +7,8 @@ title: HTTP
 - 301 vs 302
   - 301 Moved Permanently
   - 302 Found / Moved Temporarily
+- 参考
+  - https://tools.ietf.org/id/draft-wright-http-partial-upload-01.html
 
 ```
 # 单位为秒

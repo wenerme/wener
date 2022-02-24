@@ -1,10 +1,12 @@
 ---
 title: strongSwan Cookbook
+tags:
+  - Cookbook
 ---
 
 # strongSwan Cookbook
 
-* [strongSwan swanctl Tests](https://www.strongswan.org/testing/testresults/swanctl/)
+- [strongSwan swanctl Tests](https://www.strongswan.org/testing/testresults/swanctl/)
 
 ## 基础 ipsec.conf
 
@@ -31,7 +33,7 @@ conn vpn
   auto=start
 ```
 
-__ipsec.secrets__
+**ipsec.secrets**
 
 ```bash
 # 密钥

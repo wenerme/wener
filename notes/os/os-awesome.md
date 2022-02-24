@@ -153,6 +153,8 @@ tags:
 - Famicom Party: Making NES Games in Assembly [HN](https://news.ycombinator.com/item?id=29069095)
 - https://sourceforge.net/projects/vm02/
   - Java 6502
+- NES 64 – Commodore 64 Kernal and Basic ROMs Ported to the NES
+  - [HN](https://news.ycombinator.com/item?id=30351755)
 
 ## 开发
 

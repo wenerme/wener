@@ -32,6 +32,9 @@ title: Compress
 - 参考
   - [Modern LZ Compression](https://glinscott.github.io/lz/index.html)
   - [MiloszKrajewski/SilesiaCorpus](https://github.com/MiloszKrajewski/SilesiaCorpus)
+  - [hxhb/oodle-compression](https://github.com/hxhb/oodle-compression)
+    - http://www.radgametools.com/oodle.htm
+    - 压缩慢，解压快，压缩率高
 
 ```bash
 cd staged && mytar cf - . | ssh root@localhost "cd / && tar xvf -"

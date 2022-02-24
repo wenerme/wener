@@ -82,11 +82,15 @@
 [stardict]: https://github.com/wenerme/stardict
 [telattr]: https://github.com/wenerme/telattr
 
-| DevOps                              | Desc                                        |
-| ----------------------------------- | ------------------------------------------- |
-| [ansible-collection-wenerme-alpine] | Ansible roles/tasks for AlpineLinux         |
-| [alpine-image]                      | AlpineLinux image builder & prebuild images |
+| DevOps                              | Desc                                               |
+| ----------------------------------- | -------------------------------------------------- |
+| [ansible-collection-wenerme-alpine] | Ansible roles/tasks for AlpineLinux                |
+| [alpine-image]                      | AlpineLinux image builder & prebuild images        |
+| [coredns-ipin]                      | CoreDNS Plugin to resolve `<IP>.example.tld` to IP |
+| [coredns-pdsql]                     | CoreDNS Plugin use PowerDNS DB Backend to resolve  |
 
+[coredns-pdsql]: https://github.com/wenerme/coredns-pdsql
+[coredns-ipin]: https://github.com/wenerme/coredns-ipin
 [ansible-collection-wenerme-alpine]: https://github.com/wenerme/ansible-collection-wenerme-alpine
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener

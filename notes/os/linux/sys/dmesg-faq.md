@@ -5,7 +5,7 @@ title: Linux Kernel 日志常见问题
 
 # Linux Kernel 日志常见问题
 
-## ACPI Error: No handler for Region [POWR]
+## ACPI Error: No handler for Region POWR
 
 > 添加 acpi_ipmi 后异常停止
 
@@ -20,6 +20,37 @@ ACPI Error: No handler for Region [POWR] (00000000a03df149) [IPMI] (20190816/evr
 ACPI Error: Region IPMI (ID=7) has no handler (20190816/exfldio-261)
 ACPI Error: Aborting method _SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (20190816/psparse-529)
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
+```
+
+## device reported invalid CHS sector
+
+```
+ata1.00: failed command: WRITE FPDMA QUEUED
+ata1.00: cmd 61/f8:f8:d0:01:72/05:00:18:00:00/40 tag 31 ncq dma 782336 out
+         res 40/00:00:00:00:00/00:00:00:00:00/00 Emask 0x4 (timeout)
+ata1.00: status: { DRDY }
+ata1: hard resetting link
+ata1: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+ata1.00: configured for UDMA/133
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+ata1.00: device reported invalid CHS sector 0
+sd 0:0:0:0: [sda] tag#18 UNKNOWN(0x2003) Result: hostbyte=0x00 driverbyte=0x06 cmd_age=94s
+sd 0:0:0:0: [sda] tag#18 CDB: opcode=0x2a 2a 00 18 6e 11 a8 00 05 c8 00
+blk_update_request: I/O error, dev sda, sector 409866664 op 0x1:(WRITE) flags 0x0 phys_seg 94 prio class 0
+```
+
+磁盘异常并伴随 fs 错误。
+
+```bash
+smartctl -a /dev/sda
 ```
 
 ## FS-Cache: Duplicate cookie detected

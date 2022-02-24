@@ -18,3 +18,4 @@ title: Actor
   - actor 总是在线
   - [Orleans: Distributed Virtual Actors for Programmability and Scalability](https://www.microsoft.com/en-us/research/publication/orleans-distributed-virtual-actors-for-programmability-and-scalability/)
   - [dotnet/orleans](https://github.com/dotnet/orleans)
+- [The actor model in 10 minutes](https://www.brianstorti.com/the-actor-model/)

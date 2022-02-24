@@ -6,6 +6,7 @@ title: veta lite
 
 - [vega/vega-lite](https://github.com/vega/vega-lite)
   - 会编译为 Vega
+  - 定义比 Vega 更简单
 
 ```json
 {

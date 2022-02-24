@@ -12,6 +12,8 @@ title: k0sctl
   - [k0sproject/rig](https://github.com/k0sproject/rig)
     - SSH+WinRM 远程库
 
+[k0sctl]: https://github.com/k0sproject/k0sctl
+
 ```bash
 export DISABLE_TELEMETRY=true
 

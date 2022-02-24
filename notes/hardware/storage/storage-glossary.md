@@ -8,3 +8,4 @@ tags:
 
 - eMMC - embedded non-volatile memory system
 - DRAM - Dynamic Random-access Memory
+- https://www.seagate.com/support/downloads/seatools/

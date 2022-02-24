@@ -1,5 +1,4 @@
 ---
-id: zerotier
 title: Zerotier
 ---
 

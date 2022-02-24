@@ -109,6 +109,19 @@ modprobe configs
 rm 不一定会释放空间, 可以 cp /dev/null xx
 lsof | grep deleted
 
+### limit
+
+- soft limits <= hard limit
+
+```bash
+ulimit -a   # 所有
+ulimit -Hn  # hard
+ulimit -Sn  # soft
+
+# sysctl -w fs.file-max=
+cat /proc/sys/fs/file-max
+```
+
 # TBD
 
 https://stackoverflow.com/questions/332629/rm-not-freeing-diskspace

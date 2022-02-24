@@ -7,6 +7,7 @@ title: 管理
 ## 参考
 
 - [Management And Accounting Web](https://maaw.info/)
+- A simple system I’m using to stay in touch with hundreds of people [HN](https://news.ycombinator.com/item?id=30329475)
 
 ## Start With Why - Simon Sinek
 

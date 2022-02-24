@@ -33,6 +33,8 @@ tags:
   - React ContentEditable
 - [benjamn/kix-standalone](https://github.com/benjamn/kix-standalone)
   - google doc editor - 2010 - archived
+- [red-axe/am-editor](https://github.com/red-axe/am-editor)
+  - 富文本实时协同编辑器框架
 
 ## Markdown
 

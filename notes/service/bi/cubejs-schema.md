@@ -42,7 +42,7 @@ title: CubeJS Schema
     - 推荐尽量使用 queryRewrite
   - SQL_UTILS
     - `convertTz('created_at')`
-  - COMPILE_CONTEXT
+  - COMPILE_CONTEXT - 编译上下文
 - partition
   - rollup 基于分片
   - 分片通常是时间纬度

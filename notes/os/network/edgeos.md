@@ -4,8 +4,6 @@ title: EdgeOS
 
 # EdgeOS
 
-## Tips
-
 - EdgeOS [User Guide](https://dl.ubnt.com/guides/edgemax/EdgeOS_UG.pdf)
 - 参考
   - [Policy-Based Routing](https://help.ui.com/hc/en-us/articles/204952274)
@@ -20,12 +18,16 @@ title: EdgeOS
     - 创建失败 interface switch switch0: does not exist
   - 类似于 Linux Bridge
   - 不支持场景可直接接一个 switch
-- 注意
-  - 默认不允许 ICMP - 公网如果开启 ICMP 建议限制只允许 echo request
-  - load-balance 设置后会对 interface 打标进入不同路由表
-    - 多 wan 时非常有用 - 就不用自行维护
-    - 即便是不用负载能力
-    - iptable mark -> ip rule -> ip route table 201
+
+:::tip
+
+- 默认不允许 ICMP - 公网如果开启 ICMP 建议限制只允许 echo request
+- load-balance 设置后会对 interface 打标进入不同路由表
+  - 多 wan 时非常有用 - 就不用自行维护
+  - 即便是不用负载能力
+  - iptable mark -> ip rule -> ip route table 201
+
+:::
 
 ```bash
 # 监听 nat

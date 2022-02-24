@@ -5,6 +5,11 @@ tags:
 
 # Network Awesome
 
+- [cjdelisle/cjdns](https://github.com/cjdelisle/cjdns)
+  - GPLv3, C+Python
+  - encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing
+  - 提供 Zero-Configuration Networking
+
 ## Analysis
 
 - [arkime/arkime](https://github.com/arkime/arkime)

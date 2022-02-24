@@ -22,3 +22,5 @@ title: Android Awesome
   - https://blog.csdn.net/m0_46204016/article/details/105607869
   - ijiami.dat
   - ijiami.ajm
+- [LSPosed/LSPlant](https://github.com/LSPosed/LSPlant)
+  - hook framework for Android Runtime (ART)

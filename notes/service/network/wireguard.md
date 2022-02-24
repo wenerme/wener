@@ -1,5 +1,4 @@
 ---
-id: wireguard
 title: WireGuard
 ---
 
@@ -12,7 +11,6 @@ title: WireGuard
 - [wg-dynamic](https://github.com/WireGuard/wg-dynamic)
   - Wireguard Dynamic IP Configuration Tool
   - 未完成 - 无维护
-- [gsliepen/tinc#178](https://github.com/gsliepen/tinc/issues/179) - tinc: Wireguard backend
 - 常见端口 51820
 - [限制](https://www.wireguard.com/known-limitations/)
   - 不会对包做混淆
@@ -24,6 +22,7 @@ title: WireGuard
   - Denial of Service
 - 参考
   - [WireGuard VPN: What You Need to Know](https://restoreprivacy.com/wireguard)
+  - [gsliepen/tinc#178](https://github.com/gsliepen/tinc/issues/179) - tinc: Wireguard backend
 
 ```bash
 # 内核模块

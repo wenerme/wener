@@ -8,6 +8,7 @@ title: Flannel
 - [flannel-io/flannel](https://github.com/flannel-io/flannel)
   - layer 2
   - overlay network
+  - 每个节点一个 CIDR 段
 - [支持后端](https://github.com/flannel-io/flannel/blob/master/Documentation/backends.md)
   - vxlan
     - 大多时候默认

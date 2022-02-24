@@ -46,6 +46,14 @@ title: JSON
 - [antonmedv/fx](https://github.com/antonmedv/fx)
 - [jmespath/jp](https://github.com/jmespath/jp)
 
+## ETL
+
+- [jsonata-js/jsonata](https://github.com/jsonata-js/jsonata)
+  - JSONata query and transformation language
+- [bazaarvoice/jolt](https://github.com/bazaarvoice/jolt)
+  - Apache-2.0, Java
+  - JOLT - JsOn Language for Transform
+
 ## FAQ
 
 ### JSON Patch and JSON Merge Patch

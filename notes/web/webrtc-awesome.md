@@ -28,6 +28,8 @@ tags:
 - [livekit/livekit-server](https://github.com/livekit/livekit-server)
   Distributed audio/video rooms over WebRTC
   - Apache-2.0, Go
+- [WebRTC-HTTP ingestion protocol](https://www.ietf.org/archive/id/draft-ietf-wish-whip-01.html)
+  - WHIP
 
 ## Server
 

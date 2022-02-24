@@ -13,7 +13,9 @@ tags:
 
 :::tip Roadmap
 
-- RAIDz 扩容
+- RAIDz 扩容 - 增加容量不增加安全
+  - [#12225](https://github.com/openzfs/zfs/pull/12225)
+  - [RAID-Z Expansion Feature for ZFS In the Home Stretch](https://freebsdfoundation.org/blog/raid-z-expansion-feature-for-zfs/)
 
 :::
 

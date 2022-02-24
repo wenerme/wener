@@ -58,6 +58,12 @@ title: Low Code Awesome
   - GPL v3
   - https://docs.budibase.com/references-1/budibase-architecture
 - [nocodb/nocodb](https://github.com/nocodb/nocodb)
+- [dashjoin/platform](https://github.com/dashjoin/platform)
+  - AGPLv3, Java
+  - Open Source & Cloud Native Low Code Development Platform
+- [motor-admin/motor-admin](https://github.com/motor-admin/motor-admin)
+  - AGPLv3, Rube+Vue
+  - no-code admin panel
 
 ## Builder
 

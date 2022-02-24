@@ -4,10 +4,13 @@ title: HAProxy Version
 
 # HAProxy Version
 
-| version | release date |
-| ------- | ------------ |
-| 2.4     | 2021-05-13   |
-| 2.3     | 2020-11-05   |
+| version       | release date |
+| ------------- | ------------ |
+| [HAProxy 2.4] | 2021-05-13   |
+| [HAProxy 2.3] | 2020-11-05   |
+
+[haproxy 2.4]: #haproxy-24
+[haproxy 2.3]: #haproxy-23
 
 ## HAProxy 2.4
 

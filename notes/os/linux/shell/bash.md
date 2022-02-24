@@ -262,3 +262,11 @@ cat <<- EOF
 ```bash
 echo -ne \\t | pbcopy
 ```
+
+## sub shell
+
+- https://tldp.org/LDP/abs/html/subshells.html
+
+```bash
+(echo 1)
+```

@@ -41,7 +41,7 @@ tags:
   - 炎炎消防队
   - 工作细胞
 - 日昇 - 1972 年 - 万代南梦宫 - 由 虫制作 公司员工成立
-  - 机动战士GUNDAM
+  - 机动战士 GUNDAM
   - 城市猎人
   - 魔神英雄传
   - 勇者系列
@@ -51,7 +51,7 @@ tags:
   - 结界师
   - 反叛的鲁路修
   - 男子高中生的日常
-- 京都动画 - 1981年
+- 京都动画 - 1981 年
   - CLANNAD
   - 凉宫春日的忧郁
   - K-ON！轻音部
@@ -90,13 +90,16 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 - https://anitrendz.net/charts/top-anime/
 - https://zh.moegirl.org.cn
 
+## Must watch
+
+- 妖精森林的小不点 https://movie.douban.com/subject/27107139/
+
 ## TBW
 
 - 少年同盟 https://movie.douban.com/subject/6026035/
 - 星空清理者 https://movie.douban.com/subject/1859043/
 - 赌博默示录 https://movie.douban.com/subject/3035147/
 - 妄想代理人 https://movie.douban.com/subject/1441053/
-- 妖精森林的小不点 https://movie.douban.com/subject/27107139/
 - 少女革命 https://movie.douban.com/subject/1998868/
 - 千绪的上学路 https://movie.douban.com/subject/27079297/
 - 终将成为你 https://movie.douban.com/subject/30206427/

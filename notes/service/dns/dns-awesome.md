@@ -14,6 +14,8 @@ tags:
 - nsd
 - dnsdist
 - pdns recursor
+- [kea](https://gitlab.isc.org/isc-projects/kea)
+  - 提供 [perfdhcp](https://kea.readthedocs.io/en/latest/man/perfdhcp.8.html) 压测工具
 
 # mDNS
 

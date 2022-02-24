@@ -58,6 +58,44 @@ nc -u 127.0.0.1 5644
 
 ## 选项
 
+**edge 3.0**
+
+```
+edge <config file>
+edge  -c <community name> -l <supernode host:port>
+```
+
+| flag                     | defaul         |
+| ------------------------ | -------------- | ------------------------------------------------------------- |
+| -c COMMUNITY             | $N2N_COMMUNITY |
+| -k KEY                   | $N2N_KEY       | encryption key                                                |
+| -J PASSWORD              | $N2N_PASSWORD  |
+| -l HOST:PORT             |                | supernode                                                     |
+| ` -p [<ip>:]<port>`      | any            | 绑定的本地地址和端口                                          |
+| -T TOS                   |                | 包 TOS                                                        |
+| -D                       |                | PMTU discovery                                                |
+| -e IP                    | auto           | 广播的本地地址                                                |
+| -S1                      |                | 总使用 supernode UDP                                          |
+| -S2                      |                | 总使用 supernode TCP                                          |
+| -i REG_INTERVAL          | 20             | 注册间隔，用于 NAT                                            |
+| -L REG_TTL               | 0              |
+| -H                       |                | 头加密 - 要求 supernode 配置固定 community                    |
+| -z,z1,z2                 |                | 包压缩 - -z1, -z = lzo1x                                      |
+| --select-rtt             |                | 基于 rtt 选择 supernode - 默认基于负载                        |
+| `-a [mode]<ip>[/n]`      |                | CIDR 默认 /24',mode=static,dhcp<br/>DHCP `-r -a dhcp:0.0.0.0` |
+| -m MAD                   |                | 默认随机                                                      |
+| -d DEVICE                |                | TAP 设备名字                                                  |
+| -M MTU                   | 1290           |
+| -r                       |                | packet forwarding                                             |
+| -E                       |                | accept multicast MAC addresses                                |
+| -I DESCRIPTION           |                | edge 描述 - 用于管理识别                                      |
+| -P public_key            |                | federation public key for user-password authentication        |
+| -R RULE                  |                | 自定义规则                                                    |
+| -f                       |                |
+| -t PORT                  | 5644           |
+| --management_password PW | n2n            |
+| -n CIDW:GW               |                | 路由规则                                                      |
+
 **edge 2.8**
 
 | flag              | param        | desc                                                      |
@@ -107,7 +145,7 @@ nc -u 127.0.0.1 5644
   - 实现备份、容灾和负载均衡 - 避免 DDoS
   - edge 可以连一个或多个
   - 名字可 `-F` 指定，默认 `*Federation`
-- 2.9 实现 [认证](https://github.com/ntop/n2n/blob/dev/doc/Authentication.md) - 之前使用 MAC
+- 3.0 实现 [认证](https://github.com/ntop/n2n/blob/dev/doc/Authentication.md) - 之前使用 MAC
   - 支持基于 edge 提供的标识信息
   - 支持 user/password 模式
     - 使用 n2n-keygen 生成
@@ -121,6 +159,20 @@ nc -u 127.0.0.1 5644
   - 开启 头 加密后名字不能使用正则 - 只能是固定名字
     - 可以使用 `.*` 来允许任意
   - 可被认为是简单的密码 - 只有知道 community 才能加入网络
+
+## supernode
+
+| opt                      | default                      |
+| ------------------------ | ---------------------------- | ----------------------------------------- |
+| -p PORT                  | 7654                         | UDP, 本地端口                             |
+| -F FEDERATION            | `*Federation`                | 联邦名字                                  |
+| -l HOST:PORT             |                              | 已知的 supernode 名字或地址               |
+| -M                       |                              | 禁用 MAC 和 IP 欺骗保护未授权 communities |
+| -V VERSION               |                              | 发送给 edge 的版本信息 - 最长 19          |
+| -c PATH                  |                              | 允许的 communities                        |
+| -a                       | 10.128.255.0-10.255.255.0/24 | 子网                                      |
+| -t                       | 5645                         | UDP, 管理端口                             |
+| --management_password PW | n2n                          | 管理密码                                  |
 
 # FAQ
 

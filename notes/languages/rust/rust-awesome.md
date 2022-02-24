@@ -25,4 +25,6 @@ tags:
   - Userspace WireGuard
 
 ## 学习
+
 - [rust learn](https://www.rust-lang.org/zh-CN/learn)
+- https://doc.rust-lang.org/reference/glossary.html

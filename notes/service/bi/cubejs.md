@@ -61,6 +61,31 @@ CUBEJS_DB_SSL=false
 ## API
 
 - Query 支持 JSON 也支持 SQL 查询 - MySQL 兼容协议
+- 主要接口 - baseUrl http://localhost:4000/cubejs-api/
+  - /graphql
+    - 可以直接查询所有 Cube - https://cube.dev/docs/backend/graphql
+    - dev 会开启 graphiql
+  - /v1/load
+  - /v1/subscribe
+  - /v1/sql
+  - /v1/meta
+  - /v1/run-scheduled-refresh
+  - /v1/run-scheduled-refresh
+  - /v1/dry-run
+  - /v1/pre-aggregations/can-use
+- 系统接口 - 设置 playgroundAuthSecret 后开启
+  - /cubejs-system/v1/context
+  - /cubejs-system/v1/pre-aggregations
+  - /cubejs-system/v1/pre-aggregations/security-contexts
+  - /cubejs-system/v1/pre-aggregations/timezones
+  - /cubejs-system/v1/pre-aggregations/partitions
+  - /cubejs-system/v1/pre-aggregations/preview
+  - /cubejs-system/v1/pre-aggregations/build
+  - /cubejs-system/v1/pre-aggregations/queue
+  - /cubejs-system/v1/pre-aggregations/cancel
+- 其他
+  - /readyz
+  - /livez
 
 ```http
 ### Load data
@@ -145,6 +170,14 @@ GET http://localhost:4000/livez
 - 扩展方式
   - 通过配置，动态 fetch schema
   - 基于 @cubejs-backend
+- 处理逻辑
+  - repository 包含 schema
+  - compiler 编译 schema - eval
+    - 附带 COMPILE_CONTEXT
+      - 内部包含 securityContext
+    - cube 关联 dataSource
+    - dataSource 关联 driver
+  - 请求 关联 appId
 
 ```bash
 # -d postgres, mysql, athena, mongobi, bigquery, redshift, mssql, clickhouse, snowflake, presto, druid
@@ -218,3 +251,5 @@ cube(`Users`, {
   },
 });
 ```
+
+## To join across data sources use rollupJoin with Cube Store

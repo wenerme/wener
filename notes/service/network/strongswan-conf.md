@@ -1,19 +1,24 @@
 ---
 title: strongSwan 配置
+tags:
+- Configuration
 ---
 
 # strongSwan 配置
-* [ConfigurationFiles](https://wiki.strongswan.org/projects/strongswan/wiki/ConfigurationFiles)
+
+- [ConfigurationFiles](https://wiki.strongswan.org/projects/strongswan/wiki/ConfigurationFiles)
 
 ## strongswan.conf
-* [strongswan.conf](https://wiki.strongswan.org/projects/strongswan/wiki/StrongswanConf)
+
+- [strongswan.conf](https://wiki.strongswan.org/projects/strongswan/wiki/StrongswanConf)
 
 Daemon 配置, 默认是 stroke 插件, starter 启动 ipsec.conf
 
-* ${sysconfdir} - ${prefix}/etc
-* ${piddir} - /var/run
+- ${sysconfdir} - ${prefix}/etc
+- ${piddir} - /var/run
 
-__基础配置__
+**基础配置**
+
 ```
 charon {
     load_modular = yes
@@ -26,18 +31,20 @@ include strongswan.d/*.conf
 ```
 
 ### strongswan.d
-* charon/ - 插件配置目录
-* charon-logging.conf
-* charon.conf
-* pki.conf
-* pool.conf
-* scepclient.conf
-* starter.conf
-* swanctl.conf
+
+- charon/ - 插件配置目录
+- charon-logging.conf
+- charon.conf
+- pki.conf
+- pool.conf
+- scepclient.conf
+- starter.conf
+- swanctl.conf
 
 ## swanctl.conf
-* [swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Swanctlconf)
-* /etc/swanctl/swanctl.conf
+
+- [swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Swanctlconf)
+- /etc/swanctl/swanctl.conf
 
 ```
 connections {
@@ -76,8 +83,8 @@ authorities {
 }
 ```
 
-* `connections.<conn>.remote<suffix>.auth`
-* `connections.<conn>.children.<child>.local_ts`
+- `connections.<conn>.remote<suffix>.auth`
+- `connections.<conn>.children.<child>.local_ts`
 
 ```bash
 # connections
@@ -91,9 +98,10 @@ swanctl --load-authorities
 ```
 
 ## ipsec.conf
-* [IKEv2 Cipher Suites](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites)
-* [ipsec.conf](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf)
-* /etc/ipsec.conf
+
+- [IKEv2 Cipher Suites](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites)
+- [ipsec.conf](https://wiki.strongswan.org/projects/strongswan/wiki/IpsecConf)
+- /etc/ipsec.conf
 
 ```ini
 # 通用配置
@@ -125,7 +133,7 @@ conn %default
 ca %default
 ```
 
-__conn__
+**conn**
 
 ```ini
 # IKEv2 EAP auth 时 AAA 后端标识符
@@ -223,9 +231,9 @@ xauth = client
 # xauth_identity = <id>
 ```
 
-__left|right__
+**left|right**
 
-* 默认 left 为本地
+- 默认 left 为本地
 
 ```ini
 # <ip address> | <fqdn> | %any | %any4 | %any6 | range | subnet
@@ -279,6 +287,7 @@ mediation = no
 ```
 
 # FAQ
+
 ## 自动重连
 
 ```ini
@@ -295,8 +304,9 @@ auto=start
 > 参考 https://serverfault.com/a/970035/190601
 
 ## ipsec.conf to swanctl.conf
-* [Migration from ipsec.conf to swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Fromipsecconf)
-  * [Thermi/ipsec2swanctl](https://gitlab.com/Thermi/ipsec2swanctl)
+
+- [Migration from ipsec.conf to swanctl.conf](https://wiki.strongswan.org/projects/strongswan/wiki/Fromipsecconf)
+  - [Thermi/ipsec2swanctl](https://gitlab.com/Thermi/ipsec2swanctl)
 
 ```bash
 curl -LO https://gitlab.com/Thermi/ipsec2swanctl/-/raw/master/ipsec2swanctl.py

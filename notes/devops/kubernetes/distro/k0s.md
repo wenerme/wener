@@ -23,16 +23,19 @@ title: k0s
       - IPv6 不支持 tunnal
   - etcd 层使用 k3s 的 [k3s-io/kine](https://github.com/k3s-io/kine)
   - 背后由 Mirants 公司支持
-  - bin 包含了 containerd
-  - 自 2020 年 - 相比 k3s 要年轻很多
+  - ## bin 包含了 containerd,runc,etcd,xtables-legacy-multi
+  - 自 2020 年 - 相比 k3s 要年轻一点
 
 [k0s]: https://github.com/k0sproject/k0s
-[k0sctl]: https://github.com/k0sproject/k0sctl
+[k0sctl]: ./k0sctl.md
 
 ## 安装
 
 - 数据目录 /var/lib/k0s - `--data-dir`
 - /etc/k0s/containerd.toml
+- 确保存在 /etc/machine-id
+  - 安装 dbus 会创建
+  - alpine openrc 目前新增了 /etc/init.d/machine-id 服务
 
 ```bash
 # K0S_VERSION 控制版本
@@ -119,6 +122,8 @@ k0s ctr --address /run/k0s/containerd.sock
 k0s ctr i ls
 k0s ctr c ls
 ```
+
+## File structure
 
 - /var/lib/k0s/
   - kubelet.conf
@@ -429,3 +434,13 @@ service cgroups start
 ```
 Failed to watch *v1.Node: failed to list *v1.Node: Get "https://10.96.0.1:443/api/v1/nodes?limit=500&resourceVersion=0": dial tcp 10.96.0.1:443: i/o timeout
 ```
+
+## k0s controller --single vs --enable-worker
+
+- --single
+  - 减少部分 leader 选取逻辑
+  - 不可以添加 worker
+  - etcd 默认使用 kine - 可配置使用 etcd
+- --enable-worker
+  - 正常节点
+  - 可后续添加 worker
