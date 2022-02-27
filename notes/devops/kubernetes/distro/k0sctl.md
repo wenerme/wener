@@ -11,15 +11,18 @@ title: k0sctl
 - 参考
   - [k0sproject/rig](https://github.com/k0sproject/rig)
     - SSH+WinRM 远程库
+- alpine 默认会安装 findutils 和 coreutils 来满足 k0sctl 的功能
 
 [k0sctl]: https://github.com/k0sproject/k0sctl
 
 ```bash
 export DISABLE_TELEMETRY=true
+export DISABLE_UPGRADE_CHECK=true
 
 # --k0s 包含完整 k0s 配置
 k0sctl init --k0s > k0sctl.yaml
 # 修改 k0sctl.yaml
+# -d 输出 debug 信息 - 包含执行的命令
 k0sctl apply --config k0sctl.yaml
 
 k0sctl kubeconfig > kubeconfig
@@ -27,6 +30,13 @@ kubectl get pods --kubeconfig kubeconfig -A
 ```
 
 ## k0sctl.yaml
+
+```bash
+# k0s k0s-v1.23.3+k0s.1-amd64
+curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-v1.23.3+k0s.1-amd64'
+# airgap k0s-airgap-bundle-v1.23.3+k0s.1-amd64
+curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-airgap-bundle-v1.23.3+k0s.1-amd64'
+```
 
 ```yaml title="k0sctl.yaml"
 apiVersion: k0sctl.k0sproject.io/v1beta1
@@ -47,7 +57,7 @@ spec:
 ```
 
 ```yaml title="spec.hosts"
-# 角色
+# 角色 - 不推荐使用 single
 # controller, controller+worker, single, worker
 role:
 # 先下载到本地，再从本地上传 - 推荐开启
@@ -60,7 +70,7 @@ environment:
 # 定义上传的文件
 files:
   - name: image-bundle
-    src: airgap-images.tgz
+    src: k0s-airgap-bundle-v1.23.3+k0s.1-amd64
     dstDir: /var/lib/k0s/images/
     dst:
     dirPerm:

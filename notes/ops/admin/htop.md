@@ -22,3 +22,18 @@ title: htop
     - 进程用到的共享内存
     - 内存可能被共享，但不一定已经被其他进程共享使用。
 - 单位为 kb
+
+| key | for                  |
+| --- | -------------------- |
+| t   | tree                 |
+| H   | user process threads |
+| K   | kernel threads       |
+| p   | program path         |
+| m   | merged command       |
+| F   | follow process       |
+| I   | invert sort          |
+| e   | env                  |
+| l   | lsof                 |
+| x   | file locks           |
+| s   | strace syscall       |
+| w   | wrap command         |

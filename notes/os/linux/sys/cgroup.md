@@ -44,3 +44,5 @@ echo 0 > /sys/fs/cgroup/memory/slack_group/memory.swappiness
 - `/sys/fs/cgroup/memory/memory.use_hierarchy`
 - 推荐开启
 - 在汇报内存使用时，会统计子 cgroup 的情况
+
+## cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory

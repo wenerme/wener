@@ -54,6 +54,8 @@ tags:
     - Rancher Desktop
   - mikrok8s
   - minikube
+- [weaveworks/footloose](https://github.com/weaveworks/footloose)
+  - Containers that look like Virtual Machines
 
 ## Runtime
 
@@ -111,8 +113,13 @@ sources:
 
 ## Inspect
 
-
 - [wagoodman/dive](https://github.com/wagoodman/dive)
 - [vicanso/diving](https://github.com/vicanso/diving)
   - https://diving.npmtrend.com/
   - dive web
+
+## Learn
+
+- [Diving Deeper Into Runtimes: Kubernetes, CRI, and Shims](https://www.threatstack.com/blog/diving-deeper-into-runtimes-kubernetes-cri-and-shims)
+- [First look at the internals of containerd and runc](https://nanikgolang.netlify.app/post/containers/)
+- [Implementing Container Runtime Shim: runc](https://iximiuz.com/en/posts/implementing-container-runtime-shim/)

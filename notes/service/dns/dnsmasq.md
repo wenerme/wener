@@ -122,7 +122,7 @@ local-service
 # dig consul.service.consul @127.0.0.1
 server=/consul/127.0.0.1#8600
 
-# 上游 DNS 服务器
+# 上游 DNS 服务器
 server=223.5.5.5
 server=114.114.114.114
 # 缓存大小 - 默认只有 150

@@ -6,12 +6,26 @@ tags:
 
 # PostgreSQL Awesome
 
+- [orioledb/orioledb](https://github.com/orioledb/orioledb)
+  - storage engine
+  - [slide](https://www.slideshare.net/AlexanderKorotkov/solving-postgresql-wicked-problems)
+  - [HN](https://news.ycombinator.com/item?id=30462695)
+    author [akorotkov](https://news.ycombinator.com/threads?id=akorotkov)
+
+| pg                          | oriole                                               |
+| --------------------------- | ---------------------------------------------------- |
+| Block-level WAL             | Row-level WAL                                        |
+| Buffer mapping              | Direct page links                                    |
+| Buffer locking              | Lock-less access                                     |
+| Bloat-prone MVCC            | Undo log                                             |
+| Block-level WAL replication | Raft-based multimaster replication of row-level WAL |
+
 - [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
   - 实时增量固化查询
-- PipelineDB
 - Superbase
 - [PostgresApp/PostgresApp](https://github.com/PostgresApp/PostgresApp)
   - macOS 应用
+- PipelineDB - 停止
 
 ## Extension
 
@@ -32,6 +46,9 @@ tags:
 - [wasmerio/wasmer-postgres](https://github.com/wasmerio/wasmer-postgres)
 - [pgq/pgq](https://github.com/pgq/pgq)
   - Queue for PostgreSQL
+- [knizhnik/imcs](https://github.com/knizhnik/imcs)
+  - In-Memory Columnar Store
+  - OLAP
 
 ## PL
 
@@ -88,6 +105,8 @@ tags:
 - [Why you don’t want to shard.](https://www.percona.com/blog/2009/08/06/why-you-dont-want-to-shard/)
 - [Transaction ID Wraparound in Postgres](https://blog.sentry.io/2015/07/23/transaction-id-wraparound-in-postgres)
 - [Re-architecting Slack’s Workspace Preferences: How to Move to an EAV Model to Support Scalability](https://slack.engineering/re-architecting-slacks-workspace-preferences-how-to-move-to-an-eav-model-to-support-scalability/)
+- [PostgreSQL at Scale: Database Schema Changes Without Downtime](https://medium.com/p/20d3749ed680)
+  - [HN](https://news.ycombinator.com/item?id=30458580)
 
 # FAQ
 

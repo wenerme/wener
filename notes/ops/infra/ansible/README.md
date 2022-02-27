@@ -27,6 +27,7 @@ title: Ansible
   - [ansible.cfg](https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg) 可用的 ansible.cfg 配置
   - 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
   - [YAML Syntax](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)
+  - [Other Tools and Programs](https://docs.ansible.com/ansible/latest/community/other_tools_and_programs.html)
 - 学习
   - [geerlingguy/ansible-for-devops](https://github.com/geerlingguy/ansible-for-devops)
 - 界面

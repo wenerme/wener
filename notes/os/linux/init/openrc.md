@@ -39,9 +39,13 @@ tty6::respawn:/sbin/getty 38400 tty6
 ::shutdown:/sbin/openrc shutdown
 ```
 
+## supervise-daemon
+
+- https://github.com/OpenRC/openrc/blob/master/supervise-daemon-guide.md
+
 # FAQ
 
-## failed to add service `sysfs' to runlevel`boot': No such file or directory
+## failed to add service `sysfs` to `runlevel` boot': No such file or directory
 
 ```bash
 for svc in $BOOT_SERVICES; do ln -fs /etc/init.d/$svc /etc/runlevels/boot; done

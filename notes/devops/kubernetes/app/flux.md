@@ -1,12 +1,12 @@
 ---
-id: flux
 title: FluxCD
 ---
 
-# Flux
+# FluxCD
 
 - [fluxcd/flux2](https://github.com/fluxcd/flux2)
   - Flux v1 已经进入维护模式，v2 调整为了工具集模式
+- [fluxcd/webui](https://github.com/fluxcd/webui)
 - 场景
   - 集群运维人员
     - 自动配置

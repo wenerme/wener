@@ -79,6 +79,7 @@ tags:
 
 ## Awesomes
 
+- [kubeboost/hostpath-multihost-provisioner](https://github.com/kubeboost/hostpath-multihost-provisioner)
 - [CSI Drivers](https://kubernetes-csi.github.io/docs/drivers.html)
 - [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
   - [Providers](https://cluster-api.sigs.k8s.io/reference/providers.html)

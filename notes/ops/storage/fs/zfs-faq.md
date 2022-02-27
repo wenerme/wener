@@ -6,6 +6,13 @@ tags:
 
 # ZFS 常见问题
 
+:::tip
+
+- renameat2/overlayfs [#8648](https://github.com/openzfs/zfs/issues/8648)
+  - pr [#12209](https://github.com/openzfs/zfs/pull/12209)
+
+:::
+
 ## dRAID - Distributed RAID
 
 - OpenZFS 2.1+
@@ -217,3 +224,19 @@ zpool import -a
 # 手动指定搜索目录
 zpool import -d /dev/disk/by-id
 ```
+
+# 关闭所有 atime
+
+```bash
+zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=off
+```
+
+## zvol vs zfs
+
+- zvol - 块设备
+  - raidz、压缩
+  - 没有所有 zfs 伴随的能力
+- zfs - 文件系统 - dataset
+  - 快照、克隆
+  - 文件系统有一定特性 - 也有缺陷
+    - 主要缺陷: 不支持 rename2/overlay

@@ -1,5 +1,7 @@
 ---
 title: K3S 常见问题
+tags:
+  - FAQ
 ---
 
 # K3S 常见问题
@@ -190,8 +192,13 @@ rm -rf /var/lib/rancher/k3s
 
 ## k3s check-config
 
--  cgroups V1/Hybrid on non-Systemd init - https://github.com/tianon/cgroupfs-mount
+- cgroups V1/Hybrid on non-Systemd init - https://github.com/tianon/cgroupfs-mount
 - https://raw.githubusercontent.com/k3s-io/k3s/master/contrib/util/check-config.sh
   - 还不支持 cgroupv2 [#3897](https://github.com/k3s-io/k3s/issues/3897)
 - cgroupv2
   - https://github.com/k3s-io/k3s/issues/900
+
+## log rotate
+
+- 直接 truncate 方式
+  - https://github.com/rancher/k3os/issues/433#issuecomment-749216549

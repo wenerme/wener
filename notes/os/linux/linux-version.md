@@ -34,6 +34,9 @@ tags:
   - 提供 SLTS - 支持 25-50 年
   - 适用于 工业产品
   - [CIP Kernel Maintenance](https://wiki.linuxfoundation.org/civilinfrastructureplatform/cipkernelmaintenance)
+- News
+  - [Moving the kernel to modern C](https://lwn.net/SubscriberLink/885941/01fdc39df2ecc25f/)
+    - C89 -> C99, C11
 
 [linux 5.15]: #linux-515
 [linux 5.10]: #linux-510

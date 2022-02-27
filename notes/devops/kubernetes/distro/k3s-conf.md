@@ -1,5 +1,7 @@
 ---
 title: K3S 配置
+tags:
+  - Configuration
 ---
 
 # K3S 配置
@@ -69,7 +71,7 @@ advertise-address: #node-external-ip/node-ip
 advertise-port:
 # 如果希望证书在某个域名下可使用则需要添加 SAN
 tls-san:
-- k3s.example.com
+  - k3s.example.com
 
 # 如果非 ROOT ${HOME}/.rancher/k3s
 data-dir: /var/lib/rancher/k3s

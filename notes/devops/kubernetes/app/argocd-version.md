@@ -19,10 +19,19 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 ```
 
-## 2.2
+| version      | date |
+| ------------ | ---- |
+| [ArgoCD 2.2] |
+| [ArgoCD 2.1] |
 
-- 仓库可以按需定义，不需要预先定义 - 自服务
+[argocd 2.2]: #argocd-2-2
+[argocd 2.1]: #argocd-2-1
+
+## ArgoCD 2.2
+
+- 仓库关联 Project - 细粒度，不需要全局
 - Config Management Plugins V2
+  - https://argo-cd.readthedocs.io/en/stable/user-guide/config-management-plugins/
 - 支持使用 annotation argocd.argoproj.io/tracking-id 跟踪资源
   - 之前使用 label app.kubernetes.io/instance 容易冲突
 - argocd-cmp-server
@@ -42,7 +51,39 @@ data:
   application.resourceTrackingMethod: annotation
 ```
 
-## 2.1
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kube-stub-cluster-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  # 限定 Project
+  project: my-project1
+  name: kube-stub-cluster
+  url: https://github.com/wenerme/kube-stub-cluster.git
+  username:
+  password:
+```
+
+```yaml title="ConfigManagementPlugin"
+apiVersion: argoproj.io/v1alpha1
+kind: ConfigManagementPlugin
+metadata:
+  name: cdk8s
+spec:
+  version: v1.0
+  init:
+    command: [cdk8s, init]
+  generate:
+    command: [sh, -c, "cdk8s synth && cat dist/*.yaml"]
+  discovery:
+    fileName: main.ts
+```
+
+## ArgoCD 2.1
 
 - 拆分 Argo CD Core
   - 不集成 RBAC 和权限

@@ -62,6 +62,7 @@ tags:
 - [m3db/m3](https://github.com/m3db/m3)
   - from Uber
   - Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
+- [taosdata/TDengine](https://github.com/taosdata/TDengine)
 
 ## OLAP
 
@@ -147,6 +148,10 @@ tags:
 - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
 - [amacneil/dbmate](https://github.com/amacneil/dbmate)
 - [ariga/atlas](https://github.com/ariga/atlas)
+- [djrobstep/migra](https://github.com/djrobstep/migra)
+  - PG Schema Diff
+- [fabianlindfors/reshape](https://github.com/fabianlindfors/reshape)
+  - zero-downtime schema migration tool for Postgres
 - [charperbonaroo/pgmigrate](https://github.com/charperbonaroo/pgmigrate)
   - Write migrations using plain SQL
 - [sqitchers/sqitch](https://github.com/sqitchers/sqitch)

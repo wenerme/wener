@@ -561,6 +561,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [k0sproject/rig](https://github.com/k0sproject/rig)
   - [appleboy/easyssh-proxy](https://github.com/appleboy/easyssh-proxy)
   - [owenthereal/upterm](https://github.com/owenthereal/upterm)
+- shell
+  - [google/shlex](github.com/google/shlex)
 
 ```bash
 go install github.com/jondot/goweight@latest
@@ -637,6 +639,10 @@ goweight
 - https://github.com/teh-cmc/go-internals
 - https://www.altoros.com/blog/golang-internals-part-1-main-concepts-and-project-structure/
 - https://github.com/golang/go/tree/master/src/cmd/compile
+
+## 参考
+
+- https://github.com/orgs/google/repositories?q=&type=all&language=go&sort=stargazers
 
 # TBD
 

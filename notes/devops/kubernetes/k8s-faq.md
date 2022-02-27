@@ -122,11 +122,24 @@ kubectl taint nodes <nodename> node.kubernetes.io/disk-pressure-
 ./check-config.sh kernel.config
 ```
 
-## Docker 与 CRI 对 K8S 的影响
+## invalid capacity 0 on image filesystem
 
-- invalid capacity 0 on image filesystem
-  - [kubernetes/kubernetes#51798](https://github.com/kubernetes/kubernetes/issues/51798#issuecomment-481366041)
-  - [k3s-io/k3s#1857](https://github.com/k3s-io/k3s/issues/1857#issuecomment-637852959)
+- 确保存在内核参数 `cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory`
+  - syslinux
+    - /etc/update-extlinux.conf
+    - update-extlinux && reboot
+  - grub
+    - /etc/default/grub
+
+```bash
+cat /proc/cmdline | grep cgroup_enable
+```
+
+---
+
+- [kubernetes/kubernetes#51798](https://github.com/kubernetes/kubernetes/issues/51798#issuecomment-481366041)
+- [k3s-io/k3s#1857](https://github.com/k3s-io/k3s/issues/1857#issuecomment-637852959)
+- [canonical/microk8s#912](https://github.com/canonical/microk8s/issues/912)
 
 ## 导出资源忽略状态字段
 
@@ -390,3 +403,33 @@ allowedTopologies:
 2. kill pod 触发重新调度
 3. 尝试 rollout 从新调度
 4. 使用类似 [kubernetes-sigs/descheduler](https://github.com/kubernetes-sigs/descheduler) 这样的工具自动维护均衡
+
+## pause 是什么进程
+
+## 1 node(s) had volume node affinity conflict
+
+- 检查 StorageClass 的亲和策略
+- 检查 PersistentVolume 的亲和策略
+  - Pod 需要匹配 PV 的亲和策略
+
+## failed to run Kubelet: mountpoint for cpu not found
+应该是没有挂载 cgroups
+
+```bash
+service cgroups start
+```
+
+## orphaned pod found, but error not a directory occurred when trying to remove the volumes dir
+
+```bash
+pods=$(tail -n 1000 /var/log/k0s.log|grep 'orphaned pod'|sed -r 's/.*pod[^"]+"([^\\"]+).*/\1/'|uniq)
+for i in $pods
+do
+  echo "Deleting Orphaned pod id: $i";
+  rm -rf /var/lib/kubelet/pods/$i;
+done
+```
+
+- [kubernetes#105536](https://github.com/kubernetes/kubernetes/issues/105536)
+- [scripts](https://quemingfei.com/archives/kubernetes-wen-ti-pai-cha-orphanedpodfound-butvolumepathsarestillpresentondisk)
+

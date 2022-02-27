@@ -44,6 +44,7 @@ tags:
   - Apache-2.0, Go+Vue
   - alternative to elasticsearch
   - 基于 bluge
+  - 目标是日志分析，不是ES兼容 https://github.com/prabhatsharma/zinc/issues/52#issuecomment-1000064449
 - [MeiliSearch](https://github.com/meilisearch/MeiliSearch)
   - MIT, Rust
 

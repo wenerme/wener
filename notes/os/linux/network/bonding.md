@@ -97,7 +97,9 @@ echo balance-rr > /sys/class/net/bond0/bonding/mode
 - balance-xor 可能会需要交换机配置
   - You need to set up an interface group (not LACP) on HP and Cisco switches, but apparently it's not necessary on D-Link, Netgear and Fujitsu switches.
 - 选项
-  - lacp_rate
+  - lacp_rate - lacp pdu - 110bytes
+    - slow - 30s
+    - fast - 1s
   - downdelay
 
 ## 配置案例
@@ -233,9 +235,127 @@ iface bond0 inet static
     bond-miimon 100
 ```
 
+# FAQ
+
+## write error: Directory not empty
+
+bond 为 down 且无 slave 时才能修改
+
+```
+bond0: option mode: unable to set because the bond device has slaves
+```
+
+## bond0: (slave eth1): invalid new link 3 on slave
+
+- 5.10.26 Linux kernel error
+  - https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-rolling-lts&id=9392b8219b62b0536df25c9de82b33f8a00881ef
+
+## the permanent HWaddr of slave - < mac > - is still in use by bond - set the HWaddr of slave to a different address to avoid conflicts
+
+```bash
+ifconfig | grep HWaddr
+```
+
+## No 802.3ad response from the link partner for any adapters in the bond
+
+
+## bond 802.3ad
+
+```
+auto bond0
+iface bond0 inet static
+  bond-slaves eth0 eth1 eth2 eth3
+  bond-mode 802.3ad
+  bond-xmit-hash-policy layer2+3
+  address 192.168.1.100
+  netmask 255.255.255.0
+  gateway 192.168.1.1
+```
+
+## LAG tagged vs untagged
+
+- VLAN tagged/untagged
+
+## /proc/net/bonding/bond0
+
+```
+Ethernet Channel Bonding Driver: v5.15.16-0-lts
+
+Bonding Mode: IEEE 802.3ad Dynamic link aggregation
+Transmit Hash Policy: layer2 (0)
+MII Status: up
+MII Polling Interval (ms): 100
+Up Delay (ms): 0
+Down Delay (ms): 0
+Peer Notification Delay (ms): 0
+
+802.3ad info
+LACP active: on
+LACP rate: slow
+Min links: 0
+Aggregator selection policy (ad_select): stable
+
+Slave Interface: eth0
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 74:00:11:22:33:40
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+
+Slave Interface: eth1
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 74:00:11:22:33:41
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+
+Slave Interface: eth2
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 74:00:11:22:33:42
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+
+Slave Interface: eth3
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 74:00:11:22:33:43
+Slave queue ID: 0
+Aggregator ID: 1
+Actor Churn State: none
+Partner Churn State: none
+Actor Churned Count: 0
+Partner Churned Count: 0
+```
+
+
 ## tree /sys/class/net/bond0
 
 - 所有信息
+
+```bash
+grep . /sys/class/net/bond0/bonding/
+```
 
 ```
 /sys/class/net/bond0
@@ -352,64 +472,4 @@ iface bond0 inet static
 ├── tx_queue_len
 ├── type
 └── uevent
-```
-
-# FAQ
-
-## write error: Directory not empty
-
-bond 为 down 且无 slave 时才能修改
-
-```
-bond0: option mode: unable to set because the bond device has slaves
-```
-
-## bond0: (slave eth1): invalid new link 3 on slave
-
-- 5.10.26 Linux kernel error
-  - https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?h=linux-rolling-lts&id=9392b8219b62b0536df25c9de82b33f8a00881ef
-
-## the permanent HWaddr of slave - < mac > - is still in use by bond - set the HWaddr of slave to a different address to avoid conflicts
-
-```bash
-ifconfig | grep HWaddr
-```
-
-## bond 802.3ad
-
-```
-auto bond0
-iface bond0 inet static
-  bond-slaves eth0 eth1 eth2 eth3
-  bond-mode 802.3ad
-  bond-xmit-hash-policy layer2+3
-  address 192.168.1.100
-  netmask 255.255.255.0
-  gateway 192.168.1.1
-```
-
-```
-bond0: (slave eth0): Enslaving as a backup interface with a down link
-bond0: (slave eth1): Enslaving as a backup interface with a down link
-bond0: (slave eth2): Enslaving as a backup interface with a down link
-bond0: (slave eth3): Enslaving as a backup interface with a down link
-tg3 0000:01:00.0 eth0: Link is up at 1000 Mbps, full duplex
-tg3 0000:01:00.0 eth0: Flow control is off for TX and off for RX
-tg3 0000:01:00.0 eth0: EEE is disabled
-bond0: (slave eth0): link status definitely up, 1000 Mbps full duplex
-bond0: Warning: No 802.3ad response from the link partner for any adapters in the bond
-bond0: active interface up!
-IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
-tg3 0000:01:00.1 eth1: Link is up at 1000 Mbps, full duplex
-tg3 0000:01:00.1 eth1: Flow control is off for TX and off for RX
-tg3 0000:01:00.1 eth1: EEE is disabled
-bond0: (slave eth1): link status definitely up, 1000 Mbps full duplex
-tg3 0000:02:00.0 eth2: Link is up at 1000 Mbps, full duplex
-tg3 0000:02:00.0 eth2: Flow control is off for TX and off for RX
-tg3 0000:02:00.0 eth2: EEE is disabled
-bond0: (slave eth2): link status definitely up, 1000 Mbps full duplex
-tg3 0000:02:00.1 eth3: Link is up at 1000 Mbps, full duplex
-tg3 0000:02:00.1 eth3: Flow control is off for TX and off for RX
-tg3 0000:02:00.1 eth3: EEE is disabled
-bond0: (slave eth3): link status definitely up, 1000 Mbps full duplex
 ```

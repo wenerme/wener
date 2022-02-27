@@ -41,14 +41,16 @@ ansible-galaxy collection download -r requirements.yml
 
 # 查看已安装
 ansible-galaxy collection list
-# 查看目录下内容
+# 查看目录下内容
 ansible-galaxy collection list -p '/opt/ansible/collections:/etc/ansible/collections'
 # 验证
 ansible-galaxy collection verify wenerme.alpine -vvv
 ```
 
 ## dev
+
 - [Developing collections](https://docs.ansible.com/ansible/latest/dev_guide/developing_collections.html)
+- [ansible/creator-ee](https://github.com/ansible/creator-ee)
 
 ```bash
 ansible-galaxy collection init my_namespace.my_collection
@@ -65,7 +67,6 @@ ansible-lint --enable-list command-instead-of-shell
 # auto lint
 ansible-lint
 ```
-
 
 ## playbook
 

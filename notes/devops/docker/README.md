@@ -1,15 +1,43 @@
 ---
-id: docker-intro
 title: Docker
 ---
 
 # Docker
 
-## Tips
-* [Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
+- [Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
+
+## 目录结构
+
+- /var/lib/docker - 数据目录 - `/etc/docker/daemon.json` data-root 配置
+  - image/ - 镜像
+  - volumes/ - 临时 volume
+  - builder/
+  - buildkit/
+  - containers/SHA/ - 容器信息
+    - SHA-json.log
+    - checkpoints
+    - config.v2.json
+    - hostconfig.json
+    - hostname
+    - hosts
+    - mounts
+    - resolv.conf
+    - resolv.conf.hash
+  - network/files/local-kv.db
+  - overlay2/SHA/
+    - committed
+    - diff
+    - link
+    - lower
+    - work
+  - trust/
+  - plugins/
+- /var/lib/docker/containerd/daemon - ContainerD 目录
+  - 镜像没有使用 containerd 存储
 
 ## SSHD service
-* __Dockerfile__
+
+- **Dockerfile**
 
 ```Dockerfile
 FROM java:8
@@ -60,9 +88,10 @@ done
 docker run --rm -it -v ~:/host williamyeh/ansible:ubuntu14.04-onbuild bash
 ```
 
-* [Dockerizing an SSH daemon service](https://docs.docker.com/engine/examples/running_ssh_service/)
+- [Dockerizing an SSH daemon service](https://docs.docker.com/engine/examples/running_ssh_service/)
 
 ## 修改镜像
+
 ```bash
 # 标准配置位于 /etc/sysconfig/docker
 # Boot2docker 位于 /var/lib/boot2docker/profile
@@ -74,15 +103,15 @@ sudo systemctl daemon-reload
 sudo service docker restart
 ```
 
-* 可使用 daocloud 提供的镜像服务 https://www.daocloud.io/mirror
-* 用于在 Linux 下修改镜像的脚本 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s 镜像地址
-* 也可在 /etc/default/docker 中添加 HTTP_PROXY 来拉取镜像
-* 阿里镜像 http://mirrors.aliyun.com/
-* 阿里容器管理接口有加速服务
-
+- 可使用 daocloud 提供的镜像服务 https://www.daocloud.io/mirror
+- 用于在 Linux 下修改镜像的脚本 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s 镜像地址
+- 也可在 /etc/default/docker 中添加 HTTP_PROXY 来拉取镜像
+- 阿里镜像 http://mirrors.aliyun.com/
+- 阿里容器管理接口有加速服务
 
 ## 安装
-* https://yq.aliyun.com/articles/110806
+
+- https://yq.aliyun.com/articles/110806
 
 ```bash
 # 使用安装脚本安装
@@ -108,9 +137,9 @@ systemctl restart docker
 
 https://www.daocloud.io/mirror
 
-* http://mirrors.aliyun.com/help/docker-engine
-* 镜像仓库 https://dev.aliyun.com/search.html
-* 镜像加速器 https://cr.console.aliyun.com/#/accelerator
+- http://mirrors.aliyun.com/help/docker-engine
+- 镜像仓库 https://dev.aliyun.com/search.html
+- 镜像加速器 https://cr.console.aliyun.com/#/accelerator
 
 ```bash
 # 使用阿里提供的仓库进行安装会非常快
@@ -119,7 +148,7 @@ curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/in
 sudo usermod -aG docker $USER
 ```
 
-__Ubuntu__
+**Ubuntu**
 
 ```bash
 apt-get update
@@ -144,13 +173,13 @@ apt-get install docker-engine
 service docker start
 ```
 
-* [Ubuntu Install Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+- [Ubuntu Install Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 ## Tips
 
-* Docker machine root 密码为 `tcuser`
-* 也可以通过 `sudo su root` 切换为 root
-* Linux 下的配置文件 /etc/default/docker
+- Docker machine root 密码为 `tcuser`
+- 也可以通过 `sudo su root` 切换为 root
+- Linux 下的配置文件 /etc/default/docker
 
 ```bash
 # stats 中显示容器名字
@@ -229,11 +258,11 @@ Docker 会使用 HTTP_PROXY 作为代理,代理配置成功后可在 `docker inf
 
 代理配置文件
 
-* `/etc/default/docker`
+- `/etc/default/docker`
 
 如果代理配置不生效,可直接修改 systemd 定义文件,例如在 Ubuntu 16.04 下为 `/lib/systemd/system/docker.service`,在 Service 节下添加 `Environment=HTTP_PROXY=http://10.0.0.1:7777`, 然后 `systemctl daemon-reload` 再重启 docker 即可,配置可通过 `systemctl show --property=Environment docker` 查看
 
-* [Control and configure Docker with systemd](https://docs.docker.com/engine/admin/systemd/)
+- [Control and configure Docker with systemd](https://docs.docker.com/engine/admin/systemd/)
 
 ### 时区
 
@@ -250,12 +279,14 @@ Thu Mar 20 05:42:26 CET 2014
 $ docker run -t -i --rm -e TZ=Europe/London busybox date
 ```
 
-__Dockerfile__ 修改时区
+**Dockerfile** 修改时区
+
 ```
 RUN echo America/New_York | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
 ```
 
 修改 MySQL 的时区
+
 ```bash
 # 方法一 修改容器时区,重启 mysql
 docker exec -it MySQL bash
@@ -282,7 +313,7 @@ docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
 
 ## baseimage
 
-* https://docs.docker.com/develop/develop-images/baseimages
+- https://docs.docker.com/develop/develop-images/baseimages
 
 ```bash
 
@@ -290,18 +321,18 @@ docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
 
 ## Refernece
 
-* [Docker Master Binaries](https://master.dockerproject.org/)
-* [Docker Master Document](http://docs.master.dockerproject.org/)
-* [Shipyard](https://github.com/shipyard/shipyard) Composable Docker Management
-  * 可管理 Container,Image,Registry,Auth,Node,Log 等
-  * 有网页端的 Console
-  * 目前不支持 1.12 Docker Swarm
-* [Tsuru](https://github.com/tsuru/tsuru) is an extensible and open source Platform as a Service software.
-* [Docket](https://github.com/netvarun/docket) Custom docker registry that allows for lightning fast deploys through bittorrent
-* [dockerfiles](https://github.com/jfrazelle/dockerfiles) Various Dockerfiles
-* [ui-for-docker](https://github.com/kevana/ui-for-docker) An unofficial web interface for Docker, formerly known as DockerUI
-* https://github.com/wsargent/docker-cheat-sheet
-* https://github.com/veggiemonk/awesome-docker
-* [Portus](https://github.com/SUSE/Portus) Authorization service and frontend for Docker registry (v2)
-* [docker-swarm-visualizer](https://github.com/manomarks/docker-swarm-visualizer) A visualizer for Docker Swarm using the Docker Remote API, Node.JS, and D3
-* [logspout](https://github.com/gliderlabs/logspout) Log routing for Docker container logs
+- [Docker Master Binaries](https://master.dockerproject.org/)
+- [Docker Master Document](http://docs.master.dockerproject.org/)
+- [Shipyard](https://github.com/shipyard/shipyard) Composable Docker Management
+  - 可管理 Container,Image,Registry,Auth,Node,Log 等
+  - 有网页端的 Console
+  - 目前不支持 1.12 Docker Swarm
+- [Tsuru](https://github.com/tsuru/tsuru) is an extensible and open source Platform as a Service software.
+- [Docket](https://github.com/netvarun/docket) Custom docker registry that allows for lightning fast deploys through bittorrent
+- [dockerfiles](https://github.com/jfrazelle/dockerfiles) Various Dockerfiles
+- [ui-for-docker](https://github.com/kevana/ui-for-docker) An unofficial web interface for Docker, formerly known as DockerUI
+- https://github.com/wsargent/docker-cheat-sheet
+- https://github.com/veggiemonk/awesome-docker
+- [Portus](https://github.com/SUSE/Portus) Authorization service and frontend for Docker registry (v2)
+- [docker-swarm-visualizer](https://github.com/manomarks/docker-swarm-visualizer) A visualizer for Docker Swarm using the Docker Remote API, Node.JS, and D3
+- [logspout](https://github.com/gliderlabs/logspout) Log routing for Docker container logs

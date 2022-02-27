@@ -13,6 +13,24 @@ tags:
 tree -N
 ```
 
+## tree exclude
+
+```bash
+tree -I 'containerd|docker'
+tree -I 'node_modules|cache|test_*'
+```
+
+## 文件信息
+
+```bash
+touch file
+stat file
+TZ=UTC stat -c '%y %n' file
+date -r file +%s
+# [[CC]YY]MMDDhhmm[.ss]
+touch -a -m -t 203801181205.09 file
+```
+
 ## pwd vs cwd
 
 ```bash

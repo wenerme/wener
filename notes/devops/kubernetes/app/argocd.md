@@ -98,7 +98,7 @@ kubectl port-forward svc/argocd-server -n argocd 8443:443
 # 密码 旧的方式为 deploy 名字
 # kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 # 新的方式会保存初始密码
-# 获取密码后 建议删除 argocd-initial-admin-secret
+# 获取密码后 建议删除 argocd-initial-admin-secret
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 kubectl -n argocd delete secret argocd-initial-admin-secret
 

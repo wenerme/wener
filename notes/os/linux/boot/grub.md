@@ -56,7 +56,7 @@ if [ -f /etc/update-extlinux.conf ]; then
 fi
 ```
 
-## Commands
+## Install
 
 ```bash
 # https://github.com/alpinelinux/alpine-conf/blob/4f960a81e65c7ee1e37b5a4029e2aa47e63e654f/setup-disk.in#L281

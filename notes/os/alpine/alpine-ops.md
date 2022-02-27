@@ -985,7 +985,12 @@ service wtmpd start
 ```bash
 # busybox openntpd chrony none
 setup-ntp -c chrony
+# 查看同步状态
 adjtimex
+
+# 停止旧的 ntpd
+rc-update del ntpd
+service ntpd stop
 
 # busybox ntpd 手动同步
 ntpd -dn -N -p pool.ntp.org

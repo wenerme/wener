@@ -46,9 +46,19 @@ kubectl label node master-1 topology.kubernetes.io/zone=sh-dc1
 
 ## 资源标签
 
-| kind         | annotation                                  | demo | desc              |
-| ------------ | ------------------------------------------- | ---- | ----------------- |
-| StorageClass | storageclass.kubernetes.io/is-default-class | true | 默认 StorageClass |
+| kind                | annotation                                      | demo | desc              |
+| ------------------- | ----------------------------------------------- | ---- | ----------------- |
+| StorageClass        | storageclass.kubernetes.io/is-default-class     | true | 默认 StorageClass |
+| VolumeSnapshotClass | snapshot.storage.kubernetes.io/is-default-class | true |
+
+```bash
+kubectl get storageclass
+
+# 取消 sc 的默认值
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+# 设置默认
+kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
 
 ## 应用标签
 

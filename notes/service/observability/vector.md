@@ -25,19 +25,28 @@ title: vector
   - Vector
 - 角色
   - agent - 采集
+    - source -> sink
   - aggregator - 聚合
+    - transform
   - sidecar - 应用
 
 :::info issues
 
-- [#1444](https://github.com/vectordotdev/vector/issues/1444) opentelemetry source & sink
-  - 预计 2021 年底
-- [#939](https://github.com/vectordotdev/vector/issues/939) timescale/postgres sink
-- [#6556](https://github.com/vectordotdev/vector/issues/6556) PostgreSQL/MySQL sink
-- [#988](https://github.com/vectordotdev/vector/issues/988) sonic
-- [#573](https://github.com/vectordotdev/vector/issues/573) grpc source
-- [#2302](https://github.com/vectordotdev/vector/issues/2302) zstd compress
-- [#1206](https://github.com/vectordotdev/vector/issues/1206) windows_event_log source
+- timescale/postgres sink [#939](https://github.com/vectordotdev/vector/issues/939)
+- PostgreSQL/MySQL sink [#6556](https://github.com/vectordotdev/vector/issues/6556)
+- sonic sink [#988](https://github.com/vectordotdev/vector/issues/988)
+- grpc source [#573](https://github.com/vectordotdev/vector/issues/573)
+- zstd compress [#2302](https://github.com/vectordotdev/vector/issues/2302)
+- windows_event_log source [#1206](https://github.com/vectordotdev/vector/issues/1206)
+- VictoriaMetrics sink [#1343](https://github.com/vectordotdev/vector/issues/1343)
+
+---
+
+- stops watching logs from new pods [#8616](https://github.com/vectordotdev/vector/issues/8616)
+
+---
+
+- opentelemetry source & sink [#1444](https://github.com/vectordotdev/vector/issues/1444)
 
 :::
 
@@ -81,5 +90,7 @@ address = "127.0.0.1:8686"
 ```
 
 ## 部署
-- HELM https://vector.dev/docs/setup/installation/package-managers/helm/
-- https://vector.dev/docs/setup/installation/platforms/kubernetes/
+
+- [Install Vector using Helm](https://vector.dev/docs/setup/installation/package-managers/helm/)
+  - https://helm.vector.dev
+- [Kubernetes](https://vector.dev/docs/setup/installation/platforms/kubernetes/)

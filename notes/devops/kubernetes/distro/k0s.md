@@ -36,6 +36,7 @@ title: k0s
 - 确保存在 /etc/machine-id
   - 安装 dbus 会创建
   - alpine openrc 目前新增了 /etc/init.d/machine-id 服务
+  - denisbrodbeck/machineid [What you get](https://github.com/denisbrodbeck/machineid/blob/v1.0.1/README.md#what-you-get)
 
 ```bash
 # K0S_VERSION 控制版本
@@ -194,6 +195,155 @@ k0s ctr c ls
 | 9443  | tcp   | k0s-api            | controller <-> controller         |
 | 10250 | tcp   | kubelet            | master,worker => host             |
 
+## k0s supervisor
+
+- k0s 是一个 supervisor，取保组件始终运行
+  - k0s api
+  - containerd
+  - konnectivity-server
+    - 如果没有 LB 且在平坦网络，则可以禁用
+      - https://github.com/k0sproject/k0s/issues/1352#issuecomment-994350579
+    - 拆分 controller 和 worker 时则必须需要 LB
+  - etcd
+  - kube-controller-manager
+  - kube-scheduler
+  - kube-apiserver
+- k0s 默认部署了部分组件，确保集群可用 - manifest
+  - coredns
+  - konnectivity-agent
+  - kube-proxy
+  - kube-router
+  - metrics-server
+
+```bash
+# k0s controller 自身
+/usr/local/bin/k0s controller --config=/etc/k0s/k0s.yaml --enable-worker=true
+
+# 查看 supervisor 维护的所有进程
+ps -o command -f $(pgrep -P $(k0s status | grep 'Process ID' | cut -d ':' -f 2))  | tee
+
+/usr/local/bin/k0s api \
+  --config=/etc/k0s/k0s.yaml \
+  --data-dir=/var/lib/k0s
+
+/var/lib/k0s/bin/containerd \
+  --root=/var/lib/k0s/containerd \
+  --state=/run/k0s/containerd \
+  --address=/run/k0s/containerd.sock \
+  --log-level=info \
+  --config=/etc/k0s/containerd.toml
+
+# controller & worker 通讯
+/var/lib/k0s/bin/konnectivity-server \
+  --admin-port=8133 \
+  --agent-namespace=kube-system \
+  --agent-port=8132 \
+  --agent-service-account=konnectivity-agent \
+  --authentication-audience=system:konnectivity-server \
+  --cluster-cert=/var/lib/k0s/pki/server.crt \
+  --cluster-key=/var/lib/k0s/pki/server.key \
+  --enable-profiling=false \
+  --kubeconfig=/var/lib/k0s/pki/konnectivity.conf \
+  --logtostderr=true \
+  --mode=grpc \
+  --server-count=1 \
+  --server-id=$(sha256sum XXX) \
+  --server-port=0 \
+  --stderrthreshold=1 \
+  --uds-name=/run/k0s/konnectivity-server/konnectivity-server.sock \
+  --v=1
+
+# 真正的 controller
+/var/lib/k0s/bin/kube-controller-manager \
+  --allocate-node-cidrs=true \
+  --authentication-kubeconfig=/var/lib/k0s/pki/ccm.conf \
+  --authorization-kubeconfig=/var/lib/k0s/pki/ccm.conf \
+  --bind-address=127.0.0.1 \
+  --client-ca-file=/var/lib/k0s/pki/ca.crt \
+  --cluster-cidr=10.244.0.0/16 \
+  --cluster-name=k0s \
+  --cluster-signing-cert-file=/var/lib/k0s/pki/ca.crt \
+  --cluster-signing-key-file=/var/lib/k0s/pki/ca.key \
+  --controllers=*,bootstrapsigner,tokencleaner \
+  --enable-hostpath-provisioner=true \
+  --kubeconfig=/var/lib/k0s/pki/ccm.conf \
+  --leader-elect=false \
+  --node-cidr-mask-size=24 \
+  --profiling=false \
+  --requestheader-client-ca-file=/var/lib/k0s/pki/front-proxy-ca.crt \
+  --root-ca-file=/var/lib/k0s/pki/ca.crt \
+  --service-account-private-key-file=/var/lib/k0s/pki/sa.key \
+  --service-cluster-ip-range=10.96.0.0/12 \
+  --terminated-pod-gc-threshold=12500 \
+  --use-service-account-credentials=true  \
+  --v=1
+
+# workload 调度
+/var/lib/k0s/bin/kube-scheduler \
+  --authentication-kubeconfig=/var/lib/k0s/pki/scheduler.conf \
+  --authorization-kubeconfig=/var/lib/k0s/pki/scheduler.conf \
+  --bind-address=127.0.0.1 \
+  --kubeconfig=/var/lib/k0s/pki/scheduler.conf \
+  --leader-elect=false \
+  --profiling=false \
+  --v=1
+
+# etcd - 如果使用的是 kine 则没有
+/var/lib/k0s/bin/etcd \
+  --advertise-client-urls=https://127.0.0.1:2379 \
+  --auth-token=jwt,pub-key=/var/lib/k0s/pki/etcd/jwt.pub,priv-key=/var/lib/k0s/pki/etcd/jwt.key,sign-method=RS512,ttl=10m \
+  --cert-file=/var/lib/k0s/pki/etcd/server.crt \
+  --client-cert-auth=true \
+  --data-dir=/var/lib/k0s/etcd \
+  --enable-pprof=false \
+  --initial-advertise-peer-urls=https://192.168.1.2:2380 \
+  --key-file=/var/lib/k0s/pki/etcd/server.key \
+  --listen-client-urls=https://127.0.0.1:2379 \
+  --listen-peer-urls=https://192.168.1.2:2380 \
+  --log-level=info \
+  --name=$(hostname) \
+  --peer-cert-file=/var/lib/k0s/pki/etcd/peer.crt \
+  --peer-client-cert-auth=true \
+  --peer-key-file=/var/lib/k0s/pki/etcd/peer.key \
+  --peer-trusted-ca-file=/var/lib/k0s/pki/etcd/ca.crt \
+  --trusted-ca-file=/var/lib/k0s/pki/etcd/ca.crt
+
+# k8s API - 主要接口
+/var/lib/k0s/bin/kube-apiserver \
+  --allow-privileged=true \
+  --anonymous-auth=false \
+  --api-audiences=https://kubernetes.default.svc,system:konnectivity-server \
+  --authorization-mode=Node,RBAC --service-account-key-file=/var/lib/k0s/pki/sa.pub --tls-cipher-suites=TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 \
+  --client-ca-file=/var/lib/k0s/pki/ca.crt --tls-cert-file=/var/lib/k0s/pki/server.crt \
+  --egress-selector-config-file=/var/lib/k0s/konnectivity.conf \
+  --enable-admission-plugins=NodeRestriction,PodSecurityPolicy \
+  --enable-bootstrap-token-auth=true --advertise-address=192.168.1.2 \
+  --feature-gates=ServiceInternalTrafficPolicy=true \
+  --insecure-port=0 \
+  --kubelet-certificate-authority=/var/lib/k0s/pki/ca.crt \
+  --kubelet-client-certificate=/var/lib/k0s/pki/apiserver-kubelet-client.crt \
+  --kubelet-client-key=/var/lib/k0s/pki/apiserver-kubelet-client.key \
+  --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname \
+  --profiling=false \
+  --proxy-client-cert-file=/var/lib/k0s/pki/front-proxy-client.crt \
+  --proxy-client-key-file=/var/lib/k0s/pki/front-proxy-client.key \
+  --requestheader-allowed-names=front-proxy-client \
+  --requestheader-extra-headers-prefix=X-Remote-Extra- \
+  --requestheader-group-headers=X-Remote-Group \
+  --requestheader-username-headers=X-Remote-User \
+  --secure-port=6443 \
+  --service-account-issuer=https://kubernetes.default.svc \
+  --service-account-jwks-uri=https://kubernetes.default.svc/openid/v1/jwks \
+  --service-account-signing-key-file=/var/lib/k0s/pki/sa.key --requestheader-client-ca-file=/var/lib/k0s/pki/front-proxy-ca.crt \
+  --service-cluster-ip-range=10.96.0.0/12 \
+  --tls-private-key-file=/var/lib/k0s/pki/server.key \
+  --v=1 \
+  --etcd-servers=https://127.0.0.1:2379 \
+  --etcd-cafile=/var/lib/k0s/pki/etcd/ca.crt \
+  --etcd-certfile=/var/lib/k0s/pki/apiserver-etcd-client.crt \
+  --etcd-keyfile=/var/lib/k0s/pki/apiserver-etcd-client.key
+```
+
 ## k0s.yaml
 
 ```yaml
@@ -201,6 +351,7 @@ apiVersion: k0s.k0sproject.io/v1beta1
 kind: ClusterConfig
 metadata:
   creationTimestamp: null
+  # kube-controller-manager --cluster-name
   name: k0s
 spec:
   # kube-apiserver
@@ -308,6 +459,7 @@ spec:
   # https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/
   controllerManager:
     extraArgs:
+      # cluster-name: wener-k0s
   # https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/
   scheduler:
     extraArgs:
@@ -323,11 +475,11 @@ spec:
 
 ## containerd.toml
 
-- https://github.com/containerd/containerd/blob/main/docs/man/containerd-config.toml.5.md
+- [containerd-config.toml.5](https://github.com/containerd/containerd/blob/main/docs/man/containerd-config.toml.5.md)
 
 ```bash
 # 参考，然后按需修改 /etc/k0s/containerd.toml
-containerd config default > containerd.toml
+/var/lib/k0s/bin/containerd config default > containerd.toml
 
 # 查看支持的插件
 k0s ctr plugins ls
@@ -350,7 +502,7 @@ zfs create -o mountpoint=/var/lib/k0s/containerd/io.containerd.snapshotter.v1.zf
 - 默认为 overlayfs
 
 ```toml title="/etc/k0s/containerd.toml"
-version=2
+version = 2
 [plugins."io.containerd.grpc.v1.cri".containerd]
 snapshotter = "zfs"
 ```
@@ -392,7 +544,7 @@ supervisor=supervise-daemon
 name="k0s controller"
 description="k0s - Zero Friction Kubernetes"
 command=/usr/local/bin/k0s
-command_args="controller --config=/etc/k0s/k0s.yaml --single=true "
+command_args="controller --config=/etc/k0s/k0s.yaml --enable-dynamic-config=true --enable-worker=true "
 name=$(basename $(readlink -f $command))
 supervise_daemon_args="--stdout /var/log/${name}.log --stderr /var/log/${name}.err"
 depend() {
@@ -401,46 +553,3 @@ depend() {
         after firewall
 }
 ```
-
-# FAQ
-
-## Control plane vs. Worker
-
-- Control plane
-  - 作为其他组建的 守护进程/supervisor - 不调度工作负载
-  - 不需要容器引擎、kubelet
-  - kubectl get node 看不到
-  - 维护 kine/etcd, api-server, scheduler, controller-manager, konnectivity-server, k0s-api
-- Worker
-  - 运行 kubelet
-  - 依赖 cri - 默认你 containerd+runc
-  - 调度工作负载
-
-## Failed to run kubelet failed to run Kubelet: mountpoint for cpu not found
-
-```bash
-ls /sys/fs/cgroup
-service cgroups start
-```
-
-## cni plugin not initialized
-
-检查 kube-proxy pod 是否启动
-
-## no IP ranges specified
-
-## kube-router Failed to watch i/o timeout
-
-```
-Failed to watch *v1.Node: failed to list *v1.Node: Get "https://10.96.0.1:443/api/v1/nodes?limit=500&resourceVersion=0": dial tcp 10.96.0.1:443: i/o timeout
-```
-
-## k0s controller --single vs --enable-worker
-
-- --single
-  - 减少部分 leader 选取逻辑
-  - 不可以添加 worker
-  - etcd 默认使用 kine - 可配置使用 etcd
-- --enable-worker
-  - 正常节点
-  - 可后续添加 worker

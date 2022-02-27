@@ -122,8 +122,15 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 - [denigma](https://denigma.app/)
 - [Leetcode has taught me that I'm a bad engineer](https://news.ycombinator.com/item?id=29804607)
 - https://github.com/afatcoder/LeetcodeTop
-  - 各大互联网公司容易考察的高频leetcode题
+  - 各大互联网公司容易考察的高频 leetcode 题
 
 ## Books
 
 - Software Architecture Patterns
+
+## CICD
+
+- drone
+- gitlab-runner
+- jenkins
+- [concourse/concourse](https://github.com/concourse/concourse)

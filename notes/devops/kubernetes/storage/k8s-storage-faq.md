@@ -46,3 +46,20 @@ kubectl patch pv my-pv-name -p '{"spec":{"claimRef": null}}'
 - /var/lib/kubelet/plugins
 - k3s 可能目录 /var/lib/rancher/k3s/agent/kubelet
 - [kubernetes-csi/csi-driver-host-path#71](https://github.com/kubernetes-csi/csi-driver-host-path/issues/71)
+
+## 设置默认 StorageClass
+
+```bash
+kubectl get storageclass
+
+# 取消 sc 的默认值
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+# 设置默认
+kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
+
+## failed to generate spec: path "/" is mounted on "/" but it is not a shared or slave mount
+
+```bash
+mount --make-rshared /
+```

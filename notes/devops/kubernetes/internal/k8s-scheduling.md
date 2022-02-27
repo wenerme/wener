@@ -191,6 +191,9 @@ overhead:
 kubectl taint nodes node1 key1=value1:NoSchedule
 # 移除污点
 kubectl taint nodes node1 key1=value1:NoSchedule-
+
+# 可在 master 上打上要求指定了 master 才运行
+kubectl taint node MASTER node-role.kubernetes.io/master=:NoSchedule-
 ```
 
 ```yaml

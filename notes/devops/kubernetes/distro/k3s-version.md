@@ -1,5 +1,7 @@
 ---
 title: K3S Version
+tags:
+  - Version
 ---
 
 # K3S Version
