@@ -6,11 +6,6 @@ tags:
 
 # Web Awesome
 
-- Awesome of [Awesome](https://github.com/sindresorhus/awesome)
-- Awesome [Web](https://www.awesomeweb.com/)
-- [cheatsheet1999/FrontEndCollection](https://github.com/cheatsheet1999/FrontEndCollection)
-- https://dev.to/iainfreestone/series/7129
-
 ## Web
 
 - https://www.c82.net/iconography/
@@ -186,3 +181,10 @@ tags:
 - [1History/1History](https://github.com/1History/1History)
   - history in one file
 - http://radio.garden/
+
+## Reference
+
+- Awesome of [Awesome](https://github.com/sindresorhus/awesome)
+- Awesome [Web](https://www.awesomeweb.com/)
+- [cheatsheet1999/FrontEndCollection](https://github.com/cheatsheet1999/FrontEndCollection)
+- https://dev.to/iainfreestone/series/7129

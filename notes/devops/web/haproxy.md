@@ -1,5 +1,4 @@
 ---
-id: haproxy
 title: HAProxy
 ---
 

@@ -8,10 +8,17 @@ title: Loki
   - AGPL-3.0, Go
   - 日志界的 Prometheus
 - [Architecture](https://grafana.com/docs/loki/latest/architecture/)
+  - 日写入 < 100GB 考虑部署单体服务即可
+  - 单体服务也可以多接点扩容
+  - 微服务模式维护起来更麻烦
 - 参考
   - [vs. EFK](https://grafana.com/docs/loki/latest/overview/comparisons/)
   - [An introduction to Loki, the Prometheus-inspired open source logging system](https://grafana.com/blog/2020/05/12/an-only-slightly-technical-introduction-to-loki-the-prometheus-inspired-open-source-logging-system/)
   - [Loki compared to other log systems](https://grafana.com/docs/loki/latest/overview/comparisons/)
+
+## 配置
+
+- https://grafana.com/docs/loki/latest/configuration/
 
 ## collector
 

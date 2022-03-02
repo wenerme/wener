@@ -68,6 +68,7 @@ helm create my-chart
 | jetstack                     | https://charts.jetstack.io                                      |
 | hashicorp                    | https://helm.releases.hashicorp.com                             |
 | harbor                       | https://helm.goharbor.io                                        |
+| bitnami                      | https://charts.bitnami.com/bitnami                              |
 | Deprecaed                    | ⚠️                                                              |
 | stable                       | https://kubernetes-charts.storage.googleapis.com/               |
 | incubator                    | https://kubernetes-charts-incubator.storage.googleapis.com      |
@@ -94,6 +95,10 @@ helm create my-chart
 - Helm 支持 [Registry](https://helm.sh/docs/topics/registries/) 来存储 charts
   - 推送遇到问题 - insufficient_scope: authorization failed [#6214](https://github.com/helm/helm/issues/6214)
   - 不能推送到 docker hub [#5861](https://github.com/helm/helm/issues/5861)
+
+## index.yaml
+
+- https://helm.sh/docs/topics/chart_repository/
 
 ### local
 
@@ -190,3 +195,19 @@ helm template ./mychart
   - Helm 2+
   - 简单易理解 - HTTP 静态文件服务 - 提供 index.yaml 作为索引
   - 现有仓库功能相对完善
+
+## helm repo index merge
+
+- helm repo index --merge 需要不同的目录才能生效
+  - [#4482](https://github.com/helm/helm/issues/4482)
+
+```bash
+# 方案A: copy 目录
+cp -r charts last
+# update charts
+helm repo index --merge last/index.yaml charts
+
+# 方案B: 存储在别的位置
+helm repo index --merge charts/index.yaml newer
+rsync newer/ charts/
+```

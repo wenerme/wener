@@ -66,3 +66,11 @@ if(conn->httpversion < 20) {
    infof(data, "Mark bundle as not supporting multiuse\n");
 }
 ```
+
+## output dir
+
+- 7.73.0+
+
+```bash
+curl --create-dirs -O --output-dir /tmp/receipes https://example.com/pancakes.jpg
+```

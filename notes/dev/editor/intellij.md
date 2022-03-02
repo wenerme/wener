@@ -32,3 +32,9 @@ title: Intellij IDEA
     - 提供 Antlr 到 Psi 的适配
   - [antlr/intellij-plugin-v4](https://github.com/antlr/intellij-plugin-v4)
     - Antlr 的插件是基于 Antlr 实现的
+
+## Diff
+
+```bash
+idea diff path1 path2 path3
+```

@@ -33,6 +33,7 @@ tags:
 
 ## Collector
 
+- vector
 - [fluent/fluentd](https://github.com/fluent/fluentd)
   - Apache-2.0, Ruby+C
   - 去中心化插件系统
@@ -58,6 +59,7 @@ tags:
 - [grafana/loki](https://github.com/grafana/loki)
   - AGPL-3.0, Go
   - 日志界的 Prometheus
+- es
 - influxdb
 
 ## 参考

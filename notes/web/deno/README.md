@@ -15,6 +15,14 @@ title: deno
 - Deno 全局命名空间
 - ~/.deno/bin - deno install 位置
 
+:::caution
+
+- deno 不支持 AlpineLinux, CentOS 7
+  - Release centos7 compatible binaries [#1658](https://github.com/denoland/deno/issues/1658)
+  - Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)
+
+:::
+
 ```ts
 // HTTP 服务器
 const listener = Deno.listen({ port: 8000 });

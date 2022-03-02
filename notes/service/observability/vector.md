@@ -19,7 +19,7 @@ title: vector
   - vector
   - [dnstap](https://dnstap.info/)
 - Transforms
-- Sinks
+- [Sinks](https://vector.dev/docs/reference/configuration/sinks/)
   - S3, ClickHouse, Elastic, Loki, InfluxDB, Prometheus RW/Export, Statsd
   - Redis, Plusar, Nats, Kafka
   - Vector

@@ -61,8 +61,19 @@ tags:
 
 - https://github.com/opencontainers/runtime-spec/blob/main/implementations.md
 
+## CLI
+
+- ctr,[nerdctl] -> containerd
+  - contaiNERD CTL
+- crictl -> cri -> containerd
+  - cri 是 kubelet 接口
+
+[nerdctl]: https://github.com/containerd/nerdctl
+
 ## 工具
 
+- [sigstore/cosign](https://github.com/sigstore/cosign)
+  - Container Signing
 - [plexsystems/sinker](https://github.com/plexsystems/sinker)
   - 同步镜像
   - 使用 github.com/docker/docker/client 操作 docker

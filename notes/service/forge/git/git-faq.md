@@ -50,6 +50,9 @@ git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | s
 brew install bfg
 
 # 在删除前先做一次把文件删除的提交
+git rm id_{dsa,rsa}
+git commit -m 'remove files'
+# 清理历史
 bfg --delete-files id_{dsa,rsa}  my-repo.git
 bfg --strip-blobs-bigger-than 50M  my-repo.git
 bfg --delete-folders dirname  my-repo.git

@@ -6,11 +6,55 @@ title: HAProxy Version
 
 | version       | release date |
 | ------------- | ------------ |
+| [HAProxy 2.5] | 2021-11-23   |
 | [HAProxy 2.4] | 2021-05-13   |
 | [HAProxy 2.3] | 2020-11-05   |
 
+[haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 2.5
+
+- QUIC, HTTP/3 - 实验支持
+- 完整动态服务支持
+  - 2.4 动态服务不支持 check, track, slowstart, error-limit, ssl, observe
+- 支持在 defaults 配置 tcp-request 和 http-request 规则
+- Lua
+  - 新增 httpclient - 可发起请求
+- [Announcing HAProxy 2.5](https://www.haproxy.com/blog/announcing-haproxy-2-5/)
+
+```bash
+# 特性检查
+haproxy -cc 'feature(PROMEX)' || echo not supported
+
+# runtime api shell
+socat stdio tcp4-connect:127.0.0.1:9999
+
+experimental-mode on
+```
+
+```haproxy
+global
+  nbthread 40
+
+defaults frontend-defaults
+  log global
+  mode http
+  option httplog
+  option dontlognull
+  timeout client  10m
+  # 新增
+  http-request redirect scheme https unless { ssl_fc }
+
+frontend mysite from frontend-defaults
+  mode http
+  # 废弃 process 使用 thread
+  # 新增 shards 参数 - 等同于多次 bind
+  bind :80 thread 1-20 shards 2 name website
+  bind :443 ssl crt /etc/haproxy/ssl/cert.pem
+  default_backend webservers
+```
 
 ## HAProxy 2.4
 
@@ -30,7 +74,7 @@ title: HAProxy Version
   - 动态 SSL 证书存储 - 不再需要重启
   - 允许动态 SNI 链接复用 - `sni req.hdr(host)`
 - Observability
-  - 内置 OpenTracing
+  - 内置 **OpenTracing**
   - Prometheus 增加指标
   - 统计增加 SSL/TLS 模块相关 - `stats show-modules`
 - 缓存
@@ -53,11 +97,27 @@ title: HAProxy Version
   - TCP 升级 HTTP - fe tcp, be http - `tcp-request content switch-mode`
   - 匹配删除 HTTP 头 - `http-request del-header X-Forwarded -m beg`
   - 新增实验模式 - 开启实验功能
-    - 动态服务、变量修改
+    - 动态服务
+      - 通过 runtime api 新增服务
+    - 变量修改
 - Lua
   - 多线程 - `lua-load-per-thread`
 - 参考
   - [Announcing HAProxy 2.4](https://www.haproxy.com/blog/announcing-haproxy-2-4)
+
+```bash
+# runtime api
+echo "help add" |socat /var/run/haproxy/api.sock -
+echo "show state" |socat /var/run/haproxy/api.sock -
+
+# 服务
+echo "experimental-mode on; add server be_app/app4 192.168.1.22:80" | socat /var/run/haproxy/api.sock -
+echo "experimental-mode on; del server be_app/app4" | socat /var/run/haproxy/api.sock -
+# 变量
+echo "experimental-mode on; get var proc.myapp_version" |socat /var/run/haproxy/api.sock -
+echo "experimental-mode on; set var proc.myapp_version str(green)" | socat /var/run/haproxy/api.sock -
+echo "experimental-mode on; get var proc.myapp_version" | socat /var/run/haproxy/api.sock -
+```
 
 ## HAProxy 2.3
 

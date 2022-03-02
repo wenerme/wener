@@ -112,6 +112,21 @@ COPY ... TO PROGRAM
   - lower, point query 更快
   - 例如 8196
 
+## 安装
+
+```bash
+# 要求 SSE 4.2
+grep -q sse4_2 /proc/cpuinfo && echo "SSE 4.2 supported" || echo "SSE 4.2 not supported"
+
+# Docker
+# https://hub.docker.com/r/clickhouse/clickhouse-server/
+# /etc/clickhouse-server/config.xml
+docker run -it --rm \
+  --ulimit nofile=262144:262144 \
+  -v=$HOME/data:/var/lib/clickhouse \
+  --name clickhouse-server clickhouse/clickhouse-server
+```
+
 ## 数据类型
 
 > 支持范型的强类型 Schema

@@ -562,7 +562,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [appleboy/easyssh-proxy](https://github.com/appleboy/easyssh-proxy)
   - [owenthereal/upterm](https://github.com/owenthereal/upterm)
 - shell
-  - [google/shlex](github.com/google/shlex)
+  - [google/shlex](https://github.com/google/shlex)
 
 ```bash
 go install github.com/jondot/goweight@latest

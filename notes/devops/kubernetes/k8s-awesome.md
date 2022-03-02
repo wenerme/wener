@@ -135,6 +135,9 @@ tags:
 [kubernetes-dashboard]: https://github.com/kubernetes/dashboard
 [octant]: https://github.com/vmware-tanzu/octant
 
+- [kubeapps](https://github.com/kubeapps/kubeapps)
+  - 可简单的理解为 HELM WebUI
+  - web-based UI for deploying and managing applications in Kubernetes clusters
 - healmap
 - lens
 - [kubernetes/dashboard][kubernetes-dashboard]

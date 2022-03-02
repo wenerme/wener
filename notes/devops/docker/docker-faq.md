@@ -74,7 +74,7 @@ iptables -A DOCKER -j ACCEPT -p tcp --destination ${CONTAINERIP} --dport ${HOSTP
 - zfs 无法运行 docker overlay
 - [openzfs/zfs#8648](https://github.com/openzfs/zfs/issues/8648)
 
-## docker zfs
+## docker zfs vol
 
 - docker 支持 zfs driver
 - 但是有些问题
@@ -87,6 +87,8 @@ mkdir -p /data/docker
 zfs create -s -V 100GB main/docker-vol
 mkfs.ext4 /dev/zvol/tmain/docker-vol
 mount /dev/zvol/main/docker-vol /data/docker
+# 持久化 mount
+tail -1 /proc/mounts | sudo tee -a /etc/fstab
 
 # 停服务迁移
 service docker stop

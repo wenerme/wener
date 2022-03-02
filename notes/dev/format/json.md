@@ -69,3 +69,7 @@ title: JSON
   - 2018-04-16T05:24:53.603Z
 - Java `new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA)`
 - [The “right” JSON date format](https://stackoverflow.com/q/10286204/1870054)
+
+```js
+new Date().toJSON() === new Date().toISOString()
+```

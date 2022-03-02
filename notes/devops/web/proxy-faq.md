@@ -1,12 +1,25 @@
 ---
-title: Web Server FAQ
+title: Proxy FAQ
 tags:
   - FAQ
 ---
 
 # Web Server FAQ
 
-### Caddy vs Traefik
+## WebServer vs Proxy
+
+- WebServer - nginx, apache
+  - 支持静态文件
+  - 支持 cgi, fastcgi 等应用协议
+- Proxy - haproxy
+  - 支持 HTTP, HTTPS
+  - 支持 TCP, UDP
+
+---
+
+WebServer 也可以是 Proxy
+
+## Caddy vs Traefik
 
 - Caddy
   - 定位是 Web 服务器
@@ -56,7 +69,7 @@ tags:
   - 需要应用层控制
   - 需要实现应用网关
 
-### Caddy v1 vs Caddy v2
+## Caddy v1 vs Caddy v2
 
 - Caddy v1
   - 通过配置文件配置 - 简单/功能有限

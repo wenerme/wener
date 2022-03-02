@@ -413,6 +413,7 @@ allowedTopologies:
   - Pod 需要匹配 PV 的亲和策略
 
 ## failed to run Kubelet: mountpoint for cpu not found
+
 应该是没有挂载 cgroups
 
 ```bash
@@ -433,3 +434,17 @@ done
 - [kubernetes#105536](https://github.com/kubernetes/kubernetes/issues/105536)
 - [scripts](https://quemingfei.com/archives/kubernetes-wen-ti-pai-cha-orphanedpodfound-butvolumepathsarestillpresentondisk)
 
+## 1 node(s) didn't have free ports for the requested pod ports.
+
+- 检查 hostPort
+
+## 资源
+
+- cpu
+  - 1.0 -> 1vcpu -> 1000m
+- memory
+  - base 1000 - E,T,P,G,M,k
+  - 2^n - Ei,Pi,Ti,Gi,Mi,Ki
+- `hugepages-<size>`
+- ephemeral-storage
+- storage

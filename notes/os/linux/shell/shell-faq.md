@@ -20,7 +20,7 @@ tree -I 'containerd|docker'
 tree -I 'node_modules|cache|test_*'
 ```
 
-## 文件信息
+## 文件时间信息
 
 ```bash
 touch file
@@ -29,7 +29,21 @@ TZ=UTC stat -c '%y %n' file
 date -r file +%s
 # [[CC]YY]MMDDhhmm[.ss]
 touch -a -m -t 203801181205.09 file
+touch -d "2012-10-19 12:12:12.000000000 +0530" file
 ```
+
+**crtime - birt time**
+
+```bash
+inode=$(stat -c %i test)
+# stat 信息
+debugfs -R "stat ${inode}" /dev/sdb1
+# 危险操作
+umount /dev/sdb1
+debugfs -w -R "set_inode_field ${inode} crtime 200001010101.11" /dev/sdb1
+```
+
+- [herzbube/birthtime_touch](https://github.com/herzbube/birthtime_touch)
 
 ## pwd vs cwd
 

@@ -31,6 +31,7 @@ tags:
   - [Administration Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
   - [NiFi In Depth](https://nifi.apache.org/docs/nifi-docs/html/nifi-in-depth.html)
   - [Simple Change Data Capture (CDC) with SQL Selects via Apache NiFi (FLaNK)](https://dev.to/tspannhw/simple-change-data-capture-cdc-with-sql-selects-via-apache-nifi-flank-19m4)
+  - [REST API](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html)
 
 :::caution
 
