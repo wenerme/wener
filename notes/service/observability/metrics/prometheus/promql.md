@@ -1,5 +1,4 @@
 ---
-id: promql
 title: PromQL
 ---
 
@@ -13,7 +12,6 @@ title: PromQL
     - long-term remote storage for Prometheus
 - 参考
   - [Rate then sum, never sum then rate](https://www.robustperception.io/rate-then-sum-never-sum-then-rate)
-
 
 ```promql
 # 指标
@@ -60,11 +58,13 @@ label_replace({__name__=~"probe_success|up"}, "instance_ip", "$2", "instance", "
 ```
 
 # FAQ
+
 ## irate vs rate
-* 只用于 counter - 增长值
-* 尽量使用 rate - irate 不比 rate 快，无法捕获峰值
-* irate
-  * 只使用范围内最近两个时间点数据
-* rate
-  * 所有间隔进行求平均每秒
-* [Why irate from Prometheus doesn't capture spikes](https://medium.com/@valyala/why-irate-from-prometheus-doesnt-capture-spikes-45f9896d7832)
+
+- 只用于 counter - 增长值
+- 尽量使用 rate - irate 不比 rate 快，无法捕获峰值
+- irate
+  - 只使用范围内最近两个时间点数据
+- rate
+  - 所有间隔进行求平均每秒
+- [Why irate from Prometheus doesn't capture spikes](https://medium.com/@valyala/why-irate-from-prometheus-doesnt-capture-spikes-45f9896d7832)

@@ -27,6 +27,12 @@ tcpdump port 80 -w capture_file
 tcpdump -r capture_file
 
 tcpdump -i any host 1.1.1.1
+
+
+# HTTP GET 显示头信息
+tcpdump -vvvs 1024 -A port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'
+# POST 请求
+tcpdump -vvvs 1024 -A port 80 and 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504F5354'
 ```
 
 ```shell

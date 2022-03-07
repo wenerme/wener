@@ -6,7 +6,8 @@ tags:
 
 | spec         |
 | ------------ | ------------------- |
-| IEEE 802.1Q  | VLAN tagging        |
+| IEEE 802.1d  | STP                 |
+| IEEE 802.1q  | VLAN tagging        |
 | IEEE 802.3   | Ethernet 10 Base-T  |
 | IEEE 802.3u  | 100 Base-T          |
 | IEEE 802.3z  | 1000 Base-LX        |

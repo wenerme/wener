@@ -22,6 +22,29 @@ ACPI Error: Aborting method _SB.PMI0._PMM due to previous error (AE_NOT_EXIST) (
 ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 ```
 
+## L1TF CPU bug present and SMT on, data leak possible
+
+- 只是警告，CPU 有 Hyper-Threading/SMT 特性
+- 可以在 BIOS 关闭 SMT - 但不建议
+- Linux 默认开启了 mitigations=on - 可以考虑关闭以提高性能
+  - 前提是运行的 **可信** 的 VM
+
+```
+L1TF CPU bug present and SMT on, data leak possible. See CVE-2018-3646 and https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/l1tf.html for details.
+```
+
+## ext4 filesystem being mounted at /boot supports timestamps until 2038 (0x7fffffff)
+
+- 提高 ext4 inode size 以克服 2038y 问题
+- inode size 128 -> inode size 256
+  - 初始化分区时 `mkfs.ext4 -I 256 /dev/sda1`
+
+```bash
+dev=$(findmnt /boot -no SOURCE)
+tune2fs -l $dev | grep "Inode size:"
+# Inode size:           128
+```
+
 ## device reported invalid CHS sector
 
 ```
@@ -310,8 +333,6 @@ e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conserv
 e1000e 0000:00:1f.6: The NVM Checksum Is Not Valid
 e1000e: probe of 0000:00:1f.6 failed with error -5
 ```
-
-## ext4 filesystem being mounted at /boot supports timestamps until 2038 (0x7fffffff)
 
 ## lpc_ich: Resource conflict(s) found affecting gpio_ich
 

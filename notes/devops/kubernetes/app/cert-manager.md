@@ -287,9 +287,9 @@ dnsNames:
 
 ---
 
-- 目前无法修改 secret annotations - [#977](https://github.com/jetstack/cert-manager/issues/977)
-- 可以使用预先存在的 secret - 然后配合 kubed 使用
-  - 在来源上定义，同步到目标
+- ~~目前无法修改 secret annotations - [#977](https://github.com/jetstack/cert-manager/issues/977)~~
+  - 可以使用预先存在的 secret - 然后配合 kubed 使用
+    - 在来源上定义，同步到目标
 - [emberstack/kubernetes-reflector](https://github.com/emberstack/kubernetes-reflector)
   - 可替代 kubed - 支持证书 secret 同步
   - 先定义目标再定义来源
@@ -297,32 +297,44 @@ dnsNames:
 **kubed**
 
 ```yaml
-apiVersion: v1
-kind: Secret
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  name: default-cert
-  annotations:
-    # 避免 argocd 删除和同步
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
-    argocd.argoproj.io/sync-options: Prune=false
-    kubed.appscode.com/sync: ''
-stringData:
-  tls.crt: ''
-  tls.key: ''
+  name: sandbox
+  namespace: cert-manager
+spec:
+  secretName: sandbox-tls
+  commonName: sandbox
+  issuerRef:
+    name: sandbox-ca
+    kind: Issuer
+    group: cert-manager.io
+  secretTemplate:
+    annotations:
+      kubed.appscode.com/sync: "cert-manager-tls=sandbox" # Sync certificate to matching namespaces
 ```
 
 **reflector**
 
 ```yaml
-apiVersion: v1
-kind: Secret
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  name: default-cert
-  namespace: another
-  annotations:
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
-    reflector.v1.k8s.emberstack.com/reflects: 'default/default-cert'
-data: {}
+  name: source
+  namespace: cert-manager
+spec:
+  secretName: source-tls
+  commonName: source
+  issuerRef:
+    name: source-ca
+    kind: Issuer
+    group: cert-manager.io
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "dev,staging,prod"  # Control destination namespaces
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true" # Auto create reflection for matching namespaces
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "dev,staging,prod" # Control auto-reflection namespaces
 ```
 
 直接支持证书

@@ -257,8 +257,12 @@ tags:
 
 ## Secret & ConfigMap
 
-- kubed
 - sealed-secret
+- [kubeops/config-syncer](https://github.com/kubeops/config-syncer)
+  - 原 kubed
+  - Go, Apache-2.0
+- [reflector](https://github.com/emberstack/kubernetes-reflector)
+  - C#, MIT
 
 ## 应用
 
@@ -361,3 +365,4 @@ tags:
 - [rancher/wrangler](https://github.com/rancher/wrangler)
 - [kubernetes-sigs/controller-tools](https://github.com/kubernetes-sigs/controller-tools)
 - [spotahome/gontroller](https://github.com/spotahome/gontroller)
+- [kubernetes/sample-controller](https://github.com/kubernetes/sample-controller)

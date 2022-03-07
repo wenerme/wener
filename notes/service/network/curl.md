@@ -9,8 +9,15 @@ title: curl
 
 ```bash
 # 测试 SNI
+# resolve 不可以指定远程 port
+# connect-to 可以指定 port
 curl -vik --resolve example.com:8443:127.0.0.1 https://example.com:8443/
 curl -vik --resolve example.com:443:127.0.0.1 https://example.com/
+
+curl -vik --connect-to example.com:443:127.0.0.1:8443 https://example.com/
+
+# 协议限定
+curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2  https://example.com/
 ```
 
 ## 测试 CORS

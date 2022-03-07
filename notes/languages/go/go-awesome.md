@@ -590,6 +590,7 @@ goweight
 - [ochinchina/supervisord](https://github.com/ochinchina/supervisord)
 - [immortal/immortal](https://github.com/immortal/immortal)
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
+- [kahing/goofys](https://github.com/kahing/goofys)
 - [progrium/macdriver](https://github.com/progrium/macdriver)
   - Native Mac APIs for Go
 - [gokrazy/gokrazy](https://github.com/gokrazy/gokrazy)

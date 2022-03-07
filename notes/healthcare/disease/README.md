@@ -1,5 +1,5 @@
 ---
-id: disease
+title: 疾病
 ---
 
 # 疾病

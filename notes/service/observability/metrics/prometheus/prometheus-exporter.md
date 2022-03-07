@@ -1,11 +1,8 @@
 ---
-id: prometheus-exporter
 title: Prometheus Exporter
 ---
 
 # Prometheus Exporter
-
-## Tips
 
 - [exporters and integration](https://prometheus.io/docs/instrumenting/exporters/)
 

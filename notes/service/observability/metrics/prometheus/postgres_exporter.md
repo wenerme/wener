@@ -1,3 +1,7 @@
+---
+title: postgres_exporter
+---
+
 # postgres_exporter
 
 - [prometheus-community/postgres_exporter](https://github.com/prometheus-community/postgres_exporter)

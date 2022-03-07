@@ -4,6 +4,12 @@ title: Louketo Proxy
 
 # Louketo Proxy
 
+:::caution
+
+已停止维护，使用 [oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy) 替代。
+
+:::
+
 - [louketo/louketo-proxy](https://github.com/louketo/louketo-proxy)
   - 原来的 keycloak gatekeeper
 - [使用手册](https://github.com/louketo/louketo-proxy/blob/master/docs/user-guide.md)

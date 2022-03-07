@@ -28,11 +28,16 @@ title: HAProxy
   - [HAProxy at GitHub](https://www.haproxy.com/user-spotlight-series/inside-the-github-load-balancer/)
   - [5 Ways to Extend HAProxy with Lua](https://www.haproxy.com/blog/5-ways-to-extend-haproxy-with-lua/)
   - [Using HAProxy as an API Gateway](https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-3-health-checks/)
+  - [haproxytech/client-native](https://github.com/haproxytech/client-native)
+    - Go client for HAProxy configuration and runtime API
+    - 配置模型 [models](https://github.com/haproxytech/client-native/tree/master/models)
 
 :::caution
 
 - 不能转发任意 UDP - Nginx 可以
-  - 2.3+ 支持 syslog UDP, 接下来会支持 DNS, H3/QUIC
+  - 2.3+ 支持 syslog UDP
+  - 2.5+ 支持 QUIC, HTTP/3
+  - 未来可能支持 DNS
 
 :::
 
@@ -40,3 +45,78 @@ title: HAProxy
 
 - https://www.haproxy.com/blog/haproxy-exposes-a-prometheus-metrics-endpoint/
 - https://www.haproxy.com/blog/exploring-the-haproxy-stats-page/
+
+## Runtime API
+
+```haproxy
+global
+  stats socket ipv4@127.0.0.1:9999 level admin
+  stats socket /run/haproxy-runtime-api.sock mode 666 level admin
+  stats timeout 2m
+```
+
+```bash
+echo "help" | socat stdio tcp4-connect:127.0.0.1:9999
+echo "show acl" | socat stdio /run/haproxy-runtime-api.sock
+socat readline /run/haproxy-runtime-api.sock
+help
+```
+
+## Proxy Protocol
+
+- [proxy-protocol.txt](https://github.com/haproxy/haproxy/blob/master/doc/proxy-protocol.txt)
+  - v1 - 明文 `PROXY TCP4 255.255.255.255 255.255.255.255 65535 65535\r\n\r\n`
+  - v2 - 支持二进制，支持更多协议
+- 支持的服务: haproxy, nginx, varnish, stud, stunnel
+- 希望基于来源 IP 做策略的一般都会支持
+
+```haproxy title="frontend"
+frontend http
+  mode http
+  bind 0.0.0.0:80 name v4
+  bind :::80 name v6
+  tcp-request connection expect-proxy layer4
+
+frontend https
+  mode http
+  bind 127.0.0.1:443 name v4 crt /etc/haproxy/certs/frontend ssl alpn h2,http/1.1 accept-proxy
+  bind :::443 name v6 crt /etc/haproxy/certs/frontend ssl v4v6 alpn h2,http/1.1 accept-proxy
+
+frontend ssl
+  mode tcp
+  bind 0.0.0.0:443 name v4
+  bind :::443 name v6 v4v6
+  tcp-request connection expect-proxy layer4
+```
+
+```haproxy title="backend"
+backend be
+  server svr 192.168.1.2:443 check send-proxy
+```
+
+```bash
+# CURL 测试 proxy protocol
+curl --haproxy-protocol 192.168.1.2
+```
+
+**nginx**
+
+```nginx
+http {
+  server {
+    listen 80   proxy_protocol;
+    listen 443  ssl proxy_protocol;
+
+    #set_real_ip_from 192.168.1.0/24;
+    #real_ip_header proxy_protocol;
+  }
+}
+
+stream {
+  server {
+    listen 12345 proxy_protocol;
+  }
+}
+```
+
+- [Accepting the PROXY Protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/)

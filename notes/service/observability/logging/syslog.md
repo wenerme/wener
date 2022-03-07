@@ -9,8 +9,18 @@ title: Syslog
   - rsyslog
   - syslog-ng
   - fluentbit
+- 默认端口 514
+- 默认 UNIX Socket /dev/log
 - 参考
   - [What is the difference between syslog, rsyslog and syslog-ng?](https://serverfault.com/questions/692309)
+
+
+:::tip
+
+- AlpineLinux 默认 busybox syslog
+- 如果需要使用更多功能，建议选择 rsyslog
+
+:::
 
 ## busybox syslog
 

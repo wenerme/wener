@@ -23,12 +23,8 @@ title: containerd
 - [containerd-config.toml.5](https://github.com/containerd/containerd/blob/main/docs/man/containerd-config.toml.5.md)
 
 ```bash
-# 默认配置
+# 获取默认配置
 containerd config default > containerd.toml
-```
-
-```toml title="最简配置"
-version=2
 ```
 
 ```ini title="参考"
@@ -133,3 +129,29 @@ snapshotter = "zfs"
 - io.containerd.monitor.v1
   - cgroups
 - tmpmounts
+
+## 映射常用仓库为私有
+
+- 假设仓库为 https://registry:5000
+
+:::tip
+
+containerd 不支持 reload 配置，所以需要提前配置好。
+
+:::
+
+```ini
+# 重定向所有到私有 registry
+# 常见: docker.io, gcr.io, k8s.gcr.io, quay.io, ghr.io
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."*"]
+endpoint = ["https://registry:5000"]
+
+[plugins."io.containerd.grpc.v1.cri".registry.configs."docker.io".tls]
+insecure_skip_verify = true
+[plugins."io.containerd.grpc.v1.cri".registry.configs."gcr.io".tls]
+insecure_skip_verify = true
+[plugins."io.containerd.grpc.v1.cri".registry.configs."k8s.gcr.io".tls]
+insecure_skip_verify = true
+[plugins."io.containerd.grpc.v1.cri".registry.configs."quay.io".tls]
+insecure_skip_verify = true
+```

@@ -3,7 +3,8 @@ title: ngrep
 ---
 
 # ngrep
-* [ngrep usage](http://ngrep.sourceforge.net/usage.html)
+
+- [ngrep usage](http://ngrep.sourceforge.net/usage.html)
 
 ```
 ngrep -q -d eth1 -W byline host stackoverflow.com and port 80

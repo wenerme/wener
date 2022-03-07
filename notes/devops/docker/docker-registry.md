@@ -3,21 +3,22 @@ title: Docker 仓库
 ---
 
 # Docker Registry
-## Tips
-* 常见实现
-  * `registry:2` 官方
-  * Nexus
-  * Harbor
-  * JForg
-  * [Portus](https://github.com/SUSE/Portus)
-* containerd [registry](https://github.com/containerd/cri/blob/master/docs/registry.md)
-* [google/go-containerregistry](https://github.com/google/go-containerregistry)
-* [docker/distribution](https://github.com/docker/distribution)
+
+- 常见实现
+  - `registry:2` 官方
+  - Nexus
+  - Harbor
+  - JForg
+  - [Portus](https://github.com/SUSE/Portus)
+- containerd [registry](https://github.com/containerd/cri/blob/master/docs/registry.md)
+- [google/go-containerregistry](https://github.com/google/go-containerregistry)
+- [docker/distribution](https://github.com/docker/distribution)
 
 ## docker registry
-* [配置](https://docs.docker.com/registry/configuration/)
-* 存储: 文件系统、azure、gcs、s3、switf、oss
-* 授权: silly、token、htpasswd、none
+
+- [配置](https://docs.docker.com/registry/configuration/)
+- 存储: 文件系统、azure、gcs、s3、switf、oss
+- 授权: silly、token、htpasswd、none
 
 ```bash
 docker run -d --restart=always \
@@ -67,7 +68,8 @@ proxy:
 ```
 
 ## apis
-* [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api)
+
+- [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api)
 
 ```bash
 # docker hub 所有 tag

@@ -36,6 +36,10 @@ kubectl get pods --kubeconfig kubeconfig -A
 curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-v1.23.3+k0s.1-amd64'
 # airgap k0s-airgap-bundle-v1.23.3+k0s.1-amd64
 curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.3%2Bk0s.1/k0s-airgap-bundle-v1.23.3+k0s.1-amd64'
+
+# 也可以自己制作 airgap 包
+k0s airgap list-images | xargs -I{} docker pull {}
+docker image save $(k0s airgap list-images | xargs) -o bundle_file
 ```
 
 ```yaml title="k0sctl.yaml"

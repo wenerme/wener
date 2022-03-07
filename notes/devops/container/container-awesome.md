@@ -107,8 +107,30 @@ sources:
 ## 库
 
 - [google/go-containerregistry]
+- [heroku/docker-registry-client](https://github.com/heroku/docker-registry-client)
+- [Docker Registry HTTP V2](https://docs.docker.com/registry/spec/api/)
+- https://docs.quay.io/api/swagger/
+- [quay/quay](https://github.com/quay/quay)
+  - Apache-2.0, Python
+- [distribution/distribution](https://github.com/distribution/distribution)
+  - [spec/api.md](https://github.com/distribution/distribution/blob/main/docs/spec/api.md)
+- registry
+  - docker.io -> index.docker.io
+  - https://registry-1.docker.io
+  - https://docker.mirrors.ustc.edu.cn
+    - https://ustc-edu-cn.mirror.aliyuncs.com
+  - https://fogjl973.mirror.aliyuncs.com
+  - https://8x40wsit.mirror.aliyuncs.com
+- [Docker HUB API](https://docs.docker.com/docker-hub/api/latest/)
 
 [google/go-containerregistry]: https://github.com/google/go-containerregistry
+
+```bash
+curl https://hub.docker.com/v2/repositories/wener/base/tags | jq
+
+# Registry API
+curl https://ustc-edu-cn.mirror.aliyuncs.com/v2/wener/base/tags/list | jq -r '.tags | .[]'
+```
 
 ## Build
 

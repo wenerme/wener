@@ -42,4 +42,16 @@ tags:
 
 - 新型产业工人
 - 灵活就业
-- 恶意自学
+- 恶意/善意
+
+## 诡辩
+
+---
+
+- 参考
+  - [诡辩](https://zh.wikipedia.org/wiki/诡辩)
+  - [Whataboutism](https://en.wikipedia.org/wiki/Whataboutism)
+    - “那又怎么说”论
+    - 试图通过指出对方言行不一之处，削弱其可信度，但不反驳对方的论点。
+  - 诉诸伪善/Appeal to hypocrisy/你也一样
+    - 主张某人的行为和他的主张有不一致的地方，但却指不出该主张哪里有错。

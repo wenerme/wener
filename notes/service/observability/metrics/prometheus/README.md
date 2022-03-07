@@ -30,9 +30,9 @@ title: Prometheus
 # 安装
 brew install prometheus
 # 从源码编译安装
-go get -v -u github.com/prometheus/prometheus/cmd/...
+go install github.com/prometheus/prometheus@latest
 
-# 启动 默认前端页面 localhost:9090
+# 启动 默认前端页面 http://localhost:9090
 prometheus --config.file ~/.config/prometheus.yml
 
 # docker 启动

@@ -1,7 +1,7 @@
 ---
 title: ACME
 tags:
-- Awesome
+  - Awesome
 ---
 
 # ACME
@@ -9,6 +9,10 @@ tags:
 ## Provider
 
 - letsencrypt
+  - 50 domain/week, 5 duplicate certificates/week
+  - 问题排查
+    - https://crt.sh/?q=baidu.com
+    - https://letsdebug.net/
 - ZeroSSL
   - 不支持 ACME 账号自动申请 - 需要注册账号, 客户端要支持 EAB
   - Maximum NIST P-384
@@ -19,6 +23,7 @@ tags:
   - Maximum NIST P256 certs
   - 支持 certificate revocation
   - 默认证书 6 个月 - 对于 ACME 自动化来说并不是特别好
+  - 20 domain/week, 5 duplicate certificates/week
 - sslcom
   - 需要账号
   - 单证书 500 域名
@@ -34,14 +39,14 @@ tags:
     Vault as an ACME-based CA
   - [acmesh-official/acme.sh/wiki/Server](https://github.com/acmesh-official/acme.sh/wiki/Server)
 
-| Provider         | ACME server URL                                                        | Doc                                       |
-| ---------------- | ---------------------------------------------------------------------- | ----------------------------------------- |
-| letsencrypt      | https://acme-v02.api.letsencrypt.org/directory                         | https://letsencrypt.org/docs/rate-limits/ |
-| letsencrypt_test | https://acme-staging-v02.api.letsencrypt.org/directory                 |
-| buypass          | https://api.buypass.com/acme/directory                                 |
-| buypass_test     | https://api.test4.buypass.no/acme/directory                            |
-| zerossl          | https://acme.zerossl.com/v2/DV90                                       | https://zerossl.com/documentation/acme/   |
-| sslcom           | https://acme.ssl.com/sslcom-dv-rsa, https://acme.ssl.com/sslcom-dv-ecc |
+| Provider         | wildcard | ACME server URL                                                        | Doc                                       |
+| ---------------- | -------- | ---------------------------------------------------------------------- | ----------------------------------------- |
+| letsencrypt      | ✅       | https://acme-v02.api.letsencrypt.org/directory                         | https://letsencrypt.org/docs/rate-limits/ |
+| letsencrypt_test |          | https://acme-staging-v02.api.letsencrypt.org/directory                 |
+| buypass          | ❌       | https://api.buypass.com/acme/directory                                 |
+| buypass_test     |          | https://api.test4.buypass.no/acme/directory                            |
+| zerossl          |  ✅         | https://acme.zerossl.com/v2/DV90                                       | https://zerossl.com/documentation/acme/   |
+| sslcom           |          | https://acme.ssl.com/sslcom-dv-rsa, https://acme.ssl.com/sslcom-dv-ecc |
 
 ## Challenge
 

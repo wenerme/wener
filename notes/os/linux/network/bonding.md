@@ -237,6 +237,52 @@ iface bond0 inet static
 
 # FAQ
 
+## bond stp
+
+- 如果有多 lan，部分组了 bond 部分没有，那么需要开启 stp
+- 不开启 stp 会导致网络内有多条路径达到相同地方，这是有问题的
+
+```bash
+auto bond0
+iface bond0 inet manual
+  bond-slaves eth0 eth1
+  bond-mode 802.3ad
+  bond-xmit-hash-policy layer2+3
+
+auto br0
+iface br0 inet dhcp
+  bridge-ports bond0
+  bridge-stp 0
+```
+
+## 10gbe & 1gbe
+
+- 不支持混合 lacp bonding, 可以 active-backup
+- 建议将 10gbe 设置为默认即可
+
+```
+# 1gbe
+iface eth0 inet manual
+#Onboard  #1
+
+# 10gbe
+iface eth1 inet manual
+
+auto bond0
+iface bond0 inet manual
+  bond-slaves eth0 eth1
+  bond-primary eth1
+  bond-mode active-backup
+
+auto br0
+iface br0 inet static
+  address  192.168.1.3
+  netmask  255.255.255.0
+  gateway  192.168.1.1
+  bridge-ports bond0
+  bridge-stp off
+```
+
 ## write error: Directory not empty
 
 bond 为 down 且无 slave 时才能修改
@@ -257,7 +303,6 @@ ifconfig | grep HWaddr
 ```
 
 ## No 802.3ad response from the link partner for any adapters in the bond
-
 
 ## bond 802.3ad
 
@@ -347,7 +392,6 @@ Partner Churn State: none
 Actor Churned Count: 0
 Partner Churned Count: 0
 ```
-
 
 ## tree /sys/class/net/bond0
 

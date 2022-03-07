@@ -17,6 +17,9 @@ tags:
     - OpenBSD 5.8 - 2015-10
     - AlpineLinux 3.15 - 2021-11
   - runas
+- [bats-core/bats-core](https://github.com/bats-core/bats-core)
+  - Bash Automated Testing System
+- [junegunn/fzf](https://github.com/junegunn/fzf)
 
 ## Shell
 

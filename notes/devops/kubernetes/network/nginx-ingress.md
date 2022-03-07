@@ -34,10 +34,21 @@ kubectl exec -n ingress-nginx -it $POD_NAME -- cat /etc/nginx/nginx.conf
 
 ## config
 
-### annotations
-
-- [annotations](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/)
 - 默认前缀 `nginx.ingress.kubernetes.io`
+- 参考
+  - [annotations](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/)
+  - [configmap](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/)
+  - [args](https://kubernetes.github.io/ingress-nginx/user-guide/cli-arguments/)
+
+| annotation             | value | note                          |
+| ---------------------- | ----- | ----------------------------- |
+| configuration-snippet  |
+| server-snippet         |
+| service-upstream       | false | 访问 service 而不是 pod       |
+| upstream-vhost         |       | `proxy_set_header Host $host` |
+| proxy-body-size        | 1m    | 推荐设置稍微大点              |
+| whitelist-source-range | CIDR  |
+| proxy-buffering        | off   |
 
 ```yaml
 # location 自定义
@@ -55,23 +66,18 @@ nginx.ingress.kubernetes.io/server-snippet: |
     return 301 https://m.example.com;
   }
 
-# 访问 service 而不是 pod
-nginx.ingress.kubernetes.io/service-upstream: 'false'
-# proxy_set_header Host $host
-nginx.ingress.kubernetes.io/upstream-vhost: ''
 # 别名
 nginx.ingress.kubernetes.io/server-alias: '<alias 1>,<alias 2>'
-
-# 默认关闭 buffer
-nginx.ingress.kubernetes.io/proxy-buffering: 'off'
-
-# 默认 1m 太小
-nginx.ingress.kubernetes.io/proxy-body-size: '50m'
 ```
 
-| name                   | desc        |
-| ---------------------- | ----------- |
-| whitelist-source-range | CIDR 白名单 |
+| configmap          | value | note                   |
+| ------------------ | ----- | ---------------------- |
+| use-proxy-protocol | false | HAProxy Proxy Protocol |
+| enable-brotli      | false | Safari >= 11           |
+
+| flag                     | value | note |
+| ------------------------ | ----- | ---- |
+| --enable-ssl-passthrough |       |
 
 ### 粘性会话
 
@@ -200,6 +206,15 @@ controller:
     patch:
       image:
         repository: registry.cn-hongkong.aliyuncs.com/cmi/jettech_kube-webhook-certgen
+```
+
+```yaml title="Proxy Protocol"
+controller:
+  service:
+    annotations:
+      haproxy.org/send-proxy-protocol: proxy
+  config:
+    use-proxy-protocol: 'true'
 ```
 
 ## Examples

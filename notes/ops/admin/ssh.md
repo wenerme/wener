@@ -5,13 +5,14 @@ title: SSH
 # SSH
 
 - [sshd_config](http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/sshd_config.5)
-
-## Tips
-
 - Host key `/etc/ssh/ssh_host_*`
 - 将指定用户的端口转发使得外部都可见,可在 `/etc/ssh/sshd_config` 中添加,然后 `service sshd reload`
 - http://quark.humbug.org.au/publications/ssh/ssh-tricks.html
 - Verify that the .pem file has permissions of 0400, not 0777
+
+```bash
+ssh -G host # 查看 Host 配置
+```
 
 **ESCAPE**
 

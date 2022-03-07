@@ -109,3 +109,25 @@ Authorization: Digest username="Mufasa",
                      response="6629fae49393a05397450978507c4ef1",
                      opaque="5ccc069c403ebaf9f0171e9517f40e41"
 ```
+
+## Forwarded
+
+- X-Forwarded-For
+  - X-ProxyUser-Ip
+
+```
+X-Real-IP: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-Host: example.com
+X-Forwarded-Port: 443
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+X-Scheme: https
+X-Request-ID: -
+
+# Proxy 自身信息
+Via:
+
+# 新的标准
+Forwarded: by=<identifier>;for=<identifier>;host=<host>;proto=<http|https>
+```

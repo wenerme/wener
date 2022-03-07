@@ -4,9 +4,15 @@ title: aria2
 
 # aria2
 
-- [mayswind/AriaNg](https://github.com/mayswind/AriaNg) - Web
-  - [在线](http://ariang.mayswind.net/latest)
-- Aria2WebUI
+- webui
+  - [mayswind/AriaNg](https://github.com/mayswind/AriaNg) - Web
+    - [在线](http://ariang.mayswind.net/latest)
+  - Aria2WebUI
+  - [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
+- 参考
+  - [P3TERX/Aria2-Pro-Docker](https://github.com/P3TERX/Aria2-Pro-Docker)
+  - [P3TERX/aria2.conf](https://github.com/P3TERX/aria2.conf)
+  - [qzm/aria2.conf](https://gist.github.com/qzm/a54559726896d5e6bf21adf2363ad334)
 
 ```bash
 # RPC 启动 - 不设置权限

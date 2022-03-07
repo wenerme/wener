@@ -4,6 +4,12 @@ title: 桥接网络
 
 # Bridge
 
+- [networking/bridge](https://wiki.linuxfoundation.org/networking/bridge)
+- 工作类似 Switch
+- L2 learning and forwarding
+- STP
+  - 让多路能正常工作
+
 ```interfaces
 auto eth0
 iface eth0 inet manual
@@ -43,10 +49,63 @@ brctl stp br0 off
 
 # vlan
 # ip link set dev $IFACE type bridge vlan_filtering $(yesno $IF_BRIDGE_VLAN_AWARE)
+
+#
+brctl showmacs br0
+brctl showstp br0
+```
+
+| brctl setATTR **br** _val_      | for                                        |
+| ------------------------------- | ------------------------------------------ |
+| setageing bridge time           | Set ageing time                            |
+| setbridgeprio bridge prio       | Set bridge priority (between 0 and 65535)  |
+| setfd bridge time               | Set bridge forward delay                   |
+| sethello bridge time            | Set hello time                             |
+| setmaxage bridge time           | Set max message age                        |
+| setgcint bridge time            | Set garbage collection interval in seconds |
+| sethashel bridge int            | Set hash elasticity                        |
+| sethashmax bridge int           | Set hash max                               |
+| setmclmc bridge int             | Set multicast last member count            |
+| setmcrouter bridge int          | Set multicast router                       |
+| setmcsnoop bridge int           | Set multicast snooping                     |
+| setmcsqc bridge int             | Set multicast startup query count          |
+| setmclmi bridge time            | Set multicast last member interval         |
+| setmcmi bridge time             | Set multicast membership interval          |
+| setmcqpi bridge time            | Set multicast querier interval             |
+| setmcqi bridge time             | Set multicast query interval               |
+| setmcqri bridge time            | Set multicast query response interval      |
+| setmcqri bridge time            | Set multicast startup query interval       |
+| setpathcost bridge port cost    | Set path cost                              |
+| setportprio bridge port prio    | Set port priority (between 0 and 255)      |
+| setportmcrouter bridge port int | Set port multicast router                  |
+| sethashel bridge int            | Set hash elasticity value                  |
+
+**bridge**
+
+- [bridge.8](https://man7.org/linux/man-pages/man8/bridge.8.html)
+- fdb - Forwarding Database
+- mdb - Multicast group database
+- BPDU
+- link
+  - hwmode
+    - vepa
+    - veb - 硬件 bridge
+
+```bash
+bridge li   # link show
+bridge fdb  # fdb show
+bridge mdb  # mdb show
+bridge vlan # vlan show
+
+bridge monitor
 ```
 
 ## STP
 
+- master 每 2s 发送一次 “心跳”/hello 包 `0180c2000000`
+- slave 接收到包
+  - 20s 内没收到，则认为 master down
+  - 30s 内建立好新的 stp - 作为 master
 - BPDU - Bridge Protocol Data Unit
 
 **角色**
@@ -69,8 +128,7 @@ brctl stp br0 off
 | Forwarding | yes  | yes  | yes           |
 
 - Blocking(20s) –> Listening(15s) –> Learning(15s) –> Forwarding
-
-* 参考
+- 参考
   - [mstpd/mstpd](https://github.com/mstpd/mstpd) - Multiple Spanning Tree Protocol Daemon
   - wikipedia [Spanning Tree Protocol](https://en.wikipedia.org/wiki/Spanning_Tree_Protocol)
   - wikipedia [生成树协议](https://zh.wikipedia.org/wiki/生成树协议)
@@ -80,6 +138,18 @@ brctl stp br0 off
   - [Linux: bridges, VLANs and RSTP](https://serverfault.com/questions/824621)
 
 # FAQ
+
+## bridge vs bonding active-backup
+
+- bonding - 用于聚合链路
+  - 聚合 - 使用同质的链路
+    - 多个链路并行工作
+  - active-backup - 可能使用非同质链路 - wlan0+eth0 - eth0 作为 primary
+    - 检测链路状态 - 切换时间短
+- bridge - 用于学习和转发
+  - members 可以是虚拟链路，可以是物理链路
+  - STP - 学习需要时间 - 默认前后加起来 50s - 可能更长
+  - 理论上来说也能实现 bonding active-backup 的效果
 
 ## 桥接网卡不使用实际网卡 Mac 地址
 
@@ -117,4 +187,16 @@ ip li set $INTERFACE address fe:fe:12:34:56:78
 ip li set $INTERFACE master br0
 ip li set $INTERFACE up
 ip addr add 10.10.1.1/16 dev br0
+```
+
+## received packet on bond0 with own address as source address
+
+影响不大的 log 信息
+
+## bridge: filtering via arp/ip/ip6tables is no longer available by default
+
+- 只是 info log，以前 modprobe bridge 会提供的功能现在需要 modprobe br_netfilter
+
+```
+bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
 ```

@@ -17,6 +17,15 @@ title: VictoriaMetrics
     - 基本呈线性增长 - 1.6-1.8x
 - http://victoriametrics:8428/api/v1/write
 - 存储设计参考 ClickHouse
+- 参考
+  - grafana vmcluster dashboard [11176](https://grafana.com/grafana/dashboards/)
+
+| port | for       |
+| ---- | --------- |
+| 8480 | vminsert  |
+| 8481 | vmselect  |
+| 8482 | vmstorage |
+| 8427 | vmauth    |
 
 :::caution
 
@@ -25,7 +34,13 @@ title: VictoriaMetrics
 
 :::
 
-## 集群
+:::warning
+
+- vmauth 无法访问 /vmui [#1752](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1752)
+
+:::
+
+## Notes
 
 - 集群 - 每个组件可单独扩容 - 分支 [cluster](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster)
 - **副本不能用于容灾** - 通过备份容灾 - 副本可提升写入查询性能 - 扩容
@@ -48,14 +63,95 @@ title: VictoriaMetrics
   - 内存 1G+
 - vmagent - 采集
 - vmselect - 通过 vmselect 聚合查询数据
-- vmauth - auth 代理 - LB
+- vmauth - auth 代理 - 简单的反向代理+负载均衡
   - 支持 bearer token, basic auth
+  - 基于 auth 信息选择代理上游
 - vmbackup - 将 snapshot 备份到其他存储
 - vmrestore - 将 backup 的内容恢复
 - vmalert - 告警 和 记录
 - vmctl - 命令行工具 - 数据迁移
 - vmgateway - 收费组件
 - vmbackupmanager - 收费组件
+
+## 集群
+
+- accountID
+  - accountID:projectID
+  - accountID - int32
+  - projectID - int32 - 默认 0
+- `http://<vminsert>:8480/insert/<accountID>/`
+  - prometheus/api/v1/write
+  - prometheus/api/v1/import
+  - prometheus/api/v1/import/native
+  - prometheus/api/v1/import/csv
+  - prometheus/api/v1/import/prometheus
+- `http://<vmselect>:8481`
+  - `/select/<accountID>`
+    - /prometheus
+    - /graphite
+    - /vmui
+  - `/delete/<accountID>/prometheus/api/v1/admin/tsdb/delete_series?match[]=<timeseries_selector_for_delete>`
+  - `/api/v1/status/top_queries`
+- `http://<vmstorage>:8482`
+  - /internal/force_merge - 触发合并压缩
+  - /snapshot/create
+  - /snapshot/list
+  - /snapshot/delete
+  - /snapshot/delete?snapshot=$ID
+  - /snapshot/delete_all
+- `http://<vmauth>:8427`
+  - /-/reload
+
+## vmauth
+
+```yaml title="生成的 src_paths"
+users:
+  - url_map:
+      - url_prefix: http://vmselect-demo.monitoring-system.svc:8481/select/500
+        src_paths:
+          - /vmui
+          - /vmui/vmui
+          - /graph
+          - /prometheus/graph
+          - /prometheus/api/v1/label.*
+          - /graphite.*
+          - /prometheus/api/v1/query.*
+          - /prometheus/api/v1/rules
+          - /prometheus/api/v1/alerts
+          - /prometheus/api/v1/metadata
+          - /prometheus/api/v1/rules
+          - /prometheus/api/v1/series.*
+          - /prometheus/api/v1/status.*
+          - /prometheus/api/v1/export.*
+          - /prometheus/federate
+          - /prometheus/api/v1/admin/tsdb/delete_series
+      - url_prefix: http://vminsert-demo.monitoring-system.svc:8480/insert/500
+        src_paths:
+          - /prometheus/api/v1/write
+          - /prometheus/api/v1/import.*
+          - /influx/.*
+          - /datadog/.*
+```
+
+## vmctl
+
+- 数据迁移 Prometheus, Thanos, InfluxDB, OpenTSDB
+- 迁移步骤
+  1. 添加 remote_write 写入到 vm
+  2. 迁移旧数据
+  3. 去掉旧的 remote_write
+  4. 停止旧服务
+
+:::caution
+
+- 无法导入下采样后的数据 [#1101](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1101)
+
+:::
+
+```bash
+# thanos
+vmctl prometheus --prom-snapshot thanos-data --vm-addr http://victoria-metrics:8428
+```
 
 # FAQ
 

@@ -88,5 +88,7 @@ title: 怪物猎人-崛起
 
 - https://github.com/mhvuze/MonsterHunterRiseModding
 - https://mhrise.kiranico.com/zh-Hant
+- https://mhworld.kiranico.com/zh
 - https://www.bilibili.com/read/cv11295649
   - 职业护石推荐
+- 单手剑 https://www.vgtime.com/topic/1118136.jhtml

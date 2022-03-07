@@ -1,11 +1,8 @@
 ---
-id: iproute2
 title: IPRoute2
 ---
 
 # IPRoute2
-
-## Tips
 
 - [iproute2](https://en.wikipedia.org/wiki/Iproute2)
 - [Linux Advanced Routing & Traffic Control HOWTO](http://lartc.org/howto/)
@@ -28,6 +25,18 @@ title: IPRoute2
 | ------- | ---- |
 | ip      |
 | ss      |
+| bridge  |
+| rtacct  |
+| rtmon   |
+| ctstat  |
+| lnstat  |
+| nstat   |
+| routef  |
+| routel  |
+| rtstat  |
+| tipc    |
+| arpd    |
+| devlink |
 | tc      |
 
 | Legacy utility | Obsoleted by               | Note           |

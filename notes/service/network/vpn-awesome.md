@@ -101,7 +101,7 @@ tags:
 :::tip
 
 - 值得关注 Wiretrustee
-- 目前只有 Tailscale 的 客户端支持 Mesh
+- 目前只有 Tailscale 的 移动端支持 Mesh
 
 :::
 
