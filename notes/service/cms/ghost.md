@@ -4,14 +4,13 @@ title: Ghost
 
 # Ghost
 
-## Tips
-* 默认端口 2368
-* 数据库支持 SQLite 和 MySQL 5.5, 5.6, or 5.7 (not >= 8.0)
-* 主题使用 Handlebars
-* 参考
-  * [配置文档](https://ghost.org/docs/concepts/config/)
-  * [数据模型](https://ghost.org/docs/concepts/posts/)
-  * [API 文档](https://ghost.org/docs/api/v3/)
+- 默认端口 2368
+- 数据库支持 SQLite 和 MySQL 5.5, 5.6, or 5.7 (not >= 8.0)
+- 主题使用 Handlebars
+- 参考
+  - [配置文档](https://ghost.org/docs/concepts/config/)
+  - [数据模型](https://ghost.org/docs/concepts/posts/)
+  - [API 文档](https://ghost.org/docs/api/v3/)
 
 ```bash
 # Docker 启动

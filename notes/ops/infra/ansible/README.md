@@ -28,6 +28,7 @@ title: Ansible
   - 可用环境变量[列表](https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py)
   - [YAML Syntax](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)
   - [Other Tools and Programs](https://docs.ansible.com/ansible/latest/community/other_tools_and_programs.html)
+  - [apenella/go-ansible](https://github.com/apenella/go-ansible)
 - 学习
   - [geerlingguy/ansible-for-devops](https://github.com/geerlingguy/ansible-for-devops)
 - 界面

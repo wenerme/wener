@@ -23,6 +23,15 @@ export DISABLE_TELEMETRY=true
 export DISABLE_UPGRADE_CHECK=true
 ```
 
+## k0s
+
+```yaml title="k0s.yaml"
+spec:
+  # api.segment.io
+  telemetry:
+    enabled: true
+```
+
 ## grafana
 
 ```ini title="grafana.ini"

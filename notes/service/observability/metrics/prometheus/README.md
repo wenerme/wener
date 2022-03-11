@@ -102,6 +102,12 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 
 ## Config
 
+:::tip
+
+- 配置不支持环境变量替换，但涉及到凭证信息的地方都支持 文件 或使用 常用的 环境变量
+
+:::
+
 ```yaml
 # 全局配置
 global:
@@ -258,10 +264,10 @@ scrape_configs:
 | `__param_module` | `?module=` |
 
 ```yaml
-- job_name: "printer"
+- job_name: 'printer'
   static_configs:
     - targets:
-      - 192.168.1.2
+        - 192.168.1.2
   metrics_path: /snmp
   params:
     module: [printer_mib]
@@ -275,13 +281,14 @@ scrape_configs:
     - target_label: __address__
       # snmp exporter 地址
       replacement: 192.168.1.3:9116
-
 ```
 
 # FAQ
+
 ## Push vs Pull
-* Push
-  * IoT 场景
-  * 网络隔离场景
-  * 数据导入
-* [Pros/Cons of allowing push in Prometheus](https://docs.google.com/document/d/1H47v7WfyKkSLMrR8_iku6u9VB73WrVzBHb2SB6dL9_g)
+
+- Push
+  - IoT 场景
+  - 网络隔离场景
+  - 数据导入
+- [Pros/Cons of allowing push in Prometheus](https://docs.google.com/document/d/1H47v7WfyKkSLMrR8_iku6u9VB73WrVzBHb2SB6dL9_g)

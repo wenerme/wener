@@ -6,6 +6,8 @@ title: curl
 
 - [manpage](https://curl.se/docs/manpage.html)
 - -C- 继续下载
+- --remote-name-all
+  - 默认 `-O` 只影响第一个
 
 ```bash
 # 测试 SNI

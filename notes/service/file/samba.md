@@ -1,48 +1,50 @@
 ---
 title: Samba
 ---
+
 # Samba
 
-* [Samba3 by Example](https://www.samba.org/samba/docs/Samba3-ByExample.pdf)
-* [Samba3 How to](https://www.samba.org/samba/docs/Samba3-HOWTO.pdf)
-* [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)
-* [CIFSD](https://en.wikipedia.org/wiki/CIFSD) - in-kernel CIFS/SMB server
-  * [namjaejeon/cifsd](https://github.com/namjaejeon/cifsd)
-* Wikipedia [Samba](https://en.wikipedia.org/wiki/Samba_(software))
-* 添加的用户名必须要先存在于系统中,即需要先 `useradd`
-* 禁用打印机服务
+- [Samba3 by Example](https://www.samba.org/samba/docs/Samba3-ByExample.pdf)
+- [Samba3 How to](https://www.samba.org/samba/docs/Samba3-HOWTO.pdf)
+- [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)
+- [CIFSD](https://en.wikipedia.org/wiki/CIFSD) - in-kernel CIFS/SMB server
+  - [namjaejeon/cifsd](https://github.com/namjaejeon/cifsd)
+- Wikipedia [Samba](<https://en.wikipedia.org/wiki/Samba_(software)>)
+- 添加的用户名必须要先存在于系统中,即需要先 `useradd`
+- 禁用打印机服务
 
 ```ini
 load printers = no
 printing = bsd
 printcap name = /dev/null
 ```
-* 允许访客登陆
-  * `guest ok = yes`
-  * `smbclient  //127.0.0.1/public -U guest`
-* smb.conf
-  * [Using samba ch06](https://www.samba.org/samba/docs/using_samba/ch06.html)
-  * man [smb.conf](https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html)
-* 默认端口
-  * 137 netbios-ns NETBIOS Name Service
-  * 138 netbios-dgm NETBIOS Datagram Service
-  * 139/udp/tcp netbios-ssn NETBIOS Session Service
-  * 445/tcp NetBIOS was moved to 445 after 2000 and beyond, (CIFS)
-* 相关端口
-  * 901 SWAT service (not related to client communication)
-  * 445 microsoft-ds 域控
-* 组件
-  * smbd
-  * nmbd
-* 工具
-  * smbstatus - 查看服务状态
-    * 当前文件锁
-  * eventlogadm
-* samba-dc
-  * samba-tool
-  * samba - gpupdate dnsupdate downgrade_db kcc spnupdate upgradedns
-* samba-winbind
-  * winbindd
+
+- 允许访客登陆
+  - `guest ok = yes`
+  - `smbclient //127.0.0.1/public -U guest`
+- smb.conf
+  - [Using samba ch06](https://www.samba.org/samba/docs/using_samba/ch06.html)
+  - man [smb.conf](https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html)
+- 默认端口
+  - 137 netbios-ns NETBIOS Name Service
+  - 138 netbios-dgm NETBIOS Datagram Service
+  - 139/udp/tcp netbios-ssn NETBIOS Session Service
+  - 445/tcp NetBIOS was moved to 445 after 2000 and beyond, (CIFS)
+- 相关端口
+  - 901 SWAT service (not related to client communication)
+  - 445 microsoft-ds 域控
+- 组件
+  - smbd
+  - nmbd
+- 工具
+  - smbstatus - 查看服务状态
+    - 当前文件锁
+  - eventlogadm
+- samba-dc
+  - samba-tool
+  - samba - gpupdate dnsupdate downgrade_db kcc spnupdate upgradedns
+- samba-winbind
+  - winbindd
 
 ```bash
 # 带 samba 的镜像
@@ -72,7 +74,7 @@ smbcontrol all reload-config
 
 ## Quick start
 
-* guest 需要 `map to guest = Bad User`
+- guest 需要 `map to guest = Bad User`
 
 ```bash
 # Debian: apt-get install samba samba-client
@@ -126,15 +128,16 @@ mount -t cifs -o user=luke //192.168.1.1/share /mnt
 https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 
 ## smb.conf
-* [smb.conf.5](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
-* 特殊 section
-  * global
-    * 全局配置或默认配置
-  * homes
-    * 如果配置了，则支持自动创建 HOME 目录
-    * `%S` 用户宏 `path = /data/users/%S`
-  * printers
-    * 类似于 homes，但是用于打印机
+
+- [smb.conf.5](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
+- 特殊 section
+  - global
+    - 全局配置或默认配置
+  - homes
+    - 如果配置了，则支持自动创建 HOME 目录
+    - `%S` 用户宏 `path = /data/users/%S`
+  - printers
+    - 类似于 homes，但是用于打印机
 
 tdb (idmap_tdb(8)), tdb2 (idmap_tdb2(8)), ldap (idmap_ldap(8)), rid (idmap_rid(8)), hash (idmap_hash(8)), autorid (idmap_autorid(8)), ad (idmap_ad(8)), nss (idmap_nss(8)), and rfc2307 (idmap_rfc2307(8)).
 
@@ -148,26 +151,23 @@ In contrast to read only backends like idmap_rid, it is an allocating backend: T
 range = low - high
 Defines the available matching uid and gid range for which the backend is authoritative.
 
-
 idmap_tdb2 — Samba's idmap_tdb2 Backend for Winbind
 The idmap_tdb2 plugin is a substitute for the default idmap_tdb backend used by winbindd for storing SID/uid/gid mapping tables in clustered environments with Samba and CTDB.
 
 script
 This option can be used to configure an external program for performing id mappings instead of using the tdb counter. The mappings are then stored int tdb2 idmap database. For details see the section on IDMAP SCRIPT below.
 
-idmap config * : script = /usr/local/samba/bin/idmap_script.sh
+idmap config \* : script = /usr/local/samba/bin/idmap_script.sh
 
 不建议使用 hash
 
 The idmap_ad plugin provides a way for Winbind to read id mappings from an AD server that uses RFC2307/SFU schema extensions.
-
 
 "map to guest = Bad User" will reject a user if that user is in the server's samba password database but has the wrong password. But if the client user name doesn't exist in the samba password database he is converted to the guest account and then it's up to a given share definition to determine if he can gain access.
 
 "map to guest = Never" makes the exact same comparison to the database but if it doesn't find that user it doesn't convert the user to the guest account it just rejects him and that user isn't even allowed to view the share list.
 
 Don't pass a username and the "map to guest" logic is never used at the browse level and that's what a Linux client does unless you force it..
-
 
 Starting with v4.0, Samba is (or can be):
 
@@ -297,19 +297,23 @@ Common samba options:
 ## FAQ
 
 ### NT_STATUS_BAD_NETWORK_NAME
+
 可能是因为目录没有权限
 
 ### MacOS 下无法使用
+
 https://community.spiceworks.com/topic/2085366-can-samba-active-directory-and-afp-run-simultaneously
 
 ### NT_STATUS_INVALID_NETWORK_RESPONSE
+
 可能是 min protocol 导致的
 https://www.linuxquestions.org/questions/linux-networking-3/samba-min-protocol-%3D-smb2-causes-protocol-negotiation-failed-nt_status_invalid_network_response-4175597669/
 
 ## NTLMv1 NT_STATUS_WRONG_PASSWORD
-* Samba 默认只允许 NTLMv2
-  * 修改为允许 v1 `ntlm auth = ntlmv1-permitted`
-* 或者 Windows 修改为使用 v2
-  * `secpol.msc`
-  * NTLMv2 response only/refuse LM and NTLM.
-* Windows 7 开始默认 NTLMv2 但有可能开启共享时被配置成了 v1
+
+- Samba 默认只允许 NTLMv2
+  - 修改为允许 v1 `ntlm auth = ntlmv1-permitted`
+- 或者 Windows 修改为使用 v2
+  - `secpol.msc`
+  - NTLMv2 response only/refuse LM and NTLM.
+- Windows 7 开始默认 NTLMv2 但有可能开启共享时被配置成了 v1

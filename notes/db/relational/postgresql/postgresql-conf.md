@@ -1,3 +1,8 @@
+---
+tags:
+  - Configuration
+---
+
 # PostgreSQL 配置
 
 - [Server Configuration](https://www.postgresql.org/docs/current/runtime-config.html)

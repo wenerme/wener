@@ -243,10 +243,10 @@ tags:
 
 ## Operator
 
-- [kudobuilder/kudo](https://github.com/kudobuilder/kudo)
-
-## Database
-
+- [grafana-operator/grafana-operator](https://github.com/grafana-operator/grafana-operator)
+- [VictoriaMetrics/operator](https://github.com/VictoriaMetrics/operator)
+- [jaegertracing/jaeger-operator](https://github.com/jaegertracing/jaeger-operator)
+- [prometheus-operator/prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)
 - PostgreSQL
   - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
@@ -254,10 +254,36 @@ tags:
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)
     - Apache-2.0, Go
   - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
+- [openshift/elasticsearch-operator](https://github.com/openshift/elasticsearch-operator)
+- [strimzi/strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
+- [operator-framework/operator-lifecycle-manager](https://github.com/operator-framework/operator-lifecycle-manager)
+- [Opster/opensearch-k8s-operator](https://github.com/Opster/opensearch-k8s-operator)
+- https://operatorhub.io/
 
 ## Secret & ConfigMap
 
-- sealed-secret
+- [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+  - 生成不可逆的密钥存储在仓库，控制器生成对应 Secret - 非对称加密
+  - 最简单实用
+- [external-secrets/external-secrets](https://github.com/external-secrets/external-secrets)
+  - hashicorp vault, aws sm, aws ps, gcp sm
+  - alibaba cloud kms, Gitlab Project Variables
+- [banzaicloud/bank-vaults](https://github.com/banzaicloud/bank-vaults)
+- [hashicorp/vault](https://github.com/hashicorp/vault)
+  - Secret as a Service, Encryption as a Servic
+  - 如何与 K8S 集成是个问题
+- [kubernetes-sigs/secrets-store-csi-driver](https://github.com/kubernetes-sigs/secrets-store-csi-driver)
+  - aws, azure, gcp, vault
+- [jkroepke/helm-secrets](https://github.com/jkroepke/helm-secrets)
+- [viaduct-ai/kustomize-sops](https://github.com/viaduct-ai/kustomize-sops)
+- [argoproj-labs/argocd-vault-plugin](https://github.com/argoproj-labs/argocd-vault-plugin)
+  - argocd + HashiCorp Vault
+  - 早期由 IBM 开发
+- 参考
+  - [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
+
+**工具**
+
 - [kubeops/config-syncer](https://github.com/kubeops/config-syncer)
   - 原 kubed
   - Go, Apache-2.0
@@ -359,10 +385,12 @@ tags:
 - [kuadrant/authorino](https://github.com/kuadrant/authorino)
   Cloud-native AuthN/AuthZ enforcer
 
-## Controller
+## Build Controller & Operator
 
 - KubeBuilder
 - [rancher/wrangler](https://github.com/rancher/wrangler)
 - [kubernetes-sigs/controller-tools](https://github.com/kubernetes-sigs/controller-tools)
 - [spotahome/gontroller](https://github.com/spotahome/gontroller)
 - [kubernetes/sample-controller](https://github.com/kubernetes/sample-controller)
+- [kudobuilder/kudo](https://github.com/kudobuilder/kudo)
+  - Kubernetes Universal Declarative Operator

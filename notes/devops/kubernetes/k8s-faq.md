@@ -16,6 +16,11 @@ spec:
   clusterIP: None
 ```
 
+## operator vs controller
+
+- operator 包含一个或多个 controller
+- controller 负责 CRD 处理
+
 ## cni-plugins 不再包含 flannel
 
 - flannel 独立出单独的 repo [flannel-io/cni-plugin](https://github.com/flannel-io/cni-plugin)
@@ -161,6 +166,8 @@ kubectl get -o=yaml deploy whoami | yq d - status | yq d - 'metadata.managedFiel
 ```
 
 ## 删除卡在 Terminating 状态
+
+资源删不掉尝试移除 finalizers。
 
 ```bash
 # 例如 NS

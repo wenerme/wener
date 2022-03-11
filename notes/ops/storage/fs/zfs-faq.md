@@ -13,6 +13,15 @@ tags:
 
 :::
 
+## 查看实际大小
+
+```bash
+# 查看压缩后的大小
+du -h .
+# 查看实际大小
+du --apparent-size -h .
+```
+
 ## dRAID - Distributed RAID
 
 - OpenZFS 2.1+
@@ -240,3 +249,24 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
   - 快照、克隆
   - 文件系统有一定特性 - 也有缺陷
     - 主要缺陷: 不支持 rename2/overlay
+
+## High System Usage
+
+- z_wr_iss
+- spl_dynamic_tas
+- z_wr_iss_h
+- l2arc_feed
+- z_wr_int_h
+- rcu_sched
+- txg_sync
+- z_ioctl_int
+- kworker/0:1-events
+- z_null_iss
+- z_null_int
+- dp_sync_taskq
+- z_wr_int
+- arc_reap
+- ksoftirqd
+- dbuf_evict
+- mmp
+- migration/0

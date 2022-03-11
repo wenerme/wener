@@ -1,5 +1,7 @@
 ---
 title: ssh config
+tags:
+  - Configuration
 ---
 
 ## ssh config

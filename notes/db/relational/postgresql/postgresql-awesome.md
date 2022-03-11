@@ -43,6 +43,10 @@ tags:
 - [ankane/pgvector](https://github.com/ankane/pgvector)
   - 向量搜索
 - [pgaudit/pgaudit](https://github.com/pgaudit/pgaudit)
+- [supabase/supa_audit](https://github.com/supabase/supa_audit)
+  - Generic Table Auditing
+  - 纯 SQL
+  - [Postgres Auditing in 150 lines of SQL](https://supabase.com/blog/2022/03/08/audit)
 - [wasmerio/wasmer-postgres](https://github.com/wasmerio/wasmer-postgres)
 - [pgq/pgq](https://github.com/pgq/pgq)
   - Queue for PostgreSQL

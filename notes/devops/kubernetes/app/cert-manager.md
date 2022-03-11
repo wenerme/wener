@@ -92,7 +92,7 @@ spec:
   renewBefore: 360h # 15d
   subject:
     organizations:
-    - jetstack
+      - jetstack
   # The use of the common name field has been deprecated since 2000 and is
   # discouraged from being used.
   commonName: example.com
@@ -106,12 +106,12 @@ spec:
     - client auth
   # At least one of a DNS Name, URI, or IP address is required.
   dnsNames:
-  - example.com
-  - www.example.com
+    - example.com
+    - www.example.com
   uris:
-  - spiffe://cluster.local/ns/sandbox/sa/example
+    - spiffe://cluster.local/ns/sandbox/sa/example
   ipAddresses:
-  - 192.168.0.5
+    - 192.168.0.5
   # Issuer references are always required.
   issuerRef:
     name: ca-issuer
@@ -258,6 +258,22 @@ spec:
               key: api-key
 ```
 
+## cmctl
+
+- cmctl = kubectl cert-manager
+
+```bash
+brew install cmctl
+
+kubectl get certificate -A
+kubectl get certificaterequest -A
+
+# 触发 renew
+cmctl renew --namespace=app --all
+# 证书状态
+cmctl status certificate my-certificate -n my-namespace
+```
+
 # FAQ
 
 ## account credentials not found for domain
@@ -311,7 +327,7 @@ spec:
     group: cert-manager.io
   secretTemplate:
     annotations:
-      kubed.appscode.com/sync: "cert-manager-tls=sandbox" # Sync certificate to matching namespaces
+      kubed.appscode.com/sync: 'cert-manager-tls=sandbox' # Sync certificate to matching namespaces
 ```
 
 **reflector**
@@ -368,14 +384,14 @@ spec:
       keySecretRef:
         key: secret
         name: zerossl-eabsecret
-    preferredChain: ""
+    preferredChain: ''
     privateKeySecretRef:
       name: zerossl-prod
     server: https://acme.zerossl.com/v2/DV90
     solvers:
-    - http01:
-        ingress:
-          class: traefik
+      - http01:
+          ingress:
+            class: traefik
 ---
 apiVersion: v1
 kind: Secret

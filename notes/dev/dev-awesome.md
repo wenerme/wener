@@ -41,6 +41,8 @@ tags:
 - [The Architect Elevator](https://architectelevator.com)
 - https://learninpublic.org/
 - [Developer-Y/cs-video-courses](https://github.com/Developer-Y/cs-video-courses)
+- [The Configuration Complexity Clock](http://mikehadlow.blogspot.com/2012/05/configuration-complexity-clock.html?m=1)
+  - 硬编码 - 配置 - 规则引擎 - DSL
 
 ## Article
 

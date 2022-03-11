@@ -1,14 +1,14 @@
 ---
-id: consul-conf
 title: Consul 配置
+tags:
+  - Configuration
 ---
 
 # Consul 配置
 
-## Tips
-* [Configuration](https://www.consul.io/docs/agent/options)
+- [Configuration](https://www.consul.io/docs/agent/options)
 
-__单机配置__
+**单机配置**
 
 ```json
 {
@@ -22,41 +22,43 @@ __单机配置__
 ```
 
 ## acl
-* https://learn.hashicorp.com/tutorials/consul/access-control-setup-production
-* Token 类型
-  * master - 主令牌
-    * 等同于 acl bootstrap 的令牌 - 建议设置 - 设置后不再需要 acl bootstrap
-    * 用于主 dc 的 server 之间
-    * 使用 UUID
-  * default - 默认 - 如果没有具体的 token
-    * 用于向服务端发起请求
-    * 没有则等同于 anonymous
-  * agent
-    * 用于客户端或服务执行内部操作
-    * 如果没有则使用 default
-    * 至少需要权限能设置节点信息
-  * agent_master
-    * 访问 agent 终端，读写 agent 权限
-    * 服务中断时可用于 operator
-  * replication
-    * 用于授权二级 dc 访问主 dc 进行复制操作
+
+- https://learn.hashicorp.com/tutorials/consul/access-control-setup-production
+- Token 类型
+  - master - 主令牌
+    - 等同于 acl bootstrap 的令牌 - 建议设置 - 设置后不再需要 acl bootstrap
+    - 用于主 dc 的 server 之间
+    - 使用 UUID
+  - default - 默认 - 如果没有具体的 token
+    - 用于向服务端发起请求
+    - 没有则等同于 anonymous
+  - agent
+    - 用于客户端或服务执行内部操作
+    - 如果没有则使用 default
+    - 至少需要权限能设置节点信息
+  - agent_master
+    - 访问 agent 终端，读写 agent 权限
+    - 服务中断时可用于 operator
+  - replication
+    - 用于授权二级 dc 访问主 dc 进行复制操作
 
 ## 配置记录
-* 如果存在对于的服务则会进行合并配置
-* 类型
-  * ingress-gateway
-  * proxy-defaults - 默认代理配置
-  * service-defaults
-    * Protocol
-    * MeshGateway
-      * Mode: none, local, remote
-    * ExternalSNI
-    * Expose
-      * Checks = true
-  * service-resolver - matches service instances with a specific Connect upstream discovery requests
-  * service-router - defines where to send layer 7 traffic based on the HTTP route
-  * service-splitter - defines how to divide requests for a single HTTP route based on percentages
-  * terminating-gateway - 与 terminating gateway 关联的服务
+
+- 如果存在对于的服务则会进行合并配置
+- 类型
+  - ingress-gateway
+  - proxy-defaults - 默认代理配置
+  - service-defaults
+    - Protocol
+    - MeshGateway
+      - Mode: none, local, remote
+    - ExternalSNI
+    - Expose
+      - Checks = true
+  - service-resolver - matches service instances with a specific Connect upstream discovery requests
+  - service-router - defines where to send layer 7 traffic based on the HTTP route
+  - service-splitter - defines how to divide requests for a single HTTP route based on percentages
+  - terminating-gateway - 与 terminating gateway 关联的服务
 
 ```bash
 cat <<HCL | consul config write -
@@ -91,7 +93,6 @@ Routes = [
 ]
 HCL
 ```
-
 
 <!--
 

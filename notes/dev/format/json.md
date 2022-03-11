@@ -53,6 +53,8 @@ title: JSON
 - [bazaarvoice/jolt](https://github.com/bazaarvoice/jolt)
   - Apache-2.0, Java
   - JOLT - JsOn Language for Transform
+- [jmespath](https://jmespath.org/)
+  - [jmespath/go-jmespath](https://github.com/jmespath/go-jmespath)
 
 ## FAQ
 

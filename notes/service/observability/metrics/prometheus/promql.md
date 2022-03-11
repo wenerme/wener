@@ -57,6 +57,12 @@ label_replace({__name__=~"probe_success|up"}, "instance_ip", "$2", "instance", "
 {job!~"apiserver|kubelet"}
 ```
 
+| metric              |
+| ------------------- | ------------------------------------------------- |
+| node_uname_info     | Linux 节点信息                                    |
+| windows_os_info     | Windows 节点信息                                  |
+| windows_cs_hostname | ComputerSystem.DNSHostName, ComputerSystem.Domain |
+
 # FAQ
 
 ## irate vs rate

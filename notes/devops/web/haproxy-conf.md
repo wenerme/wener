@@ -1,9 +1,22 @@
 ---
-id: haproxy-conf
 title: HAProxy 配置
+tags:
+  - Configuration
 ---
 
 # HAProxy 配置
+
+## acl
+
+| flag |
+| ---- | --------------------------------------------------------------------- |
+| -i   | 忽略大小写，匹配后续所有                                              |
+| -f   | 匹配文件内 patterns                                                   |
+| -m   | 指定匹配方式                                                          |
+| -n   | 禁止 DNS 解析                                                         |
+| -M   | load the file pointed by -f like a map file.                          |
+| -u   | force the unique id of the ACL                                        |
+| --   | force end of flags. Useful when a string looks like one of the flags. |
 
 ## balance
 
@@ -196,6 +209,7 @@ hdr_end(host) -i .wener.me
 hdr_beg(host) -i .wener.me
 
 ## Logging
+
 - https://www.haproxy.com/documentation/hapee/latest/onepage/#8
 - https://www.haproxy.com/documentation/hapee/latest/observability/logging/overview/
 

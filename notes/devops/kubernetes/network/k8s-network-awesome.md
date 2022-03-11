@@ -102,8 +102,8 @@ tags:
 | vs.           | starts               | IPv6 | Windows | Policy |
 | ------------- | -------------------- | ---- | ------- | ------ |
 | [calico]      | ![calico-stars]      | ✅   | ✅      | ✅     |
-| [kube-router] | ![flannel-stars]     | ❌   | ❌      | ❌     |
-| [flannel]     | ![kube-router-stars] | ❌   | ✅      | ❌     |
+| [kube-router] | ![kube-router-stars] | ❌   | ❌      | ❌     |
+| [flannel]     | ![flannel-stars]     | ❌   | ✅      | ❌     |
 | [cilium]      | ![cilium-stars]      | ❌   | ❌      | ✅     |
 
 [cilium]: ./cilium.md

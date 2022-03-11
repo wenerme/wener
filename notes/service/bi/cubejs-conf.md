@@ -1,5 +1,7 @@
 ---
 title: CubeJS 配置
+tags:
+  - Configuration
 ---
 
 # CubeJS 配置

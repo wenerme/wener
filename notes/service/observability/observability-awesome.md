@@ -16,6 +16,10 @@ tags:
 
 ## Metrics
 
+- 基于/fork Prometheus 的服务
+  - promxy
+  - cortex
+  - thanos
 - [jacksontj/promxy](https://github.com/jacksontj/promxy)
   - 聚合多个 prometheus 进行查询
   - [config.yaml](https://github.com/jacksontj/promxy/blob/master/cmd/promxy/config.yaml)

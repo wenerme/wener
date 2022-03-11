@@ -1,5 +1,7 @@
 ---
 title: Tinc 配置
+tags:
+  - Configuration
 ---
 
 # Tinc 配置

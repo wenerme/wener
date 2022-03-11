@@ -50,7 +50,7 @@ title: OpenVox
   - 数字 路数 1,2,4,8,24
   - 版本 10/30, 30 是 10 的升级
   - P - PCI, E - PCIE
-- GWM801O - 8 口 FXO 模块
+- GWM801O - 8 口 FXO 模块
 - GWM420L - 4 口 LTE 模块
 
 ## 产品

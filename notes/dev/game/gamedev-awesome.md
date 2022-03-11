@@ -21,6 +21,9 @@ tags:
   - Brython (Python engine in JavaScript): https://github.com/brython-dev/brython
   - Fengari (Lua engine in JavaScript): https://github.com/fengari-lua
 - [o3de/o3de](https://github.com/o3de/o3de)
+- [ensisoft/gamestudio](https://github.com/ensisoft/gamestudio)
+  - Qt Editor
+  - Windows, Linux, WASM
 - rust
   - [arewegameyet](https://arewegameyet.rs/)
     - Rust GameDev 组件

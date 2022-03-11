@@ -59,6 +59,9 @@ module.exports = {
     ],
   ],
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ {
+    prism: {
+      additionalLanguages: ['nginx', 'php', 'java'],
+    },
     hideableSidebar: true,
     googleAnalytics: {
       trackingID: 'UA-30404720-1',

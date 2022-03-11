@@ -20,17 +20,20 @@ title: VictoriaMetrics
 - 参考
   - grafana vmcluster dashboard [11176](https://grafana.com/grafana/dashboards/)
 
-| port | for       |
-| ---- | --------- |
-| 8480 | vminsert  |
-| 8481 | vmselect  |
-| 8482 | vmstorage |
-| 8427 | vmauth    |
+| port | for              |
+| ---- | ---------------- |
+| 8480 | vminsert         |
+| 8481 | vmselect         |
+| 8482 | vmstorage        |
+| 8427 | vmauth           |
+| 8428 | single           |
+| 8429 | vmagent/vmsingle |
 
 :::caution
 
 - 不支持下 采样
 - 单节点不支持多租户
+- 不支持 remote_read
 
 :::
 
@@ -153,26 +156,13 @@ users:
 vmctl prometheus --prom-snapshot thanos-data --vm-addr http://victoria-metrics:8428
 ```
 
-# FAQ
+## vmagent
 
-## VictoriaMetrics vs Thanos
+## Lens
 
-两者区别点大于相同点。
-
-VictoriaMetrics 是 TSDB - 负责存储数据，insert 和 select 相当于 storage 的接口。
-着重考虑读写路径。
-
-Thanos 是 Prometheus 体系下扩容的工具集。
-不负责存储，但针对查询有较多优化 - 分片、缓存。
-
-两者可配合使用以达到最佳效果。
-
-- Thanos
-  - 组件合集 - sidecar, store, query, compact, rule, receive, query-frontend
-    - 不可独立使用，配套组合实现所需架构
-  - 不关心数据如何存储 - 插件式
-  - 结构灵活，针对查询有较多优化
-- VictoriaMetrics
-  - 可独立使用 - 单可执行文件
-  - 集群版本包含三个组件 insert, storage, select
-  - 单次查询不可跨租户
+- vmcluster
+  - Helm
+  - monitoring-system/vmselect-NAME:8481/select/0/prometheus
+- vmsingle
+  - Helm
+  - monitoring-system/vmsingle-victoria-metrics-stack:8429/prometheus

@@ -482,6 +482,10 @@ spec:
           code: false
 ```
 
+## webhook
+
+- `http://<argocd>/api/webhook`
+
 # FAQ
 
 ## the server could not find the requested resource
@@ -506,6 +510,29 @@ metadata:
   - 修改 certData
   - 修改 keyData
   - 保存即可
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-name
+  namespace: argocd
+stringData:
+  config: "" # JSON
+  name:
+  url:
+```
+
+```json title="config"
+{
+  "tlsClientConfig": {
+    "insecure": false,
+    "certData": "", // 修改
+    "keyData": "", // 修改
+    "caData": "" // 保留
+  }
+}
+```
 
 ---
 

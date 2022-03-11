@@ -23,18 +23,6 @@ title: K8S Secrets
 | kubernetes.io/tls                   | tls.crt,tls.key   | TLS client or server  |
 | bootstrap.kubernetes.io/token       |                   | bootstrap token data  |
 
-## 密钥方案
-
-- [bitnami-labs/sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
-  - 生成不可逆的密钥存储在仓库，控制器生成对应 Secret - 非对称加密
-  - 最简单实用
-- [banzaicloud/bank-vaults](https://github.com/banzaicloud/bank-vaults)
-- [hashicorp/vault](https://github.com/hashicorp/vault)
-  - Secret as a Service, Encryption as a Servic
-  - 如何与 K8S 集成是个问题
-- 参考
-  - [Secret Management](https://argoproj.github.io/argo-cd/operator-manual/secret-management/)
-
 ## docker
 
 ```bash

@@ -1,9 +1,167 @@
 ---
-id: dmesg-faq
 title: Linux Kernel 日志常见问题
+tags:
+  - FAQ
 ---
 
 # Linux Kernel 日志常见问题
+
+## 修改 dmesg 大小
+
+- 内核参数 `log_buf_len=n[KMG]`
+- 默认 2^CONFIG_LOG_BUF_SHIFT
+  - CONFIG_LOG_CPU_MAX_BUF_SHIFT
+- [admin-guide/kernel-parameters.txt](https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt)
+- https://elinux.org/Debugging_by_printing
+
+```bash
+# CONFIG_LOG_BUF_SHIFT=14 -> 16K
+cat /boot/config-lts | grep LOG_BUF_SHIFT
+```
+
+## EDAC MC0: 1 UE UE overwrote CE on any memory
+
+- MC0 为 #0 内存条
+- CE - Correctable Errors
+- UE - Uncorrectable Errors
+- EDAC - Error Detection and Correction - 内存错误检测和矫正
+- csrowX - Chip-Select Row
+- chX - Channel table
+
+内存异常信息
+
+```pre ansiup
+[0;33mEDAC MC0[0;1m: 1 UE ie31200 UE on mc#0csrow#0channel#1 (csrow:0 channel:1 page:0x0 offset:0x0 grain:8)[0m
+[0;33mEDAC MC0[0;1m: 1 UE UE overwrote CE on any memory ( page:0x0 offset:0x0 grain:8)
+```
+
+- /sys/devices/system/edac
+  - mc/ - memory controller system
+  - pci/
+
+```bash
+lsmod | grep edac
+```
+
+```
+ie31200_edac           16384  0
+```
+
+**关闭 Log 异常信息**
+
+```bash
+echo 0 > /sys/module/edac_core/parameters/edac_mc_log_ce
+```
+
+```bash
+# pci_parity_count
+echo "1" >/sys/devices/system/edac/pci/check_pci_parity
+```
+
+- kernel [edac.txt](https://mjmwired.net/kernel/Documentation/edac.txt)
+- [driver-api/edac](https://www.kernel.org/doc/html/latest/driver-api/edac.html)
+- [EDAC Wiki](https://buttersideup.com/mediawiki/index.php/Main_Page)
+- [grondo/edac-utils](https://github.com/grondo/edac-utils)
+
+## Write Protect is on
+
+- USB Flash Driver 已损坏，进入写保护模式
+- 如果是正常的磁盘，可以尝试关闭 `hdparm -r0 /dev/sdc`
+
+```pre ansiup
+[0;33musb 2-3[0m: new SuperSpeed Gen 1 USB device number 11 using xhci_hcd
+[0;33musb 2-3[0m: New USB device found, idVendor=0781, idProduct=5583, bcdDevice= 1.00
+[0;33musb 2-3[0m: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[0;33musb 2-3[0m: Product: Ultra Fit
+[0;33musb 2-3[0m: Manufacturer: SanDisk
+[0;33musb 2-3[0m: SerialNumber: 4C530001180206120545
+[0;33musb-storage 2-3:1.0[0m: USB Mass Storage device detected
+[0;33mscsi host7[0m: usb-storage 2-3:1.0
+[0;33mscsi 7:0:0:0[0m: Direct-Access     SanDisk  Ultra Fit        1.00 PQ: 0 ANSI: 6
+[0;33msd 7:0:0:0[0m: [sdc] 60063744 512-byte logical blocks: (30.8 GB/28.6 GiB)
+[0;33msd 7:0:0:0[0m: [sdc] Write Protect is on
+[0;33msd 7:0:0:0[0m: [sdc] Mode Sense: 43 00 80 00
+[0;33msd 7:0:0:0[0m: [sdc] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[0;33m sdc[0m: sdc1 sdc2 sdc3
+[0;33msd 7:0:0:0[0m: [sdc] Attached SCSI removable disk
+```
+
+## Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+
+- DPO - Disable Page Out
+  - caching hint that indicates the data referenced by the command is not likely to be accessed again and therefore is not a good candidate to keep or maintain within cache.
+- FUA - Force Unit Access
+  - caching hint that indicates the data should be referenced directly from the media of the device. That is cache should be bypassed for this command.
+- 参考
+  - [What do "doesn't support DPO or FUA" and other disk cache messages mean ?](https://access.redhat.com/solutions/1527943)
+
+## rcu_sched detected stalls on CPUs/tasks
+
+```pre ansiup
+[0;33mrcu[0;31m: INFO: rcu_sched detected stalls on CPUs/tasks:[0m
+[0;33mrcu[0;31m: 	1-....: (1 GPs behind) idle=ad1/1/0x4000000000000000 softirq=22550431/22550433 fqs=2[0m
+[0;1m	(detected by 3, t=18024 jiffies, g=33604573, q=182)[0m
+[0mSending NMI from CPU 3 to CPUs 1:
+[0;1mNMI backtrace for cpu 1[0m
+[0;33mCPU[0;1m: 1 PID: 2394 Comm: z_wr_iss Tainted: P        W  O      5.15.16-0-lts #1-Alpine[0m
+[0;33mHardware name[0;1m: To Be Filled By O.E.M. To Be Filled By O.E.M./E3C232D2I, BIOS P2.20 07/20/2017[0m
+[0;33mRIP[0;1m: 0010:raidz_copy_abd_cb+0x20/0x90 [zfs][0m
+[0;33mCode[0;1m: 39 f0 72 c3 31 c0 c3 0f 1f 00 0f 1f 44 00 00 48 89 d1 48 c1 e9 05 74 75 48 83 ee 80 48 83 ef 80 31 c0 48 8d 56 80 c5 fd 6f 02 <c5> fd 6f 4a 20 c5 fd 6f 52 40 c5 fd 6f 5a 60 48 8d 57 80 c5 fd 7f[0m
+[0;33mRSP[0;1m: 0000:ffffb4168094fab8 EFLAGS: 00000083[0m
+[0;33mRAX[0;1m: 0000000000002368 RBX: 0000000000056000 RCX: 0000000000002b00[0m
+[0;33mRDX[0;1m: ffffb416de69dd00 RSI: ffffb416de69dd80 RDI: ffffb416b0a93d80[0m
+[0;33mRBP[0;1m: ffffb4168094fb28 R08: 0000000000056000 R09: ffffffffc1b646d0[0m
+[0;33mR10[0;1m: 0000000000000002 R11: 0000000000056000 R12: ffffb4168094faf8[0m
+[0;33mR13[0;1m: 0000000000056000 R14: ffff953bf2c8fb60 R15: 0000000000000000[0m
+[0;33mFS[0;1m:  0000000000000000(0000) GS:ffff95410fc80000(0000) knlGS:0000000000000000[0m
+[0;33mCS[0;1m:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033[0m
+[0;33mCR2[0;1m: 000000c002aff000 CR3: 0000000301026001 CR4: 00000000003706e0[0m
+[0;33mDR0[0;1m: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000[0m
+[0;33mDR3[0;1m: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400[0m
+[0;1mCall Trace:[0m
+[0;1m <TASK>[0m
+[0;1m abd_iterate_func2+0x1ec/0x340 [zfs][0m
+[0;1m ? raidz_zero_abd_cb+0x60/0x60 [zfs][0m
+[0;1m avx2_gen_p+0x40/0x90 [zfs][0m
+[0;1m vdev_raidz_math_generate+0x4b/0x70 [zfs][0m
+[0;1m vdev_raidz_generate_parity_row+0x30/0x440 [zfs][0m
+[0;1m ? vdev_raidz_map_alloc+0x2f4/0x390 [zfs][0m
+[0;1m vdev_raidz_io_start+0x1fb/0x320 [zfs][0m
+[0;1m zio_vdev_io_start+0x109/0x350 [zfs][0m
+[0;1m zio_nowait+0xc5/0x1b0 [zfs][0m
+[0;1m vdev_mirror_io_start+0xa2/0x250 [zfs][0m
+[0;1m zio_vdev_io_start+0x2d3/0x350 [zfs][0m
+[0;1m zio_execute+0x83/0x120 [zfs][0m
+[0;1m taskq_thread+0x2d0/0x500 [spl][0m
+[0;1m ? wake_up_q+0x90/0x90[0m
+[0;1m ? zio_gang_tree_free+0x60/0x60 [zfs][0m
+[0;1m ? taskq_thread_spawn+0x50/0x50 [spl][0m
+[0;1m kthread+0x127/0x150[0m
+[0;1m ? set_kthread_struct+0x40/0x40[0m
+[0;1m ret_from_fork+0x22/0x30[0m
+[0;1m </TASK>[0m
+[0;33mrcu[0;31m: rcu_sched kthread timer wakeup didn't happen for 2506 jiffies! g33604573 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402[0m
+[0;33mrcu[0;31m: 	Possible timer handling issue on cpu=2 timer-softirq=4398823[0m
+[0;33mrcu[0;31m: rcu_sched kthread starved for 2508 jiffies! g33604573 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=2[0m
+[0;33mrcu[0;31m: 	Unless rcu_sched kthread gets sufficient CPU time, OOM is now expected behavior.[0m
+[0;33mrcu[0;31m: RCU grace-period kthread stack dump:[0m
+[0;33mtask:rcu_sched       state:I stack[0m:    0 pid:   14 ppid:     2 flags:0x00004000
+[0mCall Trace:
+[0m <TASK>
+[0m __schedule+0x31f/0x14e0
+[0m ? lock_timer_base+0x61/0x80
+[0m ? __mod_timer+0x170/0x3e0
+[0m schedule+0x44/0xa0
+[0m schedule_timeout+0x95/0x140
+[0m ? __bpf_trace_tick_stop+0x10/0x10
+[0m rcu_gp_fqs_loop+0x100/0x320
+[0m rcu_gp_kthread+0xab/0x140
+[0m ? rcu_gp_init+0x4a0/0x4a0
+[0m kthread+0x127/0x150
+[0m ? set_kthread_struct+0x40/0x40
+[0m ret_from_fork+0x22/0x30
+[0m </TASK>
+```
 
 ## ACPI Error: No handler for Region POWR
 
@@ -121,15 +279,6 @@ echo "blacklist acpi_power_meter" >> /etc/modprobe.d/hwmon.conf
 ## ext4 filesystem being remounted at /newroot/run/redis supports timestamps until 2038 (0x7fffffff)
 
 - 警告 ext4 时间支持问题
-
-## Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
-
-- DPO - Disable Page Out
-  - caching hint that indicates the data referenced by the command is not likely to be accessed again and therefore is not a good candidate to keep or maintain within cache.
-- FUA - Force Unit Access
-  - caching hint that indicates the data should be referenced directly from the media of the device. That is cache should be bypassed for this command.
-- 参考
-  - [What do "doesn't support DPO or FUA" and other disk cache messages mean ?](https://access.redhat.com/solutions/1527943)
 
 ## FW version command failed -5
 

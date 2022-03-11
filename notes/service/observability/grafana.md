@@ -24,14 +24,20 @@ title: Grafana
   - 面板热门排序
   - 查找未使用面板
   - 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
-- 问题
-  - [#11418](https://github.com/grafana/grafana/issues/11418) - Conditional formatting
-  - Legend 无法格式化，使用 prometheus 可以修改 label
-    - `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
-    - `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
-  - [#11170](https://github.com/grafana/grafana/issues/11170) - 无法隐藏 Table 的 Filter for value
 - 注意
   - Value Mapping 不支持文本匹配
+
+:::caution
+
+- Conditional formatting [#11418](https://github.com/grafana/grafana/issues/11418)
+- Legend 无法格式化，使用 prometheus 可以修改 label
+  - `label_replace(my_vector, "short_hostname", "$1", "hostname", "(.*):.*")`
+  - `label_replace(up{instance=~"$instance"}, "instance_ip", "$2", "instance", "(192[.]168[.])?([0-9.+]+|.*).*")`
+- 无法隐藏 Table 的 Filter for value [#11170](https://github.com/grafana/grafana/issues/11170)
+- OAuth 无法关联 org
+- LDAP 可能是唯一多租户登陆方便的方式 - 或者每个租户部署一个
+
+:::
 
 ```bash
 brew install grafana
@@ -91,44 +97,13 @@ type=sqlite3
 reporting_enabled = false
 ```
 
-## 配置
-
-- [Configuration](https://grafana.com/docs/grafana/latest/administration/configuration/)
-- 所有的配置都可以通过环境变量配置
-  - `GF_<SectionName>_<KeyName>`
-
-```ini
-[database]
-# mysql, postgres, sqlite3
-type=postgres
-# SQLite3
-path=
-host=
-name=
-user=
-password=
-# mysql://user:secret@host:port/database
-# mysql://user:secret@host:port/database
-url=
-# pg - disable, require, verify-full
-# mysql - true, false, skip-verify
-ssl_mode=
-
-[remote_cache]
-# redis, memcached, database
-type=database
-# database, redis, memcache
-connstr=
-database=
-redis=addr=127.0.0.1:6379,pool_size=100,db=0,ssl=false
-memcache=127.0.0.1:11211
-```
 
 ## plugins
 
 - https://grafana.com/grafana/plugins/
 - grafana-clock-panel
 - grafana-polystat-panel
+- marcusolsson-hexmap-panel
 
 ## FAQ
 

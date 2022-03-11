@@ -71,3 +71,12 @@ tags:
 - grammar
   - BNF - Backus–Naur form
   - EBNF - extended Backus–Naur form
+
+## Highlight
+
+- [github/linguist](https://github.com/github/linguist)
+- [Alhadis/language-etc](https://github.com/Alhadis/language-etc)
+- https://prismjs.com/#supported-languages
+- [drudru/ansi_up](https://github.com/drudru/ansi_up)
+  - ANSI
+- [Hyperlinks (a.k.a. HTML-like anchors) in terminal emulators](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda)

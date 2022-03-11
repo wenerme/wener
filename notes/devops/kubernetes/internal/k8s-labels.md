@@ -48,10 +48,13 @@ kubectl label node master-1 topology.kubernetes.io/zone=sh-dc1
 
 | kind                | annotation                                      | demo  | desc                           |
 | ------------------- | ----------------------------------------------- | ----- | ------------------------------ |
-| Namespace           | kubernetes.io/metadata.name                     |       | namespace 的名字               |
 | StorageClass        | storageclass.kubernetes.io/is-default-class     | true  | 默认 StorageClass              |
 | VolumeSnapshotClass | snapshot.storage.kubernetes.io/is-default-class | true  |
 | Ingress             | kubernetes.io/ingress.class                     | nginx | **废弃**,spec.ingressClassName |
+
+| kind      | label                       | demo        | desc             |
+| --------- | --------------------------- | ----------- | ---------------- |
+| Namespace | kubernetes.io/metadata.name | kube-system | namespace 的名字 |
 
 ```bash
 kubectl get storageclass
@@ -118,6 +121,23 @@ matchLabels:
 | ------------------------------ | -------- | ---- |
 | meta.helm.sh/release-name      | linkerd2 |
 | meta.helm.sh/release-namespace | linkerd  |
+
+## LabelSelector
+
+- labelSelector - 数组内为 OR 关系
+- matchLabels
+  - label: value
+- matchExpressions - 数组内为 AND 关系
+  - key
+  - operator: In, NotIn, Exists, DoesNotExist
+  - values: []
+
+```yaml
+dashboardLabelSelector: # OR
+  - matchExpressions: # AND
+      - { key: app, operator: In, values: [grafana] }
+      - { key: group, operator: In, values: [grafana] }
+```
 
 # FAQ
 

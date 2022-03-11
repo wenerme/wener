@@ -29,7 +29,7 @@ title: 配件
 
 - [DDR4 SDRAM Memory](https://semiconductor.samsung.com/resources/product-guide/DDR4_Product_guide_May.18.pdf)
 - M391A1G43BB1-CRCB1
-  - 非三星官方
   - UDIMM, 8G, 2R×2
+  - 非三星官方
 
 [m391a1g43bb1-crcb1]: https://semiconductor.samsung.com/dram/module/ecc-udimm-ecc-sodimm/m391a2k43bb1-crc/

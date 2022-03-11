@@ -118,6 +118,7 @@ snapshotter = "zfs"
   - 提供 CRI 接口
 - io.containerd.runtime.v1.linux
 - io.containerd.runtime.v2.task
+  - k8s.io
 - io.containerd.snapshotter.v1 - 默认 overlayfs - container 运行时快照
   - btrfs
   - native
@@ -154,4 +155,12 @@ insecure_skip_verify = true
 insecure_skip_verify = true
 [plugins."io.containerd.grpc.v1.cri".registry.configs."quay.io".tls]
 insecure_skip_verify = true
+```
+
+## mount through procfd not a directory
+
+检查 mount 逻辑，是不把 目录 挂载到了文件上。
+
+```
+mount through procfd: open o_path procfd: open /run/k0s/containerd/io.containerd.runtime.v2.task/k8s.io/promxy/rootfs/etc/promxy/secrets: not a directory
 ```

@@ -1,12 +1,12 @@
 ---
-id: nextcloud-config
 title: Nextcloud 配置
+tags:
+  - Configuration
 ---
 
 # Nextcloud 配置
 
-## Tips
-* [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
+- [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
 
 ```php
 <?php
@@ -61,7 +61,7 @@ $CONFIG = array(
 	'https://itunes.apple.com/us/app/nextcloud/id1125420102?mt=8',
 'customclient_ios_appid' =>
     '1125420102',
-    
+
 
 // 是否启用应用商店
 'appstoreenabled' => true,

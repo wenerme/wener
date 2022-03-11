@@ -63,3 +63,23 @@ kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storagecla
 ```bash
 mount --make-rshared /
 ```
+
+## subPath 会覆盖原有内容
+
+例如:
+
+```yaml
+volumeMounts:
+  - name: data
+    mountPath: /etc/app/
+    subPath: config.yaml
+```
+
+加入挂载前 /etc/app 还有其他内容，但挂载后只有 config.yaml， 但如果挂载路径为文件则不会覆盖。
+
+```yaml
+volumeMounts:
+  - name: data
+    mountPath: /etc/app/config.yaml
+    subPath: config.yaml
+```

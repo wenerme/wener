@@ -1,5 +1,7 @@
 ---
 title: pkg-config
+tags:
+  - Configuration
 ---
 
 # pkg-config

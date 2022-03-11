@@ -4,6 +4,20 @@ title: Media FAQ
 
 # Media FAQ
 
+## is hevc/h265 ready
+
+**NO**
+
+---
+
+- hevc 专利费用高
+  - chrome 支持开源 av1
+- Intel Skylake Core 6 开始支持解码 - 2015-08
+- https://caniuse.com/?search=hevc
+- Windows https://www.free-codecs.com/hevc_video_extension_download.htm
+- 测试视频 https://www.libde265.org/downloads-videos/
+- Google Chromecast 支持 https://developers.google.com/cast/docs/media
+
 ## nfo
 
 - [NFO files](https://kodi.wiki/view/NFO_files)

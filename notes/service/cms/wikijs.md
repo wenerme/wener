@@ -10,7 +10,7 @@ title: Wiki.js
   - 类似于语雀但是支持 Markdown
   - 支持文件，支持图片，支持 Git 后端，支持搜索
   - Nodejs 10.12+
-  - 支持 MySQL, MariaDB, PostgreSQL, MSSQL or SQLite3
+  - 支持 MySQL, MariaDB, PostgreSQL, MSSQL, SQLite3
     - 推荐使用 PostgreSQL
     - 多副本只支持 PostgreSQL
 - 要求

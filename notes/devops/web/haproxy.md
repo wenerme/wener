@@ -41,6 +41,26 @@ title: HAProxy
 
 :::
 
+```bash
+haproxy -c -f haproxy.cfg # 检查配置是否正确
+# master-worker mode - reload
+# 本质也是 -sf 启新的进程
+kill -USR2 $(cat /var/run/haproxy.pid)
+
+# 重启新的 haproxy - reload
+haproxy -D -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -sf $(cat /var/run/haproxy.pid)
+```
+
+```bash title="docker"
+docker run --rm -it \
+  -v /path/to/etc/haproxy:/usr/local/etc/haproxy:ro \
+  --sysctl net.ipv4.ip_unprivileged_port_start=0 \
+  --name haproxy haproxy:2.5
+
+# reload
+docker kill -s HUP haproxy
+```
+
 ## metrics
 
 - https://www.haproxy.com/blog/haproxy-exposes-a-prometheus-metrics-endpoint/

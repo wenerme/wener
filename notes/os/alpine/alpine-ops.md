@@ -510,14 +510,6 @@ apk add open-iscsi
 
 ```
 
-## netatalk
-
-- [netatalk](http://netatalk.sourceforge.net)
-- [Netatalk:wiki](https://en.wikipedia.org/wiki/Netatalk)
-- [APF](https://en.wikipedia.org/wiki/Apple_Filing_Protocol) - Apple Filing Protocol
-  - CNID - Catalog Node ID
-  - 使用 ID 引用, 而非路径
-- http://netatalk.sourceforge.net/3.1/htmldocs/configuration.html
 
 ## stress
 

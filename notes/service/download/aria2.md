@@ -11,6 +11,10 @@ title: aria2
   - [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
 - 参考
   - [P3TERX/Aria2-Pro-Docker](https://github.com/P3TERX/Aria2-Pro-Docker)
+    - CUSTOM_TRACKER_URL
+      - https://cdn.jsdelivr.net/gh/wenerme/repository@master/trackers_aira2.txt
+      - 默认 https://trackerslist.com/all_aria2.txt
+        - [XIU2/TrackersListCollection](https://github.com/XIU2/TrackersListCollection)
   - [P3TERX/aria2.conf](https://github.com/P3TERX/aria2.conf)
   - [qzm/aria2.conf](https://gist.github.com/qzm/a54559726896d5e6bf21adf2363ad334)
 

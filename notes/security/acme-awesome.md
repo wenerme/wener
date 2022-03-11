@@ -45,19 +45,30 @@ tags:
 | letsencrypt_test |          | https://acme-staging-v02.api.letsencrypt.org/directory                 |
 | buypass          | ❌       | https://api.buypass.com/acme/directory                                 |
 | buypass_test     |          | https://api.test4.buypass.no/acme/directory                            |
-| zerossl          |  ✅         | https://acme.zerossl.com/v2/DV90                                       | https://zerossl.com/documentation/acme/   |
+| zerossl          | ✅       | https://acme.zerossl.com/v2/DV90                                       | https://zerossl.com/documentation/acme/   |
 | sslcom           |          | https://acme.ssl.com/sslcom-dv-rsa, https://acme.ssl.com/sslcom-dv-ecc |
 
-## Challenge
+## Challenge Types
 
 - HTTP-01
   - `http://example.com/.well-known/acme-challenge/<challenge>`
-  - 要求能被外部访问
+  - 要求 80 能被外部访问
   - 一次一个域名
 - DNS-01
   - `TXT _acme-challenge.example.com <challenge>`
   - 要求能修改 DNS
   - 支持泛域名证书
+- TLS-ALPN-01
+  - 与 HTTP-01 类似
+  - 使用临时 cert
+  - 不需要 80 端口，但要求 443 端口能被外部访问
+  - 适用于 TLS-terminating reverse proxies
+- TLS-SNI-01
+  - 废弃
+
+---
+
+- [Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
 ## Client
 

@@ -1,5 +1,7 @@
 ---
 title: Squid Conf
+tags:
+  - Configuration
 ---
 
 # Squid Conf

@@ -1,5 +1,4 @@
 ---
-id: cni
 title: CNI
 ---
 
@@ -23,7 +22,7 @@ title: CNI
     - CNI_NETNS - 网络命名空间路径
       - `/proc/<pid>/ns/net`
 
-| Type           | Desc                                          |
+| Type              | Desc                                          |
 | ----------------- | --------------------------------------------- |
 | Main: 网口创建    |
 | bridge            | 创建桥接，添加宿主机和容器网络到桥接          |
@@ -49,9 +48,10 @@ title: CNI
 | firewall          | 基于 iptables 或 firewalld 的防火墙控制       |
 
 ## spec
-* add,delete,version
-* stdin, stdout
-* CNI_ARGS, CAP_ARGS
+
+- add,delete,version
+- stdin, stdout
+- CNI_ARGS, CAP_ARGS
 
 ```bash
 cat <<CONF > bridge.conf
@@ -94,22 +94,22 @@ bridge < bridge.conf
   "hairpinMode": false,
   // IP 地址管理 - L2 网络
   "ipam": {
-      "type": "host-local",
-      "subnet": "10.10.0.0/16"
+    "type": "host-local",
+    "subnet": "10.10.0.0/16"
   },
   // promiscuous 模式
-  "promiscMode": false,
+  "promiscMode": false
   // 是否设置 VLAN tag
   // "vlan":0
 }
 ```
 
-
 ## Windows
-* win-overlay
-* win-bridge
-* host-local
-* flannel
+
+- win-overlay
+- win-bridge
+- host-local
+- flannel
 
 ```bash
 cat <<CONF > overlay.conf

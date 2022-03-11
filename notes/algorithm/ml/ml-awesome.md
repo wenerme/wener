@@ -128,6 +128,8 @@ tags:
 - [jokenox/Goopt](https://github.com/jokenox/Goopt)
   - 文本内容生成
 - [fastai/fastcore](https://github.com/fastai/fastcore)
+- [GroupViT: Semantic Segmentation Emerges from Text Supervision](https://jerryxu.net/GroupViT/)
+- [TorchStudio/torchstudio](https://github.com/TorchStudio/torchstudio)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)
@@ -331,3 +333,9 @@ tags:
 | ST   | Speech Translation            |
 | MT   | Machine Translation           |
 | VC   | Voice conversion              |
+
+## Hardware Platform
+
+- RTX
+- Colab Pro
+- Paperspace Pro

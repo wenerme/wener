@@ -1,5 +1,8 @@
 ---
 title: Prometheus K8S
+tags:
+  - Kubernetes
+  - Operator
 ---
 
 # Prometheus K8S
@@ -13,6 +16,9 @@ title: Prometheus K8S
   - Grafana dashboards and Prometheus alerts for Kubernetes.
 - [kubernetes/kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
   - Add-on agent to generate and expose cluster-level metrics.
+- cadvisor 提供了容器指标
+  - https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md
+- https://runbooks.prometheus-operator.dev/
 
 ## kubernetes_sd_config
 
@@ -240,6 +246,8 @@ pushgateway:
   - Prometheus
     - 会通过 Operator 部署
   - Alertmanager
+  - kube-state-metrics
+  - node-exporter
 - 默认 scrapeInterval: 30s
 
 ```bash
@@ -252,3 +260,7 @@ kubectl -n monitoring describe svc/kube-prometheus-prometheus
 # http://127.0.0.1:9090
 kubectl -n monitoring port-forward svc/kube-prometheus-prometheus 9090
 ```
+
+# FAQ
+
+## "prometheuses.monitoring.coreos.com" is invalid: metadata.annotations: Too long

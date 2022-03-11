@@ -14,6 +14,10 @@ title: sshuttle
 :::
 
 ```bash
+sshuttle -r 192.168.66.0/24 host
+```
+
+```bash title="tproxy"
 # linux 下 tproxy 支持 udp
 # https://sshuttle.readthedocs.io/en/stable/tproxy.html
 

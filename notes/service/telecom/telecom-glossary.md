@@ -1,4 +1,5 @@
 ---
+id: glossary
 title: 电信术语
 ---
 
@@ -18,16 +19,21 @@ title: 电信术语
   - 一般通过共享内存交互
   - Android RIL 可与 QMI 交互
 
+| abbr. | stand for                                  | cn                   |
+| ----- | ------------------------------------------ | -------------------- |
+| CMCC  | China Mobile Communications Group Co.,Ltd. | 中国移动通信         |
+| CUCC  | China Unicom                               | 中国联通通讯         |
+| CTCC  | China Telecommunications                   | 中国电信集团有限公司 |
 
-| abbr. | stand for                                  | meanning           |
-| ----- | ------------------------------------------ | ------------------ |
+| abbr. | stand for                                  | meanning         |
+| ----- | ------------------------------------------ | ---------------- |
 | VoLTE | Voice over Long-Term Evolution             |
-| UMTS  | Universal Mobile Telecommunications System | 通用移动通讯系统   |
+| UMTS  | Universal Mobile Telecommunications System | 通用移动通讯系统 |
 | GoIP  | GSM over IP                                |
-| QMI   | Qualcomm MSM Interface                     | 高通 MSM 接口      |
-| WDS   | Wireless Data Service                      | 无线数据服务       |
-| SMD   | Shared Memory Device                       | 共享内存设备       |
-| HSDPA | High-Speed Downlink Packet Access          | 高速封包存取       |
+| QMI   | Qualcomm MSM Interface                     | 高通 MSM 接口    |
+| WDS   | Wireless Data Service                      | 无线数据服务     |
+| SMD   | Shared Memory Device                       | 共享内存设备     |
+| HSDPA | High-Speed Downlink Packet Access          | 高速封包存取     |
 
 ## HSDPA - High-Speed Downlink Packet Access - 高速封包存取
 
@@ -41,7 +47,7 @@ W-CDMA 第一个进化技术, 比早期 UMTS 快至少 5 倍, 14.4Mbps/cell DL, 
 
 ## 卡池 - Card Pool
 
--  多个 SIM 口，同时只用一个 SIM 卡
+- 多个 SIM 口，同时只用一个 SIM 卡
 - 通过控制卡池选择当前使用的卡
 - 常见 1 拖 4、1 拖 8、 1 拖 128
 

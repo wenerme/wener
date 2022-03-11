@@ -1,7 +1,7 @@
 ---
 title: strongSwan 配置
 tags:
-- Configuration
+  - Configuration
 ---
 
 # strongSwan 配置

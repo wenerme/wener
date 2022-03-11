@@ -30,6 +30,7 @@ gotip download
 # 下载最新版本
 # 从 dl.google.com 下载
 # 默认安装到 ~/sdk/
+# 其他版本 例如 go1.18rc1
 go install golang.org/dl/go1.18beta1@latest
 go1.18beta1 download
 go1.18beta1 env GOROOT
@@ -38,6 +39,17 @@ go1.18beta1 env GOROOT
 # 安装到别的地方
 HOME=/opt ~/go/bin/go1.18beta1 download
 /opt/sdk/go1.18beta1/bin/go env
+```
+
+## GOVCS disallows using git for public
+
+添加 GOVCS 设置，默认为 `public:git|hg,private:all`
+
+```bash
+# 全部允许
+GOVCS=*:all go get github.com/wenerme/apki
+# 限定
+GOVCS=github.com:git,*:off go get github.com/wenerme/apki
 ```
 
 ## go: cannot find GOROOT directory: /usr/local/go

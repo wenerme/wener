@@ -1,15 +1,17 @@
 ---
-title: VictoriaMetrics K8S
+title: VictoriaMetrics Operator
+tags:
+  - Kubernetes
+  - Operator
 ---
 
-# VictoriaMetrics K8S
+# VictoriaMetrics Operator
 
 - [VictoriaMetrics/operator](https://github.com/VictoriaMetrics/operator)
   - 管理监控配置
   - 服务部署
 - [VictoriaMetrics/helm-charts](https://github.com/VictoriaMetrics/helm-charts)
-
-## operator
+  - Helm 部署 Repo - 推荐 operator 部署
 
 **监控**
 
@@ -19,6 +21,12 @@ title: VictoriaMetrics K8S
 | PodMonitor     | VMPodMonitor     |
 | PrometheusRule | VMRule           |
 | Probe          | VMProbe          |
+|                | VMNodeScrape     |
+|                | VMStaticScrape   |
+| Prometheus     | VMSingle         |
+|                | VMCluster        |
+
+> VMNodeScrape 可以避免针对系统服务创建 service，例如 kublet
 
 **应用**
 
@@ -76,17 +84,16 @@ spec:
   generatePassword: false
   bearerToken:
   targetRefs:
-  - crd:
-      # VMAgent,VMAlert,VMAlertmanager,VMSingle,VMCluster/vmselect,VMCluster/vminsert,VMCluster/vmstorage
-      kind: VMSingle
-      name: example
-      namespace: default
-    paths: ["/.*"]
-  - static:
-      url: http://vmalert-example.default.svc:8080
-    paths: ["/api/v1/groups","/api/v1/alerts"]
-    target_path_suffix:
-    headers:
-    - X-Org-ID: xyz
+    - crd:
+        # VMAgent,VMAlert,VMAlertmanager,VMSingle,VMCluster/vmselect,VMCluster/vminsert,VMCluster/vmstorage
+        kind: VMSingle
+        name: example
+        namespace: default
+      paths: ['/.*']
+    - static:
+        url: http://vmalert-example.default.svc:8080
+      paths: ['/api/v1/groups', '/api/v1/alerts']
+      target_path_suffix:
+      headers:
+        - X-Org-ID: xyz
 ```
-
