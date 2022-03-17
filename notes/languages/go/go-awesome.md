@@ -90,6 +90,10 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [Network Programming with Go](https://tumregels.github.io/Network-Programming-with-Go/)
   - [HN](https://news.ycombinator.com/item?id=28824996)
 - [Gotchas in the Go Network Packages Defaults](https://martin.baillie.id/wrote/gotchas-in-the-go-network-packages-defaults/)
+- Playground
+  - https://goplay.tools
+    - [x1unix/go-playground](https://github.com/x1unix/go-playground)
+  - https://play.golang.org
 
 ## 日志
 
@@ -266,7 +270,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [loov/goda](https://github.com/loov/goda)
   - Go Dependency Analysis toolkit
 
-## 代码生成
+## 代码生成/Generator
 
 - [cmd/stringer/stringer.go](https://github.com/golang/tools/blob/master/cmd/stringer/stringer.go)
   - 为 int 枚举生成 String 方法
@@ -295,6 +299,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [mholt/json-to-go](https://github.com/mholt/json-to-go)
   - JSON -> Go Struct
   - [在线生成](https://mholt.github.io/json-to-go/)
+- [gzuidhof/tygo](https://github.com/gzuidhof/tygo)
+  - Go -> Typescript
 - 功能性
   - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
   - [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
@@ -461,6 +467,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - oathkeeper - 访问代理 - 注入授权信息
   - keto - 访问控制服务
   - fosite - Golang OAuth2 框架
+- [Permify/permify-gorm](https://github.com/Permify/permify-gorm)
 
 ## 扩展
 
@@ -498,6 +505,11 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   Obfuscate Go builds
 - [mjibson/sqlfmt](https://github.com/mjibson/sqlfmt)
 - [google/starlark-go](https://github.com/google/starlark-go)
+
+## Template
+
+- Sprig
+- [gliderlabs/sigil](https://github.com/gliderlabs/sigil)
 
 ## 有趣
 
@@ -539,6 +551,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ## Tool
 
+- [mgechev/revive](https://github.com/mgechev/revive)
+- golint
 - [jondot/goweight](https://github.com/jondot/goweight)
   - 分析 go 模块大小
 - [google/bloaty](https://github.com/google/bloaty)
@@ -561,6 +575,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [k0sproject/rig](https://github.com/k0sproject/rig)
   - [appleboy/easyssh-proxy](https://github.com/appleboy/easyssh-proxy)
   - [owenthereal/upterm](https://github.com/owenthereal/upterm)
+  - [gliderlabs/ssh](https://github.com/gliderlabs/ssh)
+    - SSH Server
 - shell
   - [google/shlex](https://github.com/google/shlex)
 

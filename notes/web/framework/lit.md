@@ -38,3 +38,24 @@ export class SimpleGreeting extends LitElement {
   <simple-greeting name="World"></simple-greeting>
 </body>
 ```
+
+## react
+
+- [@lit-labs/react](https://github.com/lit/lit/tree/main/packages/labs/react)
+  - createComponent - WebComponent -> React
+  - useController
+
+```js
+import * as React from 'react';
+import { createComponent } from '@lit-labs/react';
+import { MyElement } from './my-element.js';
+
+export const MyElementComponent = createComponent(React, 'my-element', MyElement, {
+  onactivate: 'activate',
+  onchange: 'change',
+});
+```
+
+```jsx
+<MyElementComponent active={isActive} onactivate={(e) => (isActive = e.active)} />
+```

@@ -1,5 +1,4 @@
 ---
-id: peg
 title: Parsing Expression Grammars
 sidebar_label: PEG
 ---
@@ -11,6 +10,7 @@ sidebar_label: PEG
 - [PhilippeSigaud/Pegged/wiki/Left-Recursion](https://github.com/PhilippeSigaud/Pegged/wiki/Left-Recursion)
 - Golang
   - [pointlander/peg](https://github.com/pointlander/peg)
+  - [zyedidia/gpeg](https://github.com/zyedidia/gpeg)
 - Java
   - [sirthias/parboiled](https://github.com/sirthias/parboiled) - Elegant parsing in Java and Scala - lightweight, easy-to-use, powerful.
 - JavaScript

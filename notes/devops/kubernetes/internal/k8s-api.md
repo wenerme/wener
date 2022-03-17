@@ -1,11 +1,10 @@
 ---
-id: k8s-api
 title: Kubernates 接口
 ---
 
 # Kubernates 接口
 
-- [定义文档](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/)
+- [定义文档](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/)
   - 包含了所有对象的字段说明和定义
 - 分类
   - Workloads are objects you use to manage and run your containers on the cluster.

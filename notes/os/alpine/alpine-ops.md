@@ -32,6 +32,14 @@ apk add bash-completion
 source /etc/profile.d/bash_completion.sh
 ```
 
+## 替换 apk 仓库镜像
+
+```bash
+echo "http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
+http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
+apk update
+```
+
 ## manpages
 
 - Alpine 默认不会安装 doc 和 man
@@ -509,7 +517,6 @@ http://scst.sourceforge.net/
 apk add open-iscsi
 
 ```
-
 
 ## stress
 

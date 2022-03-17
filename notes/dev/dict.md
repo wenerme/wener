@@ -498,3 +498,16 @@ tags:
     - 单次学习
   - research
     - 表示一组 study 的集合
+
+## inside vs insight vs internal
+
+- inside
+  - 位置
+  - 既有事实 - CPU 在 电脑 中
+  - 隐含主观动作 - 把 X 放到 Y 中
+- insight
+  - 思考
+- internal
+  - 描述 inside 这样的一个事实
+    - inside of something
+  - 描述事物联系 - 与 public 对立

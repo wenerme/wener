@@ -44,6 +44,29 @@ admin_password=admin
 disable_gravatar=false
 ```
 
+## Provision
+
+通过配置的方式提供预设配置，替代 ansible、operator 之类的工作。
+
+:::tip
+
+Grafana Provisioning 的配置能力比 [grafana-operator] 还强，支持关联组织。
+
+:::
+
+[grafana-operator]: https://github.com/grafana-operator/grafana-operator
+
+- 支持配置开通的资源
+  - 数据源
+  - 插件
+  - 面板
+  - Alert Notification Channels
+- 暂不支持开通组织 [#12119](https://github.com/grafana/grafana/issues/12119)
+- 企业版支持 Access Control Provisioning
+- $WORKING_DIR/conf/defaults.ini
+- $WORKING_DIR/conf/custom.ini
+- [Provisioning Grafana](http://docs.grafana.org/administration/provisioning)
+
 ## grafana-cli
 
 - https://grafana.com/docs/grafana/latest/administration/cli/

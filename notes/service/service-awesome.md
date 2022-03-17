@@ -76,6 +76,7 @@ tags:
   - [gotify/server](https://github.com/gotify/server)
   - [notifme/notifme-sdk](https://github.com/notifme/notifme-sdk)
   - [Nickersoft/push.js](https://github.com/Nickersoft/push.js)
+  - [projectdiscovery/notify](https://github.com/projectdiscovery/notify)
 - airtable - spreadsheet, no-code database
   - [rowyio/rowy](https://github.com/rowyio/rowy)
   - [nocodb/nocodb](https://github.com/nocodb/nocodb)

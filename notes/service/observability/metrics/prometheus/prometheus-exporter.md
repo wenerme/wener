@@ -15,13 +15,11 @@ title: Prometheus Exporter
 | [blackbox_exporter](https://github.com/prometheus/blackbox_exporter)     | 9115     |  检测 HTTP, HTTPS, DNS, TCP, ICMP.         |
 | [container-exporter](https://github.com/docker-infra/container_exporter) | 9104     |                                           | [Docker Dashboard](https://grafana.net/dashboards/179)                                                                                  |
 | [jmx_exporter](https://github.com/prometheus/jmx_exporter)               |
-| [mysqld-exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                           |
-| [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)         |
+| [mysqld_exporter](https://github.com/prometheus/mysqld_exporter)         | 9104     |                                           |
 | [nginx-lua-prometheus](https://github.com/knyar/nginx-lua-prometheus)    | n/a      |                                           | [Nginx Overview](https://grafana.net/dashboards/462)                                                                                    |
 | [node_exporter](https://github.com/prometheus/node_exporter)             | 9100     | 节点状态信息                              | [Node Exporter Server Metrics](https://grafana.net/dashboards/405)<br/>[Node exporter single server](https://grafana.net/dashboards/22) |
 | [postgres_exporter](https://github.com/wrouesnel/postgres_exporter)      | 9178     |
-| [redis-exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                           | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
-| [redis_exporter](https://github.com/oliver006/redis_exporter)            |
+| [redis_exporter](https://github.com/oliver006/redis_exporter)            | 9121     |                                           | [Prometheus Redis](https://grafana.net/dashboards/763)                                                                                  |
 | [snmp_exporter](https://github.com/prometheus/snmp_exporter)             | 9116     | http://localhost:9116/snmp?target=1.2.3.4 |
 | grafana                                                                  | 3000     |
 | prometheus                                                               | 9090     |

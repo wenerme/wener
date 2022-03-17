@@ -46,3 +46,7 @@ curl -LO https://github.com/golangci/golangci-lint/releases/download/v$VER/golan
 tar zxvf golangci-lint-$VER-darwin-amd64.tar.gz
 # curl -LO https://github.com/golangci/golangci-lint/releases/download/v1.32.2/golangci-lint-1.32.2-linux-amd64.tar.gz
 ```
+
+## revive
+
+- [mgechev/revive](https://github.com/mgechev/revive)

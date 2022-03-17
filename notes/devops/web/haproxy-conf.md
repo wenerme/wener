@@ -8,7 +8,22 @@ tags:
 
 ## acl
 
-| flag |
+- named acl
+  - `acl is_static path -i -m beg /static/`
+- in-line acl
+  - `use_backend be_static if { path -i -m beg /static/ }`
+  - if, unless
+- 多个条件默认为 and 关系
+  - `http-request deny if { path -i -m beg /api/ } { src 10.0.0.0/16 }`
+- 支持逻辑: || or && and !
+  - `http-request deny if { path -i -m beg /api/ } || !{ src 10.0.0.0/16 }`
+- fetch - 指匹配的来源信息
+  - 例如: src, path, hdr 等
+- converter - 转换
+  - 例如: lower, upper, base64, field, bytes, map
+- flag - fetch 操作支持通过 flag 修改行为
+
+| flag | for                                                                   |
 | ---- | --------------------------------------------------------------------- |
 | -i   | 忽略大小写，匹配后续所有                                              |
 | -f   | 匹配文件内 patterns                                                   |
@@ -17,6 +32,33 @@ tags:
 | -M   | load the file pointed by -f like a map file.                          |
 | -u   | force the unique id of the ACL                                        |
 | --   | force end of flags. Useful when a string looks like one of the flags. |
+
+- 匹配方法 - -m
+  - 部分 fetch 有变种 `path_beg` -> `path -m beg`
+
+| method | for                         |
+| ------ | --------------------------- |
+| str    | 完整匹配                    |
+| sub    | 包含                        |
+| end    | 开头                        |
+| beg    | 结尾                        |
+| reg    | 正则匹配 - **注意性能问题** |
+| found  | 存在                        |
+| len    | 长度匹配                    |
+
+```haproxy
+redirect scheme code 301 https if !{ ssl_fc }
+
+# 动态名字
+use_backend be_%[path,map_beg(/etc/haproxy/paths.map, mydefault)]
+```
+
+- `%[var()]`
+
+---
+
+- 参考
+  - [ebtree](http://wtarreau.blogspot.com/2011/12/elastic-binary-trees-ebtree.html)
 
 ## balance
 
@@ -236,3 +278,7 @@ backend s1
   mode tcp
   option tcplog
 ```
+
+## 参考
+
+- [HAProxy Documentation Converter](https://cbonte.github.io/haproxy-dconv/)

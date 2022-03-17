@@ -4,6 +4,13 @@ title: NATS JetStream
 
 # NATS JetStream
 
+:::tip
+
+- 持久化消息队列 - 对标 Kafka
+- 替代 STAN
+
+:::
+
 - [nats-io/jetstream](https://github.com/nats-io/jetstream)
 - 特性
   - At-least-once delivery; exactly once within a window
@@ -169,6 +176,33 @@ jetstream {
   "duplicate_window": 120000000000
 }
 ```
+
+## Notes
+
+**Stream 属性**
+
+| attr         | default      | mean                                                   |
+| ------------ | ------------ | ------------------------------------------------------ |
+| Name         |              |
+| Storage      |              |
+| Subjects     |              | 消费的主题 - 支持通配符                                |
+| Replicas     |              | 集群副本 - 最多 5                                      |
+| MaxAge       |              | 消息留存时间                                           |
+| MaxBytes     |              | 消息数据量                                             |
+| MaxMsgs      |              | 消息数量                                               |
+| MaxMsgSize   |              |
+| MaxConsumers |              |
+| NoAck        |              | 禁用 ACK                                               |
+| Rentention   | LimitsPolicy | 留存策略 - LimitsPolicy,InterestPolicy,WorkQueuePolicy |
+| Discard      | DiscardOld   | 丢弃策略 - DiscardNew,DiscardOld                       |
+| Duplicates   |              | 去重时间窗口                                           |
+| Sealed       |
+| DenyDelete   |
+| DenyPurge    |
+| AllowRollup  |
+
+- 去重
+  - 基于 Nats-Msg-Id
 
 ## KV
 

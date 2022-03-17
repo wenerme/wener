@@ -6,7 +6,28 @@ tags:
 
 # Dev FAQ
 
-## health vs healthz
+## Framework vs. Library
+
+- Framework
+  - 框架 - 蓝图 - 结构 - 按照给定的方式达成目标
+  - 不易替换 - 替换等于是新的结构
+    - React -> Angular
+- Library
+  - 库 - 工具 - 辅助辅助完成目标
+  - 可替代
+    - React -> Preact
+
+## Private Cloud vs. On-Premise
+
+- Private Cloud
+  - 基础设施
+  - 强调物理设施本地化
+- On-Premise
+  - 服务、软件
+  - 强调服务功能本地化
+  - 公有云上也可以 On-Premise
+
+## health vs. healthz
 
 - 类似的 readyz, varz, statusz, rpcz, livez
 - 来自于谷歌内部实践 - z-pages
@@ -22,7 +43,7 @@ tags:
 
 个人简单理解，Edge 就是 DataCenter 的反义词。
 
-----
+---
 
 - 早期计算：集中式应用程序，仅在一台孤立的计算机上运行
 - 个人计算：本地运行的去中心化应用程序
@@ -32,7 +53,6 @@ tags:
 ---
 
 - https://www.cloudflare.com/zh-cn/learning/serverless/glossary/what-is-edge-computing/
-
 
 ## API URL
 

@@ -11,6 +11,8 @@ tags:
 - [shellinabox/shellinabox](https://github.com/shellinabox/shellinabox)
 - awk
   - Awk: The Power and Promise of a 40-Year-Old Language [HN](https://news.ycombinator.com/item?id=28441887)
+  - [benhoyt/prig](https://github.com/benhoyt/prig)
+    - Prig is for Processing Records In Go. Like AWK
 - temporary privilege escalation tool
   - [sudo](https://github.com/sudo-project/sudo)
   - doas
@@ -19,7 +21,6 @@ tags:
   - runas
 - [bats-core/bats-core](https://github.com/bats-core/bats-core)
   - Bash Automated Testing System
-- [junegunn/fzf](https://github.com/junegunn/fzf)
 
 ## Shell
 
@@ -32,9 +33,19 @@ tags:
 - [tmate-io/tmate](https://github.com/tmate-io/tmate)
   - web terminal
 
-## Tools
+## Utils
 
 - [muesli/duf](https://github.com/muesli/duf)
   - a better df
 - [wader/fq](https://github.com/wader/fq)
   - jq for binary formats
+- [junegunn/fzf](https://github.com/junegunn/fzf)
+  - fuzzy finder
+- [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
+
+## Editor
+
+- nano
+- vim
+- [zyedidia/micro](https://github.com/zyedidia/micro)
+- joe

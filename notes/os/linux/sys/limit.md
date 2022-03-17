@@ -7,6 +7,12 @@ title: limit
 - /etc/security/limits.conf - 全局配置
 - /etc/security/limits.d/ - 通常用于配置单个进程
 
+:::tip
+
+- open files 默认 1024/4096 - 对于服务端应用来说太小了
+
+:::
+
 ```bash
 # 其他进程的 limits
 cat /proc/1/limits

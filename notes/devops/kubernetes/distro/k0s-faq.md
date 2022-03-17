@@ -18,6 +18,18 @@ tags:
   - 依赖 cri - 默认你 containerd+runc
   - 调度工作负载
 
+## konnectivity-server.sock: socket: too many open files
+
+检查 ulimit
+
+```bash
+cat /proc/$(pidof konnectivity-server)/limits
+# 当前打开文件数
+ls /proc/$(pidof konnectivity-server)/fd | wc -l
+```
+
+## cgroups: cgroup deleted: unknown
+
 ## Failed to run kubelet failed to run Kubelet: mountpoint for cpu not found
 
 ```bash

@@ -30,6 +30,9 @@ tags:
   - TypeScript + Borrow Checker
 - [mustafaquraish/cup](https://github.com/mustafaquraish/cup)
   - simple C-like programming language
+- tinygo
+- [benhoyt/mugo](https://github.com/benhoyt/mugo)
+  - a toy compiler for a subset of Go that can compile itself
 
 ## AST
 

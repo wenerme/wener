@@ -102,6 +102,9 @@ tags:
   - [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
     - Apache-2.0, Go
     - Streaming replication for SQLite
+  - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
+    - Query sqlite via http
+    - [HN](https://news.ycombinator.com/item?id=30636796)
   - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
 
 ## ID

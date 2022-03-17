@@ -3,6 +3,8 @@ title: 私有虚拟网络常见问题
 keywords:
   - VPN FAQ
   - VPN 常见问题
+tags:
+  - FAQ
 ---
 
 # 私有虚拟网络常见问题
@@ -38,6 +40,36 @@ keywords:
 - HTTPS
   - 使用少
   - HTTP + TLS
+
+## Why Tinc
+
+**Why Tinc**
+
+1. 去中心化
+1. 全 Mesh 网络
+1. 支持 L2 和 L3 模式
+1. 支持 Relay
+1. 支持 VIP - 多个节点相同 IP
+1. 不依赖外部服务 - self contained
+
+:::tip
+
+- 适用于基础设施
+
+:::
+
+**Why Not Tinc**
+
+1. 无中心化认证
+   - 可以从任意一个节点加入 - 一个节点被入侵可导致别的节点加入网络
+   - 移除节点需要整个网络调整
+1. 一次只能组成一个网络
+   - 不能提供类似 SaaS 能力
+   - 每个网络需要独立 tinc 进程
+1. 没有内置 IPAM
+   - L2 可以使用 dhcpd
+   - L3 只能自己自己分配
+1. 单线程
 
 ## Tinc vs ZeroTier vs Wireguard vs IPSec vs SoftEther
 

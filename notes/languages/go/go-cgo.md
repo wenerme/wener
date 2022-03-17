@@ -10,6 +10,7 @@ title: CGO
     - dlopen, dlclose, dlerror, dlsym
     - ffi 汇编, 支持 386 和 amd64
   - [rainycape/dl](https://github.com/rainycape/dl) - dlopen / dlsym
+  - [Isolating problematic Cgo code](https://jonwillia.ms/2022/03/09/isolating-problematic-cgo-code)
 - 参考
   - [golang/go#18296](https://github.com/golang/go/issues/18296) - runtime: dlopen/dlsym without CGo
   - [类型转换](https://gist.github.com/zchee/b9c99695463d8902cd33)
@@ -41,6 +42,7 @@ title: CGO
 - https://pkg.go.dev/cmd/cgo
 
 **Go**
+
 ```go
 type InteropFunctions interface {
 	// CString malloc - 调用者 C.free
@@ -150,10 +152,13 @@ package dlopen
     - 不提供 database/sql driver
     - fork crawshaw/sqlite
   - [crawshaw/sqlite](https://github.com/crawshaw/sqlite)
-    -  low-level Go interface to SQLite 3
+    - low-level Go interface to SQLite 3
     - [Go and SQLite: when database/sql chafes](https://crawshaw.io/blog/go-and-sqlite)
   - [cznic/sqlite](https://gitlab.com/cznic/sqlite)
     - CGo-free port of SQLite/SQLite3 v3.37.0
+    - C to Go
+    - [glebarez/go-sqlite](https://github.com/glebarez/go-sqlite)
+      - driver
   - [alicebob/sqlittle](https://github.com/alicebob/sqlittle)
     - 直接读取文件 - 不支持 SQL
     - 只读

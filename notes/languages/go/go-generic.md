@@ -32,6 +32,8 @@ title: 泛型
 
 ## new(T)
 
+> 目前该方法无法使用 https://stackoverflow.com/questions/71440697
+
 - 直接限定不方便传参数，因为 struct 不一定实现 interface, `*struct` 才实现 interface
 
 ```go title="正确做法"
@@ -137,4 +139,4 @@ func(a A[T])Name(){
 }
 ```
 
-- proposal: spec: generics: type switch on parametric types  [#45380](https://github.com/golang/go/issues/45380)
+- proposal: spec: generics: type switch on parametric types [#45380](https://github.com/golang/go/issues/45380)

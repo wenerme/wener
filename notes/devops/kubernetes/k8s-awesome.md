@@ -205,6 +205,7 @@ tags:
 - 有趣
   - [loft-sh/vcluster](https://github.com/loft-sh/vcluster)
     - 虚拟集群 - 映射集群到 namespace
+  - [COSI](https://github.com/kubernetes-sigs/container-object-storage-interface-spec)
 - 正常发行版
   - [scality/metalk8s](https://github.com/scality/metalk8s)
     - focus on long-term on-prem
@@ -243,10 +244,20 @@ tags:
 
 ## Operator
 
-- [grafana-operator/grafana-operator](https://github.com/grafana-operator/grafana-operator)
-- [VictoriaMetrics/operator](https://github.com/VictoriaMetrics/operator)
-- [jaegertracing/jaeger-operator](https://github.com/jaegertracing/jaeger-operator)
-- [prometheus-operator/prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)
+- Service
+  - [grafana-operator/grafana-operator](https://github.com/grafana-operator/grafana-operator)
+    - Grafana,GrafanaDashboard,GrafanaDataSource,GrafanaNotificationChannel
+  - [keycloak/keycloak-operator](https://github.com/keycloak/keycloak-operator)
+    - Keycloak,KeycloakRealm,KeycloakUser,KeycloakClient
+  - [minio/operator](https://github.com/minio/operator)
+    - [API](https://github.com/minio/operator/blob/master/docs/crd.adoc)
+- Infra
+  - [nats-io/nats-operator](https://github.com/nats-io/nats-operator)
+    - 不推荐使用
+  - [VictoriaMetrics/operator](https://github.com/VictoriaMetrics/operator)
+  - [jaegertracing/jaeger-operator](https://github.com/jaegertracing/jaeger-operator)
+  - [prometheus-operator/prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)
+  - [strimzi/strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
 - PostgreSQL
   - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
@@ -255,7 +266,6 @@ tags:
     - Apache-2.0, Go
   - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
 - [openshift/elasticsearch-operator](https://github.com/openshift/elasticsearch-operator)
-- [strimzi/strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
 - [operator-framework/operator-lifecycle-manager](https://github.com/operator-framework/operator-lifecycle-manager)
 - [Opster/opensearch-k8s-operator](https://github.com/Opster/opensearch-k8s-operator)
 - https://operatorhub.io/
@@ -290,7 +300,7 @@ tags:
 - [reflector](https://github.com/emberstack/kubernetes-reflector)
   - C#, MIT
 
-## 应用
+## 应用/Application
 
 - [oam-dev/spec](https://github.com/oam-dev/spec)
   Open Application Model
@@ -298,7 +308,7 @@ tags:
 - [openkruise/kruise](https://github.com/openkruise/kruise)
   Automate application management
 
-## 开发
+## 开发/Dev
 
 - [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
 - [solo-io/squash](https://github.com/solo-io/squash)
@@ -309,7 +319,12 @@ tags:
   Multi-Cloud Integrated Platform
 - [metacontroller/metacontroller](https://github.com/metacontroller/metacontroller)
 
-## 运维
+## Build
+
+- [pivotal/kpack](https://github.com/pivotal/kpack)
+  - Kubernetes Native Container Build Service
+
+## 运维/Ops
 
 - [robusta-dev/robusta](https://github.com/robusta-dev/robusta)
 

@@ -1,18 +1,26 @@
 ---
 title: React Version
+tags:
+  - Version
 ---
 
 # React Version
 
+| ver                      | date       |
+| ------------------------ | ---------- |
+| [React 18](#react-18)    |
+| [React 17](#react-17)    | 2020-10-20 |
+| [React 16.8](#react-168) | 2019-02-06 |
+
+:::tip Roadmap
+
+- 支持自定义元素属性 - [#11347](https://github.com/facebook/react/issues/11347)
+
+:::
+
 - [create-element-changes.md](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md)
 
-| ver  | date       |
-| ---- | ---------- |
-| 18   |
-| 17   | 2020-10-20 |
-| 16.8 | 2019-02-06 |
-
-## 18
+## React 18
 
 - automatic batching
 - concurrent feature
@@ -57,7 +65,7 @@ const MyInputs = () => {
 };
 ```
 
-## 17
+## React 17
 
 - 内部结构变化，为下一个版本做准备 - 无功能变化
 - children 处理有变化 - 总是作为 props 传递
@@ -96,7 +104,7 @@ function App() {
 - React DOM
   - `ReactDOM.render(<App />, rootNode)` 会在 rootNode 监听事件 - 之前是 document 上监听
 
-## 16.8
+## React 16.8
 
 - 新增 Functional Component
 - 新增 Hooks

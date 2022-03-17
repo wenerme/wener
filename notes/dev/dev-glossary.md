@@ -21,4 +21,18 @@ tags:
 | RIIR  | Rewrite It In Rust      |
 | DORA  | DevOps research program |
 
+| abbr. | stand for              | cn         |
+| ----- | ---------------------- | ---------- |
+|       | Private Cloud          | 私有云     |
+|       | Public Cloud           | 公有云     |
+|       | cloud computing        | 云计算     |
+|       | [On-premises Software] | 本地软件   |
+| SaaS  | Software as a Service  | 软件即服务 |
+
+- off-premises -> SaaS
+- on-premises - server-based software
+  - 按需、本地化、面向服务
+  - SaaS 反向操作
 - futureproofing - 确保不会过时
+
+[on-premises software]: https://en.wikipedia.org/wiki/On-premises_software

@@ -60,6 +60,18 @@ tags:
 
 - [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)
 
+## Scan
+
+- [projectdiscovery](https://github.com/projectdiscovery)
+  - [nuclei](https://github.com/projectdiscovery/nuclei)
+    - vulnerability scanner
+    - [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates)
+  - [subfinder](https://github.com/projectdiscovery/subfinder)
+    - subdomain discovery
+  - [interactsh](https://github.com/projectdiscovery/interactsh)
+  - [naabu](https://github.com/projectdiscovery/naabu)
+    - port scanner
+
 ## 参考
 
 - [Reverse Engineering Crypto Functions: AES](https://www.goggleheadedhacker.com/blog/post/reversing-crypto-functions-aes)

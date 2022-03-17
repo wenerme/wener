@@ -19,13 +19,44 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 ```
 
-| version      | date |
-| ------------ | ---- |
+| version      | date       |
+| ------------ | ---------- |
+| [ArgoCD 2.3] | 2022-03-06 |
 | [ArgoCD 2.2] |
 | [ArgoCD 2.1] |
 
-[argocd 2.2]: #argocd-2-2
-[argocd 2.1]: #argocd-2-1
+[argocd 2.3]: #argocd-23
+[argocd 2.2]: #argocd-22
+[argocd 2.1]: #argocd-21
+
+## ArgoCD 2.3
+
+- 内置 ApplicationSet & Notifications
+- 新增 RespectIgnoreDifferences
+  - 同步时不会修改忽略字段
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  #...
+spec:
+  #...
+  ignoreDifferences:
+    - group: 'apps'
+      kind: 'Deployment'
+      jsonPointers:
+        - /spec/replicas
+    - group: "*"
+      kind: "*"
+      # 可以通过 managedFieldsManagers 告诉 argocd 需要忽略的内容
+      # 用于组件/插件集成
+      managedFieldsManagers:
+      - rollouts-controller
+  syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
+```
 
 ## ArgoCD 2.2
 
@@ -78,7 +109,7 @@ spec:
   init:
     command: [cdk8s, init]
   generate:
-    command: [sh, -c, "cdk8s synth && cat dist/*.yaml"]
+    command: [sh, -c, 'cdk8s synth && cat dist/*.yaml']
   discovery:
     fileName: main.ts
 ```

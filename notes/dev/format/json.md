@@ -13,6 +13,7 @@ title: JSON
 - [json-schema](http://json-schema.org/)
 - [jsonschema2pojo](http://www.jsonschema2pojo.org/)
   - Json Schema 生成 Pojo
+- [app.quicktype.io](https://app.quicktype.io)
 
 ## Patch
 

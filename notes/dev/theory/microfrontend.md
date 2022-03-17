@@ -1,5 +1,7 @@
 ---
 title: 微前端
+tags:
+  - Web
 ---
 
 # 微前端
@@ -14,7 +16,18 @@ title: 微前端
   - SSR 支持 - 按照路由切分是可能的
 - 反应 microservice 概念 - isolation
 - 参考
+  - Web Component
+  - [micro-frontends.org](https://micro-frontends.org)
+    - 核心思想
+      - 技术不可知
+      - 隔离团队之间的代码
+        - 不要共享运行时环境
+      - 建立团队自己的前缀
+      - 原生浏览器标准优先于框架封装的 API
+      - 构建高可用的网络应用
   - single-spa [Recommended Setup](https://single-spa.js.org/docs/recommended-setup/)
+  - qiankun
+    - 基于 single-spa
 
 :::info 考虑的问题点
 

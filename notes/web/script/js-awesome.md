@@ -6,10 +6,10 @@ tags:
 
 # JavaScript Awesome
 
-- [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [novnc/noVNC](https://github.com/novnc/noVNC)
 - [felixrieseberg/macintosh.js](https://github.com/felixrieseberg/macintosh.js)
 - [RobinCsl/awesome-js-tooling-not-in-js](https://github.com/RobinCsl/awesome-js-tooling-not-in-js)
+- [sorrycc/awesome-javascript](https://github.com/sorrycc/awesome-javascript)
 
 ## Framework
 
@@ -245,7 +245,7 @@ depp
 
 ## Engine
 
-
+- [bellard/quickjs](https://github.com/bellard/quickjs)
 - [saghul/txiki.js](https://github.com/saghul/txiki.js)
   - QuickJS + libuv
 - [just-js/just](https://github.com/just-js/just)
@@ -258,3 +258,8 @@ depp
   - JavaScript engine optimized for React Native
 - IoT
   - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
+  - [espruino/Espruino](https://github.com/espruino/Espruino)
+
+---
+
+- [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)

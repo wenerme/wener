@@ -131,9 +131,33 @@ snapshotter = "zfs"
   - cgroups
 - tmpmounts
 
-## 映射常用仓库为私有
+# FAQ
+
+## 映射常用仓库为镜像仓库
+
+- 镜像仓库可直接同步上游 - 例如 harbor 可指定 prpject 同步上游
+- docker.io 可使用现有的服务
+- 其他 仓库 没有现有的镜像服务
+  - harbor 子域名映射需要特殊配置
+- 假设: harbor 地址 cr.example.com, 添加项目 quay 镜像 quay.io
+  - 需要配置域名映射 quay.cr.example.com 到 cr.example.com/quay
+  - 配置方式参考 [#13579](https://github.com/goharbor/harbor/issues/13579)
+
+```toml
+# 现有容器仓库
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+endpoint = ["https://fogjl973.mirror.aliyuncs.com", "https://8x40wsit.mirror.aliyuncs.com", "https://docker.mirrors.ustc.edu.cn", "https://registry-1.docker.io"]
+
+# harbor 子域名映射
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."quay.io"]
+endpoint = ["https://quay.cr.example.com"]
+```
+
+## 映射常用仓库为单个私有仓库
 
 - 假设仓库为 https://registry:5000
+- 将常用仓库映射为单个内部仓库 - 用于 **airgap** 场景
+  - 因为拉取不存在的镜像不能从上游同步，只能拉预先导入的镜像
 
 :::tip
 
@@ -143,7 +167,7 @@ containerd 不支持 reload 配置，所以需要提前配置好。
 
 ```ini
 # 重定向所有到私有 registry
-# 常见: docker.io, gcr.io, k8s.gcr.io, quay.io, ghr.io
+# 常见: docker.io, gcr.io, k8s.gcr.io, quay.io, ghcr.io
 [plugins."io.containerd.grpc.v1.cri".registry.mirrors."*"]
 endpoint = ["https://registry:5000"]
 
@@ -154,6 +178,8 @@ insecure_skip_verify = true
 [plugins."io.containerd.grpc.v1.cri".registry.configs."k8s.gcr.io".tls]
 insecure_skip_verify = true
 [plugins."io.containerd.grpc.v1.cri".registry.configs."quay.io".tls]
+insecure_skip_verify = true
+[plugins."io.containerd.grpc.v1.cri".registry.configs."ghcr.io".tls]
 insecure_skip_verify = true
 ```
 

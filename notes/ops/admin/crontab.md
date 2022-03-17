@@ -4,10 +4,10 @@ title: crontab
 
 # crontab
 
-## Tips
-
 - [crontab.guru](https://crontab.guru)
   - 时间编辑器
+- [Cron best practices](https://blog.sanctum.geek.nz/cron-best-practices/)
+  - [HN](https://news.ycombinator.com/item?id=30636872)
 
 ```bash
 # 推荐使用一个自己的 crontab 文件, 这样便于管理

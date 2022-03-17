@@ -47,6 +47,7 @@ tags:
 
 ## Webview
 
+- [wailsapp/wails](https://github.com/wailsapp/wails)
 - [webview/webview](https://github.com/webview/webview) - 基于本地浏览器
   - 依赖 DLL
     - [#366](https://github.com/webview/webview/issues/366) - Embed DLLs?
@@ -55,7 +56,6 @@ tags:
 - [sciter-sdk/go-sciter](https://github.com/sciter-sdk/go-sciter)
   - 嵌入式 HTML/CSS/Script 引擎 - 不依赖浏览器
   - 目前只允许动态链接 - 8-15 MB
-- [wailsapp/wails](https://github.com/wailsapp/wails)
 
 ## Windows
 

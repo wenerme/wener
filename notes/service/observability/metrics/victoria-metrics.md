@@ -18,7 +18,8 @@ title: VictoriaMetrics
 - http://victoriametrics:8428/api/v1/write
 - 存储设计参考 ClickHouse
 - 参考
-  - grafana vmcluster dashboard [11176](https://grafana.com/grafana/dashboards/)
+  - grafana dashboard vmcluster [11176](https://grafana.com/grafana/dashboards/11176)
+  - grafana dashboard vmsingle [10229](https://grafana.com/grafana/dashboards/10229)
 
 | port | for              |
 | ---- | ---------------- |
@@ -34,6 +35,8 @@ title: VictoriaMetrics
 - 不支持下 采样
 - 单节点不支持多租户
 - 不支持 remote_read
+- histogram_quantile 有问题
+  - [#678](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/678)
 
 :::
 
@@ -158,6 +161,17 @@ vmctl prometheus --prom-snapshot thanos-data --vm-addr http://victoria-metrics:8
 
 ## vmagent
 
+- maxBlockSize
+- maxDiskUsagePerURL=1073741824 - 1G
+- queues
+- showURL
+- tmpDataPath
+  - 为确保数据持久化，建议映射存储
+    - /tmp/vmagent-remotewrite-data
+- flushInterval=1s
+- label
+  - 额外 Label
+
 ## Lens
 
 - vmcluster
@@ -166,3 +180,7 @@ vmctl prometheus --prom-snapshot thanos-data --vm-addr http://victoria-metrics:8
 - vmsingle
   - Helm
   - monitoring-system/vmsingle-victoria-metrics-stack:8429/prometheus
+
+## cannot handle more than 4 concurrent inserts during 1m0s
+
+尝试增加 vmstorage 资源，检查 vmstorage 状态。

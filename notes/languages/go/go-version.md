@@ -39,6 +39,20 @@ tags:
 - [generic](./go-generic)
   - 支持类型参数
   - stdlib 这个版本不变
+  - constraints -> golang.org/x/exp/constraints
+    - 暂时还有异议，不添加到 std
+  - golang.org/x/exp/slices
+  - golang.org/x/exp/maps
+  - 限制 - 可能 Go 1.19 移除
+    - 不支持方法或函数内定义 范型
+    - 不支持 real, imag, complex
+    - 不支持 struct field
+    - type alias 不允许 范型
+  - 限制
+    - 不允许内嵌 类型参数、指针 到 类型参数 作为匿名字段
+      - `func Forbit[M any, PT interface {*M}]()`
+      - https://stackoverflow.com/questions/71440697
+    - union element with more than one term may not contain an interface type with a non-empty method set
   - [why use bracket](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#why-not-use)
 - 新增 workspace 工作模式 - [Proposal: Multi-Module Workspaces in cmd/go](https://go.googlesource.com/proposal/+/master/design/45713-workspace.md)
   - 新增 go.work 配置文件 - -workfile
@@ -46,7 +60,6 @@ tags:
   - 新增 GOWORK 环境变量
 - 新增 fuzzing 测试 - https://go.dev/doc/fuzz/
 - 新包
-  - constraints
   - debug/buildinfo - 内置 VCS 版本信息 -
     - 新增 GOVCS 环境变量
     - 减少使用 -X 场景

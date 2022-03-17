@@ -1,5 +1,4 @@
 ---
-id: internal
 title: Kubernetes Internal
 ---
 

@@ -20,6 +20,9 @@ title: deno
 - deno 不支持 AlpineLinux, CentOS 7
   - Release centos7 compatible binaries [#1658](https://github.com/denoland/deno/issues/1658)
   - Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)
+- deno 不支持 gRPC
+  - grpc-node 也无法兼容 Deno - 因为 Deno HTTP2 缺少 trailing headers   [grpc-node#1791](https://github.com/grpc/grpc-node/issues/1791#issuecomment-911984475)
+
 
 :::
 

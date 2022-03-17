@@ -6,44 +6,61 @@ tags:
 
 # Nats Version
 
-- https://github.com/nats-io/nats-server/releases
-- https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
-
 :::caution
 
 - nats.go 最好匹配服务端版本
 
 :::
 
-| ver | date       | nats.go |
-| --- | ---------- | ------- |
-| 2.7 | 2021-09-22 |         |
-| 2.6 | 2021-09-22 | v1.13   |
-| 2.5 | 2021-09-10 | v1.12.1 |
-| 2.4 | 2021-08-27 | v1.12.0 |
-| 2.3 | 2021-06-24 | v1.11.0 |
-| 2.2 | 2021-03-15 | v1.10.0 |
-| 2.1 | 2019-09-21 |         |
-| 2.0 | 2019-05-05 |         |
+| ver                  | date       | nats.go |
+| -------------------- | ---------- | ------- |
+| [Nats 2.7](#nats-27) | 2021-09-22 |         |
+| [Nats 2.6](#nats-26) | 2021-09-22 | v1.13   |
+| [Nats 2.5](#nats-25) | 2021-09-10 | v1.12.1 |
+| [Nats 2.4](#nats-24) | 2021-08-27 | v1.12.0 |
+| [Nats 2.3](#nats-23) | 2021-06-24 | v1.11.0 |
+| [Nats 2.2](#nats-22) | 2021-03-15 | v1.10.0 |
+| [Nats 2.1](#nats-21) | 2019-09-21 |         |
+| [Nats 2.0](#nats-20) | 2019-05-05 |         |
 
-## 2.7
+:::tip
 
-- JetStream based KV & Object Store
+- JetStream based Key-Value Stores - [ADR-8](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-8.md)
   - KV: 支持历史记录，支持限定大小，Watch
   - Object Store: 支持 Chunks，Watch
-  - https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-8.md
 
-## 2.6
+:::
+
+- https://github.com/nats-io/nats-server/releases
+- https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
+
+## Nats 2.7
+
+
+- JetStream
+  - 新增配置 max_file_store, max_memory_store
+  - 支持客户端 临时 Pull 消费
+- MQTT
+  - 支持 WebSocket - /mqtt
+- 新增配置: max_connections, max_subscriptions, max_payload, max_leafnodes
+
+:::note
+
+- JetStream LeafNode domains [#2693](https://github.com/nats-io/nats-server/pull/2693#issuecomment-996212582)
+
+:::
+
+## Nats 2.6
 
 - JetStream's reserved memory and memory used
   - /jsz, /varz
 
-## 2.5
+## Nats 2.5
 
 - MQTT/Monitoring
   - /connz
 
-## 2.4
+## Nats 2.4
 
 - JetStream
   - Push Consumer 行为发生变化 - **客户端和服务端都需要升级**
@@ -54,7 +71,7 @@ tags:
   - ConsumerInfo.PushBound 表示已经绑定 push 关系
 - [v2.4.0](https://github.com/nats-io/nats-server/releases/tag/v2.4.0)
 
-## 2.3
+## Nats 2.3
 
 - OCSP - Online Certificate Status Protocol
 - JetStream
@@ -78,7 +95,7 @@ ocsp {
 }
 ```
 
-## 2.2
+## Nats 2.2
 
 - 新增 JetStream
 - 支持 MQTT 3.1.1
@@ -95,12 +112,12 @@ ocsp {
   - /leafz
 - JWT
 
-## 2.1
+## Nats 2.1
 
 - add rtt /routez
 - /leafz
 
-## 2.0
+## Nats 2.0
 
 - NKey
 - Accounts

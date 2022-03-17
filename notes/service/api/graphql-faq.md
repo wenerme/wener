@@ -1,5 +1,7 @@
 ---
 title: GraphQL FAQ
+tags:
+  - FAQ
 ---
 
 # GraphQL FAQ

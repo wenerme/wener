@@ -55,6 +55,10 @@ tags:
 - LDAP/GSSAPI
 - Kerberos
   - not use public key crypto
+- [supertokens/supertokens-core](https://github.com/supertokens/supertokens-core)
+  - Apache-2.0, Java
+- [goauthentik/authentik](https://github.com/goauthentik/authentik)
+  - GPL-3.0, Python
 
 ## Reference
 

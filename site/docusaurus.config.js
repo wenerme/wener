@@ -60,7 +60,8 @@ module.exports = {
   ],
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ {
     prism: {
-      additionalLanguages: ['nginx', 'php', 'java'],
+      // https://prismjs.com/#supported-languages
+      additionalLanguages: ['nginx', 'php', 'java', 'toml', 'ini'],
     },
     hideableSidebar: true,
     googleAnalytics: {

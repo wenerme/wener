@@ -15,8 +15,20 @@ title: ESM
 :::caution
 
 - react 没有 esm
+  - `import React from "https://esm.sh/react@17"`
+- electron 不支持 esm [#21457](https://github.com/electron/electron/issues/21457)
 
 :::
+
+:::tip
+
+- Node 支持 HTTPS impor
+  - --experimental-loader [nodejs/node#36328](https://github.com/nodejs/node/pull/36328)
+- NextJS 支持 - [URL Imports](https://nextjs.org/docs/api-reference/next.config.js/url-imports)
+
+:::
+
+- [Pure ESM package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
 
 ## import map
 
@@ -105,19 +117,20 @@ title: ESM
 | cdn      | import                            | github           | cjs -> esm |
 | -------- | --------------------------------- | ---------------- | ---------- |
 | Skypack  | https://cdn.skypack.dev/          |                  | ✅         |
-| [esm.sh] | https://esm.sh/                   | [alephjs/esm.sh] | ✅         |
+| [esm.sh] | https://esm.sh/                   | [esm-dev/esm.sh] | ✅         |
 | jsDelivr | https://cdn.jsdelivr.net/npm/     |                  | ❌         |
 | JSPM     | https://ga.jspm.io/npm:pkg@x.y.z/ | [jspm/project]   | ❌         |
 | unpkg    | https://unpkg.com/${PKG}?module   | [mjackson/unpkg] | ❌         |
 
 [esm.sh]: https://esm.sh/
-[alephjs/esm.sh]: https://github.com/alephjs/esm.sh
+[esm-dev/esm.sh]: https://github.com/esm-dev/esm.sh
 [jspm/project]: https://github.com/jspm/project
 [mjackson/unpkg]: https://github.com/mjackson/unpkg
 
 - JSPM
   - **支持 systemjs**
-- https://esm.run/react -> https://cdn.jsdelivr.net/npm/react/+esm
+- jsdelivr 提供 esm.run 别名
+  - https://esm.run/react -> https://cdn.jsdelivr.net/npm/react/+esm
 
 ### CDN Test
 

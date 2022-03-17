@@ -72,7 +72,7 @@ type Exchange = ExchangeInput => ExchangeIO;
 
 ## @urql/exchange-graphcache
 
-- Normalized Caching -  范化缓存
+- Normalized Caching - 泛化缓存
   - 缓存 key 为 `__typename:id`
   - 会缓存字段和关系
   - 可根据类型自定义缓存 key

@@ -51,6 +51,7 @@ kubectl label node master-1 topology.kubernetes.io/zone=sh-dc1
 | StorageClass        | storageclass.kubernetes.io/is-default-class     | true  | 默认 StorageClass              |
 | VolumeSnapshotClass | snapshot.storage.kubernetes.io/is-default-class | true  |
 | Ingress             | kubernetes.io/ingress.class                     | nginx | **废弃**,spec.ingressClassName |
+| IngressClass        | ingressclass.kubernetes.io/is-default-class     | true  |
 
 | kind      | label                       | demo        | desc             |
 | --------- | --------------------------- | ----------- | ---------------- |

@@ -173,6 +173,7 @@ tags:
 
 ## Tool
 
+- [google/gnostic](https://github.com/google/gnostic)
 - [Kong/insomnia](https://github.com/Kong/insomnia)
 - [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 

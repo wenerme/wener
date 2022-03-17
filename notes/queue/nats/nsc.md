@@ -6,11 +6,17 @@ title: nsc
 
 - [nats-io/nsc](https://github.com/nats-io/nsc)
   - tool for creating nkey/jwt based configurations
+- 参考
+  - [nsc](https://nats-io.github.io/nsc) manual
 
 ```bash
-# 可直接下载 https://github.com/nats-io/nsc/releases
-# 可 docker 启动使用
+# Docker
 docker run --rm -it -v $(pwd)/nsc:/nsc synadia/nats-box:latest
+# 可直接下载 https://github.com/nats-io/nsc/releases
+
+# Download
+curl -LO https://ghproxy.com/https://github.com/nats-io/nsc/releases/download/2.6.1/nsc-darwin-amd64.zip
+unzip nsc-darwin-amd64.zip
 
 # 环境配置
 nsc env

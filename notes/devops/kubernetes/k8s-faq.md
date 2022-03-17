@@ -165,12 +165,18 @@ cat /proc/cmdline | grep cgroup_enable
 kubectl get -o=yaml deploy whoami | yq d - status | yq d - 'metadata.managedFields'
 ```
 
-## 删除卡在 Terminating 状态
+## 删除卡在 Terminating 状态的资源
 
-资源删不掉尝试移除 finalizers。
+- 删除 Pod 可尝试强制
+- 资源删不掉尝试移除 finalizers。
 
 ```bash
-# 例如 NS
+# 强制删除 Pod
+kubectl delete pods <pod> --grace-period=0 --force
+# 尝试移除 Pod 的 finalizers
+kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'
+
+# 查看所有的 Terminating Namespace
 kubectl get ns --field-selector status.phase=Terminating
 
 # 所有 NS

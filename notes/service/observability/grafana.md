@@ -24,8 +24,6 @@ title: Grafana
   - 面板热门排序
   - 查找未使用面板
   - 企业插件 - Oracle、Splunk、Service Now、Dynatrace、DataDog、AppDynamics
-- 注意
-  - Value Mapping 不支持文本匹配
 
 :::caution
 
@@ -36,6 +34,7 @@ title: Grafana
 - 无法隐藏 Table 的 Filter for value [#11170](https://github.com/grafana/grafana/issues/11170)
 - OAuth 无法关联 org
 - LDAP 可能是唯一多租户登陆方便的方式 - 或者每个租户部署一个
+- Dashboard Value Mapping 不支持文本匹配
 
 :::
 

@@ -100,6 +100,7 @@ parameters:
   # 不设置默认 ext4
   fstype: 'zfs'
   # 允许多次挂载
+  # Deployment 可以不用 Recreate 策略
   shared: 'yes'
   # yes - 即便 zpool 空间不够也会提供 pv
   # no - 会确保保留空间足够

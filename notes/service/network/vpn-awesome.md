@@ -148,7 +148,8 @@ tags:
   - BSD-3
   - 依赖 官方 coordinate 服务
 - [juanfont/headscale](https://github.com/juanfont/headscale)
-  - self-hosted Tailscale control server
+  - self-hosted Tailscale controller server
+  - tailscale 目前移动端不支持修改 controller
 - [HarvsG/WireGuardMeshes](https://github.com/HarvsG/WireGuardMeshes)
   Compare WireGuard Mesh Tools
 
@@ -168,6 +169,12 @@ tags:
   - GPL-3, Go
   - 转向闭源收费, 开源开发停滞
 - slirp
+
+### Tunnel Library
+
+- [jpillora/chisel](https://github.com/jpillora/chisel)
+- [rancher/remotedialer](https://github.com/rancher/remotedialer)
+- inlets
 
 ## 流控/防火墙
 

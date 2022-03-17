@@ -26,6 +26,17 @@ nats context select local # 切换上下文 - 也可以 --context=CONTEXT
 
 nats account info         # 当前账号信息
 nats rtt                  # 与服务器 rt - 相当于 PING 作用
+
+nats event --context system
+nats event --short
+
+# SYS 账号操作
+nats server ping
+nats server list
+nats server info nats-0
+# nats event - JSON Schema
+# https://app.quicktype.io/ 生成其他语言
+nats schema ls
 ```
 
 ```json title="context/local.json"
@@ -45,6 +56,64 @@ nats rtt                  # 与服务器 rt - 相当于 PING 作用
 }
 ```
 
+- publish
+- request
+- subscribe
+- stream - str
+  - add|edit|info|ls|rm|purge|copy
+  - report
+  - find
+  - seal
+  - get|rmm|view|
+  - backup|restore
+  - cluster step-down|peer-remove
+  - template create|info|ls|rm
+- consumer
+  - add|copy|edit|ls|rm
+  - info
+  - next|sub
+  - report
+- context
+  - save|edit|ls|rm|select|info|validate
+- errors
+  - ls|lookup|edit|validate
+- events
+- governor
+  - add|view|reset|evict|rm
+- kv
+  - add|put|get|create|update|del|purge|ls
+  - history|status
+  - watch
+  - compact
+  - upgrade
+    - upgrade early tech-preview bucket to current format
+- object
+  - add|put|del|get|ls|seal|watch
+  - info
+- schema
+  - info|validate
+- server
+  - info|ls|ping
+  - report
+    - connections|accounts|jetstream
+  - request
+    - subscriptions|variables|connections|routes|gateways|leafnodes|accounts|jetstream
+  - raft
+    - step-down|peer-remove
+  - passwd
+  - check
+    - connection|stream|meta|jetstream|server
+- account
+  - info
+  - report connections
+- backup|restore - 备份/恢复 JetStream
+- bench
+- latency
+- cheat
+- rtt
+
+## help
+
 ```
 usage: nats [<flags>] <command> [<args> ...]
 
@@ -57,7 +126,8 @@ See 'nats cheat' for a quick cheatsheet of commands
 
 
 Flags:
-  -h, --help                    Show context-sensitive help (also try --help-long and --help-man).
+  -h, --help                    Show context-sensitive help (also try
+                                --help-long and --help-man).
       --version                 Show application version.
   -s, --server=NATS_URL         NATS server urls
       --user=NATS_USER          Username or Token
@@ -69,7 +139,10 @@ Flags:
       --tlsca=NATS_CA           TLS certificate authority chain
       --timeout=NATS_TIMEOUT    Time to wait on responses from NATS
       --js-api-prefix=PREFIX    Subject prefix for access to JetStream API
-      --js-event-prefix=PREFIX  Subject prefix for access to JetStream Advisories
+      --js-event-prefix=PREFIX  Subject prefix for access to JetStream
+                                Advisories
+      --js-domain=DOMAIN        JetStream domain to access
+      --inbox-prefix=PREFIX     Custom inbox prefix to use for inboxes
       --context=CONTEXT         Configuration context
       --trace                   Trace API interactions
 
@@ -80,17 +153,29 @@ Commands:
   account info
     Account information
 
+  account report connections [<flags>]
+    Report on connections
+
   backup [<flags>] <output>
     JetStream configuration backup utility
 
   bench [<flags>] <subject>
     Benchmark utility
 
+  cheat [<flags>] [<section>]
+    Cheatsheets for the nats CLI
+
+    These cheatsheets are in a format compatible with the popular
+    https://github.com/cheat/cheat command.
+
   consumer add [<flags>] [<stream>] [<consumer>]
     Creates a new Consumer
 
   consumer copy [<flags>] <stream> <source> <destination>
     Creates a new Consumer based on the configuration of another
+
+  consumer edit [<flags>] [<stream>] [<consumer>]
+    Edits the configuration of a consumer
 
   consumer info [<flags>] [<stream>] [<consumer>]
     Consumer information
@@ -128,22 +213,119 @@ Commands:
   context select [<name>]
     Select the default context
 
-  context show [<flags>] [<name>]
-    Show the current or named context
+  context info [<flags>] [<name>]
+    Display information on the current or named context
 
   context validate [<flags>] [<name>]
     Validate one or all contexts
 
+  errors ls [<flags>] [<match>] [<sort>]
+    List all known error codes
+
+  errors lookup <code>
+    Looks up an error by it's code
+
+  errors edit <file> [<code>]
+    Edit or add a error code using your EDITOR
+
+  errors validate [<file>]
+    Validates the validity of the errors definition
+
   events [<flags>]
     Show Advisories and Events
+
+  governor add [<flags>] <name> <limit> <age>
+    Adds a new Governor to JetStream
+
+  governor view <name>
+    Views the status of the Governor
+
+  governor reset [<flags>] <name>
+    Resets the Governor by removing all entries
+
+  governor evict [<flags>] <name> [<id>]
+    Removes a entry from the Governor
+
+  governor rm [<flags>] <name>
+    Removes a Governor
+
+  governor run [<flags>] <name> <identity> <command>
+    Runs a command limited by the Governor
+
+  kv add [<flags>] <bucket>
+    Adds a new KV Store Bucket
+
+  kv put <bucket> <key> [<value>]
+    Puts a value into a key
+
+  kv get [<flags>] <bucket> <key>
+    Gets a value for a key
+
+  kv create <bucket> <key> [<value>]
+    Puts a value into a key only if the key is new or it's last operation was a
+    delete
+
+  kv update <bucket> <key> [<value>] [<revision>]
+    Updates a key with a new value if the previous value matches the given
+    revision
+
+  kv del [<flags>] <bucket> [<key>]
+    Deletes a key or the entire bucket
+
+  kv purge [<flags>] <bucket> <key>
+    Deletes a key from the bucket, clearing history before creating a delete
+    marker
+
+  kv history <bucket> <key>
+    Shows the full history for a key
+
+  kv status <bucket>
+    View the status of a KV store
+
+  kv watch <bucket> [<key>]
+    Watch the bucket or a specific key for updated
+
+  kv ls [<flags>]
+    List available Buckets
+
+  kv compact [<flags>] <bucket>
+    Removes all historic values from the store where the last value is a delete
+
+  kv upgrade <bucket>
+    Upgrades a early tech-preview bucket to current format
 
   latency --server-b=SERVER-B [<flags>]
     Perform latency tests between two NATS servers
 
-  pub [<flags>] <subject> [<body>]
-    Generic data publish utilty
+  object add [<flags>] <bucket>
+    Adds a new Object Store Bucket
 
-    Body and Header values of the messages may use Go templates to create unique messages.
+  object put [<flags>] <bucket> [<file>]
+    Puts a file into the store
+
+  object del [<flags>] <bucket> [<file>]
+    Deletes a file or bucket from the store
+
+  object get [<flags>] <bucket> <file>
+    Retrieves a file from the store
+
+  object info <bucket> [<file>]
+    Get information about a bucket or object
+
+  object ls [<flags>] [<bucket>]
+    List buckets or contents of a specific bucket
+
+  object seal [<flags>] <bucket>
+    Seals a bucket preventing further updates
+
+  object watch <bucket>
+    Watch a bucket for changes
+
+  publish [<flags>] <subject> [<body>]
+    Generic data publish utility
+
+    Body and Header values of the messages may use Go templates to create unique
+    messages.
 
       nats pub test --count 10 "Message {{Count}} @ {{Time}}"
 
@@ -162,15 +344,16 @@ Commands:
       Random(min, max) random string at least min long, at most max
 
   request [<flags>] <subject> [<body>]
-    Generic data request utility
+    Generic request-reply request utility
 
-    Body and Header values of the messages may use Go templates to create unique messages.
+    Body and Header values of the messages may use Go templates to create unique
+    messages.
 
-      nats pub test --count 10 "Message {{Count}} @ {{Time}}"
+      nats request test --count 10 "Message {{Count}} @ {{Time}}"
 
     Multiple messages with random strings between 10 and 100 long:
 
-      nats pub test --count 10 "Message {{Count}}: {{ Random 10 100 }}"
+      nats request test --count 10 "Message {{Count}}: {{ Random 10 100 }}"
 
     Available template functions are:
 
@@ -182,16 +365,15 @@ Commands:
       ID               an unique ID
       Random(min, max) random string at least min long, at most max
 
-  rtt [<flags>] [<iterations>]
-    Compute round-trip time to NATS server
-
   reply [<flags>] <subject> [<body>]
     Generic service reply utility
 
-    The "command" supports extracting some information from the subject the request came in on.
+    The "command" supports extracting some information from the subject the
+    request came in on.
 
-    When the subject being listened on is "weather.>" a request on "weather.london" can extract the "london" part and
-    use it in the command string:
+    When the subject being listened on is "weather.>" a request on
+    "weather.london" can extract the "london" part and use it in the command
+    string:
 
       nats reply 'weather.>' --command "curl -s wttr.in/{{1}}?format=3"
 
@@ -199,7 +381,8 @@ Commands:
 
       nats request weather.london ''
 
-    The body and Header values of the messages may use Go templates to create unique messages.
+    The body and Header values of the messages may use Go templates to create
+    unique messages.
 
       nats reply test "Message {{Count}} @ {{Time}}"
 
@@ -220,11 +403,14 @@ Commands:
   restore [<flags>] [<directory>]
     Restores a backup of JetStream configuration
 
+  rtt [<flags>] [<iterations>]
+    Compute round-trip time to NATS server
+
   schema search [<flags>] [<pattern>]
     Search schemas using a pattern
 
-  schema show [<flags>] <schema>
-    Show the contents of a schema
+  schema info [<flags>] <schema>
+    Display schema contents
 
   schema validate [<flags>] <schema> <file>
     Validates a JSON file against a schema
@@ -232,7 +418,7 @@ Commands:
   server info [<server>]
     Show information about a single server
 
-  server list [<flags>] [<expect>]
+  server ls [<flags>] [<expect>]
     List known servers
 
   server ping [<flags>] [<expect>]
@@ -284,10 +470,17 @@ Commands:
     Checks basic server connection
 
   server check stream --stream=STREAM --peer-expect=SERVERS [<flags>]
-    Checks the health of mirrored streams, streams with sources or clustered streams
+    Checks the health of mirrored streams, streams with sources or clustered
+    streams
 
   server check meta --expect=SERVERS --lag-critical=OPS --seen-critical=DURATION
     Check JetStream cluster state
+
+  server check jetstream [<flags>]
+    Check JetStream account state
+
+  server check server --name=NAME [<flags>]
+    Checks a NATS Server health
 
   stream add [<flags>] [<stream>]
     Create a new Stream
@@ -300,6 +493,9 @@ Commands:
 
   stream ls [<flags>]
     List all known Streams
+
+  stream find [<flags>]
+    Finds streams matching certain criteria
 
   stream rm [<flags>] [<stream>]
     Removes a Stream
@@ -325,8 +521,11 @@ Commands:
   stream backup [<flags>] <stream> <target>
     Creates a backup of a Stream over the NATS network
 
-  stream restore [<flags>] <stream> <file>
+  stream restore [<flags>] <file>
     Restore a Stream over the NATS network
+
+  stream seal [<flags>] <stream>
+    Seals a stream preventing further updates
 
   stream cluster step-down [<stream>]
     Force a new leader election by standing down the current leader
@@ -346,11 +545,6 @@ Commands:
   stream template rm [<flags>] [<template>]
     Removes a Stream Template
 
-  sub [<flags>] [<subject>]
+  subscribe [<flags>] [<subject>]
     Generic subscription client
-
-  cheat [<flags>] [<section>]
-    Cheatsheets for the nats CLI
-
-    These cheatsheets are in a format compatible with the popular https://github.com/cheat/cheat command.
 ```
