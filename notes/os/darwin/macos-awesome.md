@@ -12,7 +12,13 @@ tags:
 - [dreampiggy/AVIFQuickLook](https://github.com/dreampiggy/AVIFQuickLook)
 - [remko/qlmka](https://github.com/remko/qlmka)
   - Quick Look plugin for Matroska `.mka`
+
+## Apps
+
 - [mas-cli/mas](https://github.com/mas-cli/mas)
+  - 命令行安装应用
+- [sparkle-project/Sparkle](https://github.com/sparkle-project/Sparkle)
+  - 应用自动升级框架
 
 ## Command Line
 

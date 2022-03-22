@@ -375,10 +375,15 @@ tags:
 
 - [txn2/kubefwd](https://github.com/txn2/kubefwd)
   Bulk port forwarding
-- [stakater/Reloader](https://github.com/stakater/Reloader)
+- [stakater/Reloader](./app/reloader.md)
   watch changes in ConfigMap and Secrets and do rolling upgrades on Pod
+  - 重启 - 全局部署一个
+- [prometheus-config-reloader](./app/prometheus-config-reloader.md)
+  - 强求 reload 接口 - 作为 sidecar 部署
+  - quay.io/prometheus-operator/prometheus-config-reloader
 - [telepresenceio/telepresence](https://github.com/telepresenceio/telepresence)
   Local development against a remote Kubernetes
+- [jimmidyson/configmap-reload](https://github.com/jimmidyson/configmap-reload)
 
 ## Install
 

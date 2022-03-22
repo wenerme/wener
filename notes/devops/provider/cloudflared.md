@@ -4,12 +4,28 @@ title: cloudflared
 
 # cloudflared
 
-- 默认配置 `~/.cloudflared/config.yml`
+- [cloudflare/cloudflared](https://github.com/cloudflare/cloudflared)
+  - Cloudflare Tunnel client - Argo Tunnel
+- 配置
+  - `~/.cloudflared/config.yml`
+  - `~/.cloudflared/<UUID>.json`
+- 参考
+  - [cloudflare/argo-tunnel-examples](https://github.com/cloudflare/argo-tunnel-examples)
+  - [Get started](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/)
+  - [Warp to Tunnel](https://developers.cloudflare.com/cloudflare-one/tutorials/warp-to-tunnel/)
+  - [Technical limitations](https://developers.cloudflare.com/cloudflare-one/technical-limitations/)
+
+:::caution
+
+- support haproxy proxy protocol  [#369](https://github.com/cloudflare/cloudflared/issues/369)
+
+:::
 
 ```bash
 # macOS 安装
 brew install cloudflare/cloudflare/cloudflared
 # Docker 运行
+# https://hub.docker.com/r/cloudflare/cloudflared
 docker run -v ~/.cloudflared:/etc/cloudflared \
   --name cfd cloudflare/cloudflared:2021.4.0 \
   tunnel --no-autoupdate --hostname demo.wener.me --url http://localhost:8080
@@ -61,7 +77,7 @@ cloudflared tunnel route dns dev demo.wener.me
 curl -L demo.wener.me
 ```
 
-## 远程启动 tunner
+## 远程启动 tunnel
 
 ```bash
 cloudflared tunnel list
@@ -122,3 +138,7 @@ ingress:
 - unix:/home/production/echo.sock
 - http_status:404
   - 返回状态码
+
+---
+
+- [Ingress rules](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress/)

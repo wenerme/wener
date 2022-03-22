@@ -44,7 +44,7 @@ go mod tidy -go=1.17
 go mod tidy -go=1.16 && go mod tidy -go=1.17
 ```
 
-```go.mod
+```go-mod
 module github.com/wenerme/astgo
 go 1.16
 require (
@@ -100,6 +100,12 @@ go env GOMODCACHE
 - 多空间 - monorepo
 - https://go.googlesource.com/proposal/+/master/design/45713-workspace.md
 
+```bash
+go work init
+go work use ./modules/hello
+go work sync
+```
+
 ## go get
 
 - [go-import](https://golang.org/cmd/go/#hdr-Remote_import_paths)
@@ -136,6 +142,8 @@ go env GOMODCACHE
 - [Go proxy for GitLab](https://docs.gitlab.com/ee/user/packages/go_proxy/)
 
 ```bash
+go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+
 # GitLab
 go env -w GOPROXY='https://gitlab.example.com/api/v4/projects/1234/packages/go,https://proxy.golang.org,direct'
 

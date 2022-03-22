@@ -256,3 +256,29 @@ git push -o ci.variable="MAX_RETRIES=10" -o ci.variable="MAX_TIME=600"
 ```
 
 ## git ci info
+
+- https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
+```bash
+# 最近 tag + rev
+# v1.0-COMMIT_COUNT-COMMIT_ID
+git describe --tags
+# 最近 tag
+# v1.0
+git describe --tags --abbrev=0
+# most recent annotated tag
+git describe --abbrev=0
+# 当前 tag
+git tag --points-at HEAD
+# 7 位 commitid
+git rev-parse --short HEAD
+```
+
+## annotated tag vs. unannotated tag
+
+- `git tag <tagname>`
+  - 无 -a -s -m
+  - 无消息
+- `git tag -a <tagname> -m '<message>'`
+  - 包含 tagger/auther, date 信息
+  - 包含 message

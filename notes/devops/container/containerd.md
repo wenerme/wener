@@ -190,3 +190,11 @@ insecure_skip_verify = true
 ```
 mount through procfd: open o_path procfd: open /run/k0s/containerd/io.containerd.runtime.v2.task/k8s.io/promxy/rootfs/etc/promxy/secrets: not a directory
 ```
+
+
+## failed to reserve sandbox name: name is reserved for
+
+最终会自己修复，可能花费 20m-30m 时间。
+
+- containerd 1.6 修复
+- [containerd#4604](https://github.com/containerd/containerd/issues/4604)

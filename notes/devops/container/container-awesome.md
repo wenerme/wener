@@ -28,8 +28,19 @@ tags:
   - rkt
 - Builder
   - buildkit - docker
+    - support resetting timestamp for determinism [#1058](https://github.com/moby/buildkit/issues/1058)
   - [buildah](https://github.com/containers/buildah)
-  - Kaniko
+  - [Kaniko](https://github.com/GoogleContainerTools/kaniko)
+    - 可能很慢 - [#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
+  - [genuinetools/img](https://github.com/genuinetools/img)
+    - 不需要 dockerd
+    - 需要更高权限
+    - 兼容 docker cli
+  - dockerfile
+    - docker build
+  - containerfile
+    - podman build
+    - buildah
 - Registry
   - [containers/skopeo](https://github.com/containers/skopeo)
   - habor
@@ -39,6 +50,8 @@ tags:
   - [GoogleContainerTools/jib](https://github.com/GoogleContainerTools/jib)
   - [bazelbuild/bazel](https://github.com/bazelbuild/bazel)
   - ko - Go source to Image
+  - Skaffold
+  - buildpack
 - cri-o
 - Container Desktop/VM
   - Docker Desktop

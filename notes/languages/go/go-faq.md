@@ -31,14 +31,14 @@ gotip download
 # 从 dl.google.com 下载
 # 默认安装到 ~/sdk/
 # 其他版本 例如 go1.18rc1
-go install golang.org/dl/go1.18beta1@latest
-go1.18beta1 download
-go1.18beta1 env GOROOT
-～/sdk/go1.18beta1/bin/go env
+go install golang.org/dl/go1.18@latest
+go1.18 download
+go1.18 env GOROOT
+～/sdk/go1.18/bin/go env
 
 # 安装到别的地方
-HOME=/opt ~/go/bin/go1.18beta1 download
-/opt/sdk/go1.18beta1/bin/go env
+HOME=/opt ~/go/bin/go1.18 download
+/opt/sdk/go1.18/bin/go env
 ```
 
 ## GOVCS disallows using git for public
@@ -252,6 +252,10 @@ go build -compiler gccgo myprog
 # gccgo flags
 go build -gccgoflags "-s -w" main.go
 ```
+
+## compile: version does not match go tool version
+
+注意调整 GOROOT
 
 ## Cipher CBC / ECB / CFB / GCM
 

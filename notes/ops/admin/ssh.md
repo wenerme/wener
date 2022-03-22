@@ -289,3 +289,9 @@ Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-c
 ssh user:@example.com
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```
+
+## 查看 pubkey 类型
+
+```bash
+find ~/.ssh/id_*.pub -exec ssh-keygen -l -f {} \;
+```

@@ -140,3 +140,13 @@ stream {
 ```
 
 - [Accepting the PROXY Protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/)
+
+## Connect() failed for backend : no free ports
+
+```bash
+cat /proc/sys/net/ipv4/ip_local_port_range
+
+echo "2000 60999" | sudo tee /proc/sys/net/ipv4/ip_local_port_range
+```
+
+- 尝试添加 `resolve-prefer ipv4`

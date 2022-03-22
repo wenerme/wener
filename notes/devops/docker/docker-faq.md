@@ -8,6 +8,10 @@ tags:
 
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
+# volume bind 文件不会更新
+
+- 尝试 bind 目录，不要 bind 文件
+
 ## 在 docker 中使用 docker
 
 直接映射 /var/run/docker.sock

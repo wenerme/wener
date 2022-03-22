@@ -97,6 +97,10 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ## 日志
 
+- [rs/zerolog](https://github.com/rs/zerolog)
+  - Zero Allocation JSON Logger
+  - 接口更友好
+  - ⚠️ 重复名字字段不会覆盖
 - [uber-go/zap](https://github.com/uber-go/zap) - ⭐️
   - 适用于生产、核心链路
   - 需要更多的配置
@@ -105,8 +109,6 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - 目前处于 **维护模式** 🚧 - 完成使命
   - 适用于简单快速使用
   - 默认即可使用
-- [rs/zerolog](https://github.com/rs/zerolog)
-  - Zero Allocation JSON Logger
 - benchmark
   - https://github.com/rs/logbench
     - http://hackemist.com/logbench/
@@ -167,7 +169,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 :::
 
-### 路由
+### 路由/Router
 
 - [gorilla/mux](https://github.com/gorilla/mux) - ⭐️
   - 非常便于使用的路由，增强 go http 功能
@@ -201,7 +203,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [jfyne/live](https://github.com/jfyne/live)
   - [brendonmatos/golive](https://github.com/brendonmatos/golive)
 
-### 框架
+### 框架/Framework
 
 - [gin-gonic/gin](https://github.com/gin-gonic/gin)
   - 默认处理逻辑将请求和响应封装为了 Context
@@ -333,7 +335,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [ugorji/go](https://github.com/ugorji/go)
   diomatic codec and rpc lib for msgpack, cbor, json, etc.
 
-## 数据处理
+## 数据处理/Data
 
 - [go-playground/validator](https://github.com/go-playground/validator)
   - struct 标签注解校验 - 类似于 Java 的 Bean Validate
@@ -345,7 +347,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - mapstructure
 - [BWbwchen/MapReduce](https://github.com/BWbwchen/MapReduce)
 
-## 网络
+## 网络/Network
 
 - https://github.com/inetaf
 - [tidwall/evio](https://github.com/tidwall/evio)
@@ -368,12 +370,12 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - forward proxy with multiple protocols support
 - [cilium/ebpf](https://github.com/cilium/ebpf)
 
-## 协议
+## 协议/Protocol
 
 - [hacdias/webdav](https://github.com/hacdias/webdav)
   - Simple Go WebDAV server
 
-## 事件驱动
+## 事件驱动/Event
 
 - [uber/cadence](https://github.com/uber/cadence)
   - distributed, scalable, durable, and highly available orchestration engine
@@ -469,7 +471,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - fosite - Golang OAuth2 框架
 - [Permify/permify-gorm](https://github.com/Permify/permify-gorm)
 
-## 扩展
+## 扩展/Extension
 
 - [plugin](https://pkg.go.dev/plugin)
   - -buildmode=plugin
@@ -490,7 +492,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
     - 支持热升级
     - 多语言
 
-## 语言
+## 语言/Language
 
 - [rogchap/v8go](https://github.com/rogchap/v8go)
   - 内含预编译的静态 libv8
@@ -508,8 +510,10 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ## Template
 
-- Sprig
+- [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
 - [gliderlabs/sigil](https://github.com/gliderlabs/sigil)
+- [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
+  - slim - UPX - https://github.com/hairyhenderson/gomplate/issues/326
 
 ## 有趣
 
@@ -545,9 +549,16 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [gianarb/planner](https://github.com/gianarb/planner)
 - [konimarti/lti](https://github.com/konimarti/lti)
 
-## Lib
+## Library
 
 - [adhocore/gronx](https://github.com/a\dhocore/gronx) cron parser
+- vfs
+  - [hack-pad/hackpadfs](https://github.com/hack-pad/hackpadfs)
+- cache
+  - [coocood/freecache](https://github.com/coocood/freecache)
+- goroutine
+  - [oklog/run](https://github.com/oklog/run)
+  - errgroup
 
 ## Tool
 
@@ -566,6 +577,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [go-task/task](https://github.com/go-task/task)
 - [charmbracelet/wish](https://github.com/charmbracelet/wish)
   - Make SSH apps
+- [elves/elvish](https://github.com/elves/elvish)
 - ssh
   - [golang.org/x/crypto/ssh](https://pkg.go.dev/golang.org/x/crypto/ssh)
     - x/crypto/ssh: rsa-sha2-256/rsa-sha2-512 [#49952](https://github.com/golang/go/issues/49952)

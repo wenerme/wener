@@ -4,23 +4,23 @@ title: Alpine
 
 # Alpine
 
-* ARCH - 架构支持
-  * x86_64
-  * x86
-  * armhf
-  * armv7
-  * aarch64
-  * s390x
-  * mips64 - __mips64be__
-  * ppc64le
-* [adelielinux](https://adelielinux.org/)
-  * 基于 Alpine 针对桌面的系统
-  * https://code.foxkit.us/groups/adelie
-* https://postmarketos.org/
-  * 基于 Alpine 的移动操作系统
-* GitLab 上关于 [安全的问题](https://gitlab.alpinelinux.org/alpine/aports/issues?state=closed&label_name%5B%5D=T-Security)
-* [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
-  * Search file in package from command line
+- ARCH - 架构支持
+  - x86_64
+  - x86
+  - armhf
+  - armv7
+  - aarch64
+  - s390x
+  - mips64 - **mips64be**
+  - ppc64le
+- [adelielinux](https://adelielinux.org/)
+  - 基于 Alpine 针对桌面的系统
+  - https://code.foxkit.us/groups/adelie
+- https://postmarketos.org/
+  - 基于 Alpine 的移动操作系统
+- GitLab 上关于 [安全的问题](https://gitlab.alpinelinux.org/alpine/aports/issues?state=closed&label_name%5B%5D=T-Security)
+- [jessfraz/apk-file](https://github.com/jessfraz/apk-file)
+  - Search file in package from command line
 
 ```bash
 # 计算块设备容量
@@ -39,11 +39,10 @@ apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/testing screenfetch
 ```
 
-
-
 ## 安装
-* [Installation](https://wiki.alpinelinux.org/wiki/Installation)
-* [alpinelinux/alpine-conf](https://github.com/alpinelinux/alpine-conf)
+
+- [Installation](https://wiki.alpinelinux.org/wiki/Installation)
+- [alpinelinux/alpine-conf](https://github.com/alpinelinux/alpine-conf)
 
 ```bash
 # 制作启动盘
@@ -164,6 +163,7 @@ SYSROOT=${SYSROOT:-/mnt}
 # machine arch
 ARCH=$(apk --print-arch)
 ```
+
 ### 制作磁盘镜像
 
 ```bash
@@ -253,8 +253,8 @@ docker info
 apk add --no-cache -X http://mirrors.aliyun.com/alpine/edge/community neofetch
 ```
 
-
 ## Mips
+
 https://bugs.alpinelinux.org/issues/5643
 https://patchwork.alpinelinux.org/bundle/Lochnair/mips-port/?state=*
 
@@ -290,32 +290,34 @@ hwdata-usb-0.282-r0
 ```
 
 ## APKINDEX
-* http://mirrors.aliyun.com/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
-* https://wiki.alpinelinux.org/wiki/Apkindex_format
-* https://wiki.alpinelinux.org/wiki/Apk_spec
+
+- http://mirrors.aliyun.com/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+- https://wiki.alpinelinux.org/wiki/Apkindex_format
+- https://wiki.alpinelinux.org/wiki/Apk_spec
 
 ## Edge
-* https://wiki.alpinelinux.org/wiki/Edge
-* "edge" is under constant development so be careful using it in production. It is possible that bugs in "edge" could cause data loss or could break your system.
 
+- https://wiki.alpinelinux.org/wiki/Edge
+- "edge" is under constant development so be careful using it in production. It is possible that bugs in "edge" could cause data loss or could break your system.
 
 ## Kernal
-* vanilla
-* virthardened
-* hardened
-  * [Hardening:wiki](https://en.wikipedia.org/wiki/Hardening_(computing))
-  * Grsecurity
-* 内核相关包
-  * [linux-*](https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.6&repo=&arch=x86_64)
-  * [*-hardened](https://pkgs.alpinelinux.org/packages?name=*hardened&branch=v3.6&repo=&arch=x86_64)
+
+- vanilla
+- virthardened
+- hardened
+  - [Hardening:wiki](<https://en.wikipedia.org/wiki/Hardening_(computing)>)
+  - Grsecurity
+- 内核相关包
+  - [linux-\*](https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.6&repo=&arch=x86_64)
+  - [\*-hardened](https://pkgs.alpinelinux.org/packages?name=*hardened&branch=v3.6&repo=&arch=x86_64)
 
 ## Mirror
-* [How to setup a Alpine Linux mirror](https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror)
 
+- [How to setup a Alpine Linux mirror](https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror)
 
-* rsync://rsync.alpinelinux.org/alpine/
-* rsync://mirrors.tuna.tsinghua.edu.cn/alpine/
-  * https://github.com/tuna/rsync
+- rsync://rsync.alpinelinux.org/alpine/
+- rsync://mirrors.tuna.tsinghua.edu.cn/alpine/
+  - https://github.com/tuna/rsync
 
 ```bash
 # 添加 -r iso --limit-rate=2m
@@ -367,13 +369,15 @@ rsync \
   --timeout=600 \
   --bwlimit=5000 \
   rsync://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/ mirror/v3.6/
-```
 
 rsync --archive --update --hard-links --delete --delete-after --delay-updates --timeout=600 ~/data/alpine/ root@192.168.1.20:/mnt/disk2t/data/alpine/
 
 rsync --archive --update --hard-links --timeout=600 --progress --exclude-from .rsyncignore rsync://mirrors.tuna.tsinghua.edu.cn/alpine/ ./
 
-__/etc/periodic/hourly/alpine-mirror__
+rsync -auHP --timeout=600 --exclude edge --exclude 'v2.*' rsync://mirrors.tuna.tsinghua.edu.cn/alpine/ /alpine/mirror/
+```
+
+**/etc/periodic/hourly/alpine-mirror**
 
 ```bash
 #!/bin/sh
@@ -409,6 +413,7 @@ chmod +x /etc/periodic/hourly/alpine-mirror
 ## FAQ
 
 ### 手动指定 DNS
+
 1. 直接修改 `/etc/resolv.conf`
 2. 修改网络配置
 

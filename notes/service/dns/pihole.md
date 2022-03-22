@@ -4,9 +4,8 @@ title: Pi Hole
 
 # Pi Hole
 
-- 是什么？
+- [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole/) 是什么？
   - 基于 DNS 的 AD/Tracker Block
-- [pi-hole/pi-hole](https://github.com/pi-hole/pi-hole/)
 - 端口
 
 ```bash

@@ -1,6 +1,8 @@
-# tmate
+---
+title: tmate
+---
 
-## Tips
+# tmate
 
 - [tmate.io](https://tmate.io/) - 终端共享
 - [tmate-io/tmate](https://github.com/tmate-io/tmate)

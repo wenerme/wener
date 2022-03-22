@@ -32,6 +32,19 @@ tags:
 
 - [tmate-io/tmate](https://github.com/tmate-io/tmate)
   - web terminal
+- [owenthereal/upterm](https://github.com/owenthereal/upterm)
+- [elisescu/tty-share](https://github.com/elisescu/tty-share)
+- Foundation
+  - [tsl0922/ttyd](https://github.com/tsl0922/ttyd)
+  - [butlerx/wetty](https://github.com/butlerx/wetty)
+  - [yudai/gotty](https://github.com/yudai/gotty)
+
+## Network
+
+- curl
+- httpie
+- [rs/curlie](https://github.com/rs/curlie)
+  - 接口更友好，实际调用 curl
 
 ## Utils
 

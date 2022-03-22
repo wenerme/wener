@@ -36,6 +36,13 @@ title: Harbor
 - 文档
   - [Harbor Compatibility List](https://goharbor.io/docs/2.2.0/install-config/harbor-compatibility-list/)
 
+:::tip
+
+- 域名映射 Project [#13579](https://github.com/goharbor/harbor/issues/13579)
+- 镜像 docker 无法自动添加 library [#12719](https://github.com/goharbor/harbor/issues/12719)
+
+:::
+
 | Resource | Minimum | Recommended |
 | -------- | ------- | ----------- |
 | CPU      | 2 CPU   | 4 CPU       |

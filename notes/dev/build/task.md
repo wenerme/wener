@@ -1,9 +1,8 @@
 ---
-id: go-task
-title: Go Task
+title: Task
 ---
 
-# Go Task
+# Task
 
 - [go-task/task](https://github.com/go-task/task)
 - [taskfile.dev](https://taskfile.dev/)

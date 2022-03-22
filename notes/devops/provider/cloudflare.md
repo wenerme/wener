@@ -8,6 +8,18 @@ title: CloudFlare
   - [为什么能提供无限带宽？](https://webmasters.stackexchange.com/a/88685)
   - [Understanding Origin Cache-Control](https://support.cloudflare.com/hc/en-us/articles/115003206852-Understanding-Origin-Cache-Control)
 
+| product       |                     | Base           |
+| ------------- | ------------------- | -------------- |
+| [spectrum]    | TCP, UDP - SSH, RDP | 5G + 1$/G, 10C |
+| argo tunnel   | Tunnel HTTP,HTTPS   | 5G, 5$         |
+| worker        |
+| load balance  |
+| rate limiting |
+| stream        |
+| team          |
+
+[spectrum]: https://developers.cloudflare.com/spectrum/
+
 ## Argo Tunnel
 
 - 实现源端和 Cloudflare 之间加密通讯 - ZeroTrust

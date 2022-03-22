@@ -15,18 +15,35 @@ title: tailscale
   - [价格](https://tailscale.com/pricing/#comparison)
     - Free - 1 User, 1 Admin, 1 ACL, 20 Devices, 1 Subnet routers
     - Team - 60$/User/Year - 5/Devices/User, 5 Subnet routers, 2 Admin, 5 Users in ACL
+  - [k8s](https://github.com/tailscale/tailscale/tree/main/docs/k8s)
+- DNS 100.100.100.100
 
 :::caution
 
+- 一次只能加入一个网络
+  - log into multiple tailscale accounts [#713](https://github.com/tailscale/tailscale/issues/713)
+  - support connecting to multiple networks [#183](https://github.com/tailscale/tailscale/issues/183)
 - Linux 下使用的 用户空间 wg 实现 - 性能弱于 wg
   - Kernel implementation of tstun [#3264](https://github.com/tailscale/tailscale/issues/3264)
   - Linux kernel Wireguard data plane [#426](https://github.com/tailscale/tailscale/issues/426)
 - macOS GUI, iOS, Android 不支持修改 control server
   - 只有命令行才可以修改 control server
+- IP 一旦分配不可修改 - IP 只能自动分配 - [How Tailscale assigns IP addresses](https://tailscale.com/kb/1033/ip-and-dns-addresses/)
+  - 移除节点 - 重新加入
+  - 清除 tailscale 状态
+  - 固定 100.64.0.0/10 - CGNAT - RFC6598
+- Custom records in MagicDNS [#1543](https://github.com/tailscale/tailscale/issues/1543)
+- Open source server [#498](https://github.com/tailscale/tailscale/issues/498)
+- Tailscale in browser [#3157](https://github.com/tailscale/tailscale/issues/3157)
 
 :::
 
 ```bash
+# macOS
+brew install tailscale
+# Golang
+go install tailscale.com/cmd/tailscale{,d}@latest
+
 # --accept-dns - 默认开启
 # --accept-routes - 默认关闭
 # --advertise-exit-node
@@ -57,6 +74,57 @@ tailscale status
 tailscale web
 ```
 
+## tailscaled
+
+```bash
+go install tailscale.com/cmd/tailscale{,d}@latest
+# macOS
+sudo tailscaled install-system-daemon
+```
+
+| flag                                    | default                       | for                                                                |
+| --------------------------------------- | ----------------------------- | ------------------------------------------------------------------ |
+| -bird-socket string                     |                               | path of the bird unix socket                                       |
+| -debug `[ip]:port`                      |                               | listen debug server                                                |
+| -outbound-http-proxy-listen `[ip]:port` |                               | outbound HTTP proxy                                                |
+| -cleanup                                |                               | clean up system state and exit                                     |
+| -port value                             | 0                             | UDP port for WireGuard and peer-to-peer traffic - 0 auto           |
+| -socket string                          | /var/run/tailscaled.socket    | path of the service unix socket                                    |
+| -socks5-server `[ip]:port`              |                               | SOCK5 server                                                       |
+| -state string                           | `<statedir>/tailscaled.state` | state file                                                         |
+| -statedir string                        |                               | path of config state, TLS certs, temporary incoming Taildrop files |
+| -tun string                             | utun                          | userspace-networking 用户空间                                      |
+| -verbose int                            | 0                             |
+
+- -state - $HOME/.local/share/tailscale/tailscaled.state
+  - `kube:<secret-name>`
+  - `arn:aws:ssm:...` - AWS SSM
+  - `mem:`
+- -debug
+  - /debug/metrics
+- -port 41641
+
+## debug
+
+| debug             | for                                     |
+| ----------------- | --------------------------------------- |
+| derp-map          | DERP 列表                               |
+| daemon-goroutines | goroutines                              |
+| metrics           | metrics                                 |
+| env               | cmd/tailscale environment               |
+| hostinfo          | hostinfo                                |
+| local-creds       | print how to access Tailscale local API |
+| restun            | force a magicsock restun                |
+| rebind            | force a magicsock rebind                |
+| prefs             | print prefs                             |
+| watch-ipn         | subscribe to IPN message bus            |
+
+```bash
+tailscale version
+
+tailscale netcheck
+```
+
 ## Notes
 
 - 记录的 JSON 状态
@@ -65,6 +133,72 @@ tailscale web
   - 修改 /etc/resolv.conf
   - 备份之前配置 /etc/resolv.pre-tailscale-backup.conf
 - DERP - Encrypted TCP relays
+
+## derp
+
+- zouyq/derper
+- 80, 443, 3478
+  - HTTPS + STUN
+- 与 tailscaled 一同部署可达到限制访问的目的 - Auth
+- [Custom DERP Servers](https://tailscale.com/kb/1118/custom-derp-servers/)
+
+```bash
+# 默认 DERP
+curl -s https://controlplane.tailscale.com/derpmap/default | jq
+
+# 安装
+go install tailscale.com/cmd/derper@main
+# macOS 交叉编译
+# GOOS=linux go build -trimpath -o bin/derper ./cmd/derper
+
+# 启动
+derper --hostname=your-hostname.com
+# 启动 - 通过本地 tailscaled 验证客户端
+derper --hostname=your-hostname.com --verify-clients
+```
+
+| flag                        | default                             | for                                                                                                   |
+| --------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| -a `[ip]:port`              | :443                                | HTTPS listen address                                                                                  |
+| -accept-connection-burst    | 9223372036854775807                 | burst limit for accepting new connection                                                              |
+| -accept-connection-limit    | +Inf                                | rate limit for accepting new connection                                                               |
+| -bootstrap-dns-names string |                                     | optional comma-separated list of hostnames to make available at /bootstrap-dns                        |
+| -c string                   |                                     | 配置目录                                                                                              |
+| -certdir string             | $HOME/.cache/tailscale/derper-certs | letsencrypt 证书目录                                                                                  |
+| -certmode string            | letsencrypt                         | manual, letsencrypt                                                                                   |
+| -dev                        |                                     | 开发模式                                                                                              |
+| -hostname string            | derp.tailscale.com                  | LetsEncrypt host name                                                                                 |
+| -http-port int              | 80                                  | -1 禁用                                                                                               |
+| -logcollection string       |                                     | logtail collection to log to                                                                          |
+| -mesh-psk-file string       |                                     | mesh pre-shared key file - hex string                                                                 |
+| -mesh-with string           |                                     | optional comma-separated list of hostnames to mesh with; the server's own hostname can be in the list |
+| -stun                       | true                                | 运行 STUN server                                                                                      |
+| -stun-port int              | 3478                                |                                                                                                       |
+| -verify-clients             | false                               | 通过本地 tailscaled 验证客户端                                                                        |
+
+
+:::caution verify-clients
+
+- tailscale sttaus 里的节点才能使用 derp - 否则会验证失败
+- 可以考虑 derp 节点能看到所有其他节点
+  - `{ Action: accept, Users: [ tag:derp ], Ports: [ "*:*" ] }`
+
+:::
+
+
+## Taildrop
+
+```bash
+# 发送
+# tailscale file cp <files> <name-or-ip>:
+# 接收
+tailscale file get .
+```
+
+## NAT
+
+- https://tailscale.com/blog/how-nat-traversal-works/
+  - [HN](https://news.ycombinator.com/item?id=24241105)
 
 # Glossary
 
@@ -77,3 +211,23 @@ tailscale web
   - 可以使用 hostname 访问设备
   - 还会添加 search domain 通过 网址域名访问
   - 可通过 `--accept-dns=false` 关闭
+- Subnet Route
+  - 作为网关桥接不同网络
+  - --advertise-routes
+
+```bash
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p /etc/sysctl.conf
+```
+
+- IPN - Identified Private Network
+- 用户空间网络
+  - 使用 socks5 或 http 代理 访问网络
+  - `tailscaled --tun=userspace-networking --socks5-server=localhost:1055`
+  - 主要用于 serverless、容器、权限不足、不支持 tun 设备 等场景
+  - [Userspace networking mode](https://tailscale.com/kb/1112/userspace-networking/)
+
+# FAQ
+
+## derphttp.Client.Recv connect to region 999: tls: first record does not look like a TLS handshake

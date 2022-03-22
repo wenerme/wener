@@ -22,19 +22,19 @@ tags:
 
 :::
 
-| ver  |        | macOS                   | Windows          |
-| ---- | ------ | ----------------------- | ---------------- |
-| 1.18 | 2022-3 | -                       | 64-bit ARM       |
-| 1.17 | 2021-8 | macOS 10.13 High Sierra |
-| 1.16 | 2021-2 | -                       |
-| 1.15 | 2020-8 | macOS 10.12 Sierra      |
-| 1.14 | 2020-2 | -                       |
-| 1.13 | 2019-8 | macOS 10.11 El Capitan  | Windows 7        |
-| 1.12 | 2019-2 | -                       | -                |
-| 1.11 | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
-| 1.10 | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
+| ver                |        | macOS                   | Windows          |
+| ------------------ | ------ | ----------------------- | ---------------- |
+| [Go 1.18](#go-118) | 2022-3 | -                       | 64-bit ARM       |
+| [Go 1.17](#go-117) | 2021-8 | macOS 10.13 High Sierra |
+| [Go 1.16](#go-116) | 2021-2 | -                       |
+| [Go 1.15](#go-115) | 2020-8 | macOS 10.12 Sierra      |
+| [Go 1.14](#go-114) | 2020-2 | -                       |
+| [Go 1.13](#go-113) | 2019-8 | macOS 10.11 El Capitan  | Windows 7        |
+| [Go 1.12](#go-112) | 2019-2 | -                       | -                |
+| [Go 1.11](#go-111) | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
+| [Go 1.10](#go-110) | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
 
-## 1.18
+## Go 1.18
 
 - [generic](./go-generic)
   - 支持类型参数
@@ -69,6 +69,9 @@ tags:
       - vsc.time
       - vsc.revision=SHA256
       - vsc=git
+      - **不会包含 Tag 信息**
+        - 因为 tag 可修改
+        - tag 可指向多个 - 不可复现
   - net/netip
 - 包变化
   - runtime/debug.BuildInfo 增加 GoVersion, Settings
@@ -102,7 +105,7 @@ use (
 replace golang.org/x/net => example.com/fork/net v1.4.5
 ```
 
-## 1.17
+## Go 1.17
 
 - go.mod
   - 支持 lazy 模块
@@ -129,7 +132,7 @@ go mod tidy -go=1.17
 go mod tidy -compat=1.17
 ```
 
-## 1.16
+## Go 1.16
 
 - 支持嵌入文件 `go:embed`
 - 新增 io/fs 包
@@ -153,7 +156,7 @@ go mod tidy -compat=1.17
     - os.DirFS -> fs.FS
     - 增加辅助目录扫描的方法
 
-## 1.15
+## Go 1.15
 
 - 较多优化
 - 支持转 unsafe.Pointer 为 uintptr
@@ -165,7 +168,7 @@ go mod tidy -compat=1.17
     - ASLR -buildmode=pie
     - Ctrl-C 不再退出 DLL
 
-## 1.14
+## Go 1.14
 
 - go module 稳定
 - Permit embedding of interfaces with overlapping method sets
@@ -181,7 +184,7 @@ type ReadWriteCloser interface {
 }
 ```
 
-## 1.13
+## Go 1.13
 
 - 支持 0b,0B 表示二进制
 - 支持 0o,0O 表示八进制
@@ -195,17 +198,17 @@ type ReadWriteCloser interface {
 - errors.Unwrap, errors.Is, errors.As
 - TLS 1.3
 
-## 1.12
+## Go 1.12
 
 - arch
   - linux/ppc64 cgo
   - windows/arm
 
-## 1.11
+## Go 1.11
 
 - arch
   - js/wasm
 
-## 1.7
+## Go 1.7
 
 - context - https://golang.org/pkg/context

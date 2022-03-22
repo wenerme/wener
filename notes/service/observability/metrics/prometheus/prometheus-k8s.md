@@ -56,6 +56,13 @@ tags:
 kubectl api-resources --api-group monitoring.coreos.com
 ```
 
+```yaml title="Pod Annotations"
+# 开启后抓取所有端口
+prometheus.io/scrape: 'true'
+prometheus.io/path: '/metrics'
+prometheus.io/port: '80'
+```
+
 ```yaml
 ---
 # 定义部署 Prometheus

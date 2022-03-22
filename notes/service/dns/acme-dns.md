@@ -32,7 +32,7 @@ title: acme-dns
 :::
 
 ```bash title="注册生成账号"
-curl -v -X POST https://auth.acme-dns.io/register
+curl -sX POST https://auth.acme-dns.io/register | jq
 ```
 
 ```json

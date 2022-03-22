@@ -10,3 +10,5 @@ title: DNS 词汇
 - IXFR - Incremental Zone Transfer
 - NSEC
 - DNSKEY
+- [EDNS](https://en.wikipedia.org/wiki/Extension_Mechanisms_for_DNS)
+  - Extension Mechanisms for DNS

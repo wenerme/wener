@@ -3,17 +3,21 @@ title: Dante
 ---
 
 # Dante
-## Tips
-* [dante](http://www.inet.no/dante/)
-  * consists of a SOCKS server and a SOCKS client
-  * [文档]](https://www.inet.no/dante/doc/1.4.x/index.html)
-* sockd - 服务端
-* socks - 客户端
-* socksify - 基于 LD_PRELOAD 的代理
-* https://lvii.gitbooks.io/outman/content/dante.html
-* [sockd.conf.5](https://www.inet.no/dante/doc/1.4.x/sockd.conf.5.html)
-* 注意
-  * 如果配置了 ipsec，则 external 需要配置 ipsec 的 left 地址 - 否则不会经过 ipsec
+
+- [dante](http://www.inet.no/dante/)
+  - consists of a SOCKS server and a SOCKS client
+  - [文档]](https://www.inet.no/dante/doc/1.4.x/index.html)
+- sockd - 服务端
+- socks - 客户端
+- socksify - 基于 LD_PRELOAD 的代理
+- https://lvii.gitbooks.io/outman/content/dante.html
+- [sockd.conf.5](https://www.inet.no/dante/doc/1.4.x/sockd.conf.5.html)
+
+:::tip
+
+- 如果配置了 ipsec，则 external 需要配置 ipsec 的 left 地址 - 否则不会经过 ipsec
+
+::
 
 ```bash
 # macOS 安装
@@ -32,10 +36,10 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
   --name dante wener/dante
 ```
 
-__sockd.conf__
+**sockd.conf**
 
-* 规则条件 clientcompatibility, clientmethod, command, from, group, socksmethod, protocol, proxyprotocol, to, user
-* 规则动作 bandwidth, libwrap, log, session, redirect, timeout.connect, timeout.negotiate, timeout.io, timeout.tcp_fin_wait, udp.portrange
+- 规则条件 clientcompatibility, clientmethod, command, from, group, socksmethod, protocol, proxyprotocol, to, user
+- 规则动作 bandwidth, libwrap, log, session, redirect, timeout.connect, timeout.negotiate, timeout.io, timeout.tcp_fin_wait, udp.portrange
 
 ```conf
 # 日志输出

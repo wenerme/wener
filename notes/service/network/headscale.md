@@ -10,35 +10,89 @@ title: Headscale
   - 基于 Wireguard 的 Mesh 方案
   - SQLite driver 使用 - [glebarez/go-sqlite](https://github.com/glebarez/go-sqlite)
     - 不需要 CGO
+- endpoint
+  - /api/v1
+  - /swagger
+  - /windows
+  - /windows/tailscale.reg
+  - /apple
+  - /apple/ios
+  - /apple/macos
+  - /metrics
+  - /machine/:id/map
+  - /register
+  - /key
+  - /derp
+  - /bootstrap-dns
+  - 暂时无法关闭 - [#503](https://github.com/juanfont/headscale/issues/503)
+    - 可考虑只暴露 /api,/machine,/key
 
 :::caution
 
+- Namespace -> User
 - Tailscale iOS & Android 不支持修改 control server 地址
+- WebUI [#234](https://github.com/juanfont/headscale/issues/234)
 
 :::
 
-```bash
+```bash title="启动 control 服务"
 curl -Lo config.yaml https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml
 curl -Lo headscale https://github.com/juanfont/headscale/releases/download/v0.14.0/headscale_0.14.0_linux_amd64
 chmod +x headscale
 mkdir -p /var/lib/headscale
 ./headscale serve
 ./headscale namespaces create myns
+```
 
-# AlpineLinux
+```bash title="客户端 加入"
+# AlpineLinux tailscale
 apk add tailscale
 service tailscale start
-tailscale up --login-server http://192.168.1.2:8080
-tailscale ip
+# macOS tailscale
+brew install tailscale
 
+tailscale up --login-server http://192.168.1.2:8080
+```
+
+```bash title="control 同意加入"
 # @Server 同意
 ./headscale -n myns nodes register --key $KEY
+```
 
-# 预生成 - 减少同意这个环节
+```bash title="客户端状态"
+tailscale ip
+tailscale status
+```
+
+---
+
+```bash title="预生成 authkey 减少同意环节"
+# 服务端预生成 - 减少同意这个环节
 headscale --namespace myns preauthkeys create --reusable --expiration 24h
 
-#
-tailscale up --login-server http://192.168.1.2:8080 --authkey $KEY
+# 客户端加入
+tailscale up --login-server http://192.168.1.2:8080 --authkey $KE
+```
+
+```bash
+headscale nodes list              # 节点列表
+headscale nodes share -i 1 -n ns2 # 将节点 1 共享给 ns2 租户
+
+headscale nodes routes list -i 1  # 查看节点申请的 subnet routes
+```
+
+```bash
+# Docker
+# 8080 http
+# 9090 metrics
+# https://github.com/juanfont/headscale/blob/main/docs/running-headscale-container.md
+docker run --rm -it \
+  -v $PWD/headscale/etc:/etc/headscale/ \
+  -v $PWD/headscale/var:/var/lib/headscale/ \
+  -p 127.0.0.1:8080:8080 \
+  -p 127.0.0.1:9090:9090 \
+  --name headscale headscale/headscale:0-alpine \
+  headscale serve
 ```
 
 ## conf
@@ -94,7 +148,7 @@ derp:
   urls:
     - https://controlplane.tailscale.com/derpmap/default
 
-  # 本地 DERP 配置文件 - 用于 selfhost
+  # 本地 DERP 配置文件 - YAML - 用于 selfhost DERP
   # https://tailscale.com/kb/1118/custom-derp-servers/
   paths: []
 
@@ -151,8 +205,9 @@ tls_key_path: ''
 
 log_level: info
 
-# ACL
+# ACL - YAML or HUJSON
 # https://tailscale.com/kb/1018/acls/
+# https://github.com/juanfont/headscale/blob/main/docs/acls.md
 acl_policy_path: ''
 
 ## DNS
@@ -215,6 +270,37 @@ unix_socket_permission: '0770'
 #   strip_email_domain: true
 ```
 
+```yaml title="acls.yaml"
+Groups:
+  # group user
+  group:wener: [ wener ]
+TagOwners:
+  # who can adertise tag
+  tag:internal: [ group:wener ]
+  tag:public: [ group:wener ]
+  tag:derp: [ group:wener ]
+ACLs:
+- { Action: accept, Users: [ wener ], Ports: [ "*:*" ] }
+- { Action: accept, Users: [ tag:derp ], Ports: [ "*:*" ] }
+- { Action: accept, Users: [ "*" ], Ports: [ tag:public:* ] }
+```
+
+```yaml title="derp.yaml"
+regions:
+  999:
+    regionid: 999
+    regioncode: sha
+    regionname: Shanghai
+    nodes:
+      - name: 999a
+        regionid: 999
+        hostname: derp.example.com
+        ipv4: 1.1.1.1
+        stunport: 3478
+        stunonly: false
+        derpport: 443
+```
+
 ## Notes
 
 - /var/lib/headscale/
@@ -226,3 +312,47 @@ unix_socket_permission: '0770'
     - namespaces
     - pre_auth_keys
     - shared_machines
+
+## Offcial Client/IPN
+
+- 下载 https://tailscale.com/download/
+- macOS GUI - 从 `http://<headscale>/apple/macos` 下载安装 mobileconfig
+<!-- - iOS 从 `http://<headscale>/apple/ios` 下载安装 mobileconfig -->
+- windows 从 `http://<headscale>/windows/tailscale.reg` 下载执行注册表
+- 启动客户端即可
+
+```bash
+# macOS 也可以直接修改 ControlURL
+defaults write io.tailscale.ipn.macos ControlURL https://127.0.0.1:8080
+
+# GUI 版 cli 位置
+/Applications/Tailscale.app/Contents/MacOS/Tailscale --help
+
+# /Library/LaunchDaemons/com.tailscale.tailscaled.plist
+# 命令行版本配置 开机启动
+sudo tailscaled install-system-daemon
+# 卸载
+sudo tailscaled uninstall-system-daemon
+```
+
+```bat
+: Windows 也可以直接修改
+REG ADD "HKLM\Software\Tailscale IPN" /v UnattendedMode /t REG_SZ /d always
+REG ADD "HKLM\Software\Tailscale IPN" /v LoginURL /t REG_SZ /d "https://127.0.0.1:8080"
+```
+
+- Windows 状态目录
+  - `%LocalAppData%\Tailscale`
+  - `C:\WINDOWS\system32\config\systemprofile\AppData\Local\Tailscale`
+- macOS GUI
+  - 状态使用 keychain
+    - tailscale-daemon
+    - tailscale-logdata
+    - tailscale-machinekey
+    - tailscale-preferences
+  - 使用 Apple Network Extension API - tailscaled 使用 utun
+    - 用户空间，VPN 的形式
+- macOS tailscaled
+  - 状态目录
+    - root /Library/Tailscale/tailscaled.state
+    - user $HOME/.local/share/tailscale/tailscaled.state

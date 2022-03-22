@@ -12,6 +12,13 @@ title: Lens
     - system:authenticated
   - 允许非管理员能访问有权限访问的空间
 
+:::caution
+
+- 无法使用外部 prometheus - [#909](https://github.com/lensapp/lens/issues/909)
+  - 可以用 promxy 代理现有的外部 prometheus - 在内部使用
+
+:::
+
 ## extensions/metrics-cluster-feature
 
 - Namespace lens-metrics

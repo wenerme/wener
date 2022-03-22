@@ -39,3 +39,10 @@ tags:
 ## UI
 
 - [Task Manager UI with CSS Grid](https://codepen.io/TurkAysenur/full/QWyPMgq)
+
+## Colllection
+
+- https://wwit.design/
+  - 韩国 APP 设计
+- https://rpdc.xiaohongshu.com/52-design-principles
+  - 小红书 52 设计法则

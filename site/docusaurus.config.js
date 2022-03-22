@@ -61,7 +61,22 @@ module.exports = {
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ {
     prism: {
       // https://prismjs.com/#supported-languages
-      additionalLanguages: ['nginx', 'php', 'java', 'toml', 'ini'],
+      additionalLanguages: [
+        'go-mod',
+        'go',
+        'graphql',
+        'hcl',
+        'ini',
+        'java',
+        'nginx',
+        'php',
+        'promql',
+        'properties',
+        'protobuf',
+        'toml',
+        'ts',
+        'makefile',
+      ],
     },
     hideableSidebar: true,
     googleAnalytics: {

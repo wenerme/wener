@@ -13,6 +13,13 @@ title: ko
 - --platform=linux/amd64,linux/arm64 - 多平台构建
 - KO_DATA_PATH=kodata - 静态资源路径
 - GOFLAGS
+- 默认包含 -trimpath
+
+:::caution
+
+- 不能用 CGO
+
+:::
 
 ```bash
 # macOS
@@ -20,7 +27,7 @@ brew install ko
 # Go install
 go install github.com/google/ko@latest
 
-ko publish ./cmd/app
+ko build ./cmd/app
 
 ko resolve -f config/ > release.yaml
 # ko resolve -f config/ | kubectl apply -f -
@@ -67,7 +74,7 @@ builds:
 ```
 
 - template 支持模板 - 但只支持 环境变量
-- `ko publish ./cmd/app` 默认镜像名字 `${KO_DOCKER_REPO}/app-<md5>`
+- `ko build ./cmd/app` 默认镜像名字 `${KO_DOCKER_REPO}/app-<md5>`
   - --base-import-paths,-B - 忽略 md5
   - --bare - 只用 repo 部分
   - --preserve-import-path,-P - repo 后再加上 模块 路径

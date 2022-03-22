@@ -6,7 +6,7 @@ tags:
 
 # DNS FAQ
 
-## 清楚 DNS 缓存 / Clear DNS cache
+## 清除 DNS 缓存 / Clear DNS cache
 
 ```bash
 # macOS
@@ -16,3 +16,14 @@ sudo killall -HUP mDNSResponder
 # Windows
 ipconfig /flushdns
 ```
+
+## PiHole vs AdGuard
+
+- PiHole
+  - 完全控制
+- AdGuard
+  - 使用更简单
+
+---
+
+- https://github.com/AdguardTeam/AdguardHome#how-does-adguard-home-compare-to-pi-hole

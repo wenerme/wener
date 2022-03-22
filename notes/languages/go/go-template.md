@@ -12,9 +12,6 @@ title: Go 模板
 
 :::
 
-- 参考
-  - [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
-  - [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
 
 ## 语法
 

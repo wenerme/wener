@@ -1,12 +1,23 @@
 ---
 title: Telementry
+tags:
+  - Collection
 ---
 
 # Telementry
 
-Collection of how to disable telementry.
+Collection of how to disable telementry and analytics that default to enable.
 
 ## NextJS
+
+```bash
+# 1. by env
+export NEXT_TELEMETRY_DISABLED=1
+# 2. by cli
+npx next telemetry disable
+```
+
+- https://nextjs.org/telemetry
 
 ## cubejs
 
@@ -59,6 +70,7 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
+  # unset tracking id
   ga.trackingid: ''
 ```
 
@@ -68,7 +80,7 @@ data:
 
 **Flags**
 
---enable-analytics
+- remove --enable-analytics
 
 **Helm**
 

@@ -1,18 +1,21 @@
 ---
-id: nginx-cookbook
 title: Nginx 常用配置
+tags:
+  - Cookbook
 ---
 
 # Nginx 常用配置
 
 ## 注意
-* [rewrite](http://wiki.nginx.org/HttpRewriteModule#rewrite)
-  * 如果替代字符串是 `http://` 打头，那么客户端会被重定向，之后的 rewrite 都会被中止
-* auth
-  * https://oauth2-proxy.github.io/oauth2-proxy/configuration#configuring-for-use-with-the-nginx-auth_request-directive
+
+- [rewrite](http://wiki.nginx.org/HttpRewriteModule#rewrite)
+  - 如果替代字符串是 `http://` 打头，那么客户端会被重定向，之后的 rewrite 都会被中止
+- auth
+  - https://oauth2-proxy.github.io/oauth2-proxy/configuration#configuring-for-use-with-the-nginx-auth_request-directive
 
 ## 主机映射
-* [map](http://nginx.org/en/docs/http/ngx_http_map_module.html#map)
+
+- [map](http://nginx.org/en/docs/http/ngx_http_map_module.html#map)
 
 ```nginx
 map $http_host $served_host {
@@ -32,7 +35,7 @@ server {
 
 ---
 
-```
+```nginx
 map $request_uri $redirect_uri {
   ~/(?<lang>(en|de|fr))/oldname    /$lang/newname;
 }
@@ -43,9 +46,10 @@ map $http_host $served_host {
 ```
 
 ## 子域名重写
-* `http://www.*.domain.com` -> `http://*.domain.com`
 
-__#1__
+- `http://www.*.domain.com` -> `http://*.domain.com`
+
+**#1**
 
 ```nginx
 if ($host ~* www\.(.*)) {
@@ -54,7 +58,7 @@ if ($host ~* www\.(.*)) {
 }
 ```
 
-__#2__
+**#2**
 
 ```nginx
 server {
@@ -68,7 +72,7 @@ server {
 ```nginx
 server
 {
-  listen 80; 
+  listen 80;
   server_name a.com b.com c.com;
 
   location ~* ^/comment/(.*) {

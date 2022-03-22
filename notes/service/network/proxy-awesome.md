@@ -6,13 +6,26 @@ tags:
 
 # 代理
 
-## 开发调试
+| protocol           |
+| ------------------ | ----- |
+| socks5             |
+| http               |
+| ShadowSocks - ss   |
+| ShadowSocksR - ssr |
+| vmess              | V2Ray |
+| [snell]            |
+| [trojan]           |
+
+[snell]: https://github.com/surge-networks/snell
+[trojan]: https://github.com/trojan-gfw/trojan
+
+## Sniff/Introspection
 
 - Charles - 商业
   - macOS
 - Proxyman - 商业
   - macOS
-- MITM
+- [mitmproxy](./mitmproxy.md)
 - Wireshark
 - tshark
 - tcpdump
@@ -39,6 +52,24 @@ curl -v --http2 http://localhost:8000
 # GET / HTTP/2
 curl -v --http2-prior-knowledge http://localhost:8000
 ```
+
+## Proxy Protocol
+
+- HAProxy Protocol - 主要用于保留原 IP
+  - 希望基于来源 IP 做策略的一般都会支持
+  - [proxy-protocol.txt](https://github.com/haproxy/haproxy/blob/master/doc/proxy-protocol.txt)
+    - v1 - 明文 `PROXY TCP4 255.255.255.255 255.255.255.255 65535 65535\r\n\r\n`
+    - v2 - 支持二进制，支持更多协议
+  - 支持的服务: haproxy, nginx, varnish, stud, stunnel
+  - 实现
+    - [cloudflare/mmproxy](https://github.com/cloudflare/mmproxy)
+    - [path-network/go-mmproxy](https://github.com/path-network/go-mmproxy)
+    - [AdGuardHome#2798](https://github.com/AdguardTeam/AdGuardHome/issues/2798)
+
+## server
+
+- https://www.v2ray.com/
+- [clash](./clash.md)
 
 # 库
 
