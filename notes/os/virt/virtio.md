@@ -1,5 +1,4 @@
 ---
-id: virtio
 title: Virtio
 ---
 

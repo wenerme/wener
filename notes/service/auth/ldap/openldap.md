@@ -22,6 +22,9 @@ title: OpenLDAP
     - [Sets in Access Controls](https://www.openldap.org/faq/data/cache/1133.html)
   - [osixia/docker-openldap](https://github.com/osixia/docker-openldap)
   - [jp-gouin/helm-openldap](https://github.com/jp-gouin/helm-openldap)
+  - [ltb-project/self-service-password](https://github.com/ltb-project/self-service-password)
+    - GPLv3, PHP
+    - change and reset password in an LDAP
 
 ## Note
 

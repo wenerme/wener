@@ -68,6 +68,18 @@ tags:
   - 鬼灭之刃
   - 空之境界
 
+:::info 霸权社
+
+WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》 后被戏称为霸权社。
+
+:::
+
+- https://zh.wikipedia.org/wiki/日本动画工作室列表
+- [Anime Grand Prix](https://zh.wikipedia.org/wiki/Anime_Grand_Prix)
+- [东京动画奖](https://zh.wikipedia.org/wiki/东京动画奖)
+
+## 鬼灭之刃
+
 | 鬼灭之刃          | date      |
 | ----------------- | --------- |
 | 灶门炭治郎 立志篇 | 2019      |
@@ -83,29 +95,21 @@ tags:
 | 《那田蜘蛛山篇》       | 第 15 至第 21 集合集 |
 | 《柱合会议・蝴蝶屋篇》 | 第 22 至第 26 集合集 |
 
-:::info 霸权社
-
-WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》 后被戏称为霸权社。
-
-:::
-
-- https://zh.wikipedia.org/wiki/日本动画工作室列表
-- [Anime Grand Prix](https://zh.wikipedia.org/wiki/Anime_Grand_Prix)
-- [东京动画奖](https://zh.wikipedia.org/wiki/东京动画奖)
-
 ## Resource
 
-- 资源组/字幕组
-  - 幻樱字幕组 - http://www.hysub.net/
-  - Ohys-Raws
-  - 喵萌奶茶屋
-  - 云光字幕组
-  - NC-Raws
-  - CASO 华盟动漫
-  - SumiSora 澄空学园 - https://bbs.sumisora.net/
-  - 诸神字幕组
-  - MAGI_ATELIER 魔术师工房
-  - UHA-WINGS
+| 资源组/字幕组           | ---                       |
+| ----------------------- | ------------------------- |
+| 幻樱字幕组              | http://www.hysub.net/     |
+| Ohys-Raws               |
+| 喵萌奶茶屋              |
+| 云光字幕组              |
+| NC-Raws                 |
+| CASO 华盟动漫           |
+| SumiSora 澄空学园       | https://bbs.sumisora.net/ |
+| 诸神字幕组              |
+| MAGI_ATELIER 魔术师工房 |
+| UHA-WINGS               |
+| DBD-Raws                |
 
 ## 参考
 
@@ -113,9 +117,57 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 - https://anitrendz.net/charts/top-anime/
 - https://zh.moegirl.org.cn
 
-## Must watch
+## WoW
 
-- 妖精森林的小不点 https://movie.douban.com/subject/27107139/
+- 妖精森林的小不点
+- 白箱
+- 银之匙
+- 有顶天家族
+- 中二病也要谈恋爱
+- 荒川爆笑团
+- 银魂
+- 虫师
+
+**欧美**
+
+- RaR
+- 钢之炼金术师
+
+**致郁**
+
+- 团子大家族 CLANNAD
+- 少女终未旅行
+
+**治愈**
+
+- 摇曳露营
+- 夏目友人帐
+- 元气囝仔
+- 悠哉日常大王
+- 轻音少女
+- 龙与虎
+
+
+
+**热血**
+
+- 双斩少女
+- Re：从零开始的异世界生活
+- 进击的巨人
+- 黄金神威
+- 異獸魔都
+- 巨人
+- 一拳
+- 鬼灭之刃
+- 暗杀教室
+- 路人超能
+- Fate
+- MegalBox
+- Jojo
+
+---
+
+- https://www.netflix.com/hk/browse/genre/6721
 
 ## TBW
 

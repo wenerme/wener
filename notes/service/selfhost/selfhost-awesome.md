@@ -95,11 +95,26 @@ tags:
     - Unofficial Go API for Notion.so
   - [ohsayan/jotsy](https://github.com/ohsayan/jotsy)
 - Music
-  - [sentriz/gonic](https://github.com/sentriz/gonic)
-  - [epoupon/lms](https://github.com/epoupon/lms)
   - [OpenKJ/OpenKJ](https://github.com/OpenKJ/OpenKJ)
   - [UltraStar-Deluxe/Play](https://github.com/UltraStar-Deluxe/Play)
   - [Vocaluxe/Vocaluxe](https://github.com/Vocaluxe/Vocaluxe)
+  - [badaix/snapcast](https://github.com/badaix/snapcast)
+    - Synchronous multiroom audio player
+- Media
+  - [ampache/ampache](https://github.com/ampache/ampache)
+    - AGPLv3, PHP
+    - audio/video streaming, file manager
+  - [AzuraCast/AzuraCast](https://github.com/AzuraCast/AzuraCast)
+    - Apache-2.0, PHP
+    - WebRadio
+  - [beetbox/beets](https://github.com/beetbox/beets)
+    - MIT, Python
+    - music library manager, MusicBrainz tagger
+    - 命令行工具
+  - [clangen/musikcube](https://github.com/clangen/musikcube)
+    - 终端
+- Pusher
+  - https://github.com/edgurgel/poxa
 - Document
   - [tagspaces/tagspaces](https://github.com/tagspaces/tagspaces)
     - AGPL-3.0, Java+TS

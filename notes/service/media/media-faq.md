@@ -1,5 +1,7 @@
 ---
 title: Media FAQ
+tags:
+  - FAQ
 ---
 
 # Media FAQ
@@ -17,6 +19,7 @@ title: Media FAQ
 - Windows https://www.free-codecs.com/hevc_video_extension_download.htm
 - 测试视频 https://www.libde265.org/downloads-videos/
 - Google Chromecast 支持 https://developers.google.com/cast/docs/media
+- [HEVC media on Apple devices](https://support.apple.com/en-hk/HT207022)
 
 ## nfo
 

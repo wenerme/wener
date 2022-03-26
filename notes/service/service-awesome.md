@@ -68,6 +68,8 @@ tags:
     - AGPL-3.0, Typescript
     - Scheduling infrastructure
 - Notification
+  - [appleboy/gorush](https://github.com/appleboy/gorush)
+    - MIT, Golang
   - [notifirehq/notifire](https://github.com/notifirehq/notifire)
     - Notification Infrastructure
   - [binwiederhier/ntfy](https://github.com/binwiederhier/ntfy)

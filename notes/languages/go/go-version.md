@@ -83,11 +83,11 @@ tags:
   - GoLand Generics support - 2022.1 [GO-9515](https://youtrack.jetbrains.com/issue/GO-9515)
   - GoLand Support Go workspaces - 2022.1 [GO-12167](https://youtrack.jetbrains.com/issue/GO-12167)
 
-| env                                       | mean         |
-| ----------------------------------------- | ------------ | ------------ |
-| `GOVCS=github.com:git,evil.com:off,\*:git | hg`          | 部分允许 VCS |
-| `GOVCS=*:all`                             | 所有允许 VCS |
-| `GOVCS=*:off`                             | 关闭 VCS     |
+| env                                           | mean         |
+| --------------------------------------------- | ------------ |
+| `GOVCS=github.com:git,evil.com:off,\*:gi\|hg` | 部分允许 VCS |
+| `GOVCS=*:all`                                 | 所有允许 VCS |
+| `GOVCS=*:off`                                 | 关闭 VCS     |
 
 ```bash
 go work init ./mod ./tools

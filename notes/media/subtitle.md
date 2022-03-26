@@ -1,9 +1,11 @@
 ---
-title:  字幕
+title: 字幕
 ---
+
 # 字幕
 
 ## format
+
 - .srt - SubRip
   - 最简单
 - .aas - Advanced SubStation Alpha
@@ -14,3 +16,10 @@ title:  字幕
   - 复杂、少见、专用
 - .ttml - Timed Text Markup Language
 - sbv, sub, ttml, rt, scc, dfxp, tml, scc sami
+- sup
+
+```bash title="sup -> sub"
+ffmpeg -i input.mkv -map 0:s:0 -c:s dvdsub -f matroska output.mks
+mkvextract output.mks tracks 0:output.sub
+del output.mks
+```

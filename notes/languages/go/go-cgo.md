@@ -24,6 +24,7 @@ title: CGO
 
 :::tip 避免使用 CGO
 
+- CGO_ENABLED=0 禁用 CGO
 - CGO 依赖系统
 - 跨平台编译复杂
 - 无 CGO 方便构建 -static binary

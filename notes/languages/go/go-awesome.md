@@ -476,7 +476,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [plugin](https://pkg.go.dev/plugin)
   - -buildmode=plugin
     - 只支持 Linux, FreeBSD, macOS - dlopen
-    - 需要 cgo
+    - 需要 **cgo** - [#19569](https://github.com/golang/go/issues/19569)
   - Lookup symbol 强转类型进行使用 - 类似 dlopen - 底层使用 dlopen
   - main 下 exported 的符号都可以使用
   - 加载时所有包的 init 都会触发
@@ -559,6 +559,24 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - goroutine
   - [oklog/run](https://github.com/oklog/run)
   - errgroup
+- error
+  - [github.com/pkg/errors](https://github.com/pkg/errors)
+  - [github.com/hashicorp/go-multierror](https://github.com/hashicorp/go-multierror)
+  - [go.uber.org/multierr](https://github.com/uber-go/multierr)
+- compress/archive
+  - https://github.com/mholt/archiver
+    - 各种压缩包
+  - https://github.com/nwaples/rardecode
+    - rar
+- magic/mime
+  - [wenerme/go-magic](https://github.com/wenerme/go-magic)
+- chartset
+  - golang.org/x/text/encoding/charmap
+  - golang.org/x/text/encoding/simplifiedchinese
+  - golang.org/x/net/html/charset
+  - https://github.com/saintfish/chardet
+  - https://github.com/djimenez/iconv-go
+    - iconv cgo binding
 
 ## Tool
 
@@ -597,6 +615,11 @@ go install github.com/jondot/goweight@latest
 cd cmd/server
 goweight
 ```
+
+## Debug
+
+- profiling
+  - [pyroscope-io/pyroscope](https://github.com/pyroscope-io/pyroscope)
 
 ## Service
 

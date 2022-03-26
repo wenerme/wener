@@ -18,14 +18,39 @@ tags:
 
 ## music
 
+- [sentriz/gonic](https://github.com/sentriz/gonic)
+  - GPLv3, Golang
+- [epoupon/lms](https://github.com/epoupon/lms)
+  - GPLv3, C++
+- [blackcandy-org/black_candy](https://github.com/blackcandy-org/black_candy)
+  - MIT, Ruby
+- [koel/koel](https://github.com/koel/koel)
+  - MIT, PHP+Laravel+Vue
+  - [koel/docker](https://github.com/koel/docker)
+  - [koel/player](https://github.com/koel/player)
+    - Mobile
+- [mopidy/mopidy](https://github.com/mopidy/mopidy)
+  - Apache-2.0, Python
+- [MusicPlayerDaemon/MPD](https://github.com/MusicPlayerDaemon/MPD)
+  - GPLvv2, C++
+- [nukeop/nuclear](https://github.com/nukeop/nuclear)
+  - AGPLv3, TS
+  - Streaming music player that finds free music for you
 - [navidrome/navidrome](https://github.com/navidrome/navidrome)
   - GPL-3.0, Go
-- [epoupon/lms](https://github.com/epoupon/lms)
-  - GPL-3.0, C++
 - [airsonic-advanced/airsonic-advanced](https://github.com/airsonic-advanced/airsonic-advanced)
   - GPL-3.0, Java
 - [mpache/ampache](https://github.com/ampache/ampache)
   - PHP
+
+## Container
+
+- [Matroska](https://www.matroska.org/)
+  - mkv - viedo
+  - mka - audio
+  - mks - subtitle
+  - mk3d - stereoscopic/3d video
+  - webm 的基础
 
 ## Audio
 
@@ -178,3 +203,23 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 - [nilaoda/N_m3u8DL-CLI](https://github.com/nilaoda/N_m3u8DL-CLI)
 - [yuanqing/vdx](https://github.com/yuanqing/vdx)
 - [MiSTer-devel/Presets_MiSTer](https://github.com/MiSTer-devel/Presets_MiSTer)
+- [exiftool](https://exiftool.org/exiftool_pod.html)
+  - 不能 write mkv
+- mkvtoolnix
+  - https://mkvtoolnix.download/doc/mkvpropedit.html
+- mediainfo
+
+```bash
+exiftool -ext mp4 -Title= /path/to/files/
+
+# mkvtoolnix
+mkvpropedit -l  # 属性列表
+
+mkvinfo input.mkv
+mkvpropedit input.mkv --tags all: # 移除所有 tag
+mkvpropedit input.mkv -d title    # 删除 title
+mkvpropedit input.mkv --edit track:v1 --delete name # 删除 track:v1 的名字
+
+for i in *.mkv; do mkvpropedit $i -d title; done
+for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
+```

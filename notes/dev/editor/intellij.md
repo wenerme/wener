@@ -38,3 +38,14 @@ title: Intellij IDEA
 ```bash
 idea diff path1 path2 path3
 ```
+
+## Github Copilot IDEA Shortcut
+
+|                                              key | for            |
+| -----------------------------------------------: | -------------- |
+|                                   <kbd>Tab</kbd> | 接受建议       |
+|                                   <kbd>Esc</kbd> | 取消建议       |
+|         <kbd>Alt + ]</kbd>,<kbd>Option + ]</kbd> | 下一个建议     |
+|         <kbd>Alt + [</kbd>,<kbd>Option + [</kbd> | 上一个建议     |
+|         <kbd>Alt + \</kbd>,<kbd>Option + \</kbd> | 触发建议       |
+| <kbd>Alt + Enter</kbd>,<kbd>Option + Enter</kbd> | 显示建议侧边栏 |

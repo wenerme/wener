@@ -4,11 +4,19 @@ title: Hashing
 
 # Hashing
 
-- [Which hashing algorithm is best for uniqueness and speed?](http://softwareengineering.stackexchange.com/questions/49550)
-  - 随机性和碰撞比较
-- [Cryptography Center](https://cryptography.cc/)
-- [shattered](https://shattered.io/)
-  broken SHA-1 in practice
+- 参考
+  - [Which hashing algorithm is best for uniqueness and speed?](http://softwareengineering.stackexchange.com/questions/49550)
+    - 随机性和碰撞比较
+  - [Cryptography Center](https://cryptography.cc/)
+  - [shattered](https://shattered.io/)
+    broken SHA-1 in practice
+  - [multiformats/multihash](https://github.com/multiformats/multihash)
+
+:::tip
+
+- git 默认 sha2-256
+
+:::
 
 ## git hash
 
@@ -16,6 +24,15 @@ title: Hashing
 - git 默认从 SHA-1 迁移为 SHA-256
   - [why git choose sha-256](https://stackoverflow.com/a/60088126/1870054)
 - [hash-function-transition](https://git-scm.com/docs/hash-function-transition/)
+
+## Hash
+
+- adler32
+- crc16
+- crc32
+- crc64
+- fnv
+- maphash
 
 ## Cryptographic hash algorithms
 
