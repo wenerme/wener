@@ -11,3 +11,4 @@ tags:
 - [dbus-specification](https://dbus.freedesktop.org/doc/dbus-specification.html)
 - gnome [DraftSpecs](https://wiki.gnome.org/DraftSpecs)
   - [Thumbnail management DBus specification](https://wiki.gnome.org/DraftSpecs/ThumbnailerSpec)
+- https://regolith-linux.org/

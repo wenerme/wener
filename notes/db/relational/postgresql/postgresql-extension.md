@@ -14,6 +14,8 @@ title: PostgreSQL Extension
 - [dimitri/pgextwlist](https://github.com/dimitri/pgextwlist)
   PostgreSQL Extension Whitelisting
 - [pgq/pgq](https://github.com/pgq/pgq)
+  Queue for PostgreSQL
+- [pgspider](https://github.com/pgspider)
 
 **FDW**
 
@@ -26,6 +28,9 @@ title: PostgreSQL Extension
 | hstore_plluau     | Hstore transform for untrusted Lua                           |
 | hstore_plpython3u | transform between hstore and plpython3u                      |
 | postgres_fdw      | foreign-data wrapper for remote PostgreSQL servers           |
+| [sqlite_fdw]      | SQLite FDW for PostgreSQL                                    |
+
+[sqlite_fdw]: https://github.com/pgspider/sqlite_fdw
 
 **DateType**
 

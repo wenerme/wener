@@ -6,12 +6,40 @@ title: ZFS 调优
 
 :::tip 目的
 
-- 提升应用性能
+- 提升应用性能 - 针对工作负载调优
 - 提升 读
 - 提升 写
 - 提升 空间使用率
 
 :::
+
+- [Workload Tuning](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html)
+  - PosstgreSQL - [Everything I've seen on optimizing Postgres on ZFS](https://vadosware.io/post/everything-ive-seen-on-optimizing-postgres-on-zfs-on-linux/)
+    - recordsize=8K
+    - logbias=throughput
+  - MySQL InnoDB
+    - recordsize=16K
+    - primarycache=metadata
+    - logbias=throughput
+    - my.cnf
+      - skip-innodb_doublewrite
+      - innodb_use_native_aio=0
+      - innodb_use_atomic_writes=0
+- [ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love RAIDZ](https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz)
+- [ZFS – How to Extend ZPOOL and Re-layout ?](https://www.unixarena.com/2013/07/zfs-how-to-extend-zpool-and-re-layout.html)
+- [ZFS Terminology](https://docs.oracle.com/cd/E23824_01/html/821-1448/ftyue.html)
+- [ZFS overhead calc.xlsx](https://docs.google.com/spreadsheets/d/1pdu_X2tR4ztF6_HLtJ-Dc4ZcwUdt6fkCjpnXxAEFlyA)
+- [Tuning ZFS recordsize](https://blogs.oracle.com/roch/tuning-zfs-recordsize)
+
+:::tip
+
+- compressratio 受 recordsize 影响
+  - https://github.com/openzfs/zfs/discussions/11293
+- 总是开启 compression
+
+:::
+
+
 
 | zpool prop | default | recommand   |
 | ---------- | ------- | ----------- |

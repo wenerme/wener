@@ -62,8 +62,10 @@ title: GORM
 - Relationship 关联的 Schema 可能和实际 Schema 不同 - 导致无法 Preload
 - Embed Struct 也是当作 embedded 来处理的，只不过没有前缀
   - 现在嵌套多层解析的 schema 会有问题 - [#3964](https://github.com/go-gorm/gorm/issues/3964)
-- [go-gorm/datatypes](https://github.com/go-gorm/datatypes) - gorm.io/datatypes
-  - 实现了其他数据类型 - 例如 JSON
+- 参考
+  - [pilagod/gorm-cursor-paginator](https://github.com/pilagod/gorm-cursor-paginator)
+  - [go-gorm/datatypes](https://github.com/go-gorm/datatypes) - gorm.io/datatypes
+    - 实现了其他数据类型 - 例如 JSON
 
 :::caution
 
@@ -105,6 +107,12 @@ title: GORM
 | joinForeignKey:           |
 | joinReferences:           |
 | constraint:               | OnUpdate,OnDelete                  | `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"` |
+
+:::tip
+
+- Tag 不分大小写
+
+:::
 
 ```go title="特殊值"
 const (

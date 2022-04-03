@@ -223,3 +223,11 @@ mkvpropedit input.mkv --edit track:v1 --delete name # 删除 track:v1 的名字
 for i in *.mkv; do mkvpropedit $i -d title; done
 for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
 ```
+
+## Dataset
+
+- https://anidb.net/
+  - https://anidb.net/group/15631
+- https://www.imdb.com/interfaces/
+- opensubtitle
+- openmovie

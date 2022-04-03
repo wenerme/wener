@@ -39,6 +39,8 @@ title: musl
 
 ## DNS 问题
 
+resolv 不支持 dns over tcp/edns, 因此一次 resolve 最多返回 一个包，512 bytes，有时候解析会因此出现问题。
+
 - 问题
   - [alpine/aports#9734](https://gitlab.alpinelinux.org/alpine/aports/issues/9734) - DNS resolver patch
     - AAAA 不识别 NotImp 导致等待超时

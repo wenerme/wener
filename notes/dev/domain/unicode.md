@@ -1,6 +1,15 @@
-# Unicode
+---
+title: Unicode
+---
 
-## Tips
+# Unicode
+- spec
+  - [UNICODE TEXT SEGMENTATION](https://www.unicode.org/reports/tr29/)
+  - [COMMON REFERENCES FOR UNICODE STANDARD ANNEXES](https://www.unicode.org/reports/tr41/tr41-28.html)
+- [Unicode character property](https://en.wikipedia.org/wiki/Unicode_character_property)
+- https://unicodebook.readthedocs.io/unicode.html
+- https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
+  - U+FF00–FFEF
 
 https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8
 
@@ -51,3 +60,7 @@ https://github.com/git/git/tree/master/po
 - CJK Unified Ideographs
 - 现代汉语与日语最常用的汉字
 - https://zh.wikipedia.org/wiki/中日韓統一表意文字列表
+
+## Unicode character class
+
+- https://pkg.go.dev/regexp/syntax

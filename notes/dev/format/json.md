@@ -57,6 +57,12 @@ title: JSON
 - [jmespath](https://jmespath.org/)
   - [jmespath/go-jmespath](https://github.com/jmespath/go-jmespath)
 
+## Misc
+
+- [WebReflection/JSONH](https://github.com/WebReflection/JSONH)
+  - Reducce JSON Size
+  - hpack
+
 ## FAQ
 
 ### JSON Patch and JSON Merge Patch
@@ -74,5 +80,5 @@ title: JSON
 - [The “right” JSON date format](https://stackoverflow.com/q/10286204/1870054)
 
 ```js
-new Date().toJSON() === new Date().toISOString()
+new Date().toJSON() === new Date().toISOString();
 ```

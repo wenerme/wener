@@ -13,23 +13,28 @@ title: SQLite
 - 语法
   - [expr](https://www.sqlite.org/lang_expr.html)
   - [pragma](https://www.sqlite.org/pragma.html)
-- 注意
-  - SQLite 的核心限制是并发写入性能 - 如果需要并发写入，不建议用 SQLite
-  - DATETIME 不会存储毫秒
-  - 没有 Base64 函数
-  - BLOB 作为二进制存储部分语言的 Driver 支持不太好
-  - 默认最多 999 个变量
-  - 可以配合 zfs 进行压缩 - 注意使用相同的 page size
-    - page_size 一般 4096, cache_size 一般 -2000 即 2000 kb
-    - `PRAGMA schema.page_size`, `PRAGMA schema.cache_size`
-    - [compressed sqlite3 database file?](https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg114729.html)
 - 限制
   - [Limits In SQLite](https://www.sqlite.org/limits.html)
   - [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)
 
 :::caution
 
-- SQLite 的类型是动态的 - 不强制
+- SQLite 的类型是动态的 - 不强制 - 新版本支持严格类型
+- SQLite 的核心限制是并发写入性能 - 如果需要并发写入，不建议用 SQLite
+- DATETIME 不会存储毫秒
+- 没有 Base64 函数
+- BLOB 作为二进制存储部分语言的 Driver 支持不太好
+
+:::
+
+:::tip
+
+- 默认最多 999 个变量
+- WAL 模式可提升 单写多读 性能 - `PRAGMA journal_mode=WAL`
+- 可以配合 zfs 进行压缩 - 注意使用相同的 page size
+  - page_size 一般 4096, cache_size 一般 -2000 即 2000 kb
+  - `PRAGMA schema.page_size`, `PRAGMA schema.cache_size`
+  - [compressed sqlite3 database file?](https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg114729.html)
 
 :::
 
@@ -82,6 +87,18 @@ create table foo(a, b);
 ```sql
 .output data.csv
 select * from foo;
+```
+
+## csv 虚拟表
+
+- https://www.sqlite.org/csv.html
+
+```sql
+-- 加载扩展
+.load ./csv
+
+CREATE VIRTUAL TABLE temp.t1 USING csv(filename='thefile.csv');
+SELECT * FROM t1;
 ```
 
 ## DateTime
@@ -296,3 +313,28 @@ arm-none-eabi-gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -static she
 ## upsert
 
 - https://www.sqlite.org/lang_UPSERT.html
+
+# FAQ
+
+## attempt to write a readonly database
+
+可能是权限不足
+
+## 删除不支持 WHERE 和 ORDER
+
+- 需要从源码编译 [SQLITE_ENABLE_UPDATE_DELETE_LIMIT](https://www.sqlite.org/compile.html#enable_update_delete_limit)
+
+## Golang database is locked (5) (SQLITE_BUSY)
+
+```go
+db.SetMaxOpenConns(1)
+```
+
+- 如果需要不同表并行操作，考虑使用多个 sqlite 文件
+- https://github.com/mattn/go-sqlite3/issues/274#issuecomment-191597862
+
+## sqlite 修复
+
+```bash
+echo ".dump" | sqlite old.db | sqlite new.db
+```

@@ -9,7 +9,10 @@ tags:
 ## Index
 
 - [rarbgprx.org](https://rarbgprx.org/)
-- [动漫花园](https://dmhy.anoneko.com/)
+- anime
+  - [动漫花园](https://dmhy.anoneko.com/)
+  - btbtt
+  - https://share.acgnx.se/
 - [ed2000k.com](https://www.ed2000k.com/)
 - [torrent.extto.com](http://torrent.extto.com/)
 - [it-ebooks](https://gist.github.com/baiwfg2/af827b8b75eebf8ab29f5531a0d265ce)
@@ -34,6 +37,36 @@ alipanso6.com，alipanso7.com，alipanso8.com
   - 中文 BT 站点
 -->
 
+## acgnx
+
+- `https://share.acgnx.se/show-<infohash>.html`
+- Announce
+  - http://opentracker.acgnx.se/announce
+- Scrape
+  - http://opentracker.acgnx.se/scrape
+- Announce list
+  - http://opentracker.acgnx.se/announce
+  - http://tr.bangumi.moe:6969/announce
+  - http://t.nyaatracker.com/announce
+  - http://open.acgtracker.com:1096/announce
+  - http://open.nyaatorrents.info:6544/announce
+  - http://t2.popgo.org:7456/annonce
+  - http://share.camoe.cn:8080/announce
+  - http://tracker.acgnx.se/announce
+  - http://nyaa.tracker.wf:7777/announce
+  - udp://tr.bangumi.moe:6969/announce
+
+## Scrape
+
+- [qbittorrent/search-plugins](https://github.com/qbittorrent/search-plugins)
+- rarbg
+  - https://github.com/evyatarmeged/RARBG-scraper
+  - https://github.com/qbittorrent/search-plugins/blob/master/nova3/engines/rarbg.py
+
+```
+https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=lnjzy73ucv&format=json_extended&app_id=lolhttps://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=lnjzy73ucv&format=json_extended&app_id=lol
+```
+
 ## Pdf
 
 - [itdevbooks/pdf](https://github.com/itdevbooks/pdf)
@@ -56,7 +89,8 @@ alipanso6.com，alipanso7.com，alipanso8.com
 
 - [tgbot-collection/YYeTsBot](https://github.com/tgbot-collection/YYeTsBot)
 - [yyets.dmesg.app](https://yyets.dmesg.app/)
-  - https://yyets.dmesg.app/data/yyets_mongo.gz
+  - https://yyets.dmesg.app/database
+  - https://yyets.dmesg.app/dump/yyets_sqlite.zip
 
 ## list
 
@@ -65,6 +99,17 @@ alipanso6.com，alipanso7.com，alipanso8.com
   - 阿里云盘列表
 - https://github.com/ronggang/PT-Plugin-Plus
 
+## 分辨率
+
+| abbr.  | res      | cn      |
+| ------ | -------- | ------- |
+| HD     | 720P     | 高清    |
+| FHD    | 1080P    | 全高清  |
+| 4K UHD | 4K/2160P | 4K 极清 |
+| 8K UHD |          | 8K 极清 |
+
+- DCI 4K
+- [显示分辨率列表](https://zh.wikipedia.org/wiki/显示分辨率列表)
 
 # FAQ
 
@@ -162,6 +207,7 @@ wget --recursive --page-requisites --adjust-extension --span-hosts --convert-lin
 - AIO - All-In-One
 - RTM - Release To Manufacturing
 - VLM - Volume License Key
+- HR-HDTV - Half Resolution High Definition
 
 # RARBG FAQ
 

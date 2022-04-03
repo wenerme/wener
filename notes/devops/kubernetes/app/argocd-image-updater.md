@@ -14,7 +14,20 @@ title: ArgoCD Image Updater
   - 只能更新 Kustomize 或 Helm 生成的容器
   - pull secrets 必须在相同集群
 - Application 维度 添加 annotation
-  - image-list 监听的镜像
+  - argocd-image-updater.argoproj.io/image-list 定义监听的镜像
+  - 检测镜像是否使用
+  - 检测 仓库 是否有新镜像
+    - 检测策略 - `argocd-image-updater.argoproj.io/<image>.update-strategy`
+      - semver - 默认 - 版本排序
+      - latest
+      - digest - 给定 tag 的最新 digest
+      - name - 字母排序 tag
+  - 如果有 新 镜像，则触发更新
+    - 更新方式 - argocd-image-updater.argoproj.io/write-back-method
+      - argocd
+        - `argocd app set --parameter`
+      - git
+        - `.argocd-source-<appName>.yaml`
 
 ```bash
 # 安装
@@ -30,7 +43,49 @@ kubectl annotate app guestbook \
 argocd-image-updater test nginx
 ```
 
-```yaml
+```yaml title="最小配置"
+annotations:
+  argocd-image-updater.argoproj.io/image-list: web=registry.gitlab.com/example/apps/web, server=registry.gitlab.com/example/apps/server
+  argocd-image-updater.argoproj.io/update-strategy: digest
+  argocd-image-updater.argoproj.io/pull-secret: pullsecret:default/gitlab-dockerconfig
+```
+
+**允许 image-updater 访问其他空间的 secret**
+
+```yaml title="argocd-image-updater.rbac.yaml"
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-image-updater
+  namespace: default
+rules:
+  - apiGroups:
+      - ''
+    resources:
+      - secrets
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-image-updater
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: argocd-image-updater
+subjects:
+  - kind: ServiceAccount
+    name: argocd-image-updater
+    namespace: argocd
+```
+
+```yaml title="配置说明"
 argocd-image-updater.argoproj.io/write-back-method: git
 # 带认证信息
 argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd-image-updater/git-creds
@@ -99,9 +154,14 @@ data:
 ```
 
 ## 配置
+
 - cm argocd-image-updater-config
 
 ```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-image-updater-config
 data:
   applications_api: argocd
   # The address of Argo CD API endpoint - defaults to argocd-server.argocd
@@ -114,4 +174,31 @@ data:
   argocd.plaintext: false
 
   argocd.token:
+  registries.conf:
+```
+
+- 默认支持的仓库
+  - docker.io
+  - quay.io
+  - jfrog.io
+  - ghcr.io
+  - docker.pkg.github.com
+  - registry.gitlab.com
+  - gcr.io
+
+```yaml title="registries.conf"
+registries:
+  - name: Docker Hub
+    prefix: docker.io
+    api_url: https://registry-1.docker.io
+    credentials: secret:foo/bar#creds
+    defaultns: library
+    default: true
+  - name: RedHat Quay
+    api_url: https://quay.io
+    prefix: quay.io
+    insecure: yes
+    credentials: env:REGISTRY_SECRET
+    credsexpire: 5h
+    limit: 20
 ```

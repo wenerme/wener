@@ -14,6 +14,9 @@ title: prettier
     - 社区: go-template, java, kotlin, properties, svelte, toml, sh
   - [benjie/prettier-plugin-pg](https://github.com/benjie/prettier-plugin-pg)
     PostgreSQL
+- 配置
+  - .prettierrc.json
+  - .prettierignore
 
 :::caution
 
@@ -24,7 +27,13 @@ title: prettier
 :::
 
 ```bash
+# 直接格式化
 npx prettier --write src/**/*.{ts,tsx,css,html}
+# 格式检查
+npx prettier --check src/**/*.{ts,tsx,css,html}
+
+# 项目依赖
+npm add -D prettier
 ```
 
 **prettier.config.js**
@@ -55,8 +64,18 @@ module.exports = {
         }
       }
     ]
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
+```
+
+```bash title="配合 lint-staged"
+npm install --save-dev husky lint-staged
+npx husky install
+npm set-script prepare "husky install"
+npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
 ## 排序 import

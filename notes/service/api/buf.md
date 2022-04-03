@@ -7,8 +7,11 @@ title: buf
 - [bufbuild/buf](https://github.com/bufbuild/buf)
 
 ```bash
-brew tap bufbuild/buf
-brew install buf
+# macOS
+# protoc-gen-buf-breaking, protoc-gen-buf-lint
+brew install bufbuild/buf/buf
+# golang
+go install github.com/bufbuild/buf/cmd/buf@latest
 
 buf mod init
 buf mod update
@@ -32,6 +35,10 @@ buf generate petapis
 
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
+go install github.com/grpc-ecosystem/protoc-gen-grpc-gateway-ts@latest
 
 export BUF_USER=wener
 buf login

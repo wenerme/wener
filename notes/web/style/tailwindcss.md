@@ -196,3 +196,26 @@ module.exports = {
   plugins: [],
 };
 ```
+
+## styled-jsx
+
+```bash
+npm add styled-jsx-plugin-postcss
+```
+
+```json
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": ["styled-jsx-plugin-postcss"]
+        }
+      }
+    ]
+  ]
+}
+```
+
+- styled-jsx 使用 @apply [#1234](https://github.com/tailwindlabs/tailwindcss/issues/1234)

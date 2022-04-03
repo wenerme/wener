@@ -6,6 +6,21 @@ tags:
 
 # gRPC Awesome
 
+- [grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
+  - gRPC -> OpenAPIv2
+  - [grpc-ecosystem/grpc-gateway#441](https://github.com/grpc-ecosystem/grpc-gateway/issues/441)
+    - OpenAPIv3
+  - [grpc-ecosystem/protoc-gen-grpc-gateway-ts](https://github.com/grpc-ecosystem/protoc-gen-grpc-gateway-ts)
+    - Apache-2.0, Golang
+- [google/gnostic](https://github.com/google/gnostic)
+  - OpenAPI <-> gRPC
+  - 支持 OpenAPIv3
+- [grpc/grpc-web](https://github.com/grpc/grpc-web)
+  - gRPC in Web
+  - 需要代理
+- [google/rejoiner](https://github.com/google/rejoiner)
+  - Java
+  - gRPC -> GraphQL
 - [grpc-ecosystem/awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc)
 
 ## 参考
@@ -38,7 +53,8 @@ tags:
   - 支持 Websocket 模式
   - [improbable-eng/ts-protoc-gen](https://github.com/improbable-eng/ts-protoc-gen)
 - [google/gnostic](https://github.com/google/gnostic)
-  - JSON and YAML OpenAPI descriptions to and from equivalent Protocol Buffer representations
+  - OpenAPI <-> gRPC
+  - 支持 OpenAPIv3
 - [googleapis/api-linter](https://github.com/googleapis/api-linter)
 - [tmc/grpcutil](https://github.com/tmc/grpcutil)
 - [ktr0731/evans](https://github.com/ktr0731/evans)
@@ -61,6 +77,38 @@ GRPC localhost:8888/helloworld.Greeter/SayHello
 
 ### health
 GRPC localhost:8888/grpc.health.v1.Health/Check
+```
+
+## Health
+
+- https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+- [grpc-ecosystem/grpc-health-probe](https://github.com/grpc-ecosystem/grpc-health-probe)
+- [apssouza22/grpc-production-go](https://github.com/apssouza22/grpc-production-go)
+
+```proto
+syntax = "proto3";
+
+package grpc.health.v1;
+
+message HealthCheckRequest {
+  string service = 1;
+}
+
+message HealthCheckResponse {
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+    SERVICE_UNKNOWN = 3;  // Used only by the Watch method.
+  }
+  ServingStatus status = 1;
+}
+
+service Health {
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+
+  rpc Watch(HealthCheckRequest) returns (stream HealthCheckResponse);
+}
 ```
 
 ## RPC

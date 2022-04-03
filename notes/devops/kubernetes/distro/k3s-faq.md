@@ -202,3 +202,38 @@ rm -rf /var/lib/rancher/k3s
 
 - 直接 truncate 方式
   - https://github.com/rancher/k3os/issues/433#issuecomment-749216549
+
+## Failed to authenticate request from
+
+通常是 worker 证书失效了
+
+## x509: certificate has expired or is not yet valid
+
+> 注意区分是 worker 证书失效还是 server 证书失效
+
+```
+x509: certificate has expired or is not yet valid: current time 2022-03-28T15:55:27+08:00 is after 2022-02-20T13:44:47Z
+```
+
+```bash title="检查失效时间"
+# 当前证书 失效时间
+curl -v -k https://localhost:6443
+openssl s_client -connect localhost:6443 -showcerts < /dev/null 2>&1 | openssl x509 -noout -enddate
+
+for i in `ls /var/lib/rancher/k3s/server/tls/*.crt`; do echo $i; openssl x509 -enddate -noout -in $i; done
+
+kubectl get secret -n kube-system k3s-serving -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -noout -text | grep Not
+```
+
+```bash title="触发 rotate"
+openssl s_client -connect localhost:6443 -showcerts </dev/null 2>&1 | openssl x509 -noout -startdate -enddate
+
+# 设置为 < 90 天
+date -s 20210514
+# sudo hwclock -w
+
+service k3s restart
+```
+
+- https://www.ibm.com/support/pages/node/6444205
+- https://github.com/k3s-io/k3s/issues/1621

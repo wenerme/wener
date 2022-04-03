@@ -27,6 +27,10 @@ tags:
     - ts, 200byte
     - 建议直接拷到项目使用
   - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+- DOM
+  - [google/incremental-dom](https://github.com/google/incremental-dom)
+    - in-place DOM diffing
+  - jquery
 - IoC
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
 - deep compare

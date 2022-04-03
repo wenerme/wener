@@ -288,6 +288,13 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [fatih/gomodifytags](https://github.com/fatih/gomodifytags)
   - 添加 json tag
   - `gomodifytags -file demo.go -struct Server -add-tags json -add-options json=omitempty -transform camelcase --skip-unexported`
+  - transform
+    - snakecase - base_domain
+    - camelcase - baseDomain
+    - lispcase - base-domain
+    - pascalcase - BaseDomain
+    - titlecase - Base Domain
+    - keep
 - [hexdigest/gowrap](https://github.com/hexdigest/gowrap)
   - 生成 interface 实现，辅助实现修饰模式
 - [awalterschulze/goderive](https://github.com/awalterschulze/goderive)
@@ -432,7 +439,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - grpc,wire
   - kratos 命令行工具
   - 哔哩哔哩 RPC 框架
-- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
+- [zeromicro/go-zero](https://github.com/zeromicro/go-zero)
   - 好未来技术
   - 自定义 DSL + goctl 生成
 - [cloudwego/kitex](https://github.com/cloudwego/kitex)
@@ -551,14 +558,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ## Library
 
-- [adhocore/gronx](https://github.com/a\dhocore/gronx) cron parser
+- cron
+  - [adhocore/gronx](https://github.com/adhocore/gronx) cron parser
 - vfs
   - [hack-pad/hackpadfs](https://github.com/hack-pad/hackpadfs)
 - cache
   - [coocood/freecache](https://github.com/coocood/freecache)
 - goroutine
   - [oklog/run](https://github.com/oklog/run)
-  - errgroup
+  - [golang.org/x/sync/errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)
 - error
   - [github.com/pkg/errors](https://github.com/pkg/errors)
   - [github.com/hashicorp/go-multierror](https://github.com/hashicorp/go-multierror)
@@ -577,6 +585,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - https://github.com/saintfish/chardet
   - https://github.com/djimenez/iconv-go
     - iconv cgo binding
+- nlp
+  - [liuzl/gocc](https://github.com/liuzl/gocc)
+    - [BYVoid/OpenCC](https://github.com/BYVoid/OpenCC)
+      - C++
+- lang
+  - [golang.org/x/text/language](https://pkg.go.dev/golang.org/x/text/language)
+  - https://go.dev/blog/matchlang
+- distributed/分布式
+  - [hashicorp/memberlist](https://github.com/hashicorp/memberlist)
 
 ## Tool
 
@@ -620,6 +637,12 @@ goweight
 
 - profiling
   - [pyroscope-io/pyroscope](https://github.com/pyroscope-io/pyroscope)
+- log
+  - [maruel/panicparse](https://github.com/maruel/panicparse)
+- metrics
+  - [github.com/slok/go-http-metrics](https://github.com/slok/go-http-metrics)
+- GODEBUG=http1debug
+- GODEBUG=http2debug=2
 
 ## Service
 

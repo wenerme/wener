@@ -9,40 +9,6 @@ tags:
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
 
-## JSON FAQ
-
-:::caution
-
-- `data->'field' is not null` 无法检测 null 数据 - 通过 `->>` 可以检测到 null
-- 使用 json_typeof 监测 null - `json_typeof(col->'field') = 'null'`
-
-:::
-
-```sql
--- 数组移除 null
-select jsonb_path_query_array('{"values": [null, "test", { "key": "value" }]}', '$.values[*] ? (@ != null)');
-
--- 移除 null 数据
-select json_strip_nulls('[{"f1":1, "f2":null}, 2, null, 3]');
-```
-
-## JSON 数组转行
-
-```sql
--- 转换为单行 JSON 对象
-select * from json_array_elements('[{"a":1},{"a":2}]');
-
--- 同时提取列
-select * from json_to_recordset('[{"a":1,"b":"first"},{"a":2,"b":"second"}]') as (a int, b text);
-```
-
-## JSON 对象遍历
-
-```sql
--- (key,value)
-select * from json_each_text('{"a":1,"b":2}') as d;
-```
-
 ## XML xpath 返回结果包含 CDATA
 
 - [BUG #16046: xpath returns CDATA tag along with the value in postgres 12](https://www.postgresql.org/message-id/5DB23068.3080601%40anastigmatix.net)
@@ -273,4 +239,17 @@ from users,
   left join profiles on (profiles.user_id = users.id)
 -- 不支持 引用
 where profile_age > 18;
+```
+
+## csv
+
+```sql
+COPY (SELECT * FROM foo) TO '/tmp/test.csv' WITH CSV DELIMITER ',' HEADER;
+```
+
+**psql**
+
+```sql
+\copy (SELECT * FROM foo) TO '/tmp/test.csv' WITH CSV DELIMITER ',' HEADER;
+\copy (SELECT * FROM foo) TO STDOUT WITH CSV DELIMITER ',' HEADER;
 ```

@@ -150,6 +150,12 @@ tags:
   - GraphQL Adapter
   - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
 
+## OpenAPI
+
+- [getkin/kin-openapi](https://github.com/getkin/kin-openapi)
+  - MIT, Golang
+  - OpenAPIv3 for Go
+
 ## API Gateway
 
 > API 生命周期管理
@@ -173,9 +179,12 @@ tags:
 
 ## Tool
 
+- Hoppscotch
 - [google/gnostic](https://github.com/google/gnostic)
 - [Kong/insomnia](https://github.com/Kong/insomnia)
 - [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+- [EsperoTech/yaade](https://github.com/EsperoTech/yaade)
+  - self-hosted, collaborative API development environment
 
 ## 参考
 

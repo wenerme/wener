@@ -43,3 +43,5 @@ title: CN
 
 - [citizenlab/chat-censorship](https://github.com/citizenlab/chat-censorship)
   - 聊天屏蔽词
+- [DQinYuan/chinese_province_city_area_mapper](https://github.com/DQinYuan/chinese_province_city_area_mapper)
+  - 简体中文字符串中省市区

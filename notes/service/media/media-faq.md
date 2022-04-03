@@ -27,6 +27,12 @@ tags:
 - Jellyfin 使用 Kodi 的 nfo 格式
 - [nfo-maker.com](https://nfo-maker.com/)
 
+## fMP4-HLS
+
+- fragmented MP4
+- https://docs.unified-streaming.com/documentation/package/fmp4-hls.html
+- https://docs.unified-streaming.com/documentation/drm/fmp4-hls.html
+
 ## MP4 vs MKV
 
 - MKV - Matroska

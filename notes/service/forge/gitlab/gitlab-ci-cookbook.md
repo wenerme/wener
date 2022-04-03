@@ -4,7 +4,6 @@ title: Gitlab CI 技巧
 
 # Gitlab CI 常用语法
 
-## Tips
 
 - `.` 开头的任务不会执行
 - 缓存常用 key

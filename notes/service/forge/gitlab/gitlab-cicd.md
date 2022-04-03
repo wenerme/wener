@@ -1,5 +1,4 @@
 ---
-id: gitlab-cicd
 title: GitaLab持续集成持续交付
 ---
 

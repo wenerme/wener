@@ -14,3 +14,12 @@ title: colly
   - 路径 hex(sha1(url))
   - 内容 gob.NewDecoder(file).Decode(resp)
   - 使用 Rename 确保原子写入
+- 回调 - 6种
+  - OnRequest
+  - OnError
+  - OnResponse
+  - OnHTML
+    - OnError
+  - OnXML
+    - OnError
+  - OnScraped

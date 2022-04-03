@@ -99,6 +99,20 @@ ALTER ROLE ALL SET search_path = "$user";
 SELECT pg_catalog.set_config('search_path', '', false);
 ```
 
+### SQLite
+
+- cache
+  - shared
+  - private
+- mode
+  - ro
+  - rw
+  - rwc
+  - memory
+
+---
+- https://www.sqlite.org/c3ref/open.html
+
 ## JDBC
 
 - org.postgresql.Driver
@@ -124,3 +138,4 @@ jdbc:h2:tcp://{host::localhost}[:{port::9092}]/{database::default}[;<;,user={use
 jdbc:h2:mem:{database::default}?[;<;,{:identifier}={:param}>]
 jdbc:h2:!(mem:)!(tcp://)[file:]{path:h2_db_file}[;<;,user={user:param},password={password:param},MV_STORE={MV_STORE:#param},{:identifier}={:param}>]
 ```
+

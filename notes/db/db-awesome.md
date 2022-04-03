@@ -98,14 +98,24 @@ tags:
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
 - [codenotary/immudb](https://github.com/codenotary/immudb)
   - immutable database
-- SQLite
-  - [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
-    - Apache-2.0, Go
-    - Streaming replication for SQLite
-  - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
-    - Query sqlite via http
-    - [HN](https://news.ycombinator.com/item?id=30636796)
-  - [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
+
+## SQLite Awesome
+
+- [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
+  - Apache-2.0, Go
+  - Streaming replication for SQLite
+  - 外部进程
+  - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
+- [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
+  - Query sqlite via http
+  - [HN](https://news.ycombinator.com/item?id=30636796)
+- [Hosting SQLite on Github Pages](https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/)
+- [subzerocloud/blue-steel](https://github.com/subzerocloud/blue-steel)
+  - RUST
+  - REST api for SQLite & PostgreSQL
+- https://lumosql.org/
+  - SQLite+LMDB
+
 
 ## ID
 

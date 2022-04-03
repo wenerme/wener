@@ -11,6 +11,7 @@ title: Hashing
   - [shattered](https://shattered.io/)
     broken SHA-1 in practice
   - [multiformats/multihash](https://github.com/multiformats/multihash)
+  - [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
 
 :::tip
 
@@ -28,11 +29,16 @@ title: Hashing
 ## Hash
 
 - adler32
-- crc16
-- crc32
-- crc64
-- fnv
+- crc - Cyclic redundancy check
+  - 16,32,64
+- [fnv] - Fowler–Noll–Vo
+  - 32,64,128,256,512,1024
+  - xor
+- MurmurHash
+  - 32,64,128
 - maphash
+
+[fnv]: https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
 
 ## Cryptographic hash algorithms
 

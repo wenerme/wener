@@ -8,6 +8,7 @@ title: Github
 - 参考
   - https://gist.github.com/toolbear/ac62691d6f59812a6710
     GitHub as an authority for SSH public keys
+  - https://codeload.github.com/bufbuild/buf/tar.gz/refs/tags/v1.3.0
 
 ```bash
 curl https://github.com/wenerme.keys >> ~/.ssh/authorized_keys
@@ -62,3 +63,17 @@ github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
 
 - [wei/socialify](https://github.com/wei/socialify)
 - [matchai/waka-box](https://github.com/matchai/waka-box)
+
+## Search
+
+- in:path
+- in:file
+- user:USERNAME
+- org:ORGNAME
+- repo:USERNAME/REPOSITORY
+- path:DIRECTORY
+- language:LANGUAGE
+  - https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
+- size:n
+- filename:FILENAME
+- extension:EXT
