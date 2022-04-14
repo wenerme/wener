@@ -30,6 +30,9 @@ jobs:
           path: site/node_modules
           key: ${{ runner.os }}-build-cache
 
+      - name: Deps
+        run: |
+          apt install -y libvips-dev
       - run: cd site && make ci
       - run: cp -r site/build site/tech-build
 
