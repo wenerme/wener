@@ -28,6 +28,8 @@ PKG_CONFIG_PATH=/usr/local/opt/vips/lib/pkgconfig:/usr/local/opt/glib/lib/pkgcon
 ```bash
 # export CC
 export CXX="$(which g++) -I/usr/local/opt/glib/include/glib-2.0/ -I/usr/local/opt/glib/lib/glib-2.0/include/"
+
+export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
 ```
 
 ## libtool: unrecognized option -static when building

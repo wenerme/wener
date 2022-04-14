@@ -35,7 +35,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libvips-dev glib2.0-dev libglib2.0-dev
-      - run: cd site && make ci
+      - run: |
+          export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
+          cd site && make ci
+        name: Build
       - run: cp -r site/build site/tech-build
 
       - run: echo wener.me > site/build/CNAME

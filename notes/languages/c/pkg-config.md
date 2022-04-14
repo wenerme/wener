@@ -33,3 +33,8 @@ ldconfig -p | grep libjpeg
 pkg-config --cflags jpeg
 pkg-config --libs jpeg
 ```
+
+| flag     |
+| -------- | ----- |
+| --cflags | -I    |
+| --libs   | -L -l |
