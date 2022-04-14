@@ -131,6 +131,7 @@ force_valid_group_names=ignore
 ## 最佳实践
 
 - [Best Practices](https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html)
+- [Working with Ansible Playbooks – Tips & Tricks with Examples](https://spacelift.io/blog/ansible-playbooks)
 
 ## Tips
 
