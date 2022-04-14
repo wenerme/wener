@@ -131,6 +131,7 @@ tags:
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
   - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
   - [inkandswitch/peritext](https://github.com/inkandswitch/peritext)
+  - https://news.ycombinator.com/item?id=30983770
 - editor
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
     - headless, framework-agnostic and extendable rich text editor, based on ProseMirror

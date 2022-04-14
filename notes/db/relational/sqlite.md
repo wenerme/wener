@@ -5,16 +5,55 @@ title: SQLite
 # SQLite
 
 - [数据类型](http://sqlite.org/datatype3.html)
-  - NULL
-  - INTEGER - 1, 2, 3, 4, 6, 8
-  - REAL - 8 byte
-  - TEXT - UTF-8, UTF-16BE, UTF-16LE
-  - BLOB
+  - 存储类
+    - NULL
+    - INTEGER - 0, 1, 2, 3, 4, 6, 8 bytes - 内存中都为 int64
+    - REAL - 8 byte
+    - TEXT - UTF-8, UTF-16BE, UTF-16LE
+    - BLOB
+  - BOOLEAN -> 0,1
+  - DATETIME -> TEXT ISO8601, REAL, INTEGER Unix Timestamp
+  - 类型亲和 - 类型之间会进行内部转换
+    - INT,INTEGER,TINYINT,SMALLINT,MEDIUMINT,BIGINT,UNSIGNED BIG INT, INT2, INT8 -> INTEGER
+    - 其他类似
+- [STRICT Tables](https://sqlite.org/stricttables.html)
+  - `CREATE TABLE t1(a ANY) STRICT;`
+  - `PRAGMA strict=ON;`
+  - 强制类型 - INT, INTEGER, REAL, TEXT, BLOB, ANY
+  - ANY 和旧的类型类似
+  - PRAGMA integrity_check, quick_check 可检测类型
+  - 不会提升性能 - 运行时检测，对存储无影响，核心性能在于 IO
+- ROWID - int64
+  - rowid, oid, `_rowid_`
+  - 建表时可 WITHOUT ROWID
+  - 如果表使用 INT 作为 pkey，则该列会被用于 rowid
+    - `CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);`
+  - btree 的 key
+  - 通过 rowid 搜索和排序是普通 PRIMARY KEY 的两倍速度
 - 语法
   - [expr](https://www.sqlite.org/lang_expr.html)
   - [pragma](https://www.sqlite.org/pragma.html)
 - 限制
+  - 不可以 ALTER COLUMN - 只能 rename table/column 形式去变更
+    - 不可以移除 UNIQUE - 推荐使用 UNIQUE INDEX - 可以被 drop
+  - [altertable](https://sqlite.org/lang_altertable.html)
+    - ALTER TABLE DROP COLUMN 不支持被引用的列
+      - PRIMARY KEY, UNIQUE, 索引列, 包含在部分索引, 包含在 CHECK, 外键, 被用于生成列, 用于 trigger 和 view
   - [Limits In SQLite](https://www.sqlite.org/limits.html)
+    - SQLITE_MAX_LENGTH=1,000,000,000 - 1G - text,blob 最大长度
+    - SQLITE_MAX_COLUMN=2000 - 列
+    - SQLITE_MAX_SQL_LENGTH=1G - sql 最大长度 - 使用 prepare 避免长 sql
+    - JOIN 最多 64 个表
+    - SQLITE_MAX_EXPR_DEPTH=1000
+    - SQLITE_MAX_FUNCTION_ARG=127
+    - SQLITE_MAX_COMPOUND_SELECT=500
+    - SQLITE_MAX_LIKE_PATTERN_LENGTH=50000
+    - SQLITE_MAX_VARIABLE_NUMBER=999 - v3.32.0 32766
+    - SQLITE_MAX_TRIGGER_DEPTH=1000
+    - SQLITE_MAX_ATTACHED=10
+    - SQLITE_MAX_PAGE_COUNT=1073741823 - 1Gi - PRAGMA max_page_count
+    - 281TB 库
+    - 2^64 行
   - [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)
 
 :::caution
@@ -35,6 +74,7 @@ title: SQLite
   - page_size 一般 4096, cache_size 一般 -2000 即 2000 kb
   - `PRAGMA schema.page_size`, `PRAGMA schema.cache_size`
   - [compressed sqlite3 database file?](https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg114729.html)
+- vacuum 是先写入临时文件，然后替换 - 需要很大空间
 
 :::
 
@@ -116,6 +156,9 @@ select strftime('%s', 'now');
 
 ## Notes
 
+- 部分索引
+  - https://www.sqlite.org/partialindex.html
+
 [The SQLite Query Optimizer Overview](https://www.sqlite.org/optoverview.html)
 
 - WHERE 条件分析
@@ -167,21 +210,6 @@ select strftime('%s', 'now');
     - LETF JOIN 右边表的列未在外部查询使用
 
 [The Next-Generation Query Planner](https://www.sqlite.org/queryplanner-ng.html)
-
-统计信息
-https://www.sqlite.org/fileformat2.html#stat1tab
-https://www.sqlite.org/lang_analyze.html
-ANALYZE 会生成统计信息表
-
-sqlite_stat1
-可更新或删除，不可 alter 或创建
-
-```sql
-CREATE TABLE sqlite_stat1(tbl,idx,stat);
-CREATE TABLE sqlite_stat2(tbl,idx,sampleno,sample);
-CREATE TABLE sqlite_stat3(tbl,idx,nEq,nLt,nDLt,sample);
-CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
-```
 
 ## .help
 
@@ -310,31 +338,224 @@ arm-none-eabi-gcc -DSQLITE_THREADSAFE=0 -DSQLITE_OMIT_LOAD_EXTENSION -static she
 
 - [SQLite C tutorial](https://zetcode.com/db/sqlitec/)
 
-## upsert
+## pragma
+
+```sql
+PRAGMA pragma_list;     -- 查看所有属性
+PRAGMA compile_options; -- 编译选项 https://www.sqlite.org/compile.html
+PRAGMA module_list;     -- 模块列表
+PRAGMA stats;           -- 统计新秀
+PRAGMA freelist_count;  --
+
+PRAGMA database_list; -- 数据库
+PRAGMA table_list;    -- 表
+PRAGMA function_list;
+
+-- PRAGMA table_info(table-name);
+-- PRAGMA table_xinfo(table-name);
+-- PRAGMA foreign_key_list(table-name);
+-- PRAGMA index_list(table-name);
+-- PRAGMA index_info(index-name);
+-- PRAGMA index_xinfo(index-name);
+PRAGMA table_info(sqlite_schema); -- 表信息
+PRAGMA table_xinfo(sqlite_schema);
+
+PRAGMA optimize;  -- 执行优化
+```
+
+- synchronous
+  - 0 | OFF
+    - 不调用 fsync
+    - 应用崩溃安全，系统崩溃不安全
+  - 1 | NORMAL
+    - sync 少于 FULL
+  - 2 | FULL
+    - VFS xSync
+    - 非 WAL 时使用
+  - 3 | EXTRA
+    - 同步 rollback journal
+- journal_mode - 控制 `-journal` 文件
+  - DELETE - 事务结束删除 rollback journal
+  - TRUNCATE - 使用 truncaate 而非 删除 - 有的 fs 会更快
+  - PERSIST - 保留 - 再次写入就行覆盖
+    - journal_size_limit=SQLITE_DEFAULT_JOURNAL_SIZE_LIMIT=32K
+  - MEMORY
+  - WAL - 使用 WAL 而非 rollback journal
+    - 产生 `-shm` 和 `-wal` 文件
+  - OFF - 禁用 rollback journal
+    - 没有 rollback 能力
+- wal_autocheckpoint=1000 - 自动执行 wal_checkpoint(PASSIVE)
+  - 当 WAL N 页后 auto-checkpoint
+  - 控制 -wal 文件大小
+  - 设置为 <= 0 禁用 - 通过 wal_checkpoint 手动触发
+- wal_checkpoint(mode)
+  - PASSIVE - 默认 - 不等待 reader
+  - FULL - 阻塞读
+  - RESTART - 同 FULL，且确保之后读会 RESTART log file
+  - TRUNCATE - 同 RESTART，且 truncate 文件
+- locking_mode
+  - NORMAL - 默认
+  - EXCLUSIVE
+- auto_vacuum - 需要在创建表之前指定，创建表会添加额外信息用于追踪
+  - 0 | NONE - 默认 - 需要执行 VACUUM 来回收空间
+  - 1 | FULL - 每次 commit 移动空页到文件尾部，然后 truncate - 会导致文件碎片化
+  - 2 | INCREMENTAL
+    - incremental_vacuum=N
+    - 当 freelist 达到给定的 page 后就行 auto vaccum
+- temp_store - 存储 temporary indices / tables 逻辑
+  - 0 | DEFAULT
+  - 1 | FILE
+  - 2 | MEMORY;
+- automatic_index=true - SQLite 会基于查询自动创建索引优化后续查询
+- page_size=4096 - 范围 512 - 65536
+  - 修改需要 vacuum 才能生效
+- max_page_count
+- page_count - 当前的页数
+- mmap_size=0 - https://sqlite.org/mmap.html
+  - 不一定会提升性能
+  - 0 禁用
+- cache_size=2000
+  - 2000 -> 2000xpage_size -> 2000x4k=8M
+- foreign_key_check - 是否校验外键约束
+- ignore_check_constraints
+- encoding=UTF-8
+- query_only - 只读模式
+- quick_check
+  - 比 integrity_check 少检查 unique
+- read_uncommitted
+- recursive_triggers
+- reverse_unordered_selects
+- secure_delete
+  - 开启后删除会置 0
+- schema_version - int32 at offset 40 - schema cookie
+- writable_schema
+- shrink_memory - 释放内存
+- 额外信息
+  - user_version - int32 at offset 60
+  - application_id - int32 at offset 68
+    - 部分已知 id - https://www.sqlite.org/src/artifact?ci=trunk&filename=magic.txt
+- https://www.sqlite.org/pragma.html
+
+```sql
+-- 修改 page_size
+pragma page_count;
+pragma page_size 65536;
+vacuum;
+pragma page_count;
+```
+
+## sqlite_stat1
+
+- https://www.sqlite.org/lang_analyze.html
+  ANALYZE 会生成统计信息表
+- [stat1tab](https://www.sqlite.org/fileformat2.html#stat1tab)
+  - sqlite_stat1 可更新或删除，不可 alter 或创建
+
+```sql
+CREATE TABLE sqlite_stat1(tbl,idx,stat);
+-- v3.6.18 2009-09-11
+CREATE TABLE sqlite_stat2(tbl,idx,sampleno,sample);
+-- v3.7.9 - 2011-11-01
+CREATE TABLE sqlite_stat3(tbl,idx,nEq,nLt,nDLt,sample);
+-- v3.8.1 - 2013-10-17
+CREATE TABLE sqlite_stat4(tbl,idx,nEq,nLt,nDLt,sample);
+```
+
+- tbl - 表名
+- idx - 索引
+- sample - 采样数据 - BLOB
+
+## WAL
+
+- 优点
+  - 大多情况都会更快
+  - 读 不阻塞 写，写 不阻塞 读
+  - 大多为顺序 IO
+  - 更少 fsync
+- 缺点
+  - 基于共享内存 - 不能在 NFS 这种跨节点 FS 使用
+  - 进入 WAL 后不可以修改 page_size
+  - 产生额外的 -wal, -shm 文件
+- https://www.sqlite.org/wal.html
+
+## syntax
+
+### attach
+
+```sql
+attach expr as name;
+detach name;
+```
+
+- https://www.sqlite.org/lang_attach.html
+
+### json
+
+- https://www.sqlite.org/json1.html
+
+### upsert
 
 - https://www.sqlite.org/lang_UPSERT.html
 
-# FAQ
+## format
 
-## attempt to write a readonly database
+- page
+  - lock-byte
+  - freelist - 不活跃的页 - linked list 形式
+    - freelist trunk
+    - freelist leaf
+  - b-tree
+    - table b-tree interior
+    - table b-tree leaf
+    - tindex b-tree interior
+    - tindex b-tree leaf
+  - payload overflow
+  - pointer map
+- -journal - 回滚日志
+  - page number in db
+  - 原始 page 内容
+- -wal
+  - checkpoint 序列号
+  - frames - 24-byte header+page
+- -shm - wal-index
+- https://www.sqlite.org/fileformat2.html
 
-可能是权限不足
+## vacuum
 
-## 删除不支持 WHERE 和 ORDER
+- 重建数据库文件，释放不需要的磁盘空间
+- VACUUM INTO 类似 backup，且生成的 db 是 VACUUM 后的
 
-- 需要从源码编译 [SQLITE_ENABLE_UPDATE_DELETE_LIMIT](https://www.sqlite.org/compile.html#enable_update_delete_limit)
-
-## Golang database is locked (5) (SQLITE_BUSY)
-
-```go
-db.SetMaxOpenConns(1)
+```sql
+-- VACUUM [schema] [INFO filename];
 ```
 
-- 如果需要不同表并行操作，考虑使用多个 sqlite 文件
-- https://github.com/mattn/go-sqlite3/issues/274#issuecomment-191597862
+- https://www.sqlite.org/lang_vacuum.html
 
-## sqlite 修复
+## query
 
-```bash
-echo ".dump" | sqlite old.db | sqlite new.db
-```
+- [Query Planning](https://www.sqlite.org/queryplanner.html)
+- https://www.sqlite.org/lang_explain.html
+- https://www.sqlite.org/eqp.html
+- [Query Optimizer Overview](https://www.sqlite.org/optoverview.html)
+
+## Versions
+
+- SQLite v3.38.0 - 2022-02-22
+  - 默认包含 json
+  - json `->`, `->>`
+- SQLite v3.37.2
+  - -DSQLITE_ENABLE_JSON1 - json1
+- SQLite v3.37.0 - 2021-11-27
+  - STRICT Tables
+- SQLite v3.23.0 - 2018-04-02
+  - 识别 TRUE, FALSE -> 1, 0
+- SQLite v3.12.0 - 2016-03-29
+  - page_size 1024 -> 4096
+- SQLite v3.8.2 - 2013-12-06
+  - WITHOUT ROWID
+- SQLite v3.8.0 - 2013-08-26
+  - 部分索引
+- SQLite v3.7.17 - 2013-05-20
+  - mmap
+- SQLite v3.7.0 - 2010-07-21
+  - WAL

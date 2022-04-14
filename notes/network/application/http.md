@@ -4,9 +4,6 @@ title: HTTP
 
 # HTTP
 
-- 301 vs 302
-  - 301 Moved Permanently
-  - 302 Found / Moved Temporarily
 - 参考
   - https://tools.ietf.org/id/draft-wright-http-partial-upload-01.html
 
@@ -131,3 +128,73 @@ Via:
 # 新的标准
 Forwarded: by=<identifier>;for=<identifier>;host=<host>;proto=<http|https>
 ```
+
+## X-Content-Type-Options
+
+- nosniff
+  - 要求使用头中的 mime 类型，避免探测 mime 类型
+- [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
+- since Microsoft IE 8
+
+## Encoding
+
+- Transfer-Encoding
+  - chunked
+  - 也可以指定压缩
+- Content-Encoding
+  - deflate - zlib
+  - gzip - LZ77
+  - br - brotli
+  - identity
+  - compress - LZW - Lempel-Ziv-Welc - 不再使用
+  - sdch - Shared Dictionary Compression for HTTP - Chrome v59 (2017-06-05)移除
+- Content-Length=Transfer-Length=Entity-Length
+  - 当不同时不应该设置
+  - 如果有压缩，则为压缩后的大小
+
+---
+
+- [HTTP Content Coding Registry]
+
+[http content coding registry]: https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding
+
+# FAQ
+
+| Request           | Response         |
+| ----------------- | ---------------- |
+| [Accept-Encoding] | Content-Encoding |
+
+- Response
+  - Accept-Ranges: bytes|none - 是否支持部分请求
+
+[accept-encoding]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+
+```
+Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1
+Range: bytes=200-1000, 2000-6576, 19000-
+```
+
+## Transfer-Encoding vs Content-Encoding
+
+- Transfer-Encoding - 可动态修改 - 传输层
+- Content-Encoding - 不要动态修改 - 业务逻辑层
+  - 大多客户端实现都使用 Content-Encoding 检测压缩
+
+---
+
+```bash
+# 返回 content-encoding: gzip
+curl -H 'Accept-encoding: gzip' -I https://s.wener.me
+
+curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
+```
+
+- [What will Cloudflare compress?](https://support.cloudflare.com/hc/en-us/articles/200168396)
+- https://stackoverflow.com/a/11664307/1870054
+
+## 301 vs 302
+
+- 301 Moved Permanently
+  - 永久，客户端下次可能直接映射重定向后的地址
+- 302 Found / Moved Temporarily
+  - 临时，还会再请求

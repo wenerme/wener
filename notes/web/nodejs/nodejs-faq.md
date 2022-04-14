@@ -15,10 +15,19 @@ node -r @babel/register app.js
 
 ## Package 'OpenEXR', required by 'vips', not found
 
-找不到 brew 安装的 pc
+找不到 brew 安装的 pkgconfig
 
 ```bash
-PKG_CONFIG_PATH=/usr/local/opt/openexr/lib/pkgconfig:/usr/local/opt/imath/lib/pkgconfig npm up
+PKG_CONFIG_PATH=/usr/local/opt/vips/lib/pkgconfig:/usr/local/opt/glib/lib/pkgconfig:/usr/local/opt/openexr/lib/pkgconfig:/usr/local/opt/imath/lib/pkgconfig npm i
+```
+
+```
+/usr/local/include/vips/vips8:35:10: fatal error: 'glib-object.h' file not found
+```
+
+```bash
+# export CC
+export CXX="$(which g++) -I/usr/local/opt/glib/include/glib-2.0/ -I/usr/local/opt/glib/lib/glib-2.0/include/"
 ```
 
 ## libtool: unrecognized option -static when building
@@ -29,7 +38,7 @@ rm -rf /usr/local/bin/libtool
 which libtool
 
 # 如果添加了 /usr/local/opt/libtool/libexec/gnubin
-export PATH=$(echo $PATH |sed -r 's/:[^:]*?libtool[^:]*:/:/')
+export PATH=$(echo $PATH | sed -r 's/:[^:]*?libtool[^:]*:/:/')
 ```
 
 ## require() of ES modules is not supported

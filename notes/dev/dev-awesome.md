@@ -26,6 +26,7 @@ tags:
 
 - Software Engineering at Google
   - https://abseil.io/resources/swe-book
+- https://ebookfoundation.github.io/free-programming-books/books/free-programming-books-langs.html
 
 ## Read
 

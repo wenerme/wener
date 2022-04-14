@@ -19,3 +19,9 @@ tags:
   - Web UI used for start, stop and monitor job
   - More like the **engine** of WebArchive
   - Support crawl full site
+
+## 获取页面所有 URL
+
+```js
+copy(Array.from(new Set($$('a[href]').map((v) => decodeURI(v.href)))).sort());
+```

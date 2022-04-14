@@ -12,6 +12,7 @@ title: Hashing
     broken SHA-1 in practice
   - [multiformats/multihash](https://github.com/multiformats/multihash)
   - [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
+- Broken - MD4, MD5, SHA-0, SHA-1
 
 :::tip
 
@@ -26,7 +27,7 @@ title: Hashing
   - [why git choose sha-256](https://stackoverflow.com/a/60088126/1870054)
 - [hash-function-transition](https://git-scm.com/docs/hash-function-transition/)
 
-## Hash
+## Hash/Digest
 
 - adler32
 - crc - Cyclic redundancy check
@@ -37,6 +38,7 @@ title: Hashing
 - MurmurHash
   - 32,64,128
 - maphash
+- tdigest
 
 [fnv]: https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
 
@@ -91,3 +93,23 @@ title: Hashing
 
 - https://md5.gromweb.com/
 - https://sha1.gromweb.com/
+
+## SHA2 vs SHA3
+
+- 安全性 - 两者区别不大 - 没有结构性问题，例如 sha1
+- 性能 - SHA2 广泛，软实现性能更好，硬件支持更多
+
+---
+
+- [sha2 vs sha3](https://crypto.stackexchange.com/a/68314)
+- [Should we be using SHA3](https://security.stackexchange.com/a/153058/130027)
+
+## 性能
+
+- [Intel SHA Extensions](https://en.wikipedia.org/wiki/Intel_SHA_extensions)
+  - since 2013
+  - SHA-1, SHA-256
+- AVX-512 - Advanced Vector Extensions
+  - since 2015
+- [minio/sha256-simd](https://github.com/minio/sha256-simd)
+  - Apache-2.0, Golang

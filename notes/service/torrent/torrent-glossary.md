@@ -7,6 +7,7 @@ tags:
 
 # Torrent 词汇
 
+- metainfo - .torrent - application/x-bittorrent
 - uTP - uTorrent Transport Protocol
   - [bittorrent/libutp](https://github.com/bittorrent/libutp)
 - Leecher -> downloader
@@ -24,7 +25,7 @@ tags:
   - opentracker
   - [Comparison of BitTorrent tracker software](https://en.wikipedia.org/wiki/Comparison_of_BitTorrent_tracker_software)
 - hash
-  - 160 bit hashes
+  - sha1 160 bit hashes
 - [Glossary of BitTorrent terms](https://en.wikipedia.org/wiki/Glossary_of_BitTorrent_terms)
 
 ## Piece / 片段

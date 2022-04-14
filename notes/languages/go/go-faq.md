@@ -39,6 +39,22 @@ go1.18 env GOROOT
 # 安装到别的地方
 HOME=/opt ~/go/bin/go1.18 download
 /opt/sdk/go1.18/bin/go env
+
+# 交叉编译
+mkdir work && cd work
+go mod init work
+go get -u golang.org/dl/go1.18
+GOOS=linux go build -o go1.18_linux golang.org/dl/go1.18@latest
+
+# AlpineLinux 基础依赖
+apk add libc6-compat gcompat
+# AlpineLinux CGO 依赖
+apk add gcc musl-dev
+
+# 注意设置 GOROOT - 默认 /usr/go
+export GOROOT=/opt/sdk/go1.18
+
+export PATH="$GOROOT/bin:$HOME/go/bin:$PATH"
 ```
 
 ## GOVCS disallows using git for public
@@ -327,3 +343,9 @@ XSS
 ```
 
 - [commonInitialisms](https://github.com/golang/lint/blob/6edffad5e6160f5949cdefc81710b2706fbcd4f6/lint.go#L770-L809)
+
+## regexp
+
+- Index 为 byte index
+- https://pkg.go.dev/regexp
+- https://pkg.go.dev/regexp/syntax

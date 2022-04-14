@@ -270,3 +270,7 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 - dbuf_evict
 - mmp
 - migration/0
+
+# Glossary
+
+- SPA - Storage Pool Allocator

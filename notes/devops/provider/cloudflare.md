@@ -12,11 +12,11 @@ title: CloudFlare
 | ------------- | ------------------- | -------------- |
 | [spectrum]    | TCP, UDP - SSH, RDP | 5G + 1$/G, 10C |
 | argo tunnel   | Tunnel HTTP,HTTPS   | 5G, 5$         |
-| worker        |
-| load balance  |
-| rate limiting |
-| stream        |
-| team          |
+| worker        |                     |                |
+| load balance  |                     |                |
+| rate limiting |                     |                |
+| stream        |                     |                |
+| team          |                     |                |
 
 [spectrum]: https://developers.cloudflare.com/spectrum/
 
@@ -54,3 +54,8 @@ title: CloudFlare
     - 100 命名空间
     - 1G
     - 10M 读, 1M 写, 1M 删除, 10M List
+
+## Bot Fight Mode
+
+- 会注入 /cdn-cgi/challenge-platform/h/g/scripts/invisible.js
+- 需要允许 js

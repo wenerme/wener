@@ -1,5 +1,5 @@
 ---
-title: iagram Awesome
+title: Diagram Awesome
 tags:
   - Awesome
 ---
@@ -26,6 +26,8 @@ tags:
   - [mindmup/mapjs](https://github.com/mindmup/mapjs)
     - 项目已经停止开发，可用
   - [hizzgdev/jsmind](https://github.com/hizzgdev/jsmind)
+  - [NaoTu/DesktopNaotu](https://github.com/NaoTu/DesktopNaotu)
+  - [fex-team/kityminder](https://github.com/fex-team/kityminder)
 - [mingrammer/diagrams](https://github.com/mingrammer/diagrams)
   - Diagram as Code for prototyping cloud system architectures
 - drawio

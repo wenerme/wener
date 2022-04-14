@@ -26,6 +26,10 @@ tags:
 - Proxyman - 商业
   - macOS
 - [mitmproxy](./mitmproxy.md)
+  - [lqqyt2423/go-mitmproxy](https://github.com/lqqyt2423/go-mitmproxy)
+    - MIT, Golang
+  - [AdguardTeam/gomitmproxy](https://github.com/AdguardTeam/gomitmproxy)
+    - GPL-3.0, Golang
 - Wireshark
 - tshark
 - tcpdump

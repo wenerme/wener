@@ -104,13 +104,13 @@ SELECT pg_catalog.set_config('search_path', '', false);
 - cache
   - shared
   - private
-- mode
-  - ro
-  - rw
-  - rwc
-  - memory
+- mode=ro|rw|rwc|memory
+- immutable=1
+- modeof=_filename_ - 生成的 db 匹配指定文件的 mode
 
 ---
+
+- https://www.sqlite.org/uri.html
 - https://www.sqlite.org/c3ref/open.html
 
 ## JDBC
@@ -139,3 +139,18 @@ jdbc:h2:mem:{database::default}?[;<;,{:identifier}={:param}>]
 jdbc:h2:!(mem:)!(tcp://)[file:]{path:h2_db_file}[;<;,user={user:param},password={password:param},MV_STORE={MV_STORE:#param},{:identifier}={:param}>]
 ```
 
+## page size
+
+- sqlite - 4096 - 4k
+- postgres - 8192 - 8k
+- mysql innodb 16k
+  - innodb_page_size
+
+```sql
+-- SQLite
+PRAGMA page_size;
+-- PostgreSQL
+SELECT current_setting('block_size');
+-- MySQL
+SHOW TABLE STATUS;
+```

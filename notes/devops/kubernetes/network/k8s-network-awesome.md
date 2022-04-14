@@ -1,5 +1,5 @@
 ---
-title: Networking Awesome
+title: Kubernetes Networking Awesome
 tags:
   - Awesome
 ---

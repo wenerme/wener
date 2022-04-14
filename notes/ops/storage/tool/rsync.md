@@ -9,6 +9,11 @@ title: rsync
 - unison
   - https://www.cis.upenn.edu/~bcpierce/unison/
 - `--info=progress2` 显示速度
+- https://man7.org/linux/man-pages/man1/rsync.1.html
+
+| flags                 | for              |
+| --------------------- | ---------------- |
+| --remove-source-files | 同步后删除源文件 |
 
 ```bash
 # 使用 SSH 同步

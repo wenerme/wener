@@ -45,6 +45,8 @@ tags:
   - [containers/skopeo](https://github.com/containers/skopeo)
   - habor
   - nexus
+  - [netvarun/docket](https://github.com/netvarun/docket)
+    - DOCKEr + torrenT
 - Code to Image
   - [openshift/source-to-image](https://github.com/openshift/source-to-image)
   - [GoogleContainerTools/jib](https://github.com/GoogleContainerTools/jib)

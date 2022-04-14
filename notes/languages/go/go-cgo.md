@@ -140,7 +140,11 @@ package dlopen
 ```
 
 ## sqlite
-
+- [cznic/sqlite](https://gitlab.com/cznic/sqlite)
+  - CGo-free port of SQLite/SQLite3 v3.37.0
+  - C to Go
+  - [glebarez/go-sqlite](https://github.com/glebarez/go-sqlite)
+    - driver
 - [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
   - `-tags libsqlite3` 可 link libsqlite3.so
 - No CGO
@@ -154,12 +158,7 @@ package dlopen
     - fork crawshaw/sqlite
   - [crawshaw/sqlite](https://github.com/crawshaw/sqlite)
     - low-level Go interface to SQLite 3
-    - [Go and SQLite: when database/sql chafes](https://crawshaw.io/blog/go-and-sqlite)
-  - [cznic/sqlite](https://gitlab.com/cznic/sqlite)
-    - CGo-free port of SQLite/SQLite3 v3.37.0
-    - C to Go
-    - [glebarez/go-sqlite](https://github.com/glebarez/go-sqlite)
-      - driver
+    - [Go and SQLite: when database/sql chafes](https://crawshaw.io/blog/go-and-sqlite
   - [alicebob/sqlittle](https://github.com/alicebob/sqlittle)
     - 直接读取文件 - 不支持 SQL
     - 只读

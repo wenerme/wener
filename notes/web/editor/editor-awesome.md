@@ -15,6 +15,9 @@ tags:
 ## Web Editor
 
 - [prosemirror](https://github.com/ProseMirror/prosemirror)
+- [facebook/lexical](https://github.com/facebook/lexical)
+  - by Facebook, 替代 draftjs
+  - https://news.ycombinator.com/item?id=31019778
 - [quilljs/quill](https://github.com/quilljs/quill)
   - Quill is a modern WYSIWYG editor built for compatibility and extensibility.
   - [zenoamaro/react-quill](https://github.com/zenoamaro/react-quill)

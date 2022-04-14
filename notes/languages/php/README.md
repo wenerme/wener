@@ -1,5 +1,4 @@
 ---
-id: php
 title: PHP
 ---
 

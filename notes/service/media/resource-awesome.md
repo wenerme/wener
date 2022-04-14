@@ -13,6 +13,8 @@ tags:
   - [动漫花园](https://dmhy.anoneko.com/)
   - btbtt
   - https://share.acgnx.se/
+    - 字幕组 https://share.acgnx.net/union.php
+    - 大陆镜像 https://share.acgnx.net/
 - [ed2000k.com](https://www.ed2000k.com/)
 - [torrent.extto.com](http://torrent.extto.com/)
 - [it-ebooks](https://gist.github.com/baiwfg2/af827b8b75eebf8ab29f5531a0d265ce)
@@ -75,7 +77,9 @@ https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=l
 
 ## 字幕
 
+- opensubtitles.com
 - [subhd.tv](https://subhd.tv/)
+- https://assrt.net/
 
 ## Tools
 
@@ -84,6 +88,12 @@ https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=l
 - [agalwood/Motrix](https://github.com/agalwood/Motrix)
   - 下载器
 - [developeranaz/Mega.nz-Rclone-Index-Heroku](https://github.com/developeranaz/Mega.nz-Rclone-Index-Heroku)
+- [Sonarr/Sonarr](https://github.com/Sonarr/Sonarr)
+- Radarr
+- TinyMediaManage
+- [Komet/MediaElch](https://github.com/Komet/MediaElch)
+  - LGPL-3.0, C++
+  - Media Manager for Kodi
 
 ## Bot
 

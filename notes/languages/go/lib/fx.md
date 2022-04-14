@@ -13,6 +13,7 @@ title: fx
 - fx.Supply 不能直接提供 interface
   - Go 类型检测不到, 使用 constructor 返回
 - fx.In 和 fx.Out 要求字段 exported
+- 不支持 lazy - 面向启动时初始化设计，而非请求时配置
 
 :::
 

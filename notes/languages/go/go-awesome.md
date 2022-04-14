@@ -145,6 +145,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - sql 生成 go 代码进行调用
 - [sosedoff/pgweb](https://github.com/sosedoff/pgweb)
   - Golang Web 管理工具 - MIT, 只读
+- [go-pg/pg](https://github.com/go-pg/pg)
+  - ORM focus on PostgreSQL features and performance
 - [volatiletech/sqlboiler](https://github.com/volatiletech/sqlboiler)
   - database-first ORM
 - [xo/xo](https://github.com/xo/xo)
@@ -367,6 +369,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   WebSocket reverse proxy
 - [soheilhy/cmux](https://github.com/soheilhy/cmux)
   Connection multiplexer - serve different services on the same port
+  - grpc,ssh,http,https 同端口
 - [songgao/water](https://github.com/songgao/water)
   TUN/TAP library written in native Go
 - [name5566/leaf](https://github.com/name5566/leaf)
@@ -572,13 +575,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [github.com/hashicorp/go-multierror](https://github.com/hashicorp/go-multierror)
   - [go.uber.org/multierr](https://github.com/uber-go/multierr)
 - compress/archive
-  - https://github.com/mholt/archiver
+  - [github.com/mholt/archiver](https://github.com/mholt/archiver)
     - 各种压缩包
-  - https://github.com/nwaples/rardecode
+  - [github.com/nwaples/rardecode](https://github.com/nwaples/rardecode)
     - rar
+  - [klauspost/compress](https://github.com/klauspost/compress)
+  - [andybalholm/brotli](https://github.com/andybalholm/brotli)
 - magic/mime
   - [wenerme/go-magic](https://github.com/wenerme/go-magic)
-- chartset
+- charset
   - golang.org/x/text/encoding/charmap
   - golang.org/x/text/encoding/simplifiedchinese
   - golang.org/x/net/html/charset
@@ -594,6 +599,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - https://go.dev/blog/matchlang
 - distributed/分布式
   - [hashicorp/memberlist](https://github.com/hashicorp/memberlist)
+- hash
+  - [minio/sha256-simd](https://github.com/minio/sha256-simd)
+- media
+  - [Kagami/go-avif](https://github.com/Kagami/go-avif)
+- http
+  - support content negotiation [#19307](https://github.com/golang/go/issues/19307)
+    - 解析 Accept https://github.com/markusthoemmes/goautoneg/blob/master/accept.go
+    - [elnormous/contenttype](https://github.com/elnormous/contenttype)
+- [SimonWaldherr/golang-benchmarks](https://github.com/SimonWaldherr/golang-benchmarks)
 
 ## Tool
 
@@ -640,7 +654,9 @@ goweight
 - log
   - [maruel/panicparse](https://github.com/maruel/panicparse)
 - metrics
+  - [felixge/httpsnoop](https://github.com/felixge/httpsnoop)
   - [github.com/slok/go-http-metrics](https://github.com/slok/go-http-metrics)
+    -prometheus 内置 handler 拦截
 - GODEBUG=http1debug
 - GODEBUG=http2debug=2
 
@@ -649,6 +665,8 @@ goweight
 - [umputun/remark42](https://github.com/umputun/remark42) comment egnine
 - [ortuman/jackal](https://github.com/ortuman/jackal)
   - XMPP
+- [google/martian](https://github.com/google/martian)
+  - building custom HTTP/S proxies
 
 ## Performance
 
