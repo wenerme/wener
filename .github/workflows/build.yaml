@@ -32,7 +32,7 @@ jobs:
 
       - name: Deps
         run: |
-          apt install -y libvips-dev
+          apt-get update && apt-get install -y glib2.0-dev libvips-dev
       - run: cd site && make ci
       - run: cp -r site/build site/tech-build
 

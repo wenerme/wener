@@ -58,7 +58,7 @@
 | [go-miniquery] | [![][go-miniquery-ci-img]][go-miniquery-ci] | SQL like filter expression for GORM & EntSQL |
 | [go-magic]     | [![][go-magic-ci-img]][go-magic-ci]         | libmagic                                     |
 | [mediatagger]  | [![][mediatagger-ci-img]][mediatagger-ci]   | 从媒体文件名提取信息                         |
-| [procx]        | [![][procx-ci-img]][procx-ci]               | 支持缓存的 HTTP 代理                         |
+| [proxc]        | [![][proxc-ci-img]][proxc-ci]               | 支持缓存的 HTTP 代理                         |
 | [astgo]        |                                             | asterisk AMI, AGI                            |
 | [scel]         |                                             | 搜狗 scel 词库                               |
 | [stardict]     |                                             | 星际译王                                     |
@@ -67,9 +67,9 @@
 [mediatagger]: https://github.com/wenerme/mediatagger
 [mediatagger-ci]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml
 [mediatagger-ci-img]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml/badge.svg
-[procx]: https://github.com/wenerme/procx
-[procx-ci]: https://github.com/wenerme/procx/actions/workflows/ci.yml
-[procx-ci-img]: https://github.com/wenerme/procx/actions/workflows/ci.yml/badge.svg
+[proxc: https://github.com/wenerme/proxc
+[proxc-ci]: https://github.com/wenerme/proxc/actions/workflows/ci.yml
+[proxc-ci-img]: https://github.com/wenerme/proxc/actions/workflows/ci.yml/badge.svg
 [go-req]: https://github.com/wenerme/go-req
 [go-req-ci-img]: https://github.com/wenerme/go-req/actions/workflows/ci.yml/badge.svg
 [go-req-ci]: https://github.com/wenerme/go-req/actions/workflows/ci.yml
