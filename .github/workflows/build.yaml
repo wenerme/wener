@@ -29,11 +29,10 @@ jobs:
         with:
           path: site/node_modules
           key: ${{ runner.os }}-build-cache
-        # glib2.0-dev
       - name: Deps
         run: |
           sudo apt-get update
-          sudo apt-get install -y libvips-dev --no-install-recommends
+          sudo apt-get install -y libvips-dev glib2.0-dev --no-install-recommends
       - run: cd site && make ci
       - run: cp -r site/build site/tech-build
 
