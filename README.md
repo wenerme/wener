@@ -67,7 +67,7 @@
 [mediatagger]: https://github.com/wenerme/mediatagger
 [mediatagger-ci]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml
 [mediatagger-ci-img]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml/badge.svg
-[proxc: https://github.com/wenerme/proxc
+[proxc]: https://github.com/wenerme/proxc
 [proxc-ci]: https://github.com/wenerme/proxc/actions/workflows/ci.yml
 [proxc-ci-img]: https://github.com/wenerme/proxc/actions/workflows/ci.yml/badge.svg
 [go-req]: https://github.com/wenerme/go-req
