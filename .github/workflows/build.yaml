@@ -2,16 +2,16 @@ name: Build
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [ 16.x ]
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -30,14 +30,18 @@ jobs:
           path: site/node_modules
           key: ${{ runner.os }}-build-cache
 
-        # --no-install-recommends
       - name: Deps
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libvips-dev glib2.0-dev libglib2.0-dev
+          #sudo apt-get update
+          #sudo apt-get install -y libvips-dev glib2.0-dev --no-install-recommends
+
       - run: |
-          export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
-          cd site && make ci
+          #export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
+          cd site
+          npm install --verbose --platform=linux sharp
+          make ci
+          cd -
+
         name: Build
       - run: cp -r site/build site/tech-build
 
