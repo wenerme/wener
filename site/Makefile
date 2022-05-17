@@ -33,3 +33,6 @@ docs.json:
 	node -r ts-node/register src/scripts/process.ts $(ARGS)
 notes.json: notes.ts notes.yaml docs.json
 	node -r ts-node/register notes.ts
+
+status:
+	git add -u && git diff --staged --stat | tee

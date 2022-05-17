@@ -21,6 +21,12 @@ tags:
 
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/
 - https://microservices.io/patterns/
+- [每个架构师都应该研究下康威定律](http://www.infoq.com/cn/articles/every-architect-should-study-conway-law)
+- [度量驱动开发](http://www.infoq.com/cn/articles/metrics-driven-development)
+- [Conway's law]
+- https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar
+
+[Conway's law](https://en.wikipedia.org/wiki/Conway%27s_law)
 
 ## Book
 
@@ -30,6 +36,7 @@ tags:
 
 ## Read
 
+- [Chronofold: a data structure for versioned text](https://arxiv.org/abs/2002.09511)
 - [Principles of Distributed Computing](https://disco.ethz.ch/courses/podc_allstars/)
 - https://martinfowler.com/articles/patterns-of-distributed-systems/
 - [Theoretical Computer Science Cheat Sheet](https://www.tug.org/texshowcase/cheat.pdf)

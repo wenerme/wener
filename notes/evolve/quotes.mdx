@@ -1,0 +1,169 @@
+---
+title: Quotes
+---
+
+# Quotes
+
+export const Quote = ({ children, cite, href }) => {
+  return (
+    <div className={'quote'}>
+      <blockquote>{children}</blockquote>
+      {cite && (
+        <cite>
+          {href ? (
+            <a href={href} target={'_blank'} rel={'noreferrer'}>
+              {cite}
+            </a>
+          ) : (
+            cite
+          )}
+        </cite>
+      )}
+    </div>
+  );
+};
+
+<div className={'quotes'}>
+<Quote>恐惧来自于未知。</Quote>
+
+---
+
+<Quote>没有程序正义不可能有实体正义。</Quote>
+
+---
+
+<Quote>善良是一种选择</Quote>
+
+---
+
+<Quote href={'https://en.wikipedia.org/wiki/Indirection'} cite={'Indirection'}>
+  All problems in computer science can be solved by another level of indirection.
+</Quote>
+
+---
+
+<Quote cite={'Edsger Wybe Dijkstra'}>
+  Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make
+  matters worse: complexity sells better.
+</Quote>
+
+---
+
+<Quote>Make the common things easy, and the specialist things possible.</Quote>
+
+---
+
+<Quote cite={'Steve Jobs'}>It makes no sense to hire smart people and then tell them what to do</Quote>
+
+---
+
+<Quote cite={'Martin Folwer'}>
+  Any fool can write code computer can understand. Good programmers write code that humans can understand.
+</Quote>
+
+---
+
+<Quote cite={'Tiësto'}>
+  Sometimes it’s not the song that makes you emotional, it’s the person you think about when you hear it .
+</Quote>
+
+---
+
+<Quote>
+  如果尖锐的批评完全消失，温和的批评将会变得刺耳。如果温和的批评也不被允许，沉默将被认为居心叵测。如果沉默也不再允许，赞扬不够卖力将是一种罪行。如果只允许一种声音存在，那么，唯一存在的那个声音就是谎言。
+</Quote>
+
+---
+
+<Quote>Stop taking everything the pros say as fact. Test it yourself!</Quote>
+
+---
+
+<Quote cite={'Kent Beck'}>Make it work, make it right, make it fast.</Quote>
+
+---
+
+<Quote cite={'Kent Beck'}>I’m not a great programmer; I’m just a good programmer with great habits.</Quote>
+
+---
+
+<Quote cite={'Kent Beck'}>Testing is not the point. The point is about responsibility.</Quote>
+<Quote cite={'Kent Beck'}>If testing costs more than not testing, then don’t test.</Quote>
+<Quote cite={'Kent Beck'}>A plan is an example of what could happen, not a prediction of what will happen.</Quote>
+<Quote cite={'Kent Beck'}>Sometimes the problem has to mature before the solution can mature.</Quote>
+
+---
+
+<Quote cite={'本杰明·富兰克林'} href={'https://zh.wikiquote.org/wiki/本杰明·富兰克林'}>
+  Those who give up essential liberty to purchase a little temporary safety, deserve neither liberty nor safety.
+</Quote>
+<Quote>任何牺牲基本自由以换取短暂安全的人，最后既得不到安全也得不到自由。</Quote>
+
+---
+
+<Quote cite={'Pablo Picasso'}>The enemy of art is the absence of limitations.</Quote>
+
+---
+
+<Quote cite={'Ben Horowitz'}>By doing everything, you fail at the most important thing.</Quote>
+
+---
+
+<Quote cite={'The 90% agreement rule'} href={'https://hackernoon.com/the-90-agreement-rule-36757dcc8eaa'}>
+  We spend 90% of our time, talking about the 10% of things we disagree on.
+</Quote>
+</div>
+
+## 参考
+- https://quotefancy.com/
+- https://zh.wikiquote.org
+- https://zh.wikipedia.org/wiki/邓宁-克鲁格效应
+
+<style>{`
+.quotes {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.quotes hr {
+  width: 80%;
+}
+.quote blockquote{
+	font-weight: 100;
+	font-size: 2rem;
+	max-width: 600px;
+	line-height: 1.4;
+	position: relative;
+	margin: 0;
+	padding: .5rem;
+	border: none;
+}
+.quote blockquote:before,
+.quote blockquote:after {
+	position: absolute;
+	color: #f1efe6;
+	font-size: 8rem;
+	width: 4rem;
+	height: 4rem;
+}
+.quote blockquote:before {
+	content: '“';
+	left: -5rem;
+	top: -2rem;
+}
+.quote blockquote:after {
+	content: '”';
+	right: -5rem;
+	bottom: 1rem;
+}
+.quote cite {
+	line-height: 3;
+	text-align: left;
+	font-size: 1.5rem;
+	color: #AAA;
+}
+.quote cite:before {
+  content: '- ';
+}
+`}</style>
