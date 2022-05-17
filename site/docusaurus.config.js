@@ -16,7 +16,8 @@ module.exports = {
   trailingSlash: false,
   // https://github.com/ToolJet/ToolJet/issues/852
   // https://github.com/facebook/docusaurus/issues/3136#issuecomment-664941437
-  onBrokenLinks: 'throw',
+  // onBrokenLinks: 'throw', // warn, ignore
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   presets: [
@@ -55,6 +56,12 @@ module.exports = {
           changefreq: 'daily',
           priority: 0.5,
         },
+        gtag: {
+          trackingID: 'UA-30404720-1',
+        },
+        googleAnalytics: {
+          trackingID: 'UA-30404720-1',
+        },
       },
     ],
   ],
@@ -62,7 +69,7 @@ module.exports = {
     prism: {
       // https://prismjs.com/#supported-languages
       additionalLanguages: [
-        'go-mod',
+        // 'go-mod', // error in current version
         'go',
         'graphql',
         'hcl',
@@ -74,19 +81,19 @@ module.exports = {
         'properties',
         'protobuf',
         'toml',
-        'ts',
+        // 'ts',
         'makefile',
       ],
     },
-    hideableSidebar: true,
-    googleAnalytics: {
-      trackingID: 'UA-30404720-1',
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
     },
-    gtag: {
-      trackingID: 'UA-30404720-1',
-    },
+
     algolia: {
-      apiKey: '5b06ecc9e2da821fc3e1520eb6ba6363',
+      appId: '37P8DMWBKF',
+      apiKey: '2c9df87f2ccde17db1ccfc2886b03765',
       indexName: 'wener',
       searchParameters: {},
     },
@@ -180,6 +187,10 @@ module.exports = {
         .format('YYYY-MM-DD HH:mm')}`,
     },
   },
+  // i18n: {
+  //   defaultLocale: 'zh',
+  //   locales: ['zh', 'en'],
+  // },
   plugins: [
     [
       '@docusaurus/plugin-client-redirects',
