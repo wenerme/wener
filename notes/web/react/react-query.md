@@ -4,6 +4,7 @@ title: React Query
 
 # React Query
 
+- [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
 - 默认
   - 开启 refetchOnMount, refetchOnWindowFocus, refetchOnReconnect
   - cacheTime 5 分钟 - 不再使用的的数据保留 5 分钟
@@ -13,6 +14,13 @@ title: React Query
     - vs SWR - 支持修改，更好的缓存状态管理
     - vs Apollo - 支持 GraphQL 和 一般请求，针对 GraphQL 的 entity 缓存没有 apollo 强
   - [dano-inc/react-query-helper](https://github.com/dano-inc/react-query-helper)
+
+# Version
+
+## React Query v4
+
+- Keys 必须为数组
+- [Migrating to React Query 4](https://react-query-alpha.tanstack.com/guides/migrating-to-react-query-4)
 
 ## React Query v3
 
@@ -41,7 +49,7 @@ title: React Query
 - useIsFetching - 支持 key 参数
 - [v3](https://react-query.tanstack.com/guides/migrating-to-react-query-3) - 2020-12-15
 
-## v2.x
+## React Query v2.x
 
 ```ts
 import { useQuery, QueryCache, ReactQueryCacheProvider } from 'react-query';
@@ -142,7 +150,7 @@ const {
 });
 ```
 
-## useMutation
+### useMutation
 
 ```ts
 const [

@@ -130,7 +130,7 @@ tags:
 
 - apollo
 - urql
-- graphql-request
+- [graphql-request](https://github.com/prisma-labs/graphql-request)
   - fetch + gql
 - react-query+graphql-request
 

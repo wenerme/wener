@@ -20,14 +20,16 @@ npm add react-router-dom
 
 ## Notes
 
-:::caution
+:::caution v6
 
-- [remix-run/react-router#7634](https://github.com/remix-run/react-router/issues/7634)
+- [react-router#7634](https://github.com/remix-run/react-router/issues/7634)
   - useNavigate 会导致 rerender
-- [remix-run/react-router#8139](https://github.com/remix-run/react-router/issues/8139)
+- [react-router#8139](https://github.com/remix-run/react-router/issues/8139)
   - usePrompt & useBlocker
-- [remix-run/react-router#8254](https://github.com/remix-run/react-router/issues/8254)
+- [react-router#8254](https://github.com/remix-run/react-router/issues/8254)
   - path regex
+- [react-router#8381](https://github.com/remix-run/react-router/issues/8381)
+  - Optional routing parameters in v6
 
 :::
 
@@ -77,6 +79,8 @@ npm add react-router-dom
 
 - 暂不支持 Prompt
 - 不再暴露 history - 使用上有很多不方便
+  - 可使用 unstable_HistoryRouter 自己提供 history
+  - 可能存在引入不同版本 history 导致冲突的问题
 
 :::
 

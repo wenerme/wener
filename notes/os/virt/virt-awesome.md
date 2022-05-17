@@ -6,6 +6,8 @@ tags:
 
 # Virt Awesome
 
+- [unicorn-engine/unicorn](https://github.com/unicorn-engine/unicorn)
+  - CPU emulator framework
 - [google/crosvm](https://github.com/google/crosvm)
   - Chrome OS Virtual Machine Monitor
 - [Intel VT-x hypervisor in 500 lines of C code](https://ionescu007.github.io/SimpleVisor/)
@@ -15,6 +17,8 @@ tags:
 - [Tencent/tat-agent](https://github.com/Tencent/tat-agent)
 - [TrungNguyen1909/qemu-t8030](https://github.com/TrungNguyen1909/qemu-t8030)
   - iPhone 11 emulated on QEMU
+- GUI
+  - [utmapp/UTM](https://github.com/utmapp/UTM)
 
 ## Fun
 

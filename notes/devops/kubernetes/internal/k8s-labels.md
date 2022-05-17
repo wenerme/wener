@@ -5,6 +5,7 @@ title: Kubernetes 标签
 # Kubernetes 标签
 
 - https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints
+- https://kubernetes.io/docs/reference/labels-annotations-taints/
 
 ## 节点标签
 

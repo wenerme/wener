@@ -28,6 +28,7 @@ title: JSON
   - 数组只能替换
   - 合并操作不会出错
 - [jsonpatch](http://jsonpatch.com/)
+  - [HN](https://news.ycombinator.com/item?id=31301627)
 - [flipkart-incubator/zjsonpatch](https://github.com/flipkart-incubator/zjsonpatch)
 
 ## Diff

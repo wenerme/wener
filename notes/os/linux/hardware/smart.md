@@ -31,6 +31,38 @@ smartctl -t short /dev/sda
 smartctl -H /dev/sda
 ```
 
+## smartd
+
+- /etc/smartd.conf - https://linux.die.net/man/5/smartd.conf
+- /etc/smartd_warning.d/
+- /etc/smartd_warning.sh
+
+```ini
+# 扫描所有
+DEVICESCAN
+```
+
+| flag     | for                                                               |
+| -------- | ----------------------------------------------------------------- |
+| -a       | 默认: -H -f -t -l error -l selftest -C 197 -U 198                 |
+| -p       | Report 'Prefailure'                                               |
+| -u       | Report 'Usage'                                                    |
+| -U ID    | Report if Offline Uncorrectable count non-zero                    |
+| -C ID    | Report if Current Pending Sector count non-zero                   |
+| -t       | -pu                                                               |
+| -R ID    | Track for -p,-u,-t                                                |
+| -r ID    | Also report Raw values                                            |
+| -I ID    | Ignore for -p,-u,-t                                               |
+| -i ID    | Ignore for -f                                                     |
+| -d TYPE  | Device type: ata, scsi, marvell, removable, 3ware,N, hpt,L/M/N    |
+| -T TYPE  | tolerance: normal, permissive                                     |
+| -m ADD   | Send warning email to ADD for -H, -l error, -l selftest, -f       |
+| -H       | Monitor Health Status, report if failed                           |
+| -l TYPE  | Monitor log: error, selftest                                      |
+| -f       | Monitor failure of any 'Usage' Attributes                         |
+| -W D,I,C | Monitor Temperature D)ifference, I)nformal limit, C)ritical limit |
+| -n MODE  | never, sleep, standby, idle                                       |
+
 ## 硬盘生命周期
 
 - 硬性限制
@@ -95,7 +127,7 @@ ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_
   - LBA = Logical block addressing
   - TBW = LBA/Sector
   - TBW = 21811089703/512 ~= 11TB - 实际
-  - TBW = 120GB * 3000 ~= 300TB - 总计
+  - TBW = 120GB \* 3000 ~= 300TB - 总计
 
 ```
 === START OF INFORMATION SECTION ===
@@ -297,7 +329,7 @@ ID      Size     Value  Description
 0x0013  2            0  R_ERR response for host-to-device non-data FIS, non-CRC
 ```
 
-##  requires option '-d cciss,N'
+## requires option '-d cciss,N'
 
 ```bash
 smartctl -d cciss,1 -a /dev/sda

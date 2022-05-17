@@ -111,6 +111,8 @@ tags:
 - [Re-architecting Slack’s Workspace Preferences: How to Move to an EAV Model to Support Scalability](https://slack.engineering/re-architecting-slacks-workspace-preferences-how-to-move-to-an-eav-model-to-support-scalability/)
 - [PostgreSQL at Scale: Database Schema Changes Without Downtime](https://medium.com/p/20d3749ed680)
   - [HN](https://news.ycombinator.com/item?id=30458580)
+- retool [How we upgraded our 4TB Postgres database](https://retool.com/blog/how-we-upgraded-postgresql-database/)
+  - [HN](https://news.ycombinator.com/item?id=31084147)
 
 # FAQ
 

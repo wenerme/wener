@@ -24,6 +24,12 @@ title: ArgoCD ApplicationSet
   - mergeKeys - Merge generator
     - 基于字段合并 generator
 
+:::tip
+
+argocd 2.3 后默认安装 applicationset，不再需要额外安装。
+
+:::
+
 ```bash
 # 安装 applicationset - 要确保先安装了 argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/applicationset/master/manifests/install.yaml

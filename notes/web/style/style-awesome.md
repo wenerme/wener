@@ -14,3 +14,4 @@ tags:
 - [Tab Bar Liquid Animation](https://codepen.io/romaopedro199/pen/ExvwPJM)
 - [React tab bg move](https://codesandbox.io/s/crazy-hertz-nzmpj?file=/src/Tabs.js)
 - [Three.js dancing Tree](https://codepen.io/pehaa/pen/KKXMKMN)
+- flex hover grow - https://codepen.io/ivanman/pen/rLjOGN

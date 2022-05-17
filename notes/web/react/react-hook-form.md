@@ -40,8 +40,8 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
   return (
     <FormProvider {...formMethods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input name="name" ref={register} />
-        <input name="age" type="number" ref={register} />
+        <input {...register('name')} />
+        <input type="number" {...register('age')} />
         <button type="submit">Submit</button>
       </form>
     </FormProvider>

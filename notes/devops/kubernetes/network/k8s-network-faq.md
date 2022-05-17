@@ -18,6 +18,7 @@ tags:
 ## 默认 IngressClass
 
 ```bash
+kubectl get ingressclasses
 kubectl describe ingressclasses nginx
 kubectl annotate ingressclasses nginx ingressclass.kubernetes.io/is-default-class=true
 ```

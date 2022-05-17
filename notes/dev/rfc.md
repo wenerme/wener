@@ -10,6 +10,7 @@ tags:
 - 参考
   - https://www.rfc-editor.org/
   - https://datatracker.ietf.org/
+  - https://ijmacd.github.io/rfc3339-iso8601/
 
 | rfc       | titlee                         | note   |
 | --------- | ------------------------------ | ------ |

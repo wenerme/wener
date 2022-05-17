@@ -175,3 +175,14 @@ package dlopen
 ```bash
 go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./... )
 ```
+
+## zig cgo cross compile
+
+
+```bash
+# Go 1.18+
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="zig cc -target x86_64-linux" CXX="zig c++ -target x86_64-linux" go build --tags extended
+```
+
+- amd64 -> x86_64
+- [Zig Makes Go Cross Compilation Just Work](https://dev.to/kristoff/zig-makes-go-cross-compilation-just-work-29ho)

@@ -465,3 +465,79 @@ done
 ## failed to reserve container name "": name "" is reserved for
 
 ## parent snapshot does not exist: not found
+
+## invalid bearer token, Token has been invalidated
+
+## Node Shell
+
+可通过一个 Pod 进入
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-shell
+  namespace: kube-system
+spec:
+  containers:
+    - name: shell
+      image: docker.io/alpine:3.13
+      command:
+        - nsenter
+      args:
+        - '-t'
+        - '1'
+        - '-m'
+        - '-u'
+        - '-i'
+        - '-n'
+        - sleep
+        - '14000'
+      resources: {}
+      volumeMounts:
+        - name: kube-api-access
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+  volumes:
+    - name: kube-api-access
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+        defaultMode: 420
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 0
+  dnsPolicy: ClusterFirst
+  serviceAccountName: default
+  serviceAccount: default
+  # 希望进入的 Node
+  nodeName: master-1
+  hostNetwork: true
+  hostPID: true
+  hostIPC: true
+  securityContext: {}
+  schedulerName: default-scheduler
+  tolerations:
+    - operator: Exists
+  priorityClassName: system-node-critical
+  priority: 2000001000
+  enableServiceLinks: true
+  preemptionPolicy: PreemptLowerPriority
+```

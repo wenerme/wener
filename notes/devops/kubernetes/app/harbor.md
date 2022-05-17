@@ -1,11 +1,10 @@
 ---
-id: harbor
 title: Harbor
 ---
 
 # Habor
 
-- Habor
+- [goharbor/harbor](https://github.com/goharbor/harbor)
   - Kubernetes 上的容器镜像仓库
 - [goharbor/harbor-helm](https://github.com/goharbor/harbor-helm) - trusted cloud native repository for Kubernetes
 - 属于 CI 和 CD 之间，Nexus 偏向开发，Harbor 偏向生产部署交付
@@ -107,3 +106,18 @@ database:
 redis:
   type: internal
 ```
+
+# FAQ
+
+## 子域名
+
+## flag provided but not defined: -format
+
+- Trivy 接口变化，harbor 未匹配 - v2.4.2/2.5.0
+- 可直接指定 aquasec/harbor-scanner-trivy v0.25.0+
+- [aquasecurity/trivy#1656](https://github.com/aquasecurity/trivy/issues/1656)
+- [goharbor/harbor#16554](https://github.com/goharbor/harbor/issues/16554)
+
+## Trust not fully operational
+
+- https://github.com/bitnami/charts/issues/3545

@@ -48,6 +48,8 @@ tags:
 - [jdlingyu/ad-wars](https://github.com/jdlingyu/ad-wars)
 - https://github.com/badmojr/1Hosts
   - https://o0.pages.dev/Xtra/hosts.txt
+- [AdguardTeam/AdguardFilters](https://github.com/AdguardTeam/AdguardFilters)
+- [AdguardTeam/AdGuardSDNSFilter](https://github.com/AdguardTeam/AdGuardSDNSFilter)
 
 ```bash
 curl https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts -so ad-wars.txt
@@ -57,6 +59,7 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
 
 ---
 
+- https://whotracks.me/trackers/markmonitor.html
 - https://whotracks.me/trackers/adguard.html
 
 ## Protocol

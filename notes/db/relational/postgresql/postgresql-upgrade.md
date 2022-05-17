@@ -4,6 +4,12 @@ title: PostgreSQL Upgrade
 
 # PostgreSQL Upgrade
 
+- [pg_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html)
+  - -c,--check - 只检测
+  - -k,--link - hard link, 避免复制
+  - --clone - 使用 reflinks - macOS APFS, Linux 4.5+ Btrfs XFS
+    - zfs support --reflink [#405](https://github.com/openzfs/zfs/issues/405)
+
 :::tip
 
 - 升级后注意同步 pg_hba.conf 和 postgres.conf

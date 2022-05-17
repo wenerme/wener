@@ -120,7 +120,7 @@ tags:
 | seller            | 销售人员/卖家     |
 | prospective sales | 预期销售          |
 
-### 交易支付
+### 交易支付/金融
 
 | 英文               | 含义                | 释义 |
 | ------------------ | ------------------- | ---- |
@@ -146,6 +146,11 @@ tags:
 | referral id        | 引荐编号            |
 | fee rate           | 费率                |
 | bank outlets       | 银行网点            |
+| staking            | 质押                |
+| deposit            | 订金、储存          |
+| Collateral         |
+| Balance            | 余额                |
+| Asset              | 资产                |
 
 ### 电子商务
 
@@ -249,6 +254,14 @@ tags:
 | CDA   | confirmatory data analysis | 验证性数据分析 |
 | EDA   | exploratory data analysis  | 探索性数据分析 |
 | IDA   | initial data analysis      | 初步数据分析   |
+
+## 社交/Social
+
+| abbr. | stand for         | mean     |
+| ----- | ----------------- | -------- |
+| OTOH  | on the other hand |
+| TL;TR | Too Long To Read  | 简而言之 |
+| TBH   | To be honest      |
 
 # FAQ
 
@@ -511,3 +524,15 @@ tags:
   - 描述 inside 这样的一个事实
     - inside of something
   - 描述事物联系 - 与 public 对立
+
+## modeling vs design
+
+- modeling - 建模
+  - 描述已知的事情
+  - 对即将要做的事情做假设 - 确定事情怎么做、限定范围
+- design - 设计
+  - 对未知的事情就行假设
+
+---
+
+- https://wiki.c2.com/?DesigningVsModeling

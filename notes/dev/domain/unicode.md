@@ -10,6 +10,8 @@ title: Unicode
 - https://unicodebook.readthedocs.io/unicode.html
 - https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms
   - U+FF00–FFEF
+- https://altcodeunicode.com/
+- Language codes https://www.ibm.com/docs/en/content-manager/8.6.0?topic=definition-language-codes
 
 https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8
 

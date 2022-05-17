@@ -18,6 +18,8 @@ tree -N
 ```bash
 tree -I 'containerd|docker'
 tree -I 'node_modules|cache|test_*'
+
+tree -L 3 -I 'node_modules*|cache*'
 ```
 
 ## 文件时间信息

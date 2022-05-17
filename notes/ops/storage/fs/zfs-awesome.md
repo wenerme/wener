@@ -14,6 +14,7 @@ tags:
 zfs create -o mountpoint=/var/lib/containerd/io.containerd.snapshotter.v1.zfs tank/containerd
 ```
 
+- [kimono-koans/httm](https://github.com/kimono-koans/httm)
 - [jimsalterjrs/sanoid](https://github.com/jimsalterjrs/sanoid)
   - 快照管理，副本管理
 - [ubuntu/zsys](https://github.com/ubuntu/zsys)

@@ -23,6 +23,12 @@ tags:
   - gRPC -> GraphQL
 - [grpc-ecosystem/awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc)
 
+## Library
+
+- gRPC-aware proxy/Load balance
+  - https://grpc.io/blog/grpc-load-balancing/
+  - https://microsoft.github.io/reverse-proxy/articles/grpc.html
+
 ## 参考
 
 - [wenerme/grpc-protos](https://github.com/wenerme/grpc-protos)
@@ -67,6 +73,14 @@ tags:
 
 - [uw-labs/bloomrpc](https://github.com/uw-labs/bloomrpc)
 - [fullstorydev/grpcui](https://github.com/fullstorydev/grpcui)
+  - web UI for gRPC
+
+```bash
+# brew install grpcui
+go install github.com/fullstorydev/grpcui/cmd/grpcui@latest
+grpcui -plaintext localhost:12345
+```
+
 - [rogchap/wombat](https://github.com/rogchap/wombat)
 - [warmuuh/milkman](https://github.com/warmuuh/milkman)
 - IntelliJ IDEA v2021.3+ HTTP Client 支持 gRPC
@@ -151,6 +165,61 @@ service Health {
 go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 go install github.com/srikrsna/protoc-gen-gotag@latest
+```
+
+```yaml
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/wenerme/torrenti/pkg/apis
+    except:
+      - buf.build/x/bundle
+      - buf.build/googleapis/googleapis
+      - buf.build/envoyproxy/protoc-gen-validate
+plugins:
+  - name: go
+    out: .
+    opt: paths=source_relative
+  #  - name: gotag
+  #    out: .
+  #    opt: paths=source_relative
+  - name: go-grpc
+    out: .
+    opt: paths=source_relative,require_unimplemented_servers=true
+  - name: grpc-gateway
+    out: .
+    opt:
+      - paths=source_relative
+      - generate_unbound_methods=true
+      #- grpc_api_configuration=path/to/config.yaml
+      #- standalone=true
+  - name: openapiv2
+    out: openapiv2
+  - name: grpc-gateway-ts
+    out: gen/web/api
+    opt: paths=source_relative
+
+  - name: doc
+    out: gen/doc
+    strategy: all
+    # <FORMAT>|<TEMPLATE_FILENAME>,<OUT_FILENAME>[,default|source_relative]
+    # FORMAT=docbook,html,markdown,json
+    # TEMPLATE_FILENAME Go template 文件
+    # source_relative 输出基于 input 的相对路径
+    opt: markdown,proto.md
+
+ - name: micro # go micro - web proxy & service
+   out: .
+   opt:
+     - paths=source_relative
+     - require_unimplemented_servers=false
+
+ - name: validate
+   out: .
+   opt:
+     - lang=go
+     - paths=source_relative
 ```
 
 ```proto

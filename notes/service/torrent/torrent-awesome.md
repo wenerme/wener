@@ -1,7 +1,7 @@
 ---
 title: Torrent Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Torrent
@@ -25,6 +25,13 @@ tags:
 - [sergiotapia/torrentinim](https://github.com/sergiotapia/torrentinim)
   - low memory-footprint, self hosted API-only torrent search engine. Sonarr + Radarr Compatible
   - [HN](https://news.ycombinator.com/item?id=28122056)
+
+## Library
+
+- Go
+  - [anacrolix/torrent](https://github.com/anacrolix/torrent)
+  - [xgfone/bt](https://github.com/xgfone/bt)
+    - [xgfone/bttools](https://github.com/xgfone/bttools)
 
 ## Torrent file
 

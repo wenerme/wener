@@ -6,6 +6,7 @@ title: Notion
 
 - 参考
   - https://www.notion.so/blog/faster-page-load-navigation
+  - [notion-enhancer](https://github.com/notion-enhancer)
 - 类似开源项目
   - https://editorjs.io/
   - https://www.slatejs.org/

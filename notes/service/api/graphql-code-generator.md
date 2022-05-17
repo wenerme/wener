@@ -14,7 +14,7 @@ title: graphql-code-generator
 npm add -D @graphql-codegen/cli @graphql-codegen/typescript
 npx -y graphql-codegen init
 
-npx -y graphql-codegen download-schema http://localhost:8080/query --output schema.json
+npx -y graphql-codegen download-schema http://localhost:8080/graphql --output schema.json
 
 # 客户端相关
 npm add -D @graphql-codegen/typescript-urql
@@ -71,9 +71,11 @@ npm add -D @graphql-codegen/near-operation-file-preset
 ```yaml
 generates:
 src/:
- preset: near-operation-file
- presetConfig:
-   baseTypesPath: types.ts
- plugins:
-   - typescript-operations
+  preset: near-operation-file
+  presetConfig:
+    extension: .generated.tsx
+    # baseTypesPath: types.ts
+    baseTypesPath: "~@src/generated/graphql"
+  plugins:
+    - typescript-operations
 ```

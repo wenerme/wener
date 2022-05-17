@@ -28,8 +28,8 @@ tags:
 :::
 
 ```bash title="常用依赖"
-# 状态管理
-npm add zustand jotai immer use-immer
+# 状态管理 - jotai
+npm add zustand immer use-immer
 # UI
 npm add classnames
 npm add react-icons
@@ -71,6 +71,7 @@ npm add date-fns lodash-es react-fast-compare
   - `@blueprintjs/select`
     - 多功能 select 组件
     - 不控制样式，以逻辑为主
+- [nextui-org/nextui](https://github.com/nextui-org/nextui)
 - [rsuite/rsuite](https://github.com/rsuite/rsuite)
   - 各方面神似 AntD - 但比 AntD 轻的多
 - [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
@@ -139,6 +140,7 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 特殊 UI 组件
 
+- [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 - [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
   - 模仿 macOS High Sierra 和 Windows 10 的组件
 - [reakit/reakit](https://github.com/reakit/reakit) - 专注于 accessible 的组件
@@ -345,7 +347,7 @@ npm add date-fns lodash-es react-fast-compare
   - 注意
     - 默认 mode 为 submit - 在提交的时候才会校验
     - 基于 ref 注册可能会被 deregister
-- [formium/formik](https://github.com/formium/formik)
+- [jaredpalmer/formik](https://github.com/jaredpalmer/formik)
   - 基于组件构建表单
   - 默认 Formik 全量渲染
   - 组件 Field 封装
@@ -363,6 +365,10 @@ npm add date-fns lodash-es react-fast-compare
     - 尚不成熟
 - [unform/unform](https://github.com/unform/unform)
 - [alibaba/formily](https://github.com/alibaba/formily)
+  - [alibaba/designable](https://github.com/alibaba/designable)
+  - https://designable-antd.formilyjs.org/
+- 商业
+  - [form.io](https://www.form.io)
 
 ## 样式
 

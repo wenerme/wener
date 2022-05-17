@@ -5,6 +5,7 @@ title: editor.js
 # editor.js
 
 - [codex-team/editor.js](https://github.com/codex-team/editor.js)
+  - Apache-2.0, TS
   - Block 编辑器
 - [editor-config.d.ts](https://github.com/codex-team/editor.js/blob/next/types/configs/editor-config.d.ts)
 - [editor-js/awesome-editorjs](https://github.com/editor-js/awesome-editorjs)

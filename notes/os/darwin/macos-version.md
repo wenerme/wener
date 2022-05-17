@@ -22,4 +22,6 @@ tags:
 ```bash
 # 临时解决 - brew
 ln -fs /usr/local/bin/python3 $HOME/bin/python
+# 全局
+sudo ln -fs $(which python3) $(dirname $(which python3))/python
 ```

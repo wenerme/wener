@@ -19,6 +19,12 @@ git config --local user.name "Author Name"
 git config --local user.email "email@address.com"
 ```
 
+## 获取仓库目录
+
+```bash
+git rev-parse --show-toplevel
+```
+
 ## 子模块初始化
 
 ```bash
@@ -282,3 +288,15 @@ git rev-parse --short HEAD
 - `git tag -a <tagname> -m '<message>'`
   - 包含 tagger/auther, date 信息
   - 包含 message
+
+## svn export
+
+```bash
+git archive master | tar -x -C /somewhere/else
+git archive --format zip --output /full/path/to/zipfile.zip master
+
+svn export https://github.com/username/repo-name/trunk/
+svn export https://github.com/username/repo-name/trunk/src/lib/folder
+
+git checkout-index --prefix=git-export-dir/ -af
+```

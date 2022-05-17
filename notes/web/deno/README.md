@@ -15,14 +15,23 @@ title: deno
 - Deno 全局命名空间
 - ~/.deno/bin - deno install 位置
 
+:::info
+
+- WebStorm deno fmt [WEB-50743](https://youtrack.jetbrains.com/issue/WEB-50743/Support-deno-fmt-as-formatter)
+
+:::
+
 :::caution
 
+- deno 非常难管理依赖版本 - 因为版本号 pin 在 import 路径上
+  - 不方便修改和引用
+  - 很可能引入多个版本
+  - 不 pin 版本会使用 latest，导致依赖升级后脚本异常 - 默认没有 lock
 - deno 不支持 AlpineLinux, CentOS 7
   - Release centos7 compatible binaries [#1658](https://github.com/denoland/deno/issues/1658)
   - Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)
 - deno 不支持 gRPC
-  - grpc-node 也无法兼容 Deno - 因为 Deno HTTP2 缺少 trailing headers   [grpc-node#1791](https://github.com/grpc/grpc-node/issues/1791#issuecomment-911984475)
-
+  - grpc-node 也无法兼容 Deno - 因为 Deno HTTP2 缺少 trailing headers [grpc-node#1791](https://github.com/grpc/grpc-node/issues/1791#issuecomment-911984475)
 
 :::
 
@@ -53,6 +62,18 @@ deno run cli.js
 # x86_64-unknown-linux-gnu, x86_64-pc-windows-msvc, x86_64-apple-darwin, aarch64-apple-darwin
 deno compile -o cli --allow-write --allow-read scripts/main.ts
 ./cli
+```
+
+## deno.json
+
+- deno.jsonc
+- deno.json
+- https://deno.land/manual/getting_started/configuration_file.md
+- https://deno.land/x/deno/cli/schemas/config-file.v1.json
+
+```bash
+# 生成 lock.json
+deno cache --lock=lock.json --lock-write --unstable main.ts
 ```
 
 ## Node vs Deno

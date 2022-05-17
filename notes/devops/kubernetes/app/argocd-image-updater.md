@@ -202,3 +202,9 @@ registries:
     credsexpire: 5h
     limit: 20
 ```
+
+# FAQ
+
+## skipping app of type
+
+- https://github.com/argoproj-labs/argocd-image-updater/blob/f12a5ab6d3c69299ccd02473bdebdebc24131cb4/pkg/argocd/argocd.go#L175-L214

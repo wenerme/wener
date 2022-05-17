@@ -17,6 +17,8 @@ title: Flannel
     - 性能更好 - ip ro add 的方式添加路由
     - 需要 2 层直连 - TincVPN, n2n 可以
 - [执行方式](https://github.com/coreos/flannel/tree/master/dist)
+- flanneld
+  - 每个节点上执行一个 daemon
 
 ```bash
 # kube-flannel - vxlan

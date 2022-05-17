@@ -16,12 +16,9 @@ title: IEEE 802.11
 - Station = AP
 - Plug-n-Share
 - IBBS - Ad Hoc
+- 802.11k/v/r - WiFi 快速漫游协议
 
-| Known as | IEEE          |
-| -------- | ------------- | -------- |
-| WiFi 4   | IEEE 802.11n  | 450 Mbps |
-| WiFi 5   | IEEE 802.11ac |
-| WiFi 6   | IEEE 802.11ax |
+---
 
 - IEEE 802.11n - Wi-Fi 4
   - 150Mbps - 低端规格
@@ -32,6 +29,19 @@ title: IEEE 802.11
 - AX - IEEE 802.11ax - Wi-Fi 6
   - AX1800 -> 1800 Mbps
     - 2.4 GHz 574 Mbps + 5 GHz 1201 Mbps
+
+|            | WiFi 4       | WiFi 5                | WiFi 6/6E         | WiFi 7          |
+| ---------- | ------------ | --------------------- | ----------------- | --------------- |
+| Date       | 2007         | 2013                  | 2019/2021         | 2024            |
+| IEEE       | 802.11n      | 802.11ac              | 802.11ax          | 802.11be        |
+| Date Rate  | 1.2Gbps      | 3.5Gbps               | 9.6Gbps           | 46Gbps          |
+| Bands      | 2.5,5GHz     | 5GHz                  | 2.5,5GHz/6GHz     | 1-7.25GHz       |
+| Security   | WPA2         | WPA2                  | WPA3              | WPA3            |
+| Channels   | 20,40MHz     | 20,40,80,80+80,160MHz | same as WiFi 5    | <= 320MHz       |
+| Modulation | 64 QAM, OFDM | 256 QAM, OFDM         | 1024 QAM, OFDMA   | 4096 QAM, OFDMA |
+| MIMO       | 4x4 MIMO     | 4x4 MIMO,DL MU-MIMO   | 8x8 UL/DL MU-MIMO | 16x16 MU-MIMO   |
+
+- WiFi 7 - 9.6 Gbpsx1.2x2x2=46 Gbps
 
 **traffic**
 

@@ -129,3 +129,8 @@ sdk install java 8.0.312-tem
 
 - [apple/GCGC](https://github.com/apple/GCGC)
   - GC 日志分析
+
+## Spec
+
+- loom
+  - https://github.com/ebarlas/project-loom-comparison

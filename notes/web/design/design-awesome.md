@@ -9,6 +9,13 @@ tags:
 - [penpot/penpot](https://github.com/penpot/penpot)
   - design & prototyping platform
   - [HN](https://news.ycombinator.com/item?id=30407913)
+- https://www.visily.ai/
+- pix vision
+- WCAG 2.0 [1.4.3 Minimum Contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+  - [The Myths of Color Contrast Accessibility](https://uxmovement.com/buttons/the-myths-of-color-contrast-accessibility/)
+  - [Please Stop Using Grey Text](https://atangledwebweweave.com/please-stop-using-grey-text-3d3e71acfca8)
+- Parallax
+  - https://speckyboy.com/css-javascript-parallax-scrolling/
 
 ## Reference
 

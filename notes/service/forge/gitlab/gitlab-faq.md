@@ -94,3 +94,23 @@ variables:
   - https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/1281
 - 问题
   - https://gitlab.com/gitlab-org/gitlab-runner/-/issues/280#note_39937930
+
+## Docker build cache
+
+
+```yaml
+Build:
+  extends: .docker
+  stage: build
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:build || true
+    - >
+      docker build
+      --pull
+      --cache-from $CI_REGISTRY_IMAGE:build
+      --tag build-env
+      -f Dockerfile.build
+      .
+    - docker tag build-env $CI_REGISTRY_IMAGE:build
+    - docker push $CI_REGISTRY_IMAGE:build
+```

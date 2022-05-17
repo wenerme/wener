@@ -4,7 +4,7 @@ title: Tmux
 
 # Tmux
 
-- [tmux.1](http://man.openbsd.org/OpenBSD-current/man1/tmux.1)
+- [tmux.1](https://man7.org/linux/man-pages/man1/tmux.1.html)
 - Cheat sheet
   - https://gist.github.com/andreyvit/2921703
   - https://gist.github.com/MohamedAlaa/2961058

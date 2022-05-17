@@ -22,6 +22,12 @@ title: Docusaurus
   - package.json
   - sidebars.js
 
+:::tip
+
+- 支持 `\`\`\`\`` - 方便包含 markdown codeblock
+
+:::
+
 ```bash
 # [name] [template]
 # @docusaurus/preset-classic
@@ -313,6 +319,39 @@ author_image_url:
 # website/i18n/[locale]/docusaurus-plugin-content-blog/authors.yml
 authors: wener
 authors: [wener]
+```
+
+## magicComments
+
+```ts
+type MagicCommentConfig = {
+  className: string;
+  line?: string;
+  block?: { start: string; end: string };
+};
+```
+
+```js
+module.exports = {
+  themeConfig: {
+    prism: {
+      magicComments: [
+        // Remember to extend the default highlight class name as well!
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: { start: 'highlight-start', end: 'highlight-end' },
+        },
+        // highlight-start
+        {
+          className: 'code-block-error-line',
+          line: 'This will error',
+        },
+        // highlight-end
+      ],
+    },
+  },
+};
 ```
 
 ## 参考

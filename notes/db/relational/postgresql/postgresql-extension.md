@@ -4,6 +4,13 @@ title: PostgreSQL Extension
 
 # PostgreSQL Extension
 
+```bash
+pg_config --sharedir
+
+make USE_PGXS=1
+make install USE_PGXS=1
+```
+
 - [pgpartman/pg_partman](https://github.com/pgpartman/pg_partman)
   Partition management extension for PostgreSQL
 - [omniti-labs/pg_jobmon](https://github.com/omniti-labs/pg_jobmon)

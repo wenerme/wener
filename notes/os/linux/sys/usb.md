@@ -1,6 +1,8 @@
-# USB
+---
+title: USB
+---
 
-## Tips
+# USB
 
 - libusb
 - [gregkh/usbutils](https://github.com/gregkh/usbutils)
@@ -24,19 +26,13 @@ lsusb -s 2:2
 lsusb -s 2:2 -vvv
 ```
 
-### 速度
+## usbids
 
-| 版本          | 发布日期      | 最大传输速率            |
-| ------------- | ------------- | ----------------------- |
-| USB 1.1       | August 1998   | Full Speed (12 Mbit/s)  |
-| USB 2.0       | April 2000    | High Speed (480 Mbit/s) |
-| USB 3.0       | November 2008 | SuperSpeed (5 Gbit/s)   |
-| Thunderbolt   | 2011          | 10 Gbps                 |
-| USB 3.1       | July 2013     | SuperSpeed+ (10 Gbit/s) |
-| Thunderbolt 2 | 2013          | 20 Gbps                 |
-| USB Type-C    | 2014          |
-| Thunderbolt 3 | 2015          | 40 Gbps                 |
-| USB 3.2 Gen 1 |
+- http://www.linux-usb.org/usb-ids.html
+
+```bash
+curl -O http://www.linux-usb.org/usb.ids
+```
 
 ## 加密狗
 
@@ -132,27 +128,22 @@ https://en.wikipedia.org/wiki/Message_Signaled_Interrupts
 
 ## usbkey
 
-BOC
+**BOC**
+
+- /dev/sr0
+- mnt/Setup.exe
 
 ```
-[64757.197334] usb 1-8: new full-speed USB device number 4 using xhci_hcd
-[64757.340880] usb 1-8: New USB device found, idVendor=096e, idProduct=070a
-[64757.340883] usb 1-8: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-[64757.340884] usb 1-8: Product: FT Interpass3000
-[64757.340885] usb 1-8: Manufacturer: FS
-[64757.341231] usb-storage 1-8:1.0: USB Mass Storage device detected
-[64757.350672] scsi host7: usb-storage 1-8:1.0
-[64758.362211] scsi 7:0:0:0: CD-ROM            FT BOC   Interpass3000    1.00 PQ: 0 ANSI: 2
-[64758.388267] sr 7:0:0:0: [sr0] scsi3-mmc drive: 0x/0x caddy
-[64758.388269] cdrom: Uniform CD-ROM driver Revision: 3.20
-[64758.388395] sr 7:0:0:0: Attached scsi CD-ROM sr0
+usb 1-8: new full-speed USB device number 4 using xhci_hcd
+usb 1-8: New USB device found, idVendor=096e, idProduct=070a
+usb 1-8: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+usb 1-8: Product: FT Interpass3000
+usb 1-8: Manufacturer: FS
+usb-storage 1-8:1.0: USB Mass Storage device detected
+scsi host7: usb-storage 1-8:1.0
+scsi 7:0:0:0: CD-ROM            FT BOC   Interpass3000    1.00 PQ: 0 ANSI: 2
+sr 7:0:0:0: [sr0] scsi3-mmc drive: 0x/0x caddy
+cdrom: Uniform CD-ROM driver Revision: 3.20
+sr 7:0:0:0: Attached scsi CD-ROM sr0
 ```
 
-cdrom
-/dev/sr0
-md5sum
-89747793319d3f3fbdb6f9397757a9c9 /root/mnt/Setup.exe
-sha1sum
-f323765394ed171389176c1140c61e9cec076fd2 mnt/Setup.exe
-
-1215k

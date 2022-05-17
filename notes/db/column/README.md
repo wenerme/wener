@@ -1,5 +1,5 @@
 ---
-id: column
+title: Column Store
 ---
 
 # Column Store

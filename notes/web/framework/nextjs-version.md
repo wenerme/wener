@@ -1,5 +1,4 @@
 ---
-id: nextjs-version
 title: NextJS 版本历史
 tags:
   - version
@@ -18,6 +17,7 @@ tags:
 
 - [vercel/next.js#16368](https://github.com/vercel/next.js/issues/16368)
   Module Federation Support
+- swc babel 插件反馈 [#30174](https://github.com/vercel/next.js/discussions/30174)
 
 :::
 
@@ -193,7 +193,7 @@ export function getStaticProps() {
   - 未变化的页面不会重新构建
   - 构建路径包含 hash
   - 以前 hash 是 build 级别
-  -  之前 `/_next/static/ovgxWYrvKyjnlM15qtz7h/pages/about.js`
+  - 之前 `/_next/static/ovgxWYrvKyjnlM15qtz7h/pages/about.js`
   - 现在 `/_next/static/chunks/pages/about.qzfS4o5gIEXRME6sTEahL.js`
 - 增强快速刷新
 - 支持 React Profiling - [How it works](https://nextjs.org/docs/basic-features/fast-refresh)

@@ -1,25 +1,35 @@
 ---
-id: rke
 title: RKE - 安装器
 ---
 
 # RKE
-* 是什么
-  * K8S 集群安装器
-* [配置项](https://rancher.com/docs/rke/latest/en/config-options/)
-  * [cluster-example.yaml](https://rancher.com/docs/rke/latest/en/example-yamls/)
-* 系统镜像 [k8s_rke_system_images.go](https://github.com/rancher/kontainer-driver-metadata/blob/master/rke/k8s_rke_system_images.go)
-* [K8S Release Note](https://kubernetes.io/docs/setup/release/notes/)
-* 注意
-  * 非常建议使用私有仓库
-    * air-gap 需要 g 级别的压缩包 - 非常慢
-  * 注意开启 SSH 的 AllowTcpForwarding
-  * 注意节点需要一些提前配置 - 参考 [k8s-prepare](https://github.com/wenerme/alpine-admin/blob/master/roles/alpine/tasks/k8s-prepare.yaml)
-* 安装后需要做的事情
-  * 添加 PV - 例如 nfs-client-provisioner
-    * 不添加会导致需要持久存储的无法拿到 PVC
-  * 添加 LoadBalancer 控制器 - 例如 metallb
-    * 不添加会导致 LoadBalancer 拿不到 ip - 例如 istio-ingresgateway (rancher 可配置使用 NodePort)
+
+- 是什么
+  - K8S 集群安装器
+- [配置项](https://rancher.com/docs/rke/latest/en/config-options/)
+  - [cluster-example.yaml](https://rancher.com/docs/rke/latest/en/example-yamls/)
+- 系统镜像 [k8s_rke_system_images.go](https://github.com/rancher/kontainer-driver-metadata/blob/master/rke/k8s_rke_system_images.go)
+- [K8S Release Note](https://kubernetes.io/docs/setup/release/notes/)
+
+:::tip
+
+- RKE2 与 RKE1 区别很大
+
+:::
+
+:::caution
+
+- 非常建议使用私有仓库
+  - air-gap 需要 g 级别的压缩包 - 非常慢
+- 注意开启 SSH 的 AllowTcpForwarding
+- 注意节点需要一些提前配置 - 参考 [k8s-prepare](https://github.com/wenerme/alpine-admin/blob/master/roles/alpine/tasks/k8s-prepare.yaml)
+- 安装后需要做的事情
+  - 添加 PV - 例如 nfs-client-provisioner
+    - 不添加会导致需要持久存储的无法拿到 PVC
+  - 添加 LoadBalancer 控制器 - 例如 metallb
+    - 不添加会导致 LoadBalancer 拿不到 ip - 例如 istio-ingresgateway (rancher 可配置使用 NodePort)
+
+:::
 
 ## 安装
 
@@ -52,6 +62,7 @@ rke up --config cluster.yml
 ```
 
 ## 运维
+
 ```bash
 # 一次性备份 etcd
 rke etcd snapshot-save --name <SNAPSHOT.db> --config rancher-cluster.yml
@@ -63,6 +74,7 @@ rke etcd snapshot-save --config rancher-cluster.yml --name snapshot-name  \
 ```
 
 ## 配置
+
 ```yaml
 # 集群名字 - 建议更改 - 默认 local
 cluster_name: center
@@ -84,7 +96,7 @@ nodes:
     # 使用的 ssh 用户 - 没有全局配置需要每个配置
     user: admin
     # 节点的角色 - 基础计算节点只需要 worker 即可
-    role: [ controlplane, etcd, worker ]
+    role: [controlplane, etcd, worker]
 
 # 服务信息
 services:
@@ -99,12 +111,12 @@ services:
       retention: 60
       # 可选配置
       s3backupconfig:
-        access_key: "myaccesskey"
-        secret_key:  "myaccesssecret"
-        bucket_name: "my-backup-bucket"
-        folder: "folder-name"
-        endpoint: "s3.eu-west-1.amazonaws.com"
-        region: "eu-west-1"
+        access_key: 'myaccesskey'
+        secret_key: 'myaccesssecret'
+        bucket_name: 'my-backup-bucket'
+        folder: 'folder-name'
+        endpoint: 's3.eu-west-1.amazonaws.com'
+        region: 'eu-west-1'
 
 # 私有仓库 - 非常建议
 private_registries:
@@ -114,6 +126,7 @@ private_registries:
 ```
 
 ## FAQ
+
 ### Error response from daemon: linux mounts: path /var/lib/rancher is mounted on / but it is not a shared mount
 
 ```bash
@@ -128,5 +141,6 @@ CONF
 ```
 
 ### Failed to get job complete status for job rke-network-plugin-deploy-job in namespace kube-system
-* 尝试再次执行，一般会好
-* [#19713](https://github.com/rancher/rancher/issues/19713)
+
+- 尝试再次执行，一般会好
+- [#19713](https://github.com/rancher/rancher/issues/19713)

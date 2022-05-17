@@ -6,6 +6,12 @@ tags:
 
 # Hardware FAQ
 
+## 视网膜屏幕
+
+- 人眼对像素辨识度为 300 PPI
+- 超过 300 PPI 则可认为是 视网膜屏幕
+- 苹果 LCD 330 PPI, OLED 458 PPI
+
 ## 功耗
 
 - SAS

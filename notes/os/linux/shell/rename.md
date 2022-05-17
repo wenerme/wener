@@ -10,12 +10,16 @@ title: rename
 - zsh - zmv
 
 ```bash
-# C 版本
+# C 版本 - util-linux
+# ==========
 # from to files
 rename .htm .html *.htm
 rename .txt '' *.txt
 
 # Perl 版本
+# macOS
+brew install rename
+
 rename 'y/a-z/A-Z/' *
 rename 's/\.txt$//' *.txt
 

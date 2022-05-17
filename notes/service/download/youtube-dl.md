@@ -4,7 +4,8 @@ title: youtube-dl
 
 # youtube-dl
 
-- 默认配置
+- [ytdl-org/youtube-dl](https://github.com/ytdl-org/youtube-dl)
+- 默认配置 --config-location
   - ~/.config/youtube-dl/config
   - /etc/youtube-dl.conf
   - %APPDATA%/youtube-dl/config.txt
@@ -16,7 +17,7 @@ title: youtube-dl
   - yt-dlp
 
 ```bash
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl --create-file-mode 0755 -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # 测试文件名
@@ -81,6 +82,13 @@ youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'
 | --id                            | 批量文件里只有 ID                                             |
 | -w, --no-overwrites             | 不覆盖                                                        |
 | --write-thumbnail               | 写入缩略图                                                    |
+| **后处理**                      |
+| -x, --extract-audio             | 提取音频                                                      |
+| --embed-subs                    |
+| --embed-thumbnail               |
+| --add-metadata                  | 写入元信息到媒体文件                                          |
+| --xattrs                        | 写入元信息到文件 xattrs                                       |
+| --convert-subs FORMAT           |
 
 **youtube-dl.conf**
 
@@ -93,3 +101,15 @@ youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'
 -f best
 -R 50
 ```
+
+:::warn
+
+- -f best 不一定会下载最优格式
+
+推荐
+
+```
+-f 'bestvideo[vcodec=av1]+bestaudio[acodec=opus]/bestvideo[vcodec=vp9]+bestaudio[acodec=opus]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best'
+```
+
+:::

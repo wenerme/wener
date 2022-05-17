@@ -89,7 +89,19 @@ Dialogue: 0,0:03:08.37,0:03:09.54,Default,,0,0,0,,{\fs45\shad0\bord0\b1\pos(625.
 - 内置 - 硬字幕 - 视频包含字幕
 - 外挂 - 外部文件 - 例如 .srt, .ass
 - 内挂、封装、内封 - 在 mkv 里包含 字幕 文件
-- CC - Closed Caption
+- CC - Closed Caption - 隐藏字幕
 - SDH - Subtitles for the Deaf & Hard of Hearing
   - 字幕内容包含场景说明 - 例如 音乐、过场 说明
 - AD - 口述音频
+- HI
+
+## Caption vs Subtitle
+
+区别在于语言。
+
+- Caption - 相同语言 - 辅助功能
+  - Closed Caption - 隐藏字幕
+    - 对于相同语言的人来说起辅助作用
+    - Television Decoder Circuitry Act 要求 1993 年后产出电视必须支持 Closed Caption
+  - Open Caption  - 提示信息、外国语对话、音乐、音效
+- Subtitle - 语言不一定相同

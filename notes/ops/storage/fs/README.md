@@ -1,5 +1,4 @@
 ---
-id: intro
 title: Filesystem
 ---
 
@@ -178,6 +177,14 @@ diskutil partitionDisk disk4 1 GPT HFS+ newdisk R
 brew install e2fsprogs
 ls `brew --prefix e2fsprogs`/sbin
 ```
+
+## 特殊特性
+
+- rename2
+  - overlay 依赖
+  - zfs 尚不支持
+- clone
+  - zfs 尚不支持
 
 ## FAQ
 

@@ -233,7 +233,7 @@ background: aqua; }
 
 ```css
 body {
-  /* font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif; */
+  /* 优先系统默认 */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -242,6 +242,33 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+```
+
+**中文**
+
+```css
+body {
+  /* mac 优先 苹方 windows 优先 雅黑 */
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Helvetica, Arial,
+    Verdana, sans-serif;
+}
+```
+
+## font-face
+
+```css
+@font-face {
+  font-family: 'OpenSans';
+  /* full name, postscript name, fallback */
+  src: local('Open Sans'), local('Open Sans'), url('/fonts/OpenSans.woff');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url('/assets/fonts/Montserrat.ttf');
+  /* 字体支持多种 weight */
+  font-weight: 100 900;
 }
 ```
 
@@ -378,3 +405,42 @@ body {
 - 推荐使用 gap
 - margin 会影响外部
 - https://mxstbr.com/thoughts/margin/
+
+## breakpoint
+
+| breakpoint | tailwind | bootstrap | mui    |
+| ---------- | -------- | --------- | ------ |
+| sm         | 640px    | 576px     | 600px  |
+| md         | 768px    | 768px     | 900px  |
+| lg         | 1024px   | 992px     | 1200px |
+| xl         | 1280px   | 1200px    | 1536px |
+| 2xl,xxl    | 1536px   | 1400px    |
+
+**buma**
+
+| breakpoint | buma      |
+| ---------- | --------- |
+| mobile     | < 768px   |
+| tablet     | >= 768px  |
+| desktop    | >= 1024px |
+| widescreen | >= 1216px |
+| fullhd     | >= 1408px |
+
+**md 2**
+
+| size      | device  | column |
+| --------- | ------- | ------ |
+| 0-599     | phone   | 4      |
+| 600-904   | tablet  | 8      |
+| 905-1239  | tablet  | 12     |
+| 1240-1439 | labtop  | 12     |
+| 1440+     | desktop | 12     |
+
+- material.io/design [Responsive layout grid](https://material.io/design/layout/responsive-layout-grid.html#breakpoints)
+- https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints
+- https://mui.com/material-ui/customization/breakpoints/
+- https://bulma.io/documentation/overview/responsiveness/
+
+## gradient
+
+- https://www.colorzilla.com/gradient-editor/

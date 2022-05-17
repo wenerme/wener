@@ -129,10 +129,16 @@ tailscale netcheck
 
 - 记录的 JSON 状态
   - /var/lib/tailscale/tailscaled.state
+    - _daemon
+    - _machinekey
 - DNS
   - 修改 /etc/resolv.conf
   - 备份之前配置 /etc/resolv.pre-tailscale-backup.conf
 - DERP - Encrypted TCP relays
+
+```bash
+sudo jq -r ._daemon /var/lib/tailscale/tailscaled.state | base64 -d
+```
 
 ## derp
 
@@ -150,11 +156,17 @@ curl -s https://controlplane.tailscale.com/derpmap/default | jq
 go install tailscale.com/cmd/derper@main
 # macOS 交叉编译
 # GOOS=linux go build -trimpath -o bin/derper ./cmd/derper
+# GOOS=linux go build -trimpath -o bin/tailscale ./cmd/tailscale
+# GOOS=linux go build -trimpath -o bin/tailscaled ./cmd/tailscaled
 
 # 启动
 derper --hostname=your-hostname.com
 # 启动 - 通过本地 tailscaled 验证客户端
-derper --hostname=your-hostname.com --verify-clients
+sudo derper --hostname=your-hostname.com --verify-clients
+# behind proxy
+# 需要修改代码: 启用 tls 关闭 debug
+# -a 如果指定地址会同时用于 http 和 stun-port
+sudo derper --hostname derper.example.com --verify-clients -a :28443 -http-port 28080
 ```
 
 | flag                        | default                             | for                                                                                                   |
@@ -182,6 +194,8 @@ derper --hostname=your-hostname.com --verify-clients
 - tailscale sttaus 里的节点才能使用 derp - 否则会验证失败
 - 可以考虑 derp 节点能看到所有其他节点
   - `{ Action: accept, Users: [ tag:derp ], Ports: [ "*:*" ] }`
+- hostname 为访问 derp 的 域名 而不是 login-server 域名
+- port 为 443 才会启用 tls - `tsweb.IsProd443(*addr) || *certMode == "manual"`
 
 :::
 
@@ -214,6 +228,7 @@ tailscale file get .
 - Subnet Route
   - 作为网关桥接不同网络
   - --advertise-routes
+  - ACL 控制 `{ "action": "accept", "users": ["*"], "ports": ["172.20.10.0/24:*",] }`
 
 ```bash
 echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
@@ -228,6 +243,21 @@ sudo sysctl -p /etc/sysctl.conf
   - 主要用于 serverless、容器、权限不足、不支持 tun 设备 等场景
   - [Userspace networking mode](https://tailscale.com/kb/1112/userspace-networking/)
 
+
 # FAQ
 
 ## derphttp.Client.Recv connect to region 999: tls: first record does not look like a TLS handshake
+
+## not connected to home DERP region 999
+
+## tsweb.AllowDebugAccess
+
+默认允许访问 debug 的逻辑
+
+```go
+if tsaddr.IsTailscaleIP(ip) || ip.IsLoopback() || ipStr == envknob.String("TS_ALLOW_DEBUG_IP") {
+  return true
+}
+```
+
+如果使用了反向代理(例如: derper) 会导致检测失败。

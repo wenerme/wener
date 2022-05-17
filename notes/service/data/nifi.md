@@ -426,6 +426,12 @@ docker cp postgresql-42.3.3.jar nifi:/opt/nifi/lib
 
 - https://github.com/cetic/helm-nifi
 
+
+## Upgrade
+
+- [Migration Guidance](https://cwiki.apache.org/confluence/display/NIFI/Migration+Guidance)
+- [Upgrading NiFi](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#upgrading_nifi)
+
 # FAQ
 
 ## Illegal initial character: ?column?

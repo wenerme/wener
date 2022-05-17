@@ -87,13 +87,29 @@ tags:
     - MIT, Python+Vue
   - [gristlabs/grist-core](https://github.com/gristlabs/grist-core)
     - Backbone, Knockout
-- invoicing
+- invoicing/finance/buget
   - [crater-invoice/crater](https://github.com/crater-invoice/crater)
+  - [actualbudget/actual](https://github.com/actualbudget/actual)
+    - MIT, JS
+    - local-first personal finance system
+    - [HN](https://news.ycombinator.com/item?id=31206536)
+  - [financier-io/financier](https://github.com/financier-io/financier)
+  - [beancount/beancount](https://github.com/beancount/beancount)
+    - GPL-2.0, Python
+    - [HN](https://news.ycombinator.com/item?id=30138434)
+  - [sarvjeets/lakshmi](https://github.com/sarvjeets/lakshmi)
+    - command-line interface inspired by the Bogleheads philosophy
+- flag
+  - [Flagsmith/flagsmith](https://github.com/Flagsmith/flagsmith)
+    - Python
+  - [mwitkow/go-flagz](https://github.com/mwitkow/go-flagz)
+    - Dynamic flag management
+  - [open-feature/spec](https://github.com/open-feature/spec)
+  - [growthbook/growthbook](https://github.com/growthbook/growthbook)
+    - A/B Testing
 - grammar
   - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
   - https://github.com/JetBrains/intellij-community/tree/master/plugins/grazie
-- [growthbook/growthbook](https://github.com/growthbook/growthbook)
-  - A/B Testing
 - comment
   - [umputun/remark42](https://github.com/umputun/remark42)
 - file org

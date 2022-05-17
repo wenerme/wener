@@ -488,6 +488,7 @@ sysctl -w net.inet.ip.fw.enable=1
 ### 路由
 
 ```bash
+# -r show routes, -n not resolve
 netstat -nr
 route delete -host 10.3.2.1
 route add -net 10.3 tun0

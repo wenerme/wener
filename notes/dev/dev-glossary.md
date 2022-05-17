@@ -6,6 +6,8 @@ tags:
 
 # Dev Glossary
 
+- stage0
+
 | abbr.  | stand for                              | mean             |
 | ------ | -------------------------------------- | ---------------- |
 | GC     | garbage collect                        | 垃圾收集         |

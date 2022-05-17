@@ -1,5 +1,7 @@
 ---
 title: Debian 版本
+tags:
+  - Version
 ---
 
 # Debian 版本

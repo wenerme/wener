@@ -5,6 +5,30 @@ tags:
 
 # WebComponent Awesome
 
+## Spec
+
+- [WebComponents](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+  - `CustomElementRegistry.define`
+  - `Window.customElements`
+  - ShadowDOM
+    - Element - attachShadow, shadowRoot, slot, assignedSlot
+    - Node - getRootNode, isConnected
+    - Event - composed, composedPath
+  - Element
+    - 生命周期
+      - connectedCallback
+      - disconnectedCallback
+      - adoptedCallback
+      - attributeChangedCallback
+  - `<template>`, `<slot>`
+  - CSS
+    - :defined
+    - :host
+    - :host()
+    - :host-context()
+    - ::part
+    - ::slotted
+
 ## 框架/库/工具
 
 - [lit/lit](https://github.com/lit/lit)
@@ -13,13 +37,20 @@ tags:
   - 编译器 - 生成目标组件 - [output-targets](https://stenciljs.com/docs/output-targets)
 - [Custom Elements Everywhere](https://custom-elements-everywhere.com/)
   支持 CustomeElement、属性传递
-  - React 实验版 - [react#11347](https://github.com/facebook/react/issues/11347)
+  - React 19 custom element attributes/properties - [react#11347](https://github.com/facebook/react/issues/11347)
+    - @experimental 版本 启用 - [ref](https://github.com/facebook/react/issues/11347#issuecomment-988970952https://github.com/facebook/react/issues/11347#issuecomment-988970952)
   - angular,vue,preact,solidjs
   - svelte
     - [Web Components with Svelte](https://www.thisdot.co/blog/web-components-with-svelte)
+- [devpunks/snuggsi](https://github.com/devpunks/snuggsi)
+  - ~1kb for Custom Elements
+- https://open-wc.org/
+- https://www.dataformsjs.com/
+- https://fast.design/
 
 ## 组件
 
+- [dataformsjs/dataformsjs](https://github.com/dataformsjs/dataformsjs)
 - [shoelace-style/shoelace](https://github.com/shoelace-style/shoelace)
   - [Stencil -> LitElement](https://www.abeautifulsite.net/posts/moving-from-stencil-to-lit-element/)
     - Stencil

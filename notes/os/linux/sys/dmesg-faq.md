@@ -63,6 +63,18 @@ echo "1" >/sys/devices/system/edac/pci/check_pci_parity
 - [EDAC Wiki](https://buttersideup.com/mediawiki/index.php/Main_Page)
 - [grondo/edac-utils](https://github.com/grondo/edac-utils)
 
+## 磁盘损坏
+
+```
+sd 0:0:8:0: [sdh] tag#383 UNKNOWN(0x2003) Result: hostbyte=0x00 driverbyte=0x08 cmd_age=0s
+sd 0:0:8:0: [sdh] tag#383 Sense Key : 0x4 [current]
+sd 0:0:8:0: [sdh] tag#383 ASC=0x15 ASCQ=0x1
+sd 0:0:8:0: [sdh] tag#383 CDB: opcode=0x2a 2a 00 3b aa 6b c0 00 00 a8 00
+blk_update_request: I/O error, dev sdh, sector 1001024448 op 0x1:(WRITE) flags 0x700 phys_seg 17 prio class 0
+zio pool=data vdev=/dev/disk/by-id/scsi-35000c5008953f263-part1 error=5 type=2 offset=512523468800 size=86016 flags=40080c80
+hpsa 0000:03:00.0: scsi 0:0:8:0: resetting physical  Direct-Access     SEAGATE  ST600MP0005      PHYS DRV SSDSmartPathCap- En- Exp=1
+```
+
 ## Write Protect is on
 
 - USB Flash Driver 已损坏，进入写保护模式

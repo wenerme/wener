@@ -8,6 +8,7 @@ tags:
 
 - [danistefanovic/build-your-own-x](https://github.com/danistefanovic/build-your-own-x)
 - [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
+- [lissy93/dashy](https://github.com/lissy93/dashy)
 - 相册
   - [photoprism/photoprism](https://github.com/photoprism/photoprism)
     - AGPL, Golang

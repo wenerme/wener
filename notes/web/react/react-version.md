@@ -32,7 +32,7 @@ tags:
   - APIs for library
     - useId - for ARIA - aria-labaledby
     - 生成表单元素
-    - useSyncExternalStore
+    - [useSyncExternalStore](https://github.com/reactwg/react-18/discussions/86)
     - useInsertionEffect
 - streaming server renderer
   - suspense on server

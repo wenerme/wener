@@ -32,6 +32,10 @@ export CXX="$(which g++) -I/usr/local/opt/glib/include/glib-2.0/ -I/usr/local/op
 export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
 ```
 
+- sharp -> libvips version 8.12.2+ is required
+- ubuntu 22.04 jammy
+  - https://packages.ubuntu.com/search?searchon=sourcenames&keywords=vips
+
 ## libtool: unrecognized option -static when building
 
 ```bash

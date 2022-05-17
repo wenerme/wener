@@ -21,6 +21,14 @@ title: CNI
       - 例如 `printf '%x%x%x%x' $RANDOM $RANDOM $RANDOM $RANDOM`
     - CNI_NETNS - 网络命名空间路径
       - `/proc/<pid>/ns/net`
+- [flannel-io/flannel](https://github.com/flannel-io/flannel)
+
+:::warning
+
+- cni-plugins v1 之后不包含 flannel - AlpineLinux 3.15
+  - apk add flannel -X https://mirrors.sjtug.sjtu.edu.cn/alpine/edge/testing
+
+:::
 
 | Type              | Desc                                          |
 | ----------------- | --------------------------------------------- |
@@ -134,3 +142,7 @@ CNI_COMMAND=ADD CNI_CONTAINERID=ns1 CNI_NETNS=/var/run/netns/ns1 CNI_IFNAME=eth2
 ```
 
 ## error while GETHNSNewtorkByName(mynet): hnsCall failed in Win32: The specified module could not be found. (0x7e)
+
+## failed to find plugin flannel in path /usr/libexec/cni
+
+cni-plugins v1 后没有 flannel

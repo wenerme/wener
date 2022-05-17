@@ -6,10 +6,18 @@ tags:
 
 # Awesome Font
 
+- otf,ttf,woff,woff2
 - [Inter typeface family](https://rsms.me/inter)
 - [Google fonts](https://fonts.google.com)
 - PL - PowerLine
 - [codingfont](https://www.codingfont.com/)
+- 阿里巴巴普惠体
+  - https://ics.alibaba.com/font/alibaba-sans
+  - https://github.com/liruifengv/alibaba-puhuiti/blob/master/index.html
+- Montserrat
+  - https://github.com/googlefonts/Montserrat
+  - https://github.com/JulietaUla/Montserrat
+  - https://fonts.google.com/specimen/Montserrat
 - 参考
   - [VSC 配置倾斜字体](https://stackoverflow.com/questions/41320848)
 
@@ -32,6 +40,9 @@ tags:
 
 ## Emoji
 
+- [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
+- Note 黑白 Emoji https://fonts.google.com/noto/specimen/Noto+Emoji
+  - [What is black and white and read all over?](https://developers.googleblog.com/2022/04/what-is-black-and-white-and-read-all.html)
 - [hfg-gmuend/openmoji](https://github.com/hfg-gmuend/openmoji)
   - CC BY-SA 4.0 [#155](https://github.com/hfg-gmuend/openmoji/issues/155)
     - BY - 要求申明出处
@@ -39,7 +50,6 @@ tags:
   - 所有 [openmoji](https://hfg-gmuend.github.io/openmoji/)
   - [HN](https://news.ycombinator.com/item?id=28403672)
 - [twitter/twemoji](https://github.com/twitter/twemoji)
-- [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
 - https://emojipedia.org/
 - [Full Emoji List](https://unicode.org/emoji/charts/full-emoji-list.html)
 - [emoji-cheat-sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
@@ -49,3 +59,28 @@ tags:
 - [GNOME/gucharmap](https://gitlab.gnome.org/GNOME/gucharmap)
   - Unicode Character Map
 - ufas [UNICODE FONTS FOR ANCIENT SCRIPTS](https://dn-works.com/ufas/)
+
+
+## variable fonts
+
+- https://fonts.google.com/specimen/Roboto+Flex
+  - 有 10+ 可变维度
+- https://fonts.google.com/knowledge/introducing_type/introducing_variable_fonts
+- https://developers.google.com/web/fundamentals/design-and-ux/typography/variable-fonts
+- https://variablefonts.typenetwork.com
+- https://medium.com/variable-fonts
+
+---
+
+- https://theblog.adobe.com/can-variable-fonts-illustrator-cc
+- https://helpx.adobe.com/nz/photoshop/using/fonts.html#variable_fonts
+
+---
+
+- https://developers.google.com/fonts/docs/getting_started
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
+- https://developer.microsoft.com/en-us/microsoft-edge/testdrive/demos/variable-fonts
+
+# FAQ
+
+## otf vs ttf

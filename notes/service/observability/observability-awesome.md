@@ -13,6 +13,12 @@ tags:
   - 国产
   - 美团点评
 - [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
+- [polarsignals/arcticdb](https://github.com/polarsignals/arcticdb)
+  - Apache-2.0, Go
+  - embeddable columnar database
+- [parca-dev/parca](https://github.com/parca-dev/parca)
+  - Apache-2.0, Go
+  - Continuous profiling for analysis of CPU and memory usage
 
 ## Metrics
 
@@ -28,8 +34,19 @@ tags:
 
 ## APM
 
+:::tip
+
+- APM = Metrcis + Trace = Prometheus + Jaeger
+- APM 内置集成 - 而不是简单的组合两个场景 - 例如: Grafana 同时显示 Prometheus + Jaeger
+
+:::
+
 - [pinpoint-apm/pinpoint](https://github.com/pinpoint-apm/pinpoint)
   - Apache-2.0, Java
 - [apache/skywalking](https://github.com/apache/skywalking)
+  - Apache-2.0, Java
   - 国产
 - [SigNoz/signoz](https://github.com/SigNoz/signoz)
+  - MIT, Golang
+  - OpenTelemetry Collector, ClickHouse
+  - https://signoz.io/docs/architecture/

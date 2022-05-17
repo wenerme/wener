@@ -4,7 +4,6 @@ title: Git
 
 # Git
 
-## Tips
 
 - 使用 alias 来简化操作
 - 使用 IDE 集成的 git 工具

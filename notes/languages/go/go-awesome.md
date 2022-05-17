@@ -516,7 +516,20 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 - [burrowers/garble](https://github.com/burrowers/garble)
   Obfuscate Go builds
 - [mjibson/sqlfmt](https://github.com/mjibson/sqlfmt)
+- [d5/tengo](https://github.com/d5/tengo)
+  - MIT
+- [dop251/goja](https://github.com/dop251/goja)
+  - +6MB
 - [google/starlark-go](https://github.com/google/starlark-go)
+  - Python
+  - used by Caddy, Bazel
+- [traefik/yaegi](https://github.com/traefik/yaegi)
+  - by Traefik
+  - Apache-2.0
+  - +14MB
+  - 自定义类型需要源码 - 配置 GOPATH - 对依赖的模块进行 vendor
+  - 支持解释模式和编译模式
+  - Yaegi is Another Elegant Go Interpreter
 
 ## Template
 
@@ -733,6 +746,13 @@ goweight
 - https://www.altoros.com/blog/golang-internals-part-1-main-concepts-and-project-structure/
 - https://github.com/golang/go/tree/master/src/cmd/compile
 
+## Tools
+
+- https://github.com/natesales/q
+  - GPL-3.0
+  - command line DNS client with support for UDP, TCP, DoT, DoH, DoQ and ODoH
+  - [ogham/dog](https://github.com/ogham/dog)
+
 ## 参考
 
 - https://github.com/orgs/google/repositories?q=&type=all&language=go&sort=stargazers
@@ -775,9 +795,10 @@ goweight
 
 ### Misc
 
-https://github.com/alexflint/go-restructure
-https://github.com/pointlander/peg Peg, Parsing Expression Grammar
-https://github.com/hanwen/go-fuse
+- https://github.com/geziyor/geziyor
+- https://github.com/alexflint/go-restructure
+- https://github.com/pointlander/peg Peg, Parsing Expression Grammar
+- https://github.com/hanwen/go-fuse
 
 ### Hardware
 

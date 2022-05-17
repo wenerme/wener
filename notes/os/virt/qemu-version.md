@@ -11,11 +11,16 @@ title: QEMU Version
 
 | ver   | date       |
 | ----- | ---------- |
-| 6.0   | 2020-04-30 |
-| 5.0   | 2020-04-29 |
-| 4.2.0 | 2019-12-13 |
-| 4.0.0 | 2019-04-24 |
+| Qemu 7.0   | 2020-04-30 |
+| Qemu 6.0   | 2020-04-30 |
+| Qemu 5.0   | 2020-04-29 |
+| Qemu 4.2.0 | 2019-12-13 |
+| Qemu 4.0.0 | 2019-04-24 |
 
+## Qemu 7.0
+- x86 - Intel AMX
+- https://wiki.qemu.org/ChangeLog/7.0
+  - https://news.ycombinator.com/item?id=31093564
 ## 6.0
 
 - tcg 支持 macOS ARM

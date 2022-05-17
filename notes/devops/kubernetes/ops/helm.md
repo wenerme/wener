@@ -1,5 +1,4 @@
 ---
-id: helm
 title: HELM 包管理器
 ---
 

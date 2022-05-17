@@ -80,6 +80,7 @@ apk upgrade -a
 - 🟠 sudo -> [doas](https://wener.me/notes/os/linux/shell/doas/)
   - 3.15 默认 doas
   - 3.16 sudo 会挪到 community
+- 🟠 flannel 从 cni-plugins v1 中移除，独立为 flannel edge/testing
 - 🟢 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
 - 🟢 UEFI Secure Boot - secureboot-hook, efi-mkkeys
 - 🔴 停止 mips64 架构 - EOL

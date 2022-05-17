@@ -1,11 +1,9 @@
 ---
-id: imagemagick
 title: ImageMagick
 ---
 
 # imagemagick
 
-## Tips
 
 - http://www.imagemagick.org/
 - http://www.imagemagick.org/script/formats.php

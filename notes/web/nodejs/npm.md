@@ -35,26 +35,30 @@ du -hs ~/.npm/_cacache/
 
 ## .npmrc
 
-- https://docs.npmjs.com/cli/v6/configuring-npm/npmrc
 
 ```ini
-# package-lock=false
-registry="https://registry.npm.taobao.org"
-disturl="https://npm.taobao.org/dist"
-chromedriver_cdnurl="https://npm.taobao.org/mirrors/chromedriver"
-electron_mirror="http://npm.taobao.org/mirrors/electron/"
-fse_binary_host_mirror="https://npm.taobao.org/mirrors/fsevents"
-node_inspector_cdnurl="https://npm.taobao.org/mirrors/node-inspector"
-nodejs_org_mirror="http://npm.taobao.org/mirrors/node"
-nvm_nodejs_org_mirror="http://npm.taobao.org/mirrors/node"
-operadriver_cdnurl="https://npm.taobao.org/mirrors/operadriver"
-phantomjs_cdnurl="https://npm.taobao.org/mirrors/phantomjs"
-profiler_binary_host_mirror="http://npm.taobao.org/mirrors/node-inspector/"
-puppeteer_download_host="https://npm.taobao.org/mirrors"
-sass_binary_site="http://npm.taobao.org/mirrors/node-sass"
-selenium_cdnurl="http://npm.taobao.org/mirrors/selenium"
-SQLITE3_BINARY_SITE="http://npm.taobao.org/mirrors/sqlite3"
+# 不推荐 - 经常出现因为镜像问题构建失败
+#registry="https://registry.npmmirror.com"
+disturl="https://npmmirror.com/mirrors/node"
+chromedriver_cdnurl="https://npmmirror.com/mirrors/chromedriver"
+electron_mirror="https://npmmirror.com/mirrors/electron/"
+fse_binary_host_mirror="https://npmmirror.com/mirrors/fsevents"
+node_inspector_cdnurl="https://npmmirror.com/mirrors/node-inspector"
+nodejs_org_mirror="https://npmmirror.com/mirrors/node"
+nvm_nodejs_org_mirror="https://npmmirror.com/mirrors/node"
+operadriver_cdnurl="https://npmmirror.com/mirrors/operadriver"
+phantomjs_cdnurl="https://npmmirror.com/mirrors/phantomjs"
+profiler_binary_host_mirror="https://npmmirror.com/mirrors/node-inspector/"
+puppeteer_download_host="https://npmmirror.com/mirrors/"
+sass_binary_site="https://npmmirror.com/mirrors/node-sass"
+selenium_cdnurl="https://npmmirror.com/mirrors/selenium"
+SQLITE3_BINARY_SITE="https://npmmirror.com/mirrors/sqlite3"
+sharp_binary_host="https://npmmirror.com/mirrors/sharp"
+sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
 ```
+
+- https://registry.npmmirror.com/binary.html
+- https://docs.npmjs.com/cli/v6/configuring-npm/npmrc
 
 ## registry
 

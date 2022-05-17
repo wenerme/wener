@@ -75,6 +75,10 @@ title: K3S
     - [#1768](https://github.com/rancher/k3s/pull/1768) - 默认使用 ClientCA 而不是 ServerCA
     - [自行创建脚本](https://github.com/rancher/k3s/issues/684#issuecomment-517501120)
   - 目前(1.18) admin 默认是密码 - [#1616](https://github.com/rancher/k3s/issues/1616) - 默认使用证书
+- /etc/rancher/node/password
+- /var/lib/rancher/k3s/server/cred/node-passwd
+  - `kubectl -n kube-system delete secrets <agent-node-name>.node-password.k3s`
+
 
 ```bash
 apk add util-linux
@@ -187,6 +191,101 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --no-flannel
 curl -sfL https://get.k3s.io | sh -s - server --no-flannel
 curl -sfL https://get.k3s.io | sh -s - --no-flannel
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=1 sh -s -
+```
+
+## 手动镜像安装
+
+- 镜像
+  - http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh
+  - https://rancher-mirror.rancher.cn
+- arch - k3s, k3s-arm64, k3s-armhf, k3s-s390x
+- sha256sum-${ARCH}.txt
+```bash
+ver=$(curl -sfL https://rancher-mirror.rancher.cn/k3s/channels/stable)
+curl -sfLO https://rancher-mirror.rancher.cn/k3s/${ver/+/-}/k3s
+curl -sfLO https://rancher-mirror.rancher.cn/k3s/${ver/+/-}/sha256sum-amd64.txt
+sha256sum -c sha256sum-amd64.txt --ignore-missing
+
+chmod +x k3s
+mv k3s /usr/bin/k3s
+k3s check-config
+# k3s server
+```
+
+**openrc**
+
+- /etc/rancher/k3s/${SYSTEM_NAME}.env
+
+```bash title="/etc/init.d/k3s"
+#!/sbin/openrc-run
+
+# Based on ...
+#   https://raw.githubusercontent.com/rancher/k3s/master/install.sh
+K3S_LOGFILE="${K3S_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
+
+supervisor=supervise-daemon
+
+name="k3s"
+command="/usr/bin/k3s"
+command_args="${K3S_EXEC} ${K3S_OPTS} >>${K3S_LOGFILE} 2>&1"
+
+output_log=${K3S_LOGFILE}
+error_log=${K3S_LOGFILE}
+
+pidfile="/run/k3s.pid"
+respawn_delay=5
+respawn_max=0
+
+rc_ulimit="${K3S_ULIMIT:--c unlimited -n 1048576 -u unlimited}"
+
+depend() {
+        want cgroups
+        after firewall
+}
+
+start_pre() {
+        checkpath -f -m 0644 -o root:root "${K3S_LOGFILE}"
+        rm -f /tmp/k3s.*
+}
+```
+
+```bash title="/etc/init.d/k3s"
+#!/sbin/openrc-run
+
+depend() {
+    after network-online
+    want cgroups
+}
+
+start_pre() {
+    rm -f /tmp/k3s.*
+}
+
+supervisor=supervise-daemon
+name=${SYSTEM_NAME}
+command="${BIN_DIR}/k3s"
+command_args="$(escape_dq "${CMD_K3S_EXEC}")
+    >>${LOG_FILE} 2>&1"
+
+output_log=${LOG_FILE}
+error_log=${LOG_FILE}
+
+pidfile="/var/run/${SYSTEM_NAME}.pid"
+respawn_delay=5
+respawn_max=0
+
+set -o allexport
+if [ -f /etc/environment ]; then source /etc/environment; fi
+if [ -f ${FILE_K3S_ENV} ]; then source ${FILE_K3S_ENV}; fi
+set +o allexport
+```
+
+```pre title="/etc/logrotate.d/k3s"
+/var/log/k3s.log {
+	missingok
+	notifempty
+	copytruncate
+}
 ```
 
 ## 手动安装启动

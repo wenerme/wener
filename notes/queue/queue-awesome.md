@@ -1,10 +1,32 @@
 ---
 title: Queue Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Queue Awesome
+
+- [nats-io/nats-server](https://github.com/nats-io/nats-server)
+  - [liftbridge-io/liftbridge](https://github.com/liftbridge-io/liftbridge)
+    - [vs. NATS Streaming](https://liftbridge.io/docs/feature-comparison.html)
+  - [nats-io/nats-streaming-server](https://github.com/nats-io/nats-streaming-server)
+    - 已废弃 - 使用 jetstream - nats 启动添加 -js
+    - Protocol Buffer 编码
+    - 持久化
+    - QoS
+    - 流控
+- [redpanda-data/redpanda](https://github.com/redpanda-data/redpanda)
+  - BSL, C++,Go
+  - Kafka compatible
+  - No Zookeeper
+- [confluentinc/ksql](https://github.com/confluentinc/ksql)
+  - Confluent Community License, Java
+- [cashapp/pranadb](https://github.com/cashapp/pranadb)
+  - Apache-2.0, Go
+- RabbitMQ
+  - AMQP, MQTT, STOMP, HTTP
+- [nsqio/nsq](https://github.com/nsqio/nsq)
+  - 开发相对没有那么活跃
 
 ## Protocol
 
@@ -79,16 +101,3 @@ tags:
     - 安全
     - AuthN
     - AuthZ
-- RabbitMQ
-  - AMQP, MQTT, STOMP, HTTP
-- [nats-io/nats-server](https://github.com/nats-io/nats-server)
-  - [liftbridge-io/liftbridge](https://github.com/liftbridge-io/liftbridge)
-    - [vs. NATS Streaming](https://liftbridge.io/docs/feature-comparison.html)
-  - [nats-io/nats-streaming-server](https://github.com/nats-io/nats-streaming-server)
-    - 已废弃 - 使用 jetstream - nats 启动添加 -js
-    - Protocol Buffer 编码
-    - 持久化
-    - QoS
-    - 流控
-- [nsqio/nsq](https://github.com/nsqio/nsq)
-  - 开发相对没有那么活跃

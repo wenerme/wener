@@ -76,9 +76,10 @@ tailscale up --login-server http://192.168.1.2:8080 --authkey $KE
 
 ```bash
 headscale nodes list              # 节点列表
-headscale nodes share -i 1 -n ns2 # 将节点 1 共享给 ns2 租户
+# headscale nodes share -i 1 -n ns2 # 不再支持，使用 ACL 控制 - 将节点 1 共享给 ns2 租户
 
 headscale nodes routes list -i 1  # 查看节点申请的 subnet routes
+headscale routes enable -i 1 -r 192.168.1.0/24 # 允许 routes
 ```
 
 ```bash

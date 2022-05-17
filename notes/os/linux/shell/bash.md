@@ -39,7 +39,6 @@ shopt -s cdspell
 shopt -s autocd
 # Recursive globbing, e.g. `echo **/*.txt`
 shopt -s globstar
-
 ```
 
 ## .inputrc
@@ -66,7 +65,6 @@ set mark-symlinked-directories on
 "\e[A": history-search-backward
 "\eOB": history-search-forward
 "\e[B": history-search-forward
-
 ```
 
 ## FAQ
@@ -169,12 +167,12 @@ scp local_file user@remote_host:remote_file
 
 # To Forward sshtalk.in:8080 -> Cort.local:4567, you can do
 local="Cort.local:4567" # or "localhost:4567"
-remot="*:8080" # "*" for all interfaces (default is loopback)
+remot="*:8080"          # "*" for all interfaces (default is loopback)
 
 ssh -R ${remote}:${local} sshtalk.in
 
 # To forward localhost:1234 -> private-host:443, through public-host you can do
-local="localhost:1234" # or just "1234" default is localhost
+local="localhost:1234"   # or just "1234" default is localhost
 remot="private-host:443" # "*" for all interfaces (default is loopback)
 
 ssh -L ${local}:${remote} public-host
@@ -188,16 +186,18 @@ sudo service sshd restart
 
 ```bash
 # scp to 多台
-for dest in $(<destfile.txt); do
+for dest in $(< destfile.txt); do
   scp ourfile.txt ${dest}:remote/path/
 done
 
 # 在不用 scp 的情况下 拷贝到多台
-cat file.txt | tee >(ssh user@ip1.com "cat > file.txt") \
-                   >(ssh user@ip2.com "cat > file.txt")
+cat file.txt | tee \
+  >(ssh user@ip1.com "cat > file.txt") \
+  >(ssh user@ip2.com "cat > file.txt")
 
-tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
-                               >( ... )
+tar cz file1 file2 file3 | tee \
+  >(ssh user@ip1.com "tar xz") \
+  >(...)
 ```
 
 ## xargs
@@ -208,21 +208,21 @@ tar cz file1 file2 file3 | tee >(ssh user@ip1.com "tar xz") \
 
 ```bash
 case $space in
-[1-6]*)
-  Message="All is quiet."
-  ;;
-[7-8]*)
-  Message="Start thinking about cleaning out some stuff.  There's a partition that is $space % full."
-  ;;
-9[1-8])
-  Message="Better hurry with that new disk...  One partition is $space % full."
-  ;;
-99)
-  Message="I'm drowning here!  There's a partition at $space %!"
-  ;;
-*)
-  Message="I seem to be running with an nonexistent amount of disk space..."
-  ;;
+  [1-6]*)
+    Message="All is quiet."
+    ;;
+  [7-8]*)
+    Message="Start thinking about cleaning out some stuff.  There's a partition that is $space % full."
+    ;;
+  9[1-8])
+    Message="Better hurry with that new disk...  One partition is $space % full."
+    ;;
+  99)
+    Message="I'm drowning here!  There's a partition at $space %!"
+    ;;
+  *)
+    Message="I seem to be running with an nonexistent amount of disk space..."
+    ;;
 esac
 ```
 

@@ -22,6 +22,10 @@ du -h .
 du --apparent-size -h .
 ```
 
+## 目录下很多文件时非常慢
+
+尝试关闭 atime
+
 ## dRAID - Distributed RAID
 
 - OpenZFS 2.1+
@@ -234,7 +238,7 @@ zpool import -a
 zpool import -d /dev/disk/by-id
 ```
 
-# 关闭所有 atime
+## 关闭所有 atime
 
 ```bash
 zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=off

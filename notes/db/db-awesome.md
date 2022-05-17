@@ -42,6 +42,7 @@ tags:
 - MySQL
   - Viteness
   - TiDB
+- [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
 
 ## 实时数据库
 
@@ -151,6 +152,16 @@ tags:
   - Data Store Benchmark
 - [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
   - Web-based SQL editor and visualizing
+
+## Library
+
+- Parser/SQL
+  - [prql/prql](https://github.com/prql/prql)
+    - Apache-2.0, Rust
+    - Pipelined Relational Query Language
+  - [Open Source SQL Parsers](https://tokern.io/blog/open-source-sql-parsers/)
+    - [HN](https://news.ycombinator.com/item?id=31107231)
+    - https://stripe.com/en-gb/sigma
 
 ## Migration
 

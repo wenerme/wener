@@ -99,3 +99,16 @@ module.exports = {
   importOrderSeparation: true,
 };
 ```
+
+## plugins
+
+- prettier-plugin-sql
+- prettier-plugin-sh
+- prettier-plugin-pkg
+  - package.json
+
+---
+
+- [rx-ts/prettier](https://github.com/rx-ts/prettier)
+  - sql,sh,pkg
+- https://prettier.io/docs/en/plugins.html

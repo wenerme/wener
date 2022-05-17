@@ -230,8 +230,13 @@ tags:
 - [enkimute/ganja.js](https://github.com/enkimute/ganja.js) - 几何代数
 - [lokesh/color-thief](https://github.com/lokesh/color-thief)
   - 提取 image 颜色
+
+## Crypto
+
 - [travist/jsencrypt](https://github.com/travist/jsencrypt)
   - RSA
+- [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js)
+  - Port of TweetNaCl cryptographic library to JavaScript
 
 ## UX
 
@@ -250,6 +255,13 @@ depp
 
 ## Engine
 
+- [LavaMoat/LavaMoat](https://github.com/LavaMoat/LavaMoat)
+- [endojs/endo](https://github.com/endojs/endo)
+  - distributed secure JavaScript sandbox, based on SES
+  - SES - Secure EcmaScript
+  - [tc39/proposal-ses](https://github.com/tc39/proposal-ses)
+  - [endojs/Jessie](https://github.com/endojs/Jessie)
+    - simple universal safe mobile code
 - [bellard/quickjs](https://github.com/bellard/quickjs)
 - [saghul/txiki.js](https://github.com/saghul/txiki.js)
   - QuickJS + libuv

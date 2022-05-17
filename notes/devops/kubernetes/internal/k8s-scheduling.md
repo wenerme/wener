@@ -7,6 +7,9 @@ title: Kubernetes 调度
 - /etc/kubernetes/config/kube-scheduler.yaml
   - [kube-scheduler-config.v1beta1](https://kubernetes.io/docs/reference/config-api/kube-scheduler-config.v1beta1/)
 - [Node-pressure Eviction](https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/)
+- 常用
+  - topology.kubernetes.io/zone
+  - topology.kubernetes.io/region
 
 ```bash
 kubectl get pods -n kube-system | grep kube-scheduler
@@ -256,3 +259,24 @@ spec:
   # 针对 Pod
   priorityClassName: system-node-critical
 ```
+
+# FAQ
+
+## cordon vs drain
+
+- cordon - 标记节点不可调度
+- drain - 驱逐 pod - 包含 cordon 行为
+  - 用于节点升级、维护
+  - 节点恢复后 uncordon
+- https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+## region vs zone
+
+- region - 区域 - 由多个地区组成
+  - 独立地理位置
+- zone - 地区
+  - 故障网域
+- Regions are independent geographic areas that consist of zones. Zones and regions are logical abstractions of underlying physical resources provided in one or more physical data centers.
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+- https://cloud.google.com/docs/geography-and-regions
+- https://cloud.google.com/compute/docs/regions-zones

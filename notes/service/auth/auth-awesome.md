@@ -39,6 +39,12 @@ tags:
 ## IAM
 
 - [keycloak/keycloak](https://github.com/keycloak/keycloak)
+  - Apache-2.0, Java
+- [zitadel/zitadel](https://github.com/zitadel/zitadel)
+  - Apache-2.0, Go
+  - by CAOS from Switzerland
+  - [zitadel vs keycloak](https://zitadel.ch/blog/zitadel-vs-keycloak)
+  - https://zitadel.ch/v2
 - [kanidm/kanidm](https://github.com/kanidm/kanidm)
   - MPL-2.0, Rust
   - SSH/PAM/RADIUS/Web OAuth

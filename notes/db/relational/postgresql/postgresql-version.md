@@ -200,6 +200,7 @@ SELECT date_bin('15 minutes', TIMESTAMP '2020-02-11 15:44:17', TIMESTAMP '2001-0
     - 通过 `alter user mapping xxx set password_required false` 禁用
 - [PostgreSQL 13 Release Notes](https://www.postgresql.org/docs/13/release-13.html)
 - [Deduplication for B-tree](https://www.cybertec-postgresql.com/en/b-tree-index-deduplication/)
+- [Reindexing all tables after upgrading to PostgreSQL 13](https://adamj.eu/tech/2021/04/13/reindexing-all-tables-after-upgrading-to-postgresql-13/)
 
 ## PostgreSQL 12
 

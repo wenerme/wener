@@ -8,14 +8,19 @@ tags:
 
 ## 删除 Evicted 的 Pod
 
-- Running
+- status.phase=Fialed & state.reason=Evicted
+- Terminating -> Pending
 
 ```bash
+kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
+
 # 筛选查看
 # reason Evicted
-kubectl get pods --all-namespaces --field-selector="status.phase=Fialed"
+kubectl get pods --all-namespaces --field-selector="status.phase=Failed"
 # 确认删除
-kubectl delete pods --all-namespaces --field-selector="status.phase=Fialed"
+kubectl delete pods --all-namespaces --field-selector="status.phase=Failed"
+
+# kubectl get pods --all-namespaces --field-selector="status.phase=Pending" | awk '{print "-n " $1 " " $2}' | tail -n+2 | xargs kubectl delete pod --force
 ```
 
 ## 当前集群名字

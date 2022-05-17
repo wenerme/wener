@@ -4,11 +4,19 @@ title: gitlab-ci.yml
 
 # gitlab-ci.yml
 
-- Gitlab CI [YAML](https://docs.gitlab.com/ce/ci/yaml/README.html)
+- Gitlab CI [YAML](https://docs.gitlab.com/ce/ci/yaml/index.html)
 - [模板](https://gitlab.com/gitlab-org/gitlab/tree/master/lib/gitlab/ci/templates)
 - [示例](https://docs.gitlab.com/ee/ci/examples/)
 - [变量说明](https://docs.gitlab.com/ce/ci/variables/README.html)
 - [预定义的变量](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
+
+:::tip
+
+- 使用 extends 复用现有逻辑
+- 使用 `!reference [.setup, before_script]` 复用部分逻辑 - 例如合并多个 before_script
+- 可以使用 YAML 引用逻辑
+
+:::
 
 ```yaml
 # 自定义默认配置
@@ -31,21 +39,36 @@ default:
 
 ## 环境变量
 
-| env                     | e.g    | desc                                                              |
-| ----------------------- | ------ | ----------------------------------------------------------------- |
-| CI                      | true   | 表示在运行 CI                                                     |
-| CI_REGISTRY             |        | gitlab registry                                                   |
-| CI_REGISTRY_USER        |        | gitlab registry user                                              |
-| CI_REGISTRY_PASSWORD    |        | gitlab registry password                                          |
-| CI_REGISTRY_IMAGE       |        | 项目容器镜像                                                      |
-| CI_COMMIT_REF_NAME      | master | branch or tag                                                     |
-| CI_COMMIT_REF_SLUG      | master | CI_COMMIT_REF_NAME 用于 url 或名字时,63 位,替代`[^0-9a-z]` 为 `-` |
-| CI_COMMIT_REF_PROTECTED | true   | 保护分支                                                          |
-| CI_COMMIT_BRANCH        | master |
-| CI_COMMIT_SHA           |
-| CI_COMMIT_SHORT_SHA     |
-| CI_COMMIT_TAG           |
-| CI_COMMIT_TIMESTAMP     |        | ISO 8601                                                          |
+| env                       | e.g  | desc                                                              |
+| ------------------------- | ---- | ----------------------------------------------------------------- |
+| CI                        | true | 表示在运行 CI                                                     |
+| GITLAB_CI                 | true |
+| CI_REGISTRY               |      | gitlab registry                                                   |
+| CI_REGISTRY_USER          |      | gitlab registry user                                              |
+| CI_REGISTRY_PASSWORD      |      | gitlab registry password                                          |
+| CI_REGISTRY_IMAGE         |      | 项目容器镜像                                                      |
+| CI_DEFAULT_BRANCH         | main | 默认 branch 名字                                                  |
+| CI_COMMIT_REF_NAME        | main | branch or tag                                                     |
+| CI_COMMIT_REF_SLUG        | main | CI_COMMIT_REF_NAME 用于 url 或名字时,63 位,替代`[^0-9a-z]` 为 `-` |
+| CI_COMMIT_REF_PROTECTED   | true | 保护分支                                                          |
+| CI_COMMIT_BRANCH          | main |
+| CI_COMMIT_SHA             |
+| CI_COMMIT_SHORT_SHA       |
+| CI_COMMIT_TAG             |
+| CI_COMMIT_TIMESTAMP       |      | ISO 8601                                                          |
+| CI_COMMIT_TITLE           |      | 第一行 commit 信息                                                |
+| CI_ENVIRONMENT_NAME       |
+| CI_ENVIRONMENT_SLUG       |
+| CI_ENVIRONMENT_URL        |
+| CI_ENVIRONMENT_ACTION     |      | start, prepare, stop                                              |
+| CI_ENVIRONMENT_TIER       |      | production,staging,testing,development,other                      |
+| CI_KUBERNETES_ACTIVE      | true | 关联了 k8s 部署集群                                               |
+| CI_PROJECT_ID             |
+| CI_PROJECT_NAME           |
+| CI_PROJECT_NAMESPACE      |      | 用户名 或 组名                                                    |
+| CI_PROJECT_ROOT_NAMESPACE |
+| CI_PROJECT_PATH_SLUG      |
+| CI_PROJECT_PATH           |
 
 ```bash
 docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -53,6 +76,8 @@ docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
 docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" ./build
 docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
 ```
+
+- [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
 
 ## job:only/except
 

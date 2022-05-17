@@ -15,6 +15,7 @@ tags:
 - [lucaburgio/iconoir](https://github.com/lucaburgio/iconoir)
   - https://iconoir.com/
 - online [react-icons](http://react-icons.github.io/react-icons)
+- [phosphor-icons/phosphor-home](https://github.com/phosphor-icons/phosphor-home)
 - file type
   - https://github.com/picturepan2/fileicon.css
   - https://github.com/homerchen19/github-file-icons

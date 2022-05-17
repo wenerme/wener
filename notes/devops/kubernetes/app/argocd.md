@@ -178,11 +178,19 @@ metadata:
 
 ```yaml
 syncPolicy:
+  # 自动同步
   automated:
+    # 是否删除资源
     prune: true
+    # 是否允许空资源
+    allowEmpty: false
+    # selfheal 超时后再次执行同步 - 默认 5s
+    # --self-heal-timeout-seconds
+    selfHeal: false
   syncOptions:
     # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
     - ApplyOutOfSyncOnly=true
+    - CreateNamespace=true
 ```
 
 | options                          | desc                                     |

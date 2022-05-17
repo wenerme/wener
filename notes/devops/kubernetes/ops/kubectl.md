@@ -4,6 +4,7 @@ title: Kubectl
 
 # Kubectl
 
+- https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 - [kubernetes-sigs/krew](https://github.com/kubernetes-sigs/krew/) - Find and install kubectl plugins
 - [ahmetb/kubectx](https://github.com/ahmetb/kubectx) - 辅助上下文控制
 - [cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)

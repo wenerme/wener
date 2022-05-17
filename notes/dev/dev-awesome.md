@@ -30,6 +30,7 @@ tags:
 
 ## Read
 
+- [Principles of Distributed Computing](https://disco.ethz.ch/courses/podc_allstars/)
 - https://martinfowler.com/articles/patterns-of-distributed-systems/
 - [Theoretical Computer Science Cheat Sheet](https://www.tug.org/texshowcase/cheat.pdf)
   - [HN](https://news.ycombinator.com/item?id=29347885)

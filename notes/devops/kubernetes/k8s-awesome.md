@@ -227,6 +227,18 @@ tags:
 
 - [CNCF certified Kubernetes distributions and platforms](https://www.cncf.io/announcements/2017/11/13/cloud-native-computing-foundation-launches-certified-kubernetes-program-32-conformant-distributions-platforms/)
 
+## GitOps
+
+- Render
+  - [Helm](./ops/helm.md)
+  - [Kustomize](./ops/kustomize.md)
+  - jsonnet
+- [argocd](./app/argocd.md)
+- [fleet](./app/fleet.md)
+- [flux](./app/flux.md)
+- Terraform
+- [helmfile/helmfile](https://github.com/helmfile/helmfile)
+
 ## servicemesh
 
 - linkerd

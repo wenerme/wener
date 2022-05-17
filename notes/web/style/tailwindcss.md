@@ -11,24 +11,13 @@ title: Tailwind CSS
   - prune 可缩减大小 - 默认 未压缩 3.8 MB,Minified 3 MB, Gzip 300 KB, Brotli 75 KB
 - 问题
   - [storybookjs/storybook#12668](https://github.com/storybookjs/storybook/issues/12668) - PostCSS 8 兼容问题
-- 参考
-  - [windicss/windicss](https://github.com/windicss/windicss)
-    - 类似 Tailwind+JIT
-  - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
-  - [shuffle.dev](https://shuffle.dev) - 模板生成
-  - [tw-in-js/twind](https://github.com/tw-in-js/twind)
-  - https://flowbite.com/tools/tailwind-cheat-sheet/
-- 组件
-  - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
-    Tailwind Components
-  - [tailwind-mobile/tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
-    - iOS & Android 样式
-    - React,Vue,Sevlte 组件
-  - [themesberg/flowbite](https://github.com/themesberg/flowbite)
-- Dashboard
-  - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
-  - https://demos.creative-tim.com/notus-react
-  - [themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)
+
+:::info
+
+- 不支持嵌套 group [#1192](https://github.com/tailwindlabs/tailwindcss/issues/1192)
+- rem to px [#1232](https://github.com/tailwindlabs/tailwindcss/issues/1232)
+
+:::
 
 ```bash
 # 基础依赖
@@ -54,6 +43,72 @@ import 'tailwindcss/dist/tailwind.css';
 // 基于 PostCSS 的 css
 import 'tailwindcss/tailwind.css';
 ```
+
+### Awesome
+
+- [windicss/windicss](https://github.com/windicss/windicss)
+  - 类似 Tailwind+JIT
+- [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
+- [shuffle.dev](https://shuffle.dev) - 模板生成
+- [tw-in-js/twind](https://github.com/tw-in-js/twind)
+- [ben-rogerson/twin.macro](https://github.com/ben-rogerson/twin.macro)
+- https://github.com/sw-yx/spark-joy/blob/master/README.md#tailwind-component-libraries
+- https://flowbite.com/tools/tailwind-cheat-sheet/
+
+**Components**
+
+- [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
+  Tailwind Components
+- [markmead/hyperui](https://github.com/markmead/hyperui)
+- [tailwind-mobile/tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
+  - iOS & Android 样式
+  - React,Vue,Sevlte 组件
+- [themesberg/flowbite](https://github.com/themesberg/flowbite)
+
+**Dashboard**
+
+- [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
+- https://demos.creative-tim.com/notus-react
+- [themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)
+
+## 参考
+
+| bp  | min width | container |
+| --- | --------- | --------- |
+|     |           | 100%      |
+| sm  | 640px     | 640px     |
+| md  | 768px     | 768px     |
+| lg  | 1024px    | 1024px    |
+| xl  | 1280px    | 1280px    |
+| 2xl | 1536px    | 1536px    |
+
+| text | rem       | px     |
+| ---- | --------- | ------ |
+| xs   | 0.75 rem  | 12 px  |
+| sm   | 0.875 rem | 14 px  |
+| base | 1 rem     | 16 px  |
+| lg   | 1.125 rem | 18 px  |
+| xl   | 1.25 rem  | 20 px  |
+| 2xl  | 1.5 rem   | 24 px  |
+| 3xl  | 1.875 rem | 30 px  |
+| 4xl  | 2.25 rem  | 36 px  |
+| 5xl  | 3 rem     | 48 px  |
+| 6xl  | 3.75 rem  | 60 px  |
+| 7xl  | 4.5 rem   | 72 px  |
+| 8xl  | 6 rem     | 96 px  |
+| 9xl  | 8 rem     | 128 px |
+
+| font       | weight |
+| ---------- | ------ |
+| thin       | 100    |
+| extralight | 200    |
+| light      | 300    |
+| normal     | 400    |
+| medium     | 500    |
+| semibold   | 600    |
+| bold       | 700    |
+| extrabold  | 800    |
+| black      | 900    |
 
 ## tailwind.css
 
@@ -219,3 +274,36 @@ npm add styled-jsx-plugin-postcss
 ```
 
 - styled-jsx 使用 @apply [#1234](https://github.com/tailwindlabs/tailwindcss/issues/1234)
+
+## 命名分组/嵌套分组
+
+- group-2, group-2-hover
+
+```js
+const plugin = require('tailwindcss/plugin');
+
+module.exports = {
+  theme: {
+    groups: ['2', '3'],
+  },
+  plugins: [
+    plugin(({ addVariant, theme }) => {
+      const groups = theme('groups') || [];
+
+      groups.forEach((group) => {
+        addVariant(`group-${group}-hover`, () => {
+          return `:merge(.group-${group}):hover &`;
+        });
+      });
+    }),
+  ],
+};
+```
+
+## snippets
+
+```css
+.absolute-center {
+  @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2;
+}
+```

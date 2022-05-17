@@ -1,5 +1,4 @@
 ---
-id: keycloak
 title: Keycloak
 ---
 

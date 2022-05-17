@@ -1,5 +1,4 @@
 ---
-id: nextjs
 title: NextJS
 ---
 
@@ -31,6 +30,7 @@ title: NextJS
     - PR [#11949](https://github.com/vercel/next.js/pull/11949)
       - 页面导出 `const config={unstable_runtimeJS: false}`
 - 参考
+  - [Persistent Layout Patterns in Next.js](https://adamwathan.me/2019/10/17/persistent-layout-patterns-in-nextjs/)
   - https://github.com/kirill-konshin/next-redux-wrapper
   - i18n https://github.com/isaachinman/next-i18next/issues/274
   - [unicodeveloper/awesome-nextjs](https://github.com/unicodeveloper/awesome-nextjs)
@@ -54,8 +54,9 @@ title: NextJS
 
 - 无法按页面切分 CSS
   - 最终会生成单个 css 文件
-  - 只有 _app 可以导入全局 css
+  - 只有 \_app 可以导入全局 css
 - 单一 HTML 入口
+- rewrites 会在 build 时生成 router-manifest, 因此 start 时配置的变量 **无法** 产生影响
 
 :::
 
@@ -188,6 +189,7 @@ export default MyDocument;
 #### 自定义 `_error.js`
 
 ```js
+
 ```
 
 ### 接口
@@ -405,6 +407,61 @@ module.exports = withCSS({});
 
 - https://github.com/zeit/next.js/tree/master/examples/with-apollo
 
+## Create
+
+```bash
+npx -y create-next-app@latest --ts
+npx -y tailwindcss init -p
+npm add tailwindcss postcss autoprefixer
+npm add @headlessui/react zustand
+
+npm add -D prettier
+npm add -D @trivago/prettier-plugin-sort-imports
+
+mkdir src/{components,hooks,contents,server,client}
+
+# 按需
+npm add classnames
+npm add daisyui
+npm add react-icons
+```
+
+```json
+{
+  "prettier": {
+    "bracketSameLine": false,
+    "importOrder": ["^(?!@src/)", "^[^.]", "^[.][.]", "^[.][/]"],
+    "importOrderSeparation": false,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": ["*.html", "*.css"],
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
+```
+
+## middleware
+
+- https://github.com/vercel/examples/tree/main/edge-functions
+
+```ts title="pages/_middleware.ts"
+import type { NextFetchEvent, NextRequest } from 'next/server';
+
+export function middleware(req: NextRequest, ev: NextFetchEvent) {
+  return new Response('Hello, world!');
+}
+```
+
 ## FAQ
 
 ### 检测在浏览器
@@ -484,3 +541,62 @@ npm run analyze
 
 > - [SSR and Server Only Modules](https://arunoda.me/blog/ssr-and-server-only-modules)
 > - [examples/analyze-bundles](https://github.com/zeit/next.js/tree/canary/examples/analyze-bundles)
+
+## sharp
+
+- 不建议在主镜像内构建
+  - Alpine 构建依赖 vips-dev glib-dev make gcc g++
+- NEXT_SHARP_PATH=/tmp/node_modules/sharp next start
+- https://github.com/lovell/sharp-libvips
+- https://nextjs.org/docs/messages/install-sharp
+- https://nextjs.org/docs/messages/sharp-missing-in-production
+
+```bash
+# 指定 platform 可从 dist 下载预编译
+npm install --verbose --platform=linuxmusl sharp
+```
+
+## next.config.js
+
+- https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
+
+## next
+
+- https://github.com/vercel/next.js/blob/canary/packages/next/shared/lib/html-context.ts
+- unstable_runtimeJS
+- unstable_JsPreload
+- PageConfig
+  - https://github.com/vercel/next.js/blob/2a42de2fd18a7c06a8f3d931405386a8283280ef/packages/next/types/index.d.ts#L63-L89
+
+## You're using a Node.js module (buffer) which is not supported in the Edge Runtime
+
+- Buffer.from -> atob/btoa
+- https://nextjs.org/docs/api-reference/edge-runtime
+
+
+## Expected server HTML to contain a matching div
+
+```tsx
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <div suppressHydrationWarning> // <- ADD THIS
+      {typeof window === 'undefined' ? null : <Component {...pageProps} />}
+    </div>
+  );
+}
+```
+
+## SPA rewrites
+
+```ts title="next.config.js"
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/:any*',
+        destination: '/',
+      },
+    ];
+  },
+};
+```

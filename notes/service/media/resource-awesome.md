@@ -236,3 +236,32 @@ wget --recursive --page-requisites --adjust-extension --span-hosts --convert-lin
 ```
 This is not an .exe file. This is just a placeholder to prevent mirroring over other public sites.
 ```
+
+# FAQ
+
+- RIAA - Recording Industry Association of America
+- MPA - Motion Pictures Association
+
+## 网飞片头长度
+
+- 3s806
+- https://subshifter.bitsnbites.eu/
+- https://subtitletools.com/subtitle-sync-shifter
+
+## Pirate Sites
+
+- thepiratebay.org
+- RARBG
+- 1337x.to
+- NYAA.se
+- Fmovies.to
+- Lookmovie.io
+- 123moviesfree.net
+- 2conv.co
+- Flvto.bid
+
+---
+
+- Google’s Delisting of Thousands of Pirate Sites
+- DuckDuckGo Removes Pirate Sites and YouTube-DL
+- [RIAA and MPA Now Target Domain Name and Hosting Providers](https://www.technadu.com/riaa-mpa-target-domain-name-hosting-providers/223938)

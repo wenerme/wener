@@ -237,3 +237,23 @@ service k3s restart
 
 - https://www.ibm.com/support/pages/node/6444205
 - https://github.com/k3s-io/k3s/issues/1621
+
+## Unable to authenticate the request err="invalid bearer token"
+
+- server 版本不一致 导致过问题 - v1.20, v1.22
+
+**可以尝试，不一定能解决**
+
+```bash
+kubectl -n kube-system get secrets | grep "coredns"
+
+kubectl -n kube-system delete secret coredns-token-lkt4c
+kubectl -n kube-system delete pod coredns-66c464876b-25kl9
+```
+
+- https://github.com/k3s-io/k3s/issues/2788
+
+## etcdserver: mvcc: required revision has been compacted
+
+- 没问题
+- https://github.com/k3s-io/k3s/issues/4419#issuecomment-962897354
