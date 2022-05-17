@@ -102,7 +102,7 @@ function removeDuplicateTitle(f: FileSpec) {
     return
   }
   if (f.meta.title === title) {
-    console.log(`${f.id}: dup title ${title}`);
+    // console.log(`${f.id}: dup title ${title}`);
     f.content = f.content.replace(regTitle, '');
     f.changed = true;
   }

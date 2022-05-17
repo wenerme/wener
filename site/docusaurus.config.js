@@ -1,12 +1,21 @@
-const path = require('path');
 const moment = require('moment-timezone');
 const math = require('remark-math');
 const katex = require('rehype-katex');
+const { writeFileSync } = require('fs');
 
 // https://docusaurus.io/docs/api/docusaurus-config
-module.exports = {
+
+/** @type {import('@docusaurus/types').Plugin} */
+function RewritePlugin(context, options) {
+  return {
+    name: 'wener-rewrite-plugin',
+  };
+}
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'Wener Live & Life',
-  tagline: "Passion I've found",
+  tagline: 'Passion I\'ve found',
   url: 'https://wener.me',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -24,7 +33,7 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      {
+      ({
         docs: {
           routeBasePath: 'notes',
           path: 'notes',
@@ -37,6 +46,32 @@ module.exports = {
 
           remarkPlugins: [math],
           rehypePlugins: [katex],
+
+          sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
+            const items = await defaultSidebarItemsGenerator(args);
+            // items.forEach(v => {
+            //   if (!v.id) {
+            //     return;
+            //   }
+            //   let sp = v.id.split('/');
+            //   if (sp.length <= 1) {
+            //     return;
+            //   }
+            //   // alpine/alpine-version
+            //   let parent = sp.at(-2);
+            //   let last = sp.at(-1);
+            //   if (last.startsWith(parent)) {
+            //     last = last.substring(parent.length + 1);
+            //     sp.pop();
+            //     sp.push(last);
+            //     console.log(`Mapping`, v.id, sp.join('/'));
+            //   }
+            // });
+            // console.log(`Generate items`);
+            writeFileSync('items.json', JSON.stringify(items, null, 2));
+            // process.exit(1)
+            return items;
+          },
         },
         blog: {
           routeBasePath: 'story',
@@ -62,7 +97,7 @@ module.exports = {
         googleAnalytics: {
           trackingID: 'UA-30404720-1',
         },
-      },
+      }),
     ],
   ],
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ {
@@ -147,15 +182,15 @@ module.exports = {
               // href: 'https://github.com/wenerme/wener',
               html: `
               <div>
-              <a class="footer__link-item" href="https://github.com/wenerme/wener">Wener</a>
-              - <a class="footer__link-item" href="https://github.com/wenerme/wener/actions" title="wenerme/wener - ci">
-                <img style="vertical-align: middle;opacity: .4;" src="https://github.com/wenerme/wener/workflows/Build/badge.svg"/>
+              <a class='footer__link-item' href='https://github.com/wenerme/wener'>Wener</a>
+              - <a class='footer__link-item' href='https://github.com/wenerme/wener/actions' title='wenerme/wener - ci'>
+                <img style='vertical-align: middle;opacity: .4;' src='https://github.com/wenerme/wener/workflows/Build/badge.svg'/>
                 </a>
               </div>
               `,
             },
             {
-              label: "Wener's Apis",
+              label: 'Wener\'s Apis',
               href: 'https://apis.wener.me',
             },
           ],
@@ -182,7 +217,7 @@ module.exports = {
         alt: 'Wener Site',
         src: 'img/wener-logo.svg',
       },
-      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt="cc-by-sa-4.0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg" /> - Build @${moment()
+      copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt='cc-by-sa-4.0' src='https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg' /> - Build @${moment()
         .tz('Asia/Shanghai')
         .format('YYYY-MM-DD HH:mm')}`,
     },
@@ -201,7 +236,7 @@ module.exports = {
             from: ['/blog'],
           },
         ],
-        createRedirects: function (existingPath) {
+        createRedirects: function(existingPath) {
           if (existingPath.startsWith('/story/')) {
             return ['/blog/' + existingPath.substring('/story/'.length)];
           }
@@ -209,6 +244,7 @@ module.exports = {
         },
       },
     ],
+    RewritePlugin,
   ],
 
   themes: ['@docusaurus/theme-live-codeblock'],
@@ -222,3 +258,4 @@ module.exports = {
     // },
   ],
 };
+module.exports = config;
