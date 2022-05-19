@@ -1,10 +1,11 @@
 ---
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Ethereum Awesome
 
+- https://ycharts.com/indicators/ethereum_average_gas_price
 - [Ethereum Gas Tracker](https://etherscan.io/gastracker)
 - Block Explorer and Analytics Platform
   - https://etherscan.io/

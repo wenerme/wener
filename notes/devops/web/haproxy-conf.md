@@ -6,6 +6,10 @@ tags:
 
 # HAProxy 配置
 
+```bash
+haproxy -c -V -f /etc/haproxy/haproxy.cfg
+```
+
 ## acl
 
 - named acl

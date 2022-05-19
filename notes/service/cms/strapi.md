@@ -157,7 +157,7 @@ egrep -o 'STRAPI_ADMIN_BACKEND_URL[^}]+' build/*.js
 
 ```bash
 yarn oudated
-sed '/strapi/s/3.0.0-beta.18.7/3.0.1/g'  package.json -i
+sed '/strapi/s/3.0.0-beta.18.7/3.0.1/g' package.json -i
 yarn
 yarn build
 ```
@@ -186,3 +186,7 @@ yarn add strapi-provider-upload-amazon-s3-endpoint@beta
 
 # Aliyun OSS strapi-provider-upload-oss
 ```
+
+## 总是请求 localhost:1337/admin/project-type
+
+- https://github.com/strapi/strapi/issues/12418#issuecomment-1031915741

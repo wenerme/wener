@@ -189,3 +189,47 @@ tags:
 - Awesome [Web](https://www.awesomeweb.com/)
 - [cheatsheet1999/FrontEndCollection](https://github.com/cheatsheet1999/FrontEndCollection)
 - https://dev.to/iainfreestone/series/7129
+
+## CDN
+
+- http://www.jsdelivr.com/
+  - MaxCDN
+- https://cdnjs.com/
+  - cdnjs.cloudflare.com
+- https://unpkg.com/
+- https://fonts.googleapis.com/
+  - https://fonts.yecdn.com/
+  - ~~https://fonts.css.network ~~
+  - https://googlefonts.cn/
+  - https://fonts.font.im
+  - https://fonts.proxy.ustclug.org
+- https://lib.sinaapp.com/
+  - 新浪云
+- https://www.staticfile.org/
+  - 七牛云
+- https://www.bootcdn.cn
+- https://lug.ustc.edu.cn/wiki/start
+- https://u.sb/css-cdn/
+- https://cdn.baomitu.com/index/fonts
+
+---
+
+- https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap
+  - https://fonts.font.im/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap
+
+```
+fonts.gstatic.com fonts-gstatic.proxy.ustclug.org
+fonts.googleapis.com fonts.proxy.ustclug.org
+ajax.googleapis.com ajax.proxy.ustclug.org
+ajax.googleapis.com ajax.loli.net
+registry-1.docker.io docker.mirrors.ustc.edu.cn
+packages.elastic.co elastic.proxy.ustclug.org
+ppa.launchpad.net launchpad.proxy.ustclug.org
+archive.cloudera.com/cdh5/ cloudera.proxy.ustclug.org/cdh5/
+downloads.lede-project.org lede.proxy.ustclug.org
+downloads.openwrt.org openwrt.proxy.ustclug.org
+registry.npmjs.org npmreg.proxy.ustclug.org
+www.npmjs.com npm.proxy.ustclug.org
+themes.googleusercontent.com google-themes.proxy.ustclug.org
+secure.gravatar.com gravatar.proxy.ustclug.org
+```

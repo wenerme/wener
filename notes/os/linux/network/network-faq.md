@@ -124,3 +124,23 @@ ip addr add 192.168.1.2/24 dev eth0 label eth0:0
 ## ping: sendto: Invalid argument
 
 ## ping Destination Host Unreachable
+
+## IPVS vs IPTables
+
+- IPVS
+  - 支持 ping 虚拟 IP
+  - 链接 O(1) 处理复杂度 - 不受 节点/服务/Pod 数量影响
+  - 支持更多的调度算法
+  - 处理流程不同于 iptables
+    - 很难配合其他 iptabels 规则
+- IPTables
+  - 针对 防火墙 设计
+  - LB 通过 NAT pre-routing 实现
+  - 生态更好
+  - O(n) 处理复杂度
+    - 在 1000+ 服务时可能会有一点影响
+    - keepalive 可减少影响 - 因为 conntrack，不再走规则匹配
+
+---
+
+- https://www.tigera.io/blog/comparing-kube-proxy-modes-iptables-or-ipvs/

@@ -4,15 +4,13 @@ title: ScyllaDB
 
 # ScyllaDB
 
-## Tips
-
 - [scylladb/scylla](https://github.com/scylladb/scylla)
   - AGPL, C++
   - 使用 C++ 实现的 Cassandra
   - 不依赖 Zookeeper
   - 轻量级事务 Lightweight Transactions / LWT
   - Amazon DynamoDB 兼容接口
-  - 支持 CDC/Change Data Capture
+  - 支持 CDC/Change Data Capture
   - 基于 [seastar](https://github.com/scylladb/seastar) 框架
 - [Apache Cassandra Compatibility](https://docs.scylladb.com/using-scylla/cassandra-compatibility/)
   - Apache Cassandra 3.11

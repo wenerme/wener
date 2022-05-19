@@ -25,4 +25,6 @@ tags:
   - https://github.com/lvarayut/github-file-icons
   - https://www.flaticon.com/packs/file-types
   - https://365webresources.com/10-flat-filedocument-type-icon-sets-free-download/
--  https://github.com/github/octicons
+- [github/octicons](https://github.com/github/octicons)
+- https://vectorwiki.com/
+  - [HN](https://news.ycombinator.com/item?id=31423774)

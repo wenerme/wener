@@ -82,6 +82,11 @@ sdk install java 8.0.312-tem
   - Sprint Cloud Azure
   - Sprint Cloud Huawei
 
+## 平台
+
+- jhipster
+- [jeecgboot/jeecg-boot](https://github.com/jeecgboot/jeecg-boot)
+
 ## ORM
 
 - Hibernet

@@ -1,8 +1,6 @@
 ---
 tags:
-
-- Glossary
-
+  - Glossary
 ---
 
 # Blockchain Glossary
@@ -43,15 +41,15 @@ tags:
 | Liquidity          | 流动性                                |
 | Derivatives        | 衍生物                                |
 
-| Unit   | Decimals | Value                    |
-| ------ | -------- | ------------------------ |
+| Unit   | Decimals | Value                    | ETH         |
+| ------ | -------- | ------------------------ | ----------- |
 | wei    | 1        | 1                        |
 | kwei   | 3        | 1000                     |
 | mwei   | 6        | 1000,000                 |
-| gwei   | 9        | 1000,000,000             |
-| szabo  | 12       | 1000,000,000,000         |
-| finney | 15       | 1000,000,000,000,000     |
-| ether  | 18       | 1000,000,000,000,000,000 |
+| gwei   | 9        | 1000,000,000             | 0.000000001 |
+| szabo  | 12       | 1000,000,000,000         | 0.000001    |
+| finney | 15       | 1000,000,000,000,000     | 0.001       |
+| ether  | 18       | 1000,000,000,000,000,000 | 1           |
 
 [dao]: https://en.wikipedia.org/wiki/Decentralized_autonomous_organization
 

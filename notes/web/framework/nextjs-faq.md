@@ -6,6 +6,16 @@ tags:
 
 # NextJS FAQ
 
+## pathname vs asPath
+
+| pathname     | asPath      |
+| ------------ | ----------- |
+| /            | /           |
+| `/user/[id]` | `/user/123` |
+
+- asPath 真实路径
+- pathname NextJS 的文件路径
+
 ## server vs serverless
 
 - server

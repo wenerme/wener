@@ -15,8 +15,16 @@ title: tiptap
 
 ## Extensions
 
+- `@tiptap/extension-{name}`
+- text-style
+  - 实现自定义样式
+
 ---
 
+- https://tiptap.dev/experiments/commands
+- https://github.com/ueberdosis/tiptap/issues/1036
+  - indent
+  - https://github.com/Leecason/element-tiptap/tree/master/src/extensions
 - https://tiptap.dev/api/extensions
 - https://github.com/ueberdosis/tiptap/tree/main/packages
 
@@ -44,3 +52,15 @@ title: tiptap
 ## Nodes
 
 - [Nodes](https://tiptap.dev/api/nodes)
+
+# FAQ
+
+## Tiptap v1 vs Tiptap v2
+
+- Tiptap v1
+  - Vue
+- Tiptap v2
+  - 核心 Headless
+  - React, Vue, Alpine, Svelte
+  - 协作
+  - @mentions 补全

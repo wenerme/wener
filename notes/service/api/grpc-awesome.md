@@ -23,11 +23,16 @@ tags:
   - gRPC -> GraphQL
 - [grpc-ecosystem/awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc)
 
-## Library
+## LB/Gateway
 
 - gRPC-aware proxy/Load balance
   - https://grpc.io/blog/grpc-load-balancing/
   - https://microsoft.github.io/reverse-proxy/articles/grpc.html
+- [liyue201/grpc-lb](https://github.com/liyue201/grpc-lb)
+- [gotway/gotway](https://github.com/gotway/gotway)
+- [mmontes11/go-grpc-routes](https://github.com/mmontes11/go-grpc-routes)
+- https://grpc-ecosystem.github.io/grpc-gateway/
+- https://pkg.go.dev/go.chromium.org/luci/grpc/discovery
 
 ## 参考
 

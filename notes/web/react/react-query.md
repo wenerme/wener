@@ -14,6 +14,8 @@ title: React Query
     - vs SWR - 支持修改，更好的缓存状态管理
     - vs Apollo - 支持 GraphQL 和 一般请求，针对 GraphQL 的 entity 缓存没有 apollo 强
   - [dano-inc/react-query-helper](https://github.com/dano-inc/react-query-helper)
+  - [Practical React Query](https://tkdodo.eu/blog/practical-react-query)
+  - [Important Defaults](https://react-query.tanstack.com/guides/important-defaults)
 
 # Version
 

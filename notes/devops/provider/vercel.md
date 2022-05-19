@@ -1,6 +1,8 @@
-# Vercel
+---
+title: Vercel
+---
 
-## Tips
+# Vercel
 
 - [价格](https://vercel.com/pricing)/[限制](https://vercel.com/docs/concepts/limits/overview)
   - Free
@@ -192,3 +194,11 @@ yarn dlx vercel
 //
 {"rewrites": [{ "source": "/blog/:post*", "destination": "/blog" }]}
 ```
+
+## Build
+
+- NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA
+
+---
+
+- https://vercel.com/docs/concepts/projects/environment-variables

@@ -326,6 +326,8 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ## JSON
 
+- [sclevine/yj](https://github.com/sclevine/yj)
+  - Convert between YAML, TOML, JSON, HCL
 - [json-iterator/go](https://github.com/json-iterator/go)
   - 替代 `encoding/json`
   - 更好性能，更多功能
