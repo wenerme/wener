@@ -137,8 +137,14 @@ tags:
     - headless, framework-agnostic and extendable rich text editor, based on ProseMirror
 - ui
   - [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui)
-    - popover -> floating-ui
+    - low-level 接口
+    - 支持 web, React Native, Canvas
+    - popper -> floating-ui - 2021 - ~600b
+    - popper - ~3kb - 2006
     - react https://floating-ui.com/docs/react-dom
+    - [Popper is evolving into Floating UI!](https://github.com/floating-ui/floating-ui/discussions/1425)
+  - [atomiks/tippyjs](https://github.com/atomiks/tippyjs)
+    - 基于 @popperjs/core
 - ml
   - [matiasvlevi/Dann](https://github.com/matiasvlevi/Dann)
   - [ml5js/ml5-library](https://github.com/ml5js/ml5-library)
