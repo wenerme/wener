@@ -265,3 +265,11 @@ This is not an .exe file. This is just a placeholder to prevent mirroring over o
 - Google’s Delisting of Thousands of Pirate Sites
 - DuckDuckGo Removes Pirate Sites and YouTube-DL
 - [RIAA and MPA Now Target Domain Name and Hosting Providers](https://www.technadu.com/riaa-mpa-target-domain-name-hosting-providers/223938)
+
+## 移除无用内容
+
+```bash
+find . -name RARBG_DO_NOT_MIRROR.exe -or -name RARBG.txt -or -name '._*' -or -name .DS_Store
+# delete
+find . -name RARBG_DO_NOT_MIRROR.exe -or -name RARBG.txt -or -name '._*' -or -name .DS_Store -delete
+```

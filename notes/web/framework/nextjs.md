@@ -422,8 +422,8 @@ mkdir src/{components,hooks,contents,server,client}
 
 # 按需
 npm add classnames
-npm add daisyui
 npm add react-icons
+npm add daisyui
 ```
 
 ```json

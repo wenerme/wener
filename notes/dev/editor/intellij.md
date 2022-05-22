@@ -4,6 +4,18 @@ title: Intellij IDEA
 
 # Intellij IDEA
 
+**特殊正则替换语法**
+
+| syntax | for                     |
+| ------ | ----------------------- |
+| \l     | 小写下一个字符          |
+| \u     | 大写下一个字符          |
+| \L     | 小写直到 \E 或 替换结束 |
+| \U     | 大写直到 \E 或 替换结束 |
+| \E     | \U, \L 结束标志         |
+
+- https://www.jetbrains.com/idea/help/regular-expression-syntax-reference.html
+
 ## 实现自定义语言插件
 
 - [Custom Language Support Tutorial](http://www.jetbrains.org/intellij/sdk/docs/tutorials/custom_language_support_tutorial.html)

@@ -1,7 +1,5 @@
 # Font
 
-## Tips
-
 - https://en.wikipedia.org/wiki/Monospaced_font
 - https://en.wikipedia.org/wiki/Web_Open_Font_Format
   - 是对 SNFT 类型字体(TrueType,Opentype)的封装
@@ -12,7 +10,8 @@
 - [Can i use unicode range](https://caniuse.com/#search=unicode%20range)
 - [Helvetica](https://en.wikipedia.org/wiki/Helvetica)
   - Regular, Oblique, Bold, Bold Oblique
-- Helvetica Neue \* Condensed Bold, Condensed Black, Ultra-light, Ultra-light Italic, Light, Light Italic, Regular, Italic, Bold, Bold Italic
+- Helvetica Neue
+  - Condensed Bold, Condensed Black, Ultra-light, Ultra-light Italic, Light, Light Italic, Regular, Italic, Bold, Bold Italic
 - [JavaScript/CSS Font Detector](http://www.lalit.org/lab/javascript-css-font-detect/)
 - [Js detech font](https://stackoverflow.com/a/3368855/1870054)
 - 衬线体 [Serif](https://en.wikipedia.org/wiki/Serif)
@@ -30,26 +29,8 @@ cursive
 <link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'/>
 ```
 
-| Value | Common weight name        |
-| ----- | ------------------------- |
-| 100   | Thin (Hairline)           |
-| 200   | Extra Light (Ultra Light) |
-| 300   | Light                     |
-| 400   | Normal                    |
-| 500   | Medium                    |
-| 600   | Semi Bold (Demi Bold)     |
-| 700   | Bold                      |
-| 800   | Extra Bold (Ultra Bold)   |
-| 900   | Black (Heavy)             |
 
-| Font                   | Weight | font-family           |
-| ---------------------- | ------ | --------------------- |
-| PingFang SC Thin       | 100    | PingFangSC-Thin       |
-| PingFang SC Ultralight | 200    | PingFangSC-Ultralight |
-| PingFang SC Light      | 300    | PingFangSC-Light      |
-| PingFang SC Regular    | 400    | PingFangSC-Regular    |
-| PingFang SC Medium     | 600    | PingFangSC-Medium     |
-| PingFang SC Semibold   | 800    | PingFangSC-Semibold   |
+
 
 ### 安全字体
 

@@ -24,6 +24,18 @@ title: tiptap
 
 :::
 
+```bash
+npm add @tiptap/{starter-kit,html}
+# starter 以外扩展
+npm add @tiptap/extension-{underline,text-style,text-align,underline,link,font-family,color,character-count}
+
+npm add @tiptap/extension-image
+npm add @tiptap/extension-table{,-row,-cell,-header}
+npm add @tiptap/extension-task-{list,item}
+
+npm add @tiptap/extension-horizontal-rule
+```
+
 ## Editor
 
 - Node + Mark 组成 ProseMirror 的 Schema

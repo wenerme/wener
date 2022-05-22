@@ -2,8 +2,6 @@
 
 https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
 
-## Tips
-
 - [declaration-files introduction](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)
   - http://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html
 - [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
@@ -27,6 +25,7 @@ https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
   - Record
     - `Record<'prop1' | 'prop2' | 'prop3', string>`
       - 定义有三个 string 类型字段的类型
+- https://tsdoc.org/
 - 参考
   - https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
 - 注意

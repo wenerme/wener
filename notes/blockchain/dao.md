@@ -4,6 +4,9 @@ title: DAO
 
 # DAO
 
+- daohaus
+- aragon
+
 ## Glossary
 
 - 质押土地资产成为DAO的领地

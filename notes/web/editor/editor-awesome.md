@@ -11,6 +11,7 @@ tags:
   - MIT, Rust
 - [wereturtle/ghostwriter](https://github.com/wereturtle/ghostwriter)
   - GPL-3.0, C++
+- https://github.com/TryGhost/Admin/tree/main/lib/koenig-editor
 
 ## Web Editor
 

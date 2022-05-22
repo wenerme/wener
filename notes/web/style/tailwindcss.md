@@ -34,7 +34,9 @@ npx tailwindcss init -p
 npx tailwindcss init --full
 
 # 自行构建
-tailwind build ./src/styles/tailwind.css -o ./public/tailwind.css
+npx tailwind build ./src/styles/tailwind.css -o ./public/tailwind.css
+# 持续构建
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 ```
 
 ```js
@@ -51,6 +53,8 @@ import 'tailwindcss/tailwind.css';
 - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
 - [shuffle.dev](https://shuffle.dev) - 模板生成
 - [tw-in-js/twind](https://github.com/tw-in-js/twind)
+  - 不依赖 tailwindcss, 使用 tw 实时生成
+  - +35K
 - [ben-rogerson/twin.macro](https://github.com/ben-rogerson/twin.macro)
 - https://github.com/sw-yx/spark-joy/blob/master/README.md#tailwind-component-libraries
 - https://flowbite.com/tools/tailwind-cheat-sheet/
@@ -71,6 +75,23 @@ import 'tailwindcss/tailwind.css';
 - https://demos.creative-tim.com/notus-react
 - [themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)
 
+## plugins
+
+- @tailwindcss/typography
+  - prose
+  - not-prose
+  - 用于 CMS 文章内容
+  - [styles.js](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js)
+- [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)
+  - input, select, textare
+  - https://tailwindcss-forms.vercel.app/
+- [@tailwindcss/line-clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+  - line-clamp-{lines}
+  - 截取文字到多少行
+- @tailwindcss/aspect-ratio
+  - v3 已经包含 aspect-ratio 工具
+  - aspect-w-16, aspect-h-9
+
 ## 参考
 
 | bp  | min width | container |
@@ -81,6 +102,18 @@ import 'tailwindcss/tailwind.css';
 | lg  | 1024px    | 1024px    |
 | xl  | 1280px    | 1280px    |
 | 2xl | 1536px    | 1536px    |
+
+| spacing |      size |    px |
+| ------- | --------: | ----: |
+| 0       |       0px |   0px |
+| px      |       1px |   1px |
+| 0.5     |  0.125rem |   2px |
+| 1       |   0.25rem |   4px |
+| `<n>`   | n×0.25rem | n×4px |
+| 4       |      1rem |  16px |
+
+- spacing 用于 padding, margin, width, height, maxHeight, gap, inset, space, translate
+- [Default spacing scale](https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale)
 
 | text | rem       | px     |
 | ---- | --------- | ------ |
