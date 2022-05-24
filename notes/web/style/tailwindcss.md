@@ -340,3 +340,17 @@ module.exports = {
   @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2;
 }
 ```
+
+## nesting
+
+- WebStrom: Language&Framework > Style Sheets > Dialects
+
+```js title="postcss.config.js"
+module.exports = {
+  plugins: {
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```

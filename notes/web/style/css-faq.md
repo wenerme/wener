@@ -15,6 +15,11 @@ tags:
 
 :::
 
+- BEM - Block Element Modifier
+  - by Yandex 2007
+  - `.block` - `.block--mod`
+  - `.block__elem` - `.block__elem--mod`
+  - 目前已不太推荐，以前全局 CSS 容易冲突，现在很容易用 css module 和控制 scope
 - [CSS](http://help.dottoro.com/lcsdaoxj.php) Reference
 
 ```css

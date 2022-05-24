@@ -107,7 +107,7 @@ import { generateHTML, generateJSON } from '@tiptap/html';
 import { generateHTML, generateJSON } from '@tiptap/core';
 ```
 
-## Extensions
+## Extension
 
 ```ts
 // typescript 类型信息
@@ -309,7 +309,7 @@ const CustomExtension = Extension.create<CustomExtensionOptions, CustomExtension
   - Shift, Alt, Control, Cmd
   - https://keycode.info/
 
----
+## Extensions
 
 - `@tiptap/extension-{name}`
 - 样式/Mark
@@ -381,6 +381,7 @@ const CustomExtension = Extension.create<CustomExtensionOptions, CustomExtension
 
 ---
 
+- Community Extensions [ueberdosis/tiptap#819](https://github.com/ueberdosis/tiptap/issues/819)
 - https://tiptap.dev/experiments/commands
 - https://github.com/ueberdosis/tiptap/issues/1036
   - indent

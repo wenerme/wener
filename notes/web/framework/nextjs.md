@@ -37,6 +37,8 @@ title: NextJS
   - [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)
   - [vercel/platforms](https://github.com/vercel/platforms)
     - template for site builders and low-code tools.
+  - [Layouts RFC](https://nextjs.org/blog/layouts-rfc)
+    - https://nextjs.org/docs/basic-features/layouts
 
 :::tips
 

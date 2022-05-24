@@ -8,10 +8,11 @@ tags:
 
 ## pathname vs asPath
 
-| pathname     | asPath      |
-| ------------ | ----------- |
-| /            | /           |
-| `/user/[id]` | `/user/123` |
+| path          | pathname     | asPath          |
+| ------------- | ------------ | --------------- |
+| /             | /            | /               |
+| /user/123     | `/user/[id]` | `/user/123`     |
+| /user/123#top | `/user/[id]` | `/user/123#top` |
 
 - asPath 真实路径
 - pathname NextJS 的文件路径

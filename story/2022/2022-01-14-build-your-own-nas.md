@@ -1,6 +1,8 @@
 ---
 slug: build-your-own-nas
 title: 组建你自己的 NAS 服务器
+tags:
+  - 运维
 ---
 
 # 组建你自己的 NAS 服务器

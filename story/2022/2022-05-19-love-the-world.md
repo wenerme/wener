@@ -2,7 +2,8 @@
 slug: love-the-world
 title: Love the World
 tags:
-  - 总结
+  - 思考
+  - 生活
 ---
 
 # Love the World

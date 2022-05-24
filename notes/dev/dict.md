@@ -536,3 +536,10 @@ tags:
 ---
 
 - https://wiki.c2.com/?DesigningVsModeling
+
+## note vs memo
+
+- note
+- memo
+  - short note, 备忘录
+  - make a note of something

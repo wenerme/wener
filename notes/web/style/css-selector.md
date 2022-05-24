@@ -1,19 +1,23 @@
 ---
-title: CSS Pseudo
+title: CSS Selector
 ---
 
-# CSS Pseudo
+# CSS Selector
 
-- 分类
-  - 语言 - :dir, :lang
-  - 位置 - :any-link, :link, :visited, :local-link, :target, :target-within, :scope
-  - 用户操作 - :hover, :active, :focus, :focus-visible, :focus-within
-  - 时间维度 - :current, :past, :future
-    - 用于 WebVTT - 字幕
-  - 资源状态 - :playing, :paused
-    - 用于媒体资源
-  - 输入组件
-  - 树结构 - :root, :empty, `:nth[-last]-child`, `:(first|last|only)-child`,`:nth[-last]-of-type`, `:(first|last|only)-of-type`
+## Pseudo
+
+- 用户操作 - :hover, :active, :focus, :focus-visible, :focus-within
+- 位置 - :any-link, :link, :visited, :local-link, :target, :target-within, :scope
+- 语言 - :dir, :lang
+- 时间维度 - :current, :past, :future
+  - 用于 WebVTT - 字幕
+- 资源状态 - :playing, :paused
+  - 用于媒体资源
+- 输入组件 - :blank, :placeholder, :default, :valid, :invalid, :required, :optional, :read-write, :read-only
+- 树结构 - :root, :empty, `:nth[-last]-child`, `:(first|last|only)-child`,`:nth[-last]-of-type`, `:(first|last|only)-of-type`
+- 选择 - :is, :matches, :any, :has
+- ShadowDOM - :host, :host-context
+- 内容 - :contains, :empty
 
 | defined        | pseudo               | desc                                         |
 | -------------- | -------------------- | -------------------------------------------- |
@@ -82,4 +86,41 @@ title: CSS Pseudo
 /* 不在 nav 下的 a */
 a:not(nav *) {
 }
+```
+
+- :target - 使用 id 或 name 属性
+  - `https://wener.me#reference`
+
+```html
+<!-- 插入一个专门用于定位的 anchor -->
+<a name="my-anchor"></a>
+```
+
+# FAQ
+
+## 选择多个子元素
+
+```css
+/* 更现代的做法 */
+.article :is(h1, h2, h3) {
+}
+
+/* 以前的做法 */
+.article h1,
+.article h2,
+.article h3 {
+}
+```
+
+## 选择内容匹配
+
+```js
+// jQuery
+$('td:contains("Yes")')
+
+// js console
+$x("//td[text()='Yes']")
+
+// js
+document.evaluate("//td[text()='Yes']",document).iterateNext()
 ```
