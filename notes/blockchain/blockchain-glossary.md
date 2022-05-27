@@ -92,18 +92,18 @@ tags:
 
 ## Proof
 
-- Proof of Work
-  - Pools -> Nodesn
-  - 中心化、耗费能源
+- Proof of Work - Mainnet
+  - Pools -> Node
+  - 中心化、耗费能源 - 强调挖矿
   - 节点之间竞争 - 谁最先找到
-- Proof of Stake - ETH2
+- Proof of Stake - ETH2, Polygon
   - Validator - 随机选择
   - 成为 Validator 需要质押 Token - 质押越多，概率越高
 
 | PoW                      | PoS              |
 | ------------------------ | ---------------- |
 | Minner                   | Validator        |
-| 所有节点                 | 选中节点         |
+| **所有节点**             | **选中节点**     |
 | Minning                  | Minting, Forging |
 | 51% Hashing Power Attack | 51% Stack Attack |
 

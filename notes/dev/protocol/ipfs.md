@@ -1,11 +1,8 @@
 ---
-id: ipfs
 title: IPFS
 ---
 
 # IPFS
-
-## Tips
 
 - the InterPlanetary File System
 - [ipfs](https://github.com/ipfs)
@@ -55,7 +52,7 @@ ipfs init
 # 获取配置
 ipfs config -c $PWD/repo --json Addresses.API
 # 修改配置
-# 默认只监听 127.0.0.1
+# 默认只监听 127.0.0.1
 ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001
 
 # 启动服务端

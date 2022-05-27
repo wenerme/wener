@@ -18,9 +18,17 @@ tags:
   - [alibaba/easyexcel](https://github.com/alibaba/easyexcel)
 - Javascript
   - [exceljs/exceljs](https://github.com/exceljs/exceljs)
+    - MIT, JS
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
+    - GPLv3
   - [mwilliamson/mammoth.js](https://github.com/mwilliamson/mammoth.js)
     - .docx to HTML
+  - [lalalic/docx4js](https://github.com/lalalic/docx4js)
+    - 解析 docx, pptx, xlsx
+  - [dolanmiu/docx](https://github.com/dolanmiu/docx)
+    - 生产 docx
+  - [dbashford/textract](https://github.com/dbashford/textract)
+    - 文本提取
 - [foliojs](https://github.com/foliojs)
   - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
     - MIT, JavaScript

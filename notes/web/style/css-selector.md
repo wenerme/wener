@@ -93,7 +93,9 @@ a:not(nav *) {
 
 ```html
 <!-- 插入一个专门用于定位的 anchor -->
+<!-- 目前 name 属性已废弃 -->
 <a name="my-anchor"></a>
+<a id="my-anchor"></a>
 ```
 
 # FAQ

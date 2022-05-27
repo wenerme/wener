@@ -16,7 +16,7 @@ title: Vite
   - [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
   - Help with monorepo [#1491](https://github.com/vitejs/vite/issues/1491)
   - [anncwb/vite-plugin-html](https://github.com/anncwb/vite-plugin-html)
-    -  HTML 预处理
+    - HTML 预处理
   - [rakkasjs/rakkasjs](https://github.com/rakkasjs/rakkasjs)
     - Next.js alternative powered by Vite
 - Dev

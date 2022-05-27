@@ -154,6 +154,25 @@ tags:
 
 - https://github.com/alexreardon/css-box-model
 
+## inline vs block
+
+影响 Layout
+
+
+- inline
+  - 只能影响 tag 内 - 例如没有 margin
+  - 不会影响 layout flow - 不换行
+  - 只能包含 数据 和 inline 元素
+- block
+  - 通常开启新行
+  - 可包含 inline 和 block
+
+---
+
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
+  - Main
+    - Meta
+
 ## 元素直接支持 resize
 
 ```css

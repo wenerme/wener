@@ -4,7 +4,7 @@ title: Slate
 
 # Slate
 
-- slateJS
+- SlateJS
   - [文档](https://docs.slatejs.org/)
 - 特性
   - 原生 react

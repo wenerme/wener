@@ -47,6 +47,7 @@ tags:
 
 - [Orientation Lock](https://css-tricks.com/snippets/css/orientation-lock/)
 - [Aspect Ratio Boxes](https://css-tricks.com/aspect-ratio-boxes/)
+- [CSS-Only Carousel](https://css-tricks.com/css-only-carousel/)
 
 ## 学习
 

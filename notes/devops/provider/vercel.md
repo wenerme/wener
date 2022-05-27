@@ -202,3 +202,11 @@ yarn dlx vercel
 ---
 
 - https://vercel.com/docs/concepts/projects/environment-variables
+
+## Turbo Next.JS
+
+| Field           |
+| --------------- | ---------------------------------------------------- |
+| Build Command   | cd ../.. && npx turbo run build --filter=@wener/demo |
+| Install Command | npm install --prefix=../..                           |
+| Root Directory  | apps/demo                                            |

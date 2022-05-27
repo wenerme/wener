@@ -123,21 +123,71 @@ sudo tailscaled install-system-daemon
 tailscale version
 
 tailscale netcheck
+tailscale status
+tailscale derp-map
 ```
 
 ## Notes
 
 - 记录的 JSON 状态
   - /var/lib/tailscale/tailscaled.state
-    - _daemon
-    - _machinekey
+    - `_daemon`
+    - `_machinekey`
 - DNS
   - 修改 /etc/resolv.conf
   - 备份之前配置 /etc/resolv.pre-tailscale-backup.conf
 - DERP - Encrypted TCP relays
 
 ```bash
-sudo jq -r ._daemon /var/lib/tailscale/tailscaled.state | base64 -d
+sudo jq -r ._daemon /var/lib/tailscale/tailscaled.state | base64 -d | jq
+```
+
+```json title="tailscaled.state"
+{
+  "ControlURL": "",
+  "RouteAll": false,
+  "AllowSingleHosts": true,
+  "ExitNodeID": "",
+  "ExitNodeIP": "",
+  "ExitNodeAllowLANAccess": false,
+  "CorpDNS": false,
+  "WantRunning": true,
+  "LoggedOut": false,
+  "ShieldsUp": false,
+  "AdvertiseTags": ["tag:linux"],
+  "Hostname": "",
+  "NotepadURLs": false,
+  "AdvertiseRoutes": ["192.168.1.0/22"],
+  "NoSNAT": false,
+  "NetfilterMode": 2,
+  "Config": {
+    "PrivateMachineKey": "privkey:",
+    "PrivateNodeKey": "privkey:",
+    "OldPrivateNodeKey": "privkey:",
+    "Provider": "",
+    "LoginName": "truth"
+  }
+}
+```
+
+**AdvertiseRoutes**
+
+```
+-A POSTROUTING -j ts-postrouting
+-A INPUT -j ts-input
+-A FORWARD -j ts-forward
+
+-A ts-postrouting -m mark --mark 0x40000 -j MASQUERADE
+
+-A ts-forward -i tailscale0 -j MARK --set-xmark 0x40000/0xffffffff
+-A ts-forward -m mark --mark 0x40000 -j ACCEPT
+# 不 forward 内部
+-A ts-forward -s 100.64.0.0/10 -o tailscale0 -j DROP
+-A ts-forward -o tailscale0 -j ACCEPT
+# 当前节点
+-A ts-input -s 100.64.0.8/32 -i lo -j ACCEPT
+-A ts-input -s 100.115.92.0/23 ! -i tailscale0 -j RETURN
+-A ts-input -s 100.64.0.0/10 ! -i tailscale0 -j DROP
 ```
 
 ## derp
@@ -188,7 +238,6 @@ sudo derper --hostname derper.example.com --verify-clients -a :28443 -http-port 
 | -stun-port int              | 3478                                |                                                                                                       |
 | -verify-clients             | false                               | 通过本地 tailscaled 验证客户端                                                                        |
 
-
 :::caution verify-clients
 
 - tailscale sttaus 里的节点才能使用 derp - 否则会验证失败
@@ -198,7 +247,6 @@ sudo derper --hostname derper.example.com --verify-clients -a :28443 -http-port 
 - port 为 443 才会启用 tls - `tsweb.IsProd443(*addr) || *certMode == "manual"`
 
 :::
-
 
 ## Taildrop
 
@@ -243,12 +291,17 @@ sudo sysctl -p /etc/sysctl.conf
   - 主要用于 serverless、容器、权限不足、不支持 tun 设备 等场景
   - [Userspace networking mode](https://tailscale.com/kb/1112/userspace-networking/)
 
-
 # FAQ
 
 ## derphttp.Client.Recv connect to region 999: tls: first record does not look like a TLS handshake
 
+检查 derper 是否启用 TLS 是否申请证书。
+
+derper 只有在端口为 443 时才会申请 letsencrypt 证书。
+
 ## not connected to home DERP region 999
+
+自定义的 DERP 确保能被访问，HTTP、HTTPS、STUN
 
 ## tsweb.AllowDebugAccess
 

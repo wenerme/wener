@@ -23,6 +23,11 @@ tags:
 
 ## Read
 
+- [Google Docs will now use canvas based rendering](https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html)
+  - 2021-05-11
+  - 文本处理器对 渲染、布局、增量更新有专门的要求
+  - Canvas 能实现跨平台
+  - [HN](https://news.ycombinator.com/item?id=27129858)
 - [hotwire](https://hotwire.dev/)
 - https://web.dev/ps-on-the-web/
   - 图像处理基于 https://halide-lang.org/

@@ -10,5 +10,6 @@ title: HeadlessUI
 :::tip
 
 - 不支持 Sub Menu [#170](https://github.com/tailwindlabs/headlessui/issues/170)
+- Dialog 会渲染在内置的 Portal 中 - `#headlessui-portal-root`
 
 :::

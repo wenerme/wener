@@ -16,11 +16,20 @@ title: Drag & Drop
 | dragstart | 开始拖动一个元素          |
 | drop      | drop 元素                 |
 
+:::tip
+
 - 定义了 ondragover, ondrop 表示为可 drop 区域
+- drop 之前， dragstart、dragover 时是无法访问文件
+
+:::
+
+- e.dataTransfer.types
+  - Files - 表示为文件
 - e.dataTransfer.dropEffect
   - copy
   - move
   - link
+  - none - 禁止 drop
 
 ```js
 function onDragStart(ev) {

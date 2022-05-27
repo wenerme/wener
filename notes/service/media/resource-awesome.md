@@ -266,6 +266,17 @@ This is not an .exe file. This is just a placeholder to prevent mirroring over o
 - DuckDuckGo Removes Pirate Sites and YouTube-DL
 - [RIAA and MPA Now Target Domain Name and Hosting Providers](https://www.technadu.com/riaa-mpa-target-domain-name-hosting-providers/223938)
 
+## Dolby Vision vs. HDR10
+
+- HDR10 - 10bit - free, open-standard
+  - 支持的平台更多
+  - 支持的显示器更多
+  - [HDR10+](https://hdr10plus.org/) - dynamic HDR - HDMI 2.1
+  - [HLG](https://en.wikipedia.org/wiki/Hybrid_log%E2%80%93gamma) 用于实时转播
+- Dolby Vision
+  - 最高支持 12bit - 但目前没有这样的视频，所以会下采样
+  - 更多用于商业环境 - 电影
+
 ## 移除无用内容
 
 ```bash

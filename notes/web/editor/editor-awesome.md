@@ -6,13 +6,6 @@ tags:
 
 # Editor Awesome
 
-- [ekzhang/rustpad](https://github.com/ekzhang/rustpad)
-  minimal collaborative code editor
-  - MIT, Rust
-- [wereturtle/ghostwriter](https://github.com/wereturtle/ghostwriter)
-  - GPL-3.0, C++
-- https://github.com/TryGhost/Admin/tree/main/lib/koenig-editor
-
 ## Web Editor
 
 - [prosemirror](https://github.com/ProseMirror/prosemirror)
@@ -40,6 +33,19 @@ tags:
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
 
+## Code Editor
+
+- monaco
+- [codemirror](http://codemirror.net/)
+  - [We are rewriting CodeMirror](https://news.ycombinator.com/item?id=17858672)
+- [satya164/react-simple-code-editor](https://github.com/satya164/react-simple-code-editor)
+  - works by overlaying a syntax highlighted `<pre>` block over a `<textarea>`
+  - 限制
+    - 必须字体相同
+    - undo 栈与浏览器不一致 - 大部分编辑器都有这样的问题
+    - 没有针对性能优化 - 大文档会慢
+- [Comparison of JavaScript-based source code editors](https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors)
+
 ## Markdown
 
 - [outline/rich-markdown-editor](https://github.com/outline/rich-markdown-editor)
@@ -61,7 +67,6 @@ tags:
 - [tobi4120/notion-clone](https://github.com/tobi4120/notion-clone)
 - [portabletext/portabletext](https://github.com/portabletext/portabletext)
   - Sanity.io 定义的规范
-- [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
 
 ## Page Builder
 
@@ -69,6 +74,13 @@ tags:
   Next-gen, highly customizable content editor for the browser - based on React and Redux. WYSIWYG on steroids.
   - MIT, TypeScript+React
   - 整页编辑
+- [alibaba/designable](https://github.com/alibaba/designable)
+- tinacms
+
+**商业**
+
+- https://codyhouse.co/
+- builderio
 
 ## IDE/Code
 
@@ -79,35 +91,10 @@ tags:
 
 - [viebel/klipse](https://github.com/viebel/klipse)
   - eval languages
-
-# FAQ
-
-## 处理从 MS Word 粘贴的问题
-
-- 读取 text/rtf，解析内容，转换
-
-```bash
-osascript -e 'the clipboard as record' | less
-```
-
-- [codex-team/editor.js#729](https://github.com/codex-team/editor.js/issues/729)
-
-## Modeline
-
-```ini
-# vim: ts=2 sw=2 et
-```
-
-- vim http://vim.wikia.com/wiki/Modeline_magic
-
-## Frontmatter
-- https://jekyllrb.com/docs/front-matter/
-- https://gohugo.io/content-management/front-matter/
-- https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-frontmatter
-- [jonschlinkert/gray-matter](https://github.com/jonschlinkert/gray-matter)
-
-```mdx title="yaml front matter"
----
-title: abc
----
-```
+- [ekzhang/rustpad](https://github.com/ekzhang/rustpad)
+  minimal collaborative code editor
+  - MIT, Rust
+- [wereturtle/ghostwriter](https://github.com/wereturtle/ghostwriter)
+  - GPL-3.0, C++
+- https://github.com/TryGhost/Admin/tree/main/lib/koenig-editor
+- [Rich text / HTML editors and frameworks](https://gist.github.com/manigandham/65543a0bc2bf7006a487)

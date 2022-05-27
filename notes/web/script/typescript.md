@@ -37,6 +37,8 @@ npm install -g typescript@next
 # check syntax
 tsc --noEmit
 
+tsc --pretty --noEmit
+
 # 添加 @types/ 依赖
 npx typesync
 

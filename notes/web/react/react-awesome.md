@@ -101,6 +101,8 @@ npm add date-fns lodash-es react-fast-compare
     - 抖音前端
   - 较多的 AntD 内容
 - 公司相关设计风格组件库
+  - [carbon-design-system/carbon](https://github.com/carbon-design-system/carbon)
+    - IBM
   - [SAP/openui5](https://github.com/SAP/openui5)
   - [microsoft/fluentui](https://github.com/microsoft/fluentui) - 微软风格
   - [pinterest/gestalt](https://github.com/pinterest/gestalt) - pinterest
@@ -205,8 +207,16 @@ npm add date-fns lodash-es react-fast-compare
   - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
     - 图片浏览
   - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
+    - 55kB
+  - [nolimits4web/swiper](https://github.com/nolimits4web/swiper)
+    - https://swiperjs.com/react
+  - [express-labs/pure-react-carousel](https://github.com/express-labs/pure-react-carousel)
+    - https://express-labs.github.io/pure-react-carousel/
   - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
+    - ~30kB
+    - react-easy-swipe +5kB
   - [akiran/react-slick](https://github.com/akiran/react-slick)
+  - https://alvarotrigo.com/blog/react-carousels/
 - timeline
   - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
   - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)
@@ -577,22 +587,46 @@ useStore.destroy();
   - Pro https://sheetjs.com/pro
 - [exceljs/exceljs](https://github.com/exceljs/exceljs)
 
-## Non DOM
-
-- [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
-  React renderer for Three.js
-- [gre/gl-react](https://github.com/gre/gl-react)
-  - WebGL shaders
-
 ## 参考
 
 - [alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
 - [Shopify/hydrogen](https://github.com/Shopify/hydrogen)
 
-## Native
+## Rendering/Native
 
-- [Shopify/react-native-skia](https://github.com/Shopify/react-native-skia)
-- [iddan/react-native-canvas](https://github.com/iddan/react-native-canvas)
+- DOM
+  - [remarkablemark/html-react-parser](https://github.com/remarkablemark/html-react-parser)
+    - ~28kB - gzip 10kB
+    - HTML to React
+    - 避免使用 WebComponent 方式
+    - 依赖
+      - 6k [fb55/domhandler](https://github.com/fb55/domhandler)
+      - 10k [react-property](https://github.com/remarkablemark/react-dom-core/tree/master/packages/react-property)
+      - style-to-js
+      - style-to-object
+      - html-dom-parser
+      - inline-style-parser
+      - domelementtype
+    - 相关
+      - dompurify
+      - [html-to-react](https://github.com/aknuds1/html-to-react)
+- [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
+  React renderer for Three.js
+- [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
+  - 创建 PDF
+- [gre/gl-react](https://github.com/gre/gl-react)
+  - WebGL shaders
+- [konvajs/react-konva](https://github.com/konvajs/react-konva)
+  - Canvas
+  - 基于 [konvajs/konva](https://github.com/konvajs/konva)
+- [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
+  - 显示 PDF - 使用 pdfjs 并非 React 渲染
+- [Flipboard/react-canvas](https://github.com/Flipboard/react-canvas)
+  - 停止
+- Native
+  - [react-native-skia/react-native-skia](https://github.com/react-native-skia/react-native-skia)
+  - [Shopify/react-native-skia](https://github.com/Shopify/react-native-skia)
+  - [iddan/react-native-canvas](https://github.com/iddan/react-native-canvas)
 
 ## 有趣
 

@@ -12,6 +12,14 @@ title: Tailwind CSS
 - 问题
   - [storybookjs/storybook#12668](https://github.com/storybookjs/storybook/issues/12668) - PostCSS 8 兼容问题
 
+:::tip
+
+- 支持任意选择 - v3.0.25+
+  - `[&>*]:text-red`
+  - `[&:[data-open]]:underline`
+
+:::
+
 :::info
 
 - 不支持嵌套 group [#1192](https://github.com/tailwindlabs/tailwindcss/issues/1192)
@@ -157,6 +165,7 @@ import 'tailwindcss/tailwind.css';
 - 默认配置 [stubs/defaultConfig.stub.js](https://unpkg.com/browse/tailwindcss/stubs/defaultConfig.stub.js)
   - 84 颜色
   - 5 breakpoint
+- https://tailwindcss.com/docs/configuration#core-plugins
 
 ```js
 module.exports = {
@@ -204,6 +213,28 @@ module.exports = {
 
   <footer></footer>
 </div>
+```
+
+## JIT
+
+- 颜色组合 - `bg-<color>/<opacity>`
+- 任意值 - `w-[20px]`
+- 临近节点选择 - `peer` `peer-checked:bg-blue-500`
+- 简化使用 - transform, filter, backdrop-filter 直接使用
+- 设置 content - `before:content-['hello']`
+
+```html
+<div data-content="hello world" class="before:content-[attr(data-content)] before:block"></div>
+```
+
+**important**
+
+- `!` 前缀
+
+```html
+<p class="font-bold !font-medium sm:hover:!tw-font-bold">
+  This will be medium even though bold comes later in the CSS.
+</p>
 ```
 
 # TailwindCSS Version
@@ -354,3 +385,29 @@ module.exports = {
   },
 };
 ```
+
+## 选择直接子元素
+
+```html
+<ul class="children:p-4">
+  <li>A</li>
+</ul>
+```
+
+```js
+module.exports = {
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('children', '& > *');
+    },
+  ],
+};
+```
+
+---
+
+- https://github.com/tailwindlabs/tailwindcss/pull/8299
+- https://play.tailwindcss.com/h7eDGStsE9?file=config
