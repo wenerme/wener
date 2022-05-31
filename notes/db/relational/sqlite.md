@@ -55,6 +55,9 @@ title: SQLite
     - 281TB 库
     - 2^64 行
   - [c_limit_attached](https://www.sqlite.org/c3ref/c_limit_attached.htm)
+- 参考
+  - https://sqlite.org/fiddle/
+  - https://github.com/jlongster/absurd-sql
 
 :::caution
 

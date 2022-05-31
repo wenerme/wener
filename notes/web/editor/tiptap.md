@@ -11,16 +11,17 @@ title: tiptap
   - 支持协作编辑 - y.js
   - Pro 提供部分额外扩展 - emoji, details
 - ![@tiptap/core min](https://badgen.net/bundlephobia/min/@tiptap/core?label=@tiptap/core%20min)
-  - 188k - prosemirror-{view,model,transform,state,commands,schema-list,keymap}
+  - prosemirror 188k - prosemirror-{view,model,transform,state,commands,schema-list,keymap}
   - @tiptap/core +58k
   - @tiptap/starter-kit +4k - 扩展都很小
   - @tiptap/react 包含 @popperjs/core, tippy.js ~ +60k
+  - ~310kb
 
 :::note
 
 - 默认会 inject 一点 css - [packages/core/src/style.ts](https://github.com/ueberdosis/tiptap/blob/main/packages/core/src/style.ts)
-- 没有内置 Markdown 支持
-  - [nextcloud/text](https://github.com/nextcloud/text)
+- 没有内置 Markdown 支持 - 可使用 prosemirror-markdown
+  - 可参考 [nextcloud/text](https://github.com/nextcloud/text)
 
 :::
 

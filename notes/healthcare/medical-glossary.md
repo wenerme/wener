@@ -12,9 +12,17 @@ title: 医学词汇表
 - 盐酸普鲁卡因 - [Procaine-hydrochloride](https://pubchem.ncbi.nlm.nih.gov/compound/Procaine-hydrochloride)
 - Toxicity - 毒性
 - Acute Effects - 急性效应
-- 核磁共振成像 - NMRI - Nuclear Magnetic Resonance Imaging
-  - 磁共振成像 - MRI - Magnetic Resonance Imaging
-- CT - Computerized Tomography - 计算机层析成像
+
+| abbr. | stand for                          |
+| ----- | ---------------------------------- | -------------- |
+| CT    | Computerized Tomography            | 计算机层析成像 |
+| NMRI  | Nuclear Magnetic Resonance Imaging | 核磁共振成像   |
+| MRI   | Magnetic Resonance Imaging         | 磁共振成像     |
+
+|                 en | zh       |
+| -----------------: | -------- |
+| anaerobic exercise | 无氧运动 |
+|   aerobic exercise | 有氧运动 |
 
 ## X-ray vs CT vs MRI
 
@@ -28,7 +36,7 @@ title: 医学词汇表
   - vs X 射线
     - 更详细
     - 能扫描骨、软组织、blood vessels
-    - 辐射是 xray 的 10～100倍
+    - 辐射是 xray 的 10 ～ 100 倍
   - 有辐射 - 电离辐射损伤
   - 只能获取与人体长轴垂直的横断面
 - MRI - 2003 年

@@ -4,27 +4,42 @@ title: 类风湿性关节炎
 
 # 类风湿性关节炎
 
-- [类风湿性关节炎](https://zh.wikipedia.org/wiki/类风湿性关节炎)
-  - [Rheumatoid arthritis](https://en.wikipedia.org/wiki/Rheumatoid_arthritis)
-  - https://patient.info/doctor/rheumatoid-arthritis-pro
-- 病因 基因与环境因素
-- 症状
+- 病因: 基因与环境因素
+- 症状:
   - 关节发热、肿胀和疼痛
   - 休息后恶化
-- 并发症
+- 并发症:
   - 可能导致低红血球细胞、肺部炎症、和心脏炎症。
   - 可能会发烧和缺乏活力。
-- 治疗
-  - 主要针对改善疼痛、减少发炎以及改善全身机能。
+- 治疗:
+  - 主要针对 **改善疼痛** 、 **减少发炎** 以及 **改善全身机能**。
   - 适当的休息及运动、使用夹板及背带或辅具等皆能帮助治疗改善。
   - 使用止痛剂、类固醇、非类固醇抗发炎药物来缓解症状
   - 疾病调节抗风湿药物（DMARD，包括羟氯喹、氨甲蝶呤等）亦可用来控制减缓病程，通常是在其他疗程对病人无效时才会使用到此类药物，然而此类药物相较于其他疗程也可能对病人造成较大的副作用。
-- 阶段
+- 预防:
+  - 经常运动
+  - 控制饮食能帮助减轻痛楚及僵硬
+  - 低温会使痛楚及僵硬恶化
+- 预后:
+  - 大部份病人的日常生活受到影响
+  - 5 年后，约有 33%的病人不能工作
+  - 10 年后，约一半的病人出现相当的身体障碍
+- 流行病学:
+  - 患病率约为 1%
+  - 35-50 岁最多
+  - 存在 家族遗传
+  - 女性是男性的 3-5 倍
+  - 吸烟者是非吸烟者的 4 倍
+- 阶段:
   - initiation phase (due to non-specific inflammation)
   - amplification phase (due to T cell activation)
   - chronic inflammatory phase, with tissue injury resulting from the cytokines, IL–1, TNF-alpha and IL–6
 - 参考
+  - [类风湿性关节炎](https://zh.wikipedia.org/wiki/类风湿性关节炎)
+    - [Rheumatoid arthritis](https://en.wikipedia.org/wiki/Rheumatoid_arthritis)
+    - https://patient.info/doctor/rheumatoid-arthritis-pro
   - [【TED-Ed】为什么我们还不能治愈关节炎](https://www.bilibili.com/video/av94091035)
+  - [The current status and challenges in the diagnosis and treatment of rheumatoid arthritis in China: An annual report of 2019](https://doi.org/10.2478/rir-2021-0008)
 
 ## 处理
 
@@ -89,3 +104,5 @@ Rituximab works by decreasing levels of B-cells (immune cell that is involved in
 ### 疫苗接种
 
 患有 RA 的人感染和死亡的风险增加，建议接种疫苗可以降低这些风险。应每年接种灭活的流感疫苗。对于 65 岁以下的人应接种两次肺炎球菌疫苗，对于 65 岁以上的人应接种一次。 减毒的带状疱疹疫苗应在 60 岁以后服用一次，但不建议使用肿瘤坏死因子 α 受体阻滞剂的患者服用。
+
+## 参考

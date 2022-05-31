@@ -75,7 +75,7 @@ yarn add --dev typescript @types/react @types/node
 
 # 首页
 mkdir pages
-cat <<INDEX >pages/index.tsx
+cat << INDEX > pages/index.tsx
 import React from 'react'
 function Home({ pid }) {
   return <div>NextJS Running on {pid}!</div>
@@ -464,6 +464,22 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
 }
 ```
 
+## next/image
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    // svg
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: `default-src 'self'; script-src 'none'; sandbox;`,
+    // hosts
+    domains: ['via.placeholder.com', 'lh3.googleusercontent.com'],
+  },
+};
+module.exports = nextConfig;
+```
+
 ## FAQ
 
 ### 检测在浏览器
@@ -574,7 +590,6 @@ npm install --verbose --platform=linuxmusl sharp
 
 - Buffer.from -> atob/btoa
 - https://nextjs.org/docs/api-reference/edge-runtime
-
 
 ## Expected server HTML to contain a matching div
 

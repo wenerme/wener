@@ -11,6 +11,8 @@ tags:
 ```bash
 node -r @ts-node/register app.ts
 node -r @babel/register app.js
+# tsconfig 里的 path 能生效
+node -r @ts-node/register -r tsconfig-paths/register app.ts
 ```
 
 ## Package 'OpenEXR', required by 'vips', not found

@@ -17,6 +17,30 @@ title: React Query
   - [Practical React Query](https://tkdodo.eu/blog/practical-react-query)
   - [Important Defaults](https://react-query.tanstack.com/guides/important-defaults)
 
+|                  |
+| ---------------- | ------------------------------------- | -------------------------------- |
+| **status**       |
+| idle             | isIdle                                | enabled:false 或 mutation 未执行 |
+| loading          | isLoading                             |
+| error            | isError,isLoadingError,isRefetchError |
+| success          | isSuccess                             |
+| initialData      |
+|                  | isFetching                            | loading 或 后台请求              |
+|                  | isFetched                             |
+|                  | isFetchedAfterMount                   | 避免显示缓存数据                 |
+|                  | isRefetching                          | isFetching && !isLoading         |
+| **options**      |
+| staleTime        | isStale                               |
+|                  | isPlaceholderData                     |
+| keepPreviousData | isPreviousData                        |
+
+:::caution
+
+- mutation 状态不共享 [#2304](https://github.com/tannerlinsley/react-query/issues/2304)
+- useQueries suspense 不是一次性等待完成 [#1523](https://github.com/tannerlinsley/react-query/issues/1523)
+
+:::
+
 # Version
 
 ## React Query v4

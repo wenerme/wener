@@ -132,6 +132,7 @@ tags:
 - [TorchStudio/torchstudio](https://github.com/TorchStudio/torchstudio)
 - [replicate/cog](https://github.com/replicate/cog) Containers for machine learning
 - https://www.nvidia.com/en-us/studio/canvas/
+- https://pimeyes.com/
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

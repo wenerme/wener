@@ -17,14 +17,23 @@ tags:
 - 参考
   - v8 [js/wasm 特性](https://v8.dev/features)
 
-| ver | lts start  | end        | v8 ver |
-| --- | ---------- | ---------- | ------ |
-| v18 | 2022-10-25 | 2025-04-30 |
-| v16 | 2021-10-26 | 2024-04-30 | 9.0    |
-| v14 | 2020-10-27 | 2023-04-30 | 8.1    |
-| v12 | 2019-10-21 | 2022-04-30 | 7.4    |
+| ver                           | lts start  | end        | v8 ver |
+| ----------------------------- | ---------- | ---------- | ------ |
+| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 |
+| [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2024-04-30 | 9.0    |
+| [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | 8.1    |
+| [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | 7.4    |
 
-## 16 LTS
+:::info Roadmap
+
+- fetch
+- corepack
+
+:::
+
+## Node v18 LTS
+
+## Node v16 LTS
 
 - V8 9.0
 - npm v7
@@ -35,11 +44,7 @@ tags:
 - 实验阶段
   - Web Crypto API
 
-## 15
-
-- V8 8.6
-
-## 14 LTS
+## Node v14 LTS
 
 - v8 版本 v8.1
   - Optional Chaining
@@ -55,7 +60,7 @@ tags:
   - WASI - Web Assembly System Interface
 - [Node.js 14 ChangeLog](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md)
 
-## 12 LTS
+## Node v12 LTS
 
 - V8 7.4
   - JIT-less V8

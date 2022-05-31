@@ -8,6 +8,7 @@ title: HTML
 
 - html 不支持 self close tag - `<br/>` 是不合法的
 - html 允许 tag 不 close
+- button 默认 type 为 submit - 根据使用情况需要修改为 button，否则会触发不必要的 submit
 
 :::
 

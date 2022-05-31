@@ -34,13 +34,25 @@ title: KV DB Awesome
 
 ## Redis
 
-- [KeyDB](https://github.com/EQ-Alpha/KeyDB)
-  - BSD3, C++,C
-  - 多线程 Redis
+- [KeyDB](./keydb.md)
+  - BSD-3, C++,C
+  - 被 Snapchat 收购 - 2022-05-11
+  - 多线程 Redis - IO 多线程，事务单线程
+  - 完整 Redis 兼容 - 持续使用 Redis 代码
   - ModJS - 可以通过 V8 扩展
   - WIP
     - JSON
   - [Migrating from Redis or KeyDB](https://docs.keydb.dev/docs/migration)
+- [dragonflydb/dragonfly](https://github.com/dragonflydb/dragonfly)
+  - BSL 1.1, C++,C
+  - 兼容 Redis 接口 - 不完整
+  - 兼容 Memcached 接口
+  - 多线程
+  - 类似 KeyDB
+    - 不完全使用 Redis 代码
+    - 完整多线程 - 事务也多线程
+    - io_uring - 要求比较新的 linux 内核
+    - 性能优于 KeyDB - 不同的 trade off
 - [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
   - Mordern Redis Cluster solution
 - [Tencent/Tendis](https://github.com/Tencent/Tendis)

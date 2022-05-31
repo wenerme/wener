@@ -16,13 +16,14 @@ tags:
 
 :::
 
-| linux version         | date       | note  | distro                                         |
-| :-------------------- | ---------- | ----- | ---------------------------------------------- |
-| [Linux 5.15] 22nd LTS | 2021-10-32 | NTFS  | alpine 3.15                                    |
-| [Linux 5.10] 21st LTS | 2020-12-13 |       | alpine 3.14, debian 11 Bullseye                |
-| [Linux 5.4] 20th LTS  | 2019-09-24 | exFAT | alpine 3.13, ubuntu 20.04                      |
-| [Linux 4.19] 19th LTS | 2019-10-22 |       | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
-| Linux 4.4 16th LTS    | 2016-01-10 |       | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
+| linux version         | date       | note     | distro                                         |
+| :-------------------- | ---------- | -------- | ---------------------------------------------- |
+| [Linux 5.15] 22nd LTS | 2021-10-32 | NTFS     | alpine 3.15                                    |
+| [Linux 5.10] 21st LTS | 2020-12-13 |          | alpine 3.14, debian 11 Bullseye                |
+| [Linux 5.4] 20th LTS  | 2019-09-24 | exFAT    | alpine 3.13, ubuntu 20.04                      |
+| [Linux 5.1]           |            | io_uring |                                                |
+| [Linux 4.19] 19th LTS | 2019-10-22 |          | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
+| Linux 4.4 16th LTS    | 2016-01-10 |          | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
 | Linux 3.14            | 2014-03-30 |
 
 - https://kernelnewbies.org/LinuxVersions
@@ -42,6 +43,12 @@ tags:
 [linux 5.10]: #linux-510
 [linux 5.4]: #linux-54
 [linux 4.19]: #linux-519
+
+
+```bash
+# CONFIG_IO_URING
+grep io_uring_setup /proc/kallsyms
+```
 
 ## Linux 5.15
 

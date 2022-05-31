@@ -6,22 +6,43 @@ tags:
 
 # Chrome Version
 
-| version   | date       | note                                              |
-| --------- | ---------- | ------------------------------------------------- |
-| Chrome 95 | 2021-09-20 |
-| Chrome 90 | 2021-02-28 |
-| Chrome 86 | 2020-10-06 | File System Access API                            |
-| Chrome 80 | 2019-12-05 |
-| Chrome 70 | 2018-08-29 | AV1                                               |
-| Chrome 60 | 2017-05-23 |
-| Chrome 49 | 2016-03-02 | last Windows XP, Vista; Mac OS X 10.6, 10.7, 10.8 |
-| Chrome 28 | 2013-07-09 | Blink                                             |
-| Chrome 1  | 2008-12-11 |
+| version                   | date       | note                                              |
+| ------------------------- | ---------- | ------------------------------------------------- |
+| [Chrome 103](#chrome-103) |            |
+| [Chrome 102](#chrome-102) |            | DNS HTTPS                                         |
+| [Chrome 101](#chrome-101) |            |
+| [Chrome 100](#chrome-100) | 2022-03-29 |
+| [Chrome 99](#chrome-99)   |            | @layer                                            |
+| [Chrome 98](#chrome-98)   |
+| [Chrome 97](#chrome-97)   |
+| [Chrome 96](#chrome-96)   |
+| [Chrome 95](#chrome-95)   | 2021-09-20 |
+| [Chrome 94](#chrome-94)   |
+| [Chrome 93](#chrome-93)   |
+| [Chrome 92](#chrome-92)   |
+| [Chrome 91](#chrome-91)   |
+| [Chrome 90](#chrome-90)   | 2021-02-28 |
+| [Chrome 89](#chrome-89)   |            |
+| [Chrome 88](#chrome-88)   |            |
+| [Chrome 87](#chrome-87)   |            |
+| [Chrome 86](#chrome-86)   | 2020-10-06 | File System Access API                            |
+| [Chrome 86](#chrome-86)   |            |
+| [Chrome 85](#chrome-85)   |            |
+| [Chrome 84](#chrome-84)   |            |
+| [Chrome 83](#chrome-83)   |            |
+| [Chrome 81](#chrome-81)   |            |
+| [Chrome 80](#chrome-80)   | 2019-12-05 |
+| [Chrome 70](#chrome-70)   | 2018-08-29 | AV1                                               |
+| [Chrome 60](#chrome-60)   | 2017-05-23 |
+| [Chrome 49](#chrome-49)   | 2016-03-02 | last Windows XP, Vista; Mac OS X 10.6, 10.7, 10.8 |
+| [Chrome 28](#chrome-28)   | 2013-07-09 | Blink                                             |
+| Chrome 1                  | 2008-12-11 |
 
 - 基本一年 8-10 个版本, 大约 30 天一个版本
 - https://chromestatus.com/features
 - https://chromestatus.com/roadmap
   - 关注 Enabled by default
+- https://chromiumdash.appspot.com/schedule
 - [What's New in DevTools](https://developer.chrome.com/tags/new-in-devtools/)
 - 参考
   - [Getting started with Trust Tokens](https://web.dev/trust-tokens/)
@@ -36,15 +57,19 @@ tags:
 
 :::tip
 
-- structuredClone - Chrome 98
-- OPFS - Origin Private File System - Chrome 99
 - Container Query - WIP
+- Raw Sockets API - WIP
+- Sanitizer API
+  - https://web.dev/sanitizer/
+  - https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API
+- OPFS - Origin Private File System, CSS @layer - Chrome 99
+- structuredClone - Chrome 98
 
 :::
 
 :::caution
 
-- blocked ports 554
+- blocked ports
   - 989, 990 - FTPS
   - 10080, 554
     - NAT Slipstream 2.0 attack
@@ -61,13 +86,81 @@ tags:
 
 :::
 
+- 外部设备
+  - SerialPort, HIDDevice, WebUSB, WebMIDI, WebBluetooth, GamePad
+
+## Chrome 104
+
+- script,style,link - blocking=render - 避免 FOUC
+- Media Queries Level 4 Syntax & Evaluation
+
+## Chrome 103
+
+- AbortSignal.timeout
+- Block external protocol in sandboxed iframe
+  - 恢复 allow-top-navigation-to-custom-protocols
+    - allow-popups
+    - allow-top-navigation
+    - allow-top-navigation-with-user-activation
+- Focusgroup
+- Local Font Access - https://web.dev/local-fonts
+- Multi-Screen Window Placement: Fullscreen Companion Window
+
+## Chrome 102
+
+- Navigation API - window.navigation - [WICG/navigation-api](https://github.com/WICG/navigation-api)
+  - 焦点管理
+  - 提升 history 体验
+- DNS HTTPS 记录触发跳转 HTTP->HTTPS
+- Capture Handle
+- File Handling - Web 定义有能力处理指定类型文件
+- Secure Payment Confirmation API V3 https://github.com/w3c/secure-payment-confirmation
+- inert 属性 https://github.com/WICG/inert
+  - polyfill wicg-inert
+  - Temporarily offscreen/hidden content
+  - On-screen but non-interactive content - pointer-events: none，user-select: none
+
+## Chrome 101
+
+- MediaCapabilities API for WebRTC
+- Priority Hints - fetchpriority=auto|low|high
+- @font-palette-values
+
+## Chrome 100
+
+- AbortSignal.prototype.throwIfAborted
+- Capability Delegation API - 类似 `<iframe allow>`
+- Digital Goods API - Android Play Billing API
+- Hints delegation for third-party content - `<meta name="accept-ch" content="sec-ch-width=( https://foo.bar )">`
+- Multi-Screen Window Placement - https://github.com/w3c/window-placement
+
+## Chrome 99
+
+- CSS
+  - `@layer`
+  - cacl 允许 infinity,-infinity,NaN
+  - text-emphasis: text-emphasis-{color,position,style}
+- ShadowDOM
+  - adoptedStyleSheets: FrozenArray -> ObservableArray
+    - 可以 push 而不需要整个替换
+- HTMLInputElement.showPicker - 显示 input 的选择器
+- Handwriting Recognition API - [WICG/handwriting-recognition](https://github.com/WICG/handwriting-recognition)
+- Intl Enumeration API
+- Intl.Locale
+- New Canvas 2D API - https://github.com/fserb/canvas2d
+
 ## Chrome 98
 
+- CSS
+  - color-scheme: **only** light
 - self.structuredClone
+- COLRv1 Color Gradient Vector Fonts
+- FS
+  - FileSystemHandle::Remove - 之前需要获取到 Parent 来删除
 
 ## Chrome 97
 
-- JavaScript Array, TypedArray findLast, findLastIndex
+- JavaScript Array, TypedArray: findLast, findLastIndex
 - HTMLScriptElement.supports(type)
 - WebTransport
   - 类似 WebSocket 和 RTCDataChannel 的角色

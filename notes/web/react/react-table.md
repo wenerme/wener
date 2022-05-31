@@ -6,6 +6,7 @@ title: react-table
 
 - [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   - 基于 Hook 功能强大的 Table 组件
+- v8+ 框架无关
 
 :::caution
 

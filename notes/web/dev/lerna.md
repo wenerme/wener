@@ -4,6 +4,8 @@ title: Lerna
 
 # Lerna
 
+> npm 支持 workspace 后 lerna 已很少使用
+
 - [#1243](https://github.com/lerna/lerna/issues/1243#issuecomment-401396850)
   - Lerna 的主要目的是帮助 monorepo **发布** 多个包，而不是帮助本地开发本地多模块 - 这是 yarn workspace 的目的
 - Lerna 可以配合 yarn workspace 一起使用

@@ -30,7 +30,15 @@ tags:
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing
-  - jquery
+  - manipulation
+    - dom7 - morden jquery
+    - jquery
+  - parser
+    - zeed-dom - Parser
+  - santinizer
+    - [cure53/DOMPurify](https://github.com/cure53/DOMPurify)
+  - env
+    - jsdom
 - IoC
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
 - deep compare
@@ -97,6 +105,22 @@ tags:
     - SVG renderer, powered by Rust based resvg and napi-rs
 - color
   - [Qix-/color](https://github.com/Qix-/color)
+  - color-name
+  - color-parse
+  - tinycolor2 - 14kb
+  - chroma-js
+  - color
+  - colors.js
+  - color2k
+  - polished
+- css
+  - css-tree - parser
+  - csstype - TypeScript for CSS
+  - css in js
+    - nano-css - 0.5 kb
+    - jss - 22kb
+  - processor
+    - stylis - 10kb - nesting, selector namespacing, vendor prefixing, minification
 - store
   - [rxdb](https://github.com/pubkey/rxdb)
     - rxjs
@@ -206,6 +230,12 @@ tags:
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
 - benchmark
   - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
+- data
+  - mdn-data - [mdn/data](https://github.com/mdn/data)
+- codec/parser
+  - punycode
+  - url-js
+  - url
 
 ---
 

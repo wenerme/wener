@@ -95,6 +95,8 @@ npm add date-fns lodash-es react-fast-compare
   - 如果选择 MD 风格则非常匹配
   - 完成程度和成熟度远远高于 antd
   - 组件非常多，支持高度样式自定义
+- [geist-org/geist-ui](https://github.com/geist-org/geist-ui)
+  - 类似 vercel 的设计风格
 - [arco-design/arco-design](https://github.com/arco-design/arco-design)
   - 字节跳动
   - [DouyinFE/semi-design](https://github.com/DouyinFE/semi-design)
@@ -501,6 +503,7 @@ useStore.destroy();
 
 ## 图表
 
+- react-d3-tree
 - [recharts/recharts](https://github.com/recharts/recharts)
   - 基于 d3 封装
   - 功能比较原始 - 自定义能力较强 - 自定义 svg - 随意画图

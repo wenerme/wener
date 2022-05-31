@@ -4,15 +4,23 @@ title: 词汇表
 
 # 词汇表
 
-- 有氧运动
+| abbr. | stand for                        |
+| ----- | -------------------------------- | -------------- |
+| HIIT  | high-intensity interval training | 高强度间歇训练 |
+| BMR   | basal metabolic rate             | 基础代谢率     |
 
 ## 单位
+
+:::tip
+
+- 减重 0.5 kg 大约需要 3500 kcal - 30000 kJ
+- 减重 1 kg 大约需要 7000 kcal - 60000 kJ
+
+:::
 
 - 卡路里/卡/大卡 - calories
   - 热量单位 - 用于运动和营养学
   - 通常使用 kcal/千卡/大卡
-  - 减重 0.5 kg 大约需要 3500 kcal - 30000 kJ
-  - 减重 1 kg 大约需要 7000 kcal - 60000 kJ
 - 焦耳
   - 热量单位 - 用于食物营养表
   - 通常使用 kilojoules/千焦
@@ -53,12 +61,7 @@ title: 词汇表
 | 坐着钓鱼 2.5   | 慢节奏游泳 5    | 跑步-11kph 11.5                |
 
 - 参考
-- [what-are-mets](https://www.healthline.com/health/what-are-mets)
-
-## 间歇性断食 / intermittent fasting
-
-- 8/16 - 8 个小时内进食，另外 16 个小时断食
-- 5-2 - 5 天正常进食，2 天很少进食/断食
+  - [what-are-mets](https://www.healthline.com/health/what-are-mets)
 
 # FAQ
 

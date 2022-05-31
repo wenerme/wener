@@ -71,6 +71,9 @@ tags:
   - [interactsh](https://github.com/projectdiscovery/interactsh)
   - [naabu](https://github.com/projectdiscovery/naabu)
     - port scanner
+- [aquasecurity/trivy](https://github.com/aquasecurity/trivy)
+  - Apache-2.0, Go
+  - Scanner for vulnerabilities in container images, file systems, and Git
 
 ---
 

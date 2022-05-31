@@ -4,6 +4,9 @@ title: Notion
 
 # Notion
 
+- Price - https://www.notion.so/pricing
+  - Free - 不限内容数量、最多分享 5 访客、上传单文件 5MB
+  - Personal - 5$/月 - 不限访客、不限上传
 - 参考
   - https://www.notion.so/blog/faster-page-load-navigation
   - [notion-enhancer](https://github.com/notion-enhancer)
