@@ -45,6 +45,10 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 | --platform=browser,node,neutral | 默认 browser          |
 | --external:@strapi              | 作为外部依赖          |
 
+- --minify
+  - --minify-whitespace
+  - --minify-identifiers
+  - --minify-syntax
 - --external:
   - `/assets/*.png`
   - `@foo/bar` 隐含 `@foo/bar/*`

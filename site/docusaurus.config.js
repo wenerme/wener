@@ -15,7 +15,7 @@ function RewritePlugin(context, options) {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Wener Live & Life',
-  tagline: 'Passion I\'ve found',
+  tagline: "Passion I've found",
   url: 'https://wener.me',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -130,6 +130,8 @@ const config = {
       appId: '37P8DMWBKF',
       apiKey: '2c9df87f2ccde17db1ccfc2886b03765',
       indexName: 'wener',
+      // no mutli lang, version
+      contextualSearch: false,
       searchParameters: {},
     },
     navbar: {
@@ -190,7 +192,7 @@ const config = {
               `,
             },
             {
-              label: 'Wener\'s Apis',
+              label: "Wener's Apis",
               href: 'https://apis.wener.me',
             },
           ],
@@ -236,7 +238,7 @@ const config = {
             from: ['/blog'],
           },
         ],
-        createRedirects: function(existingPath) {
+        createRedirects: function (existingPath) {
           if (existingPath.startsWith('/story/')) {
             return ['/blog/' + existingPath.substring('/story/'.length)];
           }
