@@ -13,9 +13,6 @@ title: gRPC
   - 默认定义
   - api.proto
     - 对服务的轻量级定义
-- 问题
-  - [grpc-go#555](https://github.com/grpc/grpc-go/issues/555) - ServeHTTP doesn't work without TLS
-    - Golang 实现可以使用 `ServeHTTP`, 但必须要 `TLS`
 - 相关服务
   - [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy)
     - grpc 反向代理
@@ -29,6 +26,16 @@ title: gRPC
   - [mfornos/awesome-microservices](https://github.com/mfornos/awesome-microservices)
   - [gRPC Practical Tutorial - Magic That Generates Code](https://goel.io/grpc-100/)
   - [LogNet/grpc-spring-boot-starter](https://github.com/LogNet/grpc-spring-boot-starter)
+
+:::caution 痛点
+
+- 官方 gRPC 实现非常复杂
+  - 因为同时考虑 Google 内部使用和 开源社区 使用
+  - grpc-go 使用自己的 net/http
+- gRPC 必须要求 HTTP2 trailer - 门槛相当高
+- gRPC Web 需要引入一层额外代理
+
+:::
 
 ## Note
 
@@ -99,7 +106,7 @@ protoc $COMMON_ARGS --plugin=protoc-gen-grpc=$(which grpc_ruby_plugin) --ruby_ou
 # Generate Python
 protoc $COMMON_ARGS --plugin=protoc-gen-grpc=$(which grpc_python_plugin) --python_out=./objc --grpc_out=./python
 # Generate Node
-protoc $COMMON_ARGS --plugin=protoc-gen-grpc=$(which grpc_node_plugin)  --js_out=import_style=commonjs,binary:./node --grpc_out=./node
+protoc $COMMON_ARGS --plugin=protoc-gen-grpc=$(which grpc_node_plugin) --js_out=import_style=commonjs,binary:./node --grpc_out=./node
 ```
 
 ## 安装
@@ -128,7 +135,6 @@ brew install grpc
 # 不 link 则使用绝对路径
 brew link grpc
 
-
 # 变量定义简化操作
 # =========
 # 安装 gRPC 后会包含很多插件
@@ -141,7 +147,6 @@ PROTO_FILES=(apis/**/*.proto)
 PROTO_ARGS="-I $PROTO_PATH  ${PROTO_FILES[*]}"
 # 覆盖 protoc
 alias protoc="protoc $PROTO_ARGS"
-
 
 # gRPC 生成
 # =========
@@ -218,7 +223,7 @@ yarn global add grpc-tools
 protoc -I=. ./protos/product.proto \
   --js_out=import_style=commonjs,binary:./server \
   --grpc_out=./server \
-  --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin`
+  --plugin=protoc-gen-grpc=$(which grpc_tools_node_protoc_plugin)
 
 # ts-protoc-gen
 # =========
@@ -231,7 +236,6 @@ protoc -I=. ./protos/product.proto \
 # 生成网关代码和 Swagger 配置
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-
 
 # 生成 stub
 protoc --go_out=plugins=grpc:. -I proto/ proto/hello.proto
@@ -387,10 +391,10 @@ client.getInfo(request, (err, response) => {
 
 ```bash
 # http2 相关的环境变量
-GODEBUG=http2client=0  # disable HTTP/2 client support
-GODEBUG=http2server=0  # disable HTTP/2 server support
-GODEBUG=http2debug=1   # enable verbose HTTP/2 debug logs
-GODEBUG=http2debug=2   # ... even more verbose, with frame dumps
+GODEBUG=http2client=0 # disable HTTP/2 client support
+GODEBUG=http2server=0 # disable HTTP/2 server support
+GODEBUG=http2debug=1  # enable verbose HTTP/2 debug logs
+GODEBUG=http2debug=2  # ... even more verbose, with frame dumps
 ```
 
 ### Client
@@ -586,7 +590,6 @@ docker pull googleapis/artman
 
 docker run -it --rm -v $PWD/googleapis:/googleapis -v $PWD/artman:/artman -w /googleapis googleapis/artman
 # artman --api pubsub --language python
-
 ```
 
 #### Service Control

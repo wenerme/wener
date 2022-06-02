@@ -194,6 +194,7 @@ tags:
   - jquery
   - [fabiospampinato/cash](https://github.com/fabiospampinato/cash)
 - validate
+  - yup
   - [colinhacks/zod](https://github.com/colinhacks/zod)
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
 - math

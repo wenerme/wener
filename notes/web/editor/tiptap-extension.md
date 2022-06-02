@@ -8,6 +8,9 @@ title: Tiptap Extension
   - Node.create - 增加 Node
   - Mark.create - 增加 Mark
   - Extension.create - 增加 扩展现有 Node、Mark
+- 扩展 Schema - NodeSpec, MarkSpec
+  - extendMarkSchema
+  - extendNodeSchema
 
 ## Editor
 

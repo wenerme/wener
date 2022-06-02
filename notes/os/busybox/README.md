@@ -34,7 +34,7 @@ chmod +x busybox
   - keep track of all logins and logouts
   - 被依赖 who, last
   - AlpineLinux 目前没开启 bb 的这个组件，目前仓库有 skarnet 的 [utmps](https://skarnet.org/software/utmps/)
-    - coretutl link 的是 skarnet 的 utmp
+    - coretutil link 的是 skarnet 的 utmp
     - https://gitlab.alpinelinux.org/alpine/aports/-/issues/3282#note_15597
     - musl 不支持 utmp
       - https://wiki.musl-libc.org/faq.html

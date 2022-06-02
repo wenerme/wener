@@ -89,6 +89,32 @@ tags:
 - 外部设备
   - SerialPort, HIDDevice, WebUSB, WebMIDI, WebBluetooth, GamePad
 
+## Interop 2022
+- 2022 Focus Areas
+  - Cascade Layers - @layer
+  - Collor Spaces and Functions - accent-color, color-schema
+  - Containment
+  - Dialog Element
+  - Forms
+  - Scrolling - scroll snap, scroll-behavior, overscroll-behavior
+  - Subgrid
+  - Typography and Encodings - font-variant-alternates, font-variant-position, ic
+  - Viewport Units - {d,l,s}v{h,w,min,max}
+  - Web Compat
+- 2021 Focus Areas
+  - Aspect Ratio
+  - Flexbox
+  - Grid
+  - Sticky Positioning
+  - Transforms
+- 2022 Investigation
+  - Editing, contentEditable, execCommand
+  - Pointer and Mouse Events
+  - Vieport Measurement
+- 参考
+  - https://wpt.fyi/interop-2022
+  - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
+
 ## Chrome 104
 
 - script,style,link - blocking=render - 避免 FOUC

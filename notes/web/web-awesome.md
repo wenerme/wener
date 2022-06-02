@@ -238,3 +238,9 @@ www.npmjs.com npm.proxy.ustclug.org
 themes.googleusercontent.com google-themes.proxy.ustclug.org
 secure.gravatar.com gravatar.proxy.ustclug.org
 ```
+
+## performance
+
+- lighthouse
+- https://web.dev/measure/
+- https://www.webpagetest.org/lighthouse

@@ -174,6 +174,7 @@ mount UUID=x-x-x-x /sysroot
 
 - [#3282](https://bugs.alpinelinux.org/issues/3282) - users: /dev/null/utmp: Not a directory
   - 执行 who, last, screen 时
+- 3.16 包含 utmp
 
 ## Password: chpasswd: PAM: Authentication failure
 

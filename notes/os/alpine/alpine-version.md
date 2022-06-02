@@ -33,17 +33,18 @@ tags:
 
 :::
 
-| version          | date       |
-| ---------------- | ---------- |
-| AlpineLinux 3.15 | 2021-11-24 |
-| AlpineLinux 3.14 | 2021-07-15 |
-| AlpineLinux 3.13 | 2020-01-14 |
-| AlpineLinux 3.12 | 2020-05-29 |
-| AlpineLinux 3.11 | 2019-12-29 |
-| AlpineLinux 3.10 | 2019-06-19 |
-| AlpineLinux 3.9  | 2019-01-29 |
-| AlpineLinux 3.8  | 2018-06-26 |
-| AlpineLinux 3.7  | 2017-11-30 |
+| version                              | date       |
+| ------------------------------------ | ---------- |
+| [AlpineLinux 3.16](#alpinelinux-316) | 2021-05-23 |
+| [AlpineLinux 3.15](#alpinelinux-315) | 2021-11-24 |
+| [AlpineLinux 3.14](#alpinelinux-314) | 2021-07-15 |
+| [AlpineLinux 3.13](#alpinelinux-313) | 2020-01-14 |
+| [AlpineLinux 3.12](#alpinelinux-312) | 2020-05-29 |
+| [AlpineLinux 3.11](#alpinelinux-311) | 2019-12-29 |
+| [AlpineLinux 3.10](#alpinelinux-310) | 2019-06-19 |
+| [AlpineLinux 3.9](#alpinelinux-39)   | 2019-01-29 |
+| [AlpineLinux 3.8](#alpinelinux-38)   | 2018-06-26 |
+| [AlpineLinux 3.7](#alpinelinux-37)   | 2017-11-30 |
 
 :::caution 版本升级注意事项
 
@@ -58,6 +59,16 @@ tags:
 :::
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
+
+## AlpineLinux 3.16
+
+- 新的 setup-desktop
+- /tmp - tmpfs - 之前在 root 里，只影响新安装
+- 包变化
+  - Go 1.18, LLVM 13, Python 3.10
+  - sudo - main -> community - 推荐 doas, doas-sudo-shim
+  - utmp - https://skarnet.org/software/utmps
+  - qemu 7
 
 ## AlpineLinux 3.15
 
@@ -308,7 +319,6 @@ sync
 sed -ire 's/v\d\.\d/v3.8/g' /etc/apk/repositories
 # 更新仓库索引
 apk update
-
 
 # 3.8 内核切换
 # ============

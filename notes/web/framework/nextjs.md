@@ -56,9 +56,10 @@ title: NextJS
 
 - 无法按页面切分 CSS
   - 最终会生成单个 css 文件
-  - 只有 \_app 可以导入全局 css
-- 单一 HTML 入口
+  - 只有 `_app` 可以导入全局 css
+- 单一 HTML 入口 - 不像 vite 支持多入口
 - rewrites 会在 build 时生成 router-manifest, 因此 start 时配置的变量 **无法** 产生影响
+- ESM 使用还有问题 [#36940](https://github.com/vercel/next.js/issues/36940)
 
 :::
 

@@ -252,6 +252,9 @@ npm add date-fns lodash-es react-fast-compare
 - table
   - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
   - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+- i18n
+  - react-i18next
+  - react-intl
 
 ### 编辑器
 

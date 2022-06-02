@@ -1,5 +1,5 @@
 ---
-title: Awesome
+title: Web Spec Awesome
 tags:
   - Awesome
 ---
