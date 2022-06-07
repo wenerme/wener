@@ -57,13 +57,14 @@ tags:
 
 :::tip
 
+- 暴露 Socket - 支持 TCP 和 UDP - [Raw Sockets API](https://chromestatus.com/feature/6398297361088512)
 - Container Query - WIP
-- Raw Sockets API - WIP
 - Sanitizer API
   - https://web.dev/sanitizer/
   - https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API
 - OPFS - Origin Private File System, CSS @layer - Chrome 99
 - structuredClone - Chrome 98
+- WebTransport - Chrome 97
 
 :::
 

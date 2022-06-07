@@ -1,5 +1,4 @@
 ---
-id: onlyoffice
 title: ONLYOFFICE
 ---
 

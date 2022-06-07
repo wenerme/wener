@@ -23,10 +23,11 @@ tags:
     - GPLv3
   - [mwilliamson/mammoth.js](https://github.com/mwilliamson/mammoth.js)
     - .docx to HTML
+  - [alalic/docx2html](https://github.com/lalalic/docx2html)
   - [lalalic/docx4js](https://github.com/lalalic/docx4js)
     - 解析 docx, pptx, xlsx
   - [dolanmiu/docx](https://github.com/dolanmiu/docx)
-    - 生产 docx
+    - 生成 docx
   - [dbashford/textract](https://github.com/dbashford/textract)
     - 文本提取
 - [foliojs](https://github.com/foliojs)

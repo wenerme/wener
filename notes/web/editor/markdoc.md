@@ -117,7 +117,9 @@ Show the password
 - MDX
   - 允许任意 JS - docs as code
   - 允许任意代码导致最终会过度复杂
+  - 要求语法严格正确 - 错误无法编译 - 例如: 不允许单独存在 `<` - 会导致解析错误
 - Markdoc
   - 限定允许的 tag - docs as data
   - declarative
   - 针对文档书写
+  - 允许一定的错误语法

@@ -1,4 +1,8 @@
-# Web relate resources
+---
+title: Web
+---
+
+# Web
 
 - [Firefox Hardware Report](https://metrics.mozilla.com/firefox-hardware-report/)
 - [Resilient Web Design](https://resilientwebdesign.com/)

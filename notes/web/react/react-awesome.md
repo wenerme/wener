@@ -213,6 +213,7 @@ npm add date-fns lodash-es react-fast-compare
   - [nolimits4web/swiper](https://github.com/nolimits4web/swiper)
     - https://swiperjs.com/react
   - [express-labs/pure-react-carousel](https://github.com/express-labs/pure-react-carousel)
+    - 55kb
     - https://express-labs.github.io/pure-react-carousel/
   - [leandrowd/react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel)
     - ~30kB
@@ -252,9 +253,12 @@ npm add date-fns lodash-es react-fast-compare
 - table
   - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
   - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
-- i18n
+- i18n - [Unicode Language and Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers)
   - react-i18next
   - react-intl
+  - lingui
+  - rosetta
+  - next-intl
 
 ### 编辑器
 

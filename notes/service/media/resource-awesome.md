@@ -39,6 +39,10 @@ alipanso6.com，alipanso7.com，alipanso8.com
   - 中文 BT 站点
 -->
 
+## ebooks
+
+- http://119.6.110.75:8065/
+
 ## acgnx
 
 - `https://share.acgnx.se/show-<infohash>.html`

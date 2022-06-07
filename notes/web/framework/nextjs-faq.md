@@ -46,8 +46,24 @@ module.exports = require('./next.config.ts');
 ## next.config.js 类型提示
 
 ```js
-/** @type {import('next/dist/next-server/server/config').NextConfig} */
+/** @type {import('next').NextConfig} */
 module.exports = {};
+```
+
+## Prop className did not match
+
+nextjs 12 后需要配置 compiler
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  compiler: {
+    // 添加
+    styledComponents: true,
+  },
+};
+module.exports = nextConfig;
 ```
 
 ## 使用单一的 API 来处理所有接口

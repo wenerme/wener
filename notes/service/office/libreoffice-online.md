@@ -1,5 +1,4 @@
 ---
-id: libreoffice-online
 title: LibreOffice Online
 ---
 

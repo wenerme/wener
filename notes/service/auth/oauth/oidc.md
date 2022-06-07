@@ -56,7 +56,7 @@ title: OpenID Connect
   - urn:ietf:params:oauth:grant-type:jwt-bearer
   - urn:ietf:params:oauth:grant-type:token-exchange
 
-| spec                            | year |
+| Spec                            | Year |
 | ------------------------------- | ---- |
 | [OpenID 1.0]                    | 2006 |
 | [OpenID 2.0]                    | 2007 |

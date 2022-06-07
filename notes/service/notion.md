@@ -16,6 +16,7 @@ title: Notion
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
   - [japrozs/dino](https://github.com/japrozs/dino)
   - [mattermost/focalboard](https://github.com/mattermost/focalboard)
+    - MIT, Typescript
   - [AppFlowy-IO/appflowy](https://github.com/AppFlowy-IO/appflowy)
     - AGPL-3.0, Rust+Dart
     - Trello, Notion, Asana

@@ -5,7 +5,7 @@ title: juicefs
 # juicefs
 
 - [juicedata/juicefs](https://github.com/juicedata/juicefs)
-  - AGPL-3.0, Go
+  - Apache-2.0, Go
   - distributed POSIX fs
   - metadata - Redis, TiKV, PG, MySQL
   - data - S3, OSS, Ceph, MinIO

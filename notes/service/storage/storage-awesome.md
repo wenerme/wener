@@ -6,7 +6,28 @@ tags:
 
 # Storage Awesome
 
-**接口协议**
+- 考虑因素
+  - 怎么用
+    - 选择网络接口协议
+    - 块 vs 文件 vs 对象
+    - 需要什么样的功能 - 快照、备份、加密
+    - SDS
+  - 有什么
+    - 网络带宽、延时
+    - 存储设备情况、NVME、SATA、SAS
+  - 面对什么样的威胁
+    - 磁盘损坏
+    - 网络异常
+
+:::tip
+
+90% 的情况下都不需要分布式存储，单机使用 ZFS 可以把存储能力叠到很高。
+
+基于单机存储也可以实现 SDS - 软件定义存储。
+
+:::
+
+## 网络接口协议
 
 - 对象存储协议 - KV, 不需要文件语义
   - s3
@@ -41,7 +62,47 @@ tags:
   - AGPL-3.0, Go
   - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql
 
-## Protocol
+## 分布式存储服务
+
+- [minio](./minio.md) - S3
+- ceph - S3, POSIX, RAOD
+- [gluster](./gluster.md) - POSIX
+- luster
+- hdfs - 大数据, 计算->存储
+- openio-sds
+
+**国人开发/维护**
+
+- [seaweedfs](./seaweedfs.md) - 快存储，小文件优化
+  - Apache-2.0, Go
+  - 开发活跃，作者活跃
+- [juicefs](./juicefs.md)
+  - Apache-2.0, Go
+  - AGPL-3.0 -> Apache-2.0
+  - metadata - Redis, TiKV, PG, MySQL
+  - data - S3, OSS, Ceph, MinIO
+- [cubefs](https://github.com/cubefs/cubefs)
+  - Apache-2.0, Go,C++
+  - chubaofs -> cubeFS
+  - 🚧 开发不活跃
+  - CNCF 项目
+  - 提供 S3 接口
+  - POSIX
+  - 多租户
+- [happyfish100/fastdfs](https://github.com/happyfish100/fastdfs)
+  - GPL-3.0, C
+  - 🚧 开发不活跃
+- [haiwen/seafile](https://github.com/haiwen/seafile)
+  - GPL, C
+  - 🚧 开发不活跃
+
+---
+
+- 参考
+  - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
+  - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
+
+## 协议库
 
 - [wthorp/GoSMB](https://github.com/wthorp/GoSMB)
   - SMB server written in Go
@@ -55,36 +116,6 @@ tags:
   - NFSv4 client
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
   - NFSv3 server
-
-## Distributed File System
-
-- minio
-- ceph
-- gluster
-- luster
-- hdfs
-- 参考
-  - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
-  - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
-
----
-
-- [chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
-  - Apache-2.0, Go
-- [chubaofs/chubaofs](https://github.com/chubaofs/chubaofs)
-  - Apache-2.0, Go
-  - CNCF 项目
-  - 提供 S3 接口
-  - POSIX
-  - 多租户
-- [happyfish100/fastdfs](https://github.com/happyfish100/fastdfs)
-  - GPL-3.0, C
-- [juicedata/juicefs](https://github.com/juicedata/juicefs)
-  - AGPL-3.0, Go
-  - metadata - Redis, TiKV, PG, MySQL
-  - data - S3, OSS, Ceph, MinIO
-- [haiwen/seafile](https://github.com/haiwen/seafile)
-  - GPL, C
 
 ## Tools
 

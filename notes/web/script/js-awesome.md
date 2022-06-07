@@ -203,7 +203,7 @@ tags:
   - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
   - [3b1b/manim](https://github.com/3b1b/manim)
 - markdown
-  - [markdown-it/markdown-it](https://github.com/markdown-it/markdown-it)
+  - [markdown-it](https://github.com/markdown-it/markdown-it)
   - [mdx-js/mdx](https://github.com/mdx-js/mdx)
     - [mdx-js/specification](https://github.com/mdx-js/specification)
     - [remark-mdx](https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx)
@@ -242,13 +242,6 @@ tags:
 
 - npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
 
-## JSX
-
-- [ryansolid/solid](https://github.com/ryansolid/solid)
-  - 快、小、类 React
-  - jsx 直接预先生成 dom 模板，属性变化动态插入到 dom 里 - 没有 react 的 vdom 比较合并
-- preact
-- [jorgebucaran/hyperapp](https://github.com/jorgebucaran/hyperapp)
 
 ## Game
 

@@ -13,6 +13,23 @@ tags:
 
 :::
 
+## 安装
+
+- https://go.dev/dl/
+  - https://mirrors.ustc.edu.cn/golang/
+
+```bash
+# Windows go1.17.6.windows-amd64.zip
+# macOS go1.18.3.darwin-amd64.tar.gz
+curl -LO https://mirrors.ustc.edu.cn/golang/go1.17.6.windows-amd64.zip
+mkdir -p ~/sdk
+unzip go1.17.6.windows-amd64.zip -d ~/sdk
+mv ~/sdk/go ~/sdk/go1.17.6
+~/sdk/go1.17.6/bin/go version
+
+export PATH=$HOME/sdk/go1.17.6/bin:$PATH
+```
+
 ## 安装指定版本 Golang 环境
 
 - 下载位置
@@ -21,6 +38,7 @@ tags:
 - 安装完成不会删除压缩包，可自己删除
 - tip 最新 latest
   - 下载源码进行编译
+- 默认下载地址 `"https://dl.google.com/go/" + version + "." + goos + "-" + arch + ext`
 
 ```bash
 # 下载 tip 版本

@@ -47,6 +47,49 @@ npx turbo login --sso-team=<team-slug>
   - config/ - eslint
   - tsconfig/
 
+## 缓存
+
+- 缓存输出的文件和命令执行的输出
+- `.turbo/run-<command>.log`
+- `node_modules/.cache/turbo`
+- 环境变量 TURBO_HASH 依据
+  - inputs, package.json 中依赖, 内部依赖
+  - 任务名字
+  - dependsOn
+  - lockfile
+
+```bash
+turbo run build --force             # 强制 - 忽略存在缓存
+turbo run dev --parallel --no-cache # 不缓存
+```
+
+```json
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      // 缓存内容
+      "outputs": ["dist/**", ".next/**"],
+      // 缓存依据
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts"],
+      // 缓存依赖 ENV
+      "dependsOn": ["^build", "$SOME_ENV_VAR"]
+    },
+    "test": {
+      // 只缓存日志
+      "outputs": [],
+      "dependsOn": ["build"]
+    },
+    "dev": {
+      // dev 不缓存
+      "cache": false
+    }
+  },
+  // 全局依赖
+  "globalDependencies": ["$GITHUB_TOKEN", "tsconfig.json", ".env.*"]
+}
+```
+
 ## turborepo-remote-cache
 
 ```bash

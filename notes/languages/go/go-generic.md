@@ -23,6 +23,7 @@ title: 泛型
 
 - golang.org/x/exp/slices - [#45955](https://github.com/golang/go/issues/45955)
 - lightweight anonymous function syntax - [#21498](https://github.com/golang/go/issues/21498)
+- 使用 struct 字段作为一个类型 [#48522](https://github.com/golang/go/issues/48522)
 
 :::
 

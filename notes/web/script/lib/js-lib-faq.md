@@ -16,3 +16,16 @@ tags:
 ---
 
 - [Popper is evolving into Floating UI!](https://github.com/floating-ui/floating-ui/discussions/1425)
+
+## fetch vs axios
+
+- fetch
+  - 内置 - 浏览器基本都支持了
+  - 通过 abort signal 支持 timeout
+- axios
+  - ~20kB
+  - 支持 timeout
+  - 支持实例化 - 携带默认配置信息
+  - 支持拦截器
+  - 自动 JSON 转换
+  - 方便处理上传下载进度

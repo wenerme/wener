@@ -21,7 +21,16 @@ tags:
 - [google/rejoiner](https://github.com/google/rejoiner)
   - Java
   - gRPC -> GraphQL
+- [ysugimoto/grpc-graphql-gateway](https://github.com/ysugimoto/grpc-graphql-gateway)
 - [grpc-ecosystem/awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc)
+- Web
+  - [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)
+    - protobuf-ts 相同作者，可能后期工作会更倾向于该项目
+    - [from protobuf-ts](https://github.com/bufbuild/protobuf-es/blob/main/docs/migrating.md#from-protobuf-ts)
+      - 通过 @bufbuild/protobuf 使用 Well-known types 而不是本地生成的
+      - 基于 class
+  - [timostamm/protobuf-ts](https://github.com/timostamm/protobuf-ts)
+    - 依赖 tsc 生成代码
 
 ## LB/Gateway
 
@@ -37,6 +46,7 @@ tags:
 ## 参考
 
 - [wenerme/grpc-protos](https://github.com/wenerme/grpc-protos)
+- [Practical API Design at Netflix, Part 1: Using Protobuf FieldMask](https://netflixtechblog.com/practical-api-design-at-netflix-part-1-using-protobuf-fieldmask-35cfdc606518)
 - [googleapis/googleapis](https://github.com/googleapis/googleapis)
 - https://github.com/kubernetes/cri-api/blob/master/pkg/apis/runtime/v1/api.proto
 - https://github.com/kubernetes/api/blob/master/core/v1/generated.proto
@@ -74,8 +84,9 @@ tags:
   - 轻量 grpc
   - 非 grpc 协议
 
-## GUI
+## UI
 
+- grpcurl
 - [uw-labs/bloomrpc](https://github.com/uw-labs/bloomrpc)
 - [fullstorydev/grpcui](https://github.com/fullstorydev/grpcui)
   - web UI for gRPC
@@ -84,6 +95,9 @@ tags:
 # brew install grpcui
 go install github.com/fullstorydev/grpcui/cmd/grpcui@latest
 grpcui -plaintext localhost:12345
+
+# 使用 反射 则不需要 proto 信息
+grpcui -use-reflection -base-path /api/rpc -plaintext localhost:18080
 ```
 
 - [rogchap/wombat](https://github.com/rogchap/wombat)
@@ -97,6 +111,12 @@ GRPC localhost:8888/helloworld.Greeter/SayHello
 ### health
 GRPC localhost:8888/grpc.health.v1.Health/Check
 ```
+
+- [Reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md)
+  - grpc.reflection.v1.ServerReflection
+  - grpc.reflection.v1alpha.ServerReflection
+  - [bufbuild/connect-grpcreflect-go](https://github.com/bufbuild/connect-grpcreflect-go)
+- grpc.health.v1.Health
 
 ## Health
 
@@ -170,6 +190,9 @@ service Health {
 go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 go install github.com/srikrsna/protoc-gen-gotag@latest
+
+# 调用单个 插件
+protoc -I . helloworld.proto --doc_out .
 ```
 
 ```yaml

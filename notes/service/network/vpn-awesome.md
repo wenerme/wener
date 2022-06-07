@@ -71,10 +71,10 @@ tags:
 - [n2n]
   - android [switch-iot/hin2n](https://github.com/switch-iot/hin2n)
   - ios [Oliver0624/hin2n-ios](https://github.com/Oliver0624/hin2n-ios)
-- [slackhq/nebula](https://github.com/slackhq/nebula)
+- [nebula](./nebula.md)
   - MIT, Go
   - 基于 Noise 协议， WG 底层协议
-- [zerotier/ZeroTierOne](https://github.com/zerotier/ZeroTierOne)
+- [zerotier](./zerotier.md)
   - BSL, C++
   - 默认基于官方 controller, 可以 selfhost 但还是会用到官方的节点进行传播
   - 连接稳定性一般, 使用 官方 controller 免费最多 100 节点

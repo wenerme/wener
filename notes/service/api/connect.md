@@ -32,8 +32,10 @@ POST /<Package>.<Service>/<Method>
 - [bufbuild/connect-go](https://github.com/bufbuild/connect-go)
   - 使用 net/http
   - 生成使用泛型
+  - Client 和 Server 接口相同 - 方便操作
 
 ```bash
+# 基于 POST 的 connect 协议
 curl \
   --header "Content-Type: application/json" \
   --data '{"sentence": "I feel happy."}' \

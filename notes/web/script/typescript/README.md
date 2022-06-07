@@ -1,7 +1,10 @@
+---
+title: Typescript
+---
+
 # Typescript
 
-https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
-
+- https://www.typescriptlang.org/
 - [declaration-files introduction](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)
   - http://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html
 - [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
@@ -32,40 +35,20 @@ https://www.typescriptlang.org/v2/docs/handbook/release-notes/overview.html
   - `abstract` 方法不会在 prototype 里，不会生成任何内容，只是类型校验
 
 ```bash
-npm install -g typescript@next
+npm add -D typescript@latest
 
-# check syntax
-tsc --noEmit
+tsc --noEmit          # check syntax
+tsc --pretty --noEmit # pretty output
 
-tsc --pretty --noEmit
-
-# 添加 @types/ 依赖
-npx typesync
+npx typesync # 自动添加 @types/ 依赖
 
 # 使用 typing 类型
-typings install dt~node dt~express dt~body-parser dt~serve-static dt~express-serve-static-core dt~mime --global
+# typings install dt~node dt~express dt~body-parser dt~serve-static dt~express-serve-static-core dt~mime --global
 # 使用模块定义类型
-yarn add @types/{node,express,body-parser,serve-static,express-serve-static-core,mime}
+# npm add @types/{node,express,body-parser,serve-static,express-serve-static-core,mime}
 
 # 单个文件
 npx tsc --out test.js ./src/test.ts --module system
-```
-
-## tsconfig
-
-- [tsconfig.json.schema](http://json.schemastore.org/tsconfig)
-- 可以使用 `outFile` 来将多个 ts 输出为一个 js
-  - 如果使用了模块, 则只能使用 amd 或 system
-  - 如果没有使用到模块是可以编译成单个 js 直接运行的
-  - 可以使用 [amdclean](https://github.com/gfranko/amdclean) 将使用 amd 的 js 转换为无 amd 的
-    - 不支持 es6 的一些语法
-  - 可以考虑将 ts 输出为 es5, 如果使用了 es6 的库, 则直接指定 lib 即可
-- [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
-  - [中文](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tsconfig.json.html)
-
-```bash
-# 使用自定义的配置文件
-tsc --p tsconfig.page.json
 ```
 
 ## NPM 模块开发
@@ -97,7 +80,7 @@ yarn run tsc -- --init
 ### 引用全局对象
 
 ```typescript
-const AMap = window['AMap'];
+const AMap = (window as any)['AMap'];
 ```
 
 ## Dec

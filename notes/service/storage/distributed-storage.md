@@ -1,14 +1,9 @@
 ---
-id: distributed-storage
 title: 分布式存储
 ---
 
 # 分布式存储
 
-- 注意
-  - 分布式存储的核心要求 Lan 通信足够快 - 最好 10Gb+
-  - 最好单节点多磁盘 - 利用好节点资源
-  - 支持的接口不同应用场景也不同
 - 场景
   - 共享
     - 终端好接入
@@ -33,6 +28,14 @@ title: 分布式存储
   - 网关节点 - 提供接口
 - 参考
   - [Clustered file system](https://en.wikipedia.org/wiki/Clustered_file_system)
+
+:::tip
+
+- 分布式存储的核心要求 Lan 通信足够快 - 最好 10Gb+
+- 最好单节点多磁盘 - 利用好节点资源
+- 支持的接口不同应用场景也不同
+
+:::
 
 ## 块设备
 

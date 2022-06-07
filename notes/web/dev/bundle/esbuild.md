@@ -48,7 +48,8 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 - --minify
   - --minify-whitespace
   - --minify-identifiers
-  - --minify-syntax
+  - --minify-syntax - 移除 if(false) 代码
+  - [Considerations](https://esbuild.github.io/api/#minify-considerations)
 - --external:
   - `/assets/*.png`
   - `@foo/bar` 隐含 `@foo/bar/*`

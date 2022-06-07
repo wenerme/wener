@@ -4,6 +4,15 @@ title: License
 
 # License
 
+- Public domain & equivalents
+  - PD, CC0
+- Permissive free software licence - 宽松自由软体授权条款
+  - BSD, MIT, Apache, CC-BY
+- Copyleft - 禁止私有化
+  - GPL, AGPL, CC-BY-SA
+- Noncommercial license - 不允许商业化
+  - JRL, AFPL, CC-BY-NC
+- [开源软件商业模式](https://en.wikipedia.org/wiki/Business_models_for_open-source_software)
 - [Comparison of free and open-source software licences](https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licences)
 - [SPDX License List](https://spdx.org/licenses/)
 - [choosealicense](https://choosealicense.com/appendix/)
@@ -19,14 +28,7 @@ title: License
 - [openbsd.org/policy](https://www.openbsd.org/policy.html)
   - 反对 Apache 2.0
   - 推荐 ISC
-- Public domain & equivalents
-  - PD, CC0
-- 宽松自由软体授权条款 Permissive free software licence
-  - BSD, MIT, Apache, 	CC-BY
-- Copyleft - 禁止私有化
-  - GPL, AGPL, CC-BY-SA
-- Noncommercial license
-  - JRL, AFPL, CC-BY-NC
+- https://fair.io/
 
 ## AGPL
 
@@ -34,7 +36,7 @@ title: License
 - 基于 GNU GPL - 增加通过网络提供服务的条款
 - 避免 GPL 的 Application Service Provider 场景
 - [List of software under the GNU AGPL](https://en.wikipedia.org/wiki/List_of_software_under_the_GNU_AGPL)
-  - 值得注意的项目: Minio, Grafana, Nextcloud, OnlyOffice, Wiki.js
+  - 值得注意的项目: Minio, Grafana, Nextcloud, OnlyOffice, Wiki.js, PVE
 - 对 derived work of the AGPL software 的定义模糊
   - 通常理解是没有 AGPL 软件无法使用
 - 对 user 的定义不同于 GPL
@@ -118,12 +120,26 @@ title: License
 ## ELv2
 
 - Elastic License 2.0
+- Elastic 对抗 AWS 的协议
+  - 最终结果是 AWS fork Elastic -> OpenSearch
 - 不可以提供 托管服务/Managed Service
   - 直接 Host 服务 - SaaS
   - 直接暴露 UI, API
 - 参考
   - [About Elastic License 2.0](https://docs.airbyte.com/project-overview/licenses/license-faq#about-elastic-license-2.0-elv2)
   - [Managed Service](https://docs.airbyte.com/project-overview/licenses/license-faq#what-is-the-managed-service-use-case-that-is-not-allowed-under-elv2)
+
+## BSL
+
+- BSL/BUSL - Business Source License
+  - 由 MariaDB 公司定义
+  - 非开源协议 - OSI/FSF 不认可 - 介于开源和闭源之间
+  - 源码延迟开源/最终开源 - 例如: 4 年后协议从 BSL 变为 GPLv2
+  - 非生产环境允许使用，生产环境限制使用
+- 与 ELv2 类似
+- Adopted by: MariaDB 附加产品, ZeroTier, Couchbase 7
+- [BSLv1.1](https://mariadb.com/bsl11/)
+- [Projects using BSL 1.1](https://mariadb.com/projects-using-bsl-11/)
 
 # FAQ
 

@@ -8,15 +8,15 @@ tags:
 
 ## JDK
 
-:::tip JDK 和 版本
+:::tip 选择 JDK 和 版本
 
-- 用 [adoptium]
+- 用 [Adoptium]
 - 只用 LTS 版本
 
 :::
 
 - 发行版
-  - [adoptium]
+  - [Adoptium]
     - AdoptOpenJDK -> Adoptium
     - Eclipse 维护
   - Amazon Corretto

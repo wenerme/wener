@@ -6,32 +6,18 @@ tags:
 
 # Golang Awesome
 
-## 安装
-
-- https://go.dev/dl/
-  - https://mirrors.ustc.edu.cn/golang/
-
-```bash
-curl -LO https://go.dev/dl/go1.17.6.windows-amd64.zip
-mkdir -p ~/sdk
-unzip go1.17.6.windows-amd64.zip -d ~/sdk
-mv ~/sdk/go ~/sdk/go1.17.6
-~/sdk/go1.17.6/bin/go version
-
-export PATH=$HOME/sdk/go1.17.6/bin:$PATH
-```
 
 ## 常用库
 
 - mux
-  - chi - ⭐️
+  - [chi](./lib/chi.md) - ⭐️
   - gin, mux
 - ORM
-  - [go-gorm/gorm](https://github.com/go-gorm/gorm) - ⭐️
+  - [gorm](./lib/gorm.md) - ⭐️
     - 基于反射
     - 目前 Go 里实现最为优美的 ORM
     - XORM 被 gogs 和 gitea 使用，是 gogs 原作者开发 - 但认为比不上 gorm
-  - [ent/ent](https://github.com/ent/ent) - ⭐️
+  - [ent](./lib/ent.md) - ⭐️
     - 基于代码生成
     - Meta 信息完善，更适合复杂业务逻辑
 - 命令行
@@ -49,7 +35,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   - [lestrrat-go/jwx](https://github.com/lestrrat-go/jwx)
     - jwt,jwk,jwa,jws,jwe
 - OIDC
-  - [caos/oidc](https://github.com/caos/oidc)
+  - [caos/oidc](./lib/oidc.md)
     - op,rs
   - [golang.org/x/oauth2](https://pkg.go.dev/golang.org/x/oauth2)
 - 配置
@@ -173,14 +159,15 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 ### 路由/Router
 
-- [gorilla/mux](https://github.com/gorilla/mux) - ⭐️
-  - 非常便于使用的路由，增强 go http 功能
-  - 变量匹配路由 - `O(n)`
-- [go-chi/chi](https://github.com/go-chi/chi)
+- [chi](./lib/chi.md)
   - 标准接口
   - 开发比 mux 活跃
   - radix trie - 类似 httprouter - 性能优于 mux
   - 自带较多 middleware
+- [gorilla/mux](https://github.com/gorilla/mux)
+  - 不推荐使用
+  - 非常便于使用的路由，增强 go http 功能
+  - 变量匹配路由 - `O(n)`
 - [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
   - 牺牲功能换取性能
   - 不适用于 RESTful 接口 - 不能区分路由 `/users/like`, `/users/:userId`
@@ -430,7 +417,7 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
   standard library for microservices
   - 简单灵活自由拼装 - 因此定位是 kit 和 库
   - 很多抽象接口值得学习
-- [asim/go-micro](https://github.com/asim/go-micro)
+- [go-micro](./lib/go-micro.md) - [asim/go-micro](https://github.com/asim/go-micro)
   standalone framework for distributed systems development
 - [google/go-cloud](https://github.com/google/go-cloud)
   - Go Cloud Development Kit
@@ -440,17 +427,17 @@ export PATH=$HOME/sdk/go1.17.6/bin:$PATH
 
 **国产**
 
-- [go-kratos/kratos](https://github.com/go-kratos/kratos)
+- [kratos](./lib/kratos.md) - [go-kratos/kratos](https://github.com/go-kratos/kratos)
   - grpc,wire
   - kratos 命令行工具
   - 哔哩哔哩 RPC 框架
-- [zeromicro/go-zero](https://github.com/zeromicro/go-zero)
+- [go-zero](./lib/go-zero.md) - [zeromicro/go-zero](https://github.com/zeromicro/go-zero)
   - 好未来技术
   - 自定义 DSL + goctl 生成
 - [cloudwego/kitex](https://github.com/cloudwego/kitex)
   - Apache-2.0, Go
   - 字节跳动 RPC 框架
-- [smallnest/rpcx](https://github.com/smallnest/rpcx)
+- [rpcx](./lib/rpcx.md) - [smallnest/rpcx](https://github.com/smallnest/rpcx)
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 - [unionj-cloud/go-doudou](https://github.com/unionj-cloud/go-doudou)
 

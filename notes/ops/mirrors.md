@@ -6,18 +6,45 @@ title: Mirrors
 
 ## 镜像站点
 
-| URL                                  | 地址           | 文档                                                   |
-| ------------------------------------ | -------------- | ------------------------------------------------------ |
-| https://mirrors.aliyun.com           | 阿里云         |
-| https://mirrors.tuna.tsinghua.edu.cn | 清华           |
-| https://mirror.lzu.edu.cn            | 兰州大学       |
-| https://mirrors.163.com              | 网易           |
-| https://mirrors.ustc.edu.cn          | 科大           | [帮助文档](http://mirrors.ustc.edu.cn/help/index.html) |
-| https://mirrors.xjtu.edu.cn          | 西安交大       |
-| https://mirror.azure.cn/             | Azure          |
-| https://mirrors.sjtug.sjtu.edu.cn    | 上海交大       |
-| https://mirrors.huaweicloud.com      | 华为           |
-| https://mirrors.bfsu.edu.cn/         | 北京外国语大学 |
+| URL                             | 地址   |
+| ------------------------------- | ------ |
+| https://mirrors.aliyun.com      | 阿里云 |
+| https://mirrors.163.com         | 网易   |
+| https://mirror.azure.cn/        | Azure  |
+| https://mirrors.huaweicloud.com | 华为   |
+
+**高校镜像**
+
+| URL                                   | 地址             |
+| ------------------------------------- | ---------------- |
+| https://mirror.bjtu.edu.cn/           | 北京交通大学     |
+| https://mirror.cqupt.edu.cn/          | 重庆邮电大学     |
+| https://mirror.dlut.edu.cn/           | 大连理工大学     |
+| https://mirror.ihep.ac.cn/            | 高能物理研究所   |
+| https://mirror.lzu.edu.cn             | 兰州大学         |
+| https://mirror.lzu.edu.cn/            | 兰州大学         |
+| https://mirror.neu.edu.cn/            | 东北大学         |
+| https://mirror.nyist.edu.cn/          | 南阳理工学院     |
+| https://mirrors.bfsu.edu.cn/          | 北京外国语大学   |
+| https://mirrors.bfsu.edu.cn/          | 北京外国语大学   |
+| https://mirrors.bit.edu.cn/web/       | 北京理工大学     |
+| https://mirrors.cqu.edu.cn/           | 重庆大学         |
+| https://mirrors.dgut.edu.cn/          | 东莞理工学院     |
+| https://mirrors.hit.edu.cn/#/home     | 哈尔滨工业大学   |
+| https://mirrors.neusoft.edu.cn/       | 大连东软信息学院 |
+| https://mirrors.nju.edu.cn/           | 南京大学         |
+| https://mirrors.nwafu.edu.cn/         | 西北农林科技大学 |
+| https://mirrors.pku.edu.cn/           | 北京大学         |
+| https://mirrors.scau.edu.cn/          | 华南农业大学     |
+| https://mirrors.sdu.edu.cn/           | 山东大学         |
+| https://mirrors.sjtug.sjtu.edu.cn/    | 上海交通大学     |
+| https://mirrors.sustech.edu.cn/       | 南方科技大学     |
+| https://mirrors.tongji.edu.cn/        | 同济大学         |
+| https://mirrors.tuna.tsinghua.edu.cn/ | 清华大学         |
+| https://mirrors.ustc.edu.cn/          | 中国科学技术大学 |
+| https://mirrors.xjtu.edu.cn           | 西安交大         |
+| https://mirrors.ynu.edu.cn/           | 云南大学         |
+| https://mirrors.zju.edu.cn/           | 浙江大学         |
 
 ## Github
 

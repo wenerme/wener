@@ -38,17 +38,25 @@ tags:
 - [List of typefaces included with macOS](https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS)
 - [Fonts on Macintosh](https://en.wikipedia.org/wiki/Fonts_on_Macintosh)
 
-| weight | common name            | uncommon |
-| ------ | ---------------------- | -------- |
-| 100    | Thin,Hairline          |
-| 200    | Extralight, Ultralight |
-| 300    | Light                  |
-| 400    | Normal, Regular        |
-| 500    | Medium                 |
-| 600    | Semibold, Demibold     | Medium   |
-| 700    | Bold                   |
-| 800    | Extrabold, Ultrabold   | Semibold |
-| 900    | Black, Heavy           |
+| font-weight | common name             | uncommon |
+| ----------- | ----------------------- | -------- |
+| 100         | Thin,Hairline           |
+| 200         | Extralight, Ultralight  |
+| 300         | Light                   |
+| 400/normal  | Regular                 |
+| 500         | Medium                  |
+| 600         | Semibold, Demibold      | Medium   |
+| 700/bold    |                         |
+| 800         | Extrabold, Ultrabold    | Semibold |
+| 900         | Black, Heavy            |
+| 950         | Extra Black,Ultra Black |
+| lighter     | 相对当前                |
+| bolder      | 相对当前                |
+
+```bash
+# macOS
+fc-list : file family
+```
 
 ## Font Family
 

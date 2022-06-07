@@ -74,6 +74,8 @@ directories:
   - vendor/protoc-gen-validate
 ```
 
+**go-grpc**
+
 ```yaml
 version: v1
 plugins:
@@ -86,9 +88,25 @@ plugins:
   - name: go-grpc
     out: .
     opt: paths=source_relative,require_unimplemented_servers=true
+  - name: grpc-gateway
+    out: .
+    opt:
+      - paths=source_relative
+      - generate_unbound_methods=true
+
+- name: grpc-gateway-ts
+    out: gen/web/api
+    opt: paths=source_relative
   - name: validate
     out: .
     opt: lang=go,paths=source_relative
+
+- name: openapiv2
+    out: openapiv2
+  - name: doc
+    out: gen/doc
+    strategy: all
+    opt: markdown,proto.md
 ```
 
 ```yaml title="buf.gen.yaml"

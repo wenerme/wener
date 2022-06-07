@@ -84,11 +84,66 @@ tags:
 - https://www.polymer-project.org
 - https://react.rocks
 
-## Framework
+## 框架
+
+- jsx 系
+  - react - 定位是 库
+  - preact - mini 版 react
+  - [jorgebucaran/hyperapp](https://github.com/jorgebucaran/hyperapp)
+    - 最简的 jsx
+  - [ryansolid/solid](https://github.com/ryansolid/solid)
+    - 快、小、类 React
+    - jsx 直接预先生成 dom 模板，属性变化动态插入到 dom 里 - 没有 react 的 vdom 比较合并
+- WebComponent 系
+  - lit
+  - stencil
+- angular
+  - angular1 - 新项目已经不会再用
+  - angular
+- 单文件 - 自编译
+  - svelte
+  - vue2
+  - vue3
+  - riot
+- alpinejs
+- [developit/htm](https://github.com/developit/htm)
+
+:::info
+
+- React 版权事件 - 2017 年 - 已正式变更为 MIT [facebook/react#11091](https://github.com/facebook/react/pull/11091)
+  - 百度放弃 React/RN 转型 Vue
+  - WordPress gutenberg 考虑放弃 React [#2733](https://github.com/WordPress/gutenberg/issues/2733)
+
+:::
+
+## 开发框架
 
 - remix
 - nextjs
+- nestjs
 - [inertiajs/inertia](https://github.com/inertiajs/inertia)
+- 国产 - 考虑 KPI 关系，一般不推荐使用
+  - umijs - 不活跃
+  - taro - 跨端、小程序
+  - weex
+
+## 样式
+
+- DSL
+  - tailwindcss - ⭐️ 推荐 - 基于 PostCSS 插件
+  - [tw-in-js/twind](https://github.com/tw-in-js/twind) JS 实时生成
+  - windicss - 目前 antfu 维护 - 复刻的 tailwindcss - 不需要 PostCSS
+  - unocss - by antfu
+- css-in-js
+  - [styled-components](./style/styled-components.md)
+  - emotion
+  - [styled-jsx](./react/styled-jsx.md)
+  - [cristianbote/goober](https://github.com/cristianbote/goober)
+- CSS Module
+- Library
+  - [lukeed/clsx](https://github.com/lukeed/clsx)
+  - [kripod/style-vendorizer](https://github.com/kripod/style-vendorizer)
+  - [frenic/csstype](https://github.com/frenic/csstype)
 
 ## JS
 
