@@ -195,3 +195,30 @@ module.export = {
 ```
 
 - https://github.com/vercel/next.js/discussions/14361#discussioncomment-874019
+
+## Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
+
+## outputStandalone
+
+- 非常适用于 docker 环境
+- 只需要 .next/standalone 不需要 node_modules
+
+```js
+module.exports = {
+  experimental: {
+    outputStandalone: true,
+    // monorepo 需要调整 root
+    outputFileTracingRoot: path.join(__dirname, '../../'),
+  },
+};
+```
+
+- 由于 hosting 的原因，可能出现模块无法找到的问题
+- pnpm 重复 build 会有问题
+- 基于 @vercel/nft 跟踪依赖
+- https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files-experimental
+
+## dynamic preload
+
+- dyanmic 不会预加载 - prefetch
+- 使用 @loadable/component

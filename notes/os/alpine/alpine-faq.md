@@ -214,3 +214,18 @@ echo 'RESOLV_CONF=no' > /etc/udhcpc/udhcpc.conf
 ```bash
 apk add tailscale -X https://mirrors.sjtug.sjtu.edu.cn/alpine/edge/community
 ```
+
+## ca-certificates.crt does not contain exactly one certificate or CRL: skipping
+
+```bash
+sudo update-ca-certificates # 更新 CA 时出现
+
+mkdir /usr/local/share/ca-certificates/extra
+```
+
+
+## SSL routines:tls_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1919
+
+```bash
+openssl s_client -connect wener.me:443 # 测试证书是否正确
+```

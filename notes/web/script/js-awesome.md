@@ -96,13 +96,22 @@ tags:
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
-- 2d rendering
+- 2d rendering/canvas
   - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
     - SVG <-> Canvas
   - [jonobr1/two.js](https://github.com/jonobr1/two.js)
   - [signature_pad](https://github.com/szimek/signature_pad)
   - [yisibl/resvg-js](https://github.com/yisibl/resvg-js)
     - SVG renderer, powered by Rust based resvg and napi-rs
+  - [konvajs/konva](https://github.com/konvajs/konva)
+    - MIT, JS+TS
+    - react-konva
+    - 使用的项目
+      - [rowsncolumns/grid](https://github.com/rowsncolumns/grid)
+        - MIT
+        - React Components for Tabular data.
+      - [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
+        - 原型设计
 - color
   - [Qix-/color](https://github.com/Qix-/color)
   - color-name

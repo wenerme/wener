@@ -6,16 +6,16 @@ tags:
 
 # Icon Awesome
 
+- online [react-icons](http://react-icons.github.io/react-icons)
 - [tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons)
   - MIT, React `@heroicons/react`, Vue `@heroicons/vue`, SVG, JSX
   - Outline, Solid
   - [heroicons](https://heroicons.com)
+- [phosphor-icons/phosphor-home](https://github.com/phosphor-icons/phosphor-home)
 - [tancredi/fantasticon](https://github.com/tancredi/fantasticon)
 - [iconic.app](https://iconic.app/)
 - [lucaburgio/iconoir](https://github.com/lucaburgio/iconoir)
   - https://iconoir.com/
-- online [react-icons](http://react-icons.github.io/react-icons)
-- [phosphor-icons/phosphor-home](https://github.com/phosphor-icons/phosphor-home)
 - file type
   - https://github.com/picturepan2/fileicon.css
   - https://github.com/homerchen19/github-file-icons

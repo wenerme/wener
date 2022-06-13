@@ -6,6 +6,11 @@ tags:
 
 # NPM Version
 
+| version           | date |
+| ----------------- | ---- |
+| [NPM v8](#npm-v8) |
+| [NPM v7](#npm-v7) |
+
 ## NPM v8
 
 - Node.js 16 默认

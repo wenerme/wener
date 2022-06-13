@@ -33,6 +33,7 @@ tags:
 | Segoe UI                       |            |       | Windows Visit           |
 | Ubuntu                         |            |       | Ubuntu                  |
 | Roboto                         |            |       | Android 4+, Chrome OS   |
+| .SF NS                         |
 
 - https://developer.apple.com/fonts/
 - [List of typefaces included with macOS](https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS)

@@ -161,7 +161,7 @@ micro call helloworld Helloworld.Call '{"name": "John"}'
 - store - 数据存储/对象存储/KV 存储
   - redis, memcached, mysql, consul, file(bolt),cockroach
   - 有 database, table 概念
-  -  有 offset,limit 概念
+  - 有 offset,limit 概念
   - 读取默认返回多值
   - 数据包含 key,value,metadata,expire_at
   - Read+Write+Delete+List 操作

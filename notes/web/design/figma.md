@@ -15,3 +15,4 @@ title: Figma
 - [How to build a plugin system on the web and also sleep well at night](https://www.figma.com/blog/how-we-built-the-figma-plugin-system/)
   - Realm bassed
   - [agoric/realms-shim](https://github.com/agoric/realms-shim)
+- [KlausSchaefers/figma-low-code](https://github.com/KlausSchaefers/figma-low-code)

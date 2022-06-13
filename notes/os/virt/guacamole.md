@@ -4,14 +4,25 @@ title: Apache Guacamole
 
 # Apache Guacamole
 
-**是什么?**
-
-- 无客户端的远程桌面网关
-- 支持 VNC, RDP, SSH, telnet, Kubernetes
-  - Kubernetes - 容器控制台
-- 支持 mysql, postgresql, ldap, 2factor, totp, http header, cas, oidc, saml, ad-hoc 认证
-- 支持录制
-
+- [apache/guacamole-server](https://github.com/apache/guacamole-server)
+  - clientless remote desktop gateway
+  - 无客户端的远程桌面网关
+  - 支持 VNC, RDP, SSH, telnet, Kubernetes
+    - Kubernetes - 容器控制台
+  - 支持 mysql, postgresql, ldap, 2factor, totp, http header, cas, oidc, saml, ad-hoc 认证
+  - 支持录制
+  - 基础依赖: Cairo, libjpeg-turbo/libjpeg, libpng, OSSP UUID
+  - 功能依赖:
+    - FreeRDP
+    - SSH - libssh2, OpenSSL, Pango
+    - SFTP - libssh2, OpenSSL
+    - WebP - libwebp
+    - guacenc - FFmpeg
+    - libtelnnet, Pango
+    - libVNCserver - PulseAudio
+- 参考
+  - [The Guacamole protocol](https://guacamole.apache.org/doc/gug/guacamole-protocol.html)
+  - 单应用 rdp initial_program https://stackoverflow.com/a/43199970/1870054
 ## 组件
 
 - guacd

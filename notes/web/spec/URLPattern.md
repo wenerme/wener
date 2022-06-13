@@ -1,6 +1,6 @@
 ---
 tags:
-  - Interface
+  - API
 ---
 
 # URLPattern

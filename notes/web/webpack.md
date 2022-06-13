@@ -55,3 +55,17 @@ module.exports = {
 ## ModuleFederationPlugin
 
 - https://webpack.js.org/concepts/module-federation/
+
+## 注释
+
+```js
+import loadable from '@loadable/component';
+// 自定义 chunkname
+const Dashboard = loadable(() => import(/* webpackChunkName: "dashboard" */ '@/contents/Dashboard'));
+
+// 预获取
+// <link rel="prefetch" href="login-modal-chunk.js">
+const OtherComponent = loadable(() => import(/* webpackPrefetch: true */ './OtherComponent'));
+// <link rel="preload">
+import(/* webpackPreload: true */ 'ChartingLibrary');
+```

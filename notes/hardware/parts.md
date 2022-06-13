@@ -4,7 +4,19 @@ title: 配件
 
 # 配件
 
-# Intel CPU
+## Server
+
+- HP MicroServer Gen 10 Plus
+  - 2020 年
+  - 4 盘位
+  - 两个半高 PCIe
+  - Gen 10 Plus vs Gen 10
+    - 外置电源适配器
+    - 顶部没有额外的 SATA 空间
+    - Plus 只有 Gen 10 一半高
+    - iOL 5
+
+## Intel CPU
 
 - v1,v2 同平台
 - v3,v4 同平台
@@ -41,14 +53,14 @@ title: 配件
 - LGA1150
 - FCLGA1151
 
-# 内存
+## 内存
 
 - 36JSF2G72PZ-1G9E1
   - 镁光, ECC REG
   - PC3-14900R
   - 16G, 1866 MT/s, 2R×4
 
-## 三星
+### 三星
 
 - [DDR4 SDRAM Memory](https://semiconductor.samsung.com/resources/product-guide/DDR4_Product_guide_May.18.pdf)
 - M391A1G43BB1-CRCB1
@@ -60,7 +72,9 @@ title: 配件
 
 ## Motherboard
 
-- AsRock [E3C232D2I]
+### E3C232D2I
+
+- AsRock [E3C232D2I](AsRock-E3C232D2I)
   - Intel Xeon E3-1200 v5/v6
   - Dual channel DDR4 2133 ECC UDIMM max 32 GB
   - BMC MegaRAC SP GUI ASPEED AST2400
@@ -71,18 +85,44 @@ title: 配件
   - MiniITX
   - 1000¥-1500¥ @ 2019
 
-[e3c232d2i]: https://www.asrockrack.com/general/productdetail.asp?Model=E3C232D2I
+[asrock-e3c232d2i]: https://www.asrockrack.com/general/productdetail.asp?Model=E3C232D2I
 
 :::tip ASRock
 
 - F2,DEL UEFI Setup
 - F6 instant flash
-- F11 Bootr Menu
+- F11 Boot Menu
+  - 来电自启 - Advance -> Chipset Configuration -> Restore on AC/Power Lose = Power On
 - Tab Switch Screen
 
 :::
 
 ## Chipset
+
+## RAID/HBA
+
+:::tip
+
+- 速率指每通道
+  - 一个 Port 算 一个 通道
+  - 常见 6GB/s, 12GB/s
+- SFF8088 - mini-SAS external connectors - 1 分 4
+
+:::
+
+- LSI
+  - 主要 RAID 芯片生产商，目前被 broadcom 收购
+  - HBA - 2008（6gb）-2308（6gb）-3008（12gb）
+  - LSI 2008 - DELL H200 H310 / IBM 1115 1015 / LSI 9240
+  - LSI 2308 - LSI 9217/9207 HP 9205 / 浪潮超微 2308
+  - 9217=2308 IR 模式
+  - 9207=2308 IT 模式
+  - LSI 9211-8i IT（SAS 2008）PCIe 2.0 533Mhz 处理器
+  - LSI 9207-8i IT（SAS 2308）PCIe 3.0 800Mhz
+- [LSI 9205-8i IT](https://docs.broadcom.com/doc/12352040) - HP H220
+  - 8 Ports, 6Gb/s SAS 2.1
+  - x8, PCIe, 4000 MB/s
+  - PCI Power ~9W
 
 ## Processor
 
@@ -92,13 +132,16 @@ title: 配件
 
 [ast2500]: https://www.aspeedtech.com/server_ast2500
 
-## Mine
+## My Homelab
 
 - NAS
-  - E3C232D2I
+  - [E3C232D2I](#E3C232D2I)
   - Xeon E3-1235L v5
-  - M391A1G43BB1-CRCB1
+  - 之前 8G - M391A1G43BB1-CRCB1
+  - 现在 16G x 2
   - SAS 6T x 4
+  - Samsung 125G SSD - 缓存
+  - HP H220 - LSI-9205-8i IT - SAS 卡 - 最多 8 盘
 
 # Glossary
 

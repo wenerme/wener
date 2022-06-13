@@ -10,3 +10,5 @@ tags:
 - [privatenumber/minification-benchmarks](https://github.com/privatenumber/minification-benchmarks)
 - [JamieMason/syncpack](https://github.com/JamieMason/syncpack)
   - Consistent dependency versions in large JavaScript Monorepos.
+- [vercel/nft](https://github.com/vercel/nft)
+  - Node.js dependency tracing utility

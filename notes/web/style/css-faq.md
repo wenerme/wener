@@ -29,6 +29,48 @@ tags:
 }
 ```
 
+## 浏览器兼容问题
+
+- aspect-ratio - Chrom 88, Safari 15
+  - 不支持的时候可能导致 height/width 为 0
+  - 使用 padding hack
+- @supports - Chrome 28, Safari 9
+- @supports selector - Chrome 83, Safari 14.1
+
+```css
+@supports (aspect-ratio: 1/1) {
+  aspect-ratio: 1/1;
+}
+@supports not (aspect-ratio: 1/1) {
+  /* 补偿 */
+}
+
+/* 检测 selector 是否支持 */
+@supports selector(:nth-child(1n of a, b)) {
+}
+```
+
+```js
+// 当前环境版本信息
+navigator.userAgent;
+
+// Chrome 61, Safari 9
+CSS.supports('aspect-ratio: 1/1');
+CSS.supports('aspect-ratio', '1/1');
+```
+
+### backdrop-filter
+
+- Chrome 76+ 正式支持，之前加前缀
+  - Chrome 对 backdrop filter 支持不太好
+  - 如果页面使用了 mix-blend 会导致 blur 有问题 [#1254774](https://bugs.chromium.org/p/chromium/issues/detail?id=1254774&q=backdrop-filter%20blur&can=2)
+- Safari 加前缀支持 - 效果正常
+- FF 尚不支持
+
+通过 before 和 after 来补偿
+
+- https://stackoverflow.com/a/65110535/1870054
+
 ## Optimize
 
 - [contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
@@ -37,6 +79,9 @@ tags:
   - content -> layout paint
   - size
     - 不依赖子节点 size
+      - 不遍历子节点
+      - 子节点变化不需要向上遍历重新布局
+      - 需要为元素指定大小
     - 容器不会被子元素撑开
     - 子元素可以被渲染到容器外
   - layout
@@ -52,10 +97,13 @@ tags:
       - 新的 stacking context
       - 新的 block formatting context
   - 参考
+    - https://www.w3.org/TR/css-contain-2/
     - [caniuse](https://caniuse.com/css-containment)
       - Chrome 52+
       - iOS/Saferi 不支持
     - [Let’s Take a Deep Dive Into the CSS Contain Property](https://css-tricks.com/lets-take-a-deep-dive-into-the-css-contain-property/)
+    - https://css-tricks.com/almanac/properties/c/contain/
+    - https://termvader.github.io/css-contain/
 - [content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility) - 配合 contain 使用
   - visible
   - hidden
@@ -113,6 +161,17 @@ tags:
   - mix-blend-mode != normal
   - isolate
   - contain = layout or paint
+
+---
+
+- Compositing and Blending Level 2
+  - [isolation](https://drafts.fxtf.org/compositing/#isolation)
+    - 强制创建 stacking context
+    - 用于配合 mix-blend
+
+### 避免 z-index 混淆
+
+- 建立新的 z-index 栈 - isolation: isolate
 
 ## block formatting context
 
@@ -180,6 +239,11 @@ tags:
   resize: both;
 }
 ```
+
+## overflow + absolute
+
+- https://stackoverflow.com/a/5513717/1870054
+- https://front-back.com/how-to-make-absolute-positioned-elements-overlap-their-overflow-hidden-parent/
 
 ## 重置元素所有属性
 
@@ -335,6 +399,16 @@ body {
 - https://mxstbr.com/thoughts/margin/
 
 ## breakpoint
+
+| Chrome   | Width  |
+| -------- | ------ |
+| Mobile S | 320px  |
+| Mobile M | 375px  |
+| Mobile L | 435px  |
+| Tablet   | 768px  |
+| Laptop   | 1024px |
+| Laptop L | 1400px |
+| 4k       | 2560px |
 
 | breakpoint | tailwind | bootstrap | mui    |
 | ---------- | -------- | --------- | ------ |

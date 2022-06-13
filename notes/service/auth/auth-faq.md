@@ -22,6 +22,20 @@ tags:
   - 适用于客户端场景
 - [User Authentication with OAuth 2.0](https://oauth.net/articles/authentication/)
 
+## OIDC vs OpenID
+
+两者都基于 OAuth 2.0，添加额外的附属信息。OAuth 2.0 只用于 AuthZ/授权，而 OIDC 用于 AuthN/认证。
+
+- OIDC - OpenID Connect
+  - 比 OAuth 2.0 更简单明了
+- OpenID 2.0
+  - 已经废弃
+  - 使用 XML
+
+---
+
+- https://openid.net/connect/faq/
+
 ## Authentication vs Authorization
 
 - Authentication

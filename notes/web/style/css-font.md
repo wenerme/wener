@@ -4,6 +4,16 @@ title: CSS Font
 
 # CSS Font
 
+- font-display - auto, block, swap, fallback, optional
+  - 优化字体还未加载时的显示
+- Saferi 12+
+  - 停止支持 @font-face local - 白名单制
+  - font-family 白名单制
+  - 字体会内置回滚 - 例如 微软雅黑 -> PingFang SC
+- 参考
+  - https://web.dev/optimize-webfont-loading/
+  - https://www.fontsquirrel.com/fonts/list/popular
+
 ## 默认字体
 
 ```css

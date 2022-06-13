@@ -131,5 +131,5 @@ require('fast-glob')
   - Webpack/SWC
     - bundle - 全量，复杂页面很大很慢
   - SSR、SSG、增量 SSG 支持很好
-  - 单一 HTML 入口 - \_app.js - 不能划分全局 CSS
+  - 单一 HTML 入口 - `_app.js` - 不能划分全局 CSS
   - 支持路由

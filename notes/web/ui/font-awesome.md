@@ -8,6 +8,7 @@ tags:
 
 - otf,ttf,woff,woff2
 - [Inter typeface family](https://rsms.me/inter)
+  - [rsms/inter](https://github.com/rsms/inter)
 - [Google fonts](https://fonts.google.com)
 - PL - PowerLine
 - [codingfont](https://www.codingfont.com/)
@@ -53,13 +54,13 @@ tags:
 - https://emojipedia.org/
 - [Full Emoji List](https://unicode.org/emoji/charts/full-emoji-list.html)
 - [emoji-cheat-sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+- https://tikolu.net/emojimix/
 
 ## Unicode
 
 - [GNOME/gucharmap](https://gitlab.gnome.org/GNOME/gucharmap)
   - Unicode Character Map
 - ufas [UNICODE FONTS FOR ANCIENT SCRIPTS](https://dn-works.com/ufas/)
-
 
 ## variable fonts
 
@@ -84,3 +85,60 @@ tags:
 # FAQ
 
 ## otf vs ttf
+
+## 热门字体
+
+- Montserrat
+- Open Sans
+- Raleway
+- Roboto
+- Bebas Neue
+- Great Vibes
+- Alex Brush
+- Lato
+- Quicksand
+- Pacifico
+- Amatic
+- Oswald
+- ChunkFive
+- Aller
+- Source Sans Pro
+- Allura
+- Kaushan Script
+- Lobster
+- GoodDog
+- Ostrich Sans
+- Milkshake
+- Grand Hotel
+- Playfair Display
+- League Gothic
+- Black Jack
+- Cooper Hewitt
+- Dancing Script OT
+- Poppins
+- Caviar Dreams
+- Bebas
+- PT Sans
+- Titillium
+- Learning Curve Pro
+- Josefin Sans
+- Sofia
+- Exo
+- Antonio
+- Windsong
+- Lobster Two
+- FFF Tusj
+- Arizonia
+- League Spartan
+- Fira Sans
+- SeasideResort
+- Red Hat
+- Museo Slab
+- Intro Rust
+- Abril Fatface
+- Sofia Pro
+- Walkway
+
+---
+
+- https://www.fontsquirrel.com/fonts/list/popular

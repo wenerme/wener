@@ -4,12 +4,18 @@ title: OpenID Connect
 
 # OpenID Connect
 
+OIDC/OpenID Connect 是基于 OAuth 2.0 的 认证/AuthN 协议，OAuth 2.0 只提供 授权/AuthZ 能力。
+
 - [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
   - [错误码](https://openid.net/specs/openid-connect-core-1_0.html#ErrorContents)
 - 参考
+
   - Mozilla [OIDC](https://infosec.mozilla.org/guidelines/iam/openid_connect.html)
   - [Token Storage](https://auth0.com/docs/security/data-security/token-storage)
   - [Authentication and Authorization Flows](https://auth0.com/docs/authorization/flows)
+  - [Specifications](https://openid.net/developers/specs/)
+  - https://openid.net/connect/faq/
+
 - auth method
   - client_secret_basic
   - client_secret_post
@@ -101,9 +107,19 @@ title: OpenID Connect
 
 :::
 
-## discovery
+## Awesome
+
+- NodeJS
+  - [panva/node-openid-client](https://github.com/panva/node-openid-client)
+    -  OpenID Relying Party (RP, Client)
+- Web
+  - [authts/oidc-client-ts](https://github.com/authts/oidc-client-ts)
+
+## OpenID Connect Discovery
 
 - /.well-known/openid-configuration
+- https://openid.net/specs/openid-connect-discovery-1_0.html
+- 必须字段: issuer, authorization_endpoint, jwks_uri, response_types_supported, subject_types_supported, id_token_signing_alg_values_supported
 
 ```json title="Based on Keycloak https://keycloak/auth/realms/REALM","
 {

@@ -38,6 +38,11 @@ title: Vercel
   - Go
   - Python
   - Ruby
+- CI 环境 - https://vercel.com/docs/concepts/deployments/build-step
+  - Amazon Linux 2 - `docker run --rm -it amazonlinux:2.0.20191217.0 sh`
+  - yum
+  - 添加额外包 `yum install jq -y`
+  - [Extras library](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library)
 
 ```bash
 # 全局安装

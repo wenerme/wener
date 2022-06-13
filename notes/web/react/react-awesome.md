@@ -330,7 +330,7 @@ npm add date-fns lodash-es react-fast-compare
 
 ### 虚拟滚动
 
-- [tannerlinsley/react-virtual](https://github.com/tannerlinsley/react-virtual)
+- [TanStack/virtual](https://github.com/TanStack/virtual)
   - 基于 Hook
   - 推荐 - 因为 react-virtualized 不活跃
 - [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
@@ -391,10 +391,12 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 样式
 
-- [modulz/stitches](https://github.com/modulz/stitches)
+- [stitchesjs/stitches](https://github.com/stitchesjs/stitches)
   - 写 Object 而不是写 string 的 css
   - 类似 styled-components 和 emotion 的中间形态
   - 相对性能更好，打包更小
+  - @stitches/react
+  - 支持 variant - 不只是单纯样式
 - [styled-components](https://github.com/styled-components/styled-components)
   - 包装现有组件，添加 className
 - [emotion-js/emotion](https://github.com/emotion-js/emotion)
@@ -404,8 +406,6 @@ npm add date-fns lodash-es react-fast-compare
   - 基于 babel 插件
 - [css-modules/css-modules](https://github.com/css-modules/css-modules)
 - [vercel/styled-jsx](https://github.com/vercel/styled-jsx)
-- [modulz/stitches](https://github.com/modulz/stitches)
-  - 支持 variant - 不只是单纯央视
 - [styletron/styletron](https://github.com/styletron/styletron)
 - [robinweser/fela](https://github.com/robinweser/fela)
   State-Driven Styling

@@ -29,6 +29,9 @@ title: ESBuild
   - [#253](https://github.com/evanw/esbuild/issues/253)
 - 不支持 systemjs, amd
   - [#192](https://github.com/evanw/esbuild/issues/192)
+- 不支持 umd - [#507](https://github.com/evanw/esbuild/issues/507)
+- tsconfig.paths 不 bundled 时不会处理 [#394](https://github.com/evanw/esbuild/issues/394)
+  - 写库只能用相对路径
 
 :::
 

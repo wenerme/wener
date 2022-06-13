@@ -35,6 +35,9 @@ title: WebStorage
   - Worker 支持
   - 插入性能弱 - 官方以优化读取性能为主
   - 参考
+    - [Why IndexedDB is slow](https://rxdb.info/slow-indexeddb.html)
+      - 考虑 relaxed 持久化 - [durability](https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction/durability)
+      - 可以 in-memory 读，write back 到 indexeddb
     - [Storing images and files in IndexedDB](https://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/)
       - 存储为 Blob
 - sessionStorage
@@ -46,6 +49,7 @@ title: WebStorage
 - localStorage
   - 临时存储
   - 敏感信息
+  - 可跨 Tab 感知变化
 - Cookie
   - 网络通讯 credentials
 - [CacheStorage](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
@@ -67,3 +71,35 @@ title: WebStorage
 > IndexedDB 很慢
 
 ## Libraries
+
+- [dexie](../script/lib/dexie.md)
+  - IndexedDB 存储
+  - 支持同步
+- localForge
+  - 类似 localStorage
+  - 异步
+  - 支持多后端
+- [rxdb](https://github.com/pubkey/rxdb)
+  - offline first
+  - 有 schema
+  - 支持 punchdb, lokijs, dexie 存储
+- PouchDB
+  - CouchDB replication
+  - 支持 attachments
+- WatermelonDB
+  - React - LokiJS
+  - React Native - SQLite
+- Absurd-SQL
+  - indexeddb
+- SQLite
+  - empscripten Filesystem API
+- DuckDB WASM
+- Supabase
+- RethinkDB
+  - Horizon
+- NeDB
+  - Node.js, nw.js, Electron, Browser
+  - MongoDB 查询语法
+  - 项目停止
+- [amark/gun](https://github.com/amark/gun)
+  - syncing decentralized graph data

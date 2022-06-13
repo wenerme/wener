@@ -37,6 +37,7 @@ tags:
 
 - monaco
 - [codemirror](http://codemirror.net/)
+  - [adoption](https://codemirror.net/5/doc/realworld.html)
   - [We are rewriting CodeMirror](https://news.ycombinator.com/item?id=17858672)
 - [satya164/react-simple-code-editor](https://github.com/satya164/react-simple-code-editor)
   - works by overlaying a syntax highlighted `<pre>` block over a `<textarea>`
@@ -74,6 +75,7 @@ tags:
   Next-gen, highly customizable content editor for the browser - based on React and Redux. WYSIWYG on steroids.
   - MIT, TypeScript+React
   - 整页编辑
+  - 耦合 mui
 - [alibaba/designable](https://github.com/alibaba/designable)
 - tinacms
 
@@ -98,3 +100,33 @@ tags:
   - GPL-3.0, C++
 - https://github.com/TryGhost/Admin/tree/main/lib/koenig-editor
 - [Rich text / HTML editors and frameworks](https://gist.github.com/manigandham/65543a0bc2bf7006a487)
+
+## Prototyping
+
+- Prototype 场景
+  - 2D 像素纬度 - 输出 SVG 或 设计稿 - 实现相对简单
+    - 类似 PS，SVG 编辑器
+  - Low Code - 部分控制
+  - HTML - CMS
+    - 编排 HTML 元素，所见即所得 - 需要处理复杂布局逻辑
+    - 编辑组件、绑定数据 - 交互复杂
+
+---
+
+
+- [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
+- https://openclipart.org/
+  - Public Domain
+- [akiraux/Akira](https://github.com/akiraux/Akira)
+  - Vala
+  - Native Linux App for UI and UX Design built in Vala and GTK
+- react-studio
+
+## View
+
+- [mac-s-g/react-json-view](https://github.com/mac-s-g/react-json-view)
+
+## Glossary
+
+- MIS - 管理信息系统
+  - 大多为 Table+Form

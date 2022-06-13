@@ -42,6 +42,7 @@ tags:
 - https://chromestatus.com/features
 - https://chromestatus.com/roadmap
   - 关注 Enabled by default
+- https://bugs.chromium.org/p/chromium/issues/list
 - https://chromiumdash.appspot.com/schedule
 - [What's New in DevTools](https://developer.chrome.com/tags/new-in-devtools/)
 - 参考

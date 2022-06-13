@@ -1,5 +1,4 @@
 ---
-id: raid
 title: RAID
 ---
 

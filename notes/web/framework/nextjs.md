@@ -415,8 +415,9 @@ module.exports = withCSS({});
 ```bash
 npx -y create-next-app@latest --ts
 npx -y tailwindcss init -p
-npm add tailwindcss postcss autoprefixer
+npm add -D tailwindcss postcss autoprefixer @tailwindcss/typography
 npm add @headlessui/react zustand
+# npm add react-query
 
 npm add -D prettier
 npm add -D @trivago/prettier-plugin-sort-imports
@@ -427,9 +428,14 @@ mkdir src/{components,hooks,contents,server,client}
 npm add classnames
 npm add react-icons
 npm add daisyui
+# 数据
+npm add axios react-query
+
+# 后台
+npm add react-table @tanstack/react-virtual
 ```
 
-```json
+```json title="package.json"
 {
   "prettier": {
     "bracketSameLine": false,
@@ -452,6 +458,20 @@ npm add daisyui
   }
 }
 ```
+
+```js title="postcss.config.js"
+module.exports = {
+  plugins: {
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+- WebStorm
+  - Languages & Frameworks -> Style Sheets -> Dialects -> PostCSS
+  - Languages & Frameworks -> JavaScript -> Prettier -> On 'Reformat Code' action
 
 ## middleware
 

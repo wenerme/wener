@@ -16,8 +16,9 @@ title: Keycloak
 - 地址
   - /auth
   - /auth/console
-  - `/auth/realms/${REALM}/protocol/openid-connect/auth`
-  - `/auth/admin/${REALM}/console`
+  - `/auth/realms/{REALM}/protocol/openid-connect/auth`
+  - `/auth/admin/{REALM}/console`
+  - `/auth/realms/{REALM}/.well-known/openid-configuration`
 
 ## Docker
 

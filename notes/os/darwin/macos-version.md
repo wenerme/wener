@@ -5,14 +5,16 @@ tags:
 
 # macOS Version
 
-| ver                  |
-| -------------------- |
+| macOS                | safari      |
+| -------------------- | ----------- |
 | macOS Monterey 12.3  |
+| macOS Monterey 12.0  | Safari 15.0 |
 | macOS Catalina 10.15 |
+| macOS Big Sur 11.0   | Safari 14.0 |
 
 - https://developer.apple.com/documentation/macos-release-notes
 
-## macOS 12.3
+## macOS Monterey 12.3
 
 - 移除了 python2
   - 无法直接执行 python - /usr/bin/python

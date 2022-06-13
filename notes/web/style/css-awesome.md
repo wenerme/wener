@@ -6,6 +6,12 @@ tags:
 
 # CSS Awesome
 
+**核心规范**
+
+- [CSS Box Sizing Module Level 4](https://drafts.csswg.org/css-sizing-4)
+
+## Awesome
+
 - https://noti.st/rachelandrew/IQsXZC/css-layout-workshop
 - https://web.dev/patterns/layout/
 - [ethantw/Han](https://github.com/ethantw/Han)
@@ -30,6 +36,10 @@ tags:
   - A searchable catalog of PostCSS plugins
 - https://css-tricks.com/snippets/
 - [Loaders Loading!](https://codepen.io/collection/jifIK)
+- Animation
+  - [jolaleye/cssfx](https://github.com/jolaleye/cssfx)
+- Color
+  - [ghosh/uiGradients](https://github.com/ghosh/uiGradients)
 
 * CSS 参考手册
 

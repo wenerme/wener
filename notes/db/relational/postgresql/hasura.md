@@ -1,12 +1,11 @@
 ---
-id: hasura
 title: Hasura
 ---
 
 # Hasura
 
 - [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
-  - Haskell
+  - Apache-2.0, MIT, Haskell
 - [Working with schemaless data using GraphQL on Postgres](https://blog.hasura.io/574a1ee2e87f)
 - [配置](https://docs.hasura.io/1.0/graphql/manual/deployment/graphql-engine-flags/reference.html)
   - `--unauthorized-role`/`HASURA_GRAPHQL_UNAUTHORIZED_ROLE` - 匿名角色
@@ -18,9 +17,15 @@ title: Hasura
 - [接口文档](https://docs.hasura.io/1.0/graphql/manual/api-reference/index.html)
   - `/v1/graphql` - 主要的 GraphQL 入口 - 生产可以只暴露这一个
 - Hasura 的系统信息存储在 `hdb_catalog` 和 `hdb_view` 中
-- 问题
-  - [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
-  - [#519](https://github.com/hasura/graphql-engine/issues/519) upk 查询
+
+:::info
+
+- [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
+- [#519](https://github.com/hasura/graphql-engine/issues/519) 唯一索引 查询
+- [#3320](https://github.com/hasura/graphql-engine/issues/3320) 命名转换
+  - 默认都是数据库命名方式, snake_case, 前端使用非常别扭
+
+:::
 
 ```bash
 # 创建一个数据库
@@ -118,3 +123,17 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 - JWT
   - 必须包含字段 x-hasura-default-role, x-hasura-allowed-roles
   - 头里可指定 x-hasura-role 来选定角色
+
+# Version
+
+## Hasura v2
+
+- 2021-02-23
+- 多数据源 - 同时连多个数据库
+  - 相同数据库类型 Remote Join
+- 多数据库 - PG -> PG, MS SQL, MySQL
+- 支持 REST
+  - REST -> GraphQL Query
+- 增强 AuthZ
+- HA
+- Metadata API

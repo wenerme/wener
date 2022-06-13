@@ -41,6 +41,7 @@ tags:
 - [mszoek/airyx](https://github.com/mszoek/airyx)
   - BSD, ObjC
   - 尝试兼容 macOS 并提供相同的体验
+- [SerenityOS/serenity](https://github.com/SerenityOS/serenity)
 
 ---
 

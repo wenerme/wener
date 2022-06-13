@@ -11,10 +11,12 @@ title: Tailwind CSS
   - prune 可缩减大小 - 默认 未压缩 3.8 MB,Minified 3 MB, Gzip 300 KB, Brotli 75 KB
 - 问题
   - [storybookjs/storybook#12668](https://github.com/storybookjs/storybook/issues/12668) - PostCSS 8 兼容问题
+- 参考
+  - [lib-vite-tailwindcss](https://miyauchi.dev/posts/lib-vite-tailwindcss/) 构建库
 
 :::tip
 
-- 支持任意选择 - v3.0.25+
+- 支持任意选择 - v3.1+
   - `[&>*]:text-red`
   - `[&:[data-open]]:underline`
 
@@ -56,16 +58,26 @@ import 'tailwindcss/tailwind.css';
 
 ### Awesome
 
-- [windicss/windicss](https://github.com/windicss/windicss)
-  - 类似 Tailwind+JIT
-- [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
-- [shuffle.dev](https://shuffle.dev) - 模板生成
+- [ben-rogerson/twin.macro](https://github.com/ben-rogerson/twin.macro)
+  - babel marco 预生成
 - [tw-in-js/twind](https://github.com/tw-in-js/twind)
   - 不依赖 tailwindcss, 使用 tw 实时生成
   - +35K
-- [ben-rogerson/twin.macro](https://github.com/ben-rogerson/twin.macro)
+- [rogden/tailwind-config-viewer](https://github.com/rogden/tailwind-config-viewer)
+  - Tailwind 配置预览
+- https://flowbite.com
+  - https://flowbite.com/tools/tailwind-cheat-sheet/
+- [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)
+- [shuffle.dev](https://shuffle.dev) - 模板生成
 - https://github.com/sw-yx/spark-joy/blob/master/README.md#tailwind-component-libraries
-- https://flowbite.com/tools/tailwind-cheat-sheet/
+- https://javisperez.github.io/tailwindcolorshades
+  - 颜色生成
+- [tailwindlabs/prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+  - prettier 名字排序
+- [windicss/windicss](https://github.com/windicss/windicss)
+  - 类似 Tailwind+JIT
+  - 不依赖 PostCSS - 用于不想依赖 PostCSS 的场景
+  - 维护者后面可能会转向 unocss
 
 **Components**
 
@@ -76,9 +88,22 @@ import 'tailwindcss/tailwind.css';
   - iOS & Android 样式
   - React,Vue,Sevlte 组件
 - [themesberg/flowbite](https://github.com/themesberg/flowbite)
+  - 组件样式参考
+- [TailGrids/tailwind-ui-components](https://github.com/TailGrids/tailwind-ui-components)
 - https://tailwindcomponents.com/
+- [cruip/tailwind-landing-page-template](https://github.com/cruip/tailwind-landing-page-template)
+  - 首页模板
+- [mertJF/tailblocks](https://github.com/mertJF/tailblocks)
+  - Ready-to-use Tailwind CSS blocks.
 
-**Dashboard**
+**Projects**
+
+- [vivek9patel/vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io)
+  - portfolio website of theme Ubuntu 20.04
+- [juliomrqz/statusfy](https://github.com/juliomrqz/statusfy)
+
+  - Status Page
+    **Dashboard**
 
 - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
 - https://demos.creative-tim.com/notus-react
@@ -239,6 +264,34 @@ module.exports = {
 ```
 
 # TailwindCSS Version
+
+## TailwindCSS v3.1
+
+- 新增任意选择符
+  - `[&:nth-child(3)]:py-0`
+  - `[@supports(backdrop-filter:blur(0))]:bg-white/50`
+  - `[&>*]:p-4`
+- Typescript 配置类型
+- tailwindcss 命令行支持 import `-i`
+- theme 函数支持透明度 `background-color: theme(colors.gray.100 / 50%);`
+- 配置支持更方便的透明度
+  - 之前 `{primary: withOpacityValue('--color-primary')}`
+  - 现在 `{primary: 'rgb(var(--color-primary) / <alpha-value>)'}`
+- 新增 table 的 border-separate + border-spacing
+- 新增 enabled:, optional: 伪类前缀
+- 新增 contrast-more:, contrast-less:
+- dialog backdrop:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
 
 ## TailwindCSS v3
 

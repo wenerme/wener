@@ -50,7 +50,7 @@ tags:
   - library - 面向分布式微服务开发 - RPC, 事件驱动
   - 类似 Spring for Java 和 Rails for Ruby 角色
 - [micro](https://github.com/micro/micro)
-  - License 严格
+  - License 严格 -> Apache-2.0
   - CLI-based cloud native development framework - sane defaults with a pluggable architecture
   - 通过 CLI 快速提供 go-micro 所需的平台服务 - dashboard, API gateway
 - 参考
