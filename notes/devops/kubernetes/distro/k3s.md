@@ -1,5 +1,4 @@
 ---
-id: k3s
 title: K3S
 ---
 
@@ -355,3 +354,11 @@ configs:
 - Agent 会使用集群的密钥和随机生成的密码注册，密码存储于 `/etc/rancher/node/password`，服务端会存储节点的密码到 `/var/lib/rancher/k3s/server/cred/node-passwd`。
 - 节点上的 `/etc/rancher/node` 目录被移除后密码会被从新生成，或由服务端移除。
 - 启动时可为节点附加唯一节点标示，`--with-node-id`。
+
+## 快速启动
+
+```bash
+curl -LO 'https://ghproxy.com/https://github.com/k3s-io/k3s/releases/download/v1.24.1%2Bk3s1/k3s'
+chmod +x k3s
+./k3s server
+```

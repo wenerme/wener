@@ -19,6 +19,21 @@ tags:
 
 WebServer 也可以是 Proxy
 
+## HAProxy vs Varnish
+
+两者需要配合使用
+
+- HAProxy
+  - 内存缓存
+  - 缓存功能业余
+- Varnish
+  - 专业缓存
+
+---
+
+- [HAProxy’s Load-Balancing Algorithm for Static Content Delivery with Varnish](https://www.haproxy.com/blog/haproxys-load-balancing-algorithm-for-static-content-delivery-with-varnish/)
+- [HAProxy and Varnish Comparison](https://www.haproxy.com/blog/haproxy-and-varnish-comparison/)
+
 ## Caddy vs Traefik
 
 - Caddy

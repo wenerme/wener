@@ -6,6 +6,7 @@ tags:
 
 # Golang Awesome
 
+- https://go-proverbs.github.io/
 
 ## 常用库
 
@@ -261,6 +262,39 @@ tags:
 - [loov/goda](https://github.com/loov/goda)
   - Go Dependency Analysis toolkit
 
+## GraphQL
+
+- [99designs/gqlgen](https://github.com/99designs/gqlgen)
+  - GraphQL Schema 生成 Model/Resolver
+  - 静态类型，无法动态 Schema
+  - 参照 graphql-js 实现
+- [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
+  - BSD-2
+  - 类型自动绑定 Schema - 静态 Schema
+- [graphql-go/graphql](https://github.com/graphql-go/graphql)
+  - 代码动态生成 Schema - 动态 Schema
+- [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
+  - gqlgen 客户端
+- [Khan/genqlient](https://github.com/Khan/genqlient)
+  - type-safe Go GraphQL client
+
+**网关**
+
+- [ysugimoto/grpc-graphql-gateway](https://github.com/ysugimoto/grpc-graphql-gateway)
+  - 基于 pb 生成 graphql 网关
+  - 实现使用 [graphql-go/graphql](https://github.com/graphql-go/graphql)
+- [movio/bramble](https://github.com/movio/bramble)
+  - MIT, Golang
+  - 比 apollo 简单但功能更弱
+  - 基于 service 合成 - 支持部分简单 directive
+  - 不支持 subscriptions
+  - [Introducing Bramble: A Federated GraphQL Gateway Implemented In Go](https://movio.co/blog/building-a-new-api-platform-for-movio/)
+- [nautilus/gateway](https://github.com/nautilus/gateway)
+  - MIT, Golang
+  - Introspect schema，自动合并 - 不需要 directive
+  - 不支持 subscriptions
+  - [A Guide to GraphQL Schema Federation, Part 1](https://itnext.io/a-guide-to-graphql-schema-federation-part-1-995b639ac035)
+
 ## 代码生成/Generator
 
 - [cmd/stringer/stringer.go](https://github.com/golang/tools/blob/master/cmd/stringer/stringer.go)
@@ -300,11 +334,6 @@ tags:
 - [gzuidhof/tygo](https://github.com/gzuidhof/tygo)
   - Go -> Typescript
 - 功能性
-  - [99designs/gqlgen](https://github.com/99designs/gqlgen) - GraphQL Schema -> Model/Resolver
-  - [Yamashou/gqlgenc](https://github.com/Yamashou/gqlgenc)
-    - gqlgen 客户端
-  - [Khan/genqlient](https://github.com/Khan/genqlient)
-    - type-safe Go GraphQL client
   - [ent/ent](https://github.com/ent/ent) - Schema -> CRUD, MySQL, PostgreSQL, SQLite
   - [uber-go/gopatch](https://github.com/uber-go/gopatch)
     - 根据规则转换代码
@@ -376,7 +405,8 @@ tags:
 
 ## 事件驱动/Event
 
-- [uber/cadence](https://github.com/uber/cadence)
+- [temporal](../../service/workflow/temporal.md)
+- [uber/cadence](../../service/workflow/cadence.md)
   - distributed, scalable, durable, and highly available orchestration engine
   - execute asynchronous long-running business logic
 - [tibcosoftware/flogo](https://github.com/tibcosoftware/flogo)
@@ -576,6 +606,7 @@ tags:
   - [github.com/pkg/errors](https://github.com/pkg/errors)
   - [github.com/hashicorp/go-multierror](https://github.com/hashicorp/go-multierror)
   - [go.uber.org/multierr](https://github.com/uber-go/multierr)
+  - [cockroachdb/errors](https://github.com/cockroachdb/errors)
 - compress/archive
   - [github.com/mholt/archiver](https://github.com/mholt/archiver)
     - 各种压缩包

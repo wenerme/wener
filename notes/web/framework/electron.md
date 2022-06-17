@@ -17,6 +17,10 @@ title: Electron
     - Electron 版本, Chrome 版本, Node 版本关系
   - [nodejs release](https://nodejs.org/en/download/releases/)
     - Node 版本 <-> 模块版本
+  - [chromedriver](https://github.com/electron/chromedriver)
+    - 下载 [ChromeDriver](https://sites.google.com/chromium.org/driver/)
+  - [mksnapshot](https://github.com/electron/mksnapshot)
+    JS -> 二进制
 - Tray 使用 16x16 的 ICON
 - https://electronjs.org/docs/api/native-image
 

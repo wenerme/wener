@@ -35,3 +35,9 @@ ALTER SUBSCRIPTION mysub ENABLE;
 ```
 
 ## Streaming Replication
+
+- https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION
+
+## Backup
+
+- https://www.postgresql.org/docs/current/backup.html

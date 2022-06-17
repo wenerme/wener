@@ -1,14 +1,38 @@
 ---
 title: Redis Version
+tags:
+  - Version
 ---
 
 # Redis Version
 
-| ver | date       |
-| --- | ---------- |
-| 6.0 | 2020-04-30 |
+| ver     | date       |
+| ------- | ---------- |
+| Redis 7 | 2022-04-27 |
+| Redis 6 | 2020-04-30 |
 
-## 6.0
+## Redis 7
+- Redis Functions
+- ACLv2
+- command introspection
+- Cluster Sharded Pub/Sub
+- 50 个新命令
+  - ZMPOP, BZMPOP, LMPOP, BLMPOP, SINTERCARD, ZINTERCARD
+  - shared pub/sub - SPUBLISH, SSUBSCRIBE, SUNSUBSCRIBE, PUBSUB SHARDCHANNELS/SHARDNUMSUB
+  - EXPIRETIME, PEXPIRETIME
+  - EXPIRE NX/XX/GT/LT
+  - EVAL_RO, EVALSHA_RO
+  - SORT_RO
+  - SHUTDOWN NOW|FORCE|ABORT
+  - FUNCTION, FCALL, FCALL_RO
+  - 管理
+    - COMMAND DOCS|LIST|INFO
+    - LATENCY HISTOGRAM
+    - CLUSTER LINKS|DELSLOTSRANGE|ADDSLOTSRANGE
+    - CLIENT NO-EVICT
+    - ACL DRYRUN
+
+## Redis 6
 
 - SSL
 - ACLs
@@ -19,11 +43,11 @@ title: Redis Version
 - Cluster support in Redis-benchmark
 - improved redis-cli cluster support
 
-## 5.0
+## Redis 5
 
 - 新增 stream 类型
 
-## 4.0
+## Redis 4
 
 - 变更
   1. 模块
@@ -39,7 +63,7 @@ title: Redis Version
   - [The first release candidate of Redis 4.0 is out](http://www.antirez.com/news/110)
   - [RELEASENOTES](https://raw.githubusercontent.com/antirez/redis/4.0/00-RELEASENOTES)
 
-## 3.2.0
+## Redis 3.2.0
 
 - [GEO](http://redis.io/commands/#geo) API
 - [BITFIELD](http://redis.io/commands/bitfield) command

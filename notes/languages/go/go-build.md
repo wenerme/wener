@@ -42,16 +42,16 @@ go tool dist list -json
 go clean -modcache
 ```
 
-| buildmode | desc                                 |
-| --------- | ------------------------------------ |
-| archive   | build non-main, `.a`                 |
-| c-archive | main+imports, cgo `//export`         |
-| c-shared  | main+imports, cgo `//export`         |
-| default   | main+non-main, exec， `.a`           |
-| shared    | non-main, for -linkshared            |
-| exe       | main+imports,exec, 忽略非 main 包    |
-| pie       | main+imports, exec, pie              |
-| plugin    | main+imports, plugin, 忽略非 main 包 |
+| buildmode  | desc                                           |
+| ---------- | ---------------------------------------------- |
+| archive    | build non-main, `.a`                           |
+| c-archive  | main+imports, cgo `//export`                   |
+| c-shared   | main+imports, cgo `//export`                   |
+| default    | main+non-main, exec， `.a`                     |
+| exe        | main+imports,exec, 忽略非 main 包              |
+| pie        | main+imports, exec, pie                        |
+| plugin     | main+imports, plugin, 忽略非 main 包           |
+| ~~shared~~ | non-main, for -linkshared - module 出来后 异常 |
 
 | ldflags                             | desc                     |
 | ----------------------------------- | ------------------------ |
@@ -99,10 +99,10 @@ var BuildTime = ""
 
 ```bash
 DEF_FLAGS="
--X 'wener.me/tools/build.Version=`git describe --tags --abbrev=0`'
--X 'wener.me/tools/build.CommitID=`git rev-parse --short HEAD`'
--X 'wener.me/tools/build.CommitTime=`git log -1 --format=%cd --date=iso8601`'
--X 'wener.me/tools/build.BuildTime=`date --iso-8601=seconds`'
+-X 'wener.me/tools/build.Version=$(git describe --tags --abbrev=0)'
+-X 'wener.me/tools/build.CommitID=$(git rev-parse --short HEAD)'
+-X 'wener.me/tools/build.CommitTime=$(git log -1 --format=%cd --date=iso8601)'
+-X 'wener.me/tools/build.BuildTime=$(date --iso-8601=seconds)'
 "
 go build -o bin/cli -ldflags "$DEF_FLAGS" ./cmd/cli
 ```

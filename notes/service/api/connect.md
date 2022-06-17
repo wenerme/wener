@@ -65,3 +65,17 @@ plugins:
     out: gen
     opt: paths=source_relative
 ```
+
+## Why Connect
+
+- gRPC 因为考虑 Google 内部使用和开源社区使用，一些设计上很乱很奇怪
+- gRPC 小版本也可能不出现兼容
+- gRPC 在 Web 环境非常麻烦
+- 要求 HTTP/2 Trailer - 对使用环境、实现要求苛刻
+- golang
+  - 不兼容 net/http
+  - 实现复杂
+
+---
+
+- https://buf.build/blog/connect-a-better-grpc

@@ -1,10 +1,11 @@
 ---
-id: redis
 title: Redis
 ---
 
 # Redis
 
+- [redis/redis](https://github.com/redis/redis)
+  - BSD-3, C
 - [redis.conf](http://download.redis.io/redis-stable/redis.conf)
 - 参考
   - [5 Key Takeaways for Developing with Redis](https://redislabs.com/blog/5-key-takeaways-for-developing-with-redis)

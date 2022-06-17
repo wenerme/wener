@@ -9,6 +9,9 @@ tags:
 - https://reproducible-builds.org/
 - [batect/batect](https://github.com/batect/batect)
 - [elfshaker/elfshaker](https://github.com/elfshaker/elfshaker)
+- [rui314/mold](https://github.com/rui314/mold)
+  - GNU AGPL v3, C++
+  - GNU gold, LLVM lld
 
 ## Build system
 

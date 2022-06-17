@@ -36,7 +36,7 @@ title: KV DB Awesome
 
 - [KeyDB](./keydb.md)
   - BSD-3, C++,C
-  - 被 Snapchat 收购 - 2022-05-11
+  - 被 Snapchat 收购 - 2022-05-11 - 开源之前的 Pro 特性
   - 多线程 Redis - IO 多线程，事务单线程
   - 完整 Redis 兼容 - 持续使用 Redis 代码
   - ModJS - 可以通过 V8 扩展
@@ -51,7 +51,7 @@ title: KV DB Awesome
   - 类似 KeyDB
     - 不完全使用 Redis 代码
     - 完整多线程 - 事务也多线程
-    - io_uring - 要求比较新的 linux 内核
+    - io_uring - 要求 linux 5.1+ 内核
     - 性能优于 KeyDB - 不同的 trade off
 - [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
   - Mordern Redis Cluster solution

@@ -13,6 +13,22 @@ tags:
   - [EDAC Project](http://bluesmoke.sourceforge.net/)
   - [EDAC Device](https://www.kernel.org/doc/html/v4.19/driver-api/edac.html)
 
+## Why AlpineLinux
+
+阿里云、腾讯云、物理服务器、虚拟机、容器都是用的 alpinelinux
+
+1. 环境都一样，使用各方面熟悉，熟练
+2. 小/快 - 阿里云 ECS 只需要上传一个 几十 MB 的镜像即可，从 0 安装只需要 3 分钟
+3. 简单 - 可以由内而外的了解所有 alpine 细节，对于 debian 和 centos 我都做不到，因为太复杂
+4. 跟上时代 - 内核 一般是最近的 lts，能快速利用上新的内核特性，比如现在 linux 内核支持 io_uring, ntfs
+5. 快速更新 - 安全问题响应非常快 - 因为使用面非常广
+
+**不适用场景**
+
+1. 机器学习 - ubuntu 是最好的 - 最新 Linux 开始要集成 Navdia 驱动，情况会有所好转
+2. 商务用桌面系统 - 默认 xface - _生态_ 和体验没有 ubuntu 好
+3. 定制化嵌入式设备 - alpine 支持的 arch 远没有 debian 的多，如果 arch 支持可以考虑 alpine
+
 ## apk 1 error
 
 apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.
@@ -119,12 +135,12 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 - 这是我目前的调整，比描述的简单些
 
 ```bash
-		if [ -f "/boot/intel-ucode.img" ]; then
-			everbose "Found microcode for Intel CPUs: /boot/intel-ucode.img"
-			echo "  INITRD intel-ucode.img,initramfs-$tag" >> $conf.new
-		else
-			echo "  INITRD initramfs-$tag" >> $conf.new
-		fi
+if [ -f "/boot/intel-ucode.img" ]; then
+  everbose "Found microcode for Intel CPUs: /boot/intel-ucode.img"
+  echo "  INITRD intel-ucode.img,initramfs-$tag" >> $conf.new
+else
+  echo "  INITRD initramfs-$tag" >> $conf.new
+fi
 ```
 
 - 然后 `update-extlinux` 即可
@@ -222,7 +238,6 @@ sudo update-ca-certificates # 更新 CA 时出现
 
 mkdir /usr/local/share/ca-certificates/extra
 ```
-
 
 ## SSL routines:tls_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1919
 

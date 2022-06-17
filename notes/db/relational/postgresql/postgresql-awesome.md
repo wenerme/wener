@@ -76,6 +76,16 @@ tags:
 - [ankane/dexter](https://github.com/ankane/dexter)
 - [ankane/pgslice](https://github.com/ankane/pgslice)
 - [keithf4/pg_bloat_check](https://github.com/keithf4/pg_bloat_check)
+- WAL
+  - [wal-g/wal-g](https://github.com/wal-g/wal-g)
+    - Apache-2.0, Golang
+    - vs wal-e
+      - LZ4, LZMA, Brotli
+      - 多核处理
+    - [Introducing WAL-G by Citus: Faster Disaster Recovery for Postgres](https://www.citusdata.com/blog/2017/08/18/introducing-wal-g-faster-restores-for-postgres/)
+  - [wal-e/wal-e](https://github.com/wal-e/wal-e)
+    - BSD-3, Python
+    - 不再维护
 
 ## Scale
 

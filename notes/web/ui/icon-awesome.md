@@ -9,8 +9,9 @@ tags:
 - online [react-icons](http://react-icons.github.io/react-icons)
 - [tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons)
   - MIT, React `@heroicons/react`, Vue `@heroicons/vue`, SVG, JSX
-  - Outline, Solid
   - [heroicons](https://heroicons.com)
+    - Outline - navigation, marketing - 24x24
+    - Solid - buttons, form, text - 20x20
 - [phosphor-icons/phosphor-home](https://github.com/phosphor-icons/phosphor-home)
 - [tancredi/fantasticon](https://github.com/tancredi/fantasticon)
 - [iconic.app](https://iconic.app/)

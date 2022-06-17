@@ -122,6 +122,16 @@ tags:
     - Node.js image processing
     - 底层基于 vips
   - online [butteraugli](http://libwebpjs.hohenlimburg.org/butteraugli/)
+- Service
+  - [imgproxy](./imgproxy.md)
+    - MIT, Go
+    - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
+  - [joe-bell/plaiceholder](https://github.com/joe-bell/plaiceholder)
+    - 生成 blur dataURL
+    - [strapi-plugin-placeholder](https://market.strapi.io/plugins/strapi-plugin-placeholder)
+  - [thoas/picfit](https://github.com/thoas/picfit)
+    resizing server
+    - 开发停滞
 - image difference metrics - RD - rate distortion
   - butteraugli
     - good detail retention and best color
@@ -213,11 +223,11 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 exiftool -ext mp4 -Title= /path/to/files/
 
 # mkvtoolnix
-mkvpropedit -l  # 属性列表
+mkvpropedit -l # 属性列表
 
 mkvinfo input.mkv
-mkvpropedit input.mkv --tags all: # 移除所有 tag
-mkvpropedit input.mkv -d title    # 删除 title
+mkvpropedit input.mkv --tags all:                   # 移除所有 tag
+mkvpropedit input.mkv -d title                      # 删除 title
 mkvpropedit input.mkv --edit track:v1 --delete name # 删除 track:v1 的名字
 
 for i in *.mkv; do mkvpropedit $i -d title; done

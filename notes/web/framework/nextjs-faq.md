@@ -213,6 +213,33 @@ module.exports = {
 };
 ```
 
+```dockerfile
+FROM node:16-alpine
+WORKDIR /app
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# monorepo need prefix path
+COPY next.config.js ./apps/web/
+COPY public ./apps/web/public
+COPY package.json ./apps/web/package.json
+
+COPY --chown=nextjs:nodejs .next/standalone ./
+COPY --chown=nextjs:nodejs .next/static ./apps/web/.next/static
+
+USER nextjs
+
+EXPOSE 3000
+ENV PORT 3000
+
+# monorepo
+CMD ["node", "apps/web/server.js"]
+```
+
 - 由于 hosting 的原因，可能出现模块无法找到的问题
 - pnpm 重复 build 会有问题
 - 基于 @vercel/nft 跟踪依赖

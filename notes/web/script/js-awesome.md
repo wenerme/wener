@@ -203,9 +203,16 @@ tags:
   - jquery
   - [fabiospampinato/cash](https://github.com/fabiospampinato/cash)
 - validate
+  - [ajv](./lib/ajv.md)
+    - 使用的最多
   - yup
+  - joi
+  - vest
   - [colinhacks/zod](https://github.com/colinhacks/zod)
+    - 定义的校验会生成 ts 类型
+    - TypeScript-first schema validation
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
+  - npmtrends [ajv vs joi vs yup vs zod](https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod)
 - math
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
   - [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)

@@ -15,7 +15,42 @@ RHEL 内核 flavor
 - kernel-lt - long term
   - Linux 长期支持版本 - 更稳定，更新更少
 
-## 从新扫描分区
+## hostname
+
+```bash
+# 主机名
+hostname
+hostname -s
+cat /etc/hostname
+sysctl -n kernel.hostname
+cat /proc/sys/kernel/hostname
+
+# 域名
+# --fqdn/--long
+hostname -f
+sysctl -n kernel.domainname
+cat /proc/sys/kernel/domainname
+
+# 修改
+hostname "wener-s1"
+domainname "phy.wener.me"
+# 相同
+echo wener-s1 > /proc/sys/kernel/hostname
+echo phy.wener.me > /proc/sys/kernel/domainname
+
+# /etc/hosts
+# 127.0.0.1 wener-s1.phy.wener.me wener-s1
+# /etc/resolv.conf
+# search phy.wener.me
+```
+
+
+- NIS 系统 - 不需要与 DNS 有关系，但也可以有关系
+- FQDN 是辅助维护大批量的网络设备，一般需要配合内部 DNS 解析
+- https://man7.org/linux/man-pages/man1/hostname.1.html
+- https://www.kernel.org/doc/Documentation/sysctl/kernel.txt
+
+## 重新扫描分区
 
 ```bash
 partprobe
@@ -30,7 +65,7 @@ mknod /dev/hdc1 b 22 1
 cat /dev/hdc1 > /dev/null
 
 # 直接读取分区 - 挂载为 loop
-losetup /dev/loop0 /dev/hdc -o $((63*512))
+losetup /dev/loop0 /dev/hdc -o $((63 * 512))
 mount /dev/loop0 /mnt/hdc1
 # 查看
 fdisk -l -u /dev/hdc
@@ -114,9 +149,9 @@ lsof | grep deleted
 - soft limits <= hard limit
 
 ```bash
-ulimit -a   # 所有
-ulimit -Hn  # hard
-ulimit -Sn  # soft
+ulimit -a  # 所有
+ulimit -Hn # hard
+ulimit -Sn # soft
 
 # sysctl -w fs.file-max=
 cat /proc/sys/fs/file-max

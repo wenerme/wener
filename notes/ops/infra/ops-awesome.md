@@ -1,15 +1,32 @@
 ---
-title: Infra
+title: OPS Awesome
 tags:
   - Awesome
 ---
 
-# Infra Awesome
+# OPS Awesome
+
+- 自动化工具
+- 配置管理
+- 任务执行
+- 资源管理
+- 应用部署
+
+---
 
 - Ansible
-- Terraform
+  - RedHat 收购
+  - 不需要 Agent
+  - Push 为主，Pull 为辅
+  - [AWX](./ansible/ansible-awx.md) Web 工具
 - CFEngine
 - Chef
+- Puppet
+- saltstack
+- 声明式
+  - Terraform
+  - Pulumi
+  - crossplane
 
 ## Cloud
 
@@ -23,6 +40,7 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=24814687)
 
 ## Access
+
 - [seknox/trasa](https://github.com/seknox/trasa)
   - Zero Trust Service Access
 - [hashicorp/boundary](https://github.com/hashicorp/boundary)

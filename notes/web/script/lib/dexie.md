@@ -4,6 +4,7 @@ title: dexie
 
 # dexie
 
+- [dexie/Dexie.js](https://github.com/dexie/Dexie.js)
 - dexie-react-hooks
   - [useLiveQuery](<https://dexie.org/docs/dexie-react-hooks/useLiveQuery()>)
     - 会 observe 数据变化
@@ -89,3 +90,35 @@ db.on('changes', function (changes) {
   - Query builder
 - [Dexie.Syncable](https://dexie.org/docs/Syncable/Dexie.Syncable.js)
   - 同步协议
+
+## SyncProtocol
+
+```ts
+interface ISyncProtocol {
+    /** Maximum number of changes per sync() call. Default Infinity. */
+    partialsThreshold?: number;
+
+    /** Called by the framework to send changes to server and
+     * receive changes back from server. */
+    sync (
+        context: IPersistedContext,
+        url: string,
+        options: Object,
+        baseRevision: any,
+        syncedRevision: any,
+        changes: IDatabaseChange[],
+        partial: boolean,
+        applyRemoteChanges: ApplyRemoteChangesFunction,
+        onChangesAccepted: ()=>void,
+        onSuccess: (continuation: Continuation)=>void,
+        onError: (error: any, again?: number) => void)
+    : void;
+}
+```
+
+- [ISyncProtocol](https://dexie.org/docs/Syncable/Dexie.Syncable.ISyncProtocol)
+- https://dexie.org/docs/Syncable/Dexie.Syncable.js.html
+- [AjaxSyncProtocol](https://github.com/dexie/Dexie.js/blob/master/samples/remote-sync/ajax/AjaxSyncProtocol.js)
+  - 使用 jQuery 发起 ajax 请求
+- [WebSocketSyncProtocol](https://github.com/dexie/Dexie.js/blob/master/samples/remote-sync/websocket/WebSocketSyncProtocol.js)
+  - [WebSocketSyncServer](https://github.com/dexie/Dexie.js/blob/master/samples/remote-sync/websocket/WebSocketSyncServer.js)

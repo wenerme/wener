@@ -8,15 +8,24 @@ tags:
 
 | version       | date       |
 | ------------- | ---------- |
-| [Keycloak 18] | 2022-04-22 |
-| [Keycloak 17] |            |
-| [Keycloak 16] |            |
-| [Keycloak 15] |            |
-| [Keycloak 14] |            |
-| [Keycloak 13] |            |
-| [Keycloak 12] |            |
-| [Keycloak 11] |            |
-| [Keycloak 10] |            |
+| [Keycloak 18] | 2022-04-21 |
+| [Keycloak 17] | 2022-02-12 |
+| [Keycloak 16] | 2021-12-17 |
+| [Keycloak 15] | 2021-07-30 |
+| [Keycloak 14] | 2021-06-18 |
+| [Keycloak 13] | 2021-05-06 |
+| [Keycloak 12] | 2020-12-17 |
+| [Keycloak 11] | 2020-07-22 |
+| [Keycloak 10] | 2020-04-29 |
+
+:::tip
+
+- 新 Operator - Keycloak 20
+- 新 Console - Keycloak 19
+- 默认 Quarkus - Keycloak 17
+  - 2022-06 停止支持 WildFly 版本
+
+:::
 
 [keycloak 18]: #keycloak-18
 [keycloak 17]: #keycloak-17
@@ -28,25 +37,26 @@ tags:
 [keycloak 11]: #keycloak-11
 [keycloak 10]: #keycloak-10
 
-
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
 - [keycloak/kc-sig-fapi](https://github.com/keycloak/kc-sig-fapi)
 
-
 ## Keycloak 18
 
+- Session limits
+- Step-up authentication
+  - allow access to clients or resources based on a specific authentication level of a user
+- preview
+  - Client secret rotation
+  - 2FA Recovery Codes
 - 新的 预览版 Operator - https://www.keycloak.org/operator/installation
   - v20 的时候停止支持旧的 Operator，切换为新的 Operator
   - [keycloak/keycloak-operator](https://github.com/keycloak/keycloak-operator)
 - 新的 预览版 Admin Console - 19 变为默认
-- preview
-  - Client secret rotation
-  - 2FA Recovery Codes
 - 完整实现 OpenID Connect Logout
 - WebAuthn id-less authentication
-- Session limits
-- https://www.keycloak.org/2022/04/keycloak-1800-released
-- https://www.keycloak.org/guides
+- 参考
+  - https://www.keycloak.org/2022/04/keycloak-1800-released
+  - https://www.keycloak.org/guides
 
 ## Keycloak 17
 

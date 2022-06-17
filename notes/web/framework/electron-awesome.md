@@ -27,8 +27,8 @@ tags:
 - [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps)
 - [hokein/electron-screen-recorder](https://github.com/hokein/electron-screen-recorder)
 - Browser - 推荐使用 BrowserView 实现, 避免 webview
-  - [beakerbrowser/beaker](https://github.com/beakerbrowser/beaker)
   - [wexond/browser-base](https://github.com/wexond/browser-base)
+  - [beakerbrowser/beaker](https://github.com/beakerbrowser/beaker)
   - [Create a Browser with React.js and Electron](https://javascript.plainenglish.io/d75f30b6bcec)
   - [pfrazee/electron-browser](https://github.com/pfrazee/electron-browser)
   - [hulufei/electron-as-browser](https://github.com/hulufei/electron-as-browser)

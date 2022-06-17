@@ -136,3 +136,21 @@ tags:
 ---
 
 - http://sh.sina.com.cn/news/z/jietidianjia/
+
+## 房产证编号
+
+```
+沪房地X字200X第0XXXXX号
+```
+- 字 - 浦, 卢, 崇, 青, 宝, 静, 普, 黄, 徐, 杨, 南, 奉, 嘉, 金, 闵, 闸, 松, 长, 虹
+- 房产税查询
+  - http://shanghai.chinatax.gov.cn/xbwz/wzfw/grzffcsfcscx_new.jsp
+    - 只能查 2002 之后的
+- 房产证 - Premises Permit
+- “不变不换” 原则
+
+## 房产 vs 不动产
+
+- 不动产 - 土地、海域以及房屋、林木等定着物
+  - 不包含房产
+  - **定着物** 的所有权

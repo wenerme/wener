@@ -4,7 +4,9 @@ title: Keycloak
 
 # Keycloak
 
-- 通过 jgroups 实现集群
+- [keycloak/keycloak](https://github.com/keycloak/keycloak)
+  - Apache-2.0, Java, Quarkus
+  - 通过 jgroups 实现集群
 - vault 支持 K8S secrets
   - 挂载到 `$JBOSS_HOME/secrets`
 - 参考
@@ -22,10 +24,11 @@ title: Keycloak
 
 ## Docker
 
-- [jboss/keycloak](https://hub.docker.com/r/jboss/keycloak)
 - /opt/jboss/keycloak/themes - 主题目录
 - /opt/jboss/keycloak/standalone/deployments - 自定义 provider 目录
 - /opt/jboss/startup-scripts - 启动运行脚本目录
+- quay [keycloak/keycloak](https://quay.io/repository/keycloak/keycloak)
+- dockerhub [jboss/keycloak](https://hub.docker.com/r/jboss/keycloak)
 
 | Env                      | Default  | Description                                             |
 | ------------------------ | -------- | ------------------------------------------------------- |
@@ -100,7 +103,7 @@ java -cp $jar org.h2.tools.Console -url "$url" -user sa -password sa
 
 ## LDAP
 
-## group-ldap-mapper
+### group-ldap-mapper
 
 - 分组映射
 - 注意

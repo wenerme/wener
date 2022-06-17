@@ -1,9 +1,9 @@
 ---
-id: packer
 title: Packer
 ---
 
 # Packer
+
 - 是什么？
   - 自动化多平台镜像构建工具
 - 使用场景
@@ -65,13 +65,14 @@ curl -LOC- https://releases.hashicorp.com/packer/${ver}/packer_${ver}_linux_amd6
 ```
 
 ## HCL2
-* `packer build folder`
-  * variables.pkr.hcl
-  * locals.pkr.hcl
-  * sources.pkr.hcl
-  * build.pkr.hcl
-* 引号和 heredoc 里使用 `${` `%{`
-* [#9176](https://github.com/hashicorp/packer/issues/9176) - HCL2: implementation list
+
+- `packer build folder`
+  - variables.pkr.hcl
+  - locals.pkr.hcl
+  - sources.pkr.hcl
+  - build.pkr.hcl
+- 引号和 heredoc 里使用 `${` `%{`
+- [#9176](https://github.com/hashicorp/packer/issues/9176) - HCL2: implementation list
 
 ```hcl
 # 全局定义可复用的 builder
@@ -212,7 +213,7 @@ build {
 | lower               |
 | packer_version      |
 | pwd                 |
-| replace             | `( old, new string, n int, s )`
+| replace             | `( old, new string, n int, s )`                               |
 | replace_all         | 全替换                                                        |
 | split               | 分割字符串                                                    |
 | template_dir        | 模板目录                                                      |
@@ -228,8 +229,6 @@ build {
   - PackerRunUUID - 构建 ID
   - PackerHTTPIP, PackerHTTPPort, PackerHTTPAddr - packer 提供的 http 文件服务 - vm 中的 http 目录
   - SSHPublicKey, SSHPrivateKey - packer 链接的密钥
-
-
 
 ### 条件变量
 
@@ -344,7 +343,8 @@ build {
 ```
 
 ### qemu
-* 启动参数
+
+- 启动参数
 
 ```ini
 -cdrom /xxx/packer_cache/xxx.iso

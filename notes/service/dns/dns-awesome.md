@@ -134,61 +134,53 @@ curl --doh-url https://dns.cloudflare.com/dns-query https://wener.me
 
 ## Public DNS
 
-- Google
-  - IPv4
-    - 8.8.8.8
-    - 8.8.4.4
-  - IPv6
-    - 2001:4860:4860::8888
-    - 2001:4860:4860::8844
-  - DoH - https://dns.google/dns-query
-  - DoT - tls://dns.google
-- Cloudflare
-  - IPv4
-    - 1.1.1.1
-    - 1.0.0.1
-  - IPv6
-    - 2606:4700:4700::1111
-    - 2606:4700:4700::1001
-  - DoH - https://dns.cloudflare.com/dns-query
-  - DoT - tls://1dot1dot1dot1.cloudflare-dns.com
-- Cloudflare Malware blocking
-  - IPv4
-    - 1.1.1.2
-    - 1.0.0.2
-  - IPv6
-    - 2606:4700:4700::1112
-    - 2606:4700:4700::1002
-  - DoH - https://security.cloudflare-dns.com/dns-query
-  - DoT - tls://security.cloudflare-dns.com
-- Cloudflare Malware and adult content blocking
-  - IPv4
-    - 1.1.1.3
-    - 1.0.0.3
-  - IPv6
-    - 2606:4700:4700::1113
-    - 2606:4700:4700::1003
-  - DoH - https://family.cloudflare-dns.com/dns-query
-  - DoT - tls://family.cloudflare-dns.com
-- 114
-  - IPv4
-    - 114.114.114.114
-    - 114.114.115.115
-  - Safe - Block phishing, malcious and other unsafe websites
-    - 114.114.114.119
-    - 114.114.115.119
-  - Family - block adult websites and inappropriate contents
-    - 114.114.114.110
-    - 114.114.115.110
-- Ali
-  - IPv4
-    - 223.5.5.5
-    - 223.6.6.6
-  - IPv6
-    - 2400:3200::1
-    - 2400:3200:baba::1
-  - DoH - https://dns.alidns.com/dns-query
-  - DoT - tls://dns.alidns.com
+| -                    | Primary         | Secondary                   | IPv6 Primary         | IPv6 Secondary       | DoH                                           | DoT                                    |
+| -------------------- | --------------- | --------------------------- | -------------------- | -------------------- | --------------------------------------------- | -------------------------------------- |
+| Alibaba              | 223.5.5.5       | 223.6.6.6                   | 2400:3200::1         | 2400:3200:baba::1    | https://dns.alidns.com/dns-query              | tls://dns.alidns.com                   |
+| 南京信风             | 114.114.114.114 | 114.114.115.115             |
+| 南京信风 Safe        | 114.114.114.119 | 114.114.115.119             |
+| 南京信风 Family      | 114.114.114.110 | 114.114.115.110             |
+| DNSPod               | 119.29.29.29    |
+| 中国电信             | 218.102.23.228  | 218.108.23.1                |
+| 中国互联网络信息中心 | 1.2.4.8         |
+| 香港                 | 206.80.96.10    | 206.80.96.9                 |
+| 香港                 | 203.80.96.10    | 203.80.96.9                 |
+| 香港                 | 61.10.0.130     | 61.10.1.130                 |
+| 台湾中华             | 168.95.1.1      | 168.95.192.1,168.95.1.2     |
+| Baidu                | 180.76.76.76    |
+| 网通                 | 106.185.46.149  |
+| 联通                 | 121.40.240.227  |
+| 电信                 | 139.196.12.167  |
+| **国外**             |
+| 韩国长安大学         | 168.126.63.1    | 168.126.63.2                |
+| 韩国                 | 168.126.63.15   | 168.126.63.16               |
+| 韩国                 | 112.106.53.22   | 112.105.54.34,112.106.23.34 |
+| Google               | 8.8.8.8         | 8.8.4.4                     | 2001:4860:4860::8888 | 2001:4860:4860::8844 | https://dns.google/dns-query                  | tls://dns.google                       |
+| 美国赛门铁克诺顿     | 198.153.194.1   | 198.153.192.1               |
+| OpenDNS              | 208.67.222.222  | 208.67.220.220              |
+| 美国 Psychz          | 208.87.241.170  |
+| 美国                 | 64.81.45.2      |
+| ?                    | 23.41.21.106    | 23.45.157.25                |
+| Pacific SuperNet     | 202.14.67.4     | 202.238.95.26               |
+| Pacific SuperNet     | 202.238.95.24   | 202.14.67.14                |
+| 日本 MINET           | 203.112.2.4     | 203.112.2.5                 |
+| ^                    | 203.112.2.4     | 203.112.2.5                 |
+| ^                    | 202.45.84.58    | 202.45.84.59                |
+| ^                    | 202.67.240.221  | 202.67.240.220              |
+| ^                    | 202.69.209.5    | 202.69.209.133              |
+| ^                    | 202.81.252.1    | 202.81.252.2                |
+| ^                    | 202.98.198.167  | 202.98.192.67               |
+| ^                    | 123.125.81.6    | 123.206.21.48               |
+| ^                    | 4.4.4.4         |
+| ^                    | 101.226.4.6     |
+| ^                    | 210.2.4.8       |
+| Cloudflare           | 1.1.1.1         | 1.0.0.1                     | 2606:4700:4700::1111 | 2606:4700:4700::1001 | https://dns.cloudflare.com/dns-query          | tls://1dot1dot1dot1.cloudflare-dns.com |
+| Cloudflare Security  | 1.1.1.2         | 1.0.0.2                     | 2606:4700:4700::1112 | 2606:4700:4700::1002 | https://security.cloudflare-dns.com/dns-query | tls://security.cloudflare-dns.com      |
+| Cloudflare Family    | 1.1.1.3         | 1.0.0.3                     | 2606:4700:4700::1113 | 2606:4700:4700::1003 | https://family.cloudflare-dns.com/dns-query   | tls://family.cloudflare-dns.com        |
+
+- Safe - block phishing, malcious and other unsafe websites
+- Family - block adult websites and inappropriate contents
+- Cloudflare Security - Malware blocking
 
 ---
 
@@ -236,6 +228,7 @@ youtube.com
 ```
 
 <!--
+Adguard
 a=``
 copy(`/${a.split(/\n/).join('/')}/`)
 -->

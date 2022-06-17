@@ -446,3 +446,8 @@ body {
 ## gradient
 
 - https://www.colorzilla.com/gradient-editor/
+
+## scroll shadow
+
+- https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/
+- https://css-tricks.com/scroll-shadows-with-javascript/

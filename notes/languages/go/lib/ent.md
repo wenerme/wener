@@ -34,9 +34,16 @@ title: entgo
   - graphql Node ID 需要该能力
   - github gql 使用 String ID - 格式为 base64 `04:User583231`
 - 参考
+  - [ent/contribs](https://github.com/ent/contrib)
+    - entoas,entgql,entgrpc
+  - [ogen-go/ogen](https://github.com/ogen-go/ogen)
+    - 生成 OpenAPIv3
   - [Neptune / Gremlin - experience compared to SQL backends](https://github.com/ent/ent/issues/452#issuecomment-619430120)
     - ent 早期后端为 Gremlin
+  - [ariga/atlas](https://github.com/ariga/atlas)
+    - DSL schema 管理
   - [ariga/entcache](https://github.com/ariga/entcache)
+    - ent 缓存层
   - 核心成员成立的公司 https://ariga.io/ operational data graph
 
 :::tip
@@ -44,18 +51,19 @@ title: entgo
 - 内建 id 字段 - 可覆盖
 - 不支持 查询 Hook - [ent/ent#833](https://github.com/ent/ent/issues/833)
   - 可以使用 [privacy](https://entgo.io/docs/privacy/#multi-tenancy) 实现类型功能
+- gRPC 扩展支持情况 [#2446](https://github.com/ent/ent/issues/2446)
 
 :::
 
 :::caution
 
-- 不支持 upsert - [ent/ent#139](https://github.com/ent/ent/issues/139)
 - 不支持 软删除 - [ent/ent#252](https://github.com/ent/ent/issues/252)
-- 关联关系不支持自定义属性
 - 不支持级联删除 - [ent/ent#407](https://github.com/ent/ent/issues/407)
-- 目前 GoType 要求为 struct 或可映射类型
 - 不支持多态 - [#1048](https://github.com/ent/ent/issues/1048)
 - entql 嵌套分页 N+1 问题 - [#1180](https://github.com/ent/ent/issues/1180)
+- ~~目前 GoType 要求为 struct 或可映射类型~~
+- ~~关联关系不支持自定义属性~~
+- ~~不支持 upsert - [ent/ent#139](https://github.com/ent/ent/issues/139)~~
 
 :::
 
@@ -118,7 +126,75 @@ SELECT * FROM "accounts" WHERE "accounts"."owning_user_id" IN (SELECT "users"."i
 
 # Version
 
-## 0.8
+## ent v0.10
+
+- [ariga/atlas](https://github.com/ariga/atlas) 继承
+  - 基于 HCL 的 DDL Schema 定义/迁移
+
+```go
+package main
+import (
+    "context"
+    "log"
+    "<project>/ent"
+    "<project>/ent/migrate"
+    "entgo.io/ent/dialect/sql/schema"
+)
+func main() {
+    client, err := ent.Open("mysql", "root:pass@tcp(localhost:3306)/test")
+    if err != nil {
+        log.Fatalf("failed connecting to mysql: %v", err)
+    }
+    defer client.Close()
+    ctx := context.Background()
+    // 使用 Atlas 执行迁移
+    err = client.Schema.Create(ctx, schema.WithAtlas(true))
+    if err != nil {
+        log.Fatalf("failed creating schema resources: %v", err)
+    }
+}
+```
+
+## ent v0.9
+
+- Upsert/UpsertBulk
+- Row-level locking
+- 新的 entc.Extension API
+- 支持 SQL Query 修饰符
+
+```go
+id, err := client.User.
+    Create().
+    SetAge(30).
+    SetName("Ariel").
+    // upsert
+    OnConflict().
+    SetName("Mashraki").
+    ID(ctx)
+
+// UpsertBulk
+err := client.User.
+    CreateBulk(builders...).
+    OnConflict().
+    UpdateNewValues().
+    Exec(ctx)
+
+tx.User.Query().
+    Where(user.Name(name)).
+    // RLL
+    ForUpdate().
+    Only(ctx)
+
+client.Pet.
+    Query().
+    //  SQL Modifier
+    Modify(func(s *sql.Selector) {
+        s.Select("SUM(LENGTH(name))")
+    }).
+    IntX(ctx)
+```
+
+## ent v0.8
 
 - entc/gen
   - [全局 Annotation](https://entgo.io/docs/templates/#global-annotations)

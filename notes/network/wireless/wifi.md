@@ -92,3 +92,15 @@ title: IEEE 802.11
 - AC+AP - 最佳、需要预布线
 
 [802.11s]: https://en.wikipedia.org/wiki/IEEE_802.11s
+
+## Security
+
+- airmon-ng - 抓包
+- aircrack-ng - 爆破
+- hashcat - 爆破 hash
+- [Crack WPA/WPA2 Wi-Fi Routers with Aircrack-Ng and Hashcat](https://github.com/brannondorsey/wifi-cracking)
+  - [HN](https://news.ycombinator.com/item?id=14840539)
+- WEP, WPA 不安全，很容易攻击
+- WPA2 只能抓包爆破
+- [d33tah/call-for-wpa3](https://github.com/d33tah/call-for-wpa3)
+- [derv82/wifite2](https://github.com/derv82/wifite2)

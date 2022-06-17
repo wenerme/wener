@@ -23,7 +23,7 @@ title: k0s
       - IPv6 不支持 tunnal
   - etcd 层使用 k3s 的 [k3s-io/kine](https://github.com/k3s-io/kine)
   - 背后由 Mirants 公司支持
-  - ## bin 包含了 containerd,runc,etcd,xtables-legacy-multi
+  - bin 包含了 containerd,runc,etcd,xtables-legacy-multi
   - 自 2020 年 - 相比 k3s 要年轻一点
 
 [k0s]: https://github.com/k0sproject/k0s
@@ -553,3 +553,15 @@ depend() {
         after firewall
 }
 ```
+
+
+## 环境监测
+
+```bash
+# https://github.com/k0sproject/k0s/releases/download/v1.23.7%2Bk0s.0/k0s-v1.23.7+k0s.0-amd64
+curl -LOC- 'https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/v1.23.7%2Bk0s.0/k0s-v1.23.7+k0s.0-amd64'
+chmod +x k0s-v1.23.7+k0s.0-amd64
+./k0s-v1.23.7+k0s.0-amd64 sysinfo
+```
+
+- https://github.com/k3s-io/k3s/blob/master/contrib/util/check-config.sh

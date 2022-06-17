@@ -9,12 +9,14 @@ title: Kubernetes 版本
   - [pkg/features/kube_features.go](https://github.com/kubernetes/kubernetes/blob/master/pkg/features/kube_features.go)
 - [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
 
-| version         | release    |
-| --------------- | ---------- |
-| Kubernetes 1.23 | 2021-12-07 |
-| Kubernetes 1.22 | 2021-08-04 |
-| Kubernetes 1.21 | 2021-04-08 |
-| Kubernetes 1.20 | 2020-12-08 |
+| version                            | release    |
+| ---------------------------------- | ---------- |
+| [Kubernetes 1.24](#kubernetes-124) | 2022-05-03 |
+| [Kubernetes 1.23](#kubernetes-123) | 2021-12-07 |
+| [Kubernetes 1.22](#kubernetes-122) | 2021-08-04 |
+| [Kubernetes 1.21](#kubernetes-121) | 2021-04-08 |
+| [Kubernetes 1.20](#kubernetes-120) | 2020-12-08 |
+| [Kubernetes 1.19](#kubernetes-119) |            |
 
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
@@ -63,7 +65,43 @@ title: Kubernetes 版本
 [ipv6dualstack]: ./k8s-features#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features#StatefulSetAutoDeletePVC
 
-## 1.23
+## Kubernetes 1.24
+
+- 移除 Dockershim
+- Alpha [Verify Signed Container Images](https://kubernetes.io/docs/tasks/administer-cluster/verify-signed-images/)
+- API 使用 OpenAPI v3
+
+| group          | stage  | feature                                | default | alpha | beta |
+| -------------- | ------ | -------------------------------------- | ------- | ----- | ---- |
+| apps           | Alpha  | CronJobTimeZone                        |
+| apps           | Stable | IndexedJob                             |
+| apps           | Stable | JobReadyPods                           |
+| auth           | Stable | CSRDuration                            |
+| cloud-provider | Stable | ServiceLoadBalancerClass               |
+| network        | Alpha  | NetworkPolicyStatus                    |
+| network        | Alpha  | ServiceIPStaticSubrange                |
+| network        | Beta   | MixedProtocolLBService                 |
+| network        | Beta   | ServiceInternalTrafficPolicy           |
+| node           | Beta   | DisableKubeletCloudCredentialProviders |
+| node           | Beta   | GracefulNodeShutdownBasedOnPodPriority |
+| node           | Beta   | GRPCContainerProbe                     |         |       |      |
+| node           | Stable | PodOverhead                            |
+| scheduling     | Stable | NonPreemptingPriority                  |         |       |      |
+| scheduling     | Stable | PodAffinityNamespaceSelector           |
+| storage        | Alpha  | CSIVolumeHealth                        |
+| storage        | Alpha  | NonGracefulFailover                    |
+| storage        | Beta   | AnyVolumeDataSource                    |
+| storage        | Beta   | HonorPVReclaimPolicy                   |
+| storage        | Stable | CSIStorageCapacity                     |         |       |      |
+| storage        | Stable | ExpandCSIVolumes                       |         | 1.8   | 1.11 |
+| storage        | Stable | ExpandInUsePersistentVolumes           |         | 1.8   | 1.11 |
+| storage        | Stable | ExpandPersistentVolumes                |         | 1.8   | 1.11 |
+| windows        | Beta   | IdentifyPodOS                          |
+
+- 参考
+  - [Kubernetes 1.24 – What’s new?](https://sysdig.com/blog/kubernetes-1-24-whats-new/)
+
+## Kubernetes 1.23
 
 - 新的 `kubectl events` 命令
 - pvc resize 从失败恢复
@@ -114,7 +152,7 @@ title: Kubernetes 版本
 | Stable | storage           | CSIVolumeFSGroupPolicy                 |
 | Stable | storage           | GenericEphemeralVolume                 |
 
-## 1.22
+## Kubernetes 1.22
 
 :::caution
 
@@ -253,7 +291,7 @@ plugins:
         namespaces: [<array of namespaces to exempt>]
 ```
 
-## 1.21
+## Kubernetes 1.21
 
 - 13 stable, 16 beta, 20 alpha, 2 废弃
 - Kustomize 从 v2.0.3 升级到 v4.0.5 - 之前因为依赖问题被 block
@@ -441,7 +479,7 @@ apiVersion: batch/v1
   ttlSecondsAfterFinished: 100
 ```
 
-## 1.20
+## Kubernetes 1.20
 
 - 11 stable, 15 beta, 16 alpha
 - 废弃 dockershim
@@ -507,7 +545,7 @@ spec:
       port: 80
 ```
 
-## 1.19
+## Kubernetes 1.19
 
 - EndpointSlices 默认启用
 - Ingress GA

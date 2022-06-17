@@ -47,7 +47,7 @@ tags:
 
 ## Webview
 
-- [wailsapp/wails](https://github.com/wailsapp/wails)
+- [wailsapp/wails](./lib/wails.md)
 - [webview/webview](https://github.com/webview/webview) - 基于本地浏览器
   - 依赖 DLL
     - [#366](https://github.com/webview/webview/issues/366) - Embed DLLs?

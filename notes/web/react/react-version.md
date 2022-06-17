@@ -22,6 +22,12 @@ tags:
 
 ## React 18
 
+:::caution
+
+- FC 默认无 children 属性
+
+:::
+
 - automatic batching
 - concurrent feature
   - startTransition

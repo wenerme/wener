@@ -319,6 +319,8 @@ tags:
 - [oam-dev/kubevela](https://github.com/oam-dev/kubevela)
 - [openkruise/kruise](https://github.com/openkruise/kruise)
   Automate application management
+- [openpitrix/openpitrix](https://github.com/openpitrix/openpitrix)
+  - 开发停止
 
 ## 开发/Dev
 

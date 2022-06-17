@@ -487,15 +487,96 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
 
 ## next/image
 
+- 缓存到 `<distDir>/cache/images` - `.next/cache/images`
+- 返回包含 x-nextjs-cache - MISS, STALE, HIT
+- 缓存时效 max(minimumCacheTTL,Cache-Control.s-maxage || Cache-Control.max-age)
+
+| prop        | default   |
+| ----------- | --------- | --------------------- |
+| quality     | 75        |
+| sizes       | 100vw     |
+| priority    | false     |
+| placeholder | empty     | blur 提供 blurDataURL |
+| unoptimized | false     |
+| layout      | intrinsic |
+| loading     | lazy      |
+
+- width/height
+  - 除了 fill 其他都需要 width 和 height
+  - responsive, fill - 表示图片本来大小
+  - intrinsic, fixed, raw - 表示渲染大小
+- sizes - md [sizes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-sizes)
+  - responsive 和 fill 默认使用 100vw
+    - 100vw 优化空间小
+    - 建议提供 sizes 属性
+  - 如果实际没显示这么大，尽量设置一个合理的更小的值，提高压缩比 - 例如 50vw
+  - intrinsic 和 fixed 不使用 sizes
+
+| layout     | srcSet                   | sizes |
+| ---------- | ------------------------ | ----- | ------------------------------- |
+| intrinsic  | imageSizes               |       | 缩小适配容器                    |
+| fixed      | imageSizes               |       | 固定 width, height              |
+| responsive | imageSizes + deviceSizes | 100vw | 适配容器 width                  |
+| fill       | imageSizes + deviceSizes | 100vw |
+| raw        |                          |       | 有 sizes 同 sizes, 否则同 fixed |
+
+- intrinsic - 根据 viewport 缩放
+- fixed - 固定大小，不考虑 viewport - 接近 `img`
+- responsive - intrunsic+fixed - 要求 parent 是 `display: block`
+- fill
+  - 需要 parent 是 `position: relative`
+  - 通常配合 objectFit
+- 考虑 viewport -> 有 srcset
+
+---
+
+- sizes - 选择 srcsec 的依据
+  - `<media-query> <size>, <size>`
+  - 最后一个不能有 media-query
+  - `(max-width: 600px) 200px, 50vw`
+  - tailwindcss container
+    - `(max-width: 1536px) 1536px, (max-width: 1280px) 1280px, (max-width: 1024px) 1024px, (max-width: 768px) 768px, (max-width: 640px) 640px, 100vw`
+    - `(min-width: 720px) 35vw, 50vw`
+- srcsec
+  - `<url> <descriptor>`
+    - descriptor - `<width>w|<density>x`
+      - 默认 1x
+    - 不应该同时包含 width 和 density
+  - `200.png 200w, 400.png 400w`
+  - `1x.png 1x, 2x.png 2x`
+- img.currentSrc - 判断当前使用的 src
+- 参考
+  - [joe-bell/plaiceholder](https://github.com/joe-bell/plaiceholder)
+  - https://image-component.nextjs.gallery/
+  - [cyrilwanner/next-optimized-images](https://github.com/cyrilwanner/next-optimized-images)
+    - 支持优化更多图像类型，作为参考
+
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    minimumCacheTTL: 180,
+    // avif 比 webp 慢 20%，小 20%
+    // 默认只有 image/webp 建议添加 image/avif
+    formats: ['image/avif', 'image/webp'],
+
+    // 图片变种 deviceSizes*imageSizes
+    // responsive 和 fill 时使用
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // srcset - 在提供了 size 时使用
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
     // svg
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: `default-src 'self'; script-src 'none'; sandbox;`,
     // hosts
     domains: ['via.placeholder.com', 'lh3.googleusercontent.com'],
+
+    // 支持的平台 imgix, cloudinary, akamai
+    // 使用 custom 可自行提供实现 - ({ src, width, quality }) => string
+    // 开发环境使用 squoosh - 慢但易于安装
+    // 生产环境推荐 sharp
+    // loader: 'default',
   },
 };
 module.exports = nextConfig;

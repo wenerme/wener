@@ -142,6 +142,9 @@ egrep -o 'STRAPI_ADMIN_BACKEND_URL[^}]+' build/*.js
 - [strapi-plugin-rest-cache](https://github.com/strapi-community/strapi-plugin-rest-cache)
   - 缓存 REST 请求
   - 只支持 REST 不支持 GraphQL [#4](https://github.com/strapi-community/strapi-plugin-rest-cache/issues/4)
+- [strapi-middleware-upload-plugin-cache](https://github.com/alexkainzinger/strapi-middleware-upload-plugin-cache)
+  - 本地上传文件添加缓存头
+  - 默认 max-age 60
 
 ## Midleware
 

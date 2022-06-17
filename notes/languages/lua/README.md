@@ -1,5 +1,4 @@
 ---
-id: lua
 title: Lua
 ---
 

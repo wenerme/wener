@@ -35,6 +35,8 @@ tags:
 
 ## Desktop
 
+- wails
+  - Go
 - [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
   - 使用 Native WebView
 - [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)

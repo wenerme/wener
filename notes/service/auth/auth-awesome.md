@@ -1,11 +1,10 @@
 ---
 title: Auth Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Auth Awesome
-
 
 |                ver | date       |
 | -----------------: | ---------- |
@@ -36,6 +35,21 @@ tags:
     - `//mail.googleapis.com/users/name@example.com/settings/customFrom`
     - 无传输协议
 
+## Authorization
+
+- casbin
+- [osohq/oso](https://github.com/osohq/oso)
+  - Apache-2.0, Rust+Python
+
+**Zanzibar**
+
+- [authzed/spicedb](https://github.com/authzed/spicedb)
+  - [HN](https://news.ycombinator.com/item?id=28709886)
+- [josephglanville/zanzibar-pg](https://github.com/josephglanville/zanzibar-pg)
+- [authorizer-tech/access-controller](https://github.com/authorizer-tech/access-controller)
+- 参考
+  - [What is Zanzibar?](https://authzed.com/blog/what-is-zanzibar/)
+
 ## IAM
 
 - [keycloak/keycloak](https://github.com/keycloak/keycloak)
@@ -43,8 +57,10 @@ tags:
 - [zitadel/zitadel](https://github.com/zitadel/zitadel)
   - Apache-2.0, Go
   - by CAOS from Switzerland
+  - 提供 gRPC 接口
+  - 依赖 CockroachDB
   - [zitadel vs keycloak](https://zitadel.ch/blog/zitadel-vs-keycloak)
-  - https://zitadel.ch/v2
+  - https://zitadel.ch/v2 WIP
 - [kanidm/kanidm](https://github.com/kanidm/kanidm)
   - MPL-2.0, Rust
   - SSH/PAM/RADIUS/Web OAuth

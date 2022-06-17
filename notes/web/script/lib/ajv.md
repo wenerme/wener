@@ -4,6 +4,7 @@ title: ajv
 
 # ajv
 
+- [ajv-validator/ajv](https://github.com/ajv-validator/ajv)
 - 参考
   - [ajv-validator/ajv-keywords](https://github.com/ajv-validator/ajv-keywords)
     增加自定义关键字
@@ -17,7 +18,7 @@ title: ajv
     - object: allRequired, anyRequired, oneRequired, patternRequired, prohibited, deepProperties, deepRequired
 
 ```bash
-npm add ajv ajv-formats
+npm add ajv ajv-formats ajv-keywords ajv-errors
 ```
 
 ```ts

@@ -9,22 +9,35 @@ tags:
 :::tip
 
 - 一般年底的最后一个版本会变成 LTS
-- LTS 支持 6 年
-- 一般 2-3 月 一个版本
-- CIP kernel - SLTS kernel - Super Long Term Support
-  - 支持 25-50 年
+- 一般 2-3 月 一个版本 - 一年 4 个版本
+- LTS 支持 2-6 年
+- SLTS kernel
+  - 支持 5+ 年
+- CIP kernel - 提供额外支持
+  - Linux 4.4 - 支持到 2026/2036 年
+  - CIP - Civil Infrastructure Platform
+- RHEL 不遵循 LTS 版本 - 自己维护版本
+  - RHEL 9.x - Linux 5.14
 
 :::
 
-| linux version         | date       | note     | distro                                         |
-| :-------------------- | ---------- | -------- | ---------------------------------------------- |
-| [Linux 5.15] 22nd LTS | 2021-10-32 | NTFS     | alpine 3.15                                    |
-| [Linux 5.10] 21st LTS | 2020-12-13 |          | alpine 3.14, debian 11 Bullseye                |
-| [Linux 5.4] 20th LTS  | 2019-09-24 | exFAT    | alpine 3.13, ubuntu 20.04                      |
-| [Linux 5.1]           |            | io_uring |                                                |
-| [Linux 4.19] 19th LTS | 2019-10-22 |          | alpine 3.12, debian 10 Buster, 2nd SLTS(ARM64) |
-| Linux 4.4 16th LTS    | 2016-01-10 |          | 1st SLTS(ARM32,x86-64, to -2026/2036)          |
-| Linux 3.14            | 2014-03-30 |
+| linux version | LTS | SLTS    | date       | EOL     | distro                          |
+| :------------ | --- | ------- | ---------- | ------- | ------------------------------- |
+| [Linux 5.15]  | 22  |         | 2021-10-32 | 2023-10 | alpine 3.15                     |
+| [Linux 5.10]  | 21  | 3       | 2020-12-13 | 2026-09 | alpine 3.14, debian 11 Bullseye |
+| [Linux 5.4]   | 20  |         | 2019-09-24 | 2025-09 | alpine 3.13, ubuntu 20.04       |
+| [Linux 5.1]   |     |         | 2019-05-05 |         |                                 |
+| [Linux 4.19]  | 19  | 2,ARM64 | 2019-10-22 | 2024-12 | alpine 3.12, debian 10 Buster   |
+| [Linux 4.4]   | 16  | 1       | 2016-01-10 | 2022-02 | ubuntu 16.04                    |
+| Linux 3.14    |     |         | 2014-03-30 |         |
+
+:::tip
+
+- NTFS - linux 5.15
+- exFAT - linux 5.4
+- io_uring - linux 5.1
+
+:::
 
 - https://kernelnewbies.org/LinuxVersions
 - [Linux kernel version history](https://en.wikipedia.org/wiki/Linux_kernel_version_history)
@@ -43,7 +56,7 @@ tags:
 [linux 5.10]: #linux-510
 [linux 5.4]: #linux-54
 [linux 4.19]: #linux-519
-
+[linux 4.4]: #linux-44
 
 ```bash
 # CONFIG_IO_URING
@@ -119,7 +132,7 @@ grep io_uring_setup /proc/kallsyms
 - Support for cgroup namespaces
 - Add support for the pNFS SCSI layout
 
-### Linux 4.5
+## Linux 4.5
 
 - Copy offloading with new copy_file_range(2) system call
 - Experimental PowerPlay supports brings high performance to the amdgpu driver
@@ -132,7 +145,7 @@ grep io_uring_setup /proc/kallsyms
 - Performance improvements for SO_REUSEPORT UDP sockets
 - Proper control of socket memory usage in the memory controller
 
-### Linux 4.4
+## Linux 4.4
 
 - https://kernelnewbies.org/Linux_4.4
 - Faster and leaner loop device with Direct I/O and Asynchronous I/O support
@@ -148,7 +161,7 @@ grep io_uring_setup /proc/kallsyms
 - Block polling support
 - mlock2() syscall allow users to request memory to be locked on page fault
 
-### Linux 4.3
+## Linux 4.3
 
 - The Ext3 filesystem has been removed
 - userfaultfd(), a system call for handling page-faults in user space

@@ -621,13 +621,15 @@ useStore.destroy();
       - dompurify
       - [html-to-react](https://github.com/aknuds1/html-to-react)
 - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
-  React renderer for Three.js
+  - Three.js 渲染引擎
+- [vadimdemedes/ink](https://github.com/vadimdemedes/ink)
+  - 终端 渲染引擎
 - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
-  - 创建 PDF
+  - 渲染 PDF
 - [gre/gl-react](https://github.com/gre/gl-react)
-  - WebGL shaders
+  - WebGL 光栅
 - [konvajs/react-konva](https://github.com/konvajs/react-konva)
-  - Canvas
+  - 2D Canvas 渲染
   - 基于 [konvajs/konva](https://github.com/konvajs/konva)
 - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
   - 显示 PDF - 使用 pdfjs 并非 React 渲染

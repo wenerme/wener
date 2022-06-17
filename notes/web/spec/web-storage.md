@@ -74,21 +74,42 @@ title: WebStorage
 
 - [dexie](../script/lib/dexie.md)
   - IndexedDB 存储
-  - 支持同步
-- localForge
-  - 类似 localStorage
-  - 异步
-  - 支持多后端
+  - 支持同步 - 但不是开箱即用
+  - ~82kB/26kB - 无依赖
 - [rxdb](https://github.com/pubkey/rxdb)
   - offline first
   - 有 schema
   - 支持 punchdb, lokijs, dexie 存储
+  - 默认支持 REST 和 GraphQL 同步
+  - 使用 punchdb 也可以用 CouchDB 的同步
+  - Premium: IndexedDB, SQLite, Sharding , Query Optimizer
+  - ~114kB/31kB
+    - binary-decision-diagram
+    - broadcast-channel
+    - event-reduce-js
+    - spark-md5
+    - object-path
+    - clone
 - PouchDB
   - CouchDB replication
   - 支持 attachments
-- WatermelonDB
+  - ~117kB/37kB
+    - uuid
+    - spark-md5
+- [techfort/LokiJS](https://github.com/techfort/LokiJS)
+  - **in-memory** database
+- [YousefED/SyncedStore](https://github.com/YousefED/SyncedStore)
+  - 基于 yjs 同步
+  - 构建协作应用
+- localForge
+  - 类似 localStorage
+  - 异步
+  - 支持多后端
+- [WatermelonDB](https://github.com/Nozbe/WatermelonDB)
+  - 定位是 DB - 使用 class+decorator 定义 模型
   - React - LokiJS
   - React Native - SQLite
+  - ~155kB - 基于 rxjs
 - Absurd-SQL
   - indexeddb
 - SQLite
@@ -103,3 +124,4 @@ title: WebStorage
   - 项目停止
 - [amark/gun](https://github.com/amark/gun)
   - syncing decentralized graph data
+- [isaacs/node-lru-cache](https://github.com/isaacs/node-lru-cache)

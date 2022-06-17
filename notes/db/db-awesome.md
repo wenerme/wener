@@ -24,6 +24,9 @@ tags:
 | Content stores       | 内容存储       |
 | Navigational DBMS    | 导航数据库     |
 
+- https://db-engines.com/en/ranking
+- https://db-benchmarks.com/
+
 ## 理论
 
 - Sargable - Search ARGument ABLE
@@ -36,7 +39,7 @@ tags:
   - SQLite + Raft
 - PostgreSQL
   - cdb
-  - [citusdata/citus](https://github.com/citusdata/citus)
+  - [citusdata/citus](./relational/postgresql/citus.md)
     - PostgreSQL Sharding
   - [yugabyte/yugabyte-db](https://github.com/yugabyte/yugabyte-db)
 - MySQL

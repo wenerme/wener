@@ -6,6 +6,9 @@ tags:
 # PostgreSQL 配置
 
 - [Server Configuration](https://www.postgresql.org/docs/current/runtime-config.html)
+- [jberkus/annotated.conf](https://github.com/jberkus/annotated.conf)
+- https://pgpedia.info/
+- https://postgresqlco.nf/doc/en/param
 
 ## SSL
 
