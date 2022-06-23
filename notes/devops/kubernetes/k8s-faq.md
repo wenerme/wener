@@ -88,7 +88,7 @@ df -h
 df -Hi
 
 # remove DiskPressure
-kubectl taint nodes <nodename> node.kubernetes.io/disk-pressure-
+kubectl taint nodes < nodename > node.kubernetes.io/disk-pressure-
 ```
 
 - 监控来自于 cadvisor
@@ -172,9 +172,9 @@ kubectl get -o=yaml deploy whoami | yq d - status | yq d - 'metadata.managedFiel
 
 ```bash
 # 强制删除 Pod
-kubectl delete pods <pod> --grace-period=0 --force
+kubectl delete pods --force < pod > --grace-period=0
 # 尝试移除 Pod 的 finalizers
-kubectl patch pod <pod> -p '{"metadata":{"finalizers":null}}'
+kubectl patch pod '{"metadata":{"finalizers":null}}' < pod > -p
 
 # 查看所有的 Terminating Namespace
 kubectl get ns --field-selector status.phase=Terminating
@@ -195,9 +195,9 @@ kubectl patch ns -p '{"metadata":{"finalizers":[]}}' --type=merge $(kubectl get 
 - 部分资源需要先 patch 才能删除
 
 ```bash
-for ns in local p-66lfd ; do
-  for error in app.project.cattle.io/cluster-alerting app.project.cattle.io/cluster-monitoring app.project.cattle.io/monitoring-operator app.project.cattle.io/project-monitoring clusteralertgroup.management.cattle.io/cluster-scan-alert clusteralertgroup.management.cattle.io/etcd-alert clusteralertgroup.management.cattle.io/event-alert clusteralertgroup.management.cattle.io/kube-components-alert clusteralertgroup.management.cattle.io/node-alert clusterroletemplatebinding.management.cattle.io/creator-cluster-owner clusterroletemplatebinding.management.cattle.io/u-b4qkhsnliz-admin node.management.cattle.io/machine-9sssc node.management.cattle.io/machine-ks6z6 node.management.cattle.io/machine-v4v89 project.management.cattle.io/p-cnj28 project.management.cattle.io/p-mbvfd projectalertgroup.management.cattle.io/projectalert-workload-alert projectalertrule.management.cattle.io/less-than-half-workload-available projectalertrule.management.cattle.io/memory-close-to-resource-limited projectroletemplatebinding.management.cattle.io/app-jdnmz projectroletemplatebinding.management.cattle.io/creator-project-owner projectroletemplatebinding.management.cattle.io/prtb-s6fhc projectroletemplatebinding.management.cattle.io/u-2gacgc4nfu-member projectroletemplatebinding.management.cattle.io/u-efxo6n6ndd-member  ; do
-    for resource in `kubectl get -n $ns $error -o name` ; do
+for ns in local p-66lfd; do
+  for error in app.project.cattle.io/cluster-alerting app.project.cattle.io/cluster-monitoring app.project.cattle.io/monitoring-operator app.project.cattle.io/project-monitoring clusteralertgroup.management.cattle.io/cluster-scan-alert clusteralertgroup.management.cattle.io/etcd-alert clusteralertgroup.management.cattle.io/event-alert clusteralertgroup.management.cattle.io/kube-components-alert clusteralertgroup.management.cattle.io/node-alert clusterroletemplatebinding.management.cattle.io/creator-cluster-owner clusterroletemplatebinding.management.cattle.io/u-b4qkhsnliz-admin node.management.cattle.io/machine-9sssc node.management.cattle.io/machine-ks6z6 node.management.cattle.io/machine-v4v89 project.management.cattle.io/p-cnj28 project.management.cattle.io/p-mbvfd projectalertgroup.management.cattle.io/projectalert-workload-alert projectalertrule.management.cattle.io/less-than-half-workload-available projectalertrule.management.cattle.io/memory-close-to-resource-limited projectroletemplatebinding.management.cattle.io/app-jdnmz projectroletemplatebinding.management.cattle.io/creator-project-owner projectroletemplatebinding.management.cattle.io/prtb-s6fhc projectroletemplatebinding.management.cattle.io/u-2gacgc4nfu-member projectroletemplatebinding.management.cattle.io/u-efxo6n6ndd-member; do
+    for resource in $(kubectl get -n $ns $error -o name); do
       kubectl patch -n $ns $resource -p '{"metadata": {"finalizers": []}}' --type='merge'
     done
   done
@@ -209,19 +209,17 @@ for res in $(kubectl api-resources --namespaced=false --api-group management.cat
   kubectl get $res.management.cattle.io
 done
 
-
 # namespaced
 groups="management.cattle.io catalog.cattle.io project.cattle.io"
 for grp in $groups; do
-for res in $(kubectl api-resources --namespaced=true --api-group $grp -o name); do
-  echo "=== $res ==="
-  kubectl get --all-namespaces $res
+  for res in $(kubectl api-resources --namespaced=true --api-group $grp -o name); do
+    echo "=== $res ==="
+    kubectl get --all-namespaces $res
+  done
 done
-done
-
 
 # 清除资源
-cleargroup(){
+cleargroup() {
   kubectl patch $1 -p '{"metadata":{"finalizers":[]}}' --type=merge $(kubectl get $1 -o jsonpath='{..metadata.name}')
   kubectl delete --all $1
 }
@@ -436,11 +434,10 @@ service cgroups start
 ## orphaned pod found, but error not a directory occurred when trying to remove the volumes dir
 
 ```bash
-pods=$(tail -n 1000 /var/log/k0s.log|grep 'orphaned pod'|sed -r 's/.*pod[^"]+"([^\\"]+).*/\1/'|uniq)
-for i in $pods
-do
-  echo "Deleting Orphaned pod id: $i";
-  rm -rf /var/lib/kubelet/pods/$i;
+pods=$(tail -n 1000 /var/log/k0s.log | grep 'orphaned pod' | sed -r 's/.*pod[^"]+"([^\\"]+).*/\1/' | uniq)
+for i in $pods; do
+  echo "Deleting Orphaned pod id: $i"
+  rm -rf /var/lib/kubelet/pods/$i
 done
 ```
 
@@ -540,4 +537,102 @@ spec:
   priority: 2000001000
   enableServiceLinks: true
   preemptionPolicy: PreemptLowerPriority
+```
+
+## 证书轮换
+
+- k3s
+  - 12 个月有效，90 天内轮换
+  - 证书轮换需要重启 - `service k3s restart`
+  - 正在开始支持的不重启证书轮换 [k3s certificate](https://github.com/k3s-io/k3s/wiki/K3s-Cert-Rotation)
+  - [Certificate Rotation](https://rancher.com/docs/k3s/latest/en/advanced/#certificate-rotation)
+  - Improved and Manual Cert Rotation [k3s-io/k3s#2636](https://github.com/k3s-io/k3s/issues/2636)
+- k0s
+  - 同 k3s 在重启时轮换 [k0sproject/k0s#952](https://github.com/k0sproject/k0s/pull/952)
+- RKE2
+  - [rancher/rke2#570](https://github.com/rancher/rke2/issues/570)
+- k8s
+  - [Kubernetes Certificate Rotation](https://devopstales.github.io/kubernetes/k8s-cert/)
+- 证书类型
+  - server ca
+    - kubeapi-server cert
+  - client ca
+    - kube-controller cert
+    - kube-scheduler cert
+    - kube-proxy cert
+    - kube-api client cert
+    - CCM cert
+  - etcd ca cert
+    - etcd server cert
+    - etcd peer cert
+    - etcd client cert
+  - request header ca cert
+    - client auth proxy cert
+
+## eStargz
+
+- k3s/k0s 使用 containerd 的能力支持 stargz
+
+```bash
+k3s server --snapshotter=stargz
+```
+
+```toml title="/etc/containerd/config.toml"
+# Plug stargz snapshotter into containerd
+# Containerd recognizes stargz snapshotter through specified socket address.
+# The specified address below is the default which stargz snapshotter listen to.
+[proxy_plugins]
+
+[proxy_plugins.stargz]
+type = "snapshot"
+address = "/run/containerd-stargz-grpc/containerd-stargz-grpc.sock"
+
+# Use stargz snapshotter through CRI
+[plugins."io.containerd.grpc.v1.cri".containerd]
+snapshotter = "stargz"
+
+```
+
+- [containerd/stargz-snapshotter](https://github.com/containerd/stargz-snapshotter)
+- 初始 proposal [google/crfs](https://github.com/google/crfs)
+- [Startup Containers in Lightning Speed with Lazy Image Distribution on Containerd](https://medium.com/nttlabs/243d94522361)
+
+## could not load server certificate file : Permission denied
+
+- [kubernetes#81089](https://github.com/kubernetes/kubernetes/issues/81089)
+  - 不支持修改 owner
+- https://github.com/docker-library/postgres/issues/777
+
+## Usage of EmptyDir volume exceeds the limit 1m
+
+- emptyDir 使用 tmpfs 挂载
+  - medium: Memory
+
+## 常用 fieldRef
+
+- fieldRef
+- resourceFieldRef
+
+```yaml
+env:
+  - name: POD_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.name
+  - name: POD_NAMESPACE
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.namespace
+  - name: POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+  - name: NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
+  - name: POD_SERVICE_ACCOUNT
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.serviceAccountName
 ```

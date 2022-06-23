@@ -8,10 +8,15 @@ tags:
 
 - https://reproducible-builds.org/
 - [batect/batect](https://github.com/batect/batect)
+  - Apache-2.0, Kotlin
+  - Build And Testing Environments as Code Tool
 - [elfshaker/elfshaker](https://github.com/elfshaker/elfshaker)
+- [upx/upx](https://github.com/upx/upx)
+  - GPL-2.0, C,C++
+  - 压缩可执行文件
 - [rui314/mold](https://github.com/rui314/mold)
   - GNU AGPL v3, C++
-  - GNU gold, LLVM lld
+  - 替代 GNU gold, LLVM lld
 
 ## Build system
 

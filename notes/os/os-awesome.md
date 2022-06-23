@@ -91,6 +91,8 @@ tags:
 - [MiSTer-devel/Main_MiSTer](https://github.com/MiSTer-devel/Main_MiSTer)
 - [atari-2600](https://voxodyssey.com/atari-2600)
   - [HN](https://news.ycombinator.com/item?id=28931183)
+- https://akedo.app/
+  - https://news.ycombinator.com/item?id=31823898
 
 ## BSD
 

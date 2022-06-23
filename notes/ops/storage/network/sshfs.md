@@ -1,11 +1,16 @@
 ---
-id: sshfs
 title: SSHFS
 ---
 
 # SSHFS
 
-## Tips
+- [libfuse/sshfs](https://github.com/libfuse/sshfs)
+  - 不再维护 - 推荐 rclone sftp 替代
+- 参考
+  - [andy0130tw/sshfs](https://github.com/andy0130tw/sshfs)
+    - 一个 fork，添加元信息缓存
+  - [osxfuse/sshfs](https://github.com/osxfuse/sshfs)
+  - [tormodwill/macSSHFS](https://github.com/tormodwill/macSSHFS)
 
 ```bash
 # 常用配置

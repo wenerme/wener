@@ -260,6 +260,18 @@ spec:
   priorityClassName: system-node-critical
 ```
 
+## Probe
+
+- startupProbe - 1.16+
+  - 判断是否启动，只会判断 **一次**
+  - 用于保护启动慢的应用
+  - startup 后才会开始 livenessProbe 和 readinessProbe
+- livenessProbe
+  - 判断是否存活，未存活会被 kill 重启
+- readinessProbe
+  - 判断是否准备好，未准备好不会接收流量
+  - 未准备: dns 记录会无法方法
+
 # FAQ
 
 ## cordon vs drain

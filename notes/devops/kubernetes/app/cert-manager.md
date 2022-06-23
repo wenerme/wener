@@ -407,3 +407,15 @@ data:
 ```
 
 ## Failed to retrieve Order resource: 404 urn:ietf:params:acme:error:malformed
+
+## Certificate will be issued with an empty Issuer DN, which contravenes RFC 5280 and could break some strict clients
+
+```yaml
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: citus-cert
+spec:
+  # 添加这个
+  commonName: what.ever
+```

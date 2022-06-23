@@ -79,6 +79,8 @@ tags:
 
 ## Awesomes
 
+- [siderolabs/talos](https://github.com/siderolabs/talos)
+  - Linux distribution built for Kubernetes
 - [kubeboost/hostpath-multihost-provisioner](https://github.com/kubeboost/hostpath-multihost-provisioner)
 - [CSI Drivers](https://kubernetes-csi.github.io/docs/drivers.html)
 - [kubernetes-sigs/cluster-api](https://github.com/kubernetes-sigs/cluster-api)
@@ -104,8 +106,8 @@ tags:
 - DevOps
   - awx
 - Kubernetes Basic
-  - metallb
-  - cert-manager
+  - [metallb](./network/metallb.md)
+  - [cert-manager](./app/cert-manager.md)
   - kube-prometheus
 - [armosec/kubescape](https://github.com/armosec/kubescape)
   - testing if Kubernetes is deployed securely
@@ -115,9 +117,10 @@ tags:
 - [Tencent/caelus](https://github.com/Tencent/caelus)
 - [gardener/gardener](https://github.com/gardener/gardener)
 - LoadBalance
-  - metallb
+  - [metallb](./network/metallb.md)
   - openelb
   - PureLB
+  - [kube-vip/kube-vip](https://github.com/kube-vip/kube-vip)
 - [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
   - 隔离，进出流量控制
 

@@ -105,4 +105,30 @@ Rituximab works by decreasing levels of B-cells (immune cell that is involved in
 
 患有 RA 的人感染和死亡的风险增加，建议接种疫苗可以降低这些风险。应每年接种灭活的流感疫苗。对于 65 岁以下的人应接种两次肺炎球菌疫苗，对于 65 岁以上的人应接种一次。 减毒的带状疱疹疫苗应在 60 岁以后服用一次，但不建议使用肿瘤坏死因子 α 受体阻滞剂的患者服用。
 
-## 参考
+## 药物
+
+- 治疗目标
+  - 延缓疼痛
+  - 组织和延缓关节炎的进展
+  - 保护关节功能
+  - 尽量改善生活质量
+- 来氟米特
+- 强的松/泼尼松 - prednisone
+- Enbrel - 依那西普 - Etanercept
+- https://www.drugs.com/condition/rheumatoid-arthritis.html
+- 自我保护 - https://www.arthritis.org/diseases/more-about/6-self-care-tips-for-ra
+  - 戒烟
+  - 减重
+  - 保持运动
+    - 减轻炎症
+    - 增强骨质
+    - 增强心肺
+    - 缓解疼痛
+    - 提升心情和睡眠
+    - 帮助减重
+    - 保持关节活动
+  - 保持睡眠
+  - 保护牙齿
+  - 管理压力
+- 理疗
+- Physical Therapy for rheumatoid Arthritis

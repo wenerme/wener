@@ -10,8 +10,10 @@ tags:
 - [Inter typeface family](https://rsms.me/inter)
   - [rsms/inter](https://github.com/rsms/inter)
 - [Google fonts](https://fonts.google.com)
+- https://fonts.bunny.net/
 - PL - PowerLine
 - [codingfont](https://www.codingfont.com/)
+- [fontsource/fontsource](https://github.com/fontsource/fontsource)
 - 阿里巴巴普惠体
   - https://ics.alibaba.com/font/alibaba-sans
   - https://github.com/liruifengv/alibaba-puhuiti/blob/master/index.html

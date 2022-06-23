@@ -1,11 +1,8 @@
 ---
-id: consul-connect
 title: Consule Connect Mesh
 ---
 
 # Consule Connect Mesh
-
-## Tips
 
 - 优势
   - mesh gateway 打通集群
@@ -77,33 +74,33 @@ consul connect envoy \
 
 ## annotations
 
-* consul.hashicorp.com/connect-inject
-  * bool
-  * 是否注入 sidecard
-* consul.hashicorp.com/connect-service
-  * 服务的名字
-  * 默认为第一个 container 的名字
-  * 如果启用了 acl，名字必须与 ServiceAccount 相同
-* consul.hashicorp.com/connect-service-port
-  * 接受请求的端口
-  * 默认为第一个暴露端口
-  * 可以是名字也可以是端口号
-  * proxy 监听动态端口
-* consul.hashicorp.com/connect-service-upstreams
-  * 连接到的上游服务
-  * 逗号分割指定多个
-  * `[service-name]:[port]:[optional datacenter]`
-  * `prepared_query:[query name]:[port]`
-* consul.hashicorp.com/connect-service-protocol 
-  * 注册协议
-  * helm 安装时使用 `defaultProtocol` 指定默认协议
-    * 建议指定为 http
-* consul.hashicorp.com/service-tags
-  * 逗号分割指定多个
-* `consul.hashicorp.com/service-meta-<KEY>`
-* `consul.hashicorp.com/sidecar-proxy-` - proxy 配置
-  * cpu/memory-limit/request
-  * helm 默认配置 `connectInject.sidecarProxy.resources`
+- consul.hashicorp.com/connect-inject
+  - bool
+  - 是否注入 sidecard
+- consul.hashicorp.com/connect-service
+  - 服务的名字
+  - 默认为第一个 container 的名字
+  - 如果启用了 acl，名字必须与 ServiceAccount 相同
+- consul.hashicorp.com/connect-service-port
+  - 接受请求的端口
+  - 默认为第一个暴露端口
+  - 可以是名字也可以是端口号
+  - proxy 监听动态端口
+- consul.hashicorp.com/connect-service-upstreams
+  - 连接到的上游服务
+  - 逗号分割指定多个
+  - `[service-name]:[port]:[optional datacenter]`
+  - `prepared_query:[query name]:[port]`
+- consul.hashicorp.com/connect-service-protocol
+  - 注册协议
+  - helm 安装时使用 `defaultProtocol` 指定默认协议
+    - 建议指定为 http
+- consul.hashicorp.com/service-tags
+  - 逗号分割指定多个
+- `consul.hashicorp.com/service-meta-<KEY>`
+- `consul.hashicorp.com/sidecar-proxy-` - proxy 配置
+  - cpu/memory-limit/request
+  - helm 默认配置 `connectInject.sidecarProxy.resources`
 
 ## k8s
 
@@ -123,13 +120,13 @@ metadata:
 spec:
   serviceAccountName: alpine-connect
   containers:
-  - name: alpine-connect
-    image: wener/base
-    command:
-    - tail
-    args:
-    - -f
-    - /dev/null
+    - name: alpine-connect
+      image: wener/base
+      command:
+        - tail
+      args:
+        - -f
+        - /dev/null
 ```
 
 ```bash
@@ -247,19 +244,18 @@ spec:
   serviceAccountName: static-server-next
 ```
 
-
 ```bash
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind      = "service-defaults"
 Name      = "static-server"
 Protocol  = "http"
 HCL
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind      = "service-defaults"
 Name      = "static-server-next"
 Protocol  = "http"
 HCL
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind = "service-router"
 Name = "static-server"
 Routes = [
@@ -313,8 +309,8 @@ spec:
           image: containous/whoami
           # diff
           env:
-          - name: WHOAMI_NAME
-            value: V1
+            - name: WHOAMI_NAME
+              value: V1
           ports:
             - containerPort: 80
           livenessProbe:
@@ -352,8 +348,8 @@ spec:
           image: containous/whoami
           # diff
           env:
-          - name: WHOAMI_NAME
-            value: V2
+            - name: WHOAMI_NAME
+              value: V2
           ports:
             - containerPort: 80
           livenessProbe:
@@ -365,7 +361,7 @@ spec:
 ```
 
 ```bash
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind      = "service-defaults"
 Name      = "whoami"
 Protocol  = "http"
@@ -376,7 +372,7 @@ Expose    = {
   }]
 }
 HCL
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind          = "service-resolver"
 Name          = "whoami"
 DefaultSubset = "v2"
@@ -390,7 +386,7 @@ Subsets = {
 }
 HCL
 
-cat <<HCL | consul config write -
+cat << HCL | consul config write -
 Kind = "service-router"
 Name = "whoami"
 Routes = [
@@ -453,7 +449,7 @@ Routes = [
 HCL
 ```
 
-__分组__
+**分组**
 
 ```hcl
 Kind          = "service-resolver"
@@ -469,7 +465,7 @@ Subsets = {
 }
 ```
 
-__流量切分__
+**流量切分**
 
 ```hcl
 Kind = "service-splitter"

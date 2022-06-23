@@ -33,6 +33,12 @@ title: RAID
 # 查看使用时间
 # Power_On_Hours
 smartctl --all /dev/sdj  | command grep -i Power
+
+# RM, HOTPLUG 不准确
+# HOTPLUG - removable or hotplug device (usb, pcmcia, ...)
+# ROTA - rotatable
+# RM - removable
+lsblk -d -o NAME,MAJ:MIN,RM,HOTPLUG,MODEL,ROTA,TYPE,TRAN,SUBSYSTEMS,VENDOR
 ```
 
 ## 硬件
@@ -115,3 +121,11 @@ smartctl --all /dev/sdj  | command grep -i Power
   - 在没有 HBA 卡的时候使用 RAID 卡的 JBOD 达到相同的目的
 - HBA
   - 直通卡
+
+## 故障/损坏/可用
+
+- [AFR](https://en.wikipedia.org/wiki/Annualized_failure_rate) - Annualized failure rate
+  - 年损坏率
+- [Hard Drive Data and Stats](https://www.backblaze.com/b2/hard-drive-test-data.html)
+  - [Backblaze Drive Stats for Q1 2022](https://www.backblaze.com/blog/backblaze-drive-stats-for-q1-2022/)
+

@@ -12,9 +12,10 @@ tags:
 | Redis 6 | 2020-04-30 |
 
 ## Redis 7
+
 - Redis Functions
-- ACLv2
-- command introspection
+- ACLv2 - selector, key 读写限定, 限定子命令
+- command introspection - 新增 COMMAND getkeysandflags|list|docs
 - Cluster Sharded Pub/Sub
 - 50 个新命令
   - ZMPOP, BZMPOP, LMPOP, BLMPOP, SINTERCARD, ZINTERCARD

@@ -12,7 +12,7 @@ tags:
 
 ## tuntap
 
-- macOS 支持 utun  - 等同于 tun
+- macOS 支持 utun - 等同于 tun
   - 但不支持 tap
 - tuntap 扩展 11.5 macOS BigSur 后内核扩展不可用
 - 参考
@@ -215,3 +215,11 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 - arm64e
 
 ## com.apple.MobileSoftwareUpdate.UpdateBrainService
+
+# otool
+
+- macOS 下的 ldd 对等工具
+
+```bash
+otool -L a.out
+```

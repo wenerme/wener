@@ -1,2 +1,0 @@
-
-# JM64RP LM2596S-ADJ P+

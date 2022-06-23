@@ -16,6 +16,7 @@ title: tailscale
     - Free - 1 User, 1 Admin, 1 ACL, 20 Devices, 1 Subnet routers
     - Team - 60$/User/Year - 5/Devices/User, 5 Subnet routers, 2 Admin, 5 Users in ACL
   - [k8s](https://github.com/tailscale/tailscale/tree/main/docs/k8s)
+  - [tailscale-ssh](https://tailscale.com/blog/tailscale-ssh/)
 - DNS 100.100.100.100
 
 :::caution

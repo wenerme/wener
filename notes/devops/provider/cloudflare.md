@@ -22,6 +22,13 @@ title: CloudFlare
 
 [spectrum]: https://developers.cloudflare.com/spectrum/
 
+- Cloudflare for SaaS/Custom Hostname
+  - 前 100 个免费
+  - 0.10$/一个
+- 默认 Universal SSL - 只支持顶级 域名 `*.wener.me, wener.me`
+- Advanced Certificate Manager 10$/月
+  - 增加额外域名
+
 ## Argo Tunnel
 
 - 实现源端和 Cloudflare 之间加密通讯 - ZeroTrust
@@ -61,3 +68,13 @@ title: CloudFlare
 
 - 会注入 /cdn-cgi/challenge-platform/h/g/scripts/invisible.js
 - 需要允许 js
+
+# FAQ
+
+## Cloudflare 不支持多级域名
+
+多级域名会返回 ERR_SSL_VERSION_OR_CIPHER_MISMATCH
+
+- Advanced Certificate Manager 10$/月 可以支持
+- 或者考虑 bypass
+- https://community.cloudflare.com/t/subdomain-too-deep/81872

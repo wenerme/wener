@@ -16,6 +16,7 @@ title: 泛型
 
 - 目前不好使用 new(T), 增加一个类型进行限制
 - method 不支持类型参数 - [No parameterized methods]
+- type 参数不支持 assert - 可以考虑 `_,ok := any(v).(int)`
 
 :::
 

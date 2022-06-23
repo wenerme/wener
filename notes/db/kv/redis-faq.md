@@ -6,6 +6,12 @@ tags:
 
 # Redis FAQ
 
+## Replica vs Slave
+
+- 含义完全相同
+- slaveof = replicaof
+- 是因为调整了名词 [redis#5335](https://github.com/redis/redis/issues/5335)
+
 ## List vs PubSub vs Stream
 
 - List
@@ -18,6 +24,6 @@ tags:
 - Stream
   - 存储数据 - 有消费者、消费组概念
   - 能重复消费 - at-most-once 或 at-least-once
-  - 有更多消息队列的概念 - 例如: 消息ID、时间戳, ACK
+  - 有更多消息队列的概念 - 例如: 消息 ID、时间戳, ACK
   - 能实现 List 和 Pub/Sub 的所有语义
   - 可以不阻塞

@@ -15,6 +15,20 @@ title: 配件
     - 顶部没有额外的 SATA 空间
     - Plus 只有 Gen 10 一半高
     - iOL 5
+- Dell
+  - [List of Dell PowerEdge Models](https://www.dell.com/support/kbdoc/en-my/000143479)
+  - [How to identify a Dell PowerEdge server generation](https://www.dell.com/support/kbdoc/en-my/000137343)
+- 机柜
+  - 宽度 550/500, 深度 400
+  - rack unit - U, RU - 1+3/4 inches = 44.45mm ~= 45mm
+    - 19U = 48.26cm ~= 5m
+    - 12U = 600
+    - 9U = 450
+    - 6U = 300
+  - PDU - 机柜电源，排插
+  - 机柜轮子一般 50
+  - 深度 400 适用于 < 320 的设备 - 预留 80
+- 常用 4 盘位 NAS 24cm ~= 6U
 
 ## Intel CPU
 

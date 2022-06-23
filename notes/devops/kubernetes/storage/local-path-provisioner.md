@@ -7,7 +7,9 @@ title: Local Path Provisioner
 - [rancher/local-path-provisioner](https://github.com/rancher/local-path-provisioner)
 - `storageClassName: local-path`
 - 自动创建目录 - /var/lib/rancher/k3s/storage
-  - `pvc-<UUID>`
+  - `pvc-<UUID>_<NAMESPACE>_<PVC_NAME>`
+  - UUID=pvc.uid
+  - PVC_NAME=`<VOLUME_NAME>_<POD_NAME>`
 - 注意
   - 异常后 PVC 丢失，StatefulSet 无法启动
     - 删除 Pod 从新部署可恢复

@@ -1,5 +1,4 @@
 ---
-id: esp32
 title: ESP32
 ---
 
@@ -9,6 +8,9 @@ title: ESP32
 - 参考
   - [ESP32 C3](https://www.espressif.com/en/news/ESP32_C3)
     - RISC-V MCU, Wi-Fi, BLE 5
+  - [ESP32-C5](https://www.espressif.com.cn/en/news/ESP32-C5)
+    - dual-band Wi-Fi 6 - 802.11b/g/n/ax
+    - BLE
 
 ## 特性
 

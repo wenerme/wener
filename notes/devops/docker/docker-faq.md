@@ -120,3 +120,9 @@ Error response from daemon: container 2736566eac14027e7bf708c2babe894f1978249fc4
 zfs create main/docker/9d56a9bde13e6a1d37c6af5a55057cc4a9fb8b684ff454ac25f415b70bc55d0d
 docker rm container
 ```
+
+## 没权限
+
+```bash
+sudo adduser $USER docker
+```

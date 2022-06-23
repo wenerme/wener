@@ -38,7 +38,7 @@ title: KV DB Awesome
   - BSD-3, C++,C
   - 被 Snapchat 收购 - 2022-05-11 - 开源之前的 Pro 特性
   - 多线程 Redis - IO 多线程，事务单线程
-  - 完整 Redis 兼容 - 持续使用 Redis 代码
+  - **完整 Redis 兼容** - 持续使用 Redis 代码
   - ModJS - 可以通过 V8 扩展
   - WIP
     - JSON
@@ -49,10 +49,13 @@ title: KV DB Awesome
   - 兼容 Memcached 接口
   - 多线程
   - 类似 KeyDB
-    - 不完全使用 Redis 代码
+    - 不完全使用 Redis
     - 完整多线程 - 事务也多线程
     - io_uring - 要求 linux 5.1+ 内核
     - 性能优于 KeyDB - 不同的 trade off
+- [skytable/skytable](https://github.com/skytable/skytable)
+  - AGPL-3.0, Rust
+  - 不完全兼容 https://docs.skytable.io/all-actions/
 - [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
   - Mordern Redis Cluster solution
 - [Tencent/Tendis](https://github.com/Tencent/Tendis)

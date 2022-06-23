@@ -1,8 +1,7 @@
 ---
-id: windows-faq
 title: Windows FAQ
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Windows FAQ
@@ -136,3 +135,7 @@ curl www.msftncsi.com/ncsi.txt
   - 可以加入也可以不加入域控 - Active Directory vs Azure Active Directory
   - Intune GUI 功能薄弱 - 需要自定义 Profile
 
+## Windows I/O 慢
+
+- https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829
+  - 设计层面

@@ -7,6 +7,7 @@ tags:
 
 - [Server Configuration](https://www.postgresql.org/docs/current/runtime-config.html)
 - [jberkus/annotated.conf](https://github.com/jberkus/annotated.conf)
+- https://pgtune.leopard.in.ua/
 - https://pgpedia.info/
 - https://postgresqlco.nf/doc/en/param
 

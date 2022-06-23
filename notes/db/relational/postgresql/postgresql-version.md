@@ -5,7 +5,7 @@ tags:
   - Version
 ---
 
-# Version
+# PostgreSQL Version
 
 - [发布历史](https://en.wikipedia.org/wiki/PostgreSQL#Release_history)
   - 现在一般每年 Q4 发布新版本，最近大多为 10 月
@@ -33,6 +33,7 @@ tags:
 
 ## PostgreSQL 15
 
+- 新增 MERGE 语句
 - toast 支持 zstd 压缩
 - 逻辑复制支持限定 表 和 Schema
   - 新增 pg_publication_namespace 记录 PUBLICATION 信息

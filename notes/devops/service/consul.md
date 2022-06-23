@@ -1,10 +1,13 @@
 ---
-id: consul
 title: Consul
 ---
 
 # Consul
 
+- [hashicorp/consul](https://github.com/hashicorp/consul)
+  - MPL-2.0, Golang
+  - Identity-based networking
+  - 服务发现、配置管理、Mesh 网络
 - [Consul 手册](https://www.consul.io/docs/guides/)
 - 端口
   - HTTP 8500
@@ -35,14 +38,21 @@ title: Consul
   - [#1065](https://github.com/hashicorp/consul-template/issues/1065) - When watching all services, consul-template is DOSing the Consul agent
   - 当监控量大的时候考虑客户端去重，间隔查询，避免长链接
   - 可 Watch 的类型 - key、keyprefix、services、nodes、service、checks、event
-- 注意
-  - Value 最大 512KB - 不要将 KV 用于通用存储，用于存储基本状态和配置足以
-  - meta 最多 64 个 KV，key 只能是 `[-_a-zA-Z0-9]{,128}`,值最长 512
-  - 区别使用 tag 和 meta
-    - tags 例如： primary、secondary
-    - metas 例如： version、name
 - 参考
   - [FAQ](https://www.consul.io/docs/troubleshoot/faq)
+  - 下载 https://releases.hashicorp.com/consul/1.12.0/
+- 企业版功能: snapshot, namespace
+
+:::tip
+
+- Value 最大 512KB - 不要将 KV 用于通用存储，用于存储基本状态和配置足以
+- meta 最多 64 个 KV，key 只能是 `[-_a-zA-Z0-9]{,128}`,值最长 512
+- 区别使用 tag 和 meta
+  - tags 例如： primary、secondary
+  - metas 例如： version、name
+- 存储使用 [etcd-io/bbolt](https://github.com/etcd-io/bbolt)
+
+:::
 
 | env                    | default               | desc            |
 | ---------------------- | --------------------- | --------------- |
@@ -56,18 +66,21 @@ title: Consul
 | CONSUL_CLIENT_CERT     |
 | CONSUL_CLIENT_KEY      |
 | CONSUL_TLS_SERVER_NAME |
-| CONSUL_HTTP_SSL_VERIFY | true
+| CONSUL_HTTP_SSL_VERIFY | true                  |
 | CONSUL_GRPC_ADDR       | 127.0.0.1:8502        | envoy 集成需要  |
 
 ```bash
 # alpine install
-# 3.12 还没有，需要从 edge 安装
-apk add -X https://mirrors.aliyun.com/alpine/edge/community/ consul
+# < 3.13 需要从 edge 安装
+apk add consul
 
 # macOS install
 brew install consul
 
-# 启动
+# 本地测试
+consul agent -data-dir $PWD/data -dev
+
+# 正常启动
 consul agent -bootstrap -server -data-dir $PWD/data -bind 0.0.0.0 -advertise 127.0.0.1 -ui
 
 # 绑定动态地址
@@ -97,7 +110,7 @@ consul services deregister -id web-test
 # 默认配置目录为 /etc/consul
 cd /etc/consul
 # 基础服务配置
-cat <<CONF > server.json
+cat << CONF > server.json
 {
     "client_addr": "0.0.0.0",
     "data_dir": "/var/consul",

@@ -14,7 +14,8 @@ tags:
 
 | ver                  | date       | nats.go |
 | -------------------- | ---------- | ------- |
-| [Nats 2.7](#nats-27) | 2021-09-22 |         |
+| [Nats 2.8](#nats-28) | 2022-04-19 |         |
+| [Nats 2.7](#nats-27) | 2022-01-04 |         |
 | [Nats 2.6](#nats-26) | 2021-09-22 | v1.13   |
 | [Nats 2.5](#nats-25) | 2021-09-10 | v1.12.1 |
 | [Nats 2.4](#nats-24) | 2021-08-27 | v1.12.0 |
@@ -33,6 +34,8 @@ tags:
 
 - https://github.com/nats-io/nats-server/releases
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
+
+## Nats 2.8
 
 ## Nats 2.7
 

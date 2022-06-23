@@ -133,6 +133,8 @@ tags:
 - [replicate/cog](https://github.com/replicate/cog) Containers for machine learning
 - https://www.nvidia.com/en-us/studio/canvas/
 - https://pimeyes.com/
+- Parti: Pathways Autoregressive Text-to-Image Model
+  - [HN](https://news.ycombinator.com/item?id=31839193)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)
@@ -286,9 +288,7 @@ tags:
 
 ## STT
 
-- [cmusphinx](https://cmusphinx.github.io/)
-  - 工作已经开始转移到 Kaldi, Vosk
-  - [cmusphinx/pocketsphinx](https://github.com/cmusphinx/pocketsphinx)
+- [snakers4/silero-models](https://github.com/snakers4/silero-models)
 - [alphacep/vosk-api](https://github.com/alphacep/vosk-api)
   - Offline speech recognition API
   - Python, Java, C#, Node
@@ -326,6 +326,9 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=27235970)
 - [NATSpeech/NATSpeech](https://github.com/NATSpeech/NATSpeech)
   - Non-Autoregressive Text-to-Speech (NAR-TTS) framework
+- [cmusphinx](https://cmusphinx.github.io/)
+  - 工作已经开始转移到 Kaldi, Vosk
+  - [cmusphinx/pocketsphinx](https://github.com/cmusphinx/pocketsphinx)
 
 **术语**
 

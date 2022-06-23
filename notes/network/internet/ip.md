@@ -1,11 +1,8 @@
 ---
-id: ip
 title: IP
 ---
 
 # TCP/IP
-
-## Tips
 
 - https://en.wikipedia.org/wiki/IP_address
 - https://en.wikipedia.org/wiki/Reserved_IP_addresses
@@ -29,7 +26,13 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | 10.0.0.0    | 10.255.255.255  | 16777216 | A     | 10.0.0.0/8     |
 | 172.16.0.0  | 172.31.255.255  | 1048576  | B     | 172.16.0.0/12  |
 | 192.168.0.0 | 192.168.255.255 | 65536    | B     | 192.168.0.0/16 |
+| 100.64      |
 
+| CIDR          | for              |
+| ------------- | ---------------- |
+| 10.244.0.0/16 | k0s cluster-cidr |
+| 10.96.0.0/12  | k0s service-cidr |
+| 10.96.0.10    | k0s dns          |
 
 ## FAQ
 
@@ -40,10 +43,11 @@ dig +short myip.opendns.com @resolver1.opendns.com
 
 ### Tools
 
-https://ipjisuanqi.com/
-https://dnsdaquan.com/
-https://ipchaxun.com/
-https://icplishi.com/jiashule.com/
+- https://ipjisuanqi.com/
+- https://dnsdaquan.com/
+- https://ipchaxun.com/
+- https://icplishi.com/jiashule.com/
+-
 
 ## apnic
 

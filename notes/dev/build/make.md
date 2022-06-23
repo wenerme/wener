@@ -52,6 +52,12 @@ else
 	@echo Skip - no makefile
 endif
 
+# 单次
+ifneq ("$(wildcard $(PATH_TO_FILE))","")
+    FILE_EXISTS = 1
+else
+    FILE_EXISTS = 0
+endif
 
 # 循环
 LIST = one two three

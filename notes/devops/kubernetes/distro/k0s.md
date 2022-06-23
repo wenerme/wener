@@ -43,6 +43,7 @@ title: k0s
 # DEBUG 开启 set -x
 # 从 https://github.com/k0sproject/k0s 下载到 /usr/local/bin/k0s
 # chmod 755 /usr/local/bin/k0s
+# 版本号来自 https://docs.k0sproject.io/stable.txt
 curl -sSLf https://get.k0s.sh | sudo sh
 
 # 命令补全
@@ -83,7 +84,6 @@ k0s controller --config=/etc/k0s/k0s.yaml --enable-worker=true
 
 containerd config default > /etc/k0s/containerd.toml
 
-
 # airegap
 # ==========
 # $K0S_DATA_DIR/images
@@ -114,6 +114,16 @@ spec:
   images:
     # airgap 时避免 pull
     default_pull_policy: Never
+```
+
+```bash title="worker"
+# 在 server 执行
+# base64-encoded kubeconfig
+# k0s token create --role=worker --expiry=24h > worker-token
+# 加 controller 同理
+# k0s token create --role=controller --expiry=1h > controller-token
+
+k0s install worker --token-file /etc/k0s/worker-token --kubelet-extra-args='--pod-infra-container-image=registry.cn-hongkong.aliyuncs.com/cmi/pause:3.5'
 ```
 
 ```bash
@@ -220,7 +230,7 @@ k0s ctr c ls
 /usr/local/bin/k0s controller --config=/etc/k0s/k0s.yaml --enable-worker=true
 
 # 查看 supervisor 维护的所有进程
-ps -o command -f $(pgrep -P $(k0s status | grep 'Process ID' | cut -d ':' -f 2))  | tee
+ps -o command -f $(pgrep -P $(k0s status | grep 'Process ID' | cut -d ':' -f 2)) | tee
 
 /usr/local/bin/k0s api \
   --config=/etc/k0s/k0s.yaml \
@@ -275,7 +285,7 @@ ps -o command -f $(pgrep -P $(k0s status | grep 'Process ID' | cut -d ':' -f 2))
   --service-account-private-key-file=/var/lib/k0s/pki/sa.key \
   --service-cluster-ip-range=10.96.0.0/12 \
   --terminated-pod-gc-threshold=12500 \
-  --use-service-account-credentials=true  \
+  --use-service-account-credentials=true \
   --v=1
 
 # workload 调度
@@ -503,8 +513,10 @@ zfs create -o mountpoint=/var/lib/k0s/containerd/io.containerd.snapshotter.v1.zf
 
 ```toml title="/etc/k0s/containerd.toml"
 version = 2
+
 [plugins."io.containerd.grpc.v1.cri".containerd]
 snapshotter = "zfs"
+
 ```
 
 ```bash
@@ -548,12 +560,21 @@ command_args="controller --config=/etc/k0s/k0s.yaml --enable-dynamic-config=true
 name=$(basename $(readlink -f $command))
 supervise_daemon_args="--stdout /var/log/${name}.log --stderr /var/log/${name}.err"
 depend() {
-        need net
-        use dns
-        after firewall
+  need net
+  use dns
+  after firewall
 }
 ```
 
+## 手动下载安装
+
+```bash
+ver=$(curl https://docs.k0sproject.io/stable.txt)
+curl -LC- -o k0s "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-amd64"
+chmod 755 k0s
+sudo mkdir -p /usr/local/bin/
+sudo mv k0s /usr/local/bin/k0s
+```
 
 ## 环境监测
 

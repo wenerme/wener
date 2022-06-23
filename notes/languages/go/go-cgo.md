@@ -4,6 +4,8 @@ title: CGO
 
 # CGO
 
+CGO is not GO
+
 - 避免 CGO
   - [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)
   - [notti/nocgo](https://github.com/notti/nocgo) - dlopen without cgo
@@ -14,6 +16,13 @@ title: CGO
 - 参考
   - [golang/go#18296](https://github.com/golang/go/issues/18296) - runtime: dlopen/dlsym without CGo
   - [类型转换](https://gist.github.com/zchee/b9c99695463d8902cd33)
+- C -> CGO
+  - [modernc.org/ccgo/v3](https://pkg.go.dev/modernc.org/ccgo/v3)
+  - [modernc.org/libc](https://pkg.go.dev/modernc.org/libc)
+  - 案例
+    - [modernc.org/sqlite](https://pkg.go.dev/modernc.org/sqlite)
+    - PCRE2 [go.arsenm.dev/pcre](https://pkg.go.dev/go.arsenm.dev/pcre)
+    - uber/h3 [akhenakh/goh3](https://github.com/akhenakh/goh3)
 
 :::caution
 

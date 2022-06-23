@@ -32,7 +32,7 @@ title: HAProxy Ingress
 
 - 前缀: ingress.kubernetes.io, haproxy.org, haproxy.com
 - 配置继承关系: default <- Configmap <- Ingress <- Service
-- [annotation](https://github.com/haproxytech/kubernetes-ingress/blob/master/documentation/README.md)
+- [annotation](https://github.com/haproxytech/kubernetes-ingress/blob/master/documentation/annotations.md)
 - [logging](https://www.haproxy.com/blog/logging-with-the-haproxy-kubernetes-ingress-controller)
 
 | annotation             | default | note                                                 |

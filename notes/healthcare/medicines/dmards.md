@@ -4,8 +4,6 @@ title: 抗风湿药物
 
 # 抗风湿药物
 
-## Tips
-
 - DMARDS / [Disease-modifying antirheumatic drug](https://en.wikipedia.org/wiki/Disease-modifying_antirheumatic_drug)
 - [Disease-modifying Antirheumatic Drugs](https://patient.info/doctor/disease-modifying-antirheumatic-drugs-dmards-pro)
 - 分类
@@ -41,11 +39,3 @@ title: 抗风湿药物
 | tocilizumab                                                       | 托珠单抗                                   | IL-6 receptor antagonist                                                                                 | bDMARD  |
 | tofacitinib                                                       | 托法替尼                                   | kinase inhibitor                                                                                         | tsDMARD |
 
-## NOTE
-
-- 目前只发现医院有 Leflunomide
-- Leflunomide 注意事项
-  - 检测 FBC，肾功能，LFT，血压，体重。
-  - 每周检查两次，直到剂量稳定六周。
-  - 稳定 12 个月后可降低到每月三次检查（如果毒性较高，则更频繁）。
-  - 如果剂量增加，则每两周监测一次，直到剂量稳定六周，然后恢复到以前的时间表。

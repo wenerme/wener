@@ -1,5 +1,4 @@
 ---
-id: oauth
 title: OAuth
 ---
 

@@ -1,5 +1,4 @@
 ---
-id: pgbouncer
 title: PgBouncer
 ---
 
@@ -30,8 +29,19 @@ title: PgBouncer
   - 在线 restart/upgrade
 - 管理
   - [kwent/pgbouncerhero](https://github.com/kwent/pgbouncerhero) - PgBouncer WebUI
-- 注意
-  - prepared statements 只能在 session 模式下，且 `server_reset_query = DISCARD ALL;` 或 `DEALLOCATE ALL;`
+    - MIG, RoR
+    - 开发停滞
+
+:::caution
+
+- prepared statements 只能在 session 模式下，且 `server_reset_query = DISCARD ALL;` 或 `DEALLOCATE ALL;`
+- transaction 不支持 prepare - 可以在客户端禁用
+  - JDBC - prepareThreshold=0
+  - PHP/PDD
+    - `new PDO("dsn", "user", "pass", array(PDO::ATTR_EMULATE_PREPARES => true));`
+    - `$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);`
+
+:::
 
 ## 配置
 
@@ -76,7 +86,7 @@ admin_users = postgres
   - 外部 `postgres://postgres@hostname-of-container/pgbouncer`
   - 内部 `postgres://postgres://127.0.0.1/pgbouncer`
 
-```bash
+```
 # 自定义配置
 SHOW STATS;
 SHOW SERVERS;
@@ -86,4 +96,16 @@ SHOW POOLS;
 # 可以零时断开后端链接，例如后端升级，前端链接不断
 PAUSE;
 RESUME;
+```
+
+## bitnami/pgbouncer
+
+- /opt/bitnami/pgbouncer/bin/pgbouncer
+- /opt/bitnami/pgbouncer/conf/pgbouncer.ini
+- PGBOUNCER_IGNORE_STARTUP_PARAMETERS=extra_float_digits
+
+## unsupported startup parameter: extra_float_digits
+
+```ini
+ignore_startup_parameters = extra_float_digits
 ```

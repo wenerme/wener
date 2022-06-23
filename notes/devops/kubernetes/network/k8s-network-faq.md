@@ -84,3 +84,20 @@ kubectl annotate ingressclasses nginx ingressclass.kubernetes.io/is-default-clas
     - 可与服务发现结合使用
   - 通常会抽象更高层的概念 - 服务、路由、Consumer、Plugin
   - 常见实现: ambassador, kong, apisix
+
+## 通过 DNS 名字访问 StatusfulSet Pod
+
+- 确保 headless service 存在 - 例如: redis
+- serviceName=redis
+- metadata.name=redis
+- clusterIP: None
+- 然后通过 `redis-0.redis.NAMESPACE.svc.cluster.local` 访问
+  - 注意多了一层 stateful 的名字
+- 要 ready 后才有记录
+
+---
+
+- https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#stable-network-id
+- https://github.com/kubernetes/kubernetes/issues/45779
+- https://github.com/kubernetes/kubernetes/issues/92559
+  - Headless 有 30s 的 cache-miss 缓存，新的 pod 要 30s DNS 才能访问

@@ -103,6 +103,9 @@ k0s stop
 # killall /var/lib/k0s/bin/containerd-shim-runc-v2
 ```
 
+- containerd-shim 残留 [containerd#768](https://github.com/containerd/containerd/issues/768)
+- [kubespray/roles/container-engine/docker/files/cleanup-docker-orphans](https://github.com/kubernetes-sigs/kubespray/blob/master/roles/container-engine/docker/files/cleanup-docker-orphans.sh)
+
 ## 网络配置问题
 
 因为你服务器有多 lan，配置了路由策略，从 10gbe 进来的从 10gbe 出去

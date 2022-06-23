@@ -149,6 +149,12 @@ tags:
   - Benchmarks of approximate nearest neighbor
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
 
+## Geo
+- https://s2geometry.io/
+- [uber/h3](https://github.com/uber/h3)
+  - Apache-2.0, C
+  - Hexagonal hierarchical geospatial indexing system
+
 ## Tools
 
 - [Netflix/ndbench](https://github.com/Netflix/ndbench)
@@ -186,6 +192,7 @@ tags:
 - [skeema](https://github.com/skeema/skeema)
   - MySQL & MariaDB
 - sqlite [user_version](https://sqlite.org/pragma.html#pragma_user_version)
+
 
 ## TBD
 

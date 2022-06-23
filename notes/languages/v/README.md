@@ -1,9 +1,10 @@
 ---
-id: v
 title: V
 ---
 
-# V
+# Vlang
+
+> 不推荐使用
 
 - [vlang/v](https://github.com/vlang/v) 是什么？
   - v 之于 c 就是 ts 之于 js
@@ -17,15 +18,15 @@ title: V
   - 内建 GUI 库
   - v run 可以交互式或以类似 shell 方式运行
 - 参考
-  - [V is for Vaporware](https://christine.website/blog/v-vaporware-2019-06-23)
-
+  - 2019 [V is for Vaporware](https://xeiaso.net/blog/v-vaporware-2019-06-23)
+  - 2022 [V Language Review](https://mawfig.github.io/2022/06/18/v-lang-in-2022.html)
+    - 依然和声称的相差甚远
 
 :::caution
 
-- v 看似很美好，但是很多承诺的功能并不完善
-  - 例如最基本的内存管理 - 目前实现大多数场景会导致内存泄漏
+- v 看似很美好，但是很多承诺的功能 **不完善**
+  - 例如: 最基本的内存管理 - 目前实现大多数场景会导致内存泄漏
   - v 有一点浮夸
 - 开发者相对排外
 
 :::
-

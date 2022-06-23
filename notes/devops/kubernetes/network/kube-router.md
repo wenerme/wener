@@ -12,6 +12,7 @@ title: kube-router
 - --run-firewall
 - --run-router
 - --run-service-proxy
+- kube-bridge
 
 :::caution
 

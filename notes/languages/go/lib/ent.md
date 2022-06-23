@@ -78,6 +78,13 @@ go generate ./ent
 go run entgo.io/ent/cmd/ent init Car Group
 ```
 
+- feature
+  - sql/versioned-migration
+    - Schema 增加 Diff 和 NamedDiff
+    - `client.Schema.NamedDiff(ctx, "migration_name", schema.WithDir(dir))`
+      - 生成迁移到文件
+    - 与现有 schema 进行 diff
+
 ## Note
 
 - Validator 不能获取到上下文，会 cast 成实际类型

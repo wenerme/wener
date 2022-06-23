@@ -1,5 +1,4 @@
 ---
-id: go-kit
 title: go-kit
 ---
 

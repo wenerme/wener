@@ -16,6 +16,8 @@ tags:
 - [papers-we-love/papers-we-love](https://github.com/papers-we-love/papers-we-love)
 - jobs
   - [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards)
+- Github Copilot
+  - [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
 
 ## Design
 

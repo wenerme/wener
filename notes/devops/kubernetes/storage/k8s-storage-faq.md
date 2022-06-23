@@ -1,10 +1,21 @@
 ---
 title: Kubernetest 存储常见问题
+tags:
+  - FAQ
 ---
 
 # Kubernetest 存储常见问题
 
 ## OpenEBS vs Longhorn
+
+:::tip
+
+- 优先选择 Longhorn - UI 友好
+- OpenEBS 目前开发慢 - 支持多种 store 精力分散
+
+:::
+
+---
 
 - OpenEBS
   - Jiva 源于 longhorn [fork](https://github.com/openebs/longhorn)，在一些实现上有分歧

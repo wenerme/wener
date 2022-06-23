@@ -19,22 +19,42 @@ tags:
 
 ## 功耗
 
-- SAS
-  - 空载 5 - 7w
-  - 负载 10 - 14w
-- SSD
-  - 空载 < 2w
+| Component        |
+| ---------------- | --------- | ------------------------- |
+| SAS Idle         | 7w        |
+| SAS Full load    | 14w       |
+| SSD Idle         | < 2w      |
+| DRAM             | 1.5w - 3w |
+| Rack Cooling Fan | < 24w     | 服务器里小风扇，一般 8 个 |
+
+| Consumer Level     |
+| ------------------ | ----------- |
+| HDMI               | 0.5w        |
+| CPU FAN            | 0.2w - 2.4w |
+| WiFi               | 0.5w        |
+| PCIe x1 8 FXO Idle | ~2.8w       |
+| FAN 2800 RPM       | 1.5w        |
+| FAN 3800 RPM       | 2.8w        |
+| FAN 5000 RPM       | 7w          |
 
 ---
 
+- FAN
+  - 一般 12v
+  - 功耗取决于转速 - 转速是动态的
+  - 服务器内小风扇能达到 10,000 RPM
+- Memory
+  - 取决于 Bank、冗余、容量
 - 硬盘
   - 容量高，功耗也会偏高
-- CPU TDP
+- CPU TDP/Full load
   - 最高功率受核心数影响
   - 区分性能模式和节能模式
 
 **参考**
 
+- https://poweradvisorext.it.hpe.com/
+- [HPE Power Advisor](https://www.hpe.com/psnow/doc/4aa5-9121enw)
 - https://www.seagate.com/cn/zh/products/enterprise-drives/exos-e/7e10/
 
 ## SoC vs SBC

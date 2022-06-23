@@ -253,3 +253,30 @@ COPY (SELECT * FROM foo) TO '/tmp/test.csv' WITH CSV DELIMITER ',' HEADER;
 \copy (SELECT * FROM foo) TO '/tmp/test.csv' WITH CSV DELIMITER ',' HEADER;
 \copy (SELECT * FROM foo) TO STDOUT WITH CSV DELIMITER ',' HEADER;
 ```
+
+## create role if not exists
+
+```sql
+DO
+$do$
+BEGIN
+   IF EXISTS (
+      SELECT FROM pg_catalog.pg_roles
+      WHERE  rolname = 'my_user') THEN
+
+      RAISE NOTICE 'Role "my_user" already exists. Skipping.';
+   ELSE
+      CREATE ROLE my_user LOGIN PASSWORD 'my_password';
+   END IF;
+END
+$do$;
+```
+
+## role cannot be dropped because some objects depend on it - privileges for table users
+
+```sql
+REASSIGN OWNED BY test TO postgres;
+DROP OWNED BY test;
+
+DROP USER test;
+```

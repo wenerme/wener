@@ -1,27 +1,31 @@
 ---
-id: qemu-version
 title: QEMU Version
+tags:
+  - Version
 ---
 
 # QEMU Version
+
+| ver                     | date       |
+| ----------------------- | ---------- |
+| [Qemu 7.0](#qemu-70)    | 2020-04-30 |
+| [Qemu 6.0](#qemu-60)    | 2020-04-30 |
+| [Qemu 5.0](#qemu-50)    | 2020-04-29 |
+| [Qemu 4.2.0](#qemu-420) | 2019-12-13 |
+| [Qemu 4.0.0](#qemu-400) | 2019-04-24 |
+| [Qemu 2.1.2](#qemu-212) | 2018-04-24 |
 
 - https://wiki.qemu.org/Planning
 - https://wiki.qemu.org/ChangeLog
 - https://github.com/airbus-seclab/qemu_blog
 
-| ver   | date       |
-| ----- | ---------- |
-| Qemu 7.0   | 2020-04-30 |
-| Qemu 6.0   | 2020-04-30 |
-| Qemu 5.0   | 2020-04-29 |
-| Qemu 4.2.0 | 2019-12-13 |
-| Qemu 4.0.0 | 2019-04-24 |
-
 ## Qemu 7.0
+
 - x86 - Intel AMX
 - https://wiki.qemu.org/ChangeLog/7.0
   - https://news.ycombinator.com/item?id=31093564
-## 6.0
+
+## Qemu 6.0
 
 - tcg 支持 macOS ARM
 - 68k virt mahcine
@@ -39,14 +43,14 @@ title: QEMU Version
 - `-machine x-remote`, `-device x-pci-proxy-dev` 多进程 QEMU - 目前只支持 `lsi53c895` SCSI
 - 支持将 usb 传输数据转储到文件 - 用于 wireshark 分析 - `pcap=<file>`
 
-## 5.2
+## Qemu 5.2
 
 - x86 KVM 异步 page faults - `-cpu ...,kvm-async-pf-int`
   - Linux 5.8+
 - NVMe 1.3
 - SMBIOS OEM 字符串可从文件读取
 
-## 5.1
+## Qemu 5.1
 
 - 2020-08-11
 - RPi 支持 USB 控制器
@@ -63,7 +67,7 @@ qemu-img amend \
   --object secret,id=sec0,data=current_password \
   --object secret,id=sec1,data=new_password \
   --image-opts driver=luks,file.filename=test.luks,key-secret=sec0 \ #image has to be opened with --image-opts to pass current secret
-  -o state=active,new-secret=sec1,[keyslot=1] #keyslot is optional
+-o state=active,new-secret=sec1,[keyslot=1] #keyslot is optional
 # 移除
 qemu-img amend \
   --object secret,id=sec0,data=current_password \
@@ -72,7 +76,7 @@ qemu-img amend \
   -o state=inactive,old-secret=sec1
 ```
 
-## 5.0
+## Qemu 5.0
 
 - [5.0.0](https://www.qemu.org/2020/04/29/qemu-5-0-0/) - 2020-04-29
 - virtiofsd - 映射主机目录
@@ -98,7 +102,7 @@ mount -t virtiofs myfs /mnt
 #  -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=myfs,cache-size=2G
 ```
 
-## 4.2.0
+## Qemu 4.2.0
 
 - [4.2.0](https://www.qemu.org/2019/12/13/qemu-4-2-0/) - 2019-12-13
 - x86
@@ -106,21 +110,21 @@ mount -t virtiofs myfs /mnt
   - microvm 使用 virtio-mmio 而不是 PCI 作为性能基线优化
   - macOS `-accel hvf` 稳定
 
-## 4.1.0
+## Qemu 4.1.0
 
 - https://www.qemu.org/2019/08/16/qemu-4-1-0/
 
-## 4.0.0
+## Qemu 4.0.0
 
 - https://www.qemu.org/2019/04/24/qemu-4-0-0/
 
-## 3.1.0
+## Qemu 3.1.0
 
 - ARM
 - qemu-img tool can now generate LUKS-encrypted files through ‘convert’ command
 - https://www.qemu.org/2018/12/12/qemu-3-1-0/
 
-## 3.0.0
+## Qemu 3.0.0
 
 - 完整的 ARM 7 模拟
 - Sparc32
@@ -129,7 +133,7 @@ mount -t virtiofs myfs /mnt
 - GTK 3
 - https://www.qemu.org/2018/08/15/qemu-3-0-0/
 
-## 2.12 - 2018-04-24
+## Qemu 2.12
 
 - Initial support for Raspberry Pi 3 machine model
 - Experimental support for two new virtualization accelerators: Apple's Hypervisor.framework ("-accel hvf") and Microsoft's Windows Hypervisor Platform Extensions ("-accel whpx")

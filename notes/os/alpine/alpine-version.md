@@ -68,7 +68,7 @@ tags:
   - Go 1.18, LLVM 13, Python 3.10
   - sudo - main -> community - 推荐 doas, doas-sudo-shim
   - utmp - https://skarnet.org/software/utmps
-  - qemu 7
+  - Qemu 7
 
 ## AlpineLinux 3.15
 

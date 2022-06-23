@@ -104,7 +104,8 @@ tags:
 ## 数据库驱动
 
 - [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
-  - DNS - https://www.sqlite.org/uri.html
+  - 依赖 CGO
+  - DSN - https://www.sqlite.org/uri.html
     - `file:test.db?cache=shared&mode=memory`
     - mode ro, rw, rwc, memory
       - rwc - Read, Write, Create
@@ -118,7 +119,11 @@ tags:
     - 接口没有 pq 提供的类型方便操作
   - vs pq
     - [sourcegraph/sourcegraph#16575](https://github.com/sourcegraph/sourcegraph/issues/16575#issuecomment-747923724)
+- [go-redis/redis](https://github.com/go-redis/redis)
+  - [go-redis/redis#607](https://github.com/go-redis/redis/issues/607)
+    - 不支持 Prefix
 - [lib/pq](https://github.com/lib/pq)
+  - 已不推荐使用
 
 ## 数据库相关
 
@@ -640,6 +645,13 @@ tags:
   - support content negotiation [#19307](https://github.com/golang/go/issues/19307)
     - 解析 Accept https://github.com/markusthoemmes/goautoneg/blob/master/accept.go
     - [elnormous/contenttype](https://github.com/elnormous/contenttype)
+- saas/paas
+  - [tsuru/tsuru](./lib/tsuru.md)
+    - BSD-3
+    - PaaS
+  - [Goxiaoy/go-saas](https://github.com/Goxiaoy/go-saas)
+  - [geeks-accelerator/oss/saas-starter-kit](https://gitlab.com/geeks-accelerator/oss/saas-starter-kit)
+    - 2019
 - [SimonWaldherr/golang-benchmarks](https://github.com/SimonWaldherr/golang-benchmarks)
 
 ## Tool

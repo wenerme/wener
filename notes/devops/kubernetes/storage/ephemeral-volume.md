@@ -50,7 +50,7 @@ spec:
     - name: scratch-volume
       ephemeral:
         # 注意这里是模版 - 在实际使用时根据模版创建 PVC
-        # Pod 删除时会删除 PVC
+        # Pod 删除时会p删除 PVC
         volumeClaimTemplate:
           metadata:
             labels:

@@ -78,9 +78,33 @@ tags:
   - DB - PostgreSQL、MySQL - 需要额外维护、但方便排查使用
   - KV - ETCD、ZK
 
-## 规范
+## Design
 
 - Google [AIP](https://google.aip.dev/general) - API Improvement Proposals
+  - [cloud.google.com/apis](https://cloud.google.com/apis/design)
+- [Zalando RESTful API and Event Guidelines](https://opensource.zalando.com/restful-api-guidelines/)
+- [How to design better REST APIs](https://r.bluethl.net/how-to-design-better-apis)
+  1. 一致 - 字段名、接口名、授权、头处理、状态码、HTTP 方法
+  1. ISO 8601 Date
+  1. 区分不需要授权的接口
+  1. 提供 GET /health
+  1. API 添加版本 - 例如 /v1/health
+  1. Accept API key authentication - 服务端对服务端
+  1. 使用正确的 HTTP 状态码
+  1. 使用正确的 HTTP 方法
+  1. Use self-explanatory, simple names
+  1. 使用标准的错误响应 - HTTP 状态码+对应消息体
+  1. 创建成功返回创建内容
+  1. PUT -> PATCH
+  1. Be as specific as possible
+  1. Use pagination
+  1. Allow expanding resources
+- https://stripe.com/blog/idempotency
+- [microsoft/api-guidelines](https://github.com/microsoft/api-guidelines)
+
+## 规范
+
+- [RFC9110](https://datatracker.ietf.org/doc/html/rfc9110) HTTP Semantics
 - [Financial-grade API](https://fapi.openid.net)
 - [Microsoft Graph](https://docs.microsoft.com/zh-cn/graph/overview)
   - github [microsoftgraph](https://github.com/microsoftgraph)
@@ -90,6 +114,8 @@ tags:
   - [swaggest/go-asyncapi](https://github.com/swaggest/go-asyncapi)
   - https://medium.com/event-driven-utopia/understanding-asyncapis-with-a-practical-example-ee2b4be221d8
 - https://swagger.io/specification/
+- https://jsonapi.org/format/
+- [webrpc/webrpc](https://github.com/webrpc/webrpc)
 
 ## RPC
 

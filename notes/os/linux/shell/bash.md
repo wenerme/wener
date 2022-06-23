@@ -8,7 +8,9 @@ title: Bash
   - .inputrc
   - .bashrc - 交互 shell
   - .profile, .bash_profile - 登陆 shell
-- http://mywiki.wooledge.org/BashPitfalls
+- 参考
+  - [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
+  - http://mywiki.wooledge.org/BashPitfalls
 
 ```bash
 # empty shell
@@ -39,6 +41,31 @@ shopt -s cdspell
 shopt -s autocd
 # Recursive globbing, e.g. `echo **/*.txt`
 shopt -s globstar
+```
+
+## 语法
+- `[` = test
+- `[[` - shell 内置语法 - 速度更快一点点
+  - 支持 `&&`, `||` 语法
+- `{}` - 展开
+  - `${var}`
+  - `${var:=default}`
+  - `${var/find/replace}`
+  - `${var%remove}`
+  - `{000..2}` - 序列展开
+  - `{000..2..2}` - 带 step 参数
+  - `echo x{,A,B,C}` - 组合展开
+  - `{ echo 1; echo 2; }` - 命令序列
+- `(())` - 算术操作
+- `()` - subshell, array
+```bash
+# bash 语法
+for ((i=0;i<3;i++)); do echo $i; done
+# bash 展开序列
+for i in {0..2}; do echo $i; done
+# 使用 seq 生成序列 - ash 支持
+for i in $(seq 0 2); do echo $i; done
+for i in $(seq 0 $((3-1))); do echo $i; done
 ```
 
 ## .inputrc
@@ -268,5 +295,12 @@ echo -ne \\t | pbcopy
 - https://tldp.org/LDP/abs/html/subshells.html
 
 ```bash
-(echo 1)
+(echo 1);
+
+# 会输出 1 2 3 4
+bash <<SH &
+echo 1
+echo 2 && (echo 3; exit 1;)
+echo 4
+SH
 ```

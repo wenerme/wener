@@ -543,3 +543,12 @@ tags:
 - memo
   - short note, 备忘录
   - make a note of something
+
+## Software Design vs. Software Architecture
+
+- Architecture
+  - 关注整体
+  - 战略
+- Design
+  - 关注局部
+  - 战术

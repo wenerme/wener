@@ -5,14 +5,9 @@ title: Citus
 # Citus
 
 - [citusdata/citus](https://github.com/citusdata/citus)
-  - AGPL-3.0
+  - AGPL-3.0, C
   - 被 微软 收购
   - 目前 PG 唯一的水平扩容方案
-- 跨节点不支持
-  - Window Functions
-  - CTEs
-  - Set operations
-  - Transactional semantics for queries that span across multiple shards
 - 参考
   - [When to use](https://docs.citusdata.com/en/stable/get_started/what_is_citus.html#when-to-use-citus)
     - When
@@ -33,20 +28,36 @@ title: Citus
     - faster bulk data loads
   - [Choosing Distribution Column](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#choosing-distribution-column)
   - pg_conftool https://github.com/credativ/postgresql-common/blob/master/pg_conftool
+  - [Lessons learned from Postgres schema sharding](https://www.citusdata.com/blog/2016/12/18/schema-sharding-lessons/)
+    - db/tenant
+    - schema/tenant
+    - tenant_id/tenant - Scale 唯一可行的方式
 
 :::caution
 
 - 数据副本问题需要自己处理
+- 运行在默认数据库 - postgres - 每个数据库独立，新的数据库需要重新维护节点关系
 - [#906](https://github.com/citusdata/citus/issues/906) 不支持 trigger
 - [#3854](https://github.com/citusdata/citus/issues/3854) 不支持 ARM
 - ~~开原版 rebalancer 会阻塞，商业版使用 逻辑服复制，不会锁~~
-- 不支持 - Co-Location 支持的更多
+- 不支持功能
   - ALTER SEQUENCE
   - Correlated subqueries
   - Recursive CTEs
   - Table sample
   - SELECT … FOR UPDATE
   - Grouping sets
+  - Window Functions
+  - CTEs
+  - Set operations
+  - Transactional semantics for queries that span across multiple shards
+  - 临时表
+- Co-Location 支持的功能更多
+- 不会 传播 的对象
+  - CREATE DATABASE
+  - ALTER … SET SCHEMA
+  - ALTER TABLE ALL IN TABLESPACE
+  - v11+ CREATE ROLE/USER, GRANT/REVOKE
 
 :::
 
@@ -79,6 +90,8 @@ SELECT citus_is_coordinator();
 SELECT create_distributed_table('orgs', 'id');
 -- 在所有节点上都存在
 SELECT create_reference_table('geo_ips');
+-- 取消 colocated - 默认基于 分布列 的值进行 colocated
+SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 -- 取消
 SELECT undistribute_table('table_name');
 ```
@@ -88,10 +101,8 @@ SELECT undistribute_table('table_name');
 ```sql
 create table orgs
 (
-    id         bigserial primary key,
-    name       text        not null,
-    created_at timestamptz not null,
-    updated_at timestamptz not null
+    id   bigserial primary key,
+    name text not null
 );
 
 create table users
@@ -113,7 +124,6 @@ create table notes
     foreign key (org_id, user_id)
         references users (org_id, id)
 );
-
 SELECT create_distributed_table('orgs', 'id');
 SELECT create_distributed_table('users', 'org_id');
 SELECT create_distributed_table('notes', 'org_id');
@@ -121,16 +131,15 @@ SELECT create_distributed_table('notes', 'org_id');
 -- 准备数据
 insert into orgs(name)
 select 'org-' || num
-from generate_series(1, 10) num;
-
-insert into users(org_id, name)
-select coalesce(nullif(num % 10, 0), 10), 'user-' || num
 from generate_series(1, 100) num;
 
-insert into notes(org_id, user_id, title, content)
-select coalesce(nullif(num % 10, 0), 10), coalesce(nullif(num % 100, 0), 100), 'note-' || num, 'content-' || num
-from generate_series(1, 1000) num;
+insert into users(org_id, name)
+select coalesce(nullif(num % 100, 0), 10), 'user-' || num
+from generate_series(1, 10000) num;
 
+insert into notes(org_id, user_id, title, content)
+select coalesce(nullif(num % 100, 0), 10), coalesce(nullif(num % 10000, 0), 100), 'note-' || num, 'content-' || num
+from generate_series(1, 1000000) num;
 
 -- 重新平衡分片
 SELECT rebalance_table_shards('notes');
@@ -171,16 +180,67 @@ ORDER BY shardid
     - 使用 2PC
   - 本地表 - 不受 citus 管理的表
 
-| table/view         | for              |
-| ------------------ | ---------------- |
-| pg_dist_shard      | 记录表分片       |
-| pg_dist_placement  | 记录分片所处节点 |
-| pg_dist_node       | 记录节点         |
+| table/view         | for                |
+| ------------------ | ------------------ |
+| pg_dist_shard      | 记录表分片         |
+| pg_dist_placement  | 记录分片所处节点   |
+| pg_dist_node       | 记录节点           |
 | pg_dist_colocation |
 | pg_dist_partition  |
+| pg_dist_authinfo   | 多用户节点连接信息 |
+| pg_dist_poolinfo   | 内部链接池         |
 
 - 分片数量 - 推荐 32 - 128
   - < 100GB 推荐 32 即可
+- 节点和元数据管理配置 - pg_dist_node
+  - citus_add_node('name',5432,-1,'primary','default')
+    - 节点名字，端口，groupid，primary/secondary，集群名字
+    - 返回在 pg_dist_node 中的 ID
+    - 添加到 pg_dist_node
+  - citus_update_node(node_id, node_name, node_port)
+  - citus_set_node_property(node_name, node_port, property, value)
+    - property - 目前只有 shouldhaveshards
+  - citus_add_inactive_node(node_name, node_port, group_id, node_role, node_cluster)
+  - citus_activate_node(node_name, node_port)
+  - citus_disable_node(node_name, node_port)
+  - citus_add_secondary_node(node_name, node_port, primary_name, primary_port, node_cluster)
+  - citus_remove_node(node_name, node_port)
+  - citus_get_active_worker_nodes()
+- citus_backend_gpid()
+  - GPID - global process identifier
+- citus_check_cluster_node_health()
+- citus_set_coordinator_host(host,port=current_setting('port'),node_role='primary',node_cluster='default')
+  - 设置为 localhost 则是单节点集群
+  - 添加到 pg_dist_node
+  - groupid=0,shouldhaveshards=false
+- 分片信息
+  - master_get_table_metadata(table_name)
+  - get_shard_id_for_distribution_column(table_name,distribution_value)
+  - column_to_column_name(table_name, column_var_text)
+    - pg_dist_partition
+  - citus_relation_size(logical_rel_id)
+  - citus_table_size(logical_rel_id)
+  - citus_total_relation_size(logical_rel_id)
+  - citus_stat_statements_reset()
+- 集群管理和修复
+  - citus_move_shard_placement
+  - rebalance_table_shards
+  - get_rebalance_table_shards_plan
+  - get_rebalance_progress
+  - citus_add_rebalance_strategy
+    - pg_dist_rebalance_strategy
+  - citus_set_default_rebalance_strategy
+  - citus_remote_connection_stats
+  - citus_drain_node
+  - isolate_tenant_to_new_shard
+  - citus_create_restore_point
+- 手动查询 - 只能处理返回单行,不保证事务和一致性
+  - `run_command_on_workers($cmd$ show ssl $cmd$)`
+  - `run_command_on_shards(table_name, $cmd$ $cmd$)`
+  - `run_command_on_colocated_placements(var_a, var_b, $cmd$ $cmd$)`
+  - run_command_on_coordinator
+  - run_command_on_all_nodes
+  - citus_is_coordinator
 
 ```sql
 -- 分片数量
@@ -266,6 +326,42 @@ citus.enable_ddl_propagation=true
 citus.enable_local_reference_table_foreign_keys=true
 ```
 
+## Docker
+
+- [citusdata/docker](https://github.com/citusdata/docker)
+- FROM postgres
+  - 添加 citus 扩展
+  - 添加 001-create-citus-extension.sql 到 /docker-entrypoint-initdb.d/
+  - 添加 /pg_healthcheck
+  - 入口同上游 [14/alpine/docker-entrypoint.sh](https://github.com/docker-library/postgres/blob/master/14/alpine/docker-entrypoint.sh)
+    - 如果执行 postgres 则会启用很多预处理逻辑
+- ⚠️ Alpine 版没有 wait-for-manager.sh
+
+```sql title="001-create-citus-extension.sql"
+BEGIN;
+CREATE EXTENSION citus;
+-- add Docker flag to node metadata
+UPDATE pg_dist_node_metadata SET metadata=jsonb_insert(metadata, '{docker}', 'true');
+COMMIT;
+```
+
+```sh title="wait-for-manager.sh"
+#!/bin/bash
+set -e
+
+until test -f /healthcheck/manager-ready; do
+  echo >&2 "Manager is not ready - sleeping"
+  sleep 1
+done
+
+echo >&2 "Manager is up - starting worker"
+
+# exec gosu postgres "/usr/local/bin/docker-entrypoint.sh" "postgres"
+
+# AlpineLinux
+su-exec postgres "/usr/local/bin/docker-entrypoint.sh" "postgres"
+```
+
 ## Kuberetes
 
 - [docteurklein/citus-test](https://github.com/docteurklein/citus-test)
@@ -296,6 +392,46 @@ citus.enable_local_reference_table_foreign_keys=true
   - 要注意: 每个查询的 每个 share 都会开启一个链接
     - 单个连接数: (max concurrent queries \* shard count)
     - 可能总数: (number of workers \* max_connections per worker)
+
+## 多用户
+
+- 需要在 pg_dist_authinfo 配置用户连接信息
+
+```sql
+create role test with login password 'test';
+insert into pg_dist_authinfo(nodeid, rolename, authinfo)
+values (0, 'test', 'password=test');
+set role test;
+select * from test;
+```
+
+## 多数据库
+
+> citus 工作在默认数据库 postgres
+
+```bash
+SELECT run_command_on_workers($cmd$
+ SELECT current_database() db;
+$cmd$);
+```
+
+在 coordinator 上 create database 不会传播到 worker 节点
+
+:::tip
+
+- 每个新增的 数据库 都需要 `CREATE EXTENSION citus`
+- 每个数据库还需要额外维护 节点
+
+:::
+
+```sql
+-- 在所有 worker 节点执行
+SELECT run_command_on_workers($cmd$
+ create database test;
+$cmd$);
+```
+
+## connection to the remote node failed with the following error: FATAL: "trust" authentication failed
 
 ## 设置运行超时时间
 

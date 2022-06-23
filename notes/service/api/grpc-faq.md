@@ -123,6 +123,8 @@ tags:
 - https://github.com/googleapis/googleapis/blob/master/google/api/
 - 不要用 unsigned integer
 - 不要用 optional - 除非表示特定含义 - 例如 空 为 未投票、未评分
+- 参考
+  - [einride/aip-go](https://github.com/einride/aip-go)
 
 ### entpb
 
