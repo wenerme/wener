@@ -13,13 +13,12 @@ title: zsh
 
 <!--  ✅❌🟡-->
 
-feature | zsh | bash
----|---|---
-Automatic cd|
-Recursive path expansion|
-Spelling correction and approximate completion|
-Plugin and theme suppor|
-
+| feature                                        | zsh | bash |
+| ---------------------------------------------- | --- | ---- |
+| Automatic cd                                   |
+| Recursive path expansion                       |
+| Spelling correction and approximate completion |
+| Plugin and theme suppor                        |
 
 # FAQ
 

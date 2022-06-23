@@ -43,7 +43,32 @@ shopt -s autocd
 shopt -s globstar
 ```
 
+| set | set -o      |
+| --- | ----------- | -------------------------------------- |
+| a   | allexport   | export 所有变量                        |
+| E   | errtrace    | 继承 ERR trap                          |
+| e   | errexit     | 命令失败(返回非 0)则退出脚本           |
+| u   | nounset     | 要求变量 unset                         |
+| x   | xtrace      | trace - 回显执行的内容, 输出前缀为 PS4 |
+| B   | braceexpand | 展开 `{`                               |
+| T   | functrace   |
+| h   | hashall     |
+| H   | histexpand  |
+|     | pipefail    | pipe 失败也退出                        |
+|     | posix       | Bash 符合 POSIX 标准                   |
+| t   | onecmd      | 执行一条命令后便退出
+| v   | verbose     |
+
+```bash
+# 推荐
+set -Eeuo pipefail
+```
+
+- trap ERR 可处理 -e 退出
+- [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+
 ## 语法
+
 - `[` = test
 - `[[` - shell 内置语法 - 速度更快一点点
   - 支持 `&&`, `||` 语法
@@ -58,14 +83,15 @@ shopt -s globstar
   - `{ echo 1; echo 2; }` - 命令序列
 - `(())` - 算术操作
 - `()` - subshell, array
+
 ```bash
 # bash 语法
-for ((i=0;i<3;i++)); do echo $i; done
+for ((i = 0; i < 3; i++)); do echo $i; done
 # bash 展开序列
 for i in {0..2}; do echo $i; done
 # 使用 seq 生成序列 - ash 支持
 for i in $(seq 0 2); do echo $i; done
-for i in $(seq 0 $((3-1))); do echo $i; done
+for i in $(seq 0 $((3 - 1))); do echo $i; done
 ```
 
 ## .inputrc
@@ -295,10 +321,10 @@ echo -ne \\t | pbcopy
 - https://tldp.org/LDP/abs/html/subshells.html
 
 ```bash
-(echo 1);
+(echo 1)
 
 # 会输出 1 2 3 4
-bash <<SH &
+bash << SH &
 echo 1
 echo 2 && (echo 3; exit 1;)
 echo 4

@@ -84,7 +84,7 @@ admin_users = postgres
 - 配置 admin_users
 - 链接
   - 外部 `postgres://postgres@hostname-of-container/pgbouncer`
-  - 内部 `postgres://postgres://127.0.0.1/pgbouncer`
+  - 内部 `postgres://127.0.0.1/pgbouncer`
 
 ```
 # 自定义配置

@@ -34,6 +34,25 @@ docker run --rm -it -v $PWD/data:/data -p 6379:6379 --name redis redis redis-ser
 redis-server --bind=0.0.0.0
 ```
 
+:::info
+
+- Redis Cluster V2 project [redis#8948](https://github.com/redis/redis/issues/8948)
+- HSETEX, HMSETEX [redis#2905](https://github.com/redis/redis/issues/2905)
+- 批量删除 key [redis#4153](https://github.com/redis/redis/issues/4153)
+
+::
+
+```
+# 获取 key 数量 - 可能失效的也包含
+dbsize
+# 获取 key 信息
+info keyspace
+
+# 扫描 key - SCAN,SSCAN,HSCAN,ZSCAN
+# SCAN cursor [MATCH pattern] [COUNT count] [TYPE type]
+scan 0
+```
+
 ## Stream
 
 - redis [api](https://gist.github.com/antirez/4e7049ce4fce4aa61bf0cfbc3672e64d)
@@ -50,6 +69,12 @@ redis-server --bind=0.0.0.0
   - 使用 Golang 写 Redis 模块
 
 ## ACL
+
+:::caution
+
+ACL 是配置，不是数据，因此不会同步。 [#7988](https://github.com/redis/redis/issues/7988)
+
+:::
 
 - 客户端 `AUTH <username> <password>`
 - 默认用户 `AUTH <password>`
@@ -107,7 +132,7 @@ ACL SETUSER default reset on nopass ~* &* +@all -@admin
 
 ```bash
 # 输出 密码 和 sha-256
-uuidgen | tee /dev/fd/2 | tr -d '\n'  | sha256sum
+uuidgen | tee /dev/fd/2 | tr -d '\n' | sha256sum
 ```
 
 **sentinel**
@@ -154,6 +179,7 @@ ACL setuser replica-user on >somepassword +psync +replconf +ping
 - [ACL](https://redis.io/topics/acl)
 
 ## redic.conf
+
 - https://redis.io/docs/manual/config/
 
 ## redis-benchmark

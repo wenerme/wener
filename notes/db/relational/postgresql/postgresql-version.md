@@ -33,13 +33,36 @@ tags:
 
 ## PostgreSQL 15
 
-- 新增 MERGE 语句
-- toast 支持 zstd 压缩
-- 逻辑复制支持限定 表 和 Schema
+- 新增 MERGE 语句 - 用于合并两个 **表**
+  - `MERGE INTO table USING source ON join WHEN MATCHED THEN INSERT|UPDATE|DELETE|DO NOTHING`
+  - 支持增删改
+  - `INSERT ... ON CONFLICT` 只支持 增改
+- 更多 SQL/JSON 函数
+  - 构造 JSON
+    - `JSON('{}')` = `'{}'::json`
+    - JSON_SCALAR, JSON_OBJECT, JSON_OBJECTAGG, JSON_ARRAY, JSON_ARRAYAGG
+  - 查询 JSON
+    - `IS JSON [NOT] [{VALUE|SCALAR|ARRAY|OBJECT}] [{WITH|WITHOUT} UNIQUE [KEYS]]`
+    - JSON_EXISTS, JSON_VALUE, JSON_QUERY, JSON_TABLE
+  - JSON_TABLE - JSON 转表
+- 更多 regex 函数
+  - regexp_count , regexp_instr, regexp_like, regexp_substr
+- 新增 range_agg 用于聚合 range,multirange 类型为 multirange
+- 支持 zstd 压缩
+  - toast 支持 zstd
+  - pg_basebackup 支持 zstd
+  - wal_compression 支持 zstd
+- 逻辑复制支持限定 表 , Schema, 行, 列
   - 新增 pg_publication_namespace 记录 PUBLICATION 信息
 - UNIQUE null 处理选项
   - `nulls distinct` - null 要求唯一
   - `nulls not distinct` - null 不要求唯一 - 目前的默认逻辑
+- 性能
+  - 支持并行处理 `SELECT DISTINCT`
+  - postgres_fdw 增加 `parallel_commit` 选型
+  - > 8kb 的 toast 可以利用索引去重
+- 支持 jsonlog
+- psql `\dconfig` 显示非默认配置
 
 ```sql
 -- 逻辑复制限定

@@ -4,14 +4,25 @@ title: psql
 
 # psql
 
-| command   | for                      |
-| --------- | ------------------------ |
-| `\l`      | list database            |
-| `\c <db>` | switch database          |
-| `\dt`     | list public schema table |
-| `\dt *.*` | list all table           |
-| `\ds`     | list relation            |
-| `\dn`     | list schema              |
+| command        | for                      |
+| -------------- | ------------------------ |
+| `\c <db>`      | switch database          |
+| `\dn`          | list schema              |
+| `\ds`          | list relation            |
+| `\dt *.*`      | list all table           |
+| `\dt`          | list public schema table |
+| `\du`          | list users               |
+| `\dx`          | list extensions          |
+| `\l`           | list database            |
+| `\df[amptwS+]` | list functions           |
+
+- a - agg
+- n - normal
+- p - procedure
+- t - trigger
+- w - window
+- S - system object
+- `+` - 额外信息
 
 | flag               |
 | ------------------ |
