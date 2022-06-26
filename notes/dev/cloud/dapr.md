@@ -4,6 +4,24 @@ title: Dapr
 
 # Dapr
 
+Dapr 提供云服务抽象，让实现底层解耦可替换。
+虽然 Dapr 看似提取了很多常用的服务功能，但都是对标云平台服务的。
+因为 Dapr 是 微软 和 阿里 联合开发的，也就是为了把 Azure 和 Aliyun 的功能集成进来。
+
+**不适用场景**
+
+- self-host - 不依赖云平台功能
+- 业务功能明确 - 抽象无意义
+
+**Tradeoff**
+
+- sidecar 模式
+  - 更好支持多语言 - 前提是涉及到那么多语言
+  - 使用额外的资源
+  - 开发体验会有影响
+
+---
+
 - [dapr/dapr](https://github.com/dapr/dapr) 是什么？
   - 云原生开发工具集
   - 支持多语言 - sidecar 暴露 http 和 grpc 接口
@@ -162,7 +180,7 @@ docker exec -it dapr_redis redis-cli keys '*'
 # 实验定义 secret 组件
 echo '{"my-secret" : "Secret here"}' > mysecrets.json
 mkdir my-components
-cat <<CONF > my-components/localSecretStore.yaml
+cat << CONF > my-components/localSecretStore.yaml
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:

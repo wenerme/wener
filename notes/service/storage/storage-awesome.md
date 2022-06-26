@@ -65,9 +65,12 @@ tags:
 ## 分布式存储服务
 
 - [minio](./minio.md) - S3
-- ceph - S3, POSIX, RAOD
+- [ceph](./ceph/README.md) - S3, POSIX, RAOD
 - [gluster](./gluster.md) - POSIX
-- luster
+- lustre
+  - GPLv2, LGPL, C
+  - 利用很多 ZFS 特性
+  - [lustre/lustre-release](https://github.com/lustre/lustre-release)
 - hdfs - 大数据, 计算->存储
 - openio-sds
 

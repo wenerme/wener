@@ -127,10 +127,12 @@ tags:
 
 ## 数据库相关
 
+- [ent](./lib/ent.md)
+  - [ariga/sqlcomment](https://github.com/ariga/sqlcomment)
+    - 添加注释 - 用于 trace
+- [gorm](./lib/gorm.md)
 - [guregu/null](https://github.com/guregu/null)
   - 包装 sql.Null 支持 序列化
-- [ariga/sqlcomment](https://github.com/ariga/sqlcomment)
-  - 添加注释 - 用于 trace
 - [qustavo/sqlhooks](https://github.com/qustavo/sqlhooks)
   - 添加 hook
 - [kyleconroy/sqlc](https://github.com/kyleconroy/sqlc)
@@ -438,6 +440,10 @@ tags:
   - wasm actor 平台 - 支持 tinygo
 - [RichardKnop/machinery](https://github.com/RichardKnop/machinery)
   asynchronous task queue/job queue based on distributed message passing
+- [hibiken/asynq](https://github.com/hibiken/asynq)
+  - MIT, Golag
+  - Redis
+  - Simple, reliable, and efficient distributed task queue in Go
 - [twitchtv/twirp](https://github.com/twitchtv/twirp)
   simple RPC framework with protobuf service definitions
   - protobuf+net/http

@@ -103,7 +103,7 @@ user default on nopass ~* &* +@all
   - `%R~<pattern>`,`%W~<pattern>`,`%RW~<pattern>` - v7.0+ 限定 读写
 - Pub/Sub 限定
 - `&<pattern>` - v6.2+
-- `allchannels` -<> `&*`
+- `allchannels` -> `&*`
 - resetchannels - 重置
 - reset - 重置所有规则
 - selector - v7.0+

@@ -9,6 +9,14 @@ title: make
 - [makefile style guide](https://clarkgrubb.com/makefile-style-guide)
 - [Special Built-in Target Names](https://www.gnu.org/software/make/manual/make.html#Special-Built_002din-Target-Names)
 
+:::caution
+
+- `$(wildcard src/**/*.ts)` 在有些平台上是 `$(wildcard src/*/*.ts)`
+  - 不能遍历所有文件
+  - 推荐 shell 展开或 find 命令
+
+:::
+
 ```Makefile
 # 修改默认 shell
 SHELL=/bin/bash

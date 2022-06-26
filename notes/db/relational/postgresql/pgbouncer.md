@@ -34,6 +34,10 @@ title: PgBouncer
 
 :::caution
 
+- pgbouncer 的最大收益来自于 tx 模式 - 对应用有很多限制
+- 不要依赖 session 变量 - 不要 `SET`, 只能 `SET LOCAL`
+  - search_path - [#73](https://github.com/pgbouncer/pgbouncer/pull/73)
+  - role
 - prepared statements 只能在 session 模式下，且 `server_reset_query = DISCARD ALL;` 或 `DEALLOCATE ALL;`
 - transaction 不支持 prepare - 可以在客户端禁用
   - JDBC - prepareThreshold=0

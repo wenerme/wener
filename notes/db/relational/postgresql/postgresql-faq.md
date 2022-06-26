@@ -80,14 +80,14 @@ service postgresql restart
 ```bash
 # https://github.com/tianon/docker-postgres-upgrade
 docker run --rm \
-	-v PGDATAOLD:/var/lib/postgresql/OLD/data \
-	-v PGDATANEW:/var/lib/postgresql/NEW/data \
-	tianon/postgres-upgrade:OLD-to-NEW
+  -v PGDATAOLD:/var/lib/postgresql/OLD/data \
+  -v PGDATANEW:/var/lib/postgresql/NEW/data \
+  tianon/postgres-upgrade:OLD-to-NEW
 ```
 
 ```bash
 pg_upgrade --old-datadir /var/lib/pgsql/data/ --new-datadir /var/lib/pgsql/10/data/ \
---old-bindir /usr/bin/ --new-bindir /usr/pgsql-10/bin/
+  --old-bindir /usr/bin/ --new-bindir /usr/pgsql-10/bin/
 ```
 
 ## Dump
@@ -100,7 +100,7 @@ pg_upgrade --old-datadir /var/lib/pgsql/data/ --new-datadir /var/lib/pgsql/10/da
 ```bash
 # -Z compress
 pg_dump -Fc -Z 9 -j $(nproc) --file=file.dump myDb
-pg_restore -Fc -j $(nproc)  file.dump
+pg_restore -Fc -j $(nproc) file.dump
 ```
 
 ## CTID
@@ -514,3 +514,18 @@ PERFORM select 1;
 
 1. 插入前进行 dedup
 2. CTE 先 select distinct
+
+## 生成列
+
+- 生成列不能被手动指定
+- stored - INSERT 或 UPDATE 时写入
+- virtual - 实时计算 - 类似 view
+
+## generated vs default column
+
+- default
+  - 可指定
+  - 不指定使用默认 - 计算 1 次
+  - 可关联其他列
+- generated
+  - 每次行变化都会生成

@@ -21,13 +21,22 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 | version      | date       |
 | ------------ | ---------- |
+| [ArgoCD 2.4] | 2022-06-11 |
 | [ArgoCD 2.3] | 2022-03-06 |
 | [ArgoCD 2.2] |
 | [ArgoCD 2.1] |
 
+[argocd 2.4]: #argocd-24
 [argocd 2.3]: #argocd-23
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
+
+## ArgoCD 2.4
+
+- Web Terminal
+- Access Control For Pod Logs & Web Terminal
+- OpenTelemetry Tracing Integration
+- ApplicationSet 支持 Gitea
 
 ## ArgoCD 2.3
 
@@ -47,12 +56,12 @@ spec:
       kind: 'Deployment'
       jsonPointers:
         - /spec/replicas
-    - group: "*"
-      kind: "*"
+    - group: '*'
+      kind: '*'
       # 可以通过 managedFieldsManagers 告诉 argocd 需要忽略的内容
       # 用于组件/插件集成
       managedFieldsManagers:
-      - rollouts-controller
+        - rollouts-controller
   syncPolicy:
     syncOptions:
       - RespectIgnoreDifferences=true

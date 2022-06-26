@@ -63,3 +63,21 @@ du -s * | sort -h
 - https://www.showdoc.com.cn/189873290278540/1076946966902629
 - 朋友圈
   - snsId
+
+## 域名地址
+
+- http://dns.weixin.qq.com/cgi-bin/micromsg-bin/newgetdns
+- hkshort.weixin.qq.com
+- hkaxshort.weixin.qq.com
+- hkextshort.weixin.qq.com
+- hkdisas.weixin.qq.com
+- hkshort6.weixin.qq.com
+- hkshort.pay.weixin.qq.com
+- hklong.weixin.qq.com
+- hkminorshort.weixin.qq.com
+- hkquic.weixin.qq.com
+- sgshort.pay.wechat.com
+- sglong.wechat.com
+- sgminorshort.wechat.com
+- sgshort.wechat.com
+- sgaxshort.wechat.com

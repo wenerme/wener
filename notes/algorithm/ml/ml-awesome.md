@@ -135,6 +135,10 @@ tags:
 - https://pimeyes.com/
 - Parti: Pathways Autoregressive Text-to-Image Model
   - [HN](https://news.ycombinator.com/item?id=31839193)
+- [yandex/YaLM-100B](https://github.com/yandex/YaLM-100B)
+  - GPT Pretrained language model with 100B parameters
+  - [HN](https://news.ycombinator.com/item?id=31846593)
+- [Keytap3: check if your keyboard can be eavesdropped through a microphone](https://keytap3.ggerganov.com/)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

@@ -11,9 +11,6 @@ tags:
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
 - [ycd/dstp](https://github.com/ycd/dstp)
-- [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
-  - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
-- [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
 - [SentryPeer/SentryPeer](https://github.com/SentryPeer/SentryPeer)
   - peer to peer list of bad actor IP addresses and phone numbers collected via a SIP Honeypot
 
@@ -21,6 +18,21 @@ tags:
 
 - [google/tink](https://github.com/google/tink)
   - Java/Android, C++, Obj-C, Go, Python
+- [jedisct1/libsodium](https://github.com/jedisct1/libsodium)
+  - portable, easy to use crypto library
+- [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
+  - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
+- 参考
+  - [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
+
+## AV
+
+- https://www.av-comparatives.org/tests/performance-test-april-2022/
+- [Cisco-Talos/clamav](https://github.com/Cisco-Talos/clamav)
+  - GPLv2, C, C++
+  - 唯一广泛使用的开源杀毒软件
+- [Tlaster/YourAV](https://github.com/Tlaster/YourAV)
+- [Comparison of antivirus software](https://en.wikipedia.org/wiki/Comparison_of_antivirus_software)
 
 ## Index
 

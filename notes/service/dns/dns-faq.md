@@ -39,6 +39,11 @@ sudo killall -HUP mDNSResponder
 ipconfig /flushdns
 ```
 
+- chrome://net-internals/#dns
+  - 清除DNS缓存
+- chrome://net-internals/#sockets
+  - 清除链接 - 因为还是打开的之前的地址
+
 ## PiHole vs AdGuard
 
 - PiHole

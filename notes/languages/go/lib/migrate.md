@@ -11,5 +11,6 @@ title: migrate
 
 ```bash
 # 创建 sql 文件
-migrate create -ext sql -dir db/migrations -seq create_users_table
+# -seq 使用序列而非时间戳 - 000001
+migrate create -ext sql -dir migrations -seq create_users_table
 ```

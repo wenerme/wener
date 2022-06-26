@@ -25,6 +25,7 @@ title: Zig
   - https://andrewkelley.me/
   - [Assorted thoughts on zig](https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/)
   - [Why Zig When There is Already C++, D, and Rust?](https://ziglang.org/learn/why_zig_rust_d_cpp/)
+  - [How safe is zig?](https://www.scattered-thoughts.net/writing/how-safe-is-zig/)
 
 :::tip
 

@@ -367,3 +367,16 @@ XSS
 - Index 为 byte index
 - https://pkg.go.dev/regexp
 - https://pkg.go.dev/regexp/syntax
+
+## go build static
+
+```bash
+CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"'
+# statically linked PIE
+CGO_ENABLED=1 go build -buildmode=pie -tags 'osusergo,netgo,static,static_build' -ldflags '-linkmode=external -extldflags "-static-pie"' .
+
+GOOS=linux go build -tags 'osusergo netgo'
+GOFLAGS=-static
+```
+
+- https://github.com/golang/go/issues/26492

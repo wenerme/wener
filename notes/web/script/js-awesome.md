@@ -41,6 +41,10 @@ tags:
     - jsdom
 - IoC
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
+  - [jeffijoe/awilix](https://github.com/jeffijoe/awilix)
+    - Proxy+Reflect - Chrome >= 49, Safari >= 10
+    - 注入代理对象，通过访问的字段名字进行 resolve
+      - 因此不支持异步
 - deep compare
   - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)

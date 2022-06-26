@@ -21,6 +21,8 @@ title: patroni
     - 同步复制依然可能丢数据，例如三个节点，同时两个失败
     - 开启 synchronous_mode 会让所有节点都复制后才返回，保证不丢失事务
       - 可用性更低
+- 参考
+  - [PostgreSQL replication and failover with Omnibus GitLab](https://docs.gitlab.com/ee/administration/postgresql/replication_and_failover.html)
 
 :::tip
 

@@ -97,9 +97,11 @@ tags:
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL
 - [dolthub/dolt](https://github.com/dolthub/dolt)
+  - Apache-2.0, Go
   - Git for Data
 - [ApsaraDB](https://github.com/ApsaraDB)
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
+  - MIT, Clojure
 - [codenotary/immudb](https://github.com/codenotary/immudb)
   - immutable database
 

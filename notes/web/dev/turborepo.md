@@ -92,6 +92,10 @@ turbo run dev --parallel --no-cache # 不缓存
 
 ## turborepo-remote-cache
 
+> **Note**
+>
+> local 存储会添加 /tmp 前缀到 STORAGE_PATH [src/plugins/remote-cache/storage/local.ts](https://github.com/fox1t/turborepo-remote-cache/blob/main/src/plugins/remote-cache/storage/local.ts)
+
 ```bash
 docker run \
   -v $PWD/cache:/cache --env-file=.env \

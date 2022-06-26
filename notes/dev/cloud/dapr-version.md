@@ -24,32 +24,55 @@ tags:
 
 :::
 
-| ver | release date |
-| --- | ------------ |
-| 1.5 | 2021-11-13   |
-| 1.4 | 2021-09-14   |
-| 1.3 | 2021-07-27   |
-| 1.2 | 2021-05-27   |
-| 1.1 | 2021-04-02   |
-| 1.0 | 2021-02-17   |
+| version                | release date |
+| ---------------------- | ------------ |
+| [Dapr v1.7](#dapr-v17) | 2022-04-08   |
+| [Dapr v1.6](#dapr-v16) | 2022-01-25   |
+| [Dapr v1.5](#dapr-v15) | 2021-11-13   |
+| [Dapr v1.4](#dapr-v14) | 2021-09-14   |
+| [Dapr v1.3](#dapr-v13) | 2021-07-27   |
+| [Dapr v1.2](#dapr-v12) | 2021-05-27   |
+| [Dapr v1.1](#dapr-v11) | 2021-04-02   |
+| [Dapr v1.0](#dapr-v10) | 2021-02-17   |
 
 - 两个月一个版本
 - 因为由 Alibaba+Azure 配合开发，因此大多开发时间会花费在对接自家平台组建，所以从非云角度来说开发的很慢
 
-## 1.5
+## Dapr v1.7
+
+- resiliency
+  - 支持策略 tiemout, 重试, 熔断
+  - 支持对象 服务调用, 组件, actor
+- stable/稳定
+  - MQTT pub/sub
+  - RabbitMQ pub/sub
+- 新的 state store 组件
+  - CockroachDB
+  - NATS
+
+## Dapr v1.6
+
+- Kafka OAuth 2.0 for pub/sub & binding
+- Apache Pulsar pub/sub 新增特性
+- 租户空间
+- backoff 策略
+- token authn
+- disable batching
+
+## Dapr v1.5
 
 - Kafka Pub/sub Stable
 - 状态 查询接口 - Alpha
 - 新增 配置 - Alpha
 - Go SDK 支持 Actor
 
-## 1.4
+## Dapr v1.4
 
 - Block cross Pods calls to Dapr sidecar
 - state store 加密
 - actor timers / reminder ttl
 
-## 1.3
+## Dapr v1.3
 
 - state store ttl
 - graphql binding
@@ -58,7 +81,7 @@ tags:
   - actor reentrancy
   - actor reminder storage partitioning
 
-## 1.2
+## Dapr v1.2
 
 - Pub/Sub without [CloudEvents](https://github.com/cloudevents/spec)
 - Sidecar API ACL
@@ -76,9 +99,9 @@ tags:
   - 阿里 Sentinel 中间件
   - Consule name resolution 组件
 
-  ## 1.1
+  ## Dapr v1.1
 
   - Sidecar env var
   - Local storage 绑定
 
-  ## 1.0
+  ## Dapr v1.0

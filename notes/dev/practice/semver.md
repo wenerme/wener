@@ -25,3 +25,32 @@ build:
 .
 [a-zA-Z0-9-]*
 ```
+
+## Conventional Commits
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+- type
+  - fix,feat
+  - build, chore, ci, docs, style, refactor, perf, test
+  - revert + Refs commit-id
+- BREAKING CHANGE footer 描述变化 或 `<type>[scope]!`
+
+```
+fix: abc
+
+zyx
+
+Reviewed-by: Z
+Refs: #123
+```
+
+- [conventionalcommits](https://conventionalcommits.org/)
+  - [conventional-changelog/standard-version](https://github.com/conventional-changelog/standard-version)
+    - 生成 CHANGELOG

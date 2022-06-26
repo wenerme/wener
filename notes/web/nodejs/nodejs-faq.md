@@ -6,6 +6,14 @@ tags:
 
 # NodeJS FAQ
 
+## ejs `__dirname`
+
+```js
+import * as url from 'url';
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+```
+
 ## 直接执行 typescript 或 esnext
 
 ```bash

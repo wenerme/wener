@@ -6,6 +6,10 @@ tags:
 
 # PostgreSQL SQL 问题
 
+> **Note**
+>
+> - comment 不能在创建表时指定
+
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
 
@@ -167,6 +171,11 @@ from test;
 - 对比 serial
   - 有归属关系
   - 更加规范
+- `GENERATED { ALWAYS | BY DEFAULT } AS IDENTITY`
+  - `ALWAYS`
+    - INSERT 指定 ID 不会生效，需要 `OVERRIDING SYSTEM VALUE`
+    - UPDATE 不允许修改 ID
+  - `BY DEFAULT` - 用户指定值优先级更高
 
 ```sql
 CREATE TABLE users (

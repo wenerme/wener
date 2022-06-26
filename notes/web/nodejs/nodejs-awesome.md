@@ -25,17 +25,36 @@ tags:
 - [sequelize/sequelize](https://github.com/sequelize/sequelize)
   - ORM
   - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
-- [Vincit/objection.js](https://github.com/Vincit/objection.js)
-  - SQL-friendly ORM
-- [typeorm/typeorm](https://github.com/typeorm/typeorm)
-  - 基于 typescript decoration 的 ORM
+  - 因为需要支持很多 DB 类型，丢失一定的特性
 - [knex/knex](https://github.com/knex/knex)
   - SQL Builder
   - Composite - 解耦构建最终 query 的过程
   - 对于基础的访问模式提供跨库支持
+  - ⚠️ 不支持 typescript 实体类型安全
   - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
+- [Vincit/objection.js](https://github.com/Vincit/objection.js)
+  - 🚧 开发停滞
+  - SQL-friendly ORM
+  - 基于 knex
+- [typeorm/typeorm](https://github.com/typeorm/typeorm)
+  - 基于 typescript decoration 的 ORM
+  - 🚧 开发缓慢
 - [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
   - 基于 knex 的 ORM
+  - 🚧 开发停止
+
+## Web
+
+- [fastify](./fastify.md)
+  - 🌟 推荐
+- express
+- koa
+  - 🚧 开发停滞
+
+## Server
+
+- 日志
+  - [pinojs/pino](https://github.com/pinojs/pino)
 
 ## Scraper
 

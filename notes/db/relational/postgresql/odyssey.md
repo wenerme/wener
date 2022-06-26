@@ -68,4 +68,9 @@ listen {
   - 不支持 configuration file reload by signal, support for unix sockets, authentication by PAM and HBA.
 - pgbouncer
   - 可以多进程同端口
+  - Scale 能力弱于 odyssey
+
+---
+
+- Gitlab [Evaluate Odyssey as a replacement for pgbouncer](https://gitlab.com/gitlab-com/gl-infra/reliability/-/issues/7776)
 - https://github.com/yandex/odyssey/issues/3

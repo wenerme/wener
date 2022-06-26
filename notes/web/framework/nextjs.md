@@ -59,7 +59,9 @@ title: NextJS
   - 只有 `_app` 可以导入全局 css
 - 单一 HTML 入口 - 不像 vite 支持多入口
 - rewrites 会在 build 时生成 router-manifest, 因此 start 时配置的变量 **无法** 产生影响
-- ESM 使用还有问题 [#36940](https://github.com/vercel/next.js/issues/36940)
+- ESM 使用还有问题
+  - 目前 main 最好还是指向 cjs
+  - import ESM module fails with custom typescript server [#36940](https://github.com/vercel/next.js/issues/36940)
 
 :::
 

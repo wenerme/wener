@@ -22,6 +22,37 @@ PostgreSQL 并不是 OLAP 数据库，能力有上限，当发现有更多的时
 
 :::
 
+- backup
+  - [pgbackrest](https://github.com/pgbackrest/pgbackrest)
+    - MIT, perl & C
+    - by Crunchy Data
+  - [wal-g](./wal-g.md)
+    - by Citus Data, Apache-2.0, Go
+  - Barman
+    - 2ndQuadrant, GPL v 3.0, python
+    - basebackup & rsync
+  - pg_probackup
+    - by Postgres Professional, PostgreSQL License, C
+  - BART
+- [Advanced PostgreSQL backup & recovery methods](https://www.postgresql.eu/events/pgconfeu2018/sessions/session/2098/slides/123/Advanced%20backup%20methods.pdf)
+
+## Story
+
+- Gitlab 因为 License 问题放弃 Citus [Sharding GitLab with CitusDB](https://about.gitlab.com/handbook/engineering/development/enablement/data_stores/database/doc/citus.html)
+- Gitlab PostgreSQL Partitioning with FDW
+  - [PostgreSQL 11 sharding with foreign data wrappers and partitioning](https://about.gitlab.com/handbook/engineering/development/enablement/data_stores/database/doc/fdw-sharding.html)
+    - 问题
+      - 需要为 foreign server 连接信息
+      - 不好维护 schema
+      - 只支持本地 foreign key
+      - 可能不会 push down 问题
+      - 性能降低
+      - 执行和计划时间增加
+      - 每个分片都需要 HA 集群
+      - 没有 parallel scan
+      - 更新性能问题
+      - 没有全局事务
+
 ## Table Partitioning
 
 - 查询性能提升

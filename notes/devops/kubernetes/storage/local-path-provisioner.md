@@ -13,6 +13,9 @@ title: Local Path Provisioner
 - 注意
   - 异常后 PVC 丢失，StatefulSet 无法启动
     - 删除 Pod 从新部署可恢复
+- 参考
+  - zfs example [#162](https://github.com/rancher/local-path-provisioner/issues/162)
+  - 恢复 pv [#144](https://github.com/rancher/local-path-provisioner/issues/144)
 
 **k3s 默认配置**
 

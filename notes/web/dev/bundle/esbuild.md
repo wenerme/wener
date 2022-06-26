@@ -32,6 +32,9 @@ title: ESBuild
 - 不支持 umd - [#507](https://github.com/evanw/esbuild/issues/507)
 - tsconfig.paths 不 bundled 时不会处理 [#394](https://github.com/evanw/esbuild/issues/394)
   - 写库只能用相对路径
+- Support dynamic imports [#700](https://github.com/evanw/esbuild/issues/700)
+  - dynamic import **不会** 被 bundle
+- Support jsx automatic runtime [#334](https://github.com/evanw/esbuild/issues/334)
 
 :::
 
@@ -41,12 +44,13 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 ```
 
 | flag                            |
-| ------------------------------- | --------------------- |
-| --bundle                        | 包含所有依赖          |
-| --loader:.js=jsx                | 允许 js 包含 jsx 语法 |
-| --define:DEBUG=true             | 替代 DEBUG            |
-| --platform=browser,node,neutral | 默认 browser          |
-| --external:@strapi              | 作为外部依赖          |
+| ------------------------------- | ------------------------- |
+| --bundle                        | 包含所有依赖              |
+| --loader:.js=jsx                | 允许 js 包含 jsx 语法     |
+| --define:DEBUG=true             | 替代 DEBUG                |
+| --platform=browser,node,neutral | 默认 browser              |
+| --external:@strapi              | 作为外部依赖              |
+| --splitting                     | 拆分 chunk - 抽取公共部分 |
 
 - --minify
   - --minify-whitespace
@@ -57,7 +61,7 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
   - `/assets/*.png`
   - `@foo/bar` 隐含 `@foo/bar/*`
 
-# 只 bundle 内部文件
+## 只 bundle 内部文件
 
 ```js title="build.cjs"
 const path = require('path');

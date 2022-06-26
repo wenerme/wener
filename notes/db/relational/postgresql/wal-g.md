@@ -8,7 +8,7 @@ title: WAL-G
   - Apache 2.0, lzo 部分 GPL 3.0+
   - PostgreSQL 备份、恢复工具
   - WAL-E 后继 - Golang 重写 Python - 性能 x4
-  - 支持 PostgreSQL, MySQL/MariaDB, Mongo
+  - 支持 PostgreSQL, MySQL/MariaDB, Mongo, FoundationDB, Redis, Greenplum
   - 支持 S3, GCS, Azure, Swift, 本地, SSH 存储
   - [PostgreSQL](https://github.com/wal-g/wal-g/blob/master/PostgreSQL.md)
 - WAL-E 不支持关闭 S3 SSE - SelfHost 常见,不便于使用
@@ -52,6 +52,7 @@ docker pull bitnami/wal-g
 ```
 
 ```bash
+# --pretty --json --detail
 wal-g backup-list
 ```
 
@@ -59,6 +60,12 @@ wal-g backup-list
 | ----------------------------- | -------------------- | ------------------------ | ------------------------------- | ------------------------------- | --------- | --------------------------------- | ---------- | --------- | ---------- | ------------ |
 | base_000000020000000000000005 | 2021-03-09T08:07:49Z | 000000020000000000000005 | Tuesday, 09-Mar-21 08:07:43 UTC | Tuesday, 09-Mar-21 08:07:49 UTC | acid-demo | /home/postgres/pgdata/pgroot/data | 130002     | 83886120  | 83927800   | false        |
 | base_000000030000000000000008 | 2021-03-09T08:14:48Z | 000000030000000000000008 | Tuesday, 09-Mar-21 08:14:42 UTC | Tuesday, 09-Mar-21 08:14:48 UTC | acid-demo | /home/postgres/pgdata/pgroot/data | 130002     | 134217768 | 134250592  | false        |
+
+```bash
+# --confirm
+# retain, before, everything, target
+wal-g delete
+```
 
 **目录结构**
 
@@ -75,6 +82,50 @@ wal-g backup-list
     - 000000020000000000000005.lz4
     - 000000020000000000000007.partial.lz4
     - 000000020000000000000005.00000028.backup.lz4
+
+## PostgreSQL
+
+- PG 配置 PGHOST, PGPORT, PGUSER, PGPASSWORD, PGPASSFILE, ~/.pgpass
+- Gitlab 文档 [PostgreSQL Backups: WAL-G](https://gitlab.com/gitlab-com/runbooks/-/blob/master/docs/patroni/postgresql-backups-wale-walg.md)
+
+| env                          |
+| ---------------------------- | --- |
+| WALG_DISK_RATE_LIMIT         |
+| WALG_NETWORK_RATE_LIMIT      |
+| WALG_DOWNLOAD_CONCURRENCY    |
+| WALG_PREFETCH_DIR            |
+| WALG_UPLOAD_CONCURRENCY      | 16  |
+| WALG_UPLOAD_DISK_CONCURRENCY |
+| TOTAL_BG_UPLOADED_LIMIT      |
+| WALG_SENTINEL_USER_DATA      |
+| WALG_PREVENT_WAL_OVERWRITE   |
+| WALG_DELTA_MAX_STEPS         |
+| WALG_DELTA_ORIGIN            |
+| WALG_TAR_SIZE_THRESHOLD      |
+| WALG_TAR_DISABLE_FSYNC       |
+| WALG_PG_WAL_SIZE             |
+| WALG_UPLOAD_WAL_METADATA     |
+| WALG_ALIVE_CHECK_INTERVAL    |
+| WALG_STOP_BACKUP_TIMEOUT     |
+
+## Redis
+
+- 只能是全量
+- backup-push, backup-list, backup-fetch, delete
+
+| env                         |
+| --------------------------- |
+| WALG_STREAM_CREATE_COMMAND  |
+| WALG_STREAM_RESTORE_COMMAND |
+| WALG_REDIS_PASSWORD         |
+
+```sh
+WALG_STREAM_CREATE_COMMAND='redis_cli --rdb /dev/stdout'
+WALG_STREAM_RESTORE_COMMAND='cat > /var/lib/redis/dump.rdb'
+```
+
+- redis-cli >= 6.2 使用 [redis_cli.sh](https://github.com/wal-g/wal-g/blob/master/redis_cli.sh)
+  - `redis-cli --rdb /dev/stdout > /dev/null`
 
 ## 操作
 

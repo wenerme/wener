@@ -4,6 +4,8 @@ title: Citus
 
 # Citus
 
+Citus is not PostgreSQL
+
 - [citusdata/citus](https://github.com/citusdata/citus)
   - AGPL-3.0, C
   - 被 微软 收购
@@ -35,6 +37,12 @@ title: Citus
 
 :::caution
 
+- 不会传播 `SET`/`set_config`, 配置后可以传播 `SET LOCAL`, 注意 RLS 实现方式
+  - 推荐使用常量值 - 可以优化
+  - 通过 current_user 实现没问题 - 注意 authinfo 同步
+  - 配置同步 [citus#1327](https://github.com/citusdata/citus/issues/1327)
+  - session 信息同步 [citus#462](https://github.com/citusdata/citus/issues/462)
+- 不会传播 `search_path`
 - 数据副本问题需要自己处理
 - 运行在默认数据库 - postgres - 每个数据库独立，新的数据库需要重新维护节点关系
 - [#906](https://github.com/citusdata/citus/issues/906) 不支持 trigger
@@ -241,6 +249,12 @@ ORDER BY shardid
   - run_command_on_coordinator
   - run_command_on_all_nodes
   - citus_is_coordinator
+- pg_dist_authinfo
+  - authinfo 只允许 password,sslcert,sslkey - [authinfo_valid](https://github.com/citusdata/citus/blob/57455dc64dba521514c3bd85b2aab7f3cb2eecf8/src/backend/distributed/metadata/metadata_cache.c#L5203-L5217)
+  - nodeid=0 匹配所有
+  - nodeid=-1 为 loopback
+- pg_dist_poolinfo
+  - poolinfo 只允许 dbname, hostm port
 
 ```sql
 -- 分片数量
@@ -298,6 +312,8 @@ select citus_create_restore_point('名字');
 ## 配置
 
 ```ini
+; 基础配置
+; ==========
 citus.max_worker_nodes_tracked=2048
 citus.cluster_name=
 ; always - 总是读 secondary_node
@@ -315,15 +331,81 @@ citus.node_connection_timeout=3000
 
 citus.show_shards_for_app_name_prefixes=
 
+; 查询统计
+; ==========
 ; 单位 秒
 citus.stat_statements_purge_interval=10
 citus.stat_statements_max=50000
 ; none
 citus.stat_statements_track=all
 
+; Data Loading
+; ============
+; 1pc
+citus.multi_shard_commit_protocol = 2pc
+citus.shard_count = 32
+citus.shard_max_size = 1GB
+
+; 在节点激活时同步 reference 表
+; 设置为 off 可增加 add_node 速度 - 在创建 shard 时同步
+citus.replicate_reference_tables_on_activate = on
+
+; Planner
+; ============
+citus.local_table_join_policy=auto
+; 限制拉取行数
+citus.limit_clause_row_fetch_count=-1
+citus.count_distinct_error_rate=
+; greedy, round-robin, first-replica
+citus.task_assignment_policy=
+
+; Intermediate Data Transfer
+; ==========================
+; pg >= 14 = true
+citus.binary_worker_copy_format =
+; 默认 1GB, 单位 KB, -1 不限制
+citus.max_intermediate_result_size =
+
+; DDL
+; ==========================
 citus.enable_ddl_propagation=true
 ; coordinator 必须通过 citus_add_node 注册自己
 citus.enable_local_reference_table_foreign_keys=true
+
+; 执行配置
+; ==========================
+citus.all_modifications_commutative=
+; off,debug,log,notice,warning,error
+citus.multi_task_query_log_level=
+; local - 广播 SET LOCAL
+citus.propagate_set_commands=none
+; join 非分布列
+citus.enable_repartition_joins=false
+; INSERT INTO … SELECT
+citus.enable_repartitioned_insert_select=
+citus.enable_binary_protocol = true
+; = max_connections
+; -1 禁用
+citus.max_shared_pool_size =
+citus.max_adaptive_executor_pool_size = 16
+; 单位 ms
+citus.executor_slow_start_interval = 10
+citus.max_cached_conns_per_worker = 1
+citus.force_max_query_parallelization =
+; Explain
+; ==========================
+citus.explain_all_tasks=false
+; taskId
+citus.explain_analyze_sort_method = execution-time
+```
+
+- https://docs.citusdata.com/en/v11.0/develop/api_guc.html
+
+## 广播 set 信息
+
+```sql
+set local citus.propagate_set_commands = 'local';
+set local app.tenant.id = 123;
 ```
 
 ## Docker
