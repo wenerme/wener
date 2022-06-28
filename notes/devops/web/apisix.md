@@ -7,9 +7,19 @@ title: Apache APISIX
 - [apache/apisix](https://github.com/apache/apisix)
   - Apache-2.0, Lua+Nginx/openresty+etcd
   - 支持 Golang 插件
+  - 支持协议: HTTP, GRPC, Dubbo, MQTT
+  - 也可以存储在 yaml - 但不可以编辑
+    - config_center 配置
+- [Admin API](https://apisix.apache.org/docs/apisix/admin-api)
+  - Auth `X-API-KEY: admin-ley`
+  - PUT 为新增
+  - `/apisix/admin/<资源>`
+    - routes, stream_routes, services, consumers, upstreams, ssl, global_rules,
+    - plugin_configs, plugin_metadata
+  - 信息
+    - `/apisix/admin/plugins/list`
+    - `/apisix/admin/plugins/{plugin_name}`
 - 参考
-  - [Admin API](https://apisix.apache.org/docs/apisix/admin-api)
-    - X-API-KEY
   - [apache/apisix-docker](https://github.com/apache/apisix-docker)
   - [apache/apisix-helm-chart](https://github.com/apache/apisix-helm-chart)
 
@@ -17,6 +27,8 @@ title: Apache APISIX
 # 官方建议自行构建
 # APISIX_VERSION=2.9 make build-on-alpine-cn
 # apache/apisix:2.9-alpine
+# 带 build 逻辑的 compose
+# https://github.com/apache/apisix-docker/raw/master/example/docker-compose-alpine.yml
 
 # make build-all-in-one
 docker run -d \
@@ -27,8 +39,8 @@ docker run -d \
 # make build-dashboard
 docker run -d \
   -p 19080:9080 -p 19091:9091 -p 12379:2379 -p 19000:9000 \
-  -v `pwd`/all-in-one/apisix/config.yaml:/usr/local/apisix/conf/config.yaml \
-  -v `pwd`/all-in-one/apisix-dashboard/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
+  -v $(pwd)/all-in-one/apisix/config.yaml:/usr/local/apisix/conf/config.yaml \
+  -v $(pwd)/all-in-one/apisix-dashboard/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
   apache/apisix-dashboard:whole
 ```
 
@@ -38,4 +50,316 @@ plugin_attr:
     export_addr:
       ip: '0.0.0.0'
       port: 9091
+```
+
+## 基本概念
+
+- Route/路由
+  - =uri+plugins+upstream/service_id
+- Service/服务 - 路由集合
+  - plugins+upstream
+- Upstream/上游
+  - nodes
+- PubSub - 只支持 Kafka
+- xRPC - stream_routes - 实现 L4 代理转发
+  - 内置 redis 协议 - 可植入错误
+  - 可用于实现自定义协议
+- 外部插件
+  - 编译为 WASM 作为 Sidecar 运行
+  - 目前官方提供 Java, Go, Python, JavaScript
+  - 使用 FlatBuffers 序列化 请求 - [ext-plugin.fbs](https://github.com/api7/ext-plugin-proto/blob/main/ext-plugin.fbs)
+  - [api7/wasm-nginx-module](https://github.com/api7/wasm-nginx-module)
+    - 目前还不完善，开发中
+  - [proxy-wasm/spec](https://github.com/proxy-wasm/spec)
+- [预定义变量](https://apisix.apache.org/docs/apisix/apisix-variable)
+
+### 服务发现
+
+- 通过 upstream.service_name 匹配使用, 发现的内容作为 nodes
+- 管理接口 `/v1/discovery/{discovery_type}/dump`
+- consule_kv
+- dns
+- eureka
+- nacos
+- tars
+- [apisix/discovery/](https://github.com/apache/apisix/tree/master/apisix/discovery)
+- kubernetes
+  - 发现服务的 endpoints
+
+```yaml
+discovery:
+  kubernetes:
+    service:
+      schema: https # https,http
+      host: ${KUBERNETES_SERVICE_HOST}
+      port: ${KUBERNETES_SERVICE_PORT}
+
+    # 如果在集群外运行 需要配置客户端信息
+    client:
+      token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      #token: |- # 静态 Token
+
+    # 选择生效的 namespace
+    namespace_selector:
+      # 匹配方式 equal, not_equal, match, not_match
+      # 值可以是数组
+      equal: default
+
+    # 通过 label 选择生效服务
+    label_selector: |-
+      first="a",second="b"
+```
+
+### 路由
+
+```json
+{
+  "plugins": {
+    "key-auth": {},
+    // 限定针对 consumer 生效
+    "consumer-restriction": {
+      "blacklist": ["jack"]
+    }
+  },
+  "upstream": {
+    // grpc,grpcs
+    "schema": "http",
+    "nodes": {
+      "127.0.0.1:1980": 1
+    },
+    "type": "roundrobin"
+  },
+  "uri": "/hello"
+}
+```
+
+## 插件
+
+- 无服务器架构
+- 可观测性
+- 其它协议
+  - mqtt-proxy - 基于 client_id 负载
+
+### 通用
+
+- batch-requests
+- redirect - 重定向
+  ```yaml
+  http_to_https: false # 与 url,regex_uri 三选一
+  url: '' # 目标地址
+  regex_uri: [] # 正则替换
+  ret_code: 302 # HTTP 状态码
+  encode_uri: false
+  append_query_string: false
+  ```
+- echo - 回显结果 - 用于测试
+  ```yaml
+  before_body: ''
+  body: ''
+  after_body: ''
+  headers: {}
+  ```
+- gzip
+- real-ip
+- server-info - 向 ETCD 上报服务信息
+  - 在配置中启用 `conf/config.yaml`
+  - report_ttl=36 - 单位秒
+  - 可请求 `http://127.0.0.1:9090/v1/server_info`
+- ext-plugin-pre-req - 前置外部插件
+  ```yaml
+  # 插件和它的配置
+  conf: [{ 'name': 'ext-plugin-A', 'value': '{"enable":"feature"}' }]
+  allow_degradation: false
+  ```
+- ext-plugin-post-req - 后置外部插件
+
+### 传输
+- response-rewrite
+- proxy-rewrite
+- grpc-transcode
+  ```yaml
+  # 上传 PB POST {"content":""} /admin/proto/{id}
+  # 合并 proto protoc --include_imports --descriptor_set_out=proto.pb proto/helloworld.proto
+  prodo_id: ""
+  service: ""
+  method: ""
+  deadline: 0
+  # enum_as_name, enum_as_value
+  # int64_as_number, int64_as_string, int64_as_hexstring
+  # auto_default_values, no_default_values, use_default_values, use_default_metatable
+  # enable_hooks, disable_hooks
+  pb_option: []
+  ```
+- grpc-web
+- fault-injection
+- mocking
+
+### 身份验证
+
+- key-auth
+  - Consumer - 定义 消费者的 Token
+    - key
+  - Route - 定义获取 key 的方式
+    - header = apikey
+    - query = apikey
+    - hide_credentials = false - 是否透传给 upstream
+- jwt-auth
+  - Consumer
+    - key
+- basic-auth
+  - Consumer
+    - username
+    - password
+  - Router
+    - hide_credentials
+- authz-keycloak - OIDC 认证逻辑+Keycloak 授权判断逻辑
+
+```yaml
+# 🌟 推荐设置自动发现，减少配置量
+discovery: # <endpoint>/.well-known/uma2-configuration
+token_endpoint:
+resource_registration_endpoint:
+client_id:
+client_secret:
+grant_type: urn:ietf:params:oauth:grant-type:uma-ticket
+policy_enforcement_mode: ENFORCING # PERMISSIVE
+# 一般格式为 资源名#scope名
+permissions: []
+# 加载针对资源的权限 - 需要让插件能请求 token - 因此需要 client_id 和 client_secret
+lazy_load_paths: false
+http_method_as_scope: false # 一般配合 lazy_load_paths 使用
+timeout: 3000
+access_token_expires_in: 300
+access_token_expires_leeway: 0
+refresh_token_expires_in: 3600
+refresh_token_expires_leeway: 0
+ssl_verify: true
+cache_ttl_seconds: 86400 # 24h - 缓存 发现配置
+keepalive: true
+keepalive_timeout: 60000
+keepalive_pool: 5
+# 默认返回 {"error_description":"not_authorized"}
+access_denied_redirect_uri:
+# 配置后可使用 POST username+password 获取 token
+password_grant_token_generation_incoming_uri:
+```
+
+- forward-auth
+- openid-connect - OIDC 认证
+- authz-casdoor
+- wolf-rbac
+- hmac-auth
+- authz-casbin - 从文件加载 casbin 配置进行验证
+- ldap-auth
+- opa
+
+### 安全防护
+
+- cors
+- uri-blocker
+- ip-restriction
+- ua-restriction
+- referer-restriction
+- consumer-restriction
+- csrf
+- public-api - 暴露插件里的接口
+  - uri
+- consumer-restriction - 限定 consumer
+  ```yaml
+  # consumer_name - 限定 consumer 访问 service, route
+  # service_id,route_id - 在 consumer 上定义， 限定访问 service,route
+  type: consumer_name
+  whitelist: []
+  blacklist: []
+  rejected_code: 403
+  rejected_code: ""
+  allowed_by_methods: [] # 允许的 HTTP 方法
+  ```
+
+### 流量控制
+
+- limit-req - leaky bucket
+- limit-conn - 限定连接数
+- limit-count - 限定时间范围内请求
+- proxy-cache
+  ```yaml
+  cache_strategy: disk # memory
+  cache_zone: disk_cache_one
+  cache_key: ['$host', '$request_uri'] # ["$host", "$uri", "-cache-id"]
+  cache_bypass: []
+  cache_method: ['GET', 'HEAD']
+  cache_http_status: [200, 301, 404]
+  hide_cache_headers: false
+  cache_control: false
+  no_cache: []
+  cache_ttl: 300
+  ```
+- request-validation - JSON Schema 校验
+- proxy-mirror
+- api-breaker - 熔断
+- traffic-split
+- request-id
+  ```yaml
+  header_name: X-Request-Id
+  include_in_response: true
+  algorithm: uuid # snowflake, nanoid
+  ```
+- proxy-control
+- client-control
+  ```yaml
+  max_body_size: 0 # 控制最大 body
+  ```
+
+## GraphQL
+
+- 暴露变量用于路由
+  - graphql_operation - query, mutation
+  - graphql_name, graphql_root_fields
+
+```json
+{
+  "methods": ["POST"],
+  "uri": "/_graphql",
+  "vars": [
+    ["graphql_operation", "==", "query"],
+    ["graphql_name", "==", "getRepo"],
+    ["graphql_root_fields", "has", "owner"]
+  ],
+  "upstream": {
+    "type": "roundrobin",
+    "nodes": {
+      "192.168.1.200:4000": 1
+    }
+  }
+}
+```
+
+## Helm
+
+- https://charts.apiseven.com
+- [apache/apisix-helm-chart](https://github.com/apache/apisix-helm-chart)
+- apisix-dashboard
+- apisix-ingress-controller
+- apisix
+
+## IngressController
+
+- CRD ApisixRoute, ApisixUpstream ApisixTls ApisixClusterConfig ApisixConsumer
+
+```yaml
+apiVersion: apisix.apache.org/v2beta3
+kind: ApisixRoute
+metadata:
+  name: httpbin-route
+spec:
+  http:
+    - name: rule1
+      match:
+        hosts:
+          - httpbin.com
+        paths:
+          - /ip
+      backends:
+        - serviceName: httpbin-service-e2e-test
+          servicePort: 80
 ```

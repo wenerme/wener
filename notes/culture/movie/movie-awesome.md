@@ -6,6 +6,13 @@ tags:
 
 # Movie Awesome
 
+## Peoples
+
+- 王祖贤
+- 邱淑贞
+- 张曼玉
+- 林青霞
+
 ## Marvels
 
 **主线/MUC-真人电影**

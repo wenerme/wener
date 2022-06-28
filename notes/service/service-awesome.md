@@ -280,3 +280,24 @@ tags:
 ## Audio
 
 - https://www.sonobus.net/
+
+## Password
+
+- KeePass
+  - GPLv2+, C#
+  - 官方维护 Windows 版本，其他版本为 Port
+  - .kdbx
+  - [DataGrip](https://www.jetbrains.com/help/datagrip/reference-ide-settings-password-safe.html)
+    支持集成 KeePass
+- 1Password
+- Dashlane
+- LastPass
+- [bitwarden](./selfhost/bitwarden.md)
+- Linux
+  - GNOME Keyring
+  - KWallet - KDE Wallet
+- macOS
+  - wikipedia [Keychain](<https://en.wikipedia.org/wiki/Keychain_(software)>)
+    - APSL-2.0
+    - 命令行 /usr/bin/security
+- [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)

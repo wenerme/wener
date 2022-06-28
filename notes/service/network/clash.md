@@ -43,66 +43,55 @@ docker run --rm -it \
 
 
 ```bash
-# Port of HTTP(S) proxy server on the local end
+# HTTP(S) 代理端口
 port: 7890
-
-# Port of SOCKS5 proxy server on the local end
+# SOCKS5 代理端口
 socks-port: 7891
 
-# Transparent proxy server port for Linux and macOS (Redirect TCP and TProxy UDP)
+# Linux, macOS 转发透明代理端口 (Redirect TCP and TProxy UDP)
 # redir-port: 7892
 
-# Transparent proxy server port for Linux (TProxy TCP and TProxy UDP)
+# Linux TProxy 透明代理端口 (TProxy TCP and TProxy UDP)
 # tproxy-port: 7893
 
-# HTTP(S) and SOCKS4(A)/SOCKS5 server on the same port
+# HTTP(S), SOCKS4(A)/SOCKS5 多协议端口
 # mixed-port: 7890
 
-# authentication of local SOCKS5/HTTP(S) server
+# SOCKS5/HTTP(S) 代理认证
 # authentication:
 #  - "user1:pass1"
 #  - "user2:pass2"
 
-# Set to true to allow connections to the local-end server from
-# other LAN IP addresses
+# 允许 Lan 连接到本地端口
 allow-lan: false
-
-# This is only applicable when `allow-lan` is `true`
-# '*': bind all IP addresses
-# 192.168.122.11: bind a single IPv4 address
-# "[aaaa::a8aa:ff:fe09:57d8]": bind a single IPv6 address
+# allow-lan=true 时的监听绑定地址
 bind-address: '*'
 
-# Clash router working mode
-# rule: rule-based packet routing
-# global: all packets will be forwarded to a single endpoint
-# direct: directly forward the packets to the Internet
+# 路由模式
+# rule - 基于规则的包转发
+# global - 全局单出口
+# direct - 直接访问
 mode: rule
 
-# Clash by default prints logs to STDOUT
+# 日志级别
 # info / warning / error / debug / silent
 log-level: info
 
-# When set to false, resolver won't translate hostnames to IPv6 addresses
 ipv6: false
 
-# RESTful web API listening address
+# 外部 REST API 接口 监听地址
 external-controller: 127.0.0.1:9090
-
-# A relative path to the configuration directory or an absolute path to a
-# directory in which you put some static web resource. Clash core will then
-# serve it at `http://{{external-controller}}/ui`.
+# UI 目录
+# 访问地址 http://{{external-controller}}/ui
 external-ui: folder
-
-# Secret for the RESTful API (optional)
-# Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}`
-# ALWAYS set a secret if RESTful API is listening on 0.0.0.0
+# REST 的 密钥
+# Authorization: Bearer ${secret}
 # secret: ""
 
 # Outbound interface name
 interface-name: en0
 
-# fwmark on Linux only
+# Linux fwmark
 routing-mark: 6666
 
 # Static hosts for DNS server and connection establishment (like /etc/hosts)
@@ -125,8 +114,6 @@ profile:
   # persistence fakeip
   store-fake-ip: true
 
-# DNS server settings
-# This section is optional. When not present, the DNS server will be disabled.
 dns:
   enable: false
   listen: 0.0.0.0:53
@@ -191,6 +178,7 @@ dns:
   #   'www.baidu.com': '114.114.114.114'
   #   '+.internal.crop.com': '10.0.0.1'
 
+# 代理设置
 proxies:
   # Shadowsocks
   # The supported ciphers (encryption methods):

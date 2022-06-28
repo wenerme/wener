@@ -7,6 +7,13 @@ title: CRM Reference
 - https://help.salesforce.com/
 - https://docs.microsoft.com/en-us/dynamics365/
 
+## 组织结构
+
+- 广义
+- 狭义
+- [Organizational structure](https://en.wikipedia.org/wiki/Organizational_structure)
+- https://www.investopedia.com/terms/o/organizational-structure.asp
+
 # 数据模型
 
 ## Open Data Initiative

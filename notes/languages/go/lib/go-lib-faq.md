@@ -6,6 +6,13 @@ tags:
 
 # Golang 库常见问题
 
+## chi vs gorilla mux
+
+- 提供 interface - 更易于模块化
+- 方法更加直观清晰
+- 开发更活跃
+- 匹配逻辑性能更好
+
 ## graphql-go/graphql vs 99designs/gqlgen
 
 - Code First vs Schema First

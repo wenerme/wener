@@ -174,7 +174,7 @@ tags:
   - 自带较多 middleware
 - [gorilla/mux](https://github.com/gorilla/mux)
   - 不推荐使用
-  - 非常便于使用的路由，增强 go http 功能
+  - 非常便于使用路由，增强 go http 功能
   - 变量匹配路由 - `O(n)`
 - [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
   - 牺牲功能换取性能
@@ -185,8 +185,28 @@ tags:
   - 抽象 Entity 编码处理
   - 支持 JSON 和 XML
   - 支持定义 OpenAPI
+- [ogen-go/ogen](https://github.com/ogen-go/ogen)
+  - 生成 OpenAPIv3
 - 参考
   - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
+
+### 框架/Framework
+
+- [gin-gonic/gin](https://github.com/gin-gonic/gin)
+  - 默认处理逻辑将请求和响应封装为了 Context
+  - 能 Wrap http 的 Handler
+  - 基于 httprouter 路由 - 不能区分路由 `/users/like`, `/users/:userId`
+    - 不适用于 RESTful 接口
+    - [gin#2016](https://github.com/gin-gonic/gin/issues/2016)
+- [gofiber/fiber](https://github.com/gofiber/fiber)
+  - 非 net/http 体系
+  - 基于 fasthttp
+- beego
+  - 用于快速开发的完整框架 - All in one
+  - 不推崇，尽量避免使用
+  - 除非所有理念刚好匹配
+- echo
+- revel
 
 ### 增强处理
 
@@ -199,23 +219,6 @@ tags:
   - https://www.akmittal.dev/posts/hotwire-go/
   - [jfyne/live](https://github.com/jfyne/live)
   - [brendonmatos/golive](https://github.com/brendonmatos/golive)
-
-### 框架/Framework
-
-- [gin-gonic/gin](https://github.com/gin-gonic/gin)
-  - 默认处理逻辑将请求和响应封装为了 Context
-  - 能 Wrap http 的 Handler
-  - 基于 httprouter 路由 - 不能区分路由 `/users/like`, `/users/:userId`
-  - 不适用于 RESTful 接口
-- [gofiber/fiber](https://github.com/gofiber/fiber)
-  - 非 net/http 体系
-  - 基于 fasthttp
-- beego
-  - 用于快速开发的完整框架 - All in one
-  - 不推崇，尽量避免使用
-  - 除非所有理念刚好匹配
-- echo
-- revel
 
 ### Websocket
 
@@ -360,6 +363,7 @@ tags:
   - 高性能 JSON encode,decode
   - 不兼容 encoding/json - 因此才能提供性能优势
   - 不支持反射
+  - 适用于代码生成场景
 - [tidwall/gjson](https://github.com/tidwall/gjson)
   - Get Json Path
 - [tidwall/sjson](https://github.com/tidwall/sjson)

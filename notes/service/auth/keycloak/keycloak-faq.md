@@ -1,9 +1,23 @@
 ---
-id: keycloak-faq
 title: Keycloak 常见问题
+tags:
+  - FAQ
 ---
 
 # Keycloak FAQ
+
+:::caution
+
+- 多 Realm/Client 性能有问题 - 官方正在着手处理
+  - 超过 100 Realm 可能需要多 节点
+  - console 设计未考虑 realm 很多的场景
+  - [keycloak/keycloak-benchmark](https://github.com/keycloak/keycloak-benchmark/)
+  - [keycloak#11074](https://github.com/keycloak/keycloak/discussions/11074)
+  - [KEYCLOAK-4593](https://issues.redhat.com/browse/KEYCLOAK-4593)
+  - https://stackoverflow.com/q/44583833/1870054
+    - 也可以基于 realm 就行重定向 - 实现分片
+
+:::
 
 ## 默认 mapper 字段
 
@@ -104,12 +118,12 @@ curl -L -X POST 'http://localhost:8080/auth/realms/whatever-realm/protocol/openi
 ```bash
 # 直接测试有返回
 curl \
---verbose \
---request OPTIONS \
-https://keycloak \
---header 'Origin: http://127.0.0.1:3000' \
---header 'Access-Control-Request-Headers: Origin, Accept, Content-Type' \
---header 'Access-Control-Request-Method: POST'
+  --verbose \
+  --request OPTIONS \
+  https://keycloak \
+  --header 'Origin: http://127.0.0.1:3000' \
+  --header 'Access-Control-Request-Headers: Origin, Accept, Content-Type' \
+  --header 'Access-Control-Request-Method: POST'
 ```
 
 ```

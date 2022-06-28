@@ -148,3 +148,21 @@ title: License
 - LGPL: you can link against and don't have to release source code as long as you don't modify the library itself
 - GPL: you have to release source code if you link against and distribute the binary, but don't if you just provide a service
 - AGPL: you have to allow the source to be downloaded even if you never distribute the binary but do provide a service
+
+## GPLv2 vs GPLv3
+
+两者不兼容
+
+- GPLv2 - 1991 - Linux, Busybox
+- GPLv3 - 2007
+  - 细化，明确
+  - 包含更多专利说明、国际化
+  - Anti-Circumvention Law - 反规避法
+  - 初次违反的容忍时间
+  - 兼容更多 License
+
+---
+
+- https://stackoverflow.com/a/44701/1870054
+- https://stackoverflow.com/a/44701/1870054
+- https://unicef.github.io/inventory/legal-policy/gpl-comparison/

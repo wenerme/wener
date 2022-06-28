@@ -34,6 +34,9 @@ helm show values stable/nextcloud
 helm pull stable/nextcloud
 helm pull stable/nextcloud --untar
 
+# 安装本地 chart
+helm install --namespace apisix -f values.yaml apisix ./
+
 helm create my-chart
 ```
 

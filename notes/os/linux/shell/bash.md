@@ -23,50 +23,6 @@ env -i HOME="$HOME" /usr/local/bin/bash -c 'env'
 time env -i HOME="$HOME" LOG4BASH_LOG_LEVE=DEBUG /usr/local/bin/bash -l -c 'env'
 ```
 
-set -o allexport
-
-```bash
-# glob 大小写不敏感
-shopt -s nocaseglob
-
-# 追加到历史而不是重写
-shopt -s histappend
-
-# 使用 cd 时自动校正书写
-shopt -s cdspell
-
-# Bash 4
-# ==========
-# `**/qux` will enter `./foo/bar/baz/qux`
-shopt -s autocd
-# Recursive globbing, e.g. `echo **/*.txt`
-shopt -s globstar
-```
-
-| set | set -o      |
-| --- | ----------- | -------------------------------------- |
-| a   | allexport   | export 所有变量                        |
-| E   | errtrace    | 继承 ERR trap                          |
-| e   | errexit     | 命令失败(返回非 0)则退出脚本           |
-| u   | nounset     | 要求变量 unset                         |
-| x   | xtrace      | trace - 回显执行的内容, 输出前缀为 PS4 |
-| B   | braceexpand | 展开 `{`                               |
-| T   | functrace   |
-| h   | hashall     |
-| H   | histexpand  |
-|     | pipefail    | pipe 失败也退出                        |
-|     | posix       | Bash 符合 POSIX 标准                   |
-| t   | onecmd      | 执行一条命令后便退出
-| v   | verbose     |
-
-```bash
-# 推荐
-set -Eeuo pipefail
-```
-
-- trap ERR 可处理 -e 退出
-- [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
-
 ## 语法
 
 - `[` = test
@@ -85,6 +41,8 @@ set -Eeuo pipefail
 - `()` - subshell, array
 
 ```bash
+# for 循环
+# ===========
 # bash 语法
 for ((i = 0; i < 3; i++)); do echo $i; done
 # bash 展开序列
@@ -93,6 +51,80 @@ for i in {0..2}; do echo $i; done
 for i in $(seq 0 2); do echo $i; done
 for i in $(seq 0 $((3 - 1))); do echo $i; done
 ```
+
+## set
+
+| set | set -o      |
+| --- | ----------- | -------------------------------------- |
+| a   | allexport   | export 所有变量                        |
+| E   | errtrace    | 继承 ERR trap                          |
+| e   | errexit     | 命令失败(返回非 0)则退出脚本           |
+| u   | nounset     | 要求变量 unset                         |
+| x   | xtrace      | trace - 回显执行的内容, 输出前缀为 PS4 |
+| B   | braceexpand | 展开 `{`                               |
+| T   | functrace   |
+| h   | hashall     |
+| H   | histexpand  |
+|     | pipefail    | pipe 失败也退出                        |
+|     | posix       | Bash 符合 POSIX 标准                   |
+| t   | onecmd      | 执行一条命令后便退出                   |
+| v   | verbose     |
+
+```bash
+# 推荐
+set -Eeuo pipefail
+```
+
+- trap ERR 可处理 -e 退出
+- [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+
+## shopt
+
+- Bash 扩展选项
+
+```
+shopt [-pqsu] [-o] [optname …]
+```
+
+```bash
+shopt -s extglob # 开启
+shopt -u extglob # 关闭
+shopt -q extglob # 使用 exit code 表示是否开启
+shopt extglob    # 当前状态
+shopt            # 全部状态
+shopt -o nolog   # 限定内置 set 支持选项而非扩展选项
+
+# 所有 on 的选项
+shopt | grep "on$" | grep -o '^\S\+'
+# 推荐
+shopt -s autocd cdspell extglob globstar
+
+# 默认开启选项
+shopt -s checkwinsize cmdhist expand_aliases extquote force_fignore hostcomplete interactive_comments progcomp promptvars sourcepath
+```
+
+- globstar - `**` 会匹配当前而不只是子目录
+  ```bash
+  # 会匹配 Makefile
+  ls **/Makefile
+  ```
+- extglob - 扩展 glob 语法
+  - `[?*+@!](pattern-list)`
+    - `!` 排除
+    - `@` 匹配 1 个
+  - [Pattern Matching](https://www.gnu.org/software/bash/manual/html_node/Pattern-Matching.html)
+  ```bash
+  # 复制 scripts 下的 Makefile 到所有其他 Makefile
+  ls !(scripts)/**/Makefile | xargs -n 1 cp scripts/stub/Makefile
+  ```
+- nocaseglob - glob 大小写不敏感
+- histappend - 追加到历史文件而不是重写
+- cdspell - 使用 cd 时自动校正书写
+  ```bash
+  cd ignorad # 会 cd 到存在的 ignored 目录 - a -> e
+  ```
+- autocd - 输入目录自动切换到目录
+- failglob - glob 匹配不到文件时出错而非 直接输出相同字符
 
 ## .inputrc
 
@@ -121,14 +153,6 @@ set mark-symlinked-directories on
 ```
 
 ## FAQ
-
-### Find max file
-
-```bash
-find . -printf '%s %p\n' | sort -nr | head
-find . -maxdepth 1 -printf '%s %p\n' | sort -nr | head
-du -a . | sort -nr | head
-```
 
 ### Prefix/Suffix
 
@@ -291,7 +315,7 @@ echo ${!a}
 ## dotenv
 
 ```bash
-env $(cat .env | xargs) rails
+env $(cat .env | xargs) sh -c 'echo $MY_ENV'
 ```
 
 ## heredoc
@@ -308,12 +332,6 @@ EOF
 cat <<- EOF
 	PWD=$PWD
 	EOF
-```
-
-## 获取一个 Tab
-
-```bash
-echo -ne \\t | pbcopy
 ```
 
 ## sub shell

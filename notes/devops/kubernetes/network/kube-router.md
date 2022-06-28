@@ -13,6 +13,8 @@ title: kube-router
 - --run-router
 - --run-service-proxy
 - kube-bridge
+- 参考
+  - [user-guide.md](https://github.com/cloudnativelabs/kube-router/blob/master/docs/user-guide.md)
 
 :::caution
 

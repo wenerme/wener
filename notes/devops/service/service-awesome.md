@@ -65,6 +65,20 @@ tags:
   - Apache-2.0, Go+Envoy
 - [luraproject/lura](https://github.com/luraproject/lura)
   - Apache-2.0, Go
+- [gravitee-io/gravitee-api-management](https://github.com/gravitee-io/gravitee-api-management)
+  - Apache-2.0, java+mongodb
+  - https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/2.x/docker/compose/docker-compose.yml
+
+```bash
+# gravitee
+# ========
+mkdir -p config
+curl -L -O https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/2.x/docker/compose/docker-compose.yml
+curl -O https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/2.x/docker/compose/.env
+cd config && { curl -O https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/2.x/docker/compose/config/nginx.conf ; cd -; }
+docker-compose pull
+docker-compose up
+```
 
 ## RPC
 

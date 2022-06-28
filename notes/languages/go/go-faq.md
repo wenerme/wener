@@ -119,7 +119,7 @@ GOROOT=/opt/sdk/go1.18beta1 /opt/sdk/go1.18beta1/bin/go env -w GOROOT=/opt/sdk/g
 ## 查找用到了 cgo 的模块
 
 ```bash
-go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./... )
+go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./...)
 ```
 
 ## JSON string to int
@@ -380,3 +380,28 @@ GOFLAGS=-static
 ```
 
 - https://github.com/golang/go/issues/26492
+
+## struct 可比较
+
+- 如果所有字段可比较，则 struct 可比较
+- 使用 struct 作为 context key 需要注意比较逻辑
+  - 指针和非指针比较逻辑相同
+
+## 判断 int 类型
+
+```go
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"unsafe"
+)
+
+func main() {
+	fmt.Println("arch", runtime.GOARCH)
+  // 8 -> int64
+  // 4 -> int32
+	fmt.Println("int", unsafe.Sizeof(int(0)))
+}
+```

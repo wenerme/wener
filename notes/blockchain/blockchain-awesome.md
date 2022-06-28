@@ -373,3 +373,16 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
 - [From “What is Blockchain?” to building a blockchain in less than an hour](https://medium.freecodecamp.org/4e738efc819d)
 - [Building Blockchain in Go. Part 1: Basic Prototype](https://jeiwan.cc/posts/building-blockchain-in-go-part-1/)
 - [How to build a blockchain from scratch with Go](https://blog.logrocket.com/how-to-build-blockchain-from-scratch-go/)
+
+## Web3
+
+| Web2    | Web3          |
+| ------- | ------------- |
+| AWS S3  | Filecoin      |
+| Github  | Radicle       |
+| Paypal  | Wallets       |
+| Zoom    | Huddle        |
+| Spotify | Audius        |
+| Upwork  | Braintrust    |
+| Twitter | Lens Protocol |
+| MongoDB | Ceramic       |

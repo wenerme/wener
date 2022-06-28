@@ -449,13 +449,23 @@ tags:
   - 描述职责
   - 工作内容相关
 
-## realm vs tenant
+## realm vs tenant vs organization
 
 - tenant - 租户
-  - 概念更宽泛
+  - 概念更宽泛 - 任何服务
+  - 给多个 用户/租户 提供服务的能力
+  - 租户=隔离
 - realm - 域
   - 在 auth 环境下的术语 - 概念类似 domain
   - 虚拟 Identity Provider/IdP，用于认证 tenant 用户
+  - 更大规模的 auth 环境下支持 跨 realm 认证
+- organization - 组织
+  - 业务语义
+  - 取决于怎么实现组织的 SSO - 一般一个组织对应一个 realm
+
+---
+
+- https://www.ibm.com/docs/en/zos/2.2.0?topic=basics-purpose-realms
 
 ## glossary vs terminology vs concept
 
@@ -552,3 +562,25 @@ tags:
 - Design
   - 关注局部
   - 战术
+
+## staff vs personnel vs employee
+
+- employee - 员工/雇员 - 来自于 法语 1800s
+  - 形式上更正式 - 强调雇佣关系
+- staff - 工作人员 - 来自于 德语
+  - 更通用的形式
+  - 是一个组织的一员 - 不一定是雇佣关系 - 比如 volunteer
+  - 示例
+    - staff member - 工作人员
+    - member of the staff - 工作人员
+    - staff meeting - 员工会议
+- personnel
+  - 示例 - 用于组织表
+    - personnel department
+    - director of personnel
+    - personnel expenses
+
+## 参考
+
+- https://www.dictionary.com/browse/employee?s=t
+  - 查含义和词源

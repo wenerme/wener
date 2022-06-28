@@ -229,7 +229,7 @@ set service snmp listen-address 192.168.1.1 interface eth0
 -A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
 -A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
 # 随机选择
--A UBNT_WLBO_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0"  -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLBO_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0" -j MARK --set-xmark 0x33000000/0x7f800000
 -A UBNT_WLBO_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -j MARK --set-xmark 0x32800000/0x7f800000
 -A UBNT_WLBO_LB -m mark ! --mark 0x0/0x7f800000 -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
 -A UBNT_WLBO_LB -j RETURN
@@ -237,7 +237,7 @@ set service snmp listen-address 192.168.1.1 interface eth0
 # 负载逻辑
 -A UBNT_WLB_LB -j CONNMARK --restore-mark --nfmask 0x7f800000 --ctmask 0x7f800000
 -A UBNT_WLB_LB -m mark ! --mark 0x0/0x7f800000 -j RETURN
--A UBNT_WLB_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0"  -j MARK --set-xmark 0x33000000/0x7f800000
+-A UBNT_WLB_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -m dyn_random --prob-name "LB_0" -j MARK --set-xmark 0x33000000/0x7f800000
 -A UBNT_WLB_LB -m state --state NEW -m mark --mark 0x0/0x7f800000 -j MARK --set-xmark 0x32800000/0x7f800000
 -A UBNT_WLB_LB -j CONNMARK --save-mark --nfmask 0x7f800000 --ctmask 0x7f800000
 -A UBNT_WLB_LB -j RETURN
@@ -270,7 +270,11 @@ set service snmp listen-address 192.168.1.1 interface eth0
 
 # 版本
 
-### 2.0 - 2019-1-7
+| version     | date       |
+| ----------- | ---------- |
+| EdgeOS v2.0 | 2019-01-07 |
+
+## EdgeOS v2.0
 
 - [v2.0.0](https://community.ui.com/releases/38702c1e-4bab-450e-8bc1-ff9ef863bfb4)
   - ER-X/ER-X-SFP/EP-R6

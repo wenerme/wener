@@ -79,11 +79,21 @@ go run entgo.io/ent/cmd/ent init Car Group
 ```
 
 - feature
+  - privacy
+  - entql - EntQL DSL 抽象支持底层多种方言
+  - schema/snapshot
+    - 缓存之前 schema 解决合并冲突 [#852](https://github.com/ent/ent/issues/852)
+  - sql/schemaconfig - 针对 table 指定 schema
+  - sql/lock - 生成 ForUpdate/ForShare
+  - sql/modifier - 生成 Modify 调整语句
   - sql/versioned-migration
     - Schema 增加 Diff 和 NamedDiff
     - `client.Schema.NamedDiff(ctx, "migration_name", schema.WithDir(dir))`
       - 生成迁移到文件
     - 与现有 schema 进行 diff
+  - sql/execquery
+    - 生成 ExecContext, QueryContext
+  - sql/upsert - 生成 OnConflict
 
 ## Note
 
@@ -130,6 +140,24 @@ select * from account where has_edge(owningUser,has_edge(department,name = "Test
 -- args [Test]
 SELECT * FROM "accounts" WHERE "accounts"."owning_user_id" IN (SELECT "users"."id" FROM "users" WHERE "users"."department_id" IN (SELECT "departments"."id" FROM "departments" WHERE "name" = $1))
 ```
+
+# FAQ
+
+## 执行任意 SQL
+
+- 生成时添加 sql/execquery 特性
+
+```go
+// 暴露底层 DB
+func (c *Client) DB() *sql.DB {
+	if c.debug {
+            return c.driver.(*dialect.DebugDriver).Driver.(*entsql.Driver).DB()
+	}
+	return c.driver.(*entsql.Driver).DB()
+}
+```
+
+- https://github.com/ent/ent/issues/85#issuecomment-542194059
 
 # Version
 

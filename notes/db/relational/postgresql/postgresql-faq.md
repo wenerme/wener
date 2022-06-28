@@ -529,3 +529,45 @@ PERFORM select 1;
   - 可关联其他列
 - generated
   - 每次行变化都会生成
+
+## remaining connection slots are reserved for non-replication superuser connection
+
+排查连接数问题
+
+> **Note**
+>
+> - 修改 max_connections 必须重启 pg
+> - 建议应用指定 application_name
+
+```sql
+-- 查看当前的最大连接数
+show max_connections;
+
+-- 查看连接数主要谁占用
+-- idle 多还是 active 多
+select state, usename, application_name, datname, count(*)
+from pg_stat_activity
+group by state, usename, application_name, datname
+order by 1, 2, 3;
+
+-- 排查 active 连接
+select *
+from pg_stat_activity
+where state = 'active';
+
+-- 按需 kill 连接
+```
+
+## CURRENT_TIMESTAMP vs NOW
+
+- 没有区别
+- CURRENT_TIMESTAMP=事物开始时间=transaction_timestamp()=now()
+- 输入时的 `now` 不等于 `now()`
+  - [Special Date/Time Inputs](https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-DATETIME-SPECIAL-TABLE)
+- 其他时间
+  - statement_timestamp() - STABLE - 语句时间
+  - clock_timestamp() - VOLATILE - 真正当前时间
+
+---
+
+- https://dba.stackexchange.com/a/63549/234272

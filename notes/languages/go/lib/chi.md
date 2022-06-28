@@ -24,11 +24,3 @@ r.Method("GET","/admin/*", func(w,r){
   chi.URLParam(r, "*")
 })
 ```
-
-# FAQ
-
-## vs mux
-
-- 提供 interface - 更易于模块化
-- 方法更加直观清晰
-- 开发更活跃

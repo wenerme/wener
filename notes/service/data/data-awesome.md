@@ -108,6 +108,15 @@ tags:
 - [tomnomnom/gron](https://github.com/tomnomnom/gron)
 - [saulpw/visidata](https://github.com/saulpw/visidata)
   - terminal spreadsheet
+- [multiprocessio/dsq](https://github.com/multiprocessio/dsq)
+  - Apache-2.0, Go
+  - SQL for JSON, CSV, Excel, Parquet
+- [x2bool/xlite](https://github.com/x2bool/xlite)
+  - MIT, Rust
+  - SQLite for .xlsx, .xls, .ods
+- [saulpw/visidata](https://github.com/saulpw/visidata)
+  - GPLv3, Python
+  - terminal spreadsheet multitool
 
 ## Understand
 

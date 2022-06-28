@@ -22,6 +22,20 @@ tree -I 'node_modules|cache|test_*'
 tree -L 3 -I 'node_modules*|cache*'
 ```
 
+## 获取一个 Tab 字符
+
+```bash
+echo -ne \\t | pbcopy
+```
+
+## 找到最大的文件
+
+```bash
+find . -printf '%s %p\n' | sort -nr | head
+find . -maxdepth 1 -printf '%s %p\n' | sort -nr | head
+du -a . | sort -nr | head
+```
+
 ## date 格式
 
 - -I,--iso-8601=FMT
@@ -30,11 +44,12 @@ tree -L 3 -I 'node_modules*|cache*'
 - --rfc-3339=FMT
   - date, seconds, ns
 - --rfc-email=--rfc-2822
+
 ```bash
 date --iso-8601=seconds # 2022-05-10T05:30:48+08:00
 date --iso-8601         # 2022-05-10
 date --rfc-3339=seconds # 2022-05-10 05:30:48+08:00
-date --rfc-2822 # Tue, 10 May 2022 05:30:48 +0800
+date --rfc-2822         # Tue, 10 May 2022 05:30:48 +0800
 ```
 
 ## 文件时间信息
@@ -117,22 +132,6 @@ echo -e ' abc ' | sed -e 's/[[:space:]]*$//'
   - 上层抽象行为概念
   - 逻辑协议
 
-## 批量重命名
-
-```bash
-# 正则
-find . -type f | perl -pe 'print $_; s/input/output/' | xargs -d "\n" -n2 mv
-
-# 去掉单引号 - escape 比较复杂
-find . -type f | grep "[']" | perl -pe "print \$_; s/'//g" | xargs -d "\n" -n2 mv
-
-# 电视剧第N集 -> 电视剧 N
-# echo - dry run
-find . -type f | perl -pe 'print $_; s/第(\d+)集/ \1/' | xargs -d "\n" -n2 echo mv
-# 电视剧.01.mp4 -> 电视剧.EP01.mp4
-find . -type f | perl -pe 'print $_; s/[.](\d+)[.]/.EP\1./' | xargs -d "\n" -n2 echo mv
-```
-
 ## 基于时间搜索
 
 ```bash
@@ -151,6 +150,24 @@ find . -type f -exec chmod 0644 {} \;
 # 修复 某个 owner
 find . -type d -user harry -exec chown daisy {} \;
 ```
+
+## shell vs python
+
+- shell - 必知必会
+  - 让简单的事情 非常简单，让复杂的事情 非常复杂
+  - 复杂过后可维护性差
+  - 核心优势在于 compose/组合/联结 各种工具
+  - 环境可预期
+  - 但 **工具** 不一定完全兼容
+    - posix/gnu/busybox/coreutils/findutils/util-linux
+- python - 补充扩展
+  - 难度适中，可维护
+  - 目前大多 linux 环境都有安装 python
+  - python 也是 shell 一部分
+
+---
+
+- https://stackoverflow.com/q/796319/1870054
 
 ## zsh vs bash
 

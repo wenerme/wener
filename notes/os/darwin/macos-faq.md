@@ -10,6 +10,22 @@ tags:
 
 到官网下载最新驱动 https://asix.com.tw/en/product/USBEthernet/Super-SpeedUSBEthernet/AX88179
 
+## staff & wheel
+
+- staff - 一般用户
+- wheel - 更高权限用户
+  - root 在该分组
+  - 可以 su
+- everyone
+- localaccounts
+- admin
+- 其他 \_appserverusr \_appserveradm \_lpadmin com.apple.sharepoint.group.1 \_appstore \_lpoperator \_developer \_analyticsusers com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh com.apple.access_remote_ae
+- staff 和 wheel 起源于 BSD
+  - https://superuser.com/a/191969/242730
+  - [big wheel](https://www.dictionary.com/browse/big-wheel)
+    - an influential or important person
+    - 重要人物
+
 ## tuntap
 
 - macOS 支持 utun - 等同于 tun

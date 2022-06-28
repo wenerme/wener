@@ -274,12 +274,18 @@ tags:
   - [prometheus-operator/prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)
   - [strimzi/strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
 - PostgreSQL
-  - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
+  - [zalando/postgres-operator](./app/zalando-postgres-operator.md)
+    - MIT, Go
+    - 🌟 推荐
   - [CrunchyData/postgres-operator](https://github.com/CrunchyData/postgres-operator)
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)
     - Apache-2.0, Go
   - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
+    - Apache-2.0, 
+    - 🚧 停滞
+  - [ongres/stackgres](https://github.com/ongres/stackgres)
+    - AGPLv3, Java
 - [openshift/elasticsearch-operator](https://github.com/openshift/elasticsearch-operator)
 - [operator-framework/operator-lifecycle-manager](https://github.com/operator-framework/operator-lifecycle-manager)
 - [Opster/opensearch-k8s-operator](https://github.com/Opster/opensearch-k8s-operator)

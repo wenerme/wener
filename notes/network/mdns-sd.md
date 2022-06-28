@@ -5,7 +5,7 @@ title: mDNS 服务定义
 
 # mDNS 服务定义
 
-- _services._dns-sd._udp
+- \_services.\_dns-sd.\_udp
 - Linux avahi
 - 参考
   - [rfc6763](https://datatracker.ietf.org/doc/html/rfc6763) DNS-Based Service Discovery
@@ -36,6 +36,10 @@ dns-sd -Z
 ## Linux
 
 ```bash
+#
+apk add avahi avahi-tools
+service avahi-daemon start
+
 avahi-browse --all --ignore-local --resolve --terminate
 # 只搜索 ssh 且显示 ip
 avahi-browse _ssh._tcp -tr
@@ -67,6 +71,8 @@ avahi-browse _ssh._tcp -tr
 | `_rfb._tcp`            | 5900       | VNC                                                                                                                                                                                                                                                                                                                                      |
 | `_sleep-proxy._udp`    | 49937      | AppleTV                                                                                                                                                                                                                                                                                                                                  |
 | `_touch-able._tcp`     | 3689       | AppleTV - iTunes Remote Client                                                                                                                                                                                                                                                                                                           |
+| `_rdlink._tcp`         | 49155      | "rpAD=" "rpVr=350.2" "rpBA="                                                                                                                                                                                                                                                                                                             |
+| `_appletv-v2._tcp`     |
 
 - raop - Remote Audio Output Protocol
 - Service Type

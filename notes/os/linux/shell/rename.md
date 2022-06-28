@@ -42,7 +42,7 @@ do
   mv -v "$i" "$(echo "$i" | sed -e 's/^\.\/image//' - )"
 done
 
-# 测试 [Name][01].mkv -> Name.S01E01.mkv
+# 调整剧集名字 [Name][01].mkv -> Name.S01E01.mkv
 echo "[Name][01].mkv" | sed -re 's/\[([^]]+)\]\[([^]]+)\](.*?)/\1.S01E\2\3/' -
 
 #
@@ -50,4 +50,20 @@ for i in \[*\]\[*\]*
 do
   mv -v "$i" "$(echo "$i" | sed -re 's/\[([^]]+)\]\[([^]]+)\](.*?)/\1.S01E\2\3/' - )"
 done
+```
+
+## 批量重命名
+
+```bash
+# 正则
+find . -type f | perl -pe 'print $_; s/input/output/' | xargs -d "\n" -n2 mv
+
+# 去掉单引号 - escape 比较复杂
+find . -type f | grep "[']" | perl -pe "print \$_; s/'//g" | xargs -d "\n" -n2 mv
+
+# 电视剧第N集 -> 电视剧 N
+# echo - dry run
+find . -type f | perl -pe 'print $_; s/第(\d+)集/ \1/' | xargs -d "\n" -n2 echo mv
+# 电视剧.01.mp4 -> 电视剧.EP01.mp4
+find . -type f | perl -pe 'print $_; s/[.](\d+)[.]/.EP\1./' | xargs -d "\n" -n2 echo mv
 ```

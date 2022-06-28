@@ -5,6 +5,11 @@ title: zalando/postgres-operator
 # zalando/postgres-operator
 
 - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
+  - MIT, Go
+  - Patroni - Streaming replication
+  - PITR - Spilo - pg_basebackup/WAL-E
+  - Preload - bg_mon, pg_stat_statements, pgextwlist, pg_auth_mon
+  - Extensions - decoderbufs, hypopg, pg_cron, pg_partman, pg_stat_kcache, pgq, plpgsql_check, postgis, set_user, timescaledb
   - [文档](https://postgres-operator.readthedocs.io/en/latest/)
 - Operator 可通过 ConfigMap 或 CRD 配置 - 推荐 CRD 配置
   - CRD 要求类型匹配 - Helm values 需要调整
@@ -20,6 +25,12 @@ title: zalando/postgres-operator
 - 特性
   - WAL 备份
   - 逻辑备份 - SQL dump
+
+:::tip
+
+- Patroni 和 Spilo 也是 zalando 开发的，因此这个 operator 相对更有保障
+
+:::
 
 :::caution
 
@@ -60,7 +71,6 @@ export PGUSER=postgres
 export PGPASSWORD=$(kubectl get secret ${PGUSER}.${CLUSTER_NAME}.credentials.postgresql.acid.zalan.do -o 'jsonpath={.data.password}' | base64 -d)
 export PGSSLMODE=require
 psql -h localhost -p 6432
-
 
 # 转发 operator-ui
 kubectl port-forward -n postgres-operator svc/postgres-operator-ui 8080:80
@@ -263,7 +273,9 @@ spec:
   postgresql:
     version: '13'
     # 其他参数
-    parameters: {}
+    parameters:
+      # 默认 100
+      max_connections: 200
   # 受 operator 的 max_instances min_instances 参数影响
   numberOfInstances: 1
   volume:

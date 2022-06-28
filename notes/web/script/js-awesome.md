@@ -168,6 +168,9 @@ tags:
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
   - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
   - [inkandswitch/peritext](https://github.com/inkandswitch/peritext)
+  - [felipeleivav/yboard](https://github.com/felipeleivav/yboard)
+    - Vue
+    - multiplayer desktop-like workspace
   - https://news.ycombinator.com/item?id=30983770
 - editor
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
