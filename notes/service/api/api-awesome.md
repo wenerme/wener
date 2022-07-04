@@ -119,33 +119,47 @@ tags:
 
 ## RPC
 
-:::caution
+> **Note**
+>
+> - rpc 和 serialization 主要的区别在于 **服务** 是否为第一公民
+> - 除了 gRPC, jsonrpc 其他 rpc 实现基本都是语言相关的
+>   - 意味着 非第一方语言的支持相对较弱
+> - gRPC 是支持最多语言的 RPC 协议
 
-- rpc 和 serialization 主要的区别在于 **服务** 是否为第一公民
-- 除了 grpc, jsonrpc 其他 rpc 实现基本都是语言相关的
-  - 意味着 非第一方语言的支持相对较弱
+| RPC        | by         | Languages               | Notes      |
+| ---------- | ---------- | ----------------------- | ---------- |
+| [gRPC]     | Google     |                         |
+| Thrift     | Facebook   | Java                    |
+| [twirp]    | TwitchTV   | Go - PHP,Ruby           |
+| [finagle]  | Twitter    | Scala                   | Apache-2.0 |
+| [tarpc]    | Google     | Rust                    |
+| [ice]      |
+| **国产**   |            |                         |
+| HSF        | Alibaba    | Java                    |
+| [Dubbo]    | Alibaba    | Java                    |
+| [go-zero]  | 好未来技术 | Go                      |
+| [kitex]    | 字节跳动   | Go                      |
+| [sofa-rpc] | 蚂蚁金服   | Java                    |
+| [tars]     | 腾讯       | C++,Java,NodeJS,PHP,Web | BSD-3      |
+| [brpc]     | 百度       | C++,Java                |
+| [motan]    | 微博       | Java                    |
+| [cat]      | 大众点评   | Java                    |
+| [rpcx]     |            | Go                      |
+| [erpc]     |            | Go                      |
 
-:::
+| Microservice | by       | Tech    |
+| ------------ | -------- | ------- |
+| [armeria]    | Line     | Java    |
+| **国产**     |
+| [kratos]     | 哔哩哔哩 | Go,gRPC |
+| [go-chassis] |          | Go      |
+| [go-doudou]  |          | Go      |
 
-
-| RPC       | by         | Languages                                                               |
-| --------- | ---------- | ----------------------------------------------------------------------- | ---------- |
-| [gRPC]    | Google     | C++,objc,PHP,Python,C#,Ruby - Go,Java,.Net,NodeJS,Swift,Kotlin,Dart,Web |
-| Thrift    | Facebook   | Java                                                                    |
-| [twirp]   | TwitchTV   | Go - PHP,Ruby                                                           |
-| [finagle] | Twitter    | Scala                                                                   | Apache-2.0 |
-| [tarpc]   | Google     | Rust                                                                    |
-| **国产**  |            |                                                                         |
-| HSF       | Alibaba    | Java                                                                    |
-| Dubbo     | Alibaba    | Java                                                                    |
-| [go-zero] | 好未来技术 | Go                                                                      |
-| kitex     | 字节跳动   | Go                                                                      |
-| sofa-rpc  | 蚂蚁金服   | Java                                                                    |
-| [tars]    | 腾讯       | C++,Java,NodeJS,PHP,Web                                                 | BSD-3      |
-| [kratos]  | 哔哩哔哩   | Go,gRPC                                                                 |
-| [brpc]    | 百度       | C++,Java                                                                |
-
-
+[dubbo]: ./dubbo.md
+[ice]: https://github.com/zeroc-ice/ice
+[cat]: https://github.com/dianping/cat
+[motan]: https://github.com/weibocom/motan
+[kitex]: https://github.com/cloudwego/kitex
 [brpc]: https://github.com/apache/incubator-brpc
 [tars]: https://github.com/tarsCloud/tars
 [kratos]: ../../languages/go/lib/kratos.md
@@ -156,16 +170,16 @@ tags:
 [sofa-rpc]: https://github.com/sofastack/sofa-rpc
 [tarpc]: https://github.com/google/tarpc
 [grpc]: ./grpc.md
-
-
----
+[rpcx]: ../../languages/go/lib/rpcx.md
+[erpc]: https://github.com/andeya/erpc
+[armeria]: https://github.com/line/armeria
+[go-chassis]: https://github.com/go-chassis/go-chassis
+[go-doudou]: https://github.com/unionj-cloud/go-doudou
 
 - JSON RPC
 - [gRPC]
   - by Google
-  - [connect](./connect.md)
-- Thrift
-  - by Facebook
+  - [connect](./connect.md) - 支持 HTTP POST ，兼容 gRPC
 - Avro
 - [json-api/json-api](https://github.com/json-api/json-api)
   - application/vnd.api+json
@@ -177,18 +191,6 @@ tags:
 - [finagle]
   - Apache-2.0, Scala
   - by Twitter
-- [zeroc-ice/ice](https://github.com/zeroc-ice/ice)
-
-**国产**
-
-- [andeya/erpc](https://github.com/andeya/erpc)
-  - Apache-2.0, Go
-- [smallnest/rpcx](../../languages/go/lib/rpcx.md)
-- [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
-- [unionj-cloud/go-doudou](https://github.com/unionj-cloud/go-doudou)
-- [line/armeria](https://github.com/line/armeria)
-  - Java
-  - Apache-2.0, 微服务框架
 
 ## Serialization
 

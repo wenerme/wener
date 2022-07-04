@@ -21,3 +21,4 @@ tags:
 - [mistio/mist-ce](https://github.com/mistio/mist-ce)
   - Apache-2.0, Python
   - multicloud management platform
+- [zhihu/cmdb](https://github.com/zhihu/cmdb)

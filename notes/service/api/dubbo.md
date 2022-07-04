@@ -4,6 +4,12 @@ title: Dubbo
 
 # Dubbo
 
+- [apache/dubbo](https://github.com/apache/dubbo)
+  - Apache-2.0, Java
+- [apache/dubbo-go](https://github.com/apache/dubbo-go)
+  - Apache-2.0, Go
+  - 🚧 开发不太活跃
+
 ## Dubbo 3
 
 - [Dubbo 3.0 - 开启下一代云原生微服务](https://developer.aliyun.com/article/770964)

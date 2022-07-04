@@ -197,7 +197,7 @@ tags:
   - 基于 fasthttp
 - [cloudwego/hertz](https://github.com/cloudwego/hertz)
   - 微服务
-  - 网络层基于 Netpoll 
+  - 网络层基于 Netpoll
   - 文档 https://www.cloudwego.io/zh/docs/hertz/
   - by 字节跳动
 - [emicklei/go-restful](https://github.com/emicklei/go-restful)
@@ -390,6 +390,8 @@ tags:
 - [go-ozzo/ozzo-validation](https://github.com/go-ozzo/ozzo-validation)
   - 校验库
 - mapstructure
+- [bytedance/go-tagexpr](https://github.com/bytedance/go-tagexpr)
+  - 使用表达式 validate
 - [BWbwchen/MapReduce](https://github.com/BWbwchen/MapReduce)
 
 ## 网络/Network
@@ -454,7 +456,7 @@ tags:
 - [RichardKnop/machinery](https://github.com/RichardKnop/machinery)
   asynchronous task queue/job queue based on distributed message passing
 - [hibiken/asynq](https://github.com/hibiken/asynq)
-  - MIT, Golag
+  - MIT, Golang
   - Redis
   - Simple, reliable, and efficient distributed task queue in Go
 - [twitchtv/twirp](https://github.com/twitchtv/twirp)
