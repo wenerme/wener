@@ -5,7 +5,6 @@ title: curl
 # curl
 
 - [manpage](https://curl.se/docs/manpage.html)
-- -C- 继续下载
 - -J 使用服务端返回的名字
 - --remote-name-all
   - 默认 `-O` 只影响第一个
@@ -20,7 +19,31 @@ curl -vik --resolve example.com:443:127.0.0.1 https://example.com
 curl -vik --connect-to example.com:443:127.0.0.1:8443 https://example.com
 
 # 协议限定
-curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2  https://example.com
+curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2 https://example.com
+```
+
+| flag                                   | since | for                                     |
+| -------------------------------------- | ----- | --------------------------------------- |
+| `-X, --request <method>`               |       |
+| `-x, --proxy [protocol://]host[:port]` |       | `https?`,`socks{4,5}{a,h}`              |
+| `--json <data>`                        | 7.82  | --data+POST+Content-Type+Accept         |
+| `--output-dir <dir>`                   | 7.73  | 指定输出目录                            |
+| `--create-dirs`                        |       | 创建输出目录 mode=`0750`                |
+| `-C, --continue-at <offset>`           |       | 继续下载                                |
+| `--remote-name-all`                    |       | 全部使用 remote-name - URL 文件名部分   |
+| `-O, --remote-name`                    |       | 第一个使用 remote-name                  |
+| `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名 |
+
+- proxy
+  - port=1080
+  - socks5h - 使用 代理 resolve 名字而非本地 dns
+  - `-p, --proxytunnel` - 使用 HTTP CONNECT
+
+```bash
+curl -LOJC- https://example.com/pancakes.jpg # 继续上次下载位置
+
+# 下载到指定目录，目录不存在则创建
+curl --create-dirs -O --output-dir /tmp/receipes https://example.com/pancakes.jpg
 ```
 
 ## 测试 CORS
@@ -37,7 +60,7 @@ curl --head \
 ## 延时
 
 ```bash
-cat <<EOF > curl-format.txt
+cat << EOF > curl-format.txt
      time_namelookup:  %{time_namelookup}s\n
         time_connect:  %{time_connect}s\n
      time_appconnect:  %{time_appconnect}s\n
@@ -75,12 +98,4 @@ if(conn->httpversion < 20) {
    conn->bundle->multiuse = BUNDLE_NO_MULTIUSE;
    infof(data, "Mark bundle as not supporting multiuse\n");
 }
-```
-
-## output dir
-
-- 7.73.0+
-
-```bash
-curl --create-dirs -O --output-dir /tmp/receipes https://example.com/pancakes.jpg
 ```

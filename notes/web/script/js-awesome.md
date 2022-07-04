@@ -45,6 +45,8 @@ tags:
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
     - 注入代理对象，通过访问的字段名字进行 resolve
       - 因此不支持异步
+  - [@abraham/reflection](https://github.com/abraham/reflection)
+    - ~3k - 替代 reflect-metadata ～50k
 - deep compare
   - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
@@ -219,6 +221,7 @@ tags:
     - 定义的校验会生成 ts 类型
     - TypeScript-first schema validation
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
+  - [imbrn/v8n](https://github.com/imbrn/v8n)
   - npmtrends [ajv vs joi vs yup vs zod](https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod)
 - math
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)

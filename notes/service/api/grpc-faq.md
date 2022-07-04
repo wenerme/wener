@@ -41,3 +41,7 @@ gRPC 实现依赖 HTTP Trailer 能力，类似 longpulling。
 - fetch 不支持 trailer [fetch#981](https://github.com/whatwg/fetch/issues/981)
   - 因此 web 不支持直接使用 grpc
   - deno 不支持 grpc - 实现了 fetch
+
+## transport: Error while dialing reading server HTTP response: unexpected EOF
+
+plaintext

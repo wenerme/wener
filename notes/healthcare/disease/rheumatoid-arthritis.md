@@ -35,6 +35,8 @@ title: 类风湿性关节炎
   - amplification phase (due to T cell activation)
   - chronic inflammatory phase, with tissue injury resulting from the cytokines, IL–1, TNF-alpha and IL–6
 - 参考
+  - RA/Rheumatoid arthritis/类风湿性关节炎 -> OA/Osteoarthritis/关节炎
+    - RA 可能发展出 OA - 多运动
   - [类风湿性关节炎](https://zh.wikipedia.org/wiki/类风湿性关节炎)
     - [Rheumatoid arthritis](https://en.wikipedia.org/wiki/Rheumatoid_arthritis)
     - https://patient.info/doctor/rheumatoid-arthritis-pro
@@ -132,3 +134,11 @@ Rituximab works by decreasing levels of B-cells (immune cell that is involved in
   - 管理压力
 - 理疗
 - Physical Therapy for rheumatoid Arthritis
+
+---
+
+- 运动/锻炼
+  - 保持功能
+  - avoid disability
+  - improve morning stiffness
+  - reduce pain

@@ -2,6 +2,7 @@
   "git.decorations.enabled": true,
   "editor.minimap.enabled": true,
   "editor.wordWrapColumn": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[markdown]": {
     "editor.wordWrap": "off"
   }

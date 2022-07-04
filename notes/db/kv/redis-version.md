@@ -39,7 +39,7 @@ tags:
 - ACLs
 - RESP3
 - Client side caching
-- Threaded I/O
+- Threaded I/O - 部分多线程
 - Diskless replication on replicas
 - Cluster support in Redis-benchmark
 - improved redis-cli cluster support

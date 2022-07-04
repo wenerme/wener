@@ -135,6 +135,9 @@ tags:
 - https://pimeyes.com/
 - Parti: Pathways Autoregressive Text-to-Image Model
   - [HN](https://news.ycombinator.com/item?id=31839193)
+- [kuprel/min-dalle](https://github.com/kuprel/min-dalle)
+  - DALL E Mini PyTorch
+- [borisdayma/dalle-mini](https://github.com/borisdayma/dalle-mini)
 - [yandex/YaLM-100B](https://github.com/yandex/YaLM-100B)
   - GPT Pretrained language model with 100B parameters
   - [HN](https://news.ycombinator.com/item?id=31846593)

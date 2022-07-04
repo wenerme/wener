@@ -6,7 +6,6 @@ tags:
 
 # Observability Awesome
 
-- [m3db/m3](https://github.com/m3db/m3)
 - [getsentry/sentry](https://github.com/getsentry/sentry)
 - [dianping/cat](https://github.com/dianping/cat)
   - Apache-2.0, Java
@@ -19,6 +18,11 @@ tags:
 - [parca-dev/parca](https://github.com/parca-dev/parca)
   - Apache-2.0, Go
   - Continuous profiling for analysis of CPU and memory usage
+
+## Tracing
+
+- [m3db/m3](https://github.com/m3db/m3)
+- [hypertrace/hypertrace](https://github.com/hypertrace/hypertrace)
 
 ## Metrics
 
@@ -50,3 +54,6 @@ tags:
   - MIT, Golang
   - OpenTelemetry Collector, ClickHouse
   - https://signoz.io/docs/architecture/
+- [sunface/datav](https://github.com/sunface/datav)
+  - Apache-2.0, TS+Go
+  - 国人开发维护

@@ -35,7 +35,7 @@ tags:
 
 | version                              | date       |
 | ------------------------------------ | ---------- |
-| [AlpineLinux 3.16](#alpinelinux-316) | 2021-05-23 |
+| [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
 | [AlpineLinux 3.15](#alpinelinux-315) | 2021-11-24 |
 | [AlpineLinux 3.14](#alpinelinux-314) | 2021-07-15 |
 | [AlpineLinux 3.13](#alpinelinux-313) | 2020-01-14 |

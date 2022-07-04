@@ -4,8 +4,6 @@
 * [If you don’t finish then you’re just busy, not productive](http://www.jacksimpson.co/finishing-being-productive-busy/)
   * [HN](https://news.ycombinator.com/item?id=13402472)
 
-### Frelance
-* [upwork](https://www.upwork.com/)
 
 ### Planning to Make the Best Use of Your Time
 * [Planning to Make the Best Use of Your Time](https://www.mindtools.com/pages/article/newHTE_07.htm)

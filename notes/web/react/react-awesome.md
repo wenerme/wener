@@ -330,6 +330,8 @@ npm add date-fns lodash-es react-fast-compare
 
 ### 虚拟滚动
 
+- [petyosi/react-virtuoso](https://github.com/petyosi/react-virtuoso)
+  - 支持 list, table
 - [TanStack/virtual](https://github.com/TanStack/virtual)
   - 基于 Hook
   - 推荐 - 因为 react-virtualized 不活跃

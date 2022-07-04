@@ -8,6 +8,8 @@ title: browserslist
 - .browserslistrc - ini 格式
   - 默认 or 关系
 - 支持环境配置 BROWSERSLIST_ENV, NODE_ENV
+- https://browserslist.dev/
+  - 查看覆盖率，测试查询
 
 ```bash
 # 查看匹配

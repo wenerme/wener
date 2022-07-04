@@ -21,6 +21,8 @@ tags:
   - 不存储数据 - 用于传递信息 - 实现异步/同步通讯
     - at-most-once, fire & forget, fan-out
   - 没有 Sub 时 Pub 是无意义的
+  - 可用于订阅系统事件 - keyspace, keyevent
+  - 支持 pattern - 例如 `system.events.*`
 - Stream
   - 存储数据 - 有消费者、消费组概念
   - 能重复消费 - at-most-once 或 at-least-once

@@ -148,7 +148,7 @@ go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}
 ## Struct 是否使用指针
 
 - 尽量不使用指针 - 直接使用 Struct 会更快
-  - 使用指针会用到全局堆，使用 struct 副本可直接放到栈
+  - 🌟 使用指针会用到全局堆，使用 struct 副本可直接放到栈
   - 用到堆就会涉及到 GC
 - 使用 Pointer
   - 调用密度高
@@ -159,6 +159,7 @@ go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}
 - 如果 Struct 包含了不可复制对象，则一定要用指针 - 例如 sycn.Mutex
 - 参考
   - [Go: Should I Use a Pointer instead of a Copy of my Struct?](https://medium.com/a-journey-with-go/44b43b104963)
+  - https://www.ardanlabs.com/blog/2017/06/design-philosophy-on-data-and-semantics.html
 
 ```golang
 type Server struct {
@@ -387,6 +388,22 @@ GOFLAGS=-static
 - 使用 struct 作为 context key 需要注意比较逻辑
   - 指针和非指针比较逻辑相同
 
+```go
+// nocmp is an uncomparable struct. Embed this inside another struct to make
+// it uncomparable.
+//
+//  type Foo struct {
+//    nocmp
+//    // ...
+//  }
+//
+// This DOES NOT:
+//
+//  - Disallow shallow copies of structs
+//  - Disallow comparison of pointers to uncomparable structs
+type nocmp [0]func()
+```
+
 ## 判断 int 类型
 
 ```go
@@ -405,3 +422,8 @@ func main() {
 	fmt.Println("int", unsafe.Sizeof(int(0)))
 }
 ```
+
+## 内存模型
+
+- https://research.swtch.com/mm
+- https://go.dev/ref/mem

@@ -36,6 +36,7 @@ redis-server --bind=0.0.0.0
 
 :::info
 
+- HASH Key 不支持 TTL [#6620](https://github.com/redis/redis/issues/6620)
 - Redis Cluster V2 project [redis#8948](https://github.com/redis/redis/issues/8948)
 - HSETEX, HMSETEX [redis#2905](https://github.com/redis/redis/issues/2905)
 - 批量删除 key [redis#4153](https://github.com/redis/redis/issues/4153)
@@ -60,6 +61,17 @@ scan 0
   - [Redis Streams: consumer groups v2 specification document](https://gist.github.com/antirez/68e67f3251d10f026861be2d0fe0d2f4)
   - [An update on Redis Streams development](http://antirez.com/news/116)
 
+## 命令
+
+- L - List
+- H - Hash
+- Z - SortedSet
+- S - Set
+- X - Stream
+- Channel - SUBSCRIBE,PUBLISH,UNSUBSCRIBE
+  - P - Pattern - PSUBSCRIBE,PUNSUBSCRIBE
+  - S - Shared - 集群 channel
+
 ## Module
 
 - [写 Redis 模块的教程](https://redislabs.com/blog/writing-redis-modules)
@@ -79,7 +91,7 @@ ACL 是配置，不是数据，因此不会同步。 [#7988](https://github.com/
 - 客户端 `AUTH <username> <password>`
 - 默认用户 `AUTH <password>`
 
-```
+```pre title="默认配置"
 user default on nopass ~* &* +@all
 ```
 
@@ -102,9 +114,9 @@ user default on nopass ~* &* +@all
   - resetkeys - 重置
   - `%R~<pattern>`,`%W~<pattern>`,`%RW~<pattern>` - v7.0+ 限定 读写
 - Pub/Sub 限定
-- `&<pattern>` - v6.2+
-- `allchannels` -> `&*`
-- resetchannels - 重置
+  - `&<pattern>` - v6.2+
+  - `allchannels` -> `&*`
+  - resetchannels - 重置
 - reset - 重置所有规则
 - selector - v7.0+
   - `(<rule list>)`
@@ -177,6 +189,97 @@ ACL setuser replica-user on >somepassword +psync +replconf +ping
 ---
 
 - [ACL](https://redis.io/topics/acl)
+
+## 键变化通知
+
+- 配置 notify-keyspace-events
+  - 默认为 空 - 无事件产生
+  - 可使用 KEA 产生大多数事件
+- `__keyspace@<db>__:<key> event`
+  - key 变化
+- `__keyevent@<db>__:<key> event`
+  - 事件
+
+| flag |
+| ---- | ----------------------------------- |
+| K    | `__keyspace@<db>__` 前缀            |
+| E    | `__keyevent@<db>__` 前缀            |
+| g    | 通用命令 - DEL, EXPIRE, RENAME, ... |
+| $    | string                              |
+| l    | list                                |
+| s    | set                                 |
+| h    | hash                                |
+| z    | Sorted set                          |
+| t    | stream                              |
+| d    | module key type                     |
+| x    | expired events                      |
+| e    | evicted events                      |
+| m    | key miss events - 访问不存在的 KEY  |
+| n    | new key events - A 不包含           |
+| A    | `g$lshztxed` - 除了 mn 的所有事件   |
+
+| evennt                | command                    |
+| --------------------- | -------------------------- |
+| del                   | DEL,MIGRATE,RPOP,LPOP      |
+| rename_from,rename_to | RENAME                     |
+| move_from,move_to     | MOVE                       |
+| copy_to               | COPY                       |
+| restore               | RESTORE                    |
+| expire                | EXPIRE,SETEX               |
+| sortstore             | SORT STORE                 |
+| set                   | SET,MSET                   |
+| setrange              | SETRANG                    |
+| incrby                | INCR, DECR, INCRBY, DECRBY |
+| incrbyfloat           | INCRBYFLOAT                |
+| append                |
+| lpush                 |
+| rpush                 |
+| rpop                  |
+| lpop                  |
+| linsert               |
+| lrem                  |
+| ltrim                 |
+| hset                  | HSET, HSETNX, HMSET        |
+| hincrby               |
+| hincrbyfloat          |
+| hdel                  |
+| sadd                  | SADD,SMOVE                 |
+| srem                  | SREM,SMOVE                 |
+| spop                  |
+| sinterstore           |
+| sunionstore           |
+| sdiffstore            |
+| zincr                 |
+| zadd                  |
+| zrem                  |
+| zrembyscore           |
+| zrembyrank            |
+| zdiffstore            |
+| zinterstore           |
+| zunionstore           |
+| xadd                  |
+| xdel                  |
+| xgroup-create         |
+| xgroup-destroy        |
+| xgroup-setid          |
+| xgroup-setid          |
+| xsetid                |
+| xtrim                 |
+| xgroup-createconsumer |
+| xgroup-delconsumer    |
+| persist               |
+
+- `{l,r}{pop,push}`
+  - RPOPLPUSH, BRPOPLPUSH
+  - LMOVE, BLMOVE
+- expired
+- evicted
+- new
+
+```bash
+# 所有事件
+redis-cli --csv psubscribe '__key*__:*'
+```
 
 ## redic.conf
 

@@ -121,6 +121,8 @@ egrep -o 'STRAPI_ADMIN_BACKEND_URL[^}]+' build/*.js
 
 ## REST
 
+- https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html
+
 ## Plugins
 
 - editor
@@ -137,6 +139,7 @@ egrep -o 'STRAPI_ADMIN_BACKEND_URL[^}]+' build/*.js
 - [@strapi/plugin-graphql](https://docs.strapi.io/developer-docs/latest/plugins/graphql.html)
   - 提供 GraphQL 接口
   - [docs](https://docs.strapi.io/developer-docs/latest/plugins/graphql.html)
+  - sort 参数格式 `<prop>:{desc|asc}`
 - strapi-plugin-slugify
   - 生成/维护 slug
 - [strapi-plugin-rest-cache](https://github.com/strapi-community/strapi-plugin-rest-cache)

@@ -127,29 +127,68 @@ tags:
 
 :::
 
+
+| RPC       | by         | Languages                                                               |
+| --------- | ---------- | ----------------------------------------------------------------------- | ---------- |
+| [gRPC]    | Google     | C++,objc,PHP,Python,C#,Ruby - Go,Java,.Net,NodeJS,Swift,Kotlin,Dart,Web |
+| Thrift    | Facebook   | Java                                                                    |
+| [twirp]   | TwitchTV   | Go - PHP,Ruby                                                           |
+| [finagle] | Twitter    | Scala                                                                   | Apache-2.0 |
+| [tarpc]   | Google     | Rust                                                                    |
+| **国产**  |            |                                                                         |
+| HSF       | Alibaba    | Java                                                                    |
+| Dubbo     | Alibaba    | Java                                                                    |
+| [go-zero] | 好未来技术 | Go                                                                      |
+| kitex     | 字节跳动   | Go                                                                      |
+| sofa-rpc  | 蚂蚁金服   | Java                                                                    |
+| [tars]    | 腾讯       | C++,Java,NodeJS,PHP,Web                                                 | BSD-3      |
+| [kratos]  | 哔哩哔哩   | Go,gRPC                                                                 |
+| [brpc]    | 百度       | C++,Java                                                                |
+
+
+[brpc]: https://github.com/apache/incubator-brpc
+[tars]: https://github.com/tarsCloud/tars
+[kratos]: ../../languages/go/lib/kratos.md
+[go-zero]: ../../languages/go/lib/go-zero.md
+[grpc]: ./grpc.md
+[twirp]: ./twirp.md
+[finagle]: https://github.com/twitter/finagle
+[sofa-rpc]: https://github.com/sofastack/sofa-rpc
+[tarpc]: https://github.com/google/tarpc
+[grpc]: ./grpc.md
+
+
+---
+
 - JSON RPC
-- gRPC
+- [gRPC]
+  - by Google
+  - [connect](./connect.md)
 - Thrift
+  - by Facebook
 - Avro
-- Dubbo
 - [json-api/json-api](https://github.com/json-api/json-api)
   - application/vnd.api+json
 - [only-cliches/NoProto](https://github.com/only-cliches/NoProto)
   - MIT, Rust
   - Flexible, Fast & Compact Serialization with RPC
-- [tal-tech/go-zero](https://github.com/tal-tech/go-zero)
-  - 好未来技术
-  - 自定义 DSL + goctl 生成
-- [cloudwego/kitex](https://github.com/cloudwego/kitex)
+- [twitchtv/twirp](./twirp.md)
+  - by Twitch
+- [finagle]
+  - Apache-2.0, Scala
+  - by Twitter
+- [zeroc-ice/ice](https://github.com/zeroc-ice/ice)
+
+**国产**
+
+- [andeya/erpc](https://github.com/andeya/erpc)
   - Apache-2.0, Go
-  - 字节跳动 RPC 框架
-- [sofastack/sofa-rpc](https://github.com/sofastack/sofa-rpc)
-  - Apache-2.0, Java
-  - 蚂蚁金服 RPC 框架
-- [tarsCloud/tars](https://github.com/tarsCloud/tars)
-  - BSD-3, C++
-  - 腾讯 RPC 框架
-  - 多语言 - Go、Java、NodeJS、PHP、Web
+- [smallnest/rpcx](../../languages/go/lib/rpcx.md)
+- [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
+- [unionj-cloud/go-doudou](https://github.com/unionj-cloud/go-doudou)
+- [line/armeria](https://github.com/line/armeria)
+  - Java
+  - Apache-2.0, 微服务框架
 
 ## Serialization
 
@@ -217,3 +256,8 @@ tags:
 - [public-apis/public-apis](https://github.com/public-apis/public-apis)
 - [How Uber Engineering Evaluated JSON Encoding and Compression Algorithms to Put the Squeeze on Trip Data](https://eng.uber.com/trip-data-squeeze-json-encoding-compression/)
   - 2016-02
+
+## Service Discovery
+
+- Redis
+  - https://github.com/pyloque/captain#service-discovery-api

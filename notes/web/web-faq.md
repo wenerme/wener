@@ -210,3 +210,16 @@ location.origin;
 - https://devcenter.heroku.com/articles/websocket-security
 
 ## cross-origin vs. same-site
+
+## Possible side-effect in debug-evaluate
+
+- 可能是 console.log 时传入的值包含了太多东西，其中部分在 eval 时触发了一些额外的事情
+- Chrome 的检测机制
+- 目前 Promise reject 会出现，即便无 side-effect
+- https://bugs.chromium.org/p/chromium/issues/detail?id=1246911
+
+```
+[Violation] Added non-passive event listener to a scroll-blocking 'touchstart' event. Consider marking event handler as 'passive' to make the page more responsive. See https://www.chromestatus.com/feature/5745543795965952
+```
+
+- useOnClickOutside 处理 touchstart 时触发，需要传入 passive 参数

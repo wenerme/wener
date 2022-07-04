@@ -65,3 +65,15 @@ tags:
   - https://appengine.googleapis.com/$discovery/rest?version=v1
   - https://run.googleapis.com
     - 服务发现 https://run.googleapis.com/$discovery/rest?version=v1
+
+## Orchestration vs Choreography
+
+- Orchestration
+  - 编排 - 可同步、可异步
+  - 可总览服务流程
+  - 中心服务可能会重、复杂
+  - temporal 这样的服务让异步复杂编排变得简单
+- Choreography
+  - 事件总线 - 异步
+  - 相对更解偶
+  - 失去业务全局观

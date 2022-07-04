@@ -45,3 +45,13 @@ session.save_handler = redis
 # PHPREDIS_SESSION:j9rsgtde6st2rqb6lu5u6f4h83
 session.save_path = "tcp://10.10.1.1:6379?auth=yourverycomplexpasswordhere"
 ```
+
+## 强制类型
+
+```php
+<?
+declare(strict_types=1)
+```
+
+- [strict_types](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
+  - 不允许 弱类型 类型转换

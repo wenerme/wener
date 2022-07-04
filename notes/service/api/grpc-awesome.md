@@ -32,16 +32,22 @@ tags:
   - [timostamm/protobuf-ts](https://github.com/timostamm/protobuf-ts)
     - 依赖 tsc 生成代码
 
-## LB/Gateway
+## LB/Gateway/Proxy
 
+- [grpc.lb.v1.LoadBalancer](https://github.com/grpc/grpc/blob/master/src/proto/grpc/lb/v1/load_balancer.proto)
 - gRPC-aware proxy/Load balance
   - https://grpc.io/blog/grpc-load-balancing/
   - https://microsoft.github.io/reverse-proxy/articles/grpc.html
 - [liyue201/grpc-lb](https://github.com/liyue201/grpc-lb)
+  - 客户端使用 google.golang.org/grpc/resolver.Register 注册 LB 实现
 - [gotway/gotway](https://github.com/gotway/gotway)
 - [mmontes11/go-grpc-routes](https://github.com/mmontes11/go-grpc-routes)
 - https://grpc-ecosystem.github.io/grpc-gateway/
 - https://pkg.go.dev/go.chromium.org/luci/grpc/discovery
+- [mwitkow/grpc-proxy](https://github.com/mwitkow/grpc-proxy)
+- [siderolabs/grpc-proxy](https://github.com/siderolabs/grpc-proxy)
+  - one-to-many proxying and result aggregation.
+- etcd [grpc-proxy](https://etcd.io/docs/latest/op-guide/grpc_proxy/)
 
 ## 参考
 
@@ -86,10 +92,12 @@ tags:
 
 ## UI
 
-- grpcurl
 - [uw-labs/bloomrpc](https://github.com/uw-labs/bloomrpc)
+- [fullstorydev/grpcurl](https://github.com/fullstorydev/grpcurl)
 - [fullstorydev/grpcui](https://github.com/fullstorydev/grpcui)
+  - MIT, Go,JS
   - web UI for gRPC
+  - 实现基于 grpcurl
 
 ```bash
 # brew install grpcui

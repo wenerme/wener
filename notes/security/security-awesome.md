@@ -18,12 +18,54 @@ tags:
 
 - [google/tink](https://github.com/google/tink)
   - Java/Android, C++, Obj-C, Go, Python
+  - 基于 BoringSSL
 - [jedisct1/libsodium](https://github.com/jedisct1/libsodium)
   - portable, easy to use crypto library
 - [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
   - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
 - 参考
   - [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
+
+## SSL
+
+| impl             | license              | written in | by         | adopted by                 |
+| ---------------- | -------------------- | ---------- | ---------- | -------------------------- |
+| [BoringSSL]      | ISC                  | C, C++, Go | Google     |
+| [Botan]          | BSD                  | C++        |
+| Bouncy Castle    | MIT                  | Java,C#    |
+| JSSE             | GPLv2                | Java       | Oracle     |
+| LibreSSL         | Apache-2.0, BSD, ISC | C          | OpenBSD    | macOS,OpenBSD,DragonflyBSD |
+| [MbedTLS]        | Apache-2.0, GPLv2+   | C          | ARM        | PowerDNS,OpenVPN           |
+| NSS              | MPL-2.0              | C          | Mozilla... |
+| OpenSSL          | Apache-2.0           | C          | OpenSSL    |
+| s2n              | Apache-2.0, GPLv2+   | Amazon     |
+| Secure Transport | APSL-2.0             | Apple      |
+| GnuTLS           | LGPLv2.1             | C          | FSF        |
+| wolfssl          | GPLv2+               | C          |
+
+[mbedtls]: https://github.com/Mbed-TLS/mbedtls
+[botan]: https://github.com/randombit/botan
+[boringssl]: https://github.com/google/boringssl
+
+- Botan
+- MbedTLS
+  - 适用于嵌入式场景
+- LibreSSL
+  - 2014-04 - OpenBSD fork OpenSSL
+- BoringSSL
+  - 2014-06 Google fork OpenSSL
+  - Tink - based on BoringSSL
+- JSSE - Java Secure Socket Extension
+- NSS - Network Security Services
+
+:::info
+
+- 使用最多的是 OpenSSL - OpenSSL 3.0 变动较大
+- 2014-04 OpenSSL Heartbleed 事件
+
+:::
+
+- [Comparison of TLS implementations](https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations)
 
 ## AV
 

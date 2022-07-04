@@ -1,7 +1,8 @@
 ---
-id: container-faq
 title: 容器常见问题
 hide_title: true
+tags:
+  - FAQ
 ---
 
 # 容器常见问题
@@ -57,3 +58,45 @@ hide_title: true
   - [lxc-vs-docker](https://archives.flockport.com/lxc-vs-docker)
   - [lxd-vs-docker](https://linuxhint.com/lxd-vs-docker)
   - [Docker vs. containerd vs. Nabla vs. Kata vs. Firecracker](https://www.inovex.de/blog/containers-docker-containerd-nabla-kata-firecracker/)
+
+## GUI in Container
+
+- x11vnc
+  - 可通过 web 访问
+  - https://github.com/LibVNC/x11vnc
+- xvfb
+  - 无键盘鼠标
+  - https://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml
+- [ponty/framebuffer-vncserver](https://github.com/ponty/framebuffer-vncserver)
+- https://hub.docker.com/u/x11vnc
+  - vscode-desktop
+  - docker-desktop
+    - x11vnc/docker-desktop:zh_CN ~450MB
+  - desktop
+
+```bash
+docker run -it --rm -p 6080:6080 x11vnc/inkscape-desktop
+```
+
+## Docker Remote
+
+- 用户维度 sock 位置 unix://$HOME/.docker/run/docker.sock
+- 推荐使用 ssh 转发 sock - 安全
+- podman 使用 CONTAINER_HOST
+
+```bash title="客户端"
+DOCKER_HOST=tcp://192.168.0.1:2375 docker info # 单次请求修改
+export DOCKER_HOST=tcp://192.168.0.1:2375      # export 后持续使用
+
+ssh -L /var/run/docker.sock:/var/run/docker.sock             # 转发 sock 到 docker 默认 sock 位置 - 系统级可能权限不够
+ssh -L $HOME/.docker/run/docker.sock:/var/run/docker.sock    # 转发远程 docker 到用户目录 sock - 不需要那么高的权限
+DOCKER_HOST=unix://$HOME/.docker/run/docker.sock docker info # 测试
+
+docker context list                                                           # 可管理多个连接上下文
+docker context create --docker host=unix://$HOME/.docker/run/docker.sock test # 创建上下文
+docker context use test                                                       # 全局修改上下文
+```
+
+```bash title="服务端"
+dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 # 如果需要暴露端口 - 默认只有 sock
+```

@@ -545,7 +545,7 @@ resource "docker_container" "consul_4" {
 ### 地址模板验证
 
 ```bash
-go get -u github.com/hashicorp/go-sockaddr/cmd/sockaddr
+go install github.com/hashicorp/go-sockaddr/cmd/sockaddr@latest
 ~/go/bin/sockaddr eval 'GetPrivateInterfaces |  include "network" "10.0.0.0/8" | attr "address"'
 ```
 

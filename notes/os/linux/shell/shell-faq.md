@@ -192,3 +192,9 @@ find . -type d -user harry -exec chown daisy {} \;
 ---
 
 - https://apple.stackexchange.com/a/361957/103557
+
+## tee stderr
+
+```bash
+echo message | tee -a /dev/fd/2 > /dev/null
+```

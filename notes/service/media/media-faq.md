@@ -70,7 +70,6 @@ tags:
     - 音频最高 2 channels/48 kHz
     - 音频 MPEG-4 AAC LC - 低复杂度编码
 
-
 ## 目录结构 / 命名标准
 
 - Kodi [Naming video files](https://kodi.wiki/view/Naming_video_files)
@@ -92,3 +91,30 @@ tags:
     - Name (2020) S01E01
       - BDMV
       - CERTIFICATE
+
+## bitrate
+
+|   res |    fps |        youtube ref |
+| ----: | -----: | -----------------: | -------------: |
+|  720p |  30fps |     1500-4000 kbps |       2-5 Mbps |
+|  720p | 60 fps |     2250-6000 kbps |   2.9-7.4 Mbps |
+| 1080P | 30 fps |     3000-6000 kbps |   3.8-7.4 Mbps |
+| 1080P | 60 fps |     4500-9000 kbps |    5.6-11 Mbps |
+| 1440P | 30 fps |   6000-13,000 kbps |  7.4-15.8 Mbps |
+| 1440P | 60 fps |   9000-18,000 kbps |   11-21.8 Mbps |
+|    4K | 30 fps | 13,000-34,000 kbps |   15.8-41 Mbps |
+|    4K | 60 fps | 20,000-51,000 kbps | 24.2-61.5 Mbps |
+
+|   res |    fps |     twitch ref |
+| ----: | -----: | -------------: | -----------: |
+|  720P | 30 fps | 2500-4000 kbps |   3.2-5 Mbps |
+|  720P | 60 fps | 3500-5000 kbps | 4.4-6.2 Mbps |
+| 1080P | 30 fps | 3500-5000 kbps | 4.4-6.2 Mbps |
+| 1080P | 60 fps | 4500-6000 kbps | 5.6-7.4 Mbps |
+
+- [Choose live encoder settings, bitrates, and resolutions](https://support.google.com/youtube/answer/2853702?hl=en#zippy=%2Ck-p-fps%2Cp-fps%2Cp)
+- https://stream.twitch.tv/encoding/
+- https://www.facebook.com/help/1534561009906955?helpref=faq_content
+- https://toolstud.io/video/bitrate.php
+- https://www.omnicalculator.com/other/streaming-bitrate
+- https://castr.io/bitrate-calculator/

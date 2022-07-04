@@ -1,0 +1,17 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wenerme/wener",
+  "author": "wener <wenermail@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@prettier/plugin-xml": "latest",
+    "prettier": "^2.7.1",
+    "prettier-plugin-sh": "latest",
+    "prettier-plugin-solidity": "latest",
+    "prettier-plugin-svelte": "latest",
+    "prettier-plugin-toml": "latest"
+  }
+}

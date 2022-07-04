@@ -31,6 +31,9 @@ title: KV DB Awesome
 - Ehcache
 - Infinispan
 - Geode
+- [flower-corp/rosedb](https://github.com/flower-corp/rosedb)
+  - Apache-2.0, Go
+  - 类似于 Redis 但存储在文件
 
 ## Redis
 
@@ -40,6 +43,7 @@ title: KV DB Awesome
   - 多线程 Redis - IO 多线程，事务单线程
   - **完整 Redis 兼容** - 持续使用 Redis 代码
   - ModJS - 可以通过 V8 扩展
+  - HASH KEY 支持 TTL
   - WIP
     - JSON
   - [Migrating from Redis or KeyDB](https://docs.keydb.dev/docs/migration)
@@ -59,8 +63,13 @@ title: KV DB Awesome
 - [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
   - Mordern Redis Cluster solution
 - [Tencent/Tendis](https://github.com/Tencent/Tendis)
-- extension
+  - 腾讯
+- redis module
   - [RedisJSON](https://github.com/RedisJSON/RedisJSON)
+  - [alibaba/TairHash](https://github.com/alibaba/TairHash)
+    - Apache-2.0, C
+    - HASH KEY 支持 TTL
+    - by 阿里
 
 ## 文件
 

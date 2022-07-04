@@ -32,7 +32,7 @@ POST /<Package>.<Service>/<Method>
 - [bufbuild/connect-go](https://github.com/bufbuild/connect-go)
   - 使用 net/http
   - 生成使用泛型
-  - Client 和 Server 接口相同 - 方便操作
+  - 🌟 Client 和 Server 接口相同 - 方便操作
 
 ```bash
 # 基于 POST 的 connect 协议
@@ -66,13 +66,24 @@ plugins:
     opt: paths=source_relative
 ```
 
+### 实现 
+
+- Handler - 当个 RPC 方法处理
+  - 实现 Connect, gRPC, gRPC-Web 协议
+  - 提供  ServeHTTP 
+  - 构造
+    - NewBidiStreamHandler
+    - NewClientStreamHandler
+    - NewServerStreamHandler
+    - NewUnaryHandler
+
 ## Why Connect
 
 - gRPC 因为考虑 Google 内部使用和开源社区使用，一些设计上很乱很奇怪
 - gRPC 小版本也可能不出现兼容
 - gRPC 在 Web 环境非常麻烦
 - 要求 HTTP/2 Trailer - 对使用环境、实现要求苛刻
-- golang
+- vs golang grpc
   - 不兼容 net/http
   - 实现复杂
 

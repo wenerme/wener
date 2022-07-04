@@ -289,3 +289,41 @@ DROP OWNED BY test;
 
 DROP USER test;
 ```
+
+## create role if not exists
+
+```sql
+DO
+$do$
+BEGIN
+   IF EXISTS (
+      SELECT FROM pg_catalog.pg_roles
+      WHERE  rolname = 'my_user') THEN
+
+      RAISE NOTICE 'Role "my_user" already exists. Skipping.';
+   ELSE
+      CREATE ROLE my_user;
+   END IF;
+END
+$do$;
+```
+
+- 处理 EXCEPTION 比提前检测更慢
+
+## create policy if not exists
+
+```sql
+do
+$do$
+    begin
+        if exists(select *
+                  from pg_catalog.pg_policies
+                  where (schemaname, tablename, policyname) = ('app', 'service_accounts', 'tid'))
+        then
+            raise notice 'policy already exists';
+        else
+            create policy tid on app.service_accounts using (tid = current_tenant_id());
+        end if;
+    end
+$do$;
+```

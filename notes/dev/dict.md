@@ -66,6 +66,13 @@ tags:
 | distro | distribution                 | 发行版         |
 | TSC    | Technical Steering Committee | 技术指导委员会 |
 
+| word          | stand for  |
+| ------------- | ---------- | ---------------------- |
+| adhesive      | 粘合       |
+| cohesive      | 拼装、凝聚 |
+| Orchestration | 编排       | 一个服务调度多个服务 |
+| Choreography  | 编舞       | 各自负责各自的角色 - 事件总线    |
+
 ## 服务商
 
 | 英文   | 含义   | 释义 |

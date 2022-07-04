@@ -147,3 +147,15 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 - gitlab-runner
 - jenkins
 - [concourse/concourse](https://github.com/concourse/concourse)
+
+## Jobs
+
+- https://cofounderslab.com/
+- https://www.jobsdb.com/
+- Frelance
+  - [upwork](https://www.upwork.com/)
+  - https://freehunter.hk/
+- Remote
+  - https://weworkremotely.com/
+  - https://remote.co/
+  - https://www.workingnomads.com/

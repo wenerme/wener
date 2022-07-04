@@ -15,3 +15,19 @@ dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient
 go build -gcflags "all=-N -l" github.com/app/demo
 dlv --listen=:2345 --headless=true --api-version=2 --accept-multiclient exec ./demo
 ```
+
+## benchstat
+
+```bash
+go install golang.org/x/perf/cmd/benchstat@latest
+
+# 测试然后输出统计
+go test ./contextx/ -bench=BenchmarkCopy -benchmem -run=^$ -count=10 > out.txt
+benchstat out.txt
+
+# 对比
+# delta 为 ~ 表示两次没有差异
+benchstat old.txt new.txt
+```
+
+- https://pkg.go.dev/golang.org/x/perf/cmd/benchstat

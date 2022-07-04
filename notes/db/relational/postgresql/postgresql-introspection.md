@@ -19,7 +19,6 @@ where table_schema not in ('information_schema', 'pg_catalog', 'metric_helpers')
 order by table_catalog, table_schema, table_name, ordinal_position;
 ```
 
-
 ```sql title="generate golang struct field"
 select concat(column_name, '  ',
               case pgt.typname
@@ -43,3 +42,9 @@ where table_schema = 'information_schema'
   and table_name = 'columns'
 order by table_catalog, table_schema, table_name, ordinal_position;
 ```
+
+## pg_catalog
+
+- 记录所有 postgres 的内部对象
+- pg_policy
+  - 视图 pg_policies

@@ -59,9 +59,9 @@ brew install bfg
 git rm id_{dsa,rsa}
 git commit -m 'remove files'
 # 清理历史
-bfg --delete-files id_{dsa,rsa}  my-repo.git
-bfg --strip-blobs-bigger-than 50M  my-repo.git
-bfg --delete-folders dirname  my-repo.git
+bfg --delete-files id_{dsa,rsa} my-repo.git
+bfg --strip-blobs-bigger-than 50M my-repo.git
+bfg --delete-folders dirname my-repo.git
 
 # 清理
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
@@ -123,9 +123,9 @@ from [here](http://stackoverflow.com/questions/927358)
 
 ```bash
 git diff \
-	--cached \
-	--staged \
-	HEAD # 尚未暂存的,当前正在编辑的
+  --cached \
+  --staged \
+  HEAD # 尚未暂存的,当前正在编辑的
 ```
 
 from [here](http://stackoverflow.com/questions/1587846)
@@ -299,4 +299,16 @@ svn export https://github.com/username/repo-name/trunk/
 svn export https://github.com/username/repo-name/trunk/src/lib/folder
 
 git checkout-index --prefix=git-export-dir/ -af
+```
+
+## 大型 monorepo
+
+- FSMonitor
+
+```bash
+git config core.fsmonitor true
+git config core.untrackedcache true
+
+git status # 第一次慢
+git status # 第二次命中大量缓存，非常快
 ```

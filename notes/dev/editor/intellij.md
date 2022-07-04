@@ -16,6 +16,15 @@ title: Intellij IDEA
 
 :::
 
+:::tip 插件
+
+- [devkanro/intellij-protobuf-plugin](https://github.com/devkanro/intellij-protobuf-plugin)
+  比官方 pb 插件功能更多
+- [JetBrains/intellij-plugins](https://github.com/JetBrains/intellij-plugins)
+  - 官方内置插件源码
+
+:::
+
 **特殊正则替换语法**
 
 | syntax | for                     |

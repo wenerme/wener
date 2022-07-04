@@ -15,12 +15,23 @@ title: ArgoCD Image Updater
   - pull secrets 必须在相同集群
 - Application 维度 添加 annotation
   - argocd-image-updater.argoproj.io/image-list 定义监听的镜像
+    - `[<alias_name>=]<image_path>[:<version_constraint>]` - 例如: `foo=org/image:tag`
+    - 逗号分隔多个
+    - 无 tag 则是 latest
+    - tag 可以是版本范围: `~1.26`
+    - 如果指定了 alias 可以针对 alias 进行配置
+      - 可以跨应用使用
+      - 同应用内唯一
+      - 🌟 推荐都设置 alias - 因为 有些功能依赖 alias
+    - [docs/configuration/images.md](https://github.com/argoproj-labs/argocd-image-updater/blob/master/docs/configuration/images.md)
   - 检测镜像是否使用
   - 检测 仓库 是否有新镜像
     - 检测策略 - `argocd-image-updater.argoproj.io/<image>.update-strategy`
       - semver - 默认 - 版本排序
       - latest
       - digest - 给定 tag 的最新 digest
+        - 多分支时很好用
+        - 例如: tag 为 main,develop,daily,stage
       - name - 字母排序 tag
   - 如果有 新 镜像，则触发更新
     - 更新方式 - argocd-image-updater.argoproj.io/write-back-method
@@ -34,8 +45,8 @@ title: ArgoCD Image Updater
 kubectl install -f https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
 
 kubectl annotate app guestbook \
-    argocd-image-updater.argoproj.io/image-list=gcr.io/heptio-images/ks-guestbook-demo \
-    argocd-image-updater.argoproj.io/write-back-method=git
+  argocd-image-updater.argoproj.io/image-list=gcr.io/heptio-images/ks-guestbook-demo \
+  argocd-image-updater.argoproj.io/write-back-method=git
 
 # Github 仓库
 # export GITHUB_PULLSECRET="<username>:<token>"
@@ -111,7 +122,7 @@ argocd-image-updater.argoproj.io/image-list: some/image:v1.2.x
 argocd-image-updater.argoproj.io/<image>.update-strategy: semver
 
 # 升级最新
-argocd-image-updater.argoproj.io/image-list: <alias>=some/image
+argocd-image-updater.argoproj.io/image-list: alias=some/image
 argocd-image-updater.argoproj.io/<alias>.update-strategy: latest
 # 限制 tag
 argocd-image-updater.argoproj.io/myimage.allow-tags: regexp:^[0-9a-f]{7}$
@@ -119,12 +130,12 @@ argocd-image-updater.argoproj.io/myimage.allow-tags: regexp:^[0-9a-f]{7}$
 argocd-image-updater.argoproj.io/myimage.ignore-tags: latest, master
 
 # 摘要
-argocd-image-updater.argoproj.io/image-list: <alias>=some/image:<tag_name>
+argocd-image-updater.argoproj.io/image-list: alias=some/image:<tag_name>
 argocd-image-updater.argoproj.io/<alias>.update-strategy: digest
 
 # 名字
 # tag 排序，适用于 tag 为 YYYY-MM-DD 场景
-argocd-image-updater.argoproj.io/image-list: <alias>=some/image
+argocd-image-updater.argoproj.io/image-list: alias=some/image
 argocd-image-updater.argoproj.io/<alias>.update-strategy: name
 
 # Demo

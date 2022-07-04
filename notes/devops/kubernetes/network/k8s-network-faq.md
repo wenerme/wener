@@ -10,6 +10,39 @@ tags:
 
 - 30000–32767
 
+## Service 先走本节点 Endpoint
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: keydb
+  annotations:
+    # Topology Aware Hints
+    # Kubernetes v1.23 Beta
+    # 之前为 topology-aware-hints
+    # 值为 Auto|Disabled
+    service.kubernetes.io/topology-aware-routing: auto
+spec:
+  selector:
+    app: keydb
+  ports:
+    - port: 6379
+  # Kubernetes v1.21 废弃
+  topologyKeys:
+    - 'kubernetes.io/hostname'
+    - 'kubernetes.io/hostname'
+    - 'topology.kubernetes.io/zone'
+    - 'topology.kubernetes.io/region'
+    - '*'
+```
+
+---
+
+- [KEP#2433](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/2433-topology-aware-hints/README.md)
+- [Topology Aware Hints](https://kubernetes.io/docs/concepts/services-networking/topology-aware-hints/)
+  - Kubernetes v1.23 Beta
+
 ## Endpoints vs EndpointSlices
 
 - EndpointSlices 替代 Endpoints - v1.21

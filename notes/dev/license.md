@@ -141,6 +141,19 @@ title: License
 - [BSLv1.1](https://mariadb.com/bsl11/)
 - [Projects using BSL 1.1](https://mariadb.com/projects-using-bsl-11/)
 
+
+## Redis Source Available License
+
+- RSAL
+- 不是开源协议
+- RedisLab 的附加模块使用的 License
+  - RedisSearch, RedisGraph, RedisJSON, RedisML, RedisBloom
+- 允许
+  - 可以修改代码，集成到应用
+- 禁止
+  - 但不可以是一个 数据库产品、缓存引擎、流处理、搜索、索引、ML/DL/AI 服务引擎
+
+
 # FAQ
 
 ## LGPL vs GPL vs AGPL

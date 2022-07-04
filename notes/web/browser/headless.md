@@ -6,10 +6,6 @@ title: Headless
 
 - [ChromeDevTools/awesome-chrome-devtools](https://github.com/ChromeDevTools/awesome-chrome-devtools)
 - https://chromedevtools.github.io/devtools-protocol/
-- Golang
-  - [chromedp/chromedp](https://github.com/chromedp/chromedp)
-    - [chromedp/examples](https://github.com/chromedp/examples)
-  - [sensepost/gowitness](https://github.com/sensepost/gowitness)
 - devtools-ws-url
   - --remote-debugging-port=9222
     - /json
@@ -27,3 +23,29 @@ title: Headless
 --enable-blink-features=SomeNewFeature,SomeOtherNewFeature
 --disable-blink-features=SomeOldFeature
 ```
+
+## Awesome
+
+- [puppeteer](https://github.com/puppeteer/puppeteer)
+  - Apache-2.0, TS
+  - Chrome 团队支持
+- [microsoft/playwright](https://github.com/microsoft/playwright)
+  - 支持 多浏览器 - Chromium, Firefox, WebKit
+  - patch Firefox, WebKit 实现
+- Golang
+  - [chromedp/chromedp](https://github.com/chromedp/chromedp)
+    - [chromedp/examples](https://github.com/chromedp/examples)
+  - [sensepost/gowitness](https://github.com/sensepost/gowitness)
+
+## WebDriver
+
+- [W3C WebDriver](https://w3c.github.io/webdriver/webdriver-spec.html)
+  - 控制浏览器
+- [electron/chromedriver](https://github.com/electron/chromedriver)
+  - 下载 [ChromeDriver](https://sites.google.com/chromium.org/driver/)
+
+# FAQ
+
+## playwright vs puppeteer
+
+- https://blog.logrocket.com/playwright-vs-puppeteer/

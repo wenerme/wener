@@ -21,10 +21,10 @@ title: Kubernetes 版本
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
 
-| API                       | from | to    |
-| ------------------------- | ---- | ----- |
-| networking.k8s.io/v1beta1 |      | v1.22 |
-| networking.k8s.io/v1      |      |       |
+| API                       | from  | to    |
+| ------------------------- | ----- | ----- |
+| networking.k8s.io/v1beta1 |       | v1.22 |
+| networking.k8s.io/v1      | v1.19 |       |
 
 **特性分组说明**
 

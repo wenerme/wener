@@ -4,6 +4,8 @@ title: 药物
 
 # 药物
 
+> 是药三分毒
+
 ## 双氯芬酸钾片
 
 diclofenac
@@ -97,6 +99,28 @@ diclofenac
   - https://www.drugs.com/international/mecobalamin.html
   - https://www.mayoclinic.org/drugs-supplements-vitamin-b12/art-20363663
   - https://helloyishi.com.tw/drugs-supplement/mecobalamin/
+
+## 普瑞巴林
+
+- Pregabalin
+- 治疗: 癫痫, 神经性疼痛, 纤维肌痛, 及 广泛性焦虑症
+- 抗癫痫药
+
+## 氟哌噻吨美利曲辛片
+
+- Flupentixol-melitracen
+  - deanxit
+  - by Lundbeck
+  - [灵北制药](https://zh.wikipedia.org/wiki/灵北制药)
+    - 丹麦
+- 短期服用
+
+| -    | -                                                                                                                                                 |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 治疗 | 轻、中度抑郁和焦虑。<br/>神经衰弱、心因性抑郁，抑郁性神经官能症，隐匿性抑郁，心身疾病伴焦虑和情感淡漠，更年期抑郁，嗜酒及药瘾者的焦躁不安及抑郁。 |
+
+- 参考
+  - https://en.wikipedia.org/wiki/Flupentixol/melitracen
 
 ## FDA 怀孕用药分级
 

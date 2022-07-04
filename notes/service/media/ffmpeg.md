@@ -5,7 +5,6 @@ title: ffmpeg
 # FFMpeg
 
 - [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)
-
 - 库
   - libavcodec 提供大量的编码实现
   - libavformat 实现流体协议,容器格式和基本的 IO 访问
@@ -20,8 +19,15 @@ title: ffmpeg
   - ffprobe 多媒体内容分析工具
   - ffserver 多媒体流体服务器用于实时广播
   - 其他的一些小工具例如 aviocat, ismindex 和 qt-faststart 等
+- 参考
+  - [static FFmpeg binaries for macOS 64-bit](https://evermeet.cx/ffmpeg/)
 
-## Tips
+## Flags
+
+| flag                          |
+| ----------------------------- | --- |
+| -hide_banner                  |     |
+| `-vf,-filter:v <filtergraph>` |     |
 
 - 常用参数
   - `-r 17` 修改帧率
@@ -41,11 +47,14 @@ title: ffmpeg
     - 线程数
     - 多线程需要取决于编码器是否支持
 - 参考
+  - [ffmpeg-filters](https://ffmpeg.org/ffmpeg-filters.html)
   - [VP9 encoding limited to 4 threads?](https://stackoverflow.com/a/41384506/1870054)
   - [Encoding Video](https://gist.github.com/Vestride/278e13915894821e1d6f)
   - [Video Encoding: Multiple Resolutions](https://www.muvi.com/help/video-encoding-multiple-resolutions.html)
   - [Debate libav-provider ffmpeg](https://wiki.debian.org/Debate/libav-provider/ffmpeg)
     - 为什么应该选择 FFmpeg
+- scale - by libswscale - [Scaler Options](https://ffmpeg.org/ffmpeg-scaler.html#scaler_005foptions)
+  - size,s - [Video size](https://ffmpeg.org/ffmpeg-utils.html#video-size-syntax)
 
 ```bash
 # 安装
@@ -59,6 +68,9 @@ pv input.avi | ffmpeg -i pipe:0 -v warning {arguments}
 ffmpeg -pix_fmts
 # 查看编码选项
 ffmpeg -h encoder=libvpx
+
+# 所有帮助内容
+ffmpeg -h full
 
 # 缩放
 # ========
@@ -127,16 +139,16 @@ ffmpeg -i input -c:v libx265 -preset medium -crf 28 -c:a aac -b:a 128k output.mp
 # https://ffmpeg.org/ffmpeg-formats.html#segment_002c-stream_005fsegment_002c-ssegment
 # 如果 ts 不支持的格式
 ffmpeg -i input.mp4 \
-       -c:v mpeg2video -qscale:v 2 \
-       -c:a mp2 -b:a 192k \
-       output.ts
+  -c:v mpeg2video -qscale:v 2 \
+  -c:a mp2 -b:a 192k \
+  output.ts
 
 # 如果 ts 格式支持
 ffmpeg -re -i input.mp4 \
-       -codec copy -map 0 \
-       -f segment -segment_list playlist.m3u8 \
-       -segment_list_flags +live -segment_time 10 \
-       out%03d.ts
+  -codec copy -map 0 \
+  -f segment -segment_list playlist.m3u8 \
+  -segment_list_flags +live -segment_time 10 \
+  out%03d.ts
 
 # HLS
 # http://ffmpeg.org/ffmpeg-all.html#hls-2
@@ -166,33 +178,29 @@ ffmpeg -hide_banner -y -i beach.mkv \
   -vf scale=w=1280:h=720:force_original_aspect_ratio=decrease -c:a aac -ar 48000 -c:v h264 -profile:v main -crf 20 -sc_threshold 0 -g 48 -keyint_min 48 -hls_time 4 -hls_playlist_type vod -b:v 2800k -maxrate 2996k -bufsize 4200k -b:a 128k -hls_base_url 720/ -hls_segment_filename 720/%03d.ts 720.m3u8 \
   -vf scale=w=1920:h=1080:force_original_aspect_ratio=decrease -c:a aac -ar 48000 -c:v h264 -profile:v main -crf 20 -sc_threshold 0 -g 48 -keyint_min 48 -hls_time 4 -hls_playlist_type vod -b:v 5000k -maxrate 5350k -bufsize 7500k -b:a 192k -hls_base_url 1080/ -hls_segment_filename 1080/%03d.ts 1080.m3u8
 
-
-
 # 针对不同分辨率做不同的片段
 # http://ffmpeg.org/ffmpeg-all.html#segment_002c-stream_005fsegment_002c-ssegment
 mkdir -p 1080 720 480
 ffmpeg -re -i 1080.mp4 \
-       -codec copy -map 0 \
-       -f segment -segment_list 1080.m3u8 \
-       -segment_list_flags +live -segment_time 10 \
-       -segment_list_entry_prefix 1080/ \
-       1080/%03d.ts
+  -codec copy -map 0 \
+  -f segment -segment_list 1080.m3u8 \
+  -segment_list_flags +live -segment_time 10 \
+  -segment_list_entry_prefix 1080/ \
+  1080/%03d.ts
 
 ffmpeg -re -i 720.mp4 \
-       -codec copy -map 0 \
-       -f segment -segment_list 720.m3u8 \
-       -segment_list_flags +live -segment_time 10 \
-       -segment_list_entry_prefix 720/ \
-       720/%03d.ts
+  -codec copy -map 0 \
+  -f segment -segment_list 720.m3u8 \
+  -segment_list_flags +live -segment_time 10 \
+  -segment_list_entry_prefix 720/ \
+  720/%03d.ts
 
 ffmpeg -re -i 480.mp4 \
-       -codec copy -map 0 \
-       -f segment -segment_list 480.m3u8 \
-       -segment_list_flags +live -segment_time 10 \
-       -segment_list_entry_prefix 480/ \
-       480/%03d.ts
-
-
+  -codec copy -map 0 \
+  -f segment -segment_list 480.m3u8 \
+  -segment_list_flags +live -segment_time 10 \
+  -segment_list_entry_prefix 480/ \
+  480/%03d.ts
 
 # m3u8 添加前缀
 sed -re 's$^[0-9]$1080/\0$' -i 1080.m3u8
@@ -225,7 +233,6 @@ ffmpeg -i in.mov -pix_fmt rgb24 -r 18 -f gif - | gifsicle --optimize=3 --delay=3
 # Web Media
 # ========
 pv in.mp4 | ffmpeg -v warning -y -i pipe:0 -vcodec h264 -vf scale=576:-1 -acodec aac output3.mp4
-
 ```
 
 ### 视频录制
@@ -293,40 +300,40 @@ ffmpeg \
   -map 0:0 \
   -pix_fmt yuv420p \
   -c:v libvpx-vp9 \
-    -s 1280x720 -keyint_min 60 -g 60 ${VP9_LIVE_PARAMS} \
-    -b:v 3000k \
+  -s 1280x720 -keyint_min 60 -g 60 ${VP9_LIVE_PARAMS} \
+  -b:v 3000k \
   -f webm_chunk \
-    -header "./glass_360.hdr" \
-    -chunk_start_index 1 \
+  -header "./glass_360.hdr" \
+  -chunk_start_index 1 \
   ./glass_360_%d.chk \
   -map 1:0 \
   -c:a libvorbis \
-    -b:a 128k -ar 44100 \
+  -b:a 128k -ar 44100 \
   -f webm_chunk \
-    -audio_chunk_duration 2000 \
-    -header ./glass_171.hdr \
-    -chunk_start_index 1 \
+  -audio_chunk_duration 2000 \
+  -header ./glass_171.hdr \
+  -chunk_start_index 1 \
   ./glass_171_%d.chk
 
 # OS X
 ffmpeg \
-  -r 30 -s 1280x720 -ar 44100 -ac 2  -f avfoundation -i "2:0" -c:v mjpeg \
+  -r 30 -s 1280x720 -ar 44100 -ac 2 -f avfoundation -i "2:0" -c:v mjpeg \
   -map 0:0 \
   -pix_fmt yuv420p \
   -c:v libvpx-vp9 \
-    -s 1280x720 -keyint_min 60 -g 60 ${VP9_LIVE_PARAMS} \
-    -b:v 3000k \
+  -s 1280x720 -keyint_min 60 -g 60 ${VP9_LIVE_PARAMS} \
+  -b:v 3000k \
   -f webm_chunk \
-    -header "./glass_360.hdr" \
-    -chunk_start_index 1 \
+  -header "./glass_360.hdr" \
+  -chunk_start_index 1 \
   ./glass_360_%d.chk \
   -map 1:0 \
   -c:a libvorbis \
-    -b:a 128k -ar 44100 \
+  -b:a 128k -ar 44100 \
   -f webm_chunk \
-    -audio_chunk_duration 2000 \
-    -header ./glass_171.hdr \
-    -chunk_start_index 1 \
+  -audio_chunk_duration 2000 \
+  -header ./glass_171.hdr \
+  -chunk_start_index 1 \
   ./glass_171_%d.chk
 
 # 创建 DASH
@@ -338,11 +345,11 @@ ffmpeg \
   -c copy \
   -map 0 -map 1 \
   -f webm_dash_manifest -live 1 \
-    -adaptation_sets "id=0,streams=0 id=1,streams=1" \
-    -chunk_start_index 1 \
-    -chunk_duration_ms 2000 \
-    -time_shift_buffer_depth 7200 \
-    -minimum_update_period 7200 \
+  -adaptation_sets "id=0,streams=0 id=1,streams=1" \
+  -chunk_start_index 1 \
+  -chunk_duration_ms 2000 \
+  -time_shift_buffer_depth 7200 \
+  -minimum_update_period 7200 \
   ./glass_live_manifest.mpd
 ```
 
@@ -475,10 +482,8 @@ mpv rtsp://192.168.0.xxx:1235/test1.sdp
 - [ffserver-all](https://ffmpeg.org/ffserver-all.html)
 
 ```bash
-
 # 启动流媒服务器
 ffserver -f ffserver.conf
-
 ```
 
 ## farm
@@ -493,7 +498,7 @@ https://video.stackexchange.com/a/15799
 # Server
 ffmpeg -i tcp://[your server IP]:[The same port you entered in step 2]?listen -c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -c:a libfdk_aac -vbr 4 output2.mp4
 # Client
-ffmpeg -i frameserver.avs -f mpegts  tcp://[IP address of your server]:[open port on your server]
+ffmpeg -i frameserver.avs -f mpegts tcp://[IP address of your server]:[open port on your server]
 ```
 
 ## FAQ

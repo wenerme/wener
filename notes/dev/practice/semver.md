@@ -37,7 +37,7 @@ build:
 ```
 
 - type
-  - fix,feat
+  - fix, feat
   - build, chore, ci, docs, style, refactor, perf, test
   - revert + Refs commit-id
 - BREAKING CHANGE footer 描述变化 或 `<type>[scope]!`

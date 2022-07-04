@@ -10,6 +10,14 @@ tags:
   - IAP - TCP-over-HTTPS
   - [HN](https://news.ycombinator.com/item?id=28441104)
 - [ockam-network/ockam](https://github.com/ockam-network/ockam)
+  - Apache-2.0, Rust, Elixir
   - End-to-end encryption and mutual authentication for distributed applications
 - [ghostunnel/ghostunnel](https://github.com/ghostunnel/ghostunnel)
+  - Apache-2.0, Go
+  - SSL/TLS proxy with mTLS for securing non-TLS backend applications.
 - [mRemoteNG/mRemoteNG](https://github.com/mRemoteNG/mRemoteNG)
+  - GPLv2, C#
+  - multi-protocol, remote connections manager.
+- [mistio/mist-ce](https://github.com/mistio/mist-ce)
+  - Apache-2.0, Python
+  - multicloud management platform

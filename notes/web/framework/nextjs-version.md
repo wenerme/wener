@@ -34,6 +34,77 @@ tags:
 
 ## NextJS 12
 
+### NextJS 12.2
+
+- Stable
+  - Middleware
+  - On-Demand ISR
+    - `res.revalidate('/path-to-revalidate')`
+- Experimental
+
+  - Edge API Routes
+
+    ```ts title="api/hello.ts"
+    import type { NextRequest } from 'next/server';
+    export default (req: NextRequest) => {
+      return new Response(`Hello, from ${req.url} I'm now an Edge API Route!`);
+    };
+
+    export const config = {
+      // 默认 nodejs
+      runtime: 'experimental-edge',
+    };
+    ```
+
+  - Edge Server-Rendering
+    - streaming server-rendering
+    - 当前 process.env.NEXT_RUNTIME
+    ```ts title="next.config.js"
+    module.exports = {
+      experimental: {
+        // 默认 nodejs
+        runtime: 'experimental-edge',
+      },
+    };
+    ```
+  - SWC Plugins - WASM
+  - next/future/image
+    - 直接渲染 img 无 div 和 span
+    - 无 layout, objectFit, objectPosition
+      - 暂不支持 fill 逻辑 - 必须指定宽高
+    - 使用浏览器本身的 lazy load - Chrome 77+, Safari 15.4+
+      - 不再需要 IntersectionObserver
+      - [HTMLImageElement.loading](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading)
+    - 无 loader 配置，使用 loader props
+- `outputStandalone: true` -> `output: 'standalone'`
+
+```js title="next.config.js"
+module.exports = {
+  compiler: {
+    // true || {}
+    // 支持 @emotion/babel-plugin 除 importMap 之外的功能
+    emotion: {
+      sourceMap: processs.env.NODE_EV !== 'production',
+      autoLabel: 'dev-only', // dev-only,never,always
+      // 启用 autoLabel 时
+      labelFormat: 'local', // local,filename,dirname,
+    },
+  },
+  experimental: {
+    // 实验支持 browsersList
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+
+    // 之前
+    outputStandalone: true,
+  },
+  // 现在
+  output: 'standalone',
+};
+```
+
+### NextJS 12.0
+
 - swc 替代 babel - 更快的刷新和构建
   - styled-component 支持还需要完善
 - 中间件 - \_middleware.ts

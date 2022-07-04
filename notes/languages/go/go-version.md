@@ -11,6 +11,8 @@ tags:
 - bugfix backports 一个版本
 - security backports 两个版本
 - 参考
+  - [golang/proposal](https://github.com/golang/proposal)
+    - [golang/go/projects/1](https://github.com/golang/go/projects/1)
   - https://gotipplay.golang.org/
   - [Release History](https://golang.org/doc/devel/release)
   - https://dev.golang.org/release
@@ -18,7 +20,7 @@ tags:
 :::tip Roadmap
 
 - 1.18 (2022-2) 会包含部分 generic
-- fuzz - https://go.dev/blog/fuzz-beta
+- 1.18 fuzz - https://go.dev/blog/fuzz-beta
 
 :::
 
@@ -33,6 +35,13 @@ tags:
 | [Go 1.12](#go-112) | 2019-2 | -                       | -                |
 | [Go 1.11](#go-111) | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
 | [Go 1.10](#go-110) | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
+
+## Go 1.19
+
+- `fmt.FormatString(State)` - [#51668](https://github.com/golang/go/issues/51668)
+- `strings.CutPrefix`, `strings.CutSuffix` - [#42537](https://github.com/golang/go/issues/42537)
+  - 移除前缀后缀
+- 支持 龙芯 - linux/loong64
 
 ## Go 1.18
 

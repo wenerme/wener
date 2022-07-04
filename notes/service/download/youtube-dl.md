@@ -4,7 +4,10 @@ title: youtube-dl
 
 # youtube-dl
 
+- [yt-dlp/yt-dlp](https://github.com/yt-dlp/yt-dlp)
+  - 开发活跃
 - [ytdl-org/youtube-dl](https://github.com/ytdl-org/youtube-dl)
+  - 开发不活跃
 - 默认配置 --config-location
   - ~/.config/youtube-dl/config
   - /etc/youtube-dl.conf
@@ -113,3 +116,17 @@ youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'
 ```
 
 :::
+
+## 下载翻译字幕
+
+- --convert-subs srt
+- --all-subs 下载所有字幕
+- --embed-subs
+- --write-auto-sub - 下载生成字幕
+
+```bash
+# 中文字幕
+youtube-dl --write-auto-sub --write-sub --skip-download --sub-lang=en,zh-Hans
+# 查看所有字幕
+youtube-dl --list-subs
+```

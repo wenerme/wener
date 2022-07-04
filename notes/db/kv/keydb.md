@@ -21,6 +21,7 @@ title: KeyDB
         - Namespaces
         - JSON
         - RAFT
+    - FLASH 功能大约在 2022-09 发布
 - 参考
   - [EQ-Alpha/ModJS](https://github.com/EQ-Alpha/ModJS)
     - 基于 V8
@@ -28,7 +29,23 @@ title: KeyDB
 :::tip
 
 - Multi-Tenancy Support [#286](https://github.com/EQ-Alpha/KeyDB/issues/286)
-- WIP JSON
+- SET 成员, HASH KEY 支持 TTL
+  - `EXPIREMEMBER <key> <subkey> <timeout-in-seconds> <OPTIONAL:unit-time-format>`
+  - `EXPIREMEMBERAT <key> <subkey> <expiration-timestamp>`
+  - PEXPIREMEMBERAT
+  - 检查 TTL `PTTL/TTL <key> <subkey>`
+  - 不会产生 expired 事件 - [#85](https://github.com/Snapchat/KeyDB/issues/85)
+- 扩展命令
+  - `KEYDB.CRON name [single/repeat] [optional: start] delay script numkeys [key N] [arg N]`
+    - 周期运行 lua 脚本
+  - `KEYDB.HRENAME key [src hash key] [dst hash key]`
+  - `KEYDB.MEXISTS key [key ...]`
+  - KEYDB.MVCCRESTORE
+  - keydb.nhset,keydb.nhget
+  - stralgo
+  - lfence,failover,reset,
+- 2022 Q3 - Redis 7 [#420](https://github.com/Snapchat/KeyDB/issues/420)
+- WIP JSON - [coming-soon](https://docs.keydb.dev/docs/coming-soon/)
 
 :::
 
@@ -70,8 +87,13 @@ replicaof keydb-1:6379
 ```ini
 # scratch-file-path /tmp/
 
+# yes - replica 还没准备好时也接受客户端请求
+# no - 返回错误信息
+replica-serve-stale-data yes
+
 # 处理请求的 worker 线程
 # 取决于网络而不是 CPU 核心数
+# 建议 最大不超过 16，最好少于 8，一般 1 或 2 就可以了
 server-threads 1
 
 server-thread-affinity false

@@ -19,14 +19,14 @@ title: ext4
 :::
 
 ```bash
-apk install e2fsprogs
+apk add e2fsprogs e2fsprogs-extra
 
-# 磁盘最小空间
-resize2fs -P /dev/nbd0p2
-# 查看信息
-tune2fs -l /dev/nbd0p2
-# 检测修复
-e2fsck -p /dev/nbd0p2
+resize2fs -P /dev/sda3 # 磁盘最小空间
+tune2fs -l /dev/sda3 # 查看信息
+e2fsck -p /dev/sda3 # 检测修复
+
+resize2fs /dev/sda3 100000 # 缩小分区
+e2image -ra -p /dev/sda1 /dev/sdb1 # 复制分区 - 只复制用到的块 - 效率更高
 ```
 
 ## 测试 fs

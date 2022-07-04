@@ -5,13 +5,10 @@ title: Alpine 运维笔记
 ## Tips
 
 ```bash
-# 常用命令
-lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE
-# 使用 NAME 排序
-lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE
+lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 查看磁盘硬盘
+lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 使用 NAME 排序
 
-# 基础安装包
-apk add wpa_supplicant e2fsprogs-extra
+apk add wpa_supplicant e2fsprogs-extra # 基础安装包
 ```
 
 ## bash

@@ -179,19 +179,13 @@ tags:
 - [julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
   - 牺牲功能换取性能
   - 不适用于 RESTful 接口 - 不能区分路由 `/users/like`, `/users/:userId`
-- [emicklei/go-restful](https://github.com/emicklei/go-restful)
-  - 辅助构建 RESTful 类型接口
-  - 抽象 Resource 概念
-  - 抽象 Entity 编码处理
-  - 支持 JSON 和 XML
-  - 支持定义 OpenAPI
-- [ogen-go/ogen](https://github.com/ogen-go/ogen)
-  - 生成 OpenAPIv3
 - 参考
   - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
 
 ### 框架/Framework
 
+- [kataras/iris](https://github.com/kataras/iris)
+  - BSD-3
 - [gin-gonic/gin](https://github.com/gin-gonic/gin)
   - 默认处理逻辑将请求和响应封装为了 Context
   - 能 Wrap http 的 Handler
@@ -201,6 +195,19 @@ tags:
 - [gofiber/fiber](https://github.com/gofiber/fiber)
   - 非 net/http 体系
   - 基于 fasthttp
+- [cloudwego/hertz](https://github.com/cloudwego/hertz)
+  - 微服务
+  - 网络层基于 Netpoll 
+  - 文档 https://www.cloudwego.io/zh/docs/hertz/
+  - by 字节跳动
+- [emicklei/go-restful](https://github.com/emicklei/go-restful)
+  - 辅助构建 RESTful 类型接口
+  - 抽象 Resource 概念
+  - 抽象 Entity 编码处理
+  - 支持 JSON 和 XML
+  - 支持定义 OpenAPI
+- [ogen-go/ogen](https://github.com/ogen-go/ogen)
+  - 生成 OpenAPIv3
 - beego
   - 用于快速开发的完整框架 - All in one
   - 不推崇，尽量避免使用
@@ -387,6 +394,8 @@ tags:
 
 ## 网络/Network
 
+- [cloudwego/netpoll](https://github.com/cloudwego/netpoll)
+  - non-blocking I/O networking framework, focused on RPC
 - https://github.com/inetaf
 - [tidwall/evio](https://github.com/tidwall/evio)
   - event-loop networking for Go
@@ -540,20 +549,32 @@ tags:
 
 - [rogchap/v8go](https://github.com/rogchap/v8go)
   - 内含预编译的静态 libv8
+  - alpine 需要额外构建 [v8go#170](https://github.com/rogchap/v8go/issues/170)
 - [augustoroman/v8](https://github.com/augustoroman/v8)
   - V8 Binding
+  - 🚧 不再维护
 - [mvdan/sh](https://github.com/mvdan/sh)
   Shell parser, formatter, interpreter
   - source APKBUILD https://gitlab.alpinelinux.org/kdaudt/atools-go
 - [mvdan/gofumpt](https://github.com/mvdan/gofumpt)
   stricter gofmt
 - [burrowers/garble](https://github.com/burrowers/garble)
-  Obfuscate Go builds
+  - BSD-3
+  - 混淆 Go 代码 - 替代现有 go 工具
 - [mjibson/sqlfmt](https://github.com/mjibson/sqlfmt)
 - [d5/tengo](https://github.com/d5/tengo)
   - MIT
+  - 自定义的语言
 - [dop251/goja](https://github.com/dop251/goja)
+  - Javascript
   - +6MB
+- [Shopify/go-lua](https://github.com/Shopify/go-lua)
+  - MIT
+  - Lua 5.2 VM
+  - 兼容 luac 编译结果
+- [yuin/gopher-lua](https://github.com/yuin/gopher-lua)
+  - MIT
+  - Lua 5.1
 - [google/starlark-go](https://github.com/google/starlark-go)
   - Python
   - used by Caddy, Bazel
@@ -662,6 +683,8 @@ tags:
   - [Goxiaoy/go-saas](https://github.com/Goxiaoy/go-saas)
   - [geeks-accelerator/oss/saas-starter-kit](https://gitlab.com/geeks-accelerator/oss/saas-starter-kit)
     - 2019
+- 数据结构/算法
+  - [shivamMg/trie](https://github.com/shivamMg/trie)
 - [SimonWaldherr/golang-benchmarks](https://github.com/SimonWaldherr/golang-benchmarks)
 
 ## Tool
