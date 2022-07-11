@@ -1,11 +1,9 @@
 ---
-id: markdown
 title: Markdown
 ---
 
 # Markdown
 
-## Tips
 * [Makrdown 基础语法](https://daringfireball.net/projects/markdown/syntax)
 * [Markdown 语法说明 (简体中文版) ](http://wowubuntu.com/markdown/)
 * [Github 流 Markdown 语法指南](https://guides.github.com/features/mastering-markdown/)

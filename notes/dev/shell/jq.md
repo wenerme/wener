@@ -52,4 +52,17 @@ jq -n --argjson data "$json_data" '$data.key'
 json_data="$json_data" jq -n 'env.json_data | fromjson.key'
 # 通过变量
 jq -n "$json_data" | jq .key
+
+# jsonl
+jq -c '.[]'                           # array to jsonl
+jq -n '[inputs]' <in.jsonl >out.json  # jsonl to array
+jq --slurp . <in.jsonl >out.json      # jsonl to array
+```
+
+## parse error: Invalid numeric literal at line 1, column 3
+
+- 可能是因为有 BOM
+
+```bash
+dos2unix in.json
 ```

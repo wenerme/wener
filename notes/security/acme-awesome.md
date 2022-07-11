@@ -9,12 +9,14 @@ tags:
 ## Provider
 
 - letsencrypt
-  - 50 domain/week, 5 duplicate certificates/week
+  - **频率** 50 domain/week, 5 duplicate certificates/week
+  - K8S cert-manager 配置的时候注意，如果配置的 secret 覆盖，会导致
   - 问题排查
     - https://crt.sh/?q=baidu.com
     - https://letsdebug.net/
 - ZeroSSL
   - 不支持 ACME 账号自动申请 - 需要注册账号, 客户端要支持 EAB
+  - **无频率限制**
   - Maximum NIST P-384
   - 支持 certificate revocation
 - BuyPass

@@ -74,11 +74,30 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 - https://www.v2ray.com/
 - [clash](./clash.md)
+  - rule based
+- [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)
+  - MIT, Go
+
+## iOS
+
+- Stash - Rule Based Proxy
+  - $2.99
+  - 支持 Clash, hysteria
+  - App Store https://apps.apple.com/app/stash/id1596063349
+  - Test Flight https://testflight.apple.com/join/elwvzipQ
+  - https://t.me/RnNc2RaV8x0wMzQ0
+  - https://t.me/stashnetworks
+- Clash for iOS
+  - App Store https://apps.apple.com/us/app/choc/id1582542227
+  - Test Flight https://testflight.apple.com/join/J5QPqXKO
+  - https://t.me/choc_channel
+  - https://t.me/choc_chat
 
 # 库
 
 ## Golang
 
+- [mingcheng/socks5lb](https://github.com/mingcheng/socks5lb)
 - [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy)
 - [google/huproxy](https://github.com/google/huproxy)
   - Server/Client 结构
@@ -103,7 +122,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - 负载均衡
   - 路由控制
   - DNS 解析和代理
-- [xtaci/smux](https://github.com/xtaci/smux) - Stream Multiplexing Library
+- [xtaci/smux](https://github.com/xtaci/smux)
+  - TCP, KCP
+  - Simple MUltipleXing
 - [jamescun/switcher](https://github.com/jamescun/switcher) - ssh http same port
 - [inetaf/tcpproxy](https://github.com/inetaf/tcpproxy)
   - TCP over HTTP
@@ -111,6 +132,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - [akutz/memconn](https://github.com/akutz/memconn)
   - [MemConn: an in-memory network stack for Go](https://akutz.wordpress.com/2018/04/20/memconn/)
   - 可用于测试或虚拟内部代理网络
+- [dshulyak/uring](https://github.com/dshulyak/uring)
 
 ## 其他语言
 
@@ -118,6 +140,26 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - C
   - HTTP, TLS/SSL (including SNI and ALPN), SSH, OpenVPN, tinc, XMPP, SOCKS5
 
-## Fight GFW
+## GFW
 
 - [comwrg/FUCK-GFW](https://github.com/comwrg/FUCK-GFW)
+
+## 线路
+
+- CN1 - 163 骨干网 - 带宽容量大，价格便宜
+  - as4134
+  - `202.97.*`
+- CN2 - 带宽容量较小，费用高
+  - as4809
+  - `59.43.*`
+  - CN2 GT - Global Transit
+    - 出口单独线路，入口使用 163
+  - CN2 GIA
+    - 独立的回国线路
+- HK > CN2 GIA > CN2 GT
+
+## 大流量域名
+
+```
+googlevideo.com
+```

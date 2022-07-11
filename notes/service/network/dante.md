@@ -84,3 +84,38 @@ socks block {
   log: connect error
 }
 ```
+
+## 基础配置
+
+```pre title="sockd.conf"
+logoutput: stderr
+internal: 0.0.0.0 port = 8888
+# External address or interface
+external: eth0
+clientmethod: none
+socksmethod: none
+user.privileged: root
+user.unprivileged: nobody
+client pass {
+        from: 0.0.0.0/0 to: 0.0.0.0/0
+        log: error
+}
+client block {
+        from: 0.0.0.0/0 to: 127.0.0.0/8
+        log: error
+}
+socks pass {
+        from: 0.0.0.0/0 to: 0.0.0.0/0
+        command: bind connect udpassociate
+}
+socks pass {
+        from: 0.0.0.0/0 to: 0.0.0.0/0
+        command: bindreply udpreply
+        log: error
+}
+socks block {
+        from: 0.0.0.0/0 to: 127.0.0.0/8
+        command: bind connect udpassociate
+        log: connect error
+}
+```

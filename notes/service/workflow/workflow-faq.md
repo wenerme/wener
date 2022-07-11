@@ -65,7 +65,7 @@ tags:
     - 多集群
   - 支持 NoSQL - MongoDB
   - 动态配置
-  - 正在支持 gRPC
+  - Thrift/yarpc - 正在支持 gRPC
   - Kafka 集成
 
 ---

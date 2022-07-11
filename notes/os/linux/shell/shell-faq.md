@@ -198,3 +198,18 @@ find . -type d -user harry -exec chown daisy {} \;
 ```bash
 echo message | tee -a /dev/fd/2 > /dev/null
 ```
+
+## Sort Large File
+
+```bash
+split -l 1000000 in.txt chunk
+for X in chunk*; do sort < $X > sorted-$X; done
+sort -m sorted-chunk* > out.txt
+
+# 清理
+rm chunk* sorted-chunk*
+```
+
+- `-m` 只合并不做整体排序
+- `--parallel=$(nproc)` 并行
+- https://man7.org/linux/man-pages/man1/sort.1.html

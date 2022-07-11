@@ -3,6 +3,7 @@ title: Unicode
 ---
 
 # Unicode
+
 - spec
   - [UNICODE TEXT SEGMENTATION](https://www.unicode.org/reports/tr29/)
   - [COMMON REFERENCES FOR UNICODE STANDARD ANNEXES](https://www.unicode.org/reports/tr41/tr41-28.html)
@@ -40,7 +41,6 @@ https://cloud.google.com/translate/docs/reference/rest
 
 https://github.com/git/git/tree/master/po
 
-
 ## Symbol
 
 - 数学
@@ -67,3 +67,29 @@ https://github.com/git/git/tree/master/po
 ## Unicode character class
 
 - https://pkg.go.dev/regexp/syntax
+
+## Currency symbols
+
+|     | Name        | Unicode | UTF-8  |
+| --- | ----------- | ------- | ------ | ------ |
+| €   | euro sign   | 20AC    | E282AC | 欧元   |
+| $   | dollar sign | 0024    | 24     | 美元   |
+| ¢   | cent sign   | 00A2    | C2A2   | 分     |
+| £   | pound sign  | 00A3    | C2A3   | 英镑   |
+| ¥   | yen sign    | 00A5    | C2A5   | 人民币 |
+| ƒ   |             | 0192    | C692   |
+
+|     | Ticker | name             |
+| --- | ------ | ---------------- |
+| ₿   | BTC    | bitcoin          |
+| Ξ   | ETH    | Ethereum         |
+| ⟠   | ETH    | Ethereum         |
+| ₮   | USDT   | Tether           |
+| ξ   | ETC    | Ethereum Classic |
+| Ł   | LTC    | Litecoin         |
+| ◈   | DAI    | Dai              |
+| Ƀ   | BCH    | Bitcoin Cash     |
+
+- https://github.com/yonilevy/crypto-currency-symbols
+- https://en.wikipedia.org/wiki/Currency_symbol
+- https://unicode-explorer.com/articles/cryptocurrency-unicode-symbols

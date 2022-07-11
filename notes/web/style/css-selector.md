@@ -90,6 +90,15 @@ a:not(nav *) {
 
 - :target - 使用 id 或 name 属性
   - `https://wener.me#reference`
+- :is - 早期叫 :matches
+  - 类似于缩写展开 `:is(h1,h2) p` -> `h1 p, h2 p`
+  - 不能选择伪元素
+- :where = :is - 但不增加选择符权重
+- :has - Chrome 105
+- :scope = :root
+  - 限定选择范围 - `querySelector()`, `querySelectorAll()`, `matches()`, `Element.closest()`
+  - 目前还无法创建 scope
+- [container query](./container-query.md)
 
 ```html
 <!-- 插入一个专门用于定位的 anchor -->

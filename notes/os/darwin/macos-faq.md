@@ -232,10 +232,21 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 
 ## com.apple.MobileSoftwareUpdate.UpdateBrainService
 
-# otool
+## otool
 
 - macOS 下的 ldd 对等工具
 
 ```bash
 otool -L a.out
 ```
+
+## coreaudiod
+
+**修复高 CPU 占用问题**
+
+```bash
+mkdir ~/Library/Preferences/Audio
+sudo chown _coreaudiod:admin ~/Library/Preferences/Audio
+```
+
+- https://forums.macrumors.com/threads/fix-sustained-12-15-coreaudiod-cpu-usage-on-m1-possibly-intel-too.2331498/

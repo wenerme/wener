@@ -17,8 +17,10 @@ tags:
 
 :::
 
-- 注意
-  - macOS 要求在主线程操作 GUI - 多个 UI 库无法同时使用
+> **Note**
+>
+> - macOS 要求在主线程操作 GUI - 多个 UI 库无法同时使用
+
 - 参考
   - https://golangr.com/gui/
 
@@ -31,8 +33,11 @@ tags:
   - 需要有显卡
 - [gio](https://git.sr.ht/~eliasnaur/gio)
   Immediate mode GUI programs in Go for Android, iOS, macOS, Linux, FreeBSD, OpenBSD, Windows, and WebAssembly
+  - used by Tailscale
   - [gioui/gio](https://github.com/gioui/gio)
-- [zhuah/kita](https://github.com/zhuah/kita)
+  - [immediate mode user interfaces](https://eliasnaur.com/blog/immediate-mode-gui-programming)
+
+<!-- - [zhuah/kita](https://github.com/zhuah/kita) -->
 
 ## Binding
 

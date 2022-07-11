@@ -130,3 +130,10 @@ youtube-dl --write-auto-sub --write-sub --skip-download --sub-lang=en,zh-Hans
 # 查看所有字幕
 youtube-dl --list-subs
 ```
+
+## yt-dlp
+
+```bash
+sudo curl -o /usr/local/bin/yt-dlp -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp
+```

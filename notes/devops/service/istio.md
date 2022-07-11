@@ -1,5 +1,4 @@
 ---
-id: istio
 title: Istio
 ---
 

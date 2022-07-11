@@ -16,6 +16,30 @@ go build -gcflags "all=-N -l" github.com/app/demo
 dlv --listen=:2345 --headless=true --api-version=2 --accept-multiclient exec ./demo
 ```
 
+## pprof
+
+```go
+var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
+
+func main() {
+    flag.Parse()
+    if *cpuprofile != "" {
+        f, err := os.Create(*cpuprofile)
+        if err != nil {
+            log.Fatal(err)
+        }
+        pprof.StartCPUProfile(f)
+        defer pprof.StopCPUProfile()
+    }
+}
+```
+
+```bash
+go build main.go
+./main -cpuprofile=out.prof
+go tool pprof main out.prof
+```
+
 ## benchstat
 
 ```bash

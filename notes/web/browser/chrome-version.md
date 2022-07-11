@@ -8,7 +8,9 @@ tags:
 
 | version                   | date       | note                                              |
 | ------------------------- | ---------- | ------------------------------------------------- |
-| [Chrome 103](#chrome-103) |            |
+| [Chrome 105](#chrome-105) |            | Container Query, :has                             |
+| [Chrome 104](#chrome-104) |            |
+| [Chrome 103](#chrome-103) |            | Local Font Access                                 |
 | [Chrome 102](#chrome-102) |            | DNS HTTPS                                         |
 | [Chrome 101](#chrome-101) |            |
 | [Chrome 100](#chrome-100) | 2022-03-29 |
@@ -59,7 +61,8 @@ tags:
 :::tip
 
 - 暴露 Socket - 支持 TCP 和 UDP - [Raw Sockets API](https://chromestatus.com/feature/6398297361088512)
-- Container Query - WIP
+- Container Query - Chrome 105
+- :has - Chrome 105 - https://chromestatus.com/feature/5794378545102848
 - Sanitizer API
   - https://web.dev/sanitizer/
   - https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API
@@ -119,22 +122,54 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 105
+
+- CSS
+  - Container Query
+  - :has
+- Federated Credentials Management/FedCM/WebID
+- script,style,link - blocking=render - 避免 FOUC
+- Writable directory prompts for the File System Access API
+  - `showDirectoryPicker` 可以请求返回一个 **可写** 的目录
+- Sanitizer API MVP - https://web.dev/sanitizer/
+  - 目前主流库 [cure53/DOMPurify](https://github.com/cure53/DOMPurify)
+
+```js
+$div.setHTML(
+  `<em>hello world</em><img src="" onerror=alert(0)>`,
+  new Sanitizer({
+    allowElements: ['b', 'em'],
+    allowAttributes: {style: ['span']},
+  }),
+);
+```
+
 ## Chrome 104
 
-- script,style,link - blocking=render - 避免 FOUC
+- CSS
+  - object-view-box
+  - visual-box on overflow-clip-margin
 - Media Queries Level 4 Syntax & Evaluation
+- Region Capture - 部分截取媒体流
+  - `CropTarget.fromElement()`
+  -  cropTo
+- Multi-Screen Window Placement: Fullscreen Companion Window
+- Web Custom formats for Async Clipboard API
 
 ## Chrome 103
 
-- AbortSignal.timeout
+- `AbortSignal.timeout()`
 - Block external protocol in sandboxed iframe
   - 恢复 allow-top-navigation-to-custom-protocols
     - allow-popups
     - allow-top-navigation
     - allow-top-navigation-with-user-activation
-- Focusgroup
 - Local Font Access - https://web.dev/local-fonts
-- Multi-Screen Window Placement: Fullscreen Companion Window
+- deflate-raw
+- Speculation Rules - 探测可预加载的 URL
+- Trial
+  - Multi-Screen Window Placement: Fullscreen Companion Window
+  - Focusgroup
 
 ## Chrome 102
 
@@ -146,6 +181,7 @@ tags:
 - File Handling - Web 定义有能力处理指定类型文件
 - Secure Payment Confirmation API V3 https://github.com/w3c/secure-payment-confirmation
 - inert 属性 https://github.com/WICG/inert
+  - 性能优化
   - polyfill wicg-inert
   - Temporarily offscreen/hidden content
   - On-screen but non-interactive content - pointer-events: none，user-select: none
@@ -294,7 +330,7 @@ tags:
 
 ```js
 // import 断言 - JSON Module
-import json from './foo.json' assert { type: 'json' };
+import json from './foo.json' assert {type: 'json'};
 
 class C {
   static s_field;
@@ -339,7 +375,7 @@ class C {
 
 ```js
 // 获取包含 shadowdom 的 HTML
-const html = element.getInnerHTML({ includeShadowRoots: true, closedRoots: [] });
+const html = element.getInnerHTML({includeShadowRoots: true, closedRoots: []});
 ```
 
 ## Chrome 89
@@ -404,11 +440,11 @@ Sec-CH-UA-Mobile: ?0
   - seamless transitions across navigations
 
 ```js
-const segmenter = new Intl.Segmenter('zh', { granularity: 'word' });
+const segmenter = new Intl.Segmenter('zh', {granularity: 'word'});
 // 输出 ['你好', '世界']
 Array.from(segmenter.segment('你好世界')).map((v) => v.segment);
 // 可用于优化 CPU 重场景
-navigator.scheduling.isInputPending({ includeContinuous: true });
+navigator.scheduling.isInputPending({includeContinuous: true});
 ```
 
 ## Chrome 86

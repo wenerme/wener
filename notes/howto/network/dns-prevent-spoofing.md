@@ -36,6 +36,8 @@ label="DNS 排污"
 
 ![域名访问结构](https://www.plantuml.com/plantuml/svg/RP9DIm916CVlyoa6kvgIH2Yv4gvkjmWwHeUndL9QTsrc3uO8LeUeA4nxPqkbA8dIEXQPNwOPrs_Hh5k-4NiPdl_pstcU7pD7JKHCrJ21cbedA9E4yp07T4F5opI9CbXA65alDRSqBAsbD0shtbL3CuXa4gJJ329ODxrEu5Oz4z5eBAv4FIi04CCmbpMKm9eKvjLtRXsnWngxgaTM0ABzu6QNrRU7Cu9N-w7rpApNRg74MgNX5bMdQKGtHziwdsNsSZbe6vbAKUHOB22cIXff_CUnjmAhL3gj4_-YxEVxXzpw6AUKa3mjA9mrCT6HrYVlpmKMMrWA9uW_ylrro1vsOD3N-tgbRk7QRk-vRNQZtRrezChyeihVQhnI7hr73iPdv93ZB2UiRaWKfV4i52BWxwPvrwONKJWPSGB7adCSCp7bW-prncwUsOzt_BROkvCLcvtJEXJ3BiNbo62NV_203xeWjvxitPPx5efOyMXWtU4SYm2ub4Vy6VBZabZC0_9W3kkgU4q_)
 
+> **Note** 推荐使用 [ADGuard](../../service/dns/adguard.md) 简单方便
+
 ## 原理
 
 - 不要依赖上游 DNS - 例如 114.114.114.114

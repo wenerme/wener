@@ -40,6 +40,8 @@ tags:
 - casbin
 - [osohq/oso](https://github.com/osohq/oso)
   - Apache-2.0, Rust+Python
+- [ory/oathkeeper](https://github.com/ory/oathkeeper)
+  - Identity & Access Proxy
 
 **Zanzibar**
 
@@ -47,6 +49,8 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=28709886)
 - [josephglanville/zanzibar-pg](https://github.com/josephglanville/zanzibar-pg)
 - [authorizer-tech/access-controller](https://github.com/authorizer-tech/access-controller)
+- [ory/keto](https://github.com/ory/keto)
+  - Apache-2.0, Go
 - 参考
   - [What is Zanzibar?](https://authzed.com/blog/what-is-zanzibar/)
 
@@ -81,6 +85,7 @@ tags:
   - Apache-2.0, Java
 - [goauthentik/authentik](https://github.com/goauthentik/authentik)
   - GPL-3.0, Python
+- [ory/kratos](./kratos.md)
 
 ## Reference
 

@@ -53,6 +53,7 @@ go install github.com/bufbuild/buf/cmd/buf@latest
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install github.com/bufbuild/connect-go/cmd/protoc-gen-connect-go@latest
+go install github.com/bufbuild/protobuf-es/cmd/protoc-gen-es@latest
 ```
 
 ```yaml title="buf.gen.yaml:"
@@ -66,11 +67,11 @@ plugins:
     opt: paths=source_relative
 ```
 
-### 实现 
+### 实现
 
 - Handler - 当个 RPC 方法处理
   - 实现 Connect, gRPC, gRPC-Web 协议
-  - 提供  ServeHTTP 
+  - 提供  ServeHTTP
   - 构造
     - NewBidiStreamHandler
     - NewClientStreamHandler

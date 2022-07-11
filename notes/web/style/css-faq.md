@@ -451,3 +451,61 @@ body {
 
 - https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/
 - https://css-tricks.com/scroll-shadows-with-javascript/
+
+## Defensive CSS
+
+```css
+.flex {
+  display: flex;
+  flex-wrap: wrap; /* defensive */
+}
+
+img {
+  object-fit: cover;
+}
+
+.long-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spacing {
+  margin-right: 1rem;
+}
+
+.wrapper {
+  --sizing: auto-fit; /* auto-fill */
+  display: grid;
+  grid-template-columns: repeat(var(--sizing), minmax(100px, 1fr));
+  grid-gap: 1rem;
+}
+
+.bg {
+    background-image: url('..');
+    background-repeat: no-repeat; /* defensive */
+}
+
+.card__title {
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+.modal__body {
+    overscroll-behavior-y: contain; /*避免 parent 滚动*/
+    overflow-y: auto;
+}
+.element {
+    scrollbar-gutter: stable; /* 避免滚动条出现导致错位 */
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
+@media (hover: hover) {
+    .card:hover {
+        /* 避免移动设备 hover */
+    }
+}
+```
+
+- width -> min-width
+- height -> min-height
+- https://defensivecss.dev/

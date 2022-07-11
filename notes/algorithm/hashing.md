@@ -4,14 +4,6 @@ title: Hashing
 
 # Hashing
 
-- 参考
-  - [Which hashing algorithm is best for uniqueness and speed?](http://softwareengineering.stackexchange.com/questions/49550)
-    - 随机性和碰撞比较
-  - [Cryptography Center](https://cryptography.cc/)
-  - [shattered](https://shattered.io/)
-    broken SHA-1 in practice
-  - [multiformats/multihash](https://github.com/multiformats/multihash)
-  - [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
 - Broken - MD4, MD5, SHA-0, SHA-1
 
 :::tip
@@ -19,6 +11,18 @@ title: Hashing
 - git 默认 sha2-256
 
 :::
+
+**参考**
+
+- [Which hashing algorithm is best for uniqueness and speed?](http://softwareengineering.stackexchange.com/questions/49550)
+  - 随机性和碰撞比较
+- [Cryptography Center](https://cryptography.cc/)
+- [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
+- SHA1
+  - 2017-02-23 [Announcing the first SHA1 collision](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html)
+  - [shattered](https://shattered.io/)
+    broken SHA-1 in practice
+  - [cr-marcstevens/sha1collisiondetection](https://github.com/cr-marcstevens/sha1collisiondetection)
 
 ## git hash
 
@@ -44,18 +48,18 @@ title: Hashing
 
 ## Cryptographic hash algorithms
 
-| hash  | variant  | bits | internal bites | block bits | rounds |
-| ----- | -------- | ---- | -------------- | ---------- | ------ |
-| MD5   |          | 128  | 128=4×32       | 512        | 64     |
-| SHA-0 |          | 160  | 160=5×32       | 512        | 80     |
-| SHA-1 |          | 160  | 160=5×32       | 512        | 80     |
-| SHA-2 | 224      | 224  | 256=8×32       | 512        | 64     |
-| ^^    | 256      | 256  | ^^             | ^^         | ^^     |
-| ^^    | 384      | 384  | 512=8×64       | 1024       | 80     |
-| ^^    | 512      | 512  | ^^             | ^^         | ^^     |
+| hash  | variant  | bits | internal bites | block bits | rounds | hex | b64 |
+| ----- | -------- | ---- | -------------- | ---------- | ------ | --- | --- |
+| MD5   |          | 128  | 128=4×32       | 512        | 64     | 32  |
+| SHA-0 |          | 160  | 160=5×32       | 512        | 80     | 40  |
+| SHA-1 |          | 160  | 160=5×32       | 512        | 80     | 40  |
+| SHA-2 | 224      | 224  | 256=8×32       | 512        | 64     | 56  |
+| ^^    | 256      | 256  | ^^             | ^^         | ^^     | 64  |
+| ^^    | 384      | 384  | 512=8×64       | 1024       | 80     | 96  |
+| ^^    | 512      | 512  | ^^             | ^^         | ^^     | 128 |
 | ^^    | 512/224  | 224  | ^^             | ^^         | ^^     |
 | ^^    | 512/256  | 256  | ^^             | ^^         | ^^     |
-| SHA-3 | 224      | 224  | 1600=5×5×64    | 1152       | 24     |
+| SHA-3 | 224      | 224  | 1600=5×5×64    | 1152       | 24     | 56  |
 | ^^    | 256      | 256  | ^^             | 1088       | ^^     |
 | ^^    | 384      | 384  | ^^             | 832        | ^^     |
 | ^^    | 512      | 512  | ^^             | 576        | ^^     |

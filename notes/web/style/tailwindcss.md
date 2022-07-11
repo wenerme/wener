@@ -65,6 +65,9 @@ import 'tailwindcss/tailwind.css';
   - +35K
 - [rogden/tailwind-config-viewer](https://github.com/rogden/tailwind-config-viewer)
   - Tailwind 配置预览
+- [htmlstreamofficial/preline](https://github.com/htmlstreamofficial/preline)
+  - 基于 tw 的组件 - 依赖 JS
+  - 使用全局监听，通过 data-attr 控制
 - https://flowbite.com
   - https://flowbite.com/tools/tailwind-cheat-sheet/
 - [defaultConfig.stub.js](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7)

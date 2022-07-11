@@ -136,6 +136,10 @@ Forwarded: by=<identifier>;for=<identifier>;host=<host>;proto=<http|https>
 - [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
 - since Microsoft IE 8
 
+## Strict-Transport-Security
+
+- STS
+
 ## Encoding
 
 - Transfer-Encoding

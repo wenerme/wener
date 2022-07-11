@@ -73,6 +73,12 @@ tags:
 - [duckdb/duckdb](https://github.com/duckdb/duckdb)
   - SQLite for OLAP, C++, MIT
 
+## OLTP
+
+- [stoneatom/stonedb](https://github.com/stoneatom/stonedb)
+  - GPLv2, C++
+  - MySQL HTAP and MySQL-native database for oltp, real-time analytics
+
 ## 图
 
 - [JanusGraph/janusgraph](https://github.com/JanusGraph/janusgraph)

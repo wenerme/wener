@@ -29,6 +29,12 @@ tags:
   - [nodeca/pako](https://github.com/nodeca/pako)
     - high speed zlib port to javascript, works in browser & node.js
 - [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
+- [MacPaw/XADMaster](https://github.com/MacPaw/XADMaster)
+  -  LGPL-2.1
+  - Zip, Tar, Gzip, Bzip2, 7-Zip, Rar, LhA, StuffIt, CAB, LZX
+  - unar
+  - https://theunarchiver.com/
+  - https://github.com/Homebrew/homebrew-core/blob/master/Formula/unar.rb
 - 参考
   - [Modern LZ Compression](https://glinscott.github.io/lz/index.html)
   - [MiloszKrajewski/SilesiaCorpus](https://github.com/MiloszKrajewski/SilesiaCorpus)
@@ -81,8 +87,7 @@ pv dict.db | brotli -9 -w 0 > dict.db.br
 # 编码
 # ====
 # https://www.iana.org/assignments/character-sets/character-sets.xhtml
-# 使用指定的编码, 有些 unzip 不一定有该选项
-unzip -O cp936 -l my.zip
+unzip -O cp936 -l my.zip # 使用指定的编码, 有些 unzip 不一定有该选项 - unzip-iconv
 # 也可以先解压, 然后再转换
 LANG=C 7za x your-zip-file.zip
 convmv -f GBK -t utf8 --notest -r .
@@ -243,4 +248,24 @@ unzip \*.zip
 
 ```bash
 ls *.exe | xargs -n 1 -d "\n" 7z x
+```
+
+## Multi part
+
+```bash
+# 1. merge
+cat in.zip* > ~/in.zip
+unzip in.zip
+
+# 2. 7z
+7z x in.zip.001
+```
+
+## Password
+
+```bash
+7z -mhc=on -mhe=on -pPASSWORD a out.7z in.txt
+
+zip -P password -r encrypted.zip folderIWantToZip
+unzip -P password encrypted.zip
 ```

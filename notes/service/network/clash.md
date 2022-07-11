@@ -25,13 +25,22 @@ docker run --rm -it \
   --name clash dreamacro/clash
 ```
 
+## notes
+
+- 会下载 MMDB
+
+```bash
+curl -o ~/.config/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
+```
+
 ## conf
 
+- config.yaml
 - mode
   - rule - 基于规则路由
   - global - 全局路由到单个出口
   - direct - 不路由直接访问
-- proxies
+- proxies - 上游代理
   - type
     - ss
     - ssr
@@ -40,7 +49,10 @@ docker run --rm -it \
     - http
     - snell
     - trojan
-
+- 参考配置
+  - https://gist.github.com/phlinhng/38a141862de775b10c613f7f2c6ade99
+  - https://github.com/springzfx/cgproxy/blob/aaa628a76b2911018fc93b2e3276c177e85e0861/readme.md#known-issues
+    - docker 不可以 tproxy
 
 ```bash
 # HTTP(S) 代理端口
@@ -475,16 +487,64 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
 
 rules:
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
   - DOMAIN-SUFFIX,google.com,auto
-  - DOMAIN-KEYWORD,google,auto
   - DOMAIN,google.com,auto
+  - DOMAIN-KEYWORD,google,auto
   - DOMAIN-SUFFIX,ad.com,REJECT
   - SRC-IP-CIDR,192.168.1.201/32,DIRECT
   # optional param "no-resolve" for IP rules (GEOIP, IP-CIDR, IP-CIDR6)
-  - IP-CIDR,127.0.0.0/8,DIRECT
   - GEOIP,CN,DIRECT
   - DST-PORT,80,DIRECT
   - SRC-PORT,7777,DIRECT
   - RULE-SET,apple,REJECT # Premium only
   - MATCH,auto
+```
+
+## Rule
+
+
+```yaml
+# 已知 IP 段
+- IP-CIDR,127.0.0.0/8,REJECT
+- IP-CIDR,0.0.0.0/8,REJECT
+- GEOIP,LAN,DIRECT
+
+# 国内常见
+- DOMAIN-SUFFIX,taobao.com,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,jdapi.com,DIRECT
+
+# 国外常见
+- DOMAIN-SUFFIX,google.com,auto
+
+- GEOIP,CN,DIRECT
+
+#- RULE-SET,China,DIRECT
+
+- MATCH,auto
+```
+
+| type           | desc                         |
+| -------------- | ---------------------------- |
+| DOMAIN-SUFFIX  | 域名后缀                     |
+| DOMAIN         | 域名匹配                     |
+| DOMAIN-KEYWORD | 域名关键字匹配               |
+| IP-CIDR        | IP 段匹配                    |
+| SRC-IP-CIDR    | 源 IP 段匹配                 |
+| GEOIP          | GEOIP 数据库（国家代码）匹配 |
+| DST-PORT       | 目标端口匹配                 |
+| SRC-PORT       | 源端口匹配                   |
+| PROCESS-NAME   | 源进程名匹配                 |
+| RULE-SET       | Rule Provider 规则匹配       |
+| MATCH          | 全匹配                       |
+
+- https://github.com/Loyalsoldier/clash-rules
+- https://github.com/DivineEngine/Profiles/tree/master
+
+## Start TProxy server error: operation not permitted
+
+```bash
+sudo setcap cap_net_bind_service,cap_net_admin+ep $(which clash)
 ```

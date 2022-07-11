@@ -65,6 +65,8 @@ tags:
   - [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
     - BSD-3, Golang
     - cloud-native, modular, real-time vector search engine
+- [wibyweb/wiby](https://github.com/wibyweb/wiby)
+  - GPLv2
 
 ## Lcoal Search
 

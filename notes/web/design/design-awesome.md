@@ -17,6 +17,9 @@ tags:
   - https://speckyboy.com/css-javascript-parallax-scrolling/
 - [goabstract/Awesome-Design-Tools](https://github.com/goabstract/Awesome-Design-Tools)
 - [gztchan/awesome-design](https://github.com/gztchan/awesome-design)
+- [Make Beautiful Gradients](https://www.joshwcomeau.com/css/make-beautiful-gradients/)
+  - 使用 HSL 做渐变，不要用 RGB
+  - [Gradient Generator](https://www.joshwcomeau.com/gradient-generator/)
 
 ## Reference
 

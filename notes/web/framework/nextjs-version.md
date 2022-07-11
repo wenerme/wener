@@ -45,7 +45,7 @@ tags:
   - Edge API Routes
 
     ```ts title="api/hello.ts"
-    import type { NextRequest } from 'next/server';
+    import type {NextRequest} from 'next/server';
     export default (req: NextRequest) => {
       return new Response(`Hello, from ${req.url} I'm now an Edge API Route!`);
     };
@@ -76,6 +76,7 @@ tags:
       - 不再需要 IntersectionObserver
       - [HTMLImageElement.loading](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/loading)
     - 无 loader 配置，使用 loader props
+
 - `outputStandalone: true` -> `output: 'standalone'`
 
 ```js title="next.config.js"
@@ -143,7 +144,7 @@ module.exports = {
 ```
 
 ```ts title="pages/_middleware.ts"
-import type { NextFetchEvent, NextRequest } from 'next/server';
+import type {NextFetchEvent, NextRequest} from 'next/server';
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
   // https://developer.mozilla.org/en-US/docs/Web/API/Response
@@ -302,7 +303,7 @@ module.exports = {
   // 重写 - 类似于 nginx 的 proxy_pass
   async rewrites() {
     return [
-      { source: '/backend/:path*', destination: 'https://example.com/:path*' },
+      {source: '/backend/:path*', destination: 'https://example.com/:path*'},
       // 如果路径不存在则尝试使用后端 - 可以实现逐步替换为 NextJS
       {
         source: '/:path*',
@@ -365,7 +366,7 @@ export function reportWebVitals(metric) {
   console.log(metric);
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
   return <Component {...pageProps} />;
 }
 

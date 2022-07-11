@@ -43,7 +43,7 @@ title: Kratos
   - /self-service/login/browser
 - 注销
 - 验证
-- `/self-service/verification/methods/link?token=${TOKEN}`
+  - `/self-service/verification/methods/link?token=${TOKEN}`
 - User Settings
 - Account Recovery
 - Address Verification

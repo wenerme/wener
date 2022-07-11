@@ -15,7 +15,6 @@ tags:
   - 单地址族
   - 只支持通道模式
 - XFRM - Linux 4.19+
-
   - 不需要配置通道地址
     - 避免 VTI SAs:interface 的 1:1 关系
     - SAs peers 共享 interface
@@ -23,6 +22,8 @@ tags:
   - 支持包括通道的其他模式
   - XFRM interface ID 配置
     - 避免 GRP key 和 XFRM mark 配置
+
+---
 
 - 参考
   - [RouteBasedVPN](https://wiki.strongswan.org/projects/strongswan/wiki/RouteBasedVPN)

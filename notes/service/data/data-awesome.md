@@ -73,6 +73,7 @@ tags:
 - [datasets/awesome-data](https://github.com/datasets/awesome-data)
 - [Denied Persons List](https://www.bis.doc.gov/index.php/policy-guidance/lists-of-parties-of-concern/denied-persons-list)
   - https://bis.doc.gov/dpl/dpl.txt
+- [NYPL-publicdomain/data-and-utilities](https://github.com/NYPL-publicdomain/data-and-utilities)
 
 ## File Format
 
@@ -87,6 +88,10 @@ tags:
   - 记录额外索引信息
 - Arrow - 内存
   - 主要用于处理
+- CSV, TSV
+- JSON
+- JSONL - `.jsonl`, `.ndjson`
+  - 每行一个 JSON
 
 ## Misc
 
@@ -102,11 +107,21 @@ tags:
 ## Tools
 
 - [TomWright/dasel](https://github.com/TomWright/dasel)
+  - MIT, Go
+  - JSON, TOML, YAML, XML, CSV
 - [johnkerl/miller](https://github.com/johnkerl/miller)
+  - MIT, Go
+  - awk, sed, cut, join, and sort for name-indexed data such as CSV, TSV, and tabular JSON
 - [simeji/jid](https://github.com/simeji/jid)
+  - MIT, Go
+  - json incremental digger
 - [fiatjaf/jiq](https://github.com/fiatjaf/jiq)
+  - jid in jq syntax
 - [tomnomnom/gron](https://github.com/tomnomnom/gron)
+  - MIT, Go
+  - JSON greppable
 - [saulpw/visidata](https://github.com/saulpw/visidata)
+  - GPLv3, Python
   - terminal spreadsheet
 - [multiprocessio/dsq](https://github.com/multiprocessio/dsq)
   - Apache-2.0, Go
@@ -114,9 +129,18 @@ tags:
 - [x2bool/xlite](https://github.com/x2bool/xlite)
   - MIT, Rust
   - SQLite for .xlsx, .xls, .ods
-- [saulpw/visidata](https://github.com/saulpw/visidata)
-  - GPLv3, Python
-  - terminal spreadsheet multitool
+- jq
+- [dbcrossbar/dbcrossbar](https://github.com/dbcrossbar/dbcrossbar)
+  - 支持 jsonl https://github.com/dbcrossbar/dbcrossbar/issues/132
+- Twitter
+  - [DocNow/twarc](https://github.com/DocNow/twarc)
+- mdb
+  - [mdbtools/mdbtools](https://github.com/mdbtools/mdbtools)
+  - [pavlov99/mdb-export-all](https://github.com/pavlov99/mdb-export-all)
+  - [AccelerationNet/access2csv](https://github.com/AccelerationNet/access2csv)
+
+## Extract
+- [XHXIAIEIN/split-string-address](https://github.com/XHXIAIEIN/split-string-address)
 
 ## Understand
 

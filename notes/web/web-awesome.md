@@ -42,8 +42,10 @@ tags:
 - [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
 - [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
   - Build desktop applications with a web frontend
-  - 基于 Rust tao
-  - 层引擎为 rust 实现 - 轻、资源占用少，但规范实现不完整，部分应用可用
+  - 基于 rust tao
+  - 底层引擎为 rust 实现 - 轻、资源占用少
+    - 但规范实现不完整，部分应用可用
+    - 但实际占用资源的都是 WebView - 无法避免 - 所以实际使用资源差不多
 - [windowjs/windowjs](https://github.com/windowjs/windowjs)
 - [webview/webview](https://github.com/webview/webview)
   - C/C++/Golang/Deno
@@ -301,3 +303,4 @@ secure.gravatar.com gravatar.proxy.ustclug.org
 - lighthouse
 - https://web.dev/measure/
 - https://www.webpagetest.org/lighthouse
+- https://developers.google.com/web/tools/chrome-user-experience-report

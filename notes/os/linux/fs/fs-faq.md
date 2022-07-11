@@ -6,6 +6,19 @@ tags:
 
 # 文件系统常见问题
 
+## 文件名
+
+- Linux
+  - 不可以包含 /
+  - 可以包含 :
+- macOS
+  - 不可以包含 :
+  - 可以包含 /
+
+---
+
+- https://stackoverflow.com/a/9847573/1870054
+
 ## 文件系统限制
 
 - [What are the file and file system size limitations for Red Hat Enterprise Linux?](https://access.redhat.com/solutions/1532)
@@ -26,7 +39,7 @@ tags:
 - ext
   - strictatime - 更严格的 atime 维护，影响性能，特殊场景使用
   - noatime - 不维护 atime
-  - nodiratime -  不维护目录 atime
+  - nodiratime - 不维护目录 atime
   - relatime - relative atime - 超过 24h 才更新 atime
 
 ```bash

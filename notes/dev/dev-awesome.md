@@ -27,11 +27,18 @@ tags:
 - [度量驱动开发](http://www.infoq.com/cn/articles/metrics-driven-development)
 - [Conway's law]
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar
+- 《Building Evolutionary Architectures》
 
 [Conway's law](https://en.wikipedia.org/wiki/Conway%27s_law)
 
 ## Book
 
+- Logic
+  - Mathematical Logic for Computer Science
+  - Logic in Computer Science
+    - https://www.cs.bham.ac.uk/research/projects/lics/
+  - https://www.lix.polytechnique.fr/Labo/Samuel.Mimram/teaching/INF551/
+  - https://slc.openlogicproject.org/
 - Software Engineering at Google
   - https://abseil.io/resources/swe-book
 - https://ebookfoundation.github.io/free-programming-books/books/free-programming-books-langs.html

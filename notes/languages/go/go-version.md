@@ -39,8 +39,17 @@ tags:
 ## Go 1.19
 
 - `fmt.FormatString(State)` - [#51668](https://github.com/golang/go/issues/51668)
+- `fmt.Append`,`fmt.Appendf`,`fmt.Appendln`
+- `flag.TextVar` - 使用 `encoding.TextUnmarshaler` 解析 - 例如: `big.Int`, `net.IP`, `time.Time`
 - `strings.CutPrefix`, `strings.CutSuffix` - [#42537](https://github.com/golang/go/issues/42537)
   - 移除前缀后缀
+- `url.JoinPath`
+- `time.Duration.Abs()`
+- `http.MaxByteError`
+- `atomic.Pointer[T]` - 第一个在 std 库中使用 generic 的方法
+- `runtime/debug.SetMemoryLimit` - `GOMEMLIMIT` - 更好避免 OOM
+- `sort.Find` -
+  - `sort.Sort` - pattern defeating quicksort https://arxiv.org/pdf/2106.05123.pdf
 - 支持 龙芯 - linux/loong64
 
 ## Go 1.18

@@ -255,6 +255,11 @@ tags:
 - [PyTorch vs TensorFlow in 2022](https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2022/)
   - [HN](https://news.ycombinator.com/item?id=29552665)
 
+## Service
+
+- [openvinotoolkit/cvat](https://github.com/openvinotoolkit/cvat)
+  - Powerful and efficient Computer Vision Annotation Tool (CVAT)
+
 ## Language
 
 - [JetBrains/KotlinDL](https://github.com/JetBrains/KotlinDL)

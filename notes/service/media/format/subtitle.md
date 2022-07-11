@@ -4,8 +4,6 @@ title: 字幕
 
 # 字幕
 
-## format
-
 - .srt - SubRip
   - 最简单
 - .aas - Advanced SubStation Alpha

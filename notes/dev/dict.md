@@ -67,11 +67,11 @@ tags:
 | TSC    | Technical Steering Committee | 技术指导委员会 |
 
 | word          | stand for  |
-| ------------- | ---------- | ---------------------- |
+| ------------- | ---------- | ----------------------------- |
 | adhesive      | 粘合       |
 | cohesive      | 拼装、凝聚 |
-| Orchestration | 编排       | 一个服务调度多个服务 |
-| Choreography  | 编舞       | 各自负责各自的角色 - 事件总线    |
+| Orchestration | 编排       | 一个服务调度多个服务          |
+| Choreography  | 编舞       | 各自负责各自的角色 - 事件总线 |
 
 ## 服务商
 
@@ -587,7 +587,44 @@ tags:
     - director of personnel
     - personnel expenses
 
+## on premise vs cloud
+
+- on premise - 本地化
+  - 安装在客户提供的环境 - 可以是本地可以是客户的云端
+  - 按需部署
+  - 安全、成本、完全可控
+  - 基础成本高，足量后成本低
+  - 实现更复杂
+  - On-premises Software - 本地软件
+- cloud - saas - 云化
+  - 云端部署 - 供应商的环境
+
+## data breach vs data leak
+
+- breach - 数据泄露
+  - 事件
+  - 原因: cyberattack、木马、系统漏洞、不安全密码、第三方
+- leak
+  - 未知、被动
+  - 原因: 错误配置、人为失误、软件漏洞、物理层面、弱密码
+  - 作为已知事件后一般都用 break - leak 只表示这个事情发生非主观
+
+---
+
+- https://en.wikipedia.org/wiki/Data_breach
+- https://www.upguard.com/blog/data-breach-vs-data-leak
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t
   - 查含义和词源
+
+## Abbr
+
+| abbr       | latin           | en     |
+| ---------- | --------------- | ------ |
+| no., №, Nº | numero          | number |
+| lb         | lībra (balance) | pound  |
+| &          | et              | - and  |
+
+- https://www.bbc.com/news/magazine-26014925

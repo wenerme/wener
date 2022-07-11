@@ -240,6 +240,7 @@ tags:
 ## Doc
 
 - [slatedocs/slate](https://github.com/slatedocs/slate)
+- [Redocly/redoc](https://github.com/Redocly/redoc)
 - swagger
 - graphql
 - OpenAPI

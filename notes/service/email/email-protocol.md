@@ -1,3 +1,8 @@
+---
+tags:
+  - Protocol
+---
+
 # 邮件协议
 
 - SMTP - Simple Mail Transfer Protocol

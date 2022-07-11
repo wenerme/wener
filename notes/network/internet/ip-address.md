@@ -26,13 +26,21 @@ title: IP 地址
   - https://aws.amazon.com/cn/premiumsupport/knowledge-center/s3-find-ip-address-ranges
 - [EH IPs](https://ehwiki.org/wiki/IPs)
 
+| CIDR             | Provider |
+| ---------------- | -------- |
+| 34.74.90.64/28   | Github   |
+| 182.254.116.0/24 | Tecent   |
+
 ## Github 下载
+
 会跳转到 aws, 例如 github-production-release-asset-2e65be.s3.amazonaws.com。
 
 ## AWS
-* us-east-1 S3 用的较多
-  * 52.216.0.0/15
+
+- us-east-1 S3 用的较多
+  - 52.216.0.0/15
 
 ## Gitlab
-* 34.74.90.64/28
-* [ip-range](https://docs.gitlab.com/ee/user/gitlab_com/#ip-range)
+
+- 34.74.90.64/28
+- [ip-range](https://docs.gitlab.com/ee/user/gitlab_com/#ip-range)
