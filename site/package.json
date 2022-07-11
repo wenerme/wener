@@ -30,7 +30,7 @@
     "mermaid": ">=8.13.8",
     "mobx": "^6.3.2",
     "mobx-react": "^7.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.33",
     "node-fetch": "^2",
     "nth-check": ">=2.0.1",
