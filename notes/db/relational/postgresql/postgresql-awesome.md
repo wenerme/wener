@@ -73,6 +73,12 @@ tags:
   - https://eager.io/blog/audit-postgres/
   - [How Postgres Audit Tables Saved Us From Taking Down Production](https://heap.io/blog/how-postgres-audit-tables-saved-us-from-taking-down-production)
 
+## Internal
+
+- https://postgrespro.com/community/books/internals
+  - https://news.ycombinator.com/item?id=32088316
+- http://www.interdb.jp/pg/index.html
+
 ## 工具
 
 - https://pgmodeler.io/

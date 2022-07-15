@@ -15,6 +15,13 @@ tags:
   - macOS `brew install dash`
   - 可用于测试 shell 兼容性
 - zsh
+- Terminal UI
+  - kitty
+  - hyper
+  - Tabby
+  - iTerm2
+  - [withfig/autocomplete](https://github.com/withfig/autocomplete)
+  - for bash, zsh, fish
 - [Comparison of command shells](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
 
 ---

@@ -74,7 +74,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## grub-probe: error: cannot find a device for /
 
-先 chroot 在 mount 一次
+先 chroot 再 mount 一次
 
 ```bash
 chroot /mnt

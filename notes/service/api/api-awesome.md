@@ -194,16 +194,30 @@ tags:
 
 ## Serialization
 
+- protobuf
+- flatbuffer
+- json
+- xml
+- yaml
+- msgpack
+
+---
+
 - ASN.1 PER
 - Avro, CapnProto, Protobufs, Flatbuffers
 - Schema-ful, copying: Protobuf, Thrift, plenty more
 - Schema-ful, zero-copy: Cap'n'proto, Flatbuffers
 - Schema-less, copying: Json (binary and other variants included), XML
-- Schema-less, zero-copy: Flexbuffers (Any others? This seems new to me)
+- Schema-less, zero-copy: Flexbuffers
 - Avro is also another data serialization format. Schema-Ful,
 - Arrow would be schema-ful, zero-copy
 - CBOR - Concise Binary Object Representation
   - 与 JSON 混用
+
+---
+
+- https://github.com/djkoloski/rust_serialization_benchmark
+- https://github.com/alecthomas/go_serialization_benchmarks
 
 ## Data Gateway
 

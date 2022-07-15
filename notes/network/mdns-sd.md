@@ -1,11 +1,10 @@
 ---
-id: mdns-service
 title: mDNS 服务定义
 ---
 
 # mDNS 服务定义
 
-- \_services.\_dns-sd.\_udp
+- `_services._dns-sd._udp`
 - Linux avahi
 - 参考
   - [rfc6763](https://datatracker.ietf.org/doc/html/rfc6763) DNS-Based Service Discovery

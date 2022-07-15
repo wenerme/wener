@@ -37,12 +37,6 @@ tags:
 - Can I Use [av1](https://caniuse.com/av1)
 - [Supported Media for Google Cast](https://developers.google.com/cast/docs/media)
 
-## nfo
-
-- [NFO files](https://kodi.wiki/view/NFO_files)
-- Jellyfin 使用 Kodi 的 nfo 格式
-- [nfo-maker.com](https://nfo-maker.com/)
-
 ## fMP4-HLS
 
 - fragmented MP4

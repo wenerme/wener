@@ -6,18 +6,28 @@ tags:
 
 # 代理
 
-| protocol           |
-| ------------------ | ----- |
-| socks5             |
-| http               |
-| ShadowSocks - ss   |
-| ShadowSocksR - ssr |
-| vmess              | V2Ray |
-| [snell]            |
-| [trojan]           |
+> **Note**
+>
+> 建议基于 overlay 组件内部 proxy，更安全，更好跨网。
+
+| protocol           | transport                  | UDP | Note  |
+| ------------------ | -------------------------- | --- | ----- |
+| socks4             | tcp                        | ❌  |
+| socks5             | tcp                        | ✅  |
+| http               | http                       | ❌  |
+| ShadowSocks - ss   | tcp,websocket,quic,http    | ✅  |
+| ShadowSocksR - ssr |                            | ✅  |
+| vmess              | tcp,websocket,http,h2,grpc | ✅  | V2Ray |
+| [snell]            | tcp                        | ❌  | surge |
+| [trojan]           | h2,http,grpc               | ✅  |
 
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
+
+- obfs - 混淆 - 用于 ss,ssr
+  - tls1.2_ticket_auth, tls1.2_ticket_fastauth
+  - http_simple, http_post
+- CCProxy, Proxycap, Proxifier
 
 ## Sniff/Introspection
 
@@ -158,8 +168,15 @@ curl -v --http2-prior-knowledge http://localhost:8000
     - 独立的回国线路
 - HK > CN2 GIA > CN2 GT
 
-## 大流量域名
+## 域名
 
-```
-googlevideo.com
-```
+- 需要速度快 - 体验好
+  - www.googleapis.co
+  - google.com
+  - github.com
+  - gstatic.com
+- 大流量 - 带宽为主
+  - googlevideo.com
+    - Youtube
+  - svc.ms
+    - OneDrive 下载

@@ -158,7 +158,6 @@ tags:
 - [HarvsG/WireGuardMeshes](https://github.com/HarvsG/WireGuardMeshes)
   Compare WireGuard Mesh Tools
 
-
 ## Tunnel/通道
 
 > Tunnel/通道 指连接、端口纬度, 区分协议协议类型
@@ -188,25 +187,3 @@ tags:
 - Passwall
 - Surge
 - adg+passw+smart
-
-## Clash
-
-- [Dreamacro/clash](https://github.com/Dreamacro/clash)
-- Client
-  - [vernesong/OpenClash](https://github.com/vernesong/OpenClash)
-    - OpenWRT Client
-  - [Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg)
-  - [ClashDotNetframework](https://github.com/ClashDotNetframework/ClashDotNetframework)
-    - DotNet, Windows
-  - [yichengchen/clashX](https://github.com/yichengchen/clashX)
-    - macOS
-    - [WhoJave/clashX](https://github.com/WhoJave/clashX/tree/master)
-  - [Kr328/ClashForAndroid](https://github.com/Kr328/ClashForAndroid)
-  - [WhoJave/ClashA](https://github.com/WhoJave/ClashA)
-  - [ccg2018/ClashA](https://github.com/ccg2018/ClashA)
-  - iOS
-    - https://apps.apple.com/app/choc/id1582542227
-      - 收费，不一定可用
-  - [SpongeNobody/Clashy](https://github.com/SpongeNobody/Clashy)
-- [链接转换](https://sites.google.com/view/honven/%E9%A6%96%E9%A1%B5/%E6%9C%BA%E5%9C%BA%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2)
-- [Dreamacro/clash-tracing](https://github.com/Dreamacro/clash-tracing)

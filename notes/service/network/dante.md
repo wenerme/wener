@@ -45,6 +45,7 @@ docker run -d --restart always -v /etc/localtime:/etc/localtime:ro \
 # 日志输出
 logoutput: stdout
 # 监听地址
+# 可以是地址或 interface
 internal: 0.0.0.0 port = 8888
 # 出口网卡或地址 - macOS 使用 en0
 external: eth0

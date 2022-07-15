@@ -24,18 +24,6 @@ title: 国标
   - GB/T 36104-2018 法人和其他组织统一社会信用代码基础数据元
   - GB/T 39445-2020 公共信用信息数据元
 
-## 行政机构
-
-| abbr. | stand for                                                                | zh                                     |
-| ----- | ------------------------------------------------------------------------ | -------------------------------------- |
-| SAMR  | State Administration for Market Regulation                               | 国家市场监督管理总局                   |
-| SFDA  | State Food and Drug Administration                                       | 国家食品药品监督管理局                 |
-| CFDA  | China Food and Drug Administration                                       | 中国食品药品监督管理局                 |
-| NMPA  | National Medical Products Administration                                 | 国家药品监督管理局                     |
-| SAIC  | State Administration of Industry and Commerce                            | 国家工商行政管理总局                   |
-| AQSIQ | General Administration of Quality Supervision, Inspection and Quarantine | 中华人民共和国国家质量监督检验检疫总局 |
-| NBS   | National Bureau of Statistics                                            | 国家统计局                             |
-
 ## 标准类型
 
 | abbr. | zh             |

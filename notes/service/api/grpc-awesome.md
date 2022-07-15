@@ -190,14 +190,27 @@ service Health {
   - [storj/drpc](https://github.com/storj/drpc)
     - 一个更加简单轻量的 RPC 协议
 - [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)
+- [chrusty/protoc-gen-jsonschema](https://github.com/chrusty/protoc-gen-jsonschema)
+- [protoc-gen-bq-schema](https://github.com/GoogleCloudPlatform/protoc-gen-bq-schema)
+  - pb to BigQuery schema
 - 参考
   - [lyft/protoc-gen-star](https://github.com/lyft/protoc-gen-star)
-  - 辅助实现插件
+    - 辅助实现插件
 
 ```bash
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
+go install github.com/grpc-ecosystem/protoc-gen-grpc-gateway-ts@latest
+go install github.com/envoyproxy/protoc-gen-validate@latest
+
+#
 go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 go install github.com/planetscale/vtprotobuf/cmd/protoc-gen-go-vtproto@latest
 go install github.com/srikrsna/protoc-gen-gotag@latest
+go install github.com/chrusty/protoc-gen-jsonschema/cmd/protoc-gen-jsonschema@latest
 
 # 调用单个 插件
 protoc -I . helloworld.proto --doc_out .

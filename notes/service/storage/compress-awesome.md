@@ -30,11 +30,21 @@ tags:
     - high speed zlib port to javascript, works in browser & node.js
 - [pigz](https://zlib.net/pigz/) - 并行 Gzip - 命令兼容 gzip
 - [MacPaw/XADMaster](https://github.com/MacPaw/XADMaster)
-  -  LGPL-2.1
+  - LGPL-2.1
   - Zip, Tar, Gzip, Bzip2, 7-Zip, Rar, LhA, StuffIt, CAB, LZX
   - unar
+  - [MacPaw/unar](https://github.com/MacPaw/unar)
   - https://theunarchiver.com/
   - https://github.com/Homebrew/homebrew-core/blob/master/Formula/unar.rb
+  - https://theunarchiver.com/command-line
+- unrar
+  - Alpine 3.14 有
+  - https://www.rarlab.com/download.htm
+```bash
+curl -O https://www.rarlab.com/rar/rarlinux-x64-612.tar.gz
+tar zxvf rarlinux-x64-612.tar.gz
+./rar/unrar
+```
 - 参考
   - [Modern LZ Compression](https://glinscott.github.io/lz/index.html)
   - [MiloszKrajewski/SilesiaCorpus](https://github.com/MiloszKrajewski/SilesiaCorpus)

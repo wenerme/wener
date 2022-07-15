@@ -15,6 +15,17 @@ RHEL 内核 flavor
 - kernel-lt - long term
   - Linux 长期支持版本 - 更稳定，更新更少
 
+## context switch
+
+```bash
+cat /proc/3736/status|grep ctxt
+
+apk add sysstat
+pidstat -w -l -p 3736
+```
+
+- https://man7.org/linux/man-pages/man1/pidstat.1.html
+
 ## hostname
 
 ```bash
@@ -43,7 +54,6 @@ echo phy.wener.me > /proc/sys/kernel/domainname
 # /etc/resolv.conf
 # search phy.wener.me
 ```
-
 
 - NIS 系统 - 不需要与 DNS 有关系，但也可以有关系
 - FQDN 是辅助维护大批量的网络设备，一般需要配合内部 DNS 解析
@@ -155,6 +165,12 @@ ulimit -Sn # soft
 
 # sysctl -w fs.file-max=
 cat /proc/sys/fs/file-max
+```
+
+## usb tethering
+
+```
+Authentication Suites (2) : PSK unknown (6)
 ```
 
 # TBD

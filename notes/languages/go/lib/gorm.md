@@ -114,6 +114,13 @@ title: GORM
 
 :::
 
+- index
+  - unique
+  - priority
+  - class, type, where, comment, expression, sort, collate, option
+  - composite
+- uniqueIndex
+
 ```go title="特殊值"
 const (
 	PrimaryKey   string = "~~~py~~~" // primary key
@@ -299,5 +306,14 @@ type User struct {
     ID          int       `sql:"DEFAULT:myfunction"`
     XID         int       `sql:"type:bigint; DEFAULT:id_generator()"`
     CreatedAt   time.Time `sql:"DEFAULT:current_timestamp"`
+}
+```
+
+## 避免插入空值
+
+```go
+type User struct {
+    gorm.Model
+    Email  string    `gorm:"unique;not null;type:varchar(100);default:null"`
 }
 ```

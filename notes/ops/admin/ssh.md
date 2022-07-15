@@ -295,3 +295,17 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no example.com
 ```bash
 find ~/.ssh/id_*.pub -exec ssh-keygen -l -f {} \;
 ```
+
+## send_pubkey_test: no mutual signature algorithm
+
+openssh 不再默认支持 ssh-rsa
+
+```conf title="sshd_config"
+PubkeyAcceptedKeyTypes +ssh-rsa
+```
+
+推荐使用 ECDSA,Ed25519
+
+```bash
+ssh-keygen -t ed25519 -C "a@b.com"
+```

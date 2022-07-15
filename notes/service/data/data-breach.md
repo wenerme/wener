@@ -9,6 +9,7 @@ title: 数据泄漏
 | 2022.06.30 | shga.gov.cn                | 1B, 23.88TiB | 上海国警/SHGA 数据库                          |
 | 2022.06.22 | chaoxing.com               | 170M         | 超星学习通                                    |
 | 2021       | taobao.com                 | 1.2B         | ID,用户名,电话                                |
+| 2021       | twitter.com                | 1GB          | username,password                             |
 | 2020.11.16 | 圆通 员工                  | 40 万        |
 | 2020       | 顺丰                       |              | 10M 名字,25M 地址, 36M 电话                   |
 | 2020       | Telegram                   | 40M+         |
@@ -111,12 +112,6 @@ title: 数据泄漏
 ## Index
 
 - MagBo
-- breached
-  - VIP & MVP 1 Credit/post, GOD 2 Credit/post
-  - VIP 10, MPV 20, GOD 50
-  - BTC,XMR,BCH,LTC,ETH,DOGE,SOL,DAI,USDC
-  - https://payments.breached.to/
-    - 8 EUR/30 Credit
 - ~~RaidForums~~ - [wikipedia](https://en.wikipedia.org/wiki/RaidForums)
 - Hack Forums
 - Dark0de
@@ -127,8 +122,23 @@ title: 数据泄漏
 - BreachCompilation
   - https://gist.github.com/spacepatcher/8f94289236612a40ed93efc5645c0ccd
   - https://gist.github.com/tuantmb/ac1ffb77a3bc80e673d3fc7a20700368
+- stealth.si
 - https://breached.to
   - http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/
+  - Rank https://breached.to/upgrades
+  - BTC,XMR,BCH,LTC,ETH,DOGE,SOL,DAI,USDC
+  - https://payments.breached.to/
+    - 8 €/30 credits
+    - 15 €/60 credits
+    - 30 €/120 credits
+    - 60 €/240 credits
+    - 120 €/500 credits
+
+|                   - | VIP   | MVP   | GOD   |
+| ------------------: | ----- | ----- | ----- |
+|               price | 10€   | 20€   | 50€   |
+|             credits | +30   | +60   | +120  |
+| credits/post/thread | +1/+1 | +1/+2 | +2/+3 |
 
 ---
 

@@ -6,6 +6,31 @@ tags:
 
 # Web Server FAQ
 
+## SOCKS vs HTTP vs HTTPS
+
+- HTTP
+  - 支持最广泛的协议
+  - 基于 HTTP 的 CONNECT 方法 - 7 层协议
+  - wget 只支持 http
+  - 一般支持 Basic 鉴权
+  - 请求是明文感知更多细节
+  - 支持复杂转发逻辑 - privoxy
+    - 路径, 域名, 头
+    - 更加智能的转发
+  - 可以配合缓存服务使用
+    - 例如 squid - 需结合 tls 使用
+  - 可以做 TCP 通道
+- SOCKS
+  - 支持程度仅次于 HTTP
+  - TCP 协议 - 5 层协议
+  - 支持 UDP
+  - 最容易的协议 - `ssh -d 1080`
+  - 基于握手进行协商，一个地址一个端口进行映射
+  - DNS 在远程进行解析
+- HTTPS
+  - 使用少
+  - HTTP + TLS
+
 ## WebServer vs Proxy
 
 - WebServer - nginx, apache

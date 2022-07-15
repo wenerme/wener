@@ -312,3 +312,20 @@ git config core.untrackedcache true
 git status # 第一次慢
 git status # 第二次命中大量缓存，非常快
 ```
+
+## master to main
+
+```bash
+git branch -m master main
+
+# owner
+git push -u origin main
+git push origin --delete master
+
+# user
+git fetch origin main
+git branch --unset-upstream
+git branch -u origin/main
+
+# 或修改 .git/config fetch
+```

@@ -1,5 +1,4 @@
 ---
-id: tinyproxy
 title: tinyproxy
 ---
 

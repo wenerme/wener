@@ -23,9 +23,13 @@ hide_title: true
 - 参考
   - archlinux [lxc](https://wiki.archlinux.org/index.php/Linux_Containers)
   - [armhf lxc](https://gist.github.com/hack3d/8a3982329e1df77f380878ff7bbc7b03)
-- 注意
-  - 可以 poweroff 退出 init
-  - lxc 可以嵌套
+
+:::tip
+
+- 可以 poweroff 退出 init
+- lxc 可以嵌套
+
+:::
 
 ```bash
 # /usr/share/lxc/templates/lxc-download

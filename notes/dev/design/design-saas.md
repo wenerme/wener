@@ -139,3 +139,7 @@ title: SaaS
   - AbstractDataSourceBasedMultiTenantConnectionProviderImpl
   - MultiTenantConnectionProvider
   - CurrentTenantIdentifierResolver
+
+## Tenant
+
+- https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.tenants

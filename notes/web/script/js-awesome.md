@@ -86,6 +86,10 @@ tags:
   - react-move
   - [danro/easing-js](https://github.com/danro/easing-js)
   - [mojs/mojs](https://github.com/mojs/mojs)
+  - transition
+    - https://barba.js.org/
+    - [swup/swup](https://github.com/swup/swup)
+      - https://swup.github.io/swup-gia-demo/index.html
 - functional
   - [ramda](https://github.com/ramda/ramda)
   - [fp-ts](https://github.com/gcanti/fp-ts)

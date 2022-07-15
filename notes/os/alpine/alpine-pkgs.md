@@ -27,6 +27,7 @@ title: Alpine 包维护
   - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
   - [build.alpinelinux.org](https://build.alpinelinux.org/)
     构建状态
+  - apk-audit
 
 ```bash
 # 准备
@@ -164,6 +165,7 @@ newapkbuild -n frp \
 ```
 
 ## APKBUILD
+
 ```bash
 install="$pkgname.pre-install $pkgname.post-install"
 
@@ -178,7 +180,7 @@ check() {
 rm -rf pkg && abuild rootpkg
 ```
 
-__pre.install__
+**pre.install**
 
 ```bash
 #!/bin/sh
@@ -303,6 +305,14 @@ Commands:
 To activate cross compilation specify in environment:
   CHOST       Arch or hostspec of machine to generate packages for
   CTARGET     Arch or hostspec of machine to generate compiler for
+```
+
+## virtual
+
+- 相当于一个临时的 /etc/apk/world
+
+```bash
+apk add --virtual .my-temp-proj foo bar
 ```
 
 # FAQ

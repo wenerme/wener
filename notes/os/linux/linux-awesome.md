@@ -6,6 +6,15 @@ tags:
 
 # Linux Awesome
 
+## Components
+
+- audio
+  - pipewire
+  - PulseAudio
+  - JACK
+  - ALSA
+  - alsa
+
 ## Dev
 
 - https://www.openwall.com/

@@ -79,9 +79,9 @@ password=''
 
 ## mkinitfs
 
-- 特性
-  - v3.13 ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio
-  - v3.12 ata base ide scsi usb virtio ext4
+- 默认特性
+  - v3.13 - ata base cdrom ext4 keymap kms mmc nvme raid scsi usb virtio
+  - v3.12 - ata base ide scsi usb virtio ext4
 - [alpinelinux/mkinitfs](https://github.com/alpinelinux/mkinitfs)
   - `mkinitfs -L` - 特性 [features.d](https://github.com/alpinelinux/mkinitfs/tree/master/features.d)
   - `/etc/mkinitfs/mkinitfs.conf` - 配置
@@ -180,7 +180,7 @@ options:
 | https      | ssl_client  | `/usr/bin/ssl_client`                                  |
 | jfs        |
 | keymap     |
-| kms        |             | agp,gpu,i2c,video,fbdev,vc4                                |
+| kms        |             | agp,gpu,i2c,video,fbdev,vc4                            |
 | lvm        |
 | mmc        |
 | nbd        |
@@ -255,46 +255,49 @@ options:
         - 本地或远程
       - 无盘模式
 
-| opt           | defaul                        | desc                                                                                      |
-| ------------- | ----------------------------- | ----------------------------------------------------------------------------------------- |
+| opt           | default      | desc                                                                                      |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------- |
 | BOOTIF        |
 | alpine_dev    |
-| alpine_repo   | `auto`                        | `http://...`                                                                              |
+| alpine_repo   | `auto`       | `http://...`                                                                              |
 | alpine_start  |
-| apkovl        |
+| apkovl        |              | `/tmp/apkovls`                                                                            |
 | autodetect    |
 | autoraid      |
-| blacklist     |                               | `/etc/modprobe.d/boot-opt-blacklist.conf`                                                 |
-| chart         | no                            | `bootchart` logging                                                                       |
-| cryptdiscards | no                            | `nlplug-findfs -D` - allow discards on crypto device                                      |
-| cryptdm       |                               | `nlplug-findfs -m` - use CRYPTNAME name for crypto device mapping                         |
+| blacklist     |              | `/etc/modprobe.d/boot-opt-blacklist.conf`                                                 |
+| chart         | no           | `bootchart` logging                                                                       |
+| cryptdiscards | no           | `nlplug-findfs -D` - allow discards on crypto device                                      |
+| cryptdm       |              | `nlplug-findfs -m` - use CRYPTNAME name for crypto device mapping                         |
 | cryptheader   |
-| cryptkey      |                               | `nlplug-findfs -k ${cryptkey:-/crypto_keyfile.bin}`                                       |
-| cryptoffset   |                               | `nlplug-findfs -o` - cryptsetup payload offset                                            |
-| cryptroot     |                               | `nlplug-findfs -c` - run cryptsetup luksOpen when CRYPTDEVICE is found                    |
-| dasd          |                               | modprobe `dasd_mod dasd_eckd_mod dasd_fba_mod`<br/>`/sys/bus/ccw/devices/${dash}/online`  |
-| debug_init    | no                            | `set -x`                                                                                  |
+| cryptkey      |              | `nlplug-findfs -k ${cryptkey:-/crypto_keyfile.bin}`                                       |
+| cryptoffset   |              | `nlplug-findfs -o` - cryptsetup payload offset                                            |
+| cryptroot     |              | `nlplug-findfs -c` - run cryptsetup luksOpen when CRYPTDEVICE is found                    |
+| dasd          |              | modprobe `dasd_mod dasd_eckd_mod dasd_fba_mod`<br/>`/sys/bus/ccw/devices/${dash}/online`  |
+| debug_init    | no           | `set -x`                                                                                  |
 | dma           |
-| init          | `/sbin/init`                  |
+| init          | `/sbin/init` |
 | init_args     |
 | ip            |
 | keep_apk_new  |
-| modules       | `${rootfstype} loop squashfs` |
+| modules       |              | `${rootfstype} loop squashfs`                                                             |
 | nbd           |
-| overlaytmpfs  | no                            | mount root ro, tmpfs root rw,                                                             |
-| ovl_dev       |
+| overlaytmpfs  | no           | mount root ro, tmpfs root rw,                                                             |
+| ovl_dev       |              | apkvol - diskless, `/boot/ovl_dev/cache`                                                  |
 | pkgs          |
-| quiet         | no                            | `dmesg -n 1`                                                                              |
-| resume        |                               | `/sys/power/resume`                                                                       |
+| quiet         | no           | `dmesg -n 1`                                                                              |
+| resume        |              | `/sys/power/resume`                                                                       |
 | root          |
-| root_size     |                               | tmpfs sysroot,使用 rootflags `,size=`                                                     |
-| rootflags     |                               | `ro`                                                                                      |
-| rootfstype    |                               | `ext4`, `zfs`, `btrfs`                                                                    |
-| s390x_net     |                               | modprobe `qeth qeth_l2 qeth_l3`                                                           |
-| single,s,1    |                               | SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh |
-| splash        | yes                           | 无 root 时, 默认使用 `/media/*/fbsplash.ppm`,`/media/*/fbsplash$num.ppm`                  |
+| root_size     |              | tmpfs sysroot,使用 rootflags `,size=`                                                     |
+| rootflags     |              | `ro`                                                                                      |
+| rootfstype    |              | `ext4`, `zfs`, `btrfs`                                                                    |
+| s390x_net     |              | modprobe `qeth qeth_l2 qeth_l3`                                                           |
+| single,s,1    |              | SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh |
+| splash        | yes          | 无 root 时, 默认使用 `/media/*/fbsplash.ppm`,`/media/*/fbsplash$num.ppm`                  |
 | ssh_key       |
-| usbdelay      |                               | `nlplug-findfs -t` delay, second                                                          |
+| usbdelay      |              | `nlplug-findfs -t` delay, second                                                          |
+
+- apkvol
+  - `http://xyz/{MAC}/xyz/{UUID}/$(cat /sys/class/dmi/id/product_uuid)`
 
 ## inittab
 
@@ -365,3 +368,37 @@ GRUB_DISABLE_SUBMENU=y
 GRUB_DISABLE_RECOVERY=true
 GRUB_CMDLINE_LINUX_DEFAULT="modules=sd-mod,usb-storage,ext4 quiet rootfstype=ext4"
 ```
+
+## apkvol
+
+- alpine [lbu](./alpine-lbu.md)
+- Initramfs-init does not respect apkovl device fstab entry
+  https://gitlab.alpinelinux.org/alpine/mkinitfs/-/issues/5
+- Diskless APKOVL loading dosn't work on btrfs and xfs filesystems, or nvme-based devices
+  https://gitlab.alpinelinux.org/alpine/aports/-/issues/11589
+
+# FAQ
+
+## diskless vs data vs sys
+
+- diskless
+  - 整个 rootfs `/` 为 tmpfs
+    - 系统运行在 tmpfs
+    - 不安装任何东西到硬盘上 - 无盘模式=无磁盘
+  - 从外部媒体启动 - iso、usb
+  - 推荐存储本地 pkg 缓存 - 启动时不需要网络
+  - lbu 包含数据 /var
+    - 一般的 lbu 只存储 /etc
+  - init 参数 `ovl_dev`
+- data
+  - 分离 系统 和 数据
+  - 数据 存储在硬盘上 - /var 分区
+- sys - 桌面、虚拟机、服务器
+  - 传统安装方式
+  - 安装启动分区 - /boot 分区
+  - 安装 rootfs 分区 - /
+  - swap 可选
+- crypt, cryptsys
+  - luks -> sys,data
+- lvm, lvmsys, lvmdata
+  - 使用 LVM 分区

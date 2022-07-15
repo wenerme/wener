@@ -6,9 +6,10 @@ title: bitwarden
 
 - bitwarden
   - 密码管理器
-  - [Chrome extension](https://github.com/bitwarden/browser)
-    - GPL-3.0, TypeScript
-    - 只支持一个账号
+- [bitwarden/clients](https://github.com/bitwarden/clients)
+  - GPL-3.0, TypeScript
+  - 只支持一个账号
+  - web, browser extension, desktop, cli
 
 ## vaultwarden
 

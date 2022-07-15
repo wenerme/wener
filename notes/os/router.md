@@ -32,6 +32,8 @@
 * pfSense
   * FreeBSD
   * fork of m0n0wall
+* https://github.com/threat9/routersploit
+* https://github.com/hanwckf/rt-n56u
 
 ## IPFire
 https://wiki.ipfire.org/hardware/requirements

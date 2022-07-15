@@ -147,8 +147,6 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 - 轻音少女
 - 龙与虎
 
-
-
 **热血**
 
 - 双斩少女
@@ -168,6 +166,7 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 ---
 
 - https://www.netflix.com/hk/browse/genre/6721
+- https://www.crunchyroll.com/
 
 ## TBW
 

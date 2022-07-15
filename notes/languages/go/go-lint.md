@@ -11,6 +11,7 @@ title: Golang Linter
 ## gofumpt
 
 - 替代 gofmt - 更严格
+- [mvdan/gofumpt](https://github.com/mvdan/gofumpt)
 
 ```bash
 go install mvdan.cc/gofumpt@latest
@@ -33,11 +34,11 @@ gosec -conf gosec.conf.json ./...
 
 ## golangci-lint
 
-- https://github.com/golangci/golangci-lint/blob/master/.golangci.yml
 
 ```go
 //nolint
 //nolint:golint,unused
+//nolint:golint,unused // 解释说明
 ```
 
 ```bash
@@ -48,8 +49,18 @@ tar zxvf golangci-lint-$VER-darwin-amd64.tar.gz
 mv golangci-lint-$VER-darwin-amd64/golangci-lint ~/go/bin/
 ```
 
+- https://golangci-lint.run/usage/configuration/
+  - https://golangci-lint.run/usage/linters
+- Support of generics [#2649](https://github.com/golangci/golangci-lint/issues/2649)
 - [golangci/golangci-lint-action](https://github.com/golangci/golangci-lint-action)
+- https://github.com/golangci/golangci-lint/blob/master/.golangci.yml
+- https://github.com/github/git-sizer/blob/master/.golangci.toml
 
 ## revive
 
 - [mgechev/revive](https://github.com/mgechev/revive)
+
+## gocritic
+
+- [go-critic/go-critic](https://github.com/go-critic/go-critic)
+- https://go-critic.com/overview.html

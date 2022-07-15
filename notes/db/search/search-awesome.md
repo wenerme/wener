@@ -67,6 +67,20 @@ tags:
     - cloud-native, modular, real-time vector search engine
 - [wibyweb/wiby](https://github.com/wibyweb/wiby)
   - GPLv2
+- [wilsonzlin/edgesearch](https://github.com/wilsonzlin/edgesearch)
+  - MIT, Rust
+  - WASM code at Cloudflare Worker
+- [jameslittle230/stork](https://github.com/jameslittle230/stork)
+  - Apache-2.0, Rust
+- [tinysearch/tinysearch](https://github.com/tinysearch/tinysearch)
+  - Apache-2.0,MIT, Rust
+- WWW Search
+  - https://searchhut.org/
+    - 提交域名索引 https://searchhut.org/about
+    - https://sr.ht/~sircmpwn/searchhut/
+      - GPLv3, Go
+    - https://news.ycombinator.com/item?id=32104609
+    - Crawler `SearchHut Bot 0.0 (GNU AGPL 3.0); https://sr.ht/~sircmpwn/searchhut; <sir@cmpwn.com>`
 
 ## Lcoal Search
 

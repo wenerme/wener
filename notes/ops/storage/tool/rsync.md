@@ -11,9 +11,28 @@ title: rsync
 - `--info=progress2` 显示速度
 - https://man7.org/linux/man-pages/man1/rsync.1.html
 
-| flags                 | for              |
-| --------------------- | ---------------- |
-| --remove-source-files | 同步后删除源文件 |
+| flags                 | for                    |
+| --------------------- | ---------------------- |
+| --archive, -a         | `-rlptgoD`             |
+| --recursive, -r       |
+| --links, -l           |
+| --perms, -p           |
+| --times, -t           |
+| --owner, -o           |
+| --group, -g           |
+| -D                    | `--devices --specials` |
+| --verbose, -v         |
+| --progress            | 显示传输进度           |
+| --partial             | 保留部分传输文件       |
+| -P                    | `--partial --progress` |
+| --stats               |
+| --remove-source-files | 同步后删除源文件       |
+| --human-readable, -h  |
+
+> **Note**
+>
+> - `rsync src dst` -> `rsync src/ dst/src` - src 含 `/` 表示不创建目录
+> - dst 如果包含 `/` 则不存在时会创建目录，否则会被复制为指定文件
 
 ```bash
 # 使用 SSH 同步

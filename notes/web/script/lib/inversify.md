@@ -7,6 +7,7 @@ title: inversify
 - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
   - MIT, TS
   - ~50kB/11kB
+  - Reflect.getMetadata, Map, Promise, Proxy
 
 :::tip
 

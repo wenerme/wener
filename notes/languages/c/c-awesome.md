@@ -8,18 +8,25 @@ tags:
 
 - [tccboot](https://bellard.org/tcc/tccboot.html) - TinyCC Boot Loader
 - [simdjson/simdjson](https://github.com/simdjson/simdjson)
-- [yue/yue](https://github.com/yue/yue)
 - https://cppinsights.io/
 - https://c2rust.com/
 - https://c9x.me/compile/
 - Writing a register based VM in less than 125 lines of C code
   - https://news.ycombinator.com/item?id=29492183
-- Address Sanitizer
-- [valgrind](https://valgrind.org/)
-  - 内存溢出检测
-  - 源码 [valgrind](https://sourceware.org/git/valgrind)
-  - 通过 LD_PRELOAD
 - [oriansj/stage0](https://github.com/oriansj/stage0)
+- Compiler
+  - gcc
+  - clang
+  - tinycc
+  - [rui314/chibicc](https://github.com/rui314/chibicc)
+- GUI
+  - [yue/yue](https://github.com/yue/yue)
+    - LGPL-v2.1, BSD-3, C++
+- Address Sanitizer
+  - [valgrind](https://valgrind.org/)
+    - 内存溢出检测
+    - 源码 [valgrind](https://sourceware.org/git/valgrind)
+    - 通过 LD_PRELOAD
 
 ## GL
 
@@ -32,9 +39,9 @@ tags:
 - C89,C90 - ANSI C
 - [C99](https://en.wikipedia.org/wiki/C99)
   - ISO/IEC 9899:1999
-- [C11](https://en.wikipedia.org/wiki/C11_(C_standard_revision))
+- [C11](<https://en.wikipedia.org/wiki/C11_(C_standard_revision)>)
   - ISO/IEC 9899:2011
-- [C17](https://en.wikipedia.org/wiki/C17_(C_standard_revision))
+- [C17](<https://en.wikipedia.org/wiki/C17_(C_standard_revision)>)
 - C23
 
 ```c

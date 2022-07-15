@@ -21,8 +21,56 @@ go install github.com/Dreamacro/clash@latest
 # Docker
 # https://hub.docker.com/r/dreamacro/clash
 # https://github.com/Dreamacro/clash/blob/master/Dockerfile
-docker run --rm -it \
-  --name clash dreamacro/clash
+docker run --rm -it --name clash dreamacro/clash
+```
+
+## Awesome
+
+- [Dreamacro/clash](https://github.com/Dreamacro/clash)
+- Client
+  - [vernesong/OpenClash](https://github.com/vernesong/OpenClash)
+    - OpenWRT Client
+  - [Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg)
+  - [ClashDotNetframework](https://github.com/ClashDotNetframework/ClashDotNetframework)
+    - DotNet, Windows
+  - [yichengchen/clashX](https://github.com/yichengchen/clashX)
+    - macOS
+    - [WhoJave/clashX](https://github.com/WhoJave/clashX/tree/master)
+  - [Kr328/ClashForAndroid](https://github.com/Kr328/ClashForAndroid)
+  - [WhoJave/ClashA](https://github.com/WhoJave/ClashA)
+  - [ccg2018/ClashA](https://github.com/ccg2018/ClashA)
+  - iOS
+    - https://apps.apple.com/app/choc/id1582542227
+      - 收费，不一定可用
+  - [SpongeNobody/Clashy](https://github.com/SpongeNobody/Clashy)
+- [链接转换](https://sites.google.com/view/honven/%E9%A6%96%E9%A1%B5/%E6%9C%BA%E5%9C%BA%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8D%A2)
+- [Dreamacro/clash-tracing](https://github.com/Dreamacro/clash-tracing)
+- Dashboard
+  - [haishanh/yacd](https://github.com/haishanh/yacd)
+    - MIT, Typescript
+    - http://yacd.haishan.me/
+  - [Dreamacro/clash-dashboard](https://github.com/Dreamacro/clash-dashboard)
+    - MIT, Typescript
+    - https://clash.razord.top/
+    - Docker 内置
+
+```bash
+# Dreamacro/clash-dashboard
+curl -LO https://github.com/Dreamacro/clash-dashboard/archive/gh-pages.zip
+unzip gh-pages.zip
+
+# haishanh/yacd
+curl -LO https://github.com/haishanh/yacd/archive/gh-pages.zip
+mv yacd-gh-pages/ ~/.config/clash
+```
+
+```yaml
+external-controller: 0.0.0.0:9090
+secret: external-controller-secret
+# 默认目录 ～/.config/clash
+# http://{{external-controller}}/ui
+# yacd-gh-pages
+external-ui: clash-dashboard-gh-pages
 ```
 
 ## notes
@@ -32,6 +80,17 @@ docker run --rm -it \
 ```bash
 curl -o ~/.config/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
 ```
+
+## API
+
+```bash
+# reload 重载配置
+curl -X PUT 127.0.0.1:9090/configs --json "{}"
+# 配置 Secret 后
+curl -X PUT -H "Authorization: Bearer secret" 127.0.0.1:9090/configs --json "{}"
+```
+
+- https://github.com/Dreamacro/clash/wiki/external-controller-API-reference
 
 ## conf
 
@@ -49,10 +108,7 @@ curl -o ~/.config/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmi
     - http
     - snell
     - trojan
-- 参考配置
-  - https://gist.github.com/phlinhng/38a141862de775b10c613f7f2c6ade99
-  - https://github.com/springzfx/cgproxy/blob/aaa628a76b2911018fc93b2e3276c177e85e0861/readme.md#known-issues
-    - docker 不可以 tproxy
+- proxy-groups - 代理分组 - LB 策略
 
 ```bash
 # HTTP(S) 代理端口
@@ -206,27 +262,15 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: "password"
     # udp: true
-
-  - name: "ss2"
-    type: ss
-    server: server
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: "password"
-    plugin: obfs
+    # 插件配置
+    plugin: obfs # obfs, v2ray-plugin
     plugin-opts:
-      mode: tls # or http
+      # obfs - tls,http
+      # v2ray-plugin - websocket - 暂不支持 QUIC
+      mode: tls
       # host: bing.com
 
-  - name: "ss3"
-    type: ss
-    server: server
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: "password"
-    plugin: v2ray-plugin
-    plugin-opts:
-      mode: websocket # no QUIC now
+      # v2ray-plugin 配置
       # tls: true # wss
       # skip-cert-verify: true
       # host: bing.com
@@ -236,7 +280,7 @@ proxies:
       #   custom: value
 
   # vmess
-  # cipher support auto/aes-128-gcm/chacha20-poly1305/none
+  # cipher - auto/aes-128-gcm/chacha20-poly1305/none
   - name: "vmess"
     type: vmess
     server: server
@@ -396,9 +440,11 @@ proxies:
     # protocol-param: "#"
     # udp: true
 
+# 代理分组 - LB 策略
 proxy-groups:
-  # relay chains the proxies. proxies shall not contain a relay. No UDP support.
-  # Traffic: clash <-> http <-> vmess <-> ss1 <-> ss2 <-> Internet
+  # 中继 - 会经过给定的所有代理
+  # 不支持 UDP
+  # clash <-> http <-> vmess <-> ss1 <-> ss2 <-> Internet
   - name: "relay"
     type: relay
     proxies:
@@ -407,65 +453,51 @@ proxy-groups:
       - ss1
       - ss2
 
-  # url-test select which proxy will be used by benchmarking speed to a URL.
+  # 基于请求 URL 的速度来选择
   - name: "auto"
     type: url-test
     proxies:
       - ss1
       - ss2
-      - vmess1
     # tolerance: 150
     # lazy: true
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-  # fallback selects an available policy by priority. The availability is tested by accessing an URL, just like an auto url-test group.
+  # 基于优先级选择一个可用的代理
+  # 类似一个 url-test 自动分组
   - name: "fallback-auto"
     type: fallback
     proxies:
       - ss1
       - ss2
-      - vmess1
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-  # load-balance: The request of the same eTLD+1 will be dial to the same proxy.
+  # 基于 eTLD+1 进行负载
   - name: "load-balance"
     type: load-balance
     proxies:
       - ss1
       - ss2
-      - vmess1
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    # strategy: consistent-hashing # or round-robin
+    # strategy: consistent-hashing # round-robin
 
-  # select is used for selecting proxy or proxy group
-  # you can use RESTful API to switch proxy is recommended for use in GUI.
+  # 选择 proxy 或 proxy group
+  # 可通过 RESTful API 来切换
   - name: Proxy
     type: select
     # disable-udp: true
     proxies:
-      - ss1
-      - ss2
-      - vmess1
       - auto
-
-  # direct to another infacename or fwmark, also supported on proxy
-  - name: en1
-    type: select
+      - DIRECT # 可以指定 直接
+    # DIRECT 配置
     interface-name: en1
     routing-mark: 6667
-    proxies:
-      - DIRECT
-
-  - name: UseProvider
-    type: select
+    #
     use:
       - provider1
-    proxies:
-      - Proxy
-      - DIRECT
 
 proxy-providers:
   provider1:
@@ -503,7 +535,6 @@ rules:
 ```
 
 ## Rule
-
 
 ```yaml
 # 已知 IP 段
@@ -543,6 +574,89 @@ rules:
 - https://github.com/Loyalsoldier/clash-rules
 - https://github.com/DivineEngine/Profiles/tree/master
 
+## TProxy
+
+```bash
+sysctl -w net.ipv4.ip_forward=1
+
+# 新的路由表
+ip rule add fwmark 666 lookup 666
+ip route add local 0.0.0.0/0 dev lo table 666
+
+# clash
+# ==================
+# clash 链负责处理转发流量
+iptables -t mangle -N clash
+
+# DIRECT Private
+iptables -t mangle -A clash -d 0.0.0.0/8 -j RETURN
+iptables -t mangle -A clash -d 127.0.0.0/8 -j RETURN
+iptables -t mangle -A clash -d 10.0.0.0/8 -j RETURN
+iptables -t mangle -A clash -d 172.16.0.0/12 -j RETURN
+iptables -t mangle -A clash -d 192.168.0.0/16 -j RETURN
+iptables -t mangle -A clash -d 169.254.0.0/16 -j RETURN
+iptables -t mangle -A clash -d 224.0.0.0/4 -j RETURN
+iptables -t mangle -A clash -d 240.0.0.0/4 -j RETURN
+
+# Proxy
+iptables -t mangle -A clash -p tcp -j TPROXY --on-port 7893 --tproxy-mark 666
+iptables -t mangle -A clash -p udp -j TPROXY --on-port 7893 --tproxy-mark 666
+
+# 转发所有 DNS 查询到 1053 端口
+# 此操作会导致所有 DNS 请求全部返回虚假 IP(fake ip 198.18.0.1/16)
+iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to 1053
+
+# 如果想要 dig 等命令可用, 可以只处理 DNS SERVER 设置为当前内网的 DNS 请求
+#iptables -t nat -I PREROUTING -p udp --dport 53 -d 192.168.0.0/16 -j REDIRECT --to 1053
+
+# 最后让所有流量通过 clash 链进行处理
+iptables -t mangle -A PREROUTING -j clash
+
+# clash_local
+# ==================
+# clash_local 链负责处理网关本身发出的流量
+iptables -t mangle -N clash_local
+# nerdctl 容器流量重新路由
+#iptables -t mangle -A clash_local -i nerdctl2 -p udp -j MARK --set-mark 666
+#iptables -t mangle -A clash_local -i nerdctl2 -p tcp -j MARK --set-mark 666
+
+# 跳过内网流量
+iptables -t mangle -A clash_local -d 0.0.0.0/8 -j RETURN
+iptables -t mangle -A clash_local -d 127.0.0.0/8 -j RETURN
+iptables -t mangle -A clash_local -d 10.0.0.0/8 -j RETURN
+iptables -t mangle -A clash_local -d 172.16.0.0/12 -j RETURN
+iptables -t mangle -A clash_local -d 192.168.0.0/16 -j RETURN
+iptables -t mangle -A clash_local -d 169.254.0.0/16 -j RETURN
+
+iptables -t mangle -A clash_local -d 224.0.0.0/4 -j RETURN
+iptables -t mangle -A clash_local -d 240.0.0.0/4 -j RETURN
+
+# 为本机发出的流量打 mark
+iptables -t mangle -A clash_local -p tcp -j MARK --set-mark 666
+iptables -t mangle -A clash_local -p udp -j MARK --set-mark 666
+
+# 跳过 clash 程序本身发出的流量, 防止死循环(clash 程序需要使用 "clash" 用户启动)
+iptables -t mangle -A OUTPUT -p tcp -m owner --uid-owner clash -j RETURN
+iptables -t mangle -A OUTPUT -p udp -m owner --uid-owner clash -j RETURN
+
+# 让本机发出的流量跳转到 clash_local
+# clash_local 链会为本机流量打 mark, 打过 mark 的流量会重新回到 PREROUTING 上
+iptables -t mangle -A OUTPUT -j clash_local
+
+# 修复 ICMP(ping)
+# 这并不能保证 ping 结果有效(clash 等不支持转发 ICMP), 只是让它有返回结果而已
+# --to-destination 设置为一个可达的地址即可
+sysctl -w net.ipv4.conf.all.route_localnet=1
+iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 127.0.0.1
+```
+
+- 参考配置
+  - https://gist.github.com/phlinhng/38a141862de775b10c613f7f2c6ade99
+  - https://github.com/springzfx/cgproxy/blob/aaa628a76b2911018fc93b2e3276c177e85e0861/readme.md#known-issues
+    - docker 不可以 tproxy
+
+
+# FAQ
 ## Start TProxy server error: operation not permitted
 
 ```bash

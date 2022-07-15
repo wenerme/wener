@@ -15,6 +15,8 @@ title: DDL
   - 可复制 本地表、视图、远程表、组合类型
   - `{ INCLUDING | EXCLUDING } { COMMENTS | COMPRESSION | CONSTRAINTS | DEFAULTS | GENERATED | IDENTITY | INDEXES | STATISTICS | STORAGE | ALL }`
   - 默认选项为 EXCLUDING，也就是包含所有
+  - `INCLUDING CONSTRAINTS` 是包含 `CHECK`, 而不包含 外键
+  - **注意** 不包含 FOREIGN KEY
 - 外键
   - addition foreign key constraint - 被引用表 SHARE ROW EXCLUSIVE
   - MATCH
@@ -56,9 +58,14 @@ title: DDL
 
 ```sql
 -- 查看 RLS 状态
-select relname, relrowsecurity, relforcerowsecurity
-from pg_class
-where relname not like 'pg_%'
+select
+  relname,
+  relrowsecurity,
+  relforcerowsecurity
+from
+  pg_class
+where
+  relname not like 'pg_%'
   and relname not like 'sql_%'
   and relkind = 'r';
 ```
@@ -73,23 +80,53 @@ where relname not like 'pg_%'
 - 不支持 ALTER TABLE RENAME
 
 ```sql
-SELECT name, elevation
--- ONLY 不包含 children 表
-FROM ONLY cities
-WHERE elevation > 500;
+SELECT
+  name,
+  elevation -- ONLY 不包含 children 表
+FROM
+  ONLY cities
+WHERE
+  elevation > 500;
 
 -- c.tableoid 来源表 - 在 pg_class.oid 找到定义
-SELECT c.tableoid::regclass, c.name, c.elevation
-FROM cities c
-WHERE c.elevation > 500;
+SELECT
+  c.tableoid:: regclass,
+  c.name,
+  c.elevation
+FROM
+  cities c
+WHERE
+  c.elevation > 500;
 
-SELECT name, elevation
--- 显性要求包含 children - 默认包含 - 不建议使用该语法
-FROM cities*
-WHERE elevation > 500;
+SELECT
+  name,
+  elevation -- 显性要求包含 children - 默认包含 - 不建议使用该语法
+FROM
+  cities *
+WHERE
+  elevation > 500;
 ```
 
 - https://www.postgresql.org/docs/current/ddl-inherit.html
 - https://www.postgresql.org/docs/current/tutorial-inheritance.html
 - 可用于数据分片 - https://arctype.com/blog/inheritance-in-postgres/
   - 不过现在的 pg 分片功能更成熟
+
+## add constraint if not exists
+
+1. 基于名字去重复
+
+- 也可以通过查询判断是否存在 `SELECT 1 FROM pg_constraint WHERE conname = 'constraint_name'"`
+
+```
+do $$
+begin
+alter table tenants add
+  constraint tenants_tid_fkey foreign key (tid) references system_tenants (tid) on delete cascade;
+exception
+  when duplicate_object then raise notice 'Table constraint foo.bar already exists';
+end;
+$$;
+```
+
+2. 查询判断逻辑是否存在

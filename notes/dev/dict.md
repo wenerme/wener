@@ -24,6 +24,16 @@ tags:
 - 尽量使用常见的词汇
 - 对于相同含义的词汇跟进场景选用
 
+## 俚语
+
+- [bruh](https://www.urbandictionary.com/define.php?term=Bruh)
+  - best answer to literally anything
+  - 嘲笑别人的问题很傻
+
+---
+
+- https://languages.oup.com/google-dictionary-ch/
+
 ## 常见词汇
 
 | 英文            | 含义                                                                |

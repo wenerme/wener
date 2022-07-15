@@ -48,3 +48,8 @@ tags:
   - MIT, JS
   - SMTP
 - [jordwest/imap-server](https://github.com/jordwest/imap-server)
+
+# FAQ
+
+- DMARC Domain-based Message Authentication Reporting and Conformance
+  - https://www.cloudflare.com/zh-cn/learning/dns/dns-records/dns-dmarc-record/

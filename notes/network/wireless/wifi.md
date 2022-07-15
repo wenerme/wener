@@ -104,3 +104,6 @@ title: IEEE 802.11
 - WPA2 只能抓包爆破
 - [d33tah/call-for-wpa3](https://github.com/d33tah/call-for-wpa3)
 - [derv82/wifite2](https://github.com/derv82/wifite2)
+- https://captivebehavior.wballiance.com/
+- [Captive Portals](https://textslashplain.com/2022/06/24/captive-portals/)
+  - https://news.ycombinator.com/item?id=32092104

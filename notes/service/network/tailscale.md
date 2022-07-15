@@ -44,22 +44,14 @@ title: tailscale
 brew install tailscale
 # Golang
 go install tailscale.com/cmd/tailscale{,d}@latest
+# AlpineLinux
+apk add tailscale
 
-# --accept-dns - 默认开启
-# --accept-routes - 默认关闭
-# --advertise-exit-node
-# --advertise-routes=<ip>
-# --advertise-tags=<tags>
-# --authkey=<key>
-# --exit-node=<ip>
-# --force-reauth
-# --host-routes
-# --hostname=<name>
-# --operator=<user>
-# --operator=<user>
-# --qr
-# --reset
-# --shields-up
+# Binary https://pkgs.tailscale.com/stable/#static
+# 内置 systemd service, 没有 openrc
+curl -O https://pkgs.tailscale.com/stable/tailscale_1.26.2_amd64.tgz
+tar zxvf tailscale_1.26.2_amd64.tgz
+
 tailscale up --login-server http://192.168.1.2:8080
 
 tailscale down
@@ -74,6 +66,23 @@ tailscale ping host
 tailscale status
 tailscale web
 ```
+
+| tailscale up              | default | note                            |
+| ------------------------- | ------- | ------------------------------- |
+| --accept-dns              | true    | 修改本地 DNS 为 100.100.100.100 |
+| --accept-routes           | false   | 接受服务端配置的路由            |
+| --advertise-exit-node     |
+| `--advertise-routes <ip>` |         | 申请路由到该节点                |
+| `--advertise-tags <tags>` |
+| `--authkey <key>`         |
+| `--exit-node <ip>`        |         | 指定出口节点                    |
+| --force-reauth            |
+| --host-routes             |
+| `--hostname <name>`       |
+| `--operator <user>`       |
+| --qr                      |
+| --reset                   |
+| --shields-up              |
 
 ## tailscaled
 

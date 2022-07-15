@@ -9,3 +9,11 @@ title: 浏览器
 IE 11 于 2022-06-15 EOL，从此 IE 退出江湖，基于 chromium 的 edge 接替它的位置。
 
 :::
+
+| Action       | Chrome | Safari |
+| ------------ | ------ | ------ |
+| Hard Refresh | ⌘+⌥+R  | ⌘+⌥+R  |
+| Enpty Cache  |        | ⌘+⌥+E  |
+
+- ⌘ Command
+- ⌥ Option

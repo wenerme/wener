@@ -52,3 +52,21 @@ tags:
 ## AICH - Advanced Intelligent Corruption Handling
 
 - 基于 Root Hash
+
+## 下载器常见特性
+
+- preload magnet metadata
+- tracker exchange
+- embedded tracker
+- built-in search engine
+- super-seeding
+  - Super-seeding is an algorithm used to allow downloaders become uploaders quicker.
+- broadcatching
+  - automatically downloading content as soon as it's available
+  - usually implemented via RSS
+  - proxy server
+- Prioritization, Selective Downloading, DHT, PEX, LPD, Magnet URI
+- MSE/PE security
+- UPnP, NAT-PMP, NAT traversal for automatic router configuration
+- UDP tracker and µTP data transfer protocol
+- Web seeding and Local Peer Discovery

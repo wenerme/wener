@@ -39,6 +39,16 @@ tags:
 
 ## Awesome
 
+- Derivative OS
+  - [rancher/k3os](https://github.com/rancher/k3os)
+    - https://kubedex.com/kubernetes-operating-systems/
+  - [rancher/os](https://github.com/rancher/os) - 并不是完全从 Alpine 派生
+  - https://postmarketos.org/
+    - https://gitlab.com/postmarketOS
+    - https://github.com/postmarketOS
+
+## TBD
+
 - https://github.com/jirutka/akms
 - https://pkgs.alpinelinux.org/package/edge/main/x86_64/akms
 - https://github.com/jirutka/efi-mkkeys
@@ -49,3 +59,4 @@ tags:
 - https://pkgs.alpinelinux.org/package/edge/main/x86_64/sbsigntool
   - Secure Boot signing tools
 - https://wiki.alpinelinux.org/wiki/UEFI_Secure_Boot
+- https://blog.toast.cafe/2018/11/27/the-state-of-btrfs-in-alpine/

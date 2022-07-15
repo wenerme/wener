@@ -290,7 +290,7 @@ npm add date-fns lodash-es react-fast-compare
     - Switch - 只会渲染一个匹配的 Route
     - Link, NavLink, Redirect - 导航，修改 url
     - Prompt - 用于阻塞 history 发生变化
-  - [react-router-config](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config)
+  - useRoutes/react-router-config
     - 提供了统一配置 route 的逻辑 - 很简单，可以作为参考
     - matchRoutes - 匹配嵌套路由 - 返回匹配的 tree 路由数组
     - renderRoutes - 渲染嵌套路由 - 递归 Switch, 遍历 Route

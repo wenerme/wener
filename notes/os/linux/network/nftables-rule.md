@@ -1,5 +1,4 @@
 ---
-id: nftables-rule
 title: nftables 规则
 ---
 

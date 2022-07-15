@@ -22,17 +22,17 @@ curl -vik --connect-to example.com:443:127.0.0.1:8443 https://example.com
 curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2 https://example.com
 ```
 
-| flag                                   | since | for                                     |
-| -------------------------------------- | ----- | --------------------------------------- |
+| flag                                   | since | for                                                       |
+| -------------------------------------- | ----- | --------------------------------------------------------- |
 | `-X, --request <method>`               |       |
-| `-x, --proxy [protocol://]host[:port]` |       | `https?`,`socks{4,5}{a,h}`              |
-| `--json <data>`                        | 7.82  | --data+POST+Content-Type+Accept         |
-| `--output-dir <dir>`                   | 7.73  | 指定输出目录                            |
-| `--create-dirs`                        |       | 创建输出目录 mode=`0750`                |
-| `-C, --continue-at <offset>`           |       | 继续下载                                |
-| `--remote-name-all`                    |       | 全部使用 remote-name - URL 文件名部分   |
-| `-O, --remote-name`                    |       | 第一个使用 remote-name                  |
-| `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名 |
+| `-x, --proxy [protocol://]host[:port]` |       | `https?`,`socks{4,5}{a,h}`                                |
+| `--json <data>`                        | 7.82  | --data+POST+Content-Type+Accept                           |
+| `--output-dir <dir>`                   | 7.73  | 指定输出目录                                              |
+| `--create-dirs`                        |       | 创建输出目录 mode=`0750`                                  |
+| `-C, --continue-at <offset>`           |       | 继续下载                                                  |
+| `--remote-name-all`                    |       | 全部使用 remote-name - URL 文件名部分 - `-O` 只影响第一个 |
+| `-O, --remote-name`                    |       | 第一个使用 remote-name                                    |
+| `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名                   |
 
 - proxy
   - port=1080
@@ -60,6 +60,7 @@ curl --head \
 ## 延时
 
 ```bash
+# %{stderr} 写入到 stderr
 cat << EOF > curl-format.txt
      time_namelookup:  %{time_namelookup}s\n
         time_connect:  %{time_connect}s\n

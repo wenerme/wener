@@ -6,18 +6,24 @@ tags:
 
 # Media Awesome
 
-## server
+## Player
 
-- [Red5/red5-server](https://github.com/Red5/red5-server)
-  - Apache-2.0, Java
-- [ant-media/Ant-Media-Server](https://github.com/ant-media/Ant-Media-Server)
-  - GPL-3.0, Java
-    - Red5 fork
-- [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
-  - MIT, Elixir
+- [mpv](./player/mpv.md)
+- vlc
+- 命令行音乐播放器
+  - [cmus](./player/cmus.md)
+    - cmus-remote
+  - [termusic](https://github.com/tramhao/termusic)
+- [MusicPlayerDaemon](./player/mpd.md)
 
-## music
+## Music Server
 
+- [owntone/owntone-server](./server/owntone.md)
+  - GPLv2, C+Vue
+  - 🌟 推荐 - WebUI, 支持较多客户端
+  - DAAP (iTunes), MPD (Music Player Daemon) and RSP (Roku) media server
+  - forked-daapd
+  - DAAP - Digital Audio Access Protocol
 - [sentriz/gonic](https://github.com/sentriz/gonic)
   - GPLv3, Golang
 - [epoupon/lms](https://github.com/epoupon/lms)
@@ -42,6 +48,22 @@ tags:
   - GPL-3.0, Java
 - [mpache/ampache](https://github.com/ampache/ampache)
   - PHP
+- Icecast
+  - Ogg Vorbis and MP3 streaming media server
+- Gerbera
+  - UPnP media server
+
+## Media Server
+
+- [jellyfin](./server/jellyfin.md)
+  - 🌟 推荐 - 简单易用，开发活跃
+- [Red5/red5-server](https://github.com/Red5/red5-server)
+  - Apache-2.0, Java
+- [ant-media/Ant-Media-Server](https://github.com/ant-media/Ant-Media-Server)
+  - GPL-3.0, Java
+    - Red5 fork
+- [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
+  - MIT, Elixir
 
 ## Container
 
@@ -51,6 +73,13 @@ tags:
   - mks - subtitle
   - mk3d - stereoscopic/3d video
   - webm 的基础
+
+# Formats
+
+[av1]: ./format/av1.md
+[jpeg-xl]: ./format/jpeg-xl.md
+[avif]: ./format/avif.md
+[nfo]: ./format/nfo.md
 
 ## Audio
 
@@ -81,6 +110,11 @@ tags:
   - [Rillke/opusenc.js](https://github.com/Rillke/opusenc.js)
 - Ogg Vorbis
   - zero licensing costs
+- .dff
+  - Direct Stream Digital - DSD
+  - by Sony and Philips for Super Audio CD - SACD
+  - DST - Direct Stream Transfer 压缩
+  - wikipedia [Direct Stream Digital](https://en.wikipedia.org/wiki/Direct_Stream_Digital)
 - 音乐大多 44.1
 - 48 <-> 44.1 无法很好 resample
 - https://support.spotify.com/us/article/audio-quality/
@@ -101,8 +135,8 @@ tags:
 
 :::tip 最佳选择 AVIF
 
-- JPEG-XL 短时间内 Web 还覆盖不到
-- AV1 硬件加速会一定程度推动 AVIF 硬件加速
+- [JPEG-XL] 短时间内 Web 还覆盖不到
+- [AV1] 硬件加速会一定程度推动 AVIF 硬件加速
 
 :::
 
@@ -146,7 +180,7 @@ tags:
   - FUZZ
   - NCC
   - SSIMULACRA
-- AVIF
+- [AVIF]
   - AV1 的图片格式
 - WebP is superior below quality 70
 - JPEG is often better than WebP at quality 90 and above
@@ -194,7 +228,6 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 
 ## EBook
 
-- [Comparison of e-book formats](https://en.wikipedia.org/wiki/Comparison_of_e-book_formats)
 
 - cb? - Comic Book Archive file - 漫画
   - r - RAR
@@ -207,6 +240,23 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
   - scanned documents
 - Kindle - .azw; .azw3 or .kf8; .kfx
 - Mobipocket - .prc, .mobi
+
+---
+
+- [janeczku/calibre-web](https://github.com/janeczku/calibre-web)
+- [Comparison of e-book formats](https://en.wikipedia.org/wiki/Comparison_of_e-book_formats)
+
+## Playlist
+
+- [m3u8]
+
+[m3u8]: ./format/m3u8.md
+
+## Metadata
+
+- [nfo]
+
+# Misc
 
 ## Tools
 
@@ -236,9 +286,37 @@ for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
 
 ## Metadata
 
-- https://anidb.net/
-  - https://anidb.net/group/15631
-- https://www.imdb.com/interfaces/
-- opensubtitle
-- openmovie
-- TMDB https://www.themoviedb.org/documentation/api
+- Anime
+  - https://anidb.net/
+    - https://anidb.net/group/15631
+- Movie & Shows
+  - https://www.imdb.com/interfaces/
+  - openmovie
+  - TMDB https://www.themoviedb.org/documentation/api
+- Subtitles
+  - opensubtitle
+  - https://www.media.io/
+- Artwork
+  - Discogs https://www.discogs.com/
+  - Cover Art Archive https://coverartarchive.org/
+
+## Protocol
+
+- DLNA
+- UPnP
+- HLS
+- Streaming MP3
+
+## Online
+
+- https://bigjpg.com/
+  - 图片放大
+- https://jpghd.com/
+  - 黑白照片上色
+- https://remover.zmo.ai/
+  - 去水印
+
+## ML
+
+- [AaronFeng753/Waifu2x-Extension-GUI](https://github.com/AaronFeng753/Waifu2x-Extension-GUI)
+  - 图片放大

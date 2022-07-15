@@ -6,6 +6,11 @@ title: 耻辱墙
 
 > Wall of Shame
 
+- Baidu 网盘
+- 不要使用/黑名单/Blocklist
+  - WPS
+  - 360
+
 ## OSS
 
 ## 厂商

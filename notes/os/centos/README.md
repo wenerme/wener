@@ -1,5 +1,5 @@
 ---
-id: centos
+title: CentOS
 ---
 
 # CentOS

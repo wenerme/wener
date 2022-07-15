@@ -50,6 +50,7 @@ tags:
   - ListResourceResponse
     - repeated Resource resources
     - next_page_token
+    - 可选 int64 total_size
 - CreateResource(CreateResourceRequest) returns (Resource)
   - CreateResourceRequest
     - parent

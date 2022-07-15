@@ -4,12 +4,15 @@ title: aria2
 
 # aria2
 
+- [aria2/aria2](https://github.com/aria2/aria2)
+  - GPLv2,C++
 - webui
   - [mayswind/AriaNg](https://github.com/mayswind/AriaNg) - Web
     - [在线](http://ariang.mayswind.net/latest)
   - Aria2WebUI
   - [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
 - 参考
+  - [aria2c.1](http://aria2.github.io/manual/en/html/aria2c.html)
   - [P3TERX/Aria2-Pro-Docker](https://github.com/P3TERX/Aria2-Pro-Docker)
     - CUSTOM_TRACKER_URL
       - https://cdn.jsdelivr.net/gh/wenerme/repository@master/trackers_aira2.txt
@@ -31,6 +34,11 @@ aria2c --bt-metadata-only=true --bt-save-metadata=true <magnet link>
 
 aria2c --help=#rpc
 ```
+
+| flag             | val      |
+| ---------------- | -------- |
+| `-d,--dir <DIR>` | 下载目录 |
+| -D,--daemon      | daemon   |
 
 - $XDG_CACHE_HOME/aria2
 - $HOME/.aria2

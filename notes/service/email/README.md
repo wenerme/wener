@@ -1,8 +1,8 @@
 ---
-id: email
+title: EMail
 ---
 
-# 邮件
+# EMail
 
 - .eml
 - wikipedia

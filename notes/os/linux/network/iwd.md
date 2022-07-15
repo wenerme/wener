@@ -19,6 +19,13 @@ title: iwd
     - [Wireless adhoc network](https://en.wikipedia.org/wiki/Wireless_ad_hoc_network)
 
 ```bash
+apk add iwd
+service iwd start
+```
+
+## iw
+
+```bash
 device list
 device wlan0 show
 device wlan0 set-property Powered on

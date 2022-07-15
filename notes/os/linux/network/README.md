@@ -1,5 +1,4 @@
 ---
-id: network
 title: Linux 网络
 ---
 
@@ -45,9 +44,9 @@ title: Linux 网络
 | rmnet     | Qualcomm rmnet device                                        |
 | xfrm      | Virtual xfrm interface                                       |
 
-* vlan
-  * vlan
-  * macvlan
-  * macvtap
-  * ipvlan
-  * ipvtap
+- vlan
+  - vlan
+  - macvlan
+  - macvtap
+  - ipvlan
+  - ipvtap
