@@ -8,6 +8,7 @@ title: Qemu Image
   - [Copying a 1TB sparse file](https://stackoverflow.com/questions/13252682)
     - 结论 - GNU tar 最快，内核 3.1+ 支持 SEEK_HOLE
   - [Sparse file](https://wiki.archlinux.org/index.php/sparse_file)
+  - [qemu-img](https://qemu.weilnetz.de/doc/7.0/tools/qemu-img.html)
 
 ```bash
 # 查看映射情况
@@ -47,7 +48,16 @@ dd if=test.raw of=tmp3.raw conv=sparse status=progress bs=128MB
 
 # ddrescue 支持写入 sparse
 ddrescue -S -b8M /dev/sda1 /mount/external/backup/sda1.raw
+
+# convert
+# convert [--object OBJECTDEF] [--image-opts] [--target-image-opts] [--target-is-zero] [--bitmaps] [-U] [-C] [-c] [-p] [-q] [-n] [-f FMT] [-t CACHE] [-T SRC_CACHE] [-O OUTPUT_FMT] [-B BACKING_FILE [-F BACKING_FMT]] [-o OPTIONS] [-l SNAPSHOT_PARAM] [-S SPARSE_SIZE] [-r RATE_LIMIT] [-m NUM_COROUTINES] [-W] [--salvage] FILENAME [FILENAME2 [...]] OUTPUT_FILENAME
 ```
+
+| flag | opt                                                  |
+| ---- | ---------------------------------------------------- |
+| -f   | 第一个镜像格式                                       |
+| -F   | 第二个镜像格式                                       |
+| -s   | 严格模式 - 镜像 size 不匹配，allocation 失败都会错误 |
 
 ## 磁盘格式
 
@@ -130,14 +140,14 @@ qemu-img convert --target-image-opts --object secret,data=123,id=sec0 -f qcow2 d
 
 # AES 加密密钥
 openssl rand -base64 32 > key.b64
-KEY=$(base64 -d key.b64 | hexdump  -v -e '/1 "%02X"')
+KEY=$(base64 -d key.b64 | hexdump -v -e '/1 "%02X"')
 openssl rand -base64 16 > iv.b64
-IV=$(base64 -d iv.b64 | hexdump  -v -e '/1 "%02X"')
+IV=$(base64 -d iv.b64 | hexdump -v -e '/1 "%02X"')
 printf "123" | openssl enc -aes-256-cbc -a -K $KEY -iv $IV > sec.b64
 
 qemu-system-x86_64 \
   -object secret,id=secmaster0,format=base64,file=key.b64 \
-  -object secret,id=sec0,keyid=secmaster0,format=base64,file=sec.b64,iv=$(<iv.b64) \
+  -object secret,id=sec0,keyid=secmaster0,format=base64,file=sec.b64,iv=$(< iv.b64) \
   -drive file=demo.luks,format=luks,key-secret=sec0,if=virtio
 
 # printf "$SECRET" | openssl enc -d -aes-256-cbc -a -K $KEY -iv $IV

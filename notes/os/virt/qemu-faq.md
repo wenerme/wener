@@ -1,5 +1,7 @@
 ---
 title: QEMU FAQ
+tags:
+  - FAQ
 ---
 
 # QEMU FAQ
@@ -45,6 +47,21 @@ https://news.ycombinator.com/item?id=13753950
 
 [Containerization vs. Virtualization – More on Overhead](http://www.brightcomputing.com/blog/containerization-vs.-virtualization-more-on-overhead)
 
+## 硬件加速
+
+开启硬件加速和不开启性能可能相差 10 倍+。
+
+```bash
+qemu-system-x86_64 -accel help
+```
+
+- tcg - JIT 模式
+- macOS - hvf, hax
+  - hvf 实现不是很完整，可能会出现无法运行的情况
+  - 如果加速有问题，尝试修改 smp 为 1
+- Windows - hyper, hax
+- Linux - kvm
+
 ## USB
 
 - https://github.com/qemu/qemu/blob/master/docs/usb2.txt
@@ -52,18 +69,24 @@ https://news.ycombinator.com/item?id=13753950
 
 ```bash
 qemu-system-x86_64 \
-    -enable-kvm \
-    -M q35 \
-    -m 2G \
-    -usb -usbdevice host:16b2:1001 \
-    -usb -usbdevice host:0529:0001 \
-    -usbdevice tablet \
-    -net nic \
-    -net bridge,br=br0 \
-    -vga qxl \
-    -spice port=5930,disable-ticketing \
-    -device virtio-serial-pci \
-    -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
-    -chardev spicevmc,id=spicechannel0,name=vdagent \
-    -drive file=/mnt/data/win-patch.img,if=virtio
+  -enable-kvm \
+  -M q35 \
+  -m 2G \
+  -usb -usbdevice host:16b2:1001 \
+  -usb -usbdevice host:0529:0001 \
+  -usbdevice tablet \
+  -net nic \
+  -net bridge,br=br0 \
+  -vga qxl \
+  -spice port=5930,disable-ticketing \
+  -device virtio-serial-pci \
+  -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
+  -chardev spicevmc,id=spicechannel0,name=vdagent \
+  -drive file=/mnt/data/win-patch.img,if=virtio
+```
+
+## -accel kvm: failed to initialize kvm: Permission denied
+
+```bash
+addgroup $USER kvm
 ```

@@ -73,6 +73,16 @@ npm add react-router-dom
 - 纯 Hook 重写 - 要求 React 16.8+
 - 不再需要 exact - 使用 `*` 进行任意匹配
 - element 替代 component 和 render
+- 基于 rank 的路由优先级
+- 不再使用 path-to-regexp - 因此路径写法会有区别
+  - https://github.com/remix-run/react-router/discussions/8132
+  - [What Happened to Regexp Routes Paths?](https://reactrouter.com/docs/en/v6/getting-started/faq#what-happened-to-regexp-routes-paths)
+    - 无法 Rank 路径
+    - bundle size 较大- 1/3 of react-router
+      - path-to-regexp 6kB/2.2kB
+      - react-router - 11kB/4kB
+        - history - 6kB/2kB
+      - react-router-dom + 7kB/2kB
 - https://remix.run/blog/react-router-v6
 
 :::caution

@@ -61,13 +61,12 @@ tags:
 
 ## Linux Distro
 
-
 - [reactos](https://github.com/reactos/reactos)
   - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
 - Media Center
   - [LibreELEC](https://libreelec.tv/)
     Libre Embedded Linux Entertainment Center
-    - fork of  OpenELEC at 2016
+    - fork of OpenELEC at 2016
     - [LibreELEC/LibreELEC.tv](https://github.com/LibreELEC/LibreELEC.tv)
     - Just enough OS for KODI
     - RPi 4 支持 HEVC/H.265 硬解
@@ -85,6 +84,9 @@ tags:
     - [libretro/Lakka-LibreELEC](https://github.com/libretro/Lakka-LibreELEC)
     - [libretro/RetroArch](https://github.com/libretro/RetroArch)
     - [Hardware-support](https://www.lakka.tv/doc/Hardware-support)
+  - https://emulation.ninja/
+- Retropie,Recalbox,Lakka,Batocera
+- unRAID, LIME TECH
 
 ## Retro Game
 

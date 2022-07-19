@@ -170,13 +170,19 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## 域名
 
+- 可直接访问
+  - gstatic.com
 - 需要速度快 - 体验好
-  - www.googleapis.co
   - google.com
   - github.com
-  - gstatic.com
 - 大流量 - 带宽为主
+  - www.googleapis.com
+    - Google 的云盘、对象存储
   - googlevideo.com
     - Youtube
   - svc.ms
     - OneDrive 下载
+  - anonfiles.com
+  - objects.githubusercontent.com
+    - Github Release
+  - googleusercontent.com

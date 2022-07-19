@@ -4,8 +4,11 @@ title: ethersjs
 
 # ethersjs
 
+- [ethers-io/ethers.js](https://github.com/ethers-io/ethers.js)
+  - MIT, TS
 - BN.js
-- [ethers.js: Human-Readable Contract ABIs](https://blog.ricmoo.com/human-readable-contract-abis-in-ethers-js-141902f4d917)
+- 参考
+  - [ethers.js: Human-Readable Contract ABIs](https://blog.ricmoo.com/human-readable-contract-abis-in-ethers-js-141902f4d917)
 
 ```ts
 // MetaMask

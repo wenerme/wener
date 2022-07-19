@@ -8,6 +8,25 @@ title: inversify
   - MIT, TS
   - ~50kB/11kB
   - Reflect.getMetadata, Map, Promise, Proxy
+- Decorator
+  - `@injectable()`
+    - `@inject("token")`
+      - `@optional()`
+      - `@tagged("key", "value")`
+        - 避免 AMBIGUOUS_MATCH
+      - `@named("name")`
+      - `@targetName("")`
+    - `@unmanaged()` - 避免 BaseClass constructor 注入
+    - `@multiInject("token")`
+    - `@postConstruct()`
+    - `@preDestroy()`
+- inversify-inject-decorators
+  - @lazyInject
+  - @lazyInjectNamed
+  - @lazyInjectTagged
+  - @lazyMultiInject
+- 参考
+  - https://github.com/inversify/InversifyJS/blob/master/wiki/ecosystem.md
 
 :::tip
 
@@ -36,6 +55,13 @@ const container = new Container();
 container.bind<IServiceBar>(TYPES.ServiceBar).to(ServiceBar);
 //
 const bar = container.get<IServiceBar>(TYPES.ServiceBar);
+// 级联
+let childContainer = new Container();
+childContainer.parent = parentContainer;
+
+// 外部 Class 可手动修饰
+import {decorate, injectable} from 'inversify';
+decorate(injectable(), SomeClass);
 ```
 
 ## 核心概念

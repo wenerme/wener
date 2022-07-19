@@ -50,6 +50,13 @@ tags:
   - https://lostandtaken.com/?s=seamless
 - 高清墙纸
   - https://www.pexels.com/search/HD%20wallpaper/
+  - pexels
+    - https://www.pexels.com/license/
+      - 可修改
+      - 不要求出处
+  - https://wallpapers.com/apple
+- macOS 壁纸
+  - https://512pixels.net/projects/default-mac-wallpapers-in-5k/
 
 ## Design System
 

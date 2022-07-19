@@ -13,6 +13,15 @@ Cache-Control: public, max-age=3600
 Expires: Thu, 01 Dec 2014 16:00:00 GMT
 ```
 
+## Status
+
+| status | name         | note     |
+| ------ | ------------ | -------- |
+| 400    | Bad Request  |
+| 401    | Unauthorized | RFC 7235 |
+
+- https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
 ## CORS
 
 - 默认允许头

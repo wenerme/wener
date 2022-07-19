@@ -81,11 +81,20 @@ tags:
       - GPLv3, Go
     - https://news.ycombinator.com/item?id=32104609
     - Crawler `SearchHut Bot 0.0 (GNU AGPL 3.0); https://sr.ht/~sircmpwn/searchhut; <sir@cmpwn.com>`
+- [yacy/yacy_search_server](https://github.com/yacy/yacy_search_server)
+  - GPLv2+, Java
+- [searx/searx](https://github.com/searx/searx)
+  - AGPLv3, Python
+  - Privacy-respecting, hackable metasearch engine
+  - https://searx.org/
+  - https://searx.space/
+- [List of search engines](https://en.wikipedia.org/wiki/List_of_search_engines)
+- metasearch engine
+  - 聚合其他搜索引擎
 
 ## Lcoal Search
 
 - [xapian/xapian](https://github.com/xapian/xapian)
-- [searx/searx](https://github.com/searx/searx)
 - [The Lemur Project](http://www.lemurproject.org/)
 - [A Local Search Engine](https://siboehm.com/articles/21/a-local-search-engine)
 - [Building Monocle, a universal personal search engine for life](https://thesephist.com/posts/monocle/)

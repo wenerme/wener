@@ -1,87 +1,84 @@
 ---
-id: qemu-doc
 title: QEMU 文档
 ---
 
 # QEMU Document
 
-## Tips
-* QEMU [Doc](https://qemu.weilnetz.de/doc/qemu-doc.html)
-* 虚拟模式
-* PC 系统模拟器
-  * 标准选项
-  * 块设备选项
-  * USB 选项
-  * 显示选项
-    * `-display [type]`
-      * sdl,curses,none,gtk,vnc
-    * `-nographic`
-    * `-alt-grab` - Ctrl-Alt-Shift
-    * `-ctrl-grab` - Right-Ctrl
-    * `-spice option[,option[,...]]`
-      * spice 远程桌面协议
-    * `-full-screen` 全屏的方式打开
-    * `-g widthxheight[xdepth]`
-      * 设置初始大小
-    * `-vnc display[,option[,option[,...]]]`
-      * 参数
-  * 网络
-  * 字符设备
-  * 蓝牙
-  * TPM 设备
-  * Linux/Multiboot 启动
-  * 调试和专家选项
-    * `-serial [dev]`
-      * 转发虚拟串口到主机的字符设备
-      * `vc[:WxH]` Virtual console
-      * pty, none, null, chardev:id, /dev/XXX, stdio, pipe:filename,, COMn
-      * `udp:[remote_host]:remote_port[@[src_ip]:src_port]`
-      * `tcp:[host]:port[,server][,nowait][,nodelay][,reconnect=seconds]`
-      * `telnet:host:port[,server][,nowait][,nodelay]`
-      * `unix:path[,server][,nowait][,reconnect=seconds]`
-      * /dev/parportN
-      * mon:dev_string
-      * braille
-      * msmouse
-    * `-S` - 启动时不启动 CPU, 手动输入 `c`
-    * `-bios file` - 指定 BIOS 文件
-    * `-no-reboot` - 退出而不是重启
-    * `-enable-kvm`
-      * 是否启用 KVM
-    * `-enable-hax`
-      * 是否启用 HAX (Hardware-based Acceleration eXecution)
-      * 只对 Mac 和 Windows 有效
-    * `-loadvm [file]`
-      * 加载保存的状态
-    * `-daemonize` -  后台运行
-    * `-readconfig file` - 从文件读取设备配置
-    * `-writeconfig file` - 将设备配置写入到文件
-  * 监控
-  * 磁盘镜像
-  * 网络模拟器
-  * 其他设备
-  * 直接 Linux 启动
-  * USB 模拟器
-  * VNC 安全相关
-  * 平台相关选项
-
-  * 非 PC 系统模拟器
-    * PowerPC
-    * Sparc32
-    * Sparec64
-    * MIPS
-    * ARM
-    * Cris
-    * ClodFire
-    * Cris
-    * Microblaze
-    * Sh4
-    * Xtensa
-  * 客户端调用
-  * 用户空间模拟器
-    * Linux
-    * BSD
-
+- QEMU [User Guide](https://qemu.weilnetz.de/doc/7.0/)
+- QEMU [Developers Guide](https://qemu.weilnetz.de/doc/devel/)
+- 虚拟模式
+- PC 系统模拟器
+  - 标准选项
+  - 块设备选项
+  - USB 选项
+  - 显示选项
+    - `-display [type]`
+      - sdl,curses,none,gtk,vnc
+    - `-nographic`
+    - `-alt-grab` - Ctrl-Alt-Shift
+    - `-ctrl-grab` - Right-Ctrl
+    - `-spice option[,option[,...]]`
+      - spice 远程桌面协议
+    - `-full-screen` 全屏的方式打开
+    - `-g widthxheight[xdepth]`
+      - 设置初始大小
+    - `-vnc display[,option[,option[,...]]]`
+      - 参数
+  - 网络
+  - 字符设备
+  - 蓝牙
+  - TPM 设备
+  - Linux/Multiboot 启动
+  - 调试和专家选项
+    - `-serial [dev]`
+      - 转发虚拟串口到主机的字符设备
+      - `vc[:WxH]` Virtual console
+      - pty, none, null, chardev:id, /dev/XXX, stdio, pipe:filename,, COMn
+      - `udp:[remote_host]:remote_port[@[src_ip]:src_port]`
+      - `tcp:[host]:port[,server][,nowait][,nodelay][,reconnect=seconds]`
+      - `telnet:host:port[,server][,nowait][,nodelay]`
+      - `unix:path[,server][,nowait][,reconnect=seconds]`
+      - /dev/parportN
+      - mon:dev_string
+      - braille
+      - msmouse
+    - `-S` - 启动时不启动 CPU, 手动输入 `c`
+    - `-bios file` - 指定 BIOS 文件
+    - `-no-reboot` - 退出而不是重启
+    - `-enable-kvm`
+      - 是否启用 KVM
+    - `-enable-hax`
+      - 是否启用 HAX (Hardware-based Acceleration eXecution)
+      - 只对 Mac 和 Windows 有效
+    - `-loadvm [file]`
+      - 加载保存的状态
+    - `-daemonize` - 后台运行
+    - `-readconfig file` - 从文件读取设备配置
+    - `-writeconfig file` - 将设备配置写入到文件
+  - 监控
+  - 磁盘镜像
+  - 网络模拟器
+  - 其他设备
+  - 直接 Linux 启动
+  - USB 模拟器
+  - VNC 安全相关
+  - 平台相关选项
+  - 非 PC 系统模拟器
+    - PowerPC
+    - Sparc32
+    - Sparec64
+    - MIPS
+    - ARM
+    - Cris
+    - ClodFire
+    - Cris
+    - Microblaze
+    - Sh4
+    - Xtensa
+  - 客户端调用
+  - 用户空间模拟器
+    - Linux
+    - BSD
 
 ```bash
 # 查看支持的机器
@@ -103,7 +100,6 @@ qemu-system-x86_64 alpine-virt-3.6.2-x86_64.iso
 # 这样就不会出现警告
 qemu-system-x86_64 -cdrom alpine-virt-3.6.2-x86_64.iso
 
-
 # 将一个目录作为虚拟的 fat 磁盘镜像, 默认只读
 qemu-system-i386 linux.img -hdb fat:/my_directory
 ```
@@ -124,9 +120,8 @@ qemu-system-i386 \
 qemu-system-i386 \
   -drive file=iscsi://user%password@192.0.2.1/iqn.2001-04.com.example/1
 # 在环境变量中指定 CHAP 账号密码
-LIBISCSI_CHAP_USERNAME="user" \
-LIBISCSI_CHAP_PASSWORD="password" \
-qemu-system-i386 -drive file=iscsi://192.0.2.1/iqn.2001-04.com.example/1
+LIBISCSI_CHAP_USERNAME="user" LIBISCSI_CHAP_PASSWORD="password" \
+  qemu-system-i386 -drive file=iscsi://192.0.2.1/iqn.2001-04.com.example/1
 
 # NBD
 # nbd:<server-ip>:<port>[:exportname=<export>]
@@ -143,7 +138,7 @@ qemu-system-i386 --drive file=nbd:unix:/tmp/nbd-socket
 qemu-system-i386 --drive file=sheepdog://192.0.2.1:30000/MyVirtualMachine
 
 # GlusterFS
-# a user space distributed file system. 
+# a user space distributed file system.
 # supports the use of GlusterFS volumes for hosting VM disk images using TCP, Unix Domain Sockets and RDMA transport protocols.
 # URI:
 # gluster[+type]://[host[:port]]/volume/path[?socket=...][,debug=N][,logfile=...]
@@ -160,58 +155,57 @@ qemu-system-x86_64 'json:{"driver":"qcow2",
                                    "debug":9,"logfile":"/var/log/qemu-gluster.log",
                                    "server":[{"type":"tcp","host":"1.2.3.4","port":24007},
                                              {"type":"unix","socket":"/var/run/glusterd.socket"}]}}'
-qemu-system-x86_64 -drive driver=qcow2,file.driver=gluster,file.volume=testvol,file.path=/path/a.img,\
-                                      file.debug=9,file.logfile=/var/log/qemu-gluster.log,\
-                                      file.server.0.type=tcp,file.server.0.host=1.2.3.4,file.server.0.port=24007,\
-                                      file.server.1.type=unix,file.server.1.socket=/var/run/glusterd.socket\
-
+qemu-system-x86_64 -drive driver=qcow2,file.driver=gluster,file.volume=testvol,file.path=/path/a.img, file.debug=9,file.logfile=/var/log/qemu-gluster.log, file.server.0.type=tcp,file.server.0.host=1.2.3.4,file.server.0.port=24007, file.server.1.type=unix,file.server.1.socket=/var/run/glusterd.socket
 # HTTP/HTTPS/FTP/FTPS
 # QEMU supports read-only access to files accessed over http(s) and ftp(s).
 # <protocol>://[<username>[:<password>]@]<host>/<path>
 ```
 
 ## 镜像
-* raw
-  * 原始格式
-  * 简单易用
-  * 如果文件系统支持 `holes`(ext2,ext3,ntfs), 那会占不了多少空间
-  * 选项
-    * preallocation - 预分配模式
-      *  off, falloc, full
-* qcow2
-  * QEMU 镜像格式
-  * 功能最多
-    * COW - 只针对 btrfs 有用
-    * 压缩
-    * 加密 - aes,luks
-* qed
-  * 旧的 QEMU 镜像格式
-* qcow
-  * 旧的 QEMU 镜像格式
-* luks
-  * LUKS v1 加密格式
-  * 与 Linux dm-crypt/cryptsetup 兼容
-* vdi
-  * vbox 1.1 兼容格式
-* vmdk
-  * vm 3,4 兼容格式
-* vpc
-  * Virtual PC 兼容格式 (VHD)
-* VHDX
-  * Hyper-V 兼容的镜像格式
+
+- raw
+  - 原始格式
+  - 简单易用
+  - 如果文件系统支持 `holes`(ext2,ext3,ntfs), 那会占不了多少空间
+  - 选项
+    - preallocation - 预分配模式
+      - off, falloc, full
+- qcow2
+  - QEMU 镜像格式
+  - 功能最多
+    - COW - 只针对 btrfs 有用
+    - 压缩
+    - 加密 - aes,luks
+- qed
+  - 旧的 QEMU 镜像格式
+- qcow
+  - 旧的 QEMU 镜像格式
+- luks
+  - LUKS v1 加密格式
+  - 与 Linux dm-crypt/cryptsetup 兼容
+- vdi
+  - vbox 1.1 兼容格式
+- vmdk
+  - vm 3,4 兼容格式
+- vpc
+  - Virtual PC 兼容格式 (VHD)
+- VHDX
+  - Hyper-V 兼容的镜像格式
 
 ### 只读格式
-* bochs
-  * growing 的 Bochs 镜像
-* cloop
-  * Linux Compressed Loop 镜像
-* dmg
-  * Apple 的磁盘格式
-* parallels
-  * Parallels 磁盘镜像格式
+
+- bochs
+  - growing 的 Bochs 镜像
+- cloop
+  - Linux Compressed Loop 镜像
+- dmg
+  - Apple 的磁盘格式
+- parallels
+  - Parallels 磁盘镜像格式
 
 ### 磁盘镜像
-* qemu-img
+
+- qemu-img
 
 ```bash
 # 创建磁盘镜像
@@ -223,11 +217,13 @@ qemu-img map demo.img
 # 推荐使用 qcow2 格式
 qemu-img create -f qcow2 sys.qcow2 2g
 ```
+
 ### 网络块设备
-* qemu-nbd
-* 在 linux 下一般会挂载为 `/dev/ndb*`
-* https://github.com/sheepdog/sheepdog/
-* iSCSI LUN
+
+- qemu-nbd
+- 在 linux 下一般会挂载为 `/dev/ndb*`
+- https://github.com/sheepdog/sheepdog/
+- iSCSI LUN
 
 ```bash
 # 使用 远程 NBD 协议
@@ -247,9 +243,9 @@ qemu-system-i386 -cdrom nbd://localhost/debian-500-ppc-netinst
 qemu-system-i386 -cdrom nbd://localhost/openSUSE-11.1-ppc-netinst
 ```
 
-
 ## 网络
-* https://www.linux-kvm.org/page/Networking
+
+- https://www.linux-kvm.org/page/Networking
 
 ```bash
 # 查看支持的 NIC
@@ -278,12 +274,13 @@ qemu-system-x86_64 -m 512M -net nic -net tap,ifname=tap0,script=no,downscript=no
 ### PCI
 
 ## 用户空间虚拟
-* `qemu-*`
-* 只支持 Linix, BSD
-* 特性
-  * 系统调用转换
-  * POSIX 信号处理
-  * 线程
+
+- `qemu-*`
+- 只支持 Linix, BSD
+- 特性
+  - 系统调用转换
+  - POSIX 信号处理
+  - 线程
 
 ```bash
 # -L / 告诉动态连接器从 / 开始搜索
@@ -306,12 +303,13 @@ qemu-i386 /usr/local/qemu-i386/bin/ls-i386
 # 配置位于 ~/.wine, 之前的配置会被存于 ~/.wine.org
 /usr/local/qemu-i386/bin/wine-conf.sh
 qemu-i386 /usr/local/qemu-i386/wine/bin/wine \
-          /usr/local/qemu-i386/wine/c/Program\ Files/putty.exe
+  /usr/local/qemu-i386/wine/c/Program\ Files/putty.exe
 ```
 
 ## 显示
-* https://www.spice-space.org
-* vnc
+
+- https://www.spice-space.org
+- vnc
 
 ```bash
 brew install tiger-vnc
@@ -323,6 +321,4 @@ vncviewer :0
 # 5901
 qemu-system-x86_64 sys.vhd-display vnc=:1
 vncviewer :1
-
-
 ```

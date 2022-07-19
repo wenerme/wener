@@ -693,6 +693,8 @@ tags:
 
 ## Tool
 
+- [arl/statsviz](https://github.com/arl/statsviz)
+  - visualization of your Go application runtime statistics (GC, MemStats, etc.) in the browser
 - [mgechev/revive](https://github.com/mgechev/revive)
 - golint
 - [jondot/goweight](https://github.com/jondot/goweight)

@@ -13,6 +13,10 @@ tags:
 
 ## Languages
 
+- [carbon-language/carbon-lang](https://github.com/carbon-language/carbon-lang)
+  - 目标是替代 C++
+  - by Google
+  - https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/faq.md#why-not-rust
 - [GoodManWEN/Programming-Language-Benchmarks-Visualization](https://github.com/GoodManWEN/Programming-Language-Benchmarks-Visualization)
 - [ballerina-platform/ballerina-lang](https://github.com/ballerina-platform/ballerina-lang)
   - Apache-2.0, Java

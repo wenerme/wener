@@ -19,3 +19,5 @@ tags:
 - [Text Alignment](https://codepen.io/z-/pen/XWZgZxx)
 - https://codepen.io/jh3y/pen/oNbeeQQ
   - 鼠标坐电梯
+- https://cohost.org/blackle/post/42994-contraption
+  - https://news.ycombinator.com/item?id=32123804

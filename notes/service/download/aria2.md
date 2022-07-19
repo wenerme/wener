@@ -30,7 +30,7 @@ aria2c --show-files your-torrent-file.torrent
 aria2c --select-file=3,6 your-torrent-file.torrent
 
 # 保存磁力链接关联的 torrent 文件
-aria2c --bt-metadata-only=true --bt-save-metadata=true <magnet link>
+aria2c --bt-metadata-only=true --bt-save-metadata=true --daemon=false "magnet:?xt=urn:btih:xyz"
 
 aria2c --help=#rpc
 ```

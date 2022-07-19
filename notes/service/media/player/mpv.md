@@ -5,6 +5,7 @@ title: mpv
 # mpv
 
 - [mpv-player/mpv](https://github.com/mpv-player/mpv)
+  - GPLv2, LGPLv2.1, C, Lua
 - [manual](https://mpv.io/manual/master/)
   - dir
     - ~/.config/mpv/
@@ -50,9 +51,40 @@ title: mpv
 | S                                | 截屏 - 无字幕            |
 | <kbd>`</kbd>                     | Console                  |
 
+```bash
+# yt-dlp
+mpv 'https://www.youtube.com/watch?v=xyz'
+# 终端渲染
+mpv --vo=tct "https://youtube.com/watch?v=xyz"
+# 纯音乐
+# --ytdl-format='bestaudio'
+mpv --no-video --vo=null --ytdl-format='bestaudio/best' 'https://www.youtube.com/watch?v=xyz'
+# Strming
+mpv -vo=gpu --hwdec=vaapi --gpu-context=wayland  https://www.twitch.tv/gorgc
+
+
+```
+
+```ini
+video-sync=display-resample
+# https://github.com/mpv-player/mpv/wiki/Interpolation
+interpolation
+tscale=oversample
+```
+
+- [iina/iina](https://github.com/iina/iina)
+  - macOS
+- [disco0/mpv-types-lua](https://github.com/disco0/mpv-types-lua)
+  - Lua type declarations for mpv scripting
+- [igv/FSRCNN-TensorFlow](https://github.com/igv/FSRCNN-TensorFlow)
+  - upscale
+  - mpv shader
+- [TianZerL/ACNetGLSL](https://github.com/TianZerL/ACNetGLSL)
+  - real-time anime upscaling
 - https://mpv.io/manual/master/
-
----
-
 - ~/.config/mpv/
+  - ~/.config/mpv/mpv.conf
 - ~/.config/mpv/watch_later
+- [kljohann/mpv.el](https://github.com/kljohann/mpv.el)
+  - control mpv for easy note-taking
+

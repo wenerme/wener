@@ -571,3 +571,8 @@ where state = 'active';
 ---
 
 - https://dba.stackexchange.com/a/63549/234272
+
+## ON CONFLICT DO UPDATE command cannot affect row a second time (SQLSTATE 21000)
+
+- insert on conflict 时有重复数据
+- 插入之前先去重

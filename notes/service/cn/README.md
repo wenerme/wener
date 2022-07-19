@@ -16,7 +16,6 @@ title: CN
 | AQSIQ | General Administration of Quality Supervision, Inspection and Quarantine | 中华人民共和国国家质量监督检验检疫总局 |
 | NBS   | National Bureau of Statistics                                            | 国家统计局                             |
 
-
 |                          url | gov                        |
 | ---------------------------: | -------------------------- |
 |            http://www.gov.cn | 中国政府网                 |
@@ -42,6 +41,7 @@ title: CN
 |                            https://zjw.sh.gov.cn | 上海市住房和城乡建设管理委员会 |
 |                            http://fgj.sh.gov.cn/ | 上海市房屋管理局               |
 |                             http://rsj.sh.gov.cn |
+|                         https://scjgj.sh.gov.cn/ | 市场监督管理局                 |
 
 - https://www.mhedu.sh.cn/
 - 闵行区教育局

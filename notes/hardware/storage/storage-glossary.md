@@ -9,3 +9,8 @@ tags:
 - eMMC - embedded non-volatile memory system
 - DRAM - Dynamic Random-access Memory
 - https://www.seagate.com/support/downloads/seatools/
+
+| en              | cn   |
+| --------------- | ---- |
+| USB flash drive | U 盘 |
+| thumb drive     | U 盘 |

@@ -88,12 +88,20 @@ tags:
 | KIOXIA EXCERIA PLUS SSD      | NVMe      | 800 TB |
 | Intel SSD 660P SSDPEKNW512G8 | NVMe      | 100 TB |
 
+**microSD**
+
+- SAMSUNG EVO PLUS
+- Lexar 660x
+- Lexar 1066x
+
 ```bash
 # echo seq512k-w seq512k-r | tr ' ' '\n'  | xargs -I {} fio fio.conf --section {} --output {}.out
 # egrep '^.*?: \(groupid'  *.out -A 1
 fio fio.conf --output fio.out --section={rnd4k,rnd128k,seq1m}-{w,r}
 egrep '^.*?: \(groupid' fio.out -A 1
 ```
+
+## 配置
 
 ```ini title="fio.conf"
 [global]

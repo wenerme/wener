@@ -8,6 +8,8 @@ title: DOM FAQ
   - 应用 style 时
 - 参考
   - [UI Events Testing Tools](https://w3c.github.io/uievents/tools/main.html)
+- Comparison of Event Targets
+  - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
 
 ## ShadowRoot rem & font-size
 

@@ -151,3 +151,12 @@ ffmpeg -hwaccel vaapi -vaapi_device /dev/dri/renderD128 -i "video.MP4" -vf "sele
 https://streamingv2.shoutcast.com/radiofreccia
 ```
 
+# Version
+
+## Jellyfin v10.8
+
+- Hardware Acceleration - HWA 增强
+- DLNA disabled by default
+- 支持 mks, mka
+- 增强检测 DVD/BD ISOs and folders
+- 减少内存使用

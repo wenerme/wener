@@ -1,17 +1,22 @@
 ---
-id: kubernetes
 title: Kubernetes
 ---
 
 # Kubernetes
 
-* [Reference](http://kubernetes.io/docs/user-guide)
-* [Guide](http://kubernetes.io/docs)
-* [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
-* [Kubernetes vs Openshift vs Tectonic](https://blog.netsil.com/kubernetes-vs-openshift-vs-tectonic-comparing-enterprise-options-e3a34dc60519)
-* [ramitsurana/awesome-kubernetes](https://github.com/ramitsurana/awesome-kubernetes)
+- [Reference](http://kubernetes.io/docs/user-guide)
+- [Guide](http://kubernetes.io/docs)
+- [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+- [Kubernetes vs Openshift vs Tectonic](https://blog.netsil.com/kubernetes-vs-openshift-vs-tectonic-comparing-enterprise-options-e3a34dc60519)
+- [ramitsurana/awesome-kubernetes](https://github.com/ramitsurana/awesome-kubernetes)
 
 ## Install
+
+:::caution
+
+以下内容已过时
+
+:::
 
 ### kubeadm
 
@@ -43,21 +48,25 @@ kubelet taint nodes --all dedicated-
 kubeadm join --token <上面生成的 Token> <上面给出的地址>
 ```
 
-__清理集群__
+**清理集群**
 
 ```bash
-systemctl stop kubelet;
-docker rm -f $(docker ps -q); mount | grep "/var/lib/kubelet/*" | awk '{print $3}' | xargs umount 1>/dev/null 2>/dev/null;
-rm -rf /var/lib/kubelet /etc/kubernetes /var/lib/etcd /etc/cni;
-ip link set cbr0 down; ip link del cbr0;
-ip link set cni0 down; ip link del cni0;
+systemctl stop kubelet
+docker rm -f $(docker ps -q)
+mount | grep "/var/lib/kubelet/*" | awk '{print $3}' | xargs umount 1> /dev/null 2> /dev/null
+rm -rf /var/lib/kubelet /etc/kubernetes /var/lib/etcd /etc/cni
+ip link set cbr0 down
+ip link del cbr0
+ip link set cni0 down
+ip link del cni0
 systemctl start kubelet
 ```
 
 #### Tips
+
 使用 kubeadm 时会在 /etc/systemd/system/kubelet.service.d 生成相应的配置,例如 10-kubeadm.conf.
 
-__10-kubeadm.conf__
+**10-kubeadm.conf**
 
 kubelet 参数可参考 http://kubernetes.io/docs/admin/kubelet/
 cni 可参考 http://kubernetes.io/docs/admin/network-plugins/
@@ -73,13 +82,15 @@ ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $K
 ```
 
 ## 最佳实践
-* https://kubernetes.io/docs/setup/best-practices/
-* https://rancher.com/blog/2019/2019-01-17-101-more-kubernetes-security-best-practices/
+
+- https://kubernetes.io/docs/setup/best-practices/
+- https://rancher.com/blog/2019/2019-01-17-101-more-kubernetes-security-best-practices/
 
 #### FAQ
 
 ##### 安装好后无法使用 kubectl, 提示说地址错误
-需要手动指定地址 `kubectl --server=127.0.0.1:8080 get nodes`, 因为启动时的API 服务器地址为 `127.0.0.1:8080`,具体指定位置在 `cat /etc/kubernetes/manifests/kube-apiserver.json`, 该地址暂时无法更改.
+
+需要手动指定地址 `kubectl --server=127.0.0.1:8080 get nodes`, 因为启动时的 API 服务器地址为 `127.0.0.1:8080`,具体指定位置在 `cat /etc/kubernetes/manifests/kube-apiserver.json`, 该地址暂时无法更改.
 
 由于绑定的地址是 `127.0.0.1`, 所以如果想要在本地使用,则建议在本地通过转发使用 `ssh -vNL 8082:127.0.0.1:8080 主机地址`, 然后则可以使用 `kubectl -s 127.0.0.1:8082 get nodes` 进行操作了.
 
@@ -91,6 +102,7 @@ ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $K
 也有别人遇到过该问题 https://github.com/kubernetes/kubernetes/issues/33544 ,我也遇到,但为 Docker 添加代理后就没问题了,应该是拉取容器造成的.
 
 ##### 限制
+
 由于 kubeadm 还处于 beta 版,因此还会有很多问题
 
 1. 创建的集群不能和云提供商进行集成,也就是说用不了 GCE 和 AWS 的负载均衡和持久化存储.建议使用 NodePort 来规避改问题.
@@ -99,6 +111,7 @@ ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $K
 4. 目前还没有很好的办法生成 kubeconfig 配置用于远程授权.可通过 `scp root@<master>:/etc/kubernetes/admin.conf` 来拉取主配置,然后在远程使用时通过 `kubectl --kubeconfig ./admin.conf` 的形式来使用.
 
 ### docker-multinode
+
 ```bash
 git clone --depth=1 https://github.com/kubernetes/kube-deploy
 cd kube-deploy/docker-multinode/
@@ -146,21 +159,17 @@ curl -sSL http://deis.io/deis-cli/install-v2.sh | bash
 mv $PWD/deis /usr/local/bin/deis
 kubectl --namespace=deis get svc deis-router
 # 使用上个命令中的 ExternalIP
-
-
 ```
 
-* :8080/ui 管理面板
-* :4194 cAdvisor
-
-
+- :8080/ui 管理面板
+- :4194 cAdvisor
 
 ### kube-up - Ubuntu
+
 http://kubernetes.io/docs/getting-started-guides/ubuntu/
 
 ```bash
 git clone --depth 1 https://github.com/kubernetes/kubernetes.git
-
 
 export nodes="root@10.25.30.127 root@10.25.17.232 root@10.25.24.116"
 export role="ai i i"
@@ -175,11 +184,11 @@ KUBERNETES_PROVIDER=ubuntu ./kube-up.sh
 
 ## Tips
 
-* 该 PR [#30360](https://github.com/kubernetes/kubernetes/pull/30360) 正在实现一个 kubeadm 命令,使得 Kubernetes 的集群构建和 swarm 一样简单.
+- 该 PR [#30360](https://github.com/kubernetes/kubernetes/pull/30360) 正在实现一个 kubeadm 命令,使得 Kubernetes 的集群构建和 swarm 一样简单.
 
 ```bash
 # 当关闭 k8s 后,对应的 pods 不会被 umount
-cat /proc/mounts |sed -nre 's#.*?(/var\S*)\s.*#\1#p' | xargs -n 1 umount
+cat /proc/mounts | sed -nre 's#.*?(/var\S*)\s.*#\1#p' | xargs -n 1 umount
 
 # 删除 veth 虚拟网卡
 ifconfig | sed -nre 's/(veth\S*)\s.*/\1/p' | xargs -n 1 ip link delete
@@ -188,11 +197,9 @@ ifconfig | sed -nre 's/(veth\S*)\s.*/\1/p' | xargs -n 1 ip link delete
 ip link delete cni0
 
 kubectl run -it --rm bb --image=busybox --restart=Never
-
-
 ```
 
-__私有 IP v4 地址__
+**私有 IP v4 地址**
 
 ```
 10.0.0.0/8 (255.0.0.0)
@@ -200,26 +207,27 @@ __私有 IP v4 地址__
 192.168.0.0/16 (255.255.0.0)
 ```
 
-
 ### 常用 Label
-* release
-  * stable, canary
-* environment
-  * dev, qa, production
-* tier
-  * frontend, backend, cache
-* partition
-  * customerA, customerB
-* track
-  * daily, weekly
-* role
-  * master, slave
+
+- release
+  - stable, canary
+- environment
+  - dev, qa, production
+- tier
+  - frontend, backend, cache
+- partition
+  - customerA, customerB
+- track
+  - daily, weekly
+- role
+  - master, slave
 
 ## kubectl
 
-* [kubectl-overview](http://kubernetes.io/docs/user-guide/kubectl-overview/)
+- [kubectl-overview](http://kubernetes.io/docs/user-guide/kubectl-overview/)
 
 ### run
+
 ```bash
 # Create and run a particular image, possibly replicated.
 # Creates a deployment or job to manage the created container(s).
@@ -256,6 +264,7 @@ kubectl run pi --image=perl --restart=OnFailure -- perl -Mbignum=bpi -wle 'print
 ```
 
 ### Help
+
 ```
 $ kubeadm init -h
 Run this in order to set up the Kubernetes master.

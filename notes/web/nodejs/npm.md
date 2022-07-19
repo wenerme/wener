@@ -35,7 +35,6 @@ du -hs ~/.npm/_cacache/
 
 ## .npmrc
 
-
 ```ini
 # 不推荐 - 经常出现因为镜像问题构建失败
 #registry="https://registry.npmmirror.com"
@@ -129,3 +128,53 @@ npx -w @wener/apis-weaver typesync
 # run 在 ws 下执行 - 注意 path.resolve 还是基于 ws 路径而不是当前路径
 npm run -w @wener/apis-weaver build
 ```
+
+## corepack
+
+```bash
+corepack enable
+```
+
+## 打包
+
+```json title="package.json"
+{
+  // cjs
+  "main": "./main.js",
+  // esm
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "unpkg": "./umd/react-router-dom.production.min.js",
+
+  // 多个 entry - 访问除此之外的会被拒绝
+  "exports": {
+    ".": {
+      "require": "./index.cjs",
+      "import": "./index.mjs",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json",
+    "./extra": "./jsx-runtime.cjs",
+  },
+
+  // 是否有全局操作
+  "sideEffects": false
+}
+```
+
+```js title="main.js"
+'use strict';
+
+/* eslint-env node */
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./umd/react-router-dom.production.min.js');
+} else {
+  module.exports = require('./umd/react-router-dom.development.js');
+}
+```
+
+---
+
+- Pure ESM package
+  https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c

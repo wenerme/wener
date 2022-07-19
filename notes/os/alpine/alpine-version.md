@@ -63,12 +63,29 @@ tags:
 ## AlpineLinux 3.16
 
 - 新的 setup-desktop
-- /tmp - tmpfs - 之前在 root 里，只影响新安装
+- /tmp - 新安装使用 tmpfs 挂载 - 之前在 root 里，只影响新安装
+- shadow 包拆分
+  - shadow-login - faillog, lastlog, login, newgrp, nologin, sg, su
+  - shadow-conv - pwconv, pwunconv, grpconv, and grpunconv
 - 包变化
   - Go 1.18, LLVM 13, Python 3.10
   - sudo - main -> community - 推荐 doas, doas-sudo-shim
   - utmp - https://skarnet.org/software/utmps
-  - Qemu 7
+  - QEMU 7
+
+**升级出现的错误**
+
+```
+40282431904584:error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1919:
+ERROR: libssl1.1-1.1.1q-r0: Permission denied
+```
+
+```bash
+# 先升级 SSL 相关，再升级其他
+apk upgrade ca-certificates-bundle libcrypto1.1 libssl1.1
+
+apk upgrade -a
+```
 
 ## AlpineLinux 3.15
 

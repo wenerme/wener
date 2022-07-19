@@ -8,7 +8,12 @@ title: eslint
 npx eslint "src/**" --ext .ts --ext .tsx
 ```
 
+- 参考
+  - https://typescript-eslint.io/rules/
+  - https://github.com/vercel/next.js/tree/canary/packages/eslint-config-next
+
 ## 配置
+
 - .eslintrc.{js,yml,json}
 
 ```js
@@ -18,14 +23,13 @@ module.exports = {
   // 缩写逻辑:
   //   custom -> eslint-config-custom
   //   @wener -> @wener/eslint-config
-  extends: ["@wener/eslint-config-custom"],
+  extends: ['@wener/eslint-config-custom'],
   settings: {
     next: {
-      rootDir: ["apps/*/"]
-    }
-  }
+      rootDir: ['apps/*/'],
+    },
+  },
 };
-
 ```
 
 ## disable/false positive
@@ -41,4 +45,14 @@ module.exports = {
 /*eslint-disable */
 alert('foo');
 /*eslint-enable */
+```
+
+# FAQ
+
+## The file does not match your project config
+
+```js title=".eslintrc.js"
+module.exports = {
+  ignorePatterns: ['.eslintrc.js'],
+};
 ```

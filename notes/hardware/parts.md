@@ -146,6 +146,37 @@ title: 配件
 
 [ast2500]: https://www.aspeedtech.com/server_ast2500
 
+## MicroSD
+
+- [Samsung EVO Plus - 2021](https://semiconductor.samsung.com/consumer-storage/memory-card/micro-sd-evo-plus-2021/)
+  - 64G
+    - UHS-I U1, A1, V10
+  - 128G
+    - UHS-I U3, A2, V30
+  - 读 130MB/s
+    - 要使用三星的读取器才能达到标称速度 - 超过 UHS-I 速率
+    - 实际使用约 90MB/s
+    - UHS-I 接口最高 104MB/s
+  - 实际
+    - 顺序 1M 95MB/s, 80MB/s
+    - 随机 4K 12MB/s, 3.5MB/s
+  - 参考
+    - [EVO Plus MicroSD 存储卡（2021）](https://www.samsung.com/cn/memory-storage/memory-card/evo-plus-512gb-microsd-card-2021-mb-mc512ka-cn/)
+    - [Samsung EVO Plus microSD (2021) review](https://www.windowscentral.com/samsung-evo-plus-microsd-review)
+    - https://www.hardwarezone.com.sg/tech-news-samsung-s-new-microsd-cards-go-512gb-160mbs-speeds
+- [Lexar 633x](https://www.lexar.com/zh-hans/product/lexar-high-performance-633x-microsdhc-microsdxc-uhs-i-存储卡blue系列/)
+  - 32G - 读取 100MB/s, 写入 10MB/s+
+    - UHS-I U1, A1, V10, C10
+  - 64G - 读取 100MB/s, 写入 45MB/s
+    - UHS-I U3, A1, V30, C10
+- [Lexar 1066x](https://www.lexar.com/zh-hans/product/lexar-professional-1066x-microsdxc-uhs-i-存储卡silver系列/)
+  - 64GB - 读取 160MB/s, 写入 70MB/s
+    - UHS-I U3, A2, V30
+    - 写入速度稍低,采用先进技术以达到超过 UHS-I 104MB/s 规格的读取速度
+    - ⚠️ 需要专用 Lexar 读卡器 RevB
+  - 128GB - 读取 160MB/s, 写入 120MB/s
+    - UHS-I U3, A2, V30
+
 ## My Homelab
 
 - NAS

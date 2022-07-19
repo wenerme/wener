@@ -272,6 +272,18 @@ spec:
   - 判断是否准备好，未准备好不会接收流量
   - 未准备: dns 记录会无法方法
 
+## 资源
+
+- 空间限制
+  - CPU `sum by (namespace)(count by (namespace,pod,container)(kube_pod_container_info{container!=""}) unless sum by (namespace,pod,container)(kube_pod_container_resource_limits{resource="cpu"}))`
+  - Memory `sum by (namespace)(count by (namespace,pod,container)(kube_pod_container_info{container!=""}) unless sum by (namespace,pod,container)(kube_pod_container_resource_limits{resource="memory"}))`
+- limits
+- requests
+
+---
+
+- https://sysdig.com/blog/kubernetes-resource-limits
+
 # FAQ
 
 ## cordon vs drain

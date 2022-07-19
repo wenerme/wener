@@ -9,6 +9,7 @@ title: ESBuild
   - bundler & minifier
 - used by Vite, Snowpack
 - [roadmap](https://esbuild.github.io/faq/#upcoming-roadmap)
+- https://esbuild.github.io/api/
 
 :::tip
 
@@ -38,6 +39,12 @@ title: ESBuild
 
 :::
 
+:::caution
+
+- watch 使用 polling 实现 - 无任何操作也会消耗一点 CPU
+
+:::
+
 ```bash
 esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
@@ -51,6 +58,7 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 | --platform=browser,node,neutral | 默认 browser              |
 | --external:@strapi              | 作为外部依赖              |
 | --splitting                     | 拆分 chunk - 抽取公共部分 |
+| --charset=utf8                  | 避免编码                  |
 
 - --minify
   - --minify-whitespace
@@ -79,7 +87,7 @@ console.log(`externals`, external);
 
 require('esbuild').buildSync({
   entryPoints: ['admin/src/components/Wysiwyg/index.js'],
-  loader: { '.js': 'jsx' },
+  loader: {'.js': 'jsx'},
   format: 'esm',
   bundle: true,
   minify: false,
@@ -95,3 +103,8 @@ require('esbuild').buildSync({
 grep '^// ' ./dist/Wysiwyg.esm.js                     # bundled
 grep '^// ' ./dist/Wysiwyg.esm.js | grep node_modules # bundled externals
 ```
+
+## Plugins
+
+- https://github.com/esbuild/community-plugins
+- https://esbuild.github.io/plugins

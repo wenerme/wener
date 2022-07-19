@@ -23,7 +23,7 @@ avahi-browse --all --ignore-local --resolve --terminate
 avahi-browse _ssh._tcp -tr
 
 # 新增服务定义
-cat <<XML > /etc/avahi/services/node-exporter.service
+cat << XML > /etc/avahi/services/node-exporter.service
 <service-group>
   <name replace-wildcards="yes">%h</name>
 
@@ -71,7 +71,9 @@ avahi-browse -rt _universal._sub._ipp._tcp
 
 ## services
 
-```xml
+### prometheus
+
+```xml title="prometheus.service"
 <service-group>
   <name replace-wildcards="yes">%h</name>
 
@@ -83,7 +85,11 @@ avahi-browse -rt _universal._sub._ipp._tcp
 </service-group>
 ```
 
-```xml
+## afpd
+
+```xml title="afpd.service"
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
   <name replace-wildcards="yes">%h</name>
   <service>
@@ -98,13 +104,75 @@ avahi-browse -rt _universal._sub._ipp._tcp
 </service-group>
 ```
 
-```xml
+- model - /System/Library/CoreServices/CoreTypes.bundle/Contents/Info.plist
+  - Xserve
+  - PowerBook
+  - PowerMac
+  - Macmini
+  - iMac
+  - MacBook
+  - MacBookPro
+  - MacBookAir
+  - MacPro
+  - AppleTV1,1
+  - AirPort
+  - iPhone
+
+**howl**
+
+```
+"ServerName" _device-info._tcp local. 1 "TXTVersion=1.0" "model=Xserve"
+"ServerName" _afpovertcp._tcp  local. 548
+```
+
+### SMB
+
+```xml title="smb.service"
 <service-group>
  <name replace-wildcards="yes">SMB on %h</name>
  <service>
    <type>_smb._tcp</type>
    <port>445</port>
  </service>
+</service-group>
+```
+
+### Misc
+
+```xml
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">%h</name>
+  <service>
+    <type>_afpovertcp._tcp</type>
+    <port>548</port>
+  </service>
+  <service>
+    <type>_smb._tcp</type>
+    <port>139</port>
+  </service>
+  <service>
+    <type>_rfb._tcp</type>
+    <port>5901</port>
+  </service>
+  <service>
+    <type>_device-info._tcp</type>
+    <port>0</port>
+    <txt-record>model=RackMac</txt-record>
+  </service>
+  <service>
+    <type>_http._tcp</type>
+    <port>80</port>
+  </service>
+  <service>
+    <type>_ssh._tcp</type>
+    <port>22</port>
+  </service>
+  <service>
+    <type>_sftp-ssh._tcp</type>
+    <port>22</port>
+  </service>
 </service-group>
 ```
 

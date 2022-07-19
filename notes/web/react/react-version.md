@@ -15,6 +15,27 @@ tags:
 :::tip Roadmap
 
 - 支持自定义元素属性 - [#11347](https://github.com/facebook/react/issues/11347)
+  - 更好支持 WebComponents
+  - React 19
+
+:::
+
+:::info
+
+- Add a "module" entry in package.json [#10021](https://github.com/facebook/react/issues/10021)
+  - React 作为 ESM
+  - 目前主要问题是 cjs 和 esm 混合可能导致各种问题 - react 不能轻易变动
+  - 目前大的生态在放弃 cjs - 还是会保留 umd
+- Formalize top-level ES exports [#11503](https://github.com/facebook/react/issues/11503)
+  - 解决 `import * as React` 问题
+  - 目前 ESM 内已经使用 `import React from 'react';` - 2020-02 [#18102](https://github.com/facebook/react/pull/18102)
+- Support for reparenting  [#3965](https://github.com/facebook/react/issues/3965)
+- Remove Factory Components [#13560](https://github.com/facebook/react/issues/13560)
+  - deprecated in React 17.x
+
+:::
+
+- [create-element-changes.md](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md)
 - 2022-06 [What We've Been Working On](https://reactjs.org/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022.html)
   - Server Components
   - Asset Loading
@@ -22,10 +43,6 @@ tags:
   - React Optimizing Compiler
   - Offscreen
   - Transition Tracing
-
-:::
-
-- [create-element-changes.md](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md)
 
 ## React 18
 
@@ -106,11 +123,11 @@ const MyInputs = () => {
   - 也可以与其他 JSX 项目共享
 
 ```jsx
-import { jsx as _jsx } from 'react/jsx-runtime';
+import {jsx as _jsx} from 'react/jsx-runtime';
 
 function App() {
   // return React.createElement('h1', null, 'Hello world');
-  return _jsx('h1', { children: 'Hello world' });
+  return _jsx('h1', {children: 'Hello world'});
 }
 ```
 

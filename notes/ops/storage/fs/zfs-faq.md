@@ -233,7 +233,6 @@ zpool import
 # 执行导入 - 导入所的
 zpool import -a
 
-
 # 手动指定搜索目录
 zpool import -d /dev/disk/by-id
 ```
@@ -274,6 +273,24 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 - dbuf_evict
 - mmp
 - migration/0
+
+## zfs list slow
+
+- dataset 多了后 `zfs list` 非常慢
+
+```bash
+time zfs list | wc -l
+```
+
+```
+758
+
+real    0m1.777s
+user    0m0.177s
+sys     0m1.599s
+```
+
+- https://github.com/openzfs/zfs/discussions/8898
 
 # Glossary
 

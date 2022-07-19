@@ -72,7 +72,7 @@ tags:
   - https://sentinel.matic.network/api/v2/validators/metadata/totalStake
 
 ```ts
-import { MetaMaskInpageProvider } from '@metamask/providers';
+import {MetaMaskInpageProvider} from '@metamask/providers';
 
 declare global {
   interface Window {
@@ -112,16 +112,20 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 
 ## Testnets
 
-| Hex  | Decimal | Symbol | Network | Faucet               | Proof               | RPC                                              | Explorer                |
-| ---- | ------- | ------ | ------- | -------------------- | ------------------- | ------------------------------------------------ | ----------------------- |
-| 0x3  | 3       | ROP    | Ropsten | [faucet.metamask.io] | PoW/ethash          | `https://ropsten.infura.io/v3/${INFURA_API_KEY}` |
-| 0x4  | 4       | RIN    | Rinkeby |                      | PoA/Clique          |                                                  | https://www.rinkeby.io/ |
-| 0x5  | 5       | GOR    | Goerli  |                      | PoA/Clique          |
-| 0x2a | 42      | KOV    | Kovan   |                      | PoA/authority round |
+| Hex  | Decimal | Symbol | Network | Proof               | RPC                                              | Explorer                      |
+| ---- | ------- | ------ | ------- | ------------------- | ------------------------------------------------ | ----------------------------- |
+| 0x3  | 3       | ROP    | Ropsten | PoW/ethash          | `https://ropsten.infura.io/v3/${INFURA_API_KEY}` |
+| 0x4  | 4       | RIN    | Rinkeby | PoA/Clique          |                                                  | https://www.rinkeby.io/       |
+| 0x5  | 5       | GOR    | Goerli  | PoA/Clique          |
+| 0x2a | 42      | KOV    | Kovan   | PoA/authority round |
+|      | 43113   | AVAX   | FUJI    |                     | https://api.avax-test.network/ext/bc/C/rpc       | https://testnet.snowtrace.io/ |
 
 [faucet.metamask.io]: https://faucet.metamask.io
 
 - rETH - rinkeby ETH
+- Faucet
+  - Ropsten - [faucet.metamask.io]
+- Avalanche C-Chain
 
 :::tip
 
@@ -175,8 +179,14 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
   - Fraud proof
 - Zero Knowlogy
   - Validity proof
-- [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist)
+- [ethereum-lists/chains](https://github.com/ethereum-lists/chains)
+  - [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist)
   - https://chainlist.org/
+  - https://chainlist.wtf/
+  - ChianList https://eips.ethereum.org/EIPS/eip-155
+  - Explorer https://eips.ethereum.org/EIPS/eip-3091
+  - 模型参考 https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1.json
+  - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 - https://ethereum.org/en/developers/docs/networks/
 - Polygon
   - https://polygon-rpc.com

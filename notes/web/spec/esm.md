@@ -22,7 +22,7 @@ title: ESM
 
 :::tip
 
-- Node 支持 HTTPS impor
+- Node 支持 HTTPS import
   - --experimental-loader [nodejs/node#36328](https://github.com/nodejs/node/pull/36328)
 - NextJS 支持 - [URL Imports](https://nextjs.org/docs/api-reference/next.config.js/url-imports)
 

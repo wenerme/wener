@@ -100,3 +100,7 @@ docker context use test                                                       # 
 ```bash title="服务端"
 dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 # 如果需要暴露端口 - 默认只有 sock
 ```
+
+## Resource in container
+
+- https://ops.tips/blog/why-top-inside-container-wrong-memory/

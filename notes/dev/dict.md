@@ -624,6 +624,19 @@ tags:
 - https://en.wikipedia.org/wiki/Data_breach
 - https://www.upguard.com/blog/data-breach-vs-data-leak
 
+## specification vs descriptor
+
+- specification
+  - 规格信息
+  - 限定内容
+- descriptor
+  - 描述信息
+  - 文字性
+
+---
+
+- https://answers.sap.com/questions/8738184/specification-symbols-and-descriptor-symbols.html
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t

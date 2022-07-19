@@ -206,6 +206,9 @@ tags:
   - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
   - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
     - image compressor
+- compression
+  - fflate
+  - TextEncoderStream
 - interactive
   - [transloadit/uppy](https://github.com/transloadit/uppy)
   - [anvaka/panzoom](https://github.com/anvaka/panzoom)
@@ -267,6 +270,12 @@ tags:
   - punycode
   - url-js
   - url
+- glob
+  - [isaacs/node-glob](https://github.com/isaacs/node-glob)
+  - [mrmlnc/fast-glob](https://github.com/mrmlnc/fast-glob)
+  - [micromatch/micromatch](https://github.com/micromatch/micromatch)
+  - [micromatch/picomatch](https://github.com/micromatch/picomatch)
+    - 20kB/7kB
 
 ---
 

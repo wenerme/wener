@@ -11,8 +11,21 @@ title: clash
   - [juewuy/ShellClash](https://github.com/juewuy/ShellClash)
   - https://clash.gitbook.io/doc/
   - [vernesong/OpenClash](https://github.com/vernesong/OpenClash)
-- [premium](https://github.com/Dreamacro/clash/releases/tag/premium)
-  - tun,脚本,rule-providers,tracing
+  - https://github.com/Loyalsoldier
+    - [Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip)
+  - [eycorsican/leaf](https://github.com/eycorsican/leaf)
+  - [eycorsican/go-tun2socks](https://github.com/eycorsican/go-tun2socks)
+  - [EAimTY/tuic](https://github.com/EAimTY/tuic)
+  - [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)
+- Premium - 闭源
+  - [发布历史](https://github.com/Dreamacro/clash/releases/tag/premium)
+  - [Premium-Core-Features](https://github.com/Dreamacro/clash/wiki/Premium-Core-Features)
+  - tun,script,tracing
+  - rule-providers
+    - type: http,file - 指向 yaml
+    - yaml 包含 `{payload:[]}`
+  - ebpf - redirect-to-tun
+  - auto-redir - 配合 tun 替代 redir-port
 
 ```bash
 # golang
@@ -102,15 +115,39 @@ curl -X PUT -H "Authorization: Bearer secret" 127.0.0.1:9090/configs --json "{}"
 - proxies - 上游代理
   - type
     - ss
-    - ssr
+    - ssr - ShadowsocksR
     - vmess
     - socks5
     - http
     - snell
     - trojan
 - proxy-groups - 代理分组 - LB 策略
+  - type
+    - select - 手动选择
+    - url-test - 使用 url 测速
+      - url http://www.gstatic.com/generate_204
+      - interval 300
+    - relay - 串联所有代理
+    - fallback - 基于 URL 检测进行回滚
+    - load-balance - 基于 eTLD+1 进行负载
+- proxy-providers - 指向 yaml 配置 - 包含 `proxies: []`
+  - type http,file
+- rules
+  - DOMAIN
+  - DOMAIN-SUFFIX
+  - DOMAIN-KEYWORD
+  - GEOIP
+  - IP-CIDR
+  - IP-CIDR6
+  - SRC-IP-CIDR
+  - SRC-PORT
+  - DST-PORT
+  - PROCESS-NAME
+  - MATCH - 默认匹配
+  - 添加 no-resolve 可避免 resolve 域名 去匹配 cidr
+  - 特殊策略 DIRECT, REJECT
 
-```bash
+```yaml
 # HTTP(S) 代理端口
 port: 7890
 # SOCKS5 代理端口
@@ -255,12 +292,12 @@ proxies:
   #   aes-128-ctr aes-192-ctr aes-256-ctr
   #   rc4-md5 chacha20-ietf xchacha20
   #   chacha20-ietf-poly1305 xchacha20-ietf-poly1305
-  - name: "ss1"
+  - name: 'ss1'
     type: ss
     server: server
     port: 443
     cipher: chacha20-ietf-poly1305
-    password: "password"
+    password: 'password'
     # udp: true
     # 插件配置
     plugin: obfs # obfs, v2ray-plugin
@@ -281,7 +318,7 @@ proxies:
 
   # vmess
   # cipher - auto/aes-128-gcm/chacha20-poly1305/none
-  - name: "vmess"
+  - name: 'vmess'
     type: vmess
     server: server
     port: 443
@@ -300,7 +337,7 @@ proxies:
     #   max-early-data: 2048
     #   early-data-header-name: Sec-WebSocket-Protocol
 
-  - name: "vmess-h2"
+  - name: 'vmess-h2'
     type: vmess
     server: server
     port: 443
@@ -315,7 +352,7 @@ proxies:
         - http-alt.example.com
       path: /
 
-  - name: "vmess-http"
+  - name: 'vmess-http'
     type: vmess
     server: server
     port: 443
@@ -345,10 +382,10 @@ proxies:
     servername: example.com
     # skip-cert-verify: true
     grpc-opts:
-      grpc-service-name: "example"
+      grpc-service-name: 'example'
 
   # socks5
-  - name: "socks"
+  - name: 'socks'
     type: socks5
     server: server
     port: 443
@@ -359,7 +396,7 @@ proxies:
     # udp: true
 
   # http
-  - name: "http"
+  - name: 'http'
     type: http
     server: server
     port: 443
@@ -371,18 +408,18 @@ proxies:
 
   # Snell
   # Beware that there's currently no UDP support yet
-  - name: "snell"
+  - name: 'snell'
     type: snell
     server: server
     port: 44046
     psk: yourpsk
     # version: 2
     # obfs-opts:
-      # mode: http # or tls
-      # host: bing.com
+    # mode: http # or tls
+    # host: bing.com
 
   # Trojan
-  - name: "trojan"
+  - name: 'trojan'
     type: trojan
     server: server
     port: 443
@@ -398,27 +435,27 @@ proxies:
     server: server
     port: 443
     type: trojan
-    password: "example"
+    password: 'example'
     network: grpc
     sni: example.com
     # skip-cert-verify: true
     udp: true
     grpc-opts:
-      grpc-service-name: "example"
+      grpc-service-name: 'example'
 
   - name: trojan-ws
     server: server
     port: 443
     type: trojan
-    password: "example"
+    password: 'example'
     network: ws
     sni: example.com
     # skip-cert-verify: true
     udp: true
     # ws-opts:
-      # path: /path
-      # headers:
-      #   Host: example.com
+    # path: /path
+    # headers:
+    #   Host: example.com
 
   # ShadowsocksR
   # The supported ciphers (encryption methods): all stream ciphers in ss
@@ -428,12 +465,12 @@ proxies:
   # The supported supported protocols:
   #   origin auth_sha1_v4 auth_aes128_md5
   #   auth_aes128_sha1 auth_chain_a auth_chain_b
-  - name: "ssr"
+  - name: 'ssr'
     type: ssr
     server: server
     port: 443
     cipher: chacha20-ietf
-    password: "password"
+    password: 'password'
     obfs: tls1.2_ticket_auth
     protocol: auth_sha1_v4
     # obfs-param: domain.tld
@@ -445,7 +482,7 @@ proxy-groups:
   # 中继 - 会经过给定的所有代理
   # 不支持 UDP
   # clash <-> http <-> vmess <-> ss1 <-> ss2 <-> Internet
-  - name: "relay"
+  - name: 'relay'
     type: relay
     proxies:
       - http
@@ -454,7 +491,7 @@ proxy-groups:
       - ss2
 
   # 基于请求 URL 的速度来选择
-  - name: "auto"
+  - name: 'auto'
     type: url-test
     proxies:
       - ss1
@@ -466,7 +503,7 @@ proxy-groups:
 
   # 基于优先级选择一个可用的代理
   # 类似一个 url-test 自动分组
-  - name: "fallback-auto"
+  - name: 'fallback-auto'
     type: fallback
     proxies:
       - ss1
@@ -475,7 +512,7 @@ proxy-groups:
     interval: 300
 
   # 基于 eTLD+1 进行负载
-  - name: "load-balance"
+  - name: 'load-balance'
     type: load-balance
     proxies:
       - ss1
@@ -502,7 +539,7 @@ proxy-groups:
 proxy-providers:
   provider1:
     type: http
-    url: "url"
+    url: 'url'
     interval: 3600
     path: ./provider1.yaml
     health-check:
@@ -571,7 +608,8 @@ rules:
 | RULE-SET       | Rule Provider 规则匹配       |
 | MATCH          | 全匹配                       |
 
-- https://github.com/Loyalsoldier/clash-rules
+- RULE-SET
+  - https://github.com/Loyalsoldier/clash-rules
 - https://github.com/DivineEngine/Profiles/tree/master
 
 ## TProxy
@@ -655,8 +693,8 @@ iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 
   - https://github.com/springzfx/cgproxy/blob/aaa628a76b2911018fc93b2e3276c177e85e0861/readme.md#known-issues
     - docker 不可以 tproxy
 
-
 # FAQ
+
 ## Start TProxy server error: operation not permitted
 
 ```bash

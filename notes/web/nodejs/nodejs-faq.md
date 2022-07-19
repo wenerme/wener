@@ -66,3 +66,7 @@ export PATH=$(echo $PATH | sed -r 's/:[^:]*?libtool[^:]*:/:/')
   - 影响很大
 - 参考
   - [node-fetch/node-fetch#1266](https://github.com/node-fetch/node-fetch/issues/1266)
+
+## Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
+
+检查下是不是 import 路径错误，可能因为 IDE 自动导入，指向了错误路径。

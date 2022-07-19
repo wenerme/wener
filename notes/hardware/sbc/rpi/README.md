@@ -1,5 +1,4 @@
 ---
-id: rpi
 title: 树莓派
 ---
 
@@ -24,3 +23,14 @@ title: 树莓派
 
 - Pico
   - Flash 2 MB
+
+## 产品
+
+- Raspberry Pi 400
+  https://www.raspberrypi.com/products/raspberry-pi-400-unit/
+  - 芯片同 RPi 4
+  - Broadcom BCM2711 quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.8GHz
+  - 4GB LPDDR4-3200
+  - 2 × USB 3.0, 1 × USB 2.0
+  - 40-pin GPIO
+  - 2 × micro HDMI - 4Kp60

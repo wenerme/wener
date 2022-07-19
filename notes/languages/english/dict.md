@@ -4,6 +4,10 @@ title: 字典
 
 # Dict
 
+| en          | cn       |
+| ----------- | -------- |
+| hucksterism | 骗子主义 |
+
 ## 月份及缩写
 
 | abbr | en        | cn     |

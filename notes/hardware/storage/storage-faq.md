@@ -8,14 +8,14 @@ tags:
 
 ## NAND flash cell
 
-| abbr. |         stand for | bits/cell | first ssd            | P/E                         |
-| ----- | ----------------: | --------- | -------------------- | --------------------------- |
-| SLC   | Single-Level Cell | 1         |
-| DLC   | Double-level cell | 2         |
-| MLC   |  Multi-Level Cell | 2         |
-| TLC   | Triple-Level Cell | 3         | 2010 Samsung 840 SSD | 5xnm,2500                   |
-| QLC   |   Quad-Level Cell | 4         | 2018 Micron 5210 ION | 3xnm,2xnm,1xnm 1250,750,500 |
-| PLC   |  Penta-level cell | 5         |                      | 1xm,35                      |
+| abbr. |         stand for | bits/cell | first ssd            | P/E                         | cn       |
+| ----- | ----------------: | --------- | -------------------- | --------------------------- | -------- |
+| SLC   | Single-Level Cell | 1         |                      |                             | 单层单元 |
+| DLC   | Double-level cell | 2         |                      |                             | 双层单元 |
+| MLC   |  Multi-Level Cell | 2         |                      |                             | 多层单元 |
+| TLC   | Triple-Level Cell | 3         | 2010 Samsung 840 SSD | 5xnm,2500                   | 三层单元 |
+| QLC   |   Quad-Level Cell | 4         | 2018 Micron 5210 ION | 3xnm,2xnm,1xnm 1250,750,500 | 四层单元 |
+| PLC   |  Penta-level cell | 5         |                      | 1xm,35                      | 五层单元 |
 
 - level 越低，速度越快，成本越高，容量越低
 - level 越高，误码率越高
@@ -45,7 +45,7 @@ tags:
 
 - https://www.usenix.org/legacy/events/lisa11/tech/slides/deenadhayalan.pdf
 
-## 4K
+## 4K block size
 
 - 2010 年 - 512 -> 4096
   - 高级格式化

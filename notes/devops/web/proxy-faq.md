@@ -129,3 +129,11 @@ WebServer 也可以是 Proxy
   - 支持 4 层 TCP、UDP 负载
 
 两者面向不同场景，大部分使用使用 haproxy，如果需要 udp 考虑 keepalived 或者 nginx。
+
+## httping
+
+```bash
+alias httping="curl --silent --max-time 1 --output /dev/null --fail --head"
+```
+
+- https://github.com/pjperez/httping
