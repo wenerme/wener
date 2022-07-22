@@ -22,7 +22,7 @@ title: Alpine 包维护
     - `${repo}/${pkgname}: new aport`
     - `${repo}/${pkgname}: move from testing`
     - `${repo}/${pkgname}: upgrade to 3.1.0`
-  - 确保使用 Tab 而不是 空格
+  - 确保 ABUILD 使用 Tab 而不是 空格
 - 参考
   - [alpinelinux/abuild](https://github.com/alpinelinux/abuild) - abuild 源码
   - [build.alpinelinux.org](https://build.alpinelinux.org/)

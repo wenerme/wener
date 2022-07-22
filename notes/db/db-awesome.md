@@ -42,10 +42,10 @@ tags:
   - [citusdata/citus](./relational/postgresql/citus.md)
     - PostgreSQL Sharding
   - [yugabyte/yugabyte-db](https://github.com/yugabyte/yugabyte-db)
+  - [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
 - MySQL
   - Viteness
   - TiDB
-- [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
 
 ## 实时数据库
 
@@ -70,8 +70,15 @@ tags:
 
 ## OLAP
 
+Cube 计算
+
 - [duckdb/duckdb](https://github.com/duckdb/duckdb)
   - SQLite for OLAP, C++, MIT
+- Apache Druid
+- Apache Kylin
+- Apache Pinot
+- ClickHouse
+- [Comparison of OLAP servers](https://en.wikipedia.org/wiki/Comparison_of_OLAP_servers)
 
 ## OLTP
 
@@ -106,6 +113,7 @@ tags:
   - Apache-2.0, Go
   - Git for Data
 - [ApsaraDB](https://github.com/ApsaraDB)
+  - by Alibaba
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
   - MIT, Clojure
 - [codenotary/immudb](https://github.com/codenotary/immudb)
@@ -127,7 +135,6 @@ tags:
   - REST api for SQLite & PostgreSQL
 - https://lumosql.org/
   - SQLite+LMDB
-
 
 ## ID
 
@@ -158,6 +165,7 @@ tags:
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
 
 ## Geo
+
 - https://s2geometry.io/
 - [uber/h3](https://github.com/uber/h3)
   - Apache-2.0, C
@@ -200,7 +208,6 @@ tags:
 - [skeema](https://github.com/skeema/skeema)
   - MySQL & MariaDB
 - sqlite [user_version](https://sqlite.org/pragma.html#pragma_user_version)
-
 
 ## TBD
 

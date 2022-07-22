@@ -37,6 +37,8 @@ title: Ethereum
 
 - Token 标准
   - [EIP-20], [EIP-721], [EIP-777], [EIP-1155]
+- [EIP-721] - NFT
+- [EIP-1155] - 多 Token
 - ERC-20
   - 定义 Token 标准 - 其他的 Token 都会参照实现这些合约
   - OpenZeppelin [ERC20.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/07b1b472c0ac3e50963c8d52cd2dac6e7e05260c/contracts/token/ERC20/ERC20.sol)
@@ -52,7 +54,7 @@ title: Ethereum
 
 - EIP = ERC
 - EIP - Ethereum Improvement Proposals
-- ERC - Ethereum Request (for) Comments
+- ERC - Ethereum Request for Comments
 
 :::
 
@@ -197,6 +199,7 @@ struct EIP712Domain {
 - NFT 标准
 - 相关 EIP
   - [EIP-2981]: NFT Royalty Standard
+- https://erc721.org/
 
 ```solidity
 /// ERC-165 0x80ac58cd.
@@ -618,7 +621,7 @@ interface IERC2981 is IERC165 {
 }
 ```
 
-# EIP-3722
+## EIP-3722
 
 [eip-3722]: #eip-3722
 

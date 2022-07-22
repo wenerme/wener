@@ -33,13 +33,15 @@ title: Provider
 
 :::tip
 
+- 所有实例共享总流量
+- 超出网络流量后 $0.01/GB - 1TB $10
 - Linode Image $0.10/mo, 可以做小一点的系统镜像, 不用了保存为 Image 再用恢复即可
+- 目前被 akamai 收购
 
 :::
 
-
-- Nano - 1C1G, 25G, 1T $5/mo
-- Linode 2 GB - 1C2G, 50GB, 2T $10/mo
+- Nano - 1C1G, 25G, 1T $5/mo $0.0075/hr
+- Linode 2 GB - 1C2G, 50GB, 2T $10/mo $0.015
 - 如果月中开通，流量会按比例减少
 - 流量超出后 $0.01/GB - $10/TB
   - 也可以选择更贵的实例，流量更多
@@ -67,7 +69,6 @@ title: Provider
 ip=$(curl -sf "https://speedtest.tokyo2.linode.com/getIP.php" | jq -r .processedString | egrep -o '^[0-9.]+')
 ping $ip
 
-
 cat << EOF > curl-format.txt
      time_namelookup:  %{time_namelookup}s\n
         time_connect:  %{time_connect}s\n
@@ -90,13 +91,13 @@ curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.tokyo2.lin
 
 # 测试所有区域 - 测试 1MB
 for i in newark singapore london frankfurt dallas toronto1 syd1 atlanta tokyo2 mumbai1 fremont; do
-echo "Testing $i"
-curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+  echo "Testing $i"
+  curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
 
 # 最快的三个 - 测试 10MB
 for i in dallas syd1 fremont; do
-echo "Testing $i"
-curl -o /dev/null -r -10240000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+  echo "Testing $i"
+  curl -o /dev/null -r -10240000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
 ```

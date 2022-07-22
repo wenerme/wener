@@ -23,6 +23,18 @@ make install USE_PGXS=1
 - [pgq/pgq](https://github.com/pgq/pgq)
   Queue for PostgreSQL
 - [pgspider](https://github.com/pgspider)
+- JSONSchema
+  - [supabase/pg_jsonschema](https://github.com/supabase/pg_jsonschema)
+    - Apache-2.0, Rust
+  - [furstenheim/is_jsonb_valid](https://github.com/furstenheim/is_jsonb_valid)
+    - MIT, C
+    - Draft4
+  - [gavinwahl/postgres-json-schema](https://github.com/gavinwahl/postgres-json-schema)
+    - PLpgSQL
+- [tcdi/pgx](https://github.com/tcdi/pgx)
+  - MIT, Rust
+  - Postgres Extensions with Rust
+
 
 **FDW**
 

@@ -6,9 +6,25 @@ title: ethersjs
 
 - [ethers-io/ethers.js](https://github.com/ethers-io/ethers.js)
   - MIT, TS
-- BN.js
+  - 内置 ether.util.BigNumber - 封装 BN.js
+    - elliptic 使用的 BN.js - 因为必须包含 elliptic 所以使用 BN.js 不需要引入额外包
+    - BN.js 与 ether 计算逻辑相同，底层为纯 int + decimals，两个数值计算要考虑 decimals
+    - bignumber.js 底层存储了 c,e,s 辅助计算，两个数值可直接计算
+    - 个人使用推荐 [bignumber.js](../web/script/lib/bignumberjs.md) - 接口更友好
 - 参考
+  - https://docs.ethers.io/v5/
+  - [Why not BigNumber.js, BN.js, BigDecimal, etc?](https://docs.ethers.io/v5/api/utils/bignumber/#BigNumber--notes)
   - [ethers.js: Human-Readable Contract ABIs](https://blog.ricmoo.com/human-readable-contract-abis-in-ethers-js-141902f4d917)
+
+| Unit   | Decimals |
+| ------ | -------- |
+| wei    | 0        |
+| kwei   | 3        |
+| mwei   | 6        |
+| gwei   | 9        |
+| szabo  | 12       |
+| finney | 15       |
+| ether  | 18       |
 
 ```ts
 // MetaMask
@@ -26,7 +42,7 @@ const signer = provider.getSigner();
 // AnkrProvider - homestead, matic, arbitrum
 // FallbackProvider - 支持多个 Provider
 // IpcProvider
-const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545', { chainId: '1337', name: 'dev' });
+const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545', {chainId: '1337', name: 'dev'});
 ```
 
 ```ts
@@ -59,9 +75,9 @@ let ecr1820implementer = [
 // ropsten usdc
 let contract = new ethers.Contract('0x07865c6E87B9F70255377e024ace6630C1Eaa37F', [...ecr20, ...ecr165], signer);
 
-// 0x01ffc9a7
+// 0x01ffc9a7 - 4bytes
 let interfaceId = ethers.utils.keccak256(ethers.utils.toUtf8Bytes('supportsInterface(bytes4)')).substring(0, 10);
-let interfaceId = ethers.utils.id('supportsInterface(bytes4)')
+let interfaceId = ethers.utils.id('supportsInterface(bytes4)');
 contract.supportsInterface(interfaceId);
 
 new ethers.utils.Interface(ecr165).format(ethers.utils.FormatTypes.minimal);
@@ -96,13 +112,3 @@ interface ECR165 {
   supportsInterface(interfaceId: any);
 }
 ```
-
-| Name   | Decimals |
-| ------ | -------- |
-| wei    | 0        |
-| kwei   | 3        |
-| mwei   | 6        |
-| gwei   | 9        |
-| szabo  | 12       |
-| finney | 15       |
-| ether  | 18       |

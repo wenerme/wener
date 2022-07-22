@@ -260,6 +260,7 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 
 ## Tools
 
+- [nanozuki/dantalian](https://github.com/nanozuki/dantalian)
 - [nilaoda/N_m3u8DL-CLI](https://github.com/nilaoda/N_m3u8DL-CLI)
 - [yuanqing/vdx](https://github.com/yuanqing/vdx)
 - [MiSTer-devel/Presets_MiSTer](https://github.com/MiSTer-devel/Presets_MiSTer)

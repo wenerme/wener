@@ -2,25 +2,28 @@
 title: rclone
 ---
 
-# Rclone
+# rclone
 
 - [rclone/rclone](https://github.com/rclone/rclone)
+  - https://rclone.org/
 - 默认配置文件 `~/.config/rclone/rclone.conf`
 
-| flag                     | val | desc                |
-| ------------------------ | --- | ------------------- |
-| -P,--progress            |     | 显示进度            |
-| `--transfers <n>`        | 4   | 并行 数量           |
-| --create-empty-src-dirs  |     | copy 创建空目录     |
-| `-f,--filter <patterns>` |     |
-| --ignore-case            |     | filter 大小写不敏感 |
-| `--include <pattern>`    |
-| `--exclude <pattern>`    |
-| `--files-from <file>`    |     |
-| `--min-size <size>`      |
-| `--max-size <size>`      |
-| `--max-age <age>`        |
-| --stats-one-line         |     | 只显示一行状态      |
+| flag                                 | desc                |
+| ------------------------------------ | ------------------- |
+| -P,--progress                        | 显示进度            |
+| `--transfers <n:=4>`                 | 并行 数量           |
+| --create-empty-src-dirs              | copy 创建空目录     |
+| `-f,--filter <patterns>`             |
+| --ignore-case                        | filter 大小写不敏感 |
+| `--include <pattern>`                |
+| `--exclude <pattern>`                |
+| `--files-from <file>`                |
+| `--min-size <size>`                  |
+| `--max-size <size>`                  |
+| `--max-age <age>`                    |
+| --stats-one-line                     | 只显示一行状态      |
+| --track-renames                      | 跟踪 rename         |
+| `--track-renames-strategy <s:=hash>` | hash,modtime,leaf   |
 
 | command |
 | ------- | ---------------------------------- |
@@ -48,14 +51,13 @@ cp rclone ~/bin
 rclone copy src:/src dst:/dst # 复制目录
 rclone copyto                 # 复制单个文件
 
-
 # 不创建配置的使用方式
 rclone lsd --webdav-url http://192.168.1.1:8080 :webdav:
 rclone lsd --sftp-host example.com :sftp:
 rclone lsd --ftp-host 192.168.1.1 --ftp-port 21 --ftp-user anonymous --ftp-pass $(rclone obscure anonymous) :ftp:
 
-rclone about gd:      # 使用情况
-rclone reconnect gd:  # Token 失效重连
+rclone about gd:     # 使用情况
+rclone reconnect gd: # Token 失效重连
 ```
 
 - filter
@@ -63,6 +65,11 @@ rclone reconnect gd:  # Token 失效重连
   - `+ include-pattern`
   - `- exclude-pattern`
   - `!` - reset
+- track-rename - [fs/sync/sync.go#L752-L789](https://github.com/rclone/rclone/blob/7a24c173f6669172d845221c7e37e5824fa13fb7/fs/sync/sync.go#L752-L789)
+  - 先基于 size 找到可能 相同 的对象
+  - 根据 hash 生成唯一 ID - 基于 ID 判断是否 相同 对象
+  - track-renames-strategy 可指定多次
+    - leaf 会要求只在相同目录下 rename - 添加 basedir 到 ID
 
 ## Web UI
 
@@ -111,8 +118,7 @@ rclone mount gd: /tmp/gd \
 # 查看实际占用空间
 du -hs . --apparent-size
 
-
-apk add 	findutils
+apk add findutils
 # 删除空文件
 find . -type f -empty -delete
 # 删除空目录

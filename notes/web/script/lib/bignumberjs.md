@@ -4,7 +4,9 @@ title: bignumber.js
 
 # bignumber.js
 
-| v   | for         | 0.123 | -12345.67     |
+- [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)
+
+| var | stand for   | 0.123 | -12345.67     |
 | --- | ----------- | ----- | ------------- |
 | c   | coefficient | 1,2,3 | 1,2,3,4,5,6,7 |
 | e   | exponent    | -1    | 4             |

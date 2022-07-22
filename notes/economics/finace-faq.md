@@ -7,20 +7,6 @@ tags:
 
 - 货币政策 主导 权
 
-## Accounting vs. Finance
-
-- Accounting
-  - 强调日常
-  - 强调算法
-  - 细节 - 准确
-  - 历史
-- Finance
-  - 管理、资产、投资
-  - 概括
-  - 未来 - 计划
-
-- 微观经济学 -> 个体经济学
-
 ## 选择成本
 
 既可以，又可以，也可以，还可以。
@@ -36,7 +22,6 @@ tags:
   - 选择后 牺牲的代价
   - OC - Opportunity Cost - Alternative Cost
 - Don’t Invest More Than Five Minutes in Choosing a Technology
-
 
 ## 三元悖论
 

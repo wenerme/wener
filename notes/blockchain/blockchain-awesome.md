@@ -70,6 +70,9 @@ tags:
   - https://api.coingecko.com/api/v3/simple/price
   - https://api.etherscan.io/api
   - https://sentinel.matic.network/api/v2/validators/metadata/totalStake
+- Misc
+  - [makerdao/multicall](https://github.com/makerdao/multicall)
+  - [makerdao/awesome-makerdao](https://github.com/makerdao/awesome-makerdao)
 
 ```ts
 import {MetaMaskInpageProvider} from '@metamask/providers';
@@ -111,6 +114,8 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 - https://www.app.unic.ly/#/discover
 
 ## Testnets
+
+> [ChainList](./chainlist.md)
 
 | Hex  | Decimal | Symbol | Network | Proof               | RPC                                              | Explorer                      |
 | ---- | ------- | ------ | ------- | ------------------- | ------------------------------------------------ | ----------------------------- |
@@ -161,6 +166,8 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 
 ## 网络
 
+> [ChainList](./chainlist.md)
+
 | Hex  | Decimal | Symbol | Network                         | RPC                               | Explorer                 |
 | ---- | ------- | ------ | ------------------------------- | --------------------------------- | ------------------------ |
 | 0x1  | 1       | ETH    | Ethereum Main Network (Mainnet) |
@@ -179,14 +186,6 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
   - Fraud proof
 - Zero Knowlogy
   - Validity proof
-- [ethereum-lists/chains](https://github.com/ethereum-lists/chains)
-  - [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist)
-  - https://chainlist.org/
-  - https://chainlist.wtf/
-  - ChianList https://eips.ethereum.org/EIPS/eip-155
-  - Explorer https://eips.ethereum.org/EIPS/eip-3091
-  - 模型参考 https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1.json
-  - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 - https://ethereum.org/en/developers/docs/networks/
 - Polygon
   - https://polygon-rpc.com
@@ -296,6 +295,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
 
 ## Token
 
+> [TokenList](./tokenlist.md)
+
 **主要 ECR-20 币**
 
 | Token | Name              | Primary Network                    |
@@ -396,3 +397,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
 | Upwork  | Braintrust    |
 | Twitter | Lens Protocol |
 | MongoDB | Ceramic       |
+
+## Service
+
+- https://www.hyperledger.org/
+- https://github.com/corda/corda
+  - Corda is an open source blockchain project, designed for business from the start. Only Corda allows you to build interoperable blockchain networks that transact in strict privacy. Corda's smart contract technology allows businesses to transact directly, with value. https://www.corda.net
+- Apache Milagro
+  - Core security infrastructure for decentralized networks and distributed systems
+  - https://milagro.apache.org/users.html
+- https://101blockchains.com/blockchain-open-source/

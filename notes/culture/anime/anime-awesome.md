@@ -5,7 +5,9 @@ tags:
 
 # Anime Awesome
 
-## 日本动画工作室
+## Studio
+
+日本动画工作室
 
 - WIT STUDIO - 霸权社 - 2012 年 - subdivision of I.G Port
   - 罪恶王冠
@@ -94,6 +96,17 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 | 《鼓之宅院篇》         | 第 11 至第 14 集合集 |
 | 《那田蜘蛛山篇》       | 第 15 至第 21 集合集 |
 | 《柱合会议・蝴蝶屋篇》 | 第 22 至第 26 集合集 |
+
+## 虫师 Mushishi
+
+| Date   | EP/Type          | Title                                                 |
+| ------ | ---------------- | ----------------------------------------------------- |
+| 2005   | 26               | 虫师/Mushishi                                         |
+| 2006   | Live-action film | 虫师/Mushi-Shi: The Movie                             |
+| 2014.1 | SP               | 虫师：蚀日之翳/Mushishi Tokubetsu-hen: Hihamukage     |
+| 2014.4 | 20               | 虫师 续章/Mushishi: Zoku-Sho                          |
+| 2014.8 | EP10.5 SP        | 虫师 续章 荆棘之路/Mushishi Zoku Shou: Odoro no Michi |
+| 2015.5 | SP               | 虫师 铃之滴/Mushishi Zoku Shou: Suzu no Shizuku       |
 
 ## Resource
 

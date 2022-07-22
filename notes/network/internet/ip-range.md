@@ -26,8 +26,8 @@ title: IP 地址
   - https://aws.amazon.com/cn/premiumsupport/knowledge-center/s3-find-ip-address-ranges
 - [EH IPs](https://ehwiki.org/wiki/IPs)
 - database
-  - ipip.net
-  -
+  - https://ipinfo.io
+  - https://ipip.net
 
 | CIDR             | Provider |
 | ---------------- | -------- |
@@ -36,7 +36,8 @@ title: IP 地址
 
 ## Github 下载
 
-会跳转到 aws, 例如 github-production-release-asset-2e65be.s3.amazonaws.com。
+~~会跳转到 aws, 例如 github-production-release-asset-2e65be.s3.amazonaws.com~~
+
 
 ## AWS
 
@@ -50,6 +51,10 @@ title: IP 地址
 
 ## Cloudflare
 
+- https://www.cloudflare.com/ips-v4
+- https://www.cloudflare.com/ips-v6
+- ArgoTunnel Ports and IPs
+  https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ports-and-ips/
 - https://www.cloudflare.com/zh-cn/ips/
 
 ## 阿里云

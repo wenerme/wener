@@ -4,12 +4,23 @@ title: rsync
 
 # rsync
 
-- https://www.cheatography.com/richardjh/cheat-sheets/rsync/
-- https://wiki.archlinux.org/index.php/rsync
-- unison
-  - https://www.cis.upenn.edu/~bcpierce/unison/
-- `--info=progress2` 显示速度
-- https://man7.org/linux/man-pages/man1/rsync.1.html
+- 参考
+  - [rsync.1](https://man7.org/linux/man-pages/man1/rsync.1.html)
+  - https://www.cheatography.com/richardjh/cheat-sheets/rsync/
+  - https://wiki.archlinux.org/index.php/rsync
+  - unison
+    - https://www.cis.upenn.edu/~bcpierce/unison/
+  - `--info=progress2` 显示速度
+
+:::tip
+
+- rsync 不支持检测 rename, --fuzzy 能对名字做模糊匹配
+  - rclone 支持基于 hash, modtime, leaf 检测 rename
+- rsync 不支持并行 - rclone 支持并行
+- 更复杂的同步场景推荐 [rclone](./rclone.md)
+- 更复杂的备份场景推荐 [restic](./restic.md)
+
+:::
 
 | flags                 | for                    |
 | --------------------- | ---------------------- |
@@ -54,21 +65,22 @@ rsync -avz --no-perms --no-owner --no-group mnt/wener abuild/
 fswatch ./ | xargs -I{} cp {} ~/Dropbox/backup/latest/
 # rsync
 alias run_rsync='rsync -azP --exclude ".*/" --exclude ".*" --exclude "tmp/" ~/Documents/repos/my_repository username@host:~'
-run_rsync; fswatch -o . | while read f; do run_rsync; done
+run_rsync
+fswatch -o . | while read f; do run_rsync; done
 ```
 
 ## 并行
 
-- https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
-- https://unix.stackexchange.com/questions/189878
-
 ```bash
 rsync -avzm --stats --safe-links --ignore-existing --dry-run \
-    --human-readable /data/projects REMOTE-HOST:/data/ > /tmp/transfer.log
+  --human-readable /data/projects REMOTE-HOST:/data/ > /tmp/transfer.log
 
 # --relative 要求在 /data/projects 执行
-cat /tmp/transfer.log | \
-    parallel --will-cite -j 5 rsync -avzm --relative \
-      --stats --safe-links --ignore-existing \
-      --human-readable {} REMOTE-HOST:/data/ > result.log
+cat /tmp/transfer.log \
+  | parallel --will-cite -j 5 rsync -avzm --relative \
+    --stats --safe-links --ignore-existing \
+    --human-readable {} REMOTE-HOST:/data/ > result.log
 ```
+
+- https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
+- https://unix.stackexchange.com/questions/189878

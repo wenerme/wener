@@ -187,3 +187,7 @@ tags:
 - Minias – A mini x86-64 assembler for fun and learning [HN](https://news.ycombinator.com/item?id=28884768)
 - [skilldrick/easy6502](https://github.com/skilldrick/easy6502)
 - http://www.projectoberon.com/
+
+## Misc
+
+- [marcan/takeover.sh](https://github.com/marcan/takeover.sh)

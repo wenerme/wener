@@ -12,7 +12,7 @@ title: lakka tv
 
 :::caution
 
-- Lakka 不支持虚拟化 - 直接操作 GPU 无 XServer
+- Lakka 不支持虚拟化 - 需要直接操作 GPU， 虚拟化无 XServer 无法显示
 
 :::
 
