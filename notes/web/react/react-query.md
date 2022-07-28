@@ -4,7 +4,7 @@ title: React Query
 
 # React Query
 
-- [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
+- [TanStack/query](https://github.com/TanStack/query)
 - 默认
   - 开启 refetchOnMount, refetchOnWindowFocus, refetchOnReconnect
   - cacheTime 5 分钟 - 不再使用的的数据保留 5 分钟
@@ -17,7 +17,7 @@ title: React Query
   - [Practical React Query](https://tkdodo.eu/blog/practical-react-query)
   - [Important Defaults](https://react-query.tanstack.com/guides/important-defaults)
 
-|                  |
+| -                | condition                             | note                             |
 | ---------------- | ------------------------------------- | -------------------------------- |
 | **status**       |
 | idle             | isIdle                                | enabled:false 或 mutation 未执行 |
@@ -40,6 +40,50 @@ title: React Query
 - useQueries suspense 不是一次性等待完成 [#1523](https://github.com/tannerlinsley/react-query/issues/1523)
 
 :::
+
+## Persist
+
+> **Note**
+>
+> 整体 persist 而不是单条记录维度 - [#2649](https://github.com/TanStack/query/discussions/2649)
+
+- PersistQueryClientProvider
+  - 会从 persistQueryClient unsubscribe
+  - 会处理 restore - persistQueryClient 返回的 promise 被 resolve
+
+```ts
+import {PersistQueryClientProvider} from '@tanstack/react-query-persist-client';
+import {createSyncStoragePersister} from '@tanstack/query-sync-storage-persister';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+    },
+  },
+});
+
+const persister = createSyncStoragePersister({
+  storage: window.localStorage,
+});
+
+ReactDOM.createRoot(rootElement).render(
+  <PersistQueryClientProvider client={queryClient} persistOptions={{persister}}>
+    <App />
+  </PersistQueryClientProvider>,
+);
+
+//
+const [unsubscribe, promise] = persistQueryClient({
+  queryClient,
+  persister: localStoragePersister,
+});
+```
+
+## broadcast
+
+- 实现基于 broadcast-channel
+- 监听 Cache 事件，广播到其他 tab
 
 # Version
 
@@ -78,8 +122,8 @@ title: React Query
 ## React Query v2.x
 
 ```ts
-import { useQuery, QueryCache, ReactQueryCacheProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query-devtools';
+import {useQuery, QueryCache, ReactQueryCacheProvider} from 'react-query';
+import {ReactQueryDevtools} from 'react-query-devtools';
 
 const queryCache = new QueryCache();
 
@@ -181,7 +225,7 @@ const {
 ```ts
 const [
   mutate, // 修改操作
-  { status, isIdle, isLoading, isSuccess, isError, data, error, reset },
+  {status, isIdle, isLoading, isSuccess, isError, data, error, reset},
 ] = useMutation(mutationFn, {
   onMutate,
   onSuccess,

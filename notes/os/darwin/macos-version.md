@@ -5,16 +5,20 @@ tags:
 
 # macOS Version
 
-| macOS                | safari      |
-| -------------------- | ----------- |
-| macOS Monterey 12.3  |
-| macOS Monterey 12.0  | Safari 15.0 |
-| macOS Catalina 10.15 |
-| macOS Big Sur 11.0   | Safari 14.0 |
+| macOS        | Name     | Darwin | Date       | Safari      | Note |
+| ------------ | -------- | ------ | ---------- | ----------- | ---- |
+| [macOS 13]   | Ventura  | 22     | 2022-06-22 |
+| [macOS 12.3] | Monterey | 21     |            |
+| macOS 12.0   | Monterey | 21     | 2021-06-07 | Safari 15.0 |
+| macOS 11.0   | Big Sur  | 20     | 2020-06-22 | Safari 14.0 |
+| macOS 10.15  | Catalina | 19     | 2019-06-03 |
 
+[macos 12.3]: #macos-123
+
+- [macOS version history](https://en.wikipedia.org/wiki/MacOS_version_history)
 - https://developer.apple.com/documentation/macos-release-notes
 
-## macOS Monterey 12.3
+## macOS 12.3
 
 - 移除了 python2
   - 无法直接执行 python - /usr/bin/python

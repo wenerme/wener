@@ -32,6 +32,7 @@ sudo dmidecode -t processor
 hwinfo --short
 
 inxi -Fx
+inxi -Fxxxrz
 
 df -H
 pydf

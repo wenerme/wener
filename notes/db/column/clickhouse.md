@@ -96,11 +96,15 @@ curl 'http://localhost:8123/?query=SELECT%20NOW()'
 
 ```sql
 COPY(
-  SELECT t.id,t.name FROM t
+  SELECT
+    t.id,
+    t.name
+  FROM
+    t
 ) TO '/opt/data/export.tsv';
 
 -- 从 PostgreSQL 导入
-COPY ... TO PROGRAM
+COPY...TO PROGRAM
 ```
 
 ## Note
@@ -168,6 +172,93 @@ docker run -it --rm \
 - Nested - 嵌套类型 - 类似定义一个 struct
 
 ## Table Engine
+
+- PostgreSQL
+- Kafka
+- MySQL
+- S3
+  - Function+Engine
+
+```sql
+-- PostgreSQL
+-- =======================
+-- connect table
+-- insert, select
+CREATE TABLE
+  db_in_ch.table1 (id UInt64, column1 String) ENGINE = PostgreSQL(
+    'postgres-host.domain.com:5432',
+    'db_in_psg',
+    'table1',
+    'clickhouse_user',
+    'ClickHouse_123'
+  );
+
+-- materialized
+-- replica of the database
+SET
+  allow_experimental_database_materialized_postgresql = 1;
+
+CREATE DATABASE db1_postgres ENGINE = MaterializedPostgreSQL(
+  'postgres-host.domain.com:5432',
+  'db1',
+  'clickhouse_user',
+  'ClickHouse_123'
+) SETTINGS materialized_postgresql_tables_list = 'table1';
+
+-- S3
+-- =========================
+-- 元信息 _path, _file
+SELECT
+  *
+FROM
+  s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_*.gz',
+    'TabSeparatedWithNames'
+  )
+LIMIT
+  10;
+
+-- 写入
+INSERT INTO
+  FUNCTION s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips.csv.lz4',
+    's3_key',
+    's3_secret',
+    'CSV'
+  )
+SELECT
+  *
+FROM
+  trips
+LIMIT
+  10000;
+
+-- 写入多个文件
+INSERT INTO
+  FUNCTION s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips_{_partition_id}.csv.lz4',
+    's3_key',
+    's3_secret',
+    'CSV'
+  ) PARTITION BY rand() % 10
+SELECT
+  *
+FROM
+  trips
+LIMIT
+  100000;
+
+-- engine
+CREATE TABLE
+  trips_dest (
+    `trip_id` UInt32,
+    `pickup_date` Date,
+    `pickup_datetime` DateTime,
+    `dropoff_datetime` DateTime,
+    `tip_amount` Float32,
+    `total_amount` Float32
+  ) ENGINE = S3('<bucket path>/trips.bin', 'Native');
+```
 
 ## MergeTree
 
@@ -256,12 +347,23 @@ echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 
 ```sql
 SELECT
-  tabe, name,
+  tabe,
+  name,
   sub(data_compressed_bytes) AS compressed,
   sub(data_uncompressed_bytes) AS uncompressed,
-  floor((compressed/uncompressed)*100,4) as percent
-FROM system.columns WHERE database = currentDatabase()
-GROUP BY table, name
-ORDER BY table ASC, name ASC
-;
+  floor((compressed / uncompressed) * 100, 4) as percent
+FROM
+  system.columns
+WHERE
+  database = currentDatabase()
+GROUP BY
+  table,
+  name
+ORDER BY
+  table ASC,
+  name ASC;
 ```
+
+## config.xml
+
+- https://clickhouse.com/docs/en/operations/configuration-files/

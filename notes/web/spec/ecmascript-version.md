@@ -28,6 +28,7 @@ tags:
 
 - [proposal-temporal](https://github.com/tc39/proposal-temporal)
   - Temporal - 替代 Date
+- [Function.memo](https://github.com/tc39/proposal-function-memo)
 
 :::
 

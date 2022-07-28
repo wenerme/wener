@@ -1,21 +1,22 @@
-# Netboot
+---
+title: Netboot
+---
 
-## Tips
+# Netboot
 
 - [google/netboot](https://github.com/google/netboot)
   - Go 实现
 - AlpineLinux
   - [PXE boot](https://wiki.alpinelinux.org/wiki/PXE_boot)
   - netboot [boot.alpinelinux.org](http://boot.alpinelinux.org/)
+  - Mirror 里也都有 netboot 依赖用的东西 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.16/releases/x86_64/netboot/
 - ArchLinux
   - [Netboot](https://wiki.archlinux.org/index.php/Netboot)
 - 参考
-
   - [How to use gPXE with QEMU](http://etherboot.org/wiki/qemu)
   - [thereapsz/alpine-pxe](https://github.com/thereapsz/alpine-pxe)
     - 在 docker 中运行 ubuntu 的 pxe 服务
   - [Debugging PXE boot with QEMU](http://www.saminiir.com/debugging-pxe-boot/)
-
 - https://en.wikipedia.org/wiki/Storage_area_network
 
 | 后缀          | 说明                                           |

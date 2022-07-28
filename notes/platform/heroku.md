@@ -1,19 +1,21 @@
+---
+title: Heroku
+---
+
 # Heroku
 
-## Tips
-
-* Node
-  * [部署运行 build 或 heroku-postbuild 脚本](https://devcenter.heroku.com/changelog-items/1573)
-  * 启动默认为 `npm start` 除非在 Procfile 指定
-    * `web: yarn start`
-  * 启动需要绑定到 PORT
-  * [heroku/heroku-buildpack-nodejs](https://github.com/heroku/heroku-buildpack-nodejs)
-* [连接超时](https://devcenter.heroku.com/articles/request-timeout#long-polling-and-streaming-responses)
-  * 初始 30s 响应窗口
-  * 之后 55s 响应窗口
-* [自定义域名 SSL](https://devcenter.heroku.com/articles/ssl-endpoint)
-  * 需要购买证书
-* [限制](https://devcenter.heroku.com/articles/limits)
+- Node
+  - [部署运行 build 或 heroku-postbuild 脚本](https://devcenter.heroku.com/changelog-items/1573)
+  - 启动默认为 `npm start` 除非在 Procfile 指定
+    - `web: yarn start`
+  - 启动需要绑定到 PORT
+  - [heroku/heroku-buildpack-nodejs](https://github.com/heroku/heroku-buildpack-nodejs)
+- [连接超时](https://devcenter.heroku.com/articles/request-timeout#long-polling-and-streaming-responses)
+  - 初始 30s 响应窗口
+  - 之后 55s 响应窗口
+- [自定义域名 SSL](https://devcenter.heroku.com/articles/ssl-endpoint)
+  - 需要购买证书
+- [限制](https://devcenter.heroku.com/articles/limits)
 
 ```bash
 # 安装命令行工具
@@ -55,7 +57,6 @@ docker push registry.heroku.com/<app>/<process-type>
 heroku run bash --type=worker
 ```
 
-
 ```bash
 # 自定义域名
 heroku domains:add app.my.com
@@ -71,7 +72,7 @@ heroku ps -a wener
 
 ## auth
 
-* 默认使用 `~/.netrc` 中的鉴权信息
+- 默认使用 `~/.netrc` 中的鉴权信息
 
 ```bash
 # 可以使用 TOKEN 登录
@@ -85,21 +86,24 @@ heroku container:login
 ```
 
 ## dyno
-* https://www.heroku.com/dynos
-* https://devcenter.heroku.com/articles/dyno-types
-* 类似于算力
-* Free - [价格](https://www.heroku.com/pricing)
-  * 30 分钟休眠
-  * 512 MB RAM │ 1 web/1 worker
-  * Postgres 10K 行
-  * Redis 25 MB 内存, 20 连接
-  * 每月 1000 小时
+
+- https://www.heroku.com/dynos
+- https://devcenter.heroku.com/articles/dyno-types
+- 类似于算力
+- Free - [价格](https://www.heroku.com/pricing)
+  - 30 分钟休眠
+  - 512 MB RAM │ 1 web/1 worker
+  - Postgres 10K 行
+  - Redis 25 MB 内存, 20 连接
+  - 每月 1000 小时
 
 ## 进程类型
-* [Procfile](https://devcenter.heroku.com/articles/procfile)
+
+- [Procfile](https://devcenter.heroku.com/articles/procfile)
 
 ## 调度器 / 周期执行
-* https://devcenter.heroku.com/articles/scheduler
+
+- https://devcenter.heroku.com/articles/scheduler
 
 ```bash
 # 安装扩展
@@ -117,7 +121,8 @@ heroku addons:create heroku-postgresql:hobby-dev
 ```
 
 ## redis
-* https://elements.heroku.com/addons/heroku-redis
+
+- https://elements.heroku.com/addons/heroku-redis
 
 ```bash
 # free dev: 20M 20并发
@@ -127,7 +132,8 @@ heroku addons:create heroku-redis:hobby-dev
 ```
 
 ## 开发
-* https://devcenter.heroku.com/articles/dyno-metadata
+
+- https://devcenter.heroku.com/articles/dyno-metadata
 
 ```
 HEROKU_APP_ID:                   9daa2797-e49b-4624-932f-ec3f9688e3da

@@ -4,7 +4,8 @@ title: DayJS
 
 # DayJS
 
-- 2kB alternative to Moment.js
+- [iamkun/dayjs](https://github.com/iamkun/dayjs)
+  - 2kB alternative to Moment.js
 
 ```ts
 // local

@@ -22,7 +22,7 @@ title: React Hook Form
 
 :::tip
 
-- 能使用 ref 尽量使用 ref 注册
+- 能使用 ref 尽量使用 ref 注册 - register
 
 :::
 
@@ -34,9 +34,9 @@ title: React Hook Form
 :::
 
 ```tsx
-const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }) => {
-  const formMethods = useForm({ mode: 'onBlur', defaultValues: defaultValue });
-  const { register, handleSubmit } = formMethods;
+const MyForm: React.FC<{onSubmit; defaultValue}> = ({onSubmit, defaultValue}) => {
+  const formMethods = useForm({mode: 'onBlur', defaultValues: defaultValue});
+  const {register, handleSubmit} = formMethods;
   return (
     <FormProvider {...formMethods}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -48,3 +48,16 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
   );
 };
 ```
+
+## Rerender
+
+- watch -> useWatch, getValues
+- useFormContext -> useFormState
+- setValue -> reset - 如果需要设置非常多的值
+- Controller, useController -> register
+- FormProvider 使用了 React.Context, 导致 form 状态变化会 rerender
+
+---
+
+- https://react-hook-form.com/advanced-usage#FormProviderPerformance
+- https://github.com/react-hook-form/react-hook-form/discussions/7611#discussioncomment-2008064

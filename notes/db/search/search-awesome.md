@@ -28,6 +28,9 @@ tags:
 - [manticoresoftware/manticoresearch](https://github.com/manticoresoftware/manticoresearch)
   - GPL-2.0, C++
   - Database for search
+  - MySQL 协议和语法
+  - 支持 行存、列存、文档存储
+  - forked from Sphinx 2.3.2 in 2017
 - [typesense/typesense](https://github.com/typesense/typesense)
   - GPL-3.0, C++
   - 不支持 CJK - [typesense/typesense#228](https://github.com/typesense/typesense/issues/228)

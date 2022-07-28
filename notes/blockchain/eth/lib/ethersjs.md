@@ -112,3 +112,15 @@ interface ECR165 {
   supportsInterface(interfaceId: any);
 }
 ```
+
+## events
+
+- https://docs.ethers.io/v5/concepts/events/
+
+# FAQ
+
+## requested too many blocks from 0 to 11846057, maximum is set to 2048
+
+API Provider 限制了
+
+- avax testnet 2048

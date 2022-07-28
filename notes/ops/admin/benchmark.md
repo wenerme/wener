@@ -1,37 +1,42 @@
-# Bench
+---
+title: Benchmark
+---
 
-## Tips
+# Benchmark
 
-* https://wiki.archlinux.org/index.php/benchmarking
-* http://www.jens-hartmann.at/Fritzmarks/
-* https://openbenchmarking.org/
-* http://www.phoronix-test-suite.com/
-* https://github.com/phoronix-test-suite/phoronix-test-suite
+
+- https://wiki.archlinux.org/index.php/benchmarking
+- http://www.jens-hartmann.at/Fritzmarks/
+- https://openbenchmarking.org/
+- http://www.phoronix-test-suite.com/
+- https://github.com/phoronix-test-suite/phoronix-test-suite
+- https://browser.geekbench.com/
 
 ## Disk
-* 场景
-  * 顺序读写 （吞吐量，常用单位为MB/s）：文件在硬盘上存储位置是连续的。
-    * 适用场景：大文件拷贝（比如视频音乐）。速度即使很高，对数据库性能也没有参考价值。
-  * 4K随机读写 （IOPS，常用单位为次）：在硬盘上随机位置读写数据，每次4KB。
-    * 适用场景：操作系统运行、软件运行、数据库。
-* 复杂压测考虑使用 [fio](#fio)
+
+- 场景
+  - 顺序读写 （吞吐量，常用单位为 MB/s）：文件在硬盘上存储位置是连续的。
+    - 适用场景：大文件拷贝（比如视频音乐）。速度即使很高，对数据库性能也没有参考价值。
+  - 4K 随机读写 （IOPS，常用单位为次）：在硬盘上随机位置读写数据，每次 4KB。
+    - 适用场景：操作系统运行、软件运行、数据库。
+- 复杂压测考虑使用 [fio](#fio)
 
 ```bash
 # 简单的文件写入性能
 # 因为写入的 0 需要注意底层系统是否会进行压缩
-dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k status=progress; rm -f test
+dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k status=progress
+rm -f test
 # 磁盘性能
 hdparm -Tt /dev/sda
 
 cd "/usr/local/share/ca-certificates" && curl "https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem" | csplit -f "rds-" - '/-----BEGIN CERTIFICATE-----/' '{*}'
 ```
 
-
 ## http
+
 ab
 https://github.com/rakyll/hey
 https://github.com/JoeDog/siege
-
 
 ## Network
 
@@ -40,11 +45,11 @@ https://github.com/JoeDog/siege
 # 服务端
 nc -v -v -l -n -p 8000 | pv > /dev/null
 # 客户端
-time yes | pv |nc -v -v -n 192.168.1.1 8000 >/dev/null
+time yes | pv | nc -v -v -n 192.168.1.1 8000 > /dev/null
 
 # 简单的 TCP/IP 延时测试
 # 服务端
-nc  -v -v -n -k -l 8000 | pv > /dev/null
+nc -v -v -n -k -l 8000 | pv > /dev/null
 # 客户端
 # 计算接收和发送时间
 nmap --packet-trace -p 8000 192.168.1.2
@@ -69,14 +74,14 @@ iperf3 -c 192.168.1.2
 ```
 
 ## sysbench
-* [akopytov/sysbench](https://github.com/akopytov/sysbench)
-* 內建测试
-  * fileio: a filesystem-level benchmark
-  * cpu: a simple CPU benchmark
-  * memory: a memory access benchmark
-  * threads: a thread-based scheduler benchmark
-  * mutex: a POSIX mutex benchmark
 
+- [akopytov/sysbench](https://github.com/akopytov/sysbench)
+- 內建测试
+  - fileio: a filesystem-level benchmark
+  - cpu: a simple CPU benchmark
+  - memory: a memory access benchmark
+  - threads: a thread-based scheduler benchmark
+  - mutex: a POSIX mutex benchmark
 
 ```bash
 # mac
@@ -97,14 +102,13 @@ sysbench cpu run --threads=$(nproc) --warmup-time=10 --time=20
 sysbench memory help
 # 默认 --memory-block-size=1K --memory-total-size=100G --memory-oper=write --memory-access-mode=seq
 sysbench memory run
-sysbench memory run --memory-oper=read --memory-access-mode=rnd 
+sysbench memory run --memory-oper=read --memory-access-mode=rnd
 # 默认 --file-num=128 --file-block-size=16384 --file-total-size=2G --file-io-mode=sync --file-rw-ratio=1.5
 # --file-test-mode seqwr, seqrewr, seqrd, rndrd, rndwr, rndrw
 # --file-io-mode sync,async,mmap
 sysbench fileio prepare
 sysbench fileio run --file-test-mode=rndwr --threads=$(nproc) --warmup-time=10 --time=20
 ```
-
 
 ## cryptsetup benchmark
 

@@ -90,6 +90,8 @@ title: 配件
 
 - AsRock [E3C232D2I](AsRock-E3C232D2I)
   - Intel Xeon E3-1200 v5/v6
+  - Intel® C232
+    - 不支持 iGPU - [source](https://forums.servethehome.com/index.php?threads/quick-sync-with-c232-and-c242.24234/)
   - Dual channel DDR4 2133 ECC UDIMM max 32 GB
   - BMC MegaRAC SP GUI ASPEED AST2400
   - 6 SATA3 by C232
@@ -112,6 +114,12 @@ title: 配件
 :::
 
 ## Chipset
+
+- [Intel® C232 Chipset]([Intel-C232-Chipset])
+  - 不支持 iGPU
+  - 面向 Server
+
+[Intel-C232-Chipset]: https://ark.intel.com/products/90578
 
 ## RAID/HBA
 

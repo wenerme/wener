@@ -10,6 +10,10 @@ title: CMS Awesome
   - GPL-3.0, Java
   - 功能强大, 体系复杂
 - Ghost
+- Wordpress
+- [GetPublii/Publii](https://github.com/GetPublii/Publii)
+  - GPLv3, Vue
+  - desktop-based CMS for Windows, Mac and Linux
 
 ## Headless CMS
 

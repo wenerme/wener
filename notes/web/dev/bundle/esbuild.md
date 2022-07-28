@@ -36,6 +36,9 @@ title: ESBuild
 - Support dynamic imports [#700](https://github.com/evanw/esbuild/issues/700)
   - dynamic import **不会** 被 bundle
 - Support jsx automatic runtime [#334](https://github.com/evanw/esbuild/issues/334)
+  - 目前必须 `import React`, 需要调整 lint 配置
+  - Bundle 可考虑一次 inject https://esbuild.github.io/content-types/#jsx
+  - eslint `'react/react-in-jsx-scope': 'error'`
 
 :::
 

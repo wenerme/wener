@@ -40,15 +40,29 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
 - 匹配方法 - -m
   - 部分 fetch 有变种 `path_beg` -> `path -m beg`
 
-| method | for                         |
-| ------ | --------------------------- |
-| str    | 完整匹配                    |
-| sub    | 包含                        |
-| end    | 开头                        |
-| beg    | 结尾                        |
-| reg    | 正则匹配 - **注意性能问题** |
-| found  | 存在                        |
-| len    | 长度匹配                    |
+| -m    | for                         |
+| ----- | --------------------------- |
+| str   | 完整匹配                    |
+| sub   | 包含                        |
+| end   | 开头                        |
+| beg   | 结尾                        |
+| dir   | `/` 分隔，路径匹配          |
+| dom   | `.` 分隔，域名匹配          |
+| reg   | 正则匹配 - **注意性能问题** |
+| found | 存在                        |
+| len   | 长度匹配                    |
+| bin   | 二进制数据匹配 - Hex        |
+
+- `hdr_end(host) .wener.me` 不会匹配 `wener.me`
+- `hdr_end(host) wener.me` 会匹配 `xyzwener.me`
+- `hdr_dom(host) wener.me` 会匹配 `wener.me` 和 `*.wener.me`, 不会匹配 `xyzwener.me`
+  - 大多时候期望结果
+
+| method   | alias       |
+| -------- | ----------- |
+| base_beg | base -m beg |
+| hdr_end  | hdr -m end  |
+| path_beg | path -m beg |
 
 ```haproxy
 redirect scheme code 301 https if !{ ssl_fc }
@@ -67,6 +81,7 @@ use_backend be_%[path,map_beg(/etc/haproxy/paths.map, mydefault)]
 ## balance
 
 - [balance](https://www.haproxy.com/documentation/hapee/latest/onepage/#4.2-balance)
+- hash - 2.6+
 - roundrobin
   - 根据 weight 轮训 - weight 可动态调整
   - 最多 4095 server
@@ -256,9 +271,6 @@ hdr_beg(host) -i .wener.me
 
 ## Logging
 
-- https://www.haproxy.com/documentation/hapee/latest/onepage/#8
-- https://www.haproxy.com/documentation/hapee/latest/observability/logging/overview/
-
 ```haproxy
 global
   # syslog UNIX socket
@@ -283,6 +295,63 @@ backend s1
   option tcplog
 ```
 
+- https://www.haproxy.com/documentation/hapee/latest/onepage/#8
+- https://www.haproxy.com/documentation/hapee/latest/observability/logging/overview/
+- https://www.haproxy.com/blog/introduction-to-haproxy-logging/
+
 ## 参考
 
 - [HAProxy Documentation Converter](https://cbonte.github.io/haproxy-dconv/)
+  - [Proxy keywords matrix](https://cbonte.github.io/haproxy-dconv/2.6/configuration.html#4.1)
+- https://gist.github.com/krams915/1269101/62614130ae58a1ae107cef251a82716af3edf95b
+
+## 实验
+
+```haproxy
+global
+  log stdout format raw local0
+  log stdout format raw daemon debug
+
+defaults
+  log global
+  option httplog
+  timeout client 300s
+  timeout server 300s
+  timeout connect 5s
+
+  mode http
+
+frontend f1
+  bind 0.0.0.0:8088
+
+  use_backend http:b1 if { hdr_dom(host) -i wener.me }
+
+backend http:b1
+  mode http
+
+backend tcp:b1
+  mode tcp
+
+listen stats
+  bind :8084
+  mode http
+
+  http-request use-service prometheus-exporter if { path /metrics }
+
+  stats enable
+  stats hide-version
+  stats uri /
+  stats refresh 5s
+  stats realm Haproxy\ Statistics
+  # stats auth Username:Password
+
+```
+
+```bash
+haproxy -c -f haproxy.cfg # Check
+haproxy -f haproxy.cfg    # Run
+# stats http://127.0.0.1:8083
+
+# 验证路由
+curl -H 'Host: wener.me' 127.0.0.1:8088
+```

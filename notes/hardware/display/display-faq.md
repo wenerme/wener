@@ -6,6 +6,40 @@ tags:
 
 # 显示器常见问题
 
+## 接口
+
+- LVDS - Low Voltage Differential Signaling 40Pin
+  - 低压差分信号
+  - 330mV, min 250mV, max 450mV
+  - 100Mbps - 1Gbps
+  - 专用于视频传输
+- eDP - Embedded Display Port 30Pin
+  - 基于 DisplayPort 架构和协议
+  - DP 内部接口
+  - 平板电脑、笔记本电脑
+- Vbyone
+- MiniLVDS
+- MIPI 12/25/30PIN 31/34/39/40PIN 45/50/60PIN
+- 8bit\10bit, VASA, JEIDA
+- 60Hz、120Hz、240Hz
+- 4 路、8 路、16 路 V-by-One（30/60/120Hz）信号
+
+| -                    | eDP                                    | LVDS                             |
+| -------------------- | -------------------------------------- | -------------------------------- |
+| Data line            | 1-4 pairs of data lines                | More data lines                  |
+| Clock line           | No                                     | Yes                              |
+| Bit rate/pair        | 1.6,2.7,5.4Gbps                        | 945Mbps                          |
+| Total capacity       | 1.6-21.6Gbps                           | 7.56Gbps                         |
+| Clock                | Embedded                               | clock line/channel               |
+| Transmission type    | video, audio, data, extensible formats | Uncompressed video signal        |
+| Two way data channel | 1Mbps, 720Mbps                         | 100kbps                          |
+| Channel coding       | ANSI 8B/10B                            | Serialized at 7x pixel clockrate |
+| Content protection   | HDCP                                   | None                             |
+
+---
+
+- https://cjscope2016.pixnet.net/blog/post/69757737
+- http://www.auo-lcd.com/solution/98.html
 
 ## LCD 背板类型
 

@@ -81,5 +81,5 @@ Authorization: Basic {{admin_username}} {{admin_password}}
 }
 
 ### 获取授权设计文档
-GET {{host}}/zhensikeji/_design/auth
+GET {{host}}/wener/_design/auth
 Authorization: Basic {{admin_username}} {{admin_password}}

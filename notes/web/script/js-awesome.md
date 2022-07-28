@@ -27,6 +27,10 @@ tags:
     - ts, 200byte
     - 建议直接拷到项目使用
   - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+    - 基于 BroadcastChannel+IndexedD+LocalStorage
+    - NodeJS 使用 Sockets
+    - 支持 Leader 选举
+    - 20kB/6kB
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing
@@ -46,7 +50,7 @@ tags:
     - 注入代理对象，通过访问的字段名字进行 resolve
       - 因此不支持异步
   - [@abraham/reflection](https://github.com/abraham/reflection)
-    - ~3k - 替代 reflect-metadata ～50k
+    - ~3k - 替代 reflect-metadata ～ 50k
 - deep compare
   - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
@@ -230,6 +234,8 @@ tags:
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
   - [imbrn/v8n](https://github.com/imbrn/v8n)
   - npmtrends [ajv vs joi vs yup vs zod](https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod)
+  - [ar-nelson/spartan-schema](https://github.com/ar-nelson/spartan-schema)
+    - 定义的校验可生成 ts 类型
 - math
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
   - [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)
@@ -280,7 +286,6 @@ tags:
 ---
 
 - npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
-
 
 ## Game
 

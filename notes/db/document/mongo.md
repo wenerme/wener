@@ -1,5 +1,4 @@
 ---
-id: mongodb
 title: MongoDB
 ---
 

@@ -10,8 +10,10 @@ title: Intel
   - 2014 年
   - 2011
   - PCIe 8, USB 2.0 8, USB 3.0 6, SATA 10
+- https://www.intel.com/content/www/us/en/support/articles/000037112/graphics.html
+- Intel® Quick Sync Video
 
-| year | ISA/ISE   |
+| year | ISA/ISE   | full name                  | support by         | for        |
 | ---- | --------- | -------------------------- | ------------------ | ---------- |
 | 2022 | Intel AMX | Advanced Matrix Extensions | Linux 5.16, GCC 11 | 加速 AI,ML |
 | 2015 | SGX       |

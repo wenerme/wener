@@ -13,6 +13,8 @@ title: Moloch
     - Moloch DAO v2 + multi-summoner + register
   - [HausDAO/MinionSummoner](https://github.com/HausDAO/MinionSummoner)
   - [raid-guild/moloch-minion](https://github.com/raid-guild/moloch-minion)
+  - [sushiswap/Mochi](https://github.com/sushiswap/Mochi/blob/main/contracts/mol/v2/MochiMol.sol)
+    - [sushiswap/bentobox](https://github.com/sushiswap/bentobox)
 
 **HausDAO/Molochv2.1**
 
@@ -29,6 +31,9 @@ title: Moloch
 | uint256[] summonerShares   |                             | 成员配股   |
 
 - dilution bound
+  - maximum multiplier a YES voter will be obligated to pay in case of mass ragequit
+- processingReward
+  - amount of ETH to give to whoever processes a proposal
 - https://consensys.net/diligence/audits/2020/01/the-lao
 
 | Member                      |

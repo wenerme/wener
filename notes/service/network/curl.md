@@ -100,3 +100,11 @@ if(conn->httpversion < 20) {
    infof(data, "Mark bundle as not supporting multiuse\n");
 }
 ```
+
+## bad range specification in URL position
+
+- -g/--globoff
+
+```bash
+curl -g "https://wener.me/[1,2]"
+```

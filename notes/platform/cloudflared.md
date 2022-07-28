@@ -17,7 +17,7 @@ title: cloudflared
 
 :::caution
 
-- support haproxy proxy protocol  [#369](https://github.com/cloudflare/cloudflared/issues/369)
+- support haproxy proxy protocol [#369](https://github.com/cloudflare/cloudflared/issues/369)
 
 :::
 
@@ -38,7 +38,7 @@ sudo mv cloudflared /usr/local/bin/
 cloudflared update
 
 # 手动更新
-curl -Lo `which cloudflared` https://github.com/cloudflare/cloudflared/releases/download/2021.11.0/cloudflared-linux-amd64
+curl -Lo $(which cloudflared) https://github.com/cloudflare/cloudflared/releases/download/2021.11.0/cloudflared-linux-amd64
 ```
 
 ## tunnel
@@ -54,7 +54,7 @@ cloudflared tunnel list
 # cloudflared tunnel delete dev
 
 TUNNEL_ID=6ff42ae2-765d-4adf-8112-31c55c1551ef
-cat <<YAML > ~/.cloudflared/config.yml
+cat << YAML > ~/.cloudflared/config.yml
 tunnel: dev
 credentials-file: $HOME/.cloudflared/$TUNNEL_ID.json
 
@@ -76,6 +76,18 @@ cloudflared tunnel route dns dev demo.wener.me
 # 至此可以通过通道访问服务
 curl -L demo.wener.me
 ```
+
+- ArgoTunnel Ports and IPs
+  https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ports-and-ips/
+
+```bash
+dig SRV _v2-origintunneld._tcp.argotunnel.com
+
+# --alt-svc altsvc.cache
+curl --http3 https://region1.v2.argotunnel.com:7844 -kv
+```
+
+- https://bagder.github.io/HTTP3-test/
 
 ## 远程启动 tunnel
 
@@ -142,3 +154,24 @@ ingress:
 ---
 
 - [Ingress rules](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress/)
+
+# FAQ
+
+## Unable to establish connection with Cloudflare edge
+
+7844 端口可能被 block， 无法进行 quic 链接
+
+## failed to sufficiently increase receive buffer size
+
+```bash
+# 默认 208kiB
+sysctl net.core.rmem_max
+
+# 修改为 2.5 MB
+sysctl -w net.core.rmem_max=2500000
+```
+
+- UDP receive buffer
+- was: 208 kiB, wanted: 2048 kiB, got: 416 kiB
+- https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size
+

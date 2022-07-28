@@ -6,6 +6,8 @@ tags:
 
 # JavaScript 常见问题
 
+- Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
+
 ## Date.toJSON include timezone
 
 ```js
@@ -82,3 +84,4 @@ typeof val === 'object';
 
 [substr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
 [string.prototype.substr]: https://tc39.es/ecma262/#sec-string.prototype.substr
+

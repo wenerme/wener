@@ -5,7 +5,7 @@ title: Jellyfin
 # Jellyfin
 
 - [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin) 是什么？
-  - GPL, C#
+  - GPLv2, C#
   - 开源媒体系统
   - 类似 Plex 但更开放
 
@@ -16,6 +16,7 @@ title: Jellyfin
 - [Support for OIDC](https://features.jellyfin.org/posts/230/support-for-oidc)
   - [#530](https://github.com/jellyfin/jellyfin/issues/530)
   - https://github.com/9p4/jellyfin-plugin-sso
+- 加载元数据需要的网站一般被墙，需要代理
 
 :::
 
@@ -69,35 +70,6 @@ docker run --rm -it \
     }
   ]
 }
-```
-
-## HW
-
-- https://trac.ffmpeg.org/wiki/Hardware/QuickSync
-- https://wiki.archlinux.org/title/Hardware_video_acceleration
-- https://jellyfin.org/docs/general/administration/hardware-acceleration.html
-- [intel/intel-device-plugins-for-kubernetes](https://github.com/intel/intel-device-plugins-for-kubernetes)
-
-```bash
-apk add pciutils
-lspci -nn | egrep -i "3d|display|vga"
-
-ls /dev/dri
-# VA-API
-# https://github.com/intel/libva-utils
-# /dev/dri/renderXX
-
-# AlpineLinux edge/testing libva-utils
-vainfo
-
-# X11
-# ==========
-# apk add vdpauinfo
-# vdpauinfo
-grep -iE 'vdpau | dri driver' /var/log/Xorg.0.log
-
-# ffmpeg
-ffmpeg -hwaccel vaapi -vaapi_device /dev/dri/renderD128 -i "video.MP4" -vf "select=eq(pict_type\,I)" -vsync vfr -qscale:v 2 -f image2 "%08d.jpg"
 ```
 
 ## Server

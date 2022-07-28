@@ -39,6 +39,8 @@ tags:
 - tinygo
 - [benhoyt/mugo](https://github.com/benhoyt/mugo)
   - a toy compiler for a subset of Go that can compile itself
+- [wenyan-lang/wenyan](https://github.com/wenyan-lang/wenyan)
+  - 文言文
 
 ## AST
 

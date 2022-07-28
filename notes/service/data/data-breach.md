@@ -13,7 +13,8 @@ title: 数据泄漏
 | 2020.11.16 | 圆通 员工                  | 40 万        |
 | 2020       | 顺丰                       |              | 10M 名字,25M 地址, 36M 电话                   |
 | 2020       | Telegram                   | 40M+         |
-| 2018.08.31 | 顺丰 3 亿客户数据          |
+| 2020       | weibo.com                  | 500M         | account,phone                                 |
+| 2018.08.31 | 顺丰 3 亿客户数据          | 300M         |
 | 2018.08.14 | huazhu.com                 | 123M,141.5GB | crm,cusinfo,history                           |
 | 2018-12    | 陌陌                       | 30M          |
 | 2017.11    | BreachCompilation Password | ~1B          |

@@ -171,6 +171,8 @@ tags:
 
 ---
 
+- [Practical Deep Learning for Coders 2022](https://www.fast.ai/2022/07/21/dl-coders-22/)
+  - https://news.ycombinator.com/item?id=32186647
 - [dair-ai/ML-YouTube-Courses](https://github.com/dair-ai/ML-YouTube-Courses)
 - [ML and NLP Research Highlights of 2021](https://ruder.io/ml-highlights-2021/)
 - [Machine Learning Algorithms Cheat Sheet](https://www.accel.ai/anthology/2022/1/24/machine-learning-algorithms-cheat-sheet)

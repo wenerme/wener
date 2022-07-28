@@ -4,9 +4,12 @@ title: DAO
 
 # DAO
 
-- daohaus
+- [daohaus](./daohaus.md)
+- [moloch](./moloch.md)
+  - 使用很广泛的 合约
 - aragon
 - https://www.polkacity.io/
+- [gnosis/MultiSigWallet](https://github.com/gnosis/MultiSigWallet)
 
 ## Glossary
 

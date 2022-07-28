@@ -37,11 +37,14 @@ redis-server --bind=0.0.0.0
 :::info
 
 - HASH Key 不支持 TTL [#6620](https://github.com/redis/redis/issues/6620)
+  - [keydb] 可以 - 但是没有事件
 - Redis Cluster V2 project [redis#8948](https://github.com/redis/redis/issues/8948)
 - HSETEX, HMSETEX [redis#2905](https://github.com/redis/redis/issues/2905)
 - 批量删除 key [redis#4153](https://github.com/redis/redis/issues/4153)
 
-::
+:::
+
+[keydb]: ./keydb.md
 
 ```
 # 获取 key 数量 - 可能失效的也包含
@@ -192,13 +195,15 @@ ACL setuser replica-user on >somepassword +psync +replconf +ping
 
 ## 键变化通知
 
-- 配置 notify-keyspace-events
+- 配置 `notify-keyspace-events`
   - 默认为 空 - 无事件产生
-  - 可使用 KEA 产生大多数事件
+  - 可配置为 KEA 产生大多数事件
 - `__keyspace@<db>__:<key> event`
   - key 变化
+  - key -> event
 - `__keyevent@<db>__:<key> event`
   - 事件
+  - event -> key
 
 | flag |
 | ---- | ----------------------------------- |
@@ -294,19 +299,3 @@ redis-benchmark -q -n 100000 -t set,get -P 16
 
 - https://redis.io/docs/reference/optimization/benchmarks/
 
-## FAQ
-
-### MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled.
-
-- https://gist.github.com/kapkaev/4619127
-
-```bash
-redis-cli
-# config set stop-writes-on-bgsave-error no
-```
-
-### RESP3
-
-https://gist.github.com/antirez/2bc68a9e9e45395e297d288453d5d54c
-
-目前的 RESP 是 QA 模式，性能和处理能力上有限

@@ -324,3 +324,7 @@ if tsaddr.IsTailscaleIP(ip) || ip.IsLoopback() || ipStr == envknob.String("TS_AL
 ```
 
 如果使用了反向代理(例如: derper) 会导致检测失败。
+
+## not logged in, last login error=fetch control key: 530
+
+检查 login server 是不是异常了

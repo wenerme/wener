@@ -7,6 +7,8 @@ title: Token List
 - [Uniswap/token-lists](https://github.com/Uniswap/token-lists)
   - https://tokenlists.org/ - Ethereum token list
   - https://uniswap.org/tokenlist.schema.json
+- [Swap Token](./eth-awesome.md#swap)
+  - 流动池也可能会发行自己的 Token 用来激励
 
 ```ts
 type ExtensionValue = string | number | boolean | null;

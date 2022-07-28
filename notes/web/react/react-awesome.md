@@ -415,6 +415,11 @@ npm add date-fns lodash-es react-fast-compare
 - [linkedin/css-blocks](https://github.com/linkedin/css-blocks)
   - 没有维护了
 
+## Hooks
+
+- [streamich/react-use](https://github.com/streamich/react-use)
+  - 74kB/20kB
+
 ## 状态管理
 
 - [use-subscription](https://github.com/facebook/react/tree/master/packages/use-subscription)
@@ -467,48 +472,6 @@ npm add date-fns lodash-es react-fast-compare
   - [react concurrency](https://github.com/bvaughn/rfcs/blob/useMutableSource/text/0000-use-mutable-source.md)
   - [context loss](https://github.com/facebook/react/issues/13332)
   - 跨组件状态变化
-
-```ts
-// https://github.com/pmndrs/zustand
-import create from 'zustand';
-import shallow from 'zustand/shallow';
-
-// 定义
-const useStore = create((set, get) => ({
-  count: 0,
-  add: () => set((state) => ({ count: state.count + 1 })),
-  reset: () => set({ count: 0 }),
-  clear: () => set({}, true), // true 表示重置整个 state
-  fetch: async (pond) => {
-    // 支持 async
-    const response = await fetch(pond);
-    set({ fishies: await response.json() });
-  },
-  action: () => {
-    const count = get().count; // 方法内使用 get 访问状态
-  },
-}));
-// 使用
-const state = useStore();
-const count = useStore((state) => state.count);
-const add = useStore((state) => state.add);
-const count = useStore(
-  (state) => state.count,
-  (a, b) => compare(a, b), // 自定义 compare
-);
-// shallow compare
-const [nuts, honey] = useStore((state) => [state.nuts, state.honey], shallow);
-// 建议 Memoizing selector
-const fruit = useStore(useCallback((state) => state.fruits[id], [id]));
-// 直接访问
-useStore.getState().count;
-// 直接设置
-useStore.setState({ paw: false });
-// 订阅 - 可限定变化范围和比较方式
-useStore.subscribe(console.log, (state) => [state.paw, state.fur], shallow);
-// 清除所有 listener
-useStore.destroy();
-```
 
 ## 图表
 

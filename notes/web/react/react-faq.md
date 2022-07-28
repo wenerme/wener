@@ -19,6 +19,26 @@ tags:
   - 例如 使用 rxjs BehaviorSubject 作为 value 则可以避免变化，也能订阅变化
   - 可使用 zustand 替代
 
+## useEffect 无依赖 vs. 直接执行
+
+```ts
+const callbackRef = useRef(callback);
+
+// 1. useEffect
+useEffect(() => {
+  callbackRef.current = callback;
+});
+
+// 2. 直接赋值
+callbackRef.current = callback;
+```
+
+- 执行时机不同
+  - useEffect 和其他 useEffect 是顺序执行的
+    - 可能会延迟执行
+  - 直接赋值会在最开始执行
+    - 必然会执行
+
 ## 如何选择运行时框架
 
 最早的 React 开发一般使用 CRA，但 CRA 基于 webpack，异常的慢，在 2021 年不再值得使用。
@@ -57,13 +77,13 @@ tags:
 ```tsx title="React.Component"
 import React from 'react';
 
-class Hello extends React.Component<{ name: string }, { name: string }> {
+class Hello extends React.Component<{name: string}, {name: string}> {
   static props = {
     name: 'Wener',
   };
 
-  static getDerivedStateFromProps({ name }) {
-    return { name };
+  static getDerivedStateFromProps({name}) {
+    return {name};
   }
 
   constructor(props) {
@@ -78,11 +98,11 @@ class Hello extends React.Component<{ name: string }, { name: string }> {
     console.debug(`componentDidMount`);
   }
 
-  getSnapshotBeforeUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>): any {
+  getSnapshotBeforeUpdate(prevProps: Readonly<{name: string}>, prevState: Readonly<{name: string}>): any {
     return {};
   }
 
-  componentDidUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>, snapshot?: any) {
+  componentDidUpdate(prevProps: Readonly<{name: string}>, prevState: Readonly<{name: string}>, snapshot?: any) {
     console.debug(`componentDidUpdate`);
   }
 
@@ -91,8 +111,8 @@ class Hello extends React.Component<{ name: string }, { name: string }> {
   }
 
   shouldComponentUpdate(
-    nextProps: Readonly<{ name: string }>,
-    nextState: Readonly<{ name: string }>,
+    nextProps: Readonly<{name: string}>,
+    nextState: Readonly<{name: string}>,
     nextContext: any,
   ): boolean {
     return false;
@@ -108,11 +128,11 @@ class Hello extends React.Component<{ name: string }, { name: string }> {
 ```
 
 ```tsx title="React.FC"
-const HelloFC: React.FC<{ name: string }> = ({ name }) => {
-  const [state, setState] = useState({ name });
+const HelloFC: React.FC<{name: string}> = ({name}) => {
+  const [state, setState] = useState({name});
   // getDerivedStateFromProps
   useEffect(() => {
-    setState({ name });
+    setState({name});
   }, [name]);
   useEffect(() => {
     console.debug('componentDidMount');
@@ -124,12 +144,12 @@ const HelloFC: React.FC<{ name: string }> = ({ name }) => {
   // render
   return (
     <h1>
-      Hello, <input value={state.name} onChange={(e) => setState({ name: e.target.name })} />
+      Hello, <input value={state.name} onChange={(e) => setState({name: e.target.name})} />
     </h1>
   );
 };
 HelloFC.displayName = 'HelloFC';
-HelloFC.defaultProps = { name: 'Wener' };
+HelloFC.defaultProps = {name: 'Wener'};
 
 const HelloMemo = React.memo(HelloFC, (a, b) => {
   // shouldComponentUpdate
@@ -195,7 +215,7 @@ class A extends React.Component {
 }
 class B extends React.Component {
   render() {
-    return <div dangerouslySetInnerHTML={{ __html: "<iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />" }} />;
+    return <div dangerouslySetInnerHTML={{__html: "<iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />"}} />;
   }
 }
 ```

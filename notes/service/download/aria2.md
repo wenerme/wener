@@ -5,7 +5,7 @@ title: aria2
 # aria2
 
 - [aria2/aria2](https://github.com/aria2/aria2)
-  - GPLv2,C++
+  - GPLv2, C++
 - webui
   - [mayswind/AriaNg](https://github.com/mayswind/AriaNg) - Web
     - [在线](http://ariang.mayswind.net/latest)

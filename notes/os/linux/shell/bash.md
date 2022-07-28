@@ -348,3 +348,15 @@ echo 2 && (echo 3; exit 1;)
 echo 4
 SH
 ```
+
+## tcp redir
+
+```bash
+echo <>/dev/tcp/wener.me/80
+# 0 - 连通
+echo $?
+
+echo <>/dev/tcp/localhost/80
+# 1
+echo $?
+```

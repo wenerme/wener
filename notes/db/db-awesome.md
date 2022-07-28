@@ -90,6 +90,12 @@ Cube 计算
 
 - [JanusGraph/janusgraph](https://github.com/JanusGraph/janusgraph)
 
+## Stream
+
+- airbyte
+- nifi
+- [benthosdev/benthos](https://github.com/benthosdev/benthos)
+
 ## 消息队列
 
 - [Comparison of messaging patterns](https://github.com/obsidiandynamics/goharvest/wiki/Comparison-of-messaging-patterns)
@@ -126,6 +132,8 @@ Cube 计算
   - Streaming replication for SQLite
   - 外部进程
   - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
+- [superfly/litefs](https://github.com/superfly/litefs)
+  - 基于 fuse 的 litestream - 批量同步
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
   - Query sqlite via http
   - [HN](https://news.ycombinator.com/item?id=30636796)

@@ -14,7 +14,7 @@ tags:
 - ssl_fc_sni
   - 用于 ssl offload 时
 
-```bash
+```haproxy
 use_backend s1 if { ssl_fc_sni my.domain.org }
 use_backend s2 if { hdr(host) -i my2.domain.org }
 ```

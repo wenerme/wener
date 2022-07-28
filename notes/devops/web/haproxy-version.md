@@ -6,13 +6,49 @@ title: HAProxy Version
 
 | version       | release date |
 | ------------- | ------------ |
+| [HAProxy 2.6] | 2022-05-31   |
 | [HAProxy 2.5] | 2021-11-23   |
 | [HAProxy 2.4] | 2021-05-13   |
 | [HAProxy 2.3] | 2020-11-05   |
 
+[haproxy 2.6]: #haproxy-26
 [haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 2.6
+
+- HTTP/3 over QUIC
+- Generic hash load balancing algorithm
+  - `balance hash pathq`
+- 支持 OpenSSL 3.0
+- Master CLI
+  - HAProxy worker processes
+  - `socat /run/haproxy-master.sock -`
+- `http-request set-var`, `tcp-request content set-var` 支持 选项
+  - ifexists, ifnotexists, ifempty, ifnotempty, ifset, ifnotset, ifgt, iflt
+
+```bash
+# 显示所有配置
+haproxy -dKhelp -q -c -f /dev/null
+# 某个主题下的配置项
+haproxy -dKacl -q -c -f /dev/null
+```
+
+```haproxy
+frontend mysite
+  # enables HTTP/3 over QUIC
+  bind quic4@:443 ssl crt /etc/haproxy/certs/foo.com/cert.pem alpn h3
+  # 支持 stateless reset packets https://tools.ietf.org/id/draft-ietf-quic-transport-29.html#name-stateless-reset
+  #cluster-secret
+```
+
+**Reload**
+
+```haproxy
+global
+  stats socket /var/run/haproxy/api.sock mode 660 level admin expose-fd listeners
+```
 
 ## HAProxy 2.5
 
@@ -107,14 +143,14 @@ frontend mysite from frontend-defaults
 
 ```bash
 # runtime api
-echo "help add" |socat /var/run/haproxy/api.sock -
-echo "show state" |socat /var/run/haproxy/api.sock -
+echo "help add" | socat /var/run/haproxy/api.sock -
+echo "show state" | socat /var/run/haproxy/api.sock -
 
 # 服务
 echo "experimental-mode on; add server be_app/app4 192.168.1.22:80" | socat /var/run/haproxy/api.sock -
 echo "experimental-mode on; del server be_app/app4" | socat /var/run/haproxy/api.sock -
 # 变量
-echo "experimental-mode on; get var proc.myapp_version" |socat /var/run/haproxy/api.sock -
+echo "experimental-mode on; get var proc.myapp_version" | socat /var/run/haproxy/api.sock -
 echo "experimental-mode on; set var proc.myapp_version str(green)" | socat /var/run/haproxy/api.sock -
 echo "experimental-mode on; get var proc.myapp_version" | socat /var/run/haproxy/api.sock -
 ```

@@ -15,12 +15,12 @@ https://zh.wikisource.org/zh-hans/通用规范汉字表
 * 词库
   * 搜狗
     * http://pinyin.sogou.com/dict/
-
+* https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/search.php?q=%C4%5D
 
 http://www.babelstone.co.uk/CJK/IDS.TXT
 https://github.com/kawabata/ids
 
-IDS 
+IDS
 表意文字序列（Ideographic Description Sequence，IDS）
 https://zh.wikipedia.org/wiki/表意文字描述字符
 https://zh.wikipedia.org/wiki/动态组字

@@ -75,7 +75,19 @@ replicaof keydb-0:6379
 replicaof keydb-1:6379
 ```
 
-## vs Redis
+## KeyDB vs Redis
+
+- Redis
+  - IO 多线程
+- KeyDB - 定期 Merge Redis 上游
+  - IO 多线程
+  - 兼容 Redis 扩展 - 但只能单线程执行
+  - 部分操作支持并行 - MVCC
+  - 额外功能 - HASH Key 支持 TTL
+  - Active Replica
+  - Multi Master
+
+---
 
 - https://docs.keydb.dev/docs/migration/
 - https://docs.keydb.dev/docs/faq#how-is-keydb-different-than-redis

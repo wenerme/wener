@@ -39,13 +39,16 @@ tags:
 
 ## Awesome
 
-- Derivative OS
-  - [rancher/k3os](https://github.com/rancher/k3os)
-    - https://kubedex.com/kubernetes-operating-systems/
-  - [rancher/os](https://github.com/rancher/os) - 并不是完全从 Alpine 派生
-  - https://postmarketos.org/
-    - https://gitlab.com/postmarketOS
-    - https://github.com/postmarketOS
+## Derivative OS
+
+- [rancher/k3os](https://github.com/rancher/k3os)
+  - https://kubedex.com/kubernetes-operating-systems/
+- [rancher/os](https://github.com/rancher/os) - 并不是完全从 Alpine 派生
+- https://postmarketos.org/ - mobile
+  - https://gitlab.com/postmarketOS
+- https://adelielinux.org/ - desktop
+  - https://git.adelielinux.org/adelie
+  - https://www.adelielinux.org/download/
 
 ## TBD
 

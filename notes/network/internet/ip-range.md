@@ -26,6 +26,7 @@ title: IP 地址
   - https://aws.amazon.com/cn/premiumsupport/knowledge-center/s3-find-ip-address-ranges
 - [EH IPs](https://ehwiki.org/wiki/IPs)
 - database
+  - https://db-ip.com/db/download/ip-to-country-lite
   - https://ipinfo.io
   - https://ipip.net
 

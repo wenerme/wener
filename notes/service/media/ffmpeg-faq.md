@@ -64,42 +64,6 @@ ffmpeg -i input.mp4 -f srt -i input.srt \
   -c:s srt  output.mkv
 ```
 
-## 硬件加速
-
-```bash
-ffmpeg -encoders | grep videotoolbox # 支持的 videotoolbox 编码
-ffmpeg -h encoder=h264_videotoolbox  # 查看编码器选项
-
-ffprobe in.mp4                           # 弄清楚原始 bitrate
-ffmpeg -b:v 1900k -c:v h264_videotoolbox # -b:v 匹配原始 bitrate
-
-# 使用 hwaccel 方式 - 外置 GPU
-ffmpeg \
-  -hwaccel videotoolbox -i in.mp4 \
-  -c:v libx265 -preset medium -crf 28 \
-  -c:a copy \
-  out.mp4
-```
-
-- `{h264,hevc}_{videotoolbox,amf,vaapi}`
-  - videotoolbox - macOS
-  - amf - Windows
-  - vaapi - Linux - vainfo
-- -hwaccel auto
-  - dxva2,cuda,d3d11va,videotoolbox
-  - -hwaccel_device
-- [VideoToolbox](https://developer.apple.com/documentation/videotoolbox)
-  - Decode H.263, H.264, HEVC, MPEG1, MPEG2, MPEG4, ProRes
-  - Encode H.264, HEVC, ProRes
-  - 不支持 CRF/constant quality - 必须指定 -b:v
-- [HWAccelIntro](https://trac.ffmpeg.org/wiki/HWAccelIntro)
-  - macOS: VideoToolbox
-  - OpenCL 大多平台支持，但是不可以 encode/decode - 用于 Filtering
-- [Intel Quick Sync Video](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video)
-  - 查看 Intel CPU 支持的编码
-- [List of Macintosh models grouped by CPU type](https://en.wikipedia.org/wiki/List_of_Macintosh_models_grouped_by_CPU_type#Intel_x86)
-  - 查看 Macbook 对应的 Intel CPU 版本
-
 
 ## Tag hvc1 incompatible with output codec id avc1
 

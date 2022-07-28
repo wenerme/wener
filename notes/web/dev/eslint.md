@@ -8,8 +8,17 @@ title: eslint
 npx eslint "src/**" --ext .ts --ext .tsx
 ```
 
+- eslint-plugin-import
+- eslint-plugin-react
+- eslint-plugin-jsx-a11y
+- react/react-in-jsx-scope
+  - 不要求 `import React from 'react'`
+  - ESBuild 还不支持 jsx - 因此需要 `import React` - [esbuild#334](https://github.com/evanw/esbuild/issues/334)
 - 参考
-  - https://typescript-eslint.io/rules/
+  - [eslint.org](https://eslint.org)
+    - [rules](https://eslint.org/docs/latest/rules/)
+  - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+    - [rules](https://typescript-eslint.io/rules/)
   - https://github.com/vercel/next.js/tree/canary/packages/eslint-config-next
 
 ## 配置

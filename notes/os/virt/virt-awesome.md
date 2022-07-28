@@ -19,6 +19,10 @@ tags:
   - iPhone 11 emulated on QEMU
 - GUI
   - [utmapp/UTM](https://github.com/utmapp/UTM)
+- Qemu
+- Bochs
+  - 2021年开发停滞
+- [Emulator Comparison](https://wiki.osdev.org/Emulator_Comparison)
 
 ## Fun
 

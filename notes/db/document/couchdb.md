@@ -1,44 +1,42 @@
 ---
-id: couchdb
 title: CouchDB
 ---
 
 # CouchDB
 
-## Tips
-* [CouchDB](https://github.com/apache/couchdb)
-  * [vs Couchbase](https://www.couchbase.com/couchbase-vs-couchdb)
-* 默认端口: 5984
-* 集群使用 4369 EPMD 发现其它节点，使用 9100 通信
-* `/_utils` futon 管理界面
-* 关于 CouchDB 的评论
-  * https://news.ycombinator.com/item?id=17115649
-* __什么时候用 CouchDB__
-  * 当你需要解决多端离在线数据同步时 - 其它功能可能都很差，但这一个功能是最好的
-  * 当没有后端开发接口，希望直接存取数据时 - BaaS
-  * 类似的数据库
-    * RealmDB
-    * RethinkDB
-  * 配合 [PouchDB](https://pouchdb.com/) 在 JS 使用 - 如果用不上那考虑不要用 CouchDB
-    * 如果只需要 CRUD 考虑使用 PostREST 或 Hasura
-* 注意
-  * 不支持单文档读权限控制
-  * 不支持默认读取的过滤
-  * 同步是 数据库 纬度
-  * 数据库 成本很低，可以为每个用户创建一个数据库，实现权限和同步
-  * 默认没有 members 和 admins，所有文档都可以读写
-  * design doc 能够被直接读取,`/db/_design_docs` 能够被直接访问
-  * `/db/_all_docs` 能够被直接访问
-  * 相关关闭相关接口只能通过反向代理实现
-  * 没办法全量修改,写客户端进行操作
-  * couch_httpd_auth/public_fields 控制用户的那些字段可见
-* 索引也叫设计文档/design document
-  * 一般包含 JS 代码
-* 数据库通过 安全对象/security object 定义安全属性
-  * JSON 对象 `{admins:[{names:[],roles:[]}],members:[]}`
-* 两种角色
-  * admins - 索引修改、安全对象修改
-  * members - 文档 CRUD
+- [CouchDB](https://github.com/apache/couchdb)
+  - [vs Couchbase](https://www.couchbase.com/couchbase-vs-couchdb)
+- 默认端口: 5984
+- 集群使用 4369 EPMD 发现其它节点，使用 9100 通信
+- `/_utils` futon 管理界面
+- 关于 CouchDB 的评论
+  - https://news.ycombinator.com/item?id=17115649
+- **什么时候用 CouchDB**
+  - 当你需要解决多端离在线数据同步时 - 其它功能可能都很差，但这一个功能是最好的
+  - 当没有后端开发接口，希望直接存取数据时 - BaaS
+  - 类似的数据库
+    - RealmDB
+    - RethinkDB
+  - 配合 [PouchDB](https://pouchdb.com/) 在 JS 使用 - 如果用不上那考虑不要用 CouchDB
+    - 如果只需要 CRUD 考虑使用 PostREST 或 Hasura
+- 注意
+  - 不支持单文档读权限控制
+  - 不支持默认读取的过滤
+  - 同步是 数据库 纬度
+  - 数据库 成本很低，可以为每个用户创建一个数据库，实现权限和同步
+  - 默认没有 members 和 admins，所有文档都可以读写
+  - design doc 能够被直接读取,`/db/_design_docs` 能够被直接访问
+  - `/db/_all_docs` 能够被直接访问
+  - 相关关闭相关接口只能通过反向代理实现
+  - 没办法全量修改,写客户端进行操作
+  - couch_httpd_auth/public_fields 控制用户的那些字段可见
+- 索引也叫设计文档/design document
+  - 一般包含 JS 代码
+- 数据库通过 安全对象/security object 定义安全属性
+  - JSON 对象 `{admins:[{names:[],roles:[]}],members:[]}`
+- 两种角色
+  - admins - 索引修改、安全对象修改
+  - members - 文档 CRUD
 
 ```bash
 # Docker 启动
@@ -69,7 +67,7 @@ curl $db/test/_security
 # 添加访问限制 - 允许 admin 角色和 user 角色
 curl -X PUT $db/test/_security -d '{"members":{"roles":["user"]},"admins":{"roles":["admin"]}}'
 # 用刚才创建的账户进行访问
-curl -u wener:wener $db/test/_security 
+curl -u wener:wener $db/test/_security
 ```
 
 ## 设计文档
@@ -120,43 +118,45 @@ interface Request {
 }
 
 // 映射函数
-type MapFunction = (doc) => void
+type MapFunction = (doc) => void;
 
-type ReduceFunction = (keys, values, rereduce?:boolean) => array
+type ReduceFunction = (keys, values, rereduce?: boolean) => array;
 
 // 显示函数
 // 返回 string 直接显示或者返回响应对象
 // 返回 JSON: {json:{name:doc['name']}}
 // 返回 自定义头: {headers:{'Content-Type':'image/png'}, base64:''} - 内容可以使用 base64 编码
-type ShowFunction = (doc,req) => object|string
+type ShowFunction = (doc, req) => object | string;
 
 // 更新函数
 // 返回更新对象和返回给客户端的对象
-type UpdateFunction = (doc,req) => [any|null,any]
+type UpdateFunction = (doc, req) => [any | null, any];
 
 // 列表函数
 // 调用 start send 部分发送
-type ListFunction = (head,req) => string
+type ListFunction = (head, req) => string;
 
 // 处理对象和请求对象 - 返回是否过滤
 // GET /db/_changes?filter=mailbox/new_mail
-type FilterFunction = (doc,req)=>boolean
+type FilterFunction = (doc, req) => boolean;
 
 // 视图过滤
 // GET /db/_changes?filter=_view&view=dname/viewname
-type ViewFilterFunction = (doc,req)=>boolean
+type ViewFilterFunction = (doc, req) => boolean;
 
 // 验证函数
 // 新文档,旧文档,用户上下文,安全对象
 // throw({forbidden:''}) 或 throw({unauthorized:''})
 // 如果为删除 newDoc 包含 _deleted 字段
-type ValidateFunction = (newDoc, oldDoc, userCtx, secObj) => void
+type ValidateFunction = (newDoc, oldDoc, userCtx, secObj) => void;
 ```
 
-## _users
-### _design/_auth
-* validate_doc_update
-  * 校验 `_users` 更新
+## \_users
+
+### \_design/\_auth
+
+- validate_doc_update
+  - 校验 `_users` 更新
 
 ```js
 function(newDoc, oldDoc, userCtx, secObj) {
@@ -311,4 +311,5 @@ function(newDoc, oldDoc, userCtx, secObj) {
 ## FAQ
 
 ### Referer header required
+
 该用 PUT 用成了 POST

@@ -18,7 +18,11 @@ title: Tailwind CSS
 
 - 支持任意选择 - v3.1+
   - `[&>*]:text-red`
+  - `[&_thead_th:first-child]:text-red`
   - `[&:[data-open]]:underline`
+- 支持任意值 - v3.0+
+  - `w-[30px]`
+  - `w-[calc(100%-30px)]`
 
 :::
 

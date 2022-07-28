@@ -6,6 +6,85 @@ tags:
 
 # 网络常见问题
 
+## Tuning
+
+```bash
+sysctl net.ipv4.tcp_{,r,w}mem net.core.rmem_{default,max} net.core.wmem_{default,max} net.core.optmem_max
+```
+
+| item                  | value/alpine         | for        | tune                 | as          |
+| --------------------- | -------------------- | ---------- | -------------------- | ----------- |
+| net.ipv4.tcp_mem      | 189234 252315 378468 |
+| net.ipv4.tcp_rmem     | 4096 131072 6291456  | 4k 128k 6m | 10240 88064 12582912 | 10k 86k 12m |
+| net.ipv4.tcp_wmem     | 4096 16384 4194304   | 4k 16k 4m  | 10240 88064 12582912 | 10k 86k 12m |
+| net.core.rmem_default | 212992               | 218 k      |
+| net.core.rmem_max     | 212992               | 218 k      | 12582912             | 12m         |
+| net.core.wmem_default | 212992               | 218 k      |
+| net.core.wmem_max     | 212992               | 218 k      | 12582912             | 12m         |
+| net.core.optmem_max   | 20480                |
+
+```
+net.ipv4.tcp_wmem= 10240 88064 12582912
+net.ipv4.tcp_rmem= 10240 88064 12582912
+net.core.rmem_max= 12582912
+
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_timestamps = 1
+net.ipv4.tcp_sack = 1
+net.ipv4.tcp_no_metrics_save = 1
+net.core.netdev_max_backlog = 5000
+```
+
+- [rfc1323](https://datatracker.ietf.org/doc/html/rfc1323),[rfc7323](https://datatracker.ietf.org/doc/html/rfc7323)
+  - tcp_window_scaling
+  - tcp_timestamps - 2: Like 1, but without random offsets.
+- RFC1122
+- RFC1323
+- RFC1337
+- RFC1620
+- RFC1700
+- RFC1812
+- RFC2236
+- RFC2461
+- RFC2861
+- RFC3041
+- RFC3069
+- RFC3168
+- RFC3376
+- RFC3493
+- RFC3704
+- RFC3758
+- RFC3810
+- RFC4191
+- RFC4429
+- RFC4821
+- RFC4861
+- RFC5061
+- RFC5682
+- RFC5961
+- RFC6437
+- RFC6438
+- RFC6636
+- RFC6675
+- RFC6691
+- RFC6724
+- RFC6980
+- RFC7217
+- RFC7413
+- RFC7527
+- RFC7690
+- RFC7829
+- 三值分别为 最小，初始，最大 - min,initial,max
+- [bbr](./bbr.md)
+- https://www.cyberciti.biz/faq/linux-tcp-tuning/
+- https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size
+- https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+
+<!--
+RFCs
+copy(Array.from(new Set([...document.body.innerText.matchAll(/rfc\s*\d+/ig)].map(v=>v[0].replace(/\s+/,'').toUpperCase()))).sort().join('\n'))
+-->
+
 ## VTI vs XFRM
 
 > XFRM 比 VTI 更好

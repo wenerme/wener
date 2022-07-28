@@ -5,9 +5,13 @@ tags:
 
 # Safari Version
 
-- 版本跟随 macOS
-- https://en.wikipedia.org/wiki/Safari_version_history
+| version | date       |
+| ------- | ---------- |
+| 14.0    | 2020-09-17 |
+| 15.0    | 2021-09-20 |
 
+- 版本跟随 [macOS](../../os/darwin/macos-version.md)
+- https://en.wikipedia.org/wiki/Safari_version_history
 
 ## 安装 Safari 14
 

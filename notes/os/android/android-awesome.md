@@ -11,6 +11,7 @@ title: Android Awesome
 - [546669204/wechatbot](https://github.com/546669204/wechatbot)
 - [546669204/taobaoke](https://github.com/546669204/taobaoke)
   淘宝联盟 控制
+- [openstf/stf](https://github.com/openstf/stf)
 
 ## RE
 

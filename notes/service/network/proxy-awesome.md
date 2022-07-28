@@ -83,6 +83,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
 ## server
 
 - https://www.v2ray.com/
+  - https://github.com/v2rayA/v2rayA
 - [clash](./clash.md)
   - rule based
 - [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)
@@ -152,6 +153,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## GFW
 
+- [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
+  - https://news.ycombinator.com/item?id=32199468
+- [SadeghHayeri/GreenTunnel](https://github.com/SadeghHayeri/GreenTunnel)
 - [comwrg/FUCK-GFW](https://github.com/comwrg/FUCK-GFW)
 
 ## 线路

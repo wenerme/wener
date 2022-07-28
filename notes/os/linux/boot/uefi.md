@@ -4,6 +4,10 @@ title: UEFI
 
 # UEFI
 
+- .efi 存储在 ESP/EFI System Partition 分区
+  - 分区标识 EF
+  - 分区格式为 FAT 或 FAT32
+- efibootmgr - 管理 efi 变量，控制使用的启动文件
 - 参考
   - [Understanding UEFI Secure Boot Chain](https://edk2-docs.gitbook.io/understanding-the-uefi-secure-boot-chain)
   - wikipedia [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface)
@@ -12,15 +16,22 @@ title: UEFI
   - [EFIBootLoaders](https://wiki.ubuntu.com/EFIBootLoaders)
   - ubuntu [UEFI/OVMF](https://wiki.ubuntu.com/UEFI/OVMF)
   - [Howto: QEMU w/ Ubuntu Xenial host + UEFI guest](https://blog.system76.com/post/139138591598/howto-uefi-qemu-guest-on-ubuntu-xenial-host)
-- .efi 存储在 ESP/EFI System Partition 分区
-  - 分区标识 EF
-  - 分区格式为 FAT 或 FAT32
 
 :::tip
 
 - 使用 UEFI 建议使用 GRUB Bootloader
 
 :::
+
+## AlpineLinux
+
+**最小 UEFI/GPT 分区**
+
+| mount point | type     | size     |
+| ----------- | -------- | -------- |
+| /boot, /efi | EFI Boot | 260MiB   |
+| /           | root     | 1-32 GiB |
+| non         | swap     | 1-2GiB   |
 
 ## OVMF
 
@@ -39,6 +50,13 @@ title: UEFI
 # -L . - 同 bios
 # qemu-system-x86_64 -L .
 ```
+
+## EFISTUB
+
+- 一种启动方式，将 linux 内核 转为 efi 文件
+  - Linux 内核可直接通过 EFI 启动
+- Linux 3.3+
+- archlinux [EFISTUB](https://wiki.archlinux.org/title/EFISTUB)
 
 # FAQ
 

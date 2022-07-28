@@ -12,6 +12,7 @@ title: package.json
   - style,sass [twbs/bootstrap#12441](https://github.com/twbs/bootstrap/pull/12441)
     - used by [postcss/postcss-import](https://github.com/postcss/postcss-import)
   - jspm - shim - https://jspm.org/
+- sideEffects
 
 ```json
 {

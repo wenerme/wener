@@ -39,6 +39,7 @@ tags:
 
 ## fMP4-HLS
 
+- Jellyfin 启用后 Safari 支持 HEVC
 - fragmented MP4
 - https://docs.unified-streaming.com/documentation/package/fmp4-hls.html
 - https://docs.unified-streaming.com/documentation/drm/fmp4-hls.html

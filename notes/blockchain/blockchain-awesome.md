@@ -52,14 +52,6 @@ tags:
     - https://dev.gnosis-safe.io/
     - https://docs.gnosis-safe.io/introduction/statistics-and-usage
     - safe-apps-web3modal
-- Dataset
-  - [tylim88/Crypto-Symbol](https://github.com/tylim88/Crypto-Symbol)
-    - Name <-> Symbol
-  - [coinwink/cryptocurrency-logos](https://github.com/coinwink/cryptocurrency-logos)
-  - [spothq/cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons)
-    - https://cryptoicons.co/
-  - [ConsenSysMesh/rimble-icons](https://github.com/ConsenSysMesh/rimble-icons)
-  - https://cryptologos.cc/
 - React
   - [TrueFiEng/useDApp](https://github.com/TrueFiEng/useDApp)
   - [NoahZinsmeister/web3-react](https://github.com/NoahZinsmeister/web3-react)
@@ -73,6 +65,14 @@ tags:
 - Misc
   - [makerdao/multicall](https://github.com/makerdao/multicall)
   - [makerdao/awesome-makerdao](https://github.com/makerdao/awesome-makerdao)
+- icon/logo
+  - [tylim88/Crypto-Symbol](https://github.com/tylim88/Crypto-Symbol)
+    - Name <-> Symbol
+  - [coinwink/cryptocurrency-logos](https://github.com/coinwink/cryptocurrency-logos)
+  - [spothq/cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons)
+    - https://cryptoicons.co/
+  - [ConsenSysMesh/rimble-icons](https://github.com/ConsenSysMesh/rimble-icons)
+  - https://cryptologos.cc/
 
 ```ts
 import {MetaMaskInpageProvider} from '@metamask/providers';
@@ -273,25 +273,6 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
   - 一体化 vs 模块化
   - 重复 vs 可重用
 - [ConsenSys/ethereum-developer-tools-list](https://github.com/ConsenSys/ethereum-developer-tools-list)
-
-## Fee
-
-| Reward     |                                    | Fee   |
-| ---------- | ---------------------------------- | ----- |
-| 0.3%       | Uniswap v1                         |
-| 0.3%       | Uniswap v2                         | 0.05% |
-| 0.05%      | Uniswap v3 非常稳定币对            | 0.05% |
-| 0.05%      | Uniswap v3 稳定币对                | 0.05% |
-| 0.30%      | Uniswap v3 大多数                  | 0.05% |
-| 1.00%      | Uniswap v3 低交易                  | 0.05% |
-| 9%-14% APR | Polygon Matic Staking - ETH->Matic |
-
-## Swap
-
-- [QuickSwap](https://quickswap.exchange/)
-- [Uniswap](https://uniswap.org/)
-- Sushiswap
-- Simpleswap
 
 ## Token
 
