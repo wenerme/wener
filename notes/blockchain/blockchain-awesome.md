@@ -388,3 +388,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
   - Core security infrastructure for decentralized networks and distributed systems
   - https://milagro.apache.org/users.html
 - https://101blockchains.com/blockchain-open-source/
+
+## Math
+
+- Constant Product AMM Math https://youtu.be/QNPyFs8Wybk

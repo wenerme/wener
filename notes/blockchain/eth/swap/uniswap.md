@@ -15,14 +15,22 @@ title: uniswap
   - https://thegraph.com/hosted-service/subgraph/uniswap/uniswap-v3
   - https://thegraph.com/hosted-service/subgraph/ianlapham/uniswap-v3-rinkeby
 - `sqrtPriceX96 = sqrt(price) * 2 ** 96`
+  - `price = sqrtRatioX96 ** 2 / 2 ** 192`
+  - sqrtPriceX96=sqrtRatioX96
   - Q64.96 - 64 int bits, 96 fraction bits
+    - uint160 = 64+96
     - [Q (number format)](<https://en.wikipedia.org/wiki/Q_(number_format)>)
 - 参考
+  - https://uniswap.org/whitepaper-v3.pdf
   - https://uniswap.org/
+  - https://docs.uniswap.org/sdk/guides/fetching-prices
   - [Glossary](https://docs.uniswap.org/protocol/concepts/V3-overview/glossary)
     - AMM - Automated Market Making - 自动化做市
     - Asset - ERC-20, ERC-721
     - Concentrated Liquidity - 集中流动性
+      - liquidity bounded within some price range
+        - finite range a position
+      - 以前 `𝑥 · 𝑦 = 𝑘` - k 固定
     - pro-rata - 按比例
     - Pool - 流动池
       - 在引入 多费用 选项之前叫 Pair
@@ -33,14 +41,28 @@ title: uniswap
     - Slippage - 实际交易数额 - 滑点数
     - Spot Price - 现货价格
     - Swap Fees - LP 抽成
+    - tickSpacing
+    - CFMMs - Constant function market makers
+    - fungible liquidity tokens
+    - Non-Fungible Liquidity
+    - Non-Compounding Fees
+      - v1 & v2 的 fee 会进入流动池
+    - Native Liquidity Tokens
+    - TWAP - time-weighted average price
+      - Uniswap v2
+    - ticks
+      - To implement custom liquidity provision, the space of possible prices is demarcated by discrete ticks.
 
-## Contracts
+## Uniswap v3 Contracts
 
 - [Uniswap/v3-core](https://github.com/Uniswap/v3-core)
   - UniswapV3Factory is IUniswapV3Factory, UniswapV3PoolDeployer, NoDelegateCall
-    - 默认 feeAmountTickSpacing - 500,10; 3000,60; 10000,200
     - createPool - UniswapV3PoolDeployer.deploy
-    - enableFeeAmount
+      - `tokenA+tokenB+fee` 唯一
+      - fee - 500,3000,1000 -> tick spacing 10,60,200 - 0.05%, 0.30%, 1%
+        - 小于 100_0000, 单位是 0.0001%
+        - `1/N` - 4 <= N <= 10
+    - enableFeeAmount - 启用新的费率
   - UniswapV3PoolDeployer
     - function deploy(address factory, address token0, address token1, uint24 fee, int24 tickSpacing ) internal returns (address pool)
   - UniswapV3Pool
@@ -178,6 +200,143 @@ struct Position {
 
 ```
 
+## Uniswap V3
+
+**全局状态**
+
+| type    | var                  | notion    | eq                                                  |
+| ------- | -------------------- | --------- | --------------------------------------------------- |
+| uint128 | liquity              | $L$       | $L = \sqrt{xy}$                                     |
+| uint160 | sqrtPriceX96         | $\sqrt P$ | $\sqrt P = \sqrt{\frac yx}$                         |
+| int24   | tick                 | $i_c$     | $i_c = \lfloor log_{\sqrt 1.0001}{\sqrt P} \rfloor$ |
+| uint256 | feeGrowthGlobal0X128 | $f_{g,0}$ |
+| uint256 | feeGrowthGlobal1X128 | $f_{g,1}$ |
+| uint128 | protocolFees.token0  | $f_{p,0}$ |
+| uint128 | protocolFees.token1  | $f_{p,1}$ |
+
+- x,y - virtual reserves
+- $L$ 可认为是 virtual liquidity token
+- fee - 𝛾 - 0.0001%
+- protocol fee - 𝜙
+  - 允许值 0, 1/4, 1/5, 1/6, 1/7, 1/8, 1/9, 1/10
+- feeGrowthGlobal - total amount of fees that have been earned per unit of virtual liquidity
+- protocolFees - total accumulated uncollected protocol fee in each token
+  - 调用 collectProtocol 收集
+
+$$
+x=\frac{L}{\sqrt{P}}
+$$
+
+$$
+y=L \cdot \sqrt{P}
+$$
+
+$$
+L=\frac{\Delta y}{\Delta \sqrt P}
+$$
+
+- liquidity can be thought of as the amount that token1 reserves (either actual or virtual) changes for a given change in √𝑃
+
+**单 Tick 内 Swap 的计算公式**
+
+$$
+\Delta{f_{g,1}}=y_{in} \cdot \gamma \cdot (1- \phi)
+$$
+
+$$
+\Delta{f_{p,1}}=y_{in} \cdot \gamma \cdot \phi
+$$
+
+$$
+\Delta y = y_{in} \cdot (1 - \gamma)
+$$
+
+- swap 时 feeGrowthGlobal1 和 protocolFees1 的变化
+- $y_{in}$ swap 的量
+
+$$
+x_{end} = \frac{x \cdot y}{y + \Delta y}
+$$
+
+$$
+\Delta \sqrt P  = \frac{\Delta y}{L}
+$$
+
+$$
+\Delta y = \Delta \sqrt P \cdot L
+$$
+
+$$
+\Delta \frac 1 {\sqrt P} = \frac{\Delta x} L
+$$
+
+$$
+\Delta x = \Delta \frac 1 {\sqrt P} \cdot L
+$$
+
+**Tick 索引状态**
+
+| type    | var                            | notion     |
+| ------- | ------------------------------ | ---------- |
+| int128  | liquidityNet                   | $\Delta L$ |
+| uint128 | liquidityGross                 | $L_g$      |
+| uint256 | feeGrowthOutside0X128          | $f_{o,0}$  |
+| uint256 | feeGrowthOutside1X128          | $f_{o,1}$  |
+| uint256 | secondsOutside                 | $s_o$      |
+| uint256 | tickCumulativeOutside          | $i_o$      |
+| uint256 | secondsPerLiquidityOutsideX128 | $s_lo$     |
+
+- tick 主要跟踪 $\Delta L$
+- feeGrowthOutside - how many fees were accumulated within a given range
+
+- fee above tick $f_a$
+- fee below tick $f_b$
+
+$$
+f_a(i)=
+\begin{cases}
+f_g - f_o(i) & i_c \geq i \\
+f_o(i) & i_c < i
+\end{cases}
+$$
+
+$$
+f_b(i)=
+\begin{cases}
+f_o(i) & i_c \geq i \\
+f_g - f_o(i) & i_c < i
+\end{cases}
+$$
+
+- total amount of cumulative fees per share $f_r$
+- upper, lower tick $i_l$, $i_u$
+
+$$
+f_r = f_g - f_b(i_l) - f_a(i_u)
+$$
+
+$$
+f_o := f_g - f_o(i)
+$$
+
+$$
+f_o :=
+\begin{cases}
+f_g & i_c \geq i
+0 & i_c < i
+\end{cases}
+$$
+
+**Position-Indexed State**
+
+| type                             | var           | notion |
+| -------------------------------- | ------------- | ------ |
+| uint128 liquidity                | $l$           |
+| uint256 feeGrowthInside0LastX128 | $f_{r,0}(t0)$ |
+| uint256 feeGrowthInside1LastX128 | $f_{r,1}(t0)$ |
+
+- https://uniswap.org/whitepaper-v3.pdf
+
 # FAQ
 
 ## Uniswap V1 vs V2 vs V3
@@ -207,4 +366,7 @@ struct Position {
 
 ---
 
+- stablecoin-based AMM
+  - Pool 实现 ERC20 - Native Liquidity Token
+  - Uniswap v1 & v2
 - [Uniswap V1 vs V2 vs V3](https://www.blockscribers.com/article/uniswap-v1-vs-v2-vs-v3/10/)

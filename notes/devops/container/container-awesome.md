@@ -27,33 +27,39 @@ tags:
   - lxd
   - rkt
 - Builder
-  - buildkit - docker
+  - [buildkit](./buildkit.md) - docker
     - support resetting timestamp for determinism [#1058](https://github.com/moby/buildkit/issues/1058)
-  - [buildah](https://github.com/containers/buildah)
-  - [Kaniko](https://github.com/GoogleContainerTools/kaniko)
-    - 可能很慢 - [#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
+  - [buildah](./buildah.md)
+  - [Kaniko](./kaniko.md)
   - [genuinetools/img](https://github.com/genuinetools/img)
     - 不需要 dockerd
     - 需要更高权限
     - 兼容 docker cli
+  - [apko](https://github.com/chainguard-dev/apko)
+    - 声明式
+    - 基于 alpine apk 逻辑
+    - 构建依赖 apk - 非 linux 环境需要 vm
+    - 辅助构建 distroless
   - dockerfile
     - docker build
   - containerfile
     - podman build
     - buildah
+- Source to Image
+  - [openshift/source-to-image](https://github.com/openshift/source-to-image)
+  - [GoogleContainerTools/jib](https://github.com/GoogleContainerTools/jib)
+    - Java to container
+  - [bazelbuild/bazel](../../dev/build/bazel/README.md)
+  - [ko](../../languages/go/lib/ko.md)
+    - Golang to kubernetes
+  - [Skaffold](../../devops/kubernetes/dev/skaffold.md)
+  - buildpack
 - Registry
   - [containers/skopeo](https://github.com/containers/skopeo)
   - habor
   - nexus
   - [netvarun/docket](https://github.com/netvarun/docket)
     - DOCKEr + torrenT
-- Code to Image
-  - [openshift/source-to-image](https://github.com/openshift/source-to-image)
-  - [GoogleContainerTools/jib](https://github.com/GoogleContainerTools/jib)
-  - [bazelbuild/bazel](https://github.com/bazelbuild/bazel)
-  - ko - Go source to Image
-  - Skaffold
-  - buildpack
 - cri-o
 - Container Desktop/VM
   - Docker Desktop

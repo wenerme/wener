@@ -37,9 +37,10 @@ tags:
 | 10k Project        | 10,000 不同 NFT                       |
 | Mint               | 铸造                                  |
 | Burn               | 销毁                                  |
-| Airdrop            |
+| Airdrop            | 空投                                  |
 | Liquidity          | 流动性                                |
 | Derivatives        | 衍生物                                |
+| spot price         | 现货价格                              |
 
 | Unit   | Decimals | Value                    | ETH         |
 | ------ | -------- | ------------------------ | ----------- |

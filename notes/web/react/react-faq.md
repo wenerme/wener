@@ -6,6 +6,14 @@ tags:
 
 # React FAQ
 
+:::tip
+
+- memo 组件不能接受不了 Context 更新
+  - RFC [useContextSelector](https://github.com/reactjs/rfcs/pull/119)
+  - [use-context-selector](https://github.com/dai-shi/use-context-selector)
+
+:::
+
 ## React Pattern
 
 - innerRef, elementRef, forwardRef 透传内部引用
@@ -186,7 +194,7 @@ useDeepCompareEffect(() => {
 
 ---
 
-- https://github.com/facebook/react/issues/15156#issuecomment-474590693
+- [Preventing rerenders with React.memo and useContext hook](https://github.com/facebook/react/issues/15156#issuecomment-474590693)
   - 拆分大对象上下文 - 避免直接修改
     - 区分常变化的上下文和不常变化的上下文
   - 拆分组件，使用 memo hoc 组件

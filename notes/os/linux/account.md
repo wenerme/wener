@@ -8,7 +8,9 @@
   - read
   - write
   - execute
-
+- adduser -G  set primary group
+- adduser user group add one
+- addgroup add secondary group
 
 ## Tips
 

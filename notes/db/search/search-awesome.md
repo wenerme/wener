@@ -25,12 +25,13 @@ tags:
 - [groonga/groonga](https://github.com/groonga/groonga)
   - LGPL-2.1, C
   - 有 MySQL 和 PostgreSQL 插件 - 非常易用
-- [manticoresoftware/manticoresearch](https://github.com/manticoresoftware/manticoresearch)
+- [manticoresoftware/manticoresearch](./manticoresearch.md)
   - GPL-2.0, C++
   - Database for search
   - MySQL 协议和语法
   - 支持 行存、列存、文档存储
   - forked from Sphinx 2.3.2 in 2017
+  - vs MeiliSearch https://www.reddit.com/r/selfhosted/comments/w89tgh/comment/ihq798e/
 - [typesense/typesense](https://github.com/typesense/typesense)
   - GPL-3.0, C++
   - 不支持 CJK - [typesense/typesense#228](https://github.com/typesense/typesense/issues/228)
@@ -61,6 +62,8 @@ tags:
     - cloud-native distributed search engine
 - [MeiliSearch](https://github.com/meilisearch/MeiliSearch)
   - MIT, Rust
+  - 索引要能放入 RAM - 小数据量场景
+  - BucketSort
 - Vector
   - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
     - MIT, C++
@@ -94,6 +97,8 @@ tags:
 - [List of search engines](https://en.wikipedia.org/wiki/List_of_search_engines)
 - metasearch engine
   - 聚合其他搜索引擎
+- [beir-cellar/beir](https://github.com/beir-cellar/beir)
+  - Heterogeneous Benchmark for Information Retrieval
 
 ## Lcoal Search
 

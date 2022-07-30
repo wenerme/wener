@@ -27,6 +27,7 @@ tags:
 - [pdns](./powerdns/README.md)
 - [kea](https://gitlab.isc.org/isc-projects/kea)
   - 提供 [perfdhcp](https://kea.readthedocs.io/en/latest/man/perfdhcp.8.html) 压测工具
+- [serverless-dns/serverless-dns](https://github.com/serverless-dns/serverless-dns)
 
 [dnscrypt]: ./dnscrypt.md
 [unbound]: ./unbound.md

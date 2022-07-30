@@ -5,6 +5,7 @@ title: Jotai
 # Jotai
 
 - [pmndrs/jotai](https://github.com/pmndrs/jotai) 是什么？
+  - 8.5kB/3.3kB
   - 大状态拆分小(原子/atom)状态 - 原子状态更利于复用和减小变化影响范围
   - 核心接口 atom, Provider, useAtom
     - jotai/utils 包含其他工具 atom

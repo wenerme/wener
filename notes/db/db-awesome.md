@@ -143,6 +143,22 @@ Cube 计算
   - REST api for SQLite & PostgreSQL
 - https://lumosql.org/
   - SQLite+LMDB
+- 分布式
+  - [dqlite](https://github.com/canonical/dqlite)
+    - GPLv3, C
+  - [rqlite](https://github.com/rqlite/rqlite)
+    - MIT, Golang
+    - HTTPS API
+    - node-discovery & automatic clustering - Kubernetes, Consul, etcd, DNS
+    - [hashicorp/raft](https://github.com/hashicorp/raft)
+    - https://github.com/rqlite/rqlite/blob/master/DOC/PERFORMANCE.md
+    - In-memory DB < 2GB
+    - 只能用 deterministic SQL - 因为 raft 复制，幂等
+  - [losfair/mvsqlite](https://github.com/losfair/mvsqlite)
+    - Apache-2.0, Rust
+    - MVCC SQLite that runs on FoundationDB
+  - [bloomberg/comdb2](https://github.com/bloomberg/comdb2)
+    - Apache-2.0, C
 
 ## ID
 

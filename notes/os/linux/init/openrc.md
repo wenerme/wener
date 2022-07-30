@@ -39,6 +39,74 @@ tty6::respawn:/sbin/getty 38400 tty6
 ::shutdown:/sbin/openrc shutdown
 ```
 
+## service
+
+```sh
+#!/sbin/openrc-run
+
+command="/usr/sbin/ntpd"
+pidfile="/run/${RC_SVCNAME}.pid"
+command_args="-p ${pidfile}"
+
+command_args_background="--daemon"
+# start-stop-daemon --make-pidfile
+command_background=true
+
+command_user="user:group"
+# ^cap_chown,!cap_setpcap
+capabilities="cap-list"
+procname="cancd"
+
+# 定义依赖
+depend() {
+  need net
+  use dns logger netmount
+  want coolservice
+}
+
+extra_started_commands="reload"
+
+extra_commands="checkconfig"
+checkconfig() {
+  #
+}
+
+reload() {
+  checkconfig || return $?
+  ebegin "Reloading ${RC_SVCNAME}"
+  start-stop-daemon --signal HUP --pidfile "${pidfile}"
+  eend $?
+}
+
+# 启动停止检查配置
+start_pre() {
+  if [ "${RC_CMD}" != "restart" ] ; then
+    checkconfig || return $?
+  fi
+}
+
+stop_pre() {
+  if [ "${RC_CMD}" = "restart" ] ; then
+      checkconfig || return $?
+  fi
+}
+```
+
+- RC_SVCNAME
+- 主要函数
+  - start
+  - stop
+  - status
+- depend
+  - need - 强制依赖
+  - use - soft dependency - 如果在相同 runlevel 则 start，已经 start 不关心
+  - want - 尝试 start，不关心 runlevel，已经 start 不关心
+  - before
+  - after
+  - provide - 提供服务 - 类似别名或相同服务
+  - keyword
+- https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
+
 ## supervise-daemon
 
 - https://github.com/OpenRC/openrc/blob/master/supervise-daemon-guide.md

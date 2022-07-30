@@ -56,6 +56,11 @@ tags:
   - 类 block 编辑器
 - [Tencent/cherry-markdown](https://github.com/Tencent/cherry-markdown)
 
+## Hex
+
+- [WerWolv/ImHex](https://github.com/WerWolv/ImHex)
+  - GPLv2, C++
+
 ## Block
 
 - [codex-team/editor.js](https://github.com/codex-team/editor.js)
@@ -113,7 +118,6 @@ tags:
     - 编辑组件、绑定数据 - 交互复杂
 
 ---
-
 
 - [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
 - https://openclipart.org/

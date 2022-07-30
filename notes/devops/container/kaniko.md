@@ -19,7 +19,7 @@ title: Kaniko
 - 只支持 x86_64
 - 不支持 multi-arch 和 manifest
 - 不能使用本地 layer 缓存
-- 性能可能弱于 dind - [GoogleContainerTools/kaniko#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
+- 性能可能弱于 dind - 可能很慢 [GoogleContainerTools/kaniko#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
 - registry-mirror 不支持前缀，例如 `registry.example.com/dockerhub`
 
 :::

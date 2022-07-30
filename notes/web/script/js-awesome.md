@@ -287,6 +287,23 @@ tags:
 
 - npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
 
+## Runtime
+
+- NodeJS
+- Deno
+- Bun
+- [losfair/blueboat](https://github.com/losfair/blueboat)
+  - Apache-2.0, Rust
+  - multi-tenant serverless JavaScript runtime
+  - V8 isolate
+- Engine
+  - V8
+  - Webkit
+
+## Edge/Serverless
+- blueboat
+- [flareact/flareact](https://github.com/flareact/flareact)
+
 ## Game
 
 - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)

@@ -693,6 +693,43 @@ iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 
   - https://github.com/springzfx/cgproxy/blob/aaa628a76b2911018fc93b2e3276c177e85e0861/readme.md#known-issues
     - docker 不可以 tproxy
 
+## openrc
+
+```bash
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+
+name="Clash"
+description="A rule-based tunnel in Go."
+description_reload="Reload configuration without exiting"
+
+command=/usr/local/bin/clash
+command_args="-d /var/lib/clash/ -f /etc/clash/config.yaml"
+
+CLASH_LOGFILE="${CLASH_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
+output_log=${CLASH_LOGFILE}
+error_log=${CLASH_LOGFILE}
+
+depend() {
+  use logger dns
+  need net
+}
+
+checkconfig() {
+  if [ ! -f "/etc/clash/config.yaml" ] ; then
+    eerror "No clash config.yaml"
+    return 1
+  fi
+  return 0
+}
+
+reload() {
+  ebegin "Reloading configuration"
+  curl -X PUT -H "Authorization: Bearer $AUTH_TOKEN" -sf 127.0.0.1:9090/configs --json "{}"
+  eend $?
+}
+```
+
 # FAQ
 
 ## Start TProxy server error: operation not permitted

@@ -126,10 +126,15 @@ tags:
 - nextjs
 - nestjs
 - [inertiajs/inertia](https://github.com/inertiajs/inertia)
+  - quickly build modern single-page React, Vue and Svelte apps
 - 国产 - 考虑 KPI 关系，一般不推荐使用
-  - umijs - 不活跃
+  - umijs
   - taro - 跨端、小程序
   - weex
+
+> **Note**
+>
+> 国内非常擅长各种合并集成、开箱即用、全家桶，但是缺点都是难有人持续维护，定制化难，只考虑提供了的功能，不考虑扩展。
 
 ## 样式
 
@@ -254,6 +259,8 @@ tags:
 - Awesome [Web](https://www.awesomeweb.com/)
 - [cheatsheet1999/FrontEndCollection](https://github.com/cheatsheet1999/FrontEndCollection)
 - https://dev.to/iainfreestone/series/7129
+- https://stateofcss.com/
+- http://stateofjs.com/
 
 ## CDN
 

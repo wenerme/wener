@@ -292,6 +292,7 @@ tags:
 - MobileNet
 - MobileNetv2
 - https://modelplace.ai/models
+- [OpenBMB/BMList](https://github.com/OpenBMB/BMList)
 
 ## GAN
 

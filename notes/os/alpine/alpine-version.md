@@ -82,7 +82,9 @@ ERROR: libssl1.1-1.1.1q-r0: Permission denied
 
 ```bash
 # 先升级 SSL 相关，再升级其他
-apk upgrade ca-certificates-bundle libcrypto1.1 libssl1.1
+apk update
+apk upgrade libcrypto1.1
+apk upgrade libssl1.1
 
 apk upgrade -a
 ```

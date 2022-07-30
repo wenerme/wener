@@ -26,6 +26,9 @@ title: zustand
 :::caution
 
 - 上下文模式必须要求有 Provider/Context - 否则会异常
+- zustand 不好分隔状态
+  - [#178](https://github.com/pmndrs/zustand/issues/178)
+  - [#520](https://github.com/pmndrs/zustand/issues/520#issuecomment-891087525)
 
 :::
 
@@ -138,7 +141,7 @@ const nonReactCallback = () => {
 
 ## 通过引用方式优化快速变化的状态
 
-- 不直接 useStore - 避免 react
+- 不直接 useStore - 避免 rerender
 
 ```ts
 const useStore = create((set) => ({ scratches: 0 }));

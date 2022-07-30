@@ -258,6 +258,30 @@ sudo derper --hostname derper.example.com --verify-clients -a :28443 -http-port 
 
 :::
 
+### openrc
+
+```bash
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+
+name="Tailscale Derper"
+description="Derper relay."
+
+command=/usr/local/bin/derper
+# config
+command_args="--hostname derp.example.com --verify-clients -a :443 -http-port 8080"
+
+DERPER_LOGFILE="${DERPER_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
+output_log=${DERPER_LOGFILE}
+error_log=${DERPER_LOGFILE}
+
+depend() {
+  use logger dns tailscale
+  need net
+}
+```
+
+
 ## Taildrop
 
 ```bash

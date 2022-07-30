@@ -315,10 +315,16 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 功能组件
 
-- [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
-  - 实现各种 table 功能
-- [tannerlinsley/react-query](https://github.com/tannerlinsley/react-query)
-  - 异步查询缓存更新
+- TanStack
+  - [react-table](./react-table.md)
+    - 实现各种 table 功能
+  - [react-query](./react-query.md)
+    - 异步查询缓存更新
+  - [ranger](https://github.com/TanStack/ranger)
+    - range and multi-range sliders
+  - location
+  - virtual
+  - react-charts
 - [vercel/swr](https://github.com/vercel/swr)
   - 类似于 react-query 但更适合于前端定时刷新场景
   - 支持 SSR
@@ -359,6 +365,7 @@ npm add date-fns lodash-es react-fast-compare
 ## Form
 
 - [react-hook-form/react-hook-form](https://github.com/react-hook-form/react-hook-form)
+  - 25kB/9kB
   - 基于 hook 的 form 语意实现
   - 轻量简单 - 没有复杂概念，直接 useForm 即可使用
   - 状态独立 - 性能好
@@ -422,16 +429,93 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 状态管理
 
+:::tip In React State vs Outside State
+
+- Inside - 例如 useState, jotai, recoil
+  - 面向 React - 组件、上下文、Tree
+- Outside - 例如 zustand, voltio
+  - 面向 数据/状态 - 函数、全局、跨组件
+  - 优势
+    - 框架无关
+    - 可在任意地方调用
+  - 劣势
+    - 可能有全局副作用
+    - SSR 不一定好处理 - [#182](https://github.com/pmndrs/zustand/issues/182)
+
+:::
+
+:::tip Proxy vs Selector
+
+- 基于 `代理` 订阅 - 可以基于 路径 判断变化
+  - 优势
+    - 使用更简单
+    - 不需要写 selector
+    - 不需要关心 compare
+  - 劣势
+    - 传递时要小心 - 比如读取对象，返回的是代理对象
+    - 代理特殊对象要小心
+      - 例如: Map, Set, ReactElement, HTMLElement 之类的
+      - 需要考虑哪些能被代理，哪些不能
+  - 区分 读 代理 和 写 代理
+    - selector 模式也可以用 写 代理
+    - 基于 `代理` 订阅主要指 读 代理
+    - 写 代理 修改操作可生成 operation - 可用于同步
+- 基于 `selector` 订阅 - 基于 值 判断变化
+  - 优势
+    - 都是 原始 值 或 frozen 值
+    - 传递安全 - 不会有预期外结果，符合正常思路
+  - 劣势
+    - selector 写起来繁琐
+    - selector 可能还需要 useCallback 来 memo
+    - 需要考虑 compare 逻辑
+    - 每次添加用到数据 要嘛加 selector ，要嘛修改 现有 selector
+  - react-tracked 把基于 selector 变成基于 proxy
+  - 可以修改时使用 proxy 减少变化对比
+    - 例如 immer
+
+:::
+
+- 几种状态管理
+  - atom, in-react - jotai, recoil
+  - atom, outside-react - voltio
+  - state machine, in-react - redux
+  - state machine, outside-react - zustand
+  - https://github.com/pmndrs/valtio/issues/141#issuecomment-891214314
+- pmndrs - 状态相关主要开发者也是 dai-shi
+  - [zustand](./zustand.md)
+    - 3kB/1.1kB - use-sync-external-store
+    - Redux like - 支持 Redux devtools
+    - 状态在 React 之外 - 可外部操作
+    - ![](https://img.shields.io/bundlephobia/min/zustand)
+  - [valtio](./valtio.md)
+    - 7kB/2.5kB - use-sync-external-store+proxy-compare
+    - 基于 Proxy 订阅
+  - [jotai](./jotai.md)
+    - 8.5kB/3.3kB
+    - Recoil like
+    - ![](https://img.shields.io/bundlephobia/min/jotai)
+- dai-shi
+  - [dai-shi/react-tracked](https://github.com/dai-shi/react-tracked)
+    - 5kB/2kB - use-context-selector+proxy-compare
+    - 封装 useState, useStore
+    - 使用 proxy 订阅 - 操作上更方便
+    - 提供 memo 替代 React.memo - 因为要 比较/订阅 代理 对象
+  - [dai-shi/use-context-selector](https://github.com/dai-shi/use-context-selector)
+    - 2kB/1kB
+    - useContext 支持 selector - 减少 rerender
+  - [dai-shi/react-hooks-global-state](https://github.com/dai-shi/react-hooks-global-state)
+    - global state for React with Hooks API without Context API
+  - [dai-shi/react-hooks-worker](https://github.com/dai-shi/react-hooks-worker)
+    - custom hooks for web workers
+- [mobxjs/mobx](https://github.com/mobxjs/mobx)
+  - mobx 58kB/16kB
+  - mobx-react-lite 6kB/2kB
+    - 不支持 concurrent - [mobx#2526](https://github.com/mobxjs/mobx/issues/2526)
+  - 最近开发不活跃 - 功能已经足够完善
+- use-sync-external-store
 - [use-subscription](https://github.com/facebook/react/tree/master/packages/use-subscription)
   - 更好的支持 concurrent 模式
-- [pmndrs/zustand](https://github.com/pmndrs/zustand)
-  - Redux like - 支持 Redux devtools
-  - 状态在 React 之外 - 可外部操作
-  - ![](https://img.shields.io/bundlephobia/min/zustand)
 - [rematch/rematch](https://github.com/rematch/rematch)
-- [pmndrs/jotai](https://github.com/pmndrs/jotai)
-  - Recoil like
-  - ![](https://img.shields.io/bundlephobia/min/jotai)
 - [teafuljs/teaful](https://github.com/teafuljs/teaful)
   - 基于 proxy 进行 select
 - [facebookexperimental/Recoil](https://github.com/facebookexperimental/Recoil)
@@ -453,8 +537,6 @@ npm add date-fns lodash-es react-fast-compare
 - [tinyplex/tinybase](https://github.com/tinyplex/tinybase)
   - Table, Row, Cell
 - 订阅
-  - [dai-shi/react-tracked](https://github.com/dai-shi/react-tracked)
-  - [dai-shi/use-context-selector](https://github.com/dai-shi/use-context-selector)
   - [reactivex/rxjs](https://github.com/reactivex/rxjs)
     - rxjs 能非常简单的实现基于订阅的状态管理
   - [reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit)
@@ -472,7 +554,8 @@ npm add date-fns lodash-es react-fast-compare
   - [react concurrency](https://github.com/bvaughn/rfcs/blob/useMutableSource/text/0000-use-mutable-source.md)
   - [context loss](https://github.com/facebook/react/issues/13332)
   - 跨组件状态变化
-
+- 参考
+  - https://2020.stateofjs.com/en-US/technologies/datalayer/
 ## 图表
 
 - react-d3-tree
