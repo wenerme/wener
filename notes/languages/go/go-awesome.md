@@ -259,6 +259,8 @@ tags:
 
 ### Misc
 
+- [go-vgo/robotgo](https://github.com/go-vgo/robotgo)
+  - RobotGo, Go Native cross-platform GUI automation
 - [valyala/fasthttp](http://github.com/valyala/fasthttp)
   - 重写的 net/http 处理
   - 注重性能

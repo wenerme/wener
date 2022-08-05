@@ -53,6 +53,7 @@ title: ZFS
   * [ZFS / RAIDZ Capacity Calculator](https://wintelguy.com/zfs-calc.pl)
   * [ZFSSystemAttributes](https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSSystemAttributes)
   * [ZFSDRaidNotes](https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSDRaidNotes)
+  * ZFS native encryption vs LUKS https://news.ycombinator.com/item?id=32340433
 
 ## NOTES
 * zpool

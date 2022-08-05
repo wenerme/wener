@@ -5,9 +5,17 @@ title: LaTex Math
 # LaTex Math
 
 - https://github.com/mathjax/MathJax
-- [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020)
+- [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/a/19678/636093)
 - http://detexify.kirelabs.org/classify.html
   - 画图，显示字符操作
+- http://docs.mathjax.org/_/downloads/en/v3.1-latest/pdf/
+- [Glossary of mathematical symbols](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols)
+- https://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/Calculus.html
+- [希腊字母](https://zh.wikipedia.org/wiki/希腊字母)
+
+| abbr | for        |
+| ---- | ---------- |
+| `x'` | `x^\prime` |
 
 $$
 7\dfrac{4}{3}

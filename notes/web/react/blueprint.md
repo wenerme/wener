@@ -7,6 +7,13 @@ title: BlueprinrJS
 - [palantir/blueprint](https://github.com/palantir/blueprint)
 - [Blueprint v4.0 & v5.0 semantic swap](https://github.com/palantir/blueprint/wiki/Blueprint-v4.0-&-v5.0-semantic-swap)
 
+:::not
+
+- bundle icons you actually use [#2193](https://github.com/palantir/blueprint/issues/2193)
+- Removing findDOMNode [#3979](https://github.com/palantir/blueprint/issues/3979)
+
+:::
+
 ## Blueprint 5.0
 
 - `bp4-` -> `bp5-`

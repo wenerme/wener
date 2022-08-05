@@ -143,6 +143,8 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=31846593)
 - [Keytap3: check if your keyboard can be eavesdropped through a microphone](https://keytap3.ggerganov.com/)
 - [iperov/DeepFaceLive](https://github.com/iperov/DeepFaceLive)
+- [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN)
+  - Real-world Face Restoration
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

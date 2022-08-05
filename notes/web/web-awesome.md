@@ -91,8 +91,13 @@ tags:
 ## 框架
 
 - jsx 系
-  - react - 定位是 库
-  - preact - mini 版 react
+  - [react](./react/README.md) - 定位是 库
+  - [preact](./react/preact.md) - mini 版 react
+  - [MithrilJS/mithril.js](https://github.com/MithrilJS/mithril.js)
+  - [aidenybai/million](https://github.com/aidenybai/million)
+    - 无 vdom
+    - 与 mithril.js 非常类似
+    - 类似 react+svelte 结合体
   - [jorgebucaran/hyperapp](https://github.com/jorgebucaran/hyperapp)
     - 最简的 jsx
   - [ryansolid/solid](https://github.com/ryansolid/solid)
@@ -102,7 +107,7 @@ tags:
   - lit
   - stencil
 - angular
-  - angular1 - 新项目已经不会再用
+  - angular v1 - 新项目已经不会再用
   - angular
 - 单文件 - 自编译
   - svelte
@@ -111,6 +116,10 @@ tags:
   - riot
 - alpinejs
 - [developit/htm](https://github.com/developit/htm)
+- 参考
+  - 用户事件优先优于框架性能 https://news.ycombinator.com/item?id=32294051
+    - React 18
+  - https://krausest.github.io/js-framework-benchmark/current.html
 
 :::info
 

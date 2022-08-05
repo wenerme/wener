@@ -1,5 +1,4 @@
 ---
-id: cloud-init
 title: Cloud Init
 ---
 

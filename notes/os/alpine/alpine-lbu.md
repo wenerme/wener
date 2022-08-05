@@ -51,6 +51,9 @@ lbu lb                # 会显示 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
 
 # 远程备份
 ssh root@client "lbu package -" >client.apkovl.tar.gz
+
+# diff
+tar df os.apkvol.tar.gz -C / # 汇报修改
 ```
 
 ## lbu.conf

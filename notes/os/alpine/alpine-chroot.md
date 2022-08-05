@@ -3,7 +3,8 @@ title: Alpine chroot 环境
 ---
 
 # Alpine chroot 环境
-* [Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Alpine_Linux_in_a_chroot)
+
+- [Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Alpine_Linux_in_a_chroot)
 
 ```bash
 mirror=http://mirrors.sjtug.sjtu.edu.cn/alpine/
@@ -12,7 +13,6 @@ version=2.12.1-r0
 curl -LO ${mirror}/latest-stable/main/${arch}/apk-tools-static-${version}.apk
 
 curl -LO http://mirrors.sjtug.sjtu.edu.cn/alpine/v3.10/main/armhf/apk-tools-static-2.10.4-r2.apk
-
 
 ./sbin/apk.static -X ${mirror}/latest-stable/main -U --allow-untrusted -p ${chroot_dir} --initdb add alpine-base
 mount -o bind /dev ${chroot_dir}/dev
@@ -41,11 +41,11 @@ echo "${mirror}/${branch}/main" > ${chroot_dir}/etc/apk/repositories
 
 # 或者可以使用 busybox
 curl -O https://busybox.net/downloads/binaries/1.21.1/busybox-armv6l
-
 ```
 
 ## alpine 3.1 armhf
-* 最早的 armhf
+
+- 最早的 armhf
 
 ```bash
 # http://mirrors.sjtug.sjtu.edu.cn/alpine/v3.1/main/armhf/

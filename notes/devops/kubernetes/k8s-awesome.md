@@ -282,7 +282,7 @@ tags:
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)
     - Apache-2.0, Go
   - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
-    - Apache-2.0, 
+    - Apache-2.0,
     - 🚧 停滞
   - [ongres/stackgres](https://github.com/ongres/stackgres)
     - AGPLv3, Java
@@ -437,3 +437,7 @@ tags:
 - [kubernetes/sample-controller](https://github.com/kubernetes/sample-controller)
 - [kudobuilder/kudo](https://github.com/kudobuilder/kudo)
   - Kubernetes Universal Declarative Operator
+
+## Misc
+
+- [opsgenie/kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter)

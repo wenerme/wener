@@ -7,13 +7,19 @@ tags:
 
 ## Server
 
-- [Comparison of mail servers](https://en.wikipedia.org/wiki/Comparison_of_mail_servers)
 - iRedMail
 - [mail-in-a-box/mailinabox](https://github.com/mail-in-a-box/mailinabox)
+  - CC0-1.0
+- [docker-mailserver/docker-mailserver](https://github.com/docker-mailserver/docker-mailserver)
 - [foxcpp/maddy](https://github.com/foxcpp/maddy) - all-in-one mail server
   - GPLv3, Golang
 - [tomav/docker-mailserver](https://github.com/tomav/docker-mailserver)
 - [Mailu/Mailu](https://github.com/Mailu/Mailu)
+  - MIT, Python
+  - https://mailu.io/master/demo.html
+- [modoboa/modoboa](https://github.com/modoboa/modoboa)
+  - ISC, Python
+  - Mail hosting made simple
 - [albertito/chasquid](https://github.com/albertito/chasquid)
   - Apache-2.0, Golang
   - SMTP (email) server.
@@ -33,20 +39,53 @@ tags:
 - [lavabit/magma](https://github.com/lavabit/magma)
   - C
   - SMTP, POP, IMAP, HTTP, MOLTEN
-
-## Client
-
-- Dovecot
-- postfix
+- [dovecot/core](https://github.com/dovecot/core)
+  - IMAP server
+  - https://doc.dovecot.org/
 - [tutao/tutanota](https://github.com/tutao/tutanota)
   - end-to-end encrypted mail client
+- [vdukhovni/postfix](https://github.com/vdukhovni/postfix)
+  - IBM Public License, Eclipse Public License
+  - https://www.postfix.org/postconf.5.html
+- OpenSMTPD
+- [lavabit/magma](https://github.com/lavabit/magma)
+  - AGPLv3, C
+- Webmail
+  - [roundcube/roundcubemail](https://github.com/roundcube/roundcubemail)
+    - GPLv3, PHP
+- Spam
+  - greylisting
+  - [spamassassin](https://spamassassin.apache.org/)
+- Policy
+  - http://postgrey.schweikert.ch/
+- [Z-Hub/Z-Push](https://github.com/Z-Hub/Z-Push)
+  - PHP
+  - ActiveSync
+- https://poste.io/
+  - SMTP + IMAP + POP3 + Antispam + Antivirus
+  - Web administration + Web email
+
+---
+
+- Protocol
+  - SMTP - Simple Mail Transfer Protocol
+  - POP - Post Office Protocol
+  - IMAP - Internet Message Access Protocol
+  - JMAP - JSON Meta Application Protocol
+- Spam
+  - Bayesian spam filtering
+- MTA - mail transfer agent - Message transfer agent
+- [Comparison of mail servers](https://en.wikipedia.org/wiki/Comparison_of_mail_servers)
+- [List of mail server software](https://en.wikipedia.org/wiki/List_of_mail_server_software)
+
+## Client
 
 ## Library
 
 - [emersion/go-imap](https://github.com/emersion/go-imap)
 - [haraka/Haraka](https://github.com/haraka/Haraka)
   - MIT, JS
-  - SMTP
+  - SMTP server
 - [jordwest/imap-server](https://github.com/jordwest/imap-server)
 
 # FAQ

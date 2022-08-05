@@ -190,3 +190,44 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - objects.githubusercontent.com
     - Github Release
   - googleusercontent.com
+- google
+  - goog
+  - google
+  - google.com
+  - googleusercontent.com
+  - gstatic.com
+  - ggpht.com
+    - google maps
+    - profile
+  - https://developers.google.com/maps/gmp-domains
+- nintendo
+  - app.lp1.five.nintendo.net
+  - atum.hac.lp1.d4c.nintendo.net - 主要下载 CDN
+    - https://www.ping.cn/dns/atum.hac.lp1.d4c.nintendo.net
+    - 23.56.180.81
+    - 23.2.16.27
+  - app-a03.lp1.npns.srv.nintendo.net
+  - http://ctest.cdn.nintendo.net.akamaized.net
+    - 网络检测
+  - broker.lp1.npns.srv.nintendo.net
+  - bcat-list-lp1.cdn.nintendo.net
+  - https://github.com/buggerman/SwitchBlockerForPiHole
+  - receive-lp1.er.srv.nintendo.net
+    - 可以 blcok
+    - Error Reporting
+  - 香港 DNS:
+    - 208.67.222.222
+    - 208.67.220.220
+
+## ADGuard
+
+```
+114.114.114.114
+114.114.115.115
+223.5.5.5
+223.6.6.6
+[/facebook.com/github.com/github.io/goog/google/google.com/hbo.com/imdb.com/instagram.com/jp/medium.com/mega.nz/netflix.com/nordvpn.com/pornhub.com/quora.com/rarbg.to/rarbgprx.org/reddit.com/slack.com/spotify.com/t.co/telegram.org/thepiratebay.org/twitter.com/uk/whatsapp.com/wikileaks.org/wikipedia.org/wikiquote.org/wsj.com/xvideos.com/youtube.com/okx.com/okpool.top/]https://dns.cloudflare.com/dns-query
+[/nintendo.net/nintendo.com/]208.67.222.222
+```
+
+- https://dns.pub/dns-query

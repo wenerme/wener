@@ -80,6 +80,9 @@ tags:
 
 ## Runtime
 
+- [drifting-in-space/spawner](https://github.com/drifting-in-space/spawner)
+  - Session-lived containers for advanced browser-based applications.
+- [indigo-dc/udocker](https://github.com/indigo-dc/udocker)
 - https://github.com/opencontainers/runtime-spec/blob/main/implementations.md
 
 ## CLI
@@ -128,6 +131,9 @@ sources:
 ## 库
 
 - [google/go-containerregistry]
+- [uber/kraken](https://github.com/uber/kraken)
+  - P2P Docker registry capable of distributing TBs of data in seconds
+  - dragonfly2
 - [heroku/docker-registry-client](https://github.com/heroku/docker-registry-client)
 - [Docker Registry HTTP V2](https://docs.docker.com/registry/spec/api/)
 - https://docs.quay.io/api/swagger/

@@ -42,9 +42,14 @@ apk policy musl | sed '2!d' | sed 's/[^0-9a-z.-]//g'
 
 ```bash
 apk audit # 系统目前变化 - 哪些增加了，哪些删除了
-# 修复有修改的包
-apk audit --packages -q | xargs apk fix
+apk audit --packages -q | xargs apk fix # 修复有修改的包
 ```
+
+- /etc/apk/repositories
+  - `http://`, `https://`, `ftp://`
+  - `$repository/$arch/APKINDEX.tar.gz`
+  - `$repository/$arch/$pkgname-$pkgver-r$pkgrel.apk`
+- /etc/apk/world
 
 ## Notes
 
@@ -53,14 +58,12 @@ apk audit --packages -q | xargs apk fix
 ```c
 struct apk_hash_ops {
 	ptrdiff_t	node_offset;
-	apk_blob_t	(*get_key)(apk_hash_item item);
+	apk_blob_t	  (*get_key)(apk_hash_item item);
 	unsigned long	(*hash_key)(apk_blob_t key);
 	unsigned long	(*hash_item)(apk_hash_item item);
-  // 比较包名
-	int		(*compare)(apk_blob_t itemkey, apk_blob_t key);
-  // 比较内容
-	int		(*compare_item)(apk_hash_item item, apk_blob_t key);
-	void		(*delete_item)(apk_hash_item item);
+	int		        (*compare)(apk_blob_t itemkey, apk_blob_t key);// 比较包名
+	int		        (*compare_item)(apk_hash_item item, apk_blob_t key); // 比较内容
+	void		      (*delete_item)(apk_hash_item item);
 };
 
 // 包名字列表

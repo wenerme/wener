@@ -10,7 +10,7 @@ title: crontab
   - [HN](https://news.ycombinator.com/item?id=30636872)
 
 ```bash
-# 推荐使用一个自己的 crontab 文件, 这样便于管理
+# 非 root/macos 推荐使用一个自己的 crontab 文件, 这样便于管理
 nano ~/.crontab
 crontab ~/.crontab
 crontab -l
@@ -33,8 +33,8 @@ crond -nx test
 # 简单的服务自动重启
 # 然后添加到 @reboot 规则中就可以
 until myserver; do
-    echo "Server 'myserver' crashed with exit code $?.  Respawning.." >&2
-    sleep 1
+  echo "Server 'myserver' crashed with exit code $?.  Respawning.." >&2
+  sleep 1
 done
 ```
 
@@ -45,27 +45,48 @@ done
   - 可以修改为 CRON_OPTS="-c /etc/crontabs -L /var/log/crond.log -l 6"
 - 默认位置 /etc/crontabs
 - 默认周期性任务 /etc/crontabs/root
-  - /var/spool/cron/root
+  - /var/spool/cron/ - 用户目录
+    - /var/spool/cron/root
+  - /etc/cron.d/ - 系统任务
 - run-parts 会执行一个目录下的脚本
   - 默认的 run-parts 是 busybox 自带的, 也可以额外安装
   - https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/run-parts
   - 检测一个目录下有哪些会被执行 `run-parts --test /etc/periodic/daily`
   - 里面的脚本 **不要** 包含 `.sh` 后缀，且确保可执行 `chmod +x`
 
-```
-# do daily/weekly/monthly maintenance
-# min	hour	day	month	weekday	command
-*/15	*	*	*	*	run-parts /etc/periodic/15min
-0	*	*	*	*	run-parts /etc/periodic/hourly
-0	2	*	*	*	run-parts /etc/periodic/daily
-0	3	*	*	6	run-parts /etc/periodic/weekly
-0	5	1	*	*	run-parts /etc/periodic/monthly
+```shell
+# 强制指定 shell
+SHELL=/bin/sh
+# 可定义变量
+MAILTO=paul
+# 指定时区
+CRON_TZ=Japan
+
+# 可执行任意 shell
+
+# 字段含义
+# min	hour	day	month	weekday [runas]	command
+*/15 * * * * run-parts /etc/periodic/15min
+0 * * * * run-parts /etc/periodic/hourly
+0 2 * * * run-parts /etc/periodic/daily
+0 3 * * 6 run-parts /etc/periodic/weekly
+0 5 1 * * run-parts /etc/periodic/monthly
 ```
 
 ```
 # 每两周一次
 0 4 * * 6 test $((10#$(date +\%W)\%2)) -eq 1 && run-parts /etc/periodic/bi-weekly
 ```
+
+| alias     | for            |
+| --------- | -------------- |
+| @reboot   | 重启后执行一次 |
+| @yearly   | `0 0 1 1 *`    |
+| @annually | `0 0 1 1 *`    |
+| @monthly  | `0 0 1 * *`    |
+| @weekly   | `0 0 * * 0`    |
+| @daily    | `0 0 * * *`    |
+| @hourly   | `0 * * * *`    |
 
 ## macOS
 

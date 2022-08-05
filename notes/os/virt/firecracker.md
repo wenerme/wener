@@ -15,6 +15,7 @@ title: Firecracker
   - 提供 REST 控制接口
   - Kernel 4.14+
 - 参考
+  - https://fly.io/docs/reference/machines/
   - https://github.com/firecracker-microvm/firecracker/tree/master/docs
   - [firecracker-microvm/firecracker-containerd](https://github.com/firecracker-microvm/firecracker-containerd)
     - 实现通过 containerd 管理 microVM

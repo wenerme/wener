@@ -200,6 +200,161 @@ struct Position {
 
 ```
 
+## Uniswap V1
+
+- CPMMM - Constant Product Market Maker Model - 恒定乘积做市商模型
+
+$x \times y = k$
+
+- token0 x
+- token1 y
+
+k 恒定，即 k 值不变，为 constant，因此用 $\Delta x$ 买入 $\Delta y$ 为
+
+$$
+x \times y = ( x+ \Delta x) \times (y - \Delta y)
+$$
+
+价格恒定
+
+$$
+\frac x y = \frac {\Delta x} {\Delta y}
+$$
+
+交易后 reserve 的变化
+
+$$
+x' = x+\Delta x = (1+\alpha)x = \frac 1 {1-\beta} x
+$$
+
+$$
+y' = y-\Delta y = (1+\alpha)y = \frac 1 {1-\beta} y
+$$
+
+$$
+\alpha = \frac {\Delta x} x
+$$
+
+$$
+\beta = \frac {\Delta y} y
+$$
+
+$$
+\Delta x = \frac \beta {1-\beta} x
+$$
+
+$$
+\Delta y = \frac \alpha {1+\alpha} y
+$$
+
+**考虑 Fee 的场景**
+
+- fee $\rho$
+- $\gamma = 1 - \rho$
+
+$$
+\Delta x = \frac \beta {1 - \beta} \cdot \frac 1 \gamma \cdot x
+$$
+
+$$
+\Delta y = \frac {\alpha \gamma} {1+ \alpha \gamma} \cdot y
+$$
+
+---
+
+- addLiquidity - mint
+  - deposit ether+token -> liquidity
+  - ether 和 token 泛化为 token0 和 token1
+  - $x:y:l$ = $x':y':l'$
+  - $k=x \times y$ 增加
+  - $l$ -> liquidity
+- removeLiquidity - burn
+- getInputPrice
+  - $\Delta y = \frac {\alpha \gamma} {1+\alpha \gamma} y$
+  - $\alpha = \frac {\delta x} x$
+  - $\Delta x$ trade for $\Delta y$
+  - $\rho=0.003$ 0.03%
+    - $997 * \Delta x * y / (1000 * x + 997 * \Delta x)$
+- getOutputPrice
+  - $\rho=0.003$ 0.03%
+    - $1000 *  x * \Delta y / (997 * (y - \Delta y)) + 1$
+
+---
+
+- 固定为 ether <-> token
+- 2018-11
+- [Uniswap/v1-contracts](https://github.com/Uniswap/v1-contracts)
+- https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf
+- https://docs.uniswap.org/protocol/V1/introduction
+
+## Uniswap V2
+
+- 核心逻辑同 V1
+- 支持 ERC-20 pairs 而不是 ether <-> token
+- Flash Swap
+- Protocol fee
+- [Uniswap/v2-core](https://github.com/Uniswap/v2-core)
+- https://uniswap.org/whitepaper.pdf
+- https://docs.uniswap.org/protocol/V2/introduction
+- 0.30% fee
+  - 0.25% lp
+  - 0.05% protocol - 1/6th
+    - 变化 liquidity 时才回 collect
+
+---
+
+**合约**
+
+```solidity
+contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
+  // 保留的最小流动性，Pool 不为空，不会除0
+  uint public constant MINIMUM_LIQUIDITY = 10**3;
+
+  address public factory;
+  address public token0;
+  address public token1;
+
+  // 三个变量使用一个 storage - 112+112+32 = 256
+  uint112 private reserve0;
+  uint112 private reserve1;
+  uint32 private blockTimestampLast; // 上次 swap 时间，跟踪交易变化
+
+  uint256 public price0CumulativeLast; // used to calculate the average exchange rate over a period of time
+  uint256 public price1CumulativeLast;
+  uint256 public kLast; // 上次的 k 值, reserve0*reserve1 - 在 liquidity 变化时变化
+
+  function _update(
+    uint256 balance0,
+    uint256 balance1,
+    uint112 _reserve0,
+    uint112 _reserve1
+  ) private {
+    uint32 blockTimestamp = uint32(block.timestamp % 2**32);
+    uint32 timeElapsed = blockTimestamp - blockTimestampLast; // overflow is desired
+    // 不是第一次
+    if (timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0) {
+      // * never overflows, and + overflow is desired
+      price0CumulativeLast += uint256(UQ112x112.encode(_reserve1).uqdiv(_reserve0)) * timeElapsed;
+      price1CumulativeLast += uint256(UQ112x112.encode(_reserve0).uqdiv(_reserve1)) * timeElapsed;
+    }
+    reserve0 = uint112(balance0);
+    reserve1 = uint112(balance1);
+    blockTimestampLast = blockTimestamp;
+    emit Sync(reserve0, reserve1);
+  }
+}
+
+```
+
+- Pool 的价值需要 LP 维护
+  - 错误的提供 流动性会导致丢失价值
+  - _mintFee 维护价值
+- 考虑到 fee
+  - token0 -> token1, 扣除 token0 fee, 换到的 token1 比预期小
+  - 导致 token1/token0 会越来越大
+  - kLast 也会慢慢变大 - 因为 fee 进入流动
+- [UNISWAP-V2 CONTRACT WALK-THROUGH](https://ethereum.org/sw/developers/tutorials/uniswap-v2-annotated-code/)
+
 ## Uniswap V3
 
 **全局状态**
@@ -370,3 +525,7 @@ $$
   - Pool 实现 ERC20 - Native Liquidity Token
   - Uniswap v1 & v2
 - [Uniswap V1 vs V2 vs V3](https://www.blockscribers.com/article/uniswap-v1-vs-v2-vs-v3/10/)
+
+## ds-math-sub-underflow
+
+- https://ethereum.stackexchange.com/q/97032/105916

@@ -426,6 +426,7 @@ npm add date-fns lodash-es react-fast-compare
 
 - [streamich/react-use](https://github.com/streamich/react-use)
   - 74kB/20kB
+- [alibaba/hooks](https://github.com/alibaba/hooks)
 
 ## 状态管理
 
@@ -453,6 +454,7 @@ npm add date-fns lodash-es react-fast-compare
     - 不需要关心 compare
   - 劣势
     - 传递时要小心 - 比如读取对象，返回的是代理对象
+      - 尽量确保只有 基础数据类型 时使用
     - 代理特殊对象要小心
       - 例如: Map, Set, ReactElement, HTMLElement 之类的
       - 需要考虑哪些能被代理，哪些不能

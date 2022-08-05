@@ -4,8 +4,13 @@ title: Gitea
 
 # Gitea
 
+- 1.17
+  - 支持 package - Composer, Conan, Generic, Helm, Maven, npm, NuGet, OCI Containers (Docker), PyPI and RubyGems
+  - https://docs.gitea.io/en-us/packages/overview/
+
 :::caution
 
+- 治理状态一般 https://news.ycombinator.com/item?id=32302459
 - 不支持环境变量配置 - [#350](https://github.com/go-gitea/gitea/issues/350)
   - secret 需要在 config file - GitOps 部署配置麻烦
 

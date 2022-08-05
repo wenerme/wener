@@ -27,6 +27,28 @@ tags:
   - 例如 使用 rxjs BehaviorSubject 作为 value 则可以避免变化，也能订阅变化
   - 可使用 zustand 替代
 
+## StrictMode
+
+- 在 dev 时渲染两次来检测潜在问题 - Detecting unexpected side effects
+  - constructor
+  - componentWillMount (or UNSAFE_componentWillMount)
+  - componentWillReceiveProps (or UNSAFE_componentWillReceiveProps)
+  - componentWillUpdate (or UNSAFE_componentWillUpdate)
+  - getDerivedStateFromProps
+  - shouldComponentUpdate
+  - render
+  - setState
+- Ensuring reusable state - 模拟 umount、remount
+  - componentDidMount
+  - componentWillUnmount
+  - useEffect
+  - useLayoutEffect
+  - useInsertionEffect
+
+---
+
+- https://reactjs.org/docs/strict-mode.html
+
 ## useEffect 无依赖 vs. 直接执行
 
 ```ts
@@ -245,3 +267,19 @@ class B extends React.Component {
 ---
 
 - [Implementing RUI, Replit's Design System](https://blog.replit.com/rui-eng)
+
+## 被注入 canvas
+
+```html
+<html style="overflow:hidden" lang="en">
+  <canvas
+    style="inset: 0px; pointer-events: none; position: fixed; z-index: 1000000000;"
+    width="1920"
+    height="514"
+  ></canvas>
+  <head></head>
+</html>
+```
+
+- 由 React Developer Tools 注入
+- 导致页面无法滚动

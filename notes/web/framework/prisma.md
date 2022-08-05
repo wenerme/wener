@@ -7,6 +7,7 @@ title: Prisma
 - 注意
   - 生成的客户端只能服务端执行 [#3142](https://github.com/prisma/prisma/issues/3142)
     - 浏览器端只能通过 GraphQL 使用
+  - PG 多 Schema 需要构造多 Client
 - Prisma 介于 ORM 和 CMS 之间 - 定位类似于 RoR 的数据模块
 - 主要特性
   - 支持 GraphQL 接口

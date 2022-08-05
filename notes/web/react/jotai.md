@@ -23,6 +23,6 @@ title: Jotai
 :::tip
 
 - jotai 提供原子能力，可以与现有状态管理集成使用 - [zustand](./zustand.md), [valtio](./valtio.md), xstate, redux, [urql](../../service/api/urql.md)
-- 状态拆分 splitAtom, selectAtom, focusAtom [akheron/optics-ts](https://github.com/akheron/optics-ts)
+- 状态拆分 splitAtom, selectAtom, focusAtom [optics-ts](https://github.com/akheron/optics-ts) 9kB/3kB
 
 :::

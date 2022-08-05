@@ -127,14 +127,14 @@ const ReactElement = (type, key, ref, self, source, owner, props) => {
     _owner: owner,
 
     // dev 相关属性
-    _store: { validated: false },
+    _store: {validated: false},
     _self: self,
     _source: source,
   };
 };
 
 function jsx(type, config, maybeKey, source, self) {
-  const { key, ref, __self, __source, ...props } = config;
+  const {key, ref, __self, __source, ...props} = config;
   return ReactElement(
     type,
     maybeKey || key || undefined,
@@ -152,7 +152,7 @@ const lazy = (ctor) => {
   return {
     $$typeof: REACT_LAZY_TYPE,
     // Uninitialized -> Pending -> Resolved, Rejected
-    _payload: { _status: Uninitialized, _result: ctor },
+    _payload: {_status: Uninitialized, _result: ctor},
     // 会维护 _payload
     // 非 Resolved 会 throw payload._result
     _init: lazyInitializer,
@@ -160,7 +160,7 @@ const lazy = (ctor) => {
 };
 
 const forwardRef = (render) => {
-  return { $$typeof: REACT_FORWARD_REF_TYPE, render };
+  return {$$typeof: REACT_FORWARD_REF_TYPE, render};
 };
 
 const memo = (type: React$ElementType, compare?) => {
@@ -361,3 +361,46 @@ export const StrictLegacyMode = /*               */ 0b001000;
 export const StrictEffectsMode = /*              */ 0b010000;
 export const ConcurrentUpdatesByDefaultMode = /* */ 0b100000;
 ```
+
+## fast refresh
+
+```js
+/* @refresh reset */
+```
+
+- 重置 state
+- https://nextjs.org/docs/basic-features/fast-refresh
+- https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/API.md
+
+## mhr
+
+```js
+// vite
+// deps, cb
+import.meta.hot.accept((newModule) => {
+  if (newModule) {
+    // newModule is undefined when SyntaxError happened
+    console.log('updated: count is now ', newModule.count);
+  }
+});
+
+// webpack
+import.meta.webpackHot.accept(
+  dependencies, // Either a string or an array of strings
+  callback, // Function to fire when the dependencies are updated
+  errorHandler, // (err, {moduleId, dependencyId}) => {}
+);
+```
+
+- https://vitejs.dev/guide/api-hmr.html
+  - import.meta.hot
+    - accept
+    - dispose
+    - data
+    - decline
+    - invalidate
+    - on
+    - send
+- https://webpack.js.org/api/hot-module-replacement/
+  - cjs module.hot
+  - esm import.meta.webpackHot

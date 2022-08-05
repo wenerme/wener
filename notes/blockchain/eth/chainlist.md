@@ -20,3 +20,20 @@ Network 列表，使用 ID 标识，每个 Network 有自己的 本地货币/Nat
 | --------------------------- | ------ | ------- | ----- |
 | [Polygon](./polygon.md)     | MATIC  |         | PoS   |
 | [Avalanche](./avalanche.md) | AVAX   | 2020-09 | PoS   |
+
+## Testnet
+
+- https://faucets.chain.link/
+- https://gitter.im/kovan-testnet/faucet
+- https://faucet.avax-test.network/
+- https://testnet.binance.org/faucet-smart
+
+### Swap
+
+- https://app.compound.finance/
+- https://test.hurricaneswap.com/
+- https://testnet.symbiosis.finance/
+- https://testnet.openswap.xyz/#/swap
+- PartySwap
+  - https://tokenlists.org/token-list?url=https://raw.githubusercontent.com/PartySwapDEX/token-lists/main/fujiv2.tokenlist.json
+  - [PARTY](./swap/partyswap.md) 0x69A61f38Df59CBB51962E69C54D39184E21C27Ec

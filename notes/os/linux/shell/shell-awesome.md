@@ -82,3 +82,17 @@ tags:
 - vim
 - [zyedidia/micro](https://github.com/zyedidia/micro)
 - joe
+
+## root
+
+- [proot-me/proot](https://github.com/proot-me/proot)
+  - user-space implementation of chroot, mount --bind, binfmt_misc
+
+```bash
+# bind
+# -R 自动绑定
+# -0 ROOT
+# -q qemu-arm
+# -q "qemu-arm -g 1234"
+proot -b /tmp/alternate_opt:/opt -b /proc
+```

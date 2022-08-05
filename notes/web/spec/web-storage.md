@@ -90,6 +90,8 @@ title: WebStorage
     - spark-md5
     - object-path
     - clone
+- [clientdb/clientdb](https://github.com/clientdb/clientdb)
+  - Apache-2.0
 - PouchDB
   - CouchDB replication
   - 支持 attachments

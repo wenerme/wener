@@ -237,8 +237,32 @@ tags:
   - [ar-nelson/spartan-schema](https://github.com/ar-nelson/spartan-schema)
     - 定义的校验可生成 ts 类型
 - math
+  - jsbi pure-JavaScript BigInts
+    - 33kB/10kB
+    - Uniswap SDK
+    - Chrome 67+, Opera 54+, Firefox 68+, Edge 79+, Safari 14+, Node.js v10.4+
+    - babel 插件可 transpile
+    - https://tc39.es/proposal-bigint/
+    - https://github.com/GoogleChromeLabs/jsbi
+  - bn.js
+    - 44kB/11.5kB
+    - ether.js
+  - MikeMcl
+    - [decimal.js](https://github.com/MikeMcl/decimal.js)
+      - 31kB/12kB
+      - scientific
+    - [bignumber.js](./lib/bignumberjs.md)
+      - 18kB/8kB
+      - financial
+      - 支持 exp,ln,log
+    - [big.js](https://github.com/MikeMcl/big.js)
+      - 7kB/3kB
+    - [decimal.js-light](https://github.com/MikeMcl/decimal.js-light)
+      - 13kB/5.5kB
+      - 不支持 NaN, Infinity, -0
+      - 不支持其他 base
+    - [big.js vs bignumber.js vs decimal.js](https://github.com/MikeMcl/big.js/wiki)
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
-  - [MikeMcl/bignumber.js](https://github.com/MikeMcl/bignumber.js)
   - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
   - [3b1b/manim](https://github.com/3b1b/manim)
 - markdown
@@ -282,6 +306,28 @@ tags:
   - [micromatch/micromatch](https://github.com/micromatch/micromatch)
   - [micromatch/picomatch](https://github.com/micromatch/picomatch)
     - 20kB/7kB
+- test - WebStorm 支持 jest, mocha
+  - jest
+  - mocha
+  - jasmine
+  - karma
+  - puppeteer
+  - storybook
+  - playwright
+  - cypress
+  - [ava](https://github.com/avajs/ava)
+    - WebStrom Plugin [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835)
+    - [WEB-21788](https://youtrack.jetbrains.com/issue/WEB-21788)
+  - [testing library](https://github.com/testing-library)
+    - react, dom
+  - webdriver io
+  - ava
+  - [nightwatch](https://github.com/nightwatchjs/nightwatch)
+  - tap - 测试协议
+    - [tapjs/node-tap](https://github.com/tapjs/node-tap)
+    - http://tap4j.org/
+    - WebStorm 暂不支持 [WEB-20916](https://youtrack.jetbrains.com/issue/WEB-20916)
+  - [ava vs jasmine vs jest vs mocha vs qunit](https://npmtrends.com/ava-vs-jasmine-vs-jest-vs-mocha-vs-qunit)
 
 ---
 
@@ -301,6 +347,7 @@ tags:
   - Webkit
 
 ## Edge/Serverless
+
 - blueboat
 - [flareact/flareact](https://github.com/flareact/flareact)
 

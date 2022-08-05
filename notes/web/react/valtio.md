@@ -29,6 +29,13 @@ title: valtio
 
 :::
 
+
+:::note
+
+- support async in watch [#507](https://github.com/pmndrs/valtio/issues/507)
+
+:::
+
 ```tsx
 import {proxy, useSnapshot, ref, subscribe, snapshot} from 'valtio';
 

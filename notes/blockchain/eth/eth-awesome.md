@@ -39,6 +39,7 @@ tags:
 
 ## Contracts
 
+- [runtimeverification/verified-smart-contracts](https://github.com/runtimeverification/verified-smart-contracts)
 - https://github.com/yam-finance/yam-protocol/blob/master/contracts
 - https://docs.fractional.art/fractional/smart-contract-breakdown/token-vault
   - https://github.com/fractional-company/contracts

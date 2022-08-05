@@ -1,5 +1,4 @@
 ---
-id: qemu
 title: QEMU
 ---
 

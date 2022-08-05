@@ -32,6 +32,17 @@ tags:
   - 对于基础的访问模式提供跨库支持
   - ⚠️ 不支持 typescript 实体类型安全
   - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
+  - 🚧 开发缓慢
+- prisma
+- [gajus/slonik](https://github.com/gajus/slonik)
+  - PostgreSQL client with strict types
+  - string tag
+- [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
+  - 基于 knex
+- [koskimas/kysely](https://github.com/koskimas/kysely)
+  - type-safe typescript SQL query builder
+  - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
+    - schema -> ts
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
   - 🚧 开发停滞
   - SQL-friendly ORM
@@ -42,6 +53,15 @@ tags:
 - [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
   - 基于 knex 的 ORM
   - 🚧 开发停止
+- [balderdashy/waterline](https://github.com/balderdashy/waterline)
+  - 🚧 开发停止 - 2021
+- [dmfay/massive-js](https://gitlab.com/dmfay/massive-js)
+  - data mapper for Node.js and PostgreSQL
+
+## Library
+
+- [timgit/pg-boss](https://github.com/timgit/pg-boss)
+  - Node.js using PostgreSQL like a boss
 
 ## Web
 
