@@ -75,6 +75,10 @@ export GOROOT=/opt/sdk/go1.18
 export PATH="$GOROOT/bin:$HOME/go/bin:$PATH"
 ```
 
+## iota
+
+- https://en.wiktionary.org/wiki/iota#Etymology
+
 ## GOVCS disallows using git for public
 
 添加 GOVCS 设置，默认为 `public:git|hg,private:all`

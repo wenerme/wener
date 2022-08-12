@@ -27,14 +27,17 @@ tags:
 ## Metrics
 
 - 基于/fork Prometheus 的服务
-  - promxy
-  - cortex
-  - thanos
-- [jacksontj/promxy](https://github.com/jacksontj/promxy)
+  - [promxy](./metrics/promxy.md)
+  - [cortex](./metrics/cortex.md)
+  - [thanos](./metrics/thanos.md)
+- [jacksontj/promxy](./metrics/promxy.md)
   - 聚合多个 prometheus 进行查询
   - [config.yaml](https://github.com/jacksontj/promxy/blob/master/cmd/promxy/config.yaml)
     - nocache=1 for VictoriaMetrics [QueryParams](https://github.com/jacksontj/promxy/blob/d4609ebcfd2a50d58f2115c1f079bf4779fc5515/pkg/servergroup/config.go#L96-L99)
 - [prom-migrator](https://github.com/timescale/promscale/tree/master/cmd/prom-migrator)
+- [grafana/mimir](https://github.com/grafana/mimir)
+  - AGPLv3, Go
+  - 长期存储，使用 S3 存储
 
 ## APM
 

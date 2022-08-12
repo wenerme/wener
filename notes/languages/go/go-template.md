@@ -12,6 +12,9 @@ title: Go 模板
 
 :::
 
+- https://gotemplate.io/
+  - wasm 编译的在线 template 渲染
+
 
 ## 语法
 

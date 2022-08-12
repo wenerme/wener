@@ -44,6 +44,7 @@ tags:
 ## Emoji
 
 - [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
+- [microsoft/fluentui-emoji](https://github.com/microsoft/fluentui-emoji)
 - Note 黑白 Emoji https://fonts.google.com/noto/specimen/Noto+Emoji
   - [What is black and white and read all over?](https://developers.googleblog.com/2022/04/what-is-black-and-white-and-read-all.html)
 - [hfg-gmuend/openmoji](https://github.com/hfg-gmuend/openmoji)

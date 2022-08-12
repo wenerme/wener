@@ -13,6 +13,7 @@ tags:
 - [arzzen/git-quick-stats](https://github.com/arzzen/git-quick-stats)
   - [HN](https://news.ycombinator.com/item?id=26980731)
 - https://monorepo.tools/
+- Things I wish everyone knew about Git https://blog.plover.com/prog/git/tips.html
 
 ## Learn
 

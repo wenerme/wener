@@ -12,6 +12,8 @@ tags:
 
 ## Awesome
 
+- https://lea.verou.me/2012/04/background-attachment-local/
+  - Overflow 显示阴影
 - https://noti.st/rachelandrew/IQsXZC/css-layout-workshop
 - https://web.dev/patterns/layout/
 - [ethantw/Han](https://github.com/ethantw/Han)

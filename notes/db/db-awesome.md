@@ -102,6 +102,7 @@ Cube 计算
 
 ## 有趣
 
+- [tantaman/aphrodite](https://github.com/tantaman/aphrodite)
 - [facebookincubator/LogDevice](https://github.com/facebookincubator/LogDevice)
   - Distributed storage for sequential data
 - [FerretDB/FerretDB](https://github.com/FerretDB/FerretDB)
@@ -124,6 +125,12 @@ Cube 计算
   - MIT, Clojure
 - [codenotary/immudb](https://github.com/codenotary/immudb)
   - immutable database
+- [maxmunzel/kvass](https://github.com/maxmunzel/kvass)
+  - MIT, Go
+  - personal key-value store
+- [debezium/debezium](https://github.com/debezium/debezium)
+  - Apache-2.0, Java
+  - CDC - Change data capture
 
 ## SQLite Awesome
 
@@ -143,6 +150,10 @@ Cube 计算
   - REST api for SQLite & PostgreSQL
 - https://lumosql.org/
   - SQLite+LMDB
+- [tantaman/conflict-free-sqlite](https://github.com/tantaman/conflict-free-sqlite)
+- [pocketbase/pocketbase](https://github.com/pocketbase/pocketbase)
+  - MIT, Go
+  - realtime backend in 1 file
 - 分布式
   - [dqlite](https://github.com/canonical/dqlite)
     - GPLv3, C
@@ -257,3 +268,4 @@ Cube 计算
 ## Read
 
 - [How and why the Relational Model works for databases](https://blog.the-pans.com/relational/)
+- Youtube [Database Fundamentals: Memory, Storage and ACID Guarantees](https://youtu.be/JOrXRsES3mk)

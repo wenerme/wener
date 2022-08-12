@@ -31,6 +31,7 @@ tags:
     - NodeJS 使用 Sockets
     - 支持 Leader 选举
     - 20kB/6kB
+  - tiny-emitter
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing
@@ -67,7 +68,8 @@ tags:
   - moment
   - d3-time-format
   - chrono-node
-- number format
+- format - number, time, money
+  - [SheetJS/printj](https://github.com/SheetJS/printj)
   - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
     - 基于 numeral
   - [numeral](https://github.com/adamwdraper/Numeral-js)
@@ -104,6 +106,7 @@ tags:
   - core-js
   - lodash
   - underscore
+  - [angus-c/just](https://github.com/angus-c/just)
 - clone
   - structuredClone - Chrome 98
 - json
@@ -167,12 +170,16 @@ tags:
     - react, pdf.js
   - [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
     - Apache-2.0
-  - [mengshukeji/Luckysheet](https://github.com/mengshukeji/Luckysheet)
+  - [mengshukeji/Luckysheet](../../service/office/luckysheet.md)
+  - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
 - crdt
   - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
   - [yjs/yjs](https://github.com/yjs/yjs)
     - 实现协作编辑
+    - [dmonad/lib0](https://github.com/dmonad/lib0)
     - vs automerge [#145](https://github.com/yjs/yjs/issues/145)
+  - [y-crdt/y-crdt](https://github.com/y-crdt/y-crdt)
+    - Rust port
   - [automerge/automerge](https://github.com/automerge/automerge)
     - 通用状态，自定义 CRDT
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
@@ -210,6 +217,7 @@ tags:
   - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
   - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
     - image compressor
+  - https://github.com/photopea
 - compression
   - fflate
   - TextEncoderStream
@@ -220,8 +228,18 @@ tags:
     - [Shopify/draggable](https://github.com/Shopify/draggable)
 - core
   - core-js
-  - jquery
+  - [dmonad/lib0](https://github.com/dmonad/lib0)
+    - [dmonad/isomorphic.js](https://github.com/dmonad/isomorphic.js)
   - [fabiospampinato/cash](https://github.com/fabiospampinato/cash)
+  - jquery
+- logger
+  - [pino](../nodejs/pino.md)
+    - 6.5kB/2.5kB
+  - roarr
+    - 13kB/4kB
+  - winston
+  - bunyan
+  - log4js
 - validate
   - [ajv](./lib/ajv.md)
     - 使用的最多
@@ -236,8 +254,9 @@ tags:
   - npmtrends [ajv vs joi vs yup vs zod](https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod)
   - [ar-nelson/spartan-schema](https://github.com/ar-nelson/spartan-schema)
     - 定义的校验可生成 ts 类型
+  - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
 - math
-  - jsbi pure-JavaScript BigInts
+  - jsbi - pure-JavaScript BigInts
     - 33kB/10kB
     - Uniswap SDK
     - Chrome 67+, Opera 54+, Firefox 68+, Edge 79+, Safari 14+, Node.js v10.4+
@@ -265,6 +284,8 @@ tags:
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
   - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
   - [3b1b/manim](https://github.com/3b1b/manim)
+- stat
+  - [jstat](https://github.com/jstat/jstat)
 - markdown
   - [markdown-it](https://github.com/markdown-it/markdown-it)
   - [mdx-js/mdx](https://github.com/mdx-js/mdx)
@@ -274,6 +295,8 @@ tags:
     - MDX compiler
   - [micromark/micromark](https://github.com/micromark/micromark)
   - [markedjs/marked](https://github.com/markedjs/marked)
+- Auth/ACL/Security
+  - [stalniy/casl](https://github.com/stalniy/casl)
 - Syntax Highlighter
   - [shikijs/shiki](https://github.com/shikijs/shiki)
 - dev
@@ -306,6 +329,7 @@ tags:
   - [micromatch/micromatch](https://github.com/micromatch/micromatch)
   - [micromatch/picomatch](https://github.com/micromatch/picomatch)
     - 20kB/7kB
+  - consola
 - test - WebStorm 支持 jest, mocha
   - jest
   - mocha
@@ -358,10 +382,18 @@ tags:
 
 ## Template
 
+- [eta](https://github.com/eta-dev/eta)
+  - 5.7kB/2.4kB
 - [linkedin/dustjs](https://github.com/linkedin/dustjs)
 - ejs
-- handlebars.js
-- mustache.js
+- handlebars
+- mustache
+- nunjucks
+- pug
+- art-template
+- twig
+- liquid
+- doT
 
 ## 有趣
 

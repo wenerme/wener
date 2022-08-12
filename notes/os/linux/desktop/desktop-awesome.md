@@ -12,6 +12,13 @@ tags:
 - gnome [DraftSpecs](https://wiki.gnome.org/DraftSpecs)
   - [Thumbnail management DBus specification](https://wiki.gnome.org/DraftSpecs/ThumbnailerSpec)
 - https://regolith-linux.org/
+- [Xpra-org/xpra](https://github.com/Xpra-org/xpra)
+  - GPLv2, Python
+  - XPra - screen for X - Persistent remote applications for X11
+  - screen sharing for X11, MacOS and MSWindows
+  - https://xpra.org/
+  - [Xpra-org/xpra-html5](https://github.com/Xpra-org/xpra-html5)
+    - https://xpra.org/html5/connect.html
 
 ## DE
 

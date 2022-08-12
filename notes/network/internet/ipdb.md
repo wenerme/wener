@@ -1,5 +1,5 @@
 ---
-title: IP 地址
+title: IP 地址库
 ---
 
 - [Github](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/about-githubs-ip-addresses)
@@ -26,6 +26,7 @@ title: IP 地址
   - https://aws.amazon.com/cn/premiumsupport/knowledge-center/s3-find-ip-address-ranges
 - [EH IPs](https://ehwiki.org/wiki/IPs)
 - database
+  - [tmplink/IPDB](https://github.com/tmplink/IPDB)
   - https://db-ip.com/db/download/ip-to-country-lite
   - https://ipinfo.io
   - https://ipip.net

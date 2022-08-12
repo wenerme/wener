@@ -5,7 +5,7 @@ title: Citus Columnar
 # Citus Columnar
 
 - [src/backend/columnar](https://github.com/citusdata/citus/tree/master/src/backend/columnar)
-- 格式衍生自 ORC，但元数据在 PG 重，能事务修改
+- 格式衍生自 ORC，但元数据在 PG，能事务修改
 - 参考
   - [Citus 10 brings columnar compression to Postgres](https://www.citusdata.com/blog/2021/03/06/citus-10-columnar-compression-for-postgres/)
     - No UPDATE or DELETE

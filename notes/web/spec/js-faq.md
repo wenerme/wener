@@ -15,7 +15,7 @@ tags:
 const now = new Date(2021, 12, 12, 0, 0, 0);
 // now.getTimezoneOffset() // local timezone offset
 console.assert(now.toJSON() === now.toISOString());
-JSON.stringify({ now });
+JSON.stringify({now});
 
 Date.prototype.toJSON = function () {
   // return moment(this).format();
@@ -85,3 +85,6 @@ typeof val === 'object';
 [substr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
 [string.prototype.substr]: https://tc39.es/ecma262/#sec-string.prototype.substr
 
+## Performance
+
+- [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)

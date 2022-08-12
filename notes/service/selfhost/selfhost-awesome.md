@@ -6,7 +6,7 @@ tags:
 
 # Selfhost Awesome
 
-- [danistefanovic/build-your-own-x](https://github.com/danistefanovic/build-your-own-x)
+- [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 - [lissy93/dashy](https://github.com/lissy93/dashy)
 - 相册

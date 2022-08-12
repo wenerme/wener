@@ -637,6 +637,23 @@ tags:
 
 - https://answers.sap.com/questions/8738184/specification-symbols-and-descriptor-symbols.html
 
+## tag vs label
+
+- label
+  - 标签
+  - 可以是 KV 结构
+  - GitHub 的 Issuse 标签使用的 Label
+  - Gitlab 的 Issuse 标签使用的 Label
+    - 支持多层级 `Parent::Child::Key` - 同层级互斥
+  - Kubernetes 的资源使用的 Label+Annotation
+    - Label 用于匹配 - 会索引
+    - Annotation 任意修改
+  - Docker 元数据使用 Label
+- tag
+  - 标签、标记
+  - 通常是一串字符串
+  - Stackoverflow 的问题使用的 Tag
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t

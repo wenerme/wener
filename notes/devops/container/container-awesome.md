@@ -77,6 +77,8 @@ tags:
   - minikube
 - [weaveworks/footloose](https://github.com/weaveworks/footloose)
   - Containers that look like Virtual Machines
+- [GoogleContainerTools/kpt](https://github.com/GoogleContainerTools/kpt)
+  - Automate Kubernetes Configuration Editing
 
 ## Runtime
 

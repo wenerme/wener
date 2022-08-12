@@ -26,10 +26,10 @@ export interface IUserService {}
 
 // index.ts
 // 对外只暴露接口，避免 import 的时候导入源码增加 bundle
-export { type IUserService } from 'user.ts';
+export {type IUserService} from 'user.ts';
 
 // client.ts
-import type { IUserService } from 'server';
+import type {IUserService} from 'server';
 // 客户端不需要 bundle 源码
 const svc = getService<IUserService>('user');
 ```

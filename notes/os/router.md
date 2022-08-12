@@ -136,3 +136,7 @@ reboot
 #### unlzma 失败
 
 需要注意,要使用 9.22 版本的 lzma, 而不是 xz 中携带的 lzma, 在 Ubuntu 下可以直接安装 lzma, 在有些环境中没有原版的 lzma.
+
+## miwifi
+- https://miwifi.dev/ssh
+  计算 SSH 密码

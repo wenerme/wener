@@ -131,8 +131,12 @@ tags:
 
 ## 开发框架
 
-- remix
-- nextjs
+- React
+  - [remix](./framework/remix.md)
+  - [nextjs](./framework/nextjs.md)
+  - [rakkasjs/rakkasjs](https://github.com/rakkasjs/rakkasjs)
+    - 类似 NextJS
+    - 使用 Vite
 - nestjs
 - [inertiajs/inertia](https://github.com/inertiajs/inertia)
   - quickly build modern single-page React, Vue and Svelte apps
@@ -233,7 +237,13 @@ tags:
 ## Application
 
 - [MattKetmo/darkroomjs](https://github.com/MattKetmo/darkroomjs)
+  - MIT, JS
+  - 照片编辑器
+- [tldraw/tldraw](https://github.com/tldraw/tldraw)
+  - MIT, TS
+  - 制图
 - [hoppscotch/hoppscotch](https://github.com/hoppscotch/hoppscotch)
+- https://mynoise.net/
 
 ## Dev
 
@@ -261,6 +271,8 @@ tags:
   - history in one file
 - http://radio.garden/
 - https://webcode.tools/
+- https://github.com/mbrlabs/Lorien
+  - Infinite canvas drawing/whiteboarding app for Windows, Linux and macOS. Made with Godot
 
 ## Reference
 

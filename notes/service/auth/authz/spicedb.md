@@ -5,9 +5,13 @@ title: spicedb
 # spicedb
 
 - [authzed/spicedb](https://github.com/authzed/spicedb)
-- https://play.authzed.com/
-- 支持数据库: PostgreSQL, CockroachDB, Cloud Spanner, memdb
+  - 支持数据库: PostgreSQL, CockroachDB, Cloud Spanner, memdb
 - Authzed Cloud: < 1M 关系记录免费
+- 参考
+  - Playground https://play.authzed.com/
+  - [authzed/connector-postgresql](https://github.com/authzed/connector-postgresql)
+    - Import PostgreSQL foreign key relationships into SpiceDB
+  - [User Defined Roles](https://authzed.com/blog/user-defined-roles)
 
 ```
 document:specificdocument#reader@user:specificuser

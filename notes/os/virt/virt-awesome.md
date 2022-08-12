@@ -22,6 +22,12 @@ tags:
 - Qemu
 - Bochs
   - 2021年开发停滞
+- [box86](https://github.com/ptitSeb/box86)
+  - MIT, C
+  - Linux Userspace x86 Emulator with a twist, targeted at ARM Linux devices
+  - [Box86/Box64 vs QEMU vs FEX](https://box86.org/2022/03/box86-box64-vs-qemu-vs-fex-vs-rosetta2/)
+- [box64](https://github.com/ptitSeb/box64)
+- fex
 - [Emulator Comparison](https://wiki.osdev.org/Emulator_Comparison)
 
 ## Fun

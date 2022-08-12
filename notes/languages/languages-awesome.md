@@ -10,7 +10,9 @@ tags:
 
 - https://godbolt.org/
 - replit
-
+- [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
+  - Style and Grammar Checker for 25+ Languages
+  - https://languagetool.org/dev
 ## Languages
 
 - [carbon-language/carbon-lang](https://github.com/carbon-language/carbon-lang)
@@ -92,3 +94,7 @@ tags:
 - [drudru/ansi_up](https://github.com/drudru/ansi_up)
   - ANSI
 - [Hyperlinks (a.k.a. HTML-like anchors) in terminal emulators](https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda)
+
+## HowTo
+
+- [Lessons from Writing a Compiler](https://borretti.me/article/lessons-writing-compiler)

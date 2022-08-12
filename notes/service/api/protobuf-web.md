@@ -11,6 +11,16 @@ title: protobuf-web
   - .proto, JSON descriptors, reflectiom, custom class
   - https://protobufjs.github.io/protobuf.js/
 
+:::caution
+
+- protobufjs 生成的 JSON 缺少信息
+  - 无 comment
+  - option 只能记录 1 个
+    - 无法记录 repeated option
+  - 无法记录嵌套 option
+
+:::
+
 ## protobuf-es
 
 ```bash

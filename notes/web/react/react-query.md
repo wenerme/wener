@@ -89,6 +89,7 @@ const [unsubscribe, promise] = persistQueryClient({
 
 ## React Query v4
 
+- `@tanstack/react-query`
 - Keys 必须为数组
 - [Migrating to React Query 4](https://react-query-alpha.tanstack.com/guides/migrating-to-react-query-4)
 

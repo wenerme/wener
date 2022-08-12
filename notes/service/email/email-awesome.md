@@ -79,6 +79,11 @@ tags:
 - [List of mail server software](https://en.wikipedia.org/wiki/List_of_mail_server_software)
 
 ## Client
+## Templat
+
+- [sofn-xyz/mailing](https://github.com/sofn-xyz/mailing)
+  - MIT, TS
+  - Build, test, send emails with React
 
 ## Library
 

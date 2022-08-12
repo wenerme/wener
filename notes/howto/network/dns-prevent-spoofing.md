@@ -377,6 +377,7 @@ googlevideo.com
 google-analytics.com
 googletagmanager.com
 reddit.com
+redd.it
 ```
 
 更多受影响域名可参考 [googlehosts/hosts](https://github.com/googlehosts/hosts)，可摘选域名直接配置。

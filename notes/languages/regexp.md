@@ -61,3 +61,12 @@ const notThis = /^(?:(?!this).)*$/
 
 - https://github.com/XHXIAIEIN/split-string-address
 - https://github.com/GrapecityXian/PhoneCommand
+
+## JavaScript
+
+- `$$` -> `$`
+- `$&`
+- `$``
+- `$'`
+- `$<n>`
+- replacer(match,p1,p2,offset,wholeString,namedGroups)

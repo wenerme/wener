@@ -3,7 +3,19 @@ tags:
   - Design
 ---
 
-# gRPC API Design
+# API Design
+
+:::tip
+
+- grpc 内部默认 4mb buffer
+
+:::
+
+- Google Cloud API [常见设计模式](https://cloud.google.com/apis/design/design_patterns)
+  - `[start_xxx, end_xxx)`
+  - `map<string, string> labels`
+
+## gRPC API Design
 
 - 接口面向资源
 - 资源名字
@@ -184,3 +196,4 @@ message BatchCreateUsersResponse {
 ```
 
 - https://github.com/ent/contrib/blob/1faab982b6648b7704a6cf41ff65d9cb7811a2be/entproto/internal/todo/ent/proto/entpb/entpb.proto
+

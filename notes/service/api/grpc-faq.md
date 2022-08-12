@@ -37,6 +37,7 @@ tags:
 
 gRPC 实现依赖 HTTP Trailer 能力，类似 longpulling。
 
+- [Why Does gRPC Insist on Trailers?](https://carlmastrangelo.com/blog/why-does-grpc-insist-on-trailers)
 - [Headers/Trailer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Trailer)
 - fetch 不支持 trailer [fetch#981](https://github.com/whatwg/fetch/issues/981)
   - 因此 web 不支持直接使用 grpc

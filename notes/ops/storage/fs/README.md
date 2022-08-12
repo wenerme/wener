@@ -4,7 +4,6 @@ title: Filesystem
 
 # Filesystem
 
-## Tips
 
 - 在 Mac 下可通过虚拟机来格式化磁盘
 - 使用 [rufus](https://rufus.akeo.ie/) 制作 Windows 启动盘
@@ -52,6 +51,9 @@ title: Filesystem
   - [Comparison of file system](https://en.wikipedia.org/wiki/Comparison_of_file_systems)
   - [Which Linux File System Should You Use?](https://www.howtogeek.com/howto/33552/htg-explains-which-linux-file-system-should-you-choose/)
     - 如果不确定就用 EXT4
+- [mhx/dwarfs](https://github.com/mhx/dwarfs)
+  - fast high compression read-only file system
+  - [HN](https://news.ycombinator.com/item?id=32216275)
 
 | N/A             | Minix   | Ext             | Ext2  | Xia   |
 | --------------- | ------- | --------------- | ----- | ----- |

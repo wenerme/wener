@@ -118,7 +118,10 @@ npm add date-fns lodash-es react-fast-compare
     - 集成了 ACE 编辑器、Markdown 编辑器、DND
     - Search、Suggest、Expression 等查询组件功能强大
 - 其他风格
+  - [cloudscape-design/components](https://github.com/cloudscape-design/components)
+    - design system for the cloud
   - [mantinedev/mantine](https://github.com/mantinedev/mantine)
+    - emotion
   - [grommet/grommet](https://github.com/grommet/grommet)
   - [rebassjs/rebass](https://github.com/rebassjs/rebass)
     - 基于 theme-ui 和 styled-system 的基础组件
@@ -692,6 +695,9 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 有趣
 
+- [remotion-dev/remotion](https://github.com/remotion-dev/remotion)
+  - 非 OSS 协议
+  - Create videos programmatically in React
 - [lahmatiy/react-render-tracker](https://github.com/lahmatiy/react-render-tracker)
 - [pankod/refine](https://github.com/pankod/refine)
 - [Aristona/react-phaser-three-game](https://github.com/Aristona/react-phaser-three-game)

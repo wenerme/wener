@@ -27,6 +27,19 @@ title: Connect
 POST /<Package>.<Service>/<Method>
 ```
 
+## connect-web
+
+- [bufbuild/connect-web](https://github.com/bufbuild/connect-web)
+- @bufbuild/connect-web
+  - 16kB/5kB
+
+```bash
+npm install @bufbuild/protoc-gen-es @bufbuild/protoc-gen-connect-web
+
+PATH=$PATH:$(pwd)/node_modules/.bin
+
+```
+
 ## connect-go
 
 - [bufbuild/connect-go](https://github.com/bufbuild/connect-go)

@@ -79,6 +79,10 @@ tags:
 
 ## Awesomes
 
+- [derailed/popeye](https://github.com/derailed/popeye)
+  - cluster resource sanitizer
+- [google/gke-policy-automation](https://github.com/google/gke-policy-automation)
+  - Tool and policy library for reviewing Google Kubernetes Engine clusters against best practices
 - [siderolabs/talos](https://github.com/siderolabs/talos)
   - Linux distribution built for Kubernetes
 - [kubeboost/hostpath-multihost-provisioner](https://github.com/kubeboost/hostpath-multihost-provisioner)

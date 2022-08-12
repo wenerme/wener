@@ -152,6 +152,8 @@ tags:
 - Tools
   - [libvips/libvips](https://github.com/libvips/libvips)
     - fast image processing library
+    - [libvips/nip2](https://github.com/libvips/nip2)
+      - spreadsheet-like GUI for libvips
   - [lovell/sharp](https://github.com/lovell/sharp)
     - Node.js image processing
     - 底层基于 vips
@@ -228,6 +230,11 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 
 ## EBook
 
+:::tip
+
+- 书籍推荐 epub
+
+:::
 
 - cb? - Comic Book Archive file - 漫画
   - r - RAR
@@ -243,6 +250,8 @@ npx @squoosh/cli --wp2 '{"effort":5,"quality":100,"alpha_quality":95,"pass":1,"s
 
 ---
 
+- [Retirement of Amazon MOBI eBook file format](https://www.microsoftpressstore.com/promotions/142421)
+  - [HN](https://news.ycombinator.com/item?id=32421350)
 - [janeczku/calibre-web](https://github.com/janeczku/calibre-web)
 - [Comparison of e-book formats](https://en.wikipedia.org/wiki/Comparison_of_e-book_formats)
 

@@ -22,7 +22,16 @@ tags:
 
 ## DB
 
-- [sequelize/sequelize](https://github.com/sequelize/sequelize)
+| driver pkg   | db                   |
+| ------------ | -------------------- |
+| pg pg-hstore | PostgreSQL           |
+| mysql2       | MySQL                |
+| mariadb      | MariaDB              |
+| sqlite3      | SQLite               |
+| tedious      | Microsoft SQL Server |
+| ibm_db       | DB2                  |
+
+- [sequelize/sequelize](./sequelize.md)
   - ORM
   - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
   - 因为需要支持很多 DB 类型，丢失一定的特性
@@ -62,7 +71,17 @@ tags:
 
 - [timgit/pg-boss](https://github.com/timgit/pg-boss)
   - Node.js using PostgreSQL like a boss
-
+- [breejs/bree](https://github.com/breejs/bree)
+  - job scheduler
+- WebSocket
+  - [ws](https://github.com/websockets/ws)
+    - JS 实现
+    - isomorphic-ws 可用于 web
+  - [uWebSockets.js](https://github.com/uNetworking/uWebSockets.js)
+    - 基于 [uWebSockets](https://github.com/uNetworking/uWebSockets) C++ 库
+      - 基于 [uNetworking/uSockets](https://github.com/uNetworking/uSockets)
+    - 性能好
+    - 针对 Linux 优化
 ## Web
 
 - [fastify](./fastify.md)

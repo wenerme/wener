@@ -6,8 +6,8 @@ title: zalando/postgres-operator
 
 - [zalando/postgres-operator](https://github.com/zalando/postgres-operator)
   - MIT, Go
-  - Patroni - Streaming replication
-  - PITR - Spilo - pg_basebackup/WAL-E
+  - [Patroni](../../../db/relational/postgresql/patroni.md) - Streaming replication
+  - PITR - [Spilo](../../../db/relational/postgresql/spilo.md) - pg_basebackup/WAL-E
   - Preload - bg_mon, pg_stat_statements, pgextwlist, pg_auth_mon
   - Extensions - decoderbufs, hypopg, pg_cron, pg_partman, pg_stat_kcache, pgq, plpgsql_check, postgis, set_user, timescaledb
   - [文档](https://postgres-operator.readthedocs.io/en/latest/)

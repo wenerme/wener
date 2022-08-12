@@ -11,13 +11,18 @@ tags:
   - 开发者门户网站
   - 管理服务、基础设施、文档
   - 追踪组织生态系统中所有软件的所有权和元数据
+- [windmill-labs/windmill](https://github.com/windmill-labs/windmill)
+  - AGPLv3 - backend, frontend
+  - Apache-2.0 - client
+- [losfair/blueboat](https://github.com/losfair/blueboat)
+  - Apache-2.0, Rust
+  - multi-tenant serverless JavaScript runtime
+- [snipe/snipe-it](https://github.com/snipe/snipe-it)
+  - IT asset/license management system
 - [pimcore/pimcore](https://github.com/pimcore/pimcore)
   Data & Experience Management Platform
 - [zentralopensource/zentral](https://github.com/zentralopensource/zentral)
   infrastructure monitoring and endpoint event stream processing
-- [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
-  web conferencing system
-  - LGPLv3, JS,Java
 - [osnvr/os-nvr](https://gitlab.com/osnvr/os-nvr)
   lightweight extensible CCTV system
 - [CachetHQ/Cachet](https://github.com/CachetHQ/Cachet)
@@ -60,6 +65,16 @@ tags:
   - open-source alternative to Twilio
 - https://github.com/zmide/study.zmide.com
 - [reviewdog/reviewdog](https://github.com/reviewdog/reviewdog)
+- file transfer
+  - [schollz/croc](https://github.com/schollz/croc)
+    - MIT, Go
+    - 命令行
+- conferencing
+  - [gjovanov/roomler](https://github.com/gjovanov/roomler)
+    - Janus Gateway
+  - [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
+    web conferencing system
+    - LGPLv3, JS,Java
 - editor & ide
   - [opensumi/core](https://github.com/opensumi/core)
     - by Alibaba
@@ -293,6 +308,11 @@ tags:
 - Dashlane
 - LastPass
 - [bitwarden](./selfhost/bitwarden.md)
+- [padloc/padloc](https://github.com/padloc/padloc)
+  - AGPLv3, JS+TS
+- [cloudflare/gokey](https://github.com/cloudflare/gokey)
+  - BSD-3, Go
+  - Master key 衍生所有其他 key
 - Linux
   - GNOME Keyring
   - KWallet - KDE Wallet

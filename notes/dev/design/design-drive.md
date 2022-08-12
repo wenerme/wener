@@ -68,6 +68,55 @@ date: 2021-11-30
 - 围绕服务展开
   - 现有服务提供的能力进行封装
 
+## S3 API
+
+- [Amazon S3 REST API Introduction](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
+- Actions
+  - {Copy,Get,Delete,Put,Restore,List}Object
+    - Acl
+    - Attributes
+    - LegalHold
+    - LockConfiguration
+    - Retention
+    - Tagging
+    - Torrent
+    -
+  - {Create,Delete,Head,Get,List}Bucket
+    - Acl
+    - Policy
+    - Cors
+    - Encruption
+    - Lifecycle
+    - Replication
+    - Tagging
+    - Website
+    - 少用
+      - LifecycleConfiguration
+      - Location
+      - NotificationConfiguration
+      - Logging
+      - Versioning
+      - RequestPayment
+      - Notification
+      - PolicyStatus
+      - AnalyticsConfiguration
+      - IntelligentTieringConfiguration
+      - InventoryConfiguration
+      - MetricsConfiguration
+      - OwnershipControls
+      - AccelerateConfiguration
+  - {Abort,Complete,Create,List}MultipartUpload
+  - GetPublicAccessBlock
+  - ListParts
+  - SelectObjectContent
+  - UploadPart
+  - UploadPartCopy
+  - WriteGetObjectResponse
+- Amazon S3 Control Actions
+  - {Create,Delete,Get,List}AccessPoint
+  - {Create,Describe,List}Job
+    - Tagging
+
 # 实现方案分析
 
 ## local
@@ -254,5 +303,8 @@ struct inode_operations {
 };
 ```
 
-## share
+- create - 创建一个新的磁盘索引节点
+- lookup - 查找索引节点所在的目录
+- unlink - 从 dir 目录删除 dentry 目录项所指文件的硬链接
 
+## share

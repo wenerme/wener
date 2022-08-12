@@ -53,6 +53,12 @@ title: QEMU
   - https://wiki.qemu.org/Features/CPUModels
   - [machine](https://remimin.github.io/2019/07/09/qemu_machine_type)
 
+:::tip
+
+- QEMU 主要用于同架构，TCG 模拟非常慢，以准确为主
+
+:::
+
 ```bash
 # Mac 安装
 brew install qemu

@@ -24,6 +24,14 @@ title: 耻辱墙
 
 ## 平台
 
+:::caution
+
+- 国内视频网站的 1080P 都很垃圾
+
+:::
+
+- bilibili.com
+  - 8K 9Mpbs
 - 爱奇艺 - iqiyi.com
   - 1080P，画质出奇垃圾，特别是偏暗场景
 - 优酷 - youku.com

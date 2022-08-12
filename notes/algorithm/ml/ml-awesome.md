@@ -145,6 +145,18 @@ tags:
 - [iperov/DeepFaceLive](https://github.com/iperov/DeepFaceLive)
 - [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN)
   - Real-world Face Restoration
+- [google-research/multinerf](https://github.com/google-research/multinerf)
+  - Mip-NeRF 360, Ref-NeRF, and RawNeRF
+- [Running your own A.I. Image Generator with Latent-Diffusion](https://reticulated.net/dailyai/running-your-own-ai-image-generator-with-latent-diffusion/)
+  - [HN](https://news.ycombinator.com/item?id=32384646)
+- [Anjok07/ultimatevocalremovergui](https://github.com/Anjok07/ultimatevocalremovergui)
+  - 移除人声
+- [NVIDIAGameWorks/kaolin-wisp](https://github.com/NVIDIAGameWorks/kaolin-wisp)
+  - PyTorch library powered by NVIDIA Kaolin Core to work with neural fields
+  - NeRFs, NGLOD, instant-ngp and VQAD
+- [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- [nnaisense/evotorch](https://github.com/nnaisense/evotorch)
+- [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)
@@ -170,6 +182,8 @@ tags:
 **Books**
 
 - [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html)
+- An Introduction to Applied Bayesian Modeling https://www.bayesrulesbook.com/
+  - https://xianblog.wordpress.com/2022/07/05/bayes-rules-book-review/
 
 ---
 
@@ -254,6 +268,10 @@ tags:
   - ThunderGBM
   - LightGBM
   - CatBoost
+- Web
+  - [BrainJS/brain.js](https://github.com/BrainJS/brain.js)
+    - MIT, TS
+    - GPU accelerated Neural networks in JavaScript for Browsers and Node.js
 
 ---
 

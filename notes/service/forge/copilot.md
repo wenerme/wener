@@ -7,6 +7,9 @@ title: Copilot
 - https://github.com/features/copilot
   - $10/月, $100/年
   - 支持 Python, JavaScript, TypeScript, Go, Ruby
+- 参考
+  - [moyix/fauxpilot](https://github.com/moyix/fauxpilot)
+    - open-source GitHub Copilot server
 
 ## IDEA Shortcut
 

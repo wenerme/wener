@@ -11,6 +11,10 @@ title: Notion
   - https://www.notion.so/blog/faster-page-load-navigation
   - [notion-enhancer](https://github.com/notion-enhancer)
 - 类似开源项目
+  - [toeverything/AFFiNE](https://github.com/toeverything/AFFiNE)
+    - MIT, TS
+  - [Dashibase/lotion](https://github.com/Dashibase/lotion)
+    - GPLv3, Vue
   - https://editorjs.io/
   - https://www.slatejs.org/
   - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)

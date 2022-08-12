@@ -42,6 +42,11 @@ tags:
   - BSD, ObjC
   - 尝试兼容 macOS 并提供相同的体验
 - [SerenityOS/serenity](https://github.com/SerenityOS/serenity)
+  - Graphical Unix-like operating system for x86 computers
+- [bottlerocket-os/bottlerocket](https://github.com/bottlerocket-os/bottlerocket)
+  - designed for hosting containers
+- [siderolabs/talos](https://github.com/siderolabs/talos)
+  - Linux distribution built for Kubernetes
 
 ---
 
@@ -160,6 +165,10 @@ tags:
   - Java 6502
 - NES 64 – Commodore 64 Kernal and Basic ROMs Ported to the NES
   - [HN](https://news.ycombinator.com/item?id=30351755)
+- Playstation
+  - [nkanaev/tipsy](https://github.com/nkanaev/tipsy)
+    - PS1-like software renderer
+    - ~500 lines of C99
 
 ## 开发
 

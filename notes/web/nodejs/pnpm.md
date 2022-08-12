@@ -299,6 +299,17 @@ EXPOSE 8080
 CMD [ "node", "server.js" ]
 ```
 
+## Typescript FAQ
+
+主要是 pnpm symlink 引起问题
+
+
+### Type error: The inferred type of 'trpc' cannot be named without a reference to 'react-query'. This is likely not portable. A type annotation is necessary.
+
+- https://github.com/microsoft/TypeScript/issues/29808
+- https://github.com/microsoft/TypeScript/issues/42873
+- https://github.com/microsoft/TypeScript/issues/47663
+
 # FAQ
 
 ## ERR_PNPM_MODIFIED_DEPENDENCY  Packages in the store have been mutated

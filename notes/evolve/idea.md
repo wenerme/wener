@@ -4,6 +4,9 @@ title: Ideas
 
 # Ideas
 
+- Clash 支持日志到 DB
+- Nebula Mobile 支持中心化配置
+
 ## Web3
 
 - 婚姻登记

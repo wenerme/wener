@@ -16,6 +16,7 @@ title: ajv
       - transform 允许验证时修改字符串内容
     - array: uniqueItemProperties
     - object: allRequired, anyRequired, oneRequired, patternRequired, prohibited, deepProperties, deepRequired
+  - https://ajv.js.org/json-schema.html
 
 ```bash
 npm add ajv ajv-formats ajv-keywords ajv-errors

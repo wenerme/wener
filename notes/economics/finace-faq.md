@@ -7,6 +7,11 @@ tags:
 
 - 货币政策 主导 权
 
+## Financial Crime
+
+- [Books to read to understand financial crime](https://www.economist.com/the-economist-reads/2022/07/11/the-best-books-to-read-to-understand-financial-crime)
+  - [HN](https://news.ycombinator.com/item?id=32091288)
+
 ## 选择成本
 
 既可以，又可以，也可以，还可以。

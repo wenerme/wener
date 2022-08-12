@@ -20,6 +20,7 @@ title: Intellij IDEA
 
 - [devkanro/intellij-protobuf-plugin](https://github.com/devkanro/intellij-protobuf-plugin)
   比官方 pb 插件功能更多
+- 官方 gRPC 插件 [16889-grpc](https://plugins.jetbrains.com/plugin/16889-grpc)
 - [JetBrains/intellij-plugins](https://github.com/JetBrains/intellij-plugins)
   - 官方内置插件源码
 
@@ -35,7 +36,7 @@ title: Intellij IDEA
 | \U     | 大写直到 \E 或 替换结束 |
 | \E     | \U, \L 结束标志         |
 
-- https://www.jetbrains.com/idea/help/regular-expression-syntax-reference.html
+- https://www.jetbrains.com/help/idea/regular-expression-syntax-reference.html
 
 ## 实现自定义语言插件
 

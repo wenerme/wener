@@ -20,6 +20,8 @@ tags:
 - [Make Beautiful Gradients](https://www.joshwcomeau.com/css/make-beautiful-gradients/)
   - 使用 HSL 做渐变，不要用 RGB
   - [Gradient Generator](https://www.joshwcomeau.com/gradient-generator/)
+- https://6pen.art/
+  - 基于 AI 技术，从文本描述生成绘画艺术作品
 
 ## Reference
 
@@ -60,6 +62,10 @@ tags:
 
 ## Design System
 
+- https://designsystem.digital.gov/
+  - U.S. Web Design System (USWDS)
+  - [uswds/uswds](https://github.com/uswds/uswds)
+    - React
 - macOS [human-interface-guidelines](https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/)
 - [connors/photon](https://github.com/connors/photon)
 

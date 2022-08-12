@@ -139,16 +139,16 @@ title: ESM
 ```bash
 for i in $(seq 3); do
 
-rm bench-*.txt
-for i in $(seq 10); do
-  curl -o /dev/null -s -w "%{time_total}\n" https://cdn.skypack.dev/react@17 >> bench-a.txt
-  curl -o /dev/null -s -w "%{time_total}\n" https://cdn.jsdelivr.net/npm/react@17/+esm >> bench-b.txt
-  curl -o /dev/null -s -w "%{time_total}\n" https://esm.sh/react@17 >> bench-c.txt
-done
-for i in bench-*.txt; do
-  echo $i
-  awk '{ total += $1; count++ } END { print total/count }' $i
-done
+  rm bench-*.txt
+  for i in $(seq 10); do
+    curl -o /dev/null -s -w "%{time_total}\n" https://cdn.skypack.dev/react@17 >> bench-a.txt
+    curl -o /dev/null -s -w "%{time_total}\n" https://cdn.jsdelivr.net/npm/react@17/+esm >> bench-b.txt
+    curl -o /dev/null -s -w "%{time_total}\n" https://esm.sh/react@17 >> bench-c.txt
+  done
+  for i in bench-*.txt; do
+    echo $i
+    awk '{ total += $1; count++ } END { print total/count }' $i
+  done
 
 done
 ```
@@ -167,7 +167,7 @@ import React from 'https://esm.sh/react@17';
 // 非模块文件
 import 'https://esm.sh/tailwindcss/dist/tailwind.min.css';
 // bundle 模式
-import { Button } from 'https://esm.sh/antd?bundle';
+import {Button} from 'https://esm.sh/antd?bundle';
 // 开发模式
 import React from 'https://esm.sh/react?dev';
 // 依赖控制
@@ -180,4 +180,14 @@ import React from 'https://esm.sh/react?target=es2020';
 // WebWorker
 import editorWorker from '/monaco-editor/esm/vs/editor/editor.worker?worker';
 const worker = new editorWorker();
+```
+
+# FAQ
+
+## \_\_dirname is not defined in ES module scope
+
+```js
+import * as url from 'url';
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 ```

@@ -99,6 +99,10 @@ tags:
   - 聚合其他搜索引擎
 - [beir-cellar/beir](https://github.com/beir-cellar/beir)
   - Heterogeneous Benchmark for Information Retrieval
+- Web
+  - [nearform/lyra](https://github.com/nearform/lyra)
+    - @nearform/lyra
+    - in-memory, typo-tolerant, full-text search engine
 
 ## Lcoal Search
 
@@ -123,6 +127,9 @@ tags:
       - [couchbase/vellum](https://github.com/couchbase/vellum)
 - [BurntSushi/fst](https://github.com/BurntSushi/fst)
   - Rust
+- Extract
+  - [ndaidong/article-parser](https://github.com/ndaidong/article-parser)
+    - https://demos.pwshub.com/article-parser
 
 ## Tech
 

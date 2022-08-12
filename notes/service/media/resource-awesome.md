@@ -21,8 +21,10 @@ tags:
   - https://oiipdf.com/
 - https://graph.org/documentaryList-09-11
 - https://torlook.info
-- https://www.alipansou.com/
-  - https://pan.alipanso.com/
+- 网盘聚合搜索
+  - https://jujuso.com/
+  - https://www.alipansou.com/
+    - https://pan.alipanso.com/
 
 ---
 

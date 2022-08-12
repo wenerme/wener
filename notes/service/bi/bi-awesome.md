@@ -31,6 +31,8 @@ tags:
 
 ## Analytical
 
+- [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core)
+  - Apache-2.0, Python
 - [cube-js/cube.js](https://github.com/cube-js/cube.js)
   - Client Apache-2.0 TS, Backend MIT, Rust
 

@@ -44,6 +44,7 @@ title: ClickHouse
 - 当数据量较少(< 1TB)时不建议使用
 - 插入操作非常快 - 因为是异步的，后台会处理
 - keep non-timeseries data out of clickhouse
+- dynamic subcolumns - JSON
 
 :::
 

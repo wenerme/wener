@@ -6,9 +6,11 @@ title: JSON Schema
 
 - [json-schema-org/json-schema-spec](https://github.com/json-schema-org/json-schema-spec)
 - 参考
+  - [SchemaStore/schemastore](https://github.com/SchemaStore/schemastore)
   - [Understanding JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
   - proptypes-to-json-schema
     - React propTypes -> JSON Schema
+  - https://ajv.js.org/guide/schema-language.html
 
 :::tip
 
@@ -16,7 +18,6 @@ title: JSON Schema
 - enum 通过数组定义，无法指定 title `[1,2,3]` - 可以使用 oneOf
 
 :::
-
 
 - js 推荐使用 ajv 校验
 
@@ -34,22 +35,68 @@ title: JSON Schema
 
 ## 版本
 
-- 2020-12 - https://json-schema.org/draft/2020-12 - 不兼容 draft-07
+- 2020-12 - https://json-schema.org/draft/2020-12/schema - 不兼容 draft-07
   - prefixItems
   - $recursiveRef,$recursiveAnchor -> $dynamicRef,$dynamicAnchor
   - contains+unevaluatedItems 行为变化
   - application/schema+json, application/schema-instance+json
   - 使用 $defs 来 bundle schema
   - [JSON Schema 2020-12 Release Notes](https://json-schema.org/draft/2020-12/release-notes.html)
-- draft-07 - 2019-09
+- 2019-09
+- draft-07 - https://json-schema.org/draft-07/schema
   - $recursiveRef/$recursiveAnchor, unevaluatedProperties/unevaluatedItems
 - draft-06
 - draft-04
 
 ## 类型
 
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "Product",
+  "description": "A product in the catalog",
+  "type": "object",
+  "properties": {
+    "uints": {
+      "type": "array",
+      "items": {
+        // 相对引用
+        "$ref": "#/$defs/positiveInteger"
+      }
+    },
+
+    "objs": {
+      "type": "array",
+      "items": {
+        // 绝对引用
+        "$id": "https://example.com/bar",
+        "additionalProperties": {}
+      }
+    },
+    // null or string
+    "nullable": {"type": ["string", "null"]}
+  },
+  "required": [],
+  "$defs": {
+    "positiveInteger": {
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "single": {
+      "$anchor": "item",
+      "type": "object",
+      "additionalProperties": {"$ref": "other.json"}
+    }
+  },
+  "$comment": ""
+}
+```
+
 - number
-  - 格式 float, double
+  - format
+    - float
+    - double
   - 校验
     - minimum
     - maximum
@@ -57,7 +104,9 @@ title: JSON Schema
     - exclusiveMaximum
     - multipleOf
 - integer
-  - 格式 int32, int64
+  - format
+    - int32
+    - int64
 - string
   - 基础
     - email
@@ -91,3 +140,31 @@ title: JSON Schema
   - 属性修饰
     - readOnly
     - writeOnly
+
+# FAQ
+
+## JSON Schema vs JSON Type Definition
+
+- JSON Schema
+  - 优点
+    - 使用广
+    - OpenAPI 采用
+    - 支持复杂校验逻辑
+    - 定义限制而非类型结构
+  - 缺点
+    - 实现复杂
+    - 非 RFC，标准处于 draft 状态
+- JSON Type Definition
+  - 优点
+    - 定义类型
+    - 简单
+    - 实现简单
+    - RFC8927
+  - 缺点
+    - 不支持引用
+    - 无 meta-schema
+    - 新标准 - 2021-01
+
+---
+
+- https://ajv.js.org/guide/schema-language.html

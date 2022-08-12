@@ -30,21 +30,25 @@ getconf PAGE_SIZE
 echo $(($(sysctl -n /sys/kernel/mm/ksm/pages_sharing) - $(sysctl -n /sys/kernel/mm/ksm/pages_shared)))
 # 节省内存
 # numfmt 由 coreutils 提供
-echo $(( ($(cat /sys/kernel/mm/ksm/pages_sharing) - $(cat /sys/kernel/mm/ksm/pages_shared)) * $(getconf PAGE_SIZE) )) | numfmt --to=iec-i
+echo $((($(cat /sys/kernel/mm/ksm/pages_sharing) - $(cat /sys/kernel/mm/ksm/pages_shared)) * $(getconf PAGE_SIZE))) | numfmt --to=iec-i
 
-echo $(( $(cat /sys/kernel/mm/ksm/pages_sharing) * $(getconf PAGE_SIZE) )) | numfmt --to=iec-i
-echo $(( $(cat /sys/kernel/mm/ksm/pages_volatile) * $(getconf PAGE_SIZE) )) | numfmt --to=iec-i
-echo $(( $(cat /sys/kernel/mm/ksm/pages_unshared) * $(getconf PAGE_SIZE) )) | numfmt --to=iec-i
+echo $(($(cat /sys/kernel/mm/ksm/pages_sharing) * $(getconf PAGE_SIZE))) | numfmt --to=iec-i
+echo $(($(cat /sys/kernel/mm/ksm/pages_volatile) * $(getconf PAGE_SIZE))) | numfmt --to=iec-i
+echo $(($(cat /sys/kernel/mm/ksm/pages_unshared) * $(getconf PAGE_SIZE))) | numfmt --to=iec-i
 ```
 
-| item           | desc                     |
-| -------------- | ------------------------ |
-| pages_shared   | 合并后页                 |
-| pages_sharing  | 实际页                   |
-| pages_unshared | 未能合并页               |
-| pages_volatile | 变化太快未能放到树中跟踪 |
-| full_scans     | 所有可合并区域扫描次数   |
+| item             | desc                                        | default |
+| ---------------- | ------------------------------------------- | ------- |
+| pages_shared     | 合并后页                                    |
+| pages_sharing    | 实际页                                      |
+| pages_unshared   | 未能合并页                                  |
+| pages_volatile   | 变化太快未能放到树中跟踪                    |
+| full_scans       | 全扫描次数                                  |
+| max_page_sharing | 最多共享次数                                | 256     |
+| pages_to_scan    | 一次 sleep 扫描多少页                       | 100     |
+| sleep_millisecs  | 扫描间隔                                    | 20      |
+| run              | 0 stop keep merged, 1 run, 2 stop & unmerge |
 
-* pages_sharing 高意味着效果较好
-* pages_unshared 高意味着效果不好 - 可考虑关闭
-* max_page_sharing 限制了最多可共享页 - 可调整
+- pages_sharing 高意味着效果较好
+- pages_unshared 高意味着效果不好 - 可考虑关闭
+- max_page_sharing 限制了最多可共享页 - 可调整

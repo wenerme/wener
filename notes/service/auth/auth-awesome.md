@@ -37,22 +37,43 @@ tags:
 
 ## Authorization
 
-- casbin
-- [osohq/oso](https://github.com/osohq/oso)
-  - Apache-2.0, Rust+Python
+- [casbin](./authz/casbin.md)
 - [ory/oathkeeper](https://github.com/ory/oathkeeper)
   - Identity & Access Proxy
+- [osohq/oso](https://github.com/osohq/oso)
+  - Apache-2.0, Rust+Python
+  - 引擎开源/Policy - Rust 实现
+    - 语言库: Node.js, Python, Go, Rust, Ruby, Java
+  - 商业化服务平台
+  - 参考
+    - https://www.osohq.com/academy
 
 **Zanzibar**
 
-- [authzed/spicedb](https://github.com/authzed/spicedb)
+- [authzed/spicedb](./authz/spicedb.md)
+  - Apache-2.0, Go
+  - AuthZ as a Service
+  - gRPC API+REST
+  - 支持 pg, mysql, cockroachdb, [hashicorp/go-memdb](https://github.com/hashicorp/go-memdb)
   - [HN](https://news.ycombinator.com/item?id=28709886)
-- [josephglanville/zanzibar-pg](https://github.com/josephglanville/zanzibar-pg)
-- [authorizer-tech/access-controller](https://github.com/authorizer-tech/access-controller)
+- [Permify/permify](https://github.com/Permify/permify)
+  - Apache-2.0, Go
+  - 通过 CDC 同步信息
+  - [why-decouple-authorizations](https://www.permify.co/post/why-decouple-authorizations)
+- [openfga/openfga](https://github.com/openfga/openfga)
+  - Apache-2.0, Go
+  - by Auth0 FGA
+    - https://dashboard.fga.dev/
 - [ory/keto](https://github.com/ory/keto)
   - Apache-2.0, Go
+- [josephglanville/zanzibar-pg](https://github.com/josephglanville/zanzibar-pg)
+- [authorizer-tech/access-controller](https://github.com/authorizer-tech/access-controller)
 - 参考
+  - RBAC - 角色固定
+  - ReBAC - 基于关系
+  - ABAC - 基于熟悉，任意属性
   - [What is Zanzibar?](https://authzed.com/blog/what-is-zanzibar/)
+  - https://www.osohq.com/learn/google-zanzibar
 
 ## IAM
 

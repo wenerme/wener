@@ -45,6 +45,7 @@ tags:
 
 ## Read
 
+- [facundoolano/software-papers](https://github.com/facundoolano/software-papers)
 - [Chronofold: a data structure for versioned text](https://arxiv.org/abs/2002.09511)
 - [Principles of Distributed Computing](https://disco.ethz.ch/courses/podc_allstars/)
 - https://martinfowler.com/articles/patterns-of-distributed-systems/
@@ -157,6 +158,7 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 
 ## Jobs
 
+- https://github.com/Nithur-M/work-from-anywhere
 - https://cofounderslab.com/
 - https://www.jobsdb.com/
 - Frelance

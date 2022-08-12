@@ -157,6 +157,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - https://news.ycombinator.com/item?id=32199468
 - [SadeghHayeri/GreenTunnel](https://github.com/SadeghHayeri/GreenTunnel)
 - [comwrg/FUCK-GFW](https://github.com/comwrg/FUCK-GFW)
+- https://github.com/haoel/haoel.github.io
 
 ## 线路
 
@@ -200,6 +201,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
     - google maps
     - profile
   - https://developers.google.com/maps/gmp-domains
+- TG - AS62041 - https://core.telegram.org/resources/cidr.txt - https://ipinfo.io/AS62041
+  - 91.108.56.0/22
+    - 91.108.56.150
 - nintendo
   - app.lp1.five.nintendo.net
   - atum.hac.lp1.d4c.nintendo.net - 主要下载 CDN
@@ -218,6 +222,12 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - 香港 DNS:
     - 208.67.222.222
     - 208.67.220.220
+
+## Domains
+
+- min-api.cryptocompare.com
+- webpkgcache.com
+- gas-api.metaswap.codefi.network
 
 ## ADGuard
 

@@ -31,16 +31,3 @@ title: patroni
 - 没有 mysql_fdw 扩展
 
 :::
-
-## spilo
-
-- [zalando/spilo](https://github.com/zalando/spilo)
-  HA PostgreSQL cluster using Docker
-- 环境变量 [ENVIRONMENT](https://github.com/zalando/spilo/blob/master/ENVIRONMENT.rst)
-- patronictl
-- /scripts
-
-```bash
-patronictl list
-patronictl show-config
-```

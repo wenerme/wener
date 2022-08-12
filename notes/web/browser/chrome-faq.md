@@ -7,6 +7,7 @@ title: Chrome FAQ
 ## 离线安装下载
 
 - https://www.google.com/intl/en/chrome/?standalone=1
+- https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1
 
 ```
 # ChromeStandaloneSetup64.exe
@@ -15,6 +16,19 @@ title: Chrome FAQ
 # googlechrome.dmg
 curl -LOJC- https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 ```
+
+- https://dl.google.com/mac/install/googlesoftwareupdate.dmg
+
+## 自动更新域名
+
+- tools.google.com
+- dl.google.com
+- update.googleapis.com
+- https://dl.google.com/mac/install/googlesoftwareupdate.dmg
+
+## KSServerUpdateRequest fetch failed. The request timed out.
+
+macOS 自动更新失败
 
 ## 证书错误继续访问
 

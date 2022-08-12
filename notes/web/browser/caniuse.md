@@ -14,6 +14,8 @@ title: 浏览器兼容
   - [@abraham/reflection](https://github.com/abraham/reflection)
   - [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
   - Spec https://rbuckton.github.io/reflect-metadata/
+- $input.showPicker - Chrome 99+, Safari 16+
+  - https://developer.chrome.com/blog/show-picker/
 
 ---
 

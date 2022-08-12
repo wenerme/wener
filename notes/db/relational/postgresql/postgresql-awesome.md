@@ -6,7 +6,20 @@ tags:
 
 # PostgreSQL Awesome
 
-- [orioledb/orioledb](https://github.com/orioledb/orioledb)
+**扩展插件功能**
+
+1. 数据功能 - 数据类型、操作类型、索引类型
+1. 服务功能 - 集群、cron、存储引擎
+1. 查询能力 - 图、流、GIS
+1. 集成功能 - Redis、ES
+1. 语言功能 - JS、Lua、Java
+
+---
+
+- [neondatabase/neon](https://github.com/neondatabase/neon)
+  - Apache-2.0, Rust
+  - Serverless Postgres
+- [orioledb/orioledb](./orioledb.md)
   - storage engine
   - [slide](https://www.slideshare.net/AlexanderKorotkov/solving-postgresql-wicked-problems)
   - [HN](https://news.ycombinator.com/item?id=30462695)
@@ -15,15 +28,6 @@ tags:
   - Apache-2.0
   - 国产
   - Battery-Included Distribution for PostgreSQL
-
-| pg                          | oriole                                              |
-| --------------------------- | --------------------------------------------------- |
-| Block-level WAL             | Row-level WAL                                       |
-| Buffer mapping              | Direct page links                                   |
-| Buffer locking              | Lock-less access                                    |
-| Bloat-prone MVCC            | Undo log                                            |
-| Block-level WAL replication | Raft-based multimaster replication of row-level WAL |
-
 - [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
   - 实时增量固化查询
 - Superbase
@@ -57,6 +61,8 @@ tags:
 - [knizhnik/imcs](https://github.com/knizhnik/imcs)
   - In-Memory Columnar Store
   - OLAP
+- [heterodb/pg-strom](https://github.com/heterodb/pg-strom)
+  - accelerate mostly batch and analytics workloads with utilization of GPU and NVME-SSD
 
 ## PL
 
@@ -82,9 +88,11 @@ tags:
 ## 工具
 
 - https://pgmodeler.io/
-- [ankane/pghero](https://github.com/ankane/pghero)
-- [ankane/dexter](https://github.com/ankane/dexter)
-- [ankane/pgslice](https://github.com/ankane/pgslice)
+- ankane
+  - [ankane/pghero](https://github.com/ankane/pghero)
+  - [ankane/dexter](https://github.com/ankane/dexter)
+    - automatic indexer
+  - [ankane/pgslice](https://github.com/ankane/pgslice)
 - [keithf4/pg_bloat_check](https://github.com/keithf4/pg_bloat_check)
 - WAL
   - [wal-g/wal-g](https://github.com/wal-g/wal-g)

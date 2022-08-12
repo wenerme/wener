@@ -6,9 +6,34 @@ tags:
 
 # Web FAQ
 
+## Headers
+
+- X-Response-Time
+  - 单位 ms
+- X-Powered-By
+- X-AspNet-Version
+- X-Frame-Options
+- Server-Timing
+- X-API-Key
+
 ## trailing slash
 
 - [slorber/trailing-slash-guide](https://github.com/slorber/trailing-slash-guide)
+
+## Content SecurityPolicy
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
+```
+
+- `default-src 'self'; script-src 'none'; sandbox;`
+- Mitigating cross-site scripting
+- Mitigating packet sniffing attacks
+- XSS
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+- https://content-security-policy.com/
+- Content-Security-Policy
+  - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
 ## web worker vs serviceWorker vs worklet
 

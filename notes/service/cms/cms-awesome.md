@@ -93,6 +93,8 @@ title: CMS Awesome
 - [prevwong/craft.js](https://github.com/prevwong/craft.js)
   - React
   - Page Builder - 类似于 Dreamweaver 效果
+- [JustinBeckwith/linkinator](https://github.com/JustinBeckwith/linkinator)
+  - 检测坏链
 
 ## Knowledge Base
 

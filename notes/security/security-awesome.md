@@ -14,6 +14,15 @@ tags:
 - [SentryPeer/SentryPeer](https://github.com/SentryPeer/SentryPeer)
   - peer to peer list of bad actor IP addresses and phone numbers collected via a SIP Honeypot
 
+## Service
+
+- [smicallef/spiderfoot](https://github.com/smicallef/spiderfoot)
+  - MIT, Python
+  - automates OSINT for threat intelligence and mapping your attack surface
+  - [OSINT] - Open-source intelligence
+
+[OSINT]: https://en.wikipedia.org/wiki/Open-source_intelligence
+
 ## Library
 
 - [google/tink](https://github.com/google/tink)
@@ -23,6 +32,8 @@ tags:
   - portable, easy to use crypto library
 - [NaCl](https://nacl.cr.yp.to/) - Networking and Cryptography library
   - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
+- [google/paranoid_crypto](https://github.com/google/paranoid_crypto)
+  - checks for well known weaknesses on cryptographic
 - 参考
   - [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
 
@@ -97,6 +108,8 @@ tags:
 - [Ex0dIa-dev/ssh-honeypot-go](https://github.com/Ex0dIa-dev/ssh-honeypot-go)
 - [sairson/Yasso](https://github.com/sairson/Yasso)
 - [geemion/Khepri](https://github.com/geemion/Khepri)
+- [carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng)
+  - PEASS - Privilege Escalation Awesome Scripts SUITE
 
 ## Reference
 
