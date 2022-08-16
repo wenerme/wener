@@ -55,6 +55,12 @@ tags:
 * scss
   - long shadow http://codepen.io/danieltott/pen/AjKay
 
+---
+
+- System
+  - [codedgar/Puppertino](https://github.com/codedgar/Puppertino)
+    - based on Human Guidelines from apple
+
 ## Tricks
 
 - [Orientation Lock](https://css-tricks.com/snippets/css/orientation-lock/)

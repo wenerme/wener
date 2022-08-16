@@ -32,6 +32,9 @@ title: 正则表达式
   - https://www.regular-expressions.info/
   - Tempered Greedy Token
     https://stackoverflow.com/a/37343088/1870054
+  - https://benhoyt.com/writings/rob-pike-regex/
+    Rob Pike’s simple C regex matcher in Go
+    - [HN](https://news.ycombinator.com/item?id=32434412)
 
 [pcre2]: https://github.com/PhilipHazel/pcre2
 
@@ -53,11 +56,14 @@ const emailW3c =
 
 ```js
 // 反匹配 - 除了给的不匹配其他都匹配
-const notThis = /^(?:(?!this).)*$/
+const notThis = /^(?:(?!this).)*$/;
 // py, java ^(.(?!(some text)))*$
 // pcre ^(?:(?!abc|xyz).)*$
 ```
 
+| type         | regex                                          | e.g.                 |
+| ------------ | ---------------------------------------------- | -------------------- |
+| phone-number | `^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$` | `+(123) - 456-78-90` |
 
 - https://github.com/XHXIAIEIN/split-string-address
 - https://github.com/GrapecityXian/PhoneCommand

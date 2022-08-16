@@ -13,6 +13,9 @@ title: grpc web
 - [improbable-eng/grpc-web](https://github.com/improbable-eng/grpc-web)
   - 直接使用 go 作为代理
   - 支持 unary 和 server stream
+  - [nice-grpc-web](https://github.com/deeplay-io/nice-grpc/tree/master/packages/nice-grpc-web)
+    - 基于 @improbable-eng/grpc-web
+    - 接口更加友好
 - kong [grpc-web](https://docs.konghq.com/hub/kong-inc/grpc-web/) 插件
   - 如果没有原始 proto 只能支持二进制编码
     - `application/grpw-web+proto`

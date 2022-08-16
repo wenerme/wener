@@ -35,12 +35,19 @@ title: fastify
 
 - fastify
   - ajv - 验证
+    - [fastify/ajv-compiler](https://github.com/fastify/ajv-compiler)
+      - 避免直接依赖 ajv
   - pino - 日志
+    - [jsumners/abstract-logging](https://github.com/jsumners/abstract-logging)
+      - 可动态开关
   - avvio - 依赖调度顺序
   - find-my-way - 路由
   - light-my-request
   - secure-json-parse - JSON 解析
   - fast-json-stringify - JSON 序列化
+    - 更快 - 2x faster than JSON.stringify()
+    - 利用 schema 信息生成 stringify
+    - [@fastify/fast-json-stringify-compiler](https://github.com/fastify/fast-json-stringify-compiler)
   - rfdc - Really Fast Deep Clone
 - [Core Plugins](https://www.fastify.io/ecosystem/#Core%20Plugins)
   - cookie, cors, compress, caching, rate-limit, helmet, etag
@@ -89,6 +96,11 @@ title: fastify
   - [ioredis](https://github.com/luin/ioredis)
 - @fastify/postgres
 - [@fastify/auth](https://github.com/fastify/fastify-auth)
+  - 提供 auth 相关 hook
+  - 支持多种 auth 逻辑
+- [@fastify/jwt](https://github.com/fastify/fastify-jwt)
+  - jwt 验证和签名
+  - fast-jwt
 - [@fastify/error](https://github.com/fastify/fastify-error)
   - 构造 error
 - @fastify/env
@@ -123,6 +135,29 @@ fastify.listen(3000, (err) => {
 ```
 
 - [Serve Next.js with Fastify](https://dev.to/applicazza/serve-next-js-with-fastify-5e67)
+
+## @fastify/autoload
+
+```ts
+fastify.register(Autoload, {
+  dir: path.join(__dirname, 'plugins'),
+  dirNameRoutePrefix: false
+  // ignorePattern
+  // indexPattern
+  forceESM: true,
+  // fastify-plugin
+  encapsulate: false
+})
+```
+
+## @fastify/static
+
+```ts
+fastify.register(require('@fastify/static'), {
+  root: path.join(__dirname, 'public'),
+  prefix: '/public/', // optional: default '/'
+});
+```
 
 ## fastify-cli
 
@@ -190,3 +225,23 @@ app.listen({port: parseInt(process.env.PORT) || 3000}, (err: any) => {
   }
 });
 ```
+
+## ajv
+
+- 默认 Ajv v8, Draft 07
+- https://github.com/fastify/ajv-compiler/blob/main/index.js#L9-L18
+
+```ts
+const defaultAjvOptions = {
+  coerceTypes: 'array',
+  useDefaults: true,
+  removeAdditional: true,
+  uriResolver: fastUri,
+  addUsedSchema: false,
+  // Explicitly set allErrors to `false`.
+  // When set to `true`, a DoS attack is possible.
+  allErrors: false,
+};
+```
+
+## You cannot use `send` inside the `onError` hook

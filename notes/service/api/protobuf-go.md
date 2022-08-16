@@ -1,10 +1,11 @@
 ---
 tags:
-- Golang
+  - Golang
 ---
 
 # Protobuf Go
 
+- [protocolbuffers/protobuf-go](https://github.com/protocolbuffers/protobuf-go)
 - 2020-03-02 [A new Go API for Protocol Buffers](https://go.dev/blog/protobuf-apiv2)
   - APIv1 github.com/golang/protobuf
     - github.com/golang/protobuf@v1.4.0 使用 APIv2 实现
@@ -52,7 +53,6 @@ type MessageV1 interface {
 }
 ```
 
-
 ## proto
 
 - golang proto v2 基于反射
@@ -61,4 +61,3 @@ type MessageV1 interface {
   - 全局注册 - google.golang.org/protobuf/reflect/protoregistry
     - GlobalFiles
     - GlobalTypes
-

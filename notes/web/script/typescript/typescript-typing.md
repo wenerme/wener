@@ -19,10 +19,9 @@ title: TypeScript 类型定义
 ```ts
 type RequireOne<T, K extends keyof T> = {
   [X in Exclude<keyof T, K>]?: T[X];
-} &
-  {
-    [P in K]-?: T[P];
-  };
+} & {
+  [P in K]-?: T[P];
+};
 ```
 
 ```ts
@@ -221,17 +220,17 @@ console.log(testObj.getFullName()); // this works
 
 ```ts title='types.d.ts'
 declare module '*.module.css' {
-  const classes: { readonly [key: string]: string };
+  const classes: {readonly [key: string]: string};
   export default classes;
 }
 
 declare module '*.module.sass' {
-  const classes: { readonly [key: string]: string };
+  const classes: {readonly [key: string]: string};
   export default classes;
 }
 
 declare module '*.module.scss' {
-  const classes: { readonly [key: string]: string };
+  const classes: {readonly [key: string]: string};
   export default classes;
 }
 
@@ -245,3 +244,45 @@ declare module '*.yaml' {
   export default data;
 }
 ```
+
+## Class 类型
+
+```ts
+export interface Type<T> extends Function {
+  new (...args: any[]): T;
+}
+export interface TypeWithArgs<T, A extends any[]> extends Function {
+  new (...args: A): T;
+}
+
+// 或者直接使用
+function create(ctor: {new (...args: any[]): A}): A {
+  return new ctor();
+}
+```
+
+- https://github.com/angular/angular/blob/main/packages/core/src/interface/type.ts
+
+## Class static
+
+```ts
+interface FooStatic<T extends Foo> {
+  new (): T;
+  initialize(o: T): void;
+}
+
+abstract class Foo {
+  private x;
+}
+
+function createInstance<T extends Foo>(cls: FooStatic<T>) {
+  const a = new cls();
+
+  cls.initialize(a);
+  return a;
+}
+```
+
+- 不支持 static 定义
+  - [#33892](https://github.com/microsoft/TypeScript/issues/33892)
+  - `static abstract` methods and propertie [#34516](https://github.com/microsoft/TypeScript/issues/34516)

@@ -1,5 +1,4 @@
 ---
-id: ruby
 title: Ruby
 ---
 

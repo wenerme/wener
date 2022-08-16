@@ -19,7 +19,7 @@ tags:
 
 | ver                           | lts start  | end        | v8 ver |
 | ----------------------------- | ---------- | ---------- | ------ |
-| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 |
+| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | 10.1   |
 | [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2024-04-30 | 9.0    |
 | [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | 8.1    |
 | [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | 7.4    |
@@ -32,6 +32,19 @@ tags:
 :::
 
 ## Node v18 LTS
+
+- fetch
+- Web Streams API
+- TestRunner
+  - `import test from 'node:test'`
+- Blob
+- BroadcastChannel
+- V8 10.1 - Chromium 101
+- OpenSSL 3
+
+---
+
+- Build-time user-land snapshot
 
 ## Node v16 LTS
 

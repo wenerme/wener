@@ -23,6 +23,39 @@ tags:
 - https://6pen.art/
   - 基于 AI 技术，从文本描述生成绘画艺术作品
 
+## 设计参考
+
+- https://www.snowbird.com/
+  - Dynamic Search Bar
+- https://icon1000.com/
+  - Intuitive Navigation
+- https://snowehome.com/
+  - Hover Reveal
+- https://www.airbnb.com/
+  - Subtle Drop Shadow
+- https://grovemade.com/
+  - Back to the Top
+- https://nest.com/
+  - Background Fade
+- https://www.acerexhibits.com/
+  - SVG Animations
+- https://landing.adobe.com/en/na/products/marketing-cloud/ctir-3108-running-on-experience/index.html
+  - Cinemagraphs
+- http://killingofasacreddeer.movie/
+  - Large, Bold Typography
+- Parallax Scrolling
+  - https://webflow.com/blog/parallax-scrolling
+
+---
+
+- https://www.groovecommerce.com/ecommerce-blog/web-design-effects/
+- https://99designs.com/
+- https://www.awwwards.com/
+
+## Design Site
+
+- https://design.aliyun.com/
+
 ## Reference
 
 - https://storybook.js.org/blog/component-encyclopedia/

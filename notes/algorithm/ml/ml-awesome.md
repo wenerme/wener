@@ -157,6 +157,7 @@ tags:
 - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - [nnaisense/evotorch](https://github.com/nnaisense/evotorch)
 - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
+- disco diffusion
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

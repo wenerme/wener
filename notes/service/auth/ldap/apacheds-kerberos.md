@@ -1,11 +1,8 @@
 ---
-id: apacheds-kerberos
 title: ApacheDS Kerberos
 ---
 
 # ApacheDS Kerberos
-
-## Tips
 
 - [ApacheDS 2.0 Kerberos User Guide](https://directory.apache.org/apacheds/kerberos-user-guide.html)
   - KDC (Key DIstribution Center)

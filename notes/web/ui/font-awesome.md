@@ -43,6 +43,7 @@ tags:
 
 ## Emoji
 
+- https://icones.js.org/
 - [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
 - [microsoft/fluentui-emoji](https://github.com/microsoft/fluentui-emoji)
 - Note 黑白 Emoji https://fonts.google.com/noto/specimen/Noto+Emoji

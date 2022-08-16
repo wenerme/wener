@@ -47,6 +47,11 @@ tags:
   - 商业化服务平台
   - 参考
     - https://www.osohq.com/academy
+- [stalniy/casl](https://github.com/stalniy/casl)
+  - Isomorphic Authorization JavaScript library
+  - @casl/ability - 20.5kB/7kB - @ucast/core, @ucast/js, @ucast/mongo
+    - @ucast - 条件转换
+  - @casl/react - 2kB/1kB
 
 **Zanzibar**
 

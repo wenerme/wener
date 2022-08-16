@@ -92,6 +92,12 @@ tags:
   - https://emulation.ninja/
 - Retropie,Recalbox,Lakka,Batocera
 - unRAID, LIME TECH
+- [kentjhall/horizon-linux](https://github.com/kentjhall/horizon-linux)
+  - arm64 Linux patched to run programs for the Nintendo Switch’s Horizon OS
+  - [HN](https://news.ycombinator.com/item?id=32464955)
+- [oasislinux/oasis](https://github.com/oasislinux/oasis)
+  - small statically-linked linux system
+  - [HN](https://news.ycombinator.com/item?id=32458744)
 
 ## Retro Game
 

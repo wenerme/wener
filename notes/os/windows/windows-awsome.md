@@ -26,6 +26,8 @@ tags:
 - HDDScan - https://hddscan.com/
 - Hard Disk Sentinel - https://www.hdsentinel.com/
 - CPUID
+- [ScoopInstaller/Scoop](https://github.com/ScoopInstaller/Scoop)
+  - command-line installer
 
 ## Dev
 

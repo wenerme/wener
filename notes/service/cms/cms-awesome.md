@@ -95,6 +95,8 @@ title: CMS Awesome
   - Page Builder - 类似于 Dreamweaver 效果
 - [JustinBeckwith/linkinator](https://github.com/JustinBeckwith/linkinator)
   - 检测坏链
+- [raviqqe/muffet](https://github.com/raviqqe/muffet)
+  - Fast website link checker
 
 ## Knowledge Base
 

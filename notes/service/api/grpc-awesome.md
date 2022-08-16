@@ -113,10 +113,12 @@ grpcui -use-reflection -base-path /api/rpc -plaintext localhost:18080
 - [warmuuh/milkman](https://github.com/warmuuh/milkman)
 - IntelliJ IDEA v2021.3+ HTTP Client 支持 gRPC
 
-```
+```http
 ### helloworld
 GRPC localhost:8888/helloworld.Greeter/SayHello
+```
 
+```http
 ### health
 GRPC localhost:8888/grpc.health.v1.Health/Check
 ```
@@ -168,35 +170,19 @@ service Health {
 
 ## gen
 
-- protoc-gen-c
-- protoc-gen-go
+- protoc [plugins](./protoc.md#plugins)
 - protoc-gen-go-grpc
-- protoc-gen-gofast
-  - [gogo/protobuf](https://github.com/gogo/protobuf)
-    - APIv2 发布后不再维护
 - protoc-gen-grpc
 - protoc-gen-grpc-gateway
 - protoc-gen-grpc-java
 - protoc-gen-grpc-web
-- protoc-gen-slate
-- protoc-gen-swagger
-- protoc-gen-validate
-- protoc-gen-go-vtproto
   - [planetscale/vtprotobuf](https://github.com/planetscale/vtprotobuf)
     - 优化基于 gogo - 使用 APIv2
     - 支持 Pool
     - 增加一些简单的辅助方法
-- protoc-gen-gotag
 - protoc-gen-go-drpc
   - [storj/drpc](https://github.com/storj/drpc)
     - 一个更加简单轻量的 RPC 协议
-- [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)
-- [chrusty/protoc-gen-jsonschema](https://github.com/chrusty/protoc-gen-jsonschema)
-- [protoc-gen-bq-schema](https://github.com/GoogleCloudPlatform/protoc-gen-bq-schema)
-  - pb to BigQuery schema
-- 参考
-  - [lyft/protoc-gen-star](https://github.com/lyft/protoc-gen-star)
-    - 辅助实现插件
 
 ```bash
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest

@@ -1,9 +1,11 @@
 ---
 title: Parsing Expression Grammars
 sidebar_label: PEG
+tags:
+  - Awesome
 ---
 
-# PEG
+# PEG Awesome
 
 - [Parsing expression grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
 - [orlandohill/peg-left-recursion](https://github.com/orlandohill/peg-left-recursion) - An idea to handle left-recursion in Parsing Expression Grammars (PEGs)

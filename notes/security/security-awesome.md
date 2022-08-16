@@ -13,6 +13,9 @@ tags:
 - [ycd/dstp](https://github.com/ycd/dstp)
 - [SentryPeer/SentryPeer](https://github.com/SentryPeer/SentryPeer)
   - peer to peer list of bad actor IP addresses and phone numbers collected via a SIP Honeypot
+- [undergroundwires/privacy.sexy](https://github.com/undergroundwires/privacy.sexy)
+  - Open-source tool to enforce privacy & security best-practices on Windows and macOS
+  - [HN](https://news.ycombinator.com/item?id=32436949)
 
 ## Service
 

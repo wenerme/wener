@@ -9,7 +9,7 @@ title: ajv
   - [ajv-validator/ajv-keywords](https://github.com/ajv-validator/ajv-keywords)
     增加自定义关键字
     - typeof, instanceof
-    - ~~select, selectCases, selectDefault~~ ->  discriminator
+    - ~~select, selectCases, selectDefault~~ -> discriminator
     - dynamicDefaults
     - number: range, exclusiveRange
     - string: regexp, transform
@@ -30,4 +30,9 @@ import Ajv2020 from 'ajv/dist/2020';
 const ajv = new Ajv2020();
 addFormats(ajv);
 addKeyworks(ajv);
+
+// 添加自定义 keyword 避免失败
+ajv.addKeyword('x-meta');
 ```
+
+## due to error strict mode: unknown keyword

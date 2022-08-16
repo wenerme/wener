@@ -590,6 +590,9 @@ tags:
   - 自定义类型需要源码 - 配置 GOPATH - 对依赖的模块进行 vendor
   - 支持解释模式和编译模式
   - Yaegi is Another Elegant Go Interpreter
+- [google/cel-go](https://github.com/google/cel-go)
+  - Apache-2.0, Go
+  - Fast, portable, non-Turing complete expression evaluation with gradual typing
 
 ## Template
 

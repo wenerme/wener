@@ -1,5 +1,7 @@
 ---
 title: LDAP Glossary
+tags:
+  - Glossary
 ---
 
 # LDAP Glossary

@@ -15,12 +15,20 @@ tags:
   - https://share.acgnx.se/
     - 字幕组 https://share.acgnx.net/union.php
     - 大陆镜像 https://share.acgnx.net/
+  - https://dmly.me/
 - [ed2000k.com](https://www.ed2000k.com/)
 - [torrent.extto.com](http://torrent.extto.com/)
 - [it-ebooks](https://gist.github.com/baiwfg2/af827b8b75eebf8ab29f5531a0d265ce)
   - https://oiipdf.com/
 - https://graph.org/documentaryList-09-11
 - https://torlook.info
+- 远鉴字幕组 https://ifenpaidy.com/
+- 桜都字幕组
+  - https://t.me/sakurato
+  - https://t.me/sakuratosub
+- 压制
+  - VCB-Studio https://vcb-s.com/
+  - Fussoir,ANE,Henshin(km/Kuramori),mawen1250,LittleBakas！,ANK,AI-Raws
 - 网盘聚合搜索
   - https://jujuso.com/
   - https://www.alipansou.com/
@@ -84,6 +92,7 @@ https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=l
 ## 字幕
 
 - opensubtitles.com
+- http://www.ddzimu.com/
 - [subhd.tv](https://subhd.tv/)
 - https://assrt.net/
 

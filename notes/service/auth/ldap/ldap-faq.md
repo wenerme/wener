@@ -1,5 +1,7 @@
 ---
 title: LDAP FAQ
+tags:
+  - FAQ
 ---
 
 # LDAP FAQ

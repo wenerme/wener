@@ -1,5 +1,4 @@
 ---
-id: apacheds
 title: Apache Directory
 ---
 

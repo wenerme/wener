@@ -182,6 +182,20 @@ import editorWorker from '/monaco-editor/esm/vs/editor/editor.worker?worker';
 const worker = new editorWorker();
 ```
 
+## import json
+
+- NodeJS v17.1+ 2021-11-09
+
+```ts
+import info from `./package.json` assert { type: `json` };
+
+const { default: info } = await import("./package.json", {
+  assert: {
+    type: "json",
+  },
+});
+```
+
 # FAQ
 
 ## \_\_dirname is not defined in ES module scope

@@ -3,10 +3,11 @@ title: juju
 ---
 
 # juju
-* 是什么？
-  * Operator Lifecycle Manager (OLM) that provides model-driven application management and next-generation infrastructure-as-code
-  * 由 Canonical 开发
-* [Document](https://jujucharms.com/docs/stable/)
+
+- 是什么？
+  - Operator Lifecycle Manager (OLM) that provides model-driven application management and next-generation infrastructure-as-code
+  - 由 Canonical 开发
+- [Document](https://jujucharms.com/docs/stable/)
 
 ## Install
 
@@ -23,7 +24,7 @@ apt install juju
 
 ## Tips
 
-* juju 中使用到的路径 [juju/paths/paths.go](https://github.com/juju/juju/blob/master/juju/paths/paths.go)
+- juju 中使用到的路径 [juju/paths/paths.go](https://github.com/juju/juju/blob/master/juju/paths/paths.go)
 
 ```bash
 # 启动
@@ -31,5 +32,4 @@ apt install juju
 juju bootstrap testcloud manual/10.25.30.1
 # 添加其他机器
 juju add-machine ssh:root@10.25.30.2
-
 ```

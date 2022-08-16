@@ -10,16 +10,70 @@ title: protobuf-web
 - [protobufjs/protobuf.js](https://github.com/protobufjs/protobuf.js)
   - .proto, JSON descriptors, reflectiom, custom class
   - https://protobufjs.github.io/protobuf.js/
+- [protocolbuffers/protobuf-javascript](https://github.com/protocolbuffers/protobuf-javascript)
+  - 目前维护不足
+- [stephenh/ts-proto](https://github.com/stephenh/ts-proto)
 
-:::caution
+## ts-proto
 
-- protobufjs 生成的 JSON 缺少信息
-  - 无 comment
-  - option 只能记录 1 个
-    - 无法记录 repeated option
-  - 无法记录嵌套 option
+- nice-grpc 使用
+- 生成单独文件
 
-:::
+| opt                     | default | notes                                            |
+| ----------------------- | ------- | ------------------------------------------------ |
+| context                 | false   |
+| forceLong               | number  | long,string                                      |
+| esModuleInterop         | false   |
+| env                     | both    | node,browser                                     |
+| useOptionals            | none    | message,all                                      |
+| exportCommonSymbols     | true    |
+| oneof                   | unions  |
+| unrecognizedEnum        | false   | 是否包含 UNRECOGNIZED=-1                         |
+| lowerCaseServiceMethods | true    |
+| snakeToCamel            | true    |
+| outputEncodeMethods     | true    | encode,decode                                    |
+| outputJsonMethods       | true    | fromJSON,toJSON                                  |
+| stringEnums             | false   | 要求 `outputEncodeMethods=false`                 |
+| outputClientImpl        |         | grpc-web                                         |
+| returnObservable        | false   | `Observable<T>`                                  |
+| addGrpcMetadata         |         | 要求 `nestJs=true`                               |
+| addNestjsRestParameter  |         | 要求 `nestJs=true`                               |
+| nestJs                  | false   |
+| useDate                 | true    | google.protobuf.Timestamp                        |
+| useObjectId             | false   | mongodb.ObjectId                                 |
+| outputSchema            | false   |
+| outputTypeRegistry      | false   | `$type`                                          |
+| outputServices          |         | grpc-js,nice-grpc,generic-definitions,none,false |
+| metadataType            |         | `Foo@./some-file`                                |
+| useAsyncIterable        |
+| emitImportedFiles       |
+| fileSuffix              |
+| importSuffix            |
+| enumsAsLiterals         |         | `as const`                                       |
+| useExactTypes           | true    | fromPartial                                      |
+| unknownFields           | false   |
+| onlyTypes               | false   | 只生成类型                                       |
+| usePrototypeForDefaults |         | Object.create                                    |
+| useJsonWireFormat       | false   |
+| useNumericEnumForJson   | false   |
+
+- useOptionals - `field: Message | undefined`, `field?: Message`
+- exportCommonSymbols - export DeepPartial
+- fromJSON - 会设置默认值
+- toJSON - 不会忽略默认值 - 未来可能会
+- outputClientImpl - grpc-web, twirp, grpc-js, nextjs
+- useContext - 添加一个额外的 context 参数
+
+```
+outputServices=nice-grpc,outputServices=generic-definitions,useExactTypes=false,esModuleInterop=true,forceLong=long,outputTypeRegistry=true
+```
+
+```ts
+// Basic gRPC
+interface Rpc {
+  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
+}
+```
 
 ## protobuf-es
 
@@ -28,6 +82,20 @@ go install github.com/bufbuild/protobuf-es/cmd/protoc-gen-es@latest
 ```
 
 ## protobufjs
+
+- 开发不活跃
+
+:::caution
+
+- 不支持 ESM [#1230](https://github.com/protobufjs/protobuf.js/issues/1230)
+- protobufjs 生成的 JSON 缺少信息
+  - 无 comment
+  - option 只能记录 1 个
+    - 无法记录 repeated option
+  - 无法记录嵌套 option
+- option 为对象会失败 [#1788](https://github.com/protobufjs/protobuf.js/issues/1788)
+
+:::
 
 ```bash
 npm add -D protobufjs-cli

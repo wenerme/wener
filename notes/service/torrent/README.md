@@ -12,7 +12,7 @@ title: Torrent
 | BEP06   | Fast Extension                                                   | ✅     |
 | BEP07   | IPv6 Tracker Extension                                           | 📝     |
 | BEP08   | Tracker Peer Obfuscation                                         | 🟡     |
-| BEP09   | Extension for Peers to Send Metadata Files                       | ✅     |
+| [BEP09] | Extension for Peers to Send Metadata Files                       | ✅     |
 | BEP10   | Extension Protocol                                               | ✅     |
 | BEP11   | Peer Exchange (PEX)                                              | ✅     |
 | BEP12   | Multitracker Metadata Extension                                  | ✅     |
@@ -69,6 +69,7 @@ title: Torrent
 - http://rakjar.de/gnuticles/MAGMA-Specsv22.txt
   - MAGnet MAnifest
 
+[bep09]: ./magnet.md
 [bep23]: http://bittorrent.org/beps/bep_0023.html
 [bep52]: http://bittorrent.org/beps/bep_0052.html
 
@@ -130,26 +131,6 @@ title: Torrent
 
 - router.bittorrent.com
 
-## BEP09 magnet
-
-磁力链接
-
-```
-magnet:?xt=urn:btih:<info-hash>&dn=<name>&tr=<tracker-url>&x.pe=<peer-address>
-magnet:?xt=urn:btmh:<tagged-info-hash>&dn=<name>&tr=<tracker-url>&x.pe=<peer-address>
-```
-
-- xt
-- info-hash = SHA-1(bencode(info))
-  - 40 - hex
-  - 32 - base32
-- tagged-info-hash
-  - [multiformats/multihash](https://github.com/multiformats/multihash)
-- tr - tracker-url
-- dn - display name
-- x.pe - peer-address
-  - `hostname:port`, `ipv4:port`, `[ipv6]:port`
-
 ## BEP48
 
 Scrape for HTTP Tracker
@@ -166,8 +147,8 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
 ```json
 {
   "files": {
-    "xxxxxxxxxxxxxxxxxxxx": { "complete": 11, "downloaded": 13772, "incomplete": 19 },
-    "yyyyyyyyyyyyyyyyyyyy": { "complete": 21, "downloaded": 206, "incomplete": 20 }
+    "xxxxxxxxxxxxxxxxxxxx": {"complete": 11, "downloaded": 13772, "incomplete": 19},
+    "yyyyyyyyyyyyyyyyyyyy": {"complete": 21, "downloaded": 206, "incomplete": 20}
   }
 }
 ```

@@ -108,6 +108,9 @@ Cube 计算
 - [FerretDB/FerretDB](https://github.com/FerretDB/FerretDB)
   - Apache-2.0, Go
   - mongodb wire protocol to PostgreSQL
+- [fcoury/oxide](https://github.com/fcoury/oxide)
+  - Apache-2.0, Rust
+  - mongodb wire protocol to PostgreSQL
 - [alash3al/redix](https://github.com/alash3al/redix)
   - Apache-2.0, Go
   - redis wire protocol to PostgreSQL
