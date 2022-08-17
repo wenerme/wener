@@ -6,10 +6,10 @@ tags:
 
 # Keycloak Version
 
-| version       | date       |
-| ------------- | ---------- |
+| version       | date       | Notes   |
+| ------------- | ---------- | ------- |
 | [Keycloak 18] | 2022-04-21 |
-| [Keycloak 17] | 2022-02-12 |
+| [Keycloak 17] | 2022-02-12 | Quarkus |
 | [Keycloak 16] | 2021-12-17 |
 | [Keycloak 15] | 2021-07-30 |
 | [Keycloak 14] | 2021-06-18 |

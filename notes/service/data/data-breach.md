@@ -15,6 +15,7 @@ title: 数据泄漏
 | 2022.06.22 | chaoxing.com               | 170M         | 超星学习通                                    |
 | 2021       | taobao.com                 | 1.2B         | ID,用户名,电话                                |
 | 2021       | twitter.com                | 1GB          | username,password                             |
+| 2021       | facebook.com               | 500M         |
 | 2020.11.16 | 圆通 员工                  | 40 万        |
 | 2020       | 顺丰                       |              | 10M 名字,25M 地址, 36M 电话                   |
 | 2020       | Telegram                   | 40M+         |

@@ -120,6 +120,10 @@ setup-alpine -f ans
 # https://pkgs.alpinelinux.org/packages?name=linux-*&branch=v3.7&arch=x86_64&maintainer=Natanael+Copa
 # BOOT_SIZE 100m 启动分区大小, 一般安装完成后 20m 左右, 默认会给 100
 setup-disk -m sys -s 0 -v /dev/sda
+
+# 不询问
+ERASE_DISKS=/dev/sda setup-disk -m sys -s 0 -v /dev/sda
+
 # apk add sfdisk e2fsprogs syslinux
 
 # 其他的可选参数

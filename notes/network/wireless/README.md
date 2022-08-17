@@ -57,6 +57,10 @@ echo b43 >> /etc/modules
 iw list
 ```
 
+- linux-firmware-b43
+- http://linuxwireless.sipsolutions.net/en/users/Drivers/b43/
+- https://wireless.wiki.kernel.org/en/users/Drivers/b43
+
 ## iw
 
 - [iw](https://wireless.wiki.kernel.org/en/users/Documentation/iw)

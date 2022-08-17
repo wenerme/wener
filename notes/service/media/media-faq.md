@@ -6,6 +6,11 @@ tags:
 
 # Media FAQ
 
+## VP9
+
+- Apple Safari 不支持 VP9
+- Youtube 高清为 VP9
+
 ## is hevc/h265 ready
 
 **NO**
