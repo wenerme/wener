@@ -4,7 +4,8 @@ title: Nomad
 
 # Nomad
 
-- 是什么？
+- [hashicorp/nomad](https://github.com/hashicorp/nomad) 是什么？
+  - MPL-2.0, Go
   - 分布式调度器
   - 工作负载编排
 - 核心卖点： 混合工作负载编排
@@ -33,15 +34,23 @@ title: Nomad
   - 4646/HTTP
   - 4647/RPC
   - 4648/Serf
-- 集成
+- 生态
+  - Nomad - 调度器
   - consul - 服务发现、注册、健康检查
   - consul connect - 网络
   - vault - 密钥
-- [hashicorp/go-getter](https://github.com/hashicorp/go-getter) - 获取 artifact
+  - packer - 构建
+- 参考
+  - [hashicorp/go-getter](https://github.com/hashicorp/go-getter) - 获取 artifact
+  - [Why HashiCorp Customers Choose Nomad](https://www.hashicorp.com/resources/why-hashicorp-customers-choose-nomad/)
+  - https://www.nomadproject.io/downloads/
 
 :::tip 适用场景
 
 - Windows, macOS 调度
+- EDGE 场景 - 节点多，每个节点部署 kube node 耗费额外资源，网络复杂
+- 重计算量 场景 - 容器、网络抽象带来额外消耗
+- 分布式 supervisor
 - 非标准资源调度 - GPU、外部设备
 - 非标准 CPU arch 调度
 
@@ -57,11 +66,13 @@ apk add nomad -u -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community/
 # http://0.0.0.0:4646/ui/
 nomad agent -dev -bind 0.0.0.0
 
+# Bash 补全
 complete -C $(which nomad) nomad
 
 nomad node status
 nomad server members
 
+# 如果不是本地 export NOMAD_ADDR=http://192.168.1.1:4646
 nomad job init
 nomad job run example.nomad
 nomad status example
@@ -77,7 +88,7 @@ nomad job stop example
 ## server
 
 ```bash
-cat <<HCL > server.hcl
+cat << HCL > server.hcl
 # Increase log verbosity
 log_level = "DEBUG"
 

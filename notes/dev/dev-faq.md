@@ -77,3 +77,37 @@ tags:
   - 事件总线 - 异步
   - 相对更解偶
   - 失去业务全局观
+
+## 开发缓存
+
+| dir                 | macOS                      | for                 | clean              |
+| ------------------- | -------------------------- | ------------------- | ------------------ |
+| ~/.m2/repository/   |                            | Maven               |
+| ~/.npm/             |                            | NPM                 |
+| ~/.cache/zig/       |
+| ~/.cache/prisma/    |
+| ~/.cache/buf/       |
+| ~/go/pkg/mod        |                            | `go env GOMODCACHE` |
+| - ~/.cache/go-build | ~/Library/Caches/go-build/ | `go env GOCACHE`    | `go clean --cache` |
+|                     | ~/Library/Caches/Homebrew  | `brew --cache`      |
+| ~/.pnpm-store       |
+
+- ~/Library/Caches/JetBrains
+- ~/Library/Caches/Yarn
+- ~/Library/Caches/electron
+- ~/Library/Caches/esbuild
+- ~/Library/Caches/golangci-lint
+- ~/Library/Caches/hardhat-nodejs
+- ~/Library/Caches/helm
+- ~/Library/Caches/pip
+- ~/Library/Caches/pnpm
+- ~/Library/Caches/typescript
+- ~/Library/Caches/turbo
+
+```bash
+# Maven
+mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false --fail-at-end
+
+# Maven Dir
+mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
+```

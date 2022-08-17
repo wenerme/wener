@@ -11,7 +11,7 @@ title: 浏览器兼容
 | `<dialog>`                      | Chrome 37+, Safari 15.4+ |
 | [AbortController]               | Chrom 66+, Safari 12.1   |
 | [HTMLInputElement.showPicker()] | Chrome 99+, Safari 16+   |
-[<datalist>]| Chrom 20+, Safari 12.1   |
+| [`<datalist>`]                  | Chrom 20+, Safari 12.1   |
 
 - Reflect.getMetadata - 需要额外 import
   - [@abraham/reflection](https://github.com/abraham/reflection)
@@ -38,7 +38,7 @@ title: 浏览器兼容
 
 [abortcontroller]: https://developer.mozilla.org/en-US/docs/Web/API/AbortController
 [htmlinputelement.showpicker()]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker
-[<datalist>]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+[`<datalist>`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
 
 ---
 
