@@ -2,13 +2,11 @@
 title: FUSE
 ---
 
-
 # FUSE
 
-* Golang
-  * [bazil/fuse](https://github.com/bazil/fuse)
-* https://github.com/fuse-friends/fuse-native
-
+- Golang
+  - [bazil/fuse](https://github.com/bazil/fuse)
+- [fuse-friends/fuse-native](https://github.com/fuse-friends/fuse-native)
 
 ```bash
 # Docker 内使用 FUSE
@@ -19,21 +17,21 @@ losetup -P /dev/loop2 harddrive.img
 ```
 
 ## zip
-* [avfs](http://avf.sourceforge.net/)
-* [fuse-zip](https://bitbucket.org/agalanin/fuse-zip/)
-* [archivemount](http://www.cybernoia.de/software/archivemount/)
 
+- [avfs](http://avf.sourceforge.net/)
+- [fuse-zip](https://bitbucket.org/agalanin/fuse-zip/)
+- [archivemount](http://www.cybernoia.de/software/archivemount/)
 
 ```bash
 # 只读挂载
 fuse-zip -r archivetest.zip ~/mnt/zip
-archivemount -o readonly archivetest.zip  /mnt
+archivemount -o readonly archivetest.zip /mnt
 ```
 
 ## encfs
 
-* https://github.com/vgough/encfs
-* https://github.com/vgough/encfs/blob/master/encfs/encfs.pod
+- https://github.com/vgough/encfs
+- https://github.com/vgough/encfs/blob/master/encfs/encfs.pod
 
 ```bash
 # For single file

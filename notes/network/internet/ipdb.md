@@ -45,6 +45,10 @@ title: IP 地址库
 
 - us-east-1 S3 用的较多
   - 52.216.0.0/15
+- https://ip-ranges.amazonaws.com/ip-ranges.json
+- CloudFront
+  - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html
+  - https://d7uri8nf7uskq.cloudfront.net/tools/list-cloudfront-ips
 
 ## Gitlab
 

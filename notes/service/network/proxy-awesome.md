@@ -188,6 +188,8 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - svc.ms
     - OneDrive 下载
   - anonfiles.com
+  - codeload.github.com
+    - `https://codeload.github.com/<org>/<repo>/tar.gz/refs/tags/<tag>`
   - objects.githubusercontent.com
     - Github Release
   - googleusercontent.com

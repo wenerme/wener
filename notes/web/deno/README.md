@@ -27,6 +27,7 @@ title: deno
   - 不方便修改和引用
   - 很可能引入多个版本
   - 不 pin 版本会使用 latest，导致依赖升级后脚本异常 - 默认没有 lock
+  - import map 不方便依赖模块引入
 - deno 不支持 AlpineLinux, CentOS 7
   - Release centos7 compatible binaries [#1658](https://github.com/denoland/deno/issues/1658)
   - Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)

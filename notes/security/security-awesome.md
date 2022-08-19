@@ -144,6 +144,7 @@ tags:
   - [subfinder](https://github.com/projectdiscovery/subfinder)
     - subdomain discovery
   - [interactsh](https://github.com/projectdiscovery/interactsh)
+    - OOB
   - [naabu](https://github.com/projectdiscovery/naabu)
     - port scanner
 - [aquasecurity/trivy](https://github.com/aquasecurity/trivy)

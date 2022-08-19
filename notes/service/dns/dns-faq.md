@@ -13,8 +13,8 @@ tags:
   - apex=origin
 - https://www.rfc-editor.org/rfc/rfc7719 "DNS Terminology"
 - 阿里云 URL 记录 - 会隐含 A 记录
-  - 显性URL - Location 头
-  - 隐性URL - 使用 iframe
+  - 显性 URL - Location 头
+  - 隐性 URL - 使用 iframe
 
 ## CNAME 和 TXT 不能共存
 
@@ -40,7 +40,7 @@ ipconfig /flushdns
 ```
 
 - chrome://net-internals/#dns
-  - 清除DNS缓存
+  - 清除 DNS 缓存
 - chrome://net-internals/#sockets
   - 清除链接 - 因为还是打开的之前的地址
 
@@ -54,3 +54,9 @@ ipconfig /flushdns
 ---
 
 - https://github.com/AdguardTeam/AdguardHome#how-does-adguard-home-compare-to-pi-hole
+
+## usercontent
+
+- To C 场景运行 UGC 时需要考虑
+- Thanks HN: Lessons learned after Google nearly killed my site
+  [HN](https://news.ycombinator.com/item?id=26357033)

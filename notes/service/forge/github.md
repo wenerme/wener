@@ -45,7 +45,7 @@ size 84977953
 - https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 
 ```bash
-github-latest-version(){
+github-latest-version() {
   set -o pipefail
   curl -sfL https://api.github.com/repos/$1/releases/latest | jq .tag_name -r
   local r=$?
@@ -77,3 +77,7 @@ github-latest-version kubernetes-sigs/nfs-subdir-external-provisioner
 - size:n
 - filename:FILENAME
 - extension:EXT
+
+## Markdown
+
+<img src="https://render.githubusercontent.com/render/math?math=\begin{equation}\sum_{n=0}^\infty\frac{1}{2^n}\end{equation}"/>

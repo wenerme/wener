@@ -106,6 +106,8 @@ bin/kc.sh start --optimized
 | scripts                  | Write custom authenticators using JavaScript      |
 | token-exchange           | Token Exchange Service                            |
 | update-email             | Update Email Action                               |
+| dynamic-scopes           |
+| map-storage              |
 
 ---
 

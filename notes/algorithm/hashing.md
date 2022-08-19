@@ -24,6 +24,48 @@ title: Hashing
     broken SHA-1 in practice
   - [cr-marcstevens/sha1collisiondetection](https://github.com/cr-marcstevens/sha1collisiondetection)
 
+## 密码
+
+- pbkdf2 - 主流 - 专用于密码
+- aragon2 - 但采用没有 pbkdf 多
+  - salt 最少 8 位
+  - [P-H-C/phc-winner-argon2](https://github.com/P-H-C/phc-winner-argon2)
+- bcrypt
+- scrypt
+- sha2 - 特殊场景
+- salted - 传统 md5 方式+salt
+
+---
+
+```bash
+# -i - argon2i - 默认
+# -d - argon2d
+# -id - argon2id
+# -t=3 - iterations
+# -m=12 - memory usage - 2^N
+# -p=1 - parallelism
+# -l=32 - 输出长度
+# -e - 只输出 hash
+# -r - raw bytes
+# -v=13 - 版本 10,13
+echo -n "secret" | argon2 "saltsalt" -e
+```
+
+- NodeJS
+  - `crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)`
+
+---
+
+- 注意选择迭代次数和截取长度
+- HKDF - Hash-Based Key Derivation Function
+- KDF - key derivation function
+- KDF vs HKDF
+  - https://crypto.stackexchange.com/a/70722/103400
+- How quickly can these password schemes really be beaten? https://security.stackexchange.com/q/8607/130027
+- https://www.tarsnap.com/scrypt/scrypt.pdf
+- https://www.tarsnap.com/scrypt/scrypt-slides.pdf
+- https://rumkin.com/tools/password/
+
 ## git hash
 
 - git 2.12 使用增强后的 SHA-1

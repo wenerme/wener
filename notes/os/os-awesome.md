@@ -109,6 +109,8 @@ tags:
 
 ## BSD
 
+- [ravynsoft/ravynos](https://github.com/ravynsoft/ravynos)
+  - experience like and some compatibility with macOS
 - [OpenBSD Router Guide](https://openbsdrouterguide.net/)
 
 ## Kernel

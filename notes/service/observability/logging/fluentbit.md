@@ -15,7 +15,7 @@ title: Fluentbit
     - `-b --storage_path=PATH`
     - `-f, --flush=SECONDS`
   - router
-    -  匹配
+    - 匹配
       - `-m, --match` - 等同于 `-p match=abc`
       - `-t, --tag` - 设置 tag，等同于 `-p tag=abc`
       - `-p, --prop="A=B"` - 设置插件属性
@@ -220,11 +220,11 @@ make -C build
 ```yaml
 # fluentd
 resources:
-  limits:
-    memory: 500Mi
   requests:
     cpu: 100m
     memory: 200Mi
+  limits:
+    memory: 500Mi
 
 # fluentbit
 resources:

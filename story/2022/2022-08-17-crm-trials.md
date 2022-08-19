@@ -78,7 +78,7 @@ tags:
 
 **后端**
 
-后端使用 Golang 开发上就行了一些探索，前期 gorm+restful 方式代码量大且重复。
+后端使用 Golang 开发上进行了一些探索，前期 gorm+restful 方式代码量大且重复。
 之后选择 ent+gqlgen+自定义生成代码。
 
 - GraphQL 对前端非常友好 - 但选择了先 GraphQL 而非先 GRPC 是比较失误的
@@ -142,13 +142,16 @@ tags:
     - 通过 jsonschema+definitoon 生成 grpc-service - nice-grpc
     - 实现标准的 CRUD 语义
     - fastify POST -> grpc 实现 - 类似 connect 语义
+    - grpc-server -> grpc 实现
+    - 未来: web -> connect-gateway -> grpc-server -> grpc 实现
 - 前端
   - daisyui+tailwindcss
   - 不再直接选择成熟的 UI 框架，而是选择基于 CSS 的样式库
-  - daisyui 提供了一套命名 class 的方式
+  - daisyui 提供了一套命名 class 的方式 - 有 Theme
   - 确定 管理功能优先于用户功能
   - 确定 功能能被看到才算开发完成
   - 模块化
     - 仍在尝试中 - 借鉴其他实现
+    - 提供开放的 OSS 存储
     - 目前明确方向
       - 分离 os 逻辑和核心 route 逻辑 - 揉在一起困难

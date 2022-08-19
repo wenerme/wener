@@ -24,6 +24,18 @@ tags:
 - IAM - Identity and Access Management
 - [kdeldycke/awesome-iam](https://github.com/kdeldycke/awesome-iam)
 - [keepassxreboot/keepassxc](https://github.com/keepassxreboot/keepassxc)
+- [babelouest/glewlwyd](https://github.com/babelouest/glewlwyd)
+- [longguikeji/arkid](https://github.com/longguikeji/arkid)
+  - AGPLv3, Python
+- [bullteam/zeus-admin](https://github.com/bullteam/zeus-admin)
+  - Apache-2.0, Go+Vue
+- [OpenIdentityPlatform/OpenAM](https://github.com/OpenIdentityPlatform/OpenAM)
+  - Java
+- [kanidm/kanidm](https://github.com/kanidm/kanidm)
+  - MPL-2.0, Rust
+- [authelia/authelia](https://github.com/authelia/authelia)
+  - Apache-2.0, Go
+  - SSO Multi-Factor portal for web apps
 
 ## Authorization
 

@@ -6,7 +6,8 @@ title: LADP
 
 - 端口
   - 389 ldap
-  - 636 ldaps
+  - 636,3269 ldaps - LDAP over SSL
+  - 389 - starttls - LDAP over TLS - [rfc2830](https://www.rfc-editor.org/rfc/rfc2830)
 - LDAP vs Kerberos
   - LDAP
     - 主要用于集中账户管理
@@ -139,6 +140,15 @@ wget http://maven.aliyun.com/nexus/content/groups/public/org/eclipse/jetty/jetty
 java -jar jetty-runner.jar --port 8081 fortress-rest.war
 ```
 
+## Usecase
+
+- OpenVPN
+- Jenkins
+- Kubernetes
+- Docker
+- Atlassian Jira & Confluence
+- Linux Samba
+
 ## 常见结构
 
 - dc=wener,dc=me
@@ -152,6 +162,8 @@ java -jar jetty-runner.jar --port 8081 fortress-rest.war
       - member - 成员
       - entryDN - 组成员属性、组 DN 属性
       - displayName - 如果不想显示 cn 可以考虑使用该属性
+- c=国家
+  - o=组织
 
 ```bash
 # 以简化操作

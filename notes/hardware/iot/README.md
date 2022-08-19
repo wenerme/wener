@@ -1,5 +1,4 @@
 ---
-id: iot
 title: IoT
 ---
 

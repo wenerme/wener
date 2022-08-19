@@ -57,7 +57,14 @@ echo b43 >> /etc/modules
 iw list
 ```
 
+- Alpine 安装脚本 BUG，会检测固件然后安装包，即便 fw 包不存在
 - linux-firmware-b43
+  - http://www.lwfinger.com/b43-firmware/
+  - http://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
+    - 下载驱动，放到 lib/firmware
+  - http://www.lwfinger.com/b43-firmware/broadcom-wl-6.30.163.46.tar.bz2
+- https://github.com/atenart/alpine-aports/blob/master/non-free/b43-firmware/APKBUILD#L18-L19
+- https://docs.01.org/clearlinux/latest/tutorials/broadcom.html
 - http://linuxwireless.sipsolutions.net/en/users/Drivers/b43/
 - https://wireless.wiki.kernel.org/en/users/Drivers/b43
 
@@ -254,7 +261,6 @@ rc-update add wpa_supplicant boot
 # iface wlan0 inet dhcp
 nano /etc/network/interface
 
-
 # 调试
 # ===============
 # 在前台运行以便调试
@@ -279,7 +285,7 @@ apk add hostapd
 service wpa_supplicant stop
 
 # 测试配置
-cat <<CONF > test-ap.conf
+cat << CONF > test-ap.conf
 interface=wlan0
 driver=nl80211
 ssid=test-ap
@@ -289,7 +295,7 @@ CONF
 hostapd ./test-ap.conf
 
 # 测试配置
-cat <<CONF > my-ap.conf
+cat << CONF > my-ap.conf
 interface=wlan0
 driver=nl80211
 ssid=wener-ap

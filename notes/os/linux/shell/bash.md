@@ -360,3 +360,16 @@ echo <>/dev/tcp/localhost/80
 # 1
 echo $?
 ```
+
+## git branch
+
+```bash
+curl -Lo ~/.git-prompt.sh https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh
+source ~/.git-prompt.sh
+
+__git_ps1 '%s'
+
+export PS1='\[\e[32m\]\u@\h \[\e[01;33m\]\w $(__git_ps1 " (%s)") \[\e[34m\][\t] \[\e[0m\]\n$ '
+```
+
+- https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh

@@ -6,6 +6,8 @@ title: apk
 
 - [alpine/apk-tools](https://gitlab.alpinelinux.org/alpine/apk-tools)
 - github [mirror](https://github.com/alpinelinux/apk-tools)
+- .apk-new
+  - apk 升级如果检测到本地修改，则会创建 apk-new 文件
 
 ```bash
 apk info -r so:libgnutls.so.30.28.0

@@ -10,6 +10,10 @@ tags:
 
 - [golang/go#9200](https://github.com/golang/go/issues/9200)
   - html/template JS 不能包含 `\``
+- [golang/go#13492](https://github.com/golang/go/issues/13492)
+  - musl 不支持 c-shared
+  - 因为 c-shared 用到了 glibc 扩展
+  - initial-exec TLS resolves to dynamic definition
 
 :::
 

@@ -16,17 +16,26 @@ title: Nomad
   - 主要调度 工作负载/Workload - 不包含网络、存储、服务、配置等
   - 支持 CSI 存储插件
 - Driver
-  - Docker
-  - Fork/Exec
-  - Java
-  - Podman
-  - Qemu
+  - docker
+  - exec - 隔离执行
+    - pid, ipc 隔离
+    - chroot, host, group
+    - caps
+    - cgroups
+  - raw_exec - 不隔离，直接执行
+  - java
+  - podman
+  - qemu
+  - remote - ecs
 - 社区 Driver
   - Containerd
   - Firecracker
   - Jailtask
+  - lightrun
   - LXC
   - Pot
+  - ~~Rtk~~
+  - rookout
   - Sigularity
   - Systemd nspawn
   - Windows IIS

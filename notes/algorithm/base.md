@@ -11,6 +11,8 @@ title: BaseN
 - 参考
   - [rfc4648](https://datatracker.ietf.org/doc/html/rfc4648)
     - Base16, Base32, Base64
+  - [rfc9285](https://www.rfc-editor.org/rfc/rfc9285.html)
+    - base45 for QR
   - [Binary to text encoding](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
   - [crockford base32](https://www.crockford.com/base32.html)
   - [ilyakurdyukov/crzy64](https://github.com/ilyakurdyukov/crzy64)
@@ -61,7 +63,12 @@ title: BaseN
 - base32=bits/8/0.625
 - base64=bits/8/0.75=bits/6
 
-| type | bits | string  |
-| ---- | ---- | ------- |
-| uuid | 128  | 36=32+4 |
-| sha1 | 160  |
+**常见**
+
+| type | bits | bytes | string  |
+| ---- | ---- | ----- | ------- |
+| uuid | 128  | 16    | 36=32+4 |
+| sha1 | 160  | 20    | hex 40  |
+| md5  | 128  | 16    | hex 32  |
+
+- UUID - 1 million, bytes 节省 20MB

@@ -15,6 +15,8 @@ tags:
 
 ## Why AlpineLinux
 
+small footprint, non-systemd, fast enough, good community, sane defaults.
+
 阿里云、腾讯云、物理服务器、虚拟机、容器都是用的 alpinelinux
 
 1. 环境都一样，使用各方面熟悉，熟练

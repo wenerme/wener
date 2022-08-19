@@ -529,10 +529,11 @@ tags:
   - fosite - Golang OAuth2 框架
 - [Permify/permify-gorm](https://github.com/Permify/permify-gorm)
 
-## 扩展/Extension
+## Plugin
 
-- [plugin](https://pkg.go.dev/plugin)
-  - -buildmode=plugin
+- 扩展/插件/Extension/Plugin - 动态库
+- [plugin](https://pkg.go.dev/plugin) - Linux, FreeBSD, macOS
+  - `-buildmode=plugin`
     - 只支持 Linux, FreeBSD, macOS - dlopen
     - 需要 **cgo** - [#19569](https://github.com/golang/go/issues/19569)
   - Lookup symbol 强转类型进行使用 - 类似 dlopen - 底层使用 dlopen
