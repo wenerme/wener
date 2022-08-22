@@ -1,0 +1,67 @@
+MiniQuery {
+  Main = Expr end
+  Expr = LogicExpr
+
+  LogicExpr
+    = LogicExpr logic RelExpr -- match
+    | RelExpr
+
+  RelExpr
+    = RelExpr (">=" | "<=" |  ">" | "<") InExpr -- match
+    | RelExpr ("==" | "!=" | "<>" | "=") InExpr -- match_eq
+    | RelExpr ":" literal -- has
+    | InExpr
+  InExpr
+    = InExpr in Array -- match
+    | PredicateExpr
+  PredicateExpr
+    = PredicateExpr is (null| bool) -- is
+    | PredicateExpr like string -- like
+    | BetweenExpr
+  BetweenExpr
+    = BetweenExpr between CallExpr "and" CallExpr -- match
+    | CallExpr
+  CallExpr
+    = ident "(" ListOf<Expr,","> ")" -- match
+    | PriExpr
+
+  PriExpr
+    = "(" Expr ")" -- paren
+    | "not" Expr -- not
+    | Array
+    | Value
+    | "+" Expr -- pos
+    | "-" Expr -- neg
+
+
+  Array   = "(" ListOf<Expr,","> ")" | "[" ListOf<Expr,","> "]"
+  Value   = literal | ref | ident
+
+  ListOf<elem, sep>
+    := TrailNonEmptyListOf<elem, sep>
+    | EmptyListOf<elem, sep>
+
+  TrailNonEmptyListOf<elem, sep>
+    = elem (sep elem)* sep?
+
+  in = ("not" space+)? "in"
+  is = "is" (space+ "not"?)
+  logic = "and" | "or" | "AND" | "OR" | "&&" | "||"
+  like = ("not" space+)? "like"
+  between = ("not" space+)? "between"
+
+  ref = ident ( "." (ident | string) )+
+  ident = letter (alnum | "_")*
+  literal = string | float | int | bool | null
+  null    = "null"
+  bool    = "true" | "false" | "TRUE" | "FALSE"
+  string
+    = "'" (~"'" any)* "'"
+    | "\"" (~"\"" any)* "\""
+  int = ("-" spaces)? uint
+  uint
+    = "0"
+    | int_non_zero
+  int_non_zero = "1".."9" digit*
+  float   = int? "." digit+
+}

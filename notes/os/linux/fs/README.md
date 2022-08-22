@@ -4,47 +4,85 @@ title: FS
 
 # FS
 
-| fs         | mount point            | notes                        |
-| ---------- | ---------------------- | ---------------------------- |
-| **逻辑**   |
-| proc       | /proc                  |
-| sysfs      | /sys                   |
-| cgroup     | /sys/fs/cgroup         |
-| cgroup2    | /sys/fs/cgroup/unified |
-| cpuset     | /sys/fs/cgroup/cpuset  |
-| debugfs    | /sys/kernel/debug      |
+**逻辑/内存**
+
+| fs         | mount point              | notes                        |
+| ---------- | ------------------------ | ---------------------------- |
+| proc       | /proc                    |
+| sysfs      | /sys                     |
+| devfs      | /dev                     | linux 4.16+ 废弃             |
+| devtmpfs   | /dev                     | udev                         |
+| cgroup     | /sys/fs/cgroup           |
+| cgroup2    | /sys/fs/cgroup/unified   |
+| cpuset     | /sys/fs/cgroup/cpuset    |
+| debugfs    | /sys/kernel/debug        |
 | bdev       |
-| devtmpfs   |
 | tracefs    |
-| securityfs | /sys/kernel/security/  | LSM - Linux Security Modules |
-| sockfs     |                        | TCP/UDP sockets              |
+| securityfs | /sys/kernel/security/    | LSM - Linux Security Modules |
+| sockfs     |                          | TCP/UDP sockets              |
 | bpf        |
 | hugetlbfs  |
-| devpts     |
+| devpts     | /dev/pts                 | Pseudo terminals             |
 | mqueue     |
-| binder     | /dev/binderfs          | Android binder IPC           |
-| pstore     |
-| **内存**   |
-| tmpfs      |
+| binder     | /dev/binderfs            | Android binder IPC           |
+| pstore     | /sys/fs/pstore           |
+| bindfs     |
+| [fuse]     |
+| fusectl    | /sys/fs/fuse/connections |
+| autofs     |                          | 按需挂载和卸载               |
+| specfs     | /dev/streams             | 不需要挂载                   |
+| tmpfs      | /tmp,/run                |
 | ramfs      |
-| pipefs     | pipe:                  | 当 shell 使用 pipe 时        |
-| loopfs     | `/dev/loop*`           |
-| **物理**   |
-| ext3       |
-| [ext4]     |
-| zfs        |
-| [ntfs]     |
-| [exfat]    |
-| xfs        |
-| **网络**   |
-| [nfs]      |
-| [smb]      |
-| cifs       |
+| pipefs     | pipe:                    | 当 shell 使用 pipe 时        |
+| loopfs     | `/dev/loop*`             |
+| rootfs     | /                        |
+
+- /dev/ptsmx - terminal mulitplexer
+
+**逻辑**
+
+| fs        | notes                                                       |
+| --------- | ----------------------------------------------------------- |
+| overlayfs |
+| unionfs   |
+| aufs      | v1 AnotherUnionFS, v2 Advanced multi-layered Unification fs |
+
+**物理/硬盘**
+
+| fs        | notes                                             |
+| --------- | ------------------------------------------------- |
+| ext3      |
+| [ext4]    |
+| zfs       |
+| [ntfs]    |
+| [exfat]   |
+| xfs       |
+| erofs     | Enhanced Read-Only File System¶                   |
+| squashfs  | live-distro - 替代 cramfs                         |
+| omfs      | Optimized MPEG Filesystem                         |
+| initramfs | INITial RAM FileSystem                            |
+| initrd    | Initial Ramdisk                                   |
+| cramfs    | Compressed RAM/ROM FileSystem - 嵌入式替代 initrd |
+
+**网络**
+
+| fs      | notes    |
+| ------- | -------- |
+| [nfs]   |
+| [smb]   |
+| cifs    |
+| pvfs2   | OrangeFS |
+| juicefs |
+| davfs2  | WebDAV   |
+| ftpfs   |
+| sshfs   |
 
 [ext4]: ./ext4.md
 [ntfs]: ./ntfs.md
 [exfat]: ./exfat.md
 [nfs]: ./nfs.md
+[smb]: ./smb.md
+[fuse]: ./fuse.md
 
 ```sh
 cat /proc/filesystems # 支持的 fs
@@ -57,7 +95,12 @@ mount -t debugfs none /sys/kernel/debug
 # https://docs.kernel.org/admin-guide/binderfs.html
 mkdir /dev/binderfs
 mount -t binder binder /dev/binderfs
+
+mount -t specfs none /dev/streams
 ```
+
+- [List of file systems](https://en.wikipedia.org/wiki/List_of_file_systems)
+- https://www.deepanseeralan.com/tech/some-notes-on-filesystems
 
 ## bind
 

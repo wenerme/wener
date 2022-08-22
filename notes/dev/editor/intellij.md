@@ -13,6 +13,8 @@ title: Intellij IDEA
 :::caution WebStorm
 
 - NPM 工作空间补全有问题 [WEB-50806](https://youtrack.jetbrains.com/issue/WEB-50806)
+- c8 Coverage [WEB-45069](https://youtrack.jetbrains.com/issue/WEB-45069)
+- [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835-ava-test-run-configuration-generator)
 
 :::
 

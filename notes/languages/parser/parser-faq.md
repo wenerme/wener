@@ -1,10 +1,10 @@
 ---
-title: Grammar FAQ
+title: Parser FAQ
 tags:
   - FAQ
 ---
 
-# Grammar FAQ
+# Parser FAQ
 
 ## Antlr vs PEG
 

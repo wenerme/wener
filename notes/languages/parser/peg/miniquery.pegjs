@@ -3,6 +3,10 @@
 // ts-nocheck
 }
 
+// https://github.com/wenerme/wener/tree/master/tricks/languages/parser/peg/miniquery.pegjs
+// https://www.postgresql.org/docs/current/sql-select.html
+// https://google.aip.dev/160
+
 Expression
   = left:Operand op:Compare right:Expression {return {type:'binary-expression',op,left,right}}
   / left:Operand __ op:Match __ right:Expression {return {type:'binary-expression',op,left,right}}

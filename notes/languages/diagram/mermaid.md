@@ -6,6 +6,7 @@ title: mermaid
 
 - [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid)
 - [Live Editor](https://mermaid-js.github.io/mermaid-live-editor)
+- GitHub 和 Gitlab 支持 mermaid
 
 | type            |
 | --------------- | ----------- |
@@ -18,3 +19,11 @@ title: mermaid
 | erDiagram       | ER          |
 | gitGraph        | Git         |
 | journey         | UserJourney |
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```

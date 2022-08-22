@@ -72,6 +72,12 @@ tags:
 - KIOXIA-EXCERIA SATA SSD
   - BiCS FLASH™ TLC
 - SanDisk 是 WD 旗下品牌 - 2016 收购
+- [SamSung FITPlus](https://www.samsung.com/us/computing/memory-storage/usb-flash-drives/usb-3-1-flash-drive-fit-plus-64gb-muf-64ab-am/)
+  - USB 3.1
+  - 32G 200MB
+  - 64G 300MB
+  - 128G 400MB
+  - 256G 400MB
 - SSD 的 IOPS 和容量相关
 - CrystalDiskMark 常见测试
   - RND4KQ1T1

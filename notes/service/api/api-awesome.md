@@ -200,6 +200,9 @@ tags:
 - xml
 - yaml
 - msgpack
+- [inkeliz/karmem](https://github.com/inkeliz/karmem)
+  - BSD-3
+  - faster than Google Flatbuffers and optimized for TinyGo and WASM
 
 ---
 

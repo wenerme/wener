@@ -8,7 +8,7 @@ tags:
 
 ## JDK
 
-:::tip 选择 JDK 和 版本
+:::tip 如何选择 JDK 和 版本？
 
 - 用 [Adoptium]
 - 只用 LTS 版本
@@ -81,6 +81,8 @@ sdk install java 8.0.312-tem
   - Sprint Cloud AWS
   - Sprint Cloud Azure
   - Sprint Cloud Huawei
+- 国产
+  - [nutzam/nutz](https://github.com/nutzam/nutz)
 
 ## 平台
 
@@ -117,8 +119,8 @@ sdk install java 8.0.312-tem
 
 - kotlin
 - graalvm
-- javacc
-- antlr
+- [javacc](../languages/parser/javacc.md)
+- [antlr](../languages/parser/antlr4.md)
 
 ## Learn
 

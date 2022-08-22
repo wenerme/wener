@@ -153,6 +153,8 @@ ingress:
 
 ---
 
+- 如果需要路由 Root Domain 只需要添加一个 **A** 记录即可
+  - IP 任意，不重要
 - [Ingress rules](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/configuration-file/ingress/)
 
 # FAQ

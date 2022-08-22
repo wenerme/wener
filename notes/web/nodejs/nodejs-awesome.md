@@ -22,19 +22,26 @@ tags:
 
 ## DB
 
-| driver pkg   | db                   |
-| ------------ | -------------------- |
-| pg pg-hstore | PostgreSQL           |
-| mysql2       | MySQL                |
-| mariadb      | MariaDB              |
-| sqlite3      | SQLite               |
-| tedious      | Microsoft SQL Server |
-| ibm_db       | DB2                  |
+| driver pkg     | db                   |
+| -------------- | -------------------- |
+| pg pg-hstore   | PostgreSQL           |
+| mysql2         | MySQL                |
+| mariadb        | MariaDB              |
+| sqlite3        | SQLite               |
+| better-sqlite3 | SQLite               |
+| tedious        | Microsoft SQL Server |
+| ibm_db         | DB2                  |
 
+- better-sqlite3
+  - 支持自定义函数
+  - 支持迭代 cursor
+  - 支持 int64
+  - [Convince me to use better-sqlite3](https://github.com/WiseLibs/better-sqlite3/issues/262)
 - [sequelize/sequelize](./sequelize.md)
   - ORM
   - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
   - 因为需要支持很多 DB 类型，丢失一定的特性
+  - Use better-sqlite3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
 - [knex/knex](https://github.com/knex/knex)
   - SQL Builder
   - Composite - 解耦构建最终 query 的过程
@@ -82,6 +89,7 @@ tags:
       - 基于 [uNetworking/uSockets](https://github.com/uNetworking/uSockets)
     - 性能好
     - 针对 Linux 优化
+
 ## Web
 
 - [fastify](./fastify.md)

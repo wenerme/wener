@@ -4,27 +4,21 @@ title: LDAP Schema
 
 # LDAP Schema
 
-- [Combined Active Directory Schema Classes and Attributes for Windows Server](https://www.microsoft.com/en-us/download/details.aspx?id=23782)
-  - ldf 格式
-  - 用于参考，包含可多 AD DS 操作属性
-- [Active Directory to OpenLdap](https://github.com/dkoudela/active-directory-to-openldap)
-  - 将 Active Directory 转为 OpenLdap
-
-| schema  | for                                                                |
-| ------- | ------------------------------------------------------------------ |
-| rfc1274 | COSINE, X.500                                                      |
-| rfc2256 | X.500 User Schema for use with LDAPv3                              |
-| rfc2798 | inetOrgPerson                                                      |
-| rfc3712 | ~~Printer Services~~                                               |
-| rfc4403 | UDDIv3                                                             |
-| rfc4519 | User Applications                                                  |
-| rfc4523 | X.509                                                              |
-| rfc4524 | COSINE/X.500                                                       |
-| rfc4530 | entryUUID                                                          |
-| rfc5020 | entryDN                                                            |
-| rfc5803 | SCRAM - Storing Salted Challenge Response Authentication Mechanism |
-| rfc7612 | Printer Services                                                   |
-| rfc8284 | XMPP in White Pages                                                |
+| schema    | for                                                                |
+| --------- | ------------------------------------------------------------------ |
+| [rfc1274] | COSINE, X.500                                                      |
+| [rfc2256] | X.500 User Schema for use with LDAPv3                              |
+| rfc2798   | inetOrgPerson                                                      |
+| rfc3712   | ~~Printer Services~~                                               |
+| rfc4403   | UDDIv3                                                             |
+| rfc4519   | User Applications                                                  |
+| rfc4523   | X.509                                                              |
+| rfc4524   | COSINE/X.500                                                       |
+| rfc4530   | entryUUID                                                          |
+| rfc5020   | entryDN                                                            |
+| rfc5803   | SCRAM - Storing Salted Challenge Response Authentication Mechanism |
+| rfc7612   | Printer Services                                                   |
+| rfc8284   | XMPP in White Pages                                                |
 
 [rfc1274]: https://www.rfc-editor.org/rfc/rfc1274
 [rfc2256]: https://www.rfc-editor.org/rfc/rfc2256
@@ -39,14 +33,44 @@ title: LDAP Schema
 | c    | country             | 国家                       |
 | o    | Organization        | 组织                       |
 
-- inetOrgPerson
-  - 常用的组织用户类
-
-cn
-person, organizationalPerson, user
-
-uid
-inetOrgPerson, organizationalPerson
+- 用户 - 常用 inetOrgPerson, organizationalPerson
+  - inetOrgPerson
+    - SUP organizationalPerson
+    - MUST: cn, objectClass, sn
+  - organizationalPerson
+  - account
+    - MUST: uid
+    - MAY: description, seeAlso, l, o, ou, host
+  - person
+    - MUST: sn, cn
+    - MAY: userPassword, telephoneNumber, seeAlso, description
+- UserID
+  - uid
+  - sAMAccountName - Active directory
+  - cn - AD RDN
+- UUID
+  - entryUUID
+  - objectGUID - Active directory
+  - entryDN/uid - 如果不支持 UUID
+- 分组
+  - groupOfUniqueNames
+  - member
+- ServiceAccount
+  - account,simpleSecurityObject,top
+  - applicationProcess
+- top - RFC 2256
+- simpleSecurityObject - RFC 1274
+  - MUST: userPassword
+- schema
+  - NAME
+  - DESC
+  - SUP
+  - ABSTRACT
+  - MUST
+  - MAY
+  - X-ORIGIN
+  - AUXILIARY
+  - STRUCTURAL
 
 ```ldif
 # 陈小明
@@ -59,6 +83,19 @@ cn: 陈小明
 sn: 陈
 uid: chenxiaoming
 ```
+
+---
+
+- [Combined Active Directory Schema Classes and Attributes for Windows Server](https://www.microsoft.com/en-us/download/details.aspx?id=23782)
+  - ldf 格式
+  - 用于参考，包含可多 AD DS 操作属性
+- [Active Directory to OpenLdap](https://github.com/dkoudela/active-directory-to-openldap)
+  - 将 Active Directory 转为 OpenLdap
+- https://www.openldap.org/doc/admin26/schema.html
+- https://docs.oracle.com/cd/E19693-01/819-0986/6n3chgmj5/index.html
+- https://docs.microsoft.com/en-us/windows/win32/adschema/active-directory-schema
+- https://docs.oracle.com/javase/jndi/tutorial/ldap/schema/
+- https://www.ibm.com/docs/en/sdse
 
 ## SSH
 
@@ -80,6 +117,94 @@ olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top A
     MAY ( sshPublicKey $ uid )
     )
 ```
+
+## RFC1274 The COSINE and Internet X.500 Schema
+
+- https://www.rfc-editor.org/rfc/rfc1274
+
+## RFC2256 X.500 User Schema for use with LDAPv3
+
+| Attribute Types             | stand for                   | e.g. |
+| --------------------------- | --------------------------- | ---- |
+| objectClass                 |
+| aliasedObjectName           |
+| knowledgeInformation        |
+| cn                          |
+| sn                          |
+| serialNumber                |
+| c                           |
+| l                           |
+| street                      |
+| o                           |
+| ou                          |
+| title                       |
+| description                 |
+| searchGuide                 |
+| businessCategory            |
+| postalAddress               |
+| postalCode                  |
+| postOfficeBox               |
+| physicalDeliveryOfficeName  |
+| telephoneNumber             |
+| telexNumber                 |
+| teletexTerminalIdentifier   |
+| facsimileTelephoneNumber    |
+| x121Address                 |
+| internationaliSDNNumber     |
+| registeredAddress           |
+| destinationIndicator        |
+| preferredDeliveryMethod     |
+| presentationAddress         |
+| supportedApplicationContext |
+| member                      |
+| owner                       |
+| roleOccupant                |
+| seeAlso                     |
+| userPassword                |
+| userCertificate             |
+| cACertificate               |
+| authorityRevocationList     |
+| certificateRevocationList   |
+| crossCertificatePair        |
+| name                        |
+| givenName                   |
+| initials                    |
+| generationQualifier         |
+| x500UniqueIdentifier        |
+| dnQualifier                 |
+| enhancedSearchGuide         |
+| distinguishedName           |
+| uniqueMember                |
+| houseIdentifier             |
+| supportedAlgorithms         |
+| deltaRevocationList         |
+| dmdName                     | directory management domain |
+
+| Object Classes            | MUST                     |
+| ------------------------- | ------------------------ |
+| top                       |
+| alias                     | aliasedObjectName        |
+| country                   |
+| locality                  |
+| organization              |
+| organizationalUnit        |
+| person                    | sn, cn                   |
+| organizationalPerson      |
+| organizationalRole        | cn                       |
+| groupOfNames              | member,cn                |
+| residentialPerson         |
+| applicationProcess        |
+| applicationEntity         | presentationAddress , cn |
+| dSA                       | cn                       |
+| strongAuthenticationUser  |
+| certificationAuthority    |
+| groupOfUniqueNames        |
+| userSecurityInformation   |
+| certificationAuthority-V2 |
+| cRLDistributionPoint      |
+| dmd                       |
+
+- octetStringMatch
 
 ## RFC2719 inetOrgPerson
 
@@ -133,6 +258,8 @@ olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top A
 
 - https://www.rfc-editor.org/rfc/rfc2798.html
 
+## RFC4524 COSINE LDAP/X.500 Schema
+
 ## RFC4519 User Applications
 
 - Schema for User Applications
@@ -181,26 +308,24 @@ olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top A
 | uniqueMember               |
 | userPassword               |
 
-- Object Classes
-  - applicationProcess
-  - country
-  - dcObject
-  - device
-  - groupOfNames
-  - groupOfUniqueNames
-  - locality
-  - organization
-  - organizationalPerson
-  - organizationalRole
-  - organizationalUnit
-  - person
-  - residentialPerson
-  - uidObject
+| Object Classes       | MUST |
+| -------------------- | ---- |
+| applicationProcess   |
+| country              |
+| dcObject             |
+| device               |
+| groupOfNames         |
+| groupOfUniqueNames   |
+| locality             |
+| organization         |
+| organizationalPerson |
+| organizationalRole   |
+| organizationalUnit   |
+| person               |
+| residentialPerson    |
+| uidObject            |
+
 - [RFC4519](https://www.rfc-editor.org/rfc/rfc4519)
-
-## RFC1274 The COSINE and Internet X.500 Schema
-
-- https://www.rfc-editor.org/rfc/rfc1274
 
 ## RFC4524 COSINE
 

@@ -47,6 +47,12 @@ export enum QueryTypes {
 }
 ```
 
+:::tip
+
+- Ability to get raw sql query [#2325](https://github.com/sequelize/sequelize/issues/2325)
+
+:::
+
 ## sequelize-cli
 
 - 不支持 typescript

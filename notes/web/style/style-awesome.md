@@ -6,8 +6,6 @@ tags:
 
 # Style Awesome
 
-# Cool
-
 - [聚焦外边框动画](https://codepen.io/argyleink/pen/JjEzeLp)
 - [Fluid Toggle](https://codepen.io/aaroniker/pen/rNzLwZL)
 - [3D Flip Boxes](https://codepen.io/amit_sheen/pen/YzQoMxR)
@@ -24,3 +22,4 @@ tags:
 - https://codepen.io/ste-vg/full/PoQgvBK
 - [Recreating MDN’s Truncated Text Effect](https://css-tricks.com/recreating-mdns-truncated-text-effect/)
 - [Cascading CSS Text Effects ✨](https://codepen.io/jh3y/pen/gOeGmRN)
+- [Animated Star Rating](https://codepen.io/jkantner/pen/BarvVNa)

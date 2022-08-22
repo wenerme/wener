@@ -30,6 +30,7 @@ title: OpenLDAP
 
 - sql backend 需要自行维护 表 与 ObjectClass 的关系
   - 并不是直接可用 - 初期有一定工作量
+- 不支持 reload - 直接重启
 
 :::
 
@@ -139,30 +140,88 @@ slapadd -F /usr/local/etc/openldap/slapd.d -l updated_config.ldif
 slapacl -f slapd.conf -v -U wener -b "dc=wener,dc=me" "name/read:wener"
 ```
 
-| overlay     | desc |
-| ----------- | ---- |
-| accesslog   |
-| auditlog    |
-| collect     |
-| constraint  |
-| dds         |
-| deref       |
-| dyngroup    |
-| dynlist     |
-| lastbind    |
-| memberof    |
-| mqtt        |
-| ppolicy     |
-| proxycache  |
-| refint      |
-| retcode     |
-| rwm         |
-| seqmod      |
-| sssvlv      |
-| syncprov    |
-| translucent |
-| unique      |
-| valsort     |
+## Overlay
+
+| overlay      | desc                                        |
+| ------------ | ------------------------------------------- |
+| accesslog    | 存储访问日志到 DB - 也会用于 delta-syncrepl |
+| auditlog     | 修改日志                                    |
+| chain        |
+| collect      |
+| constraint   | 用 regex 限定属性值                         |
+| dds          | dynamicObject,ttl                           |
+| deref        |
+| dynlist      |
+| homedir      |
+| lastbind     |
+| memberof     | 维护反向分组关系                            |
+| mqtt         |
+| pcache       | Proxy Cache                                 |
+| ppolicy      | Password Policy                             |
+| proxycache   |
+| refint       | Referential Integrity                       |
+| remoteauth   |
+| retcode      | Return Code                                 |
+| rwm          | Rewrite/Remap                               |
+| seqmod       |
+| sssvlv       |
+| syncprov     | Sync Provider                               |
+| translucent  | Translucent Proxy                           |
+| unique       | 唯一限定                                    |
+| valsort      | Value Sorting                               |
+| ~~dyngroup~~ | 使用 dynlist                                |
+
+- 多个 overlay 是反序执行的
+- dds - Dynamic Directory Services - rfc2859
+  - CRP - Client Refresh Period
+    - 刷新 ttl - ldapexop
+- memberof
+  - 为 groupOfNames 的 member 对象生成 memberof 方向引用属性
+- rwm [slapo-rwm](https://www.openldap.org/software/man.cgi?query=slapo-rwm&apropos=0&sektion=5&manpath=OpenLDAP+2.6-Release&arch=default&format=html)
+  - 为远程 ldap 或 relay 提供虚拟字段
+- translucent
+  - 存储部分代理数据的到本地
+- unique
+  - unique_uri - `ldap:///ou=users,dc=example,dc=com?mail?sub?(objectClass=inetOrgPerson)`
+- valsort
+  - valsort-attr - `memberUid ou=groups,dc=wener,dc=me alpha-ascend`
+
+**refint**
+
+- 支持 rename
+- 如果 user 被删除，对应的 member 关系也被删除
+- 如果没有任何 member 则使用 refint_nothing
+
+```conf
+overlay refint
+refint_attributes member
+refint_nothing "cn=admin,dc=example,dc=com"
+```
+
+### dynlist
+
+```conf
+overlay dynlist
+# dynlist-attrset <group-oc> <URL-ad> [member-ad]
+# member-ad - 存在则为 dyngroup - 需要包含 dyngroup.schema
+
+# 将查询结果的单一属性返回
+dynlist-attrset nisMailAlias labeledURI
+
+# 将查询结果作为 member 属性返回
+dynlist-attrset groupOfURLs labeledURI member
+```
+
+```ldif
+cn=all,ou=aliases,dc=example,dc=com
+cn: all
+objectClass: nisMailAlias
+labeledURI: ldap:///ou=People,dc=example,dc=com?mail?one?(objectClass=inetOrgPerson)
+```
+
+- 查询该对象时实际返回 labeledURI 查询结果
+
+## Schema
 
 | schema        | note                                                |
 | ------------- | --------------------------------------------------- |
@@ -519,6 +578,42 @@ create table
 ## backend monitor
 
 - 由 slapd 维护，提供系统健康信息
+- cn=Monitor
+  - cn=Backends
+    - monitoredInfo
+    - cn=Backend 0
+  - cn=Connections
+    - cn=Total
+    - cn=Current
+  - cn=Databases
+    - cn=Database 0
+  - cn=Listeners
+  - cn=Overlays
+    - monitoredInfo
+  - cn=Statistics
+    - cn=Entries
+      - monitorCounter
+  - cn=Threads
+    - cn=Max
+      - monitoredInfo
+  - cn=Time
+    - cn=Current
+      - monitorTimestamp
+    - cn=Start
+  - cn=Waiters
+    - cn=Read
+      - monitorCounter
+    - cn=Write
+
+```conf
+database monitor
+access to * by dn.exact="cn=admin,dc=wener,dc=me" by * none
+```
+
+```bash
+ldapsearch -x -D 'cn=admin,dc=wener,dc=me' -W -b 'cn=Monitor' -s base 1.1
+ldapsearch -x -D 'cn=admin,dc=wener,dc=me' -W -b 'cn=Monitor' -s base '(objectClass=*)' '*' '+'
+```
 
 ## Access Control
 
@@ -625,6 +720,34 @@ TLS_CACERTDIR /etc/openldap/certs
 ldapsearch -x -LLL
 ```
 
+## 备份
+
+```bash
+slapcat -f slapd.conf -b "dc=example,dc=com"
+```
+
+## lloadd
+
+- 负载均衡
+
+```conf
+feature proxyauthz
+
+bindconf bindmethod=simple
+        binddn="cn=Manager,dc=example,dc=com"
+        credentials=secret
+
+tier roundrobin
+backend-server uri=ldap://server1.example.com
+              numconns=5 bindconns=5
+              max-pending-ops=10 conn-max-pending=3
+              retry=5000
+backend-server uri=ldap://server2.example.com
+              numconns=5 bindconns=5
+              max-pending-ops=10 conn-max-pending=3
+              retry=5000
+```
+
 # FAQ
 
 ## 不支持 sha256, sha512
@@ -637,3 +760,46 @@ can be dynamically loaded. Don't fix what isn't broken.
 - 参考
   - https://www.openldap.org/lists/openldap-bugs/201205/msg00055.html
   - https://www.openldap.org/faq/data/cache/1467.html
+
+## No passwd entry for user ldap
+
+```bash
+getent passwd ldap
+```
+
+## slapd.ldif
+
+默认只能 slapd.conf 单文件配置，可以通过一定的方式实现 ldif 配置。
+
+```bash
+slapd -f slapd.conf.init -F slapd.d -h 'ldap:// ldaps:// ldapi://'
+
+# slapd.ldif 包含所有配置
+ldapadd -Y EXTERNAL -H ldapi:// -f slapd.ldif
+```
+
+```conf title="slapd.conf.init"
+pidfile /var/lib/openldap/run/slapd.pid
+
+database config
+# 允许通过 sock 管理
+access to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" manage
+```
+
+```ldif title="slapd.ldif"
+dn: cn=module,cn=config
+objectClass: olcModuleList
+cn: module
+olcModulePath: /usr/lib/openldap
+olcModuleLoad: back_mdb.so
+
+dn: olcDatabase=mdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: mdb
+olcSuffix: dc=example,dc=com
+olcRootDN: cn=manager,dc=example,dc=com
+olcRootPW:: c2VjcmV0
+olcDbDirectory: /var/lib/openldap/example.com
+olcAccess: to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" manage
+```

@@ -162,6 +162,8 @@ java -jar jetty-runner.jar --port 8081 fortress-rest.war
       - member - 成员
       - entryDN - 组成员属性、组 DN 属性
       - displayName - 如果不想显示 cn 可以考虑使用该属性
+  - ou=policies - 策略
+    - cn=default - pwdPolicy,namedPolicy,top
 - c=国家
   - o=组织
 

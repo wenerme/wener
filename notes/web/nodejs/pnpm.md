@@ -60,6 +60,12 @@ pnpm store prune # 移除未引用的包
 pnpm store path  # 路径
 ```
 
+```ini title=".npmrc"
+strict-peer-dependencies = false
+auto-install-peers = true
+public-hoist-pattern[]=*jest*
+```
+
 ## 配置
 
 ### package.json
