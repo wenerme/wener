@@ -4,8 +4,21 @@ title: Ideas
 
 # Ideas
 
+- ohm AST 生成 railroad-diagrams
+  - https://github.com/harc/ohm
+  - https://github.com/tabatkins/railroad-diagrams
+- 抽象的多语言的 PEG
 - Clash 支持日志到 DB
 - Nebula Mobile 支持中心化配置
+- ldapapply - merge if exists
+- apis
+  - uri schema editor - with json schema
+    - ldap
+    - redis
+    - postgres
+    - s3
+- alpine
+  - lib asan https://github.com/google/sanitizers
 
 ## Web3
 

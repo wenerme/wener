@@ -41,10 +41,11 @@ tree -dlL 2 /Volumes
 
 ## macOS
 
-- /Applications/
+- /Applications
   - Utilities/ - managing the local system
   - Developer/
-- /Library/
+- /Library
+  - Desktop Pictures/ - 桌面
 
 ---
 
@@ -56,12 +57,13 @@ tree -dlL 2 /Volumes
 - /System/
   - Applications/
     - Utilities/
+  - Library/
+    - Sounds/ - aiff 格式
   - Developer/
   - DriverKit/
     - Runtime/
     - System/
     - usr/
-  - Library/
   - Volumes/
     - BaseSystem/
     - Data/
@@ -72,7 +74,6 @@ tree -dlL 2 /Volumes
     - VM/
       - swapfile
   - iOSSupport/
-- /Library/
 
 ---
 
@@ -92,11 +93,70 @@ tree -dlL 2 /Volumes
 
 ---
 
+## System/Applications
+
+- App Store
+- Automator
+- Books
+- Calculator
+- Calendar
+- Chess
+- Contacts
+- Dictionary
+- FaceTime
+- FindMy
+- Font Book
+- Home
+- Image Capture
+- Launchpad
+- Mail
+- Maps
+- Messages
+- Mission Control
+- Music
+- News
+- Notes
+- Photo Booth
+- Photos
+- Podcasts
+- Preview
+- QuickTime Player
+- Reminders
+- Shortcuts
+- Siri
+- Stickies
+- Stocks
+- System Preferences
+- TV
+- TextEdit
+- Time Machine
+- VoiceMemos
+
+## System/Applications/Utilities
+
+- Activity Monitor
+- AirPort Utility
+- Audio MIDI Setup
+- Bluetooth File Exchange
+- Boot Camp Assistant
+- ColorSync Utility
+- Console
+- Digital Color Meter
+- Disk Utility
+- Grapher
+- Keychain Access
+- Migration Assistant
+- Screenshot
+- Script Editor
+- System Information
+- Terminal
+- VoiceOver Utility
+
 ## Applications
 
+- /System/Applications
 - /Applications
 - /Users/$USER/Applications
-- /System/Applications
 
 ## Library
 

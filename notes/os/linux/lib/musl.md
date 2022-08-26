@@ -4,10 +4,6 @@ title: musl
 
 # musl
 
-- [musl](https://musl.libc.org/) - MIT
-  - [FAQ](https://www.musl-libc.org/faq.html)
-- [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
-
 :::caution
 
 - malloc 大场景性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
@@ -18,9 +14,11 @@ title: musl
 
 :::
 
-## 环境变量
+- [musl](https://musl.libc.org/) - MIT
+  - [FAQ](https://www.musl-libc.org/faq.html)
+- [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
 
-- [Environment Variables](https://wiki.musl-libc.org/environment-variables.html)
+## 环境变量
 
 | Env             | Used by                      | Note                                                      |
 | --------------- | ---------------------------- | --------------------------------------------------------- |
@@ -36,6 +34,7 @@ title: musl
   - /usr/share/zoneinfo
   - /share/zoneinfo
   - /etc/zoneinfo
+- [Environment Variables](https://wiki.musl-libc.org/environment-variables.html)
 
 ## DNS 问题
 
@@ -89,7 +88,7 @@ iptables -I OUTPUT 1 -p udp --dport 53 -j AAAA
 iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
 ```
 
-## musl 问题
+## musl issues
 
 - [Open Issues](https://wiki.musl-libc.org/open-issues.html)
   - 不支持 LC_TIME
@@ -99,15 +98,22 @@ iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
       - glusterfs 不支持 musl
     - [openssl#7406](https://github.com/openssl/openssl/issues/7406)
       - 使用 no-async 绕过
-- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
-  - 其他软件已知因为 musl 导致的 bug
 - 不支持 nsswitch
   - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
 - 不支持 res_uinit
   - asterisk 无法获取 nameserver
-- [golang/go#13492](https://github.com/golang/go/issues/13492)
-  runtime: c-shared builds fail with musllibc
-  - 无法获取 argc, argv - 基于 glibc 扩展
+- 无 fts
+- 其他软件兼容问题
+  - Golang runtime: c-shared builds fail with musllibc
+    [golang/go#13492](https://github.com/golang/go/issues/13492)
+    - 无法获取 argc, argv - 基于 glibc 扩展
+    - 导致
+      - FluentBit 插件不支持 AlpineLinux
+  - libasan 不支持 musl
+    [google/sanitizers#1080](https://github.com/google/sanitizers/issues/1080)
+  - glusterfs 不支持 musl [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
+- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
+  - 其他软件已知因为 musl 导致的 bug
 
 ## malloc performance
 

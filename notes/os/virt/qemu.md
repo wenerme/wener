@@ -49,6 +49,7 @@ title: QEMU
   - -no-graphics - 无显示
   - -vnc :1 - VNC 5901
 - 参考
+  - https://airbus-seclab.github.io/qemu_blog/
   - https://wiki.gentoo.org/wiki/QEMU/Options
   - https://wiki.qemu.org/Features/CPUModels
   - [machine](https://remimin.github.io/2019/07/09/qemu_machine_type)

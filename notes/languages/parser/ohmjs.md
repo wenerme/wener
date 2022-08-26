@@ -7,7 +7,9 @@ title: ohmjs
 - [harc/ohm](https://github.com/harc/ohm)
   - MIT, JS
   - 133kB, 36kB
-  - 不生成代码，使用类似 Regex - 给语法解析执行
+  - 不生成代码，使用类似 Regex - 注语法解析
+    - 规则复用 - `ListOf<option,",">`
+    - 语法继承 - `MyJS <: JS`
   - 通过 semantics 添加执行逻辑 - 而不是在 grammar 里嵌入
 - 参考
   - https://ohmjs.org/editor/
@@ -23,6 +25,7 @@ title: ohmjs
 - 支持一些语法糖 - 开发体验好
 - 交互式 editor 开发体验好 - 但目前错误排查也不方便
 - 执行逻辑外部注入 - 相对麻烦一点，但方便实现多套执行逻辑
+- alternative 的时候需要两部相同数量元素 - 否则需要加别名
 
 :::
 
@@ -199,3 +202,11 @@ int
   | int_non_zero
 int_non_zero = "1".."9" digit*
 ```
+
+或修改为
+
+```
+int = spaces "0" | "1".."9" digit*
+```
+
+处理的时候需要处理下空白

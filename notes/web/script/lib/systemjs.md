@@ -9,6 +9,7 @@ title: SystemJS
 - [Extras](https://github.com/systemjs/systemjs#extras)
 - [generator.jspm.io](https://generator.jspm.io/)
   - [React ENV](https://generator.jspm.io/#M2VhYGCzD80rySzJSU1hKEpNTC7RTcnPdTA01zPQM4IKFOWXlqQWgcXNgMKGEGEUNVCOflZxhW5RKdC83FSGqtLiksS8FAdjPTM9E1SeflliXmZOTiIArVqpj4AA)
+- https://single-spa.js.org/docs/recommended-setup/#systemjs
 
 :::caution
 

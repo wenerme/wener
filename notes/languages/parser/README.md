@@ -129,6 +129,13 @@ title: Parser
 
 ## SQL Operators
 
+| expr                   | alias    |
+| ---------------------- | -------- |
+| `IS NOT DISTINCT FROM` | `IS`     |
+| `IS DISTINCT FROM`     | `IS NOT` |
+| `IS`                   | =        |
+| `IS NOT`               | !=       |
+
 | Operator                                                    | desc                                                | flavor      |
 | ----------------------------------------------------------- | --------------------------------------------------- | ----------- |
 | AND                                                         | &&                                                  |
@@ -209,6 +216,8 @@ FROM
 ```
 
 - 参考
+  - https://tomassetti.me/parsing-sql/
+    - [HN](https://news.ycombinator.com/item?id=32560039)
   - https://www.postgresql.org/docs/current/functions.html
   - https://www.postgresql.org/docs/6.3/c09.htm
   - https://sqlite.org/lang_expr.html

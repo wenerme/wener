@@ -64,10 +64,13 @@ sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
 | url                                            | from     |
 | ---------------------------------------------- | -------- |
 | https://registry.npmjs.org                     | 官方     |
-| https://registry.npm.taobao.org                | 淘宝     |
 | https://mirrors.sjtug.sjtu.edu.cn/npm-registry | 上海交大 |
 | https://registry.npmmirror.com                 | 淘宝     |
-| https://r.cnpmjs.org                           |
+| ~~https://r.cnpmjs.org~~                       |
+| ~~https://registry.npm.taobao.org~~            | 淘宝     |
+
+- 同步
+  - https://npmmirror.com/sync/ohm-grammar-miniquery
 
 ```bash
 # 淘宝镜像
@@ -135,7 +138,7 @@ npm run -w @wener/apis-weaver build
 corepack enable
 ```
 
-## 打包
+## Package
 
 ```json title="package.json"
 {
@@ -154,7 +157,7 @@ corepack enable
       "default": "./index.js"
     },
     "./package.json": "./package.json",
-    "./extra": "./jsx-runtime.cjs",
+    "./extra": "./jsx-runtime.cjs"
   },
 
   // 是否有全局操作
@@ -178,3 +181,11 @@ if (process.env.NODE_ENV === 'production') {
 
 - Pure ESM package
   https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+## Registry
+
+```bash
+curl -sfL 'https://registry.npmmirror.com/@wener/reaction' | jq -r '."dist-tags".latest'
+```
+
+- https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md

@@ -28,11 +28,14 @@ tags:
   - https://github.com/mingodad/squilu
 - [adrian-thurston/ragel](https://github.com/adrian-thurston/ragel)
   - Ragel State Machine Compiler
+- BNF, ABNF, EBNF
+  - ABNF - Augmented Backus–Naur Form - [rfc5234](https://www.rfc-editor.org/rfc/rfc5234.html)
 
 ---
 
 - [Comparison of parser generators](https://en.wikipedia.org/wiki/Comparison_of_parser_generators)
 - http://dinosaur.compilertools.net/
+- https://ldapwiki.com/wiki/ABNF
 
 ## PEG
 

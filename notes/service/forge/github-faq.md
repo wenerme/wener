@@ -1,5 +1,7 @@
 ---
 title: Github FAQ
+tags:
+  - FAQ
 ---
 
 # Github FAQ

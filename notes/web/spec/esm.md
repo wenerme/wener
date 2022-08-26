@@ -4,10 +4,12 @@ title: ESM
 
 # ESM
 
-- https://caniuse.com/es6-module
-  - Chrome v61+
-- https://caniuse.com/es6-module-dynamic-import
-  - Chrome v63+
+| Can I Use                                                       | Chrome      | Safari       |
+| --------------------------------------------------------------- | ----------- | ------------ |
+| [module](https://caniuse.com/es6-module)                        | Chrome v61+ |
+| [dynamic-import](https://caniuse.com/es6-module-dynamic-import) | Chrome 63+  | Safari 11.1+ |
+| [import-maps](https://caniuse.com/import-maps)                  | Chrome 89+  |
+
 - [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)
   - 动态构建样式表
   - 不支持 @import
@@ -29,8 +31,26 @@ title: ESM
 :::
 
 ```ts
-export { default, /* …, */ } from "module-name";
+export {default /* …, */} from 'module-name';
+
+import 'data:text/javascript,console.log("hello!");';
+import _ from 'data:application/json,"world!"' assert {type: 'json'};
+
+import fs from 'node:fs/promises';
 ```
+
+- MIME
+  - text/javascript
+  - application/json
+  - application/wasm
+- Protocol
+  - node:
+  - http:
+  - https:
+- import.meta.url
+- `import.meta.resolve(specifier[, parent])`
+
+  - `await import.meta.resolve('./dep', import.meta.url)`
 
 - [Pure ESM package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
 

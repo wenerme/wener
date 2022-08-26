@@ -19,10 +19,10 @@ tags:
   - [Adoptium]
     - AdoptOpenJDK -> Adoptium
     - Eclipse 维护
+    - Eclipse Temurin - name of the OpenJDK distribution from Adoptium
   - Amazon Corretto
   - Alibaba Dragonwell
   - GraalVM
-  - Eclipse Temurin - adoptium
   - Java.net
   - Zulu
   - Liberica

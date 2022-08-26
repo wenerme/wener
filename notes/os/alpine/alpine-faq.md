@@ -32,6 +32,15 @@ small footprint, non-systemd, fast enough, good community, sane defaults.
 2. 商务用桌面系统 - 默认 xface - _生态_ 和体验没有 ubuntu 好
 3. 定制化嵌入式设备 - alpine 支持的 arch 远没有 debian 的多，如果 arch 支持可以考虑 alpine
 
+## 历史
+
+alpine 早期思想来自于 FreeBSD
+
+- /etc/periodic
+- https://apk-tools.sourceforge.net
+  - 第一版 apk-tools 基于 FreeBSD 的 pkg_add
+  - 2005-06-13 第一次提交
+
 ## apk 1 error
 
 apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.
@@ -227,6 +236,10 @@ echo 'RESOLV_CONF=no' > /etc/udhcpc/udhcpc.conf
 - 参考
   - https://superuser.com/a/1234279/242730
   - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/
+
+## alpine glibc compat
+
+- libc6-compat gcompat
 
 ## apk 从 edge 仓库安装
 

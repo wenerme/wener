@@ -15,6 +15,9 @@ title: Storybook
   - bundle 过大 - [#6391](https://github.com/storybookjs/storybook/issues/6391#issuecomment-530262331)
     - webpack 拆分
   - npm 7+react 17 兼容问题 [#14065](https://github.com/storybookjs/storybook/issues/14065)
+- Component Story Format (CSF) - Storybook
+  - https://storybook.js.org/docs/react/api/csf
+
 
 ```bash
 # 初始化

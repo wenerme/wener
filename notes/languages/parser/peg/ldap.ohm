@@ -1,0 +1,32 @@
+LDAP {
+  Main =
+  // https://www.rfc-editor.org/rfc/rfc2251#section-4.1.5
+  AttributeDescription = AttributeType (";" Options)
+  AttributeType = string
+  Options = ListOf<option,";">
+  option = (letter | digit | "-")+
+  // LDAPString
+  string  = (letter | digit | "-")+
+}
+
+// https://www.rfc-editor.org/rfc/rfc2251
+LDAPFilter {
+  Main = LDAPFilter end
+
+  LDAPFilter = "(" FilterComp ")"
+  FilterComp = And | Or | Not | Item
+  And = "&" FilterList
+  Or = "|" FilterList
+  Not = "!" LDAPFilter
+  FilterList = LDAPFilter+
+  Item = Simple | Present | Substring // | extensible
+  Simple = attr filtertype value
+  filtertype = ">=" | "<=" | "~=" | "="
+  Present = attr "=*"
+  Substring = attr "=" initial? anyvalue final?
+  initial = value
+  anyvalue = "*" (value "*")*
+  final = value
+  attr = letter+
+  value = (~("("|")") any)+
+}

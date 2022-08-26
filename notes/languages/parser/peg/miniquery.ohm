@@ -27,7 +27,7 @@ MiniQuery {
 
   PriExpr
     = "(" Expr ")" -- paren
-    | "not" Expr -- not
+    | caseInsensitive<"not"> Expr -- not
     | Array
     | Value
     | "+" Expr -- pos
@@ -44,24 +44,26 @@ MiniQuery {
   TrailNonEmptyListOf<elem, sep>
     = elem (sep elem)* sep?
 
-  in = ("not" space+)? "in"
-  is = "is" (space+ "not"?)
-  logic = "and" | "or" | "AND" | "OR" | "&&" | "||"
-  like = ("not" space+)? "like"
-  between = ("not" space+)? "between"
+  in = (caseInsensitive<"not"> space+)? caseInsensitive<"in">
+  is = caseInsensitive<"is"> (space+ caseInsensitive<"not">?)
+  logic = caseInsensitive<"and"> | caseInsensitive<"or"> | "&&" | "||"
+  like = (caseInsensitive<"not"> space+)? (caseInsensitive<"like"> | caseInsensitive<"ilike">)
+  between = (caseInsensitive<"not"> space+)? caseInsensitive<"between">
 
   ref = ident ( "." (ident | string) )+
   ident = letter (alnum | "_")*
-  literal = string | float | int | bool | null
-  null    = "null"
+  // always match numeric instead of int
+  literal = string | numeric | int | bool | null
+  null    = "null" | "NULL"
   bool    = "true" | "false" | "TRUE" | "FALSE"
   string
     = "'" (~"'" any)* "'"
     | "\"" (~"\"" any)* "\""
-  int = ("-" spaces)? uint
+  int = (("-"|"+") spaces)? uint
   uint
     = "0"
     | int_non_zero
   int_non_zero = "1".."9" digit*
-  float   = int? "." digit+
+  numeric = (("+"|"-") spaces)? (digit+ ("." digit+)? | spaces "." digit+) e?
+  e = ("E"|"e") ("+"|"-")? digit+
 }

@@ -140,6 +140,8 @@ tags:
 - nestjs
 - [inertiajs/inertia](https://github.com/inertiajs/inertia)
   - quickly build modern single-page React, Vue and Svelte apps
+- [livebud/bud](https://github.com/livebud/bud)
+  - Full-Stack Web Framework for Go
 - 国产 - 考虑 KPI 关系，一般不推荐使用
   - umijs
   - taro - 跨端、小程序

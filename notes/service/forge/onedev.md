@@ -4,13 +4,13 @@ title: onedev
 
 # onedev
 
-- https://code.onedev.io/projects/160
 - [theonedev/onedev](https://github.com/theonedev/onedev)
   - MIT, Java
   - Kanban
   - CI/CD
   - Code Search
   - Service Desk
+- https://code.onedev.io/projects/160
 - manual https://code.onedev.io/projects/162
 
 ```bash

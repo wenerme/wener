@@ -253,9 +253,22 @@ npm add date-fns lodash-es react-fast-compare
   - [moroshko/react-autosuggest](https://github.com/moroshko/react-autosuggest)
 - input
   - react-textarea-autosize
-- table
-  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
-  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+- table/Spreadsheet/Excel/Data Grid
+  - [react-data-grid](https://github.com/adazzle/react-data-grid)
+    - MIT, TS
+    - 41kB, 14kB
+  - [react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+    - MIT, TS
+    - 支持 formula
+    - @handsontable/formulajs, jstat, @reduxjs/toolkit, @reduxjs/toolkit, es-abstract, hot-formula-parser
+  - [react-spreadsheet-grid](https://github.com/denisraslov/react-spreadsheet-grid)
+    - MIT, JS
+    - 66kB, 17kB
+  - [@silevis/reactgrid](https://github.com/silevis/reactgrid)
+    - MIT, TS
+    - 250kB, 68kB
+  - [react-datasheet](https://github.com/nadbm/react-datasheet)
+    - ⚠️ 不再维护
 - i18n - [Unicode Language and Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers)
   - react-i18next
   - react-intl
@@ -649,6 +662,7 @@ npm add date-fns lodash-es react-fast-compare
   - 性能好
   - Pro https://sheetjs.com/pro
 - [exceljs/exceljs](https://github.com/exceljs/exceljs)
+
 
 ## 参考
 

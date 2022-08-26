@@ -23,8 +23,9 @@ title: Visual Studio Code
   - SSH
     - ~还不支持 macOS [#24](https://github.com/microsoft/vscode-remote-release/issues/24)~
     - 不支持 musl AlpineLinux
-      - insider 版本似乎支持 [#54](https://github.com/microsoft/vscode-remote-release/issues/54#issuecomment-504385332)
+      - insider 版本支持 [#54](https://github.com/microsoft/vscode-remote-release/issues/54#issuecomment-504385332)
       - musl 支持 [#423](https://github.com/microsoft/vscode-remote-release/issues/423)
+        - 目前加 gcompat 可能可用
 
 ```bash
 # macOS 可通过容器来提供端口进行控制

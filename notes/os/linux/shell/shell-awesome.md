@@ -23,6 +23,9 @@ tags:
   - [withfig/autocomplete](https://github.com/withfig/autocomplete)
   - for bash, zsh, fish
 - [Comparison of command shells](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
+- Online
+  - https://replit.com/languages/bash
+  - https://www.onlinegdb.com/online_bash_shell
 
 ---
 

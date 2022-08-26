@@ -176,7 +176,7 @@ slapacl -f slapd.conf -v -U wener -b "dc=wener,dc=me" "name/read:wener"
   - CRP - Client Refresh Period
     - 刷新 ttl - ldapexop
 - memberof
-  - 为 groupOfNames 的 member 对象生成 memberof 方向引用属性
+  - 为 groupOfNames 的 member 对象生成 memberof 反向引用属性
 - rwm [slapo-rwm](https://www.openldap.org/software/man.cgi?query=slapo-rwm&apropos=0&sektion=5&manpath=OpenLDAP+2.6-Release&arch=default&format=html)
   - 为远程 ldap 或 relay 提供虚拟字段
 - translucent
@@ -447,7 +447,7 @@ moduleload	back_mdb.la
 attributeoptions x-hidden lang-
 access to attrs=name;x-hidden by * =cs
 access to attrs=userPassword  by * auth
-access to *  by * read
+access to * by * read
 
 database config
 # 开启后可 bind cn=config 直接修改配置 - 不过配置修改不会保存
@@ -618,7 +618,29 @@ ldapsearch -x -D 'cn=admin,dc=wener,dc=me' -W -b 'cn=Monitor' -s base '(objectCl
 ## Access Control
 
 ```
-access to <what> [by <who> [<access>] [<control>] ]+
+<access directive> ::= to <what>
+    [by <who> [<access>] [<control>] ]+
+<what> ::= * |
+    [dn[.<basic-style>]=<regex> | dn.<scope-style>=<DN>]
+    [filter=<ldapfilter>] [attrs=<attrlist>]
+<basic-style> ::= regex | exact
+<scope-style> ::= base | one | subtree | children
+<attrlist> ::= <attr> [val[.<basic-style>]=<regex>] | <attr> , <attrlist>
+<attr> ::= <attrname> | entry | children
+<who> ::= * | [anonymous | users | self
+        | dn[.<basic-style>]=<regex> | dn.<scope-style>=<DN>]
+    [dnattr=<attrname>]
+    [group[/<objectclass>[/<attrname>][.<basic-style>]]=<regex>]
+    [peername[.<basic-style>]=<regex>]
+    [sockname[.<basic-style>]=<regex>]
+    [domain[.<basic-style>]=<regex>]
+    [sockurl[.<basic-style>]=<regex>]
+    [set=<setspec>]
+    [aci=<attrname>]
+<access> ::= [self]{<level>|<priv>}
+<level> ::= none | disclose | auth | compare | search | read | write | manage
+<priv> ::= {=|+|-}{m|w|r|s|c|x|d|0}+
+<control> ::= [stop | continue | break]
 ```
 
 - what
@@ -630,11 +652,11 @@ access to <what> [by <who> [<access>] [<control>] ]+
 - who
   - `*`
   - anonymous
-  - users
-  - self
+  - users - 认证用户
+  - self - 用户所在 entry
   - `dn[.<basic-style>]=<regex> | dn.<scope-style>=<DN>]`
   - dnattr=
-  - group/x=
+  - group=
   - peername=
   - sockname=
   - domain=
@@ -649,7 +671,22 @@ access to <what> [by <who> [<access>] [<control>] ]+
   - priv
     - `{=|+|-}{m|w|r|s|c|x|d|0}+`
 - control
-  - stop | continue | break
+  - stop - 默认
+  - continue - 继续处理 who
+  - break - 跳出当前 access 继续处理下一条
+- 隐含规则 `by * none stop`
+
+**权限组合**
+
+```
+access to *
+    by peername.ip="127.0.0.1" =w continue
+    by dn.exact="cn=foo" +rcsx
+    by * auth
+```
+
+- 127.0.0.1 权限为 `w`
+  - 如果 cn=foo 则添加更多权限
 
 | who                          | desc                                |
 | ---------------------------- | ----------------------------------- |
@@ -670,6 +707,9 @@ access to <what> [by <who> [<access>] [<control>] ]+
 | read     | =rscdx   | needed to read search results              |
 | write    | =wrscdx  | needed to modify/rename                    |
 | manage   | =mwrscdx | needed to manage                           |
+
+- https://www.openldap.org/faq/data/cache/454.html
+- https://uit.stanford.edu/service/directory/aclexamples
 
 ## Off-line
 
@@ -692,33 +732,6 @@ description: Directory Administrator
 slapd -Ta -F slapd.d -l demo.ldif
 ```
 
-## ldap cli
-
-| flag          | for                         |
-| ------------- | --------------------------- |
-| -f file       |
-| -D binddn     |
-| -W            | ask password                |
-| -w passwd     |
-| -x            | simple auth instead of SASL |
-| -y passwdfile |
-| -H ldapuri    |
-| -h host       |
-| -p port       |
-| -n            | dry run                     |
-
-- ldapadd = ldapmodify -a
-- /etc/openldap/ldap.conf
-
-```conf
-BASE dc=wener,dc=me
-URI ldap://ip
-TLS_CACERTDIR /etc/openldap/certs
-```
-
-```bash
-ldapsearch -x -LLL
-```
 
 ## 备份
 
@@ -802,4 +815,11 @@ olcRootDN: cn=manager,dc=example,dc=com
 olcRootPW:: c2VjcmV0
 olcDbDirectory: /var/lib/openldap/example.com
 olcAccess: to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" manage
+```
+
+## daemon: bind(7) failed errno=2 (No such file or directory)
+
+```bash
+install -d -m 700 -o ldap -g ldap /var/lib/openldap/run
+chown -R ldap:ldap /var/lib/openldap
 ```

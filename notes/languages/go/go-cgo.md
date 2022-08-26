@@ -4,7 +4,8 @@ title: CGO
 
 # CGO
 
-CGO is not GO
+> **Note**
+> CGO is not GO
 
 - 避免 CGO
   - [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)

@@ -44,6 +44,25 @@ tags:
   - JavaCC 默认 `LL(1)` - 可设置 lookahead 变为 `LL(k)`
 - PEG 类似 CFG 但并不是子集
 - DFA - flex, regex, jflex
+- context-sensitive parsing
+  - [Off-side rule](https://en.wikipedia.org/wiki/Off-side_rule)
+  - https://github.com/harc/ohm/issues/158
+    - https://ohmlang.github.io/pubs/dls2016/modular-semantic-actions.pdf
+- PEG 手写 right recursion
+
+```mermaid
+graph TD;
+    CFG-->DCFG
+    DCFG-->LL --> LL_k
+    LL --> LL_inf
+    LL_k --> JavaCC
+    LL_inf --> Antlr4
+
+    LL_inf["LL(*)"]
+    LL_k["LL(k)"]
+```
+
+## Left recursion
 - [Left recursion](https://en.wikipedia.org/wiki/Left_recursion)
   - Direct left recursion
   - Indirect left recursion
@@ -58,18 +77,4 @@ tags:
   //
   "right": {"term": "c"}
 }
-```
-
-- PEG 手写 right recursion
-
-```mermaid
-graph TD;
-    CFG-->DCFG
-    DCFG-->LL --> LL_k
-    LL --> LL_inf
-    LL_k --> JavaCC
-    LL_inf --> Antlr4
-
-    LL_inf["LL(*)"]
-    LL_k["LL(k)"]
 ```

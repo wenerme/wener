@@ -55,6 +55,27 @@ title: ZFS
   * [ZFSDRaidNotes](https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSDRaidNotes)
   * ZFS native encryption vs LUKS https://news.ycombinator.com/item?id=32340433
 
+## Why ZFS
+
+- zpool - 软 RAID
+  - 软件控制 - 恢复创建都比硬 RAID 方便快速
+  - dRAID 更进一步提升大量盘位时的恢复速度
+  - 更灵活的冗余程度控制
+  - 完整性校验
+- dataset - 逻辑划分 zpool
+- ZFS - 文件系统
+  - 快照
+  - 增量备份 - zfs send, zfs recv
+  - 透明压缩
+  - dedup
+- 缓存 - 写缓存、读缓存
+  - 利用额外的 SSD 加速
+
+**When not to use ZFS**
+
+- 需要基于 RAW Disk 的集群存储 - 例如: Ceph
+
+
 ## NOTES
 * zpool
   * 存储池

@@ -103,13 +103,15 @@
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener
 
-| Frontend             | Desc                     |
-| -------------------- | ------------------------ |
-| [pm-exam-cheatsheet] | 软考项目管理考试知识整理 |
-| [apis]               | Dev Utils on Web         |
+| Frontend/NodeJS/TS   | Desc                                     | Website                                       |
+| -------------------- | ---------------------------------------- | --------------------------------------------- |
+| [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/ |
+| [apis]               | Dev Utils on Web                         | https://apis.wener.me/                        |
+| [go-miniquery]       | SQL like filter expression for sequelize |
 
 [pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
 [apis]: https://github.com/wenerme/apis
+[js-miniquery]: https://github.com/wenerme/js-miniquery
 
 ## License
 

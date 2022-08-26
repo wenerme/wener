@@ -33,6 +33,11 @@ title: LDAP Schema
 | c    | country             | 国家                       |
 | o    | Organization        | 组织                       |
 
+- Schema 分类
+  - 对象类
+  - 属性类型
+  - 语法
+  - 匹配规则
 - 用户 - 常用 inetOrgPerson, organizationalPerson
   - inetOrgPerson
     - SUP organizationalPerson
@@ -71,6 +76,8 @@ title: LDAP Schema
   - X-ORIGIN
   - AUXILIARY
   - STRUCTURAL
+- `::` base64
+- value 不能包含前后空白
 
 ```ldif
 # 陈小明
@@ -96,6 +103,61 @@ uid: chenxiaoming
 - https://docs.microsoft.com/en-us/windows/win32/adschema/active-directory-schema
 - https://docs.oracle.com/javase/jndi/tutorial/ldap/schema/
 - https://www.ibm.com/docs/en/sdse
+- https://ldapwiki.com/wiki/LDAPSyntaxes
+
+## Internal
+
+| attr                  | example                                  |
+| --------------------- | ---------------------------------------- |
+| createTimestamp       | 20220823142347Z                          |
+| creatorsName          | cn=admin,dc=wener,dc=me                  |
+| entryCSN              | 20220823142347.481919Z#000000#000#000000 |
+| entryDN               | cn=user,ou=groups,dc=wener,dc=me         |
+| entryUUID             | 55ef9487-c39f-4697-8314-68d1752bfe02     |
+| hasSubordinates       | FALSE                                    |
+| modifiersName         | cn=admin,dc=wener,dc=me                  |
+| modifyTimestamp       | 20220823142347Z                          |
+| structuralObjectClass | posixGroup                               |
+| subschemaSubentry     | cn=Subschema                             |
+
+## Linux
+
+- posixAccount
+  - inetOrgPerson
+  - organizationalPerson
+  - person
+- posixGroup
+- sambaAccount
+- 参考
+  - https://docs.microsoft.com/en-us/windows/win32/adschema/c-posixaccount
+  - https://tldp.org/HOWTO/archived/LDAP-Implementation-HOWTO/schemas.html
+  - https://ldapwiki.com/wiki/PosixAccount
+
+| group attr | -   |
+| ---------- | --- |
+| gidNumber  |
+| cn         |
+
+| user attr         | -   |
+| ----------------- | --- |
+| uidNumber         |
+| gidNumber         |
+| cn                |
+| uid               |
+| gecos             |
+| homeDirectory     |
+| loginShell        |
+| unixHomeDirectory |
+| unixUserPassword  |
+
+| attr             | -   |
+| ---------------- | --- |
+| shadowWarning    |
+| shadowInactive   |
+| shadowMin        |
+| shadowMax        |
+| shadowExpire     |
+| shadowLastChange |
 
 ## SSH
 
@@ -262,6 +324,14 @@ olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top A
 
 ## RFC4519 User Applications
 
+- organization
+  - MUST o
+- organizationalPerson
+  - SUP person
+- organizationalRole - 代表工作和职位
+  - MUST cn
+- organizationalUnit - 代表部门
+  - MUST ou
 - Schema for User Applications
 
 | Attribute Types            | stand for              | e.g.                    |

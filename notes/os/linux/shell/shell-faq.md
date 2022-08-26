@@ -22,6 +22,20 @@ tree -I 'node_modules|cache|test_*'
 tree -L 3 -I 'node_modules*|cache*'
 ```
 
+## shebang
+
+**for bash**
+
+```bash
+#!/usr/bin/env bash
+```
+
+**posix shell**
+
+```bash
+#!/bin/sh
+```
+
 ## 获取一个 Tab 字符
 
 ```bash

@@ -1,5 +1,4 @@
 ---
-id: nexus
 title: Nexus
 ---
 

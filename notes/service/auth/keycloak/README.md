@@ -43,8 +43,10 @@ docker run --rm -it \
 | KC_HTTPS_KEY_STORE_FILE     |
 | KC_HOSTNAME_ADMIN           |
 | KC_HTTP_ENABLED             | false    | 0.0.0.0:8080                             |
+| KC_HTTP_PORT                | 8080     |
 | KC_HTTP_RELATIVE_PATH       | /        |
 | KC_HTTPS_PORT               | 8443     |
+| KC_HTTPS_PROTOCOLS          | TLSv1.3  |
 | KC_PROXY                    | none     | none, edge, reencrypt, passthrough       |
 | KC_VAULT                    |          | file, hashicorp                          |
 | KC_VAULT_DIR                |
@@ -115,29 +117,3 @@ bin/kc.sh start --optimized
 - https://www.keycloak.org/server/all-config
 - https://www.keycloak.org/server/containers
 - https://www.keycloak.org/server/all-provider-config
-
-## LDAP
-
-### group-ldap-mapper
-
-- 分组映射
-- 注意
-  - 不能有同名组，会导致无法同步回 Keycloak
-  - LDAP 无法识别同名组
-
-| 选项                                 | 翻译                  | 说明                                                                      |
-| ------------------------------------ | --------------------- | ------------------------------------------------------------------------- |
-| LDAP Groups DN                       | 分组 DN               | 例如 `ou=groups,dc=wener,dc=me`                                           |
-| Group Name LDAP Attribute            | LDAP 属性 -> 分组名字 |
-| Group Object Classes                 | 对象类                | `groupOfNames` `groups`                                                   |
-| Preserve Group Inheritance           | 保留层级              | 如果不保留，则同步后都是顶级<br/>如果保留，存在相同名字分组会导致同步异常 |
-| Ignore Missing Groups                | 忽略缺少分组          |
-| Membership LDAP Attribute            | 表示成员的 LDAP 属性  | 例如 `member`                                                             |
-| Membership Attribute Type            | 成员属性类型          | DN UID                                                                    |
-| Membership User LDAP Attribute       | 成员用户 LDAP 属性    | UID 模式则使用该字段表示，一般为 `uid`                                    |
-| LDAP Filter                          | 过滤条件              |
-| Mode                                 | 模式                  | LDAP_ONLY,IMPORT,READ_ONLY                                                |
-| User Groups Retrieve Strategy        | 查询策略              |
-| Member-Of LDAP Attribute             | memberOf 属性         |
-| Mapped Group Attributes              | 映射属性              | 例如 `description,ou,o`                                                   |
-| Drop non-existing groups during sync | 同步删除不存在分组    | LDAP 到 Keycloak 时候                                                     |

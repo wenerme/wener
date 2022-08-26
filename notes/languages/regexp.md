@@ -65,14 +65,21 @@ const notThis = /^(?:(?!this).)*$/;
 | ------------ | ---------------------------------------------- | -------------------- |
 | phone-number | `^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$` | `+(123) - 456-78-90` |
 
+- escaped string - 匹配 `'I\'am'`
+  - `(["'])((?:(?=(?:\\)*)\\.|.)*?)\1`
+  - https://regex101.com/r/mS1zJ8
+
+---
+
 - https://github.com/XHXIAIEIN/split-string-address
 - https://github.com/GrapecityXian/PhoneCommand
 
 ## JavaScript
 
-- `$$` -> `$`
-- `$&`
-- `$``
-- `$'`
-- `$<n>`
-- replacer(match,p1,p2,offset,wholeString,namedGroups)
+- replacement - 替换
+  - `$$` -> `$`
+  - `$&`
+  - `$\``
+  - `$'`
+  - `$<n>`
+  - replacer(match,p1,p2,offset,wholeString,namedGroups)

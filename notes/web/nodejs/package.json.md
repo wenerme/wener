@@ -12,7 +12,6 @@ title: package.json
   - style,sass [twbs/bootstrap#12441](https://github.com/twbs/bootstrap/pull/12441)
     - used by [postcss/postcss-import](https://github.com/postcss/postcss-import)
   - jspm - shim - https://jspm.org/
-- sideEffects
 
 ```json
 {
@@ -27,6 +26,7 @@ title: package.json
   // "exports": "./index.js"
   // 导出多个入口
   // 未 export 的为私有
+  // https://nodejs.org/api/esm.html#resolver-algorithm
   "exports": {
     // 定义后可自引用
     ".": "./main.mjs",
@@ -72,7 +72,12 @@ title: package.json
       "node": "dep-node-native",
       "default": "./dep-polyfill.js"
     }
-  }
+  },
+  // 可以 tree shaking
+  // /*#__PURE__*/
+  "sideEffects": true,
+  // 部分文件有 side effetcs
+  "sideEffects": ["./src/register.js", "*.css", "!(dist/(components|utils)/**)"]
 }
 ```
 

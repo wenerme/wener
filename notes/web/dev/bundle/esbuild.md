@@ -51,6 +51,8 @@ title: ESBuild
 ```bash
 esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
+
+esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdir=out --format=esm --bundle --charset=utf8 --target=chrome90 --sourcemap --minify
 ```
 
 | flag                            |
@@ -62,6 +64,9 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 | --external:@strapi              | 作为外部依赖              |
 | --splitting                     | 拆分 chunk - 抽取公共部分 |
 | --charset=utf8                  | 避免编码                  |
+| --target                        |
+| --sourcemap=linked              |
+| `--servedir <dir>`              |
 
 - --minify
   - --minify-whitespace
@@ -71,6 +76,15 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 - --external:
   - `/assets/*.png`
   - `@foo/bar` 隐含 `@foo/bar/*`
+- --target - chrome, edge, firefox, hermes, ie, ios, node, opera, rhino, safari
+- --sourcemap
+  - linked - `//# sourceMappingURL=`
+  - external - 无 sourceMappingURL
+  - inline
+  - both
+- --servedir
+  - 配合 script 使用
+  - `<script src="js/app.js"></script>`
 
 ## 只 bundle 内部文件
 
@@ -111,3 +125,13 @@ grep '^// ' ./dist/Wysiwyg.esm.js | grep node_modules # bundled externals
 
 - https://github.com/esbuild/community-plugins
 - https://esbuild.github.io/plugins
+
+## Spliting
+
+- 试验阶段
+- 提取多个 entrypoint 的 common 部分
+- https://esbuild.github.io/api/#splitting
+
+```bash
+esbuild home.ts about.ts --bundle --splitting --outdir=out --format=esm
+```

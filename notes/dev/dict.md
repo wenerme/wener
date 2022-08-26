@@ -307,13 +307,22 @@ tags:
   - 不具有唯一性
   - 尽量使用 FullName 避免不必要的混淆
 
-## group vs department vs team
+## group vs department vs team vs role
 
 - group
   - 人或事务的集合 - 与人多对多
     - 例如一个群组里可能有用户也可能有机器人
   - 单纯用于分组 - 弱业务性质和上下级关系
     - A 组、B 组
+  - 可以用于对 department, team, role 等进行建模
+  - 例如:
+    - /
+      - departments/
+        - CEO/
+      - teams/
+        - Project-A/
+      - roles/
+        - admin/
 - department
   - 人的集合 - 与人多对一
   - 具有业务属性和上下级关系
@@ -322,6 +331,10 @@ tags:
   - 人的集合 - 与人多对多
   - 组织架构中类似 group - 但更具有管理属性
   - 主要便于跨部门协作
+- role
+  - 通常用于 ACL 语境
+  - 结构形式类似于 group
+
 
 ## business unit vs division vs deparment
 
@@ -658,6 +671,7 @@ tags:
 
 - https://www.dictionary.com/browse/employee?s=t
   - 查含义和词源
+- etymonline.com
 
 ## Abbr
 

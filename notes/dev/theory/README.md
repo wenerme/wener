@@ -15,3 +15,6 @@ title: 理论
   - 跨行业思考
   - 基于淘汰技术来进行发散思维
   - https://boringtechnology.club/
+- CDD - Component-Driven Development - Component Driven User Interfaces
+  https://componentdriven.org
+  - https://www.chromatic.com/blog/component-driven-development/

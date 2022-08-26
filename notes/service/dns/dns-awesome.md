@@ -6,6 +6,19 @@ tags:
 
 # DNS Awesome
 
+:::tip 推荐 DNS 配置
+
+- 选择支持分流的 DNS 服务、支持 DoH/DoT 解析的服务
+  - AdGuard、PiHole
+- 默认走国内 DNS
+  - 因为国内很多服务 CDN 依赖 DNS 解析，使用国外 DNS 可能导致 CDN 出问题，访问非常慢或打不开
+  - 国内 DNS 更快
+- 选择会被污染的域名走 DoH/DoT 解析
+  - DoH 和 DoT 不会被污染
+  - 即便是用国外的 DNS over TCP/UDP 也是会被污染的，协议层不安全
+
+:::
+
 - [域名.信息](http://域名.信息)
 - [alidns](https://alidns.com/)
 - 工具
@@ -66,15 +79,18 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
 
 ## Protocol
 
-| nmae                     | abbr.    |
-| ------------------------ | -------- |
+| nmae                     | abbr.    | schema        |
+| ------------------------ | -------- | ------------- |
 | DNS-over-UDP/53          | Do53     |
-| DNS-over-TCP/53          | Do53/TCP |
-| DNSCrypt                 |          |
-| DNS-over-TLS             | DoT      |
-| DNS-over-HTTPS           | DoH      |
+| DNS-over-TCP/53          | Do53/TCP | `tcp://`      |
+| DNSCrypt                 |          | `sdns://`     |
+| DNS-over-TLS             | DoT      | `tls://`      |
+| DNS-over-HTTPS           | DoH      | `https://`    |
 | DNS-over-TOR             |          |
 | Oblivious DNS-over-HTTPS | ODoH     |
+| [DNS-over-QUIC]          |          | `quic://:763` |
+
+[dns-over-quic]: https://tools.ietf.org/html/draft-huitema-quic-dnsoquic-07
 
 - Oblivious DNS over HTTPS - ODoH
   - 避免 Provider 感知到用户 IP - 类似 anonymized DNScrypt
@@ -187,6 +203,7 @@ curl --doh-url https://dns.cloudflare.com/dns-query https://wener.me
 ---
 
 - https://kb.adguard.com/general/dns-providers
+- https://dns.pub/dns-query
 
 ## 污染封禁域名列表
 

@@ -12,6 +12,19 @@ tags:
 
 :::
 
+## Path alias
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
 ## I 接口命名前缀
 
 - 觉得需要用的时候就用

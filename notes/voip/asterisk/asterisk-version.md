@@ -5,7 +5,36 @@ title: Asterisk 版本
 
 # Asterisk Version
 
-## Tips
+| Ver            | Type     | Release    | EOL        |
+| -------------- | -------- | ---------- | ---------- |
+| [Asterisk 20]  | LTS      | 2022-10-19 | 2027-10-19 |
+| [Asterisk 19]  | Standard | 2021-11-02 | 2023-11-02 |
+| [Asterisk 18]  | LTS      | 2020-10-20 | 2024-10-20 |
+| [Asterisk 17]  | Standard | 2019-10-28 | 2021-10-28 |
+| [Asterisk 16]  | LTS      | 2018-10-09 | 2022-10-09 |
+| [Asterisk 15]  | Standard | 2017-10-03 | 2019-10-03 |
+| [Asterisk 14]  | Standard | 2016-09-26 | 2018-09-26 |
+| [Asterisk 13]  | LTS      | 2014-10-24 | 2020-10-24 |
+| [Asterisk 11]  | LTS      | 2012-10-25 | 2017-10-25 |
+| [Asterisk 1.8] | LTS      | 2010-10-21 | 2015-10-21 |
+| [Asterisk 1.4] | LTS      | 2006-12-23 | 2012-04-21 |
+
+[asterisk 20]: #asterisk-20
+[asterisk 19]: #asterisk-19
+[asterisk 18]: #asterisk-18
+[asterisk 17]: #asterisk-17
+[asterisk 16]: #asterisk-16
+[asterisk 15]: #asterisk-15
+[asterisk 14]: #asterisk-14
+[asterisk 13]: #asterisk-13
+[asterisk 11]: #asterisk-11
+[asterisk 10]: #asterisk-10
+[asterisk 1.8]: #asterisk-1.8
+
+```bash
+# 获取给的版本源码
+curl -O https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz
+```
 
 - [Versions](https://wiki.asterisk.org/wiki/display/AST/Asterisk+Versions)
 - [CHANGES](https://github.com/asterisk/asterisk/blob/master/CHANGES)
@@ -21,22 +50,21 @@ title: Asterisk 版本
   - 默认只包含 core 模块
   - 16 LTS
 
-| Ver | Type     | Release    | EOL        |
-| --- | -------- | ---------- | ---------- |
-| 18  | LTS      | 2020-10-20 | 2024-10-20 |
-| 17  | Standard | 2019-10-28 | 2021-10-28 |
-| 16  | LTS      | 2018-10-09 | 2022-10-09 |
-| 15  | Standard | 2017-10-03 | 2019-10-03 |
-| 14  | Standard | 2016-09-26 | 2018-09-26 |
-| 13  | LTS      | 2014-10-24 | 2020-10-24 |
-| 11  | LTS      | 2012-10-25 | 2017-10-25 |
-| 1.8 | LTS      | 2010-10-21 | 2015-10-21 |
-| 1.4 | LTS      | 2006-12-23 | 2012-04-21 |
+## Asterisk 20
 
-```bash
-# 获取给的版本源码
-curl -O https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz
-```
+## Asterisk 19
+
+- debug log categories
+  - dtls, dtls_packet, ice, rtcp, rtcp_packet, rtp, rtp_packet, stun, and stun_packet
+  - "simple" record formatting mode
+- app_voicemail - send greeting and instructions
+- astcachedir - /var/cache/asterisk
+- app_confbridge - force the estimated bitrate on an SFU
+- Originate 可设置变量
+- ConfKick
+- app_dial - A
+- app_morsecode
+- [CHANGES](https://raw.githubusercontent.com/asterisk/asterisk/19/CHANGES)
 
 ## Asterisk 18
 

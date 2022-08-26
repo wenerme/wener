@@ -1,8 +1,17 @@
 ---
 title: LADP
+tags:
+  - LDAP
 ---
 
 # LADP
+
+| LDAP         | DB          |
+| ------------ | ----------- |
+| dn           | primary key |
+| object class | table       |
+| entry        | row         |
+| schema       | constraint  |
 
 - 端口
   - 389 ldap
@@ -153,15 +162,27 @@ java -jar jetty-runner.jar --port 8081 fortress-rest.war
 
 - dc=wener,dc=me
   - ou=users
-    - cn=USERNAME - 用户 - inetOrgPerson
+    - cn=USERNAME - 用户 - inetOrgPerson,organizationalPerson,person
+      - MUST cn, sn
       - uid 唯一标识符
       - cn 名称
-      - cn 姓
+      - sn 姓
+      - givenName
+      - mail
+    - cn= - Linux 用户 - posixAccount
+      - MUST uidNumber, gidNumber
   - ou=groups
     - cn=GROUPNAME - 分组 - groupOfNames
       - member - 成员
       - entryDN - 组成员属性、组 DN 属性
       - displayName - 如果不想显示 cn 可以考虑使用该属性
+    - cn=admin - Linux 分组 posixGroup
+      - MUST gidNumber
+  - ou=rules
+    - cn=NAME - groupOfNames
+  - ou=service - Service Account
+    - uid=keycloak - simpleSecurityObject,account
+      - MUST uid, userPassword
   - ou=policies - 策略
     - cn=default - pwdPolicy,namedPolicy,top
 - c=国家

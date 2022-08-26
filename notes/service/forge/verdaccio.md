@@ -4,6 +4,8 @@ title: Verdaccio
 
 # verdaccio
 
+- [verdaccio/verdaccio](https://github.com/verdaccio/verdaccio)
+  - MIT, TS, JS
 - 插件
   - https://github.com/verdaccio/monorepo/tree/9.x/plugins
   - [Alexandre-io/verdaccio-ldap](https://github.com/Alexandre-io/verdaccio-ldap)

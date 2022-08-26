@@ -67,3 +67,15 @@ Int: [0-9]+ ;
 
 - 参考
   - [Left Recursion in Parsing Expression Grammars](https://arxiv.org/abs/1207.0443)
+
+## OctetString
+
+- Sequence of Byte
+- ASN.1 OCTET STRING - TLV
+- LDAP - OID
+  - 1.3.6.1.4.1.1466.115.121.1.40
+  - Microsoft Active Directory 2.5.5.10
+- 参考
+  - https://docs.microsoft.com/en-us/windows/win32/seccertenroll/about-octet-string
+  - https://ldapwiki.com/wiki/OctetString
+  - https://www.iso.org/obp/ui/#iso:std:iso-iec:8825:-7:ed-2:v1:en

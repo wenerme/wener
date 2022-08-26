@@ -328,6 +328,10 @@ tags:
   - punycode
   - url-js
   - url
+- audio
+  - [bbc/peaks.js](https://github.com/bbc/peaks.js)
+    - LGPLv3, JS
+    - audio waveforms
 - glob
   - [isaacs/node-glob](https://github.com/isaacs/node-glob)
   - [mrmlnc/fast-glob](https://github.com/mrmlnc/fast-glob)
@@ -348,13 +352,12 @@ tags:
   - storybook
   - playwright
   - cypress
-  - [ava](https://github.com/avajs/ava)
+  - [ava](./lib/ava.md)
     - WebStrom Plugin [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835)
     - [WEB-21788](https://youtrack.jetbrains.com/issue/WEB-21788)
   - [testing library](https://github.com/testing-library)
     - react, dom
   - webdriver io
-  - ava
   - [nightwatch](https://github.com/nightwatchjs/nightwatch)
   - tap - 测试协议
     - [tapjs/node-tap](https://github.com/tapjs/node-tap)

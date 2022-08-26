@@ -12,6 +12,8 @@ title: macOS 术语表
 | UTI   | Uniform Type Identifier          |
 | `CF*` | Core Foundation                  |
 | `NS*` | NextStep                         |
+| `DT*` |                                  |
+| `LS*` |                                  |
 | adi   | Apple Distribution International |
 
 | file           | stand for                     |

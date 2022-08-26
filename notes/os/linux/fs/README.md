@@ -35,7 +35,7 @@ title: FS
 | ramfs      |
 | pipefs     | pipe:                    | 当 shell 使用 pipe 时        |
 | loopfs     | `/dev/loop*`             |
-| rootfs     | /                        |
+| [rootfs]   | /                        |
 
 - /dev/ptsmx - terminal mulitplexer
 
@@ -83,6 +83,7 @@ title: FS
 [nfs]: ./nfs.md
 [smb]: ./smb.md
 [fuse]: ./fuse.md
+[rootfs]: ./rootfs.md
 
 ```sh
 cat /proc/filesystems # 支持的 fs

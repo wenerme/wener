@@ -11,6 +11,15 @@ tags:
 - `[a-zA-Z0-9-]`
 - [Best Practices For LDAP Naming Attributes](https://ldapwiki.com/wiki/Best%20Practices%20For%20LDAP%20Naming%20Attributes)
 
+## LDAPv3 password modify
+
+```bash
+ldappasswd -H ldap://ldap.example.com:389 -D "uid=account-name,ou=serviceaccounts,dc=example,dc=com" -S -W -ZZ
+```
+
+- LDAPv3 Password Modify Extended Operation (RFC-3062)
+- [Password Modify Extended Operation](https://ldapwiki.com/wiki/Password%20Modify%20Extended%20Operation)
+
 ## 认证方式
 
 | method         | value |

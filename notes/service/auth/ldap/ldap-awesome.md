@@ -75,12 +75,43 @@ tags:
     - GPLv2, PHP
   - [LDAPAccountManager/lam](https://github.com/LDAPAccountManager/lam)
     - PHP
+    - https://hub.docker.com/r/ldapaccountmanager/lam
   - [eryajf/go-ldap-admin](https://github.com/eryajf/go-ldap-admin)
     - GPLv3, Go+Vue
+  - http://www.ldapadmin.org/
+    - [osixia/docker-phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin)
 - [CroweCybersecurity/ad-ldap-enum](https://github.com/CroweCybersecurity/ad-ldap-enum)
   - MIT, Python
   - LDAP based Active Directory user and group enumeration tool
 - [projectdiscovery/interactsh](https://github.com/projectdiscovery/interactsh)
+- Tools
+  - The LDIF Merge Tool https://docs.oracle.com/cd/E19850-01/816-6400-10/mmldif.html
+
+```bash
+# http://localhost:8080/
+# /etc/ldap-account-manager
+# /var/lib/ldap-account-manager
+# https://github.com/LDAPAccountManager/lam/blob/develop/lam-packaging/docker/.env
+docker run -it --rm \
+  -p 8080:80 \
+  -e LDAP_SERVER=ldap://ldap:389 \
+  -e LDAP_USER=cn=admin,dc=wener,dc=me \
+  -e LDAP_DOMAIN=wener.me \
+  -e LDAP_BASE_DN=dc=wener,dc=me \
+  -e LDAP_USERS_DN=ou=users,dc=wener,dc=me \
+  -e LDAP_GROUPS_DN=ou=groups,dc=wener,dc=me \
+  -e LAM_PASSWORD=master \
+  -e LAM_LANG=zh_CN \
+  --name lam ldapaccountmanager/lam:stable
+
+# PHPLDAPADMIN_SERVER_PATH=/phpldapadmin
+# /container/service/phpldapadmin/assets/config/config.php
+docker run --rm -it \
+   -p 6443:443 -p 8080:80 \
+  -e PHPLDAPADMIN_HTTPS=false \
+  -e PHPLDAPADMIN_LDAP_HOSTS=ldap.example.com \
+  --name phpldapadmin osixia/phpldapadmin
+```
 
 ---
 

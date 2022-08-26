@@ -29,6 +29,10 @@ tags:
 - [proposal-temporal](https://github.com/tc39/proposal-temporal)
   - Temporal - 替代 Date
 - [Function.memo](https://github.com/tc39/proposal-function-memo)
+- `await generateItems().toArray()`
+  - [tc39/proposal-iterator-helpers](https://github.com/tc39/proposal-iterator-helpers)
+- `Array.fromAsync`
+  [tc39/proposal-array-from-async](https://github.com/tc39/proposal-array-from-async)
 
 :::
 
@@ -37,6 +41,7 @@ tags:
   - 之后统一版本概念变弱 - 都以功能特性为单位
 - [tc39/proposals](https://github.com/tc39/proposals)
 - [TC39 Process](https://tc39.github.io/process-document/)
+  - https://tc39.es/process-document/
   - Finished Proposals
   - Active Proposals
   - Stage 1 Proposals

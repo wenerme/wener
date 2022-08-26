@@ -17,6 +17,8 @@ tags:
   - APPL
   - FMWK - Framework
   - BNDL
+- CF -> Core Foundation
+- NS -> NeXTSTEP
 - /System/Library/CoreServices/CoreTypes.bundle
 - 参考
   - [Bundle Structures](https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html)
@@ -31,6 +33,23 @@ curl https://itunes.apple.com/lookup?id=497799835 -s | jq -r '.results[0].bundle
 cat /Applications/iTerm.app/Contents/Info.plist | grep -A 1 'BundleIdentifier'
 grep -a -A 1 'BundleIdentifier<' /Applications/*.app/Contents/Info.plist
 ```
+
+## Structure
+
+- Contents/
+  - CodeResources
+  - Info.plist - xml
+  - PkgInfo - text
+  - XPCServices/
+    - `*.xpc/` - Bundle
+      - Contents/
+  - Frameworks/
+    - `*.dynlib`
+    - `*.framework/`
+  - MacOS/
+  - Resources/
+  - \_CodeSignature/
+    - CodeResources - plist xml - files, rules
 
 ## LaunchService
 
@@ -77,3 +96,26 @@ bindings:                   com.microsoft.internet-shortcut, .url, 'LINK'
   - Default
   - None
   - Owner
+
+## Info.plist
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+  </array>
+</dict>
+```
+
+- https://developer.apple.com/documentation/bundleresources/information_property_list
+
+## Signature
+
+- 签名数据
+  - Contents/CodeResources
+  - Contents/\_CodeSignature/CodeResources
