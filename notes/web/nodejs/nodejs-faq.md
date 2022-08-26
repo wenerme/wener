@@ -48,6 +48,10 @@ export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
 
 ## libtool: unrecognized option -static when building
 
+```
+libtool:   error: unrecognised option: '-static'
+```
+
 ```bash
 brew unlink libtool
 rm -rf /usr/local/bin/libtool

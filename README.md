@@ -107,7 +107,7 @@
 | -------------------- | ---------------------------------------- | --------------------------------------------- |
 | [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/ |
 | [apis]               | Dev Utils on Web                         | https://apis.wener.me/                        |
-| [go-miniquery]       | SQL like filter expression for sequelize |
+| [js-miniquery]       | SQL like filter expression for sequelize |
 
 [pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
 [apis]: https://github.com/wenerme/apis

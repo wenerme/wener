@@ -1,6 +1,6 @@
 {
   "name": "wener-website",
-  "version": "v2.0.0-beta.20",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -16,14 +16,14 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "v2.0.0-beta.20",
-    "@docusaurus/plugin-client-redirects": "v2.0.0-beta.20",
-    "@docusaurus/plugin-google-analytics": "v2.0.0-beta.20",
-    "@docusaurus/plugin-google-gtag": "v2.0.0-beta.20",
-    "@docusaurus/plugin-ideal-image": "v2.0.0-beta.20",
-    "@docusaurus/plugin-sitemap": "v2.0.0-beta.20",
-    "@docusaurus/preset-classic": "v2.0.0-beta.20",
-    "@docusaurus/theme-live-codeblock": "v2.0.0-beta.20",
+    "@docusaurus/core": "2.0.1",
+    "@docusaurus/plugin-client-redirects": "2.0.1",
+    "@docusaurus/plugin-google-analytics": "2.0.1",
+    "@docusaurus/plugin-google-gtag": "2.0.1",
+    "@docusaurus/plugin-ideal-image": "2.0.1",
+    "@docusaurus/plugin-sitemap": "2.0.1",
+    "@docusaurus/preset-classic": "2.0.1",
+    "@docusaurus/theme-live-codeblock": "2.0.1",
     "classnames": "^2.3.1",
     "hast-util-is-element": "^1.1.0",
     "isomorphic-fetch": "^3",
@@ -35,9 +35,9 @@
     "node-fetch": "^2",
     "nth-check": ">=2.0.1",
     "prism-react-renderer": "^1.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rehype-katex": "^4.0.0",
+    "react": "^17",
+    "react-dom": "^17",
+    "rehype-katex": "^5",
     "remark-math": "^3.0.1",
     "styled-components": "^5.3.0",
     "trim": ">=0.0.3"

@@ -159,7 +159,7 @@ tags:
     - 底层基于 vips
   - online [butteraugli](http://libwebpjs.hohenlimburg.org/butteraugli/)
 - Service
-  - [imgproxy](./imgproxy.md)
+  - [imgproxy](./server/imgproxy.md)
     - MIT, Go
     - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
   - [cshum/imagor](https://github.com/cshum/imagor)

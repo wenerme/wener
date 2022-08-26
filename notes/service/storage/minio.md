@@ -49,7 +49,6 @@ title: MinIO
 
 :::
 
-
 | 限制           | 值            |
 | -------------- | ------------- |
 | 最多磁盘数     | 16            |
@@ -61,12 +60,15 @@ title: MinIO
 | 块大小         | 5 MiB - 5 GiB |
 
 ```bash
+# macOS
+# ==========
 # minio 仓库 - 可能更新
 # brew install minio/stable/minio
 # brew install minio/stable/mc
-# 官方仓库
-brew install minio-c minio
+brew install minio-mc minio
 
+# Docker
+# ==========
 docker pull minio/minio
 # 单节点启动
 docker run -p 9000:9000 --name minio -v /mnt/data:/data -v /mnt/config:/root/.minio minio/minio server /data
@@ -77,12 +79,12 @@ MINIO_SECRET_KEY=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -
 
 docker network create minio-net
 for i in {1..4}; do
-docker run -d -p 900$i:9000 --network minio-net --name m$i \
-  -e "MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}" \
-  -e "MINIO_SECRET_KEY=${MINIO_SECRET_KEY}" \
-  -v $PWD/m$i/data:/data \
-  -v $PWD/m$i/config:/root/.minio \
-  minio/minio server http://m1:9000/data http://m2:9000/data http://m3:9000/data http://m4:9000/data
+  docker run -d -p 900$i:9000 --network minio-net --name m$i \
+    -e "MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}" \
+    -e "MINIO_SECRET_KEY=${MINIO_SECRET_KEY}" \
+    -v $PWD/m$i/data:/data \
+    -v $PWD/m$i/config:/root/.minio \
+    minio/minio server http://m1:9000/data http://m2:9000/data http://m3:9000/data http://m4:9000/data
 done
 
 # 可以使用 docker 作为客户端
@@ -90,13 +92,13 @@ docker pull minio/mc
 alias mc='docker run -v ~/.mc:/root/.mc -v $PWD:/pwd --workdir /pwd --rm -it minio/mc'
 # 配置文件位于 ~/.mc/
 mc config host add m1 http://$(docker-machine ip):9001 $MINIO_ACCESS_KEY $MINIO_SECRET_KEY S3v4
-bash
+
 # 简化使用
-alias ls='mc ls'
-alias cp='mc cp'
-alias cat='mc cat'
-alias mkdir='mc mb'
-alias pipe='mc pipe'
+# alias ls='mc ls'
+# alias cp='mc cp'
+# alias cat='mc cat'
+# alias mkdir='mc mb'
+# alias pipe='mc pipe'
 
 mc mb m1/test
 echo Hello Minio ! | mc pipe m1/test/test.txt
@@ -120,12 +122,12 @@ mc ls m1/test-m
 
 docker stop m4
 # 依然能创建文件
-echo Touch| mc pipe m1/test/$(date +"%Y-%m-%d.%H-%M-%S").txt
+echo Touch | mc pipe m1/test/$(date +"%Y-%m-%d.%H-%M-%S").txt
 docker stop m3
 # 能读
 mc cat m1/test/test.txt
 # 不能写入, 会一直等待
-echo Touch| mc pipe m1/test/$(date +"%Y-%m-%d.%H-%M-%S").txt
+echo Touch | mc pipe m1/test/$(date +"%Y-%m-%d.%H-%M-%S").txt
 # 此时无法启动 m3, 因为 m4 未启动
 docker start m3
 # 两个节点都启动成功, 之前的操作继续进行
@@ -133,7 +135,6 @@ docker start m4
 
 # Stop all
 docker rm -f m{1,2,3,4}
-
 
 # https://github.com/minio/minfs
 
@@ -150,7 +151,6 @@ location_constraint=
 server_side_encryption=
 " >> ~/.rclone.conf
 rclone lsd oss:
-
 ```
 
 ## 配置
