@@ -37,7 +37,7 @@ tags:
   - `MERGE INTO table USING source ON join WHEN MATCHED THEN INSERT|UPDATE|DELETE|DO NOTHING`
   - 支持增删改
   - `INSERT ... ON CONFLICT` 只支持 增改
-- 更多 SQL/JSON 函数
+- ~~更多 SQL/JSON 函数~~
   - 构造 JSON
     - `JSON('{}')` = `'{}'::json`
     - JSON_SCALAR, JSON_OBJECT, JSON_OBJECTAGG, JSON_ARRAY, JSON_ARRAYAGG
@@ -45,6 +45,9 @@ tags:
     - `IS JSON [NOT] [{VALUE|SCALAR|ARRAY|OBJECT}] [{WITH|WITHOUT} UNIQUE [KEYS]]`
     - JSON_EXISTS, JSON_VALUE, JSON_QUERY, JSON_TABLE
   - JSON_TABLE - JSON 转表
+  - 大多 JSON 相关特性被 revert
+    - https://git.postgresql.org/gitweb/?p=postgresql.git;a=commitdiff;h=2f2b18bd3f554e96a8cc885b177211be12288e4a
+    - 时间来不及 https://www.postgresql.org/message-id/40d2c882-bcac-19a9-754d-4299e1d87ac7@postgresql.org
 - 更多 regex 函数
   - regexp_count , regexp_instr, regexp_like, regexp_substr
 - 新增 range_agg 用于聚合 range,multirange 类型为 multirange

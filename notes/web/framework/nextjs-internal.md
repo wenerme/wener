@@ -1,5 +1,7 @@
 ---
 title: NextJS Internal
+tags:
+  - Internal
 ---
 
 # NextJS Internal
@@ -36,12 +38,12 @@ export default async function start(serverOptions: any, port?: number, hostname?
 }
 
 // https://github.com/zeit/next.js/blob/canary/packages/next/cli/next-start.ts
-import { resolve } from 'path';
+import {resolve} from 'path';
 
 const dir = resolve(args._[0] || '.');
 const port = args['--port'] || 3000;
 
-start({ dir }, port, args['--hostname'])
+start({dir}, port, args['--hostname'])
   .then(async (app) => {
     // tslint:disable-next-line
     console.log(`> Ready on http://${args['--hostname'] || 'localhost'}:${port}`);
@@ -59,13 +61,13 @@ start({ dir }, port, args['--hostname'])
 - 使用自定义 server 则不需要 next start
 
 ```js
-const { createServer } = require('http');
-const { parse } = require('url');
+const {createServer} = require('http');
+const {parse} = require('url');
 const next = require('next');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({dev});
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {

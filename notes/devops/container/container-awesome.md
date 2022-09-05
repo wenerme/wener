@@ -79,6 +79,9 @@ tags:
   - Containers that look like Virtual Machines
 - [GoogleContainerTools/kpt](https://github.com/GoogleContainerTools/kpt)
   - Automate Kubernetes Configuration Editing
+- [checkpoint-restore/criu](https://github.com/checkpoint-restore/criu)
+  - GPLv2, C
+  - application or container live migration, snapshots, remote debugging
 
 ## Runtime
 

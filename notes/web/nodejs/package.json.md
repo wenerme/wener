@@ -97,3 +97,22 @@ title: package.json
   }
 }
 ```
+
+## exports
+
+- --conditions,-C
+  - `node --conditions=development index.js`
+  - 运行 node 指定 condition 会根据 condition resolve
+- 常见类型
+  - import - esm - `import`,`import()` 使用 ECMAScript module loader
+  - require - cjs
+  - node - cjs/esm
+  - node-addons - native C++ addons
+  - default - cjs/esm - 优先级低
+- 扩展
+  - types - 优先级高
+  - demo
+  - browser - 例如 iife 格式
+  - development
+  - production
+- https://nodejs.org/api/packages.html#conditional-exports

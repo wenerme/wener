@@ -10,6 +10,7 @@ title: browserslist
 - 支持环境配置 BROWSERSLIST_ENV, NODE_ENV
 - https://browserslist.dev/
   - 查看覆盖率，测试查询
+- https://browsersl.ist/
 
 ```bash
 # 查看匹配

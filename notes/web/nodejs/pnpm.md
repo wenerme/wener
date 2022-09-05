@@ -27,6 +27,7 @@ title: pnpm
 :::caution
 
 - Typescript 可能检测不到类型，出现类型异常 [TypeScript#29808](https://github.com/microsoft/TypeScript/issues/29808)
+  - 尝试 `"preserveSymlinks": true`
 
 :::
 
@@ -67,6 +68,18 @@ public-hoist-pattern[]=*jest*
 ```
 
 ## 配置
+
+- strict-peer-dependencies
+- auto-install-peers
+  - 迁移时可以开启，之后建议关闭
+  - missing non-optional peer dependencies are automatically installed
+  - 可能导致问题
+    - https://github.com/pnpm/pnpm/issues/5144#issuecomment-1207261343
+- legacy-peer-deps
+  - NPMv7 配置
+  - 恢复为 NPMv4 - NPMv6 行为
+  - bypass peerDependency auto-installation
+  - https://stackoverflow.com/a/66620869/1870054
 
 ### package.json
 
@@ -308,7 +321,6 @@ CMD [ "node", "server.js" ]
 ## Typescript FAQ
 
 主要是 pnpm symlink 引起问题
-
 
 ### Type error: The inferred type of 'trpc' cannot be named without a reference to 'react-query'. This is likely not portable. A type annotation is necessary.
 

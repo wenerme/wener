@@ -13,6 +13,9 @@ title: ESM
 - [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)
   - 动态构建样式表
   - 不支持 @import
+- Arbitrary module namespace identifier names https://github.com/tc39/ecma262/pull/2154
+- Abstract Module Record  https://tc39.es/ecma262/#sec-abstract-module-records
+  - link, evaluate, getExportedNames, resolveExport
 
 :::caution
 
@@ -49,10 +52,32 @@ import fs from 'node:fs/promises';
   - https:
 - import.meta.url
 - `import.meta.resolve(specifier[, parent])`
-
   - `await import.meta.resolve('./dep', import.meta.url)`
 
+---
+
+- [guybedford/es-module-shims](https://github.com/guybedford/es-module-shims)
+  - [guybedford/es-module-lexer](https://github.com/guybedford/es-module-lexer)
+    shim 时 wasm 快速分析 js 内 import
+  - 支持 importmap 的浏览器会更快
 - [Pure ESM package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+
+```html
+<!--
+  JSPM Generator Import Map
+  Edit URL: https://generator.jspm.io/#U2NhYGBkDM0rySzJSU1hKEpNTC5xMLTQM9QzAADeRmOTGwA
+-->
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://ga.jspm.io/npm:react@18.1.0/index.js"
+  }
+}
+</script>
+
+<!-- ES Module Shims: Import maps polyfill for modules browsers without import maps support (all except Chrome 89+) -->
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.5.1/dist/es-module-shims.js" crossorigin="anonymous"></script>
+```
 
 ## import map
 
@@ -60,8 +85,14 @@ import fs from 'node:fs/promises';
 - https://github.com/wicg/import-maps
   - [polyfills and tooling](https://github.com/wicg/import-maps#community-polyfills-and-tooling)
 - https://modern-web.dev/docs/dev-server/plugins/import-maps/
+
+:::tip
+
 - 目前只支持 web - 不支持 worker
 - 可通过脚本动态构建 element
+- 只能映射为本地
+
+:::
 
 ```html
 <script type="importmap">
@@ -229,3 +260,28 @@ import * as url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 ```
+
+```ts
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+```
+
+```ts
+// 新的 NodeJS 也支持 URL，可以直接 resolve
+const foo = new URL('foo.js', import.meta.url);
+```
+
+## Failed to resolve module references must start with
+
+```
+Failed to resolve module specifier "app". Relative references must start with either "/", "./", or "../".
+```
+
+- https://github.com/guybedford/es-module-shims
+
+## An import map is added after module script load was triggered.
+
+- https://github.com/WICG/import-maps/issues/248

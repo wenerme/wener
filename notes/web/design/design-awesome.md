@@ -24,6 +24,12 @@ tags:
   - 基于 AI 技术，从文本描述生成绘画艺术作品
 - Color
   - https://colorandcontrast.com/
+  - https://colorhunt.co/
+  - https://palettte.app/
+  - https://colorbox.io/
+- https://pika.style/
+- avatar
+  - https://api.lorem.space/image/face?hash=40361
 
 ## 设计参考
 
@@ -121,12 +127,14 @@ tags:
 
 - [Task Manager UI with CSS Grid](https://codepen.io/TurkAysenur/full/QWyPMgq)
 
-## Colllection
+## Laws
 
 - https://wwit.design/
   - 韩国 APP 设计
 - https://rpdc.xiaohongshu.com/52-design-principles
   - 小红书 52 设计法则
+- https://lawsofux.com/en/
+  - Laws of UX
 
 ## 3D
 

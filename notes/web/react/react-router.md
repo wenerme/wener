@@ -18,6 +18,12 @@ title: React Route
 npm add react-router-dom
 ```
 
+
+- Path
+  - `*` - 处理 NotFound
+  - `:handle`
+    - `const { handle } = useParams()`
+
 ## Notes
 
 :::caution v6

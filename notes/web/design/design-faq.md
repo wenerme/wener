@@ -5,6 +5,47 @@ tags:
 
 # Design FAQ
 
+## Golden Ratio
+
+- 黄金比例, 黄金分割比
+- 常数 - 1.618
+- 1:2, 2:3, 3:5, 5:8
+  - 33:66, 40:60
+
+$$
+\frac {a + b} {a} = \frac a b = \varphi
+$$
+
+a > b > 0
+
+$$
+\varphi = \frac {1 + \sqrt 5} 2 = 1.6180339887498948482...
+$$
+
+$$
+\frac 1 \varphi = \varphi - 1
+$$
+
+**贵金属分割**
+
+$$
+\frac {n + \sqrt {n^2 + 4}} 2
+$$
+
+- n=1 黄金分割 - 1.61803398874989
+- n=2 白银分割 - 2.41421356237309
+- n=3 青铜分割 - 3.30277563773199
+
+<!-- const r = (n)=>(n+Math.sqrt(n**2 + 4)) / 2 -->
+
+**黄金矩形**
+
+![](./golden-rectangle-and-its-elements.svg)
+
+---
+
+- https://en.wikipedia.org/wiki/Golden_ratio
+
 ## Web 设计 vs 平面 设计
 
 **相同点**

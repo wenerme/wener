@@ -144,3 +144,7 @@ body {
 ---
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment
+
+## flexbox
+
+- flex item has a 100% by default

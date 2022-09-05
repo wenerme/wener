@@ -78,7 +78,7 @@ https://github.com/git/git/tree/master/po
 
 ## Currency symbols
 
-|     | Name        | Unicode | UTF-8  |
+| sym | Name        | Unicode | UTF-8  |
 | --- | ----------- | ------- | ------ | ------ |
 | €   | euro sign   | 20AC    | E282AC | 欧元   |
 | $   | dollar sign | 0024    | 24     | 美元   |
@@ -87,7 +87,7 @@ https://github.com/git/git/tree/master/po
 | ¥   | yen sign    | 00A5    | C2A5   | 人民币 |
 | ƒ   |             | 0192    | C692   |
 
-|     | Ticker | name             |
+| sym | Ticker | name             |
 | --- | ------ | ---------------- |
 | ₿   | BTC    | bitcoin          |
 | Ξ   | ETH    | Ethereum         |
@@ -101,3 +101,46 @@ https://github.com/git/git/tree/master/po
 - https://github.com/yonilevy/crypto-currency-symbols
 - https://en.wikipedia.org/wiki/Currency_symbol
 - https://unicode-explorer.com/articles/cryptocurrency-unicode-symbols
+
+## Keyboard
+
+| sym     | name                                   |
+| ------- | -------------------------------------- |
+| ⌘       | Command                                |
+| ⇧       | Shift                                  |
+| ⇮       | Alt,Option                             |
+| ⎇       | Alt                                    |
+| ⌥       | Alt - Apple                            |
+| ◆       | Alt - Sun Microsystems Type 6 Keyboard |
+| ⎈       | Ctrl,HELM                              |
+| ⇬       | CapsLock                               |
+| ⎆       | Enter                                  |
+| ^       | Option                                 |
+| ⌃       | Option                                 |
+| ❖       | Windows                                |
+| ↩ ↵ ⏎   | Enter                                  |
+| ▤ ☰ 𝌆   | Menu                                   |
+| ↹ ⇥     | Tab                                    |
+| ⇄ ⇤ ↤ ↦ | Tab symbol                             |
+| ⎋       | ESC                                    |
+| ⌫ ⟵     | Backspace                              |
+| 🌐      | Apple fn                               |
+
+- http://xahlee.info/kbd/apple_keyboard_key_symbols.html
+- http://xahlee.info/comp/unicode_computing_symbols.html
+- https://github.com/drmingdrmer/cheatsheet/blob/master/sheets/unicode/from-xahlee-info/keyboard-keys.txt
+
+## 希腊字母
+
+- https://unicode-table.com/cn/sets/greek-symbols/
+
+## 常用
+
+| sym |
+| --- |
+| 🚧  |
+| 🌟  |
+| ⚠️  |
+| ❌  |
+| ✅  |
+| 📝  |

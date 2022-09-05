@@ -14,6 +14,9 @@ tags:
 [santhosh-tekuri/jsonschema]: https://github.com/santhosh-tekuri/jsonschema
 [ajv]: ../../web/script/lib/ajv.md
 
+- 选择 Schema
+  - https://ajv.js.org/guide/schema-language.html
+- https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02
 - [json-schema-org/json-schema-spec](https://github.com/json-schema-org/json-schema-spec)
 - 工具
   - [APIDevTools/json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser)
@@ -78,6 +81,9 @@ tags:
   - [networknt/react-schema-form](https://github.com/networknt/react-schema-form)
   - [gitana/alpaca](https://github.com/gitana/alpaca)
     - Bootstrap, jQuery UI, jQuery Mobile
+- JS
+  - [kriszyp/json-schema](https://github.com/kriszyp/json-schema)
+    - Typescript 定义
 
 :::tip JSON Schema Form 的几种常见情况
 
@@ -122,4 +128,4 @@ tags:
   - [Understanding JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
   - proptypes-to-json-schema
     - React propTypes -> JSON Schema
-  - https://ajv.js.org/guide/schema-language.html
+

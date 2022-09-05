@@ -1,4 +1,7 @@
 ---
+keyworks:
+  - 版本历史
+  - 发布历史
 tags:
   - Version
 ---

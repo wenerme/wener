@@ -14,6 +14,7 @@ title: DuckDB
 - 参考
   - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
     - 在 Web 内执行，基于 FS API 进行 IO 交互
+  - https://news.ycombinator.com/item?id=32684424
 
 ```bash
 curl -LO https://github.com/duckdb/duckdb/releases/download/v0.2.7/duckdb_cli-osx-amd64.zip

@@ -24,6 +24,15 @@ title: ACL
   - 2 - setgid
   - 4 - setuid
 
+| bits  | name    | for        |
+| ----- | ------- | ---------- |
+| 04000 | S_ISUID | setuid     |
+| 02000 | S_ISGID | setgid     |
+| 01000 | S_ISVTX | sticky bit |
+
+- sticky bit - 限制删除
+  - https://www.man7.org/linux/man-pages/man2/unlink.2.html
+
 ```bash
 stat -c '%A %a %n' *
 
@@ -31,7 +40,7 @@ mkdir dir
 chmod 0755 dir
 chmod 00755 dir # 会移除 flag - sgid, suid
 
-stat -c "%a %U:%G %n"  dir
+stat -c "%a %U:%G %n" dir
 stat -c "%U:%G %n" dir
 ```
 

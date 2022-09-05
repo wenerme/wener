@@ -71,6 +71,14 @@ https://en.wikipedia.org/wiki/Mini-STX
 
 -->
 
+| Intel Gen    | Code name   |
+| ------------ | ----------- |
+| Intel Gen 11 | Jasper Lake |
+
+- NIC
+  - i226-V
+    - 2.5G Lan
+
 ## CPU
 
 - Xeon - 工作站、服务器
@@ -79,3 +87,22 @@ https://en.wikipedia.org/wiki/Mini-STX
   - 多媒体能力有限 - 有特定 CPU
 - Core - 桌面
   - 变频、功耗可控、多媒体能力更强
+
+## Intel 小主机
+
+- 工控，小主机
+- 常见 CPU
+  - J1900
+  - J4115
+  - J6412
+  - N5105 - Intel Celeron
+  - N6005 - Intel Pentium
+  - N5095
+- 参考
+  - 硬酷 R1
+    - 4\*2.5G LAN
+    - N5105/N6005
+    - https://item.taobao.com/item.htm?id=682025492099
+  - Larkbox
+  - J6412
+    - https://item.taobao.com/item.htm?id=680923819426

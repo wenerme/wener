@@ -28,6 +28,8 @@ title: Tailwind CSS
 
 :::info
 
+- Container queries [#1563](https://github.com/tailwindlabs/tailwindcss/issues/1563)
+  - [dgknca/tailwindcss-container-query](https://github.com/dgknca/tailwindcss-container-query)
 - 不支持嵌套 group [#1192](https://github.com/tailwindlabs/tailwindcss/issues/1192)
 - rem to px [#1232](https://github.com/tailwindlabs/tailwindcss/issues/1232)
 
@@ -85,6 +87,10 @@ import 'tailwindcss/tailwind.css';
   - 类似 Tailwind+JIT
   - 不依赖 PostCSS - 用于不想依赖 PostCSS 的场景
   - 维护者后面可能会转向 unocss
+- https://www.hyperui.dev/
+- 渐变
+  - https://hypercolor.dev/
+    - 生成器
 
 **Components**
 
@@ -133,7 +139,7 @@ import 'tailwindcss/tailwind.css';
   - v3 已经包含 aspect-ratio 工具
   - aspect-w-16, aspect-h-9
 
-## 参考
+## Cheatsheet
 
 | bp  | min width | container |
 | --- | --------- | --------- |
@@ -183,6 +189,21 @@ import 'tailwindcss/tailwind.css';
 | bold       | 700    |
 | extrabold  | 800    |
 | black      | 900    |
+
+| max-width        | rem   | px     | note          |
+| ---------------- | ----- | ------ | ------------- |
+| max-w-xs         | 20rem | 320px  | screen 的一半 |
+| max-w-sm         | 24rem | 384px  |
+| max-w-md         | 28rem | 448px  |
+| max-w-lg         | 32rem | 512px  |
+| max-w-xl         | 36rem | 576px  |
+| max-w-2xl        | 42rem | 672px  |
+| max-w-prose      | 65ch  |
+| max-w-screen-sm  |       | 640px  |
+| max-w-screen-md  |       | 768px  |
+| max-w-screen-lg  |       | 1024px |
+| max-w-screen-xl  |       | 1280px |
+| max-w-screen-2xl |       | 1536px |
 
 ## tailwind.css
 
@@ -412,7 +433,7 @@ module.exports = {
     groups: ['2', '3'],
   },
   plugins: [
-    plugin(({ addVariant, theme }) => {
+    plugin(({addVariant, theme}) => {
       const groups = theme('groups') || [];
 
       groups.forEach((group) => {
@@ -461,7 +482,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function ({ addVariant }) {
+    function ({addVariant}) {
       addVariant('children', '& > *');
     },
   ],

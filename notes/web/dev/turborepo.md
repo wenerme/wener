@@ -62,7 +62,7 @@ npx turbo login --sso-team=<team-slug>
 
 - 缓存输出的文件和命令执行的输出
 - `.turbo/run-<task>.log`
-- `node_modules/.cache/turbo`
+- `node_modules/.cache/turbo` - 很快就会变得 **非常大**
 - 环境变量 TURBO_HASH 依据
   - inputs, package.json 中依赖, 内部依赖
   - 任务名字

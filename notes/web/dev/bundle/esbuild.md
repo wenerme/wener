@@ -67,6 +67,7 @@ esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdi
 | --target                        |
 | --sourcemap=linked              |
 | `--servedir <dir>`              |
+| `--format <format>`             | iife, cjs, esm            |
 
 - --minify
   - --minify-whitespace

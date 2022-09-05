@@ -12,6 +12,7 @@ tags:
   - containing block - 位置 - 影响 paint, relayout
   - stacking context - z-index
   - block formatting context - flow, float
+- [border 不支持渐变](#border-gradient)
 
 :::
 
@@ -28,6 +29,19 @@ tags:
   font-variant-numeric: tabular-nums;
 }
 ```
+
+## border 渐变 {#border-gradient}
+
+- border 不支持渐变
+- https://css-tricks.com/gradient-borders-in-css/
+  - wrapper - 额外元素
+  - border-image+border-image-slice - 不支持 radius
+- https://codepen.io/AlexOverbeck/pen/axGQyv
+  - by wrapper
+- https://codepen.io/fabianmichael/pen/yLPyRry
+  - by svg
+  - 不支持 input 因为 input 不支持 `::before`
+    - https://stackoverflow.com/a/4660434/1870054
 
 ## 浏览器兼容问题
 
@@ -66,6 +80,9 @@ CSS.supports('aspect-ratio', '1/1');
   - 如果页面使用了 mix-blend 会导致 blur 有问题 [#1254774](https://bugs.chromium.org/p/chromium/issues/detail?id=1254774&q=backdrop-filter%20blur&can=2)
 - Safari 加前缀支持 - 效果正常
 - FF 尚不支持
+- tailwindcss backdrop-filter 可能没有 prefix
+  - 使用 autoprefixer https://tailwindcss.com/docs/browser-support
+  - 确保 browserslist 正确
 
 通过 before 和 after 来补偿
 
@@ -340,9 +357,11 @@ https://codepen.io/argyleink/pen/RwPWqKe
 }
 ```
 
-## webkit-scrollbar
+## scrollbar
 
-- https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+- https://github.com/KingSora/OverlayScrollbars
+- webkit-scrollbar
+  - https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
 
 ## iPhone X 页面内容 padding
 
@@ -482,27 +501,27 @@ img {
 }
 
 .bg {
-    background-image: url('..');
-    background-repeat: no-repeat; /* defensive */
+  background-image: url('..');
+  background-repeat: no-repeat; /* defensive */
 }
 
 .card__title {
-    overflow-wrap: break-word;
-    min-width: 0;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 .modal__body {
-    overscroll-behavior-y: contain; /*避免 parent 滚动*/
-    overflow-y: auto;
+  overscroll-behavior-y: contain; /*避免 parent 滚动*/
+  overflow-y: auto;
 }
 .element {
-    scrollbar-gutter: stable; /* 避免滚动条出现导致错位 */
+  scrollbar-gutter: stable; /* 避免滚动条出现导致错位 */
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover */
 @media (hover: hover) {
-    .card:hover {
-        /* 避免移动设备 hover */
-    }
+  .card:hover {
+    /* 避免移动设备 hover */
+  }
 }
 ```
 

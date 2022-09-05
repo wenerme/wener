@@ -12,6 +12,7 @@ title: 浏览器兼容
 | [AbortController]               | Chrom 66+, Safari 12.1   |
 | [HTMLInputElement.showPicker()] | Chrome 99+, Safari 16+   |
 | [`<datalist>`]                  | Chrom 20+, Safari 12.1   |
+| overscroll-behavior             | Chrom 63+, Safari 16+    |
 
 - Reflect.getMetadata - 需要额外 import
   - [@abraham/reflection](https://github.com/abraham/reflection)

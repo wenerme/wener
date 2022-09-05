@@ -18,6 +18,22 @@ tags:
 
 - innerRef, elementRef, forwardRef 透传内部引用
 
+## 如何设计组件
+
+- 面向组件设计 - 组件驱动开发
+
+---
+
+- CSF - Component Story Format
+  - https://github.com/ComponentDriven/csf
+  - https://storybook.js.org/docs/react/api/csf/
+- https://www.componentdriven.org/
+  - How to be Component Driven
+    1. Build one component at a time - Avatar, Button, Input, Tooltip
+    2. Combine components - Form, Header, List, Table
+    3. Assemble pages - Home page, Settings page, Profile page
+    4. Integrate pages into your project - Web app, Marketing site, Docs site
+
 ## React Context
 
 - Context.Provider value 修改需要 rerender 组件

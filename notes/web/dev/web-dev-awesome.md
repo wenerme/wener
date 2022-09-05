@@ -17,3 +17,8 @@ tags:
     - unified javascript build system
     - rollup
   - tsup
+- [tclindner/npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
+
+```bash
+npx depcheck
+```

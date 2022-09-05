@@ -1,5 +1,8 @@
 ---
+id: faq
 title: Chrome FAQ
+tags:
+- FAQ
 ---
 
 # Chrome FAQ

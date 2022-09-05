@@ -1,4 +1,5 @@
 ---
+id: version
 title: Chrome Version
 tags:
   - Version
@@ -8,7 +9,12 @@ tags:
 
 | version                   | date       | note                                              |
 | ------------------------- | ---------- | ------------------------------------------------- |
-| [Chrome 105](#chrome-105) |            | Container Query, :has                             |
+| [Chrome 110](#chrome-110) |            | `<popup>`                                         |
+| [Chrome 109](#chrome-109) |
+| [Chrome 108](#chrome-108) |
+| [Chrome 107](#chrome-107) |
+| [Chrome 106](#chrome-106) |
+| [Chrome 105](#chrome-105) | 2022-08-30 | Container Query, :has                             |
 | [Chrome 104](#chrome-104) |            |
 | [Chrome 103](#chrome-103) |            | Local Font Access                                 |
 | [Chrome 102](#chrome-102) |            | DNS HTTPS                                         |
@@ -122,11 +128,31 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 110
+
+- HTMLPopupElement - Pop-Up API
+  - 类似于 dialog 效果 - 使用页面元素
+  - 显示为弹出窗口
+  - https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Popup/explainer.md
+
+## Chrome 109
+
+## Chrome 108
+
+- Federated Credentials Management - WebID
+
+## Chrome 107
+
+## Chrome 106
+
 ## Chrome 105
 
 - CSS
-  - Container Query
+  - **Container Query**
   - :has
+  - :modal
+- ESM `import.meta.resolve()`
+- `fetch()` 上传流
 - Federated Credentials Management/FedCM/WebID
 - script,style,link - blocking=render - 避免 FOUC
 - Writable directory prompts for the File System Access API
@@ -152,7 +178,7 @@ $div.setHTML(
 - Media Queries Level 4 Syntax & Evaluation
 - Region Capture - 部分截取媒体流
   - `CropTarget.fromElement()`
-  -  cropTo
+  - cropTo
 - Multi-Screen Window Placement: Fullscreen Companion Window
 - Web Custom formats for Async Clipboard API
 

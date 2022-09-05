@@ -26,6 +26,72 @@ tags:
     - an influential or important person
     - 重要人物
 
+## 未进入休眠
+
+- 在 Console.app 中搜索 `PreventUserIdleSystemSleep`
+- `pmset -g` 确认当前的配置信息
+  - 时间
+  - sleep 是否有 prevent 信息
+    - 常见阻碍线程
+      - sharingd
+      - backupd
+      - AddressBookSourceSync
+-
+
+```bash
+# 当前系统状态
+# 主要是 PreventUserIdleSystemSleep
+pmset -g assertions
+
+# 查看状态变更日志
+# InternalPreventSleep 和 PreventUserIdleSystemSleep
+pmset -g assertionslog
+
+# 查看唤起原因
+log show --style syslog --start '2019-05-27 17:50:00' | grep "Wake reason"
+```
+
+```
+
+Shutdown the computer, wait 30 seconds, restart the computer.
+
+Disconnect all third-party peripherals.
+Resetting your Mac’s PRAM and NVRAM
+Reset the System Management Controller (SMC)
+Reset your Startup Disk and Sound preferences.
+Start the computer in Safe Mode. Test in safe mode to see if the problem persists, then restart normally.
+Use Apple Hardware Test to see if there is any hardware malfunction.
+
+Repair the disk by booting from the Recovery HD. Immediately after the chime hold down the Command and R keys until the Utility Menu appears. Choose Disk Utility and click on the Continue button. Select the indented (usually, Macintosh HD) volume entry from the side list. Click on the First Aid button in the toolbar. Wait for the Done button to appear. Quit Disk Utility and return to the Utility Menu. Restart the computer from the Apple Menu.
+
+Repair permissions on the Home folder: Resolve issues caused by changing the permissions of items in your home folder.
+
+reset NVRAM
+https://support.apple.com/en-us/HT204063
+
+Option, Command, P, and R. You can release the keys after about 20 seconds, during which your Mac might appear to restart.
+
+On Mac computers that play a startup sound, you can release the keys after the second startup sound.
+On Mac computers that have the Apple T2 Security Chip, you can release the keys after the Apple logo appears and disappears for the second time.
+
+https://support.apple.com/zh-cn/HT201295
+
+有 T2 芯片的 Mac 笔记本电脑
+先尝试以下操作：
+
+选取苹果菜单 >“关机”。
+在 Mac 关机后，按住电源按钮 10 秒钟。
+松开电源按钮，然后等待几秒钟。
+再次按下电源按钮以开启 Mac。
+如果上述操作无法解决问题，请按照以下步骤操作：
+
+选取苹果菜单 >“关机”。
+在 Mac 关机后，按住右 Shift 键、左 Option 键和左 Control 键 7 秒钟。然后，在按住电源按钮的同时继续按住这些按键 7 秒钟。
+松开所有三个按键和电源按钮，然后等待几秒钟。
+再次按下电源按钮以开启 Mac。
+```
+
+
 ## tuntap
 
 - macOS 支持 utun - 等同于 tun

@@ -17,6 +17,10 @@ title: LaTex Math
 | ---- | ---------- |
 | `x'` | `x^\prime` |
 
+| latex     | symbol    |
+| --------- | --------- |
+| `\varphi` | $\varphi$ |
+
 $$
 7\dfrac{4}{3}
 $$

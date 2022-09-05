@@ -112,3 +112,6 @@ module.exports = {
 - [rx-ts/prettier](https://github.com/rx-ts/prettier)
   - sql,sh,pkg
 - https://prettier.io/docs/en/plugins.html
+
+## ignore
+

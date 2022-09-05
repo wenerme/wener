@@ -249,3 +249,9 @@ CMD ["node", "apps/web/server.js"]
 
 - dyanmic 不会预加载 - prefetch
 - 使用 @loadable/component
+
+## safari tel
+
+```html
+<meta name="format-detection" content="telephone=no">
+```

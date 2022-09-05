@@ -111,3 +111,7 @@ mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 
 # Maven Dir
 mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 ```
+
+## How to ask
+
+- https://stackoverflow.com/help/minimal-reproducible-example

@@ -26,7 +26,7 @@ tags:
   - [developit/mitt](https://github.com/developit/mitt)
     - ts, 200byte
     - 建议直接拷到项目使用
-  - [pubkey/broadcast-channel](https://github.com/pubkey/broadcast-channel)
+  - [broadcast-channel](https://github.com/pubkey/broadcast-channel)
     - 基于 BroadcastChannel+IndexedD+LocalStorage
     - NodeJS 使用 Sockets
     - 支持 Leader 选举
@@ -130,6 +130,7 @@ tags:
         - React Components for Tabular data.
       - [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
         - 原型设计
+  - [catdad/canvas-confetti](https://github.com/catdad/canvas-confetti)
 - 3d rendering/canvas
   - threejs
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
@@ -364,6 +365,11 @@ tags:
     - http://tap4j.org/
     - WebStorm 暂不支持 [WEB-20916](https://youtrack.jetbrains.com/issue/WEB-20916)
   - [ava vs jasmine vs jest vs mocha vs qunit](https://npmtrends.com/ava-vs-jasmine-vs-jest-vs-mocha-vs-qunit)
+- test utils
+  - [json-schema-faker](https://github.com/json-schema-faker/json-schema-faker)
+    - https://json-schema-faker.js.org/
+    - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
+  - facker
 
 ---
 

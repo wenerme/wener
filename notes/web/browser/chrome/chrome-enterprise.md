@@ -1,5 +1,7 @@
 ---
 title: Chrome Enterprise
+tags:
+  - Enterprise
 ---
 
 # Chrome Enterprise

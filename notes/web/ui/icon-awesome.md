@@ -12,10 +12,12 @@ tags:
 | Phosphor Icons | 1047+      | ✅      | ✅ - fill | ✅     |
 | iconoir        | 1151+      | ✅      | ❌        | ❌     |
 | iconic         | free 200   |
-| [fontawesome]  | free 2009+  | ✅   | ✅   | ✅
+| [fontawesome]  | free 2009+ | ✅      | ✅        | ✅     |
 
 - [tabler/tabler-icons](https://github.com/tabler/tabler-icons)
   - 1950+
+- https://github.com/primer/octicons
+  - by GitHub
 - [react-icons](http://react-icons.github.io/react-icons)
 - [akveo/eva-icons](https://github.com/akveo/eva-icons)
   - 400
@@ -66,3 +68,11 @@ tags:
 
 [fontawesome]: https://fontawesome.com/
 [flaticon]: https://www.flaticon.com/
+
+## Brand
+
+- https://developers.weixin.qq.com/doc/oplatform/Downloads/Design_Resource.html
+
+## Resources
+
+- https://m.sj33.cn/sc/logo/dzhy/it/202009/54302.html

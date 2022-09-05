@@ -10,6 +10,7 @@ title: BlueprinrJS
 :::not
 
 - bundle icons you actually use [#2193](https://github.com/palantir/blueprint/issues/2193)
+  - icon 不支持 tree shake
 - Removing findDOMNode [#3979](https://github.com/palantir/blueprint/issues/3979)
 
 :::

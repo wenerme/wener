@@ -8,6 +8,7 @@ title: JSON Schema
 
 - 自定义属性最好使用 `x-` 前缀
 - enum 通过数组定义，无法指定 title `[1,2,3]` - 可以使用 oneOf
+- 推荐使用 2020-12 或 draft-07
 
 :::
 
@@ -141,10 +142,10 @@ title: JSON Schema
     - float
     - double
   - keyword
-    - minimum
-    - maximum
-    - exclusiveMinimum
-    - exclusiveMaximum
+    - minimum - >=
+    - maximum - <=
+    - exclusiveMinimum - >
+    - exclusiveMaximum - <
     - multipleOf
 - integer
   - format
@@ -213,6 +214,11 @@ title: JSON Schema
 ```json
 {"type": "number", "multipleOf": 0.01}
 ```
+
+## ajv formats
+
+- https://ajv.js.org/packages/ajv-formats.html
+- https://ajv.js.org/guide/formats.html
 
 # FAQ
 

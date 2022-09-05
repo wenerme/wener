@@ -84,9 +84,13 @@ tags:
   - AGPL-3.0 -> Apache-2.0
   - metadata - Redis, TiKV, PG, MySQL
   - data - S3, OSS, Ceph, MinIO
+- [opencurve/curve](https://github.com/opencurve/curve)
+  - Apache-2.0, C++
+  - by 网易
 - [cubefs](https://github.com/cubefs/cubefs)
   - Apache-2.0, Go,C++
   - chubaofs -> cubeFS
+  - by 京东, OPPO
   - 🚧 开发不活跃
   - CNCF 项目
   - 提供 S3 接口
