@@ -136,6 +136,8 @@ import { generateHTML, generateJSON } from '@tiptap/core';
 - https://github.com/ueberdosis/tiptap/tree/main/packages
 - jump-anchor
   - https://gist.github.com/mackmm145/f100a62de841464872785e3d041be13f
+- https://gitlab.com/gitlab-org/gitlab/-/tree/master/spec/frontend/content_editor
+  - Gitlab 使用 tiptap
 
 ## nextcloud/text
 

@@ -53,6 +53,9 @@ esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 
 esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdir=out --format=esm --bundle --charset=utf8 --target=chrome90 --sourcemap --minify
+
+# stdin -> stdout
+echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbuild --format=esm
 ```
 
 | flag                            |
@@ -69,6 +72,17 @@ esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdi
 | `--servedir <dir>`              |
 | `--format <format>`             | iife, cjs, esm            |
 
+- --platform
+  - browser
+    - 隐含: --format=iife --condition=browser --define:process.env.NODE_ENV="production" --main-fields=browser,module,main
+    - 使用 package.json 中的 [browser](https://gist.github.com/defunctzombie/4339901/49493836fb873ddaa4b8a7aa0ef2352119f69211)
+      - 例如: path -> path-browserify
+    - main - 如果没有 browser 有 main 和 module 则会先用 main - cjs 更兼容
+  - node
+    - 隐含: --format=cjs --condition=node --main-fields=module,main --external=fs,url,http
+    - 自动 external node 的内建 api
+  - neutral
+    - 隐含: --format=esm
 - --minify
   - --minify-whitespace
   - --minify-identifiers

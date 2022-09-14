@@ -52,6 +52,9 @@ tags:
 
 - 导入方式的问题
 - commonjs 问题
+  - 加插件 @rollup/plugin-commonjs
+- 出现问题的包
+  - classnames
 
 ```ts
 // 这样不会使用 default
@@ -91,4 +94,32 @@ commonjs({
   "fullTemplateTypeCheck": true,
   "preserveWhitespaces": true
 }
+```
+
+## rollup.config.ts
+
+1. 使用插件
+
+```json title="tsconfig.json"
+{
+  "include": ["src", "rollup.config.ts"]
+}
+```
+
+```bash
+rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript
+# 等同于
+rollup --config rollup.config.ts --configPlugin typescript
+```
+
+2. 使用 cjs 转
+
+```js title="rollup.config.js"
+require('ts-node').register({
+  compilerOptions: {
+    esModuleInterop: true,
+  },
+});
+
+module.exports = require('./rollup.config.ts');
 ```

@@ -17,6 +17,10 @@ title: valtio
   - [Noitidart/valtio-persist](https://github.com/Noitidart/valtio-persist)
   - [How valtio works](https://github.com/pmndrs/valtio/wiki/How-valtio-works)
   - [valtio-render-test](https://codesandbox.io/s/valtio-render-test-lzqhf7)
+    - 默认使用 Object.is 对比，可能会产生很多不必要的更新
+    - StrictMode 会 double render
+    - 设置对象会被创建代理 - 因此不能设置任意对象
+      - 和 immer 逻辑不同，immer 在 produce 里和外不同
 
 :::tip
 
@@ -28,7 +32,6 @@ title: valtio
 - ref/object 赋值都会触发变化，不会判断是否相等
 
 :::
-
 
 :::note
 
@@ -262,3 +265,78 @@ export default defineConfig({
 ## 'set' on proxy: trap returned falsish for property 'validated'
 
 尝试修改 snapshot 返回值
+
+## 自定义比较
+
+```ts
+import eq from 'react-fast-compare';
+import {typeOf} from 'react-is';
+import {unstable_buildProxyFunction} from 'valtio';
+
+const canProxyOrig = unstable_buildProxyFunction()[7];
+export const proxyWithCompare = unstable_buildProxyFunction(eq, undefined, (v) => {
+  if (typeOf(v)) {
+    return false;
+  }
+  return canProxyOrig(v);
+})[0];
+```
+
+- unstable_buildProxyFunction
+  - Object.is
+  - new Proxy(target, handler)
+  - canProxy
+  - PROMISE_RESULT
+  - PROMISE_ERROR
+  - snapshotCache = new WeakMap
+  - createSnapshot
+  - proxyCacge = new WeakMap
+  - versionHolder = [1]
+  - proxyFunction
+
+**返回结果**
+
+```ts
+const [
+  // public functions
+  proxyFunction,
+  // shared state
+  refSet,
+  VERSION,
+  LISTENERS,
+  SNAPSHOT,
+  // internal things
+  objectIs,
+  newProxy,
+  canProxy,
+  PROMISE_RESULT,
+  PROMISE_ERROR,
+  snapshotCache,
+  createSnapshot,
+  proxyCache,
+  versionHolder,
+] = unstable_buildProxyFunction();
+```
+
+默认 canProxy 逻辑
+
+```ts
+const isObject = (x: unknown): x is object => typeof x === 'object' && x !== null;
+
+const canProxy = (x: unknown) =>
+  isObject(x) &&
+  !refSet.has(x) &&
+  (Array.isArray(x) || !(Symbol.iterator in x)) &&
+  !(x instanceof WeakMap) &&
+  !(x instanceof WeakSet) &&
+  !(x instanceof Error) &&
+  !(x instanceof Number) &&
+  !(x instanceof Date) &&
+  !(x instanceof String) &&
+  !(x instanceof RegExp) &&
+  !(x instanceof ArrayBuffer);
+```
+
+## TypeError: Cannot read properties of undefined (reading 'Symbol(SNAPSHOT)')
+
+传入了 undefined 给 useSnapshot

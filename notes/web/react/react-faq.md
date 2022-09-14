@@ -14,10 +14,6 @@ tags:
 
 :::
 
-## React Pattern
-
-- innerRef, elementRef, forwardRef 透传内部引用
-
 ## 如何设计组件
 
 - 面向组件设计 - 组件驱动开发
@@ -42,6 +38,41 @@ tags:
   - 不将状态内容作为 value
   - 例如 使用 rxjs BehaviorSubject 作为 value 则可以避免变化，也能订阅变化
   - 可使用 zustand 替代
+
+## forwardRef Typescript 添加静态属性
+
+1. assign
+
+```tsx
+const Layout = forwardRef(() => {
+  return null;
+});
+Layout.displayName = 'MainLayout';
+// 添加静态属性，TS 不会出错
+export const MainLayout = Object.assign(Layout, {Slot});
+```
+
+2. 定义属性
+
+```tsx
+export type Props = {};
+
+export interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLInputElement>> {
+  yourStaticFunctionOrSomethingLikeThat: () => void;
+}
+
+const Component = React.forwardRef<HTMLInputElement, Props>((props, ref) => (
+  <input ref={ref} {...props} />
+)) as CompoundedComponent;
+
+Component.yourStaticFunctionOrSomethingLikeThat = () => {};
+```
+
+---
+
+- Compound Components
+- https://github.com/DefinitelyTyped/DefinitelyTyped/issues/34757#issuecomment-894053907
 
 ## StrictMode
 
@@ -118,7 +149,7 @@ callbackRef.current = callback;
 - React Server Components 也是一个趋势
   - 组建级动态
 
-## class components vs function components
+## React Class Components vs Function Components
 
 ```tsx title="React.Component"
 import React from 'react';
@@ -197,6 +228,15 @@ const HelloFC: React.FC<{name: string}> = ({name}) => {
 HelloFC.displayName = 'HelloFC';
 HelloFC.defaultProps = {name: 'Wener'};
 
+const HelloMemo = React.memo(HelloFC, (a, b) => {
+  // shouldComponentUpdate
+  return a.name === b.name;
+});
+```
+
+## shouldComponentUpdate for Function component
+
+```tsx
 const HelloMemo = React.memo(HelloFC, (a, b) => {
   // shouldComponentUpdate
   return a.name === b.name;

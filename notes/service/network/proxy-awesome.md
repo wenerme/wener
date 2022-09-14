@@ -230,6 +230,11 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - min-api.cryptocompare.com
 - webpkgcache.com
 - gas-api.metaswap.codefi.network
+- amdc.alipay.com
+  - HTTP DNS
+  - `curl -X POST amdc.alipay.com/squery`
+  - https://github.com/cxw620/AdGuard-Rules/issues/3
+
 
 ## ADGuard
 

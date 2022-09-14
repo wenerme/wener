@@ -139,16 +139,110 @@ import 'tailwindcss/tailwind.css';
   - v3 已经包含 aspect-ratio 工具
   - aspect-w-16, aspect-h-9
 
+## plugin
+
+- layers
+  - base
+    - typography
+    - font-face
+  - utilities
+  - components
+
+```ts
+const plugin = require('tailwindcss/plugin');
+const MyPlugin = plugin(
+  function ({
+    addUtilities,
+    addComponents,
+    matchUtilities,
+    matchComponents,
+    addBase,
+    addVariant,
+    matchVariant,
+    theme,
+    corePlugins,
+    // escaping strings
+    e,
+    // looking up Tailwind configuration
+    config,
+    variants,
+    postcss,
+  }) {
+    // 静态
+    addUtilities({
+      '.content-auto': {
+        'content-visibility': 'auto',
+      },
+    });
+    // 动态
+    // tab-1 tab-[123]
+    matchUtilities(
+      {
+        tab: (value) => ({
+          tabSize: value,
+        }),
+      },
+      {values: theme('tabSize')},
+    );
+    // base 层
+    addBase({
+      h1: {fontSize: theme('fontSize.2xl')},
+      h2: {fontSize: theme('fontSize.xl')},
+      h3: {fontSize: theme('fontSize.lg')},
+    });
+    // 组件层
+    addComponents({
+      '.card': {
+        backgroundColor: '#fff',
+        borderRadius: '.25rem',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+        '&:hover': {
+          boxShadow: '0 10px 15px rgba(0,0,0,0.2)',
+        },
+        '@media (min-width: 500px)': {
+          borderRadius: '.5rem',
+        },
+      },
+    });
+
+    // 修饰
+    addVariant('optional', '&:optional');
+    addVariant('hocus', ['&:hover', '&:focus']);
+    addVariant('supports-grid', '@supports (display: grid)');
+    addVariant('group-optional', ':merge(.group):optional &');
+    addVariant('peer-optional', ':merge(.peer):optional ~ &');
+  },
+  // 插件配置
+  function (options) {
+    // 可以接受配置
+    return {
+      theme: {
+        tabSize: {
+          1: '1',
+          2: '2',
+          4: '4',
+          8: '8',
+        },
+      },
+    };
+  },
+);
+
+module.exports = {
+  plugins: [MyPlugin],
+};
+```
+
 ## Cheatsheet
 
-| bp  | min width | container |
-| --- | --------- | --------- |
-|     |           | 100%      |
-| sm  | 640px     | 640px     |
-| md  | 768px     | 768px     |
-| lg  | 1024px    | 1024px    |
-| xl  | 1280px    | 1280px    |
-| 2xl | 1536px    | 1536px    |
+| screen | min width | container |
+| ------ | --------- | --------- |
+|        |           | 100%      |
+| sm     | 640px     | 640px     |
+| md     | 768px     | 768px     |
+| lg     | 1024px    | 1024px    |
+| xl     | 1280px    | 1280px    |
+| 2xl    | 1536px    | 1536px    |
 
 | spacing |      size |    px |
 | ------- | --------: | ----: |

@@ -335,7 +335,6 @@ tags:
   - 通常用于 ACL 语境
   - 结构形式类似于 group
 
-
 ## business unit vs division vs deparment
 
 - 组织架构三层关系
@@ -478,6 +477,25 @@ tags:
 - job position - 工作职位
   - 描述职责
   - 工作内容相关
+
+## title vs label
+
+- label
+  - metadata - 元数据
+  - 非常简短
+  - 支持指代部分属性
+  - 可以作为描述信息
+    - 配合 value 组成一组数据 - value 面向逻辑，label 面向人类
+    - 这时候和 title 最相似 - 可互换
+  - 也可能是 label=value - 例如 namespace=default
+    - 可以用于过滤
+    - label ~= key
+  - label 通常有一定定义 - 例如 female
+- title
+  - 描述性信息
+  - 可能概述了内容
+  - 不需要结构性
+  - 比 description 更短
 
 ## realm vs tenant vs organization
 

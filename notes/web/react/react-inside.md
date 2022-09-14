@@ -404,3 +404,26 @@ import.meta.webpackHot.accept(
 - https://webpack.js.org/api/hot-module-replacement/
   - cjs module.hot
   - esm import.meta.webpackHot
+
+## react-is
+- 通过构造的 $$typeof 来判断是否为内部对象类型
+- `.$$typeof`
+  - ELEMENT
+    - `.type`
+      - FRAGMENT
+      - PROFILER
+      - STRICT_MODE
+      - SUSPENSE
+      - SUSPENSE_LIST
+  - PORTAL
+  - SERVER_CONTEXT
+  - CONTEXT
+  - FORWARD_REF
+  - LAZY
+  - MEMO
+  - PROVIDER
+- isAsyncMode
+- ReactIS
+  - https://github.com/facebook/react/blob/main/packages/react-is/src/ReactIs.js
+- ReactSymbols
+  - https://github.com/facebook/react/blob/main/packages/shared/ReactSymbols.js

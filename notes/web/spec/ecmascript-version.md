@@ -24,10 +24,25 @@ tags:
 
 :::
 
+| stage   | for                   | note
+| ------- | --------------------- |
+| stage 0 | Strawperson|
+| stage 1 |Proposal|
+| stage 2 |Draft| 描述准确              |
+| stage 3 | Candidate| 实现,等待用户使用反馈 |
+| stage 4 | Finished | 准备添加到 标准       |
+
 :::tip 👀
 
-- [proposal-temporal](https://github.com/tc39/proposal-temporal)
-  - Temporal - 替代 Date
+- Stage 3
+  - Import Assertions
+  - JSON Modules
+  - Intl.DisplayNames
+  - [proposal-temporal](https://github.com/tc39/proposal-temporal)
+    - Temporal - 替代 Date
+- [modules-import-hooks-refactor](https://github.com/nicolo-ribaudo/modules-import-hooks-refactor)
+  - stage 1
+  - import 过程可控
 - [Function.memo](https://github.com/tc39/proposal-function-memo)
 - `await generateItems().toArray()`
   - [tc39/proposal-iterator-helpers](https://github.com/tc39/proposal-iterator-helpers)
@@ -46,14 +61,17 @@ tags:
   - Active Proposals
   - Stage 1 Proposals
   - Stage 0 Proposals
-  - Inactive Proposals
+  - Inactive/Withdrawn Proposals
 - [ECMAScript Language Specification](https://tc39.es/ecma262/)
 - 参考
+  - [Tarjan's strongly connected components algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
+  - [tc39/agendas](https://github.com/tc39/agendas)
   - [finished-proposals](https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md)
   - https://caniuse.com/#search=es6
   - [compat-table](https://kangax.github.io/compat-table)
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
   - https://en.wikipedia.org/wiki/ECMAScript
+  - https://www.proposals.es/
 
 ## ECMAScript 2022
 
@@ -282,7 +300,7 @@ Promise.resolve();
 // 默认参数, rest 参数
 function hello(name = 'world', ...props) {}
 
-const { a, b } = { a: 1, b: 2 };
+const {a, b} = {a: 1, b: 2};
 
 String.prototype.includes;
 String.prototype.startsWith;
@@ -321,7 +339,7 @@ Wener!',
 );
 
 // 允许关键字作为属性名
-const a = { new: 'yes' };
+const a = {new: 'yes'};
 
 String.prototype.trim;
 

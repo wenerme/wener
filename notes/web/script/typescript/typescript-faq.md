@@ -51,6 +51,12 @@ const svc = getService<IUserService>('user');
 
 - https://stackoverflow.com/a/41967120/1870054
 
+## DEV
+
+```ts title="types.d.ts"
+declare var __DEV__: boolean;
+```
+
 ## 使用 pnpm 安装，Typescript 报类型错误
 
 - 尝试 preserveSymlinks

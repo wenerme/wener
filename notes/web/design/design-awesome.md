@@ -23,10 +23,18 @@ tags:
 - https://6pen.art/
   - 基于 AI 技术，从文本描述生成绘画艺术作品
 - Color
-  - https://colorandcontrast.com/
-  - https://colorhunt.co/
-  - https://palettte.app/
-  - https://colorbox.io/
+  - explore
+    - https://colorhunt.co/
+    - https://color.adobe.com/
+    - https://coolors.co/
+    - https://www.canva.com/
+    - https://colorpalettes.net/
+    - https://coolors.co/
+    - http://colourco.de/
+  - editor
+    - https://colorandcontrast.com/
+    - https://palettte.app/
+    - https://colorbox.io/
 - https://pika.style/
 - avatar
   - https://api.lorem.space/image/face?hash=40361

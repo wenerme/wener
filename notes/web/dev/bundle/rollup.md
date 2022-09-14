@@ -16,6 +16,11 @@ title: Rollup
 
 - [#2182](https://github.com/rollup/rollup/issues/2182) 不支持缓存
 - [#2072](https://github.com/rollup/rollup/issues/2072) UMD/IIFE 不支持 code splitting
+- [#3799](https://github.com/rollup/rollup/issues/3799) 不支持 assert
+  - [rollup-plugin-import-assert](https://github.com/calebdwilliams/rollup-plugin-import-assert)
+    - 不支持 dynamic
+    - 对应的 acorn 插件 [xtuc/acorn-import-assertions](https://github.com/xtuc/acorn-import-assertions)
+  - acron 只添加 stage4 特性 [acorn#1111](https://github.com/acornjs/acorn/issues/1111)
 
 :::
 
@@ -35,17 +40,18 @@ title: Rollup
 :::
 
 ```bash
-npm install --global rollup
+# 也可以全局安装 - 但是没必要，因为通常依赖其他插件
+# npm install --global rollup
 
 # 常用插件
-yarn add -D rollup @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve
-# Babel + Typescript
-yarn add -D @babel/preset-env @babel/preset-typescript
-# + React
-yarn add -D @babel/preset-react
+# monorepo 推荐安装在 root 项目
+npm add -D rollup @rollup/plugin-{commonjs,node-resolve,replace,typescript,teser}
 
-# yarn add -D rollup @rollup/plugin-commonjs  @rollup/plugin-node-resolve @rollup/plugin-babel
-# yarn add -D @babel/core @babel/preset-typescript @babel/preset-react @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties
+# 不推荐 Babel
+# Babel + Typescript
+# yarn add -D @babel/preset-env @babel/preset-typescript
+# + React
+# yarn add -D @babel/preset-react
 
 # TS
 yarn add -D typescript tslib @rollup/plugin-typescript
@@ -55,19 +61,21 @@ yarn add -D typescript tslib @rollup/plugin-typescript
 rollup -i in.js -f es -p node-resolve -o out.js
 ```
 
-| Format           | Fullname                       | When                         | package.json |
-| ---------------- | ------------------------------ | ---------------------------- | ------------ |
-| amd              | Asynchronous Module Definition | RequireJS                    |
-| cjs,commonjs     | CommonJS                       | Node                         | `main`       |
-| es,esm,module    |                                | `<script type=module>`       | `module`     |
-| iife             | self-executing function        | `<script>` <br/> Application |
-| umd              | Universal Module Definition    | amd, cjs, iife               | `browser`    |
-| system，systemjs | SystemJS                       | SystemJS                     |
+| Format          | Fullname                       | When                         | package.json |
+| --------------- | ------------------------------ | ---------------------------- | ------------ |
+| amd             | Asynchronous Module Definition | RequireJS                    |
+| cjs,commonjs    | CommonJS                       | Node                         | `main`       |
+| es,esm,module   |                                | `<script type=module>`       | `module`     |
+| iife            | self-executing function        | `<script>` <br/> Application |
+| umd             | Universal Module Definition    | amd, cjs, iife               | `browser`    |
+| system,systemjs | SystemJS                       | SystemJS                     |
 
 ## 配置
 
+### babel+ts
+
 ```bash
-yarn add -D @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve
+npm add -D @babel/core @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve
 ```
 
 ```ts
@@ -85,7 +93,7 @@ export default {
     },
     // id 为完整路径
     // 例如 将相同语言翻译合并 foo.strings.en.js,bar.strings.en.js -> shared.en.js
-    manualChunks(id, { getModuleInfo, getModuleIds }) {
+    manualChunks(id, {getModuleInfo, getModuleIds}) {
       if (id.includes('@blueprintjs/')) {
         return 'blueprintjs';
       }
@@ -112,11 +120,11 @@ export default {
 };
 ```
 
-## rollup ts
+### rollup ts
 
 ```ts
 import typescript from '@rollup/plugin-typescript';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default [
@@ -140,11 +148,11 @@ export default [
 ];
 ```
 
-## rollup commonjs
+### rollup commonjs
 
 ```ts
 import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 
 function createConfig(format) {
@@ -157,18 +165,18 @@ function createConfig(format) {
     },
     external: ['react'],
     plugins: [
-      nodeResolve({ browser: true, extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
+      nodeResolve({browser: true, extensions: ['.js', '.jsx', '.ts', '.tsx']}),
       babel({
         babelHelpers: 'bundled',
         babelrc: false,
-        presets: [['@babel/preset-typescript', { allowNamespaces: true }], '@babel/preset-react'],
+        presets: [['@babel/preset-typescript', {allowNamespaces: true}], '@babel/preset-react'],
         plugins: [
-          ['@babel/plugin-proposal-decorators', { legacy: true }],
-          ['@babel/plugin-proposal-class-properties', { loose: true }],
+          ['@babel/plugin-proposal-decorators', {legacy: true}],
+          ['@babel/plugin-proposal-class-properties', {loose: true}],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }),
-      commonjs({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
+      commonjs({extensions: ['.js', '.jsx', '.ts', '.tsx']}),
     ],
   };
 }

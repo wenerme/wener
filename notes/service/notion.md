@@ -29,6 +29,7 @@ title: Notion
     - [demo](https://notion-app-clone.herokuapp.com/#/)
   - [konstantinmuenster/notion-clone](https://github.com/konstantinmuenster/notion-clone)
     - [How to Build a Text Editor Like Notion](https://medium.com/swlh/c510aedfdfcc)
+  - [djyde/plastic-editor](https://github.com/djyde/plastic-editor)
 - Render
   - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
     - React renderer for Notion

@@ -69,8 +69,12 @@ sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
 | ~~https://r.cnpmjs.org~~                       |
 | ~~https://registry.npm.taobao.org~~            | 淘宝     |
 
-- 同步
-  - https://npmmirror.com/sync/ohm-grammar-miniquery
+- npmmirror
+  - https://registry.npmmirror.com/binary.html
+    - 镜像的一些二进制
+  - 触发同步
+    - https://npmmirror.com/sync/ohm-grammar-miniquery
+    - https://npmmirror.com/sync/@wener/reaction
 
 ```bash
 # 淘宝镜像
@@ -81,6 +85,12 @@ npm ci --registry=https://mirrors.sjtug.sjtu.edu.cn/npm-registry
 npm_config_registry=https://registry.npm.taobao.org npx @scoped/package
 #
 npx --registry=https://registry.npmjs.org -y cubejs-cli create demo-cube -d postgres
+
+# musl 手动安装 sharp
+# 有可能最新版的 libvips 无镜像，因此注意版本选择
+# libvips v8.13.1 无镜像
+# https://registry.npmmirror.com/binary.html?path=sharp-libvips/v8.13.1/
+npm install --verbose --platform=linux --libc=musl sharp@^0.30
 ```
 
 ## scope

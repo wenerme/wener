@@ -12,13 +12,22 @@ title: Ideas
 - Nebula Mobile 支持中心化配置
 - ldapapply - merge if exists
 - apis
+  - rebuild
   - uri schema editor - with json schema
     - ldap
     - redis
     - postgres
     - s3
+- wode/demo
+  - systemsjs
+  - codemirror
+  - systemjs -> try ai/ml
+  - calc -> systemjs app
+  - colors
+  - bp theme for daisy
 - alpine
-  - lib asan https://github.com/google/sanitizers
+  - lib asan ~~https://github.com/google/sanitizers~~
+    - do not support musl
 
 ## Web3
 

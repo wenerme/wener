@@ -16,6 +16,8 @@ tags:
 
 ## Apps
 
+- https://shottr.cc/
+  - 多功能截屏软件
 - [ospfranco/sol](https://github.com/ospfranco/sol)
   - MacOS launcher & command palette
 - [mas-cli/mas](https://github.com/mas-cli/mas)

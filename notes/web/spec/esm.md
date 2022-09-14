@@ -14,8 +14,22 @@ title: ESM
   - 动态构建样式表
   - 不支持 @import
 - Arbitrary module namespace identifier names https://github.com/tc39/ecma262/pull/2154
-- Abstract Module Record  https://tc39.es/ecma262/#sec-abstract-module-records
+- Abstract Module Record https://tc39.es/ecma262/#sec-abstract-module-records
   - link, evaluate, getExportedNames, resolveExport
+- 参考
+  - https://rollupjs.org/repl
+    - 查看 ESM 在 amd, cs, iife, umd, systemjs 之间是如何转换的
+    - assert type [rollup#3799](https://github.com/rollup/rollup/issues/3799)
+- asert type - https://github.com/tc39/proposal-import-assertions
+  - css, json, javascript, webassembly
+  - `import("foo.json", { assert: { type: "json" } })`
+  - `export { val } from './foo.js' assert { type: "javascript" };`
+  - `<script src="foo.wasm" type="module" asserttype="webassembly"></script>`
+- [CSS Modules V1 Explainer](https://github.com/WICG/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md)
+  - CSS module scripts
+    - Chrome 93 - https://chromestatus.com/feature/5948572598009856
+- [JSON Module](https://github.com/tc39/proposal-json-modules)
+  - Chrome 91 - https://chromestatus.com/feature/5749863620804608
 
 :::caution
 
@@ -34,12 +48,29 @@ title: ESM
 :::
 
 ```ts
+// reexport default
 export {default /* …, */} from 'module-name';
+
+// import 为一个 Module
+import * as Reaction from '@wener/reaction'
+// 模块 reexport
+export * from '@wener/reaction'
 
 import 'data:text/javascript,console.log("hello!");';
 import _ from 'data:application/json,"world!"' assert {type: 'json'};
 
 import fs from 'node:fs/promises';
+
+// dyanmic import json
+const pkgJsonModule = await import('https://cdn.jsdelivr.net/npm/@wener/reaction@latest/package.json', {assert: {type: 'json'}});
+// 通过 toStringTag 判断是否为 Module
+console.assert(pkgJsonModule[Symbol.toStringTag] === 'Modoule')
+cons {default:{version}} = pkgJsonModule
+console.log(version)
+
+// CSS Module
+import styles from "./styles.css" assert { type: "css" };
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, styles];
 ```
 
 - MIME
@@ -53,6 +84,10 @@ import fs from 'node:fs/promises';
 - import.meta.url
 - `import.meta.resolve(specifier[, parent])`
   - `await import.meta.resolve('./dep', import.meta.url)`
+- import.meta.env
+  - MODE,BASE_URL,PROD,DEV,SSR - ViteJS
+- import.meta
+  - tsconfig.json 需要定义 target 为 esnext
 
 ---
 
@@ -68,15 +103,19 @@ import fs from 'node:fs/promises';
   Edit URL: https://generator.jspm.io/#U2NhYGBkDM0rySzJSU1hKEpNTC5xMLTQM9QzAADeRmOTGwA
 -->
 <script type="importmap">
-{
-  "imports": {
-    "react": "https://ga.jspm.io/npm:react@18.1.0/index.js"
+  {
+    "imports": {
+      "react": "https://ga.jspm.io/npm:react@18.1.0/index.js"
+    }
   }
-}
 </script>
 
 <!-- ES Module Shims: Import maps polyfill for modules browsers without import maps support (all except Chrome 89+) -->
-<script async src="https://ga.jspm.io/npm:es-module-shims@1.5.1/dist/es-module-shims.js" crossorigin="anonymous"></script>
+<script
+  async
+  src="https://ga.jspm.io/npm:es-module-shims@1.5.1/dist/es-module-shims.js"
+  crossorigin="anonymous"
+></script>
 ```
 
 ## import map
@@ -285,3 +324,62 @@ Failed to resolve module specifier "app". Relative references must start with ei
 ## An import map is added after module script load was triggered.
 
 - https://github.com/WICG/import-maps/issues/248
+
+## process.env.NODE_ENV
+
+- `import.meta.env.MODE`
+- `__DEV__` -> `import.meta.env.DEV`
+- import.meta.env.PROD
+
+```ts
+declare global {
+  interface ImportMetaEnv extends Readonly<Record<string, any>> {
+    readonly MODE: string;
+    readonly BASE_URL: string;
+    readonly DEV: boolean;
+    readonly PROD: boolean;
+    readonly SSR: boolean;
+  }
+
+  interface ImportMeta {
+    readonly env: ImportMetaEnv;
+  }
+}
+```
+
+## Module not found: Default condition should be last one
+
+- default 要放在最后
+
+```json
+{
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "development": "./dist/esm/wener-reaction.development.js",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js",
+      "default": "./lib/esm/index.js"
+    }
+  }
+}
+```
+
+## NextJS Cannot find module without suffix
+
+
+1. 配置使用 bundle 后的文件 - 无法 tree-shake
+2. 使用 mjs 后缀 - 会忽略 type:module
+  - build 后的 import 也要改成带后缀
+  - rollup https://github.com/framer/motion/blob/main/packages/framer-motion/rollup.config.js
+    - https://unpkg.com/browse/framer-motion@7.3.2/dist/es/index.mjs
+  - esbuild external 可以自己加插件 https://github.com/evanw/esbuild/issues/1505
+  - [esbuild#2435](https://github.com/evanw/esbuild/issues/2435)
+3. 避免 default exports
+
+---
+
+- @wener/reaction/lib/esm/index.js
+  - import 了另外一个文件，但是没有后缀，会导致找不到
+- https://github.com/vercel/next.js/issues/39375
+- https://unpkg.com/browse/framer-motion@7.3.2/package.json

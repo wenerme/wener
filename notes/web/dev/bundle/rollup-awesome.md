@@ -15,6 +15,8 @@ tags:
   可视化 bundle 大小分析
 - rollup-plugin-peer-deps-external
   - 将 peerDependencies 处理为 external
+- rollup-plugin-dts
+  - 生成 d.ts
 
 ```js
 import { visualizer } from 'rollup-plugin-visualizer';

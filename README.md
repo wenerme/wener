@@ -103,15 +103,23 @@
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener
 
-| Frontend/NodeJS/TS   | Desc                                     | Website                                       |
-| -------------------- | ---------------------------------------- | --------------------------------------------- |
-| [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/ |
-| [apis]               | Dev Utils on Web                         | https://apis.wener.me/                        |
-| [js-miniquery]       | SQL like filter expression for sequelize |
+| Frontend/NodeJS/TS   | Desc                                     | Website                                                                                 |
+| -------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------- |
+| [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/                                           |
+| [apis]               | Dev Utils on Web                         | https://apis.wener.me/                                                                  |
+| [js-miniquery]       | SQL like filter expression for sequelize | [![ohm-grammar-miniquery-image]][ohm-grammar-miniquery]                                 |
+| [wode]               | Node,React Utils, Hooks & Demos          | [![@wener/reaction-image]][@wener/reaction] <br/> [![@wener/utils-image]][@wener/utils] |
 
 [pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
 [apis]: https://github.com/wenerme/apis
+[wode]: https://github.com/wenerme/wode
+[@wener/reaction]: https://www.npmjs.com/package/@wener/reaction
+[@wener/reaction-image]: https://img.shields.io/npm/v/@wener/reaction?label=@wener/reaction
+[@wener/utils]: https://www.npmjs.com/package/@wener/utils
+[@wener/utils-image]: https://img.shields.io/npm/v/@wener/utils?label=@wener/utils
 [js-miniquery]: https://github.com/wenerme/js-miniquery
+[ohm-grammar-miniquery]: https://www.npmjs.com/package/ohm-grammar-miniquery
+[ohm-grammar-miniquery-image]: https://img.shields.io/npm/v/ohm-grammar-miniquery?label=ohm-grammar-miniquery
 
 ## License
 

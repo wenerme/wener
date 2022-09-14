@@ -194,6 +194,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=1 sh -s -
 
 ## 手动镜像安装
 
+- https://github.com/k3s-io/k3s/blob/master/install.sh
 - 镜像
   - http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh
   - https://rancher-mirror.rancher.cn

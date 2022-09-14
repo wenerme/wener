@@ -18,6 +18,7 @@ tags:
   - 1950+
 - https://github.com/primer/octicons
   - by GitHub
+- https://www.ibm.com/design/language/iconography/ui-icons/library/
 - [react-icons](http://react-icons.github.io/react-icons)
 - [akveo/eva-icons](https://github.com/akveo/eva-icons)
   - 400

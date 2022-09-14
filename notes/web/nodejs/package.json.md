@@ -105,14 +105,41 @@ title: package.json
   - 运行 node 指定 condition 会根据 condition resolve
 - 常见类型
   - import - esm - `import`,`import()` 使用 ECMAScript module loader
+    - 可能 mjs 结尾
+  - module
+    - 可能 js 结尾
   - require - cjs
   - node - cjs/esm
   - node-addons - native C++ addons
   - default - cjs/esm - 优先级低
+    - **注意**
+      - 一般为 esm
+      - 一定要放在最后
+      - 不建议，因为不用环境处理逻辑不同
 - 扩展
   - types - 优先级高
   - demo
   - browser - 例如 iife 格式
   - development
+    - 有些为源码 - ts
+    - 但是有些环境不支持 ts - 例如 nextjs
   - production
 - https://nodejs.org/api/packages.html#conditional-exports
+
+```json title="package.json"
+{
+  "sideEffects": "false",
+  "types": "src/.ts",
+  "main": "dist/cjs/index.js",
+  "module": "lib/esm/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./lib/esm/index.mjs",
+      "default": "./lib/cjs/index.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  }
+}
+```

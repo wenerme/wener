@@ -201,3 +201,119 @@ System.register('rxjs-operators.js', [], (_export) => {
   return {};
 });
 ```
+
+## 转换逻辑
+
+**输入**
+
+```ts
+export * from '@wener/reaction';
+import * as React from 'react';
+import {isValidElement} from 'react';
+import Meta from '@wener/reaction/package.json';
+
+await func();
+
+export const ver = 1;
+const ele = React.createElement('div');
+export {ele as DivNode};
+
+console.assert(isValidElement(ele));
+console.log(`Reaction version ${Meta.version}`);
+```
+
+```js
+System.register('myBundle', ['@wener/reaction', 'react'], function (exports) {
+  'use strict';
+  var _starExcludes = {
+    DivNode: 1,
+    ver: 1,
+    default: 1,
+  };
+  var React, isValidElement;
+  return {
+    setters: [
+      function (module) {
+        var setter = {};
+        for (var name in module) {
+          if (!_starExcludes[name]) setter[name] = module[name];
+        }
+        exports(setter);
+      },
+      function (module) {
+        React = module;
+        isValidElement = module.isValidElement;
+      },
+    ],
+    execute: async function () {
+      await func();
+
+      const ver = exports('ver', 1);
+      const ele = exports('DivNode', React.createElement('div'));
+
+      console.assert(isValidElement(ele));
+    },
+  };
+});
+```
+
+## reexport
+
+默认不包含 default
+
+```ts
+export * from 'react';
+```
+
+```js
+System.register('myBundle', ['react'], function (exports) {
+  'use strict';
+  var _starExcludes = {
+    default: 1,
+  };
+  return {
+    setters: [
+      function (module) {
+        // 不包含 default
+        var setter = {};
+        for (var name in module) {
+          if (!_starExcludes[name]) setter[name] = module[name];
+        }
+        exports(setter);
+      },
+    ],
+    execute: function () {},
+  };
+});
+```
+
+**with default**
+
+```ts
+export * from 'react';
+export {default} from 'react';
+```
+
+```js
+System.register('myBundle', ['react'], function (exports) {
+  'use strict';
+  var _starExcludes = {
+    default: 1,
+  };
+  return {
+    setters: [
+      function (module) {
+        // 先包含 default 部分
+        var setter = {default: module['default']};
+        for (var name in module) {
+          if (!_starExcludes[name]) setter[name] = module[name];
+        }
+        exports(setter);
+      },
+    ],
+    execute: function () {},
+  };
+});
+```
+
+**async/异步**

@@ -253,6 +253,7 @@ tags:
 
 ## 有趣
 
+- https://github.com/hunar4321/particle-life
 - [airbnb/lottie-web](https://github.com/airbnb/lottie-web)
 - [DustinBrett/daedalOS](https://github.com/DustinBrett/daedalOS)
 - https://aaronos.dev/AaronOS/aosBeta.php

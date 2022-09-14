@@ -40,10 +40,21 @@ tags:
     - jquery
   - parser
     - zeed-dom - Parser
+    - cheerio - jQuery
+    - htmlparser2
+    - parse5
   - santinizer
     - [cure53/DOMPurify](https://github.com/cure53/DOMPurify)
   - env
-    - jsdom
+    - [jsdom](https://github.com/jsdom/jsdom)
+    - [linkedom](https://github.com/WebReflection/linkedom)
+      - [jsdon](https://github.com/WebReflection/jsdon)
+        - dom.toJSON()
+    - [zeed-dom](https://github.com/holtwick/zeed-dom)
+- Communication/Network
+  - websocket
+  - socketio
+  - sockjs
 - IoC
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
   - [jeffijoe/awilix](https://github.com/jeffijoe/awilix)
@@ -113,6 +124,12 @@ tags:
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
+- diagram
+  - d3
+  - [eclipse/sprotty](https://github.com/eclipse/sprotty)
+  - [elkjs](https://github.com/kieler/elkjs)
+    - 1.3MB/404kB
+    - Eclipse Layout Kernel
 - 2d rendering/canvas
   - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
     - SVG <-> Canvas
@@ -195,8 +212,11 @@ tags:
     - Vue
     - multiplayer desktop-like workspace
   - https://news.ycombinator.com/item?id=30983770
+- p2p
+  - [hyperhyperspace/hyperhyperspace-core](https://github.com/hyperhyperspace/hyperhyperspace-core)
+  - gnudb
 - editor
-  - [ueberdosis/tiptap](https://github.com/ueberdosis/tiptap)
+  - [tiptap](../editor/tiptap.md)
     - headless, framework-agnostic and extendable rich text editor, based on ProseMirror
 - ui
   - [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui)
@@ -290,6 +310,9 @@ tags:
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
   - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
   - [3b1b/manim](https://github.com/3b1b/manim)
+  - mathjax
+  - https://upmath.me/ Math Online Editor
+  - [kisonecat/tikzjax](https://github.com/kisonecat/tikzjax)
 - stat
   - [jstat](https://github.com/jstat/jstat)
 - markdown
@@ -370,6 +393,7 @@ tags:
     - https://json-schema-faker.js.org/
     - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
   - facker
+
 
 ---
 

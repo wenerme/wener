@@ -342,6 +342,8 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 功能组件
 
+> 大多为 Headless
+
 - TanStack
   - [react-table](./react-table.md)
     - 实现各种 table 功能
@@ -359,7 +361,29 @@ npm add date-fns lodash-es react-fast-compare
   - 异步加载组件
 - [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
   - 功能性 headless 组件
+  - popover
+  - listbox/select
+  - combobox/autocomplete
+  - menu/dropdown
+  - switch/toggle
+  - disclosure
+  - dialog/modal
+  - radio group
+  - tabs
+  - transition
 - [nandorojo/dripsy](https://github.com/nandorojo/dripsy)
+- [its-danny/use-lilius](https://github.com/its-danny/use-lilius)
+  - date-fns
+  - DateInput
+- [downshift-js/downshift](https://github.com/downshift-js/downshift)
+  - autocomplete, combobox, select dropdown
+  - useCombobox
+  - useMultipleSelection
+  - useSelect
+- [timolins/react-hot-toast](https://github.com/timolins/react-hot-toast)
+  - 12kB/4.7kB
+    - goober 2.5kB/1.3kB
+      - css-in-js alternative
 
 ### 虚拟滚动
 
@@ -454,6 +478,7 @@ npm add date-fns lodash-es react-fast-compare
 - [streamich/react-use](https://github.com/streamich/react-use)
   - 74kB/20kB
 - [alibaba/hooks](https://github.com/alibaba/hooks)
+- [riktar/uncino](https://github.com/riktar/uncino)
 
 ## 状态管理
 

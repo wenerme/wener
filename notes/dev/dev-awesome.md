@@ -18,6 +18,14 @@ tags:
   - [poteto/hiring-without-whiteboards](https://github.com/poteto/hiring-without-whiteboards)
 - Github Copilot
   - [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
+- formatter
+  - [dprint/dprint](https://github.com/dprint/dprint)
+  - prettier
+  - go fmt
+  - clang fmt
+- lint
+  - eslint
+  - go vet
 
 ## Design
 

@@ -6,6 +6,17 @@ tags:
 
 # Low Code Design
 
+:::tip
+
+- Low Code - 讲究 编辑，关联，任意 组件
+- 组件的特性
+  - 配置化
+  - Schema化
+- 可以参考设计，只实现配置化
+
+:::
+
+
 - 模型
   - ProseMirror 的 Schema 模型值得借鉴参考
   - HTML/JSX - type/tag, attributes, children

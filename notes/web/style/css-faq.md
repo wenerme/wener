@@ -528,3 +528,15 @@ img {
 - width -> min-width
 - height -> min-height
 - https://defensivecss.dev/
+
+## table pin column
+
+1. 使用 div 重新实现 table
+1. `position: sticky`
+  - 需要计算偏移位置
+1. 使用 `border-collapse: separate` + `border-spacing: 0`
+  - tailwindcss `border-separate border-spacing-0`
+
+---
+
+- https://stackoverflow.com/q/1312236/1870054

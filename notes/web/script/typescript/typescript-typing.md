@@ -286,3 +286,9 @@ function createInstance<T extends Foo>(cls: FooStatic<T>) {
 - 不支持 static 定义
   - [#33892](https://github.com/microsoft/TypeScript/issues/33892)
   - `static abstract` methods and propertie [#34516](https://github.com/microsoft/TypeScript/issues/34516)
+
+## DeepReadonly
+
+```ts
+type DeepReadonly<T> = {readonly [K in keyof T]: DeepReadonly<T[K]>};
+```

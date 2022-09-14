@@ -72,7 +72,7 @@ export default defineConfig({
 ```
 
 ```ts title="异步配置"
-export default defineConfig(async ({ command, mode }) => {
+export default defineConfig(async ({command, mode}) => {
   const data = await asyncFunction();
   return {
     // build specific config
@@ -80,10 +80,28 @@ export default defineConfig(async ({ command, mode }) => {
 });
 ```
 
+## env
+
+| meta env                 | for                                     |
+| ------------------------ | --------------------------------------- |
+| import.meta.env.MODE     | development,production, `--mode <mode>` |
+| import.meta.env.BASE_URL |
+| import.meta.env.PROD     |
+| import.meta.env.DEV      |
+| import.meta.env.SSR      |
+
+- envfiles
+  - `.env`
+  - `.env.local`
+  - `.env.<mode>`
+  - `.env.<mode>.local`
+- `VITE_` 前缀的变量会暴露到 `import.meta.env`
+- https://vitejs.dev/guide/env-and-mode.html
+
 ## 支持 MDX
 
 ```js
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import mdx from '@mdx-js/rollup';
 
 export default defineConfig({
