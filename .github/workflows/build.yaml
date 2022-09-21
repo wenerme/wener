@@ -38,7 +38,7 @@ jobs:
       - run: |
           #export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
           cd site
-          npm install --verbose --platform=linux sharp
+          #npm install --verbose --platform=linux sharp
           make ci
           cd -
 

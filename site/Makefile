@@ -1,7 +1,7 @@
 ci: ci-install sync process notes.json build stats
 
 ci-install:
-	pnpm ci
+	pnpm install --frozen-lockfile
 
 install:
 	pnpm install
