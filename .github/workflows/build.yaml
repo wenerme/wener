@@ -47,11 +47,12 @@ jobs:
 
       - run: echo wener.me > site/build/CNAME
       - name: Deploy Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: site/build
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: site/build
+          single-commit: true
 
       - run: echo www.wener.tech > site/build/CNAME
       - name: Deploy Pages
