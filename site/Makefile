@@ -1,38 +1,38 @@
 ci: ci-install sync process notes.json build stats
 
 ci-install:
-	npm ci
+	pnpm ci
 
 install:
-	npm install
+	pnpm install
 
 sync:
-	node -r ts-node/register src/scripts/sync.ts -dir=../story/ > story.list.txt
+	pnpm exec tsx src/scripts/sync.ts -dir=../story/ > story.list.txt
 	rsync -a --files-from=story.list.txt ../ ./
 
-	node -r ts-node/register src/scripts/sync.ts -dir=../notes/ > notes.list.txt
+	pnpm exec tsx src/scripts/sync.ts -dir=../notes/ > notes.list.txt
 	rsync -a --files-from=notes.list.txt ../ ./
 
 process:
-	node -r ts-node/register src/scripts/process.ts $(ARGS)
+	pnpm exec tsx src/scripts/process.ts $(ARGS)
 
 stats:
-	node -r ts-node/register src/scripts/stats.ts
+	pnpm exec tsx src/scripts/stats.ts
 sidebar:
-	node -r ts-node/register src/scripts/sidebar.ts $(ARGS)
+	pnpm exec tsx src/scripts/sidebar.ts $(ARGS)
 
 build:
-	npm run build
+	pnpm run build
 
 dev:
-	npm run start
+	pnpm run start
 
 .PHONY: build ci
 
 docs.json:
-	node -r ts-node/register src/scripts/process.ts $(ARGS)
+	pnpm exec tsx src/scripts/process.ts $(ARGS)
 notes.json: notes.ts notes.yaml docs.json
-	node -r ts-node/register notes.ts
+	pnpm exec tsx notes.ts
 
 status:
 	git add -u && git diff --staged --stat | tee

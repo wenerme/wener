@@ -14,7 +14,7 @@
     "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true
