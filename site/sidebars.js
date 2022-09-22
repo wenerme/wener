@@ -1,4 +1,4 @@
-const docs = require('./notes.json');
+// const docs = require('./notes.json');
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */

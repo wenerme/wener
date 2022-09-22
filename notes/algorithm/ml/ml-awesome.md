@@ -63,6 +63,9 @@ tags:
   - Artstation-Artistic-face-HQ Dataset (AAHQ)
 - [parrt/tensor-sensor](https://github.com/parrt/tensor-sensor)
 - [mattbradley/dash](https://github.com/mattbradley/dash)
+- [openai/whisper](https://github.com/openai/whisper)
+  - [HN](https://news.ycombinator.com/item?id=32927360)
+  - https://openai.com/blog/whisper/
 - https://banmo-www.github.io/
 - https://nn-512.com/
 - https://hypernerf.github.io/

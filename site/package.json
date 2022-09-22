@@ -1,46 +1,83 @@
 {
   "name": "wener-website",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
     "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus",
     "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
+    "start": "docusaurus start",
+    "swizzle": "docusaurus swizzle",
+    "tsc": "tsc",
     "typecheck": "tsc",
-    "tsc": "tsc"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.1",
-    "@docusaurus/plugin-client-redirects": "2.0.1",
-    "@docusaurus/plugin-google-analytics": "2.0.1",
-    "@docusaurus/plugin-google-gtag": "2.0.1",
-    "@docusaurus/plugin-ideal-image": "2.0.1",
-    "@docusaurus/plugin-sitemap": "2.0.1",
-    "@docusaurus/preset-classic": "2.0.1",
-    "@docusaurus/theme-live-codeblock": "2.0.1",
+    "@docusaurus/core": "2.1.0",
+    "@docusaurus/plugin-client-redirects": "2.1.0",
+    "@docusaurus/plugin-google-analytics": "2.1.0",
+    "@docusaurus/plugin-google-gtag": "2.1.0",
+    "@docusaurus/plugin-ideal-image": "2.1.0",
+    "@docusaurus/plugin-sitemap": "2.1.0",
+    "@docusaurus/preset-classic": "2.1.0",
+    "@docusaurus/theme-live-codeblock": "2.1.0",
+    "@mdx-js/react": "^1",
     "classnames": "^2.3.1",
     "hast-util-is-element": "^1.1.0",
     "isomorphic-fetch": "^3",
+    "mdast-util-from-markdown": "0.8.5",
+    "mdast-util-to-markdown": "0.6.5",
+    "mdast-util-to-string": "^2",
     "mermaid": ">=8.13.8",
     "mobx": "^6.3.2",
     "mobx-react": "^7.2.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.33",
     "node-fetch": "^2",
-    "nth-check": ">=2.0.1",
+    "nth-check": "^2.1.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17",
     "react-dom": "^17",
     "rehype-katex": "^5",
+    "rehype-stringify": "^8",
     "remark-math": "^3.0.1",
+    "remark-rehype": "^8",
     "styled-components": "^5.3.0",
-    "trim": ">=0.0.3"
+    "trim": ">=0.0.3",
+    "unified": "^9.2.0",
+    "unist-util-visit": "^2"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
+    "@esbuild-kit/cjs-loader": "^2.3.3",
+    "@tsconfig/docusaurus": "^1.0.6",
+    "@types/fs-extra": "^9.0.12",
+    "@types/node": "^16",
+    "@types/node-fetch": "^2",
+    "ava": "^4.3.3",
+    "esbuild": "^0.15.8",
+    "fs-extra": "^10",
+    "hpagent": "^1",
+    "https-proxy-agent": "^5.0.0",
+    "socks-proxy-agent": "^7.0.0",
+    "tsx": "^3.9.0",
+    "typescript": "^4.3.5",
+    "yaml": "^2"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "@esbuild-kit/cjs-loader"
+    ],
+    "nodeArguments": []
   },
   "browserslist": {
     "production": [
@@ -53,23 +90,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
-    "@tsconfig/docusaurus": "^1.0.6",
-    "@types/fs-extra": "^9.0.12",
-    "@types/node": "^16",
-    "@types/node-fetch": "^2",
-    "fs-extra": "^10",
-    "hpagent": "^0.1.2",
-    "https-proxy-agent": "^5.0.0",
-    "socks-proxy-agent": "^6.0.0",
-    "ts-node": "^10",
-    "tsx": "^3.9.0",
-    "typescript": "^4.3.5",
-    "yaml": "^2"
-  },
-  "engines": {
-    "node": ">=12.20"
   }
 }

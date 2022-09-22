@@ -12,6 +12,7 @@ title: LaTex Math
 - [Glossary of mathematical symbols](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols)
 - https://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/Calculus.html
 - [希腊字母](https://zh.wikipedia.org/wiki/希腊字母)
+- [KaTeX](https://github.com/KaTeX/KaTeX)
 
 | abbr | for        |
 | ---- | ---------- |
@@ -54,3 +55,6 @@ $$
   </body>
 </html>
 ```
+
+# FAQ
+## katex unicodeTextInMathMode

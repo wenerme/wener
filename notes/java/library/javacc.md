@@ -1,3 +1,7 @@
+---
+title: JavaCC
+---
+
 # JavaCC
 
 ## 概述

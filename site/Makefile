@@ -22,7 +22,9 @@ stats:
 sidebar:
 	pnpm exec tsx src/scripts/sidebar.ts $(ARGS)
 
-build:
+plugins:
+	pnpm exec esbuild ./src/plugins/deflist.ts --outdir=./lib/plugins/ --format=cjs
+build: plugins
 	pnpm run build
 
 dev:

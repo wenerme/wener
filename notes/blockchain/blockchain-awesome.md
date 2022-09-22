@@ -115,7 +115,7 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 
 ## Testnets
 
-> [ChainList](./chainlist.md)
+> [ChainList](./eth/chainlist.md)
 
 | Hex  | Decimal | Symbol | Network | Proof               | RPC                                              | Explorer                      |
 | ---- | ------- | ------ | ------- | ------------------- | ------------------------------------------------ | ----------------------------- |
@@ -276,7 +276,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
 
 ## Token
 
-> [TokenList](./tokenlist.md)
+> [TokenList](./eth/tokenlist.md)
 
 **主要 ECR-20 币**
 

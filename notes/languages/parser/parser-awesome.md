@@ -7,7 +7,7 @@ tags:
 
 - [Antlr](./antlr4.md)
   - Adaptive LL(*)
-- [JavaCC](./javacc.md)
+- [JavaCC](../../java/library/javacc.md)
   - LL(k)
 - Grammer
   - yacc - Yet Another Compiler-Compiler
@@ -59,7 +59,7 @@ tags:
     - Parsers have excellent error reporting out of the box
     - Based on parsing expression grammar formalism — more powerful than traditional LL(k) and LR(k) parsers
     - Usable from your browser, from the command line, or via JavaScript API
-  - [harc/ohm](./ohm.md)
+  - [harc/ohm](./ohmjs.md)
     - MIT, JS
     - 不生成代码，使用类似 Regex - 给语法解析执行
     - https://ohmjs.org/editor/

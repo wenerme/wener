@@ -383,3 +383,7 @@ declare global {
   - import 了另外一个文件，但是没有后缀，会导致找不到
 - https://github.com/vercel/next.js/issues/39375
 - https://unpkg.com/browse/framer-motion@7.3.2/package.json
+
+## require() of ES Module not supported
+
+- type=module

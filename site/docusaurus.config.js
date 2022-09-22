@@ -1,9 +1,12 @@
 const moment = require('moment-timezone');
 const math = require('remark-math');
 const katex = require('rehype-katex');
+const { default: deflist } = require('./lib/plugins/deflist');
 const { writeFileSync } = require('fs');
 
 // https://docusaurus.io/docs/api/docusaurus-config
+
+// console.debug(`deflist`,deflist)
 
 /** @type {import('@docusaurus/types').Plugin} */
 function RewritePlugin(context, options) {
@@ -44,8 +47,8 @@ const config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
 
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
+          remarkPlugins: [deflist, math],
+          rehypePlugins: [[katex, { unicodeTextInMathMode: true }]],
 
           sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
             const items = await defaultSidebarItemsGenerator(args);
