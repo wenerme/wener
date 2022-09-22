@@ -236,6 +236,8 @@ const config = {
   // },
   webpack: {
     jsLoader: (isServer) => ({
+      // 默认使用 @docusaurus/mdx-loader
+      // https://mdxjs.com/packages/esbuild/
       loader: require.resolve('esbuild-loader'),
       options: {
         loader: 'tsx',

@@ -1,3 +1,16 @@
+diff --git a/lib/docs.js b/lib/docs.js
+index 0fb619a175a8cc86996ee46245666287c5aef065..b79c55585e2399330d835541061835e7c655609b 100644
+--- a/lib/docs.js
++++ b/lib/docs.js
+@@ -123,7 +123,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
+         frontMatterSlug: frontMatter.slug,
+         stripDirNumberPrefixes: parseNumberPrefixes,
+         numberPrefixParser: options.numberPrefixParser,
+-    });
++    }).replaceAll(/\/([^/]+)\/\1-/g,'/$1/').replace(/\/(kubernetes)\/k8s-/,'/$1/');
+     // Note: the title is used by default for page title, sidebar label,
+     // pagination buttons... frontMatter.title should be used in priority over
+     // contentTitle (because it can contain markdown/JSX syntax)
 diff --git a/lib/index.js b/lib/index.js
 index b904568e49fccc2426c6670b48fc13c0ad0b516a..143c4465d7ace91d756e684dc714dbbe15ab3cd1 100644
 --- a/lib/index.js
