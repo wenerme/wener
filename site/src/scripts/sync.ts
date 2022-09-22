@@ -1,17 +1,17 @@
-import globby from "globby";
-import fs from "fs-extra";
-
+import globby from 'globby';
+import fs from 'fs-extra';
+import { argo } from './utils';
 const arg = argo();
-console.assert(arg["dir"], "need dir");
+console.assert(arg['dir'], 'need dir');
 
-if (arg["cwd"]) {
-  process.chdir(arg["cwd"]);
+if (arg['cwd']) {
+  process.chdir(arg['cwd']);
 }
 
 async function main() {
-  let paths = await globby(arg["dir"], {
+  let paths = await globby(arg['dir'], {
     expandDirectories: {
-      extensions: ["md", "mdx", "jpg", "jpeg", "png", "gif", "svg"],
+      extensions: ['md', 'mdx', 'jpg', 'jpeg', 'png', 'gif', 'svg'],
     },
   });
 
@@ -35,7 +35,7 @@ async function main() {
 })();
 
 function isValidMarkdown(content: string) {
-  return content.startsWith("---");
+  return content.startsWith('---');
 }
 
 // 14
@@ -43,19 +43,3 @@ function isValidMarkdown(content: string) {
 
 // node -r ts-node/register src/scripts/sync.ts -dir=../story/ > story.list.txt
 // rsync -a --files-from=story.list.txt ../ ./contents/ -v
-
-function argo(s: string[] = process.argv.slice(2)) {
-  const o = {
-    _: [],
-  };
-  s.forEach((v) => {
-    const m = v.match(/^--?(?<name>[^-][^=]*)(=(?<value>.*))?/);
-    if (m) {
-      let val: any = o[m.groups["name"]];
-      o[m.groups["name"]] = Array.isArray(val) ? [...val, m.groups["value"] || true] : m.groups["value"] || true;
-    } else {
-      o._.push(v);
-    }
-  });
-  return o;
-}

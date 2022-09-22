@@ -9,9 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
+    # strategy:
+    #   matrix:
+    #     node-version: [ 16.x ]
 
     steps:
       # $GITHUB_WORKSPACE
@@ -19,13 +19,19 @@ jobs:
         with:
           # last edit time
           fetch-depth: 0
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install PNPM
-        run: |
-          npm add -g pnpm
+          node-version: 16
+      # - name: Install PNPM
+      #   run: |
+      #     npm add -g pnpm
+      - uses: pnpm/action-setup@v2.0.1
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |

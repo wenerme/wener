@@ -64,6 +64,7 @@
     "ava": "^4.3.3",
     "esbuild": "^0.15.8",
     "fs-extra": "^10",
+    "globby": "^11",
     "hpagent": "^1",
     "https-proxy-agent": "^5.0.0",
     "socks-proxy-agent": "^7.0.0",
