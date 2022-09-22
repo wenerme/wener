@@ -13,6 +13,7 @@ title: LaTex Math
 - https://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/Calculus.html
 - [希腊字母](https://zh.wikipedia.org/wiki/希腊字母)
 - [KaTeX](https://github.com/KaTeX/KaTeX)
+  - https://katex.org/docs/options.html
 
 | abbr | for        |
 | ---- | ---------- |

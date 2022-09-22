@@ -166,7 +166,7 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 
 ## 网络
 
-> [ChainList](./chainlist.md)
+> [ChainList](./eth/chainlist.md)
 
 | Hex  | Decimal | Symbol | Network                         | RPC                               | Explorer                 |
 | ---- | ------- | ------ | ------------------------------- | --------------------------------- | ------------------------ |

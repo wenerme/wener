@@ -39,7 +39,7 @@ const config = {
       ({
         docs: {
           routeBasePath: 'notes',
-          path: 'notes',
+          path: '../notes',
           sidebarPath: require.resolve('./sidebars.js'),
 
           editUrl: 'https://github.com/wenerme/wener/edit/master/',
@@ -48,7 +48,8 @@ const config = {
           showLastUpdateAuthor: true,
 
           remarkPlugins: [deflist, math],
-          rehypePlugins: [[katex, { unicodeTextInMathMode: true }]],
+          // https://katex.org/docs/options.html
+          rehypePlugins: [[katex, { strict: (code)=>code ==='unicodeTextInMathMode'?'ignore':'error' }]],
 
           sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
             const items = await defaultSidebarItemsGenerator(args);
