@@ -14,31 +14,40 @@ jobs:
         node-version: [ 16.x ]
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
         with:
-          persist-credentials: false
+          # last edit time
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
+      - name: Install PNPM
+        run: |
+          npm add -g pnpm
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
       - name: Build Cache
         id: build-cache
         uses: actions/cache@v2
         with:
-          path: site/node_modules
-          key: ${{ runner.os }}-build-cache
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: Deps
+      - name: Sharp Deps
         run: |
           #sudo apt-get update
           #sudo apt-get install -y libvips-dev glib2.0-dev --no-install-recommends
 
       - run: |
           #export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
-          cd site
           #npm install --verbose --platform=linux sharp
+          cd site
           make ci
           cd -
 

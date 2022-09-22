@@ -6,7 +6,8 @@ const { writeFileSync } = require('fs');
 
 // https://docusaurus.io/docs/api/docusaurus-config
 // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
-
+// loader: require.resolve('esbuild-loader'),
+// slow, high mem https://github.com/facebook/docusaurus/discussions/3132
 
 /** @type {import('@docusaurus/types').Plugin} */
 function RewritePlugin(context, options) {
