@@ -1,0 +1,14 @@
+diff --git a/lib/index.js b/lib/index.js
+index b904568e49fccc2426c6670b48fc13c0ad0b516a..143c4465d7ace91d756e684dc714dbbe15ab3cd1 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -83,7 +83,8 @@ async function pluginContentDocs(context, options) {
+                         env: process.env.NODE_ENV,
+                     });
+                 }
+-                return Promise.all(docFiles.map(processVersionDoc));
++                console.log(`Inject custom docs filter`)
++                return Promise.all(docFiles.filter(v=>v.content.startsWith('--')).map(processVersionDoc));
+             }
+             async function doLoadVersion(versionMetadata) {
+                 const docsBase = await loadVersionDocsBase(versionMetadata);
