@@ -10,6 +10,11 @@ title: ESBuild
 - used by Vite, Snowpack
 - [roadmap](https://esbuild.github.io/faq/#upcoming-roadmap)
 - https://esbuild.github.io/api/
+  - https://esbuild.github.io/
+    - 包含性能对比
+    - 目前暂无 swc
+      - https://github.com/evanw/esbuild/issues/762
+      - swc not ready
 
 :::tip
 

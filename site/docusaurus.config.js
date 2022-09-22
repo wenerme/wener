@@ -8,6 +8,7 @@ const { writeFileSync } = require('fs');
 // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
 // loader: require.resolve('esbuild-loader'),
 // slow, high mem https://github.com/facebook/docusaurus/discussions/3132
+// Reduce build time - use alternative webpack JS loaders https://github.com/facebook/docusaurus/issues/4765
 
 /** @type {import('@docusaurus/types').Plugin} */
 function RewritePlugin(context, options) {
@@ -42,15 +43,15 @@ const config = {
           routeBasePath: 'notes',
           path: '../notes',
           sidebarPath: require.resolve('./sidebars.js'),
-
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+          // .. 会消除最后的 notes
+          editUrl: 'https://github.com/wenerme/wener/edit/master/notes/',
 
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
 
           remarkPlugins: [deflist, math],
           // https://katex.org/docs/options.html
-          rehypePlugins: [[katex, { strict: (code)=>code ==='unicodeTextInMathMode'?'ignore':'error' }]],
+          rehypePlugins: [[katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }]],
 
           sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
             const items = await defaultSidebarItemsGenerator(args);
@@ -83,10 +84,10 @@ const config = {
           path: '../story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
-          editUrl: 'https://github.com/wenerme/wener/edit/master/',
+          editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
 
           remarkPlugins: [math],
-          rehypePlugins: [katex],
+          rehypePlugins: [[katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }]],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -233,6 +234,28 @@ const config = {
   //   defaultLocale: 'zh',
   //   locales: ['zh', 'en'],
   // },
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve('esbuild-loader'),
+      options: {
+        loader: 'tsx',
+        target: isServer ? 'node12' : 'es2017',
+      },
+      // loader: require.resolve('swc-loader'),
+      // options: {
+      //   jsc: {
+      //     "parser": {
+      //       "syntax": "typescript",
+      //       "tsx": true
+      //     },
+      //     target: 'es2017',
+      //   },
+      //   module: {
+      //     type: isServer ? 'commonjs' : 'es6',
+      //   }
+      // },
+    }),
+  },
   plugins: [
     [
       '@docusaurus/plugin-client-redirects',

@@ -63,6 +63,7 @@
     "@types/node-fetch": "^2",
     "ava": "^4.3.3",
     "esbuild": "^0.15.8",
+    "esbuild-loader": "^2.20.0",
     "fs-extra": "^10",
     "globby": "^11",
     "hpagent": "^1",
