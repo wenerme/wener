@@ -11,6 +11,7 @@ title: Notion
   - https://www.notion.so/blog/faster-page-load-navigation
   - [notion-enhancer](https://github.com/notion-enhancer)
 - 类似开源项目
+  - [YousefED/BlockNote](https://github.com/YousefED/BlockNote)
   - [toeverything/AFFiNE](https://github.com/toeverything/AFFiNE)
     - MIT, TS
   - [Dashibase/lotion](https://github.com/Dashibase/lotion)

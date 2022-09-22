@@ -7,7 +7,7 @@ tags:
 
 - [Antlr](./antlr4.md)
   - Adaptive LL(*)
-- [JavaCC](../../java/library/javacc.md)
+- [JavaCC](./javacc.md)
   - LL(k)
 - Grammer
   - yacc - Yet Another Compiler-Compiler

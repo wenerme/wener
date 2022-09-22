@@ -91,7 +91,13 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
 - --external:
   - `/assets/*.png`
   - `@foo/bar` 隐含 `@foo/bar/*`
-- --target - chrome, edge, firefox, hermes, ie, ios, node, opera, rhino, safari
+- --target
+  - chrome, edge, firefox, hermes, ie, ios, node, opera, rhino, safari
+  - 可以更详细
+    - esnext, es2020, es5, es5, node12, node12.19
+    - chrome90
+  - 也可以使用 supported 控制特性
+- --supported - https://esbuild.github.io/api/#supported
 - --sourcemap
   - linked - `//# sourceMappingURL=`
   - external - 无 sourceMappingURL
@@ -100,6 +106,21 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
 - --servedir
   - 配合 script 使用
   - `<script src="js/app.js"></script>`
+- --loader
+  - js - .js, .cjs, .mjs
+  - ts - .ts, .tsx, .mts, .cts
+  - jsx/tsx - .jsx
+  - json - .json
+  - css - .css
+  - text - .txt
+  - binary
+    - Uint8Array
+    - uint8array.buffer -> ArrayBuffer
+  - base64
+  - dataurl
+  - file
+  - copy
+    - 复制文件到 outdir - 修改 import 路径
 
 ## 只 bundle 内部文件
 
@@ -150,3 +171,29 @@ grep '^// ' ./dist/Wysiwyg.esm.js | grep node_modules # bundled externals
 ```bash
 esbuild home.ts about.ts --bundle --splitting --outdir=out --format=esm
 ```
+
+## Dynamic require of "fs" is not supported
+
+- format 为 esm 的时候可能出现
+- 添加 banner 解决
+
+```bash
+npx esbuild --banner:js="import { createRequire } from 'module';const require = createRequire(import.meta.url);import path from 'path';import { fileURLToPath } from 'url';const __filename = fileURLToPath(import.meta.url);const __dirname = path.dirname(__filename);"
+```
+
+```ts
+import {createRequire} from 'module';
+const require = createRequire(import.meta.url);
+import path from 'path';
+import {fileURLToPath} from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+```
+
+- https://github.com/evanw/esbuild/issues/1921
+
+## 文件后缀
+
+- 有些场景需要 esm import 包含后缀，目前 esbuild 不好添加
+- 可以考虑 rollup
+- https://github.com/evanw/esbuild/issues/2435

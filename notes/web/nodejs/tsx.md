@@ -17,6 +17,8 @@ ts-node --esm --transpileOnly run.ts
 # 按回车可手动重新运行
 # --clear-screen=false
 tsx watch ./file.ts
+
+NODE_OPTIONS='--loader tsx' node ./file.ts
 ```
 
 | flag                | for |

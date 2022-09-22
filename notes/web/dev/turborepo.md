@@ -163,3 +163,7 @@ turbo run build --token=$TURBO_TOKEN
 - [fox1t/turborepo-remote-cache](https://github.com/fox1t/turborepo-remote-cache)
   - open-source implementation of the Turborepo custom remote cache server
 - [remote-caching](https://turborepo.org/docs/core-concepts/remote-caching)
+
+## error hashing files: could not hash file package-lock.json
+
+- 如果从 npm 切换到了 pnpm，还需要修改 package.json 里的 packageManager

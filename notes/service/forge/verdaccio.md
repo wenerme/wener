@@ -6,6 +6,7 @@ title: Verdaccio
 
 - [verdaccio/verdaccio](https://github.com/verdaccio/verdaccio)
   - MIT, TS, JS
+  - NPM 私有仓库
 - 插件
   - https://github.com/verdaccio/monorepo/tree/9.x/plugins
   - [Alexandre-io/verdaccio-ldap](https://github.com/Alexandre-io/verdaccio-ldap)
@@ -18,11 +19,22 @@ title: Verdaccio
 - 默认端口 4873
 - 参考
   - [Verdaccio 私仓搭建](https://juejin.cn/post/6844904193501691917)
+- Endpoint
+  - Tarball `:pkg/-/:name-:ver.tgz`
+  - Web
+    - `/-/web/detail/:pkg`
+    - `/-/web/detail/:pkg/v/:version`
+
+## config.yaml
+
+- 内置分组 $all, $anonymous
+- $authenticated
 
 ## docker
 
 - /verdaccio/storage/htpasswd
 - /verdaccio/conf/config.yaml
+- 如果出现地址异常，可尝试设置 env VERDACCIO_PORT
 
 ```bash
 htpasswd -bc htpasswd admin admin

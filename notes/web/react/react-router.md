@@ -11,6 +11,9 @@ title: React Route
 
 - 不能嵌套 Router
 - children 绝对路径需要包含 parent 前缀
+- NavLink 使用 routerState 会每次 rerender
+  - [react-router-dom/index.tsx#L427-L501](https://github.com/remix-run/react-router/blob/f722d7fda7a5aff1d90fdc2d8cf51f14f7870376/packages/react-router-dom/index.tsx#L427-L501)
+- useNavigate 会 rerender [#7634](https://github.com/remix-run/react-router/issues/7634)
 
 :::
 

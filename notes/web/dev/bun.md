@@ -24,8 +24,20 @@ title: bun
 :::
 
 ```bash
-curl -LO https://ghproxy.com/https://github.com/Jarred-Sumner/bun/releases/download/bun-v0.1.9/bun-darwin-x64.zip
+curl -LO https://ghproxy.com/https://github.com/Jarred-Sumner/bun/releases/download/bun-v0.1.11/bun-darwin-x64.zip
+unzip bun-darwin-x64.zip
+mv bun-darwin-x64/bun ~/bin/
+xattr -r -d com.apple.quarantine ~/bin/bun
+bun -v
 ```
+
+```bash
+bun bun src/index.js
+# https://github.com/oven-sh/bun/issues/211
+./node_modules.bun > ./node_modules.js
+```
+
+## ffi
 
 ```js
 import {viewSource} from 'bun:ffi';

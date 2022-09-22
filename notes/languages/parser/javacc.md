@@ -4,11 +4,12 @@ title: JavaCC
 
 # JavaCC
 
-## 概述
-* [JavaCC](https://javacc.org/) - The Java Parser Generator
-* `LL(*)`
-* 生成的代码没有运行时依赖
-* [grammar repository](https://javacc.org/grammar-library)
+- [JavaCC](https://javacc.org/) - The Java Parser Generator
+- [javacc/javacc](https://github.com/javacc/javacc)
+  - 默认 LL(1) 可 LL(k)
+  - `LL(*)`
+  - 生成的代码没有运行时依赖
+- [grammar repository](https://javacc.org/grammar-library)
 
 ## 配置
 
@@ -30,6 +31,7 @@ title: JavaCC
 
 ## 选项
 
+```
 "LOOKAHEAD" "=" java_integer_literal ";"
 |	"CHOICE_AMBIGUITY_CHECK" "=" java_integer_literal ";"
 |	"OTHER_AMBIGUITY_CHECK" "=" java_integer_literal ";"
@@ -54,7 +56,7 @@ title: JavaCC
 |	"COMMON_TOKEN_ACTION" "=" java_boolean_literal ";"
 |	"CACHE_TOKENS" "=" java_boolean_literal ";"
 |	"OUTPUT_DIRECTORY" "=" java_string_literal ";"
-
+```
 
 ## 语法结构
 

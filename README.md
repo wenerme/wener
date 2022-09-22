@@ -108,7 +108,7 @@
 | [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/                                           |
 | [apis]               | Dev Utils on Web                         | https://apis.wener.me/                                                                  |
 | [js-miniquery]       | SQL like filter expression for sequelize | [![ohm-grammar-miniquery-image]][ohm-grammar-miniquery]                                 |
-| [wode]               | Node,React Utils, Hooks & Demos          | [![@wener/reaction-image]][@wener/reaction] <br/> [![@wener/utils-image]][@wener/utils] |
+| [wode]               | Node,React Utils, Hooks & Demos          | https://wode.vercel.app/ <br/> [![@wener/reaction-image]][@wener/reaction] <br/> [![@wener/utils-image]][@wener/utils] |
 
 [pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
 [apis]: https://github.com/wenerme/apis

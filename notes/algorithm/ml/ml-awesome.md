@@ -168,6 +168,16 @@ tags:
   - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
 - serving
   - [johnolafenwa/deepstack](https://github.com/johnolafenwa/deepstack)
+- upscale
+  - [Araxeus/PNG-Upscale](https://github.com/Araxeus/PNG-Upscale)
+    - MIT, Java
+  - [IBM/MAX-Image-Resolution-Enhancer](https://github.com/IBM/MAX-Image-Resolution-Enhancer)
+    - Apache-2.0, Python
+    - Docker
+  - [upscayl/upscayl](https://github.com/upscayl/upscayl)
+    - AGPL-3.0
+    - 需要 GPU
+    - App 方式
 
 ---
 

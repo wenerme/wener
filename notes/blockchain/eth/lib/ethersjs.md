@@ -10,7 +10,7 @@ title: ethersjs
     - elliptic 使用的 BN.js - 因为必须包含 elliptic 所以使用 BN.js 不需要引入额外包
     - BN.js 与 ether 计算逻辑相同，底层为纯 int + decimals，两个数值计算要考虑 decimals
     - bignumber.js 底层存储了 c,e,s 辅助计算，两个数值可直接计算
-    - 个人使用推荐 [bignumber.js](../web/script/lib/bignumberjs.md) - 接口更友好
+    - 个人使用推荐 [bignumber.js](../../../web/script/lib/bignumberjs.md) - 接口更友好
 - 参考
   - https://docs.ethers.io/v5/
   - [Why not BigNumber.js, BN.js, BigDecimal, etc?](https://docs.ethers.io/v5/api/utils/bignumber/#BigNumber--notes)

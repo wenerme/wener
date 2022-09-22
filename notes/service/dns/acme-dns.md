@@ -51,6 +51,11 @@ _acme-challenge.domain.tld 6f449871-18d4-4239-851c-8c221d56750f.auth.acme-dns.io
 
 至此 可以配置工具 获取泛域名证书。
 
+```bash
+dig CNAME _acme-challenge.domain.tld # 检测 CNAME 正确
+dig TXT _acme-challenge.w.wode.co    # 检测正确设置 challenge
+```
+
 ## cert-manager
 
 ```yaml

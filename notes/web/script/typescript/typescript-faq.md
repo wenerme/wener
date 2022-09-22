@@ -70,3 +70,5 @@ declare var __DEV__: boolean;
 ```
 
 - https://github.com/microsoft/TypeScript/issues/29808
+
+## Types of property 'propTypes' are incompatible

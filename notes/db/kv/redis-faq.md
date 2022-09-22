@@ -51,3 +51,14 @@ redis-cli
 ---
 
 - https://gist.github.com/antirez/2bc68a9e9e45395e297d288453d5d54c
+
+## ERR max number of clients reached
+
+- client 默认 timeout 为 0，可尝试添加 timeout 在服务端关闭链接
+- maxclients 默认 10,000
+
+```bash
+# 如果增加了 maxclients 也要增加系统限制
+ulimit -Sn 100000
+sysctl -w fs.file-max=100000
+```

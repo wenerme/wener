@@ -202,6 +202,7 @@ module.export = {
 
 - 非常适用于 docker 环境
 - 只需要 .next/standalone 不需要 node_modules
+- 使用 [@vercel/nft](https://github.com/vercel/nft) 分析 import
 
 ```js
 module.exports = {

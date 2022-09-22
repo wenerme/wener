@@ -6,6 +6,7 @@ title: protobuf-web
 
 - [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)
   - 与 protobuf-ts 相同作者
+  - @bufbuild/protoc-gen-es
 - [timostamm/protobuf-ts](https://github.com/timostamm/protobuf-ts)
 - [protobufjs/protobuf.js](https://github.com/protobufjs/protobuf.js)
   - .proto, JSON descriptors, reflectiom, custom class
@@ -13,6 +14,7 @@ title: protobuf-web
 - [protocolbuffers/protobuf-javascript](https://github.com/protocolbuffers/protobuf-javascript)
   - 目前维护不足
 - [stephenh/ts-proto](https://github.com/stephenh/ts-proto)
+  - 不生成 index.ts [#212](https://github.com/stephenh/ts-proto/issues/212)
 
 ## ts-proto
 

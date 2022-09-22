@@ -78,6 +78,9 @@ npx ava src/hello.test.ts -m "db"
 
 npx ava --watch
 DEBUG=ava:watcher npx ava --watch
+
+# tap report
+npx ava --tap | npx tap-nyan
 ```
 
 ---

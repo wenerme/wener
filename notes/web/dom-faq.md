@@ -88,3 +88,9 @@ container.appendChild(style);
 | `-`   | Minus     |
 | Enter | Enter     |
 | Shift | ShiftLeft |
+
+## 字体检测
+
+```js
+document.fonts.check('12px ui-serif');
+```

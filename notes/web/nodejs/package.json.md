@@ -143,3 +143,54 @@ title: package.json
   }
 }
 ```
+
+## exports types
+
+- [ts 4.7+](https://devblogs.microsoft.com/typescript/announcing-typescript-4-7/#package-json-exports-imports-and-self-referencing)
+- package.json - type module
+- tsconfig.json 的 module 设置为 Node12 或 NodeNext
+
+**替代方案**
+
+```json title="package.json"
+{
+  "typesVersions": {
+    "*": {
+      "index": ["lib/components/index.d.ts"],
+      "tokens": ["lib/tokens/index.d.ts"]
+    }
+  }
+}
+```
+
+## imports
+
+- 包内映射 import
+
+```json
+{
+  "imports": {
+    "#dep": {
+      "node": "dep-node-native",
+      "default": "./dep-polyfill.js"
+    },
+    "#internal/*.js": "./src/internal/*.js"
+  },
+  "dependencies": {
+    "dep-node-native": "^1.0.0"
+  }
+}
+```
+
+```ts
+// 根据环境 import dep-node-native 或 polyfill
+import '#dep';
+```
+
+- https://nodejs.org/api/packages.html#subpath-imports
+- https://nodejs.org/api/packages.html#imports
+
+## self-referencing
+
+- Self-referential import breaks on Yarn Berry PNPM linker [vite#6808](https://github.com/vitejs/vite/issues/6808)
+- https://nodejs.org/api/packages.html#packages_self_referencing_a_package_using_its_name

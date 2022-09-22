@@ -4,9 +4,10 @@ title: NodeJS
 
 # NodeJS
 
-| flag                      | for |
-| ------------------------- | --- |
-| --experimental-vm-modules | ESM |
+| flag                               | for                 | seealso                                                                       |
+| ---------------------------------- | ------------------- | ----------------------------------------------------------------------------- |
+| --experimental-vm-modules          | ESM                 |
+| --experimental-import-meta-resolve | import.meta.resolve | ponyfill [import-meta-resolve](https://github.com/wooorm/import-meta-resolve) |
 
 ## NPM 镜像
 

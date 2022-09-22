@@ -27,4 +27,9 @@ npx sort-package-json                             # 对 package.json 排序 - pr
 # 格式化所有 package.json
 npm exec --workspaces sort-package-json@latest
 npm exec --workspaces -- prettier -w package.json
+
+# 查看 native 模块
+# npx native-modules
+find node_modules -type f -name "*.node" 2>/dev/null | grep -v "obj\.target"
+find node_modules -type f -name "*.node" 2>/dev/null | grep -v "obj\.target" | xargs ldd
 ```

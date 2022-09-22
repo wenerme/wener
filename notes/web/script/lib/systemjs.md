@@ -9,7 +9,13 @@ title: SystemJS
   - 辅助实现微前端
   - 辅助实现 前端 动态模块化
   - ESM 不受控 - 只能 all in
-- extras
+- features - core 之上增加特性
+  - fetch-load
+  - import-maps
+    - 展开 imoort map 后直接匹配
+    - System.prepareImport
+    - type=systemjs-importmap
+- extras - 额外功能
   - amd
   - dynamic-import-maps
     - 监听 document 的 addedNodes
@@ -18,8 +24,21 @@ title: SystemJS
   - module-types - json, css, wasm
   - named-register
   - global
-- system.js - includes: global, module-types, registry
+- system-core.js
+  - 基础 - 其他 dist 在这基础之上增加 hook 行为
+  - System.import
+  - System.register
+  - System.getRegister
+  - System.createContext - import.meta
+  - System.onload(err,id,deps)
+- system.js
+  - script-load, fetch-load, resolve, import-maps, depcache, worker-load, global, module-types, registry
+- system-node.cjs
+  - resolve, registry, fetch-load, node-fetch, global
+  - `applyImportMap(loader, newMap, mapBase)`
+  - `setBaseUrl(loader, url)`
 - s.js
+  - script-load, fetch-load, resolve, import-maps, depcache, worker-load
 - 参考
   - [systemjs/systemjs-examples](https://github.com/systemjs/systemjs-examples)
   - [Extras](https://github.com/systemjs/systemjs#extras)

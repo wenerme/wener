@@ -4,6 +4,14 @@ title: Mirrors
 
 # 镜像
 
+:::caution
+
+- Aliyun 提供非常多的镜像，但质量堪忧
+  - docker latest tag 可能不同步，并且没办法触发同步
+  - linux os 的包可能同步延迟几天
+
+:::
+
 ## 镜像站点
 
 | URL                             | 地址   |
@@ -102,6 +110,7 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
   - https://docker.mirrors.ustc.edu.cn
   - https://reg-mirror.qiniu.com
   - https://registry-1.docker.io
+  - https://hub-mirror.c.163.com
 - gcr.io
 - k8s.gcr.io -> gcr.io/google-containers
   - googlecontainersmirror - docker
@@ -116,3 +125,18 @@ docker pull nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/library/nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/wener/base
 ```
+
+## HomeBrew
+
+- brew.git - `$(brew --repo)`
+  - https://github.com/Homebrew/brew.git
+  - https://mirrors.aliyun.com/homebrew/brew.git
+- homebrew-core.git - `$(brew --repo)/Library/Taps/homebrew/homebrew-core`
+  - https://github.com/Homebrew/homebrew-core.git
+  - https://mirrors.aliyun.com/homebrew/homebrew-core.git
+- HOMEBREW_BOTTLE_DOMAIN
+  - https://homebrew.bintray.com/bottles
+  - https://mirrors.sjtug.sjtu.edu.cn/homebrew-bottles
+  - https://mirrors.aliyun.com/homebrew/homebrew-bottles
+- 其他
+  - https://ghcr.io/v2/homebrew/core/protobuf/manifests/21.6

@@ -183,6 +183,13 @@ curl https://ustc-edu-cn.mirror.aliyuncs.com/v2/wener/base/tags/list | jq -r '.t
   - https://diving.npmtrend.com/
   - dive web
 
+```bash
+docker run --rm -it \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -p 7001:7001 \
+  --name diving vicanso/diving
+```
+
 ## Learn
 
 - [Diving Deeper Into Runtimes: Kubernetes, CRI, and Shims](https://www.threatstack.com/blog/diving-deeper-into-runtimes-kubernetes-cri-and-shims)

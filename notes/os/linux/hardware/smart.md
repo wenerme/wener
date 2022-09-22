@@ -99,6 +99,9 @@ verify: 81711711        0         0  81711711          0      61007.393         
 Non-medium error count:        4
 ```
 
+- https://serverfault.com/q/419007/190601
+- https://www.dell.com/support/kbdoc/zh-cn/000147878
+
 ## SSD 生命周期和健康状况
 
 - 查看属性表

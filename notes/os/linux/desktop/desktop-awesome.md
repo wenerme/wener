@@ -8,7 +8,8 @@ tags:
 
 - XDG - X Design Group
 - [specifications.freedesktop.org](https://specifications.freedesktop.org)
-- [dbus-specification](https://dbus.freedesktop.org/doc/dbus-specification.html)
+  - [Sound Theme Specification](https://specifications.freedesktop.org/sound-theme-spec/sound-theme-spec-latest.html)
+  - [dbus-specification](https://dbus.freedesktop.org/doc/dbus-specification.html)
 - gnome [DraftSpecs](https://wiki.gnome.org/DraftSpecs)
   - [Thumbnail management DBus specification](https://wiki.gnome.org/DraftSpecs/ThumbnailerSpec)
 - https://regolith-linux.org/
@@ -31,3 +32,8 @@ tags:
   - 2017 停止 - Ubuntu 18.04 使用 GNOME
   - 由 UBPorts 作为 Lomiri 继续开发
 - [Comparison of X Window System desktop environments](https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments)
+
+## Themes
+
+- https://www.pling.com/
+- https://www.xfce-look.org/

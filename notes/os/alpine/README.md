@@ -79,8 +79,8 @@ setup-hostname -n alpine-test
 /etc/init.d/hostname --quiet restart
 
 setup-keymap us us
-setup-ntp -c busybox
-setup-timezone -z Asia/Shanghai
+setup-ntp -c chrony
+setup-timezone Asia/Shanghai
 
 # 添加仓库
 # 安装时的安装包位于 /media/sdb/apks/

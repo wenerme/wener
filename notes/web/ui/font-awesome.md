@@ -59,6 +59,7 @@ tags:
 - [Full Emoji List](https://unicode.org/emoji/charts/full-emoji-list.html)
 - [emoji-cheat-sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 - https://tikolu.net/emojimix/
+- https://joypixels.com/fonts
 
 ## Unicode
 

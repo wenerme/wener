@@ -69,10 +69,14 @@ title: Inside
       - useLayoutEffect = useEffect
         - DOM 操作后执行 - componentDidMount,componentDidUpdate
       - useDeferredValue - 低优先级
-      - useTransition - urgent updates, 批量更新
+        - 类似于 debounce
+      - `const [isPending,startTransition]=useTransition()`
+        - Transition - 相对不那么着急更新的状态，耗时比较久的状态
+        - 用户基于已经更新的状态进行交互
       - useId - 生成唯一 ID
     - Library
       - useSyncExternalStore
+        - `const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot])`
         - 同步外部存储 - 例如 zustand
       - useInsertionEffect = useEffect
         - DOM 操作之前执行 - 用于 css-in-js 库

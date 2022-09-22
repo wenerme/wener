@@ -280,6 +280,10 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 
 ```bash
 time zfs list | wc -l
+
+# docker zfs volume 使用的命令
+zfs list -s name -o name,guid,available -H -p
+zfs list -r -t all -Hp -o name,origin,used,available,mountpoint,compression,type,volsize,quota,referenced,written,logicalused,usedbydataset main/docker
 ```
 
 ```

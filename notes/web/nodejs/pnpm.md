@@ -7,8 +7,12 @@ title: pnpm
 - [pnpm](https://github.com/pnpm/pnpm)
   - since 2017
   - 速度快、节省空间
-- ~/.pnpm-store/
-  - 本地缓存
+- Store - `pnpm store path`
+  - Windows ~/AppData/Local/pnpm/store
+  - macOS ~/Library/pnpm/store
+  - Linux ~/.local/share/pnpm/store
+  - 项目下虚拟 Store ./node_modules/.pnpm
+    - hardlink 到全局 store
   - [content-addressable storage](https://pnpm.io/next/symlinked-node-modules-structure)
 - 支持 workspace 引用 - `"button": "workspace:1.0.0",`
 - .npmrc - https://pnpm.io/npmrc
@@ -37,6 +41,7 @@ title: pnpm
   - monorepo 无法分离单个模块依赖，会包含所有依赖
 - Support workspaces from package.json [#2255](https://github.com/pnpm/pnpm/issues/2255)
   - yarn & pnpm 使用不同的名词描述
+- import npm 项目时，旧的依赖放到 node_modules/.ignored
 
 :::
 
@@ -317,6 +322,8 @@ RUN pnpm install -r --offline --prod
 EXPOSE 8080
 CMD [ "node", "server.js" ]
 ```
+
+- [#3114](https://github.com/pnpm/pnpm/issues/3114)
 
 ## Typescript FAQ
 

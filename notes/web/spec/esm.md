@@ -20,6 +20,8 @@ title: ESM
   - https://rollupjs.org/repl
     - 查看 ESM 在 amd, cs, iife, umd, systemjs 之间是如何转换的
     - assert type [rollup#3799](https://github.com/rollup/rollup/issues/3799)
+  - [fastify#2847](https://github.com/fastify/fastify/issues/2847)
+    Timeline for ESM migration
 - asert type - https://github.com/tc39/proposal-import-assertions
   - css, json, javascript, webassembly
   - `import("foo.json", { assert: { type: "json" } })`
@@ -206,76 +208,6 @@ document.adoptedStyleSheets = [...document.adoptedStyleSheets, styles];
 }
 ```
 
-## CDN
-
-| cdn      | import                            | github           | cjs -> esm |
-| -------- | --------------------------------- | ---------------- | ---------- |
-| Skypack  | https://cdn.skypack.dev/          |                  | ✅         |
-| [esm.sh] | https://esm.sh/                   | [esm-dev/esm.sh] | ✅         |
-| jsDelivr | https://cdn.jsdelivr.net/npm/     |                  | ❌         |
-| JSPM     | https://ga.jspm.io/npm:pkg@x.y.z/ | [jspm/project]   | ❌         |
-| unpkg    | https://unpkg.com/${PKG}?module   | [mjackson/unpkg] | ❌         |
-
-[esm.sh]: https://esm.sh/
-[esm-dev/esm.sh]: https://github.com/esm-dev/esm.sh
-[jspm/project]: https://github.com/jspm/project
-[mjackson/unpkg]: https://github.com/mjackson/unpkg
-
-- JSPM
-  - **支持 systemjs**
-- jsdelivr 提供 esm.run 别名
-  - https://esm.run/react -> https://cdn.jsdelivr.net/npm/react/+esm
-
-### CDN Test
-
-- https://esm.run/react@17 -> https://cdn.jsdelivr.net/npm/react@17/+esm - 依然是 CJS
-
-```bash
-for i in $(seq 3); do
-
-  rm bench-*.txt
-  for i in $(seq 10); do
-    curl -o /dev/null -s -w "%{time_total}\n" https://cdn.skypack.dev/react@17 >> bench-a.txt
-    curl -o /dev/null -s -w "%{time_total}\n" https://cdn.jsdelivr.net/npm/react@17/+esm >> bench-b.txt
-    curl -o /dev/null -s -w "%{time_total}\n" https://esm.sh/react@17 >> bench-c.txt
-  done
-  for i in bench-*.txt; do
-    echo $i
-    awk '{ total += $1; count++ } END { print total/count }' $i
-  done
-
-done
-```
-
-## esm.sh
-
-- 可以 Selfhosted
-- 主服务器在 HK
-- 基于 esbuild 构建
-- cjs -> esm 使用 swc
-- 支持 X-Typescript-Types 头 - demo 类型检测
-  - `?no-check` 禁用
-
-```js
-import React from 'https://esm.sh/react@17';
-// 非模块文件
-import 'https://esm.sh/tailwindcss/dist/tailwind.min.css';
-// bundle 模式
-import {Button} from 'https://esm.sh/antd?bundle';
-// 开发模式
-import React from 'https://esm.sh/react?dev';
-// 依赖控制
-import React from 'https://esm.sh/react@16.14.0';
-import useSWR from 'https://esm.sh/swr?deps=react@16.14.0';
-// 别名
-import useSWR from 'https://esm.sh/swr?alias=react:preact/compat&deps=preact@10.5.14';
-// 目标版本 - 默认基于 header 判断
-import React from 'https://esm.sh/react?target=es2020';
-// WebWorker
-import editorWorker from '/monaco-editor/esm/vs/editor/editor.worker?worker';
-const worker = new editorWorker();
-```
-
 ## import json
 
 - NodeJS v17.1+ 2021-11-09
@@ -290,22 +222,42 @@ const { default: info } = await import("./package.json", {
 });
 ```
 
+## NodeJS
+
+- NodeJS 12+
+  - NodeJS 10 EOL 2021-04
+  - 也就是说目前所有 NodeJS 环境都支持 ESM
+- [When will CommonJS modules (require) be deprecated and removed? #33954](https://github.com/nodejs/node/issues/33954)
+- 目前 ESM 会慢一点 [#44186](https://github.com/nodejs/node/issues/44186)
+- [nodejs/loaders](https://github.com/nodejs/loaders)
+
 # FAQ
+
+## Directory import is not supported resolving ES modules
+
+```ts
+// 不可以
+const M = import('./modules/core')
+// 可以
+const M = import('./modules/core/index.js')
+```
 
 ## \_\_dirname is not defined in ES module scope
 
+- 定义最好用 var 避免重复定义，有些 bundle 会加这两个定义
+
 ```js
 import * as url from 'url';
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+var __filename = url.fileURLToPath(import.meta.url);
+var __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 ```
 
 ```ts
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path.dirname(fileURLToPath(import.meta.url));
 ```
 
 ```ts
@@ -367,14 +319,15 @@ declare global {
 
 ## NextJS Cannot find module without suffix
 
-
 1. 配置使用 bundle 后的文件 - 无法 tree-shake
 2. 使用 mjs 后缀 - 会忽略 type:module
-  - build 后的 import 也要改成带后缀
-  - rollup https://github.com/framer/motion/blob/main/packages/framer-motion/rollup.config.js
-    - https://unpkg.com/browse/framer-motion@7.3.2/dist/es/index.mjs
-  - esbuild external 可以自己加插件 https://github.com/evanw/esbuild/issues/1505
-  - [esbuild#2435](https://github.com/evanw/esbuild/issues/2435)
+
+- build 后的 import 也要改成带后缀
+- rollup https://github.com/framer/motion/blob/main/packages/framer-motion/rollup.config.js
+  - https://unpkg.com/browse/framer-motion@7.3.2/dist/es/index.mjs
+- esbuild external 可以自己加插件 https://github.com/evanw/esbuild/issues/1505
+- [esbuild#2435](https://github.com/evanw/esbuild/issues/2435)
+
 3. 避免 default exports
 
 ---

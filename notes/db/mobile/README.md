@@ -20,7 +20,7 @@ title: Mobile Database
   - [How does Kinto compare to other solutions?](http://docs.kinto-storage.org/en/latest/faq.html)
 - [Hoodie](https://github.com/hoodiehq/hoodie)
   - The Offline First JavaScript Backend
-- [CouchDB](./couchdb.md)
+- [CouchDB](../document/couchdb.md)
 - [Meteor](https://github.com/meteor/meteor)
   - [Meteor Alternatives Per Feature](https://gist.github.com/ilyaigpetrov/afb50eb4060bc198de97)
   - [Angular Meteor](https://github.com/urigo/angular-meteor/)

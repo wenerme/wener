@@ -22,6 +22,10 @@ tags:
   - DOM MessageChannel - 1-1、WebWorker
   - DOM BroadcastChannel - origin 纬度 - 多窗口
   - DOM Window.postMessage - 跨 origin、多窗口、iframe
+  - [eventemitter2](https://github.com/EventEmitter2/EventEmitter2)
+    - wildcard/namespace, ttl/once/many, async listener/setImmediate
+    - emitAsync
+    - 18.2kB, 5.6kB
   - [primus/eventemitter3](https://github.com/primus/eventemitter3)
   - [developit/mitt](https://github.com/developit/mitt)
     - ts, 200byte
@@ -63,6 +67,12 @@ tags:
       - 因此不支持异步
   - [@abraham/reflection](https://github.com/abraham/reflection)
     - ~3k - 替代 reflect-metadata ～ 50k
+  - [async-dependency-graph](https://github.com/chriswoodle/async-dependency-graph)
+    - dependency graph that can traverse asyncronous nodes
+    - 5kB, 1.5kB
+  - [fastify/avvio](https://github.com/fastify/avvio)
+    - 20kB, 7kB
+    - Asynchronous bootstrapping of Node applications
 - deep compare
   - [epoberezkin/fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal)
   - [FormidableLabs/react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)
@@ -104,7 +114,8 @@ tags:
   - [danro/easing-js](https://github.com/danro/easing-js)
   - [mojs/mojs](https://github.com/mojs/mojs)
   - transition
-    - https://barba.js.org/
+    - [barbajs/barba](https://github.com/barbajs/barba)
+      - https://barba.js.org/
     - [swup/swup](https://github.com/swup/swup)
       - https://swup.github.io/swup-gia-demo/index.html
 - functional
@@ -171,14 +182,31 @@ tags:
   - processor
     - stylis - 10kb - nesting, selector namespacing, vendor prefixing, minification
 - store
+  - sessionStorage - 单 Tab, 关闭消息, 打开新 Tab 继承
+  - localStorage - origin 纬度, 可监听跨 tab 变化
+  - cookie - C/S 交互
+  - [localforage](https://github.com/localForage/localForage)
+    - async 的 localStorage
+    - 可以存储到 IndexedDB, WebSQL, localStorage
+    - 多实例
   - [rxdb](https://github.com/pubkey/rxdb)
+    - 135kB, 36kB
     - rxjs
     - adapters: pouchdb, lokijs
     - replication: couchdb, graphql
   - [lokijs](https://github.com/techfort/LokiJS)
   - [dexie](https://github.com/dfahlander/Dexie.js)
+    - Apache-2.0, JS, TS
+    - 82kB, 26kB - 无依赖
+    - IndexedDB wrapper
+    - 支持 Sync, Subscribe
   - [share/sharedb](https://github.com/share/sharedb)
+    - 126kB, 35kB - ot-json0, array-diff
+    - JSON OT database backend
     - Realtime database backend based on Operational Transformation (OT)
+  - [YousefED/SyncedStore](https://github.com/YousefED/SyncedStore)
+    - yjs
+    - 提供 react, vue, svelte 组件
 - compiler
   - [wooorm/xdm](https://github.com/wooorm/xdm)
     - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
@@ -344,6 +372,12 @@ tags:
   - [developit/microbundle](https://github.com/developit/microbundle)
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
+    - core - 30kB, 8kB
+    - react + 7kB, 2.5kB
+  - [i18next](https://github.com/i18next/i18next)
+    - 56kB, 15kB
+  - [globalizejs/globalize](https://github.com/globalizejs/globalize)
+  - [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js)
 - benchmark
   - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
 - data
@@ -394,29 +428,38 @@ tags:
     - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
   - facker
 
-
 ---
 
 - npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
 
 ## Runtime
 
-- NodeJS
-- Deno
-- Bun
-- [losfair/blueboat](https://github.com/losfair/blueboat)
-  - Apache-2.0, Rust
-  - multi-tenant serverless JavaScript runtime
-  - V8 isolate
+- Runtime
+  - NodeJS
+  - Deno
+  - Bun
+  - [losfair/blueboat](https://github.com/losfair/blueboat)
+    - Apache-2.0, Rust
+    - multi-tenant serverless JavaScript runtime
+    - V8 isolate
 - Engine
   - V8
   - Webkit
-- [ts-node](../nodejs/ts-node.md)
-- [tsx](../nodejs/tsx.md)
+  - QuickJS
+- Interpreter
+  - [sablejs/sablejs](https://github.com/sablejs/sablejs)
+    - JS
+  - [espruino](https://github.com/espruino/Espruino)
+    - C++
+  - ducktap
+    - MIT, C
+- Typescript
+  - [ts-node](../nodejs/ts-node.md)
+  - [tsx](../nodejs/tsx.md)
 
 ---
 
-- https://github.com/privatenumber/ts-runtime-comparison
+- [privatenumber/ts-runtime-comparison](https://github.com/privatenumber/ts-runtime-comparison)
 
 ## Edge/Serverless
 

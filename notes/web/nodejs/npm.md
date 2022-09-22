@@ -56,6 +56,14 @@ sharp_binary_host="https://npmmirror.com/mirrors/sharp"
 sharp_libvips_binary_host="https://npmmirror.com/mirrors/sharp-libvips"
 ```
 
+```bash
+# _binary_host_mirror
+# npm view sqlite3 binary.module_name
+node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3
+```
+
+- disturl
+  - gyp 下载构建依赖 https://nodejs.org/download/release/v16.16.0/node-v16.16.0-headers.tar.gz
 - https://registry.npmmirror.com/binary.html
 - https://docs.npmjs.com/cli/v6/configuring-npm/npmrc
 
@@ -196,6 +204,28 @@ if (process.env.NODE_ENV === 'production') {
 
 ```bash
 curl -sfL 'https://registry.npmmirror.com/@wener/reaction' | jq -r '."dist-tags".latest'
+curl -sfL 'https://registry.npmmirror.com/@wener/reaction/latest' | jq -r '.version'
 ```
 
+- 元数据
+  - `GET /`
+  - `GET /-/all`
+  - `GET /-/`
+- 包
+  - `GET /{package}`
+  - `GET /{package}/{version}`
+    - version 可以是 latest
+  - `GET /-/v1/search`
+    - text, size, from, quality, popularity, maintenance
 - https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md
+- https://github.com/npm/registry/blob/master/docs/user/authentication.md
+
+```bash
+# basic 支持访问 private 内容
+curl -u username:password https://registry.npmjs.org/@org/pkg
+
+curl -u user:pass https://registry.npmjs.org/-/npm/v1/tokens
+curl -u user:pass -X POST \
+  --json '{"password":"","readonly":true}' \
+  https://registry.npmjs.org/-/npm/v1/tokens
+```

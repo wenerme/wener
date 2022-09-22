@@ -5,8 +5,8 @@ const { default: deflist } = require('./lib/plugins/deflist');
 const { writeFileSync } = require('fs');
 
 // https://docusaurus.io/docs/api/docusaurus-config
+// https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
 
-// console.debug(`deflist`,deflist)
 
 /** @type {import('@docusaurus/types').Plugin} */
 function RewritePlugin(context, options) {
@@ -79,7 +79,7 @@ const config = {
         },
         blog: {
           routeBasePath: 'story',
-          path: 'story',
+          path: '../story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/',
