@@ -16,7 +16,6 @@ title: Github Markdown
 > **Warning**
 > This is a warning
 
-
 ````
 ```mermaid
 graph TD;

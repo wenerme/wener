@@ -88,7 +88,10 @@ tags:
       - duration
   - moment
   - d3-time-format
-  - chrono-node
+  - [chrono-node](https://github.com/wanasit/chrono)
+    - natural language date parser
+  - [moment/luxon](https://github.com/moment/luxon)
+    - 72kB, 21kB
 - format - number, time, money
   - [SheetJS/printj](https://github.com/SheetJS/printj)
   - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
@@ -341,17 +344,20 @@ tags:
   - mathjax
   - https://upmath.me/ Math Online Editor
   - [kisonecat/tikzjax](https://github.com/kisonecat/tikzjax)
-- stat
+- stat/bi
   - [jstat](https://github.com/jstat/jstat)
+  - cubejs
 - markdown
-  - [markdown-it](https://github.com/markdown-it/markdown-it)
+  - [markdown-it](../editor/markdown-it.md)
   - [mdx-js/mdx](https://github.com/mdx-js/mdx)
     - [mdx-js/specification](https://github.com/mdx-js/specification)
     - [remark-mdx](https://github.com/mdx-js/mdx/tree/main/packages/remark-mdx)
   - [wooorm/xdm](https://github.com/wooorm/xdm)
     - MDX compiler
   - [micromark/micromark](https://github.com/micromark/micromark)
+    - 替代 remark-parse
   - [markedjs/marked](https://github.com/markedjs/marked)
+  - [unifiedjs](../editor/unifiedjs.md)
 - Auth/ACL/Security
   - [stalniy/casl](https://github.com/stalniy/casl)
 - Syntax Highlighter

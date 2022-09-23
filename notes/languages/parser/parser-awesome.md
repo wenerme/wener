@@ -6,7 +6,7 @@ tags:
 # Parser Awesome
 
 - [Antlr](./antlr4.md)
-  - Adaptive LL(*)
+  - Adaptive LL(\*)
 - [JavaCC](./javacc.md)
   - LL(k)
 - Grammer
@@ -30,6 +30,8 @@ tags:
   - Ragel State Machine Compiler
 - BNF, ABNF, EBNF
   - ABNF - Augmented Backus–Naur Form - [rfc5234](https://www.rfc-editor.org/rfc/rfc5234.html)
+- [lezer-parser/lr](https://github.com/lezer-parser/lr)
+  - Incremental parsing system
 
 ---
 

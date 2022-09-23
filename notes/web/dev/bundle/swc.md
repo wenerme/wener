@@ -11,6 +11,9 @@ title: swc
   - 早期定位是 compiler - bundling & minifition not ready
 - https://swc.rs/docs/benchmarks
   - 性能上和 esbuild 差距并不大
+- 参考
+  - https://kdy1.dev/posts/2022/1/tsc-go
+    - 开发者在尝试使用 go 重写 tsc
 
 # FAQ
 

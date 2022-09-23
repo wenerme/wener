@@ -145,7 +145,7 @@ console.log(`externals`, external);
 
 require('esbuild').buildSync({
   entryPoints: ['admin/src/components/Wysiwyg/index.js'],
-  loader: {'.js': 'jsx'},
+  loader: { '.js': 'jsx' },
   format: 'esm',
   bundle: true,
   minify: false,
@@ -166,6 +166,8 @@ grep '^// ' ./dist/Wysiwyg.esm.js | grep node_modules # bundled externals
 
 - https://github.com/esbuild/community-plugins
 - https://esbuild.github.io/plugins
+- https://mdxjs.com/packages/esbuild/
+  - @mdx-js/esbuild
 
 ## Spliting
 
@@ -187,10 +189,10 @@ npx esbuild --banner:js="import { createRequire } from 'module';const require = 
 ```
 
 ```ts
-import {createRequire} from 'module';
+import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 import path from 'path';
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 ```
