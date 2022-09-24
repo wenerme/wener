@@ -29,6 +29,7 @@ tags:
 - [box64](https://github.com/ptitSeb/box64)
 - fex
 - [Emulator Comparison](https://wiki.osdev.org/Emulator_Comparison)
+- [machyve/xhyve](https://github.com/machyve/xhyve)
 
 ## Fun
 

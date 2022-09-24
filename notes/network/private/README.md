@@ -103,6 +103,7 @@ https_proxy=socks://127.0.0.1:8888 curl https://google.com
 
 - [rofl0r/proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - 针对应用进行代理，通过 preload 来将运行时的网络请求进行动态代理。
+- /usr/local/etc/proxychains.conf
 
 ```bash
 # macOS

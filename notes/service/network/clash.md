@@ -730,6 +730,38 @@ reload() {
 }
 ```
 
+## Premium
+
+```bash
+curl -OL https://release.dreamacro.workers.dev/latest/clash-linux-amd64-latest.gz
+gzip -d clash-linux-amd64-latest.gz
+mv clash-linux-amd64-latest clash
+chmod +x clash
+```
+
+
+```yaml
+# 出口
+interface-name: eth0
+
+tun:
+  enable: true
+  stack: system # gvisor
+  # dns-hijack:
+  #   - 8.8.8.8:53
+  #   - tcp://8.8.8.8:53
+  #   - any:53
+  #   - tcp://any:53
+  auto-route: true # 设置全局代理
+  # auto-detect-interface: true # 自动检测 interface-name
+```
+
+- https://github.com/Dreamacro/clash/wiki/Clash-Premium-Features
+- https://github.com/Dreamacro/clash/releases/tag/premium
+- https://www.wintun.net/
+  - wintun.dll
+
+
 # FAQ
 
 ## Start TProxy server error: operation not permitted

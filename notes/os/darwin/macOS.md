@@ -127,6 +127,9 @@ sudo security remove-trusted-cert -d cert.cer
 
 ```
 xcode-select --install
+
+xcodebuild -runFirstLaunch
+clang -v
 ```
 
 ## 资源下载
@@ -139,10 +142,8 @@ xcode-select --install
 不换行会被截断
 
 ```bash
-# 禁用换行
-tput rmam
-# 启用换行
-tput smam
+tput rmam # 禁用换行
+tput smam # 启用换行
 ```
 
 ### csrutil

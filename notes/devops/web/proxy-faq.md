@@ -44,21 +44,6 @@ tags:
 
 WebServer 也可以是 Proxy
 
-## HAProxy vs Varnish
-
-两者需要配合使用
-
-- HAProxy
-  - 内存缓存
-  - 缓存功能业余
-- Varnish
-  - 专业缓存
-
----
-
-- [HAProxy’s Load-Balancing Algorithm for Static Content Delivery with Varnish](https://www.haproxy.com/blog/haproxys-load-balancing-algorithm-for-static-content-delivery-with-varnish/)
-- [HAProxy and Varnish Comparison](https://www.haproxy.com/blog/haproxy-and-varnish-comparison/)
-
 ## Caddy vs Traefik
 
 - Caddy
@@ -125,10 +110,33 @@ WebServer 也可以是 Proxy
 - HAProxy
   - 支持 4 层 TCP 和 7 层 HTTP
   - 感知部分 4 层协议 - 例如 syslog
+  - 反向代理
 - Keepalived
   - 支持 4 层 TCP、UDP 负载
+  - 用于实现 VIP
 
 两者面向不同场景，大部分使用使用 haproxy，如果需要 udp 考虑 keepalived 或者 nginx。
+
+## Varnish vs Squid vs HAProxy
+
+都是 HTTP 缓存服务
+
+- [varnish](./varnish.md)
+  - ingress
+  - 提供服务 - 服务端 - 上游一般为内部服务
+- [squid](../../service/network/squid.md)
+  - egress
+  - 消费服务 - 使用端 - 上游一般为外部服务
+- HAProxy
+  - ingress
+  - 内存缓存
+  - 缓存功能业余
+  - 可配合 varnish 使用
+
+---
+
+- [HAProxy’s Load-Balancing Algorithm for Static Content Delivery with Varnish](https://www.haproxy.com/blog/haproxys-load-balancing-algorithm-for-static-content-delivery-with-varnish/)
+- [HAProxy and Varnish Comparison](https://www.haproxy.com/blog/haproxy-and-varnish-comparison/)
 
 ## httping
 

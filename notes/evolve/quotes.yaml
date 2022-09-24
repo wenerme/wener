@@ -1,0 +1,7 @@
+- qo: 恐惧来自于未知。
+- qo: 为了隐藏内部机制而设置抽象层并非良好的架构方法，而应该把内部机制设计得精良而无需隐藏.
+  by: Aaron Gri
+- qo: All problems in computer science can be solved by another level of indirection.
+  by: David J. Wheeler
+  seealso:
+    - https://en.wikipedia.org/wiki/Indirection
