@@ -21,11 +21,13 @@ pmset -g
 # 所有配置
 pmset -g custom
 
-# 电源配置恢复系统设置
-pmset restoredefaults
+pmset restoredefaults # 电源配置恢复系统设置
+pmset sleepnow        # 立即休眠
 
 # 一次修改多个设置
-pmset -a displaysleep 10 disksleep	10 sleep 30 womp 1
+pmset -a displaysleep 10 disksleep 10 sleep 30 womp 1
+# standby https://support.apple.com/zh-cn/HT202124
+pmset -a hibernatemode 3 standby 1 standbydelayhigh 150 standbydelaylow 0
 ```
 
 | flag | for                           |
@@ -41,10 +43,9 @@ pmset -a displaysleep 10 disksleep	10 sleep 30 womp 1
   - cap - 支持的特性
   - shed - scheduled startup/wake and shutdown/sleep events
   - ups - UPS emergency thresholds
-  - ps - status of batteries and	UPSs
+  - ps - status of batteries and UPSs
   - pslog - 监听日志
   - batt
-
 
 | conf                 | default            | for                                                                                                        |
 | -------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------- |
@@ -110,8 +111,9 @@ pmset -a displaysleep 10 disksleep	10 sleep 30 womp 1
 ```
 
 - 休眠模式
-  - 0 不会将内存持久化到存储.在断电时内存数据会丢失.
-  - 3 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
+  - 0 - Legacy sleep mode - 不会将内存持久化到存储.在断电时内存数据会丢失.
+  - 1 - Legacy Safe Sleep
+  - 3 - Default - 会将内存拷贝到存储,当睡眠时也会给内存供电,系统会尝试从内存启动,如果断电会强制从磁盘恢复.
     - 默认为该选项
   - 25 会将内存拷贝到存储,并且停止给内存供电,启动时会从磁盘恢复内存.
     - 省电,电池寿命更久

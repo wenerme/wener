@@ -7,12 +7,6 @@ title: HTTP
 - 参考
   - https://tools.ietf.org/id/draft-wright-http-partial-upload-01.html
 
-```
-# 单位为秒
-Cache-Control: public, max-age=3600
-Expires: Thu, 01 Dec 2014 16:00:00 GMT
-```
-
 ## Status
 
 | status | name         | note     |

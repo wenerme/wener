@@ -45,6 +45,9 @@ title: ClickHouse
 - 插入操作非常快 - 因为是异步的，后台会处理
 - keep non-timeseries data out of clickhouse
 - dynamic subcolumns - JSON
+- OLAP
+  - 不适合 KV
+  - 不适合小数据精确查询
 
 :::
 
@@ -62,26 +65,15 @@ title: ClickHouse
 
 ```bash
 # https://hub.docker.com/r/yandex/clickhouse-server/
-docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server
+# /etc/clickhouse-server/config.xml
+docker run --rm -it \
+  -v $PWD/data:/var/lib/clickhouse \
+  -p 8123:8123 -p 9000:9000 \
+  --ulimit nofile=262144:262144 \
+  --name ch-server yandex/clickhouse-server
 
-docker run --rm -it -p 8123:8123 -p 9000:9000 --name ch-server --ulimit nofile=262144:262144 -v $PWD/data:/var/lib/clickhouse yandex/clickhouse-server
-
-# 镜像拉取
-# docker pull dockerhub.azk8s.cn/library/yandex/clickhouse-server
-# docker pull docker.mirrors.ustc.edu.cn/yandex/clickhouse-server
-
-docker run -d --name some-clickhouse-server --ulimit nofile=262144:262144 -v /path/to/your/config.xml:/etc/clickhouse-server/config.xml yandex/clickhouse-server
-
-# Build from source
-git clone -b stable --depth 1 --recursive https://github.com/yandex/ClickHouse.git
-cd ClickHouse
-
-mkdir build
-cd build
-apk add libressl-dev
-cmake ..
-make -j $(nproc)
-cd ..
+# Client
+docker run -it --rm --link ch-server yandex/clickhouse-client --host ch-server
 
 # 启动
 clickhouse-server --config-file=/etc/clickhouse-server/config.xml
@@ -131,6 +123,15 @@ docker run -it --rm \
   -v=$HOME/data:/var/lib/clickhouse \
   --name clickhouse-server clickhouse/clickhouse-server
 ```
+
+## Notes
+
+- primary keys
+  - 并不要求唯一
+  - 印象磁盘上数据排序
+- index granularity
+  - 8,192 rows or 10MB of data
+- sparse index
 
 ## 数据类型
 
@@ -365,6 +366,42 @@ ORDER BY
   name ASC;
 ```
 
+## formats
+
+- https://clickhouse.com/docs/en/interfaces/formats/
+
 ## config.xml
 
 - https://clickhouse.com/docs/en/operations/configuration-files/
+
+## 删除
+
+1. TTL
+1. DELETE FROM
+1. ALTER DELETE
+1. DROP PARTITION
+1. TRUNCATE
+
+```sql
+-- DELETE FROM
+SET allow_experimental_lightweight_delete = true;
+```
+
+## 导出数据
+
+```sql
+SELECT * FROM table INTO OUTFILE 'file' FORMAT CSV
+```
+
+```bash
+$ clickhouse-client --query "SELECT * from table" --format FormatName > result.txt
+```
+
+## 导入数据
+
+```bash
+# HTTP API
+echo '{"foo":"bar"}' | curl 'http://localhost:8123/?query=INSERT%20INTO%20test%20FORMAT%20JSONEachRow' --data-binary @-
+# CLI
+echo '{"foo":"bar"}' | clickhouse-client --query="INSERT INTO test FORMAT JSONEachRow"
+```

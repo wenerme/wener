@@ -11,6 +11,8 @@ tags:
 - https://amazing-apps.gitbook.io/windows-apps-that-amaze-us/en
 - [TemporalAgent7/awesome-windows-privacy](https://github.com/TemporalAgent7/awesome-windows-privacy)
 - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+- [cairoshell/cairoshell](https://github.com/cairoshell/cairoshell)
+  - customizable, intuitive desktop environment for Windows
 
 ## Tools
 

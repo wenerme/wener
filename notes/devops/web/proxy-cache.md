@@ -84,6 +84,8 @@ http {
 nginx -c $PWD/nginx.conf -g 'daemon off;'
 ```
 
+- https://www.sheshbabu.com/posts/nginx-caching-proxy/
+
 ## HAProxy
 
 ```haproxy

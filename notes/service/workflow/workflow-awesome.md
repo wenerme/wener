@@ -37,6 +37,8 @@ tags:
 - [muesli/beehive](https://github.com/muesli/beehive)
   event/agent & automation system
   - AGPL-3.0, Go
+- [windmill-labs/windmill](https://github.com/windmill-labs/windmill)
+  - AGPLv3, Rust, Svelte
 
 ---
 

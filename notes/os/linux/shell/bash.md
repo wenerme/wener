@@ -11,6 +11,7 @@ title: Bash
 - 参考
   - [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
   - http://mywiki.wooledge.org/BashPitfalls
+  - https://tiswww.case.edu/php/chet/bash/NEWS
 
 ```bash
 # empty shell
@@ -125,6 +126,18 @@ shopt -s checkwinsize cmdhist expand_aliases extquote force_fignore hostcomplete
   ```
 - autocd - 输入目录自动切换到目录
 - failglob - glob 匹配不到文件时出错而非 直接输出相同字符
+
+## 环境变量 {#env}
+
+| env           | default | description |
+| ------------- | ------- | ----------- |
+| EPOCHSECONDS  |
+| EPOCHREALTIME |
+| BASH_ARGV0    |
+
+```bash
+echo $EPOCHSECONDS
+```
 
 ## .inputrc
 
@@ -352,11 +365,11 @@ SH
 ## tcp redir
 
 ```bash
-echo <>/dev/tcp/wener.me/80
+echo <> /dev/tcp/wener.me/80
 # 0 - 连通
 echo $?
 
-echo <>/dev/tcp/localhost/80
+echo <> /dev/tcp/localhost/80
 # 1
 echo $?
 ```

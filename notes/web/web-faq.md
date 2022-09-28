@@ -125,50 +125,6 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-site
 ```
 
-### cache
-
-- MDN [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
-- https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching
-- https://support.cloudflare.com/hc/en-us/articles/115003206852-Understanding-Origin-Cache-Control
-- max-age=0 vs no-cache
-  - https://stackoverflow.com/a/1383359/1870054
-
-**请求**
-
-```
-Cache-Control: max-age=<seconds>
-Cache-Control: max-stale[=<seconds>]
-Cache-Control: min-fresh=<seconds>
-Cache-Control: no-cache
-Cache-Control: no-store
-Cache-Control: no-transform
-Cache-Control: only-if-cached
-```
-
-**响应**
-
-```
-Cache-Control: must-revalidate
-Cache-Control: no-cache
-Cache-Control: no-store
-Cache-Control: no-transform
-Cache-Control: public
-Cache-Control: private
-Cache-Control: proxy-revalidate
-Cache-Control: max-age=<seconds>
-Cache-Control: s-maxage=<seconds>
-
-Cache-Control: immutable
-Cache-Control: stale-while-revalidate=<seconds>
-Cache-Control: stale-if-error=<seconds>
-```
-
-- private - 面向单用户 - Authorization
-- public - 多用户共享缓存
-- post-check
-- pre-check
-- immutable
-  - max-age 内避免尝试校验缓存
 
 ### websocket
 

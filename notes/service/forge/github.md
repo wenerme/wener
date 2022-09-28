@@ -90,9 +90,10 @@ gpg --list-secret-keys --keyid-format=long
 git config --global user.signingkey KEY
 git config --global user.signingkey SUBKEY!
 
-# SSH
+# SSH - Git 2.34+
 git config --global gpg.format ssh
 git config --global user.signingkey $(cat ~/.ssh/id_ed25519.pub)
+ssh-add ~/.ssh/id_ed25519
 
 # X.509
 git config --global gpg.x509.program smimesign
@@ -100,3 +101,8 @@ git config --global gpg.format x509
 smimesign --list-keys
 git config --global user.signingkey KEY
 ```
+
+# FAQ
+## git Load key git_signing_key invalid format
+
+先执行 ssh-add
