@@ -6,18 +6,25 @@ tags:
 
 # Storage Awesome
 
-- 考虑因素
-  - 怎么用
-    - 选择网络接口协议
-    - 块 vs 文件 vs 对象
-    - 需要什么样的功能 - 快照、备份、加密
-    - SDS
-  - 有什么
-    - 网络带宽、延时
-    - 存储设备情况、NVME、SATA、SAS
-  - 面对什么样的威胁
-    - 磁盘损坏
-    - 网络异常
+**考虑因素**
+
+- 怎么用
+  - 确定使用方
+    - 用户 - 例如: S3
+    - 操作系统 - 例如: GFS, DRBD, NFS
+    - SaaS 服务 - 有 软件定义存储 的能力 - 租户、隔离、BYOD
+  - 选择网络接口协议
+  - 块 vs 文件 vs 对象
+  - 需要什么样的功能 - 快照、备份、加密
+  - SDS
+  - 特殊场景 - 小文件、批处理、机器学习、锁、实时性
+- 有什么
+  - 网络带宽、网络延时
+  - 存储设备情况 - NVME、SATA、SAS
+  - SAN 环境？
+- 面对什么样的威胁
+  - 磁盘损坏
+  - 网络异常
 
 :::tip
 
@@ -27,7 +34,7 @@ tags:
 
 :::
 
-## 网络接口协议
+## 网络接口协议 {#protocols}
 
 - 对象存储协议 - KV, 不需要文件语义
   - s3
@@ -55,6 +62,7 @@ tags:
 
 ---
 
+- [文件系统](../../os/linux/fs/README.md)
 - [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
   - AGPL-3.0, Go
   - SFTP server with optional HTTP, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob
@@ -62,10 +70,19 @@ tags:
   - AGPL-3.0, Go
   - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql
 
-## 分布式存储服务
+## 分布式存储服务 {#distributed}
 
 - [minio](./minio.md) - S3
-- [ceph](./ceph/README.md) - S3, POSIX, RAOD
+  - AGPLv3
+  - 支持作为 S3 代理
+- [ceph](./ceph/README.md)
+  - LGPLv2.1
+  - by RedHat
+  - S3 - 对象存储
+  - POSIX - 文件存储
+  - RBD - 块存储
+  - RAOD - 底层
+  - 对网络带宽和磁盘带宽要求高
 - [gluster](./gluster.md) - POSIX
 - lustre
   - GPLv2, LGPL, C
@@ -73,19 +90,25 @@ tags:
   - [lustre/lustre-release](https://github.com/lustre/lustre-release)
 - hdfs - 大数据, 计算->存储
 - openio-sds
+- longhorn
 
 **国人开发/维护**
 
 - [seaweedfs](./seaweedfs.md) - 快存储，小文件优化
   - Apache-2.0, Go
+  - 对象存储+filter 提供文件存储
+  - S3 基于 filter 纬度
   - 开发活跃，作者活跃
 - [juicefs](./juicefs.md)
   - Apache-2.0, Go
   - AGPL-3.0 -> Apache-2.0
+  - 代理层
   - metadata - Redis, TiKV, PG, MySQL
   - data - S3, OSS, Ceph, MinIO
+  - 使用 S3 提供数据，但不会用 S3 结构，而是自己的逻辑结构，因此文件无法对应
 - [opencurve/curve](https://github.com/opencurve/curve)
   - Apache-2.0, C++
+  - 块存储
   - by 网易
 - [cubefs](https://github.com/cubefs/cubefs)
   - Apache-2.0, Go,C++
@@ -109,7 +132,7 @@ tags:
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
   - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
 
-## 协议库
+## 协议库 {#libraries}
 
 - [wthorp/GoSMB](https://github.com/wthorp/GoSMB)
   - SMB server written in Go

@@ -4,16 +4,37 @@ title: 浏览器兼容
 
 # 浏览器兼容
 
-| spec                            | version                  |
-| ------------------------------- | ------------------------ |
-| BroadcastChannel                | Chrome 54+, Safari 15.4+ |
-| Proxy+Reflect                   | Chrome 49+, Safari 10+   |
-| `<dialog>`                      | Chrome 37+, Safari 15.4+ |
-| [AbortController]               | Chrom 66+, Safari 12.1   |
-| [HTMLInputElement.showPicker()] | Chrome 99+, Safari 16+   |
-| [`<datalist>`]                  | Chrom 20+, Safari 12.1   |
-| overscroll-behavior             | Chrom 63+, Safari 16+    |
+| spec                            | Chrome     | Safari      | NodeJS    | Spec                                                          |
+| ------------------------------- | ---------- | ----------- | --------- | ------------------------------------------------------------- |
+| container-query                 | Chrome 105 |             |
+| window.navigation               | Chrome 102 |             |           | [WICG/navigation-api](https://github.com/WICG/navigation-api) |
+| [HTMLInputElement.showPicker()] | Chrome 99  | Safari 16   |
+| [structuredClone]               | Chrome 98  | Safari 15.4 | NodeJS 17 |
+| CSS Module                      | Chrome 93  |
+| JSON Module                     | Chrome 91  |
+| import map                      | Chrome 89  |
+| globalThis                      | Chrome 71  | Safari 12.1 | NodeJS 12 |
+| [AbortController]               | Chrome 66  | Safari 12.1 |
+| overscroll-behavior             | Chrome 63  | Safari 16+  |
+| dynamic-import                  | Chrome 63  | Safari 11.1 |
+| BroadcastChannel                | Chrome 54  | Safari 15.4 |
+| Proxy+Reflect                   | Chrome 49  | Safari 10   |
+| `<dialog>`                      | Chrome 37  | Safari 15.4 |
+| [`<datalist>`]                  | Chrome 20  | Safari 12.1 |
 
+[abortcontroller]: https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+[htmlinputelement.showpicker()]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker
+[`<datalist>`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+[structuredclone]: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
+
+- window.navigation
+  - 类似于 [remix-run/history](https://github.com/remix-run/history)
+  - 接口比 window.history 友好的多
+  - navigateEvent.intercept
+  - navigateEvent.signal
+- structuredclone
+  - 支持 Array, Map, Set, Date, RegExp, ArrayBuffer, Blob, File, FileList, TypedArray, ImageBitmap, Image Data, Error
+  - 支持 循环引用
 - Reflect.getMetadata - 需要额外 import
   - [@abraham/reflection](https://github.com/abraham/reflection)
   - [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
@@ -37,9 +58,9 @@ title: 浏览器兼容
   - 可以不在 form 内，提供 form id
   - list -> datalist
 
-[abortcontroller]: https://developer.mozilla.org/en-US/docs/Web/API/AbortController
-[htmlinputelement.showpicker()]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker
-[`<datalist>`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+```ts
+const structuredClone = globalThis.structuredClone ?? (v)=>JSON.parse(JSON.stringify(v))
+```
 
 ---
 

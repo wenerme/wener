@@ -23,7 +23,7 @@ spec:
   - 大型 CRD 定义可能达到这个限制 - embed 外部定义 - [#82292](https://github.com/kubernetes/kubernetes/issues/82292)
   - ConfigMap 如果过大，建议拆分
 - 所有 annotation KV 加起来不超过 **256Kb** - [TotalAnnotationSizeLimitB](https://github.com/kubernetes/kubernetes/blob/fa16bf8e121e9a9ce0a8b92d96a39c986152c484/staging/src/k8s.io/apimachinery/pkg/api/validation/objectmeta.go#L36)
-- RFC-1123 - DNS LabelName 最长 **63** 字符 - K8S 中很多地方使用该验证 
+- RFC-1123 - DNS LabelName 最长 **63** 字符 - K8S 中很多地方使用该验证
   - 所有支持 DNS 的对象
     - pod,service,namespace
   - label - [#1830](https://github.com/kubernetes/kubernetes/pull/1830)
@@ -628,7 +628,7 @@ snapshotter = "stargz"
 - emptyDir 使用 tmpfs 挂载
   - medium: Memory
 
-## 常用 fieldRef
+## 常用 fieldRef {#pod-fieldref}
 
 - fieldRef
 - resourceFieldRef

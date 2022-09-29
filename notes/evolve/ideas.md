@@ -19,14 +19,14 @@ title: Ideas
     - postgres
     - s3
 - wode/demo
-  - systemsjs
+  - [x] systemsjs
   - codemirror
   - systemjs -> try ai/ml
   - calc -> systemjs app
   - colors
   - bp theme for daisy
 - alpine
-  - lib asan ~~https://github.com/google/sanitizers~~
+  - ~~lib asan https://github.com/google/sanitizers~~
     - do not support musl
 
 ## Web3
@@ -45,7 +45,7 @@ title: Ideas
 - Announces & Trackers
 - Cralwers
 
----
+## Media Indexer
 
 - 媒体元信息关联 - douban、imdb、烂番茄、open movie
 
@@ -54,6 +54,8 @@ title: Ideas
 - 字幕索引
 - 台词索引
 - 翻译/多语言
+
+## APK Indexer
 
 ## 私人相册共享同步
 

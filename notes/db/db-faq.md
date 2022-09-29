@@ -6,7 +6,43 @@ tags:
 
 # Database FAQ
 
-### OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart vs Data Lake
+## How to choose database
+
+:::tip
+
+- 90% 场景选择 PostgreSQL
+- 优先考虑 **垂直** 扩容
+  - delay 问题
+
+:::
+
+1. 场景
+  - OLTP 关系型 - PostgreSQL, MySQL
+  - NoSQL 性能型 - KV, Memory Grid
+  - OLAP 分析型 - Column
+  - 特殊场景
+    - Graph
+    - Document - MongoDB, FerratDB
+    - Search - OpenSearch, [solr](./search/solr.md), [manticoresearch](./search/manticoresearch.md)
+    - Auth/Zanzibar - spicedb
+    - MBaaS/Mobile - CouchDB, supabase, hasura, prisma, strapi
+    - Secret/Security - Vault
+    - Logging
+    - Metrics
+    - Treacing
+1. 访问模式
+  - 精准访问 - KV, OLTP
+  - 批量访问 - OLAP
+  - 便利关系 - Graph
+  - 部分投射 - Column
+1. 分布式 - 如果要优先考虑分布式
+  - Citus
+  - Clickhouse, Scylldb
+  - OpenSearch
+1. 聚合分析 - 计算、缓存、分析
+  - cubejs, superset, trino
+
+## OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart vs Data Lake
 
 - OLTP
   - 面向交易场景

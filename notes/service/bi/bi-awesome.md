@@ -237,6 +237,8 @@ tags:
 - [britecharts/britecharts](https://github.com/britecharts/britecharts)
 - [ChartsCSS/charts.css](https://github.com/ChartsCSS/charts.css)
 - [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)
+- https://textvis.lnu.se/
+  - Text Visualization Browser
 
 ---
 

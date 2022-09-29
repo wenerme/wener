@@ -17,6 +17,18 @@ title: fx
 
 :::
 
+:::caution 使用 IoC 可能导致维护性变差
+
+使用 fx 作为 container 虽然当时使用时构建起来容易，但是一段时间后再理解逻辑需要一定时间。
+
+替代选择:
+
+- Service Context 对象 - 包含所有的依赖信息，透明
+- 选择 [wire](./wire.md) - 编译时生成
+
+:::
+
+
 ```go
 type HandlerParams struct {
   fx.In // consume - 多入参 - 增强可读性
@@ -32,7 +44,7 @@ type HandlerParams struct {
   WriteToConn  *sql.DB `name:"rw"`      // 命名
   ReadFromConn *sql.DB `name:"ro" optional:"true"`
 
-  Handlers []Handler `group:"server"`   // 多实例 - 不保证顺序
+  Handlers []Handler `group:"server"`   // 多实例 - 不保证顺序
 }
 
 type ConnectionResult struct {

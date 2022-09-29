@@ -16,6 +16,8 @@ tags:
 - [undergroundwires/privacy.sexy](https://github.com/undergroundwires/privacy.sexy)
   - Open-source tool to enforce privacy & security best-practices on Windows and macOS
   - [HN](https://news.ycombinator.com/item?id=32436949)
+- [google/osv.dev](https://github.com/google/osv.dev)
+  - vulnerability DB and triage service
 
 ## Service
 

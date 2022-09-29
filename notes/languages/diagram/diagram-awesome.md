@@ -32,6 +32,9 @@ tags:
   - Diagram as Code for prototyping cloud system architectures
 - drawio
 - [skanaar/nomnoml](https://github.com/skanaar/nomnoml)
+- [An introduction to binary decision digrams](https://www.cs.utexas.edu/~isil/cs389L/bdd.pdf)
+  1997
+  - [HN](https://news.ycombinator.com/item?id=32993015)
 
 ## Library
 

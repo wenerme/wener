@@ -93,6 +93,7 @@ const worker = new editorWorker();
 ## jsdelivr vs. unpkg
 
 - unpkg
+  - 慢
 - jsdelivr
   - 国内更快，有 ICP 备案
 - 参考

@@ -10,6 +10,8 @@ title: ESM
 | [dynamic-import](https://caniuse.com/es6-module-dynamic-import) | Chrome 63+  | Safari 11.1+ |
 | [import-maps](https://caniuse.com/import-maps)                  | Chrome 89+  |
 
+> [Can I Use](../browser/caniuse.md)
+
 - [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet)
   - 动态构建样式表
   - 不支持 @import
@@ -32,6 +34,8 @@ title: ESM
     - Chrome 93 - https://chromestatus.com/feature/5948572598009856
 - [JSON Module](https://github.com/tc39/proposal-json-modules)
   - Chrome 91 - https://chromestatus.com/feature/5749863620804608
+- ~~snowpack~~
+  - ESM unbundled dev
 
 :::caution
 
@@ -222,6 +226,10 @@ const { default: info } = await import("./package.json", {
 });
 ```
 
+## exports
+
+- https://cdn.skypack.dev/@wener/reaction@v1.2.3/dist=es2020?meta
+
 ## NodeJS
 
 - NodeJS 12+
@@ -230,6 +238,13 @@ const { default: info } = await import("./package.json", {
 - [When will CommonJS modules (require) be deprecated and removed? #33954](https://github.com/nodejs/node/issues/33954)
 - 目前 ESM 会慢一点 [#44186](https://github.com/nodejs/node/issues/44186)
 - [nodejs/loaders](https://github.com/nodejs/loaders)
+
+## Internal
+
+- https://github.com/guybedford/import-maps-extensions
+  - `import:`
+- https://github.com/guybedford/es-module-shims
+- https://github.com/wicg/import-maps
 
 # FAQ
 

@@ -15,13 +15,18 @@ title: jsdelivr
 ## data.jsdelivr.com
 
 - https://data.jsdelivr.com/v1
+- 版本
   - /package/npm/:name
   - /package/gh/:user/:repo
-  - /package/npm/:name@:version/:structure
-  - /package/gh/:user/:repo@:version/:structure
+- 文件结构
+  - /package/npm/:name@:version/:structure?
+    - structure=tree,flat
+  - /package/gh/:user/:repo@:version/:structure?
+    - version 可以是 commit
+- 获取版本 - 返回 `{"version":""}`
   - /package/resolve/npm/:name@:range
   - /package/resolve/gh/:user/:repo@:range
-  - /package/npm/:name@:version/entrypoints
+- /package/npm/:name@:version/entrypoints
 
 ---
 

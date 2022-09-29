@@ -7,14 +7,14 @@ tags:
 
 # Chrome Version
 
-| version                   | date       | note                                              |
+| version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
 | [Chrome 110](#chrome-110) |            | `<popup>`                                         |
 | [Chrome 109](#chrome-109) |
 | [Chrome 108](#chrome-108) |
 | [Chrome 107](#chrome-107) |
 | [Chrome 106](#chrome-106) |
-| [Chrome 105](#chrome-105) | 2022-08-30 | Container Query, :has                             |
+| [Chrome 105](#chrome-105) | 2022-08-30 | Container Query, :has, import.meta.resolve, HEVC  |
 | [Chrome 104](#chrome-104) |            |
 | [Chrome 103](#chrome-103) |            | Local Font Access                                 |
 | [Chrome 102](#chrome-102) |            | DNS HTTPS                                         |
@@ -49,6 +49,7 @@ tags:
 - 基本一年 8-10 个版本, 大约 30 天一个版本
 - https://chromestatus.com/features
 - https://chromestatus.com/roadmap
+  - 每个版本的特性变化
   - 关注 Enabled by default
 - https://bugs.chromium.org/p/chromium/issues/list
 - https://chromiumdash.appspot.com/schedule
@@ -140,10 +141,23 @@ tags:
 ## Chrome 108
 
 - Federated Credentials Management - WebID
+- FileSystemHandle::remove()
 
 ## Chrome 107
 
+- CSS
+  - grid-template interpolation
+- ContentVisibilityAutoStateChanged event
+  - `content-visibility: auto`
+  - 辅助检测是否可见，代码控制是否渲染 - 例如: React, canvas
+  - https://github.com/vmpstr/web-proposals/blob/main/explainers/cv-auto-event.md
+- `<form rel="noreferrer">`
+
 ## Chrome 106
+
+- CSS
+  - ic 长度单位 - CJK 文字单位
+- Intl.NumberFormat v3
 
 ## Chrome 105
 
@@ -161,11 +175,12 @@ tags:
   - 目前主流库 [cure53/DOMPurify](https://github.com/cure53/DOMPurify)
 
 ```js
+// Sanitizer API
 $div.setHTML(
   `<em>hello world</em><img src="" onerror=alert(0)>`,
   new Sanitizer({
     allowElements: ['b', 'em'],
-    allowAttributes: {style: ['span']},
+    allowAttributes: { style: ['span'] },
   }),
 );
 ```
@@ -356,7 +371,7 @@ $div.setHTML(
 
 ```js
 // import 断言 - JSON Module
-import json from './foo.json' assert {type: 'json'};
+import json from './foo.json' assert { type: 'json' };
 
 class C {
   static s_field;
@@ -401,7 +416,7 @@ class C {
 
 ```js
 // 获取包含 shadowdom 的 HTML
-const html = element.getInnerHTML({includeShadowRoots: true, closedRoots: []});
+const html = element.getInnerHTML({ includeShadowRoots: true, closedRoots: [] });
 ```
 
 ## Chrome 89
@@ -466,11 +481,11 @@ Sec-CH-UA-Mobile: ?0
   - seamless transitions across navigations
 
 ```js
-const segmenter = new Intl.Segmenter('zh', {granularity: 'word'});
+const segmenter = new Intl.Segmenter('zh', { granularity: 'word' });
 // 输出 ['你好', '世界']
 Array.from(segmenter.segment('你好世界')).map((v) => v.segment);
 // 可用于优化 CPU 重场景
-navigator.scheduling.isInputPending({includeContinuous: true});
+navigator.scheduling.isInputPending({ includeContinuous: true });
 ```
 
 ## Chrome 86

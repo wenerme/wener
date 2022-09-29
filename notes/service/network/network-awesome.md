@@ -9,6 +9,9 @@ tags:
   - GPLv3, C+Python
   - encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing
   - 提供 Zero-Configuration Networking
+- [openziti/ziti](https://github.com/openziti/ziti)
+  - Apache-2.0, Go
+  - zero trust, application embedded, programmable network
 
 ## Analysis
 

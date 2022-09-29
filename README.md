@@ -19,14 +19,14 @@
 
 ## Featured
 
-- [AlpineLinux](https://www.wener.tech/notes/os/alpine/alpine)
-- [Auth 服务](https://www.wener.tech/notes/service/auth/auth)
-- [Golang](https://www.wener.tech/notes/languages/go/go)
-- [Java](https://www.wener.tech/notes/java/java)
-- [Kubernetes](https://www.wener.tech/notes/devops/kubernetes/kubernetes)
-- [VoIP](https://www.wener.tech/notes/voip/voip)
+- [AlpineLinux](https://www.wener.tech/notes/os/alpine)
+- [Auth 服务](https://www.wener.tech/notes/service/auth)
+- [Golang](https://www.wener.tech/notes/languages/go)
+- [Java](https://www.wener.tech/notes/java)
+- [Kubernetes](https://www.wener.tech/notes/devops/kubernetes)
+- [VoIP](https://www.wener.tech/notes/voip)
 - [纪念那些在 BBK 的时光](https://wener.me/story/bbk-memory)
-- [虚拟化](https://www.wener.tech/notes/os/virt/virt)
+- [虚拟化](https://www.wener.tech/notes/os/virt)
 
 ## Projects Working On
 

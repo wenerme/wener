@@ -329,3 +329,47 @@ git branch -u origin/main
 
 # 或修改 .git/config fetch
 ```
+
+## user.signingkey
+
+```bash
+# GPG
+gpg --list-secret-keys --keyid-format=long
+git config --global user.signingkey KEY
+git config --global user.signingkey SUBKEY!
+
+# SSH - Git 2.34+
+git config --global gpg.format ssh
+git config --global user.signingkey "$(cat ~/.ssh/id_ed25519.pub)"
+# ssh-agent 如果没有则会出现 Load key git_signing_key invalid format
+# ssh-add ~/.ssh/id_ed25519
+
+# X.509
+git config --global gpg.x509.program smimesign
+git config --global gpg.format x509
+smimesign --list-keys
+git config --global user.signingkey KEY
+```
+
+## git Load key git_signing_key invalid format
+
+先执行 ssh-add
+
+## fatal: detected dubious ownership in repository
+
+目录权限不为当前 user
+
+```bash
+# 报错
+git status
+
+# 1. 修改 owner 可解决
+chown -R $(id -u):$(id -g) $PWD
+# 2. 允许单个目录
+git config --global --add safe.directory $PWD
+# 3. 忽略 - 允许所有
+git config --global --add safe.directory '*'
+```
+
+- https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9
+- https://github.com/actions/runner/issues/2033

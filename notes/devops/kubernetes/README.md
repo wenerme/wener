@@ -4,6 +4,10 @@ title: Kubernetes
 
 # Kubernetes
 
+- [Awesome](./k8s-awesome.md)
+- [常见问题](./k8s-faq.md)
+- [版本](./k8s-version.md)
+- [发行版](./distro/README.md)
 - [Reference](http://kubernetes.io/docs/user-guide)
 - [Guide](http://kubernetes.io/docs)
 - [Kubernetes the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)

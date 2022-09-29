@@ -17,6 +17,7 @@ tags:
 | Search engines       | 搜索引擎       |
 | RDF stores           | RDF 存储       |
 | Wide column stores   | 宽列存储       |
+| Column stores        | 列存储         |
 | Multivalue DBMS      | 多值数据库     |
 | Native XML DBMS      | XML 数据库     |
 | Spatial DBMS         | 空间数据库     |
@@ -38,10 +39,10 @@ tags:
 - [rqlite/rqlite](https://github.com/rqlite/rqlite)
   - SQLite + Raft
 - PostgreSQL
-  - cdb
   - [citusdata/citus](./relational/postgresql/citus.md)
     - PostgreSQL Sharding
-  - [yugabyte/yugabyte-db](https://github.com/yugabyte/yugabyte-db)
+  - [cdb](./newsql/cockroachdb.md)
+  - [yugabyte/yugabyte-db](./newsql/yugabytedb.md)
   - [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
 - MySQL
   - Viteness
@@ -85,6 +86,27 @@ Cube 计算
 - [stoneatom/stonedb](https://github.com/stoneatom/stonedb)
   - GPLv2, C++
   - MySQL HTAP and MySQL-native database for oltp, real-time analytics
+
+## Column Store
+
+- 面向分析
+- [Clickhouse](./column/clickhouse.md)
+- [DuckDB](./column/duckdb.md)
+
+## Wide-Column
+
+- 宽列 - 二维 KV
+  - 并非标准列存储
+- [Scylla](./column/scylladb.md)
+- Apache Accumulo
+- [Apache Cassandra](./column/cassandra.md)
+- Apache HBase
+- Hypertable
+- 商业
+  - Bigtable
+  - DataStax Enterprise
+  - DataStax Astra DB
+  - Azure Tables
 
 ## 图
 

@@ -1,14 +1,66 @@
 ---
-id: k8s-my-practice
 title: 我的 K8S 实践
+tags:
+  - Practices
+  - Thoughs
 ---
 
 # 我的 K8S 实践
 
-- 服务之间讲求配合
-  - 所以才需要编排
-  - 例如 倾向于 nginx 而不是 traeifk
-  - 例如 使用 cert-manager 而不是 web server 自带的 acme
+- 一定节点规模后注意节点角色划分
+  - 存储
+  - 计算
+  - 边缘 - Ingress
+- 如果要分布式存储，可优先考虑 分布式 数据 而不是 分布式存储+数据库
+  - 优先支持分布式的数据库 弹性更好、性能更好
+  - 分布式存储+数据库 性能尴尬，且需要维护额外的分布式存储服务
+  - 通用的 分布式存储服务 对 带宽和磁盘要求非常高
+
+## Disto 选择很重要
+
+- 基础投入，但持续收益
+- 如果规模小优先选择裁剪过的 disto - k0s, k3s
+- 确定好核心状态如何存储、备份、恢复
+
+## 优先手写 Yaml
+
+- 手写 Yaml 更更好理解部署逻辑
+- 运维需要对运维的服务有充分了解
+
+:::tip 主要难点
+
+- 知道当前 Pod 信息
+  - [使用 fieldRef 获取](./k8s-faq.md#pod-fieldref)
+  - 通过 API 获取
+- 知道多节点信息
+  - [citus.sts.yaml#L46-L76](https://github.com/wenerme/kube-stub-cluster/blob/d373937971ae53ea2d17f82b852e684058920234/citus/citus.sts.yaml#L46-L76)
+  - [keydb.sts.yaml#L22-L36](https://github.com/wenerme/kube-stub-cluster/blob/d373937971ae53ea2d17f82b852e684058920234/keydb/keydb.sts.yaml#L22-L36)
+- 使用 init shell 初始化环境
+
+:::
+
+- 一开始使用 Helm 可能能用，但升级维护有风险 - 不敢随意动
+  - 能调整的参数有限
+  - Helm 不一定能满足需求 - 例如: 一些密钥信息要明文
+  - 满足封装复用需求
+  - 倾向于一个 Helm Chart 一个部署
+- 一开始使用 Operator 会隐藏更多细节
+  - 完全黑盒，可控性更低
+  - Operator 可以将部署变为服务 - 例如: DBaaS
+  - 满足更高阶需求
+
+```bash
+# 获取 replicas
+curl https://kubernetes/apis/apps/v1/namespaces/ \
+  -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" < NAMESPACE > /statefulsets/ < STATEFULSET > -k \
+  | jq '.spec.replicas'
+```
+
+## 服务之间讲求配合
+
+- 所以才需要编排
+- 例如: 倾向于 nginx 而不是 traeifk
+- 例如: 使用 cert-manager 而不是 web server 自带的 acme
 
 ## 注意事项
 

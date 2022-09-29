@@ -6,6 +6,8 @@ title: Web Spec
 
 ## container-query
 
+- Chrome 105+
+
 ```js
 const supportsContainerQueries = 'container' in document.documentElement.style;
 if (!supportsContainerQueries) {

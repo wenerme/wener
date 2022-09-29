@@ -41,6 +41,8 @@ tags:
   - free public domain audiobooks
 - [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
 - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
+- http://annas-blog.org/blog-3x-new-books.html
+  - [HN](https://news.ycombinator.com/item?id=32972923)
 
 <!--
 alipanso6.com，alipanso7.com，alipanso8.com

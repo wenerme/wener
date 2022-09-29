@@ -79,6 +79,8 @@ tags:
     - 基于 fast-deep-equal
     - 支持 react 元素
   - [lukeed/dequal](https://github.com/lukeed/dequal)
+    - 304B to 489B
+  - lodash.isEqual
 - Date & Time
   - date-fns
   - dayjs
@@ -138,6 +140,22 @@ tags:
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
+- async
+  - [parallel-js/parallel.js](https://github.com/parallel-js/parallel.js)
+    - multi-core processing utilities for Node
+  - [greenlet](https://github.com/developit/greenlet)
+    - Move an async function into its own thread
+- fs/filesystem
+  - https://github.com/isomorphic-git/isomorphic-git
+  - lighting-fs
+  - [jvilk/BrowserFS](https://github.com/jvilk/BrowserFS)
+    - MIT, JS
+    -  emulates the Node JS file system API
+  - [filer](https://github.com/filerjs/filer)
+    - BSD-2, JS
+    - drop-in replacement for node's fs module
+    - backend: indexeddb, memory, custom
+  - [browserify/path-browserify](https://github.com/browserify/path-browserify)
 - diagram
   - d3
   - [eclipse/sprotty](https://github.com/eclipse/sprotty)
@@ -388,6 +406,8 @@ tags:
   - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
 - data
   - mdn-data - [mdn/data](https://github.com/mdn/data)
+  - [feross/buffer](https://github.com/feross/buffer)
+    - NodeJS Buffer
 - codec/parser
   - punycode
   - url-js
@@ -397,9 +417,13 @@ tags:
     - LGPLv3, JS
     - audio waveforms
 - glob
-  - [isaacs/node-glob](https://github.com/isaacs/node-glob)
-  - [mrmlnc/fast-glob](https://github.com/mrmlnc/fast-glob)
+  - [globby](https://github.com/sindresorhus/globby)
+    - 基于 fast-glob 增加部分功能
+  - [glob](https://github.com/isaacs/node-glob)
+  - [fast-glob](https://github.com/mrmlnc/fast-glob)
   - [micromatch/micromatch](https://github.com/micromatch/micromatch)
+    - wildcard and glob matching library
+    - 在 picomatch 之上增加部分功能 - `{.ts,.js}` 展开, extglobs
   - [micromatch/picomatch](https://github.com/micromatch/picomatch)
     - 20kB/7kB
   - consola

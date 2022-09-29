@@ -10,6 +10,14 @@ title: Ava
 - node_modules/.cache/ava
 - 配合 enzyme 测试 react
 
+
+:::tip
+
+- pnpm 下 ava 为 shell, 实际脚本为 `node_modules/ava/entrypoints/cli.mjs`
+  - 如果使用了 WebStorm 插件可以修改 ava 路径
+
+:::
+
 ```json title="packages.json"
 {
   "devDependencies": {

@@ -66,16 +66,17 @@ title: FS
 
 **网络**
 
-| fs      | notes    |
-| ------- | -------- |
+| fs      | notes                        |
+| ------- | ---------------------------- |
 | [nfs]   |
 | [smb]   |
 | cifs    |
-| pvfs2   | OrangeFS |
+| pvfs2   | OrangeFS                     |
 | juicefs |
-| davfs2  | WebDAV   |
+| davfs2  | WebDAV                       |
 | ftpfs   |
 | sshfs   |
+| gfs2    | Global File System by RedHat |
 
 [ext4]: ./ext4.md
 [ntfs]: ./ntfs.md

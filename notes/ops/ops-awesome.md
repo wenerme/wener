@@ -23,3 +23,13 @@ tags:
   - multicloud management platform
 - [zhihu/cmdb](https://github.com/zhihu/cmdb)
 - [ixrjog/opscloud4](https://github.com/ixrjog/opscloud4)
+
+## SRE
+
+- https://sre.google/sre-book/table-of-contents/
+  - https://sre.google/sre-book/monitoring-distributed-systems/
+    - The Four Golden Signals
+      - Latency - 延迟
+      - Traffic - 流量
+      - Errors - 错误率
+      - Saturation - 饱和度

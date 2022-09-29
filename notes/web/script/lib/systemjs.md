@@ -10,11 +10,24 @@ title: SystemJS
   - 辅助实现 前端 动态模块化
   - ESM 不受控 - 只能 all in
 - features - core 之上增加特性
+  - depcache
+  - script-load
+  - worker-load
   - fetch-load
+    - 加载的内容会使用 eval - 目前 无法修改该行为
   - import-maps
     - 展开 imoort map 后直接匹配
     - System.prepareImport
     - type=systemjs-importmap
+    - https://github.com/systemjs/systemjs/blob/main/docs/import-maps.md
+  - node-fetch
+    - `file:` 会直接读取, 其他则直接 fetch
+    - source-map-support
+    - node-fetch
+  - registry
+    - System.get,System.set,System.has,System.delete,System.entries
+  - resolve
+    - System.resolve
 - extras - 额外功能
   - amd
   - dynamic-import-maps
@@ -35,8 +48,9 @@ title: SystemJS
   - script-load, fetch-load, resolve, import-maps, depcache, worker-load, global, module-types, registry
 - system-node.cjs
   - resolve, registry, fetch-load, node-fetch, global
-  - `applyImportMap(loader, newMap, mapBase)`
-  - `setBaseUrl(loader, url)`
+  - 暴露的额外方法
+    - `applyImportMap(loader, newMap, mapBase)`
+    - `setBaseUrl(loader, url)`
 - s.js
   - script-load, fetch-load, resolve, import-maps, depcache, worker-load
 - 参考

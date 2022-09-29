@@ -9,6 +9,9 @@ tags:
 - CRI
   - [opencontainers/runc](https://github.com/opencontainers/runc)
   - [google/gvisor](https://github.com/google/gvisor)
+    - Apache-2.0, Go
+    - Application Kernel for Containers
+    - runsc
   - nvidia-container-runtime
   - [containers/crun](https://github.com/containers/crun)
     - GPL-2, C

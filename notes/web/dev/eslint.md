@@ -23,7 +23,9 @@ npx eslint "src/**" --ext .ts --ext .tsx
 
 ## 配置
 
-- .eslintrc.{js,yml,json}
+- .eslintrc.{js,yml,json,cjs}
+- 目前不支持 esm 配置
+  - https://eslint.org/docs/latest/user-guide/configuring/configuration-files
 
 ```js
 module.exports = {

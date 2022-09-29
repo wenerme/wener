@@ -13,6 +13,7 @@ title: 延迟数
 - [Gist](https://gist.github.com/jboner/2841832) [Neo](https://gist.github.com/GLMeece/b00c9c97a06a957af7426b1be5bc8be6)
 - [Grace Hopper explains Nanoseconds](https://www.youtube.com/watch?v=JEpsKnWZrJ8)
 - [Global Ping](https://wondernetwork.com/pings/)
+- https://computers-are-fast.github.io/
 
 | computer latency                   |     nano seconds | micro seconds | milliseconds | relative                    |
 | ---------------------------------- | ---------------: | ------------: | -----------: | --------------------------- |
@@ -63,3 +64,32 @@ title: 延迟数
 | 1000 | 1     | 10^-3 | 10^-6 |
 | 10^6 | 1000  | 1     | 10^-3 |
 | 10^9 | 10^6  | 1000  | 1     |
+
+
+## datacenter vs region vs zone vs vs cluster vs rack
+
+- datacenter - dc
+  - 逻辑机房
+  - 可能在同一个 region
+  - 相同 dc 内 < 1ms
+  - 相同 region 内 < 10ms
+  - 不同 region 则延时不确定 - 可能跨越半个地球
+    - 低到 < 10ms
+    - 高到 > 300ms
+- cluster
+  - 逻辑概念
+  - 通常在一个 dc
+- rack
+  - 不同服务器最近接近的定义
+  - 相同交换机背板
+- region - 区域 - 由多个地区组成
+  - 独立地理位置
+- zone - 地区
+  - 故障网域
+
+---
+
+- [Google Cloud Inter-Region Latency and Throughput](https://datastudio.google.com/reporting/fc733b10-9744-4a72-a502-92290f608571/page/70YCB)
+- https://docs.google.com/spreadsheets/d/1lCUjdT-JNoATftGshtUIPQIl0CLb2Z8DCL-k8UAMtec/pubhtml
+  - https://geekflare.com/google-cloud-latency/
+- https://gcping.com/

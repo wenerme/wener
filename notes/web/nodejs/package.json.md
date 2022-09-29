@@ -6,6 +6,8 @@ title: package.json
 
 - 参考
   - https://nodejs.org/api/packages.html
+  - https://nodejs.org/api/packages.html#packages_package_entry_points
+  - https://webpack.js.org/guides/package-exports
   - https://github.com/stereobooster/package.json
   - https://unpkg.com/browse/antd/package.json
   - jsnext:main [jsforum/jsforum#5](https://github.com/jsforum/jsforum/issues/5)
@@ -138,11 +140,19 @@ title: package.json
       "import": "./lib/esm/index.mjs",
       "default": "./lib/cjs/index.js"
     },
-    "./src/*": "./src/*",
+    "./src/": "./src/",
+    "./icons/*": "./lib/icons/*.json",
     "./package.json": "./package.json"
   }
 }
 ```
+
+- [lukeed/resolve.exports](https://github.com/lukeed/resolve.exports)
+  - resolve 逻辑实现
+- https://webpack.js.org/guides/package-exports/
+- https://github.com/preactjs/preact/blob/master/package.json
+  - 多个子包，发布为 mono package
+- 展开 exports https://cdn.skypack.dev/@wener/reaction@v1.2.3/dist=es2020?meta
 
 ## exports types
 

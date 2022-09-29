@@ -8,7 +8,7 @@ tags:
 
 - https://go-proverbs.github.io/
 
-## 常用库
+## 常用库 {#library}
 
 - mux
   - [chi](./lib/chi.md) - ⭐️
@@ -22,15 +22,20 @@ tags:
     - 基于代码生成
     - Meta 信息完善，更适合复杂业务逻辑
 - 命令行
+  - [urfave/cli](https://github.com/urfave/cli) - ⭐️
+    - 简单易用
   - [spf13/cobra](https://github.com/spf13/cobra) - ⭐️
     - 目前使用最多
+    - 更适合命令行非常复杂的情况，默认 split 处理逻辑
     - flag 由 pflag 处理，配置由 viper 处理
     - 比 urfave/cli 更 unopinioned
     - urfave/cli 更加 declarative
     - [muesli/coral](https://github.com/muesli/coral)
       - cobra fork with only 4 dependencies
-  - [urfave/cli](https://github.com/urfave/cli)
-- IoC - fx
+- IoC/DI
+  - [fx](./lib/fx.md)
+  - dig
+  - [wire](./lib/wire.md)
 - JWX
   - [golang-jwt/jwt](https://github.com/golang-jwt/jwt)
   - [lestrrat-go/jwx](https://github.com/lestrrat-go/jwx)
@@ -47,6 +52,7 @@ tags:
   - [knadh/koanf](https://github.com/knadh/koanf)
     - 轻量 - 功能按需引入 - binary 小
 - 日志
+  - zerolog
   - zap
   - logrus
 - HTTP Client
@@ -62,7 +68,7 @@ tags:
 
 <!-- - https://golangroadmap.com/ -->
 
-## 学习
+## 学习 {#learning}
 
 - https://go-proverbs.github.io/
 - https://golang.org/doc/effective_go
@@ -82,9 +88,9 @@ tags:
     - [x1unix/go-playground](https://github.com/x1unix/go-playground)
   - https://play.golang.org
 
-## 日志
+## 日志 {#logging}
 
-- [rs/zerolog](https://github.com/rs/zerolog)
+- [rs/zerolog](https://github.com/rs/zerolog) - ⭐️
   - Zero Allocation JSON Logger
   - 接口更友好
   - ⚠️ 重复名字字段不会覆盖
@@ -101,7 +107,7 @@ tags:
     - http://hackemist.com/logbench/
   - https://github.com/uber-go/zap#performance
 
-## 数据库驱动
+## 数据库驱动 {#driver}
 
 - [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
   - 依赖 CGO
@@ -125,7 +131,7 @@ tags:
 - [lib/pq](https://github.com/lib/pq)
   - 已不推荐使用
 
-## 数据库相关
+## 数据库相关 {#db}
 
 - [ent](./lib/ent.md)
   - [ariga/sqlcomment](https://github.com/ariga/sqlcomment)
@@ -153,6 +159,8 @@ tags:
   - [Masterminds/squirrel](https://github.com/Masterminds/squirrel)
   - [uptrace/bun](https://github.com/uptrace/bun)
 - 迁移
+  - [atlas](./lib/atlas.md)
+    - DSL based
   - [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
   - [rubenv/sql-migrate](https://github.com/rubenv/sql-migrate)
 
@@ -165,7 +173,7 @@ tags:
 
 :::
 
-### 路由/Router
+### 路由/Router {#routing}
 
 - [chi](./lib/chi.md)
   - 标准接口
@@ -182,7 +190,7 @@ tags:
 - 参考
   - [julienschmidt/go-http-routing-benchmark](https://github.com/julienschmidt/go-http-routing-benchmark)
 
-### 框架/Framework
+### 框架/Framework {#framework}
 
 - [kataras/iris](https://github.com/kataras/iris)
   - BSD-3
@@ -215,7 +223,7 @@ tags:
 - echo
 - revel
 
-### 增强处理
+### 增强处理 {#enhance}
 
 - [go-chi/render](https://github.com/go-chi/render)
   - 辅助处理请求响应内容
@@ -314,7 +322,7 @@ tags:
   - 不支持 subscriptions
   - [A Guide to GraphQL Schema Federation, Part 1](https://itnext.io/a-guide-to-graphql-schema-federation-part-1-995b639ac035)
 
-## 代码生成/Generator
+## 代码生成/Generator {#generator}
 
 - [cmd/stringer/stringer.go](https://github.com/golang/tools/blob/master/cmd/stringer/stringer.go)
   - 为 int 枚举生成 String 方法
@@ -382,7 +390,7 @@ tags:
 - [ugorji/go](https://github.com/ugorji/go)
   diomatic codec and rpc lib for msgpack, cbor, json, etc.
 
-## 数据处理/Data
+## 数据处理/Data {#data-processing}
 
 - [go-playground/validator](https://github.com/go-playground/validator)
   - struct 标签注解校验 - 类似于 Java 的 Bean Validate
@@ -396,7 +404,7 @@ tags:
   - 使用表达式 validate
 - [BWbwchen/MapReduce](https://github.com/BWbwchen/MapReduce)
 
-## 网络/Network
+## 网络/Network {#networking}
 
 - [cloudwego/netpoll](https://github.com/cloudwego/netpoll)
   - non-blocking I/O networking framework, focused on RPC
@@ -422,13 +430,15 @@ tags:
   - forward proxy with multiple protocols support
 - [cilium/ebpf](https://github.com/cilium/ebpf)
 - [kevwan/tproxy](https://github.com/kevwan/tproxy)
+- https://gvisor.dev/docs/user_guide/networking/
+  - gvisor networking stack
 
-## 协议/Protocol
+## 协议/Protocol {#protocols}
 
 - [hacdias/webdav](https://github.com/hacdias/webdav)
   - Simple Go WebDAV server
 
-## 事件驱动/Event
+## 事件驱动/Event {#events}
 
 - [temporal](../../service/workflow/temporal.md)
 - [uber/cadence](../../service/workflow/cadence.md)
@@ -446,7 +456,7 @@ tags:
 - [trustmaster/goflow](https://github.com/trustmaster/goflow)
 - [flowbase/flowbase](https://github.com/flowbase/flowbase)
 
-## 服务框架/Service Framework
+## 服务框架/Service Framework {#service-framework}
 
 - [dapr/dapr](https://github.com/dapr/dapr)
   portable, event-driven, runtime for building distributed applications
@@ -467,7 +477,7 @@ tags:
   - protobuf+net/http
 - [gogf/gf](https://github.com/gogf/gf)
 
-## 微服务框架/Microservices Framework
+## 微服务框架/Microservices Framework  {#microservice-frameworks}
 
 大多微服务框架着重于 RPC、服务发现、配置，并提供基础的中间件 监控、Trace。
 
@@ -500,7 +510,7 @@ tags:
 - [go-chassis/go-chassis](https://github.com/go-chassis/go-chassis)
 - [unionj-cloud/go-doudou](https://github.com/unionj-cloud/go-doudou)
 
-## 国内环境
+## 国内环境 {#chinese}
 
 - [wenerme/go-wecom](https://github.com/wenerme/go-wecom)
 - [go-pay/gopay](https://github.com/go-pay/gopay)
@@ -518,7 +528,7 @@ tags:
   - [microcosm-cc/bluemonday](https://github.com/microcosm-cc/bluemonday)
     - html sanitizer
 
-## 认证授权/Auth
+## 认证授权/Auth {#auth}
 
 - [dexidp/dex](https://github.com/dexidp/dex) - OIDC, IdP
 - [ory](https://github.com/ory)
@@ -551,7 +561,7 @@ tags:
     - 支持热升级
     - 多语言
 
-## 语言/Language
+## 语言/Language {#languages}
 
 - [rogchap/v8go](https://github.com/rogchap/v8go)
   - 内含预编译的静态 libv8
@@ -602,7 +612,7 @@ tags:
 - [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
   - slim - UPX - https://github.com/hairyhenderson/gomplate/issues/326
 
-## 有趣
+## 有趣 {#fun}
 
 - [fogleman/primitive](https://github.com/fogleman/primitive)
   - 将图像转换为原子图形
@@ -628,7 +638,7 @@ tags:
   - [blevesearch/vellum](https://github.com/blevesearch/vellum)
     - FST
 
-## 控制理论 / Control theory
+## 控制理论 / Control theory {#control-theory}
 
 - [Reactive planning and reconciliation in Go](https://gianarb.it/blog/reactive-planning-and-reconciliation-in-go)
 - [spotahome/gontroller](https://github.com/spotahome/gontroller)
