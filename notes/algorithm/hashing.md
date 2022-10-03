@@ -9,20 +9,76 @@ title: Hashing
 :::tip
 
 - git 默认 sha2-256
+  - https://git-scm.com/docs/hash-function-transition/
 
 :::
 
+```bash
+# https://git-scm.com/docs/git-hash-object
+git hash-object ~/.bashrc
+
+# coreutils
+# ==========
+sha1sum ~/.bashrc
+sha224sum ~/.bashrc
+sha256sum ~/.bashrc
+sha384sum ~/.bashrc
+sha512sum ~/.bashrc
+md5sum ~/.bashrc
+# 32 bit CRC
+# -a DIGEST - sysv, bsd, crc, md5, sha1, sha224, sha256, sha384, sha512, blake2b, sm3
+cksum ~/.bashrc
+cksum -a sha1 ~/.bashrc # 等同于 sha1sum
+b2sum ~/.bashrc         # BLAKE2b (512-bit)
+# BSD (16-bit) checksums
+sum -s ~/.bashrc # sysv
+sum -r ~/.bashrc # bsd
+
+# openssl
+# ==========
+# -gost-mac, -streebog512, -streebog256, -md_gost94
+# -md4, -md5, -md5-sha1, -ripemd160
+# -sha{1,224,256,384,512}
+# -whirlpool
+openssl dgst -sha256 ~/.bashrc
+
+# perl shasum
+# ==========
+# -a 1 , 224, 256, 384, 512, 512224, 512256
+# SHA-512/256
+shasum -a 512224 ~/.bashrc
+```
+
 **参考**
 
+- [Comparison of cryptographic hash functions](https://en.wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions)
 - [Which hashing algorithm is best for uniqueness and speed?](http://softwareengineering.stackexchange.com/questions/49550)
   - 随机性和碰撞比较
 - [Cryptography Center](https://cryptography.cc/)
 - [List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
+- LSH - [Locality-sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing)
+  - 类似的输入获取到类似的 Hash
+  - 适用于排序
+  - Nilsimsa Hash
+    - 用于 anti-spam
+  - [trendmicro/tlsh](https://github.com/trendmicro/tlsh) - 包含多个语言实现
+    - 至少需要 256
+    - 推荐 512+
+    - 6+64 bytes
+    - [idealista/tlsh-js](https://github.com/idealista/tlsh-js)
 - SHA1
   - 2017-02-23 [Announcing the first SHA1 collision](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html)
   - [shattered](https://shattered.io/)
     broken SHA-1 in practice
   - [cr-marcstevens/sha1collisiondetection](https://github.com/cr-marcstevens/sha1collisiondetection)
+- [SipHash](https://en.wikipedia.org/wiki/SipHash)
+- 实现
+  - https://gist.github.com/creationix/4710780
+  - https://github.com/Daninet/hash-wasm
+- [google/farmhash](https://github.com/google/farmhash)
+  - https://github.com/google/farmhash/blob/master/Understanding_Hash_Functions
+- https://clickhouse.com/docs/en/sql-reference/functions/hash-functions
+- Bloom filter
 
 ## 密码
 

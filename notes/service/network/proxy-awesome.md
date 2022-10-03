@@ -175,6 +175,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## 域名
 
+- 常见需要代理域名
+  - quora.com
+  - medium.com
 - 可直接访问
   - gstatic.com
 - 需要速度快 - 体验好

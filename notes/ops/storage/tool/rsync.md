@@ -84,3 +84,15 @@ cat /tmp/transfer.log \
 
 - https://wiki.ncsa.illinois.edu/display/~wglick/2013/11/01/Parallel+Rsync
 - https://unix.stackexchange.com/questions/189878
+
+## filter by extension
+
+- --prune-empty-dirs
+  - 3.1.2 `-m`
+
+```bash
+# 3.0.6+
+rsync -zarv --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
+# < 3.0.6
+rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
+```

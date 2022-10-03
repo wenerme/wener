@@ -16,6 +16,19 @@ spec:
   clusterIP: None
 ```
 
+## 注入环境变量
+
+```yaml
+env:
+  - name: POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+# command 和 args 会展开环境变量
+command: ['/bin/echo']
+args: ['$(POD_IP)']
+```
+
 ## limits
 
 - 110 pods/node

@@ -42,6 +42,33 @@ tags:
 1. 聚合分析 - 计算、缓存、分析
   - cubejs, superset, trino
 
+## Tradeoff OLTP vs OLAP vs NoSQL
+
+- OLTP
+  - ACID 必须
+  - Latency
+    - 90% < 100ms
+    - 99% < 1s
+  - 数据量
+    - 90% < 1G
+    - 99% < 1T
+  - 大多查询命中索引
+  - 大多查询为精准数据
+- OLAP
+  - Latency
+    - 50% < 1s
+    - 90% > 1m
+  - 数据量
+    - 90% > 1T
+  - 大多查询访问大量数据
+  - 一般 默认支持分布式
+- NoSQL
+  - 大多以命中内存为主
+  - KV 方式查询为主
+  - 满足特殊需求
+  - 一般 默认支持分布式
+
+
 ## OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart vs Data Lake
 
 - OLTP

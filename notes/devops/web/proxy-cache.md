@@ -112,3 +112,28 @@ cache mycache
 - Bytecode cache - PHP, JS
 - CDN cache - HTML, Image, CSS, JS
 - Reverse proxy cache - 发生在反向代理层
+
+## Caching
+
+- Cloudflare
+  - 基于 extension 缓存而不是 mime
+    - 默认不缓存 html
+  - 可通过 Page Rule 添加缓存
+    - 缓存所有 - Page Rule
+      - `charts.wener.tech/*`
+      - Cache Level: Cache Everything
+  - 默认会缓存 robots.txt
+  - CF-Cache-Status
+    - DYNAMIC - 认为是动态内容，不会缓存
+
+```bash
+curl -I -H 'Host: charts.wener.tech' 185.199.108.153/wener/index.yaml
+curl -I https://charts.wener.tech/wener/index.yaml
+```
+
+- Github Pages
+  - `CacheControl: max-age=600`
+- https://gtmetrix.com/
+- https://web.dev/measure/
+- https://pagespeed.web.dev/
+- https://developers.cloudflare.com/cache/about/default-cache-behavior/

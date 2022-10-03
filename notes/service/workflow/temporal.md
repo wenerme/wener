@@ -6,10 +6,17 @@ title: temporal
 
 - [temporalio/temporal](https://github.com/temporalio/temporal)
   - cadence fork, 包含原始团队人员
+  - Persistence - Cassandra, PostgreSQL, MySQL
+  - Workflow search - Elasticsearch v6.8+ - 高级搜索
   - 更适合中小规模
     - 使用更方便
     - 支持更多 SDK - Go, Java, PHP, Typescript
     - 没有 uber 包袱 - 环境、rpc、历史实现
+- [temporalio/temporalite](https://github.com/temporalio/temporalite)
+  - Temporal runs as a single process
+  - 支持 SQLite
+
+
 
 ```bash
 # https://github.com/temporalio/docker-compose
@@ -27,7 +34,17 @@ docker-compose up
 # tctl in docker
 alias tctl="docker exec --env TEMPORAL_CLI_ADDRESS=host.docker.internal:7233 temporal-admin-tools tctl"
 tctl namespace describe
+
+# temporalite
+temporalite start -f temporalite.db
 ```
+
+:::note
+
+- sqlite in production [#3366](https://github.com/temporalio/temporal/issues/3366)
+- Replace elastic with zinc [#2380](https://github.com/temporalio/temporal/issues/2380)
+
+:::
 
 ## tctl
 

@@ -156,6 +156,10 @@ Cube 计算
 - [debezium/debezium](https://github.com/debezium/debezium)
   - Apache-2.0, Java
   - CDC - Change data capture
+- [nhost/nhost](https://github.com/nhost/nhost)
+  - MIT, TS
+  - Hasura+S3
+  - Firebase Alternative with GraphQL
 
 ## SQLite Awesome
 

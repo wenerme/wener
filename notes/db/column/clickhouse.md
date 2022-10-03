@@ -4,6 +4,17 @@ title: ClickHouse
 
 # ClickHouse
 
+:::tip When to use ClickHouse
+
+- insert > select𐄂10000 > delete𐄂100 > update𐄂10
+- 数据不变
+- 数据有时间属性
+- 归档数据
+- 事件、日志、监控、指标
+- 需要聚合非常多的数据源 - OLAP
+
+:::
+
 - [yandex/ClickHouse](https://github.com/yandex/ClickHouse)
   - Apache-2.0, C++
   - OLAP, 列存储

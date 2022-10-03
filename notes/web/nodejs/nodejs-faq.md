@@ -6,7 +6,7 @@ tags:
 
 # NodeJS FAQ
 
-## ejs `__dirname`
+## cjs `__dirname`
 
 ```js
 import * as url from 'url';
@@ -16,11 +16,27 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 ## 直接执行 typescript 或 esnext
 
+- tsx
+- ts-node
+- babel
+- tsm
+
 ```bash
+# tsx
+# ==========
+npx tsx app.ts
+node --loader tsx app.ts
+node --loader @esbuild-kit/esm-loader app.ts
+
+# ts-node
+# ==========
 node -r @ts-node/register app.ts
-node -r @babel/register app.js
 # tsconfig 里的 path 能生效
 node -r @ts-node/register -r tsconfig-paths/register app.ts
+
+# babel
+# ==========
+node -r @babel/register app.js
 ```
 
 ## Package 'OpenEXR', required by 'vips', not found
@@ -174,3 +190,41 @@ node-pre-gyp rebuild --target=0.30.2 --arch=x32 --target_platform=win32 --dist-u
 ## Undefined variable module_name in binding.gyp while trying to load binding.gyp
 
 可能 npm 问题，使用 pnpm 构建没问题
+
+## Custom ESM Loaders is an experimental feature. This feature could change at any time
+
+目前无法 supress 警告, 只能通过 require 注入避免
+
+```bash
+node --require suppress-experimental.cjs --loader tsx app.ts
+```
+
+```js title="suppress-experimental.cjs"
+'use strict';
+// When using the ESM loader Node.js prints either of the following warnings
+//
+// - ExperimentalWarning: --experimental-loader is an experimental feature. This feature could change at any time
+// - ExperimentalWarning: Custom ESM Loaders is an experimental feature. This feature could change at any time
+//
+// Having this warning show up once is "fine" but it's also printed
+// for each Worker that is created so it ends up spamming stderr.
+// Since that doesn't provide any value we suppress the warning.
+const originalEmit = process.emit;
+// @ts-expect-error - TS complains about the return type of originalEmit.apply
+process.emit = function (name, data, ...args) {
+  if (
+    name === `warning` &&
+    typeof data === `object` &&
+    data.name === `ExperimentalWarning` &&
+    (data.message.includes(`--experimental-loader`) ||
+      data.message.includes(`Custom ESM Loaders is an experimental feature`))
+  )
+    return false;
+
+  // return originalEmit.apply(process, arguments as unknown as Parameters<typeof process.emit>);
+  return originalEmit.apply(process, arguments);
+};
+```
+
+- https://github.com/nodejs/node/issues/30810
+

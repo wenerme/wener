@@ -5,6 +5,8 @@ tags:
 
 # Anime Awesome
 
+- SSS - 虫师, Rick and Morty
+
 ## Studio
 
 日本动画工作室

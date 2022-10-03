@@ -124,3 +124,13 @@ tags:
 
 - shell
   - [google/zx](https://github.com/google/zx)
+
+## FFI
+
+- https://dyncall.org/
+- node-ffi
+  - ffi-napi
+- sbffi
+- napi-addon
+- napi-addon-sb
+- bun ffi

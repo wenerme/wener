@@ -204,3 +204,58 @@ import '#dep';
 
 - Self-referential import breaks on Yarn Berry PNPM linker [vite#6808](https://github.com/vitejs/vite/issues/6808)
 - https://nodejs.org/api/packages.html#packages_self_referencing_a_package_using_its_name
+
+## Protocol
+
+- `link:`
+- `workspace:`
+  - 从 workspace 里选择
+  - pnpm
+- `pnp:`
+  - yarn plug & play
+- alias  - `<alias>@npm:<name>`
+ - `lodash1@npm:lodash@1`
+- `git+{url}.git`
+- `<protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]`
+  - GIT_ASKPASS
+  - GIT_EXEC_PATH
+  - GIT_PROXY_COMMAND
+  - GIT_SSH
+  - GIT_SSH_COMMAND
+    - 例如修改 key `GIT_SSH_COMMAND='ssh -i ~/.ssh/custom_ident'`
+  - GIT_SSL_CAINFO
+  - GIT_SSL_NO_VERIFY
+- Github
+  - `<githubname>/<githubrepo>[#<commit-ish>]`
+  - `github:<githubname>/<githubrepo>[#<commit-ish>]`
+- Gist
+  - `gist:[<githubname>/]<gistID>[#<commit-ish>|#semver:<semver>]`
+- `bitbucket:<bitbucketname>/<bitbucketrepo>[#<commit-ish>]`
+- `gitlab:<gitlabname>/<gitlabrepo>[#<commit-ish>]`
+- `[<@scope>/]<name>@<tag>`
+- 也可以 `https://github.com/{USER}/{REPO}/tarball/{BRANCH}`
+
+:::caution
+
+- 不支持 git 子目录
+- 利用 https://gitpkg.vercel.app/ 可支持 git 子目录
+
+::::
+
+```bash
+# support private
+npm install git+ssh://git@github.com:user_name/node_project.git
+npm install use_name/node_project#branch_name
+npm install use_name/node_project#commit
+npm i https://github.com/user_name/node_project_name
+npm install gist/gist_id
+```
+
+- https://docs.npmjs.com/cli/v8/commands/npm-install
+
+
+## resolve
+
+- esm 要求有后缀
+- node 不要求
+  - `--experimental-specifier-resolution=node `

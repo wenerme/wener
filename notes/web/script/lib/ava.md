@@ -8,7 +8,8 @@ title: Ava
   - 小、快、简单
 - process.env.NODE_ENV=test
 - node_modules/.cache/ava
-- 配合 enzyme 测试 react
+- React https://github.com/avajs/ava/blob/main/docs/recipes/react.md
+  - 配合 enzyme 测试 react
 
 
 :::tip

@@ -27,6 +27,7 @@ title: 数据泄漏
 | 2018.12    | 陌陌                       | 30M          |
 | 2017.11    | BreachCompilation Password | ~1B          |
 | 2017.11    | BreachCompilation          | 1.4B         |
+| 2017.05    | YS168.com                  |
 | 2016.11    | GitHub                     | 197 万       |
 | 2016.06    | www1.xuesheng360.cn        | 42 万        |
 | 2016.05    | 乌云数据库（7z 解压 2 次） | 41562        |

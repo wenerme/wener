@@ -457,6 +457,9 @@ tags:
     - https://json-schema-faker.js.org/
     - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
   - facker
+- Presentation Slides
+  - [slidevjs/slidev](https://github.com/slidevjs/slidev)
+    - TS, Vue
 
 ---
 

@@ -21,6 +21,38 @@ curl -LO https://github.com/duckdb/duckdb/releases/download/v0.2.7/duckdb_cli-os
 ```
 
 ```sql
+SELECT * FROM 'myfile.csv';
+SELECT * FROM 'myfile.parquet';
+
+-- csv, parquet
+SELECT * FROM 'https://domain.tld/file.extension';
+
+-- S3
+SET s3_region='us-east-1';
+SET s3_endpoint='<domain>.<tld>:<port>';
+SET s3_url_style='path';
+SET s3_access_key_id='<AWS access key id>';
+SET s3_secret_access_key='<AWS secret access key>';
+SET s3_session_token='<AWS session token>';
+SELECT * FROM 's3://bucket/file.extension';
+
+SELECT * FROM parquet_scan('s3://bucket/*.parquet');
+SELECT COUNT(*) FROM parquet_scan('s3://bucket/folder*/100?/t[0-9].parquet');
+SELECT * FROM parquet_scan('s3://bucket/*.parquet', FILENAME = 1);
+SELECT * FROM parquet_scan('s3://bucket/*/file.parquet', HIVE_PARTITIONING = 1);
+
+-- s3_uploader_max_parts_per_file, s3_uploader_max_filesize, s3_uploader_thread_limit
+COPY table_name TO 's3://bucket/file.extension';
+
+-- SQLite
+CALL sqlite_attach('data.db');
+PRAGMA show_tables;
+
+-- PostgreSQL
+-- connect string
+CALL POSTGRES_ATTACH('');
+SELECT * FROM POSTGRES_SCAN('', 'public', 'mytable');
+
 -- CSV
 SELECT * FROM read_csv_auto('test.csv');
 -- HEADER=TRUE
