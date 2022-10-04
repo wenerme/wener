@@ -20,10 +20,12 @@ title: ClickHouse
   - OLAP, 列存储
     - 每列存一个文件
   - 支持 Key 访问
+  - 依赖 zookeeper 进行集群调度 - 可使用 [clickhouse-keeper](https://clickhouse.com/docs/en/operations/clickhouse-keeper/) 替代
 - 默认库 default
 - DataGrip 可以使用 JDBC 连接
 - 适用场景
-  - 应用、系统日志
+  - 日志、监控 - signoz, uptrace
+  - 统计分析
   - timeseries-oriented
 - 端口
   - 8123 HTTP
@@ -36,6 +38,12 @@ title: ClickHouse
   - [Altinity/clickhouse-operator](https://github.com/Altinity/clickhouse-operator)
   - [Usage Recommendations](https://clickhouse.com/docs/en/operations/tips/)
   - [Requirements](https://clickhouse.com/docs/en/operations/requirements/)
+  - [Quickwit](https://github.com/quickwit-oss/quickwit)
+    - AGPLv3, Rust
+    - 提供搜索能力
+    - cloud-native search engine for log management & analytics
+    - 提供 URL 请求 Quickwit 进行 [全文搜索](https://clickhouse.com/docs/en/guides/developer/full-text-search)
+    - Quickwit 支持输出为 clickHouseRowBinary
   - Why
     - [Fast and Reliable Schema-Agnostic Log Analytics Platform](https://eng.uber.com/logging/)
       - Uber, ES -> ClickHouse
@@ -74,6 +82,26 @@ title: ClickHouse
 
 :::
 
+| Port  | for                                                |
+| ----- | -------------------------------------------------- |
+| 2181  | Zookeeper                                          |
+| 9181  | ClickHouse Keeper                                  |
+| 8123  | HTTP API - JDBC, ODBC, WebUI                       |
+| 8443  | HTTP SSL/TLS                                       |
+| 9000  | Native Protocol/ClickHouse TCP - inter-server comm |
+| 9004  | MySQL emulation                                    |
+| 9005  | PostgreSQL emulation                               |
+| 9009  | inter server comm - data exchange, replication     |
+| 9010  | SSL/TLS inter server comm                          |
+| 9011  | Native protocol PROXYv1                            |
+| 9019  | JDBC Bridge                                        |
+| 9100  | gRPC                                               |
+| 9234  | ClickHouse Keeper Raft                             |
+| 9363  | Prometheus metrics                                 |
+| 9281  | SSL ClickHouse Keeper                              |
+| 9440  | SSL/TLS Native protocol                            |
+| 42000 | Graphite                                           |
+
 ```bash
 # https://hub.docker.com/r/yandex/clickhouse-server/
 # /etc/clickhouse-server/config.xml
@@ -111,14 +139,48 @@ COPY(
 COPY...TO PROGRAM
 ```
 
-## Note
+## Notes
 
 - 列 DEFAULT materializes on merge, MATERIALIZED materializes on INSERT, OPTIMIZE TABLE
 - ENGINE = Null - ETL 表, trigger materialized view
-- index_granularity
+- index_granularity - 索引精度
   - how many rows reps index key and pk
   - lower, point query 更快
-  - 例如 8196
+  - 8192 rows or 10MB of data
+  - 每 8192 行一个 索引记录/mark
+  - 稀疏索引 - 不同于 BTree
+  - 并行处理单位
+- index_granularity_bytes - 默认 10MB
+- primary key
+  - **不要求唯一**
+  - 影响磁盘上数据排序 - sk=pk
+  - 会加载到内存
+  - 过滤 **最左边** 列因为有序，所以可以二分搜索
+  - 过滤 不包含最左边 列，则会全局搜索
+  - 如果之后的 PK 是低纬度的数据，则可以通过 skipping index 优化
+  - 可创建二级索引 记录额外 minmax 来优化访问
+  - 高纬度数据只能创建 额外的表 或 额外的视图 或 PROJECTION 使用不同的顺序来解决
+    - PROJECTION 为隐藏表，类似于传统 DB 的索引 - 保留了关系
+    - 会自动选择 PROJECTION
+  - 选择顺序
+    - 低纬度 数据在左边
+      - 精确查询会处理更多数据
+      - 但压缩比更高 - 磁盘上数据少，意味着 IO 快
+    - 高纬度 数据在左边
+      - 精确查询处理更少数据
+      - 压缩比低
+  - [Locality-sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing)
+    - 可用于对长内容进行 fingerprint, 然后放在最左边排序, 这样会大大增加压缩比
+    - 但查询需要额外带一个条件
+- sorting key
+  - 设置了 sorting key 未设置 pk 则 pk=sk
+  - 可在 pk 之外再添加 sk
+- sparse index
+
+## Auth
+
+- LDAP
+  - https://clickhouse.com/docs/en/guides/sre/configuring-ldap
 
 ## 安装
 
@@ -135,207 +197,6 @@ docker run -it --rm \
   --name clickhouse-server clickhouse/clickhouse-server
 ```
 
-## Notes
-
-- primary keys
-  - 并不要求唯一
-  - 印象磁盘上数据排序
-- index granularity
-  - 8,192 rows or 10MB of data
-- sparse index
-
-## 数据类型
-
-> 支持范型的强类型 Schema
-
-- UInt8, UInt16, UInt32, UInt64, UInt256, Int8, Int16, Int32, Int64, Int128, Int256
-  - Int8 — TINYINT, BOOL, BOOLEAN, INT1.
-  - Int16 — SMALLINT, INT2.
-  - Int32 — INT, INT4, INTEGER.
-  - Int64 — BIGINT
-- Float32, Float64
-  - FLOAT, DOUBLE
-- Decimal(P, S), Decimal32(S), Decimal64(S), Decimal128(S), Decimal256(S)
-  - P - precision - [ 1 : 76 ]
-  - S - scale - [ 0 : P ]
-  - P [ 1 : 9 ] - Decimal32(S)
-  - P [ 10 : 18 ] - Decimal64(S)
-  - P [ 19 : 38 ] - Decimal128(S)
-  - P [ 39 : 76 ] - Decimal256(S)
-- Boolean
-  - UInt8 - 0,1
-- String
-  - 如果创建 VARCHAR(255) 会忽略长度
-- FixedString(N) - N bytes
-- UUID
-- Date
-  - 2byte, days since 1970-01-01
-  - 最大 2148 年
-- `DateTime([timezone])`
-  - unix timestamp
-  - 最大 2105 年
-- `DateTime64(precision, [timezone])`
-  - Int64, epoch
-  - precision=3 则是毫秒级
-- `Enum('k1'=1,'k2'=2)`
-- LowCardinality(data_type)
-  - change internal to dictionary-encoded
-- array(T) - `[]`
-- `AggregateFunction(name, types_of_arguments…)`
-- Nested - 嵌套类型 - 类似定义一个 struct
-
-## Table Engine
-
-- PostgreSQL
-- Kafka
-- MySQL
-- S3
-  - Function+Engine
-
-```sql
--- PostgreSQL
--- =======================
--- connect table
--- insert, select
-CREATE TABLE
-  db_in_ch.table1 (id UInt64, column1 String) ENGINE = PostgreSQL(
-    'postgres-host.domain.com:5432',
-    'db_in_psg',
-    'table1',
-    'clickhouse_user',
-    'ClickHouse_123'
-  );
-
--- materialized
--- replica of the database
-SET
-  allow_experimental_database_materialized_postgresql = 1;
-
-CREATE DATABASE db1_postgres ENGINE = MaterializedPostgreSQL(
-  'postgres-host.domain.com:5432',
-  'db1',
-  'clickhouse_user',
-  'ClickHouse_123'
-) SETTINGS materialized_postgresql_tables_list = 'table1';
-
--- S3
--- =========================
--- 元信息 _path, _file
-SELECT
-  *
-FROM
-  s3(
-    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_*.gz',
-    'TabSeparatedWithNames'
-  )
-LIMIT
-  10;
-
--- 写入
-INSERT INTO
-  FUNCTION s3(
-    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips.csv.lz4',
-    's3_key',
-    's3_secret',
-    'CSV'
-  )
-SELECT
-  *
-FROM
-  trips
-LIMIT
-  10000;
-
--- 写入多个文件
-INSERT INTO
-  FUNCTION s3(
-    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips_{_partition_id}.csv.lz4',
-    's3_key',
-    's3_secret',
-    'CSV'
-  ) PARTITION BY rand() % 10
-SELECT
-  *
-FROM
-  trips
-LIMIT
-  100000;
-
--- engine
-CREATE TABLE
-  trips_dest (
-    `trip_id` UInt32,
-    `pickup_date` Date,
-    `pickup_datetime` DateTime,
-    `dropoff_datetime` DateTime,
-    `tip_amount` Float32,
-    `total_amount` Float32
-  ) ENGINE = S3('<bucket path>/trips.bin', 'Native');
-```
-
-## MergeTree
-
-> MergeTree 本身比较重，建议用于较大的数据集。
-
-- 主要特性
-  - 列存储
-  - 自定义分片
-  - sparse primary index
-  - secondary data-skipping indexes
-
-**MergeTree Engine Family**
-
-- MergeTree - 建议用于单节点
-  - 基于 PK 排序
-  - 支持副本
-  - 支持采样
-- ReplacingMergeTree - 建议用于生产分布式高可用
-  - 支持数据去重
-- SummingMergeTree
-- AggregatingMergeTree
-- CollapsingMergeTree
-- VersionedCollapsingMergeTree
-- GraphiteMergeTree
-- `tuple(T1, T2, ...)`
-- 特殊类型
-  - 表达式
-  - Set
-  - Nothing
-  - Interval
-- 域类型
-  - IPv4, IPv6
-- Geo 类型
-  - Point, Ring, Polygon, MultiPolygon
-- Map(key, value)
-- `SimpleAggregateFunction(name, types_of_arguments…)`
-
-## Log
-
-- TinyLog
-- StripeLog
-- Log
-
-### 集成引擎
-
-- ODBC,JDBC,MySQL,MongoDB, HDFS, S3, Kafka, RocksDB, RabbitMQ
-- PostgreSQL
-  - 通过 `COPY (SELECT ...) TO STDOUT` 实现
-  - 支持 Materialized - 初次同步后后续通过 WAL 更新
-
-### 特殊引擎
-
-- Distributed
-- MaterializedView
-- Dictionary
-- Merge
-- File
-- Null
-- Set
-- Join
-- URL
-- View
-- Memory
-- Buffer
 
 ## 运维
 
@@ -377,6 +238,10 @@ ORDER BY
   name ASC;
 ```
 
+## Turnning
+
+- https://clickhouse.com/docs/en/guides/improving-query-performance/sparse-primary-indexes/sparse-primary-indexes-intro
+
 ## formats
 
 - https://clickhouse.com/docs/en/interfaces/formats/
@@ -415,4 +280,21 @@ $ clickhouse-client --query "SELECT * from table" --format FormatName > result.t
 echo '{"foo":"bar"}' | curl 'http://localhost:8123/?query=INSERT%20INTO%20test%20FORMAT%20JSONEachRow' --data-binary @-
 # CLI
 echo '{"foo":"bar"}' | clickhouse-client --query="INSERT INTO test FORMAT JSONEachRow"
+```
+
+## 查看表信息
+
+```sql
+SELECT
+    part_type,
+    path,
+    formatReadableQuantity(rows) AS rows,
+    formatReadableSize(data_uncompressed_bytes) AS data_uncompressed_bytes,
+    formatReadableSize(data_compressed_bytes) AS data_compressed_bytes,
+    formatReadableSize(primary_key_bytes_in_memory) AS primary_key_bytes_in_memory,
+    marks,
+    formatReadableSize(bytes_on_disk) AS bytes_on_disk
+FROM system.parts
+WHERE (table = 'hits_UserID_URL') AND (active = 1)
+FORMAT Vertical;
 ```

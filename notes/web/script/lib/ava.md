@@ -11,11 +11,18 @@ title: Ava
 - React https://github.com/avajs/ava/blob/main/docs/recipes/react.md
   - 配合 enzyme 测试 react
 
-
 :::tip
 
 - pnpm 下 ava 为 shell, 实际脚本为 `node_modules/ava/entrypoints/cli.mjs`
   - 如果使用了 WebStorm 插件可以修改 ava 路径
+
+:::
+
+:::note
+
+- 无 Suite/Group 概念 [#222](https://github.com/avajs/ava/issues/222)
+  - 文件纬度划分
+  - https://thoughtbot.com/blog/mystery-guest
 
 :::
 
@@ -97,6 +104,41 @@ npx ava --tap | npx tap-nyan
 - https://github.com/avajs/ava/blob/main/docs/06-configuration.md
 - 使用 [watson/is-ci](https://github.com/watson/is-ci) 检测 CI
   - https://github.com/watson/ci-info/blob/master/index.js
+
+## 测试文件匹配逻辑 {#test-files}
+
+- 以 `_` 开头的目录和文件会忽略
+
+**默认测试文件匹配逻辑**
+
+```
+test.js
+src/test.js
+source/test.js
+**/test-*.js
+**/*.spec.js
+**/*.test.js
+**/test/**/*.js
+**/tests/**/*.js
+**/__tests__/**/*.js
+```
+
+**排除逻辑**
+
+```
+**/__tests__/**/__helper__/**/*
+**/__tests__/**/__helpers__/**/*
+**/__tests__/**/__fixture__/**/*
+**/__tests__/**/__fixtures__/**/*
+**/test/**/helper/**/*
+**/test/**/helpers/**/*
+**/test/**/fixture/**/*
+**/test/**/fixtures/**/*
+**/tests/**/helper/**/*
+**/tests/**/helpers/**/*
+**/tests/**/fixture/**/*
+**/tests/**/fixtures/**/*
+```
 
 ## 配置
 

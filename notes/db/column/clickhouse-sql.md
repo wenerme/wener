@@ -14,6 +14,56 @@ curl 'http://192.168.66.61:8123?query=select%20version()'
 curl --get http://192.168.66.61:8123 --data-urlencode 'query=select version()'
 ```
 
+## 数据类型 {#data-types}
+
+> 支持范型的强类型 Schema
+
+- UInt8, UInt16, UInt32, UInt64, UInt256, Int8, Int16, Int32, Int64, Int128, Int256
+  - Int8 — TINYINT, BOOL, BOOLEAN, INT1.
+  - Int16 — SMALLINT, INT2.
+  - Int32 — INT, INT4, INTEGER.
+  - Int64 — BIGINT
+- Float32, Float64
+  - FLOAT, DOUBLE
+- Decimal(P, S), Decimal32(S), Decimal64(S), Decimal128(S), Decimal256(S)
+  - P - precision - [ 1 : 76 ]
+  - S - scale - [ 0 : P ]
+  - P [ 1 : 9 ] - Decimal32(S)
+  - P [ 10 : 18 ] - Decimal64(S)
+  - P [ 19 : 38 ] - Decimal128(S)
+  - P [ 39 : 76 ] - Decimal256(S)
+- Boolean
+  - UInt8 - 0,1
+- String
+  - 如果创建 VARCHAR(255) 会忽略长度
+- FixedString(N) - N bytes
+- UUID
+- Date
+  - 2byte, days since 1970-01-01
+  - 最大 2148 年
+- `DateTime([timezone])`
+  - unix timestamp
+  - 最大 2105 年
+- `DateTime64(precision, [timezone])`
+  - Int64, epoch
+  - precision=3 则是毫秒级
+- `Enum('k1'=1,'k2'=2)`
+- LowCardinality(data_type)
+  - change internal to dictionary-encoded
+- array(T) - `[]`
+- `AggregateFunction(name, types_of_arguments…)`
+- Nested - 嵌套类型 - 类似定义一个 struct
+- `tuple(T1, T2, ...)`
+- 特殊类型
+  - Set
+  - Nothing
+  - Interval
+- 域类型
+  - IPv4, IPv6
+- Geo 类型
+  - Point, Ring, Polygon, MultiPolygon
+- Map(key, value)
+
 ## Query
 
 ```sql
@@ -119,13 +169,21 @@ ENGINE = SQLite('db_path');
 
 ### MergeTree
 
-- MergeTree
+- MergeTree - 建议用于单节点
+  - 列存储
+  - 基于 PK 排序
+  - 支持副本
+  - 支持采样
+  - 自定义分片
+  - sparse primary index
+  - secondary data-skipping indexes
   - `ORDER BY tuple()` 表示不需要排序
   - 索引
     - annoy - 空间
-- `Replicated*`
+- `Replicated*` - 副本 - 用于多节点
   - table 维度
   - 包含: INSERT, ALTER
+  - 支持数据去重
   - 不包含: CREATE, DROP, ATTACH, DETACH, RENAME
     - RENAME - 可以让副本表名字不同
 - [ReplacingMergeTree([ver])](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replacingmergetree/)
@@ -143,6 +201,95 @@ ENGINE = SQLite('db_path');
   - Sign = -1 - cancel
 - VersionedCollapsingMergeTree
   - 在 CollapsingMergeTree 之上添加版本信息
+
+### S3
+
+```sql
+-- PostgreSQL
+-- =======================
+-- connect table
+-- insert, select
+CREATE TABLE
+  db_in_ch.table1 (id UInt64, column1 String) ENGINE = PostgreSQL(
+    'postgres-host.domain.com:5432',
+    'db_in_psg',
+    'table1',
+    'clickhouse_user',
+    'ClickHouse_123'
+  );
+
+-- materialized
+-- replica of the database
+SET
+  allow_experimental_database_materialized_postgresql = 1;
+
+CREATE DATABASE db1_postgres ENGINE = MaterializedPostgreSQL(
+  'postgres-host.domain.com:5432',
+  'db1',
+  'clickhouse_user',
+  'ClickHouse_123'
+) SETTINGS materialized_postgresql_tables_list = 'table1';
+
+-- S3
+-- =========================
+-- 元信息 _path, _file
+SELECT
+  *
+FROM
+  s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/nyc-taxi/trips_*.gz',
+    'TabSeparatedWithNames'
+  )
+LIMIT
+  10;
+
+-- 写入
+INSERT INTO
+  FUNCTION s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips.csv.lz4',
+    's3_key',
+    's3_secret',
+    'CSV'
+  )
+SELECT
+  *
+FROM
+  trips
+LIMIT
+  10000;
+
+-- 写入多个文件
+INSERT INTO
+  FUNCTION s3(
+    'https://datasets-documentation.s3.eu-west-3.amazonaws.com/csv/trips_{_partition_id}.csv.lz4',
+    's3_key',
+    's3_secret',
+    'CSV'
+  ) PARTITION BY rand() % 10
+SELECT
+  *
+FROM
+  trips
+LIMIT
+  100000;
+
+-- engine
+CREATE TABLE
+  trips_dest (
+    `trip_id` UInt32,
+    `pickup_date` Date,
+    `pickup_datetime` DateTime,
+    `dropoff_datetime` DateTime,
+    `tip_amount` Float32,
+    `total_amount` Float32
+  ) ENGINE = S3('<bucket path>/trips.bin', 'Native');
+```
+
+### PostgreSQL
+
+- 通过 `COPY (SELECT ...) TO STDOUT` 实现
+- 支持 Materialized - 初次同步后后续通过 WAL 更新
+
 
 ## Mutation
 
@@ -165,7 +312,6 @@ select * from system.mutations;
 JSON 列有问题
 
 ## Memory limit (for query) exceeded
-
 
 # Snippets
 

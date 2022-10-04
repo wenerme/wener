@@ -98,9 +98,12 @@ document.adoptedStyleSheets = [...document.adoptedStyleSheets, styles];
 ---
 
 - [guybedford/es-module-shims](https://github.com/guybedford/es-module-shims)
-  - [guybedford/es-module-lexer](https://github.com/guybedford/es-module-lexer)
-    shim 时 wasm 快速分析 js 内 import
+  - es-module-lexer - shim 时 wasm 快速分析 js 内 import
   - 支持 importmap 的浏览器会更快
+  - [guybedford/es-module-lexer](https://github.com/guybedford/es-module-lexer)
+    - C 实现 - wasi 编译为 wasm
+    - 11.3kB/5.4kB
+    - Angular (720KiB) fully parsed in 5ms
 - [Pure ESM package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
 
 ```html

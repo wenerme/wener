@@ -10,18 +10,15 @@ tags:
 
 ## Service
 
-- [openzipkin/zipkin](https://github.com/openzipkin/zipkin)
+- [openzipkin/zipkin](./zipkin.md)
   - Java
-- [jaegertracing/jaeger](https://github.com/jaegertracing/jaeger)
+- [jaegertracing/jaeger](./jaeger.md)
   - Golang
   - Thrift
   - CNCF Jaeger, a Distributed Tracing System
   - https://jaegertracing.io/
-- [apache/skywalking](https://github.com/apache/incubator-skywalking)
+- [apache/skywalking](./skywalking.md)
   - Java
-- [uptrace/uptrace](https://github.com/uptrace/uptrace)
-  - BSL, Golang
-  - 存储使用 ClickHouse
 - [lmangani/cLoki](https://github.com/lmangani/cLoki)
   - AGPL-3.0, JS
   - Loki+ClickHouse

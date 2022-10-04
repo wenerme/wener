@@ -147,7 +147,7 @@ diff -u include/kernel.h include/kernel.h.new > ../../kernel-compact-5.4.patch
 nano APKBUILD
 abuild checksum
 # 验证 patch 正确性
-rm -rf src; abuild prepare && abuild prepare
+rm -rf src; abuild unpack prepare
 # 构建
 abuild -r
 ```

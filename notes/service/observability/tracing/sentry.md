@@ -6,7 +6,7 @@ title: Sentry
 
 - [getsentry/sentry](https://github.com/getsentry/sentry)
   - BSL, Python
-  - cross-platform application error reporting
+  - error tracking and performance monitoring platform
 
 ## Go
 

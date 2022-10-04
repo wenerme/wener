@@ -160,7 +160,9 @@ tags:
 - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - [nnaisense/evotorch](https://github.com/nnaisense/evotorch)
 - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
-- disco diffusion
+- [Musico: AI Generated Music](https://www.musi-co.com/listen/streams)
+  - [HN](https://news.ycombinator.com/item?id=33027376)
+- VToonify
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)

@@ -136,6 +136,7 @@ tags:
   - underscore
 - clone
   - structuredClone - Chrome 98
+  - [lukeed/klona](https://github.com/lukeed/klona)
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
 - diff
@@ -150,7 +151,7 @@ tags:
   - lighting-fs
   - [jvilk/BrowserFS](https://github.com/jvilk/BrowserFS)
     - MIT, JS
-    -  emulates the Node JS file system API
+    - emulates the Node JS file system API
   - [filer](https://github.com/filerjs/filer)
     - BSD-2, JS
     - drop-in replacement for node's fs module
@@ -330,6 +331,11 @@ tags:
   - [ar-nelson/spartan-schema](https://github.com/ar-nelson/spartan-schema)
     - 定义的校验可生成 ts 类型
   - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
+- typescript
+  - [true-myth/true-myth](https://github.com/true-myth/true-myth)
+  - [io-ts](https://github.com/gcanti/io-ts)
+  - [fp-ts](https://github.com/gcanti/fp-ts)
+  - zod
 - math
   - jsbi - pure-JavaScript BigInts
     - 33kB/10kB
@@ -380,6 +386,9 @@ tags:
   - [stalniy/casl](https://github.com/stalniy/casl)
 - Syntax Highlighter
   - [shikijs/shiki](https://github.com/shikijs/shiki)
+- jwt
+  - [openid-client](https://github.com/panva/node-openid-client)
+    - nodejs RP client for passport.
 - dev
   - [nolanlawson/fuite](https://github.com/nolanlawson/fuite)
     - finding memory leaks in web apps
@@ -402,9 +411,20 @@ tags:
     - 56kB, 15kB
   - [globalizejs/globalize](https://github.com/globalizejs/globalize)
   - [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js)
+  - [lukeed/rosetta](https://github.com/lukeed/rosetta)
+    - 27 LOC
+    - [lukeed/templite](https://github.com/lukeed/templite)
+    - dlv
+- object path
+  - [dlv](https://github.com/developit/dlv)
+    - get by path
+    - [lukeed/dset](https://github.com/lukeed/dset)
+      - set by path
 - benchmark
   - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
-- data
+- data/io
+  - ArrayBuffer
+    - js 标准里的 nodejs Buffer 对等角色
   - mdn-data - [mdn/data](https://github.com/mdn/data)
   - [feross/buffer](https://github.com/feross/buffer)
     - NodeJS Buffer
@@ -412,6 +432,32 @@ tags:
   - punycode
   - url-js
   - url
+- AST
+  - [meriyah/meriyah](https://github.com/meriyah/meriyah)
+    - 127kB, 40kB
+  - [acornjs/acorn](https://github.com/acornjs/acorn)
+    - 107kB, 31.1kB
+    - acorn-jsx
+    - acorn-bigint
+  - [estree/estree](https://github.com/estree/estree)
+    - eslint, acorn, babel, Esprima
+  - [jquery/esprima](https://github.com/jquery/esprima)
+- router
+  - [lukeed/taskr](https://github.com/lukeed/taskr)
+    - MIT, JS
+    - 58 LOC
+    - [lukeed/regexparam](https://github.com/lukeed/regexparam)
+      - 36 LOC
+  - [lukeed/polka](https://github.com/lukeed/polka)
+    - Web Server
+  - path-to-regexp
+
+https://github.com/lukeed/tinydate
+A tiny (349B) reusable date formatter. Extremely fast!
+
+
+A general purpose internationalization library in 292 bytes
+
 - audio
   - [bbc/peaks.js](https://github.com/bbc/peaks.js)
     - LGPLv3, JS

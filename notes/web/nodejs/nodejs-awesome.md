@@ -110,16 +110,6 @@ tags:
 - [rchipka/node-osmosis](https://github.com/rchipka/node-osmosis)
 - https://www.webscrapingapi.com/
 
-## Browser Automation
-
-- [puppeteer/puppeteer](https://github.com/puppeteer/puppeteer)
-- [Microsoft/playwright](https://github.com/Microsoft/playwright)
-  - 统一 API 支持 Chromium, Firefox, WebKit
-- [matthewmueller/x-ray](https://github.com/matthewmueller/x-ray)
-  - web scraper
-- [segmentio/nightmare](https://github.com/segmentio/nightmare)
-  - 基于 Electron
-
 ## 工具
 
 - shell

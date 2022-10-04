@@ -109,6 +109,10 @@ tags:
 
 ## 数据库驱动 {#driver}
 
+- [polarsignals/frostdb](https://github.com/polarsignals/frostdb)
+  - Apache-2.0, Go
+  - embeddable columnar database
+  - 类似于 duckdb
 - [mattn/go-sqlite3](https://github.com/mattn/go-sqlite3)
   - 依赖 CGO
   - DSN - https://www.sqlite.org/uri.html

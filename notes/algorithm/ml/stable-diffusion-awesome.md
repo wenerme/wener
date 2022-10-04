@@ -17,3 +17,8 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=32943224)
 - [ahrm/UnstableFusion](https://github.com/ahrm/UnstableFusion)
   - desktop frontend with inpainting, img2img
+- [MDM: Human Motion Diffusion Model](https://guytevet.github.io/mdm-page/)
+  - [HN](https://news.ycombinator.com/item?id=33029522)
+- Make-A-Video: AI system that generates videos from text https://makeavideo.studio/
+  - [HN](https://news.ycombinator.com/item?id=33020181)
+- disco diffusion

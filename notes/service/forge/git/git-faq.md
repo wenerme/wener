@@ -330,6 +330,13 @@ git branch -u origin/main
 # 或修改 .git/config fetch
 ```
 
+## fetch remote branch
+
+```bash
+git fetch origin 3.16-stable:3.16-stable
+git switch 3.16-stable
+```
+
 ## user.signingkey
 
 ```bash
