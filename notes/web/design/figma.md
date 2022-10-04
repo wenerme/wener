@@ -16,3 +16,4 @@ title: Figma
   - Realm bassed
   - [agoric/realms-shim](https://github.com/agoric/realms-shim)
 - [KlausSchaefers/figma-low-code](https://github.com/KlausSchaefers/figma-low-code)
+- [thomas-lowry/figma-plugins-on-github](https://github.com/thomas-lowry/figma-plugins-on-github)

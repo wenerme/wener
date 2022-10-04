@@ -358,3 +358,5 @@ declare global {
 ## require() of ES Module not supported
 
 - type=module
+
+## __esModule

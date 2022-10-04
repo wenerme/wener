@@ -455,7 +455,6 @@ tags:
 https://github.com/lukeed/tinydate
 A tiny (349B) reusable date formatter. Extremely fast!
 
-
 A general purpose internationalization library in 292 bytes
 
 - audio
@@ -511,9 +510,9 @@ A general purpose internationalization library in 292 bytes
 
 - npmtrends [dexie vs localforage vs lokijs vs pouchdb vs rxdb](https://www.npmtrends.com/dexie-vs-localforage-vs-pouchdb-vs-rxdb-vs-lokijs)
 
-## Runtime
+## Runtimes & Engines
 
-- Runtime
+- Runtime - stdlib/sandboxing
   - NodeJS
   - Deno
   - Bun
@@ -521,23 +520,89 @@ A general purpose internationalization library in 292 bytes
     - Apache-2.0, Rust
     - multi-tenant serverless JavaScript runtime
     - V8 isolate
-- Engine
+- Engine - JIT
   - V8
-  - Webkit
-  - QuickJS
-- Interpreter
-  - [sablejs/sablejs](https://github.com/sablejs/sablejs)
-    - JS
-  - [espruino](https://github.com/espruino/Espruino)
-    - C++
-  - ducktap
+    - Chrome
+  - JavaScriptCore
+    - Webkit
+  - SpiderMonkey
+    - Firefox
+  - GraalJS
+    - Oracle
+    - GraalVM
+    - JVM
+  - [ChakraCore](https://github.com/chakra-core/ChakraCore)
+    - MIT, C++
+    - 早先的 Microsoft Edge
+  - [just-js/just](https://github.com/just-js/just)
+    - small v8 for linux only
+    - ~15 MB
+  - [facebook/hermes](https://github.com/facebook/hermes)
+    - MIT, C++
+    - React Native
+  - XS Moddable
+    - GPL
+- Engine - embeddable/interpreter
+  - [svaarala/duktape](https://github.com/svaarala/duktape)
     - MIT, C
+  - [bellard/quickjs](https://github.com/bellard/quickjs)
+    - MIT, C
+    - Typescript
+    - https://bellard.org/quickjs/bench.html
+    - [saghul/txiki.js](https://github.com/saghul/txiki.js)
+      - MIT, C
+      - QuickJS + libuv + wasm3 + curl + libffi
+  - [cesanta/mjs](https://github.com/cesanta/mjs)
+    - GPLv2, C
+  - [ccxvii/mujs](https://github.com/ccxvii/mujs)
+    - ISC, C
+- Sandbox
+  - v8 isolate
+  - [WICG/portals](https://github.com/WICG/portals)
+  - [JetBrains/websandbox](https://github.com/JetBrains/websandbox)
+    - Apache-2.0, TS
+    - iframe
+  - [NeilFraser/JS-Interpreter](https://github.com/NeilFraser/JS-Interpreter)
+    - sandboxed JavaScript interpreter in JavaScript
+  - [LavaMoat/LavaMoat](https://github.com/LavaMoat/LavaMoat)
+    - MIT
+    - based on endo
+  - [endojs/endo](https://github.com/endojs/endo)
+    - distributed secure JavaScript sandbox, based on SES
+    - SES - Secure EcmaScript
+    - [tc39/proposal-ses](https://github.com/tc39/proposal-ses)
+    - [endojs/Jessie](https://github.com/endojs/Jessie)
+      - simple universal safe mobile code
+  - [tc39/proposal-shadowrealm](https://github.com/tc39/proposal-shadowrealm)
+    - https://tc39.es/proposal-shadowrealm/
+- IoT
+  - [espruino](https://github.com/espruino/Espruino)
+    - MPLv2, C
+    - 128kB Flash, 8kB RAM
+  - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
+    - Apache-2.0, C99
+    - ECMAScript 5.1
+    - 160K
+- [GoogleChromeLabs/jsvu](https://github.com/GoogleChromeLabs/jsvu)
+  - JavaScript engine Version Updater
+  - 支持 charkra, gralljs, hermes, JavaScriptCore, quickjs, SpiderMonkey, v8, v8 debug, xs
 - Typescript
   - [ts-node](../nodejs/ts-node.md)
   - [tsx](../nodejs/tsx.md)
 
 ---
 
+- [sablejs/sablejs](https://github.com/sablejs/sablejs)
+  - JS
+  - 国产
+  - ECMA5.1
+  - License 不明确 - https://github.com/sablejs/sablejs/issues/19
+
+---
+
+- [plasma-umass/doppio](https://github.com/plasma-umass/doppio)
+  - JVM in TypeScript v0.5.0
+- [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [privatenumber/ts-runtime-comparison](https://github.com/privatenumber/ts-runtime-comparison)
 
 ## Edge/Serverless
@@ -593,30 +658,6 @@ depp init
 depp
 ```
 
-## Engine
+## Reading
 
-- [LavaMoat/LavaMoat](https://github.com/LavaMoat/LavaMoat)
-- [endojs/endo](https://github.com/endojs/endo)
-  - distributed secure JavaScript sandbox, based on SES
-  - SES - Secure EcmaScript
-  - [tc39/proposal-ses](https://github.com/tc39/proposal-ses)
-  - [endojs/Jessie](https://github.com/endojs/Jessie)
-    - simple universal safe mobile code
-- [bellard/quickjs](https://github.com/bellard/quickjs)
-- [saghul/txiki.js](https://github.com/saghul/txiki.js)
-  - QuickJS + libuv
-- [just-js/just](https://github.com/just-js/just)
-  - small v8 for linux only
-  - ~15 MB
-- [GoogleChromeLabs/jsvu](https://github.com/GoogleChromeLabs/jsvu)
-  - JavaScript engine Version Updater
-  - 支持 charkra, gralljs, hermes, JavaScriptCore, quickjs, SpiderMonkey, v8, v8 debug, xs
-- [facebook/hermes](https://github.com/facebook/hermes)
-  - JavaScript engine optimized for React Native
-- IoT
-  - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
-  - [espruino/Espruino](https://github.com/espruino/Espruino)
-
----
-
-- [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+- https://javascript.info/
