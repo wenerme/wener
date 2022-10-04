@@ -131,6 +131,11 @@ title: Torrent
 
 - router.bittorrent.com
 
+## BEP30 Merkle hash torrent extension
+
+- SHA1
+
+
 ## BEP48
 
 Scrape for HTTP Tracker
@@ -167,6 +172,7 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
         - length - 文件长度
         - pieces root
           - root hash of a merkle tree with a branching factor of 2
+          - 32 bytes
           - piece >= 16KiB
           - SHA2-256
     - files - 兼容 v1
@@ -174,6 +180,7 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
       - length
       - path
   - piece layers
+    - root -> tree
 
 ---
 
@@ -189,3 +196,5 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
   - 文件 Hash - 相同复用，会有 Pad 补齐块
   - 磁力链接支持 v2 btmh - `magnet:?xt=urn:btmh: &dn=&tr=`
     - [multiformats/multihash](https://github.com/multiformats/multihash)
+- https://blog.libtorrent.org/2020/09/bittorrent-v2/
+- [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)

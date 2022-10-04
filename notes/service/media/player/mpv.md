@@ -88,3 +88,29 @@ tscale=oversample
 - [kljohann/mpv.el](https://github.com/kljohann/mpv.el)
   - control mpv for easy note-taking
 
+
+```conf
+profile=gpu-hq
+
+# alang = 'jpn,jp,eng,en'
+# slang = 'eng,en,enUS'
+
+autofit-larger=1920x1080 # Set max window size.
+autofit-smaller=858x480 # Set min window size.
+no-osd-bar # Hide OSD bar when seeking.
+osd-duration=500 # Hide OSD text after x ms.
+# osd-font='Trebuchet MS'
+
+deband=yes # Default values are 1:64:16:48
+deband-iterations=4 # Range 1-16. Higher = better quality but more GPU usage. >5 is redundant.
+deband-threshold=50 # Range 0-4096. Deband strength.
+deband-range=20 # Range 1-64. Range of deband. Too high may destroy details.
+deband-grain=5 # Range 0-4096. Inject grain to cover up bad banding, higher value needed for poor sources.
+
+dither-depth=auto
+```
+
+- https://wiki.archlinux.org/index.php/Mpv#Configuration
+- https://github.com/bloc97/Anime4K
+- https://github.com/TianZerL/Anime4KCPP
+- https://github.com/ThoughtfulDev/Anime4K

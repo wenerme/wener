@@ -1,9 +1,13 @@
 ---
+title: CQL
 tags:
   - SQL
 ---
 
-# ScyllaDB SQL
+# CQL
+
+- https://docs.datastax.com/en/cql-oss/3.3/
+- [datastax/nodejs-driver](https://github.com/datastax/nodejs-driver)
 
 ## cqlsh
 

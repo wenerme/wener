@@ -92,14 +92,24 @@ Cube 计算
 - 面向分析
 - [Clickhouse](./column/clickhouse.md)
 - [DuckDB](./column/duckdb.md)
+- Apache Druid
+- Apache Pinot
+- InfluxDB
+- PostgreSQL cstore_fdw, vops
+  - ORC
+- [greenplum-db/gpdb](https://github.com/greenplum-db/gpdb)
+- format
+  - orc
+  - parquet
+- [List of column-oriented DBMSes](https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes)
 
 ## Wide-Column
 
 - 宽列 - 二维 KV
   - 并非标准列存储
 - [Scylla](./column/scylladb.md)
-- Apache Accumulo
 - [Apache Cassandra](./column/cassandra.md)
+- Apache Accumulo
 - Apache HBase
 - Hypertable
 - 商业

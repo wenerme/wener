@@ -103,23 +103,62 @@
 [alpine-image]: https://github.com/wenerme/alpine-image
 [wenerme/wener]: https://github.com/wenerme/wener
 
-| Frontend/NodeJS/TS   | Desc                                     | Website                                                                                 |
-| -------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------- |
-| [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/                                           |
-| [apis]               | Dev Utils on Web                         | https://apis.wener.me/                                                                  |
-| [js-miniquery]       | SQL like filter expression for sequelize | [![ohm-grammar-miniquery-image]][ohm-grammar-miniquery]                                 |
-| [wode]               | Node,React Utils, Hooks & Demos          | https://wode.vercel.app/ <br/> [![@wener/reaction-image]][@wener/reaction] <br/> [![@wener/utils-image]][@wener/utils] |
+| Frontend/NodeJS/TS   | Desc                                     | Website                                                 |
+| -------------------- | ---------------------------------------- | ------------------------------------------------------- |
+| [pm-exam-cheatsheet] | 软考项目管理考试知识整理                 | https://wenerme.github.io/pm-exam-cheatsheet/           |
+| [apis]               | Dev Utils on Web                         | https://apis.wener.me/                                  |
+| [js-miniquery]       | SQL like filter expression for sequelize | [![ohm-grammar-miniquery-image]][ohm-grammar-miniquery] |
+| [wode]               | Node,React Utils, Hooks & Demos          | https://wode.vercel.app/                                |
 
 [pm-exam-cheatsheet]: https://github.com/wenerme/pm-exam-cheatsheet
 [apis]: https://github.com/wenerme/apis
 [wode]: https://github.com/wenerme/wode
-[@wener/reaction]: https://www.npmjs.com/package/@wener/reaction
-[@wener/reaction-image]: https://img.shields.io/npm/v/@wener/reaction?label=@wener/reaction
-[@wener/utils]: https://www.npmjs.com/package/@wener/utils
-[@wener/utils-image]: https://img.shields.io/npm/v/@wener/utils?label=@wener/utils
 [js-miniquery]: https://github.com/wenerme/js-miniquery
 [ohm-grammar-miniquery]: https://www.npmjs.com/package/ohm-grammar-miniquery
 [ohm-grammar-miniquery-image]: https://img.shields.io/npm/v/ohm-grammar-miniquery?label=ohm-grammar-miniquery
+
+**NPM**
+
+| Repository                                          | NPM                                                             | Info                                                                                         |
+| --------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [@wener/utils][utils-repo]                          | [![][utils-version]][utils-npm]                                 | [Doc][utils-doc]<br/> ![][utils-license]<br/>![][utils-size]<br/>![][utils-deps]             |
+| [@wener/system][system-repo]                        | [![][system-version]][system-npm]                               | [Doc][system-doc]<br/> ![][system-license]<br/>![][system-size]<br/>![][system-deps]         |
+| [@wener/reaction][reaction-repo]                    | [![][reaction-version]][reaction-npm]                           | [Doc][reaction-doc]<br/> ![][reaction-license]<br/>![][reaction-size]<br/>![][reaction-deps] |
+| [@wener/torrent][torrent-repo]                      | [![][torrent-version]][torrent-npm]                             | [Doc][torrent-doc]<br/> ![][torrent-license]<br/>![][torrent-size]<br/>![][torrent-deps]     |
+| [ohm-grammar-miniquery][ohm-grammar-miniquery-repo] | [![][ohm-grammar-miniquery-version]][ohm-grammar-miniquery-npm] | ![][ohm-grammar-miniquery-license]                                                           |
+
+[utils-repo]: https://github.com/wenerme/wode/tree/main/packages/utils
+[utils-npm]: https://www.npmjs.com/package/@wener/utils
+[utils-version]: https://img.shields.io/npm/v/@wener/utils
+[utils-license]: https://img.shields.io/npm/l/@wener/utils
+[utils-size]: https://badgen.net/bundlephobia/minzip/@wener/utils
+[utils-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/utils
+[utils-doc]: https://wode.vercel.app/docs/modules/_wener_utils.html
+[system-repo]: https://github.com/wenerme/wode/tree/main/packages/system
+[system-npm]: https://www.npmjs.com/package/@wener/system
+[system-version]: https://img.shields.io/npm/v/@wener/system
+[system-license]: https://img.shields.io/npm/l/@wener/system
+[system-size]: https://badgen.net/bundlephobia/minzip/@wener/system
+[system-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/system
+[system-doc]: https://wode.vercel.app/docs/modules/_wener_system.html
+[reaction-repo]: https://github.com/wenerme/wode/tree/main/packages/reaction
+[reaction-npm]: https://www.npmjs.com/package/@wener/reaction
+[reaction-version]: https://img.shields.io/npm/v/@wener/reaction
+[reaction-license]: https://img.shields.io/npm/l/@wener/reaction
+[reaction-size]: https://badgen.net/bundlephobia/minzip/@wener/reaction
+[reaction-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/reaction
+[reaction-doc]: https://wode.vercel.app/docs/modules/_wener_reaction.html
+[torrent-repo]: https://github.com/wenerme/wode/tree/main/packages/torrent
+[torrent-npm]: https://www.npmjs.com/package/@wener/torrent
+[torrent-version]: https://img.shields.io/npm/v/@wener/torrent
+[torrent-license]: https://img.shields.io/npm/l/@wener/torrent
+[torrent-size]: https://badgen.net/bundlephobia/minzip/@wener/torrent
+[torrent-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/torrent
+[torrent-doc]: https://wode.vercel.app/docs/modules/_wener_torrent.html
+[ohm-grammar-miniquery-repo]: https://github.com/wenerme/js-miniquery/tree/main/packages/ohm-grammar-miniquery
+[ohm-grammar-miniquery-npm]: https://www.npmjs.com/package/ohm-grammar-miniquery
+[ohm-grammar-miniquery-version]: https://img.shields.io/npm/v/ohm-grammar-miniquery
+[ohm-grammar-miniquery-license]: https://img.shields.io/npm/l/ohm-grammar-miniquery
 
 ## License
 

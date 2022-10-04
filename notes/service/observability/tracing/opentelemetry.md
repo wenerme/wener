@@ -10,6 +10,7 @@ title: OpenTelemetry
   - API -> SDK -> Processing -> Exporter -out of app-> Collector -> Backend
 - 参考
   - [open-telemetry/opentelemetry-operator](https://github.com/open-telemetry/opentelemetry-operator)
+- otlp
 
 ```bash
 docker run --rm -it \

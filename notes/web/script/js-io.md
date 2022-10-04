@@ -68,6 +68,9 @@ title: IO
   - ReadableStream
   - WritableStream
   - TransformStream
+  - https://nodejs.org/api/webstreams.html
+  - https://nodejs.org/api/stream.html
+
 ---
 
 - 参考

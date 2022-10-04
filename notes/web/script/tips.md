@@ -1,3 +1,9 @@
+---
+title: Tips
+---
+
+# Tips
+
 ## 统计 Github 代码行数
 
 ```js

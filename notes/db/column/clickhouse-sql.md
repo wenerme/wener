@@ -313,6 +313,34 @@ JSON 列有问题
 
 ## Memory limit (for query) exceeded
 
+<<<<<<< Updated upstream
+=======
+- max_memory_usage=10GB
+
+```sql
+-- 需要全部数据加载到内存基于 PK 排序
+INSERT INTO table
+SELECT x,y,z FROM source;
+
+-- 排查
+SHOW PROCESSLIST;
+```
+
+- `set max_block_size=512, max_threads=1, max_rows_to_read=512;`
+
+## SQLite database file path must be inside 'user_files' directory. (PATH_ACCESS_DENIED)
+
+- 默认 /var/lib/clickhouse/user_files/
+- https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-user_files_path
+
+## FINAL
+
+```sql
+-- force collapsing, dedup, operation
+SELECT * FROM events FINAL;
+```
+
+>>>>>>> Stashed changes
 # Snippets
 
 ```bash
@@ -333,16 +361,4 @@ FROM system.parts
 WHERE active
 GROUP BY table
 ORDER BY sum(bytes_on_disk) DESC;
-```
-
-## SQLite database file path must be inside 'user_files' directory. (PATH_ACCESS_DENIED)
-
-- 默认 /var/lib/clickhouse/user_files/
-- https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-user_files_path
-
-## FINAL
-
-```sql
--- force collapsing, dedup, operation
-SELECT * FROM events FINAL;
 ```

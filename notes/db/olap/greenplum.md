@@ -1,8 +1,14 @@
+---
+title: Greenplum
+---
+
 # Greenplum
 
+- GPDB
 - [HAWQ](http://hawq.incubator.apache.org/) 是 Hadoop 生态圈里的 GP
 - [架构](https://github.com/greenplum-db/gpdb/wiki/Greenplum-Architecture)
 - https://github.com/greenplum-db/gpdb-postgres-merge
+- [Choosing the Table Storage Model](https://gpdb.docs.pivotal.io/6-6/admin_guide/ddl/ddl-storage.html)
 
 ```bash
 apt update

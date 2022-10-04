@@ -79,6 +79,8 @@ title: ClickHouse
     - 后台异步执行，全部数据重写，非原子操作，非常慢
     - 满足 GDPR 要求
 - 不支持读写分离 [#18452](https://github.com/ClickHouse/ClickHouse/issues/18452)
+- 一次 INSERT 的数据要求能全部加载到内存
+  - 因为需要基于 PK 排序
 
 :::
 

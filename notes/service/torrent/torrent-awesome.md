@@ -11,6 +11,11 @@ tags:
   - Java BitTorrent library with DHT, magnet links, encryption and more
 - [mafintosh/peerflix](https://github.com/mafintosh/peerflix)
   - Streaming torrent client for node.js
+- [Tribler/tribler](https://github.com/Tribler/tribler)
+  - GPLv3, Python
+  - Privacy enhanced BitTorrent client with P2P content discovery
+- [picotorrent/picotorrent](https://github.com/picotorrent/picotorrent)
+  - MIT, C++
 
 ## Search
 

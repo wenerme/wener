@@ -20,6 +20,7 @@ title: HELM 包管理器
   - [Helm Charts Best Practices](https://jfrog.com/blog/helm-charts-best-practices/)
   - [HELM Best practices](https://codefresh.io/docs/docs/new-helm/helm-best-practices/)
   - [Chart.yaml](https://helm.sh/docs/topics/charts/#the-chartyaml-file)
+  - [arttor/helmify](https://github.com/arttor/helmify)
 
 ```bash
 brew install helm

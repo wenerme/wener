@@ -17,30 +17,37 @@ tags:
 :::
 
 1. 场景
-  - OLTP 关系型 - PostgreSQL, MySQL
-  - NoSQL 性能型 - KV, Memory Grid
-  - OLAP 分析型 - Column
-  - 特殊场景
-    - Graph
-    - Document - MongoDB, FerratDB
-    - Search - OpenSearch, [solr](./search/solr.md), [manticoresearch](./search/manticoresearch.md)
-    - Auth/Zanzibar - spicedb
-    - MBaaS/Mobile - CouchDB, supabase, hasura, prisma, strapi
-    - Secret/Security - Vault
-    - Logging
-    - Metrics
-    - Treacing
+
+- OLTP 关系型 - PostgreSQL, MySQL
+- NoSQL 性能型 - KV, Memory Grid
+- OLAP 分析型 - Column
+- 特殊场景
+  - Graph
+  - Document - MongoDB, FerratDB
+  - Search - OpenSearch, [solr](./search/solr.md), [manticoresearch](./search/manticoresearch.md)
+  - Auth/Zanzibar - spicedb
+  - MBaaS/Mobile - CouchDB, supabase, hasura, prisma, strapi
+  - Secret/Security - Vault
+  - Logging
+  - Metrics
+  - Treacing
+
 1. 访问模式
-  - 精准访问 - KV, OLTP
-  - 批量访问 - OLAP
-  - 便利关系 - Graph
-  - 部分投射 - Column
+
+- 精准访问 - KV, OLTP
+- 批量访问 - OLAP
+- 便利关系 - Graph
+- 部分投射 - Column
+
 1. 分布式 - 如果要优先考虑分布式
-  - Citus
-  - Clickhouse, Scylldb
-  - OpenSearch
+
+- Citus
+- Clickhouse, Scylldb
+- OpenSearch
+
 1. 聚合分析 - 计算、缓存、分析
-  - cubejs, superset, trino
+
+- cubejs, superset, trino
 
 ## Tradeoff OLTP vs OLAP vs NoSQL
 
@@ -68,6 +75,12 @@ tags:
   - 满足特殊需求
   - 一般 默认支持分布式
 
+---
+
+案例: 8G 小文件数据, hash -> blob
+
+- ClickHouse < 1m
+- ScyllaDB - 触发 large data 警告, 触发写超时
 
 ## OLTP vs OLAP vs NoSQL vs NewSQL vs Data Warehouse vs Data Mart vs Data Lake
 

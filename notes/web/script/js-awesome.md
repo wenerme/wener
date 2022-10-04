@@ -638,10 +638,16 @@ A general purpose internationalization library in 292 bytes
 
 ## Crypto
 
+- Hashing
 - [travist/jsencrypt](https://github.com/travist/jsencrypt)
   - RSA
 - [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js)
   - Port of TweetNaCl cryptographic library to JavaScript
+- http://www.webtoolkit.info/javascript-sha1.html
+- http://www.webtoolkit.info/javascript-sha256.html
+- http://www.webtoolkit.info/javascript-md5.html
+- http://www.webtoolkit.info/javascript-base64.html
+- http://pajhome.org.uk/crypt/md5/
 
 ## UX
 

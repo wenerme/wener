@@ -19,7 +19,6 @@ tags:
 - http://ezyang.com/
 - Unconventional Sorting Algorithms [HN](https://news.ycombinator.com/item?id=28946451)
 - [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-- https://github.com/google/farmhash/blob/master/Understanding_Hash_Functions
 - https://github.com/postgres/postgres/blob/master/src/backend/lib/knapsack.c
 - https://en.wikipedia.org/wiki/Tutte_embedding
 - [algorithm-visualizer/algorithm-visualizer](https://github.com/algorithm-visualizer/algorithm-visualizer)

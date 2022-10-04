@@ -15,6 +15,21 @@ title: Signoz
 - signoz/signoz-otel-collector
 - [export K8s metrics](https://signoz.io/docs/tutorial/kubernetes-infra-metrics)
 
+
+| port  | for                                     |
+| ----- | --------------------------------------- |
+| 1777  | pprof extension                         |
+| 4317  | OTLP gRPC receiver                      |
+| 4318  | OTLP HTTP receiver                      |
+| 8888  | OtelCollector internal metrics          |
+| 8889  | signoz spanmetrics exposed by the agent |
+| 9411  | Zipkin port                             |
+| 13133 | health check extension                  |
+| 14250 | Jaeger gRPC                             |
+| 14268 | Jaeger thrift HTTP                      |
+| 55678 | OpenCensus receiver                     |
+| 55679 | zPages extension                        |
+
 :::note
 
 - OpenID Connect/OAuth2 support [#1188](https://github.com/SigNoz/signoz/issues/1188)
@@ -33,3 +48,7 @@ title: Signoz
 - 默认库
   - signoz_traces
   - signoz_metrics
+
+
+```bash
+```
