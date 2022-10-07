@@ -35,20 +35,27 @@ https://wener.tech 为国内备案域名，https://wener.me 为未备案域名�
 
 **之前**
 
-```mermaid
+import Mermaid from '@theme/Mermaid';
+
+<Mermaid
+  chart={`
 graph TD
     charts.wener.tech --CNAME--> AliyunCDN
     AliyunCDN --> GitHubPages
-```
+`}
+/>
+
 
 **之后**
 
-```mermaid
+<Mermaid
+  chart={`
 graph TD
     charts.wener.tech -- CNAME --> fb.wener.me
     fb.wener.me --> ArgoTunnel --Kubernetes--> Nginx
     Nginx --> GitHubPages
-```
+`}
+/>
 
 因为 wener.tech 是在国内，因此只能使用 CNAME 方式到 cloudflare，cloudflare 支持为外部域名配置 ssl ，然后 fallback 到托管域名。
 
