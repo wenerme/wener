@@ -174,12 +174,19 @@ ENGINE = SQLite('db_path');
   - 基于 PK 排序
   - 支持副本
   - 支持采样
+  - 支持 TTL
   - 自定义分片
   - sparse primary index
   - secondary data-skipping indexes
-  - `ORDER BY tuple()` 表示不需要排序
   - 索引
     - annoy - 空间
+  - `ORDER BY tuple()` 表示不需要排序
+  - `TTL create_time + INTERVAL 1 MONTH`
+  - SETTINGS
+    - index_granularity=8192
+  - 类似 LSM tree 结构
+    - `optimize table tbl final;`
+      - compaction
 - `Replicated*` - 副本 - 用于多节点
   - table 维度
   - 包含: INSERT, ALTER
@@ -188,19 +195,61 @@ ENGINE = SQLite('db_path');
     - RENAME - 可以让副本表名字不同
 - [ReplacingMergeTree([ver])](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replacingmergetree/)
   - 基于 sorting key 去重
+    - 在 compaction/optimize 时 - 耗时
+      - 不一定能满足实时要求
+    - 不同节点不能去重
+    - 分布式时 可能相同 key 在不同节点
   - 默认 保留最后插入
   - 如果给定了 ver 则会基于 ver 排序选择最终保留的
     - ver 类型为 `UInt*`, `Date`, `DateTime`, `DateTime64`
-- SummingMergeTree
-  - 合并相同 PK 到同一行，其他数据进行求和
-- AggregatingMergeTree
-  - 自定义合并聚合逻辑 - 类似 SummingMergeTree
 - CollapsingMergeTree
   - 基于 Sign 删除重复 - 可以多个相同数据
   - Sign = 1 - state
   - Sign = -1 - cancel
+  - 数据量大时可能导致 out-of-order 问题
 - VersionedCollapsingMergeTree
   - 在 CollapsingMergeTree 之上添加版本信息
+- SummingMergeTree
+  - 基于 PK 预聚合
+  - 聚合除了 PK 以外的所有列
+  - 如果类型 不能 sum，则随机选择一个值
+  - 用于加速查询
+    - 详细信息使用 MergeTree 存储
+- AggregatingMergeTree
+  - 自定义合并聚合逻辑 - 类似 SummingMergeTree
+
+### Log Family
+
+- Append sequence
+- 不支持 Delete & Update
+- 不支持 Index
+- 不支持 Atomic writing
+- insert block select
+
+---
+
+- TinyLog
+  - 不能 并行 读
+  - 查询性能差
+  - 格式简单，适合临时使用
+- StripLog
+  - 能 并行读
+  - 性能优于 TinyLog
+  - 以列格式存储为单个大文件
+- Log
+  - 类似 StripLog - 每个列单独文件
+
+### Special
+
+- Memory
+  - 适合不需要持久化的小表
+  - 临时表
+- Buffer
+  - Buffer 满后 flush 到磁盘
+- File
+  - 直接读取文件
+- Null
+  - 丢弃数据
 
 ### S3
 

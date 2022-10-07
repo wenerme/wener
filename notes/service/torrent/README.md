@@ -135,7 +135,6 @@ title: Torrent
 
 - SHA1
 
-
 ## BEP48
 
 Scrape for HTTP Tracker
@@ -152,8 +151,8 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
 ```json
 {
   "files": {
-    "xxxxxxxxxxxxxxxxxxxx": {"complete": 11, "downloaded": 13772, "incomplete": 19},
-    "yyyyyyyyyyyyyyyyyyyy": {"complete": 21, "downloaded": 206, "incomplete": 20}
+    "xxxxxxxxxxxxxxxxxxxx": { "complete": 11, "downloaded": 13772, "incomplete": 19 },
+    "yyyyyyyyyyyyyyyyyyyy": { "complete": 21, "downloaded": 206, "incomplete": 20 }
   }
 }
 ```
@@ -169,11 +168,12 @@ d5:filesd20:xxxxxxxxxxxxxxxxxxxxd8:completei11e10:downloadedi13772e10:incomplete
       - v1 不会设置
     - file tree
       - `<path>` - UTF-8, 不能有 . 和 .., root 必须是目录
+        - 文件包含 空 key
         - length - 文件长度
         - pieces root
           - root hash of a merkle tree with a branching factor of 2
           - 32 bytes
-          - piece >= 16KiB
+          - N\*16KiB
           - SHA2-256
     - files - 兼容 v1
       - attr=p 为 padding 文件

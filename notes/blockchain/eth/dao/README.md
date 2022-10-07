@@ -10,6 +10,19 @@ title: DAO
 - aragon
 - https://www.polkacity.io/
 - [gnosis/MultiSigWallet](https://github.com/gnosis/MultiSigWallet)
+- gnosis safe
+- cobo daas
+- dewrok
+- vote
+  - snapshot
+  - vetoken
+  - nft+token
+- defi
+- curve
+- cvx
+- dune
+- coordinape
+
 
 ## Glossary
 
