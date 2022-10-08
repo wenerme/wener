@@ -584,6 +584,15 @@ const nextConfig = {
 module.exports = nextConfig;
 ```
 
+## 动态路由 {#dynamic-routes}
+
+- `pages/post/[pid].js`
+- `pages/post/[pid]/[comment].js`
+- `pages/post/[...slug].js`
+- `pages/post/[[...slug]].js`
+  - 可选全部捕获
+  - 会匹配 - `/post`
+
 ## FAQ
 
 ### 检测在浏览器

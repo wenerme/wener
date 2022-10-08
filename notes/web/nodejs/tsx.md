@@ -19,6 +19,11 @@ ts-node --esm --transpileOnly run.ts
 tsx watch ./file.ts
 
 NODE_OPTIONS='--loader tsx' node ./file.ts
+
+# transpile
+# 假设用到的包 定义了 package.json#exports[.].typescript 指向源码
+tsx --conditions=typescript ./src/server.ts
+tsx watch --conditions=typescript ./src/server.ts
 ```
 
 | flag                | for |

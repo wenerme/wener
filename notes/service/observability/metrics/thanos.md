@@ -35,7 +35,7 @@ title: Thanos
   - 一个 bucket 只能运行 **一个** compact
     - 因此有一定规模后 compact 反而可能成为瓶颈
 - receive
-  - 以为需要缓存接收的数据，因此也需要磁盘空间 一般 3-5 G
+  - 因为需要缓存接收的数据，因此也需要磁盘空间 一般 3-5 G
 - 一个租户需要一个 Bucket
   - [#1318](https://github.com/thanos-io/thanos/issues/1318) 提议添加前缀 - 但工作量很大
 

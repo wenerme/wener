@@ -18,6 +18,8 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=32436949)
 - [google/osv.dev](https://github.com/google/osv.dev)
   - vulnerability DB and triage service
+- [soxoj/maigret](https://github.com/soxoj/maigret)
+  - Collect a dossier on a person by username from thousands of sites
 
 ## Service
 
@@ -152,6 +154,20 @@ tags:
 - [aquasecurity/trivy](https://github.com/aquasecurity/trivy)
   - Apache-2.0, Go
   - Scanner for vulnerabilities in container images, file systems, and Git
+- 服务
+  - https://www.shodan.io/search?query=clickhouse
+- [ivre/ivre](https://github.com/ivre/ivre)
+  - GPLv3, Python
+  - Network recon framework
+  - https://ivre.rocks/
+- https://www.arachni-scanner.com/
+- https://ecsypno.com/
+- https://github.com/Arachni
+- https://github.com/qadron/
+- https://github.com/ecsypno
+- https://github.com/scnr/
+- [laramies/theHarvester](https://github.com/laramies/theHarvester)
+  - E-mails, subdomains and names Harvester - OSINT
 
 ---
 
@@ -159,6 +175,8 @@ tags:
 
 ## 参考
 
+- wikipedia [DAST](https://en.wikipedia.org/wiki/Dynamic_application_security_testing)
+  - Dynamic application security testing
 - [Reverse Engineering Crypto Functions: AES](https://www.goggleheadedhacker.com/blog/post/reversing-crypto-functions-aes)
 - [klezVirus/vortex](https://github.com/klezVirus/vortex)
   - VPN Overall Reconnaissance, Testing, Enumeration and Exploitation Toolkit

@@ -561,6 +561,12 @@ npm add date-fns lodash-es react-fast-compare
     - global state for React with Hooks API without Context API
   - [dai-shi/react-hooks-worker](https://github.com/dai-shi/react-hooks-worker)
     - custom hooks for web workers
+- [effector](https://github.com/effector/effector)
+  - Application stores should be as light as possible
+  - Application stores should be freely combined
+  - Autonomy from controversial concepts
+  - Predictability and clarity of API
+  - The application is built from simple elements
 - [mobxjs/mobx](https://github.com/mobxjs/mobx)
   - mobx 58kB/16kB
   - mobx-react-lite 6kB/2kB
@@ -610,6 +616,7 @@ npm add date-fns lodash-es react-fast-compare
   - 跨组件状态变化
 - 参考
   - https://2020.stateofjs.com/en-US/technologies/datalayer/
+
 ## 图表
 
 - react-d3-tree
@@ -698,7 +705,6 @@ npm add date-fns lodash-es react-fast-compare
   - 性能好
   - Pro https://sheetjs.com/pro
 - [exceljs/exceljs](https://github.com/exceljs/exceljs)
-
 
 ## 参考
 

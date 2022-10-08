@@ -1,5 +1,7 @@
 ---
 title: n2n version
+tags:
+  - Version
 ---
 
 # n2n version

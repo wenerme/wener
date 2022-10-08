@@ -154,9 +154,16 @@ tags:
     - emulates the Node JS file system API
   - [filer](https://github.com/filerjs/filer)
     - BSD-2, JS
+    - 258kB/68Kb
     - drop-in replacement for node's fs module
     - backend: indexeddb, memory, custom
+    - [feross/buffer](https://github.com/feross/buffer)
+      - 26.8kB/8kB
   - [browserify/path-browserify](https://github.com/browserify/path-browserify)
+- files
+  - tar
+    - 77.4kB/23kB
+  - node:zlib
 - diagram
   - d3
   - [eclipse/sprotty](https://github.com/eclipse/sprotty)
@@ -185,6 +192,21 @@ tags:
   - threejs
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
     - React renderer for Three.js
+- ar/vr/xr
+  - [WebXR Device API](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API)
+    - Chrome 79
+  - [AR-js-org/AR.js](https://github.com/AR-js-org/AR.js)
+    - MIT, JS
+    - webgl, webrtc
+  - [fcor/arjs-gestures](https://github.com/fcor/arjs-gestures)
+    - Rotate and zoom with touch gestures
+  - [hiukim/mind-ar-js](https://github.com/hiukim/mind-ar-js)
+    - MIT, JS
+    - Image Tracking, Face Tracking. Tensorflow.js
+  - [AR-js-org/studio](https://github.com/AR-js-org/studio)
+  - Demo
+    - https://github.com/a86861636/webAR-demo
+      - https://blog.csdn.net/qq_28864105/article/details/119609531
 - color
   - [Qix-/color](https://github.com/Qix-/color)
   - color-name
@@ -451,12 +473,6 @@ tags:
   - [lukeed/polka](https://github.com/lukeed/polka)
     - Web Server
   - path-to-regexp
-
-https://github.com/lukeed/tinydate
-A tiny (349B) reusable date formatter. Extremely fast!
-
-A general purpose internationalization library in 292 bytes
-
 - audio
   - [bbc/peaks.js](https://github.com/bbc/peaks.js)
     - LGPLv3, JS
@@ -512,6 +528,11 @@ A general purpose internationalization library in 292 bytes
 
 ## Runtimes & Engines
 
+| Engine          | [QuickJS] | [DukTape] | [V8]  | MuJS | JerryScript | Hermes | XS   |
+| --------------- | --------- | --------- | ----- | ---- | ----------- | ------ | ---- |
+| License         | MIT       | MIT       | BSD-3 | ISC  | Apache-2.0  | MIT    | GPL  |
+| Executable size | 620K      | 331K      | 28M   | 244K | 211K        | 27M    | 1.2M |
+
 - Runtime - stdlib/sandboxing
   - NodeJS
   - Deno
@@ -521,10 +542,10 @@ A general purpose internationalization library in 292 bytes
     - multi-tenant serverless JavaScript runtime
     - V8 isolate
 - Engine - JIT
-  - V8
+  - [V8](https://github.com/v8/v8)
     - Chrome
   - JavaScriptCore
-    - Webkit
+    - [Webkit](https://github.com/WebKit/WebKit)
   - SpiderMonkey
     - Firefox
   - GraalJS

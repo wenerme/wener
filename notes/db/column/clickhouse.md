@@ -179,6 +179,21 @@ COPY...TO PROGRAM
   - 可在 pk 之外再添加 sk
 - sparse index
 
+## Awesome
+
+- [tabixio/tabix](https://github.com/tabixio/tabix)
+  - Apache-2.0, TS, React
+  - WebUI
+- [ildus/clickhouse_fdw](https://github.com/ildus/clickhouse_fdw)
+- [signoz](../../service/observability/tracing/signoz.md)
+- [uptrace](https://github.com/uptrace/uptrace)
+- [EdurtIO/dbm](https://github.com/EdurtIO/dbm)
+- [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
+- [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
+  - light weight log and data visual analytic platform for clickhouse
+- [korchasa/awesome-clickhouse](https://github.com/korchasa/awesome-clickhouse)
+
+
 ## Auth
 
 - LDAP

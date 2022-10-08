@@ -6,17 +6,24 @@ tags:
 
 # ECMAScript Version
 
-| Version | Official Name   | Date | Description     |
-| ------- | --------------- | ---- | --------------- |
-|         | JavaScript 1.0  | 1995 | by Brendan Eich |
-| ES1     | ECMAScript 1    | 1997 | ECMA-262        |
-| ES2     | ECMAScript 2    | 1998 |
-| ES3     | ECMAScript 3    | 1999 |
-| ES4     | ECMAScript 4    |      | 未发布          |
-| ES5     | ECMAScript 5    | 2009 |
-| ES6     | ECMAScript 2015 | 2015 |
-|         | ECMAScript 2016 | 2016 |
-| ES.Next |                 |      | 下一个版本      |
+| Version | Official Name                       | Date | Description     |
+| ------- | ----------------------------------- | ---- | --------------- |
+|         | JavaScript 1.0                      | 1995 | by Brendan Eich |
+| ES1     | ECMAScript 1                        | 1997 | ECMA-262        |
+| ES2     | ECMAScript 2                        | 1998 |
+| ES3     | ECMAScript 3                        | 1999 |
+| ES4     | ECMAScript 4                        |      | 未发布          |
+| ES5     | [ECMAScript 5](#ecmascript-5)       | 2009 |
+| ES6     | [ECMAScript 2015](#ecmascript-2015) | 2015 |
+|         | [ECMAScript 2016](#ecmascript-2016) | 2016 |
+|         | [ECMAScript 2017](#ecmascript-2017) | 2017 |
+|         | [ECMAScript 2018](#ecmascript-2018) | 2018 |
+|         | [ECMAScript 2019](#ecmascript-2019) | 2019 |
+|         | [ECMAScript 2020](#ecmascript-2020) | 2020 |
+|         | [ECMAScript 2021](#ecmascript-2021) | 2021 |
+|         | [ECMAScript 2022](#ecmascript-2022) | 2022 |
+|         | [ECMAScript 2023](#ecmascript-2023) | 2023 |
+| ES.Next |                                     |      | 下一个版本      |
 
 :::tip
 
@@ -24,22 +31,28 @@ tags:
 
 :::
 
-| stage   | for                   | note
-| ------- | --------------------- |
-| stage 0 | Strawperson|
-| stage 1 |Proposal|
-| stage 2 |Draft| 描述准确              |
-| stage 3 | Candidate| 实现,等待用户使用反馈 |
-| stage 4 | Finished | 准备添加到 标准       |
+| stage   | for         | note                  |
+| ------- | ----------- | --------------------- |
+| stage 0 | Strawperson |
+| stage 1 | Proposal    |
+| stage 2 | Draft       | 描述准确              |
+| stage 3 | Candidate   | 实现,等待用户使用反馈 |
+| stage 4 | Finished    | 准备添加到 标准       |
 
 :::tip 👀
 
-- Stage 3
+- Stage 3 - 接下来可能会加入到语言中的功能特性
   - Import Assertions
   - JSON Modules
   - Intl.DisplayNames
   - [proposal-temporal](https://github.com/tc39/proposal-temporal)
     - Temporal - 替代 Date
+  - 2023
+    - array group, groupToMap
+      - https://github.com/tc39/proposal-array-grouping
+    - Array - toReversed, toSorted, toSpliced, with
+      - https://github.com/tc39/proposal-change-array-by-copy
+    - Array.fromAsync
 - [modules-import-hooks-refactor](https://github.com/nicolo-ribaudo/modules-import-hooks-refactor)
   - stage 1
   - import 过程可控
@@ -72,6 +85,17 @@ tags:
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
   - https://en.wikipedia.org/wiki/ECMAScript
   - https://www.proposals.es/
+
+## ECMAScript 2023
+
+- findLast, findLastIndex
+  - `{Array, %TypedArray%}.prototype.findLastIndex`
+  - `{Array, %TypedArray%}.prototype.findLast`
+- Hashbang Grammar - JS 直接只为可执行脚本
+
+```js
+#!/usr/bin/env node
+```
 
 ## ECMAScript 2022
 
@@ -124,12 +148,15 @@ try {
 
 ## ECMAScript 2021
 
+- FinalizationRegistry
+  - 注册 GC 回调
+
 ```js
 String.prototype.replaceAll;
 
 Promise.any;
 
-// WeakRefs
+// WeakRef.prototype.deref
 new WeakRef(() => 1);
 
 // Logical Assignment Operators
@@ -300,7 +327,7 @@ Promise.resolve();
 // 默认参数, rest 参数
 function hello(name = 'world', ...props) {}
 
-const {a, b} = {a: 1, b: 2};
+const { a, b } = { a: 1, b: 2 };
 
 String.prototype.includes;
 String.prototype.startsWith;
@@ -339,7 +366,7 @@ Wener!',
 );
 
 // 允许关键字作为属性名
-const a = {new: 'yes'};
+const a = { new: 'yes' };
 
 String.prototype.trim;
 

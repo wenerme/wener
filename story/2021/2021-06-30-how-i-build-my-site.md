@@ -1,6 +1,8 @@
 ---
 title: 我的站点是如何构建的？！
 slug: how-i-build-my-site
+tags:
+  - Aliyun
 ---
 
 # 我的站点是如何构建的？！

@@ -72,3 +72,20 @@ declare var __DEV__: boolean;
 - https://github.com/microsoft/TypeScript/issues/29808
 
 ## Types of property 'propTypes' are incompatible
+
+## method-signature-style
+
+```ts
+interface Example {
+  // method shorthand syntax
+  func(arg: string): number;
+
+  // regular property with function type
+  func: (arg: string) => number;
+}
+```
+
+
+- method args - bivariant
+- function args - contravariant
+- https://github.com/microsoft/TypeScript/pull/18654

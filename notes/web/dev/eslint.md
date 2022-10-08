@@ -6,6 +6,10 @@ title: eslint
 
 ```bash
 npx eslint "src/**" --ext .ts --ext .tsx
+
+# fix single rule
+# eslint --fix --rule 'quotes: [2, double]' .
+eslint --no-eslintrc --parser @typescript-eslint/parser --fix --rule 'prefer-const: 1' src/**/*.ts
 ```
 
 - eslint-plugin-import
@@ -20,6 +24,9 @@ npx eslint "src/**" --ext .ts --ext .tsx
   - [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
     - [rules](https://typescript-eslint.io/rules/)
   - https://github.com/vercel/next.js/tree/canary/packages/eslint-config-next
+    - NextJS
+  - https://github.com/xojs/eslint-config-xo-typescript
+  - https://github.com/standard/eslint-config-standard-with-typescript
 
 ## 配置
 
@@ -56,6 +63,9 @@ module.exports = {
 /*eslint-disable */
 alert('foo');
 /*eslint-enable */
+
+// 忽略当前
+a==a// eslint-disable-line
 ```
 
 # FAQ

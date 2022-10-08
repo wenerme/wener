@@ -11,6 +11,20 @@ tags:
 - Apple Safari 不支持 VP9
 - Youtube 高清为 VP9
 
+## HEIC
+
+- HEIF - High Efficiency Image File Format
+  - SDR, HDR
+- HEIC: HEVC in HEIF
+- AVIF: AV1 in HEIF
+- AVCI: AVC in HEIF
+- HEVC - High Efficiency Video Coding - ITU-T H.265
+- MIAF - Multi-Image Application Format
+
+---
+
+- wikipedia [HEIF](https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format)
+
 ## MP4 vs MKV
 
 - MKV - Matroska

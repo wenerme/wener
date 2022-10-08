@@ -34,6 +34,7 @@ title: ESM
     - Chrome 93 - https://chromestatus.com/feature/5948572598009856
 - [JSON Module](https://github.com/tc39/proposal-json-modules)
   - Chrome 91 - https://chromestatus.com/feature/5749863620804608
+  - JSON 是可修改对象
 - ~~snowpack~~
   - ESM unbundled dev
 
@@ -87,8 +88,13 @@ document.adoptedStyleSheets = [...document.adoptedStyleSheets, styles];
   - node:
   - http:
   - https:
+- import.meta
+  - https://www.proposals.es/proposals/import.meta
 - import.meta.url
 - `import.meta.resolve(specifier[, parent])`
+  - Chrome 105
+  - https://github.com/whatwg/html/issues/8077
+  - https://html.spec.whatwg.org/#hostgetimportmetaproperties
   - `await import.meta.resolve('./dep', import.meta.url)`
 - import.meta.env
   - MODE,BASE_URL,PROD,DEV,SSR - ViteJS

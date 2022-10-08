@@ -220,17 +220,17 @@ console.log(testObj.getFullName()); // this works
 
 ```ts title='types.d.ts'
 declare module '*.module.css' {
-  const classes: {readonly [key: string]: string};
+  const classes: { readonly [key: string]: string };
   export default classes;
 }
 
 declare module '*.module.sass' {
-  const classes: {readonly [key: string]: string};
+  const classes: { readonly [key: string]: string };
   export default classes;
 }
 
 declare module '*.module.scss' {
-  const classes: {readonly [key: string]: string};
+  const classes: { readonly [key: string]: string };
   export default classes;
 }
 
@@ -256,7 +256,7 @@ export interface TypeWithArgs<T, A extends any[]> extends Function {
 }
 
 // 或者直接使用
-function create(ctor: {new (...args: any[]): A}): A {
+function create(ctor: { new (...args: any[]): A }): A {
   return new ctor();
 }
 ```
@@ -290,5 +290,5 @@ function createInstance<T extends Foo>(cls: FooStatic<T>) {
 ## DeepReadonly
 
 ```ts
-type DeepReadonly<T> = {readonly [K in keyof T]: DeepReadonly<T[K]>};
+type DeepReadonly<T> = { readonly [K in keyof T]: DeepReadonly<T[K]> };
 ```

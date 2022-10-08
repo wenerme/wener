@@ -3,11 +3,12 @@ slug: build-your-own-nas
 title: 组建你自己的 NAS 服务器
 tags:
   - 运维
+  - DevOps
 ---
 
 # 组建你自己的 NAS 服务器
 
-组件 NAS 需要考虑的因素和建议。
+组建 NAS 需要考虑的因素和建议。
 
 <!-- more -->
 

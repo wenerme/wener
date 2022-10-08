@@ -1,7 +1,7 @@
 ---
 title: NextJS 版本历史
 tags:
-  - version
+  - Version
 ---
 
 # NextJS 版本历史

@@ -1,13 +1,17 @@
+---
+title: cpu
+---
 
 ## cpufrequtils
-* [CPU frequency scaling](https://wiki.archlinux.org/index.php/CPU_frequency_scaling)
+
+- [CPU frequency scaling](https://wiki.archlinux.org/index.php/CPU_frequency_scaling)
 
 ```bash
 # 查看相关模块
 ls /usr/lib/modules/$(uname -r)/kernel/drivers/cpufreq/
 
 # System Utilities Based on Sysfs
-# systool 
+# systool
 # get_{device,driver,module}
 # dlist_test
 apk add sysfsutils

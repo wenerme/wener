@@ -42,7 +42,7 @@ title: VictoriaMetrics
 
 :::warning
 
-- vmauth 无法访问 /vmui [#1752](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1752)
+- ~~vmauth 无法访问 /vmui [#1752](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/1752)~~
 
 :::
 

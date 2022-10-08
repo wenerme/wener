@@ -4,7 +4,13 @@ title: Cloudflare Workers
 
 # Worker
 
+- [cloudflare/workerd](https://github.com/cloudflare/workerd)
+  - Apache-2.0, C++
+  - JavaScript/Wasm runtime that powers Cloudflare Workers
+  - V8+Patches
+  - 开源运行时
 - [cloudflare/wrangler](https://github.com/cloudflare/wrangler)
+  - 本地开发环境
 - [cloudflare/miniflare](https://github.com/cloudflare/miniflare)
   - Fully-local simulator
 - [skymethod/denoflare](https://github.com/skymethod/denoflare)
@@ -33,7 +39,7 @@ title: Cloudflare Workers
 
 :::note
 
-- [serverless-next.js#111](https://github.com/serverless-nextjs/serverless-next.js/issues/111)
+- Cloudflare Workers [serverless-next.js#111](https://github.com/serverless-nextjs/serverless-next.js/issues/111)
 
 :::
 

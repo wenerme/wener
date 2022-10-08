@@ -20,6 +20,9 @@ tags:
   - https://xpra.org/
   - [Xpra-org/xpra-html5](https://github.com/Xpra-org/xpra-html5)
     - https://xpra.org/html5/connect.html
+- Screensaver
+  - [sandydoo/flux](https://github.com/sandydoo/flux)
+    - macOS Drift screensaver
 
 ## DE
 

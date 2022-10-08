@@ -8,6 +8,19 @@ tags:
 
 - Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
 
+## Membrane
+
+- isolate two object graphs
+- 影响实现的 GC 逻辑
+
+---
+
+- [ajvincent/es-membrane](https://github.com/ajvincent/es-membrane)
+- [salesforce/observable-membrane](https://github.com/salesforce/observable-membrane)
+- [privacycg/js-membranes](https://github.com/privacycg/js-membranes)
+- https://tvcutsem.github.io/js-membranes
+- https://tvcutsem.github.io/membranes
+
 ## Date.toJSON include timezone
 
 ```js
@@ -15,7 +28,7 @@ tags:
 const now = new Date(2021, 12, 12, 0, 0, 0);
 // now.getTimezoneOffset() // local timezone offset
 console.assert(now.toJSON() === now.toISOString());
-JSON.stringify({now});
+JSON.stringify({ now });
 
 Date.prototype.toJSON = function () {
   // return moment(this).format();
@@ -38,6 +51,16 @@ Array.prototype.map.call($0.querySelectorAll('tr'), ($tr) =>
   Array.prototype.map.call($tr.querySelectorAll('td'), ($td) => $td.innerText),
 );
 ```
+
+## NaN self compare
+
+```js
+const a = Number('a');
+console.log(a === a); // false
+```
+
+- https://github.com/FormidableLabs/react-fast-compare/blob/d42bfe0b02de1e52023a7f94a074d356270718a7/index.js#L114
+- https://eslint.org/docs/latest/rules/no-self-compare
 
 ## Primitive vs Object
 
