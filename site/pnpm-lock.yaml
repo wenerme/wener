@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   '@docusaurus/plugin-content-docs@2.1.0':
-    hash: 6vb67oyy3wwy2ojbiwf45cjqgq
+    hash: oyhcbjambb2znquqsomrnigbii
     path: patches/@docusaurus__plugin-content-docs@2.1.0.patch
 
 specifiers:
@@ -61,7 +61,7 @@ specifiers:
 dependencies:
   '@docusaurus/core': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
   '@docusaurus/plugin-client-redirects': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
-  '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+  '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
   '@docusaurus/plugin-google-analytics': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
   '@docusaurus/plugin-google-gtag': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
   '@docusaurus/plugin-ideal-image': 2.1.0_oqqrtmnb2mmhskvy724rkiojaq
@@ -2043,7 +2043,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@docusaurus/plugin-content-docs/2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm:
+  /@docusaurus/plugin-content-docs/2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm:
     resolution: {integrity: sha512-Rup5pqXrXlKGIC4VgwvioIhGWF7E/NNSlxv+JAxRYpik8VKlWsk9ysrdHIlpX+KJUCO9irnY21kQh2814mlp/Q==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2300,7 +2300,7 @@ packages:
     dependencies:
       '@docusaurus/core': 2.1.0_y72hv7hm56fqhz7cvp7mc64huy
       '@docusaurus/plugin-content-blog': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
-      '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+      '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-content-pages': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-debug': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-google-analytics': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
@@ -2368,7 +2368,7 @@ packages:
       '@docusaurus/mdx-loader': 2.1.0_ib2iwjifd4zmoaockqb4matpda
       '@docusaurus/module-type-aliases': 2.1.0_cjvwiivvcmogrfy7gi2vvvhaki
       '@docusaurus/plugin-content-blog': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
-      '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+      '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-content-pages': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/theme-common': 2.1.0_y72hv7hm56fqhz7cvp7mc64huy
       '@docusaurus/theme-translations': 2.1.0
@@ -2418,7 +2418,7 @@ packages:
       '@docusaurus/mdx-loader': 2.1.0_cjvwiivvcmogrfy7gi2vvvhaki
       '@docusaurus/module-type-aliases': 2.1.0_cjvwiivvcmogrfy7gi2vvvhaki
       '@docusaurus/plugin-content-blog': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
-      '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+      '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-content-pages': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/utils': 2.1.0_esbuild@0.15.9
       '@types/history': 4.7.11
@@ -2459,7 +2459,7 @@ packages:
       '@docusaurus/mdx-loader': 2.1.0_ib2iwjifd4zmoaockqb4matpda
       '@docusaurus/module-type-aliases': 2.1.0_cjvwiivvcmogrfy7gi2vvvhaki
       '@docusaurus/plugin-content-blog': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
-      '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+      '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/plugin-content-pages': 2.1.0_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/utils': 2.1.0_zywnjm4gxhy5m53lra7riizngq
       '@types/history': 4.7.11
@@ -2536,7 +2536,7 @@ packages:
       '@docsearch/react': 3.2.1_2oftdjc235pafh5xn5kpmut4wm
       '@docusaurus/core': 2.1.0_y72hv7hm56fqhz7cvp7mc64huy
       '@docusaurus/logger': 2.1.0
-      '@docusaurus/plugin-content-docs': 2.1.0_6vb67oyy3wwy2ojbiwf45cjqgq_nkq3snnbtiwa2ipyyviapj6wnm
+      '@docusaurus/plugin-content-docs': 2.1.0_oyhcbjambb2znquqsomrnigbii_nkq3snnbtiwa2ipyyviapj6wnm
       '@docusaurus/theme-common': 2.1.0_y72hv7hm56fqhz7cvp7mc64huy
       '@docusaurus/theme-translations': 2.1.0
       '@docusaurus/utils': 2.1.0_zywnjm4gxhy5m53lra7riizngq

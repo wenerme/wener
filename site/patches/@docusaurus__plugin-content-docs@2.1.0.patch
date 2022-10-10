@@ -7,7 +7,7 @@ index 0fb619a175a8cc86996ee46245666287c5aef065..b79c55585e2399330d835541061835e7
          stripDirNumberPrefixes: parseNumberPrefixes,
          numberPrefixParser: options.numberPrefixParser,
 -    });
-+    }).replace(/\/([^\/]+)\/([^\/]+)\/\1-\2-/, '/$1/$2/').replaceAll(/\/([^/]+)\/\1-/,'/$1/').replace(/\/(kubernetes)\/k8s-/,'/$1/');
++    }).replace(/\/([^\/]+)\/([^\/]+)\/\1-\2-/, '/$1/$2/').replace(/\/([^/]+)\/\1-/,'/$1/').replace(/\/(kubernetes)\/k8s-/,'/$1/');
      // Note: the title is used by default for page title, sidebar label,
      // pagination buttons... frontMatter.title should be used in priority over
      // contentTitle (because it can contain markdown/JSX syntax)
