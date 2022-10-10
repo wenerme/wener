@@ -7,6 +7,8 @@ title: eslint
 ```bash
 npx eslint "src/**" --ext .ts --ext .tsx
 
+TIMING=1 npx eslint src # 输出时间，排查慢的插件
+
 # fix single rule
 # eslint --fix --rule 'quotes: [2, double]' .
 eslint --no-eslintrc --parser @typescript-eslint/parser --fix --rule 'prefer-const: 1' src/**/*.ts
@@ -67,6 +69,22 @@ alert('foo');
 // 忽略当前
 a==a// eslint-disable-line
 ```
+
+## tslint
+
+- @typescript-eslint/no-redeclare
+  - ignoreDeclarationMerge
+    - interface + interface
+    - namespace + namespace
+    - class + interface
+    - class + namespace
+    - class + interface + namespace
+    - function + namespace
+    - enum + namespace
+    - 没有 const + interface - utils 合集
+- @typescript-eslint/no-extraneous-class
+  - allowStaticOnly
+    - 方便暴露 utils 合集
 
 # FAQ
 

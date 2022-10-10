@@ -167,6 +167,8 @@ tags:
 - [kube-web-view alternatives](https://kube-web-view.readthedocs.io/en/latest/alternatives.html)
 - [oslabs-beta/kr8s](https://github.com/oslabs-beta/kr8s)
   - Docker/Kubernetes Visualization Tool
+- [dnsjia/luban](https://github.com/dnsjia/luban)
+  - Apache-2.0, Go+Vue3+AntD
 
 ## Distribution
 

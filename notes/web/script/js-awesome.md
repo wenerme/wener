@@ -491,7 +491,7 @@ tags:
 - test - WebStorm 支持 jest, mocha
   - node:test
     - NodeJS v18 内置 Test Runner
-  - jest
+  - [jest](../dev/testing/jest.md)
     - by Facebook
   - mocha
     - Selenium
@@ -501,9 +501,10 @@ tags:
   - storybook
   - playwright
   - cypress
-  - [ava](./lib/ava.md)
+  - [ava](../dev/testing/ava.md)
     - WebStrom Plugin [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835)
     - [WEB-21788](https://youtrack.jetbrains.com/issue/WEB-21788)
+  - [vitest](../dev/testing/vitest.md)
   - [testing library](https://github.com/testing-library)
     - react, dom
   - webdriver io
@@ -513,11 +514,15 @@ tags:
     - http://tap4j.org/
     - WebStorm 暂不支持 [WEB-20916](https://youtrack.jetbrains.com/issue/WEB-20916)
   - [ava vs jasmine vs jest vs mocha vs qunit](https://npmtrends.com/ava-vs-jasmine-vs-jest-vs-mocha-vs-qunit)
-- test utils
-  - [json-schema-faker](https://github.com/json-schema-faker/json-schema-faker)
+- random data generator/mock data
+  - [json-schema-faker](./lib/json-schema-faker.md)
     - https://json-schema-faker.js.org/
     - 不支持 draft 2019-09 [#289](https://github.com/json-schema-faker/json-schema-faker/issues/289#issuecomment-383902618)
-  - facker
+  - [@faker-js/faker](./lib/faker.md)
+    - 2.8MB, 907kB
+  - [chance](./lib/chance.md)
+    - 206kB, 67kB
+  - [danibram/mocker-data-generator](https://github.com/danibram/mocker-data-generator)
 - Presentation Slides
   - [slidevjs/slidev](https://github.com/slidevjs/slidev)
     - TS, Vue

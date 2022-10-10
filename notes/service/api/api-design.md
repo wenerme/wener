@@ -14,6 +14,13 @@ tags:
 - Google Cloud API [常见设计模式](https://cloud.google.com/apis/design/design_patterns)
   - `[start_xxx, end_xxx)`
   - `map<string, string> labels`
+- https://github.com/Microsoft/api-guidelines
+- https://cloud.google.com/apis/design/
+- https://opensource.zalando.com/restful-api-guidelines/
+  - [zalando/zally](https://github.com/zalando/zally)
+    - API linter
+- https://apistylebook.com/
+  - http://apistylebook.com/design/guidelines/
 
 ## gRPC API Design
 

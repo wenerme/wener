@@ -25,8 +25,6 @@ tags:
 - [google-research-datasets/disfl-qa](https://github.com/google-research-datasets/disfl-qa)
   - https://arxiv.org/abs/2106.04016
 - [vijaydwivedi75/gnn-lspe](https://github.com/vijaydwivedi75/gnn-lspe)
-- [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
-  - [HN](https://news.ycombinator.com/item?id=28962582)
 - [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
 - PyTorch 1.10 [HN](https://news.ycombinator.com/item?id=28955146)
 - [facebookresearch/salina](https://github.com/facebookresearch/salina)
@@ -127,7 +125,6 @@ tags:
 - [facebookresearch/contriever](https://github.com/facebookresearch/contriever)
 - https://bishopfox.com/blog/unredacter-tool-never-pixelation
   - unmask
-- [GPT-J is self-hosted open-source analog of GPT-3](https://tracklify.com/blog/gpt-j-is-self-hosted-open-source-analog-of-gpt-3-how-to-run-in-docker/)
 - [jokenox/Goopt](https://github.com/jokenox/Goopt)
   - 文本内容生成
 - [fastai/fastcore](https://github.com/fastai/fastcore)
@@ -141,9 +138,6 @@ tags:
 - [kuprel/min-dalle](https://github.com/kuprel/min-dalle)
   - DALL E Mini PyTorch
 - [borisdayma/dalle-mini](https://github.com/borisdayma/dalle-mini)
-- [yandex/YaLM-100B](https://github.com/yandex/YaLM-100B)
-  - GPT Pretrained language model with 100B parameters
-  - [HN](https://news.ycombinator.com/item?id=31846593)
 - [Keytap3: check if your keyboard can be eavesdropped through a microphone](https://keytap3.ggerganov.com/)
 - [iperov/DeepFaceLive](https://github.com/iperov/DeepFaceLive)
 - [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN)

@@ -4,6 +4,7 @@ title: limits
 
 # LIMIT
 
+- linux-pam 提供
 - /etc/security/limits.conf - 全局配置
 - /etc/security/limits.d/ - 通常用于配置单个进程
 - 参考

@@ -30,6 +30,8 @@ title: IP 地址库
   - https://db-ip.com/db/download/ip-to-country-lite
   - https://ipinfo.io
   - https://ipip.net
+- 多地点 IP 测试
+  - https://ping.chinaz.com/
 
 | CIDR             | Provider |
 | ---------------- | -------- |

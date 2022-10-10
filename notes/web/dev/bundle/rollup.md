@@ -70,6 +70,24 @@ rollup -i in.js -f es -p node-resolve -o out.js
 | umd             | Universal Module Definition    | amd, cjs, iife               | `browser`    |
 | system,systemjs | SystemJS                       | SystemJS                     |
 
+## Options
+
+```ts
+interface Options {
+  // 判断是否为 外部 依赖
+  external:
+    | (string | RegExp)[]
+    | RegExp
+    // string 为 module id
+    | string
+    // isResolved - id 是否由 插件 resolve
+    // 可能请求两次 - resolved=false, resolved=true
+    | ((id: string, parentId: string, isResolved: boolean) => boolean);
+}
+```
+
+- https://rollupjs.org/guide/en/#big-list-of-options
+
 ## 配置
 
 ### babel+ts
@@ -93,7 +111,7 @@ export default {
     },
     // id 为完整路径
     // 例如 将相同语言翻译合并 foo.strings.en.js,bar.strings.en.js -> shared.en.js
-    manualChunks(id, {getModuleInfo, getModuleIds}) {
+    manualChunks(id, { getModuleInfo, getModuleIds }) {
       if (id.includes('@blueprintjs/')) {
         return 'blueprintjs';
       }
@@ -124,7 +142,7 @@ export default {
 
 ```ts
 import typescript from '@rollup/plugin-typescript';
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
 export default [
@@ -152,7 +170,7 @@ export default [
 
 ```ts
 import commonjs from '@rollup/plugin-commonjs';
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 
 function createConfig(format) {
@@ -165,18 +183,18 @@ function createConfig(format) {
     },
     external: ['react'],
     plugins: [
-      nodeResolve({browser: true, extensions: ['.js', '.jsx', '.ts', '.tsx']}),
+      nodeResolve({ browser: true, extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
       babel({
         babelHelpers: 'bundled',
         babelrc: false,
-        presets: [['@babel/preset-typescript', {allowNamespaces: true}], '@babel/preset-react'],
+        presets: [['@babel/preset-typescript', { allowNamespaces: true }], '@babel/preset-react'],
         plugins: [
-          ['@babel/plugin-proposal-decorators', {legacy: true}],
-          ['@babel/plugin-proposal-class-properties', {loose: true}],
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+          ['@babel/plugin-proposal-class-properties', { loose: true }],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }),
-      commonjs({extensions: ['.js', '.jsx', '.ts', '.tsx']}),
+      commonjs({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
     ],
   };
 }
