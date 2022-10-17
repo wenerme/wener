@@ -6,6 +6,9 @@ tags:
 
 # Machine Learning Awesome
 
+- [GPT Awesome](./gpt-awesome.md)
+- [Stable Diffusion Awesome](./stable-diffusion-awesome.md)
+- [OCR Awesome](./ocr-awesome.md)
 - [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
 - [wunderwuzzi23/mlattacks](https://github.com/wunderwuzzi23/mlattacks)
@@ -160,6 +163,8 @@ tags:
 - orgs
   - [NVlabs](https://github.com/NVlabs)
   - [facebookresearch](https://github.com/facebookresearch)
+  - [THUDM](https://github.com/THUDM)
+    - 清华 KEG & 数据挖掘
 - music
   - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
 - serving

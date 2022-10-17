@@ -179,3 +179,12 @@ title: License
 - https://stackoverflow.com/a/44701/1870054
 - https://stackoverflow.com/a/44701/1870054
 - https://unicef.github.io/inventory/legal-policy/gpl-comparison/
+
+## 私有项目
+
+```
+We do not want anyone to see our source code, but if for any reason our code is stolen or otherwise obtained, we want to have a license that does not allow disclosure of any kind.
+```
+
+- `{"license": "UNLICENSED"}`
+- [What kind of license to put a private project?](https://softwareengineering.stackexchange.com/q/312009/126631)

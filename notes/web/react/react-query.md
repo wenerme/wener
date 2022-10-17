@@ -41,6 +41,63 @@ title: React Query
 
 :::
 
+## QueryClient
+
+- 框架无关客户端
+- 操作数据需要 queryKey
+- 执行查询需要 queryFn
+- fetchQuery - 会返回数据
+- prefetchQuery - 不会返回数据
+- getQueryData
+- setQueryData
+- getQueriesData
+- setQueriesData
+- Queries
+  - invalidate
+  - refetch
+  - cancel
+  - remove
+  - reset
+- getQueryState
+- isFetching
+- isMutating
+- getLogger
+- getDefaultOptions
+- setDefaultOptions
+- setQueryDefaults
+- getMutationDefaults
+- setMutationDefaults
+- getQueryCache
+- getMutationCache
+- clear
+- resumePausedMutations
+
+## useQuery
+
+- 通过 QueryObserver 监听查询
+  - 监听 client + options
+- 由 useQuery 处理的选项 - 由 QueryObserver 处理
+  - enabled, refetchInterval, refetchIntervalInBackground, refetchOnWindowFocus, refetchOnReconnect, notifyOnChangeProps, onSuccess, onError, onSettled, useErrorBoundary, select, suspense, keepPreviousData, placeholderData
+  - notifyOnChangeProps
+    - 哪些触发 rerender
+    - 例如: `['data', 'error']` 在 date 和 error 变化时触发
+    - 设置为 all 则所有状态变化都会 rerender
+    - 默认使用 getter 跟踪使用情况
+      - `Object.defineProperty(trackedResult, key, {configurable: false,enumerable: true,get:()=>{/* 添加跟踪 key */}})`
+    - 由 QueryObserver 实现监听逻辑
+
+```ts
+// 监听数据
+const observer = new QueryObserver(queryClient, { queryKey: ['posts'] });
+
+const unsubscribe = observer.subscribe((result) => {
+  console.log(result);
+  unsubscribe();
+});
+```
+
+- https://github.com/TanStack/query/blob/main/packages/query-core/src/queryObserver.ts
+
 ## Persist
 
 > **Note**
@@ -52,8 +109,8 @@ title: React Query
   - 会处理 restore - persistQueryClient 返回的 promise 被 resolve
 
 ```ts
-import {PersistQueryClientProvider} from '@tanstack/react-query-persist-client';
-import {createSyncStoragePersister} from '@tanstack/query-sync-storage-persister';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -68,7 +125,7 @@ const persister = createSyncStoragePersister({
 });
 
 ReactDOM.createRoot(rootElement).render(
-  <PersistQueryClientProvider client={queryClient} persistOptions={{persister}}>
+  <PersistQueryClientProvider client={queryClient} persistOptions={{ persister }}>
     <App />
   </PersistQueryClientProvider>,
 );
@@ -123,8 +180,8 @@ const [unsubscribe, promise] = persistQueryClient({
 ## React Query v2.x
 
 ```ts
-import {useQuery, QueryCache, ReactQueryCacheProvider} from 'react-query';
-import {ReactQueryDevtools} from 'react-query-devtools';
+import { useQuery, QueryCache, ReactQueryCacheProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 const queryCache = new QueryCache();
 
@@ -226,7 +283,7 @@ const {
 ```ts
 const [
   mutate, // 修改操作
-  {status, isIdle, isLoading, isSuccess, isError, data, error, reset},
+  { status, isIdle, isLoading, isSuccess, isError, data, error, reset },
 ] = useMutation(mutationFn, {
   onMutate,
   onSuccess,

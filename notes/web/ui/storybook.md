@@ -40,7 +40,7 @@ yarn add --dev @storybook/addon-{actions,links,knob}
 import '../src/styles/globals.css';
 
 export const parameters = {
-  actions: {argTypesRegex: '^on[A-Z].*'},
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -51,8 +51,8 @@ export const parameters = {
   // 全局参数
   backgrounds: {
     values: [
-      {name: 'red', value: '#f00'},
-      {name: 'green', value: '#0f0'},
+      { name: 'red', value: '#f00' },
+      { name: 'green', value: '#0f0' },
     ],
   },
 };
@@ -61,11 +61,52 @@ import React from 'react';
 
 export const decorators = [
   (Story) => (
-    <div style={{margin: '3em'}}>
+    <div style={{ margin: '3em' }}>
       <Story />
     </div>
   ),
 ];
 
-export const globalTypes = {}
+export const globalTypes = {};
+```
+
+## docs
+
+- 所有 stories 都会生成 DocsPage
+
+```tsx
+import { Meta } from '@storybook/addon-docs';
+import Changelog from '../CHANGELOG.md';
+
+<Meta title="Changelog" />
+
+<Changelog />
+```
+
+**隐藏 Docs**
+
+```ts
+export default {
+  title: 'YourTitle',
+  parameters: {
+    previewTabs: {
+      'storybook/docs/panel': { hidden: true },
+    },
+    viewMode: 'canvas',
+  },
+};
+```
+
+**默认 Docs**
+
+```ts
+export default {
+  title: 'YourTitle',
+  parameters: {
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    viewMode: 'docs',
+  },
+};
 ```

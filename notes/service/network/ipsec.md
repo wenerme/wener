@@ -1,11 +1,9 @@
 ---
-id: ipsec
 title: IPSec
 ---
 
 # IPSec
 
-## Tips
 - 一套协议而不是单个协议
 - 加密数据
 - 验证来源

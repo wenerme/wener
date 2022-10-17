@@ -6,6 +6,10 @@ title: BlueprinrJS
 
 - [palantir/blueprint](https://github.com/palantir/blueprint)
 - [Blueprint v4.0 & v5.0 semantic swap](https://github.com/palantir/blueprint/wiki/Blueprint-v4.0-&-v5.0-semantic-swap)
+- 每个 PR 构建成功都会有个 Demo 页面
+  - https://github.com/palantir/blueprint/pull/5667#issuecomment-1273593824
+  - Demo 页能很好的预览所有组件样式
+  - https://output.circle-artifacts.com/output/job/d898ab7d-232d-4915-8d3b-5e0476f6dcbe/artifacts/0/packages/demo-app/dist/index.html
 
 :::not
 

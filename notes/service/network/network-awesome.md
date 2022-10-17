@@ -5,6 +5,8 @@ tags:
 
 # Network Awesome
 
+- [VPN Awesome](./vpn-awesome.md)
+- [Proxy Awesome](./proxy-awesome.md)
 - [cjdelisle/cjdns](https://github.com/cjdelisle/cjdns)
   - GPLv3, C+Python
   - encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing
@@ -14,6 +16,17 @@ tags:
   - zero trust, application embedded, programmable network
 - TCP over ICMP
   - https://github.com/esrrhs/pingtunnel/tree/delete
+- VIP
+  - Keepalived
+  - UCARP
+  - Hardware Load-balancer
+- LoadBalancing
+  - HAProxy
+  - Nginx
+  - Hardware Load-balancer
+- [Overlay](https://en.wikipedia.org/wiki/Overlay_network)
+- [Tinc](./tinc/README.md)
+- [zeritier](./zerotier.md)
 
 ## Analysis
 

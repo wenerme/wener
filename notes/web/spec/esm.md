@@ -255,15 +255,25 @@ const { default: info } = await import("./package.json", {
 - https://github.com/guybedford/es-module-shims
 - https://github.com/wicg/import-maps
 
+## import.meta.resolve
+
+- https://nodejs.org/api/esm.html#resolution-algorithm
+- https://github.com/browserify/resolve/issues/222
+  Support ESM resolution
+- https://github.com/webpack/enhanced-resolve
+- https://github.com/nodejs/node/pull/43363/files
+  - NodeJS convert resolve to sync
+- [lib/internal/modules/esm/resolve.js](https://github.com/nodejs/node/blob/19a909902aec2cb9af13bf901db720b0b9472294/lib/internal/modules/esm/resolve.js#L625-L683)
+
 # FAQ
 
 ## Directory import is not supported resolving ES modules
 
 ```ts
 // 不可以
-const M = import('./modules/core')
+const M = import('./modules/core');
 // 可以
-const M = import('./modules/core/index.js')
+const M = import('./modules/core/index.js');
 ```
 
 ## \_\_dirname is not defined in ES module scope
@@ -277,7 +287,7 @@ var __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 ```
 
 ```ts
-import {fileURLToPath} from 'node:url';
+import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 var __filename = fileURLToPath(import.meta.url);
@@ -365,4 +375,4 @@ declare global {
 
 - type=module
 
-## __esModule
+## \_\_esModule

@@ -5,7 +5,7 @@ title: Alpine 运维笔记
 ## Tips
 
 ```bash
-lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 查看磁盘硬盘
+lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE         # 查看磁盘硬盘
 lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 使用 NAME 排序
 
 apk add wpa_supplicant e2fsprogs-extra # 基础安装包
@@ -138,7 +138,6 @@ apk fetch -vRo $REPO/$ARCH -X http://mirrors.aliyun.com/alpine/edge/main --no-ca
 apk index -o $REPO/$ARCH/APKINDEX.tar.gz $REPO/$ARCH/*.apk
 apk -X $REPO update --allow-untrust
 apk -X $REPO search --allow-untrust nano
-
 ```
 
 ## 容器
@@ -250,9 +249,9 @@ ls -lh /dev/disk/by-id/ | grep 'sd.$'
 # raidz 使用 RADI-Z 冗余
 zpool create -f -o ashift=12 -m /mnt/data p1 \
   raidz \
-    ata-VBOX_HARDDISK_VB63cffc10-3a66b288 \
-    ata-VBOX_HARDDISK_VBfb21373d-56cc6c57 \
-    ata-VBOX_HARDDISK_VB91ae7aad-d4a73895
+  ata-VBOX_HARDDISK_VB63cffc10-3a66b288 \
+  ata-VBOX_HARDDISK_VBfb21373d-56cc6c57 \
+  ata-VBOX_HARDDISK_VB91ae7aad-d4a73895
 
 # 查看状态
 zpool status
@@ -512,7 +511,6 @@ http://scst.sourceforge.net/
 #   /etc/iscsi/iscsid.conf
 #   /etc/iscsi/ifaces/iface
 apk add open-iscsi
-
 ```
 
 ## stress
@@ -602,7 +600,6 @@ umount /mnt/image
 
 # 断开连接
 qemu-nbd -c /dev/nbd0
-
 ```
 
 ## ftp
@@ -630,7 +627,6 @@ ftpd_banner=Welcome to wener FTP service.
 listen=YES
 background=NO
 " > /etc/vsftpd/vsftpd.conf
-
 ```
 
 ## lvm

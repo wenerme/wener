@@ -4,10 +4,12 @@ title: dd
 
 # dd
 
-| opt    | default | iflag | val     |
-| ------ | ------- | ----- | ------- |
-| bs     | 512     |
-| status |         |       | process |
+| opt      | default | iflag | val     | for |
+| -------- | ------- | ----- | ------- | --- |
+| bs=BYTES | 512     |       |         | ibs,obs
+| status   |         |       | process |
+| seek=N   |
+| skip=N   |
 
 - https://man7.org/linux/man-pages/man1/dd.1.html
 

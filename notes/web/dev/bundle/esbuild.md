@@ -50,6 +50,7 @@ title: ESBuild
 :::caution
 
 - watch 使用 polling 实现 - 无任何操作也会消耗一点 CPU
+- watch 无法检测到新文件
 
 :::
 

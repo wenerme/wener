@@ -37,18 +37,24 @@ tags:
 - [build.alpinelinux.org](https://build.alpinelinux.org)
   Build status
 
-## Awesome
-
 ## Derivative OS
 
 - [rancher/k3os](https://github.com/rancher/k3os)
+  - for K3S & Kubernetest
   - https://kubedex.com/kubernetes-operating-systems/
-- [rancher/os](https://github.com/rancher/os) - 并不是完全从 Alpine 派生
-- https://postmarketos.org/ - mobile
+- [rancher/os](https://github.com/rancher/os)
+  - for Rancher & Kubernetest
+  - 并不是完全从 Alpine 派生
+- [postmarketOS](https://postmarketos.org/)
+  - for Mobile
   - https://gitlab.com/postmarketOS
-- https://adelielinux.org/ - desktop
+- [Adélie Linux](https://adelielinux.org/)
+  - for Desktop
   - https://git.adelielinux.org/adelie
   - https://www.adelielinux.org/download/
+- [Alpaquita Linux](https://bell-sw.com/alpaquita-linux/)
+  - for Java
+  - 有 GLIBC 分支
 
 ## TBD
 

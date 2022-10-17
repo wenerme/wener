@@ -159,6 +159,16 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 
 - Software Architecture Patterns
 
+## Layout Engine
+
+- [facebook/yoga](https://github.com/facebook/yoga)
+  - MIT, C++, JS
+  - Flexbox. Follow
+- [tategakibunko/nehan](https://github.com/tategakibunko/nehan)
+  - MIT, TS
+  - paged-media - 书籍
+  - https://tategakibunko.github.io/nehan-playe
+
 ## CICD
 
 - drone

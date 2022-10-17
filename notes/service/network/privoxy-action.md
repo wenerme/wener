@@ -1,11 +1,10 @@
 ---
-id: privoxy-action
 title: Privoxy Action
 ---
 
 # Privoxy Action
 
-* [Action file](https://www.privoxy.org/user-manual/actions-file.html)
+- [Action file](https://www.privoxy.org/user-manual/actions-file.html)
 
 ## 语法
 
@@ -18,13 +17,13 @@ title: Privoxy Action
 
 ## 重定向 google 的搜索结果为 https
 
-
 ```ini
 {+redirect{s@^http://[^/]*/search\?q=([^&]*).*@https://encrypted.google.com/search?q=$1@}}
 .google.*/search
 ```
 
 ## 覆盖转发
+
 ```ini
 # 转发特定域名到特定远程 Socks
 {+forward-override{forward-socks5t 127.0.0.1:1080 .}}
@@ -45,6 +44,7 @@ title: Privoxy Action
 ```
 
 ### match-all.action
+
 ```ini
 { \
 # 移除 X-Forwarded-For

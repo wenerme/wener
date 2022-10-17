@@ -4,14 +4,20 @@ title: Single SPA
 
 # Single SPA
 
-- 注意
-  - 建议使用单个版本框架
+- [single-spa/single-spa](https://github.com/single-spa/single-spa)
 - 参考
   - [推荐设置](https://single-spa.js.org/docs/recommended-setup/)
   - [single-spa/single-spa-inspector](https://github.com/single-spa/single-spa-inspector) - 浏览器插件
   - [react-microfrontends](https://github.com/react-microfrontends)
   - [从 0 实现一个 single-spa 的前端微服务](https://juejin.im/post/5e5ca537e51d4526f16e5065)
     - 对比了 qiankun 和 single-spa
+
+:::tip
+
+- 建议使用单个版本框架
+- 适用于跨框架 - 如果不 跨框架，建议自行封装一个简单的挂载逻辑
+
+:::
 
 | Topic    | 应用/application | parcel             | 工具/utility |
 | -------- | ---------------- | ------------------ | ------------ |

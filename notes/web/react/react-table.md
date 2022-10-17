@@ -17,11 +17,15 @@ title: react-table
 
 ## Note
 
-- react-table 核心功能
+- table-core
   - 状态管理
   - 操作 reduce
   - 行列处理
   - 其他功能由插件提供
+- react-table 基于 table-core 提供简单的状态管理
+  - 提供 flexRender, useReactTable
+- useReactTable
+  - 处理 - state, onStateChange
 
 ## useTable
 

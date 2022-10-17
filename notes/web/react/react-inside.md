@@ -1,5 +1,7 @@
 ---
 title: Inside
+tags:
+  - Insight
 ---
 
 # React Inside
@@ -131,14 +133,14 @@ const ReactElement = (type, key, ref, self, source, owner, props) => {
     _owner: owner,
 
     // dev 相关属性
-    _store: {validated: false},
+    _store: { validated: false },
     _self: self,
     _source: source,
   };
 };
 
 function jsx(type, config, maybeKey, source, self) {
-  const {key, ref, __self, __source, ...props} = config;
+  const { key, ref, __self, __source, ...props } = config;
   return ReactElement(
     type,
     maybeKey || key || undefined,
@@ -156,7 +158,7 @@ const lazy = (ctor) => {
   return {
     $$typeof: REACT_LAZY_TYPE,
     // Uninitialized -> Pending -> Resolved, Rejected
-    _payload: {_status: Uninitialized, _result: ctor},
+    _payload: { _status: Uninitialized, _result: ctor },
     // 会维护 _payload
     // 非 Resolved 会 throw payload._result
     _init: lazyInitializer,
@@ -164,7 +166,7 @@ const lazy = (ctor) => {
 };
 
 const forwardRef = (render) => {
-  return {$$typeof: REACT_FORWARD_REF_TYPE, render};
+  return { $$typeof: REACT_FORWARD_REF_TYPE, render };
 };
 
 const memo = (type: React$ElementType, compare?) => {
@@ -410,6 +412,7 @@ import.meta.webpackHot.accept(
   - esm import.meta.webpackHot
 
 ## react-is
+
 - 通过构造的 $$typeof 来判断是否为内部对象类型
 - `.$$typeof`
   - ELEMENT
@@ -431,3 +434,36 @@ import.meta.webpackHot.accept(
   - https://github.com/facebook/react/blob/main/packages/react-is/src/ReactIs.js
 - ReactSymbols
   - https://github.com/facebook/react/blob/main/packages/shared/ReactSymbols.js
+
+## Offscreen
+
+```tsx
+const Offscreen = React.unstable_Offscreen;
+const Hello = () => {
+  return (
+    <Offscreen mode={hidden ? 'hidden' : 'visible'}>
+      <Component />
+    </Offscreen>
+  );
+};
+```
+
+- 还在 experimental
+- React.unstable_Offscreen
+- https://jser.dev/react/2022/04/17/offscreen-component.html
+
+## experimental
+
+- react act
+  - https://reactjs.org/docs/test-utils.html#act
+- Cache
+  - getCacheSignal
+  - getCacheForType
+  - useCacheRefresh
+  - useMemoCache
+  - use
+- experimental_useEvent
+- DebugTraceMode
+- Offscreen
+- SuspenseList
+- https://github.com/facebook/react/blob/main/packages/react/index.experimental.js

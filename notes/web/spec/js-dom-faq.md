@@ -5,6 +5,33 @@ tags:
 
 # JS DOM FAQ
 
+## open vs visible
+
+接口选择 open 还是 visible 属性？
+
+- open - 推荐
+  - open/close
+  - onClose
+  - 一般很少见 onOpenChange, 可能直接 onChange
+- visible
+  - onVisbleChange 常见，直观
+  - 但 visible 一般意味着 dom 存在、占用位置
+
+---
+
+- dialog
+  - 使用 open 属性
+  - show(), showModal()
+- HTMLPopupElement
+  - 使用 open 属性
+  - show(), hide()
+- CSS
+  - visible 占用位置
+  - display:none 不占用位置
+- headlessui
+  - 统一使用 open 属性
+  - 传递 close 方法
+
 ## query sibling
 
 ```js

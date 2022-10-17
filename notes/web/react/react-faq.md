@@ -338,4 +338,8 @@ class B extends React.Component {
 ```
 
 - 由 React Developer Tools 注入
-- 导致页面无法滚动
+
+## Cannot assign to read only property '_status' of object
+
+- 可能 React.lazy 导致
+- 可能 隐藏了实际异常

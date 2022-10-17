@@ -22,3 +22,5 @@ tags:
 - Make-A-Video: AI system that generates videos from text https://makeavideo.studio/
   - [HN](https://news.ycombinator.com/item?id=33020181)
 - disco diffusion
+- [lkwq007/stablediffusion-infinity](https://github.com/lkwq007/stablediffusion-infinity)
+  - https://huggingface.co/spaces/lnyan/stablediffusion-infinity

@@ -14,12 +14,13 @@ title: Mirrors
 
 ## 镜像站点
 
-| URL                             | 地址   |
-| ------------------------------- | ------ |
-| https://mirrors.aliyun.com      | 阿里云 |
-| https://mirrors.163.com         | 网易   |
-| https://mirror.azure.cn/        | Azure  |
-| https://mirrors.huaweicloud.com | 华为   |
+| URL                                | 地址   |
+| ---------------------------------- | ------ |
+| https://mirrors.aliyun.com         | 阿里云 |
+| https://mirrors.163.com            | 网易   |
+| https://mirror.azure.cn/           | Azure  |
+| https://mirrors.huaweicloud.com    | 华为   |
+| https://mirrors.cloud.tencent.com/ | 腾讯云 |
 
 **高校镜像**
 
@@ -53,6 +54,8 @@ title: Mirrors
 | https://mirrors.xjtu.edu.cn           | 西安交大         |
 | https://mirrors.ynu.edu.cn/           | 云南大学         |
 | https://mirrors.zju.edu.cn/           | 浙江大学         |
+
+- https://github.com/SUSTech-CRA/chinese-opensource-mirror-site
 
 ## Github
 

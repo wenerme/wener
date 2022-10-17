@@ -8,6 +8,17 @@ tags:
 
 - Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
 
+## 内存泄露
+
+- 常见场景
+  1. 全局变量
+  1. 闭包
+  1. DOM
+  1. 定时器
+  1. EventListener
+  1. console.log
+
+
 ## Membrane
 
 - isolate two object graphs

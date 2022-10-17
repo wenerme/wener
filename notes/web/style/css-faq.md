@@ -533,10 +533,35 @@ img {
 
 1. 使用 div 重新实现 table
 1. `position: sticky`
-  - 需要计算偏移位置
+
+- 需要计算偏移位置
+
 1. 使用 `border-collapse: separate` + `border-spacing: 0`
-  - tailwindcss `border-separate border-spacing-0`
+
+- tailwindcss `border-separate border-spacing-0`
 
 ---
 
 - https://stackoverflow.com/q/1312236/1870054
+
+## 获取所有 CSS 变量
+
+```js
+Array.from(document.styleSheets)
+  .filter((sheet) => sheet.href === null || sheet.href.startsWith(window.location.origin))
+  .reduce(
+    (acc, sheet) =>
+      (acc = [
+        ...acc,
+        ...Array.from(sheet.cssRules).reduce(
+          (def, rule) =>
+            (def =
+              rule.selectorText === ':root'
+                ? [...def, ...Array.from(rule.style).filter((name) => name.startsWith('--'))]
+                : def),
+          [],
+        ),
+      ]),
+    [],
+  );
+```

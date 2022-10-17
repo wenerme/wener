@@ -7,7 +7,7 @@ title: nebula
 - [slackhq/nebula](https://github.com/slackhq/nebula) 是什么？
   - MIT
   - P2P overlay 网络 - 类似 Tinc
-  - Layer 3 - IP 层 - 不支持 MAC - 预先配置网络
+  - Layer 3 - IP 层 - 不支持 MAC - 预先配置网络
   - 注重性能和简洁
   - 支持 iOS 和 Android - [DefinedNet/mobile_nebula](https://github.com/DefinedNet/mobile_nebula)
     - Flutter+Go binding

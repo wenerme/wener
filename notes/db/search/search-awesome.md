@@ -52,7 +52,7 @@ tags:
 - [blugelabs/bluge](https://github.com/blugelabs/bluge)
   - Apache-2.0, Go
   - indexing library for Go
-- Bluge
+- Bluge Based
   - [prabhatsharma/zinc](https://github.com/prabhatsharma/zinc)
     - Apache-2.0, Go+Vue
     - alternative to elasticsearch
@@ -64,13 +64,6 @@ tags:
   - MIT, Rust
   - 索引要能放入 RAM - 小数据量场景
   - BucketSort
-- Vector
-  - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
-    - MIT, C++
-    - efficient similarity search and clustering of dense vectors
-  - [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
-    - BSD-3, Golang
-    - cloud-native, modular, real-time vector search engine
 - [wibyweb/wiby](https://github.com/wibyweb/wiby)
   - GPLv2
 - [wilsonzlin/edgesearch](https://github.com/wilsonzlin/edgesearch)
@@ -100,6 +93,7 @@ tags:
 - [beir-cellar/beir](https://github.com/beir-cellar/beir)
   - Heterogeneous Benchmark for Information Retrieval
 - Web
+  - pagefind
   - [nearform/lyra](https://github.com/nearform/lyra)
     - @nearform/lyra
     - in-memory, typo-tolerant, full-text search engine

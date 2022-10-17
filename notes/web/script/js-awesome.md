@@ -500,15 +500,21 @@ tags:
   - puppeteer
   - storybook
   - playwright
-  - cypress
+  - [lost-pixel](https://github.com/lost-pixel/lost-pixel)
   - [ava](../dev/testing/ava.md)
     - WebStrom Plugin [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835)
     - [WEB-21788](https://youtrack.jetbrains.com/issue/WEB-21788)
   - [vitest](../dev/testing/vitest.md)
   - [testing library](https://github.com/testing-library)
     - react, dom
+  - [lukeed/uvu](https://github.com/lukeed/uvu)
   - webdriver io
-  - [nightwatch](https://github.com/nightwatchjs/nightwatch)
+  - E2E - Browser
+    - cypress
+    - [Web Test Runner](https://modern-web.dev/docs/test-runner/overview/)
+    - [nightwatch](https://github.com/nightwatchjs/nightwatch)
+      - MIT, JS
+      - W3C Webdriver API
   - tap - 测试协议
     - [tapjs/node-tap](https://github.com/tapjs/node-tap)
     - http://tap4j.org/
@@ -526,6 +532,10 @@ tags:
 - Presentation Slides
   - [slidevjs/slidev](https://github.com/slidevjs/slidev)
     - TS, Vue
+- Font
+  - [opentypejs/opentype.js](https://github.com/opentypejs/opentype.js)
+- MISC
+  - [trevorlinton/webkit.js](https://github.com/trevorlinton/webkit.js)
 
 ---
 
@@ -542,6 +552,8 @@ tags:
   - NodeJS
   - Deno
   - Bun
+  - [workerd](../dev/workerd.md)
+  - [edge-runtime](../dev/edge-runtime.md)
   - [losfair/blueboat](https://github.com/losfair/blueboat)
     - Apache-2.0, Rust
     - multi-tenant serverless JavaScript runtime

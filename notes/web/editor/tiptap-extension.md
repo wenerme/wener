@@ -17,13 +17,23 @@ title: Tiptap Extension
 - Node + Mark 组成 ProseMirror 的 Schema
 - 方法
   - chain - 一次性执行多个 commands
+    - 在一次 tx 里
+  - can - 判断 command 能否自信
+    - 不会传递 dispatch
   - getHTML, getJSON, getText
   - getAttributes
   - isActive - 检查选中内容是否匹配条件
   - registerPlugin, unregisterPlugin
-  - setOptions, setEditable, isEditable, isEmpty
-- commands
-  - focus - focus Editor
+  - setOptions, setEditable
+  - destroy
+- 属性
+  - commands - 所有命令
+    - focus - focus Editor
+  - storage - 插件额外信息存储
+  - state - 状态存储
+  - isEditable
+  - isEmpty
+  - isDestroyed
 - 事件
   - beforeCreate, creaate
   - update
@@ -262,65 +272,6 @@ const CustomExtension = Extension.create<CustomExtensionOptions, CustomExtension
       return ReactNodeViewRenderer(Component);
     };
   },
-});
-```
-
-##
-
-## Editor
-
-- Node + Mark 组成 ProseMirror 的 Schema
-- 方法
-  - chain - 一次性执行多个 commands
-  - getHTML, getJSON, getText
-  - getAttributes
-  - isActive - 检查选中内容是否匹配条件
-  - registerPlugin, unregisterPlugin
-  - setOptions, setEditable, isEditable, isEmpty
-- commands
-  - focus - focus Editor
-- 事件
-  - beforeCreate, creaate
-  - update
-  - selectionUpdate
-  - transaction
-  - focus, blur
-  - destroy
-
-## Node vs Mark
-
-- Node
-  - block 元素
-  - tag 标签
-  - atom 为不可直接编辑 Node - 例如 Mention
-- Mark
-  - node 的属性
-  - tag 属性、样式
-  - 可应用于部分 Node
-
-```ts
-const MyNode = Node.create({
-  name: 'my-node',
-  content: 'block+', // 允许内容 - +,*,?,|,()
-  group: 'block', // node 分组
-  inline: true,
-  atom: false,
-  selectable: true,
-  draggable: true,
-  code: false,
-  whitespace: 'pre', // 控制空白 处理 逻辑
-  defining: false, // 粘贴的时候是否保留
-  allowGapCursor: false,
-  isolating: false, // 隔离编辑范围 - 例如 TableCell
-  tableRole: 'cell', //  Table 扩展定义的角色 - table, row, cell, header_cell
-  marks: 'bold', // 允许 mark - _ 任意, '' 不允许
-});
-const MyMark = Mark.create({
-  inclusive: false, // 光标在结尾的时候是否包含在当前 mark - 例如 Link 为 false
-  excludes: 'bold', // 排他 mark
-  group: 'basic',
-  code: false, // 内容是否为代码
-  spanning: false, // 是否可以跨多个节点
 });
 ```
 

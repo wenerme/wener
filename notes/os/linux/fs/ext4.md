@@ -7,27 +7,97 @@ title: ext4
 - 参考
   - man [ext4.5](https://man7.org/linux/man-pages/man5/ext4.5.html)
   - man [mke2fs.8](https://man7.org/linux/man-pages/man8/mke2fs.8.html)
+  - man [resize2fs.8](https://man7.org/linux/man-pages/man8/resize2fs.8.html)
+  - [e2image.8](https://man7.org/linux/man-pages/man8/e2image.8.html)
   - [Choose block size](https://serverfault.com/a/496099/190601)
   - https://linuxreviews.org/Year_2038_Timestamp_Problem
 
-:::caution
+:::tip
 
 - mkfs.ext4 默认 1k block - 导致不能超过 2T
   - 1k 一般用于 U 盘 这种存储比较小的设备
 - inode >= 256 避免 Y2038 问题
+- resize2fs 可以 on-line grow 但 **不能 on-line shrinking**
+- e2image 可以从 QCOW2 读取 - 但如果 QCOW2 不是由 e2imaghe 生成则不一定支持
+- QCOW2 不是 spare，因此默认空间更小，更方便下载
 
 :::
 
 ```bash
 apk add e2fsprogs e2fsprogs-extra
 
-resize2fs -P /dev/sda3 # 磁盘最小空间
-tune2fs -l /dev/sda3 # 查看信息
-e2fsck -p /dev/sda3 # 检测修复
+resize2fs -P /dev/sda3 # 预估 blocks 数量 - 实际大小*4K
+tune2fs -l /dev/sda3   # 查看信息
+e2fsck -p /dev/sda3    # 检测修复
 
-resize2fs /dev/sda3 100000 # 缩小分区
+# size 支持 KMGT
+resize2fs /dev/sda3 100000         # 缩小分区
 e2image -ra -p /dev/sda1 /dev/sdb1 # 复制分区 - 只复制用到的块 - 效率更高
+
+e2image -rap /dev/vda3 vda3.img    # backup
+resize2fs -P vda3.img
+e2fsck -p vda3.img
+e2fsck -f vda3.img
+resize2fs -p vda3.img 4G
+e2image -rap vda3.img /dev/vdb2
+
+lsof /dev/vdb2 # 使用情况 - 需要 apk add lsof
+lsof / | awk '$4 ~ /[0-9].*[wu]/'
+
+# 挂载为只读
+mount -f -o remount,ro /mount/point
+echo 1 > /sys/block/dm-4/ro
+echo 1 > /sys/block/sda/sda2/ro
+# echo u > /proc/sysrq-trigger
+
+tune2fs -O read-only /dev/vda  # 设置只读
+tune2fs -O ^read-only /dev/vda # 取消只读
+
+tune2fs -U $(uuidgen) /dev/sdb1 # 修改 UUID
+
+lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 查看设备情况
+
+# dd boot 100MB
+# dd 后可以重新修改分区
+dd if=/dev/vda of=/dev/vdb count=204800 bs=512
+e2image -ra -p /dev/vda3 /dev/vdb2
+
+mount -o remount,ro / # 不能成功 - 从 ro 到 rw 可以
+mount | column -t
 ```
+
+| resize2fs      | for                    |
+| -------------- | ---------------------- |
+| -b             | 64bit                  |
+| -d debug-flags |
+| -f             | force                  |
+| -F             | flush                  |
+| -M             | 缩到最小               |
+| -p             | 显示完成进度           |
+| -P             | 显示预估最小 blocks 数 |
+| -s             | off 64bit, free blocks |
+| -S RAID-stride |
+| -z undo_file   |
+
+- undo_file
+  - resize2fs-device.e2undo
+  - E2FSPROGS_UNDO_DIR
+
+| e2image       | for                                                     |
+| ------------- | ------------------------------------------------------- |
+| -a            | include file data in image file, 默认只包含 fs metadata |
+| -b superblock |
+| -B blocksize  |
+| -c            | 对比，相同则不拷贝 block                                |
+| -f            | force - 允许 source 为非 readonly 状态                  |
+| -I            |
+| -n            |
+| -o src_offset |
+| -O tgt_offset |
+| -p            | 显示进度                                                |
+| -Q            | QCOW2                                                   |
+| -r            | raw 格式                                                |
+| -s            |
 
 ## 测试 fs
 
@@ -192,3 +262,36 @@ fsck.ext4: unable to set superblock flags on /dev/sda2
 ```
 
 应该是 SD 卡异常了，尝试更换硬件设备。
+
+## online shrink
+
+最难的是将 root remount 为 ro
+
+1. 离线方式
+
+- AlpineLinux 通过配置启动参数 rootflags=ro 重启挂载为只读
+- `tune2fs -O read-only /dev/sda1`  设置后重启，会被挂载为 ro
+
+2. 在线
+
+- pivot root
+
+## e2image seek_relative: Invalid argument
+
+目标设备空间不够
+
+## dd compress
+
+```basj
+dd bs=1M iflag=fullblock if=/dev/sda2 status=progress | gzip >img.gz
+gzcat img.gz | dd bs=1M iflag=fullblock of=/dev/sda2 status=progress
+
+dd bs=1M iflag=fullblock if=/dev/sda2 status=progress | zstd -16v >img.zst
+zstdcat img.zst | dd bs=1M iflag=fullblock of=/dev/sda2 status=progress
+
+pv /dev/sda2 | zstd -16 >img.zst
+zstdzcat img.zst | pv >/dev/sda2
+
+zstd -16v </dev/sda2 >sda2.zst
+zstdcat -v sda2.zst >/dev/sda2
+```

@@ -234,10 +234,19 @@ Cube 计算
 
 - [milvus-io/milvus](https://github.com/milvus-io/milvus)
   - Apache-2.0, Go
+  - Vector database for scalable similarity search and AI applications.
+- [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
+  - MIT, C++
+  - efficient similarity search and clustering of dense vectors
+- [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
+  - BSD-3, Golang
+  - cloud-native, modular, real-time vector search engine
+- [facebookincubator/velox](https://github.com/facebookincubator/velox)
+  - Apache-2.0, C++
+  - C++ vectorized database acceleration library
 - [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
   - Benchmarks of approximate nearest neighbor
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
-
 ## Geo
 
 - https://s2geometry.io/

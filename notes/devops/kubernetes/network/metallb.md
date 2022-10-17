@@ -4,7 +4,7 @@ title: MetalLB
 
 # MetalLB
 
-- [danderson/metallb](https://github.com/danderson/metallb)
+- [danderson/metallb](https://github.com/metallb/metallb)
   - 基于主机 L2 提供 LB 能力 - VIP/虚拟 IP/负载均衡
   - 支持 L2 和 BGP 模式
 - [L2](https://metallb.universe.tf/concepts/layer2/) 使用 ARP/NDP - **配置简单**
