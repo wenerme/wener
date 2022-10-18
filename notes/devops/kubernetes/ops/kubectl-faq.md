@@ -51,3 +51,11 @@ Windows BAT 循环
 oc port-forward PODNAME 8003:8080
 goto 1
 ```
+
+## Kubernetes configuration file is group/world-readable
+
+```bash
+chmod go-r ~/.kube/config
+# or
+chmod 600 ~/.kube/config
+```

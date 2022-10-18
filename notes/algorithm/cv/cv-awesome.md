@@ -1,5 +1,4 @@
 ---
-id: awesome
 title: CV Awesome
 tags:
   - Awesome
@@ -8,6 +7,11 @@ tags:
 # CV Awesome
 
 - [OpenCV Awesome](./opencv-awesome.md)
+- [nenadmarkus/picojs](https://github.com/nenadmarkus/picojs)
+  - face detection library in 200 lines of JavaScript
+  - https://nenadmarkus.com/p/picojs-intro/
+  - [nenadmarkus/pico](https://github.com/nenadmarkus/pico)
+    - MIT, C
 - [imagej/imagej2](https://github.com/imagej/imagej2)
   - BSD-2, Java
   - N-dimensional image processing
@@ -19,3 +23,4 @@ tags:
   - 信用卡识别
   - iOS, Android
   - 🚧 2018
+- https://pyimagesearch.com/

@@ -46,6 +46,7 @@ tags:
 
 ## Library
 
+- [sindresorhus/electron-store](https://github.com/sindresorhus/electron-store)
 - [cliqz-oss/adblocker](https://github.com/cliqz-oss/adblocker)
   embeddable adblocker
   - MPL-2.0

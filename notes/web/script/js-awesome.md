@@ -55,6 +55,7 @@ tags:
       - [jsdon](https://github.com/WebReflection/jsdon)
         - dom.toJSON()
     - [zeed-dom](https://github.com/holtwick/zeed-dom)
+  - [focus-trap/focus-trap](https://github.com/focus-trap/focus-trap)
 - Communication/Network
   - websocket
   - socketio
@@ -385,11 +386,45 @@ tags:
       - 不支持其他 base
     - [big.js vs bignumber.js vs decimal.js](https://github.com/MikeMcl/big.js/wiki)
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
+    - Apache-2.0, JS
+    - plot https://plotly.com/javascript/
+  - https://mathnotepad.com/
+  - https://www.mathcha.io/
+    - Mathematics Editor
+  - [thoughtspile/grafar](https://github.com/thoughtspile/grafar)
+  - https://mafs.dev/
+    - React components for interactive math
+    - [stevenpetryk/mafs](https://github.com/stevenpetryk/mafs)
   - [imaphatduc/cubecubed](https://github.com/imaphatduc/cubecubed)
   - [3b1b/manim](https://github.com/3b1b/manim)
+  - [jsxgraph/jsxgraph](https://github.com/jsxgraph/jsxgraph)
+    - MIT, LGPL, JS
+    - interactive geometry, function plotting, charting, and data visualization
   - mathjax
+  - [CindyJS/CindyJS](https://github.com/CindyJS/CindyJS)
+    - Apache-2.0, JS
+    - interactive mathematical
+    - 2D Geometry, 3D Geometry, Algebra, Calculus, Differential Equations, Statistics, Probability, Linear Algebra, Complex Numbers, Trigonometry
   - https://upmath.me/ Math Online Editor
+    - tex, tikz
   - [kisonecat/tikzjax](https://github.com/kisonecat/tikzjax)
+    - TikZ running under WebAssembly in the browser
+  - [tikz](https://tikz.net/)
+    - [pgf-tikz/pgf](https://github.com/pgf-tikz/pgf)
+      - Portable Graphic Format for TeX
+    - [PetarV-/TikZ](https://github.com/PetarV-/TikZ)
+    - [walmes/Tikz](https://github.com/walmes/Tikz)
+    - [f0nzie/tikz_favorites](https://github.com/f0nzie/tikz_favorites)
+    - [janosh/tikz](https://github.com/janosh/tikz)
+    - [xiaohanyu/awesome-tikz](https://github.com/xiaohanyu/awesome-tikz)
+    - https://tikzit.github.io/
+      - editor
+    - https://tikz.dev/
+    - https://www.overleaf.com/learn/latex/TikZ_package
+      - online tex
+  - katex
+  - Asymptote (vector graphics language)
+- Phy
 - stat/bi
   - [jstat](https://github.com/jstat/jstat)
   - cubejs
@@ -536,6 +571,11 @@ tags:
   - [opentypejs/opentype.js](https://github.com/opentypejs/opentype.js)
 - MISC
   - [trevorlinton/webkit.js](https://github.com/trevorlinton/webkit.js)
+- useragent/figureprint
+  - [51Degrees/Renderer](https://github.com/51Degrees/Renderer)
+    - return the GPU renderer string for iPhone and iPad
+  - [pmndrs/detect-gpu](https://github.com/pmndrs/detect-gpu)
+  - https://shaka-player-demo.appspot.com/support.html
 
 ---
 

@@ -20,6 +20,7 @@ tags:
   - vulnerability DB and triage service
 - [soxoj/maigret](https://github.com/soxoj/maigret)
   - Collect a dossier on a person by username from thousands of sites
+- [ocsf/ocsf-schema](https://github.com/ocsf/ocsf-schema)
 
 ## Service
 

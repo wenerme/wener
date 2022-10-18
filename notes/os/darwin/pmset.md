@@ -120,3 +120,9 @@ pmset -a hibernatemode 3 standby 1 standbydelayhigh 150 standbydelaylow 0
     - 但睡眠和唤醒更慢
 - 如果系统支持 standby, 则在超过 standbydely 后就会写一个休眠镜像
 - 如果要完全禁止休眠,可将 hibernatemode, standby 和 autopoweroff 设置为 0
+
+## Unable to sleep system: error 0xe00002e2
+
+```bash
+sudo pmset -a disablesleep 0
+```

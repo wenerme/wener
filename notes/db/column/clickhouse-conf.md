@@ -14,6 +14,8 @@ tags:
   - https://clickhouse.com/docs/en/operations/configuration-files/
   - https://github.com/ClickHouse/ClickHouse/blob/master/programs/server/config.yaml.example
   - https://github.com/ClickHouse/ClickHouse/blob/master/programs/server/config.xml
+  - https://github.com/ClickHouse/ClickHouse/blob/master/programs/server/users.yaml.example
+  - https://github.com/ClickHouse/ClickHouse/blob/master/programs/server/users.xml
 
 ```bash
 # clickhouse-benchmark
@@ -636,14 +638,14 @@ default_session_timeout: 60
 # asynchronous_metrics - send data from table system.asynchronous_metrics
 # status_info - send data from different component from CH, ex: Dictionaries status
 
-# prometheus:
-#     endpoint: /metrics
-#     port: 9363
+prometheus:
+  endpoint: /metrics
+  port: 9363
 
-#     metrics: true
-#     events: true
-#     asynchronous_metrics: true
-#     status_info: true
+  metrics: true
+  events: true
+  asynchronous_metrics: true
+  status_info: true
 
 # 查询日志配置 - 需要 log_queries = 1
 query_log:
@@ -894,6 +896,94 @@ send_crash_reports:
   anonymize: false
   endpoint: 'https://6f33034cfe684dd7a3ab9875e57b1c8d@o388870.ingest.sentry.io/5226277'
   # disable_internal_dns_cache: 1
+```
+
+## users.yaml
+
+```bash
+uuidgen | tee -a /dev/fd/2 | tr -d '\r\n' | sha256sum
+```
+
+```yaml
+profiles:
+  default:
+    # 10G
+    max_memory_usage: 10000000000
+
+    # How to choose between replicas during distributed query processing.
+    # random - choose random replica from set of replicas with minimum number of errors
+    # nearest_hostname - from set of replicas with minimum number of errors, choose replica
+    # with minimum number of different symbols between replica's hostname and local hostname (Hamming distance).
+    # in_order - first live replica is chosen in specified order.
+    # first_or_random - if first replica one has higher number of errors, pick a random one from replicas with minimum number of errors.
+    load_balancing: random
+
+  readonly:
+    readonly: 1
+
+users:
+  # 如果未给 username 则名字为 default
+  default:
+    # PASSWORD=$(base64 < /dev/urandom | head -c32); echo "$PASSWORD"; echo -n "$PASSWORD" | sha256sum | tr -d '-'
+    password_sha256_hex:
+    # PASSWORD=$(base64 < /dev/urandom | head -c32); echo "$PASSWORD"; echo -n "$PASSWORD" | sha1sum | tr -d '-' | xxd -r -p | sha1sum | tr -d '-'
+    password_double_sha1_hex:
+    password: ''
+
+    # LDAP
+    # server: my_ldap_server
+    # ldap:
+    kerberos:
+      realm: EXAMPLE.COM
+
+
+    # List of networks with open access.
+    #
+    # To open access from everywhere, specify:
+    #    - ip: '::/0'
+    #
+    # To open access only from localhost, specify:
+    #    - ip: '::1'
+    #    - ip: 127.0.0.1
+    #
+    # Each element of list has one of the following forms:
+    # ip: IP-address or network mask. Examples: 213.180.204.3 or 10.0.0.1/8 or 10.0.0.1/255.255.255.0
+    # 2a02:6b8::3 or 2a02:6b8::3/64 or 2a02:6b8::3/ffff:ffff:ffff:ffff::.
+    # host: Hostname. Example: server01.clickhouse.com.
+    # To check access, DNS query is performed, and all received addresses compared to peer address.
+    # host_regexp: Regular expression for host names. Example, ^server\d\d-\d\d-\d\.clickhouse\.com$
+    # To check access, DNS PTR query is performed for peer address and then regexp is applied.
+    # Then, for result of PTR query, another DNS query is performed and all received addresses compared to peer address.
+    # Strongly recommended that regexp is ends with $ and take all expression in ''
+    # All results of DNS requests are cached till server restart.
+
+    networks:
+      ip: '::/0'
+
+    # Settings profile for user.
+    profile: default
+
+    # Quota for user.
+    quota: default
+
+    # User can create other users and grant rights to them.
+    # access_management: 1
+
+# Quotas.
+quotas:
+  # Name of quota.
+  default:
+    # Limits for time interval. You could specify many intervals with different limits.
+    interval:
+      # Length of interval.
+      duration: 3600
+
+      # No limits. Just calculate resource usage for time interval.
+      queries: 0
+      errors: 0
+      result_rows: 0
+      read_rows: 0
+      execution_time: 0
 ```
 
 ## REST API

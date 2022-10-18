@@ -76,6 +76,8 @@ title: IO
 - 参考
   - https://w3c.github.io/FileAPI/
   - https://encoding.spec.whatwg.org/
+  - [sindresorhus/file-type](https://github.com/sindresorhus/file-type)
+    - Detect the file type of a Buffer/Uint8Array/ArrayBuffer
 
 
 # FAQ

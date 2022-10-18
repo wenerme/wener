@@ -299,3 +299,5 @@ redis-benchmark -q -n 100000 -t set,get -P 16
 
 - https://redis.io/docs/reference/optimization/benchmarks/
 
+
+## Inside

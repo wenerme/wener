@@ -14,14 +14,20 @@ title: LaTex Math
 - [希腊字母](https://zh.wikipedia.org/wiki/希腊字母)
 - [KaTeX](https://github.com/KaTeX/KaTeX)
   - https://katex.org/docs/options.html
+- https://www.overleaf.com/learn
+- https://www.overleaf.com/learn/latex/Brackets_and_Parentheses
 
 | abbr | for        |
 | ---- | ---------- |
 | `x'` | `x^\prime` |
 
-| latex     | symbol    |
-| --------- | --------- |
-| `\varphi` | $\varphi$ |
+| latex         | symbol        |
+| ------------- | ------------- |
+| `\varphi`     | $\varphi$     |
+| `\phi`        | $\phi$        |
+| `\mathbb{R}`  | $\mathbb{R}$  |
+| `\in`         | $\in$         |
+| `\mathcal{D}` | $\mathcal{D}$ |
 
 $$
 7\dfrac{4}{3}
@@ -58,4 +64,5 @@ $$
 ```
 
 # FAQ
+
 ## katex unicodeTextInMathMode

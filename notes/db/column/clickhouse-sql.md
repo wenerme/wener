@@ -362,8 +362,6 @@ JSON 列有问题
 
 ## Memory limit (for query) exceeded
 
-<<<<<<< Updated upstream
-=======
 - max_memory_usage=10GB
 
 ```sql
@@ -382,6 +380,12 @@ SHOW PROCESSLIST;
 - 默认 /var/lib/clickhouse/user_files/
 - https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-user_files_path
 
+## To execute this query it's necessary to have grant CREATE USER ON
+
+- users.xml
+  - `<access_management>1</access_management>`
+
+
 ## FINAL
 
 ```sql
@@ -389,7 +393,6 @@ SHOW PROCESSLIST;
 SELECT * FROM events FINAL;
 ```
 
->>>>>>> Stashed changes
 # Snippets
 
 ```bash

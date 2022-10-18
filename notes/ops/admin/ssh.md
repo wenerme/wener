@@ -309,3 +309,18 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 ```bash
 ssh-keygen -t ed25519 -C "a@b.com"
 ```
+
+## ssh into tmux
+
+```
+Host example.org
+	RemoteCommand tmux new -A -s default
+```
+
+## 不记录 localhost 的 host key
+
+```
+Host localhost
+	UserKnownHostsFile /dev/null
+	StrictHostKeyChecking no
+```

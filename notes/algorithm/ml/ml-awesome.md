@@ -159,6 +159,8 @@ tags:
 - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
 - [Musico: AI Generated Music](https://www.musi-co.com/listen/streams)
   - [HN](https://news.ycombinator.com/item?id=33027376)
+- [Adventure game graphics with DALL-E 2](https://hpjansson.org/blag/2022/08/16/adventure-game-graphics-with-dall-e-2/)
+  - [HN](https://news.ycombinator.com/item?id=32490455)
 - VToonify
 - orgs
   - [NVlabs](https://github.com/NVlabs)
@@ -191,6 +193,7 @@ tags:
   - [goemotions](https://ai.googleblog.com/2021/10/goemotions-dataset-for-fine-grained.html)
 - https://ai.googleblog.com/
 - https://www.kdnuggets.com/
+- https://stanford.edu/~shervine/teaching/
 
 ---
 

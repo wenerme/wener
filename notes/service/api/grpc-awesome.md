@@ -70,6 +70,9 @@ tags:
 - [Kong/insomnia](https://github.com/Kong/insomnia)
 - [bloomrpc/bloomrpc](https://github.com/bloomrpc/bloomrpc)
   - GUI for GRPC
+- [getezy/ezy](https://github.com/getezy/ezy)
+  -  MPL-2.0, TS
+  - GUI gRPC/gRPC-Web client
 - [envoyproxy/protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate)
   - 生成校验规则
 - [bufbuild/buf](https://github.com/bufbuild/buf)

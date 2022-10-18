@@ -38,6 +38,7 @@ tags:
   - A searchable catalog of PostCSS plugins
 - https://css-tricks.com/snippets/
 - [Loaders Loading!](https://codepen.io/collection/jifIK)
+- [CSS Portal Ring ✨](https://codepen.io/jh3y/pen/eYMPmJW)
 - Animation
   - [jolaleye/cssfx](https://github.com/jolaleye/cssfx)
 - Color
