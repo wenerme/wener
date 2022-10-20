@@ -4,10 +4,103 @@ title: CS221 Artificial Intelligence - Reflex
 
 # CS221 AI Reflex
 
+- https://www.youtube.com/watch?v=ZiwogMtbjr4&list=PLoROMvodv4rOca_Ovz1DvdtWuz8BfSWL2&index=1
+
+## reflex
+
+Reflex-based models
+: 基于反射的模型
+$
+\text{\color{orange}input } x
+->
+\stackrel{\color{orange}\text{predicator}}{\boxed{f(x)} }
+->
+y \text{\color{orange} output}
+$
+
+Binary Classification
+: 二元分类
+$
+x ->
+\stackrel{\color{orange}\text{classifier}}{\boxed{f(x)} }
+-> y \in \color{orange} \{+1,-1\} \text{ \color{red}label}
+$
+
+Regression
+: 回归
+$
+x -> \boxed{f(x)} -> y \in \color{orange} \mathbb{R} \text{ \color{red}response}
+$
+
+Structured prediction
+: 结构化预测
+$
+x -> \boxed{f(x)} -> y \text{ is a } \text{\color{orange}complex object}
+$
+
+<!-- x -> \boxed{f(x)} -> y \in \color{orange} \mathcal{Y} \text{ \color{red}label}
+-->
+
+Linear regression framework
+: 线性回归框架
+: Decision boundary - 一条线
+: Hypothesis class - 假设类 - 哪些预测是可能的
+: Loss function - 损失函数 - 如何衡量预测的好坏
+: Optimization algorithm - 优化算法 - 如何找到最好的预测
+
+Hypothesis class
+: 假设类
+: 哪些预测是可能的
+
+$$
+f_W(x) = \text{w} \cdot \phi(x)
+$$
+
+- $W=[w_1,w_2]$ - weight vector - 权重向量
+- feature extractor - $\phi(x)=[1,x]$ - feature vector
+
+$$
+f_W(x) = \text{sign}(\mathbf{w} \cdot \phi(x))
+$$
+
+$$
+\begin{alignat*}{2}
+\mathcal{F}
+&=\left\{f_\mathbf{w}:\mathbf{w}\in\mathbb{R}^d\right\} \\
+&=\{ f_\mathbf{w} = \mathbf{w} \cdot \phi(x) : \mathbf w \in \mathbb R ^d \}
+\end{alignat*}
+$$
+
+
+Loss function
+: 损失函数
+: $$
+\text{Loss}_{0-1}(x,y,\text{w}) = 1[f_\text{w}(x) \ne y] \text{\color{orange} zero-one loss}
+$$
+
+
+**非线性**
+
+Quadratic predictors
+: 二次预测器
+
+Quadratic clasifiers
+: 二次分类器
+: Decision boundary - 一个圆
+
+Piecewise constant predictors
+: 分段常数预测器
+
+Predictors with periodicity structure
+: 周期性结构预测器
+
 ### Linear predictors
 
 Feature vector
 : 特征向量
+: [特征工程](./feature-engineering.md)
+: 将原始数据抽象为特征向量
+
 
 $$
 \phi(x)=
@@ -19,23 +112,37 @@ $$
 \in \mathbb{R}^d
 $$
 
-**Score**
+- $\phi(x)$
+  - feature extractor
+  - 特性提取器
 
-- 分数
+Score
+: 分数
+: 如果是最终结果，则代针对某个结论的肯定程度
+
 
 $$
 s(x,w) = w \cdot \phi(x)
 $$
 
+- w - weight - 权重
+  - 对于一个输出，不同的特征对输出的影响不同
+  - 例如: 一个人的身高，体重，年龄，性别，对于 性别和年龄 的影响不同
+- s - score - 分数
+  - 特征\*权重
+  - 例如: 0.78 是 男性
+
 **Linear classifier**
 
+
 $$
+\
 f_w(x)=
 sign(s(x,w)) =
 \begin{cases}
 +1 & \text{if} \space w \cdot \phi(x) > 0 \\
 -1 & \text{if} \space w \cdot \phi(x) < 0 \\
-?  & \text{if} \space w \cdot \phi(x) = 0
+? & \text{if} \space w \cdot \phi(x) = 0
 \end{cases}
 $$
 
@@ -43,11 +150,13 @@ $$
 
 - larger values are better
 
+
 $$
 m(x,y,w) = s(x,w) \times y
 $$
 
 **Linear regression**
+
 
 $$
 f_w(x) = s(x,w) = w \cdot \phi(x)
@@ -56,6 +165,7 @@ $$
 **Residual**
 
 amount by which the prediction $f_w(x)$ overshoots the target $y$
+
 
 $$
 r(x,y,w) = f_w(x) - y = s(x,w) - y
@@ -78,7 +188,7 @@ Classification case
 | ---- | ------------------- | -------------------------- | ----------------------------- |
 | Loss | $1_{m(x,y,w) <= 0}$ | $\text{max}(1−m(x,y,w),0)$ | $\text{log}(1+e^{−m(x,y,w)})$ |
 
-$$
+```tex
 \begin{tikzpicture}
   \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
   \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_{0-1}$};
@@ -86,9 +196,7 @@ $$
   \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
   \draw[line width=1mm, draw opacity=0.7, green] (-3,1.5) -- (0,1.5) -- (0,0) -- (3,0);
 \end{tikzpicture}
-$$
 
-$$
 \begin{tikzpicture}
   \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
   \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{hing}$};
@@ -96,9 +204,7 @@ $$
   \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
   \draw[line width=1mm, draw opacity=0.7, orange] (-3,4) -- (1,0) -- (3,0);
 \end{tikzpicture}
-$$
 
-$$
 \begin{tikzpicture}
   \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
   \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{logistic}$};
@@ -106,7 +212,7 @@ $$
   \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
   \draw[line width=1mm, draw opacity=0.7, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {log2(1+e^-\x)});
 \end{tikzpicture}
-$$
+```
 
 **Regression case**
 
@@ -114,28 +220,73 @@ $$
 | ---------------------- | ------------------------- | ------------------------- |
 | $\textrm{Loss}(x,y,w)$ | $(\textrm{res}(x,y,w))^2$ | $\|\textrm{res}(x,y,w)\|$ |
 
-$$
+```tex
 \begin{tikzpicture}
   \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
   \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{squared}$};
   \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
   \draw[line width=1mm, draw opacity=0.7, domain=-2:2, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
 \end{tikzpicture}
-$$
 
-$$
 \begin{tikzpicture}
   \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
   \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{absdev}$};
   \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
   \draw[line width=1mm, draw opacity=0.7, pink] (-3,4) -- (0,0) -- (3,4)
 \end{tikzpicture}
+```
+
+**Zero-one loss**
+
+$$
+\begin{alignat*}{2}
+\text{Loss}_{0-1}(x,y,\text{w}) &= 1[f_\text{w}(x) \ne y] \\
+&= 1[
+\underbrace{ (\text{w} \cdot \phi(x)) y }_{\text{margin}}
+\le 0
+]
+\end{alignat*}
+$$
+
+**Hinge loss**
+
+$$
+\begin{alignat*}{2}
+\textrm{Loos}_\text{hinge}(x,y,w)
+&= \text{max}\{1− (w \cdot \phi(x))y ,0\} \\
+&= \begin{cases}
+    -\phi(x) y & \text{if} \space 1- (w \cdot \phi(x))y > 0 \\
+    0 & \text{otherwise}
+  \end{cases}
+\end{alignat*}
+$$
+
+**Logistic regression**
+
+$$
+\textrm{Loos}_\text{logistic}(x,y,w) =
+\text{log}(1+e^{−m(x,y,w)})
 $$
 
 **Loss minimization framework**
 
+
 $$
-\boxed{\textrm{TrainLoss}(w)=\frac{1}{|\mathcal{D}_{\textrm{train}}|}\sum_{(x,y)\in\mathcal{D}_{\textrm{train}}}\textrm{Loss}(x,y,w)}
+\textrm{TrainLoss}(w)=\frac{1}{|\mathcal{D}_{\textrm{train}}|}\sum_{(x,y)\in\mathcal{D}_{\textrm{train}}}\textrm{Loss}(x,y,w)
+$$
+
+group DRO
+: Group distributionally robust optimization
+$$
+\textrm{TrainLoos}_\text{max}(w) =
+\underset{g}{\text{max}}
+\textrm{TrainLoos}_g(w)
+$$
+
+$$
+\nabla\textrm{TrainLoos}_\text{max}(\mathbf{w})
+= \nabla \textrm{TrainLoos}_{\text{g}^\text{*}} (\mathbf{w}) \\
+\text{where } g^\text{*}=\underset{g}{\text{argmax}} \text{TrainLoss}_g(\mathbf{w})
 $$
 
 ### Non-linear predictors
@@ -146,6 +297,7 @@ $k$-nearest neighbors
 
 Neural networks
 : 神经网络
+
 
 $$
 z_j^{[i]}={w_j^{[i]}}^Tx+b_j^{[i]}
@@ -168,16 +320,13 @@ $$
 ### Fine-tuning models
 
 - Hypothesis class
-
-$$
-\mathcal{F}=\left\{f_w:w\in\mathbb{R}^d\right\}
-$$
-
 - Logistic function
+
 
 $$
 \boxed{\forall z\in]-\infty,+\infty[,\quad\sigma(z)=\frac{1}{1+e^{-z}}}
 $$
+
 
 $$
 \sigma'(z)=\sigma(z)(1-\sigma(z))
@@ -209,19 +358,22 @@ $$
 - Clustering
 - Objective function
 
+
 $$
-\textrm{Loss}_{\textrm{k-means}}(x,\mu)=\sum_{i=1}^n||\phi(x_i)-\mu_{z_i}||^2
+\textrm{Loss}_{\textrm{k-means}}(x,\mu)=\sum_{i=1}^n||\phi(x*i)-\mu*{z_i}||^2
 $$
 
 Algorithm
 
+
 $$
-\boxed{z_i=\underset{j}{\textrm{arg min}}||\phi(x_i)-\mu_j||^2}\quad\textrm{and}\quad\boxed{\mu_j=\frac{\displaystyle\sum_{i=1}^n1_{\{z_i=j\}}\phi(x_i)}{\displaystyle\sum_{i=1}^n1_{\{z_i=j\}}}}
+\boxed{z*i=\underset{j}{\textrm{arg min}}||\phi(x_i)-\mu_j||^2}\quad\textrm{and}\quad\boxed{\mu_j=\frac{\displaystyle\sum*{i=1}^n1*{\{z_i=j\}}\phi(x_i)}{\displaystyle\sum*{i=1}^n1\_{\{z_i=j\}}}}
 $$
 
 **Principal Component Analysis**
 
 - Eigenvalue, eigenvector
+
 
 $$
 \boxed{Az=\lambda z}
@@ -231,10 +383,25 @@ $$
 
 Spectral theorem
 
+
 $$
 \boxed{\exists\Lambda\textrm{ diagonal},\quad A=U\Lambda U^T}
 $$
 
+
 $$
-\boxed{\phi_j(x_i)\leftarrow\frac{\phi_j(x_i)-\mu_j}{\sigma_j}}\quad\textrm{where}\quad\boxed{\mu_j = \frac{1}{n}\sum_{i=1}^n\phi_j(x_i)}\quad\textrm{and}\quad\boxed{\sigma_j^2=\frac{1}{n}\sum_{i=1}^n(\phi_j(x_i)-\mu_j)^2}
+\boxed{\phi*j(x_i)\leftarrow\frac{\phi_j(x_i)-\mu_j}{\sigma_j}}\quad\textrm{where}\quad\boxed{\mu_j = \frac{1}{n}\sum*{i=1}^n\phi*j(x_i)}\quad\textrm{and}\quad\boxed{\sigma_j^2=\frac{1}{n}\sum*{i=1}^n(\phi_j(x_i)-\mu_j)^2}
 $$
+
+## Misc
+
+- $y = w_1x_1 + w_2x_2 + ... + w_nx_n + b$
+  - $y$ is the output
+  - $x_i$ is the input
+  - $w_i$ is the weight
+  - $b$ is the bias
+- 有监督学习
+  - 有输入和输出
+  - 输入是特征
+  - 输出是标签
+  - 通过学习输入和输出的关系, 从而预测未知的输出
