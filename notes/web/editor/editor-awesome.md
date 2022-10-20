@@ -48,6 +48,11 @@ tags:
     - 没有针对性能优化 - 大文档会慢
 - [Comparison of JavaScript-based source code editors](https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors)
 
+## Flow Editor
+
+- https://stately.ai/registry/new
+  - XState
+
 ## Markdown
 
 - [outline/rich-markdown-editor](https://github.com/outline/rich-markdown-editor)

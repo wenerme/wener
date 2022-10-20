@@ -31,26 +31,29 @@ title: Alpine local backup
 ```bash
 lbu st -a # 当前系统修改
 
-mkdir backups
-lbu pkg -v backups
-ls backups          # <hostname>.apkovl.tar.gz
+mkdir backups      # 准备备份目录
+lbu pkg -v backups # 备份
+ls backups         # 生成 <hostname>.apkovl.tar.gz
 
 # 备份到本地
 mkdir /root/lbu-backups
 sed -ri "s@^(#\s*)?LBU_BACKUPDIR=.*@LBU_BACKUPDIR=/root/lbu-backups@" /etc/lbu/lbu.conf
 lbu ci
-ls /root/lbu-backups  # <hostname>.apkovl.tar.gz
-lbu st                # 已经没有变化
+ls /root/lbu-backups # <hostname>.apkovl.tar.gz
+lbu st               # 已经没有变化
 
 lbu ci
-ls /root/lbu-backups  # 旧的变成 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
-lbu lb                # 会显示 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
+ls /root/lbu-backups # 旧的变成 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
+lbu lb               # 会显示 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
 
 # 判断是否有修改
 [ $(lbu st | wc -c) = 0 ] && echo No change || lbu ci -v
 
 # 远程备份
-ssh root@client "lbu package -" >client.apkovl.tar.gz
+ssh root@client "lbu package -" > client.apkovl.tar.gz
+ssh admin@client "sudo lbu package -" > client.apkovl.tar.gz
+# 恢复
+cat client.aplovl.tar.gz | ssh admin@client 'sudo tar -C / --numeric-owner -zxvf - > /tmp/ovlfiles'
 
 # diff
 tar df os.apkvol.tar.gz -C / # 汇报修改
@@ -83,10 +86,28 @@ DEFAULT_CIPHER=aes-256-cbc
 # BACKUP_LIMIT=3
 ```
 
+**推荐**
+
 ```pre /etc/apk/protected_paths.d/lbu.list
 +var/lib/tailscale/
 -etc/ssh/ssh_host*
+
+home/admin/.ssh
+root/.ssh
+
+# /etc/init.d/tincd.netname
 ```
+
+- 注意添加自定义的 initd 脚本 - symlink 默认会复制
+- 恢复注意 修改 rootfs UUID
+  - `/etc/update-extlinux.conf`
+    - 修改或删除 root
+    - 默认 `blkid -o export /dev/root`
+  - `/etc/fstab`
+    - 修改 UUID
+  - 重新 mkinitfs 或 修改 `/boot/extlinux.conf`
+  - 错误可能导致 rootfs 只读
+    - `sudo mount -o remount,rw /dev/vda2 /`
 
 ## rootfs.apkvol
 
@@ -114,7 +135,6 @@ apk fix                   # /etc/apk/world
 hostname -F /etc/hostname # /etc/hostname
 service modules restart   # /etc/modules-load.d
 service sysctl restart    # /etc/sysctl.d
-
 service sshd reload       # /etc/ssh/sshd_config
 
 grep etc/tinc/ /tmp/ovlfiles > /dev/null && service tincd restart

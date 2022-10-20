@@ -13,6 +13,21 @@ title: WeChat
   - [微信公众平台技术文档](https://mp.weixin.qq.com/wiki)
 - [chanxuehong/wechat.v2](https://github.com/chanxuehong/wechat.v2)
   - 微信 Go SDK
+- 微信小程序
+  - [开发指南](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+  - [Tencent/omi](https://github.com/Tencent/omi)
+    - 跨端
+    -  Web Components, JSX/TSX
+  - [Tencent/wepy](https://github.com/Tencent/wepy)
+    - 组件化开发框架
+    - Vue 风格
+  - [Tencent/kbone](https://github.com/Tencent/kbone)
+    - 微信小程序和 Web 端同构的解决方案
+  - [weilanwl/ColorUI](https://github.com/weilanwl/ColorUI)
+  - taro
+  - [dcloudio/uni-app](https://github.com/dcloudio/uni-app)
+  - [TalkingData/iview-weapp](https://github.com/TalkingData/iview-weapp)
+  - [tailwindcss jit](https://developers.weixin.qq.com/community/develop/article/doc/00028ea8ab84d86c968d58d5b5bc13)
 
 ## 接口
 
@@ -39,7 +54,7 @@ title: WeChat
 - gif 1-104
   - https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/69.gif
 
-## macOs
+## macOS
 
 - ~/Library/Containers/com.tencent.xinWeChat/
   - Data/Library/Application Support/com.tencent.xinWeChat/

@@ -21,6 +21,74 @@ tags:
     - API linter
 - https://apistylebook.com/
   - http://apistylebook.com/design/guidelines/
+- https://github.com/restcookbook/restcookbook
+
+## pagination
+
+- Offset/Limit
+  - offset+limit
+- Cursor/Limit
+  - cursor+limit
+  - 时间: until, since
+
+```json title="Meta GQL.json"
+{
+  "data": [],
+  "paging": {
+    "cursors": {
+      "after": "XYZ=",
+      "before": "XYZ="
+    },
+    "previous": "https://?limit=25&before=XYZ=",
+    "next": "https://?limit=25&after=XYZ="
+  }
+}
+```
+
+```json title="Twitter.json"
+{
+  "ids": [123],
+  "next_cursor": 123,
+  "next_cursor_str": "123",
+  "previous_cursor": -123,
+  "previous_cursor_str": "-123"
+}
+```
+
+```json "Zalando.json"
+{
+  "items": [],
+  "self": "http://?cursor=",
+  "first": "",
+  "prev": "",
+  "next": "",
+  "last": "",
+  "query": {}
+}
+```
+
+- 参考
+  - https://developers.facebook.com/docs/graph-api/results
+
+## Zalando
+
+- 查询参数
+  - q
+  - sort - `+id,-name`,`-id`
+    - `+` asc, `-` desc
+  - fields - `(name,friends(name))`
+    - 获取部分字段
+  - embed - `(items)`
+    - 包含关联属性
+  - offset
+  - cursor
+  - limit
+
+## Google Cloud
+
+- `fields=name,generation,size`
+- `fields=items(id,metadata/key1)`
+- https://cloud.google.com/storage/docs/json_api#partial-response
 
 ## gRPC API Design
 
@@ -203,4 +271,3 @@ message BatchCreateUsersResponse {
 ```
 
 - https://github.com/ent/contrib/blob/1faab982b6648b7704a6cf41ff65d9cb7811a2be/entproto/internal/todo/ent/proto/entpb/entpb.proto
-

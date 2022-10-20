@@ -55,7 +55,7 @@ ChallengeResponseAuthentication yes
 
 # 转发的端口允许外部访问
 Match User dev
-   GatewayPorts yes
+GatewayPorts yes
 
 # 可只对指定的接口对外暴露
 # -R :8000:localhost:80
@@ -63,9 +63,8 @@ Match User dev
 
 # 禁止部分用户使用 TTY
 Match User player
-  PermitTTY no
+PermitTTY no
 ```
-
 
 ## Key
 
@@ -111,7 +110,7 @@ LocalForward 13306 myInternalMySQL:3306
 再配合 autossh 可大大减少工作量
 
 ```bash
-autossh -M 8889  -vNg tunnel > ssh.log 2>&1 &
+autossh -M 8889 -vNg tunnel > ssh.log 2>&1 &
 ```
 
 ## 多路复用
@@ -310,6 +309,7 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 ssh-keygen -t ed25519 -C "a@b.com"
 ```
 
+<<<<<<< Updated upstream
 ## ssh into tmux
 
 ```
@@ -324,3 +324,17 @@ Host localhost
 	UserKnownHostsFile /dev/null
 	StrictHostKeyChecking no
 ```
+=======
+## chmod ssh
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+chmod go-w ~
+
+# restorecon -R -v /root/.ssh
+```
+
+
+>>>>>>> Stashed changes

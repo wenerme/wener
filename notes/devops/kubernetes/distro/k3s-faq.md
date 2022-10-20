@@ -48,6 +48,24 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 
 如果已经运行了 docker 建议使用 docker，否则没必要额外安装，直接使用内置 containerd。
 
+## k3s 每月重启
+
+- 90天 renew
+- 随机 sleep 0-99 分钟
+
+```bash
+echo '#!/bin/sh -
+sleep ${RANDOM:0:2}m
+
+rc-service k3s restart --ifstarted
+rc-service k0scontroller restart --ifstarted
+' | sudo tee /etc/periodic/monthly/kube-restart
+sudo chmod +x /etc/periodic/monthly/kube-restart
+
+sudo rc-service crond start --ifstopped
+sudo rc-update add crond
+```
+
 ## k3s 状态清理
 
 - K3S 节点重置
@@ -217,7 +235,7 @@ x509: certificate has expired or is not yet valid: current time 2022-03-28T15:55
 
 ```bash title="检查失效时间"
 # 当前证书 失效时间
-curl -v -k https://localhost:6443
+curl -v -k https://localhost:6443 -s 2>&1 | grep date
 openssl s_client -connect localhost:6443 -showcerts < /dev/null 2>&1 | openssl x509 -noout -enddate
 
 for i in `ls /var/lib/rancher/k3s/server/tls/*.crt`; do echo $i; openssl x509 -enddate -noout -in $i; done
@@ -233,7 +251,18 @@ date -s 20210514
 # sudo hwclock -w
 
 service k3s restart
+
+# sudo chronyc -a makestep
 ```
+
+
+```bash
+# 可以尝试
+kubectl --insecure-skip-tls-verify delete secret -n kube-system k3s-serving
+rm -f /var/lib/rancher/k3s/server/tls/dynamic-cert.json
+# 重启 k3s
+```
+
 
 - https://www.ibm.com/support/pages/node/6444205
 - https://github.com/k3s-io/k3s/issues/1621
@@ -257,3 +286,40 @@ kubectl -n kube-system delete pod coredns-66c464876b-25kl9
 
 - 没问题
 - https://github.com/k3s-io/k3s/issues/4419#issuecomment-962897354
+
+
+## transport: Error while dialing dial tcp 127.0.0.1:2379: connect: connection refused
+
+- https://github.com/k3s-io/k3s/issues/4728
+  - 双节点 HA Matser 重启后出现
+  - [#5254](https://github.com/k3s-io/k3s/pull/5254)
+- https://github.com/k3s-io/k3s/issues/2345
+
+##  Failed to reconcile with temporary etcd: walpb: crc mismatch
+
+- k3s restore 旧的会放到 `${data-dir}/server/db/etcd-old/`
+- 默认本地快照 `${data-dir}/server/db/snapshots`
+- data-dir=/var/lib/rancher/k3s
+
+```bash
+k3s etcd-snapshot list
+# 尝试恢复
+k3s server --cluster-reset --cluster-reset-restore-path=/var/lib/rancher/k3s/server/db/snapshots/XXX
+
+
+# mv /var/lib/rancher/k3s/server/db/etcd/ etcd.bk
+# k3s etcd-snapshot prune --snapshot-retention 10
+```
+
+
+## cluster ID mismatch
+
+部分 master 恢复后可能出现，其他节点需要 reset 或 restore
+
+## invalid bearer token, Token has been invalidated
+
+renew 后出现
+
+## User "k3s-cloud-controller-manager" cannot get resource "leases" in API group "coordination.k8s.io" in the namespace "kube-system"
+
+- https://github.com/k3s-io/k3s/issues/6119

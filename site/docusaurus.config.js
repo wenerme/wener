@@ -279,8 +279,13 @@ const config = {
     RewritePlugin,
   ],
 
-  themes: ['@docusaurus/theme-live-codeblock'],
-
+  // markdown: {
+  //   mermaid: true,
+  // },
+  themes: [
+    '@docusaurus/theme-live-codeblock',
+    // '@docusaurus/theme-mermaid',
+  ],
   stylesheets: [
     'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
     // {

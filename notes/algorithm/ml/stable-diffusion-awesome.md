@@ -25,3 +25,11 @@ tags:
 - disco diffusion
 - [lkwq007/stablediffusion-infinity](https://github.com/lkwq007/stablediffusion-infinity)
   - https://huggingface.co/spaces/lnyan/stablediffusion-infinity
+- https://www.latentspace.dev/
+  - image to prompt
+  - https://beta.dreamstudio.ai/dream
+- https://arxiv.org/abs/2210.09276
+  Imagic: Text-Based Real Image Editing with Diffusion Models
+- [runwayml/stable-diffusion](https://github.com/runwayml/stable-diffusion)
+  - Latent Text-to-Image Diffusion
+- [MubertAI/Mubert-Text-to-Music](https://github.com/MubertAI/Mubert-Text-to-Music)

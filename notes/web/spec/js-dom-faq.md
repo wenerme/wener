@@ -43,6 +43,20 @@ function siblings(node, query) {
 }
 ```
 
+## trackFocus
+
+```js
+const trackFocus = (p) => {
+  const o = p.focus;
+  p.focus = function (...args) {
+    console.log(new Error().stack);
+    return o.apply(this, args);
+  };
+};
+trackFocus(HTMLElement.prototype);
+trackFocus(SVGElement.prototype);
+```
+
 ## DOM 事件
 
 - [window](https://developer.mozilla.org/en-US/docs/Web/API/Window#event_handlers)

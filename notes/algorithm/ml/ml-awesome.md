@@ -267,7 +267,23 @@ tags:
   - C++ standalone library for machine learning
   - from Facebook AI Research Speech team, creators of Torch and Deep Speech
 - [arrayfire/arrayfire](https://github.com/arrayfire/arrayfire)
-  general purpose GPU library
+  - BSD-3, C++
+  - general purpose GPU library
+  - Binding: Python, Rust, Julia, NIM
+  - WIP: .NET, Go, Java, Lua, JS, R, Ruby
+- [google/jax](https://github.com/google/jax)
+  - Apache-2.0, Python, C++
+  - Autograd and XLA
+  - 基础计算框架
+  - [google/flax](https://github.com/google/flax)
+    - neural network
+  - [deepmind/rlax](https://github.com/deepmind/rlax)
+    - reinforcement learning
+  - [deepmind/optax](https://github.com/deepmind/optax)
+    - gradient processing and optimization
+  - [deepmind/dm-haiku](https://github.com/deepmind/dm-haiku)
+    - neural network
+  - [deepmind/chex](https://github.com/deepmind/chex)
 - [tensorflow/lingvo](https://github.com/tensorflow/lingvo)
   - building sequence models neural networks in Tensorflow
   - ASR, MT
@@ -290,6 +306,41 @@ tags:
   - [BrainJS/brain.js](https://github.com/BrainJS/brain.js)
     - MIT, TS
     - GPU accelerated Neural networks in JavaScript for Browsers and Node.js
+  - [@tensorflow/tfjs](https://github.com/tensorflow/tfjs)
+    - https://www.tensorflow.org/js/
+    - tfjs-vis
+    - @tensorflow/tfjs-node
+    - @tensorflow/tfjs-node-gpu - Linux
+    - [tensorflow/tfjs-models](https://github.com/tensorflow/tfjs-models)
+  - [spencermountain/compromise](https://github.com/spencermountain/compromise)
+    - MIT, JS
+    - modest NLP
+  - [ml5js/ml5-library](https://github.com/ml5js/ml5-library)
+    - 基于 TensorFlow.js
+    - Blue Oak Model License 1.0.0 modified
+  - [NaturalNode/natural](https://github.com/NaturalNode/natural)
+    - MIT, JS
+    - Tokenizer
+    - String Distance
+    - Stemmer
+    - Bayesian & Logistic Regression Classifier
+    - Maximum Entropy Classifier
+    - Sentiment Analysis
+    - WordNet - [moos/wordnet-db](https://github.com/moos/wordnet-db)
+    - 无 中文 支持
+    - [NaturalNode/node-sylvester](https://github.com/NaturalNode/node-sylvester)
+      - vector, matrix, geometry for JS
+    - [NaturalNode/node-nltools](https://github.com/NaturalNode/node-nltools)
+  - [retextjs/retext](https://github.com/retextjs/retext)
+  - [linonetwo/segmentit](https://github.com/linonetwo/segmentit)
+    - 中文分词
+  - [wagenaartje/neataptic](https://github.com/wagenaartje/neataptic)
+    - neuro-evolution & backpropagation
+    - 不在维护
+  - [cazala/synaptic](https://github.com/cazala/synaptic)
+    - 不在维护
+- POS Tagger - part-of-speech tagger
+  - Eric Brill
 
 ---
 

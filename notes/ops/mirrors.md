@@ -9,6 +9,8 @@ title: Mirrors
 - Aliyun 提供非常多的镜像，但质量堪忧
   - docker latest tag 可能不同步，并且没办法触发同步
   - linux os 的包可能同步延迟几天
+  - npm 需要手动同步
+- 国内大学镜像 可能 特殊时期 直接关停
 
 :::
 
@@ -24,8 +26,8 @@ title: Mirrors
 
 **高校镜像**
 
-| URL                                   | 地址             |
-| ------------------------------------- | ---------------- |
+| URL                                   | 地址             | 信息                                |
+| ------------------------------------- | ---------------- | ----------------------------------- |
 | https://mirror.bjtu.edu.cn/           | 北京交通大学     |
 | https://mirror.cqupt.edu.cn/          | 重庆邮电大学     |
 | https://mirror.dlut.edu.cn/           | 大连理工大学     |
@@ -46,7 +48,7 @@ title: Mirrors
 | https://mirrors.pku.edu.cn/           | 北京大学         |
 | https://mirrors.scau.edu.cn/          | 华南农业大学     |
 | https://mirrors.sdu.edu.cn/           | 山东大学         |
-| https://mirrors.sjtug.sjtu.edu.cn/    | 上海交通大学     |
+| https://mirrors.sjtug.sjtu.edu.cn/    | 上海交通大学     | https://sjtug.org/post/mirror-news/ |
 | https://mirrors.sustech.edu.cn/       | 南方科技大学     |
 | https://mirrors.tongji.edu.cn/        | 同济大学         |
 | https://mirrors.tuna.tsinghua.edu.cn/ | 清华大学         |
@@ -143,3 +145,9 @@ docker pull docker.mirrors.ustc.edu.cn/wener/base
   - https://mirrors.aliyun.com/homebrew/homebrew-bottles
 - 其他
   - https://ghcr.io/v2/homebrew/core/protobuf/manifests/21.6
+
+## GOPROXY
+
+- 默认 proxy.golang.org
+- https://proxy.golang.com.cn
+- https://mirrors.aliyun.com/goproxy

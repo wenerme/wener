@@ -1,11 +1,8 @@
 ---
-title: CS221 Reflex
+title: CS221 Artificial Intelligence - Reflex
 ---
 
-# CS221 Artificial Intelligence
-
-
-## reflex
+# CS221 AI Reflex
 
 ### Linear predictors
 
@@ -19,7 +16,6 @@ $$
 \vdots\\
 \phi_d(x)
 \end{bmatrix}
-
 \in \mathbb{R}^d
 $$
 
@@ -82,11 +78,59 @@ Classification case
 | ---- | ------------------- | -------------------------- | ----------------------------- |
 | Loss | $1_{m(x,y,w) <= 0}$ | $\text{max}(1−m(x,y,w),0)$ | $\text{log}(1+e^{−m(x,y,w)})$ |
 
+$$
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_{0-1}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
+  \draw[line width=1mm, draw opacity=0.7, green] (-3,1.5) -- (0,1.5) -- (0,0) -- (3,0);
+\end{tikzpicture}
+$$
+
+$$
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{hing}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
+  \draw[line width=1mm, draw opacity=0.7, orange] (-3,4) -- (1,0) -- (3,0);
+\end{tikzpicture}
+$$
+
+$$
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{logistic}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
+  \draw[line width=1mm, draw opacity=0.7, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {log2(1+e^-\x)});
+\end{tikzpicture}
+$$
+
 **Regression case**
 
 | Name                   | Squared loss              | Absolute deviation loss   |
 | ---------------------- | ------------------------- | ------------------------- |
 | $\textrm{Loss}(x,y,w)$ | $(\textrm{res}(x,y,w))^2$ | $\|\textrm{res}(x,y,w)\|$ |
+
+$$
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{squared}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[line width=1mm, draw opacity=0.7, domain=-2:2, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
+\end{tikzpicture}
+$$
+
+$$
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{absdev}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[line width=1mm, draw opacity=0.7, pink] (-3,4) -- (0,0) -- (3,4)
+\end{tikzpicture}
+$$
 
 **Loss minimization framework**
 
@@ -122,6 +166,7 @@ $$
   - Batch gradient descent (BGD)
 
 ### Fine-tuning models
+
 - Hypothesis class
 
 $$
@@ -138,15 +183,28 @@ $$
 \sigma'(z)=\sigma(z)(1-\sigma(z))
 $$
 
-
 - Backpropagation
 - Approximation and estimation error
 - Regularization
   - keep the model from overfitting
+  - LASSO
+    - Shrinks coefficients to 0
+    - Good for variable selection
+  - Ridge
+    - Makes coefficients smaller
+  - Elastic Net
+    - Tradeoff between variable selection and small coefficients
 - Hyperparameters
--  Sets vocabulary
+- Sets vocabulary
+- Training set - 训练集
+  - 80%
+- Validation set - 验证集
+  - 20%
+  - hold-out, development set
+- Testing set - 测试集
 
 ### Unsupervised Learning
+
 - k-means
 - Clustering
 - Objective function
@@ -161,7 +219,6 @@ $$
 \boxed{z_i=\underset{j}{\textrm{arg min}}||\phi(x_i)-\mu_j||^2}\quad\textrm{and}\quad\boxed{\mu_j=\frac{\displaystyle\sum_{i=1}^n1_{\{z_i=j\}}\phi(x_i)}{\displaystyle\sum_{i=1}^n1_{\{z_i=j\}}}}
 $$
 
-
 **Principal Component Analysis**
 
 - Eigenvalue, eigenvector
@@ -169,10 +226,10 @@ $$
 $$
 \boxed{Az=\lambda z}
 $$
+
 ​
 
- Spectral theorem
-
+Spectral theorem
 
 $$
 \boxed{\exists\Lambda\textrm{ diagonal},\quad A=U\Lambda U^T}

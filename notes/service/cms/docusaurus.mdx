@@ -28,7 +28,7 @@ title: Docusaurus
 - Migration to ES Modules [#6520](https://github.com/facebook/docusaurus/issues/6520)
 - React 18 [#7264](https://github.com/facebook/docusaurus/issues/7264)
 - MDX 2.0 [#4029](https://github.com/facebook/docusaurus/issues/4029)
-- OOTB Mermaid code block [#1258](https://github.com/facebook/docusaurus/issues/1258)
+- ~~OOTB Mermaid code block [#1258](https://github.com/facebook/docusaurus/issues/1258)~~
 
 :::
 
@@ -73,6 +73,9 @@ npx @docusaurus/init@next init my-website classic
     - 也可以直接写 `/docs/a/b.md`
 
 :::
+
+- 注册的自定义组件
+  - https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-classic/src/theme/MDXComponents/index.tsx
 
 ## Docs
 
@@ -147,6 +150,35 @@ function HelloCodeTitle(props) {
 ### Mermaid
 
 ```bash
+npm add @docusaurus/theme-mermaid
+```
+
+```js title="docusaurus.config.js"
+module.exports = {
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+};
+```
+
+**mermaid 支持 theme**
+
+
+```
+%%{init: { "theme": "forest" } }%%
+```
+
+```mermaid
+graph LR;
+  A-->B;
+  B-->C;
+  B-->D[plop lanflz eknlzeknfz];
+```
+
+### JSX Mermaid
+
+```bash
 yarn add mermaid
 ```
 
@@ -191,6 +223,7 @@ import Mermaid from '@theme/Mermaid';
     B-->D[plop lanflz eknlzeknfz];
 `}
 />
+
 
 ## docusaurus.config.js
 
