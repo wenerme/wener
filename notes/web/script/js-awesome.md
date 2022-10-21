@@ -119,6 +119,7 @@ tags:
   - react-move
   - [danro/easing-js](https://github.com/danro/easing-js)
   - [mojs/mojs](https://github.com/mojs/mojs)
+  - [gijsroge/tilt.js](https://github.com/gijsroge/tilt.js)
   - transition
     - [barbajs/barba](https://github.com/barbajs/barba)
       - https://barba.js.org/

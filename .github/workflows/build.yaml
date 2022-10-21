@@ -26,7 +26,7 @@ jobs:
       # - name: Install PNPM
       #   run: |
       #     npm add -g pnpm
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:

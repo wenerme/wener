@@ -24,7 +24,7 @@ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna
 git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
 brew update
 # bottle/二进制 也使用镜像
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 # 使用 jdcloud oss 存储 - 新的 bottle 模式只存储最新 binary 如果发现没找到先 brew update
 export HOMEBREW_BOTTLE_DOMAIN=https://mirror.sjtu.edu.cn/homebrew-bottles
 ```

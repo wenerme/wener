@@ -26,3 +26,9 @@ title: CSS in JS
   - @emotion/memoize
 - polished
   - CSS in JS 的辅助库
+- Compile Time CSS in JS
+  - https://compiledcssinjs.com/
+  - https://vanilla-extract.style/
+  - https://linaria.dev/
+- [wix/stylable](https://github.com/wix/stylable)
+- [Why We're Breaking Up with CSS-in-JS](https://dev.to/srmagura/why-were-breaking-up-wiht-css-in-js-4g9b)

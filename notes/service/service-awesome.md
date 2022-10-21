@@ -132,6 +132,10 @@ tags:
   - [Cian911/switchboard](https://github.com/Cian911/switchboard)
     - Auto-magic file organisation for your machines
 - https://www.opensourcealternative.to/
+- Music
+  - [CoderLine/alphaTab](https://github.com/CoderLine/alphaTab)
+    - MPL-2.0, TS
+    - cross platform music notation and guitar tablature rendering
 
 ## Avatar
 
