@@ -66,7 +66,7 @@ $$
 $$
 \begin{alignat*}{2}
 \mathcal{F}
-&=\left\{f_\mathbf{w}:\mathbf{w}\in\mathbb{R}^d\right\} \\
+&=\{ f_\mathbf{w} : \mathbf{w} \in \mathbb R ^d \} \\
 &=\{ f_\mathbf{w} = \mathbf{w} \cdot \phi(x) : \mathbf w \in \mathbb R ^d \}
 \end{alignat*}
 $$
@@ -74,7 +74,8 @@ $$
 
 Loss function
 : 损失函数
-: $$
+
+$$
 \text{Loss}_{0-1}(x,y,\text{w}) = 1[f_\text{w}(x) \ne y] \text{\color{orange} zero-one loss}
 $$
 
@@ -277,6 +278,7 @@ $$
 
 group DRO
 : Group distributionally robust optimization
+
 $$
 \textrm{TrainLoos}_\text{max}(w) =
 \underset{g}{\text{max}}
@@ -385,7 +387,7 @@ Spectral theorem
 
 
 $$
-\boxed{\exists\Lambda\textrm{ diagonal},\quad A=U\Lambda U^T}
+\exists\Lambda\textrm{ diagonal},\quad A=U\Lambda U^T
 $$
 
 
