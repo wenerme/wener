@@ -4,6 +4,8 @@ import html from 'rehype-stringify';
 import markdown from 'remark-parse';
 import remark2rehype from 'remark-rehype';
 import unified from 'unified';
+import math from 'remark-math';
+import katex from 'rehype-katex';
 
 const strip = ([str]: TemplateStringsArray) => str.replace(/\n {6}/g, '\n').replace(/\n {4}$/, '');
 
@@ -11,10 +13,13 @@ const parse = (str: string) =>
   unified()
     .use(markdown)
     .use(deflist)
+    .use(math)
     .use(remark2rehype)
+    .use(katex)
     .use(html)
     .process(str)
     .then((data) => data.toString());
+
 const fixtures = [
   [
     'basic definition list',
@@ -93,19 +98,37 @@ const fixtures = [
       : Description 1
     `,
   ],
+
+  [
+    'close to title',
+    strip`
+      List
+      : Item
+    `,
+  ],
+  [
+    'simple with math',
+    strip`
+      List
+      : text $w$
+    `,
+  ],
+  [
+    'multi with math',
+    strip`
+      List
+      : text $w$
+      : text $w2$
+    `,
+  ],
+
+  [
+    'only math',
+    strip`
+      Hi $w$ !
+    `,
+  ],
 ];
-
-async function macro(t: ExecutionContext, input: any) {
-  const result = await parse(input);
-  t.snapshot(result);
-}
-
-macro.title = (name: string) => `remark-deflist should parse a ${name}`;
-
-// for (const fixture of fixtures) {
-//   const [ name, source ] = fixture
-//   test(name, macro, source);
-// }
 
 test('deflist', async (t) => {
   for (const [title, fixture] of fixtures) {

@@ -1,7 +1,7 @@
 const moment = require('moment-timezone');
 const math = require('remark-math');
 const katex = require('rehype-katex');
-const { default: deflist } = require('./lib/plugins/deflist');
+const { default: deflist } = require('./dist/plugins/deflist');
 const { writeFileSync } = require('fs');
 
 // https://docusaurus.io/docs/api/docusaurus-config
@@ -41,7 +41,8 @@ const config = {
       ({
         docs: {
           routeBasePath: 'notes',
-          path: '../notes',
+          //path: '../notes',
+          path: './notes',
           sidebarPath: require.resolve('./sidebars.js'),
           // .. 会消除最后的 notes
           editUrl: 'https://github.com/wenerme/wener/edit/master/notes/',
@@ -49,7 +50,7 @@ const config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
 
-          remarkPlugins: [deflist, math],
+          remarkPlugins: [math, deflist],
           // https://katex.org/docs/options.html
           rehypePlugins: [[katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }]],
 
@@ -81,7 +82,8 @@ const config = {
         },
         blog: {
           routeBasePath: 'story',
-          path: '../story',
+          // path: '../story',
+          path: './story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
