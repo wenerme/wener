@@ -88,7 +88,7 @@ title: 配件
 
 ### E3C232D2I
 
-- AsRock [E3C232D2I](AsRock-E3C232D2I)
+- AsRock [E3C232D2I][asrock-e3c232d2i]
   - Intel Xeon E3-1200 v5/v6
   - Intel® C232
     - 不支持 iGPU - [source](https://forums.servethehome.com/index.php?threads/quick-sync-with-c232-and-c242.24234/)
@@ -115,11 +115,11 @@ title: 配件
 
 ## Chipset
 
-- [Intel® C232 Chipset]([Intel-C232-Chipset])
+- [Intel® C232 Chipset][intel-c232-chipset]
   - 不支持 iGPU
   - 面向 Server
 
-[Intel-C232-Chipset]: https://ark.intel.com/products/90578
+[intel-c232-chipset]: https://ark.intel.com/products/90578
 
 ## RAID/HBA
 

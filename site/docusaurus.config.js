@@ -18,6 +18,7 @@ function RewritePlugin(context, options) {
 }
 
 const isTesting = Boolean(process.env.TEST);
+isTesting && console.warn(`Test building`)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -261,24 +262,25 @@ const config = {
     }),
   },
   plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/story',
-            from: ['/blog'],
-          },
-        ],
-        createRedirects: function (existingPath) {
-          if (existingPath.startsWith('/story/')) {
-            return ['/blog/' + existingPath.substring('/story/'.length)];
-          }
-          return [];
-        },
-      },
-    ],
-    RewritePlugin,
+    // old redirect migration
+    // [
+    //   '@docusaurus/plugin-client-redirects',
+    //   {
+    //     redirects: [
+    //       {
+    //         to: '/story',
+    //         from: ['/blog'],
+    //       },
+    //     ],
+    //     createRedirects: function (existingPath) {
+    //       if (existingPath.startsWith('/story/')) {
+    //         return ['/blog/' + existingPath.substring('/story/'.length)];
+    //       }
+    //       return [];
+    //     },
+    //   },
+    // ],
+    // RewritePlugin,
   ],
 
   // markdown: {

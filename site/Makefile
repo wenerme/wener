@@ -25,10 +25,11 @@ sidebar:
 plugins: bundle
 	pnpm exec esbuild  ./src/plugins/deflist.ts --outdir=./lib/plugins/ --format=cjs
 
+# cjs do not support --splitting
 # BUNDLE_FLAGS=--external:{unist-util-visit,mdast-util-to-string,mdast-util-from-markdown,mdast-util-to-markdown,unified,unist,mdast}
 BUNDLE_FLAGS=--external:{unist-util-visit,unified,unist,mdast} --platform=node --target=node16
 bundle:
-	pnpm exec esbuild $(BUNDLE_FLAGS) --bundle  ./src/plugins/deflist.ts --outdir=./dist/plugins/ --format=cjs
+	pnpm exec esbuild $(BUNDLE_FLAGS) --bundle ./src/plugins/table.mts  ./src/plugins/deflist.ts --outdir=./dist/plugins/ --format=cjs
 	grep '^// ' ./dist/plugins/* | grep node_modules
 
 build: plugins
@@ -48,4 +49,6 @@ status:
 	git add -u && git diff --staged --stat | tee
 
 test:
-	NODE_TEST=1 pnpm exec ava
+	TEST=1 pnpm exec ava
+test-build: TEST=1
+test-build: build

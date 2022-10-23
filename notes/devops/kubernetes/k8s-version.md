@@ -61,9 +61,9 @@ title: Kubernetes 版本
 
 :::
 
-[cronjobcontrollerv2]: ./k8s-features#CronJobControllerV2
-[ipv6dualstack]: ./k8s-features#IPv6DualStack
-[statefulsetautodeletepvc]: ./k8s-features#StatefulSetAutoDeletePVC
+[cronjobcontrollerv2]: ./k8s-features.md#CronJobControllerV2
+[ipv6dualstack]: ./k8s-features.md#IPv6DualStack
+[statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
 
 ## Kubernetes 1.24
 

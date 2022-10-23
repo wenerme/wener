@@ -49,6 +49,7 @@
     "react-dom": "^17",
     "rehype-katex": "^5",
     "rehype-stringify": "^8",
+    "remark-extended-table": "^1.0.1",
     "remark-math": "^3.0.1",
     "remark-rehype": "^8",
     "styled-components": "^5.3.0",

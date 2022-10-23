@@ -55,7 +55,7 @@ tags:
 
 ## Go 1.18
 
-- [generic](./go-generic)
+- [generic](./go-generic.md)
   - 支持类型参数
   - stdlib 这个版本不变
   - constraints -> golang.org/x/exp/constraints
@@ -96,7 +96,7 @@ tags:
   - runtime/debug.BuildInfo 增加 GoVersion, Settings
   - testing.F - fuzzing
 - Ports
-  - 新增 [GOAMD64](./go-build#GOAMD64) 环境变量 - 默认 v1
+  - 新增 [GOAMD64](./go-build.md#GOAMD64) 环境变量 - 默认 v1
 - 参考
   - https://tip.golang.org/doc/go1.18
   - GoLand Generics support - 2022.1 [GO-9515](https://youtrack.jetbrains.com/issue/GO-9515)
