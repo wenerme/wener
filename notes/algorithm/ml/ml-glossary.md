@@ -15,5 +15,13 @@ tags:
 | NLU   | Natural Language Understanding                     |
 
 
+## Types of AI Agents
+
+- Simple Reflex Agent
+- Model-based reflex agent
+- Goal-based agents
+- Utility-based agent
+- Learning agent
+
 
 ## Region-CNN R-CNN

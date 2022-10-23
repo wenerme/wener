@@ -3,15 +3,6 @@ import fs from 'fs-extra';
 import { randomUUID } from '@wener/utils';
 import os from 'node:os';
 
-/*
-\documentclass[crop,tikz,multi=false]{standalone}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-
-\begin{document}
-
-\begin{tikzpicture}
-*/
 export async function tikz2svg(s: string) {
   const id = randomUUID();
   const tmp = path.join(os.tmpdir(), await fs.mkdtemp('tikz2svg'), id);

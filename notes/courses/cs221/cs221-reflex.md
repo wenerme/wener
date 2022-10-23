@@ -2,10 +2,10 @@
 title: CS221 Artificial Intelligence - Reflex
 ---
 
-# CS221 AI Reflex Based Models
+# Reflex Based Models
 
 Reflex-based models
-: 基于反射的模型
+: 基于 反射/刺激 的模型
 : $
 \text{\color{orange}input } x
 ->
@@ -13,6 +13,12 @@ Reflex-based models
 ->
 y \text{\color{orange} output}
 $
+: 最简单的模型，不考虑历史，只考虑当前情况
+
+Reflex agent
+: 1. 从环境中获取输入
+: 2. 通过预测器，预测输出
+: 3. 输出结果
 
 Binary Classification
 : 二元分类
@@ -21,18 +27,21 @@ x ->
 \stackrel{\color{orange}\text{classifier}}{\boxed{f(x)} }
 -> y \in \color{orange} \{+1,-1\} \text{ \color{red}label}
 $
+: 输出二元结果 - true/false, yes/no, positive/negative, 1/-1, 1/0
 
 Regression
 : 回归
 : $
 x -> \boxed{f(x)} -> y \in \color{orange} \mathbb{R} \text{ \color{red}response}
 $
+: 输出实数结果
 
 Structured prediction
 : 结构化预测
 : $
 x -> \boxed{f(x)} -> y \text{ is a } \text{\color{orange}complex object}
 $
+: 输出复杂对象
 
 <!-- x -> \boxed{f(x)} -> y \in \color{orange} \mathcal{Y} \text{ \color{red}label}
 -->
@@ -237,11 +246,18 @@ $$
 \text{where } g^\text{*}=\underset{g}{\text{argmax}} \text{TrainLoss}_g(\mathbf{w})
 $$
 
-### Non-linear predictors
+## Non-linear predictors
 
 $k$-nearest neighbors
 : KNN
 : $k$相邻
+: 用于分类、回归
+
+![](https://stanford.edu/~shervine/teaching/cs-229/illustrations/k-nearest-neighbors.png)
+
+- $k$
+  - 与 bias 成正比
+  - 与 variance 成反比
 
 Neural networks
 : 神经网络
@@ -255,19 +271,42 @@ $$
 - x - input
 - z - non-activated output
 
+![](https://stanford.edu/~shervine/teaching/cs-229/illustrations/neural-network-en.png)
+
 ### Stochastic gradient descent
 
-随机梯度下降
+Gradient descent
+: 梯度下降
 
-- Stochastic updates
-  - Stochastic gradient descent (SGD)
-- Batch updates
-  - Batch gradient descent (BGD)
+![](https://stanford.edu/~shervine/teaching/cs-221/illustrations/gradient-descent.png)
 
-### Fine-tuning models
+$$
+w\longleftarrow w-\eta\nabla_w \textrm{Loss}(x,y,w)
+$$
 
-- Hypothesis class
-- Logistic function
+- $\eta \in \mathbb R$
+  - learning rate - step size
+  - 学习速率 - 每次更新多少
+
+Stochastic gradient descent - SGD
+: 随机梯度下降
+: Stochastic updates - 每次训练更新
+
+Batch gradient descent - BGD
+: 批量梯度下降
+: Batch updates - 一次训练集更新一次
+
+## Fine-tuning models
+
+Hypothesis class
+: 假设类
+: $
+\mathcal{F}=\left\{f_w:w\in\mathbb{R}^d\right\}
+$
+
+Logistic function
+: 逻辑函数
+: $\sigma$ - sigmoid function
 
 $$
 \boxed{\forall z\in]-\infty,+\infty[,\quad\sigma(z)=\frac{1}{1+e^{-z}}}
@@ -277,8 +316,22 @@ $$
 \sigma'(z)=\sigma(z)(1-\sigma(z))
 $$
 
-- Backpropagation
-- Approximation and estimation error
+Backpropagation
+: 后向传播
+: $g_i=\frac{\partial\textrm{out}}{\partial f_i}$
+
+![](https://stanford.edu/~shervine/teaching/cs-221/illustrations/backpropagation.png)
+
+Approximation error
+: hypothesis <-> predictor
+: $\epsilon_\text{approx}$
+
+Estimation error
+: predictor <-> best predictor
+: $\epsilon_\text{est}$
+
+![](https://stanford.edu/~shervine/teaching/cs-221/illustrations/approximation-model.png)
+
 - Regularization
   - keep the model from overfitting
   - LASSO
@@ -290,28 +343,45 @@ $$
     - Tradeoff between variable selection and small coefficients
 - Hyperparameters
 - Sets vocabulary
-- Training set - 训练集
-  - 80%
-- Validation set - 验证集
-  - 20%
-  - hold-out, development set
-- Testing set - 测试集
 
-### Unsupervised Learning
+| Training set                   | Validation set                          | Testing set                   |
+| ------------------------------ | --------------------------------------- | ----------------------------- |
+| 训练集                         | 验证集<br/>hold-out<br/>development set | 测试集                        |
+| $\mathcal{D}_{\textrm{train}}$ |                                         | $\mathcal{D}_{\textrm{test}}$ |
+| 80%                            | 20%                                     |
+| 用于训练模型                   | 用于估算模型                            | 模型未见过的数据              |
 
-- k-means
-- Clustering
-- Objective function
+## Unsupervised Learning
 
-$$
+### k-means
+
+Clustering
+: $n \in \mathcal D _ \textrm{train}$, clustering 将点 $\phi(x_i)$ 划分为 $k$ 类 $z_i \in \{1,...,k\}$
+
+Objective function
+: 初始化 clustering 的函数
+: 选取 $k$ 个点作为初始的 $k$ 个 cluster 的中心点
+: $
 \textrm{Loss}_{\textrm{k-means}}(x,\mu)=\sum_{i=1}^n||\phi(x*i)-\mu*{z_i}||^2
-$$
+$
+
+
+
+k-means
+: 1. 随机选取 $k$ 个点作为初始的 $k$ 个 cluster 的中心点 - **Objective function**
+  2. 计算每个点到 $k$ 个 cluster 的中心点的距离 - **Algorithm**
+  3. 将每个点划分到距离最近的 cluster
+  4. 重新计算每个 cluster 的中心点
+  5. 重复 2-4 直到收敛
 
 Algorithm
+
 
 $$
 \boxed{z*i=\underset{j}{\textrm{arg min}}||\phi(x_i)-\mu_j||^2}\quad\textrm{and}\quad\boxed{\mu_j=\frac{\displaystyle\sum*{i=1}^n1*{\{z_i=j\}}\phi(x_i)}{\displaystyle\sum*{i=1}^n1\_{\{z_i=j\}}}}
 $$
+
+![](https://stanford.edu/~shervine/teaching/cs-229/illustrations/k-means-en.png)
 
 **Principal Component Analysis**
 

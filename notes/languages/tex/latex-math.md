@@ -14,6 +14,8 @@ title: LaTex Math
 - [希腊字母](https://zh.wikipedia.org/wiki/希腊字母)
 - [KaTeX](https://github.com/KaTeX/KaTeX)
   - https://katex.org/docs/options.html
+  - [Support Table](https://katex.org/docs/support_table.html)
+  - [Supported Functions](https://katex.org/docs/supported.html)
 - https://www.overleaf.com/learn
 - https://www.overleaf.com/learn/latex/Brackets_and_Parentheses
 
@@ -66,3 +68,17 @@ $$
 # FAQ
 
 ## katex unicodeTextInMathMode
+
+## KaTeX vs MathJax
+
+- KaTeX
+  - 只关心 TeX/LaTeX -> HTML
+  - 所以会更快一些
+- MathJax
+  - 还支持 MathML, AsciiMath
+  - 可输出 HTML, SVG, MathML.
+  - 包含输出 accessible 信息
+
+---
+
+- https://www.intmath.com/cg5/katex-mathjax-comparison.php

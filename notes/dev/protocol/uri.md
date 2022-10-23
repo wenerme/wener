@@ -28,7 +28,21 @@ tags:
 - protocol=schema
 - hash=`#` fragment
 
----
+**URL 长度限制**
+
+- 一般建议 < 2000
+- cloudfront 8k - header 20k
+- fastly 8Kb
+- cloudflare 16k
+
+| Browser | Address bar | document.location |
+| ------- | ----------- | ----------------- |
+| Chrome  | 32779       | >64k              |
+| Android | 8192        | >64k              |
+| Firefox | >64k        | >64k              |
+| Safari  | >64k        | >64k              |
+| IE11    | 2047        | 5120              |
+| Edge 16 | 2047        | 10240             |
 
 - https://url.spec.whatwg.org/
 - [medialize/URI.js](https://github.com/medialize/URI.js)
