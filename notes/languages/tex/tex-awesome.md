@@ -6,6 +6,16 @@ tags:
 
 # TeX Awesome
 
+- texlive
+  - latexmk
+  - pdflatex
+  - [contents](https://pkgs.alpinelinux.org/contents?repo=community&arch=x86_64&branch=edge&name=texlive)
+- online/webui
+  - https://www.overleaf.com/learn/latex/TikZ_package
+  - [parpalak/upmath.me](https://github.com/parpalak/upmath.me)
+    - https://upmath.me/
+    - 服务端渲染
+    - PHP
 - http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm
 
 ## Math

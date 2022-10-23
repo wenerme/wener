@@ -87,6 +87,8 @@ setup-timezone Asia/Shanghai
 echo "http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
 http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" >> /etc/apk/repositories
 
+grep VERSION_ID /etc/os-release | grep -Eo '\d+\.\d+'
+
 # testing 有些尚未发布的, 有时候会用到
 echo "@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
 

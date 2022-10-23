@@ -2,7 +2,7 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
-    "target": "es2019",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

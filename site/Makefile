@@ -31,6 +31,8 @@ BUNDLE_FLAGS=--external:{unist-util-visit,unified,unist,mdast} --platform=node -
 bundle:
 	pnpm exec esbuild $(BUNDLE_FLAGS) --bundle ./src/plugins/table.mts  ./src/plugins/deflist.ts --outdir=./dist/plugins/ --format=cjs
 	grep '^// ' ./dist/plugins/* | grep node_modules
+	pnpm exec esbuild --platform=node --target=node16 --bundle ./src/scripts/tikz2svg.mts  --outdir=./dist/scripts/ --format=cjs
+
 
 build: plugins
 	pnpm run build

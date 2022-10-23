@@ -1,0 +1,6 @@
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{absdev}$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[line width=1mm, draw opacity=0.7, pink] (-3,4) -- (0,0) -- (3,4);
+\end{tikzpicture}

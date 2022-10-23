@@ -64,6 +64,7 @@
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16",
     "@types/node-fetch": "^2",
+    "@wener/utils": "^1.1.7",
     "ava": "^4.3.3",
     "esbuild": "^0.15.9",
     "esbuild-loader": "^2.20.0",
@@ -74,7 +75,8 @@
     "socks-proxy-agent": "^7.0.0",
     "tsx": "^3.9.0",
     "typescript": "^4.3.5",
-    "yaml": "^2"
+    "yaml": "^2",
+    "zx": "^7.1.1"
   },
   "ava": {
     "extensions": [

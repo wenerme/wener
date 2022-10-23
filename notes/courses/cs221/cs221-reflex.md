@@ -2,11 +2,7 @@
 title: CS221 Artificial Intelligence - Reflex
 ---
 
-# CS221 AI Reflex
-
-- https://www.youtube.com/watch?v=ZiwogMtbjr4&list=PLoROMvodv4rOca_Ovz1DvdtWuz8BfSWL2&index=1
-
-## reflex
+# CS221 AI Reflex Based Models
 
 Reflex-based models
 : 基于反射的模型
@@ -71,13 +67,11 @@ $$
 \end{alignat*}
 $$
 
-
 Loss function
 : 损失函数
 : $
 \text{Loss}_{0-1}(x,y,\text{w}) = 1[f_\text{w}(x) \ne y] \text{\color{orange} zero-one loss}
 $
-
 
 **非线性**
 
@@ -98,9 +92,8 @@ Predictors with periodicity structure
 
 Feature vector
 : 特征向量
-: [特征工程](./feature-engineering.md)
+: 特征工程 - feature-engineering
 : 将原始数据抽象为特征向量
-
 
 $$
 \phi(x)=
@@ -120,7 +113,6 @@ Score
 : 分数
 : 如果是最终结果，则代针对某个结论的肯定程度
 
-
 $$
 s(x,w) = w \cdot \phi(x)
 $$
@@ -133,7 +125,6 @@ $$
   - 例如: 0.78 是 男性
 
 **Linear classifier**
-
 
 $$
 \
@@ -150,13 +141,11 @@ $$
 
 - larger values are better
 
-
 $$
 m(x,y,w) = s(x,w) \times y
 $$
 
 **Linear regression**
-
 
 $$
 f_w(x) = s(x,w) = w \cdot \phi(x)
@@ -165,7 +154,6 @@ $$
 **Residual**
 
 amount by which the prediction $f_w(x)$ overshoots the target $y$
-
 
 $$
 r(x,y,w) = f_w(x) - y = s(x,w) - y
@@ -184,57 +172,17 @@ Loss function
 Classification case
 : 分类问题
 
-| Name | Zero-one loss       | Hinge loss                 | Logistic loss                 |
-| ---- | ------------------- | -------------------------- | ----------------------------- |
-| Loss | $1_{m(x,y,w) <= 0}$ | $\text{max}(1−m(x,y,w),0)$ | $\text{log}(1+e^{−m(x,y,w)})$ |
-
-```tex
-\begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_{0-1}$};
-  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
-  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
-  \draw[line width=1mm, draw opacity=0.7, green] (-3,1.5) -- (0,1.5) -- (0,0) -- (3,0);
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{hing}$};
-  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
-  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
-  \draw[line width=1mm, draw opacity=0.7, orange] (-3,4) -- (1,0) -- (3,0);
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{logistic}$};
-  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
-  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
-  \draw[line width=1mm, draw opacity=0.7, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {log2(1+e^-\x)});
-\end{tikzpicture}
-```
+| Name         | Zero-one loss                   | Hinge loss                   | Logistic loss                   |
+| ------------ | ------------------------------- | ---------------------------- | ------------------------------- |
+| Loss         | $1_{m(x,y,w) <= 0}$             | $\text{max}(1−m(x,y,w),0)$   | $\text{log}(1+e^{−m(x,y,w)})$   |
+| Illustration | ![](./assets/loss-zero-one.svg) | ![](./assets/loss-hinge.svg) | ![](./assets/loss-logistic.svg) |
 
 **Regression case**
 
-| Name                   | Squared loss              | Absolute deviation loss   |
-| ---------------------- | ------------------------- | ------------------------- |
-| $\textrm{Loss}(x,y,w)$ | $(\textrm{res}(x,y,w))^2$ | $\|\textrm{res}(x,y,w)\|$ |
-
-```tex
-\begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{squared}$};
-  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
-  \draw[line width=1mm, draw opacity=0.7, domain=-2:2, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$res(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_\text{absdev}$};
-  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
-  \draw[line width=1mm, draw opacity=0.7, pink] (-3,4) -- (0,0) -- (3,4)
-\end{tikzpicture}
-```
+| Name                   | Squared loss                   | Absolute deviation loss        |
+| ---------------------- | ------------------------------ | ------------------------------ |
+| $\textrm{Loss}(x,y,w)$ | $(\textrm{res}(x,y,w))^2$      | $\|\textrm{res}(x,y,w)\|$      |
+| Illustration           | ![](./assets/loss-squared.svg) | ![](./assets/loss-abs-dev.svg) |
 
 **Zero-one loss**
 
@@ -270,7 +218,6 @@ $$
 
 **Loss minimization framework**
 
-
 $$
 \textrm{TrainLoss}(w)=\frac{1}{|\mathcal{D}_{\textrm{train}}|}\sum_{(x,y)\in\mathcal{D}_{\textrm{train}}}\textrm{Loss}(x,y,w)
 $$
@@ -299,7 +246,6 @@ $k$-nearest neighbors
 Neural networks
 : 神经网络
 
-
 $$
 z_j^{[i]}={w_j^{[i]}}^Tx+b_j^{[i]}
 $$
@@ -323,11 +269,9 @@ $$
 - Hypothesis class
 - Logistic function
 
-
 $$
 \boxed{\forall z\in]-\infty,+\infty[,\quad\sigma(z)=\frac{1}{1+e^{-z}}}
 $$
-
 
 $$
 \sigma'(z)=\sigma(z)(1-\sigma(z))
@@ -359,13 +303,11 @@ $$
 - Clustering
 - Objective function
 
-
 $$
 \textrm{Loss}_{\textrm{k-means}}(x,\mu)=\sum_{i=1}^n||\phi(x*i)-\mu*{z_i}||^2
 $$
 
 Algorithm
-
 
 $$
 \boxed{z*i=\underset{j}{\textrm{arg min}}||\phi(x_i)-\mu_j||^2}\quad\textrm{and}\quad\boxed{\mu_j=\frac{\displaystyle\sum*{i=1}^n1*{\{z_i=j\}}\phi(x_i)}{\displaystyle\sum*{i=1}^n1\_{\{z_i=j\}}}}
@@ -375,7 +317,6 @@ $$
 
 - Eigenvalue, eigenvector
 
-
 $$
 \boxed{Az=\lambda z}
 $$
@@ -384,11 +325,9 @@ $$
 
 Spectral theorem
 
-
 $$
 \exists\Lambda\textrm{ diagonal},\quad A=U\Lambda U^T
 $$
-
 
 $$
 \boxed{\phi*j(x_i)\leftarrow\frac{\phi_j(x_i)-\mu_j}{\sigma_j}}\quad\textrm{where}\quad\boxed{\mu_j = \frac{1}{n}\sum*{i=1}^n\phi*j(x_i)}\quad\textrm{and}\quad\boxed{\sigma_j^2=\frac{1}{n}\sum*{i=1}^n(\phi_j(x_i)-\mu_j)^2}
