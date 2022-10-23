@@ -17,6 +17,8 @@ function RewritePlugin(context, options) {
   };
 }
 
+const isTesting = Boolean(process.env.TEST);
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Wener Live & Life',
@@ -41,8 +43,7 @@ const config = {
       ({
         docs: {
           routeBasePath: 'notes',
-          //path: '../notes',
-          path: './notes',
+          path: isTesting ? './notes' : '../notes',
           sidebarPath: require.resolve('./sidebars.js'),
           // .. 会消除最后的 notes
           editUrl: 'https://github.com/wenerme/wener/edit/master/notes/',
@@ -82,8 +83,7 @@ const config = {
         },
         blog: {
           routeBasePath: 'story',
-          // path: '../story',
-          path: './story',
+          path: isTesting ? '../story' : './story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',

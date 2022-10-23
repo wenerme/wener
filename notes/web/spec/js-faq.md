@@ -122,3 +122,7 @@ typeof val === 'object';
 ## Performance
 
 - [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)
+
+## TypeError: Function.prototype.toString requires that 'this' be a Function
+
+Function.prototype.toString 方法中 this 不是函数则会异常。

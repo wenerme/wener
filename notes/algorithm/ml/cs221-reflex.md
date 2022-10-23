@@ -10,7 +10,7 @@ title: CS221 Artificial Intelligence - Reflex
 
 Reflex-based models
 : 基于反射的模型
-$
+: $
 \text{\color{orange}input } x
 ->
 \stackrel{\color{orange}\text{predicator}}{\boxed{f(x)} }
@@ -20,7 +20,7 @@ $
 
 Binary Classification
 : 二元分类
-$
+: $
 x ->
 \stackrel{\color{orange}\text{classifier}}{\boxed{f(x)} }
 -> y \in \color{orange} \{+1,-1\} \text{ \color{red}label}
@@ -28,13 +28,13 @@ $
 
 Regression
 : 回归
-$
+: $
 x -> \boxed{f(x)} -> y \in \color{orange} \mathbb{R} \text{ \color{red}response}
 $
 
 Structured prediction
 : 结构化预测
-$
+: $
 x -> \boxed{f(x)} -> y \text{ is a } \text{\color{orange}complex object}
 $
 
@@ -74,10 +74,9 @@ $$
 
 Loss function
 : 损失函数
-
-$$
+: $
 \text{Loss}_{0-1}(x,y,\text{w}) = 1[f_\text{w}(x) \ne y] \text{\color{orange} zero-one loss}
-$$
+$
 
 
 **非线性**
