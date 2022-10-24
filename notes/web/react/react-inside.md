@@ -433,6 +433,8 @@ import.meta.webpackHot.accept(
 - ReactIS
   - https://github.com/facebook/react/blob/main/packages/react-is/src/ReactIs.js
 - ReactSymbols
+  - react.element
+  - react.fragment
   - https://github.com/facebook/react/blob/main/packages/shared/ReactSymbols.js
 
 ## Offscreen

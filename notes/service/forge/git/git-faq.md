@@ -380,3 +380,5 @@ git config --global --add safe.directory '*'
 
 - https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9
 - https://github.com/actions/runner/issues/2033
+
+## unsupported value for gpg.format: ssh

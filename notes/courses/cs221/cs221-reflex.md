@@ -391,7 +391,7 @@ $$
 \boxed{Az=\lambda z}
 $$
 
-​
+
 
 Spectral theorem
 

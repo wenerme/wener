@@ -67,5 +67,5 @@ Uniform cost search - UCS
 Structured perceptron
 : 结构感知机
 
-A<sup>*</sup> search
-: A<sup>*</sup> 搜索
+A<sup>\*</sup> search
+: A<sup>\*</sup> 搜索
