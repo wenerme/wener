@@ -123,7 +123,7 @@ Score
 : 如果是最终结果，则代针对某个结论的肯定程度
 
 $$
-s(x,w) = w \cdot \phi(x)
+s(x,w) = \mathbf w \cdot \phi(x) = \sum _{i=1}^d w_i \phi_i(x)
 $$
 
 - w - weight - 权重
@@ -132,6 +132,15 @@ $$
 - s - score - 分数
   - 特征\*权重
   - 例如: 0.78 是 男性
+
+feature template
+: 特征模板
+: group of features all computed in a similar way
+: e.g. 字符串 以 .com,.cn 结尾
+
+- dense feature
+- sparse feature
+  - 大量 0
 
 **Linear classifier**
 

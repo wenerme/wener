@@ -67,5 +67,7 @@ Uniform cost search - UCS
 Structured perceptron
 : 结构感知机
 
-A<sup>\*</sup> search
-: A<sup>\*</sup> 搜索
+<!-- deflist 不支持 jsx - 因此不可以 <sup> -->
+
+$\mathbf A ^ *$ search
+: $\mathbf A ^ *$ 搜索
