@@ -28,7 +28,7 @@ const Live = () => {
 - noInline - 不做 render 封装 - 可以在代码里调 render 方法
 - scope - 传递上下文
 
-```jsx live
+```jsx
 function Clock(props) {
   const [date, setDate] = useState(new Date());
   useEffect(() => {

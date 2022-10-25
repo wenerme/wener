@@ -22,6 +22,12 @@ title: Docusaurus
     - Subscript, Superscript
     - Extend Table
 
+:::tip
+
+- 默认第一个段落内容作为 description
+
+:::
+
 :::caution
 
 - Support ESM config file [#5379](https://github.com/facebook/docusaurus/issues/5379)
@@ -78,6 +84,27 @@ npx @docusaurus/init@next init my-website classic
 
 - 注册的自定义组件
   - https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-classic/src/theme/MDXComponents/index.tsx
+
+## 自定义
+
+添加在文档开头
+
+```html
+---
+title: My Doc
+---
+
+<head>
+  <html className="some-extra-html-class" />
+  <body className="other-extra-body-class" />
+  <title>Head Metadata customized title!</title>
+  <meta charSet="utf-8" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://docusaurus.io/docs/markdown-features/head-metadata" />
+</head>
+
+# My Doc
+```
 
 ## Docs
 
