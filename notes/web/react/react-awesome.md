@@ -155,6 +155,8 @@ npm add date-fns lodash-es react-fast-compare
 - [reakit/reakit](https://github.com/reakit/reakit) - 专注于 accessible 的组件
   - ARIA
   - 在国内一般不关心 accessible
+- [table-library/react-table-library](https://github.com/table-library/react-table-library)
+  - 带 UI
 - [react-icons/react-icons](https://github.com/react-icons/react-icons)
   - [react-icons.github.io](https://react-icons.github.io/react-icons) 包含了大量可用 Icon
   - 来自 tailwincss 的 [heroicons](https://heroicons.com/) 崇尚直接 copy svg 使用
@@ -179,6 +181,8 @@ npm add date-fns lodash-es react-fast-compare
   - [splitbee/react-notion](https://github.com/splitbee/react-notion)
   - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
 - https://github.com/bvaughn/planner
+- [ReactTooltip/react-tooltip](https://github.com/ReactTooltip/react-tooltip)
+- floatingui
 - [reaviz](https://github.com/reaviz)
   - [reaviz](https://github.com/reaviz/reaviz)
     - Data visualization
@@ -212,6 +216,8 @@ npm add date-fns lodash-es react-fast-compare
     - 组件
       - ResizableBox - 维护 div 状态实现简单 resize - `<div {...props} />`
       - Resizable - 无状态基础功能组件
+  - [SortableJS/Sortable](https://github.com/SortableJS/Sortable)
+    - [6pac/SlickGrid](https://github.com/6pac/SlickGrid)
   - [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
 - layout
   - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)

@@ -18,6 +18,8 @@ tags:
     - rollup
   - tsup
 - [tclindner/npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
+- [webpro/knip](https://github.com/webpro/knip)
+  - Find unused files, dependencies and exports
 
 ```bash
 npx typesync                                      # 同步 @types/ 依赖

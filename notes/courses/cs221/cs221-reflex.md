@@ -4,83 +4,13 @@ title: CS221 Artificial Intelligence - Reflex
 
 # Reflex Based Models
 
-Reflex-based models
-: 基于 反射/刺激 的模型
-: $
-\text{\color{orange}input } x
-->
-\stackrel{\color{orange}\text{predicator}}{\boxed{f(x)} }
-->
-y \text{\color{orange} output}
-$
-: 最简单的模型，不考虑历史，只考虑当前情况
-
 Reflex agent
 : 1. 从环境中获取输入
 : 2. 通过预测器，预测输出
 : 3. 输出结果
 
-Binary Classification
-: 二元分类
-: $
-x ->
-\stackrel{\color{orange}\text{classifier}}{\boxed{f(x)} }
--> y \in \color{orange} \{+1,-1\} \text{ \color{red}label}
-$
-: 输出二元结果 - true/false, yes/no, positive/negative, 1/-1, 1/0
-
-Regression
-: 回归
-: $
-x -> \boxed{f(x)} -> y \in \color{orange} \mathbb{R} \text{ \color{red}response}
-$
-: 输出实数结果
-
-Structured prediction
-: 结构化预测
-: $
-x -> \boxed{f(x)} -> y \text{ is a } \text{\color{orange}complex object}
-$
-: 输出复杂对象
-
 <!-- x -> \boxed{f(x)} -> y \in \color{orange} \mathcal{Y} \text{ \color{red}label}
 -->
-
-Linear regression framework
-: 线性回归框架
-: Decision boundary - 一条线
-: Hypothesis class - 假设类 - 哪些预测是可能的
-: Loss function - 损失函数 - 如何衡量预测的好坏
-: Optimization algorithm - 优化算法 - 如何找到最好的预测
-
-Hypothesis class
-: 假设类
-: 哪些预测是可能的
-
-$$
-f_W(x) = \text{w} \cdot \phi(x)
-$$
-
-- $W=[w_1,w_2]$ - weight vector - 权重向量
-- feature extractor - $\phi(x)=[1,x]$ - feature vector
-
-$$
-f_W(x) = \text{sign}(\mathbf{w} \cdot \phi(x))
-$$
-
-$$
-\begin{alignat*}{2}
-\mathcal{F}
-&=\{ f_\mathbf{w} : \mathbf{w} \in \mathbb R ^d \} \\
-&=\{ f_\mathbf{w} = \mathbf{w} \cdot \phi(x) : \mathbf w \in \mathbb R ^d \}
-\end{alignat*}
-$$
-
-Loss function
-: 损失函数
-: $
-\text{Loss}_{0-1}(x,y,\text{w}) = 1[f_\text{w}(x) \ne y] \text{\color{orange} zero-one loss}
-$
 
 **非线性**
 
