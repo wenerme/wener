@@ -172,7 +172,9 @@ $$
 > - $()^2 \longrightarrow 2()$ 的 gradient/$\nabla$ 的转换逻辑后面会讲到
 > - 使用 squared loss 的 gradient
 
-```jsx live
+<!-- FIXME live -->
+
+```jsx
 function Run(props) {
   const [state, setState] = useState({
     iterations: 200,
@@ -180,11 +182,7 @@ function Run(props) {
     logs: [],
     w: [0, 0],
   });
-  function run({
-    iterations = 200,
-    learningRate = 0.1,
-    log = console.log.bind(console),
-  } = {}) {
+  function run({ iterations = 200, learningRate = 0.1, log = console.log.bind(console) } = {}) {
     // 训练集
     const trainSet = [
       [1, 1],
@@ -192,7 +190,7 @@ function Run(props) {
       [4, 3],
     ];
     log(`train epochs:${iterations} eta:${learningRate}`);
-
+    // Optimization problem
     // 1/3 * sum((w*phi(x) - y) ^ 2)
     const trainLoss = (w) => {
       let sum = 0;
@@ -209,12 +207,10 @@ function Run(props) {
         let z = [d * 1, d * x];
         sum = [sum[0] + z[0], sum[1] + z[1]];
       }
-      const loss = [
-        sum[0] * (1.0 / trainSet.length),
-        sum[1] * (1.0 / trainSet.length),
-      ];
+      const loss = [sum[0] * (1.0 / trainSet.length), sum[1] * (1.0 / trainSet.length)];
       return loss;
     };
+    // Optimization algorithm
     const gradientDescent = (F, gradientF, initialWeightVector) => {
       let w = initialWeightVector;
       let eta = learningRate;
@@ -223,11 +219,7 @@ function Run(props) {
         let gradient = gradientF(w);
         w = [w[0] - eta * gradient[0], w[1] - eta * gradient[1]];
         //
-        if ([0, 1, 2, iterations - 1].includes(i))
-          log(
-            `epoch ${i + 1}:`,
-            `w: ${w}, F(w)=${value}, gradient: ${gradient}`
-          );
+        log(`epoch ${i + 1}:`, `w: ${w}, F(w)=${value}, gradient: ${gradient}`);
       }
       return w;
     };
@@ -245,27 +237,25 @@ function Run(props) {
             learningRate: state.learningRate,
             log: (...args) =>
               setState((s) => {
-                return { ...s, logs: [...s.logs, args.join(" ")] };
+                return { ...s, logs: [...s.logs, args.join(' ')] };
               }),
           });
         }}
       >
         Run
       </button>
-      <div style={{ display: "flex", flexFlow: "column" }}>
+      <div style={{ display: 'flex', flexFlow: 'column' }}>
         <label>
-          iterations:{" "}
+          iterations:{' '}
           <input
             type="number"
             step="1"
             value={state.iterations}
-            onChange={(e) =>
-              setState({ ...state, iterations: e.currentTarget.valueAsNumber })
-            }
+            onChange={(e) => setState({ ...state, iterations: e.currentTarget.valueAsNumber })}
           />
         </label>
         <label>
-          learningRate:{" "}
+          learningRate:{' '}
           <input
             type="number"
             min="0.001"
@@ -280,8 +270,10 @@ function Run(props) {
           />
         </label>
       </div>
-      <h2>Logs</h2>
-      <pre>
+      <h2>
+        Logs <small>F(w)⬇️, gradient ⬇️ </small>
+      </h2>
+      <pre style={{ overflow: 'auto', height: '240px' }}>
         {state.logs.map((v, i) => (
           <div key={i}>{v}</div>
         ))}
