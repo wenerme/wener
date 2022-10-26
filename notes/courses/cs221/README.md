@@ -172,14 +172,18 @@ $$
 > - $()^2 \longrightarrow 2()$ 的 gradient/$\nabla$ 的转换逻辑后面会讲到
 > - 使用 squared loss 的 gradient
 
-:::note Demo
+import Admonition from '@theme/Admonition';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import {Lession2Demo} from '@theme/CS221';
+
+<Admonition type="tip" icon="💡" title="Demo">
 
 <details>
 
 <summary>代码:</summary>
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 <Tabs>
   <TabItem value="javascript" label="JavaScript" default>
@@ -237,11 +241,10 @@ function train({ iterations = 200, learningRate = 0.1, log = console.log.bind(co
 
 </details>
 
-import {Lession2Demo} from '@theme/CS221';
 
 <Lession2Demo/>
 
-:::
+</Admonition>
 
 :::tip 向量计算
 

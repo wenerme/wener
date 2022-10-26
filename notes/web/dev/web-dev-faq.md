@@ -27,6 +27,46 @@ tags:
 - 面向 web 的插件 - iife - 直接执行
 - 面向 微前端 - systemjs
 
+## Bundler 的作用
+
+1. 应用打包 - UX 优先
+
+- 包含所有 assets
+  - image、json、text
+  - base64
+- assets 转换/优化 - minify 和 UX 相关优化
+  - css - cssnano
+  - svg - svgo
+  - image
+    - 生成 blur 嵌入数据
+    - 通过 image server 支持不同缩略图
+  - font
+    - 拉取外部 字体，本地缓存，做 selfhosting
+    - 确保字体先加载，避免 layout shifting
+  - link - 在 HTML 层面自动添加 prefetch
+  - html - 包含 prefetch assets
+- JS 处理
+  - treeshake 依赖 - 减少产出大小
+  - 基于 browserlist 决定产出什么样的 JS
+  - 合并、chunk
+- 拆分 Client、Server 代码 - 非全静态应用
+
+2. 库打包 - DX 优先
+
+- 支持不同的模块系统 - ESM、CJS、UMD、SystemJS
+- 支持不同的环境 - Node、Browser
+  - 可能会替代用到的方法
+- 支持语言转换
+- 产出不同入口
+
+3. 开发打包 - DX 优先
+
+- 更新修改非常快
+- 支持框架纬度局部刷新 - React Fast Refresh, HMR
+- 使用最新特性 - 减少额外处理
+- 惰性打包 - 用到的组件才处理
+- 可能直接依赖浏览器对 ESM 的支持 - 减少打包，直接使用
+
 ## 如何选择工具链
 
 :::tip
