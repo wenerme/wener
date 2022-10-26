@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 export function Lession2Demo(props) {
   const [state, setState] = useState({
     iterations: 200,

@@ -7,10 +7,13 @@ title: 牛奶
 :::tip
 
 - 一般进口纯牛奶 蛋白质 3.3+
+  - 3.26 - 4.03
+  - [USDA](https://fdc.nal.usda.gov/fdc-app.html#/food-details/173441/nutrients)
+- 标准牛奶 100g 蛋白质为 3.4g
 
 :::
 
-| Brand              | 品牌          | 产地     |
+| Brand              | 品牌          | 产地     | 备注                                |
 | ------------------ | ------------- | -------- | ----------------------------------- |
 | Anchor             | 安佳          | 新西兰   |
 |                    | 纽麦福 跑跑牛 | 新西兰   |
@@ -18,7 +21,7 @@ title: 牛奶
 | TH true milk       |               | 越南     |
 | Oldenburger        | 欧德堡        | 德国     |
 | Devondale          | 德运          | 澳大利亚 |
-| Nepean River Dairy | 尼平河        | 奥地利   |
+| Nepean River Dairy | 尼平河        | 奥地利   | 被冠名、同化 - 注意区分进口！       |
 |                    | 澳伯顿纯      | 澳大利亚 |
 | Globe milk         | 荷高          | 荷兰     |
 |                    | 乐荷          | 荷兰     |

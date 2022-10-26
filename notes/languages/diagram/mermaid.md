@@ -19,6 +19,7 @@ title: mermaid
 | erDiagram       | ER          |
 | gitGraph        | Git         |
 | journey         | UserJourney |
+| flowchart       |
 
 ```mermaid
 graph TD;

@@ -685,6 +685,19 @@ tags:
   - 通常是一串字符串
   - Stackoverflow 的问题使用的 Tag
 
+## view vs viewer
+
+- view
+  - 通常偏模型
+  - 例如一个 view 可能有多个 viewer
+- viewer
+  - 通常指视图实体
+
+---
+
+- e.g. Editor 为 Viewer, EditorView 为底层文档模型
+- [What is the difference between a view and a viewer?](https://wiki.eclipse.org/FAQ_What_is_the_difference_between_a_view_and_a_viewer%3F)
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t

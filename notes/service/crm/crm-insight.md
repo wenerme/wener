@@ -1,5 +1,7 @@
 ---
 title: 理解 CRM
+tags:
+- Insight
 ---
 
 # CRM

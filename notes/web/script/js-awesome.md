@@ -586,6 +586,14 @@ tags:
     - Apache-2.0, Rust
     - multi-tenant serverless JavaScript runtime
     - V8 isolate
+  - [vm2](https://github.com/patriksimek/vm2)
+    - vs node:vm
+      - 更安全
+      - 暴露更少的内容
+      - 使用 proxy 避免逃逸
+      - 覆盖 require 避免访问内部
+      - 支持 transpiler
+  - [vm](https://nodejs.org/api/vm.html) - NodeJS
 - Engine - JIT
   - [V8](https://github.com/v8/v8)
     - Chrome

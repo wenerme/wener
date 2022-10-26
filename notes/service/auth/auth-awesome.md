@@ -73,6 +73,10 @@ tags:
   - gRPC API+REST
   - 支持 pg, mysql, cockroachdb, [hashicorp/go-memdb](https://github.com/hashicorp/go-memdb)
   - [HN](https://news.ycombinator.com/item?id=28709886)
+- [aserto-dev/topaz](https://github.com/aserto-dev/topaz)
+  - Apache-2.0, Go
+  - Open Policy Agent
+  - BoltDB
 - [Permify/permify](https://github.com/Permify/permify)
   - Apache-2.0, Go
   - 通过 CDC 同步信息

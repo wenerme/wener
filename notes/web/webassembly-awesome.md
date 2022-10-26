@@ -9,10 +9,16 @@ tags:
 :::tip
 
 - 推荐 rust, c, c++, zig
-- 推荐 js 加嵌入类型的 engine - duktape
+- 推荐 js 加嵌入类型的 engine - duktape, quickjs
+- emscripten 可以将 llvm 支持的任意语言编译为 wasm
 
 :::
 
+- [AssemblyScript/assemblyscript](https://github.com/AssemblyScript/assemblyscript)
+  - 直接输出 wasm
+  - 类 TypeScript 语法
+  - https://www.assemblyscript.org/status.html
+  - https://www.assemblyscript.org/built-with-assemblyscript.html
 - [Rust & Wasm](https://rustwasm.github.io/book/introduction.html)
 - [roadmap](https://webassembly.org/roadmap/)
 - bytecodealliance
@@ -76,13 +82,16 @@ tags:
   - [krustlet/krustlet](https://github.com/krustlet/krustlet)
   - Run WebAssembly workloads in Kubernetes
 - https://v8.dev/blog/emscripten-standalone-wasm
+
 ## JS
 
 - duktape
 - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
 - quickjs
   - ES2020
+  - wasm 1MB 左右
   - [justjake/quickjs-emscripten](https://github.com/justjake/quickjs-emscripten)
+  - [second-state/wasmedge-quickjs](https://github.com/second-state/wasmedge-quickjs)
 - [mbbill/JSC.js](https://github.com/mbbill/JSC.js)
 - [maple3142/wasm-jseval](https://github.com/maple3142/wasm-jseval)
 - `<iframe sandbox="allow-scripts"/>`
@@ -117,3 +126,9 @@ tags:
 ## Learn
 
 - https://wiki.polkadot.network/docs/learn-wasm
+
+## emscripten
+
+- [emscripten-core/emscripten](https://github.com/emscripten-core/emscripten)
+  - LLVM-to-WebAssembly Compiler
+- [WebAssembly/binaryen](https://github.com/WebAssembly/binaryen)

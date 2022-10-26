@@ -75,3 +75,15 @@ title: abc
 - https://gohugo.io/content-management/front-matter/
 - https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-frontmatter
 - [jonschlinkert/gray-matter](https://github.com/jonschlinkert/gray-matter)
+
+## PromseMirror vs Slate
+
+- PromseMirror
+  - DOM 优先
+  - 有 Schema
+  - 光标使用 整数 绝对定位
+  - 支持更复杂的选区
+- Slate
+  - React 优先
+  - 无 Schema
+  - 光标 path+offset

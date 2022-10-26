@@ -18,7 +18,6 @@ tags:
   1. EventListener
   1. console.log
 
-
 ## Membrane
 
 - isolate two object graphs
@@ -126,3 +125,24 @@ typeof val === 'object';
 ## TypeError: Function.prototype.toString requires that 'this' be a Function
 
 Function.prototype.toString 方法中 this 不是函数则会异常。
+
+## Object.create(null)
+
+- `{}` 同 `Object.create(Object.prototype)`
+  - 继承 Object
+  - hasOwnProperty
+  - isPrototypeOf
+  - propertyIsEnumerable
+  - toString/toLocaleString
+  - valueOf
+- `Object.create(null)` - 不继承任何方法
+  - 作为 Map 使用
+
+```ts
+console.assert(!Object.create(null).hasOwnProperty); // 不存在
+console.assert({}.hasOwnProperty); // 存在
+
+String({}); // 有 toString 方法
+String(Object.create(null)); // 失败 - 不可以转 string
+// throws error: Cannot convert object to primitive value
+```

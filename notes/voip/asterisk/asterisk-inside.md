@@ -1,5 +1,7 @@
 ---
 title: Asterisk Inside
+tags:
+  - Insight
 ---
 
 # Asterisk Inside
@@ -10,7 +12,7 @@ title: Asterisk Inside
 | astdb2bdb     |
 | astdb2sqlite3 |
 | asterisk      |            | 主进程                                       |
-| astgenkey     | shell      |  生成 Asterisk IAX2 RSA 证书                 |
+| astgenkey     | shell      | 生成 Asterisk IAX2 RSA 证书                  |
 | astversion    | shell      | 组件版本和源码信息                           |
 | autosupport   | shell      | 生成用于 Digium 支持的诊断信息               |
 | rasterisk     | ->asterisk | 等同于 `asterisk -`                          |

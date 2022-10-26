@@ -737,25 +737,40 @@ npm add date-fns lodash-es react-fast-compare
     - 相关
       - dompurify
       - [html-to-react](https://github.com/aknuds1/html-to-react)
-- [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
-  - Three.js 渲染引擎
-- [vadimdemedes/ink](https://github.com/vadimdemedes/ink)
-  - 终端 渲染引擎
+- 3D/WebGL
+  - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
+    - Three.js 渲染引擎
+  - [gre/gl-react](https://github.com/gre/gl-react)
+    - WebGL 光栅
+- 2D/Canvas
+  - [konvajs/react-konva](https://github.com/konvajs/react-konva)
+    - 基于 [konvajs/konva](https://github.com/konvajs/konva)
+  - [Flipboard/react-canvas](https://github.com/Flipboard/react-canvas)
+    - 停止
 - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
   - 渲染 PDF
-- [gre/gl-react](https://github.com/gre/gl-react)
-  - WebGL 光栅
-- [konvajs/react-konva](https://github.com/konvajs/react-konva)
-  - 2D Canvas 渲染
-  - 基于 [konvajs/konva](https://github.com/konvajs/konva)
 - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
   - 显示 PDF - 使用 pdfjs 并非 React 渲染
-- [Flipboard/react-canvas](https://github.com/Flipboard/react-canvas)
-  - 停止
 - Native
   - [react-native-skia/react-native-skia](https://github.com/react-native-skia/react-native-skia)
   - [Shopify/react-native-skia](https://github.com/Shopify/react-native-skia)
   - [iddan/react-native-canvas](https://github.com/iddan/react-native-canvas)
+- 小程序/跨端
+  - [taro](../framework/taro.md)
+    - by 京东
+  - [remax](../framework/remax.md)
+    - by 蚂蚁金服
+    - 基于 react-reconciler
+  - nanachi
+    - by 去哪儿
+  - rax
+    - by 淘宝
+- Terminal
+  - [Yomguithereal/react-blessed](https://github.com/Yomguithereal/react-blessed)
+    - blessed
+  - [vadimdemedes/ink](https://github.com/vadimdemedes/ink)
+    - 终端 渲染引擎
+- [chentsulin/awesome-react-renderer](https://github.com/chentsulin/awesome-react-renderer)
 
 ## 有趣
 
@@ -763,7 +778,8 @@ npm add date-fns lodash-es react-fast-compare
   - 非 OSS 协议
   - Create videos programmatically in React
 - [lahmatiy/react-render-tracker](https://github.com/lahmatiy/react-render-tracker)
-- [pankod/refine](https://github.com/pankod/refine)
+- [refinedev/refine](https://github.com/refinedev/refine)
+  - Build your React-based CRUD applications, without constraints.
 - [Aristona/react-phaser-three-game](https://github.com/Aristona/react-phaser-three-game)
 
 ## Internal

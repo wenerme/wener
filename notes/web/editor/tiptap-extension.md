@@ -205,7 +205,14 @@ const CustomExtension = Extension.create<CustomExtensionOptions, CustomExtension
     ];
   },
 
+  // 合并到 options
+  addOptions() {
+    return {};
+  },
+
+  // 合并到 storage
   addStorage() {
+    // 存储引用 editor.extensionStorage[extension.name] = extension.storage
     // 外部访问 editor.storage.customExtension.counter
     return {
       counter: 100,
@@ -275,7 +282,22 @@ const CustomExtension = Extension.create<CustomExtensionOptions, CustomExtension
 });
 ```
 
-- addKeyboardShortcuts
-  - Mod 指代 Cmd 或 Control
-  - Shift, Alt, Control, Cmd
-  - https://keycode.info/
+- 扩展点
+  - options, storage - Extension 本身状态
+  - schema - Node, Mark
+  - commands
+  - 事件 - beforeCreate, create, update, selectionUpdate, transaction, focus, blur, destroy
+  - ProseMirror 插件
+    - 顺序 - inputRules, pasteRules, keymap, 其他
+    - inputRulesPlugin(InputRules) - 合并为一个插件
+    - PasteRules - 多个插件
+    - addKeyboardShortcuts
+      - prosemirror-keymap
+      - Mod 指代 Cmd 或 Control
+      - Shift, Alt, Control, Cmd
+      - https://keycode.info/
+    - ProseMirrorPlugins - 原生插件
+- extension 的核心上下文
+  - name, options, storage, editor, type
+  - type=getSchemaTypeByName(extension.name, this.schema)
+    - 用于 Node 和 Mark

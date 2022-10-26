@@ -11,10 +11,17 @@ title: ProseMirror
   - 模型不可变
   - 支持协作编辑
   - 模型受 schema 限制 - 实现自定义
+    - 解析自动化 - 但可能丢弃 schema 之外信息
   - 模型状态变化类似于 redux
   - 整体概念类似于 react+redux
   - 状态 UI 独立
 - [Reference manual](https://prosemirror.net/docs/ref/)
+
+:::tip
+
+- 单纯学习 ProseMirror 的设计也非常有意义
+
+:::
 
 ```bash
 # 核心模块
@@ -96,91 +103,3 @@ new Schema({
   - state
 - EditorView - typing, clicking, copying, pasting, dragging
 
-## 模块
-
-- 模块 - `prosemirror-<module>`
-- prosemirror-state - 编辑器状态
-  - EditorState
-  - Transaction
-  - Selection - from,to - anchor,head
-    - TextSelection
-    - NodeSelection - node
-    - AllSelection
-  - Plugin
-  - PluginKey
-- prosemirror-view - Web 编辑器 - DOM <-> State
-  - EditorView
-  - Decoration
-  - DecorationSet
-- prosemirror-model - 定义文档模型
-  - Node
-  - Fragment - node's collection of child nodes
-  - Mark
-  - Slice
-  - ResolvedPos
-  - NodeRange
-  - Schema
-  - NodeType
-  - MarkType
-  - ContentMatch
-  - DOMParser
-  - DOMSerializer
-- prosemirror-transform - 状态事务
-  - Step - ReplaceStep, ReplaceAroundStep, AddMarkStep, RemoveMarkStep
-  - StepResult
-  - Mappable - StepMap, Mapping
-  - MapResult
-  - Transform
-- prosemirror-commands
-- prosemirror-keymap
-- prosemirror-history
-- prosemirror-inputrules - 输入特定内容，触发命令 - 实现 Markdown 输入语法
-  - InputRule
-- prosemirror-collab
-- prosemirror-gapcursor
-- prosemirror-schema-basic - 类 CommonMark 的 Schema, 不包含 list
-  - nodes - doc, paragraph, blockquote, horizontal_rule, heading, code_block, text, image, hard_break
-  - marks - line, em, strong, code
-- prosemirror-schema-list - 类 CommonMark 的 列表 schema
-  - orderedList, bulletList, listItem
-- prosemirror-markdown
-- prosemirror-menu
-- prosemirror-dropcursor
-- prosemirror-table
-- prosemirror-changeset
-
-```json title="model"
-{
-  "type": "",
-  "attrs": {},
-  "content": {},
-  "marks": [
-    {
-      "type": "",
-      "attr": {}
-    }
-  ]
-}
-```
-
-```ts
-// 数组 - ['tag',{},0]
-type DOMOutputSpec = string | DOMNode | {dom: DOMNode, contentDOM?: HTMLElement} | [string, ...any]
-// 供 DOMSerializer 使用
-type NodeToDOM = (node: Node) => DOMOutputSpe
-type MarkToDOM = (mark: Mark, inline: boolean) => DOMOutputSpec
-
-interface PluginSpec{
-  key⁠?: PluginKey
-  props⁠?: EditorProps
-  state⁠?: StateField<any>
-
-    view⁠?: (view: EditorView) => PluginView
-    filterTransaction⁠?: (tr: Transaction, state: EditorState)=> boolean
-    appendTransaction⁠?: (
-      transactions: /*readonly*/ Transaction[],
-      oldState: EditorState,
-      newState: EditorState
-    )=> Transaction | null | undefined
-}
-```

@@ -56,58 +56,76 @@ tags:
 * scss
   - long shadow http://codepen.io/danieltott/pen/AjKay
 
----
 
-- System
-  - [codedgar/Puppertino](https://github.com/codedgar/Puppertino)
-    - based on Human Guidelines from apple
-  - [sakofchit/system.css](https://github.com/sakofchit/system.css)
-    - retro Apple
-  - [jdan/98.css](https://github.com/jdan/98.css)
-    - Windows 98
-    - https://contra.io/windows_98.css/
-  - [botoxparty/XP.css](https://github.com/botoxparty/XP.css)
-    - Windows XP
-  - [khang-nd/7.css](https://github.com/khang-nd/7.css)
-    - Windows 7
-    - [Demo](https://khang-nd.github.io/7.css)
-  - [nostalgic-css/NES.css](https://github.com/nostalgic-css/NES.css)
-  - [micah5/PSone.css](https://github.com/micah5/PSone.css)
-    - PS1
-  - [RoelN/c64css3](https://github.com/RoelN/c64css3)
-    - [CSS3 C64, a Commodore 64 demo in your browser](https://pixelambacht.nl/2013/css3-c64/)
-    - [Demo](https://pixelambacht.nl/demo/css3-c64/)
-  -  [vinibiavatti1/TuiCss](https://github.com/vinibiavatti1/TuiCss)
-    - Text-based UI
-  - [npjg/classic.css](https://github.com/npjg/classic.css)
-    - Classic Mac interface
-  - [bryanbraun/after-dark-css](https://github.com/bryanbraun/after-dark-css)
-    - After Dark screensavers
-  - [divshot/geo-bootstrap](https://github.com/divshot/geo-bootstrap)
-    - [Demo](https://code.divshot.com/geo-bootstrap/)
-  - [renkman/Renkbench](https://github.com/renkman/Renkbench)
-    - Amiga Workbench
-  - [ritenv/retro-desktop](https://github.com/ritenv/retro-desktop)
-    - Retro Desktop UI
-  - [andersevenrud/retro-css-shell-demo](https://github.com/andersevenrud/retro-css-shell-demo)
-    - AnderShell 3000
-    - https://crt.no/
-  - [kristopolous/BOOTSTRA.386](https://github.com/kristopolous/BOOTSTRA.386)
-    - [Demo](https://kristopolous.github.io/BOOTSTRA.386/)
-  - https://demo.themesberg.com/windows-95-ui-kit/
-    - Windows 95 UI Kit
-  - [arturbien/React95](https://github.com/arturbien/React95)
-    - Windows 95
-    - https://react95.io/
-    - https://storybook.react95.io/
-  - [lolstring/window98-html-css-js](https://github.com/lolstring/window98-html-css-js)
-  - [jianzhongli/csswin10](https://github.com/jianzhongli/csswin10)
-  - [magiblot/tvision](https://github.com/magiblot/tvision)
-    - Turbo Vision 2.0
-  - https://temoji.me/
+
+## System Look
+
+- [codedgar/Puppertino](https://github.com/codedgar/Puppertino)
+  - based on Human Guidelines from apple
+- [sakofchit/system.css](https://github.com/sakofchit/system.css)
+  - retro Apple
+- [jdan/98.css](https://github.com/jdan/98.css)
+  - Windows 98
+  - https://contra.io/windows_98.css/
+- [botoxparty/XP.css](https://github.com/botoxparty/XP.css)
+  - Windows XP
+- [khang-nd/7.css](https://github.com/khang-nd/7.css)
+  - Windows 7
+  - [Demo](https://khang-nd.github.io/7.css)
+- [nostalgic-css/NES.css](https://github.com/nostalgic-css/NES.css)
+- [micah5/PSone.css](https://github.com/micah5/PSone.css)
+  - PS1
+- [RoelN/c64css3](https://github.com/RoelN/c64css3)
+  - [CSS3 C64, a Commodore 64 demo in your browser](https://pixelambacht.nl/2013/css3-c64/)
+  - [Demo](https://pixelambacht.nl/demo/css3-c64/)
+- [vinibiavatti1/TuiCss](https://github.com/vinibiavatti1/TuiCss)
+- Text-based UI
+- [npjg/classic.css](https://github.com/npjg/classic.css)
+  - Classic Mac interface
+- [bryanbraun/after-dark-css](https://github.com/bryanbraun/after-dark-css)
+  - After Dark screensavers
+- [divshot/geo-bootstrap](https://github.com/divshot/geo-bootstrap)
+  - [Demo](https://code.divshot.com/geo-bootstrap/)
+- [renkman/Renkbench](https://github.com/renkman/Renkbench)
+  - Amiga Workbench
+- [ritenv/retro-desktop](https://github.com/ritenv/retro-desktop)
+  - Retro Desktop UI
+- [andersevenrud/retro-css-shell-demo](https://github.com/andersevenrud/retro-css-shell-demo)
+  - AnderShell 3000
+  - https://crt.no/
+- [kristopolous/BOOTSTRA.386](https://github.com/kristopolous/BOOTSTRA.386)
+  - [Demo](https://kristopolous.github.io/BOOTSTRA.386/)
+- https://demo.themesberg.com/windows-95-ui-kit/
+  - Windows 95 UI Kit
+- [arturbien/React95](https://github.com/arturbien/React95)
+  - Windows 95
+  - https://react95.io/
+  - https://storybook.react95.io/
+- [lolstring/window98-html-css-js](https://github.com/lolstring/window98-html-css-js)
+- [jianzhongli/csswin10](https://github.com/jianzhongli/csswin10)
+- [magiblot/tvision](https://github.com/magiblot/tvision)
+  - Turbo Vision 2.0
+- https://temoji.me/
 - [vincentdoerig/latex-css](https://github.com/vincentdoerig/latex-css)
   - look like a LaTeX document
   - [Demo](https://latex.vercel.app/)
+
+## Defaults
+
+HTML 默认样式
+
+- [andybrewer/mvp](https://github.com/andybrewer/mvp)
+- [kognise/water.css](https://github.com/kognise/water.css)
+- [tbolt/boltcss](https://github.com/tbolt/boltcss)
+- [xz/new.css](https://github.com/xz/new.css)
+- [vladocar/Basic.css](https://github.com/vladocar/Basic.css)
+- [oxalorg/sakura](https://github.com/oxalorg/sakura)
+- [igoradamenko/awsm.css](https://github.com/igoradamenko/awsm.css)
+- [hawkz/gdcss](https://github.com/hawkz/gdcss)
+- [emareg/classlesscss](https://github.com/emareg/classlesscss)
+- [kevquirk/simple.css](https://github.com/kevquirk/simple.css)
+- https://picocss.com/examples/preview/
+
 ## Tricks
 
 - [Orientation Lock](https://css-tricks.com/snippets/css/orientation-lock/)

@@ -22,10 +22,52 @@ title: react-table
   - 操作 reduce
   - 行列处理
   - 其他功能由插件提供
+  - [createTable](https://github.com/TanStack/table/blob/main/packages/table-core/src/core/table.ts)
+  - table
+    - reset - 状态设置为 initialState
+
+```ts
+// 完整空状态
+const InitialReactTableState = {
+  columnVisibility: {},
+  columnOrder: [],
+  columnPinning: {
+    left: [],
+    right: [],
+  },
+  columnFilters: [],
+  globalFilter: {},
+  sorting: [],
+  expanded: {},
+  grouping: [],
+  columnSizing: {},
+  columnSizingInfo: {
+    startOffset: null ,
+    startSize: null,
+    deltaOffset: null,
+    deltaPercentage: null ,
+    isResizingColumn: false,
+    columnSizingStart: [], // [string, number][]
+  },
+  pagination: {
+    pageIndex: 0,
+    pageSize: 30,
+  },
+  rowSelection: {},
+} as TableState;
+```
+
 - react-table 基于 table-core 提供简单的状态管理
   - 提供 flexRender, useReactTable
 - useReactTable
   - 处理 - state, onStateChange
+  - 核心逻辑
+    - createTable, 持有 ref
+      - 返回的 table 一直不会变
+    - 更新 table 状态
+      - useState 作为 table 的 state - 初始值为构建后的 initialState
+      - onStateChange 为 setState
+        - 因此每次 state 变化 useTable 也会 rerender
 
 ## useTable
 
