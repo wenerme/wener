@@ -23,6 +23,7 @@ tags:
   - slides for slides. The class uses big sans serif letters.
   - memoir for changing sensibly the output of the document. It is based on the book class, but you can create any kind of document with it (1)
   - letter For writing letters.
+  - exam
   - 其他
     - https://ctan.org/topic/class
     - https://tex.stackexchange.com/questions/782

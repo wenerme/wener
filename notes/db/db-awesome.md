@@ -173,12 +173,12 @@ Cube 计算
 
 ## SQLite Awesome
 
-- [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
+- [benbjohnson/litestream](./relational/litestream.md)
   - Apache-2.0, Go
   - Streaming replication for SQLite
   - 外部进程
   - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
-- [superfly/litefs](https://github.com/superfly/litefs)
+- [superfly/litefs](./relational/litefs.md)
   - 基于 fuse 的 litestream - 批量同步
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
   - Query sqlite via http

@@ -389,6 +389,8 @@ tags:
   - [josdejong/mathjs](https://github.com/josdejong/mathjs)
     - Apache-2.0, JS
     - plot https://plotly.com/javascript/
+  - [stdlib-js/stdlib](https://github.com/stdlib-js/stdlib)
+    - @stdlib/plot
   - https://mathnotepad.com/
   - https://www.mathcha.io/
     - Mathematics Editor

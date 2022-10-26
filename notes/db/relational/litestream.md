@@ -5,6 +5,8 @@ title: litestream
 # litestream
 
 - [benbjohnson/litestream](https://github.com/benbjohnson/litestream)
+  - SQLite 增量备份
+  - 作为 disaster recovery
   - 支持存储 s3, sftp, file
 - HOW TO
   - litestream 维持一个 读 链接

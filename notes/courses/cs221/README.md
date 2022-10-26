@@ -177,7 +177,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import {Lession2Demo} from '@theme/CS221';
 
-<Admonition type="tip" icon="💡" title="Demo">
+<Admonition type="note" icon="💡" title="Demo">
 
 <details>
 

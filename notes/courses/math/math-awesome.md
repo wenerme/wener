@@ -1,7 +1,6 @@
 ---
-title: Math Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Math Awesome
