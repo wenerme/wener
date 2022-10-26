@@ -28,6 +28,13 @@ title: Ideas
 - alpine
   - ~~lib asan https://github.com/google/sanitizers~~
     - do not support musl
+- twitter relay
+  - 类似于代理 - 中间加缓存
+  - UI 可增加额外的交互
+    - 收藏
+    - 媒体
+  - 不需要 proxy 也能访问
+- hn relay
 
 ## Web3
 

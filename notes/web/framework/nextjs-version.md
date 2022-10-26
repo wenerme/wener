@@ -21,16 +21,63 @@ tags:
 
 :::
 
-| version    | date       | blog      |
-| ---------- | ---------- | --------- |
-| NextJS 12  | 2021-11-27 | [next-12] |
-| NextJS 11  | 2021-06-16 | [next-11] |
-| NextJS 10  | 2020-10-27 | [next-10] |
-| NextJS 9.5 | 2020-7-28  |
+| version      | date       | blog      |
+| ------------ | ---------- | --------- |
+| [NextJS 13]  | 2022-10-26 | [next-13] |
+| [NextJS 12]  | 2021-11-27 | [next-12] |
+| [NextJS 11]  | 2021-06-16 | [next-11] |
+| [NextJS 10]  | 2020-10-27 | [next-10] |
+| [NextJS 9.5] | 2020-7-28  |
 
+[next-13]: https://nextjs.org/blog/next-13
 [next-12]: https://nextjs.org/blog/next-12
 [next-11]: https://nextjs.org/blog/next-11
 [next-10]: https://nextjs.org/blog/next-10
+[nextjs 13]: #NextJS-13
+[nextjs 12]: #NextJS-12
+[nextjs 11]: #NextJS-11
+[nextjs 10]: #NextJS-10
+[nextjs 9.5]: #NextJS-95
+
+## NextJS 13
+
+- turbopack `next dev --turbo`
+  - **alpha** 阶段 - 不建议使用
+- `app/` - **beta** 阶段
+  - Layouts
+  - React Server Components
+  - Streaming
+  - Suspense for Data Fetching
+- `next/image` **stable** - 直接是 img 标签，去掉了很多包装
+  - 旧的版本变为 `next/legacy/image`
+  - `npx @next/codemod next-image-to-legacy-image ./src/pages`
+- `@next/font` **beta** - 自动封装 font 资源
+  - 避免加载字体导致 layout shift - 提升用户体验
+  - self-hosting 字体文件
+
+```tsx
+import { Inter } from '@next/font/google';
+
+const inter = Inter();
+<html className={inter.className}></html>;
+
+import localFont from '@next/font/local';
+const myFont = localFont({ src: './my-font.woff2' });
+
+<div className={myFont.className}></div>;
+```
+
+- `next/link` - 不再需要添加 a 作为 child - 默认添加
+  - 自动修改 `npx @next/codemod new-link ./src/pages`
+- swcMinify 默认开启
+- 环境
+  - React 18.2+
+  - NodeJS 14+
+  - Chrome 64+
+  - Edge 79+
+  - Firefox 67+
+  - Opera 51+
+  - Safari 12+
 
 ## NextJS 12
 
@@ -45,7 +92,7 @@ tags:
   - Edge API Routes
 
     ```ts title="api/hello.ts"
-    import type {NextRequest} from 'next/server';
+    import type { NextRequest } from 'next/server';
     export default (req: NextRequest) => {
       return new Response(`Hello, from ${req.url} I'm now an Edge API Route!`);
     };
@@ -144,7 +191,7 @@ module.exports = {
 ```
 
 ```ts title="pages/_middleware.ts"
-import type {NextFetchEvent, NextRequest} from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
   // https://developer.mozilla.org/en-US/docs/Web/API/Response
@@ -303,7 +350,7 @@ module.exports = {
   // 重写 - 类似于 nginx 的 proxy_pass
   async rewrites() {
     return [
-      {source: '/backend/:path*', destination: 'https://example.com/:path*'},
+      { source: '/backend/:path*', destination: 'https://example.com/:path*' },
       // 如果路径不存在则尝试使用后端 - 可以实现逐步替换为 NextJS
       {
         source: '/:path*',
@@ -366,7 +413,7 @@ export function reportWebVitals(metric) {
   console.log(metric);
 }
 
-function MyApp({Component, pageProps}) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
