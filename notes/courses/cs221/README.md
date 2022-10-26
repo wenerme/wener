@@ -1,8 +1,8 @@
 ---
-title: CS221 AI
+title: CS221 AI: Principles and Techniques
 ---
 
-# CS221 AI
+# CS221 AI: Principles and Techniques
 
 - 基于刺激的模型 - [Reflex-based models](./cs221-reflex.md)
 - 基于状态的模型 - [States-based models](./cs221-state.md)
@@ -87,8 +87,42 @@ $$
 | train set         | $\mathcal D _ \textrm{train}$ | 训练集     |
 | test set          | $\mathcal D _ \textrm{test}$  | 测试集     |
 
+Feature vector
+: 特征向量
+: 特征工程 - feature-engineering
+: 将原始数据抽象为特征向量
+
+$$
+\phi(x)=
+  \begin{bmatrix}
+    \phi_1(x)\\
+    \vdots\\
+    \phi_d(x)
+  \end{bmatrix}
+  \in
+  \reals^d
+$$
+
+
+Score
+: 分数
+: 如果是最终结果，则代针对某个结论的肯定程度
+: $
+s(x,\mathbf w) = \mathbf w \cdot \phi(x) = \sum _{i=1}^d \mathbf w_i \phi_i(x)
+$
+
+- w - weight - 权重
+  - 对于一个输出，不同的特征对输出的影响不同
+  - 例如: 一个人的身高，体重，年龄，性别，对于 性别和年龄 的影响不同
+- s - score - 分数
+  - 特征\*权重
+  - 例如: 0.78 是 男性
+
+
 Loss function
 : 损失函数
+: 评价模型的**预测值**和**真实值**不一样的程度
+: 分为 **经验风险损失函数** 和 **结构风险损失函数**
 
 $$
 \text{Loss}(x,y,\mathbf w) = 1[f_\mathbf w (x) \ne y] \text{\color{orange} zero-one loss}
@@ -98,6 +132,11 @@ $$
 \text{Loss}(x,y,\mathbf w) = (f_\mathbf w(x) - y)^2 \text{\color{orange} squared loss}
 $$
 
+TrainLoss
+: 训练损失
+: 在训练中希望**减小**的值
+: value of the objective function that you are minimizing
+
 $$
 \textrm{TrainLoss}(\mathbf w)=
 \frac{1}{|\mathcal{D}_{\textrm{train}}|}\sum_{(x,y)\in\mathcal{D}_{\textrm{train}}}\textrm{Loss}(x,y,\mathbf w)
@@ -105,7 +144,7 @@ $$
 
 :::tip 机器学习目标
 
-**最小化 TrainLoss**
+**最小化 TrainLoss/训练损失**
 
 $$
 \text{min}_\mathbf w \textrm{TrainLoss}(\mathbf w)
@@ -140,7 +179,11 @@ $
 :::
 
 Objective function
-: 初始化 **权重** 的函数
+: 目标函数
+: 统称
+: loss function **is a part of** a cost function **which is a type of** an objective function.
+: Objective function 一般指需要 **优化** 的函数
+: Loss/Cost function 一般指需要 **最小化** 的函数
 
 $$
 \begin{alignat*}{2}
@@ -182,8 +225,6 @@ import {Lession2Demo} from '@theme/CS221';
 <details>
 
 <summary>代码:</summary>
-
-
 
 <Tabs>
   <TabItem value="javascript" label="JavaScript" default>
@@ -241,7 +282,6 @@ function train({ iterations = 200, learningRate = 0.1, log = console.log.bind(co
 
 </details>
 
-
 <Lession2Demo/>
 
 </Admonition>
@@ -281,3 +321,9 @@ $$
 ## Lession 12: Best Practices
 
 ## Lession 13: K-means
+
+# Misc
+
+Cost function
+: sum of loss &times; weight
+: Mean Squared Error

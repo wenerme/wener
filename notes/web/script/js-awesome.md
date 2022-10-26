@@ -390,7 +390,7 @@ tags:
     - Apache-2.0, JS
     - plot https://plotly.com/javascript/
   - [stdlib-js/stdlib](https://github.com/stdlib-js/stdlib)
-    - @stdlib/plot
+    - @stdlib/plot - 基于 d3
   - https://mathnotepad.com/
   - https://www.mathcha.io/
     - Mathematics Editor

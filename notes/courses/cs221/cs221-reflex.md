@@ -29,39 +29,6 @@ Predictors with periodicity structure
 
 ### Linear predictors
 
-Feature vector
-: 特征向量
-: 特征工程 - feature-engineering
-: 将原始数据抽象为特征向量
-
-$$
-\phi(x)=
-\begin{bmatrix}
-\phi_1(x)\\
-\vdots\\
-\phi_d(x)
-\end{bmatrix}
-\in \mathbb{R}^d
-$$
-
-- $\phi(x)$
-  - feature extractor
-  - 特性提取器
-
-Score
-: 分数
-: 如果是最终结果，则代针对某个结论的肯定程度
-
-$$
-s(x,w) = \mathbf w \cdot \phi(x) = \sum _{i=1}^d w_i \phi_i(x)
-$$
-
-- w - weight - 权重
-  - 对于一个输出，不同的特征对输出的影响不同
-  - 例如: 一个人的身高，体重，年龄，性别，对于 性别和年龄 的影响不同
-- s - score - 分数
-  - 特征\*权重
-  - 例如: 0.78 是 男性
 
 feature template
 : 特征模板
@@ -112,10 +79,7 @@ $$
 Loss function
 : 损失函数
 : $Loss(x,y,w)$
-: 评价模型的**预测值**和**真实值**不一样的程度
 : weights $w$, output $y$, input $x$.
-: 在训练中希望减小的值
-: 分为 **经验风险损失函数** 和 **结构风险损失函数**
 
 Classification case
 : 分类问题
