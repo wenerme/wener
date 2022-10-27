@@ -1,5 +1,5 @@
 ---
-title: CS221 AI: Principles and Techniques
+title: CS221 AI - Principles and Techniques
 ---
 
 # CS221 AI: Principles and Techniques
@@ -284,6 +284,8 @@ function train({ iterations = 200, learningRate = 0.1, log = console.log.bind(co
 
 <Lession2Demo/>
 
+![](./assets/lesson2-demo.svg)
+
 </Admonition>
 
 :::tip 向量计算
@@ -301,6 +303,109 @@ $$
 :::
 
 ## Lession 3: Linear Classification
+
+- which classfiers are possible - 有哪些可能分类器 - 假设类 - hypothesis class
+- how good is a classifier - 评价标准 - 损失函数 - loss function
+- how to compute the best classifier - 如何计算 - 优化算法 - optimization algorithm
+
+Decision boundary
+: 决策边界
+: $x$ for $\mathbf w \cdot \phi(x) = 0$
+
+Binary classfier
+: 二分类器
+: $f_\mathbf w(x) = \text{sign}(\mathbf w \cdot \phi(x))$
+  - 输出 label
+: $\mathbf w \cdot \phi(x) \geq 0 \longrightarrow y = +1$
+
+
+Hypothesis class
+: 假设类
+: $\mathcal{F}=\{ f_\mathbf{w} : \mathbf{w} \in \mathbb R ^2 \}$
+
+score
+: 分数
+: $\mathbf w \cdot \phi(x)$
+: 可信度 - how **confident** the classifier is
+
+margin
+: 边距
+: $(\mathbf w \cdot \phi(x))y$
+: 正确度 - how **correct** the classifier is
+
+Loss function
+: 损失函数
+
+$$
+\begin{alignat*}{2}
+\text{Loss}_{0-1}(x,y,\mathbf w)
+  &= 1[f_\mathbf w (x) \ne y] \\
+  &= 1[
+    \underbrace{(\mathbf w \cdot \phi(x))y}_\text{margin}
+     \le 0] \\
+\end{alignat*}
+$$
+
+![zero one loss margin](./assets/loss-zero-one.svg)
+
+
+
+**训练目标**
+$$\text{min}_\mathbf w \text{TrainLoss}(\mathbf w)$$
+**梯度下降**
+$$
+\nabla_\mathbf w\text{TrainLoss}(\mathbf w)=\sum_{(x,y)\in \mathcal D _ \textrm{train}} \nabla\text{Loos}_{0-1}(x,y,\mathbf w)
+$$
+
+$$
+\nabla\text{Loos}_{0-1}(x,y,\mathbf w)
+=\nabla 1[(\mathbf w \cdot \phi(x))y \le 0]
+$$
+
+- 由于使用了 zero-one loss，此时梯度大多数都是为 0
+- 因此无法正常下降，需要使用其他损失函数
+
+Hinge loss
+: 避免 zero-one loss &le; 0 时大多为 0 的问题
+
+$$
+\text{Loos}_\text{hinge}(x,y,\mathbf w)
+= \mathrm{max}\{{\color{orange}1 - (\mathbf w\cdot \phi(x))y}, 0\}
+$$
+
+$$
+\nabla\text{Loos}_\text{hinge}(x,y,\mathbf w)=
+\begin{cases}
+  -\phi(x) y & \text{if} \space {\color{orange}1- (\mathbf w \cdot \phi(x))y} > 0 \\
+  0 & \text{otherwise}
+\end{cases}
+$$
+
+Logistic loss
+: 在超过 1 后还在尝试增加 margin
+
+$$
+\text{Loos}_\text{logistic}(x,y,\mathbf w)
+= \text{log}(1+e^{−(\mathbf w \cdot \phi(x))y})
+$$
+
+![loss-hinge-and-zero-one](./assets/loss-hinge-and-zero-one-and-logistic.svg)
+
+<!-- TODO DEMO -->
+
+<Admonition type="note" icon="💡" title="Demo">
+
+<details>
+
+<summary>代码:</summary>
+TODO
+</details>
+
+TODO
+
+![](./assets/lesson3-demo.svg)
+
+</Admonition>
 
 ## Lession 4: SGD
 

@@ -49,8 +49,9 @@ title: tikz
 ```
 
 ```bash
+docker run --rm -it -v $PWD:/host -w /host wener/base
 # AlpineLinux
-apk add texlive icu-data-full texmf-dist-latexextra texmf-dist-langchinese texmf-dist-pictures
+apk add texlive texmf-dist-pictures icu-data-full texmf-dist-latexextra texmf-dist-langchinese
 apk add -X http://mirrors.aliyun.com/alpine/edge/testing pdf2svg
 
 # Linux GUI
@@ -82,3 +83,19 @@ pdf2svg demo.pdf demo.svg 1
 
 - Speedup
   - [Why do I keep getting the compile timeout error message?](https://www.overleaf.com/learn/how-to/Why_do_I_keep_getting_the_compile_timeout_error_message%3F)
+
+# Examples
+
+- View at https://upmath.me/
+
+```md
+## Minimal Axis
+
+$$
+\begin{tikzpicture}
+\draw[help lines, color=gray!30, dashed] (-4.9,-4.9) grid (4.9,4.9);
+\draw[->,ultra thick] (-5,0)--(5,0) node[right]{$x$};
+\draw[->,ultra thick] (0,-5)--(0,5) node[above]{$y$};
+\end{tikzpicture}
+$$
+```

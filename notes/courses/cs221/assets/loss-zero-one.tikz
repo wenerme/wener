@@ -1,7 +1,8 @@
 \begin{tikzpicture}
-  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$m(x,y,w)$};
-  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_{0-1}$};
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[below] {$\text{margin}(\mathbf w \cdot \phi(x))y$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss_{0-1}(x,y,\mathbf w)$};
   \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
   \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
-  \draw[line width=1mm, draw opacity=0.7, green] (-3,1.5) -- (0,1.5) -- (0,0) -- (3,0);
+  \draw[shift={(0,1)}] (0pt,2pt) -- (0pt,-2pt) node[left] {$1$};
+  \draw[line width=1mm, draw opacity=0.7, green] (-3,1) -- (0,1) -- (0,0) -- (3,0);
 \end{tikzpicture}

@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$x_1$};
+  \draw[->] (0, -3) -- (0, 3) node[above] {$x_2$};
+  \node at (0,2) [circle,fill,orange,inner sep=1.5pt]{};
+  \node at (-2,0) [circle,fill,orange,inner sep=1.5pt]{};
+  \node at (1,-1) [circle,fill,blue,inner sep=1.5pt]{};
+\end{tikzpicture}

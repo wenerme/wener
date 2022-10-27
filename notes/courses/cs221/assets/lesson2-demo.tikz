@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$x$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$y$};
+  \node at (1,1) [circle,fill,inner sep=1.5pt]{};
+  \node at (2,3) [circle,fill,inner sep=1.5pt]{};
+  \node at (4,3) [circle,fill,inner sep=1.5pt]{};
+  \draw[line width=1mm, draw opacity=0.7, domain=-0:4, smooth, variable=\x, blue] plot ({\x}, {\x});
+\end{tikzpicture}

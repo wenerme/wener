@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+  zeroone/.style={shape=circle, draw=green, line width=1mm},
+  hinge/.style={shape=circle, draw=orange, line width=1mm},
+  logistic/.style={shape=circle, draw=blue, line width=1mm},
+]
+  \draw[->] (-3.2, 0) -- (3.2, 0) node[right] {$\text{margin}(\mathbf w \cdot \phi(x))y$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {$Loss(x,y,\mathbf w)$};
+  \draw[shift={(0,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$0$};
+  \draw[shift={(1,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$1$};
+  \draw[shift={(2,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$2$};
+  \draw[shift={(3,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$3$};
+  \draw[shift={(0,1)}] (0pt,2pt) -- (0pt,-2pt) node[left] {$1$};
+  \draw[line width=1mm, draw opacity=0.7, green] (-3,1) -- (0,1) -- (0,0) -- (3,0);
+  \draw[line width=1mm, draw opacity=0.7, orange] (-3,4) -- (1,0) -- (3,0);
+  \draw[line width=1mm, draw opacity=0.7, domain=-3:3, smooth, variable=\x, blue] plot ({\x}, {log2(1+e^-\x)});
+  \matrix [draw,below left] at (current bounding box.north east) {
+    \node [zeroone,label=right:Zero-One] {}; \\
+    \node [hinge,label=right:Hinge] {}; \\
+    \node [logistic,label=right:Logistic] {}; \\
+  };
+\end{tikzpicture}
