@@ -136,6 +136,7 @@ tags:
   - [angus-c/just](https://github.com/angus-c/just)
   - core-js
   - underscore
+  - [stdlib-js/stdlib](https://github.com/stdlib-js/stdlib)
 - clone
   - structuredClone - Chrome 98
   - [lukeed/klona](https://github.com/lukeed/klona)
@@ -596,6 +597,8 @@ tags:
       - 覆盖 require 避免访问内部
       - 支持 transpiler
   - [vm](https://nodejs.org/api/vm.html) - NodeJS
+  - [ringo/ringojs](https://github.com/ringo/ringojs)
+    - JVM
 - Engine - JIT
   - [V8](https://github.com/v8/v8)
     - Chrome

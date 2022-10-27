@@ -33,3 +33,4 @@ tags:
 - [runwayml/stable-diffusion](https://github.com/runwayml/stable-diffusion)
   - Latent Text-to-Image Diffusion
 - [MubertAI/Mubert-Text-to-Music](https://github.com/MubertAI/Mubert-Text-to-Music)
+- [Arcane-Diffusion](https://huggingface.co/nitrosocke/Arcane-Diffusion)

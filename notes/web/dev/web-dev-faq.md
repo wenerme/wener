@@ -113,3 +113,26 @@ tags:
   - [eslint](./eslint.md)
   - WebStrom
   - [turbo](./turborepo.md) - 大型 monorepo 项目
+
+## hoist dependencies
+
+提升依赖到 root 项目
+
+hoist 影响的是依赖放到哪里，和是否允许访问不同的关系。
+
+- 不同包管理器对提升的依赖不同
+  - pnpm
+    - `hoist-pattern=['*']`
+      - 默认所有都会放到 node_modules/.pnpm
+    - `public-hoist-pattern=['*eslint*', '*prettier*']`
+    - shamefully-hoist=false
+
+## root project dependencies
+
+在 monorepo、多 workspace 项目下，将公共依赖放到 root 项目
+
+- 好处
+  - 新包减少安装过程
+  - 包默认存在
+- 坏处
+  - 移出包时需要安装回来依赖

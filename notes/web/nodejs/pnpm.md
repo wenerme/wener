@@ -325,6 +325,71 @@ CMD [ "node", "server.js" ]
 
 - [#3114](https://github.com/pnpm/pnpm/issues/3114)
 
+## 模板项目依赖
+
+```bash
+pnpm init
+cat <<CONF > .npmrc
+strict-peer-dependencies=true
+auto-install-peers=true
+legacy-peer-deps=false
+CONF
+cat <<YAML > pnpm-workspace.yaml
+packages:
+  - 'apps/*'
+  - 'packages/*'
+YAML
+
+pnpm add -Dw tsx turbo typescript ava esbuild eslint # DevTools
+pnpm add -Dw @types/node @types/react # hoist common dependencies
+pnpm add -Dw tailwindcss # DevTools
+
+mkdir -p apps/{web,server,playground}
+
+cd apps/web
+pnpm init
+pnpm add next
+pnpm add @wener/reaction @wener/utils
+pnpm add react react-dom @headlessui/react react-icons react-hook-form @tanstack/react-query @tanstack/react-table zustand valtio
+pnpm add dayjs axios
+pnpm add -D tailwindcss daisyui @tanstack/react-query-devtools
+pnpm add react-router react-router-dom # SPA
+# pnpm add @trpc/client @trpc/react @trpc/server # tRPC for NextJS
+
+mkdir src/{app,pages,components,styles,libs} -p
+cat <<CSS >src/styles/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+CSS
+cat <<JSX >src/pages/_app.tsx
+import React from 'react';
+import type { AppProps } from 'next/app';
+import '../styles/globals.css';
+
+function App({ Component, pageProps }:AppProps) {
+  return <Component {...pageProps} />;
+}
+
+export default App;
+JSX
+cat <<JSX >src/pages/index.tsx
+export const Page = ()=>{
+  return <div>Hello</div>
+}
+export default Page
+JSX
+cd -
+
+cd apps/server
+pnpm init
+pnpm add fastify
+cd -
+
+cd apps/playground
+cd -
+```
+
 ## Typescript FAQ
 
 主要是 pnpm symlink 引起问题
@@ -334,6 +399,7 @@ CMD [ "node", "server.js" ]
 - https://github.com/microsoft/TypeScript/issues/29808
 - https://github.com/microsoft/TypeScript/issues/42873
 - https://github.com/microsoft/TypeScript/issues/47663
+
 
 # FAQ
 

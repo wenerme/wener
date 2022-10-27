@@ -4,7 +4,7 @@ title: Tailwind CSS
 
 # Tailwind CSS
 
-- 是什么？
+- [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss) 是什么？
   - CSS 样式工具集 - 通过 class 名字来组合样式
   - 将样式原子化
   - 高度定制化 - 颜色、大小、breackpoint、extend 等等
@@ -16,6 +16,11 @@ title: Tailwind CSS
 
 :::tip
 
+- 嵌套 group - v3.2+
+  - `group/NAME`
+- 支持 Container Query - v3.2+
+  - `@container`, `@lg:p-8`
+  - [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 - 支持任意选择 - v3.1+
   - `[&>*]:text-red`
   - `[&_thead_th:first-child]:text-red`
@@ -28,9 +33,9 @@ title: Tailwind CSS
 
 :::info
 
-- Container queries [#1563](https://github.com/tailwindlabs/tailwindcss/issues/1563)
+- ~~Container queries [#1563](https://github.com/tailwindlabs/tailwindcss/issues/1563)~~
   - [dgknca/tailwindcss-container-query](https://github.com/dgknca/tailwindcss-container-query)
-- 不支持嵌套 group [#1192](https://github.com/tailwindlabs/tailwindcss/issues/1192)
+- ~~不支持嵌套 group [#1192](https://github.com/tailwindlabs/tailwindcss/issues/1192)~~
 - rem to px [#1232](https://github.com/tailwindlabs/tailwindcss/issues/1232)
 
 :::
@@ -68,7 +73,7 @@ import 'tailwindcss/tailwind.css';
   - babel marco 预生成
 - [tw-in-js/twind](https://github.com/tw-in-js/twind)
   - 不依赖 tailwindcss, 使用 tw 实时生成
-  - +35K
+  - +35kB/14kB
 - [rogden/tailwind-config-viewer](https://github.com/rogden/tailwind-config-viewer)
   - Tailwind 配置预览
 - [htmlstreamofficial/preline](https://github.com/htmlstreamofficial/preline)
@@ -182,13 +187,13 @@ const MyPlugin = plugin(
           tabSize: value,
         }),
       },
-      {values: theme('tabSize')},
+      { values: theme('tabSize') },
     );
     // base 层
     addBase({
-      h1: {fontSize: theme('fontSize.2xl')},
-      h2: {fontSize: theme('fontSize.xl')},
-      h3: {fontSize: theme('fontSize.lg')},
+      h1: { fontSize: theme('fontSize.2xl') },
+      h2: { fontSize: theme('fontSize.xl') },
+      h3: { fontSize: theme('fontSize.lg') },
     });
     // 组件层
     addComponents({
@@ -387,6 +392,46 @@ module.exports = {
 
 # TailwindCSS Version
 
+## TailwindCSS v3.2
+
+- 支持拆分配置导入
+
+```css
+@config "./tailwind.admin.config.js"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+- @supports - `supports-[backdrop-filter]:bg-black/25`
+- `aria-*`
+- `data-*` - `data-[size=large]:p-8`
+- breakpoints 支持最大限制 - `max-*:`
+- 限定分组 - `group-*`,`peer-*`
+
+```html
+<div class="group is-published">
+  <div class="hidden group-[.is-published]:block">Published</div>
+</div>
+```
+
+- 插件 matchVariant 动态匹配
+- 嵌套分组
+  - `group/NAME`
+- Container queries
+  - [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
+  - `@SIZE` - min-width
+  - `@[200px]` - 可以任意
+  - 限定名字 - `@container/main`, `@lg/main`
+
+```html
+<div class="@container">
+  <div class="block @lg:flex">
+    <!-- ... -->
+  </div>
+</div>
+```
+
 ## TailwindCSS v3.1
 
 - 新增任意选择符
@@ -527,7 +572,7 @@ module.exports = {
     groups: ['2', '3'],
   },
   plugins: [
-    plugin(({addVariant, theme}) => {
+    plugin(({ addVariant, theme }) => {
       const groups = theme('groups') || [];
 
       groups.forEach((group) => {
@@ -576,7 +621,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function ({addVariant}) {
+    function ({ addVariant }) {
       addVariant('children', '& > *');
     },
   ],

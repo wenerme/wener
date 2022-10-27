@@ -43,6 +43,11 @@ tags:
   Serverless event and data processing platform
   - Apache-2.0, Go
 - [pditommaso/awesome-pipeline](https://github.com/pditommaso/awesome-pipeline)
+- [rudderlabs/rudder-server](https://github.com/rudderlabs/rudder-server)
+  - AGPL-3.0, Go, TS, React
+  - Segment-alternative
+  - 后端 PostgreSQL
+  - Customer Data Platform, CDP
 
 ## ML Pipeline
 

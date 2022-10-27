@@ -31,6 +31,11 @@ title: CN
 |     http://rmft.court.gov.cn | 全国人民法庭信息网         |
 |     http://www.gjzwfw.gov.cn |
 
+- http://www.gov.cn/fuwu/index.htm
+  全国政务服务总门户
+- http://www.gov.cn/fuwu/bm/index.htm
+  部门和地方服务索引
+
 ### 上海
 
 |                                              url | gov                            |
