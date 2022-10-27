@@ -65,6 +65,26 @@ $$
 </html>
 ```
 
+## 括号 {brackets-and-parentheses}
+
+| type                        | render                                 |
+| --------------------------- | -------------------------------------- |
+| Parentheses; round brackets | $()$                                   |
+| Brackets; square brackets   | $[]$                                   |
+| Braces; curly brackets      | $\{\}$                                 |
+| Angle brackets              | $\langle \rangle$                      |
+| Pipes; vertical bars        | &verbar;x+y&verbar;, $\vert x+y \vert$ |
+| Double pipes                | $\|x+y\|$                              |
+| ceiling                     | $\lceil\rceil$                         |
+| floor                       | $\lfloor\rfloor$                       |
+
+- \left,\right + `\||({[<>]})` 让括号更大 - 动态大小
+- \big,\Big,\bigg,\Bigg, + `[lr]` + 括号 - 手动设置大小
+
+$$
+\bigl(\Bigl(\biggl(\Biggl(
+$$
+
 # FAQ
 
 ## katex unicodeTextInMathMode

@@ -141,3 +141,9 @@ sdk install java 8.0.312-tem
 
 - loom
   - https://github.com/ebarlas/project-loom-comparison
+
+## Debugging
+
+- [runsidekick/sidekick](https://github.com/runsidekick/sidekick)
+  - AGPL-3.0, Java
+  - Like chrome dev tools but for your backend

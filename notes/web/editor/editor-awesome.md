@@ -34,6 +34,13 @@ tags:
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
 
+## Media
+
+- [layerhub-io/react-design-editor](https://github.com/layerhub-io/react-design-editor)
+  - MIT, TS, React
+  - Image, Presentation and Video editor. React design editor using fabric.js. Canva clone
+- [bharathreddyza/react-design-editor](https://github.com/bharathreddyza/react-design-editor)
+
 ## Code Editor
 
 - monaco

@@ -24,6 +24,7 @@ tags:
 | floor          | ⌊⌋  | &lfloor;&rfloor; | $\lfloor \rfloor$ |
 | Angle Bracket  | ⟨ ⟩ | &lang; &rang;    | $\lang \rang$     |
 | Dot Operator   | ⋅   | &sdot;           | $\sdot$           |
+| verbar         |     | &verbar;         | $\vert$           |        |
 
 Nabla
 : gradien

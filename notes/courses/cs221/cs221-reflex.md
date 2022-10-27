@@ -108,18 +108,6 @@ $$
 \end{alignat*}
 $$
 
-**Hinge loss**
-
-$$
-\begin{alignat*}{2}
-\textrm{Loos}_\text{hinge}(x,y,w)
-&= \text{max}\{1− (w \cdot \phi(x))y ,0\} \\
-&= \begin{cases}
-    -\phi(x) y & \text{if} \space 1- (w \cdot \phi(x))y > 0 \\
-    0 & \text{otherwise}
-  \end{cases}
-\end{alignat*}
-$$
 
 **Logistic regression**
 

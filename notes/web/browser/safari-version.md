@@ -5,13 +5,15 @@ tags:
 
 # Safari Version
 
-| version | date       |
-| ------- | ---------- |
-| 14.0    | 2020-09-17 |
-| 15.0    | 2021-09-20 |
+| version     | date       |
+| ----------- | ---------- |
+| Safari 16.1 | 2022-10-24 |
+| Safari 16.0 | 2022-09-12 |
+| Safari 15.0 | 2021-09-20 |
+| Safari 14.0 | 2020-09-17 |
 
 - 版本跟随 [macOS](../../os/darwin/macos-version.md)
-- https://en.wikipedia.org/wiki/Safari_version_history
+- [Safari version history](https://en.wikipedia.org/wiki/Safari_version_history)
 
 ## 安装 Safari 14
 

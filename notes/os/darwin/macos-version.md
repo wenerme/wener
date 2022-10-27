@@ -11,7 +11,8 @@ tags:
 | macOS        | Name     | Darwin | Date       | Safari      | Note                     |
 | ------------ | -------- | ------ | ---------- | ----------- | ------------------------ |
 | [macOS 13]   | Ventura  | 22     | 2022-06-22 |             | Virtualization.framework |
-| [macOS 12.3] | Monterey | 21     |            |
+| [macOS 12.6] | Monterey | 21     |            | Safari 16.1 |                          |
+| [macOS 12.3] | Monterey | 21     |            |             |                          |
 | macOS 12.0   | Monterey | 21     | 2021-06-07 | Safari 15.0 |
 | macOS 11.0   | Big Sur  | 20     | 2020-06-22 | Safari 14.0 |
 | macOS 10.15  | Catalina | 19     | 2019-06-03 |

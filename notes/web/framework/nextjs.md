@@ -135,6 +135,15 @@ yarn add --dev ts-node jest ts-jest @types/jest
 
 ## app layout
 
+:::caution
+
+- 还有很多特性 app 模式不支持
+  - [Planned Features](https://beta.nextjs.org/docs/app-directory-roadmap#planned-features)
+  - API
+  - basePath
+
+:::
+
 - `src/app/`
   - page.tsx - 页面内容
   - layout.tsx
@@ -145,9 +154,32 @@ yarn add --dev ts-node jest ts-jest @types/jest
   - head.tsx - head 标签内容 - title,meta,link,script
   - loading.tsx - Suspense, Loading 时显示的内容
   - error.tsx
+  - not-found.tsx
+
+```tsx title="page.tsx"
+import { notFound } from 'next/dist/client/components/not-found';
+
+export default function Page({ params, searchParams }: { params: { slug: string }; searchParams: { id: string } }) {
+  // 返回 NotFound 页面内容
+  if (!params.slug) {
+    return notFound();
+  }
+  return (
+    <>
+      <p>{params.slug}</p>
+      <p>{searchParams.id}</p>
+    </>
+  );
+}
+
+export async function generateStaticParams() {
+  // 同 getStaticPaths
+  return [{ slug: 'a' }];
+}
+```
 
 ```tsx title="layout.tsx"
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children, params }: { children: React.ReactNode; params?: any }) {
   return (
     <html lang="en">
       <head>
@@ -157,6 +189,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+// ISG
+// export const revalidate = 60;
 ```
 
 ```tsx title="template.tsx"
@@ -200,6 +235,12 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
 }
 ```
 
+```tsx title="not-found.tsx"
+export default function NotFound() {
+  return '';
+}
+```
+
 - Server Components
   - 场景
     - 获取数据
@@ -210,9 +251,16 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
     - 通过 exports 只有 react-server 实现
     - exports.default 会直接 throw 异常
   - 类似的有 client-only 包
+  - fetch
+    - 默认 force-cache
+    - 支持 react cache - 相同请求只会发出一次
 - Layout 默认为 Server Component
 - 在 app 目录下的都是 Server Component
   - 可在 app 目录下放任意组件，只有特殊文件会被处理
+
+---
+
+- https://beta.nextjs.org/docs/app-directory-roadmap
 
 ## 提示
 

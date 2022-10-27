@@ -138,19 +138,35 @@ tags:
 
 ## Chrome 109
 
+- Anonymous iframes
+  - COEP credentialless
+- CSS
+  - lh 长度单位
+  - `hyphenate-limit-chars` property
+- Private State Token API
+  - propagating user signals across sites
+- Snap border, outline and column-rule widths before layout
+
 ## Chrome 108
 
 - Federated Credentials Management - WebID
 - FileSystemHandle::remove()
-
-## Chrome 107
-
-- CSS
-  - grid-template interpolation
 - ContentVisibilityAutoStateChanged event
   - `content-visibility: auto`
   - 辅助检测是否可见，代码控制是否渲染 - 例如: React, canvas
   - https://github.com/vmpstr/web-proposals/blob/main/explainers/cv-auto-event.md
+- CSS
+  - break-after, break-before, break-inside
+  - Overflow for replaced elements
+  - CSS Values and Units Module Level 4: Small/Large/Dynamic/Logical viewport units
+- LayoutNG printing
+- Variable COLRv1
+
+## Chrome 107
+
+- HEVC
+- CSS
+  - grid-template interpolation
 - `<form rel="noreferrer">`
 
 ## Chrome 106
