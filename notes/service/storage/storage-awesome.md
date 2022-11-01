@@ -72,9 +72,7 @@ tags:
 
 ## 分布式存储服务 {#distributed}
 
-- [minio](./minio.md) - S3
-  - AGPLv3
-  - 支持作为 S3 代理
+
 - [ceph](./ceph/README.md)
   - LGPLv2.1
   - by RedHat
@@ -91,6 +89,14 @@ tags:
 - hdfs - 大数据, 计算->存储
 - openio-sds
 - longhorn
+- 对象存储
+  - S3
+  - Swift
+  - [linkedin/ambry](https://github.com/linkedin/ambry)
+    - Apache-2.0, Java
+  - [minio](./minio.md) - S3
+    - AGPLv3
+    - 支持作为 S3 代理
 
 **国人开发/维护**
 

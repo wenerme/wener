@@ -372,6 +372,10 @@ git config --global user.signingkey KEY
 
 先执行 ssh-add
 
+```
+unsupported value for gpg.format: ssh
+```
+
 ## fatal: detected dubious ownership in repository
 
 目录权限不为当前 user
@@ -391,4 +395,28 @@ git config --global --add safe.directory '*'
 - https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9
 - https://github.com/actions/runner/issues/2033
 
-## unsupported value for gpg.format: ssh
+## 如何在仓库里存储明文密钥
+
+1. 非 git 相关方案
+
+- sops
+  - 字段维度
+  - argocd vault plugin 支持
+  - 支持很多后端，可以用 age
+- age - 比 gpg 简单，功能单一
+  - 文件维度
+  - 可以用 ssh key
+  - 不支持 ssh agent - 可以为 gitops 的应用创建无密码 key
+- sealed-secrets - 没有解决存储明文的问题，解决了密钥放到 kube 的问题
+
+1. git 相关方案
+
+- git-secret
+- git-crypt
+- blackbox
+
+1. 外部服务方案 - KMS, Vaulr
+
+- 维护额外进程
+- 不方便自动化 - 涉及人工配置
+- 还是需要解决 SSOT - Single Source Of Truth 问题

@@ -15,6 +15,7 @@ title: ZFS 调优
 
 - /proc/spl/kstat/zfs/main/iostats
 - /sys/module/zfs/parameters
+  - ZFS 内核模块参数
 
 :::tip
 
@@ -59,6 +60,11 @@ zfs set xattr=sa POOL
 
 # 断电可能丢失一定数据
 zfs set sync=disabled POOL
+
+# primarycache=metadata - 看情况
+zfs set atime=off relatime=on xattr=sa sync=disabled POOL
+
+zfs get all POOL | egrep 'compression|atime|xattr|sync|primarycache|recordsize'
 ```
 
 ## ZIL SLOG

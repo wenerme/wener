@@ -23,6 +23,8 @@ tags:
   - multicloud management platform
 - [zhihu/cmdb](https://github.com/zhihu/cmdb)
 - [ixrjog/opscloud4](https://github.com/ixrjog/opscloud4)
+- [Normation/rudder](https://github.com/Normation/rudder)
+  - configuration and security automation platform
 
 ## SRE
 

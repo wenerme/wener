@@ -4,6 +4,12 @@ title: MinIO
 
 # MinIO
 
+:::tip
+
+- 最后的 Apache-2.0 协议版本为 MinIO 6.7.4
+
+:::
+
 - [minio](https://github.com/minio/minio) 是什么？
   - MinIO 全线产品 AGPL 协议
   - 提供 S3 对象存储协议的服务
@@ -169,6 +175,50 @@ docker run -p 9000:9000 --name minio1 \
   minio/minio server /data
 ```
 
+## Server
+
+| env                                 | for                                                     |
+| ----------------------------------- | ------------------------------------------------------- |
+| MINIO_ROOT_USER                     |
+| MINIO_ROOT_PASSWORD                 |
+| ~~MINIO_ACCESS_KEY~~                | MINIO_ROOT_USER                                         |
+| ~~MINIO_SECRET_KEY~~                | MINIO_ROOT_PASSWORD                                     |
+| MINIO_VOLUMES                       |
+| MINIO_CONFIG_ENV_FILE               |
+| **Console**                         |
+| MINIO_PROMETHEUS_URL                | CONSOLE_PROMETHEUS_URL                                  |
+| MINIO_PROMETHEUS_JOB_ID             | minio-job                                               |
+| MINIO_LOG_QUERY_URL                 |
+| MINIO_BROWSER                       | off 禁用 console                                        |
+| MINIO_SERVER_URL                    |
+| MINIO_BROWSER_REDIRECT_URL          |
+| **KMS**                             |
+| MINIO_KMS_KES_ENDPOINT              |
+| MINIO_KMS_KES_KEY_FILE              |
+| MINIO_KMS_KES_CERT_FILE             |
+| MINIO_KMS_KES_KEY_NAME              |
+| **LDAP**                            |
+| MINIO_IDENTITY_LDAP_SERVER_ADDR     |
+| **OpenID**                          |
+| MINIO_IDENTITY_OPENID_CONFIG_URL    | https://id.example.net/.well-known/openid-configuration |
+| MINIO_IDENTITY_OPENID_CLIENT_ID     |
+| MINIO_IDENTITY_OPENID_CLIENT_SECRET |
+| MINIO_IDENTITY_OPENID_CLAIM_NAME    |
+| MINIO_IDENTITY_OPENID_CLAIM_PREFIX  |
+| MINIO_IDENTITY_OPENID_SCOPES        |
+| MINIO_IDENTITY_OPENID_REDIRECT_URI  |
+| MINIO_IDENTITY_OPENID_COMMENT       |
+
+| flag           | for |
+| -------------- | --- |
+| --certs-dir,-S |
+
+- certs-dir
+  - `${HOME}/.minio/certs`
+  - `%%USERPROFILE%%\.minio\certs`
+- https://min.io/docs/minio/linux/reference/minio-mc-admin/mc-admin-config.html
+- https://min.io/docs/minio/linux/reference/minio-server/minio-server.html
+
 ## KMS
 
 - https://docs.min.io/docs/minio-kms-quickstart-guide.html
@@ -275,3 +325,7 @@ brew install certbot
 key/secret 错误
 
 ## This 'admin' API is not supported by server in 'mode-server-fs'.
+
+## found backend type fs, expected xl or xl-single: Invalid arguments specified
+
+新旧 minio 数据目录切换回出现

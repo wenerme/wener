@@ -72,15 +72,17 @@ kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storagecla
 
 | Plugin     | RWO | ROM | RWM | Storage Type |
 | ---------- | --- | --- | --- | ------------ |
-| CephFS     | ✓   | ✓   | ✓   | Filesystem   |
+| Longhorn   | ✓   | ✓   | ✓   | File,Block   |
+| OpenEBS    | ✓   | ✓   | ✓   | File,Block   |
+| HostPath   | ✓   | -   | -   | File         |
+| NFS        | ✓   | ✓   | ✓   | File         |
+| iSCSI      | ✓   | ✓   | -   | Block        |
+| CephFS     | ✓   | ✓   | ✓   | File         |
 | Cinder     | ✓   | -   | -   | Block        |
 | CSI        | -   | -   | -   | Interface    |
 | FC         | ✓   | ✓   | -   | Block        |
 | FlexVolume | ✓   | ✓   | -   | Block        |
-| Glusterfs  | ✓   | ✓   | ✓   | Filesystem   |
-| HostPath   | ✓   | -   | -   | Filesystem   |
-| iSCSI      | ✓   | ✓   | -   | Block        |
-| NFS        | ✓   | ✓   | ✓   | Filesystem   |
+| Glusterfs  | ✓   | ✓   | ✓   | File         |
 | RBD        | ✓   | ✓   | -   | Block        |
 
 # FAQ

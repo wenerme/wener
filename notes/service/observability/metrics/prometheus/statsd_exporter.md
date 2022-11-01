@@ -6,7 +6,7 @@ title: statsd_exporter
 
 - [prometheus/statsd_exporter](https://github.com/prometheus/statsd_exporter)
 - statsd 默认端口 8125/udp
-- statsd_exporter 端口 9102
+- statsd_exporter metrics 9102, statsd 9125
 
 ```bash
 docker run --rm -it -p 9102:9102 -p 9125:9125 -p 9125:9125/udp \

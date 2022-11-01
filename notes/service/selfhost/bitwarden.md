@@ -10,6 +10,7 @@ title: bitwarden
   - GPL-3.0, TypeScript
   - 只支持一个账号
   - web, browser extension, desktop, cli
+  - cli - NodeJS
 - [bitwarden/directory-connector](https://github.com/bitwarden/directory-connector)
   - bitwarden <-> AD, LDAP, Azure, G Suite, Okta
 - [bitwarden/server](https://github.com/bitwarden/server)

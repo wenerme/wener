@@ -13,7 +13,7 @@ title: Gluster
 
 :::
 
-# Gluster vs Ceph
+## Gluster vs Ceph
 
 - Ceph
   - 基于对象
