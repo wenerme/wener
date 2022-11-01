@@ -43,6 +43,20 @@ tags:
   - 不支持 input 因为 input 不支持 `::before`
     - https://stackoverflow.com/a/4660434/1870054
 
+## pure selector
+
+- 能够被 prefix 的 selector
+- 用于 css module
+
+```css
+/* 不是 pure selector */
+:global(body) {
+}
+/* 是 pure selector - 会变成 .xyz body */
+body {
+}
+```
+
 ## 浏览器兼容问题
 
 - aspect-ratio - Chrom 88, Safari 15

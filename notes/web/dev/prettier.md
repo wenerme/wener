@@ -23,6 +23,8 @@ title: prettier
 - YAML 无法调整 array 缩进
   - [redhat-developer/vscode-yaml#172](https://github.com/redhat-developer/vscode-yaml/issues/172)
   - [brodybits/prettierx](https://github.com/brodybits/prettierx)
+- sort-imports 错误处理 `use client`/`use server` 指令 [prettier-plugin-sort-imports#185](https://github.com/trivago/prettier-plugin-sort-imports/issues/185)
+  - 可以考虑用 ESLint sorting
 
 :::
 
@@ -114,4 +116,3 @@ module.exports = {
 - https://prettier.io/docs/en/plugins.html
 
 ## ignore
-

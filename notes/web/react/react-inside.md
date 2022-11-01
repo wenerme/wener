@@ -469,3 +469,15 @@ const Hello = () => {
 - Offscreen
 - SuspenseList
 - https://github.com/facebook/react/blob/main/packages/react/index.experimental.js
+
+## Server Component
+
+- 不支持特性
+  - React.Component
+  - React.PureComponent
+  - React.createContext
+  - hooks
+- 约定
+  - `"use client";`,`"use server";` 标记组件类型
+  - 会使用 `react-server` exports
+- https://github.com/reactjs/rfcs/blob/main/text/0227-server-module-conventions.md

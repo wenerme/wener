@@ -36,6 +36,7 @@ title: ESBuild
 - 不支持 systemjs, amd
   - [#192](https://github.com/evanw/esbuild/issues/192)
 - 不支持 umd - [#507](https://github.com/evanw/esbuild/issues/507)
+- 不支持 Bundle CSS Module [#20](https://github.com/evanw/esbuild/issues/20)
 - tsconfig.paths 不 bundled 时不会处理 [#394](https://github.com/evanw/esbuild/issues/394)
   - 写库只能用相对路径
 - Support dynamic imports [#700](https://github.com/evanw/esbuild/issues/700)

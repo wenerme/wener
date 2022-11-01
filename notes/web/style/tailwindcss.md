@@ -323,31 +323,31 @@ module.exports = {
 ```js
 module.exports = {
   // 裁剪的基础用法
-  purge: [
-    './src/**/*.html',
-    './src/**/*.vue',
-    './src/**/*.jsx',
-  ],
+  purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
   purge: {
     enabled: false, // 是否裁剪不必要的定义
     preserveHtmlElements: true, // 是否保留 HTML 元素基础样式
-    layers: ['components', 'utilities'], // 裁剪层
-    mode: 'all', // 是否裁剪所有未用到的定义 - 不建议
-    content: ['./src/**/*.html'],
+    layers: ["components", "utilities"], // 裁剪层
+    mode: "all", // 是否裁剪所有未用到的定义 - 不建议
+    content: ["./src/**/*.html"],
     // PurgeCSS 直接传入参数
     options: {
-      safelist: ['bg-red-500', 'px-4'],
+      safelist: [
+        "bg-red-500",
+        "px-4",
+        {
+          pattern: /bg-(red|green|blue)-(100|200|300)/,
+          variants: ["lg", "hover", "focus", "lg:hover"],
+        },
+      ],
     },
   },
   // 禁用插件可减少大小
   corePlugins: {
-    float: false
-  }，
+    float: false,
+  },
   // 或者指定需要的插件
-  corePlugins: [
-    'margin',
-    'padding',
-  ]
+  corePlugins: ["margin", "padding"],
 };
 ```
 

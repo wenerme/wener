@@ -111,14 +111,31 @@ tags:
 ## Tools
 
 - [samuel-lucas6/Kryptor](https://github.com/samuel-lucas6/Kryptor)
-- [FiloSottile/age](https://github.com/FiloSottile/age)
+- [FiloSottile/age](./age.md)
   - file encryption tool
   - [HN](https://news.ycombinator.com/item?id=28435613)
+- [FiloSottile/yubikey-agent](https://github.com/FiloSottile/yubikey-agent)
+- [str4d/rage](https://github.com/str4d/rage)
+  - 类似 age，但 rust 实现
+  - 依然还不支持 ssh-agent
+- [woodruffw/kbs2](https://github.com/woodruffw/kbs2)
+  - secret manager backed by age
 - [Ex0dIa-dev/ssh-honeypot-go](https://github.com/Ex0dIa-dev/ssh-honeypot-go)
 - [sairson/Yasso](https://github.com/sairson/Yasso)
 - [geemion/Khepri](https://github.com/geemion/Khepri)
 - [carlospolop/PEASS-ng](https://github.com/carlospolop/PEASS-ng)
   - PEASS - Privilege Escalation Awesome Scripts SUITE
+- Repo
+  - [StackExchange/blackbox](https://github.com/StackExchange/blackbox)
+  - git-secret
+  - [AGWA/git-crypt](https://github.com/AGWA/git-crypt)
+    - GPLv3, C++
+  - [slok/agebox](https://github.com/slok/agebox)
+    - Apache-2.0, Golang
+    - 基于 age
+    - .ageboxreg.yml
+- pgp
+  - encryption, signing services, key management, web-of-trust, smartcard compat
 
 ## Reference
 

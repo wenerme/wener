@@ -8,6 +8,10 @@ title: curl
 - -J 使用服务端返回的名字
 - --remote-name-all
   - 默认 `-O` 只影响第一个
+- 支持协议
+  - file
+  - sftp, ftp, ftps
+  - dict gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
 
 ```bash
 # 测试 SNI
@@ -33,6 +37,7 @@ curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2 https://example.com
 | `--remote-name-all`                    |       | 全部使用 remote-name - URL 文件名部分 - `-O` 只影响第一个 |
 | `-O, --remote-name`                    |       | 第一个使用 remote-name                                    |
 | `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名                   |
+| `--create-file-mode <mode>`            | 7.75  |
 
 - proxy
   - port=1080

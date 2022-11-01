@@ -19,6 +19,16 @@ git config --local user.name "Author Name"
 git config --local user.email "email@address.com"
 ```
 
+## git+ssh proxy
+
+- 默认支持 http_proxy 和 https_proxy
+- 使用 git+ssh 需要额外配置
+
+```
+Host github.com
+    ProxyCommand socat - PROXY:your.proxy.ip:%h:%p,proxyport=3128,proxyauth=user:pwd
+```
+
 ## 获取仓库目录
 
 ```bash

@@ -234,6 +234,17 @@ Cube 计算
 
 ## Vector
 
+面向向量的多用于 **搜索** 和 **机器学习**。
+
+> Vector -> `number[]`
+
+:::tip
+
+- [ClickHouse#35101](https://github.com/ClickHouse/ClickHouse/issues/35101)
+  Indexed Vector Similarity and kNN Search
+
+:::
+
 - [milvus-io/milvus](https://github.com/milvus-io/milvus)
   - Apache-2.0, Go
   - Vector database for scalable similarity search and AI applications.
@@ -249,6 +260,7 @@ Cube 计算
 - [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
   - Benchmarks of approximate nearest neighbor
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
+
 ## Geo
 
 - https://s2geometry.io/

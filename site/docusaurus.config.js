@@ -194,9 +194,12 @@ const config = {
               html: `
               <div>
               <a class='footer__link-item' href='https://github.com/wenerme/wener'>Wener</a>
-              - <a class='footer__link-item' href='https://github.com/wenerme/wener/actions' title='wenerme/wener - ci'>
-                <img style='vertical-align: middle;opacity: .4;' src='https://github.com/wenerme/wener/workflows/Build/badge.svg'/>
-                </a>
+              -
+              <a class='footer__link-item' href='https://github.com/wenerme/wener/actions' title='wenerme/wener - ci'>
+              <img style='vertical-align: middle;opacity: .4;' src='https://github.com/wenerme/wener/workflows/Build/badge.svg'/>
+              </a>
+              -
+              <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
               </div>
               `,
             },

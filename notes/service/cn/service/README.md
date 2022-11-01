@@ -34,12 +34,13 @@ title: 企业服务行业
 - https://new.36kr.com/
 - https://yijian.tv/
 
-## 企业信息查询
+## 企业信用查询
 
 工商信息查询
 
 - 政府服务
   - 国家政务服务平台 http://app.gjzwfw.gov.cn/jmopen/webapp/html5/qyxyxxcxpc/index.html
+  - 全国企业信用信息公示系统
   - 国家企业信息公示系统
     - http://gsxt.amr.gd.gov.cn/
       - 广东省市场监督管理局
@@ -47,9 +48,22 @@ title: 企业服务行业
       - 地方频道
         - http://fw.scjgj.sh.gov.cn/noticesh/
     - http://bj.gsxt.gov.cn/ 北京
+  - 中国商标网网上查询
+  - 中国裁判文书网
+  - 全国法院失信被执行人名单信息公布与查询
+  - 中国知识产权裁判文书网
+  - 人民检察院案件信息公开网
+  - 中国专利公布公告
+  - 中华人民共和国海关总署 http://www.customs.gov.cn/
+  - 中国证监会指定信息披露网站“巨潮资讯网”
+  - 全国中小企业股份转让系统
 - 商业服务
   - [启信宝](https://www.qixin.com/)
   - [企查查](https://www.qichacha.com/)
   - http://gsxt.amr.gd.gov.cn/
   - https://market.aliyun.com/qidian/home
     阿里云云市场
+
+---
+
+- https://www.zhihu.com/question/42990444/answer/104145608

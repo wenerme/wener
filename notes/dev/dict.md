@@ -75,8 +75,9 @@ tags:
 | ------ | ---------------------------- | -------------- |
 | distro | distribution                 | 发行版         |
 | TSC    | Technical Steering Committee | 技术指导委员会 |
+| href   | Hypertext REFerence          | 超文本引用     |
 
-| word          | stand for  |
+| word          | stand for  | notes                         |
 | ------------- | ---------- | ----------------------------- |
 | adhesive      | 粘合       |
 | cohesive      | 拼装、凝聚 |
@@ -85,12 +86,14 @@ tags:
 
 ## 服务商
 
-| 英文   | 含义   | 释义 |
-| ------ | ------ | ---- |
-| wechat | 微信   |
-| qq     | QQ     |
-| ali    | 阿里   |
-| alipay | 支付宝 |
+| en       | stand for |
+| -------- | --------- |
+| wechat   | 微信      |
+| qq       | QQ        |
+| ali      | 阿里      |
+| alipay   | 支付宝    |
+| wecom    | 企业微信  |
+| dingtalk | 钉钉      |
 
 ## 服务系统
 
@@ -258,6 +261,7 @@ tags:
 | legal representative     | 法人代表         |
 | corporate representative | 法人代表         |
 | supervisor               | 监事             |
+| entrepreneurial          | 企业家           |
 
 ## 统计分析
 
@@ -272,7 +276,7 @@ tags:
 | EDA   | exploratory data analysis  | 探索性数据分析 |
 | IDA   | initial data analysis      | 初步数据分析   |
 
-## 社交/Social
+## 社交 {social}
 
 | abbr. | stand for         | mean     |
 | ----- | ----------------- | -------- |
@@ -698,6 +702,25 @@ tags:
 - e.g. Editor 为 Viewer, EditorView 为底层文档模型
 - [What is the difference between a view and a viewer?](https://wiki.eclipse.org/FAQ_What_is_the_difference_between_a_view_and_a_viewer%3F)
 
+## enterprise vs corporation vs company vs firm
+
+公司的不同形态
+
+- company - 公司
+  - 依法成立的公司
+- enterprise - 企业
+  - company 都可以叫 enterprise
+  - 一般会用于指代 创新、艰难、重要 的 商业项目
+- corporation - corp. - 集团公司、大型公司
+  - 在 enterprise 基础之上，更严谨
+  - 法律义务责任
+  - 脱离单个法人
+  - legal corporation/法人公司
+- incorporated - inc.
+  - (of a company or other organization) formed into a legal corporation.
+- firm - 公司、事務所
+  - 提供服务类业务
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t
@@ -710,6 +733,6 @@ tags:
 | ---------- | --------------- | ------ |
 | no., №, Nº | numero          | number |
 | lb         | lībra (balance) | pound  |
-| &          | et              | - and  |
+| &          | et              | and    |
 
 - https://www.bbc.com/news/magazine-26014925

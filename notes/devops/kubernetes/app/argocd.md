@@ -46,7 +46,7 @@ title: ArgoCD
     - 因为相同应用要放在同一个 argocd 空间，因此需要名字前缀，例如 `dev-cert-manager`
     - 因为加了名字前缀，要注意所有的 helm 最好指定固定的 releaseName, 例如 cert-manager
       - 复写 releaseName 会有[问题](https://argoproj.github.io/argo-cd/user-guide/helm/#helm-release-name)
-        - argocd 依赖 `app.kubernetes.io/instance` 匹配应用
+        - ~~argocd 依赖 `app.kubernetes.io/instance` 匹配应用~~
         - 复写可能会修改该 label 导致无法匹配部分资源
         - 可以在 `argocd-cm.yaml` 修改配置 `application.instanceLabelKey`
     - 跨集群应用无法删除资源
@@ -56,6 +56,10 @@ title: ArgoCD
     - Helm 3.1+ 支持 `--post-renderer`
     - [#3882](https://github.com/argoproj/argo-cd/issues/3882), [#3698](https://github.com/argoproj/argo-cd/issues/3698)
     - 可能存在 argocd 环境无法访问 chart 问题
+  - [ApplicationSet](./argocd-applicationset.md)
+  - [Image Updater](./argocd-image-updater.md)
+  - [Notification](./argocd-notifications.md)
+  - [Vault Plugin](./argocd-vault-plugin.md)
 
 :::tip
 

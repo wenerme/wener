@@ -141,6 +141,11 @@ yarn add --dev ts-node jest ts-jest @types/jest
   - [Planned Features](https://beta.nextjs.org/docs/app-directory-roadmap#planned-features)
   - API
   - basePath
+- 只能使用 cjs/require - 同步导入依赖
+  - 导致使用现有的依赖非常尴尬
+- emotion 目前用不了 - https://github.com/vercel/next.js/issues/41994
+  - 但是在 Server 环境下 React.createContext is not a function
+- React.Component is null
 
 :::
 
@@ -242,11 +247,16 @@ export default function NotFound() {
 ```
 
 - Server Components
-  - 场景
+  - **支持的场景**
     - 获取数据
     - 访问后端服务
     - 避免敏感信息泄露到前端
     - 大依赖
+  - **不支持场景**
+    - React.Component = null
+    - React.PureComponent = null
+    - hooks
+    - Context - 无 createContext 方法
   - 可 import server-only 包确保模块只在服务端
     - 通过 exports 只有 react-server 实现
     - exports.default 会直接 throw 异常

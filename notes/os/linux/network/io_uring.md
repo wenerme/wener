@@ -6,12 +6,17 @@ title: io_uring
 
 Zero Copy, ring bazed communication channel.
 
+- Linux v5.1 - 2019-03-03
+- 场景
+  - userspace <-> kernel 数据交互
+  - async io
 - SQ - Submission Queue - `struct io_uring_sqe`
   - 应用
   - 维护 tail, kernel 消费 head
 - CQ - Completion Queue - `struct io_uring_cqe`
   - Kernel
   - 维护 tail, 应用 消费 head
+
 
 ```c
 int io_uring_setup(u32 nentries, struct io_uring_params *p);
@@ -59,13 +64,15 @@ sq->ring_ptr = mmap(
   - readv, writev, fsync, read_fixed, write_fixed
   - poll_add, poll_remove, sync_file_range, sendmsg, recvmsg, timeout
 - liburing - 简化操作
-- Linux v5.1-rc - 2019-03-03
 - Golang
   - [go#31908](https://github.com/golang/go/issues/31908)
     internal/poll: transparently support new linux io_uring interface
   - [dshulyak/uring](https://github.com/dshulyak/uring)
   - [godzie44/go-uring](https://github.com/godzie44/go-uring)
 - used by
+  - [btrfs] Linux 6.1 支持 io_uring
+    - 性能提升明显
+  - zfs 支持 io_uring 接口
   - Rust, C++ IO executors
   - Ceph blustore
   - libuv

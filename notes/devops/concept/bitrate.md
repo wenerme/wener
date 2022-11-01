@@ -7,8 +7,8 @@ title: 比特率
 - 比特率 - bitrate
 - SFR - Standard Frame Rate - 24, 25, 30
 - HFR - High Frame Rate - 48, 50, 60
-- SDR
-- HDR
+- SDR - Standard Dynamic Range
+- HDR - High Dynamic Range
 - interlacing - 交错 - 1080i60=1080p30
 - progressive scan - 非交错
 - Decimal prefixes - SI - 1000 单位 - kbit/s
@@ -46,3 +46,10 @@ title: 比特率
 | Mono   | 128 kbps      |
 | Stereo | 384 kbps      |
 | 5.1    | 512 kbps      |
+
+**Mobile data**
+
+| Type             | BitRate                                        |
+| ---------------- | ---------------------------------------------- |
+| 1981 1G NMT      | 1200 bit/s                                     |
+| 2003 2G GSM EDGE | 296 kbit/s &downarrow;, 118.4 kbit/s &uparrow; |

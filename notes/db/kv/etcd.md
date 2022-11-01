@@ -18,6 +18,12 @@ title: etcd
 - v3 API
 - RBAC
 
+:::tip
+
+- v2 API - 3.5 废弃, 3.6 退役
+
+:::
+
 ```bash
 # Docker
 # ==========
