@@ -27,13 +27,24 @@ title: KV DB Awesome
   - [Asynchronous Prefix Recoverability for Fast Distributed Stores](https://tli2.github.io/assets/pdf/dpr-sigmod2021.pdf)
 - Memcache
 - TiKV
-- etcd
 - Ehcache
 - Infinispan
 - Geode
 - [flower-corp/rosedb](https://github.com/flower-corp/rosedb)
   - Apache-2.0, Go
   - 类似于 Redis 但存储在文件
+- distributed, consistent key-value store
+  - [etcd](./etcd.md)
+  - zookeeper
+  - consul
+    - 服务、Node 为 first class
+  - 使用场景
+    - 配置共享
+    - 服务发现
+    - scheduler coordination
+- consistent
+  - raft
+  - paxios
 
 ## Redis
 

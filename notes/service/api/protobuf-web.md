@@ -79,6 +79,9 @@ interface Rpc {
 
 ## protobuf-es
 
+- 无 RPC 集成 - 通过自己实现插件
+- 支持插件 https://github.com/bufbuild/protobuf-es/blob/main/docs/writing_plugins.md
+
 ```bash
 go install github.com/bufbuild/protobuf-es/cmd/protoc-gen-es@latest
 ```

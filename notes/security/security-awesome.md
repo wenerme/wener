@@ -42,6 +42,7 @@ tags:
   - wikipedia [NaCl](<https://en.wikipedia.org/wiki/NaCl_(software)>)
 - [google/paranoid_crypto](https://github.com/google/paranoid_crypto)
   - checks for well known weaknesses on cryptographic
+- [Idov31/Sandman](https://github.com/Idov31/Sandman)
 - 参考
   - [Comparison of cryptography libraries](https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries)
 

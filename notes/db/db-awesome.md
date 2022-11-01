@@ -134,6 +134,8 @@ Cube 计算
 
 ## 有趣
 
+- [wiredtiger/wiredtiger](https://github.com/wiredtiger/wiredtiger)
+  - MongoDB
 - [tantaman/aphrodite](https://github.com/tantaman/aphrodite)
 - [facebookincubator/LogDevice](https://github.com/facebookincubator/LogDevice)
   - Distributed storage for sequential data
