@@ -79,3 +79,19 @@ tags:
 - Kioxia/铠侠
   - 2018 年 06 月 东芝拆分出 东芝记忆体株式会社
   - 2019 年 10 月 更名为 Kioxia/铠侠
+
+## IC vs ID
+
+- RFID
+  - 常见 125KHz ID
+  - 可复制
+  - 手机不可模拟
+  - read-only unique 64b anti-rewrite password
+  - 低成本
+  - EEPROM
+- Access control IC card
+  - 常见 13.56MHz
+  - non-contact radio frequency IC card - MF1 card
+    - mifare one card
+- Access control CPU card
+

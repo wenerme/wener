@@ -1,41 +1,41 @@
 ---
-id: libvirt
 title: Libvirt
 ---
 
 # Libvirt
 
 ## Tips
-* [libvirt/libvirt](https://github.com/libvirt/libvirt)
-  * 绑定: c#, go, java, ocaml. perl, python, php, ruby
-  * API 分为: common, domain, domain snapshot, error, event, host, interface, network, node device, network filter, secret, storage, stream
-* [libvirt](https://libvirt.org/drivers.html)
-  * LXC – Linux Container - 容器
-  * OpenVZ – lightweight Linux container system
-  * Kernel-based Virtual Machine/QEMU (KVM) – open source hypervisor for Linux and SmartOS
-  * Xen – Bare-Metal hypervisor
-  * User-mode Linux (UML) paravirtualized kernel
-  * VirtualBox – hypervisor by Oracle (formerly Sun) for Windows, Linux, Mac OS X, and Solaris
-  * VMware ESX and GSX – hypervisors for Intel hardware
-  * VMware Workstation and Player – hypervisors for Windows and Linux
-  * Hyper-V – hypervisor for Windows by Microsoft
-  * PowerVM – hypervisor by IBM for AIX, Linux and IBM i
-  * Parallels Workstation – hypervisor for Mac by Parallels IP Holdings GmbH
-  * Bhyve – hypervisor for FreeBSD 10+.
-* [QEMUSwitchToLibvirt](https://wiki.libvirt.org/page/QEMUSwitchToLibvirt)
-* [UbuntuKVMWalkthrough](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough)
-* [libvirt cloud-init with static networking](https://gist.github.com/itzg/2577205f2036f787a2bd876ae458e18e)
-* 概念 - [API](https://libvirt.org/api.html)
-  * domain
-    * Guest Host
-  * network
-  * storage pool
-  * storage volume
-* 问题
-  * libvirtd 未正常关闭导致 hang - 6.6.0 应该会修复
-    * [alpine/aports#11602](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602)
-    * [libvirt/libvirt#52](https://gitlab.com/libvirt/libvirt/-/issues/52)
-* [libvirt-client](https://pkgs.alpinelinux.org/contents?branch=edge&name=libvirt-client&arch=x86_64&repo=community)
+
+- [libvirt/libvirt](https://github.com/libvirt/libvirt)
+  - 绑定: c#, go, java, ocaml. perl, python, php, ruby
+  - API 分为: common, domain, domain snapshot, error, event, host, interface, network, node device, network filter, secret, storage, stream
+- [libvirt](https://libvirt.org/drivers.html)
+  - LXC – Linux Container - 容器
+  - OpenVZ – lightweight Linux container system
+  - Kernel-based Virtual Machine/QEMU (KVM) – open source hypervisor for Linux and SmartOS
+  - Xen – Bare-Metal hypervisor
+  - User-mode Linux (UML) paravirtualized kernel
+  - VirtualBox – hypervisor by Oracle (formerly Sun) for Windows, Linux, Mac OS X, and Solaris
+  - VMware ESX and GSX – hypervisors for Intel hardware
+  - VMware Workstation and Player – hypervisors for Windows and Linux
+  - Hyper-V – hypervisor for Windows by Microsoft
+  - PowerVM – hypervisor by IBM for AIX, Linux and IBM i
+  - Parallels Workstation – hypervisor for Mac by Parallels IP Holdings GmbH
+  - Bhyve – hypervisor for FreeBSD 10+.
+- [QEMUSwitchToLibvirt](https://wiki.libvirt.org/page/QEMUSwitchToLibvirt)
+- [UbuntuKVMWalkthrough](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough)
+- [libvirt cloud-init with static networking](https://gist.github.com/itzg/2577205f2036f787a2bd876ae458e18e)
+- 概念 - [API](https://libvirt.org/api.html)
+  - domain
+    - Guest Host
+  - network
+  - storage pool
+  - storage volume
+- 问题
+  - libvirtd 未正常关闭导致 hang - 6.6.0 应该会修复
+    - [alpine/aports#11602](https://gitlab.alpinelinux.org/alpine/aports/-/issues/11602)
+    - [libvirt/libvirt#52](https://gitlab.com/libvirt/libvirt/-/issues/52)
+- [libvirt-client](https://pkgs.alpinelinux.org/contents?branch=edge&name=libvirt-client&arch=x86_64&repo=community)
 
 ```bash
 # macOS
@@ -62,7 +62,7 @@ virsh -c 'qemu+ssh://root@192.168.1.2/system'
 
 # 问题排查
 # user 会使用 /usr/local/var/run/libvirt/libvirt-sock
-LIBVIRT_LOG_FILTERS=1:*  virsh -c 'qemu+ssh://admin@192.168.1.2/system' list
+LIBVIRT_LOG_FILTERS=1:* virsh -c 'qemu+ssh://admin@192.168.1.2/system' list
 # 修改使用的 socket
 virsh -c 'qemu+ssh://admin@192.168.1.2/system?socket=/var/run/libvirt/libvirt-sock' list
 
@@ -89,13 +89,14 @@ virsh -c qemu+ssh://username@hostname/system
 ```
 
 ## 驱动
+
 https://pkgs.alpinelinux.org/contents?file=&path=%2Fusr%2Flib%2Flibvirt%2Fconnection-driver&name=&branch=edge&arch=x86_64
 
 ## invalid argument: Failed to parse user 'qemu'
 
 ## XML
 
-* https://libvirt.org/format.html
+- https://libvirt.org/format.html
 
 ```
 virt-xml-validate /path/to/XML/file
@@ -105,23 +106,22 @@ virt-xml-validate /path/to/XML/file
 
 ```bash
 virt-install --virt-type kvm --name xp \
---location http://httpredir.debian.org/debian/dists/squeeze/main/installer-amd64/ \
---extra-args "console=ttyS0" -v --os-variant debiansqueeze \
---disk size=4 --memory 512
+  --location http://httpredir.debian.org/debian/dists/squeeze/main/installer-amd64/ \
+  --extra-args "console=ttyS0" -v --os-variant debiansqueeze \
+  --disk size=4 --memory 512
 -n xp --vcpus 2 --import winxp
 ```
 
 virt-install \
-     --connect qemu:///system \
-     --virt-type qemu \
-     --name demo \
-     --ram 500 \
-     --graphics vnc \
-     --disk path=/root/alp.qcow2 \
-     --cdrom /root/alpine-standard-3.8.0-x86_64.iso \
-     --os-variant=generic \
-     --dry-run --print-xml
-
+ --connect qemu:///system \
+ --virt-type qemu \
+ --name demo \
+ --ram 500 \
+ --graphics vnc \
+ --disk path=/root/alp.qcow2 \
+ --cdrom /root/alpine-standard-3.8.0-x86_64.iso \
+ --os-variant=generic \
+ --dry-run --print-xml
 
 https://wiki.debian.org/KVM
 
@@ -157,7 +157,6 @@ libvirt management daemon:
     PID file:
       $XDG_RUNTIME_DIR/libvirt/libvirtd.pid
 ```
-
 
 virsh -c qemu+ssh://root@127.0.0.1:2222/system?socket=/var/run/libvirt/libvirt-sock list --all
 

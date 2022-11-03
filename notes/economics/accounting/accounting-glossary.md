@@ -5,10 +5,10 @@ tags:
 
 # Accounting Glossary
 
-| abbr. | stand for | mean       |
-| ----- | --------- | ---------- |
-| CPA   |           | 注册会计师 |
-| TA    |           | 税务师     |
+| abbr. | stand for                        | mean       |
+| ----- | -------------------------------- | ---------- |
+| CPA   | Certified Public Accountant | 注册会计师 |
+| TA    |                                  | 税务师     |
 
 | abbr.   | stand for                                              | mean                 |
 | ------- | ------------------------------------------------------ | -------------------- |
@@ -19,6 +19,7 @@ tags:
 | ----------------------- | ---------- |
 | Account reconciliations | 对账       |
 | Balance sheet           | 资产负债表 |
+| Accountant              | 会计师     |
 
 - EBITA
 

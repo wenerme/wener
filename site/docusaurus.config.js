@@ -18,7 +18,7 @@ function RewritePlugin(context, options) {
 }
 
 const isTesting = Boolean(process.env.TEST);
-isTesting && console.warn(`Test building`)
+isTesting && console.warn(`Test building`);
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -84,7 +84,7 @@ const config = {
         },
         blog: {
           routeBasePath: 'story',
-          path: isTesting ? '../story' : './story',
+          path: isTesting ? './story' : '../story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
@@ -198,8 +198,6 @@ const config = {
               <a class='footer__link-item' href='https://github.com/wenerme/wener/actions' title='wenerme/wener - ci'>
               <img style='vertical-align: middle;opacity: .4;' src='https://github.com/wenerme/wener/workflows/Build/badge.svg'/>
               </a>
-              -
-              <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
               </div>
               `,
             },
@@ -233,7 +231,8 @@ const config = {
       },
       copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt='cc-by-sa-4.0' src='https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg' /> - Build @${moment()
         .tz('Asia/Shanghai')
-        .format('YYYY-MM-DD HH:mm')}`,
+        .format('YYYY-MM-DD HH:mm')}
+        - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>`,
     },
   },
   // i18n: {

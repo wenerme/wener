@@ -8,6 +8,12 @@ title: mermaid
 - [Live Editor](https://mermaid-js.github.io/mermaid-live-editor)
 - GitHub 和 Gitlab 支持 mermaid
 
+:::caution
+
+- 无法调整 rank [#3723](https://github.com/mermaid-js/mermaid/issues/3723)
+
+:::
+
 | type            |
 | --------------- | ----------- |
 | graph           | Flow        |
@@ -23,8 +29,8 @@ title: mermaid
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A-->B
+    A-->C
+    B-->D
+    C-->D
 ```

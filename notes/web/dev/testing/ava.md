@@ -15,6 +15,7 @@ title: Ava
 
 - pnpm 下 ava 为 shell, 实际脚本为 `node_modules/ava/entrypoints/cli.mjs`
   - 如果使用了 WebStorm 插件可以修改 ava 路径
+  - 将 ava 安装到 root 可避免
 
 :::
 

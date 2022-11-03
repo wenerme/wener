@@ -70,6 +70,26 @@ grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+## Command Line
+
+- search
+- linux
+- echo
+- insmod
+- linux
+- initrd
+
+```bash
+# 文件名语法 - block+path
+ls -lash (hd0,gpt2)/
+
+ls -lash (hd0,gpt1)/efi/boot
+ls -lash (hd0,gpt2)/boot/vmlinuz-lts
+
+set root=(hd0,gpt2)
+ls /
+```
+
 # FAQ
 
 ## grub-probe: error: cannot find a device for /

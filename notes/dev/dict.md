@@ -721,6 +721,27 @@ tags:
 - firm - 公司、事務所
   - 提供服务类业务
 
+## namespace 翻译 {namespace}
+
+- 命名空间
+  - 指 可以在一个 空间里进行 命名
+  - 通常指代一种行为
+  - 只要创建出来了 **上下文** 通常就会产生 命名空间
+  - 命名空间 ~= 上下文
+  - 例如： Java 里没有 "namespace" 但是有命名空间概念
+  - 例如： 通常 module,class,block 都是一个命名空间
+- 名字空间
+  - 直译 namespace
+  - 更能指代具体的事物
+  - 例如： Kubernetes 里就是有 Namespace，但也有其他命名空间概念
+    - 例如: 全局/Cluster 也是一个命名空间
+  - 就像 向量空间、颜色空间、坐标空间 一样
+    - 名词+“空间”
+
+---
+
+虽然传统翻译里用 “命名空间” 翻译 namespace 概念，但是认为如果就是指代 “Namespace”，那 “名字空间” 更合适。
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t

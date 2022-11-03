@@ -1,18 +1,39 @@
 ---
-title: wiretrustee
+title: netbird
 ---
 
-# wiretrustee
+# netbird
 
-- [wiretrustee/wiretrustee](https://github.com/wiretrustee/wiretrustee) 是什么？
+- [netbirdio/netbird](https://github.com/netbirdio/netbird)
   - BSD-3, Go
+  - 之前叫 wiretrustee
   - 基于 WebRTC, STUN, TURN 的 P2P 网络通道
-
+  - P2P - WireGuard+WebRTC
+  - 支持  relay
+  - 使用 OIDC 登陆
+  - WebUI
+    - [netbirdio/dashboard](https://github.com/netbirdio/dashboard)
+      - BSD-3, TS, React, AndD
+      - WebUI
+- 平台
+  - 管理服务 - api.wiretrustee.com
+  - Signal - signal2.wiretrustee.com
+  - Relay/TURN - turn.netbird.io
+- `--disable-anonymous-metrics=true`
+- 管理服务
+  - 注册、认证
+  - 网络 Map
+  - 管理 IP 地址
+  - 同步网络到 Peer
+  - 管理 ACLs
+  - 管理 DNS
+  - 监控
+  - Wgireguard key rotation
 
 :::caution
 
-- 目前强制依赖 Auth0 [#126](https://github.com/wiretrustee/wiretrustee/issues/126)
-- 目前没有 iOS & Android 应用 - [#115](https://github.com/wiretrustee/wiretrustee/issues/115)
+- ~~目前强制依赖 Auth0 [#126](https://github.com/netbirdio/netbird/issues/126)~~
+- 目前没有 iOS & Android 应用 - [#115](https://github.com/netbirdio/netbird/issues/115)
 - 依赖外部 STUN 和 TURN
 
 :::

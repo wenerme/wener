@@ -37,6 +37,7 @@ tags:
 ---
 
 - https://z-lib.org/
+- https://libgen.is/
 - https://librivox.org/
   - free public domain audiobooks
 - [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)

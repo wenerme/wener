@@ -22,15 +22,17 @@ tags:
 
 ## DB
 
-| driver pkg     | db                   |
-| -------------- | -------------------- |
-| pg pg-hstore   | PostgreSQL           |
+| driver pkg     | db                   | notes    |
+| -------------- | -------------------- | -------- |
+| [pg] pg-hstore | PostgreSQL           |
 | mysql2         | MySQL                |
 | mariadb        | MariaDB              |
 | sqlite3        | SQLite               |
-| better-sqlite3 | SQLite               |
+| better-sqlite3 | SQLite               | 同步接口 |
 | tedious        | Microsoft SQL Server |
 | ibm_db         | DB2                  |
+
+[pg]: https://github.com/brianc/node-postgres
 
 - better-sqlite3
   - 支持自定义函数
@@ -73,6 +75,19 @@ tags:
   - 🚧 开发停止 - 2021
 - [dmfay/massive-js](https://gitlab.com/dmfay/massive-js)
   - data mapper for Node.js and PostgreSQL
+
+```ts
+// PostgreSQL
+// 支持的环境变量 https://www.postgresql.org/docs/current/libpq-envars.html
+// PGHOST PGPORT PGUSER PGPASSWORD PGDATABASE PGSSLMODE PGOPTIONS
+// PGOPTIONS 可设置 search_path
+const { Client } = require('pg');
+const client = new Client();
+await client.connect();
+const res = await client.query('SELECT $1::text as message', ['Hello world!']);
+console.log(res.rows[0].message); // Hello world!
+await client.end();
+```
 
 ## Library
 

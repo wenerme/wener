@@ -4,10 +4,14 @@ title: rudder
 
 # rudder
 
-:::caution
+:::tip
 
 - rudder-server 为 Data Plane，通过 配置服务 或 JSON 启动
-- 配置服务 [rudderlabs/config-generator](https://github.com/rudderlabs/config-generator)
+  - AGPLv3
+- 配置生成工具 [rudderlabs/config-generator](https://github.com/rudderlabs/config-generator)
+  - MIT
+  - 不再维护
+- SDK 都是 MIT 协议
 - 线上版本 不能导出 JSON
 
 :::

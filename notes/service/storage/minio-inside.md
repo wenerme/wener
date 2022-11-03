@@ -26,6 +26,7 @@ tags:
   - tmp-old/
 - STS - Security Token Service
   - 临时票据
+  - username, secret, token
 - 参考
   - [cmd/xl-storage.go](https://github.com/minio/minio/blob/master/cmd/xl-storage.go)
   - [MinIO Versioning, Metadata and Storage Deep Dive](https://blog.min.io/minio-versioning-metadata-deep-dive/)

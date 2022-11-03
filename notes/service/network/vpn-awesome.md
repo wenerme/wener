@@ -142,7 +142,7 @@ tags:
 
 ### WireGuard Mesh
 
-- [wiretrustee/wiretrustee](https://github.com/wiretrustee/wiretrustee)
+- [wiretrustee/wiretrustee](https://github.com/netbirdio/netbird)
   Wireguard+Mesh
   - BSD-3, Go
   - WebRTC, STUN, TURN

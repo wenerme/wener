@@ -366,6 +366,9 @@ git config --global gpg.x509.program smimesign
 git config --global gpg.format x509
 smimesign --list-keys
 git config --global user.signingkey KEY
+
+# 提交自动签名
+git config --global commit.gpgsign true
 ```
 
 ## git Load key git_signing_key invalid format

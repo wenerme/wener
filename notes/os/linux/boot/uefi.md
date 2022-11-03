@@ -37,6 +37,7 @@ title: UEFI
 
 基于 EDK II 用于支持虚拟机 EFI 启动的固件
 
+- OVMF - Open Virtual Machine Firmware
 - OVMF/OVMF.fd - x86_64 实际运行的固件
 - OVMF/OVMF_CODE.fd
 - OVMF/OVMF_VARS.fd
@@ -49,6 +50,12 @@ title: UEFI
 # -bios bios.bin - variables will be partially emulated, and non-volatile, variables may lose their contents after a reboot
 # -L . - 同 bios
 # qemu-system-x86_64 -L .
+```
+
+```bash
+apk add ovmf
+# /usr/share/OVMF/
+# /usr/share/ovmf/bios.bin
 ```
 
 ## EFISTUB
@@ -74,3 +81,19 @@ title: UEFI
   - 支持安全启动 - 系统完整性检查
   - 支持网络
   - 支持图形界面
+
+## you need to load the kernel first
+注意在这之前的错误
+
+```
+error: out of memory
+```
+
+可能是在 linux 加载内核时出现，需要增加内存。
+
+QEMU 默认内存启动 alpine lts efi 失败。
+
+```bash
+# -accel hvf 会失败
+qemu-system-x86_64 -m 2G -bios OVMF/OVMF.fd -hda /dev/rdisk2
+```
