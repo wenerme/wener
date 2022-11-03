@@ -76,11 +76,18 @@ Your Date is Yours
 
 ## 小家
 
+数据离线、私有，使用 SQLite WASM。
+
 - 小家账本
 - 小家相册
+- 小家通讯录
+- 数据
+  - 微信聊天数据
+  - 抓取其他平台 - 例如：幼儿园 发照片的 APP
 
 ## Dreams
 
 - 出国
 - 8K 电视
   - 玩 PS
+- umf/untold 现场

@@ -20,7 +20,7 @@ smartctl -a /dev/sda
 # 包含额外信息
 smartctl -x /dev/sda
 # 健康信息
-smartctl  -H /dev/sdb
+smartctl -H /dev/sdb
 
 # 开启监控
 smartctl --smart=on --offlineauto=on --saveauto=on /dev/sdb
@@ -29,7 +29,50 @@ smartctl --smart=on --offlineauto=on --saveauto=on /dev/sdb
 smartctl -t short /dev/sda
 # 检查完成查看结果
 smartctl -H /dev/sda
+
+# 批量操作
+echo /dev/sd{a,b,c,d,e} | xargs -n 1 smartctl -H
 ```
+
+| smartctl                      | for                                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Information**               |
+| -i,--info                     | identity                                                                                         |
+| `-identify[=[w][nvb]]`        | ATA                                                                                              |
+| -g,--get NAME                 | all, aam, apm, dsn, lookahead, security, wcache, rcache, wcreorder, wcache-sct                   |
+| -a,--all                      | all SMART info                                                                                   |
+| -x,-xall                      | all info                                                                                         |
+| --scan                        |
+| --scan-open                   |
+| **Runtime**                   |
+| `-j,--json[=cgiosuvy]`        | in JSON or YAML                                                                                  |
+| -q,--quietmode TYPE           | errorsonly, silent, noserial                                                                     |
+| -d,--device TYPE              |
+| -T,--tolerance TYPE           | normal, conservative, permissive, verypermissive                                                 |
+| -b,--badsum TYPE              | warn, exit, ignore                                                                               |
+| -r,--report TYPE              |
+| `-n,--nocheck=MODE[,STATUS]`  | never, sleep, standby, idle                                                                      |
+| **Feature**                   |
+| -s,--smart=VALUE              | N,off,on                                                                                         |
+| -o,--offlineauto=VALUE        |
+| -S,--saveauto=VALUE           |
+| `-s,--set=NAME[,VALUE]`       |
+| **Read & Display**            |
+| -H, --health                  |
+| -c, --capabilities            | SMART capabilities                                                                               |
+| -A, --attributes              | vendor-specific attributes                                                                       |
+| -f, --format=FORMAT           | old,brief,`hex[,id\|val]`                                                                        |
+| -l,--log TYPE                 |
+| -v,--vendorattribute=N,OPTION |
+| -F,--firmwarebug=TYPE         | none, nologdir, samsung, samsung2, samsung3, xerrorlba, swapid                                   |
+| -P,--presets=TYPE             | use, ignore, show, showall                                                                       |
+| -B,`--drivedb=[+]FILE`        | /etc/smart_drivedb.h,/usr/share/smartmontools/drivedb.h                                          |
+| **Self-Test**                 |
+| -t,--test TEST                | offline, short, long, conveyance, force, vendor,N,select,M-N, pending,N, `afterselect,[on\|off]` |
+| -C, --captive                 | captive mode                                                                                     |
+| -X,--abort                    | Abort any non-captive test                                                                       |
+
+- 特性 aam, apm, dsn, lookahead, security, wcache, rcache, wcreorder, wcache-sct
 
 ## smartd
 

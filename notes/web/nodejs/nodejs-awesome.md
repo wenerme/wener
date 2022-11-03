@@ -80,7 +80,7 @@ tags:
 // PostgreSQL
 // 支持的环境变量 https://www.postgresql.org/docs/current/libpq-envars.html
 // PGHOST PGPORT PGUSER PGPASSWORD PGDATABASE PGSSLMODE PGOPTIONS
-// PGOPTIONS 可设置 search_path
+// 修改 search_path PGOPTIONS=-csearch_path=public
 const { Client } = require('pg');
 const client = new Client();
 await client.connect();

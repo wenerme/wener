@@ -192,7 +192,7 @@ ssh -At admin@jumphost ssh admin@internal
 ```
 Host behindbeta
   HostName behindbeta.example.org
-  ProxyJump  betajump
+  ProxyJump betajump
 ```
 
 ## HTTP + SSH 多路
@@ -309,7 +309,6 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 ssh-keygen -t ed25519 -C "a@b.com"
 ```
 
-<<<<<<< Updated upstream
 ## ssh into tmux
 
 ```
@@ -324,7 +323,7 @@ Host localhost
 	UserKnownHostsFile /dev/null
 	StrictHostKeyChecking no
 ```
-=======
+
 ## chmod ssh
 
 ```bash
@@ -335,6 +334,3 @@ chmod go-w ~
 
 # restorecon -R -v /root/.ssh
 ```
-
-
->>>>>>> Stashed changes
