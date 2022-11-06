@@ -16,6 +16,10 @@ tags:
   - Privacy enhanced BitTorrent client with P2P content discovery
 - [picotorrent/picotorrent](https://github.com/picotorrent/picotorrent)
   - MIT, C++
+- [webtorrent/bittorrent-tracker](https://github.com/webtorrent/bittorrent-tracker)
+  - MIT, JS
+  - HTTP, UDP, WebTorrent
+  - client & server
 
 ## Search
 

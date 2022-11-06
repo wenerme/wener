@@ -48,7 +48,6 @@ tags:
   - SQL Builder
   - Composite - 解耦构建最终 query 的过程
   - 对于基础的访问模式提供跨库支持
-  - ⚠️ 不支持 typescript 实体类型安全
   - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
   - 🚧 开发缓慢
 - prisma

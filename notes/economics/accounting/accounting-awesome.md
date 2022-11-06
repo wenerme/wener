@@ -8,6 +8,13 @@ tags:
 - [GNUCash](./gnucash.md)
 - https://gnukhata.org/
   - Business Accounting Software
+- [simonmichael/hledger](https://github.com/simonmichael/hledger)
+  - GPLv3, Haskell
+  - CLI, Web
+- [feramhq/transity](https://github.com/feramhq/transity)
+  - AGPLv3
+  - plain text accounting tool
+  - 命令行
 
 | Title                             | Author                                                           | CN                                     |
 | --------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |

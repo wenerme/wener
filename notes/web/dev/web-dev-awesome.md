@@ -20,6 +20,8 @@ tags:
 - [tclindner/npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
 - [webpro/knip](https://github.com/webpro/knip)
   - Find unused files, dependencies and exports
+- [facebook/memlab](https://github.com/facebook/memlab)
+  - 内存泄露检测
 
 ```bash
 npx typesync                                      # 同步 @types/ 依赖

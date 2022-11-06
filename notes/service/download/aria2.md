@@ -12,7 +12,7 @@ title: aria2
   - Aria2WebUI
   - [ziahamza/webui-aria2](https://github.com/ziahamza/webui-aria2)
 - 参考
-  - [aria2c.1](http://aria2.github.io/manual/en/html/aria2c.html)
+  - [aria2c.1](https://aria2.github.io/manual/en/html/aria2c.html)
   - [P3TERX/Aria2-Pro-Docker](https://github.com/P3TERX/Aria2-Pro-Docker)
     - CUSTOM_TRACKER_URL
       - https://cdn.jsdelivr.net/gh/wenerme/repository@master/trackers_aira2.txt
@@ -33,15 +33,25 @@ aria2c --select-file=3,6 your-torrent-file.torrent
 aria2c --bt-metadata-only=true --bt-save-metadata=true --daemon=false "magnet:?xt=urn:btih:xyz"
 
 aria2c --help=#rpc
+
+# 设置 tracker
+curl -LO https://github.com/ngosang/trackerslist/raw/master/trackers_all_ip.txt
+echo bt-tracker=$(grep . trackers_all_ip.txt | tr '\n' ',') > ~/.aria2/aria2.conf
 ```
 
 | flag             | val      |
 | ---------------- | -------- |
 | `-d,--dir <DIR>` | 下载目录 |
 | -D,--daemon      | daemon   |
+| --conf-path      |
 
-- $XDG_CACHE_HOME/aria2
-- $HOME/.aria2
+## 配置 {configuration}
+
+- --conf-path
+  - $XDG_CACHE_HOME/aria2
+  - $HOME/.aria2
+- ./
+  - aria2.conf
 
 ```conf
 # default 10M

@@ -84,7 +84,7 @@ const config = {
         },
         blog: {
           routeBasePath: 'story',
-          path: isTesting ? './story' : '../story',
+          path: isTesting ? './story' : './story',
           include: ['**/*.md', '**/*.mdx'],
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',

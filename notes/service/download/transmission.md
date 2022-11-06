@@ -27,6 +27,7 @@ title: transmission
 :::tip
 
 - 不支持 bt2 [transmission/transmission#1339](https://github.com/transmission/transmission/issues/1339)
+- 不支持 WebRTC [#47](https://github.com/transmission/transmission/issues/47)
 
 :::
 

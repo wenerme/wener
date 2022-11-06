@@ -5,7 +5,6 @@ title: GPG
 # GPG
 
 - [GNU Privacy Guard](https://en.wikipedia.org/wiki/GNU_Privacy_Guard)
-- https://gnupg.org/documentation/manuals/gnupg/GPG-Commands.html
 - Cheatsheet
   - http://stuff.imeos.org/persistent/gpg-cheatsheet.pdf
   - https://devhints.io/gnupg
@@ -15,6 +14,13 @@ title: GPG
   - keys.gnupg.net
   - sks-keyservers.net
 - `~/.gnupg/pubring.gpg`
+- RFC 4880
+- KEYID
+  - 邮箱
+  - 641CA51175E65BF5F319443E1D0D06BE9E196B37
+- 参考
+  - https://gnupg.org/documentation/manuals/gnupg/GPG-Commands.html
+  - https://www.gnupg.org/documentation/manuals.html
 
 ```bash
 brew install gpg
@@ -44,6 +50,75 @@ gpgconf --list-components
 gpg --dry-run --passwd $KEYID
 ```
 
+```bash
+# 完整信息
+gpg --with-colons --list-keys --with-fingerprint --with-fingerprint
+```
+
+- Field 1 - Type of record
+- Field 2 - Validity
+- Field 3 - Key length
+- Field 4 - Public key algorithm
+- Field 5 - KeyID
+- Field 6 - Creation date
+- Field 7 - Expiration date
+- Field 8 - Certificate S/N, UID hash, trust signature info
+- Field 9 -  Ownertrust
+- Field 10 - User-ID
+- Field 11 - Signature class
+- Field 12 - Key capabilities
+- Field 13 - Issuer certificate fingerprint or other info
+- Field 14 - Flag field
+- Field 15 - S/N of a token
+- Field 16 - Hash algorithm
+- Field 17 - Curve name
+- Field 18 - Compliance flags
+- Field 19 - Last update
+- Field 20 - Origin
+- Field 21 - Comment
+
+| abbr. | for                                                   |
+| ----- | ----------------------------------------------------- |
+| sec   | SECret key                                            |
+| ssb   | Secret SuBkey                                         |
+| pub   | PUBlic key                                            |
+| sub   | public SUBkey - secondary key                         |
+| uid   | user id                                               |
+| sig   | key signature                                         |
+| crt   | X.509 certificate                                     |
+| crs   | X.509 certificate and private key available           |
+| uat   | User attribute (same as user id except for field 10). |
+| rev   | Revocation signature                                  |
+| fpr   | Fingerprint (fingerprint is in field 10)              |
+| pkd   | Public key data                                       |
+| grp   | Keygrip                                               |
+| rvk   | Revocation key                                        |
+| tru   | Trust database information                            |
+| spk   | Signature subpacket                                   |
+| cfg   | Configuration data                                    |
+
+- subkeys
+  - 在 master key 之下
+  - revoked independently
+- https://dev.gnupg.org/source/gnupg/browse/master/doc/DETAILS
+
+
+## gpg-agent
+- for gpg, gpgsm
+- 会自动启动
+
+```bash
+# 主动退出
+gpg-connect-agent /bye
+gpgconf --kill gpg-agent
+
+pidof gpg-agent
+
+# 常用设置
+GPG_TTY=$(tty)
+export GPG_TTY
+```
+
 ## gpg-agent.conf
 
 - ~/.gnupg/gpg-agent.conf
@@ -52,9 +127,9 @@ gpg --dry-run --passwd $KEYID
 pinentry-program /usr/local/bin/pinentry-mac
 ```
 
-## FAQ
+# FAQ
 
-### 失效后操作
+## 失效后操作
 
 ```bash
 gpg --edit-key $KEYID
@@ -66,8 +141,8 @@ expire
 key 1
 expire
 
-list    # 确认
-save    # 保存退出
+list # 确认
+save # 保存退出
 ```
 
 ### gpg: lookup_hashtable failed: Unknown system error
