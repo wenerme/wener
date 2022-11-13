@@ -1,8 +1,13 @@
+SHELL:=env bash -O extglob -O globstar
+
 ci: ci-install sync process notes.json build stats
 
 host-info:
 	-@echo "CPU: `nproc`"
-	-@free
+	-@which free && free || true
+	@echo -n "Default heap size: "
+	@node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
+
 ci-install: host-info
 	npm add -g pnpm
 	pnpm install --frozen-lockfile
@@ -38,7 +43,7 @@ bundle:
 
 
 build: plugins
-	pnpm run build
+	NODE_OPTIONS="--max-old-space-size=8192" pnpm run build
 
 dev:
 	pnpm run start

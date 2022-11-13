@@ -228,3 +228,12 @@ process.emit = function (name, data, ...args) {
 
 - https://github.com/nodejs/node/issues/30810
 
+
+## Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+
+- 可增加
+
+```bash
+node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
+NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
+```

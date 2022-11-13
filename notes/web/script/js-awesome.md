@@ -191,6 +191,9 @@ tags:
       - [React-Proto/react-proto](https://github.com/React-Proto/react-proto)
         - 原型设计
   - [catdad/canvas-confetti](https://github.com/catdad/canvas-confetti)
+  - [Microsoft/maker.js](https://github.com/Microsoft/maker.js)
+    - Apache-2.0, TS
+    - 2D vector line drawing and shape modeling for CNC and laser cutters
 - 3d rendering/canvas
   - threejs
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
