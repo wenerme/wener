@@ -179,3 +179,19 @@ SPTPS/TCP transmit for 10 seconds:           2.14 Gbit/s
 SPTPS/UDP authenticate for 10 seconds:    2973.93 op/s
 SPTPS/UDP transmit for 10 seconds:           2.17 Gbit/s
 ```
+
+## macOS Router tinc-up
+
+```sh
+ifconfig $INTERFACE 10.66.1.2 10.66.1.1 up
+route add -net 10.66.1 -interface $INTERFACE
+```
+
+## tun Destination address required
+
+- tun 是 p2p 协议
+
+```bash
+ifconfig tun0 inet 10.0.0.1 10.0.0.2 up # A
+ifconfig tun0 inet 10.0.0.2 10.0.0.1 up # B
+```

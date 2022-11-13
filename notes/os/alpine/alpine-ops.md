@@ -220,7 +220,7 @@ apk add zfs zfs-{scripts,udev,utils-py}
 apk add zfs-lts
 # 加载内核模块
 modprobe zfs
-echo zfs >> /etc/modules
+echo zfs > /etc/modules-load.d/zfs
 
 # init: zfs-import zfs-mount zfs-share zfs-zed
 rc-update add zfs-import sysinit
@@ -278,13 +278,13 @@ zpool status -x
 # 一般一两周一次, 至少一月一次
 echo '#!/bin/sh -
 zpool scrub main
-' > /etc/periodic/weekly/zfs-scrub
-chmod +x /etc/periodic/weekly/zfs-scrub
+' > /etc/periodic/monthly/zfs-scrub
+chmod +x /etc/periodic/monthly/zfs-scrub
 
 # 测试 crond
 # busybox 的 run-parts 功能较少
 apk add run-parts
-run-parts /etc/periodic/weekly -v --report
+run-parts /etc/periodic/monthly -v --report
 ```
 
 ### uninstall zfs

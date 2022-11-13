@@ -10,7 +10,6 @@ tags:
 ## 离线安装下载
 
 - https://www.google.com/intl/en/chrome/?standalone=1
-- https://www.google.com/intl/en/chrome/browser/desktop/index.html?standalone=1
 
 ```
 # ChromeStandaloneSetup64.exe

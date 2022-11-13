@@ -139,3 +139,15 @@ curl www.msftncsi.com/ncsi.txt
 
 - https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829
   - 设计层面
+
+## runas admin
+
+```batch
+runas /savecred /user:Administrator "cmd.exe /C %CD%\installer.cmd %CD%"
+```
+
+**可能需要激活账号**
+
+```batch
+net user Administrator /active:yes
+```

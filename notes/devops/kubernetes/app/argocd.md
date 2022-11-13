@@ -230,7 +230,8 @@ repositories: |
   # 仓库列表
 
 # 用来匹配 Application - 如果不修改会导致 helm 自定义 releaseName 有问题
-application.instanceLabelKey: app.kubernetes.io/instance
+# application.instanceLabelKey: app.kubernetes.io/instance
+application.resourceTrackingMethod: annotation
 # 建议修改
 # application.instanceLabelKey: app.kubernetes.io/argocd-instance
 ```

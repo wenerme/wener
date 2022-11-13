@@ -81,7 +81,6 @@ ssh git@gitlab.com 2fa_recovery_codes
 
 不缓存，不做 `git clean -ffdx`。非常适用于大仓库或生成非常多文件的时候。
 
-
 ```yaml
 variables:
   GIT_STRATEGY: fetch
@@ -96,7 +95,6 @@ variables:
   - https://gitlab.com/gitlab-org/gitlab-runner/-/issues/280#note_39937930
 
 ## Docker build cache
-
 
 ```yaml
 Build:
@@ -114,3 +112,19 @@ Build:
     - docker tag build-env $CI_REGISTRY_IMAGE:build
     - docker push $CI_REGISTRY_IMAGE:build
 ```
+
+## RBAC
+
+:::caution
+
+- Developer 默认不可以操作保护分支
+  - 可配置允许操作
+
+:::
+
+- Guest
+- Reporter
+- Developer
+- Maintainer
+- Owner
+- https://docs.gitlab.com/ee/user/permissions.html

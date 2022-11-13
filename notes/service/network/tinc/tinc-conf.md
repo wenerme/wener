@@ -33,7 +33,7 @@ tags:
   - invitation-created - 邀请创建
   - invitation-accepted - 邀请接受
 
-__环境变量__
+**环境变量**
 
 | env             | desc                         |
 | --------------- | ---------------------------- |
@@ -52,9 +52,8 @@ __环境变量__
 ## tinc.conf
 
 - [tinc.conf.5](https://www.tinc-vpn.org/documentation-1.1/tinc.conf.5)
-- 没有 ConnectTo 且 `AutoConnect=no` 可以认为是服务端
+- 没有 ConnectTo 且 `AutoConnect=no` 可以认为是服务端 - metanode
 - 有 ConnectTo 且 `AutoConnect=yes` 可以认为是客户端
-
 
 ```ini
 # 节点名字 - 唯一、必须
@@ -221,6 +220,63 @@ UPnP=no
 UPnPDiscoverWait=5
 UPnPRefreshPeriod=60
 ```
+
+### Mode
+
+- 工作模式
+- router
+  - 默认
+  - 基于子网信息构建路由表
+  - 支持基于 ip 的单播通讯
+  - tun 设备
+    - mac tun 只支持点对点
+      - 例如 `ifconfig tun0 inet 10.2.1.1 10.2.1.2 up`
+      - 其他需要手动添加路由 `route add -net 10.2 -interface tun0`
+- switch
+  - 基于 mac 信息构建路由表
+  - 支持基于 ethernet 的单播,广播通讯
+  - tap 设备
+- hub
+  - 不维护路由表, 只做转发
+
+### DeviceType
+
+- tuntap 设备类型
+- dummy
+  - 测试
+  - 该节点只负责为其他节点转发包
+- raw_socket
+  - 绑定到现有 interface 的 socket.
+  - 所有包从该 interface 读. 从本地节点收到的包会写到 raw socket.
+  - 在 linux 下, os 不会处理目的为本地节点的包
+- multicast
+  - 多播 udp socket, 绑定到地址和端口, 空格分割, ttl 参数可选
+  - 包从广播 socket 读写
+  - 可用于连接 UML, QEMU, KVM, 所有实例监听相同的广播地址.
+  - 不要连接多个 tinc 到相同的多播地址, 对导致循环路由
+  - 错误的配置可能会导致加密的 vpn 包发到外网
+- fd
+  - 使用文件描述符
+- uml
+  - 默认未编译
+  - unix socket
+  - 如果未指定 Device, 则为 /var/run/NETNAME.umlsocket
+  - 会等待太湖连接该 socket
+- vde
+  - 默认未编译
+  - 使用 libvdeplug 连接 vde 交换机, 使用 unix socket 或 /var/run/vde.ctl
+- tun
+- tunnohead
+  - 没有地址头
+- tunifhead
+  - 有地址头
+  - 支持 ipv4 和 ipv6
+- utun
+  - macOS
+  - 支持 ipv4 和 ipv6
+- tap
+  - 支持 Switch
+  - 包带 Ethernet 头
 
 ## host
 

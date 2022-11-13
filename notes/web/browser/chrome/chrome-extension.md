@@ -8,6 +8,8 @@ title: Chrome Extension
 - [Parcel Web Extension](https://parceljs.org/recipes/web-extension/)
   - [HN](https://news.ycombinator.com/item?id=31609896)
 - [Extensions Deployment FAQ](https://www.chromium.org/developers/extensions-deployment-faq)
+- https://www.crx4chrome.com/
+  - 下载市场里的 CRX
 
 ## Awesome
 

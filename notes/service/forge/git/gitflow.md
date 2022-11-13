@@ -22,6 +22,8 @@ title: gitflow
 brew install git-flow-avh
 
 git flow init -d
+git push --set-upstream origin develop
+
 git checkout develop
 git flow release start v2021.1.1
 git flow release finish v2021.1.1

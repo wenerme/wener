@@ -11,6 +11,7 @@ title: Windows Remote Management
   - https://pentestlab.blog/tag/winrm/
 
 ```bash
+# AlpineLinux
 apk add nmap-scripts nmap-nselibs
 
 nmap -p 5985,5986 -sV 192.168.0.0/24

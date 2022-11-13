@@ -22,6 +22,7 @@ title: PHP
 | PSR-18 | HTTP Client                 |
 
 - [PHP Standards Recommendations](https://www.php-fig.org/psr/)
+- ZTS - Zend Thread Safety
 
 ---
 
@@ -82,7 +83,7 @@ docker run --rm -it --entrypoint bash wener/php:app
 ```bash
 # 可使用代理 https_proxy=http://127.0.0.1:7777 http_proxy=http://127.0.0.1:7777
 composer global require -vvv "laravel/lumen-installer"
-composer create-project --prefer-dist laravel/lumen  -vvv blog
+composer create-project --prefer-dist laravel/lumen -vvv blog
 cd blog
 php -S localhost:8000 -t ./public
 
@@ -132,17 +133,16 @@ yum replace --enablerepo=webtatic-testing php-common --replace-with=php56w-commo
 
 ```bash
 # 使用中国镜像安装
-php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" && \
-php composer-setup.php && \
-php -r "unlink('composer-setup.php');" && \
-mv composer.phar /usr/local/bin/composer
+php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
+  && php composer-setup.php \
+  && php -r "unlink('composer-setup.php');" \
+  && mv composer.phar /usr/local/bin/composer
 
 # 使用国内镜像
 # 修改全局配置
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 # 修改当前项目
 composer config repo.packagist composer https://packagist.phpcomposer.com
-
 
 # 初始化
 composer init
@@ -156,7 +156,6 @@ composer install
 composer update
 composer update --lock
 composer dump-autoload --optimize
-
 
 composer about
 composer archive
@@ -196,7 +195,7 @@ require __DIR__ . '/vendor/autoload.php';
 docker run --rm -it -v $PWD/build:/build --entrypoint /bin/sh composer/satis
 
 # 当构建完成后直接上传为静态站点即可
-rsync -avz  build/ my-server:/var/www/html
+rsync -avz build/ my-server:/var/www/html
 ```
 
 **satis.json**
@@ -238,9 +237,8 @@ rsync -avz --delete ./build/ root@my-host:/mysite
   - CURL PHP Extension
 
 ```bash
-composer create-project topthink/think tp5  --prefer-dist
+composer create-project topthink/think tp5 --prefer-dist
 cd tp5
-
 
 # 启动自带 web 服务器
 php -S localhost:8888 application/route.php
@@ -371,7 +369,7 @@ project  应用部署目录
 pecl updahe-channels
 # yes 启用 igbinary
 # https://github.com/igbinary/igbinary
-pecl install -o -f redis <<<no
+pecl install -o -f redis <<< no
 ```
 
 ```

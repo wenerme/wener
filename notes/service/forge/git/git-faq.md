@@ -12,22 +12,36 @@ tags:
 git commit --amend --author="Author Name <email@address.com>"
 ```
 
-## 修改当前仓库关联的用户
+
+## 设置当前用户信息
+
+> 提交时的 commitor
 
 ```bash
-git config --local user.name "Author Name"
-git config --local user.email "email@address.com"
+# 确认当前用户信息
+git config --global user.name
+git config --global user.email
+
+# 如果不正确可以修改
+git config --global user.name "Author Name"
+git config --global user.email "email@address.com"
 ```
+
+- --local 针对当前仓库修改
 
 ## git+ssh proxy
 
 - 默认支持 http_proxy 和 https_proxy
-- 使用 git+ssh 需要额外配置
+- 使用 git+ssh 代理需要额外配置
 
-```
+```txt title="$HOME/.ssh/config"
 Host github.com
-    ProxyCommand socat - PROXY:your.proxy.ip:%h:%p,proxyport=3128,proxyauth=user:pwd
+    ProxyCommand socat - PROXY:your.proxy.ip:%h:%p,proxyport=1080,proxyauth=user:pwd
 ```
+
+- 替换 your.proxy.ip
+- 替换 1080
+- 无认证可删除 proxyauth
 
 ## 获取仓库目录
 

@@ -92,7 +92,7 @@ brew install terminal-notifier
 # 在中国的基本工具
 # 如果习惯苹果的输入法可以考虑不安装 搜狗
 brew cask install qq sogouinput
-open  /opt/homebrew-cask/Caskroom/sogouinput/*/安装搜狗输入法.app
+open /opt/homebrew-cask/Caskroom/sogouinput/*/安装搜狗输入法.app
 # 也可以安装百度云 baiducloud
 # brew cask install baiducloud
 
@@ -236,6 +236,13 @@ for v in gcc c++ g++ cpp; do ln -s $v-$VER $v; done
 for v in gcc c++ g++ cpp; do unlink $v; done
 ```
 
+## formula
+
+```bash
+brew --prefix tinc-pre # /usr/local/opt/tinc-pre
+brew --cellar tinc-pre # /usr/local/Cellar/tinc-pre
+```
+
 ## FAQ
 
 ### 缓存目录
@@ -252,7 +259,7 @@ for v in gcc c++ g++ cpp; do unlink $v; done
 
 ```bash
 cd /Library/Caches/Homebrew/
-for f in `echo *.incomplete`; do
+for f in $(echo *.incomplete); do
   echo Manual download ${f%.incomplete}
   aria2c -c -j 10 https://homebrew.bintray.com/bottles/${f%.incomplete} && rm $f
 done

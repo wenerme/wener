@@ -34,3 +34,24 @@ graph TD;
     B-->D
     C-->D
 ```
+
+## API
+
+```html
+<pre class="mermaid">
+    graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+</pre>
+
+<style>
+  div.mermaid {
+    font-family: 'trebuchet ms', verdana, arial;
+  }
+</style>
+<script type="module">
+  import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+```

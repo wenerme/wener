@@ -72,58 +72,7 @@ title: Tinc
 - macOS
   - https://www.tinc-vpn.org/pipermail/tinc/2016-January/004336.html
   - http://tuntaposx.sourceforge.net/
-- https://www.tinc-vpn.org/documentation/tinc.conf.5
-- https://www.tinc-vpn.org/documentation-1.1/How-connections-work.html
 - 如果有 NAT 问题, 可以在另外一台上不直接连接外部节点, 先连接内部, 连接上后, 网络都能互通
-- 工作模式 - Mode
-  - router
-    - 默认
-    - 基于子网信息构建路由表
-    - 支持基于 ip 的单播通讯
-    - tun 设备
-      - mac tun 只支持点对点 - 例如 ifconfig tun0 inet 10.2.1.1 10.2.1.2 up
-      - 其他需要手动添加路由 route add -net 10.2 -interface tun0
-  - switch
-    - 基于 mac 信息构建路由表
-    - 支持基于 ethernet 的单播,广播通讯
-    - tap 设备
-  - hub
-    - 不维护路由表, 只做转发
-- 支持的设备类型 - DeviceType
-  - dummy
-    - 测试
-    - 该节点只负责为其他节点转发包
-  - raw_socket
-    - 绑定到现有 interface 的 socket.
-    - 所有包从该 interface 读. 从本地节点收到的包会写到 raw socket.
-    - 在 linux 下, os 不会处理目的为本地节点的包
-  - multicast
-    - 多播 udp socket, 绑定到地址和端口, 空格分割, ttl 参数可选
-    - 包从广播 socket 读写
-    - 可用于连接 UML, QEMU, KVM, 所有实例监听相同的广播地址.
-    - 不要连接多个 tinc 到相同的多播地址, 对导致循环路由
-    - 错误的配置可能会导致加密的 vpn 包发到外网
-  - fd
-    - 使用文件描述符
-  - uml
-    - 默认未编译
-    - unix socket
-    - 如果未指定 Device, 则为 /var/run/NETNAME.umlsocket
-    - 会等待太湖连接该 socket
-  - vde
-    - 默认未编译
-    - 使用 libvdeplug 连接 vde 交换机, 使用 unix socket 或 /var/run/vde.ctl
-  - tun
-  - tunnohead
-    - 没有地址头
-  - tunifhead
-    - 有地址头
-    - 支持 ipv4 和 ipv6
-  - utun
-    - macOS
-    - 支持 ipv4 和 ipv6
-  - tap
-    - 包带 Ethernet 头
 - 参考
   - [How Do I Reach Local Subnet Behind Tinc VPN](https://serverfault.com/q/640020/190601)
   - [Tinc 配置笔记](https://www.jianshu.com/p/e030dabafd61)
@@ -137,6 +86,18 @@ title: Tinc
   - https://github.com/gsliepen/tinc
   - https://git.alpinelinux.org/cgit/aports/tree/community/tinc-pre/APKBUILD
   - [freifunk/icvpn](https://github.com/freifunk/icvpn) - InterCity-VPN
+  - https://www.tinc-vpn.org/documentation/tinc.conf.5
+  - https://www.tinc-vpn.org/documentation-1.1/How-connections-work.html
+
+:::tip
+
+- macOS
+  - 目前已经不支持 tuntap
+    - 默认使用 utun=tun
+    - 不支持 tap - 不能使用 Switch 模式
+  - brew 没有 tinc-pre，需要自己添加
+
+:::
 
 ```bash
 # 推荐使用 tinc-pre 1.1 版本
@@ -144,18 +105,18 @@ title: Tinc
 apk add tinc-pre
 
 modprobe tun
-echo tun >> /etc/modules
-# echo tun >> /etc/modules-load.d/tinc.conf
+# echo tun >> /etc/modules
+echo tun | sudo tee /etc/modules-load.d/tinc.conf
 
 # 基础配置
-tinc init first
+# NETNAME 配置生成在 /etc/tinc/first/
+NETNAME=first tinc init first
 tinc set Interface tun0
 tinc set AddressFamily ipv4
 # 第一个节点可考虑不设置链接节点
 tinc set ConnectTo other
 # 变量设置可以指定 host
 tinc set sec.Subnet=10.0.0.2/32
-
 
 # 在配置单个网络时, 设置个别名会比较方便, 使用不同目录或 pid 也可以这样操作
 alias tinc='tinc -n main'
@@ -167,11 +128,11 @@ tinc -c .
 
 ADDRESS=10.0.0.1
 NETMASK=255.255.255.0
-cat > tinc-up <<SH
+cat > tinc-up << SH
 #!/bin/sh
 ifconfig \$INTERFACE $ADDRESS netmask $NETMASK
 SH
-cat > tinc-down <<SH
+cat > tinc-down << SH
 #!/bin/sh
 ifconfig \$INTERFACE down
 SH
@@ -222,7 +183,30 @@ docker run -d --restart always \
 # http://tuntaposx.sourceforge.net/
 # 新版没有了 devel 参数
 # https://github.com/Homebrew/homebrew-core/tree/master/Formula/tinc.rb
-curl https://raw.githubusercontent.com/wenerme/homebrew-core/tinc-pre/Formula/tinc-pre.rb > /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tinc-pre.rb
+# curl https://raw.githubusercontent.com/wenerme/homebrew-core/tinc-pre/Formula/tinc-pre.rb > /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tinc-pre.rb
+cat << RB > /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/tinc-pre.rb
+class TincPre < Formula
+  desc "Virtual Private Network (VPN) tool"
+  homepage "https://www.tinc-vpn.org/"
+  url "https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz"
+  sha256 "2757ddc62cf64b411f569db2fa85c25ec846c0db110023f6befb33691f078986"
+
+  depends_on "lzo"
+  depends_on "openssl"
+
+  def install
+    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+    system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/tincd --version")
+  end
+end
+RB
+# fetch 会显示 sha256 - 可能需要代理
+brew fetch --build-from-source tinc-pre
 brew install --build-from-source tinc-pre
 
 # utun
@@ -460,7 +444,7 @@ iptables -I FORWARD -i brmynet -j ACCEPT
 # 将 tinc 作为该桥接的 slave
 ip li set master brmynet dev mynet
 # 或者在 tinc-up 中设置
-cat > tinc-up <<SH
+cat > tinc-up << SH
 #!/bin/sh
 ip li set master br$INTERFACE dev $INTERFACE
 ip li set dev $INTERFACE up
@@ -482,4 +466,58 @@ iptables -I FORWARD -i brwenet -j ACCEPT
 
 ```bash
 tinc -n NETNAME generate-ed25519-keys
+```
+
+## tinc.netname
+
+```bash
+nano /etc/init.d/tinc.netname
+chmod +x /etc/init.d/tinc.netname
+ln -s /etc/init.d/tinc.netname /etc/init.d/tinc.first
+service tinc.first start
+```
+
+```sh
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+
+name="TincVPN Daemon"
+description="tinc is a Virtual Private Network (VPN) daemon that uses tunnelling and encryption to create a secure private network between hosts on the Internet."
+description_reload="Reload configuration without exiting"
+
+# tinc.netname -> netname
+NETNAME=${RC_SVCNAME##*.}
+: ${TINC_DEBUG:=0}
+
+command=/usr/sbin/tincd
+command_args="-n $NETNAME -d $TINC_DEBUG $TINC_OPTS"
+command_args_foreground="-D"
+
+TINC_LOGFILE="${TINC_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
+TINC_ERRFILE="${TINC_ERRFILE:-${TINC_LOGFILE}}"
+TINC_OUTFILE="${TINC_OUTFILE:-${TINC_LOGFILE}}"
+supervise_daemon_args="--stderr \"${TINC_ERRFILE}\" --stdout \"${TINC_OUTFILE}\""
+
+extra_started_commands="reload"
+retry="${TINC_RETRY:-TERM/60/KILL/10}"
+
+depend() {
+  use logger dns
+  need net
+}
+
+checkconfig() {
+  # warn this if not found
+  if [ ! -f "/etc/tinc/$NETNAME/tinc.conf" ]; then
+    eerror "No VPN network configured"
+    return 1
+  fi
+  return 0
+}
+
+reload() {
+  ebegin "Reloading configuration"
+  $supervisor $RC_SVCNAME --signal HUP
+  eend $?
+}
 ```

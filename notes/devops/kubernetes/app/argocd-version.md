@@ -21,6 +21,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 | version      | date       |
 | ------------ | ---------- |
+| [ArgoCD 2.5] |  |
 | [ArgoCD 2.4] | 2022-06-11 |
 | [ArgoCD 2.3] | 2022-03-06 |
 | [ArgoCD 2.2] |
@@ -31,6 +32,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
 
+## ArgoCD 2.5
 ## ArgoCD 2.4
 
 - Web Terminal

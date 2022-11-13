@@ -35,7 +35,7 @@ title: ZFS 调优
 | autotrim   | off     | SDD 推荐 on |
 
 ```bash
-zdb | grep ashift  # 查看使用的 ashift
+zdb | grep ashift # 查看使用的 ashift
 ```
 
 - ashift
@@ -52,6 +52,10 @@ zdb | grep ashift  # 查看使用的 ashift
     - 临时挂载点属性 - 会映射到 mount
   - inherited from
   - local
+- xattrs=on
+  - 存储扩展信息到隐藏目录，访问文件时需要额外 lookup
+- xattr=sa
+  - 存储扩展信息到 inode
 
 ```bash
 zfs set compression=lz4 POOL
@@ -130,6 +134,10 @@ cat /sys/block/sd{a,b}/queue/{logical_block_size,physical_block_size,optimal_io_
 
 - [bradfa/flashbench](https://github.com/bradfa/flashbench)
   - 检测闪存的 block size
+
+## atime on temporary
+
+atime 总是为 on
 
 ## 参考
 

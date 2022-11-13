@@ -254,5 +254,116 @@ CMD ["node", "apps/web/server.js"]
 ## safari tel
 
 ```html
-<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="telephone=no" />
+```
+
+## 检测在浏览器
+
+```js
+// Webpack 定义 - 会根据依赖来移除代码
+// https://github.com/zeit/next.js/pull/5159
+process.browser;
+// 通用逻辑
+typeof window === 'undefined';
+```
+
+## 如何在 getInitialProps 引入服务端模块
+
+- 如果直接 require 是会导致被打包到客户端代码的
+
+```js
+const faker = eval("require('faker')");
+```
+
+这个方式是最简单的，其他方式参考 [SSR and Server Only Modules](https://arunoda.me/blog/ssr-and-server-only-modules)
+
+## Invalid left-hand side in assignment "MyModule\*" = namespaces;
+
+- [using npm debug module breaks build (overriding any property on process.env)](https://spectrum.chat/zeit/now/using-npm-debug-module-breaks-build-overriding-any-property-on-process-env~b36f36b2-7785-4aea-b1f9-065a284b4188)
+- debug 模块的问题 - 注意引入位置 - 如果通过 transpile 可能会有问题
+
+## 分析服务端代码和 SSR 代码
+
+**安装依赖**
+
+```bash
+npm install --save-dev webpack-bundle-analyzer @zeit/next-bundle-analyzer
+```
+
+**next.config.js**
+
+```js
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+
+const nextConfig = {
+  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  bundleAnalyzerConfig: {
+    server: {
+      analyzerMode: 'static',
+      reportFilename: '../bundles/server.html',
+    },
+    browser: {
+      analyzerMode: 'static',
+      reportFilename: '../bundles/client.html',
+    },
+  },
+  webpack(config) {
+    return config;
+  },
+};
+
+module.exports = withBundleAnalyzer(nextConfig);
+```
+
+**添加脚本**
+
+添加到 package.json
+
+```
+"analyze": "BUNDLE_ANALYZE=both next build",
+"analyze:server": "BUNDLE_ANALYZE=server next build",
+"analyze:browser": "BUNDLE_ANALYZE=browser next build"
+```
+
+**执行分析**
+
+```bash
+npm run analyze
+```
+
+> - [SSR and Server Only Modules](https://arunoda.me/blog/ssr-and-server-only-modules)
+> - [examples/analyze-bundles](https://github.com/zeit/next.js/tree/canary/examples/analyze-bundles)
+
+
+## You're using a Node.js module (buffer) which is not supported in the Edge Runtime
+
+- Buffer.from -> atob/btoa
+- https://nextjs.org/docs/api-reference/edge-runtime
+
+## Expected server HTML to contain a matching div
+
+```tsx
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <div suppressHydrationWarning> // <- ADD THIS
+      {typeof window === 'undefined' ? null : <Component {...pageProps} />}
+    </div>
+  );
+}
+```
+
+## SPA rewrites
+
+```ts title="next.config.js"
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/:any*',
+        destination: '/',
+      },
+    ];
+  },
+};
 ```

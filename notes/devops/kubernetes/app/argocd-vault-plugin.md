@@ -124,3 +124,40 @@ type: Opaque
 stringData:
   password: <parent | jsonPath {.child}>
 ```
+
+## 插件工作原理
+
+- Patch argocd-repo-server
+  - 挂载 ConfigMap/cmp-plugin
+  - 挂载 empty-dir custom-tools
+  - initContainers
+    - 通过 curl github 下不动 - 建议做镜像或者自己镜像文件
+    - 下载 argocd-vault-plugin 到 custom-tools
+      ```bash
+      curl -L https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v$(AVP_VERSION)/argocd-vault-plugin_$(AVP_VERSION)_linux_amd64 -o argocd-vault-plugin \
+        && chmod +x argocd-vault-plugin \
+        && mv argocd-vault-plugin /custom-tools/
+      ```
+- ConfigMap/cmp-plugin 配置 argocd - 通过 `argocd-vault-plugin generate` 生成
+
+  - avp-kustomize.yaml
+    - ConfigManagementPlugin
+    ```bash
+    # discover.find.command
+    find . -name kustomization.yaml
+    # generate.command
+    kustomize build . | argocd-vault-plugin generate -
+    ```
+  - avp-helm.yaml
+
+    ```bash
+    find . -name 'Chart.yaml' && find . -name 'values.yaml'
+
+    helm template $ARGOCD_APP_NAME -n $ARGOCD_APP_NAMESPACE ${ARGOCD_ENV_HELM_ARGS} . | argocd-vault-plugin generate -
+    ```
+
+
+```bash
+AVP_VERSION=1.13.0
+curl -LO https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64
+```
