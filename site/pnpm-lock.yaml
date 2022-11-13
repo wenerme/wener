@@ -16,6 +16,7 @@ specifiers:
   '@docusaurus/plugin-sitemap': 2.2.0
   '@docusaurus/preset-classic': 2.2.0
   '@docusaurus/theme-live-codeblock': 2.2.0
+  '@docusaurus/theme-mermaid': 2.2.0
   '@esbuild-kit/cjs-loader': ^2.3.3
   '@mdx-js/react': ^1
   '@tsconfig/docusaurus': ^1.0.6
@@ -73,6 +74,7 @@ dependencies:
   '@docusaurus/plugin-sitemap': 2.2.0_ncbylfnkq3x3vhys35ke75sb3q
   '@docusaurus/preset-classic': 2.2.0_pdviiezk4llqzuil3o5vccanfu
   '@docusaurus/theme-live-codeblock': 2.2.0_ncbylfnkq3x3vhys35ke75sb3q
+  '@docusaurus/theme-mermaid': 2.2.0_ncbylfnkq3x3vhys35ke75sb3q
   '@mdx-js/react': 1.6.22_react@17.0.2
   classnames: 2.3.2
   hast-util-is-element: 1.1.0
@@ -702,7 +704,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.19.0
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.20.1_@babel+core@7.12.9
     dev: false
@@ -2532,6 +2534,41 @@ packages:
       tslib: 2.4.1
     transitivePeerDependencies:
       - '@docusaurus/types'
+      - '@parcel/css'
+      - '@swc/core'
+      - '@swc/css'
+      - bufferutil
+      - csso
+      - debug
+      - esbuild
+      - eslint
+      - lightningcss
+      - supports-color
+      - typescript
+      - uglify-js
+      - utf-8-validate
+      - vue-template-compiler
+      - webpack-cli
+    dev: false
+
+  /@docusaurus/theme-mermaid/2.2.0_ncbylfnkq3x3vhys35ke75sb3q:
+    resolution: {integrity: sha512-rEhVvWyZ9j9eABTvJ8nhfB5NbyiThva3U9J7iu4RxKYymjImEh9MiqbEdOrZusq6AQevbkoHB7n+9VsfmS55kg==}
+    engines: {node: '>=16.14'}
+    peerDependencies:
+      react: ^16.8.4 || ^17.0.0
+      react-dom: ^16.8.4 || ^17.0.0
+    dependencies:
+      '@docusaurus/core': 2.2.0_i2dgys6f6np3wssedovcywenje
+      '@docusaurus/module-type-aliases': 2.2.0_t4j2emsbud7tjbogtixwdkwyzi
+      '@docusaurus/theme-common': 2.2.0_i2dgys6f6np3wssedovcywenje
+      '@docusaurus/types': 2.2.0_t4j2emsbud7tjbogtixwdkwyzi
+      '@docusaurus/utils-validation': 2.2.0_6zwwibcc33dw5w53bbosd2ksaa
+      '@mdx-js/react': 1.6.22_react@17.0.2
+      mermaid: 9.2.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      tslib: 2.4.1
+    transitivePeerDependencies:
       - '@parcel/css'
       - '@swc/core'
       - '@swc/css'

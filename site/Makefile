@@ -1,6 +1,9 @@
 ci: ci-install sync process notes.json build stats
 
-ci-install:
+host-info:
+	-@echo "CPU: `nproc`"
+	-@free
+ci-install: host-info
 	npm add -g pnpm
 	pnpm install --frozen-lockfile
 
