@@ -285,20 +285,15 @@ const config = {
     // RewritePlugin,
   ],
 
-  // markdown: {
-  //   mermaid: true,
-  // },
+  markdown: {
+    mermaid: true,
+  },
   themes: [
     '@docusaurus/theme-live-codeblock',
-    // '@docusaurus/theme-mermaid',
+    '@docusaurus/theme-mermaid',
   ],
   stylesheets: [
-    'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
-    // {
-    //   href: 'https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css',
-    //   integrity: 'sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc',
-    //   crossorigin: 'anonymous',
-    // },
+    'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
   ],
 };
 module.exports = config;

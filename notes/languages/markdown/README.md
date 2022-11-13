@@ -8,6 +8,7 @@ title: Markdown
   - RFC7763 text/markdown
     - text/markdown; variant=CommonMark
   - RFC7764
+- 常见扩展 .md, .markdown, .mdown, .mkdn, .mkd, .mdwn, .mkdown, .ron
 - [Awesome](./markdown-awesome.md)
 - [语法参考](./markdown-reference.md)
 - Flavor

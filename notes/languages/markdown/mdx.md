@@ -6,6 +6,7 @@ title: MDX
 
 - [mdx-js/mdx](https://github.com/mdx-js/mdx)
   - Markdown+JSX
+  - remark, rehype, recma
 - 参考
   - [shuding/nextra](https://github.com/shuding/nextra)
     - Next.js Static Site Generator
@@ -13,6 +14,10 @@ title: MDX
     - 依赖 webpack 不支持 turbopack
     - markdown 由 [nextra/loader](https://github.com/shuding/nextra/blob/core/packages/nextra/src/loader.ts) 处理
   - https://mdxjs.com/playground/
+  - [sjwall/mdx-mermaid](https://github.com/sjwall/mdx-mermaid)
+    - mdxast 插件，添加 mermaid 支持
+    - 可以支持直接渲染 svg - 需要 puppeteer
+    - `{type:mermaidCodeBlock, data:{hName, hProperties:{config:{}, chart:""}}}`
 
 ```mdx title="input.mdx"
 export const Thing = () => <>World</>;
