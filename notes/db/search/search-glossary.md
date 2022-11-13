@@ -14,3 +14,5 @@ tags:
 | ----------- | ---- |
 | Conjunction | 连词 |
 | Disjunction |
+
+- Disjunction max query - 最佳匹配查询

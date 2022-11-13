@@ -112,11 +112,13 @@ tags:
 
 - [fxsjy/jieba](https://github.com/fxsjy/jieba)
 - [hightman/scws](https://github.com/hightman/scws)
+- [go-ego/gse](https://github.com/go-ego/gse)
+  - 字典 https://github.com/go-ego/gse/tree/master/data/dict/zh
 
 ## Library
 
 - Golang
-  - FST
+  - FST - finite state transducer
     - [blevesearch/vellum](https://github.com/blevesearch/vellum)
       - [couchbase/vellum](https://github.com/couchbase/vellum)
 - [BurntSushi/fst](https://github.com/BurntSushi/fst)

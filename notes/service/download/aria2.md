@@ -137,3 +137,77 @@ seed-time=180
 ```bash
 touch $HOME/.aria2/session
 ```
+
+## RPC
+
+- `/jsonrpc`
+  - HTTP, WebSocket
+- `/rpc` - XML RPC
+- GID - 下载唯一 ID - 16 位 - `2089b05ecca3d829`
+
+```http
+POST http://127.0.0.1/jsonrpc
+
+{"jsonrpc":"2.0","method":"aria2.getGlobalStat","id":"1","params":["token:SECRET"]}
+```
+
+```bash
+# 避免 base64 后参数过长，使用 pipe 传递 body
+{
+  echo -n '{"jsonrpc":"2.0","method":"aria2.addTorrent","id":"1","params":["token:SECRET","'
+  base64 -w 0 'file.torrent'
+  echo -n '",[""],{}]}'
+} | curl http://127.0.0.1/jsonrpc -d @-
+
+# 批量下载 torrent
+# 注意替换 SECRET 和 地址
+find . -type f -iname '*.torrent' | sort -u | xargs -I % bash -c $'echo;echo Downloading "%";{ echo -n \'{"jsonrpc":"2.0","method":"aria2.addTorrent","id":"1","params":["token:SECRET","\';base64 -w 0 "%";echo -n \'",[""],{}]}\'; } | curl http://127.0.0.1/jsonrpc -d @-'
+```
+
+**aria2.getGlobalStat**
+
+```json
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "downloadSpeed": "0",
+    "numActive": "2",
+    "numStopped": "54",
+    "numStoppedTotal": "56",
+    "numWaiting": "1",
+    "uploadSpeed": "0"
+  }
+}
+```
+
+**aria2.getVersion**
+
+```json
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "enabledFeatures": [
+      "Async DNS",
+      "BitTorrent",
+      "Firefox3 Cookie",
+      "GZip",
+      "HTTPS",
+      "Message Digest",
+      "Metalink",
+      "XML-RPC",
+      "SFTP"
+    ],
+    "version": "1.36.0"
+  }
+}
+```
+
+## 筛选已经下载好的文件
+
+- 忽略有 `.aria2` 的文件
+
+```bash
+find . -iname '*字幕组*' -not -iname '*.aria2' | xargs -I {} sh -c '[ -e "{}.aria2" ] && echo "{}" || echo' | sort -u | awk NF
+```

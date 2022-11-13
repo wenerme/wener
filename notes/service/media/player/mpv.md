@@ -87,7 +87,9 @@ tscale=oversample
 - ~/.config/mpv/watch_later
 - [kljohann/mpv.el](https://github.com/kljohann/mpv.el)
   - control mpv for easy note-taking
-
+- 下载 https://mpv.io/installation/
+  - macOS https://laboratory.stolendata.net/~djinn/mpv_osx/
+    - https://laboratory.stolendata.net/~djinn/mpv_osx/mpv-latest.tar.gz
 
 ```conf
 profile=gpu-hq
@@ -111,7 +113,3 @@ dither-depth=auto
 ```
 
 - https://wiki.archlinux.org/index.php/Mpv#Configuration
-- https://github.com/bloc97/Anime4K
-- https://github.com/TianZerL/Anime4KCPP
-- https://github.com/ThoughtfulDev/Anime4K
-- https://writersbyte.com/anime/mpv-configuration-guide-to-upscale-and-enhance-your-anime-experience/

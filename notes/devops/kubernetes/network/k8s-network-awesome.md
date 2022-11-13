@@ -10,6 +10,9 @@ tags:
 - metallb
 - [k8snetworkplumbingwg](https://github.com/k8snetworkplumbingwg)
   - [multus-cni](https://github.com/k8snetworkplumbingwg/multus-cni)
+- [squat/kilo](https://github.com/squat/kilo)
+  - multi-cloud network overlay built on WireGuard and designed for Kubernetes (k8s + wg = kg)
+  - kilo + vcluster - 多集群
 - 参考
   - [Comparing Kubernetes CNI Providers: Flannel, Calico, Canal, and Weave](https://rancher.com/blog/2019/2019-03-21-comparing-kubernetes-cni-providers-flannel-calico-canal-and-weave/)
 

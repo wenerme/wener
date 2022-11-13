@@ -206,3 +206,14 @@ WIT 在制作 《进击的巨人》、《罪恶王冠》、《鬼灯的冷彻》
 - 终将成为你 https://movie.douban.com/subject/30206427/
 - 火之鸟 https://movie.douban.com/subject/4089428/
 - 四叶游戏 https://movie.douban.com/subject/3739839/
+
+## What to watch
+
+- Must watch
+  - 虫师
+  - Rick and Morty
+- 2022-S1
+- 2022-S2
+- 2022-S3
+  - 电锯人
+- 2022-S4
