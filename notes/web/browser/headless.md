@@ -43,6 +43,10 @@ title: Headless
   - 控制浏览器
 - [electron/chromedriver](https://github.com/electron/chromedriver)
   - 下载 [ChromeDriver](https://sites.google.com/chromium.org/driver/)
+  - https://chromedriver.chromium.org/
+  - https://chromedriver.storage.googleapis.com/index.html
+- webdriver
+  - Python `from selenium import webdriver`
 
 # FAQ
 

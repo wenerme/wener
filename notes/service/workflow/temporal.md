@@ -12,9 +12,7 @@ title: temporal
     - 使用更方便
     - 支持更多 SDK - Go, Java, PHP, Typescript
     - 没有 uber 包袱 - 环境、rpc、历史实现
-- [temporalio/temporalite](https://github.com/temporalio/temporalite)
-  - Temporal runs as a single process
-  - 支持 SQLite
+  - [temporalite](./temporalite.md) 支持 SQLite
 
 
 

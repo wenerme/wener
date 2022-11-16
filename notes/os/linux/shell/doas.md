@@ -49,7 +49,7 @@ permit|deny [options] identity [as target] [cmd command [args ...]]
 - args `[argument ...]` - 限定参数
 
 ```pre title="doas.conf"
-permit admin as root
+permit nopass admin as root
 
 permit nopass wener as root cmd apk args upgrade
 
