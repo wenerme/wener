@@ -49,8 +49,9 @@ adjtimex # 系统同步状态
 - [Checking if chrony is Synchronized](https://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/sect-Checking_if_chrony_is_synchronized.html)
 
 ```bash
-chronyc tracking # 查看当前状态
-chronyc sources  # 查看同步源
+chronyc tracking    # 查看当前状态
+chronyc sources     # 查看同步源
+chronyc -a makestep # 主动同步
 ```
 
 ```conf

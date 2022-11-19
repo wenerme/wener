@@ -23,7 +23,7 @@ title: NFTables
 
 - 默认规则会包含目录内配置 - `include "/etc/nftables.d/*.nft"`
   - save 后不会有该 include 语句 - 不要 save
-  - 尽量使用 reload
+  - 尽量使用 reload - `service nftables reload`
 - inet 只能用于 filter 不能用于 nat
 
 :::

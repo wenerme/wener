@@ -4,9 +4,11 @@ title: tinyproxy
 
 # tinyproxy
 
-- [tinyproxy](https://tinyproxy.github.io/)
-- [tinyproxy.conf](https://github.com/tinyproxy/tinyproxy/blob/master/etc/tinyproxy.conf.in)
-- 轻量级的 HTTP/HTTPS 代理
+- [tinyproxy/tinyproxy](https://github.com/tinyproxy/tinyproxy)
+  - CPLv2, C
+  - 轻量级的 HTTP/HTTPS 代理
+  - 支持简单反向代理
+  - 支持 upstream 分流
 
 ```bash
 # macOS 安装
@@ -16,7 +18,7 @@ brew info tinyproxy
 apk add tinyproxy
 
 # 最简配置
-cat <<CONF > tinyproxy.conf
+cat << CONF > tinyproxy.conf
 User nobody
 Group nobody
 Port 8888
@@ -27,8 +29,15 @@ BasicAuth admin password
 CONF
 tinyproxy -dc ./tinyproxy.conf
 
+# 判断 IP
 curl -x admin:password@127.0.0.1:8888 icanhazip.com
+# 测试 头
+curl -x admin:password@127.0.0.1:8888 https://httpbin.org/get
 ```
+
+## tinyproxy.conf
+
+- [tinyproxy.conf](https://github.com/tinyproxy/tinyproxy/blob/master/etc/tinyproxy.conf.in)
 
 **默认配置**
 

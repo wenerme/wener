@@ -340,9 +340,10 @@ packages:
   - 'packages/*'
 YAML
 
-pnpm add -Dw tsx turbo typescript ava esbuild eslint # DevTools
+pnpm add -Dw tsx turbo typescript ava esbuild eslint prettier # DevTools
 pnpm add -Dw @types/node @types/react # hoist common dependencies
 pnpm add -Dw tailwindcss # DevTools
+pnpm add -Dw @wener/wode
 
 mkdir -p apps/{web,server,playground}
 
@@ -353,6 +354,7 @@ pnpm add @wener/reaction @wener/utils
 pnpm add react react-dom @headlessui/react react-icons react-hook-form @tanstack/react-query @tanstack/react-table zustand valtio
 pnpm add dayjs axios
 pnpm add -D tailwindcss daisyui @tanstack/react-query-devtools
+pnpm add -D @tailwindcss/line-clamp @tailwindcss/typography @tailwindcss/container-queries daisyui
 pnpm add react-router react-router-dom # SPA
 # pnpm add @trpc/client @trpc/react @trpc/server # tRPC for NextJS
 

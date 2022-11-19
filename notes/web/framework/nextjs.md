@@ -71,6 +71,13 @@ title: NextJS
 
 :::
 
+:::caution NextJS 13 Blocker
+
+- https://github.com/vercel/next.js/issues/42427
+  - 无法使用 standalone
+
+:::
+
 ## 快速开始
 
 ```bash
@@ -307,7 +314,7 @@ export default MyApp;
 
 #### 自定义 `_document.js`
 
-```js
+```ts
 // _document is only rendered on the server side and not on the client side
 // Event handlers like onClick can't be added to this file
 

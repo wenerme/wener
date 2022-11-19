@@ -231,8 +231,8 @@ const config = {
       },
       copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt='cc-by-sa-4.0' src='https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg' /> - Build @${moment()
         .tz('Asia/Shanghai')
-        .format('YYYY-MM-DD HH:mm')}
-        - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>`,
+        .format('YYYY-MM-DD HH:mm')}`,
+        // - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
     },
   },
   // i18n: {

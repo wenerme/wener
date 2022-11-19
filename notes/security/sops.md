@@ -102,3 +102,8 @@ creation_rules:
 | --enable-local-keyservice           |
 | --keyservice PATH                   |
 | --verbose                           |
+
+# FAQ
+## spawnSync sops ENOENT
+
+- https://github.com/signageos/vscode-sops/issues/4

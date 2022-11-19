@@ -67,6 +67,19 @@ title: GORM
   - [go-gorm/datatypes](https://github.com/go-gorm/datatypes) - gorm.io/datatypes
     - 实现了其他数据类型 - 例如 JSON
 
+```bash
+go get -u gorm.io/gorm
+
+# 基于 cgo 的 sqlite
+go get -u gorm.io/driver/sqlite
+
+# 不需要 cgo
+go get -u github.com/glebarez/sqlite
+go get -u github.com/glebarez/go-sqlite
+
+go get -u gorm.io/driver/postgres
+```
+
 :::caution
 
 - 不建议字段设置为 default:null
@@ -203,6 +216,9 @@ func (u *User) BeforeCreate(tx *gorm.DB) error {
   return err
 }
 ```
+
+- https://github.com/go-gorm/gorm/issues/3611#issuecomment-729673788
+  - 使用 BeforeCreate 做 upsert
 
 ## Upsert
 

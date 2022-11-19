@@ -96,6 +96,8 @@ bt-enable-lpd=true
 - SD - seeder 连接数
 - DL - 下载速率
 
+- https://aria2.github.io/manual/en/html/aria2c.html#console-readout
+
 ## bt tracker
 
 ```bash

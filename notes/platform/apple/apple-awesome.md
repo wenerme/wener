@@ -19,3 +19,8 @@ tags:
   - [TrungNguyen1909/qemu-t8030](https://github.com/TrungNguyen1909/qemu-t8030)
     - iPhone 11 emulated on QEMU
   - [corellium](https://www.corellium.com/)
+
+## Mystery
+
+- http://mesu.apple.com/version.xml
+- http://mesu.apple.com/assets/com_apple_MobileAsset_SoftwareUpdate/com_apple_MobileAsset_SoftwareUpdate.xml

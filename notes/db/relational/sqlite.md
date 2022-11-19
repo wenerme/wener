@@ -66,6 +66,8 @@ title: SQLite
 - DATETIME 不会存储毫秒
 - 没有 Base64 函数
 - BLOB 作为二进制存储部分语言的 Driver 支持不太好
+- 不支持 INSERT DEFAULT
+- column DEFAULT 表达式需要写为 `(expr)`
 
 :::
 

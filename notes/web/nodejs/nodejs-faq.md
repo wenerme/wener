@@ -108,7 +108,7 @@ const namespace = cls.createNamespace('my-very-own-namespace');
 
 ```ts
 // node 8+
-import {createHook} from 'async_hooks';
+import { createHook } from 'async_hooks';
 const hook = createHook({
   init: (asyncId, type, triggerId, resource) => {},
   before: (asyncId) => {},
@@ -119,7 +119,7 @@ hook.enable();
 
 // ALS
 // v13.10.0, v12.17.0
-import {AsyncLocalStorage} from 'node:async_hooks';
+import { AsyncLocalStorage } from 'node:async_hooks';
 const asyncLocalStorage = new AsyncLocalStorage();
 asyncLocalStorage.run(123, () => {
   console.log(`Store: ${asyncLocalStorage.getStore()}`);
@@ -138,7 +138,7 @@ asyncLocalStorage.run(123, () => {
       - AsyncResource.runInAsyncScope(done,req,raw)
 
 ```ts
-const {als} = require('asynchronous-local-storage');
+const { als } = require('asynchronous-local-storage');
 const requestContext = {
   get: als.get,
   set: als.set,
@@ -173,7 +173,7 @@ npm install sqlite3 --build-from-source=sqlite3
 
 # 查看 binary 地址
 # 注意 module_name 可能不同于 npm 包名
-npm view sqlite3@3.1.3 binary # aws
+npm view sqlite3@3.1.3 binary             # aws
 npm view sqlite3@5.1.0 binary.module_name # github
 
 # install 包含 platform 和 libc 条件
@@ -228,7 +228,6 @@ process.emit = function (name, data, ...args) {
 
 - https://github.com/nodejs/node/issues/30810
 
-
 ## Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
 
 - 可增加
@@ -237,3 +236,11 @@ process.emit = function (name, data, ...args) {
 node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
 NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
 ```
+
+- 2048
+- 4096
+- 5120
+- 6144
+- 7168
+- 8192
+- 16384

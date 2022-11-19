@@ -16,10 +16,12 @@ title: WSL
 
 :::
 
+- 文档 https://learn.microsoft.com/en-us/windows/wsl/
 - 下载安装 Windows WSL2 Update
   https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
   - 说明文档 https://aka.ms/wsl2kernel
 - 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
+- 文件浏览器可直接 打开 `\\wsl$\<DISTRO>`
 
 ```bash
 wslconfig /list
@@ -165,3 +167,20 @@ wsl -d Alpine ifconfig eth0 # 同理
 ```
 
 - https://github.com/microsoft/WSL/issues/4150
+
+## 系统找不到指定路径
+
+```batch
+wsl --list --all --verbose
+```
+
+应该是安装的 镜像位置发生了变化或者被删除
+
+## 迁移
+
+```batch
+wsl --export
+wsl --import
+```
+
+- HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss

@@ -91,6 +91,7 @@ gpg --dry-run --passwd $KEYID
     - `<ID>.rev`
   - private-keys-v1.d/
     - `<ID>.key`
+- GPG_AGENT_INFO
 
 ```bash
 # 完整信息
@@ -244,6 +245,11 @@ export GPG_TTY
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+# 查看缓存的 Key
+gpg-connect-agent 'keyinfo --list' /bye
+gpg-connect-agent "keyinfo --ssh-list --ssh-fpr" /bye
+gpg-connect-agent "keyinfo --ssh-list --ssh-fpr=sha1" /bye
 ```
 
 ### gpg-agent.conf
@@ -427,6 +433,12 @@ gpg --import-ownertrust < otrust.tmp
 ## subkeys
 
 - https://wiki.debian.org/Subkeys
+
+## No pinentry
+
+```bash
+gpgconf --kill gpg-agent
+```
 
 ## gpg --help
 

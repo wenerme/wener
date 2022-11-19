@@ -6,12 +6,11 @@ tags:
 
 # Git FAQ
 
-## 修正用户名
+## 修正用户名 {#amend-author}
 
 ```bash
 git commit --amend --author="Author Name <email@address.com>"
 ```
-
 
 ## 设置当前用户信息
 
@@ -437,3 +436,11 @@ git config --global --add safe.directory '*'
 - 维护额外进程
 - 不方便自动化 - 涉及人工配置
 - 还是需要解决 SSOT - Single Source Of Truth 问题
+
+## merge branch without checkout
+
+**develop -> main**
+
+```bash
+git push . develop:main
+```

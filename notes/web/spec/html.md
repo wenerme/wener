@@ -54,6 +54,12 @@ title: HTML
 
 - [video](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
 
+## audio
+
+- controlslist
+  - nodownload, nofullscreen, noremoteplayback
+  - noplaybackrate
+
 ## Semantic Tags
 
 - header

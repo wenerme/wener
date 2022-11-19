@@ -41,3 +41,19 @@ alias:
   - smoothing
   - most likely explanation
     - Viterbi
+
+---
+
+- 2-gram - bigram - 1 阶 HMM
+
+- BMES 状态
+  - B - 词开始
+  - E - 词结束
+  - M - 词中间
+  - S - 单字词
+- 用于标注字符
+
+## 参考
+
+- https://www.cs.cornell.edu/courses/cs4780/2014fa/lecture/15-hmmviterbi.pdf
+- https://houbb.github.io/2020/01/28/nlp-hmm-chinese-segment

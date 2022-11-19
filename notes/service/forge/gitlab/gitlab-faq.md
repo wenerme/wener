@@ -128,3 +128,10 @@ Build:
 - Maintainer
 - Owner
 - https://docs.gitlab.com/ee/user/permissions.html
+
+## pipeline failed due to the user not being verified
+
+- 使用共享 Runner
+  - 需要用户验证 - 设置信用卡、不会收费
+- 使用自己的 Runner，可以关闭共享
+  - Setting -> CICD -> Runner (Expand) -> disable Shared runner.

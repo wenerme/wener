@@ -6,6 +6,27 @@ tags:
 
 # Schema Design
 
+:::tip Schema 设计参考
+
+- 表尽量不要前缀 - 清晰明了
+  - MySQL 额外考虑
+  - PG 支持 Schema 隔离
+- 字段尽量不要缩写
+- 尽量不要用 拼音
+  - 做国内环境除外 - 例如：政企数据无法很好翻译
+- 维护开发字典
+- 尽量 **不要** 用自增长 ID
+  - 容易被遍历
+  - 面向用户的可以 增加额外的 自增长 编号/序号
+- PostgreSQL
+  - 尽量用 text, bigint, jsonb, bool
+  - 看情况用 array - array 能简化不少需要 join 表的场景
+  - 避免 varchar(n) 限定长度
+    - 业务层控制 validation
+    - 通过 check 验证
+
+:::
+
 ## 主键
 
 - [ULID](./ulid.md)
@@ -39,6 +60,7 @@ create table tpl_res
     tid                 bigint      not null default current_tenant_id(), -- 租户
     uid                 uuid        not null default gen_random_uuid(),
     sid                 bigint      not null default (next_res_sid('tpl_pri_resources')),
+    eid                 text        null , -- 用于导入数据关联
     created_at          timestamptz not null default current_timestamp,
     updated_at          timestamptz not null default current_timestamp,
     deleted_at          timestamptz,
@@ -66,11 +88,22 @@ create table tpl_res
 
 - id 可按照业务逻辑生成 - 例如: `<tid>-<资源名称>-UUID/ULID`
   - 类似于 GraphQL NodeID
+    - 例如: `1-user-xxxxxxxxxxx`
   - 类似于 AIP 的 resource-name
 - sid 租户维度单调递增 - 用户友好
 - owner 逻辑取决于业务 - 例如: 权限，孤儿对象判断
 - 其他元数据
   - version - 用于支持场景的更新逻辑 - 例如: Hibernate
+- 表分类
+  - primary - 主要资源
+    - 例如: accounts, orders
+    - 有 owener、附加元信息、auditor
+  - 用户无关表
+    - 无 owner、auditor
+  - 关联表 - 中间表
+    - 可能有额外信息、可能有 tid
+  - 系统表
+    - 只有基础字段 - id、sid、tid、uid
 
 # FAQ
 
@@ -80,6 +113,8 @@ create table tpl_res
   - 语义 准确
   - 与 `created_by_id` 形式上类似
   - 使用: Spring, Gorm 默认
+  - 面向 系统
 - create_time
   - 使用: AIP
+  - 面向 用户
 

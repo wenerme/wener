@@ -18,7 +18,7 @@ title: 企业微信
 
 :::caution
 
-- 企业微信会话存档保存最长为90天
+- 企业微信会话存档保存最长为 90 天
 
 :::
 
@@ -69,6 +69,26 @@ https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?
   access_token=ACCESS_TOKEN&
   code=CODE
 ```
+
+## 会话存档
+
+> **Note**
+>
+> 1. 会话存档保存 **5** 天
+> 1. 从 Sequence+1 拉取，不包含 Sequence
+> 1. limit 最大 1000
+> 1. 图片 jpg, 音频 amr, 视频 mp4
+> 1. MediaData 的 MD5 可能匹配不上，可以一直重试
+> 1. MediaData 单次最多返回 512K
+
+- libWeWorkFinanceSdk_C.so
+  - 依赖 GLIBC
+  - 使用了 libcurl
+    - https_proxy 能生效
+- 实际请求 qyapi.weixin.qq.com
+- RSA2048 key
+  - `openssl genrsa -out private.pem 2048`
+  - `openssl rsa -in private.pem -pubout -out public.pem`
 
 # FAQ
 

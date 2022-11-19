@@ -89,3 +89,8 @@ interface Example {
 - method args - bivariant
 - function args - contravariant
 - https://github.com/microsoft/TypeScript/pull/18654
+
+## as const
+
+
+- https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions

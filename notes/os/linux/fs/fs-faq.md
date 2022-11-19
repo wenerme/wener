@@ -143,3 +143,8 @@ mount -o rw,remount /
 > NAND flash 大多为 128 KB blocksize，所以 extFAT 很适合闪存
 
 - [Default cluster size for NTFS, FAT, and exFAT](https://support.microsoft.com/en-gb/topic/9772e6f1-e31a-00d7-e18f-73169155af95)
+
+## /run vs /var/run
+
+- /run - 新的标准 - tmpfs
+- /var/run - symlink  到 /run

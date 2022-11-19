@@ -62,10 +62,10 @@ curl -w "@curl-format.txt" https://speedtest.tokyo2.linode.com/empty.php
 # curl -o /dev/null "https://speedtest.tokyo2.linode.com/garbage.php?ckSize=100"
 curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.tokyo2.linode.com/100MB-tokyo2.bin > tokyo2.txt
 
-# 测试所有区域 - 测试 1MB
+# 测试所有区域 - 测试 10MB
 for i in newark singapore london frankfurt dallas toronto1 syd1 atlanta tokyo2 mumbai1 fremont; do
   echo "Testing $i"
-  curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+  curl -o /dev/null -r -10240000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
 
 # 最快的三个 - 测试 10MB

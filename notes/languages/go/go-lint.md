@@ -42,7 +42,7 @@ gosec -conf gosec.conf.json ./...
 ```
 
 ```bash
-VER=1.46.2
+VER=1.50.1
 # curl -LO https://github.com/golangci/golangci-lint/releases/download/v$VER/golangci-lint-$VER-darwin-amd64.tar.gz
 curl -LO https://ghproxy.com/https://github.com/golangci/golangci-lint/releases/download/v$VER/golangci-lint-$VER-darwin-amd64.tar.gz
 tar zxvf golangci-lint-$VER-darwin-amd64.tar.gz

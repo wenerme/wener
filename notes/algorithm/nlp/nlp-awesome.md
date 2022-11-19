@@ -13,6 +13,7 @@ tags:
 - [Latent semantic analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis)
 - https://github.com/thunlp/WantWords
   - 反向词典
+- https://stanfordnlp.github.io/stanza/
 
 ## Projects
 
@@ -51,6 +52,8 @@ tags:
 - [verarong/CompanyNameMatch](https://github.com/verarong/CompanyNameMatch)
   - 公司、企业名称模糊匹配，基于词频的公司名主体提取，基于编辑距离的匹配度
   - 基于 jieba 分词、数百万家企业名称分词后词频统计，提取公司名称中的各类型信息，并依据业务需求计算匹配分值
+  - weight.csv
+    - 110万行
 - [wainshine/Company-Names-Corpus](https://github.com/wainshine/Company-Names-Corpus)
   - 公司名语料库 - 机构名语料库。公司简称,缩写,品牌词,企业名。可用于中文分词、机构名实体识别。
 - [hujunxianligong/abbrs](https://github.com/hujunxianligong/abbrs)
