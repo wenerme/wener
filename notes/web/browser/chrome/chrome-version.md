@@ -164,7 +164,7 @@ tags:
 
 ## Chrome 107
 
-- HEVC
+- **HEVC**
 - CSS
   - grid-template interpolation
 - `<form rel="noreferrer">`

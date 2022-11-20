@@ -174,6 +174,11 @@ tags:
   - GPL-3, Go
   - 转向闭源收费, 开源开发停滞
 - slirp
+- [ghostunnel/ghostunnel](https://github.com/ghostunnel/ghostunnel)
+  - Apache-2.0, Go
+  - SSL/TLS proxy with mTLS for securing non-TLS backend applications.
+- [ptunnel](https://www.cs.uit.no/~daniels/PingTunnel/)
+  - tunnel over icmp
 
 ### Tunnel Library
 

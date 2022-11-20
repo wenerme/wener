@@ -36,9 +36,9 @@ title: GPG
 - Scute
 
 ```bash
-brew install gpg
-# 对话框输入
-brew install pinentry-mac
+# macOS
+# pinentry-mac 对话框输入 密码
+brew install gpg pinentry-mac
 
 # 生成秘钥 - RSA 推荐至少 4096
 gpg --default-new-key-algo rsa4096 --gen-key

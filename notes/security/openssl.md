@@ -10,26 +10,28 @@ title: OpenSSL
 - 参考
   - https://www.openssl.org/docs/manmaster/
 
-# Version
+## CA
 
-## OpenSSL 3.0
+```bash
+openssl genrsa -out example.org.key 2048
+openssl rsa -in example.org.key -noout -text # introspect
 
-> AlpineLinux 3.17, RHEL 9 并存
+openssl rsa -in example.org.key -pubout -out example.org.pubkey
+openssl rsa -in example.org.pubkey -pubin -noout -text
 
-- 2021-09-07
-- FIPS 140
-- Apache 2.0
-- Supporting Kernel TLS - Linux 4.13 - 2017
-- [OpenSSL 3.0](https://wiki.openssl.org/index.php/OpenSSL_3.0)
+openssl req -new -key example.org.key -out example.org.csr
+openssl req -in example.org.csr -noout -text
 
-## OpenSSL 1.1.1
+openssl genrsa -out ca.key 2048
+openssl req -new -x509 -key ca.key -out ca.crt
 
-- 2018-09-11
-- TLS1.3
-- SHA-3
-- X448, Ed448 - RFC 7748
-- SipHash
-- ARIA
-- multi-prime RSA (RFC 8017)
-- SM2, SM3, SM4
-- Heartbleed,QNX removed
+openssl x509 -req -in example.org.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out example.org.crt
+openssl x509 -in example.org.crt -noout -text
+cat example.org.crt ca.crt > example.org.bundle.crt
+```
+
+- https://gist.github.com/Soarez/9688998
+
+# FAQ
+
+## variable lookup failed for ca::default_ca
