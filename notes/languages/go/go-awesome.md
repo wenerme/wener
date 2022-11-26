@@ -123,7 +123,7 @@ tags:
     - `_foreign_keys/_fk` - `PRAGMA foreign_keys` - 外键约束
 - [cznic/sqlite](https://gitlab.com/cznic/sqlite)
   - pure go SQLite
-- [jackc/pgx](https://github.com/jackc/pgx)
+- [github.com/jackc/pgx/v5](https://github.com/jackc/pgx)
   - 推荐 - 纯 Go
   - [jackc/pgtype](https://github.com/jackc/pgtype)
     - 接口没有 pq 提供的类型方便操作

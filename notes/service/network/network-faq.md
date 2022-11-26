@@ -43,3 +43,17 @@ echo "test" | socat -u - udp:127.0.0.1:12345
 socat -u tcp-l:12345,fork exec:/bin/cat
 echo "test" | socat -u - tcp:127.0.0.1:12345
 ```
+
+## 保留来源IP
+
+- PROXY
+- mmproxy
+  - remote PROXY -> mmproxy PROXY -> localhost
+  - [cloudflare/mmproxy](https://github.com/cloudflare/mmproxy)
+  - https://blog.cloudflare.com/mmproxy-creative-way-of-preserving-client-ips-in-spectrum/
+- [TPROXY](./tproxy.md)
+  - linux 内核模块
+  - HAProxy 支持 https://gist.github.com/mhofman/a01df56480b3791d526b77dbebef43a2#haproxy-transparent-support
+    - `server app1-tls 192.0.2.10:3001 source * usesrc client weight 0`
+    - usesrc
+  - https://docs.kernel.org/networking/tproxy.html

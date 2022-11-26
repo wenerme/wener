@@ -1,27 +1,26 @@
 ---
-id: timescale
 title: TimeScale
 ---
 
 # TimeScale
-## Tips
-* [TimeScale](http://www.timescale.com/)
-* [timescale/timescaledb](https://github.com/timescale/timescaledb)
-  * An open-source time-series database optimized for fast ingest and complex queries. Engineered up from PostgreSQL, packaged as an extension.
-* 参考
-  * [Problems with PostgreSQL 10 for time-series data](https://blog.timescale.com/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5)
-  * [Building a distributed time-series database on PostgreSQL](https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/)
-  * [timescale/pg_prometheus](https://github.com/timescale/pg_prometheus) - [timescale/prometheus-postgresql-adapter](https://github.com/timescale/prometheus-postgresql-adapter)
-    * PostgreSQL extension for Prometheus data
-    * 不再使用该结构
-  * [timescale/timescale-prometheus](https://github.com/timescale/timescale-prometheus)
-    * prometheus 交互新的架构
-    * 作为 RemoteStorage
-    * prometheus [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
-  * https://docs.timescaledb.com/using-timescaledb/telemetry
-    * `timescaledb.telemetry_level=off`
-    * `ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=off`
-  * [timescale/timescaledb#638](https://github.com/timescale/timescaledb/issues/638) - List of recommended ZFS/Zpool settings
+
+- [TimeScale](http://www.timescale.com/)
+- [timescale/timescaledb](https://github.com/timescale/timescaledb)
+  - An open-source time-series database optimized for fast ingest and complex queries. Engineered up from PostgreSQL, packaged as an extension.
+- 参考
+  - [Problems with PostgreSQL 10 for time-series data](https://blog.timescale.com/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5)
+  - [Building a distributed time-series database on PostgreSQL](https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/)
+  - [timescale/pg_prometheus](https://github.com/timescale/pg_prometheus) - [timescale/prometheus-postgresql-adapter](https://github.com/timescale/prometheus-postgresql-adapter)
+    - PostgreSQL extension for Prometheus data
+    - 不再使用该结构
+  - [timescale/timescale-prometheus](https://github.com/timescale/timescale-prometheus)
+    - prometheus 交互新的架构
+    - 作为 RemoteStorage
+    - prometheus [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
+  - https://docs.timescaledb.com/using-timescaledb/telemetry
+    - `timescaledb.telemetry_level=off`
+    - `ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=off`
+  - [timescale/timescaledb#638](https://github.com/timescale/timescaledb/issues/638) - List of recommended ZFS/Zpool settings
 
 ```bash
 # 基于 postgres 上游构建的镜像
@@ -47,30 +46,31 @@ docker run --rm -it --link timescaledb:db \
 prometheus --config.file=prometheus.yml
 ```
 
-__prometheus.yml__
+**prometheus.yml**
 
 ```yaml
 global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: "prometheus"
+  - job_name: 'prometheus'
     static_configs:
-    - targets: ["localhost:9090"]
+      - targets: ['localhost:9090']
 
-  - job_name: "node"
+  - job_name: 'node'
     static_configs:
-    - targets: ["localhost:9100"]
+      - targets: ['localhost:9100']
 
-  - job_name: "tsdb-prom"
+  - job_name: 'tsdb-prom'
     static_configs:
-    - targets: ["localhost:9201"]
+      - targets: ['localhost:9201']
 
 remote_write:
-  - url: "http://localhost:9201/write"
+  - url: 'http://localhost:9201/write'
 remote_read:
-  - url: "http://localhost:9201/read"
+  - url: 'http://localhost:9201/read'
 ```
 
 ## Notes
-* [Architecture & Concepts](https://docs.timescale.com/introduction/architecture)
+
+- [Architecture & Concepts](https://docs.timescale.com/introduction/architecture)

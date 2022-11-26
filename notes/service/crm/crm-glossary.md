@@ -1,11 +1,14 @@
 ---
-id: glossary
 title: CRM 词汇
 tags:
 - Glossary
 ---
 
 # CRM 词汇
+
+- Schema
+  - https://help.officernd.com/hc/en-us/articles/360002210414-Contract-Statuses-Stages
+  - https://www.ibm.com/docs/en/maximo-for-utilities/7.6.0?topic=SSLLAM_7.6.0/com.ibm.mbs.doc/mbs_common/c_contract_statuses.htm
 
 ## Case - 个案
 

@@ -47,3 +47,19 @@ tags:
 | 2006-2020 |         | TLS 1.1 |
 | 2008-     |         | TLS 1.2 |
 | 2018-     |         | TLS 1.3 |
+
+## AES-CBC vs. AES-GCM vs. AES-CTR
+
+- CTR (Counter Mode)
+- CBC (Cipher Block Chaining)
+- GCM (Galois/Counter Mode)
+
+```js
+const key = await window.crypto.subtle.generateKey({name: 'AES-CBC',length: 256,},true,['encrypt', 'decrypt']);
+```
+
+## PKCS#7 Padding
+
+- 用于 AES
+- 补齐 BlockSize - 一般 32
+- 最后一位记录 Padding 的长度

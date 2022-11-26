@@ -104,6 +104,13 @@ creation_rules:
 | --verbose                           |
 
 # FAQ
+
 ## spawnSync sops ENOENT
 
 - https://github.com/signageos/vscode-sops/issues/4
+
+## vsc
+
+```bash
+EDITOR="code --wait" sops values.yaml
+```

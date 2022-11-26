@@ -8,6 +8,8 @@ title: Puppeteer
 - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
   - 避免下载
 - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+- 参考
+  - [berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra)
 
 :::caution
 
@@ -34,6 +36,66 @@ var puppeteer = await import('puppeteer');
 var browser = await puppeteer.launch();
 var page = await browser.newPage();
 ```
+
+- Browser
+  - 事件
+    - disconnected
+    - targetchanged - URL 变化
+    - targetcreated - 例如 window.open, browser.newPage
+    - targetdestroyed
+  - BrowserContext
+    - 事件: targetchanged, targetcreated, targetdestroyed
+    - 可以创建 incognito 上下文
+    - Target - page, background_page, service_worker, shared_worker, other, browser, webview
+    - Page - 正常网页
+      - Frame
+      - mainFrame - 当前主窗口
+
+```bash
+# macOS 手动启动
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --no-first-run --no-default-browser-check --user-data-dir=$(mktemp -d -t 'chrome-remote_data_dir')
+
+# Windows
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
+```
+
+- http://127.0.0.1:9222/json/version
+- 默认使用 --remote-debugging-port=0
+  - 随机 port
+- https://github.com/puppeteer/puppeteer/blob/v14.4.1/docs/api.md
+
+```js
+// 获取当前的 ws url
+browser.wsEndpoint()
+```
+
+## adblock
+
+```bash
+npm add puppeteer-extra puppeteer-extra-plugin-adblocker
+```
+
+```js
+const puppeteer = require('puppeteer-extra');
+
+// Add adblocker plugin, which will transparently block ads in all pages you
+// create using puppeteer.
+const { DEFAULT_INTERCEPT_RESOLUTION_PRIORITY } = require('puppeteer');
+const AdblockerPlugin = require('puppeteer-extra-plugin-adblocker');
+puppeteer.use(
+  AdblockerPlugin({
+    // Optionally enable Cooperative Mode for several request interceptors
+    interceptResolutionPriority: DEFAULT_INTERCEPT_RESOLUTION_PRIORITY,
+  }),
+);
+```
+- https://github.com/ghostery/adblocker
+  - https://raw.githubusercontent.com/cliqz-oss/adblocker/master/packages/adblocker/assets/easylist/easylistgermany.txt
+
+## 添加扩展
+
+- --disable-extensions-except=/path/to/extension
+- --load-extension=/path/to/extension
 
 # FAQ
 

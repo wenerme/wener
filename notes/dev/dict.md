@@ -742,6 +742,14 @@ tags:
 
 虽然传统翻译里用 “命名空间” 翻译 namespace 概念，但是认为如果就是指代 “Namespace”，那 “名字空间” 更合适。
 
+## area vs region vs district
+- area
+  - 小区域范围
+- region
+  - 大的地理位置区域
+- district
+  - 行政区划
+
 ## 参考
 
 - https://www.dictionary.com/browse/employee?s=t

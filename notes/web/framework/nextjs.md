@@ -74,7 +74,7 @@ title: NextJS
 :::caution NextJS 13 Blocker
 
 - https://github.com/vercel/next.js/issues/42427
-  - 无法使用 standalone
+  - appDir 无法使用 standalone
 
 :::
 

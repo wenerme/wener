@@ -44,6 +44,9 @@ create extension pg_trgm;
 -- 0.2
 select similarity('今天天气很好，你还好么？','今天你好么');
 
+-- 分词
+select show_trgm('今天天气很好，你还好么？');
+
 -- 索引
 CREATE TABLE words AS SELECT word FROM
         ts_stat('SELECT to_tsvector(''simple'', bodytext) FROM documents');

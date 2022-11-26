@@ -335,7 +335,6 @@ npm run analyze
 > - [SSR and Server Only Modules](https://arunoda.me/blog/ssr-and-server-only-modules)
 > - [examples/analyze-bundles](https://github.com/zeit/next.js/tree/canary/examples/analyze-bundles)
 
-
 ## You're using a Node.js module (buffer) which is not supported in the Edge Runtime
 
 - Buffer.from -> atob/btoa
@@ -367,3 +366,37 @@ module.exports = {
   },
 };
 ```
+
+## Date cannot be serialized as JSON
+
+superjson
+
+## Module build failed: UnhandledSchemeError: Reading from "node:assert" is not handled by plugins (Unhandled scheme).
+
+```js title="next.config.js"
+const webpack = require('webpack');
+
+module.exports = {
+  webpack: (config, options) => {
+    config.plugins.push(
+      new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
+        resource.request = resource.request.replace(/^node:/, '');
+      }),
+    );
+    return config;
+  },
+};
+```
+
+- middleware 运行环境限制很多
+  - https://nextjs.org/docs/api-reference/edge-runtime
+- webpack 不支持 node 协议
+- https://github.com/vercel/next.js/issues/28774
+
+## Can't resolve 'assert'
+
+```bash
+npm add assert
+```
+
+- node:assert -> assert

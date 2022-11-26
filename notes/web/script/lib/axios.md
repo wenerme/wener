@@ -7,6 +7,9 @@ title: axios
 - [axios/axios](https://github.com/axios/axios)
   - HTTP client for the browser and node.js
   - 19kB/7kB
+  - deps
+    - follow-redirects, form-data, proxy-from-env
+
 
 > **Note** 推荐使用
 >
@@ -16,5 +19,6 @@ title: axios
 :::tip
 
 - axios 支持上传、下载进度事件
+- 方便多实例 - `axios.create`
 
 :::

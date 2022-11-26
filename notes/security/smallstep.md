@@ -14,8 +14,9 @@ title: smallstep
 - 参考
   - [Everything you should know about certificates and PKI but are too afraid to ask](https://smallstep.com/blog/everything-pki)
   - [The case for using TLS everywhere](https://smallstep.com/blog/use-tls)
-- 支持数据库 Badger, BoltDB, MySQL
-  - 目前正在将 NoSQL 调整为 SQL 逻辑 - 会支持更多 DB [smallstep/certificates#282](https://github.com/smallstep/certificates/issues/282)
+- step-ca
+  - 支持数据库 Badger, BoltDB, MySQL, PostgreSQL
+    - 目前正在将 NoSQL 调整为 SQL 逻辑 - 会支持更多 DB [smallstep/certificates#282](https://github.com/smallstep/certificates/issues/282)
 - 支持的运行模式
   - 离线 - 不启动服务，离线管理证书
   - 在线 - 启动 step-ca，提供接口能力
@@ -38,8 +39,14 @@ brew install step
 # AlpineLinux
 apk add step-cli step-certificates -X http://mirrors.sjtug.sjtu.edu.cn/alpine/edge/testing/
 
+step path # 数据目录
+STEPPATH=/tmp/step step path
+# 配置 $(step path)/config/ca.json
+
+
 # 生成 CA $HOME/.step/certs/root_ca.crt $HOME/.step/secrets/root_ca_key
-step ca init --name "Local CA" --provisioner admin --dns localhost --address ":443"
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./passwd
+step ca init --name "Local CA" --provisioner admin --dns localhost --address ":443" --deployment-type=standalone --password-file=./passwd
 step ca certificate --offline foo.smallstep.com foo.crt foo.key
 
 step-ca $(step path)/config/ca.json
@@ -97,7 +104,7 @@ step ca provisioner add sshpop --type SSHPOP
 step ca provisioner add acme --type ACME
 # step certificate install
 
-# K8sSA
+# K8S SA
 step ca provisioner add my-kube-provisioner --type K8sSA --pem-keys key.pub
 ```
 
@@ -109,7 +116,7 @@ step ca init --ssh
 # 生成配置
 step ssh config --roots > /path/to/ssh_user_key.pub
 # 配置 CA
-cat <<EOF >> /etc/ssh/sshd_config
+cat << EOF >> /etc/ssh/sshd_config
 # This is the CA's public key for authenticating user certificates:
 TrustedUserCAKeys /path/to/ssh_user_key.pub
 EOF
@@ -123,14 +130,14 @@ step ssh certificate --host internal.example.com ssh_host_ecdsa_key
 cat ssh_host_ecdsa_key-cert.pub | step ssh inspect
 # 配置 host key
 mv ssh_host_ecdsa_key ssh_host_ecdsa_key-cert.pub /etc/ssh
-cat <<EOF >> /etc/ssh/sshd_config
+cat << EOF >> /etc/ssh/sshd_config
 # This is our host private key and certificate:
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostCertificate /etc/ssh/ssh_host_ecdsa_key-cert.pub
 EOF
 
 # 自动更新 host key
-cat <<EOF > /etc/cron.weekly/rotate-ssh-certificate
+cat << EOF > /etc/cron.weekly/rotate-ssh-certificate
 #!/bin/sh
 export STEPPATH=/root/.step
 cd /etc/ssh && step ssh renew ssh_host_ecdsa_key-cert.pub ssh_host_ecdsa_key --force 2> /dev/null
@@ -140,4 +147,45 @@ chmod 755 /etc/cron.weekly/rotate-ssh-certificate
 
 # 添加到 known_hosts 信任主机
 step ssh config --host --roots
+```
+
+## 配置
+
+- STEPPATH
+- $(step path --base)/
+  - contexts.json
+  - current-context.json
+  - `authorities/<AUTHORITY>/`
+  - `profiles/<PROFILE>/`
+    - config/
+      - defaults.json
+      - ca.json
+- AUTHORITY/ - 如果没有 context 则目录为 `$(step path --base)`
+  - certs/
+    - intermediate_ca.crt
+    - root_ca.crt
+  - config/
+    - ca.json
+    - defaults.json
+  - db
+  - secrets
+    - intermediate_ca_key
+    - root_ca_key
+  - templates
+
+```json tite="contexts.json"
+{
+  "alpha-one": {
+    "authority": "alpha-one.ca.smallstep.com",
+    "profile": "alpha-one"
+  },
+  "alpha-two": {
+    "authority": "alpha-two.ca.smallstep.com",
+    "profile": "alpha-two"
+  },
+  "beta": {
+    "authority": "beta.ca.smallstep.com",
+    "profile": "beta"
+  }
+}
 ```

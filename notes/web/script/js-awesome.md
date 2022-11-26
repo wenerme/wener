@@ -142,6 +142,21 @@ tags:
   - [lukeed/klona](https://github.com/lukeed/klona)
 - json
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
+  - [fastify/fast-json-stringify](https://github.com/fastify/fast-json-stringify)
+    - 基于 schema - 更快更安全
+  - [blitz-js/superjson](https://github.com/blitz-js/superjson)
+    - 支持 Date, undefined, bigint, RegExp, Set, Map, Error, URL
+    - 可以配合 NextJS 使用
+    - 可以配合 Decimal.js / Prisma.Decimal 使用
+  - [devalue](https://github.com/Rich-Harris/devalue)
+    - 支持循环依赖
+    - 支持 undefined, Infinity, NaN, -0, Date, Map, Set, BigInt, RegExp
+  - json5
+- xml
+  - fast-xml-parser
+  - xml2js
+  - saxjs
+  - xmlbuilder
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
 - async
@@ -353,6 +368,7 @@ tags:
   - yup
   - joi
   - vest
+  - superstruct
   - [colinhacks/zod](https://github.com/colinhacks/zod)
     - 定义的校验会生成 ts 类型
     - TypeScript-first schema validation

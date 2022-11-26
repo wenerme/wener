@@ -576,3 +576,13 @@ where state = 'active';
 
 - insert on conflict 时有重复数据
 - 插入之前先去重
+
+## column "datlastsysoid" does not exist
+
+- PostgreSQL 15 移除了这个列
+- https://github.com/pgmodeler/pgmodeler/issues/1689
+- navicat 16 也有问题
+
+```sql
+select distinct datlastsysoid from pg_database;
+```

@@ -8,11 +8,14 @@ title: trpc
 - @trpc/next - NextJS
 - spec
   - https://trpc.io/docs/rpc
+- 参考
+  - [jlalmes/trpc-openapi](https://github.com/jlalmes/trpc-openapi)
+    - 使用 meta 定义路由
+    - 创建新的路由
 
 :::caution
 
-- 不支持 react-query 4 [#2243](https://github.com/trpc/trpc/issues/2243)
-- Support for additional Content-Types [#](https://github.com/trpc/trpc/issues/1937)
+- Support for additional Content-Types [#1937](https://github.com/trpc/trpc/issues/1937)
 
 :::
 
@@ -22,7 +25,7 @@ npm add @trpc/client @trpc/server
 
 ```ts
 import * as trpc from '@trpc/server';
-import {z} from 'zod';
+import { z } from 'zod';
 
 const appRouter = trpc
   .router()
@@ -33,12 +36,12 @@ const appRouter = trpc
     },
     async resolve(req) {
       req.input; // string
-      return {id: req.input, name: 'Bilbo'};
+      return { id: req.input, name: 'Bilbo' };
     },
   })
   .mutation('createUser', {
     // validate input with Zod
-    input: z.object({name: z.string().min(5)}),
+    input: z.object({ name: z.string().min(5) }),
     async resolve(req) {
       // use your ORM of choice
       return await UserModel.create({
@@ -53,23 +56,23 @@ export type AppRouter = typeof appRouter;
 ## fastify
 
 ```ts title="context.ts"
-import {inferAsyncReturnType} from '@trpc/server';
-import {CreateFastifyContextOptions} from '@trpc/server/adapters/fastify';
+import { inferAsyncReturnType } from '@trpc/server';
+import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify';
 
-export function createContext({req, res}: CreateFastifyContextOptions) {
-  const user = {name: req.headers.username ?? 'anonymous'};
+export function createContext({ req, res }: CreateFastifyContextOptions) {
+  const user = { name: req.headers.username ?? 'anonymous' };
 
-  return {req, res, user};
+  return { req, res, user };
 }
 
 export type Context = inferAsyncReturnType<typeof createContext>;
 ```
 
 ```ts
-import {fastifyTRPCPlugin} from '@trpc/server/adapters/fastify';
+import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import fastify from 'fastify';
-import {createContext} from './context';
-import {appRouter} from './router';
+import { createContext } from './context';
+import { appRouter } from './router';
 import ws from '@fastify/websocket';
 
 const server = fastify({
@@ -81,7 +84,7 @@ server.register(ws);
 
 server.register(fastifyTRPCPlugin, {
   prefix: '/trpc',
-  trpcOptions: {router: appRouter, createContext},
+  trpcOptions: { router: appRouter, createContext },
 });
 
 (async () => {
@@ -92,4 +95,36 @@ server.register(fastifyTRPCPlugin, {
     process.exit(1);
   }
 })();
+```
+
+## openapi
+
+```ts
+import { initTRPC } from '@trpc/server';
+import { OpenApiMeta } from 'trpc-openapi';
+const t = initTRPC.meta<OpenApiMeta>().create();
+export const appRouter = t.router({
+  sayHello: t.procedure
+    // 定义接口
+    .meta({ /* 👉 */ openapi: { method: 'GET', path: '/say-hello' } })
+    .input(z.object({ name: z.string() }))
+    .output(z.object({ greeting: z.string() }))
+    .query(({ input }) => {
+      return { greeting: `Hello ${input.name}!` };
+    });
+});
+
+// 生成
+export const openApiDocument = generateOpenApiDocument(appRouter, {
+  title: 'tRPC OpenAPI',
+  version: '1.0.0',
+  baseUrl: 'http://localhost:3000',
+});
+
+import http from 'http';
+import { createOpenApiHttpHandler } from 'trpc-openapi';
+
+// 服务端
+const server = http.createServer(createOpenApiHttpHandler({ router: appRouter })); /* 👈 */
+server.listen(3000);
 ```

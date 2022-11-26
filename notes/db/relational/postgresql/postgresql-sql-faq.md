@@ -9,6 +9,8 @@ tags:
 > **Note**
 >
 > - comment 不能在创建表时指定
+> - column 的 generated 不能修改
+> - column 只支持 STORE 的生成列，不支持虚拟列
 
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`

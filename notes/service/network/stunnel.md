@@ -55,15 +55,68 @@ echo Hello | nc 127.0.0.1 8081 # Tunnel 后的端口
 
 - /etc/stunnel/stunnel.conf
 
+**类似工具**
+
+```bash
+openssl s_client -connect server.com:443 -quiet
+
+socat TCP-LISTEN:8888 OPENSSL:server.com:443,verify=0
+```
+
+SSH over TLS
+
+```
+Host server.com
+    ProxyCommand openssl s_client -connect server.com:443 -quiet
+```
+
+- HAProxy 也可以 terminate TLS 然后转发到 TCP
+
+```haproxy
+backend secure_http
+    reqadd X-Forwarded-Proto:\ https
+    rspadd Strict-Transport-Security:\ max-age=31536000
+    mode http
+    option httplog
+    option forwardfor
+    server local_http_server 127.0.0.1:80
+
+backend ssh
+    mode tcp
+    option tcplog
+    server ssh 127.0.0.1:22
+    timeout server 2h
+
+frontend ssl
+    bind X.X.X.X:443 ssl crt /etc/ssl/private/certs.pem no-sslv3
+    mode tcp
+    option tcplog
+    tcp-request inspect-delay 5s
+    tcp-request content accept if HTTP
+
+    acl client_attempts_ssh payload(0,7) -m bin 5353482d322e30
+
+    use_backend ssh if !HTTP
+    use_backend ssh if client_attempts_ssh
+    use_backend secure_http if HTTP
+```
+
+- 参考
+  - https://blog.chmd.fr/ssh-over-ssl-episode-4-a-haproxy-based-configuration.html
+
 ## stunnel.conf
 
 - protocol
-  - socks
-    - 监听 SOCKS - 作为 socks 代理服务
+  - socks - 监听 SOCKS - 作为 socks 代理服务
+  - connect - HTTP 1.1 CONNECT - 只能 client 模式
+  - cifs, capwin, capwinctrl, connect, imap, ldap, nntp, pgsql, pop3, proxy, smtp, socks
 - verify
   - 1 - prefer
   - 2 - CA
   - 3 - CA+Cert
+- client
+  - yes - 远程服务使用 TLS
+- connect - 可配置多个 - round-robin
 
 ```ini
 foreground=no ; yes, quite

@@ -65,12 +65,18 @@ curl -o /dev/null -r -1024000 -w "@curl-format.txt" https://speedtest.tokyo2.lin
 # 测试所有区域 - 测试 10MB
 for i in newark singapore london frankfurt dallas toronto1 syd1 atlanta tokyo2 mumbai1 fremont; do
   echo "Testing $i"
-  curl -o /dev/null -r -10240000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+  curl -o /dev/null -r -10000000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
 
-# 最快的三个 - 测试 10MB
-for i in dallas syd1 fremont; do
+# 最快的 - 测试 50MB
+for i in atlanta dallas syd1 toronto1 fremont; do
   echo "Testing $i"
-  curl -o /dev/null -r -10240000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+  curl -o /dev/null -r -50000000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
+done
+
+# 最快的两个
+for i in dallas fremont; do
+  echo "Testing $i"
+  curl -o /dev/null -r -100000000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
 ```

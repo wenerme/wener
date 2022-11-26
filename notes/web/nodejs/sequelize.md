@@ -28,6 +28,11 @@ title: sequelize
   - [nocobase](https://github.com/nocobase/nocobase)
   - [atulmy/crate](https://github.com/atulmy/crate)
 
+```bash
+# v7
+npm add @sequelize/core
+```
+
 ```ts
 export enum QueryTypes {
   SELECT = 'SELECT',

@@ -22,6 +22,11 @@ title: WSL
   - 说明文档 https://aka.ms/wsl2kernel
 - 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
 - 文件浏览器可直接 打开 `\\wsl$\<DISTRO>`
+- Windows 10 2004
+  - ms-settings:windowsupdate
+- WsL2
+  - Windows 10 v1903 b18362
+  - Windows 11 v18362
 
 ```bash
 wslconfig /list
@@ -184,3 +189,15 @@ wsl --import
 ```
 
 - HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss
+
+## Install
+
+```bassh
+# WSL
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+# VM
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+wsl --set-default-version 2
+```

@@ -23,6 +23,11 @@ tags:
 唢呐
 -->
 
+## DJ
+
+- https://djmag.com/top100djs
+- https://djrankings.org/
+
 ## 华语翻唱
 
 | 翻唱者     | 翻唱名                 | 原唱者                                      | 原唱名                                      | 备注             |

@@ -183,6 +183,10 @@ esbuild home.ts about.ts --bundle --splitting --outdir=out --format=esm
 
 ## Dynamic require of "fs" is not supported
 
+- https://github.com/evanw/esbuild/issues/1921
+
+## `__dirname` and `__filename`
+
 - format 为 esm 的时候可能出现
 - 添加 banner 解决
 

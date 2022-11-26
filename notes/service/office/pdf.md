@@ -18,6 +18,12 @@ title: PDF
 - pdftohtml
 - xpdf
 
+```bash
+brew install poppler
+
+pdfseparate document.pdf %d.pdf
+```
+
 ## Spec
 
 ## FAQ

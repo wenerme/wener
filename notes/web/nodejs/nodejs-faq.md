@@ -244,3 +244,18 @@ NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatisti
 - 7168
 - 8192
 - 16384
+
+## Can't resolve 'pg-native'
+
+- 用个假的模块替代，避免编译
+- https://github.com/brianc/node-postgres/issues/838
+  when using babel, pg-native is always required
+
+## REPL load
+
+```bash
+node -i -e "$(< rc.js)"
+```
+
+- `.load`
+  - https://nodejs.org/api/repl.html#repl_design_and_features

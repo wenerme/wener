@@ -13,7 +13,9 @@ title: temporal
     - 支持更多 SDK - Go, Java, PHP, Typescript
     - 没有 uber 包袱 - 环境、rpc、历史实现
   - [temporalite](./temporalite.md) 支持 SQLite
-
+- [temporalio/sdk-core](https://github.com/temporalio/sdk-core)
+  - MIT, Rust
+  - Core Temporal SDK
 
 
 ```bash

@@ -93,4 +93,7 @@ interface Example {
 ## as const
 
 
+- const assertions
+- 不会让类型变宽 - `'hello'` 不会变为 `string`
+- 都是 readyonly
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions

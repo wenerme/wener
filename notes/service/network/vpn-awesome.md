@@ -101,7 +101,7 @@ tags:
   - AGPL-3.0, Golang
   - P2P VPN over WebRTC
 
-## WireGuard
+## WireGuard Awesome
 
 :::tip
 
@@ -111,12 +111,29 @@ tags:
 :::
 
 - Vanilla [WireGuard](https://github.com/WireGuard)
+  - [wireguard-go](https://github.com/WireGuard/wireguard-go)
+    - MIT, Golang
+    - Go 实现 wg
   - [wireguard-apple](https://github.com/WireGuard/wireguard-apple)
+    - MIT, Golang+Swift
   - [wireguard-android](https://github.com/WireGuard/wireguard-android)
   - [wireguard-windows](https://github.com/WireGuard/wireguard-windows)
+    - MIT, Golang, C
+    - Windows 实现，基于 wireguard-nt
+  - [wireguard-nt](https://github.com/WireGuard/wireguard-nt)
+    - GPLv2, C
+    - Windows 内核实现
+    - NT Kernel
+    - 预构建 binary License 更松
+    - https://download.wireguard.com/wireguard-nt/
   - [wireguard-linux](https://github.com/WireGuard/wireguard-linux)
-  - [wireguard-go](https://github.com/WireGuard/wireguard-go)
-  - [WireGuard/wgctrl-go](https://github.com/WireGuard/wgctrl-go)
+    - Linux kernel
+  - [wgctrl-go](https://github.com/WireGuard/wgctrl-go)
+  - [wintun](https://github.com/WireGuard/wintun)
+    - Windows 下 tun 设备
+- [cloudflare/boringtun](https://github.com/cloudflare/boringtun)
+  - BSD-3, Rust
+  - Userspace WireGuard® Implementation in Rust
 - [tonarino/innernet](https://github.com/tonarino/innernet)
   - MIT, Rust
 - [Place1/wg-access-server](https://github.com/Place1/wg-access-server)
