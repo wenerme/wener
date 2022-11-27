@@ -232,7 +232,7 @@ const config = {
       copyright: `Copyright © 1992-${new Date().getFullYear()} Wener - <img alt='cc-by-sa-4.0' src='https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg' /> - Build @${moment()
         .tz('Asia/Shanghai')
         .format('YYYY-MM-DD HH:mm')}`,
-        // - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
+      // - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
     },
   },
   // i18n: {
@@ -288,12 +288,18 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: [
-    '@docusaurus/theme-live-codeblock',
-    '@docusaurus/theme-mermaid',
-  ],
-  stylesheets: [
-    'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+  themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
+  stylesheets: [{
+    href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css'
+  }],
+  scripts: [
+    // <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}'></script><!-- End Cloudflare Web Analytics -->
+    {
+      src: 'https://static.cloudflareinsights.com/beacon.min.js',
+      async: true,
+      'data-cf-beacon': '{"token": "e9a1b931103044f3940ee67b78c7df70"}',
+      defer: true,
+    },
   ],
 };
 module.exports = config;

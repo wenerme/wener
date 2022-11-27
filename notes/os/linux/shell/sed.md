@@ -41,6 +41,8 @@ title: sed
   - [Command Summary for sed](https://docstore.mik.ua/orelly/unix/sedawk/appa_03.htm)
 
 ```bash
+sed '/pattern/d' file
+
 # perl in place replace
 # 可以 替换 \r\n - sed 不可以
 # -i.bak 可生成备份文件

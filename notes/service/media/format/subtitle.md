@@ -23,6 +23,24 @@ mkvextract output.mks tracks 0:output.sub
 del output.mks
 ```
 
+## Sync
+
+- [smacke/ffsubsync](https://github.com/smacke/ffsubsync)
+  - MIT, Python
+- [kaegi/alass](https://github.com/kaegi/alass)
+  - Automatic Language-Agnostic Subtitle Synchronization
+- [tympanix/subsync](https://github.com/tympanix/subsync)
+
+```bash
+# AlpineLinux
+apk add ffmpeg python3 py3-pip py3-numpy alpine-sdk python3-dev
+pip install ffsubsync
+
+
+ffsubsync video.mp4 -i unsynchronized.srt -o synchronized.srt --gss
+ffsubsync reference.srt -i unsynchronized.srt -o synchronized.srt --gss
+```
+
 ## Tools
 
 - [asticode/go-astisub](https://github.com/asticode/go-astisub)
