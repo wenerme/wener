@@ -13,6 +13,7 @@ title: pnpm
   - Linux ~/.local/share/pnpm/store
   - 项目下虚拟 Store ./node_modules/.pnpm
     - hardlink 到全局 store
+  - .pnpm-store
   - [content-addressable storage](https://pnpm.io/next/symlinked-node-modules-structure)
 - 支持 workspace 引用 - `"button": "workspace:1.0.0",`
 - .npmrc - https://pnpm.io/npmrc
@@ -340,18 +341,20 @@ packages:
   - 'packages/*'
 YAML
 
-pnpm add -Dw tsx turbo typescript ava esbuild eslint prettier # DevTools
+pnpm add -Dw tsx turbo typescript ava esbuild
+pnpm add -Dw prettier prettier-plugin-pkg prettier-plugin-tailwindcss @trivago/prettier-plugin-sort-imports
+pnpm add -Dw eslint eslint-config-prettier
 pnpm add -Dw @types/node @types/react # hoist common dependencies
-pnpm add -Dw tailwindcss # DevTools
+pnpm add -Dw tailwindcss postcss cssnano # DevTools
 pnpm add -Dw @wener/wode
 
-mkdir -p apps/{web,server,playground}
+mkdir -p apps/{web,server,playground} packages/{common,ui}
 
 cd apps/web
 pnpm init
 pnpm add next
 pnpm add @wener/reaction @wener/utils
-pnpm add react react-dom @headlessui/react react-icons react-hook-form @tanstack/react-query @tanstack/react-table zustand valtio
+pnpm add react react-dom @headlessui/react react-icons react-hook-form @tanstack/react-query @tanstack/react-table zustand valtio immer use-immer
 pnpm add dayjs axios
 pnpm add -D tailwindcss daisyui @tanstack/react-query-devtools
 pnpm add -D @tailwindcss/line-clamp @tailwindcss/typography @tailwindcss/container-queries daisyui
@@ -390,6 +393,16 @@ cd -
 
 cd apps/playground
 cd -
+
+# tRPC
+pnpm add superjson @trpc/client @trpc/next @trpc/server zod ws
+# NextJS with superjson
+pnpm add superjson next-superjson-plugin
+
+# DB
+pnpm add @sequelize/core pg
+
+pnpm add -D @types/pg @types/ws
 ```
 
 ## Typescript FAQ

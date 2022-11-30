@@ -7,6 +7,7 @@ title: apko
 - [chainguard-dev/apko](https://github.com/chainguard-dev/apko)
   - Apache-2.0, Go
   - Build OCI images using APK directly without Dockerfile
+  - 使用 apk 构建 OCI image
 - 参考
   - [chainguard-dev/melange](https://github.com/chainguard-dev/melange)
     - 生成 apk 用于 apko 构建
@@ -43,6 +44,7 @@ title: apko
 - melange - source -> apk - chroot, multi-arch, pipeline
 - apk-tools v3 支持 macOS
   - 支持 macOS [#239](https://github.com/chainguard-dev/apko/issues/239)
+- 不能直接添加文件 - 需要先构建 apk 再添加
 
 :::
 
@@ -71,6 +73,7 @@ apko publish alpine-base.yaml <registry_ref>
 apko build --use-proot base.yaml wener/base:latest base.tar --build-arch aarch64
 
 # docker 环境使用
+docker run distroless.dev/apko version
 docker run --rm -it -v $PWD:/work distroless.dev/apko build alpine-base.yaml apko-alpine:edge apko-alpine.tar
 ```
 

@@ -184,6 +184,8 @@ git clone --branch <tag_name> <repo_url>
 git diff > my.patch
 ```
 
+## 检测是否发生变化
+
 ## 认证缓存
 
 - https://stackoverflow.com/questions/5343068

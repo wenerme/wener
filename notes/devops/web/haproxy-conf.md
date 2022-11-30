@@ -10,6 +10,10 @@ tags:
 haproxy -c -V -f /etc/haproxy/haproxy.cfg
 ```
 
+- http-tunnel
+  - 处理 HTTP CONNECT
+- https://cbonte.github.io/haproxy-dconv
+
 ## acl
 
 - named acl

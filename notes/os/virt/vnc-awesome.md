@@ -7,6 +7,11 @@ tags:
 # VNC Awesome
 
 
+```bash
+# macOS
+open vnc://127.0.0.1:5900
+```
+
 [vnc]: https://en.wikipedia.org/wiki/Virtual_Network_Computing
 
 - 协议
@@ -32,6 +37,7 @@ tags:
 - [TurboVNC/turbovnc](https://github.com/TurboVNC/turbovnc)
   - GPLv2, C, Java
   - Client+Server
+  - 基于 TightVNC
   - `brew install turbovnc-viewer` - Cask
 - realvnc
   - Client+Server
@@ -72,6 +78,9 @@ tags:
   - http://winswitch.org/downloads/
   - http://www.karlrunge.com/x11vnc/
     - x11vnc -id {replace-by-window-id}
+- [Remmina/Remmina](https://gitlab.com/Remmina/Remmina)
+   - GTK Client
+   - RDP, VNC, SPICE, X2Go, SSH
 - [mitchellh/go-vnc](https://github.com/mitchellh/go-vnc)
   - [kward/go-vnc](https://github.com/kward/go-vnc)
 - 相关技术

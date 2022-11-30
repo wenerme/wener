@@ -125,11 +125,17 @@ sudo security remove-trusted-cert -d cert.cer
 
 ## Install Xcode
 
-```
+```bash
 xcode-select --install
 
 xcodebuild -runFirstLaunch
 clang -v
+```
+
+## license
+
+```bash
+sudo xcodebuild -license
 ```
 
 ## 资源下载

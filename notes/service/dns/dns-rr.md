@@ -11,10 +11,13 @@ title: DNS Records
 [https draft]: https://datatracker.ietf.org/doc/draft-ietf-dnsop-svcb-https
 
 - HTTPS
+  - Apple’s iOS 14
   - Chrom 102+ https://chromestatus.com/feature/5485544526053376
 - [List of DNS record types](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 - https://simpledns.plus/help/https-records
 - PowerDNS [Supported Record Types](https://doc.powerdns.com/authoritative/appendices/types.html)
+- Encrypted SNI/Encrypted ClientHello
+- Encrypted SNI
 
 ## SRV
 

@@ -68,6 +68,7 @@ title: NextJS
     - NextJS 自身时 bundle 后的 CJS，重写为 ESM 难度高
   - [next.js#36940](https://github.com/vercel/next.js/issues/36940)
   - ESM 相关问题 [alineacms/alinea#31](https://github.com/alineacms/alinea/issues/31)
+- 路径不支持 UTF8 [#10084](https://github.com/vercel/next.js/issues/10084)
 
 :::
 

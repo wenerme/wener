@@ -62,6 +62,7 @@ depend() {
   need net
   use dns logger netmount
   want coolservice
+  # provide
 }
 
 extra_started_commands="reload"
@@ -80,14 +81,14 @@ reload() {
 
 # 启动停止检查配置
 start_pre() {
-  if [ "${RC_CMD}" != "restart" ] ; then
+  if [ "${RC_CMD}" != "restart" ]; then
     checkconfig || return $?
   fi
 }
 
 stop_pre() {
-  if [ "${RC_CMD}" = "restart" ] ; then
-      checkconfig || return $?
+  if [ "${RC_CMD}" = "restart" ]; then
+    checkconfig || return $?
   fi
 }
 ```
@@ -109,7 +110,28 @@ stop_pre() {
 
 ## supervise-daemon
 
+| flag                              | for       |
+| --------------------------------- | --------- |
+| -u, --user `user[:group]`         |
+| -D, --respawn-delay _seconds_     | 0         |
+| -m, --respawn-max _count_         | 10        |
+| -P, --respawn-period _seconds_    |
+| -R, --retry `[signal/]timeout`    | SIGTERM/5 |
+| -d, --chdir _path_                |
+| -r, --chroot _path_               |
+| -, --signal _signal_              |
+| -g, --group _group_               |
+| -k, --umask _mode_                |
+| -p, --pidfile _supervisorpidfile_ |
+| -1, --stdout _logfile_            |
+| -2, --stderr _logfile_            |
+
+- -K, --stop
+- -s, --signal
+- RC_SVCNAME
+- https://wiki.gentoo.org/wiki/OpenRC/supervise-daemon
 - https://github.com/OpenRC/openrc/blob/master/supervise-daemon-guide.md
+- https://manpages.debian.org/testing/openrc/supervise-daemon.8.en.html
 
 # FAQ
 

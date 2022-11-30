@@ -40,6 +40,7 @@ args: ['$(POD_IP)']
   - 所有支持 DNS 的对象
     - pod,service,namespace
   - label - [#1830](https://github.com/kubernetes/kubernetes/pull/1830)
+- gRPC 通常限制为 4MB
 
 ---
 

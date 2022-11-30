@@ -16,13 +16,19 @@ title: Kaniko
 
 :::caution
 
-- 只支持 x86_64
+- 不能跨平台构建
 - 不支持 multi-arch 和 manifest
 - 不能使用本地 layer 缓存
 - 性能可能弱于 dind - 可能很慢 [GoogleContainerTools/kaniko#875](https://github.com/GoogleContainerTools/kaniko/issues/875)
 - registry-mirror 不支持前缀，例如 `registry.example.com/dockerhub`
 
 :::
+
+<!-- docker run -v $(pwd):/workspace gcr.io/kaniko-project/warmer:latest --cache-dir=/workspace/cache --image=<image to cache> --image=<another image to cache> -->
+<!--
+crane copy gcr.io/kaniko-project/executor:debug registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:debug
+crane copy gcr.io/kaniko-project/executor registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor
+-->
 
 ```bash
 # debug 环境

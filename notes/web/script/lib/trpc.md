@@ -11,7 +11,16 @@ title: trpc
 - 参考
   - [jlalmes/trpc-openapi](https://github.com/jlalmes/trpc-openapi)
     - 使用 meta 定义路由
+      - `.meta({openapi: { method: 'GET', path: '/say-hello', headers: [] } })`
+    - 使用 zod 定义 input 和 output
     - 创建新的路由
+    - 路由忽略大小写，忽略 Trailing slashes
+    - API Handler
+      - createOpenApiNextHandler
+      - createOpenApiHttpHandler - node:http
+      - createExpressMiddleware
+      - ⚠️ 暂不支持 fastify - [jlalmes/trpc-openapi#87](https://github.com/jlalmes/trpc-openapi/issues/87)
+    - generateOpenApiDocument 生成 Schema
 
 :::caution
 
@@ -52,6 +61,27 @@ const appRouter = trpc
 
 export type AppRouter = typeof appRouter;
 ```
+
+- 适配 - https://github.com/trpc/trpc/tree/main/packages/server/src/adapters
+  - next
+    - createNextApiHandler
+  - standalone
+    - createHTTPHandler
+    - createHTTPServer
+  - ws
+    - applyWSSHandler
+    - 基于 ws 包
+  - fastify
+    - fastifyTRPCPlugin
+    - fastifyRequestHandler
+  - express
+    - createExpressMiddleware
+  - node-http
+    - nodeHTTPRequestHandler
+  - aws-lambda
+  - fetch
+    - fetchRequestHandler
+  - lambda
 
 ## fastify
 

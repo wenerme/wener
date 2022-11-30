@@ -2,7 +2,7 @@
 id: faq
 title: Chrome FAQ
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Chrome FAQ
@@ -44,3 +44,7 @@ macOS 自动更新失败
 ```js
 $$('.unregister').forEach((b) => b.click());
 ```
+
+## open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory
+
+Docker 环境，非 root

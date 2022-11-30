@@ -18,9 +18,9 @@ tags:
 
 :::tip Roadmap
 
-- 3.16
-  - OpenSSL 3 - 3.15 迁移不完 - wpa_supplicant,hostap,mariadb
-  - rust community -> main
+- 3.18 riscv64
+- 3.17 OpenSSL 3
+- 3.16 - rust community -> main
 - 3.15 推迟了 riscv64 支持
   - 官方没有 **足够好的硬件** 构建整个流程
   - 之后可能会出非正式的 iso - 可 QEMU 体验
@@ -34,7 +34,7 @@ tags:
 
 | version                              | date       |
 | ------------------------------------ | ---------- |
-| [AlpineLinux 3.17](#alpinelinux-317) | 2022-11    |
+| [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
 | [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
 | [AlpineLinux 3.15](#alpinelinux-315) | 2021-11-24 |
 | [AlpineLinux 3.14](#alpinelinux-314) | 2021-07-15 |
@@ -66,7 +66,15 @@ tags:
 
 ## AlpineLinux 3.17
 
-- OpenSSL 3
+- 环境
+  - bash 5.2
+  - gcc 12
+  - llvm 16
+  - PostgreSQL 15
+  - NodeJS 18.12 LTS
+  - **OpenSSL 3**
+  - Go 1.19
+- openssl1.1-compat 兼容 OpenSSL 1
 
 ## AlpineLinux 3.16
 

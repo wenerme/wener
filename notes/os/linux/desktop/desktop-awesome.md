@@ -24,7 +24,37 @@ tags:
   - [sandydoo/flux](https://github.com/sandydoo/flux)
     - macOS Drift screensaver
 
-## DE
+## Windowing System
+
+- [X11](./x11/README.md)
+  - 1984-06
+- Wayland
+  - v1.0 @ 2012
+  - rootless
+  - EGL-based
+  - adopted by:
+    - fedora v25, ubuntu 21.04, rhel v8 @2019, debian
+    - pmOS, rpi
+- macOS/iOS Quartz
+  - NeXT, NeXTSTEP, Mac OS X
+- Plan 9 rio
+- Android SurfaceFlinger, EGL for 3D
+- Network
+  - VNC
+    - [x11vnc](./x11/x11vnc.md)
+  - RDP
+  - Citrix XenApp
+- 虚拟
+  - [xvfb](./x11/xvfb.md)
+- XQuartz
+  - runs X applications in macOS’s native windowing system
+- XWayland
+  - X Server running as a Wayland client
+- X.Org Server
+  - by X.Org Foundation
+  - 实现 X Window System display server
+
+## Desktop Environment
 
 - Xfce
 - LXDE - Lightweight X11 Desktop Environment
@@ -64,6 +94,13 @@ tags:
   - interact with an EWMH/NetWM compatible X Window Manager
 - compiz
 - beryl
+- awesome
+  - 基于 dwm
+  - dwm fork with XCB, EWMH, Lua script, Xft, D-Bus, multihead.
+- i3
+  - wmii fork with XCB, multihead, vertical column, command mode
+- http://suckless.org/
+  - http://dwm.suckless.org/
 
 ## Themes
 

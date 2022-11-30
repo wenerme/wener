@@ -6,7 +6,7 @@ title: Brew
 
 - [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
 
-> **⚠️**
+> **Note**
 >
 > 1. 安装过程中可能会需要代理
 > 2. 代理建议使用 https_proxy 进行设置或全局代理

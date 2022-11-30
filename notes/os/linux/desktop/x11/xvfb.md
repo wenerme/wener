@@ -1,3 +1,9 @@
+---
+title: Xvfb
+---
+
+# Xvfb
+
 ```bash
 # docker run --rm -it -v $PWD:/host -w /host -p 5701:5701 --name vnc wener/base
 apk add xvfb xdpyinfo
@@ -18,6 +24,7 @@ wmctrl -m
 
 # 默认密码文件
 x11vnc -storepasswd vnc ./passwd
+# https://novnc.com/noVNC/vnc.html?host=localhost&port=5901&path=&encrypt=0
 x11vnc -forever -shared -ncache 10 -display :1 -wait 20 -rfbauth passwd -rfbport 5901
 ```
 

@@ -4,7 +4,7 @@ title: FRP
 
 # frp
 
-- 是什么？
+- [fatedier/frp](https://github.com/fatedier/frp) 是什么？
   - 基于端口的 4 层反向代理
   - 基于 vhost 的 7 层反向代理
   - 服务端支持 http, tcp, udp, kcp
@@ -22,27 +22,28 @@ title: FRP
   - xtcp 点到点穿透率低, 基本失败, 如果需要 p2p 可选择 tinc.
 
 ## 配置
-* 配置会通过 tpl 渲染
-* 可通过 Envs 访问环境变量 - 例如 `server_addr = {{.Envs.SERVER_ADDR}}`
-* https 通过 SNI 路由
+
+- 配置会通过 tpl 渲染
+- 可通过 Envs 访问环境变量 - 例如 `server_addr = {{.Envs.SERVER_ADDR}}`
+- https 通过 SNI 路由
 
 :::caution
 
-* custom_domains 不能是 subdomain_host 子域名
-  * 但 a.b.c.com 也会认为是 c.com 子域名
-* subdomain 不能包含 `.` 和 `*`
-* frps 没有 reload 因此修改配置需要重启
-* visitor 端需要配置 server_name
+- custom_domains 不能是 subdomain_host 子域名
+  - 但 a.b.c.com 也会认为是 c.com 子域名
+- subdomain 不能包含 `.` 和 `*`
+- frps 没有 reload 因此修改配置需要重启
+- visitor 端需要配置 server_name
 
 :::
 
-* https2https
-* https2http
-* [http2https](https://github.com/fatedier/frp/blob/master/pkg/plugin/client/http2https.go)
-  * 不需要证书 - 将 https 暴露为 http - type=http
-  * plugin_local_addr
-  * plugin_host_header_rewrite
-  * plugin_header_
+- https2https
+- https2http
+- [http2https](https://github.com/fatedier/frp/blob/master/pkg/plugin/client/http2https.go)
+  - 不需要证书 - 将 https 暴露为 http - type=http
+  - plugin_local_addr
+  - plugin_host_header_rewrite
+  - plugin*header*
 
 **frps.ini**
 
@@ -94,7 +95,7 @@ bind_udp_port = 7001
 # kcp udp 端口 - 未设置则不开启 kcp
 kcp_bind_port = 7000
 
-# 代理监听端口 - 默认为 bind_addr
+# 代理监听端口 - 默认为 bind_addr
 # proxy_bind_addr = 127.0.0.1
 
 # http 虚拟主机端口 - 可以与 bind_port 相同
@@ -469,6 +470,7 @@ custom_domains = tunnel1
 ## cookbook
 
 ### Kubernetes
+
 ```ini
 [kubernetes]
 local_ip = {{.Envs.KUBERNETES_SERVICE_HOST}}
@@ -490,13 +492,14 @@ curl -vik --resolve example.com:8443:127.0.0.1 https://example.com:8443/
 ```
 
 ### auto reload
+
 ```bash
 # 自动重载 - 需要开启 admin 端口
 # -e close_write 只监听单个事件 - k8s mount 不触发 close_write - 因为不是写文件
 # 会触发 delete
 
-while inotifywait -e attrib /etc/frp/frpc.ini; do frpc -c /etc/frp/frpc.ini reload ; done
-while inotifywait -e attrib /etc/frp/frpc.ini; do echo frpc.ini changed ; done
+while inotifywait -e attrib /etc/frp/frpc.ini; do frpc -c /etc/frp/frpc.ini reload; done
+while inotifywait -e attrib /etc/frp/frpc.ini; do echo frpc.ini changed; done
 # 监听目录
 inotifywait -r -m --format "%e %f" /etc/frp
 
@@ -504,8 +507,11 @@ inotifywait -e attrib -m --format "%e %f" /etc/frp/frpc.ini
 ```
 
 # FAQ
+
 ## get sid from visitor error
+
 nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他方案, 例如 tinc.
 
 ## start new visitor connection error: custom listener for [] doesn't exist
+
 visitor 端出现, 应该是没有配置 server_name

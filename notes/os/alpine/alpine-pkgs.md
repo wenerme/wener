@@ -37,10 +37,10 @@ git clone --depth 50 https://gitlab.alpinelinux.org/alpine/aports
 # 启动环境
 # 配置缓存
 docker run --rm -it \
-    -v $PWD:/build \
-    -v $PWD/distfiles:/var/cache/distfiles \
-    -v $PWD/cache:/etc/apk/cache \
-    --name builder wener/base:builder
+  -v $PWD:/build \
+  -v $PWD/distfiles:/var/cache/distfiles \
+  -v $PWD/cache:/etc/apk/cache \
+  --name builder wener/base:builder
 
 # 更新仓库
 sudo apk update
@@ -49,7 +49,10 @@ sudo apk update
 git config --global user.name "Your Full Name"
 git config --global user.email "your@email.address"
 # 个人信息
-[ -e ~/.abuild/abuild.conf ] || { mkdir -p ~/.abuild; echo "PACKAGER=\"$(git config --global user.name) <$(git config --global user.email)>\"" > ~/.abuild/abuild.conf; }
+[ -e ~/.abuild/abuild.conf ] || {
+  mkdir -p ~/.abuild
+  echo "PACKAGER=\"$(git config --global user.name) <$(git config --global user.email)>\"" > ~/.abuild/abuild.conf
+}
 # 生成密钥
 grep PACKAGER_PRIVKEY ~/.abuild/abuild.conf || abuild-keygen -ani
 
@@ -147,7 +150,8 @@ diff -u include/kernel.h include/kernel.h.new > ../../kernel-compact-5.4.patch
 nano APKBUILD
 abuild checksum
 # 验证 patch 正确性
-rm -rf src; abuild unpack prepare
+rm -rf src
+abuild unpack prepare
 # 构建
 abuild -r
 ```
@@ -185,8 +189,8 @@ rm -rf pkg && abuild rootpkg
 ```bash
 #!/bin/sh
 
-addgroup -S nebula 2>/dev/null
-adduser -S -D -H -s /bin/false -G nebula -g nebula nebula 2>/dev/null
+addgroup -S nebula 2> /dev/null
+adduser -S -D -H -s /bin/false -G nebula -g nebula nebula 2> /dev/null
 
 exit 0
 ```
@@ -218,15 +222,15 @@ output_log="/var/log/${RC_SVCNAME}.log"
 error_log="/var/log/${RC_SVCNAME}.log"
 
 depend() {
-        need net
-        use logger dns
-        after firewall
+  need net
+  use logger dns
+  after firewall
 }
 
 start_pre() {
-        $command -config $cfgfile -test
-        checkpath -f -m 0644 -o "$command_user" "$output_log" "$error_log"
-        checkpath -f -m 0640 -o "$command_user" "$cfgfile"
+  $command -config $cfgfile -test
+  checkpath -f -m 0644 -o "$command_user" "$output_log" "$error_log"
+  checkpath -f -m 0640 -o "$command_user" "$cfgfile"
 }
 ```
 
@@ -328,8 +332,39 @@ apk add --virtual .my-temp-proj foo bar
 apk add lua-aports
 # 在 aports 仓库下运行 - 每个仓库都要
 # ap revdep grpc-dev
-echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'echo {}:;cd {}; ap revdep grpc-dev'
-# 将依赖的 rev 增加
 
+# check affected
+echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'cd {}; ap revdep grpc-dev | xargs -rI % echo {}/%'
+# bump pkgrel
+echo -n main,community,testing | tr ',' '\n' | xargs -I {} sh -c 'cd {}; ap revdep grpc-dev | xargs -rI % echo {}/%' \
+  | xargs -I {} sed -ri 's/(pkgrel=)([0-9]+)/echo "\1$((\2+1))"/e' {}/APKBUILD
+# verify
+git diff --color=always | tee
+git add -u
 git commit -m '*: rebuild for libgrpc'
+```
+
+## maintain
+
+```bash
+# subshell - 避免污染环境
+pkgver=$(. APKBUILD && echo $pkgver)
+
+git add -u
+git commit -m "$(pwd | egrep -o '([^/]*/[^/]*)$'): upgrade to $(. APKBUILD && echo $pkgver)"
+
+# rebuild against PKG VER
+# rebuild for PKG
+
+gh=$(egrep -o 'github.com(/[^/"]+){2}' APKBUILD | head -1 | egrep -o '[^/]+/[^/]+$')
+latest=$(curl -sf https://data.jsdelivr.com/v1/package/resolve/gh/$gh@latest | jq .version -r)
+sed -ri "s/(pkgver=)(.+)/\1$latest/" APKBUILD
+git add APKBUILD
+# 不 add 则 --cached
+git diff --quiet --exit-code APKBUILD && echo Changed
+
+# if changed
+sed -ri "s/(pkgrel)=(.+)/\1=0/" APKBUILD
+abuild checksum
+git add -u
 ```

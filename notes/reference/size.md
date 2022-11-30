@@ -55,7 +55,7 @@ title: Size
 | 2 寸证件照 |            | 37  x  49 mm |
 | 标准 2 寸  |            |   37 x 53 mm |
 
-- 4R - 标准135底片尺寸
+- 4R - 标准 135 底片尺寸
 - R -> Rect
   - 2,4,6,8,10,12
 - S -> Sequre
@@ -72,11 +72,14 @@ title: Size
 | XGA     |  1024×768 px |
 | HD      |  1280×720 px |
 | -       |  1366×768 px |
+| -       |  1536×864 px |
 | -       |  1600×900 px |
 | Full HD | 1920×1080 px |
 | 2K      | 2048×1080 px |
 | UHD     | 3840×2160 px |
 | 4K      | 4096×2160 px |
+
+- https://gs.statcounter.com/screen-resolution-stats/desktop/worldwide
 
 | Mobile          |         Size |
 | --------------- | -----------: |
@@ -89,6 +92,11 @@ title: Size
 | AD     | Size      |
 | ------ | --------- |
 | Banner | 468×60 px |
+
+| Size        | Screen   |
+| ----------- | -------- |
+| 2880 x 1800 | MBP 15   |
+| 2560 x 1440 | QHD/WQHD |
 
 <!--
 720x400
@@ -104,3 +112,7 @@ https://wiki.osdev.org/Text_Mode_Cursor#Font_based_.22graphical.22_cursor
 https://retrocomputing.stackexchange.com/a/14808
 
 -->
+
+```bash
+system_profiler SPDisplaysDataType | grep Resolution
+```

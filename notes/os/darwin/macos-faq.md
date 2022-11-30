@@ -316,3 +316,13 @@ sudo chown _coreaudiod:admin ~/Library/Preferences/Audio
 ```
 
 - https://forums.macrumors.com/threads/fix-sustained-12-15-coreaudiod-cpu-usage-on-m1-possibly-intel-too.2331498/
+
+## bindfs
+
+- fuse
+
+```bash
+brew install gromgit/fuse/bindfs-mac
+
+bindfs a b
+```

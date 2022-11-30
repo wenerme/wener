@@ -1,10 +1,10 @@
 SHELL:=env bash -O extglob -O globstar
 
 status:
-	git add -u && git diff --staged --stat | tee
+	git add -u && git diff --color=always --staged --stat | tee
 
 pull:
-	git pull --rebase --autostash origin master
+	git pull --rebase --autostash origin $(shell git branch --show-current)
 
 prepare-tikz:
 	apk add texlive icu-data-full texmf-dist-latexextra texmf-dist-langchinese texmf-dist-pictures
