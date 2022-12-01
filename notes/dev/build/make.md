@@ -203,6 +203,21 @@ doit: project.out
 | .EXTRA_PREREQS            |
 | MAKECMDGOALS              | make 时的目标 |
 | MAKE                      | make          |
+| MAKEFILES                 |
+
+- CURDIR
+  - 尽量用 CURDIR
+  - 由 make 维护
+  - 支持 `-C` 切换
+- PWD
+  - 环境变量提供
+
+```makefile
+info:
+  echo $(info CURDIR is from $(origin CURDIR)) $(info PWD is from $(origin PWD))
+```
+
+- https://www.gnu.org/software/make/manual/html_node/Quick-Reference.html
 
 ## Targets
 

@@ -115,3 +115,9 @@ mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 ## How to ask
 
 - https://stackoverflow.com/help/minimal-reproducible-example
+
+## 127.0.0.1 vs localhost
+
+尽量使用 127.0.0.1
+
+- https://datatracker.ietf.org/doc/html/rfc8252#section-7.3

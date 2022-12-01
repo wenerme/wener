@@ -22,6 +22,12 @@ tags:
 - https://apistylebook.com/
   - http://apistylebook.com/design/guidelines/
 - https://github.com/restcookbook/restcookbook
+- [Atlassian REST API design guidelines version 1](https://developer.atlassian.com/server/framework/atlassian-sdk/atlassian-rest-api-design-guidelines-version-1/)
+  - 集合名字 singular
+- [adidas/api-guidelines](https://github.com/adidas/api-guidelines)
+  - https://adidas.gitbook.io/api-guidelines/
+- https://github.com/interagent/http-api-design
+- [WhiteHouse/api-standards](https://github.com/WhiteHouse/api-standards)
 
 ## pagination
 
@@ -30,6 +36,13 @@ tags:
 - Cursor/Limit
   - cursor+limit
   - 时间: until, since
+- Zalando
+  - sort - `+id,-name`,`-id`
+    - `+` asc, `-` desc
+- Google API
+  - order_by - `field [asc|desc],...`
+- MS API
+  - orderBy=name desc,hireDate
 
 ```json title="Meta GQL.json"
 {
