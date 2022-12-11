@@ -1,5 +1,7 @@
 ---
 title: CentOS FAQ
+tags:
+  - FAQ
 ---
 
 # CentOS FAQ

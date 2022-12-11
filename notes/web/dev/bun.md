@@ -39,8 +39,8 @@ bun bun src/index.js
 
 ## ffi
 
-```js
-import {viewSource} from 'bun:ffi';
+```ts
+import { viewSource } from 'bun:ffi';
 
 // 生成的 C 代码
 console.log(

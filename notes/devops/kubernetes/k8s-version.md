@@ -1,5 +1,7 @@
 ---
 title: Kubernetes 版本
+tags:
+- Version
 ---
 
 # Kubernetes 版本
@@ -8,9 +10,13 @@ title: Kubernetes 版本
   - CSIMigrationXxx - 内置 CSI 迁移为外部 CSI 驱动
   - [pkg/features/kube_features.go](https://github.com/kubernetes/kubernetes/blob/master/pkg/features/kube_features.go)
 - [kubernetes/enhancements](https://github.com/kubernetes/enhancements)
+- 每年 3 版本，约 15 周一个版本
+- 一个版本支持 1 年
+- [Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/)
 
 | version                            | release    |
 | ---------------------------------- | ---------- |
+| [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |
 | [Kubernetes 1.24](#kubernetes-124) | 2022-05-03 |
 | [Kubernetes 1.23](#kubernetes-123) | 2021-12-07 |
 | [Kubernetes 1.22](#kubernetes-122) | 2021-08-04 |
@@ -20,6 +26,10 @@ title: Kubernetes 版本
 
 - 参考
   - [废弃 API 迁移文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide)
+- 如何选择版本
+  - GKE 最近 2 版本
+    - https://cloud.google.com/kubernetes-engine/versioning
+  - AKS 最近 4 版本
 
 | API                       | from  | to    |
 | ------------------------- | ----- | ----- |
@@ -64,6 +74,16 @@ title: Kubernetes 版本
 [cronjobcontrollerv2]: ./k8s-features.md#CronJobControllerV2
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
+
+## Kubernetes 1.25
+
+- ~~PodSecurityPolicy~~
+- Stable
+  - Pod Security Admission
+  - Ephemeral Containers
+  - cgroups v2
+- k8s.gcr.io -> registry.k8s.io
+- KMS v2
 
 ## Kubernetes 1.24
 

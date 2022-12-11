@@ -222,10 +222,9 @@ profile:
 dns:
   enable: false
   listen: 0.0.0.0:53
-  # ipv6: false # when the false, response to AAAA questions will be empty
+  # ipv6: false # 是否响应 AAAA
 
-  # These nameservers are used to resolve the DNS nameserver hostnames below.
-  # Specify IP addresses only
+  # 默认上游 NS
   default-nameserver:
     - 114.114.114.114
     - 8.8.8.8
@@ -240,9 +239,11 @@ dns:
   #   - '*.lan'
   #   - localhost.ptlogin2.qq.com
 
-  # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
-  # All DNS questions are sent directly to the nameserver, without proxies
-  # involved. Clash answers the DNS question with the first result gathered.
+
+  # 支持 UDP, TCP, DoT, DoH
+  # 支持指定端口
+  # 返回第一个响应
+  # 不会走代理
   nameserver:
     - 114.114.114.114 # default value
     - 8.8.8.8 # default value
@@ -250,10 +251,8 @@ dns:
     - https://1.1.1.1/dns-query # DNS over HTTPS
     - dhcp://en0 # dns from dhcp
 
-  # When `fallback` is present, the DNS server will send concurrent requests
-  # to the servers in this section along with servers in `nameservers`.
-  # The answers from fallback servers are used when the GEOIP country
-  # is not `CN`.
+  # 在 nameservers 之外并发请求 DNS
+  # 用于 GEOIP 非 CN 时
   # fallback:
   #   - tcp://1.1.1.1
 
@@ -278,7 +277,7 @@ dns:
   #     - '+.facebook.com'
   #     - '+.youtube.com'
 
-  # Lookup domains via specific nameservers
+  # 针对域名配置 NS
   # nameserver-policy:
   #   'www.baidu.com': '114.114.114.114'
   #   '+.internal.crop.com': '10.0.0.1'

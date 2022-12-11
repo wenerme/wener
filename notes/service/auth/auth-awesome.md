@@ -92,7 +92,8 @@ tags:
 - 参考
   - RBAC - 角色固定
   - ReBAC - 基于关系
-  - ABAC - 基于熟悉，任意属性
+  - ABAC - 基于属性，任意属性
+  - HBAC - Host Based Access Control
   - [What is Zanzibar?](https://authzed.com/blog/what-is-zanzibar/)
   - https://www.osohq.com/learn/google-zanzibar
 

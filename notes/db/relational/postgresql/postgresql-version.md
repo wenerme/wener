@@ -14,7 +14,7 @@ tags:
 
 | PostgreSQL      | Release Date |
 | --------------- | ------------ |
-| [PostgreSQL 15] |              |
+| [PostgreSQL 15] | 2022-10-13   |
 | [PostgreSQL 14] | 2021-09-30   |
 | [PostgreSQL 13] | 2020-09-24   |
 | [PostgreSQL 12] | 2019-10-03   |

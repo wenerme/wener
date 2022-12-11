@@ -63,15 +63,17 @@ service networking restart
 setup-sshd -c openssh
 # 默认情况下不允许 root 远程登陆
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-service sshd restart
+service sshd reload
 # 设置一个密码, 以便于远程登陆
-passwd
+# passwd
+echo root:PASSWORD | chpasswd
+
 # 注意: 如果远程登陆说密码失效, 可能是时间问题, 先在服务器上开启 ntp 同步时间
 # 立即同步时间 ntpd -dn -N -p pool.ntp.org
 
 # 远程证书配置好过后可以考虑关闭远程密码登陆
 echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
-service sshd restart
+service sshd reload
 
 # 接下来就可以远程操作了
 setup-hostname -n alpine-test

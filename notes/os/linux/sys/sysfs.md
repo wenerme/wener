@@ -59,3 +59,20 @@ Capacity                                                    =   49.7 [%]
 modprobe i2c-dev
 sensors-detect
 
+
+## /sys/kernel
+
+- /sys/kernel/debug
+- /sys/kernel/security
+  - securityfs
+- /proc/sys/kernel/hotplug
+- /sys/kernel/config
+- /sys/firmware/efi/efivars
+- /sys/fs/pstore
+- /etc/init.d/sysfs
+
+```bash
+modprobe configfs
+grep "configfs$" /proc/filesystems
+mount -n -t configfs -o nodev,noexec,nosuid configfs /sys/kernel/config
+```

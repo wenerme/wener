@@ -89,6 +89,8 @@ https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?
 - RSA2048 key
   - `openssl genrsa -out private.pem 2048`
   - `openssl rsa -in private.pem -pubout -out public.pem`
+- 参考
+  - https://developer.work.weixin.qq.com/document/path/91774
 
 # FAQ
 

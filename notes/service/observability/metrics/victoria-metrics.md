@@ -184,3 +184,5 @@ vmctl prometheus --prom-snapshot thanos-data --vm-addr http://victoria-metrics:8
 ## cannot handle more than 4 concurrent inserts during 1m0s
 
 尝试增加 vmstorage 资源，检查 vmstorage 状态。
+
+## too many open files

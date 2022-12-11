@@ -38,6 +38,7 @@ tags:
 ## UI
 
 - [maxogden/menubar](https://github.com/maxogden/menubar)
+  - 菜单栏应用
 - [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
   macOS + Windows 10 UI
 - [kapetan/titlebar](https://github.com/kapetan/titlebar)

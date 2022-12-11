@@ -205,3 +205,10 @@ curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
   - 永久，客户端下次可能直接映射重定向后的地址
 - 302 Found / Moved Temporarily
   - 临时，还会再请求
+- 303 See Other
+  - 特定语义
+- 307 Temporary Redirect
+  - 请求重发
+  - 支持 POST
+- 308 Permanent Redirect
+  - 类似 301 但不允许修改 method

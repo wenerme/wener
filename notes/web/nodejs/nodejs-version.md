@@ -33,6 +33,12 @@ tags:
 
 ## Node v18 LTS
 
+:::caution
+
+- fetch 不支持指定 agent 做代理 [#43187](https://github.com/nodejs/node/issues/43187)
+
+:::
+
 - fetch
 - Web Streams API
 - `node:*` Prefix-only core Modules

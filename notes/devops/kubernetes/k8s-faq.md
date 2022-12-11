@@ -670,3 +670,8 @@ env:
       fieldRef:
         fieldPath: spec.serviceAccountName
 ```
+
+## 镜像地址
+
+- k8s.gcr.io - 旧的
+- registry.k8s.io - 新的

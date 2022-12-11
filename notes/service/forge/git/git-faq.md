@@ -272,6 +272,35 @@ git log --all -- '*.wmv'
 git rev-list --all -- '*.wmv'
 ```
 
+## ci env var
+
+| env                     | form                        |
+| ----------------------- | --------------------------- |
+| CI_COMMIT_BRANCH        | `git branch --show-current` |
+| CI_COMMIT_MESSAGE       |
+| CI_COMMIT_DESCRIPTION   |
+| CI_COMMIT_AUTHOR        |
+| CI_COMMIT_TAG           |
+| CI_COMMIT_TAG_MESSAGE   |
+| CI_COMMIT_SHA           |
+| CI_COMMIT_SHORT_SHA     |
+| CI_COMMIT_REF_SLUG      |
+| CI_COMMIT_REF_PROTECTED |
+| CI_COMMIT_REF_NAME      |
+| CI_DEFAULT_BRANCH       |
+| CI_COMMIT_TITLE         |
+| CI_COMMIT_TIMESTAMP     |
+
+```bash
+# 获取 tag 的方式
+git describe --tags
+git describe --exact-match --tags $(git log -n1 --pretty='%h')
+git tag --points-at HEAD
+git describe --tags --abbrev=0
+```
+
+- https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+
 ## skip ci
 
 - 一般都支持 message 包含 `[ci skip]`, `[skip ci]`

@@ -57,3 +57,5 @@ file * | grep SQLite | cut -d ':' -f 1
 - chrome://version
   - Profile Path
 - [User Data Dir](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md)
+
+## Flags

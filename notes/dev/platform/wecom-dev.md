@@ -70,17 +70,23 @@ title: 企业微信开发
   - 安装完成回调域名
     - 包含临时 auth_code，再用此 code 换取永久授权码
 
-| ID Prefix | stand for             | demo                             |
-| --------- | --------------------- | -------------------------------- |
-| oa        | union id              |
-| ww        | CorpID/SuitID         | ww000000000000000a               |
-| wr        | wecom room id         | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
-| wm        | external open/user id | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
-| wo        | open id               |
-| tj        | suite id/早期套件     | tjddddccc7775555aaa              |
-| 1000000   | 自建 agent id         | 1000001                          |
-| 2000000   | 系统应用 agent id     | 2000004 会话归档                 |
-| 3000000   | 管理应用 agent id     | 3010084 日程                     |
+| ID Prefix | stand for              | demo                             |
+| --------- | ---------------------- | -------------------------------- |
+| oa        | union id               |
+| ww        | CorpID/SuitID          | ww000000000000000a               |
+| wr        | wecom room id          | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
+| wm        | external open/user id  | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
+| wmV       | external member wechat |
+| wrV       | external rootm id      |
+| wo        | 企业微信外部联系人 open id                |
+| o         | openid                 |
+| tj        | suite id/早期套件      | tjddddccc7775555aaa              |
+| 1000000   | 自建 agent id          | 1000001                          |
+| 2000000   | 系统应用 agent id      | 2000004 会话归档                 |
+| 3000000   | 管理应用 agent id      | 3010084 日程                     |
+
+- https://developer.work.weixin.qq.com/document/path/95327
+  - 企业微信帐号ID安全性全面升级
 
 ## UserAgent
 

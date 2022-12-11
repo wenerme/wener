@@ -6,6 +6,57 @@ tags:
 
 # NextJS FAQ
 
+## 环境变量
+
+- dotenv 会自动 reload
+- .env 加载顺序
+  - `.env.$(NODE_ENV).local`
+    - development production test
+    - 不该加到 git 参考
+  - .env.local
+    - 不会打包到 standalone
+    - test 不会加载
+  - `.env.$(NODE_ENV)`
+  - .env
+    - 会被打包到 standalone
+
+```ts
+// 测试加载
+import { loadEnvConfig } from '@next/env';
+export default async () => {
+  const projectDir = process.cwd();
+  loadEnvConfig(projectDir);
+};
+```
+
+- 默认暴露到前端 `NEXT_PUBLIC_`
+- NEXTAUTH_URL
+  - [next-auth](./next-auth.md)
+- NEXT_PUBLIC_VERCEL_URL
+- 参考
+  - https://vercel.com/docs/concepts/projects/environment-variables#system-environment-variables
+
+| env                    | demo                                 | production                     |
+| ---------------------- | ------------------------------------ | ------------------------------ |
+| BASE_PATH              | /auth                                |
+| NEXT_PUBLIC_URL        | http://127.0.0.1:$PORT               | https://wener.me               |
+| NEXT_PUBLIC_BASE_PATH  | `$BASE_PATH `                        |
+| NEXT_PUBLIC_BASE_URL   | `$NEXT_PUBLIC_URL$BASE_PATH`         |
+| NEXTAUTH_URL           |
+| PORT                   | 3000                                 |
+| NEXTAUTH_URL           | http://127.0.0.1:$PORT/auth/api/auth | https://wener.me/auth/api/auth |
+| NEXTAUTH_URL_INTERNAL  | http://127.0.0.1:$PORT/auth/api/auth |
+| NEXTAUTH_SECRET        |                                      | 生产环境必须                   |
+| NEXT_PUBLIC_VERCEL_URL |
+
+```ini
+PORT=3000
+BASE_PATH=/auth
+NEXTAUTH_URL=http://127.0.0.1:$PORT/auth/api/auth
+NEXTAUTH_URL_INTERNAL=http://127.0.0.1:$PORT/auth/api/auth
+NEXTAUTH_SECRET=
+```
+
 ## pathname vs asPath
 
 | path          | pathname     | asPath          |

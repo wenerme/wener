@@ -4,7 +4,9 @@ title: limits
 
 # LIMIT
 
-- linux-pam 提供
+- **linux-pam** 提供
+  - /etc/pam.d/su
+  - `session    required   pam_limits.so`
 - /etc/security/limits.conf - 全局配置
 - /etc/security/limits.d/ - 通常用于配置单个进程
 - 参考
@@ -21,8 +23,17 @@ title: limits
 # 查看其他进程的 limits
 cat /proc/1/limits
 
-# 修改其他线程
+# 修改已运行进程
+# util-linux-2.21
 prlimit --pid $(pidof prometheus) --nofile=65535:65535
+
+cat /proc/sys/fs/file-max # 最大 fd 19778411
+cat /proc/sys/fs/nr_open  # 1048576 - 1024*1024 - nofile hard limit 最大值
+cat /proc/sys/fs/file-nr  # 已分配 0 最大
+
+# 19778411
+sysctl fs.file-max
+# sysctl -w fs.file-max=19778411
 ```
 
 | conf/item    | type                        | unit         | flag | value     | flavor         |
@@ -105,3 +116,35 @@ ftp             hard    nproc           0
   - `-` - soft+hard
 - value
   - -1, unlimited, infinity - 无限制
+
+## 建议
+
+```txt title="/etc/security/limits.d/default.conf"
+* hard nofile 65536
+* soft nofile 4096
+```
+
+```txt title="kubernetes-nobody.conf"
+nobody soft nofile 40960
+```
+
+## 统计
+
+```bash
+# nproc
+ps h -Led -o user | sort | uniq -c | sort -n
+```
+
+## SSH limits 不生效
+
+**sshd_config**
+
+```
+UsePrivilegeSeparation no
+```
+
+或
+
+```
+UsePAM yes
+```

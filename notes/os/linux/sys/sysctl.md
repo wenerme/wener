@@ -15,6 +15,8 @@ title: sysctl
   - `/etc/sysctl.conf`
 - /proc/sys
 - [networking/ip-sysctl.txt](https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt)
+- https://sysctl-explorer.net/
+  - [proudier/sysctl-explorer](https://github.com/proudier/sysctl-explorer)
 
 ```bash
 sysctl -p       # 加载 文件 - 默认为 /etc/sysctl.conf

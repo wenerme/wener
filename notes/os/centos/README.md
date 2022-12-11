@@ -4,12 +4,6 @@ title: CentOS
 
 # CentOS
 
-- 下载
-  - [cloud.centos.org/centos](https://cloud.centos.org/centos)
-- kernel-core - 安装后 70MB
-  - 包含内核，依赖 linux-firmware
-    - linux-firmware 安装后 350MB
-
 :::caution
 
 - 2020-12-08 宣布项目于 2021 年底停止 - 最后版本 8.4.2105, 7.9-2009
@@ -18,6 +12,12 @@ title: CentOS
   - AlmaLinux - 由 CloudLinux 维护
 
 :::
+
+- 下载
+  - [cloud.centos.org/centos](https://cloud.centos.org/centos)
+- kernel-core - 安装后 70MB
+  - 包含内核，依赖 linux-firmware
+    - linux-firmware 安装后 350MB
 
 ```bash
 yum module list virt

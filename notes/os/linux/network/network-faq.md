@@ -224,3 +224,20 @@ ip addr add 192.168.1.2/24 dev eth0 label eth0:0
 ---
 
 - https://www.tigera.io/blog/comparing-kube-proxy-modes-iptables-or-ipvs/
+
+## ss netstat 看不到进程
+
+```bash
+# 看不到进程
+sudo ss -lutp | grep 8472
+# -e 显示扩展信息 - 会看到在 cgroup 里 cgroup:/k3s
+sudo ss -lutpe | grep 8472
+
+# 获取 8472 对应的 inode - 然后可以用过 inode 反查
+INODE=$(sudo ss -lutpe | grep 8472 | grep -Eo 'ino:\d+' | grep -Eo '\d+')
+
+# lsof 看不到 PORT
+sudo lsof 2>/dev/null -nPi UDP | head
+```
+
+- https://serverfault.com/a/847910/190601

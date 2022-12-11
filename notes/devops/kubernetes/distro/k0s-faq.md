@@ -129,3 +129,21 @@ iface eth4 inet static
 ```bash
 ip ru del from 192.168.1.10
 ```
+
+## Error while reading from Writer: bufio.Scanner: token too long  component=kubelet
+
+```bash
+ps aux | grep keubelt
+```
+
+- 有可能 configmap 太大导致
+- k0s v1.23 - 重启后无法再启动
+- **系统重启后解决**
+  - 再次重启 k0s 出现相同问题
+
+
+## 手动启动
+
+```bash
+sudo k0s controller --config=/etc/k0s/k0s.yaml --enable-dynamic-config=true --enable-worker=true
+```

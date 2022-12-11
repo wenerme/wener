@@ -7,6 +7,12 @@ title: jq
 - https://jqplay.org/
 - https://stedolan.github.io/jq/manual/
 
+:::tip
+
+- jq 不支持 inplace 修改
+
+:::
+
 ```bash
 jq '.components.rows|=sort_by(.id)|.components.rows[].properties|=sort_by(.name)' file.json
 

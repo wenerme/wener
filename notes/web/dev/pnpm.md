@@ -342,8 +342,8 @@ packages:
 YAML
 
 pnpm add -Dw tsx turbo typescript ava esbuild
-pnpm add -Dw prettier prettier-plugin-pkg prettier-plugin-tailwindcss @trivago/prettier-plugin-sort-imports
-pnpm add -Dw eslint eslint-config-prettier
+pnpm add -Dw prettier prettier-plugin-{pkg,tailwindcss} @trivago/prettier-plugin-sort-imports
+pnpm add -Dw eslint eslint-config-{prettier,standard-with-typescript} eslint-plugin-{import,n,promise,react}
 pnpm add -Dw @types/node @types/react # hoist common dependencies
 pnpm add -Dw tailwindcss postcss cssnano # DevTools
 pnpm add -Dw @wener/wode

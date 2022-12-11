@@ -95,3 +95,7 @@ npx sequelize model:create --name User --attributes name:string,state:boolean,bi
   - test
   - production
 - --url
+
+## API
+
+- order

@@ -225,6 +225,10 @@ npm add date-fns lodash-es react-fast-compare
     - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
   - [nomcopter/react-mosaic](https://github.com/nomcopter/react-mosaic)
     - tiling window manager
+  - [zzarcon/react-cristal](https://github.com/zzarcon/react-cristal)
+    - simple window manager
+  - https://dev.to/jbdemonte/create-a-window-manager-with-react-3mak
+    - Create a window manager with React
   - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
     - 移动端屏高问题
 - carousel

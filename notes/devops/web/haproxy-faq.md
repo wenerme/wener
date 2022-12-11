@@ -27,3 +27,6 @@ use_backend s2 if { hdr(host) -i my2.domain.org }
 **可能的原因**
 
 - 系统依赖升级后未重启
+
+## HAProxy exit code 143
+- SIGTERM

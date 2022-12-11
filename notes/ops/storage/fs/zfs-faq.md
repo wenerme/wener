@@ -8,8 +8,8 @@ tags:
 
 :::tip
 
-- renameat2/overlayfs [#8648](https://github.com/openzfs/zfs/issues/8648)
-  - pr [#12209](https://github.com/openzfs/zfs/pull/12209)
+- renameat2/overlayfs ZFS v2.2+
+  - [zfs_rename: support RENAME_* flags](https://github.com/openzfs/zfs/commit/dbf6108b4df92341eea40d0b41792ac16eabc514)
 
 :::
 
@@ -251,7 +251,7 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 - zfs - 文件系统 - dataset
   - 快照、克隆
   - 文件系统有一定特性 - 也有缺陷
-    - 主要缺陷: 不支持 rename2/overlay
+    - ~~主要缺陷: 不支持 rename2/overlay~~ - ZFS v2.2+
 
 ## High System Usage
 
