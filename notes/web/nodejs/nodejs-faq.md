@@ -177,7 +177,7 @@ npm view sqlite3@3.1.3 binary             # aws
 npm view sqlite3@5.1.0 binary.module_name # github
 
 # install 包含 platform 和 libc 条件
-npm install --platform=linux --libc=libc --registry https://npm.apis.incos.cloud/
+npm install --platform=linux --libc=libc --registry https://npm.wener.me/
 
 npm install sqlite3 --node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3
 

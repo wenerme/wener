@@ -194,7 +194,7 @@ alias ldapsearch="ldapsearch -H ldap://127.0.0.1:10389 -D 'uid=admin,ou=system' 
 # 检测用户是否在组中
 ldapsearch -b 'cn=developer,ou=groups,dc=example,dc=com' '(&(member=uid=wener,ou=users,dc=example,dc=com))'
 
-ldapsearch -b 'ou=users,dc=incos,dc=dev' '(uid=wener.cyw)'
+ldapsearch -b 'ou=users,dc=wener,dc=me' '(uid=wener.cyw)'
 ```
 
 - [LDAP Schemas, objectClasses and Attributes](http://www.zytrax.com/books/ldap/ch3/)

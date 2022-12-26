@@ -121,3 +121,14 @@ mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 尽量使用 127.0.0.1
 
 - https://datatracker.ietf.org/doc/html/rfc8252#section-7.3
+
+## CRLF
+
+- 换行符 - new line - ␤ - line ending, end of line (EOL), next line (NEL), line break
+  - ⏎ - enter 符号
+- carriage return (CR) - ␍ - `\r`
+  - 以前的 Mac OS
+- line feed (LF) - ␊ - `\n`
+  - unix, macOS
+- crlf - `\r\n`
+  - Windows

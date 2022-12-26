@@ -88,6 +88,10 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - rule based
 - [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)
   - MIT, Go
+- [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
+  - GPL, Golang
+  - universal proxy platform
+- [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
 
 ## iOS
 
@@ -103,6 +107,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - Test Flight https://testflight.apple.com/join/J5QPqXKO
   - https://t.me/choc_channel
   - https://t.me/choc_chat
+
 
 # 库
 
@@ -150,6 +155,8 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - [yrutschle/sslh](https://github.com/yrutschle/sslh) - Applicative Protocol Multiplexer
   - C
   - HTTP, TLS/SSL (including SNI and ALPN), SSH, OpenVPN, tinc, XMPP, SOCKS5
+- [joeferner/node-http-mitm-proxy](https://github.com/joeferner/node-http-mitm-proxy)
+  - NodeJS
 
 ## GFW
 

@@ -1,14 +1,10 @@
 ---
-id: nextcloud-dev
 title: Nextcloud 开发
 ---
 
 # Nextcloud 开发
 
-## Tips
-
 - [接口文档](https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/instruction_set_for_users.html)
-
 
 ## NodeJS
 

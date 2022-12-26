@@ -172,6 +172,21 @@ Cube 计算
   - MIT, TS
   - Hasura+S3
   - Firebase Alternative with GraphQL
+- [surrealdb/surrealdb](https://github.com/surrealdb/surrealdb)
+  - 服务端 Rust, BSL
+  - 概念 NAMESPACE, DATABASE
+  - 本地存储: RocksDB
+  - 分布式存储: tikv
+
+```bash
+docker run --rm -p 8000:8000 surrealdb/surrealdb:latest start --log debug --user root --pass root
+
+curl --request POST \
+  --header "Accept: application/json" \
+  --user "root:root" \
+  --data "INFO FOR DB;" \
+  http://localhost:8000/sql
+```
 
 ## SQLite Awesome
 

@@ -198,9 +198,9 @@ path = /handler
 ops = NewProxy
 ```
 
-### frpc.ini
+## frpc.ini
 
-#### common
+### common
 
 ```ini
 [common]
@@ -275,7 +275,7 @@ meta_var2 = 234
 udp_packet_size = 1500
 ```
 
-#### proxy
+### proxy
 
 - 每个 section 为一个代理配置
 - 如果配置了 user 则名字为 `{user}.{proxy}`

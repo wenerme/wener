@@ -24,6 +24,8 @@ title: trpc
 
 :::caution
 
+- 因为核心是使用 typescript 类型，类型不好 bundle，不方便分享给别的项目
+  - https://github.com/trpc/trpc/discussions/1860
 - Support for additional Content-Types [#1937](https://github.com/trpc/trpc/issues/1937)
 
 :::

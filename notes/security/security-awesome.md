@@ -154,6 +154,19 @@ tags:
 - used by
   - US Government to protect their own files - [FIPS 197](http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf)
 
+## Block cipher mode
+
+- https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+ECB should not be used if encrypting more than one block of data with the same key.
+
+CBC, OFB and CFB are similar, however OFB/CFB is better because you only need encryption and not decryption, which can save code space.
+
+- CTR 并行效率高于 CBC/OFB/CFB
+- https://stackoverflow.com/a/1220869/1870054
+- https://stackoverflow.com/questions/1220751
+
+
 ## Spam
 
 - [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)

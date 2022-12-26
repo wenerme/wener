@@ -264,12 +264,20 @@ tags:
 
 ## Tool
 
-- Hoppscotch
-- [google/gnostic](https://github.com/google/gnostic)
+- [Hoppscotch](./hoppscotch.md)
+  - MIT, Vue+Typescript
+  - 不能持久化
 - [Kong/insomnia](https://github.com/Kong/insomnia)
+  - MIT, JS+TS
+  - GraphQL, REST, WebSockets, gRPC
+  - 需要上传才能同步
+- [google/gnostic](https://github.com/google/gnostic)
 - [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 - [EsperoTech/yaade](https://github.com/EsperoTech/yaade)
   - self-hosted, collaborative API development environment
+- SoapUI
+- [kubeshop/tracetest](https://github.com/kubeshop/tracetest)
+- Postman
 
 ## 参考
 

@@ -396,6 +396,8 @@ npm add date-fns lodash-es react-fast-compare
   - 12kB/4.7kB
     - goober 2.5kB/1.3kB
       - css-in-js alternative
+- [devbookhq/splitter](https://github.com/devbookhq/splitter)
+  - 切分面板
 
 ### 虚拟滚动
 

@@ -16,6 +16,34 @@ spec:
   clusterIP: None
 ```
 
+## 接口 CURL
+
+```bash
+curl --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt --header "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" -X GET https://kubernetes.default.svc/api
+```
+
+```bash
+# Point to the internal API server hostname
+APISERVER=https://kubernetes.default.svc
+
+# Path to ServiceAccount token
+SERVICEACCOUNT=/var/run/secrets/kubernetes.io/serviceaccount
+
+# Read this Pod's namespace
+NAMESPACE=$(cat ${SERVICEACCOUNT}/namespace)
+
+# Read the ServiceAccount bearer token
+TOKEN=$(cat ${SERVICEACCOUNT}/token)
+
+# Reference the internal certificate authority (CA)
+CACERT=${SERVICEACCOUNT}/ca.crt
+
+# Explore the API with TOKEN
+curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/api
+```
+
+- https://kubernetes.io/docs/tasks/run-application/access-api-from-pod/#without-using-a-proxy
+
 ## 注入环境变量
 
 ```yaml

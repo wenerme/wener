@@ -37,3 +37,13 @@ docker run --rm -it \
 # 拷贝配置
 docker cp collabora:/etc/loolwsd/loolwsd.xml loolwsd.xml
 ```
+
+## CODE
+
+- `https://<DOMAIN>/browser/dist/admin/admin.html`
+  - 管理界面
+  - 能看到内存和在线用户
+
+## Docker
+
+- https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html?highlight=acceptable%20wopi%20hosts#setting-the-application-configuration-dynamically-via-environment-variables

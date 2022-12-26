@@ -76,6 +76,14 @@ tags:
   - Go 1.19
 - openssl1.1-compat 兼容 OpenSSL 1
 
+```bash
+apk upgrade libcrypto3 libssl3 apk-tools
+apk upgrade -a
+
+# 从 util-linux-misc 移到了独立包
+apk add mount umount
+```
+
 ## AlpineLinux 3.16
 
 - 新的 setup-desktop

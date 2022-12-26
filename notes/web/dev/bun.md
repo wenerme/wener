@@ -55,3 +55,5 @@ console.log(
   )[0],
 );
 ```
+
+# FAQ

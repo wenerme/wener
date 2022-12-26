@@ -5,10 +5,12 @@ tags:
 
 # Accounting Glossary
 
-| abbr. | stand for                        | mean       |
-| ----- | -------------------------------- | ---------- |
-| CPA   | Certified Public Accountant | 注册会计师 |
-| TA    |                                  | 税务师     |
+| abbr. | stand for                   | mean           | note                 |
+| ----- | --------------------------- | -------------- | -------------------- |
+| CPA   | Certified Public Accountant | 注册会计师     |
+| TA    |                             | 税务师         |
+| IRS   | Internal Revenue Service    | 美国国家税务局 | https://www.irs.gov/ |
+| IRC   | 國稅法規                    |
 
 | abbr.   | stand for                                              | mean                 |
 | ------- | ------------------------------------------------------ | -------------------- |
@@ -20,6 +22,10 @@ tags:
 | Account reconciliations | 对账       |
 | Balance sheet           | 资产负债表 |
 | Accountant              | 会计师     |
+| social security         | 社保       |
+| individual tax          | 个税       |
+| Personal Income Tax     | 个人所得税 |
+| imposition              | 征收       |
 
 - EBITA
 

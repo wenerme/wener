@@ -27,9 +27,5 @@ module.exports = {
   plugins: [
     require('prettier-plugin-pkg'),
     require('prettier-plugin-sh'),
-    // require('prettier-plugin-tailwindcss'),
-    // require('@trivago/prettier-plugin-sort-imports'),
-    //
   ],
-  // tailwindConfig: './apps/incos-web/tailwind.config.js',
 };

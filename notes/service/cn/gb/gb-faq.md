@@ -24,3 +24,11 @@ tags:
 | 6   | 3-8   | 登记管理机关行政区划码                                   |
 | 9   | 9-17  | 主体标识码/组织机构代码 - [GB 11714-1997](./gb-11714.md) |
 | 1   | 18    | 校验码                                                   |
+
+## 行政区划代码
+
+- 非常多 ID 里都会用到 6 位行政区划
+- 2021年10月31日 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/index.html
+- 2020 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/index.html
+- 2019 http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2019/index.html
+- [modood/Administrative-divisions-of-China](https://github.com/modood/Administrative-divisions-of-China)

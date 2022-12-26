@@ -36,8 +36,10 @@ tags:
 - [authelia/authelia](https://github.com/authelia/authelia)
   - Apache-2.0, Go
   - SSO Multi-Factor portal for web apps
+- [boxyhq/jackson](https://github.com/boxyhq/jackson)
+  - Apache-2.0, Typescript
 
-## Authorization
+## Authorization Design
 
 - Google Cloud
   - [Policies](https://cloud.google.com/iam/docs/policies)

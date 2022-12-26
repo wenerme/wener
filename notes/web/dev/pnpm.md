@@ -437,3 +437,21 @@ rm -rf ./node_modules/.pnpm/*
 ```
 
 - https://github.com/pnpm/pnpm/issues/4663
+
+## node_modules 相同包包含多个目录
+
+- 不同的 peer deps 会创建目录
+- https://github.com/pnpm/pnpm/issues/5807
+- https://pnpm.io/how-peers-are-resolved
+
+```bash
+grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' '
+
+grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
+```
+
+## peer deps
+
+```bash
+npx install-peerdeps --pnpm <your-package>
+```

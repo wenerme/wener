@@ -11,6 +11,16 @@ tags:
 - LibreOffice running natively in the browser via WebAssembly
   - [HN](https://news.ycombinator.com/item?id=30356020)
 
+| Project                                                                                     | License |
+| ------------------------------------------------------------------------------------------- | ------- |
+| [nextcloud/server](https://github.com/nextcloud/server)                                     | AGPL    |
+| [nextcloud/documentserver_community](https://github.com/nextcloud/documentserver_community) | AGPL    |
+| [ONLYOFFICE/CommunityServer](https://github.com/ONLYOFFICE/CommunityServer)                 | GPL     |
+| [ONLYOFFICE/onlyoffice-owncloud](https://github.com/ONLYOFFICE/onlyoffice-owncloud)         | AGPL    |
+| [ONLYOFFICE/DocumentServer](https://github.com/ONLYOFFICE/DocumentServer)                   | AGPL    |
+| [LibreOffice/core](https://github.com/LibreOffice/core)                                     | GPL     |
+
+
 ## Library
 
 - Java

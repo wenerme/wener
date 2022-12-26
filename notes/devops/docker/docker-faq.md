@@ -51,6 +51,10 @@ nano /etc/docker/daemon.json
 service docker start
 # 查看新的配置
 docker info | grep 'Root Dir'
+
+# 确认旧的目录没有被使用
+apk add lsof
+lsof +D /va/lib/docker
 ```
 
 ## No swap limit support
@@ -126,3 +130,16 @@ docker rm container
 ```bash
 sudo adduser $USER docker
 ```
+
+## bridge-nf-call-iptables
+
+```conf title="/etc/sysctl.d/99-br_netfilter.conf"
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-ip6tables=1
+```
+
+```bash
+sudo sysctl -p /etc/sysctl.d/99-br_netfilter.conf
+```
+
+## Cannot link to a non running container

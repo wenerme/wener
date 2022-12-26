@@ -201,3 +201,13 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 wsl --set-default-version 2
 ```
+
+## 检测是否运行在 WSL
+
+- /proc/sys/kernel/osrelease
+- /proc/version
+- Microsoft, WSL
+
+```bash
+uname -a
+```

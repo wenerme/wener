@@ -41,3 +41,21 @@ caddy reverse-proxy --to https://wener.me --internal-certs --from :8081 --change
 caddy add-package github.com/caddy-dns/cloudflare
 # caddy remove-package
 ```
+
+## Caddyfile
+
+
+```bash
+example.com {
+  gzip
+  reverse_proxy / 127.0.0.1:9000 {
+    transport fastcgi
+	}
+}
+```
+
+## Docker reload
+
+```bash
+docker exec -w /etc/caddy caddy caddy reload
+```

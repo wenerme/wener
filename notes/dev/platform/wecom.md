@@ -92,6 +92,19 @@ https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?
 - 参考
   - https://developer.work.weixin.qq.com/document/path/91774
 
+---
+
+获取 wr 和 wm 信息
+
+- 内部群 - inner room
+  - POST /cgi-bin/msgaudit/groupchat/get `{"roomid":""}`
+  - 会话存档 Secret 可调用
+- 外部客户群 - external contact group
+  - POST /cgi-bin/externalcontact/groupchat/get `{"chat_id":""}`
+- 外部客户群列表
+  - POST /cgi-bin/externalcontact/groupchat/list
+- **注意** 有的群是无法取到信息的，由微信拉起的群
+
 # FAQ
 
 ## redirect_uri 与配置的授权完成回调域名不一致

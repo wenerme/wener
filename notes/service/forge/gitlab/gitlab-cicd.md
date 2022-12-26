@@ -126,7 +126,7 @@ gitlabktl serverless build
 # 会往 registry-internal.wener.me/demo/函数名 推送镜像
 OPT="-e CI_REGISTRY=registry.wener.me -e CI_REGISTRY_USER='' -e CI_REGISTRY_PASSWORD='' -e CI_REGISTRY_IMAGE=registry-internal.wener.me/demo " gitlabktl serverless build
 # 运行刚才推送的仓库 - 使用的 functions-echo-js
-docker run -it --rm -p 8080:8080 registry-internal.incos.dev/demo/functions-echo-js
+docker run -it --rm -p 8080:8080 registry-internal.wener.me/demo/functions-echo-js
 ```
 
 ## Auto DevOps

@@ -96,3 +96,9 @@ rsync -zarv --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 # < 3.0.6
 rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
 ```
+
+## ssh port
+
+```bash
+rsync -e 'ssh -p 2222'
+```

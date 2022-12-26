@@ -24,6 +24,9 @@ title: sequelize
     - db schema -> sequelize schema
   - [sequelize-cli](https://github.com/sequelize/cli)
   - https://sequelize.org/docs/v7/other-topics/resources/
+  - [sequelize/sequelize-typescript](https://github.com/sequelize/sequelize-typescript)
+    - 注解支持 - 类似 typeorm
+    - 会合并到 v7 [#15334](https://github.com/sequelize/sequelize/issues/15334)
 - used by
   - [nocobase](https://github.com/nocobase/nocobase)
   - [atulmy/crate](https://github.com/atulmy/crate)
@@ -52,11 +55,29 @@ export enum QueryTypes {
 }
 ```
 
+:::caution
+
+- 不支持组合外键 [#311](https://github.com/sequelize/sequelize/issues/311)
+- 处于 v6 -> v7 阶段
+  - v7 Typescript 更好
+  - 但 v7 还是 alpha 阶段
+- 不支持 better-sqlit3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
+- 关联 many 查询不能 limit [#1897](https://github.com/sequelize/sequelize/issues/1897)
+- 不支持 deno [#12836](https://github.com/sequelize/sequelize/issues/12836)
+
+:::
+
 :::tip
 
 - Ability to get raw sql query [#2325](https://github.com/sequelize/sequelize/issues/2325)
 
 :::
+
+## builkUpsert
+
+```ts
+Model.bulkCreate([], { updateOnDuplicate: ['user_id', 'token', 'created_at'] });
+```
 
 ## sequelize-cli
 

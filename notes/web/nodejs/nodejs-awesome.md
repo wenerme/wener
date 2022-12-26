@@ -55,16 +55,22 @@ tags:
   - PostgreSQL client with strict types
   - string tag
 - [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
+  - MIT, Typescript
+  - Data Mapper, Unit of Work, Identity Map
+  - 使用注解定义模型
   - 基于 knex
+  - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
 - [koskimas/kysely](https://github.com/koskimas/kysely)
   - type-safe typescript SQL query builder
   - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
     - schema -> ts
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
+  - The future of Objection.js  [Vincit/objection.js#2335](https://github.com/Vincit/objection.js/issues/2335)
   - 🚧 开发停滞
   - SQL-friendly ORM
   - 基于 knex
-- [typeorm/typeorm](https://github.com/typeorm/typeorm)
+- [typeorm/typeorm](./typeorm.md)
+  - Future of TypeORM [typeorm#3267](https://github.com/typeorm/typeorm/issues/3267)
   - 基于 typescript decoration 的 ORM
   - 🚧 开发缓慢
 - [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
@@ -87,6 +93,35 @@ const res = await client.query('SELECT $1::text as message', ['Hello world!']);
 console.log(res.rows[0].message); // Hello world!
 await client.end();
 ```
+
+## Env
+
+- [nvm](https://github.com/nvm-sh/nvm)
+  - 独立 shell 脚本
+  - Alpine https://github.com/nvm-sh/nvm/issues/1102#issuecomment-683291852
+- [n](https://github.com/tj/n)
+  - node module
+- pnpm setup
+  - Could not infer shell type.
+    - `SHELL=bash pnpm setup`
+    - `export PNPM_HOME="/root/.local/share/pnpm"`
+  - `curl -fsSL https://get.pnpm.io/install.sh | bash -`
+  - `pnpm env use --global 16`
+  - 不支持 MUSL
+
+```bash
+# n on alpine
+apk add bash curl ca-certificates libstdc++ libgcc
+curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+chmod u+x n
+# 官方镜像
+# N_NODE_MIRROR=https://unofficial-builds.nodejs.org/download/release ./n --arch x64-musl lts
+# 国内镜像
+N_NODE_MIRROR=https://npmmirror.com/mirrors/node-unofficial-builds ./n --arch x64-musl lts
+```
+
+- https://npmmirror.com/mirrors/node-unofficial-builds/
+- https://registry.npmmirror.com/binary.html?path=node-unofficial-builds/
 
 ## Library
 

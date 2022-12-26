@@ -50,10 +50,10 @@ lbu lb               # 会显示 <hostname>.<YYYYMMDDHHmmSS>.apkovl.tar.gz
 [ $(lbu st | wc -c) = 0 ] && echo No change || lbu ci -v
 
 # 远程备份
-ssh root@client "lbu package -" > client.apkovl.tar.gz
-ssh admin@client "sudo lbu package -" > client.apkovl.tar.gz
+ssh root@server "lbu package -" > server.apkovl.tar.gz
+ssh admin@server "sudo lbu package -" > server.apkovl.tar.gz
 # 恢复
-cat client.aplovl.tar.gz | ssh admin@client 'sudo tar -C / --numeric-owner -zxvf - > /tmp/ovlfiles'
+cat server.aplovl.tar.gz | ssh admin@server 'sudo tar -C / --numeric-owner -zxvf - > /tmp/ovlfiles'
 
 # diff
 tar df os.apkvol.tar.gz -C / # 汇报修改

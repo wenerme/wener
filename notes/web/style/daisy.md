@@ -16,6 +16,7 @@ title: daisy
   - 部分调整 圆角+动画
 - 参考
   - [daisyui/react-daisyui](https://github.com/daisyui/react-daisyui)
+  - My Playground https://play.tailwindcss.com/57Qbi1wFpT
 
 :::tip
 

@@ -17,7 +17,7 @@ tags:
 | [Chrome 105](#chrome-105) | 2022-08-30 | Container Query, :has, import.meta.resolve, HEVC  |
 | [Chrome 104](#chrome-104) |            |
 | [Chrome 103](#chrome-103) |            | Local Font Access                                 |
-| [Chrome 102](#chrome-102) |            | DNS HTTPS                                         |
+| [Chrome 102](#chrome-102) | 2022-05-24 | DNS HTTPS, Navigation                             |
 | [Chrome 101](#chrome-101) |            |
 | [Chrome 100](#chrome-100) | 2022-03-29 |
 | [Chrome 99](#chrome-99)   |            | @layer                                            |

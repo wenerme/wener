@@ -53,7 +53,7 @@ _acme-challenge.domain.tld 6f449871-18d4-4239-851c-8c221d56750f.auth.acme-dns.io
 
 ```bash
 dig CNAME _acme-challenge.domain.tld # 检测 CNAME 正确
-dig TXT _acme-challenge.w.wode.co    # 检测正确设置 challenge
+dig TXT _acme-challenge.domain.tld    # 检测正确设置 challenge
 ```
 
 ## cert-manager

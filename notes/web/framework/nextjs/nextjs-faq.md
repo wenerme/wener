@@ -57,6 +57,24 @@ NEXTAUTH_URL_INTERNAL=http://127.0.0.1:$PORT/auth/api/auth
 NEXTAUTH_SECRET=
 ```
 
+## socket hang up - 30s timeout
+
+- rewrite 时出现
+- 本地测试可以 Disabling HTTP Keep-Alive
+  - https://nextjs.org/docs/api-reference/next.config.js/disabling-http-keep-alive
+- 线上可以配置 experimental.proxyTimeout
+
+```js
+module.exports = {
+  httpAgentOptions: {
+    keepAlive: false,
+  },
+  experimental: {
+    proxyTimeout: 30_000, // 默认 30s
+  },
+};
+```
+
 ## pathname vs asPath
 
 | path          | pathname     | asPath          |

@@ -5,8 +5,6 @@ title: NextCloud
 
 # NextCloud
 
-## Tips
-
 - [Primary Storage](https://docs.nextcloud.com/server/11/admin_manual/configuration_files/primary_storage.html)
   - 可以使用 S3 或 Swift 作为主要存储
   - [lib/Files/ObjectStore](https://github.com/nextcloud/server/tree/master/lib/private/Files/ObjectStore)
@@ -141,3 +139,28 @@ done
 ## Notes
 
 - [admin manual](https://docs.nextcloud.com/server/latest/admin_manual/index.html)
+
+## Docker All in One
+
+> **Note**
+>
+> - 是通过将 docker 映射到容器内，启动 composer 完成
+> - 可以参考逻辑
+
+- Nextcloud + Office + Backend + [borg](https://github.com/borgbackup/borg) Backup + Imaginary + ClamAV + Full text search
+
+```bash
+docker run \
+  --sig-proxy=false \
+  --name nextcloud-aio-mastercontainer \
+  --restart always \
+  --publish 80:80 \
+  --publish 8080:8080 \
+  --publish 8443:8443 \
+  --volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
+  --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+  nextcloud/all-in-one:latest
+```
+
+- 3478 Turnserver for talk
+- https://github.com/nextcloud/all-in-one

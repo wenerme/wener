@@ -14,6 +14,7 @@ title: Puppeteer
 :::caution
 
 - Alpine 下有问题 [#7746](https://github.com/puppeteer/puppeteer/issues/7746)
+  - 在 Alpine 下额外安装，然后配置 PUPPETEER_EXECUTABLE_PATH
 
 :::
 
@@ -136,3 +137,19 @@ var browser = await puppeteer.launch({
 ```
 
 - root 必须要 `--no-sandbox`
+
+
+## Failed to adjust OOM score of renderer with pid 799: Permission denied
+
+- --no-sandbox
+- SYS_ADMIN
+- seccomp
+- https://github.com/Zenika/alpine-chrome/issues/109
+- https://github.com/Zenika/alpine-chrome/blob/master/examples/k8s/deployment.yml
+
+## Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+
+```bash
+apk add dbus
+service dbus start
+```

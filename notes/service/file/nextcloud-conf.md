@@ -6,7 +6,41 @@ tags:
 
 # Nextcloud 配置
 
+:::tip
+
+- 环境变量会覆盖配置 config.php
+- 环境变量会在 redis.config.php autoconfig.php 等配置文件中读取
+
+:::
+
 - [config.sample.php](https://github.com/nextcloud/server/blob/master/config/config.sample.php)
+
+```bash
+docker exec -it -u www-data nextcloud bash
+```
+
+```bash
+cat config/config.php
+
+# 服务器状态
+./occ status
+
+# 配置
+./occ config:system:get trusted_domains
+./occ config:system:set trusted_domains 1 --value=192.168.1.1
+
+# 离线
+./occ config:system:set has_internet_connection --value=true --type=boolean
+
+# 设置默认语言
+./occ config:system:set default_language --value=zh_CN
+./occ config:system:set default_ladefault_localenguage --value=zh
+
+# 导出配置
+# private 包含密码之类的内容
+./occ config:list --private
+./occ config:list system --output=plain
+```
 
 ```php
 <?php
@@ -67,7 +101,7 @@ $CONFIG = array(
 'appstoreenabled' => true,
 
 // 信任的反向代理
-'trusted_proxies' => ['203.0.113.45', '198.51.100.128', '192.168.2.0/24'],
+'trusted_proxies' => ['192.168.0.0/16'],
 'forwarded_for_headers' => ['HTTP_X_FORWARDED_FOR'],
 
 // 代理配置

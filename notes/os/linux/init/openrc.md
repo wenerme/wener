@@ -165,3 +165,5 @@ respawn_max=0
 # 默认 SIGTERM/5
 retry="${TINC_RETRY:-TERM/60/KILL/10}"
 ```
+
+##  supervise-daemon: unable to open the logfile for stdout `/var/log/app.log': Permission denied

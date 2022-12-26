@@ -81,7 +81,7 @@ title: LDAP Schema
 
 ```ldif
 # 陈小明
-dn: uid=chenxiaoming,ou=users,dc=incos
+dn: uid=chenxiaoming,ou=users,dc=wener,dc=me
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person

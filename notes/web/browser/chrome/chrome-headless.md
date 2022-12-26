@@ -2,9 +2,10 @@
 title: Headless
 ---
 
-# Headless
+# Chrome Headless
 
 - [ChromeDevTools/awesome-chrome-devtools](https://github.com/ChromeDevTools/awesome-chrome-devtools)
+- [Chrome Flags for Tooling](https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md)
 - https://chromedevtools.github.io/devtools-protocol/
 - devtools-ws-url
   - --remote-debugging-port=9222
@@ -17,12 +18,23 @@ title: Headless
 - [blink features](https://source.chromium.org/chromium/chromium/src/+/master:out/Debug/gen/third_party/blink/renderer/platform/runtime_enabled_features.cc;l=1559;drc=170473ad887b7990079f1f996b126548569c5902)
 - [RuntimeEnabledFeatures](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/platform/RuntimeEnabledFeatures.md)
 - https://www.chromium.org/developers/design-documents/network-settings/
-  - --proxy-server
+  - --proxy-server=127.0.0.1:7890
 
 ```
 --enable-blink-features=SomeNewFeature,SomeOtherNewFeature
 --disable-blink-features=SomeOldFeature
 ```
+
+:::tip
+
+- Proxy 只能配置全局，不可以按页面配置
+  - [puppeteer#678](https://github.com/puppeteer/puppeteer/issues/678)
+  - Context 可以配置代理 https://pptr.dev/next/api/puppeteer.browsercontextoptions/
+- 不支持 PAC
+- [puppeteer#540](https://github.com/puppeteer/puppeteer/issues/540)
+  - 多个 cert 会出现选择
+
+:::
 
 ## Awesome
 

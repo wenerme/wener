@@ -22,6 +22,10 @@ title: MitmProxy
     - 可配置下一级代理地址
   - SOCKS Proxy
     - 基于 SOCKS5 的代理协议 - 默认 HTTP 协议
+- 服务
+  - mitmproxy - TUI
+  - mitmweb - WebUI
+  - mitmdump - 写入文件
 - frozenpandaman/splatnet2statink - [mitmproxy instructions](https://github.com/frozenpandaman/splatnet2statink/wiki/mitmproxy-instructions)
 
 ```bash
@@ -34,7 +38,14 @@ cat cert.key cert.crt > cert.pem
 # 默认 ~/.mitmproxy/mitmproxy-ca.pem
 mitmweb --certs squid-ca-cert.pem --mode regular --no-web-open-browser --web-port 8080 --listen-port 8888
 
-docker run --rm -it mitmproxy/mitmproxy
+# http://0.0.0.0:8081/
+docker run --rm -it -v $HOME/.mitmproxy:/home/mitmproxy/.mitmproxy \
+  -p 8080:8080 \
+  -p 8081:8081 \
+  --name mitmproxy mitmproxy/mitmproxy mitmweb --web-host 0.0.0.0
+
+curl -x 0.0.0.0:8080 wener.me
+curl -x 0.0.0.0:8080 icanhazip.com
 ```
 
 ## 透明代理
@@ -61,3 +72,15 @@ ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 
 ```bash
 mitmproxy --mode transparent --showhost
 ```
+
+
+## 添加证书
+
+```bash
+curl --proxy 127.0.0.1:8080 --cacert ~/.mitmproxy/mitmproxy-ca-cert.pem https://wener.me
+
+# macOS
+sudo security add-trusted-cert -d -p ssl -p basic -k /Library/Keychains/System.keychain ~/.mitmproxy/mitmproxy-ca-cert.pem
+```
+
+- https://docs.mitmproxy.org/stable/concepts-certificates/
