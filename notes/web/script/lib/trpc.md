@@ -27,6 +27,16 @@ title: trpc
 - 因为核心是使用 typescript 类型，类型不好 bundle，不方便分享给别的项目
   - https://github.com/trpc/trpc/discussions/1860
 - Support for additional Content-Types [#1937](https://github.com/trpc/trpc/issues/1937)
+- 合并多个 trpc 会有点麻烦 - SOA
+  - React Query 只能一个上下文 trpc
+  - 基于路径请求不同 trpc 服务端
+  - [examples/soa/client/client.ts#L11-L41](https://github.com/trpc/trpc/blob/c49e0333ced133a883d276e51679c10de2f575e8/examples/soa/client/client.ts#L11-L41)
+
+:::
+
+:::info
+
+- v11 [#3496](https://github.com/trpc/trpc/issues/3496)
 
 :::
 

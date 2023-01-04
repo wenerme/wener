@@ -10,6 +10,11 @@ title: HAProxy Proxy Protocol
 - 支持的服务: haproxy, nginx, varnish, stud, stunnel
 - 希望基于来源 IP 做策略的一般都会支持
 
+```bash
+# 测试
+curl --haproxy-protocol 127.0.0.1
+```
+
 ```haproxy title="frontend"
 frontend http
   mode http

@@ -9,6 +9,8 @@ tags:
 - Data Dir - 浏览器维度 - `--user-data-dir`, `CHROME_USER_DATA_DIR`
 - Profile Dir - 用户维度
 - CRD - Chrome Remote Desktop - ~/.config/chrome-remote-desktop/
+- 参考
+  - List of Chromium Command Line Switches https://peter.sh/experiments/chromium-command-line-switches/
 
 ```bash
 file * | grep SQLite | cut -d ':' -f 1

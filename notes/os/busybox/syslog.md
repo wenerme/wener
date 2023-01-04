@@ -28,6 +28,8 @@ syslogd -n -O -
 # -t TAG 默认为用户名
 # -p PRIO 数字或 FACILITY.LEVEL
 logger Log Works
+
+sudo killall -HUP syslogd
 ```
 
 ## conf
@@ -71,7 +73,7 @@ logger Log Works
 
 - security -> auth
 
-| level   |
+| level   | n
 | ------- | --- |
 | emerg   | 0   |
 | alert   | 1   |

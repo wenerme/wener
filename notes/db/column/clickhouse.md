@@ -180,6 +180,14 @@ COPY...TO PROGRAM
   - 设置了 sorting key 未设置 pk 则 pk=sk
   - 可在 pk 之外再添加 sk
 - sparse index
+- 对象/Object
+  - Table
+  - Routine
+  - User
+
+```sql
+show processlist;
+```
 
 ## Awesome
 
@@ -194,7 +202,6 @@ COPY...TO PROGRAM
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
   - light weight log and data visual analytic platform for clickhouse
 - [korchasa/awesome-clickhouse](https://github.com/korchasa/awesome-clickhouse)
-
 
 ## Auth
 
@@ -215,7 +222,6 @@ docker run -it --rm \
   -v=$HOME/data:/var/lib/clickhouse \
   --name clickhouse-server clickhouse/clickhouse-server
 ```
-
 
 ## 运维
 
@@ -239,22 +245,17 @@ echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 ## Stats
 
 ```sql
-SELECT
-  tabe,
-  name,
-  sub(data_compressed_bytes) AS compressed,
-  sub(data_uncompressed_bytes) AS uncompressed,
-  floor((compressed / uncompressed) * 100, 4) as percent
-FROM
-  system.columns
-WHERE
-  database = currentDatabase()
-GROUP BY
-  table,
-  name
-ORDER BY
-  table ASC,
-  name ASC;
+SELECT table,
+       name,
+       sum(data_compressed_bytes)                  AS compressed,
+       sum(data_uncompressed_bytes)                AS uncompressed,
+       floor((compressed / uncompressed) * 100, 4) as percent
+FROM system.columns
+WHERE database = currentDatabase()
+GROUP BY table,
+         name
+ORDER BY table ASC,
+         name ASC;
 ```
 
 ## Turnning
@@ -317,3 +318,17 @@ FROM system.parts
 WHERE (table = 'hits_UserID_URL') AND (active = 1)
 FORMAT Vertical;
 ```
+
+## Perm
+
+1. Read data - SELECT, SHOW, DESCRIBE, EXISTS
+1. Write data - INSERT, OPTIMIZE
+1. Change settings - SET, USE
+1. DDL - CREATE, ALTER, RENAME, ATTACH, DETACH, DROP TRUNCATE
+1. `KILL QUERY`
+
+
+---
+- readonly=0|1|2
+  - 2 可以修改设置
+- allow_ddl=0|1

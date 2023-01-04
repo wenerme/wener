@@ -26,6 +26,8 @@ title: Headscale
   - /bootstrap-dns
   - 暂时无法关闭 - [#503](https://github.com/juanfont/headscale/issues/503)
     - 可考虑只暴露 /api,/machine,/key
+- [gurucomputing/headscale-ui](https://github.com/gurucomputing/headscale-ui)
+  - `headscale apikeys create`
 
 :::caution
 
@@ -357,3 +359,5 @@ REG ADD "HKLM\Software\Tailscale IPN" /v LoginURL /t REG_SZ /d "https://127.0.0.
   - 状态目录
     - root /Library/Tailscale/tailscaled.state
     - user $HOME/.local/share/tailscale/tailscaled.state
+
+## headscale now requires a new `noise.private_key_path` field in the config file for the Tailscale v2 protocol

@@ -32,9 +32,9 @@ mongo
 
 # https://docs.mongodb.com/manual/reference/program/mongodump/
 # 导出一个库
-mongodump -v --db test  --host myhost --port 27017 --out mg-`date +%Y%m%d`
+mongodump -v --db test --host myhost --port 27017 --out mg-$(date +%Y%m%d)
 # 导入一个库
-mongorestore -v --db test  --host myhost --port 27017 mg-`date +%Y%m%d`/db
+mongorestore -v --db test --host myhost --port 27017 mg-$(date +%Y%m%d)/db
 # 使用 URI 参数
 mongodump -v --uri mongodb://root:pass@host:27017/dbname?authSource=admin
 
@@ -42,9 +42,9 @@ mongodump -v --uri mongodb://root:pass@host:27017/dbname?authSource=admin
 mongoexport --db db-name --collection collection-name --out exp.json
 
 mongoexport -h localhost -d databse -c collection --csv \
---fields erpNum,orderId,time,status \
--q '{"time":{"$gt":1438275600000}, "status":{"$ne" :"Cancelled"}}' \
---out report.csv
+  --fields erpNum,orderId,time,status \
+  -q '{"time":{"$gt":1438275600000}, "status":{"$ne" :"Cancelled"}}' \
+  --out report.csv
 ```
 
 ## Operaters
@@ -55,6 +55,9 @@ mongoexport -h localhost -d databse -c collection --csv \
     - 使用 `str` 属性, 不要使用 `toString`
 
 ```js
+disableTelemetry()
+db.disableFreeMonitoring()
+
 // 查看服务状态
 db.serverStatus()
 // 查看集合状态

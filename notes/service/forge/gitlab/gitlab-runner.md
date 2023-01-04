@@ -55,6 +55,23 @@ docker run -d --restart always -e TZ=Asia/Shanghai \
   --name gitlab-runner gitlab/gitlab-runner:alpine
 ```
 
+| register                      | env                      | note          |
+| ----------------------------- | ------------------------ | ------------- |
+| -r,--registration-token=VALUE | REGISTRATION_TOKEN       | 新注册        |
+| -t,--token                    | CI_SERVER_TOKEN          | 识别已经注册  |
+| -u,--url                      | CI_SERVER_URL            |
+| -n,--non-interactive          | REGISTER_NON_INTERACTIVE |
+| --builds-dir                  | RUNNER_BUILDS_DIR        |
+| --cache-dir                   | RUNNER_CACHE_DIR         |
+| --executor                    | RUNNER_EXECUTOR          | shell, docker |
+| --name,--description          | RUNNER_NAME              |
+
+```bash
+export REGISTER_NON_INTERACTIVE=true
+```
+
+- https://docs.gitlab.com/runner/commands/#gitlab-runner-register
+
 ## 配置
 
 - /etc/gitlab-runner/config.toml - `*nix`
@@ -314,7 +331,7 @@ apk add gitlab-runner -X https://mirrors.aliyun.com/alpine/edge/community/
 
 # 默认使用 gitlab-runner 用户和分组
 # 如果在 docker 里使用 root 更方便
-cat <<CONF > /etc/conf.d/gitlab-runner
+cat << CONF > /etc/conf.d/gitlab-runner
 GITLAB_RUNNER_USER="root"
 GITLAB_RUNNER_GROUP="root"
 CONF
@@ -376,13 +393,13 @@ apk add openjdk11
 **k8s**
 
 ```bash
-apk add kubectl -X https://mirrors.aliyun.com/alpine/edge/testing/
+apk add kubectl
 ```
 
 **自定义 Runner**
 
 ```bash
-cat <<DOCKERFILE > Dockerfile
+cat << DOCKERFILE > Dockerfile
 FROM wener/gitlab-runner
 RUN apk add --no-cache util-linux coreutils python3
 RUN apk add --no-cache nodejs npm nghttp2

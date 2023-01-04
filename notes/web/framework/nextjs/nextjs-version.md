@@ -15,6 +15,7 @@ tags:
 
 :::note 值得关注的问题
 
+- 不支持 `node:` protocol [#28774](https://github.com/vercel/next.js/issues/28774)
 - [vercel/next.js#16368](https://github.com/vercel/next.js/issues/16368)
   Module Federation Support
 - swc babel 插件反馈 [#30174](https://github.com/vercel/next.js/discussions/30174)

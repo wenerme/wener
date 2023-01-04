@@ -6,12 +6,13 @@ title: react-table
 
 - [tannerlinsley/react-table](https://github.com/tannerlinsley/react-table)
   - 基于 Hook 功能强大的 Table 组件
-- v8+ 框架无关
+- v8+ 框架无关,不再使用插件模式
 
 :::caution
 
 - 不支持 sticky 行列
-  - 可使用 [GuillaumeJasmin/react-table-sticky](https://github.com/GuillaumeJasmin/react-table-sticky)
+  - ~~可使用 [GuillaumeJasmin/react-table-sticky](https://github.com/GuillaumeJasmin/react-table-sticky)~~
+    - react-table v7
 
 :::
 
@@ -25,6 +26,9 @@ title: react-table
   - [createTable](https://github.com/TanStack/table/blob/main/packages/table-core/src/core/table.ts)
   - table
     - reset - 状态设置为 initialState
+- react-table
+  - [useReactTable](https://github.com/TanStack/table/blob/main/packages/react-table/src/index.tsx#L54-L91)
+    - 主要提供状态
 
 ```ts
 // 完整空状态

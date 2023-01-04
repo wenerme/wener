@@ -19,6 +19,10 @@ title: Copilot
 
 :::
 
+```bash
+curl https://copilot-proxy.githubusercontent.com/_ping
+```
+
 ## IDEA Shortcut
 
 |                                              key | for            |

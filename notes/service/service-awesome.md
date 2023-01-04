@@ -91,8 +91,12 @@ tags:
 - Notification
   - [appleboy/gorush](https://github.com/appleboy/gorush)
     - MIT, Golang
-  - [notifirehq/notifire](https://github.com/notifirehq/notifire)
+  - [novuhq/novu](https://github.com/novuhq/novu)
+    - MIT, Typescript
+    - notifire -> novu
     - Notification Infrastructure
+  - [caronc/apprise](https://github.com/caronc/apprise)
+    - MIT, Pytho
   - [binwiederhier/ntfy](https://github.com/binwiederhier/ntfy)
   - [uniqush/uniqush-push](https://github.com/uniqush/uniqush-push)
   - [airnotifier/airnotifier](https://github.com/airnotifier/airnotifier)
@@ -141,6 +145,12 @@ tags:
   - [CoderLine/alphaTab](https://github.com/CoderLine/alphaTab)
     - MPL-2.0, TS
     - cross platform music notation and guitar tablature rendering
+- secrets manager
+  - [Infisical/infisical](./secret/infisical.md)
+    - MIT + EE, Typescript
+  - [envkey/envkey](https://github.com/envkey/envkey)
+  - [dotenv-org/dotenv-vault](https://github.com/dotenv-org/dotenv-vault)
+  - vault
 
 ## Avatar
 

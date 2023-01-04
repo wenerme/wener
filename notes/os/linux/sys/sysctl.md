@@ -30,3 +30,16 @@ net.ipv4.tcp_keepalive_time   = 75    # 在第一次keep alive请求发送后，
 net.ipv4.tcp_keepalive_probes = 9     # 在这个连接被认为是断开之前，keep alive请求被重发的次数
 net.ipv4.tcp_keepalive_intvl  = 7200  # keep alive探测的时间间隔
 ```
+
+## tuning.conf
+
+```conf
+vm.max_map_count=262144
+```
+
+## bbr.conf
+
+```conf
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
+```

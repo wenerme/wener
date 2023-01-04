@@ -22,7 +22,9 @@ tags:
 - [meltano/meltano](https://gitlab.com/meltano/meltano)
   - MIT, Python
   - ELT for the DataOps
-
+- [lightdash](https://github.com/lightdash/lightdash)
+  - MIT, Typescript
+  - Looker alternative
 ## Ingest
 
 - [honeycombio/honeytail](https://github.com/honeycombio/honeytail)

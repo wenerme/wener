@@ -288,6 +288,14 @@ tags:
 - https://dev.to/iainfreestone/series/7129
 - https://stateofcss.com/
 - http://stateofjs.com/
+- https://photopea.com
+- https://boxy-svg.com/app
+- https://tldraw.com
+- https://globs.design
+- https://alma.sh
+- https://audiomass.co
+- https://hexed.it
+- https://webvm.io
 
 ## CDN
 

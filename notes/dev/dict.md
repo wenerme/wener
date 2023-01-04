@@ -762,6 +762,19 @@ tags:
 
 ## 参考
 
+- primary
+- secondary
+- tertiary
+- quaternary
+- quinary
+- senary
+- septenary
+- octonary
+- nonary
+- denary
+
+---
+
 - https://www.dictionary.com/browse/employee?s=t
   - 查含义和词源
 - etymonline.com

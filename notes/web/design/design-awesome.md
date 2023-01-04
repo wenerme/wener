@@ -38,6 +38,8 @@ tags:
 - https://pika.style/
 - avatar
   - https://api.lorem.space/image/face?hash=40361
+- https://www.magicpattern.design/tools/mesh-gradients
+  - 生成渐变
 
 ## 设计参考
 
@@ -61,6 +63,8 @@ tags:
   - Large, Bold Typography
 - Parallax Scrolling
   - https://webflow.com/blog/parallax-scrolling
+- https://appshots.design/
+  - 应用截图
 
 ---
 

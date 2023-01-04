@@ -17,7 +17,7 @@ title: DuckDB
   - https://news.ycombinator.com/item?id=32684424
 
 ```bash
-curl -LO https://github.com/duckdb/duckdb/releases/download/v0.2.7/duckdb_cli-osx-amd64.zip
+curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.6.1/duckdb_cli-osx-universal.zip
 ```
 
 ```sql
@@ -87,4 +87,14 @@ EXPORT DATABASE 'target_directory' (FORMAT CSV, DELIMITER '|');
 EXPORT DATABASE 'target_directory' (FORMAT PARQUET);
 -- 导入
 IMPORT DATABASE 'target_directory'
+```
+
+## Inspect
+
+```sql
+PRAGMA storage_info('table_name');
+
+SELECT * EXCLUDE (column_path, segment_id, start, stats, persistent, block_id, block_offset, has_updates)
+FROM pragma_storage_info('names') USING SAMPLE 10 ROWS
+ORDER BY row_group_id;
 ```

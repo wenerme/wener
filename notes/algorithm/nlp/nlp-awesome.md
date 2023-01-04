@@ -33,6 +33,10 @@ tags:
 
 ## 中文
 
+- [crownpku/Awesome-Chinese-NLP](https://github.com/crownpku/Awesome-Chinese-NLP)
+- [brightmart/nlp_chinese_corpus](https://github.com/brightmart/nlp_chinese_corpus)
+- [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)
+- [ymcui/Chinese-BERT-wwm](https://github.com/ymcui/Chinese-BERT-wwm)
 - [hankcs/HanLP](https://github.com/hankcs/HanLP)
   - 中文 NLP
 - [baidu/lac](https://github.com/baidu/lac)

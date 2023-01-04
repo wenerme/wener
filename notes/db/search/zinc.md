@@ -30,6 +30,14 @@ ZINC_FIRST_ADMIN_USER=admin ZINC_FIRST_ADMIN_PASSWORD=admin ZINC_PROMETHEUS_ENAB
 
 curl http://admin:admin@localhost:4080/es/_analyze -d '{"analyzer":"gse_standard", "text":"今天天气真真好"}' | jq
 curl http://admin:admin@localhost:4080/es/_analyze -d '{"analyzer":"gse_search", "text":"今天天气真真好"}' | jq
+
+# Docker
+docker run -v $PWD/data:/data \
+  -e ZINC_DATA_PATH="/data" \
+  -p 4080:4080 \
+  -e ZINC_FIRST_ADMIN_USER=admin \
+  -e ZINC_FIRST_ADMIN_PASSWORD=admin \
+  --name zinc public.ecr.aws/zinclabs/zinc
 ```
 
 ```http

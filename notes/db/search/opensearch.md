@@ -21,8 +21,15 @@ title: OpenSearch
 | 9600 | Performance Analyzer             |
 
 ```bash
+# 单节点
+docker run --it --rm \
+  -p 9200:9200 -p 9600:9600 \
+  -e "discovery.type=single-node" \
+  opensearchproject/opensearch:latest
+
 # /usr/share/opensearch/config/opensearch.yml
 # 开发环境 DISABLE_INSTALL_DEMO_CONFIG=true DISABLE_SECURITY_PLUGIN=true discovery.type=single-node
+# -Xmx at least 50% of system RAM
 docker run --it --rm \
   -p 9200:9200 -p 9600:9600 \
   -e cluster.name=opensearch-cluster \
@@ -32,6 +39,7 @@ docker run --it --rm \
   -e bootstrap.memory_lock=true \
   -e "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" \
   -e network.host=0.0.0.0 \
+  -e DISABLE_INSTALL_DEMO_CONFIG=true \
   -v $PWD/data:/usr/share/opensearch/data \
   --hostname opensearch-node1 \
   --name opensearch opensearchproject/opensearch
@@ -198,3 +206,48 @@ cat /proc/sys/vm/max_map_count
 ```
 
 - https://opensearch.org/docs/latest/opensearch/install/important-settings/
+
+## Query
+
+```
+GET _analyze
+{
+  "text": "南京市长江大桥",
+  "tokenizer": "standard"
+}
+
+POST _analyze
+{
+  "text": "南京市长江大桥",
+  "analyzer": "ik_smart"
+}
+
+GET _analyze
+{
+  "text": "南京市长江大桥",
+  "analyzer": "smartcn"
+}
+```
+
+- standard 单个字
+- [medcl/elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
+  - Analyzer: ik_smart , ik_max_word
+  - Tokenizer: ik_smart , ik_max_word
+- [medcl/elasticsearch-analysis-pinyin](https://github.com/medcl/elasticsearch-analysis-pinyin)
+- https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html
+  - smartcn
+- [KennFalcon/elasticsearch-analysis-hanlp](https://github.com/KennFalcon/elasticsearch-analysis-hanlp)
+  - HanLP
+- [aparo/opensearch-analysis-ik](https://github.com/aparo/opensearch-analysis-ik)
+  - for OpenSearch
+
+```bash
+# ./bin/opensearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.3.0/elasticsearch-analysis-ik-6.3.0.zip
+
+./bin/opensearch-plugin install analysis-smartcn
+./bin/opensearch-plugin list
+```
+
+## Cannot update parameter analyzer from default to
+
+- mapping 不可修改

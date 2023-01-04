@@ -8,6 +8,7 @@ title: GitLab K8S 集成
 
 - [gitlab-agent](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent)
 - 14.5 基础 free
+- 支持最近三个版本
 - GitLab.com wss://kas.gitlab.com
 - Pull based, 基于 [argoproj/gitops-engine](https://github.com/argoproj/gitops-engine)
 
@@ -22,6 +23,17 @@ gitops:
     - id: 'path/to/your-manifest-project-1'
       paths:
         - glob: '/**/*.{yaml,yml,json}'
+```
+
+```bash
+helm repo add gitlab https://charts.gitlab.io
+helm repo update
+helm upgrade --install wenlab-agent gitlab/gitlab-agent \
+    --namespace gitlab-agent-wenlab-agent \
+    --create-namespace \
+    --set image.tag=v15.7.0 \
+    --set config.token=$TOKEN \
+    --set config.kasAddress=wss://kas.gitlab.com
 ```
 
 ## Gitlab Managed
