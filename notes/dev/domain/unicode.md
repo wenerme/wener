@@ -40,6 +40,7 @@ Detech language
 https://cloud.google.com/translate/docs/reference/rest
 
 https://github.com/git/git/tree/master/po
+
 - https://datahub.io/core/language-codes
 
 ## Symbol
@@ -153,3 +154,5 @@ https://github.com/git/git/tree/master/po
 | 💬  |
 | 🛒  |
 | 📆  |
+| ⚡️ |
+| ￼   |

@@ -55,3 +55,16 @@ declare(strict_types=1)
 
 - [strict_types](https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.strict)
   - 不允许 弱类型 类型转换
+
+## Connection to `ssl://pecl.php.net:443' failed: Unable to find the socket transport "ssl" - did you forget to enable it when you configured PHP
+
+
+```bash
+apk add php7-openssl
+```
+
+<!--
+```init php.ini
+extension=php_openssl.dll
+```
+-->

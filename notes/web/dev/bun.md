@@ -13,6 +13,8 @@ title: bun
 >
 > - musl 支持 [bun#255](https://github.com/Jarred-Sumner/bun/issues/255)
 > - deploy [bun#211](https://github.com/Jarred-Sumner/bun/issues/211)
+> - 无 dns 模块 - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
+> - 未实现 dns, http2, https, child_process, vm, tls, async_hooks, worker_threads
 
 :::tip
 

@@ -21,18 +21,61 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 | version      | date       |
 | ------------ | ---------- |
-| [ArgoCD 2.5] |  |
+| [ArgoCD 2.6] |            |
+| [ArgoCD 2.5] | 2022-10-25           |
 | [ArgoCD 2.4] | 2022-06-11 |
 | [ArgoCD 2.3] | 2022-03-06 |
 | [ArgoCD 2.2] |
 | [ArgoCD 2.1] |
 
+[argocd 2.6]: #argocd-26
+[argocd 2.5]: #argocd-25
 [argocd 2.4]: #argocd-24
 [argocd 2.3]: #argocd-23
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
 
+## ArgoCD 2.6
+
+- [Parameterized Config Management Plugins](https://argo-cd.readthedocs.io/en/latest/proposals/parameterized-config-management-plugins/)
+- managedNamespaceMetadata
+  - 创建 NS 可添加额外信息
+- Multiple Sources for Applications
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: test
+spec:
+  # 多源 - Argo CD 会做合并
+  sources:
+  - chart: elasticsearch
+    repoURL: https://helm.elastic.co
+    targetRevision: 7.6.0
+  - repoURL: https://github.com/argoproj/argocd-example-apps.git
+    path: guestbook
+    targetRevision: HEAD
+  syncPolicy:
+    # 创建的 NS 信息
+    managedNamespaceMetadata:
+      labels:
+        any: label
+        you: like
+      annotations:
+        the: same
+        applies: for
+        annotations: on-the-namespace
+    syncOptions:
+    - CreateNamespace=true
+```
+
 ## ArgoCD 2.5
+
+- Server-Side Apply **Beta**
+- API/CLI for ApplicationSets
+- UI extension
+
 ## ArgoCD 2.4
 
 - Web Terminal

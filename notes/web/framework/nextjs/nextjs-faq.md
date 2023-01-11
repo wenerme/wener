@@ -469,3 +469,7 @@ npm add assert
 ```
 
 - node:assert -> assert
+
+## Creating an optimized production build
+
+- https://github.com/vercel/next.js/issues/37825

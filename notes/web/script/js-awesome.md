@@ -498,6 +498,16 @@ tags:
   - mdn-data - [mdn/data](https://github.com/mdn/data)
   - [feross/buffer](https://github.com/feross/buffer)
     - NodeJS Buffer
+- fetch/network
+  - axios
+  - [elbywan/wretch](https://github.com/elbywan/wretch)
+    - tiny wrapper built around fetch
+  - superagent
+  - got
+    - 开发不活跃
+  - ~~request~~
+  - node-fetch
+    - NodeJS v18 内置
 - codec/parser
   - punycode
   - url-js

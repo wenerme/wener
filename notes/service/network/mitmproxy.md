@@ -38,7 +38,8 @@ cat cert.key cert.crt > cert.pem
 # 默认 ~/.mitmproxy/mitmproxy-ca.pem
 mitmweb --certs squid-ca-cert.pem --mode regular --no-web-open-browser --web-port 8080 --listen-port 8888
 
-# http://0.0.0.0:8081/
+# UI http://0.0.0.0:8081/
+# HTTP Proxy http://0.0.0.0:8080/
 docker run --rm -it -v $HOME/.mitmproxy:/home/mitmproxy/.mitmproxy \
   -p 8080:8080 \
   -p 8081:8081 \

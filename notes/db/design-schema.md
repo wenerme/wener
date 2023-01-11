@@ -105,6 +105,35 @@ create table tpl_res
   - 系统表
     - 只有基础字段 - id、sid、tid、uid
 
+## current_tenant_id
+
+```sql
+create function current_tenant_id() returns text
+    stable
+    parallel safe
+    language plpgsql
+as
+$$
+DECLARE
+    tid text := coalesce(
+            nullif(current_setting('tenant.id', true), '')::text,
+            ((regexp_match(current_user, '(^|_)tenant_([^_]+)$'))[1])::text
+        );
+BEGIN
+    IF tid IS NULL THEN
+        RAISE EXCEPTION 'Missing tenant in context'
+            USING HINT = 'Please check your execution context';
+    END IF;
+    RETURN tid;
+END;
+$$;
+```
+
+
+```sql
+select set_config('tenant.id','1', true);
+```
+
 # FAQ
 
 ## created_at vs create_time
