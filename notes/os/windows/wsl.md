@@ -21,19 +21,21 @@ title: WSL
   https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
   - 说明文档 https://aka.ms/wsl2kernel
 - 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
+  - 注意放到空间较大的位置
 - 文件浏览器可直接 打开 `\\wsl$\<DISTRO>`
 - Windows 10 2004
   - ms-settings:windowsupdate
-- WsL2
+- WSL2
   - Windows 10 v1903 b18362
   - Windows 11 v18362
 
 ```bash
-wslconfig /list
-wslconfig /setdefault Alpine
+wslconfig /list              # 所有的 VM
+wslconfig /setdefault Alpine # 设置 Alpine 为默认
 
-wsl -d Alpine
+wsl -d Alpine # 进入 Alpine VM
 
+# 配置系统
 cat << EOF > /etc/apk/repositories
 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.16/main
 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.16/community
@@ -121,7 +123,7 @@ docker ps
   - docker-desktop
   - docker-desktop-data
 
-## 参考 {references}
+## 参考 {#references}
 
 - 推荐用 [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)
   - 支持 多 Tab
@@ -192,7 +194,7 @@ wsl --import
 
 ## Install
 
-```bassh
+```bash
 # WSL
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 

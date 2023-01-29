@@ -36,12 +36,19 @@ title: Vite
 
 :::caution
 
-- React hmr 丢失 Context [vitejs/vite#3301](https://github.com/vitejs/vite/issues/3301)
-- hmr 不支持 unamed dynamic import [vitejs/vite#2719](https://github.com/vitejs/vite/issues/2719)
 - html script 只能 bundle module - `<script type="module">`
 - build 一次只能一个 rollup 配置
   - 使用多 config 或 环境变量 解决
+
+:::
+
+:::note
+
 - 未内置支持 mdx
+- ~~React hmr 丢失 Context [vitejs/vite#3301](https://github.com/vitejs/vite/issues/3301)~~
+  - 2022-09 修复
+- ~~hmr 不支持 unamed dynamic import [vitejs/vite#2719](https://github.com/vitejs/vite/issues/2719)~~
+  - Vite 4.1+ 修复 - 2023-01
 
 :::
 
@@ -72,7 +79,7 @@ export default defineConfig({
 ```
 
 ```ts title="异步配置"
-export default defineConfig(async ({command, mode}) => {
+export default defineConfig(async ({ command, mode }) => {
   const data = await asyncFunction();
   return {
     // build specific config
@@ -101,7 +108,7 @@ export default defineConfig(async ({command, mode}) => {
 ## 支持 MDX
 
 ```js
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import mdx from '@mdx-js/rollup';
 
 export default defineConfig({

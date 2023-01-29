@@ -6,11 +6,141 @@ tags:
 
 # Typescript Version
 
-| version                          | stable date |
-| -------------------------------- | ----------- |
-| [Typescript 4.7](#typescript-47) | 2022-05-24  |
-| [Typescript 4.6](#typescript-46) | 2022-02-28  |
-| [Typescript 4.5](#typescript-45) | 2021-11-17  |
+| version                          | date       |
+| -------------------------------- | ---------- |
+| [Typescript 5.0](#typescript-50) | 2023-03-14 |
+| [Typescript 4.9](#typescript-49) | 2022-11-15 |
+| [Typescript 4.8](#typescript-48) | 2022-08-25 |
+| [Typescript 4.7](#typescript-47) | 2022-05-24 |
+| [Typescript 4.6](#typescript-46) | 2022-02-28 |
+| [Typescript 4.5](#typescript-45) | 2021-11-17 |
+
+## Typescript 5.0
+
+- 支持 decorator
+  - 不需要 `--experimentalDecorators`
+  - 不支持 `--emitDecoratorMetadata`
+  - 不支持 参数 decorator
+  - 支持类型检测
+  - https://2ality.com/2022/10/javascript-decorators.html
+  - [tc39/proposal-decorators](https://github.com/tc39/proposal-decorators)
+    - 当前的修饰器提案
+    - stage 3
+  - [tc39/proposal-decorator-metadata](https://github.com/tc39/proposal-decorator-metadata)
+    - 关于 metadata 的 提案
+    - stage 2
+- 支持 const 修饰 类型参数 - 传入值可以不 as const - 得到更精确的类型
+- --moduleResolution bundler
+  - 之前 node16/nodenext 要求 import 包含后缀
+  - bundler 更好配合现有 bundle 流程，可以无后缀
+- --allowImportingTsExtensions
+  - 允许 import 后缀 .ts, .mts, .tsx
+- --resolvePackageJsonExports
+  - 考虑 package.json 的 exports 信息
+- --resolvePackageJsonImports
+- --allowArbitraryExtensions
+  - 之前 import 未知 ext 时会查找 `{basename}.d.{extension}.ts`, 找不到则报错
+  - 开启后不报错 - 实际由 bundler 处理
+- --customConditions
+  - 自定义 exports 的 condition
+- --verbatimModuleSyntax
+  - 废弃 --importsNotUsedAsValues, --preserveValueImports
+- 支持 `export * as ns from "module"`
+- JSDoc @satisfies, @overload
+- 参考
+  - https://devblogs.microsoft.com/typescript/announcing-typescript-5-0-beta/
+
+```ts
+function loggedMethod<This, Args extends any[], Return>(
+  target: (this: This, ...args: Args) => Return,
+  context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>,
+) {
+  const methodName = String(context.name);
+
+  function replacementMethod(this: This, ...args: Args): Return {
+    console.log(`LOG: Entering method '${methodName}'.`);
+    const result = target.call(this, ...args);
+    console.log(`LOG: Exiting method '${methodName}'.`);
+    return result;
+  }
+
+  return replacementMethod;
+}
+
+class Person {
+  name: string;
+  constructor(/* 不支持参数 修饰 @inject*/ name: string) {
+    this.name = name;
+  }
+
+  @loggedMethod
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+}
+
+type HasNames = { readonly names: string[] };
+function getNamesExactly<T extends HasNames>(arg: T): T["names"] {
+    return arg.names;
+}
+// 5.0 之前
+// 类型为 readonly ["Alice", "Bob", "Eve"]
+// 不加 const 类型为 string[]
+const names2 = getNamesExactly({ names: ["Alice", "Bob", "Eve"]} as const);
+
+// 5.0 支持 const 修饰 类型参数
+// 确保得到更精确的类型 - 不再需要 as const
+type HasNames = { names: readonly string[] };
+function getNamesExactly<const T extends HasNames>(arg: T): T["names"] {
+//                       ^^^^^
+    return arg.names;
+}
+const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"]});
+```
+
+## Typescript 4.9
+
+- `satisfies`
+  - 类似于 as const 但可以要求满足给定类型
+- `accessor` 生成 getter 和 setter
+- 参考
+  - https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/
+
+```ts
+class Person {
+  accessor name: string;
+
+  constructor(name: string) {
+      this.name = name;
+  }
+}
+
+class Person {
+  // 生成
+  #__name: string;
+
+  get name() {
+      return this.#__name;
+  }
+  set name(value: string) {
+      this.#__name = name;
+  }
+
+  constructor(name: string) {
+      this.name = name;
+  }
+}
+```
+
+## Typescript 4.8
+
+```diff
+- type NonNullable<T> = T extends null | undefined ? never : T;
++ type NonNullable<T> = T & {};
+```
+
+- 参考
+  - [](https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/)
 
 ## Typescript 4.7
 
@@ -18,6 +148,7 @@ tags:
 - `"type": "module"`
   - js 支持 TLA
   - 相对路径 import 需要包含后缀 `import "./foo"` -> `import "./foo.js"`
+- --moduleResolution node16, nodenext
 - `.cts` 作为 commonjs 处理
 - `.mts` 作为 module 处理
 - 类型
@@ -60,18 +191,16 @@ tags:
 /// <reference types="pkg" resolution-mode="import" />
 
 type FirstIfString<T> =
-    // 支持 extends 限定 infer
-    T extends [infer S extends string, ...unknown[]]
-        ? S
-        : never;
+  // 支持 extends 限定 infer
+  T extends [infer S extends string, ...unknown[]] ? S : never;
 
 // 支持 in out 限定
 // 影响类型匹配上下界限
 type Getter<out T> = () => T;
 type Setter<in T> = (value: T) => void;
 interface State<in out T> {
-    get: () => T;
-    set: (value: T) => void;
+  get: () => T;
+  set: (value: T) => void;
 }
 ```
 

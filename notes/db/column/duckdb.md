@@ -16,6 +16,23 @@ title: DuckDB
     - 在 Web 内执行，基于 FS API 进行 IO 交互
   - https://news.ycombinator.com/item?id=32684424
 
+:::caution
+
+- 不支持 vacuum [duckdb#109](https://github.com/duckdb/duckdb/issues/109)
+  - 只能 export 然后 import 来减小文件体积
+- 不能更新 unique 列 [#5771](https://github.com/duckdb/duckdb/issues/5771)
+
+:::
+
+:::note
+
+- upsert 0.6.2
+  - 支持 insert or replace/ignore
+  - 支持 on conflict
+
+:::
+
+
 ```bash
 curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.6.1/duckdb_cli-osx-universal.zip
 ```
@@ -98,3 +115,38 @@ SELECT * EXCLUDE (column_path, segment_id, start, stats, persistent, block_id, b
 FROM pragma_storage_info('names') USING SAMPLE 10 ROWS
 ORDER BY row_group_id;
 ```
+
+
+## extension
+
+```sql
+select * from duckdb_extensions();
+
+install 'fts';
+load 'fts';
+
+-- 下载 http://extensions.duckdb.org/v0.6.1/osx_amd64/httpfs.duckdb_extension.gz
+-- 本地 ~/.duckdb/extensions/v0.6.1/osx_amd64/httpfs.duckdb_extension
+install 'httpfs';
+load 'httpfs';
+```
+
+- 不支持代理 https://github.com/duckdb/duckdb/issues/3836
+
+```bash
+ver=$(duckdb -version | cut -d ' ' -f 1)
+mkdir -p ~/.duckdb/extensions/$ver/osx_amd64
+cd ~/.duckdb/extensions/$ver/osx_amd64
+
+# https://duckdb.org/docs/extensions/overview
+for name in httpfs fts sqlite_scanner; do
+  [ -e $name.duckdb_extension ] && continue;
+  echo Installing $name;
+  curl -LO http://extensions.duckdb.org/$ver/osx_amd64/$name.duckdb_extension.gz
+  gzip -d $name.duckdb_extension.gz
+done
+```
+
+- sqlite_scanner
+  - `sqlite_attach('data.sqlite')` - 创建 view - 只能查 **不能写**
+  - sqlite_scan - `SELECT * FROM sqlite_scan('data.sqlite', 'tab');` - 直接查询单个表

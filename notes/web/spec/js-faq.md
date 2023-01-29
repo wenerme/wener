@@ -146,3 +146,20 @@ String({}); // 有 toString 方法
 String(Object.create(null)); // 失败 - 不可以转 string
 // throws error: Cannot convert object to primitive value
 ```
+
+## ArrayBuffer vs Blob
+
+- ArrayBuffer
+  - 通用数据 - 内存
+  - 通过 DataView/TypedArray 可操作
+- Blob
+  - 类似文件 - 可能在磁盘
+  - 不可变
+  - 可创建 URL - `window.URL.createObjectURL()`
+
+---
+
+- Blob -> ArrayBuffer
+  - FileReader.readAsArrayBuffer()
+- ArrayBuffer -> Blob
+  - `new Blob(arrayBuffer)`

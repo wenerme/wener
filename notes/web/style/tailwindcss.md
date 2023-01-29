@@ -96,6 +96,8 @@ import 'tailwindcss/tailwind.css';
 - 渐变
   - https://hypercolor.dev/
     - 生成器
+- Loaders
+  - https://play.tailwindcss.com/OPAsySKNCd
 
 **Components**
 

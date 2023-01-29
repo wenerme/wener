@@ -6,6 +6,10 @@ tags:
 
 # Web Server Awesome
 
+- [valeriansaliou/bloom](https://github.com/valeriansaliou/bloom)
+  - MPLv2, Rust
+  - HTTP REST API caching middleware
+
 ## Framework
 
 - https://web-frameworks-benchmark.netlify.app/result

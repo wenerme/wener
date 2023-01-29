@@ -347,9 +347,7 @@ tags:
 - division - 分部 - 例如 市场分部、消费者分部
   - 位于某个地点的某些办公室或者区域
 - deparment - 部门 - 例如 编辑部、较对部
-
   - 位于公司某个区域
-
 - 参考
   - [Developing the Organizational Hierarchy](https://www.archibus.net/ai/abizfiles/v21.2_help/archibus_help/Subsystems/webc/Content/background_gen/org_hierarchy.htm)
   - wikipedia [Corporate structure](https://en.wikipedia.org/wiki/Corporate_structure)

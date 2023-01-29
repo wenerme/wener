@@ -473,3 +473,11 @@ npm add assert
 ## Creating an optimized production build
 
 - https://github.com/vercel/next.js/issues/37825
+
+## DYNAMIC_SERVER_USAGE
+
+dynamic ssr:false 时出现
+
+## Warning: lazy: Expected the result of a dynamic import() call.
+
+NextJS ssr 不支持 React.lazy

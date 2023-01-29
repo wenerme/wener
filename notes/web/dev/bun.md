@@ -9,12 +9,16 @@ title: bun
   - JavaScriptCore,tinycc,libiconv LGPLv2
   - boringssl,libarchive,libiconv,lol-html,mimalloc,picohttp,tinycc,uSockets,zlib-cloudflare,libicu,uWebsockets
 
-> **Note**
->
-> - musl 支持 [bun#255](https://github.com/Jarred-Sumner/bun/issues/255)
-> - deploy [bun#211](https://github.com/Jarred-Sumner/bun/issues/211)
-> - 无 dns 模块 - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
-> - 未实现 dns, http2, https, child_process, vm, tls, async_hooks, worker_threads
+
+:::caution
+
+- musl 支持 [bun#255](https://github.com/Jarred-Sumner/bun/issues/255)
+- deploy [bun#211](https://github.com/Jarred-Sumner/bun/issues/211)
+- ~~无 dns 模块~~ - 0.5+ - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
+- 无 async_hooks - sequelize 不支持
+- 未实现 ~~dns~~, http2, https, child_process, vm, tls, async_hooks, worker_threads
+
+:::
 
 :::tip
 
@@ -31,6 +35,9 @@ unzip bun-darwin-x64.zip
 mv bun-darwin-x64/bun ~/bin/
 xattr -r -d com.apple.quarantine ~/bin/bun
 bun -v
+
+bun upgrade          # 升级
+bun upgrade --canary # 升级到尚未发布版本 - bun 开发很快，可以提前尝试一些特性
 ```
 
 ```bash

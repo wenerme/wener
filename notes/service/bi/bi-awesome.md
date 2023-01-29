@@ -241,6 +241,9 @@ tags:
 - [vizzuhq/vizzu-lib](https://github.com/vizzuhq/vizzu-lib)
 - https://textvis.lnu.se/
   - Text Visualization Browser
+- [Kanaries/Rath](https://github.com/Kanaries/Rath)
+  - AGPL-3.0, Typescript
+  - Automated data exploratory analysis and visualization
 
 ---
 

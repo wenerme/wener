@@ -13,6 +13,9 @@ tags:
 - 每年 3 版本，约 15 周一个版本
 - 一个版本支持 1 年
 - [Version Skew Policy](https://kubernetes.io/releases/version-skew-policy/)
+  - 维护最近 3 个版本
+  - kubelet +/- 1 版本 - 因此升级需要一个版本一个版本升
+    - 半年至少升级一次
 
 | version                            | release    |
 | ---------------------------------- | ---------- |

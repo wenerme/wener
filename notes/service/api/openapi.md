@@ -16,6 +16,10 @@ title: OpenAPI
 - [apioo/fusio](https://github.com/apioo/fusio)
 - [Swagger2Markup/swagger2markup](https://github.com/Swagger2Markup/swagger2markup)
 
+## OpenAPI
+
+- https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml
+
 ## Version
 
 - OpenAPI v3.1 - 2020-06-18

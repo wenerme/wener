@@ -25,12 +25,14 @@ title: sonic
 - 默认端口 1491
 - 参考
   - [Announcing Sonic: A Super-Light Alternative to Elasticsearch](https://journal.valeriansaliou.name/announcing-sonic-a-super-light-alternative-to-elasticsearch/)
+  - NodeJS SDK [valeriansaliou/node-sonic-channel](https://github.com/valeriansaliou/node-sonic-channel)
+  - [协议](https://github.com/valeriansaliou/sonic/blob/master/PROTOCOL.md)
 
 :::caution
 
 - SUGGEST 不支持中文 - [valeriansaliou/sonic#203](https://github.com/valeriansaliou/sonic/issues/203)
-- 由于会设置 retain_word_objects 上限 - 导致部分连词无法搜索
-  - 例如 文儿科技，因为科技出现的频度过高，会导致搜索 `文儿科技` 无结果，但搜索 `文儿` 有结果
+- 由于会设置 retain_word_objects 上限 - 导致部分连词无法搜索 - 默认 1000
+  - 例如: 文儿科技，因为科技出现的频度过高，会导致搜索 `文儿科技` 无结果，但搜索 `文儿` 有结果
 
 :::
 

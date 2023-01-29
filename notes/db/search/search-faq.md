@@ -1,5 +1,7 @@
 ---
 title: Search Engin FAQ
+tags:
+  - FAQ
 ---
 
 # Search Engin FAQ
@@ -29,4 +31,3 @@ title: Search Engin FAQ
 ---
 
 - https://pureinsights.com/blog/2021/elasticsearch-vs-opensearch-user-point-of-view-part-1-of-3/
-
