@@ -136,6 +136,7 @@ ip ru del from 192.168.1.10
 ps aux | grep keubelt
 ```
 
+- [k0sproject/k0s#2669](https://github.com/k0sproject/k0s/issues/2669)
 - 有可能 configmap 太大导致
 - k0s v1.23 - 重启后无法再启动
 - **系统重启后解决**

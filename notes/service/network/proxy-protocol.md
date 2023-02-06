@@ -12,6 +12,8 @@ title: HAProxy Proxy Protocol
 
 ```bash
 # 测试
+# 如果协议不匹配则会
+# curl: (56) Recv failure: Connection reset by peer
 curl --haproxy-protocol 127.0.0.1
 ```
 

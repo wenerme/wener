@@ -25,3 +25,21 @@ Disallow: /
 User-agent: *
 Disallow:
 ```
+
+```robot.txt
+User-agent: *
+Sitemap: https://developer.mozilla.org/sitemap.xml
+
+Disallow: /api/
+Disallow: /*/files/
+Disallow: /media
+Disallow: /en-US/search
+Disallow: /es/search
+Disallow: /fr/search
+Disallow: /ja/search
+Disallow: /ko/search
+Disallow: /pt-BR/search
+Disallow: /ru/search
+Disallow: /zh-CN/search
+Disallow: /zh-TW/search
+```

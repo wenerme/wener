@@ -96,11 +96,12 @@ await client.end();
 
 ## Env
 
-- [nvm](https://github.com/nvm-sh/nvm)
+- [nvm](./nvm.md)
   - 独立 shell 脚本
   - Alpine https://github.com/nvm-sh/nvm/issues/1102#issuecomment-683291852
 - [n](https://github.com/tj/n)
   - node module
+  - 👍 推荐
 - pnpm setup
   - Could not infer shell type.
     - `SHELL=bash pnpm setup`
@@ -114,12 +115,23 @@ await client.end();
 apk add bash curl ca-certificates libstdc++ libgcc
 curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
 chmod u+x n
+install -t /usr/local/bin n
+
 # 官方镜像
 # N_NODE_MIRROR=https://unofficial-builds.nodejs.org/download/release ./n --arch x64-musl lts
 # 国内镜像
 N_NODE_MIRROR=https://npmmirror.com/mirrors/node-unofficial-builds ./n --arch x64-musl lts
+
+
+# 非 ROOT
+export PATH=$HOME/n/bin:$PATH
+export N_PREFIX=$HOME/n
 ```
 
+- N_PREFIX=/usr/local
+  - 缓存 n/versions
+  - bin, include, lib, share
+- 非 root 可以考虑 $HOME/n
 - https://npmmirror.com/mirrors/node-unofficial-builds/
 - https://registry.npmmirror.com/binary.html?path=node-unofficial-builds/
 
@@ -170,6 +182,14 @@ N_NODE_MIRROR=https://npmmirror.com/mirrors/node-unofficial-builds ./n --arch x6
 
 - shell
   - [google/zx](https://github.com/google/zx)
+
+## CLI
+
+- parse args
+  - minimist
+- framework
+  - yargs
+  - commander
 
 ## FFI
 

@@ -34,6 +34,20 @@ title: WeChat
 - [huan/docker-wechat](https://github.com/huan/docker-wechat)
   - Wine
 - [UOS Web 协议](https://wechaty.js.org/2021/04/13/wechaty-uos-web/)
+  - 头里加 extspam 和 client-version
+- [ljc545w/ComWeChatRobot](https://github.com/ljc545w/ComWeChatRobot)
+  - PC微信机器人，实现获取通讯录，发送文本、图片、文件等消息，封装COM接口供Python、C#调用
+- Web 微信 - wx.qq.com
+  - 2017 后创建的账户不可用 - UOS 出现后可带 Header 绕过
+  - WebAPI 不可以创建房间、邀请成员
+  - 不能收发 企业微信
+- [nodeWechat/wechat4u](https://github.com/nodeWechat/wechat4u)
+  - JS
+- [leochen-g/wechatBot](https://github.com/leochen-g/wechatBot)
+- [leochen-g/wechat-assistant-pro](https://github.com/leochen-g/wechat-assistant-pro)
+- [wechaty/puppet](https://github.com/wechaty/puppet)
+  - [wechaty/puppet-padlocal](https://github.com/wechaty/puppet-padlocal)
+    - 付费
 
 ## 备份
 

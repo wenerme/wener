@@ -138,8 +138,8 @@ https://github.com/git/git/tree/master/po
 
 ## 常用
 
-| sym |
-| --- |
+| sym | a       | b     |
+| --- | ------- | ----- |
 | 🚧  |
 | 🌟  |
 | ⚠️  |
@@ -156,3 +156,5 @@ https://github.com/git/git/tree/master/po
 | 📆  |
 | ⚡️ |
 | ￼   |
+| »   | &raquo; | &187; |
+| «   | &laquo; | &171; |

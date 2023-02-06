@@ -8,6 +8,15 @@ title: rclone
   - https://rclone.org/
 - 默认配置文件 `~/.config/rclone/rclone.conf`
 
+:::caution
+
+- 不支持 watch [#249](https://github.com/rclone/rclone/issues/249)
+  - minio 的 mc 支持 mirror - 双向 watch
+    - `mc mirror --watch --overwrite --remove`
+  - 可以用 mount
+
+:::
+
 | flag                                 | desc                |
 | ------------------------------------ | ------------------- |
 | -P,--progress                        | 显示进度            |
@@ -24,6 +33,10 @@ title: rclone
 | --stats-one-line                     | 只显示一行状态      |
 | --track-renames                      | 跟踪 rename         |
 | `--track-renames-strategy <s:=hash>` | hash,modtime,leaf   |
+| --delete-after                       | 默认                |
+| --delete-before                      |
+| --delete-during                      |
+| --delete-excluded                    |
 
 | command |
 | ------- | ---------------------------------- |
@@ -44,7 +57,7 @@ brew install rclone # macOS
 curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
 unzip rclone-current-linux-amd64.zip
 cd rclone-*-linux-amd64
-cp rclone ~/bin
+cp rclone /usr/local/bin/
 
 # Commands
 # ==========
@@ -70,6 +83,59 @@ rclone reconnect gd: # Token 失效重连
   - 根据 hash 生成唯一 ID - 基于 ID 判断是否 相同 对象
   - track-renames-strategy 可指定多次
     - leaf 会要求只在相同目录下 rename - 添加 basedir 到 ID
+
+## config
+
+```bash
+rclone config create svr s3 env_auth=true
+
+rclone config create svr s3 provider=Minio endpoint=https://s3.example.com access_key_id=$USERNAME secret_access_key=$PASSWORD
+cat ~/.config/rclone/rclone.conf
+```
+
+- remote 名字建议 `[a-z0-9][-a-z0-9_.]*`
+- gcs
+  - client_id
+  - client_secret
+  - project_number
+- s3
+  - access_key_id
+  - secret_access_key
+  - endpoint
+
+**环境变量**
+
+- 配置了环境变量可直接使用
+- `RCLONE_CONFIG_<NAME>_TYPE=s3`
+- `RCLONE_CONFIG_<NAME>_ACCESS_KEY_ID`
+- `RCLONE_CONFIG_<NAME>_SECRET_ACCESS_KEY`
+- `RCLONE_CONFIG_<NAME>_ENDPOINT`
+- env_auth
+  - s3
+    - AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY
+    - AWS_SECRET_ACCESS_KEY, AWS_SECRET_KEY
+    - AWS_SESSION_TOKEN
+    - AWS_PROFILE - ~/.aws/credentials
+    - AWS_SHARED_CREDENTIALS_FILE
+
+**路径**
+
+- /path/to/dir
+- remove:path/to/dir - 基于 HOME 相对路径 - ftp,sftp,dropbox
+- remove:/path/to/dir
+- :backend:path/to/dir - 动态后端
+  - `rclone lsd --http-url https://pub.rclone.org :http:`
+  - `rclone lsd ":http,url='https://pub.rclone.org':"`
+- `remote,parameter=value,parameter2=value2:path/to/dir`
+- `:backend,parameter=value,parameter2=value2:path/to/dir`
+
+```bash
+# 覆盖配置
+rclone copy "gdrive,shared_with_me:shared-file.txt" gdrive:
+
+# flag 默认 true
+rclone lsd :s3,env_auth:
+```
 
 ## Web UI
 
@@ -103,6 +169,12 @@ rclone mount gd: /tmp/gd \
 - [#4062](https://github.com/rclone/rclone/issues/4062) Implement OneDrive shared with me
 - https://rclone.org/webdav/#sharepoint-online
 
+## mount
+
+```bash
+rclone mount s3:bucket /mnt/path --use-server-modtime
+```
+
 # FAQ
 
 ## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF
@@ -123,4 +195,19 @@ apk add findutils
 find . -type f -empty -delete
 # 删除空目录
 find . -type d -empty -delete
+```
+
+## 通过 alias 给 s3 指定 bucket 和前缀
+
+```bash
+export RCLONE_CONFIG_SVR_TYPE=s3
+export RCLONE_CONFIG_SVR_PROVIDER=Minio
+export RCLONE_CONFIG_SVR_ACCESS_KEY_ID=deployer
+export RCLONE_CONFIG_SVR_SECRET_ACCESS_KEY=
+export RCLONE_CONFIG_SVR_ENDPOINT=https://
+
+export RCLONE_CONFIG_DST_TYPE=alias
+export RCLONE_CONFIG_DST_REMOTE=SVR:artifacts/sites
+
+rclone lsd DST:
 ```

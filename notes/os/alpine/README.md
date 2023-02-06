@@ -82,12 +82,13 @@ setup-hostname -n alpine-test
 
 setup-keymap us us
 setup-ntp -c chrony
+# /etc/localtime -> /etc/zoneinfo/Asia/Shanghai
 setup-timezone Asia/Shanghai
 
 # 添加仓库
 # 安装时的安装包位于 /media/sdb/apks/
 echo "http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
-http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" >> /etc/apk/repositories
+http://mirrors.aliyun.com/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
 
 grep VERSION_ID /etc/os-release | grep -Eo '\d+\.\d+'
 

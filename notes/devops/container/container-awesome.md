@@ -43,6 +43,7 @@ tags:
     - 基于 alpine apk 逻辑
     - 构建依赖 apk - 非 linux 环境需要 vm
     - 辅助构建 distroless
+    - 想要构建项目需要先 source -> apk
   - dockerfile
     - docker build
   - containerfile

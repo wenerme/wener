@@ -18,7 +18,9 @@ title: OpenAPI
 
 ## OpenAPI
 
+- https://www.linode.com/docs/api/openapi.yaml
 - https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml
+- https://api.twitter.com/2/openapi.json
 
 ## Version
 

@@ -11,6 +11,8 @@ title: rsync
   - unison
     - https://www.cis.upenn.edu/~bcpierce/unison/
   - `--info=progress2` 显示速度
+- `--exclude='/.git' --filter="dir-merge,- .gitignore"`
+  - 同步 git 内容
 
 :::tip
 

@@ -164,6 +164,8 @@ tags:
     - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
   - [cshum/imagor](https://github.com/cshum/imagor)
     - Apache-2.0, Go
+  - [cactus/go-camo](https://github.com/cactus/go-camo)
+    - MIT, Go
   - [joe-bell/plaiceholder](https://github.com/joe-bell/plaiceholder)
     - 生成 blur dataURL
     - [strapi-plugin-placeholder](https://market.strapi.io/plugins/strapi-plugin-placeholder)

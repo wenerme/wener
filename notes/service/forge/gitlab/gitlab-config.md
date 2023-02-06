@@ -1,20 +1,20 @@
 ---
-id: gitlab-config
 title: GitLab配置
 ---
 
 # Gitlab 配置
-* 组建
-  * gitaly - 提供 RPC 操作 Git 仓库的服务
-* [gitlab.rb.template](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template)
-  * ruby 配置文件
-  * 位于 `/etc/gitlab/gitlab.rb`
-  * 修改后操作 `gitlab-ctl reconfigure` 可让服务器不重启的情况下从新配置
-* [gitlab.yml](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/gitlab.yml.md) - [gitlab.yml.example](https://gitlab.com/gitlab-org/gitlab/blob/master/config/gitlab.yml.example)
-  * yaml 格式的配置文件
-  * 会映射为 ruby 配置
-  * 配置后会生成 `/var/opt/gitlab/gitlab-rails/etc/gitlab.yml`
-* [配置](https://docs.gitlab.com/omnibus/settings/configuration.html)
+
+- 组建
+  - gitaly - 提供 RPC 操作 Git 仓库的服务
+- [gitlab.rb.template](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template)
+  - ruby 配置文件
+  - 位于 `/etc/gitlab/gitlab.rb`
+  - 修改后操作 `gitlab-ctl reconfigure` 可让服务器不重启的情况下从新配置
+- [gitlab.yml](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/gitlab.yml.md) - [gitlab.yml.example](https://gitlab.com/gitlab-org/gitlab/blob/master/config/gitlab.yml.example)
+  - yaml 格式的配置文件
+  - 会映射为 ruby 配置
+  - 配置后会生成 `/var/opt/gitlab/gitlab-rails/etc/gitlab.yml`
+- [配置](https://docs.gitlab.com/omnibus/settings/configuration.html)
 
 ```rb
 # 可以引入外部配置文件
@@ -22,11 +22,12 @@ from_file "/home/admin/external_gitlab.rb"
 ```
 
 ## 基础配置
-* 如果想要开启 Git over SSH - 那么只能是将域名解析指向 Gitlab
-  * 或者单独转发单个端口
-  * 做不到外部反向代理+SSH - 因为 SSH 没有域名概念 - 也不适合将整个外部的 22 都指向 Gitlab
-* 注意
-  * 配置了 external_url 后，如果为 https 则只监听 https - [#1891](https://gitlab.com/gitlab-org/omnibus-gitlab/issues/1891) - 同时监听 80 和 443
+
+- 如果想要开启 Git over SSH - 那么只能是将域名解析指向 Gitlab
+  - 或者单独转发单个端口
+  - 做不到外部反向代理+SSH - 因为 SSH 没有域名概念 - 也不适合将整个外部的 22 都指向 Gitlab
+- 注意
+  - 配置了 external_url 后，如果为 https 则只监听 https - [#1891](https://gitlab.com/gitlab-org/omnibus-gitlab/issues/1891) - 同时监听 80 和 443
 
 ```rb
 # 用于 SSH 的主机名
@@ -37,21 +38,23 @@ gitlab_rails['time_zone'] = 'UTC'
 ## 授权配置
 
 ### LDAP
-* 由于 Git 需要密码 - 想要中心化管理密码只能使用 LDAP
-* LDAP 可以禁止登陆 - 例如 只允许 OpenID 登陆
-* [LDAP集成](https://docs.gitlab.com/ee/administration/auth/ldap.html) 
-  * CE 版本只支持作为登陆
-  * EE 支持同步账号和分组
+
+- 由于 Git 需要密码 - 想要中心化管理密码只能使用 LDAP
+- LDAP 可以禁止登陆 - 例如 只允许 OpenID 登陆
+- [LDAP 集成](https://docs.gitlab.com/ee/administration/auth/ldap.html)
+  - CE 版本只支持作为登陆
+  - EE 支持同步账号和分组
 
 ### OpenID Connect
 
 ## Pages 配置
-* 注意
-  * 不能用 gitlab 的二级域名
-  * 只能通过域名访问
-  * 默认存储目录 `/var/opt/gitlab/gitlab-rails/shared/pages`
-  * 如果使用自定义域名，则可能需要开启反向端口
-* [Pages 管理](https://docs.gitlab.com/ee/administration/pages)
+
+- 注意
+  - 不能用 gitlab 的二级域名
+  - 只能通过域名访问
+  - 默认存储目录 `/var/opt/gitlab/gitlab-rails/shared/pages`
+  - 如果使用自定义域名，则可能需要开启反向端口
+- [Pages 管理](https://docs.gitlab.com/ee/administration/pages)
 
 ```rb
 # 启用 Pages
@@ -63,7 +66,7 @@ gitlab_pages['enable'] = true
 # 如果配置为 http 需要配置证书或者会自动从 let's encrypt 获取
 pages_external_url 'http://pages.wener.me'
 
-# 如果配置为 https 没有配置 cert 则会使用域名拼 
+# 如果配置为 https 没有配置 cert 则会使用域名拼
 # 例如  "/etc/gitlab/ssl/example.io.crt"
 # 如果想要 https 但是又没有证书，可以考虑配置为主域名证书，然后在外面反向代理的时候忽略验证
 # 如果没有 cert 会一直失败 cannot load certificate "/etc/gitlab/ssl/pages.example.io.crt"
@@ -91,7 +94,6 @@ gitlab_pages['listen_proxy'] = "localhost:8090"
 ```
 
 ## gitlab.rb
-
 
 ```rb
 ### Email Settings
@@ -499,7 +501,7 @@ gitlab_rails['registry_path'] = "/var/opt/gitlab/gitlab-rails/shared/registry"
 ### Uncomment and edit this block to add or remove entries.
 ### See https://docs.gitlab.com/omnibus/settings/redis.html#renamed-commands
 ### for detailed usage
-###  
+###
 # redis['rename_commands'] = {
 #   'KEYS': ''
 #}

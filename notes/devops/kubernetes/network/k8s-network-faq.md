@@ -6,6 +6,11 @@ tags:
 
 # K8S Network FAQ
 
+- nodePort 会被代理，无法看到真实 IP，可以通过任意节点访问
+- hostPort 不一定能被所有 interface 访问
+  - hostNetwork: true 可以
+    - 此时要求 containerPort 和 hostPort 相同
+
 ## NodePort 端口范围
 
 - 30000–32767
@@ -134,3 +139,21 @@ kubectl annotate ingressclasses nginx ingressclass.kubernetes.io/is-default-clas
 - https://github.com/kubernetes/kubernetes/issues/45779
 - https://github.com/kubernetes/kubernetes/issues/92559
   - Headless 有 30s 的 cache-miss 缓存，新的 pod 要 30s DNS 才能访问
+
+## redirect www
+
+- nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+- haproxy.org/request-redirect: wener.me
+  - rules 里的 host 会被重定向到指定地址
+  - `host[:port]`
+- request-redirect-code
+
+**HAProxy**
+
+```
+redirect prefix http://example.com code 301 if { hdr(host) -i www.example.com }
+
+http-request redirect prefix http://%[hdr(host),regsub(^www\.,,i)] code 301 if { hdr_beg(host) -i www. }
+
+http-request redirect prefix http://www.%[hdr(host)] code 301 unless { hdr_beg(host) -i www. }
+```

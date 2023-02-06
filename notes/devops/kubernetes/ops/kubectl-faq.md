@@ -6,6 +6,12 @@ tags:
 
 # kubectl FAQ
 
+:::caution
+
+- secret 的 stringData 会进行合并，删除 stringData 字段不会删除实际 secret 字段
+
+:::
+
 ## 删除 Evicted 的 Pod
 
 - status.phase=Fialed & state.reason=Evicted

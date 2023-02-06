@@ -26,8 +26,14 @@ tags:
 ## CI/CD Pipeline
 
 - earthly.build
-- drone
+- [drone](./drone/README.md)
+  - 不太活跃
+- [woodpecker](./woodpecker/README.md)
+  - community fork of the Drone CI
 - [gitlab runner](./gitlab/gitlab-runner.md)
+  - 只能 Gitlab
+  - 集成度最高
+- [agola-io/agola](https://github.com/agola-io/agola)
 - [argocd](../../devops/kubernetes/app/argocd.md)
 - [argo workflow](../../devops/kubernetes/app/argo-workflow.md)
 - [dagger/dagger](https://github.com/dagger/dagger)

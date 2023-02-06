@@ -134,6 +134,22 @@ require('fast-glob')
 
 - 依赖了只有 esm 的插件 - 例如 @mdx/rollup
 
+## Uncaught ReferenceError: process is not defined
+
+```ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+// 添加 define
+export default defineConfig({
+  define: {
+    'process.env': {},
+  },
+  plugins: [react()],
+});
+
+```
+
 ## Vite vs Snowpack
 
 - Vite

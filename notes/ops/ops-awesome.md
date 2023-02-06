@@ -26,6 +26,12 @@ tags:
 - [Normation/rudder](https://github.com/Normation/rudder)
   - configuration and security automation platform
 
+## CMDB
+
+- [allegro/ralph](https://github.com/allegro/ralph)
+  - Apache-2.0, Python
+- https://github.com/topics/cmdb
+
 ## SRE
 
 - https://sre.google/sre-book/table-of-contents/

@@ -4,6 +4,8 @@ title: Puppeteer
 
 # Puppeteer
 
+- [puppeteer](https://github.com/puppeteer/puppeteer)
+  - [Chrome Devtools Protocol](./chrome-headless.md) 客户端
 - ~/.cache/puppeteer/chrome
 - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
   - 避免下载

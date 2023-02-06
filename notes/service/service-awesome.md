@@ -106,12 +106,18 @@ tags:
   - [projectdiscovery/notify](https://github.com/projectdiscovery/notify)
 - airtable - spreadsheet, no-code database
   - [rowyio/rowy](https://github.com/rowyio/rowy)
+    - Apache-2.0, TS
+    - Firestore
   - [nocodb/nocodb](https://github.com/nocodb/nocodb)
-    - AGPL-3.0, Typescript+Vue
+    - AGPLv3, Typescript+Vue
   - [bramw/baserow](https://gitlab.com/bramw/baserow)
     - MIT, Python+Vue
   - [gristlabs/grist-core](https://github.com/gristlabs/grist-core)
     - Backbone, Knockout
+  - [apitable/apitable](https://github.com/apitable/apitable)
+    - AGPLv3, TS, Java
+    - 国产
+  - seatable
 - invoicing/finance/buget
   - [crater-invoice/crater](https://github.com/crater-invoice/crater)
   - [actualbudget/actual](https://github.com/actualbudget/actual)

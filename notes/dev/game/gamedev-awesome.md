@@ -35,6 +35,7 @@ tags:
   - [KilledByAPixel/LittleJS](https://github.com/KilledByAPixel/LittleJS)
 - [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
 - [morgan3d/quadplay](https://github.com/morgan3d/quadplay)
+- https://www.o3de.org/
 
 ## Studio
 

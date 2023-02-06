@@ -98,6 +98,7 @@ document.fonts.check('12px ui-serif');
 - Safari 因为隐私原因，不支持，返回错误结果
 
 ## 监听 URL 变化
+
 - 目前无法可靠的检测 url 变化
 - patch history 的方式 https://github.com/streamich/react-use/blob/master/src/useLocation.ts
 - observe 任何修改然后检测
@@ -114,13 +115,13 @@ const observer = new MutationObserver(function (mutations) {
   });
 });
 
-observer.observe(document.querySelector("body"), {
+observer.observe(document.querySelector('body'), {
   childList: true,
   subtree: true,
 });
 
 // Chrome 102+
-navigation.addEventListener("navigate", e => {
-  console.log(`navigate ->`,e.destination.url)
+navigation.addEventListener('navigate', (e) => {
+  console.log(`navigate ->`, e.destination.url);
 });
 ```

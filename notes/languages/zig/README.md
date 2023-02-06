@@ -4,7 +4,7 @@ title: Zig
 
 # Zig
 
-- [ziglang](http://ziglang.org/)
+- [ziglang.org](http://ziglang.org/)
 - [zig-lang/zig](https://github.com/zig-lang/zig)
   - MIT, Zig
 - Why

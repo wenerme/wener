@@ -49,8 +49,8 @@ tags:
 
 > **Note**
 >
-> * 元数据不要用于业务依赖
-> * 可以创建模板表然后 CREATE TABLE LIKE
+> - 元数据不要用于业务依赖
+> - 可以创建模板表然后 CREATE TABLE LIKE
 
 ```sql
 create table tpl_res
@@ -129,7 +129,6 @@ END;
 $$;
 ```
 
-
 ```sql
 select set_config('tenant.id','1', true);
 ```
@@ -147,3 +146,16 @@ select set_config('tenant.id','1', true);
   - 使用: AIP
   - 面向 用户
 
+## 单数还是复数表名
+
+> 推荐单数形式
+
+- 复数
+  - 大多框架默认
+  - 语义上更准确
+  - 逻辑上更复杂
+- 单数
+  - 代码层面更好统一
+  - 但部分单数形式可能需要 quote
+- 参考
+  - https://stackoverflow.com/questions/338156

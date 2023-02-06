@@ -77,3 +77,27 @@ title: Domain
 | .services | 服务                  |
 | .ws       | WebService、WebSocket |
 | .it       | IT                    |
+
+## 如何为服务选择二级域名
+
+- linode.com - 营销主页
+  - cloud.linode.com - 后台
+  - api.linode.com
+- cloudflare.com - 主页
+  - dash.cloudflare.com - 后台
+  - api.cloudflare.com - 接口
+  - developers.cloudflare.com
+- github.com - 登录后的用户页面
+  - github.com - 未登录显示另外的内容
+- gitlab.com - 登录后的用户页面
+  - about.gitlab.com - 未登录的主页
+- google.com
+  - myaccount.google.com - 当前用户账户
+  - accounts.google.com - 登录、注销
+  - cloud.google.com - GCP
+  - `<服务>.googleapis.com` - API 域名
+  - support.google.com
+- twitter.com
+  - developer.twitter.com
+  - api.twitter.com
+    - https://api.twitter.com/2/openapi.json

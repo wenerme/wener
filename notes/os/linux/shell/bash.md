@@ -10,18 +10,32 @@ title: Bash
   - .profile, .bash_profile - 登陆 shell
 - 参考
   - [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
+  - https://www.man7.org/linux/man-pages/man1/bash.1.html
   - http://mywiki.wooledge.org/BashPitfalls
   - https://tiswww.case.edu/php/chet/bash/NEWS
 
 ```bash
 # empty shell
-env -i /usr/local/bin/bash
+env -i bash
 
 # empty env
-env -i HOME="$HOME" /usr/local/bin/bash -c 'env'
+env -i HOME="$HOME" bash -c 'env'
 
 # login shell
 time env -i HOME="$HOME" LOG4BASH_LOG_LEVE=DEBUG /usr/local/bin/bash -l -c 'env'
+```
+
+| flag       | for            |
+| ---------- | -------------- |
+| -c COMMAND | command string |
+| -i         | interactive    |
+| -l         | login shell    |
+| -r         | restricted     |
+| -s         | stdin          |
+
+```bash
+# 传递 flag 给 stdin 脚本
+curl http://sh | bash -s -- -flag
 ```
 
 ## 语法

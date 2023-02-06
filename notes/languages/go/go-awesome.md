@@ -226,6 +226,8 @@ tags:
   - 除非所有理念刚好匹配
 - echo
 - revel
+- [danielgtaylor/huma](https://github.com/danielgtaylor/huma)
+  - Huma REST/GraphQL API Framework for Golang with OpenAPI 3
 
 ### 增强处理 {#enhance}
 
@@ -518,6 +520,7 @@ tags:
 
 - [wenerme/go-wecom](https://github.com/wenerme/go-wecom)
 - [go-pay/gopay](https://github.com/go-pay/gopay)
+- [shenghui0779/gochat](https://github.com/shenghui0779/gochat)
 
 ## Markdown
 
@@ -710,6 +713,10 @@ tags:
   - [hashicorp/go-version](https://github.com/hashicorp/go-version)
 - 数据结构/算法
   - [shivamMg/trie](https://github.com/shivamMg/trie)
+- [sourcegraph/conc](https://github.com/sourcegraph/conc)
+  - Better structured concurrency for go
+- [cloudflare/tableflip](https://github.com/cloudflare/tableflip)
+  - Graceful process restarts in Go
 - [SimonWaldherr/golang-benchmarks](https://github.com/SimonWaldherr/golang-benchmarks)
 
 ## Tool

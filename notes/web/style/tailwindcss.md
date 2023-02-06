@@ -122,10 +122,8 @@ import 'tailwindcss/tailwind.css';
 - [vivek9patel/vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io)
   - portfolio website of theme Ubuntu 20.04
 - [juliomrqz/statusfy](https://github.com/juliomrqz/statusfy)
-
   - Status Page
     **Dashboard**
-
 - [cruip/tailwind-dashboard-template](https://github.com/cruip/tailwind-dashboard-template)
 - https://demos.creative-tim.com/notus-react
 - [themesberg/tailwind-dashboard-windster](https://github.com/themesberg/tailwind-dashboard-windster)

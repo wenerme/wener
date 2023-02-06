@@ -243,6 +243,9 @@ brew --prefix tinc-pre # /usr/local/opt/tinc-pre
 brew --cellar tinc-pre # /usr/local/Cellar/tinc-pre
 ```
 
+- https://formulae.brew.sh/api/formula.json
+- ~/Library/Caches/Homebrew/api/formula.json
+
 ## FAQ
 
 ### 缓存目录

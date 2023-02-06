@@ -202,6 +202,23 @@ git config --global credential.helper "cache --timeout=3600"
 chmod 600 ~/.netrc
 ```
 
+## git credential store
+
+```bash
+git config --global credential.helper store
+git credential fill <<CONF | git credential approve
+url=https://github.com/
+username=$GITHUB_USERNAME
+password=$GITHUB_TOKEN
+CONF
+```
+
+```txt title=".git-credentials"
+https://user:pass@example.com
+```
+
+- https://github.com/git/git/blob/master/contrib/credential/netrc/git-credential-netrc.perl
+
 ## 强制 pull
 
 ```bash
@@ -475,3 +492,4 @@ git config --global --add safe.directory '*'
 ```bash
 git push . develop:main
 ```
+

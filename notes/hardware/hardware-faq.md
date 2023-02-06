@@ -19,7 +19,7 @@ tags:
 
 ## 功耗
 
-| Component        |
+| Component        | Power     | Note                      |
 | ---------------- | --------- | ------------------------- |
 | SAS Idle         | 7w        |
 | SAS Full load    | 14w       |
@@ -27,7 +27,7 @@ tags:
 | DRAM             | 1.5w - 3w |
 | Rack Cooling Fan | < 24w     | 服务器里小风扇，一般 8 个 |
 
-| Consumer Level     |
+| Consumer Level     | Power       |
 | ------------------ | ----------- |
 | HDMI               | 0.5w        |
 | CPU FAN            | 0.2w - 2.4w |
@@ -94,4 +94,3 @@ tags:
   - non-contact radio frequency IC card - MF1 card
     - mifare one card
 - Access control CPU card
-

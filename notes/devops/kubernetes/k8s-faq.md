@@ -703,3 +703,5 @@ env:
 
 - k8s.gcr.io - 旧的
 - registry.k8s.io - 新的
+
+## failed to execute portforward in network namespace
