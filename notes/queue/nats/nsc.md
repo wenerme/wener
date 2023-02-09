@@ -9,13 +9,27 @@ title: nsc
 - 参考
   - [nsc](https://nats-io.github.io/nsc) manual
 
+| env        | default  |
+| ---------- | -------- |
+| NKEYS_PATH | ~/.nkeys |
+| NSC_HOME   | ~/.nsc   |
+
+- ~/.nkeys - 私钥、credential
+  - `creds/{operator}/{account}/{user}.creds`
+  - `keys/{O|A|U}/{..}/{....}.nk`
+    - S - seed
+    - O - operator
+    - A - account
+    - U - user
+- $NSC_HOME/nats
+
 ```bash
 # Docker
-docker run --rm -it -v $(pwd)/nsc:/nsc synadia/nats-box:latest
+docker run --rm -it -v $PWD/nsc:/nsc natsio/nats-box:latest
 # 可直接下载 https://github.com/nats-io/nsc/releases
 
 # Download
-curl -LO https://ghproxy.com/https://github.com/nats-io/nsc/releases/download/2.6.1/nsc-darwin-amd64.zip
+curl -LO https://ghproxy.com/https://github.com/nats-io/nsc/releases/download/v2.7.6/nsc-darwin-amd64.zip
 unzip nsc-darwin-amd64.zip
 
 # 环境配置

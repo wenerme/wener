@@ -165,6 +165,10 @@ export N_PREFIX=$HOME/n
 - https-proxy-agent
 - socks-proxy-agent
 - proxy-from-env
+- websocket
+- [ws](https://github.com/websockets/ws)
+- [µWebSockets.js]
+  - [uWebSockets](https://github.com/uNetworking/uWebSockets)
 
 ## Server
 

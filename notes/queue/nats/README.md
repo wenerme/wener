@@ -16,12 +16,26 @@ title: NATS
   - 8222 HTTP 管理和信息上报
   - 6222 集群路由
 - 参考
+  - [nats-io/nats-architecture-and-design](https://github.com/nats-io/nats-architecture-and-design)
+    - ADR - Architecture and Design Docs
   - [nats-io/natscli](https://github.com/nats-io/natscli)
     - 命令行工具
   - [nats-io/nsc](https://github.com/nats-io/nsc)
     - nats 账号管理功能
   - [compare-nats](https://docs.nats.io/compare-nats)
   - [Client Protocol](https://docs.nats.io/nats-protocol/nats-protocol)
+- SDK
+  - [nats.go](https://github.com/nats-io/nats.go)
+  - [nats.java](https://github.com/nats-io/nats.java)
+  - [nats.net](https://github.com/nats-io/nats.net)
+  - Javascript
+    - [nats.ws](https://github.com/nats-io/nats.ws)
+    - [nats.deno](https://github.com/nats-io/nats.deno)
+    - [nats.js](https://github.com/nats-io/nats.js)
+      - NPM nats
+  - [nats.c](https://github.com/nats-io/nats.c)
+  - [nats.py](https://github.com/nats-io/nats.py)
+  - [nats.rs](https://github.com/nats-io/nats.rs)
 
 ```bash
 # Docker
@@ -46,9 +60,12 @@ nats rtt
 
 - Subject-Based Messaging
   - Subject 名字 `[a-z0-9.]+`
-  - 通过 `time.us` 方式实现级联
-  - 单层匹配 `time.*.east`
-  - 多层匹配 `time.us.>`
+  - 级/层/token
+  - 建议不超过 **16** 层
+  - 通过 `a.b` 方式实现级联
+  - 单层匹配 `a.*.c` - 匹配 a.b.c
+  - 多层匹配 `a.b.>` - 匹配 a.b.c.d
+  - `*.*.c.>` - 匹配 a.b.c.d
 - Publish-Subscribe
 - Request-Reply
 - Queue Groups / Queue Subscribe / Consumer Group

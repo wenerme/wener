@@ -48,6 +48,10 @@ title: NATS JetStream
     - Terraform 管理 JetStream
   - [nats-io/nack](https://github.com/nats-io/nack)
     - K8S Controller
+- 基于 jetstream 的功能
+  - kv
+  - object store
+  - service rpc
 
 :::info
 
@@ -70,7 +74,6 @@ nats-server -c js.conf
 # 容器启动
 # 默认 scrach 镜像只包含 /nats-server
 docker run --rm -it -p 4222:4222 --name js nats:alpine -js
-
 
 # nats stream
 # ==================
@@ -135,7 +138,6 @@ nats sub monitor.ORDERS
 # nats 监控
 # ==========
 nats event --js-advisory
-
 
 # nats 其他
 # ==========
@@ -203,6 +205,13 @@ jetstream {
 
 - 去重
   - 基于 Nats-Msg-Id
+- stream
+  - name - `[^\s.*>/]`
+  - duration, size, interest
+  - subjects
+    - 捕获所有的这些消息并存储
+- client
+  - pull/push
 
 ## KV
 
@@ -226,3 +235,25 @@ jetstream {
 ```bash
 nats kv
 ```
+
+# FAQ
+
+## Cannot read properties of undefined (reading ack_policy)
+
+```ts
+await jsc.pullSubscribe('send.*', {
+  mack: true,
+  // 少了 config
+  config: {
+    durable_name: 'agent',
+    ack_policy: AckPolicy.Explicit,
+    ack_wait: 10_000_000, // 10s
+  },
+});
+```
+
+## invalid stream name - stream name cannot contain :
+
+nats 可以创建，但是 nats.ws 用不了
+
+- [nats.ws#186](https://github.com/nats-io/nats.ws/issues/186)

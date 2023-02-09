@@ -128,3 +128,7 @@ pnpm tsc -p ./tsconfig.json --noEmit false --emitDeclarationOnly true --declarat
 # 直接生成
 pnpm tsc --target ESNext --jsx preserve --declaration --strict --pretty  --out ./dist/server.js --module system --moduleResolution node --emitDeclarationOnly ./src/server/routers/_app.ts
 ```
+
+## Module 'wechat4u' resolves to an untyped module at , which cannot be augmented.
+
+将所有的类型定义都放在 declare module 里

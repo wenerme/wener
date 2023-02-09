@@ -120,3 +120,7 @@ npx sequelize model:create --name User --attributes name:string,state:boolean,bi
 ## API
 
 - order
+
+## The number NaN cannot be converted to a BigInt because it is not an integer
+
+- https://github.com/sequelize/sequelize/issues/1774

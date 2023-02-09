@@ -376,3 +376,10 @@ declare global {
 - type=module
 
 ## \_\_esModule
+
+## require
+
+```js
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+```

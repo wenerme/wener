@@ -9,6 +9,9 @@ title: nats
   - context.txt - 当前上下文
 
 ```bash
+# 从源码安装
+go install github.com/nats-io/natscli/nats@latest
+
 # macOS
 brew tap nats-io/nats-tools
 brew install nats-io/nats-tools/nats

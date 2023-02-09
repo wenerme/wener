@@ -246,9 +246,35 @@ brew --cellar tinc-pre # /usr/local/Cellar/tinc-pre
 - https://formulae.brew.sh/api/formula.json
 - ~/Library/Caches/Homebrew/api/formula.json
 
-## FAQ
+## tap
 
-### 缓存目录
+> tap 多了 update 会很慢
+
+- `https://github.com/<user>/homebrew-<repo>`
+- homebrew/cask
+- homebrew/core
+- homebrew/services
+- cloudflare/cloudflare
+  - cloudflared
+- heroku/brew
+- ariga/tap
+  - atlas
+- joedrago/repo
+  - avifenc
+- jlhonora/lsusb
+  - lsusb
+
+```bash
+ls $(brew --repository)/Library/Taps
+```
+
+## 设置
+
+- HOMEBREW_NO_AUTO_UPDATE
+
+# FAQ
+
+## 缓存目录
 
 - Homebrew
   - `~/Library/Caches/Homebrew`
@@ -258,7 +284,7 @@ brew --cellar tinc-pre # /usr/local/Cellar/tinc-pre
   - 后迁移至 `/usr/local/Caskroom/`
   - 再后来 `/usr/local/Hombrew/Cask`
 
-### 手动下载未下载完成的安装包
+## 手动下载未下载完成的安装包
 
 ```bash
 cd /Library/Caches/Homebrew/
@@ -268,7 +294,7 @@ for f in $(echo *.incomplete); do
 done
 ```
 
-### xcode 版本检测错误
+## xcode 版本检测错误
 
 ```bash
 # 显示当前使用的版本
@@ -277,7 +303,7 @@ xcode-select -p
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 ```
 
-### dir_s_mkdir permission denied
+## dir_s_mkdir permission denied
 
 - [#19789](https://github.com/Homebrew/homebrew-core/issues/19789)
 
@@ -287,14 +313,14 @@ find /usr/local -not -uid $(id -u)
 find /usr/local -not -uid $(id -u) | xargs -n 1 sudo chown -R $(whoami)
 ```
 
-### openjdk
+## openjdk
 
 ```bash
 sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 ```
 
-### 迁移
+## 迁移
 
 ```bash
 brew list > formulas.txt
@@ -327,4 +353,17 @@ brew uninstall --force tinc-pre
 brew cleanup --force -s tinc-pre
 brew cleanup --prune-prefix
 brew install tinc-pre
+```
+
+## Cannot download non-corrupt
+
+```bash
+rm ~/Library/Caches/Homebrew/downloads/*
+brew update
+```
+
+## formula.json: update failed, falling back to cached version.
+
+```bash
+brew update
 ```

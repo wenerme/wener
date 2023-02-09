@@ -7,7 +7,12 @@ title: HAProxy Proxy Protocol
 - [proxy-protocol.txt](https://github.com/haproxy/haproxy/blob/master/doc/proxy-protocol.txt)
   - v1 - 明文 `PROXY TCP4 255.255.255.255 255.255.255.255 65535 65535\r\n\r\n`
   - v2 - 支持二进制，支持更多协议
-- 支持的服务: haproxy, nginx, varnish, stud, stunnel
+- 使用场景
+  - 想要知道原始 IP - 基于 IP 过滤
+- 支持的服务
+  - haproxy, nginx, varnish, stud, stunnel
+  - postgres - [PROXY protocol support](https://www.postgresql.org/message-id/flat/CABUevEz9TLONY3VtOMkUUKpf%2BMb4XD79mXrtwUb-c9VwQ4ek-w%40mail.gmail.com#c9704d4e7ae56f3b58aa3ccf9b106bae)
+    - 有 patch 还没合并
 - 希望基于来源 IP 做策略的一般都会支持
 
 ```bash
@@ -16,6 +21,8 @@ title: HAProxy Proxy Protocol
 # curl: (56) Recv failure: Connection reset by peer
 curl --haproxy-protocol 127.0.0.1
 ```
+
+## HAProxy
 
 ```haproxy title="frontend"
 frontend http
@@ -46,7 +53,7 @@ backend be
 curl --haproxy-protocol 192.168.1.2
 ```
 
-**nginx**
+## Nginx
 
 ```nginx
 http {

@@ -44,3 +44,11 @@ tags:
 ---
 
 - https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
+
+## neofetch
+
+```bash
+curl -LO https://github.com/dylanaraps/neofetch/raw/master/neofetch
+chmod +x neofetch
+./neofetch
+```

@@ -368,3 +368,23 @@ sed -ri "s/(pkgrel)=(.+)/\1=0/" APKBUILD
 abuild checksum
 git add -u
 ```
+
+
+**builder**
+
+```bash
+export PATH=$HOME/n/bin:$PATH
+export N_PREFIX=$HOME/n
+# export https_proxy=
+
+cd /build/aports
+pnpm tsx src/aports/upgrade.ts --cwd $PWD community/frp
+
+git push gl
+git switch master
+
+grep 'github.com'  community/*/APKBUILD -l | sort -u | cut -f 2 -d '/'
+
+# rclone frp grpc seaweedfs postgresql-timescaledb grpc-java
+pnpm tsx src/aports/upgrade.ts --cwd $PWD seaweedfs
+```

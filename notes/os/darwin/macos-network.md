@@ -28,8 +28,8 @@ ifconfig -X PATTERN [PARAMETERS]
 
 # netstat
 
-```
-netstat -nr
+```bash
+netstat -nr # 路由表
 ```
 
 # route

@@ -21,6 +21,23 @@ title: FRP
 - 缺陷
   - xtcp 点到点穿透率低, 基本失败, 如果需要 p2p 可选择 tinc.
 
+:::note
+
+- websocket
+  - 只支持 tcp - [#2436](https://github.com/fatedier/frp/issues/2436)
+  - 不支持 wss - [#2119](https://github.com/fatedier/frp/issues/2119)
+
+:::
+
+```bash
+# Reload
+curl http://admin:admin@127.0.0.1:7400/api/reload
+
+# debug port
+apk add iproute2-ss
+ss -lntp
+```
+
 ## 配置
 
 - 配置会通过 tpl 渲染
@@ -64,6 +81,11 @@ vhost_https_port = 8443
 ```
 
 **frpc.ini**
+
+- sctp
+  - role=visitor
+    - bind_addr
+    - bind_port
 
 ```ini
 [common]
@@ -506,6 +528,53 @@ inotifywait -r -m --format "%e %f" /etc/frp
 inotifywait -e attrib -m --format "%e %f" /etc/frp/frpc.ini
 ```
 
+## frpc visitor env
+
+- 环境变量
+  - frps_token
+  - frpc_sk
+  - inc_name
+
+```ini
+[common]
+server_addr = frps
+token = {{.Envs.frps_token}}
+server_port = 80
+protocol = websocket
+
+admin_addr = 0.0.0.0
+admin_port = 7400
+admin_user = admin
+admin_pwd = admin
+
+use_encryption = true
+use_compression = true
+
+[{{.Envs.inc_name}}-ssh]
+type = stcp
+sk = {{.Envs.frpc_sk}}
+role = visitor
+bind_addr = 0.0.0.0
+bind_port = 22
+server_name = {{.Envs.inc_name}}-ssh
+
+[{{.Envs.inc_name}}-http]
+type = stcp
+sk = {{.Envs.frpc_sk}}
+role = visitor
+bind_addr = 0.0.0.0
+bind_port = 80
+server_name = {{.Envs.inc_name}}-http
+
+[{{.Envs.inc_name}}-https]
+type = stcp
+sk = {{.Envs.frpc_sk}}
+role = visitor
+bind_addr = 0.0.0.0
+bind_port = 443
+server_name = {{.Envs.inc_name}}-https
+```
+
 # FAQ
 
 ## get sid from visitor error
@@ -515,3 +584,8 @@ nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他�
 ## start new visitor connection error: custom listener for [] doesn't exist
 
 visitor 端出现, 应该是没有配置 server_name
+
+## websocket.Dial ws://frps:443/~!frp: unexpected EOF
+
+不支持 wss
+

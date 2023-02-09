@@ -142,6 +142,7 @@ go work sync
 - [Go proxy for GitLab](https://docs.gitlab.com/ee/user/packages/go_proxy/)
 
 ```bash
+go env -w GOPROXY=https://goproxy.cn,direct
 go env -w GOPROXY=https://proxy.golang.com.cn,direct
 go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 

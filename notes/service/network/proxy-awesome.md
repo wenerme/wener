@@ -24,6 +24,8 @@ tags:
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
 
+- brook wss
+  - https://github.com/txthinking/brook
 - obfs - 混淆 - 用于 ss,ssr
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post

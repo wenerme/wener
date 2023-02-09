@@ -12,4 +12,6 @@ sudo mv mc /usr/local/bin/
 
 mc alias set svr https://s3.example.com $KEY $SECRET
 cat ~/.mc/config.json
+
+mc mirror --watch --overwrite --remove
 ```

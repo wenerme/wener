@@ -12,5 +12,6 @@ title: Synology
 
 ## Could not chdir to home directory /var/services/homes: No such file or directory
 
+- 用户与群组 -> 高级设置 -> 家目录 -> 启动
 
 ## rsync error: rsync service is no running
