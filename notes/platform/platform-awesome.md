@@ -6,6 +6,27 @@ tags:
 
 # Platform Awesome
 
+## 小程序开发
+
+- 微信, 京东, 百度, 支付宝, 字节跳动, QQ, 钉钉, 企业微信, 飞书 小程序
+- H5, RN
+
+## 跨端小程序开发
+
+| framwork         | for               | by   |
+| ---------------- | ----------------- | ---- |
+| uni-app          | vue2, vue3        |
+| uni-app for vite | vue3              |
+| [Taro] v3        | React, vue2, vue3 | 京东 |
+| [remax]          | React             | 阿里 |
+| [rax]            | React             | 阿里 |
+| [kbone]          | Web 端同构        | 腾讯 |
+
+[rax]: https://github.com/alibaba/rax
+[remax]: https://github.com/remaxjs/remax
+[taro]: https://github.com/nervjs/taro
+[kbone]: https://github.com/Tencent/kbone
+
 ## Cloud Provider
 
 | abbr. | full name           | Note                |

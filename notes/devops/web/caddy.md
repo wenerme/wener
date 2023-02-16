@@ -54,9 +54,12 @@ caddy add-package github.com/caddy-dns/cloudflare
 - 存储位置 $XDG_DATA_HOME/caddy
 - Named matchers - `@name`
 - 表达式 匹配
-  - <code>@mutable `{method}.startsWith("P")`</code>
-  - `expression {method}.startsWith("P")`
   - https://github.com/google/cel-spec
+
+```
+@mutable `{method}.startsWith("P")`
+expression {method}.startsWith("P")
+```
 
 ```caddyfile
 example.com {
