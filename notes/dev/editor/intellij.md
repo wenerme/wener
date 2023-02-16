@@ -74,3 +74,7 @@ title: Intellij IDEA
 ```bash
 idea diff path1 path2 path3
 ```
+
+## Status bar - Git branch
+
+- View -> Apperance -> Status bar widgets -> Git Branch

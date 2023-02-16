@@ -323,3 +323,11 @@ bind F3 setw synchronize-panes off
 
 set -g default-terminal "xterm"
 ```
+
+# FAQ
+
+## 窗口滚动
+
+```bash
+set -g mode-mouse on
+```

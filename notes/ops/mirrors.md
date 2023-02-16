@@ -58,6 +58,7 @@ title: Mirrors
 | https://mirrors.zju.edu.cn/           | 浙江大学         |
 
 - https://github.com/SUSTech-CRA/chinese-opensource-mirror-site
+- https://mirrors.cernet.edu.cn/list
 
 ## Github
 

@@ -5,7 +5,7 @@ title: Signoz
 # Signoz
 
 - [SigNoz/signoz](https://github.com/SigNoz/signoz)
-  - MIT, Golang, React
+  - MIT+EE, Golang, React
   - APM, ClickHouse
   - 应用信息存储在 SQLite [#941](https://github.com/SigNoz/signoz/issues/941)
     - dashboards layout, alert config

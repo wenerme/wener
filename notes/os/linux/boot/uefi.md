@@ -58,6 +58,18 @@ apk add ovmf
 # /usr/share/ovmf/bios.bin
 ```
 
+## AAVMF
+
+- AAVMF - ARM Architecture Virtual Machine Firmware
+  - EFI Development Kit II platform that enables UEFI support for QEMU/KVM ARM Virtual Machines.
+- UEFI firmware for aarch64 virtual machines
+
+| Distro        | Package            |
+| ------------- | ------------------ |
+| RHEL/CentOS   | AAVMF/edk2-aarch64 |
+| Debian/Ubuntu | qemu-efi           |
+| AlpineLinux   | aavmf              |
+
 ## EFISTUB
 
 - 一种启动方式，将 linux 内核 转为 efi 文件
@@ -83,6 +95,7 @@ apk add ovmf
   - 支持图形界面
 
 ## you need to load the kernel first
+
 注意在这之前的错误
 
 ```

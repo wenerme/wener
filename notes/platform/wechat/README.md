@@ -28,6 +28,8 @@ title: WeChat
   - [dcloudio/uni-app](https://github.com/dcloudio/uni-app)
   - [TalkingData/iview-weapp](https://github.com/TalkingData/iview-weapp)
   - [tailwindcss jit](https://developers.weixin.qq.com/community/develop/article/doc/00028ea8ab84d86c968d58d5b5bc13)
+  - https://github.com/wechat-miniprogram/api-typings/tree/master/types/wx
+    - Typescript API
 
 ## 接口
 

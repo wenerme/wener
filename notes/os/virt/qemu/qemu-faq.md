@@ -8,10 +8,36 @@ tags:
 
 - [7 ways we harden our KVM hypervisor at Google Cloud: security in plaintext](https://cloudplatform.googleblog.com/2017/01/7-ways-we-harden-our-KVM-hypervisor-at-Google-Cloud-security-in-plaintext.html)
 
+## 持嵌套虚拟化
+
+- 大多云平台都不支持嵌套虚拟化
+- 裸金属服务器 支持虚拟化
+- 参考
+  - [GCP 嵌套虚拟化简介](https://cloud.google.com/compute/docs/instances/nested-virtualization/overview)
+    - Intel Haswell+
+      - Sandy Bridge, Ivy Bridge 不可以
+      - AMD 不可以
+  - [Cloud Provider Instances with KVM support](https://ignite.readthedocs.io/en/stable/cloudprovider/)
+    - GCP - 所有支持
+    - DO - 所有支持
+    - Azure Dv3, Ev3 - 4C16G+ - $140/mo
+    - Packet - 4C8G+ - ~$50/mo
+    - AWS `*.metal` - 裸金属服务器 - 48CPU+
+
 ## RNG
 
 ```bash
 qemu-system-x86_64 -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0,bus=pci.0,addr=0x7
+```
+
+## 环境检测
+
+```bash
+# KVM 要求 Intel VT, AMD-V
+egrep '(vmx|svm)' /proc/cpuinfo
+
+modprobe kvm
+modprobe kvm-intel
 ```
 
 ## 访问远程镜像

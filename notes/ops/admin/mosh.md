@@ -6,19 +6,22 @@ title: MOSH
 # MOSH
 
 ## Why
-* 即便是 IP 改变也会保持连接
-* 在待机或者网络恢复后,依然会保持连接
-* 即使在网络延迟较高的时候也会立即响应本地行编辑操作,而不像 SSH 会先等待服务器响应.
-* 安装运行只需要普通用户即可
-* 与 SSH 相同的登陆方式
-* 修正了 SSH 的一些编码异常,只支持 UTF-8
-* MOSH 会优先响应 Ctrl-C
-* 客户端预先显示的输出会在下面显示下划线
+
+- 即便是 IP 改变也会保持连接
+- 在待机或者网络恢复后,依然会保持连接
+- 即使在网络延迟较高的时候也会立即响应本地行编辑操作,而不像 SSH 会先等待服务器响应.
+- 安装运行只需要普通用户即可
+- 与 SSH 相同的登陆方式
+- 修正了 SSH 的一些编码异常,只支持 UTF-8
+- MOSH 会优先响应 Ctrl-C
+- 客户端预先显示的输出会在下面显示下划线
+- 默认端口 60000-61000
 
 ## Tips
-* 远程服务器如果没有相应的 LC 可能会导致连接不上
-  * `locale-gen zh_CN.UTF-8`
-* https://git.zx2c4.com/mosh-cleaner/about/
+
+- 远程服务器如果没有相应的 LC 可能会导致连接不上
+  - `locale-gen zh_CN.UTF-8`
+- https://git.zx2c4.com/mosh-cleaner/about/
 
 ```bash
 mosh user@example.com --ssh="ssh -p 2222"
@@ -38,14 +41,13 @@ who | grep -v 'via mosh' | grep -oP '(?<=mosh \[)(\d+)(?=\])' | xargs kill
 
 因为 MOSH 是无法查看历史的输出内容的,所见内容只能有一屏高.可结合 tmux 实现滚动功能
 
-* iTerm2 显示内容
-* mosh 保持连接
-* tmux 接受鼠标滚动和会话重连
-
+- iTerm2 显示内容
+- mosh 保持连接
+- tmux 接受鼠标滚动和会话重连
 
 首先需要修改 tmux 配置
 
-__~/.tmux.conf__
+**~/.tmux.conf**
 
 ```
 # 确保 tmux a 总能打开一个会话
@@ -63,13 +65,13 @@ brew install --HEAD mobile-shell
 打开远程会话
 
 ```
-mosh HOST -- tmux a  
+mosh HOST -- tmux a
 ```
 
-> __TIPS__
+> **TIPS**
 >
-> * 选中复制需要按住 Option
-> * `C-b d` detach 会话, `C-b` 经常被重新绑定为 `C-a`
+> - 选中复制需要按住 Option
+> - `C-b d` detach 会话, `C-b` 经常被重新绑定为 `C-a`
 
 ```bash
 # 使用指定会话名创建一个新的会话
@@ -86,12 +88,12 @@ mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t cmd
 mosh HOST -- tmux -S /tmp/extratmuxserver/tmuxserver a -t log
 ```
 
-
-* https://blog.filippo.io/my-remote-shell-session-setup/
-* http://superuser.com/a/492285/242730
-* https://gist.github.com/MohamedAlaa/2961058
-* https://gist.github.com/andreyvit/2921703
+- https://blog.filippo.io/my-remote-shell-session-setup/
+- http://superuser.com/a/492285/242730
+- https://gist.github.com/MohamedAlaa/2961058
+- https://gist.github.com/andreyvit/2921703
 
 ## 参考
-* [mosh](https://mosh.mit.edu/)
-* [mobile-shell/mosh](https://github.com/mobile-shell/mosh)
+
+- [mosh](https://mosh.mit.edu/)
+- [mobile-shell/mosh](https://github.com/mobile-shell/mosh)

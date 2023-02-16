@@ -54,7 +54,7 @@ docker info | grep 'Root Dir'
 
 # 确认旧的目录没有被使用
 apk add lsof
-lsof +D /va/lib/docker
+lsof +D /var/lib/docker
 ```
 
 ## No swap limit support

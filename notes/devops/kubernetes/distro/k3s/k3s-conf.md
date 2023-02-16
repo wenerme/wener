@@ -57,6 +57,9 @@ datastore-keyfile:
 token:
 token-file:
 
+agent-token:
+agent-token-file:
+
 # 写入 kubeconfig
 write-kubeconfig: /etc/rancher/k3s/k3s.yml
 write-kubeconfig-mode: '0644'
@@ -108,8 +111,6 @@ disable-network-policy: false
 
 # 实验阶段
 rootless: false
-agent-token:
-agent-token-file:
 server:
 
 # --cluster-init

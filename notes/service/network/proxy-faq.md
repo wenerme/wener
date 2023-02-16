@@ -1,10 +1,18 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Proxy FAQ
 
+## tunnel vs overlay
+
+- tunnel
+  - 单端口 - 端口按需映射
+  - 单 IP/固定 IP - TCP IP 层 - L4
+- overlay
+  - 网络 - CIDR
+  - mac 层 - L2
 
 ## fake-ip
 

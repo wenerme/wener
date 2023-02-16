@@ -40,3 +40,45 @@ proxy_set_header Host $host:$server_port;
   - 通过 [$http_HEADER](http://nginx.org/en/docs/http/ngx_http_core_module.html#variables) 定义
   - 与 HTTP 头中信息保持一致
   - 包含 port
+
+## ssl passthrough
+
+**by sni**
+
+```bash
+nginx -V | grep stream_ssl_preread_module
+```
+
+```conf
+stream {
+
+  map $ssl_preread_server_name $targetBackend {
+    ab.mydomain.com  upstream1.example.com:443;
+    xy.mydomain.com  upstream2.example.com:443;
+  }
+
+  server {
+    listen 443;
+
+    proxy_connect_timeout 1s;
+    proxy_timeout 3s;
+    resolver 1.1.1.1;
+
+    proxy_pass $targetBackend;
+    ssl_preread on;
+  }
+}
+```
+
+- https://gist.github.com/kekru/c09dbab5e78bf76402966b13fa72b9d2
+
+**by stream**
+
+```conf
+stream {
+  server {
+    listen 443;
+    proxy_pass backend.example.com:443;
+  }
+}
+```

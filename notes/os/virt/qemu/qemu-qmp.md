@@ -1,5 +1,4 @@
 ---
-id: qemu-qmp
 title: QEMU QMP
 ---
 

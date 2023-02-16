@@ -77,3 +77,6 @@ dmidecode -t memory
 ```
 
 - https://techlibrary.hpe.com/docs/iss/DL380pGen8/setup_install/advanced/Content/138678.htm
+
+
+## DDR3 vs DDR4

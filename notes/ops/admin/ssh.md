@@ -306,7 +306,7 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 推荐使用 ECDSA,Ed25519
 
 ```bash
-ssh-keygen -t ed25519 -C "a@b.com"
+ssh-keygen -t ed25519 -C "a@b.com" -f $PWD
 ```
 
 ## ssh into tmux

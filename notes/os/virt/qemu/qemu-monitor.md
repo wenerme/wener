@@ -1,5 +1,4 @@
 ---
-id: qemu-monitor
 title: QEMU监视器
 ---
 

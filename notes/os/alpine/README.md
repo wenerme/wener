@@ -100,7 +100,7 @@ echo "@testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/reposi
 echo "http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
 http://mirrors.sjtug.sjtu.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
 
-# 或者直接用 edge
+# 或者直接用 edge - 不推荐
 echo "http://mirrors.aliyun.com/alpine/edge/main
 http://mirrors.aliyun.com/alpine/edge/community
 @testing http://mirrors.aliyun.com/alpine/edge/testing" >> /etc/apk/repositories
