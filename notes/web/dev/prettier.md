@@ -116,3 +116,15 @@ module.exports = {
 - https://prettier.io/docs/en/plugins.html
 
 ## ignore
+- prettier-ignore
+
+```jsx
+<div>
+  {/* prettier-ignore */}
+  <span     ugly  format=''   />
+</div>
+```
+
+```html
+<!-- prettier-ignore -->
+```

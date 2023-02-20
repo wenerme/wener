@@ -41,6 +41,11 @@ alpine 早期思想来自于 FreeBSD
   - 第一版 apk-tools 基于 FreeBSD 的 pkg_add
   - 2005-06-13 第一次提交
 
+## GPU
+
+- Nvidia 未提供 musl 版本的驱动
+- https://forums.developer.nvidia.com/t/219586
+
 ## apk 1 error
 
 apk 操作时显示有错误, 例如 `1 error; 241 MiB in 67 packages`.

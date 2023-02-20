@@ -12,25 +12,23 @@ tags:
 
 ## Tips
 
-* Maven 包类型
-  * pom - Project Object Model
-  * jar - Java Application Archive
-  * ear - Enterprise Application Archive
-  * war - Web Application Archive
-  * rar - Resource Adapter Archive
+- Maven 包类型
+  - pom - Project Object Model
+  - jar - Java Application Archive
+  - ear - Enterprise Application Archive
+  - war - Web Application Archive
+  - rar - Resource Adapter Archive
 
-
-属性 | 说明
------|-------
-maven.javadoc.skip | 不调用 Javadoc 插件
-maven.test.skip | 不编译测试，不执行测试
-maven.test.skip.exec | 不执行测试，但编译测试包
-maven.repo.remote | 远程仓库
-maven.repo.local | 本地仓库
-socksProxyHost<br/>socksProxyPort | Socks 代理
-httpProxyHost<br/>httpProxyPort | Http 代理
-httpsProxyHost<br/>httpsProxyPort | Https 代理
-
+| 属性                              | 说明                     |
+| --------------------------------- | ------------------------ |
+| maven.javadoc.skip                | 不调用 Javadoc 插件      |
+| maven.test.skip                   | 不编译测试，不执行测试   |
+| maven.test.skip.exec              | 不执行测试，但编译测试包 |
+| maven.repo.remote                 | 远程仓库                 |
+| maven.repo.local                  | 本地仓库                 |
+| socksProxyHost<br/>socksProxyPort | Socks 代理               |
+| httpProxyHost<br/>httpProxyPort   | Http 代理                |
+| httpsProxyHost<br/>httpsProxyPort | Https 代理               |
 
 ```
 -pl, --projects
@@ -64,12 +62,13 @@ https://search.maven.org/stats
 http://repo.maven.apache.org/maven2/.meta/repository-metadata.xml
 
 ## pom.xml
-* [POM Reference](https://maven.apache.org/pom.html)
+
+- [POM Reference](https://maven.apache.org/pom.html)
 
 ## settings.xml
-* 默认配置文件位于 `$HOME/.m2/settings.xml`
-  * 如果没有，可以从 Maven 安装目录拷贝
 
+- 默认配置文件位于 `$HOME/.m2/settings.xml`
+  - 如果没有，可以从 Maven 安装目录拷贝
 
 ### 代理设置
 
@@ -88,16 +87,16 @@ http://repo.maven.apache.org/maven2/.meta/repository-metadata.xml
 
 一般使用镜像有以下几种方式
 
-* 在 POM 中添加仓库
-  * 粘贴复制下就能使用
-  * 会持久在项目中
-    * 团队中其他人也不需要配置
-  * 如果在镜像的仓库中找不到会在中央仓库找
-* 在 setting 中添加镜像
-  * 需要调整 setting.xml 相对麻烦一些
-  * 在仓库中找不到会出错
-  * 当项目中有多个模块时,使用镜像可能会出现找不到本地模块的问题
-* 在 setting 中添加 profile
+- 在 POM 中添加仓库
+  - 粘贴复制下就能使用
+  - 会持久在项目中
+    - 团队中其他人也不需要配置
+  - 如果在镜像的仓库中找不到会在中央仓库找
+- 在 setting 中添加镜像
+  - 需要调整 setting.xml 相对麻烦一些
+  - 在仓库中找不到会出错
+  - 当项目中有多个模块时,使用镜像可能会出现找不到本地模块的问题
+- 在 setting 中添加 profile
 
 ### 阿里云
 
@@ -108,7 +107,6 @@ http://repo.maven.apache.org/maven2/.meta/repository-metadata.xml
 
 https://repo.maven.apache.org/maven2/
 https://repo1.maven.apache.org/maven2/
-
 
 ```xml
 <repositories>
@@ -173,21 +171,22 @@ https://maven.google.com/web/index.html
 ```
 
 ## 插件
-* 插件如果不制定 groupId 则默认为 `org.apache.maven.plugins`
-* [官方插件列表](https://maven.apache.org/plugins/)
-* 默认生命周期包含的插件 [Plugin Bindings for default Lifecycle Reference](https://maven.apache.org/ref/current/maven-core/default-bindings.html)
-  * pom 包
-    * install - maven-install-plugin:install
-    * deploy - maven-deploy-plugin:deploy
-  * jar 包
-    * process-resources - maven-resources-plugin:resources
-    * compile - maven-compiler-plugin:compile
-    * process-test-resources - maven-resources-plugin:testResources
-    * test-compile - maven-compiler-plugin:testCompile
-    * test - maven-surefire-plugin:test
-    * package - maven-jar-plugin:jar
-    * install - maven-install-plugin:install
-    * deploy - maven-deploy-plugin:deploy
+
+- 插件如果不制定 groupId 则默认为 `org.apache.maven.plugins`
+- [官方插件列表](https://maven.apache.org/plugins/)
+- 默认生命周期包含的插件 [Plugin Bindings for default Lifecycle Reference](https://maven.apache.org/ref/current/maven-core/default-bindings.html)
+  - pom 包
+    - install - maven-install-plugin:install
+    - deploy - maven-deploy-plugin:deploy
+  - jar 包
+    - process-resources - maven-resources-plugin:resources
+    - compile - maven-compiler-plugin:compile
+    - process-test-resources - maven-resources-plugin:testResources
+    - test-compile - maven-compiler-plugin:testCompile
+    - test - maven-surefire-plugin:test
+    - package - maven-jar-plugin:jar
+    - install - maven-install-plugin:install
+    - deploy - maven-deploy-plugin:deploy
 
 mvn dependency:resolve -Dclassifier=javadoc
 mvn dependency:resolve -Dclassifier=sources
@@ -225,12 +224,12 @@ mvn install:install-file \
 ```
 
 ### maven-jar-plugin
-* [Apache Maven JAR Plugin](https://maven.apache.org/plugins/maven-jar-plugin)
 
-
+- [Apache Maven JAR Plugin](https://maven.apache.org/plugins/maven-jar-plugin)
 
 ### maven-shade-plugin
-* [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/index.html)
+
+- [Apache Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/index.html)
 
 ```xml
 <!-- 常用配置，按需粘贴 -->
@@ -344,17 +343,18 @@ mvn install:install-file \
 ```
 
 ## maven-release-plugin
-* [Maven Release Plugin](http://maven.apache.org/maven-release/maven-release-plugin/)
-* 执行目标
-  * release:clean 在准备发布后清理
-  * release:prepare 在 SCM 中生成准备提交
-  * release:prepare-with-pom 在 SCM 中生成准备提交并生成 POM
-  * release:rollback 回退之前的发布
-  * release:perform 从 SCM 执行发布
-  * release:stage 在制定的目录从 SCM 发布
-  * release:branch 创建分支并更新版本
-  * release:update-versions 更新 POM 中的版本
-* 基本的逻辑是先提交到 SCM，在从 SCM 拉取到一个临时目录进行构建发布
+
+- [Maven Release Plugin](http://maven.apache.org/maven-release/maven-release-plugin/)
+- 执行目标
+  - release:clean 在准备发布后清理
+  - release:prepare 在 SCM 中生成准备提交
+  - release:prepare-with-pom 在 SCM 中生成准备提交并生成 POM
+  - release:rollback 回退之前的发布
+  - release:perform 从 SCM 执行发布
+  - release:stage 在制定的目录从 SCM 发布
+  - release:branch 创建分支并更新版本
+  - release:update-versions 更新 POM 中的版本
+- 基本的逻辑是先提交到 SCM，在从 SCM 拉取到一个临时目录进行构建发布
 
 ```bash
 # 查看帮助
@@ -369,9 +369,10 @@ mvn release:rollback
 ```
 
 ### maven-gpg-plugin
-* [maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin)
-* 在部署到仓库时一般要求做 gpg 签名
-* [How to config GPG and sign artifact with it](https://github.com/sevntu-checkstyle/dsm-maven-plugin/wiki/How-to-config-GPG-and-sign-artifact-with-it)
+
+- [maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin)
+- 在部署到仓库时一般要求做 gpg 签名
+- [How to config GPG and sign artifact with it](https://github.com/sevntu-checkstyle/dsm-maven-plugin/wiki/How-to-config-GPG-and-sign-artifact-with-it)
 
 GPG 的基本操作
 
@@ -408,7 +409,8 @@ gpg --verify artifact.jar.asc
 ```
 
 ### spring-boot-maven-plugin
-* [Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/current/maven-plugin)
+
+- [Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/current/maven-plugin)
 
 ### 生成 build-info
 
@@ -434,9 +436,9 @@ gpg --verify artifact.jar.asc
 
 ### git-commit-id-plugin
 
-* [ktoso/maven-git-commit-id-plugin](https://github.com/ktoso/maven-git-commit-id-plugin)
+- [ktoso/maven-git-commit-id-plugin](https://github.com/ktoso/maven-git-commit-id-plugin)
 
-Maven plugin which includes build-time git repository information into an POJO / *.properties
+Maven plugin which includes build-time git repository information into an POJO / \*.properties
 
 #### 只生成部分属性
 
@@ -469,18 +471,18 @@ Maven plugin which includes build-time git repository information into an POJO /
 </plugin>
 ```
 
-
 ## 仓库管理
-* [Best Practice - Using a Repository Manager](https://maven.apache.org/repository-management.html)
-* [Artifactory 特性比较](https://www.jfrog.com/confluence/display/RTF/Artifactory+Comparison+Matrix)
-* [Nexus OSS](https://www.sonatype.com/nexus-repository-oss)
-  * 标准的 Maven 仓库
-  * 支持 Bower,Docker,Git LFS,Maven,npm,NuGet,PyPI,Ruby Gems,Yum
-  * 3.x 支持 Docker 就像仓库
-  * 有 Docker 镜像
-* [JFrog](https://jfrog.com/open-source/)
-  * 第二大开源 Maven 仓库
-* [Apache Archiva](https://archiva.apache.org)
+
+- [Best Practice - Using a Repository Manager](https://maven.apache.org/repository-management.html)
+- [Artifactory 特性比较](https://www.jfrog.com/confluence/display/RTF/Artifactory+Comparison+Matrix)
+- [Nexus OSS](https://www.sonatype.com/nexus-repository-oss)
+  - 标准的 Maven 仓库
+  - 支持 Bower,Docker,Git LFS,Maven,npm,NuGet,PyPI,Ruby Gems,Yum
+  - 3.x 支持 Docker 就像仓库
+  - 有 Docker 镜像
+- [JFrog](https://jfrog.com/open-source/)
+  - 第二大开源 Maven 仓库
+- [Apache Archiva](https://archiva.apache.org)
 
 ```bash
 # ARCHIVA_BASE 可修改存储位置, 默认为 /var/archiva
@@ -488,38 +490,37 @@ Maven plugin which includes build-time git repository information into an POJO /
 docker run -v $PWD/archiva:/var/archiva -p 8080:8080 -d ninjaben/archiva-docker
 ```
 
-
 ## 中央仓库
-* [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/guides/mini/guide-central-repository-upload.html)
-* [Deploy to Maven Central Repository](https://dzone.com/articles/deploy-maven-central)
 
+- [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/guides/mini/guide-central-repository-upload.html)
+- [Deploy to Maven Central Repository](https://dzone.com/articles/deploy-maven-central)
 
 ### Sonatype Central
-* [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html)
-* [Deploying to OSSRH with Apache Maven](http://central.sonatype.org/pages/apache-maven.html)
-* [Requirements](https://central.sonatype.org/pages/requirements.html)
-* 发布到 Sonatype 后，大约 10m 后会同步到中央仓库
-* 坐标申请
-  * 在 https://issues.sonatype.org/ 创建账号
-  * 创建一个 issues 描述希望使用的 groupId 并简单阐述放的内容
-  * 等待审批完成
-* 要求
-  * 提供 Javadoc 和 Sources
-  * 使用 GPG/PGP 签名，生成 `.asc` 文件
-  * pom 要求
-    * 正确的坐标
-    * 版本不能为 `-SNAPSHOT`
-    * 名字，描述，网址 - name,description,url
-    * name 可接受 `${project.groupId}:${project.artifactId}`
-    * 许可信息 - licenses
-    * 开发者信息 - developers
-    * SCM 信息 - scm
+
+- [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html)
+- [Deploying to OSSRH with Apache Maven](http://central.sonatype.org/pages/apache-maven.html)
+- [Requirements](https://central.sonatype.org/pages/requirements.html)
+- 发布到 Sonatype 后，大约 10m 后会同步到中央仓库
+- 坐标申请
+  - 在 https://issues.sonatype.org/ 创建账号
+  - 创建一个 issues 描述希望使用的 groupId 并简单阐述放的内容
+  - 等待审批完成
+- 要求
+  - 提供 Javadoc 和 Sources
+  - 使用 GPG/PGP 签名，生成 `.asc` 文件
+  - pom 要求
+    - 正确的坐标
+    - 版本不能为 `-SNAPSHOT`
+    - 名字，描述，网址 - name,description,url
+    - name 可接受 `${project.groupId}:${project.artifactId}`
+    - 许可信息 - licenses
+    - 开发者信息 - developers
+    - SCM 信息 - scm
 
 #### Maven 部署
 
-
-
 #### 手动部署
+
 ```bash
 # https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
 
@@ -539,39 +540,67 @@ gpg -ab $NAME-javadoc.jar
 # 可以直接在命令行上指定密码
 PASSPHRASE=xxx
 mvn gpg:sign-and-deploy-file -Dgpg.passphrase=$PASSPHRASE \
-	-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
+  -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
   -DrepositoryId=sonatype-nexus-staging -DpomFile=pom.xml \
   -Dfile=NAME.jar
 
 mvn gpg:sign-and-deploy-file -Dgpg.passphrase=$PASSPHRASE \
-	-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
+  -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
   -DrepositoryId=sonatype-nexus-staging -DpomFile=pom.xml \
   -Dfile=$NAME-sources.jar -Dclassifier=sources
 
 mvn gpg:sign-and-deploy-file -Dgpg.passphrase=$PASSPHRASE \
-	-Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
+  -Durl=https://oss.sonatype.org/service/local/staging/deploy/maven2/ \
   -DrepositoryId=sonatype-nexus-staging -DpomFile=pom.xml \
   -Dfile=$NAME-javadoc.jar -Dclassifier=javadoc
+```
 
+## wrapper
+
+- MVNW_REPOURL
+- MVNW_USERNAME
+- MVNW_PASSWORD
+- MVNW_VERBOSE
+- https://maven.apache.org/wrapper/
+
+```bash
+# -Dmaven=3.5.4
+MVNW_REPOURL=https://maven.aliyun.com/nexus/content/groups/public mvn wrapper:wrapper
+MVNW_REPOURL=https://maven-central.storage.googleapis.com/maven2 mvn wrapper:wrapper
+```
+
+## settings.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<mirrors>
+  <mirror>
+    <id>aliyun</id>
+    <mirrorOf>central</mirrorOf>
+    <name>aliyun</name>
+    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+  </mirror>
+</mirrors>
+</settings>
 ```
 
 ## FAQ
+
 ### optional vs provided
 
-* optional 只影响包的传递性, 不影响包的 ClassPath
-* provided 只在 compile 和 test 下存在, 并且不会传递
-* 所以区别在于 optional 在 runtime 时生效, 而 provided 不生效
-
-
+- optional 只影响包的传递性, 不影响包的 ClassPath
+- provided 只在 compile 和 test 下存在, 并且不会传递
+- 所以区别在于 optional 在 runtime 时生效, 而 provided 不生效
 
 ### Scope 的作用域
 
-scope     | compile | test  |runtime  | transitive
-----------|---------|-------|---------|---------
-compile   | Y       | Y	    | Y       | Y
-test      | -       | Y     | -       | -
-provided  | Y       | Y     | -       | -
-runtime   | -       | Y     | Y       | Y
-system    | Y       | Y     | -       | Y
+| scope    | compile | test | runtime | transitive |
+| -------- | ------- | ---- | ------- | ---------- |
+| compile  | Y       | Y    | Y       | Y          |
+| test     | -       | Y    | -       | -          |
+| provided | Y       | Y    | -       | -          |
+| runtime  | -       | Y    | Y       | Y          |
+| system   | Y       | Y    | -       | Y          |
 
 ## Current maven session contains banned repository urls, please double check your pom or settings.xml

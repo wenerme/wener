@@ -18,3 +18,4 @@ tags:
 
 - LTSC 支持 5-10 年
 - [List of Microsoft Windows versions](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions)
+- https://learn.microsoft.com/en-us/windows-insider/archive/new-in-19h1

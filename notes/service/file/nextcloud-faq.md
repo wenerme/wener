@@ -1,9 +1,25 @@
 ---
-id: nextcloud-faq
 title: Nextcloud FAQ
+tags:
+- FAQ
 ---
 
 # Nextcloud FAQ
+
+## su as
+
+- 有些时候无法 `docker exec -u www-data`
+- kubectl 不支持 -u
+
+```bash
+su -l www-data -s /bin/bash
+```
+
+## nextcloud put 413
+
+发生未知错误
+
+- 调整 nginx、haproxy 最大 body 大小
 
 ## Auto provisioning not allowed and user hello does not exist
 

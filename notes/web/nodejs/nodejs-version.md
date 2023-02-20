@@ -31,6 +31,9 @@ tags:
 
 :::
 
+- https://unofficial-builds.nodejs.org/download/release
+  - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
+
 ## Node v18 LTS
 
 :::caution

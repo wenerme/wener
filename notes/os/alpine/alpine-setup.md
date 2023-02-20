@@ -9,8 +9,8 @@ title: AlpineLinux Setup
   - [Alpine setup scripts](https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts)
 
 ```bash
-setup-interfaces
-service networking restart
+setup-interfaces -ar
+# service networking restart
 
 setup-sshd -c openssh
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
@@ -37,12 +37,16 @@ https://mirrors.tuna.tsinghua.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine
 apk update
 apk version -a
 
-apk add util-linux nano curl shadow bash sudo doas busybox-extras openssh-client openssh-sftp-server
+apk add util-linux nano curl
+# 常用 - 如果想要做小镜像可以不装
+apk add shadow bash sudo doas busybox-extras openssh-client openssh-sftp-server
 
 # setup-hostname alpine
 
+# 安装到系统盘 - 注意选择正确的盘符
+# qemu 的参数顺序影响 vda 还是 vdb
 lsblk
-USE_EFI=1 setup-disk -m sys -s 0 -v /dev/vdb
+USE_EFI=1 setup-disk -m sys -s 0 -v /dev/vda
 ```
 
 ## setup-disk

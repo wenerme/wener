@@ -40,6 +40,47 @@ docker build -t demo -o type=image .
   - kubernetes
   - remote
 
+## platform
+- amd64, arm32v5, arm32v6, arm32v7, arm64v8, i386, ppc64le, s390x
+
+
+```bash
+docker run --privileged --rm tonistiigi/binfmt --install all
+```
+
+## output
+
+- type=image,name=REGISTRY/IMAGE,push=true,compression=zstd
+- compression-level
+  - 0-9 - gzip,estargz
+  - 0-22 - zstd
+- force-compression=true
+- push=true
+- oci-mediatypes=true
+- buildinfo=true
+  - 附加构建信息 `{"moby.buildkit.buildinfo.v0": "<base64>"}`
+
+## cache
+
+- type
+  - inline
+  - registry
+    - `type=registry,ref=<registry>/<cache-image>[,parameters...]`
+  - local
+  - gha
+  - s3
+  - azblob
+- `--cache-to`, `--cache-from`
+  - 可以指定多个
+  - mode=min - 默认
+    - 缓存 export 最终 layer
+  - mode=max
+    - 缓存所有 layer
+  - compression=zstd
+  - oci-mediatypes=true
+    - 只针对 cache-to
+- https://docs.docker.com/build/cache/backends/
+
 ## RUN mount
 
 - cache - 创建一个目录用于缓存
@@ -84,7 +125,6 @@ RUN --mount=type=cache,target=/root/.npm/_cacache/ \
 ## docker build unknown flag: --push
 
 需要启用 buildx
-
 
 ## cache export feature is currently not supported for docker driver
 

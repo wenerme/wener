@@ -6,10 +6,23 @@ tags:
 
 # Platform Awesome
 
-## 小程序开发
+## 小程序平台
 
-- 微信, 京东, 百度, 支付宝, 字节跳动, QQ, 钉钉, 企业微信, 飞书 小程序
-- H5, RN
+- [微信小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+- [京东小程序](https://mp.jd.com/)
+- [百度智能小程序](https://smartprogram.baidu.com/developer/index.html)
+- [支付宝小程序](https://opendocs.alipay.com/mini/developer/getting-started)
+- [字节跳动小程序](https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/introduction/overview)
+- [QQ 小程序](https://q.qq.com/wiki/develop/miniprogram/frame/)
+- [钉钉小程序](https://open.dingtalk.com/document/org/develop-org-mini-programs)
+- [企业微信小程序](https://developers.weixin.qq.com/miniprogram/dev/devtools/qywx-dev.html)
+- [支付宝 IOT 小程序](https://opendocs.alipay.com/iot/multi-platform/vcs0fv)
+- [飞书小程序](https://open.feishu.cn/document/uYjL24iN/uMjNzUjLzYzM14yM2MTN)
+
+---
+
+- [H5](https://developer.mozilla.org/zh-CN/docs/Web)
+- [ReactNative](https://reactnative.dev/)
 
 ## 跨端小程序开发
 
@@ -21,11 +34,13 @@ tags:
 | [remax]          | React             | 阿里 |
 | [rax]            | React             | 阿里 |
 | [kbone]          | Web 端同构        | 腾讯 |
+| [omi]            |                   | 腾讯 |
 
 [rax]: https://github.com/alibaba/rax
 [remax]: https://github.com/remaxjs/remax
 [taro]: https://github.com/nervjs/taro
 [kbone]: https://github.com/Tencent/kbone
+[omi]: https://github.com/Tencent/omi
 
 ## Cloud Provider
 

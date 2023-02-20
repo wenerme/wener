@@ -33,6 +33,19 @@ tags:
 - CPUID
 - [ScoopInstaller/Scoop](https://github.com/ScoopInstaller/Scoop)
   - command-line installer
+- 录制屏幕
+  - [mmozeiko/wcap](https://github.com/mmozeiko/wcap)
+    - 60KB
+    - for Windows 10 and 11
+    - https://raw.githubusercontent.com/wiki/mmozeiko/wcap/wcap.exe
+
+| shortcut                   | for      |
+| -------------------------- | -------- |
+| Ctrl + PrintScreen         | 全屏     |
+| Ctrl + Win + PrintScreen   | 当前窗口 |
+| Ctrl + Shift + PrintScreen | 选定区域 |
+
+- [ShareX/ShareX](https://github.com/ShareX/ShareX)
 
 ## Dev
 

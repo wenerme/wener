@@ -64,6 +64,54 @@ registries:
           - http://my.company.registry:5000
 ```
 
+**k3d managed**
+
+- /var/lib/registry
+  - 默认没有映射出来
+- /etc/docker/registry/config.yml
+  - 配置
+
+```bash
+# 使用默认配置
+docker exec dev-registry cat /etc/docker/registry/config.yml
+
+# host.k3d.internal
+# k3d-dev-server-0
+
+docker exec k3d-dev-server-0 cat /etc/hosts
+# 更新了 k3s 镜像配置
+docker exec k3d-dev-server-0 cat /etc/rancher/k3s/registries.yaml
+```
+
+```yaml
+auths: null
+configs: null
+mirrors:
+  dev-registry:5000:
+    endpoint:
+      - http://dev-registry:5000
+  dev-registry:42095:
+    endpoint:
+      - http://dev-registry:5000
+```
+
+```bash
+# 确保能解析
+docker exec k3d-dev-server-0 nslookup dev-registry
+
+# host 通过 bridge 访问
+docker inspect dev-registry -f '{{.NetworkSettings.Networks.bridge.IPAddress}}'
+curl $(docker inspect dev-registry -f '{{.NetworkSettings.Networks.bridge.IPAddress}}'):5000 -I
+
+# 能解析指向后可以测试
+echo "$(docker inspect dev-registry -f '{{.NetworkSettings.Networks.bridge.IPAddress}}') dev-registry.localhost" >> /etc/hosts
+
+docker pull wener/base:latest
+docker tag wener/base:latest dev-registry.localhost:5000/wener_base:latest
+# 主要注意配置 insecure-registries
+docker push dev-registry.localhost:5000/wener_base:latest
+```
+
 ## macOS
 
 ```bash
@@ -74,7 +122,6 @@ brew install k3d
 
 - https://github.com/k3d-io/k3d/issues/1220
   - 5.4.7 BUG, 5.4.6 没问题
-
 
 覆盖 hosts 时异常
 

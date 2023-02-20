@@ -47,6 +47,7 @@ tags:
     - cheerio - jQuery
     - htmlparser2
     - parse5
+    - jsdom
   - santinizer
     - [cure53/DOMPurify](https://github.com/cure53/DOMPurify)
   - env

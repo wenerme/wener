@@ -276,3 +276,11 @@ node -i -e "$(< rc.js)"
 
 - `.load`
   - https://nodejs.org/api/repl.html#repl_design_and_features
+
+## error:0308010C:digital envelope routines::unsupported
+
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+- https://stackoverflow.com/questions/69692842

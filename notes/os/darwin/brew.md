@@ -367,3 +367,26 @@ brew update
 ```bash
 brew update
 ```
+
+## brew 4.0
+
+
+```bash
+export HOMEBREW_NO_ANALYTICS=1
+
+brew untap homebrew/core
+brew untap homebrew/cask
+
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+brew update
+```
+
+- JSON 替代 Git
+  - https://formulae.brew.sh/
+  - HOMEBREW_API_DOMAIN
+    - 以前 `HOMEBREW_{ARTIFCAT,BOTTLE}_DOMAIN`
+- https://brew.sh/2023/02/16/homebrew-4.0.0/

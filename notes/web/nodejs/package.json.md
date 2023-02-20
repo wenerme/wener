@@ -259,3 +259,17 @@ npm install gist/gist_id
 - esm 要求有后缀
 - node 不要求
   - `--experimental-specifier-resolution=node `
+
+## engines
+
+```json
+{
+  "engines": {
+    "node": "^16 || ^18"
+  }
+}
+```
+
+```bash
+npx -y check-engine
+```

@@ -4,20 +4,32 @@ title: composer
 
 # composer
 
-- 镜像
+- https://repo.packagist.org/
+  - https://repo.packagist.org/mirrors
+    - https://packagist.pages.dev/
   - https://pkg.xyz/
   - https://mirrors.aliyun.com/composer/composer.phar
     - https://developer.aliyun.com/composer
 
 ```bash
+# v1 升级到 v2
+composer self-update --2
+
 # macOS
 brew install composer
 # 全局仓库镜像
-composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+composer config -g repos.packagist composer https://packagist.pages.dev
+# 阿里云
+# composer config -g repos.packagist composer https://mirrors.aliyun.com/composer/
+# 上海交大
+# composer config -g repos.packagist composer https://packagist.mirrors.sjtug.sjtu.edu.cn
+
+# 禁用
+composer config -g --unset repos.packagist
 
 composer init
 # 单项目仓库镜像
-composer config repo.packagist composer https://mirrors.aliyun.com/composer/
+composer config repos.packagist composer https://mirrors.aliyun.com/composer/
 
 # 项目 安装 composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -39,6 +51,17 @@ composer config --global
 <?php
 require __DIR__ . '/vendor/autoload.php';
 ```
+
+
+- $HOME/.composer - data-dir/home
+  - auth.json
+  - config.json
+  - keys.dev.pub
+  - keys.tags.pub
+  - cache/ - cache-dir
+    - files/
+    - repo/
+    - vcs/
 
 # FAQ
 

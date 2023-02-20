@@ -54,3 +54,4 @@ tags:
 - [sbu-fsl/kernel-ml](https://github.com/sbu-fsl/kernel-ml)
   - Brings ML to Linux kernel
 - [Move a running process into a tmux session](https://xai.sh/2020/10/16/Move-running-process-into-tmux-session.html)
+- [marcan/takeover.sh](https://github.com/marcan/takeover.sh)

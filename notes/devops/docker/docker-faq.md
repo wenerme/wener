@@ -143,3 +143,7 @@ sudo sysctl -p /etc/sysctl.d/99-br_netfilter.conf
 ```
 
 ## Cannot link to a non running container
+
+##  docker exporter does not currently support exporting manifest lists
+
+- 只能 --push [docker/buildx#59](https://github.com/docker/buildx/issues/59)

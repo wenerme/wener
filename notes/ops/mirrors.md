@@ -130,6 +130,12 @@ docker pull nginx:alpine
 # 镜像
 docker pull docker.mirrors.ustc.edu.cn/library/nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/wener/base
+
+tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://fogjl973.mirror.aliyuncs.com","https://f1361db2.m.daocloud.io","https://docker.mirrors.ustc.edu.cn"]
+}
+EOF
 ```
 
 ## HomeBrew
