@@ -272,7 +272,7 @@ ALTER TABLE orders DROP column status
 - https://pkgs.alpinelinux.org/package/v3.7/main/x86_64/postgresql
 - https://pkgs.alpinelinux.org/package/edge/testing/x86_64/postgis
 - https://hub.docker.com/_/postgres/
-  - https://github.com/docker-library/postgres/blob/1805adb0693d9602bfb19b6bf2583b311c43b749/10/alpine/Dockerfile
+  - https://github.com/docker-library/postgres
 
 ### 数据类型
 

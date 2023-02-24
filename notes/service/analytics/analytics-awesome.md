@@ -7,8 +7,12 @@ tags:
 # Analytics Awesome
 
 - [mikecao/umami](https://github.com/mikecao/umami)
-  - MIT、简单、移动端友好
-  - Node + PostgreSQL/MySQL
+  - MIT, Node + PostgreSQL/MySQL
+  - 简单、移动端友好
+  - Demo https://app.umami.is/share/8rmHaheU/umami.is
+- [plausible/analytics](https://github.com/plausible/analytics)
+  - AGPLv3, Elixir
+  - 轻量，面向 Web
 - [zgoat/goatcounter](https://github.com/zgoat/goatcounter)
   - EUPL, Go
 - [pirsch-analytics/pirsch](https://github.com/pirsch-analytics/pirsch)
@@ -17,10 +21,13 @@ tags:
 - [milesmcc/shynet](https://github.com/milesmcc/shynet)
   - Apache-2.0, Python
   - without cookies or JS
-- Matomo - https://matomo.org/
+- [matomo-org/matomo](./matomo.md)
+  - GPLv3, PHP+MySQL
+  - https://matomo.org/
 - Fathom - https://usefathom.com/
 - [Countly/countly-server](https://github.com/Countly/countly-server)
 - [PostHog/posthog](https://github.com/PostHog/posthog)
+  - 支持非 Web Session
 - [electerious/Ackee](https://github.com/electerious/Ackee)
 
 ## Library

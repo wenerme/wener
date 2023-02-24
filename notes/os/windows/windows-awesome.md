@@ -69,6 +69,7 @@ tags:
 - Download
   - https://hellowindows.cn/
   - https://tb.rg-adguard.net/public.php
+  - https://files.rg-adguard.net/
   - itellyou
 
 ## Security

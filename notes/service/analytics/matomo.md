@@ -1,16 +1,23 @@
 ---
-id: matomo
 title: Matomo
 ---
 
 # matomo
 
+- [matomo-org/matomo](https://github.com/matomo-org/matomo)
+  GPLV3, PHP+MySQL
 - [nginx piwik recipes](https://www.nginx.com/resources/wiki/start/topics/recipes/piwik/)
 - [自定义 logo](https://github.com/piwik/piwik/issues/3318)
 - [通过代理进行外部访问](http://piwik.org/faq/troubleshooting/#faq_121)
   - 插件
 - [log-analytics](https://github.com/piwik/piwik-log-analytics)
   - [how-to](http://piwik.org/docs/log-analytics-tool-how-to/)
+
+:::caution
+
+- 不能读取百度关键词 - 只有百度统计可以
+
+:::
 
 ```bash
 docker run --rm -it \
@@ -26,6 +33,16 @@ username =      ; Proxy username: optional; if specified, password is mandatory
 password =      ; Proxy password: optional; if specified, username is mandatory
 ```
 
+- https://github.com/matomo-org/matomo/blob/4.x-dev/config/global.ini.php
+
+---
+
+- /piwik.js
+- /piwik.php
+- /matomo.js
+- /matomo.php
+- https://github.com/matomo-org/matomo/blob/master/js/piwik.js
+
 ## 活动支持
 
 - Piwik 支持 GA 的 utm_campaign, utm_medium, utm_source, utm_term [FAQ 119](http://piwik.org/faq/general/faq_119/#faq_119)
@@ -37,9 +54,9 @@ log_format vhosts '$host $remote_addr - $remote_user [$time_local] "$request" $s
 
 - piwik/config/config.ini.php
 
-## FAQ
+# FAQ
 
-### 关闭网络访问
+## 关闭网络访问
 
 - [How do I configure Piwik on a server without Internet?](https://piwik.org/faq/troubleshooting/faq_16646/)
 - 禁用掉 Marketplace 插件即可

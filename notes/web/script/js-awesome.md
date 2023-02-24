@@ -729,18 +729,20 @@ tags:
 
 ## Template
 
-- [eta](https://github.com/eta-dev/eta)
+- [eta](./lib/eta.md)
   - 5.7kB/2.4kB
 - [linkedin/dustjs](https://github.com/linkedin/dustjs)
 - ejs
-- handlebars
-- mustache
 - nunjucks
 - pug
-- art-template
 - twig
 - liquid
 - doT
+- 通用/跨语言/非信任代码
+  - handlebars
+  - mustache
+- [aui/art-template](https://github.com/aui/art-template)
+  - 高性能，不再维护
 
 ## 有趣
 

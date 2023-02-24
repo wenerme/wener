@@ -174,15 +174,16 @@ discovery:
 - ext-plugin-post-req - 后置外部插件
 
 ### 传输
+
 - response-rewrite
 - proxy-rewrite
 - grpc-transcode
   ```yaml
   # 上传 PB POST {"content":""} /admin/proto/{id}
   # 合并 proto protoc --include_imports --descriptor_set_out=proto.pb proto/helloworld.proto
-  prodo_id: ""
-  service: ""
-  method: ""
+  prodo_id: ''
+  service: ''
+  method: ''
   deadline: 0
   # enum_as_name, enum_as_value
   # int64_as_number, int64_as_string, int64_as_hexstring

@@ -35,6 +35,8 @@ title: Ideas
     - 媒体
   - 不需要 proxy 也能访问
 - hn relay
+- 还在 云盘
+- 看懂 字幕
 
 ## Web3
 

@@ -110,8 +110,13 @@ tags:
 
 ## 中文分词
 
-- [fxsjy/jieba](https://github.com/fxsjy/jieba)
+- ik
+- jieba
+  - [fxsjy/jieba](https://github.com/fxsjy/jieba)
+    - Pythone
 - [hightman/scws](https://github.com/hightman/scws)
+  - PHP
+  - Simple Chinese Word Segmentation
 - [go-ego/gse](https://github.com/go-ego/gse)
   - 字典 https://github.com/go-ego/gse/tree/master/data/dict/zh
 
@@ -149,3 +154,12 @@ tags:
 ## Story
 
 - [Index 1,600,000,000 Keys with Automata and Rust](https://blog.burntsushi.net/transducers/)
+
+
+## Misc
+
+- [RaRe-Technologies/gensim](https://github.com/RaRe-Technologies/gensim)
+  - LGPL-2.1, Python
+  - Topic Modelling for Humans
+- [oborchers/Fast_Sentence_Embeddings](https://github.com/oborchers/Fast_Sentence_Embeddings)
+- [mayabot/mynlp](https://github.com/mayabot/mynlp)

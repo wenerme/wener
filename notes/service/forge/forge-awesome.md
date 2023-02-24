@@ -32,15 +32,18 @@ tags:
 
 ## CI/CD Pipeline
 
-- Jenkins
-  - Java
+- [Jenkins](./jenkins/README.md)
+  - MIT, Java
 - [GoCD](https://github.com/gocd/gocd)
   -  Apache-2.0, Java
+- [rundeck](./rundeck.md)
 - CircleCI
 - [drone](./drone/README.md)
   - 不太活跃
+  - 非完全开源协议
 - [woodpecker](./woodpecker/README.md)
-  - community fork of the Drone CI
+  - Apache-2.0, Go
+  - community fork of the Drone CI 0.8
 - [gitlab runner](./gitlab/gitlab-runner.md)
   - 只能 Gitlab
   - 集成度最高
@@ -59,6 +62,9 @@ tags:
   - 运维平台
 - [concourse/concourse](https://github.com/concourse/concourse)
 - https://github.com/buildbot/buildbot
+- [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker)
+  - 停滞
+
 ```bash
 brew install dagger/tap/dagger
 ```

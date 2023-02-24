@@ -130,3 +130,17 @@ trackFocus(SVGElement.prototype);
   - Upgrade
   - User-Agent
   - Via
+
+## 监听是否在当前页面
+
+```js
+document.addEventListener('visibilitychange', () => {
+  console.log(`hidden`, document.hidden);
+});
+window.addEventListener('blur', () => {
+  console.log(`blur`, !document.hasFocus());
+});
+window.addEventListener('focus', () => {
+  console.log(`focus`, document.hasFocus());
+});
+```

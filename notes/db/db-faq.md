@@ -230,3 +230,10 @@ SELECT current_setting('block_size');
 -- MySQL
 SHOW TABLE STATUS;
 ```
+
+## MySQL vs MariaDB
+
+- Prefer MariaDB
+  - AlpineLinux 下 mysql 为 mariadb
+- 参考
+  - https://blog.devart.com/mysql-vs-mariadb.html

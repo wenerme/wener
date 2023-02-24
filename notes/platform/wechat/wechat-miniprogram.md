@@ -22,3 +22,5 @@ title: 微信小程序
     - 可以 dataurl
 
 :::
+
+- https://mp.weixin.qq.com/cgi-bin/wx

@@ -16,6 +16,13 @@ title: taro
   - [NervJS/taro-ui](https://github.com/NervJS/taro-ui) - React
   - [jdf2e/NutUI](https://github.com/jdf2e/nutui) - 京东风格, Vue3
   - [NervJS/awesome-taro](https://github.com/NervJS/awesome-taro)
+  - [NervJS/taro-plugin-inject](https://github.com/NervJS/taro-plugin-inject)
+
+:::caution
+
+- 不支持 data-attr [#11530](https://github.com/NervJS/taro/issues/11530)
+
+:::
 
 
 ```bash

@@ -92,7 +92,6 @@ export PATH=$(echo $PATH | sed -r 's/:[^:]*?libtool[^:]*:/:/')
 - 不支持 Agent
 - 用 node-fetch 或者 undici
 
-
 ```js
 const Undici = requuire('undici');
 const ProxyAgent = Undici.ProxyAgent;
@@ -267,6 +266,42 @@ NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatisti
 - 用个假的模块替代，避免编译
 - https://github.com/brianc/node-postgres/issues/838
   when using babel, pg-native is always required
+
+```js
+// webpack
+export default {
+  resolve: {
+    alias: {
+      'pg-native': path.join(__dirname, 'pg-native'),
+    },
+  },
+};
+```
+
+**pg-native**
+
+```json
+{
+  "name": "pg-native",
+  "private": true,
+  "main": "index.js"
+}
+```
+
+```json
+{
+  "name": "your-module",
+  "private": true,
+  "dependencies": {
+    "pg": "^8.3.3",
+    "pg-native": "file:./modules/pg-native"
+  }
+}
+```
+
+```js
+module.exports = null;
+```
 
 ## REPL load
 

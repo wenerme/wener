@@ -1,5 +1,4 @@
 ---
-id: mysql
 title: MySQL
 ---
 

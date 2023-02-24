@@ -289,3 +289,4 @@ tags:
 
 - Redis
   - https://github.com/pyloque/captain#service-discovery-api
+- [Nacos](./nacos.md)
