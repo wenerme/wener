@@ -35,12 +35,12 @@ tags:
 
 ## Desktop
 
-- wails
+- [wails](./framework/wails.md)
   - Go
 - [neutralinojs/neutralinojs](https://github.com/neutralinojs/neutralinojs)
   - 使用 Native WebView
 - [Elanis/web-to-desktop-framework-comparison](https://github.com/Elanis/web-to-desktop-framework-comparison)
-- [tauri-apps/tauri](https://github.com/tauri-apps/tauri)
+- [tauri-apps/tauri](./framework/tauri.md)
   - Build desktop applications with a web frontend
   - 基于 rust tao
   - 底层引擎为 rust 实现 - 轻、资源占用少

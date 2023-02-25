@@ -14,6 +14,9 @@ title: tauri
 :::caution
 
 - 不支持类似 Electron 叠加 BrowserView/webview [#2709](https://github.com/tauri-apps/tauri/issues/2709)
+  - 不能用来实现浏览器
+  - 不可以多个 WebView [#2975](https://github.com/tauri-apps/tauri/issues/2975)
+- 不支持多窗口
 
 :::
 

@@ -4,7 +4,7 @@ title: bun
 
 # bun
 
-- [Jarred-Sumner/bun](https://github.com/Jarred-Sumner/bun)
+- [oven-sh/bun](https://github.com/oven-sh/bun)
   - MIT, Zig
   - JavaScriptCore,tinycc,libiconv LGPLv2
   - boringssl,libarchive,libiconv,lol-html,mimalloc,picohttp,tinycc,uSockets,zlib-cloudflare,libicu,uWebsockets
@@ -30,7 +30,9 @@ title: bun
 :::
 
 ```bash
-curl -LO https://ghproxy.com/https://github.com/Jarred-Sumner/bun/releases/download/bun-v0.1.11/bun-darwin-x64.zip
+# Manually Install
+# =======================
+curl -LO https://ghproxy.com/https://github.com/oven-sh/bun/releases/download/bun-v0.4.0/bun-darwin-x64.zip
 unzip bun-darwin-x64.zip
 mv bun-darwin-x64/bun ~/bin/
 xattr -r -d com.apple.quarantine ~/bin/bun
