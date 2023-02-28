@@ -757,6 +757,10 @@ tags:
   - RSA
 - [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js)
   - Port of TweetNaCl cryptographic library to JavaScript
+- aes-decrypter
+- pkcs7
+- videojs-contrib-hls
+  - AES-128 segment encryption
 - http://www.webtoolkit.info/javascript-sha1.html
 - http://www.webtoolkit.info/javascript-sha256.html
 - http://www.webtoolkit.info/javascript-md5.html

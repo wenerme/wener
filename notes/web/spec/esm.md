@@ -37,6 +37,8 @@ title: ESM
   - JSON 是可修改对象
 - ~~snowpack~~
   - ESM unbundled dev
+- extension
+  - .mjs
 
 :::caution
 

@@ -1,4 +1,55 @@
+---
+title: Spring actuator
+---
 
+# Spring actuator
+
+- https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
+
+```ini
+# info,health,prometheus
+management.endpoints.web.exposure.include=*
+# /actuator/health/liveness
+# /actuator/health/readiness
+management.health.probes.enabled=true
+```
+
+- /actuator/prometheus
+  - `management.endpoints.web.exposure.include=health,info,prometheus`
+- /actuator/health
+
+```json
+{ "status": "UP" }
+```
+
+- management.endpoint.health.show-details=always
+
+```json
+{
+  "status": "UP",
+  "components": {
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 250685575168,
+        "free": 12073996288,
+        "threshold": 10485760,
+        "exists": true
+      }
+    },
+    "ping": {
+      "status": "UP"
+    }
+  }
+}
+```
+
+- HealthIndicator,HealthContributor
+  - DataSourceHealthIndicator
+  - MongoHealthIndicator
+    - management.health.mongo.enabled=false
+  - RedisHealthIndicator
+  - CassandraHealthIndicator
 
 ## 常见 Endpoint
 

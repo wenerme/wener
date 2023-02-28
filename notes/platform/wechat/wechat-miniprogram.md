@@ -23,4 +23,15 @@ title: 微信小程序
 
 :::
 
+- https://mp.weixin.qq.com/ 登录后台
 - https://mp.weixin.qq.com/cgi-bin/wx
+
+# FAQ
+
+## 用户信息
+
+```js
+const {appid,fakeId,nickName,openid,userName} = window.__INITIAL_STATE__.userInfo
+copy(JSON.stringify({appid,fakeId,nickName,openid,userName},null,2))
+```
+

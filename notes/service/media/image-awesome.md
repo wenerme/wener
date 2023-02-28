@@ -43,5 +43,8 @@ tags:
   - ~75%
 
 ```bash
-oxipng -o 6 -i 0 --strip safe *.png
+curl -LO https://github.com/shssoichiro/oxipng/releases/download/v8.0.0/oxipng-8.0.0-x86_64-apple-darwin.tar.gz
+tar zxvf oxipng-8.0.0-x86_64-apple-darwin.tar.gz
+
+oxipng -o max -i 0 --strip safe *.png
 ```

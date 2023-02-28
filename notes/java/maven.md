@@ -604,3 +604,27 @@ MVNW_REPOURL=https://maven-central.storage.googleapis.com/maven2 mvn wrapper:wra
 | system   | Y       | Y    | -       | Y          |
 
 ## Current maven session contains banned repository urls, please double check your pom or settings.xml
+
+## install file
+
+```bash
+mvn install:install-file -DgroupId=com.aspose.words -DartifactId=aspose-words -Dversion=19.5 -Dpackaging=jar -Dfile=aspose-words-19.5-jdk.jar
+```
+
+- https://releases.aspose.com/java/repo/com/aspose/aspose-words/19.5/
+
+## reproducible
+
+```xml
+<properties>
+  <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
+</properties>
+```
+
+```bash
+mvn artifact:check-buildplan
+```
+
+- https://maven.apache.org/guides/mini/guide-reproducible-builds.html
+- [spring-projects/spring-boot#21005](https://github.com/spring-projects/spring-boot/issues/21005)
+  - Apply consistent timestamps to files added to a fat archive

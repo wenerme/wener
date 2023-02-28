@@ -132,3 +132,8 @@ pnpm tsc --target ESNext --jsx preserve --declaration --strict --pretty  --out .
 ## Module 'wechat4u' resolves to an untyped module at , which cannot be augmented.
 
 将所有的类型定义都放在 declare module 里
+
+## TS6133: 'React' is declared but its value is never read.
+
+- jsx: react
+- https://github.com/microsoft/TypeScript/issues/41882

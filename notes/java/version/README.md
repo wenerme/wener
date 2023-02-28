@@ -28,7 +28,7 @@ title: Java版本
 javap -verbose MyClass | grep "major"
 ```
 
-| Java     | major | release |
+| Java     | major | release | note       |
 | -------- | ----- | ------- | ---------- |
 | Java 22  | 66    | 2024-03 |            |
 | Java 21  | 66    | 2023-09 | LTS - 可能 |

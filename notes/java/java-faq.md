@@ -82,3 +82,8 @@ https://github.com/carrotsearch/hppc
 ## Proxy performance
 
 https://stackoverflow.com/q/1856242/1870054
+
+## deploy
+
+- `-Dspring.profiles.active=development`
+- `SPRING_PROFILES_ACTIVE`

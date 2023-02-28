@@ -19,6 +19,11 @@ docker run -it --rm \
   appwrite/appwrite:1.2.1
 ```
 
+##
+- _APP_CONSOLE_WHITELIST_EMAILS
+- _APP_OPTIONS_ABUSE
+- https://appwrite.io/docs/environment-variables
+
 ## Inside
 
 - https://github.com/appwrite/appwrite/blob/master/Dockerfile
@@ -52,3 +57,9 @@ php app/http.php -dopcache.preload=opcache.preload=/usr/src/code/app/preload.php
 - Minio https://github.com/appwrite/appwrite/issues/3989
 
 :::
+
+# FAQ
+
+## The current project has exceeded the maximum number of users. Please check your user limit in the Appwrite console.
+
+- _APP_CONSOLE_WHITELIST_ROOT

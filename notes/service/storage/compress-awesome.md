@@ -252,6 +252,16 @@ unzip \*.zip
 
 ## tar
 
+```bash
+apk add zstd
+
+tar -I zstd -xvf archive.tar.zst
+
+# Gnu tar 可以不要 -a
+# gz, bz2, Z, zstd
+tar -acf archive.tar.zst dir/
+```
+
 # FAQ
 
 ## 解压 7z exe

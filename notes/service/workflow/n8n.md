@@ -10,15 +10,42 @@ id: n8n
 - 参考
   - HN [N8n.io – Workflow automation alternative to Zapier](https://news.ycombinator.com/item?id=21191676)
 
-:::note
+:::caution
 
 - Apache 协议但禁止用于直接提供 n8n 作为服务 - 不能做竞品
+- 社区版只能单用户
+- EE 功能
+  - LogStream
+  - LDAP
+  - Collaborate
+
 
 :::
 
 ```bash
-# /root/.n8n
+# /home/node/.n8n
+docker run -it --rm \
+  -p 5678:5678 \
+  -v $PWD/data:/root/.n8n \
+  -e N8N_ENCRYPTION_KEY=$(uuidgen) \
+  -e N8N_BASIC_AUTH_ACTIVE="true" \
+  -e N8N_BASIC_AUTH_USER="n8n" \
+  -e N8N_BASIC_AUTH_PASSWORD="n8n" \
+  --name n8n n8nio/n8n
 ```
+
+| env                         | for  | note                |
+| --------------------------- | ---- | ------------------- |
+| EXECUTIONS_PROCESS          | main |
+| EXECUTIONS_TIMEOUT          | -1   | seconds             |
+| N8N_CUSTOM_EXTENSIONS       |
+| NODE_FUNCTION_ALLOW_BUILTIN | `*`  | crypto,lodash,dayjs |
+| N8N_USER_FOLDER             | .n8n |
+| WEBHOOK_URL                 |
+| N8N_PROTOCOL                |
+| N8N_HOST                    |
+| N8N_PORT                    |
+| N8N_METRICS                 | true |
 
 ## 配置
 

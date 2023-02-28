@@ -42,6 +42,8 @@ cd my-app
 # 关闭上传代码时样式自动补全
 # 关闭代码压缩上传
 pnpm dev:weapp
+
+NODE_ENV=production pnpm dev:weapp
 ```
 
 ## tailwindcss

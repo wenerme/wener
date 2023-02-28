@@ -22,6 +22,22 @@ INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true bash k3s-install.sh
 k3s check-config
 ```
 
+```bash
+# 准备
+service cgroups start
+rc-update add cgroups
+
+#
+service k3s start
+rc-update add k3s
+```
+
+```bash
+scp kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
+```
+
+## k3s-install.sh
+
 - INSTALL_K3S_CHANNEL_URL https://update.k3s.io/v1-release/channels
 - 安装内容
   - /usr/local/bin/kubectl -> k3s

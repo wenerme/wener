@@ -14,6 +14,14 @@ title: SSH
 ssh -G host # 查看 Host 配置
 ```
 
+**~/.ssh/config**
+
+```ssh-config
+Include ~/.ssh/*.ssh-config
+```
+
+- 拆分配置
+
 **ESCAPE**
 
 ```

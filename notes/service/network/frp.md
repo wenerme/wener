@@ -24,7 +24,7 @@ title: FRP
 :::note
 
 - websocket
-  - 只支持 tcp - [#2436](https://github.com/fatedier/frp/issues/2436)
+  - 只支持 tcp 不支持 udp - [#2436](https://github.com/fatedier/frp/issues/2436)
   - 不支持 wss - [#2119](https://github.com/fatedier/frp/issues/2119)
 
 :::

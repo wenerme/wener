@@ -147,7 +147,7 @@ ACL SETUSER default reset on nopass ~* &* +@all -@admin
 
 ```bash
 # 输出 密码 和 sha-256
-uuidgen | tee /dev/fd/2 | tr -d '\n' | sha256sum
+uuidgen | tee /dev/fd/2 | tr -d '[:space:]' | sha256sum
 ```
 
 **sentinel**

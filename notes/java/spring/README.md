@@ -1,14 +1,15 @@
 ---
-id: spring
 title: Spring
 ---
+
 # Spring
 
-
 ## Spring Initializer
+
 [Spring Initializer](http://start.spring.io/) 可用于快速的创建项目基础.
 
 ## 文档路径
+
 ```bash
 # 所有文档
 http://spring.io/docs/reference

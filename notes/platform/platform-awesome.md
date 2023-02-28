@@ -35,7 +35,9 @@ tags:
 | [rax]            | React             | 阿里 |
 | [kbone]          | Web 端同构        | 腾讯 |
 | [omi]            |                   | 腾讯 |
+| [mpx]            | vue               | didi |
 
+[mpx]: https://github.com/didi/mpx
 [rax]: https://github.com/alibaba/rax
 [remax]: https://github.com/remaxjs/remax
 [taro]: https://github.com/nervjs/taro
