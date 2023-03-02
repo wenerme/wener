@@ -58,12 +58,24 @@ tags:
     - Golang to kubernetes
   - [Skaffold](../../devops/kubernetes/dev/skaffold.md)
   - buildpack
-- Registry
+- Registry Client
+  - [crane](./crane.md)
   - [containers/skopeo](https://github.com/containers/skopeo)
+  - [regclient/regclient](https://github.com/regclient/regclient)
+- Registry Server
   - habor
   - nexus
   - [netvarun/docket](https://github.com/netvarun/docket)
     - DOCKEr + torrenT
+- [docker/docker-credential-helpers](https://github.com/docker/docker-credential-helpers)
+  - docker-credential-osxkeychain.
+
+```json title="$HOME/.docker/config.json"
+{
+  "credsStore": "osxkeychain"
+}
+```
+
 - cri-o
 - Container Desktop/VM
   - Docker Desktop

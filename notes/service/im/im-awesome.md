@@ -40,6 +40,20 @@ tags:
 - [tinode/chat](https://github.com/tinode/chat)
   - Server GPL 3.0, Go+gRPC+RethinkDB/MySQL/MongoDB
   - Client Apache 2.0, iOS/Swift+Android/Java
+- [OpenIMSDK/Open-IM-Server](https://github.com/OpenIMSDK/Open-IM-Server)
+  - Apache-2.0, Golang
+- [wildfirechat/im-server](https://github.com/wildfirechat/im-server)
+  - Java
+  - MQTT
+- [yinxin630/fiora](https://github.com/yinxin630/fiora)
+  - MIT, Typescript
+
+## Streaming
+
+- [owncast/owncast](https://github.com/owncast/owncast)
+  - MIT, Golang
+- janus
+- jitsi
 
 ### Inactive
 
@@ -63,6 +77,10 @@ tags:
 
 ## UI
 
+- [FaridSafi/react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat)
+- Web
+  - [chatscope/chat-ui-kit-react](https://github.com/chatscope/chat-ui-kit-react)
+  - [brandonmowat/react-chat-ui](https://github.com/brandonmowat/react-chat-ui)
 - [jpush/aurora-imui](https://github.com/jpush/aurora-imui)
   通用聊天组件, Android, iOS, ReactNative
 

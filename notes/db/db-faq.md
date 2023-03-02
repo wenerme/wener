@@ -233,7 +233,62 @@ SHOW TABLE STATUS;
 
 ## MySQL vs MariaDB
 
+- GUID 不同
 - Prefer MariaDB
   - AlpineLinux 下 mysql 为 mariadb
 - 参考
   - https://blog.devart.com/mysql-vs-mariadb.html
+
+## 软删除实现唯一索引
+
+```sql
+create temporary table if not exists test
+(
+    id         text        not null default public.gen_ulid() primary key,
+    uid        uuid        not null default gen_random_uuid() unique,
+    eid        text        null,
+    created_at timestamptz not null default current_timestamp,
+    updated_at timestamptz not null default current_timestamp,
+    deleted_at timestamptz,
+
+    username   text        not null
+);
+truncate table test;
+
+-- 通常的唯一索引
+create unique index test_username_key on test (username);
+
+-- 插入数据
+insert into test(username) values ('wener');
+
+-- 软删除
+update test
+set deleted_at=current_timestamp
+where username = 'wener';
+
+-- 插入失败 - 已经删除的记录影响新数据
+insert into test(username) values ('wener');
+-- 移除索引
+drop index test_username_key;
+
+-- postgres 条件索引忽略针对未删除的唯一
+-- postgres 15 之后支持针对 null 也算唯一，创建联合索引即可
+-- mysql 可以使用联合索引，将 deleted_at 默认为 0
+create unique index test_username_key on test (username) where deleted_at is null;
+
+-- 成功 - 删除数据不影响
+insert into test(username) values ('wener');
+-- 失败 - 已经存在了
+insert into test(username) values ('wener');
+-- 删除 - 再次软删除
+update test
+set deleted_at=current_timestamp
+where username = 'wener'
+  and deleted_at is null;
+-- 成功 - 再次插入
+insert into test(username) values ('wener');
+
+-- 三条记录
+select *
+from test;
+```

@@ -227,3 +227,15 @@ rm chunk* sorted-chunk*
 - `-m` 只合并不做整体排序
 - `--parallel=$(nproc)` 并行
 - https://man7.org/linux/man-pages/man1/sort.1.html
+
+## arch
+
+```bash
+architecture=""
+case $(uname -m) in
+    i386 | i686)   architecture="386" ;;
+    x86_64) architecture="amd64" ;;
+    # apk --print-arch
+    arm)    dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;;
+esac
+```

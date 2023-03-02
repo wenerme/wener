@@ -613,6 +613,18 @@ mvn install:install-file -DgroupId=com.aspose.words -DartifactId=aspose-words -D
 
 - https://releases.aspose.com/java/repo/com/aspose/aspose-words/19.5/
 
+## deploy-file
+
+```bash
+mvn deploy:deploy-file -DgroupId=com.aspose \
+  -DartifactId=aspose-cells \
+  -Dversion=18.9 \
+  -Dpackaging=jar \
+  -Dfile=aspose-cells-18.9.jar \
+  -DrepositoryId=demo-maven \
+  -Durl=https://demo-maven.pkg.coding.net/repository/demo/demo-maven
+```
+
 ## reproducible
 
 ```xml

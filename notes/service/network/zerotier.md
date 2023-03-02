@@ -19,6 +19,7 @@ title: Zerotier
 - 参考
   - [key-networks/ztncui](https://github.com/key-networks/ztncui)
     - web controller
+  - [xubiaolin/docker-zerotier-planet](https://github.com/xubiaolin/docker-zerotier-planet)
 
 :::caution
 

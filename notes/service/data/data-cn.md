@@ -9,6 +9,9 @@ title: 中国数据参考
   - https://github.com/yuche/wechat-banks
 - https://github.com/LianLianPay/Resources
   - 包含数据资源
+- https://github.com/digglife/cnbankcard/blob/master/bankname.json
+- https://github.com/yuche/wechat-banks
+- https://github.com/burningmyself/bank/blob/master/bank.logo/resource/bankcode.json
 
 **信用卡支持的银行列表**
 

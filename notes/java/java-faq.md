@@ -14,6 +14,28 @@ tags:
 javac -J-Dfile.encoding=UTF-8
 ```
 
+## 环境变量
+
+- JAVA_TOOL_OPTIONS
+  - java, javac, jar 会用
+  - 例如 `-agentlib:hprof`
+  - JVMTI 定义
+- `_JAVA_OPTIONS`
+  - 类似 JAVA_TOOL_OPTIONS，但优先级更高
+  - 针对 Hotspot
+- JAVA_OPTS
+  - 由其他工具使用
+  - java 不用
+- JDK_JAVA_OPTIONS
+  - jdk9+
+  - 类似 JAVA_TOOL_OPTIONS，但只有 java 会用
+  - java
+- JAVA_HOME
+
+---
+
+- https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html#tooloptions
+
 ## 选择 JUL 类逻辑
 
 ```mermaid

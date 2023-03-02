@@ -5,7 +5,12 @@ tags:
 
 # gitconfig
 
+```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 
+git config --global credential.helper "cache --timeout=36000"
+```
 
 ```ini
 [push]

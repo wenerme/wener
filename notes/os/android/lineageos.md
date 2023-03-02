@@ -4,7 +4,7 @@ title: LineageOS
 
 # LineageOS
 
-- 是什么？
+- [LineageOS](https://www.lineageos.org/) 是什么？
   - Android 分支
   - 2016 fork CyanogenMod
 - [KonstaKANG](https://konstakang.com/)

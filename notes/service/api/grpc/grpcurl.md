@@ -4,6 +4,8 @@ title: grpcurl
 
 # grpcurl
 
+- [fullstorydev/grpcurl](https://github.com/fullstorydev/grpcurl)
+
 ```bash
 # macOS
 brew install grpcurl
@@ -16,7 +18,6 @@ grpcurl -protoset my-protos.bin list
 grpcurl -import-path ../protos -proto my-stuff.proto list
 grpcurl localhost:8787 list my.custom.server.Service
 ```
-
 
 ## grpcui
 

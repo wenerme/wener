@@ -37,11 +37,13 @@ tags:
 
 ## Language
 
-- [leafo/moonscript](https://github.com/leafo/moonscript)
+- 编译为 Lua
+  - [leafo/moonscript](https://github.com/leafo/moonscript)
+  - [hengestone/lua-languages](https://github.com/hengestone/lua-languages)
 - [teal-language/tl](https://github.com/teal-language/tl)
   - typed dialect of Lua
-- [hengestone/lua-languages](https://github.com/hengestone/lua-languages)
-  - Languages that compile to Lua
+- [Roblox/luau](https://github.com/Roblox/luau)
+  - lua 衍生语言
 
 ## stdlib
 

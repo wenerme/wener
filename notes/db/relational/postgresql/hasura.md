@@ -20,10 +20,17 @@ title: Hasura
 
 :::info
 
-- [#2208](https://github.com/hasura/graphql-engine/issues/2208) - 多 JWT 支持
-- [#519](https://github.com/hasura/graphql-engine/issues/519) 唯一索引 查询
-- [#3320](https://github.com/hasura/graphql-engine/issues/3320) 命名转换
+- 唯一索引 查询 [#519](https://github.com/hasura/graphql-engine/issues/519)
+- 命名转换 [#3320](https://github.com/hasura/graphql-engine/issues/3320)
+  - v2.8.0+ [Postgres: Naming Conventions](https://hasura.io/docs/latest/schema/postgres/naming-convention/)
   - 默认都是数据库命名方式, snake_case, 前端使用非常别扭
+- 不支持 gql union type [#2311](https://github.com/hasura/graphql-engine/issues/2311)
+- pg array 不是 array [#348](https://github.com/hasura/graphql-engine/issues/348)
+- 不支持 rate limit [#2151](https://github.com/hasura/graphql-engine/issues/2151)
+- remote schema 不支持 subscribe [#1599](https://github.com/hasura/graphql-engine/issues/1599)
+- deprecate field [#2695](https://github.com/hasura/graphql-engine/issues/2695)
+- persists query [#273](https://github.com/hasura/graphql-engine/issues/273)
+- uuid -> ID [#3578](https://github.com/hasura/graphql-engine/issues/3578)
 
 :::
 
@@ -42,6 +49,7 @@ docker run -d \
 
 # 使用已有数据库
 # 控制台 http://localhost:8080/console
+# https://hub.docker.com/r/hasura/graphql-engine
 docker run -it --rm -p 8080:8080 \
   --link postgres:db \
   -e HASURA_GRAPHQL_DATABASE_URL=postgres://$USERNAME:$PASSWORD@db:5432/$DATABASE \
@@ -75,7 +83,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
   // well known 的 url - 包含公钥等信息
   "jwk_url": "<optional-url-to-refresh-jwks>",
   // 命名空间 - 默认 https://hasura.io/jwt/claims
-  "claims_namespace": "<optional-key-name-in-claims>",
+  "claims_namespace": "https://hasura.io/jwt/claims",
   // jwt claims 中的格式 - JSON 对象或字符串编码的 JSON
   "claims_format": "json|stringified_json",
   // jwt 目标对象 - 例如指定 myapp-1 - 一般用于多租户或多应用
@@ -94,9 +102,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
   "admin": true,
   "iat": 1516239022,
   "https://hasura.io/jwt/claims": {
-    // 允许的角色 - 自定义 - 对应后台配置的权限
-    "x-hasura-allowed-roles": ["editor", "user", "mod"],
-    // 默认角色 - 可以直接头部指定 x-hasura-role
+    "x-hasura-allowed-roles": ["user", "anonymous"],
     "x-hasura-default-role": "user",
     "x-hasura-user-id": "1234567890",
     "x-hasura-org-id": "123",
@@ -105,6 +111,15 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 }
 ```
 
+- x-hasura-default-role
+  - 默认角色 - 可以直接头部指定 x-hasura-role
+  - 权限判断会使用该角色
+- x-hasura-allowed-roles
+  - 允许的角色 - 自定义 - 对应后台配置的权限
+- https://hasura.io/jwt/claims
+  - claims_namespace
+  - claims_namespace_path
+
 ## 授权访问控制
 
 - `X-Hasura-Admin-Secret` 头用于传递管理员密钥 - admin 角色
@@ -112,6 +127,8 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 - 基于角色的权限控制 - 不支持级联角色 - 角色必须平坦
   - X-Hasura-Role
   - X-Hasura-Allowed-Roles
+  - X-Hasura-Allowed-Ids
+    - 支持数组
 - 列控制
   - 可见性
 - 行控制
@@ -123,6 +140,162 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 - JWT
   - 必须包含字段 x-hasura-default-role, x-hasura-allowed-roles
   - 头里可指定 x-hasura-role 来选定角色
+- x-hasura-use-backend-only-permissions: true
+  - 针对 backend_only 角色
+
+```json
+{ "user_id": { "_eq": "X-Hasura-User-Id" } }
+```
+
+**中间关系**
+
+```json
+{
+  "_or": [
+    { "owners": { "user_id": { "_eq": "X-Hasura-User-Id" } } },
+    { "editors": { "user_id": { "_eq": "X-Hasura-User-Id" } } },
+    { "viewers": { "user_id": { "_eq": "X-Hasura-User-Id" } } }
+  ]
+}
+```
+
+**继承**
+
+```json
+{
+  "_exists": {
+    "_table": {
+      "table": "flattened_user_roles",
+      "schema": "public"
+    },
+    "_where": {
+      "_and": [{ "user_id": { "_eq": "X-Hasura-User-Id" } }, { "role_id": { "_eq": "manager" } }]
+    }
+  }
+}
+```
+
+- flattened_user_roles 为视图
+
+```sql
+CREATE OR REPLACE VIEW flattened_user_roles AS
+WITH RECURSIVE sub_tree AS (
+  SELECT
+    roles.id AS role_id,
+    user_roles.user_id AS user_id
+  FROM
+    user_roles,
+    roles
+  WHERE
+    roles.id = user_roles.role_id
+  UNION ALL
+  SELECT
+    r.id AS role_id,
+    st.user_id AS user_id
+  FROM
+    roles r,
+    sub_tree st
+  WHERE
+    r.parent_role_id = st.role_id
+)
+SELECT
+  *
+FROM
+  sub_tree;
+```
+
+## Server
+
+- https://hasura.io/docs/latest/deployment/graphql-engine-flags/reference/
+
+## Hasura CLI
+
+- .env
+  - `--envfile`
+  - https://hasura.io/docs/latest/hasura-cli/config-reference/#environment-variables
+
+```bash
+curl -Lo hasura https://github.com/hasura/graphql-engine/releases/download/v2.19.0/cli-hasura-$(go env GOOS)-$(go env GOARCH)
+chmod +x hasura
+mv hasura ~/bin
+
+hasura init --endpoint http://localhost:8080 --admin-secret $TOKEN hasura
+cd hasura
+# http://localhost:9695/console
+hasura console
+```
+
+```ini title=".env"
+HASURA_GRAPHQL_ENDPOINT=
+HASURA_GRAPHQL_ADMIN_SECRET=
+
+HASURA_GRAPHQL_METADATA_DIRECTORY=
+HASURA_GRAPHQL_ACTIONS_HANDLER_WEBHOOK_BASEURL=
+```
+
+```txt
+📂 metadata
+├─ 📂 databases
+│  ├─ 📂 default
+│  │  └─ 📂 tables
+│  │     ├─ 📄 <schema>_<table>.yaml
+│  │     └─ 📄 tables.yaml
+│  └── 📄 databases.yaml
+├─ 📄 actions.graphql
+├─ 📄 actions.yaml
+├─ 📄 allow_list.yaml
+├─ 📄 api_limits.yaml
+├─ 📄 cron_triggers.yaml
+├─ 📄 graphql_schema_introspection.yaml
+├─ 📄 inherited_roles.yaml
+├─ 📄 network.yaml
+├─ 📄 query_collections.yaml
+├─ 📄 remote_schemas.yaml
+├─ 📄 rest_endpoints.yaml
+└─ 📄 version.yaml
+📂 migrations
+└─ 📂 default
+   └─ 📂 <timestamp>_<name>
+      ├─ 📄 down.sql
+      └─ 📄 up.sql
+📂 seeds
+📄 config.yaml
+```
+
+```bash
+hasura migrate status
+
+hasura migrate create "init" --from-server
+hasura migrate apply --version 1550925483858 --type down --database-name <database-name>
+
+hasura migrate squash --name AFTER --from FROM_VER --database-name DB
+
+hasura migrate delete --all --server --database-name DB
+```
+
+- Metadata
+  - https://hasura.io/docs/latest/migrations-metadata-seeds/metadata-format/
+
+## Endpoints
+
+| Endpoint            | API                 | Access           |
+| ------------------- | ------------------- | ---------------- |
+| /v1/version         | Version             | Public           |
+| /healthz            | Health              | Public           |
+| /v1/graphql         | GraphQL             | Permission rules |
+| /v1beta1/relay      | Relay               | Permission rules |
+| /v1alpha1/graphql   | **Legacy** GraphQL  | Permission rules |
+| /api/rest           | Restified GQL       | GQL REST Routes  |
+| /v2/query           | Schema - v2.0+      | Admin only       |
+| /v1/metadata        | Metadata - v2.0+    | Admin only       |
+| /v1/query           | ~~Schema/Metadata~~ | Admin only       |
+| /v1alpha1/pg_dump   | PG Dump             | Admin only       |
+| /v1alpha1/config    | Config              | Admin only       |
+| /v1/graphql/explain | Explain             | Admin only       |
+
+- https://hasura.io/docs/latest/api-reference/index/
+
+## Auth
 
 # Version
 
