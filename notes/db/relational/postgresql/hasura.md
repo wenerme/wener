@@ -219,6 +219,9 @@ curl -Lo hasura https://github.com/hasura/graphql-engine/releases/download/v2.19
 chmod +x hasura
 mv hasura ~/bin
 
+mkdir ~/.hasura
+echo '{"enable_telemetry": false,"show_update_notification": false}' > ~/.hasura/config.json
+
 hasura init --endpoint http://localhost:8080 --admin-secret $TOKEN hasura
 cd hasura
 # http://localhost:9695/console

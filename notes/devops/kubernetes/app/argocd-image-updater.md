@@ -4,6 +4,12 @@ title: ArgoCD Image Updater
 
 # ArgoCD Image Updater
 
+:::tip
+
+- 默认间隔 `2m0s` 扫描一次
+
+:::
+
 - [argoproj-labs/argocd-image-updater](https://github.com/argoproj-labs/argocd-image-updater)
   - 基于 argocd 自动更新镜像
   - 支持写回到仓库
@@ -56,7 +62,9 @@ argocd-image-updater test nginx
 
 ```yaml title="最小配置"
 annotations:
-  argocd-image-updater.argoproj.io/image-list: web=registry.gitlab.com/example/apps/web, server=registry.gitlab.com/example/apps/server
+  argocd-image-updater.argoproj.io/image-list: >
+    web=registry.gitlab.com/example/apps/web,
+    server=registry.gitlab.com/example/apps/server
   argocd-image-updater.argoproj.io/update-strategy: digest
   argocd-image-updater.argoproj.io/pull-secret: pullsecret:default/gitlab-dockerconfig
 ```

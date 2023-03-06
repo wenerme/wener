@@ -2,7 +2,7 @@
 title: Copilot
 ---
 
-# Github Copilot
+# GitHub Copilot
 
 - https://github.com/features/copilot
   - $10/月, $100/年
@@ -33,3 +33,8 @@ curl https://copilot-proxy.githubusercontent.com/_ping
 |         <kbd>Alt + [</kbd>,<kbd>Option + [</kbd> | 上一个建议     |
 |         <kbd>Alt + \</kbd>,<kbd>Option + \</kbd> | 触发建议       |
 | <kbd>Alt + Enter</kbd>,<kbd>Option + Enter</kbd> | 显示建议侧边栏 |
+
+## VSC Shortcut
+
+| key | for            |
+| --: | -------------- |

@@ -36,6 +36,24 @@ javac -J-Dfile.encoding=UTF-8
 
 - https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html#tooloptions
 
+## Property
+
+
+```ini
+file.encoding=UTF-8
+user.language=en
+user.country=US
+user.variant=
+java.io.tmpdir=
+javax.net.ssl.keyStore=
+javax.net.ssl.keyStorePassword=
+javax.net.ssl.keyStoreType=
+javax.net.ssl.trustStore=
+javax.net.ssl.trustStorePassword=
+javax.net.ssl.trustStoreType=
+com.sun.management.jmxremote=
+```
+
 ## 选择 JUL 类逻辑
 
 ```mermaid

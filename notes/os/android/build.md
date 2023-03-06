@@ -5,9 +5,12 @@ title: Android Build
 # Android Build
 
 - AGP
+  - com.android.tools.build:gradle
 - https://developer.android.com/studio/command-line
 - https://github.com/alvr/alpine-android
 - ANDROID_SDK_ROOT
+
+## SDK
 
 ```bash
 # JDK 8
@@ -57,8 +60,41 @@ android {
 }
 ```
 
+## NDK
+
+- https://developer.android.com/ndk/downloads
+
+## Build
+
+```bash
+export ANDROID_SDK_ROOT=/cache/opt/android/
+export CMDLINE_VERSION="9.0"
+export PATH=$PATH:${ANDROID_SDK_ROOT}/cmdline-tools/${CMDLINE_VERSION}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/extras/google/instantapps
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+```
+
+```bash
+./gradlew assembleRelease
+./gradlew assembleDebug
+```
+
 ## Dependant package with key emulator not found
 
 - build-tools 29 emulator 无 arm64
 - https://github.com/google/android-emulator-container-scripts/issues/192
 - https://developer.android.com/studio/releases/emulator#emulator_for_arm64_hosts
+
+## Installed Build Tools revision 33.0.0 is corrupted. Remove and install again using the SDK Manager.
+
+```bash
+sdkmanager "build-tools;33.0.0"
+sdkmanager "build-tools;31.0.0"
+
+# 升级 AGP to 7.x 或 d8 -> dx
+cd $ANDROID_SDK_ROOT/build-tools/33.0.0
+cp d8 dx
+cd lib
+cp d8.jar dx.jar
+```
+
+- https://stackoverflow.com/questions/68387270

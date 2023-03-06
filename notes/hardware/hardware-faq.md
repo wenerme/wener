@@ -94,3 +94,14 @@ tags:
   - non-contact radio frequency IC card - MF1 card
     - mifare one card
 - Access control CPU card
+
+
+## 采购 {#purchase}
+
+**2023-03**
+
+
+
+<!--
+
+-->

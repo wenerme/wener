@@ -34,7 +34,7 @@ tags:
 
 - https://languages.oup.com/google-dictionary-ch/
 
-## 常见词汇
+## 常见词汇 {#common}
 
 | 英文            | 含义                                                                |
 | --------------- | ------------------------------------------------------------------- |
@@ -69,7 +69,7 @@ tags:
 | surname         | 姓                                                                  |
 | first anme      | 名                                                                  |
 
-## 技术词汇
+## 技术词汇 {#tech}
 
 | abbr.  | stand for                    | zh_CN          |
 | ------ | ---------------------------- | -------------- |
@@ -84,7 +84,7 @@ tags:
 | Orchestration | 编排       | 一个服务调度多个服务          |
 | Choreography  | 编舞       | 各自负责各自的角色 - 事件总线 |
 
-## 服务商
+## 服务商 {#service-provider}
 
 | en       | stand for |
 | -------- | --------- |
@@ -140,7 +140,7 @@ tags:
 | seller            | 销售人员/卖家     |
 | prospective sales | 预期销售          |
 
-### 交易支付/金融
+### 交易支付/金融 {#finacial}
 
 | 英文               | 含义                | 释义 |
 | ------------------ | ------------------- | ---- |
@@ -205,6 +205,21 @@ tags:
 | controller | 空间   |
 | editor     | 编辑器 |
 | viewer     | 查看器 |
+
+## 法务
+
+| en                 | cn         |
+| ------------------ | ---------- |
+| privacy policy     | 隐私政策   |
+| privacy agreement  | 隐私协议   |
+| service agreement  | 服务条款   |
+| terms conditions   | 服务条款   |
+| property right     | 物权       |
+| software copyright | 软件著作权 |
+| patent right       | 专利权     |
+| trademark right    | 商标权     |
+| website record     | 网站备案   |
+| business secret    | 商业秘密   |
 
 ## 网站
 
@@ -276,13 +291,87 @@ tags:
 | EDA   | exploratory data analysis  | 探索性数据分析 |
 | IDA   | initial data analysis      | 初步数据分析   |
 
-## 社交 {social}
+## 社交 {#social}
 
 | abbr. | stand for         | mean     |
 | ----- | ----------------- | -------- |
 | OTOH  | on the other hand |
 | TL;TR | Too Long To Read  | 简而言之 |
 | TBH   | To be honest      |
+
+## 财税 {#taxation}
+
+| en                                        | cn                            |
+| ----------------------------------------- | ----------------------------- |
+| Account reconciliations                   | 对账                          |
+| Balance sheet                             | 资产负债表                    |
+| Accountant                                | 会计师                        |
+| bookkeeper                                | 记账员,会计                   |
+| social security                           | 社保                          |
+| imposition                                | 征收                          |
+| file tax                                  | 报税                          |
+| customs                                   | 海关，关税                    |
+| Customs Clearance                         | 清关                          |
+| Adjusted gross income (AGI)               | 调整后总收入                  |
+| Taxable income                            | 应税所得                      |
+| Tax credit                                | 税收抵免                      |
+| Tax deduction                             | 税收减免                      |
+| Standard deduction                        | 标准扣除额                    |
+| Itemized deduction                        | 逐项扣除额                    |
+| Tax exemption                             | 免税 - 减少应税收入的货币豁免 |
+| Filing status                             | 申报状态                      |
+| Married filing jointly                    | 夫妻联合报税                  |
+| Married filing separately                 | 夫妻单独报税                  |
+| Single filing                             | 单身个人报税                  |
+| Head of household filing                  | 家庭户主报税                  |
+| Qualifying Widow(er) with dependent child | 有子女的丧偶人士报税          |
+| Tax refund/Tax rebate                     | 退税                          |
+| Tax receipt                               | 纳税收据                      |
+| Tax return transcript                     | 纳税申报单                    |
+| File tax                                  | 报税                          |
+| Evade tax                                 | 逃税                          |
+| Avoid tax                                 | 避税                          |
+| Impose/Levy                               | 征税/课税                     |
+| Electronic Filing/e-File                  | 电子报税、网报                |
+| filing                                    | 报税                          |
+| Ledger                                    | 账本                          |
+| checkbook                                 | 支票簿                        |
+
+| abbr. | en              | cn     |
+| ----- | --------------- | ------ |
+| VAT   | value added tax | 增值税 |
+
+- 个人/自然人 - individual/natural person
+- 实体 - entity
+
+### Tax
+
+| en                              | cn                                                  |
+| ------------------------------- | --------------------------------------------------- |
+| Alternative minimum tax (AMT)   | 替代性最低税                                        |
+| Capital gain tax                | 资本利得（收益）税 - 出售股票，债券，贵金属和房地产 |
+| Corporate tax                   | 公司税                                              |
+| Custom duty                     | 关税                                                |
+| Dividend tax                    | 股息税                                              |
+| Duty                            | 税，关税                                            |
+| duty free                       | 免税                                                |
+| Estate tax                      | 遗产税 - 对死者的财产和财产的总价值征收             |
+| Excise tax                      | 消费税                                              |
+| Federal Unemployment tax (FUTA) | 联邦失业税                                          |
+| FICA tax                        | 社会保险医疗保健税                                  |
+| Gift tax                        | 赠予税                                              |
+| income tax                      | 所得税                                              |
+| individual tax                  | 个税                                                |
+| Inheritance tax                 | 遗产税 - 向受益人征收                               |
+| Medicare tax                    | 医疗保健税                                          |
+| Payroll tax                     | 工资税                                              |
+| Personal Income Tax             | 个人所得税                                          |
+| Property tax                    | 财产税                                              |
+| Sales tax                       | 销售税                                              |
+| Social security tax             | 社会保险税                                          |
+| Tariff                          | 关税、交税                                          |
+| value added tax                 | 增值税                                              |
+| Withholding tax                 | 预扣税                                              |
 
 # FAQ
 
@@ -719,7 +808,7 @@ tags:
 - firm - 公司、事務所
   - 提供服务类业务
 
-## namespace 翻译 {namespace}
+## namespace 翻译 {#namespace}
 
 - 命名空间
   - 指 可以在一个 空间里进行 命名

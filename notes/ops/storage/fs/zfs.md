@@ -4,6 +4,12 @@ title: ZFS
 
 # ZFS
 
+:::tip
+
+- ZFS 2.2 支持 Overlay
+
+:::
+
 ## Tips
 * [zfsonlinux](http://zfsonlinux.org/)
 * [zfsonlinux/zfs](https://github.com/zfsonlinux/zfs)

@@ -21,9 +21,10 @@ title: taro
 :::caution
 
 - 不支持 data-attr [#11530](https://github.com/NervJS/taro/issues/11530)
+- 不会转译外部依赖
+  - 例如 `??`
 
 :::
-
 
 ```bash
 npm install -g @tarojs/cli
@@ -45,6 +46,22 @@ pnpm dev:weapp
 
 NODE_ENV=production pnpm dev:weapp
 ```
+
+```ts
+Taro.ENV_TYPE;
+const { app, route, page } = Taro.Current;
+```
+
+| type   | for            |
+| ------ | -------------- |
+| ALIPAY | 支付宝小程序   |
+| JD     | 京东小程序     |
+| QQ     | QQ 小程序      |
+| SWAN   | 百度小程序     |
+| TT     | 字节跳动小程序 |
+| WEAPP  | 微信小程序     |
+| RN     | React Native   |
+| WEB    | Web            |
 
 ## tailwindcss
 
