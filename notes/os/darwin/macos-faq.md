@@ -313,6 +313,8 @@ otool -L a.out
 ```bash
 mkdir ~/Library/Preferences/Audio
 sudo chown _coreaudiod:admin ~/Library/Preferences/Audio
+
+stat ~/Library/Preferences/Audio
 ```
 
 - https://forums.macrumors.com/threads/fix-sustained-12-15-coreaudiod-cpu-usage-on-m1-possibly-intel-too.2331498/
@@ -325,4 +327,10 @@ sudo chown _coreaudiod:admin ~/Library/Preferences/Audio
 brew install gromgit/fuse/bindfs-mac
 
 bindfs a b
+```
+
+## 输入法卡顿
+
+```bash
+kill -9 `pgrep SCIM`
 ```

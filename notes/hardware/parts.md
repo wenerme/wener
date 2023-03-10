@@ -145,6 +145,8 @@ title: 配件
   - 8 Ports, 6Gb/s SAS 2.1
   - x8, PCIe, 4000 MB/s
   - PCI Power ~9W
+- [HB B140i](https://support.hpe.com/hpesc/public/docDisplay?docId=c04441385)
+  - HPE Dynamic Smart Array B140i Controller
 
 ## Processor
 

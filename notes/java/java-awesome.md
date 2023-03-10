@@ -71,6 +71,13 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
     - `sdk visualvm 2.0.2`
 - 无 musl https://github.com/sdkman/sdkman-cli/issues/1133
 
+## Languages
+
+- kotlin
+- graalvm
+- [javacc](../languages/parser/javacc.md)
+- [antlr](../languages/parser/antlr4.md)
+
 ## 效率
 
 - lombok
@@ -110,29 +117,23 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
 - guice
 - dapper
 
-## Tools
+## Library
 
-- jodd
+- Core
+  - [oblac/jodd](https://github.com/oblac/jodd)
+  - apache commons
+  - [dromara/hutool](https://github.com/dromara/hutool)
 - jool
 - joor
-
-## DTO
-
-- [mapstruct/mapstruct](https://github.com/mapstruct/mapstruct)
-  - 对象互转 - 基于反射
+- DTO/Convert
+  - [mapstruct/mapstruct](https://github.com/mapstruct/mapstruct)
+    - 对象互转 - 基于反射
 
 ## Tool Chain
 
-- maven
-- gradle
-- jid
-
-## Languages
-
-- kotlin
-- graalvm
-- [javacc](../languages/parser/javacc.md)
-- [antlr](../languages/parser/antlr4.md)
+- [maven](./build/maven/README.md)
+- [gradle](./build/gradle/README.md)
+- [jib](./build/jib.md)
 
 ## Learn
 
@@ -159,3 +160,15 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
 - [runsidekick/sidekick](https://github.com/runsidekick/sidekick)
   - AGPL-3.0, Java
   - Like chrome dev tools but for your backend
+
+## Template
+
+- Apache FreeMarker
+- Apache Velocity
+- Thymeleaf
+- Apache Tiles
+  - Web APP
+- Mustache.java
+- Groovy
+- jsp
+- [antlr/stringtemplate4](https://github.com/antlr/stringtemplate4)

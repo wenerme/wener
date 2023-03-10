@@ -70,19 +70,20 @@ title: WebStorage
 
 > IndexedDB 很慢
 
-## Libraries
+## Library
 
 - [dexie](../script/lib/dexie.md)
   - IndexedDB 存储
   - 支持同步 - 但不是开箱即用
   - ~82kB/26kB - 无依赖
 - [rxdb](https://github.com/pubkey/rxdb)
+  - Apache-2.0, Typescript
   - offline first
   - 有 schema
   - 支持 punchdb, lokijs, dexie 存储
   - 默认支持 REST 和 GraphQL 同步
   - 使用 punchdb 也可以用 CouchDB 的同步
-  - Premium: IndexedDB, SQLite, Sharding , Query Optimizer
+  - Premium: IndexedDB, SQLite, Sharding, Query Optimizer
   - ~114kB/31kB
     - binary-decision-diagram
     - broadcast-channel
@@ -91,7 +92,8 @@ title: WebStorage
     - object-path
     - clone
 - [clientdb/clientdb](https://github.com/clientdb/clientdb)
-  - Apache-2.0
+  - Apache-2.0, Typescript
+  - **in-memory** database, realtime
 - PouchDB
   - CouchDB replication
   - 支持 attachments
@@ -107,7 +109,7 @@ title: WebStorage
   - 类似 localStorage
   - 异步
   - 支持多后端
-- [WatermelonDB](https://github.com/Nozbe/WatermelonDB)
+- [Nozbe/WatermelonDB](https://github.com/Nozbe/WatermelonDB)
   - 定位是 DB - 使用 class+decorator 定义 模型
   - React - LokiJS
   - React Native - SQLite

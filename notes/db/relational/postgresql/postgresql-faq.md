@@ -1,5 +1,4 @@
 ---
-id: faq
 title: 常见问题
 tags:
   - FAQ
@@ -8,6 +7,7 @@ tags:
 # PostgreSQL FAQ
 
 - [Errors and Messages](https://www.postgresql.org/docs/current/errcodes-appendix.html)
+- [SQL Key Words](https://www.postgresql.org/docs/current/sql-keywords-appendix.html)
 
 ## 限制
 

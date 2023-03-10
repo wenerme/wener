@@ -27,9 +27,6 @@ tags:
   - Client GPL-3.0 iOS/Android, AGPL-3.0 Web
 - [Wire](https://github.com/wireapp/wire)
   - Server AGPL-3.0, Haskell
-- [jitsi/jitsi](https://github.com/jitsi/jitsi)
-  - Apache-2.0, Java
-  - SIP, XMPP/Jabber, IRC
 - [mattermost/mattermost-server](https://github.com/mattermost/mattermost-server)
   - AGPL-3.0, 官方二进制 MIT, Go+Postgre
 - [zulip/zulip](https://github.com/zulip/zulip)
@@ -45,15 +42,25 @@ tags:
 - [wildfirechat/im-server](https://github.com/wildfirechat/im-server)
   - Java
   - MQTT
+  - https://docs.wildfirechat.cn/price/
 - [yinxin630/fiora](https://github.com/yinxin630/fiora)
   - MIT, Typescript
 
-## Streaming
+## Vieo/Audio
 
 - [owncast/owncast](https://github.com/owncast/owncast)
   - MIT, Golang
-- janus
-- jitsi
+- [meetecho/janus-gateway](https://github.com/meetecho/janus-gateway)
+  - GPLv3, C
+- [jitsi/jitsi-meet](https://github.com/jitsi/jitsi-meet)
+  - Apache-2.0, Typescript
+- [jitsi/jitsi-videobridge](https://github.com/jitsi/jitsi-videobridge)
+  - Apache-2.0, Kotlin
+- [jitsi/jitsi](https://github.com/jitsi/jitsi)
+  - Apache-2.0, Java
+  - SIP, XMPP/Jabber, IRC
+- [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
+  - LGPLv3, JS, Scala
 
 ### Inactive
 

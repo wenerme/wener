@@ -4,8 +4,7 @@ title: MySQL
 
 # MySQL
 
-## Tips
-* [Common MySQL Queries](http://www.artfulsoftware.com/infotree/queries.php)
+- [Common MySQL Queries](http://www.artfulsoftware.com/infotree/queries.php)
 
 ```sql
 -- 用户可登陆状况
@@ -60,25 +59,30 @@ show processlist
 ```
 
 ### mysql cli
+
 ```sql
 source myfile.sql
 
 ```
 
 ## FAQ
+
 ### [1071] - Specified key was too long; max key length is 767 bytes
 
-* utf8 3*255 = 765 < 767
-* utf8mb4 4*191 = 764 < 767
+- utf8 3\*255 = 765 < 767
+- utf8mb4 4\*191 = 764 < 767
+
 ```
 INNODB utf8 VARCHAR(255)
 INNODB utf8mb4 VARCHAR(191)
 ```
 
 ### slow log
-* [Write logs into tables](https://mariadb.com/kb/en/mariadb/writing-logs-into-tables/)
-* [TABLE mysql.slow_log](https://mariadb.com/kb/en/mariadb/mysqlslow_log-table/)
-* [Slow Query Log Overview](https://mariadb.com/kb/en/mariadb/slow-query-log-overview/)
+
+- [Write logs into tables](https://mariadb.com/kb/en/mariadb/writing-logs-into-tables/)
+- [TABLE mysql.slow_log](https://mariadb.com/kb/en/mariadb/mysqlslow_log-table/)
+- [Slow Query Log Overview](https://mariadb.com/kb/en/mariadb/slow-query-log-overview/)
+
 ```sql
 show variables like '%slow%';
 -- slow_query_log 是否开启
@@ -100,7 +104,8 @@ select * from mysql.slow_log limit 2 \G
 ```
 
 ### Got a packet bigger than 'max_allowed_packet' bytes
-* 在数据导入的时候可能会遇到
+
+- 在数据导入的时候可能会遇到
 
 ```sql
 SET GLOBAL max_allowed_packet=1073741824;
@@ -114,9 +119,9 @@ max_allowed_packet=500M
 
 ### 快速数据导入
 
-* [MySQL any way to import a huge (32 GB) sql dump faster?](https://dba.stackexchange.com/q/83125)
+- [MySQL any way to import a huge (32 GB) sql dump faster?](https://dba.stackexchange.com/q/83125)
 
-* 启动时 `--innodb-doublewrite=0` 禁用 Double Write Buffer, 导入完成后恢复
+- 启动时 `--innodb-doublewrite=0` 禁用 Double Write Buffer, 导入完成后恢复
 
 ```ini
 innodb_buffer_pool_size = 4G
@@ -128,19 +133,11 @@ innodb_flush_log_at_trx_commit = 0
 
 ## Type
 
-* [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
+- [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
 
-Type        | Maximum length
-------------+-------------------------------------
-TINYTEXT    |           255 (2 8−1) bytes
-TEXT        |        65,535 (216−1) bytes = 64 KiB
-MEDIUMTEXT  |    16,777,215 (224−1) bytes = 16 MiB
-LONGTEXT    | 4,294,967,295 (232−1) bytes =  4 GiB
-
-## FAQ
-
-### 修改密码
-
-```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-```
+| Type       | Maximum length                      |
+| ---------- | ----------------------------------- |
+| TINYTEXT   | 255 (2 8−1) bytes                   |
+| TEXT       | 65,535 (216−1) bytes = 64 KiB       |
+| MEDIUMTEXT | 16,777,215 (224−1) bytes = 16 MiB   |
+| LONGTEXT   | 4,294,967,295 (232−1) bytes = 4 GiB |

@@ -4,6 +4,19 @@ title: App Layout
 
 # App Layout
 
+:::tip
+
+- 适用场景
+  - 营销
+  - 电商产品页
+  - 信息页
+- 不适用
+  - 全局状态
+  - 上下文
+  - 单页面应用
+
+:::
+
 :::caution
 
 - 还有很多特性 app 模式不支持
@@ -15,8 +28,24 @@ title: App Layout
 - emotion 目前用不了 - https://github.com/vercel/next.js/issues/41994
   - 但是在 Server 环境下 React.createContext is not a function
 - React.Component is null
+- [next-auth#5647](https://github.com/nextauthjs/next-auth/issues/5647)
+  不支持 Provider
 
 :::
+
+**src/app**
+
+```txt
+📂 src/app
+├─ 📄 page.tsx
+├─ 📄 layout.tsx
+├─ 📄 template.tsx
+├─ 📄 head.tsx
+├─ 📄 loading.tsx
+├─ 📄 error.tsx
+├─ 📄 not-found.tsx
+└─ 📂 path
+```
 
 - `src/app/`
   - page.tsx - 页面内容
@@ -29,6 +58,39 @@ title: App Layout
   - loading.tsx - Suspense, Loading 时显示的内容
   - error.tsx
   - not-found.tsx
+
+```tsx
+// 'auto' | 'force-dynamic' | 'error' | 'force-static'
+export const dynamic = 'auto';
+export const dynamicParams = true;
+// false | 'force-cache' | 0 | number
+export const revalidate = false;
+// 'auto' | 'default-cache' | 'only-cache'
+// 'force-cache' | 'force-no-store' | 'default-no-store' | 'only-no-store'
+export const fetchCache = 'auto';
+// 'experimental-edge' | 'nodejs'
+export const runtime = 'nodejs';
+// 'auto' | 'home' | 'edge' | 'string'
+export const preferredRegion = 'auto';
+export function generateStaticParams() {}
+
+// ISR
+export const revalidate = 3600; // revalidate every hour
+```
+
+- dynamic
+  - auto - 通过 fetch 检测，避免 dynamic
+  - force-dynamic
+    - 类似于 getServerSideProps
+    - fetchCache=force-no-store
+  - error
+    - 类似 getStaticProps
+    - fetchCache=force-cache
+  - force-static - 让 cookies(), headers(), useSearchParams() 返回空
+- dynamicParams
+  - generateStaticParams
+- revalidate
+- https://beta.nextjs.org/docs/api-reference/segment-config
 
 ```tsx title="page.tsx"
 import { notFound } from 'next/dist/client/components/not-found';
@@ -140,3 +202,5 @@ export default function NotFound() {
 ---
 
 - https://beta.nextjs.org/docs/app-directory-roadmap
+
+## Only async functions are allowed to be exported in a "use server" file

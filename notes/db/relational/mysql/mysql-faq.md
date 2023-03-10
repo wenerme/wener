@@ -1,15 +1,13 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 # MySQL FAQ
 
-
 ```sql
 select user,host from mysql.user;
 ```
-
 
 ```sql
 -- 默认 151 - 150 普通用户, 1 super
@@ -26,4 +24,10 @@ select id,
        state,
        info
 from information_schema.processlist
+```
+
+## 修改密码
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```

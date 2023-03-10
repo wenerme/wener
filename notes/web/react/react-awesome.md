@@ -699,6 +699,9 @@ npm add date-fns lodash-es react-fast-compare
 
 - [pmndrs/react-spring](https://github.com/pmndrs/react-spring)
 - [framer/motion](https://github.com/framer/motion)
+- [nandorojo/moti](https://github.com/nandorojo/moti)
+  - React Native (+ Web)
+  - by Reanimated 2
 - [React-Spring vs Framer Motion: Comparing Examples in Two Animation Libraries](https://smartdevpreneur.com/react-spring-vs-framer-motion-comparing-examples-in-two-animation-libraries)
   - 实现动画底层逻辑不同
     - framer-motion - duration-and-location

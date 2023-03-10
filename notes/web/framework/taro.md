@@ -22,7 +22,7 @@ title: taro
 
 - 不支持 data-attr [#11530](https://github.com/NervJS/taro/issues/11530)
 - 不会转译外部依赖
-  - 例如 `??`
+  - 例如 `??`, `?.`
 
 :::
 

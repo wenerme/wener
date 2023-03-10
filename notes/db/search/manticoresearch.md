@@ -20,6 +20,7 @@ title: manticoresearch
   - [manticoresoftware/columnar](https://github.com/manticoresoftware/columnar)
     - Apache-2.0
   - [PGM algorithm](https://pgm.di.unipi.it/) 二级索引
+  - https://github.com/manticoresoftware/manticoresearch-javascript
 
 :::caution
 
@@ -239,4 +240,25 @@ VALUES
 -- 类似 sharding 效果
 create table
   user type = 'distributed' local = 'user1' local = 'user2';
+```
+
+# Version
+
+## Manticoresearch 6.0
+
+- Elasticsearch-compatible INSERTs and REPLACEs
+- Secondary indexes are on by default
+- `ALTER TABLE table_name REBUILD SECONDARY`
+- Auto-schema
+- Revamp of Cost-based optimizer
+- 关闭 telemetry
+  - env `TELEMETRY=0`
+  - https://manual.manticoresearch.com/Telemetry
+- manticore-backup
+- `SHOW QUERIES`
+- `SHOW KILL`
+- arm64
+
+```
+telemetry = 0
 ```

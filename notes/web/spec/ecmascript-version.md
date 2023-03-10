@@ -64,6 +64,12 @@ tags:
 
 :::
 
+| syntax | Chrome   | Name                          |
+| ------ | -------- | ----------------------------- |
+| `?.`   | Chrome80 | Optional chaining             |
+| `??`   | Chrome80 | Nullish coalescing operator   |
+| `??=`  | Chrome85 | Nullish coalescing assignment |
+
 - es5 和 es6 是一个分界线
   - 2018 年所有浏览器支持 es6
   - 之后统一版本概念变弱 - 都以功能特性为单位

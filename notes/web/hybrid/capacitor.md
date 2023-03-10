@@ -9,6 +9,8 @@ title: capacitor
 - 参考
   - [ionic-team/capacitor-plugins](https://github.com/ionic-team/capacitor-plugins)
   - https://github.com/capacitor-community
+- https://ionic.io/portals
+  - 部分页面元素替换
 
 ```bash
 npm install @capacitor/core @capacitor/cli

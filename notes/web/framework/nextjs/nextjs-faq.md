@@ -6,6 +6,8 @@ tags:
 
 # NextJS FAQ
 
+- https://github.com/vercel/next.js/blob/canary/packages/next/src/lib/server-external-packages.json
+
 ## 环境变量
 
 - dotenv 会自动 reload
@@ -481,3 +483,11 @@ dynamic ssr:false 时出现
 ## Warning: lazy: Expected the result of a dynamic import() call.
 
 NextJS ssr 不支持 React.lazy
+
+## Cannot read properties of null (reading 'useRef')
+
+- SSR, Hook
+- appDir: false 还是出现
+- "use client"
+- [zustand#1395](https://github.com/pmndrs/zustand/issues/1395)
+- https://github.com/vercel/next.js/issues/42263

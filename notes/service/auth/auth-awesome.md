@@ -136,3 +136,13 @@ tags:
 
 - Google [Authentication/Authorization for Enterprise SPI Guide](https://support.google.com/gsa/answer/6329233)
 - [How to Design a Permissions Framework](https://itnext.io/7c054a009c52)
+
+## Library
+
+- [auth0/node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+  - MIT, JS
+  - jsonwebtoken
+- [panva/jose](https://github.com/panva/jose)
+  - MIT, TS, JS
+  - JWA, JWS, JWE, JWT, JWK, JWKS
+- passport

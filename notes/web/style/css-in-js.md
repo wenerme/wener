@@ -52,6 +52,8 @@ CSS in JS 本身是非常麻烦的事情，需要考虑的问题
 [@vanilla-extract/css]: https://github.com/vanilla-extract-css/vanilla-extract
 [goober]: https://github.com/cristianbote/goober
 
+- vanilla-extract
+  - Zero-runtime Stylesheets-in-TypeScript
 - styled 现在是主要支持的形式，早期由 styled-components 实现，现在大多都以 styled 为标准接口。
 - styled-components 现在使用 emotion
 - goober

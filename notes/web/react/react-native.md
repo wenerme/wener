@@ -11,3 +11,9 @@ title: React Native
     [HN](https://news.ycombinator.com/item?id=32310392)
   - Why did Airbnb dump React Native? (2021)
     [HN](https://news.ycombinator.com/item?id=32485178)
+
+:::tip
+
+- React Native v0.69 支持 React 18
+
+:::

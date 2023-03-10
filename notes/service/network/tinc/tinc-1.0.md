@@ -11,7 +11,7 @@ NETNAME=netname
 NODE=NodeA
 mkdir -p /etc/tinc/$NETNAME/hosts
 # tinc.conf
-cat <<CONF > /etc/tinc/$NETNAME/tinc.conf
+cat << CONF > /etc/tinc/$NETNAME/tinc.conf
 Name = $NODE
 Mode = switch
 # ConnectTo = $NETANAME
@@ -20,19 +20,18 @@ CONF
 # 生成 key
 tincd -n $NETNAME -K
 
-
 # tinc-up
-cat <<SH > /etc/tinc/$NETNAME/tinc-up
+cat << SH > /etc/tinc/$NETNAME/tinc-up
 ifconfig $INTERFACE 10.10.1.1 netmask 255.0.0.0
 SH
 
 # 随机 port
-cat <<CONF > /etc/tinc/$NETNAME/hosts/$NODE
+cat << CONF > /etc/tinc/$NETNAME/hosts/$NODE
 Port = 0
 CONF
 
 # 添加其他节点
-cat <<CONF > /etc/tinc/$NETNAME/hosts/$NETNAME
+cat << CONF > /etc/tinc/$NETNAME/hosts/$NETNAME
 # Subnet = 10.10.0.0/24
 Address = 4.5.6.7
 
@@ -59,4 +58,48 @@ tincd -n $NETNAME -Dd 5
   -U, --user=USER                setuid to given USER at startup.
       --help                     Display this help and exit.
       --version                  Output version information and exit.
+```
+
+## init
+
+- [tinc.conf.5](https://www.tinc-vpn.org/documentation/tinc.conf.5)
+
+```bash
+export NETWORK=kubenet
+NODENAME=$(hostname | tr - _)
+
+modprobe tun
+
+mkdir -p /etc/tinc/$NETWORK/hosts
+cd /etc/tinc/$NETWORK
+
+tincd -n $NETWORK -K 4096
+cat << CONF > tinc.conf
+Name=$NODENAME
+Mode=switch
+Device = /dev/net/tun
+AddressFamily = ipv4
+CONF
+
+cat << 'SHELL' > tinc-up
+ip link set $INTERFACE up
+ip addr add 10.10.1.1 dev $INTERFACE
+ip route add 10.10.1.0/24 dev $INTERFACE
+SHELL
+cat << 'SHELL' > tinc-down
+ip link set $INTERFACE down
+SHELL
+chmod -v +x tinc-up tinc-down
+
+cp rsa_key.pub hosts/$NODENAME.rsa_key.pub
+cat << CONF > hosts/$NODENAME
+PublicKeyFile=$NODENAME.rsa_key.pub
+CONF
+
+# 前台启动 - debug
+tincd -n $NETWORK -Dd 5
+
+# 服务启动
+echo "NETWORK: $NETWORK" >> /etc/conf.d/tinc.networks
+service tincd start
 ```

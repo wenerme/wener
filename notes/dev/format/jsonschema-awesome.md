@@ -88,17 +88,24 @@ tags:
 :::tip JSON Schema Form 的几种常见情况
 
 1. 完全 UI 生成
-  - 面向数据场景
-  - 不会特别好看，但支持的功能多
+
+- 面向数据场景
+- 不会特别好看，但支持的功能多
+
 2. 提供默认组件联动
-  - 面向用户场景
-  - 通常会抽象 Field/Form 逻辑
-  - 易于扩展
+
+- 面向用户场景
+- 通常会抽象 Field/Form 逻辑
+- 易于扩展
+
 3. 外置 UI Layout 信息
-  - 推荐 - 保持干净的 Schema
+
+- 推荐 - 保持干净的 Schema
+
 4. 扩展 JSON Schema 内置 UI Layout 信息
-  - 扩展后的 JSON Schema 不一定是合法的 JSON Schema
-  - 上下关联顺序可能会发生变化
+
+- 扩展后的 JSON Schema 不一定是合法的 JSON Schema
+- 上下关联顺序可能会发生变化
 
 :::
 
@@ -129,3 +136,13 @@ tags:
   - proptypes-to-json-schema
     - React propTypes -> JSON Schema
 
+## Validator
+
+- [everit-org/json-schema](https://github.com/everit-org/json-schema)
+  - Apache-2.0, Java
+  - org.json
+  - Draft v4, Draft v6, Draft v7
+- [networknt/json-schema-validator](https://github.com/networknt/json-schema-validator)
+  - Apache-2.0, Java
+  - Draft v4, v6, v7, v2019-09, v2020-12
+  - Jackson

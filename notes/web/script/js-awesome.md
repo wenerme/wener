@@ -717,6 +717,15 @@ tags:
 - [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [privatenumber/ts-runtime-comparison](https://github.com/privatenumber/ts-runtime-comparison)
 
+## Typescript
+
+- [dsherret/ts-morph](https://github.com/dsherret/ts-morph)
+  - Compiler API wrapper
+  - AST edit
+  - 替代 tsc
+- trpc
+- zod
+
 ## Edge/Serverless
 
 - blueboat

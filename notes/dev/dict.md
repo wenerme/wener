@@ -76,6 +76,10 @@ tags:
 | distro | distribution                 | 发行版         |
 | TSC    | Technical Steering Committee | 技术指导委员会 |
 | href   | Hypertext REFerence          | 超文本引用     |
+| ERP    | Enterprise Resource Planning | 企业资源计划   |
+| WMS    | Warehouse Management System  | 仓库管理系统   |
+| PRD    | Product Requirement Document | 产品需求文档   |
+| MRD    | Market Requirement Document  | 市场需求文档   |
 
 | word          | stand for  | notes                         |
 | ------------- | ---------- | ----------------------------- |

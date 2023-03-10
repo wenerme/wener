@@ -24,6 +24,13 @@ title: NextAuth
 - AUTH_TRUST_HOST || VERCEL
   - 用于 detectHost
 
+:::caution
+
+- [#6710](https://github.com/nextauthjs/next-auth/issues/6710)
+  refresh token rotation doesn't update client session
+
+:::
+
 ```ts
 // 内部全局上下文
 const __NEXTAUTH: NextAuthClientConfig = {
@@ -53,21 +60,21 @@ export const defaultCallbacks: CallbacksOptions = {
   signIn() {
     // 是否允许登录
     // 可以返回 字符串做 redirect
-    return true
+    return true;
   },
   redirect({ url, baseUrl }) {
-    if (url.startsWith("/")) return `${baseUrl}${url}`
-    else if (new URL(url).origin === baseUrl) return url
-    return baseUrl
+    if (url.startsWith('/')) return `${baseUrl}${url}`;
+    else if (new URL(url).origin === baseUrl) return url;
+    return baseUrl;
   },
   session({ session }) {
-    return session
+    return session;
   },
   // jwt session
   jwt({ token }) {
-    return token
+    return token;
   },
-}
+};
 ```
 
 - tokens:TokenSet
@@ -77,9 +84,9 @@ export const defaultCallbacks: CallbacksOptions = {
 - 会在 sessionMaxAge 更新 session 有效期
 
 ```ts
-import { generators } from "openid-client"
+import { generators } from 'openid-client';
 // 生成 state
-const state = generators.state()
+const state = generators.state();
 ```
 
 ## 数据模型 {#models}
@@ -133,3 +140,16 @@ const state = generators.state()
 ## CORS
 
 - https://github.com/nextauthjs/next-auth/issues/4327#issuecomment-1090389591
+
+## 不能获取 Cookie
+
+- HTTP Only
+
+```js
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+getCookie('next-auth.session-token');
+```

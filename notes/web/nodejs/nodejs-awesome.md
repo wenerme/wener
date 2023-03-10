@@ -38,7 +38,7 @@ tags:
   - 支持自定义函数
   - 支持迭代 cursor
   - 支持 int64
-  - [Convince me to use better-sqlite3](https://github.com/WiseLibs/better-sqlite3/issues/262)
+  - Convince me to use better-sqlite3 [#262](https://github.com/WiseLibs/better-sqlite3/issues/262)
 - [sequelize/sequelize](./sequelize.md)
   - ORM
   - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.

@@ -20,7 +20,7 @@ const identity = <T>(value: T): T[] => {
 };
 
 // TSX
-const identity = <T,>(arg: T): T => arg;
+const identity = <T>(arg: T): T => arg;
 ```
 
 ## Path alias
@@ -126,7 +126,7 @@ interface Example {
 pnpm tsc -p ./tsconfig.json --noEmit false --emitDeclarationOnly true --declaration true --outDir ./dist/types
 
 # 直接生成
-pnpm tsc --target ESNext --jsx preserve --declaration --strict --pretty  --out ./dist/server.js --module system --moduleResolution node --emitDeclarationOnly ./src/server/routers/_app.ts
+pnpm tsc --target ESNext --jsx preserve --declaration --strict --pretty --out ./dist/server.js --module system --moduleResolution node --emitDeclarationOnly ./src/server/routers/_app.ts
 ```
 
 ## Module 'wechat4u' resolves to an untyped module at , which cannot be augmented.
@@ -137,3 +137,13 @@ pnpm tsc --target ESNext --jsx preserve --declaration --strict --pretty  --out .
 
 - jsx: react
 - https://github.com/microsoft/TypeScript/issues/41882
+
+## SyntaxError: This experimental syntax requires enabling one of the following parser plugin(s): "decorators", "decorators-legacy".
+
+```js
+export default {
+  importOrderParserPlugins: ['typescript', 'decorators-legacy'],
+};
+```
+
+- https://github.com/trivago/prettier-plugin-sort-imports/issues/120

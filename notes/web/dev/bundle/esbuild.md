@@ -45,7 +45,7 @@ title: ESBuild
   - 目前必须 `import React`, 需要调整 lint 配置
   - Bundle 可考虑一次 inject https://esbuild.github.io/content-types/#jsx
   - eslint `'react/react-in-jsx-scope': 'error'`
-- https://esbuild.egoist.dev/
+- [Playground](https://esbuild.egoist.dev/)
 
 :::
 
@@ -129,6 +129,16 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
   - file
   - copy
     - 复制文件到 outdir - 修改 import 路径
+- cdn url
+  - https://unpkg.com
+  - https://github.com/egoist/play-esbuild/blob/main/src/lib/esbuild.ts#L34
+
+:::tip
+
+- chrome90 会处理 `?.`
+- chrome70 会处理 `??`
+
+:::
 
 ## 只 bundle 内部文件
 

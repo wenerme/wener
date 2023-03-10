@@ -14,6 +14,7 @@ tags:
   - [toshi-search/Toshi](https://github.com/toshi-search/Toshi)
     - MIT, Rust
   - [mosuka/bayard](https://github.com/mosuka/bayard)
+    - MIT, Rust
   - [quickwit-oss/quickwit](https://github.com/quickwit-oss/quickwit)
     - AGPLv3, Rust
     - Like Elasticsearch, but highly reliable & cost-efficient for log management.

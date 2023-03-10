@@ -64,6 +64,8 @@ export enum QueryTypes {
 - 不支持 better-sqlit3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
 - 关联 many 查询不能 limit [#1897](https://github.com/sequelize/sequelize/issues/1897)
 - 不支持 deno [#12836](https://github.com/sequelize/sequelize/issues/12836)
+- RFC Decorators [#14298](https://github.com/sequelize/sequelize/issues/14298)
+  - Status [#15334](https://github.com/sequelize/sequelize/issues/15334)
 
 :::
 
