@@ -42,6 +42,10 @@ tags:
 
 :::
 
+- 推荐 `PascalCase`
+  - vs. `snake-case` 可以直接作为名字
+  - vs. `camelCase` 区别于变量
+  - vs. `UPPER_CASE` 更好看，更好写
 - 数字没有含义 - 必然要找定义
 - 可能记错
 - 不一定写的准确，但别人能猜个大概
