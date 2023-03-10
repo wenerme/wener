@@ -4,7 +4,7 @@ tags:
   - FAQ
 ---
 
-# FAQ
+# Java FAQ
 
 ## javac 乱码
 
@@ -37,7 +37,6 @@ javac -J-Dfile.encoding=UTF-8
 - https://docs.oracle.com/javase/8/docs/platform/jvmti/jvmti.html#tooloptions
 
 ## Property
-
 
 ```ini
 file.encoding=UTF-8
