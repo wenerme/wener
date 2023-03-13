@@ -1,38 +1,33 @@
 ---
-id: hibernate-enver
 title: Hibernate Enver
 ---
 
 # Hibernate Enver
 
-## Tips
-* [Hibernate ORM Envers](http://hibernate.org/orm/envers/)
-* [Hibernate User Guide Envers](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#envers)
-* spring-data/envers
-
-* 主要功能
-  * 每次操作记录修改前状态
-  * 可记录后状态
-  * 可记录修改的实体名字
-  * 可记录修改的字段
-  * 可在修改信息上附加自定义信息
-  * `@OneToMany` 可以记录修改到中间表
-    * `@AuditMappedBy`
-* FAQ
-  * 如果开启了 revend, 如果是修改操作, 找不到上次记录, 会异常
-  * SpringData 的 Enver 无法和 QueryDSL 共用, 需要重写很多东西
-
+- [Hibernate ORM Envers](http://hibernate.org/orm/envers/)
+- [Hibernate User Guide Envers](http://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#envers)
+- spring-data/envers
+- 主要功能
+  - 每次操作记录修改前状态
+  - 可记录后状态
+  - 可记录修改的实体名字
+  - 可记录修改的字段
+  - 可在修改信息上附加自定义信息
+  - `@OneToMany` 可以记录修改到中间表
+    - `@AuditMappedBy`
+- FAQ
+  - 如果开启了 revend, 如果是修改操作, 找不到上次记录, 会异常
+  - SpringData 的 Enver 无法和 QueryDSL 共用, 需要重写很多东西
 
 ## 配置
 
-* 涉及的表
-  * `_AUD`
-  * `REVINFO`
-  * `TRACKING_REVINFO`
-  * 列 `_MOD`
-  * `REVCHANGES`
-
-* 配置 `org.hibernate.envers.configuration.EnversSettings`
+- 涉及的表
+  - `_AUD`
+  - `REVINFO`
+  - `TRACKING_REVINFO`
+  - 列 `_MOD`
+  - `REVCHANGES`
+- 配置 `org.hibernate.envers.configuration.EnversSettings`
 
 ```ini
 # 审计表前缀
@@ -93,14 +88,3 @@ org.hibernate.envers.allow_identifier_reuse=false
 # Specifies the composite-id key property name used by the audit table mappings.
 org.hibernate.envers.original_id_prop_name=originalId
 ```
-
-## TODO
-https://javers.org/
-https://github.com/javers/javers
-
-
-@Audited
-@javax.persistence.OrderColumn
-@CollectionId
-AuditJoinTable
-AuditMappedBy

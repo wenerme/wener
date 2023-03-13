@@ -112,3 +112,8 @@ service k3s start
 ## links: aux/ip6tables should link to iptables-detect.sh
 
 - https://docs.k3s.io/known-issues
+
+```bash
+/usr/local/bin/k3s check-config
+PATH=/data/var/k3s/data/current/bin/:$PATH
+```

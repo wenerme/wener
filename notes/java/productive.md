@@ -1,5 +1,4 @@
 ---
-id: productive
 title: 生产力
 ---
 

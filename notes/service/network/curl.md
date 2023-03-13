@@ -22,8 +22,13 @@ curl -vik --resolve example.com:443:127.0.0.1 https://example.com
 
 curl -vik --connect-to example.com:443:127.0.0.1:8443 https://example.com
 
+curl -H "Host: www.example.com" http://localhost/
+
 # 协议限定
 curl --http1.1 --no-alpn --no-npn --tlsv1.2 --tls-max 1.2 https://example.com
+
+curl -sI https://curl.se -o/dev/null -w '%{http_version}\n'
+curl -sI --http3 https://curl.se -o/dev/null -w '%{http_version}\n'
 ```
 
 | flag                                   | since | for                                                       |

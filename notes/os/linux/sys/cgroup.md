@@ -46,3 +46,7 @@ echo 0 > /sys/fs/cgroup/memory/slack_group/memory.swappiness
 - 在汇报内存使用时，会统计子 cgroup 的情况
 
 ## cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
+
+```bash
+cat /proc/cgroups
+```

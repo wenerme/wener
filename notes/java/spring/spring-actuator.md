@@ -17,6 +17,7 @@ management.health.probes.enabled=true
 - /actuator/prometheus
   - `management.endpoints.web.exposure.include=health,info,prometheus`
 - /actuator/health
+  - `/actuator/health/**` - 2.4+
 
 ```json
 { "status": "UP" }

@@ -4,7 +4,6 @@ title: Benchmark
 
 # Benchmark
 
-
 - https://wiki.archlinux.org/index.php/benchmarking
 - http://www.jens-hartmann.at/Fritzmarks/
 - https://openbenchmarking.org/
@@ -22,15 +21,40 @@ title: Benchmark
 - 复杂压测考虑使用 [fio](#fio)
 
 ```bash
+apk add hdparm
+
 # 简单的文件写入性能
 # 因为写入的 0 需要注意底层系统是否会进行压缩
 dd if=/dev/zero of=test conv=fdatasync bs=384k count=1k status=progress
 rm -f test
-# 磁盘性能
-hdparm -Tt /dev/sda
+
+hdparm -I /dev/sda  # 磁盘信息
+hdparm -Tt /dev/sda # 磁盘性能
 
 cd "/usr/local/share/ca-certificates" && curl "https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem" | csplit -f "rds-" - '/-----BEGIN CERTIFICATE-----/' '{*}'
 ```
+
+| hdparm   | for                           |
+| -------- | ----------------------------- |
+| -t       | device reads test             |
+| -T       | cache reads test              |
+| -W       | toggle write cache            |
+| -B 0-255 | Advanced Power Management     |
+| -S 1-240 | standby (spindown) timeout    |
+| -M       | Automatic Acoustic Management |
+
+- https://man7.org/linux/man-pages/man8/hdparm.8.html
+- https://wiki.archlinux.org/title/hdparm
+- Tools
+  - https://www.coker.com.au/bonnie++/
+    -  hard drive and file system performance
+  - https://github.com/benschweizer/iops
+- block
+  - http://www.iometer.org/
+- by dd
+  - https://romanrm.net/dd-benchmark
+- pm-utils
+  - pm-suspend
 
 ## http
 
@@ -134,4 +158,16 @@ PBKDF2-whirlpool  385505 iterations per second for 256-bit key
         aes-xts   512b   179.5 MiB/s   186.7 MiB/s
     serpent-xts   512b   292.1 MiB/s   301.8 MiB/s
     twofish-xts   512b   310.6 MiB/s   305.4 MiB/s
+```
+
+## hdparam
+
+### SG_IO: bad/missing sense data
+
+```
+SG_IO: bad/missing sense data, sb[]:  70 00 05 00 00 00 00 18 00 00 00 00 20 00 00 c0 00 00 00 00 f8 21 00 00 00 00 00 00 00 00 00 00
+```
+
+```bash
+sg_decode_sense 70 00 05 00 00 00 00 18 00 00 00 00 20 00 00 c0 00 00 00 00 f8 21 00 00 00 00 00 00 00 00 00 00
 ```

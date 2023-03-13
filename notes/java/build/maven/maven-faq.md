@@ -5,6 +5,27 @@ tags:
 
 # Maven FAQ
 
+## 为什么要避免构建阶段动态替换
+
+配置 maven 替换 `@build.version@`
+
+**什么时候用？**
+
+1. 与运行无关的信息
+  - 版本号
+  - git commit 信息
+  - 模板信息 - 例如公司品牌名字
+
+
+**为什么不要用于运行时**
+
+1. 需要多次构建
+  - 无法发布
+  - 不能确 dev 的 jar 和 prod 的 jar 一样
+1. 信息泄漏
+  - 账号密码
+1. 无法运维时配置
+
 ## optional vs provided
 
 - optional 只影响包的传递性, 不影响包的 ClassPath

@@ -1,12 +1,17 @@
+---
+title: Flyway
+---
+
 # Flyway
-* 使用 SQL
-* 符合一定的目录结构标准即可
-* 基于 Java, 易于添加自定义配置
 
-## Tips
+- 使用 SQL
+- 符合一定的目录结构标准即可
+- 基于 Java, 易于添加自定义配置
 
-* [SpringBoot - Database Initialization](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html)
-* undo 只有专业版才有
+---
+
+- [SpringBoot - Database Initialization](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html)
+- undo 只有专业版才有
 
 ```bash
 # macOS 安装

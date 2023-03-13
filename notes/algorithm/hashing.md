@@ -10,6 +10,8 @@ title: Hashing
 
 - git 默认 sha2-256
   - https://git-scm.com/docs/hash-function-transition/
+- git lfs sha256
+- docker sha256
 
 :::
 

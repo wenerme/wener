@@ -41,6 +41,7 @@ curl -o /etc/netdata/netdata.conf http://localhost:19999/netdata.conf
 
 - /etc/netdata/netdata.conf
 - /var/lib/netdata/
+- /var/cache/netdata/netdata-meta.db
 - [Daemon configuration](https://learn.netdata.cloud/docs/agent/daemon/config)
 
 ```conf
@@ -135,4 +136,24 @@ adjtimex
     time.tv_sec:  1642947197
     time.tv_usec: 741874
     return value: 5 (clock not synchronized)
+```
+
+## setup
+
+```ini
+[global]
+run as user = netdata
+
+page cache size = 256
+dbengine disk space = 256
+dbengine multihost disk space = 256
+
+[db]
+mode=dbengine
+
+[directories]
+cache=/data/var/netdata/cache
+
+[web]
+respect do not track policy=yes
 ```

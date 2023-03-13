@@ -5,6 +5,7 @@ title: skopeo
 # skopeo
 
 - [containers/skopeo](https://github.com/containers/skopeo)
+- $XDG_RUNTIME_DIR/containers/auth.json
 
 ```bash
 brew install skopeo

@@ -280,6 +280,8 @@ echo '#!/bin/sh -
 zpool scrub main
 ' > /etc/periodic/monthly/zfs-scrub
 chmod +x /etc/periodic/monthly/zfs-scrub
+service crond start
+rc-update add crond
 
 # 测试 crond
 # busybox 的 run-parts 功能较少

@@ -32,6 +32,12 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 # ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock get / --prefix
 ```
 
+## containerd 配置
+
+- /var/lib/rancher/k3s/agent/etc/containerd/config.toml
+- config.toml.tmpl
+- https://github.com/k3s-io/k3s/blob/master/pkg/agent/templates/templates_linux.go
+
 ## docker vs containerd
 
 - docker

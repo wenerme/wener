@@ -86,3 +86,5 @@ DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect wener/base:latest
 
 DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect registry.cn-shanghai.aliyuncs.com/gcr-sync/cadvisor_cadvisor:v0.36.0
 ```
+
+## docker registry v1 vs v2

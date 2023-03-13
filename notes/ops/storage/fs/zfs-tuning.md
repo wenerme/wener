@@ -6,10 +6,11 @@ title: ZFS 调优
 
 :::tip 目的
 
-- 提升应用性能 - 针对工作负载调优
-- 提升 读
-- 提升 写
-- 提升 空间使用率
+- 提升 应用性能 - 针对工作负载调优 - recordsize，logbias、sync=off
+- 提升 读 - cache、内存
+- 提升 写 - slog、zfs_txg_timeout
+- 提升 空间使用率 - 压缩、recordsize、draid
+- 提升 安全 - 热备、冷备、sync
 
 :::
 
@@ -68,7 +69,7 @@ zfs set sync=disabled POOL
 # primarycache=metadata - 看情况
 zfs set atime=off relatime=on xattr=sa sync=disabled POOL
 
-zfs get all POOL | egrep 'compression|atime|xattr|sync|primarycache|recordsize'
+zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize'
 ```
 
 ## ZIL SLOG

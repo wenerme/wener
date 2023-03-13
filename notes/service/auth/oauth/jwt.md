@@ -1,5 +1,4 @@
 ---
-id: jwt
 title: JWT
 ---
 

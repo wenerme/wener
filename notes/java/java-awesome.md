@@ -103,31 +103,59 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
 - 国产
   - [nutzam/nutz](https://github.com/nutzam/nutz)
 
-## 平台
+## 整合
 
 - jhipster
 - [jeecgboot/jeecg-boot](https://github.com/jeecgboot/jeecg-boot)
+- [elunez/eladmin](https://github.com/elunez/eladmin)
 
-## ORM
+## Database
 
-- Hibernet
+- ORM
+  - Hibernet
+  - JPA
+- MyBatis
+- [jooq](https://github.com/jOOQ/jOOQ)
+- querydsl
 
 ## IoC
 
-- guice
+- [guice](./lib/guice.md)
 - dapper
 
 ## Library
 
 - Core
-  - [oblac/jodd](https://github.com/oblac/jodd)
   - apache commons
   - [dromara/hutool](https://github.com/dromara/hutool)
-- jool
-- joor
+  - [oblac/jodd](https://github.com/oblac/jodd)
+    - ⚠️ 不活跃
+- Lambda
+  - [jool](https://github.com/jOOQ/jOOL)
+- Reflection
+  - [joor](https://github.com/jOOQ/jOOR)
+    - Fluent Reflection
 - DTO/Convert
   - [mapstruct/mapstruct](https://github.com/mapstruct/mapstruct)
     - 对象互转 - 基于反射
+- Doc/Meta
+  - [springdoc](./lib/springdoc.md)
+    - OpenAPI 3
+    - JSR-303
+    - SpringBoot v1,v2,v3
+    - 支持 GraalVM
+  - [springfox/springfox](https://github.com/springfox/springfox)
+    - ⚠️ 停止维护，不支持 SpringBoot 3.0
+    - 使用注解
+- HTML/Dom
+  - [joox](https://github.com/jOOQ/jOOX)
+- [javers](https://github.com/javers/javers)
+  - object auditing and diff framework for Java
+  - @Audited
+  - @javax.persistence.OrderColumn
+  - @CollectionId
+  - AuditJoinTable
+  - AuditMappedBy
 
 ## Tool Chain
 
@@ -138,7 +166,6 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
 ## Learn
 
 - [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide)
-- [elunez/eladmin](https://github.com/elunez/eladmin)
 
 ## GUI
 
@@ -172,3 +199,16 @@ source $SDKMAN_DIR/bin/sdkman-init.sh
 - Groovy
 - jsp
 - [antlr/stringtemplate4](https://github.com/antlr/stringtemplate4)
+
+## QA
+
+- Checkstyle, PMD, JDepend
+- Platform
+  - Hudson
+  - Jenkins
+    - SonarQube Scanner
+      - https://docs.sonarqube.org/latest/analyzing-source-code/scanners/jenkins-extension-sonarqube/
+  - SonarQube
+  - Squale
+  - XRadar
+- https://maven.apache.org/code-quality-management.html

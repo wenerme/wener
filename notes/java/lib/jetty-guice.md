@@ -1,10 +1,13 @@
+---
+title: Jetty Guice
+---
 
-## Jetty Guice
+# Jetty Guice
 
-* 如果想要直接使用 servlet，又不想使用容器，那么使用嵌入的 jetty-servlet 可能是最好的选择。
-* 既然选择轻便，那么 Spring 是需要避免的，可以考虑 Guice 的 [ServletModule](https://github.com/google/guice/wiki/ServletModule)
+- 如果想要直接使用 servlet，又不想使用容器，那么使用嵌入的 jetty-servlet 可能是最好的选择。
+- 既然选择轻便，那么 Spring 是需要避免的，可以考虑 Guice 的 [ServletModule](https://github.com/google/guice/wiki/ServletModule)
 
-__web.xml__
+**web.xml**
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -31,7 +34,7 @@ __web.xml__
 </web-app>
 ```
 
-__MyGuiceServletConfig.java__
+**MyGuiceServletConfig.java**
 
 ```java
 public class MyGuiceServletConfig extends GuiceServletContextListener {
@@ -50,7 +53,7 @@ public class MyGuiceServletConfig extends GuiceServletContextListener {
 }
 ```
 
-__App.java__
+**App.java**
 
 ```java
 public class App {
@@ -69,7 +72,7 @@ public class App {
 }
 ```
 
-__pom.xml__
+**pom.xml**
 
 ```xml
 <dependencies>

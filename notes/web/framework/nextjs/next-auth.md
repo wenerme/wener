@@ -137,6 +137,12 @@ const state = generators.state();
 
 # FAQ
 
+## 刷新 JWT
+
+- 通过自定义 SignIn 来刷新
+- [#4229](https://github.com/nextauthjs/next-auth/discussions/4229)
+  How to manually trigger next-auth to refresh the JWT?
+
 ## CORS
 
 - https://github.com/nextauthjs/next-auth/issues/4327#issuecomment-1090389591

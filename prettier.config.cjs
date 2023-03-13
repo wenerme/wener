@@ -27,5 +27,6 @@ module.exports = {
   plugins: [
     require('prettier-plugin-pkg'),
     require('prettier-plugin-sh'),
+    require('@prettier/plugin-xml'),
   ],
 };

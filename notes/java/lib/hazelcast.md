@@ -1,5 +1,4 @@
 ---
-id: hazelcast
 title: Hazelcast
 ---
 

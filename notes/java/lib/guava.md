@@ -1,15 +1,16 @@
 ---
-id: guava
 title: Guava
 ---
 
 # Gauva
-## Tips
 
-## Performance
+- [google/guava](https://github.com/google/guava)
 
-### TypeToken
-* 对性能有一定影响, 谨慎使用
+# Performance
+
+## TypeToken
+
+- 对性能有一定影响, 谨慎使用
 
 ```
 Benchmark                       Mode  Cnt     Score     Error  Units
@@ -89,9 +90,9 @@ public class BenchTypeToken {
 }
 ```
 
+## Immutable
 
-### Immutable
-* 比正常的性能稍微好一点点
+- 比正常的性能稍微好一点点
 
 ```
 Benchmark                     Mode  Cnt     Score     Error  Units

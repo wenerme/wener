@@ -60,7 +60,7 @@ tags:
   - buildpack
 - Registry Client
   - [crane](./crane.md)
-  - [containers/skopeo](https://github.com/containers/skopeo)
+  - [skopeo](./skopeo.md)
   - [regclient/regclient](https://github.com/regclient/regclient)
 - Registry Server
   - habor

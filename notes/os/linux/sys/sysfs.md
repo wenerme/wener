@@ -1,6 +1,9 @@
+---
+title: sysfs
+---
+
 # sysfs
 
-## Tips
 - [/sysfs/class/net](https://www.kernel.org/doc/Documentation/ABI/testing/)
 - /proc/sysrq-trigger
 - /sys/block/mmcblk0/mmcblk0p2/ro
@@ -76,3 +79,12 @@ modprobe configfs
 grep "configfs$" /proc/filesystems
 mount -n -t configfs -o nodev,noexec,nosuid configfs /sys/kernel/config
 ```
+
+## oom
+
+- `/proc/self/oom_score`
+  - oom_score_adj
+- /proc/sys/vm/overcommit_memory
+  - 2 - 不 overcommit - 不会 kill 而是返回错误
+  - vm.oom-kill
+  - panic_on_oom

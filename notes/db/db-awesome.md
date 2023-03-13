@@ -132,6 +132,18 @@ Cube 计算
 
 - [Comparison of messaging patterns](https://github.com/obsidiandynamics/goharvest/wiki/Comparison-of-messaging-patterns)
 
+## Data versioning
+
+- [dolthub/dolt](https://github.com/dolthub/dolt)
+  - Apache-2.0, Go
+  - Git for Data
+- [treeverse/lakeFS](https://github.com/treeverse/lakeFS)
+  - Apache-2.0, Go
+  - Data version control for your data lake
+  - https://lakefs.io/blog/dvc-vs-git-vs-dolt-vs-lakefs/
+- Git LFS
+- DVS
+
 ## 有趣
 
 - [wiredtiger/wiredtiger](https://github.com/wiredtiger/wiredtiger)
@@ -153,9 +165,6 @@ Cube 计算
   - [HN](https://news.ycombinator.com/item?id=29045443)
 - [EvgSkv/logica](https://github.com/EvgSkv/logica)
   - 逻辑编程转 SQL
-- [dolthub/dolt](https://github.com/dolthub/dolt)
-  - Apache-2.0, Go
-  - Git for Data
 - [ApsaraDB](https://github.com/ApsaraDB)
   - by Alibaba
 - [xtdb/xtdb](https://github.com/xtdb/xtdb)
