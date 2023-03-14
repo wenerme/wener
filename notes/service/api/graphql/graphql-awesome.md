@@ -76,25 +76,51 @@ tags:
 - [supabase/pg_graphql](https://github.com/supabase/pg_graphql)
 - [dosco/graphjin](https://github.com/dosco/graphjin)
   - GraphQL to SQL compiler
+- Schema
+  - [ardatan/graphql-tools](https://github.com/ardatan/graphql-tools)
+    - @graphql-tools/schema
+  - [sikanhe/gqtx](https://github.com/sikanhe/gqtx)
+  - [graphql-modules](./graphql-modules.md)
+  - graphql
+    - GraphQLSchema
+- Schema/TypeScript Code First
+  - [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
+    - MIT, Typescript
+    - 注解/修饰器 方式
+    - 功能很好，开发不足
+  - [hayes/pothos](https://github.com/hayes/pothos)
+    - ISC, Typescript
+    - @pothos/core
+    - 强类型，类似 zod 方式构建 schema
+    - infer 推导类型
+  - [graphql-nexus/nexus](https://github.com/graphql-nexus/nexus)
+    - MIT, Typescript
+    - nexus
+    - 通过代码生成，确保类型
 
 ## Server
 
 > Server, Federation, Gateway, Adapter
 
-- [movio/bramble](https://github.com/movio/bramble)
-  - 受 nautilus 启发
-- [nautilus/gateway](https://github.com/nautilus/gateway)
-  - 开发不活跃
+- NodeJS
+  - [apollographql/apollo-server]
+  - [graphql-yoga](./graphql-yoga.md)
+  - [graphile/postgraphile](https://github.com/graphile/postgraphile)
+    - PostgreSQL -> GraphQL
+- Golang
+  - [movio/bramble](https://github.com/movio/bramble)
+    - 受 nautilus 启发
+  - [nautilus/gateway](https://github.com/nautilus/gateway)
+    - 开发不活跃
+  - [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
+    - GraphQL Adapter
+    - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
+    - REST,DB,RPC 映射为 GraphQL
+    - 收集 API 接口规范、生成 SDK、生成 GraphQL Schema、生成接口映射
 - [google/rejoiner](https://github.com/google/rejoiner)
   - Generates a unified GraphQL schema from gRPC microservices and other Protobuf sources
-- [urigo/graphql-mesh](https://github.com/urigo/graphql-mesh)
-  - GraphQL Adapter
-  - 后端支持 GraphQL, JSON Schema, gRPC, Swagger, OpenAPI, SOAP, Postgres, Mongo, OData, Thrift, SQLite, MySQL, Neo4j
-  - REST,DB,RPC 映射为 GraphQL
-  - 收集 API 接口规范、生成 SDK、生成 GraphQL Schema、生成接口映射
 - [ent/ent](https://github.com/ent/ent)
 - [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
-- [graphile/postgraphile](https://github.com/graphile/postgraphile)
 - [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
 - [parse-community/parse-server](https://github.com/parse-community/parse-server)
 - [dgraph-io/dgraph](https://github.com/dgraph-io/dgraph)

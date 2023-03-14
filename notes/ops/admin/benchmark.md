@@ -159,15 +159,3 @@ PBKDF2-whirlpool  385505 iterations per second for 256-bit key
     serpent-xts   512b   292.1 MiB/s   301.8 MiB/s
     twofish-xts   512b   310.6 MiB/s   305.4 MiB/s
 ```
-
-## hdparam
-
-### SG_IO: bad/missing sense data
-
-```
-SG_IO: bad/missing sense data, sb[]:  70 00 05 00 00 00 00 18 00 00 00 00 20 00 00 c0 00 00 00 00 f8 21 00 00 00 00 00 00 00 00 00 00
-```
-
-```bash
-sg_decode_sense 70 00 05 00 00 00 00 18 00 00 00 00 20 00 00 c0 00 00 00 00 f8 21 00 00 00 00 00 00 00 00 00 00
-```

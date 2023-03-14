@@ -239,6 +239,28 @@ SHOW TABLE STATUS;
 - 参考
   - https://blog.devart.com/mysql-vs-mariadb.html
 
+## 为什么不要选择 MySQL
+
+**为什么会选择 MySQL**
+
+1. 开发人员经历大多还停留在 MySQL 5.7
+1. 历史遗留项目
+1. 曾经 MySQL 确实是不二的选择
+1. 用了特殊的 MySQL fork
+1. Master Slave 逻辑简单
+1. MyISAM 性能好，虽然不 ACID
+
+**为什么不要选择 MySQL**
+
+1. 如果新项目需要选择 MySQL 8.0 那么不如考虑切换到 PostgreSQL
+1. 考虑 MariaDB ？ 那么不如考虑 PostgreSQL
+1. 协议更严格
+1. 缺少很多 SQL 特性
+  - 因为没有所以不知道
+  - 非常影响项目开发和选项
+
+- https://www.guru99.com/postgresql-vs-mysql-difference.html
+
 ## 软删除实现唯一索引
 
 ```sql

@@ -17,6 +17,7 @@ title: Hasura
 - [接口文档](https://docs.hasura.io/1.0/graphql/manual/api-reference/index.html)
   - `/v1/graphql` - 主要的 GraphQL 入口 - 生产可以只暴露这一个
 - Hasura 的系统信息存储在 `hdb_catalog` 和 `hdb_view` 中
+- HGE - Hasura GraphQL Engine
 
 :::info
 

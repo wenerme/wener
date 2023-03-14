@@ -5,7 +5,9 @@ title: graphql-yoga
 # graphql-yoga
 
 - [dotansimha/graphql-yoga](https://github.com/dotansimha/graphql-yoga)
-  - MIT, Typescript, NodeJS, Bun, Deno
+  - MIT, Typescript
+  - 支持 NodeJS, Bun, Deno, Cloudflare Worker
+  - 支持 Next.js, SvelteKit, uWebSockets, Fastify, NestJS
   - GraphQL 服务端
 
 ```ts

@@ -20,18 +20,25 @@ tags:
 - XMPP - Jingle,WFP
 - Zephyr
 
-## Server
+## Fullstack
 
 - [Signal](https://github.com/signalapp)
   - Server AGPL-3.0, Java
   - Client GPL-3.0 iOS/Android, AGPL-3.0 Web
 - [Wire](https://github.com/wireapp/wire)
   - Server AGPL-3.0, Haskell
+  - Client GPLv3 Android/iOS
 - [mattermost/mattermost-server](https://github.com/mattermost/mattermost-server)
   - AGPL-3.0, 官方二进制 MIT, Go+Postgre
 - [zulip/zulip](https://github.com/zulip/zulip)
   - Apache-2.0, Python+Postgre
   - team chat
+- [wildfirechat/im-server](https://github.com/wildfirechat/im-server)
+  - Java
+  - MQTT
+
+## Server
+
 - [igniterealtime/Openfire](https://github.com/igniterealtime/Openfire)
   - Apache-2.0, XMPP,Java
 - [tinode/chat](https://github.com/tinode/chat)
@@ -39,12 +46,22 @@ tags:
   - Client Apache 2.0, iOS/Swift+Android/Java
 - [OpenIMSDK/Open-IM-Server](https://github.com/OpenIMSDK/Open-IM-Server)
   - Apache-2.0, Golang
-- [wildfirechat/im-server](https://github.com/wildfirechat/im-server)
-  - Java
-  - MQTT
   - https://docs.wildfirechat.cn/price/
 - [yinxin630/fiora](https://github.com/yinxin630/fiora)
   - MIT, Typescript
+- [movim/movim](https://github.com/movim/movim)
+- [relatedcode/Messenger](https://github.com/relatedcode/Messenger)
+- [relatedcode/RelatedChat](https://github.com/relatedcode/RelatedChat)
+- [turms-im/turms](https://github.com/turms-im/turms)
+- [fosscord/fosscord-server](https://github.com/fosscord/fosscord-server)
+- [fonoster/routr](https://github.com/fonoster/routr)
+  - SIP
+- [cabal-club/cabal-desktop](https://github.com/cabal-club/cabal-desktop)
+  - P2P
+- [coyim/coyim](https://github.com/coyim/coyim)
+- [bitlbee/bitlbee](https://github.com/bitlbee/bitlbee)
+- [miranda-ng/miranda-ng](https://github.com/miranda-ng/miranda-ng)
+- [tox-rs/tox](https://github.com/tox-rs/tox)
 
 ## Vieo/Audio
 
@@ -81,6 +98,14 @@ tags:
 - [coyim/coyim](https://github.com/coyim/coyim)
   - GPL-3.0, Go+XMPP
   - GUI
+- [chat-sdk/chat-sdk-android](https://github.com/chat-sdk/chat-sdk-android)
+- [chat-sdk/chat-sdk-ios](https://github.com/chat-sdk/chat-sdk-ios)
+- [deltachat/deltachat-core-rust](https://github.com/deltachat/deltachat-core-rust)
+- [iNPUTmice/Conversations](https://github.com/iNPUTmice/Conversations)
+
+## XMPP
+
+- [monal-im/Monal](https://github.com/monal-im/Monal)
 
 ## UI
 

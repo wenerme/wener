@@ -158,3 +158,5 @@ echo -n "$DOCKER_REGISTRY_USERNAME:$DOCKER_REGISTRY_PASSWORD" | base64 -w 0
 # FAQ
 
 ## multi-platform image building not supported when pushing to Docker engine
+
+## Request to write '5569' bytes exceeds size in header of '13740' bytes for entry

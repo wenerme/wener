@@ -57,6 +57,7 @@ export enum QueryTypes {
 
 :::caution
 
+- 不支持 Model 继承
 - 不支持组合外键 [#311](https://github.com/sequelize/sequelize/issues/311)
 - 处于 v6 -> v7 阶段
   - v7 Typescript 更好

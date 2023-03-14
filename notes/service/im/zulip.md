@@ -10,5 +10,11 @@ title: zulip
 
 ## Notes
 
-- [zerver/models.py](https://github.com/zulip/zulip/blob/master/zerver/models.py)
+- [zerver/models.py](https://github.com/zulip/zulip/blob/main/zerver/models.py)
   - 43 个模型 - models.Model
+
+
+## Message
+
+- https://github.com/zulip/zulip-js
+- https://zulip.com/api/send-message

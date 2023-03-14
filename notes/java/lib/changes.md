@@ -1,7 +1,8 @@
 ---
 tags:
-- Version
+  - Version
 ---
+
 # CHANGELOG
 
 ## Guava

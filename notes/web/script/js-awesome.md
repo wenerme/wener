@@ -61,8 +61,11 @@ tags:
   - websocket
   - socketio
   - sockjs
-- IoC
+- IoC/Container/DI
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
+    - 功能非常全的 IoC
+  - [typestack/typedi](https://github.com/typestack/typedi)
+    - 功能相对简单，做 DI 足够
   - [jeffijoe/awilix](https://github.com/jeffijoe/awilix)
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
     - 注入代理对象，通过访问的字段名字进行 resolve
@@ -379,6 +382,7 @@ tags:
   - [ar-nelson/spartan-schema](https://github.com/ar-nelson/spartan-schema)
     - 定义的校验可生成 ts 类型
   - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
+  - [typestack/class-validator](https://github.com/typestack/class-validator)
 - typescript
   - [true-myth/true-myth](https://github.com/true-myth/true-myth)
   - [io-ts](https://github.com/gcanti/io-ts)
@@ -717,14 +721,30 @@ tags:
 - [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [privatenumber/ts-runtime-comparison](https://github.com/privatenumber/ts-runtime-comparison)
 
+## WebServer
+
+- fastify
+- koa
+- express
+- [polka]
+- trpc
+- nextjs
+- 路由
+  - [typestack/routing-controllers](https://github.com/typestack/routing-controllers)
+    - 通过 修饰器 为 express.js, koa.js 定义路由
+  - [typestack/socket-controllers](https://github.com/typestack/socket-controllers)
+
 ## Typescript
 
+- https://github.com/typestack
+  - [typestack/class-transformer](https://github.com/typestack/class-transformer)
 - [dsherret/ts-morph](https://github.com/dsherret/ts-morph)
   - Compiler API wrapper
   - AST edit
   - 替代 tsc
 - trpc
 - zod
+
 
 ## Edge/Serverless
 

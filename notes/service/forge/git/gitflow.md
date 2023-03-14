@@ -29,3 +29,18 @@ git flow release start v2021.1.1
 git flow release finish v2021.1.1
 git push --tags
 ```
+
+## standard
+- 单分支
+  - master
+- 功能分支
+  -  master, `feature/*`
+  - `feature/*` -> master
+- gitflow
+  - master, develop, `feature/*`, `release/*`,`hotfix/*`
+  - `release/*`, `hotfix/*` -> master
+  - `feature/*`, `release/*`, `hotfix/*` -> develop
+- GitLab
+  - master, `feature/*`, `*-stable`, `env/*`
+  - `feature/*` -> master
+

@@ -56,6 +56,11 @@ npm add -D @mikro-orm/cli
 npx mikro-orm
 
 mikro-orm generate-entities
+
+# by dlx
+pnpm --package=@mikro-orm/cli dlx mikro-orm
+
+NODE_OPTIONS='--loader tsx' pnpm mikro-orm generate-entities --schema public -p ./src/server/db/entities/ -d
 ```
 
 - mikro-orm.config.ts
