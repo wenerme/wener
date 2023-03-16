@@ -64,6 +64,12 @@ __wxAppCode__[__wxRoute + '.json'];
 __wxAppCode__[__wxRoute + '.wxml'];
 ```
 
+## Library
+
+- NodeJS
+  - [wx-server-sdk](https://www.npmjs.com/package/wx-server-sdk)
+    - https://cdn.jsdelivr.net/npm/wx-server-sdk/
+
 # FAQ
 
 ## 用户信息

@@ -94,7 +94,6 @@ Strict-Transport-Security max-age=31536000;
 
 ## Collabora Online should expose the same protocol as the server installation. Please check the ssl.enable and ssl.termination settings of your Collabora Online server.
 
-## coolmount: Operation not permitted
 
 ## loading document exception: No acceptable WOPI hosts found matching the target host
 

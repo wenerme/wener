@@ -86,18 +86,6 @@ title: ZFS
 * zpool
   * 存储池
     * 一组虚拟设备的合集
-* vdev - Virtual Device - 虚拟设备
-  * disk
-  * file
-  * mirror - RAID-1
-  * raidz
-    * raidz - raidz1
-    * raidz1 - RAID-5
-    * raidz2 - RAID-6
-    * raidz3
-  * spare
-  * log
-  * cache
 * vdev 状态
   * DEGRADED
   * FAULTED
@@ -157,7 +145,7 @@ performance.
 * ZIL(ZFS intent log) 损坏会导致数据丢失
 * L1ARC 是存储于 RAM 的读缓存,不应该超过 7/8 总 RAM
 * L2ARC 是存储于磁盘的读缓存
-* ZIL he L2ARC 存储于 SSD 但不应该存储于同一个 SSD
+* ZIL 和 L2ARC 存储于 SSD 但不应该存储于同一个 SSD
 * ZIL 主要用于同步写,大多数情况下不需要
 * L2ARC 大多数情况下不会提升太多的性能
 * 增加 RAM 是提升性能的最好方式
@@ -324,17 +312,7 @@ du -h .
 du --apparent-size -h .
 ```
 
-## ZFS vs 硬件 RAID
-* ZFS 有校验和,和可避免位翻转等问题,而 RAID 主要用于避免整个磁盘的损坏
-* ZFS 只需要 HBAs (host bus adapter ) 而不需要 RAID 控制器
-* 最多只需要 Z2, Z3 很少使用,并且可能会有问题,有其他的办法来避免可能的错误
-* ZFS 并不是 RAID, 而是一个软件,一个文件系统
-* ZFS 重建比 RAID 更快,例如 1TB 的云盘,实际数据只有 100MB, 那么 ZFS 只需要 100MB 的 IO, 而 RAID 需要 1TB 的 IO.
-* scrub 是用来保证数据安全的,而不是保证磁盘健康的.不是自动的,需要定时调度.
 
-* "PFA"s, as in Pre-Failure Alerts
-
-* [ZFS vs RAID6](https://www.reddit.com/r/storage/comments/3jcg2r/zfs_vs_raid6/)
 
 ## 加密
 https://blog.heckel.xyz/2017/01/08/zfs-encryption-openzfs-zfs-on-linux/

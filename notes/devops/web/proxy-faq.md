@@ -6,6 +6,11 @@ tags:
 
 # Web Server FAQ
 
+## Perf
+
+- https://blog.tjll.net/reverse-proxy-hot-dog-eating-contest-caddy-vs-nginx/
+  - https://news.ycombinator.com/item?id=32865497
+
 ## SOCKS vs HTTP vs HTTPS
 
 - HTTP

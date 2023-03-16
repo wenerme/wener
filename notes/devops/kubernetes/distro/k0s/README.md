@@ -570,10 +570,14 @@ depend() {
 
 ```bash
 ver=$(curl https://docs.k0sproject.io/stable.txt)
-curl -LC- -o k0s "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-amd64"
-chmod 755 k0s
+curl -LO "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-${ver}-amd64"
+chmod 755 k0s-${ver}-amd64
 sudo mkdir -p /usr/local/bin/
-sudo mv k0s /usr/local/bin/k0s
+sudo cp k0s-${ver}-amd64 /usr/local/bin/k0s
+
+curl -LOC- "https://ghproxy.com/https://github.com/k0sproject/k0s/releases/download/${ver}/k0s-airgap-bundle-${ver}-amd64"
+mkdir -p /var/lib/k0s/images
+cp k0s-airgap-bundle-${ver}-amd64 /var/lib/k0s/images/bundle_file
 ```
 
 ## 环境监测

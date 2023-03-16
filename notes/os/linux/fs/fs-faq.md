@@ -9,11 +9,19 @@ tags:
 ## 文件名
 
 - Linux
-  - 不可以包含 /
+  - 不可以包含 `/`, `\x00`
   - 可以包含 :
 - macOS
-  - 不可以包含 :
-  - 可以包含 /
+  - Finder 不可以包含 `:`, 可以包含 `/`
+  - 命令行 不可以包含 `/`, 可以包含 `:`
+  - HFS Plus 支持 Unicode - 支持 `\x00` - API 层可能会限制
+- Windows
+  - 不可以包含 `/` `\` `:` `*` `?` `"` `<` `>` `|`. `\x00`-`\x1f`
+  - 保留名字
+    - CON, PRN, AUX, NUL
+    - COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9
+    - LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9
+  - 文件名字不能以空格和点(`.`)结尾
 
 ---
 

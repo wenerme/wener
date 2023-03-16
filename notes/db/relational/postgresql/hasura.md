@@ -314,3 +314,9 @@ hasura migrate delete --all --server --database-name DB
 - 增强 AuthZ
 - HA
 - Metadata API
+
+# FAQ
+
+## "Query" has to be an object type
+
+- https://github.com/hasura/graphql-engine/issues/9399

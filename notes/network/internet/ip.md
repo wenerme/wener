@@ -44,7 +44,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | fc00::/7        |
 | fe80::/10       |
 
-## Welknown
+## Welknown Private
 
 | CIDR            | for              |
 | --------------- | ---------------- |

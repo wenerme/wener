@@ -137,6 +137,7 @@ ps aux | grep keubelt
 ```
 
 - [k0sproject/k0s#2669](https://github.com/k0sproject/k0s/issues/2669)
+  - fix v1.25.6+
 - 有可能 configmap 太大导致
 - k0s v1.23 - 重启后无法再启动
 - **系统重启后解决**
@@ -148,3 +149,9 @@ ps aux | grep keubelt
 ```bash
 sudo k0s controller --config=/etc/k0s/k0s.yaml --enable-dynamic-config=true --enable-worker=true
 ```
+
+## failed to run kube-router: Failed to create network routing controller: failed to determine if ipset set kube-router-pod-subnets exists: ipset v7.15: Kernel error received: Invalid argument
+
+## failed to reserve container name  is reserved for
+
+- https://github.com/containerd/containerd/issues/4604#issuecomment-1027293621

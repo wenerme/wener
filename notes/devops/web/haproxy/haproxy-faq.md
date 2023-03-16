@@ -5,6 +5,33 @@ tags:
 
 # HAProxy FAQ
 
+## Memory Usage
+
+- e.g.
+  - 16 kB buffers
+  - 34 kB/session
+  - 30000 sessions/GB
+  - 20000 sessions/GB - 考虑系统也会需要内存
+
+---
+
+- https://sysadminxpert.com/what-is-haproxy-and-important-performance-factors/
+
+## perf debug
+
+```bash
+sysctl net.ipv4.ip_local_port_range
+```
+
+```
+net.core.wmem_max
+net.core.rmem_max
+net.ipv4.tcp_rmem
+net.ipv4.tcp_wmem
+```
+
+- `nbproc $(nproc)`
+
 ## req_ssl_sni vs ssl_fc_sni
 
 - req_ssl_sni
@@ -29,4 +56,5 @@ use_backend s2 if { hdr(host) -i my2.domain.org }
 - 系统依赖升级后未重启
 
 ## HAProxy exit code 143
+
 - SIGTERM

@@ -6,10 +6,11 @@ tags:
 
 # Tracing Awesome
 
-- 主流 Jaeger、Zipkin、Apache SkyWalking、CAT、Pinpoint、Elastic APM
+- [openzipkin/b3-propagation](https://github.com/openzipkin/b3-propagation)
 
 ## Service
 
+- 主流 Jaeger、Zipkin、Apache SkyWalking、CAT、Pinpoint、Elastic APM
 - [openzipkin/zipkin](./zipkin.md)
   - Java
 - [jaegertracing/jaeger](./jaeger.md)

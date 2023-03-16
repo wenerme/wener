@@ -7,6 +7,7 @@ tags:
 
 | version          | date       | Linux             | FreeBSD |
 | ---------------- | ---------- | ----------------- | ------- |
+| [OpenZFS 2.2]    |
 | [OpenZFS 2.1]    | 2021-07-03 | Kernel 3.10+      | 12.2    |
 | [OpenZFS 2.0]    | 2020-10-01 | Kernel 3.10+      | 12.2    |
 | [ZfsOnLinux 0.8] | 2019-05-24 | Kernel 2.6.32-5.9 |
@@ -19,6 +20,10 @@ tags:
 - 支持 renameat2/overlayfs - [#12209](https://github.com/openzfs/zfs/pull/12209)
 
 :::
+
+## OpenZFS 2.2
+
+- 支持 overlay - RENAME2
 
 ## OpenZFS 2.1
 
@@ -40,7 +45,7 @@ tags:
 - NFSv4 ACLs
 - AES-GCM 加密
 - Direct IO
-- 持久化 L2ARC - 重启后缓存还可用
+- **持久化 L2ARC** - 重启后缓存还可用
 - scrub pause/resume
 - https://github.com/openzfs/zfs/projects/25
 

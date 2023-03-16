@@ -28,6 +28,22 @@ git config --global user.email "email@address.com"
 
 - --local 针对当前仓库修改
 
+## git moved file
+
+- 追溯移动的文件
+
+```bash
+# --find-copies-harder
+git log --follow notes/os/linux/fs/zfs/README.md
+git log --follow --find-copies-harder notes/ops/storage/fs/zfs.md
+# -p 历史
+git log --follow -p -- notes/ops/storage/fs/zfs.md
+```
+.../storage/fs
+
+- https://stackoverflow.com/a/2314757/1870054
+- [newren/git-filter-repo](https://github.com/newren/git-filter-repo)
+
 ## git+ssh proxy
 
 - 默认支持 http_proxy 和 https_proxy

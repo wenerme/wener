@@ -63,9 +63,16 @@ tags:
   - sockjs
 - IoC/Container/DI
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
+    - inversify
     - 功能非常全的 IoC
+    - ⚠️ 不活跃
   - [typestack/typedi](https://github.com/typestack/typedi)
+    - typedi
+    - 220kB
     - 功能相对简单，做 DI 足够
+    - ⚠️ 非常不活跃
+  - [Microsoft/tsyringe](https://github.com/Microsoft/tsyringe)
+    - ⚠️ 非常不活跃
   - [jeffijoe/awilix](https://github.com/jeffijoe/awilix)
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
     - 注入代理对象，通过访问的字段名字进行 resolve
@@ -745,6 +752,16 @@ tags:
 - trpc
 - zod
 
+
+# Polyfill
+
+- https://github.com/ardatan/whatwg-node
+  - fetch
+    - busboy -> parse form data
+    - fast-querystring
+    - fast-url-parser
+  - events
+  - server
 
 ## Edge/Serverless
 

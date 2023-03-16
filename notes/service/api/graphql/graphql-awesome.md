@@ -107,6 +107,8 @@ tags:
   - [graphql-yoga](./graphql-yoga.md)
   - [graphile/postgraphile](https://github.com/graphile/postgraphile)
     - PostgreSQL -> GraphQL
+  - [zalando-incubator/graphql-jit](https://github.com/zalando-incubator/graphql-jit)
+    - 优化 graphql 执行
 - Golang
   - [movio/bramble](https://github.com/movio/bramble)
     - 受 nautilus 启发

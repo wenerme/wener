@@ -47,3 +47,13 @@ docker cp collabora:/etc/loolwsd/loolwsd.xml loolwsd.xml
 ## Docker
 
 - https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html?highlight=acceptable%20wopi%20hosts#setting-the-application-configuration-dynamically-via-environment-variables
+
+## coolmount: Operation not permitted
+
+## Explore The New Version
+
+- Nextcloud app - repeatedly showing welcome screen [#5854](https://github.com/CollaboraOnline/online/issues/5854)
+- https://github.com/CollaboraOnline/online/issues/4489
+- `extra_params: --o:welcome.enable=false`
+- https://github.com/nextcloud/richdocuments/issues/1034#issuecomment-726052204
+- https://github.com/nextcloud/richdocuments/issues/1034#issuecomment-702742995

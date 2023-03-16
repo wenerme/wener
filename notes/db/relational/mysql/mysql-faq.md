@@ -5,9 +5,6 @@ tags:
 
 # MySQL FAQ
 
-```sql
-select user,host from mysql.user;
-```
 
 ```sql
 -- 默认 151 - 150 普通用户, 1 super
@@ -29,5 +26,11 @@ from information_schema.processlist
 ## 修改密码
 
 ```sql
+select user,host from mysql.user;
+
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
+
+## Backup
+
+- https://dba.stackexchange.com/a/91322/234272

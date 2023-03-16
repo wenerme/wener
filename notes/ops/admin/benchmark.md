@@ -34,17 +34,6 @@ hdparm -Tt /dev/sda # 磁盘性能
 cd "/usr/local/share/ca-certificates" && curl "https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem" | csplit -f "rds-" - '/-----BEGIN CERTIFICATE-----/' '{*}'
 ```
 
-| hdparm   | for                           |
-| -------- | ----------------------------- |
-| -t       | device reads test             |
-| -T       | cache reads test              |
-| -W       | toggle write cache            |
-| -B 0-255 | Advanced Power Management     |
-| -S 1-240 | standby (spindown) timeout    |
-| -M       | Automatic Acoustic Management |
-
-- https://man7.org/linux/man-pages/man8/hdparm.8.html
-- https://wiki.archlinux.org/title/hdparm
 - Tools
   - https://www.coker.com.au/bonnie++/
     -  hard drive and file system performance

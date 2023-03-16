@@ -50,22 +50,6 @@ find . -maxdepth 1 -printf '%s %p\n' | sort -nr | head
 du -a . | sort -nr | head
 ```
 
-## date 格式
-
-- -I,--iso-8601=FMT
-  - date - 默认
-  - date, hours, minutes, seconds, ns
-- --rfc-3339=FMT
-  - date, seconds, ns
-- --rfc-email=--rfc-2822
-
-```bash
-date --iso-8601=seconds # 2022-05-10T05:30:48+08:00
-date --iso-8601         # 2022-05-10
-date --rfc-3339=seconds # 2022-05-10 05:30:48+08:00
-date --rfc-2822         # Tue, 10 May 2022 05:30:48 +0800
-```
-
 ## 文件时间信息
 
 ```bash
@@ -233,9 +217,9 @@ rm chunk* sorted-chunk*
 ```bash
 architecture=""
 case $(uname -m) in
-    i386 | i686)   architecture="386" ;;
-    x86_64) architecture="amd64" ;;
-    # apk --print-arch
-    arm)    dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;;
+  i386 | i686) architecture="386" ;;
+  x86_64) architecture="amd64" ;;
+  # apk --print-arch
+  arm) dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;;
 esac
 ```
