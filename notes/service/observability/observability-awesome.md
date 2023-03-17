@@ -77,3 +77,7 @@ tags:
 - [apache/skywalking](https://github.com/apache/skywalking)
   - Apache-2.0, Java
   - ES, H2, MySQL,TiDb, sharding-sphere
+
+## Profiling
+
+- [grafana/pyroscope](https://github.com/grafana/pyroscope)

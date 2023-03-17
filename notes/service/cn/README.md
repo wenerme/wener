@@ -58,6 +58,13 @@ title: CN
 | -------------------------------------------------------- | ---------------- |
 | https://ciac.zjw.sh.gov.cn/jgbQyWsbsnewWeb/qyzz/qyzz.htm | 企业资质标准查询 |
 
+## 标准
+
+---
+
+- 参考
+  - https://www.bzxzku.com/
+
 ## Misc
 
 - [citizenlab/chat-censorship](https://github.com/citizenlab/chat-censorship)

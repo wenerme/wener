@@ -59,4 +59,11 @@ mvn io.quarkus:quarkus-maven-plugin:0.22.0:create \
     -DprojectArtifactId=application-lifecycle-events \
     -DclassName="org.acme.events.GreetingResource" \
     -Dpath="/hello"
+
+mvn io.quarkus.platform:quarkus-maven-plugin:2.16.4.Final:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=openapi-swaggerui-quickstart \
+    -Dextensions='resteasy-reactive-jackson' \
+    -DnoCode
+cd openapi-swaggerui-quickstart
 ```

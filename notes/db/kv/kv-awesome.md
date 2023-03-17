@@ -26,7 +26,7 @@ title: KV DB Awesome
   - recoverable log, key-value store + cache
   - [Asynchronous Prefix Recoverability for Fast Distributed Stores](https://tli2.github.io/assets/pdf/dpr-sigmod2021.pdf)
 - Memcache
-- TiKV
+- [TiKV](./tikv.md)
 - Ehcache
 - Infinispan
 - Geode
@@ -58,7 +58,7 @@ title: KV DB Awesome
   - WIP
     - JSON
   - [Migrating from Redis or KeyDB](https://docs.keydb.dev/docs/migration)
-- [dragonflydb/dragonfly](https://github.com/dragonflydb/dragonfly)
+- [dragonflydb/dragonfly](./dragonflydb.md)
   - BSL 1.1, C++,C
   - 兼容 Redis 接口 - 不完整
   - 兼容 Memcached 接口

@@ -6,6 +6,10 @@ tags:
 
 # AlpineLinux Awesome
 
+```bash
+curl https://alpinelinux.org/releases.json
+```
+
 ## Community
 
 - [Alpine Linux](https://alpinelinux.org/)

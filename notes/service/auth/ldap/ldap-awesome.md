@@ -44,7 +44,7 @@ tags:
     - LDAP server with PostgreSQL as the backend
   - [vjeantet/ldapserver](https://github.com/vjeantet/ldapserver)
     - GPLv2, Go
-  - [glauth/glauth](https://github.com/glauth/glauth)
+  - [glauth/glauth](./glauth.md)
     - MIT, Go
     - LDAP server for development, home use, or CI
   - [jimlambrt/gldap](https://github.com/jimlambrt/gldap)

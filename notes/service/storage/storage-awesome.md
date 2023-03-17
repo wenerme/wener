@@ -63,15 +63,8 @@ tags:
 ---
 
 - [文件系统](../../os/linux/fs/README.md)
-- [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
-  - AGPL-3.0, Go
-  - SFTP server with optional HTTP, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob
-- [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
-  - AGPL-3.0, Go
-  - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql
 
 ## 分布式存储服务 {#distributed}
-
 
 - [ceph](./ceph/README.md)
   - LGPLv2.1
@@ -94,9 +87,21 @@ tags:
   - Swift
   - [linkedin/ambry](https://github.com/linkedin/ambry)
     - Apache-2.0, Java
+    - Distributed object store
   - [minio](./minio.md) - S3
     - AGPLv3
     - 支持作为 S3 代理
+  - [apache/ozone](https://github.com/apache/ozone)
+    - Apache-2.0, Java
+- 文件存储
+  - [juicefs](./juicefs.md)
+  - [lizardfs](https://github.com/lizardfs/lizardfs)
+  - [moosefs](https://github.com/moosefs/moosefs)
+    - GPLv2, C
+  - [Alluxio/alluxio](https://github.com/Alluxio/alluxio)
+    - Apache 2.0, Java
+    - Tachyon
+    - UFS
 
 **国人开发/维护**
 
@@ -138,8 +143,11 @@ tags:
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
   - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
 
-## 协议库 {#libraries}
+## 协议库 {#library}
 
+- [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
+  - AGPL-3.0, Go
+  - SFTP server with optional HTTP, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob
 - [wthorp/GoSMB](https://github.com/wthorp/GoSMB)
   - SMB server written in Go
 - [hirochachacha/go-smb2](https://github.com/hirochachacha/go-smb2)
@@ -153,21 +161,41 @@ tags:
 - [willscott/go-nfs](https://github.com/willscott/go-nfs)
   - NFSv3 server
 
-## Tools
+## Fuse
+- [dokan-dev/dokany](https://github.com/dokan-dev/dokany)
+  - Windows
 
-- Sync/Transfer
-  - [restic/restic](https://github.com/restic/restic)
-    - Fast, secure, efficient backup program
-    - 仓库 本地,SFTP, REST, S3, Minio, Wasabi, OSS, Swift
-    - 支持 rclone
-    - 支持加密
-    - 支持快照
-  - rsync
-  - rclone
-  - zsync
+## Sync/Transfer/Backup
 
-## Sync
-
-- rsync
+- [restic/restic](./backup/restic.md)
+  - Fast, secure, efficient backup program
+  - 仓库 本地,SFTP, REST, S3, Minio, Wasabi, OSS, Swift
+  - 支持 rclone
+  - 支持加密
+  - 支持快照
+- [rsync](./backup/rsync.md)
+- [rclone](./backup/rclone.md)
+- [zsync](./backup/zsync.md)
+- [AppImageCommunity/zsync2](https://github.com/AppImageCommunity/zsync2)
+- sanoid
 - unison https://www.cis.upenn.edu/~bcpierce/unison/
 - DeltaCopy http://www.aboutmyip.com/AboutMyXApp/DeltaCopy.jsp
+
+## Web Client
+
+- [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
+  - AGPL-3.0, Go
+  - web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, MySQL
+- [filebrowser](./client/filebrowser.md)
+  - Apache-2.0, Vue
+  - Golang 后端
+- [TimboKZ/Chonky](https://github.com/TimboKZ/Chonky)
+  - MIT, React
+  - 纯前端 UI 组件
+- [OpusCapita/filemanager](https://github.com/OpusCapita/filemanager)
+  - Apache-2.0, JS
+- [prasathmani/tinyfilemanager](https://github.com/prasathmani/tinyfilemanager)
+  - GPLv3, PHP
+- [kalcaddle/KodExplorer](https://github.com/kalcaddle/KodExplorer)
+  - PHP, JS
+- [kalcaddle/kodbox](https://github.com/kalcaddle/kodbox)

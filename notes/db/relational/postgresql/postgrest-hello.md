@@ -1,5 +1,4 @@
 ---
-id: postgrest-hello
 title: PostREST 入门部署
 ---
 
@@ -7,15 +6,15 @@ title: PostREST 入门部署
 
 ## 1. 环境
 
-* DataGrip
-  * https://www.jetbrains.com/datagrip/download
-  * 数据库管理工具
-* Docker for Mac
-  * https://www.docker.com/docker-mac
-  * 容器环境
-* PostgreSQL
-  * `brew install postgresql`
-  * 本地数据库
+- DataGrip
+  - https://www.jetbrains.com/datagrip/download
+  - 数据库管理工具
+- Docker for Mac
+  - https://www.docker.com/docker-mac
+  - 容器环境
+- PostgreSQL
+  - `brew install postgresql`
+  - 本地数据库
 
 ## 2. 数据库准备
 
@@ -44,16 +43,16 @@ cd ~/data/pg
 # PostgREST
 # ---------
 # 配置文件
-cat <<CONF > postgrest.conf
+cat << CONF > postgrest.conf
 db-uri = "postgres://postgres:OP6Ats@docker.for.mac.localhost/yky"
 db-schema = "servicer"
 db-anon-role = "postgres"
 CONF
 # 启动 PostgREST
-# http://localhost:3000 为 rest 服务接口
+# http://localhost:3000 为 rest 服务接口
 docker run --rm -p 3000:3000 -v $PWD:/host --name postgrest postgrest/postgrest postgrest /host/postgrest.conf
 # 启动 SwaggerUI
-# http://localhost:8081 为 swagger ui
+# http://localhost:8081 为 swagger ui
 docker run --rm -p 8081:8080 -e API_URL=http://localhost:3000 swaggerapi/swagger-ui
 ```
 
@@ -95,4 +94,4 @@ create table customer (
 docker kill -s HUP postgrest
 ```
 
-刷新 http://localhost:8081  即可看到新的接口, 往后的操作便是逐渐完善数据库和熟悉产品数据模型.
+刷新 http://localhost:8081 即可看到新的接口, 往后的操作便是逐渐完善数据库和熟悉产品数据模型.

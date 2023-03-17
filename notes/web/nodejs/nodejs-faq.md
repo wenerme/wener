@@ -6,6 +6,11 @@ tags:
 
 # NodeJS FAQ
 
+## source map
+
+- NodeJS 12.12.0 [--enable-source-maps](https://nodejs.org/docs/latest-v16.x/api/cli.html#--enable-source-maps)
+- https://github.com/evanw/node-source-map-support
+
 ## cjs `__dirname`
 
 ```js

@@ -12,9 +12,13 @@ title: Docker 仓库
   - [Portus](https://github.com/SUSE/Portus)
 - containerd [registry](https://github.com/containerd/cri/blob/master/docs/registry.md)
 - [google/go-containerregistry](https://github.com/google/go-containerregistry)
-- [docker/distribution](https://github.com/docker/distribution)
+- [distribution/distribution](https://github.com/distribution/distribution)
+  - registry:2
+- [docker-archive/docker-registry](https://github.com/docker-archive/docker-registry)
+  - registry
 
 ## docker registry
+
 
 - [配置](https://docs.docker.com/registry/configuration/)
 - 存储: 文件系统、azure、gcs、s3、switf、oss
@@ -28,6 +32,15 @@ docker run -d --restart=always \
   --add-host 8x40wsit.mirror.aliyuncs.com:116.62.81.173 \
   --name registry registry:2
 ```
+
+```bash
+# 清理
+# -d dryrun, -m untagged
+registry garbage-collect -d -m /etc/docker/registry/config.yml
+```
+
+- https://github.com/distribution/distribution/blob/main/docs/spec/api.md
+
 
 ```yaml
 version: 0.1
@@ -66,6 +79,36 @@ proxy:
   username: [username]
   password: [password]
 ```
+
+- https://docs.docker.com/registry/configuration/
+
+## PUSH 405
+
+- 配置了 remoteurl push 会有问题
+- https://github.com/distribution/distribution/issues/2386
+
+### auth
+
+```bash
+mkdir -p auth
+docker run \
+  --entrypoint htpasswd \
+  httpd:2 -Bbn pusher pusher > auth/htpasswd
+
+docker run -d \
+  -p 5000:5000 \
+  --restart=always \
+  --name registry \
+  -v "$(pwd)"/auth:/auth \
+  -e "REGISTRY_AUTH=htpasswd" \
+  -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
+  -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
+  -v "$(pwd)"/certs:/certs \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
+  -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+  registry:2
+```
+
 
 ## apis
 

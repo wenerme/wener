@@ -5,6 +5,7 @@ title: Gitea
 # Gitea
 
 - [go-gitea/gitea](https://github.com/go-gitea/gitea)
+  - MIT, Golang
 
 :::caution
 
@@ -64,10 +65,14 @@ REQUIRE_SIGNIN_VIEW=false
 - https://blog.gitea.io/2022/12/feature-preview-gitea-actions/
 - [nektos/act](https://github.com/nektos/act)
 
-## Version
+# Version
 
-- 1.19
-  - PTA scope
-- 1.17
-  - 支持 package - Composer, Conan, Generic, Helm, Maven, npm, NuGet, OCI Containers (Docker), PyPI and RubyGems
+## Gitea 1.19
+
+- PTA scope
+
+## Gitea 1.17
+
+- 支持 package
+  - Composer, Conan, Generic, Helm, Maven, npm, NuGet, OCI Containers (Docker), PyPI and RubyGems
   - https://docs.gitea.io/en-us/packages/overview/

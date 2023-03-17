@@ -16,6 +16,11 @@ apk version -l '!'
 
 # 版本号
 apk policy musl | sed '2!d' | sed 's/[^0-9a-z.-]//g'
+
+# 1.2.3-r4
+docker run --rm -it wener/base sh -c 'apk update >/dev/null;apk policy musl | sed "2!d" | sed "s/[^0-9a-z.-]//g"'
+# 1.2.3
+docker run --rm -it wener/base sh -c 'apk update >/dev/null;apk policy musl | sed "2!d" | sed "s/[^0-9a-z.-]//g"' | cut -d '-' -f 1
 ```
 
 | command      | note                             |

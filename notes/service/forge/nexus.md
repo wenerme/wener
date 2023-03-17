@@ -4,6 +4,8 @@ title: Nexus
 
 # Nexus
 
+- [sonatype/nexus-public](https://github.com/sonatype/nexus-public)
+  - EPL-1.0, Java
 - [Release-Notes](https://support.sonatype.com/hc/en-us/sections/203012688-Release-Notes)
 - [NEXUS-10471](https://issues.sonatype.org/browse/NEXUS-10471) - 部署到 group 仓库
   - [Nginx 反向代理](https://stackoverflow.com/a/54590014/1870054)
@@ -21,8 +23,21 @@ title: Nexus
   - [仓库接口](https://help.sonatype.com/repomanager3/rest-and-integration-api/repositories-api)
 
 ```bash
+# https://github.com/sonatype/docker-nexus3
+# https://hub.docker.com/r/sonatype/nexus3
+docker run --rm -it -v $PWD/data:/data -p 8081:8081 --name nexus sonatype/nexus3
+
 # 环境变量方式
 export GOPROXY=https://gonexus.dev
 # 配置方式
 go env -w GOPROXY=https://gonexus.dev,direct
 ```
+
+
+
+## Pro
+- Staging & Build Promotion
+- SAML/SSO, Enterprise LDAP, Auth Tokens
+- Runtime Storage Expansion/ Migration
+- Content Replication
+- https://www.sonatype.com/products/repository-oss-download#repo-compare-chart

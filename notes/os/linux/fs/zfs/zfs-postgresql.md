@@ -1,5 +1,8 @@
 ---
 title: PostgreSQL & ZFS
+tags:
+  - PostgreSQL
+  - Tuning
 ---
 
 # PostgreSQL & ZFS
@@ -14,6 +17,14 @@ title: PostgreSQL & ZFS
   - [postgresql-zfs-best-practices](https://www.slideshare.net/SeanChittenden/postgresql-zfs-best-practices)
   - [PostgreSQL optimize](https://gist.github.com/artizirk/e144065165b07dff1accc608c7e83f5a)
   - [Tuning ZFS + Postgres to outperform EXT4 + Postgres](https://gist.github.com/saurabhnanda/5258207935bf23cd112be292d22f00d5)
+
+```bash
+zfs create -o mountpoint=/data/ns/data-system/postgres \
+  -o atime=off \
+  -o primarycache=metadata \
+  -o recordsize=16k \
+  data/kube/data-system-postgres
+```
 
 **postgresql.conf**
 

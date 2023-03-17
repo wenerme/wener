@@ -1,44 +1,10 @@
 ---
-title: FRP
+tags:
+- Configuration
 ---
 
-# frp
+# 配置
 
-- [fatedier/frp](https://github.com/fatedier/frp) 是什么？
-  - 基于端口的 4 层反向代理
-  - 基于 vhost 的 7 层反向代理
-  - 服务端支持 http, tcp, udp, kcp
-  - 服务端支持 ws 暴露 - TCP over Websocket
-  - 代理支持 tcp,udp,http,https,stcp,xtcp
-    - stcp - 两个客户端通过共享密钥互通
-    - xtcp - NAT 穿透 P2P - 成功率低, 基本无意义
-  - 服务端和客户端支持简单 dashboard
-- [文档](https://gofrp.org/docs/)
-- 默认端口 7000
-- 组件
-  - frps - 服务端 - 一般有外网 IP
-  - frpc - 客户端 - 一般位于内网, 期望被外网访问, A -> frps -> frpc
-- 缺陷
-  - xtcp 点到点穿透率低, 基本失败, 如果需要 p2p 可选择 tinc.
-
-:::note
-
-- websocket
-  - 只支持 tcp 不支持 udp - [#2436](https://github.com/fatedier/frp/issues/2436)
-  - 不支持 wss - [#2119](https://github.com/fatedier/frp/issues/2119)
-
-:::
-
-```bash
-# Reload
-curl http://admin:admin@127.0.0.1:7400/api/reload
-
-# debug port
-apk add iproute2-ss
-ss -lntp
-```
-
-## 配置
 
 - 配置会通过 tpl 渲染
 - 可通过 Envs 访问环境变量 - 例如 `server_addr = {{.Envs.SERVER_ADDR}}`
@@ -575,17 +541,22 @@ bind_port = 443
 server_name = {{.Envs.inc_name}}-https
 ```
 
-# FAQ
+## frpc simple
 
-## get sid from visitor error
+```ini
+[common]
+server_addr = frp.example.com
+token = {{.Envs.frps_token}}
+server_port = 80
+protocol = websocket
 
-nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他方案, 例如 tinc.
+use_encryption = true
+use_compression = true
 
-## start new visitor connection error: custom listener for [] doesn't exist
-
-visitor 端出现, 应该是没有配置 server_name
-
-## websocket.Dial ws://frps:443/~!frp: unexpected EOF
-
-不支持 wss
+[http]
+type = http
+subdomain = wener
+bind_addr = 0.0.0.0
+bind_port = 3000
+```
 

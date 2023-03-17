@@ -26,6 +26,7 @@ title: KeyDB
   - [EQ-Alpha/ModJS](https://github.com/EQ-Alpha/ModJS)
     - 基于 V8
 
+
 :::tip
 
 - Multi-Tenancy Support [#286](https://github.com/EQ-Alpha/KeyDB/issues/286)
@@ -74,6 +75,26 @@ replicaof keydb-0:6379
 # keydb-0 上执行
 replicaof keydb-1:6379
 ```
+
+## Flash
+
+```bash
+docker run -d -it -p 6379:6379 \
+   --mount type=bind,dst=/flash,src=/$PWD/flash/ \
+  --name keydb eqalpha/keydb keydb-server /etc/keydb/keydb.conf --storage-provider flash /flash --maxmemory 1G --maxmemory-policy allkeys-lfu
+```
+
+- --maxmemory-policy - 单达到 maxmemory 时，如何清理内存
+  - noeviction
+  - allkeys-lru
+  - volatile-lru - 有设置 expire 的 key
+  - allkeys-random
+  - volatile-random
+  - volatile-ttl
+- Flash https://docs.keydb.dev/docs/flash/
+  - RocksDB on SSD
+  - 不全部存内存
+  - 不再需要 Redis 的 RDB/AOF
 
 ## KeyDB vs Redis
 

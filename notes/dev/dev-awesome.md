@@ -101,6 +101,10 @@ tags:
 - [katspaugh/wavesurfer.js](https://github.com/katspaugh/wavesurfer.js)
 - [plewto/Pigiron](https://github.com/plewto/Pigiron)
 
+## Profiling
+
+- [grafana/pyroscope](https://github.com/grafana/pyroscope)
+
 ## Metrics
 
 - cloc

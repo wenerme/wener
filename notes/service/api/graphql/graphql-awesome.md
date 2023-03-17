@@ -55,27 +55,45 @@ tags:
 
 ## Library
 
-- [APIs-guru/graphql-faker](https://github.com/APIs-guru/graphql-faker)
-  - mock graphql
-- [graphql-go/graphql](https://github.com/graphql-go/graphql)
-  - 类似 graphql-js 接口
-- [99designs/gqlgen](https://github.com/99designs/gqlgen)
-  - Golang, GraphQL Schema 生成 Resolver
-- [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
-  - 基于反射自动绑定
-  - [graph-gophers/dataloader](https://github.com/graph-gophers/dataloader)
-- [Khan/genqlient](https://github.com/Khan/genqlient)
-  - type-safe Go GraphQL client
-- [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
-- [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
-  - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
-  - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
-- [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
-  - ⚠️ 不活跃，没怎么维护
-  - 推荐 graphql-ws
-- [supabase/pg_graphql](https://github.com/supabase/pg_graphql)
-- [dosco/graphjin](https://github.com/dosco/graphjin)
-  - GraphQL to SQL compiler
+
+- Golang
+  - [graphql-go/graphql](https://github.com/graphql-go/graphql)
+    - 类似 graphql-js 接口
+  - [99designs/gqlgen](https://github.com/99designs/gqlgen)
+    - Golang, GraphQL Schema 生成 Resolver
+  - [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
+    - 基于反射自动绑定
+    - [graph-gophers/dataloader](https://github.com/graph-gophers/dataloader)
+  - [Khan/genqlient](https://github.com/Khan/genqlient)
+    - type-safe Go GraphQL client
+- Typescript
+  - [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
+  - [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
+    - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+    - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
+  - [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
+    - ⚠️ 不活跃，没怎么维护
+    - 推荐 graphql-ws
+- SQL/GraphQL
+  - [supabase/pg_graphql](https://github.com/supabase/pg_graphql)
+  - [dosco/graphjin](https://github.com/dosco/graphjin)
+    - GraphQL to SQL compiler
+- Java/JVM/Kotlin
+  - [Netflix/dgs-framework](https://github.com/Netflix/dgs-framework)
+    - Spring Boot
+  - [graphql-java/graphql-java](https://github.com/graphql-java/graphql-java)
+    - MIT, Java
+  - [graphql-java-kickstart/graphql-spring-boot](https://github.com/graphql-java-kickstart/graphql-spring-boot)
+    - MIT, Java
+  - [spring-projects/spring-graphql](https://github.com/spring-projects/spring-graphql)
+    - Apache-2.0, Java
+  - [babyfish-ct/jimmer](https://github.com/babyfish-ct/jimmer)
+    - ORM with GraphQL
+  - [ExpediaGroup/graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin)
+    - Apache-2.0, Kotlin
+  - [smallrye/smallrye-graphql](https://github.com/smallrye/smallrye-graphql)
+    - Implementation for MicroProfile GraphQL
+    - [quarkus & smallrye](https://quarkus.io/guides/smallrye-graphql)
 - Schema
   - [ardatan/graphql-tools](https://github.com/ardatan/graphql-tools)
     - @graphql-tools/schema
@@ -97,6 +115,12 @@ tags:
     - MIT, Typescript
     - nexus
     - 通过代码生成，确保类型
+- [IvanGoncharov/graphql-faker](https://github.com/IvanGoncharov/graphql-faker)
+  - mock graphql
+
+---
+
+- https://graphql.org/code/
 
 ## Server
 

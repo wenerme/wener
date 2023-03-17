@@ -6,6 +6,8 @@ tags:
 # MySQL FAQ
 
 
+## debug connections
+
 ```sql
 -- 默认 151 - 150 普通用户, 1 super
 show variables like 'max_connections';

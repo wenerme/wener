@@ -14,22 +14,23 @@ tags:
 - Google Cloud API [常见设计模式](https://cloud.google.com/apis/design/design_patterns)
   - `[start_xxx, end_xxx)`
   - `map<string, string> labels`
-- https://github.com/Microsoft/api-guidelines
+- [Microsoft/api-guidelines](https://github.com/Microsoft/api-guidelines)
 - https://cloud.google.com/apis/design/
 - https://opensource.zalando.com/restful-api-guidelines/
   - [zalando/zally](https://github.com/zalando/zally)
     - API linter
 - https://apistylebook.com/
   - http://apistylebook.com/design/guidelines/
-- https://github.com/restcookbook/restcookbook
+- [restcookbook/restcookbook](https://github.com/restcookbook/restcookbook)
 - [Atlassian REST API design guidelines version 1](https://developer.atlassian.com/server/framework/atlassian-sdk/atlassian-rest-api-design-guidelines-version-1/)
   - 集合名字 singular
 - [adidas/api-guidelines](https://github.com/adidas/api-guidelines)
   - https://adidas.gitbook.io/api-guidelines/
-- https://github.com/interagent/http-api-design
+- [interagent/http-api-design](https://github.com/interagent/http-api-design)
 - [WhiteHouse/api-standards](https://github.com/WhiteHouse/api-standards)
+- https://postgrest.org/en/stable/api.html
 
-## pagination
+## 分页和排序 {#pagination}
 
 - Offset/Limit
   - offset+limit
@@ -83,11 +84,62 @@ tags:
 - 参考
   - https://developers.facebook.com/docs/graph-api/results
 
+## 过滤 {#filter}
+
+:::tip
+
+- 减少接口数量 - 提升开发效率
+- 增加业务灵活性 - 业务变化接口不变
+
+:::
+
+- [MiniQuery](https://wener.me/notes/languages/miniquery)
+  - 允许前端直接传类似 where 的语句，后端重写为安全的查询过滤
+  - [wenerme/js-miniquery](https://github.com/wenerme/js-miniquery)
+- AIP-160
+  - `field > 1`
+  - 字段在左边
+- PostgREST
+  - `GET /people?age=gte.18&student=is.true HTTP/1.1`
+    - `age=gte.18` -> `age > 18`
+    - 通过操作过滤
+  - `GET /people?or=(age.lt.18,age.gt.21) HTTP/1.1`
+
+## 选择返回 {#select}
+
+:::tip
+
+- 部分返回 - 性能
+- 关联查询 - 客户端的开发体验
+- 增加业务灵活性 - 业务变化接口不变
+- 支持多端开发场景
+- GraphQL的出现解决了该问题
+
+:::
+
+- Google API
+  - `fields=name,generation,size`
+  - `fields=items(id,metadata/key1)`
+- Zalando
+  - fields - `(name,friends(name))`
+    - 获取部分字段
+    - 包含 name 和 friends 数组对象的 name
+  - embed - `(items)`
+    - 包含关联属性
+    - 包含额外内容
+- PostgREST
+  - `GET /people?select=first_name,age HTTP/1.1`
+  - `GET /people?select=id,json_data->>blood_type,json_data->phones HTTP/1.1`
+    - JSON 数据选择
+  - `GET /people?select=*,full_name HTTP/1.1`
+    - 额外字段
+
 ## Zalando
 
 - 查询参数
-  - q
-  - sort - `+id,-name`,`-id`
+  - q - 默认查询
+  - sort - 逗号分隔
+    - `+id,-name`,`-id`
     - `+` asc, `-` desc
   - fields - `(name,friends(name))`
     - 获取部分字段
@@ -96,6 +148,22 @@ tags:
   - offset
   - cursor
   - limit
+
+**fields**
+
+```
+<fields>            ::= [ <negation> ] <fields_struct>
+<fields_struct>     ::= "(" <field_items> ")"
+<field_items>       ::= <field> [ "," <field_items> ]
+<field>             ::= <field_name> | <fields_substruct>
+<fields_substruct>  ::= <field_name> <fields_struct>
+<field_name>        ::= <dash_letter_digit> [ <field_name> ]
+<dash_letter_digit> ::= <dash> | <letter> | <digit>
+<dash>              ::= "-" | "_"
+<letter>            ::= "A" | ... | "Z" | "a" | ... | "z"
+<digit>             ::= "0" | ... | "9"
+<negation>          ::= "!"
+```
 
 ## Google Cloud
 

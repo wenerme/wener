@@ -38,6 +38,20 @@ tags:
 ```
 
 ```bash
+# 初始化项目
+mvn archetype:generate \
+  -DgroupId=com.mycompany.app \
+  -DartifactId=my-app \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+cd my-app
+mvn package
+
+# java -jar target/my-app-1.0-SNAPSHOT.jar
+```
+
+```bash
 # 修改远程仓库和本地仓库
 mvn package \
   -Dmaven.repo.remote=http://maven.aliyun.com/nexus/content/groups/public \

@@ -6,6 +6,11 @@ tags:
 # Forge Awesome
 
 - [Git](./git/README.md)
+- hg
+- [fossil](https://fossil-scm.org/)
+  - VCS, tickets, wiki, docs, notes, forum, chat, UI, RBAC
+  - [vs Git](https://fossil-scm.org/home/doc/trunk/www/fossil-v-git.wiki)
+  - [whynotgit](https://www.sqlite.org/whynotgit.html)
 - Hosted
   - gitee
   - [github](./github.md)

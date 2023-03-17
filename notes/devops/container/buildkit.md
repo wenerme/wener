@@ -6,6 +6,9 @@ title: buildkit
 
 - [moby/buildkit](https://github.com/moby/buildkit)
   - 可单独使用
+- [docker/buildx](https://github.com/docker/buildx)
+  - Docker CLI plugin for extended build capabilities with BuildKit
+  - 使用容器方式运行 buildkitd
 - buildkitd
 - buildctl
 - 可配合 rootlesskit
@@ -19,6 +22,8 @@ title: buildkit
 
 - [moby/buildkit#1058](https://github.com/moby/buildkit/issues/1058)
   exporter: support resetting timestamp for determinism
+- [docker/buildx#847](https://github.com/docker/buildx/issues/847)
+  不能 load image 到 buildx builder
 
 :::
 
@@ -41,8 +46,8 @@ docker build -t demo -o type=image .
   - remote
 
 ## platform
-- amd64, arm32v5, arm32v6, arm32v7, arm64v8, i386, ppc64le, s390x
 
+- amd64, arm32v5, arm32v6, arm32v7, arm64v8, i386, ppc64le, s390x
 
 ```bash
 docker run --privileged --rm tonistiigi/binfmt --install all
@@ -59,6 +64,17 @@ docker run --privileged --rm tonistiigi/binfmt --install all
 - oci-mediatypes=true
 - buildinfo=true
   - 附加构建信息 `{"moby.buildkit.buildinfo.v0": "<base64>"}`
+
+## bake
+
+- 配置合并
+  - docker-compose.yml
+  - docker-compose.yaml
+  - docker-bake.json
+  - docker-bake.override.json
+  - docker-bake.hcl
+  - docker-bake.override.hcl
+- https://docs.docker.com/build/bake/file-definition/
 
 ## cache
 

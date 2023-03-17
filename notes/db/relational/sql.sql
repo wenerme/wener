@@ -2,19 +2,6 @@
 
 
 
--- mysql 启用慢查询
--- http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_slow_query_log_file
--- http://dev.mysql.com/doc/refman/5.6/en/slow-query-log.html
--- 已不再使用 SET GLOBAL log_slow_queries = 1;
--- 5.1.12
-SET GLOBAL slow_query_log = 'ON';
-FLUSH LOGS;
--- 5.5 以后有
-FLUSH SLOW LOGS;
--- 设置慢查询日志文件 5.1.12
-SET GLOBAL slow_query_log_file = 'path';
--- 查看变量
-SHOW VARIABLES LIKE '%slow_query%'
 -- 如果已知变量名
 select @@datadir;
 

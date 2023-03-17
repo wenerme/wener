@@ -5,6 +5,7 @@ title: filebrowser
 # filebrowser
 
 - [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser) 是什么？
+  - Apache-2.0, Vue
   - 简单的文件浏览器
 
 :::caution
