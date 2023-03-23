@@ -24,6 +24,9 @@ export DOCKER_HOST=tcp://dind:2375/
 export DOCKER_DRIVER=overlay2
 # https://github.com/docker-library/docker/pull/166
 export DOCKER_TLS_CERTDIR=''
+
+
+curl --unix-socket /var/run/docker.sock http://localhost/images/json | jq
 ```
 
 - https://github.com/docker-library/docker/blob/master/23.0/dind/dockerd-entrypoint.sh
@@ -36,4 +39,16 @@ export DOCKER_TLS_CERTDIR=''
 
 ```bash
 docker run -d --name docker --privileged docker:dind-rootless
+```
+
+## buildx
+
+```bash
+BUILDX_VERSION=v0.10.4
+
+mkdir -p ~/.docker/cli-plugins
+curl -sSLo ~/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/$BUILDX_VERSION/buildx-$BUILDX_VERSION.linux-amd64
+chmod +x ~/.docker/cli-plugins/docker-buildx
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+docker info
 ```

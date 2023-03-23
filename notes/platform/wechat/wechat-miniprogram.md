@@ -83,3 +83,33 @@ copy(JSON.stringify({ appid, fakeId, nickName, openid, userName }, null, 2));
 - `??` 的问题
 ## SyntaxError: Unexpected token ."use strict";
 - `?.` 的问题
+
+## miniprogram-ci 10009 undefined
+
+> 不要把 miniprogram-ci 安装在现有项目里，太多依赖了
+
+```bash
+PROJECT_DIR=$PWD
+WXA_APP_ID=
+mkdir -p /tmp/wxa-ci
+cd /tmp/wxa-ci
+pnpm init
+pnpm add -D miniprogram-ci
+
+pnpm miniprogram-ci upload --appid $WXA_APP_ID --pp $PROJECT_DIR/dist/weapp/ --pkp $PROJECT_DIR/private.key -r 1 -v --uv 1.0.0
+
+# by script
+pnpm add -D tsx typescript
+cp $PROJECT_DIR/scripts/wxa-deploy.ts .
+env PROJECT_DIR=$PROJECT_DIR pnpm tsx ./wxa-deploy.ts
+```
+
+隐藏了实际的 error，调整内部 js 输出错误发现是
+
+```
+require() of ES Module ansi-styles from chalk not supported
+```
+
+- chalk 5 is ESM
+- chalk 4 is CJS
+

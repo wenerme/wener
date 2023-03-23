@@ -455,3 +455,12 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
 ```bash
 npx install-peerdeps --pnpm <your-package>
 ```
+
+## npm ci
+
+```bash
+pnpm i --frozen-lockfile
+CI=true pnpm i
+```
+
+- CI 检测逻辑 https://github.com/watson/ci-info/blob/20fae89d2bdeb0e5dd70e6a9e8d2647764e6ff04/index.js#L56-L69

@@ -49,8 +49,8 @@ apk add tailscale
 
 # Binary https://pkgs.tailscale.com/stable/#static
 # 内置 systemd service, 没有 openrc
-curl -O https://pkgs.tailscale.com/stable/tailscale_1.26.2_amd64.tgz
-tar zxvf tailscale_1.26.2_amd64.tgz
+curl -O https://pkgs.tailscale.com/stable/tailscale_1.38.1_amd64.tgz
+tar zxvf tailscale_*.tgz
 
 tailscale up --login-server http://192.168.1.2:8080
 

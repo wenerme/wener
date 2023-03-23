@@ -6,6 +6,7 @@ title: juicefs
 
 - [juicedata/juicefs](https://github.com/juicedata/juicefs)
   - Apache-2.0, Go
+  - 元数据 和 数据 分离
   - distributed **POSIX** fs
   - metadata - redis, postgres, mysql, sqlite3, badger
   - data - s3, minio, webdav, redis, file, sqlite3, mysql, postgres, sftp

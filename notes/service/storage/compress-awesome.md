@@ -21,6 +21,15 @@ tags:
 - [facebook/zstd](https://github.com/facebook/zstd)
   - [zstd](http://facebook.github.io/zstd/)
   - Zstandard - Fast real-time compression algorithm
+- [peazip/PeaZip](https://github.com/peazip/PeaZip)
+  - LGPLv3
+  - 跨平台
+- [mcmilk/7-Zip-zstd](https://github.com/mcmilk/7-Zip-zstd)
+  - LGPL v2.1-or-later
+  - 7-Zip + Brotli, Fast-LZMA2, Lizard, LZ4, LZ5, Zstandard
+  - Windows
+  - [p7zip-project/p7zip](https://github.com/p7zip-project/p7zip)
+    - Linux, macOS
 - Benchmark
   - [Squash Compression Benchmark](https://quixdb.github.io/squash-benchmark/)
   - [Large Text Compression Benchmark](http://mattmahoney.net/dc/text.html)
@@ -40,11 +49,13 @@ tags:
 - unrar
   - Alpine 3.14 有
   - https://www.rarlab.com/download.htm
+
 ```bash
 curl -O https://www.rarlab.com/rar/rarlinux-x64-612.tar.gz
 tar zxvf rarlinux-x64-612.tar.gz
 ./rar/unrar
 ```
+
 - 参考
   - [Modern LZ Compression](https://glinscott.github.io/lz/index.html)
   - [MiloszKrajewski/SilesiaCorpus](https://github.com/MiloszKrajewski/SilesiaCorpus)
@@ -68,6 +79,11 @@ tar zxvf rarlinux-x64-612.tar.gz
 
 ```bash
 cd staged && mytar cf - . | ssh root@localhost "cd / && tar xvf -"
+
+# 7z
+# https://github.com/p7zip-project/p7zip
+apk add p7zip
+7z a dir.7z -m0=zstd -mx7 dir
 
 # bz2
 # ==========
@@ -289,3 +305,13 @@ unzip in.zip
 zip -P password -r encrypted.zip folderIWantToZip
 unzip -P password encrypted.zip
 ```
+
+## zstd level
+
+- 默认 3
+- 可以考虑 6-9
+- 影响 window size
+  - level 1 = 2^18 = 256KB
+  - zlib 最大 32KB
+- 1-22
+  - https://github.com/facebook/zstd/blob/dev/lib/compress/clevels.h

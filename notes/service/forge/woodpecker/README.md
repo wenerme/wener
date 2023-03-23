@@ -8,13 +8,6 @@ title: woodpecker
   - community fork of the Drone CI 0.8 - Apache 2.0 最后版本
 - 0.16/1.0 agent 支持 local 和 ssh
 
-## server
-
-```ini
-# 只有配置了的 image 才可以映射 host 的 docker socket
-WOODPECKER_ESCALATE=plugins/docker,plugins/gcr,plugins/ecr,woodpeckerci/plugin-docker,woodpeckerci/plugin-docker-buildx
-```
-
 ## agent
 
 ```ini
@@ -38,6 +31,7 @@ WOODPECKER_BACKEND_SSH_KEY_PASSWORD=
 
 ## docker backend
 
+- HOME=/woodpecker
 - `/woodpecker/src/${GIT_REMOTE_URL}`
   - e.g. `/woodpecker/src/github.com/wenerme/wener`
 - volume /woodpecker
@@ -70,3 +64,5 @@ mv plugin-git /bin
 ## Insufficient privileges to use volumes
 
 将项目设置为 Trusted
+
+## Cannot configure both commands and custom attributes

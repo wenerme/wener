@@ -6,6 +6,12 @@ tags:
 
 # NodeJS FAQ
 
+## arm64/aarch64 musl
+
+- 暂无
+- https://github.com/nodejs/node/pull/45756
+- https://github.com/nodejs/unofficial-builds/pull/59
+
 ## source map
 
 - NodeJS 12.12.0 [--enable-source-maps](https://nodejs.org/docs/latest-v16.x/api/cli.html#--enable-source-maps)

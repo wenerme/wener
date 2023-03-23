@@ -195,6 +195,7 @@ syncPolicy:
     # 只同步 out of sync 资源 - 默认全部，会对服务端带来压力
     - ApplyOutOfSyncOnly=true
     - CreateNamespace=true
+    - RespectIgnoreDifferences=true
 ```
 
 | options                          | desc                                     |

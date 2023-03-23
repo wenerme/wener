@@ -37,3 +37,8 @@ DNSSEC 验证失败 - DNS 污染
 ```
 Dec 04 16:00:22 Answer to google.com|A for 127.0.0.1:50371 validates as Bogus
 ```
+
+## Trying to set unknown setting 'default-soa-name
+
+- 4.4+
+- 替换为 default-soa-content

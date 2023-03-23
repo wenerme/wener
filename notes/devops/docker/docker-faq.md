@@ -8,6 +8,14 @@ tags:
 
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
+## env
+
+- DOCKER_REGISTRY_URL
+  -  jenkins `docker.withRegistry`
+- DOCKER_REGISTRY_CREDENTIALS_ID
+- DOCKER_CONFIG=~/.docker
+- https://docs.docker.com/engine/reference/commandline/cli/#environment-variables
+
 # volume bind 文件不会更新
 
 - 尝试 bind 目录，不要 bind 文件
@@ -147,3 +155,22 @@ sudo sysctl -p /etc/sysctl.d/99-br_netfilter.conf
 ##  docker exporter does not currently support exporting manifest lists
 
 - 只能 --push [docker/buildx#59](https://github.com/docker/buildx/issues/59)
+
+## could not create a builder instance with TLS data loaded from environment
+
+```bash
+# 只要不是默认的就行
+docker context create tls
+docker buildx create --name multiarch-builder --driver docker-container --use tls
+```
+
+- https://github.com/docker/buildx/issues/413
+
+## DOCKER_HOST environment variable overrides the active context. To use a context, either set the global --context flag, or unset DOCKER_HOST environment variable.
+
+
+## dockerfile.v0: failed to create LLB definition: unexpected status code [manifests v18]: 403 Forbidden
+
+```bash
+export DOCKER_BUILDKIT=0
+```

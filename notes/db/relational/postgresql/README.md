@@ -99,9 +99,16 @@ title: PostgresSQL
 - Hosted Provider
   - [Heroku](https://www.heroku.com/pricing) 免费 10K 行数据
   - [ElephantSQL](https://www.elephantsql.com/plans.html) 免费 20MB 5 链接
-- [supabase/postgres](https://github.com/supabase/postgres)
-  - docker 镜像
-  - 包含大多功能
+- Docker 镜像
+  - [supabase/postgres](https://github.com/supabase/postgres)
+    - 包含大多插件
+    - 版本号匹配 Postgres
+    - 基础镜像为 postgres
+    - [Dockerfile](https://github.com/supabase/postgres/blob/develop/Dockerfile)
+  - [zalando/spilo](https://github.com/zalando/spilo)
+  - [PostgREST/postgrest](https://github.com/PostgREST/postgrest)
+    - https://hub.docker.com/r/postgrest/postgrest/tags
+    - [Extensions](https://postgrest.org/en/stable/ecosystem.html)
 
 ```bash
 brew install postgresql

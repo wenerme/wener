@@ -44,6 +44,9 @@ tags:
   - 一般不直接用于 DB
   - `A-Za-z0-9_-`
   - 26 bytes
+- [hashid](https://hashids.org/)
+  - 数字+字符串生成
+  - 可用于隐藏部分信息
 
 ## 元数据
 
@@ -159,3 +162,10 @@ select set_config('tenant.id','1', true);
   - 但部分单数形式可能需要 quote
 - 参考
   - https://stackoverflow.com/questions/338156
+
+## 尽量使用外键
+
+- 能一定程度提升查询性能
+- 增加部分 插入 和 更新 成本
+- 确保业务逻辑准确
+- 非强业务看情况

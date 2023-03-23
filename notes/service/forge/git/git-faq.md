@@ -6,6 +6,10 @@ tags:
 
 # Git FAQ
 
+```bash
+git config --global core.ignorecase false
+```
+
 ## 修正用户名 {#amend-author}
 
 ```bash

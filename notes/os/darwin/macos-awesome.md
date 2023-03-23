@@ -25,6 +25,8 @@ tags:
 - [sparkle-project/Sparkle](https://github.com/sparkle-project/Sparkle)
   - 应用自动升级框架
 - [Tencent/lemon-cleaner](https://github.com/Tencent/lemon-cleaner)
+- 破解
+  - https://www.torrentmac.net/
 
 ## Command Line
 

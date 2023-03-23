@@ -5,6 +5,12 @@ tags:
 
 # K0S FAQ
 
+## kubeconfig
+
+```bash
+cat /var/lib/k0s/pki/admin.conf
+```
+
 ## Control plane vs. Worker
 
 - Control plane

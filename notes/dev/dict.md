@@ -81,12 +81,13 @@ tags:
 | PRD    | Product Requirement Document | 产品需求文档   |
 | MRD    | Market Requirement Document  | 市场需求文档   |
 
-| word          | stand for  | notes                         |
-| ------------- | ---------- | ----------------------------- |
-| adhesive      | 粘合       |
-| cohesive      | 拼装、凝聚 |
-| Orchestration | 编排       | 一个服务调度多个服务          |
-| Choreography  | 编舞       | 各自负责各自的角色 - 事件总线 |
+| word           | stand for  | notes                         |
+| -------------- | ---------- | ----------------------------- |
+| adhesive       | 粘合       |
+| cohesive       | 拼装、凝聚 |
+| Orchestration  | 编排       | 一个服务调度多个服务          |
+| Choreography   | 编舞       | 各自负责各自的角色 - 事件总线 |
+| reconciliation |
 
 ## 服务商 {#service-provider}
 

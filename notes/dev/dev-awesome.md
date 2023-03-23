@@ -133,6 +133,7 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 - [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine)
   - command-line benchmarking tool
 - [rakyll/hey](https://github.com/rakyll/hey)
+- wrk
 
 ## Graph
 
@@ -192,3 +193,23 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
   - https://weworkremotely.com/
   - https://remote.co/
   - https://www.workingnomads.com/
+
+## Code quality
+
+- [facebook/infer](https://github.com/facebook/infer)
+  - MIT, OCaml
+  - Java, C, C++, Objective-C
+- [realm/SwiftLint](https://github.com/realm/SwiftLint)
+  - Swift
+- [detekt/detekt](https://github.com/detekt/detekt)
+  - Kotlin
+- [pmd/pmd](https://github.com/pmd/pmd)
+- [SonarSource/sonarqube](https://github.com/SonarSource/sonarqube)
+- [checkstyle/checkstyle](https://github.com/checkstyle/checkstyle)
+- [reviewdog/reviewdog](https://github.com/reviewdog/reviewdog)
+
+---
+
+- [analysis-tools-dev/static-analysis](https://github.com/analysis-tools-dev/static-analysis)
+- https://github.com/topics/code-quality
+

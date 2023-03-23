@@ -361,3 +361,8 @@ REG ADD "HKLM\Software\Tailscale IPN" /v LoginURL /t REG_SZ /d "https://127.0.0.
     - user $HOME/.local/share/tailscale/tailscaled.state
 
 ## headscale now requires a new `noise.private_key_path` field in the config file for the Tailscale v2 protocol
+
+## register request: Post "https://host/machine/register": all connection attempts failed (HTTP: unexpected HTTP response: 301 Moved Permanently, HTTPS: unexpected HTTP response: 404 Not Found)
+
+- 不能 cloudflare 反向代理
+- https://github.com/juanfont/headscale/issues/775

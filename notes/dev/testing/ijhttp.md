@@ -7,6 +7,7 @@ title: ijhttp
 ```bash
 curl -fLo ijhttp.zip https://jb.gg/ijhttp/latest
 unzip ijhttp.zip
+cd ijhttp
 # Java 17+
 ./ijhttp
 

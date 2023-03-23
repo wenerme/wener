@@ -235,6 +235,12 @@ curl --request POST \
     - MVCC SQLite that runs on FoundationDB
   - [bloomberg/comdb2](https://github.com/bloomberg/comdb2)
     - Apache-2.0, C
+- [LumoSQL/LumoSQL](https://github.com/LumoSQL/LumoSQL)
+
+## Migration
+
+- [amacneil/dbmate](https://github.com/amacneil/dbmate)
+  - framework-agnostic database migration tool
 
 ## ID
 

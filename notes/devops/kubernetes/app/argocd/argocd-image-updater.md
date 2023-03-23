@@ -7,6 +7,8 @@ title: ArgoCD Image Updater
 :::tip
 
 - 默认间隔 `2m0s` 扫描一次
+- 不支持 webhook [#1](https://github.com/argoproj-labs/argocd-image-updater/issues/1)
+- write back 会比较复杂，不建议。。。
 
 :::
 

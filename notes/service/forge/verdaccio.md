@@ -25,6 +25,18 @@ title: Verdaccio
     - `/-/web/detail/:pkg`
     - `/-/web/detail/:pkg/v/:version`
 
+```bash
+# VERDACCIO_PUBLIC_URL=https://npm.wener.me
+docker run --rm -it \
+  -e VERDACCIO_PORT=8080 \
+  -v $PWD/storage:/verdaccio/storage \
+  -v $PWD/conf:/verdaccio/conf \
+  -v $PWD/plugins:/verdaccio/plugins \
+  --name verdaccio verdaccio/verdaccio
+```
+
+- https://verdaccio.org/docs/env#docker
+
 ## config.yaml
 
 - 内置分组 $all, $anonymous
@@ -55,7 +67,7 @@ uplinks:
 - barolab/verdaccio
 
 ```Dockerfile
-FROM verdaccio/verdaccio:4
+FROM verdaccio/verdaccio:5
 USER root
 ENV NODE_ENV=production
 RUN yarn global add verdaccio-minio && \

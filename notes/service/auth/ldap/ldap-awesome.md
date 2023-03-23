@@ -18,6 +18,7 @@ tags:
 - [OpenLDAP](./openldap.md)
 - [Apache Directory Server](./apacheds.md)
 - [OpenDJ](https://github.com/OpenIdentityPlatform/OpenDJ)
+- Kanidm
 - 389 Directory Server
 - Active Directory
 - Apple Open Directory
@@ -36,7 +37,22 @@ tags:
 - [erthink/ReOpenLDAP](https://github.com/erthink/ReOpenLDAP)
 - https://directory.fedoraproject.org/
 
-## Misc
+## Lightweight LDAP Server
+
+- [glauth/glauth](./glauth.md)
+  - MIT, Go
+  - LDAP server for development, home use, or CI
+  - 支持能力管理
+- [nitnelave/lldap](https://github.com/nitnelave/lldap)
+  - GPLv3, Rust
+  - GraphQL - https://github.com/nitnelave/lldap/blob/main/schema.graphql
+  - JWT Auth
+  - WebUI 管理用户
+  - 不支持 LDAPS, HTTPS
+- [majewsky/portunus](https://github.com/majewsky/portunus)
+  - GPLv3, Go
+
+## Library
 
 - Server
   - [openstandia/ldap-pg](https://github.com/openstandia/ldap-pg)
@@ -44,9 +60,6 @@ tags:
     - LDAP server with PostgreSQL as the backend
   - [vjeantet/ldapserver](https://github.com/vjeantet/ldapserver)
     - GPLv2, Go
-  - [glauth/glauth](./glauth.md)
-    - MIT, Go
-    - LDAP server for development, home use, or CI
   - [jimlambrt/gldap](https://github.com/jimlambrt/gldap)
     - MIT, Go
     - Build LDAP services w/ Go
@@ -107,7 +120,7 @@ docker run -it --rm \
 # PHPLDAPADMIN_SERVER_PATH=/phpldapadmin
 # /container/service/phpldapadmin/assets/config/config.php
 docker run --rm -it \
-   -p 6443:443 -p 8080:80 \
+  -p 6443:443 -p 8080:80 \
   -e PHPLDAPADMIN_HTTPS=false \
   -e PHPLDAPADMIN_LDAP_HOSTS=ldap.example.com \
   --name phpldapadmin osixia/phpldapadmin

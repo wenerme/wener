@@ -200,6 +200,11 @@ zpool import -d /dev/disk/by-id
 zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=off
 ```
 
+# atime=on temporary
+
+- https://gitlab.alpinelinux.org/alpine/aports/-/issues/12382
+- https://github.com/openzfs/zfs/issues/7947
+
 ## zvol vs zfs
 
 - zvol - 块设备

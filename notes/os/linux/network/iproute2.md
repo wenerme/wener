@@ -69,6 +69,86 @@ title: IPRoute2
 | route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0 | ip route add 192.168.1.0/24 dev eth0                 |
 | route add default gw 192.168.1.1                          | ip route add default via 192.168.1.1                 |
 
+```bash
+ss -s # 统计
+ss -o state established '( dport = :smtp or sport = :smtp )'
+ss -o state established '( dport = :http or sport = :http )'
+ss -x src /tmp/.X11-unix/*
+ss -o state fin-wait-1 '( sport = :http or sport = :https )'
+
+ss -atr
+```
+
+| flag                      | for   |
+| ------------------------- | ----- |
+| -H,--no-header            |
+| -O,--oneline              |
+| -n,--numeric              |
+| -r,--resolve              |
+| -a,--all                  |
+| -l,--listening            |
+| -o,--options              |
+| -e,--extended             |
+| -m,--memory               |
+| -p,--processes            |
+| -T,--threads              |
+| -i,--info                 |
+| --tos                     |
+| --cgroup                  |
+| --tipcinfo                |
+| -K,--kill                 |
+| -s,--summary              |
+| -E,--events               | watch |
+| -Z,--context              |
+| -z,--contexts             |
+| -N,--net=NSNAME           |
+| -b,--bpf                  |
+| -4,--ipv4                 |
+| -6,--ipv6                 |
+| -O,--packet               |
+| -t,--tcp                  |
+| -u,--udp                  |
+| -d,--dccp                 |
+| -w,--raw                  |
+| -x,--unix                 |
+| -S,--sctp                 |
+| --tipc                    |
+| --vsock                   |
+| --xdp                     |
+| -M,--mptcp                |
+| --inet-sockopt            |
+| -F,--family=FAMILY        |
+| -A,--query,--socket=QUERY |
+| -D,--diag=FILE            |
+| -F,--filter=FILE          |
+
+- state
+  - established, syn-sent, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, last-ack, listening, closing
+  - all
+  - connected
+  - synchronized - 除 syn-sent 的 connected
+  - bucket
+  - big - !bucket
+- UNCONN
+- ESTAB
+- LISTEN
+
+```
+{dst|src} [=] HOST
+{dport|sport} [OP] [FAMILY:]:PORT
+dev [=|!=] DEVICE
+fwmark [=|!=] MASK
+cgroup [=|!=] PATH
+autobound
+```
+
+- HOST - `[FAMILY:]ADDRESS[:PORT]`
+  - FAMILY - unix, link, netlink, vsock, inet, inet6
+- OP
+  - <=,le,leq,>=,ge,geq,=,==,eq,!=,ne,neq,<,gt,>,lt,!,not
+  - |,||,or
+  - &,&&,and
+
 ## bridge
 
 - [docker/libnetwork#2310](https://github.com/docker/libnetwork/issues/2310) - docker 不能在不影响 docker0 的前提下使用现有的 bridge 网口
@@ -89,7 +169,7 @@ ip route add 0.0.0.0/0 via 10.0.2.2
 # 删除最上层的默认网关
 ip ro del default
 
-ip li set dev eth0  mtu 9000
+ip li set dev eth0 mtu 9000
 
 ip route flush table main
 

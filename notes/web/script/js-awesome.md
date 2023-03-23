@@ -736,6 +736,7 @@ tags:
 - [polka]
 - trpc
 - nextjs
+- [jeremydaly/lambda-api](https://github.com/jeremydaly/lambda-api)
 - 路由
   - [typestack/routing-controllers](https://github.com/typestack/routing-controllers)
     - 通过 修饰器 为 express.js, koa.js 定义路由

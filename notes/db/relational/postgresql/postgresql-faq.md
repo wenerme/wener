@@ -586,3 +586,23 @@ where state = 'active';
 ```sql
 select distinct datlastsysoid from pg_database;
 ```
+
+## 查找所有外键
+
+```sql
+SELECT conrelid::regclass AS table_name,
+       conname AS foreign_key,
+       pg_get_constraintdef(oid)
+FROM   pg_constraint
+WHERE  contype = 'f'
+AND    connamespace = 'public'::regnamespace
+ORDER  BY conrelid::regclass::text, contype DESC;
+
+-- psql
+\d table_name
+```
+
+## ARRAY/数组 外键
+
+- 不支持
+- https://stackoverflow.com/questions/41054507

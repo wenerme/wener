@@ -1,5 +1,7 @@
 ---
 title: PostREST 入门部署
+tags:
+  - Get Started
 ---
 
 # Hello PostgREST

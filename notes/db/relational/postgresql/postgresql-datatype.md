@@ -1,5 +1,4 @@
 ---
-id: datatype
 title: 数据类型
 ---
 

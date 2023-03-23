@@ -6,6 +6,13 @@ tags:
 
 # NPM FAQ
 
+## 环境变量
+
+- `npm_config_*`
+- https://docs.npmjs.com/cli/v9/using-npm/config#environment-variables
+- NPM_CONFIG_REGISTRY
+  - Yarn 无 https://github.com/yarnpkg/yarn/issues/2091
+
 ## lockfileVersion: 2 install script
 
 没有 hasInstallScript，导致没有调用安装脚本。

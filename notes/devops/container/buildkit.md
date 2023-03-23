@@ -65,17 +65,6 @@ docker run --privileged --rm tonistiigi/binfmt --install all
 - buildinfo=true
   - 附加构建信息 `{"moby.buildkit.buildinfo.v0": "<base64>"}`
 
-## bake
-
-- 配置合并
-  - docker-compose.yml
-  - docker-compose.yaml
-  - docker-bake.json
-  - docker-bake.override.json
-  - docker-bake.hcl
-  - docker-bake.override.hcl
-- https://docs.docker.com/build/bake/file-definition/
-
 ## cache
 
 - type

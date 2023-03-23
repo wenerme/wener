@@ -1,5 +1,4 @@
 ---
-id: maven
 title: Maven
 tags:
   - Maven
@@ -18,6 +17,8 @@ tags:
   - ear - Enterprise Application Archive
   - war - Web Application Archive
   - rar - Resource Adapter Archive
+- mojo
+- surefire
 
 | 属性                              | 说明                     |
 | --------------------------------- | ------------------------ |

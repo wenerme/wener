@@ -69,3 +69,15 @@ const { app, route, page } = Taro.Current;
 - https://github.com/pcdotfan/taro-plugin-tailwind
   - https://github.com/pcdotfan/taro-plugin-tailwind/blob/main/config/mini.config.js
 - https://learnku.com/articles/60035
+
+## 多端
+
+| app            | 平台自己            | taro                |
+| -------------- | ------------------- | ------------------- |
+| 微信小程序     | [project.config.json](https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html) | project.config.json |
+| 百度小程序     | project.swan.json   | project.swan.json   |
+| 字节跳动小程序 | project.config.json | project.tt.json     |
+| QQ 小程序      | project.config.json | project.qq.json     |
+| 支付宝小程序   | mini.project.json   | project.alipay.json |
+| 京东小程序     |                     |
+| 飞书小程序     | project.config.json | project.lark.json   |

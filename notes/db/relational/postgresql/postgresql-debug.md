@@ -1,9 +1,9 @@
 ---
 tags:
-- Diagnosis
-- Troubleshooting
+  - Diagnosis
+  - Troubleshooting
+  - Debug
 ---
-
 
 ```sql
 -- 总连接数，已使用，super 预留，普通用户可用
@@ -50,4 +50,15 @@ WHERE datname = 'centralauth'
   AND pid <> pg_backend_pid()
   AND state in ('idle', 'idle in transaction', 'idle in transaction (aborted)', 'disabled')
   AND state_change < current_timestamp - INTERVAL '15' MINUTE;
+
+-- WAL
+select name, setting, unit
+from pg_settings
+where name in (
+               'effective_cache_size',
+               'shared_buffers',
+               'work_mem',
+               'maintenance_work_mem',
+               'wal_buffers'
+    );
 ```

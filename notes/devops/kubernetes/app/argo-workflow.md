@@ -3,28 +3,29 @@ title: Argo Workflow
 ---
 
 # Argo Workflow
-* 是什么？
-  * Cloud Native 工作流引擎
-  * CRD 管理
-  * 每个步骤都是容器
-  * 适用计算密集型任务 - 机器学习, 数据处理
-  * 适用于 CI/CD 场景
-* [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)
-* 用到的镜像
-  * argoproj/argocli
-  * argoproj/workflow-controller
-  * argoproj/argoexec - executor
-  * argoproj/argosay - 演示流程使用的镜像
-* [workflow-executors](https://argoproj.github.io/argo-workflows/workflow-executors/)
+
+- [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows) 是什么？
+  - Cloud Native 工作流引擎
+  - CRD 管理
+  - 每个步骤都是容器
+  - 适用计算密集型任务 - 机器学习, 数据处理
+  - 适用于 CI/CD 场景
+- 用到的镜像
+  - argoproj/argocli
+  - argoproj/workflow-controller
+  - argoproj/argoexec - executor
+  - argoproj/argosay - 演示流程使用的镜像
+- [workflow-executors](https://argoproj.github.io/argo-workflows/workflow-executors/)
 
 :::caution
 
-* 默认 exector 为 docker - 会挂载 /var/run/docker.sock
-  * 非 docker 部署 kubernetes 需要切换
+- 默认 exector 为 docker - 会挂载 /var/run/docker.sock
+  - 非 docker 部署 kubernetes 需要切换
 
 :::
 
 ## 安装
+
 ```bash
 # 安装方式
 # install.yaml - 集群纬度，所有命名空间
@@ -50,16 +51,15 @@ metadata:
   namespace: argo
 spec:
   rules:
-  - host: argo.example.com
-    http:
-      paths:
-      - backend:
-          service:
-            name: argo-server
-            port:
-              name: web
-        pathType: ImplementationSpecific
-
+    - host: argo.example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: argo-server
+                port:
+                  name: web
+            pathType: ImplementationSpecific
 ```
 
 ## Workflow
@@ -95,14 +95,13 @@ spec:
     strategy: OnPodCompletion
 ```
 
-
 ### 配置
-* https://argoproj.github.io/argo-workflows/workflow-controller-configmap.yaml
+
+- https://argoproj.github.io/argo-workflows/workflow-controller-configmap.yaml
 
 ```yaml
 # containerRuntimeExecutor: docker
 containerRuntimeExecutor: kubelet
-
 
 # SSO Configuration for the Argo server.
 # You must also start argo server with `--auth-mode sso`.
@@ -134,46 +133,48 @@ sso: |
 ```
 
 # FAQ
+
 ## failed to save outputs: Failed to establish pod watch: timed out waiting for the condition
 
-* argo 使用 ns 下的 default ServiceAccount
-  * 一般该 sa 没有 watch pod 的权限
+- argo 使用 ns 下的 default ServiceAccount
+  - 一般该 sa 没有 watch pod 的权限
 
 ```bash
 # namespaced 安装 - SA 无权限
 kubectl auth can-i get pod --as=system:serviceaccount:argo:default
 ```
 
-__最小权限__
+**最小权限**
+
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: workflow-role
 rules:
-# pod get/watch is used to identify the container IDs of the current pod
-# pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
-- apiGroups:
-  - ""
-  resources:
-  - pods
-  verbs:
-  - get
-  - watch
-  - patch
-# logs get/watch are used to get the pods logs for script outputs, and for log archival
-- apiGroups:
-  - ""
-  resources:
-  - pods/log
-  verbs:
-  - get
-  - watch
+  # pod get/watch is used to identify the container IDs of the current pod
+  # pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
+  - apiGroups:
+      - ''
+    resources:
+      - pods
+    verbs:
+      - get
+      - watch
+      - patch
+  # logs get/watch are used to get the pods logs for script outputs, and for log archival
+  - apiGroups:
+      - ''
+    resources:
+      - pods/log
+    verbs:
+      - get
+      - watch
 ```
 
-* 参考
-  * https://github.com/argoproj/argo-workflows/issues/2522
-  * https://github.com/argoproj/argo-workflows/blob/master/docs/workflow-rbac.md
+-  参考
+  - https://github.com/argoproj/argo-workflows/issues/2522
+  - https://github.com/argoproj/argo-workflows/blob/master/docs/workflow-rbac.md
 
 ## failed to save outputs: unexpected non 200 status code: 403, body: Forbidden (user=system:serviceaccount:argo:default, verb=get, resource=nodes, subresource=proxy)
 
@@ -186,25 +187,25 @@ kind: ClusterRole
 metadata:
   name: argo-executor
 rules:
-# pod get/watch is used to identify the container IDs of the current pod
-# pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
-- apiGroups:
-  - ""
-  resources:
-  - pods
-  verbs:
-  - get
-  - watch
-  - patch
-# logs get/watch are used to get the pods logs for script outputs, and for log archival
-- apiGroups:
-  - ""
-  resources:
-  - pods/log
-  - nodes/proxy
-  verbs:
-  - get
-  - watch
+  # pod get/watch is used to identify the container IDs of the current pod
+  # pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
+  - apiGroups:
+      - ''
+    resources:
+      - pods
+    verbs:
+      - get
+      - watch
+      - patch
+  # logs get/watch are used to get the pods logs for script outputs, and for log archival
+  - apiGroups:
+      - ''
+    resources:
+      - pods/log
+      - nodes/proxy
+    verbs:
+      - get
+      - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -215,7 +216,7 @@ roleRef:
   kind: ClusterRole
   name: argo-executor
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: argo
+  - kind: ServiceAccount
+    name: default
+    namespace: argo
 ```

@@ -1,5 +1,7 @@
 ---
 title: PostgreSQL Extension
+tags:
+- Extension
 ---
 
 # PostgreSQL Extension

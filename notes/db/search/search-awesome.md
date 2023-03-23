@@ -98,6 +98,8 @@ tags:
   - [nearform/lyra](https://github.com/nearform/lyra)
     - @nearform/lyra
     - in-memory, typo-tolerant, full-text search engine
+  - fuzzyjs
+  - [lucaong/minisearch](https://github.com/lucaong/minisearch)
 
 ## Lcoal Search
 

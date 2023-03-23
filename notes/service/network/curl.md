@@ -118,3 +118,31 @@ if(conn->httpversion < 20) {
 ```bash
 curl -g "https://wener.me/[1,2]"
 ```
+
+## CApath: none
+
+```
+CAfile: /etc/ssl/certs/ca-certificates.crt
+CApath: none
+```
+
+- CURL_CA_BUNDLE
+
+```bash
+# /usr/share/ca-certificates
+apk add ca-certificates
+
+# /etc/ssl/certs/ca-certificates.crt
+# /etc/ssl/cert.pem
+# /etc/ssl1.1/cert.pem
+# /etc/ssl1.1/certs
+apk add ca-certificates-bundle
+```
+
+## hang after TLS handshake, Client hello
+
+- 可能是 MTU 问题
+- docker in docker 的时候出现了，调低 mtu
+  - dockerd --mtu=1400
+- https://github.com/microsoft/WSL/issues/4698#issuecomment-871279847
+- https://serverfault.com/questions/231036

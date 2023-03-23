@@ -359,3 +359,7 @@ haproxy -f haproxy.cfg    # Run
 # 验证路由
 curl -H 'Host: wener.me' 127.0.0.1:8088
 ```
+
+## redispatch
+
+- session redistribution in case of connection failure

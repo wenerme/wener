@@ -47,3 +47,25 @@ ldappasswd -H ldap://ldap.example.com:389 -D "uid=account-name,ou=serviceaccount
 ---
 
 - ldapwiki [Simple Auth](https://ldapwiki.com/wiki/Simple%20Authentication)
+
+
+## lldap vs glauth
+
+|       [lldap] | [glauth]        |
+| ------------: | --------------- |
+|         GPLv3 | MIT             |
+|          Rust | Go              |
+| Single Binary | Binary + Plugin |
+
+[glauth]: ./glauth.md
+[lldap]: ./lldap.md
+
+- lldap vs [glauth]
+  - 不支持自定义属性
+  - 不支持嵌套分组
+  - 通过分组固定权限
+  - 固定了 user 的 baseDn
+  - 支持用户登录 - 因此需要维护 JWT
+- glauth vs [lldap]
+  - UI 能力弱
+  - 无 API

@@ -24,6 +24,8 @@ title: 控制理论
 | transient-free switch | 在指定时间内完成 switch                     |
 | feedback controller   |
 
+![](./IdealFeedbackModel.svg)
+
 ![](./ControlMap.v4.png)
 
 ## Learn

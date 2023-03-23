@@ -58,3 +58,8 @@ use_backend s2 if { hdr(host) -i my2.domain.org }
 ## HAProxy exit code 143
 
 - SIGTERM
+
+## cannot parse Content-Length: too long int
+
+- H2, ssl-passthrough 时会有问题
+- [#1561](https://github.com/haproxy/haproxy/issues/1561)
