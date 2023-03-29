@@ -14,6 +14,11 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
   - 处理 HTTP CONNECT
 - https://cbonte.github.io/haproxy-dconv
 
+- maxconn
+  - frontend 接受的最大连接数
+  - 默认 2000
+  - 10000 - ~450MB - ~580MB
+
 ## acl
 
 - named acl

@@ -6,6 +6,16 @@ title: DID
 
 - 2376 - tls
 - 2375
+- cert 825d
+- 手动关闭 tls --tls=fals --tlsverify=false
+
+:::caution
+
+- 映射 sock 在重启后会失效
+- mtu 最好设置 <= 1450 - `--mtu`
+- dind network create 不会继承 `--mtu` 参数
+
+:::
 
 ```bash
 # -e DOCKER_TLS_CERTDIR=/certs
@@ -24,7 +34,6 @@ export DOCKER_HOST=tcp://dind:2375/
 export DOCKER_DRIVER=overlay2
 # https://github.com/docker-library/docker/pull/166
 export DOCKER_TLS_CERTDIR=''
-
 
 curl --unix-socket /var/run/docker.sock http://localhost/images/json | jq
 ```
@@ -52,3 +61,7 @@ chmod +x ~/.docker/cli-plugins/docker-buildx
 docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 docker info
 ```
+
+## 存在 mtu 问题
+
+- curl https 的时候 hang

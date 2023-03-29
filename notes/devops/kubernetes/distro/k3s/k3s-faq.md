@@ -56,7 +56,7 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 
 ## k3s 每月重启
 
-- 90天 renew
+- 90 天 renew
 - 随机 sleep 0-99 分钟
 
 ```bash
@@ -244,13 +244,16 @@ x509: certificate has expired or is not yet valid: current time 2022-03-28T15:55
 curl -v -k https://localhost:6443 -s 2>&1 | grep date
 openssl s_client -connect localhost:6443 -showcerts < /dev/null 2>&1 | openssl x509 -noout -enddate
 
-for i in `ls /var/lib/rancher/k3s/server/tls/*.crt`; do echo $i; openssl x509 -enddate -noout -in $i; done
+for i in $(ls /var/lib/rancher/k3s/server/tls/*.crt); do
+  echo $i
+  openssl x509 -enddate -noout -in $i
+done
 
 kubectl get secret -n kube-system k3s-serving -o jsonpath='{.data.tls\.crt}' | base64 -d | openssl x509 -noout -text | grep Not
 ```
 
 ```bash title="触发 rotate"
-openssl s_client -connect localhost:6443 -showcerts </dev/null 2>&1 | openssl x509 -noout -startdate -enddate
+openssl s_client -connect localhost:6443 -showcerts < /dev/null 2>&1 | openssl x509 -noout -startdate -enddate
 
 # 设置为 < 90 天
 date -s 20210514
@@ -261,14 +264,12 @@ service k3s restart
 # sudo chronyc -a makestep
 ```
 
-
 ```bash
 # 可以尝试
 kubectl --insecure-skip-tls-verify delete secret -n kube-system k3s-serving
 rm -f /var/lib/rancher/k3s/server/tls/dynamic-cert.json
 # 重启 k3s
 ```
-
 
 - https://www.ibm.com/support/pages/node/6444205
 - https://github.com/k3s-io/k3s/issues/1621
@@ -293,7 +294,6 @@ kubectl -n kube-system delete pod coredns-66c464876b-25kl9
 - 没问题
 - https://github.com/k3s-io/k3s/issues/4419#issuecomment-962897354
 
-
 ## transport: Error while dialing dial tcp 127.0.0.1:2379: connect: connection refused
 
 - https://github.com/k3s-io/k3s/issues/4728
@@ -301,7 +301,7 @@ kubectl -n kube-system delete pod coredns-66c464876b-25kl9
   - [#5254](https://github.com/k3s-io/k3s/pull/5254)
 - https://github.com/k3s-io/k3s/issues/2345
 
-##  Failed to reconcile with temporary etcd: walpb: crc mismatch
+## Failed to reconcile with temporary etcd: walpb: crc mismatch
 
 - k3s restore 旧的会放到 `${data-dir}/server/db/etcd-old/`
 - 默认本地快照 `${data-dir}/server/db/snapshots`
@@ -312,11 +312,9 @@ k3s etcd-snapshot list
 # 尝试恢复
 k3s server --cluster-reset --cluster-reset-restore-path=/var/lib/rancher/k3s/server/db/snapshots/XXX
 
-
 # mv /var/lib/rancher/k3s/server/db/etcd/ etcd.bk
 # k3s etcd-snapshot prune --snapshot-retention 10
 ```
-
 
 ## cluster ID mismatch
 
@@ -329,3 +327,10 @@ renew 后出现
 ## User "k3s-cloud-controller-manager" cannot get resource "leases" in API group "coordination.k8s.io" in the namespace "kube-system"
 
 - https://github.com/k3s-io/k3s/issues/6119
+
+## ulimit
+
+```bash
+# openrc
+echo 'rc_ulimit="-n 1048576"' >> /etc/rancher/k3s/k3s.env
+```

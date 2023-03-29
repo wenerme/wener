@@ -18,21 +18,62 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENAB
 curl -o k3s-install.sh https://get.k3s.io
 sed '/GITHUB_URL=/a GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases' -i k3s-install.sh
 INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true bash k3s-install.sh
-
-k3s check-config
 ```
 
 ```bash
 # 准备
 service cgroups start
 rc-update add cgroups
+# 配置检查
+k3s check-config
 
-#
+# mkdir -p /etc/rancher/k3s
+# 配置
+echo 'rc_ulimit="-n 1048576"' >> /etc/rancher/k3s/k3s.env
+cat <<YAML > /etc/rancher/k3s/registries.yaml
+mirrors:
+  docker.io:
+    endpoint:
+      - https://fogjl973.mirror.aliyuncs.com
+      - https://8x40wsit.mirror.aliyuncs.com
+      - https://docker.mirrors.ustc.edu.cn
+      - https://registry-1.docker.io
+YAML
+
+cat <<YAML > /etc/rancher/k3s/config.yaml
+# write-kubeconfig-mode: '0644'
+
+token: $(uuidgen)
+agent-token: $(uuidgen)
+
+node-name: $(hostname)
+
+disable:
+- servicelb
+- traefik
+
+prefer-bundled-bin: true
+
+#tls-san:
+#- kube.dev.example.com
+
+#data-dir: /data/var/k3s
+#snapshotter: zfs
+YAML
+
+k3s check-config
+
 service k3s start
 rc-update add k3s
+
+k3s kubectl get node
+k3s kubectl get events -Aw
 ```
 
 ```bash
+rsync --rsync-path 'sudo rsync' kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
+
+# write-kubeconfig-mode: '0644'
 scp kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
 ```
 
@@ -71,22 +112,6 @@ scp kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
   - blkid
   - aux
 
-```bash
-cat <<YAML > /etc/rancher/k3s/config.yaml
-write-kubeconfig-mode: '0644'
-
-data-dir: /data/k3s
-
-token: $(uuidgen)
-agent-token: $(uuidgen)
-
-node-name: kube-1
-
-disable:
-- servicelb
-- traefik
-YAML
-```
 
 ```yaml title="/etc/rancher/k3s/config.yaml"
 write-kubeconfig-mode: '0644'
@@ -111,9 +136,15 @@ service k3s start
 
 ## links: aux/ip6tables should link to iptables-detect.sh
 
-- https://docs.k3s.io/known-issues
 
 ```bash
-/usr/local/bin/k3s check-config
-PATH=/data/var/k3s/data/current/bin/:$PATH
+# 非 root 出现
+k3s check-config
+# 此时不会出现
+sudo k3s check-config
+
+# /usr/local/bin/k3s check-config
+# PATH=/data/var/k3s/data/current/bin/:$PATH
 ```
+
+- https://docs.k3s.io/known-issues

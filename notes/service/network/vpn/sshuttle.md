@@ -4,6 +4,10 @@ title: sshuttle
 
 # sshuttle
 
+- [sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
+  - LGPL-2.1, Python
+  - VPN over SSH
+  - 支持 Linux, macOS
 - 类似于按需端口转发
 
 :::caution
@@ -29,9 +33,9 @@ ip -6 rule add fwmark 1 lookup 100
 sshuttle --method=tproxy
 ```
 
-## FAQ
+# FAQ
 
-### OSError: [Errno 88] Not a socket
+## OSError: [Errno 88] Not a socket
 
 - 最新版 sshuttle 已经支持 3.8
 - Python 3.8

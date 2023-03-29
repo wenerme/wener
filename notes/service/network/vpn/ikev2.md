@@ -5,6 +5,7 @@ title: IKEv2
 # IKEv2
 
 ## IKEv2 服务端
+
 - 通过 strongSwan 提供 IKEv2
 - DockerHub [ikev2-vpn-server](https://hub.docker.com/r/gaomd/ikev2-vpn-server)
   - [aomd/docker-ikev2-vpn-server](https://github.com/gaomd/docker-ikev2-vpn-server)
@@ -28,11 +29,12 @@ docker cp ikev2-vpn-server:/etc/ipsec.secrets .
 echo ": PSK \"$IKEV2_PKI\"" > ipsec.secrets
 # 使用现有的 PKI 启动
 docker run -d --restart always --privileged \
-  -p 500:500/udp -p 4500:4500/udp -v $PWD/ipsec.secrets:/etc/ipsec.secrets  \
+  -p 500:500/udp -p 4500:4500/udp -v $PWD/ipsec.secrets:/etc/ipsec.secrets \
   --name ikev2-vpn-server gaomd/ikev2-vpn-server:0.3.0
 ```
 
 ### 启动脚本
+
 ```bash
 # https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling
 # Continue reading: https://wiki.strongswan.org/projects/strongswan/wiki/VirtualIP
@@ -45,7 +47,7 @@ ip6tables -t nat -A POSTROUTING -s fd6a:6ce3:c8d8:7caa::/64 -o eth0 -m policy --
 ip6tables -t nat -A POSTROUTING -s fd6a:6ce3:c8d8:7caa::/64 -o eth0 -j MASQUERADE
 
 # hotfix for openssl `unable to write 'random state'` stderr
-SHARED_SECRET="123$(openssl rand -base64 32 2>/dev/null)"
+SHARED_SECRET="123$(openssl rand -base64 32 2> /dev/null)"
 [ -f /etc/ipsec.secrets ] || echo ": PSK \"${SHARED_SECRET}\"" > /etc/ipsec.secrets
 
 # hotfix for https://github.com/gaomd/docker-ikev2-vpn-server/issues/7
@@ -56,7 +58,7 @@ service ndppd start
 /usr/sbin/ipsec start --nofork
 ```
 
-__/etc/ipsec.conf__
+**/etc/ipsec.conf**
 
 ```ini
 # /etc/ipsec.conf - strongSwan IPsec configuration file
@@ -92,7 +94,7 @@ apk add strongswan
 service strongswan start
 rc-update add strongswan
 
-cat <<CONF >> /etc/ipsec.conf
+cat << CONF >> /etc/ipsec.conf
 conn %default
 	ikelifetime=60m
 	keylife=20m
@@ -125,6 +127,7 @@ ipsec restart
 ```
 
 ## 默认 ipsec.conf
+
 ```ini
 # ipsec.conf - strongSwan IPsec configuration file
 

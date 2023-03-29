@@ -55,4 +55,5 @@ POST http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&group=tes
 
 - https://nacos.io/zh-cn/docs/quick-start-docker.html
 - [nacos-group/nacos-docker](https://github.com/nacos-group/nacos-docker)
+  - 可以配置 JAVA_OPT
 - [nacos-group/nacos-k8s](https://github.com/nacos-group/nacos-k8s)

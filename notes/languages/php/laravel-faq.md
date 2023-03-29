@@ -7,6 +7,10 @@ tags:
 
 ## Missing app key
 
+> No application encryption key has been specified
+
 ```bash
 php artisan key:generate
+
+php artisan config:cache
 ```

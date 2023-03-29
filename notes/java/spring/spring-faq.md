@@ -5,6 +5,14 @@ tags:
 
 # Spring FAQ
 
+## Override Config
+
+```ini
+spring.cloud.config.allowOverride=true
+spring.cloud.config.overrideNone=true
+spring.cloud.config.override-system-properties=false
+```
+
 ## Tomcat 上传超时
 
 **异常信息**

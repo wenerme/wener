@@ -4,8 +4,11 @@ title: Size
 
 # Size
 
+- A4 为 A3 对折大小 - 可以此类推
 - DPI - Dots Per Inch - 打印
+  - 600 - 归档
   - 300 - 打印
+  - 150
   - 72 - 普通
 - PPI - Pixels Per Inch - 显示器
   - > = 200 - 视网膜屏, HiDPI
@@ -23,10 +26,10 @@ title: Size
 | Twitter Profile |   400×400 px |
 | Twitter Header  |  1500×500 px |
 
-| Print         |       Size |
+| Print         |       Size | Pixel
 | ------------- | ---------: |
 | A3            | 297×420 mm |
-| A4            | 210×297 mm |
+| A4            | 210×297 mm | 2480×3508
 | A5            | 148×210 mm |
 | B3            | 353×500 mm |
 | B4            | 250×353 mm |

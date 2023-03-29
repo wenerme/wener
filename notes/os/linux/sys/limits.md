@@ -6,7 +6,7 @@ title: limits
 
 - **linux-pam** 提供
   - /etc/pam.d/su
-  - `session    required   pam_limits.so`
+  - `session required pam_limits.so`
 - /etc/security/limits.conf - 全局配置
 - /etc/security/limits.d/ - 通常用于配置单个进程
 - 参考
@@ -148,3 +148,8 @@ UsePrivilegeSeparation no
 ```
 UsePAM yes
 ```
+
+## open files
+
+- 1073741816
+- 1048576

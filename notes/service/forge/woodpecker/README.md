@@ -58,11 +58,3 @@ docker run --rm -it --entrypoint cat woodpeckerci/plugin-git:next /bin/plugin-gi
 chmod +x plugin-git
 mv plugin-git /bin
 ```
-
-# FAQ
-
-## Insufficient privileges to use volumes
-
-将项目设置为 Trusted
-
-## Cannot configure both commands and custom attributes

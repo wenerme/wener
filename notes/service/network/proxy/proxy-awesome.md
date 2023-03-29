@@ -17,12 +17,13 @@ tags:
 | http               | http                       | ❌  |
 | ShadowSocks - ss   | tcp,websocket,quic,http    | ✅  |
 | ShadowSocksR - ssr |                            | ✅  |
-| vmess              | tcp,websocket,http,h2,grpc | ✅  | V2Ray |
+| [vmess]            | tcp,websocket,http,h2,grpc | ✅  | V2Ray |
 | [snell]            | tcp                        | ❌  | surge |
 | [trojan]           | h2,http,grpc               | ✅  |
 
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
+[vmess]: https://www.v2ray.com/en/configuration/protocols/vmess.html
 
 - brook wss
   - https://github.com/txthinking/brook
@@ -112,7 +113,6 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - Test Flight https://testflight.apple.com/join/J5QPqXKO
   - https://t.me/choc_channel
   - https://t.me/choc_chat
-
 
 # 库
 
@@ -249,7 +249,6 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - HTTP DNS
   - `curl -X POST amdc.alipay.com/squery`
   - https://github.com/cxw620/AdGuard-Rules/issues/3
-
 
 ## ADGuard
 

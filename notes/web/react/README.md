@@ -71,14 +71,14 @@ npm i --save react-base react-native-vector-icons
   - 通过 props 接受属性和回调
   - 通常没有自己的状态 - 有也只是 UI 状态
   - 通常为函数组件
-  - 例如 Page, Sidebar, Story, UserInfo, List
+  - 例如 Page, Sidebar, Story, UserInfo, ListItem
 - container
   - 关心 “逻辑如何运作”
   - 除了封装基本不包含元素，没有自己的样式
   - 为 presentational 或其他 container 提供样式和行为
-  - 会与 Redux 交互，为 presentational 提供回调
+  - 会与 状态/Redux 交互，为 presentational 提供回调
   - 通常有状态和数据源
-  - 通常配合 HOC - React Redux connect(), Relay createContainer(), Flux Utils Container.create()
+  - ~~通常配合 HOC - React Redux connect(), Relay createContainer(), Flux Utils Container.create()~~
   - 例如 UserPage, FollowersSidebar, StoryContainer, FollowedUserList.
 - 其他划分点
   - 有状态、无状态

@@ -63,3 +63,9 @@ use_backend s2 if { hdr(host) -i my2.domain.org }
 
 - H2, ssl-passthrough 时会有问题
 - [#1561](https://github.com/haproxy/haproxy/issues/1561)
+
+## ERR_HTTP2_SERVER_REFUSED_STREAM
+
+- https://confluence.atlassian.com/jirakb/some-jira-pages-fail-to-render-or-some-actions-fail-to-complete-with-the-error-err_http2_server_refused_stream-1085441145.html
+- https://github.com/opnsense/plugins/issues/2013
+  - libressl

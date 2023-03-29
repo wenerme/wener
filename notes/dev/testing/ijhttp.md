@@ -24,7 +24,7 @@ docker run --rm -i -t -v $PWD:/workdir \
 | -D,--docker-mode                   | localhost -> host.docker.internal |
 | -e,--environment=ENV_NAME          |
 | --insecure                         |
-| -L,--log-level                     |
+| -L,--log-level                     | BASIC, HEADERS, VERBOSE
 | -p,--private-env-file=FILE         |
 | -P,--private-env-variables=KEY=VAL |
 | -r,--report                        |

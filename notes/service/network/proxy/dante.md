@@ -6,7 +6,7 @@ title: Dante
 
 - [dante](http://www.inet.no/dante/)
   - consists of a SOCKS server and a SOCKS client
-  - [文档]](https://www.inet.no/dante/doc/1.4.x/index.html)
+  - [文档](https://www.inet.no/dante/doc/1.4.x/index.html)
 - sockd - 服务端
 - socks - 客户端
 - socksify - 基于 LD_PRELOAD 的代理

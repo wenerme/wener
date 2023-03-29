@@ -36,3 +36,14 @@ DOCKER_SOCK=
 ```
 
 - https://woodpecker-ci.org/docs/next/administration/backends/docker
+
+# FAQ
+
+## docker network mtu
+
+- dind 需要修改 mtu 为 1450
+- 无法修改
+- drone 可以 DRONE_RUNNER_NETWORK_OPTS
+- workaround WOODPECKER_BACKEND_DOCKER_NETWORK=bridge
+  - v0.15 不支持
+- https://github.com/woodpecker-ci/woodpecker/issues/1579

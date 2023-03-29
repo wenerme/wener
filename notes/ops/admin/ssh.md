@@ -83,6 +83,8 @@ ssh-keygen -t rsa -b 2048 -C "email@example.com"
 # 无密码不询问
 ssh-keygen -t rsa -b 2048 -f /tmp/sshkey -q -N ""
 
+ssh-keygen -t ed25519 -C "" -f sshkey -q -N ""
+
 # 查看 key 信息
 ssh-keygen -l -f key
 openssl pkey -in key -noout -text

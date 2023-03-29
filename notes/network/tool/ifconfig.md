@@ -1,11 +1,9 @@
 ---
-id: ifconfig
 title: ifconfig
 ---
 
 # ifconfig
 
-## Tips
 ```bash
 # 判断路由会怎么走
 ip route get 192.168.8.135 from 192.168.8.140
@@ -22,13 +20,15 @@ ip rule add from <interface_IP> dev <interface> table isp2
 ip route add default via <gateway_IP> dev <interface> table isp2
 
 ```
-* socat 可以指定 interface, nc 不可以
-* socat 在各个平台下统一, nc 有兼容问题
+
+- socat 可以指定 interface, nc 不可以
+- socat 在各个平台下统一, nc 有兼容问题
 
 ## 多网卡配置
-* https://www.hi-linux.com/posts/64963.html
-* [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration)
-  * [简体中文](https://wiki.archlinux.org/index.php/Network_configuration_(简体中文))
+
+- https://www.hi-linux.com/posts/64963.html
+- [Network configuration](https://wiki.archlinux.org/index.php/Network_configuration)
+  - [简体中文](<https://wiki.archlinux.org/index.php/Network_configuration_(简体中文)>)
 
 ```bash
 # 当前路由状态

@@ -4,6 +4,7 @@ title: Jenkins
 
 # Jenkins
 
+- [jenkinsci/jenkins](https://github.com/jenkinsci/jenkins)
 - 系统要求
   - 4GB+ 内存
   - 50GB+ 磁盘
@@ -16,7 +17,8 @@ title: Jenkins
       - 只有 amd64
     - lts-jdk11
       - debian
-      - amd64, arm64, s390x
+      - amd64, arm64
+    - lts-jdk17
   - /var/jenkins_home
 - 50000
   - agent

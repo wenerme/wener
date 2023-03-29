@@ -68,3 +68,11 @@ apk add php7-openssl
 extension=php_openssl.dll
 ```
 -->
+
+## sodium_crypto_aead_aes256gcm_decrypt
+
+```bash
+apk add php7-sodium
+```
+
+-  sodium_crypto_aead_aes256gcm_is_available()
