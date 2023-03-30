@@ -6,6 +6,9 @@ tags:
 
 # Tinc FAQ
 
+## Could not create a tun/tap interface from /dev/net/tun: Resource busy
+
+
 ## Peer had unknown identity
 
 ```

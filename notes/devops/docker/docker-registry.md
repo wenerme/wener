@@ -25,11 +25,11 @@ title: Docker 仓库
 - 授权: silly、token、htpasswd、none
 
 ```bash
-docker run -d --restart=always \
+# -v $PWD/config.yml:/etc/docker/registry/config.yml \
+docker run --rm -it \
   -p 5000:5000 \
-  -v /data/docker-registry:/var/lib/registry \
-  -v $PWD/config.yml:/etc/docker/registry/config.yml \
-  --add-host 8x40wsit.mirror.aliyuncs.com:116.62.81.173 \
+  -e REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io \
+  -v $PWD/data:/var/lib/registry \
   --name registry registry:2
 ```
 

@@ -471,10 +471,12 @@ tinc -n NETNAME generate-ed25519-keys
 ## tinc.netname
 
 ```bash
-nano /etc/init.d/tinc.netname
-chmod +x /etc/init.d/tinc.netname
-ln -s /etc/init.d/tinc.netname /etc/init.d/tinc.first
-service tinc.first start
+sudo nano /etc/init.d/tinc.netname
+sudo chmod +x /etc/init.d/tinc.netname
+
+sudo ln -s /etc/init.d/tinc.netname /etc/init.d/tinc.$NETNAME
+sudo service tinc.$NETNAME start
+sudo rc-update add tinc.$NETNAME
 ```
 
 ```sh

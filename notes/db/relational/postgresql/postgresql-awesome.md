@@ -109,6 +109,9 @@ tags:
 
 - [yandex/odyssey](https://github.com/yandex/odyssey)
 - pgbouncer
+- [postgresml/pgcat](https://github.com/postgresml/pgcat)
+  - MIT, Rust
+  - sharding, load balancing, failover
 - [pg-sharding/spqr](https://github.com/pg-sharding/spqr)
   - Stateless Postgres Query Router
 - [awslabs/pgbouncer-rr-patch](https://github.com/awslabs/pgbouncer-rr-patch)

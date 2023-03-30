@@ -11,6 +11,8 @@ tags:
   - 可以考虑 gitea mirror 别人参考然后加 webhook
   - 或者拉 releases/tags 判断
 
+## Github Pages CNAME
+
 ## SPA Pages
 
 - 默认返回 404.html

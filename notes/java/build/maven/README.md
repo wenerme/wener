@@ -9,8 +9,6 @@ tags:
 
 # Maven
 
-## Tips
-
 - Maven 包类型
   - pom - Project Object Model
   - jar - Java Application Archive
@@ -19,6 +17,7 @@ tags:
   - rar - Resource Adapter Archive
 - mojo
 - surefire
+
 
 | 属性                              | 说明                     |
 | --------------------------------- | ------------------------ |

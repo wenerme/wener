@@ -25,6 +25,10 @@ tags:
 [trojan]: https://github.com/trojan-gfw/trojan
 [vmess]: https://www.v2ray.com/en/configuration/protocols/vmess.html
 
+- vmess
+  - v2ray
+- trojan
+  - 伪装 tls
 - brook wss
   - https://github.com/txthinking/brook
 - obfs - 混淆 - 用于 ss,ssr

@@ -1,5 +1,4 @@
 ---
-id: ieee-802
 title: IEEE 802
 ---
 

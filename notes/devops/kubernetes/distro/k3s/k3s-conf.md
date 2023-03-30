@@ -41,6 +41,8 @@ mirrors:
 #       ca_file:
 ```
 
+- https://docs.k3s.io/installation/private-registry
+
 ## config.yaml
 
 ### server

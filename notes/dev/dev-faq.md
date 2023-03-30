@@ -6,7 +6,6 @@ tags:
 
 # Dev FAQ
 
-
 ## 为什么枚举 **名字** 要用中文？
 
 :::tip
@@ -32,7 +31,6 @@ tags:
 - 没多少人能理解英文
   - Pending ？ ChinaResidentIdentityCard？
   - gender ? sex ?
-
 
 ## 为什么枚举 **值** 要用英文？
 
@@ -203,3 +201,10 @@ mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 1. 接口不自测，出问题不打日志
 1. 直接写代码
 1. 重要设计不写文档
+
+## Magic Number
+
+- 1048576
+  - Excel 行限制
+- 16,384
+  - Excel 列限制

@@ -13,11 +13,47 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
 - http-tunnel
   - 处理 HTTP CONNECT
 - https://cbonte.github.io/haproxy-dconv
+- https://www.haproxy.com/documentation/hapee/latest/onepage
+
+---
 
 - maxconn
   - frontend 接受的最大连接数
-  - 默认 2000
-  - 10000 - ~450MB - ~580MB
+  - 4096 fd 默认 maxconn ~ 1700
+  - 10000 连接 ~450MB - ~580MB
+  - fd ~= maxconn\*2 + 1000
+
+## env
+
+- `${ENV_NAME-默认值}`
+- HAPROXY_LOCALPEER
+  - `-L`
+- HAPROXY_CFGFILES
+- HAPROXY_HTTP_LOG_FMT
+- HAPROXY_HTTPS_LOG_FMT
+- HAPROXY_TCP_LOG_FMT
+- HAPROXY_MWORKER
+- HAPROXY_MASTER_CLI
+- HAPROXY_STARTUP_VERSION
+- 伪变量
+  - `.FILE`
+  - `.LINE`
+  - `.SECTION`
+
+## 控制流 {#control-flow}
+
+- `.if`,`.elif`,`.else`,`.endif`
+- 断言
+  - `defined(<name>)`
+  - `feature(<name>)` - `haproxy -vv`
+  - `streq(<str1>,<str2>)`
+  - `strneq(<str1>,<str2>)`
+  - `version_atleast(<ver>)`
+  - `version_before(<ver>)`
+- .diag "message"
+- .notice
+- .warning
+- .alert
 
 ## acl
 

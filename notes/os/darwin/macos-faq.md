@@ -100,6 +100,7 @@ https://support.apple.com/zh-cn/HT201295
 - 参考
   - [Deprecated Kernel Extensions and System Extension Alternatives](https://developer.apple.com/support/kernel-extensions/)
   - https://tunnelblick.net/cTunTapConnections.html
+- https://github.com/ntop/n2n/issues/773#issuecomment-1143051664
 
 ## 窗口只能看到边缘没有 Title 如何拖动？
 

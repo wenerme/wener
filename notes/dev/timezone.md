@@ -15,7 +15,7 @@ TZ=Asia/Shanghai date
 
 ## Java
 
-- -Duser.timezone=Asia/Shanghai
+- JVM `-Duser.timezone=Asia/Shanghai`
 
 **sprintboot**
 

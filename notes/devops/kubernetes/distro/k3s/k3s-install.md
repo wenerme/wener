@@ -4,7 +4,6 @@ title: Install
 
 # K3S Install
 
-
 ## Install
 
 ```bash
@@ -30,7 +29,7 @@ k3s check-config
 # mkdir -p /etc/rancher/k3s
 # 配置
 echo 'rc_ulimit="-n 1048576"' >> /etc/rancher/k3s/k3s.env
-cat <<YAML > /etc/rancher/k3s/registries.yaml
+cat << YAML > /etc/rancher/k3s/registries.yaml
 mirrors:
   docker.io:
     endpoint:
@@ -40,7 +39,7 @@ mirrors:
       - https://registry-1.docker.io
 YAML
 
-cat <<YAML > /etc/rancher/k3s/config.yaml
+cat << YAML > /etc/rancher/k3s/config.yaml
 # write-kubeconfig-mode: '0644'
 
 token: $(uuidgen)
@@ -58,7 +57,6 @@ prefer-bundled-bin: true
 #- kube.dev.example.com
 
 #data-dir: /data/var/k3s
-#snapshotter: zfs
 YAML
 
 k3s check-config
@@ -112,7 +110,6 @@ scp kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
   - blkid
   - aux
 
-
 ```yaml title="/etc/rancher/k3s/config.yaml"
 write-kubeconfig-mode: '0644'
 
@@ -124,8 +121,8 @@ agent-token: $(uuidgen)
 node-name: kube-1
 
 disable:
-- servicelb
-- traefik
+  - servicelb
+  - traefik
 ```
 
 ```bash
@@ -134,8 +131,47 @@ service k3s start
 
 # FAQ
 
-## links: aux/ip6tables should link to iptables-detect.sh
+## 本地 registry 缓存
 
+```bash
+cat << YAML > /etc/rancher/k3s/registries.yaml
+mirrors:
+  docker.io:
+    endpoint:
+      - https://fogjl973.mirror.aliyuncs.com
+      - https://8x40wsit.mirror.aliyuncs.com
+      - https://docker.mirrors.ustc.edu.cn
+      - https://registry-1.docker.io
+configs:
+  "docker-registry:5000":
+YAML
+```
+
+## zfs zvol
+
+```bash
+# -s sparse volume 不保留空间
+zfs create -s -V 100GB data/k3s-vol
+mkfs.ext4 /dev/zvol/data/k3s-vol
+
+# mkdir -p /data/k3s
+# mount /dev/zvol/data/k3s-vol /data/k3s
+
+mkdir -p /var/lib/racher/k3s
+mount /dev/zvol/data/k3s-vol /var/lib/racher/k3s
+# 持久化 mount
+tail -1 /proc/mounts | sudo tee -a /etc/fstab
+# cat /proc/mounts | grep -e /data/k3s | grep /dev/zd | sudo tee -a /etc/fstab
+```
+
+## zfs snapshotter
+
+```bash
+zfs create -o mountpoint=/var/lib/racher/k3s/containerd/io.containerd.snapshotter.v1.zfs data/k3s-snapshotter
+echo "snapshotter: zfs" >> /etc/rancher/k3s/config.yaml
+```
+
+## links: aux/ip6tables should link to iptables-detect.sh
 
 ```bash
 # 非 root 出现

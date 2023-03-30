@@ -30,6 +30,11 @@ title: License
   - 推荐 ISC
 - https://fair.io/
 
+| abbr   | for                                |
+| ------ | ---------------------------------- |
+| RSALv2 | Redis Source Available License 2.0 |
+| SSPLv1 | Server Side Public License v1      |
+
 ## AGPL
 
 - AGPL - GNU Affero General Public License
@@ -129,6 +134,18 @@ title: License
   - [About Elastic License 2.0](https://docs.airbyte.com/project-overview/licenses/license-faq#about-elastic-license-2.0-elv2)
   - [Managed Service](https://docs.airbyte.com/project-overview/licenses/license-faq#what-is-the-managed-service-use-case-that-is-not-allowed-under-elv2)
 
+## SSPL
+
+- [Server Side Public License](https://en.wikipedia.org/wiki/Server_Side_Public_License)
+  - by MongoDB
+- SSPLv1
+- 基于 AGPLv3 修改 §13
+  - 主要针对 SaaS
+- used by
+  - RedisStack
+  - Elastic
+  - Graylog v4
+
 ## BSL
 
 - BSL/BUSL - Business Source License
@@ -141,7 +158,6 @@ title: License
 - [BSLv1.1](https://mariadb.com/bsl11/)
 - [Projects using BSL 1.1](https://mariadb.com/projects-using-bsl-11/)
 
-
 ## Redis Source Available License
 
 - RSAL
@@ -152,7 +168,6 @@ title: License
   - 可以修改代码，集成到应用
 - 禁止
   - 但不可以是一个 数据库产品、缓存引擎、流处理、搜索、索引、ML/DL/AI 服务引擎
-
 
 # FAQ
 

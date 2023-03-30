@@ -1,11 +1,14 @@
 ---
 title: HAProxy Version
+tags:
+- Version
 ---
 
 # HAProxy Version
 
 | version       | release date |
 | ------------- | ------------ |
+| [HAProxy 2.7] | 2022-12-01   |
 | [HAProxy 2.6] | 2022-05-31   |
 | [HAProxy 2.5] | 2021-11-23   |
 | [HAProxy 2.4] | 2021-05-13   |
@@ -15,6 +18,26 @@ title: HAProxy Version
 [haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 2.7
+
+- Traffic shaping
+  - 下载速度
+    - `filter bwlim-out`
+    - `http-response set-bandwidth-limit`
+  - 上传速度
+    - `filter bwlim-in`
+    - `http-request set-bandwidth-limit`
+- `thread-group`
+  - 之前最多 64 个线程 - `thread-group 1 threads 64`
+  - 现在可以 64*64=4096 个线程 - `thread-group 64 threads 64`
+- QUICv2
+
+```bash
+echo "reload" | sudo socat -t300 /run/haproxy-master.sock -
+```
+
+- show startup-logs
 
 ## HAProxy 2.6
 

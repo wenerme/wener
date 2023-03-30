@@ -6,7 +6,6 @@ tags:
 
 # Security Awesome
 
-- [robertdavidgraham/masscan](https://github.com/robertdavidgraham/masscan)
 - https://github.com/zmap
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
@@ -173,6 +172,7 @@ CBC, OFB and CFB are similar, however OFB/CFB is better because you only need en
 
 ## Scan
 
+- [robertdavidgraham/masscan](https://github.com/robertdavidgraham/masscan)
 - [projectdiscovery](https://github.com/projectdiscovery)
   - [nuclei](https://github.com/projectdiscovery/nuclei)
     - vulnerability scanner

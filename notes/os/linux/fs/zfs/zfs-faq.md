@@ -210,10 +210,12 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 - zvol - 块设备
   - raidz、压缩
   - 没有所有 zfs 伴随的能力
+  - blocksize=8k
 - zfs - 文件系统 - dataset
   - 快照、克隆
   - 文件系统有一定特性 - 也有缺陷
     - ~~主要缺陷: 不支持 rename2/overlay~~ - ZFS v2.2+
+  - recordsize=128k
 
 ## High System Usage
 

@@ -9,10 +9,11 @@ title: HTTP
 
 ## Status
 
-| status | name         | note     |
-| ------ | ------------ | -------- |
-| 400    | Bad Request  |
-| 401    | Unauthorized | RFC 7235 |
+| status | name            | note     |
+| ------ | --------------- | -------- |
+| 400    | Bad Request     |
+| 401    | Unauthorized    | RFC 7235 |
+| 504    | Gateway Timeout | RFC 7231 |
 
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 

@@ -6,10 +6,27 @@ tags:
 
 # Redis Version
 
-| ver     | date       |
-| ------- | ---------- |
-| Redis 7 | 2022-04-27 |
-| Redis 6 | 2020-04-30 |
+- 1 年一个大版本，每 6 个月一个小版本
+
+| version   | date       |
+| --------- | ---------- |
+| [Redis 7] | 2022-04-27 |
+| [Redis 6] | 2020-04-30 |
+
+[redis 7]: #redis-7
+[redis 6]: #redis-6
+
+## Redis 7.2
+
+- RDB 11
+  - 不兼容旧版本
+- 命令
+  - WAITAOF
+  - `CLIENT SETINFO` - 设置 Client 名字和版本
+  - `CLIENT NO-TOUCH` - 不影响 LRU/LFU
+- 优化小数据 KV - listpack
+  - list, set
+- redis-cli 可以在 subscribe 时继续执行命令
 
 ## Redis 7
 
