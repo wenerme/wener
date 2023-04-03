@@ -35,8 +35,16 @@ title: Linode
 - https://www.linode.com/global-infrastructure/
 - https://status.linode.com/
 
+## Regions
+
+```bash
+curl https://api.linode.com/v4/regions | jq '.data[].id' -r
+```
+
 <!-- $$('.c-speed-test__links a').map(v=>new URL(v.href).hostname).map(v=>v.match(/speedtest.(\w+).linode.com/)[1]).join(' ') -->
 <!-- https://www.linode.com/community/questions/17075/how-do-i-use-your-speed-test -->
+
+
 
 ```bash
 ip=$(curl -sf "https://speedtest.tokyo2.linode.com/getIP.php" | jq -r .processedString | egrep -o '^[0-9.]+')
@@ -79,4 +87,7 @@ for i in dallas fremont; do
   echo "Testing $i"
   curl -o /dev/null -r -100000000 -w "@curl-format.txt" https://speedtest.$i.linode.com/100MB-$i.bin > $i.txt
 done
+
+curl -o /dev/null -w "@curl-format.txt" https://speedtest.dallas.linode.com/100MB-dallas.bin > dallas.txt
+curl -o /dev/null -w "@curl-format.txt" https://speedtest.singapore.linode.com/100MB-singapore.bin > singapore.txt
 ```

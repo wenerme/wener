@@ -4,6 +4,13 @@ title: woodpecker
 
 # woodpecker
 
+:::caution
+
+- 0.15 功能太少 - 没有全局 secret 配置起来很麻烦
+- 1.0 还没正式发布，太多问题
+
+:::
+
 - [woodpecker-ci/woodpecker](https://github.com/woodpecker-ci/woodpecker)
   - community fork of the Drone CI 0.8 - Apache 2.0 最后版本
 - 0.16/1.0 agent 支持 local 和 ssh

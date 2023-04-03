@@ -24,3 +24,15 @@ tags:
 - 代理服务作为网关角色
 - https://www.rfc-editor.org/rfc/rfc3089
 - https://blog.skk.moe/post/what-happend-to-dns-in-proxy/
+
+## proxy env
+
+- `[scheme]_proxy`
+  - http_proxy
+  - https_proxy
+  - ftp_proxy
+- all_proxy, ALL_PROXY
+
+---
+
+- https://everything.curl.dev/usingcurl/proxies

@@ -265,3 +265,40 @@ mkdir /usr/local/share/ca-certificates/extra
 ```bash
 openssl s_client -connect wener.me:443 # 测试证书是否正确
 ```
+
+## takeover.sh
+
+```bash
+mkdir /takeover
+cd /takeover
+mkdir -p etc
+cp /etc/resolv.conf etc
+
+curl -LO https://raw.githubusercontent.com/marcan/takeover.sh/master/takeover.sh
+curl -LO https://raw.githubusercontent.com/marcan/takeover.sh/master/fakeinit.c
+curl -LO https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/busybox
+
+curl -LO https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main/x86_64/apk-tools-static-2.12.10-r1.apk
+tar zxvf apk-tools-static-2.12.10-r1.apk
+
+chmod +x takeover.sh
+chmod +x busybox
+gcc fakeinit.c -o fakeinit -static
+ldd fakeinit
+
+chroot /takeover /busybox sh
+
+# --root /takeover
+# apk.static -X http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.17/main --allow-untrusted --initdb add alpine-base
+apk.static -X http://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main --allow-untrusted --initdb add alpine-base
+
+# /etc/apk/repositories
+setup-apkrepos http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.17/main http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.17/community
+apk add  shadow
+ln -s /usr/bin/passwd /bin/passwd
+setup-sshd -c openssh
+
+sh takeover.sh
+```
+
+- [marcan/takeover.sh](https://github.com/marcan/takeover.sh)

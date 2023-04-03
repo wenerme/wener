@@ -26,6 +26,7 @@ tags:
       - url http://www.gstatic.com/generate_204
       - interval 300
     - relay - 串联所有代理
+      - 不支持 UDP
     - fallback - 基于 URL 检测进行回滚
     - load-balance - 基于 eTLD+1 进行负载
 - proxy-providers - 指向 yaml 配置 - 包含 `proxies: []`
@@ -285,17 +286,6 @@ proxies:
     grpc-opts:
       grpc-service-name: 'example'
 
-  # socks5
-  - name: 'socks'
-    type: socks5
-    server: server
-    port: 443
-    # username: username
-    # password: password
-    # tls: true
-    # skip-cert-verify: true
-    # udp: true
-
   # http
   - name: 'http'
     type: http
@@ -471,6 +461,23 @@ rules:
   - RULE-SET,apple,REJECT # Premium only
   - MATCH,auto
 ```
+
+## proxies
+
+
+```yaml
+# socks5
+- name: 'socks'
+  type: socks5
+  server: server
+  port: 1080
+  # username: username
+  # password: password
+  # tls: true
+  # skip-cert-verify: true
+  # udp: true
+```
+## proxy-groups
 
 ## Rule
 

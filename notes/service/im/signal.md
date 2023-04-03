@@ -20,6 +20,10 @@ title: Signal
   - 群组消息单独加密
   - [Double Ratchet](https://signal.org/docs/specifications/doubleratchet/)
   - used by WhatsApp, Facebook Messenger, Google Allo, Signal
+- Double Ratchet
+  - Diffie-Hellman key exchange
+  - out-of-order messages, message resynchronization, message authentication
+  - used by Signal, WhatsApp, Wire
 
 ## Server
 

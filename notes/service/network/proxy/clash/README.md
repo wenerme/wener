@@ -37,6 +37,24 @@ brew install clash
 # https://hub.docker.com/r/dreamacro/clash
 # https://github.com/Dreamacro/clash/blob/master/Dockerfile
 docker run --rm -it --name clash dreamacro/clash
+
+# Linux
+# ==========
+curl -LO https://github.com/Dreamacro/clash/releases/download/v1.14.0/clash-linux-amd64-v3-v1.14.0.gz
+gzip -d clash-linux-amd64-v3-v1.14.0.gz
+chmod +x clash-linux-amd64-v3-v1.14.0
+mv clash-linux-amd64-v3-v1.14.0 clash
+cp clash /usr/local/bin/clash
+mkdir -p /var/lib/clash/ /etc/clash/
+
+# https://ghproxy.com/github.com/Dreamacro/maxmind-geoip/releases/download/20230312/Country.mmdb
+curl -o /var/lib/clash/Country.mmdb https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb
+
+clash -t -d /var/lib/clash/ -f /etc/clash/config.yaml
+
+# 同步本地到服务器
+scp ~/.config/clash/config.yaml admin@server:/etc/clash/config.yaml
+rsync -avP --exclude config.yaml ~/.config/clash/ admin@server:/var/lib/clash/
 ```
 
 ## Awesome
@@ -74,6 +92,7 @@ docker run --rm -it --name clash dreamacro/clash
 curl -LO https://github.com/Dreamacro/clash-dashboard/archive/gh-pages.zip
 unzip gh-pages.zip
 mv clash-dashboard-gh-pages/ ~/.config/clash/
+
 # haishanh/yacd
 curl -LO https://github.com/haishanh/yacd/archive/gh-pages.zip
 unzip gh-pages.zip
@@ -184,6 +203,12 @@ iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 
 ## openrc
 
 ```bash
+nano /etc/init.d/clash
+chmod +x /etc/init.d/clash
+service clash checkconfig
+```
+
+```bash
 #!/sbin/openrc-run
 supervisor=supervise-daemon
 
@@ -191,12 +216,15 @@ name="Clash"
 description="A rule-based tunnel in Go."
 description_reload="Reload configuration without exiting"
 
+clash_config="${clash_config:-/etc/clash/config.yaml}"
 command=/usr/local/bin/clash
-command_args="-d /var/lib/clash/ -f /etc/clash/config.yaml"
+command_args="-d /var/lib/clash/ -f ${clash_config}"
+extra_commands="checkconfig"
+extra_started_commands="reload"
 
-CLASH_LOGFILE="${CLASH_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
-output_log=${CLASH_LOGFILE}
-error_log=${CLASH_LOGFILE}
+clash_log="${clash_log:-/var/log/${RC_SVCNAME}.log}"
+output_log="${clash_log}"
+error_log="${clash_log}"
 
 depend() {
   use logger dns
@@ -204,16 +232,18 @@ depend() {
 }
 
 checkconfig() {
-  if [ ! -f "/etc/clash/config.yaml" ]; then
+  ebegin "Checking ${clash_config}"
+  if [ ! -f "${clash_config}" ]; then
     eerror "No clash config.yaml"
     return 1
   fi
+  ${command} -d /var/lib/clash/ -f ${clash_config} -t
   return 0
 }
 
 reload() {
   ebegin "Reloading configuration"
-  curl -X PUT -H "Authorization: Bearer $AUTH_TOKEN" -sf 127.0.0.1:9090/configs --json "{}"
+  curl -X PUT -H "Authorization: Bearer $(yq .secret $clash_config)" -sf $(yq .external-controller $clash_config)/configs --json "{}"
   eend $?
 }
 ```

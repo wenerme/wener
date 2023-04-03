@@ -52,8 +52,17 @@ docker cp collabora:/etc/loolwsd/loolwsd.xml loolwsd.xml
 
 ## Explore The New Version
 
+- 将 /usr/share/coolwsd/browser/dist/welcome 挂载为空目录
+
+---
+
 - Nextcloud app - repeatedly showing welcome screen [#5854](https://github.com/CollaboraOnline/online/issues/5854)
 - https://github.com/CollaboraOnline/online/issues/4489
 - `extra_params: --o:welcome.enable=false`
 - https://github.com/nextcloud/richdocuments/issues/1034#issuecomment-726052204
 - https://github.com/nextcloud/richdocuments/issues/1034#issuecomment-702742995
+
+## Your Collabora Online server needs updating
+
+- Menu/Tools/Options/LibreOffice/Online update options.
+- https://wiki.documentfoundation.org/UserProfile

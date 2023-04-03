@@ -12,7 +12,7 @@ tags:
 - slaveof = replicaof
 - 是因为调整了名词 [redis#5335](https://github.com/redis/redis/issues/5335)
 
-## List vs PubSub vs Stream
+## List vs PubSub vs Stream vs ZSet
 
 - List
   - 存储数据
@@ -29,6 +29,11 @@ tags:
   - 有更多消息队列的概念 - 例如: 消息 ID、时间戳、 ACK
   - 能实现 List 和 Pub/Sub 的所有语义
   - 可以不阻塞
+- ZSet
+  - 有序集合
+  - score 为 double
+  - key 会去重
+  - 可作为消息队列，基于 key/offset 消费
 
 ## MISCONF Redis is configured to save RDB snapshots
 
