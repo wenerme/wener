@@ -2,7 +2,6 @@
 title: Cache-Control
 ---
 
-
 # Cache-Control
 
 - MDN [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
@@ -10,6 +9,12 @@ title: Cache-Control
 - https://support.cloudflare.com/hc/en-us/articles/115003206852-Understanding-Origin-Cache-Control
 - max-age=0 vs no-cache
   - https://stackoverflow.com/a/1383359/1870054
+- [If-None-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)
+  - `W/` weak validator
+  - GET, HEAD
+  - 值为 etag, 存在则返回 304 Not Modified
+  - 修改操作, 412 Precondition Failed
+  - `If-None-Match: "<etag>"[, "<etag>"]`
 
 **请求**
 
@@ -61,7 +66,7 @@ Expires: Thu, 01 Dec 2014 16:00:00 GMT
 - Cache-Control: private, max-age=3600
   - 浏览器缓存但 Proxy 不缓存
 - Cache-Control: public, no-cache
-  -  prefer revalidation when served
+  - prefer revalidation when served
 - Cache-Control: public, no-cache, proxy-revalidate or Cache-Control: public, s-maxage=0
   - Cache assets in proxy caches but REQUIRE revalidation by the proxy when served
 - Cache-Control: public, no-cache, must-revalidate
@@ -75,3 +80,11 @@ Expires: Thu, 01 Dec 2014 16:00:00 GMT
 - Cache-Control: max-age=600, stale-while-revalidate=30
   - Cache an asset and serve while asset is being revalidated
 - https://developers.cloudflare.com/cache/about/cache-control
+
+## 平台
+
+- x-vercel-cache
+  - HIT, MISS
+- x-vercel-id
+- cf-cache-status
+  - HIT, MISS, EXPIRED, DYNAMIC, BYPASS

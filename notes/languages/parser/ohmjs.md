@@ -85,15 +85,15 @@ console.assert(sematics(g.match('1 + 1')).eval() === 2);
 ```
 
 ```ts title="toAST"
-import {toAST} from 'ohm-js/extras';
+import { toAST } from 'ohm-js/extras';
 // 转换为 AST
 const ast = toAST(match);
 
 // 重新映射
 const ast = toAST(match, {
-  Equation: {content: 0},
+  Equation: { content: 0 },
   // 位置变为 key，修改类型
-  AddExpr: {type: 'Expression', expr1: 0, op: 1, expr2: 2},
+  AddExpr: { type: 'Expression', expr1: 0, op: 1, expr2: 2 },
 });
 ```
 
@@ -128,7 +128,7 @@ npx ohm generateBundles --withTypes --esm src/grammar.ohm
   - src/my-grammar.ohm-bundle.d.ts
 
 ```ts
-import grammar, {ArithmeticSemantics} from './arithmetic.ohm-bundle';
+import grammar, { ArithmeticSemantics } from './arithmetic.ohm-bundle';
 ```
 
 - 发布的一些语法
@@ -216,3 +216,12 @@ int = spaces "0" | "1".."9" digit*
 - [ohm-grammar.ohm](https://github.com/harc/ohm/blob/master/packages/ohm-js/src/ohm-grammar.ohm)
   - [built-in-rules.ohm](https://github.com/harc/ohm/blob/master/packages/ohm-js/src/built-in-rules.ohm)
   - [operations-and-attributes.ohm](https://github.com/harc/ohm/blob/master/packages/ohm-js/src/operations-and-attributes.ohm)
+
+# Version
+
+## ohm-js v17.0
+
+- any - onsumes an entire code point
+- 移除 helper namespace, extendNamespace
+- ESM 无 default export
+- ohm.util -> extras

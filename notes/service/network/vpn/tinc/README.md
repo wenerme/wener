@@ -104,7 +104,7 @@ title: Tinc
 # 配置更方便使用更简单
 apk add tinc-pre
 
-modprobe tun
+sudo modprobe tun
 # echo tun >> /etc/modules
 echo tun | sudo tee /etc/modules-load.d/tinc.conf
 

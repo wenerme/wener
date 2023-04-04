@@ -23,8 +23,9 @@ tags:
 - [menzi11/BullshitGenerator](https://github.com/menzi11/BullshitGenerator)
 - [suulnnka/BullshitGenerator](https://github.com/suulnnka/BullshitGenerator)
   - https://suulnnka.github.io/BullshitGenerator/index.html
+- [Torantulino/Auto-GPT](https://github.com/Torantulino/Auto-GPT)
 
-## Reading
+### Reading
 
 - What is GPT-3? written in layman's terms
   - https://news.ycombinator.com/item?id=23923799

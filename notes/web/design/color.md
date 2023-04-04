@@ -43,6 +43,12 @@ title: Color
   - Room - 60/30/10 - 60% primary, 30% accent, 10% secondary
 - mdn css [accent-color](https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color)
 - https://www.homesandgardens.com/spaces/decorating/accent-color-ideas-224260
+- https://atmos.style/blog/lch-color-space
+
+## 工具
+
+- https://www.happyhues.co/
+
 ## 为什么色盘一般是 5 个颜色
 
 - https://graphicdesign.stackexchange.com/q/95715/93247

@@ -21,10 +21,13 @@ tags:
 CI=true
 CI=1
 CI=woodpecker
-VERCEL=1
 GITLAB_CI=true
 DRONE=true
 GITHUB_ACTIONS=true
+# Runtime & CI
+VERCEL=1
+RENDER=true
+CLOUDFLARE_ACCOUNT_ID=
 
 # CSV/Git 信息
 # ============
@@ -78,3 +81,4 @@ GIT_PREVIOUS_SUCCESSFUL_COMMIT=
 - https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables
 - [GitHub Action Variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables)
 - Vercel [Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables)
+- https://developers.cloudflare.com/workers/wrangler/system-environment-variables/

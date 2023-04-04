@@ -164,6 +164,8 @@ tags:
     - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
   - [cshum/imagor](https://github.com/cshum/imagor)
     - Apache-2.0, Go
+    - jpeg, png, gif, webp, tiff, avif, jp2, pdf
+  - thumbor
   - [cactus/go-camo](https://github.com/cactus/go-camo)
     - MIT, Go
   - [joe-bell/plaiceholder](https://github.com/joe-bell/plaiceholder)
@@ -172,6 +174,9 @@ tags:
   - [thoas/picfit](https://github.com/thoas/picfit)
     resizing server
     - 开发停滞
+  - [cshum/imagorvideo](https://github.com/cshum/imagorvideo)
+    - Apache-2.0, Go
+    - video thumbnail
 - image difference metrics - RD - rate distortion
   - butteraugli
     - good detail retention and best color

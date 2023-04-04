@@ -309,6 +309,8 @@ tags:
 | en                                        | cn                            |
 | ----------------------------------------- | ----------------------------- |
 | Account reconciliations                   | 对账                          |
+| accounting outsourcing                    | 代账                          |
+| bookkeeping outsourcing                   | 代账                          |
 | Balance sheet                             | 资产负债表                    |
 | Accountant                                | 会计师                        |
 | bookkeeper                                | 记账员,会计                   |

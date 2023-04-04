@@ -8,6 +8,7 @@ title: imgproxy
   - MIT, Go
   - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
   - Pro
+    - PDF, MP4/H264
     - PDF, MP4, GIF -> MP4, Video thumbnail
     - 指定 resize 算法 linear, cubic, Lanczos3
     - 填充半透明背景

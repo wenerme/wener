@@ -131,6 +131,10 @@ service k3s start
 
 # FAQ
 
+## cluster-init
+
+默认为 SQLite，加 `cluster-init: true` 重启后会使用 etcd
+
 ## 本地 registry 缓存
 
 ```bash
@@ -138,6 +142,7 @@ cat << YAML > /etc/rancher/k3s/registries.yaml
 mirrors:
   docker.io:
     endpoint:
+      - http://docker-registry:5000
       - https://fogjl973.mirror.aliyuncs.com
       - https://8x40wsit.mirror.aliyuncs.com
       - https://docker.mirrors.ustc.edu.cn

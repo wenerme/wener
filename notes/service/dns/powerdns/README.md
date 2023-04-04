@@ -25,7 +25,6 @@ title: PowerDNS
   - 域名管理工具
   - 通过修改 DB - 可以远程使用
 
-dnsdist is a DNS loadbalancer from the people behind PowerDNS that balances DNS packets based on rules.
 
 ```bash
 # macOS 安装
@@ -472,3 +471,8 @@ webserver=yes
 webserver-port=8082
 api-key=key
 ```
+
+# dnsdist
+
+- DNS loadbalancer
+- by PowerDNS

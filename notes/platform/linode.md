@@ -90,4 +90,6 @@ done
 
 curl -o /dev/null -w "@curl-format.txt" https://speedtest.dallas.linode.com/100MB-dallas.bin > dallas.txt
 curl -o /dev/null -w "@curl-format.txt" https://speedtest.singapore.linode.com/100MB-singapore.bin > singapore.txt
+
+fping -ac 60 speedtest.{newark,singapore,london,frankfurt,dallas,toronto1,syd1,atlanta,tokyo2,mumbai1,fremont}.linode.com
 ```

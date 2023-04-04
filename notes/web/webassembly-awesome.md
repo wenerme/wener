@@ -83,6 +83,14 @@ tags:
   - Run WebAssembly workloads in Kubernetes
 - https://v8.dev/blog/emscripten-standalone-wasm
 
+## Golang
+
+**Host**
+
+- [tetratelabs/wazero](https://github.com/tetratelabs/wazero)
+  - Apache-2.0, Go
+  - 无依赖
+
 ## JS
 
 - duktape

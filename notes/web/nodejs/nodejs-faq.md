@@ -114,6 +114,10 @@ setGlobalDispatcher(new ProxyAgent(process.env.HTTP_PROXY));
 - [node#43187](https://github.com/nodejs/node/issues/43187)
 - [gajus/global-agent#52](https://github.com/gajus/global-agent/issues/52#issuecomment-1134525621)
 
+## RequestInit: duplex option is required when sending a body
+
+- https://github.com/nodejs/node/issues/46221
+
 ## Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
 
 检查下是不是 import 路径错误，可能因为 IDE 自动导入，指向了错误路径。

@@ -28,7 +28,7 @@ title: 反向代理缓存
   - `http-response cache-store mycache`
   - Cache 要求
     - HTTP 1.1 GET 200
-  - https://github.com/haproxy/haproxy/issues/214
+  - HTTP cache improvements [haproxy#214](https://github.com/haproxy/haproxy/issues/214)
 - [jiangwenyuan/nuster](https://github.com/jiangwenyuan/nuster)
 
 ## Varnish

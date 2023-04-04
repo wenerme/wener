@@ -13,6 +13,28 @@ tags:
 - 张曼玉
 - 林青霞
 
+**死亡笔记**
+
+| 年份 | 中文名                          | 英文名                             | IMDB 编号 |
+| ---- | ------------------------------- | ---------------------------------- | --------- |
+| 2006 | 死亡笔记：第 1 章               | Death Note: The First Name         | tt0810827 |
+| 2006 | 死亡笔记：第 2 章               | Death Note: The Last Name          | tt0877057 |
+| 2008 | L：变革之瞳                     | L: Change the World                | tt0923965 |
+| 2016 | 死亡笔记 Light up the NEW world | Death Note: Light Up the New World | tt5058340 |
+
+**哈利·波特**
+
+| year | name                      | title                                        | IMDb      |
+| ---- | ------------------------- | -------------------------------------------- | --------- |
+| 2001 | 哈利·波特与魔法石         | Harry Potter and the Sorcerer's Stone        | tt0241527 |
+| 2002 | 哈利·波特与密室           | Harry Potter and the Chamber of Secrets      | tt0295297 |
+| 2004 | 哈利·波特与阿兹卡班的囚徒 | Harry Potter and the Prisoner of Azkaban     | tt0304141 |
+| 2005 | 哈利·波特与火焰杯         | Harry Potter and the Goblet of Fire          | tt0330373 |
+| 2007 | 哈利·波特与凤凰社         | Harry Potter and the Order of the Phoenix    | tt0373889 |
+| 2009 | 哈利·波特与混血王子       | Harry Potter and the Half-Blood Prince       | tt0417741 |
+| 2010 | 哈利·波特与死亡圣器(上)   | Harry Potter and the Deathly Hallows: Part 1 | tt0926084 |
+| 2011 | 哈利·波特与死亡圣器(下)   | Harry Potter and the Deathly Hallows: Part 2 | tt1201607 |
+
 ## Marvels
 
 **主线/MUC-真人电影**

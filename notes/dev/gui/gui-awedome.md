@@ -6,6 +6,8 @@ tags:
 
 # GUI Awesome
 
+- [slint-ui/slint](https://github.com/slint-ui/slint)
+  - GPLv3, C++, Rust, JS
 - [lvgl/lvgl](https://github.com/lvgl/lvgl)
 - [andlabs/ui](https://github.com/andlabs/ui)
 - [unoplatform/uno](https://github.com/unoplatform/uno)

@@ -13,6 +13,8 @@ tags:
   - 统一支持多种语言
   - MIT, Java
   - https://kroki.io
+- [terrastruct/d2](https://github.com/terrastruct/d2)
+  - 画架构
 - [asciiflow](https://asciiflow.com)
 - [vega/vega](https://github.com/vega/vega)
 - [Deep-Symmetry/bytefield-svg](https://github.com/Deep-Symmetry/bytefield-svg)

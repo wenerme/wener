@@ -38,6 +38,7 @@ tags:
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
+- [XX-net/XX-Net](https://github.com/XX-net/XX-Net)
 
 ## Sniff/Introspection
 

@@ -38,5 +38,5 @@ time curl -o /dev/null -w "@curl-format.txt" https://sjo-ca-us-ping.vultr.com/vu
 - https://cloudpingtest.com/vultr
 
 ```bash
-fping -ac 60 ams-nl-ping.vultr.com blr-in-ping.vultr.com bom-in-ping.vultr.com del-in-ping.vultr.com fl-us-ping.vultr.com fra-de-ping.vultr.com ga-us-ping.vultr.com hnd-jp-ping.vultr.com hon-hi-us-ping.vultr.com il-us-ping.vultr.com jnb-za-ping.vultr.com lax-ca-us-ping.vultr.com lon-gb-ping.vultr.com mad-es-ping.vultr.com mel-au-ping.vultr.com mex-mx-ping.vultr.com nj-us-ping.vultr.com osk-jp-ping.vultr.com par-fr-ping.vultr.com sao-br-ping.vultr.com scl-cl-ping.vultr.com sel-kor-ping.vultr.com sgp-ping.vultr.com sjo-ca-us-ping.vultr.com sto-se-ping.vultr.com syd-au-ping.vultr.com tor-ca-ping.vultr.com tx-us-ping.vultr.com wa-us-ping.vultr.com waw-pl-ping.vultr.com
+fping -ac 60 {ams-nl,blr-in,bom-in,del-in,fl-us,fra-de,ga-us,hnd-jp,hon-hi-us,il-us,jnb-za,lax-ca-us,lon-gb,mad-es,mel-au,mex-mx,nj-us,osk-jp,par-fr,sao-br,scl-cl,sel-kor,sgp,sjo-ca-us,sto-se,syd-au,tor-ca,tx-us,wa-us,waw-pl}-ping.vultr.com
 ```

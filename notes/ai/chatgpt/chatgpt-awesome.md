@@ -1,7 +1,17 @@
+---
+tags:
+  - Awesome
+---
+
 # ChatGPT Awesome
 
 - https://github.com/topics/chatgpt
+- [humanloop/awesome-chatgpt](https://github.com/humanloop/awesome-chatgpt)
+- [logankilpatrick/ChatGPT-Plugins-Collection](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection)
 - ChatGPT for Google https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf
+- [lxfater/LLMR-NLUP](https://github.com/lxfater/LLMR-NLUP)
+  - Natural-Language-UI-Programming
+- [zckly/dynamic-interface-web](https://github.com/zckly/dynamic-interface-web)
 - https://sharegpt.com/
 - 注册激活
   - https://sms-activate.org/
@@ -24,8 +34,9 @@
 # PROTOCOL=https
 docker run --rm -it \
   -e OPENAI_API_KEY="" -e CODE="" \
+  -e https=http://192.168.1.1:7890 \
   -p 3000:3000 \
-  --name chatgpt-next-web yidadaa/chatgpt-next-web
+  --name chatgpt-next-web wener/chatgpt-next-web
 ```
 
 ## Proxy

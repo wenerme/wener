@@ -4,10 +4,6 @@ title: ChatGPT
 
 # ChatGPT
 
-```js
-javascript:window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.startsWith('@@auth0spajs'))
-```
-
 ## API
 
 ```bash
@@ -21,3 +17,9 @@ curl https://api.openai.com/v1/models \
 ## Access denied
 
 尝试不用 VPN 或者换 VPN
+
+## 清理 Auth 信息
+
+```js
+javascript:window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.startsWith('@@auth0spajs'))
+```

@@ -6,6 +6,7 @@ title: Android Awesome
 
 ## Control
 
+- [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy)
 - [546669204/wechatbot-xposed](https://github.com/546669204/wechatbot-xposed)
   WeChat robot
 - [546669204/wechatbot](https://github.com/546669204/wechatbot)

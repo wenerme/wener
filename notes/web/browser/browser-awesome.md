@@ -8,6 +8,8 @@ tags:
 - https://inappbrowser.com/
   - 检测应用内 webview 注入的 内容
   - [iOS Privacy: Announcing InAppBrowser.com - see what JavaScript commands get injected through an in-app browser](https://krausefx.com/blog/announcing-inappbrowsercom-see-what-javascript-commands-get-executed-in-an-in-app-browser)
+- [fipso/ccurl.sh](https://github.com/fipso/ccurl.sh)
+  - curl 使用 Chrome 的 cookie
 
 ## Browser Automation
 
