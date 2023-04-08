@@ -85,6 +85,7 @@ tags:
   - MIT, C
 - [clue-ai/PromptCLUE](https://github.com/clue-ai/PromptCLUE)
 - [clue-ai/ChatYuan](https://github.com/clue-ai/ChatYuan)
+- [cocktailpeanut/dalai](https://github.com/cocktailpeanut/dalai)
 
 ## Audio to Text
 

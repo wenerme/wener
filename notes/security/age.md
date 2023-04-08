@@ -29,7 +29,7 @@ age -d -i ~/.ssh/id_ed25519 example.jpg.age > example.jpg  # 使用 SSH private 
 
 :::caution
 
-- age 不支持 ssh agent
+- age 不支持 ssh agent - [age#244](https://github.com/FiloSottile/age/discussions/244)
 
 :::
 

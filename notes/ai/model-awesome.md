@@ -29,4 +29,5 @@ tags:
 - [FMInference/FlexGen](https://github.com/FMInference/FlexGen)
 - [EssayKillerBrain/WriteGPT](https://github.com/EssayKillerBrain/WriteGPT)
   - GPT-2
+- [ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
 - https://www.promptingguide.ai/zh/models/collection
