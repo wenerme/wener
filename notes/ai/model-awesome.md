@@ -18,13 +18,18 @@ tags:
 - Flan
 - Alpaca
 - GPT4All
-- Chinese LLaMA / Alpaca
+- Chinese LLaMA
 - Vigogne (French)
 - LLaMA
-- [tatsu-lab/stanford_alpaca](https://github.com/tatsu-lab/stanford_alpaca)
+- https://huggingface.co/stabilityai/stable-diffusion-2
+- [togethercomputer/OpenChatKit](https://github.com/togethercomputer/OpenChatKit)
+- [Alpaca](./alpaca.md)
+  - 基于 LLaMA + 指令训练
 - [FlagAI-Open/FlagAI](https://github.com/FlagAI-Open/FlagAI)
 - [hpcaitech/ColossalAI](https://github.com/hpcaitech/ColossalAI)
 - [BlinkDL/ChatRWKV](https://github.com/BlinkDL/ChatRWKV)
+  - ChatGPT like
+  - RWKV (100% RNN)
 - [nebuly-ai/nebullvm](https://github.com/nebuly-ai/nebullvm)
 - [FMInference/FlexGen](https://github.com/FMInference/FlexGen)
 - [EssayKillerBrain/WriteGPT](https://github.com/EssayKillerBrain/WriteGPT)

@@ -39,10 +39,13 @@ title: Intel
 | 1998 | 3DNow     |
 | 1996 | MMX       |
 
+- AVX - Advanced vector extension
 - x86 - SIMD
 - 虚拟化: VT-x, AMD-, VT-d, AMD-Vi
 - ISA - instruction set architecture
 - ISE - instruction set extensions
+- CPUID
+  - https://pkg.go.dev/golang.org/x/sys/cpu
 
 <!--
 MB X99 2k+
