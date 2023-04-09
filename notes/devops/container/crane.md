@@ -19,6 +19,7 @@ brew install crane
 # install from source
 go install github.com/google/go-containerregistry/cmd/crane@latest
 # 手动下载
+# https://github.com/google/go-containerregistry/releases
 curl -LO https://github.com/google/go-containerregistry/releases/download/v0.13.0/go-containerregistry_Linux_arm64.tar.gz
 
 

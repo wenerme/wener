@@ -606,3 +606,28 @@ ORDER  BY conrelid::regclass::text, contype DESC;
 
 - 不支持
 - https://stackoverflow.com/questions/41054507
+
+## cannot use column reference in DEFAULT expression
+
+- 不能在 default 中使用其他列
+- 通过 before insert 触发器实现
+
+## lateral vs subquery
+
+- lateral
+  - PostgreSQL 9.3+
+  - [correlated subquery](https://en.wikipedia.org/wiki/Correlated_subquery)
+  - 不产生新的行
+  - 每行只执行 1 次
+  - `LEFT JOIN LATERAL (select 1) t ON TRUE`
+  - `LATERAL (select 1) t`
+  - 查询可以引用外部列
+- subquery
+  - 只能返回一个值
+  - 只执行 1 次
+
+## union vs union all
+- union
+  - 合并去重
+- union all
+  - 不做处理

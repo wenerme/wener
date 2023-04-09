@@ -13,6 +13,9 @@ tags:
   - Natural-Language-UI-Programming
 - [zckly/dynamic-interface-web](https://github.com/zckly/dynamic-interface-web)
 - https://sharegpt.com/
+- [eon01/awesome-chatgpt](https://github.com/eon01/awesome-chatgpt)
+- [nichtdax/awesome-totally-open-chatgpt](https://github.com/nichtdax/awesome-totally-open-chatgpt)
+- [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
 - 注册激活
   - https://sms-activate.org/
     - https://sms-activate.org/en/info/ChatGPT

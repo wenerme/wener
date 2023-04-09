@@ -7,19 +7,19 @@ tags:
 
 ## Accounting vs. Finance vs. Economics
 
-- Accounting
+- Accounting - 会计
   - 强调日常
   - 强调算法
   - 细节 - 准确
   - 历史
-- Finance
+- Finance - 财务
   - 管理、资产、投资
   - 概括
   - 未来 - 计划
   - 实践 - 管理 资金 的 工具、技术
   - 分为 public finance, corporate finance, personal finance
   - financial systems - e.g. assessing money, banking, credit, investments
-- Economics
+- Economics - 经济学
   - 宏观经济
   - 理论
 

@@ -36,3 +36,15 @@ tags:
   - GPT-2
 - [ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
 - https://www.promptingguide.ai/zh/models/collection
+- ggml
+  - [ggerganov/ggml](https://github.com/ggerganov/ggml)
+    - MIT, C
+- .pth - PyTorch
+  - checklist.chk - MD5
+  - params.json - `{"dim": 4096, "multiple_of": 256, "n_heads": 32, "n_layers": 32, "norm_eps": 1e-06, "vocab_size": -1}`
+  - [Saving & Loading Models](https://pytorch.org/tutorials/beginner/saving_loading_models.html)
+
+```bash
+# AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
+grep avx /proc/cpuinfo --color # x86_64
+```

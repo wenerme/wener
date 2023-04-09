@@ -53,6 +53,19 @@ docker run --rm -it \
   - Mailer
   - Localization: Chinese (Simplified)
 
+## jenkins/ssh-agent
+
+```bash
+docker run --rm -it \
+  jenkins/ssh-agent:4.13.0-alpine-jdk17
+```
+
+- alpine
+  - based on adoptopenjdk/openjdk
+- JENKINS_AGENT_SSH_PUBKEY
+- [SSH Build Agents](https://plugins.jenkins.io/ssh-slaves/)
+- https://www.jenkins.io/doc/book/using/using-agents/#configuring-agents-with-docker
+
 ## Failed to dynamically deploy this plugin
 
 下载失败
@@ -60,6 +73,7 @@ docker run --rm -it \
 - https://updates.jenkins-ci.org/download/plugins/
 
 ## System Properties
+
 ```ini
 jenkins.install.runSetupWizard=true
 # $JENKINS_HOME/secrets/initialAdminApiToken
@@ -106,4 +120,3 @@ http://updates.jenkins-ci.org/update-center.json
 - https://github.com/lework/jenkins-update-center
 - http://mirrors.jenkins-ci.org/status.html
 - https://updates.jenkins.io/
-

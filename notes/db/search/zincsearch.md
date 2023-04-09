@@ -4,10 +4,11 @@ title: zinc
 
 # zinc
 
-- [zinclabs/zinc](https://github.com/zinclabs/zinc)
+- [zincsearch/zincsearch](https://github.com/zincsearch/zincsearch)
   - Apache-2.0, Golang
   - 基于 bluge 索引
   - 部分兼容 Elastic 的搜索服务
+  - zinc -> zincsearch, zincobserve
 - 参考
   - https://mp.weixin.qq.com/s/g9fcKNSEHqwiK8Tt3MY3GA
     - 中文搜索

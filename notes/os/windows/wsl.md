@@ -37,8 +37,8 @@ wsl -d Alpine # 进入 Alpine VM
 
 # 配置系统
 cat << EOF > /etc/apk/repositories
-https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.16/main
-https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.16/community
+https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.17/main
+https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.17/community
 EOF
 echo "nameserver 114.114.114.114" > /etc/resolv.conf
 apk update
@@ -55,11 +55,12 @@ apk upgrade -a
 ## 开发环境准备
 
 ```bash
-# WSL
-wsl -d Alpine
-# 基础依赖
-apk add openssh make rsync bash
-bash
+wsl -d Alpine # 进入 WSL
+
+apk add openssh make rsync bash # 基础依赖
+apk add libc6-compat gcompat curl bash ca-certificates openssl ncurses coreutils python3 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
+
+bash # ash -> bash
 
 # SSH 配置
 # Windows 上的 ssh 密钥信息
@@ -70,6 +71,12 @@ chmod 700 ~/.ssh/id_rsa
 # 注意修改用户名和邮箱
 git config --global user.name "Author Name"
 git config --global user.email "email@address.com"
+
+# NodeJS
+curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+chmod u+x n
+# install -t /usr/local/bin n
+N_NODE_MIRROR=https://npmmirror.com/mirrors/node-unofficial-builds ./n --arch x64-musl lts
 
 # PHP 环境
 apk --no-cache add php81 php81-{bcmath,bz2,calendar,common,ctype,curl,dev,dba,dom,embed,enchant,exif,fileinfo,fpm,ftp,gd,gettext,gmp,iconv,imap,intl,json,ldap,mbstring,mysqli,mysqlnd,odbc,opcache,openssl,pcntl,pdo,pdo_dblib,pdo_mysql,pdo_odbc,pdo_pgsql,pdo_sqlite,pear,pgsql,phar,phpdbg,posix,pspell,session,shmop,simplexml,snmp,soap,sockets,sqlite3,sysvmsg,sysvsem,sysvshm,tidy,tokenizer,xml,xmlreader,xmlwriter,xsl,zip,zlib}
@@ -137,6 +144,8 @@ docker ps
 
 # FAQ
 
+- https://learn.microsoft.com/en-us/windows/wsl/troubleshooting
+
 ## WSL vs WSL2
 
 - WSL
@@ -195,9 +204,10 @@ wsl --import
 ## Install
 
 ```bash
+cmd.exe /c ver # 确认当前系统版本
+
 # WSL
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-
 # VM
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
@@ -212,4 +222,11 @@ wsl --set-default-version 2
 
 ```bash
 uname -a
+```
+
+## The Windows Subsystem for Linux has not been enabled.
+
+```
+ERR: The Windows Subsystem for Linux has not been enabled.
+HRESULT: 0x8007019e
 ```

@@ -123,3 +123,11 @@ iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
   - https://andygrove.io/2020/05/why-musl-extremely-slow/
   - https://pythonspeed.com/articles/alpine-docker-python/
   - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/
+
+## pthread_attr_setaffinity_np
+
+- 没有
+- torch libgomp
+- 替代 - https://patches.dpdk.org/project/dpdk/patch/20210319145730.3555384-15-thomas@monjalon.net/
+  - pthread_yield -> sched_yield
+  - pthread_attr_setaffinity_np -> pthread_create+pthread_setaffinity_np

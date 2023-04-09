@@ -38,7 +38,7 @@ title: Intellij IDEA
 | \U     | 大写直到 \E 或 替换结束 |
 | \E     | \U, \L 结束标志         |
 
-- https://www.jetbrains.com/help/idea/regular-expression-syntax-reference.html
+- https://www.jetbrains.com/help/idea/regular-expressions.html
 
 ## 实现自定义语言插件
 

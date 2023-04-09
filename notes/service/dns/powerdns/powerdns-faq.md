@@ -6,6 +6,16 @@ tags:
 
 # PowerDNS FAQ
 
+## CNAME Flattening
+
+- 使用 ALIAS 记录
+- 配置展开和 resolver
+
+```ini
+resolver=[::1]:5300
+expand-alias=yes
+```
+
 ## Attempt to bind more parameters than query has
 
 ```

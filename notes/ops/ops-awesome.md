@@ -41,3 +41,16 @@ tags:
       - Traffic - 流量
       - Errors - 错误率
       - Saturation - 饱和度
+
+## 远程控制
+
+- [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk)
+- [quasar/Quasar](https://github.com/quasar/Quasar)
+  - MIT, C#
+  - for Windows
+- TTY
+  - [zhaojh329/rtty](https://github.com/zhaojh329/rtty)
+    - MIT, C
+- [rev1si0n/lamda](https://github.com/rev1si0n/lamda)
+  - Android
+  - RE

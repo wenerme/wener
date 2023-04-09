@@ -53,6 +53,10 @@ backend be
 curl --haproxy-protocol 192.168.1.2
 ```
 
+```
+tcp-request connection expect-proxy layer4 if { src -f proxies.lst }
+```
+
 ## Nginx
 
 ```nginx

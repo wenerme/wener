@@ -5,6 +5,8 @@ tags:
 
 # AI Awesome
 
+- [Stable-Diffusion Awesome](./stable-diffusion/stable-diffusion-awesome.md)
+
 ## 应用 {#applications}
 
 **产品/服务**
@@ -33,6 +35,10 @@ tags:
   - 文档理解，QA
 - [mpaepper/content-chatbot](https://github.com/mpaepper/content-chatbot)
   - 网站内容, QA
+- [yetone/openai-translator](https://github.com/yetone/openai-translator)
+  - 翻译
+- [microsoft/visual-chatgpt](https://github.com/microsoft/visual-chatgpt)
+  - 图片编辑
 - [hwchase17/langchain](https://github.com/hwchase17/langchain)
 - [LAION-AI/Open-Assistant](https://github.com/LAION-AI/Open-Assistant)
   - 助手
@@ -40,6 +46,17 @@ tags:
 - [gpt-3-experiments](https://gpt-3-experiments.com/)
 - 发现
   - https://www.theaivalley.com/
+
+## Coding
+
+- [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
+  - 类似 GitHub Copilot
+  - [HN](https://news.ycombinator.com/item?id=28962582)
+- [THUDM/CodeGeeX](https://github.com/THUDM/CodeGeeX)
+  - Apache-2.0
+  - Multilingual Code Generation Model
+- [cloudquery/pg_gpt](https://github.com/cloudquery/pg_gpt)
+  - 自然语言查询 Pg
 
 ## Reading
 
@@ -64,6 +81,9 @@ tags:
   - AGPLv3, Python
 - [nat/openplayground](https://github.com/nat/openplayground)
   - https://nat.dev/
+- [webonnx/wonnx](https://github.com/webonnx/wonnx)
+  - MIT
+  - ONNX
 - [AbdBarho/stable-diffusion-webui-docker](https://github.com/AbdBarho/stable-diffusion-webui-docker)
 - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
 
@@ -101,12 +121,6 @@ tags:
 ## Text to Video
 
 - https://news.ycombinator.com/item?id=35352452
-
-## GANs StableDiffusion
-
-- [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
-- [Stability-AI/stablediffusion](https://github.com/Stability-AI/stablediffusion)
-  - v2
 
 ## Transfomer
 

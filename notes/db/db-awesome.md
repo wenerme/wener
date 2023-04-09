@@ -207,6 +207,8 @@ curl --request POST \
   - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
 - [superfly/litefs](./relational/litefs.md)
   - 基于 fuse 的 litestream - 批量同步
+- [maxpert/marmot](https://github.com/maxpert/marmot)
+  - 基于 NATS 同步 sqlite
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
   - Query sqlite via http
   - [HN](https://news.ycombinator.com/item?id=30636796)
@@ -306,6 +308,8 @@ curl --request POST \
 
 ## Interactive
 
+- [pocketbase/pocketbase](https://github.com/pocketbase/pocketbase)
+  - MIT, Go, SQLite
 - [sqlpad/sqlpad](https://github.com/sqlpad/sqlpad)
   - Web-based SQL editor and visualizing
 - [pinterest/querybook](https://github.com/pinterest/querybook)

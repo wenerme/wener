@@ -23,6 +23,10 @@ tags:
   Private Terraform Module Registry
 - [shuaibiyy/awesome-terraform](https://github.com/shuaibiyy/awesome-terraform)
 - [adobe/tf-manage](https://github.com/adobe/tf-manage)
+- Backend
+  - [plumber-cd/terraform-backend-git](https://github.com/plumber-cd/terraform-backend-git)
+    - Apache-2.0, Golang
+    -  HTTP Backend by Git
 
 ## Learn
 

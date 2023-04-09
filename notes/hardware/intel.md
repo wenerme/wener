@@ -109,3 +109,15 @@ https://en.wikipedia.org/wiki/Mini-STX
   - Larkbox
   - J6412
     - https://item.taobao.com/item.htm?id=680923819426
+
+## Xeon
+
+- W - Comet Lake
+- Bronze, Gold, Platinum 82xx - Cascade Lake
+- Coffee Lake
+- v6 - Kaby Lake - 2017-05
+- v5, Platinum, Gold - Skylake - 2015-08
+- v4 - Broadwell
+- v3 - Haswell
+- v2 - ivy
+- v1 - Sandy Bridge

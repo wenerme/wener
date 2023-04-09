@@ -7,7 +7,7 @@ tags:
 
 ## 链接超时 {#idle-connections}
 
-- 云平台会主动切断 idle 的链接，这个和局域网的链接不同
+- 云平台会主动切断 idle 的链接，这个和局域网的链接不同 - 云平台 nat 资源
 - 应用需要主动 ping/keepalive 保持链接，否则从链接池里拿出来链接可能已经 timeout
 - 操作系统层面可以配置 tcp keepalive 进行保活
 - 大多链接池都支持

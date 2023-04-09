@@ -20,7 +20,6 @@ tags:
 | [ONLYOFFICE/DocumentServer](https://github.com/ONLYOFFICE/DocumentServer)                   | AGPL    |
 | [LibreOffice/core](https://github.com/LibreOffice/core)                                     | GPL     |
 
-
 ## Library
 
 - Java
@@ -40,13 +39,36 @@ tags:
     - 生成 docx
   - [dbashford/textract](https://github.com/dbashford/textract)
     - 文本提取
-- [foliojs](https://github.com/foliojs)
-  - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
-    - MIT, JavaScript
-    - JavaScript PDF generation library for Node and the browser
-  - fontkit
-  - png.js
-  - brotli.js
+  - [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
+    - Apache-2.0, JS
+  - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
+  - [foliojs](https://github.com/foliojs)
+    - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
+      - MIT, JavaScript
+      - JavaScript PDF generation library for Node and the browser
+    - fontkit
+    - png.js
+    - brotli.js
+- Editor
+  - [dream-num/Luckysheet](https://github.com/dream-num/Luckysheet)
+  - [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
+  - [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
+  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
+  - [nhn/tui.grid](https://github.com/nhn/tui.grid)
+  - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
+- React Table
+  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
+    - MIT
+  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
+    - MIT, JS
+  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+- Golang
+  - [qax-os/excelize](https://github.com/qax-os/excelize)
+  - [unidoc/unioffice](https://github.com/unidoc/unioffice)
+    - .docx, .xlsx, .pptx
+- PHP
+  - [PHPOffice/PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- [FancyGrid/awesome-grid](https://github.com/FancyGrid/awesome-grid)
 - PDF
   - [mozilla/pdf.js](https://github.com/mozilla/pdf.js)
     - Apache-2.0, Javascript
@@ -58,6 +80,22 @@ tags:
   - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
     - MIT, Javascript
     - Builder
+- 应用
+  - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)
+    - personal finances
+
+## LowCode DataTable
+
+- [apitable/apitable](https://github.com/apitable/apitable)
+  - AGPLv3, JS, Java
+- supabase
+- baserow
+- nocodb
+- [rowyio/rowy](https://github.com/rowyio/rowy)
+  - for Firestore
+- [gristlabs/grist-core](https://github.com/gristlabs/grist-core)
+  - Apache-2.0, TS
+  - SQLite
 
 ## 商业
 

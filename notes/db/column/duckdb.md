@@ -11,6 +11,7 @@ title: DuckDB
   - 支持查询 Parquet, CSV
   - 向量引擎，并行查询
   - 官方支持 SDK: Python, Java, C++, NodeJS, R
+  - 语法类似 pg - 使用 libpg_query
 - 参考
   - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
     - 在 Web 内执行，基于 FS API 进行 IO 交互
@@ -21,6 +22,7 @@ title: DuckDB
 - 不支持 vacuum [duckdb#109](https://github.com/duckdb/duckdb/issues/109)
   - 只能 export 然后 import 来减小文件体积
 - 不能更新 unique 列 [#5771](https://github.com/duckdb/duckdb/issues/5771)
+- DataGrip Driver [DBE-15099/](https://youtrack.jetbrains.com/issue/DBE-15099/Driver-for-DuckDB)
 
 :::
 
@@ -139,7 +141,7 @@ mkdir -p ~/.duckdb/extensions/$ver/osx_amd64
 cd ~/.duckdb/extensions/$ver/osx_amd64
 
 # https://duckdb.org/docs/extensions/overview
-for name in httpfs fts sqlite_scanner; do
+for name in httpfs excel fts sqlite_scanner postgres_scanner json parquet jemalloc; do
   [ -e $name.duckdb_extension ] && continue;
   echo Installing $name;
   curl -LO http://extensions.duckdb.org/$ver/osx_amd64/$name.duckdb_extension.gz
@@ -147,6 +149,21 @@ for name in httpfs fts sqlite_scanner; do
 done
 ```
 
+```sql
+load 'jemalloc';
+load 'json';
+load 'postgres_scanner';
+load 'sqlite_scanner';
+```
+
 - sqlite_scanner
   - `sqlite_attach('data.sqlite')` - 创建 view - 只能查 **不能写**
   - sqlite_scan - `SELECT * FROM sqlite_scan('data.sqlite', 'tab');` - 直接查询单个表
+- wasm
+- visualizer
+  - 测试结果 -> HTML
+  - `pragma visualize_last_profiling_output('__TEST_DIR__/test.html')`
+- sqlsmith
+  - SQL 生成器，用于测试
+- tpch
+- tpcds

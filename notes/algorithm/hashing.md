@@ -217,3 +217,14 @@ echo -n "secret" | argon2 "saltsalt" -e
   - since 2015
 - [minio/sha256-simd](https://github.com/minio/sha256-simd)
   - Apache-2.0, Golang
+
+## xxHash vs MurmurHash
+
+- xxHash3
+- MurmurHash3
+
+---
+
+- 犹豫就选择 sha256
+- http://emboss.github.io/blog/2012/12/14/breaking-murmur-hash-flooding-dos-reloaded/
+- https://github.com/microsoft/AttackSurfaceAnalyzer/issues/8#issuecomment-478215004

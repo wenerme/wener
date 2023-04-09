@@ -57,3 +57,9 @@ POST http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&group=tes
 - [nacos-group/nacos-docker](https://github.com/nacos-group/nacos-docker)
   - 可以配置 JAVA_OPT
 - [nacos-group/nacos-k8s](https://github.com/nacos-group/nacos-k8s)
+
+# FAQ
+
+## No DataSource set
+
+可能是没建表

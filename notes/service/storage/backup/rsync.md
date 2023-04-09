@@ -99,6 +99,26 @@ rsync -zarv --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
 ```
 
+## Filter Rules
+
+- exclude, `-`
+- include, `+`
+- merge, `.`
+- dir-merge, `:`
+- hide, H
+- show, S
+- protect, P
+- risk, R
+- clear, `!`
+- Modifier
+  - `/` - 绝对路径
+  - `!`
+  - C - CVS-exclude
+  - s - sending side
+  - r - receiving side
+  - p - perishable
+  - x - xattr
+
 ## ssh port
 
 ```bash

@@ -6,6 +6,11 @@ tags:
 
 # Terraform FAQ
 
+- 不能 import .tfstate
+  - [terraform#32064](https://github.com/hashicorp/terraform/issues/32064)
+
+## This statement declares a move from , but that resource is still declared
+
 ## This configuration or its associated state refers to the unqualified provider "local"
 
 ```bash

@@ -1,5 +1,4 @@
 ---
-id: terraform
 title: Terraform
 ---
 

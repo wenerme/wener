@@ -6,6 +6,8 @@ tags:
 
 # Stable Diffusion Awesome
 
+- [Stability-AI/stablediffusion](https://github.com/Stability-AI/stablediffusion)
+  - v2
 - [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
   -  text-to-image
 - [basujindal/stable-diffusion](https://github.com/basujindal/stable-diffusion)

@@ -8,6 +8,17 @@ tags:
 
 ## Could not create a tun/tap interface from /dev/net/tun: Resource busy
 
+## PMTU
+
+## MTU 1518
+
+`tincd -n <netname> -kUSR2`, and it will send a list of nodes to the syslog. The MTU should be in it.
+
+There is no MTU limitation for a node talking to itself. So tinc just
+lists the maximum it itself supports, which is 1518.
+
+https://github.com/opnsense/core/issues/2057
+https://www.tinc-vpn.org/pipermail/tinc/2015-May/004142.html
 
 ## Peer had unknown identity
 
@@ -140,6 +151,8 @@ SPTPS/UDP transmit for 10 seconds:           2.17 Gbit/s
 ```
 
 ## macOS Router tinc-up
+
+- DeviceType = utun
 
 ```sh
 ifconfig $INTERFACE 10.66.1.2 10.66.1.1 up
