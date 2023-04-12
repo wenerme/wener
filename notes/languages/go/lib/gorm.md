@@ -143,6 +143,16 @@ const (
 ```
 
 ```go
+import (
+  "gorm.io/driver/sqlite"
+  _ "github.com/glebarez/sqlite"
+  "gorm.io/gorm"
+)
+
+db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
+```
+
+```go
 // 直接调用 processor
 func TestPreloadOnly(t *testing.T){
   // 模型只包含主键
@@ -333,3 +343,7 @@ type User struct {
     Email  string    `gorm:"unique;not null;type:varchar(100);default:null"`
 }
 ```
+
+## ErrRecordNotFound
+
+- First, Last, Take

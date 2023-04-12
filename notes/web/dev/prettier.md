@@ -128,3 +128,9 @@ module.exports = {
 ```html
 <!-- prettier-ignore -->
 ```
+
+## SyntaxError: This experimental syntax requires enabling one of the following parser plugin(s): "decorators", "decorators-legacy".
+
+```
+importOrderParserPlugins: ['typescript', 'decorators-legacy'],
+```

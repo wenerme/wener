@@ -278,13 +278,16 @@ curl --request POST \
 
 :::
 
+- pg_vector
+- [qdrant/qdrant](https://github.com/qdrant/qdrant)
+  - Apache-2.0, Rust
 - [milvus-io/milvus](https://github.com/milvus-io/milvus)
   - Apache-2.0, Go
   - Vector database for scalable similarity search and AI applications.
 - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
   - MIT, C++
   - efficient similarity search and clustering of dense vectors
-- [semi-technologies/weaviate](https://github.com/semi-technologies/weaviate)
+- [weaviate/weaviate](https://github.com/weaviate/weaviate)
   - BSD-3, Golang
   - cloud-native, modular, real-time vector search engine
 - [facebookincubator/velox](https://github.com/facebookincubator/velox)

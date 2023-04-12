@@ -128,7 +128,7 @@ nm -gDC /usr/lib/libsqlite3.so
 objdump -TC libz.so
 readelf -Ws libz.so
 # 只看 symbol
-readelf -Ws /usr/lib/libsqlite3.so | awk '{print $8}';
+readelf -Ws /usr/lib/libsqlite3.so | awk '{print $8}'
 ```
 
 ```go
@@ -150,6 +150,7 @@ package dlopen
 ```
 
 ## sqlite
+
 - [cznic/sqlite](https://gitlab.com/cznic/sqlite)
   - CGo-free port of SQLite/SQLite3 v3.37.0
   - C to Go
@@ -183,11 +184,10 @@ package dlopen
 ## 查找用到了 cgo 的模块
 
 ```bash
-go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./... )
+go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./...)
 ```
 
 ## zig cgo cross compile
-
 
 ```bash
 # Go 1.18+

@@ -6,6 +6,15 @@ tags:
 
 # macOS 常见问题
 
+## Memory
+
+- Memory - 虚拟内存 - 代码+数据+动态库+堆栈 等
+- Real Memory - 实际内存
+- Real Private Memory - 堆栈+字体缓存+OpenGL 等 - 独立占用
+- VM Compressed - 压缩不常用虚拟内存
+  - 可关闭 `sudo nvram boot-args="vm_compressor=1"`
+- Real Shared Memory - 共享内存
+
 ## AXIS AX88179 网卡用不了
 
 到官网下载最新驱动 https://asix.com.tw/en/product/USBEthernet/Super-SpeedUSBEthernet/AX88179
@@ -90,7 +99,6 @@ https://support.apple.com/zh-cn/HT201295
 松开所有三个按键和电源按钮，然后等待几秒钟。
 再次按下电源按钮以开启 Mac。
 ```
-
 
 ## tuntap
 
@@ -333,5 +341,5 @@ bindfs a b
 ## 输入法卡顿
 
 ```bash
-kill -9 `pgrep SCIM`
+kill -9 $(pgrep SCIM)
 ```

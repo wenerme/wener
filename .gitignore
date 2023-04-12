@@ -12,10 +12,7 @@
 .idea
 
 
-ignored
+*ignored*
 atlassian-ide-plugin.xml
-ignored.md
 node_modules
-
 .history
-*-ignored*

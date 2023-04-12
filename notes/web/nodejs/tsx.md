@@ -6,8 +6,9 @@ title: tsx
 
 - [esbuild-kit/tsx](https://github.com/esbuild-kit/tsx)
   - MIT, TS
-  - 基于 ESBuild
+  - 基于 ESBuild Transform API - 不支持插件
   - 支持 ts path
+  - 不支持 emitDecoratorMetadata
 
 ```bash
 tsx run.ts

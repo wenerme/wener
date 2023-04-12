@@ -11,6 +11,8 @@ title: glauth
   - 支持自定义属性，但不可以用于搜索
   - 默认 cn, ou -> user, group
 - 参考
+  - [glauth/glauth-postgres](https://github.com/glauth/glauth-postgres)
+  - [glauth/glauth-sqlite](https://github.com/glauth/glauth-sqlite)
   - [sonicnkt/glauth-ui](https://github.com/sonicnkt/glauth-ui)
 
 ```bash
@@ -144,3 +146,6 @@ CREATE UNIQUE INDEX idx_group_name on groups(name);
 CREATE TABLE includegroups (id INTEGER PRIMARY KEY, parentgroupid INTEGER NOT NULL, includegroupid INTEGER NOT NULL);
 CREATE TABLE capabilities (id INTEGER PRIMARY KEY, userid INTEGER NOT NULL, action TEXT NOT NULL, object TEXT NOT NULL);
 ```
+
+## PostgreSQL
+

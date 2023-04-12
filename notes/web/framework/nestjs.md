@@ -7,8 +7,24 @@ title: NestJS
 - 设计来自 Angular + SpringFramework
 - 核心概念
   - Module
+    - `@Module()`
   - Controller
+    - request -> response
+    - `@Controller('user/me')`
+    - `@Get()`,`@Post` - `@HttpCode(204)`, `@Header('Cache-Control', 'none')`, `@Redirect('https://nestjs.com', 301)`
+    - `@Request()`, `@Req() req: Request`
+    - `@Response()`, `@Res() res: Response`
+    - `@Param(key?: string)` - req.params
+    - `@Body(key?: string)` - req.body
+    - `@Query(key?: string)` - req.query
+    - `@Headers(name?: string)` - req.headers
+    - `@Next() next`
+    - `@Ip()` - req.ip
+    - `@HostParam()` - req.hosts
+    - `@Session()`
   - Provider
+    - `@Injectable()`
+    - `@Optional()`, `@Inject(key?:string)`
   - Middleware
   - Exception filter
   - Pipe
@@ -52,3 +68,36 @@ title: NestJS
     - axios
   - GraphQL
     - `@nestjs/graphql` apollo-server-express
+
+```
+📂 src
+├─ 📄 app.controller.spec.ts
+├─ 📄 app.controller.ts
+├─ 📄 app.module.ts
+├─ 📄 app.service.ts
+└─ 📄 main.ts
+```
+
+## Standalone
+
+作为 IoC 容器
+
+- @nestjs/core
+  - 172.1kB, 43.9kB
+- @nestjs/common
+  - 86.9kB, 19.4kB
+
+```ts
+import { NestFactory } from '@nestjs/core';
+
+const app = await NestFactory.createApplicationContext(AppModule);
+const userService = app.get(UserService);
+
+await app.close();
+```
+
+## Reflection metadata 'design:paramtypes' returning undefined
+
+- 需要 emitDecoratorMetadata
+- esbuild 不支持 emitDecoratorMetadata，swc 支持
+  - `ts-node --esm --swc`

@@ -28,6 +28,10 @@ title: ESBuild
 :::info
 
 - ES5+
+- 不支持 emitDecoratorMetadata
+  - [#257](https://github.com/evanw/esbuild/issues/257)
+  - [thomaschaaf/esbuild-plugin-tsc](https://github.com/thomaschaaf/esbuild-plugin-tsc)
+    - 会慢
 - 不支持 代码切分
 - 不支持 HTML, CSS
 - 不支持 TLA - WIP, iife
@@ -202,7 +206,8 @@ esbuild home.ts about.ts --bundle --splitting --outdir=out --format=esm
 - 添加 banner 解决
 
 ```bash
-npx esbuild --banner:js="import { createRequire } from 'module';const require = createRequire(import.meta.url);import path from 'path';import { fileURLToPath } from 'url';const __filename = fileURLToPath(import.meta.url);const __dirname = path.dirname(__filename);"
+# __dirname, __filename 用动态 import 构建，避免冲突
+npx esbuild --banner:js="import { createRequire } from 'module';const require = createRequire(import.meta.url);var __filename;var __dirname;{const {fileURLToPath} = await import('url');const {dirname} = await import('path');var __filename = fileURLToPath(import.meta.url); __dirname = dirname(__filename)};"
 ```
 
 ```ts

@@ -35,3 +35,12 @@ cat example.org.crt ca.crt > example.org.bundle.crt
 # FAQ
 
 ## variable lookup failed for ca::default_ca
+
+## SSL certificate verify result: unable to get local issuer certificate (20), continuing anyway
+
+The root certificate is not in the local database of trusted root certificates. The local database of trusted root certificates was not give or queried by OpenSSL.
+
+
+```bash
+openssl s_client -servername wener.me -connect wener.me:443
+```

@@ -9,15 +9,23 @@ title: swc
   - Rust-based platform for the Web
   - 开发者被 vercel 收编
   - 早期定位是 compiler - bundling & minifition not ready
+  - swcpack - bundle
 - https://swc.rs/docs/benchmarks
   - 性能上和 esbuild 差距并不大
-<<<<<<< Updated upstream
 - 参考
   - https://kdy1.dev/posts/2022/1/tsc-go
     - 开发者在尝试使用 go 重写 tsc
-=======
 - https://swc.rs/playground
->>>>>>> Stashed changes
+
+```bash
+pnpm i -D @swc/cli @swc/core
+
+pnpm swc ./src/main.ts -o ./dist/main.js
+
+# swc + esbuild/tsx - 支持 emitDecoratorMetadata, 利用 esbuild 的 bundle 能力
+pnpm swc ./src/ -d ./dist/out
+pnpm tsx ./dist/out/main.ts
+```
 
 # FAQ
 
@@ -26,6 +34,7 @@ title: swc
 - esbuild
   - production ready
   - 不能 bundle systemjs,amd
+  - 不支持 emitDecoratorMetadata
 - swc
   - compiler 功能完备
   - 能 bundle 更多格式
