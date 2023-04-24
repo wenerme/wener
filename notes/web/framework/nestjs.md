@@ -4,6 +4,7 @@ title: NestJS
 
 # NestJS
 
+- http-errors
 - 设计来自 Angular + SpringFramework
 - 核心概念
   - Module
@@ -67,7 +68,11 @@ title: NestJS
   - HTTP 客户端
     - axios
   - GraphQL
-    - `@nestjs/graphql` apollo-server-express
+    - `@nestjs/graphql`
+    - `@nestjs/apollo`
+      - apollo-server-express
+    - `@nestjs/mercurius`
+
 
 ```
 📂 src
@@ -77,6 +82,25 @@ title: NestJS
 ├─ 📄 app.service.ts
 └─ 📄 main.ts
 ```
+
+## GraphQL
+
+```bash
+# Express + Apollo 默认
+npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql
+
+# Fastify + Apollo
+npm i @nestjs/graphql @nestjs/apollo @apollo/server @as-integrations/fastify graphql
+
+# Fastify + Mercurius
+npm i @nestjs/graphql @nestjs/mercurius graphql mercurius
+```
+
+## Awesome
+
+- [risenforces/nestjs-zod](https://github.com/risenforces/nestjs-zod)
+  - nestjs-zod
+  - zod with nestjs
 
 ## Standalone
 

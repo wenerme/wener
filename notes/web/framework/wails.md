@@ -16,6 +16,7 @@ title: wails
 
 :::info
 
+- Roadmap [#1484](https://github.com/wailsapp/wails/discussions/1484)
 - 不支持多 WebView [#1452](https://github.com/wailsapp/wails/discussions/1452)
   - 目前只有 electron 支持
 - DnD 获取真实文件路径 [#1090](https://github.com/wailsapp/wails/issues/1090)

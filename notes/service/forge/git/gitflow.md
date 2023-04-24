@@ -31,10 +31,11 @@ git push --tags
 ```
 
 ## standard
-- 单分支
+
+- 单分支 - GitHub flow
   - master
 - 功能分支
-  -  master, `feature/*`
+  - master, `feature/*`
   - `feature/*` -> master
 - gitflow
   - master, develop, `feature/*`, `release/*`,`hotfix/*`
@@ -44,3 +45,74 @@ git push --tags
   - master, `feature/*`, `*-stable`, `env/*`
   - `feature/*` -> master
 
+```mermaid
+---
+title: GitFlow
+---
+gitGraph
+   commit id: "初始化"
+   commit id: "基础主线"
+   branch develop
+   commit id: "基础功能"
+   branch feature/a
+
+   checkout feature/a
+   commit id: "功能 A"
+   checkout develop
+   merge feature/a
+   commit id: "Merge A"
+
+   branch release/v1
+   checkout release/v1
+   commit id: "V1"
+   checkout develop
+   merge release/v1
+   checkout main
+   merge release/v1
+   commit id: "v1"
+
+   checkout main
+   branch hotfix/x
+   commit id: "fix x"
+   checkout main
+   merge hotfix/x
+   checkout develop
+   merge hotfix/x
+```
+
+```mermaid
+---
+title: GitLab
+---
+gitGraph
+   commit id: "初始化"
+   commit id: "基础主线"
+   branch develop
+   commit id: "基础功能"
+   branch feature/a
+
+   checkout feature/a
+   commit id: "功能 A"
+   checkout develop
+   merge feature/a
+   commit id: "Merge A"
+
+   branch env/staging
+   commit
+   commit id: "fixing A"
+   branch env/pre-prod
+   commit id: "v1"
+   branch env/production
+   commit
+```
+
+
+- https://docs.github.com/en/get-started/quickstart/github-flow
+  - frequently deploying
+  - minimize the amount of unreleased code
+- https://docs.gitlab.com/ee/topics/gitlab_flow.html
+- https://en.wikipedia.org/wiki/Feature-driven_development
+- https://martinfowler.com/bliki/FeatureBranch.html
+- 操作规范
+  - rebase
+  - squash

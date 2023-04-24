@@ -26,3 +26,17 @@ tags:
 - [AutomaApp/automa](https://github.com/AutomaApp/automa)
   - AGPL, Automa Commercial License, Vue+JS
   - browser extension for automating your browser by connecting blocks
+
+## puppeteer awesome
+
+- [berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra)
+- [prasanaworld/puppeteer-screen-recorder](https://github.com/prasanaworld/puppeteer-screen-recorder)
+  - CDP 录制视频
+
+## playwright
+
+https://playwright.dev/docs/codegen
+
+# FAQ
+
+## playwright vs puppeteer

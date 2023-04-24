@@ -132,12 +132,14 @@ title: 数据泄漏
   - https://gist.github.com/spacepatcher/8f94289236612a40ed93efc5645c0ccd
   - https://gist.github.com/tuantmb/ac1ffb77a3bc80e673d3fc7a20700368
 - stealth.si
+  - Bittorrent Tracker
 - https://cracked.io/
-- https://breached.to
+- https://leakbase.org/
+- https://breached.vc
   - http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/
-  - Rank https://breached.to/upgrades
+  - Rank https://breached.vc/upgrades
   - BTC,XMR,BCH,LTC,ETH,DOGE,SOL,DAI,USDC
-  - https://payments.breached.to/
+  - https://payments.breached.vc/
     - 8 €/30 credits
     - 15 €/60 credits
     - 30 €/120 credits

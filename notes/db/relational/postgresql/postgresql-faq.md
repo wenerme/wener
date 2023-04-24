@@ -627,6 +627,7 @@ ORDER  BY conrelid::regclass::text, contype DESC;
   - 只执行 1 次
 
 ## union vs union all
+
 - union
   - 合并去重
 - union all

@@ -334,3 +334,18 @@ export NODE_OPTIONS=--openssl-legacy-provider
 ```
 
 - https://stackoverflow.com/questions/69692842
+
+## snapshot
+
+```bash
+echo "globalThis.foo = 'I am from the snapshot'" > snapshot.js
+node --snapshot-blob snapshot.blob --build-snapshot snapshot.js
+echo "console.log(globalThis.foo)" > index.js
+node --snapshot-blob snapshot.blob index.js
+
+echo "require('v8').startupSnapshot.setDeserializeMainFunction(() => console.log('I am from the snapshot'))" > snapshot.js
+node --snapshot-blob snapshot.blob --build-snapshot snapshot.js
+node --snapshot-blob snapshot.blob
+```
+
+- 不支持 ESM https://github.com/nodejs/help/issues/3981

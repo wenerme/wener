@@ -283,6 +283,9 @@ tags:
 - office
   - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
     - stateless API for PDF files
+- gist/pastebin
+  - [thomiceli/opengist](https://github.com/thomiceli/opengist)
+    - AGPLv3, Go
 
 ## 学习
 

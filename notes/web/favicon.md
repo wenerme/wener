@@ -40,7 +40,7 @@ title: favicon
       }
     }
   </style>
-  <rect width="50" height="50" rx="5"/>
+  <rect width="50" height="50" rx="5" />
 </svg>
 ```
 
@@ -74,3 +74,15 @@ title: favicon
 ---
 
 - https://catalin.red/svg-favicon-light-dark-theme/
+
+## favicon
+
+- `https://www.google.com/s2/favicons?domain=wener.me&sz=256`
+- `https://icons.duckduckgo.com/ip3/wener.me.ico`
+- `https://icon.horse/icon/wener.me`
+- `https://favicongrabber.com/api/grab/wener.me`
+  - https://github.com/antongunov/favicongrabber.com
+- [pomdtr/fetch-favicon](https://github.com/pomdtr/fetch-favicon)
+- [BlackGlory/parse-favicon](https://github.com/BlackGlory/parse-favicon)
+  - Parse HTML to get icon
+- [mat/besticon](https://github.com/mat/besticon)

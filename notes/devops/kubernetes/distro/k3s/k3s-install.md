@@ -152,6 +152,20 @@ configs:
 YAML
 ```
 
+```bash
+# 配置了 REMOTEURL 可用于做 DockerHub 缓存，但是不能 PUSH https://github.com/distribution/distribution/issues/2386
+# 不配置 REMOTEURL 可用于 AirGap 本地 Push，也能部署两个，推一个缓存一个
+docker run --rm -it \
+  -p 5000:5000 \
+  -e REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io \
+  -v $PWD/data:/var/lib/registry \
+  --name registry registry:2
+
+# 能直接使用 docker-registry 而不是用 IP
+echo "127.0.0.1 docker-registry" >> /etc/hosts
+```
+
+
 ## zfs zvol
 
 ```bash

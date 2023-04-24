@@ -30,14 +30,14 @@ tags:
 - fex
 - [Emulator Comparison](https://wiki.osdev.org/Emulator_Comparison)
 - [machyve/xhyve](https://github.com/machyve/xhyve)
-- Web
-  - [copy/v86](https://github.com/copy/v86)
-    - BSD-2
-  - [leaningtech/webvm](https://github.com/leaningtech/webvm)
-    - https://webvm.io/
-    - [Linux Virtualization in WebAssembly with Full Networking via Tailscale](https://leaningtech.com/webvm-virtual-machine-with-networking-via-tailscale/)
-      - [HN](https://news.ycombinator.com/item?id=33116245)
-  - https://bellard.org/jslinux/
+## Web
+- [copy/v86](https://github.com/copy/v86)
+  - BSD-2
+- [leaningtech/webvm](https://github.com/leaningtech/webvm)
+  - https://webvm.io/
+  - [Linux Virtualization in WebAssembly with Full Networking via Tailscale](https://leaningtech.com/webvm-virtual-machine-with-networking-via-tailscale/)
+    - [HN](https://news.ycombinator.com/item?id=33116245)
+- https://bellard.org/jslinux/
 
 ## Fun
 

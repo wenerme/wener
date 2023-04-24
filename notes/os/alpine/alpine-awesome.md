@@ -8,6 +8,7 @@ tags:
 
 ```bash
 curl https://alpinelinux.org/releases.json
+curl https://mirrors.alpinelinux.org/mirrors.json
 ```
 
 ## Community

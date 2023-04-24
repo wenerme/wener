@@ -22,6 +22,39 @@ haproxy -c -V -f /etc/haproxy/haproxy.cfg
   - 4096 fd 默认 maxconn ~ 1700
   - 10000 连接 ~450MB - ~580MB
   - fd ~= maxconn\*2 + 1000
+- /proc/sys/fs/file-max
+
+## Timeout
+
+- HTTP or TCP
+- One Shot or Stream
+- Latency or Bandwidth
+
+```
+# HTTP 场景
+timeout connect 5s    # 客户端 connect 上的时间
+timeout client 50s    # 客户端 idle 时长，一般 5m
+timeout server 50s    # 服务端响应时长 - 504
+
+retries                 3
+timeout http-request    10s
+timeout queue           1m
+timeout connect         10s
+timeout client          10m
+timeout server          10m
+timeout http-keep-alive 10s
+timeout check           10s
+maxconn                 30000
+
+timeout http-request    10s # 整个请求时长
+timeout http-keep-alive 2s
+timeout queue           5s  # concurrent connections，默认 timeout connect
+timeout tunnel          2m  # WebSockets，类似 keep-alive
+timeout client-fin      1s  # dropped client side connections 可能会恢复的时间
+timeout server-fin      1s
+```
+
+- https://www.papertrail.com/solution/tips/haproxy-logging-how-to-tune-timeouts-for-performance/
 
 ## env
 
@@ -404,3 +437,21 @@ curl -H 'Host: wener.me' 127.0.0.1:8088
 ## redispatch
 
 - session redistribution in case of connection failure
+
+## Health Check
+
+- agent-check
+
+```
+option ldap-check
+# user USER
+option mysql-check
+option pgsql-check
+option redis-check
+
+option smtpchk
+# [HELO|EHLO] [<domain>]
+option smtpchk EHLO mydomain.com
+```
+- 如果设置了密码， PING 也需要密码
+- https://www.haproxy.com/documentation/hapee/latest/service-reliability/health-checking/active-checks/

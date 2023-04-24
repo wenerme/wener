@@ -101,7 +101,7 @@ iptables -A DOCKER -j ACCEPT -p tcp --destination ${CONTAINERIP} --dport ${HOSTP
 mkdir -p /data/docker
 # -s sparse volume 不保留空间
 zfs create -s -V 100GB main/docker-vol
-mkfs.ext4 /dev/zvol/tmain/docker-vol
+mkfs.ext4 /dev/zvol/main/docker-vol
 mount /dev/zvol/main/docker-vol /data/docker
 # 持久化 mount
 tail -1 /proc/mounts | sudo tee -a /etc/fstab
@@ -112,6 +112,13 @@ sudo rsync -aP /var/lib/docker/ /data/docker/
 # { "data-root": "/data/docker" }
 nano /etc/docker/daemon.json
 service docker start
+
+# 查看新的配置
+docker info | grep 'Root Dir'
+
+# 确认旧的目录没有被使用
+apk add lsof
+lsof +D /var/lib/docker
 ```
 
 ## driver "zfs" failed to remove root filesystem
@@ -169,7 +176,7 @@ docker buildx create --name multiarch-builder --driver docker-container --use tl
 ## DOCKER_HOST environment variable overrides the active context. To use a context, either set the global --context flag, or unset DOCKER_HOST environment variable.
 
 
-## dockerfile.v0: failed to create LLB definition: unexpected status code [manifests v18]: 403 Forbidden
+## failed to solve with frontend dockerfile.v0: failed to create LLB definition: unexpected status code [manifests latest]: 403 Forbidden
 
 ```bash
 export DOCKER_BUILDKIT=0

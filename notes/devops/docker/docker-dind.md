@@ -65,3 +65,9 @@ docker info
 ## 存在 mtu 问题
 
 - curl https 的时候 hang
+- `--mtu=1400`
+
+## invalid TLS configuration: Could not load X509 key pair (cert: "", key: ""): open : no such file or directory
+
+- 不要配置 `--tls=false --tlsverify=false`,可以配置  `--tls=false`
+- https://github.com/moby/moby/issues/27105

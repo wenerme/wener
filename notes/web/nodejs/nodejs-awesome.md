@@ -65,7 +65,7 @@ tags:
   - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
     - schema -> ts
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
-  - The future of Objection.js  [Vincit/objection.js#2335](https://github.com/Vincit/objection.js/issues/2335)
+  - The future of Objection.js [Vincit/objection.js#2335](https://github.com/Vincit/objection.js/issues/2335)
   - 🚧 开发停滞
   - SQL-friendly ORM
   - 基于 knex
@@ -122,7 +122,6 @@ install -t /usr/local/bin n
 # 国内镜像
 N_NODE_MIRROR=https://npmmirror.com/mirrors/node-unofficial-builds ./n --arch x64-musl lts
 
-
 # 非 ROOT
 export PATH=$HOME/n/bin:$PATH
 export N_PREFIX=$HOME/n
@@ -174,13 +173,18 @@ export N_PREFIX=$HOME/n
 
 - 日志
   - [pinojs/pino](https://github.com/pinojs/pino)
-
-## Scraper
-
-- [jsdom/jsdom](https://github.com/jsdom/jsdom)
-- [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
-- [rchipka/node-osmosis](https://github.com/rchipka/node-osmosis)
-- https://www.webscrapingapi.com/
+- Runtime
+  - [bytenode/bytenode](https://github.com/bytenode/bytenode)
+    - bytecode compiler for Node.js
+    - V8 bytecode
+- Scraper/爬虫
+  - [apify/crawlee](https://github.com/apify/crawlee)
+  - [coder-hxl/x-crawl](https://github.com/coder-hxl/x-crawl)
+  - https://www.webscrapingapi.com/
+  - [rchipka/node-osmosis](https://github.com/rchipka/node-osmosis)
+- JQuery/DOM
+  - [jsdom/jsdom](https://github.com/jsdom/jsdom)
+  - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 
 ## 工具
 

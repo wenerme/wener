@@ -9,11 +9,19 @@ title: HTTP
 
 ## Status
 
-| status | name            | note     |
-| ------ | --------------- | -------- |
-| 400    | Bad Request     |
-| 401    | Unauthorized    | RFC 7235 |
-| 504    | Gateway Timeout | RFC 7231 |
+| status | name                          | note                                            |
+| ------ | ----------------------------- | ----------------------------------------------- |
+| 400    | Bad Request                   |
+| 401    | Unauthorized                  | RFC 7235                                        |
+| 402    | Payment Required              |
+| 403    | Forbidden                     | 一般用于无权限，也用与需要认证 WWW-Authenticate |
+| 404    | Not Found                     |
+| 405    | Method Not Allowed            |
+| 406    | Not Acceptable                | Accept 头不匹配                                 |
+| 407    | Proxy Authentication Required |
+| 408    | Request Timeout               |
+| 409    | Conflict                      |
+| 504    | Gateway Timeout               | RFC 7231                                        |
 
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 

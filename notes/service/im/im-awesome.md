@@ -121,3 +121,8 @@ tags:
 - [matrix-org](https://github.com/matrix-org)
   interoperable, decentralised real-time communication
 - [利用消息队列 MQTT，打造一款属于自己的 IM 社交软件](https://developer.aliyun.com/article/68390)
+
+## Bot
+
+- [yihong0618/shanbay_remember](https://github.com/yihong0618/shanbay_remember)
+  - 扇贝自动发送今日新词到 telegram

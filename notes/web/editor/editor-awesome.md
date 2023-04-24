@@ -34,6 +34,10 @@ tags:
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
 
+## Image Editor
+
+- [steffest/DPaint-js](https://github.com/steffest/DPaint-js)
+
 ## Media
 
 - [layerhub-io/react-design-editor](https://github.com/layerhub-io/react-design-editor)
@@ -147,6 +151,13 @@ tags:
 ## View
 
 - [mac-s-g/react-json-view](https://github.com/mac-s-g/react-json-view)
+
+## Flow / NodeEditor
+
+- react-flow
+- [retejs/rete](https://github.com/retejs/rete)
+  - MIT
+  - modular framework for visual programming
 
 ## Glossary
 

@@ -10,8 +10,6 @@ title: Puppeteer
 - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
   - 避免下载
 - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-- 参考
-  - [berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra)
 
 :::caution
 
@@ -69,7 +67,7 @@ var page = await browser.newPage();
 
 ```js
 // 获取当前的 ws url
-browser.wsEndpoint()
+browser.wsEndpoint();
 ```
 
 ## adblock
@@ -92,6 +90,7 @@ puppeteer.use(
   }),
 );
 ```
+
 - https://github.com/ghostery/adblocker
   - https://raw.githubusercontent.com/cliqz-oss/adblocker/master/packages/adblocker/assets/easylist/easylistgermany.txt
 
@@ -140,7 +139,6 @@ var browser = await puppeteer.launch({
 
 - root 必须要 `--no-sandbox`
 
-
 ## Failed to adjust OOM score of renderer with pid 799: Permission denied
 
 - --no-sandbox
@@ -155,3 +153,20 @@ var browser = await puppeteer.launch({
 apk add dbus
 service dbus start
 ```
+
+## The profile appears to be in use by another Chromium process on another computer
+
+```txt
+The profile appears to be in use by another Chromium process on another computer. Chromium has locked the profile so that it doesn't get corrupted. If you are sure no other processes are using this profile, you can unlock the profile and relaunch Chromium.
+```
+
+```bash
+# $DataDir/Singleton*
+rm -rf ~/.config/chromium/Singleton*
+```
+
+- SingletonSocket
+- SingletonLock
+- SingletonCookie
+
+## Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")

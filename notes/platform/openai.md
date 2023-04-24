@@ -31,4 +31,9 @@ title: OpenAI
   - 256×256 $0.016/image
 - Audio
   - Whisper	$0.006 / minute
-image.png
+
+## API
+
+- https://platform.openai.com/docs/api-reference
+- https://platform.openai.com/docs/models/model-endpoint-compatibility
+

@@ -61,6 +61,8 @@ tags:
 ## Reading
 
 - https://www.promptingguide.ai/zh/readings
+- https://jalammar.github.io/
+- https://karpathy.ai/zero-to-hero.html
 
 ## Prompt
 
@@ -133,6 +135,16 @@ tags:
 - [HarderThenHarder/transformers_tasks](https://github.com/HarderThenHarder/transformers_tasks)
 - [allenai/RL4LMs](https://github.com/allenai/RL4LMs)
 - [lucidrains/PaLM-rlhf-pytorch](https://github.com/lucidrains/PaLM-rlhf-pytorch)
+
+## 框架 {#framework}
+
+- [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
+  - ONNX Runtime
+
+## Bot
+
+- [ConnectAI-E/Feishu-OpenAI](https://github.com/ConnectAI-E/Feishu-OpenAI)
+  - GPLv3, Go
 
 ## Misc
 

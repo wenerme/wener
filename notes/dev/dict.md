@@ -166,6 +166,10 @@ tags:
 | refund application | 退款申请            |
 | invoice            | 发票                |
 | receipt            | 单据                |
+| input invoice      | 进项发票            |
+| purchase invoice   | 进项发票            |
+| output invoice     | 销项发票            |
+| sales invoice      | 销项发票            |
 | transaction record | 交易记录            |
 | referral fee       | 介绍费/推荐费       |
 | referral id        | 引荐编号            |

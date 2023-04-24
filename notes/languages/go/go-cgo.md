@@ -7,6 +7,9 @@ title: CGO
 > **Note**
 > CGO is not GO
 
+- [ebitengine/purego](https://github.com/ebitengine/purego)
+  - 不需要 go 调用 lib
+  - 通过 asm 调用
 - 避免 CGO
   - [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)
   - [notti/nocgo](https://github.com/notti/nocgo) - dlopen without cgo

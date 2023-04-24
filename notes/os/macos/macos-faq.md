@@ -343,3 +343,11 @@ bindfs a b
 ```bash
 kill -9 $(pgrep SCIM)
 ```
+
+## Powerup Hours
+
+```bash
+brew install smartmontools
+smartctl -a disk0 # Power On Hours
+ac                # connect time accounting /var/run/utmpx
+```

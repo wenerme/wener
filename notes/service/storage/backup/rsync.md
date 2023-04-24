@@ -41,6 +41,8 @@ title: rsync
 | --stats               |
 | --remove-source-files | 同步后删除源文件       |
 | --human-readable, -h  |
+| --checksum,-c         |
+| --prune-empty-dirs,-m    | 删除空目录             |
 
 > **Note**
 >

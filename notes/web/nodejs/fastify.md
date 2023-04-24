@@ -31,6 +31,11 @@ title: fastify
 | Outgoing Response |                  | 4xx,5xx |
 |                   | onResponse       |
 
+## 路由
+
+- `/data/*`
+  - `req.prams['*']` 获取之后的参数
+
 ## ecosystem
 
 - fastify

@@ -6,6 +6,19 @@ tags:
 
 # Linux FAQ
 
+## SIGINT vs SIGTERM vs SIGHUP
+
+- SIGHUP - 1
+  - 挂起
+  - 有时候用于重新加载配置 或者 重启 或者 日志轮转
+- SIGINT - 2
+  - 中断
+  - 通常是 Ctrl+C
+- SIGTERM - 15
+  - 终止
+  - 通常是 kill
+
+
 ## kernel-ml vs kernel-lt
 
 RHEL 内核 flavor

@@ -250,6 +250,9 @@ tags:
 - [argocd](./app/argocd.md)
 - [fleet](./app/fleet.md)
 - [flux](./app/flux.md)
+- [flux-subsystem-argo/flamingo](https://github.com/flux-subsystem-argo/flamingo)
+  - ArgoCD + Flux
+  - by Weave Works
 - Terraform
 - [helmfile/helmfile](https://github.com/helmfile/helmfile)
 

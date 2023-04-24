@@ -21,6 +21,7 @@ file * | grep SQLite | cut -d ':' -f 1
 - `$HOME/Library/Application Support/Google/Chrome`
 - ~/.config/google-chrome
 - `%LOCALAPPDATA%\Google\Chrome\User Data`
+- https://superuser.com/questions/951095
 
 **内容**
 

@@ -6,6 +6,7 @@ tags:
 
 # Selfhost Awesome
 
+- [mikeroyal/Self-Hosting-Guide](https://github.com/mikeroyal/Self-Hosting-Guide)
 - [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)
 - [lissy93/dashy](https://github.com/lissy93/dashy)
