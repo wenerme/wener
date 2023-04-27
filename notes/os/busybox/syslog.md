@@ -88,7 +88,7 @@ sudo killall -HUP syslogd
 - panic -> emerg
 - warn -> wanring
 
-```conf
+```
 # selector                                  action
 local2.*                                    /var/log/haproxy.log
 

@@ -705,3 +705,16 @@ env:
 - registry.k8s.io - 新的
 
 ## failed to execute portforward in network namespace
+
+## 高可用和复杂均衡
+
+- HA
+  - 集群外 Kubelet API 复杂均衡
+  - 用外部的 HAProxy/Nginx/VIP/Tinc 实现
+  - 最终的目的是用一个不变的地址访问 Kubelet API
+- LLB
+  - 集群内 LoadBalance 服务
+  - 分配 ClutserIP
+  - 不使用云服务可以用 MetalLB 这类的组件+Overlay/LAN 实现 ClusterIP 能力
+    - 例如: flannel+host+tinc switch
+  - 使用云服务可以用云服务的 LB 组件 - 可直接提供外网 IP

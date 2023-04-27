@@ -1,5 +1,4 @@
 ---
-id: nextcloud
 title: NextCloud
 ---
 

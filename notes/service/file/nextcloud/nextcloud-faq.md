@@ -112,3 +112,6 @@ docker run --rm -it -e 'domain=nextcloud.wener.me'
 ```bash
 ./occ config:system:set overwriteprotocol --value=https
 ```
+
+## AH00558: apache2: Could not reliably determine the server's fully qualified domain name
+Apache 错误信息，不影响

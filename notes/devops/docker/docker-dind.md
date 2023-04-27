@@ -71,3 +71,12 @@ docker info
 
 - 不要配置 `--tls=false --tlsverify=false`,可以配置  `--tls=false`
 - https://github.com/moby/moby/issues/27105
+
+## could not change group /var/run/docker.sock to docker: group docker not found
+
+添加启动参数 `--group=1000` 或
+
+```dockerfile
+FROM docker:dind
+RUN addgroup -g 2999 docker
+```

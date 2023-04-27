@@ -145,6 +145,13 @@ tags:
 
 - [ConnectAI-E/Feishu-OpenAI](https://github.com/ConnectAI-E/Feishu-OpenAI)
   - GPLv3, Go
+  - /webhook/event
+  - /webhook/card
+  - 订阅 机器人进群, 接收消息, 消息已读
+  - 权限
+    - im:resource 图片 - 获取与上传图片或文件资源
+    - im:message - group_at_msg,group_at_msg:readonly,p2p_msg,p2p_msg:readonly,send_as_bot
+    - im:chat,im:chat:readonly
 
 ## Misc
 

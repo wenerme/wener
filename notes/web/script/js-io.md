@@ -79,6 +79,73 @@ title: IO
   - [sindresorhus/file-type](https://github.com/sindresorhus/file-type)
     - Detect the file type of a Buffer/Uint8Array/ArrayBuffer
 
+## ReadableStream to Buffer
+
+```ts
+async function readStreamToBuffer(rs) {
+  const reader = rs.getReader();
+  const chunks = [];
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+  }
+  return Buffer.concat(chunks);
+}
+```
+
+## ReadableStream to String
+
+```ts
+async function readStreamToString(rs) {
+  const reader = rs.getReader();
+  const decoder = new TextDecoder();
+  const chunks = [];
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(decoder.decode(value));
+  }
+  return chunks.join('');
+}
+```
+
+## multipart/form-data 序列化为字符串
+
+```ts
+function formDataToString(formData) {
+  const r = new Request('http://127.0.0.1', { method: 'POST', body: formData });
+  return readStreamToString(r.body);
+}
+
+const data = new FormData();
+data.append('a', '1');
+data.append('file', new Blob([new Uint8Array([97, 98, 99, 100])], { type: 'application/octet-stream' }), 'c.bin');
+console.log(await formDataToString(data));
+
+// FormData 作为 Response
+const fd = await new Response(data).formData();
+console.log(Object.fromEntries(fd.entries()));
+```
+
+## data url to Blob
+
+```ts
+const blob = await fetch(
+  'data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH+GkNyZWF0ZWQgd2l0aCBhamF4bG9hZC5pbmZvACH5BAAKAAAAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQACgABACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkEAAoAAgAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkEAAoAAwAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkEAAoABAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQACgAFACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQACgAGACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAAKAAcALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==',
+).then((r) => r.blob());
+
+const url = URL.createObjectURL(blob);
+window.open(url);
+```
+
+## application/x-www-form-urlencoded
+
+```ts
+const p = new URLSearchParams({ b: 2, a: 1 });
+p.sort();
+p.toString();
+```
 
 # FAQ
 
@@ -87,8 +154,8 @@ title: IO
 - NodeJS 忽略 byteOffset
 
 ```js
-var buf = new Uint8Array(new TextEncoder().encode("wrong hello").buffer, 6);
-console.assert(new TextDecoder().decode(buf) === 'hello','should be hello')
+var buf = new Uint8Array(new TextEncoder().encode('wrong hello').buffer, 6);
+console.assert(new TextDecoder().decode(buf) === 'hello', 'should be hello');
 ```
 
 - https://github.com/anonyco/FastestSmallestTextEncoderDecoder/issues/17

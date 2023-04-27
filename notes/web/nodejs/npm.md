@@ -85,6 +85,9 @@ node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3
     - https://npmmirror.com/sync/@wener/reaction
 
 ```bash
+# 原始
+npm_config_registry=https://registry.npmjs.org
+
 # 淘宝镜像
 npm i --registry=https://registry.npm.taobao.org
 # 上海交大镜像

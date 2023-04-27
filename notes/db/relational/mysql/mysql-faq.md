@@ -33,7 +33,7 @@ from information_schema.processlist
 
 ```sql
 select user,host from mysql.user;
-select user,host from mysql.db;
+select user,host,db from mysql.db;
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
@@ -43,6 +43,8 @@ UPDATE mysql.user SET Host='%' WHERE Host='localhost' AND User='root';
 FLUSH PRIVILEGES;
 
 -- UPDATE mysql.db SET Host='%' WHERE Host='localhost' AND User='username';
+-- GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
+-- GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 ```
 
 ## Backup
