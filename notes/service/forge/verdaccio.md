@@ -98,3 +98,22 @@ store:
     retries: 3
     delay: 50
 ```
+
+##  ERR_SOCKET_TIMEOUT
+
+- 走代理拉取，可能慢
+
+```bash
+# 修改 timeout
+echo timeout=60000 >> .npmrc
+
+npm config ls -l | grep fetch
+```
+
+```ini
+fetch-retries = 2
+fetch-retry-factor = 10
+fetch-retry-maxtimeout = 60000
+fetch-retry-mintimeout = 10000
+fetch-timeout = 300000
+```

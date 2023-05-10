@@ -14,6 +14,7 @@ title: OpenAI
 - Chat
   - gpt-3.5-turbo $0.002/1K tokens
     - 25 万字/$
+    - 上下文 4096 tokens
 - InstructGPT
   - Ada - $0.0004 / 1K tokens
     - 最快
@@ -30,10 +31,33 @@ title: OpenAI
   - 512×512 $0.018/image
   - 256×256 $0.016/image
 - Audio
-  - Whisper	$0.006 / minute
+  - Whisper $0.006 / minute
 
 ## API
 
 - https://platform.openai.com/docs/api-reference
 - https://platform.openai.com/docs/models/model-endpoint-compatibility
+- https://npmjs.com/package/chatgpt
 
+```json
+{
+  "error": {
+    "message": "This key is associated with a deactivated account. If you feel this is an error, contact us through our help center at help.openai.com.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": "account_deactivated"
+  }
+}
+```
+
+## fin tune
+
+```bash
+pip install --upgrade openai
+export OPENAI_API_KEY="<OPENAI_API_KEY>"
+# openai tools fine_tunes.prepare_data -f <LOCAL_FILE>
+
+# ada, babbage, curie, davinci
+openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -m <BASE_MODEL>
+openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
+```

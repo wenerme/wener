@@ -15,6 +15,13 @@ title: NextAuth
     - 回调配前缀，默认支持 127.0.0.1
     - 只能配置**一个**回调
 
+:::caution
+
+- credentials 只支持 JWT 不能持久化 session token
+  - https://next-auth.js.org/providers/credentials
+
+:::
+
 | env                   | for               |
 | --------------------- | ----------------- |
 | NEXTAUTH_URL          |

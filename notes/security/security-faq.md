@@ -55,7 +55,7 @@ tags:
 - GCM (Galois/Counter Mode)
 
 ```js
-const key = await window.crypto.subtle.generateKey({name: 'AES-CBC',length: 256,},true,['encrypt', 'decrypt']);
+const key = await window.crypto.subtle.generateKey({ name: 'AES-CBC', length: 256 }, true, ['encrypt', 'decrypt']);
 ```
 
 ## PKCS#7 Padding
@@ -63,3 +63,27 @@ const key = await window.crypto.subtle.generateKey({name: 'AES-CBC',length: 256,
 - 用于 AES
 - 补齐 BlockSize - 一般 32
 - 最后一位记录 Padding 的长度
+
+## pkcs1 vs pkcs8
+
+PKCS（Public-Key Cryptography Standards）是由 RSA 实验室制定的一系列公钥密码体系标准。PKCS#1 和 PKCS#8 是这些标准中的两个，它们分别定义了 RSA 密钥对的表示和私钥信息的表示。
+
+1. PKCS#1（RSA Cryptography Standard）：
+   PKCS#1 是专门针对 RSA 密钥对的标准。它定义了 RSA 公钥和私钥的表示和编码。在 PKCS#1 标准中，私钥的表示通常包含以下信息：
+
+   - RSA 模数（n）
+   - 公钥指数（e）
+   - 私钥指数（d）
+   - 两个质数（p 和 q）
+   - 两个质数的乘法逆元（dp 和 dq）
+   - 系数 q 的逆元（qi）
+     PKCS#1 格式的密钥通常用于与 RSA 密钥相关的操作，如加密、解密、签名和验证。
+
+2. PKCS#8（Private-Key Information Syntax Standard）：
+   PKCS#8 是一种更通用的私钥表示标准，它适用于各种类型的非对称加密算法（例如 RSA、DSA 和 ECDSA 等）。PKCS#8 私钥通常包含以下信息：
+   - 私钥算法标识符
+   - 私钥本身
+   - 可选的属性集合
+     PKCS#8 格式的密钥可以用于与多种非对称加密算法相关的操作，而不仅仅是 RSA。
+
+总之，PKCS#1 是专门针对 RSA 密钥对的标准，而 PKCS#8 是一种更通用的私钥表示标准，适用于各种非对称加密算法。

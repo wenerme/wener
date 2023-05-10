@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 版本
 tags:
-- Version
+  - Version
 ---
 
 # Kubernetes 版本
@@ -77,6 +77,10 @@ tags:
 [cronjobcontrollerv2]: ./k8s-features.md#CronJobControllerV2
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
+
+## Kubernetes 1.27
+
+## Kubernetes 1.26
 
 ## Kubernetes 1.25
 

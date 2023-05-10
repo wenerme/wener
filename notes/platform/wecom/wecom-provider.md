@@ -120,6 +120,12 @@ https://open.weixin.qq.com/connect/oauth2/authorize?appid=CORPID&redirect_uri=RE
 
 ## 会话存档
 
+:::caution
+
+- 只有基于 glibc 的 Linux 系统才能使用会话存档功能
+
+:::
+
 - RSA2048 pkcs1
 
 ```bash
@@ -131,4 +137,4 @@ openssl rsa -in private-key.pem -pubout -out public-key.pem
 
 ## redirect_uri 与配置的授权完成回调域名不一致
 
-服务商 qr 不能用 js 内嵌
+服务商 qr 不能用 js 内嵌

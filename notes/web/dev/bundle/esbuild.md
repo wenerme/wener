@@ -106,7 +106,7 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
 - --target
   - chrome, edge, firefox, hermes, ie, ios, node, opera, rhino, safari
   - 可以更详细
-    - esnext, es2020, es5, es5, node12, node12.19
+    - esnext, es2020, es5, es5, node12, node19
     - chrome90
   - 也可以使用 supported 控制特性
 - --supported - https://esbuild.github.io/api/#supported

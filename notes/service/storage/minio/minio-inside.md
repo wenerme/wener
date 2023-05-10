@@ -31,3 +31,5 @@ tags:
   - [cmd/xl-storage.go](https://github.com/minio/minio/blob/master/cmd/xl-storage.go)
   - [MinIO Versioning, Metadata and Storage Deep Dive](https://blog.min.io/minio-versioning-metadata-deep-dive/)
   - [MinIO Optimizes Small Object Storage and Adds .tar Auto-Extraction](https://blog.min.io/minio-optimizes-small-objects/)
+    - `mc cp <path-to-archive>.tar play/mybucket --disable-multipart --attr "X-Amz-Meta-Snowball-Auto-Extract=true"`
+      - 自动解压 tar

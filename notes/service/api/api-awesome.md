@@ -261,6 +261,8 @@ tags:
 - swagger
 - graphql
 - OpenAPI
+- [syroegkin/swagger-markdown](https://github.com/syroegkin/swagger-markdown)
+  - 只支持 v2
 
 ## Tool
 

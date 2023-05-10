@@ -24,6 +24,8 @@ tags:
   - Apache-2.0, Java
   - Java interface to OpenCV, FFmpeg
   - https://github.com/bytedeco/javacv/wiki/Other-Resources
+- [aleju/imgaug](https://github.com/aleju/imgaug)
+  - Image augmentation for machine learning experiments
 
 ## Projects
 

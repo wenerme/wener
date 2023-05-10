@@ -42,6 +42,8 @@ docker run --rm -it \
   - AdGuardHome.yaml
 - work/
   - data/
-    - filters
+    - filters/
+      - 1.txt
     - sessions.db
     - stats.db
+    - querylog.json

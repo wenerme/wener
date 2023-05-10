@@ -48,7 +48,6 @@ ldappasswd -H ldap://ldap.example.com:389 -D "uid=account-name,ou=serviceaccount
 
 - ldapwiki [Simple Auth](https://ldapwiki.com/wiki/Simple%20Authentication)
 
-
 ## lldap vs glauth
 
 |       [lldap] | [glauth]        |

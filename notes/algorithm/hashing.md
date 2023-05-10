@@ -6,12 +6,14 @@ title: Hashing
 
 - Broken - MD4, MD5, SHA-0, SHA-1
 
-:::tip
+:::tip Hash used by various tools/services
 
-- git 默认 sha2-256
-  - https://git-scm.com/docs/hash-function-transition/
-- git lfs sha256
-- docker sha256
+- git
+  - 默认 sha2-256 - https://git-scm.com/docs/hash-function-transition/
+  - git lfs sha256
+- docker - sha256
+- npm - sha512, multihash
+- alpine - md5, sha1
 
 :::
 

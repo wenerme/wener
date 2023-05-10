@@ -6,6 +6,10 @@ tags:
 
 # macOS 常见问题
 
+## Inside
+
+- https://gist.github.com/kconner/cff08fe3e0bb857ea33b47d965b3e19f
+
 ## Memory
 
 - Memory - 虚拟内存 - 代码+数据+动态库+堆栈 等

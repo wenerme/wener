@@ -441,6 +441,7 @@ rm -rf ./node_modules/.pnpm/*
 ## node_modules 相同包包含多个目录
 
 - 不同的 peer deps 会创建目录
+- 通过在 root package.json 中添加 pnpm.overrides 来解决 - 全局统一版本
 - https://github.com/pnpm/pnpm/issues/5807
 - https://pnpm.io/how-peers-are-resolved
 
@@ -449,6 +450,11 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' '
 
 grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
 ```
+
+- e.g.
+  - @nestjs/platform-fastify -> fastify@4.15.0
+  - fastify@4.17.0
+  - 会导致两份 fastify - 导致版本不匹配
 
 ## peer deps
 

@@ -349,3 +349,18 @@ node --snapshot-blob snapshot.blob
 ```
 
 - 不支持 ESM https://github.com/nodejs/help/issues/3981
+
+## 检测在 ts-node 运行
+
+```ts
+var detectTSNode = false;
+
+try {
+    if (process[Symbol.for("ts-node.register.instance")]) {
+        detectTSNode = true;
+    }
+} catch() {
+}
+```
+
+- https://github.com/yorickdevries/detect-ts-node/blob/master/index.js

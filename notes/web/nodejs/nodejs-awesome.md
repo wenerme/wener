@@ -51,6 +51,8 @@ tags:
   - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
   - 🚧 开发缓慢
 - prisma
+- Typed Schema/Query
+  - [adelsz/pgtyped](https://github.com/adelsz/pgtyped)
 - [gajus/slonik](https://github.com/gajus/slonik)
   - PostgreSQL client with strict types
   - string tag
@@ -149,6 +151,8 @@ export N_PREFIX=$HOME/n
       - 基于 [uNetworking/uSockets](https://github.com/uNetworking/uSockets)
     - 性能好
     - 针对 Linux 优化
+- KV/Cache
+  - [jaredwray/keyv](https://github.com/jaredwray/keyv)
 
 ## Web
 
@@ -157,6 +161,18 @@ export N_PREFIX=$HOME/n
 - express
 - koa
   - 🚧 开发停滞
+
+## Framework
+
+- [nestjs](../framework/nestjs.md)
+  - trpc -> nestjs
+    - https://github.com/macstr1k3r/trpc-nestjs-adapter/tree/master/src/lib
+    - 只支持 express
+- TypeScript
+  - [ts-rest](https://github.com/ts-rest/ts-rest)
+  - trpc
+  - [ecyrbe/zodios](https://github.com/ecyrbe/zodios)
+    - zod, axio, nextjs, express
 
 ## Network
 

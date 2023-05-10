@@ -14,9 +14,11 @@ title: Alpine GLIBC
 - LD_LIBRARY_PATH=/usr/glibc-compat/sbin/ldconfig
 
 ```bash
+apk del gcompat
+
 # wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
-curl --remote-name-all -LC- https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r0/glibc{,-bin,-dev}-2.35-r0.apk
-apk add glibc-2.35-r0.apk glibc-bin-2.35-r0.apk glibc-dev-2.35-r0.apk --allow-untrust --force-overwrite
+curl --remote-name-all -LC- https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc{,-bin,-dev}-2.35-r1.apk
+apk add glibc-2.35-r1.apk glibc-bin-2.35-r1.apk glibc-dev-2.35-r1.apk --allow-untrust --force-overwrite
 ```
 
 - overwrite

@@ -44,6 +44,9 @@ tags:
   - 助手
 - [togethercomputer/OpenChatKit](https://github.com/togethercomputer/OpenChatKit)
 - [gpt-3-experiments](https://gpt-3-experiments.com/)
+- [bhaskatripathi/pdfGPT](https://github.com/bhaskatripathi/pdfGPT)
+- [freedmand/semantra](https://github.com/freedmand/semantra)
+  - semantic search
 - 发现
   - https://www.theaivalley.com/
 
@@ -140,6 +143,10 @@ tags:
 
 - [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
   - ONNX Runtime
+- [hidet-org/hidet](https://github.com/hidet-org/hidet)
+- mojo
+- https://mlc.ai/web-llm/
+  - https://news.ycombinator.com/item?id=35583349
 
 ## Bot
 
@@ -147,6 +154,7 @@ tags:
   - GPLv3, Go
   - /webhook/event
   - /webhook/card
+  - https://open.feishu.cn/app/
   - 订阅 机器人进群, 接收消息, 消息已读
   - 权限
     - im:resource 图片 - 获取与上传图片或文件资源

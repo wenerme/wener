@@ -11,3 +11,6 @@ tags:
 - PaddleOCR
 - EasyOCR
 - macOS OCR Live Text
+- [dynobo/normcap](https://github.com/dynobo/normcap)
+  - OCR powered screen-capture tool
+- [faustomorales/keras-ocr](https://github.com/faustomorales/keras-ocr)

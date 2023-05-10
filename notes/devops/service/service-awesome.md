@@ -14,7 +14,7 @@ tags:
   - https://smp-spec.io/
 - Service Mesh
   - 强调 编排服务、Rollout 流量控制
-  - 内部服务、 跨边界服务
+  - 内部服务、跨边界服务
   - 选择考虑维度
     - VM 支持 - 是否有裸机场景
     - 代码侵入性

@@ -34,6 +34,21 @@ tags:
 - [PostgresApp/PostgresApp](https://github.com/PostgresApp/PostgresApp)
   - macOS 应用
 - PipelineDB - 停止
+- DB to API
+  - [Postgrest](https://github.com/begriffs/postgrest)
+    - REST API for any Postgres database
+  - [pRest](https://github.com/prest/prest)
+    - Golang
+    - GET
+      - query
+        - \_page, \_page_size, \_select=FIELD, \_count=FIELD_NAME, \_count_first=true, \_renderer=xml, \_distinct=true, \_order=-FIELD, \_groupby=FIELD, \_FIELD=VALUE
+        - _join
+      - aggregation - SUM, AVG, MAX, MIN, STDDEV, VARIANCE
+        - sum:FIELD
+      - op - `$eq`
+        - gt,gte,lt,lte,ne,in,nin,null,notnull,true,nottrue,false,notfalse,like,ilike,nilike,ltreelanc, ltreerdesc,ltreematch,ltreematchtxt
+  - supabase
+  - Hasura
 
 ## Extension
 

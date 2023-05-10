@@ -7,6 +7,7 @@ tags:
 
 - https://github.com/topics/chatgpt
 - [humanloop/awesome-chatgpt](https://github.com/humanloop/awesome-chatgpt)
+- [Kamigami55/awesome-chatgpt](https://github.com/Kamigami55/awesome-chatgpt)
 - [logankilpatrick/ChatGPT-Plugins-Collection](https://github.com/logankilpatrick/ChatGPT-Plugins-Collection)
 - ChatGPT for Google https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf
 - [lxfater/LLMR-NLUP](https://github.com/lxfater/LLMR-NLUP)
@@ -16,6 +17,7 @@ tags:
 - [eon01/awesome-chatgpt](https://github.com/eon01/awesome-chatgpt)
 - [nichtdax/awesome-totally-open-chatgpt](https://github.com/nichtdax/awesome-totally-open-chatgpt)
 - [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
+- [josStorer/chatGPTBox](https://github.com/josStorer/chatGPTBox)
 - 注册激活
   - https://sms-activate.org/
     - https://sms-activate.org/en/info/ChatGPT

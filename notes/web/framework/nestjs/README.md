@@ -96,12 +96,6 @@ npm i @nestjs/graphql @nestjs/apollo @apollo/server @as-integrations/fastify gra
 npm i @nestjs/graphql @nestjs/mercurius graphql mercurius
 ```
 
-## Awesome
-
-- [risenforces/nestjs-zod](https://github.com/risenforces/nestjs-zod)
-  - nestjs-zod
-  - zod with nestjs
-
 ## Standalone
 
 作为 IoC 容器
@@ -120,8 +114,19 @@ const userService = app.get(UserService);
 await app.close();
 ```
 
+# FAQ
+
 ## Reflection metadata 'design:paramtypes' returning undefined
 
 - 需要 emitDecoratorMetadata
 - esbuild 不支持 emitDecoratorMetadata，swc 支持
-  - `ts-node --esm --swc`
+
+```bash
+# 推荐 swc + tsx
+pnpm swc --watch ./src -d ./dist/out
+pnpm tsx watch ./dist/out/main.js
+
+# 或 ts-node
+ts-node --esm --swc
+```
+

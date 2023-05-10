@@ -25,6 +25,7 @@ tags:
   - prettier
   - go fmt
   - clang fmt
+  - [diffplug/spotless](https://github.com/diffplug/spotless)
 - lint
   - eslint
   - go vet

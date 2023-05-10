@@ -451,6 +451,13 @@ EXT4-fs: 24 callbacks suppressed
 EXT4-fs (sdc): I/O error while writing superblock
 ```
 
+## Unable to access opcode bytes at RIP 0xa906
+
+```
+apk[5410]: segfault at a930 ip 000000000000a930 sp 00007fff2eb32cd8 error 14 in apk[55df206ac000+4000]
+Code: Unable to access opcode bytes at RIP 0xa906.
+```
+
 # TODO
 
 ```

@@ -31,6 +31,8 @@ composer init
 # 单项目仓库镜像
 composer config repos.packagist composer https://mirrors.aliyun.com/composer/
 
+composer dump-autoload -o
+
 # 项目 安装 composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 # --install-dir
@@ -45,13 +47,21 @@ php composer.phar update
 
 composer config --list
 composer config --global
+
+# 手动安装
+php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
+  && php composer-setup.php \
+  && php -r "unlink('composer-setup.php');" \
+  && mv composer.phar /usr/local/bin/composer
+
+# CI
+composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader
 ```
 
 ```php
 <?php
 require __DIR__ . '/vendor/autoload.php';
 ```
-
 
 - $HOME/.composer - data-dir/home
   - auth.json
