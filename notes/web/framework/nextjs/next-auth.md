@@ -35,6 +35,10 @@ title: NextAuth
 
 - [#6710](https://github.com/nextauthjs/next-auth/issues/6710)
   refresh token rotation doesn't update client session
+  - https://next-auth.js.org/getting-started/client#updating-the-session
+  - https://github.com/nextauthjs/next-auth/discussions/4229
+- [#1702](https://github.com/nextauthjs/next-auth/discussions/1702)
+  - one user, multiple account providers
 
 :::
 
@@ -84,6 +88,16 @@ export const defaultCallbacks: CallbacksOptions = {
 };
 ```
 
+- callbacks - https://next-auth.js.org/configuration/callbacks
+  - signIn - 可以拒绝用户登录
+  - redirect - 构造跳转 URL
+  - jwt
+    - 触发 `/api/auth/signin`, `/api/auth/session`, `getSession()`, `getServerSession()`, `useSession()`
+    - 第一次创建时有的参数 user, account, profile, isNewUser
+    - 之后都只有 token
+    - token 基础属性 - name, email, sub, iat, exp, jti
+  - session
+    - 触发 `getSession()`, `useSession()`, `/api/auth/session`
 - tokens:TokenSet
   - 包含 access_token
 - createState - state

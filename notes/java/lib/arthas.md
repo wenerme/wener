@@ -7,7 +7,7 @@ title: arthas
 - [alibaba/arthas](https://github.com/alibaba/arthas)
 - IDEA 插件
   - https://plugins.jetbrains.com/plugin/13581-arthas-idea
-- OGNL
+- OGNL 语法
 
 ```bash
 curl -O https://arthas.aliyun.com/arthas-boot.jar

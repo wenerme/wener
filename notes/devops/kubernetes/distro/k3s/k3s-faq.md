@@ -334,3 +334,62 @@ renew 后出现
 # openrc
 echo 'rc_ulimit="-n 1048576"' >> /etc/rancher/k3s/k3s.env
 ```
+
+## 单节点转多节点
+
+- 单节点 -> HA
+- SQLite -> ETCD
+- 修改存储然后重启即可
+  - 启动的时候添加 cluster-init 即可
+  - 当本地已经发现 etcd 数据库时，--cluster-init, --server, --datastore-endpoint 会被忽略
+- https://docs.k3s.io/datastore/ha-embedded#existing-clusters
+
+```bash
+echo 'cluster-init: true' >> /etc/rancher/k3s/config.yaml
+
+# 迁移后会记录 state.db.migrated
+service k3s restart
+du -sh /var/lib/rancher/k3s/server/db/etcd
+
+# etcd 支持快照
+k3s etcd-snapshot save
+k3s etcd-snapshot list
+# 快照目录
+ls /var/lib/rancher/k3s/server/db/snapshots
+
+# 判断
+lsof -f -- /var/lib/rancher/k3s/server/db/state.db-wal
+```
+
+## max-pods
+
+- 默认 110
+
+1. by config.yaml
+
+```yaml
+kubelet-arg:
+  - 'maxPods=250'
+
+#  - "kube-reserved=cpu=500m,memory=1Gi,ephemeral-storage=2Gi"
+#  - "system-reserved=cpu=500m, memory=1Gi,ephemeral-storage=2Gi"
+#  - "eviction-hard=memory.available<500Mi,nodefs.available<10%"
+```
+
+2. by config file
+
+```
+--kubelet-arg=config=/etc/rancher/k3s/kubelet.config
+```
+
+**/etc/rancher/k3s/kubelet.config**
+
+```yaml
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+maxPods: 250
+```
+
+- https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
+- https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/
+- https://docs.k3s.io/cli/agent#customized-flags

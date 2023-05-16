@@ -20,15 +20,19 @@ INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true bash k3s-install.sh
 ```
 
 ```bash
+# AlpineLinux
+sed 's/sourcex/\./g' -i /etc/init.d/k3s
+
 # 准备
 service cgroups start
 rc-update add cgroups
+apk add nfs-utils coreutils iptables iproute2 findutils
 # 配置检查
 k3s check-config
 
 # mkdir -p /etc/rancher/k3s
 # 配置
-echo 'rc_ulimit="-n 1048576"' >> /etc/rancher/k3s/k3s.env
+echo 'rc_ulimit="-n 1048576"' > /etc/rancher/k3s/k3s.env
 cat << YAML > /etc/rancher/k3s/registries.yaml
 mirrors:
   docker.io:
@@ -131,6 +135,13 @@ service k3s start
 
 # FAQ
 
+## stable 版本
+
+```bash
+curl https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest'
+curl https://update.k3s.io/v1-release/channels | yq -r '.data[] | select(.id == "stable") | .latest'
+```
+
 ## cluster-init
 
 默认为 SQLite，加 `cluster-init: true` 重启后会使用 etcd
@@ -203,3 +214,12 @@ sudo k3s check-config
 ```
 
 - https://docs.k3s.io/known-issues
+
+## AlpineLinux openrc sourcex
+
+- sourcex -> source/`.`
+- https://github.com/k3s-io/k3s/issues/6739
+
+```bash
+sed 's/sourcex/\./g' -i /etc/init.d/k3s
+```

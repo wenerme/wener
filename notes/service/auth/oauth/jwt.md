@@ -34,22 +34,98 @@ https://auth0.com/blog/cookies-vs-tokens-definitive-guide/
 - Token 不能被回收
 - 需要 Token 有个较短的失效周期
 
-| field     | stand for       | meanning                 |
-| --------- | --------------- | ------------------------ |
-| iss       | Issuer          | 发出者                   |
-| sub       | Subject         | 一般为用户 id            |
-| aud       | Audience        | 接受者                   |
-| exp       | Expiration time | 失效时间                 |
-| nbf       | Not before      | 在这之前不生效           |
-| iat       | Issued at       | 发出时间                 |
-| jti       | JWT ID          |
-| typ       | Type            | 类型,由用户扩展, e.g. ID |
-| azp       |
-| nonce     |
-| acr       |
-| sid       |
-| at_hash   |
-| auth_time |
+## claims
+
+- 声明
+
+**标准**
+
+| field | stand for       | meanning       |
+| ----- | --------------- | -------------- |
+| iss   | Issuer          | 发出者         |
+| sub   | Subject         | 一般为用户 id  |
+| aud   | Audience        | 接受者         |
+| exp   | Expiration time | 失效时间       |
+| nbf   | Not before      | 在这之前不生效 |
+| iat   | Issued at       | 发出时间       |
+| jti   | JWT ID          |
+
+**OIDC**
+
+| claim                 | for                                    | note                         |
+| --------------------- | -------------------------------------- | ---------------------------- |
+| azp                   | Authorized party                       | 通常是 OAuth 2.0 客户端 ID   |
+| nonce                 | CSRF                                   |
+| acr                   | Authentication Context Class Reference | 用户怎么做的认证             |
+| sid                   | Session ID                             |
+| at_hash               | Access Token Hash                      | 验证 Access Token 未被篡改   |
+| c_hash                | Code hash value                        |
+| amr                   | Authentication Methods References      |
+| sub_jwk               | Subject public key                     |
+| auth_time             |
+| name                  | Full name                              |
+| middle_name           |
+| preferred_username    |
+| family_name           |
+| given_name            |
+| nickname              |
+| profile               | url                                    |
+| picture               | url                                    |
+| website               | Web page or blog URL                   |
+| email                 |
+| email_verified        | boolean                                |
+| gender                |
+| birthdate             |
+| zoneinfo              |
+| locale                |
+| phone_number          |
+| phone_number_verified | boolean                                |
+| address               |                                        |
+| updated_at            |
+| s_hash                | State Hash                             | OAuth 2.0 state 参数的哈希值 |
+
+**自定义**
+
+| claim | for                           |
+| ----- | ----------------------------- |
+| admin |
+| typ   | Type 类型,由用户扩展, e.g. ID |
+
+- Keycloak
+  - realm_access, resource_access
+    - roles
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true,
+  "iat": 1516239022,
+  "https://hasura.io/jwt/claims": {
+    "x-hasura-allowed-roles": ["user", "anonymous"],
+    "x-hasura-default-role": "user",
+    "x-hasura-user-id": "1234567890",
+    "x-hasura-org-id": "123",
+    "x-hasura-custom": "custom-value"
+  }
+}
+```
+
+- https://www.iana.org/assignments/jwt/jwt.xhtml#claims
+- https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims
+
+**scope**
+
+- openid
+- profile
+  - name, family_name, given_name, middle_name, nickname, preferred_username, profile, picture, website, gender, birthdate, zoneinfo, locale, updated_at
+- email
+  - email, email_verified
+- address
+  - address
+- phone
+  - phone_number , phone_number_verified
+- offline_access
 
 常见算法
 

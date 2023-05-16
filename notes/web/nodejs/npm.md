@@ -29,8 +29,13 @@ title: NPM
 ```
 
 ```bash
-# 查看本地缓存大小
-du -hs ~/.npm/_cacache/
+du -hs ~/.npm/_cacache/ # 查看本地缓存大小
+npm config get prefix   # bin 目录
+npm list -g --depth=0   # 全局模块 - 第一行为目录，例如 /usr/local/lib
+npm root -g
+
+export NODE_PATH=$(npm root -g) # 能 import 全局的包
+node -p process.config.variables.node_prefix
 ```
 
 ## .npmrc

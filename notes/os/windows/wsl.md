@@ -7,7 +7,7 @@ title: WSL
 :::tip
 
 - WSL2 为完整虚拟机 - kernel+rootfs
-  - 跨 OS FS 性能不太好 - 建议项目直接放到 VM 里
+  - 跨 OS FS 性能不太好 - **建议项目直接放到 VM 里**
   - vsc 和 jetbrain 支持直接打开 wsl 里 fs
 - 等同于 macOS 下的 [lima](../virt/lima.md)
 - 约等于 [firecracker](../virt/firecracker.md) 效果
@@ -17,17 +17,37 @@ title: WSL
 :::
 
 - 文档 https://learn.microsoft.com/en-us/windows/wsl/
-- 下载安装 Windows WSL2 Update
-  https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-  - 说明文档 https://aka.ms/wsl2kernel
-- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
-  - 注意放到空间较大的位置
 - 文件浏览器可直接 打开 `\\wsl$\<DISTRO>`
 - Windows 10 2004
   - ms-settings:windowsupdate
 - WSL2
   - Windows 10 v1903 b18362
   - Windows 11 v18362
+
+## 启用 WSL 功能 {#enable-wsl}
+
+- 下载安装 Windows WSL2 Update
+  https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+  - 说明文档 https://aka.ms/wsl2kernel
+
+```bash
+cmd.exe /c ver # 确认当前系统版本
+
+# 启用 WSL
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+# 启用 VM
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+# 重启，安装 Windows WSL2 Update
+
+# 设置默认 WSL 2
+wsl --set-default-version 2
+```
+
+## 安装 Alpine {#install-alpine}
+
+- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
+  - 注意放到空间较大的位置
 
 ```bash
 wslconfig /list              # 所有的 VM
@@ -45,11 +65,23 @@ apk update
 apk upgrade -a
 ```
 
+## Windows 开发环境 {#windows-dev}
+
+- 推荐用 [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)
+  - 支持 多 Tab
+  - 仓库 [microsoft/terminal](https://github.com/microsoft/terminal)
+- VSC [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) 扩展
+- 参考
+  - [microsoft/WSL](https://github.com/microsoft/WSL)
+    问题收集仓库
+  - [microsoft/WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel)
+    实际 Linux 内核
+
 ## IntelliJ
 
 - Terminal 直接进入 WSL
   - 配置 Terminal 为 wsl.exe -d Alpine
-- `\\wsl$`
+- 可以打开 `\\wsl$` 目录
 - https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html
 
 ## 开发环境准备
@@ -58,14 +90,20 @@ apk upgrade -a
 wsl -d Alpine # 进入 WSL
 
 apk add openssh make rsync bash # 基础依赖
+# 开发相关依赖
 apk add libc6-compat gcompat curl bash ca-certificates openssl ncurses coreutils python3 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
 
 bash # ash -> bash
 
+
 # SSH 配置
-# Windows 上的 ssh 密钥信息
-rsync -a /mnt/c/Users/WINDOW用户名/.ssh/ ~/.ssh/
+# 同步 Windows 上的 ssh 密钥信息
+USERNAME=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g')
+rsync -a /mnt/c/Users/USERNAME/.ssh/ ~/.ssh/
 chmod 700 ~/.ssh/id_rsa
+# 同步 Windows 上的 git 配置
+cp /mnt/c/Users/USERNAME/.gitconfig ~
+
 
 # Git 配置
 # 注意修改用户名和邮箱
@@ -130,18 +168,6 @@ docker ps
   - docker-desktop
   - docker-desktop-data
 
-## 参考 {#references}
-
-- 推荐用 [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)
-  - 支持 多 Tab
-  - 仓库 [microsoft/terminal](https://github.com/microsoft/terminal)
-- VSC [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) 扩展
-- 参考
-  - [microsoft/WSL](https://github.com/microsoft/WSL)
-    问题收集仓库
-  - [microsoft/WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel)
-    实际 Linux 内核
-
 # FAQ
 
 - https://learn.microsoft.com/en-us/windows/wsl/troubleshooting
@@ -201,19 +227,6 @@ wsl --import
 
 - HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss
 
-## Install
-
-```bash
-cmd.exe /c ver # 确认当前系统版本
-
-# WSL
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-# VM
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-
-wsl --set-default-version 2
-```
-
 ## 检测是否运行在 WSL
 
 - /proc/sys/kernel/osrelease
@@ -229,4 +242,14 @@ uname -a
 ```
 ERR: The Windows Subsystem for Linux has not been enabled.
 HRESULT: 0x8007019e
+```
+
+- dism 启用功能，然后重启
+
+## 获取当前用户名
+
+```shell
+powershell.exe '$env:UserName'
+cmd.exe /c "echo %USERNAME%"
+cmd.exe /c "whoami"
 ```

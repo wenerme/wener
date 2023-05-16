@@ -32,6 +32,16 @@ small footprint, non-systemd, fast enough, good community, sane defaults.
 2. 商务用桌面系统 - 默认 xface - _生态_ 和体验没有 ubuntu 好
 3. 定制化嵌入式设备 - alpine 支持的 arch 远没有 debian 的多，如果 arch 支持可以考虑 alpine
 
+## 升级注意事项
+
+- 注意用的镜像是否同步 - 否则可能导致安装异常
+  - tuna 目前是最好的
+- 不要夸版本升级
+- OpenSSL version mismatch
+
+## apk opening from cache No such file or directory
+
+
 ## 历史
 
 alpine 早期思想来自于 FreeBSD

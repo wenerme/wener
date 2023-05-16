@@ -57,3 +57,9 @@ docker run --rm -it \
   -p 9000:9000 \
   --name openai-api-proxy easychen/ai.level06.com:latest
 ```
+
+## Prompt
+
+- Idea -> Implementation -> Experiment Result -> Error Analysis -> Idea
+- 开发 Prompt 完成特定任务
+- Prompt 就是 UI - 用户交互界面

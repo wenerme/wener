@@ -13,5 +13,6 @@ sudo mv mc /usr/local/bin/
 mc alias set svr https://s3.example.com $KEY $SECRET
 cat ~/.mc/config.json
 
+# https://min.io/docs/minio/linux/reference/minio-mc/mc-mirror.html
 mc mirror --watch --overwrite --remove
 ```

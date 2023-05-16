@@ -10,6 +10,7 @@ title: TLS
   - https://www.ssllabs.com/ssltest/viewMyClient.html
   - https://www.howsmyssl.com/
   - https://badssl.com/
+- https://subtls.pages.dev/
 
 ## implementations
 

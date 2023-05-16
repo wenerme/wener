@@ -93,4 +93,19 @@ address = "127.0.0.1:8686"
 
 - [Install Vector using Helm](https://vector.dev/docs/setup/installation/package-managers/helm/)
   - https://helm.vector.dev
+    - https://github.com/vectordotdev/helm-charts
+      - 主要是 vector 包
+  - kubectl https://github.com/vectordotdev/vector/tree/master/distribution/kubernetes/vector-agent
+    - `helm template vector vector/vector`
 - [Kubernetes](https://vector.dev/docs/setup/installation/platforms/kubernetes/)
+
+| Port  | Name          |
+| ----- | ------------- |
+| 5044  | logstash      |
+| 6000  | vector        |
+| 8080  | splunk-hec    |
+| 8125  | statsd        |
+| 8282  | datadog-agent |
+| 9000  | syslog        |
+| 9090  | prom-exporter |
+| 24224 | fluent        |

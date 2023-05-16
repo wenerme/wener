@@ -33,6 +33,8 @@ tags:
   - google doc editor - 2010 - archived
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
+- [editablejs/editable](https://github.com/editablejs/editable)
+  - **GPL**
 
 ## Image Editor
 

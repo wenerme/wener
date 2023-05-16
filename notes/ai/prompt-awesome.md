@@ -35,10 +35,10 @@ tags:
 | Multimodal CoT                 | https://arxiv.org/abs/2302.00923     |
 | GraphPrompts                   | https://arxiv.org/abs/2302.08043     |
 | Program-Aided Language Models  | https://arxiv.org/abs/2211.10435     |
-Generating Data|
+| Generating Data                |
 
 - https://arxiv.org/abs/1706.03741
   Deep reinforcement learning from human preferences
 - https://arxiv.org/abs/2302.14045
   Language Is Not All You Need: Aligning Perception with Language Models
-
+- https://help.openai.com/en/collections/3675942-prompt-engineering

@@ -331,3 +331,13 @@ set -g default-terminal "xterm"
 ```bash
 set -g mode-mouse on
 ```
+
+## 选项变更
+
+```
+invalid option: mouse-select-pane                                                                                                                                                    [0/0]
+invalid option: mouse-resize-pane
+invalid option: status-utf8
+invalid option: status-attr
+invalid option: utf8
+```

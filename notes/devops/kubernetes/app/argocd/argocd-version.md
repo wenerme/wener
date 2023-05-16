@@ -22,7 +22,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 | version      | date       |
 | ------------ | ---------- |
 | [ArgoCD 2.6] |            |
-| [ArgoCD 2.5] | 2022-10-25           |
+| [ArgoCD 2.5] | 2022-10-25 |
 | [ArgoCD 2.4] | 2022-06-11 |
 | [ArgoCD 2.3] | 2022-03-06 |
 | [ArgoCD 2.2] |
@@ -34,6 +34,10 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 [argocd 2.3]: #argocd-23
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
+
+## ArgoCD 2.7
+
+- Proxy Extensions
 
 ## ArgoCD 2.6
 
@@ -50,12 +54,12 @@ metadata:
 spec:
   # 多源 - Argo CD 会做合并
   sources:
-  - chart: elasticsearch
-    repoURL: https://helm.elastic.co
-    targetRevision: 7.6.0
-  - repoURL: https://github.com/argoproj/argocd-example-apps.git
-    path: guestbook
-    targetRevision: HEAD
+    - chart: elasticsearch
+      repoURL: https://helm.elastic.co
+      targetRevision: 7.6.0
+    - repoURL: https://github.com/argoproj/argocd-example-apps.git
+      path: guestbook
+      targetRevision: HEAD
   syncPolicy:
     # 创建的 NS 信息
     managedNamespaceMetadata:
@@ -67,7 +71,7 @@ spec:
         applies: for
         annotations: on-the-namespace
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 ```
 
 ## ArgoCD 2.5

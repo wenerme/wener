@@ -22,6 +22,8 @@ tags:
   - Find unused files, dependencies and exports
 - [facebook/memlab](https://github.com/facebook/memlab)
   - 内存泄露检测
+- .browserslistrc
+  - https://github.com/browserslist/browserslist
 
 ```bash
 npx typesync                                      # 同步 @types/ 依赖

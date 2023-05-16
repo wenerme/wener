@@ -3,6 +3,7 @@ title: typia
 ---
 
 # typia
+
 - [samchon/typia](https://github.com/samchon/typia)
   - 基于 interface 生成
     - 生成 validator - 比 class-validator 更快
@@ -12,3 +13,7 @@ title: typia
   - 例如: swc, esbuild, babel
   - vite 可以使用 plugin
   - AOT 依赖 [ts-patch](./ts-patch.md)
+
+```bash
+pnpm add typia
+```

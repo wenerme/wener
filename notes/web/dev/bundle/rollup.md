@@ -26,10 +26,10 @@ title: Rollup
 
 :::info
 
-- [#470](https://github.com/rollup/rollup/issues/470#issuecomment-177594250) 不支持 index.js
+-  不支持 index.js [#470](https://github.com/rollup/rollup/issues/470#issuecomment-177594250)
   1. 直接 `import {abc} from 'abc/index'`
   2. 使用 [@rollup/plugin-node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve)
-- [#1906](https://github.com/rollup/rollup/issues/1906) - Mark dependency as internal?
+- Mark dependency as internal? [#1906](https://github.com/rollup/rollup/issues/1906)
 - CommonJS 多了一层 default 问题
   - [Babel 6 changes how it exports default](https://stackoverflow.com/questions/33505992)
   - [babel-plugin-add-module-exports](https://www.npmjs.com/package/babel-plugin-add-module-exports)

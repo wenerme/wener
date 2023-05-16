@@ -224,3 +224,6 @@ export N_PREFIX=$HOME/n
 - napi-addon
 - napi-addon-sb
 - bun ffi
+- [bitair-org/linker.js](https://github.com/bitair-org/linker.js)
+  - Access Python & C-shared from Node.js
+  - `@bitair/linker.js`

@@ -438,6 +438,8 @@ tags:
 - [kevwan/tproxy](https://github.com/kevwan/tproxy)
 - https://gvisor.dev/docs/user_guide/networking/
   - gvisor networking stack
+- [topfreegames/pitaya](https://github.com/topfreegames/pitaya)
+  - MIT, Game server
 
 ## 协议/Protocol {#protocols}
 
@@ -813,6 +815,7 @@ goweight
 - [sjwhitworth/golearn](https://github.com/sjwhitworth/golearn) is a 'batteries included' machine learning library for Go. Simplicity, paired with customisability, is the goal.
 - [cdipaolo/goml](https://github.com/cdipaolo/goml) is a machine learning library written entirely in Golang which lets the average developer include machine learning into their applications.
 - [chewxy/gorgonia](https://github.com/chewxy/gorgonia) is a library that helps facilitate machine learning in Go. Write and evaluate mathematical equations involving multidimensional arrays easily.
+- [nlpodyssey/spago](https://github.com/nlpodyssey/spago)
 
 ## SIP/WebRTC
 

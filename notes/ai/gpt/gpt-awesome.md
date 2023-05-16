@@ -24,3 +24,11 @@ tags:
 - What is GPT-3? written in layman's terms
   - https://news.ycombinator.com/item?id=23923799
 - [GPT-J is self-hosted open-source analog of GPT-3](https://tracklify.com/blog/gpt-j-is-self-hosted-open-source-analog-of-gpt-3-how-to-run-in-docker/)
+
+# FAQ
+
+## Hallucination
+
+- 幻觉
+- 很真实，当不是真正的正确的结果
+- 要求给相关信息，然后基于相关信息再回答。

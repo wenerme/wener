@@ -34,6 +34,7 @@ tags:
 
 | version                              | date       |
 | ------------------------------------ | ---------- |
+| [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 |
 | [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
 | [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
 | [AlpineLinux 3.15](#alpinelinux-315) | 2021-11-24 |
@@ -59,6 +60,15 @@ tags:
 
 :::
 
+:::caution
+
+- 用 tuna 镜像 - 目前相对最稳定
+  - 阿里云同步慢
+  - 上海交大不稳定 - 遇到过多次问题
+
+:::
+
+
 - 参考
   - https://ariadne.space/
 
@@ -66,8 +76,30 @@ tags:
 
 ## AlpineLinux 3.18
 
+- Linux 6.1
+  - signed kernel modules
+    - CONFIG_MODULE_SIG
+    - 未强制
+    - https://www.kernel.org/doc/html/v4.15/admin-guide/module-signing.html
+- musl libc 1.2.4
+  - tcp dns - 解决 udp dns 不能返回太多解析的问题
+  - DT_RELR
+    - 减小 binary size
+      - qemu-system-aarch64 3.17 v7.1 22.6M -> 3.18 v8.0 19.5M
+    - https://gitlab.alpinelinux.org/alpine/tsc/-/issues/58
+    - https://maskray.me/blog/2021-10-31-relative-relocations-and-relr
+- tiny-cloud - 自动安装配置
+  - 类似 cloud-init 的精简版
+  - https://gitlab.alpinelinux.org/alpine/cloud/tiny-cloud
+- 🆙 升级包
+  - Python 3.11
+  - Go 1.20
+  - Qemu 8.0
+
+<!--
 - zfs 2.2
   - 支持 overlay
+-->
 
 ## AlpineLinux 3.17
 
@@ -96,7 +128,7 @@ apk add mount umount
 - shadow 包拆分
   - shadow-login - faillog, lastlog, login, newgrp, nologin, sg, su
   - shadow-conv - pwconv, pwunconv, grpconv, and grpunconv
-- 包变化
+- 🆙 升级包
   - Go 1.18, LLVM 13, Python 3.10
   - sudo - main -> community - 推荐 doas, doas-sudo-shim
   - utmp - https://skarnet.org/software/utmps
