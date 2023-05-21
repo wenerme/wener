@@ -171,7 +171,12 @@ spec:
     - targets: ['localhost:9090']
 ```
 
-## kube-prometheus
+## Charts
+
+- https://github.com/prometheus-community/helm-charts/
+- kube-prometheus-stack
+
+## prometheus-operator/kube-prometheus
 
 - 通过 jsonet 定制化和安装
 - [prometheus-operator/kube-prometheus](https://github.com/prometheus-operator/kube-prometheus)
@@ -184,7 +189,35 @@ spec:
     - kube-state-metrics
     - Grafana
 
-## stable/prometheus-operator
+## kube-prometheus-stack
+
+- 有 grafana - 但不推荐
+
+## bitnami/kube-prometheus
+
+- https://github.com/bitnami/charts/tree/master/bitnami/kube-prometheus
+- 包含
+  - Prometheus Operator
+  - Prometheus
+    - 会通过 Operator 部署
+  - Alertmanager
+  - kube-state-metrics
+  - node-exporter
+- 默认 scrapeInterval: 30s
+
+```bash
+# 国内无法访问该 Repo，可使用 https://charts.wener.tech 或 https://wenerme.github.io/charts
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install kube-prometheus -n monitoring bitnami/kube-prometheus
+
+kubectl -n monitoring describe svc/kube-prometheus-prometheus
+
+# http://127.0.0.1:9090
+kubectl -n monitoring port-forward svc/kube-prometheus-prometheus 9090
+```
+
+
+## ~~stable/prometheus-operator~~
 
 - helm [stable/prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator)
 - 类似于 kube-prometheus，但通过 helm 安装
@@ -217,7 +250,7 @@ spec:
     - Probe
     - PrometheusRule
 
-## stable/prometheus
+## ~~stable/prometheus~~
 
 - 单纯部署 prometheus
 - 包含
@@ -245,29 +278,15 @@ pushgateway:
   enabled: false
 ```
 
-## bitnami/kube-prometheus
-
-- https://github.com/bitnami/charts/tree/master/bitnami/kube-prometheus
-- 包含
-  - Prometheus Operator
-  - Prometheus
-    - 会通过 Operator 部署
-  - Alertmanager
-  - kube-state-metrics
-  - node-exporter
-- 默认 scrapeInterval: 30s
-
-```bash
-# 国内无法访问该 Repo，可使用 https://charts.wener.tech 或 https://wenerme.github.io/charts
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install kube-prometheus -n monitoring bitnami/kube-prometheus
-
-kubectl -n monitoring describe svc/kube-prometheus-prometheus
-
-# http://127.0.0.1:9090
-kubectl -n monitoring port-forward svc/kube-prometheus-prometheus 9090
-```
-
 # FAQ
 
-## "prometheuses.monitoring.coreos.com" is invalid: metadata.annotations: Too long
+## CustomResourceDefinition.apiextensions.k8s.io "prometheuses.monitoring.coreos.com" is invalid: metadata.annotations: Too long: must have at most 262144 bytes
+
+- https://github.com/prometheus-operator/prometheus-operator/issues/4355
+
+```bash
+syncPolicy:
+  syncOptions:
+  - ServerSideApply=true
+  - CreateNamespace=true
+```

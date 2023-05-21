@@ -278,3 +278,11 @@ sys     0m1.599s
 
 - "PFA"s, as in Pre-Failure Alerts
 - [ZFS vs RAID6](https://www.reddit.com/r/storage/comments/3jcg2r/zfs_vs_raid6/)
+
+## z0 is write-protected but explicit read-write mode requested
+
+```bash
+umount /dev/z0
+e2fsck /dev/z0
+mount /dev/z0
+```

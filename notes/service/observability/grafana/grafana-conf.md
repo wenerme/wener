@@ -94,3 +94,7 @@ export GF_RENDERING_SERVER_URL=http://renderer:8081/render
 export GF_RENDERING_CALLBACK_URL=http://grafana:3000/
 export GF_LOG_FILTERS=rendering:debug
 ```
+
+## provisioning
+
+- https://grafana.com/docs/grafana/latest/administration/provisioning/

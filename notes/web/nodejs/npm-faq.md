@@ -39,3 +39,11 @@ npm ci --prefer-offline --no-audit
 # 或者还是直接用 install - 保留现有 node_modules
 npm install --no-fund --no-audit
 ```
+
+## 查看 native 模块依赖
+
+```bash
+find node_modules -type f -name "*.node" 2>/dev/null | grep -v "obj\.target" | xargs ldd
+
+npx native-modules
+```

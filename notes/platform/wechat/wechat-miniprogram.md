@@ -11,7 +11,7 @@ title: 微信小程序
   - 名字不能包含 `:`,`#`,`/`,`[`,`]`
   - 不支持有些场景的 `~`
   - 不支持 rem
-- 无
+- DOM 环境无
   - fetch/Header/Request/Response
   - File/Blob/ReadableStream
   - FormData
@@ -25,8 +25,10 @@ title: 微信小程序
     - https://juejin.cn/post/6936529740433997861
     - 可以 dataurl
 - 有 TextEncoder/TextDecoder/ArrayBuffer
-- 语法
-  - 不支持 `??`
+- JS 语法
+  - 不支持 `??`, `?.`
+  - 不支持 `eval`, `new Function`
+  - 内置 core-js
 
 :::
 
@@ -70,6 +72,13 @@ __wxAppCode__[__wxRoute + '.wxml'];
   - [wx-server-sdk](https://www.npmjs.com/package/wx-server-sdk)
     - https://cdn.jsdelivr.net/npm/wx-server-sdk/
 
+## JS 语法
+
+- [wechat-miniprogram/miniprogram-compat](https://github.com/wechat-miniprogram/miniprogram-compat)
+  - https://wechat-miniprogram.github.io/miniprogram-compat/
+- https://developers.weixin.qq.com/miniprogram/dev/devtools/codecompile.html
+- https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/js-support.html
+
 # FAQ
 
 ## 用户信息
@@ -80,8 +89,11 @@ copy(JSON.stringify({ appid, fakeId, nickName, openid, userName }, null, 2));
 ```
 
 ## SyntaxError: Unexpected token ？
+
 - `??` 的问题
+
 ## SyntaxError: Unexpected token ."use strict";
+
 - `?.` 的问题
 
 ## miniprogram-ci 10009 undefined
@@ -112,4 +124,3 @@ require() of ES Module ansi-styles from chalk not supported
 
 - chalk 5 is ESM
 - chalk 4 is CJS
-

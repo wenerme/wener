@@ -8,7 +8,7 @@ title: vector
   - MPL-2.0, Rust
   - Datadog 开源
   - observability data **pipeline**
-  - logs, metrics, traces(WIP) - observability 全家桶
+  - logs, metrics, traces(WIP) - observability 采集处理全家桶
 - Sources
   - Prometheus RemoteWrite/Scrap
   - s3, fluent, logstash
@@ -58,6 +58,29 @@ brew install vector
 # https://github.com/vectordotdev/vector/releases
 ```
 
+## Sources & Sinks
+
+- kubernetes_logs
+- host_metrics
+- internal_metrics
+- prometheus_scrape
+  - 不支持自动发现
+  - https://github.com/vectordotdev/vector/issues/2303
+- Metrics
+  - prometheus_exporter - Prometheus 的 /metrics
+  - prometheus_remote_write
+  - statsd
+- console - 输出日志到 stdout - debug 用
+- 通用
+  - vector
+  - file
+  - socket
+  - redis
+  - websocket
+  - nats
+  - kafka
+  - pulsar
+
 ## 配置
 
 ```ini
@@ -89,6 +112,8 @@ enabled = true
 address = "127.0.0.1:8686"
 ```
 
+- /etc/vector/
+
 ## 部署
 
 - [Install Vector using Helm](https://vector.dev/docs/setup/installation/package-managers/helm/)
@@ -96,7 +121,7 @@ address = "127.0.0.1:8686"
     - https://github.com/vectordotdev/helm-charts
       - 主要是 vector 包
   - kubectl https://github.com/vectordotdev/vector/tree/master/distribution/kubernetes/vector-agent
-    - `helm template vector vector/vector`
+    - 使用 `helm template vector vector/vector` 生成
 - [Kubernetes](https://vector.dev/docs/setup/installation/platforms/kubernetes/)
 
 | Port  | Name          |
@@ -109,3 +134,54 @@ address = "127.0.0.1:8686"
 | 9000  | syslog        |
 | 9090  | prom-exporter |
 | 24224 | fluent        |
+
+### Agent
+
+- 收集 host 主机上的 k8s 日志
+- 收集 host metrics 暴露为 prometheus_exporter
+- 作为 DaemonSet
+
+| volume  | from host       | to path          |
+| ------- | --------------- | ---------------- |
+| data    | /var/lib/vector | /vector-data-dir |
+| config  |                 | /etc/vector/     |
+| var-log | /var/log        | /var/log/        |
+| var-lib | /var/lib        | /var/lib/        |
+| procfs  | /proc           | /host/proc       |
+| sysfs   | /sys            | /host/sys        |
+
+- /var/lib/vector
+  - 用来存储状态
+  - 例如 /var/lib/vector/kubernetes_logs/checkpoints.json
+
+```yaml
+data_dir: /vector-data-dir
+api:
+  enabled: true
+  address: 127.0.0.1:8686
+  playground: false
+sources:
+  kubernetes_logs:
+    type: kubernetes_logs
+  host_metrics:
+    filesystem:
+      devices:
+        excludes: [binfmt_misc]
+      filesystems:
+        excludes: [binfmt_misc]
+      mountPoints:
+        excludes: ['*/proc/sys/fs/binfmt_misc']
+    type: host_metrics
+  internal_metrics:
+    type: internal_metrics
+sinks:
+  prom_exporter:
+    type: prometheus_exporter
+    inputs: [host_metrics, internal_metrics]
+    address: 0.0.0.0:9090
+  stdout:
+    type: console
+    inputs: [kubernetes_logs]
+    encoding:
+      codec: json
+```

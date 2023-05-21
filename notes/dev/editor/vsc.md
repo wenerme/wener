@@ -26,6 +26,7 @@ title: Visual Studio Code
       - insider 版本支持 [#54](https://github.com/microsoft/vscode-remote-release/issues/54#issuecomment-504385332)
       - musl 支持 [#423](https://github.com/microsoft/vscode-remote-release/issues/423)
         - 目前加 gcompat 可能可用
+  - 未开源
 
 ```bash
 # macOS 可通过容器来提供端口进行控制

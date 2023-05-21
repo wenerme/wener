@@ -93,6 +93,7 @@ type=sqlite3
 [remote_cache]
 
 [analytics]
+# 关闭 telemetry
 reporting_enabled = false
 ```
 

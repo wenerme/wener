@@ -127,6 +127,15 @@ tags:
 
 - https://news.ycombinator.com/item?id=35352452
 
+## Text to Audio
+
+- [suno-ai/bark](https://github.com/suno-ai/bark)
+  - https://news.ycombinator.com/item?id=35643219
+
+### Text to Music
+
+- https://aitestkitchen.withgoogle.com/experiments/music-lm
+
 ## Transfomer
 
 - [lm-sys/FastChat](https://github.com/lm-sys/FastChat)

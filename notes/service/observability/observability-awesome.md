@@ -14,6 +14,10 @@ tags:
 - [parca-dev/parca](https://github.com/parca-dev/parca)
   - Apache-2.0, Go
   - Continuous profiling for analysis of CPU and memory usage
+- [zinclabs/zincobserve](https://github.com/zinclabs/zincobserve)
+  - Apache-2.0, Rust
+  - 从 ZincSearch 演化而来
+  - Log & Trace
 
 ## Tracing
 

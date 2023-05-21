@@ -4,6 +4,13 @@ title: OpenAPI
 
 # OpenAPI
 
+:::caution
+
+- 不支持 path 包含 `/`
+  - https://github.com/OAI/OpenAPI-Specification/issues/892
+
+:::
+
 - [OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification)
 - [grpc-ecosystem/grpc-gateway#441](https://github.com/grpc-ecosystem/grpc-gateway/issues/441)
   - OpenAPIv3

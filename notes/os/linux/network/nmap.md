@@ -13,7 +13,8 @@ apk add nmap nmap-scripts
 nmap -p80 192.168.0.0/24                         # 扫描局域网 HTTP
 nmap -p445 --script smb-enum-shares.nse          # 枚举 smb 共享
 nmap -p445 --script smb-protocols 192.168.0.0/24 # 协议探测
-nmap -p139 --script smb-protocols
+nmap -p139 --script smb-protocols                #
+nmap -sV wener.me -p 80                          # 协议探测 https://nmap.org/book/vscan.html
 
 # UDP 端口扫描
 # 需要 ICMP, 所以要 sudo

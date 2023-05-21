@@ -312,3 +312,10 @@ sh takeover.sh
 ```
 
 - [marcan/takeover.sh](https://github.com/marcan/takeover.sh)
+
+## 镜像
+
+```bash
+echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
+https://mirrors.tuna.tsinghua.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
+```

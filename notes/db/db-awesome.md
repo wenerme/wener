@@ -284,9 +284,6 @@ curl --request POST \
 - [milvus-io/milvus](https://github.com/milvus-io/milvus)
   - Apache-2.0, Go
   - Vector database for scalable similarity search and AI applications.
-- [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
-  - MIT, C++
-  - efficient similarity search and clustering of dense vectors
 - [weaviate/weaviate](https://github.com/weaviate/weaviate)
   - BSD-3, Golang
   - cloud-native, modular, real-time vector search engine
@@ -295,7 +292,19 @@ curl --request POST \
   - C++ vectorized database acceleration library
 - [erikbern/ann-benchmarks](https://github.com/erikbern/ann-benchmarks)
   - Benchmarks of approximate nearest neighbor
+- [eto-ai/lance](https://github.com/eto-ai/lance)
+  - Apache-2.0, Rust
+  - columnar format
+- [lancedb/lancedb](https://github.com/lancedb/lancedb)
+  - Apache-2.0, Rust
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
+- https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/LanceDBIndexDemo.html
+- [jerryjliu/llama_index](https://github.com/jerryjliu/llama_index)
+- Lib
+  - [nmslib/hnswlib](https://github.com/nmslib/hnswlib)
+  - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
+    - MIT, C++
+    - efficient similarity search and clustering of dense vectors
 
 ## Geo
 
