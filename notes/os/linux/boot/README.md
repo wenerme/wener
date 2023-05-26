@@ -1,3 +1,7 @@
+---
+title: Linux Boot
+---
+
 # Linux Boot
 
 - 参考

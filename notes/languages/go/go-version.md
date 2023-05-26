@@ -17,15 +17,10 @@ tags:
   - [Release History](https://golang.org/doc/devel/release)
   - https://dev.golang.org/release
 
-:::tip Roadmap
-
-- 1.18 (2022-2) 会包含部分 generic
-- 1.18 fuzz - https://go.dev/blog/fuzz-beta
-
-:::
-
 | ver                | date   | macOS                   | Windows          |
 | ------------------ | ------ | ----------------------- | ---------------- |
+| [Go 1.21](#go-121) |        | -                       | -                |
+| [Go 1.20](#go-120) |        | -                       | -                |
 | [Go 1.19](#go-119) | 2022-8 | -                       | -                |
 | [Go 1.18](#go-118) | 2022-3 | -                       | 64-bit ARM       |
 | [Go 1.17](#go-117) | 2021-8 | macOS 10.13 High Sierra |
@@ -36,6 +31,13 @@ tags:
 | [Go 1.12](#go-112) | 2019-2 | -                       | -                |
 | [Go 1.11](#go-111) | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
 | [Go 1.10](#go-110) | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
+
+:::tip Roadmap
+
+- 1.18 (2022-2) 会包含部分 generic
+- 1.18 fuzz - https://go.dev/blog/fuzz-beta
+
+:::
 
 ## Go 1.21
 

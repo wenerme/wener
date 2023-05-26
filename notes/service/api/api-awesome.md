@@ -254,6 +254,19 @@ tags:
 - [api-platform/api-platform](https://github.com/api-platform/api-platform)
   - Create REST and GraphQL APIs, scaffold Jamstack webapps, stream changes in real-time.
 
+## 管理 {#management}
+
+- [YMFE/yapi](https://github.com/YMFE/yapi)
+  - YMFE 去哪儿网
+  - 商业产品 apifox
+- [thx/rap2-delos](https://github.com/thx/rap2-delos)
+  - http://rap2.taobao.org/
+- [thx/RAP](https://github.com/thx/RAP)
+- [sx1989827/DOClever](https://github.com/sx1989827/DOClever)
+- https://www.eolinker.com/
+- https://www.getpostman.com/
+- https://paw.cloud/
+
 ## Doc
 
 - [slatedocs/slate](https://github.com/slatedocs/slate)

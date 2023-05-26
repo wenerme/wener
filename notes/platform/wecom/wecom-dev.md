@@ -186,12 +186,18 @@ title: 企业微信开发
 
 # FAQ
 
+- https://developer.work.weixin.qq.com/document/path/91552
+
 ## 60011: no privilege to access/modify contact/party/agent
 
 - 修改应用的 可见范围
   - 操作会触发 change_auth 事件
   - 新可见用户会发送 subscribe 事件
   - 不可见用户会发送 unsubscribe 事件
+
+## 10006: 解密失败 GetMediaData
+
+请检查是否先进行 base64decode 再进行 rsa 私钥解密，再进行 DecryptMsg 调用。
 
 ## 校验请求来源错误
 

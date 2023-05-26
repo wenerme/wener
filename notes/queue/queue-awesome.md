@@ -6,7 +6,50 @@ tags:
 
 # Queue Awesome
 
-- [nats-io/nats-server](https://github.com/nats-io/nats-server)
+:::tip 考虑维度
+
+- 持久化
+- 顺序性
+- 消息交付保证
+- 语言支持
+- 维护难易度
+  - 单机
+  - 集群
+- 功能
+  - 延迟队列
+  - 请求 & 响应
+  - Dedup
+  - 优先级队列
+  - 死信队列
+  - 重试队列
+  - 消费模式 - 推拉
+  - 广播消费
+  - 消息回溯 - 是否持久化
+  - 消费堆积
+  - 持久化
+  - 消息追踪
+  - 消息过滤
+  - 多租户
+  - 协议 - STOMP, MQTT, AMQP, Websocket
+  - 流量控制
+  - 消费顺序性
+  - 安全机制
+  - 幂等
+  - 事务
+- 规模
+  - 万/s
+  - 百万/s
+  - 更高
+
+:::
+
+- Apache Pulsar
+  - by Yahoo 2016
+  - 计算和存储分离
+  - BookKeeper
+- Apache Kafka
+  - by Linkedin 2010
+- [nats-io/nats-server](./nats/README.md)
   - [liftbridge-io/liftbridge](https://github.com/liftbridge-io/liftbridge)
     - 概念接近 Kafka
     - https://liftbridge.io/docs/feature-comparison.html
@@ -103,3 +146,15 @@ tags:
     - 安全
     - AuthN
     - AuthZ
+
+## Delayed Message
+
+1. RabbitMQ：支持使用 TTL（Time To Live）和死信队列来实现延时队列。
+2. RocketMQ：支持通过设置消息的延时等级来实现延时队列。
+3. ~~Kafka~~
+4. ActiveMQ：支持使用 Scheduled Message 和 Redelivery Policy 来实现延时队列。
+5. Redis：通过使用 zset 有序集合来实现延时队列。
+6. ZeroMQ：支持使用定时器来实现延时队列。
+7. NSQ：支持通过设置消息的 TTL 来实现延时队列。
+8. Beanstalkd：支持使用 Delay Job 来实现延时队列。
+9. Pulsar

@@ -29,6 +29,8 @@ title: KeyDB
 
 :::tip
 
+- 因为支持多线程，因此作为单节点 KeyDB 会比单节点 Redis Cluster 好维护的多
+  - Redis 6 I/O 部分支持多线程
 - Multi-Tenancy Support [#286](https://github.com/EQ-Alpha/KeyDB/issues/286)
 - SET 成员, HASH KEY 支持 TTL
   - `EXPIREMEMBER <key> <subkey> <timeout-in-seconds> <OPTIONAL:unit-time-format>`

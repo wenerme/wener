@@ -5,7 +5,6 @@ tags:
 
 # MySQL FAQ
 
-
 ```sql
 select version();
 ```
@@ -47,6 +46,33 @@ FLUSH PRIVILEGES;
 -- GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 ```
 
+## 估算表大小
+
+```sql
+-- 行数
+select table_rows, TABLE_SCHEMA, TABLE_NAME
+from information_schema.tables
+order by TABLE_ROWS desc;
+
+select (DATA_LENGTH / AVG_ROW_LENGTH) as total_rows, TABLE_NAME
+from INFORMATION_SCHEMA.TABLES
+order by total_rows desc;
+
+-- 数据量
+select sys.format_bytes(DATA_LENGTH), TABLE_NAME
+from INFORMATION_SCHEMA.TABLES
+order by DATA_LENGTH desc;
+```
+
 ## Backup
 
 - https://dba.stackexchange.com/a/91322/234272
+
+## Expression of generated column 'status' contains a disallowed function: curdate.
+
+MySQL virtual 列不能用 CONNECTION_ID(), CURRENT_USER(), NOW().
+
+## 删除数据不会释放空间
+
+- 除非使用 innodb_file_per_table
+- optimize table 会减小 .idb, 但不会减小 ibdata1

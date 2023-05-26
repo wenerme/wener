@@ -9,6 +9,10 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
+| [Chrome 110](#chrome-114) |            | popovertarget,popover                             |
+| [Chrome 110](#chrome-113) |            |                                                   |
+| [Chrome 110](#chrome-112) |            |                                                   |
+| [Chrome 110](#chrome-111) |            |                                                   |
 | [Chrome 110](#chrome-110) |            | `<popup>`                                         |
 | [Chrome 109](#chrome-109) |
 | [Chrome 108](#chrome-108) |
@@ -128,6 +132,75 @@ tags:
   - https://web.dev/interop-2022
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
+
+## Chrome 115
+
+- CSS
+  - display 支持多个值
+    - `display: inline flow` -> `inline-block`
+    - `display: block flex` -> `flex`
+  - Scroll-driven animations
+    - https://scroll-driven-animations.style/
+- HTTPS Upgrades - 优先尝试 HTTPS
+- WebAssembly
+  - Module 8MB 限制
+
+- https://github.com/wanderview/quota-storage-partitioning/blob/main/explainer.md
+
+## Chrome 114
+
+- DOM
+  - popover
+    - https://developer.chrome.com/blog/introducing-popover-api/
+  - Scrollend Event
+- CSS
+  - `overflow:overlay` 作为 `overflow:auto` 别名
+
+## Chrome 113
+
+- **WebGPU**
+- CSS
+  - media - overflow-inline, overflow-block
+  - media update - print, slow, fast
+  - [image-set](https://developer.mozilla.org/en-US/docs/Web/CSS/image/image-set)
+  - Linear easing - `linear()`
+- Fetch: Headers.getSetCookie()
+- [Storage Access API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API)
+  - for iframe
+  - `document.hasStorageAccess()`
+  - `document.requestStorageAccess()`
+
+## Chrome 112
+
+- CSS
+  - CSS animation-composition property
+  - CSS Nesting
+- Javascript
+  - RegExp v
+    - https://v8.dev/features/regexp-v-flag
+    - `(/^\p{RGI_Emoji}$/v).test('⚽')`
+    - https://www.unicode.org/reports/tr18/#domain_of_properties
+- WebAssembly
+  - Tail Call
+- DOM
+  - FormData submitter 参数
+
+## Chrome 111
+
+- CSS
+  - baseline-source
+  - CSS Color Module Level 4 and color-mix()
+  - CSS Root Font Units: 'rex', 'rch', 'ric', 'rlh'
+  - CSS Selectors 4 Pseudo-Class :nth-child(an + b of S)
+  - CSS Trigonometric functions
+  - font-variant-alternates and the @font-feature-values at-rule
+  - Style Container Queries for CSS Custom Properties
+- Javascript
+  - String.prototype.isWellFormed, toWellFormed
+- DOM
+  - View Transitions API
+- Media
+  - WebRTC Scalable Video Coding extensions
 
 ## Chrome 110
 

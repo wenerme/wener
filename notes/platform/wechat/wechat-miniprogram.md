@@ -81,6 +81,22 @@ __wxAppCode__[__wxRoute + '.wxml'];
 
 # FAQ
 
+## CORS
+
+- request 请求可以直接修改 Origin
+
+**图片资源**
+
+```
+cross-origin-resource-policy: cross-origin
+```
+
+## 请求会包含应用信息
+
+```
+referer: https://servicewechat.com/WXID/devtools/page-frame.html
+```
+
 ## 用户信息
 
 ```js

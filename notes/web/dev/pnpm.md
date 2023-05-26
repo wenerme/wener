@@ -470,3 +470,11 @@ CI=true pnpm i
 ```
 
 - CI 检测逻辑 https://github.com/watson/ci-info/blob/20fae89d2bdeb0e5dd70e6a9e8d2647764e6ff04/index.js#L56-L69
+
+## 平台参数
+
+```bash
+pnpm install --config.platform=linux --config.architecture=x64
+```
+
+- https://github.com/pnpm/pnpm/issues/5965

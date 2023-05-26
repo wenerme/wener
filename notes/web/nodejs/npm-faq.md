@@ -47,3 +47,13 @@ find node_modules -type f -name "*.node" 2>/dev/null | grep -v "obj\.target" | x
 
 npx native-modules
 ```
+
+## ENOTEMPTY: directory not empty, rename
+
+1. 尝试删除
+2. 尝试 --force
+3. 尝试新版本
+
+```bash
+npm install -g npm
+```

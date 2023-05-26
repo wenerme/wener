@@ -138,8 +138,8 @@ service k3s start
 ## stable 版本
 
 ```bash
-curl https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest'
-curl https://update.k3s.io/v1-release/channels | yq -r '.data[] | select(.id == "stable") | .latest'
+curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest'
+curl -sf https://update.k3s.io/v1-release/channels | yq -r '.data[] | select(.id == "stable") | .latest'
 ```
 
 ## cluster-init

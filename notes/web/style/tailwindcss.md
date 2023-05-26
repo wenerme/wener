@@ -633,3 +633,24 @@ module.exports = {
 
 - https://github.com/tailwindlabs/tailwindcss/pull/8299
 - https://play.tailwindcss.com/h7eDGStsE9?file=config
+
+# FAQ
+
+## As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`.
+
+```
+warn - As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`.
+warn - Update your configuration file to silence this warning.
+```
+
+```js
+const colors = require('tailwindcss/colors')
+// 忽略弃用的颜色
+delete colors['lightBlue'];
+delete colors['warmGray'];
+delete colors['trueGray'];
+delete colors['coolGray'];
+delete colors['blueGray'];
+```
+
+- https://github.com/tailwindlabs/tailwindcss/issues/4690#issuecomment-1046087220

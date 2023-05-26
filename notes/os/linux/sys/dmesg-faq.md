@@ -19,8 +19,34 @@ tags:
 cat /boot/config-lts | grep LOG_BUF_SHIFT
 ```
 
-## HP HPSA Driver
+## TCP: too many orphaned sockets
 
+一般内存满了导致
+
+```bash
+# x x pages
+# pages*4k 实际内存使用
+cat /proc/sys/net/ipv4/tcp_mem
+cat /proc/sys/net/ipv4/tcp_max_orphans
+```
+
+```
+/proc/sys/net/ipv4/tcp_max_orphans
+
+Maximal number of TCP sockets not attached to any user file handle,
+held by system. If this number is exceeded orphaned connections are
+reset immediately and warning is printed. This limit exists only to
+prevent simple DoS attacks, you _must_ not rely on this or lower the
+limit artificially, but rather increase it (probably, after increasing
+installed memory), if network conditions require more than default value,
+and tune network services to linger and kill such states more aggressively.
+
+Let me remind you again: each orphan eats up to  64K of unswappable memory.
+```
+
+- http://lartc.org/howto/index.html
+
+## HP HPSA Driver
 
 ## EDAC MC0: 1 UE UE overwrote CE on any memory
 
@@ -58,7 +84,7 @@ echo 0 > /sys/module/edac_core/parameters/edac_mc_log_ce
 
 ```bash
 # pci_parity_count
-echo "1" >/sys/devices/system/edac/pci/check_pci_parity
+echo "1" > /sys/devices/system/edac/pci/check_pci_parity
 ```
 
 - kernel [edac.txt](https://mjmwired.net/kernel/Documentation/edac.txt)

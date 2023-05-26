@@ -35,6 +35,8 @@ graph TD;
     C-->D
 ```
 
+## gantt
+
 ## API
 
 ```html

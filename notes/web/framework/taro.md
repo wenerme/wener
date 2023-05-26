@@ -81,3 +81,10 @@ const { app, route, page } = Taro.Current;
 | 支付宝小程序   | mini.project.json   | project.alipay.json |
 | 京东小程序     |                     |
 | 飞书小程序     | project.config.json | project.lark.json   |
+
+## FAQ
+
+##  Invalid option from onResolve() callback in plugin "scanImports": "importer"
+
+- Taro 3.6.7+ 解决
+- https://github.com/NervJS/taro/issues/13767

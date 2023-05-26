@@ -30,6 +30,13 @@ tags:
   - eslint
   - go vet
 
+## Big Corp
+
+| Github                  | for      |
+| ----------------------- | -------- |
+| https://github.com/YMFE | 去哪儿网 |
+| https://github.com/thx  | 阿里妈妈 |
+
 ## Design
 
 - https://docs.microsoft.com/en-us/azure/architecture/patterns/
@@ -214,3 +221,6 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 - [analysis-tools-dev/static-analysis](https://github.com/analysis-tools-dev/static-analysis)
 - https://github.com/topics/code-quality
 
+## 合规
+
+- [google/licensecheck](https://github.com/google/licensecheck)

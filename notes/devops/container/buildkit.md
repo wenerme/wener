@@ -85,6 +85,8 @@ docker run --privileged --rm tonistiigi/binfmt --install all
   - oci-mediatypes=true
     - 只针对 cache-to
 - https://docs.docker.com/build/cache/backends/
+- /var/lib/buildkit/runc-overlayfs/snapshots/snapshots/1639/fs/
+  - cache source
 
 ## RUN mount
 
@@ -140,3 +142,7 @@ docker buildx create --use
 ## push and load may not be set together at the moment
 
 - https://github.com/docker/buildx/issues/177
+
+
+
+## error mounting cache no such file or directory

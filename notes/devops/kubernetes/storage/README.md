@@ -85,6 +85,53 @@ kubectl patch storageclass longhorn -p '{"metadata": {"annotations":{"storagecla
 | Glusterfs  | ✓   | ✓   | ✓   | File         |
 | RBD        | ✓   | ✓   | -   | Block        |
 
+## Local
+
+- hostPath
+- local PV
+  - 1.14 GA
+  - vs hostPath
+    - durable and portable
+    - 不需要手动调度 Pod 到节点
+  - https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+- [local-path-provisioner](./local-path-provisioner.md)
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: example-pv
+spec:
+  capacity:
+    storage: 100Gi
+  # 可以暴露 Block
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /mnt/disks/ssd1
+  # 必须
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - example-node
+```
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+
 # FAQ
 
 ## PersistentVolume vs PersistentVolumeClaim

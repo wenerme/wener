@@ -21,6 +21,8 @@ qlmanage -t -s 1000 -o . picture.svg
 brew install librsvg
 rsvg-convert -h 32 icon.svg > icon-32.png
 rsvg-convert -h 200 icon.svg > icon.png
+
+rsvg-convert -h 200 icon.svg | oxipng -o max -i 0 --strip safe > icon.png
 ```
 
 ## 缩放和大小
@@ -42,3 +44,7 @@ fill-rule evenodd 可能会导致内部的一些内容被忽略
 
 
 TL;DR: SVG icons should use fill-rule:nonzero instead of Sketch default evenodd property to support Android VectorDrawable (as of now)
+
+## font
+
+- https://github.com/jaywcjlove/svgtofont

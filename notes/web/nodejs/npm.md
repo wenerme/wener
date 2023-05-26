@@ -40,6 +40,23 @@ node -p process.config.variables.node_prefix
 
 ## .npmrc
 
+- ~/.npmrc
+- /etc/npmrc
+- /usr/lib/node_modules/npm/npmrc
+
+```ini
+# 有时候镜像不匹配
+# registry=https://registry.npmmirror.com/
+# 速度还行
+registry=https://registry.npmjs.org
+
+disturl=https://npmmirror.com/mirrors/node/
+sharp_binary_host=https://npmmirror.com/mirrors/sharp/
+sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips/
+node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3/
+better-sqlite3_binary_host=https://npmmirror.com/mirrors/sharp-libvips/
+```
+
 ```ini
 # 不推荐 - 经常出现因为镜像问题构建失败
 #registry="https://registry.npmmirror.com"
@@ -92,6 +109,7 @@ node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3
 ```bash
 # 原始
 npm_config_registry=https://registry.npmjs.org
+npm i --registry=https://registry.npmjs.org
 
 # 淘宝镜像
 npm i --registry=https://registry.npm.taobao.org

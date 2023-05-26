@@ -63,3 +63,29 @@ docker run --rm -it \
 - Idea -> Implementation -> Experiment Result -> Error Analysis -> Idea
 - 开发 Prompt 完成特定任务
 - Prompt 就是 UI - 用户交互界面
+
+## When
+
+**ChatGPT 能力说明**
+
+- 优点:
+  - 语义理解
+  - 问答
+  - 生成 - 头脑风暴
+  - 情感分析 - 分类问题
+- 缺点:
+  - 不能保证绝对准确
+  - 要求绝对答案的时候大多时候不对
+    - 例如: XXX 原文
+  - 内容较多时，慢
+  - 存在偏见
+  - 容易被误导
+  - 幻觉 - 假的说的和真的一样
+  - 推理和判断能力有限
+  - 缺少时事信息 - 2021年
+  - Context 上限
+
+**ChatGPT 交互**
+
+1. 流式逐字输出 - 体感更好
+1. 一次性输出 - 可能等很久

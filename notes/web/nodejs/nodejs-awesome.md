@@ -153,6 +153,9 @@ export N_PREFIX=$HOME/n
     - 针对 Linux 优化
 - KV/Cache
   - [jaredwray/keyv](https://github.com/jaredwray/keyv)
+- Performance
+  - https://github.com/zertosh/v8-compile-cache
+    - cjs
 
 ## Web
 

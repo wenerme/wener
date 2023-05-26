@@ -98,3 +98,9 @@ export GF_LOG_FILTERS=rendering:debug
 ## provisioning
 
 - https://grafana.com/docs/grafana/latest/administration/provisioning/
+
+# FAQ
+
+## 跳转到 3000
+
+- 设置 root_url

@@ -286,3 +286,15 @@ umount /dev/z0
 e2fsck /dev/z0
 mount /dev/z0
 ```
+
+## Superblock needs_recovery flag is clear, but journal has data.
+
+```
+Buffer I/O error on dev zd0, logical block 0, lost async page write
+```
+
+**磁盘满了**
+
+```bash
+zfs list -o space,mountpoint
+```

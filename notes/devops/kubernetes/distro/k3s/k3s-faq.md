@@ -369,8 +369,9 @@ lsof -f -- /var/lib/rancher/k3s/server/db/state.db-wal
 
 ```yaml
 kubelet-arg:
-  - 'maxPods=250'
+- config=/etc/rancher/k3s/kubelet.config
 
+#  - 'maxPods=250'
 #  - "kube-reserved=cpu=500m,memory=1Gi,ephemeral-storage=2Gi"
 #  - "system-reserved=cpu=500m, memory=1Gi,ephemeral-storage=2Gi"
 #  - "eviction-hard=memory.available<500Mi,nodefs.available<10%"

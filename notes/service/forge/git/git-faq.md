@@ -43,6 +43,7 @@ git log --follow --find-copies-harder notes/ops/storage/fs/zfs.md
 # -p 历史
 git log --follow -p -- notes/ops/storage/fs/zfs.md
 ```
+
 .../storage/fs
 
 - https://stackoverflow.com/a/2314757/1870054
@@ -226,7 +227,7 @@ chmod 600 ~/.netrc
 
 ```bash
 git config --global credential.helper store
-git credential fill <<CONF | git credential approve
+git credential fill << CONF | git credential approve
 url=https://github.com/
 username=$GITHUB_USERNAME
 password=$GITHUB_TOKEN
@@ -512,4 +513,3 @@ git config --global --add safe.directory '*'
 ```bash
 git push . develop:main
 ```
-

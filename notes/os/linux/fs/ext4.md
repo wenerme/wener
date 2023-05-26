@@ -295,3 +295,12 @@ zstdzcat img.zst | pv >/dev/sda2
 zstd -16v </dev/sda2 >sda2.zst
 zstdcat -v sda2.zst >/dev/sda2
 ```
+
+## mounted filesystem with ordered data mode. Quota mode: none.
+
+不管
+
+```bash
+# 手动启动 Quota
+sudo tune2fs -o usrquota /dev/sda1
+```

@@ -14,6 +14,11 @@ tags:
 | 1.21 | 3.14        |
 | 1.20 | 3.13        |
 
+```bash
+# Stable 版本
+curl -sf https://update.k3s.io/v1-release/channels | yq -r '.data[] | select(.id == "stable") | .latest'
+```
+
 ## 1.22
 
 - etcd-member-management

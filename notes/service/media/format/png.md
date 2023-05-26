@@ -3,3 +3,5 @@ title: png
 ---
 
 # png
+
+- pngquant

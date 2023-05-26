@@ -250,3 +250,7 @@ const defaultAjvOptions = {
 ```
 
 ## You cannot use `send` inside the `onError` hook
+
+## Request body is too large
+
+默认 1MiB

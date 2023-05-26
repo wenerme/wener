@@ -1,3 +1,7 @@
+---
+title: Font
+---
+
 # Font
 
 - https://en.wikipedia.org/wiki/Monospaced_font
@@ -20,17 +24,14 @@
 
 ```bash
 system_profiler SPFontsDataType
-fc-list: file family |grep \/Library
+fc-list: file family | grep \/Library
 ```
 
 cursive
 
+```html
+<link href="http://fonts.googleapis.com/css?family=Codystar" rel="stylesheet" type="text/css" />
 ```
-<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'/>
-```
-
-
-
 
 ### 安全字体
 
@@ -70,9 +71,9 @@ body {
 # NotoSansSC
 # 字体下载, 需要使用代理
 # http://fonts.googleapis.com/earlyaccess/notosanssc.css
-curl -L --remote-name-all  fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.{woff2,woff,otf}
+curl -L --remote-name-all fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.{woff2,woff,otf}
 
-curl -L --remote-name-all -J-  fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.woff2
+curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thin,Light,Regular,Medium,Bold,Black}.woff2
 ```
 
 **notosanssc.css**
@@ -134,3 +135,9 @@ curl -L --remote-name-all -J-  fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Th
 ## woff2
 
 - https://github.com/google/woff2
+
+## Builder
+
+- https://birdfont.org/
+- https://github.com/jaywcjlove/svgtofont
+- https://github.com/adobe-type-tools/opentype-svg

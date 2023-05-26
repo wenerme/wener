@@ -8,7 +8,13 @@ title: turborepo
   - 类似 nx，但支持多 package；类似 bazel
   - 适用于 monorepo 构建
   - 支持缓存、依赖
-- node_modules/.cache/turbo
+- 缓存目录
+  - `node_modules/.cache/turbo/<HASH>`
+- 项目配置 .turbo/config.json
+  - teamid - `team_XXX` - TURBO_TEAM
+  - apiurl - TURBO_API
+  - TURBO_TOKEN
+- 全局 $XDG_CONFIG_HOME/turborepo/config.json
 
 ```bash
 npx -y create-turbo@latest
@@ -50,13 +56,17 @@ npx turbo login --sso-team=<team-slug>
 **env**
 
 | env                              |
-| -------------------------------- | ----------------------------------- |
-| TURBO_TOKEN                      | remote_cache 授权                   |
+| -------------------------------- | ------------------------------------- |
+| TURBO_TOKEN                      | remote_cache 授权                     |
 | TURBO_REMOTE_CACHE_SIGNATURE_KEY |
 | TURBO_HASH                       |
 | TURBO_REMOTE_ONLY                | `--remote-only` - 只使用 remote cache |
-| TURBO_FORCE                      | `--force`                           |
+| TURBO_FORCE                      | `--force`                             |
 | FORCE_COLOR                      |
+
+## Caching
+
+- https://turbo.build/repo/docs/core-concepts/caching
 
 ## Pipeline
 
@@ -127,7 +137,7 @@ turbo run dev --parallel --no-cache # 不缓存
 docker run \
   -v $PWD/cache:/cache --env-file=.env \
   -p 3000:3000 \
-  --name turborepo-remote-cache fox1t/turborepo-remote-cache
+  --name turborepo-remote-cache ducktors/turborepo-remote-cache
 
 # npx 启动
 # npx turborepo-remote-cache
