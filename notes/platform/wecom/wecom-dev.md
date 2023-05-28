@@ -197,6 +197,12 @@ title: 企业微信开发
 
 ## 10006: 解密失败 GetMediaData
 
+:::caution
+
+- 就是可能出现个别 文件 解密失败的情况
+
+:::
+
 请检查是否先进行 base64decode 再进行 rsa 私钥解密，再进行 DecryptMsg 调用。
 
 ## 校验请求来源错误

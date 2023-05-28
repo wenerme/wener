@@ -1,8 +1,22 @@
 ---
-title: Intellij IDEA
+title: Jetbrain IDE
 ---
 
 # Intellij IDEA
+
+| IDE            | for                 |
+| -------------- | ------------------- |
+| Intellij IDEA  | JVM, Java, Kotlin   |
+| WebStorm       | Web, NodeJS, JS, TS |
+| PyCharm        | Python              |
+| GoLand         | Go                  |
+| CLion          | C/C++               |
+| Rider          | .NET                |
+| DataGrip       | Database            |
+| RubyMine       | Ruby                |
+| AppCode        | iOS, macOS          |
+| PHPStorm       | PHP                 |
+| Android Studio | Android             |
 
 :::info
 
@@ -15,6 +29,7 @@ title: Intellij IDEA
 - NPM 工作空间补全有问题 [WEB-50806](https://youtrack.jetbrains.com/issue/WEB-50806)
 - c8 Coverage [WEB-45069](https://youtrack.jetbrains.com/issue/WEB-45069)
 - [AVA Test Run Configuration Generator](https://plugins.jetbrains.com/plugin/13835-ava-test-run-configuration-generator)
+  - 推荐 vitest
 
 :::
 
@@ -78,3 +93,51 @@ idea diff path1 path2 path3
 ## Status bar - Git branch
 
 - View -> Apperance -> Status bar widgets -> Git Branch
+
+## Index
+
+```bash
+DIR=$PWD/data
+mkdir -p $DIR/{ide-system,ide-config,ide-log}
+
+cp /Applications/apps/WebStorm/ch-0/231.9011.35/WebStorm.app/Contents/bin/idea.properties $DIR/ide.properties
+cat << EOF >> $DIR/ide.properties
+idea.system.path=$DIR/ide-system
+idea.config.path=$DIR/ide-config
+idea.log.path=$DIR/ide-log
+EOF
+
+export WEBSTORM_PROPERTIES=$DIR/ide.properties
+
+# --compression=xz, gzip, plain
+webstorm dump-shared-index project --output=$DIR/generate-output --tmp=$DIR/temp --project-dir=$HOME/gits/wenerme/wode --project-id=wode --commit=$(git -C ~/gits/wenerme/wode rev-parse HEAD)
+
+ls $DIR/generate-output
+# shared-index-project-<name>-<hash>.ijx.xz
+# shared-index-project-<name>-<hash>.metadata.json
+# shared-index-project-<name>-<hash>.sha256
+
+# e.g. ~/indexes/project/<project name>/<VCS hash>/share
+SHR=$HOME/temp/jb/indexes/project/wode/$(git -C ~/gits/wenerme/wode rev-parse HEAD)/share
+mkdir -p $SHR/indexes
+cp $DIR/generate-output/*{.ijx.xz,.metadata.json,.sha256} $SHR/indexes
+
+./bin/cdn-layout-tool --indexes-dir=$SHR/indexes --url=http://127.0.0.1:8000/indexes
+ls $SHR/indexes/project
+cd $SHR
+
+server
+```
+
+```yaml title="$PROJECT_DIR/intellij.yaml"
+sharedIndex:
+  project:
+    - url: http://127.0.0.1:8000/indexes/
+```
+
+- https://www.jetbrains.com/help/webstorm/shared-indexes.html
+
+## Perfoamce
+
+- https://www.jetbrains.com/help/webstorm/how-to-improve-product-performance.html
+- https://blog.jetbrains.com/kotlin/2021/06/simple-steps-for-improving-your-ide-performance/

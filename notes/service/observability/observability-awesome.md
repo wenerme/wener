@@ -11,13 +11,11 @@ tags:
   - MIT, JS, Vue
   - 监控网站 uptime
   - https://demo.uptime.kuma.pet/
-- [parca-dev/parca](https://github.com/parca-dev/parca)
-  - Apache-2.0, Go
-  - Continuous profiling for analysis of CPU and memory usage
-- [zinclabs/zincobserve](https://github.com/zinclabs/zincobserve)
+- [zinclabs/zincobserve](./zincobserve.md)
   - Apache-2.0, Rust
   - 从 ZincSearch 演化而来
-  - Log & Trace
+  - Log & Trace & Metrics
+- [通用时间序列数据库/time-series](../../db/db-awesome.md#time-series)
 
 ## Tracing
 
@@ -25,6 +23,8 @@ tags:
 
 ## Metrics
 
+- [victoria-metrics](./metrics/victoria-metrics/README.md)
+  - 最好，最推荐
 - [m3db/m3](./metrics/m3.md)
   - Apache-2.0, Go
   - Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
@@ -49,6 +49,7 @@ tags:
 - APM 内置集成 - 而不是简单的组合两个场景 - 例如: Grafana 同时显示 Prometheus + Jaeger
 - 多用于 Java 环境 - 更容易 instrument
 - 非 Java 环境使用 OpenTelemetry
+- 围绕业务
 
 :::
 
@@ -74,7 +75,7 @@ tags:
   - Apache-2.0, TS+Go
 - [dianping/cat](https://github.com/dianping/cat)
   - Apache-2.0, Java
-  - 美团点评
+  - by 美团点评
 - [pinpoint-apm/pinpoint](https://github.com/pinpoint-apm/pinpoint)
   - Apache-2.0, Java
   - HBase
@@ -84,4 +85,12 @@ tags:
 
 ## Profiling
 
+> 1. 更加细致的指标监控 - 方法，进程级别
+> 2. 更加细粒度 - 毫秒级
+> 3. 主要用于程序优化
+
 - [grafana/pyroscope](https://github.com/grafana/pyroscope)
+  - AGPLv3, Go
+- [parca-dev/parca](https://github.com/parca-dev/parca)
+  - Apache-2.0, Go
+  - Continuous profiling for analysis of CPU and memory usage

@@ -65,3 +65,17 @@ less 32
 greater 64
 <= 128
 ```
+
+## 抓进程网络
+
+```bash
+strace -f -e trace=network -s 10000 PROCESS
+strace -f -e trace=network -s 10000 -p PID
+```
+
+- https://github.com/nsntrace/nsntrace
+
+
+```bash
+tcptracer-bpfcc -v -p (PID)
+```

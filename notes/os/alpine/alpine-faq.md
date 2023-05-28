@@ -41,7 +41,6 @@ small footprint, non-systemd, fast enough, good community, sane defaults.
 
 ## apk opening from cache No such file or directory
 
-
 ## 历史
 
 alpine 早期思想来自于 FreeBSD
@@ -87,13 +86,22 @@ apk fix
 
 ## getty: console: TIOCSCTTY: Operation not permitted
 
-## 内核风格/kernel flavors
+## 内核风格 - kernel flavors - lts vs virt {#flavors}
 
-https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened/APKBUILD
-https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
 
-- 区别在于不同的内核编译参数和安全补丁
-- hardened < 3.10
+- 区别
+  - 内核编译参数
+  - OS 默认 module
+  - 固件
+- virt
+  - 适用于虚拟化环境
+  - 默认开启 virtio
+  - 很少 linux-firmware - 因此很小
+- lts
+  - LTS 版本的 Linux 内核
+  - 正常硬件环境
+  - 完整 linux-firmware
+- ~~hardened < 3.10~~
   - 支持架构: x86_64, x86, armhf
   - 启用了内核安全模块
   - grsecurity
@@ -101,22 +109,17 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
   - 安装完成后 500m 左右, boot 20m 左右
     - 固件: 210m
     - 内核模块: 270m
-- virthardened < 3.10
+- ~~virthardened < 3.10~~
   - 支持架构: x86_64, x86
   - 安全和 hardened 相同
   - 调整内核参数以适应虚拟化环境
   - 镜像更小, 更快, 没有默认驱动和固件
   - 安装完成后 100m 左右, boot 13m 左右
-- vanilla < 3.10
+- ~~vanilla < 3.10~~ -> lts
   - 支持架构: x86_64, x86, s390x, ppc64le, ppc, armhf, aarch64
   - 适用于调试
   - 适用于其他风格不支持的架构
   - 无安全部相关的补丁和内核配置
-- virt
-  - 支持架构: x86_64, x86
-  - 适用于虚拟化环境
-- lts
-  - LTS 版本的 Linux 内核
 - standard - 打包包含更多内容
   - 电源管理
   - CPU 管理
@@ -143,6 +146,13 @@ https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla
   - 移除硬件相关兼容设置
   - 添加 XEN
   - 移除 JFFS, UBIFS
+
+---
+
+- https://git.alpinelinux.org/aports/tree/main/linux-lts
+- ~~https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened~~
+- ~~https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla~~
+
 
 ## rc-update: failed to add service `loadkmap' to runlevel `boot': No such file or directory
 
@@ -304,7 +314,7 @@ apk.static -X http://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main --al
 
 # /etc/apk/repositories
 setup-apkrepos http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.17/main http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.17/community
-apk add  shadow
+apk add shadow
 ln -s /usr/bin/passwd /bin/passwd
 setup-sshd -c openssh
 
@@ -319,3 +329,44 @@ sh takeover.sh
 echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/main
 https://mirrors.tuna.tsinghua.edu.cn/alpine/v$(sed -n 's/\.\d\+$//p' /etc/alpine-release)/community" > /etc/apk/repositories
 ```
+
+## grub netboot
+
+**lts**
+
+```bash
+curl -k -f -# https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/vmlinuz-lts -o /boot/vmlinuz-netboot
+curl -k -f -# https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/initramfs-lts -o /boot/initramfs-netboot
+```
+
+```bash title="/etc/grub.d/40_netboot"
+#!/bin/sh
+exec tail -n +3 \$0
+
+menuentry 'Alpine' {
+    linux /boot/vmlinuz-netboot alpine_repo="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main" modloop="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/modloop-lts" modules="loop,squashfs" initrd="initramfs-netboot" console="tty0" ssh_key="https://github.com/wenerme.keys"
+    initrd /boot/initramfs-netboot
+}
+```
+
+**virt**
+
+```bash
+curl -k -f -# https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/vmlinuz-virt -o /boot/vmlinuz-netboot
+curl -k -f -# https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/initramfs-virt -o /boot/initramfs-netboot
+```
+
+```bash title="/etc/grub.d/40_netboot"
+#!/bin/sh
+exec tail -n +3 \$0
+
+menuentry 'Alpine' {
+    linux /boot/vmlinuz-netboot alpine_repo="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main" modloop="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/releases/x86_64/netboot/modloop-virt" modules="loop,squashfs" initrd="initramfs-netboot" console="tty0" ssh_key="https://github.com/wenerme.keys"
+    initrd /boot/initramfs-netboot
+}
+```
+
+- 注意修改 ssh_key="https://github.com/wenerme.keys"
+- https://wiki.alpinelinux.org/wiki/PXE_boot
+- https://wiki.alpinelinux.org/wiki/Netboot_Alpine_Linux_using_iPXE
+- https://github.com/52fancy/NetInstallAlpine/blob/main/alpine.sh

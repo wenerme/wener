@@ -126,3 +126,9 @@ rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
 ```bash
 rsync -e 'ssh -p 2222'
 ```
+
+## rsync: change_dir "/" (in f) failed: Permission denied (13)
+
+## rsync: receiver mkstemp "/.file.tar.gz.XXXXXX" (in backup) failed: Permission denied (13)
+
+## rsync: generator failed to set permissions on "/file.tar.gz" (in backup): No such file or directory (2)

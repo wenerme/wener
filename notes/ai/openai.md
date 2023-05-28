@@ -39,6 +39,12 @@ title: OpenAI
 - https://platform.openai.com/docs/models/model-endpoint-compatibility
 - https://npmjs.com/package/chatgpt
 
+```bash
+curl https://api.openai.com/v1/models \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "OpenAI-Organization: YOUR_ORG_ID"
+```
+
 ```json
 {
   "error": {

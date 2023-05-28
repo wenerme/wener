@@ -48,6 +48,22 @@ tags:
   - Viteness
   - TiDB
 
+## 时序数据库 {#time-series}
+
+> 1. 可观察性 - 日志、指标、追踪
+> 1. IoT
+
+- [timescale](./relational/postgresql/timescale.md)
+- [CeresDB/ceresdb](https://github.com/CeresDB/ceresdb)
+- [GreptimeTeam/greptimedb](https://github.com/GreptimeTeam/greptimedb)
+- [questdb/questdb](https://github.com/questdb/questdb)
+  - Java, Apache 2.0
+  - PostgreSQL 兼容协议
+- [m3db/m3](https://github.com/m3db/m3)
+  - from Uber
+  - Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
+- [taosdata/TDengine](https://github.com/taosdata/TDengine)
+
 ## 实时数据库
 
 - [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
@@ -58,16 +74,6 @@ tags:
 - [supabase/supabase](https://github.com/supabase/supabase)
   - 基于 PostgreSQL
   - 类比 Firebase
-
-## 时序
-
-- [questdb/questdb](https://github.com/questdb/questdb)
-  - Java, Apache 2.0
-  - PostgreSQL 兼容协议
-- [m3db/m3](https://github.com/m3db/m3)
-  - from Uber
-  - Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
-- [taosdata/TDengine](https://github.com/taosdata/TDengine)
 
 ## OLAP
 
@@ -145,7 +151,6 @@ Cube 计算
 - DVS
 
 ## 有趣
-
 
 - [wiredtiger/wiredtiger](https://github.com/wiredtiger/wiredtiger)
   - MongoDB
@@ -239,11 +244,6 @@ curl --request POST \
   - [bloomberg/comdb2](https://github.com/bloomberg/comdb2)
     - Apache-2.0, C
 - [LumoSQL/LumoSQL](https://github.com/LumoSQL/LumoSQL)
-
-## Migration
-
-- [amacneil/dbmate](https://github.com/amacneil/dbmate)
-  - framework-agnostic database migration tool
 
 ## ID
 
@@ -339,30 +339,99 @@ curl --request POST \
     - [HN](https://news.ycombinator.com/item?id=31107231)
     - https://stripe.com/en-gb/sigma
 
-## Migration
+## 迁移/升级/Schema 变更/Migration {#migration}
 
-- flywaydb
-  - SQL
-- liquibase
-  - XML
-- [bytebase/bytebase](https://github.com/bytebase/bytebase)
-  - MIT, Go, Vue
-  - Safe database schema change and version control for DevOps teams.
-- [golang-migrate/migrate](https://github.com/golang-migrate/migrate)
-- [amacneil/dbmate](https://github.com/amacneil/dbmate)
-- [ariga/atlas](https://github.com/ariga/atlas)
+> 不需要重复部署的环境可以不用考虑
+
+:::info 常见模式迁移
+
+1. DSL - XML, YAML, HCL
+
+- 支持 diff
+- 多一层学习成本
+- 支持多种数据库
+- 还支持除了 table 以外的对象
+- 必须先写 DSL - SSOT
+
+2. SQL
+
+- 概念简单
+- 能利用所有 SQL 能力
+- 支持很多场景
+- 版本管理为主
+
+3. ORM -> SQL
+
+- 类似 DSL
+- 减少额外定义 DSL
+- 生成 SQL 不透明
+- 功能局限
+- 一般 diff 不会做移除列操作
+- 局限于 table
+
+:::
+
+:::info 版本目录模式
+
+- `[version]-[title].sql`
+  - 通过 注释 分割 up/down
+  - `--- up`
+  - `--- down`
+- `[version]-[title].<up|down>.sql`
+- `[version]-[title]/` - 目录区分版本
+  - `up.sql`
+  - `down.sql`
+
+:::
+
+
+- Java
+  - flywaydb
+    - Apache-2.0, SQL
+    - `db/migration/<Prefix><Version>__<Description>.sql`
+    - `mvn clean flyway:migrate -Dflyway.configFiles=myFlywayConfig.conf`
+    - IDEA JPA Budy 有 Flyway 集成
+  - liquibase
+    - XML
+- Golang
+  - [ariga/atlas](https://github.com/ariga/atlas)
+    - DSL, Go
+  - [golang-migrate/migrate](../languages/go/lib/migrate.md)
+    - MIT, Go
+    - `VER_DESC.<up|down>.sql`
+    - `migrate create -ext sql -dir db/migrations -seq create_users_table`
+  - [amacneil/dbmate](https://github.com/amacneil/dbmate)
+    - SQL, Go
+    - framework-agnostic database migration tool
+    - 注释分割 `-- migrate:up`
+  - [pressly/goose](https://github.com/pressly/goose)
+    - MIT, SQL/Go
+- NodeJS
+  - [sequelize/umzug](https://github.com/sequelize/umzug)
+    - MIT, SQL/DSL
+    - sequelize
+    - mikro-orm https://mikro-orm.io/docs/migrations
+  - [salsita/node-pg-migrate](https://github.com/salsita/node-pg-migrate)
+    - MIT, DSL
+  - [graphile/migrate](https://github.com/graphile/migrate)
+    - MIT, SQL
+    - 支持 current 概念
+- 平台/服务/工具
+  - [bytebase/bytebase](https://github.com/bytebase/bytebase)
+    - MIT, Go, Vue
+    - Safe database schema change and version control for DevOps teams.
 - [djrobstep/migra](https://github.com/djrobstep/migra)
   - PG Schema Diff
 - [fabianlindfors/reshape](https://github.com/fabianlindfors/reshape)
   - zero-downtime schema migration tool for Postgres
-- [charperbonaroo/pgmigrate](https://github.com/charperbonaroo/pgmigrate)
-  - Write migrations using plain SQL
 - [sqitchers/sqitch](https://github.com/sqitchers/sqitch)
   - MIT, Perl
 - [skeema](https://github.com/skeema/skeema)
   - MySQL & MariaDB
 - sqlite [user_version](https://sqlite.org/pragma.html#pragma_user_version)
 - [rickbergfalk/postgrator](https://github.com/rickbergfalk/postgrator)
+- Hasura - https://hasura.io/docs/latest/migrations-metadata-seeds/manage-migrations/
+  - `VER_DESC/<up|down>.sql`
 
 ## TBD
 

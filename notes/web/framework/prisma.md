@@ -4,6 +4,7 @@ title: Prisma2
 
 # Prisma2
 
+-  PostgreSQL, MySQL, SQL Server, SQLite, MongoDB, CockroachDB
 - Query Engine - Rust 实现
   - 作为 sidecard 或者 n-api 使用
 - 架构不同于 Prisma1 - 客户端 -> 查询引擎 -> 数据库
@@ -21,10 +22,11 @@ title: Prisma2
   - MySQL
   - SQLite
 - 问题
-  - 不支持 yarn2 [#1439](https://github.com/prisma/prisma/issues/1439)
+  - 不支持 yarn2 PnP [#1439](https://github.com/prisma/prisma/issues/1439)
     - 修改输出路径为 `../src/generated/prisma`，调整 PrismaClient 的引入路径可以使用
 - [prisma/studio](https://github.com/prisma/studio)
   - 闭源
+- https://playground.prisma.io/
 
 ```bash
 npm install prisma --save-dev
@@ -79,4 +81,22 @@ model Setting {
 EOF
 
 yarn prisma generate
+```
+
+```bash
+npx prisma db pull
+
+npx prisma migrate resolve --applied 0_init
+
+npm install @prisma/client
+
+npx prisma generate
+```
+
+
+```hcl
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 ```

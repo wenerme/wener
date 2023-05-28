@@ -484,6 +484,26 @@ apk[5410]: segfault at a930 ip 000000000000a930 sp 00007fff2eb32cd8 error 14 in 
 Code: Unable to access opcode bytes at RIP 0xa906.
 ```
 
+## BTRFS critical (device dm-2): corrupt leaf
+
+只能离线 btrfs check，访问局部文件出现错误，但是整体文件系统还是可以访问的。
+
+- RAID 5
+
+```
+md2: [Self Heal] Retry sector [3253080] round [1/3] choose d-disk
+md2: [Self Heal] Retry sector [3253080] round [1/3] finished: get same result, retry next round
+md2: [Self Heal] Retry sector [3253080] round [2/3] start: sh-sector [1626584], d-disk [2:sdj3], p-disk [0:sdh3], q-disk [1:sdi3]
+md2: [Self Heal] Retry sector [3253080] round [2/3] choose p-disk
+md2: [Self Heal] Retry sector [3253080] round [2/3] finished: get same result, retry next round
+md2: [Self Heal] Retry sector [3253080] round [3/3] start: sh-sector [1626584], d-disk [2:sdj3], p-disk [0:sdh3], q-disk [1:sdi3]
+md2: [Self Heal] Retry sector [3253080] round [3/3] choose q-disk
+md2: [Self Heal] Retry sector [3253080] round [3/3] finished: get same result, give up
+BTRFS warning (device dm-2): corrupt leaf fixed, bad key order, block=570261504, root=264, slot=161
+BTRFS critical (device dm-2): corrupt leaf: root=264 block=570261504 slot=161 ino=69311, name hash mismatch with key, have 0x000000001dc4dc92 expect 0x000000001e00be13
+BTRFS error (device dm-2): cannot fix 570261504, record in meta_err
+```
+
 # TODO
 
 ```

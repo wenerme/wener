@@ -8,7 +8,7 @@ title: RAID
   - Redundant Array of Independent Disks - 独立硬盘冗余阵列
 - [Standard_RAID_levels](https://en.wikipedia.org/wiki/Standard_RAID_levels)
   - RAID 0
-  - RAID 1
+  - RAID 1 - Mirror
   - RAID 2
   - RAID 3
   - RAID 4

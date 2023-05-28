@@ -40,3 +40,9 @@ build-default:
 ```makefile
 build: # 必须要定义 target
 ```
+
+## 默认值
+
+```makefile
+NAMESPACE := $(or $(NAMESPACE), $(shell basename $(shell pwd)))
+```

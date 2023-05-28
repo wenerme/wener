@@ -4,25 +4,25 @@ title: ZincObserve
 
 # ZincObserve
 
-:::caution CE 功能限制
-
-- 无 Elastic 兼容接口
-- 不支持创建 Organization
-
-:::
-
 - [zinclabs/zincobserve](https://github.com/zinclabs/zincobserve)
   - Apache-2.0, Rust
   - 从 ZincSearch 演化而来
-  - Log & Trace
-- WIP
-  - Dashboards
-  - Metrics
-  - Traces
-  - Grafana
+  - Log & Trace & Metrics
+  - 存储 Parquet + Datafusion
 - HA
   - Etcd + 对象存储
   - 组件 Ingester、Querier、Compactor、AlterManager
+
+:::caution
+
+- 还处于相当早期阶段
+  - 日志功能相对完善
+  - 其他基本可用
+- CE 功能限制
+  - 无 Elastic 兼容接口
+  - Cloud 在 CE 基础上加 Proxy 做了额外的权限功能和 UI
+
+:::
 
 ```bash
 ZO_ROOT_USER_PASSWORD=$(uuidgen)
@@ -85,9 +85,14 @@ POST /api/{organization}/{stream}/_json
 ```
 
 - organization
+  - default
+  - 如果不存在会自动创建
 - stream
+  - default
+  - 如果不存在会自动创建
 
 ```bash
+# 测试
 curl -X POST zincobserve:5080/api/default/default/_json --user $ZO_USER --password $ZO_PASSWORD -d '[]'
 ```
 

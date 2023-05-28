@@ -14,6 +14,11 @@ tags:
 | 中规模 | GB/天 < TB/天 |
 | 大规模 | TB/天, PB/天  |
 
+## 长期存储
+
+- 至少 大于 6个月
+- 通常做下采样
+
 ## fluent vs filebeat
 
 - [fluent-filebeat-comparison.md](https://gist.github.com/StevenACoffman/4e267f0f60c8e7fcb3f77b9e504f3bd7)

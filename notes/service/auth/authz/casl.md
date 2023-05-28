@@ -54,8 +54,8 @@ function defineAbilitiesFor(role) {
 
 ```ts
 can('read', 'Address', { 'country.isoCode': 'UA' });
-can('read', 'Post', 'author.*')
-can('read', 'Post', 'vehicle.*.generic.*')
+can('read', 'Post', 'author.*');
+can('read', 'Post', 'vehicle.*.generic.*');
 
 // 支持自定义 any/all
 // 默认 manage 和 all
@@ -68,4 +68,23 @@ can('*', 'Post');
 can('*', '*');
 ```
 
-- https://github.com/stalniy/ucast
+## ucast
+
+- [stalniy/ucast](https://github.com/stalniy/ucast)
+- @ucast/core
+- @ucast/js
+  - 解释器
+  - eq, ne
+  - lt, lte
+  - gt, gte
+  - within, nin
+  - all
+  - regex
+  - or, nor, and, not
+  - exists
+  - size
+  - mod
+  - where,
+  - elemMatch
+- 参考
+  - http://docs.mongodb.org/manual/reference/operator/query/

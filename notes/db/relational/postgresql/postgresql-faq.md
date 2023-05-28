@@ -632,3 +632,81 @@ ORDER  BY conrelid::regclass::text, contype DESC;
   - 合并去重
 - union all
   - 不做处理
+
+## 外键需要建立索引么？
+
+- pk 和 unique 会自动建立索引
+- fk 不会自动建立索引
+  - 建议建立索引
+
+## enum vs check vs fk
+
+- enum
+  - 不能删除
+  - 顺序不可变
+  - 不可以模式匹配
+  - 实际存储 oridinal
+  - 默认最长 63byte
+  - 只有 value
+  - 存储在 pg_enum
+  - https://www.postgresql.org/docs/current/datatype-enum.html
+- check
+  - 所见即所得
+- fk
+  - 可以包含 label - 方便生成
+  - 可以动态变化
+  - 推荐 FK Value
+  - 不需要 alter table
+
+```sql
+-- ENUM
+CREATE TYPE valid_colors AS ENUM ('red', 'green', 'blue');
+
+CREATE TABLE t (
+    color VALID_COLORS
+);
+
+-- CHECK
+CREATE TABLE t (
+    colors TEXT CHECK (colors IN ('red', 'green', 'blue'))
+);
+
+-- FK ID
+CREATE TABLE valid_colors (
+    id SERIAL PRIMARY KEY NOT NULL,
+    color TEXT
+);
+
+INSERT INTO valid_colors (color) VALUES
+    ('red'),
+    ('green'),
+    ('blue');
+
+CREATE TABLE t (
+    color_id INTEGER REFERENCES valid_colors (id)
+);
+
+-- FK value
+CREATE TABLE valid_colors (
+    value text PRIMARY KEY NOT NULL,
+    label text
+);
+
+INSERT INTO valid_colors (value) VALUES
+    ('red'),
+    ('green'),
+    ('blue');
+
+CREATE TABLE t (
+    color text REFERENCES valid_colors (value)
+);
+```
+
+---
+
+- 参考
+  - https://stackoverflow.com/a/10984951/1870054
+
+## 预加载 table 到内存
+
+[pg_prewarm](./pg_prewarm.md)

@@ -5,6 +5,7 @@ title: VictoriaMetrics
 # VictoriaMetrics
 
 - [VictoriaMetrics/VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics) 是什么？
+  - Apache-2.0, Golang
   - 时序数据库
   - 高性能、低成本、大规模
   - 支持集群
@@ -32,9 +33,8 @@ title: VictoriaMetrics
 
 :::caution
 
-- 不支持下 采样
-- 单节点不支持多租户
-- 不支持 remote_read
+- 不支持 下采样
+- 区分单节点和集群模式
 - histogram_quantile 有问题
   - [#678](https://github.com/VictoriaMetrics/VictoriaMetrics/issues/678)
 

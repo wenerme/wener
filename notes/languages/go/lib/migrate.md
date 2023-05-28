@@ -8,12 +8,15 @@ title: migrate
   - DB 迁移工具
   - 可当做库来使用
   - 支持较多的 Source 和 数据库
+  - 不支持 ENV 和 配置文件 配置 DB - 只能 flag
 
 ```bash
 # macOS
 curl -LO https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.darwin-amd64.tar.gz
 tar zxvf migrate.darwin-amd64.tar.gz
 migrate -v
+
+brew install golang-migrate # macOS by brew
 
 # 创建 sql 文件
 # -seq 使用序列而非时间戳 - 000001
