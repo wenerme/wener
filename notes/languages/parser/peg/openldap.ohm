@@ -1,0 +1,57 @@
+LDAPFilter {
+  Main = LDAPFilter end
+
+  LDAPFilter = "(" FilterComp ")"
+  FilterComp = And | Or | Not | Item
+  And = "&" FilterList
+  Or = "|" FilterList
+  Not = "!" LDAPFilter
+  FilterList = LDAPFilter+
+  Item = Simple | Present | Substring // | extensible
+  Simple = attr filtertype value
+  filtertype = ">=" | "<=" | "~=" | "="
+  Present = attr "=*"
+  Substring = attr "=" initial? anyvalue final?
+  initial = value
+  anyvalue = "*" (value "*")*
+  final = value
+  attr = letter+
+  value = (~("("|")") any)+
+}
+
+
+OpenLDAP <: LDAPFilter {
+  AccessDirective =  "access" "to" What ("by" Who Access? control? )+
+  What
+    = "*" -- any
+    | DNFilter ?
+      ("filter" "=" LDAPFilter)? ("attrs" "=" AttrList)? -- filter
+
+  basicStyle = "regex" | "exact"
+  scopeStype = "base" | "one" | "subtree" | "children"
+  dn = "\"" (~"\"" any)* "\""
+
+  AttrList
+    = ListOf<attrname,",">
+    | attrname "val" BasicFilter -- filter
+  DNFilter = "dn." scopeStype spaces "=" dn | "dn" ("." basicStyle)? "=" regex
+  BasicFilter = ("." basicStyle)?  "=" regex
+  Who
+    = "*" -- any
+    | ("anonymous" | "users" | "self" | DNFilter)?
+      ("dnattr" "=" attrname)?
+      (#("group" ("/" objectclass ("/" attrname)?)?) BasicFilter )?
+
+      (("peername"|"sockname"|"domain"|"sockurl") BasicFilter)?
+      ("set" "=" setspec)?
+      ("aci" "=" attrname)? -- filter
+
+  Access = "self"? (level | priv)
+  regex = "\"" (~"\"" any)* "\""
+  objectclass = letter+
+  attrname = letter+
+  setspec = letter+
+  level = "none" | "disclose" | "auth" | "compare" | "search" | "read" | "write" | "manage"
+  priv = ("="|"+"|"-")? ("m"|"w"|"r"|"s"|"c"|"x"|"d"|"0")+
+  control = "stop" | "continue" | "break"
+}

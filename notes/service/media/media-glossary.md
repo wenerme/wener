@@ -14,6 +14,9 @@ tags:
 - B - Bidirectional predicted picture
   - 可使用前后帧进行压缩
 - BDMV - blu-ray folder
+- WHIP - WebRTC-HTTP ingestion protocol
+  - https://github.com/ossrs/ffmpeg-webrtc/pull/1
+  - https://news.ycombinator.com/item?id=36130191
 - 参考
   - [Video compression picture types](https://en.wikipedia.org/wiki/Video_compression_picture_types)
   - what are pts and dts ? https://stackoverflow.com/a/6044365/1870054

@@ -34,7 +34,7 @@ tags:
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
 - [editablejs/editable](https://github.com/editablejs/editable)
-  - **GPL**
+  - Apache-2.0, TS, React
 
 ## Image Editor
 
@@ -86,6 +86,8 @@ tags:
 
 ## Block
 
+- [TypeCellOS/BlockNote](https://github.com/TypeCellOS/BlockNote)
+  - MPLv2, TS, React
 - [codex-team/editor.js](https://github.com/codex-team/editor.js)
   - Apache-2.0, Typescript
 - [appleple/smartblock](https://github.com/appleple/smartblock)
@@ -98,8 +100,30 @@ tags:
 - [portabletext/portabletext](https://github.com/portabletext/portabletext)
   - Sanity.io 定义的规范
 
-## Page Builder
+## Builder
 
+- Page Builder
+- Report Builder
+- Form Builder
+- Component Builder
+- 难点
+  - 状态管理
+  - 序列化
+  - 框架集成
+  - 数据接入
+
+---
+
+- [plasmicapp/plasmic](https://github.com/plasmicapp/plasmic)
+  - MIT, TS
+- [BuilderIO/mitosis](https://github.com/BuilderIO/mitosis)
+  - MIT, TS
+  - React, Vue, Qwik, Solid, Angular, Svelte
+- [prevwong/reka.js](https://github.com/prevwong/reka.js)
+  - MIT, TS
+  - State management system to build any no-code editor
+- [prevwong/craft.js](https://github.com/prevwong/craft.js)
+  - React
 - [react-page/react-page](https://github.com/react-page/react-page)
   Next-gen, highly customizable content editor for the browser - based on React and Redux. WYSIWYG on steroids.
   - MIT, TypeScript+React
@@ -160,6 +184,8 @@ tags:
 - [retejs/rete](https://github.com/retejs/rete)
   - MIT
   - modular framework for visual programming
+- DrawIO
+- BPMN.js
 
 ## Glossary
 

@@ -137,6 +137,13 @@ rclone copy "gdrive,shared_with_me:shared-file.txt" gdrive:
 rclone lsd :s3,env_auth:
 ```
 
+## sftp
+
+
+```bash
+rclone config
+```
+
 ## Web UI
 
 ```bash
@@ -210,4 +217,10 @@ export RCLONE_CONFIG_DST_TYPE=alias
 export RCLONE_CONFIG_DST_REMOTE=SVR:artifacts/sites
 
 rclone lsd DST:
+```
+
+## base64 decode failed when revealing password
+
+```bash
+export RCLONE_CONFIG_MYSFTP_PASS=`rclone obscure mypassword`
 ```

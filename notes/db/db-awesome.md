@@ -416,6 +416,8 @@ curl --request POST \
   - [graphile/migrate](https://github.com/graphile/migrate)
     - MIT, SQL
     - 支持 current 概念
+  - [tj/node-migrate](https://github.com/tj/node-migrate)
+    - MIT, Code
 - 平台/服务/工具
   - [bytebase/bytebase](https://github.com/bytebase/bytebase)
     - MIT, Go, Vue

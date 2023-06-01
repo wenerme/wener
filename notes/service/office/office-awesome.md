@@ -25,7 +25,7 @@ tags:
 - Java
   - apache poi
   - [alibaba/easyexcel](https://github.com/alibaba/easyexcel)
-- Javascript
+- Javascript/NodeJS
   - [exceljs/exceljs](https://github.com/exceljs/exceljs)
     - MIT, JS
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
@@ -41,6 +41,8 @@ tags:
     - 文本提取
   - [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
     - Apache-2.0, JS
+    - 不在 npm https://github.com/SheetJS/sheetjs/issues/2667
+    - 开发也不在 Github 上了
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
   - [foliojs](https://github.com/foliojs)
     - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
@@ -49,6 +51,8 @@ tags:
     - fontkit
     - png.js
     - brotli.js
+  - [mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
+    - based on sheetjs
 - Editor
   - [dream-num/Luckysheet](https://github.com/dream-num/Luckysheet)
   - [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)

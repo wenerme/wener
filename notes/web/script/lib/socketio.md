@@ -4,7 +4,18 @@ title: SocketIO
 
 # SocketIO
 
+- [socketio/socket.io](https://github.com/socketio/socket.io)
+  - real-time bidirectional event-based communication
+- [socketio/socket.io-redis-adapter](https://github.com/socketio/socket.io-redis-adapter)
+  - pub/sub
+  - `socket.io#/#` - broadcast
+  - `socket.io#/#room21#` - room
+  - `<prefix>#<namespace>#*`
+  - `<prefix>-request#<namespace>#`
+  - `<prefix>-response#<namespace>#`
 - https://admin.socket.io/
+
+# FAQ
 
 ## namespace vs room
 

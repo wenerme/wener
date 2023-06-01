@@ -36,6 +36,28 @@ title: peggy
 | `expr { action }`          | 执行脚本                     |
 | `expr1 / expr2`            |
 
+```
+expression |count|
+expression |min..max|
+expression |count, delimiter|
+expression |min..max, delimiter|
+```
+
+- min,max,count 可以是 label/变量/code block
+
+```pegjs
+start = "a"|{ return options.count; }|;
+```
+
+```pegjs
+// 手写
+Values = next:(a:Value _ b:(_ ',' _ next:Value {return next})* ','? {return b?[a,...b]:a})? {return next || []}
+// repeat
+Values = next:(Value|..,","|)  ','?  {return next || []}
+```
+
+---
+
 - Action Execution Environment
   - `()` 会形成变量作用域
   - input - parse 参数

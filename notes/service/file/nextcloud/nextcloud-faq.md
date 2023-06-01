@@ -13,6 +13,9 @@ tags:
 
 ```bash
 su -l www-data -s /bin/bash
+cd /var/www/html
+export PHP_MEMORY_LIMIT=8G
+./occ
 ```
 
 ## nextcloud put 413

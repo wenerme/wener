@@ -1,5 +1,4 @@
 ---
-id: evolve
 title: 自我成长
 ---
 

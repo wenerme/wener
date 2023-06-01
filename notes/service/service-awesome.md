@@ -157,6 +157,10 @@ tags:
   - [envkey/envkey](https://github.com/envkey/envkey)
   - [dotenv-org/dotenv-vault](https://github.com/dotenv-org/dotenv-vault)
   - vault
+- captcha
+  - [ZYSzys/awesome-captcha](https://github.com/ZYSzys/awesome-captcha)
+- qr
+  - [kochrt/qr-designer](https://github.com/kochrt/qr-designer)
 
 ## Avatar
 

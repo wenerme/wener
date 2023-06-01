@@ -145,6 +145,13 @@ Non-medium error count:        4
 - https://serverfault.com/q/419007/190601
 - https://www.dell.com/support/kbdoc/zh-cn/000147878
 
+```
+Non-medium error count
+```
+
+- number of recoverable events other than write, read or verify errors.
+  - 可能是线和控制器问题
+
 ## SSD 生命周期和健康状况
 
 - 查看属性表

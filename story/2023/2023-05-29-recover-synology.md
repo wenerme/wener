@@ -108,6 +108,10 @@ btrfs scrub start -Bf /dev/mapper/vg1-volume_1
 
 > 无解, TODO
 
+```
+/dev/mapper/cachedev_0 on /volume1 type btrfs (rw,nodev,relatime,ssd,synoacl,space_cache=v2,auto_reclaim_space,metadata_ratio=50,block_group_cache_tree,subvolid=256,subvol=/@syno)
+```
+
 ## wrong fs type, bad option, bad superblock on /dev/mapper/vg1-volume_1
 
 ```bash

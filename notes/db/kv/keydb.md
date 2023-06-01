@@ -26,7 +26,6 @@ title: KeyDB
   - [EQ-Alpha/ModJS](https://github.com/EQ-Alpha/ModJS)
     - 基于 V8
 
-
 :::tip
 
 - 因为支持多线程，因此作为单节点 KeyDB 会比单节点 Redis Cluster 好维护的多
@@ -82,7 +81,7 @@ replicaof keydb-1:6379
 
 ```bash
 docker run -d -it -p 6379:6379 \
-   --mount type=bind,dst=/flash,src=/$PWD/flash/ \
+  --mount type=bind,dst=/flash,src=/$PWD/flash/ \
   --name keydb eqalpha/keydb keydb-server /etc/keydb/keydb.conf --storage-provider flash /flash --maxmemory 1G --maxmemory-policy allkeys-lfu
 ```
 
@@ -102,13 +101,20 @@ docker run -d -it -p 6379:6379 \
 
 - Redis
   - IO 多线程
-- KeyDB - 定期 Merge Redis 上游
+  - Redis 7 - ACL R/W 控制
+- KeyDB
   - IO 多线程
+  - 定期 Merge Redis 上游
+    - Redis 6 fork - 目前尚未合并 Redis 7 功能
   - 兼容 Redis 扩展 - 但只能单线程执行
+    - 主流 Redis 扩展的协议都不能商用 - RedisStack 系列
   - 部分操作支持并行 - MVCC
-  - 额外功能 - HASH Key 支持 TTL
-  - Active Replica
-  - Multi Master
+  - 部分操作支持 ASYNC
+  - 额外功能 - HASH Key 支持 TTL, CRON
+  - Active Replica - 个人推荐
+  - Multi Master - 个人不那么推荐
+  - FLASH 存储
+  - S3 备份/加载
 
 ---
 

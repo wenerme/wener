@@ -10,11 +10,13 @@ title: craft.js
   - 编辑模式对现有组件侵入
 - @craftjs/core
   - 150kb - self 30kb + @craftjs/utils 13kb + lodash 96kb + immer + nanoid
+- [prevwong/reka.js](https://github.com/prevwong/reka.js)
+  - 新的状态管理+序列化
 
 :::caution
 
 - 对现有组件侵入
-- 暂不支持 Reaact 18 StrictMode [#404](https://github.com/prevwong/craft.js/issues/404)
+- ~~暂不支持 Reaact 18 StrictMode [#404](https://github.com/prevwong/craft.js/issues/404)~~
 
 :::
 

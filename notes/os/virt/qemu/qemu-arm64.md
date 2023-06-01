@@ -24,6 +24,8 @@ qemu-system-aarch64 \
   -drive file=alpine-aarch64.qcow2 \
   -cdrom alpine-virt-aarch64.iso
 
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
+
 # 安装好后确保能正常启动
 qemu-system-aarch64 \
   -M virt,gic-version=3 \
@@ -56,10 +58,10 @@ mount -t 9p -o trans=virtio test_mount /mnt
 # CONFIG_BLK_DEV_NVME=m 需要手动配置
 cat /boot/config-virt | grep -i nvme | grep -v "^#"
 
-# 添加 nvme
+# 添加 nvme 到 features
 cat /etc/mkinitfs/mkinitfs.conf
 
-# 添加参数
+# 添加参数 GRUB_CMDLINE_LINUX_DEFAULT
 # nvme_core.io_timeout=4294967295 nvme_core.admin_timeout=4294967295
 nano /etc/default/grub
 
@@ -68,3 +70,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 - https://help.aliyun.com/document_detail/400536.htm
+
+## x86_64 NVME
+
+```bash
+qemu-system-x86_64 -m 2G -net nic -nic user,hostfwd=tcp::2222-:22 \
+  -bios OVMF/OVMF.fd \
+  -hda dist/alpine-virt-3.18.0-x86_64-efi-20G.qcow2
+
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
+```

@@ -6,6 +6,8 @@ title: Brew
 
 - [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
 
+## 安装 {#install}
+
 > **Note**
 >
 > 1. 安装过程中可能会需要代理
@@ -13,10 +15,36 @@ title: Brew
 > 3. 如果使用 https_proxy 建议使用 http 代理
 
 ```bash
-# 安装
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# 如果 XCode 安装失败可使用 xcode-select --install 安装
+sudo softwareupdate --install --all # 系统更新
+xcode-select --install              # 安装 xcode command line tools
 
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+
+# 安装 - 如果失败，添加 https_proxy 代理
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# 走 ghproxy.com 避免代理
+/bin/bash -c "$(curl -fsSL https://ghproxy.com/raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 也可以从镜像安装
+# git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
+# /bin/bash brew-install/install.sh
+# rm -rf brew-install
+
+# 添加环境变量
+test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+test -r ~/.zprofile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+
+# 日常使用
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+brew update
+```
+
+- https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
+
+<!--
 # 使用清华镜像，避免代理
 # https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
 git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
@@ -27,7 +55,44 @@ brew update
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 # 使用 jdcloud oss 存储 - 新的 bottle 模式只存储最新 binary 如果发现没找到先 brew update
 export HOMEBREW_BOTTLE_DOMAIN=https://mirror.sjtu.edu.cn/homebrew-bottles
+-->
+
+## 基础开发环境 {#dev}
+
+```bash
+# 基础程序
+# sshrc
+brew install openssh autossh git mosh bash ssh-copy-id sshuttle tmux vim
+
+# Linux/GNU 命令
+brew install less nano file-formula findutils coreutils binutils diffutils wget rsync unzip gzip wdiff
+brew install gnu-{indent,sed,tar,which,units,time} gnutls gpatch grep
+brew install bash-completion2
+
+# 应用
+brew install iterm2 google-chrome
 ```
+
+## NodeJS 环境 {#node}
+
+```bash
+brew install nvm
+# 配置环境变量到 .zprofile 或 .profile
+nvm install --lts
+nvm use --lts
+```
+
+## Docker
+
+- https://orbstack.dev
+
+```bash
+brew install orbstack
+
+orb docker
+```
+
+# Legacy
 
 ## 基础的软件包
 
@@ -370,16 +435,19 @@ brew update
 
 ## brew 4.0
 
-
 ```bash
 export HOMEBREW_NO_ANALYTICS=1
 
 brew untap homebrew/core
 brew untap homebrew/cask
 
+# 4.0 HOMEBREW_INSTALL_FROM_API 默认
+# HOMEBREW_NO_INSTALL_FROM_API=1
+
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+# 4.0+ 不开发不需要
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 brew update

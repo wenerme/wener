@@ -4,6 +4,12 @@ title: rsync
 
 # rsync
 
+:::tip
+
+数据量大，有条件的情况下，尽量用 rclone，支持并发。
+
+:::
+
 - 参考
   - [rsync.1](https://man7.org/linux/man-pages/man1/rsync.1.html)
   - https://www.cheatography.com/richardjh/cheat-sheets/rsync/

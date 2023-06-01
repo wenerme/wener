@@ -191,6 +191,7 @@ tags:
 - [finagle]
   - Apache-2.0, Scala
   - by Twitter
+- tRPC
 
 ## Serialization
 
@@ -203,6 +204,10 @@ tags:
 - [inkeliz/karmem](https://github.com/inkeliz/karmem)
   - BSD-3
   - faster than Google Flatbuffers and optimized for TinyGo and WASM
+- [betwixt-labs/bebop](https://github.com/betwixt-labs/bebop)
+  - Typescript, C#, Rust, C++
+  - [betwixt-labs/tempo](https://github.com/betwixt-labs/tempo)
+    - RPC
 
 ---
 

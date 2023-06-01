@@ -710,3 +710,5 @@ CREATE TABLE t (
 ## 预加载 table 到内存
 
 [pg_prewarm](./pg_prewarm.md)
+
+## ERROR:  could not open file "base/5/2704": No such file or directory

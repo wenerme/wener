@@ -48,3 +48,11 @@ export default function MDXContent() {
 - `export default function Layout` - 同 components.wrapper
 - `<MDXProvider components={components}></MDXProvider>`
   - 上下文配置好组件
+
+## MDX v2
+
+- 更好处理 HTML 嵌套 MD
+- 支持 JavaScript expressions，例如 `{2 * Math.PI}`
+- 抽取出了 [micromark/micromark](https://github.com/micromark/micromark)
+  - markdown parser
+- https://mdxjs.com/blog/v2/

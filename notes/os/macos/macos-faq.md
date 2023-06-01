@@ -6,6 +6,11 @@ tags:
 
 # macOS 常见问题
 
+## APFS vs HFS+
+
+- APFS - 新的
+- HFS+ - 旧的
+
 ## Inside
 
 - https://gist.github.com/kconner/cff08fe3e0bb857ea33b47d965b3e19f

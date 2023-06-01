@@ -26,17 +26,31 @@ title: Size
 | Twitter Profile |   400×400 px |
 | Twitter Header  |  1500×500 px |
 
-| Print         |       Size | Pixel
-| ------------- | ---------: |
+| Print         |       Size | Pixel     | pt             |
+| ------------- | ---------: | --------- | -------------- |
 | A3            | 297×420 mm |
-| A4            | 210×297 mm | 2480×3508
+| A4            | 210×297 mm | 2480×3508 | 595.28, 841.89 |
 | A5            | 148×210 mm |
 | B3            | 353×500 mm |
 | B4            | 250×353 mm |
-| B5            | 176×250 mm |
+| B5            | 176×250 mm |           | 498.9, 708.66  |
+| JIS B5        | 182x257 mm |
 | Letter        |  8.5×11 in |
 | Ledger        |   11×17 in |
 | Business Card |   3.5×2 in |
+
+- 1mm=2.83465pt
+- 凭证封面
+  - 252x148
+  - 增票 243mm×142mm
+  - A5 212x150
+  - 240mm×140mm
+  - 245mm×130mm
+  - 245mm×150mm
+  - 245mm×145mm
+- Japanese Industrial Standards (JIS)
+- https://github.com/diegomura/react-pdf/blob/master/packages/layout/src/page/getSize.js
+- https://papersizes.io/japanese/jb5
 
 | Photo      |       inch |           mm | note |
 | ---------- | ---------: | -----------: | ---- |
