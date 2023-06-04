@@ -8,7 +8,7 @@ title: tsx
   - MIT, TS
   - 基于 ESBuild Transform API - 不支持插件
   - 支持 ts path
-  - 不支持 emitDecoratorMetadata
+  - 不支持 emitDecoratorMetadata - [esbuild-kit/core-utils#14](https://github.com/esbuild-kit/core-utils/issues/14)
 
 ```bash
 tsx run.ts

@@ -478,3 +478,5 @@ pnpm install --config.platform=linux --config.architecture=x64
 ```
 
 - https://github.com/pnpm/pnpm/issues/5965
+
+## Cannot read properties of undefined (reading 'startsWith')

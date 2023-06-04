@@ -5,11 +5,20 @@ title: zsh
 # zsh
 
 - 配置
-  - .zshrc - 交互 shell
+  - .zshenv - 所有
   - .zprofile - 登陆 shell
+  - .zshrc - 交互 shell
+  - .zlogin
+  - .zlogout
 - 参考
   - [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   - [zsh-users/antigen](https://github.com/zsh-users/antigen)
+  - https://apple.stackexchange.com/a/361957/103557
+
+```bash
+# 使用相同的配置
+echo source ~/.bash_profile >> ~/.zshenv && source ~/.zshenv
+```
 
 <!--  ✅❌🟡-->
 

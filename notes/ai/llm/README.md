@@ -12,9 +12,14 @@ title: LLM
 | PaLM        | 520B           | 2022-04 |
 | ChatGPT 3.5 | 17B            | 2022-03 |
 
+- LLM - Large Language Model - 大型语言模型
 - PaLM - Pathways Language Model
 - Google Flamingo
 - Hugging Face Bloom
 - EleutherAI GPT-J
 - Meta [LLaMA](./llama.md)
 - https://github.com/CLUEbenchmark/SuperCLUE
+- 基于补全
+- 基于指令
+
+## Fine Tune

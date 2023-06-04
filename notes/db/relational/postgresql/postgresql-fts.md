@@ -5,19 +5,34 @@ title: PostgreSQL 全文检索
 
 # PostgreSQL 全文检索
 
-- **推荐**
-  - 简单场景 - 80%: like 或 fuzzystrmatch
-    - 数据量少 - 业务数据 - 能够扫表
-    - 数据经常变化
-  - 基础场景 - 15%: 内建 tssearch + 中文分词插件 - zhparser
-    - 数据量大 - 需要索引
-    - 检索大量文本
-    - 相关性排序
-  - 扩展场景 - 3%: 不考虑使用内建 FTS 使用 pgroonga
-    - 需要支持补全和多种语言
-  - 搜索引擎场景 - 2%: Solr, Elasticsearch
-    - 不要使用 PG - 将数据同步到专业的搜索引擎
-    - 索引的内容不怎么变化
+
+
+:::tip 怎么选择
+
+- 简单场景 - 80%: like 或 fuzzystrmatch
+  - 数据量少 - 业务数据 - 能够扫表
+  - 数据经常变化
+- 基础场景 - 15%: 内建 tssearch + 中文分词插件 - zhparser,pg_trgm
+  - 数据量大 - 需要索引
+  - 检索大量文本
+  - 相关性排序
+  - 中文分词操作起来有点麻烦，但定制性高
+- 扩展场景 - 3%: 不考虑使用内建 FTS 使用 [pgroonga](./pgroonga.md)
+  - 需要支持补全和多种语言
+- 搜索引擎场景 - 2%: Solr, Elasticsearch
+  - 不要使用 PG - 将数据同步到专业的搜索引擎
+  - 索引的内容不怎么变化
+  - 专门做索引业务
+- 扩展场景 - pgvector, postgresql ml
+  - 向量化
+  - Embedding
+  - 理解自然语言
+- 特殊场景
+  - GEO - PostGIS
+  - 寻路 - pgRouting
+
+:::
+
 - 可通过 [postgrespro/rum](https://github.com/postgrespro/rum) 索引提高效率
   - 基于 GIN 索引
   - 排序更快

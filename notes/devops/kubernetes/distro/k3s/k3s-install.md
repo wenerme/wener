@@ -113,6 +113,13 @@ scp kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
   - check-config
   - blkid
   - aux
+- URL
+  - hash
+    - `${STORAGE_URL}/k3s${SUFFIX}-${INSTALL_K3S_COMMIT}.sha256sum`
+    - `${GITHUB_URL}/download/${VERSION_K3S}/sha256sum-${ARCH}.txt`
+  - binary
+    - `${STORAGE_URL}/k3s${SUFFIX}-${INSTALL_K3S_COMMIT}`
+    - `${GITHUB_URL}/download/${VERSION_K3S}/k3s${SUFFIX}`
 
 ```yaml title="/etc/rancher/k3s/config.yaml"
 write-kubeconfig-mode: '0644'
@@ -176,7 +183,6 @@ docker run --rm -it \
 echo "127.0.0.1 docker-registry" >> /etc/hosts
 ```
 
-
 ## zfs zvol
 
 ```bash
@@ -222,4 +228,41 @@ sudo k3s check-config
 
 ```bash
 sed 's/sourcex/\./g' -i /etc/init.d/k3s
+```
+
+## 升级 {#upgrade}
+
+- v1.27 containerd 无 zfs snapshotter
+
+```bash
+# 准备
+rc-update del k3s
+reboot
+
+# 升级
+k3s -v                   # 当前版本
+cp $(which k3s) k3s.last # backup
+
+# ARCH=arm64
+# SUFFIX=-${ARCH}
+ARCH=amd64
+SUFFIX=
+
+VERSION_K3S=$(curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest')
+# GITHUB_URL=https://github.com/k3s-io/k3s/releases
+# 走代理
+GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases
+curl --remote-name-all -L "${GITHUB_URL}/download/${VERSION_K3S}/sha256sum-${ARCH}.txt" "${GITHUB_URL}/download/${VERSION_K3S}/k3s${SUFFIX}"
+
+sha256sum -c sha256sum-amd64.txt --ignore-missing
+
+cp k3s$SUFFIX k3s.$VERSION_K3S
+chmod +x k3s.$VERSION_K3S
+sudo cp k3s.$VERSION_K3S $(which k3s)
+
+sudo k3s check-config
+
+# 启动
+service k3s start
+rc-update add k3s
 ```

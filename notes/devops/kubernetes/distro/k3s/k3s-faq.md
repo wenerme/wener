@@ -394,3 +394,20 @@ maxPods: 250
 - https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
 - https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/
 - https://docs.k3s.io/cli/agent#customized-flags
+
+## Waiting for containerd startup: rpc error: code = Unimplemented desc = unknown service runtime.v1.RuntimeService
+
+- k3s/agent/containerd/containerd.log
+- k3s v1.25 -> v1.26
+
+```
+time="2023-06-04T16:17:14.398351570+08:00" level=info msg="Connect containerd service"
+time="2023-06-04T16:17:14.398408099+08:00" level=info msg="using legacy CRI server"
+time="2023-06-04T16:17:14.398418537+08:00" level=info msg="using experimental NRI integration - disable nri plugin to prevent this"
+time="2023-06-04T16:17:14.398549887+08:00" level=warning msg="failed to load plugin io.containerd.grpc.v1.cri" error="failed to create CRI service: failed to find snapshotter \"zfs\""
+time="2023-06-04T16:17:14.398913047+08:00" level=info msg=serving... address=/run/k3s/containerd/containerd.sock.ttrpc
+time="2023-06-04T16:17:14.398971211+08:00" level=info msg=serving... address=/run/k3s/containerd/containerd.sock
+time="2023-06-04T16:17:14.398989382+08:00" level=info msg="containerd successfully booted in 0.430664s"
+```
+
+是因为 `failed to find snapshotter "zfs"` 导致

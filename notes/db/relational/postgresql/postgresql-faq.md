@@ -712,3 +712,7 @@ CREATE TABLE t (
 [pg_prewarm](./pg_prewarm.md)
 
 ## ERROR:  could not open file "base/5/2704": No such file or directory
+
+数据库少了数据文件
+
+## A field with precision 5, scale 4 must round to an absolute value less than 10^1

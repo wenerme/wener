@@ -19,6 +19,12 @@ typescript 配置文件。
 tsc --p tsconfig.page.json
 ```
 
+| for    | compilerOptions                                              |
+| ------ | ------------------------------------------------------------ |
+| node16 | `{"lib": ["es2021"],"module": "Node16","target": "es2021",}` |
+| node18 | `{"lib": ["es2023"],"module": "Node16","target": "es2022",}` |
+| node20 | `{"lib": ["es2023"],"module": "Node16","target": "es2022",}` |
+
 ## 常用属性
 
 - _target_ - 默认 es3, 推荐至少 es6

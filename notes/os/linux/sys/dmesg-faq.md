@@ -92,6 +92,12 @@ echo "1" > /sys/devices/system/edac/pci/check_pci_parity
 - [EDAC Wiki](https://buttersideup.com/mediawiki/index.php/Main_Page)
 - [grondo/edac-utils](https://github.com/grondo/edac-utils)
 
+## Invalid ELF header magic
+
+```
+Invalid ELF header magic: != \x7fELF
+```
+
 ## 磁盘损坏
 
 ```
@@ -502,6 +508,62 @@ md2: [Self Heal] Retry sector [3253080] round [3/3] finished: get same result, g
 BTRFS warning (device dm-2): corrupt leaf fixed, bad key order, block=570261504, root=264, slot=161
 BTRFS critical (device dm-2): corrupt leaf: root=264 block=570261504 slot=161 ino=69311, name hash mismatch with key, have 0x000000001dc4dc92 expect 0x000000001e00be13
 BTRFS error (device dm-2): cannot fix 570261504, record in meta_err
+```
+
+## watchdog: BUG: soft lockup
+
+HAProxy crash
+
+**Mon May  1 07:02:03 2023**
+
+```
+[754398.348700] watchdog: BUG: soft lockup - CPU#0 stuck for 24s! [haproxy:1889]
+[754398.688670] Modules linked in: sch_fq tcp_bbr ipv6 af_packet tun crct10dif_pclmul ghash_clmulni_intel mousedev aesni_intel crypto_simd cryptd evdev psmouse qemu_fw_cfg button virtio_net net_failover failover virtio_scsi crc32_pclmul bochs drm_vram_helper drm_ttm_helper ttm simpledrm drm_kms_helper cfbfillrect syscopyarea cfbimgblt sysfillrect sysimgblt fb_sys_fops cfbcopyarea drm fb fbdev i2c_core drm_panel_orientation_quirks firmware_class loop ext4 crc32c_generic crc32c_intel crc16 mbcache jbd2 usb_storage usbcore usb_common sd_mod t10_pi
+[754398.688753] CPU: 0 PID: 1889 Comm: haproxy Not tainted 5.15.103-0-virt #1-Alpine
+[754398.688761] Hardware name: Linode Compute Instance, BIOS Not Specified
+[754398.688763] RIP: 0033:0x7f12519916b7
+[754398.688774] Code: 0e 8b 71 18 85 f6 75 0b 8b 49 1c 85 c9 75 04 48 83 c2 03 48 83 fa 0d 0f 43 c5 48 63 d0 48 63 e8 49 8b 5c d7 50 48 85 db 74 2d <8b> 43 18 89 c2 f7 da 21 c2 74 22 29 d0 89 43 18 89 d0 f7 d8 21 d0
+[754398.688777] RSP: 002b:00007ffe2c3201e0 EFLAGS: 00000202
+[754398.688779] RAX: 000000000000000e RBX: 0000561d34aaf540 RCX: 0000000000000018
+[754398.688781] RDX: 0000000000000019 RSI: 00007f12519f53c0 RDI: 000000000000017d
+[754398.688782] RBP: 000000000000000e R08: 00007f1250c9c010 R09: 00007f1250dc2c78
+[754398.688783] R10: 00007f12512bc0e0 R11: 0000000000000000 R12: 000000000000017a
+[754398.688784] R13: 0000000000000153 R14: 00007f1251a03fdc R15: 00007f1251a01b00
+[754398.688785] FS:  00007f1251466880 GS:  0000000000000000
+```
+
+**Sat May 13 04:16:27 2023**
+
+```
+[1781262.070997] watchdog: BUG: soft lockup - CPU#0 stuck for 29s! [kworker/u2:2:7241]
+[1781272.465968] Modules linked in: sch_fq tcp_bbr ipv6 af_packet tun crct10dif_pclmul ghash_clmulni_intel mousedev aesni_intel crypto_simd cryptd evdev psmouse qemu_fw_cfg button virtio_net net_failover failover virtio_scsi crc32_pclmul bochs drm_vram_helper drm_ttm_helper ttm simpledrm drm_kms_helper cfbfillrect syscopyarea cfbimgblt sysfillrect sysimgblt fb_sys_fops cfbcopyarea drm fb fbdev i2c_core drm_panel_orientation_quirks firmware_class loop ext4 crc32c_generic crc32c_intel crc16 mbcache jbd2 usb_storage usbcore usb_common sd_mod t10_pi
+[1781272.753556] CPU: 0 PID: 7241 Comm: kworker/u2:2 Tainted: G             L    5.15.103-0-virt #1-Alpine
+[1781272.753561] Hardware name: Linode Compute Instance, BIOS Not Specified
+[1781272.753574] Workqueue:  0x0 (events_unbound)
+[1781272.753580] RIP: 0010:_raw_spin_unlock_irqrestore+0x21/0x30
+[1781272.756309] Code: 88 cc cc cc cc cc cc cc cc c6 07 00 0f 1f 40 00 f7 c6 00 02 00 00 75 0b 31 c0 31 f6 31 ff e9 36 8b 20 00 fb 66 0f 1f 44 00 00 <31> c0 31 f6 31 ff e9 24 8b 20 00 0f 1f 40 00 8b 07 a9 ff 01 00 00
+[1781272.756324] RSP: 0018:ffffaf59c057bd60 EFLAGS: 00000206
+[1781272.756327] RAX: 0000000000000000 RBX: ffff8ab7c1173d00 RCX: 0000000000000000
+[1781272.756329] RDX: 0000000000000000 RSI: 0000000000000283 RDI: ffff8ab7c1174534
+[1781272.756330] RBP: ffff8ab7fec2bb00 R08: 0000000000000000 R09: 0000000000000000
+[1781272.756332] R10: 0000000000000000 R11: 0000000000000000 R12: 0000000000000000
+[1781272.757089] R13: 0000000000000283 R14: ffff8ab7c1174534 R15: 0000000000000000
+[1781272.757093] FS:  0000000000000000(0000) GS:ffff8ab7fec00000(0000) knlGS:0000000000000000
+[1781272.757095] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[1781272.757097] CR2: 00007fffc2444e18 CR3: 000000000442a000 CR4: 0000000000150eb0
+[1781272.757101] Call Trace:
+[1781272.757107]  <TASK>
+[1781272.757109]  try_to_wake_up+0x1ea/0x450
+[1781272.757128]  ? process_one_work+0x360/0x360
+[1781272.757131]  __kthread_create_on_node+0xda/0x1b0
+[1781272.757138]  kthread_create_on_node+0x44/0x70
+[1781272.757141]  create_worker+0xef/0x1e0
+[1781272.757145]  worker_thread+0x2d9/0x3c0
+[1781272.757147]  ? process_one_work+0x360/0x360
+[1781272.757149]  kthread+0x113/0x130
+[1781272.757151]  ? set_kthread_struct+0x50/0x50
+[1781272.757154]  ret_from_fork+0x22/0x30
+[1781272.757161]  </TASK>
 ```
 
 # TODO

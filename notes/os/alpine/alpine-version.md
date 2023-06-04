@@ -49,6 +49,7 @@ tags:
 
 :::caution 版本升级注意事项
 
+- 大版本升级务必确认 镜像仓库 是否同步
 - 不建议直接用 edge 仓库 - 单个包使用 edge 影响不大
 - 如果升级了 openssh 建议重启 sshd，否则可能不会接受新的链接
 - 3.15 - Linux 5.15 zfs /dev/zvol 启动时可能没创建 - [#13198](https://gitlab.alpinelinux.org/alpine/aports/-/issues/13198)
@@ -60,13 +61,7 @@ tags:
 
 :::
 
-:::caution
 
-- 用 tuna 镜像 - 目前相对最稳定
-  - 阿里云同步慢
-  - 上海交大不稳定 - 遇到过多次问题
-
-:::
 
 
 - 参考

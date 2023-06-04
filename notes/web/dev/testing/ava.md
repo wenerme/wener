@@ -37,7 +37,7 @@ title: Ava
     "extensions": {
       "ts": "module"
     },
-    "nodeArguments": ["--loader=tsx"]
+    "nodeArguments": ["--conditions=typescript", "--loader=tsx"]
   }
 }
 ```

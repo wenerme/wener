@@ -33,8 +33,8 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 # rm -rf brew-install
 
 # 添加环境变量
-test -r ~/.bash_profile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
-test -r ~/.zprofile && echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+test -r ~/.bash_profile && echo 'eval "$(brew shellenv)"' >> ~/.bash_profile
+test -r ~/.zprofile && echo 'eval "$(brew shellenv)"' >> ~/.zprofile
 
 # 日常使用
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
@@ -77,9 +77,23 @@ brew install iterm2 google-chrome
 
 ```bash
 brew install nvm
+mkdir -p ~/.nvm
 # 配置环境变量到 .zprofile 或 .profile
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# zprofile for zsh
+cat <<'EOF' >> ~/.zprofile
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+EOF
+
 nvm install --lts
 nvm use --lts
+
+
 ```
 
 ## Docker

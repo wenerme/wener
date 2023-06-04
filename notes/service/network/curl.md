@@ -99,6 +99,25 @@ cat curl-format.txt | curl -o /dev/null -s -w @- https://wener.me
 
 # FAQ
 
+## websocket
+
+```bash
+curl --include \
+     --no-buffer \
+     --header "Connection: Upgrade" \
+     --header "Upgrade: websocket" \
+     --header "Host: example.com:80" \
+     --header "Origin: http://example.com:80" \
+     --header "Sec-WebSocket-Key: SGVsbG8sIHdvcmxkIQ==" \
+     --header "Sec-WebSocket-Version: 13" \
+     http://example.com:80/
+
+# https://github.com/vi/websocat
+apk add websocat
+
+websocat -vv 'wss://'
+```
+
 ## Mark bundle as not supporting multiuse
 
 - HTTP/2 检测

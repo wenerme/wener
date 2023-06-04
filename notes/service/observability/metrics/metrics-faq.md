@@ -6,6 +6,22 @@ tags:
 
 # 指标服务常见问题
 
+## Four Golden Signals
+
+- Latency
+- Traffic
+- Errors
+- Saturation
+- 磁盘、网络、CPU
+
+```bash
+iostat -d -x 1
+pidstat -d 1
+iotop
+```
+
+- https://blog.devgenius.io/linux-disk-i-o-performance-1e920faba23
+
 ## vmagent vs prometheus vs prometheus agent
 
 - vmagent

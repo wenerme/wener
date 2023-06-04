@@ -32,6 +32,7 @@ title: ESBuild
   - [#257](https://github.com/evanw/esbuild/issues/257)
   - [thomaschaaf/esbuild-plugin-tsc](https://github.com/thomaschaaf/esbuild-plugin-tsc)
     - 会慢
+  - reflect-metadata
 - 不支持 代码切分
 - 不支持 HTML, CSS
 - 不支持 TLA - WIP, iife
@@ -221,8 +222,71 @@ const __dirname = path.dirname(__filename);
 
 - https://github.com/evanw/esbuild/issues/1921
 
+## The presence of "exports" here makes importing a directory forbidden:
+
+- 需要添加 index.js
+
+## transpiling external modules
+
+- https://github.com/remix-run/remix/issues/1423
+
 ## 文件后缀
 
 - 有些场景需要 esm import 包含后缀，目前 esbuild 不好添加
 - 可以考虑 rollup
 - https://github.com/evanw/esbuild/issues/2435
+
+```
+✘ [ERROR] Could not resolve "server/src/app/app.run"
+
+    dist/out/apps/ve-contract-server/main.js:8:31:
+      8 │ import { runApplication } from "server/src/app/app.run";
+        ╵                                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+  The module "./dist/out/app/app.run" was not found on the file system:
+
+    node_modules/server/package.json:17:16:
+      17 │       "import": "./dist/out/*"
+         ╵                 ~~~~~~~~~~~~~~
+
+  Import from "server/src/app/app.run.js" to get the file
+  "node_modules/server/dist/out/app/app.run.js":
+
+    dist/out/apps/ve-contract-server/main.js:8:54:
+      8 │ import { runApplication } from "server/src/app/app.run";
+        │                                                       ^
+        ╵                                                       .js
+
+  You can mark the path "server/src/app/app.run" as external to exclude it from the bundle, which
+  will remove this error.
+```
+
+**解决办法**
+
+1. 可以通过 exports 添加 - 不支持自动 index.ts
+
+```json
+{
+  "exports": {
+    "./src/*": {
+      "types": "./src/*",
+      "typescript": "./src/*",
+      "import": "./dist/out/*.js"
+    }
+  }
+}
+```
+
+2. 通过直接 import 加后缀解决
+
+```ts
+import { GeneralResponseDto } from 'server/src/common/dto/index.ts';
+```
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true
+  }
+}
+```

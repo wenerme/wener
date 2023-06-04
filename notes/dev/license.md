@@ -203,3 +203,16 @@ We do not want anyone to see our source code, but if for any reason our code is 
 
 - `{"license": "UNLICENSED"}`
 - [What kind of license to put a private project?](https://softwareengineering.stackexchange.com/q/312009/126631)
+
+## Pattern vs License
+
+- pattern - 专利 - 排他性
+  - 设计规范、解决方案层面
+  - pattern 受官方保护，个人只能申请
+  - 条款是固定的
+- license - 版权
+  - 使用层面
+  - 所有人都可以定义自己的 license
+  - 条款可以自己拟定协商
+  - owner <-> user
+  - copyrighted work - 受版权保护的作品

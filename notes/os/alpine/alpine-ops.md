@@ -215,7 +215,7 @@ udevadm info --export-db
 - 0.6 的 init 不是 openrc 的脚本, 启动会警告
 
 ```bash
-apk add zfs zfs-{scripts,udev,utils-py}
+apk add zfs zfs-{scripts,udev}
 # 区分 lts, virt
 apk add zfs-lts
 # 加载内核模块

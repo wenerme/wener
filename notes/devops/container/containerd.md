@@ -9,12 +9,71 @@ title: containerd
   - [containerd/ttrpc](https://github.com/containerd/ttrpc)
     - 通讯协议
     - GRPC for low-memory environments
+  - [containerd/zfs](https://github.com/containerd/zfs)
+    - zfs snapshotter
 
 :::caution
 
 - 不支持 reload 配置 [#4478](https://github.com/containerd/containerd/issues/4478)
 
 :::
+
+
+```bash
+ctr plugin ls
+```
+
+```
+TYPE                                   ID                       PLATFORMS      STATUS
+io.containerd.service.v1               introspection-service    -              ok
+io.containerd.event.v1                 exchange                 -              ok
+io.containerd.content.v1               content                  -              ok
+io.containerd.snapshotter.v1           btrfs                    linux/amd64    skip
+io.containerd.snapshotter.v1           native                   linux/amd64    ok
+io.containerd.snapshotter.v1           overlayfs                linux/amd64    ok
+io.containerd.snapshotter.v1           fuse-overlayfs           linux/amd64    ok
+io.containerd.snapshotter.v1           stargz                   linux/amd64    ok
+io.containerd.metadata.v1              bolt                     -              ok
+io.containerd.service.v1               containers-service       -              ok
+io.containerd.service.v1               content-service          -              ok
+io.containerd.differ.v1                walking                  linux/amd64    ok
+io.containerd.service.v1               diff-service             -              ok
+io.containerd.gc.v1                    scheduler                -              ok
+io.containerd.service.v1               images-service           -              ok
+io.containerd.service.v1               namespaces-service       -              ok
+io.containerd.service.v1               snapshots-service        -              ok
+io.containerd.runtime.v1               linux                    linux/amd64    ok
+io.containerd.runtime.v2               task                     linux/amd64    ok
+io.containerd.runtime.v2               shim                     -              ok
+io.containerd.monitor.v1               cgroups                  linux/amd64    ok
+io.containerd.service.v1               tasks-service            -              ok
+io.containerd.grpc.v1                  introspection            -              ok
+io.containerd.lease.v1                 manager                  -              ok
+io.containerd.nri.v1                   nri                      -              ok
+io.containerd.sandbox.store.v1         local                    -              ok
+io.containerd.sandbox.controller.v1    local                    -              ok
+io.containerd.streaming.v1             manager                  -              ok
+io.containerd.transfer.v1              local                    -              ok
+io.containerd.internal.v1              restart                  -              ok
+io.containerd.grpc.v1                  containers               -              ok
+io.containerd.grpc.v1                  content                  -              ok
+io.containerd.grpc.v1                  diff                     -              ok
+io.containerd.grpc.v1                  events                   -              ok
+io.containerd.grpc.v1                  healthcheck              -              ok
+io.containerd.grpc.v1                  images                   -              ok
+io.containerd.grpc.v1                  leases                   -              ok
+io.containerd.grpc.v1                  namespaces               -              ok
+io.containerd.internal.v1              opt                      -              ok
+io.containerd.grpc.v1                  sandbox-controllers      -              ok
+io.containerd.grpc.v1                  sandboxes                -              ok
+io.containerd.grpc.v1                  snapshots                -              ok
+io.containerd.grpc.v1                  streaming                -              ok
+io.containerd.grpc.v1                  tasks                    -              ok
+io.containerd.grpc.v1                  transfer                 -              ok
+io.containerd.grpc.v1                  version                  -              ok
+io.containerd.grpc.v1                  cri                      linux/amd64    error
+```
+
 
 ## containerd.toml
 

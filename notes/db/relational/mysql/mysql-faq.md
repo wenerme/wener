@@ -64,6 +64,27 @@ from INFORMATION_SCHEMA.TABLES
 order by DATA_LENGTH desc;
 ```
 
+## 限制 {#limits}
+
+- 4096 列/表
+- 65,535 byte/row
+  - blob 和  text 占用 9-12 byte
+
+| Type       | Maximum length                      |
+| ---------- | ----------------------------------- |
+| TINYTEXT   | 255 (2 8−1) bytes                   |
+| TEXT       | 65,535 (216−1) bytes = 64 KiB       |
+| MEDIUMTEXT | 16,777,215 (224−1) bytes = 16 MiB   |
+| LONGTEXT   | 4,294,967,295 (232−1) bytes = 4 GiB |
+
+- https://dev.mysql.com/doc/refman/8.0/en/column-count-limit.html
+- https://dev.mysql.com/doc/refman/8.0/en/table-size-limit.html
+
+```sql
+ALTER TABLE tbl_name MAX_ROWS=1000000000 AVG_ROW_LENGTH=nnn;
+SHOW TABLE STATUS FROM db_name LIKE 'tbl_name';
+```
+
 ## Backup
 
 - https://dba.stackexchange.com/a/91322/234272

@@ -10,7 +10,8 @@ title: Mirrors
   - docker latest tag 可能不同步，并且没办法触发同步
   - linux os 的包可能同步延迟几天
   - npm 需要手动同步
-- 国内大学镜像 可能 特殊时期 直接关停
+- tuna~=aliyun ~= ustc - 大多是一样的
+- 国内大学镜像 可能 特殊时期 **直接关停**
 
 :::
 
@@ -23,6 +24,7 @@ title: Mirrors
 | https://mirror.azure.cn/           | Azure  |
 | https://mirrors.huaweicloud.com    | 华为   |
 | https://mirrors.cloud.tencent.com/ | 腾讯云 |
+| https://mirrors.gitee.com/         | Gitee  |
 
 **高校镜像**
 
@@ -48,7 +50,7 @@ title: Mirrors
 | https://mirrors.pku.edu.cn/           | 北京大学         |
 | https://mirrors.scau.edu.cn/          | 华南农业大学     |
 | https://mirrors.sdu.edu.cn/           | 山东大学         |
-| https://mirrors.sjtug.sjtu.edu.cn/    | 上海交通大学     | https://sjtug.org/post/mirror-news/ |
+| https://mirrors.sjtug.sjtu.edu.cn/    | 上海交通大学     | https://sjtug.org/tags/mirror-news/ |
 | https://mirrors.sustech.edu.cn/       | 南方科技大学     |
 | https://mirrors.tongji.edu.cn/        | 同济大学         |
 | https://mirrors.tuna.tsinghua.edu.cn/ | 清华大学         |
@@ -131,7 +133,7 @@ docker pull nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/library/nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/wener/base
 
-tee /etc/docker/daemon.json <<-'EOF'
+tee /etc/docker/daemon.json <<- 'EOF'
 {
   "registry-mirrors": ["https://fogjl973.mirror.aliyuncs.com","https://f1361db2.m.daocloud.io","https://docker.mirrors.ustc.edu.cn"]
 }

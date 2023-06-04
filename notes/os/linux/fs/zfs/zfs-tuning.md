@@ -59,9 +59,10 @@ zdb | grep ashift # 查看使用的 ashift
   - 存储扩展信息到 inode
 
 ```bash
-zfs set compression=lz4 POOL
-zfs set atime=off POOL
-zfs set xattr=sa POOL
+zfs set compression=lz4 data
+zfs set atime=off data
+zfs set relatime=on data
+zfs set xattr=sa data
 
 # 断电可能丢失一定数据
 zfs set sync=disabled POOL
@@ -91,6 +92,11 @@ zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize
       - 增加 事务 延时来增加使用的 slog
 - sync=standard - POSIX-compatible - synchronous only if requested
 - sync=always
+  - 主要保障数据安全
+  - 有些不支持 journal 的 DB 必须要 sync
+  - slog 很快 可以考虑
+- sync=disabled
+  - 让写入更快
 
 ```bash
 # txg 提交间隔 - 5秒
@@ -106,6 +112,8 @@ echo 180 | sudo tee /sys/module/zfs/parameters/zfs_txg_timeout
 | zfs_dirty_data_sync_percent    | 20      | 达到 zfs_dirty_data_max 比例后出发 sync |
 | zfs_dirty_data_max_max         | 25% RAM |
 | zfs_dirty_data_max_max_percent | 25% RAM |
+
+- https://jrs-s.net/2019/05/02/zfs-sync-async-zil-slog/
 
 ## L2ARC
 

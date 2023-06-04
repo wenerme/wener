@@ -6,6 +6,40 @@ tags:
 
 # NodeJS FAQ
 
+## Tool Chain
+
+- 静态项目 - ViteJS
+- 前端项目 - NextJS+trpc+NestJS - 复杂项目
+  - 部分 NestJS 逻辑共用
+  - 输出 standalone 模式 - 直接拷贝到容器即可
+- 后端项目 - NestJS+fastify
+  - 开发: ts-node --swc --esm --transpileOnly --watch src/main.ts
+    - tsx 不支持 decorator，不然可以用 tsx
+  - 构建: esbuild --bundle --external=sharp src/main.ts
+    - 输出一个 js 放到容器即可
+    - 注意加 tsc 插件处理 decorator
+- 基础依赖
+  - zod
+  - valtio, zustand
+  - daisyui, styled-components
+  - dayjs
+
+```bash
+pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
+```
+
+```json title="tsconfig.json"
+{
+  "ts-node": {
+    "transpileOnly": true,
+    "swc": true,
+    "esm": true,
+    "files": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
+```
+
 ## arm64/aarch64 musl
 
 - 暂无
@@ -267,6 +301,11 @@ export NODE_OPTIONS=--openssl-legacy-provider
 
 ## snapshot
 
+- 使用 snapshot 加速启动
+  - 例如 main.mjs 10mb, main.mjs.map 20mb
+    - --enable-source-maps 启动 40s
+    - 无 `enable-source-maps` 启动 2s
+
 ```bash
 echo "globalThis.foo = 'I am from the snapshot'" > snapshot.js
 node --snapshot-blob snapshot.blob --build-snapshot snapshot.js
@@ -279,18 +318,5 @@ node --snapshot-blob snapshot.blob
 ```
 
 - 不支持 ESM https://github.com/nodejs/help/issues/3981
-
-## 检测在 ts-node 运行
-
-```ts
-var detectTSNode = false;
-
-try {
-    if (process[Symbol.for("ts-node.register.instance")]) {
-        detectTSNode = true;
-    }
-} catch() {
-}
-```
-
-- https://github.com/yorickdevries/detect-ts-node/blob/master/index.js
+- RFC: speeding up Node.js startup using V8 snapshot [#17058](https://github.com/nodejs/node/issues/17058)
+- https://github.com/microsoft/TypeScript/issues/25658

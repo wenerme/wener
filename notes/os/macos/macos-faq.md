@@ -360,3 +360,11 @@ brew install smartmontools
 smartctl -a disk0 # Power On Hours
 ac                # connect time accounting /var/run/utmpx
 ```
+
+## invalid active developer path
+
+```bash
+sudo xcode-select --reset
+```
+
+- https://apple.stackexchange.com/a/254381/103557

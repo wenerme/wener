@@ -7,6 +7,7 @@ title: iostat
 - [iostat.1](https://man7.org/linux/man-pages/man1/iostat.1.html)
 
 ```bash
+iostat -d -x 1
 iostat -cdxy 2
 ```
 

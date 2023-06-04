@@ -289,3 +289,9 @@ LVM_SUPPRESS_FD_WARNINGS=1 vgck vg1
   - `btrfs rescue zero-log /dev/<devicename>`
   - https://www.suse.com/support/kb/doc/?id=000018761
 - https://www.cyberciti.biz/tips/linux-raid-increase-resync-rebuild-speed.html
+
+**clean up**
+
+```bash
+apk del mdadm lvm2 btrfs-progs btrfs-progs-extra
+```

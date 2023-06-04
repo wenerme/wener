@@ -1,16 +1,14 @@
 ---
-id: mdadm
 title: mdadm
 ---
 
 # Multi Device Administration
 
-## Tips
-* [Guide to mdadm](https://raid.wiki.kernel.org/index.php/A_guide_to_mdadm)
-* [Software RAID](https://wiki.mikejung.biz/Software_RAID)
-* [Linux Raid](https://raid.wiki.kernel.org)
-  * [RAID setup](https://raid.wiki.kernel.org/index.php/RAID_setup)
-* [Software RAID and LVM](https://wiki.archlinux.org/index.php/Software_RAID_and_LVM)
+- [Guide to mdadm](https://raid.wiki.kernel.org/index.php/A_guide_to_mdadm)
+- [Software RAID](https://wiki.mikejung.biz/Software_RAID)
+- [Linux Raid](https://raid.wiki.kernel.org)
+  - [RAID setup](https://raid.wiki.kernel.org/index.php/RAID_setup)
+- [Software RAID and LVM](https://wiki.archlinux.org/index.php/Software_RAID_and_LVM)
 
 ```bash
 # 线性模式
@@ -34,20 +32,20 @@ cat /proc/mdstat
 mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 
 # 扫描现有 raid 配置
-mdadm --assemble --scan 
+mdadm --assemble --scan
 # 扫描指定的
 mdadm --scan --assemble --uuid=a26bf396:31389f83:0df1722d:f404fe4c
 
 # 停止
 mdadm --stop /dev/md0
-
 ```
 
 ## RAID 文件系统
-* 考量点
-  * 支持在线扩缩容
-  * 支持 stride 和 stripe-width 来优化性能
-  * RAID 块大小是性能关键
-* 一般为了支撑灵活扩缩容会使用 LVM
-* 选择 FS 还需要考虑是否支持校验
-* XFS 是相对比较好的选择
+
+- 考量点
+  - 支持在线扩缩容
+  - 支持 stride 和 stripe-width 来优化性能
+  - RAID 块大小是性能关键
+- 一般为了支撑灵活扩缩容会使用 LVM
+- 选择 FS 还需要考虑是否支持校验
+- XFS 是相对比较好的选择

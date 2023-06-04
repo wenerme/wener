@@ -1,6 +1,17 @@
-# 统计信息
+---
+title: stat
+---
 
-## 查看硬件信息
+# stat
+
+- [sysstat](./sysstat.md)
+
+---
+
+- 统计信息
+- 查看硬件信息
+
+---
 
 - lscpu 报告基本的 CPU 信息
 - lshw 报告硬件信息,cpi,memory,disk,usb,network adapters

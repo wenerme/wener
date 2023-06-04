@@ -76,7 +76,6 @@ INNODB utf8 VARCHAR(255)
 INNODB utf8mb4 VARCHAR(191)
 ```
 
-
 ### Got a packet bigger than 'max_allowed_packet' bytes
 
 - 在数据导入的时候可能会遇到
@@ -104,14 +103,3 @@ innodb_log_file_size = 1G
 innodb_write_io_threads = 16
 innodb_flush_log_at_trx_commit = 0
 ```
-
-## Type
-
-- [String type overview](http://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html)
-
-| Type       | Maximum length                      |
-| ---------- | ----------------------------------- |
-| TINYTEXT   | 255 (2 8−1) bytes                   |
-| TEXT       | 65,535 (216−1) bytes = 64 KiB       |
-| MEDIUMTEXT | 16,777,215 (224−1) bytes = 16 MiB   |
-| LONGTEXT   | 4,294,967,295 (232−1) bytes = 4 GiB |

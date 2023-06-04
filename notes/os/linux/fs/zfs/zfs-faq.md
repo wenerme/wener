@@ -298,3 +298,13 @@ Buffer I/O error on dev zd0, logical block 0, lost async page write
 ```bash
 zfs list -o space,mountpoint
 ```
+
+##  is in use and contains a unknown filesystem
+
+- mdraid, lvm, multipath
+
+```bash
+cat /proc/mdstat
+
+mdadm --stop /dev/md127
+```

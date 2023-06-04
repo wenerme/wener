@@ -523,6 +523,13 @@ done
 
 ## failed to reserve container name "": name "" is reserved for
 
+- 可能磁盘慢导致，只能等
+- `iostat -d -x 1` 看 `%utils`
+- `pidstat -d 1` 排查进程
+- https://github.com/containerd/containerd/issues/4604#issuecomment-1027293621
+
+## unable to find data in memory cache
+
 ## parent snapshot does not exist: not found
 
 ## invalid bearer token, Token has been invalidated

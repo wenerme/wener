@@ -22,6 +22,8 @@ title: HTTP
 | 408    | Request Timeout               |
 | 409    | Conflict                      |
 | 504    | Gateway Timeout               | RFC 7231                                        |
+| 520    | Unknown Error                 | Cloudflare                                      |
+| 521    | Web Server Is Down            | Cloudflare                                      |
 
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 

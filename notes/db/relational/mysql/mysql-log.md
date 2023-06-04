@@ -11,7 +11,6 @@ show variables like 'log_queries_not_using_indexes';
 
 
 set global log_queries_not_using_indexes = 'ON'
-
 ```
 
 ## slow log
