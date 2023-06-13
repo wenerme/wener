@@ -31,7 +31,7 @@ title: Ant Design
 - 版本变化样式各方面变化较大 - 即便是小版本变化
   - 导致基本不可能自定义 antd 内部组件样式 - 维护成本高
 
-> v3 -> v4 过后放弃使用 antd，转而尝试 [blueprintjs](./blueprint.md)，再之后选择了 tailwindcss。
+> v3 -> v4 过后放弃使用 antd，转而尝试 [blueprintjs](./blueprint.md)，再之后选择了 [tailwindcss](../style/tailwindcss.md)。
 
 :::
 

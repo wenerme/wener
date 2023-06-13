@@ -48,6 +48,12 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 
 ## source map
 
+
+- sourcemap 大了过后非常慢
+- 排除 node_modules https://github.com/evanw/esbuild/issues/1685#issuecomment-944916409
+- 例如: main.mjs 10mb, main.mjs.map 20mb
+  - --enable-source-maps 启动 40s
+  - 无 `enable-source-maps` 启动 2s
 - NodeJS 12.12.0 [--enable-source-maps](https://nodejs.org/docs/latest-v16.x/api/cli.html#--enable-source-maps)
 - https://github.com/evanw/node-source-map-support
 
@@ -302,7 +308,7 @@ export NODE_OPTIONS=--openssl-legacy-provider
 ## snapshot
 
 - 使用 snapshot 加速启动
-  - 例如 main.mjs 10mb, main.mjs.map 20mb
+  - 例如: main.mjs 10mb, main.mjs.map 20mb
     - --enable-source-maps 启动 40s
     - 无 `enable-source-maps` 启动 2s
 
