@@ -30,9 +30,12 @@ title: psql
 | -p,--port=port     |
 
 ```bash
+brew install postgresql@15 # macOS by homebre
+
 # 使用链接字符串
 psql "service=myservice sslmode=require"
 psql postgresql://dbmaster:5433/mydb?sslmode=require
 ```
 
+- 配合 [pgpass](./pgpass.md) 避免输入密码
 - [psql](https://www.postgresql.org/docs/current/app-psql.html)

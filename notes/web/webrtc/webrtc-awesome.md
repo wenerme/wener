@@ -30,6 +30,9 @@ tags:
   - Apache-2.0, Go
 - [WebRTC-HTTP ingestion protocol](https://www.ietf.org/archive/id/draft-ietf-wish-whip-01.html)
   - WHIP
+- [glimesh/broadcast-box](https://github.com/glimesh/broadcast-box)
+- supported by
+  - OBS, ffmpeg
 
 ## Server
 

@@ -30,6 +30,11 @@ title: App Layout
 - React.Component is null
 - [next-auth#5647](https://github.com/nextauthjs/next-auth/issues/5647)
   不支持 Provider
+- server 依赖问题
+  - serverComponentsExternalPackages does not work with workspace packages [next.js#43433](https://github.com/vercel/next.js/issues/43433)
+  - TranspilePackages tries to resolve optional dependencies [next.js#47494](https://github.com/vercel/next.js/issues/47494)
+  - Module not found: Can't resolve 'crypto' [#50444](https://github.com/vercel/next.js/issues/50444)
+  - pg-cloudflare cloudflare:sockets [#50177](https://github.com/vercel/next.js/discussions/50177)
 
 :::
 

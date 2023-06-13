@@ -144,6 +144,13 @@ const [unsubscribe, promise] = persistQueryClient({
 
 # Version
 
+## React Query v5
+
+- 移除 onSuccess 和 onError
+  - 从 cache 返回时不会触发
+  - https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose
+  - https://github.com/TanStack/query/discussions/5279
+
 ## React Query v4
 
 - `@tanstack/react-query`

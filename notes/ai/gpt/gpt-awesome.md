@@ -18,6 +18,7 @@ tags:
 - [suulnnka/BullshitGenerator](https://github.com/suulnnka/BullshitGenerator)
   - https://suulnnka.github.io/BullshitGenerator/index.html
 - [Torantulino/Auto-GPT](https://github.com/Torantulino/Auto-GPT)
+- [PromtEngineer/localGPT](https://github.com/PromtEngineer/localGPT)
 
 ### Reading
 

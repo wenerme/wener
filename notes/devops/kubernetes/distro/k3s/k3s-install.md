@@ -39,7 +39,6 @@ mirrors:
     endpoint:
       - https://fogjl973.mirror.aliyuncs.com
       - https://8x40wsit.mirror.aliyuncs.com
-      - https://docker.mirrors.ustc.edu.cn
       - https://registry-1.docker.io
 YAML
 
@@ -73,6 +72,7 @@ k3s kubectl get events -Aw
 ```
 
 ```bash
+# 取回配置
 rsync --rsync-path 'sudo rsync' kube:/etc/rancher/k3s/k3s.yaml kubeconfig.yaml
 
 # write-kubeconfig-mode: '0644'
@@ -183,24 +183,49 @@ docker run --rm -it \
 echo "127.0.0.1 docker-registry" >> /etc/hosts
 ```
 
-## zfs zvol
+## zfs k3s zvol
 
 ```bash
 # -s sparse volume 不保留空间
-zfs create -s -V 100GB data/k3s-vol
+zfs create -s -V 200GB data/k3s-vol
 mkfs.ext4 /dev/zvol/data/k3s-vol
 
+# 可以放在其他位置然后修改 data-dir
 # mkdir -p /data/k3s
 # mount /dev/zvol/data/k3s-vol /data/k3s
 
 mkdir -p /var/lib/racher/k3s
 mount /dev/zvol/data/k3s-vol /var/lib/racher/k3s
-# 持久化 mount
-tail -1 /proc/mounts | sudo tee -a /etc/fstab
-# cat /proc/mounts | grep -e /data/k3s | grep /dev/zd | sudo tee -a /etc/fstab
+echo "/dev/zvol/data/k3s-vol /var/lib/racher/k3s ext4 rw,relatime,stripe=4 0 0" | tee -a /etc/fstab
+```
+
+## zfs rest storage
+
+```bash
+# System
+zfs create data/var
+zfs create -o mountpoint=/var/log/ data/var/log
+zfs create -o mountpoint=/var/lib/kubelet data/var/kubelet
+
+# Docker
+zfs create -s -V 200GB data/docker-vol
+mkfs.ext4 /dev/zvol/data/docker-vol
+
+mkdir -p /var/lib/docker/
+mount /dev/zvol/data/docker-vol /var/lib/docker/
+echo "/dev/zvol/data/docker-vol /var/lib/docker ext4 rw,relatime,stripe=4 0 0" | tee -a /etc/fstab
 ```
 
 ## zfs snapshotter
+
+:::caution
+
+- 不推荐使用
+  - vol 多了 zfs list 很慢
+- 使用 zvol
+- zfs 2.2 支持 overlayfs - 之后可以迁移出来
+
+:::
 
 ```bash
 zfs create -o mountpoint=/var/lib/racher/k3s/containerd/io.containerd.snapshotter.v1.zfs data/k3s-snapshotter

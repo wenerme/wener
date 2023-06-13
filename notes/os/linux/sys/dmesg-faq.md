@@ -46,6 +46,17 @@ Let me remind you again: each orphan eats up to  64K of unswappable memory.
 
 - http://lartc.org/howto/index.html
 
+# EXT4-fs error (device sde2): comm containerd: bad entry in directory: inode out of bounds
+
+```
+EXT4-fs error (device sde2): htree_dirblock_to_tree:1106: inode #399580: block 1582282: comm containerd: bad entry in directory: inode out of bounds - offset=140, inode=4593891, rec_len=20, size=4096 fake=0
+```
+
+```
+traps: tmux: server[5422] general protection fault ip:7f3fbcbb80be sp:7fff1eeff140 error:0 in ld-musl-x86_64.so.1[7f3fbcba6000+4c000]
+traps: apk[21618] trap stack segment ip:7f862d16cd85 sp:7ffdf388efb0 error:0 in libapk.so.2.14.0[7f862d16b000+1a000]
+```
+
 ## HP HPSA Driver
 
 ## EDAC MC0: 1 UE UE overwrote CE on any memory

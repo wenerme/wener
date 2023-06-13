@@ -37,6 +37,15 @@ docker buildx install # buildx -> build
 # 额外的 Builder
 docker buildx create --use
 docker build -t demo -o type=image .
+
+# Test
+mkdir -p /tmp/build
+cd /tmp/build
+cat <<EOF > Dockerfile
+FROM wener/base
+EOF
+docker buildx build -t test .
+docker buildx build --platform linux/amd64,linux/arm64 --pull --push -t test .
 ```
 
 - driver
@@ -134,6 +143,10 @@ RUN --mount=type=cache,target=/root/.npm/_cacache/ \
 需要启用 buildx
 
 ## cache export feature is currently not supported for docker driver
+
+```
+multiple platforms feature is currently not supported for docker driver. Please switch to a different driver (eg. "docker buildx create --use")
+```
 
 ```bash
 docker buildx create --use

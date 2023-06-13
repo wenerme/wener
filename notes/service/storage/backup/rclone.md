@@ -14,6 +14,7 @@ title: rclone
   - minio 的 mc 支持 mirror - 双向 watch
     - `mc mirror --watch --overwrite --remove`
   - 可以用 mount
+- 不支持 fs 属性同步 [#1202](https://github.com/rclone/rclone/issues/1202)
 
 :::
 
@@ -71,6 +72,8 @@ rclone lsd --ftp-host 192.168.1.1 --ftp-port 21 --ftp-user anonymous --ftp-pass 
 
 rclone about gd:     # 使用情况
 rclone reconnect gd: # Token 失效重连
+
+rclone sync -P --stats-one-line --transfers 10 -M A B
 ```
 
 - filter
@@ -86,7 +89,28 @@ rclone reconnect gd: # Token 失效重连
 
 ## config
 
+- 优先级
+  - `remote,skip_links:`
+  - `--skip-links`
+  - `RCLONE_CONFIG_REMOTE_SKIP_LINKS`
+  - `RCLONE_LOCAL_SKIP_LINKS`
+  - `RCLONE_SKIP_LINKS`
+  - 配置文件 `skip_links=true`
+  - 默认值 - 不可以修改
+
+| env                | for          |
+| ------------------ | ------------ |
+| RCLONE_CONFIG_PASS | 配置文件加密 |
+| RCLONE_CONFIG_DIR  |
+| USER               |
+| LOGNAME            |
+| HTTP_PROXY         |
+| HTTPS_PROXY        |
+| NO_PROXY           |
+
 ```bash
+rclone version -vv
+
 rclone config create svr s3 env_auth=true
 
 rclone config create svr s3 provider=Minio endpoint=https://s3.example.com access_key_id=$USERNAME secret_access_key=$PASSWORD
@@ -120,14 +144,23 @@ cat ~/.config/rclone/rclone.conf
 
 **路径**
 
-- /path/to/dir
-- remove:path/to/dir - 基于 HOME 相对路径 - ftp,sftp,dropbox
-- remove:/path/to/dir
-- :backend:path/to/dir - 动态后端
+- 本地
+  - /path/to/dir
+- 预定义后端
+  - remote:path/to/dir
+    - 基于配置的默认路径
+    - ftp,sftp,dropbox 基于 HOME 相对路径
+  - remote:/path/to/dir
+- 动态后端
+  - `:backend:path/to/dir`
   - `rclone lsd --http-url https://pub.rclone.org :http:`
+- 链接字符串
+  - `:backend:path/to/dir`
+  - `:backend,parameter=value,parameter2=value2:path/to/dir`
+  - `:sftp,host=example.com:path/to/dir`
   - `rclone lsd ":http,url='https://pub.rclone.org':"`
-- `remote,parameter=value,parameter2=value2:path/to/dir`
-- `:backend,parameter=value,parameter2=value2:path/to/dir`
+  - `remote,parameter=value,parameter2=value2:path/to/dir`
+    - 修改部分参数
 
 ```bash
 # 覆盖配置
@@ -139,9 +172,29 @@ rclone lsd :s3,env_auth:
 
 ## sftp
 
+- sudo
+  - https://github.com/rclone/rclone/pull/4502
+    - server_command=sudo /usr/lib/openssh/sftp-server
 
 ```bash
 rclone config
+
+# for agent-forward enter root
+sudo -E -s
+# --sftp-host
+# /usr/lib/openssh/sftp-server
+RCLONE_SFTP_USER=admin \
+  RCLONE_SFTP_HOST="192.168.1.1" \
+  RCLONE_SFTP_SERVER_COMMAND="sudo /usr/lib/ssh/sftp-server" \
+  RCLONE_SFTP_MD5SUM_COMMAND="sudo md5sum" \
+  RCLONE_SFTP_SH1SUM_COMMAND="sudo sh1sum"
+rclone lsd :sftp:
+
+# agent-forward 进入 root 保留 env
+sudo -E -s
+# 或者只保留 SSH_AUTH_SOCK
+sudo --preserve-env=SSH_AUTH_SOCK -s
+# or /etc/sudos Defaults    env_keep+=SSH_AUTH_SOCK
 ```
 
 ## Web UI
@@ -222,5 +275,13 @@ rclone lsd DST:
 ## base64 decode failed when revealing password
 
 ```bash
-export RCLONE_CONFIG_MYSFTP_PASS=`rclone obscure mypassword`
+export RCLONE_CONFIG_MYSFTP_PASS=$(rclone obscure mypassword)
+```
+
+## fs attr
+
+```bash
+apk add acl
+getfacl -R / > permissions.facl
+setfacl --restore=permissions.facl
 ```

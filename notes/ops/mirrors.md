@@ -12,6 +12,7 @@ title: Mirrors
   - npm 需要手动同步
 - tuna~=aliyun ~= ustc - 大多是一样的
 - 国内大学镜像 可能 特殊时期 **直接关停**
+  - 偶尔出现网络维护，一维护就是 2-3 天
 
 :::
 
@@ -75,10 +76,15 @@ title: Mirrors
 
 ## 镜像列表
 
-| 名字   | 地址                                                                                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Alpine | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) |
-| Debian | https://www.debian.org/mirror/list.zh-cn.html                                                                                                                |
+| 名字   | 地址                                          |
+| ------ | --------------------------------------------- |
+| Debian | https://www.debian.org/mirror/list.zh-cn.html |
+| Alpine | https://mirrors.alpinelinux.org/              |
+
+<!--   | Alpine                                        | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) | -->
+
+- Alpine
+  - https://dl-cdn.alpinelinux.org/alpine/
 
 ## NPM
 
@@ -109,21 +115,22 @@ phantomjs_cdnurl=http://cdn.npm.taobao.org/dist/phantomjs
 sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 ```
 
-## Docker
+## Docker Image
 
 - docker.io
   - https://fogjl973.mirror.aliyuncs.com
   - https://8x40wsit.mirror.aliyuncs.com
-  - https://f1361db2.m.daocloud.io
-  - https://docker.mirrors.ustc.edu.cn
-  - https://reg-mirror.qiniu.com
   - https://registry-1.docker.io
   - https://hub-mirror.c.163.com
+  - ~~https://docker.mirrors.ustc.edu.cn~~
+  - ~~https://f1361db2.m.daocloud.io~~
+  - ~~https://reg-mirror.qiniu.com~~
 - gcr.io
 - k8s.gcr.io -> gcr.io/google-containers
-  - googlecontainersmirror - docker
   - registry.aliyuncs.com/google_containers
+  - ~~googlecontainersmirror - docker hub~~
 - quay.io
+  - quay.io
   - quay-mirror.qiniu.com
   - quay.mirrors.ustc.edu.cn
 
@@ -132,6 +139,8 @@ docker pull nginx:alpine
 # 镜像
 docker pull docker.mirrors.ustc.edu.cn/library/nginx:alpine
 docker pull docker.mirrors.ustc.edu.cn/wener/base
+# 南京大学
+docker pull docker.nju.edu.cn/wener/base:latest
 
 tee /etc/docker/daemon.json <<- 'EOF'
 {

@@ -1,11 +1,10 @@
-# 人工智能/Artificial Intelligence
-
-
 ---
 title: AI
 ---
 
 # AI
+
+- AI - Artificial Intelligence - 人工智能
 
 任何使机器能够模拟人类智能的技术
 

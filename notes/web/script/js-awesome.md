@@ -155,14 +155,22 @@ tags:
   - [fast-json-patch](https://github.com/Starcounter-Jack/JSON-Patch)
   - [fastify/fast-json-stringify](https://github.com/fastify/fast-json-stringify)
     - 基于 schema - 更快更安全
+  - [devalue](https://github.com/Rich-Harris/devalue)
+    - 支持循环依赖
+    - 支持 undefined, Infinity, NaN, -0, Date, Map, Set, BigInt, RegExp
+  - class-transformer
+    - object <-> class
+    - 依赖 reflect-metadata
+    - 基于 decorator
+  - json5
+- json+ - 扩展 toJSON 支持更多类型
+  - [yahoo/serialize-javascript](https://github.com/yahoo/serialize-javascript)
+    - 支持 Function
   - [blitz-js/superjson](https://github.com/blitz-js/superjson)
     - 支持 Date, undefined, bigint, RegExp, Set, Map, Error, URL
     - 可以配合 NextJS 使用
     - 可以配合 Decimal.js / Prisma.Decimal 使用
-  - [devalue](https://github.com/Rich-Harris/devalue)
-    - 支持循环依赖
-    - 支持 undefined, Infinity, NaN, -0, Date, Map, Set, BigInt, RegExp
-  - json5
+  - https://github.com/iccicci/next-json
 - xml
   - fast-xml-parser
   - xml2js
@@ -781,6 +789,7 @@ tags:
 
 ## Template
 
+- [ladjs/consolidate](https://github.com/ladjs/consolidate)
 - [eta](./lib/eta.md)
   - 5.7kB/2.4kB
 - [linkedin/dustjs](https://github.com/linkedin/dustjs)

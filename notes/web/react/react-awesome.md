@@ -64,6 +64,10 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 通用 UI 组件
 
+- tailwindcss+daisyui
+  - 如果开发人员能力足够
+  - 如果想要完全控制样式
+  - 如果想要做自己的产品
 - [palantir/blueprint](https://github.com/palantir/blueprint)
   - CSS 样式定义 + React 封装组件
   - 很多组件都可以直接 HTML + CSS 类定义达到效果 - 非常清晰明了
@@ -73,26 +77,12 @@ npm add date-fns lodash-es react-fast-compare
     - 不控制样式，以逻辑为主
 - [radix-ui/primitives](https://github.com/radix-ui/primitives)
   - by WorkOS
+  - Slot 组件 - asChild 时使用 child 组件进行渲染，传递所有 props
 - [nextui-org/nextui](https://github.com/nextui-org/nextui)
+  - 与 vercel 无关
 - [rsuite/rsuite](https://github.com/rsuite/rsuite)
   - 各方面神似 AntD - 但比 AntD 轻的多
-- [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
-  - 丰富强大的组件库
-  - **过于** 高度封装
-    - 做出来的东西都差不多，一眼能看出来是 AntD 组件
-    - 难自定义
-    - 想把什么都做掉做好 - 但结果并不理想
-  - **大量依赖** 外部组件
-    - 43 个依赖 - npm [dependencies](https://www.npmjs.com/package/antd?activeTab=dependencies)
-    - 大量 `rc-xxx` - 外部组件用于实现单一功能 - 功能非常复杂
-    - 但单一功能却都又比不上 react-table、react-hook-form 之类的专门组件 - 食之无味，弃之可惜
-    - 且导致版本变化可能组件直接不兼容 - 例如 3->4 Form 和 Table
-    - 大多 `rc-xxx` 的类型定义缺失，对 TS 也不友好，难看得到有什么属性 - 需要的时候得翻 `rc-xxx` 源码，但质量堪忧
-  - icon 组件现在不允许使用字符串，需要引入具体组件
-    - 用开发便捷性换取 bundle size - 觉得不值得 - 因为 antd 一般用于后台系统，bundle size 次要
-    - icon 难以直接配置使用
-  - 版本变化样式各方面变化较大 - 即便是小版本变化
-    - 导致基本不可能自定义 antd 内部组件样式 - 维护成本高
+- [ant-design/ant-design](../ui/antd.md)
 - [mui-org/material-ui](https://github.com/mui-org/material-ui) - Material Design 风格
   - 如果选择 MD 风格则非常匹配
   - 完成程度和成熟度远远高于 antd
@@ -124,11 +114,8 @@ npm add date-fns lodash-es react-fast-compare
     - design system for the cloud
   - [mantinedev/mantine](https://github.com/mantinedev/mantine)
     - emotion
+    - CSS in JS
   - [grommet/grommet](https://github.com/grommet/grommet)
-  - [rebassjs/rebass](https://github.com/rebassjs/rebass)
-    - 基于 theme-ui 和 styled-system 的基础组件
-    - 很多样式都通过 props 控制
-    - 如果喜欢这样的还不如选择 tailwindcss 更加规范实用
   - [primefaces/primereact](https://github.com/primefaces/primereact)
   - [DevExpress/devextreme-reactive](https://github.com/DevExpress/devextreme-reactive)
     - 功能强大的 [Scheduler](https://devexpress.github.io/devextreme-reactive/react/scheduler/demos/featured/overview/)
@@ -137,8 +124,13 @@ npm add date-fns lodash-es react-fast-compare
     - 包含一些特殊组件 - PIN 码、评分、日历
     - markdown 编辑器、高德地图、百度地图
     - [uiwjs/province-city-china](https://github.com/uiwjs/province-city-china) - 省市区数据
-- [supabase/ui](https://github.com/supabase/ui)
-- [ebs-integrator/ebs-design](https://github.com/ebs-integrator/ebs-design)
+- 不再维护/不活跃
+  - [ebs-integrator/ebs-design](https://github.com/ebs-integrator/ebs-design)
+  - [supabase/ui](https://github.com/supabase/ui)
+  - [rebassjs/rebass](https://github.com/rebassjs/rebass)
+    - 基于 theme-ui 和 styled-system 的基础组件
+    - 很多样式都通过 props 控制
+    - 如果喜欢这样的还不如选择 tailwindcss 更加规范实用
 
 ## 移动端 UI 组件
 

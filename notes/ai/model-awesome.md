@@ -75,6 +75,10 @@ grep avx /proc/cpuinfo --color # x86_64
   - https://actiongpt.github.io/
 - [openai/shap-e](https://github.com/openai/shap-e)
 
+## Visual
+
+- [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2)
+
 ## Image
 
 ## Video

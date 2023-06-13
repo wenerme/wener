@@ -50,20 +50,47 @@ socks-us6.nordvpn.com
 socks-nl4.nordvpn.com
 socks-nl3.nordvpn.com
 socks-nl2.nordvpn.com
+
+amsterdam.nl.socks.nordhold.net
+atlanta.us.socks.nordhold.net
+dallas.us.socks.nordhold.net
+los-angeles.us.socks.nordhold.net
+nl.socks.nordhold.net
+se.socks.nordhold.net
+stockholm.se.socks.nordhold.net
+us.socks.nordhold.net
 ```
 
 - nl - Netherlands
 - se - Sweden
+- https://ipleak.net/?q=us.socks.nordhold.net
+
+## NordLynx
+
+```bash
+# apt, yum, dnf, zypper
+# https://repo.nordvpn.com/
+# /gpg/nordvpn_public.asc
+# /deb/nordvpn/debian
+# /yum/nordvpn/centos
+# sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+
+nordvpn set technology nordlynx
+nordvpn c
+```
+
+- https://support.nordvpn.com/Connectivity/Linux/1362931332/How-can-I-use-NordLynx-in-the-NordVPN-app-for-Linux.htm
 
 ## API
 
 
 
 ```bash
+curl -o countries.json https://api.nordvpn.com/v1/servers/countries
 curl -s https://api.nordvpn.com/v1/servers/countries | jq -r '[.[].name] | sort | unique | .[]'
 
 curl -o server.json https://nordvpn.com/api/server
-yq '[ .[] | select (.features.socks) | pick(["domain","load","name"])] ' server.json
+yq '[ .[] | select (.features.socks) | pick(["domain","load","name","country"])] ' server.json
 yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan"))] | sort_by(.domain) ' server.json
 
 fping -ac 60 $(yq '[ .[] | select (.features.socks) | .domain ] | join(" ")' server.json)
@@ -71,6 +98,10 @@ fping -ac 60 $(yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domai
 
 # proxy_ssl
 openssl s_client -connect us4353.nordvpn.com:89
+
+openssl s_client -connect at80.nordvpn.com:89
+openssl s_client -connect 5.253.207.203:89
+curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
 ```
 
 - https://nordvpn.com/api/server

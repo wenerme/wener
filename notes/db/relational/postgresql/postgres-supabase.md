@@ -56,7 +56,7 @@ auto_explain.log_min_duration = 10s
 | sfcgal                                                                           |
 | timescaledb                                                                      |
 | vault                                                                            |
-| wrappers                                                                         | FDW by Supabase                                                     |
+| [wrappers](https://github.com/supabase/wrappers)                                 | FDW dev kit by Supabase                                             |
 | pgroonga                                                                         |
 | hypopg                                                                           |
 | [pg_tle](https://github.com/aws/pg_tle)                                          | trusted language extensions                                         |

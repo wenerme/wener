@@ -8,11 +8,6 @@ tags:
 
 ## Index
 
-- ~~[rarbgprx.org](https://rarbgprx.org/)~~
-  - 俄乌战争、COVID-19 - 2008-2023-05-31
-
-<!-- https://rarbg.live/rarbg-proxy/ -->
-
 - https://www.1337x.io/
 - anime
   - [动漫花园](https://dmhy.anoneko.com/)
@@ -307,3 +302,17 @@ find . -name RARBG_DO_NOT_MIRROR.exe -or -name RARBG.txt -or -name '._*' -or -na
 # delete
 find . -name RARBG_DO_NOT_MIRROR.exe -or -name RARBG.txt -or -name '._*' -or -name .DS_Store -delete
 ```
+
+## RARBG
+
+- ~~[rarbgprx.org](https://rarbgprx.org/)~~
+  - 俄乌战争、COVID-19 - 2008-2023-05-31
+- magnet:?xt=urn:btih:ulfihylx35oldftn7qosmk6hkhsjq5af
+  - SQLite dump
+- RARBG IPFS
+
+<!--
+https://rarbg.live/rarbg-proxy/
+
+https://www.reddit.com/r/Piracy/comments/13yknky/tutorial_keeping_rarbg_alive_how_to_access/
+-->

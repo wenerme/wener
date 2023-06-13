@@ -4,12 +4,12 @@ title: SSD
 
 # SSD
 
-- SSD 不要 defragment
-- fstrim 可能增加寿命
 
 :::tip
 
 - SSD 容量越大寿命越久
+- SSD 不需要 defragment
+- fstrim 可能增加寿命
 
 :::
 

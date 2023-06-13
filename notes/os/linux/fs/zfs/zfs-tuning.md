@@ -14,6 +14,12 @@ title: ZFS 调优
 
 :::
 
+:::caution
+
+- slog 不是 write buffer
+
+:::
+
 - /proc/spl/kstat/zfs/main/iostats
 - /sys/module/zfs/parameters
   - ZFS 内核模块参数
@@ -75,45 +81,91 @@ zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize
 
 ## ZIL SLOG
 
-- 写缓存
 - ZIL - ZFS Intent Log
   - 短期存储
   - ZIL 默认存在于硬盘上的特殊区域 - 产生双写 - 先写 ZIL 在写回到磁盘区域
   - 不会使用 ZIL 的场景
     - logbias=throughput
-    - 大块
+    - **大块** - 例如： 数据同步时不会用到
+  - **只用于系统 crash 恢复**
 - SLOG - Separate ZFS Intent Log
-  - 存储于额外的磁盘 - 避免双写
+  - ZIL 存储于额外的磁盘
+  - 替代存储磁盘上的 ZIL - 避免双写
+  - **不是写缓存**
   - 用不了多少空间
     - 一般 16G 或 64G 足矣
     - max amount of write traffic per second x 15
     - TXG commit interval - transaction group commit interval - 5s-10s
       - zfs_txg_synctime
       - 增加 事务 延时来增加使用的 slog
-- sync=standard - POSIX-compatible - synchronous only if requested
+
+:::tip
+
+小的写操作会先聚合重排序，然后一次性写入，此时使用 SLOG 能提升性能
+
+- 避免 write IOPS amplification
+
+**无 SLOG**
+
+- async write -> TXG RAM -> ZPool
+- sync write -> TXG RAM & ZIL
+- TXG RAM -> ZPool
+
+**有 SLOG**
+
+- sync write -> TXG RAM & SLOG
+- 系统恢复时 SLOG -> TXG RAM -> replay TXG -> ZPool
+
+:::
+
+### sync
+
+- sync=standard
+  - POSIX-compatible
+  - synchronous only if requested
+  - 部分情况会写入到 slog
 - sync=always
   - 主要保障数据安全
   - 有些不支持 journal 的 DB 必须要 sync
   - slog 很快 可以考虑
-- sync=disabled
+  - 会强制先写入到 log 设备 - **不会增加性能**
+- sync=disabled - sync=never, sync=off
   - 让写入更快
+  - 忽略 O_SYNC
 
 ```bash
 # txg 提交间隔 - 5秒
 cat /sys/module/zfs/parameters/zfs_txg_timeout
-# 增加 slog 使用量
+# 增加 slog 使用量, 180s 提交一次
 echo 180 | sudo tee /sys/module/zfs/parameters/zfs_txg_timeout
+
+# 持久化
+echo "options zfs zfs_txg_timeout=180" > /etc/modprobe.d/zfs.conf
 ```
 
-| parameter                      | default |
-| ------------------------------ | ------- | --------------------------------------- |
+| parameter                      | default | prefer | note                                                                 |
+| ------------------------------ | ------- | ------ | -------------------------------------------------------------------- |
+| zfs_txg_timeout                | 5       | 120    | 强制提交 Transaction Group (TXG) 的时间间隔,更大的值可以聚合更多数据 |
+| ---                            |
 | zfs_dirty_data_max             | 10% RAM |
 | zfs_dirty_data_max_percent     | 10% RAM |
-| zfs_dirty_data_sync_percent    | 20      | 达到 zfs_dirty_data_max 比例后出发 sync |
+| zfs_dirty_data_sync_percent    | 20      |        | 达到 zfs_dirty_data_max 比例后出发 sync                              |
 | zfs_dirty_data_max_max         | 25% RAM |
 | zfs_dirty_data_max_max_percent | 25% RAM |
 
+<!--
+vfs.zfs.delay_min_dirty_percent=98 # write throttle when dirty "modified" data reaches 98% of dirty_data_max (default 60%)
+vfs.zfs.dirty_data_max=17179869184 # dirty_data can use up to 16GB RAM, equal to dirty_data_max_max (default, 10% of RAM or up to 4GB)
+vfs.zfs.dirty_data_sync_pct=95     # force commit Transaction Group (TXG) if dirty_data reaches 95% of dirty_data_max (default 20%, FreeBSD 12.1)
+vfs.zfs.min_auto_ashift=13         # newly created pool ashift, set to 12 for 4K and 13 for 8k alignment, zdb (default 9, 512 byte, ashift=9)
+vfs.zfs.trim.txg_delay=2           # delay TRIMs by up to this many TXGs, trim.txg_delay * txg.timeout ~= 240 secs (default 32, 32*5secs=160 secs)
+vfs.zfs.txg.timeout=120            # force commit Transaction Group (TXG) at 120 secs, increase to aggregated more data (default 5 sec)
+vfs.zfs.vdev.def_queue_depth=128   # max number of outstanding I/Os per top-level vdev (default 32)
+vfs.zfs.vdev.write_gap_limit=0     # max gap between any two aggregated writes, 0 to minimize frags (default 4096, 4KB)
+-->
+
 - https://jrs-s.net/2019/05/02/zfs-sync-async-zil-slog/
+- https://www.truenas.com/blog/zfs-zil-and-slog-demystified/
 
 ## L2ARC
 
@@ -181,3 +233,4 @@ atime 总是为 on
 - [ZFS overhead calc.xlsx](https://docs.google.com/spreadsheets/d/1pdu_X2tR4ztF6_HLtJ-Dc4ZcwUdt6fkCjpnXxAEFlyA)
 - [Tuning ZFS recordsize](https://blogs.oracle.com/roch/tuning-zfs-recordsize)
 - [Module Parameters](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html)
+- https://calomel.org/freebsd_network_tuning.html

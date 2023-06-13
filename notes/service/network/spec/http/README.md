@@ -24,8 +24,15 @@ title: HTTP
 | 504    | Gateway Timeout               | RFC 7231                                        |
 | 520    | Unknown Error                 | Cloudflare                                      |
 | 521    | Web Server Is Down            | Cloudflare                                      |
+| 522    | Connection Timed Out          | Cloudflare                                      |
+| 523    | Origin Is Unreachable         | Cloudflare                                      |
+| 524    | A Timeout Occurred            | Cloudflare                                      |
+| 525    | SSL Handshake Failed          | Cloudflare                                      |
+| 526    | Invalid SSL Certificate       | Cloudflare                                      |
+| 527    | Railgun Error                 | Cloudflare                                      |
 
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+- https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/
 
 ## CORS
 

@@ -28,6 +28,7 @@ title: Tailwind CSS
 - 支持任意值 - v3.0+
   - `w-[30px]`
   - `w-[calc(100%-30px)]`
+- tailwindcss v3 要求 postcss 8+
 
 :::
 
@@ -43,8 +44,8 @@ title: Tailwind CSS
 ```bash
 # 基础依赖
 npm add tailwindcss postcss autoprefixer
-# 兼容 storybook - PostCSS 7
-npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+# 兼容 storybook 5 - PostCSS 7
+# npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 
 # 初始化配置
 # postcss.config.js tailwind.config.js

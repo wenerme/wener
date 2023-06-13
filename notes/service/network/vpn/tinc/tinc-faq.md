@@ -8,8 +8,6 @@ tags:
 
 ## Could not create a tun/tap interface from /dev/net/tun: Resource busy
 
-## PMTU
-
 ## MTU 1518
 
 `tincd -n <netname> -kUSR2`, and it will send a list of nodes to the syslog. The MTU should be in it.

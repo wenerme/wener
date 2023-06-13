@@ -61,3 +61,5 @@ NODE_TOKEN =
 - Docker
 - Generic
 - Npm
+
+## CI 运行可能没有 HOME 变量

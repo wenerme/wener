@@ -471,6 +471,9 @@ tinc -n NETNAME generate-ed25519-keys
 ## tinc.netname
 
 ```bash
+sudo modprobe tun
+echo tun | sudo tee /etc/modules-load.d/tinc.conf
+
 sudo nano /etc/init.d/tinc.netname
 sudo chmod +x /etc/init.d/tinc.netname
 

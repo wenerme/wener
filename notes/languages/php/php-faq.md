@@ -76,3 +76,13 @@ apk add php7-sodium
 ```
 
 -  sodium_crypto_aead_aes256gcm_is_available()
+
+## Allowed memory size of 134217728 bytes exhausted (tried to allocate 65011744 bytes)
+
+- php.ini
+  - memory_limit=128M
+
+```php
+<?
+ini_set('memory_limit', '-1');
+```

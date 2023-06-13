@@ -56,6 +56,23 @@ curl https://api.openai.com/v1/models \
 }
 ```
 
+## Azure OpenAI
+
+- https://oai.azure.com/portal
+- [Azure OpenAI Service pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+- gpt-3.5-turbo
+  - $0.002, 1000 tokens
+  - 价格一样
+
+```bash
+# DEPLOYMENT 对应模型
+# https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/
+# https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/reference
+curl https://$RESOURCE.openai.azure.com/openai/deployments/$DEPLOYMENT/completions?api-version=2023-05-15 \
+  -H "api-key: $AZURE_API_KEY" \
+  --json '{"prompt":"Hello","max_tokens":5}'
+```
+
 ## 限制 {#limits}
 
 | -                 | Text&Embedding        | Chat                  | Codex               | Edit                 | Image           | Audio  |
@@ -78,7 +95,7 @@ curl https://api.openai.com/v1/models \
     - 1500/15 = 100/s 并发请求
     - 1500/0.7 = 2142/s 并发请求 - 回复内容少
 - 限流都是分钟级别
-  - 也就是说持续 1分钟 RPS 达到 60 就会有问题 - 例如: 1 分钟有 3600 人操作，每秒操作 1。次
+  - 也就是说持续 1 分钟 RPS 达到 60 就会有问题 - 例如: 1 分钟有 3600 人操作，每秒操作 1。次
   - 基于 Token 的限制则影响有多少个持续的回答
 
 | TYPE    | 1 TPM EQUALS          |
@@ -107,3 +124,5 @@ openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
 ```
 Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests per min. Limit: 60 / min. Please try again in 1s. Contact us through our help center at help.openai.com if you continue to have issues.
 ```
+
+## 您的银行卡被拒绝了。

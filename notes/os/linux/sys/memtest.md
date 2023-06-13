@@ -30,6 +30,25 @@ memtester -p 0xfce20000 64k 128
 
 - [memtester](https://pyropus.ca./software/memtester/)
 - [jnavila/memtester](https://github.com/jnavila/memtester)
+- https://github.com/jnavila/memtester/blob/master/memtester.8
+- MEMTESTER_TEST_MASK
+- test_stuck_address
+- test_random_value
+- test_xor_comparison
+- test_sub_comparison
+- test_mul_comparison
+- test_div_comparison
+- test_or_comparison
+- test_and_comparison
+- test_solidbits_comparison
+- test_checkerboard_comparison
+- test_blockseq_comparison
+- test_walkbits0_comparison
+- test_walkbits1_comparison
+- test_bitspread_comparison
+- test_bitflip_comparison
+- test_8bit_wide_random
+- test_16bit_wide_random
 
 ```bash
 apk add memtester

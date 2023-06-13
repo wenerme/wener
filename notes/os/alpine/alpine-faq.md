@@ -243,6 +243,12 @@ mount UUID=x-x-x-x /sysroot
 sudo sysctl kernel.dmesg_restrict=0
 ```
 
+## dmesg 保留上次
+
+- /etc/init.d/bootmisc
+  - previous_dmesg=yes 时会 mv /var/log/dmesg /var/log/dmesg.old
+  - 在 /etc/conf.d/bootmisc 配置
+
 ## mirrors
 
 - https://mirrors.alpinelinux.org

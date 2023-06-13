@@ -42,7 +42,7 @@ tags:
     - GET
       - query
         - \_page, \_page_size, \_select=FIELD, \_count=FIELD_NAME, \_count_first=true, \_renderer=xml, \_distinct=true, \_order=-FIELD, \_groupby=FIELD, \_FIELD=VALUE
-        - _join
+        - \_join
       - aggregation - SUM, AVG, MAX, MIN, STDDEV, VARIANCE
         - sum:FIELD
       - op - `$eq`
@@ -159,6 +159,11 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=30458580)
 - retool [How we upgraded our 4TB Postgres database](https://retool.com/blog/how-we-upgraded-postgresql-database/)
   - [HN](https://news.ycombinator.com/item?id=31084147)
+- [The growing pains of database architecture](https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/)
+  - AWS 最大实例 r5.24xlarge
+  - 96C 768GiB 25Gbps
+  - 加了 PgBouncer
+  - 水平扩容
 
 # FAQ
 

@@ -19,3 +19,4 @@ title: HP FAQ
   - HP ProDesk 下一代
 - Z Workstation
   - 性能为主
+- HPE服务器的F10功能是一个安装在主板NAND空间的单独linux内核系统，主要功能是系统快速安装和服务器维护诊断。

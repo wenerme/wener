@@ -1,6 +1,6 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 ## Remove BOM

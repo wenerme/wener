@@ -269,6 +269,7 @@ tags:
 
 | abbr./word               | meaning          | stand for                        |
 | ------------------------ | ---------------- | -------------------------------- |
+| BLN                      | 营业执照编号     | Business License Number          |
 | brn                      | 工商注册号       | Business Registration Number     |
 | usci                     | 统一社会信用代码 | unified social credit identifier |
 | ucc                      | 统一信用代码     | Uniform Credit Code              |
@@ -313,6 +314,7 @@ tags:
 | en                                        | cn                            |
 | ----------------------------------------- | ----------------------------- |
 | taxation                                  | 财税                          |
+| Financial voucher                         | 财务凭证                      |
 | Account reconciliations                   | 对账                          |
 | accounting outsourcing                    | 代账                          |
 | bookkeeping outsourcing                   | 代账                          |

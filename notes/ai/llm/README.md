@@ -21,5 +21,11 @@ title: LLM
 - https://github.com/CLUEbenchmark/SuperCLUE
 - 基于补全
 - 基于指令
+- BiomedGPT
+- SQL-PaLM
+- CodeTF
+- Thought Cloning
+- Let's Verify Step by Step
+- Bytes Are All You Need
 
 ## Fine Tune

@@ -369,8 +369,7 @@ lsof -f -- /var/lib/rancher/k3s/server/db/state.db-wal
 
 ```yaml
 kubelet-arg:
-- config=/etc/rancher/k3s/kubelet.config
-
+  - config=/etc/rancher/k3s/kubelet.config
 #  - 'maxPods=250'
 #  - "kube-reserved=cpu=500m,memory=1Gi,ephemeral-storage=2Gi"
 #  - "system-reserved=cpu=500m, memory=1Gi,ephemeral-storage=2Gi"
@@ -411,3 +410,17 @@ time="2023-06-04T16:17:14.398989382+08:00" level=info msg="containerd successful
 ```
 
 是因为 `failed to find snapshotter "zfs"` 导致
+
+## failed to get network \"cbr0\" cached result: decoding version from network config: unexpected end of JSON input"
+
+```bash
+grep 'failed to get network' /var/log/k3s.log
+ls -s /var/lib/cni/flannel/ # size=0 的文件
+
+k3s ctr container rm $(find /var/lib/cni/flannel/ -size 0 | xargs -n1 basename)
+
+find /var/lib/cni/flannel/ -size 0 -delete
+find /var/lib/cni/results/ -size 0 -delete # cached result
+```
+
+- https://github.com/k3s-io/k3s/issues/6185#issuecomment-1399502450

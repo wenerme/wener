@@ -16,6 +16,9 @@ title: DuckDB
   - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
     - 在 Web 内执行，基于 FS API 进行 IO 交互
   - https://news.ycombinator.com/item?id=32684424
+  - https://h2oai.github.io/db-benchmark/
+- Arrow - Python Binding
+  - https://github.com/duckdblabs/arrow
 
 :::caution
 
@@ -34,9 +37,13 @@ title: DuckDB
 
 :::
 
-
 ```bash
-curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.6.1/duckdb_cli-osx-universal.zip
+# by Homebre
+brew install duckdb
+# by Download
+curl -LO https://ghproxy.com/github.com/duckdb/duckdb/releases/download/v0.8.0/duckdb_cli-osx-universal.zip
+unzip duckdb_cli-osx-universal.zip
+./duckdb
 ```
 
 ```sql
@@ -118,7 +125,6 @@ FROM pragma_storage_info('names') USING SAMPLE 10 ROWS
 ORDER BY row_group_id;
 ```
 
-
 ## extension
 
 ```sql
@@ -142,8 +148,8 @@ cd ~/.duckdb/extensions/$ver/osx_amd64
 
 # https://duckdb.org/docs/extensions/overview
 for name in httpfs excel fts sqlite_scanner postgres_scanner json parquet jemalloc; do
-  [ -e $name.duckdb_extension ] && continue;
-  echo Installing $name;
+  [ -e $name.duckdb_extension ] && continue
+  echo Installing $name
   curl -LO http://extensions.duckdb.org/$ver/osx_amd64/$name.duckdb_extension.gz
   gzip -d $name.duckdb_extension.gz
 done
@@ -167,3 +173,21 @@ load 'sqlite_scanner';
   - SQL 生成器，用于测试
 - tpch
 - tpcds
+
+# FAQ
+
+## duckdb vs SQLite3
+
+| -           | duckdb | SQLite     |
+| ----------- | ------ | ---------- |
+| Since       | 2018   | 2000-08-17 |
+| 架构        | 列存   | 行存       |
+| 场景        | OLAP   | OLTP       |
+| 语言        | C++    | C          |
+| 多线程访问  | ❌     | ✅         |
+| 生态        | ⭐️    | ⭐️⭐️⭐️  |
+| 成熟        | ⭐️    | ⭐️⭐️⭐️  |
+| 并发        | MVCC   | fs lock    |
+| Native JSON | ✅     | ❌         |
+
+- https://duckdb.org/why_duckdb.html

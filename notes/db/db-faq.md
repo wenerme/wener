@@ -223,3 +223,19 @@ insert into test(username) values ('wener');
 select *
 from test;
 ```
+
+## mongodb vs postgresql
+
+- MongoDB
+  - SSPL
+  - 文档模型
+  - BSON
+  - 面向水平扩容设计
+  - 面向简单查询
+  - 单文档原子修改
+- PostgreSQL
+  - PostgreSQL License - 类似 MIT
+  - 行模型
+  - JSONB
+  - 可以水平和垂直扩容
+  - ACID

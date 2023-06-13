@@ -23,6 +23,12 @@ tags:
 | ARC   | Adaptive Replacement Cache | 自适应替换缓存 |
 | L2ARC | Level 2 ARC                | 二级 ARC       |
 
+```bash
+zfs get all | grep -E 'used\b|logicalused|compression|\bcompress'
+
+zfs get all | grep -E 'sync'
+```
+
 ## 如何选择 RAIDZ/mirror/dRAID
 
 - RAIDZ - striped vdevs - RAID5/6/7
@@ -101,7 +107,7 @@ sudo zpool upgrade -a
 - 占用空间会对齐，因此可能会比逻辑更多
 
 ```bash
-zfs get all | egrep 'used\b|logicalused|compression|\bcompress'
+zfs get all | grep -E 'used\b|logicalused|compression|\bcompress'
 ```
 
 ```

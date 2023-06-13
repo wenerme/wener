@@ -5,6 +5,8 @@ tags:
   - Debug
 ---
 
+# PostgreSQL Troubleshooting
+
 ```sql
 -- 总连接数，已使用，super 预留，普通用户可用
 select max_conn, used, res_for_super, max_conn - used - res_for_super res_for_normal

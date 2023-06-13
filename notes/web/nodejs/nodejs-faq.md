@@ -320,3 +320,15 @@ node --snapshot-blob snapshot.blob
 - 不支持 ESM https://github.com/nodejs/help/issues/3981
 - RFC: speeding up Node.js startup using V8 snapshot [#17058](https://github.com/nodejs/node/issues/17058)
 - https://github.com/microsoft/TypeScript/issues/25658
+
+## fastify vs express
+- fastify
+  - 更快
+    - fast-json-stringify
+  - 模块化
+  - 更易用
+- express
+  - 更成熟？
+  - monolithic
+  - 生态更大 - 功能更多
+
