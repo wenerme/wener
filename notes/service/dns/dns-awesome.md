@@ -210,33 +210,62 @@ curl --doh-url https://dns.cloudflare.com/dns-query https://wener.me
 > 不要走国内解析
 
 ```
+ai.com
+akamai.net
+bing.com
+cloudflare.com
+docker.io
+dribbble.com
 facebook.com
+gitbook.com
+gitbook.io
 github.com
 github.io
+githubassets.com
+githubusercontent.com
+gmail.com
 goog
 google
 google.com
+googleapis.com
+googlevideo.com
 hbo.com
 imdb.com
 instagram.com
+intellij.net
+jetbrains.com
 jp
+jsdelivr.net
+k3s.io
+linode.com
+medium.com
 medium.com
 mega.nz
+msecnd.net
 netflix.com
 nintendo.com
+nintendo.net
 nordvpn.com
+openai.com
 pornhub.com
+pximg.net
+quay.io
 quora.com
 rarbg.to
 rarbgprx.org
+redd.it
+reddit.com
 reddit.com
 slack.com
 spotify.com
+svc.ms
 t.co
 telegram.org
 thepiratebay.org
+twimg.com
 twitter.com
 uk
+v2ex.com
 whatsapp.com
 wikileaks.org
 wikipedia.org
@@ -250,7 +279,13 @@ youtube.com
 Adguard
 a=``
 copy(`/${a.split(/\n/).join('/')}/`)
+
+sort note/notes/service/dns/gfwlist.txt{,}
 -->
+
+```bash
+curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | base64 -d > gfwlist.txt
+```
 
 - https://github.com/gfwlist/gfwlist
 - [中华人民共和国被封锁网站列表](https://zh.wikipedia.org/wiki/中华人民共和国被封锁网站列表)

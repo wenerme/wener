@@ -77,14 +77,21 @@ tags:
 
 ## OLAP
 
-Cube 计算
+- Cube 计算
+- BI
 
-- [duckdb/duckdb](https://github.com/duckdb/duckdb)
+---
+
+- cubejs
+- [duckdb/duckdb](./column/duckdb.md)
   - SQLite for OLAP, C++, MIT
+- [ClickHouse](./column/clickhouse/README.md)
 - Apache Druid
 - Apache Kylin
 - Apache Pinot
-- ClickHouse
+  - by LinkedIn
+- Apache [Doris](https://github.com/apache/doris)
+  - by 百度
 - [Comparison of OLAP servers](https://en.wikipedia.org/wiki/Comparison_of_OLAP_servers)
 
 ## OLTP

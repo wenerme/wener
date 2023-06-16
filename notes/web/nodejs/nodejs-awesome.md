@@ -82,6 +82,15 @@ tags:
   - 🚧 开发停止 - 2021
 - [dmfay/massive-js](https://gitlab.com/dmfay/massive-js)
   - data mapper for Node.js and PostgreSQL
+- 有趣
+  - [oguimbal/pg-mem](https://github.com/oguimbal/pg-mem)
+  - [oguimbal/pgsql-ast-parser](https://github.com/oguimbal/pgsql-ast-parser)
+  - [share/sharedb](https://github.com/share/sharedb)
+    - MIT, JS
+    - Realtime database backend based on Operational Transformation (OT)
+  - [derbyjs/derby](https://github.com/derbyjs/derby)
+    - MIT, JS
+    - MVC framework making it easy to write realtime, collaborative applications that run in both Node.js and browsers
 
 ```ts
 // PostgreSQL
@@ -95,6 +104,7 @@ const res = await client.query('SELECT $1::text as message', ['Hello world!']);
 console.log(res.rows[0].message); // Hello world!
 await client.end();
 ```
+
 
 ## Env
 

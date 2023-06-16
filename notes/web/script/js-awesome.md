@@ -123,20 +123,6 @@ tags:
   - [number-flip] (https://github.com/gaoryrt/flip)
   - [objectivehtml/FlipClock](https://github.com/objectivehtml/FlipClock)
     - 不再维护
-- animation
-  - [framer/motion](https://github.com/framer/motion)
-  - react-spring
-  - react-motion
-  - react-move
-  - [danro/easing-js](https://github.com/danro/easing-js)
-  - [mojs/mojs](https://github.com/mojs/mojs)
-  - [gijsroge/tilt.js](https://github.com/gijsroge/tilt.js)
-  - transition
-    - [barbajs/barba](https://github.com/barbajs/barba)
-      - https://barba.js.org/
-    - [swup/swup](https://github.com/swup/swup)
-      - https://swup.github.io/swup-gia-demo/index.html
-- functional
   - [ramda](https://github.com/ramda/ramda)
   - [fp-ts](https://github.com/gcanti/fp-ts)
   - io-ts
@@ -163,6 +149,8 @@ tags:
     - 依赖 reflect-metadata
     - 基于 decorator
   - json5
+  - [unjs/destr](https://github.com/unjs/destr)
+    - JSON.parse
 - json+ - 扩展 toJSON 支持更多类型
   - [yahoo/serialize-javascript](https://github.com/yahoo/serialize-javascript)
     - 支持 Function
@@ -215,6 +203,8 @@ tags:
   - [signature_pad](https://github.com/szimek/signature_pad)
   - [yisibl/resvg-js](https://github.com/yisibl/resvg-js)
     - SVG renderer, powered by Rust based resvg and napi-rs
+  - [svgdotjs/svg.js](https://github.com/svgdotjs/svg.js)
+    - manipulating and animating SVG
   - [konvajs/konva](https://github.com/konvajs/konva)
     - MIT, JS+TS
     - react-konva
@@ -235,6 +225,25 @@ tags:
   - threejs
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
     - React renderer for Three.js
+- animation
+  - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
+    - MIT, TS
+    - uses generators to program animations
+    - creating animated videos using the Canvas API
+    - Visualize Complex Ideas Programmatically
+  - [framer/motion](https://github.com/framer/motion)
+  - react-spring
+  - react-motion
+  - react-move
+  - [danro/easing-js](https://github.com/danro/easing-js)
+  - [mojs/mojs](https://github.com/mojs/mojs)
+  - [gijsroge/tilt.js](https://github.com/gijsroge/tilt.js)
+  - transition
+    - [barbajs/barba](https://github.com/barbajs/barba)
+      - https://barba.js.org/
+    - [swup/swup](https://github.com/swup/swup)
+      - https://swup.github.io/swup-gia-demo/index.html
+- functional
 - ar/vr/xr
   - [WebXR Device API](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API)
     - Chrome 79
@@ -373,7 +382,8 @@ tags:
     - [dmonad/isomorphic.js](https://github.com/dmonad/isomorphic.js)
   - [fabiospampinato/cash](https://github.com/fabiospampinato/cash)
   - jquery
-- logger
+- logger/logging
+  - console
   - [pino](../nodejs/pino.md)
     - 6.5kB/2.5kB
   - roarr
@@ -381,6 +391,7 @@ tags:
   - winston
   - bunyan
   - log4js
+  - [unjs/consola](https://github.com/unjs/consola)
 - validate
   - [ajv](./lib/ajv.md)
     - 使用的最多

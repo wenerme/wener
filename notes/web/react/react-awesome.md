@@ -68,6 +68,8 @@ npm add date-fns lodash-es react-fast-compare
   - 如果开发人员能力足够
   - 如果想要完全控制样式
   - 如果想要做自己的产品
+- [rewindui/rewindui](https://github.com/rewindui/rewindui)
+  - Tailwind
 - [palantir/blueprint](https://github.com/palantir/blueprint)
   - CSS 样式定义 + React 封装组件
   - 很多组件都可以直接 HTML + CSS 类定义达到效果 - 非常清晰明了
@@ -141,6 +143,9 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 特殊 UI 组件
 
+- [tremorlabs/tremor](https://github.com/tremorlabs/tremor)
+  - Apache-2.0
+  - build dashboards
 - [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 - [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
   - 模仿 macOS High Sierra 和 Windows 10 的组件
@@ -153,8 +158,6 @@ npm add date-fns lodash-es react-fast-compare
   - [react-icons.github.io](https://react-icons.github.io/react-icons) 包含了大量可用 Icon
   - 来自 tailwincss 的 [heroicons](https://heroicons.com/) 崇尚直接 copy svg 使用
     - 简单方便
-- [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
-  - 功能最为强大的日历组件 - 支持 React 绑定
 - [popperjs/react-popper](https://github.com/popperjs/react-popper)
   - 显示弹出气泡
 - [signavio/react-mentions](https://github.com/signavio/react-mentions)
@@ -185,6 +188,12 @@ npm add date-fns lodash-es react-fast-compare
   - [reagraph](https://github.com/reaviz/reagraph)
     - Apache-2.0, TS
     - WebGL, network graph
+- https://github.com/wojtekmaj
+  - react-calendar, react-clock, react-pdf
+- calendar
+  - [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
+    - 功能最为强大的日历组件 - 支持 React 绑定
+  - [wojtekmaj/react-calendar](https://github.com/wojtekmaj/react-calendar)
 - flow
   - [wbkd/react-flow](https://github.com/wbkd/react-flow)
     - 流程节点 UI
@@ -292,6 +301,8 @@ npm add date-fns lodash-es react-fast-compare
   - lingui
   - rosetta
   - next-intl
+- for fun
+  - [Clariity/react-chessboard](https://github.com/Clariity/react-chessboard)
 
 ### 编辑器
 
@@ -659,7 +670,7 @@ npm add date-fns lodash-es react-fast-compare
 - [chartjs/Chart.js](https://github.com/chartjs/Chart.js)
   - 基于 canvas
 
-## 开发工具
+## 开发工具/生态
 
 - [storybookjs/storybook](https://github.com/storybookjs/storybook)
   将 UI 开发从主应用分离
@@ -676,6 +687,8 @@ npm add date-fns lodash-es react-fast-compare
   - 开发不活跃
 - [react-cosmos/react-cosmos](https://github.com/react-cosmos/react-cosmos)
   Sandbox for developing and testing UI components in isolation
+- Preact
+- [aidenybai/million](./million.md)
 
 ## 工具
 
