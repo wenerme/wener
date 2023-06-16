@@ -454,3 +454,9 @@ www
 x
 zjw
 ```
+
+## scp sudo
+
+```bash
+rsync -avz --rsync-path="sudo rsync" /tmp/test.txt svr:/tmp/
+```

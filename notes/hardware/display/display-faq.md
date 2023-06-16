@@ -116,3 +116,8 @@ tags:
 
 - 参考
   - https://www.viewsonic.com/library/photography/what-is-an-ips-monitor-panel/
+
+## DCR
+
+- Dynamic Contrast Ratio
+- 对比度优化技术，自动判断画面整体亮度, 通过减弱较暗区域亮度,有效地对不同色阶层次精准还原，使画面细节更清晰,层次更分明。

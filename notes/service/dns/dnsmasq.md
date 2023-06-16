@@ -205,7 +205,7 @@ ignore-address=<ipaddr>
 # 不读 /etc/hosts
 no-hosts
 # 添加 hosts 文件 - 支持指向目录 - 支持多次
-addn-hosts=FILE/PATH
+addn-hosts=FILE/PATH
 # hosts 目录 - 会检测文件变动
 hostdir=PATH
 # 在 /etc/hosts 添加简单域名记录 - 不会添加 CNAME/PTR/TXT 这样的

@@ -1,11 +1,10 @@
 ---
-id: java-11
 title: Java 11
 ---
 
 # Java 11
 
-
+- Java 8 之后的第一个 LTS 版本，第一个带 module 的 LTS 版本
 - [JDK 11](http://openjdk.java.net/projects/jdk/11/)
 - 2018-09-25
 - 动态 class 文件常量

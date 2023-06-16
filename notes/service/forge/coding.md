@@ -7,6 +7,13 @@ title: Coding
 - https://coding.net
   - 功能非常多非常全
   - 团队 -> 项目 -> 仓库
+- 免费版 - https://coding.net/pricing
+  - 仓库 10G
+  - Docker 制品 1000 个
+  - 非 Docker 制品 5G
+  - 项目管理 5000 条记录
+  - 测试用例 3000 条记录
+  - 网盘 20G
 
 ## Worker
 

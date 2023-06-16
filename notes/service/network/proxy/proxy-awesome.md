@@ -39,6 +39,11 @@ tags:
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
 - [XX-net/XX-Net](https://github.com/XX-net/XX-Net)
+- [gost](./gost.md)
+  - MIT, Go
+  - Tunnel
+- [snail007/goproxy](https://github.com/snail007/goproxy)
+  - GPL-3.0, Go
 
 ## Sniff/Introspection
 

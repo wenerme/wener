@@ -56,10 +56,17 @@ plugin_attr:
 
 - Route/路由
   - =uri+plugins+upstream/service_id
+  - 路由条件：Host、Path、Method、表达式、请求参数、Cookie、Auth 信息
+  - Weight-based traffic split
+  - 插件
+  - 支持 TCP、UDP 路由
+  - 注意
+    - path 默认完整匹配， `/` 只会匹配 `/`
 - Service/服务 - 路由集合
   - plugins+upstream
 - Upstream/上游
   - nodes
+  - LB、健康检查、重试、超时
 - PubSub - 只支持 Kafka
 - xRPC - stream_routes - 实现 L4 代理转发
   - 内置 redis 协议 - 可植入错误
@@ -333,34 +340,4 @@ password_grant_token_generation_incoming_uri:
     }
   }
 }
-```
-
-## Helm
-
-- https://charts.apiseven.com
-- [apache/apisix-helm-chart](https://github.com/apache/apisix-helm-chart)
-- apisix-dashboard
-- apisix-ingress-controller
-- apisix
-
-## IngressController
-
-- CRD ApisixRoute, ApisixUpstream ApisixTls ApisixClusterConfig ApisixConsumer
-
-```yaml
-apiVersion: apisix.apache.org/v2beta3
-kind: ApisixRoute
-metadata:
-  name: httpbin-route
-spec:
-  http:
-    - name: rule1
-      match:
-        hosts:
-          - httpbin.com
-        paths:
-          - /ip
-      backends:
-        - serviceName: httpbin-service-e2e-test
-          servicePort: 80
 ```

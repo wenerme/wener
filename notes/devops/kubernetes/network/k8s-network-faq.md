@@ -25,9 +25,11 @@ metadata:
   annotations:
     # Topology Aware Hints
     # Kubernetes v1.23 Beta
-    # 之前为 topology-aware-hints
+    # 之前为
+    # service.kubernetes.io/topology-aware-hints
     # 值为 Auto|Disabled
-    service.kubernetes.io/topology-aware-routing: auto
+    # service.kubernetes.io/topology-aware-routing: auto
+    service.kubernetes.io/topology-mode: Auto
 spec:
   selector:
     app: keydb
@@ -44,6 +46,7 @@ spec:
 
 ---
 
+- [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/)
 - [KEP#2433](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/2433-topology-aware-hints/README.md)
 - [Topology Aware Hints](https://kubernetes.io/docs/concepts/services-networking/topology-aware-hints/)
   - Kubernetes v1.23 Beta

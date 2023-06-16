@@ -5,6 +5,7 @@ title: BBR
 # BBR
 
 - BBR - Bottleneck Bandwidth and Round-trip propagation time
+  - RTT - Round-trip propagation time
   - 基于模型主动探测
     - TCP 拥塞控制 - 通常 基于丢包来作为降低传输速率的信号
   - 有更高的吞吐量和更低的延迟

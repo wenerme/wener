@@ -114,10 +114,22 @@ https://en.wikipedia.org/wiki/Mini-STX
 
 - W - Comet Lake
 - Bronze, Gold, Platinum 82xx - Cascade Lake
-- Coffee Lake
-- v6 - Kaby Lake - 2017-05
-- v5, Platinum, Gold - Skylake - 2015-08
-- v4 - Broadwell
-- v3 - Haswell
-- v2 - ivy
-- v1 - Sandy Bridge
+
+| V   | codename                         | date    |
+| --- | -------------------------------- | ------- |
+| v14 | Sapphire Rapids                  |
+| v13 | Tiger Lake                       |
+| v12 | Rocket Lake                      |
+| v11 | Ice Lake                         |
+| v10 | Cooper Lake                      |
+| v9  | Comet Lake                       |
+| v8  | Cascade Lake                     |
+| v7  | Coffee Lake                      |
+| v6  | Kaby Lake                        | 2017-05 |
+| v5  | Skylake - Platinum, Silver, Gold | 2015-08 |
+| v4  | Broadwell                        |
+| v3  | Haswell                          |
+| v2  | Ivy Bridge                       |
+| v1  | Sandy Bridge                     |
+
+- https://www.intel.com/content/www/us/en/processors/processor-numbers-data-center.html

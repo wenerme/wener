@@ -1,6 +1,5 @@
 ---
-id: version
-title: Java版本
+title: Java 版本
 ---
 
 # Java Release

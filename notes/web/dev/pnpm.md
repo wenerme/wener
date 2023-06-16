@@ -455,6 +455,42 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
   - @nestjs/platform-fastify -> fastify@4.15.0
   - fastify@4.17.0
   - 会导致两份 fastify - 导致版本不匹配
+- 带全局状态的不能有多个
+  - @mikro-orm/postgresql
+  - @mikro-orm/core
+- 以前全局匹配的不能有多个
+  - 例如 nestjs 需要匹配依赖
+
+```bash
+pnpm tsx ./dup.ts
+```
+
+```ts title="dup.ts"
+import fs from 'node:fs';
+
+const deps = fs
+  .readFileSync('./pnpm-lock.yaml', 'utf8')
+  .split('\n')
+  .filter((v) => /^\s*[/]/.test(v))
+  .map((v) => v.trim())
+  .map((v) => {
+    const { name, version, spec } =
+      v.match(/^\/(?<name>(@[^\/]+\/)?[^@]+)@(?<version>[^:(]+)(\((?<spec>.*?)\))?:$/)?.groups || {};
+    return { name, version, spec };
+  });
+
+let dups: Record<string, { name: string; version: string; spec: string }[]> = {};
+for (const dep of deps) {
+  if (!dep) continue;
+  const { name, version, spec } = dep;
+  if (!dups[name]) dups[name] = [];
+  dups[name].push({ name, version, spec });
+}
+
+dups = Object.fromEntries(Object.entries(dups).filter(([, v]) => v.length > 1))
+
+console.log(dups);
+```
 
 ## peer deps
 

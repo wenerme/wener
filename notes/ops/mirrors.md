@@ -129,6 +129,8 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 - k8s.gcr.io -> gcr.io/google-containers
   - registry.aliyuncs.com/google_containers
   - ~~googlecontainersmirror - docker hub~~
+- registry.k8s.io
+  - https://github.com/kubernetes/registry.k8s.io
 - quay.io
   - quay.io
   - quay-mirror.qiniu.com

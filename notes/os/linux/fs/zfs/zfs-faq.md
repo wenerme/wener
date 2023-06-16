@@ -305,7 +305,7 @@ Buffer I/O error on dev zd0, logical block 0, lost async page write
 zfs list -o space,mountpoint
 ```
 
-##  is in use and contains a unknown filesystem
+## is in use and contains a unknown filesystem
 
 - mdraid, lvm, multipath
 
@@ -313,4 +313,11 @@ zfs list -o space,mountpoint
 cat /proc/mdstat
 
 mdadm --stop /dev/md127
+```
+
+## zvol 扩容
+
+```bash
+zfs get volsize data/vol      # 当前
+zfs set volsize=500G data/vol # 修改、扩容
 ```

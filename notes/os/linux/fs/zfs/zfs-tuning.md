@@ -140,7 +140,7 @@ cat /sys/module/zfs/parameters/zfs_txg_timeout
 echo 180 | sudo tee /sys/module/zfs/parameters/zfs_txg_timeout
 
 # 持久化
-echo "options zfs zfs_txg_timeout=180" > /etc/modprobe.d/zfs.conf
+echo "options zfs zfs_txg_timeout=180" | sudo tee /etc/modprobe.d/zfs.conf
 ```
 
 | parameter                      | default | prefer | note                                                                 |
@@ -199,6 +199,12 @@ cat /sys/block/sd{a,b}/queue/{logical_block_size,physical_block_size,optimal_io_
 ## atime on temporary
 
 atime 总是为 on
+
+## zfs_vdev_mirror_rotating_inc
+
+- mirror ssd + hdd
+  - 保留读性能
+  - 写性能无法保障
 
 ## 参考
 

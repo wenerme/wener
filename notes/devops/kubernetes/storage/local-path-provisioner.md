@@ -10,6 +10,8 @@ title: Local Path Provisioner
   - `pvc-<UUID>_<NAMESPACE>_<PVC_NAME>`
   - UUID=pvc.uid
   - PVC_NAME=`<VOLUME_NAME>_<POD_NAME>`
+- helper-pod-create-pvc
+  - rancher/mirrored-library-busybox:1.34.1
 - 注意
   - 异常后 PVC 丢失，StatefulSet 无法启动
     - 删除 Pod 从新部署可恢复

@@ -50,7 +50,7 @@ title: HAProxy Ingress
 # 等同于 nginx-ingress backend-protocol HTTPS
 # 等同于 nginx proxy_ssl_verify off;
 # HAProxy ssl verify none
-server-ssl: true
+haproxy.org/server-ssl: 'true'
 ```
 
 | configmap               | default | note               |

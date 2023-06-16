@@ -1,23 +1,109 @@
 ---
 title: HAProxy Version
 tags:
-- Version
+  - Version
 ---
 
 # HAProxy Version
 
-| version       | release date |
-| ------------- | ------------ |
-| [HAProxy 2.7] | 2022-12-01   |
-| [HAProxy 2.6] | 2022-05-31   |
-| [HAProxy 2.5] | 2021-11-23   |
-| [HAProxy 2.4] | 2021-05-13   |
-| [HAProxy 2.3] | 2020-11-05   |
+| version       | date       |
+| ------------- | ---------- |
+| [HAProxy 2.8] | 2023-05-31 |
+| [HAProxy 2.7] | 2022-12-01 |
+| [HAProxy 2.6] | 2022-05-31 |
+| [HAProxy 2.5] | 2021-11-23 |
+| [HAProxy 2.4] | 2021-05-13 |
+| [HAProxy 2.3] | 2020-11-05 |
 
 [haproxy 2.6]: #haproxy-26
 [haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 2.8
+
+- OCSP Stapling
+  - 以前 `set ssl ocsp-response`
+  - 现在内置支持 `ocs-update on`
+  - 全局配置参数
+    - `tune.ssl.ocsp-update.mindelay`
+    - `tune.ssl.ocsp-update.maxdelay`
+  - 新 Command
+    - `update ssl ocsp-response`
+    - `show ssl ocsp-updates`
+- HTTP 压缩后端 Request & Response
+
+```
+backend webservers
+  balance roundrobin
+  server web1 192.168.56.10:8080 check maxconn 30
+
+  filter compression
+  compression direction both
+  compression offload
+  compression algo-req gzip
+  compression type-req application/json
+  compression algo-res gzip
+  compression type-res text/css text/html text/javascript text/plain
+```
+
+- HTTP Forwarded Header
+  - 在 `option forwarde` 之上控制
+  - rfc7239_is_valid
+  - rfc7239_field
+  - rfc7239_n2nn
+  - rfc7239_n2np
+- HTTP Actions
+- Tuning HTTP/2 Performance
+  - tune.h2.be.initial-window-size
+  - tune.h2.be.max-concurrent-streams
+  - tune.h2.fe.initial-window-size
+  - tune.h2.fe.max-concurrent-streams
+  - tune.h2.initial-window-size
+  - tune.h2.max-concurrent-streams
+- Defaults for Listener Sharding
+  - tune.listener.default-shards
+- Default ALPN Values
+  - 默认 `h2,http/1.1`
+  - 配置了 QUIC 会增加 `h3`
+- Fetch Method
+  - bc_rtt, bc_rttver
+- 集成 acme.sh
+  - add the deploy script for acme.sh in admin directory
+  - 支持直接颁发证书
+- Signing Algorithms for TLS
+  - `ssl-default-bind-client-sigalgs`
+  - `ssl-default-bind-sigalgs`
+- 支持使用 WolfSSL 编译
+- Lua
+  - mailers - 之前为 C 现在为 Lua 模块
+  - New Event Framework in Lua
+    - `core.event_sub()`, `Server.event_sub()`
+  - Queues in Lua - `core.queue()`
+  - Lua Functions for Server Information
+  - Timeout for Lua execution
+  - Disable the Default Resolvers Section for the HTTP Client
+    - global `httpclient.resolvers.disabled on`
+
+```
+global
+  lua-load /etc/haproxy/mailers.lua
+
+defaults
+  email-alert mailers smtp_servers
+  email-alert from haproxy@example.com
+  email-alert to helpdesk@example.com
+  email-alert level info
+
+mailers smtp_servers
+  mailer mailserver1 mailserver1.example.com:25
+```
+
+---
+
+- https://github.com/rnwood/smtp4dev
+  - Email 测试服务
+- https://www.haproxy.com/blog/announcing-haproxy-2-8
 
 ## HAProxy 2.7
 
@@ -30,7 +116,7 @@ tags:
     - `http-request set-bandwidth-limit`
 - `thread-group`
   - 之前最多 64 个线程 - `thread-group 1 threads 64`
-  - 现在可以 64*64=4096 个线程 - `thread-group 64 threads 64`
+  - 现在可以 64\*64=4096 个线程 - `thread-group 64 threads 64`
 - QUICv2
 
 ```bash

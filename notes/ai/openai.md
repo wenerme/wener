@@ -6,16 +6,14 @@ title: OpenAI
 
 **价格**
 
-- GPT-4
-  - 8K 上下文, Prompt $0.03/1K tokens, Completion $0.06/1K tokens
-    - 1.6 万字/$, 0.8 万字/$
-  - 32K 上下文, Prompt $0.06/1K tokens, Completion $0.12/1K tokens
-    - 0.8 万字/$, 0.4 万字/$,
-- Chat
-  - gpt-3.5-turbo $0.002/1K tokens
-    - 25 万字/$
-    - 上下文 4096 tokens
-- InstructGPT
+| Service      | Input/1K tokens | Output/1K tokens |     Chinese | note               |
+| ------------ | --------------- | ---------------- | ----------: | ------------------ |
+| GPT-4 8K     | $0.03           | $0.06            | ~1.6 万字/$ |
+| GPT-4 32K    | $0.06           | $0.12            | ~0.8 万字/$ |
+| Chat 3.5 4K  | $0.0015         | $0.002           |  ~30 万字/$ | gpt-3.5-turbo      |
+| Chat 3.5 16K | $0.003          | $0.004           |  ~15 万字/$ | gpt-3.5-turbo-0613 |
+
+- InstructGPT - 单个指令生成
   - Ada - $0.0004 / 1K tokens
     - 最快
     - 可以 Embedding
@@ -32,6 +30,7 @@ title: OpenAI
   - 256×256 $0.016/image
 - Audio
   - Whisper $0.006 / minute
+- https://openai.com/pricing
 
 ## API
 
