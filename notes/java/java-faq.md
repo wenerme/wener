@@ -126,3 +126,5 @@ https://stackoverflow.com/q/1856242/1870054
 
 - `-Dspring.profiles.active=development`
 - `SPRING_PROFILES_ACTIVE`
+
+## Memory usage

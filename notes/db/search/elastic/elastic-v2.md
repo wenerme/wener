@@ -1,5 +1,4 @@
 ---
-id: elasticsearch-v2
 title: Elasticsearch v2.x
 ---
 
@@ -41,7 +40,7 @@ title: Elasticsearch v2.x
 
 ```bash
 java -Xmx32600m -XX:+PrintFlagsFinal 2> /dev/null | grep UseCompressedOops
-bool UseCompressedOops   := true
+bool UseCompressedOops := true
 ```
 
 - 1.7 32600m, 1.8 32766m
@@ -106,9 +105,9 @@ curl -XPOST 'localhost:9200/test/_open'
 
 ```bash
 # 查看 jvm 内存状态
-curl localhost:9200/_nodes/stats| jq ".nodes[].jvm.mem"
+curl localhost:9200/_nodes/stats | jq ".nodes[].jvm.mem"
 # 单个节点内存状态
-curl localhost:9210/_nodes/stats| jq "[.nodes[]]|.[1].jvm.mem"
+curl localhost:9210/_nodes/stats | jq "[.nodes[]]|.[1].jvm.mem"
 
 # 快速信息查看端口, ?help 显示列的含义
 curl localhost:9200/_cat

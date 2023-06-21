@@ -48,6 +48,8 @@ title: VictoriaMetrics
 
 ## Notes
 
+- VictoriaMetrics 分为多个组件
+  - vminsert, vmselect, vmstorage, vmauth, vmalert
 - 集群 - 每个组件可单独扩容 - 分支 [cluster](https://github.com/VictoriaMetrics/VictoriaMetrics/tree/cluster)
 - **副本不能用于容灾** - 通过备份容灾 - 副本可提升写入查询性能 - 扩容
   - K8S 上推荐使用带副本功能的 PV

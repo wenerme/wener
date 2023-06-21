@@ -49,6 +49,7 @@ tags:
 
 - [warpdotdev/Warp](https://github.com/warpdotdev/Warp)
   - Rust based GPU-accelerated termina
+  - 闭源
 - [janmojzis/tinyssh](https://github.com/janmojzis/tinyssh)
 
 ## SSH

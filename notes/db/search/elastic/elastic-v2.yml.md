@@ -1,13 +1,16 @@
 ---
 title: elasticsearch.yml v2.x
 ---
+
 ## elasticsearch.yml
 
-* 配置文件中可通过 `${...}` 来引用环境变量,例如:
+- 配置文件中可通过 `${...}` 来引用环境变量,例如:
+
 ```yml
 node.rack: ${RACK_ENV_VAR}
 ```
-* 所有的配置项都可通过启动参数指定,例如 `./bin/elasticsearch -Dpath.conf=my-config` 修改配置路径
+
+- 所有的配置项都可通过启动参数指定,例如 `./bin/elasticsearch -Dpath.conf=my-config` 修改配置路径
 
 ## 2.x 配置文件及说明
 
@@ -493,5 +496,6 @@ script.engine.groovy.inline.plugin: false
 ```
 
 ### 参考
-* [配置说明](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html)
-* [一份 ES 配置](https://gist.github.com/zsprackett/8546403)
+
+- [配置说明](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html)
+- [一份 ES 配置](https://gist.github.com/zsprackett/8546403)

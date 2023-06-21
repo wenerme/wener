@@ -1,3 +1,7 @@
+---
+title: Logstash
+---
+
 # Logstash
 
 ```bash
@@ -22,9 +26,9 @@ mv spec/inputs/example_spec.rb spec/inputs/mypluginname_spec.rb
 需要 Java7u51
 
 ## Tips
-* 所有处理的数据都在内存中.
-* 接收到 SIGTERM 时,会等待正在处理的事件处理完
 
+- 所有处理的数据都在内存中.
+- 接收到 SIGTERM 时,会等待正在处理的事件处理完
 
 ## FAQ
 
@@ -34,7 +38,7 @@ mv spec/inputs/example_spec.rb spec/inputs/mypluginname_spec.rb
 
 例如配置为一个主分片两个副分片,那此时至少需要两个节点才能录入数据.
 
-
 ## 参考
-* [elastic/logstash](https://github.com/elastic/logstash)
-* [grokdebug](http://grokdebug.herokuapp.com/)
+
+- [elastic/logstash](https://github.com/elastic/logstash)
+- [grokdebug](http://grokdebug.herokuapp.com/)

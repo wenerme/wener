@@ -46,6 +46,20 @@ https://ping.chinaz.com/r3.o.lencr.org
 ocsp.digicert.com
 -->
 
+```
+ocsp-lb.apple.com.akadns.net
+ocsp-cn-lb.apple.com.akadns.net
+ocsp.apple.com.cdn20.com
+ocsp.g.aaplimg.com
+ocsp.apple.com
+ocsp.digicert.com
+```
+
+```
+ocsp.apple.com.download.ks-cdn.com
+k128-mzstatic.gslb.ksyuncdn.com
+```
+
 ## ocsp stapling
 
 OCSP Stapling（也称为TLS Stapling）是一种TLS/SSL协议的优化技术，它可以减少客户端与证书颁发机构（CA）服务器之间的通信次数，提高网站的性能和安全性。

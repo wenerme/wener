@@ -36,7 +36,7 @@ cd "/usr/local/share/ca-certificates" && curl "https://s3.amazonaws.com/rds-down
 
 - Tools
   - https://www.coker.com.au/bonnie++/
-    -  hard drive and file system performance
+    - hard drive and file system performance
   - https://github.com/benschweizer/iops
 - block
   - http://www.iometer.org/
@@ -97,8 +97,10 @@ iperf3 -c 192.168.1.2
   - mutex: a POSIX mutex benchmark
 
 ```bash
-# mac
+# macOS
 brew install sysbench --without-mysql
+# AlpineLinux
+apk add sysbench
 
 # build from source
 git clone --depth=1 https://github.com/akopytov/sysbench
@@ -125,26 +127,148 @@ sysbench fileio run --file-test-mode=rndwr --threads=$(nproc) --warmup-time=10 -
 
 ## cryptsetup benchmark
 
+```bash
+apk add cryptsetup
+cryptsetup benchmark
 ```
-# alpine hvf
-# ==========
-# Tests are approximate using memory only (no storage IO).
-PBKDF2-sha1       684449 iterations per second for 256-bit key
-PBKDF2-sha256     981812 iterations per second for 256-bit key
-PBKDF2-sha512     840205 iterations per second for 256-bit key
-PBKDF2-ripemd160  476625 iterations per second for 256-bit key
-PBKDF2-whirlpool  385505 iterations per second for 256-bit key
-#     Algorithm | Key |  Encryption |  Decryption
-        aes-cbc   128b   211.4 MiB/s   252.4 MiB/s
-    serpent-cbc   128b    75.2 MiB/s   308.4 MiB/s
-    twofish-cbc   128b   177.4 MiB/s   314.0 MiB/s
-        aes-cbc   256b   162.9 MiB/s   180.3 MiB/s
-    serpent-cbc   256b    76.0 MiB/s   300.5 MiB/s
-    twofish-cbc   256b   169.1 MiB/s   264.9 MiB/s
-        aes-xts   256b   228.3 MiB/s   235.1 MiB/s
-    serpent-xts   256b   278.3 MiB/s   310.7 MiB/s
-    twofish-xts   256b   315.6 MiB/s   308.0 MiB/s
-        aes-xts   512b   179.5 MiB/s   186.7 MiB/s
-    serpent-xts   512b   292.1 MiB/s   301.8 MiB/s
-    twofish-xts   512b   310.6 MiB/s   305.4 MiB/s
+
+### Intel Xeon E5-2660 v2 (20) @ 3.000GHz
+
+```
+PBKDF2-sha1       431868 iterations per second for 256-bit key
+PBKDF2-sha256     652911 iterations per second for 256-bit key
+PBKDF2-sha512     451972 iterations per second for 256-bit key
+PBKDF2-ripemd160  309497 iterations per second for 256-bit key
+PBKDF2-whirlpool  173146 iterations per second for 256-bit key
+argon2i       5 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+argon2id      5 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+#     Algorithm |       Key |      Encryption |      Decryption
+        aes-cbc        128b       360.1 MiB/s      1103.8 MiB/s
+    serpent-cbc        128b        44.6 MiB/s       177.5 MiB/s
+    twofish-cbc        128b       108.6 MiB/s       206.2 MiB/s
+        aes-cbc        256b       262.2 MiB/s       859.0 MiB/s
+    serpent-cbc        256b        51.6 MiB/s       177.1 MiB/s
+    twofish-cbc        256b       113.7 MiB/s       202.7 MiB/s
+        aes-xts        256b       972.3 MiB/s       967.8 MiB/s
+    serpent-xts        256b       165.3 MiB/s       169.1 MiB/s
+    twofish-xts        256b       187.9 MiB/s       193.4 MiB/s
+        aes-xts        512b       782.2 MiB/s       778.0 MiB/s
+    serpent-xts        512b       177.1 MiB/s       168.4 MiB/s
+    twofish-xts        512b       190.9 MiB/s       187.9 MiB/s
+```
+
+### Intel Xeon E5-2666 v3 (40) @ 3.500GHz
+
+```
+PBKDF2-sha1      1046483 iterations per second for 256-bit key
+PBKDF2-sha256    1495828 iterations per second for 256-bit key
+PBKDF2-sha512    1201117 iterations per second for 256-bit key
+PBKDF2-ripemd160  659481 iterations per second for 256-bit key
+PBKDF2-whirlpool  450419 iterations per second for 256-bit key
+argon2i       4 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+argon2id      4 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+#     Algorithm |       Key |      Encryption |      Decryption
+        aes-cbc        128b       511.0 MiB/s      2380.8 MiB/s
+    serpent-cbc        128b        78.9 MiB/s       532.0 MiB/s
+    twofish-cbc        128b       147.6 MiB/s       339.5 MiB/s
+        aes-cbc        256b       428.3 MiB/s      1758.8 MiB/s
+    serpent-cbc        256b        82.6 MiB/s       513.0 MiB/s
+    twofish-cbc        256b       172.7 MiB/s       330.4 MiB/s
+        aes-xts        256b      1845.8 MiB/s      2082.5 MiB/s
+    serpent-xts        256b       486.0 MiB/s       452.9 MiB/s
+    twofish-xts        256b       311.6 MiB/s       312.9 MiB/s
+        aes-xts        512b      1670.7 MiB/s      1651.7 MiB/s
+    serpent-xts        512b       481.1 MiB/s       459.3 MiB/s
+    twofish-xts        512b       311.0 MiB/s       303.7 MiB/s
+```
+
+#### stress-ng
+
+```
+stress-ng --metrics-brief --cpu $(nproc) -t 1m
+```
+
+```
+setting to a 60 second run per stressor
+dispatching hogs: 40 cpu
+stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+cpu             2096887     60.00   2212.41      0.35     34947.11         947.63
+successful run completed in 60.01s (1 min, 0.01 secs)
+```
+
+### AMD EPYC 7601 (128) @ 2.200GHz
+
+```
+PBKDF2-sha1       752206 iterations per second for 256-bit key
+PBKDF2-sha256    1353001 iterations per second for 256-bit key
+PBKDF2-sha512     644088 iterations per second for 256-bit key
+PBKDF2-ripemd160  442064 iterations per second for 256-bit key
+PBKDF2-whirlpool  378820 iterations per second for 256-bit key
+argon2i       4 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+argon2id      4 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bit key (requested 2000 ms time)
+#     Algorithm |       Key |      Encryption |      Decryption
+        aes-cbc        128b       872.1 MiB/s      2663.1 MiB/s
+    serpent-cbc        128b        80.5 MiB/s       316.1 MiB/s
+    twofish-cbc        128b       174.3 MiB/s       320.9 MiB/s
+        aes-cbc        256b       697.7 MiB/s      2286.4 MiB/s
+    serpent-cbc        256b        88.4 MiB/s       316.0 MiB/s
+    twofish-cbc        256b       182.1 MiB/s       320.9 MiB/s
+        aes-xts        256b      2222.5 MiB/s      2224.5 MiB/s
+    serpent-xts        256b       287.5 MiB/s       290.9 MiB/s
+    twofish-xts        256b       293.0 MiB/s       296.7 MiB/s
+        aes-xts        512b      1905.1 MiB/s      1897.8 MiB/s
+    serpent-xts        512b       294.1 MiB/s       291.3 MiB/s
+    twofish-xts        512b       296.6 MiB/s       295.8 MiB/s
+```
+
+#### sysbench
+
+```
+sysbench cpu run --threads=$(nproc) --cpu-max-prime=20000
+sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
+
+Running the test with following options:
+Number of threads: 128
+Initializing random number generator from current time
+
+
+Prime numbers limit: 20000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second: 30864.15
+
+General statistics:
+    total time:                          10.0046s
+    total number of events:              308833
+
+Latency (ms):
+         min:                                    1.78
+         avg:                                    4.06
+         max:                                  114.08
+         95th percentile:                        4.10
+         sum:                              1253151.81
+
+Threads fairness:
+    events (avg/stddev):           2412.7578/60.50
+    execution time (avg/stddev):   9.7902/0.15
+```
+
+#### stress-ng
+
+```
+stress-ng --metrics-brief --cpu $(nproc) -t 1m
+```
+
+```
+setting to a 60 second run per stressor
+dispatching hogs: 128 cpu
+stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s
+                          (secs)    (secs)    (secs)   (real time) (usr+sys time)
+cpu             6770087     60.00   7654.65      0.01    112830.66         884.44
+successful run completed in 60.03s (1 min, 0.03 secs)
 ```

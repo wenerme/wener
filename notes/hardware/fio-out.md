@@ -86,6 +86,8 @@ tags:
   - SEQ1MQ8T1 - Sequential 1M
   - SEQ1MQ32T1 - SSD 测 BW 常用
   - RND4KQ32T8 - SSD 测 IOPS 常用
+    - 4KQD32
+- QD - Queue Depth
 
 | product                      | interface |    TBW |
 | ---------------------------- | --------- | -----: |
@@ -112,7 +114,10 @@ egrep '^.*?: \(groupid' fio.out -A 1
 ```ini title="fio.conf"
 [global]
 direct=1
-ioengine=sync
+fsync=1
+ioengine=io_uring
+#ioengine=libaio
+#ioengine=sync
 numjobs=1
 runtime=60
 size=1g
@@ -136,6 +141,20 @@ rw=randwrite
 [rnd128k-r]
 bs=128k
 rw=randread
+
+[rnd4kq32t1-w]
+bs=4k
+rw=randwrite
+ioengine=io_uring
+iodepth=32
+numjobs=1
+
+[rnd4kq32t1-r]
+bs=4k
+rw=randread
+ioengine=io_uring
+iodepth=32
+numjobs=1
 
 [rnd4kq32t4-w]
 bs=4k
@@ -208,3 +227,4 @@ iodepth=32
 - 根据情况修改 size
   - usb 的时候小点 - 200m-500m - 准备时间很长
   - ssd 的时候大点 - 2g-10g
+- https://superuser.com/a/1247862/242730

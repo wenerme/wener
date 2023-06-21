@@ -118,21 +118,27 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 ## Docker Image
 
 - docker.io
-  - https://fogjl973.mirror.aliyuncs.com
-  - https://8x40wsit.mirror.aliyuncs.com
+  - docker.m.daocloud.io
+  - ~~https://fogjl973.mirror.aliyuncs.com~~
+  - ~~https://8x40wsit.mirror.aliyuncs.com~~
   - https://registry-1.docker.io
+    - production.cloudflare.docker.com
+      - 偶尔通
   - https://hub-mirror.c.163.com
   - ~~https://docker.mirrors.ustc.edu.cn~~
   - ~~https://f1361db2.m.daocloud.io~~
   - ~~https://reg-mirror.qiniu.com~~
 - gcr.io
+  - gcr.m.daocloud.io
 - k8s.gcr.io -> gcr.io/google-containers
+  - k8s-gcr.m.daocloud.io
   - registry.aliyuncs.com/google_containers
   - ~~googlecontainersmirror - docker hub~~
 - registry.k8s.io
+  - k8s.m.daocloud.io
   - https://github.com/kubernetes/registry.k8s.io
 - quay.io
-  - quay.io
+  - quay.m.daocloud.io
   - quay-mirror.qiniu.com
   - quay.mirrors.ustc.edu.cn
 
@@ -146,7 +152,11 @@ docker pull docker.nju.edu.cn/wener/base:latest
 
 tee /etc/docker/daemon.json <<- 'EOF'
 {
-  "registry-mirrors": ["https://fogjl973.mirror.aliyuncs.com","https://f1361db2.m.daocloud.io","https://docker.mirrors.ustc.edu.cn"]
+  "registry-mirrors": [
+    "https://fogjl973.mirror.aliyuncs.com",
+    "https://docker.m.daocloud.io",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
 }
 EOF
 ```
@@ -171,3 +181,7 @@ EOF
 - 默认 proxy.golang.org
 - https://proxy.golang.com.cn
 - https://mirrors.aliyun.com/goproxy
+
+## Mirrorss
+
+- https://github.com/DaoCloud/public-image-mirror

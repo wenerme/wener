@@ -10,8 +10,6 @@ Collection of how to disable telementry and analytics that default to enable.
 
 ## NextJS
 
-- https://nextjs.org/telemetry
-
 ```bash
 # 1. by env
 export NEXT_TELEMETRY_DISABLED=1
@@ -100,3 +98,9 @@ npm run strapi telemetry:disable
 
 2. delete package.json strip.uuid
 3. add package.json telemetryDisabled:true
+
+## openobserve
+
+```bash
+ZO_TELEMETRY=false
+```

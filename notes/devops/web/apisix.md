@@ -341,3 +341,10 @@ password_grant_token_generation_incoming_uri:
   }
 }
 ```
+
+# FAQ
+
+## failed to process entries: 20: unable to get local issuer certificate, context: ngx.timer
+
+- elasticsearch-logger
+- https://github.com/apache/apisix/issues/4370

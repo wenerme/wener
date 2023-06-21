@@ -25,6 +25,7 @@ tags:
 - [lightdash](https://github.com/lightdash/lightdash)
   - MIT, Typescript
   - Looker alternative
+
 ## Ingest
 
 - [honeycombio/honeytail](https://github.com/honeycombio/honeytail)
@@ -284,6 +285,8 @@ tags:
 - react-grid-layout
 - https://cumul.io/library/react
 - https://dev.to/sm0ke/react-dashboards-open-source-apps-1c7j
+- [iGaoWei/BigDataView](https://github.com/iGaoWei/BigDataView)
+- https://dataease.io/templates/archives/电商消费大数据
 
 ## ML
 

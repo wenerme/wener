@@ -39,6 +39,9 @@ title: vector
 - zstd compress [#2302](https://github.com/vectordotdev/vector/issues/2302)
 - windows_event_log source [#1206](https://github.com/vectordotdev/vector/issues/1206)
 - VictoriaMetrics sink [#1343](https://github.com/vectordotdev/vector/issues/1343)
+- `kubernetes_system_events` source [#1293](https://github.com/vectordotdev/vector/issues/1293)
+  - [salesforce/sloop](https://github.com/salesforce/sloop)
+    Kubernetes History Visualization
 
 ---
 
@@ -83,6 +86,13 @@ brew install vector
 
 ## 配置
 
+- API
+  - /playground
+    - GraphQL playground
+  - /health
+  - /graphql
+  - https://vector.dev/docs/reference/api/
+
 ```ini
 # data_dir = "/var/lib/vector"
 
@@ -123,6 +133,10 @@ address = "127.0.0.1:8686"
   - kubectl https://github.com/vectordotdev/vector/tree/master/distribution/kubernetes/vector-agent
     - 使用 `helm template vector vector/vector` 生成
 - [Kubernetes](https://vector.dev/docs/setup/installation/platforms/kubernetes/)
+- 环境变量
+  - VECTOR_SELF_NODE_NAME
+  - VECTOR_SELF_POD_NAME
+  - VECTOR_SELF_POD_NAMESPACE
 
 | Port  | Name          |
 | ----- | ------------- |
@@ -134,6 +148,15 @@ address = "127.0.0.1:8686"
 | 9000  | syslog        |
 | 9090  | prom-exporter |
 | 24224 | fluent        |
+
+<!--
+```toml
+[transforms.add_k8s_node_name]
+  type = "add_fields"
+  inputs = ["kubernete_log"]
+  fields.kubernetes_node_name = "${VECTOR_SELF_NODE_NAME}"
+```
+-->
 
 ### Agent
 
@@ -185,3 +208,22 @@ sinks:
     encoding:
       codec: json
 ```
+
+## file
+
+- https://vector.dev/docs/reference/configuration/sources/file/
+
+## kubernetes_logs
+
+- `/var/log/pods/**/*.log`
+- 不会采集
+  - /var/log/containers
+    - k0s 用到了
+
+**排除采集**
+
+```yaml
+vector.dev/exclude: 'true'
+```
+
+- https://vector.dev/docs/reference/configuration/sources/kubernetes_logs/

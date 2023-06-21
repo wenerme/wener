@@ -777,12 +777,55 @@ docker run --cap-add=SYS_ADMIN --shm-size 2G postgres
 
 ## K8S start & shutdown
 
-
 ```yaml
 preStop:
   exec:
-    command: ["/usr/local/bin/pg_ctl stop -D /var/lib/postgresql/data -w -t 60 -m fast"]
+    command: ['/usr/local/bin/pg_ctl stop -D /var/lib/postgresql/data -w -t 60 -m fast']
 ```
 
 - https://stackoverflow.com/a/75829325/1870054
 
+## LC_MONETERY
+
+:::caution
+
+- collate 不能创建 db 后修改，可以针对 column 或 table 修改。
+
+:::
+
+```sql
+show lc_collate;
+show lc_monetary;
+
+select *
+from pg_settings
+where name like 'lc_%';
+
+set lc_monetary to "en_IE.utf8";
+select 10::money;
+```
+
+- [pg_collation](https://www.postgresql.org/docs/current/catalog-pg-collation.html)
+- https://www.postgresql.org/docs/current/collation.html
+- LC_COLLATE
+  - 默认 en_US.utf8
+  - 推荐 C
+- LC_CTYPE
+- LC_MONETERY
+
+
+
+| name        | default    | aliyun     |
+| ----------- | ---------- | ---------- |
+| lc_collate  | en_US.utf8 | C          |
+| lc_ctype    | en_US.utf8 | en_US.utf8 |
+| lc_messages | en_US.utf8 | ""         |
+| lc_monetary | en_US.utf8 | C          |
+| lc_numeric  | en_US.utf8 | C          |
+| lc_time     | en_US.utf8 | C          |
+
+- initdb - `--encoding=UTF-8 --lc-collate=C --lc-ctype=C`
+
+```
+POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
+```

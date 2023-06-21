@@ -321,3 +321,6 @@ mdadm --stop /dev/md127
 zfs get volsize data/vol      # 当前
 zfs set volsize=500G data/vol # 修改、扩容
 ```
+
+## cannot label 'sdf': failed to detect device partitions on '/dev/sdf1': 19
+

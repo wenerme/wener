@@ -55,7 +55,9 @@ title: SSD
 - fast write-back cache
   - SSD 的写入缓存，当写入量超过时可能会变得很慢
 
-## 监控
+# 监控
+
+## Samsung
 
 - 三星
   - Total_LBAs_Written
@@ -87,3 +89,11 @@ Thermal Temp. 1 Total Time:         22
 ```
 
 - https://askubuntu.com/a/865793/267103
+
+## Intel
+
+- Host_Writes_32MIB
+- Media_Wearout_Indicator
+  - 健康度，100 -> 001
+  - MWI
+  - 过低时过保

@@ -21,6 +21,8 @@ curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc8/gost_3.0.0
 tar zxvf gost*.tar.gz
 
 # Linux
+curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc8/gost_3.0.0-rc8_linux_amd64.tar.gz
+tar zxvf gost*.tar.gz
 
 # v3
 # -L 监听

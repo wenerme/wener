@@ -11,6 +11,10 @@ title: Apisix Ingress
     - [apache/apisix-helm-chart](https://github.com/apache/apisix-helm-chart)
   - https://charts.bitnami.com/bitnami etcd
 - https://apisix.apache.org/docs/ingress-controller/getting-started/
+- v2
+  - https://apisix.apache.org/docs/ingress-controller/next/references/v2/
+  - ApisixGlobalRule
+    - https://github.com/apache/apisix-ingress-controller/issues/1104
 
 ## IngressController
 

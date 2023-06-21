@@ -42,6 +42,30 @@ Non-ECC UDIMM 和 ECC UDIMM 都不会采用 x4 排列(颗粒数太多), 所以�
 
 # FAQ
 
+- GDDR5=DDR3
+- DDR4 SDRAM - Double Data Rate 4 Synchronous Dynamic Random-Access Memory
+
+| Module     | Date   |
+| ---------- | ------ |
+| DDR4 SDRAM | 2014Q2 |
+| DDR3 SDRAM | 2007   |
+| DDR2 SDRAM | 200309 |
+
+## MHz
+
+- MHz
+- Memory clock MHZ
+- I/O bus clock MHz
+- Data rate - MT/s = megatransfers per second
+- DDR - double data rate - 100MHz=200MT/s
+- https://en.wikipedia.org/wiki/DDR4_SDRAM
+- Column address strobe latency - CAS latency CL
+
+<!--
+24*32G
+5G/s
+-->
+
 ## UDIMM vs RDIMM
 
 - UDIMM
@@ -76,7 +100,7 @@ Non-ECC UDIMM 和 ECC UDIMM 都不会采用 x4 排列(颗粒数太多), 所以�
 dmidecode -t memory
 ```
 
+- AMD 要求 2R
 - https://techlibrary.hpe.com/docs/iss/DL380pGen8/setup_install/advanced/Content/138678.htm
-
 
 ## DDR3 vs DDR4

@@ -28,6 +28,12 @@ title: 硬件价格
 | LGA 3647 | Intel Xeon Gold 6133  | 20C40T | 2.50GHz |        | 20×1 MB | 27.5MB | 150W | **OEM** |
 | SP3      | AMD EPYC 7601         | 32C64T | 2.2GHz  | 3.2GHz |         | 64MB   | 180W |
 
+<!--
+
+https://ark.intel.com/content/www/us/en/ark/products/120479/intel-xeon-gold-6136-processor-24-75m-cache-3-00-ghz.html
+
+-->
+
 ## 2023-06
 
 > **Note** 注意
@@ -42,17 +48,18 @@ title: 硬件价格
 
 **SSD**
 
-| unit                             | Cap. | price              | IO       | Seq R    | Seq W      | 4kQD32 IOPS |    TBW | P/E  | Note   |
-| -------------------------------- | ---: | ------------------ | -------- | -------- | ---------- | ----------: | -----: | ---- | ------ |
-| Intel S3520                      | 800G | 1000+<br/>**250+** | SATA     | 450MB/s  | 380MB/s    |     67K/17K | 1462TB | 1828 | 企业级 |
-| Intel S4500                      | 960G | 1200+<br/>**500+** | SATA     | 500MB/s  | 490MB/s    |     72K/33K | 1860TB | 1937 | 企业级 |
-| Samsung PM881                    |   1T | 700+<br/>**400+**  | SATA     | 560MS/s  | 530MB/s    |     98K/88K |        |      |
-| Samsung PM893                    | 960G | 700+               | SATA     | 550MS/s  | 520MB/s    |     98K/30K | 1752TB | 1825 | 企业级 |
-| Samsung 870 EVO                  |   1T | 600+               | SATA     | 550MS/s  | 530MB/s    |     98K/88K |  600TB | 600  |        |
-| Samsung 990 PRO                  |   1T | 700+               | M.2 NVMe | 7450MB/s | 6900MB/s   | 1200K/1550K |  600TB | 600  |
-| KIOXIA EXCERIA                   | 960G | 200                | SATA     | 555MB/s  | 540MB/s    |     81K/88K |  240TB | 250  | 消费级 |
-| KIOXIA EXCERIA G2 NVMe           |   1T | 300+               | M.2 NVMe | 2,100    | 1700 MB/s  |   360K/400K |  400TB | 400  |
-| KIOXIA EXCERIA PLUS G2 NVMe RD20 |   1T | 550+               | M.2 NVMe | 3,400    | 3,200 MB/s |   680K/620K |  400TB | 400  |
+| unit                             | Cap. | price              | IO                  | Seq R     | Seq W      | 4kQD32 IOPS |     TBW | P/E  | Note   |
+| -------------------------------- | ---: | ------------------ | ------------------- | --------- | ---------- | ----------: | ------: | ---- | ------ |
+| Intel S3520                      | 800G | 1000+<br/>**250+** | SATA                | 450MB/s   | 380MB/s    |     67K/17K |  1462TB | 1828 | 企业级 |
+| Intel S4500                      | 960G | 1200+<br/>**500+** | SATA                | 500MB/s   | 490MB/s    |     72K/33K |  1860TB | 1937 | 企业级 |
+| Samsung PM881                    |   1T | 700+<br/>**400+**  | SATA                | 560MS/s   | 530MB/s    |     98K/88K |         |      |
+| Samsung PM893                    | 960G | 700+               | SATA                | 550MS/s   | 520MB/s    |     98K/30K |  1752TB | 1825 | 企业级 |
+| Samsung 870 EVO                  |   1T | 600+               | SATA                | 550MS/s   | 530MB/s    |     98K/88K |   600TB | 600  |        |
+| Samsung 990 PRO                  |   1T | 700+               | M.2 NVMe            | 7450MB/s  | 6900MB/s   | 1200K/1550K |   600TB | 600  |
+| KIOXIA EXCERIA                   | 960G | 200                | SATA                | 555MB/s   | 540MB/s    |     81K/88K |   240TB | 250  | 消费级 |
+| KIOXIA EXCERIA G2 NVMe           |   1T | 300+               | M.2 NVMe            | 2,100     | 1700 MB/s  |   360K/400K |   400TB | 400  |
+| KIOXIA EXCERIA PLUS G2 NVMe RD20 |   1T | 550+               | M.2 NVMe            | 3,400     | 3,200 MB/s |   680K/620K |   400TB | 400  |
+| Intel DC P4510                   |  8TB | **2800+**          | U.2 2.5 PCIe 3.1 x4 | 3200 MB/s | 3000 MB/s  |   640K/135K | 13.88PB | 1735 | 企业级 |
 
 > **Note**
 >
@@ -66,14 +73,20 @@ title: 硬件价格
 - KIOXIA EXCERIA G2 有 500GB, 1TB, 2TB
 
 <!--
+https://wcm-stg.intel.com/content/www/cn/zh/ark/products/122572/intel-ssd-dc-p4510-series-8-0tb-2-5in-pcie-3-1-x4-3d2-tlc.html
+
 https://wcm-stg.intel.com/content/www/cn/zh/ark/products/120524/intel-ssd-dc-s4500-series-1-9tb-2-5in-sata-6gbs-3d1-tlc.html
 https://semiconductor.samsung.com/ssd/pc-ssd/pm881/
 https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/
+https://semiconductor.samsung.com/consumer-storage/internal-ssd/980pro/
 https://semiconductor.samsung.com/consumer-storage/internal-ssd/870evo/
 https://semiconductor.samsung.com/ssd/datacenter-ssd/pm893/
 https://apac.kioxia.com/en-apac/personal/ssd/exceria-plus-g2-nvme-ssd.html
 https://apac.kioxia.com/en-apac/personal/ssd/exceria-sata-ssd.html
 https://www.samsung.com/us/business/computing/memory-storage/enterprise-solid-state-drives/pm893-2-5-sata-960gb-mz-7l396000/
+
+https://pudongfuwuqi.taobao.com/
+https://shop110538690.taobao.com/
 -->
 
 **平台**
@@ -81,7 +94,7 @@ https://www.samsung.com/us/business/computing/memory-storage/enterprise-solid-st
 |                                     unit | price | note                 |
 | ---------------------------------------: | ----- | -------------------- |
 | 平台 2U @2018 年+, Dell, Intel XEON 6133 | 8000+ | 40C80T, 8×2.5 SATA3  |
-|   平台 2U @2018 年+, Dell, AMD EPYC 7601 | 6000+ | 64C128T, 24×2.5SATA3 |
+|   平台 2U @2018 年+, Dell, AMD EPYC 7601 | 6500+ | 64C128T, 24×2.5SATA3 |
 |  平台 2U @2018 年+, H3C, Intel XEON 6133 | 4000+ | 40C80T, 8×2.5 SATA3  |
 |                        DDR4 16G @2133MHz | 120   |
 |                        DDR4 32G @2133MHz | 200   |
@@ -104,6 +117,14 @@ https://www.samsung.com/us/business/computing/memory-storage/enterprise-solid-st
 - ~= 4000+5000+1000+6000 ~= 16000
 
 <!--
+DELL EMC R7425
+平台 4500
+直通 500 24口
+CPU 700
+盘架 20
+电源 300
+7 全高，1半高。
+
 H330|
 
 铂金(Platinum)最高端，主要是8xxx系列，8路;

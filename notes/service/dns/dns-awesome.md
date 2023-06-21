@@ -280,13 +280,29 @@ Adguard
 a=``
 copy(`/${a.split(/\n/).join('/')}/`)
 
-sort note/notes/service/dns/gfwlist.txt{,}
+sort -uo notes/service/dns/gfwlist.txt{,}
 -->
 
 ```bash
+# dnsmasq
+curl -L https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns/gfwlist.txt \
+  | sed -E 's#.+#address=/&/172.32.1.1#'
+
+#
 curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | base64 -d > gfwlist.txt
 ```
 
+**Bypass**
+
+```
+netflix.com
+netflix.net
+chat.openai.com
+bard.google.com
+```
+
+- https://github.com/v2fly/domain-list-community/blob/master/data/netflix
+- https://www.netify.ai/resources/applications/netflix
 - https://github.com/gfwlist/gfwlist
 - [中华人民共和国被封锁网站列表](https://zh.wikipedia.org/wiki/中华人民共和国被封锁网站列表)
 - https://github.com/paulmillr/encrypted-dns

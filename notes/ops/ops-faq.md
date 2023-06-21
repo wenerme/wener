@@ -51,3 +51,7 @@ IPAM 报异常事件，拔插 内存 后恢复。
 
 - https://www.intel.com/content/dam/www/public/us/en/documents/product-briefs/platform-event-trap.pdf
 - https://www.cisco.com/cisco/web/support/CN/113/1136/1136988_119038-technote-cseries-00.pdf
+
+## 去 IOE
+
+2008年在阿里巴巴的IT架构中，去掉IBM的小型机、Oracle数据库、EMC存储设备，代之以自己在开源软件基础上开发的系统。

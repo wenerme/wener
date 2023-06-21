@@ -376,3 +376,19 @@ menuentry 'Alpine' {
 - https://wiki.alpinelinux.org/wiki/PXE_boot
 - https://wiki.alpinelinux.org/wiki/Netboot_Alpine_Linux_using_iPXE
 - https://github.com/52fancy/NetInstallAlpine/blob/main/alpine.sh
+
+## 8AB0D52247F0000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1889:
+
+```bash
+# 确保时间正确
+setup-ntp chrony
+
+# 确保有 ca
+apk add \
+  --no-cache \
+  --repository http://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main/ \
+  ca-certificates
+
+# 能通
+openssl s_client -connect google.com:443
+```

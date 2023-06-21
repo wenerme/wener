@@ -32,6 +32,10 @@ smartctl -H /dev/sda
 
 # 批量操作
 echo /dev/sd{a,b,c,d,e} | xargs -n 1 smartctl -H
+
+smartctl -a --json /dev/nvme0n1
+# 先锋
+echo $((`sudo smartctl -a --json /dev/nvme0n1 | jq .nvme_smart_health_information_log.data_units_written` *512/1024/1024))G
 ```
 
 | smartctl                      | for                                                                                              |
