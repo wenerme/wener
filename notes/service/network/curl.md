@@ -43,6 +43,10 @@ curl -sI --http3 https://curl.se -o/dev/null -w '%{http_version}\n'
 | `-O, --remote-name`                    |       | 第一个使用 remote-name                                    |
 | `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名                   |
 | `--create-file-mode <mode>`            | 7.75  |
+--dns-servers NS|7.33|c-ares
+-Z, --parallel|7.66
+`--parallel-max <num>` ||50
+
 
 - proxy
   - port=1080

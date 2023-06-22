@@ -243,17 +243,27 @@ tags:
 
 ## GitOps
 
-- Render
+- Render/Template
   - [Helm](./ops/helm.md)
+    - gotpl, sprig
   - [Kustomize](./ops/kustomize.md)
-  - jsonnet
+  - [jsonnet](https://github.com/google/jsonnet)
+    - data templating language
+    - JSON 超集
+    - [google/go-jsonnet](https://github.com/google/go-jsonnet)
+- 编排
+  - helm
+  - tanka
+    - jsonet
+    - by Grafana
+    - ArgoCD 不支持 https://github.com/argoproj/argo-cd/issues/3124
+  - Terraform
 - [argocd](./app/argocd.md)
 - [fleet](./app/fleet.md)
 - [flux](./app/flux.md)
 - [flux-subsystem-argo/flamingo](https://github.com/flux-subsystem-argo/flamingo)
   - ArgoCD + Flux
   - by Weave Works
-- Terraform
 - [helmfile/helmfile](https://github.com/helmfile/helmfile)
 
 ## servicemesh

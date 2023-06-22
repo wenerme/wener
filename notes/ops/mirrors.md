@@ -153,8 +153,8 @@ docker pull docker.nju.edu.cn/wener/base:latest
 tee /etc/docker/daemon.json <<- 'EOF'
 {
   "registry-mirrors": [
-    "https://fogjl973.mirror.aliyuncs.com",
     "https://docker.m.daocloud.io",
+    "https://dockercr.wener.me",
     "https://docker.mirrors.ustc.edu.cn"
   ]
 }

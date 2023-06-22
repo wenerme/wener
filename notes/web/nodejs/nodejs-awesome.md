@@ -240,3 +240,11 @@ export N_PREFIX=$HOME/n
 - [bitair-org/linker.js](https://github.com/bitair-org/linker.js)
   - Access Python & C-shared from Node.js
   - `@bitair/linker.js`
+
+## Sandbox
+
+- vm
+- [patriksimek/vm2](https://github.com/patriksimek/vm2)
+- [google/nsjail](https://github.com/google/nsjail)
+  - light-weight process isolation tool
+  - [windmill-labs/windmill](https://github.com/windmill-labs/windmill)

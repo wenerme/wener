@@ -24,6 +24,8 @@ title: LLM
 - BiomedGPT
 - SQL-PaLM
 - CodeTF
+- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard)
+- [openlm-research/open_llama](https://github.com/openlm-research/open_llama)
 - Thought Cloning
 - Let's Verify Step by Step
 - Bytes Are All You Need

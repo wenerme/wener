@@ -42,6 +42,8 @@ tags:
 ## Go 1.21
 
 - GOOS=wasip1
+- https://go.dev/doc/toolchain
+  - GOTOOLCHAIN
 
 ## Go 1.20
 

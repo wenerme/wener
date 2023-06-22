@@ -62,6 +62,7 @@ tags:
   - [crane](./crane.md)
   - [skopeo](./skopeo.md)
   - [regclient/regclient](https://github.com/regclient/regclient)
+  - [oras-project/oras](https://github.com/oras-project/oras)
 - Registry Server
   - habor
   - nexus

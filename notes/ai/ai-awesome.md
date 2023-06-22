@@ -91,6 +91,7 @@ tags:
   - ONNX
 - [AbdBarho/stable-diffusion-webui-docker](https://github.com/AbdBarho/stable-diffusion-webui-docker)
 - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
+- [LostRuins/koboldcpp](https://github.com/LostRuins/koboldcpp)
 
 ---
 

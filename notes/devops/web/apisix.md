@@ -342,6 +342,43 @@ password_grant_token_generation_incoming_uri:
 }
 ```
 
+## global
+
+```yaml
+- name: real-ip
+  enable: true
+  config:
+    source: http_x_forwarded_for
+    recursive: true
+    trusted_addresses:
+    - 192.168.0.0/16
+    - 10.0.0.0/8
+- name: request-id
+  enable: true
+  # https://apisix.apache.org/docs/apisix/plugins/request-id/
+  config:
+    header_name: X-Request-Id
+    algorithm: uuid
+- name: response-rewrite
+  enable: true
+  # https://apisix.apache.org/docs/apisix/plugins/response-rewrite/
+  config:
+    headers:
+      remove: [ Server ]
+- name: elasticsearch-logger
+  enable: true
+  # https://apisix.apache.org/docs/apisix/plugins/elasticsearch-logger/
+  config:
+    endpoint_addr: http://openobserve.data-system/api/wener
+    field:
+      index: apisix-log
+      type: collector
+    auth:
+      username: X
+      password: X
+    ssl_verify: false
+```
+
 # FAQ
 
 ## failed to process entries: 20: unable to get local issuer certificate, context: ngx.timer

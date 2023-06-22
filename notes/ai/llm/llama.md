@@ -47,6 +47,10 @@ python ./transformers/src/transformers/models/llama/convert_llama_weights_to_hf.
   --output_dir /ml/models/LLaMA-hf
 ```
 
+**ggml**
+
+- https://github.com/ggerganov/llama.cpp/pull/1305
+- ggjt v3
 
 <!--
 magnet:?xt=urn:btih:ZXXDAUWYLRUXXBHUYEMS6Q5CE5WA3LVA&dn=LLaMA
@@ -61,6 +65,10 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 ---
 
 - https://rentry.org/lmg_models
+- https://rentry.org/lmg-resources
+- https://rentry.org/ayumi_erp_rating
+- https://rentry.co/ALLMRR
+- ERP - erotic role playing - 情色角色扮演
 
 #->/lmg/ Model Links and Torrents <-
 

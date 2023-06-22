@@ -40,6 +40,7 @@ tags:
 - [ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
 - https://www.promptingguide.ai/zh/models/collection
 - [Releasing 3B and 7B RedPajama-INCITE family of models including base, instruction-tuned & chat models](https://www.together.xyz/blog/redpajama-models-v1)
+- [hysts/ControlNet-v1-1](https://huggingface.co/spaces/hysts/ControlNet-v1-1)
 - ggml
   - [ggerganov/ggml](https://github.com/ggerganov/ggml)
     - MIT, C

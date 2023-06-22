@@ -11,7 +11,7 @@ tags:
 ## env
 
 - DOCKER_REGISTRY_URL
-  -  jenkins `docker.withRegistry`
+  - jenkins `docker.withRegistry`
 - DOCKER_REGISTRY_CREDENTIALS_ID
 - DOCKER_CONFIG=~/.docker
 - https://docs.docker.com/engine/reference/commandline/cli/#environment-variables
@@ -159,7 +159,7 @@ sudo sysctl -p /etc/sysctl.d/99-br_netfilter.conf
 
 ## Cannot link to a non running container
 
-##  docker exporter does not currently support exporting manifest lists
+## docker exporter does not currently support exporting manifest lists
 
 - 只能 --push [docker/buildx#59](https://github.com/docker/buildx/issues/59)
 
@@ -175,9 +175,23 @@ docker buildx create --name multiarch-builder --driver docker-container --use tl
 
 ## DOCKER_HOST environment variable overrides the active context. To use a context, either set the global --context flag, or unset DOCKER_HOST environment variable.
 
-
 ## failed to solve with frontend dockerfile.v0: failed to create LLB definition: unexpected status code [manifests latest]: 403 Forbidden
 
 ```bash
 export DOCKER_BUILDKIT=0
 ```
+
+## OpenTelemetry
+
+- io.containerd.tracing.processor.v1.otlp
+
+# DOCKER_HOST 格式
+
+- DOCKER_HOST
+  - tcp://1.2.3.4:2375
+  - unix:///var/run/docker.sock
+  - npipe:///./pipe/docker_engine
+    - Named Pipe
+  - fd://1.2.3.4:5678
+  - ssh://1.2.3.4:22
+  - `//host:port` -> `tpc://`

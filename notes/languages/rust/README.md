@@ -17,3 +17,4 @@ id: rust
   - [Foreign Function Interface](https://doc.rust-lang.org/book/first-edition/ffi.html)
 - 参考
   - [Why Discord is switching from Go to Rust](https://blog.discord.com/a190bbca2b1f)
+- [Environment Variables](https://doc.rust-lang.org/cargo/reference/environment-variables.html)

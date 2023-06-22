@@ -36,3 +36,8 @@ tags:
 ---
 
 - https://everything.curl.dev/usingcurl/proxies
+
+## fakedns
+
+- fake ip
+- https://blog.skk.moe/post/what-happend-to-dns-in-proxy/

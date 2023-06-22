@@ -37,6 +37,7 @@ title: fio
 
 - engine
   - sync - 同步，操作等待完成
+  - psync - 默认
   - io_uring
   - libaio - Linux AIO
   - http

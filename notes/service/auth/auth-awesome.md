@@ -132,6 +132,22 @@ tags:
   - GPL-3.0, Python
 - [ory/kratos](./kratos.md)
 
+## Proxy
+
+> API 网关通常支持 auth、authz
+
+- ForwardAuth
+  - [oauth2-proxy/oauth2-proxy](https://github.com/oauth2-proxy/oauth2-proxy)
+    - 也支持作为反向代理
+  - [vouch/vouch-proxy](https://github.com/vouch/vouch-proxy)
+- [pomerium/pomerium](https://github.com/pomerium/pomerium)
+  - Apache-2.0, Go
+  - Pomerium is an identity-aware access proxy.
+  - Enterprise
+    - 管理界面
+    - API
+    - Session
+
 ## Reference
 
 - Google [Authentication/Authorization for Enterprise SPI Guide](https://support.google.com/gsa/answer/6329233)

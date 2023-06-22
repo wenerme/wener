@@ -94,3 +94,10 @@ tags:
 - [parca-dev/parca](https://github.com/parca-dev/parca)
   - Apache-2.0, Go
   - Continuous profiling for analysis of CPU and memory usage
+- [andrewrk/poop](https://github.com/andrewrk/poop)
+  - MIT, Zig
+  - Performance Optimizer Observation Platform
+  - linux perf_event_open
+- [plasma-umass/coz](https://github.com/plasma-umass/coz)
+  - BSD 2-Clause, C
+  - Causal Profiling
