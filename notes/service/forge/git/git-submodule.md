@@ -24,3 +24,27 @@ git submodule update --remote --recursive
 ```
 
 ## .gitmodules
+
+**.git**
+
+```txt
+gitdir: ../.git/modules/stub
+```
+
+# FAQ
+
+## local submodule
+
+```bash
+git -c protocol.file.allow=always submodule add ~/gits/wenerme/kube-stub-cluster/.git stub
+```
+
+## detached
+
+```bash
+# merge 或 rebase 即可
+git submodule update --remote --merge
+git submodule update --remote --rebase
+```
+
+- https://stackoverflow.com/a/55570998/1870054

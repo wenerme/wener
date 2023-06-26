@@ -10,6 +10,11 @@ title: vaultwarden
   - 支持 LDAP
   - 必须要求 HTTPS
   - 支持 SQLite, MySQL, PostgreSQL
+- 参考
+  - https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb
+    - Chrome
+  - https://apps.apple.com/cn/app/bitwarden-password-manager/id1137397744
+    - iOS
 
 :::tip
 
@@ -41,3 +46,9 @@ openssl rand -base64 48
   - rsa_key.pem
   - rsa_key.pub.der
   - icon_cache/
+
+## 无邮件操作流程
+
+1. admin 添加用户
+2. 使用添加的 email 创建账号
+3. 邀请新的用户加入组织，在新账号创建好后点确认

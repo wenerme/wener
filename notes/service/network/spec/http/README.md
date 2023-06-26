@@ -21,7 +21,14 @@ title: HTTP
 | 407    | Proxy Authentication Required |
 | 408    | Request Timeout               |
 | 409    | Conflict                      |
+| 500    | Internal Server Error         |
+| 501    | Not Implemented               |
+| 502    | Bad Gateway                   | RFC 7231                                        |
+| 503    | Service Unavailable           | RFC 7231                                        |
 | 504    | Gateway Timeout               | RFC 7231                                        |
+| 505    | HTTP Version Not Supported    | RFC 7231                                        |
+| 506    | Variant Also Negotiates       | RFC 2295                                        |
+| 507    | Insufficient Storage          | RFC 4918                                        |
 | 520    | Unknown Error                 | Cloudflare                                      |
 | 521    | Web Server Is Down            | Cloudflare                                      |
 | 522    | Connection Timed Out          | Cloudflare                                      |

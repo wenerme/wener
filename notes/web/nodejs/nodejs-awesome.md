@@ -166,6 +166,11 @@ export N_PREFIX=$HOME/n
 - Performance
   - https://github.com/zertosh/v8-compile-cache
     - cjs
+- [runk/node-chardet](https://github.com/runk/node-chardet)
+  - Character encoding detection
+- Concurret/Thread/Worker
+  - [piscinajs/piscina](https://github.com/piscinajs/piscina)
+    - Worker Thread Pool
 
 ## Web
 

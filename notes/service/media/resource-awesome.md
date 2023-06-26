@@ -8,7 +8,9 @@ tags:
 
 ## Index
 
-- https://www.1337x.io/
+- 1337x
+  - https://1337xto.to/
+  - https://www.1337x.io/
 - anime
   - [动漫花园](https://dmhy.anoneko.com/)
   - btbtt

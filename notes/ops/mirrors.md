@@ -141,6 +141,7 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
   - quay.m.daocloud.io
   - quay-mirror.qiniu.com
   - quay.mirrors.ustc.edu.cn
+- public.ecr.aws
 
 ```bash
 docker pull nginx:alpine
@@ -159,6 +160,33 @@ tee /etc/docker/daemon.json <<- 'EOF'
   ]
 }
 EOF
+```
+
+```yaml
+mirrors:
+  docker.io:
+    endpoint:
+    - https://dockercr.wener.me
+    - https://docker.m.daocloud.io
+    - https://registry-1.docker.io
+  ghcr.io:
+    endpoint:
+    - https://ghcr.wener.me
+    - https://ghcr.io
+  registry.k8s.io:
+    endpoint:
+    - https://k8scr.wener.me
+    - https://registry.k8s.io
+  gcr.io:
+    endpoint:
+    - https://gcr.wener.me
+    - https://gcr.m.daocloud.io
+    - https://gcr.io
+  quay.io:
+    endpoint:
+    - https://quaycr.wener.me
+    - https://quay.m.daocloud.io
+    - https://quay.io
 ```
 
 ## HomeBrew

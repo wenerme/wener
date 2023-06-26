@@ -6,10 +6,14 @@ tags:
 
 # Keycloak Version
 
-| version       | date       | Notes   |
-| ------------- | ---------- | ------- |
+| version       | date       | Notes        |
+| ------------- | ---------- | ------------ |
+| [Keycloak 22] |            |
+| [Keycloak 21] | 2023-02-23 |
+| [Keycloak 20] | 2022-11-01 | Quarkus only |
+| [Keycloak 19] | 2022-07-27 |
 | [Keycloak 18] | 2022-04-21 |
-| [Keycloak 17] | 2022-02-12 | Quarkus |
+| [Keycloak 17] | 2022-02-12 | Quarkus      |
 | [Keycloak 16] | 2021-12-17 |
 | [Keycloak 15] | 2021-07-30 |
 | [Keycloak 14] | 2021-06-18 |
@@ -21,12 +25,15 @@ tags:
 :::tip
 
 - 新 Operator - Keycloak 20
+- 停止支持 WildFly 版本 - Keycloak 20
 - 新 Console - Keycloak 19
 - 默认 Quarkus - Keycloak 17
-  - 2022-06 停止支持 WildFly 版本
 
 :::
 
+[keycloak 21]: #keycloak-21
+[keycloak 20]: #keycloak-20
+[keycloak 19]: #keycloak-19
 [keycloak 18]: #keycloak-18
 [keycloak 17]: #keycloak-17
 [keycloak 16]: #keycloak-16
@@ -39,6 +46,42 @@ tags:
 
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
 - [keycloak/kc-sig-fapi](https://github.com/keycloak/kc-sig-fapi)
+
+## Keycloak 22
+
+- Monorepo
+- FIPS 140-2
+- 试验性 Account Console version 3
+  - `bin/kc.sh start-dev --features=account3`
+
+## Keycloak 21
+
+- 移除旧的 Admin Console
+- 要求 Java 17+
+- 移除内置支持 Hashicop Vault
+  - https://github.com/keycloak/keycloak/discussions/16446
+
+## Keycloak 20
+
+- 移除 WildFly
+- New Keycloak Operator
+- Realm Operator
+- server options
+  - hostname-url
+  - hostname-admin-url
+
+## Keycloak 19
+
+- New Admin Console
+- Update Email Workflow
+- 集中日志
+  - https://www.keycloak.org/server/logging#_centralized_logging_using_gelf
+  - https://quarkus.io/guides/centralized-log-management
+- OpenID Connect and SAML Adapters End-of-life
+  - Fuse 6 and 7
+  - JBoss AS 7 and EAP 6
+  - Jetty 9.2 and 9.3
+  - Spring Boot 1
 
 ## Keycloak 18
 

@@ -79,6 +79,7 @@ llama.cpp -m chinese-alpaca-13b-plus-quantized.bin -t $(nproc) -p "你好"
   - https://huggingface.co/Billsfriend/chinese-Alpaca-7b-plus-ggml-q8_0
   - https://huggingface.co/johnlui/chinese-alpaca-13b-plus-quantized
 - https://github.com/hikariming/alpaca_chinese_dataset
+- https://github.com/A-baoYang/alpaca-7b-chinese
 
 ## Models
 

@@ -89,10 +89,17 @@ tags:
     - Apache-2.0, Java
     - Distributed object store
   - [minio](./minio.md) - S3
-    - AGPLv3
+    - AGPLv3, Go
     - 支持作为 S3 代理
   - [apache/ozone](https://github.com/apache/ozone)
     - Apache-2.0, Java
+    - for Apache Hadoop
+  - https://garagehq.deuxfleurs.fr/
+    - https://git.deuxfleurs.fr/Deuxfleurs/garage
+    - Rust
+    - https://git.deuxfleurs.fr/Deuxfleurs/bagage
+      - Golang
+      - WebDav-to-S3, SFTP-to-S3
 - 文件存储
   - [juicefs](./juicefs.md)
   - [lizardfs](https://github.com/lizardfs/lizardfs)

@@ -214,3 +214,5 @@ helm repo index --merge last/index.yaml charts
 helm repo index --merge charts/index.yaml newer
 rsync newer/ charts/
 ```
+
+## unpacked charts cannot be verified

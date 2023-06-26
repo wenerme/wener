@@ -52,6 +52,18 @@ python ./transformers/src/transformers/models/llama/convert_llama_weights_to_hf.
 - https://github.com/ggerganov/llama.cpp/pull/1305
 - ggjt v3
 
+# FAQ
+
+<!--
+https://github.com/hikariming/alpaca_chinese_dataset
+https://huggingface.co/togethercomputer/RedPajama-INCITE-Chat-3B-v1
+https://github.com/qwopqwop200/GPTQ-for-LLaMa
+https://www.reddit.com/r/LocalLLaMA/comments/11o6o3f/how_to_install_llama_8bit_and_4bit/
+-->
+
+
+# Ref
+
 <!--
 magnet:?xt=urn:btih:ZXXDAUWYLRUXXBHUYEMS6Q5CE5WA3LVA&dn=LLaMA
 

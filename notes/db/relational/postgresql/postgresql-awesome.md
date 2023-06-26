@@ -99,6 +99,7 @@ tags:
 - https://postgrespro.com/community/books/internals
   - https://news.ycombinator.com/item?id=32088316
 - http://www.interdb.jp/pg/index.html
+- https://github.com/vishesh92/pg-primer
 
 ## 工具
 

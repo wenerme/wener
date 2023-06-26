@@ -16,6 +16,7 @@ lsof -c ssh -c init
 
 # 判断 roofs 对应磁盘没有太多读写
 lsof -a -d "^cwd,^rtd" +D "/"
+lsof -a -d "^cwd,^rtd,^mem,^txt" +D "/"
 ```
 
 | flag                | for                    |

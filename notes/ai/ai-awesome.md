@@ -24,6 +24,12 @@ tags:
 - Chat GPT 应用
   - https://open-gpt.app/
   - [万能道歉信](https://open-gpt.app/app/clf28gwkx0002l108tvysyb9i)
+- https://designer.microsoft.com/
+  - Icon
+- https://pixian.ai/
+  - Remove Image Backgrounds
+- https://quickqr.art/
+  - QR Code Art
 
 ---
 
@@ -47,6 +53,7 @@ tags:
 - [bhaskatripathi/pdfGPT](https://github.com/bhaskatripathi/pdfGPT)
 - [freedmand/semantra](https://github.com/freedmand/semantra)
   - semantic search
+- https://anonymous-31415926.github.io/
 - 发现
   - https://www.theaivalley.com/
 
@@ -98,6 +105,18 @@ tags:
 - [lxe/simple-llama-finetuner](https://github.com/lxe/simple-llama-finetuner)
   - LLaMA Finetuner
 
+## LLM
+
+- [BloopAI/bloop](https://github.com/BloopAI/bloop)
+  - Answer questions about your code with an LLM agent
+- https://vllm.ai/
+  - [vllm-project/vllm](https://github.com/vllm-project/vllm)
+  - vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention
+- [HazyResearch/flash-attention](https://github.com/HazyResearch/flash-attention)
+  - Fast and memory-efficient exact attention
+- [refuel-ai/autolabel](https://github.com/refuel-ai/autolabel)
+  - Label, clean and enrich text datasets with LLMs
+
 ## LLaMA
 
 - [facebookresearch/llama](https://github.com/facebookresearch/llama)
@@ -112,6 +131,10 @@ tags:
 - [clue-ai/PromptCLUE](https://github.com/clue-ai/PromptCLUE)
 - [clue-ai/ChatYuan](https://github.com/clue-ai/ChatYuan)
 - [cocktailpeanut/dalai](https://github.com/cocktailpeanut/dalai)
+-  [belladoreai/llama-tokenizer-js](https://github.com/belladoreai/llama-tokenizer-js)
+  - https://github.com/cogentapps/chat-with-gpt/blob/main/app/src/core/tokenizer/bpe.ts
+- https://github.com/dqbd/tiktoken
+- https://github.com/functorism/gpt4-tokenizer-visualizer
 
 ## Audio to Text
 
@@ -149,14 +172,6 @@ tags:
 - [allenai/RL4LMs](https://github.com/allenai/RL4LMs)
 - [lucidrains/PaLM-rlhf-pytorch](https://github.com/lucidrains/PaLM-rlhf-pytorch)
 
-## 框架 {#framework}
-
-- [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
-  - ONNX Runtime
-- [hidet-org/hidet](https://github.com/hidet-org/hidet)
-- mojo
-- https://mlc.ai/web-llm/
-  - https://news.ycombinator.com/item?id=35583349
 
 ## Bot
 
@@ -182,3 +197,16 @@ tags:
   - 分布式训练
   - RLHF
 - https://streamlit.io/
+
+# 框架 {#framework}
+
+- [microsoft/onnxruntime](https://github.com/microsoft/onnxruntime)
+  - ONNX Runtime
+- [hidet-org/hidet](https://github.com/hidet-org/hidet)
+- mojo
+- https://mlc.ai/web-llm/
+  - https://news.ycombinator.com/item?id=35583349
+- NodeJS
+  - [erelsgl/limdu](https://github.com/erelsgl/limdu)
+  - https://github.com/a16z-infra/ai-getting-started
+

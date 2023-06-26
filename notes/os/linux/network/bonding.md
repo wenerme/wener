@@ -36,7 +36,7 @@ title: Bonding
 apk add bonding
 # 手动加载驱动
 modprobe bonding
-echo bonding | sudo tee -a /etc/modules
+echo bonding | sudo tee /etc/modules-load.d/bonding.conf
 
 # 查看模式
 cat /sys/class/net/bond0/bonding/mode

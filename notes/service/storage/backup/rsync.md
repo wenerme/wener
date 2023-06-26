@@ -30,25 +30,28 @@ title: rsync
 
 :::
 
-| flags                 | for                    |
-| --------------------- | ---------------------- |
-| --archive, -a         | `-rlptgoD`             |
+| flags                 | for                                       |
+| --------------------- | ----------------------------------------- |
+| --archive, -a         | `-rlptgoD`                                |
 | --recursive, -r       |
 | --links, -l           |
 | --perms, -p           |
 | --times, -t           |
 | --owner, -o           |
 | --group, -g           |
-| -D                    | `--devices --specials` |
+| -D                    | `--devices --specials`                    |
 | --verbose, -v         |
-| --progress            | 显示传输进度           |
-| --partial             | 保留部分传输文件       |
-| -P                    | `--partial --progress` |
+| --progress            | 显示传输进度                              |
+| --partial             | 保留部分传输文件                          |
+| -P                    | `--partial --progress`                    |
 | --stats               |
-| --remove-source-files | 同步后删除源文件       |
+| --remove-source-files | 同步后删除源文件                          |
 | --human-readable, -h  |
 | --checksum,-c         |
-| --prune-empty-dirs,-m    | 删除空目录             |
+| --prune-empty-dirs,-m | 删除空目录                                |
+| --existing            | 只同步已经有的                            |
+| --ignore-existing     | 只同步新的                                |
+| --update              | skip files that are newer on the receiver |
 
 > **Note**
 >
