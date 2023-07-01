@@ -956,9 +956,6 @@ file -s /dev/sdc1
                interrupt remapping is being disabled.  Please
                contact your BIOS vendor for an update
 
-
-
-[ 7785.189928] perf: interrupt took too long (2658 > 2500), lowering kernel.perf_event_max_sample_rate to 75000
 ```
 
 ## install utmp/wtmp

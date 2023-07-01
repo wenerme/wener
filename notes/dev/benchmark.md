@@ -1,3 +1,7 @@
+---
+title: Benchmark
+---
+
 # Benchmark
 
 ## wrk

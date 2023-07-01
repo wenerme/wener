@@ -12,9 +12,14 @@ title: peggy
     - TS code generation plugin for peggy
 - PEG.js 之后新功能
   - Global Initializers `{{}}`
+    - 全局
+    - `{}` 初始化是每次 parse 都会创建 - 能访问 options
   - value plucking `@`
   - typescript
   - source maps
+- options
+  - grammarSource
+  - startRule
 
 | syntax                     | for                          |
 | -------------------------- | ---------------------------- |

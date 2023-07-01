@@ -6,6 +6,34 @@ tags:
 
 # Hardware FAQ
 
+## 10GbE
+
+- 10 Gigabit Ethernet, 10GE, 10GbE, 10 GigE
+- 万兆网络
+- 需要交换机支持
+  - 交换机需要注意背板带宽
+- 需要服务器支持
+  - 通过 PCIe 扩展卡
+- 区分光口，电口 - 目前电口较多
+- e.g.
+  - UBNT Flex 10 GbE **USW-Flex-XG**
+    - **$300**
+    - 4×10GbE
+    - 1×1GbE+PoE
+    - 规格
+      - Total non-blocking throughput 41 Gbps
+      - Switching capacity 82 Gbps
+      - Forwarding rate 61.012 Mpps
+  - UBNT Enterprise XG 24 **USW-EnterpriseXG-24**
+    - **$1300**
+    - (24) 10 GbE ports
+    - (2) 25G SFP28 ports
+
+<!--
+https://store.ui.com/us/en/collections/unifi-switching-utility-10-gbps-ethernet
+https://store.ui.com/us/en/collections/unifi-switching-pro-ethernet
+-->
+
 ## 视网膜屏幕
 
 - 人眼对像素辨识度为 300 PPI
@@ -94,3 +122,16 @@ tags:
   - non-contact radio frequency IC card - MF1 card
     - mifare one card
 - Access control CPU card
+
+## SFP
+
+- SFP
+  - Small Form-factor Pluggable
+  - 小型的光纤模块接口
+  - 支持多种传输介质，如光纤、铜缆等
+  - 支持 1Gbps、10Gbps
+- SFP+
+  - Enhanced Small Form-factor Pluggable
+  - 通常 10Gbps
+- SFP28
+  - 通常 25Gbps

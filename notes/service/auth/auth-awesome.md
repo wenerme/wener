@@ -38,6 +38,11 @@ tags:
   - SSO Multi-Factor portal for web apps
 - [boxyhq/jackson](https://github.com/boxyhq/jackson)
   - Apache-2.0, Typescript
+- OpenID Provider (OP), Identity Provider (IDP)
+  - 实现了 OpenID Connect 和 OAuth 2.0
+- Relying Party (RP)
+  - 应用或网站
+  - 将用户授权转交给 IdP
 
 ## Authorization Design
 
@@ -162,3 +167,18 @@ tags:
   - MIT, TS, JS
   - JWA, JWS, JWE, JWT, JWK, JWKS
 - passport
+- [authts/oidc-client-ts](https://github.com/authts/oidc-client-ts)
+  - Apache-2.0, TS
+- [panva/node-openid-client](https://github.com/panva/node-openid-client)
+  - OpenID Certified™ Relying Party
+
+## IdP
+
+- [panva/node-oidc-provider](https://github.com/panva/node-oidc-provider)
+  - MIT, NodeJS, JS
+- [dexidp/dex](https://github.com/dexidp/dex)
+  - Apache-2.0, Go
+  - OpenID Connect Identity (OIDC) and OAuth 2.0 Provider with Pluggable Connectors
+- [ory/hydra](https://github.com/ory/hydra)
+  - Apache-2.0, Go
+  - OAuth2 Server and OpenID Certified™ OpenID Connect Provider written in Go

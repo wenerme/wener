@@ -21,6 +21,7 @@ title: Keycloak Authz
 | PDP  | Policy Decision Point       | Authorization Services |
 | PEP  | Policy Enforcement Point    | 请求拦截               |
 | PIP  | Policy Information Point    | 策略信息               |
+| RTP  | Requesting party token      |
 
 - 授权流程
   - 资源管理
@@ -176,3 +177,35 @@ http://${host}:${port}/auth/realms/${realm_name}/authz/protection/uma-policy/{re
 - View User Permission
   - type=scope logic=POSITIVE
   - scopes=profile:view
+
+## Permission
+
+```json
+{
+  "grant_type": "urn:ietf:params:oauth:grant-type:uma-ticket",
+  "audience:": "resource_server_client_id",
+  "permission": ["Resource A#Scope A"],
+  "ticket": "permission_ticket"
+}
+```
+
+```json
+{
+  "access_token": "${rpt}"
+}
+```
+
+- Requesting party token
+
+```json
+{
+  "authorization": {
+    "permissions": [
+      {
+        "resource_set_id": "d2fe9843-6462-4bfc-baba-b5787bb6e0e7",
+        "resource_set_name": "Hello World Resource"
+      }
+    ]
+  }
+}
+```

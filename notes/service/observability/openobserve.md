@@ -16,6 +16,7 @@ title: OpenObserve
 
 :::caution
 
+- 接受最近 5h 内的数据 - ZO_INGEST_ALLOWED_UPTO
 - 还处于相当早期阶段
   - 日志功能相对完善
   - 其他基本可用
@@ -39,10 +40,16 @@ docker run --rm -it \
   --name openobserve zinclabs/openobserve:latest
 ```
 
-| env                            | default                    | note               |
-| ------------------------------ | -------------------------- | ------------------ |
+| env                            | default                    | note                |
+| ------------------------------ | -------------------------- | ------------------- |
+| **主要配置**                   |
+| ZO_COMPACT_DATA_RETENTION_DAYS |                            | 保留多少天          |
+| ZO_TELEMETRY                   | true                       |
+| ZO_INGEST_ALLOWED_UPTO         | 5                          | 允许插入 5h 内数据  |
+| ZO_DATA_DIR                    | ./data/zincobserve/        |
+| **其他配置**                   |
 | ZO_LOCAL_MODE                  | true                       |
-| ZO_LOCAL_MODE_STORAGE          | disk                       | s3                 |
+| ZO_LOCAL_MODE_STORAGE          | disk                       | s3                  |
 | ZO_NODE_ROLE                   | all                        |
 | ZO_INSTANCE_NAME               |
 | ZO_HTTP_PORT                   | 5080                       |
@@ -51,30 +58,26 @@ docker run --rm -it \
 | ZO_ROUTE_TIMEOUT               | 600                        |
 | ZO_GRPC_ORG_HEADER_KEY         | zinc-org-id                |
 | ZO_BASE_URI                    |
-| ZO_DATA_DIR                    | ./data/zincobserve/        |
-| ZO_DATA_WAL_DIR                | ./data/zincobserve/wal/    |
-| ZO_DATA_STREAM_DIR             | ./data/zincobserve/stream/ |
+| ZO_DATA_WAL_DIR                | ./data/zincobserve/wal/    | $ZO_DATA_DIR/wal    |
+| ZO_DATA_STREAM_DIR             | ./data/zincobserve/stream/ | $ZO_DATA_DIR/stream |
 | ZO_TIME_STAMP_COL              | \_timestamp                |
 | ZO_UI_ENABLED                  | true                       |
-| ZO_TRACING_ENABLED             | false                      | 发送               |
+| ZO_TRACING_ENABLED             | false                      | 发送                |
 | OTEL_OTLP_HTTP_ENDPOINT        |
-| ZO_JSON_LIMIT                  | 209715200                  | 200M               |
-| ZO_PAYLOAD_LIMIT               | 209715200                  | 200M               |
-| ZO_MAX_FILE_SIZE_ON_DISK       | 10                         | 10mb               |
-| ZO_MAX_FILE_RETENTION_TIME     | 600                        | 600s               |
-| ZO_FILE_PUSH_INTERVAL          | 10                         | 10s                |
+| ZO_JSON_LIMIT                  | 209715200                  | 200M                |
+| ZO_PAYLOAD_LIMIT               | 209715200                  | 200M                |
+| ZO_MAX_FILE_SIZE_ON_DISK       | 10                         | 10mb                |
+| ZO_MAX_FILE_RETENTION_TIME     | 600                        | 600s                |
+| ZO_FILE_PUSH_INTERVAL          | 10                         | 10s                 |
 | ZO_COMPACT_ENABLED             | true                       |
 | ZO_MEMORY_CACHE_ENABLED        | true                       |
-| ZO_TELEMETRY                   | true                       |
-| ZO_PROMETHEUS_ENABLED          | false                      | /metrics           |
+| ZO_PROMETHEUS_ENABLED          | false                      | /metrics            |
 | RUST_LOG                       | info                       |
 | ZO_SLED_DATA_DIR               | ./data/zincobserve/sled/   |
 | ZO_SLED_PREFIX                 | /zinc/oxide/               |
-| ZO_INGEST_ALLOWED_UPTO         | 5                          | 允许插入 5h 前数据 |
 | ZO_COMPACT_ENABLED             | true                       |
 | ZO_COMPACT_INTERVAL            | 60                         |
-| ZO_COMPACT_DATA_RETENTION_DAYS |                            | 保留多少天         |
-| ZO_COMPACT_MAX_FILE_SIZE       | 256                        | 多少 MB 时 compact |
+| ZO_COMPACT_MAX_FILE_SIZE       | 256                        | 多少 MB 时 compact  |
 
 ```bash
 docker run --rm -it \

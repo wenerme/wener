@@ -63,7 +63,7 @@ https://www.keycloak.org/docs/latest/server_admin/index.html#_service_accounts
 ## login-status-iframe.html/init 403 异常
 
 - 确保开启 Implicit Flow Enabled
-- 确保 client_id  正确
+- 确保 client_id 正确
   - 如果 client_id 错了会 403，但没有任何地方提示 client_id 错误
   - 非常难排查
 

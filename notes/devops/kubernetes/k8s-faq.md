@@ -524,9 +524,17 @@ done
 ## failed to reserve container name "": name "" is reserved for
 
 - 可能磁盘慢导致，只能等
+- 可能是用了 zfs snapshotter
+  - `zfs list` 非常慢
+  - `ps aux | grep zfs`
 - `iostat -d -x 1` 看 `%utils`
 - `pidstat -d 1` 排查进程
 - https://github.com/containerd/containerd/issues/4604#issuecomment-1027293621
+
+```bash
+# reserved containerd
+ctr -n k8s.io c ls
+```
 
 ## unable to find data in memory cache
 

@@ -1,70 +1,59 @@
 ---
-title: Keycloak 客户端
+title: Client
 ---
 
-# Keycloak 客户端
+# Keycloak Client
 
-- [Nerzal/gocloak](https://github.com/Nerzal/gocloak) - Golang
+- Initial Access Token
+  - 用于创建 client
+  - `POST /realms/<realm>/clients-registrations/default`
 
-## Javascript Adapter
+## Client Glossary
 
-- https://www.keycloak.org/docs/latest/securing_apps/#_javascript_adapter
-- 默认配置 /keycloak.json
-  - Adapter Reference
-    - [JavaScript Adapter Reference](https://www.keycloak.org/docs/latest/securing_apps/#javascript-adapter-reference)
+- Client authentication
+  - ON - confidential access type - 有 Secret
+  - OFF - public access type
+- Authorization - 细粒度 authz
 
-```bash
-npm add keycloak-js
+**Authentication flow**
+
+| term                                 | for                                                                     |
+| ------------------------------------ | ----------------------------------------------------------------------- |
+| Standard flow                        | Authorization Code Flow, redirect **with** authorization code, 基于跳转 |
+| Direct access grants                 | Resource Owner Password Credentials Grant, 允许使用账号密码登录         |
+| Implicit flow                        | redirect **without** authorization code                                 |
+| OAuth 2.0 Device Authorization Grant | client 能力有限，不能打开浏览器                                         |
+| OIDC CIBA Grant                      | via external authentication device                                      |
+
+## Resource
+
+- Type
+  - 可以考虑使用 urn
+    - `urn:<NID>:<NSS>`
+- Decision strategy 是指在进行权限决策时采用的策略
+  - Affirmative：只要有一个授权策略允许访问，就允许访问。这是默认的策略，也是最常用的策略。
+  - Unanimous：需要所有的授权策略都允许访问，才允许访问。
+  - Consensus：需要大多数的授权策略都允许访问，才允许访问。这个策略比较适用于多个授权策略之间存在互斥的情况下。
+- grant_type `urn:ietf:params:oauth:grant-type:uma-ticket`
+- UMA - User-Managed Access
+
+## token/introspect
+
+```http
+POST https://keycloak/realms/wener/protocol/openid-connect/token/introspect
+Content-Type: application/x-www-form-urlencoded
+
+client_id=wener&client_secret=&token=
 ```
 
-```html
-<head>
-  <script src="keycloak.js"></script>
-  <script>
-    var keycloak = new Keycloak();
-    keycloak
-      .init()
-      .then(function (authenticated) {
-        alert(authenticated ? 'authenticated' : 'not authenticated');
-      })
-      .catch(function () {
-        alert('failed to initialize');
-      });
-  </script>
-</head>
+```json
+{
+  "active": false
+}
 ```
 
-```js
-new Keycloak('http://localhost:8080/myapp/keycloak.json');
-new Keycloak({
-  url: 'http://keycloak-server/auth',
-  realm: 'myrealm',
-  clientId: 'myapp',
-});
+- Introspecting a Requesting Party Token
 
-keycloak.init({
-  onLoad: 'check-sso',
-  // onLoad: 'login-required'
-  silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
-});
-```
+## service account
 
-**silent-check-sso.html**
-
-```html
-<html>
-  <body>
-    <script>
-      parent.postMessage(location.href, location.origin);
-    </script>
-  </body>
-</html>
-```
-
-## keycloak-config-cli
-
-- [adorsys/keycloak-config-cli](https://github.com/adorsys/keycloak-config-cli)
-  - 通过命令行导入配置
-  - 配置参考 [moped.json](https://github.com/adorsys/keycloak-config-cli/blob/main/contrib/example-config/moped.json)
-  - 支持 JSON 和 YAML
-  - 格式与导出 JSON 相同 - 支持合并/部分导入
+- 映射为用户 `service-account-<client_id>`

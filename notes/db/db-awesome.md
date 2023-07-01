@@ -47,6 +47,8 @@ tags:
 - MySQL
   - Viteness
   - TiDB
+  - [baidu/BaikalDB](https://github.com/baidu/BaikalDB)
+    -  HTAP
 
 ## 时序数据库 {#time-series}
 

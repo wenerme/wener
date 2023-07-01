@@ -224,8 +224,11 @@ argon2id      4 iterations, 1048576 memory, 4 parallel threads (CPUs) for 256-bi
 
 #### sysbench
 
-```
+```bash
 sysbench cpu run --threads=$(nproc) --cpu-max-prime=20000
+```
+
+```
 sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
 
 Running the test with following options:
@@ -260,7 +263,7 @@ Threads fairness:
 
 #### stress-ng
 
-```
+```bash
 stress-ng --metrics-brief --cpu $(nproc) -t 1m
 ```
 

@@ -60,3 +60,8 @@ ipconfig /flushdns
 - To C 场景运行 UGC 时需要考虑
 - Thanks HN: Lessons learned after Google nearly killed my site
   [HN](https://news.ycombinator.com/item?id=26357033)
+
+## @
+
+- placeholder = the current domain/current origin
+- https://datatracker.ietf.org/doc/html/rfc1035#page-35

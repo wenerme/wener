@@ -1,3 +1,4 @@
+// https://peggyjs.org/online
 /*
 a > 1 or
 -- comment
@@ -5,41 +6,44 @@ a > 1 or
 --
 and a not in [1,2,3,]
 */
-{
+{{
 /* eslint-disable @typescript-eslint/interface-name-prefix,@typescript-eslint/no-empty-interface,no-case-declarations,no-control-regex,prefer-const */
 // ts-nocheck
-const $op = {
-">=":"$gte",
-"<=":"$lte",
-">":"$gt",
-"<":"$lt",
-":":"$eq",// fixme has
-"=":"$eq",
-"==":"$eq",
-"===":"$eq",
-"<>":"$ne",
-"!=":"$ne",
-"in":"$in",
-"not in":"$nin",
-'&&':'$and',
-'and':'$and',
-'||':'$or',
-'or':'$or',
-'nor':'$nor',
-'!' : '$not',
-'~' : '$re',
-'like' : '$like',
-'ilike' : '$ilike',
-// https://www.postgresql.org/docs/current/functions-json.html
-'@>' : '@contains',
-'@<' : '@contained',
-// $overlap	&&
-// https://www.postgresql.org/docs/current/functions-textsearch.html
-// $fulltext
+const OPERATORS = {
+  ">=":"$gte",
+  "<=":"$lte",
+  ">":"$gt",
+  "<":"$lt",
+  // ":":"$eq",// fixme has
+  "=":"$eq",
+  "==":"$eq",
+  "===":"$eq",
+  "<>":"$ne",
+  "!=":"$ne",
+  "in":"$in",
+  "not in":"$nin",
+  '&&':'$and',
+  'and':'$and',
+  '||':'$or',
+  'or':'$or',
+  'nor':'$nor',
+  '!' : '$not',
+  '~' : '$re',
+  'like' : '$like',
+  'ilike' : '$ilike',
+  // https://www.postgresql.org/docs/current/functions-json.html
+  '@>' : '@contains',
+  '@<' : '@contained',
+  // $overlap	&&
+  // https://www.postgresql.org/docs/current/functions-textsearch.html
+  // $fulltext
 }
+}}
+
+{
 function _op(op){
   op = !Array.isArray(op)?op:op.flat().filter(v=>v && v.trim()).join(' ').toLowerCase()
-  return $op[op] || op
+  return OPERATORS[op] || (console.error('unexpected op',op),op)
 }
 function _compound(op,a,b){
   if(!op)return a
@@ -47,7 +51,23 @@ function _compound(op,a,b){
   if(b[op])return {[op]:[a,...b[op]]}
   return {[op]:[a,b]}
 }
+function _make(a,op,b){
+  // NOTE 如果做了 join 支持 {'a.b':{$gt:1}}
+  const o = {}
+  let c = o
+  if(Array.isArray(a)){
+    for(const v of a){
+      c = c[v] ||= {}
+    }
+  } else {
+    c = o[a] ||= {}
+  }
+  c[_op(op)]=b
+  return o
 }
+}
+
+
 // https://github.com/stalniy/ucast
 // https://www.mongodb.com/docs/manual/reference/operator/query/
 Main = next:Expr EOF {return next}
@@ -64,16 +84,16 @@ CompoundExpr
 RelExpr
   = '(' next:Expr ')' {return next} // NOTE: and > or
   / '!' next:RelExpr {return {'$not':next}}
-  / field:Field _ op:('>=' / '<='/ '<>' /  '>' / '<' / '===' / '==' / '!='  / '=' / ':') _ value:literal {return {[field]:{[_op(op)]:value}}}
-  / field:Field _ op:('~') _ value:string {return {[field]:{[_op(op)]:value}}}
-  / field:Field __ op:(is __ null) {return {[field]:{['$eq']:null}}}
-  / field:Field __ op:(is __ not __ null) {return {[field]:{['$ne']:null}}}
-  / field:Field __ op:((not __)? (in)) __ value:Array {return {[field]:{[_op(op)]:value}}}
-  / field:Field __ op:((not __)? (like/ilike)) __ value:string {return {[field]:{[_op(op)]:value}}}
+  / field:Field _ op:('>=' / '<='/ '<>' /  '>' / '<' / '===' / '==' / '!='  / '=' / ':') _ value:literal {return _make(field,op,value)}
+  / field:Field _ op:('~') _ value:string {return _make(field,op,value)}
+  / field:Field __ op:(is __ null) {return _make(field,'=',null)}
+  / field:Field __ op:(is __ not __ null) {return _make(field,'!=',null)}
+  / field:Field __ op:((not __)? (in)) __ value:Array {return _make(field,op,value)}
+  / field:Field __ op:((not __)? (like/ilike)) __ value:string {return _make(field,op,value)}
 
 Field 	= ref / name
 //ref     = a:name b:('.' v:name {return v})+ {return [a,...b].join('.')}
-ref     = name|1..,'.'|
+ref     = a:name|1..,_ '.'_ | {return a}
 name 	= ([a-zA-Z]([_a-zA-Z0-9])*) {return text()}
 
 Value   = literal

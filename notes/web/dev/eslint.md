@@ -12,6 +12,8 @@ TIMING=1 npx eslint src # 输出时间，排查慢的插件
 # fix single rule
 # eslint --fix --rule 'quotes: [2, double]' .
 eslint --no-eslintrc --parser @typescript-eslint/parser --fix --rule 'prefer-const: 1' src/**/*.ts
+
+eslint --env-info
 ```
 
 - eslint-plugin-import
@@ -27,14 +29,19 @@ eslint --no-eslintrc --parser @typescript-eslint/parser --fix --rule 'prefer-con
     - [rules](https://typescript-eslint.io/rules/)
   - https://github.com/vercel/next.js/tree/canary/packages/eslint-config-next
     - NextJS
-  - https://github.com/xojs/eslint-config-xo-typescript
-  - https://github.com/standard/eslint-config-standard-with-typescript
+  - [xojs/eslint-config-xo-typescript](https://github.com/xojs/eslint-config-xo-typescript)
+  - [standard/eslint-config-standard-with-typescript](https://github.com/standard/eslint-config-standard-with-typescript)
+    - https://github.com/standard/eslint-config-standard-with-typescript/blob/master/src/index.ts
 
 ## 配置
 
 - .eslintrc.{js,yml,json,cjs}
-- 目前不支持 esm 配置
-  - https://eslint.org/docs/latest/user-guide/configuring/configuration-files
+- eslint.config.js
+  - ESM
+- 参考
+  - https://eslint.org/docs/latest/use/configure/configuration-files
+  - https://eslint.org/docs/latest/use/configure/configuration-files-new
+- ESLINT_USE_FLAT_CONFIG=true 不搜索 eslint.config.js
 
 ```js
 module.exports = {
@@ -67,7 +74,7 @@ alert('foo');
 /*eslint-enable */
 
 // 忽略当前
-a==a// eslint-disable-line
+a == a; // eslint-disable-line
 ```
 
 ## tslint
@@ -94,4 +101,18 @@ a==a// eslint-disable-line
 module.exports = {
   ignorePatterns: ['.eslintrc.js'],
 };
+```
+
+## eslint decorators consistent-type-imports
+
+- tsconfig.json emitDecoratorMetadata=true
+
+## The keyword 'import' is reserved
+
+```json
+{
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}
 ```

@@ -69,6 +69,7 @@ tags:
 - server options
   - hostname-url
   - hostname-admin-url
+  - https://www.keycloak.org/server/hostname
 
 ## Keycloak 19
 

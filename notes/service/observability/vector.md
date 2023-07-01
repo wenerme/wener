@@ -26,7 +26,9 @@ title: vector
 - 角色
   - agent - 采集
     - source -> sink
+    - source 通常为 file, kubernetes_logs, host_metrics
   - aggregator - 聚合
+    - source 通常为 vector, syslog, statsd, fluent
     - transform
   - sidecar - 应用
 

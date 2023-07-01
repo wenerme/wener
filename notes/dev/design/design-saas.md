@@ -145,3 +145,17 @@ title: SaaS
 ## Tenant
 
 - https://cloud.google.com/identity-platform/docs/reference/rest/v2/projects.tenants
+
+## PostgreSQL
+
+- RLS
+- Schema
+- DB
+- `tid=`
+
+```sql
+CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('auth.current_tenant_id')::int);
+```
+
+- 参考
+  - https://fabian.ski/posts/nestjs-tenants/

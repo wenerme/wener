@@ -29,11 +29,15 @@ title: License
   - 反对 Apache 2.0
   - 推荐 ISC
 - https://fair.io/
+- LGPL
 
 | abbr   | for                                |
 | ------ | ---------------------------------- |
 | RSALv2 | Redis Source Available License 2.0 |
 | SSPLv1 | Server Side Public License v1      |
+| BSL    | Business Source License            |
+| AGPL   | GNU Affero General Public License  |
+| CC     | Creative Commons                   |
 
 ## AGPL
 

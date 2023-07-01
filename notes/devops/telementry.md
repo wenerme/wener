@@ -104,3 +104,25 @@ npm run strapi telemetry:disable
 ```bash
 ZO_TELEMETRY=false
 ```
+
+## openpolicyagent
+
+```
+--disable-telemetry
+```
+
+- OPA_TELEMETRY_SERVICE_URL=https://telemetry.openpolicyagent.org
+- **ON by-default**
+
+```http
+POST /v1/version HTTP/1.1
+Host: telemetry.openpolicyagent.org
+Content-Type: application/json
+User-Agent: "Open Policy Agent/v0.12.3 (darwin, amd64)"
+
+{
+  "id": "08c1d850-6065-478a-b9b5-a8f9f464ad33",
+  "version": "v0.12.3",
+  "heap_usage_bytes": "596000"
+}
+```

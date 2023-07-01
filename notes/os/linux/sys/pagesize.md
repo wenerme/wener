@@ -4,10 +4,11 @@ title: PageSize
 
 # pagesize
 
-- 大多为 4KB
+- 4KB - 大多场景
   - 最大 512G 虚拟内存 - 通过 huge page 使用更多内存
-  - 非 4KB内存可能那个导致各种问题
+  - 非 4KB 内存可能那个导致各种问题
     - electron, k3s
+  - etcd boltdb 4k
 - 64K PageSize
   - AARCH64 之前有性能问题，部分 distro 选择 64KB
   - CentOS 7 aarch64, RedHat 7
@@ -19,6 +20,12 @@ title: PageSize
 - 16K PageSize
   - Asahi linux
   - macOS
+  - MySQL InnoDB
+- 8K
+  - PostgreSQL
+- 128k
+  - zfs
+    - 默认存在写放大问题
 
 ```bash
 # 当前 page size

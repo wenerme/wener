@@ -10,6 +10,19 @@ tags:
 | Gitea 1.19 | 2023-03-20 |
 | Gitea 1.18 | 2022-10-29 |
 
+## Gitea 1.20
+
+- 支持 GITEA_TOKEN 登录 docker - [#23642](https://github.com/go-gitea/gitea/issues/23642)
+
+```yaml
+- name: Log in to the Container registry
+  uses: docker/login-action@v2
+  with:
+    registry: my.gitea.domain
+    username: ${{ github.repository_owner }}
+    password: ${{ secrets.GITEA_TOKEN }}
+```
+
 ## Gitea 1.19
 
 - PTA scope

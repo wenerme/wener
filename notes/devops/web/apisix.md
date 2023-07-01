@@ -221,6 +221,8 @@ discovery:
   - Router
     - hide_credentials
 - authz-keycloak - OIDC 认证逻辑+Keycloak 授权判断逻辑
+  - UMA
+  - https://github.com/apache/apisix/blob/master/apisix/plugins/authz-keycloak.lua
 
 ```yaml
 # 🌟 推荐设置自动发现，减少配置量
@@ -254,12 +256,65 @@ password_grant_token_generation_incoming_uri:
 
 - forward-auth
 - openid-connect - OIDC 认证
+  - use_jwts
+    - bearer_jwt_verify
+    - https://github.com/zmartzone/lua-resty-openidc
+  - https://github.com/apache/apisix/blob/master/apisix/plugins/openid-connect.lua
 - authz-casdoor
 - wolf-rbac
 - hmac-auth
 - authz-casbin - 从文件加载 casbin 配置进行验证
 - ldap-auth
 - opa
+  - 功能最强大最灵活
+
+#### opa
+
+**请求**
+
+```json
+{
+  "type": "http",
+  "request": {
+    "scheme": "http",
+    "path": "/get",
+    "headers": {
+      "user-agent": "curl/7.68.0",
+      "accept": "*/*",
+      "host": "127.0.0.1:9080"
+    },
+    "query": {},
+    "port": 9080,
+    "method": "GET",
+    "host": "127.0.0.1"
+  },
+  "var": {
+    "timestamp": 1701234567,
+    "server_addr": "127.0.0.1",
+    "server_port": "9080",
+    "remote_port": "port",
+    "remote_addr": "ip address"
+  },
+  "route": {},
+  "service": {},
+  "consumer": {}
+}
+```
+
+**响应**
+
+```json
+{
+  "result": {
+    "allow": true,
+    "reason": "test",
+    "headers": {
+      "an": "header"
+    },
+    "status_code": 401
+  }
+}
+```
 
 ### 安全防护
 
@@ -351,8 +406,8 @@ password_grant_token_generation_incoming_uri:
     source: http_x_forwarded_for
     recursive: true
     trusted_addresses:
-    - 192.168.0.0/16
-    - 10.0.0.0/8
+      - 192.168.0.0/16
+      - 10.0.0.0/8
 - name: request-id
   enable: true
   # https://apisix.apache.org/docs/apisix/plugins/request-id/
@@ -364,7 +419,7 @@ password_grant_token_generation_incoming_uri:
   # https://apisix.apache.org/docs/apisix/plugins/response-rewrite/
   config:
     headers:
-      remove: [ Server ]
+      remove: [Server]
 - name: elasticsearch-logger
   enable: true
   # https://apisix.apache.org/docs/apisix/plugins/elasticsearch-logger/
@@ -377,11 +432,118 @@ password_grant_token_generation_incoming_uri:
       username: X
       password: X
     ssl_verify: false
+    #
+    timeout: 60
+    batch_max_size: 500
+    buffer_duration: 60
+    retry_delay: 1
+    max_retry_count: 3
+    inactive_timeout: 5
+```
+
+**batch-processor**
+
+```yaml
+# 每批发送日志的最大条数
+# 聚合的日志数量 - 注意配合 timeout
+batch_max_size: 1000
+# 刷新缓冲区的最大时间
+# 小于 buffer_duration
+inactive_timeout: 5
+# 必须先处理批次中最旧条目的最长期限
+buffer_duration: 60
+# 从处理管道中移除之前的最大重试次数
+max_retry_count: 0
+# 延迟执行流程的秒数
+retry_delay: 1
+```
+
+- https://apisix.apache.org/docs/apisix/batch-processor/
+- https://github.com/apache/apisix/blob/master/docs/zh/latest/batch-processor.md
+- https://github.com/apache/apisix/blob/master/t/plugin/http-logger.t
+
+**log_format**
+
+```json
+{ "host": "$host", "@timestamp": "$time_iso8601", "client_ip": "$remote_addr" }
+```
+
+```json
+{
+  "request-id": {
+    "algorithm": "uuid",
+    "header_name": "X-Request-Id"
+  },
+  "response-rewrite": {
+    "headers": {
+      "remove": ["Server"]
+    }
+  },
+  "real-ip": {
+    "recursive": true,
+    "source": "http_x_forwarded_for",
+    "trusted_addresses": ["192.168.0.0/16", "10.0.0.0/8"]
+  }
+}
+```
+
+## serverless
+
+- serverless-pre-function
+- serverless-post-function
+- phase - rewrite, access, header_filter, body_filter, log, before_proxy
+- functions
+
+```lua
+local count = 1
+return function(conf,ctx)
+    count = count + 1
+    ngx.say(count)
+end
 ```
 
 # FAQ
 
 ## failed to process entries: 20: unable to get local issuer certificate, context: ngx.timer
 
+```yaml
+ssl_verify: false
+```
+
+**配置 CA**
+
+```yaml
+apisix:
+  ssl:
+    ssl_trusted_certificate: /path/to/certs/ca-certificates.crt
+```
+
 - elasticsearch-logger
+- https://apisix.apache.org/docs/apisix/FAQ/#how-do-i-fix-the-error-unable-to-get-local-issuer-certificate-in-apache-apisix
 - https://github.com/apache/apisix/issues/4370
+
+## removing batch processor stale object
+
+- 不会丢失数据，只是清理过期的 processor
+- remove stale objects from the memory after timer expires
+- 30min
+- ngx.timer.at
+  - https://moonbingbing.gitbooks.io/openresty-best-practices/content/ngx_lua/timer.html
+  - https://github.com/openresty/lua-nginx-module
+- https://github.com/apache/apisix/blob/b024f683ef6f5310a180cdb6f792365e4c78f33a/apisix/utils/batch-processor-manager.lua#L52-L67
+
+## an upstream response is buffered to a temporary file
+
+超出 proxy_buffer_size 后写入临时文件
+
+没问题
+
+```
+proxy_buffer_size 4k; # 默认 4k or 8k
+# proxy_buffers number size;
+proxy_buffers 8 4k;  # 默认 4k or 8k
+
+proxy_max_temp_file_size 1024m
+```
+
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html

@@ -254,6 +254,9 @@ time zfs list | wc -l
 # docker zfs volume 使用的命令
 zfs list -s name -o name,guid,available -H -p
 zfs list -r -t all -Hp -o name,origin,used,available,mountpoint,compression,type,volsize,quota,referenced,written,logicalused,usedbydataset main/docker
+
+# containerd
+zfs list -Hp -o name,origin,used,available,mountpoint,compression,type,volsize,quota,referenced,written,logicalused,usedbydataset data/var/k3s/snapshotter/60519
 ```
 
 ```

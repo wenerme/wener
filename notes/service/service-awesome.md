@@ -353,3 +353,35 @@ tags:
     - APSL-2.0
     - 命令行 /usr/bin/security
 - [List of password managers](https://en.wikipedia.org/wiki/List_of_password_managers)
+
+## Cron
+
+- [distribworks/dkron](https://github.com/distribworks/dkron)
+  - LGPL-3.0, Go
+  - [dkron](https://dkron.io/)
+  - https://github.com/distribworks/dkron/blob/master/docker-compose.yml
+  - 8080:8080
+  - 8946
+  - 6868
+  - BuntDB
+  - executor
+    - http
+    - kafka
+    - nats
+    - shell
+    - grpc
+    - rabbitmq
+```bash
+docker run --rm -it -p 8080:8080 -e GODEBUG=netdns=go --name dkron dkron/dkron agent --server --log-level=debug --bootstrap-expect=1
+```
+
+- [EasyCron](https://www.cronasaservice.com/)
+- [webcron](http://webcron.org/)
+- [jhuckaby/Cronicle](https://github.com/jhuckaby/Cronicle)
+  - A simple, distributed task scheduler and runner with a web based UI.
+- [shunfei/cronsun](https://github.com/shunfei/cronsun)
+  - A Distributed, Fault-Tolerant Cron-Style Job System.
+- Looper
+  - Service for Webhook Scheduling, Long Time Queue and Cron Job Monitoring.
+- [webgazer](https://www.webgazer.io/)
+  - We check if your website and REST APIs are up, and notify you if anything goes wrong. You could also send periodic HTTP requests at the end of cron jobs or scheduled tasks to monitor.

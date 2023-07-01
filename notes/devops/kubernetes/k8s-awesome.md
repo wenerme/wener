@@ -283,6 +283,9 @@ tags:
 
 ## Operator
 
+- [operator-framework/operator-lifecycle-manager](https://github.com/operator-framework/operator-lifecycle-manager)
+  - https://olm.operatorframework.io/
+  - https://operatorhub.io/
 - Service
   - [grafana-operator/grafana-operator](https://github.com/grafana-operator/grafana-operator)
     - Grafana,GrafanaDashboard,GrafanaDataSource,GrafanaNotificationChannel
@@ -305,6 +308,7 @@ tags:
     - [Active-Active PostgreSQL Federation on Kubernetes](https://info.crunchydata.com/blog/active-active-postgres-federation-on-kubernetes?hs_amp=true)
   - [sorintlab/stolon](https://github.com/sorintlab/stolon)
     - Apache-2.0, Go
+    - 🚧 停滞
   - [reactive-tech/kubegres](https://github.com/reactive-tech/kubegres)
     - Apache-2.0,
     - 🚧 停滞
