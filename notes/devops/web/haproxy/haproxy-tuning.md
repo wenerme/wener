@@ -20,6 +20,7 @@ echo "show info" | socat stdio /run/haproxy-runtime-api.sock
 ```ini title="/etc/sysctl.d/30-haproxy.conf"
 net.ipv4.tcp_rmem            = 4096 16060 262144
 net.ipv4.tcp_wmem            = 4096 16384 262144
+net.ipv4.tcp_tw_reuse        = 1
 net.ipv4.ip_local_port_range = 1024 65023
 net.ipv4.tcp_max_syn_backlog = 60000
 #net.ipv4.tcp_fin_timeout     = 30

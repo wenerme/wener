@@ -211,6 +211,10 @@ zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=o
 - https://gitlab.alpinelinux.org/alpine/aports/-/issues/12382
 - https://github.com/openzfs/zfs/issues/7947
 
+```sh title=/etc/conf.d/zfs
+MOUNT_EXTRA_OPTIONS="-o atime=off"
+```
+
 ## zvol vs zfs
 
 - zvol - 块设备
@@ -327,3 +331,11 @@ zfs set volsize=500G data/vol # 修改、扩容
 
 ## cannot label 'sdf': failed to detect device partitions on '/dev/sdf1': 19
 
+
+## Missing /dev/zvol
+
+```bash
+apk add zfs zfs-{scripts,udev}
+
+udevadm trigger
+```

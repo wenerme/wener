@@ -411,6 +411,10 @@ time="2023-06-04T16:17:14.398989382+08:00" level=info msg="containerd successful
 
 是因为 `failed to find snapshotter "zfs"` 导致
 
+```bash
+k3s ctr plugin ls
+```
+
 ## failed to get network \"cbr0\" cached result: decoding version from network config: unexpected end of JSON input"
 
 ```bash

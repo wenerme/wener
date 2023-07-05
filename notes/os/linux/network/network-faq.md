@@ -241,3 +241,132 @@ sudo lsof 2>/dev/null -nPi UDP | head
 ```
 
 - https://serverfault.com/a/847910/190601
+
+## mlx4_en link ifdown
+
+- 注意线材长度
+
+```bash
+lspci | grep Mel
+ip li show eth4
+lsmod | grep mlx | sort
+
+sudo dmesg -t | grep mlx
+sudo lspci -vv -s 04:00.0
+
+ethtool --show-priv-flags eth4
+```
+
+```
+Mellanox Technologies MT26448
+Part number: MNPA19-XTR
+```
+
+- `options mlx4_core debug_level=1`
+- MNPA19-XTR
+  - Mellanox ConnectX-2 EN
+
+```bash
+# 没问题
+# Broadcom Inc. and subsidiaries NetXtreme II BCM57810 10 Gigabit Ethernet
+# 有问题
+# Mellanox Technologies MT26448 [ConnectX EN 10GigE, PCIe 2.0 5GT/s]
+lspci | grep 'Ethernet controller'
+```
+
+**问题**
+
+```bash
+ethtool eth4
+```
+
+**Not Working**
+
+```
+Supported ports: [ FIBRE ]
+Supported link modes:   10000baseT/Full
+Supported pause frame use: No
+Supports auto-negotiation: No
+Supported FEC modes: Not reported
+Advertised link modes:  10000baseT/Full
+Advertised pause frame use: No
+Advertised auto-negotiation: No
+Advertised FEC modes: Not reported
+Speed: 10000Mb/s
+Duplex: Full
+Auto-negotiation: off
+Port: FIBRE
+PHYAD: 0
+Transceiver: internal
+Supports Wake-on: d
+Wake-on: d
+Current message level: 0x00000014 (20)
+                        link ifdown
+Link detected: yes
+```
+
+- Auto-negotiation: **off**
+
+```bash
+ethtool -s eth4 autoneg on
+```
+
+```
+netlink error: link settings update failed
+netlink error: Invalid argument
+```
+
+**Working**
+
+```
+Supported ports: [ FIBRE ]
+Supported link modes:   1000baseT/Full
+                        10000baseT/Full
+Supported pause frame use: Symmetric Receive-only
+Supports auto-negotiation: No
+Supported FEC modes: Not reported
+Advertised link modes:  10000baseT/Full
+Advertised pause frame use: No
+Advertised auto-negotiation: No
+Advertised FEC modes: Not reported
+Speed: 10000Mb/s
+Duplex: Full
+Auto-negotiation: off
+Port: Direct Attach Copper
+PHYAD: 1
+Transceiver: internal
+Supports Wake-on: g
+Wake-on: g
+Current message level: 0x00000000 (0)
+
+Link detected: yes
+```
+
+## Wake-on
+
+```bash
+ethtool -s $IFACE wol g
+```
+
+```
+wol p|u|m|b|a|g|s|d...
+          Set Wake-on-LAN options.  Not all  devices  support  this.   The
+          argument  to  this  option  is a string of characters specifying
+          which options to enable.
+          p  Wake on phy activity
+          u  Wake on unicast messages
+          m  Wake on multicast messages
+          b  Wake on broadcast messages
+          a  Wake on ARP
+          g  Wake on MagicPacket(tm)
+          s  Enable SecureOn(tm) password for MagicPacket(tm)
+          d  Disable (wake on nothing).  This option clears  all  previous
+             options.
+```
+
+- Wake on Wireless (WoWLAN, WoW)
+- Wake-on-LAN (WoL or WOL)
+- Supports Wake-on: d
+  - 不支持
+- https://man7.org/linux/man-pages/man8/ethtool.8.html
+- https://wiki.archlinux.org/title/Wake-on-LAN

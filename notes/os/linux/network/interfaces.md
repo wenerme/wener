@@ -515,3 +515,17 @@ ip li set eth0 up
 ip li set bond0 up
 udhcpc -i bond0
 ```
+
+## multi interface
+
+```sh
+auto eth0
+iface eth0 inet static
+	address 192.168.1.11
+	netmask 255.255.255.0
+  pre-up ip ro li tab e0 &>/dev/null || echo '10 e0' >> /etc/iproute2/rt_tables
+  post-up ip ro add 192.168.1.0/24 dev eth0 src 192.168.1.11 table e0
+  post-up ip ro add default via 192.168.1.1 dev eth0 table e0
+  post-up ip ru add from 192.168.1.11/32 table e0
+  post-up ip ru add to 192.168.1.11/32 table e0
+```

@@ -18,33 +18,43 @@ title: Brew
 sudo softwareupdate --install --all # 系统更新
 xcode-select --install              # 安装 xcode command line tools
 
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-
 # 安装 - 如果失败，添加 https_proxy 代理
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # 走 ghproxy.com 避免代理
 /bin/bash -c "$(curl -fsSL https://ghproxy.com/raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 配置镜像
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+brew update
+
+# 添加环境变量
+test -r ~/.bash_profile && echo 'eval "$(brew shellenv)"' >> ~/.bash_profile
+test -r ~/.zprofile && echo 'eval "$(brew shellenv)"' >> ~/.zprofile
+```
+
+- https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
+
+<!--
+
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+
 
 # 也可以从镜像安装
 # git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
 # /bin/bash brew-install/install.sh
 # rm -rf brew-install
 
-# 添加环境变量
-test -r ~/.bash_profile && echo 'eval "$(brew shellenv)"' >> ~/.bash_profile
-test -r ~/.zprofile && echo 'eval "$(brew shellenv)"' >> ~/.zprofile
-
 # 日常使用
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 brew update
-```
 
-- https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
-
-<!--
 # 使用清华镜像，避免代理
 # https://mirror.tuna.tsinghua.edu.cn/help/homebrew/
 git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
@@ -80,11 +90,11 @@ brew install nvm
 mkdir -p ~/.nvm
 # 配置环境变量到 .zprofile 或 .profile
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"                                       # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # zprofile for zsh
-cat <<'EOF' >> ~/.zprofile
+test -r ~/.zprofile && cat << 'EOF' >> ~/.zprofile
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -92,8 +102,6 @@ EOF
 
 nvm install --lts
 nvm use --lts
-
-
 ```
 
 ## Docker

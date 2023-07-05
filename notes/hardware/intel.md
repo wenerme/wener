@@ -34,10 +34,11 @@ title: Intel
 | 2006 | AMD-V     |
 | 2005 | VT-x      |
 | 2004 | SSE3      |
-| 2001 | SSE2      |
+| 2001 | SSE2      |                            | alpine 3.18 baseline
 | 1999 | SSE       |
 | 1998 | 3DNow     |
 | 1996 | MMX       |
+|      | FXSR      |
 
 - AVX - Advanced vector extension
 - x86 - SIMD

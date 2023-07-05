@@ -27,6 +27,10 @@ tags:
     - 内存溢出检测
     - 源码 [valgrind](https://sourceware.org/git/valgrind)
     - 通过 LD_PRELOAD
+- [jart/cosmopolitan](https://github.com/jart/cosmopolitan)
+  - https://justine.lol/ape.html
+    - 跨 OS
+  - Linux + Mac + Windows + FreeBSD + OpenBSD + NetBSD + BIOS
 
 ## GL
 

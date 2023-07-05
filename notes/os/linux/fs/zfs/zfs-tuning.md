@@ -35,7 +35,7 @@ title: ZFS 调优
 
 | zpool prop | default | recommand   |
 | ---------- | ------- | ----------- |
-| ashift     | 0       |             |
+| ashift     | 0       | 12          |
 | atime      | on      | off         |
 | recordsize | 128K    |
 | logbias    | latency |
@@ -74,7 +74,7 @@ zfs set xattr=sa data
 zfs set sync=disabled POOL
 
 # primarycache=metadata - 看情况
-zfs set atime=off relatime=on xattr=sa sync=disabled POOL
+zfs set atime=off relatime=on xattr=sa compression=lz4 sync=disabled POOL
 
 zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize'
 ```
@@ -166,6 +166,33 @@ vfs.zfs.vdev.write_gap_limit=0     # max gap between any two aggregated writes, 
 
 - https://jrs-s.net/2019/05/02/zfs-sync-async-zil-slog/
 - https://www.truenas.com/blog/zfs-zil-and-slog-demystified/
+
+## logbias
+- logbias=latency
+  - 无 SLOG，block 较大能提升性能
+- logbias=throughput
+  - 小 block 写入产生非常多碎片
+
+```bash
+zfs send dataset >/dev/null
+
+zpool iostat -r 1
+```
+
+- https://bun.uptrace.dev/postgres/tuning-zfs-aws-ebs.html#logbias
+
+## ashift
+
+| ashift | sector |
+| -----: | -----: |
+|      9 |  512 B |
+|     10 |   1 KB |
+|     11 |   2 KB |
+|     12 |   4 KB |
+|     13 |   8 KB |
+|     14 |  16 KB |
+
+- 12=4KB - 常用的 PageSize
 
 ## L2ARC
 

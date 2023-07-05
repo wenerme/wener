@@ -32,7 +32,7 @@ title: Ansible
 - 学习
   - [geerlingguy/ansible-for-devops](https://github.com/geerlingguy/ansible-for-devops)
 - 界面
-  - [ansible-semaphore/semaphore](https://github.com/ansible-semaphore/semaphore)
+  - [ansible-semaphore/semaphore](./ansible-semaphor.md)
     - Go 实现
     - 有 Web 界面 和 [API](https://ansible-semaphore.github.io/semaphore/)
   - [ansible/awx](https://github.com/ansible/awx) - Ansible Tower 上游开源项目

@@ -6,6 +6,12 @@ title: Install
 
 ## Install
 
+:::caution
+
+- 如果 install 用了 https_proxy, 会被写入到 /etc/rancher/k3s/k3s.env
+
+:::
+
 ```bash
 # 下载到临时目录进行安装
 curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_START=true INSTALL_K3S_SKIP_ENABLE=true sh -
@@ -274,6 +280,7 @@ ARCH=amd64
 SUFFIX=
 
 VERSION_K3S=$(curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest')
+echo Upgrade $VERSION_K3S
 # GITHUB_URL=https://github.com/k3s-io/k3s/releases
 # 走代理
 GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases
@@ -288,6 +295,8 @@ sudo cp k3s.$VERSION_K3S $(which k3s)
 sudo k3s check-config
 
 # 启动
-service k3s start
+service k3s restart
 rc-update add k3s
+
+k3s kubectl get nodes
 ```

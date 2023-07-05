@@ -392,3 +392,11 @@ apk add \
 # 能通
 openssl s_client -connect google.com:443
 ```
+
+## apk Permission denied
+
+检查网络，通常是 下载失败
+
+```bash
+apk update
+```

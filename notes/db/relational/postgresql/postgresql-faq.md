@@ -829,3 +829,12 @@ select 10::money;
 ```
 POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
 ```
+
+## there is no unique constraint matching given keys for referenced table
+
+外键必须 unique
+
+## permission denied for table
+
+- 外键需要 REFERENCES
+- https://www.postgresql.org/docs/current/ddl-priv.html

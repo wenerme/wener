@@ -243,7 +243,7 @@ ACPI Error: AE_NOT_EXIST, Evaluating _PMM (20190816/power_meter-325)
 - 只是警告，CPU 有 Hyper-Threading/SMT 特性
 - 可以在 BIOS 关闭 SMT - 但不建议
 - Linux 默认开启了 mitigations=on - 可以考虑关闭以提高性能
-  - 前提是运行的 **可信** 的 VM
+- [mitigations](./mitigations.md)
 
 ```
 L1TF CPU bug present and SMT on, data leak possible. See CVE-2018-3646 and https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/l1tf.html for details.

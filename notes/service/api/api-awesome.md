@@ -274,7 +274,9 @@ tags:
 
 ## Doc
 
-- [slatedocs/slate](https://github.com/slatedocs/slate)
+- [slatedocs/slate](./slate.md)
+- widdershins
+  - OpenAPI -> slate markdown
 - [Redocly/redoc](https://github.com/Redocly/redoc)
 - swagger
 - graphql

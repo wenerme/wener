@@ -5,6 +5,11 @@ tags:
 
 # Game Awesome
 
+<!--
+Web
+https://www.game-game.com.ua/
+-->
+
 | abbr.     | full                            | cn                       |
 | --------- | ------------------------------- | ------------------------ |
 | RPG       | Role-playing game               | 角色扮演游戏             |
@@ -39,22 +44,22 @@ tags:
 
 **To Be Play**
 
-| Release    | Name                                         | zh-CN                | Status |
-| ---------- | -------------------------------------------- | -------------------- | ------ |
-| 2023-05-11 | The Legend of Zelda: Tears of the Kingdom    | 塞尔达传说：王国之泪 |        |
-| 2022-10    | PERSONA 5 ROYAL                              | 女神异闻录 5 皇家版  |        |
-| 2022-09    | Splatoon 3                                   | 斯普拉遁 3           |        |
-| 2022-06    | Portal: Companion Collection                 | 传送门：同伴合集     |        |
-| 2021-10    | Metroid Dread                                | 密特罗德 生存恐惧    |        |
-| 2020-09    | Ori and the Will of the Wisps                | 精灵与萤火意志       |        |
-| 2020-09-17 | Hades                                        | 哈迪斯               |        |
-| 2019-09    | Ori and the Blind Forest: Definitive Edition | 精灵与森林 决定版    |        |
-| 2018-07    | OCTOPATH TRAVELER                            | 歧路旅人             |        |
+| Release    | Name                                         | zh-CN               | Status |
+| ---------- | -------------------------------------------- | ------------------- | ------ |
+| 2022-10    | PERSONA 5 ROYAL                              | 女神异闻录 5 皇家版 |        |
+| 2022-09    | Splatoon 3                                   | 斯普拉遁 3          |        |
+| 2022-06    | Portal: Companion Collection                 | 传送门：同伴合集    |        |
+| 2021-10    | Metroid Dread                                | 密特罗德 生存恐惧   |        |
+| 2020-09    | Ori and the Will of the Wisps                | 精灵与萤火意志      |        |
+| 2020-09-17 | Hades                                        | 哈迪斯              |        |
+| 2019-09    | Ori and the Blind Forest: Definitive Edition | 精灵与森林 决定版   |        |
+| 2018-07    | OCTOPATH TRAVELER                            | 歧路旅人            |        |
 
 **Have/Completed**
 
 | Release    | Name                                               | zn-CN                       | Status     |
 | ---------- | -------------------------------------------------- | --------------------------- | ---------- |
+| 2023-05-11 | The Legend of Zelda: Tears of the Kingdom          | 塞尔达传说：王国之泪        |            |
 | 2019-07-25 | Fire Emblem: Three Houses ￼                        | 火焰纹章：风花雪月          |
 | 2022-10    | Bayonetta 3                                        | 蓓优妮塔 3                  |            |
 | 2023-01-19 | Fire Emblem Engage                                 | 火焰纹章 Engage             | 通关,110h  |

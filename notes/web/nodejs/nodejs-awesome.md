@@ -62,6 +62,8 @@ tags:
   - 使用注解定义模型
   - 基于 knex
   - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
+- [stephenh/joist-ts](https://github.com/stephenh/joist-ts)
+  - TypeScript ORM for Postgres
 - [koskimas/kysely](https://github.com/koskimas/kysely)
   - type-safe typescript SQL query builder
   - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
@@ -168,9 +170,13 @@ export N_PREFIX=$HOME/n
     - cjs
 - [runk/node-chardet](https://github.com/runk/node-chardet)
   - Character encoding detection
-- Concurret/Thread/Worker
+- Concurret/Thread/Worker/async
   - [piscinajs/piscina](https://github.com/piscinajs/piscina)
     - Worker Thread Pool
+  - [parallel-js/parallel.js](https://github.com/parallel-js/parallel.js)
+    - multi-core processing utilities for Node
+  - [greenlet](https://github.com/developit/greenlet)
+    - Move an async function into its own thread
 
 ## Web
 

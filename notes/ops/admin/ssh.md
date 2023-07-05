@@ -460,3 +460,14 @@ zjw
 ```bash
 rsync -avz --rsync-path="sudo rsync" /tmp/test.txt svr:/tmp/
 ```
+
+## ssh root forward agent
+
+```bash
+# -E 保留环境变量
+sudo -E -s
+```
+
+- --preserve-env=SSH_AUTH_SOCK
+
+## expecting SSH2_MSG_KEX_ECDH_REPLY

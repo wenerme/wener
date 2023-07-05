@@ -27,7 +27,16 @@ tags:
 
 :::
 
-## 主键
+## 主键生成
+
+:::tip
+
+- 建议 K-Sortable
+- 建议小写
+- 不要大小写混合
+- 可以考虑加类型 tag
+
+:::
 
 - [ULID](./ulid.md)
   - 有序 - 可以用于排序
@@ -40,13 +49,46 @@ tags:
   - 128bit - 编码后 36 字符
   - 随机
   - 数据库支持 UUID 类型的话能使用更少空间 -
+- UUIDv7
+  - 兼容 UUID
+  - 有序 - 时间戳
 - [NanoID](https://github.com/ai/nanoid)
-  - 一般不直接用于 DB
+  - 一般不直接用于 DB, 前端用的多
   - `A-Za-z0-9_-`
   - 26 bytes
 - [hashid](https://hashids.org/)
   - 数字+字符串生成
   - 可用于隐藏部分信息
+  - 例如 微信
+- [segmentio/ksuid](https://github.com/segmentio/ksuid)
+  - `0ujsswThIGTUYm2K8FjOOfXtY1K`
+- [beyonddream/snowid](https://github.com/beyonddream/snowid)
+- K-Sortable
+  - 基本有序
+
+## 主键类型
+
+- `type-RANDOM`
+  - OpenAI `sk-`,`org-`, `chat-`
+- `type_RANDOM`
+- GraphQL 的 NodeID 包含 Type 信息
+  - Github [Using global node IDs](https://docs.github.com/en/graphql/guides/using-global-node-ids)
+    - MDQ6VXNlcjU4MzIzMQ==
+      - `04:User583231`
+  - [Global Object Identification](https://graphql.org/learn/global-object-identification/)
+- [jetpack-io/typeid](https://github.com/jetpack-io/typeid)
+  - Type-safe, K-sortable, globally unique identifier inspired by Stripe IDs
+  - [HN](https://news.ycombinator.com/item?id=36508811)
+  - Tagged Id https://joist-orm.io/docs/advanced/tagged-ids
+    - `TAG:ID`
+- Reddit
+  - `tN_ID`
+- 使用 `_` 可以双击选中复制
+
+<!--
+a_1_b_0
+a-1-b-0
+-->
 
 ## 元数据
 

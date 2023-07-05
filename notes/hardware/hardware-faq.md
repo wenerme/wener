@@ -135,3 +135,32 @@ https://store.ui.com/us/en/collections/unifi-switching-pro-ethernet
   - 通常 10Gbps
 - SFP28
   - 通常 25Gbps
+
+## 10GBASE-T vs SFP+
+
+> 有条件就 光口/SFP+
+
+|       - | 10GBASE-T | SPF+     |
+| ------: | --------- | -------- |
+| 💵 价格 | 低        | 高       |
+| 🕐 延迟 | 高 2.6ms  | 低 0.1ms |
+| 🔋 功耗 | 高 2-5w   | 低 0.7w  |
+|    距离 | 短        | 长       |
+
+- 10GBASE-T - 电口
+  - RJ45 口 - **兼容** 旧的速度
+  - 建议 < 20 米
+  - 价格更低
+  - 通常 Cat6, Cat6a, Cat7
+  - 功耗更高 - 2-5w/port/endpoint - 距离长功耗更高
+  - 延迟更高
+    - block encoding
+- SFP+ - 光口
+  - 需要光电转换
+    - 价格更高
+  - 功耗更低 - 0.7w/port - 距离无关
+  - 延迟更低
+
+<!--
+http://www.datacenterknowledge.com
+-->

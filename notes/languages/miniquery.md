@@ -38,6 +38,7 @@ miniquery 语法层松散，具体实现会加限制，例如 column 必须在�
 - [js-miniquery](https://github.com/wenerme/js-miniquery)
   - sequelize
   - NPM ohm-grammar-miniquery
+- https://github.com/wenerme/wode/tree/main/packages/miniquery
 
 ---
 
