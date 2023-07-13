@@ -5,6 +5,11 @@ tags:
 
 # ArgoCD FAQ
 
+## WebHook
+
+- /api/webhook
+- https://argo-cd.readthedocs.io/en/stable/operator-manual/webhook/
+
 ## the server could not find the requested resource
 
 - CDR 还不存在, 针对资源配置 SkipDryRunOnMissingResource

@@ -8,3 +8,6 @@ title: Design Feature
 
 - https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/
 - [Microsoft.FeatureManagement](https://docs.microsoft.com/en-us/dotnet/api/microsoft.featuremanagement)
+- Toggle, Switch, AB Test, Blue/Green
+- 不是流量维度的
+  - Traffic Splitting

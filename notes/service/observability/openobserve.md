@@ -115,6 +115,15 @@ curl -X POST zincobserve:5080/api/default/default/_json --user $ZO_USER --passwo
 
 - https://openobserve.ai/docs/environment-variables/
 
+```
+ZO_S3_SERVER_URL=http://minio:9000
+ZO_S3_ACCESS_KEY=
+ZO_S3_SECRET_KEY=
+ZO_S3_BUCKET_NAME=openobserve
+ZO_S3_PROVIDER=minio
+ZO_S3_FEATURE_FORCE_PATH_STYLE=true
+```
+
 ## API
 
 - http://zincobserve.monitoring-system:5080/api/default/prometheus/api/v1/

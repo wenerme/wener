@@ -428,3 +428,11 @@ find /var/lib/cni/results/ -size 0 -delete # cached result
 ```
 
 - https://github.com/k3s-io/k3s/issues/6185#issuecomment-1399502450
+
+## k3s: unable to apply RC_ULIMIT settings
+
+## Cluster CA certificate is not trusted by the host CA bundle, but the token does not include a CA hash. Use the full token from the server's node-token file to enable Cluster CA validation.
+
+## starting kubernetes: preparing server: token CA hash does not match the Cluster CA certificate hash
+
+## etcd cluster join failed: cannot fetch cluster info from peer urls: could not retrieve cluster information from the given URLs

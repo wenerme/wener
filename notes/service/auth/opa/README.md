@@ -12,7 +12,6 @@ title: OPA
 - [REST API](https://www.openpolicyagent.org/docs/latest/rest-api/)
 - npm [@open-policy-agent/opa-wasm](https://github.com/open-policy-agent/npm-opa-wasm)
 - [StyraInc/awesome-opa](https://github.com/StyraInc/awesome-opa)
-- Minio - https://github.com/minio/minio/blob/master/docs/iam/opa.md
 
 ```bash
 brew install opa
@@ -180,3 +179,18 @@ claims_verified := jwt_verified[1]
 ```
 
 - https://www.openpolicyagent.org/docs/latest/oauth-oidc/
+
+## Awesome
+
+- [rond-authz/rond](https://github.com/rond-authz/rond)
+  - sidecar proxy
+- [aserto-dev/topaz](https://github.com/aserto-dev/topaz)
+  - OPA + Zanzibar
+- [permitio/opal](./opal.md)
+  - 管理和自动推送 Policy 更新
+- [opcr-io/policy](https://github.com/opcr-io/policy)
+  - building OPA policies into OCI images
+- [StyraInc/regal](https://github.com/StyraInc/regal)
+  - linter
+- [StyraInc/awesome-opa](https://github.com/StyraInc/awesome-opa)
+- [fugue/regula](https://github.com/fugue/regula)

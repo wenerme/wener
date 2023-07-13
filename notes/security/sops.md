@@ -8,15 +8,16 @@ title: SOPS
   - sops 是个 **编辑器**
   - 加密 yaml, json 字段而非整个文件
   - 支持 yaml, json, dotenv, plaintext, ini
-  - 支持后端: [age](./age.md), pgp, vault
+  - 支持后端: [age](./age.md), [pgp](./gpg.md), vault
 - 加密后字段 `ENC[算法名字,data:,iv:,add:,tag:]`
 
 :::caution
 
 - 暂不支持 SSH keys + age
   - [#1134](https://github.com/mozilla/sops/pull/1134)
+    - SOPS_AGE_SSH_PRIVATE_KEY
   - [#898](https://github.com/mozilla/sops/pull/898)
-- 支持 SSH keys [sops#692](https://github.com/mozilla/sops/issues/692)
+- 暂不支持 SSH keys [sops#692](https://github.com/mozilla/sops/issues/692)
 
 :::
 

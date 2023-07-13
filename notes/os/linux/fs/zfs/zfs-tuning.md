@@ -79,6 +79,7 @@ zfs set atime=off relatime=on xattr=sa compression=lz4 sync=disabled POOL
 zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize'
 ```
 
+
 ## ZIL SLOG
 
 - ZIL - ZFS Intent Log
@@ -233,6 +234,12 @@ atime 总是为 on
   - 保留读性能
   - 写性能无法保障
 
+## SSD TRIM
+
+- `zpool set autotrim=on` + cron `zpool trim`
+- https://github.com/openzfs/zfs/commit/1b939560be5c51deecf875af9dada9d094633bf7
+- https://openzfs.github.io/openzfs-docs/man/8/zpool-trim.8.html
+
 ## 参考
 
 - [How the ZFS Adaptive Replacement Cache works](https://www.youtube.com/watch?v=1Wo3i2gkAIk)
@@ -267,3 +274,4 @@ atime 总是为 on
 - [Tuning ZFS recordsize](https://blogs.oracle.com/roch/tuning-zfs-recordsize)
 - [Module Parameters](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html)
 - https://calomel.org/freebsd_network_tuning.html
+- https://docs.freebsd.org/en/books/handbook/zfs/#zfs-advanced-tuning

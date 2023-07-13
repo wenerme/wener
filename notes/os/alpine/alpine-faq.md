@@ -249,6 +249,10 @@ sudo sysctl kernel.dmesg_restrict=0
   - previous_dmesg=yes 时会 mv /var/log/dmesg /var/log/dmesg.old
   - 在 /etc/conf.d/bootmisc 配置
 
+```bash
+echo previous_dmesg=yes | tee -a /etc/conf.d/bootmisc
+```
+
 ## mirrors
 
 - https://mirrors.alpinelinux.org

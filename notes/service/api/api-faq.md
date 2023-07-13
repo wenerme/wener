@@ -34,3 +34,9 @@ tags:
     - 协议转换
     - trace 信息注入
     - retry
+
+## POST vs PATCH vs PUT
+
+- POST - 创建
+- PATCH - 部分更新
+- PUT - 全量更新

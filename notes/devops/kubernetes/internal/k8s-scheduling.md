@@ -37,7 +37,7 @@ kubectl get pods -n kube-system | grep kube-scheduler
 # 查看 Label
 kubectl get nodes --show-labels
 # 添加 Label
-kubectl label nodes <your-node-name> disktype=ssd
+kubectl label nodes < your-node-name > disktype=ssd
 ```
 
 ```yaml

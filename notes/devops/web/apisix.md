@@ -462,6 +462,12 @@ retry_delay: 1
 - https://github.com/apache/apisix/blob/master/docs/zh/latest/batch-processor.md
 - https://github.com/apache/apisix/blob/master/t/plugin/http-logger.t
 
+```bash
+# 默认
+KEY=edd1c9f034335f136f87ad84b625c8f1
+curl -H "X-API-KEY: $KEY" 127.0.0.1:9180/apisix/admin/global_rules
+```
+
 **log_format**
 
 ```json

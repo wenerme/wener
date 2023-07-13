@@ -4,6 +4,14 @@ title: NATS
 
 # NATS
 
+:::tip
+
+- 支持 JetStreaming
+- 支持 WebSocket
+- 支持 JWT Auth
+
+:::
+
 - [nats-io/nats-server](https://github.com/nats-io/nats-server) 是什么？
   - 偏向通讯协议，用作 消息队列
   - 默认没有持久化

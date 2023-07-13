@@ -19,6 +19,12 @@ tags:
 
 :::
 
+:::tip
+
+- SSO 依赖域名统一
+
+:::
+
 ## 默认 mapper 字段
 
 | scope       | mapper                | field                              | to                              |

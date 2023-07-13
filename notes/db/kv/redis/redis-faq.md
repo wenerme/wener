@@ -12,7 +12,9 @@ tags:
 - slaveof = replicaof
 - 是因为调整了名词 [redis#5335](https://github.com/redis/redis/issues/5335)
 
-## List vs PubSub vs Stream vs ZSet
+## Queue: List vs PubSub vs Stream vs ZSet {#queue}
+
+> 都能实现消息队列能力，但场景不同
 
 - List
   - 存储数据

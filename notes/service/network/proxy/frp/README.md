@@ -11,7 +11,8 @@ title: FRP
   - 服务端支持 ws 暴露 - TCP over Websocket
   - 代理支持 tcp,udp,http,https,stcp,xtcp
     - stcp - 两个客户端通过共享密钥互通
-    - xtcp - NAT 穿透 P2P - 成功率低, 基本无意义
+    - xtcp - NAT 穿透 P2P - 成功率低
+      - 支持 fallback
   - 服务端和客户端支持简单 dashboard
 - [文档](https://gofrp.org/docs/)
 - 默认端口 7000
@@ -22,14 +23,6 @@ title: FRP
   - xtcp 点到点穿透率低, 基本失败, 如果需要 p2p 可选择 tinc.
 - 参考
   - [gofrp/fp-multiuser](https://github.com/gofrp/fp-multiuser)
-
-:::note
-
-- websocket
-  - 只支持 tcp 不支持 udp - [#2436](https://github.com/fatedier/frp/issues/2436)
-  - 不支持 wss - [#2119](https://github.com/fatedier/frp/issues/2119)
-
-:::
 
 ```bash
 apk add frp       # AlpineLinux
@@ -62,4 +55,6 @@ visitor 端出现, 应该是没有配置 server_name
 
 ## websocket.Dial ws://frps:443/~!frp: unexpected EOF
 
-不支持 wss
+~~不支持 wss~~
+
+- 0.51 支持 wss

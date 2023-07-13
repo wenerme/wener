@@ -6,6 +6,8 @@ tags:
 
 # Minio FAQ
 
+- MINIO_UPDATE=off
+
 ## The Access Key Id you provided does not exist in our records.
 
 确认 accessKeyId 是否正确

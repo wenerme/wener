@@ -132,7 +132,7 @@ a=fmtp:97 mode=30
 
 - [在线转码](https://www.sangoma.com/audio-converter/)
   - 支持转出 8K WAV、GSM、slin16、G729
-- [Asterisk Sound Files 101!](https://www.sangoma.com/articles/asterisk-sound-files-101/?utm_source=digium_redirect)
+- [Asterisk Sound Files 101!](https://www.sangoma.com/articles/asterisk-sound-files-101/)
 
 ```bash
 # 如果出现警告, 可以尝试降低音量  -v 0.96

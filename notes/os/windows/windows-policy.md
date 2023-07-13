@@ -19,3 +19,7 @@ title: Windows Policy
     - Scripts\
       - Shutdown\
       - Startup\
+- ADM
+- ADMX
+- https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/manage-group-policy-adm-file
+- https://admx.help/

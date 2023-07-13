@@ -44,18 +44,22 @@ tags:
   - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
   - 因为需要支持很多 DB 类型，丢失一定的特性
   - Use better-sqlite3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
-- [knex/knex](https://github.com/knex/knex)
-  - SQL Builder
-  - Composite - 解耦构建最终 query 的过程
-  - 对于基础的访问模式提供跨库支持
-  - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
-  - 🚧 开发缓慢
 - prisma
-- Typed Schema/Query
+- SQL Builder/Typed Schema/Query
+  - [knex/knex](https://github.com/knex/knex)
+    - SQL Builder
+    - Composite - 解耦构建最终 query 的过程
+    - 对于基础的访问模式提供跨库支持
+    - Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, Amazon Redshift
+    - 🚧 开发缓慢
+  - [gajus/slonik](https://github.com/gajus/slonik)
+    - PostgreSQL client with strict types
+    - string tag
   - [adelsz/pgtyped](https://github.com/adelsz/pgtyped)
-- [gajus/slonik](https://github.com/gajus/slonik)
-  - PostgreSQL client with strict types
-  - string tag
+  - [kysely-org/kysely](https://github.com/kysely-org/kysely)
+    - type-safe typescript SQL query builder
+  - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
+    - schema -> ts
 - [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
   - MIT, Typescript
   - Data Mapper, Unit of Work, Identity Map
@@ -64,10 +68,6 @@ tags:
   - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
 - [stephenh/joist-ts](https://github.com/stephenh/joist-ts)
   - TypeScript ORM for Postgres
-- [koskimas/kysely](https://github.com/koskimas/kysely)
-  - type-safe typescript SQL query builder
-  - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
-    - schema -> ts
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
   - The future of Objection.js [Vincit/objection.js#2335](https://github.com/Vincit/objection.js/issues/2335)
   - 🚧 开发停滞

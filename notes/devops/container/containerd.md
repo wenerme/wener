@@ -15,6 +15,9 @@ title: containerd
 :::caution
 
 - 不支持 reload 配置 [#4478](https://github.com/containerd/containerd/issues/4478)
+- 不要用 zfs snapshotter
+  - 非常慢 - vol 多了后 zfs list,import,mount **全都慢**
+  - 导致集群启动慢
 
 :::
 

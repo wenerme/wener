@@ -55,23 +55,6 @@ curl https://api.openai.com/v1/models \
 }
 ```
 
-## Azure OpenAI
-
-- https://oai.azure.com/portal
-- [Azure OpenAI Service pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
-- gpt-3.5-turbo
-  - $0.002, 1000 tokens
-  - 价格一样
-
-```bash
-# DEPLOYMENT 对应模型
-# https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/
-# https://learn.microsoft.com/zh-cn/azure/cognitive-services/openai/reference
-curl https://$RESOURCE.openai.azure.com/openai/deployments/$DEPLOYMENT/completions?api-version=2023-05-15 \
-  -H "api-key: $AZURE_API_KEY" \
-  --json '{"prompt":"Hello","max_tokens":5}'
-```
-
 ## 限制 {#limits}
 
 | -                 | Text&Embedding        | Chat                  | Codex               | Edit                 | Image           | Audio  |

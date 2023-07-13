@@ -18,7 +18,7 @@ title: MinIO Operator
 helm repo add minio https://operator.min.io/
 # helm 内支持生成多个 tenant
 helm install --namespace minio-operator --create-namespace --generate-name minio/minio-operator
-kubectl apply -f https://github.com/minio/operator/blob/master/examples/tenant.yaml
+# kubectl apply -f https://github.com/minio/operator/blob/master/examples/tenant.yaml
 ```
 
 ## tenant

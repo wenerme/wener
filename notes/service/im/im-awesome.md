@@ -63,7 +63,7 @@ tags:
 - [miranda-ng/miranda-ng](https://github.com/miranda-ng/miranda-ng)
 - [tox-rs/tox](https://github.com/tox-rs/tox)
 
-## Vieo/Audio
+## Video/Audio
 
 - [owncast/owncast](https://github.com/owncast/owncast)
   - MIT, Golang

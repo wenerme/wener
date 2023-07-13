@@ -123,6 +123,12 @@ egrep -o 'STRAPI_ADMIN_BACKEND_URL[^}]+' build/*.js
 
 - https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html
 
+
+```bash
+KEY=
+curl -H "Authorization: Bearear $KEY" 127.0.0.1/api/posts
+```
+
 ## Plugins
 
 - editor

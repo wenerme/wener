@@ -89,11 +89,20 @@ title: Tinc
   - https://www.tinc-vpn.org/documentation/tinc.conf.5
   - https://www.tinc-vpn.org/documentation-1.1/How-connections-work.html
 
+:::caution
+
+- tinc 1.1 还不足够稳定
+- 单线程 - 性能有限
+
+:::
+
 :::tip
 
+- 联通性很好
+- Switch 模式支持 L2
 - macOS
   - 目前已经不支持 tuntap
-    - 默认使用 utun=tun
+    - 默认使用 utun=tun - 只能用 Router 模式
     - 不支持 tap - 不能使用 Switch 模式
   - brew 没有 tinc-pre，需要自己添加
 

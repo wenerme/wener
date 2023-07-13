@@ -1,5 +1,4 @@
 ---
-id: glossary
 title: Torrent 词汇
 tags:
   - Glossary

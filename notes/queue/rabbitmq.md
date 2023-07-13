@@ -1,4 +1,9 @@
+---
+title: RabbitMQ
+---
+
 # RabbitMQ
 
-* Go client https://github.com/streadway/amqp
-  * Go tutor https://github.com/rabbitmq/rabbitmq-tutorials/tree/master/go
+- AMQP
+- Go client https://github.com/streadway/amqp
+  - Go tutor https://github.com/rabbitmq/rabbitmq-tutorials/tree/master/go

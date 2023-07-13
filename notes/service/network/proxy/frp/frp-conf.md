@@ -560,3 +560,25 @@ bind_addr = 0.0.0.0
 bind_port = 3000
 ```
 
+## xtcp fallback
+
+```ini
+[stcp-visitor]
+role = visitor
+type = stcp
+server_name = stcp-test
+sk = abc
+bind_port = -1
+
+[xtcp-visitor]
+role = visitor
+type = xtcp
+server_name = xtcp-test
+sk = abc
+bind_addr = 127.0.0.1
+bind_port = 9002
+fallback_to = stcp-visitor
+fallback_timeout_ms = 200
+```
+
+- 可以考虑 keep_tunnel_open

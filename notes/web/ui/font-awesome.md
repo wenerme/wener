@@ -87,6 +87,11 @@ tags:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
 - https://developer.microsoft.com/en-us/microsoft-edge/testdrive/demos/variable-fonts
 
+## font glyph
+
+- https://chinese-font.netlify.app/
+- https://github.com/allanguys/font-spider-plus
+
 # FAQ
 
 ## otf vs ttf

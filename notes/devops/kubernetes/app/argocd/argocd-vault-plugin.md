@@ -158,6 +158,6 @@ stringData:
 
 
 ```bash
-AVP_VERSION=1.13.0
+AVP_VERSION=1.15.0
 curl -LO https://github.com/argoproj-labs/argocd-vault-plugin/releases/download/v${AVP_VERSION}/argocd-vault-plugin_${AVP_VERSION}_linux_amd64
 ```

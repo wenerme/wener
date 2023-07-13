@@ -273,6 +273,21 @@ sys     0m1.599s
 
 - https://github.com/openzfs/zfs/discussions/8898
 
+```bash
+time zfs list -s name -o name,guid,available -H -p > zfs-list.txt
+```
+
+```
+real    2m10.183s
+user    0m3.016s
+sys     2m6.836s
+```
+
+```bash
+wc -l zfs-list.txt
+# 20177 zfs-list.txt
+```
+
 ## ZFS vs Hard RAID
 
 - ZFS 有校验和,和可避免位翻转等问题,而 RAID 主要用于避免整个磁盘的损坏
@@ -326,11 +341,11 @@ mdadm --stop /dev/md127
 
 ```bash
 zfs get volsize data/vol      # 当前
-zfs set volsize=500G data/vol # 修改、扩容
+zfs set volsize=500G data/vol # 修改 Quota
+resize2fs /dev/zvol/data/vol  # 扩容 fs
 ```
 
 ## cannot label 'sdf': failed to detect device partitions on '/dev/sdf1': 19
-
 
 ## Missing /dev/zvol
 
@@ -339,3 +354,16 @@ apk add zfs zfs-{scripts,udev}
 
 udevadm trigger
 ```
+
+## cannot trim: no devices in pool support trim operations
+
+```bash
+zpool trim data
+
+hdparm -I /dev/sda | grep -i trim # 检查 TRIM 支持
+```
+
+- SATA 控制器
+- https://github.com/openzfs/zfs/discussions/14231
+  - L2ARC device is in use as a cache
+- https://github.com/openzfs/zfs/issues/13108

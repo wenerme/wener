@@ -43,35 +43,63 @@ tags:
 
 :::
 
+:::tip
+
+- 优先考虑: Redis, Nats, 关系型数据库
+
+:::
+
 - Apache Pulsar
   - by Yahoo 2016
   - 计算和存储分离
   - BookKeeper
 - Apache Kafka
   - by Linkedin 2010
+- RocketMQ
+  - by Alibaba
+  - fork Kafka
+- RabbitMQ
+  - AMQP, MQTT, STOMP, HTTP
+- ActiveMQ
+- HiveMQ
+- Redis
 - [nats-io/nats-server](./nats/README.md)
   - [liftbridge-io/liftbridge](https://github.com/liftbridge-io/liftbridge)
+    - ⚠️ 不维护
     - 概念接近 Kafka
     - https://liftbridge.io/docs/feature-comparison.html
     - [vs. NATS Streaming](https://liftbridge.io/docs/feature-comparison.html)
   - [nats-io/nats-streaming-server](https://github.com/nats-io/nats-streaming-server)
-    - 已废弃 - 使用 jetstream - nats 启动添加 -js
+    - ⚠️ 已废弃 - 使用 jetstream - nats 启动添加 -js
     - Protocol Buffer 编码
     - 持久化
     - QoS
     - 流控
 - [redpanda-data/redpanda](https://github.com/redpanda-data/redpanda)
   - BSL, C++,Go
-  - Kafka compatible
+  - 兼容 Kafka 协议
   - No Zookeeper
 - [confluentinc/ksql](https://github.com/confluentinc/ksql)
   - Confluent Community License, Java
 - [cashapp/pranadb](https://github.com/cashapp/pranadb)
   - Apache-2.0, Go
-- RabbitMQ
-  - AMQP, MQTT, STOMP, HTTP
 - [nsqio/nsq](https://github.com/nsqio/nsq)
   - 开发相对没有那么活跃
+- ZeroMQ
+  - IPC
+- TaskQueue/任务队列 - 通常在 Queue 上抽象服务功能，通常支持 cron
+  - celery
+    - Python
+  - bull
+    - Node.js
+- Streaming Processing
+  - Hazelcast Jet
+  - Apache Kafka Streams
+  - Apache Flink
+  - Apache Spark
+  - Apache Storm
+  - Apache Samza
+  - Apache Beam
 
 ## Protocol
 
@@ -89,7 +117,7 @@ tags:
     - 链接驻留
     - 订阅和事务的 Scope 和唯一标识
     - RECEIPT
-- MQTT - Message Queue Telemetry Transport
+- [MQTT](./mqtt.md) - Message Queue Telemetry Transport
   - 端口 1883
   - 由 IBM 为嵌入式设备 Telemetry 设计
   - 适用于 Low Bandwid、High Latency、Data Limit、Fragile Connection 场景

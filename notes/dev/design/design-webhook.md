@@ -8,6 +8,7 @@ title: Webhook 设计
 - 头包含 事件+Key
 - 也有通过 query 传递 key 的
 - key 一般为一个 UUID
+- Event-driven automation framework
 - 参考
   - [go-playground/webhooks](https://github.com/go-playground/webhooks)
   - [octokit/webhooks.js](https://github.com/octokit/webhooks.js)
@@ -17,6 +18,8 @@ title: Webhook 设计
 - Gitlab 群组 webhook 是收费的
 
 :::
+
+## Headers
 
 ```yaml
 # Gitlab
@@ -62,7 +65,45 @@ Authorization:
 
 - https://docs.github.com/en/webhooks-and-events/webhooks/webhook-events-and-payloads
 
-## coding
+## Payload
+
+- application/x-www-form-urlencoded
+- application/json
+
+**argo-events**
+
+- argo-events https://argoproj.github.io/argo-events/eventsources/setup/webhook/
+
+```json
+{
+  "context": {
+    "type": "type_of_event_source",
+    "specversion": "cloud_events_version",
+    "source": "name_of_the_event_source",
+    "id": "unique_event_id",
+    "time": "event_time",
+    "datacontenttype": "type_of_data",
+    "subject": "name_of_the_configuration_within_event_source"
+  },
+  "data": {
+    "header": {
+      /* the headers from the request received by the event-source from the external entity */
+    },
+    "body": {
+      /* the payload of the request received by the event-source from the external entity */
+    }
+  }
+}
+```
+## Pathname
+
+- /api/webhook
+  - ArgoCD https://argo-cd.readthedocs.io/en/stable/operator-manual/webhook/
+
+
+- https://github.com/argoproj/argo-events/blob/master/api/event-source.md#webhookcontext
+
+## coding.net
 
 - https://coding.net/help/docs/project-settings/service-hook/intro.html
 

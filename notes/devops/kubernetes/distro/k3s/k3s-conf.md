@@ -126,6 +126,8 @@ secrets-encryption: false
 
 ### agent
 
+- https://docs.k3s.io/cli/agent
+
 ```yaml
 token: value
 token-file: k3s-agent.token
@@ -140,7 +142,7 @@ node-name: hostname
 # node-taint
 
 # Runtime
-docker: true
+# docker: true
 container-runtime-endpoint:
 pause-image: docker.io/rancher/pause:3.1
 private-registry: /etc/rancher/k3s/registries.yaml

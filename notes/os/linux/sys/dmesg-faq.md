@@ -577,6 +577,37 @@ HAProxy crash
 [1781272.757161]  </TASK>
 ```
 
+## mlx4
+
+ConnectX2 异常
+
+```
+pcieport 0000:00:02.0: AER: Uncorrected (Fatal) error received: 0000:00:02.0
+pcieport 0000:00:02.0: PCIe Bus Error: severity=Uncorrected (Fatal), type=Transaction Layer, (Receiver ID)
+pcieport 0000:00:02.0:   device [8086:0e04] error status/mask=00000020/00318000
+pcieport 0000:00:02.0:    [ 5] SDES                   (First)
+mlx4_core 0000:04:00.0: mlx4_pci_err_detected was called
+mlx4_core 0000:04:00.0: device is going to be reset
+mlx4_core 0000:04:00.0: crdump: FW doesn't support health buffer access, skipping
+mlx4_core 0000:04:00.0: device was reset successfully
+mlx4_en 0000:04:00.0: Internal error detected, restarting device
+<mlx4_ib> mlx4_ib_handle_catas_error: mlx4_ib_handle_catas_error was started
+<mlx4_ib> mlx4_ib_handle_catas_error: mlx4_ib_handle_catas_error ended
+mlx4_en: eth4: Close port called
+mlx4_core 0000:04:00.0: Fail to set mac in port 1 during unregister
+pcieport 0000:00:02.0: AER: Root Port link has been reset (0)
+mlx4_core 0000:04:00.0: mlx4_pci_slot_reset was called
+mlx4_core 0000:04:00.0: enabling device (0000 -> 0002)
+mlx4_core 0000:04:00.0: mlx4_pci_resume was called
+mlx4_core 0000:04:00.0: 32.000 Gb/s available PCIe bandwidth (5.0 GT/s PCIe x8 link)
+mlx4_en 0000:04:00.0: Activating port:1
+mlx4_en: 0000:04:00.0: Port 1: Using 24 TX rings
+mlx4_en: 0000:04:00.0: Port 1: Using 16 RX rings
+mlx4_en: 0000:04:00.0: Port 1: Initializing port
+<mlx4_ib> mlx4_ib_add: counter index 1 for port 1 allocated 1
+pcieport 0000:00:02.0: AER: device recovery successful
+```
+
 # TODO
 
 ```

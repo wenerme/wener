@@ -218,9 +218,18 @@ sinks:
 ## kubernetes_logs
 
 - `/var/log/pods/**/*.log`
+  - `/var/log/pods/<podUID>/<containerName>_<instance#>.log`
+    - pod UUID -> metadata
 - 不会采集
-  - /var/log/containers
+  - `/var/log/containers/*.log`
+    - 弃用
+    - `metrics-server-7f86dff975-bghf6_kube-system_metrics-server-cc0a1b325521c82f8b252e4f4e0ab118a4455376cf45c8ae1987841816325ba3.log`
+    - Docker
+    - 文件名包含更多元信息
     - k0s 用到了
+    - 有些环境 /var/log/containers -> /var/log/pods
+    - https://github.com/kubernetes/kubernetes/issues/53022
+    - https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter/issues/105
 
 **排除采集**
 
@@ -229,3 +238,20 @@ vector.dev/exclude: 'true'
 ```
 
 - https://vector.dev/docs/reference/configuration/sources/kubernetes_logs/
+
+## 多行
+
+```yaml
+out:
+  type: reduce
+  inputs:
+  - log
+  group_by:
+  - container_id
+  merge_strategies:
+    message: concat_newline
+  starts_when: match(string!(.message), r'^[^\s]')
+  #starts_when: match(string!(.message) , r'^[^}$]')
+```
+
+- https://vector.dev/docs/reference/configuration/transforms/reduce/

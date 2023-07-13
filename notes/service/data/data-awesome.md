@@ -154,3 +154,8 @@ tags:
 ## Online
 
 - https://www.marinetraffic.com/en/ais/home/shipid:4248775/zoom:14
+
+## Chinese
+
+- 诗词
+  - https://github.com/KonghaYao/classic-poetry

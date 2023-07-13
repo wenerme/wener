@@ -7,6 +7,7 @@ title: Gitea Action
 - [gitea/act_runner](https://gitea.com/gitea/act_runner)
   - 基于 [act](../act.md)
   - 类似 github action
+- `/root/.cache/act/`
 - 参考
   - 下载 https://dl.gitea.com/act_runner/
   - Docs https://docs.gitea.io/en-us/usage/usage/actions/act-runner/

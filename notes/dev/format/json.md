@@ -18,19 +18,29 @@ title: JSON
 ## Patch
 
 - [rfc6902](https://tools.ietf.org/html/rfc6902) - JSON Patch
+  - `application/json-patch+json`
   - 基于操作 - op, path, value - 更适用于复杂场景
   - op = add, remove, replace, move, copy, test
   - test 用于断言，断言失败则操作失败
     - 例如 `{ "op": "test", "path": "/a/b/c", "value": "foo" }`
 - [rfc7396](https://tools.ietf.org/html/rfc7396) - JSON Merge Patch
+  - `application/merge-patch+json`
   - 基于文档合并 - `{"key":"new value"}` - 适用于简单场景
   - 设置 key 为 null 表示删除
   - 数组只能替换
   - 合并操作不会出错
+  - ~~rfc7386~~
 - [jsonpatch](http://jsonpatch.com/)
   - [HN](https://news.ycombinator.com/item?id=31301627)
 - [flipkart-incubator/zjsonpatch](https://github.com/flipkart-incubator/zjsonpatch)
-
+- https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#patch-operations
+  - `application/strategic-merge-patch+json`
+    - 基于 Merge Patch
+    - list 合并基于 name 去重合并，而不是直接替换
+      - patchStrategy
+    - `$patch`
+      - replace, delete
+    - [Strategic Merge Patch](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/strategic-merge-patch.md)
 ## Diff
 
 - https://github.com/andreyvit/json-diff

@@ -10,7 +10,8 @@ title: InfiniBand
 
 :::
 
-- [wiki/InfiniBand](https://en.wikipedia.org/wiki/InfiniBand)
+- 2019 NVIDIA to Acquire Mellanox for $6.9 Billion
+- [InfiniBand](https://en.wikipedia.org/wiki/InfiniBand)
 - Current message level
   - https://www.kernel.org/doc/Documentation/networking/netif-msg.txt
 - Arch

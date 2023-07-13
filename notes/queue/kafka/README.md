@@ -1,6 +1,8 @@
-# Kafka
+---
+title: Kafka
+---
 
-## Tips
+# Kafka
 
 - [Apache Kafka](http://kafka.apache.org/)
   - A distributed streaming platform

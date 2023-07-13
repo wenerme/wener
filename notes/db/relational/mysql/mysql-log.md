@@ -11,6 +11,11 @@ show variables like 'log_queries_not_using_indexes';
 
 
 set global log_queries_not_using_indexes = 'ON'
+
+--
+set global general_log = 'ON';
+select * from mysql.general_log
+order by event_time desc;
 ```
 
 ## slow log
@@ -54,6 +59,7 @@ show engine innodb status;
 
 flush logs;
 flush slow logs;
+truncate mysql.slow_log;
 ```
 
 - [Write logs into tables](https://mariadb.com/kb/en/mariadb/writing-logs-into-tables/)

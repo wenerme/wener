@@ -21,6 +21,7 @@ title: HTTP
 | 407    | Proxy Authentication Required |
 | 408    | Request Timeout               |
 | 409    | Conflict                      |
+| 499    | Client Closed Request         |
 | 500    | Internal Server Error         |
 | 501    | Not Implemented               |
 | 502    | Bad Gateway                   | RFC 7231                                        |
