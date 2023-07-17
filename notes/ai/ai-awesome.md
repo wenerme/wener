@@ -186,6 +186,8 @@ tags:
     - im:message - group_at_msg,group_at_msg:readonly,p2p_msg,p2p_msg:readonly,send_as_bot
     - im:chat,im:chat:readonly
 - https://github.com/zhayujie/bot-on-anything
+- [chathub-dev/chathub](https://github.com/chathub-dev/chathub)
+  -  All-in-one chatbot client
 
 ## Misc
 

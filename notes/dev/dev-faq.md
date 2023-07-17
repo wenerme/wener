@@ -6,6 +6,8 @@ tags:
 
 # Dev FAQ
 
+- https://web.stanford.edu/~ouster/cgi-bin/decisions.php
+
 ## 为什么枚举 **名字** 要用中文？
 
 :::tip

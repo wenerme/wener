@@ -182,14 +182,25 @@ select set_config('tenant.id','1', true);
 
 ## created_at vs create_time
 
-- created_at - 推荐
+- created_at
   - 语义 准确
   - 与 `created_by_id` 形式上类似
   - 使用: Spring, Gorm 默认
-  - 面向 系统
+  - 面向 **系统**
 - create_time
   - 使用: AIP
-  - 面向 用户
+  - 面向 **用户**, 业务
+
+## 扩展
+
+- extensions
+  - 内部使用
+- properties
+  - 服务端使用，前端可见
+- attributes
+  - 前端使用，服务端可见
+- metadata
+  - 对数据内容的补充说明
 
 ## 单数还是复数表名
 

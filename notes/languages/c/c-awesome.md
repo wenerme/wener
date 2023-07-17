@@ -31,6 +31,8 @@ tags:
   - https://justine.lol/ape.html
     - 跨 OS
   - Linux + Mac + Windows + FreeBSD + OpenBSD + NetBSD + BIOS
+  - https://ahgamut.github.io/2023/07/13/patching-gcc-cosmo/
+  - https://github.com/golang/go/issues/51900
 
 ## GL
 

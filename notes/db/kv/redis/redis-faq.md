@@ -6,6 +6,11 @@ tags:
 
 # Redis FAQ
 
+```
+AOF base file appendonly.aof.1.base.rdb
+AOF incr file appendonly.aof.1.incr.aof
+```
+
 ## Replica vs Slave
 
 - 含义完全相同

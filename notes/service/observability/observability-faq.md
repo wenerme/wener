@@ -6,6 +6,10 @@ tags:
 
 # Observability FAQ
 
+- 基础设施 - Operational
+- 数据源
+- 业务
+
 ## 数据规模
 
 | 规模   | 量级          |

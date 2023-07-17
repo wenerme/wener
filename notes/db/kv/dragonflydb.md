@@ -13,6 +13,15 @@ title: dragonflydb
   - http://127.0.0.1:6379
   - `:6379/metrics`
 
+:::caution
+
+- Redis v7 RDB [#1403](https://github.com/dragonflydb/dragonfly/issues/1403)
+- BullMQ [#1398](https://github.com/dragonflydb/dragonfly/issues/1398)
+  - [#782](https://github.com/dragonflydb/dragonfly/issues/782)
+
+:::
+
+
 ```bash
 # http://127.0.0.1:6379
 docker run -it --rm \

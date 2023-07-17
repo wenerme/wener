@@ -6,6 +6,7 @@ title: ERP
 
 - [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) - Enterprise resource planning - 企业资源计划
   - by 美国高德纳咨询公司 1990
+- [CRM](./crm/README.md)
 
 | abbr.  | for                          | mean         |
 | ------ | ---------------------------- | ------------ |
@@ -22,3 +23,9 @@ title: ERP
 - 项目管理：项目规划，资源规划，项目花费，工作分解结构，发票，时间和费用，业绩单元，活动管理
 - 客户关系管理（CRM）：销售和市场营销，佣金，服务，客户联络，调用中心支持 - CRM系统并不总是被认为ERP系统的一部分，而是业务支撑系统（BSS）。
 - 数据服务：为客户，供应商及/或雇员的各种“自我服务”的界面
+
+---
+
+- [List of ERP software packages](https://en.wikipedia.org/wiki/List_of_ERP_software_packages)
+- [Dolibarr/dolibarr](https://github.com/Dolibarr/dolibarr)
+  - GPLv3, PHP

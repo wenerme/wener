@@ -643,6 +643,18 @@ tags:
   - 中间状态 - 等待、执行
   - 有限状态 - 状态机 - state machine
 
+---
+
+- 一个 state 可能对应 多个 status
+- state 整个流程，status 具体步骤
+- 简单场景可以考虑只用 status
+
+---
+
+- 例如订单状态
+  - state - 已提交, 已支付, 已发货, 已完成
+  - status - 等待处理, 正在进行, 暂时延迟, 即将完成
+
 ## study vs learn
 
 - study

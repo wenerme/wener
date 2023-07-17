@@ -6,8 +6,8 @@ tags:
 
 # Security Glossary
 
-| abbr.   | stand for                                     |
-| ------- | --------------------------------------------- |
+| abbr.   | stand for                                     | mean |
+| ------- | --------------------------------------------- | ---- |
 | AEAD    | Authenticated Encryption with Associated Data |
 | ASN.1   |
 | DER     |
@@ -21,6 +21,7 @@ tags:
 | RSA     |
 | TPM     | Trusted Platform Modules                      |
 | X.509   |
+| SLSA    | Supply chain Levels for Software Artifacts    |
 
 [rfc1421]: https://www.rfc-editor.org/rfc/rfc1421
 [rfc7292]: https://www.rfc-editor.org/rfc/rfc7292

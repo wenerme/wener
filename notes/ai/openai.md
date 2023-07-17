@@ -32,6 +32,11 @@ title: OpenAI
   - Whisper $0.006 / minute
 - https://openai.com/pricing
 
+### Models
+
+- gpt-3.5-turbo-0613
+  - 16K 上下文
+
 ## API
 
 - https://platform.openai.com/docs/api-reference

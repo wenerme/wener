@@ -159,3 +159,11 @@ CREATE POLICY tenant_isolation_policy ON student USING (tid = current_setting('a
 
 - 参考
   - https://fabian.ski/posts/nestjs-tenants/
+
+## 预留后缀
+
+- .keys
+- .gpg
+- .rss
+- .atom
+- .png

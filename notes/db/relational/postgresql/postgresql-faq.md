@@ -9,6 +9,19 @@ tags:
 - [Errors and Messages](https://www.postgresql.org/docs/current/errcodes-appendix.html)
 - [SQL Key Words](https://www.postgresql.org/docs/current/sql-keywords-appendix.html)
 
+:::note
+
+- 无 Foreign Key Arrays
+  - `FOREIGN KEY (EACH ELEMENT OF userids) REFERENCES users,`
+  - https://stackoverflow.com/a/50441059/1870054
+  - https://commitfest.postgresql.org/17/1252/
+  - S094
+
+:::
+
+- [Unsupported Features](https://www.postgresql.org/docs/current/unsupported-features-sql-standard.html)
+  - SQL:2016
+
 ## 限制
 
 - db 名字

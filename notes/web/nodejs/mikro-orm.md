@@ -67,8 +67,22 @@ NODE_OPTIONS='--loader tsx' pnpm mikro-orm generate-entities --schema public -p 
   - 依赖 ts-node
 
 ```ts
+export type MinimalOptionalEntityFields =
+  | 'id'
+  | 'uid'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sid'
+  | 'tid'
+  | 'attributes'
+  | 'properties'
+  | 'extensions';
+
 @Entity({ abstract: true })
 export abstract class MinimalBaseEntity<Entity extends MinimalBaseEntity<any>> extends BaseEntity<Entity, 'id'> {
+  // 在子类中定义 - Base 里的定义无法覆盖
+  [OptionalProps]?: MinimalOptionalEntityFields;
+
   @PrimaryKey({ type: 'text', defaultRaw: 'public.gen_ulid()' })
   id!: string;
 

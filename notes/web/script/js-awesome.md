@@ -389,14 +389,14 @@ tags:
   - [unjs/consola](https://github.com/unjs/consola)
 - validate
   - [ajv](./lib/ajv.md)
-    - 使用的最多
+    - JSON Schema
+  - [zod](./lib/zod.md)
+    - 定义的校验会生成 ts 类型
+    - TypeScript-first schema validation
   - yup
   - joi
   - vest
   - superstruct
-  - [colinhacks/zod](https://github.com/colinhacks/zod)
-    - 定义的校验会生成 ts 类型
-    - TypeScript-first schema validation
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
   - [imbrn/v8n](https://github.com/imbrn/v8n)
   - npmtrends [ajv vs joi vs yup vs zod](https://www.npmtrends.com/yup-vs-joi-vs-ajv-vs-zod)
