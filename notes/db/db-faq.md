@@ -224,7 +224,7 @@ select *
 from test;
 ```
 
-## mongodb vs postgresql
+## MongoDB vs PostgreSQL
 
 - MongoDB
   - SSPL
@@ -239,3 +239,27 @@ from test;
   - JSONB
   - 可以水平和垂直扩容
   - ACID
+  - [FerretDB](./relational/postgresql/ferretdb.md) 提供兼容协议
+
+## MySQL vs PostgreSQL
+
+- MySQL CE
+  - GPL
+  - by Oracle
+  - 大小写不敏感
+  - 一个链接一个线程
+  - GROUP BY 时支持 SELECT 非聚合列
+- Postgres
+  - PostgreSQL License - 类似 MIT
+  - 大小写敏感
+  - 一个链接一个进程
+  - 生态更好
+  - 支持 Schema
+  - 支持 RLS
+  - 支持更多 JSON 特性 - 操作、索引
+  - 支持更多 CTE
+  - 支持 扩展
+
+---
+
+- https://www.bytebase.com/blog/postgres-vs-mysql/

@@ -120,6 +120,8 @@ tags:
   - [wal-e/wal-e](https://github.com/wal-e/wal-e)
     - BSD-3, Python
     - 不再维护
+- Web
+  - https://github.com/commandprompt/pgmanage
 
 ## Scale
 

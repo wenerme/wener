@@ -793,7 +793,8 @@ docker run --cap-add=SYS_ADMIN --shm-size 2G postgres
 ```yaml
 preStop:
   exec:
-    command: ['/usr/local/bin/pg_ctl stop -D /var/lib/postgresql/data -w -t 60 -m fast']
+    command: [ "/bin/sh", "-c", "pg_ctl -D /var/lib/postgresql/data/pgdata -w -t 60 stop -m fast" ]
+    #command: ['/usr/local/bin/pg_ctl stop -D /var/lib/postgresql/data -w -t 60 -m fast']
 ```
 
 - https://stackoverflow.com/a/75829325/1870054

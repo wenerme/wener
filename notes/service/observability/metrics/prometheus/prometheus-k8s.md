@@ -63,6 +63,8 @@ prometheus.io/path: '/metrics'
 prometheus.io/port: '80'
 ```
 
+- https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus
+
 ```yaml
 ---
 # 定义部署 Prometheus
@@ -204,6 +206,7 @@ spec:
   - kube-state-metrics
   - node-exporter
 - 默认 scrapeInterval: 30s
+  - prometheus 默认 1m https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 
 ```bash
 # 国内无法访问该 Repo，可使用 https://charts.wener.tech 或 https://wenerme.github.io/charts

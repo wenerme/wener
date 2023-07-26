@@ -67,3 +67,40 @@ title: 阿里云
 |  50w |  20,500 | 0.041 |
 | 100w |  40,000 | 0.040 |
 | 300w | 117,000 | 0.039 |
+
+**Kafka**
+
+> 集群流量 = 业务流量 + 集群内副本复制流量
+
+- alikafka.hw.2xlarge
+  - R 20MB/s
+  - W 20MB/s
+  - 基础 1000 分区
+  - 500G
+    - 高效云盘 1900/月
+    - SSD 2900/月
+
+**RocketMQ**
+
+- rmq.s2.2xlarge - 标准版
+  - TPS 2000/s - 4kb
+  - 公网只支持固定带宽
+
+## MySQL
+
+**4C8G 5000IOPS 2000Con**
+
+- 8.0.28
+
+| conf                          | value      | note  |
+| ----------------------------- | ---------- | ----- |
+| innodb_buffer_pool_chunk_size | 33554432   | 32M   |
+| innodb_buffer_pool_instances  | 8          |
+| innodb_buffer_pool_size       | 6442450944 | 6G    |
+| innodb_flush_method           | O_DIRECT   |
+| innodb_io_capacity            | 20000      |
+| innodb_read_io_threads        | 4          |
+| innodb_thread_concurrency     | 0          |
+| innodb_write_io_threads       | 4          |
+| innodb_log_file_size          | 1572864000 | 1500M |
+| innodb_log_files_in_group     | 2          |

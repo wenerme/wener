@@ -8,6 +8,7 @@ tags:
 ```sql
 select version();
 ```
+
 ## 限制 {#limits}
 
 - bind 参数 65535
@@ -15,7 +16,7 @@ select version();
   - 最大 prepare 数量
 - 4096 列/表
 - 65,535 byte/row
-  - blob 和  text 占用 9-12 byte
+  - blob 和 text 占用 9-12 byte
 
 | Type       | Maximum length                      |
 | ---------- | ----------------------------------- |
@@ -31,7 +32,6 @@ select version();
 ALTER TABLE tbl_name MAX_ROWS=1000000000 AVG_ROW_LENGTH=nnn;
 SHOW TABLE STATUS FROM db_name LIKE 'tbl_name';
 ```
-
 
 ## debug connections
 
@@ -86,8 +86,13 @@ order by total_rows desc;
 select sys.format_bytes(DATA_LENGTH), TABLE_NAME
 from INFORMATION_SCHEMA.TABLES
 order by DATA_LENGTH desc;
-```
 
+-- DB 大小
+SELECT table_schema                                            "DB Name",
+       ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB"
+FROM information_schema.tables
+GROUP BY table_schema;
+```
 
 ## Backup
 
@@ -101,3 +106,12 @@ MySQL virtual 列不能用 CONNECTION_ID(), CURRENT_USER(), NOW().
 
 - 除非使用 innodb_file_per_table
 - optimize table 会减小 .idb, 但不会减小 ibdata1
+
+## 1418
+
+```txt
+1418 - This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
+```
+
+- https://dev.mysql.com/doc/refman/8.0/en/stored-programs-logging.html
+- https://stackoverflow.com/a/26015334/1870054

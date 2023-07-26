@@ -27,6 +27,7 @@ tags:
     - emitAsync
     - 18.2kB, 5.6kB
   - [primus/eventemitter3](https://github.com/primus/eventemitter3)
+    - 移除 Domain 支持
   - [developit/mitt](https://github.com/developit/mitt)
     - ts, 200byte
     - 建议直接拷到项目使用
@@ -35,7 +36,10 @@ tags:
     - NodeJS 使用 Sockets
     - 支持 Leader 选举
     - 20kB/6kB
+  - [browserify/events](https://github.com/browserify/events)
+    - EventEmitter 同 `node:events`
   - tiny-emitter
+  - [eventemitter2 vs eventemitter3 vs mitt vs tiny-emitter](https://npmtrends.com/eventemitter2-vs-eventemitter3-vs-mitt-vs-tiny-emitter)
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing
@@ -331,6 +335,7 @@ tags:
     - Vue
     - multiplayer desktop-like workspace
   - https://news.ycombinator.com/item?id=30983770
+  - [partykit/partykit](https://github.com/partykit/partykit)
 - p2p
   - [hyperhyperspace/hyperhyperspace-core](https://github.com/hyperhyperspace/hyperhyperspace-core)
   - gnudb

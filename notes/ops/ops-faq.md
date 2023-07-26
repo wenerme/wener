@@ -6,6 +6,12 @@ tags:
 
 # 运维常见问题
 
+## OnBording
+
+- ArgoCd
+  - https://icloudnative.io/posts/getting-started-with-argocd/
+  - https://kubeoperator.io/docs/user_manual/argocd/
+
 ## Terraform vs Ansible
 
 - 都是 IaC - Infrastructure as code
@@ -54,4 +60,4 @@ IPAM 报异常事件，拔插 内存 后恢复。
 
 ## 去 IOE
 
-2008年在阿里巴巴的IT架构中，去掉IBM的小型机、Oracle数据库、EMC存储设备，代之以自己在开源软件基础上开发的系统。
+2008 年在阿里巴巴的 IT 架构中，去掉 IBM 的小型机、Oracle 数据库、EMC 存储设备，代之以自己在开源软件基础上开发的系统。

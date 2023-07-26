@@ -639,6 +639,7 @@ tags:
 - status
   - 结果状态 - 成果、失败
   - 面向用户 - 404、200
+  - 可以理解为 stage - 阶段
 - state
   - 中间状态 - 等待、执行
   - 有限状态 - 状态机 - state machine
@@ -654,6 +655,14 @@ tags:
 - 例如订单状态
   - state - 已提交, 已支付, 已发货, 已完成
   - status - 等待处理, 正在进行, 暂时延迟, 即将完成
+
+## topic vs subject
+
+- topic
+  - 更广泛、简单、日常
+- subject
+  - 更具体
+  - 更关注论点
 
 ## study vs learn
 

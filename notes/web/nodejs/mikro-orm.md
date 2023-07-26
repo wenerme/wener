@@ -100,3 +100,11 @@ export abstract class MinimalBaseEntity<Entity extends MinimalBaseEntity<any>> e
   updatedAt: Date = new Date();
 }
 ```
+
+## RequestContext
+
+- Middleware `RequestContext.create(orm.em, next)`
+
+# FAQ
+
+## Transaction query already complete

@@ -84,7 +84,7 @@ npm add date-fns lodash-es react-fast-compare
   - 与 vercel 无关
 - [rsuite/rsuite](https://github.com/rsuite/rsuite)
   - 各方面神似 AntD - 但比 AntD 轻的多
-- [ant-design/ant-design](../ui/antd.md)
+- [ant-design/ant-design](./antd.md)
 - [mui-org/material-ui](https://github.com/mui-org/material-ui) - Material Design 风格
   - 如果选择 MD 风格则非常匹配
   - 完成程度和成熟度远远高于 antd
@@ -117,6 +117,11 @@ npm add date-fns lodash-es react-fast-compare
   - [mantinedev/mantine](https://github.com/mantinedev/mantine)
     - emotion
     - CSS in JS
+    - `npm install @mantine/core @mantine/hooks @mantine/form @mantine/dates dayjs @mantine/notifications @mantine/prism @mantine/tiptap @tabler/icons-react @tiptap/react @tiptap/extension-link @tiptap/starter-kit @mantine/dropzone @mantine/carousel embla-carousel-react @mantine/spotlight @mantine/modals @mantine/nprogress @emotion/react`
+    - core
+      - @floating-ui
+      - @radix-ui
+      - 524.6kB
   - [grommet/grommet](https://github.com/grommet/grommet)
   - [primefaces/primereact](https://github.com/primefaces/primereact)
   - [DevExpress/devextreme-reactive](https://github.com/DevExpress/devextreme-reactive)
@@ -158,6 +163,9 @@ npm add date-fns lodash-es react-fast-compare
   - [react-icons.github.io](https://react-icons.github.io/react-icons) 包含了大量可用 Icon
   - 来自 tailwincss 的 [heroicons](https://heroicons.com/) 崇尚直接 copy svg 使用
     - 简单方便
+- @tabler/icons
+  - https://github.com/tabler/tabler-icons
+    - 4500, MIT
 - [popperjs/react-popper](https://github.com/popperjs/react-popper)
   - 显示弹出气泡
 - [signavio/react-mentions](https://github.com/signavio/react-mentions)

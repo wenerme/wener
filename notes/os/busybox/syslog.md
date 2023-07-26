@@ -104,3 +104,47 @@ kern,user.*;kern.!=notice;*.err;syslog.none /var/log/OMG
   - syslog
   - stelogmask
   - closelog
+
+## klogd
+
+- kernel log -> syslog
+
+```bash
+service klogd start
+```
+
+```txt
+kern.*  /var/log/kern.log
+*.*     /var/log/messages
+```
+
+# FAQ
+
+```
+sshd[27530]: Connection closed by authenticating user root 1.1.1.1port 39256 [preauth]
+sshd[19855]: Connection closed by invalid user ubuntu 1.1.1.1port 48706 [preauth]
+sshd[19855]: Invalid user ubuntu from 1.1.1.1port 48706
+```
+
+```
+crond[23340]: USER root pid 17499 cmd run-parts /etc/periodic/15min
+```
+
+**authpriv.notice**
+
+```
+sudo: admin : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/bin/bash
+```
+
+**auth.info**
+
+```
+sshd[35516]: Accepted publickey for admin from 10.37.0.19 port 1563 ssh2: RSA SHA256:XXX
+sshd[65609]: banner exchange: Connection from 10.37.0.15 port 42808: invalid format
+```
+
+**auth.err**
+
+```
+sshd[12372]: error: kex_exchange_identification: banner line contains invalid characters
+```

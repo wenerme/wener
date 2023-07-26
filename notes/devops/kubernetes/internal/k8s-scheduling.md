@@ -271,6 +271,11 @@ spec:
 - readinessProbe
   - 判断是否准备好，未准备好不会接收流量
   - 未准备: dns 记录会无法方法
+- 默认值
+  - successThreshold=1
+  - failureThreshold=3
+  - periodSeconds=10
+  - timeoutSeconds=1
 
 ## 资源
 

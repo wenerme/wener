@@ -264,3 +264,29 @@ mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 3. 互相调整和改进：在实际协同过程中，可能会发现合约中的某些规定不适用或需要调整。这种情况下，各方可以通过沟通和协商来修改合约，以满足实际需求。同样，成功的协同也可能导致新的合约产生，以满足不断发展的需求。
 
 综上所述，合约和协同之间存在密切关系。合约为协同提供了基础和规则，协同则依赖于合约来实现各方之间的有效合作。在实际应用中，合约和协同需要不断调整和改进，以适应不断变化的需求。
+
+## 北向接口
+
+- Northbound API
+- 服务组件对外提供的 API 接口
+- 对外暴露的 API
+- 抽象和封装内部逻辑
+- 服务组合和编排
+- 实现多渠道服务
+- 保证系统安全
+
+## Data is code, code is data
+
+- code is data
+  - Relfectin
+  - Enum
+  - Annotation
+  - AOP
+  - Model - ORM
+  - Meta Programming
+  - Macro
+  - 生成器
+  - DSL
+- data is code
+  - Code=Engine, Data=Fuel
+  - Data 定义了逻辑规则 = Code

@@ -193,9 +193,7 @@ body {
 /* https://nolanlawson.com/2022/04/08/the-struggle-of-using-native-emoji-on-the-web/ */
 @font-face {
   font-family: 'color-emoji';
-  src: local('Apple Color Emoji'), local('Twemoji Mozilla'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local(
-      'Noto Color Emoji'
-    ), local('EmojiOne Color'), local('Android Emoji');
+  src: local('Apple Color Emoji'), local('Twemoji Mozilla'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji'), local('EmojiOne Color'), local('Android Emoji');
 }
 
 body {

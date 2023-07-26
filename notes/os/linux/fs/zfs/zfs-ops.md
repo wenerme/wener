@@ -65,11 +65,14 @@ zfs_delete_blocks=1000
 
 -->
 
+- sync_binlog=0
+  - binlog 不 sync
+- innodb_flush_log_at_trx_commit=0
 - zfs_prefetch_disable=1
 - 临时增加性能
   - MySQL
     - innodb_flush_log_at_trx_commit=0
-    - sync_binlog=0.
+    - sync_binlog=0
   - 或 ZFS 层面
     - sync=disabled
 - https://github.com/bajrang0789/mysql-zfs

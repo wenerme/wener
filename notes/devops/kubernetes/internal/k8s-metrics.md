@@ -44,3 +44,4 @@ sum(container_memory_working_set_bytes{namespace="haproxy-controller",container=
 - https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/
 - https://kubernetes.io/docs/reference/instrumentation/metrics/
 - [kubernetes/kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+- https://github.com/lensapp/lens/blob/4ab97d2372874d053f1eb607432d21e8e632095f/packages/technical-features/prometheus/src/operator-provider.injectable.ts.ts

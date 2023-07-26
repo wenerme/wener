@@ -19,13 +19,119 @@ tags:
 
 ## User - 员工/用户 {#user}
 
-## Account - 客户 {#account}
+## Customer - 客户 {#customer}
+
+- 分为
+  - Account - 账户
+    - 公司、企业
+  - Contact
+    - 联系人
+- 账户的联系人
+
+## Account - 账户 {#account}
 
 ## Contact - 联系人 {#contact}
 
 - 企业外部人员
 
+## Case {#case}
+
+- 客户案例或客户服务案件
+
 ## Lead - 线索 {#lead}
+
+- Inbound leads
+  - 客户主动
+- Outbound leads
+  - 客户被动
+- State
+  - Open
+  - 有效
+  - 无效
+    - 只读
+    - 可重新激活
+- 产生场景
+  - 有人表示对产品感兴趣，想了解更多信息
+  - 有人在社交媒体下留下联系信息
+  - 有人回应了 RichOut 请求
+- lead qualification
+- 参考
+  - Lead entity reference https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/lead
+  - Lead table https://learn.microsoft.com/en-us/dynamics365/sales/developer/lead-entity
+  - Lead table/entity reference https://learn.microsoft.com/en-us/dynamics365/sales/developer/entities/lead
+  - https://hc.jiandaoyun.com/solution/14583
+    - 需求发现 - 产品介绍 - 需求确认 - 方案报价 - 商务谈判 - 赢单｜输单｜无效
+
+---
+
+- https://learn.microsoft.com/en-us/training/modules/manage-leads-dynamics-365-sales/1-leads-overview
+  - Lead -> Opportunity -> Quote -> Order -> Invoice
+  - Qulify -> Develop -> Propose -> Close -> Fulfill
+  - Lead 可以转换为 Opportunity, Case, Lead
+- 判断是否使用线索的几点考虑:
+  - 是否投入大量时间和资金产生潜在客户名单,如大规模邮件或电话营销?
+  - 是否保留符合目标人群但信息有限的名单,如缺少联系方式?
+  - 是否有专门团队处理名单,联系分析以识别品质线索?
+  - 是否需要区分潜在客户名单和现有客户名录,避免混淆?
+- 如果上述情况成立,使用线索管理可以有助于:
+  - 有效处理大量未分类客户名单
+  - 提高销售联系效率
+  - 分析不同渠道线索质量
+  - 发现并培育有潜力的客户
+  - 与现有客户明确区分
+
+## Invoice
+
+- order
+- 产品信息
+
+## 销售漏斗
+
+- sales funnel
+- 参考
+  - https://www.lucidchart.com/blog/visualizing-the-sales-funnel
+
+## Collateral
+
+- Collateral - 销售辅助工具/配套材料
+- 产品手册、宣传页
+- 产品规格表、功能表
+- 产品演示文稿
+- 客户成功案例白皮书
+- 数据表、报告
+- 常见问题 FAQ
+- 价格单、报价单
+- 折扣优惠券
+- 试用版、产品样品
+- 视频演示、产品图片
+- Logo、邮件签名
+
+## 销售阶段
+
+- 销售阶段 应该在 商机 上
+- Sales Stage
+- 7-step sales process
+  - Prospecting - 寻找潜在客户
+  - Preparation - 准备工作
+  - Approach - 接触客户
+  - Presentation - 产品介绍
+  - Handling objections - 处理疑虑
+  - Closing - 封单
+  - Follow-up - 后续跟进
+- 需求发现 - 产品介绍 - 需求确认 - 方案报价 - 商务谈判 - 赢单｜输单｜无效
+- SaleStage
+  - New/Initiate
+  - Prospect
+  - Develop
+  - Qualify
+  - Propose
+  - Negotiate
+  - Close
+  - Win
+  - Lose
+  - Cancel
+- 参考
+  - https://www.lucidchart.com/blog/what-is-the-7-step-sales-process
 
 ## Order - 订单 {#order}
 
@@ -68,7 +174,6 @@ tags:
   - 取消确认 - 确认取消订单
   - 退款审核 - 审核退款申请
   - 完成退款 - 完成退款操作
-
 
 ## 商品类型
 

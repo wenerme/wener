@@ -8,7 +8,6 @@ title: Redis
   - BSD-3, C
 - 支持的数据类型: string, bitmap, hll, list, pub/sub, hash, set, sorted set, stream
 - Redis Stack 扩展: bloom, cuckoo, count-min, graph, json, suggest, search, t-digest, timeserial, top-k
-- [redis.conf](http://download.redis.io/redis-stable/redis.conf)
 - 参考
   - [5 Key Takeaways for Developing with Redis](https://redislabs.com/blog/5-key-takeaways-for-developing-with-redis)
     1. Keep Track of Your Keys
@@ -177,9 +176,6 @@ scan 0
 redis-cli --csv psubscribe '__key*__:*'
 ```
 
-## redic.conf
-
-- https://redis.io/docs/manual/config/
 
 ## redis-benchmark
 

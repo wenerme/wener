@@ -6,6 +6,10 @@ title: Ant Design
 - [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
   - 丰富强大的组件库
 
+```bash
+npm add antd
+```
+
 :::tip
 
 - 非常适用于快速出原型和结果
@@ -45,9 +49,9 @@ title: Ant Design
 ## antd v5
 
 - React 18
-- CSS In JS
+- Less -> CSS In JS
+- moment -> dayjs
 - 不再支持 IE
-- dayjs 替代 moment
 - 接口统一
   - open/visible -> open
   - searchValue, onSearch ,showSearch
@@ -61,6 +65,7 @@ title: Ant Design
   - WaterMark, Tour, QrCode, Floating Button
 - [#33862](https://github.com/ant-design/ant-design/issues/33862)
 - https://kitchen.alipay.com/
+- @ant-design/pro-layout
 
 ## antd mobile v5
 

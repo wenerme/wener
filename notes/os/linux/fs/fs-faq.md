@@ -55,12 +55,12 @@ touch hello.txt
 # 查看所有时间
 stat hello.txt
 
-touch hello.txt                           # 修改 atime, mtime
-touch -m hello.txt                        # 修改 mtime
-touch -d "2020-01-15 10:30:45" hello.txt  # 指定 atime, mtime
+touch hello.txt                          # 修改 atime, mtime
+touch -m hello.txt                       # 修改 mtime
+touch -d "2020-01-15 10:30:45" hello.txt # 指定 atime, mtime
 
 touch neo.txt
-touch hello.txt -r neo.txt                # 参照修改
+touch hello.txt -r neo.txt # 参照修改
 
 # inode
 stat -c $i /etc/profile
@@ -155,4 +155,4 @@ mount -o rw,remount /
 ## /run vs /var/run
 
 - /run - 新的标准 - tmpfs
-- /var/run - symlink  到 /run
+- /var/run - symlink 到 /run

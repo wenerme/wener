@@ -7,10 +7,11 @@ tags:
 
 | version    | date       |
 | ---------- | ---------- |
+| Gitea 1.20 | 2023-07-16 |
 | Gitea 1.19 | 2023-03-20 |
 | Gitea 1.18 | 2022-10-29 |
 
-## Gitea 1.20
+:::tip
 
 - 支持 GITEA_TOKEN 登录 docker - [#23642](https://github.com/go-gitea/gitea/issues/23642)
 
@@ -22,6 +23,22 @@ tags:
     username: ${{ github.repository_owner }}
     password: ${{ secrets.GITEA_TOKEN }}
 ```
+
+:::
+
+## Gitea 1.20
+
+- package
+  - Alpine
+  - CRAN
+  - Debian
+  - Go
+  - RPM
+  - Swift
+- actions
+  - 支持 needs, outputs
+- User webhooks
+- https://blog.gitea.com/release-of-1.20.0/
 
 ## Gitea 1.19
 

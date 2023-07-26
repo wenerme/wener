@@ -129,6 +129,11 @@ https://github.com/git/git/tree/master/po
 | ⎋       | ESC                                    |
 | ⌫ ⟵     | Backspace                              |
 | 🌐      | Apple fn                               |
+| ⌦       | Delete                                 |
+| ⌧       | Clear                                  |
+| ⌤       | Enter                                  |
+| ⏏       | Eject                                  |
+| ⎀       | Power                                  |
 
 - http://xahlee.info/kbd/apple_keyboard_key_symbols.html
 - http://xahlee.info/comp/unicode_computing_symbols.html
@@ -160,3 +165,22 @@ https://github.com/git/git/tree/master/po
 | ￼   |
 | »   | &raquo; | &187; |
 | «   | &laquo; | &171; |
+| 🏘️  |
+| 👨‍👩‍👧‍👦  |
+| ⚠️  |
+| ℹ️  |
+| 📝  |
+
+## 避免渲染 emoji
+
+- ✔
+- FE0E 避免渲染 emoji `\2714\FE0E`
+- `font-family: monospace`
+
+```html
+❤&#xFE0E;
+```
+
+## space
+
+- `&nbsp;&ensp;&emsp;&thinsp;&zwnj;&zwj;`

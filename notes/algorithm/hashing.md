@@ -14,6 +14,7 @@ title: Hashing
 - docker - sha256
 - npm - sha512, multihash
 - alpine - md5, sha1
+- sha256 通常指 sha2-256
 
 :::
 

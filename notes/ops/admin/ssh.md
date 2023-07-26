@@ -82,7 +82,7 @@ ssh-keygen -t rsa -b 2048 -C "email@example.com"
 
 # 无密码不询问
 ssh-keygen -t rsa -b 2048 -f /tmp/sshkey -q -N ""
-
+# 新的推荐 ed25519
 ssh-keygen -t ed25519 -C "" -f sshkey -q -N ""
 
 # 查看 key 信息
@@ -261,6 +261,9 @@ GatewayPorts yes
 
 ```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
+
+# 忽略 SSH Agent，测试 key
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentityAgent=none -i /tmp/sshkey root@127.0.0.1 -p 2222
 ```
 
 ### no matching key exchange method found. Their offer: diffie-hellman-group1-sha1

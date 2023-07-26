@@ -245,9 +245,10 @@ vector.dev/exclude: 'true'
 out:
   type: reduce
   inputs:
-  - log
+    - log
   group_by:
-  - container_id
+    - kubernetes_container_id
+  #- container_id
   merge_strategies:
     message: concat_newline
   starts_when: match(string!(.message), r'^[^\s]')
@@ -255,3 +256,5 @@ out:
 ```
 
 - https://vector.dev/docs/reference/configuration/transforms/reduce/
+
+## More than one file has the same fingerprint

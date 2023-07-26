@@ -78,6 +78,19 @@ args: ['$(POD_IP)']
   - --max-request-bytes=1.5MiB
   - --quota-backend-bytes=2GB - 建议不超过 8GB
 
+## QoS
+
+```yaml
+status:
+  qosClass: Guaranteed
+```
+
+- resources
+- Guaranteed
+- Burstable
+- BestEffort
+- https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/
+
 ## operator vs controller
 
 - operator 包含一个或多个 controller

@@ -12,6 +12,16 @@ tags:
 
 - https://www.citusdata.com/updates/
 
+## Citus v12
+
+- schema-based sharding
+  - schema=shard
+  - https://www.citusdata.com/blog/2023/07/18/citus-12-schema-based-sharding-for-postgres/
+
+```sql
+set citus.enable_schema_based_sharding to on;
+```
+
 ## Citus v11
 
 - 开源所有企业版功能

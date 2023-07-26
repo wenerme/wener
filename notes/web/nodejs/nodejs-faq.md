@@ -338,3 +338,8 @@ node --snapshot-blob snapshot.blob
   - monolithic
   - 生态更大 - 功能更多
 
+## import npm global
+
+```bash
+export NODE_PATH=$(npm root --quiet -g)
+```

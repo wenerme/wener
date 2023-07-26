@@ -36,6 +36,14 @@ const identity = <T>(arg: T): T => arg;
 }
 ```
 
+- https://www.npmjs.com/package/module-alias
+- self link
+  - PNPM
+    - https://pnpm.io/aliases
+    - https://github.com/pnpm/pnpm/issues/6316
+    - dependencies `"src": "workspace:web@^"`
+  - https://yarnpkg.com/configuration/yarnrc#nmSelfReferences
+
 ## I 接口命名前缀
 
 - 觉得需要用的时候就用
@@ -147,3 +155,7 @@ export default {
 ```
 
 - https://github.com/trivago/prettier-plugin-sort-imports/issues/120
+
+## mixin
+
+- https://www.typescriptlang.org/docs/handbook/mixins.html
