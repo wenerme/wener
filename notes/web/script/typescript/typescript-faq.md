@@ -12,6 +12,15 @@ tags:
 
 :::
 
+## Expected 3 type arguments, but got 1
+
+- TS 5.0 不支持部分参数推导
+- https://stackoverflow.com/a/55754981/1870054
+- [#10571](https://github.com/Microsoft/TypeScript/issues/10571)
+  Allow skipping some generics when calling a function with multiple generics
+- [#26242](https://github.com/Microsoft/TypeScript/issues/26242)
+  Partial Type Argument Inference
+
 ## 箭头函数使用泛型参数
 
 ```ts

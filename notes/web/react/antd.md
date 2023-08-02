@@ -39,6 +39,18 @@ npm add antd
 
 :::
 
+- @ant-design/pro-components
+  - @ant-design/pro-form
+  - @ant-design/pro-table
+  - @ant-design/pro-field
+  - @ant-design/pro-card
+  - @ant-design/pro-list
+  - @ant-design/pro-layout
+    - https://procomponents.ant.design/components/layout
+  - 依赖
+    - [clauderic/dnd-kit](https://github.com/clauderic/dnd-kit)
+
+
 # Versions
 
 | version             | date       |
@@ -65,7 +77,7 @@ npm add antd
   - WaterMark, Tour, QrCode, Floating Button
 - [#33862](https://github.com/ant-design/ant-design/issues/33862)
 - https://kitchen.alipay.com/
-- @ant-design/pro-layout
+
 
 ## antd mobile v5
 

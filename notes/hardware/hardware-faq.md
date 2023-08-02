@@ -6,6 +6,17 @@ tags:
 
 # Hardware FAQ
 
+- 哈曼 - 哈曼国际工业公司 - Harman International Industries, Incorporated
+- 哈曼卡顿 Harman/Kardon
+  - 1953
+  - 2016年11月14日 -> 三星
+- AKG Acoustics
+  - 1947
+  - 1994 -> 哈曼
+- JBL
+  - 1946 洛杉矶
+  - 1969 -> 哈曼
+
 ## 10GbE
 
 - 10 Gigabit Ethernet, 10GE, 10GbE, 10 GigE

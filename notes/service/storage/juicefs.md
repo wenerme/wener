@@ -8,7 +8,7 @@ title: juicefs
   - Apache-2.0, Go
   - 元数据 和 数据 分离
   - distributed **POSIX** fs
-  - metadata - redis, postgres, mysql, sqlite3, badger
+  - metadata - Redis, Postgres, MySQL, SQLite3, badger, TiKV
   - data - s3, minio, webdav, redis, file, sqlite3, mysql, postgres, sftp
     - [Supported Object Storage](https://juicefs.com/docs/community/how_to_setup_object_storage/#supported-object-storage)
   - 接口支持 S3, HDFS, CSI

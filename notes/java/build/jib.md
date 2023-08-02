@@ -30,6 +30,10 @@ mvn compile com.google.cloud.tools:jib-maven-plugin:3.3.1:build -Dimage=IMAGE
 <missing>      53 years ago   jib-maven-plugin:3.3.1                          350MB     dependencies
 ```
 
+```bash
+java -cp /app/resources:/app/classes:/app/libs/* $MAINCLASS
+```
+
 ## Auth
 
 - credential helpers

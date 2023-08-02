@@ -17,8 +17,21 @@ tags:
 | MaxRAMPercentage     | 最大 **堆内存** 比例 |
 | MinRAMPercentage     | 最小 **堆内存** 比例 |
 
+```
+-Xmx12g -Xms12g -Xmn8g -XX:MaxMetaspaceSize=512m -XX:MaxDirectMemorySize=256M  -XX:+UseContainerSupport -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+```
+
+```
+-XX:+UseContainerSupport -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=70.0 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:/home/admin/nas/gc-${POD_IP}-$(date '+%s').log -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/home/admin/nas/dump-${POD_IP}-$(date '+%s').hprof
+```
+
+- JAVA_TOOL_OPTIONS
+- JDK_JAVA_OPTIONS
+  - Java 9+
 - https://chriswhocodes.com/
 - https://eclipse.dev/openj9/docs/xx_jvm_commands/
+- https://www.alibabacloud.com/help/en/sae/latest/best-practices-for-jvm-heap-size-configuration
+- https://cloud.tencent.com/developer/article/1198524
 
 ## 内存限制 {#memort-limit}
 

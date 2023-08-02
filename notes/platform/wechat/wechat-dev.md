@@ -1,5 +1,7 @@
 ---
 title: Wechat Dev
+tags:
+  - Devlopment
 ---
 
 # Wechat Dev

@@ -35,6 +35,8 @@ title: App Layout
   - TranspilePackages tries to resolve optional dependencies [next.js#47494](https://github.com/vercel/next.js/issues/47494)
   - Module not found: Can't resolve 'crypto' [#50444](https://github.com/vercel/next.js/issues/50444)
   - pg-cloudflare cloudflare:sockets [#50177](https://github.com/vercel/next.js/discussions/50177)
+- 集成问题
+  - https://github.com/prosepilot/trpc-openapi/issues/289
 
 :::
 

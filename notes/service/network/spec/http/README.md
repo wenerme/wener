@@ -62,7 +62,18 @@ Access-Control-Request-Method: GET
 Access-Control-Allow-Headers: authorization
 Access-Control-Allow-Methods: POST,GET
 Access-Control-Allow-Origin: http://127.0.0.1:3000
+# 默认 5s、最大 86400=24h
+Access-Control-Max-Age: 86400
 ```
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
+
+## OPTIONS
+
+- preflight 请求
+- ContentType application/json 会触发，text/plain、application/x-www-form-urlencoded、multipart/form-data 不会触发
+- 自定义头会触发
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#preflighted_requests
 
 ## HTTP2
 

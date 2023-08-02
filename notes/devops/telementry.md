@@ -8,6 +8,22 @@ tags:
 
 Collection of how to disable telementry and analytics that default to enable.
 
+```bash
+# MinIO
+MINIO_UPDATE=off
+# NextJS
+NEXT_TELEMETRY_DISABLED=1
+# K0S
+DISABLE_TELEMETRY=true
+DISABLE_UPGRADE_CHECK=true
+```
+
+## Minio
+
+```bash
+MINIO_UPDATE=off
+```
+
 ## NextJS
 
 ```bash

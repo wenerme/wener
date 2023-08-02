@@ -77,10 +77,13 @@ tags:
     - ⚠️ 非常不活跃
   - [Microsoft/tsyringe](https://github.com/Microsoft/tsyringe)
     - ⚠️ 非常不活跃
-  - [jeffijoe/awilix](https://github.com/jeffijoe/awilix)
+  - [jeffijoe/awilix](./lib/awilix.md)
+    - 0依赖, 12kB
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
-    - 注入代理对象，通过访问的字段名字进行 resolve
-      - 因此不支持异步
+    - 支持代理模式 - 通过访问的字段名字进行 resolve
+      - 不支持异步
+    - 支持传统 Token 模式
+    - 支持浏览器
   - [@abraham/reflection](https://github.com/abraham/reflection)
     - ~3k - 替代 reflect-metadata ～ 50k
   - [async-dependency-graph](https://github.com/chriswoodle/async-dependency-graph)

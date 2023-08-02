@@ -92,6 +92,7 @@ shasum -a 512224 ~/.bashrc
   - salt 最少 8 位
   - [P-H-C/phc-winner-argon2](https://github.com/P-H-C/phc-winner-argon2)
 - bcrypt
+  - `$2<a/b/x/y>$[cost]$[22 character salt][31 character hash]`
 - scrypt
 - sha2 - 特殊场景
 - salted - 传统 md5 方式+salt
@@ -122,7 +123,7 @@ echo -n "secret" | argon2 "saltsalt" -e
 - KDF - key derivation function
 - KDF vs HKDF
   - https://crypto.stackexchange.com/a/70722/103400
-- How quickly can these password schemes really be beaten? https://security.stackexchange.com/q/8607/130027
+- [How quickly can these password schemes really be beaten?](https://security.stackexchange.com/q/8607/130027)
 - https://www.tarsnap.com/scrypt/scrypt.pdf
 - https://www.tarsnap.com/scrypt/scrypt-slides.pdf
 - https://rumkin.com/tools/password/

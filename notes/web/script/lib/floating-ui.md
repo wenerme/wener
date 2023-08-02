@@ -13,6 +13,7 @@ title: floating-ui
 - @floating-ui/react-dom-interactions
   - `<Tooltip/>`, `<Popover/>`, `<Select/>`, `<Dropdown/>`
 - @floating-ui/react-native
+- https://github.com/floating-ui/floating-ui/tree/master/packages/react/test/visual/components
 
 ## React DOM
 

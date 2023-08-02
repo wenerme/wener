@@ -73,3 +73,10 @@ SET SESSION sql_mode = 'TRADITIONAL';
 SET @@SESSION.sql_mode = 'TRADITIONAL';
 SET @@sql_mode = 'TRADITIONAL';
 ```
+
+
+## query_cache_size
+
+- 8.0 移除
+- 5.6 禁用
+- https://dba.stackexchange.com/a/217578/234272

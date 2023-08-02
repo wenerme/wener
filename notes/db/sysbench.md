@@ -8,4 +8,18 @@ title: Sysbench
 
 ```bash
 brew install sysbench
+
+USERNAME=
+PASSWORD=
+sysbench oltp_read_write --db-driver=mysql --time=60 --threads=32 --report-interval=3 --mysql-host=mysql \
+  --mysql-port=3306 \
+  --mysql-user=$USERNAME \
+  --mysql-password=$PASSWORD \
+  --mysql-db=sbtest --tables=10 --table_size=1000000 prepare
+
+sysbench oltp_read_write --db-driver=mysql --time=60 --threads=32 --report-interval=3 --mysql-host=mysql \
+  --mysql-port=3306 \
+  --mysql-user=$USERNAME \
+  --mysql-password=$PASSWORD \
+  --mysql-db=sbtest --tables=10 --table_size=1000000 run
 ```

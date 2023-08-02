@@ -6,6 +6,8 @@ tags:
 
 # NodeJS FAQ
 
+- NODE_OPTIONS
+
 ## Tool Chain
 
 - 静态项目 - ViteJS

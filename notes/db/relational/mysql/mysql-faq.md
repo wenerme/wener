@@ -115,3 +115,10 @@ MySQL virtual 列不能用 CONNECTION_ID(), CURRENT_USER(), NOW().
 
 - https://dev.mysql.com/doc/refman/8.0/en/stored-programs-logging.html
 - https://stackoverflow.com/a/26015334/1870054
+
+
+## dump
+
+```bash
+mysqldump --single-transaction --routines --triggers --all-databases > MySQLData.sql
+```

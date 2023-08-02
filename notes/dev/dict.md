@@ -117,13 +117,14 @@ tags:
 
 ### 组织架构
 
-| 英文         | 含义     | 释义 |
-| ------------ | -------- | ---- |
-| member       | 成员     |
-| department   | 部门     |
-| job position | 工作职位 |
-| job number   | 工号     |
-| leader       | 组长     |
+| 英文                      | 含义     | 释义 |
+| ------------------------- | -------- | ---- |
+| member                    | 成员     |
+| department                | 部门     |
+| job position              | 工作职位 |
+| job number                | 工号     |
+| leader                    | 组长     |
+| Administration Department | 行政部门 |
 
 ### 客户关系管理
 

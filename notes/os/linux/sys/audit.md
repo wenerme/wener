@@ -44,6 +44,38 @@ aureport --start this-week
 aureport --start this-week --key --summary
 ```
 
+# auditd
+
+- /etc/audit/rules.d/audit.rules
+- /var/log/audit/audit.log
+
+```bash
+# -w file -p permissions -k key_name
+auditctl -w /etc/passwd -p wa -k user-modify
+# useradd testuser # 会修改 /etc/passwd
+cat /var/log/audit/audit.log | grep user-modify
+
+ausearch -i -k user-modify
+aureport -x
+```
+
+> 以 root 执行的命令
+
+```
+-a exit,always -F arch=b64 -F euid=0 -S execve -k root-commands
+-a exit,always -F arch=b32 -F euid=0 -S execve -k root-commands
+```
+
+> 所有 root 的 syscall
+
+```
+-a exit,always -S all -F euid=0 -F perm=awx -k root-commands
+```
+
+```bash
+ausearch -k root-commands
+```
+
 ## ausearch
 
 ```bash

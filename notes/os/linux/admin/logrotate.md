@@ -7,6 +7,7 @@ title: logrotate
 - [logrotate/logrotate](https://github.com/logrotate/logrotate)
 - /etc/logrotate.conf
 - /etc/logrotate.d/
+- 通过 cron 执行
 
 ```bash
 # 配置 /etc/logrotate.conf

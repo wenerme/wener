@@ -48,7 +48,7 @@ tags:
   - Viteness
   - TiDB
   - [baidu/BaikalDB](https://github.com/baidu/BaikalDB)
-    -  HTAP
+    - HTAP
 
 ## 时序数据库 {#time-series}
 
@@ -309,11 +309,13 @@ curl --request POST \
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/9c65a3bd0696)
 - https://gpt-index.readthedocs.io/en/latest/examples/vector_stores/LanceDBIndexDemo.html
 - [jerryjliu/llama_index](https://github.com/jerryjliu/llama_index)
+- sqlite-vss
 - Lib
   - [nmslib/hnswlib](https://github.com/nmslib/hnswlib)
   - [facebookresearch/faiss](https://github.com/facebookresearch/faiss)
     - MIT, C++
     - efficient similarity search and clustering of dense vectors
+  - [unum-cloud/usearch](https://github.com/unum-cloud/usearch)
 
 ## Geo
 
@@ -392,7 +394,6 @@ curl --request POST \
   - `down.sql`
 
 :::
-
 
 - Java
   - flywaydb

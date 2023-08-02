@@ -493,3 +493,16 @@ NextJS ssr 不支持 React.lazy
 - "use client"
 - [zustand#1395](https://github.com/pmndrs/zustand/issues/1395)
 - https://github.com/vercel/next.js/issues/42263
+
+## 库 import 必须要有 .js 后缀
+
+- 因为 `{ "type": "module" }`, `{ "resolution": "NodeNext" }` 定义如此
+- 但是 swc compile 出来没有
+- https://github.com/vercel/next.js/discussions/32237
+- `--experimental-specifier-resolution=node`
+  - 允许没有 .js 后缀
+- https://stackoverflow.com/questions/62619058
+
+```bash
+NODE_OPTIONS=--experimental-specifier-resolution=node
+```

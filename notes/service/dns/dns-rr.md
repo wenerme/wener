@@ -35,6 +35,10 @@ _postgresql.sql.example.com TXT "v=PGSQL1;d=mydb;u=myuser"
 _sip._udp.sip.example.com SRV "10 100 5060 s1.sip.example.com"
 ```
 
+- K8S
+  - `_port-name._port-protocol.my-svc.my-namespace.svc.cluster-domain.example`
+  - https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#srv-records
+
 ## ALIAS
 
 - 行为类似 CNAME

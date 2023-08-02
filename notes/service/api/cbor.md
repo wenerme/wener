@@ -11,6 +11,9 @@ tags:
   - JSON 的二进制替代
   - 一般会和 JSON 混合使用
 - 适用场景： IoT、SOA、需要性能、需要减少带宽
+- adopted by
+  - WebAuthN
+  - WebIntegraty
 - [cbor.me](https://cbor.me)
   Online converter
 - Golang - [fxamacker/cbor](https://github.com/fxamacker/cbor)

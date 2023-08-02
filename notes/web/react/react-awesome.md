@@ -85,6 +85,11 @@ npm add date-fns lodash-es react-fast-compare
 - [rsuite/rsuite](https://github.com/rsuite/rsuite)
   - 各方面神似 AntD - 但比 AntD 轻的多
 - [ant-design/ant-design](./antd.md)
+  - 1.3MB
+  - @ant-design/icons
+  - dayjs
+  - rx-
+  - @antdesign/cssinjs
 - [mui-org/material-ui](https://github.com/mui-org/material-ui) - Material Design 风格
   - 如果选择 MD 风格则非常匹配
   - 完成程度和成熟度远远高于 antd
@@ -469,12 +474,19 @@ npm add date-fns lodash-es react-fast-compare
   - [data-driven-forms/form-builder](https://github.com/data-driven-forms/form-builder)
     - 开源的 form builder
     - 尚不成熟
-- [unform/unform](https://github.com/unform/unform)
+- [vazco/uniforms](https://github.com/vazco/uniforms)
+  - building forms from any schema
+  - Schemas
+    - JSON Schema
+    - GraphQL
+    - SimpleSchema
+    - Zod
 - [alibaba/formily](https://github.com/alibaba/formily)
   - [alibaba/designable](https://github.com/alibaba/designable)
   - https://designable-antd.formilyjs.org/
 - 商业
   - [form.io](https://www.form.io)
+- ~~[unform/unform](https://github.com/unform/unform)~~
 
 ## 样式
 

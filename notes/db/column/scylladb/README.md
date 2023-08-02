@@ -8,6 +8,9 @@ title: ScyllaDB
 
 - 大多为 KV 访问方式
 - 单行、cell 数据量不是特别大 - 默认 10MB 行、 1MB cell 会发出警告
+- 兼容 cassandra，提供 dynamodb 适配接口
+- 替代 Redis 作为需要持久化的 Meta 和 缓存 存储
+- 面向低 latency 场景
 
 :::
 
@@ -35,6 +38,12 @@ title: ScyllaDB
 - [scylladb/scylla-operator](https://github.com/scylladb/scylla-operator)
 - Why C++ https://news.ycombinator.com/item?id=28294546
 - [scylladb/scylla-migrator](https://github.com/scylladb/scylla-migrator)
+
+:::note
+
+- 不是完全的列式存储
+
+:::
 
 | port      | for            |
 | --------- | -------------- |
@@ -75,7 +84,7 @@ docker exec -it scylla cqlsh -u cassandra -p cassandra
 
 :::tip
 
-- 默认读超时 5s, 写超时 2s
+- 默认读超时 5s, 写超时 2s - 面向低延迟场景
 
 :::
 

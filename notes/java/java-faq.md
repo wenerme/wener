@@ -128,3 +128,30 @@ https://stackoverflow.com/q/1856242/1870054
 - `SPRING_PROFILES_ACTIVE`
 
 ## Memory usage
+
+## A fatal error has been detected by the Java Runtime Environment
+
+```
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000000000207f6, pid=1, tid=0x00007f9256df8b38
+#
+# JRE version: OpenJDK Runtime Environment (8.0_345-b01) (build 1.8.0_345-b01)
+# Java VM: OpenJDK 64-Bit Server VM (25.345-b01 mixed mode linux-amd64 compressed oops)
+# Derivative: IcedTea 3.24.0
+# Distribution: Custom build (Tue Nov  8 21:00:08 UTC 2022)
+# Problematic frame:
+# C  0x00000000000207f6
+```
+
+- netty musl
+  - -Dio.micrometer.shaded.io.netty.transport.noNative=true
+  - -Dio.grpc.netty.shaded.io.netty.transport.noNative=true
+  - -Dorg.apache.rocketmq.shaded.io.grpc.netty.shaded.io.netty.transport.noNative=true
+  - Netty 4.1.77.Final+ 避免 segfaulting
+    - [netty#11701](- https://github.com/netty/netty/issues/11701)
+
+```bash
+apk add gcompat
+export LD_PRELOAD=/lib/libgcompat.so.0
+```

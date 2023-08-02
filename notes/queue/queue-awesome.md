@@ -43,9 +43,21 @@ tags:
 
 :::
 
-:::tip
+:::tip 推荐
 
 - 优先考虑: Redis, Nats, 关系型数据库
+
+:::
+
+:::tip 区别
+
+- 存储
+  - 短期
+    - 消费后即删除
+    - 正常的 MQ
+  - 长期
+    - 基于 Offset 消费，设置保留时间
+    - 兼任半个 DB 的能力 - Kafka、Nats JetStream、RocketMQ
 
 :::
 
@@ -75,6 +87,9 @@ tags:
     - 持久化
     - QoS
     - 流控
+- [bloomberg/blazingmq](https://github.com/bloomberg/blazingmq)
+  - Apache-2.0, C++
+  - 不做长期存储
 - [redpanda-data/redpanda](https://github.com/redpanda-data/redpanda)
   - BSL, C++,Go
   - 兼容 Kafka 协议

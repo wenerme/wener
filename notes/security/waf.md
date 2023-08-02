@@ -16,6 +16,8 @@ title: WAF
 - jxwaf
 - openstar
 - ngx_lua_waf
+- [chaitin/safeline](https://github.com/chaitin/safeline)
+
 # ModSecurity
 
 - [SpiderLabs/ModSecurity](https://github.com/SpiderLabs/ModSecurity)

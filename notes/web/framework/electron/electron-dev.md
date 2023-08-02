@@ -1,5 +1,7 @@
 ---
 title: Electron Dev
+tags:
+  - Devlopment
 ---
 
 # Electron Dev

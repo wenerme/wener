@@ -20,6 +20,10 @@ title: etcd
 
 :::tip
 
+- 适用于 少量更新，大量读取的场景
+- 频繁更新导致 snapshot 增长很快
+- 默认 2GiB 存储
+- 默认 value 上限 1.5MiB
 - v2 API - 3.5 废弃, 3.6 退役
 
 :::
@@ -210,3 +214,12 @@ unsafe-no-fsync: false
 ```
 
 - https://etcd.io/docs/v3.5/op-guide/configuration/
+
+## limits
+
+| flag                  | default | note      |
+| --------------------- | ------: | --------- |
+| --max-request-bytes   |  1.5MiB |
+| --quota-backend-bytes |    2GiB | 推荐 8GiB |
+
+- https://etcd.io/docs/v3.5/dev-guide/limit/

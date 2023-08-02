@@ -11,9 +11,10 @@ tags:
 
 **产品/服务**
 
-- https://chat.openai.com
-- https://bard.google.com
-- https://bing.com/new
+- Chat
+  - https://chat.openai.com
+  - https://bard.google.com
+  - https://claude.ai
 - https://bing.com/create
 - https://beta.dreamstudio.ai/generate
 - https://playgroundai.com/
@@ -24,12 +25,12 @@ tags:
 - Chat GPT 应用
   - https://open-gpt.app/
   - [万能道歉信](https://open-gpt.app/app/clf28gwkx0002l108tvysyb9i)
-- https://designer.microsoft.com/
-  - Icon
-- https://pixian.ai/
-  - Remove Image Backgrounds
-- https://quickqr.art/
-  - QR Code Art
+- design/image/ppt
+  - https://designer.microsoft.com/
+  - https://pixian.ai/
+    - Remove Image Backgrounds
+  - https://quickqr.art/
+    - QR Code Art
 
 ---
 
@@ -59,6 +60,7 @@ tags:
 
 ## Coding
 
+- [continuedev/continue](https://github.com/continuedev/continue)
 - [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
   - 类似 GitHub Copilot
   - [HN](https://news.ycombinator.com/item?id=28962582)
