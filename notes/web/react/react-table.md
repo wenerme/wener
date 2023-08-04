@@ -46,10 +46,10 @@ const InitialReactTableState = {
   grouping: [],
   columnSizing: {},
   columnSizingInfo: {
-    startOffset: null ,
+    startOffset: null,
     startSize: null,
     deltaOffset: null,
-    deltaPercentage: null ,
+    deltaPercentage: null,
     isResizingColumn: false,
     columnSizingStart: [], // [string, number][]
   },
@@ -77,6 +77,51 @@ const InitialReactTableState = {
 
 - 需要 memoized 的属性
   - colums, data, getSubRows, getRowId
+- getCoreRowModel
+  - `(table: Table<TData>) => () => RowModel<TData>`
+  - 只会调用 1 次
+- `getSubRows?: (originalRow: TData,index: number) => undefined | TData[]`
+- `getRowId?: (originalRow: TData,index: number,parent?: Row<TData>) => string`
+  - 默认用 index 作为 id
+
+```tsx
+export function useReactTable<TData extends RowData>(
+  options: TableOptions<TData>
+) {
+  // 合并选项
+  const resolvedOptions: TableOptionsResolved<TData> = {
+    state: {}, // Dummy state
+    onStateChange: () => {}, // noop
+    renderFallbackValue: null,
+    ...options,
+  }
+
+  // 创建 table
+  const [tableRef] = React.useState(() => ({
+    current: createTable<TData>(resolvedOptions),
+  }))
+
+  // 使用 react 状态
+  const [state, setState] = React.useState(() => tableRef.current.initialState)
+
+  // 优先使用用户提供的状态
+  tableRef.current.setOptions(prev => ({
+    ...prev,
+    ...options,
+    state: {
+      ...state,
+      ...options.state,
+    },
+    // 维护两边状态
+    onStateChange: updater => {
+      setState(updater)
+      options.onStateChange?.(updater)
+    },
+  }))
+
+  return tableRef.current
+}
+```
 
 # 插件
 

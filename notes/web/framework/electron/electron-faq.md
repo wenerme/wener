@@ -1,5 +1,7 @@
 ---
 title: Electron FAQ
+tags:
+- FAQ
 ---
 
 # Electron FAQ

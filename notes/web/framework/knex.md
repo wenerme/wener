@@ -11,6 +11,49 @@ title: knex
 - 参考
   - https://michaelavila.com/knex-querylab/
     - Knex to SQL
+- pool
+  - **默认** `min: 2, max: 10`
+  - 推荐 min 0
+  - 使用 [vincit/tarn.js](https://github.com/vincit/tarn.js)
+
+```js
+const pool = new Pool({
+  // 最小 2 - 推荐 0
+  min: 2,
+
+  // 最大 - 根据场景性能要求调整
+  max: 10,
+
+  // acquire promises are rejected after this many milliseconds
+  // if a resource cannot be acquired
+  acquireTimeoutMillis: 30000,
+
+  // create operations are cancelled after this many milliseconds
+  // if a resource cannot be acquired
+  createTimeoutMillis: 30000,
+
+  // destroy operations are awaited for at most this many milliseconds
+  // new resources will be created after this timeout
+  destroyTimeoutMillis: 5000,
+
+  // Free resources are destroyed after this many milliseconds.
+  // Note that if min > 0, some resources may be kept alive for longer.
+  // To reliably destroy all idle resources, set min to 0.
+  idleTimeoutMillis: 30000,
+
+  // how often to check for idle resources to destroy
+  reapIntervalMillis: 1000,
+
+  // how long to idle after failed create before trying again
+  createRetryIntervalMillis: 200,
+
+  // If true, when a create fails, the first pending acquire is
+  // rejected with the error. If this is false (the default) then
+  // create is retried until acquireTimeoutMillis milliseconds has
+  // passed.
+  propagateCreateError: false
+});
+```
 
 # FAQ
 

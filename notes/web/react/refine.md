@@ -127,3 +127,9 @@ export interface IResourceComponents {
 - Many 接口可选
 - @refinedev/simple-rest
   - `${apiUrl}/${resource}` - `[{id}]`
+
+## SDK
+
+- `@refinedev/sdk`
+- `const useSdk = (): { sdk: Client; config: IConnectContext }`
+  - IConnectContext `{baseUrl,clientId,resourcesName}`

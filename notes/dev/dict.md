@@ -469,15 +469,23 @@ tags:
   - 达成活动可能有一定条件 - 例如 A 转变为 B 还是 C 取决于一定条件
   - 活动底层也是通过事件驱动
 
-## Supplier vs. Vendor
+## Supplier vs. Provider vs. Vendor
+
+建议同等对待 “服务商”和“供应商”。
+
+---
 
 - Supplier
   - B2B 关系 - 产品供应商
   - 是上游
   - 一般指生产资料供应商，而非直接产品
   - Supplier 之间对比的是质量和影响关系
+- Provider
+  - 类似于 Supplier
+  - 通常用于服务相关，非实际产品
 - Vendor
   - B2B 或 B2C 关系
+  - 不强调上下游关系
   - 批量采购进行售卖的角色
   - 销售的内容是产品
   - Vendor 之间对比的是价格

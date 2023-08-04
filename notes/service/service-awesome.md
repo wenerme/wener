@@ -161,6 +161,46 @@ tags:
   - [ZYSzys/awesome-captcha](https://github.com/ZYSzys/awesome-captcha)
 - qr
   - [kochrt/qr-designer](https://github.com/kochrt/qr-designer)
+- jumpserver/basestation/跳板机/堡垒机/WebTerminal/bastion-host/Agent
+  - [jumpserver/jumpserver](https://github.com/jumpserver/jumpserver)
+    - GPLv3, Python
+  - [bastillion-io/Bastillion](https://github.com/bastillion-io/Bastillion)
+    - Prosperity Public License, Java
+  - [warp-tech/warpgate](https://github.com/warp-tech/warpgate)
+    - Apache-2.0, Rust
+    - 支持 SSH, HTTPS, MySQL
+  - [lijiahangmax/orion-ops](https://github.com/lijiahangmax/orion-ops)
+    - Apache-2.0, Java
+  - WebSSH
+    - [jimmy201602/webterminal](https://github.com/jimmy201602/webterminal)
+    - [huashengdun/webssh](https://github.com/huashengdun/webssh)
+    - [nirui/sshwifty](https://github.com/nirui/sshwifty)
+      - AGPLv3, Go
+  - [aker-gateway/Aker](https://github.com/aker-gateway/Aker)
+  - Apache Guacamole
+  - tailscale
+    - https://tailscale.com/learn/access-remote-server-jump-host/
+- ssh
+  - mosh
+  - Eternal Terminal
+  - stormssh
+  - [moul/assh](https://github.com/moul/assh)
+- access gateway/ssh jump server
+  - [gravitational/teleport](https://github.com/gravitational/teleport)
+  - [pomerium/pomerium](https://github.com/pomerium/pomerium)
+    - Apache-2.0, Go
+- WebAdmin/AdminAgent
+  - [Ylianst/MeshCentral](https://github.com/Ylianst/MeshCentral)
+    - Apache-2.0, JS
+- Tunnel
+  - frp
+  - [rapiz1/rathole](https://github.com/rapiz1/rathole)
+  - cloudflared
+  - [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
+  - [robbie-cahill/tunnelmole-client](https://github.com/robbie-cahill/tunnelmole-client)
+    - MIT, Typescript
+    - WebSocket
+  - sshuttle
 
 ## Avatar
 
@@ -397,6 +437,7 @@ tags:
     - shell
     - grpc
     - rabbitmq
+
 ```bash
 docker run --rm -it -p 8080:8080 -e GODEBUG=netdns=go --name dkron dkron/dkron agent --server --log-level=debug --bootstrap-expect=1
 ```

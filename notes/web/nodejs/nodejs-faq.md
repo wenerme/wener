@@ -42,6 +42,16 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 }
 ```
 
+## performance
+
+- UV_THREADPOOL_SIZE=4
+  - 最大 1024
+- knex
+  - pool min:2, max: 10
+- fastify
+- [fast-json-stringify](https://github.com/fastify/fast-json-stringify)
+- find-my-way
+
 ## arm64/aarch64 musl
 
 - 暂无

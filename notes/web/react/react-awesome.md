@@ -314,6 +314,9 @@ npm add date-fns lodash-es react-fast-compare
   - lingui
   - rosetta
   - next-intl
+  - [formatjs](https://github.com/formatjs/formatjs)
+- hooks/utils
+  - [adobe/react-spectrum](https://github.com/adobe/react-spectrum)
 - for fun
   - [Clariity/react-chessboard](https://github.com/Clariity/react-chessboard)
 

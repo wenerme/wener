@@ -4,9 +4,22 @@ title: TimeScale
 
 # TimeScale
 
+:::tip
+
+- 适用于
+  - 需要时序数据存储
+- 不适用于
+  - 监控
+  - Metrics
+- promscale 停止开发 [promscale#1836](https://github.com/timescale/promscale/issues/1836)
+
+:::
+
 - [TimeScale](http://www.timescale.com/)
 - [timescale/timescaledb](https://github.com/timescale/timescaledb)
+  - Apache-2.0
   - An open-source time-series database optimized for fast ingest and complex queries. Engineered up from PostgreSQL, packaged as an extension.
+  - data retention policies, continuous aggregate views, downsampling, data gap-filling, interpolation
 - 参考
   - [Problems with PostgreSQL 10 for time-series data](https://blog.timescale.com/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5)
   - [Building a distributed time-series database on PostgreSQL](https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/)
@@ -73,4 +86,23 @@ remote_read:
 
 ## Notes
 
+- create_hypertable
+  - chunk_time_interval=7d
+  - partitioning_column
+  - number_partitions - 基于 partitioning_column 的 hash 分片
+  - associated_schema_name=`_timescaledb_internal`
+  - associated_table_prefix=`_hyper`
+  - replication_factor=timescaledb.hypertable_replication_factor_default
+  - https://docs.timescale.com/api/latest/hypertable/create_hypertable/
+
+```sql
+SELECT create_hypertable('samples', 'ts', chunk_time_interval => INTERVAL '7 day');
+
+select chunks_detailed_size('samples');
+select * from timescaledb_information.chunks;
+```
+
+---
+
 - [Architecture & Concepts](https://docs.timescale.com/introduction/architecture)
+- https://docs.timescale.com/use-timescale/latest/hypertables/

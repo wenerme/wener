@@ -9,8 +9,34 @@ tags:
 
 - monorepo 类型问题 [TypeScript#25376](https://github.com/microsoft/TypeScript/issues/25376)
   - 目前就 npm monorepo 工作相对正常
+- `abstract static` [TypeScript#34516](https://github.com/microsoft/TypeScript/issues/34516)
 
 :::
+
+## type vs interface
+
+建议优先 interface
+
+- 更直观 - 写法和功能上
+- 对熟悉其他语言的人来说更好理解
+- 弱于 `type` - 避免太复杂
+
+---
+
+- `type`
+  - Type alias
+  - 可以表示任意类型
+  - 支持 union、mapped type、conditional type、tuple
+  - 隐含 `Record<PropertyKey, unknown>`
+- `interface`
+  - 可以 extends - 会比 type `&` 快一点
+  - 同名会做合并 - 通常是不希望的结果
+
+---
+
+- https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
+  - 建议优先 interface
+- https://www.totaltypescript.com/type-vs-interface-which-should-you-use
 
 ## Expected 3 type arguments, but got 1
 

@@ -78,7 +78,7 @@ tags:
   - [Microsoft/tsyringe](https://github.com/Microsoft/tsyringe)
     - ⚠️ 非常不活跃
   - [jeffijoe/awilix](./lib/awilix.md)
-    - 0依赖, 12kB
+    - 0 依赖, 12kB
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
     - 支持代理模式 - 通过访问的字段名字进行 resolve
       - 不支持异步
@@ -738,6 +738,9 @@ tags:
 - Typescript
   - [ts-node](../nodejs/ts-node.md)
   - [tsx](../nodejs/tsx.md)
+- detection/user agent/fingerprinting
+  - [abrahamjuliot/creepjs](https://github.com/abrahamjuliot/creepjs)
+    - https://abrahamjuliot.github.io/creepjs/
 
 ---
 
@@ -783,13 +786,15 @@ tags:
 
 # Polyfill
 
-- https://github.com/ardatan/whatwg-node
+- core-js
+- [ardatan/whatwg-node](https://github.com/ardatan/whatwg-node)
   - fetch
     - busboy -> parse form data
     - fast-querystring
     - fast-url-parser
   - events
   - server
+- [aermin/web-locks](https://github.com/aermin/web-locks)
 
 ## Edge/Serverless
 

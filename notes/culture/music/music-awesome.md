@@ -14,8 +14,18 @@ tags:
   - Dragon
 - yue
   - 冯曦妤
+- electronic
+  - Avicii
+  - Armin van Buuren
+  - David Guetta
+  - Tiesto
+  - Swedish House Mafia
+  - Zedd
+  - ATB
+  - Daft Punk
+  - Paul van Dyk
 
-[e ve]: https://zh.wikipedia.org/wiki/Eve_(歌手)
+[e ve]: https://zh.wikipedia.org/zh-hk/Eve_(%E6%97%A5%E6%9C%AC%E6%AD%8C%E6%89%8B)
 [米津玄師]: https://zh.wikipedia.org/zh/米津玄師
 
 <!--

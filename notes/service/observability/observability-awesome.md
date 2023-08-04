@@ -11,11 +11,13 @@ tags:
   - MIT, JS, Vue
   - 监控网站 uptime
   - https://demo.uptime.kuma.pet/
-- [zinclabs/zincobserve](./zincobserve.md)
+- [openobserve](./openobserve.md)
+  - zincobserve -> openobserve
   - Apache-2.0, Rust
   - 从 ZincSearch 演化而来
   - Log & Trace & Metrics
 - [通用时间序列数据库/time-series](../../db/db-awesome.md#time-series)
+- https://opentelemetry.io/ecosystem/vendors/
 
 ## Tracing
 

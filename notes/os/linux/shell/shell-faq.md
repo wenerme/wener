@@ -6,6 +6,13 @@ tags:
 
 # Shell FAQ
 
+## sort in place
+
+```bash
+# -o 可以，不要 > file
+sort -o file{,}
+```
+
 ## tree utf8 chartset
 
 ```bash

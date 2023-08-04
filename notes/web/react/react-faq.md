@@ -49,7 +49,7 @@ const Layout = forwardRef(() => {
 });
 Layout.displayName = 'MainLayout';
 // 添加静态属性，TS 不会出错
-export const MainLayout = Object.assign(Layout, {Slot});
+export const MainLayout = Object.assign(Layout, { Slot });
 ```
 
 2. 定义属性
@@ -154,13 +154,13 @@ callbackRef.current = callback;
 ```tsx title="React.Component"
 import React from 'react';
 
-class Hello extends React.Component<{name: string}, {name: string}> {
+class Hello extends React.Component<{ name: string }, { name: string }> {
   static props = {
     name: 'Wener',
   };
 
-  static getDerivedStateFromProps({name}) {
-    return {name};
+  static getDerivedStateFromProps({ name }) {
+    return { name };
   }
 
   constructor(props) {
@@ -175,11 +175,11 @@ class Hello extends React.Component<{name: string}, {name: string}> {
     console.debug(`componentDidMount`);
   }
 
-  getSnapshotBeforeUpdate(prevProps: Readonly<{name: string}>, prevState: Readonly<{name: string}>): any {
+  getSnapshotBeforeUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>): any {
     return {};
   }
 
-  componentDidUpdate(prevProps: Readonly<{name: string}>, prevState: Readonly<{name: string}>, snapshot?: any) {
+  componentDidUpdate(prevProps: Readonly<{ name: string }>, prevState: Readonly<{ name: string }>, snapshot?: any) {
     console.debug(`componentDidUpdate`);
   }
 
@@ -188,8 +188,8 @@ class Hello extends React.Component<{name: string}, {name: string}> {
   }
 
   shouldComponentUpdate(
-    nextProps: Readonly<{name: string}>,
-    nextState: Readonly<{name: string}>,
+    nextProps: Readonly<{ name: string }>,
+    nextState: Readonly<{ name: string }>,
     nextContext: any,
   ): boolean {
     return false;
@@ -205,11 +205,11 @@ class Hello extends React.Component<{name: string}, {name: string}> {
 ```
 
 ```tsx title="React.FC"
-const HelloFC: React.FC<{name: string}> = ({name}) => {
-  const [state, setState] = useState({name});
+const HelloFC: React.FC<{ name: string }> = ({ name }) => {
+  const [state, setState] = useState({ name });
   // getDerivedStateFromProps
   useEffect(() => {
-    setState({name});
+    setState({ name });
   }, [name]);
   useEffect(() => {
     console.debug('componentDidMount');
@@ -221,12 +221,12 @@ const HelloFC: React.FC<{name: string}> = ({name}) => {
   // render
   return (
     <h1>
-      Hello, <input value={state.name} onChange={(e) => setState({name: e.target.name})} />
+      Hello, <input value={state.name} onChange={(e) => setState({ name: e.target.name })} />
     </h1>
   );
 };
 HelloFC.displayName = 'HelloFC';
-HelloFC.defaultProps = {name: 'Wener'};
+HelloFC.defaultProps = { name: 'Wener' };
 
 const HelloMemo = React.memo(HelloFC, (a, b) => {
   // shouldComponentUpdate
@@ -301,7 +301,7 @@ class A extends React.Component {
 }
 class B extends React.Component {
   render() {
-    return <div dangerouslySetInnerHTML={{__html: "<iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />"}} />;
+    return <div dangerouslySetInnerHTML={{ __html: "<iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />" }} />;
   }
 }
 ```
@@ -339,7 +339,21 @@ class B extends React.Component {
 
 - 由 React Developer Tools 注入
 
-## Cannot assign to read only property '_status' of object
+## Cannot assign to read only property '\_status' of object
 
 - 可能 React.lazy 导致
 - 可能 隐藏了实际异常
+
+## Typescript 类型
+
+- React.JSX.Element
+- ReactElement
+- React.Element
+
+## 空内容
+
+- React.Element
+  - `<React.Fragment />`
+  - `<></>`
+- ReactNode
+  - false, null, undefined, true

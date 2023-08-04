@@ -12,6 +12,12 @@ title: mikro-orm
 - @mikro-orm/knex
   - Builder
 
+:::tip
+
+- mikroorm 使用 knex， knex pool 默认 `min:2, max:10`
+
+:::
+
 ```bash
 # mongodb, mysql, mariadb, sqlite
 npm add @mikro-orm/core @mikro-orm/postgresql
