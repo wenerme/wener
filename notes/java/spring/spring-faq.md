@@ -5,6 +5,27 @@ tags:
 
 # Spring FAQ
 
+## Thread Pool
+
+```yaml
+server.jetty.threads.acceptors: -1.0
+server.jetty.threads.idle-timeout: 60000ms
+server.jetty.threads.max: 200.0
+server.jetty.threads.min: 8.0
+server.jetty.threads.selectors: -1.0
+
+server.tomcat.threads.max: 200.0
+server.tomcat.threads.min-spare: 10.0
+server.tomcat.accept-count: 100.0
+
+# https://github.com/undertow-io/undertow/blob/7d87eef9534807d00c974f92dc46be3d09b703a0/core/src/main/java/io/undertow/Undertow.java#L438-L439
+server.undertow.threads.io: # Math.max(Runtime.getRuntime().availableProcessors(), 2)
+server.undertow.threads.worker: # 8*io threads
+```
+
+- https://docs.spring.io/spring-boot/docs/2.4.0/reference/htmlsingle
+- https://docs.spring.io/spring-boot/docs/2.7.x-SNAPSHOT/reference/htmlsingle/
+
 ## Override Config
 
 ```ini

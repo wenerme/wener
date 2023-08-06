@@ -6,6 +6,9 @@ tags:
 
 # CentOS FAQ
 
+- 最后版本
+  - 8.5.2111 - 2021-11-16
+  - 7.9-2009 - 2020-11-12
 - https://wiki.centos.org/FAQ/CentOS8
 
 ## CentOS 8 os vs kickstart

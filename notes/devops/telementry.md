@@ -16,7 +16,22 @@ NEXT_TELEMETRY_DISABLED=1
 # K0S
 DISABLE_TELEMETRY=true
 DISABLE_UPGRADE_CHECK=true
+# ferretdb
+FERRETDB_TELEMETRY=disable
+DO_NOT_TRACK=true
 ```
+
+## ferretdb
+
+- `--telemetry=false`
+- `db.disableFreeMonitoring()`
+
+```bash
+FERRETDB_TELEMETRY=disable
+DO_NOT_TRACK=true
+```
+
+- https://docs.ferretdb.io/telemetry/
 
 ## Minio
 

@@ -18,9 +18,12 @@ tags:
   - Log & Trace & Metrics
 - [通用时间序列数据库/time-series](../../db/db-awesome.md#time-series)
 - https://opentelemetry.io/ecosystem/vendors/
+- [observIQ/bindplane-op](https://github.com/observIQ/bindplane-op)
 
 ## Tracing
 
+- [teletrace/teletrace](https://github.com/teletrace/teletrace)
+  - Apache-2.0, Go
 - [hypertrace/hypertrace](https://github.com/hypertrace/hypertrace)
 
 ## Metrics

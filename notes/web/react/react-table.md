@@ -80,6 +80,7 @@ const InitialReactTableState = {
 - getCoreRowModel
   - `(table: Table<TData>) => () => RowModel<TData>`
   - 只会调用 1 次
+  - memo table.options.data
 - `getSubRows?: (originalRow: TData,index: number) => undefined | TData[]`
 - `getRowId?: (originalRow: TData,index: number,parent?: Row<TData>) => string`
   - 默认用 index 作为 id

@@ -6,7 +6,10 @@ title: CentOS
 
 :::caution
 
-- 2020-12-08 宣布项目于 2021 年底停止 - 最后版本 8.4.2105, 7.9-2009
+- 2020-12-08 宣布项目于 2021 年底停止
+- 最后版本
+  - 8.5.2111 - 2021-11-16
+  - 7.9-2009 - 2020-11-12
 - 后继 OS
   - RockyLinux - 由 CentOS 创建者维护 - 由 AWS 和 Google 赞助
   - AlmaLinux - 由 CloudLinux 维护
@@ -44,7 +47,6 @@ yum install -y yum-utils
 rpm -Uvh --nodeps $(repoquery --location kernel-core)
 
 exit
-
 ```
 
 ## install

@@ -1,10 +1,8 @@
 ---
-title: Benchmark
+title: wrk
 ---
 
-# Benchmark
-
-## wrk
+# wrk
 
 ```
   -c, --connections <N>  打开的连接数

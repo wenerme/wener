@@ -36,6 +36,11 @@ npx prettier --check src/**/*.{ts,tsx,css,html}
 
 # 项目依赖
 npm add -D prettier
+
+# 当前配置文件
+prettier --find-config-path src/types.d.ts
+
+prettier --write src --cache --cache-strategy metadata
 ```
 
 **prettier.config.js**

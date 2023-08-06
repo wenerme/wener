@@ -155,3 +155,29 @@ https://stackoverflow.com/q/1856242/1870054
 apk add gcompat
 export LD_PRELOAD=/lib/libgcompat.so.0
 ```
+
+
+## Unable to get pid of LinuxThreads manager thread
+
+alpine docker 里 java 8 为 pid 1 时出现。
+
+```bash
+curl -O https://arthas.aliyun.com/arthas-boot.jar
+pid=1
+touch /proc/${pid}/cwd/.attach_pid${pid} && kill -SIGQUIT ${pid} && sleep 2 && ls /proc/${pid}/root/tmp/.java_pid${pid}
+java -jar arthas-boot.jar 1
+```
+
+```bash
+# musl 无法判断线程模型
+getconf GNU_LIBPTHREAD_VERSION
+
+# https://github.com/jattach/jattach
+apk add jattach
+jattach 1 properties
+```
+
+- OpenJDK 11+ 修复
+- 通过 -XX:+StartAttachListener 可避免问题
+- https://github.com/alibaba/arthas/issues/362#issuecomment-1336190202
+- https://github.com/docker-library/openjdk/issues/76

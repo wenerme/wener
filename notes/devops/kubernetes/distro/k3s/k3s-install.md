@@ -286,7 +286,7 @@ echo Upgrade $VERSION_K3S
 GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases
 curl --remote-name-all -L "${GITHUB_URL}/download/${VERSION_K3S}/sha256sum-${ARCH}.txt" "${GITHUB_URL}/download/${VERSION_K3S}/k3s${SUFFIX}"
 
-sha256sum -c sha256sum-amd64.txt --ignore-missing
+sha256sum -c sha256sum-${ARCH}.txt --ignore-missing
 
 cp k3s$SUFFIX k3s.$VERSION_K3S
 chmod +x k3s.$VERSION_K3S

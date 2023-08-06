@@ -637,6 +637,9 @@ tags:
     - return the GPU renderer string for iPhone and iPad
   - [pmndrs/detect-gpu](https://github.com/pmndrs/detect-gpu)
   - https://shaka-player-demo.appspot.com/support.html
+- webcomponents
+  - [google/model-viewer](https://github.com/google/model-viewer)
+    - 3D Model
 
 ---
 

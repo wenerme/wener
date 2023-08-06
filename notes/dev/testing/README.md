@@ -41,6 +41,8 @@ title: 测试
       - 用户会感到延迟,影响体验。
   - 交互接口考虑 100-300ms
   - 一般接口考虑 500ms
+- 参考
+  - [Latency](../../devops/concept/latency.md)
 
 # Load Test
 

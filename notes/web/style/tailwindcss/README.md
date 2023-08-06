@@ -594,3 +594,13 @@ delete colors['blueGray'];
 ```
 
 - https://github.com/tailwindlabs/tailwindcss/issues/4690#issuecomment-1046087220
+
+## prettier-plugin-tailwindcss
+
+- custom > component > utility
+- utility
+  - sort by override
+  - modifiers last
+- h -> w
+- x -> y
+- https://github.com/tailwindlabs/prettier-plugin-tailwindcss

@@ -8,6 +8,18 @@ title: 字典
 | ----------- | -------- |
 | hucksterism | 骗子主义 |
 
+## 星期
+
+| abbr | en        | cn     |
+| ---- | --------- | ------ |
+| Sun  | Sunday    | 星期日 |
+| Mon  | Monday    | 星期一 |
+| Tue  | Tuesday   | 星期二 |
+| Wed  | Wednesday | 星期三 |
+| Thu  | Thursday  | 星期四 |
+| Fri  | Friday    | 星期五 |
+| Sat  | Saturday  | 星期六 |
+
 ## 月份及缩写
 
 | abbr | en        | cn     |

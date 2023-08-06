@@ -5,6 +5,12 @@ title: Metrics
 # Metrics
 
 ```
+# 排查 Namespace 流量
+sum(rate(container_network_transmit_bytes_total{}[5m])) by (namespace)
+
+# 节点网络
+sum(rate(node_network_transmit_bytes_total{}[$__rate_interval]))
+
 sum(rate(container_cpu_usage_seconds_total{container="apisix"}[$__rate_interval]))
 
 sum(container_memory_working_set_bytes{namespace="haproxy-controller",container="haproxytech-ingress-controller"})

@@ -793,7 +793,7 @@ docker run --cap-add=SYS_ADMIN --shm-size 2G postgres
 ```yaml
 preStop:
   exec:
-    command: [ "/bin/sh", "-c", "pg_ctl -D /var/lib/postgresql/data/pgdata -w -t 60 stop -m fast" ]
+    command: ['/bin/sh', '-c', 'pg_ctl -D /var/lib/postgresql/data/pgdata -w -t 60 stop -m fast']
     #command: ['/usr/local/bin/pg_ctl stop -D /var/lib/postgresql/data -w -t 60 -m fast']
 ```
 
@@ -827,8 +827,6 @@ select 10::money;
 - LC_CTYPE
 - LC_MONETERY
 
-
-
 | name        | default    | aliyun     |
 | ----------- | ---------- | ---------- |
 | lc_collate  | en_US.utf8 | C          |
@@ -852,3 +850,17 @@ POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
 
 - 外键需要 REFERENCES
 - https://www.postgresql.org/docs/current/ddl-priv.html
+
+## source for a multiple-column UPDATE item must be a sub-SELECT or ROW() expression
+
+不能单个字段
+
+```
+on conflict(value) do update set (label)= (excluded.label);
+```
+
+修改为
+
+```
+on conflict(value) do update set (label,extensions)= (excluded.label,excluded.extensions);
+```
