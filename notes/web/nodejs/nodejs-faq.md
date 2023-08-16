@@ -355,3 +355,15 @@ node --snapshot-blob snapshot.blob
 ```bash
 export NODE_PATH=$(npm root --quiet -g)
 ```
+
+
+## ERR_OSSL_EVP_UNSUPPORTED
+
+```
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at BulkUpdateDecorator.hashFactory (~/node_modules/.pnpm/webpack@5.39.0_webpack-cli@4.7.2/node_modules/webpack/lib/util/createHash.js:145:18)
+```
+
+- pnpm 安装有问题，换 npm 后好了

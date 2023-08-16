@@ -18,16 +18,20 @@ pmset noidel
 
 # 查看当前配置 - 基于情况显示 AC 或 电池
 pmset -g
+pmset -g | tail -n +4 | sort
 # 所有配置
 pmset -g custom
 
-pmset restoredefaults # 电源配置恢复系统设置
-pmset sleepnow        # 立即休眠
 
 # 一次修改多个设置
 pmset -a displaysleep 10 disksleep 10 sleep 30 womp 1
 # standby https://support.apple.com/zh-cn/HT202124
 pmset -a hibernatemode 3 standby 1 standbydelayhigh 150 standbydelaylow 0
+
+pmset -a proximitywake 0
+
+pmset restoredefaults # 电源配置恢复系统设置
+pmset sleepnow        # 立即休眠
 ```
 
 | flag | for                           |

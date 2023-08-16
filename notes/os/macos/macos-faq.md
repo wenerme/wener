@@ -54,7 +54,6 @@ tags:
       - sharingd
       - backupd
       - AddressBookSourceSync
--
 
 ```bash
 # 当前系统状态
@@ -66,8 +65,12 @@ pmset -g assertions
 pmset -g assertionslog
 
 # 查看唤起原因
-log show --style syslog --start '2019-05-27 17:50:00' | grep "Wake reason"
+log show --style syslog --start "$(date +%Y-%m-%d) 00:00:00" | grep "Wake reason"
 ```
+
+- PreventUserIdleSystemSleep
+  - BTLEAdvertisement
+- MaintenanceWake - mDNSResponder:maintenance
 
 ```
 

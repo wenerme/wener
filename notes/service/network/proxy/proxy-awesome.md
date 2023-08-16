@@ -44,6 +44,10 @@ tags:
   - Tunnel
 - [snail007/goproxy](https://github.com/snail007/goproxy)
   - GPL-3.0, Go
+- [frp](./frp/README.md)
+- [rapiz1/rathole](https://github.com/rapiz1/rathole)
+  - Apache-2.0, Rust
+  - 类似 frp，但 rust 实现
 
 ## Sniff/Introspection
 

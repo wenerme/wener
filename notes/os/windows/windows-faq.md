@@ -6,6 +6,21 @@ tags:
 
 # Windows FAQ
 
+## Windows 11 无账号安装
+
+1. 国家页面 `Shift-F11`
+2. 输入 `oobe\BypassNRO`
+
+**也可以**
+
+```
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f
+shutdown /r /t 0
+```
+
+3. 重启后断网安装
+
+
 ## Ports
 
 | service  | port | protocol |

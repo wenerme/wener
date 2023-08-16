@@ -10,3 +10,8 @@ title: IPVS
 apk add ipvsadm
 ```
 
+- keepalived
+- VRRP - Virtual Router Redundancy Protocol
+  - https://datatracker.ietf.org/wg/vrrp/documents/
+- BFD - Bidirectional Forwarding Detection
+  - https://datatracker.ietf.org/wg/bfd/documents/

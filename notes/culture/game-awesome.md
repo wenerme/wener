@@ -54,6 +54,9 @@ https://www.game-game.com.ua/
 | 2020-09-17 | Hades                                        | 哈迪斯              |        |
 | 2019-09    | Ori and the Blind Forest: Definitive Edition | 精灵与森林 决定版   |        |
 | 2018-07    | OCTOPATH TRAVELER                            | 歧路旅人            |        |
+| -          |                                              | 幽灵诡计            |
+| -          |                                              | 弹丸论破            |
+| -          |                                              | 土豆兄弟            |
 
 **Have/Completed**
 

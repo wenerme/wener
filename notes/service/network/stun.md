@@ -31,3 +31,13 @@ dig srv _stun._udp.stun.linphone.org
 # _stun._udp.stun.linphone.org. 2527 IN   SRV     0 100 3478 stun.linphone.org.
 # _stun._udp.stun.linphone.org. 2527 IN   SRV     10 100 3478 sip1.linphone.org.
 ```
+
+```
+stun.syncthing.net
+stun.qq.com
+stun.miwifi.com
+stun.newtocktech.com
+```
+
+- 3478, 3479
+- 5349, 5350

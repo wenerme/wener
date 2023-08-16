@@ -181,6 +181,7 @@ tags:
     - AGPL-3.0
     - 需要 GPU
     - App 方式
+    - Real-ESRGAN
 
 ---
 

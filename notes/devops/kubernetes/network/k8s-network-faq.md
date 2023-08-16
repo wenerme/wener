@@ -160,3 +160,10 @@ http-request redirect prefix http://%[hdr(host),regsub(^www\.,,i)] code 301 if {
 
 http-request redirect prefix http://www.%[hdr(host)] code 301 unless { hdr_beg(host) -i www. }
 ```
+
+## ExternalName
+
+- 主要是需要处理动态解析
+- 可以考虑配置静态服务 IP
+- HAProxy Ingress 不支持
+  - https://github.com/haproxytech/kubernetes-ingress/issues/100

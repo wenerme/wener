@@ -279,6 +279,7 @@ cp $(which k3s) k3s.last # backup
 ARCH=amd64
 SUFFIX=
 
+sudo apk add jq
 VERSION_K3S=$(curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest')
 echo Upgrade $VERSION_K3S
 # GITHUB_URL=https://github.com/k3s-io/k3s/releases
@@ -293,6 +294,7 @@ chmod +x k3s.$VERSION_K3S
 sudo cp k3s.$VERSION_K3S $(which k3s)
 
 sudo k3s check-config
+k3s -v
 
 # 启动
 service k3s restart

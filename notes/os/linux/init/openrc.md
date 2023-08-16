@@ -102,10 +102,12 @@ stop_pre() {
   - need - 强制依赖
   - use - soft dependency - 如果在相同 runlevel 则 start，已经 start 不关心
   - want - 尝试 start，不关心 runlevel，已经 start 不关心
-  - before
-  - after
+  - before - 在给定服务之前启动
+  - after - 在给定服务之后启动
   - provide - 提供服务 - 类似别名或相同服务
   - keyword
+  - 依赖
+    - 影响服务起停 - 例如: 重启 服务 -> 会先停止 **依赖**，重启服务，然后再启动 **依赖**
 - https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
 
 ## supervise-daemon

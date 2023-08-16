@@ -121,7 +121,9 @@ module.exports = {
 - https://prettier.io/docs/en/plugins.html
 
 ## ignore
-- prettier-ignore
+
+- `.prettierignore`
+- prettier-ignore 注释
 
 ```jsx
 <div>

@@ -62,26 +62,30 @@ IPAM 报异常事件，拔插 内存 后恢复。
 
 2008 年在阿里巴巴的 IT 架构中，去掉 IBM 的小型机、Oracle 数据库、EMC 存储设备，代之以自己在开源软件基础上开发的系统。
 
-## Why
+## Tech Stack Why
 
 - 所有 OS 为 AlpineLinux
   - 因为 安全、小、简单
   - 因为 唯手熟尔 - 所有问题都能解决
   - 我个人是 AlpineLinux 的部分包维护者
   - 与 AlpineLiniux 官方人员也很容易沟通
+  - 现有的自动化脚本是基于 Alpine 写的
+  - 制作 apk 简单
 - K8S 使用了 K3S
   - 目前来说 < 100 节点以前都不考虑 kubeadm
   - 因为 熟悉，能解决问题
     - K3S 里也有我提交的一点代码
   - 因为 简单、小、易于维护升级
-  - https://wener.me/story/k3s-vs-k0s
   - K3S 使用 Embed 的 ETCD，使用 flannel 网络
+  - https://wener.me/story/k3s-vs-k0s
 - 节点 VPN
   - 易于运维管理 - 穿透，IP 固定
   - 更安全 - 不暴露外部端口
   - ops - tinc 的 router 模式
     - 目前主要在用
   - infra - tinc 的 switch 模式
+    - 可用于桥接
+    - 可用于 metallb
 - SSH 所有使用 Key 登录，关闭密码登录
 - OS 部署使用 Ansible
   - 确保幂等
@@ -89,27 +93,53 @@ IPAM 报异常事件，拔插 内存 后恢复。
   - 确保过程记录
   - 基础 setup 逻辑位于 https://github.com/wenerme/ansible-collection-wenerme-alpine
   - 后续 setup 同步逻辑在 ops 仓库
-- CD - 使用 ArgoCD 部署 K8S 资源
+- CD - 部署到 K8S
   - GitOps 易于跟踪维护
-  - ArgoCD 使用非常友好
+  - ArgoCD
+    - 使用非常友好
+    - 界面功能完善
   - 目录结构参考 https://github.com/wenerme/kube-stub-cluster
 - CI
-  - 目前使用 Coding 的 Jenkins Worker
+  - 推荐 Gitea Actions
+    - Gitea 功能完善
+    - Selfhost
+  - 推荐 Gitlab Runner
+    - 如果已经在使用 Gitlab
+  - Coding 的 Jenkins Worker
     - 好处
       - 开发人员方便看
     - 坏处
       - 每次重启需要调整 Worker 并发数量
       - 启动慢 - 因为只能在线下载安装
       - 资源占用更多 - 因为 Jenkins
-  - 可以考虑使用 Gitea Actions
-    - 目前已有在使用 Gitea 作为镜像仓库，因为 Coding 的镜像仓库有兼容问题
-    - 如果未来 Coding 的成本过高可以考虑迁移
-- 日志采集 - OpenObserve
+  - 不推荐 Jenkins
+  - 不推荐 Drone
+  - 可以尝试 Woodpecker 1.0 - Drone 开源分支
+- 日志存储 - OpenObserve
   - 因为简单易于维护
   - 满足需求
+- 日志采集
+  - 推荐 vector
+  - 可以考虑 fluentbit - 插件依赖 Golang Plugin 对 musl 不友好
+- 指标存储
+  - 集群内 Prometheus - 存储 2-4 周
+    - 如果不考虑集群内存储 Prometheus 可开启 agent 模式
+  - 长期存储 VictoriaMetrics
+- 指标采集 - PrometheusOperator
 - 主网关为 HAProxy
   - 性能比 Nginx 更好，功能比 Nginx 更少
-- 应用网关为 Apisix
+- 应用网关为 Apisix/Nginx
   - 简单易用
   - 运维预案控制
   - 日志采集
+
+---
+
+**开发**
+
+- 主业务数据库 - PostgreSQL
+  - 分布式、分片 - citus
+- 缓存 - Redis
+  - +性能 - keydb
+- 列存 - Clickhouse
+- 高性能分布式 KV - ScyllaDB

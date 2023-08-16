@@ -204,3 +204,10 @@ location.origin;
 ```
 
 - useOnClickOutside 处理 touchstart 时触发，需要传入 passive 参数
+
+## Failed to execute 'postMessage' on 'DOMWindow': The target origin provided does not match the recipient window's origin
+
+1. 确保 iframe 完全加载
+1. sandbox=allow-same-origin
+1. 尝试 `frame.postMessage("hello world!", '*')`
+  - `*`

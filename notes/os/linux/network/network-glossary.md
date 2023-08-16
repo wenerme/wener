@@ -19,3 +19,5 @@ tags:
 | STP   | Spanning Tree Protocol            |
 | TSO   | TCP Segmentation Offload          |
 | USO   | UDP Segmentation Offload          |
+| VIP   | Virtual IP                        |
+| VPC   |

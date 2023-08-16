@@ -14,12 +14,14 @@ tags:
 | iconic         | free 200   |
 | [fontawesome]  | free 2009+ | ✅      | ✅        | ✅     |
 
+- [react-icons](http://react-icons.github.io/react-icons)
+  - 非常多 icon 的合集
+  - 作为 React 组件可直接使用
 - [tabler/tabler-icons](https://github.com/tabler/tabler-icons)
   - 1950+
 - https://github.com/primer/octicons
   - by GitHub
 - https://www.ibm.com/design/language/iconography/ui-icons/library/
-- [react-icons](http://react-icons.github.io/react-icons)
 - [akveo/eva-icons](https://github.com/akveo/eva-icons)
   - 400
 - [astrit/css.gg](https://github.com/astrit/css.gg)

@@ -325,6 +325,12 @@ tags:
 | social security                           | 社保                          |
 | imposition                                | 征收                          |
 | file tax                                  | 报税                          |
+| Tax Filing                                | 纳税申报                      |
+| Tax Planning                              | 税务筹划                      |
+| Audit                                     | 审计                          |
+| Accounting                                | 会计核算                      |
+| Financial Analysis                        | 财务分析                      |
+| Finance Advisory                          | 财务咨询                      |
 | customs                                   | 海关，关税                    |
 | Customs Clearance                         | 清关                          |
 | Adjusted gross income (AGI)               | 调整后总收入                  |

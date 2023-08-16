@@ -4,6 +4,11 @@ title: 威胁
 
 # 威胁
 
+- https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html
+- https://owasp.org/www-community/Threat_Modeling
+- https://owasp.org/www-community/Threat_Modeling_Process
+- https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling
+
 ## WEB
 
 - SQL Injection

@@ -6,6 +6,12 @@ tags:
 
 # Shell FAQ
 
+## skip first n line
+
+```bash
+tail -n +1
+```
+
 ## sort in place
 
 ```bash

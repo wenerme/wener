@@ -165,7 +165,6 @@ CBC, OFB and CFB are similar, however OFB/CFB is better because you only need en
 - https://stackoverflow.com/a/1220869/1870054
 - https://stackoverflow.com/questions/1220751
 
-
 ## Spam
 
 - [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)
@@ -203,6 +202,23 @@ CBC, OFB and CFB are similar, however OFB/CFB is better because you only need en
 
 ---
 
+- Nmap
+  - 端口扫描 + 指纹探测 + 简单的漏洞扫描
+- AWVS - Acunetix Web Vulnerability Scanner
+  - Web 漏洞扫描
+- AppScan
+- Nessus
+  - 系统安全漏洞扫描
+- Goby
+  - 资产探测和漏洞检查
+- NetSparker
+- Xray
+  - 被动 Web 漏洞检查
+- fscan
+  - 内网渗透
+- burpsuite
+- msf sqlmap
+- IAST
 - https://ipchaxun.com/
 
 ## 参考

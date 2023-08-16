@@ -4,6 +4,11 @@ title: Dockerfile
 
 # Dockerfile
 
+```
+# syntax = docker/dockerfile:1
+# syntax = docker/dockerfile:experimental
+```
+
 **内置变量**
 
 ```dockerfile

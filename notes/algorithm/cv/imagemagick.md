@@ -41,4 +41,6 @@ convert -density 600 file1.pdf file2.pdf -resize 50% new.pdf
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=temp.pdf pdf1.pdf pdf2.pdf
 # PDF Toolkit
 pdftk pdf1.pdf pdf2.pdf cat output temp.pdf
+
+magick mogrify -monitor -format jpg *.HEIC
 ```

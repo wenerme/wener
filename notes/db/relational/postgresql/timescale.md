@@ -19,7 +19,11 @@ title: TimeScale
 - [timescale/timescaledb](https://github.com/timescale/timescaledb)
   - Apache-2.0
   - An open-source time-series database optimized for fast ingest and complex queries. Engineered up from PostgreSQL, packaged as an extension.
-  - data retention policies, continuous aggregate views, downsampling, data gap-filling, interpolation
+  - data retention policies
+  - continuous aggregate views
+  - downsampling
+  - data gap-filling
+  - interpolation
 - 参考
   - [Problems with PostgreSQL 10 for time-series data](https://blog.timescale.com/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5)
   - [Building a distributed time-series database on PostgreSQL](https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/)

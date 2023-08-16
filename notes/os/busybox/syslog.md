@@ -48,45 +48,44 @@ sudo killall -HUP syslogd
   - 管道文件 - |filename
   - 远程转发 - @hostname
 
-| facility |
-| -------- | ----- |
-| kern     | 0<<3  |
-| user     | 1<<3  |
-| mail     | 2<<3  |
-| daemon   | 3<<3  |
-| auth     | 4<<3  |
-| syslog   | 5<<3  |
-| lpr      | 6<<3  |
-| news     | 7<<3  |
-| uucp     | 8<<3  |
-| cron     | 9<<3  |
-| authpriv | 10<<3 |
-| ftp      | 11<<3 |
-| local0   | 16<<3 |
-| local1   | 17<<3 |
-| local2   | 18<<3 |
-| local3   | 19<<3 |
-| local4   | 20<<3 |
-| local5   | 21<<3 |
-| local6   | 22<<3 |
-| local7   | 23<<3 |
+| facility     |  code | n   | for         |
+| ------------ | ----: | --- | ----------- |
+| kern         |  0<<3 | 0   |
+| user         |  1<<3 | 1   |
+| mail         |  2<<3 | 2   |
+| daemon       |  3<<3 | 3   |
+| auth         |  4<<3 | 4   |
+| syslog       |  5<<3 | 5   |
+| lpr          |  6<<3 | 6   |
+| news         |  7<<3 | 7   |
+| uucp         |  8<<3 | 8   |
+| cron         |  9<<3 | 9   |
+| authpriv     | 10<<3 | 10  |
+| ftp          | 11<<3 | 11  |
+| ntp          | 12<<3 | 12  |
+| security     | 13<<3 | 13  | audit, auth |
+| console      | 14<<3 | 14  | alert       |
+| solaris-cron | 15<<3 | 15  | scheduling  |
+| local0       | 16<<3 |
+| local1       | 17<<3 |
+| local2       | 18<<3 |
+| local3       | 19<<3 |
+| local4       | 20<<3 |
+| local5       | 21<<3 |
+| local6       | 22<<3 |
+| local7       | 23<<3 |
 
-- security -> auth
-
-| level   | n
-| ------- | --- |
-| emerg   | 0   |
+| level   | n   | note      |
+| ------- | --- | --------- |
+| emerg   | 0   | ~~panic~~ |
 | alert   | 1   |
 | crit    | 2   |
-| err     | 3   |
-| warning | 4   |
+| err     | 3   | ~~error~~ |
+| warning | 4   | ~~warn~~  |
 | notice  | 5   |
 | info    | 6   |
 | debug   | 7   |
 
-- error -> err
-- panic -> emerg
-- warn -> wanring
 
 ```
 # selector                                  action

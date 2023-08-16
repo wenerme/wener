@@ -71,3 +71,12 @@ title: 测试
 - Soak testing - 浸泡测试 - 长时间负载，系统在什么节点出现降级
 - Spike testing - 峰值测试 - 突发负载验证系统功能
 - Stress testing- 压力测试 - 峰值负载验证系统功能
+
+## avg vs median
+
+- 平均延时(avg)
+  - 全局的平均响应时间
+  - 容易受极值影响
+- 中位数延时(median)
+  - 典型的响应时间
+  - 除异常情况的干扰

@@ -39,19 +39,41 @@ tags:
 :::
 
 - [ULID](./ulid.md)
+  - 128bit - 编码后 26 字符 - base32
+  - timestamp 48bits + random 80bits
   - 有序 - 可以用于排序
   - 顺序访问更容易命中缓存
   - 缺点
     - 只能存储为 string
-    - 需要额外的 function
-    - 不一定能保证全局递增 - 因为需要维护全局状态
+    - 需要额外的 function - 比较少有内部实现
+    - 不一定能保证全局递增 - 因为需要维护全局状态 - 大多时候没问题
 - UUIDv4
-  - 128bit - 编码后 36 字符
-  - 随机
-  - 数据库支持 UUID 类型的话能使用更少空间 -
+  - 128bit - 编码后 36 字符 - hex+4dash - `8-4-4-4-12` - 32+4
+  - `2*int64` / `2*long`
+  - 数据库支持 UUID 类型的话能使用更少空间 - 36 -> 16
+- [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID)
+  - by Twitter 2010-06
+  - 64bit - 实际只用了 63bit - **能放在 long 里**
+  - timestamp 41bits + instance 10bits + sequence 12bits
+    - sequence - 4096 个 - 正常 1ms 内达到了会递增 timestamp - **需要维护全局状态**
+  - 69 years
+    - timestamp 通过 offset 调整 - e.g  `(2023-1970)*31536000*1000`
+  - instance - Machine ID
+    - 注意选择，通常使用 IP/Hostname/Mac
+    - AmazonEC2MachineID
+  - 如果 instance 有业务含义，那么无法 DB 直接 生成
+  - adopted by Discord, Instagram, Mastodon
+    - Discord: epoch 2015-01-01
+    - Instagram: ts 41bits + shard id 13bits + sequence 10bits
+    - Mastodon: ts ms 48bits + sequence 16bits
+  - [sony/sonyflake](https://github.com/sony/sonyflake)
+    - ts 10msec 39bit + machine 16bit + sequence 8bit
+    - 174 years
+    - 处理更多的 instance
 - UUIDv7
   - 兼容 UUID
   - 有序 - 时间戳
+  - 类似于 ULID
 - [NanoID](https://github.com/ai/nanoid)
   - 一般不直接用于 DB, 前端用的多
   - `A-Za-z0-9_-`
@@ -65,6 +87,7 @@ tags:
 - [beyonddream/snowid](https://github.com/beyonddream/snowid)
 - K-Sortable
   - 基本有序
+  - Prefetch 优化 - 非常容易连续命中
 
 ## 主键类型
 
@@ -178,6 +201,21 @@ $$;
 select set_config('tenant.id','1', true);
 ```
 
+## 租户 ID/TID 字符串还是数字 {#choose-tid}
+
+- 不做特殊考虑可选择字符串
+
+---
+
+- 数字
+  - 内部好处理
+  - 短小好记
+  - 不易于迁移
+- 字符串
+  - 无特殊语义
+  - 可以忽略
+  - 建议符合 domain 规范，或者能处理为 domain 规范，方便 `<TID>.wener.me` 形式域名访问
+
 # FAQ
 
 ## created_at vs create_time
@@ -204,7 +242,8 @@ select set_config('tenant.id','1', true);
 
 ## 单数还是复数表名
 
-> 推荐单数形式
+> 推荐单数形式。
+> 部分关键词使用复数: users, groups。
 
 - 复数
   - 大多框架默认
@@ -213,6 +252,7 @@ select set_config('tenant.id','1', true);
 - 单数
   - 代码层面更好统一
   - 但部分单数形式可能需要 quote
+  - user 也可以用 `app_user` 之类的作为区分
 - 参考
   - https://stackoverflow.com/questions/338156
 

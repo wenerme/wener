@@ -6,9 +6,20 @@ tags:
 
 # Ansible FAQ
 
+## 判断 file 存在
+
+- Control Host
+  - is file
+  - is not exists
+  - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tests.html#testing-paths
+
 ## block & when
 
 - when 会在每个步骤都检测 - 满足则退出
+
+## block 不支持 loop
+
+- 可以 loop + include_task
 
 ## 常用依赖组件
 
@@ -37,7 +48,7 @@ pip3 install openshift
 apk add py3-lxml
 ```
 
-## include_task vs import_task
+## include vs import
 
 :::tip 建议
 
@@ -45,6 +56,13 @@ apk add py3-lxml
 - 除此之外都使用 import
 
 :::
+
+```yaml
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_tasks_module.html
+- include_tasks: tests.yml
+- include_tasks:
+    file: tests.yml
+```
 
 - import
   - 在解析时处理 - 静态

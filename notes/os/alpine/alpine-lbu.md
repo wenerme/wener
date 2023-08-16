@@ -29,6 +29,10 @@ title: Alpine local backup
 |           | revert      | **不会修改系统** - 修改当前活跃的 apkvol，下次启动时加载                |
 
 ```bash
+# 默认推荐配置
+sudo mkdir /root/config-backups/
+sudo lbu pkg /root/config-backups/
+
 lbu st -a # 当前系统修改
 
 mkdir backups      # 准备备份目录
@@ -38,7 +42,7 @@ ls backups         # 生成 <hostname>.apkovl.tar.gz
 # 备份到本地
 mkdir /root/lbu-backups
 sed -ri "s@^(#\s*)?LBU_BACKUPDIR=.*@LBU_BACKUPDIR=/root/lbu-backups@" /etc/lbu/lbu.conf
-lbu ci
+lbu ci               # commit
 ls /root/lbu-backups # <hostname>.apkovl.tar.gz
 lbu st               # 已经没有变化
 
@@ -68,11 +72,11 @@ tar df os.apkvol.tar.gz -C / # 汇报修改
   - `+var/lib/tailscale` - inlcude - 增加备份文件
   - `-etc/ssh/sshd_host*` - exclude - 排除备份文件
 
-```conf
+```conf title="lbu.conf"
 # -e
 DEFAULT_CIPHER=aes-256-cbc
 
-# 默认开启加密
+# 开启加密
 # ENCRYPTION=$DEFAULT_CIPHER
 
 # 存储的外部媒体设备
@@ -80,7 +84,7 @@ DEFAULT_CIPHER=aes-256-cbc
 # LBU_MEDIA=usb
 
 # 存储到本地目录而不是外部 媒体
-# LBU_BACKUPDIR=/root/lbu-backups
+# LBU_BACKUPDIR=/root/config-backups
 
 # 最多存储多少备份
 # BACKUP_LIMIT=3

@@ -41,6 +41,8 @@ curl http://admin:admin@127.0.0.1:7400/api/reload
 # debug port
 apk add iproute2-ss
 ss -lntp
+
+curl -s https://api.github.com/repos/fatedier/frp/releases/latest | jq -r .tag_name
 ```
 
 # FAQ
@@ -58,3 +60,4 @@ visitor 端出现, 应该是没有配置 server_name
 ~~不支持 wss~~
 
 - 0.51 支持 wss
+- `protocol=wss`

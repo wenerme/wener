@@ -53,3 +53,10 @@ vrrp_instance haproxy-vip {
   }
 }
 ```
+
+```bash
+# 开启后 HAProxy 等服务可以绑定不存在的 IP，非常适用于 VIP 场景
+sysctl -w net.ipv4.ip_nonlocal_bind=1
+```
+
+- https://github.com/haproxytech/vmware-haproxy/blob/main/docs/virtual-ip-config.md

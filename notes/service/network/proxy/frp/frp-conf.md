@@ -499,7 +499,7 @@ inotifywait -e attrib -m --format "%e %f" /etc/frp/frpc.ini
 - 环境变量
   - frps_token
   - frpc_sk
-  - inc_name
+  - inv_name - Inventor
 
 ```ini
 [common]
@@ -516,29 +516,29 @@ admin_pwd = admin
 use_encryption = true
 use_compression = true
 
-[{{.Envs.inc_name}}-ssh]
+[{{.Envs.inv_name}}-ssh]
 type = stcp
 sk = {{.Envs.frpc_sk}}
 role = visitor
 bind_addr = 0.0.0.0
 bind_port = 22
-server_name = {{.Envs.inc_name}}-ssh
+server_name = {{.Envs.inv_name}}-ssh
 
-[{{.Envs.inc_name}}-http]
+[{{.Envs.inv_name}}-http]
 type = stcp
 sk = {{.Envs.frpc_sk}}
 role = visitor
 bind_addr = 0.0.0.0
 bind_port = 80
-server_name = {{.Envs.inc_name}}-http
+server_name = {{.Envs.inv_name}}-http
 
-[{{.Envs.inc_name}}-https]
+[{{.Envs.inv_name}}-https]
 type = stcp
 sk = {{.Envs.frpc_sk}}
 role = visitor
 bind_addr = 0.0.0.0
 bind_port = 443
-server_name = {{.Envs.inc_name}}-https
+server_name = {{.Envs.inv_name}}-https
 ```
 
 ## frpc simple
@@ -582,3 +582,17 @@ fallback_timeout_ms = 200
 ```
 
 - 可以考虑 keep_tunnel_open
+
+# FAQ
+
+## nathole prepare error: discover error: wait response from stun server timeout
+
+- stun.easyvoip.com:3478
+
+```bash
+frpc nathole discover --nat_hole_stun_server stun.easyvoip.com:3478
+frpc nathole discover --nat_hole_stun_server stun.stunprotocol.org:3479
+frpc nathole discover --nat_hole_stun_server stun.miwifi.com:3478
+```
+
+- https://github.com/fatedier/frp/issues/3469

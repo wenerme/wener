@@ -6,6 +6,18 @@ tags:
 
 # Web Server FAQ
 
+:::tip
+
+- 应用服务器 - nginx, caddy, traefik
+  - 功能为主
+- 负载均衡服务器 - haproxy, keepalived
+  - 性能为主
+- VIP - 路由到单一节点 - HA、floating IP
+  - 基于冗余路由 或 BGP
+- 负载均衡 - 根据算法路由到多个节点
+
+:::
+
 ## Perf
 
 - https://blog.tjll.net/reverse-proxy-hot-dog-eating-contest-caddy-vs-nginx/
@@ -89,6 +101,9 @@ WebServer 也可以是 Proxy
     - 2.3 开始支持 QUIC 支持部分 UDP 负载
   - 代码量和逻辑比 Nginx 简单
   - 收费版 - [HAProxy EE](https://www.haproxy.com/products/community-vs-enterprise-edition/)
+
+---
+
 - 选择 HAProxy
   - 负载均衡
   - SSL Offload

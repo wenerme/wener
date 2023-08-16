@@ -8,18 +8,53 @@ tags:
 
 Collection of how to disable telementry and analytics that default to enable.
 
+**env**
+
 ```bash
-# MinIO
-MINIO_UPDATE=off
+# ========================
+# Dev/Frontend/Backend
+# ========================
+# Homebrew
+HOMEBREW_NO_ANALYTICS=1
 # NextJS
 NEXT_TELEMETRY_DISABLED=1
+# NuxtJS
+NUXT_TELEMETRY_DISABLED=1
+
+# ========================
+# Service
+# ========================
+# MinIO
+MINIO_UPDATE=off
+
 # K0S
 DISABLE_TELEMETRY=true
 DISABLE_UPGRADE_CHECK=true
+
 # ferretdb
 FERRETDB_TELEMETRY=disable
 DO_NOT_TRACK=true
+
+# OpenObserve
+ZO_TELEMETRY=false
+
+# grafana
+GF_ANALYTICS_REPORTING_ENABLED=false
+GF_ANALYTICS_CHECK_FOR_UPDATES=false
 ```
+
+## HTTP DNT
+
+```
+DNT: 1
+```
+
+```js
+console.log(navigator.doNotTrack);
+```
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT
+- wikipedia [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track)
 
 ## ferretdb
 
@@ -39,6 +74,30 @@ DO_NOT_TRACK=true
 MINIO_UPDATE=off
 ```
 
+## Homebrew
+
+```bash
+export HOMEBREW_NO_ANALYTICS=1
+```
+
+## NuxtJS
+
+```bash
+export NUXT_TELEMETRY_DISABLED=1
+```
+
+```bash
+npx nuxt telemetry disable
+```
+
+```js title="nuxt.config.js"
+export default {
+  telemetry: false,
+};
+```
+
+- https://v2.nuxt.com/docs/configuration-glossary/configuration-telemetry/
+
 ## NextJS
 
 ```bash
@@ -57,6 +116,17 @@ new CubejsServer({
   telemetry: false,
 });
 ```
+
+## yarn
+
+```bash
+# for global
+yarn config set --home enableTelemetry 0
+# for project
+yarn config set enableTelemetry 0
+```
+
+- https://yarnpkg.com/advanced/telemetry
 
 ## k0sctl
 

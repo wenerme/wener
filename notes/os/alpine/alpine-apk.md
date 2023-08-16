@@ -47,8 +47,48 @@ docker run --rm -it wener/base sh -c 'apk update >/dev/null;apk policy musl | se
 | stats        |
 | version      |
 
+| flag                         | for                                |
+| ---------------------------- | ---------------------------------- |
+| **全局**                     |
+| -p, --root ROOTFS            | /                                  |
+| -X, --repository REPO        | 修改使用的仓库                     |
+| --allow-untrusted            | 允许使用未签名的包                 |
+| --arch ARCH                  | 指定架构                           |
+| --cache-dir CACHEDIR         | 指定缓存目录 /etc/apk/cache        |
+| --cache-max-age AGE          | 指定缓存最大时间 min               |
+| -U, --update-cache           | 更新缓存 -> `--cache-max-age 1`    |
+| --keys-dir KEYSDIR           | 指定密钥目录 /etc/apk/keys/        |
+| --no-cache                   | 不使用缓存                         |
+| --no-network                 | 不使用网络                         |
+| --no-progress                | 不显示进度                         |
+| --print-arch                 | 打印架构                           |
+| --purge                      | 卸载包时删除配置                   |
+| --repositories-file REPOFILE | 指定仓库文件 /etc/apk/repositories |
+| **Commit**                   |
+| -s, --simulate               | 模拟                               |
+| --clean-protected            | 不创建 `.apk-new`                  |
+| --no-scripts                 | 不执行脚本                         |
+| --no-commit-hooks            | 不执行 commit hook                 |
+| **apk add**                  |
+| --initdb                     | 初始化数据库                       |
+| -l, --latest                 | 使用最新版本                       |
+| -u, --upgrade                | 升级包                             |
+| -t, --virtual NAME           | 安装虚拟包                         |
+| --no-chown                   | 不修改文件所有者                   |
+| **apk audit**                |
+| --backup                     | /etc                               |
+| --system                     | /                                  |
+| --check-permissions          |
+| --packages                   | 只输出包名                         |
+| -r, --recursive              | 递归目录                           |
+| --packages -q                | 无版本号                           |
+
 ```bash
-apk audit # 系统目前变化 - 哪些增加了，哪些删除了
+apk --print-arch  # x86_64
+cat /etc/apk/arch #
+
+apk audit                               # 系统目前变化 - 哪些增加了，哪些删除了
+apk audit --system                      #
 apk audit --packages -q | xargs apk fix # 修复有修改的包
 ```
 

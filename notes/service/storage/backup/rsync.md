@@ -52,6 +52,7 @@ title: rsync
 | --existing            | 只同步已经有的                            |
 | --ignore-existing     | 只同步新的                                |
 | --update              | skip files that are newer on the receiver |
+| --mkpath              | 创建目录                                  |
 
 > **Note**
 >
