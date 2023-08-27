@@ -72,22 +72,7 @@ title: PL/pgSQL
   - `DELETE FROM table WHERE CURRENT OF cursor`
   - CLOSE
   - FOR/IN/LOOP/END LOOP
-- trigger
-  - 返回类型 trigger - 数据变化
-  - 返回类型 event_trigger - 数据库事件
-  - 自动创建变量 `TG_<NAME>`
-    - NEW, OLD
-    - TG_NAME, TG_WHEN, TG_LEVEL, TG_OP, TG_RELID, TG_RELNAME
-    - TG_TABLE_NAME, TG_TABLE_SCHEMA
-    - TG_NARGS, TG_ARGV
-    - event - DDL - https://www.postgresql.org/docs/current/event-trigger-matrix.html
-      - TG_EVENT, TG_TAG
-  - 返回 NULL 或 record
-  - BEFORE row
-    - 返回 NULL 则不会触发实际操作 - INSERT/UPDATE/DELETE
-    - 修改 NEW 返回会使用新的值
-    - DELETE 返回内容无意义，但需要 非 NULL
-      - 此时 NEW 为 NULL，一般返回 OLD
+- [trigger](./postgresql-trigger.md)
 
 ```sql title="整体结构"
 [ <<label>> ]

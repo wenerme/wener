@@ -72,7 +72,7 @@ title: JSON Schema
 
 ```json
 {
-  "type": "int"
+  "type": "integer",
 }
 ```
 
