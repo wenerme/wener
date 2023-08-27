@@ -70,6 +70,12 @@ title: JSON Schema
 }
 ```
 
+```json
+{
+  "type": "int"
+}
+```
+
 ---
 
 - [json-schema-org/json-schema-spec](https://github.com/json-schema-org/json-schema-spec)

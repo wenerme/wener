@@ -141,3 +141,9 @@ curl -L --remote-name-all -J- fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-{Thi
 - https://birdfont.org/
 - https://github.com/jaywcjlove/svgtofont
 - https://github.com/adobe-type-tools/opentype-svg
+
+## FAQ
+
+- 正式的碑刻一般用隶书、魏碑 比较庄严、庄重的字体
+- 文艺范儿的碑刻会用行楷、草书
+- 宋体是用于印刷的，笔划比较直、每一笔的粗细没什么变化、笔划结尾有“小三角”，刻字师傅为了在雕刻印版、活字方便下刀，逐步形成了这种字体

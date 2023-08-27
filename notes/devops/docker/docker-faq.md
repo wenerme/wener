@@ -195,3 +195,15 @@ export DOCKER_BUILDKIT=0
   - fd://1.2.3.4:5678
   - ssh://1.2.3.4:22
   - `//host:port` -> `tpc://`
+
+## error from daemon in stream: Error grabbing logs: invalid character '\x00' looking for beginning of valu
+
+```bash
+for cont in $(docker container ps | cut -f1 -d\  | grep -v CONTAINER); do
+  sudo truncate -s0 $(docker container inspect --format='{{.LogPath}}' $cont)
+done
+
+sudo sh -c "grep -Pa '\x00' /var/lib/docker/containers/**/*json.log"
+```
+
+- https://github.com/docker/for-linux/issues/140

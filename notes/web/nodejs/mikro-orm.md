@@ -18,6 +18,12 @@ title: mikro-orm
 
 :::
 
+:::note
+
+- 不支持多态 [#706](https://github.com/mikro-orm/mikro-orm/issues/706)
+
+:::
+
 ```bash
 # mongodb, mysql, mariadb, sqlite
 npm add @mikro-orm/core @mikro-orm/postgresql

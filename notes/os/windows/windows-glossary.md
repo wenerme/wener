@@ -25,3 +25,4 @@ tags:
 | WSMan      |
 | WCF        | Windows Communication Foundation                 |
 | COM        | Component Object Model                           |
+| SDIO       | Snappy Driver Installer Origin                   |

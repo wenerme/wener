@@ -1,10 +1,19 @@
+---
+title: nano
+---
+
 # nano
 
-## Tips
-* [nano.1](https://www.nano-editor.org/dist/latest/nano.1.html)
-* [nanorc.5](https://www.nano-editor.org/dist/latest/nanorc.5.html)
+
+- [nano.1](https://www.nano-editor.org/dist/latest/nano.1.html)
+- [nanorc.5](https://www.nano-editor.org/dist/latest/nanorc.5.html)
+
+```bash
+apk add nano # 308 kB
+```
 
 ## nanorc
+
 ```
 # 默认为 8
 set tabsize 4
@@ -12,27 +21,27 @@ set tabsize 4
 
 ## 快捷键
 
-* <C-k><C-u><C-u> 复制当前行
+- `<C-k><C-u><C-u>` 复制当前行
 
-按键|操作
-----|----
-<C-g> / <F1>| 帮助
-<C-x> / <F2>| 退出
-<C-o> / <F3>| 保存
-<C-j> / <F4>| 格式调整
-<C-r> / <F5>| 读文件
-<C-w> / <F6>| 搜索
-<C-y> / <F7>| 上一页
-<C-v> / <F8>| 下一页
-<C-k> / <F9>| 剪切
-<C-u> / <F10>| 粘贴
-<C-c> / <F11>| 当前位置
-<C-t> / <F12>| 拼写检查
-<M-\\> / <M-\|> | 第一行
-<M-/> / <M-?|> | 最后一行
-<C-\_> / <F13> / <M-g> | 跳转到指定行
+| 按键                     | 操作         |
+| ------------------------ | ------------ | -------- |
+| `<C-g> / <F1>`           | 帮助         |
+| `<C-x> / <F2>`           | 退出         |
+| `<C-o> / <F3>`           | 保存         |
+| `<C-j> / <F4>`           | 格式调整     |
+| `<C-r> / <F5>`           | 读文件       |
+| `<C-w> / <F6>`           | 搜索         |
+| `<C-y> / <F7>`           | 上一页       |
+| `<C-v> / <F8>`           | 下一页       |
+| `<C-k> / <F9>`           | 剪切         |
+| `<C-u> / <F10>`          | 粘贴         |
+| `<C-c> / <F11>`          | 当前位置     |
+| `<C-t> / <F12>`          | 拼写检查     |
+| `<M-\\> / <M-\|>`        | 第一行       |
+| `<M-/> / <M-?            | >`           | 最后一行 |
+| `<C-\_> / <F13> / <M-g>` | 跳转到指定行 |
 
-
+```
 ^G      (F1)            Display this help text
 ^X      (F2)            Close the current file buffer / Exit from nano
 ^O      (F3)            Write the current file to disk
@@ -105,3 +114,4 @@ M-D                     Count the number of words, lines, and characters
 (M-N)                   No conversion from DOS/Mac format enable/disable
 (M-Z)                   Suspension enable/disable
 (M-$)                   Soft line wrapping enable/disable
+```

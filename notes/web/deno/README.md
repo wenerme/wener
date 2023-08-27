@@ -29,8 +29,9 @@ title: deno
   - 不 pin 版本会使用 latest，导致依赖升级后脚本异常 - 默认没有 lock
   - import map 不方便依赖模块引入
 - deno 不支持 AlpineLinux, CentOS 7
+  - ~~Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)~~
+    - alpine 3.19+ 支持
   - Release centos7 compatible binaries [#1658](https://github.com/denoland/deno/issues/1658)
-  - Release musl builds [#3711](https://github.com/denoland/deno/issues/3711)
 - deno 不支持 gRPC
   - grpc-node 也无法兼容 Deno - 因为 Deno HTTP2 缺少 trailing headers [grpc-node#1791](https://github.com/grpc/grpc-node/issues/1791#issuecomment-911984475)
 

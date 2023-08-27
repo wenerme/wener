@@ -152,6 +152,10 @@ rm -rf /var/lib/cni/*
 ## 区分 worker 和 cp
 
 - `--node-taint k3s-controlplane=true:NoExecute`
+- `--node-taint CriticalAddonsOnly=true:NoExecute`
+  - 不运行一般 payload
+- --node-label, --node-taint
+  - 第一次加入集群时有效
 
 ## 生成的证书自定义域名
 
@@ -428,6 +432,10 @@ find /var/lib/cni/results/ -size 0 -delete # cached result
 ```
 
 - https://github.com/k3s-io/k3s/issues/6185#issuecomment-1399502450
+
+## watch chan error: etcdserver: no leader
+
+- 2 master
 
 ## k3s: unable to apply RC_ULIMIT settings
 

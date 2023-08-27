@@ -53,13 +53,6 @@ tags:
     - brotli.js
   - [mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
     - based on sheetjs
-- Editor
-  - [dream-num/Luckysheet](https://github.com/dream-num/Luckysheet)
-  - [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
-  - [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
-  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
-  - [nhn/tui.grid](https://github.com/nhn/tui.grid)
-  - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
 - React Table
   - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
     - MIT
@@ -88,6 +81,30 @@ tags:
   - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)
     - personal finances
 
+## Sheet
+
+- [dream-num/Luckysheet](./luckysheet.md)
+- [ruilisi/fortune-sheet](./fortune-sheet.md)
+  - fork Luckysheet
+  - rewrite in ts
+  - 移除 jQuery，依赖 React/Vue + immer
+  - formula fork [handsontable/formula-parser](https://github.com/handsontable/formula-parser)
+    - @formulajs/formula-parser
+  - @fortune-sheet/core
+    - 1.6MB/375kB - @formulajs/formulajs, lodash, jstat
+  - @fortune-sheet/react
+- [sheetjs](./sheetjs.md)
+- [handsontable/handsontable](https://github.com/handsontable/handsontable)
+  - license 不允许商业产品使用
+- [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
+  - canvas
+  - -> [wolf-table/table](https://github.com/wolf-table/table)
+- [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
+  - MIT
+- [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
+- [nhn/tui.grid](https://github.com/nhn/tui.grid)
+- [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
+
 ## LowCode DataTable
 
 - [apitable/apitable](https://github.com/apitable/apitable)
@@ -104,4 +121,28 @@ tags:
 ## 商业
 
 - https://www.grapecity.com.cn/developer/spreadjs
+  - adopted by https://yunnzhangfanng.com/
+  - [@grapecity/spread-excelio](https://www.npmjs.com/package/@grapecity/spread-excelio)
+    - SpreadJS JSON <-> XLSX
+  - https://www.grapecity.com.cn/developer/spreadjs/price
+    - ￥29, 400+￥22, 000
 - onlyoffice
+
+## 协议
+
+- 打印
+  - TCP/IP, IPX/SPX(支持 NDS), SMB(NetBEUI), LPD, IPP1.1, SNMP, Apple Talk
+- 扫描
+  - TCP/IP (FTP, SMB, SMTP, WebDAV) (IPv4/IPv6)
+  - 邮件、FTP、BOX/硬盘、SMB、TWAIN、WebDAV、USB、Scan Server、Web Service/WSD-Scan、Device Profile for Web Service(DPWS)
+- 互联网传真
+  - SMTP, POP
+- 传真
+  - Super G3
+  - PTSN
+- 参考
+  - [bizhub C458 A3 彩色多功能复合机](https://www.konicaminolta.com.cn/office-printing/copier/2018-11-30/159.html)
+  - https://github.com/percx/Praeda/blob/master/jobs/MP0020.pl
+  - https://www.konicaminolta.eu/eu-en/software
+  - Bye CUPS: Printing with Netcat
+    - [HN](https://news.ycombinator.com/item?id=28054789)

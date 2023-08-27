@@ -4,14 +4,21 @@ tags:
   - Awesome
 ---
 
-# Flow Awesome
+# Workflow Awesome
 
 ## Spec
 
 - BPMS
 - [serverlessworkflow](https://github.com/serverlessworkflow/specification)
+- IDEF0 - Integration Definition for Process Modelling
+  - wikipedia [IDEF0](https://en.wikipedia.org/wiki/IDEF0)
+  - Visio [Create IDEF0 diagrams](https://support.microsoft.com/en-us/office/create-idef0-diagrams-ea7a9289-96e0-4df8-bb26-a62ea86417fc)
+- BPEL - Business Process Execution Language
+- DFD - Data Flow Diagram
+- Process - Stage - Activity - Participant
+- [Workflow engine](https://en.wikipedia.org/wiki/Workflow_engine)
 
-## Server
+## Awesomes
 
 - BPMS
   - Camunda BPM
@@ -30,6 +37,9 @@ tags:
   - Apache-2.0, Javascript
 - [n8n-io/n8n](https://github.com/n8n-io/n8n)
   - [faircode](http://faircode.io/), Typescript
+- [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)
+  - Apache-2.0, Golang
+  - Workflow engine for Kubernetes
 - Huginn
   - Python
 - [enso-org/enso](https://github.com/enso-org/enso)
@@ -37,12 +47,35 @@ tags:
 - [muesli/beehive](https://github.com/muesli/beehive)
   event/agent & automation system
   - AGPL-3.0, Go
-- [windmill-labs/windmill](https://github.com/windmill-labs/windmill)
+- [PrefectHQ/prefect](https://github.com/PrefectHQ/prefect)
+  - Apache-2.0, Python
+  - orchestrator for data-intensive workflows
+- rundeck
+  - http://rundeck.org/
+- [StackStorm/st2](https://github.com/StackStorm/st2)
+  - Apache-2.0, Python
+  - IFTTT for Ops
+- [nextflow-io/nextflow](https://github.com/nextflow-io/nextflow)
+  - Apache-2.0, Groovy
+- [runabol/piper](https://github.com/runabol/piper)
+  - Apache-2.0, Java
+- Event Driven
+  - [brigadecore/brigade](https://github.com/brigadecore/brigade)
+    - Apache-2.0, Go
+    - scripting for Kubernetes
+    - 停止开发
+- [windmill-labs/windmill](./windmill.md)
   - AGPLv3, Rust, Svelte
+  - scripts into workflows and UIs
+  - alternative to Airplane, Retool
 
 ---
 
 - [meirwah/awesome-workflow-engines](https://github.com/meirwah/awesome-workflow-engines)
+  - http://meirwah.github.io/awesome-workflow-engines/
+- NodeJS
+  - [mithunsatheesh/node-rules](https://github.com/mithunsatheesh/node-rules)
+    - light weight forward chaining rule engine
 
 ## Data Pipeline
 

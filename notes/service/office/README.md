@@ -5,6 +5,8 @@ title: 办公套件
 # Office
 
 
+- [Awesome](./office-awesome.md)
+- [FAQ](./office-faq.md)
 - OpenDocument
 - OOXML - Office Open XML
 

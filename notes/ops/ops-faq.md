@@ -143,3 +143,42 @@ IPAM 报异常事件，拔插 内存 后恢复。
   - +性能 - keydb
 - 列存 - Clickhouse
 - 高性能分布式 KV - ScyllaDB
+
+## K8S Stack Why
+
+- GitOps
+  - 有跟踪、有记录
+  - 可协作
+  - 复现 - 重复部署
+- [argocd](../devops/kubernetes/app/argocd/README.md) GitOps
+  - 界面友好
+  - 功能完善
+- argocd-image-updater
+  - 自动更新镜像
+  - 基于 git branch 自动发布
+- [sealed-secret](../devops/kubernetes/app/sealed-secrets.md)
+  - GitOps 提交 secret 到仓库
+- [kubed](../devops/kubernetes/app/kubed.md)
+  - 同步 secret/configmap 资源到不同 namespace
+  - DRY
+- [reloader](../devops/kubernetes/app/reloader.md)
+  - 修改 secret/configmap 后 restart pod
+  - 减少手动操作
+  - 避免遗忘重启导致配置不生效
+  - GitOps 可以直接修改 secret/configmap 线上服务也能生效
+- cert-manager
+  - ACME
+  - 证书管理
+- haproxy-ingress
+  - 作为主要 Ingress
+  - 性能好、资源占用低
+  - L7 功能少
+- apisix
+  - L7 网关
+  - 基于 Nginx
+  - 功能多、有简单界面
+- vector
+  - 日志采集
+  - 功能完善、DSL 强大
+- kube-prometheus
+  - 指标采集存储

@@ -23,6 +23,9 @@ tags:
 | SpringBoot 2.5 | 2021-05-22 |
 | SpringBoot 2.4 | 2020-11-12 |
 | SpringBoot 2.3 | 2020-05-15 |
+| SpringBoot 2.2 | 2019-10-16 |
+| SpringBoot 2.1 | 2018-10-30 |
+| SpringBoot 2.0 | 2018-03-01 |
 
 | Spring Framework     | Release    | Note     |
 | -------------------- | ---------- | -------- |

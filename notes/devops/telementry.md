@@ -56,6 +56,14 @@ console.log(navigator.doNotTrack);
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT
 - wikipedia [Do Not Track](https://en.wikipedia.org/wiki/Do_Not_Track)
 
+## infisical
+
+```bash
+export TELEMETRY_ENABLED=false
+```
+
+- [infisical](https://github.com/Infisical/infisical)
+
 ## ferretdb
 
 - `--telemetry=false`

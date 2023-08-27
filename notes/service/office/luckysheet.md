@@ -11,14 +11,7 @@ title: luckysheet
   - xlsx 转 luckysheet
   - 目前 **不支持导出** - [mengshukeji/Luckyexcel#16](https://github.com/mengshukeji/Luckyexcel/issues/16)
     - 可基于 exceljs 自行导出 [参考](https://github.com/oy-paddy/luckysheet-vue-importAndExport/blob/master/src/components/export.js)
-- [ruilisi/fortune-sheet](https://github.com/ruilisi/fortune-sheet)
-  - rewrite in ts
-  - 移除 jQuery，依赖 React/Vue + immer
-  - formula fork [handsontable/formula-parser](https://github.com/handsontable/formula-parser)
-    - @formulajs/formula-parser
-  - @fortune-sheet/core
-    - 1.6MB/375kB - @formulajs/formulajs, lodash, jstat
-  - @fortune-sheet/react
+
 
 
 :::caution

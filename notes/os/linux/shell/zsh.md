@@ -18,6 +18,9 @@ title: zsh
 ```bash
 # 使用相同的配置
 echo source ~/.bash_profile >> ~/.zshenv && source ~/.zshenv
+
+echo $ZSH_VERSION
+realpath $SHELL
 ```
 
 <!--  ✅❌🟡-->

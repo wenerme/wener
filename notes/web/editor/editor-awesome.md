@@ -81,6 +81,7 @@ tags:
 
 ## Hex
 
+- https://hexed.it/
 - [WerWolv/ImHex](https://github.com/WerWolv/ImHex)
   - GPLv2, C++
 

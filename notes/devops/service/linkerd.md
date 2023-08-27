@@ -20,7 +20,7 @@ title: Linkerd
   - 不支持 Auth
   - CP 不能管理多集群
   - 不支持 Service-to-Service 授权
-  - 不支持 Header 路由
+  - ~~不支持 Header 路由~~
     - [#3165](https://github.com/linkerd/linkerd2/issues/3165)
 - 问题
   - [linkerd/linkerd2#3403](https://github.com/linkerd/linkerd2/issues/3403) - Injected nginx ingress controller doesn't have access to the remote client IP
@@ -34,7 +34,7 @@ title: Linkerd
     - TCP 外部流量无法监控
     - [#3190](https://github.com/linkerd/linkerd2/issues/3190) - Egress HTTPS Metrics
     - [#2192](https://github.com/linkerd/linkerd2/issues/2192) - Monitoring outbound HTTPS external call
-  - TCP 支持不好
+  - ~~TCP 支持不好~~
     - ~~不支持 mTLS [#3207](https://github.com/linkerd/linkerd2/issues/3207)~~
     - ~~不支持 LB 和转发 [#3445](https://github.com/linkerd/linkerd2/issues/3445)~~
   - 注意 Ingress 远程 IP 问题

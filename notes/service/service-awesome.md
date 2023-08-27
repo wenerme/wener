@@ -242,6 +242,7 @@ tags:
     "结巴"中文分词的 Golang 版本
   - [go-ego/gse](https://github.com/go-ego/gse)
     Go 语言高性能分词
+- [cms-dev/cms](https://github.com/cms-dev/cms)
 
 ### Framework
 

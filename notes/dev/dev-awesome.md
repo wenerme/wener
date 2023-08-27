@@ -143,17 +143,24 @@ scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
 - vegeta
 - jmeter
   - Java
+- microbenchmark
+  - [google/benchmark](https://github.com/google/benchmark)
+    - C++
+  - JMH
 - HTTP
   - wrk
   - ab
     - ApacheBench
   - [rakyll/hey](https://github.com/rakyll/hey)
     - ab relacement
-  - [grafana/k6](https://github.com/grafana/k6)
-- microbenchmark
-  - [google/benchmark](https://github.com/google/benchmark)
-    - C++
-  - JMH
+- [grafana/k6](https://github.com/grafana/k6)
+- [locustio/locust](https://github.com/locustio/locust)
+  - MIT, Python
+  - WebUI
+  - https://locust.io/
+- [tag1consulting/goose](https://github.com/tag1consulting/goose)
+  - Apache-2.0, Rust
+  - 类似 rust 版的 locust
 - [sharkdp/hyperfine](https://github.com/sharkdp/hyperfine)
   - Apache-2.0, MIT, Rust
   - command-line benchmarking tool

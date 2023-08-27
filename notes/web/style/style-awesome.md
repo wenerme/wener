@@ -23,3 +23,5 @@ tags:
 - [Recreating MDN’s Truncated Text Effect](https://css-tricks.com/recreating-mdns-truncated-text-effect/)
 - [Cascading CSS Text Effects ✨](https://codepen.io/jh3y/pen/gOeGmRN)
 - [Animated Star Rating](https://codepen.io/jkantner/pen/BarvVNa)
+- [CSS Responsive Scroll-Driven Text Reveals - Chrome 115+](https://codepen.io/jh3y/pen/eYbYydG)
+- https://codepen.io/jh3y/pen/YzGgdyw

@@ -255,7 +255,7 @@ tags:
 | project stage     | 项目阶段 |
 | project financing | 项目融资 |
 
-### 常见数据集
+### 常见数据集 {#dataset}
 
 - 投资阶段
   - 种子轮
@@ -266,13 +266,27 @@ tags:
   - C 轮
 - 项目阶段
 
-## 公司企业
+## 政府 {#gov}
+
+| abbr. | stand for                                                                | zh                                     |
+| ----- | ------------------------------------------------------------------------ | -------------------------------------- |
+| SAMR  | State Administration for Market Regulation                               | 国家市场监督管理总局                   |
+| SFDA  | State Food and Drug Administration                                       | 国家食品药品监督管理局                 |
+| CFDA  | China Food and Drug Administration                                       | 中国食品药品监督管理局                 |
+| NMPA  | National Medical Products Administration                                 | 国家药品监督管理局                     |
+| SAIC  | State Administration of Industry and Commerce                            | 国家工商行政管理总局                   |
+| AQSIQ | General Administration of Quality Supervision, Inspection and Quarantine | 中华人民共和国国家质量监督检验检疫总局 |
+| NBS   | National Bureau of Statistics                                            | 国家统计局                             |
+| STA   | State Taxation Administration                                            | 国家税务总局                           |
+
+## 公司企业 {#company}
 
 | abbr./word               | meaning          | stand for                        |
 | ------------------------ | ---------------- | -------------------------------- |
 | BLN                      | 营业执照编号     | Business License Number          |
 | brn                      | 工商注册号       | Business Registration Number     |
 | usci                     | 统一社会信用代码 | unified social credit identifier |
+| uscc                     | 统一社会信用代码 | unified social credit code       |
 | ucc                      | 统一信用代码     | Uniform Credit Code              |
 | org code/oc              | 组织机构代码     | Organization Code                |
 | taxpayer no/tn           | 纳税人编号       | Taxpayer Number                  |
@@ -319,8 +333,17 @@ tags:
 | Account reconciliations                   | 对账                          |
 | accounting outsourcing                    | 代账                          |
 | bookkeeping outsourcing                   | 代账                          |
-| Balance sheet                             | 资产负债表                    |
 | Accountant                                | 会计师                        |
+| bookkeeping                               | 记账                          |
+| Financial statements                      | 财务报表                      |
+| Ledger                                    | 账册                          |
+| Income statement                          | 收支结算表                    |
+| Balance sheet                             | 资产负债表                    |
+| Profit and loss statement                 | 利润表                        |
+| Cash flow statement                       | 现金流量表                    |
+| Financial analysis                        | 财务分析                      |
+| Accounting subjects                       | 会计科目                      |
+| tax return form                           | 纳税申报表                    |
 | bookkeeper                                | 记账员,会计                   |
 | social security                           | 社保                          |
 | imposition                                | 征收                          |
@@ -364,6 +387,8 @@ tags:
 
 - 个人/自然人 - individual/natural person
 - 实体 - entity
+- **return** 在税务领域表示报告纳税情况
+  - return -> 回报 -> 往回报告 - 不是收益层的含义
 
 ### Tax
 
@@ -421,7 +446,7 @@ tags:
   - 不具有唯一性
   - 尽量使用 FullName 避免不必要的混淆
 
-## group vs department vs team vs role
+## group vs department vs team vs role vs bu
 
 - group
   - 人或事务的集合 - 与人多对多
@@ -437,6 +462,9 @@ tags:
         - Project-A/
       - roles/
         - admin/
+- role
+  - 通常用于 ACL 语境
+  - 结构形式类似于 group
 - department
   - 人的集合 - 与人多对一
   - 具有业务属性和上下级关系
@@ -445,19 +473,26 @@ tags:
   - 人的集合 - 与人多对多
   - 组织架构中类似 group - 但更具有管理属性
   - 主要便于跨部门协作
-- role
-  - 通常用于 ACL 语境
-  - 结构形式类似于 group
 
 ## business unit vs division vs deparment
 
 - 组织架构三层关系
 - business unit - 业务单元 - 例如 出版署
   - 位于某个地点
+  - 相对独立的业务单元，可跨组织
+  - 侧重独立的业务目标和运营
+  - 有自主的管理和利润中心
+  - 独立业务定位目标
+  - 按业务目标考核
 - division - 分部 - 例如 市场分部、消费者分部
   - 位于某个地点的某些办公室或者区域
 - deparment - 部门 - 例如 编辑部、较对部
   - 位于公司某个区域
+  - 组织内职能单位
+  - 侧重一个领域的职能作用
+  - 受组织层级管理
+  - 为组织整体目标服务
+  - 按职能目标考核
 - 参考
   - [Developing the Organizational Hierarchy](https://www.archibus.net/ai/abizfiles/v21.2_help/archibus_help/Subsystems/webc/Content/background_gen/org_hierarchy.htm)
   - wikipedia [Corporate structure](https://en.wikipedia.org/wiki/Corporate_structure)
@@ -655,9 +690,11 @@ tags:
   - 结果状态 - 成果、失败
   - 面向用户 - 404、200
   - 可以理解为 stage - 阶段
+  - 可能支持自定义
 - state
   - 中间状态 - 等待、执行
   - 有限状态 - 状态机 - state machine
+  - 通常固定
 
 ---
 
@@ -896,6 +933,71 @@ tags:
 - mobile - 移动电话
   - 可指 cordless phone, cellphone, walkie-talkie
 - phone
+
+## core vs base vs extend vs common vs share
+
+- core
+  - 强调核心、主体
+  - 引擎
+  - 有业务语义
+- base <-> extend
+  - base 强调基础
+  - base 通常可以被 extend
+    - 与 abstract 不同，base 可独立可用
+- extend
+  - 附加部分
+- common
+  - 弱业务性质
+  - 工具性
+- share
+  - 多个业务功能共享部分
+
+## task vs job vs process vs background process
+
+- job
+  - 侧重描述可调度性
+  - 一个 job 可能包含多个 task
+  - 通常具有连续运行的特点
+  - 通常具有监控、日志记录、故障恢复等机制
+  - job 强调被调度执行
+- process
+  - 类似于 job
+  - process 更多是自主运行
+- task/step
+  - 侧重描述内容
+  - 通常运行一次
+- background process
+  - 强调不可见、不需要用户干预
+
+## workflow vs flow
+
+> flow / workflow 通常包含一个或多个 task/job/process
+> flow 强调有一定条件性质，不只有一条 Path
+
+---
+
+- workflow
+  - 强调 预定义流程
+  - 图形化设计
+  - 一个系统内部执行
+  - 内部事件触发
+  - 使用更广泛
+- flow
+  - 强调 动态自由流程
+
+## usci vs uscc
+
+统一社会信用代码
+
+- uscc - unified social credit code
+  - **官方叫法**
+  - code 更强调是一个编码
+- usci - unified social credit identifier
+  - identifier 更强调是一个标识符 - 唯一性、标识性
+
+---
+
+- https://en.wikipedia.org/wiki/Unified_Social_Credit_Identifier
 
 ## 参考
 

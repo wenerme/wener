@@ -13,6 +13,7 @@ id: n8n
 :::caution
 
 - Apache 协议但禁止用于直接提供 n8n 作为服务 - 不能做竞品
+- 非 OSS 协议
 - 社区版只能单用户
 - EE 功能
   - LogStream

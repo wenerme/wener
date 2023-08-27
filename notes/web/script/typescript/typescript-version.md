@@ -15,6 +15,12 @@ tags:
 | [Typescript 4.6](#typescript-46) | 2022-02-28 |
 | [Typescript 4.5](#typescript-45) | 2021-11-17 |
 
+## Typescript 5.3
+
+- --isolatedDeclarations 提升构建速度
+  - [#47947](https://github.com/microsoft/TypeScript/issues/47947)
+  - [53463](https://github.com/microsoft/TypeScript/pull/53463#issuecomment-1660720127)
+
 ## Typescript 5.0
 
 - 支持 decorator
@@ -80,22 +86,22 @@ class Person {
 }
 
 type HasNames = { readonly names: string[] };
-function getNamesExactly<T extends HasNames>(arg: T): T["names"] {
-    return arg.names;
+function getNamesExactly<T extends HasNames>(arg: T): T['names'] {
+  return arg.names;
 }
 // 5.0 之前
 // 类型为 readonly ["Alice", "Bob", "Eve"]
 // 不加 const 类型为 string[]
-const names2 = getNamesExactly({ names: ["Alice", "Bob", "Eve"]} as const);
+const names2 = getNamesExactly({ names: ['Alice', 'Bob', 'Eve'] } as const);
 
 // 5.0 支持 const 修饰 类型参数
 // 确保得到更精确的类型 - 不再需要 as const
 type HasNames = { names: readonly string[] };
-function getNamesExactly<const T extends HasNames>(arg: T): T["names"] {
-//                       ^^^^^
-    return arg.names;
+function getNamesExactly<const T extends HasNames>(arg: T): T['names'] {
+  //                       ^^^^^
+  return arg.names;
 }
-const names = getNamesExactly({ names: ["Alice", "Bob", "Eve"]});
+const names = getNamesExactly({ names: ['Alice', 'Bob', 'Eve'] });
 ```
 
 ## Typescript 4.9
@@ -111,7 +117,7 @@ class Person {
   accessor name: string;
 
   constructor(name: string) {
-      this.name = name;
+    this.name = name;
   }
 }
 
@@ -120,14 +126,14 @@ class Person {
   #__name: string;
 
   get name() {
-      return this.#__name;
+    return this.#__name;
   }
   set name(value: string) {
-      this.#__name = name;
+    this.#__name = name;
   }
 
   constructor(name: string) {
-      this.name = name;
+    this.name = name;
   }
 }
 ```

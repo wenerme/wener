@@ -367,3 +367,11 @@ hdparm -I /dev/sda | grep -i trim # 检查 TRIM 支持
 - https://github.com/openzfs/zfs/discussions/14231
   - L2ARC device is in use as a cache
 - https://github.com/openzfs/zfs/issues/13108
+
+## retry UNAVAL
+
+```bash
+zpool online data DISK
+zpool clear data
+zpool scrube data # 推荐
+```

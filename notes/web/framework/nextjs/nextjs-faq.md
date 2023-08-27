@@ -506,3 +506,16 @@ NextJS ssr 不支持 React.lazy
 ```bash
 NODE_OPTIONS=--experimental-specifier-resolution=node
 ```
+
+##  process.env.NEXT_PHASE
+
+```bash
+export const PHASE_EXPORT = 'phase-export'
+export const PHASE_PRODUCTION_BUILD = 'phase-production-build'
+export const PHASE_PRODUCTION_SERVER = 'phase-production-server'
+export const PHASE_DEVELOPMENT_SERVER = 'phase-development-server'
+export const PHASE_TEST = 'phase-test'
+export const PHASE_INFO = 'phase-info'
+```
+
+- https://github.com/vercel/next.js/blob/2de45693a9207c040dcc0f1a1d1a4f44431170e2/packages/next/src/shared/lib/constants.ts#L23-L28

@@ -1,25 +1,22 @@
 ---
-id: k8s-consul
-title: Consol
+title: Consul
 ---
 
-# Consol
+# Consul
 
-## Tips
-
-* [Consul K8S](https://github.com/hashicorp/consul-k8s) 使用场景
-  * 部署 Consul 集群服务
-  * 允许 Consol 客户端打通服务
-  * Connect Service Mesh
-  * 同步 K8S 服务到 Consul
-* 安装依赖 PV 存储
-* [文档](https://www.consul.io/docs/k8s)
+- [Consul K8S](https://github.com/hashicorp/consul-k8s) 使用场景
+  - 部署 Consul 集群服务
+  - 允许 Consol 客户端打通服务
+  - Connect Service Mesh
+  - 同步 K8S 服务到 Consul
+- 安装依赖 PV 存储
+- [文档](https://www.consul.io/docs/k8s)
 
 ```bash
 helm repo add hashicorp https://helm.releases.hashicorp.com
 
 # 默认部署    server client dns ui
-# 默认不部署 tls acl federation externalService snapshotAgent syncCatalog 
+# 默认不部署 tls acl federation externalService snapshotAgent syncCatalog
 #   connectInject centralConfig meshGateway ingressGateways terminatingGateways
 # 默认 datacenter 为 dc1
 # 安装到 service 空间
@@ -43,34 +40,33 @@ consul kv put hello world
 
 ```yaml
 env:
-- name: ADVERTISE_IP
-  valueFrom:
-    fieldRef:
-      fieldPath: status.podIP
-- name: NAMESPACE
-  valueFrom:
-    fieldRef:
-      fieldPath: metadata.namespace
-- name: NODE
-  valueFrom:
-    fieldRef:
-      fieldPath: status.nodeName
-- name: HOST_IP
-  valueFrom:
-    fieldRef:
-      fieldPath: status.hostIP
-- name: CONSUL_HTTP_ADDR
-  value: $(HOST_IP):8500
+  - name: ADVERTISE_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.podIP
+  - name: NAMESPACE
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.namespace
+  - name: NODE
+    valueFrom:
+      fieldRef:
+        fieldPath: status.nodeName
+  - name: HOST_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.hostIP
+  - name: CONSUL_HTTP_ADDR
+    value: $(HOST_IP):8500
 ```
 
 ## DNS
 
 ```bash
-
 # KubeDNS
 # ==========
 CONSUL_DNS_IP=$(kubectl get svc consul-dns -o jsonpath='{.spec.clusterIP}' -n service)
-cat <<EOF | kubectl apply -f -
+cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -100,4 +96,5 @@ kubectl run --rm -i -t dns-test --image=wener/base --restart=Never -- nslookup c
 ```
 
 ## ACL
-* [Kubernetes Auth Method](https://www.consul.io/docs/security/acl/auth-methods/kubernetes)
+
+- [Kubernetes Auth Method](https://www.consul.io/docs/security/acl/auth-methods/kubernetes)

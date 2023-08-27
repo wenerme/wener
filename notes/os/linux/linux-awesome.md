@@ -53,6 +53,22 @@ tags:
 
 - nethogs
 
+## Sandbox/Namespace {#namespaces}
+
+- ptrace
+  - Mares,Kolstad
+  - 开销大、无法同时监控多线程的程序
+- secommp
+  - TxBox
+  - 如果想定制化开发，需要对OS内核进行批量的修改
+- [cgrouop](./sys/cgroup.md)
+- [ioi/isolate](./sys/isolate.md)
+  - GPLv2, C
+  - 执行不安全程序
+- [google/nsjail](https://github.com/google/nsjail)
+  - Apache-2.0, C++
+  - light-weight process isolation tool
+
 ## 有趣
 
 - [sbu-fsl/kernel-ml](https://github.com/sbu-fsl/kernel-ml)

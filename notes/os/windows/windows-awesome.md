@@ -13,9 +13,12 @@ tags:
 - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
 - [cairoshell/cairoshell](https://github.com/cairoshell/cairoshell)
   - customizable, intuitive desktop environment for Windows
+- [WhatTheBlock/WindowsSimplify](https://github.com/WhatTheBlock/WindowsSimplify)
+
+## Distro
+
 - [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas)
   - modification of Windows 10, designed to optimize performance, and latency
-- [WhatTheBlock/WindowsSimplify](https://github.com/WhatTheBlock/WindowsSimplify)
 
 ## Tools
 

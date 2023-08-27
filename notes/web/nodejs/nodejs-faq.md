@@ -60,7 +60,6 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 
 ## source map
 
-
 - sourcemap 大了过后非常慢
 - 排除 node_modules https://github.com/evanw/esbuild/issues/1685#issuecomment-944916409
 - 例如: main.mjs 10mb, main.mjs.map 20mb
@@ -241,6 +240,16 @@ process.emit = function (name, data, ...args) {
 
 - https://github.com/nodejs/node/issues/30810
 
+## Reached heap limit Allocation failed - JavaScript heap out of memory
+
+```bash
+NODE_OPTIONS="--max-old-space-size=8192" eslint --fix
+```
+
+- `DEBUG=*`
+- `DEBUG=typescript-eslint`
+- `TIMING=1`
+
 ## Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
 
 - 可增加
@@ -252,11 +261,15 @@ NODE_OPTIONS="--max-old-space-size=8192" node -e 'console.log(v8.getHeapStatisti
 
 - 2048
 - 4096
+- 4144
 - 5120
 - 6144
 - 7168
 - 8192
 - 16384
+- https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes
+- https://chromium.googlesource.com/v8/v8.git/+/refs/tags/10.3.129/src/heap/heap.cc#314
+- [v8](../browser/v8.md)
 
 ## Can't resolve 'pg-native'
 
@@ -340,6 +353,7 @@ node --snapshot-blob snapshot.blob
 - https://github.com/microsoft/TypeScript/issues/25658
 
 ## fastify vs express
+
 - fastify
   - 更快
     - fast-json-stringify
@@ -356,7 +370,6 @@ node --snapshot-blob snapshot.blob
 export NODE_PATH=$(npm root --quiet -g)
 ```
 
-
 ## ERR_OSSL_EVP_UNSUPPORTED
 
 ```
@@ -367,3 +380,9 @@ Error: error:0308010C:digital envelope routines::unsupported
 ```
 
 - pnpm 安装有问题，换 npm 后好了
+
+## getaddrinfo ENOTFOUND undefined
+
+```js
+fetch(`http://example.com`);
+```

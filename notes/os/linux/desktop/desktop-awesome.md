@@ -106,3 +106,8 @@ tags:
 
 - https://www.pling.com/
 - https://www.xfce-look.org/
+
+# FAQ
+
+- /usr/share/applications/micro.desktop
+- /usr/share/icons/hicolor/scalable/apps/micro-logo.svg

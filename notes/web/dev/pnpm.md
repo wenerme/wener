@@ -73,6 +73,9 @@ auto-install-peers = true
 public-hoist-pattern[]=*jest*
 ```
 
+- ~/Library/pnpm
+- NODE_PATH=$HOME/Library/pnpm/global/5/.pnpm/node_modules
+
 ## 配置
 
 - strict-peer-dependencies

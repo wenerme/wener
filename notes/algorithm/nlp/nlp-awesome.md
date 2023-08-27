@@ -33,6 +33,8 @@ tags:
 
 ## 中文
 
+- [fighting41love/funNLP](https://github.com/fighting41love/funNLP)
+  - 中文 NLP 资源库
 - [crownpku/Awesome-Chinese-NLP](https://github.com/crownpku/Awesome-Chinese-NLP)
 - [brightmart/nlp_chinese_corpus](https://github.com/brightmart/nlp_chinese_corpus)
 - [cobaltdisco/Google-Chinese-Results-Blocklist](https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist)
@@ -42,8 +44,6 @@ tags:
 - [baidu/lac](https://github.com/baidu/lac)
   - LAC - Lexical Analysis of Chinese
   - 百度 NLP：分词，词性标注，命名实体识别，词重要性
-- [fighting41love/funNLP](https://github.com/fighting41love/funNLP)
-  - 中文 NLP 资源库
 - [blmoistawinde/HarvestText](https://github.com/blmoistawinde/HarvestText)
   - 文本挖掘和预处理工具
 - [NLPchina/ansj_seg](https://github.com/NLPchina/ansj_seg)

@@ -57,6 +57,8 @@ npx turbo login --sso-team=<team-slug>
 
 | env                              |
 | -------------------------------- | ------------------------------------- |
+| TURBO_API                        |
+| TURBO_TEAM                       |
 | TURBO_TOKEN                      | remote_cache 授权                     |
 | TURBO_REMOTE_CACHE_SIGNATURE_KEY |
 | TURBO_HASH                       |
@@ -177,3 +179,5 @@ turbo run build --token=$TURBO_TOKEN
 ## error hashing files: could not hash file package-lock.json
 
 - 如果从 npm 切换到了 pnpm，还需要修改 package.json 里的 packageManager
+
+## No caches are enabled. You can try "turbo login", "turbo link", or ensuring you are not passing --remote-only to enable caching

@@ -90,10 +90,16 @@ tags:
 
 ## Editor
 
-- nano
+- [nano](./nano.md)
+  - Enhanced clone of the Pico text editor
 - vim
 - [zyedidia/micro](https://github.com/zyedidia/micro)
 - joe
+
+```bash
+apk add nano  # Installed size 308 kB
+apk add micro # Installed size 12.17 MB
+```
 
 ## root
 

@@ -19,6 +19,8 @@ tags:
 
 | version                            | release    |
 | ---------------------------------- | ---------- |
+| [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 |
+| [Kubernetes 1.27](#kubernetes-127) | 2023-04-11 |
 | [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |
 | [Kubernetes 1.24](#kubernetes-124) | 2022-05-03 |
 | [Kubernetes 1.23](#kubernetes-123) | 2021-12-07 |
@@ -78,9 +80,47 @@ tags:
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
 
+## Kubernetes 1.28
+
+- CP 组件版本 <-> 节点组件版本 从 n-2 -> n-3
+  - CP 可升级更快
+  - CP 组件 - kube-apiserver, kube-scheduler, kube-controller-manager, cloud-controller-manager
+  - 节点组件 - kubelet, kube-proxy
+- Alpha
+  - init container restartPolicy
+
+---
+
+- https://kubernetes.io/blog/2023/08/15/kubernetes-v1-28-release/
+
 ## Kubernetes 1.27
 
+- `k8s.gcr.io` -> `registry.k8s.io`
+- Beta
+  - ReadWriteOncePod for PV & PVC
+
+---
+
+- https://sysdig.com/blog/kubernetes-1-27-whats-new/
+- https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/
+
 ## Kubernetes 1.26
+
+- Stable
+  - KubeletCredentialProviders
+  - CPUManager
+  - ServiceInternalTrafficPolicy
+    - Service.spec.trafficPolicy=Cluster - Topology,PreferLocal,Local
+  - MixedProtocolLBService
+- Beta
+  - NodeOutOfServiceVolumeDetach
+    - Non-graceful node shutdown
+  - ProxyTerminatingEndpoints
+    - 避免滚动升级时流量丢失
+- Alpha
+  - MinimizeIPTablesRestore=false
+    - iptables-restore 只传递修改内容
+- https://sysdig.com/blog/kubernetes-1-26-whats-new/
 
 ## Kubernetes 1.25
 
