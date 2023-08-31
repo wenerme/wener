@@ -1,11 +1,11 @@
 ---
-id: vault
 title: Vault
 ---
 
-# Vault
+# Hashicorp Vault
 
 - [hashicorp/vault](https://github.com/hashicorp/vault) 是什么？
+  - BSLv1.1, Golang
   - 提供密钥管理、证书管理、外部授权集成
   - 提供角色访问密钥权限控制
   - 实现 CA 服务

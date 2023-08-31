@@ -56,3 +56,22 @@ REQUIRE_SIGNIN_VIEW=false
 - [Configuration Cheat Sheet](https://docs.gitea.io/en-us/config-cheat-sheet/)
   - [中文](https://docs.gitea.io/zh-cn/config-cheat-sheet/)
 - [app.example.ini](https://github.com/go-gitea/gitea/blob/main/custom/conf/app.example.ini)
+
+## action
+
+```ini
+[action]
+ENABLED=false
+# github -> https://github.com
+# self -> 当前 gitea - GITEA__server__ROOT_URL
+DEFAULT_ACTIONS_URL=github
+# minio, XYZ -> storage.XYZ
+STORAGE_TYPE=local
+MINIO_BASE_PATH=actions_log/
+```
+
+- DEFAULT_ACTIONS_URL
+  - 不推荐 self
+    - 需要 mirror 太多仓库
+    - 需要 gitea 公开访问
+  - 推荐 uses 写完整 url，例如: https://gitea.com/actions/checkout@v3

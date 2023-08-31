@@ -40,6 +40,9 @@ tags:
 - [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)
   - Apache-2.0, Golang
   - Workflow engine for Kubernetes
+- [activepieces/activepieces](https://github.com/activepieces/activepieces)
+  - MIT, Typescript
+  - no-code workflow builder
 - Huginn
   - Python
 - [enso-org/enso](https://github.com/enso-org/enso)
@@ -76,6 +79,7 @@ tags:
 - NodeJS
   - [mithunsatheesh/node-rules](https://github.com/mithunsatheesh/node-rules)
     - light weight forward chaining rule engine
+  - [oliverzy/process-engine.js](https://github.com/oliverzy/process-engine.js)
 
 ## Data Pipeline
 

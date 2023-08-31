@@ -1,10 +1,9 @@
 ---
-title: OPS Awesome
 tags:
   - Awesome
 ---
 
-# OPS Awesome
+# DevOps Awesome
 
 - [GoogleCloudPlatform/iap-desktop](https://github.com/GoogleCloudPlatform/iap-desktop)
   - IAP - TCP-over-HTTPS
@@ -25,6 +24,10 @@ tags:
 - [ixrjog/opscloud4](https://github.com/ixrjog/opscloud4)
 - [Normation/rudder](https://github.com/Normation/rudder)
   - configuration and security automation platform
+
+## Reading
+
+- https://www.opsschool.org/
 
 ## CMDB
 

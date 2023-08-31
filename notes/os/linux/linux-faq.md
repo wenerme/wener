@@ -6,6 +6,14 @@ tags:
 
 # Linux FAQ
 
+## Hardening
+
+- 磁盘加密
+
+---
+
+- https://www.pluralsight.com/blog/it-ops/linux-hardening-secure-server-checklist
+
 ## SIGINT vs SIGTERM vs SIGHUP
 
 - SIGHUP - 1
@@ -17,7 +25,6 @@ tags:
 - SIGTERM - 15
   - 终止
   - 通常是 kill
-
 
 ## kernel-ml vs kernel-lt
 
@@ -31,7 +38,7 @@ RHEL 内核 flavor
 ## context switch
 
 ```bash
-cat /proc/3736/status|grep ctxt
+cat /proc/3736/status | grep ctxt
 
 apk add sysstat
 pidstat -w -l -p 3736

@@ -38,6 +38,13 @@ docker run --rm -it \
 
 ```
 /msg NickServ IDENTIFY $password [$nick]
+
+
+/connect irc.libera.chat 6667 YourNick:YourPassword
+
+/nick YourNick
+/msg NickServ REGISTER YourPassword youremail@example.com
+/msg NickServ IDENTIFY YourNick YourPassword
 ```
 
 - +sntR

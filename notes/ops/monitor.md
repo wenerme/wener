@@ -1,7 +1,8 @@
 # Monitor
 
 ## Glances
-[Glances](https://github.com/nicolargo/glances) is a cross-platform curses-based system monitoring tool written in Python.
+
+- [Glances](https://github.com/nicolargo/glances) is a cross-platform curses-based system monitoring tool written in Python.
 
 ```bash
 # Docker

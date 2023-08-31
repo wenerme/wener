@@ -50,6 +50,7 @@ tags:
   - [Saving & Loading Models](https://pytorch.org/tutorials/beginner/saving_loading_models.html)
 - https://medium.com/geekculture/list-of-open-sourced-fine-tuned-large-language-models-llm-8d95a2e0dc76
 - https://erichartford.com/uncensored-models
+- https://huggingface.co/spaces/facebook/seamless_m4t
 
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |

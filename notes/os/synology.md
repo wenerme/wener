@@ -12,6 +12,7 @@ title: Synology
 - 参考
 - btrfs 修复
   - https://gist.github.com/bruvv/d9edd4ad6d5548b724d44896abfd9f3f
+- https://www.synology.com/zh-cn/compatibility
 
 # FAQ
 

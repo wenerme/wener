@@ -9,11 +9,12 @@ tags:
 
 :::tip 为什么周期性升级
 
-- 避免常见 CVE - 借助 quay 扫描版本 CVE https://quay.io/repository/wener/base?tab=tags
+- 避免常见 CVE
+  - 例如: 借助 quay 扫描版本 CVE https://quay.io/repository/wener/base?tab=tags
 - 避免手生 - 太久不升级就再也不敢升级
+- 小版本升级可解决一些 Bug 也值得升级
 - 用上新功能 - 与时俱进，了解和学习新的特性功能
 - 周期性解决兼容性问题
-- 小版本升级可解决一些 Bug 也值得升级
 
 :::
 
@@ -42,11 +43,15 @@ tags:
 
 - 建议关注特性和版本兼容
 - [Chrome 版本变化](../web/browser/chrome/chrome-version.md)
-- [HAProxy 版本变化](../devops/web/haproxy/haproxy-version.md)
+- [HAProxy 版本变化](./web/haproxy/haproxy-version.md)
 - [Golang 版本变化](../languages/go/go-version.md)
 - [Java 版本变化](../java/version/README.md)
+- [Linux 版本变化](../os/linux/linux-version.md)
+- [AlpineLinux 版本变化](../os/alpine/alpine-version.md)
 
-## 手动升级 k3s/k0s
+## 升级 k3s/k0s
+
+- [K3S 升级](./kubernetes/distro/k3s/k3s-install.md#upgrade)
 
 ```bash
 # k0s 手动升级

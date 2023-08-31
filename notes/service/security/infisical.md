@@ -33,4 +33,14 @@ brew install infisical/get-cli/infisical
 export INFISICAL_TOKEN
 
 infisical export > .env
+
+docker run -p 80:80 \
+  -e ENCRYPTION_KEY= \
+  -e JWT_SIGNUP_SECRET= \
+  -e JWT_REFRESH_SECRET= \
+  -e JWT_AUTH_SECRET= \
+  -e JWT_SERVICE_SECRET= \
+  -e MONGO_URL= \
+  -e REDIS_URL= \
+  infisical/infisical:latest
 ```

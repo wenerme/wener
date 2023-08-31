@@ -1,13 +1,12 @@
 ---
 title: Serverless Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Serverless Awesome
 
 - Kubernetes 之前的 FaaS 平台和之后的平台有一定区别
-
 
 :::caution
 
@@ -46,6 +45,9 @@ tags:
   - 源自 IBM
 - [nuclio/nuclio](https://github.com/nuclio/nuclio)
   - 数据流处理
+- [fermyon/spin](https://github.com/fermyon/spin)
+  - Apache-2.0, Rust
+  - powered by WebAssembly
 - [fnproject/fn](https://github.com/fnproject/fn)
   - 源自 Oracle
   - 🚧 项目停止

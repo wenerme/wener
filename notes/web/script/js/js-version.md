@@ -42,11 +42,13 @@ tags:
 :::tip 👀
 
 - Stage 3 - 接下来可能会加入到语言中的功能特性
-  - Import Assertions
+  - ~~Import Assertions~~
+  - Import Attribute `import data from 'data.json' with {type:'json']}`
   - JSON Modules
   - Intl.DisplayNames
   - [proposal-temporal](https://github.com/tc39/proposal-temporal)
     - Temporal - 替代 Date
+  - [proposal-decorators](https://github.com/tc39/proposal-decorators)
   - 2023
     - array group, groupToMap
       - https://github.com/tc39/proposal-array-grouping
@@ -97,7 +99,7 @@ tags:
 - findLast, findLastIndex
   - `{Array, %TypedArray%}.prototype.findLastIndex`
   - `{Array, %TypedArray%}.prototype.findLast`
-- Hashbang Grammar - JS 直接只为可执行脚本
+- Hashbang Grammar - JS 直接作为可执行脚本
 
 ```js
 #!/usr/bin/env node

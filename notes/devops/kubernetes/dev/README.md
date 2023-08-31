@@ -1,5 +1,4 @@
 ---
-id: dev
 title: Kubernetes 开发
 ---
 

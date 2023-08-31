@@ -4,6 +4,8 @@ title: CVE
 
 # CVE
 
+- https://www.cve.org/
+
 ## CVE-2022-22947
 
 - Java, SpringCloud Gateway

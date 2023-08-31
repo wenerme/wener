@@ -43,9 +43,6 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@127.0.0.1 
 # code --remote ssh-remote+root@server.com <your-directory>
 ```
 
-### code-server
-
-- [cdr/code-server](https://github.com/cdr/code-server)
 
 ## setting
 

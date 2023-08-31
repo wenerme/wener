@@ -11,6 +11,7 @@ title: WebStorage
   - [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage_API)
   - [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager)
     - 估算使用量
+- [AsyncStorage](https://reactnative.dev/docs/asyncstorage) - React Native
 
 **存储限制**
 

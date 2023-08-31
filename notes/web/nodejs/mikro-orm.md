@@ -15,12 +15,24 @@ title: mikro-orm
 :::tip
 
 - mikroorm 使用 knex， knex pool 默认 `min:2, max:10`
+- 不支持复杂多样的 JOIN 逻辑
 
 :::
 
 :::note
 
 - 不支持多态 [#706](https://github.com/mikro-orm/mikro-orm/issues/706)
+- ManyToOne join 必须为主键 [#593](https://github.com/mikro-orm/mikro-orm/issues/593)
+- join 列不能重复定义
+  - 例如 user, userId 不能同时存在
+
+```ts
+// 让 user 和 userId 同时存在
+@Property({ persist: false })
+get userId(): string {
+  return this.user.id;
+}
+```
 
 :::
 

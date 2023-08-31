@@ -32,4 +32,4 @@ tags:
 
 ## cannot create a queue subscription for a consumer without a deliver group
 
-- 2.4+ nats
+- 2.4+ nats 修复

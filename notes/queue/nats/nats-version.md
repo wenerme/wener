@@ -29,6 +29,7 @@ tags:
 - JetStream based Key-Value Stores - [ADR-8](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-8.md)
   - KV: 支持历史记录，支持限定大小，Watch
   - Object Store: 支持 Chunks，Watch
+- Service API [ADR-32](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-32.md)
 
 :::
 

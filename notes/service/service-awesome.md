@@ -151,12 +151,17 @@ tags:
   - [CoderLine/alphaTab](https://github.com/CoderLine/alphaTab)
     - MPL-2.0, TS
     - cross platform music notation and guitar tablature rendering
-- secrets manager
+- secrets manager/security/KMS
   - [Infisical/infisical](./secret/infisical.md)
     - MIT + EE, Typescript
   - [envkey/envkey](https://github.com/envkey/envkey)
   - [dotenv-org/dotenv-vault](https://github.com/dotenv-org/dotenv-vault)
+    - MIT, Typescript
+    - 只是客户端 https://github.com/dotenv-org/dotenv-vault/issues/116
   - vault
+  - [build-trust/ockam](https://github.com/build-trust/ockam)
+  - [uport-project/veramo](https://github.com/uport-project/veramo)
+    - Verifiable Data
 - captcha
   - [ZYSzys/awesome-captcha](https://github.com/ZYSzys/awesome-captcha)
 - qr

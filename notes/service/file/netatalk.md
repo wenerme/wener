@@ -43,6 +43,19 @@ file perm = 0664
 directory perm = 0775
 ```
 
+## timemachine
+
+```bash
+sudo docker run -h timemachine --name timemachine \
+  -e AFP_LOGIN= \
+  AFP_PASSWORD= \
+  AFP_NAME= \
+  AFP_SIZE_LIMIT= \
+  -v /route/to/your/timemachine:/timemachine -t -i -p 548:548 -p 636:636 odarriba/timemachine < YOUR_USER > -e < YOUR_PASS > -e < TIME_MACHINE_NAME > -e < MAX_SIZE_IN_MB > -d
+```
+
+- [odarriba/timemachine](https://store.docker.com/community/images/odarriba/timemachine)
+
 # FAQ
 
 ## 版本不匹配

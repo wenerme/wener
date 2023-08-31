@@ -122,7 +122,7 @@ nsc init -n nats
 nsc generate config --nats-resolver > jwt.conf
 ```
 
-```
+```hcl
 host: 0.0.0.0
 port: 4222
 monitor_port: 8222

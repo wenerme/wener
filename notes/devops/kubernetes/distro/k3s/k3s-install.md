@@ -263,7 +263,7 @@ sed 's/sourcex/\./g' -i /etc/init.d/k3s
 
 ## 升级 {#upgrade}
 
-- v1.27 containerd 无 zfs snapshotter
+- v1.27 前面版本 containerd 无 zfs snapshotter
 
 ```bash
 # 准备

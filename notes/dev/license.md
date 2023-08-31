@@ -152,13 +152,22 @@ title: License
 
 ## BSL
 
+> 大多数情况下 自用/企业用 问题不大，只要不用于实现竞争性产品。
+
 - BSL/BUSL - Business Source License
   - 由 MariaDB 公司定义
   - 非开源协议 - OSI/FSF 不认可 - 介于开源和闭源之间
   - 源码延迟开源/最终开源 - 例如: 4 年后协议从 BSL 变为 GPLv2
-  - 非生产环境允许使用，生产环境限制使用
+  - 限制生产环境使用
 - 与 ELv2 类似
-- Adopted by: MariaDB 附加产品, ZeroTier, Couchbase 7
+- Adopted by:
+  - MariaDB 附加产品
+  - ZeroTier
+  - Couchbase 7
+  - HashiCorp, Inc.
+    - 可以生产使用，禁止用于竞争性产品
+    - 4年 -> MPL 2.0
+    - https://www.hashicorp.com/license-faq
 - [BSLv1.1](https://mariadb.com/bsl11/)
 - [Projects using BSL 1.1](https://mariadb.com/projects-using-bsl-11/)
 

@@ -7,7 +7,9 @@ title: ArgoCD Image Updater
 :::tip
 
 - 默认间隔 `2m0s` 扫描一次
+- 镜像多了后会触发非常多的 仓库 API 请求
 - 不支持 webhook [#1](https://github.com/argoproj-labs/argocd-image-updater/issues/1)
+  - [#284](https://github.com/argoproj-labs/argocd-image-updater/pull/284)
 - write back 会比较复杂，不建议。。。
 
 :::

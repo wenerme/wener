@@ -75,7 +75,6 @@ nats rtt
   - 多层匹配 `a.b.>` - 匹配 a.b.c.d
   - `*.*.c.>` - 匹配 a.b.c.d
 - Publish-Subscribe
-- Request-Reply
 - Queue Groups / Queue Subscribe / Consumer Group
   - Kafka Consumer Group 概念
   - 多个 consumer 共享消费位置

@@ -1,5 +1,4 @@
 ---
-id: db-schema
 title: Tenant DB Schema
 ---
 

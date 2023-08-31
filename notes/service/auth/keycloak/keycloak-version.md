@@ -8,7 +8,7 @@ tags:
 
 | version       | date       | Notes        |
 | ------------- | ---------- | ------------ |
-| [Keycloak 22] |            |
+| [Keycloak 22] | 2023-07-11 |
 | [Keycloak 21] | 2023-02-23 |
 | [Keycloak 20] | 2022-11-01 | Quarkus only |
 | [Keycloak 19] | 2022-07-27 |
@@ -31,6 +31,7 @@ tags:
 
 :::
 
+[keycloak 22]: #keycloak-22
 [keycloak 21]: #keycloak-21
 [keycloak 20]: #keycloak-20
 [keycloak 19]: #keycloak-19
@@ -45,9 +46,20 @@ tags:
 [keycloak 10]: #keycloak-10
 
 - [Release Notes](https://www.keycloak.org/docs/latest/release_notes/)
+- https://github.com/keycloak/keycloak/releases
 - [keycloak/kc-sig-fapi](https://github.com/keycloak/kc-sig-fapi)
 
 ## Keycloak 22
+
+- ~~Java 11~~
+- Quarkus 3.x
+  - Java EE -> Jakarta EE
+- Hibernate ORM 6
+- WildFly Elytron -> Keycloak KeyStore Vault
+- Quarkus KeyStore Config Source
+- Hostname debug tool
+
+## Keycloak 21.1
 
 - Monorepo
 - FIPS 140-2

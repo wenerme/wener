@@ -4,7 +4,7 @@ title: NTP
 
 # NTP
 
-- 推荐使用 chrony
+- 推荐使用 [chrony](./chrony.md)
 - busybox 的 ntpd 能用
 - pools
   - https://www.pool.ntp.org/zone/hk
@@ -36,25 +36,4 @@ adjtimex # 系统同步状态
     time.tv_sec:  1656320448
     time.tv_usec: 568452
     return value: 0 (clock synchronized)
-```
-
-## chrony
-
-- 如果时间差距特别大 chrony 可能不会同步
-  - 配置 `makestep 1 -1` 然后重启 - 强制接受同步源
-  - 或者 maxdistance
-- [chrony.tuxfamily.org](https://chrony.tuxfamily.org/)
-  - GPLv2
-  - [chrony.conf](https://chrony.tuxfamily.org/doc/3.4/chrony.conf.html)
-- [Checking if chrony is Synchronized](https://docs.fedoraproject.org/en-US/Fedora/18/html/System_Administrators_Guide/sect-Checking_if_chrony_is_synchronized.html)
-
-```bash
-chronyc tracking    # 查看当前状态
-chronyc sources     # 查看同步源
-chronyc -a makestep # 主动同步
-```
-
-```conf
-# 强制每 2^8=256 秒同步一次
-server pool.ntp.org minpoll 8
 ```

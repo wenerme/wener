@@ -24,6 +24,12 @@ tags:
     password: ${{ secrets.GITEA_TOKEN }}
 ```
 
+- 支持手动触发 action [#23668](https://github.com/go-gitea/gitea/issues/23668)
+- action badge [#23688](https://github.com/go-gitea/gitea/issues/23688)
+- Package Registry TODO [#19270](https://github.com/go-gitea/gitea/issues/19270)
+- 1.21 [#25123](https://github.com/go-gitea/gitea/issues/25123)
+- git sha256 [#13794](https://github.com/go-gitea/gitea/issues/13794)
+
 :::
 
 ## Gitea 1.20
