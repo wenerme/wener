@@ -49,6 +49,8 @@ title: ArgoCD Image Updater
         - `argocd app set --parameter`
       - git
         - `.argocd-source-<appName>.yaml`
+- 参考
+  - https://github.com/shini4i/argo-watcher
 
 ```bash
 # 安装

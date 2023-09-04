@@ -44,6 +44,10 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | fc00::/7        |
 | fe80::/10       |
 
+```
+127.0.0.0/8,10.0.0.0/8,100.64.0.0/10,172.16.0.0/12,192.168.0.0/16
+```
+
 ## Welknown Private
 
 | CIDR            | for              |

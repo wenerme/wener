@@ -161,3 +161,15 @@ function Component() {
   return;
 }
 ```
+
+# version
+
+## Zustand v4
+
+```ts
+import { createWithEqualityFn } from 'zustand/traditional'
+const useFooStore = createWithEqualityFn(..., Object.is)
+```
+
+- useStoreWithEqualityFn
+- https://github.com/pmndrs/zustand/discussions/1937

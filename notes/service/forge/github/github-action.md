@@ -6,6 +6,8 @@ title: Github Action
 
 - [actions/virtual-environments](https://github.com/actions/virtual-environments)
 - https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+- https://github.com/actions
+- https://gitea.com/actions
 
 :::caution
 

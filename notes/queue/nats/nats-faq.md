@@ -6,6 +6,8 @@ tags:
 
 # NATS FAQ
 
+- Pub 不支持 wildcard
+
 ## NATS vs NATS Streaming vs NATS JetStream
 
 - NATS

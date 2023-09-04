@@ -38,6 +38,10 @@ tags:
   - 建议优先 interface
 - https://www.totaltypescript.com/type-vs-interface-which-should-you-use
 
+## 为每个方法添加一个参数
+
+- https://stackoverflow.com/a/49479117/1870054
+
 ## Expected 3 type arguments, but got 1
 
 - TS 5.0 不支持部分参数推导

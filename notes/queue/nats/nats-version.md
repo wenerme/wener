@@ -14,6 +14,7 @@ tags:
 
 | ver                  | date       | nats.go |
 | -------------------- | ---------- | ------- |
+| [Nats 2.9](#nats-29) |
 | [Nats 2.8](#nats-28) | 2022-04-19 |         |
 | [Nats 2.7](#nats-27) | 2022-01-04 |         |
 | [Nats 2.6](#nats-26) | 2021-09-22 | v1.13   |
@@ -36,10 +37,11 @@ tags:
 - https://github.com/nats-io/nats-server/releases
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
 
+## Nats 2.9
+
 ## Nats 2.8
 
 ## Nats 2.7
-
 
 - JetStream
   - 新增配置 max_file_store, max_memory_store

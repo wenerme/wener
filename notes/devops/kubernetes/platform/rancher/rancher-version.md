@@ -6,11 +6,18 @@ tags:
 
 # Rancher Version
 
-| version     | date       |
-| ----------- | ---------- |
-| Rancher 2.6 | 2021-08-31 |
+| version                    | date       | k8s       |
+| -------------------------- | ---------- | --------- |
+| [Rancher 2.7](#rancher-27) | 2022-11-17 | 1.23+     |
+| [Rancher 2.6](#rancher-26) | 2021-08-31 | 1.20-1.24 |
 
-## 2.6
+- https://ranchermanager.docs.rancher.com/versions
+
+## Rancher 2.7
+
+- K3s Provisioning
+
+## Rancher 2.6
 
 - 自定义 UI
 - New cluster explorer navigation

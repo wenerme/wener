@@ -44,6 +44,20 @@ tags:
   - runas
 - [bats-core/bats-core](https://github.com/bats-core/bats-core)
   - Bash Automated Testing System
+- https://ohse.de/uwe/software/lrzsz.html
+  - x/y/zmodem
+  - rz 上传
+    - Receive by ZMODEM
+  - `sz a.txt` 下载
+    - Send by ZMODEM
+  - `brew install lrzsz`
+  - https://iterm2.com/documentation-triggers.html
+    - /usr/local/bin/ iterm2-send-zmodem.sh, iterm2-recv-zmodem.sh
+    - https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh
+    - https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh
+  - https://github.com/robberphex/iTerm2-zmodem
+  - SecureCRT, Xshell 支持
+  - putty 不支持
 
 ## Shell
 

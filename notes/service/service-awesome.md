@@ -11,6 +11,9 @@ tags:
   - 开发者门户网站
   - 管理服务、基础设施、文档
   - 追踪组织生态系统中所有软件的所有权和元数据
+- [amplication/amplication](https://github.com/amplication/amplication)
+  - Apache-2.0, TS, Nestjs
+  - backend development platform
 - [windmill-labs/windmill](https://github.com/windmill-labs/windmill)
   - AGPLv3 - backend, frontend
   - Apache-2.0 - client

@@ -242,8 +242,7 @@ options:
 ### initramfs
 
 - `/usr/share/mkinitfs/initramfs-init`
-
-* [initramfs-init](https://github.com/alpinelinux/mkinitfs/blob/master/initramfs-init.in)
+- [initramfs-init](https://github.com/alpinelinux/mkinitfs/blob/master/initramfs-init.in)
   - 核心启动逻辑
   - 启动完成后进行 switch root `/bin/busybox switch_root $sysroot $chart_init "$KOPT_init" $KOPT_init_args`
   - 启动方式

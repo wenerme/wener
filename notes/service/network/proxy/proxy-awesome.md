@@ -173,6 +173,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - [MemConn: an in-memory network stack for Go](https://akutz.wordpress.com/2018/04/20/memconn/)
   - 可用于测试或虚拟内部代理网络
 - [dshulyak/uring](https://github.com/dshulyak/uring)
+- [pojntfx/weron](https://github.com/pojntfx/weron)
+  - AGPLv3, Golang
+  - Overlay networks based on WebRTC
 
 ## 其他语言
 

@@ -13,6 +13,12 @@ nats-server -js -sd $PWD/jetstream-store -m 8222
 nats-server --signal reload
 ```
 
+| port | for                          |
+| ---- | ---------------------------- |
+| 4222 | client                       |
+| 8222 | HTTP management              |
+| 6222 | routing port for clustering. |
+
 ```
 port: 4222
 monitor_port: 8222
@@ -156,6 +162,37 @@ nsc push -a incs -u nats://127.0.0.1
 nats context add nats --server 127.0.0.1:4222 --select --creds ./nkeys/creds/nats/wener/apis.creds
 nats account info
 ```
+
+## Cluster
+
+```yaml
+version: '3.5'
+services:
+  nats:
+    image: nats
+    ports:
+      - '8222:8222'
+    command: '--cluster_name NATS --cluster nats://0.0.0.0:6222 --http_port 8222 '
+    networks: ['nats']
+  nats-1:
+    image: nats
+    command: '--cluster_name NATS --cluster nats://0.0.0.0:6222 --routes=nats://ruser:T0pS3cr3t@nats:6222'
+    networks: ['nats']
+    depends_on: ['nats']
+  nats-2:
+    image: nats
+    command: '--cluster_name NATS --cluster nats://0.0.0.0:6222 --routes=nats://ruser:T0pS3cr3t@nats:6222'
+    networks: ['nats']
+    depends_on: ['nats']
+
+networks:
+  nats:
+    name: nats
+```
+
+## HELM
+
+- https://github.com/nats-io/k8s/tree/main/helm/charts/nats
 
 # FAQ
 

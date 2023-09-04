@@ -1,5 +1,4 @@
 ---
-id: battery
 title: 电池
 ---
 
@@ -21,7 +20,7 @@ title: 电池
 | Ni-MH                      |       |          |          | 镍氢             |
 | Li-ion                     |       | 3.6-3.7V | x        | 锂离子           |
 | Li-Poly                    |       |          | x        | 锂离子聚合物电池 |
-| Nickel-zinc/NiZn           | 1901      |    1.6v      |          | 镍锌             |
+| Nickel-zinc/NiZn           | 1901  | 1.6v     |          | 镍锌             |
 
 - 铅蓄电池 - 铅对环境有害、硫酸为腐蚀性液体
 - 镍镉 有毒
