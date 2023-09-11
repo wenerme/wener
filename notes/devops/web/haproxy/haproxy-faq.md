@@ -75,3 +75,11 @@ use_backend s2 if { hdr(host) -i my2.domain.org }
 ## h3
 
 - https://github.com/haproxytech/kubernetes-ingress/issues/546
+
+## Whitelist
+
+```
+acl white_list src 192.168.1.0/24 192.168.10.0/24
+tcp-request content accept if white_list
+tcp-request content reject
+```

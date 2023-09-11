@@ -13,4 +13,7 @@ title: yq
 
 ```bash
 brew install yq
+
+# npm package.json
+yq -r '[.name,.version] | join("@")' package.json
 ```

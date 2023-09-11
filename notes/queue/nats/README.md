@@ -44,6 +44,22 @@ title: NATS
   - [nats.c](https://github.com/nats-io/nats.c)
   - [nats.py](https://github.com/nats-io/nats.py)
   - [nats.rs](https://github.com/nats-io/nats.rs)
+- Demo
+  - nats://demo.nats.io:4222
+  - demo.nats.io:7422
+  - wss://demo.nats.io:8443
+  - https://demo.nats.io:8222/varz
+  - https://demo.nats.io:8222/healthz
+  - https://demo.nats.io:8222/connz
+    - limit, offset, state
+  - https://demo.nats.io:8222/routez?subs=true
+  - https://demo.nats.io:8222/gatewayz
+  - https://demo.nats.io:8222/leafz?subs=true
+  - https://demo.nats.io:8222/subsz
+  - https://demo.nats.io:8222/acountz?acc=$G
+  - https://demo.nats.io:8222/accstatz?unused=false
+  - https://demo.nats.io:8222/jsz
+
 
 ```bash
 # Docker

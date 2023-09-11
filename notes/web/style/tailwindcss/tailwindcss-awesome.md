@@ -41,6 +41,7 @@ tags:
 
 **Components**
 
+- [shadcn-ui/ui](https://github.com/shadcn-ui/ui)
 - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
   Tailwind Components
 - [markmead/hyperui](https://github.com/markmead/hyperui)

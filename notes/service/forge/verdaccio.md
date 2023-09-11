@@ -99,7 +99,7 @@ store:
     delay: 50
 ```
 
-##  ERR_SOCKET_TIMEOUT
+## ERR_SOCKET_TIMEOUT
 
 - 走代理拉取，可能慢
 
@@ -116,4 +116,13 @@ fetch-retry-factor = 10
 fetch-retry-maxtimeout = 60000
 fetch-retry-mintimeout = 10000
 fetch-timeout = 300000
+```
+
+## Cannot publish over existing version
+
+- https://github.com/verdaccio/verdaccio/issues/1402
+- 目前只能 unpublish
+
+```bash
+npm publish --force --access restricted
 ```

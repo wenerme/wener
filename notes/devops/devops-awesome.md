@@ -23,6 +23,7 @@ tags:
 - [zhihu/cmdb](https://github.com/zhihu/cmdb)
 - [ixrjog/opscloud4](https://github.com/ixrjog/opscloud4)
 - [Normation/rudder](https://github.com/Normation/rudder)
+  - GPLv3, Scala
   - configuration and security automation platform
 
 ## Reading

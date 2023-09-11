@@ -8,6 +8,10 @@ title: V2Ray
   - MIT, Golang
 - ~~[v2ray/v2ray-core](https://github.com/v2ray/v2ray-core)~~
   - MIT, Golang
+- [v2rayA/v2rayA](https://github.com/v2rayA/v2rayA)
+  - web GUI
+- 参考
+  - https://www.v2ray.com/
 
 ```bash
 brew install v2ray

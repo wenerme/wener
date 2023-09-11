@@ -453,6 +453,17 @@ tags:
 - [kubernetes-sigs/kubespray](https://github.com/kubernetes-sigs/kubespray)
   Deploy a Production Ready Kubernetes Cluster
 
+## Client
+
+- https://github.com/kubernetes-client
+- https://github.com/topics/k8s-sig-api-machinery
+- [kubernetes-client/javascript](https://github.com/kubernetes-client/javascript)
+  - @kubernetes/client-node
+    - 2.3MB, 350KB
+```bash
+npm install @kubernetes/client-node
+```
+
 ## Security
 
 - [kuadrant/authorino](https://github.com/kuadrant/authorino)

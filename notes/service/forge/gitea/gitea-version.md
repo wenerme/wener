@@ -31,6 +31,9 @@ tags:
 - Package Registry TODO [#19270](https://github.com/go-gitea/gitea/issues/19270)
 - 1.21 [#25123](https://github.com/go-gitea/gitea/issues/25123)
 - git sha256 [#13794](https://github.com/go-gitea/gitea/issues/13794)
+- Audit Log
+  - https://github.com/go-gitea/gitea/issues/8
+  - https://github.com/go-gitea/gitea/pull/24257
 
 :::
 

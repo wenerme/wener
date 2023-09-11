@@ -34,6 +34,13 @@ get userId(): string {
 }
 ```
 
+- 全局 filter [#3009](https://github.com/mikro-orm/mikro-orm/issues/3009)
+
+```ts
+const filters = em.applyFilters('EntityName', {}, {}, 'read');
+qb.andWhere(filters);
+```
+
 :::
 
 ```bash

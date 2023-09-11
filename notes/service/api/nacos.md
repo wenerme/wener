@@ -63,3 +63,13 @@ POST http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&group=tes
 ## No DataSource set
 
 可能是没建表
+
+## 忘记密码
+
+```sql
+UPDATE users
+SET `password` = '$2a$10$eSH9UR8RJ2s8VV9mHPPkB.PhOeVaIGBLNAgQEVx3f.y9zK8svGYJW'
+WHERE `username` = 'nacos'
+```
+
+- jerryjin666

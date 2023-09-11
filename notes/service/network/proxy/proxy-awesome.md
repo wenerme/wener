@@ -34,6 +34,13 @@ tags:
 - obfs - 混淆 - 用于 ss,ssr
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post
+- http proxy
+  - nginx, haproxy
+  - squid
+  - [tinyproxy](./tinyproxy.md)
+  - [Privoxy](./privoxy.md)
+- socks proxy
+  - [dante](./dante.md)
 - CCProxy, Proxycap, Proxifier
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
@@ -102,8 +109,7 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 ## server
 
-- https://www.v2ray.com/
-  - https://github.com/v2rayA/v2rayA
+- [v2ray](./v2ray/README.md)
 - [clash](./clash.md)
   - rule based
 - [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)

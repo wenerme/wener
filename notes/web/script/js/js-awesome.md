@@ -540,6 +540,10 @@ tags:
   - axios
   - [elbywan/wretch](https://github.com/elbywan/wretch)
     - tiny wrapper built around fetch
+  - [sindresorhus/ky](https://github.com/sindresorhus/ky)
+    - fetch wrapper
+    - 0 依赖
+  - undici
   - superagent
   - got
     - 开发不活跃
@@ -836,6 +840,8 @@ tags:
 ## Crypto
 
 - Hashing
+- [rzcoder/node-rsa](https://github.com/rzcoder/node-rsa)
+  - pure js
 - [travist/jsencrypt](https://github.com/travist/jsencrypt)
   - RSA
 - [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js)
@@ -854,8 +860,28 @@ tags:
 
 - [usablica/intro.js](https://github.com/usablica/intro.js)
 
-## 工具
+## 工具 {#toolchain}
 
+- formatter
+  - prettier
+- linter
+  - eslint
+    - [xojs/xo](https://github.com/xojs/xo)
+  - [biomejs/biome](https://github.com/biomejs/biome)
+    - MIT, Rust
+    - linter
+- tester
+  - ava
+  - vitest
+  - tap
+  - ava
+  - mocha
+- e2e test
+  - cypress
+  - webdriver io
+- coverage
+  - [istanbuljs/nyc](https://github.com/istanbuljs/nyc)
+  - c8
 - [CryogenicPlanet/depp](https://github.com/CryogenicPlanet/depp)
 
 ```bash

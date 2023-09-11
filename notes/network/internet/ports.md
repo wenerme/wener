@@ -4,15 +4,20 @@ title: 常见端口号
 
 # Port
 
-| protocol               | plain | secure |
-| ---------------------- | ----- | ------ |
-| HTTP,HTTPS             | 80    | 443    |
-| LDAP,LDAPS             | 389   | 636    |
-| SMTP                   | 25    | 465    |
-| POP3S,POP3S            | 110   | 995    |
-| TURN/STURN             |
-| IMAP,IMAPS             | 220   | 993    |
-| DNS over QUIC/TLS/DTLS | 53    | 853    |
+| plain | secure | protocol               |
+| ----- | ------ | ---------------------- |
+| 25    | 465    | SMTP                   |
+| 53    | 853    | DNS over QUIC/TLS/DTLS |
+| 80    | 443    | HTTP,HTTPS             |
+| 110   | 995    | POP3S,POP3S            |
+| 220   | 993    | IMAP,IMAPS             |
+| 389   | 636    | LDAP,LDAPS             |
+| 3478  | 5349   | TURN/STURN             |
+| 3306  |        | MySQL                  |
+| 5432  |        | PostgreSQL             |
+| 6379  |        | Redis                  |
+| 8080  | 8443   | HTTP Alt               |
+| 27017 |        | Mongo                  |
 
 - over TLS/SSL/DTLS/QUIC
 

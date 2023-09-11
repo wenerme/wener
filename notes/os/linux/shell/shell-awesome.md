@@ -58,6 +58,9 @@ tags:
   - https://github.com/robberphex/iTerm2-zmodem
   - SecureCRT, Xshell 支持
   - putty 不支持
+- [trzsz/trzsz.js](https://github.com/trzsz/trzsz.js)
+  - tmux
+  - https://github.com/jumpserver/jumpserver/issues/10679
 
 ## Shell
 

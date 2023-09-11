@@ -166,7 +166,7 @@ tags:
 - [tantaman/aphrodite](https://github.com/tantaman/aphrodite)
 - [facebookincubator/LogDevice](https://github.com/facebookincubator/LogDevice)
   - Distributed storage for sequential data
-- [FerretDB/FerretDB](https://github.com/FerretDB/FerretDB)
+- [FerretDB/FerretDB](./document/ferretdb.md)
   - Apache-2.0, Go
   - mongodb wire protocol to PostgreSQL
 - [fcoury/oxide](https://github.com/fcoury/oxide)

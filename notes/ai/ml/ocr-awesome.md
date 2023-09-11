@@ -14,3 +14,6 @@ tags:
 - [dynobo/normcap](https://github.com/dynobo/normcap)
   - OCR powered screen-capture tool
 - [faustomorales/keras-ocr](https://github.com/faustomorales/keras-ocr)
+- [TDiblik/main-gate-alpr](https://github.com/TDiblik/main-gate-alpr)
+  - license plates
+  - https://news.ycombinator.com/item?id=37384327

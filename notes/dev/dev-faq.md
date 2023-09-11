@@ -6,7 +6,35 @@ tags:
 
 # Dev FAQ
 
+- https://www.joelonsoftware.com/
+- https://www.martinfowler.com/
 - https://web.stanford.edu/~ouster/cgi-bin/decisions.php
+
+## Roles
+
+- 管理岗
+- 专业岗
+
+| role     | for      |
+| -------- | -------- |
+| 项目经理 | 项目管理 |
+| 运营     | 价值变现 |
+| 产品经理 | 交付价值 |
+| 开发     | 满足需求 |
+| 测试     | 质量     |
+| 运维     | 稳定     |
+| 安全     | 安全     |
+
+- 需求分析
+  - 角色 -> 用例 -> 功能 -> 任务
+
+## 中式管理
+
+- 中式管理
+  - 管人 - 人情
+  - 管事 - 美式管理、流程制度化
+- 美式管理 - 契约
+- 日式管理
 
 ## 为什么枚举 **名字** 要用中文？
 
@@ -62,6 +90,55 @@ tags:
   - 可替代
     - React -> Preact
   - 写代码 **去** 调用
+
+## Framework vs. Business Logic
+
+| Framework            | Business Logic       |
+| -------------------- | -------------------- |
+| 提供骨架、流程       | 实现接口、契约       |
+| 核心流程的调度和装配 | 被调用，注入具体实现 |
+| 运行容器             | 特定需求定制开发     |
+| 通用流程             | 个性化实现           |
+| 负责谁调用谁         | 负责怎么调用         |
+| 可重用的模版和工具   | 接口规范的具体实现   |
+
+- functionality - 功能
+- Business Logic - 业务逻辑
+- Application logic - 应用层逻辑
+- Domain logic - 领域层逻辑
+
+---
+
+1. 不要过早锁定框架,保持开放和可替换性。使用适配器、接口等方式解耦。
+1. 与利益相关方充分讨论,了解真实业务需求。不要为框架增加非必要的复杂性。
+1. 先实现核心业务流程的简单可行版本,然后再逐步完善。不要一开始就追求架构完美。
+1. 采用增量引入新技术的策略,先保证核心业务,再扩展架构。
+1. 做好框架和业务逻辑的负责划分,各司其职,但要加强沟通协作。
+1. 不断优化和重构代码,保证业务需求变更可以轻松适配。
+1. 更多考虑业务价值,而非技术本身。业务获益才是成功的关键。
+1. 避免流于“敏捷 Architecture astronauts”,保持与业务的密切联系。
+1. 业务范围清晰后,再构建匹配的架构。
+
+## Agile Architecture astronauts
+
+1. 过于狂热追求完美架构的倾向。
+1. 偏重技术本身,而非业务需求。
+1. 设计非常复杂和“完美”的架构,但实际不可用。
+1. 自说自话,没有与团队真正合作。
+1. 做出太多不必要的假设。
+1. 一味追求新技术,不考虑学习成本。
+1. 架构只存在白皮书,没有落地。
+1. 缺少快速迭代和用户反馈。
+1. 更看重架构的“完美程度”,而非实际价值。
+1. 像“宇航员”那样与实际业务脱节。
+
+> build your system out of small tools, that do only one thing well, and that communicate through a standard protocol. Systems built that way can be re-written one piece at a time.
+
+- https://www.joelonsoftware.com/2001/04/21/dont-let-architecture-astronauts-scare-you/
+- https://www.jamesshore.com/v2/books/aoad1/incremental_design
+- https://www.martinfowler.com/ieeeSoftware/continuousDesign.pdf
+- https://www.martinfowler.com/articles/designDead.html
+- https://philippe.bourgau.net/incremental-architecture-a-cure-against-architecture-astronauts/
 
 ## Private Cloud vs. On-Premise
 

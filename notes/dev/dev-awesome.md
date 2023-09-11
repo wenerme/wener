@@ -6,6 +6,7 @@ tags:
 
 # Dev Awesome
 
+- https://roadmap.sh/
 - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 - [sw-yx/spark-joy](https://github.com/sw-yx/spark-joy)
 - [mtdvio/every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know)

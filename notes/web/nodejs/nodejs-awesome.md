@@ -84,6 +84,9 @@ tags:
   - 🚧 开发停止 - 2021
 - [dmfay/massive-js](https://gitlab.com/dmfay/massive-js)
   - data mapper for Node.js and PostgreSQL
+- MongoDB
+  - [Automattic/mongoose](https://github.com/Automattic/mongoose)
+    - object modeling
 - 有趣
   - [oguimbal/pg-mem](https://github.com/oguimbal/pg-mem)
   - [oguimbal/pgsql-ast-parser](https://github.com/oguimbal/pgsql-ast-parser)

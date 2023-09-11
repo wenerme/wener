@@ -144,17 +144,25 @@ chartmuseum --debug --port=8080 \
 ### registry
 
 ```bash
+# < 3.8.0
 export HELM_EXPERIMENTAL_OCI=1
 
 helm registry login -u myuser index.docker.io
-helm chart save alpinelinux/ index.docker.io/v1/wcharts/alpinelinux:0.1.0
-helm chart list
-# 会导出到 alpinelinux/
-helm chart export index.docker.io/v1/wcharts/alpinelinux:0.1.0
 
 # 推送到服务器
-helm chart push index.docker.io/v1/wcharts/alpinelinux:0.1.0
-helm chart pull index.docker.io/v1/wcharts/alpinelinux:0.1.0
+helm push argo-cd-5.45.1.tgz oci://index.docker.io/v1/wcharts/
+helm pull oci://index.docker.io/wcharts/argo-cd:5.45.1
+```
+
+```yaml
+name: argocd
+apiVersion: v2
+dependencies:
+- name: argo-cd
+  version: 5.45.1
+  repository: oci://registry-1.docker.io/wcharts
+
+version: 1.0.0
 ```
 
 ### repo

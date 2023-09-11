@@ -11,6 +11,7 @@ title: Chrome Extension
 - [Parcel Web Extension](https://parceljs.org/recipes/web-extension/)
   - [HN](https://news.ycombinator.com/item?id=31609896)
 - [Extensions Deployment FAQ](https://www.chromium.org/developers/extensions-deployment-faq)
+- https://crxextractor.com/
 - https://www.crx4chrome.com/
   - 下载市场里的 CRX
 - [antfu/vitesse-webext](https://github.com/antfu/vitesse-webext)
@@ -19,6 +20,7 @@ title: Chrome Extension
 
 ## Awesome
 
+- [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
 - [Quick source viewer](https://chrome.google.com/webstore/detail/quick-source-viewer/cfmcghennfbpmhemnnfjhkdmnbidpanb/related)
   更方便查看源码
 

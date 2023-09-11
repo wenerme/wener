@@ -208,3 +208,7 @@ tags:
 ## Misc
 
 - [marcan/takeover.sh](https://github.com/marcan/takeover.sh)
+
+## Package manager
+
+- [jordansissel/fpm](https://github.com/jordansissel/fpm)

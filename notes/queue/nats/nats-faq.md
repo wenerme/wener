@@ -8,6 +8,28 @@ tags:
 
 - Pub 不支持 wildcard
 
+## Limits
+
+- 消息
+  - max_payload=1 MB
+    - 最大 64 MB
+    - 推荐不超过 8 MB
+  - max_pending=64 MB
+- subjects
+  - 目前无数量限制
+- max_connections=64K
+  - 连接数量
+- max_control_line=4KB
+- https://docs.nats.io/running-a-nats-service/configuration
+
+## Service Bus
+
+- NATS
+  - fire and forget - NATS JetStream
+- Azure ServiceBus - https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview
+- https://github.com/nats-io/nats-server/issues/1288
+
+
 ## NATS vs NATS Streaming vs NATS JetStream
 
 - NATS

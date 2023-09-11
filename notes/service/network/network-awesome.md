@@ -27,6 +27,8 @@ tags:
 - [Overlay](https://en.wikipedia.org/wiki/Overlay_network)
 - [Tinc](./tinc/README.md)
 - [zeritier](./zerotier.md)
+- https://github.com/quiet
+  - TCP over Sound
 
 ## Analysis
 

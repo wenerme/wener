@@ -172,6 +172,9 @@ tags:
 
 - [dokan-dev/dokany](https://github.com/dokan-dev/dokany)
   - Windows
+- [deadbeefsociety/sshfs](https://github.com/deadbeefsociety/sshfs)
+- [sagemathinc/websocketfs](https://github.com/sagemathinc/websocketfs)
+  - like sshfs, but over a WebSocket
 
 ## Sync/Transfer/Backup
 

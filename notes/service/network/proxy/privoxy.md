@@ -4,6 +4,9 @@ title: Privoxy
 
 # Privoxy
 
+- [unisx/privoxy](https://github.com/unisx/privoxy)
+  - GPLv2, C
+  - 2016年后停止开发
 - 提供 HTTP 代理
 - 支持将二级代理
   - 例如将 SOCKS 代理转为 HTTP 代理
@@ -15,13 +18,6 @@ title: Privoxy
 - 注意
   - 不支持 auth，可以转发 auth
     - `enable-proxy-authentication-forwarding`
-
-### privoxy
-
-- 提供 HTTP 代理
-- 支持将二级代理
-  - 例如将 SOCKS 代理转为 HTTP 代理
-- [privoxy](https://www.privoxy.org/)
 
 ```bash
 # macOS

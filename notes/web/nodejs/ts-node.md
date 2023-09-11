@@ -24,7 +24,7 @@ node -r ts-node/register -r tsconfig-paths/register main.ts # 使用 node
 npx ts-node --showConfig
 # --swc 隐含 --transpileOnly
 npx ts-node --esm --swc --experimentalSpecifierResolution=node \
-  run.ts                       # 约等于 tsx run.ts
+  run.ts # 约等于 tsx run.ts
 ```
 
 **tsconfig.json#ts-node**
@@ -67,7 +67,6 @@ npx ts-node --esm --swc --experimentalSpecifierResolution=node \
 
 - https://github.com/TypeStrong/ts-node/issues/1062
 
-
 ## 检测在 ts-node 运行
 
 ```ts
@@ -82,3 +81,10 @@ try {
 ```
 
 - https://github.com/yorickdevries/detect-ts-node/blob/master/index.js
+
+## swc import assert
+
+- swc 1.3.83 调整后有问题
+  - keepImportAssertions
+- https://github.com/TypeStrong/ts-node/issues/2056
+- https://github.com/TypeStrong/ts-node/issues/2051

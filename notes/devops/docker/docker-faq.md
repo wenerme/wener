@@ -207,3 +207,33 @@ sudo sh -c "grep -Pa '\x00' /var/lib/docker/containers/**/*json.log"
 ```
 
 - https://github.com/docker/for-linux/issues/140
+
+## Error running exec in container: failed to open stdout fifo: error creating fifo
+
+```
+Error running exec XXX in container: failed to open stdin fifo: error creating fifo /var/run/docker/containerd/XXX/XXX-stdin: no such file or directory
+```
+
+- https://github.com/docker/for-linux/issues/1091
+
+## overlayfs: upper fs does not support RENAME_WHITEOUT
+
+- 修改 /var/lib/docker 挂在位置
+
+## listing workers: failed to list workers: Unavailable: connection closed before server preface received
+
+```bash
+docker buildx ls
+```
+
+- 重启 dind 后恢复
+
+## multiple platforms feature is currently not supported for docker driver. Please switch to a different driver
+
+```
+multiple platforms feature is currently not supported for docker driver. Please switch to a different driver (eg. "docker buildx create --use")
+```
+
+```bash
+docker buildx create --name multiarch-builder --driver docker-container
+```

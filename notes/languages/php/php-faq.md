@@ -86,3 +86,5 @@ apk add php7-sodium
 <?
 ini_set('memory_limit', '-1');
 ```
+
+## epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while sending request to upstream

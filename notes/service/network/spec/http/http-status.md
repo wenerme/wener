@@ -67,6 +67,7 @@ title: HTTP Status
 | 506    | Variant Also Negotiates                  |
 | 507    | Insufficient Storage                     |
 | 508    | Loop Detected                            |
+| 509    | Bandwidth Limit Exceeded                 |
 | 510    | Not Extended                             |
 | 511    | Network Authentication Required          |
 | 520    | Web Server Returned an Unknown Error     | Cloudflare |
@@ -110,6 +111,8 @@ title: HTTP Status
 | 498   | Invalid Token (Esri)                                                                        |
 | 499   | Client Closed Request                                                                       |
 
+- Nginx
+  - https://www.nginx.com/resources/wiki/extending/api/http/
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 - https://developers.cloudflare.com/support/troubleshooting/cloudflare-errors/troubleshooting-cloudflare-5xx-errors/
 - http://httpstat.us/
