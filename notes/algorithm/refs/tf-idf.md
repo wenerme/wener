@@ -2,6 +2,9 @@
 title: tf-idf
 alias:
   - tf-idf
+tags:
+  - NLP
+  - Search
 ---
 
 # tf-idf

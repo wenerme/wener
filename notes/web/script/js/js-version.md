@@ -25,6 +25,15 @@ tags:
 |         | [ECMAScript 2023](#ecmascript-2023) | 2023 |
 | ES.Next |                                     |      | 下一个版本      |
 
+| ES     | NodeJS      |
+| ------ | ----------- |
+| ES2022 | NodeJS 18   |
+| ES2021 | NodeJS 16   |
+| ES2020 | NodeJS 14   |
+| ES2019 | NodeJS 12   |
+| ES2018 | NodeJS 10   |
+| ES2017 | NodeJS 8.10 |
+
 :::tip
 
 - 今年采纳的建议，发布到下一年版本，因此会相差一年版本号

@@ -1,5 +1,8 @@
 ---
 title: BCrypt
+tags:
+- Hash
+- Password
 ---
 
 # BCrypt

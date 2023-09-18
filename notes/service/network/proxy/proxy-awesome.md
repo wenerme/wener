@@ -112,7 +112,19 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - [v2ray](./v2ray/README.md)
 - [clash](./clash.md)
   - rule based
-- [HyNetwork/hysteria](https://github.com/HyNetwork/hysteria)
+- [ginuerzh/gost](https://github.com/ginuerzh/gost) - GO Simple Tunnel
+  - 多端口
+  - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
+  - UDP over TCP
+  - TCP/UDP 透明代理/转发
+  - 支持 Shadowsocks(TCP/UDP)
+  - 支持 SNI 代理
+  - TUN/TAP
+  - 权限控制
+  - 负载均衡
+  - 路由控制
+  - DNS 解析和代理
+- [HyNetwork/hysteria](./hysteria.md)
   - MIT, Go
 - [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
   - GPL, Golang
@@ -156,18 +168,6 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - library for building custom HTTP/S proxies
 - [antoniomika/sish](https://github.com/antoniomika/sish)
   - HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH.
-- [ginuerzh/gost](https://github.com/ginuerzh/gost) - GO Simple Tunnel
-  - 多端口
-  - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
-  - UDP over TCP
-  - TCP/UDP 透明代理/转发
-  - 支持 Shadowsocks(TCP/UDP)
-  - 支持 SNI 代理
-  - TUN/TAP
-  - 权限控制
-  - 负载均衡
-  - 路由控制
-  - DNS 解析和代理
 - [xtaci/smux](https://github.com/xtaci/smux)
   - TCP, KCP
   - Simple MUltipleXing

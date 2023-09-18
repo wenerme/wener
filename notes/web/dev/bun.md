@@ -20,6 +20,7 @@ title: bun
 - ~~无 dns 模块~~ - 0.5+ - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
 - 无 async_hooks - sequelize 不支持
 - 未实现 ~~dns~~, http2, https, child_process, vm, tls, async_hooks, worker_threads
+- 支持 NestJS [#1641](https://github.com/oven-sh/bun/issues/1641)
 
 :::
 

@@ -11,6 +11,8 @@ tags:
 ## Service
 
 - 主流 Jaeger、Zipkin、Apache SkyWalking、CAT、Pinpoint、Elastic APM
+- [pinpoint-apm/pinpoint](https://github.com/pinpoint-apm/pinpoint)
+  - https://pinpoint-apm.gitbook.io/pinpoint/powered-by
 - [openzipkin/zipkin](./zipkin.md)
   - Java
 - [jaegertracing/jaeger](./jaeger.md)
@@ -18,7 +20,7 @@ tags:
   - Thrift
   - CNCF Jaeger, a Distributed Tracing System
   - https://jaegertracing.io/
-- [apache/skywalking](./skywalking.md)
+- [apache/skywalking](./skywalking/README.md)
   - Java
 - [lmangani/cLoki](https://github.com/lmangani/cLoki)
   - AGPL-3.0, JS

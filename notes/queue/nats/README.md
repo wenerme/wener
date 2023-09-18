@@ -23,6 +23,7 @@ title: NATS
   - 4222 客户端
   - 8222 HTTP 管理和信息上报
   - 6222 集群路由
+  - 7422 Leaf Node
 - 参考
   - [nats-io/nats-architecture-and-design](https://github.com/nats-io/nats-architecture-and-design)
     - ADR - Architecture and Design Docs

@@ -1,7 +1,7 @@
 ---
 title: Hidden Markov Model
 alias:
-  - HMM
+  - hmm
 ---
 
 # Hidden Markov Model

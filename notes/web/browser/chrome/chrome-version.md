@@ -9,10 +9,11 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
-| [Chrome 110](#chrome-114) |            | popovertarget,popover                             |
-| [Chrome 110](#chrome-113) |            |                                                   |
-| [Chrome 110](#chrome-112) |            |                                                   |
-| [Chrome 110](#chrome-111) |            |                                                   |
+| [Chrome 115](#chrome-115) |            |                                                   |
+| [Chrome 114](#chrome-114) |            | popovertarget,popover                             |
+| [Chrome 113](#chrome-113) |            |                                                   |
+| [Chrome 112](#chrome-112) |            |                                                   |
+| [Chrome 111](#chrome-111) |            |                                                   |
 | [Chrome 110](#chrome-110) |            | `<popup>`                                         |
 | [Chrome 109](#chrome-109) |
 | [Chrome 108](#chrome-108) |
@@ -105,7 +106,15 @@ tags:
 - 外部设备
   - SerialPort, HIDDevice, WebUSB, WebMIDI, WebBluetooth, GamePad
 
-## Interop 2022
+## Interop
+
+- URL interop 2023
+
+### Interop 2023
+
+- https://wpt.fyi/interop-2023
+
+### Interop 2022
 
 - 2022 Focus Areas
   - Cascade Layers - @layer
@@ -133,6 +142,43 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 117
+
+- Array grouping
+- Back/forward cache NotRestoredReason API
+- Clear Client Hints via Clear-Site-Data header
+- Clear-Site-Data header wildcard syntax
+- contain-intrinsic-size: auto none support
+- CSS
+  - cap and rcap font units
+  - overlay property
+  - @starting-style Rule
+  - Subgrid
+  - text-wrap: pretty
+  - transition-behavior property
+- CustomElementsGetName
+- Iterator helpers
+  - Iterator.from
+  - Iterator.prototype.{map,filter,take,drop,flatMap,reduce,toArray,forEach,some,every,find}
+  - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
+  - https://github.com/tc39/proposal-iterator-helpers
+  - https://tc39.es/proposal-iterator-helpers/
+  - https://github.com/zloirock/core-js#iterator-helpers
+- Make CaptureController derive from the EventTarget interface
+- RFC 7616 Digest auth: Support SHA-256 and username hashing
+  - https://datatracker.ietf.org/doc/html/rfc7616
+- TLS Encrypted Client Hello (ECH)
+  - https://tls-ech.dev/
+  - chrome://flags/#encrypted-client-hello
+
+## Chrome 116
+
+- AbortSignal.any()
+- BYOB support for Fetch
+- CSS Motion Path
+- Display and content-visibility animations
+- Document picture-in-picture
+
 ## Chrome 115
 
 - CSS
@@ -144,7 +190,6 @@ tags:
 - HTTPS Upgrades - 优先尝试 HTTPS
 - WebAssembly
   - Module 8MB 限制
-
 - https://github.com/wanderview/quota-storage-partitioning/blob/main/explainer.md
 
 ## Chrome 114

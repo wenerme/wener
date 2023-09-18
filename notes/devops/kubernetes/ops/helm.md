@@ -150,7 +150,7 @@ export HELM_EXPERIMENTAL_OCI=1
 helm registry login -u myuser index.docker.io
 
 # 推送到服务器
-helm push argo-cd-5.45.1.tgz oci://index.docker.io/v1/wcharts/
+helm push argo-cd-5.45.1.tgz oci://index.docker.io/wcharts/
 helm pull oci://index.docker.io/wcharts/argo-cd:5.45.1
 ```
 

@@ -63,6 +63,8 @@ composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress 
 require __DIR__ . '/vendor/autoload.php';
 ```
 
+## config
+
 - $HOME/.composer - data-dir/home
   - auth.json
   - config.json
@@ -72,6 +74,31 @@ require __DIR__ . '/vendor/autoload.php';
     - files/
     - repo/
     - vcs/
+- https://getcomposer.org/doc/06-config.md
+
+## auth.json
+
+- COMPOSER_AUTH
+  - 可以存储 json
+- https://getcomposer.org/doc/03-cli.md#composer-auth
+
+```json title="~/.composer/auth.json"
+{
+  "bitbucket-oauth": {},
+  "github-oauth": {},
+  "gitlab-oauth": {},
+  "gitlab-token": {},
+  "http-basic": {
+    "try.gitea.com": {
+      "username": "wener",
+      "password": ""
+    }
+  },
+  "bearer": {}
+}
+```
+
+- gitea 可以使用 PAT
 
 # FAQ
 

@@ -190,6 +190,68 @@ networks:
     name: nats
 ```
 
+## cluster
+
+```
+--routes [rurl-1, rurl-2]     Routes to solicit and connect
+--cluster nats://host:port    Cluster URL for solicited routes
+```
+
+```
+listen: 127.0.0.1:4222
+http: 8222
+
+cluster {
+  name: example
+
+  # host/port for inbound route connections from other server
+  listen: localhost:4244
+
+  # Authorization for route connections
+  # Other server can connect if they supply the credentials listed here
+  # This server will connect to discovered routes using this user
+  authorization {
+    user: route_user
+    password: pwd
+    timeout: 0.5
+  }
+
+  # This server establishes routes with these server.
+  # This server solicits new routes and Routes are actively solicited and connected to from this server.
+  # Other servers can connect to us if they supply the correct credentials
+  # in their routes definitions from above.
+  routes = [
+    nats://route_user:pwd@127.0.0.1:4245
+    nats://route_user:pwd@127.0.0.1:4246
+  ]
+}
+```
+
+- 只会 forward client 消息给相邻节点
+- gossiping
+
+## jetstream cluster
+
+- RAFT
+
+## gateway
+
+- cluster <-> cluster
+- https://docs.nats.io/running-a-nats-service/configuration/gateways
+
+## leafnode
+
+- 连接 super cluster
+- 延伸 nats-server
+- 使用本地 authz+authn
+- 本地 low RTT
+- 不需要能访问自己
+- 可以同时连多个集群
+
+```
+Nats-Request-Info: {"acc":"LEAF_ACCOUNT","rtt":11491934}
+```
+
 ## HELM
 
 - https://github.com/nats-io/k8s/tree/main/helm/charts/nats

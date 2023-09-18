@@ -66,6 +66,7 @@ tags:
   - socketio
   - sockjs
 - IoC/Container/DI
+  - nestjs
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
     - inversify
     - 功能非常全的 IoC

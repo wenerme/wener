@@ -82,6 +82,9 @@ tags:
   - [krustlet/krustlet](https://github.com/krustlet/krustlet)
   - Run WebAssembly workloads in Kubernetes
 - https://v8.dev/blog/emscripten-standalone-wasm
+- [fermyon/spin](https://github.com/fermyon/spin)
+  - Apache-2, Rust
+  - developer tool for building and running serverless applications
 
 ## Golang
 

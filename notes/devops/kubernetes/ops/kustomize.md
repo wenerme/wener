@@ -108,6 +108,33 @@ spec:
   project: dev-cluster
 ```
 
+## vars/replacements
+
+```yaml
+resources:
+- admin.cm.yaml
+
+replacements:
+- source:
+   kind: ConfigMap
+   name: admin-conf
+   fieldPath: data.version
+ targets:
+ - select:
+     kind: Deployment
+   fieldPaths:
+   # 替换镜像版本号
+   - spec.template.spec.containers.[name=admin].image
+   options:
+     delimiter: ":"
+     index: 1
+```
+
+- [api/types/replacement.go](https://github.com/kubernetes-sigs/kustomize/blob/7c36ed21b3587e7124326743a888db5374e86d93/api/types/replacement.go)
+- https://github.com/kubernetes-sigs/kustomize/issues/3492
+  - vars -> replacements
+- https://github.com/kubernetes-sigs/kustomize/issues/2052#issuecomment-1411757485
+
 # FAQ
 
 ## accumulating resources: accumulation err='merging resources from 'res.yaml': may not add resource with an already registered id

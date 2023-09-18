@@ -13,9 +13,11 @@ title: swc
 - https://swc.rs/docs/benchmarks
   - 性能上和 esbuild 差距并不大
 - 参考
-  - https://kdy1.dev/posts/2022/1/tsc-go
-    - 开发者在尝试使用 go 重写 tsc
+  - https://kdy1.dev/2022-1-26-porting-tsc-to-go
+  - https://kdy1.dev/2022-10-27-open-sourcing-stc
+  - https://github.com/dudykr/stc
 - https://swc.rs/playground
+- [swc-project/swc-node](https://github.com/swc-project/swc-node)
 
 ```bash
 pnpm i -D @swc/cli @swc/core

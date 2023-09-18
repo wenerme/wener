@@ -4,12 +4,14 @@ title: DNSCrypt
 
 # DNSCrypt
 
-- 是什么？
+- [DNSCrypt/dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy) 是什么？
   - DNS 客户端和 Resolver 之间的通信协议
   - 支持加密，认证，匿名
 - [dnscrypt.info](https://dnscrypt.info/)
   - [在线服务列表](https://dnscrypt.info/public-servers)
-    - [dnscrypt/dnscrypt-resolvers](https://github.com/dnscrypt/dnscrypt-resolvers)
+- [dnscrypt/dnscrypt-resolvers](https://github.com/dnscrypt/dnscrypt-resolvers)
+  - Lists of public DNSCrypt and DoH servers
+- [Protocol](https://dnscrypt.info/protocol)
 
 # dnscrypt-proxy
 

@@ -19,6 +19,7 @@ title: roadrunner
   - MIT, PHP
   - 基于 RoadRunner
   - Long-Living PHP Framework
+- https://roadrunner.dev/docs/plugins-jobs/2.x/en
 
 ```bash
 composer require spiral/roadrunner:v2.0 nyholm/psr7

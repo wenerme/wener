@@ -1,5 +1,7 @@
 ---
 title: BaseN
+tags:
+- Codec
 ---
 
 # BaseN

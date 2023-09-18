@@ -147,7 +147,7 @@ IPAM 报异常事件，拔插 内存 后恢复。
   - 因为 简单、小、易于维护升级
   - K3S 使用 Embed 的 ETCD，使用 flannel 网络
   - https://wener.me/story/k3s-vs-k0s
-- 节点 VPN
+- 节点 VPN - tinc
   - 易于运维管理 - 穿透，IP 固定
   - 更安全 - 不暴露外部端口
   - ops - tinc 的 router 模式

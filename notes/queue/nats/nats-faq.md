@@ -10,6 +10,12 @@ tags:
 
 ## Limits
 
+- subject
+  - 不建议超过 16 token
+    - 也就是说 `.` 少于 15 个
+  - 推荐 `[a-zA-Z0-9]`
+  - 允许的一些特殊符号 `'!@#$%^&*()_;:\'\"?,<+-=~`,```
+  - 推荐分隔符 `/#$-~`
 - 消息
   - max_payload=1 MB
     - 最大 64 MB
@@ -22,13 +28,48 @@ tags:
 - max_control_line=4KB
 - https://docs.nats.io/running-a-nats-service/configuration
 
+## Subjects
+
+- `$SYS`
+- `$JS`
+- `$KV`
+- `$G`
+- `_INBOX`
+- `_R_`
+  - leafnode
+
+## Remaping
+
+:::caution
+
+- 不支持 `>` 通配符
+
+:::
+
+```bash
+# 测试
+nats server mapping "a.*.*" "b.{{wildcard(2)}}.{{wildcard(1)}}" a.x.y # b.y.x
+nats server mapping "a.*" "b.{{wildcard(1)}}" a.x                     # b.x
+
+nats server mapping "tenant.X.service.*" "service.{{wildcard(1)}}" tenant.X.service.a # service.a
+```
+
+- `wildcard(N)` - 2.8+ - 第 N 个通配
+- `$N` -> `$1` 以前的逻辑，占位
+- `split(wildcard index, delimter)`
+- `splitfromleft(wildcard index, offset)`
+- `splitfromright(wildcard index, offset)`
+- `slicefromleft(wildcard index, number of characters)`
+- `slicefromright(wildcard index, number of characters)`
+- `partition(number of partitions, wildcard token positions...)`
+- https://docs.nats.io/nats-concepts/subject_mapping
+
 ## Service Bus
 
 - NATS
   - fire and forget - NATS JetStream
 - Azure ServiceBus - https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview
 - https://github.com/nats-io/nats-server/issues/1288
-
 
 ## NATS vs NATS Streaming vs NATS JetStream
 

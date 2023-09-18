@@ -9,6 +9,19 @@ title: gost
   - v3 还没正式发布
   - GO Simple Tunnel
   - https://gost.run/
+  - 支持
+    - HTTP - Connect/Plain HTTP Tunnel/Websocket/HTTP2 CONNECT/gRPC/HTTP3 CONNECT/WebTransport
+    - SOCKSv4/v5
+    - Shadowsocks
+    - KCP
+    - SSH
+    - SNI Proxy
+    - PROXY 协议
+    - TPROXY/REDIRECT
+    - TUN/TAP
+    - ICMP Tunnel
+    - DNS 代理
+    - WebAPI
 - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - MIT, Go
   - https://v2.gost.run/

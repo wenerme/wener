@@ -65,6 +65,13 @@ jq -n '[inputs]' <in.jsonl >out.json  # jsonl to array
 jq --slurp . <in.jsonl >out.json      # jsonl to array
 ```
 
+## composer auth.json
+
+```bash
+COMPOSER_REPO=$(cat composer.json | jq '.repositories[0].url' -r | sed -r 's|https?://([^/]+).*|\1|')
+echo '{}' | jq '."http-basic"."code.dev.zhang66.cn" = { "username": $ENV.COMPOSER_USER, "password": $ENV.COMPOSER_PASS }' > auth.json
+```
+
 ## parse error: Invalid numeric literal at line 1, column 3
 
 - 可能是因为有 BOM

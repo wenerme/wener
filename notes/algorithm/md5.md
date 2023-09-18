@@ -1,5 +1,7 @@
 ---
 title: MD5
+tags:
+- Hash
 ---
 
 # MD5

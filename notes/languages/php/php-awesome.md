@@ -30,6 +30,19 @@ tags:
 - ORM
   - [cycle/orm](https://github.com/cycle/orm)
 
+## Library
+
+- https://github.com/spatie
+- Async/Concurrent
+  - [amphp/amp](https://github.com/amphp/amp)
+  - [guzzle/promises](https://github.com/guzzle/promises)
+  - [spatie/async](https://github.com/spatie/async)
+- jsonschema
+  - [wol-soft/php-json-schema-model-generator](https://github.com/wol-soft/php-json-schema-model-generator)
+    - JSONSchema -> PHP
+  - [opis/json-schema](https://github.com/opis/json-schema)
+  - [swaggest/php-json-schema](https://github.com/swaggest/php-json-schema)
+
 ## Server
 
 - [roadrunner-server](https://github.com/roadrunner-server)
@@ -38,3 +51,7 @@ tags:
     - load-balancer, process manager written in Golang
   - [goridge](https://github.com/roadrunner-server/goridge)
     - PHP-to-Golang IPC/RPC bridge
+
+## Toolchain
+
+- [phpstan/phpstan](https://github.com/phpstan/phpstan)

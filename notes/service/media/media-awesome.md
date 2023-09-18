@@ -65,6 +65,10 @@ tags:
 - [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
   - MIT, Elixir
 
+## Library
+
+- [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+
 ## Container
 
 - [Matroska](https://www.matroska.org/)

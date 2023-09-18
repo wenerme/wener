@@ -18,6 +18,8 @@ tags:
 
 :::tip Roadmap
 
+- 3.19
+  - zfs 2.2 - 支持 overlay
 - 3.18 riscv64
 - 3.17 OpenSSL 3
 - 3.16 - rust community -> main
@@ -91,10 +93,6 @@ tags:
   - Go 1.20
   - Qemu 8.0
 
-<!--
-- zfs 2.2
-  - 支持 overlay
--->
 
 ## AlpineLinux 3.17
 

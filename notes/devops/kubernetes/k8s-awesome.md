@@ -176,6 +176,7 @@ tags:
   - Docker/Kubernetes Visualization Tool
 - [dnsjia/luban](https://github.com/dnsjia/luban)
   - Apache-2.0, Go+Vue3+AntD
+- [eip-work/kuboard-press](https://github.com/eip-work/kuboard-press)
 
 ## Distribution
 

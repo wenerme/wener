@@ -2,6 +2,7 @@
 title: multiformats
 tags:
   - Codec
+  - Hash
 ---
 
 # multiformats

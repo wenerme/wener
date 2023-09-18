@@ -5,6 +5,8 @@ tags:
 
 # NATS Conf
 
+- https://docs.nats.io/running-a-nats-service/configuration
+
 ## nats-server.conf
 
 ```conf
@@ -40,6 +42,8 @@ cluster {
 }
 ```
 
+## leaf
+
 ## Auth
 
 - nats 通过 account 实现租户隔离
@@ -55,6 +59,11 @@ cluster {
   - allow_responses - max,expires
 - 参考
   - [Account lookup using Resolver](https://docs.nats.io/running-a-nats-service/configuration/securing_nats/auth_intro/jwt/resolver)
+    - 实际处理逻辑 https://github.com/nats-io/nats-account-server/blob/69cb476d18a0194c6a59866b642fdee295db6a55/server/core/jwthandler.go#L137-L139
+
+```bash
+nats server passwd -p 123456
+```
 
 ```hcl
 authorization {

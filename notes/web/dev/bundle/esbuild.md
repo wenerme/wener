@@ -15,6 +15,7 @@ title: ESBuild
     - 目前暂无 swc
       - https://github.com/evanw/esbuild/issues/762
       - swc not ready
+- [Playground](https://esbuild.egoist.dev/)
 
 :::tip
 
@@ -28,6 +29,8 @@ title: ESBuild
 :::info
 
 - ES5+
+- 不支持 decorator
+  - https://github.com/evanw/esbuild/issues/104
 - 不支持 emitDecoratorMetadata
   - [#257](https://github.com/evanw/esbuild/issues/257)
   - [thomaschaaf/esbuild-plugin-tsc](https://github.com/thomaschaaf/esbuild-plugin-tsc)
@@ -50,7 +53,6 @@ title: ESBuild
   - 目前必须 `import React`, 需要调整 lint 配置
   - Bundle 可考虑一次 inject https://esbuild.github.io/content-types/#jsx
   - eslint `'react/react-in-jsx-scope': 'error'`
-- [Playground](https://esbuild.egoist.dev/)
 
 :::
 
@@ -230,63 +232,7 @@ const __dirname = path.dirname(__filename);
 
 - https://github.com/remix-run/remix/issues/1423
 
-## 文件后缀
 
-- 有些场景需要 esm import 包含后缀，目前 esbuild 不好添加
-- 可以考虑 rollup
-- https://github.com/evanw/esbuild/issues/2435
+##  Transforming JavaScript decorators to the configured target environment ("node18.16.0") is not supported yet
 
-```
-✘ [ERROR] Could not resolve "server/src/app/app.run"
-
-    dist/out/apps/ve-contract-server/main.js:8:31:
-      8 │ import { runApplication } from "server/src/app/app.run";
-        ╵                                ~~~~~~~~~~~~~~~~~~~~~~~~
-
-  The module "./dist/out/app/app.run" was not found on the file system:
-
-    node_modules/server/package.json:17:16:
-      17 │       "import": "./dist/out/*"
-         ╵                 ~~~~~~~~~~~~~~
-
-  Import from "server/src/app/app.run.js" to get the file
-  "node_modules/server/dist/out/app/app.run.js":
-
-    dist/out/apps/ve-contract-server/main.js:8:54:
-      8 │ import { runApplication } from "server/src/app/app.run";
-        │                                                       ^
-        ╵                                                       .js
-
-  You can mark the path "server/src/app/app.run" as external to exclude it from the bundle, which
-  will remove this error.
-```
-
-**解决办法**
-
-1. 可以通过 exports 添加 - 不支持自动 index.ts
-
-```json
-{
-  "exports": {
-    "./src/*": {
-      "types": "./src/*",
-      "typescript": "./src/*",
-      "import": "./dist/out/*.js"
-    }
-  }
-}
-```
-
-2. 通过直接 import 加后缀解决
-
-```ts
-import { GeneralResponseDto } from 'server/src/common/dto/index.ts';
-```
-
-```json title="tsconfig.json"
-{
-  "compilerOptions": {
-    "allowImportingTsExtensions": true
-  }
-}
-```
+- https://github.com/evanw/esbuild/issues/104

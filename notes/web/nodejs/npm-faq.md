@@ -43,7 +43,7 @@ npm install --no-fund --no-audit
 ## 查看 native 模块依赖
 
 ```bash
-find node_modules -type f -name "*.node" 2>/dev/null | grep -v "obj\.target" | xargs ldd
+find node_modules -type f -name "*.node" 2> /dev/null | grep -v "obj\.target" | xargs ldd
 
 npx native-modules
 ```
@@ -56,4 +56,19 @@ npx native-modules
 
 ```bash
 npm install -g npm
+```
+
+## global permission deined
+
+```bash
+# 1. chown
+sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+
+# 2. 修改 prefix
+npm config get prefix # 当前 prefix
+
+mkdir -p ~/.npm-global
+npm config set prefix ~/.npm-global
+# NPM_CONFIG_PREFIX
+export PATH=~/.npm-global/bin:$PATH
 ```

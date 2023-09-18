@@ -5,6 +5,7 @@ title: Jaeger
 # Jaeger
 
 - [jaegertracing/jaeger](https://github.com/jaegertracing/jaeger)
+  - Apache-2.0, Golang
   - from Uber
 - 存储
   - 默认内存存储
@@ -12,6 +13,7 @@ title: Jaeger
   - cassandra - 兼容 scyllab
   - elasticsearch
   - kafka
+  - [jaegertracing/jaeger-clickhouse](https://github.com/jaegertracing/jaeger-clickhouse)
 
 ```bash
 # badger 持久存储

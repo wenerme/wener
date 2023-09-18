@@ -97,6 +97,9 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
   - https://blog.cloudflare.com/oblivious-dns/
   - https://tools.ietf.org/html/draft-pauly-dprive-oblivious-doh-03
   - [cloudflare/odoh-go](https://github.com/cloudflare/odoh-go)
+- https://dnsprivacy.org/dns_privacy_clients/
+- DoT
+  - https://github.com/curl/curl/wiki/DNS-over-HTTPS
 
 ```bash
 # Resolve
@@ -106,7 +109,7 @@ dig wener.me @114.114.114.114 +tcp
 # DoH
 # knot-dnsutils
 kdig -d @8.8.8.8 +tls-ca +tls-host=dns.google.com wener.me
-# 直接强求 DoH
+# 直接请求 DoH
 curl -H 'accept: application/dns-json' 'https://dns.cloudflare.com/dns-query?name=wener.me&type=A' | jq .
 # curl 使用 DoT 解析
 curl --doh-url https://dns.cloudflare.com/dns-query https://wener.me

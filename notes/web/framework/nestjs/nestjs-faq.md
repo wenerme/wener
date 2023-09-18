@@ -18,3 +18,7 @@ npm install --save class-transformer@0.3.1
 ```
 
 - https://github.com/typestack/class-transformer/issues/563
+
+## metatype is not a constructor
+
+- https://github.com/nestjs/nest/issues/5685
