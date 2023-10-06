@@ -6,10 +6,8 @@ title: Puppeteer
 
 - [puppeteer](https://github.com/puppeteer/puppeteer)
   - [Chrome Devtools Protocol](./chrome-headless.md) 客户端
-- ~/.cache/puppeteer/chrome
-- PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-  - 避免下载
-- PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+- 参考
+  - 使用了 [Chrome for Testing](./chrome-for-testing.md)
 
 :::caution
 
@@ -69,6 +67,28 @@ var page = await browser.newPage();
 // 获取当前的 ws url
 browser.wsEndpoint();
 ```
+
+## browser
+
+- ~/.cache/puppeteer/chrome
+- PUPPETEER_SKIP_DOWNLOAD=true
+  - 避免下载
+- PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+- PUPPETEER_DOWNLOAD_BASE_URL
+- ~~PUPPETEER_SKIP_CHROMIUM_DOWNLOAD~~ -> PUPPETEER_SKIP_DOWNLOAD
+- ~~PUPPETEER_DOWNLOAD_HOST~~ -> PUPPETEER_DOWNLOAD_BASE_URL
+- ~~PUPPETEER_CHROMIUM_REVISION~~ -> PUPPETEER_BROWSER_REVISION
+
+```ini title=".npmrc"
+puppeteer_download_base_url="https://cdn.npmmirror.com/binaries/chrome-for-testing"
+```
+
+```bash
+npx @puppeteer/browsers --help
+```
+
+- https://pptr.dev/browsers-api
+- https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json
 
 ## adblock
 

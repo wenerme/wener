@@ -130,8 +130,10 @@ chains:
 - Redis
   - hash
 - HTTP
+  - 返回和文件一样的内容
 - https://gost.run/concepts/auth
 
 ## WebAPI
 
 - https://gost.run/tutorials/api/overview/
+- https://gost.run/swagger-ui/

@@ -12,18 +12,19 @@ tags:
 
 :::
 
-| ver                  | date       | nats.go |
-| -------------------- | ---------- | ------- |
-| [Nats 2.9](#nats-29) |
-| [Nats 2.8](#nats-28) | 2022-04-19 |         |
-| [Nats 2.7](#nats-27) | 2022-01-04 |         |
-| [Nats 2.6](#nats-26) | 2021-09-22 | v1.13   |
-| [Nats 2.5](#nats-25) | 2021-09-10 | v1.12.1 |
-| [Nats 2.4](#nats-24) | 2021-08-27 | v1.12.0 |
-| [Nats 2.3](#nats-23) | 2021-06-24 | v1.11.0 |
-| [Nats 2.2](#nats-22) | 2021-03-15 | v1.10.0 |
-| [Nats 2.1](#nats-21) | 2019-09-21 |         |
-| [Nats 2.0](#nats-20) | 2019-05-05 |         |
+| ver                    | date       | nats.go |
+| ---------------------- | ---------- | ------- |
+| [Nats 2.10](#nats-210) | 2023-09-20 |
+| [Nats 2.9](#nats-29)   | 2022-09-09 |
+| [Nats 2.8](#nats-28)   | 2022-04-19 |         |
+| [Nats 2.7](#nats-27)   | 2022-01-04 |         |
+| [Nats 2.6](#nats-26)   | 2021-09-22 | v1.13   |
+| [Nats 2.5](#nats-25)   | 2021-09-10 | v1.12.1 |
+| [Nats 2.4](#nats-24)   | 2021-08-27 | v1.12.0 |
+| [Nats 2.3](#nats-23)   | 2021-06-24 | v1.11.0 |
+| [Nats 2.2](#nats-22)   | 2021-03-15 | v1.10.0 |
+| [Nats 2.1](#nats-21)   | 2019-09-21 |         |
+| [Nats 2.0](#nats-20)   | 2019-05-05 |         |
 
 :::tip
 
@@ -37,7 +38,38 @@ tags:
 - https://github.com/nats-io/nats-server/releases
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
 
+## Nats 2.10
+- 确保先升级到了 2.9.22+ 再升级 2.10
+- `$SYS.REQ.USER.INFO`
+  - userinfo
+- `$SYS.REQ.SERVER.{server-id}.RELOAD`
+  - 重新加载配置
+- S2 压缩
+  - cluster
+  - leafnode
+  - jetstream 存储
+- Auth Callout - external auth providers
+- JetStream
+  - subject transforms
+    - InputSubjectTransform
+    - 语法同核心的 transform
+  - metadata 配置信息
+  - consumers filtering on multiple subjects
+  - 允许 republish
+  - re-encrypt
+- 监控
+  - $SYS.REQ.SERVER.PING.IDZ
+  - `$SYS.REQ.SERVER.<id>.PROFILEZ`
+- MQTT
+  - QoS2 exactly-once delivery
+- Subject Mapping
+  - 支持指定 cluster 过滤
+- `$SYS.REQ.SERVER.<id>.KICK` - disconnect client by id/name
+- `$SYS.REQ.SERVER.<id>.LDM` - send lame duck mode
+
 ## Nats 2.9
+
+- https://nats.io/blog/nats-server-29-release/
 
 ## Nats 2.8
 

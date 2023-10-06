@@ -494,7 +494,7 @@ NextJS ssr 不支持 React.lazy
 - [zustand#1395](https://github.com/pmndrs/zustand/issues/1395)
 - https://github.com/vercel/next.js/issues/42263
 
-## 库 import 必须要有 .js 后缀
+## 库 import 必须要有 .js 后缀 {#js-extension}
 
 - 因为 `{ "type": "module" }`, `{ "resolution": "NodeNext" }` 定义如此
 - 但是 swc compile 出来没有

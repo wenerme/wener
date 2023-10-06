@@ -50,15 +50,6 @@ OIDC/OpenID Connect 是基于 OAuth 2.0 的 认证/AuthN 协议，OAuth 2.0 只�
 - client_assertion_type
   - urn:ietf:params:oauth:client-assertion-type:jwt-bearer
 - grant_type
-  - authorization_code
-  - implicit
-  - refresh_token
-  - password
-  - client_credentials
-  - urn:openid:params:grant-type:ciba
-  - urn:ietf:params:oauth:grant-type:device_code
-  - urn:ietf:params:oauth:grant-type:jwt-bearer
-  - urn:ietf:params:oauth:grant-type:token-exchange
 
 | Spec                            | Year |
 | ------------------------------- | ---- |
@@ -105,11 +96,26 @@ OIDC/OpenID Connect 是基于 OAuth 2.0 的 认证/AuthN 协议，OAuth 2.0 只�
 
 :::
 
+## grant_type
+
+| grant_type                                      | for                           |
+| ----------------------------------------------- | ----------------------------- |
+| authorization_code                              | 授权码                        |
+| implicit                                        |
+| refresh_token                                   | 刷新令牌                      |
+| password                                        | 密码 - username+password      |
+| client_credentials                              | 客户端认证 - client id+secret |
+| urn:openid:params:grant-type:ciba               |                               |
+| urn:ietf:params:oauth:grant-type:device_code    | 设备码                        |
+| urn:ietf:params:oauth:grant-type:jwt-bearer     | JWTBearer                     |
+| urn:ietf:params:oauth:grant-type:token-exchange |                               |
+| urn:ietf:params:oauth:grant-type:uma-ticket     |                               |
+
 ## Awesome
 
 - NodeJS
   - [panva/node-openid-client](https://github.com/panva/node-openid-client)
-    -  OpenID Relying Party (RP, Client)
+    - OpenID Relying Party (RP, Client)
 - Web
   - [authts/oidc-client-ts](https://github.com/authts/oidc-client-ts)
 

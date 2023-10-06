@@ -47,6 +47,7 @@ tags:
   - designed for hosting containers
 - [siderolabs/talos](https://github.com/siderolabs/talos)
   - Linux distribution built for Kubernetes
+- [nakst/essence](https://gitlab.com/nakst/essence)
 
 ---
 

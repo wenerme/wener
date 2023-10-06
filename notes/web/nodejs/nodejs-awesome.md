@@ -68,6 +68,12 @@ tags:
   - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
 - [stephenh/joist-ts](https://github.com/stephenh/joist-ts)
   - TypeScript ORM for Postgres
+- [drizzle-team/drizzle-orm](https://github.com/drizzle-team/drizzle-orm)
+  - Apache-2.0, TypeScript
+  - TypeScript ORM that feels like writing SQL.
+- [aerotoad/neboa](https://github.com/aerotoad/neboa)
+  - AGPL-3.0, TS
+  - Type-safe NoSQL with Node & SQLite
 - [Vincit/objection.js](https://github.com/Vincit/objection.js)
   - The future of Objection.js [Vincit/objection.js#2335](https://github.com/Vincit/objection.js/issues/2335)
   - 🚧 开发停滞
@@ -153,10 +159,21 @@ export N_PREFIX=$HOME/n
 
 ## Library
 
-- [timgit/pg-boss](https://github.com/timgit/pg-boss)
-  - Node.js using PostgreSQL like a boss
-- [breejs/bree](https://github.com/breejs/bree)
-  - job scheduler
+- job/cron/task/queue
+  - bull
+  - node-schedule
+    -  time-based scheduling, not interval-based scheduling
+  - node-cron
+  - cron
+  - [timgit/pg-boss](https://github.com/timgit/pg-boss)
+  - [breejs/bree](https://github.com/breejs/bree)
+    - job scheduler
+  - [agenda/agenda](https://github.com/agenda/agenda)
+    - mongodb
+    - 独立服务
+    - Lightweight job scheduling
+  - [kibertoad/toad-scheduler](https://github.com/kibertoad/toad-scheduler)
+  - [SGrondin/bottleneck](https://github.com/SGrondin/bottleneck)
 - WebSocket
   - [ws](https://github.com/websockets/ws)
     - JS 实现
@@ -180,6 +197,10 @@ export N_PREFIX=$HOME/n
     - multi-core processing utilities for Node
   - [greenlet](https://github.com/developit/greenlet)
     - Move an async function into its own thread
+- Game Server/Server
+  - [colyseus/colyseus](https://github.com/colyseus/colyseus)
+    - MIT, TS
+    - Multiplayer Framework for Node.js
 
 ## Web
 

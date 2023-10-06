@@ -26,6 +26,13 @@ title: 手机
 
 - https://tools.usps.com/go/ZipLookupAction!input.action
   - ZIP Code™ by Address
+- 便于紧急情况下快速确定事件发生的准确地点
+- 要素
+  - 街道地址号码(Street Number):例如"123"
+  - 街道名称(Street Name):例如"Main St"
+  - 街道类型 Abbreviation(Street Suffix):例如"St"(Street 的缩写)
+  - 方位标识(Directional):例如"N"(North)
+  - 公寓号或套件号(Apartment/Suite):例如"Apt 101"
 
 <!--
 8642 YULE STREET 192

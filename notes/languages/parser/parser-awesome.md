@@ -74,3 +74,11 @@ tags:
   - [LL(\*): The Foundation of the ANTLR Parser Generator](http://www.antlr.org/papers/LL-star-PLDI11.pdf)
   - [orlandohill/peg-left-recursion](https://github.com/orlandohill/peg-left-recursion) - An idea to handle left-recursion in Parsing Expression Grammars (PEGs)
   - [PhilippeSigaud/Pegged/wiki/Left-Recursion](https://github.com/PhilippeSigaud/Pegged/wiki/Left-Recursion)
+
+## AST
+
+- [fkling/astexplorer](https://github.com/fkling/astexplorer)
+  - https://astexplorer.net/
+- https://github.com/syntax-tree
+- https://github.com/textlint/textlint/tree/master/packages/@textlint/markdown-to-ast/
+- https://github.com/nikic/PHP-Parser

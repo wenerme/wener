@@ -57,6 +57,17 @@ traps: tmux: server[5422] general protection fault ip:7f3fbcbb80be sp:7fff1eeff1
 traps: apk[21618] trap stack segment ip:7f862d16cd85 sp:7ffdf388efb0 error:0 in libapk.so.2.14.0[7f862d16b000+1a000]
 ```
 
+## TCP: request_sock_TCP: Possible SYN flooding on port 20247. Sending cookies.  Check SNMP counters
+
+```bash
+# >= 2048
+sysctl net.core.somaxconn
+# >= 512
+sysctl net.ipv4.tcp_max_syn_backlog
+```
+
+- https://access.redhat.com/solutions/30453
+
 ## HP HPSA Driver
 
 ## EDAC MC0: 1 UE UE overwrote CE on any memory

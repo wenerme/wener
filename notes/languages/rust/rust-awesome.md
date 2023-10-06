@@ -22,6 +22,7 @@ tags:
   - GPL 3.0
   - Remote desktop
 - [cloudflare/boringtun](https://github.com/cloudflare/boringtun)
+  - BSD-3-Clause, Rust
   - Userspace WireGuard
 
 ## 学习

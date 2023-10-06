@@ -6,6 +6,8 @@ title: CMS Awesome
 
 ## CMS
 
+- [halo-dev/halo](https://github.com/halo-dev/halo)
+  - GPLv3, Java
 - [dotCMS/core](https://github.com/dotCMS/core)
   - GPL-3.0, Java
   - 功能强大, 体系复杂

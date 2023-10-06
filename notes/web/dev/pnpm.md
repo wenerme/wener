@@ -145,7 +145,7 @@ public-hoist-pattern[]=*jest*
     },
     "peerDependencyRules": {
       "ignoreMissing": ["react"], // 如果 peer 依赖不存在不提示
-      "allowedVersions": {"react": "17"} // 允许 peer 依赖版本 - 低版本安装高版本不报错
+      "allowedVersions": { "react": "17" } // 允许 peer 依赖版本 - 低版本安装高版本不报错
     },
     // 忽略 依赖 的构建操作 -  preinstall, install, postinstall
     "neverBuiltDependencies": ["fsevents", "level"],
@@ -199,10 +199,39 @@ modules-cache-max-age=10080
 lockfile=true
 prefer-frozen-lockfile=true
 
+
+# highest, time-based, lowest-direct
+# time-based 需要 registry-supports-time-field
+# https://github.com/npm/registry/blob/master/docs/responses/package-metadata.md#full-metadata-format
+resolution-mode=highest
+# Verdaccio v5.15.1+
+registry-supports-time-field=false
+
+
+# symlink 到根目录 node_modules 后就不 symlink 到子目录
+dedupe-direct-deps=false
+
+
+
+
+# true if node-linker=hoisted
+# node_modules/.bin
+prefer-symlinked-executables=
+verify-store-integrity=true
+
+# https://github.com/yarnpkg/berry/blob/master/packages/yarnpkg-extensions/sources/index.ts
+ignore-compatibility-db=false
+# 设置 NODE_PATH
+extend-node-path=true
+
 # Peer Dependency
 # ===============
+# 安装 non-optional peer dependencies
 auto-install-peers=false
 strict-peer-dependencies=true
+dedupe-peer-dependents=true
+strict-peer-dependencies=false
+resolve-peers-from-workspace-root=true
 
 # CLI
 # ===
@@ -333,12 +362,12 @@ CMD [ "node", "server.js" ]
 
 ```bash
 pnpm init
-cat <<CONF > .npmrc
+cat << CONF > .npmrc
 strict-peer-dependencies=true
 auto-install-peers=true
 legacy-peer-deps=false
 CONF
-cat <<YAML > pnpm-workspace.yaml
+cat << YAML > pnpm-workspace.yaml
 packages:
   - 'apps/*'
   - 'packages/*'
@@ -347,7 +376,7 @@ YAML
 pnpm add -Dw tsx turbo typescript ava esbuild
 pnpm add -Dw prettier prettier-plugin-{pkg,tailwindcss} @trivago/prettier-plugin-sort-imports
 pnpm add -Dw eslint eslint-config-{prettier,standard-with-typescript} eslint-plugin-{import,n,promise,react}
-pnpm add -Dw @types/node @types/react # hoist common dependencies
+pnpm add -Dw @types/node @types/react    # hoist common dependencies
 pnpm add -Dw tailwindcss postcss cssnano # DevTools
 pnpm add -Dw @wener/wode
 
@@ -365,12 +394,12 @@ pnpm add react-router react-router-dom # SPA
 # pnpm add @trpc/client @trpc/react @trpc/server # tRPC for NextJS
 
 mkdir src/{app,pages,components,styles,libs} -p
-cat <<CSS >src/styles/globals.css
+cat << CSS > src/styles/globals.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 CSS
-cat <<JSX >src/pages/_app.tsx
+cat << JSX > src/pages/_app.tsx
 import React from 'react';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
@@ -381,7 +410,7 @@ function App({ Component, pageProps }:AppProps) {
 
 export default App;
 JSX
-cat <<JSX >src/pages/index.tsx
+cat << JSX > src/pages/index.tsx
 export const Page = ()=>{
   return <div>Hello</div>
 }
@@ -417,7 +446,6 @@ pnpm add -D @types/pg @types/ws
 - https://github.com/microsoft/TypeScript/issues/29808
 - https://github.com/microsoft/TypeScript/issues/42873
 - https://github.com/microsoft/TypeScript/issues/47663
-
 
 # FAQ
 
@@ -490,7 +518,7 @@ for (const dep of deps) {
   dups[name].push({ name, version, spec });
 }
 
-dups = Object.fromEntries(Object.entries(dups).filter(([, v]) => v.length > 1))
+dups = Object.fromEntries(Object.entries(dups).filter(([, v]) => v.length > 1));
 
 console.log(dups);
 ```

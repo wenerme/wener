@@ -42,3 +42,11 @@ npm login
   - `email`
   - `certfile` path -> cert
   - `keyfile` path -> key
+
+**env fallback**
+
+```
+PUPPETEER_DOWNLOAD_BASE_URL
+npm_config_puppeteer_download_base_url
+npm_package_config_puppeteer_download_base_url
+```

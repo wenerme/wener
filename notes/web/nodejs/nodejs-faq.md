@@ -61,12 +61,24 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 ## source map
 
 - sourcemap 大了过后非常慢
-- 排除 node_modules https://github.com/evanw/esbuild/issues/1685#issuecomment-944916409
 - 例如: main.mjs 10mb, main.mjs.map 20mb
   - --enable-source-maps 启动 40s
-  - 无 `enable-source-maps` 启动 2s
+  - 直接启动 2s
+  - `-r @cspotcode/source-map-support/register`
 - NodeJS 12.12.0 [--enable-source-maps](https://nodejs.org/docs/latest-v16.x/api/cli.html#--enable-source-maps)
 - https://github.com/evanw/node-source-map-support
+- https://github.com/cspotcode/source-map-performance-demo#example-output
+- https://github.com/cspotcode/node-source-map-support
+  - 性能更好
+- esbuild
+  - 排除 node_modules https://github.com/evanw/esbuild/issues/1685#issuecomment-944916409
+  - 排除 sourcesContent
+    - 包含完整 source code - 如果只用于 stack trace 则不需要
+    - https://esbuild.github.io/api/#sources-content
+
+```ts
+import '@cspotcode/source-map-support/register'
+```
 
 ## cjs `__dirname`
 

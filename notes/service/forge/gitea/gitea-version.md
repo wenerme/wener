@@ -24,8 +24,6 @@ tags:
     password: ${{ secrets.GITEA_TOKEN }}
 ```
 
-- action 支持 cron [#26655](https://github.com/go-gitea/gitea/pull/26655)
-  - v 1.21
 - 支持手动触发 action [#23668](https://github.com/go-gitea/gitea/issues/23668)
 - action badge [#23688](https://github.com/go-gitea/gitea/issues/23688)
 - Package Registry TODO [#19270](https://github.com/go-gitea/gitea/issues/19270)
@@ -36,6 +34,24 @@ tags:
   - https://github.com/go-gitea/gitea/pull/24257
 
 :::
+
+## Gitea 1.21
+
+- gitea action
+  - 支持 cron [#26655](https://github.com/go-gitea/gitea/pull/26655)
+  - variables - 不隐藏，`${{vars.XYZ}}`
+  - auto-cancellation of concurrent jobs if the event is push
+- 支持 `.git-blame-ignore-revs`
+- direct serving of package content
+- package cleanup from admin page
+- codeowners
+  - `./CODEOWNERS`
+  - `./docs/CODEOWNERS`
+  - `./.gitea/CODEOWNERS`
+  - `<regexp rule> <@user or @org/team> [@user or @org/team]...`
+  - regex 可以以 `!` 开头，表示排除
+  - https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+  - https://docs.gitlab.com/ee/user/project/codeowners/
 
 ## Gitea 1.20
 

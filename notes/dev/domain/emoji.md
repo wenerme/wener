@@ -9,6 +9,7 @@ title: Emoji
 - https://unicode.org/emoji/charts/full-emoji-list.html
 - [Emoticons](<https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)>)
 - [UnicodeSet](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AEmoji%3DYes%3A%5D&esc=on)
+- https://github.com/hfg-gmuend/openmoji
 
 ---
 

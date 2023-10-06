@@ -33,9 +33,10 @@ tags:
   - 支持 行存、列存、文档存储
   - forked from Sphinx 2.3.2 in 2017
   - vs MeiliSearch https://www.reddit.com/r/selfhosted/comments/w89tgh/comment/ihq798e/
-- [typesense/typesense](https://github.com/typesense/typesense)
+- [typesense/typesense](./typesense.md)
   - GPL-3.0, C++
-  - 不支持 CJK - [typesense/typesense#228](https://github.com/typesense/typesense/issues/228)
+  - 不支持 CJK
+    - Support for writing systems without spaces between words [typesense/typesense#228](https://github.com/typesense/typesense/issues/228)
 - [pisa-engine/pisa](https://github.com/pisa-engine/pisa)
   - Performant Indexes and Search for Academia
 - [Apache Lucene Core](https://lucene.apache.org/core/)
@@ -83,7 +84,10 @@ tags:
     - Crawler `SearchHut Bot 0.0 (GNU AGPL 3.0); https://sr.ht/~sircmpwn/searchhut; <sir@cmpwn.com>`
 - [yacy/yacy_search_server](https://github.com/yacy/yacy_search_server)
   - GPLv2+, Java
-- [searx/searx](https://github.com/searx/searx)
+  - Distributed Peer-to-Peer Web Search Engine and Intranet Search Appliance
+- [mwmbl/mwmbl](https://github.com/mwmbl/mwmbl)
+  - AGPLv3, Python
+- ~~[searx/searx](https://github.com/searx/searx)~~
   - AGPLv3, Python
   - Privacy-respecting, hackable metasearch engine
   - https://searx.org/
@@ -157,7 +161,6 @@ tags:
 ## Story
 
 - [Index 1,600,000,000 Keys with Automata and Rust](https://blog.burntsushi.net/transducers/)
-
 
 ## Misc
 

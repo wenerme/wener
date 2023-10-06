@@ -21,6 +21,39 @@ title: Github Action
 
 :::
 
+## step
+
+- id
+- if name uses run shell with env continue-on-error timeout-minutes
+
+### uses
+
+```yaml
+# {owner}/{repo}@{ref}
+# {owner}/{repo}/{path}@{ref}
+- uses: actions/checkout@v3
+- uses: actions/aws/ec2@main
+
+# 相同仓库 - 需要先 checkout
+# ./path/to/dir
+- uses: ./.github/actions/my-action
+# docker://{image}:{tag}
+# docker://{host}/{image}:{tag}
+- uses: docker://alpine:3.8
+- uses: docker://ghcr.io/OWNER/IMAGE_NAME
+- uses: docker://gcr.io/cloud-builders/gradle
+
+# private repo
+- uses: actions/checkout@v3
+  with:
+    repository: octocat/my-private-repo
+    ref: v1.0
+    token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    path: ./.github/actions/my-private-repo
+# from private repo
+- uses: ./.github/actions/my-private-repo/my-action
+```
+
 ## pnpm template
 
 ```yaml
@@ -28,9 +61,9 @@ name: Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:

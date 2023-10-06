@@ -63,6 +63,7 @@ title: Low Code Awesome
   - MIT, JS+TS
 - [Budibase/budibase](https://github.com/Budibase/budibase)
   - GPL v3
+  - https://github.com/Budibase/budibase/blob/develop/packages/types/src/documents/document.ts
   - https://docs.budibase.com/references-1/budibase-architecture
 - [dashjoin/platform](https://github.com/dashjoin/platform)
   - AGPLv3, Java

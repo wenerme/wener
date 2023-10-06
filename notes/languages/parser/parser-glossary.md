@@ -1,5 +1,4 @@
 ---
-id: glossary
 title: Parser Glossary
 tags:
   - Glossary

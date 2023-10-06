@@ -7,7 +7,10 @@ title: Package
 ## NPM
 
 ```bash
-# token - PTA
+npm config set -L project @wener:registry //code.wener.me/api/packages/wener/npm/           # Registry for scope
+npm config set -L project //code.wener.me/api/packages/wener/npm/:_authToken PAT # Access token for registry
+
+# token - PAT
 # npm config set {scope}:registry https://gitea.example.com/api/packages/{owner}/npm/
 # npm config set -- '//gitea.example.com/api/packages/{owner}/npm/:_authToken' "{token}"
 

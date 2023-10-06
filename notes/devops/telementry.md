@@ -11,6 +11,10 @@ Collection of how to disable telementry and analytics that default to enable.
 **env**
 
 ```bash
+# https://do-not-track.dev/
+# https://en.wikipedia.org/wiki/Do_Not_Track
+DO_NOT_TRACK=1
+
 # ========================
 # Dev/Frontend/Backend
 # ========================
@@ -20,6 +24,7 @@ HOMEBREW_NO_ANALYTICS=1
 NEXT_TELEMETRY_DISABLED=1
 # NuxtJS
 NUXT_TELEMETRY_DISABLED=1
+
 
 # ========================
 # Service
@@ -234,4 +239,10 @@ User-Agent: "Open Policy Agent/v0.12.3 (darwin, amd64)"
   "version": "v0.12.3",
   "heap_usage_bytes": "596000"
 }
+```
+
+## bun
+
+```toml
+disableTelemetry=true
 ```

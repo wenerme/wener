@@ -7,6 +7,16 @@ tags:
 # BI Awesome
 
 - [thenaturalist/awesome-business-intelligence](https://github.com/thenaturalist/awesome-business-intelligence)
+- [evidence-dev/evidence](https://github.com/evidence-dev/evidence)
+  - MIT, Svelte
+  - Business intelligence as code
+  - SSG 方式
+- [datalens-tech](https://github.com/datalens-tech)
+  - by Yandex
+  - https://cloud.yandex.com/en/services/datalens
+- [observablehq/plot](https://github.com/observablehq/plot)
+  - ISC, JS
+  - https://observablehq.com/plot/
 
 ## Service
 

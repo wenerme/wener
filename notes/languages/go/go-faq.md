@@ -386,6 +386,8 @@ CGO_ENABLED=1 go build -buildmode=pie -tags 'osusergo,netgo,static,static_build'
 
 GOOS=linux go build -tags 'osusergo netgo'
 GOFLAGS=-static
+
+CGO_ENABLED=0 go build -a -tags 'osusergo netgo' -ldflags '-extldflags "-static"'
 ```
 
 - https://github.com/golang/go/issues/26492

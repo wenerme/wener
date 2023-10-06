@@ -72,3 +72,17 @@ npm config set prefix ~/.npm-global
 # NPM_CONFIG_PREFIX
 export PATH=~/.npm-global/bin:$PATH
 ```
+
+
+## package
+
+```bash
+# 发布 tgz
+npm --registry=http://nxrm.local/repository/npm-hosted publish package.tgz
+
+# 直接上传
+curl -u user:password -X POST "http://localhost:8081/service/rest/v1/components?repository=npm-private" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "npm.asset=@my-npm-package-0.0.0.tgz;type=application/x-compressed"
+
+# 下载
+curl -LO $(npm view lodash 'dist.tarball')
+```

@@ -11,9 +11,13 @@ tags:
 - 有些场景需要 esm import 包含后缀，目前 esbuild 不好添加
 - 可以考虑 rollup
 - https://github.com/evanw/esbuild/issues/2435
-- https://github.com/swc-project/swc/issues/5346
-  - SWC 不支持
+- SWC - 不支持
+  - Output mjs file extension [swc#3067](https://github.com/swc-project/swc/issues/3067)
+  - https://github.com/swc-project/swc/issues/5346
 - https://github.com/microsoft/TypeScript/pull/35148
+- NextJS [库 import 必须要有 .js 后缀](../../framework/nextjs/nextjs-faq.md#js-extension)
+- [GervinFung/ts-add-js-extension](https://github.com/GervinFung/ts-add-js-extension)
+  - 添加 js 后缀
 
 ```
 ✘ [ERROR] Could not resolve "server/src/app/app.run"
@@ -75,5 +79,7 @@ import { GeneralResponseDto } from 'server/src/common/dto/index.ts';
 
 ```bash
 pnpm swc ./src -d ./lib
+# for `'` & `"`
 sed -E -i -r 's#(\bfrom\s+"\.[^"]+)";#\1.js";#g' ./lib/**/*.js
+sed -E -i -r "s#(\bfrom\s+'\.[^']+)';#\1.js';#g" ./lib/**/*.js
 ```

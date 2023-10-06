@@ -93,7 +93,8 @@ tags:
 ## UserAgent
 
 ```pre
-"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like Gecko) wxwork/3.1.12 (MicroMessenger/6.2) WeChat/2.0.4"
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16) AppleWebKit/605.1.15 (KHTML, like Gecko) wxwork/3.1.12 (MicroMessenger/6.2) WeChat/2.0.4
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Language/en ColorScheme/Dark DistType/publish-website wxwork/4.1.9 (MicroMessenger/6.2) WeChat/2.0.4 Safari/605.1.15
 ```
 
 ## Limit

@@ -4,6 +4,8 @@ title: Terraform
 
 # Terraform
 
+- [opentofu/opentofu](https://github.com/opentofu/opentofu)
+  - OpenTofu
 - [functions](https://www.terraform.io/docs/configuration/functions.html)
 - 模板语法 [string-templates](https://www.terraform.io/docs/configuration/expressions.html#string-templates)
 - [Provisioners](https://www.terraform.io/docs/provisioners/index.html)

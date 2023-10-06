@@ -17,16 +17,16 @@ tags:
 - 参考
   - v8 [js/wasm 特性](https://v8.dev/features)
 
-| ver                           | lts start  | end        | v8 ver |
+| ver                           | Active LTS | EOL        | v8 ver |
 | ----------------------------- | ---------- | ---------- | ------ |
-| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | 10.1   |
-| [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2024-04-30 | 9.0    |
-| [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | 8.1    |
-| [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | 7.4    |
+| [Node v20 LTS](#node-v20-lts) | 2023-10-24 | 2026-04-30 | v11.3  |
+| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | v10.1  |
+| [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2023-09-11 | v9.0   |
+| [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | v8.1   |
+| [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | v7.4   |
 
 :::info Roadmap
 
-- fetch
 - corepack
 
 :::
@@ -34,11 +34,69 @@ tags:
 - https://unofficial-builds.nodejs.org/download/release
   - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
 
+## Node v20 LTS
+
+- v8 11.3
+  - Resizable ArrayBuffer
+    - Chrome 111
+    - Safari 16.4
+  - Growable SharedArrayBuffer
+  - String.prototype.isWellFormed
+  - String.prototype.toWellFormed
+  - Regex `v`
+- APIs
+  - import.meta.resolve
+  - 完善 Web Crypto API
+  - 完善 WASI - WebAssembly System Interface
+  - `readdir(dirname, { recursive: true })`
+- 支持 `.env`
+- --experimental-loader
+- --experimental-permission
+  - --allow-fs-read
+  - --allow-fs-write
+  - --allow-child-process
+  - --allow-worker
+  - ERR_ACCESS_DENIED
+  - `process.permission.has('fs.write');`
+  - `process.permission.has('fs.write', '/home/me/mydata.json')`
+- Test Runner
+  - `import { test, describe, it, mock } from 'node:test';`
+  - `node --test --watch test.mjs`
+- single executable application - SEA
+
+```json title="sea-config.json"
+{
+  "main": "myscript.js",
+  "output": "sea-prep.blob"
+}
+```
+
+```bash
+node --experimental-sea-config sea-config.json
+```
+
+```js title="loader.js"
+export async function resolve(specifier, parentModuleURL, defaultResolve) {
+  console.log('Resolving:', specifier);
+  return defaultResolve(specifier, parentModuleURL);
+}
+
+export async function load(url, defaultLoad) {
+  console.log('Loading:', url);
+  return defaultLoad(url);
+}
+```
+
+```bash
+node --experimental-loader=./loader.mjs
+```
+
 ## Node v18 LTS
 
 :::caution
 
 - fetch 不支持指定 agent 做代理 [#43187](https://github.com/nodejs/node/issues/43187)
+  - 使用 undici
 
 :::
 

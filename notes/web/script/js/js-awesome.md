@@ -871,6 +871,8 @@ tags:
   - [biomejs/biome](https://github.com/biomejs/biome)
     - MIT, Rust
     - linter
+  - https://github.com/arethetypeswrong/arethetypeswrong.github.io
+  - publint.dev
 - tester
   - ava
   - vitest

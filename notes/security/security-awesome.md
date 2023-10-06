@@ -20,6 +20,8 @@ tags:
 - [soxoj/maigret](https://github.com/soxoj/maigret)
   - Collect a dossier on a person by username from thousands of sites
 - [ocsf/ocsf-schema](https://github.com/ocsf/ocsf-schema)
+- [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
+  - Apache-2.0
 
 ## Service
 

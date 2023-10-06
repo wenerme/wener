@@ -49,6 +49,11 @@ tags:
   - 文言文
 - https://github.com/breck7/pldb
 
+## Rank
+
+- https://www.tiobe.com/tiobe-index/
+- https://redmonk.com/sogrady/2022/10/20/language-rankings-6-22/
+
 ## AST
 
 - [tabatkins/railroad-diagrams](https://github.com/tabatkins/railroad-diagrams)

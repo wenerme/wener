@@ -13,6 +13,10 @@ tags:
 
 :::
 
+## tsconfig.tsbuildinfo
+
+- `--incremental`
+
 ## type vs interface
 
 建议优先 interface
@@ -82,6 +86,26 @@ const identity = <T>(arg: T): T => arg;
     - https://github.com/pnpm/pnpm/issues/6316
     - dependencies `"src": "workspace:web@^"`
   - https://yarnpkg.com/configuration/yarnrc#nmSelfReferences
+- nextjs
+  - https://github.com/vercel/turbo/discussions/620
+
+### ts-node
+
+- esm 有问题 https://github.com/TypeStrong/ts-node/discussions/1450#discussion-3563207
+
+```bash
+npm add -D tsconfig-paths
+```
+
+```json
+{
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
+```
+
+- https://github.com/TypeStrong/ts-node#paths-and-baseurl
 
 ## I 接口命名前缀
 

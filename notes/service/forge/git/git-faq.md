@@ -407,6 +407,8 @@ git status # 第二次命中大量缓存，非常快
 
 ## master to main
 
+- rename master branch -> main
+
 ```bash
 git branch -m master main
 
@@ -420,6 +422,14 @@ git branch --unset-upstream
 git branch -u origin/main
 
 # 或修改 .git/config fetch
+```
+
+## Error: src refspec master does not match any
+
+```bash
+git branch -m master main
+git push -u origin main
+git push origin --delete master
 ```
 
 ## fetch remote branch
@@ -508,8 +518,16 @@ git config --global --add safe.directory '*'
 
 ## merge branch without checkout
 
+不切换分支的前提下，合并分支到其他分支
+
 **develop -> main**
 
 ```bash
 git push . develop:main
+```
+
+## push other branch without checkout
+
+```bash
+git push -u origin main:main
 ```

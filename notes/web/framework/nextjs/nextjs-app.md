@@ -37,6 +37,9 @@ title: App Layout
   - pg-cloudflare cloudflare:sockets [#50177](https://github.com/vercel/next.js/discussions/50177)
 - 集成问题
   - https://github.com/prosepilot/trpc-openapi/issues/289
+- middleware 只能运行在 edge runtime
+  - https://github.com/vercel/next.js/discussions/34179
+  - https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes#global-runtime-option
 
 :::
 

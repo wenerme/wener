@@ -19,6 +19,10 @@ tags:
 - [通用时间序列数据库/time-series](../../db/db-awesome.md#time-series)
 - https://opentelemetry.io/ecosystem/vendors/
 - [observIQ/bindplane-op](https://github.com/observIQ/bindplane-op)
+- [hyperdxio/hyperdx](https://github.com/hyperdxio/hyperdx)
+  - MIT, TS
+  - Clickhouse 存储
+- [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
 
 ## Tracing
 

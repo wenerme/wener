@@ -156,7 +156,6 @@ apk add gcompat
 export LD_PRELOAD=/lib/libgcompat.so.0
 ```
 
-
 ## Unable to get pid of LinuxThreads manager thread
 
 alpine docker 里 java 8 为 pid 1 时出现。
@@ -181,3 +180,25 @@ jattach 1 properties
 - 通过 -XX:+StartAttachListener 可避免问题
 - https://github.com/alibaba/arthas/issues/362#issuecomment-1336190202
 - https://github.com/docker-library/openjdk/issues/76
+
+## Java Proxy
+
+- properties
+  - socksProxyHost
+  - socksProxyPort=1080
+  - socksNonProxyHosts
+  - java.net.socks.username
+  - java.net.socks.password
+  - http.proxyHost
+  - http.proxyPort
+  - http.nonProxyHosts
+    - e.g. `localhost|host.mydomain.com`
+  - ftp.proxHost
+  - ftp.proxyPort
+  - ftp.nonProxyHosts
+- Datagrip 支持 `?socksProxyHost=&socksProxyPort=`
+
+---
+
+- https://docs.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
+- https://docs.oracle.com/javase/6/docs/technotes/guides/net/properties.html#socks

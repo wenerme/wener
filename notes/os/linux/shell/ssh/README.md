@@ -12,6 +12,25 @@ title: SSH
 
 ```bash
 ssh -G host # 查看 Host 配置
+
+# 调整权限
+chmod 400 ~/.ssh/id_*
+chmod 644 ~/.ssh/id_*.pub
+
+# 转发/隧道
+# ============
+# -g 允许外部访问，需要 GatewayPorts=no
+# -o ExitOnForwardFailure=yes 转发失败退出
+ssh -L 3000:127.0.0.1:8080 # 本地 3000 -> 远程 8080
+ssh -R 3000:127.0.0.1:8080 # 远程 8080 -> 本地 3000
+
+ssh -D 1080                # SOCKS5 代理
+curl -x socks5h://localhost:1080 icanhazip.com
+
+# 跳板
+# ============
+# 需要 PortForward
+ssh -J admin@jumphost admin@internal
 ```
 
 **~/.ssh/config**
@@ -46,6 +65,12 @@ Commands:
       -KR[bind_address:]port                 Cancel remote forward
       -KD[bind_address:]port                 Cancel dynamic forward
 ```
+
+**flags**
+
+flag | for
+----|---
+
 
 **常用配置**
 
@@ -130,7 +155,7 @@ autossh -M 8889 -vNg tunnel > ssh.log 2>&1 &
   - 减少连接时间 - 特别是机器多、ssh 命令多、ack 延时高的时候
   - 连接复用
 - 注意
-  - 连接过多可能不问题
+  - 连接过多可能有问题
   - 不要用来传大文件 - 直接连接会更快
 
 ```

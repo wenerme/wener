@@ -3,10 +3,13 @@ title: FoundationDB
 ---
 
 # FoundationDB
+
 - [FoundationDB](https://github.com/apple/foundationdb)
+  - Apache-2.0, C++
   - 分布式、事务、KV
 - 参考
   - [FoundationDB/awesome-foundationdb](https://github.com/FoundationDB/awesome-foundationdb)
+  - [FoundationDB/fdb-kubernetes-operator](https://github.com/FoundationDB/fdb-kubernetes-operator)
   - [FoundationDB/fdb-document-layer](https://github.com/FoundationDB/fdb-document-layer)
     - MongoDB® wire protocol
   - [FoundationDB: A Distributed Unbundled Transactional Key Value Store](https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html)
@@ -15,6 +18,7 @@ title: FoundationDB
   - [FoundationDB Record Layer: A Multi-Tenant Structured Datastore](https://www.foundationdb.org/files/record-layer-paper.pdf)
   - [QuiCK: A Queuing System in CloudKit](https://www.foundationdb.org/files/QuiCK.pdf)
   - [How FoundationDB works and why it works](https://blog.the-pans.com/notes-on-the-foundationdb-paper/)
+  - https://apple.github.io/foundationdb/architecture.html
 
 :::caution
 

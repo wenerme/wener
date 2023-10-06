@@ -9,6 +9,8 @@ title: whisper
   - https://openai.com/blog/whisper/
 - [ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
 - [m-bain/whisperX](https://github.com/m-bain/whisperX)
+- [FL33TW00D/whisper-turbo](https://github.com/FL33TW00D/whisper-turbo)
+
 
 ```bash
 git clone https://github.com/ggerganov/whisper.cpp

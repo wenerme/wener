@@ -100,7 +100,7 @@ title: 阿里云
 
 - 突发 - t5,t6
   - 2C2G 20%
-    - 24分/小时
+    - 24 分/小时
     - 最多累计 576
 
 ## ACK
@@ -132,3 +132,12 @@ title: 阿里云
 | innodb_write_io_threads       | 4          |
 | innodb_log_file_size          | 1572864000 | 1500M |
 | innodb_log_files_in_group     | 2          |
+
+## 大模型
+
+| model      | price 1K/tokens | note                          |
+| ---------- | --------------- | ----------------------------- |
+| qwen-turbo | 0.012¥          | 免费 2,000,000 tokens、180 天 |
+| qwen-plus  | 0.14¥           | 免费 1,000,000 tokens、180 天 |
+
+- https://help.aliyun.com/zh/dashscope/product-overview/billing-rules

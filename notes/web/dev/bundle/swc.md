@@ -31,6 +31,10 @@ pnpm tsx ./dist/out/main.ts
 
 # FAQ
 
+## file extension
+
+- [js extension](./bundle-faq.md#js-extension)
+
 ## swc vs esbuild
 
 - esbuild

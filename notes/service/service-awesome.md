@@ -68,6 +68,7 @@ tags:
   - open-source alternative to Twilio
 - https://github.com/zmide/study.zmide.com
 - [reviewdog/reviewdog](https://github.com/reviewdog/reviewdog)
+- [hydra-synth/hydra](https://github.com/hydra-synth/hydra)
 - [rudderlabs/rudder-server](https://github.com/rudderlabs/rudder-server)
   - AGPL-3.0, Go, TS, React
   - Segment-alternative
@@ -209,6 +210,22 @@ tags:
     - MIT, Typescript
     - WebSocket
   - sshuttle
+- form/builder/low code
+  - ~~[ohmyform/ohmyform](https://github.com/ohmyform/ohmyform)~~
+    - AGPL, TS, typeorm
+  - [formio/formio](https://github.com/formio/formio)
+    - OSL-3.0, JS
+    - mongoose
+    - https://github.com/formio/formio/blob/master/src/models/models.js
+    - [formio/formio.js](https://github.com/formio/formio.js)
+      - MIT, JS
+    - [formio/react](https://github.com/formio/react)
+  - [gitana/alpaca](https://github.com/gitana/alpaca)
+    - JSON Forms for jQuery and Bootstrap
+  - [orbeon/orbeon-forms](https://github.com/orbeon/orbeon-forms)
+    - LGPL-2.1, Scala
+  - 商业
+    - TypeForm, TellForm, Google Forms
 
 ## Avatar
 

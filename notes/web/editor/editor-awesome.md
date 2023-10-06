@@ -190,6 +190,14 @@ tags:
 - DrawIO
 - BPMN.js
 
+## Game/Studio
+
+- [raverie-us/raverie-engine](https://github.com/raverie-us/raverie-engine)
+  - C++, WASM
+  - aims to recreate the Macromedia/Adobe Flash experience of old
+  - https://raverie-us.github.io/raverie-engine/
+- https://editor.godotengine.org/
+
 ## Glossary
 
 - MIS - 管理信息系统
