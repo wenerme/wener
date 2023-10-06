@@ -9,7 +9,6 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "emitDecoratorMetadata": true,
     "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",

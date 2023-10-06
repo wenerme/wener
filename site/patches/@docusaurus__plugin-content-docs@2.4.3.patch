@@ -1,5 +1,5 @@
 diff --git a/lib/docs.js b/lib/docs.js
-index 0fb619a175a8cc86996ee46245666287c5aef065..b79c55585e2399330d835541061835e7c655609b 100644
+index 407677cf81499599584045ba327083ba77d3bbec..722f20f98a14d9d4f8bccb930bee27d9f098073e 100644
 --- a/lib/docs.js
 +++ b/lib/docs.js
 @@ -123,7 +123,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
@@ -12,7 +12,7 @@ index 0fb619a175a8cc86996ee46245666287c5aef065..b79c55585e2399330d835541061835e7
      // pagination buttons... frontMatter.title should be used in priority over
      // contentTitle (because it can contain markdown/JSX syntax)
 diff --git a/lib/index.js b/lib/index.js
-index b904568e49fccc2426c6670b48fc13c0ad0b516a..143c4465d7ace91d756e684dc714dbbe15ab3cd1 100644
+index b74c7f92a28b240696103758c684e6ebdae88ed1..685bec6a384c5d3b6770cb7d65916941b2cfb791 100644
 --- a/lib/index.js
 +++ b/lib/index.js
 @@ -83,7 +83,8 @@ async function pluginContentDocs(context, options) {
@@ -20,7 +20,7 @@ index b904568e49fccc2426c6670b48fc13c0ad0b516a..143c4465d7ace91d756e684dc714dbbe
                      });
                  }
 -                return Promise.all(docFiles.map(processVersionDoc));
-+                console.log(`Inject custom docs filter`)
++                console.log(`Inject custom docs filter`);
 +                return Promise.all(docFiles.filter(v=>v.content.startsWith('--')).map(processVersionDoc));
              }
              async function doLoadVersion(versionMetadata) {

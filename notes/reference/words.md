@@ -47,7 +47,7 @@ title: 词汇对比
   - relate - 名词 - 关系
 - association
   - 具体关系
-  - User associated with Order
+  - User associated with Order
   - 用户与账单一对多的关联关系
   - associate - 动词、名词 - 关联
 

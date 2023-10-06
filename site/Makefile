@@ -1,6 +1,6 @@
 SHELL:=env bash -O extglob -O globstar
 
-ci: ci-install sync process notes.json build stats
+ci: host-info ci-install sync process notes.json build stats
 
 host-info:
 	-@echo "CPU: `nproc`"
@@ -8,7 +8,7 @@ host-info:
 	@echo -n "Default heap size: "
 	@node -e 'console.log(v8.getHeapStatistics().heap_size_limit/(1024*1024))'
 
-ci-install: host-info
+ci-install:
 	npm add -g pnpm
 	pnpm install --frozen-lockfile
 
@@ -35,11 +35,11 @@ plugins: bundle
 
 # cjs do not support --splitting
 # BUNDLE_FLAGS=--external:{unist-util-visit,mdast-util-to-string,mdast-util-from-markdown,mdast-util-to-markdown,unified,unist,mdast}
-BUNDLE_FLAGS=--external:{unist-util-visit,unified,unist,mdast} --platform=node --target=node16
+BUNDLE_FLAGS=--external:{unist-util-visit,unified,unist,mdast} --platform=node --target=node18
 bundle:
 	pnpm exec esbuild $(BUNDLE_FLAGS) --bundle ./src/plugins/table.mts  ./src/plugins/deflist.ts --outdir=./dist/plugins/ --format=cjs
 	grep '^// ' ./dist/plugins/* | grep node_modules
-	pnpm exec esbuild --platform=node --target=node16 --bundle ./src/scripts/tikz2svg.mts  --outdir=./dist/scripts/ --format=cjs
+	pnpm exec esbuild --platform=node --target=node18 --bundle ./src/scripts/tikz2svg.mts  --outdir=./dist/scripts/ --format=cjs
 
 
 build: plugins

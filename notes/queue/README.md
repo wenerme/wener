@@ -2,7 +2,7 @@
 title: Queue
 ---
 
-# Queue
+# 队列
 
 
 - Dump pipe, Smart endpoint.

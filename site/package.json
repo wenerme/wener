@@ -1,6 +1,6 @@
 {
   "name": "wener-website",
-  "version": "2.2.0",
+  "version": "2.4.3",
   "private": true,
   "engines": {
     "node": ">=16"
@@ -19,74 +19,56 @@
     "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "2.2.0",
-    "@docusaurus/plugin-client-redirects": "2.2.0",
-    "@docusaurus/plugin-content-docs": "2.2.0",
-    "@docusaurus/plugin-google-analytics": "2.2.0",
-    "@docusaurus/plugin-google-gtag": "2.2.0",
-    "@docusaurus/plugin-ideal-image": "2.2.0",
-    "@docusaurus/plugin-sitemap": "2.2.0",
-    "@docusaurus/preset-classic": "2.2.0",
-    "@docusaurus/theme-live-codeblock": "2.2.0",
-    "@docusaurus/theme-mermaid": "2.2.0",
-    "@mdx-js/react": "^1",
-    "classnames": "^2.3.1",
+    "@docusaurus/core": "2.4.3",
+    "@docusaurus/plugin-client-redirects": "2.4.3",
+    "@docusaurus/plugin-content-docs": "2.4.3",
+    "@docusaurus/plugin-google-analytics": "2.4.3",
+    "@docusaurus/plugin-google-gtag": "2.4.3",
+    "@docusaurus/plugin-ideal-image": "2.4.3",
+    "@docusaurus/plugin-sitemap": "2.4.3",
+    "@docusaurus/preset-classic": "2.4.3",
+    "@docusaurus/theme-live-codeblock": "2.4.3",
+    "@docusaurus/theme-mermaid": "2.4.3",
+    "@mdx-js/react": "^1.6.22",
+    "classnames": "^2.3.2",
     "hast-util-is-element": "^1.1.0",
-    "isomorphic-fetch": "^3",
-    "mdast-util-from-markdown": "^1.2.0",
-    "mdast-util-math": "^2",
-    "mdast-util-to-markdown": "^1.3.0",
-    "mdast-util-to-string": "^2",
-    "mermaid": ">=8.13.8",
-    "micromark-extension-math": "^2.0.2",
-    "mobx": "^6.3.2",
-    "mobx-react": "^7.2.0",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.33",
-    "node-fetch": "^2",
-    "nth-check": "^2.1.0",
-    "prism-react-renderer": "^1.2.1",
-    "react": "^17",
-    "react-dom": "^17",
-    "rehype-katex": "^5",
-    "rehype-stringify": "^8",
-    "remark-extended-table": "^1.0.1",
+    "isomorphic-fetch": "^3.0.0",
+    "mdast-util-from-markdown": "^1.3.1",
+    "mdast-util-math": "^2.0.2",
+    "mdast-util-to-markdown": "^1.5.0",
+    "mdast-util-to-string": "^2.0.0",
+    "mermaid": "^10.5.0",
+    "micromark-extension-math": "^2.1.2",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
+    "nth-check": "^2.1.1",
+    "prism-react-renderer": "^2.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rehype-katex": "^5.0.0",
+    "rehype-stringify": "^8.0.0",
+    "remark-extended-table": "^1.1.0",
     "remark-math": "^3.0.1",
-    "remark-rehype": "^8",
-    "styled-components": "^5.3.0",
-    "trim": ">=0.0.3",
-    "unified": "^9.2.0",
-    "unist-util-visit": "^2"
+    "remark-rehype": "^8.1.0",
+    "styled-components": "^6.0.8",
+    "unified": "^10.1.2",
+    "unist-util-visit": "^2.0.3",
+    "valtio": "^1.11.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.2.0",
-    "@esbuild-kit/cjs-loader": "^2.3.3",
-    "@tsconfig/docusaurus": "^1.0.6",
-    "@types/fs-extra": "^9.0.12",
-    "@types/node": "^16",
-    "@types/node-fetch": "^2",
-    "@wener/utils": "^1.1.7",
-    "ava": "^5",
-    "esbuild": "^0.15.9",
-    "esbuild-loader": "^2.20.0",
-    "fs-extra": "^10",
-    "globby": "^11",
-    "hpagent": "^1",
-    "https-proxy-agent": "^5.0.0",
-    "socks-proxy-agent": "^7.0.0",
-    "tsx": "^3.9.0",
-    "typescript": "^4.3.5",
-    "yaml": "^2",
-    "zx": "^7.1.1"
-  },
-  "ava": {
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "@esbuild-kit/cjs-loader"
-    ],
-    "nodeArguments": []
+    "@docusaurus/module-type-aliases": "2.4.3",
+    "@tsconfig/docusaurus": "^2.0.1",
+    "@types/fs-extra": "^11.0.2",
+    "@types/node": "^18.18.3",
+    "@wener/utils": "^1.1.21",
+    "esbuild": "^0.19.4",
+    "esbuild-loader": "^4.0.2",
+    "fs-extra": "^11.1.1",
+    "globby": "^13.2.2",
+    "tsx": "^3.13.0",
+    "typescript": "^5.2.2",
+    "yaml": "^2.3.2",
+    "zx": "^7.2.3"
   },
   "browserslist": {
     "production": [
@@ -101,8 +83,11 @@
     ]
   },
   "pnpm": {
+    "_patchedDependencies": {
+      "@docusaurus/plugin-content-docs@2.4.3": "patches/@docusaurus__plugin-content-docs@2.4.3.patch"
+    },
     "patchedDependencies": {
-      "@docusaurus/plugin-content-docs@2.2.0": "patches/@docusaurus__plugin-content-docs@2.2.0.patch"
+      "@docusaurus/plugin-content-docs@2.4.3": "patches/@docusaurus__plugin-content-docs@2.4.3.patch"
     }
   }
 }
