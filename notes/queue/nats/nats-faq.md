@@ -30,10 +30,12 @@ tags:
 
 ## Subjects
 
-- `$SYS`
+- `$SYS` - 系统功能
+  - `$SYS.REQ.USER.AUTH` - auth callout
+  - `$SYS.REQ.SERVER.{server-id}.RELOAD` - 重新加载配置
 - `$JS`
 - `$KV`
-- `$G`
+- `$G` - global account
 - `_INBOX`
 - `_R_`
   - leafnode

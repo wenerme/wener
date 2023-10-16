@@ -32,7 +32,9 @@ title: Auth
   - Bearer RFC6750
 - PAT - Persional Access Token
 - Bearer - Opaque 的内容
-- JWT 对 Token 内容做第一
+- JWT 对 Token 内容做定义
+- ACL
+  - Subject, Object, Action, Condition, Effect, Priority
 - 参考
   - [Swagger Aith](https://swagger.io/docs/specification/authentication/)
 
@@ -65,3 +67,17 @@ OpenAI-Organization: $ORG_ID
 - client_id + client_secret
   - grant=client_credential -> AccessToken
 - 可以获取用户相关的 AccessToken
+
+## Principal vs Subject
+
+- Subject - 访问主体 - 请求访问对象或者执行操作的发起方
+  - 通用概念 - 更抽象
+  - 主动发起
+  - 当前状态
+  - 使用场景: ACL, 临时授权, 主体隔离, 代理访问, 会话管理, 审计跟踪
+  - 常见主体: User, Department, Customer, Process, Group, Service Account, System, Device
+- Principal - 明确身份
+  - 是一个验证过的身份,通常是一个指定的用户 - 更具体
+  - 被动绑定
+  - 持久标识
+  - 使用场景: 认证, 授权, 跟踪审计, 身份隔离, 权限委托, 资源归属, 责任追究, 长会话

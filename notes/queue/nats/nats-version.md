@@ -39,6 +39,7 @@ tags:
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
 
 ## Nats 2.10
+
 - 确保先升级到了 2.9.22+ 再升级 2.10
 - `$SYS.REQ.USER.INFO`
   - userinfo

@@ -21,3 +21,9 @@ tags:
   - DL 是实现 ML 的方式之一
 - Algorithms
   - 通用的概念
+
+## RAG
+
+- RAQ - retrieval-augmented generation - 检索增强生成
+- 参考
+  - https://research.ibm.com/blog/retrieval-augmented-generation-RAG

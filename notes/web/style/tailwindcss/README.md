@@ -245,6 +245,29 @@ module.exports = {
 | max-w-screen-xl  |       | 1280px |
 | max-w-screen-2xl |       | 1536px |
 
+## container query
+
+- 支持 Container Query - v3.2+
+- `@container`, `@lg:p-8`
+  - `@[17.5rem]:underline`
+- `@container/main`, `@lg/main:underline` - 命名容器
+- [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
+
+
+| Name   | CSS                                          |
+| ------ | -------------------------------------------- |
+| `@xs`  | `@container (min-width: 20rem /* 320px */)`  |
+| `@sm`  | `@container (min-width: 24rem /* 384px */)`  |
+| `@md`  | `@container (min-width: 28rem /* 448px */)`  |
+| `@lg`  | `@container (min-width: 32rem /* 512px */)`  |
+| `@xl`  | `@container (min-width: 36rem /* 576px */)`  |
+| `@2xl` | `@container (min-width: 42rem /* 672px */)`  |
+| `@3xl` | `@container (min-width: 48rem /* 768px */)`  |
+| `@4xl` | `@container (min-width: 56rem /* 896px */)`  |
+| `@5xl` | `@container (min-width: 64rem /* 1024px */)` |
+| `@6xl` | `@container (min-width: 72rem /* 1152px */)` |
+| `@7xl` | `@container (min-width: 80rem /* 1280px */)` |
+
 ## tailwind.css
 
 ```css

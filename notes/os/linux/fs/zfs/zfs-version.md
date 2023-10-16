@@ -7,7 +7,7 @@ tags:
 
 | version          | date       | Linux             | FreeBSD |
 | ---------------- | ---------- | ----------------- | ------- |
-| [OpenZFS 2.2]    |
+| [OpenZFS 2.2]    | 2023-11-13 |
 | [OpenZFS 2.1]    | 2021-07-03 | Kernel 3.10+      | 12.2    |
 | [OpenZFS 2.0]    | 2020-10-01 | Kernel 3.10+      | 12.2    |
 | [ZfsOnLinux 0.8] | 2019-05-24 | Kernel 2.6.32-5.9 |
@@ -24,7 +24,17 @@ tags:
 
 ## OpenZFS 2.2
 
-- 支持 overlay - RENAME2
+- renameat(2)
+  - 支持容器 - docker、containerd - 以前需要单独做 zvol
+  - 支持 overlay
+- Block cloning
+  - file-level copy-on-write
+  - reflinks
+  - `cp --reflink=always`
+- scrub error log - `zpool scrub -e`
+- BLAKE3 checksum
+  - 比 sha256, sha512 更快
+- https://github.com/openzfs/zfs/releases/tag/zfs-2.2.0
 
 ## OpenZFS 2.1
 

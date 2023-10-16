@@ -210,7 +210,7 @@ const app = Fastify({
 app.register(import('./app'));
 
 // delay is the number of milliseconds for the graceful close to finish
-const closeListeners = closeWithGrace({delay: 500}, async function ({signal, err, manual}) {
+const closeListeners = closeWithGrace({ delay: 500 }, async function ({ signal, err, manual }) {
   if (err) {
     app.log.error(err);
   }
@@ -223,7 +223,7 @@ app.addHook('onClose', async (instance, done) => {
 });
 
 // Start listening.
-app.listen({port: parseInt(process.env.PORT) || 3000}, (err: any) => {
+app.listen({ port: parseInt(process.env.PORT) || 3000 }, (err: any) => {
   if (err) {
     app.log.error(err);
     process.exit(1);
@@ -254,3 +254,10 @@ const defaultAjvOptions = {
 ## Request body is too large
 
 默认 1MiB
+
+## FST_ERR_CTP_INVALID_MEDIA_TYPE
+
+- fastify-multipart
+- https://fastify.dev/docs/latest/Reference/ContentTypeParser
+- text/xml
+  - 需要做额外 middleware 处理

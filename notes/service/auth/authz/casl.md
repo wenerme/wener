@@ -24,6 +24,10 @@ title: CASL
   - 支持前端
   - 面向 Web
 
+```bash
+npm add @casl/react @casl/ability
+```
+
 **序列化**
 
 ```ts

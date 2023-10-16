@@ -12,6 +12,11 @@ title: Size
   - 72 - 普通
 - PPI - Pixels Per Inch - 显示器
   - > = 200 - 视网膜屏, HiDPI
+- 银行卡/身份证
+  - 8.56 cm × 5.398 cm
+  - 85.6 mm × 53.98 mm
+  - 3.37 inch × 2.125 inch × 0.0625
+  - [ISO/IEC 7810](https://en.wikipedia.org/wiki/ISO/IEC_7810) - ID-1
 
 | Social          |         Size |
 | --------------- | -----------: |

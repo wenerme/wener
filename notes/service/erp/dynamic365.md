@@ -52,6 +52,11 @@ title: Dynamics 365
 - Import/Export
 - Template
 
+## Customer Engagement
+
+- 工作流
+- https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/workflow
+
 ## Access
 
 - Read

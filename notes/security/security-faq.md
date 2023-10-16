@@ -50,13 +50,28 @@ tags:
 
 ## AES-CBC vs. AES-GCM vs. AES-CTR
 
-- CTR (Counter Mode)
-- CBC (Cipher Block Chaining)
-- GCM (Galois/Counter Mode)
+- 并行计算 - 硬件优化 - CTR、GCM
+- AES-CBC (Cipher Block Chaining)
+  - 需要前一块 - 性能差一点
+    - 任何错误都会影响后续所有分组
+  - 需要 padding
+- AES-CTR (Counter Mode)
+  - 支持随机读写
+- AES-GCM (Galois/Counter Mode)
+  - 包含消息认证码(MAC),可以检查数据完整性
+  - 需要对运算有硬件支持,实现相对复杂
+- AES-ECB (Electronic Code Book)
+- CFB - Cipher Feedback Mode
+- OFB - Output Feedback Mode
+- EAX
 
 ```js
 const key = await window.crypto.subtle.generateKey({ name: 'AES-CBC', length: 256 }, true, ['encrypt', 'decrypt']);
 ```
+
+- https://crypto.stackexchange.com/questions/6029/aes-cbc-mode-or-aes-ctr-mode-recommended
+- https://www.geeksforgeeks.org/block-cipher-modes-of-operation/
+- https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
 
 ## PKCS#7 Padding
 

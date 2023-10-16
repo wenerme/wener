@@ -11,6 +11,21 @@ tags:
 |         | id card               | 身份证     |
 | MCN     | MultiChannelNetwork   |
 
+| zh           | en                                             | note                               |
+| ------------ | ---------------------------------------------- | ---------------------------------- |
+| 个体工商户   | privately or individually-owned business       |
+| 个体工商户   | Individual Industrial and Commercial Household |
+| 个体工商户   | Individual business                            | 国务院法制办公室《民法通则》英译本 |
+| 个体工商户   | sole proprietor business                       | 北大法宝《民法通则》英译本         |
+| 个人独资企业 | Sole Proprietorship Enterprise                 |
+| 个人独资企业 | wholly individually-owned enterprise           |
+| 个人独资企业 | Individual Proprietorship Enterprises          |
+| 有限责任公司 | Limited Liability Company (LLC)                |
+| 有限责任公司 | Limited company                                | =有限公司                          |
+| 股份有限公司 | Joint-stock company                            | Co., Ltd.                          |
+| 合伙企业     | Partnership Enterprise                         |
+| 合伙企业     | Partnership                                    |
+
 # 中国行政区划（administrative division）
 
 分为几个级别（government level/level）；宪法（Constitution）规定了三个级别（de jure level），但实际上有五个级别（de facto level/practical level）——33 个省级（province/province-level region/province-level division）、333 个地区级（prefecture/prefecture-level region/prefecture-level division/second-level division）【非宪法区划】、2862 个县级（county/county-level region/county-level division）、41636 个乡级（township/township-level region/township-level division）及无数村级（village/village-level region/village-level division）【非宪法区划】行政区。各个级别又有不同名称，下面加以详细讨论【具体数字以 2005 年统计数据为准】。

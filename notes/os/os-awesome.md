@@ -53,20 +53,11 @@ tags:
 
 - [zriyansh/awesome-os](https://github.com/zriyansh/awesome-os)
 
-## 不活跃
-
-- [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
-
-## Embedded
-
-- [tock/tock](https://github.com/tock/tock)
-  - MIT, Apache-2.0, Rust
-  - secure embedded os for microcontrollers
-- [mudita/MuditaOS](https://github.com/mudita/MuditaOS)
-  - Mobile operating system based on FreeRTOS™ optimized for E Ink displays
-
 ## Linux Distro
 
+- openwrt
+- [istoreos/istoreos](https://github.com/istoreos/istoreos)
+  - based on OpenWRT
 - [reactos](https://github.com/reactos/reactos)
   - 兼容 Windows™ NT - Windows NT4, 2000, XP, 2003, Vista, 7
 - Media Center
@@ -99,6 +90,18 @@ tags:
 - [oasislinux/oasis](https://github.com/oasislinux/oasis)
   - small statically-linked linux system
   - [HN](https://news.ycombinator.com/item?id=32458744)
+
+## 不活跃
+
+- [mit-pdos/biscuit](https://github.com/mit-pdos/biscuit)
+
+## Embedded
+
+- [tock/tock](https://github.com/tock/tock)
+  - MIT, Apache-2.0, Rust
+  - secure embedded os for microcontrollers
+- [mudita/MuditaOS](https://github.com/mudita/MuditaOS)
+  - Mobile operating system based on FreeRTOS™ optimized for E Ink displays
 
 ## Retro Game
 

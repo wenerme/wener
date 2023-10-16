@@ -57,7 +57,7 @@ tags:
   - timestamp 41bits + instance 10bits + sequence 12bits
     - sequence - 4096 个 - 正常 1ms 内达到了会递增 timestamp - **需要维护全局状态**
   - 69 years
-    - timestamp 通过 offset 调整 - e.g  `(2023-1970)*31536000*1000`
+    - timestamp 通过 offset 调整 - e.g `(2023-1970)*31536000*1000`
   - instance - Machine ID
     - 注意选择，通常使用 IP/Hostname/Mac
     - AmazonEC2MachineID
@@ -119,6 +119,23 @@ a-1-b-0
 >
 > - 元数据不要用于业务依赖
 > - 可以创建模板表然后 CREATE TABLE LIKE
+
+| column     | for                                                      |
+| ---------- | -------------------------------------------------------- |
+| id         | 主键                                                     |
+| sid        | 租户维度单调递增 - 用户友好                              |
+| tid        | 租户 ID                                                  |
+| eid        | 用于导入数据关联 - tid+eid 唯一                          |
+| cid        | 外部系统租户 ID - Colocate ID/Corp ID - tid+cid+rid 唯一 |
+| rid        | 外部系统资源 ID - Ref ID/Relative ID                     |
+| created_at |
+| updated_at |
+| deleted_at |
+| version    | 基于版本的乐观锁                                         |
+| metadata   | 补充数据                                                 |
+| attributes | 使用端自定义数据 - 客户端 读写                           |
+| properties | 服务端自定义数据 - 客户端 只读                           |
+| extensions | 内部扩展数据 - 客户端 不可见                             |
 
 ```sql
 create table tpl_res
