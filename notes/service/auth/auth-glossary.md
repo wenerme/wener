@@ -30,7 +30,6 @@ tags:
 
 ---
 
-
 1. Subject 更广泛,Principal 更明确身份
 
 - Subject 是一个抽象概念,表示执行动作的主体,可以是用户、进程、服务等
@@ -51,7 +50,12 @@ Subject 通常指当前发起请求的临时状态。Principal 是对一个持�
 5. Subject 更抽象,Principal 更具体
    Subject 可以表示不同类型的访问主体,Principal 通常指定唯一的用户身份。
 
+## SWT token
 
+- Simple Web Token
+- OAuth 2.0 RFC6749
+- https://www.networknt.com/architecture/swt-vs-jwt/
+- [netlify/gotrue](https://github.com/netlify/gotrue)
 
 ## IdP - Identity Provider
 

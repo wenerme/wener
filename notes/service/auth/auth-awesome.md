@@ -43,6 +43,8 @@ tags:
 - Relying Party (RP)
   - 应用或网站
   - 将用户授权转交给 IdP
+- [logto-io/logto](https://github.com/logto-io/logto)
+  - MPLv2, TS
 
 ## Authorization Design
 

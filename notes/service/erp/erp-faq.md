@@ -67,3 +67,31 @@ tags:
 - 字典表相当于代码表,但是更灵活
 - 配置化和数据完整性
 - 参数热更新,避免硬编码在程序里
+
+## Case vs Issue vs Task vs Ticket
+
+- Case - 案例
+  - 服务客户
+  - 侧重流程控制
+- Issue - 问题
+  - 解决问题
+  - 侧重生命周期
+- Task - 任务
+  - 中性
+  - 侧重任务分配
+- To-do
+  - 待办事项
+  - 非正式的表述待完成的工作
+- Ticket - 票据
+  - 表示需要跟进或处理的具体事项
+- Request
+  - 待处理的用户或系统请求
+- Activity
+- Action
+- Work item - 工作事项
+  - 广泛的表述企业内部的待处理事件或任务
+
+---
+
+- Case 和 Issue 可转换为 Task
+- Case 和 Issue 通常动态产生，Task 可能是静态定义的

@@ -108,6 +108,8 @@ tags:
 
 ## 销售阶段
 
+> 产出订单
+
 - 销售阶段 应该在 商机 上
 - Sales Stage
 - 7-step sales process
@@ -132,6 +134,82 @@ tags:
   - Cancel
 - 参考
   - https://www.lucidchart.com/blog/what-is-the-7-step-sales-process
+
+---
+
+- Qualify - 验证
+  - 这个阶段用于验证和判断潜在客户的需求及购买能力,对销售机会进行初步评估。
+- Develop - 开发
+  - 根据初步洽谈,进一步开发销售机会,深入了解客户需求。
+- Propose - 提议
+  - 根据客户需求制定解决方案并进行正式的商业提议。
+- Close - 成交
+  - 进行最后的谈判并达成销售协议,完成交易的成交。
+- Identify - 识别
+  - 通过各种渠道识别和发现新的销售机会。
+- Research - 调研
+  - 对销售机会进行调研分析,评估可行性。
+- Resolve - 解决
+  - 在销售过程中解决客户的问题、疑虑或反对,争取达成一致。
+- Approval - 审批
+  - 获取内部决策者对销售方案、折扣等的审批。
+
+## 服务阶段
+
+> 交付服务
+
+- Service Request- 服务请求
+  - 客户提出服务需求,创建服务请求。
+  - 主要工作
+    - 确认客户服务需求
+    - 创建服务请求单
+    - 指派负责人
+    - 沟通服务范围
+    - 提供服务估算
+    - 签订合同
+    - 创建计划
+    - 收取定金
+- Requirement Analysis - 需求分析
+  - 与客户沟通,确认并分析服务需求详情。
+- Solution Design - 设计解决方案
+  - 根据需求设计解决方案,制定服务交付计划。
+- Service Delivery - 服务交付
+  - 根据设计方案和计划提供服务,交付项目成果。
+  - 例如：服务办理、材料递交
+- Customer Acceptance - 客户验收
+  - 验证客户对服务成果的接受程度,取得客户签收。
+  - 类似表述
+    - Customer Sign-off
+    - Client Validation
+    - User Approval
+    - Customer Review and Confirmation
+- Evaluation & Feedback - 反馈评估
+  - 收集客户对服务的反馈,完善服务质量。
+  - 聚焦**当前**项目服务质量的评估
+  - 收尾阶段
+  - 测量**客户**满意度
+- Ticketing - 票证管理 - 工单管理
+  - 管理服务过程中的问题票证,跟进处理。
+- Billing & Settlement - 计费结算
+  - 按合同和工作量进行服务计费和结算。
+- Continuous Improvement - 持续改进
+  - 持续优化服务流程和质量,提升客户满意度。
+  - 着眼**长期**服务流程的优化
+  - 长周期活动
+  - 提高服务能力
+
+---
+
+- 需求分析、设计、交付、验收
+
+### 需求分析 vs 设计解决方案
+
+- 需求分析
+  - 确定问题
+  - 收集和理解客户的需求
+- 设计解决方案
+  - 提供答案
+  - 根据需求提供解决方案
 
 ## Order - 订单 {#order}
 

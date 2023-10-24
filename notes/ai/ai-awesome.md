@@ -118,6 +118,11 @@ tags:
   - Fast and memory-efficient exact attention
 - [refuel-ai/autolabel](https://github.com/refuel-ai/autolabel)
   - Label, clean and enrich text datasets with LLMs
+- [cpacker/MemGPT](- https://github.com/cpacker/MemGPT)
+  - Teaching LLMs memory management for unbounded context
+- [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
+  - Large Language-and-Vision Assistant
+  - 类似 GPT4V
 
 ## LLaMA
 
@@ -137,6 +142,7 @@ tags:
   - https://github.com/cogentapps/chat-with-gpt/blob/main/app/src/core/tokenizer/bpe.ts
 - https://github.com/dqbd/tiktoken
 - https://github.com/functorism/gpt4-tokenizer-visualizer
+- [run-llama/llama_index](https://github.com/run-llama/llama_index)
 
 ## Audio to Text
 

@@ -9,6 +9,15 @@ title: gost
   - v3 还没正式发布
   - GO Simple Tunnel
   - https://gost.run/
+  - 上游/连接器 协议支持: http, http2, socks4, socks5, ss, ssu, sni, sshd
+  - 监听 协议支持: tcp, udp, tls, mtls, ws, mws. mwss, http2, h2c, grpc, quic, pht, http3, kcp, ssh, sshd, red, redu, rtcp, rudp, dns, tun, tap, icmp, ohttp, otls, ftcp
+  - mws -> 多路复用 websocket - 基于 Path 分流
+  - ssu -> Shadowsocks UDP
+  - red -> REDIRECT+tproxy
+  - redu -> UDP iptables+tproxy
+  - rtcp, rudp - 远程端口转发
+  - ohttp, otls - HTTP 伪装握手
+  - ftpc - [tcpraw](https://github.com/xtaci/tcpraw) 模拟 tcp
   - 支持
     - HTTP - Connect/Plain HTTP Tunnel/Websocket/HTTP2 CONNECT/gRPC/HTTP3 CONNECT/WebTransport
     - SOCKSv4/v5

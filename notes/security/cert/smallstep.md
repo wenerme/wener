@@ -5,6 +5,7 @@ title: smallstep
 # smallstep
 
 - [smallstep/certificates](https://github.com/smallstep/certificates)
+  - Apache-2.0, Go
   - CA, ACME server
 - [smallstep/cli](https://github.com/smallstep/cli)
 - kubernetes
@@ -39,7 +40,7 @@ brew install step
 # AlpineLinux
 apk add step-cli step-certificates -X http://mirrors.sjtug.sjtu.edu.cn/alpine/edge/testing/
 
-step path # 数据目录
+step path # 数据目录 $HOME/.step
 STEPPATH=/tmp/step step path
 # 配置 $(step path)/config/ca.json
 
@@ -107,6 +108,12 @@ step ca provisioner add acme --type ACME
 # K8S SA
 step ca provisioner add my-kube-provisioner --type K8sSA --pem-keys key.pub
 ```
+
+- https://hub.docker.com/r/smallstep/step-ca
+
+## Concepts
+
+- https://smallstep.com/docs/step-ca/certificate-authority-core-concepts
 
 ## ssh
 
@@ -189,3 +196,7 @@ step ssh config --host --roots
   }
 }
 ```
+
+## K8S
+
+- https://smallstep.com/docs/tutorials/kubernetes-acme-ca

@@ -181,14 +181,17 @@ module.exports = {
 
 ## Cheatsheet
 
-| screen | min width | container |
-| ------ | --------- | --------- |
+| screen | min width | container | rem   |
+| ------ | --------- | --------- | ----- |
 |        |           | 100%      |
-| sm     | 640px     | 640px     |
-| md     | 768px     | 768px     |
-| lg     | 1024px    | 1024px    |
-| xl     | 1280px    | 1280px    |
-| 2xl    | 1536px    | 1536px    |
+| sm     | 640px     | 640px     | 40rem |
+| md     | 768px     | 768px     | 48rem |
+| lg     | 1024px    | 1024px    | 64rem |
+| xl     | 1280px    | 1280px    | 80rem |
+| 2xl    | 1536px    | 1536px    | 96rem |
+
+- `max-{PREFIX}` 可以限定固定范围
+  - `md:max-md:underline` - 限定在 md 范围内
 
 | spacing |      size |    px |
 | ------- | --------: | ----: |
@@ -196,26 +199,30 @@ module.exports = {
 | px      |       1px |   1px |
 | 0.5     |  0.125rem |   2px |
 | 1       |   0.25rem |   4px |
-| `<n>`   | n×0.25rem | n×4px |
 | 4       |      1rem |  16px |
+| `<n>`   | n×0.25rem | n×4px |
 
+- 0-4 - 0.5 递增
+- 4-12 - 1 递增
+- 12,14,16
+- 20-96 - 4 递增
 - spacing 用于 padding, margin, width, height, maxHeight, gap, inset, space, translate
 - [Default spacing scale](https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale)
 
-| text | rem       | px     |
-| ---- | --------- | ------ |
-| xs   | 0.75 rem  | 12 px  |
+| text | rem       | px     | diff |
+| ---- | --------- | ------ | ---- |
+| xs   | 0.75 rem  | 12 px  | +2   |
 | sm   | 0.875 rem | 14 px  |
 | base | 1 rem     | 16 px  |
 | lg   | 1.125 rem | 18 px  |
-| xl   | 1.25 rem  | 20 px  |
-| 2xl  | 1.5 rem   | 24 px  |
+| xl   | 1.25 rem  | 20 px  | +4   |
+| 2xl  | 1.5 rem   | 24 px  | +6   |
 | 3xl  | 1.875 rem | 30 px  |
-| 4xl  | 2.25 rem  | 36 px  |
+| 4xl  | 2.25 rem  | 36 px  | +12  |
 | 5xl  | 3 rem     | 48 px  |
 | 6xl  | 3.75 rem  | 60 px  |
-| 7xl  | 4.5 rem   | 72 px  |
-| 8xl  | 6 rem     | 96 px  |
+| 7xl  | 4.5 rem   | 72 px  | +24  |
+| 8xl  | 6 rem     | 96 px  | +32  |
 | 9xl  | 8 rem     | 128 px |
 
 | font       | weight |
@@ -249,10 +256,9 @@ module.exports = {
 
 - 支持 Container Query - v3.2+
 - `@container`, `@lg:p-8`
-  - `@[17.5rem]:underline`
+  - 自定义 `@[17.5rem]:underline`
 - `@container/main`, `@lg/main:underline` - 命名容器
 - [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
-
 
 | Name   | CSS                                          |
 | ------ | -------------------------------------------- |
@@ -267,6 +273,21 @@ module.exports = {
 | `@5xl` | `@container (min-width: 64rem /* 1024px */)` |
 | `@6xl` | `@container (min-width: 72rem /* 1152px */)` |
 | `@7xl` | `@container (min-width: 80rem /* 1280px */)` |
+
+- xs,sm,md,lg,xl - 4rem/step - 64px/step
+- xl -> 7xl - 8rem/step - 128px/step
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      containers: {
+        '2xs': '16rem',
+      },
+    },
+  },
+};
+```
 
 ## tailwind.css
 
@@ -607,7 +628,7 @@ warn - Update your configuration file to silence this warning.
 ```
 
 ```js
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 // 忽略弃用的颜色
 delete colors['lightBlue'];
 delete colors['warmGray'];
@@ -627,3 +648,7 @@ delete colors['blueGray'];
 - h -> w
 - x -> y
 - https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+
+## rem -> px
+
+- rem to px [#1232](https://github.com/tailwindlabs/tailwindcss/issues/1232)

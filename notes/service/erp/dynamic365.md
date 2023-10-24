@@ -882,3 +882,241 @@ title: Dynamics 365
 | msdyn_liveworkstreamcapacityprofile             | Work stream capacity profile                   |
 | msdyn_workflowactionstatus                      | Workflow Action Status                         |
 | workflowbinary                                  | Workflow Binary                                |
+
+## Connection
+
+```
+account_connections1
+account_connections2
+activitypointer_connections1
+activitypointer_connections2
+appointment_connections1
+appointment_connections2
+business_unit_connections
+campaign_connections1
+campaign_connections2
+campaignactivity_connections1
+campaignactivity_connections2
+competitor_connections1
+competitor_connections2
+connection_related_connection
+connection_role_connections1
+connection_role_connections2
+constraintbasedgroup_connections1
+constraintbasedgroup_connections2
+contact_connections1
+contact_connections2
+contract_connections1
+contract_connections2
+createdby_connection
+email_connections1
+email_connections2
+entitlement_connections1
+entitlement_connections2
+entitlementchannel_connections1
+entitlementchannel_connections2
+entitlementtemplatechannel_connections1
+entitlementtemplatechannel_connections2
+equipment_connections1
+equipment_connections2
+fax_connections1
+fax_connections2
+goal_connections1
+goal_connections2
+incident_connections1
+incident_connections2
+invoice_connections1
+invoice_connections2
+knowledgearticle_connections1
+knowledgearticle_connections2
+KnowledgeBaseRecord_connections1
+KnowledgeBaseRecord_connections2
+lead_connections1
+lead_connections2
+letter_connections1
+letter_connections2
+list_connections1
+list_connections2
+lk_connectionbase_createdonbehalfby
+lk_connectionbase_modifiedonbehalfby
+modifiedby_connection
+msdyn_postalbum_connections1
+msdyn_postalbum_connections2
+opportunity_connections1
+opportunity_connections2
+phonecall_connections1
+phonecall_connections2
+position_connection1
+position_connection2
+pricelevel_connections1
+pricelevel_connections2
+processsession_connections1
+processsession_connections2
+product_connections1
+product_connections2
+quote_connections1
+quote_connections2
+recurringappointmentmaster_connections1
+recurringappointmentmaster_connections2
+resourcegroup_connections1
+resourcegroup_connections2
+salesorder_connections1
+salesorder_connections2
+serviceappointment_connections1
+serviceappointment_connections2
+socialactivity_connections1
+socialactivity_connections2
+socialprofile_connections1
+socialprofile_connections2
+systemuser_connections1
+systemuser_connections2
+task_connections1
+task_connections2
+team_connections1
+team_connections2
+territory_connections1
+territory_connections2
+TransactionCurrency_Connection
+```
+
+```
+KnowledgeBaseRecord
+account
+activitypointer
+appointment
+campaign
+campaignactivity
+competitor
+connection_role
+constraintbasedgroup
+contact
+contract
+email
+entitlement
+entitlementchannel
+entitlementtemplatechannel
+equipment
+fax
+goal
+incident
+invoice
+knowledgearticle
+lead
+letter
+list
+msdyn_postalbum
+opportunity
+phonecall
+position
+pricelevel
+processsession
+product
+quote
+recurringappointmentmaster
+resourcegroup
+salesorder
+serviceappointment
+socialactivity
+socialprofile
+systemuser
+task
+team
+territory
+```
+
+
+```
+KnowledgeBaseRecord - 知识库文章记录
+Account - 客户账户
+ActivityPointer - 活动指针
+Appointment - 约会
+Business_unit_connections - 业务单元连接
+Campaign - 活动
+CampaignActivity - 活动动作
+Competitor - 竞争对手
+Connection - 连接
+ConnectionRole - 连接角色
+ConstraintBasedGroup - 基于约束的组
+Contact - 联系人
+Contract - 合同
+CreatedBy_Connection - 创建者连接
+Email - 电子邮件
+Entitlement - 权益
+EntitlementChannel - 权益频道
+EntitlementTemplateChannel - 权益模板频道
+Equipment - 设备
+Fax - 传真
+Goal - 目标
+Incident - 事件
+Invoice - 发票
+KnowledgeArticle - 知识文章
+Lead - 线索
+Letter - 信件
+List - 列表
+ModifiedBy_Connection - 修改者连接
+Opportunity - 商机
+PhoneCall - 电话通话
+Position - 职位
+PriceLevel - 价格层级
+ProcessSession - 流程会话
+Product - 产品
+Quote - 报价
+RecurringAppointmentMaster - 定期约会主记录
+ResourceGroup - 资源组
+SalesOrder - 销售订单
+ServiceAppointment - 服务约会
+SocialActivity - 社交活动
+SocialProfile - 社交配置文件
+SystemUser - 系统用户
+Task - 任务
+Team - 团队
+Territory - 区域
+```
+
+## Workflow
+- Workflow=Process
+  - activestageid
+  - Process变种
+    - PhoneToCaseProcess
+    - LeadToOpportunitySalesProcess
+    - OpportunitySalesProcess
+    - TranslationProcess
+    - NewProcess
+    - ExpiredProcess
+- Workflow -> NewProcess - 创建实例
+- ProcessStage
+  - 关联
+    - account
+    - appointments
+    - BookableResource
+    - BookableResourceBooking
+    - BookableResourceBookingHeader
+    - BookableResourceCharacteristic
+    - campaignactivities
+    - campaignresponses
+    - campaigns
+    - competitors
+    - contact
+    - emails
+    - Entitlement
+    - faxes
+    - incident
+    - invoices
+    - knowledgearticle
+    - lead
+    - letters
+    - lists
+    - opportunity
+    - phonecalls
+    - productpricelevels
+    - products
+    - quotes
+    - recurringappointmentmasters
+    - salesliteratures
+    - salesorders
+    - SyncErrors
+    - systemusers
+    - tasks
+    - teams
+- ProcessSession
+  - Dialog

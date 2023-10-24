@@ -44,6 +44,15 @@ tags:
 [kbone]: https://github.com/Tencent/kbone
 [omi]: https://github.com/Tencent/omi
 
+## Message
+
+- [gallonyin/worktool](https://github.com/gallonyin/worktool)
+- [Hanson/vbot](https://github.com/Hanson/vbot)
+- [zhayujie/chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)
+- [zhayujie/bot-on-anything](https://github.com/zhayujie/bot-on-anything)
+  - MIT, Python
+  - 微信、公众号、QQ、Telegram、Gmail、Slack、Web、企业微信、飞书、钉钉
+
 ## Cloud Provider
 
 | abbr. | full name           | Note                |

@@ -88,7 +88,6 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-site
 ```
 
-
 ### websocket
 
 ```
@@ -173,4 +172,11 @@ location.origin;
 1. 确保 iframe 完全加载
 1. sandbox=allow-same-origin
 1. 尝试 `frame.postMessage("hello world!", '*')`
-  - `*`
+
+## slug
+
+- 一个简短而明确的标签
+- 表达核心含义
+- 美化 URL - 产生更友好的路径
+- 通常是唯一的 - 辅助标识数据
+- 可能是自动转化的，也可能是手动指定

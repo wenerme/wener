@@ -146,10 +146,27 @@ const [unsubscribe, promise] = persistQueryClient({
 
 ## React Query v5
 
+- 优化 Typescript 使用体验
+  - 单对象 option 能获取到正常类型，之前 queryKey 为独立参数
+  - `import { queryOptions } from '@tanstack/react-query'`
+    - 预先定义好查询
+    - 持有类型信息
 - 移除 onSuccess 和 onError
   - 从 cache 返回时不会触发
   - https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose
   - https://github.com/TanStack/query/discussions/5279
+- cacheTime -> gcTime
+- keepPreviousData -> placeholderData
+- loading -> pending
+-  `useMutationState`
+- suspense
+  - `useSuspenseQuery`
+  - `useSuspenseInfiniteQuery`
+  - `useSuspenseQueries`
+- createPersister
+  - 可单独缓存 Query - 之前只能全量缓存
+  - https://tanstack.com/query/v5/docs/react/plugins/createPersister
+- https://tanstack.com/blog/announcing-tanstack-query-v5
 
 ## React Query v4
 

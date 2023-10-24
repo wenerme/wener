@@ -303,6 +303,21 @@ tags:
 | supervisor               | 监事             |
 | entrepreneurial          | 企业家           |
 
+- 子公司 - 独立法律实体，管理上相对独立 - 母公司拥有控制权
+  - Subsidiary
+  - Affiliate (company)
+- 母公司
+  - Parent company
+  - Holding company
+  - Umbrella company
+- 分公司 - 通常位于不同的地理位置，业务上可以具有一定的独立性
+  - Branch
+  - Local office
+  - Satellite office
+- 总公司
+  - Head office
+  - Headquarters
+
 ## 统计分析
 
 | abbr. | word                       | stand for      |
@@ -629,9 +644,40 @@ tags:
 
 - job title - 职称
   - 公司指定
-- job position - 工作职位
+- job position/position - 工作职位
   - 描述职责
   - 工作内容相关
+
+## phone
+
+- contact phone - 联系电话
+- home phone - 家庭电话
+- office phone - 办公电话
+- mobile phone - 手机
+- telephone - 电话
+
+## name
+
+- full name - 全名
+- first name - 名
+- last name - 姓
+- middle name - 中间名
+- nickname - 昵称
+- display name - 显示名
+- login name - 登录名
+- username - 用户名
+- domain name - 域名
+  - LDAP/AD
+- unique name - 唯一名
+  - 通常用于标识
+- salutation - 称谓
+  - Mr. Mrs. Ms. Dr.
+- code name/code - 代号
+  - 通常用于标识
+- slug - 短标识
+  - 通常用于 url
+- title - 标题
+  - 通常用于描述
 
 ## title vs label
 

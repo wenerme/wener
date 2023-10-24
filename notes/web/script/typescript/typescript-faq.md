@@ -180,9 +180,10 @@ interface Example {
 
 ## bundle/rollup d.ts
 
-- rollup-plugin-dts
+- [rollup-plugin-dts](https://github.com/Swatinem/rollup-plugin-dts)
   - 不支持 path
-- rollup-plugin-ts
+- [rollup-plugin-ts](https://github.com/wessberg/rollup-plugin-ts)
+- [timocov/dts-bundle-generator](https://github.com/timocov/dts-bundle-generator)
 - https://github.com/Microsoft/TypeScript/issues/4433
 - bun bundle 逻辑
   - 都是 d.ts 好处理些
@@ -222,3 +223,41 @@ export default {
 ## mixin
 
 - https://www.typescriptlang.org/docs/handbook/mixins.html
+
+## Polymorphic React Props
+
+```ts
+import * as React from "react";
+
+type BoxProps<E extends ElementType> = Omit<ComponentProps<E>, 'as'> & {
+  as?: E;
+};
+
+const Box = <E extends ElementType = 'div'>({ as, ...props }: BoxProps<E>) => {
+  const TagName = as || 'div';
+  return <TagName {...props} />;
+};
+
+type PolymorphicProps<P extends { as?: T }, T extends React.ElementType> = P &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof P>;
+
+type ButtonProps<T extends React.ElementType> = PolymorphicProps<
+  {
+    as?: T;
+    icon?: React.ReactNode;
+    children?: React.ReactNode;
+  },
+  T
+>;
+
+function Button<T extends React.ElementType = "button">({
+  as,
+  ...props
+}: ButtonProps<T>
+) {
+  const Component = as || "button";
+  return <Component {...props} />;
+}
+```
+
+- [Playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAKjgQwM5wEoFNkGN4BmUEIcARFDvmQNwBQdMAnmFnAAoQA2TI0YAC2C52xMKgA87OFgAeMLADsAJugDeKVAH4AXHAAqcAL4AaAzPlLVmKjAB0AUS5YQSmPpZYAfHAC8HOAAyOjg4AHkQYBgJbDx7AGESSEU3UQhxAHUogQgAVxhsAgl9LzMAaywmCAIOL3pGTzgAIXyYCEU08WKLBRV0WPxHZ1dFd0b-AHIAI1b2iZ9-Th4+KEFhTskQuDUt0LRdA3pQ0OF2g4H7C4A5CGUsI+PcIS5lSkVz2ztr2-ut0y39HQ6gwCLlFPhgO1mrNFN05L1rBchi43B5WH5yDMYG1FGQvAAKHZ7VAmLZ2clgMSoOhGPQtbHtDbFLx0ACU2y2uHaqHgiXA7TcGLQcAAPiLMTDaFtKDBclBFHAJHzkoK1OS7JT0qgjHAAPTAowMYCjLBQAh4NgAZVwlGQkUUAHN6TiNhzQq5UKhkA6sHoeVBjQ76Ia6KDwTBIQrrbb7U6YYS4B6vT7jHpozhY87GVT2US4DK5QqJFicXBmKxfGQS+0yHB2vEuMIyr41Pj2b4fMhnLB8UnvVhWUYvA2m4msABCCS66uKA1G-mwbZwZUC0YbMxOFGjNFsHVEEhwCa2-ATerlthNCCyJkOHpWdCbkZjVgLcKRaIrlJrqkSBylQ9oPMQRupoBwOMG9RcooPLNFeGK-nefRwI+qLjIeyjAAAbvMCZoGY6qauIqawdeP5-u2Ph5lBMH6N6Vx2mw-jCmK6FYae0pYLK8qKrRDr0a42wEVSOr6hBDChmCEJQgAgmAYBtiBBbcfiuyKiyxzHBIWazgAkigpDIHAM5Ttp6kaYq2maJWyC1gIlAEJWup4npdooHAjaKGUJkwmZGlaTCcB2VgDlkE5XguaQigQPAhkeWUZioBAgX2XAwDoFFMVwJhXbAMocCEd5DKzqpoT+UVVlqOmdqBtpOp9j6lYABJYFwXBJQA7tALy1vqJUWQF9VYE1LVtXAnVQN14X6XAGVuagNoZoGRkBYlY6ev2qXpdFbnZY2eUFbqpl9VpcFBQ5Ey6hdvmaZeshWRMyATMlwW+BdV3Hbd90Ydhz3nZdvV+QDcCssGDBAA)

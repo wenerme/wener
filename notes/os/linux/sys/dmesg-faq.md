@@ -132,12 +132,28 @@ zio pool=data vdev=/dev/disk/by-id/scsi-35000c5008953f263-part1 error=5 type=2 o
 hpsa 0000:03:00.0: scsi 0:0:8:0: resetting physical  Direct-Access     SEAGATE  ST600MP0005      PHYS DRV SSDSmartPathCap- En- Exp=1
 ```
 
+## AER: Corrected error received: 0000:04:00.0
+
+```ansi
+[0;33mmpt3sas 0000:04:00.0: [0;1mPCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)[0m
+[0;33mmpt3sas 0000:04:00.0: [0;1m  device [1000:0087] error status/mask=00000001/00002000[0m
+[0;33mmpt3sas 0000:04:00.0: [0;1m   [ 0] RxErr                  (First)[0m
+```
+
+```
+pcieport 0000:00:02.2: AER: Multiple Corrected error received: 0000:04:00.0
+```
+
+```
+pci=nomsi pci=noaer pcie_aspm=off
+```
+
 ## Write Protect is on
 
 - USB Flash Driver 已损坏，进入写保护模式
 - 如果是正常的磁盘，可以尝试关闭 `hdparm -r0 /dev/sdc`
 
-```pre ansiup
+```ansi
 [0;33musb 2-3[0m: new SuperSpeed Gen 1 USB device number 11 using xhci_hcd
 [0;33musb 2-3[0m: New USB device found, idVendor=0781, idProduct=5583, bcdDevice= 1.00
 [0;33musb 2-3[0m: New USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -166,7 +182,7 @@ hpsa 0000:03:00.0: scsi 0:0:8:0: resetting physical  Direct-Access     SEAGATE  
 
 ## rcu_sched detected stalls on CPUs/tasks
 
-```pre ansiup
+```ansi
 [0;33mrcu[0;31m: INFO: rcu_sched detected stalls on CPUs/tasks:[0m
 [0;33mrcu[0;31m: 	1-....: (1 GPs behind) idle=ad1/1/0x4000000000000000 softirq=22550431/22550433 fqs=2[0m
 [0;1m	(detected by 3, t=18024 jiffies, g=33604573, q=182)[0m

@@ -10,28 +10,41 @@ tags:
 >
 > 建议基于 overlay 组件内部 proxy，更安全，更好跨网。
 
-| protocol           | transport                  | UDP | Note  |
-| ------------------ | -------------------------- | --- | ----- |
-| socks4             | tcp                        | ❌  |
-| socks5             | tcp                        | ✅  |
-| http               | http                       | ❌  |
-| ShadowSocks - ss   | tcp,websocket,quic,http    | ✅  |
-| ShadowSocksR - ssr |                            | ✅  |
-| [vmess]            | tcp,websocket,http,h2,grpc | ✅  | V2Ray |
-| [snell]            | tcp                        | ❌  | surge |
-| [trojan]           | h2,http,grpc               | ✅  |
+| protocol         | transport           | UDP | Note                   |
+| ---------------- | ------------------- | --- | ---------------------- |
+| socks4           | tcp                 | ❌  |
+| socks5           | tcp                 | ✅  |
+| http             | http                | ❌  |
+| https            |
+| ss/ShadowSocks   | tcp,ws,quic,http    | ✅  |
+| ssr/ShadowSocksR |                     | ✅  |
+| vmess            | tcp,ws,http,h2,grpc | ✅  | V2Ray                  |
+| vless            |
+| snell            | tcp                 | ❌  | surge                  |
+| trojan           | h2,http,grpc,ws     | ✅  |
+| tuic             | quic                |
+| hysteria         | quic                |
+| hysteria2        | http3, 0rtt udp     |
+| wireguard        |                     |     | 用户空间实现可作为代理 |
+| juicity          | quic                |
 
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
 [vmess]: https://www.v2ray.com/en/configuration/protocols/vmess.html
 
-- vmess
+- [juicity](https://github.com/juicity/juicity)
+  - AGPLv3, Golang
+- [TUIC](./tuic.md)
+- [vmess]
   - v2ray
-- trojan
+- [trojan]
   - 伪装 tls
+- [snell]
+- hysteria
+  - v1 和 v2 不兼容
 - brook wss
   - https://github.com/txthinking/brook
-- obfs - 混淆 - 用于 ss,ssr
+- obfs - 混淆 - 用于 ss,ssr,hysteria
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post
 - http proxy
@@ -56,6 +69,50 @@ tags:
   - Apache-2.0, Rust
   - 类似 frp，但 rust 实现
 
+## server
+
+- [v2ray](./v2ray/README.md)
+- [clash](./clash.md)
+  - rule based
+- [ginuerzh/gost](./gost.md)
+  - MIT, Golang
+  - GO Simple Tunnel
+  - 多端口
+  - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
+  - UDP over TCP
+  - TCP/UDP 透明代理/转发
+  - 支持 Shadowsocks(TCP/UDP)
+  - 支持 SNI 代理
+  - TUN/TAP
+  - 权限控制
+  - 负载均衡
+  - 路由控制
+  - DNS 解析和代理
+- [MetaCubeX/Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
+  - GPLv3, Go
+  - 支持出站传输协议 VLESS Reality, Vision, Trojan XTLS, Hysteria, TUIC, ShadowTLS
+  - 规则支持 GEOSITE
+  - 支持 TUN
+  - [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge)
+    - GPLv3, Rust+Typescript
+    - 基于 tauri 的桌面应用
+  - [2dust/clashN](https://github.com/2dust/clashN)
+    - Windows
+- [daeuniverse/dae](https://github.com/daeuniverse/dae)
+  - AGPLv3, Go
+  - Linux >= 5.8
+  - /sys/fs/bpf
+  - Linux high-performance transparent proxy solution based on eBPF
+  - https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
+- [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
+  - MPLv2, Go
+- [HyNetwork/hysteria](./hysteria.md)
+  - MIT, Go
+- [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
+  - GPL, Golang
+  - universal proxy platform
+- [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
+
 ## Sniff/Introspection
 
 - Charles - 商业
@@ -71,8 +128,10 @@ tags:
 - tshark
 - tcpdump
 - ngrep
+- [requestly/requestly](https://github.com/requestly/requestly)
+  - https://requestly.io/proxyman
 
-## HTTP 代理
+## HTTP 代理 {#http-proxy}
 
 - CONNECT 会用于建立 TCP 通道
   - 通常是用于 https
@@ -94,47 +153,12 @@ curl -v --http2 http://localhost:8000
 curl -v --http2-prior-knowledge http://localhost:8000
 ```
 
-## Proxy Protocol
-
-- HAProxy Protocol - 主要用于保留原 IP
-  - 希望基于来源 IP 做策略的一般都会支持
-  - [proxy-protocol.txt](https://github.com/haproxy/haproxy/blob/master/doc/proxy-protocol.txt)
-    - v1 - 明文 `PROXY TCP4 255.255.255.255 255.255.255.255 65535 65535\r\n\r\n`
-    - v2 - 支持二进制，支持更多协议
-  - 支持的服务: haproxy, nginx, varnish, stud, stunnel
-  - 实现
-    - [cloudflare/mmproxy](https://github.com/cloudflare/mmproxy)
-    - [path-network/go-mmproxy](https://github.com/path-network/go-mmproxy)
-    - [AdGuardHome#2798](https://github.com/AdguardTeam/AdGuardHome/issues/2798)
-
-## server
-
-- [v2ray](./v2ray/README.md)
-- [clash](./clash.md)
-  - rule based
-- [ginuerzh/gost](https://github.com/ginuerzh/gost) - GO Simple Tunnel
-  - 多端口
-  - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
-  - UDP over TCP
-  - TCP/UDP 透明代理/转发
-  - 支持 Shadowsocks(TCP/UDP)
-  - 支持 SNI 代理
-  - TUN/TAP
-  - 权限控制
-  - 负载均衡
-  - 路由控制
-  - DNS 解析和代理
-- [HyNetwork/hysteria](./hysteria.md)
-  - MIT, Go
-- [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
-  - GPL, Golang
-  - universal proxy platform
-- [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
-
 ## iOS
 
+- Surge 5 https://nssurge.com/buy_now
+  - $50
 - Stash - Rule Based Proxy
-  - $2.99
+  - $4
   - 支持 Clash, hysteria
   - App Store https://apps.apple.com/app/stash/id1596063349
   - Test Flight https://testflight.apple.com/join/elwvzipQ
@@ -145,6 +169,8 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - Test Flight https://testflight.apple.com/join/J5QPqXKO
   - https://t.me/choc_channel
   - https://t.me/choc_chat
+- Proxyman
+  - https://github.com/ProxymanApp/atlantis
 
 ## Transparent
 
@@ -153,8 +179,12 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 # 库
 
+- [eycorsican/leaf](https://github.com/eycorsican/leaf)
+  - Apachev2, Rust
+
 ## Golang
 
+- [p4gefau1t/trojan-go](https://github.com/p4gefau1t/trojan-go)
 - [mingcheng/socks5lb](https://github.com/mingcheng/socks5lb)
 - [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy)
 - [google/huproxy](https://github.com/google/huproxy)
@@ -290,3 +320,11 @@ curl -v --http2-prior-knowledge http://localhost:8000
 ```
 
 - https://dns.pub/dns-query
+
+## Rules
+
+- https://github.com/Loyalsoldier/v2ray-rules-dat
+- https://github.com/Loyalsoldier/clash-rules
+- https://github.com/Loyalsoldier/surge-rules
+- https://github.com/DustinWin/clash-geosite
+- https://github.com/MetaCubeX/meta-rules-dat

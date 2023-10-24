@@ -443,6 +443,8 @@ body {
 | Laptop L | 1400px |
 | 4k       | 2560px |
 
+- min-width - 移动端优先的设计方式
+
 | breakpoint | tailwind | bootstrap | mui    |
 | ---------- | -------- | --------- | ------ |
 | sm         | 640px    | 576px     | 600px  |

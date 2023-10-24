@@ -27,6 +27,9 @@ title: Mirrors
 | https://mirrors.cloud.tencent.com/ | 腾讯云 |
 | https://mirrors.gitee.com/         | Gitee  |
 
+- https://fastly.jsdelivr.net
+- https://cnd.jsdelivr.net
+
 **高校镜像**
 
 | URL                                   | 地址             | 信息                                |

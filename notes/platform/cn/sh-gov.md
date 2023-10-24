@@ -7,6 +7,8 @@ title: Business Registration
 - https://yct.sh.gov.cn/portal_yct/
   上海企业登记在线（开办）
   Shanghai Online Business Registration（Establishment）
+- https://www.jyfwyun.com/
+  - 经营范围规范表述查询系统（试用版）
 - https://fw.scjgj.sh.gov.cn/nameqry/toNameIndex.action
 - https://fw.scjgj.sh.gov.cn/netmccx/search/name_list
   上海企业名称库开放查询系统

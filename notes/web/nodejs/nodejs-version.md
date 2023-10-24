@@ -34,6 +34,23 @@ tags:
 - https://unofficial-builds.nodejs.org/download/release
   - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
 
+## Node v21
+
+- V8 11.8
+  - Array grouping
+  - ArrayBuffer.prototype.transfer
+- 默认 ESM
+  - --experimental-default-type=module
+- 默认 WASM
+  - --experimental-wasm-modules
+  - 文件以 `\0asm` 开头 - magic
+- Stable fetch/WebStreams
+  - WebStreams, FormData, Headers, Request, Response, fetch
+- Built-in WebSocket client
+  - --experimental-websocket
+- navigator.hardwareConcurrency
+- https://nodejs.org/en/blog/announcements/v21-release-announce
+
 ## Node v20 LTS
 
 - v8 11.3
@@ -48,6 +65,7 @@ tags:
   - import.meta.resolve
   - 完善 Web Crypto API
   - 完善 WASI - WebAssembly System Interface
+    - https://github.com/nodejs/uvwasi
   - `readdir(dirname, { recursive: true })`
 - 支持 `.env`
 - --experimental-loader
@@ -90,6 +108,8 @@ export async function load(url, defaultLoad) {
 ```bash
 node --experimental-loader=./loader.mjs
 ```
+
+- https://nodejs.org/en/blog/announcements/v20-release-announce
 
 ## Node v18 LTS
 

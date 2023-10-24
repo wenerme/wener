@@ -13,6 +13,9 @@ tags:
   - by Facebook, 替代 draftjs
   - https://news.ycombinator.com/item?id=31019778
   - [ozanyurtsever/verbum](https://github.com/ozanyurtsever/verbum)
+- [udecode/plate](https://github.com/udecode/plate)
+  - MIT, TS, React
+  - 基于 Slate
 - [quilljs/quill](https://github.com/quilljs/quill)
   - Quill is a modern WYSIWYG editor built for compatibility and extensibility.
   - [zenoamaro/react-quill](https://github.com/zenoamaro/react-quill)

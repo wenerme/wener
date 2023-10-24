@@ -385,6 +385,40 @@ tags:
       - Function as a Service 场景 - 没有链接概念，需要支持通知
       - 聊天产品、实时通知、消息集成、事件驱动
       - 类似于 Kafka，但是是面向 C 端产品
+- file share/airdrop
+  - [localsend/localsend](https://github.com/localsend/localsend)
+    - MIT, Dart, Flutter
+  - [schlagmichdoch/PairDrop](https://github.com/schlagmichdoch/PairDrop)
+    - GPLv3, JS, WebRTC, NodeJS
+    - fork of Snapdrop
+  - [RobinLinus/snapdrop](https://github.com/RobinLinus/snapdrop)
+    - GPLv3, JS
+  - [mozilla/send](https://github.com/mozilla/send)
+    - MPLv2
+  - [timvisee/send](https://github.com/timvisee/send)
+    - fork of mozilla/send
+    - https://send.vis.ee
+  - [saljam/webwormhole](https://github.com/saljam/webwormhole)
+  - [szimek/sharedrop](https://github.com/szimek/sharedrop)
+    - MIT, JS
+    - P2P
+  - [kern/filepizza](https://github.com/kern/filepizza)
+    - P2P
+    - https://file.pizza/
+  - [dennis-tra/pcp](https://github.com/dennis-tra/pcp)
+    - Apache-2.0, Golang, libp2p
+    - 命令行
+  - [schollz/croc](https://github.com/schollz/croc)
+    - MIT, Go
+    - 命令行
+  - [blenderskool/blaze](https://github.com/blenderskool/blaze)
+    - MIT, JS
+    - built using WebTorrent and WebSockets
+  - https://wormhole.app/
+  - PAKE - e2e 加密
+- Map/Geo
+  - [protomaps](https://github.com/protomaps)
+  - [maplibre](https://github.com/maplibre)
 
 ## 学习
 

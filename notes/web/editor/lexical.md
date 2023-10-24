@@ -17,6 +17,8 @@ title: lexical
     - queueMicrotask
     - React 18+ concurrent 支持
   - 支持 yjs 集成
+- adopted by
+  - payloadcms
 - ![lexical](https://badgen.net/bundlephobia/min/lexical?label=lexical)
   - 0 依赖
 - https://playground.lexical.dev/
@@ -41,7 +43,7 @@ npm add y-websocket yjs @lexical/yjs
 
 - link-preview-generator
 
-## Internal
+## Notes
 
 ### Node
 

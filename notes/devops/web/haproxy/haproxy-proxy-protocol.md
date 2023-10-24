@@ -4,6 +4,8 @@ title: HAProxy Proxy Protocol
 
 # HAProxy Proxy Protocol
 
+- HAProxy Protocol - 主要用于保留原 IP
+  - 希望基于来源 IP 做策略的一般都会支持
 - [proxy-protocol.txt](https://github.com/haproxy/haproxy/blob/master/doc/proxy-protocol.txt)
   - v1 - 明文 `PROXY TCP4 255.255.255.255 255.255.255.255 65535 65535\r\n\r\n`
   - v2 - 支持二进制，支持更多协议
@@ -14,6 +16,10 @@ title: HAProxy Proxy Protocol
   - postgres - [PROXY protocol support](https://www.postgresql.org/message-id/flat/CABUevEz9TLONY3VtOMkUUKpf%2BMb4XD79mXrtwUb-c9VwQ4ek-w%40mail.gmail.com#c9704d4e7ae56f3b58aa3ccf9b106bae)
     - 有 patch 还没合并
 - 希望基于来源 IP 做策略的一般都会支持
+- 参考
+  - [cloudflare/mmproxy](https://github.com/cloudflare/mmproxy)
+  - [path-network/go-mmproxy](https://github.com/path-network/go-mmproxy)
+  - [AdGuardHome#2798](https://github.com/AdguardTeam/AdGuardHome/issues/2798)
 
 ```bash
 # 测试

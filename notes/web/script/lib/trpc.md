@@ -170,3 +170,9 @@ import { createOpenApiHttpHandler } from 'trpc-openapi';
 const server = http.createServer(createOpenApiHttpHandler({ router: appRouter })); /* 👈 */
 server.listen(3000);
 ```
+
+# FAQ
+
+## Rollup typing
+
+- [bundle/rollup d.ts](../typescript/typescript-faq.md#bundlerollup-dts)

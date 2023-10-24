@@ -15,6 +15,10 @@ tags:
   - customizable, intuitive desktop environment for Windows
 - [WhatTheBlock/WindowsSimplify](https://github.com/WhatTheBlock/WindowsSimplify)
 
+## Softwares
+
+- [sumatrapdfreader/sumatrapdf](https://github.com/sumatrapdfreader/sumatrapdf)
+
 ## Distro
 
 - [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas)
