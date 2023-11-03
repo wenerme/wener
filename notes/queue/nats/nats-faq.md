@@ -40,6 +40,21 @@ tags:
 - `_R_`
   - leafnode
 
+## delay
+
+- Jetstream
+  - NAK 返回带 delay 时间
+    - Backoff
+
+---
+
+- Nats defered message [#3403](https://github.com/nats-io/nats-server/issues/3403)
+  - PUBLISH 时指定
+  - Nats-Before
+  - Nats-Not-Before
+- https://github.com/nats-io/nats-server/issues/2846
+- Consumer Ack/Nak Backoffs ~~[#2812](https://github.com/nats-io/nats-server/pull/2812)~~
+
 ## Remaping
 
 :::caution

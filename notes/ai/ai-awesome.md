@@ -57,6 +57,7 @@ tags:
 - https://anonymous-31415926.github.io/
 - 发现
   - https://www.theaivalley.com/
+- [ShishirPatil/gorilla](https://github.com/ShishirPatil/gorilla)
 
 ## Coding
 
@@ -75,6 +76,7 @@ tags:
 - https://www.promptingguide.ai/zh/readings
 - https://jalammar.github.io/
 - https://karpathy.ai/zero-to-hero.html
+- https://github.com/premAI-io/state-of-open-source-ai
 
 ## Prompt
 
@@ -138,8 +140,8 @@ tags:
 - [clue-ai/PromptCLUE](https://github.com/clue-ai/PromptCLUE)
 - [clue-ai/ChatYuan](https://github.com/clue-ai/ChatYuan)
 - [cocktailpeanut/dalai](https://github.com/cocktailpeanut/dalai)
--  [belladoreai/llama-tokenizer-js](https://github.com/belladoreai/llama-tokenizer-js)
-  - https://github.com/cogentapps/chat-with-gpt/blob/main/app/src/core/tokenizer/bpe.ts
+- [belladoreai/llama-tokenizer-js](https://github.com/belladoreai/llama-tokenizer-js)
+- https://github.com/cogentapps/chat-with-gpt/blob/main/app/src/core/tokenizer/bpe.ts
 - https://github.com/dqbd/tiktoken
 - https://github.com/functorism/gpt4-tokenizer-visualizer
 - [run-llama/llama_index](https://github.com/run-llama/llama_index)
@@ -180,7 +182,6 @@ tags:
 - [allenai/RL4LMs](https://github.com/allenai/RL4LMs)
 - [lucidrains/PaLM-rlhf-pytorch](https://github.com/lucidrains/PaLM-rlhf-pytorch)
 
-
 ## Bot
 
 - [ConnectAI-E/Feishu-OpenAI](https://github.com/ConnectAI-E/Feishu-OpenAI)
@@ -195,7 +196,7 @@ tags:
     - im:chat,im:chat:readonly
 - https://github.com/zhayujie/bot-on-anything
 - [chathub-dev/chathub](https://github.com/chathub-dev/chathub)
-  -  All-in-one chatbot client
+  - All-in-one chatbot client
 
 ## Misc
 
@@ -219,4 +220,3 @@ tags:
 - NodeJS
   - [erelsgl/limdu](https://github.com/erelsgl/limdu)
   - https://github.com/a16z-infra/ai-getting-started
-

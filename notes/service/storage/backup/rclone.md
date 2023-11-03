@@ -18,26 +18,28 @@ title: rclone
 
 :::
 
-| flag                                 | desc                |
-| ------------------------------------ | ------------------- |
-| -P,--progress                        | 显示进度            |
-| `--transfers <n:=4>`                 | 并行 数量           |
-| --create-empty-src-dirs              | copy 创建空目录     |
+| flag                                 | desc                    |
+| ------------------------------------ | ----------------------- |
+| -P,--progress                        | 显示进度                |
+| `--transfers <n:=4>`                 | 并行 数量               |
+| --create-empty-src-dirs              | copy 创建空目录         |
 | `-f,--filter <patterns>`             |
-| --ignore-case                        | filter 大小写不敏感 |
+| --ignore-case                        | filter 大小写不敏感     |
 | `--include <pattern>`                |
 | `--exclude <pattern>`                |
 | `--files-from <file>`                |
 | `--min-size <size>`                  |
 | `--max-size <size>`                  |
 | `--max-age <age>`                    |
-| --stats-one-line                     | 只显示一行状态      |
-| --track-renames                      | 跟踪 rename         |
-| `--track-renames-strategy <s:=hash>` | hash,modtime,leaf   |
-| --delete-after                       | 默认                |
+| --stats-one-line                     | 只显示一行状态          |
+| --track-renames                      | 跟踪 rename             |
+| `--track-renames-strategy <s:=hash>` | hash,modtime,leaf       |
+| --delete-after                       | 默认                    |
 | --delete-before                      |
 | --delete-during                      |
 | --delete-excluded                    |
+| -M, --metadata                       | copy 保留元数据         |
+| -u, --update                         | 如果 dst 文件更新则忽略 |
 
 | command |
 | ------- | ---------------------------------- |

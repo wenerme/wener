@@ -5,11 +5,10 @@ title: OpenRC
 # OpenRC
 
 - [OpenRC](https://github.com/OpenRC/openrc) 是什么？
+  - BSD-2, C, Shell
   - 跨平台轻量级 init 系统
     - 支持 Linux, FreeBSD, NetBSD
     - 核心 900k
-  - 2 BSD 协议
-  - C+Shell 实现
   - 脚本结构上类似于 sysvinit - 但更简单
   - 支持 supervise-daemon 0.21+
   - 支持 /sbin/init - 0.25+
@@ -107,7 +106,10 @@ stop_pre() {
   - provide - 提供服务 - 类似别名或相同服务
   - keyword
   - 依赖
-    - 影响服务起停 - 例如: 重启 服务 -> 会先停止 **依赖**，重启服务，然后再启动 **依赖**
+    - 影响服务起停
+    - 例如: 重启 服务 -> 会先停止 **依赖**，重启服务，然后再启动 **依赖**
+  - 依赖服务 - 会 start 依赖服务
+  - 被服务依赖 - 会 stop & start 依赖服务
 - https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
 
 ## supervise-daemon

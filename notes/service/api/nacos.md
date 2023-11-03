@@ -35,6 +35,8 @@ title: nacos
 - http://127.0.0.1:8848/nacos/
   - nacos:nacos
 - https://github.com/alibaba/nacos/blob/develop/api/src/main/proto/nacos_grpc_service.proto
+- MySQL
+  - https://github.com/alibaba/nacos/blob/develop/distribution/conf/mysql-schema.sql
 
 ```http-request
 ### 注册

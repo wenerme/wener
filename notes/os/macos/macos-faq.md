@@ -371,3 +371,7 @@ sudo xcode-select --reset
 ```
 
 - https://apple.stackexchange.com/a/254381/103557
+
+## com.apple.MobileSoftwareUpdate.UpdateBrainService
+
+系统更新

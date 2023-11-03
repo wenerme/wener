@@ -98,7 +98,7 @@ title: My Doc
   <html className="some-extra-html-class" />
   <body className="other-extra-body-class" />
   <title>Head Metadata customized title!</title>
-  <meta charSet="utf-8" />
+  <meta charset="utf-8" />
   <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://docusaurus.io/docs/markdown-features/head-metadata" />
 </head>
@@ -193,7 +193,6 @@ module.exports = {
 
 **mermaid 支持 theme**
 
-
 ```
 %%{init: { "theme": "forest" } }%%
 ```
@@ -252,7 +251,6 @@ import Mermaid from '@theme/Mermaid';
     B-->D[plop lanflz eknlzeknfz];
 `}
 />
-
 
 ## docusaurus.config.js
 
@@ -453,3 +451,41 @@ module.exports = {
 - [docusaurus-remark-plugin-npm2yarn](https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-remark-plugin-npm2yarn/src/index.ts)
   - 实现简单的 codeblock 处理
 - https://github.com/drudru/ansi_up
+
+# Version
+
+- React Server Components
+  - https://github.com/facebook/docusaurus/issues/9089
+
+## Docusaurus v3
+
+- MDX 1 -> 3
+  - `npx docusaurus-mdx-checker `
+  - https://github.com/remarkjs/remark-directive
+- CommonMark
+  - `siteConfig.markdown.format: 'detect'`
+    - `.md` 使用 CommonMark
+    - `.mdx` 使用 MDX
+  - 部分功能不可用
+    - https://github.com/facebook/docusaurus/issues/9092
+  - https://docusaurus.io/docs/markdown-features#mdx-vs-commonmark
+- 支持更多 markdown 配置
+  - markdown.preprocessor
+- React 18 / Automatic JSX runtime
+  - 不需要 `import React from 'react';`
+- ESM + TS Config
+  - `docusaurus.config.ts`
+  - `sidebars.ts`
+- Unlisted content
+  - 不同于 `draft: true`, `unlisted: true` 会构建
+- TypeScript 5
+  - tsconfig `"extends": "@docusaurus/tsconfig"`
+  - `@docusaurus/types`
+- Mermaid 10
+- Node 18
+- prism-react-renderer 2.x
+- react-live 4.x
+  - sucrase - 支持 TypeScript
+- import-fresh v3 ➡️ jiti v1
+- remark-emoji v2 ➡️ v4
+- https://docusaurus.io/blog/releases/3.0

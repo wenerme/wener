@@ -28,6 +28,10 @@ openssl req -new -x509 -key ca.key -out ca.crt
 openssl x509 -req -in example.org.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out example.org.crt
 openssl x509 -in example.org.crt -noout -text
 cat example.org.crt ca.crt > example.org.bundle.crt
+
+
+# FP
+echo -sha256 -sha1 -md5 | xargs -n1 openssl x509 -noout -fingerprint -inform pem -in ca.crt
 ```
 
 - https://gist.github.com/Soarez/9688998

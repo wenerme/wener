@@ -28,6 +28,7 @@ tags:
   - supported by
     - OBS, ffmpeg
 - [AlexxIT/go2rtc](https://github.com/AlexxIT/go2rtc)
+- https://github.com/Yahweasel/libav.js/
 - TURN/STUN Server
   - [coturn/coturn](https://github.com/coturn/coturn)
     - BSD-3, C TURN/STUN Server
@@ -59,9 +60,26 @@ tags:
   - [murat-dogan/node-datachannel](https://github.com/murat-dogan/node-datachannel)
     - binding [libdatachannel](https://github.com/paullouisageneau/libdatachannel)
   - ~~[node-webrtc/node-webrtc](https://github.com/node-webrtc/node-webrtc)~~
+- Spec
+  - https://w3c.github.io/p2p-webtransport/
 
+## WebCodecs
+
+- VideoEncoder, VideoDecoder, AudioWorkletm
+- requestAnimationFrame
+- https://caniuse.com/webcodecs
+  - Chrome 94+
+
+
+## WebTransport
+
+- 加密、拥塞控制、独立流、1RTT、UDP 端口复用、透明网络迁移
+- HTTP/3
+- https://caniuse.com/webtransport
+  - Chrome 97+
 ## 参考/References
 
+- https://quic.video/blog/replacing-webrtc/
 - [Explaining the WebRTC Secure Real-Time Transport Protocol (SRTP)](https://www.callstats.io/blog/2018/05/16/explaining-webrtc-secure-real-time-transport-protocol-srtp)
 - [A Study of WebRTC Security](https://webrtc-security.github.io)
 - [WebRTC 安全性的研究](https://webrtc.org.cn/webrtc-security)

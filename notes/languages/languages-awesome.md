@@ -117,3 +117,26 @@ tags:
 ## HowTo
 
 - [Lessons from Writing a Compiler](https://borretti.me/article/lessons-writing-compiler)
+
+## Typesetting
+
+> - 排版、技术文档
+> - 区分 专业 和 轻量级
+> - Typesetting 大多输出为 PDF
+> - 轻量级输出为 HTML/Web
+
+- [markdown](./markdown/README.md)
+- [LaTeX](./tex/README.md)
+  - [sile-typesetter/sile](https://github.com/sile-typesetter/sile)
+- [typst/typst](https://github.com/typst/typst)
+  - Apache-2.0, Rust
+  - Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use
+  - [qjcg/awesome-typst](https://github.com/qjcg/awesome-typst)
+  - [Myriad-Dreamin/typst.ts](https://github.com/Myriad-Dreamin/typst.ts)
+    - wasm
+- https://www.jetbrains.com/writerside/
+  - Markdown & XML
+  - writing docs for website
+- Asciidoc
+- DITA
+- GTFO

@@ -14,8 +14,10 @@ title: mikro-orm
 
 :::tip
 
-- mikroorm 使用 knex， knex pool 默认 `min:2, max:10`
+- mikro-orm 使用 knex， knex pool 默认 `min:2, max:10`
 - 不支持复杂多样的 JOIN 逻辑
+- 默认 cascade 为 persist
+  - 新 entity 总会 persist - 忽略 cascade
 
 :::
 

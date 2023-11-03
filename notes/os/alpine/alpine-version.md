@@ -36,6 +36,7 @@ tags:
 
 | version                              | date       |
 | ------------------------------------ | ---------- |
+| [AlpineLinux 3.19](#alpinelinux-319) | 2023       |
 | [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 |
 | [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
 | [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
@@ -63,13 +64,15 @@ tags:
 
 :::
 
-
-
-
 - 参考
   - https://ariadne.space/
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
+
+## AlpineLinux 3.19
+
+- 🆙 升级包
+  - NodeJS 20 LTS
 
 ## AlpineLinux 3.18
 
@@ -80,7 +83,7 @@ tags:
     - https://www.kernel.org/doc/html/v4.15/admin-guide/module-signing.html
 - musl libc 1.2.4
   - tcp dns - 解决 udp dns 不能返回太多解析的问题
-  - DT_RELR
+  - DT_RELR - relative relocation
     - 减小 binary size
       - qemu-system-aarch64 3.17 v7.1 22.6M -> 3.18 v8.0 19.5M
     - https://gitlab.alpinelinux.org/alpine/tsc/-/issues/58
@@ -92,7 +95,6 @@ tags:
   - Python 3.11
   - Go 1.20
   - Qemu 8.0
-
 
 ## AlpineLinux 3.17
 

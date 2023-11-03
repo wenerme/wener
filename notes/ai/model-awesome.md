@@ -40,6 +40,11 @@ tags:
 - [ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
 - https://www.promptingguide.ai/zh/models/collection
 - [Releasing 3B and 7B RedPajama-INCITE family of models including base, instruction-tuned & chat models](https://www.together.xyz/blog/redpajama-models-v1)
+- RedPajama-Data-v2
+  - https://together.ai/blog/redpajama-data-v2
+  - https://github.com/togethercomputer/RedPajama-Data
+  - https://huggingface.co/datasets/togethercomputer/RedPajama-Data-V2
+  - en, de, fr, es, it
 - [hysts/ControlNet-v1-1](https://huggingface.co/spaces/hysts/ControlNet-v1-1)
 - ggml
   - [ggerganov/ggml](https://github.com/ggerganov/ggml)
@@ -52,6 +57,10 @@ tags:
 - https://erichartford.com/uncensored-models
 - https://huggingface.co/spaces/facebook/seamless_m4t
 - https://github.com/LinkSoul-AI/Chinese-Llama-2-7b
+- Jina AI 8k text embedding
+  - https://news.ycombinator.com/item?id=38020109
+  - https://huggingface.co/jinaai/jina-embeddings-v2-base-en
+  - https://huggingface.co/jinaai/jina-embeddings-v2-small-en
 
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |

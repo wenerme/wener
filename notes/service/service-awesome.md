@@ -229,6 +229,10 @@ tags:
     - LGPL-2.1, Scala
   - 商业
     - TypeForm, TellForm, Google Forms
+- IoT
+  - [PandaXGO/PandaX](https://github.com/PandaXGO/PandaX)
+    - http://101.35.247.125:7789/
+  - https://github.com/edgexfoundry
 
 ## Avatar
 
@@ -388,6 +392,22 @@ tags:
 - file share/airdrop
   - [localsend/localsend](https://github.com/localsend/localsend)
     - MIT, Dart, Flutter
+    - 🌟
+    - GUI/桌面/Web 应用
+    - https://localsend.org/
+  - [schollz/croc](https://github.com/schollz/croc)
+    - MIT, Go
+    - 🌟
+    - 命令行
+    - 依赖 relay，可以 selfhost
+    - 支持 resume
+  - [tudbut/qft](https://github.com/tudbut/qft)
+    - GPLv3, Rust
+  - [psanford/wormhole-william](https://github.com/psanford/wormhole-william)
+    - MIT, Go
+    - 不支持 resume
+    - ⚠️ 默认 release 依赖 glibc
+    - https://github.com/psanford/wormhole-william-mobile
   - [schlagmichdoch/PairDrop](https://github.com/schlagmichdoch/PairDrop)
     - GPLv3, JS, WebRTC, NodeJS
     - fork of Snapdrop
@@ -405,15 +425,21 @@ tags:
   - [kern/filepizza](https://github.com/kern/filepizza)
     - P2P
     - https://file.pizza/
-  - [dennis-tra/pcp](https://github.com/dennis-tra/pcp)
+  - ~~[dennis-tra/pcp](https://github.com/dennis-tra/pcp)~~
     - Apache-2.0, Golang, libp2p
     - 命令行
-  - [schollz/croc](https://github.com/schollz/croc)
-    - MIT, Go
-    - 命令行
+    - IPFS DHT
   - [blenderskool/blaze](https://github.com/blenderskool/blaze)
     - MIT, JS
+    - Web, P2P
     - built using WebTorrent and WebSockets
+  - [LeastAuthority/winden](https://github.com/LeastAuthority/winden)
+  - [magic-wormhole/magic-wormhole.rs](https://github.com/magic-wormhole/magic-wormhole.rs)
+    - EUPL-1.2, Rust
+    - http://magic-wormhole.io/
+  - [mat-sz/filedrop](https://github.com/mat-sz/filedrop)
+    - BSC-3, NodeJS, React
+  - https://magic-wormhole.readthedocs.io/en/latest/
   - https://wormhole.app/
   - PAKE - e2e 加密
 - Map/Geo

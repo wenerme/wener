@@ -10,6 +10,14 @@ tags:
   - 8.5.2111 - 2021-11-16
   - 7.9-2009 - 2020-11-12
 - https://wiki.centos.org/FAQ/CentOS8
+- iprinit, iprupdate, iprdump
+- tuned
+  - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/performance_tuning_guide/index#chap-Red_Hat_Enterprise_Linux-Performance_Tuning_Guide-Tuned
+  - /etc/tuned/tuned-main.conf
+  - https://github.com/redhat-performance/tuned
+- oddjobd
+  - privileged operations for unprivileged processes
+  - https://www.unix.com/man-page/centos/8/oddjobd/
 
 ## CentOS 8 os vs kickstart
 

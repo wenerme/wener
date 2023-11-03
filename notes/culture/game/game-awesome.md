@@ -38,6 +38,8 @@ https://www.game-game.com.ua/
 | Roguelike |
 | Roguelite |
 
+- https://store.epicgames.com/en-US/free-games
+
 ## Nitendo Switch
 
 > SW-1452-6543-9033

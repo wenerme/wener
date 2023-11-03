@@ -301,6 +301,9 @@ tags:
 - SoapUI
 - [kubeshop/tracetest](https://github.com/kubeshop/tracetest)
 - Postman
+- [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)
+  - Chrome 插件
+  - 在浏览时生成接口
 
 ## 参考
 

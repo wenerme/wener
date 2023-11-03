@@ -42,3 +42,8 @@ tags:
 - https://arxiv.org/abs/2302.14045
   Language Is Not All You Need: Aligning Perception with Language Models
 - https://help.openai.com/en/collections/3675942-prompt-engineering
+
+---
+
+- DALL·E
+  - https://twitter.com/dr_cintas/status/1717896142044676356

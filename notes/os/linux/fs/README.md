@@ -36,7 +36,30 @@ title: FS
 | pipefs     | pipe:                    | 当 shell 使用 pipe 时        |
 | loopfs     | `/dev/loop*`             |
 | [rootfs]   | /                        |
+| fscache    |
+| erofs      |                          | Enhanced Read-Only FS        |
 
+- https://docs.kernel.org/filesystems/erofs.html
+- erofs
+  - https://docs.kernel.org/filesystems/erofs.html
+  - https://en.wikipedia.org/wiki/EROFS
+  - Linux 5.4+
+  - by Huawei, Alibaba Cloud, Bytedance, Coolpad, Google, OPPO
+  - 多用于 Android
+  - 添加压缩，内容寻址
+  - EROFS over Fscache - Linux 5.19+
+    - by Alibaba Cloud for RAFS v6/Nydus
+- fscache
+  - https://www.kernel.org/doc/Documentation/filesystems/caching/fscache.txt
+  - https://docs.kernel.org/filesystems/caching/fscache.html
+  - cachefilesd
+  - /proc/fs/fscache/caches
+  - /proc/fs/fscache/volumes
+  - /proc/fs/fscache/cookies
+  - /sys/module/fscache/parameters/debug
+- rafs
+  -  RAFS v6 兼容 EROFS
+  - https://d7y.io/blog/2022/06/06/evolution-of-nydus/
 - /dev/ptsmx - terminal mulitplexer
 
 **逻辑**

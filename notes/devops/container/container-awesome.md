@@ -6,6 +6,8 @@ tags:
 
 # Container Awesome
 
+> Storage, Metadata, Runtime
+
 - CRI
   - [opencontainers/runc](https://github.com/opencontainers/runc)
   - [google/gvisor](https://github.com/google/gvisor)
@@ -100,6 +102,27 @@ tags:
   - GPLv2, C
   - application or container live migration, snapshots, remote debugging
 
+## Image
+
+- https://github.com/opencontainers/image-spec
+- [containerd/stargz-snapshotter](https://github.com/containerd/stargz-snapshotter)
+  - fast container image distribution plugin with lazy pulling
+- https://nydus.dev/
+  - OCI tar layer -> Blob+meta
+  - [containerd/nydus-snapshotter](https://github.com/containerd/nydus-snapshotter)
+    - containerd snapshotter with data deduplication and lazy loading in P2P
+  - [dragonflyoss/nydus](https://github.com/dragonflyoss/nydus)
+    - based on FUSE,virtiofs
+    - RAFS v6 - erofs over fscache - Linux 5.19+
+  - [dragonflyoss/Dragonfly2](https://github.com/dragonflyoss/Dragonfly2)
+    - P2P-based file distribution and image acceleration
+  - https://d7y.io/blog/2022/06/06/evolution-of-nydus/
+  - https://github.com/dragonflyoss/nydus/blob/master/docs/nydusify.md
+- [goharbor/acceleration-service](https://github.com/goharbor/acceleration-service)
+- [google/crfs](https://github.com/google/crfs)
+  - CRFS: Container Registry Filesystem
+  - read-only FUSE
+
 ## Runtime
 
 - [drifting-in-space/spawner](https://github.com/drifting-in-space/spawner)
@@ -146,7 +169,6 @@ sources:
   - remote images registries - retrieving information, images, signing content
 - [GoogleContainerTools/container-diff](https://github.com/GoogleContainerTools/container-diff)
 - [jwilder/dockerize](https://github.com/jwilder/dockerize)
-- [containerd/stargz-snapshotter](https://github.com/containerd/stargz-snapshotter)
 - 参考
   - [构建容器的最佳做法](https://cloud.google.com/solutions/best-practices-for-building-containers)
 

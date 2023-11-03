@@ -33,6 +33,19 @@ tags:
 - [prasanaworld/puppeteer-screen-recorder](https://github.com/prasanaworld/puppeteer-screen-recorder)
   - CDP 录制视频
 
+## extensions
+
+- https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+- userscript
+  - [violentmonkey/violentmonkey](https://github.com/violentmonkey/violentmonkey)
+  - https://greasyfork.org/
+    - 豆瓣资源下载大师
+      - https://greasyfork.org/zh-CN/scripts/329484
+    - 万能验证码自动输入
+      - https://greasyfork.org/zh-CN/scripts/418942
+  - Greasemonkey
+    - [Greasemonkey Manual:API](https://wiki.greasespot.net/Greasemonkey_Manual:API)
+
 ## playwright
 
 https://playwright.dev/docs/codegen

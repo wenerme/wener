@@ -6,6 +6,9 @@ title: 数据泄漏
 
 | date       |                            | rows         | note                                          |
 | ---------- | -------------------------- | ------------ | --------------------------------------------- |
+| 2023.11    | taobao.com                 | 81.5亿,1.8T  | 2015-2020,姓名、电话、地址、购买商品          |
+| 2023.10    | jd.com                     | 100亿,2.8TB  | 姓名、电话、地址、购买商品                    |
+| 2023.02    | 快递信息                   | 45亿条,435G  |
 | 2022.07.07 | ksyun.com                  | 1M           | 金山云                                        |
 | 2022       | 上海随申码                 | 48M          |
 | 2022       | podinns.com                | 13M          |
@@ -135,16 +138,20 @@ title: 数据泄漏
   - Bittorrent Tracker
 - https://cracked.io/
 - https://leakbase.org/
-- https://breached.vc
+- breached https://breachforums.is
+  - ~~https://breached.vc~~
+  - ~~https://breached.to~~
+  - https://t.me/baphchat
   - http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/
-  - Rank https://breached.vc/upgrades
+  - Rank https://breachforums.is/upgrades
   - BTC,XMR,BCH,LTC,ETH,DOGE,SOL,DAI,USDC
-  - https://payments.breached.vc/
+  - payments
     - 8 €/30 credits
     - 15 €/60 credits
     - 30 €/120 credits
     - 60 €/240 credits
     - 120 €/500 credits
+  - https://breachforums.is/Announcement-Database-Index
 
 |                   - | VIP   | MVP   | GOD   |
 | ------------------: | ----- | ----- | ----- |
@@ -156,3 +163,9 @@ title: 数据泄漏
 
 - [woj-ciech/LeakLooker](https://github.com/woj-ciech/LeakLooker)
 - [khast3x/h8mail](https://github.com/khast3x/h8mail)
+
+<!--
+rebreached.vc
+Raiding.to
+https://www.osintme.com/index.php/2022/07/14/list-of-60-hacker-cracker-carder-cyber-criminal-forums-for-investigators/
+-->

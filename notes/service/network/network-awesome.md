@@ -29,6 +29,8 @@ tags:
 - [zeritier](./zerotier.md)
 - https://github.com/quiet
   - TCP over Sound
+- DHCP
+  - [coredhcp/coredhcp](https://github.com/coredhcp/coredhcp)
 
 ## Analysis
 

@@ -14,6 +14,17 @@ tags:
 
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
+- FK
+  - **MATCH SIMPLE**
+  - MATCH FULL
+    - 都不 null，或都 null
+  - ~~MATCH PARTIAL~~
+- CONSTRAINTS
+  - DEFERRED | IMMEDIATE
+  - 创建时
+    - DEFERRABLE INITIALLY DEFERRED
+    - DEFERRABLE INITIALLY IMMEDIATE
+    - NOT DEFERRABLE
 
 ## XML xpath 返回结果包含 CDATA
 

@@ -202,3 +202,47 @@ jattach 1 properties
 
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/properties.html#socks
+
+## Virtual Thread
+
+- Java 21+
+- sychronized -> ReentrantLock
+- 支持 Virtual Thread/Loom
+  - https://github.com/pgjdbc/pgjdbc/
+    - https://github.com/pgjdbc/pgjdbc/issues/1951
+  - ebean
+    - https://github.com/ebean-orm/ebean/issues/2080
+- Nats
+  - https://github.com/nats-io/nats.java/issues/317
+  - https://github.com/nats-io/nats.java/issues/934
+
+**Spring Boot Tomcat**
+
+- 性能更好
+
+```java
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.tomcat.TomcatProtocolHandlerCustomizer;
+import org.springframework.context.annotation.Bean;
+
+import java.util.concurrent.Executors;
+
+@SpringBootApplication
+@Slf4j
+public class VirtualthreadApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(VirtualthreadApplication.class, args);
+    }
+
+    @Bean
+    public TomcatProtocolHandlerCustomizer<?> protocolHandlerVirtualThreadExecutorCustomizer() {
+        return protocolHandler -> {
+            log.info("Configuring " + protocolHandler + " to use VirtualThreadPerTaskExecutor");
+            protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+        };
+    }
+}
+```

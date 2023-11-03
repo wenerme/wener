@@ -1064,6 +1064,20 @@ tags:
   - 查含义和词源
 - etymonline.com
 
+| .abbr | for                                 |
+| ----- | ----------------------------------- |
+| SDLC  | Software Development Life Cycle     |
+| AIDA  | AI Developer Assistant              |
+| AIDA  | Attention, Interest, Desire, Action |
+
+- [AIDA](<https://en.wikipedia.org/wiki/AIDA_(marketing)>)
+  - Attention（注意）
+  - Interest（关心）
+  - Desire（欲求）
+  - Memory（记忆）
+  - Action（行动）
+  - AIDMA
+
 ## Abbr
 
 | abbr       | latin           | en     |

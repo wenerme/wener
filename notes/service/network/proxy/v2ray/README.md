@@ -10,11 +10,17 @@ title: V2Ray
   - MIT, Golang
 - [v2rayA/v2rayA](https://github.com/v2rayA/v2rayA)
   - web GUI
+- [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
+  - MPLv2, Go
+  -  VLESS, XTLS, REALITY, XUDP, PLUX
 - 参考
   - https://www.v2ray.com/
 
 ```bash
 brew install v2ray
+
+curl -LO https://github.com/v2fly/v2ray-core/releases/download/v5.10.1/v2ray-linux-64.zip
+unzip v2ray-linux-64.zip
 
 # https://github.com/v2fly/docker
 # https://hub.docker.com/r/v2fly/v2fly-core

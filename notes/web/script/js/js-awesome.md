@@ -645,6 +645,23 @@ tags:
 - webcomponents
   - [google/model-viewer](https://github.com/google/model-viewer)
     - 3D Model
+- state / store
+  - [jotai](../../react/jotai.md)
+  - [zustand](../../react/zustand.md)
+  - [valtio](../../react/valtio.md)
+  - [nanostore](https://github.com/nanostores/nanostores)
+    - 类似于 jotai
+    - 297 bytes
+    - React, Vue, Svelte, Solid, Lit, Angular, SSR
+  - [saasquatch/bunshi](https://github.com/saasquatch/bunshi)
+    - 1.18kb
+    - Molecule pattern for jotai, nanostore, valtio, zustand
+    - React, Vue, Vanilla
+- FSM / Finite state machines
+  - XState
+  - [chakra-ui/zag](https://github.com/chakra-ui/zag)
+    - React, Vue, Solid
+    - from chakra-ui
 
 ---
 

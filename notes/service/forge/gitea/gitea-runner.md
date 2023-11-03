@@ -24,6 +24,7 @@ title: Gitea Runner
 - 基于 Job 的 Token [#23642](https://github.com/go-gitea/gitea/issues/23642)
   - `docker login -u ${{github.repository_owner}} -p $GITEA_TOKEN`
   - github.actor
+- 外部 [#24454](https://github.com/go-gitea/gitea/issues/24454)
 
 :::
 

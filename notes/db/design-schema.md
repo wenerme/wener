@@ -120,22 +120,42 @@ a-1-b-0
 > - 元数据不要用于业务依赖
 > - 可以创建模板表然后 CREATE TABLE LIKE
 
-| column     | for                                                      |
-| ---------- | -------------------------------------------------------- |
-| id         | 主键                                                     |
-| sid        | 租户维度单调递增 - 用户友好                              |
-| tid        | 租户 ID                                                  |
-| eid        | 用于导入数据关联 - tid+eid 唯一                          |
-| cid        | 外部系统租户 ID - Colocate ID/Corp ID - tid+cid+rid 唯一 |
-| rid        | 外部系统资源 ID - Ref ID/Relative ID                     |
-| created_at |
-| updated_at |
-| deleted_at |
-| version    | 基于版本的乐观锁                                         |
-| metadata   | 补充数据                                                 |
-| attributes | 使用端自定义数据 - 客户端 读写                           |
-| properties | 服务端自定义数据 - 客户端 只读                           |
-| extensions | 内部扩展数据 - 客户端 不可见                             |
+| column        | for                                                      |
+| ------------- | -------------------------------------------------------- |
+| id            | 主键 - ULID, tagged ID                                   |
+| sid           | 租户维度单调递增 - 用户友好                              |
+| uid           | UUID                                                     |
+| tid           | 租户 ID                                                  |
+| eid           | 用于导入数据关联 - tid+eid 唯一                          |
+| cid           | 外部系统租户 ID - Colocate ID/Corp ID - tid+cid+rid 唯一 |
+| rid           | 外部系统资源 ID - Ref ID/Relative ID                     |
+| created_at    |
+| updated_at    |
+| deleted_at    |
+| version       | 基于版本的乐观锁                                         |
+| metadata      | 补充数据                                                 |
+| attributes    | 使用端自定义数据 - 客户端 读写                           |
+| properties    | 服务端自定义数据 - 客户端 只读                           |
+| extensions    | 内部扩展数据 - 客户端 不可见                             |
+| owner_id      | 所有者                                                   |
+| owner_type    | User, Team, Department, Organization                     |
+| owner_user_id | `case owner_type when 'User' then owner_id end`          |
+| owner_team_id | `case owner_type when 'Team' then owner_id end`          |
+| entity_id     | 关联任意实体                                             |
+| entity_type   |
+| created_by_id |
+| updated_by_id |
+| deleted_by_id |
+| state         | 状态 - 面向系统，不可自定义                              |
+| status        | 业务状态、阶段、原因、细节 - 可自定义                    |
+
+- eid
+  - 同质系统导入外建关联 - 例如: SaaS <-> 现存内部系统
+  - 也可能会导出再导入
+- cid & rid
+  - 非同质系统 - 例如: 服务商、平台
+  - -> sourceType+sourceId
+  - -> vendorType+vendorId
 
 ```sql
 create table tpl_res
@@ -162,8 +182,10 @@ create table tpl_res
     owner_id            text,
     owner_type          text,
     owner_uid           uuid,
-    owner_user_id       text,
-    owner_team_id       text,
+    owner_id            text,
+    owner_type          text, -- User, Team, Department
+    owner_user_id       text generated always as ( case owner_type when 'User' then owner_id end ) stored,
+    owner_team_id       text generated always as ( case owner_type when 'Team' then owner_id end ) stored,
     owner_department_id text,
     primary key (tid, id),
     unique (tid, sid),
@@ -237,12 +259,12 @@ select set_config('tenant.id','1', true);
 
 ## created_at vs create_time
 
-- created_at
+- created_at, `*_at`
   - 语义 准确
   - 与 `created_by_id` 形式上类似
   - 使用: Spring, Gorm 默认
   - 面向 **系统**
-- create_time
+- create_time, `*_time`
   - 使用: AIP
   - 面向 **用户**, 业务
 
@@ -256,6 +278,9 @@ select set_config('tenant.id','1', true);
   - 前端使用，服务端可见
 - metadata
   - 对数据内容的补充说明
+- raw
+  - 外部导入原始数据
+  - 也可以记录到 metadata, properties.raw, extensions.raw
 
 ## 单数还是复数表名
 

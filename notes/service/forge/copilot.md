@@ -38,3 +38,10 @@ curl https://copilot-proxy.githubusercontent.com/_ping
 
 | key | for            |
 | --: | -------------- |
+
+
+## Reverse
+
+- https://github.com/search?q=GH_COPILOT_TOKEN&type=code
+- https://news.ycombinator.com/item?id=34032872
+- https://thakkarparth007.github.io/copilot-explorer/posts/copilot-internals.html

@@ -29,6 +29,32 @@ tags:
 - 最多 32767 参数占位 - `?` - 范围为 smallint
 - https://www.postgresql.org/docs/current/limits.html
 
+## unique constraint vs unique index
+
+> 核心业务语义尽量用 constraint
+
+- unique constraint
+  - `unique(tid,entity_id)` -> `flow_tid_entity_id_key`
+  - 可以延后
+  - 通过 unique index 实现 - 自动创建
+  - 附带在 TABLE 上
+    - `unique` 在 create table 时定义
+    - `alter table TABLE add unique (tid,rid,cid);` 在 create table 之后定义
+  - 不支持 `ADD CONSTRAINT IF NOT EXISTS`
+  - 支持 `DROP CONSTRAINT IF EXISTS`
+- unique index
+  - `create unique index on flow(tid,entity_id)` -> `flow_tid_entity_id_idx`
+  - 可以并发
+  - 可以 带条件
+  - 独立 INDEX 概念
+    - 不能在 create table 时定义 - inline index 概念
+    - UNIQUE 只是 INDEX 的一个限制
+- https://stackoverflow.com/a/6804058/1870054
+  - add constraint if not exists
+- https://stackoverflow.com/questions/23542794
+- 都支持 UNIQUE NULLS NOT DISTINCT
+  - 因为是 INDEX 的能力
+
 ## TOAST
 
 - TOAST = The Oversized-Attribute Storage Technique

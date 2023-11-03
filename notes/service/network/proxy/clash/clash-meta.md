@@ -10,7 +10,7 @@ title: Clash.Meta
 - 参考
   - [MetaCubeX/metacubexd](https://github.com/MetaCubeX/metacubexd)
     - 前端
-  - https://github.com/MetaCubeX/Clash.Meta/blob/Alpha/docs/config.yaml
+
 
 ```bash
 # macOS
@@ -19,3 +19,8 @@ gzip -d clash.meta.gz
 chmod +x clash.meta
 ./clash.meta --help
 ```
+
+# 配置 {#config}
+
+- https://github.com/MetaCubeX/Clash.Meta/blob/Alpha/docs/config.yaml
+- https://wiki.metacubex.one/config/

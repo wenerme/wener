@@ -18,6 +18,7 @@ tags:
 
 ## Music Server
 
+- [navidrome/navidrome](https://github.com/navidrome/navidrome)
 - [owntone/owntone-server](./server/owntone.md)
   - GPLv2, C+Vue
   - 🌟 推荐 - WebUI, 支持较多客户端
@@ -56,7 +57,12 @@ tags:
 ## Media Server
 
 - [jellyfin](./server/jellyfin.md)
+  - C#
+  - fork of Emby
   - 🌟 推荐 - 简单易用，开发活跃
+- [Radarr/Radarr](https://github.com/Radarr/Radarr)
+  - GPLv3, C#
+  - fork of Sonarr
 - [Red5/red5-server](https://github.com/Red5/red5-server)
   - Apache-2.0, Java
 - [ant-media/Ant-Media-Server](https://github.com/ant-media/Ant-Media-Server)
@@ -64,10 +70,26 @@ tags:
     - Red5 fork
 - [midarrlabs/midarr-server](https://github.com/midarrlabs/midarr-server)
   - MIT, Elixir
+- [Wizarrrr/wizarr](https://github.com/Wizarrrr/wizarr)
+  - user invitation and management system for Jellyfin, Plex, Emby
+- [causefx/Organizr](https://github.com/causefx/Organizr)
+- [streamaserver/streama](https://github.com/streamaserver/streama)
+- [Kareadita/Kavita](https://github.com/Kareadita/Kavita)
+  - 漫画
+
+## Video Server
+
+- [ossrs/srs](https://github.com/ossrs/srs)
+  - MIT, C++
+  - RTMP, WebRTC, SRT, GB28181, HLS, HTTP-FLV
+- [illuspas/Node-Media-Server](https://github.com/illuspas/Node-Media-Server)
+- [bluenviron/mediamtx](https://github.com/bluenviron/mediamtx)
 
 ## Library
 
 - [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+- [livekit/livekit](https://github.com/livekit/livekit)
+  - Golang
 
 ## Container
 

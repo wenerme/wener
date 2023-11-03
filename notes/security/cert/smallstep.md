@@ -4,6 +4,12 @@ title: smallstep
 
 # smallstep
 
+:::caution
+
+- 出于商业决定移除了 EAB [#897](https://github.com/smallstep/certificates/issues/897)
+
+:::
+
 - [smallstep/certificates](https://github.com/smallstep/certificates)
   - Apache-2.0, Go
   - CA, ACME server
@@ -43,14 +49,26 @@ apk add step-cli step-certificates -X http://mirrors.sjtug.sjtu.edu.cn/alpine/ed
 step path # 数据目录 $HOME/.step
 STEPPATH=/tmp/step step path
 # 配置 $(step path)/config/ca.json
-
+mkdir -p $STEPPATH && cd $_
 
 # 生成 CA $HOME/.step/certs/root_ca.crt $HOME/.step/secrets/root_ca_key
-cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./passwd
-step ca init --name "Local CA" --provisioner admin --dns localhost --address ":443" --deployment-type=standalone --password-file=./passwd
-step ca certificate --offline foo.smallstep.com foo.crt foo.key
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./ca.passwd
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./provisioner.passwd
+# https://smallstep.com/docs/step-cli/reference/ca/init/
+# --dns 也支持地址
+step ca init \
+  --name "Wener CA" --dns ca.wener.me --dns ca.wener.tech \
+  --provisioner wener@wener.me --address ":443" --deployment-type standalone \
+  --password-file ./ca.passwd \
+  --provisioner-password-file ./provisioner.passwd \
+  --remote-management
+step-ca $(step path)/config/ca.json --password-file ./ca.passwd
 
-step-ca $(step path)/config/ca.json
+step certificate fingerprint certs/root_ca.crt
+
+# step ca certificate --offline foo.smallstep.com foo.crt foo.key
+
+
 # 获取当前的 root fingerprint
 step certificate fingerprint $(step path)/certs/root_ca.crt
 # 另外一个节点
@@ -110,6 +128,171 @@ step ca provisioner add my-kube-provisioner --type K8sSA --pem-keys key.pub
 ```
 
 - https://hub.docker.com/r/smallstep/step-ca
+
+## Endpoint
+- https://github.com/smallstep/certificates/blob/master/acme/api/handler.go
+
+**https://ca.wener.me/acme/acme/directory**
+
+```json
+{
+  "newNonce": "https://ca.wener.me/acme/acme/new-nonce",
+  "newAccount": "https://ca.wener.me/acme/acme/new-account",
+  "newOrder": "https://ca.wener.me/acme/acme/new-order",
+  "revokeCert": "https://ca.wener.me/acme/acme/revoke-cert",
+  "keyChange": "https://ca.wener.me/acme/acme/key-change"
+}
+```
+
+## Get Started
+
+```bash
+docker run --rm -it \
+  -v $PWD/data:/data \
+  --entrypoint bash \
+  --hostname ca.wener.me \
+  -w /data \
+  -p 443:443 \
+  --name stepca smallstep/step-ca
+
+# 初始化 CA
+# =====================
+export STEPPATH=/data/ca
+
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./ca.passwd
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./provisioner.passwd
+# https://smallstep.com/docs/step-cli/reference/ca/init/
+# --dns 也支持地址
+step ca init \
+  --name "Wener CA" \
+  --dns ca.wener.me --dns ca.wener.tech \
+  --provisioner wener@wener.me --address ":443" --deployment-type standalone \
+  --password-file ./ca.passwd \
+  --ssh --acme \
+  --remote-management
+
+# 按需修改 $(step path)/config/ca.json
+# 例如修改 db 存储
+
+# 启动 CA
+step-ca $(step path)/config/ca.json --password-file ./ca.passwd
+
+# 初始化 客户端
+# =====================
+docker exec -u root -e STEPPATH=/data/step -it stepca bash
+# 下载 CA 证书
+# $HOME/.step/certs/root_ca.crt
+# $HOME/.step/config/defaults.json
+#   ca-url, fingerprint, root
+step ca bootstrap --ca-url ca.wener.me --fingerprint $(step certificate fingerprint /data/ca/certs/root_ca.crt)
+
+# 需要 root
+step certificate install $(step path)/certs/root_ca.crt
+ls -lash /etc/ssl/certs | grep Wener
+
+# --ca-url https://ca.smallstep.com --root /home/user/.step/certs/root_ca.crt
+# TOKEN=$(step ca token internal.example.com)
+# --token $TOKEN
+step ca health
+
+# 管理员用户
+step ca admin list --super --admin-name step --password-file ca.passwd
+
+# 生成证书
+step ca certificate localhost svr.crt svr.key --provisioner-password-file ./ca.passwd
+# 6m 有效
+step certificate inspect svr.crt --short
+# 1h 有效
+# 8760h 为 1年, 43800h 为 5年, 87600h 为 10年
+step ca certificate localhost svr.crt svr.key --not-after 1h --provisioner-password-file ./ca.passwd
+
+# ACME
+step ca provisioner add acme --type ACME --password-file ca.passwd
+
+curl https://ca.wener.me/acme/acme/directory
+```
+
+- https://ypbind.de/maus/notes/real_life_step-ca_with_multiple_users/
+
+## ACME
+
+- https://smallstep.com/docs/tutorials/acme-protocol-acme-clients/
+- `https://{ca-host}/acme/{provisioner-name}/directory`
+
+## Yubikey KMS
+
+- Yubikey 管理 PKI 的密码
+- 第二次生成的 CA 使用 Yubikey 作为 KMS
+
+```bash
+docker run --rm -it \
+  -v $PWD/data:/data \
+  --entrypoint bash \
+  --hostname ca.wener.me \
+  -w /data \
+  -p 443:443 \
+  --name stepca smallstep/step-ca
+
+# PKI
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./pki.passwd
+STEPPATH=/data/pki step ca init --pki --name="Wener" --deployment-type standalone --password-file ./pki.passwd
+cp /data/pki/certs/{intermediate_ca.crt,root_ca.crt} .
+
+# 添加 crt 和 key 到 yubikey
+ykman piv certificates import 9a /data/pki/certs/root_ca.crt
+ykman piv keys import 9a /data/pki/secrets/root_ca_key
+ykman piv certificates import 9c /data/pki/certs/intermediate_ca.crt
+ykman piv keys import 9c /data/pki/secrets/intermediate_ca_key
+
+ykman piv info
+
+# 将 data/pki 保存到外部存储后删除
+
+# CA
+export STEPPATH=/data/ca
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./ca.passwd
+cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 > ./provisioner.passwd
+# https://smallstep.com/docs/step-cli/reference/ca/init/
+# --dns 也支持地址
+step ca init \
+  --name "Wener CA" --dns ca.wener.me --dns ca.wener.tech \
+  --provisioner wener@wener.me --address ":443" --deployment-type standalone \
+  --password-file ./ca.passwd \
+  --provisioner-password-file ./provisioner.passwd \
+  --remote-management
+
+# use pki cert
+mv root_ca.crt intermediate_ca.crt $STEPPATH/certs
+rm -rf $STEPPATH/secrets
+
+# 修改 ca.json 的 "key": "/data/ca/secrets/intermediate_ca_key",
+# "key": "yubikey:slot-id=9c",
+# "kms": {
+#     "type": "yubikey",
+#     "pin": "123456"
+# },
+step-ca $STEPPATH/config/ca.json --password-file ./pki.passwd --provisioner-password-file ./provisioner.passwd
+```
+
+## 配置 {#config}
+
+| env       | for      |
+| --------- | -------- |
+| STEPPATH  | 数据目录 |
+| STEPDEBUG |
+
+- authority.claims
+  - maxTLSCertDuration
+    - 默认 24h
+- db
+  - KV - 本地 - 不支持 并发/多进程
+    - badger -> badgerv1
+    - badgerv1
+    - badgerv2
+    - bbolt
+  - SQL - 远程 - 也是作为 KV - nkey, nvalue - 25个表
+    - mysql
+    - postgresql
 
 ## Concepts
 
@@ -200,3 +383,17 @@ step ssh config --host --roots
 ## K8S
 
 - https://smallstep.com/docs/tutorials/kubernetes-acme-ca
+
+# FAQ
+
+## adminHandler.authorizeToken; unable to load admin with subject(s) and provisioner 'Admin JWK'
+
+```
+--admin-name=step
+```
+
+## ACME EAB not enabled for provisioner
+
+```
+add acme --type ACME --require-eab
+```

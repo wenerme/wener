@@ -40,6 +40,15 @@ tags:
 [nextjs 10]: #NextJS-10
 [nextjs 9.5]: #NextJS-95
 
+## NextJS 14
+
+- NodeJS 18.17+
+- `next export` -> `output: 'export'`
+- Turbopack 相对稳定
+- Server Action 文档
+- 部分渲染 - 实验阶段
+  - 预渲染 suspense 部分
+
 ## NextJS 13
 
 - turbopack `next dev --turbo`

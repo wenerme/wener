@@ -23,9 +23,11 @@ docker run --rm -it \
   --name hysteria tobyxdd/hysteria \
   server -c /etc/hysteria.yaml
 
-curl -LO https://github.com/apernet/hysteria/releases/download/app%2Fv2.1.1/hysteria-linux-amd64
+curl -LO https://github.com/apernet/hysteria/releases/download/app%2Fv2.2.0/hysteria-linux-amd64
 chmod +x hysteria-linux-amd64
+# sudo cp hysteria-linux-amd64 /usr/bin/hysteria
 ./hysteria-linux-amd64 --help
+
 PASSWORD=$(openssl rand -base64 12 | tr -- '-_' '+/' | tee /dev/tty)
 
 openssl genrsa -out ca.key 2048
@@ -67,9 +69,70 @@ http:
 ca: ca.crt
 YAML
 
+hysteria client -c hysteria.client.yaml
 ```
 
 ## config
 
 
 - https://v2.hysteria.network/zh/docs/advanced/Full-Server-Config/
+
+## openrc
+
+
+```bash
+sudo nano /etc/init.d/hysteria-server
+sudo chmod +x /etc/init.d/hysteria-server
+sudo service hysteria-server start
+```
+
+```sh
+#!/sbin/openrc-run
+supervisor=supervise-daemon
+
+name="Hysteria"
+
+command=/usr/bin/hysteria
+command_args="server -c /etc/hysteria/server.yaml"
+
+HYSTERIA_LOGFILE="${HYSTERIA_LOGFILE:-/var/log/${RC_SVCNAME}.log}"
+HYSTERIA_ERRFILE="${HYSTERIA_ERRFILE:-${HYSTERIA_LOGFILE}}"
+HYSTERIA_OUTFILE="${HYSTERIA_OUTFILE:-${HYSTERIA_LOGFILE}}"
+supervise_daemon_args="--stderr \"${HYSTERIA_ERRFILE}\" --stdout \"${HYSTERIA_OUTFILE}\""
+
+retry="${HYSTERIA_RETRY:-TERM/60/KILL/10}"
+
+depend() {
+  use logger dns
+  need net
+}
+
+checkconfig() {
+  # warn this if not found
+  if [ ! -f "/etc/hysteria/server.yaml" ]; then
+    eerror "No config"
+    return 1
+  fi
+  return 0
+}
+```
+
+## v1
+
+- https://v1.hysteria.network/
+
+```bash
+curl -LO https://github.com/apernet/hysteria/releases/download/v1.3.5/hysteria-linux-amd64
+chmod +x hysteria-linux-amd64
+
+PASSWORD=$(openssl rand -base64 12 | tr -- '-_' '+/' | tee /dev/tty)
+
+cat <<JSON > config.json
+{
+  "listen": ":36712",
+  "cert": "tls.crt",
+  "key": "tls.key",
+  "obfs": "$PASSWORD"
+}
+JSON
+```

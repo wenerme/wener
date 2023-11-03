@@ -8,7 +8,6 @@ title: tuic
   - GPLv3, Rust
   - Delicately-TUICed 0-RTT proxy protocol
 
-
 ```bash
 curl -o tuic-server -L https://github.com/EAimTY/tuic/releases/download/tuic-server-1.0.0/tuic-server-1.0.0-x86_64-unknown-linux-musl
 chmod +x tuic-server
@@ -42,3 +41,9 @@ sudo setcap cap_net_bind_service=+ep tuic-server
     "log_level": "info"
 }
 ```
+
+# FAQ
+
+## unauthenticated authenticate timeout
+
+- https://github.com/EAimTY/tuic/issues/186

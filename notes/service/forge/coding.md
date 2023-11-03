@@ -61,6 +61,12 @@ NODE_TOKEN =
 | pip3       | /root/.cache/pip/             |
 | yarn       | /usr/local/share/.cache/yarn/ |
 
+## CI Env
+
+| env        | for    |
+| ---------- | ------ |
+| DEPOT_NAME | 仓库名 |
+
 ## 制品
 
 - Composer

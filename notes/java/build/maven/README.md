@@ -17,18 +17,20 @@ tags:
   - rar - Resource Adapter Archive
 - mojo
 - surefire
+- 参考
+  - https://maven.apache.org/ref/3.9.4/maven-embedder/cli.html
 
-
-| 属性                              | 说明                     |
-| --------------------------------- | ------------------------ |
-| maven.javadoc.skip                | 不调用 Javadoc 插件      |
-| maven.test.skip                   | 不编译测试，不执行测试   |
-| maven.test.skip.exec              | 不执行测试，但编译测试包 |
-| maven.repo.remote                 | 远程仓库                 |
-| maven.repo.local                  | 本地仓库                 |
-| socksProxyHost<br/>socksProxyPort | Socks 代理               |
-| httpProxyHost<br/>httpProxyPort   | Http 代理                |
-| httpsProxyHost<br/>httpsProxyPort | Https 代理               |
+| -D                                | 说明                      |
+| --------------------------------- | ------------------------- |
+| skipTests                         | 不执行测试, 构建 test jar |
+| maven.javadoc.skip                | 不调用 Javadoc 插件       |
+| maven.test.skip                   | 不编译测试，不执行测试    |
+| maven.test.skip.exec              | 不执行测试，但编译测试包  |
+| maven.repo.remote                 | 远程仓库                  |
+| maven.repo.local                  | 本地仓库                  |
+| socksProxyHost<br/>socksProxyPort | Socks 代理                |
+| httpProxyHost<br/>httpProxyPort   | Http 代理                 |
+| httpsProxyHost<br/>httpsProxyPort | Https 代理                |
 
 ```
 -pl, --projects
@@ -279,9 +281,9 @@ mvn install:install-file \
             <resource>config.properties</resource>
         </transformer>
         <!-- 处理 ServiceLoader 的定义 -->
-        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
         <!-- 合并 META-INF/NOTICE.TXT 文件 -->
-        <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer"/>
+        <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer" />
     </transformers>
     <!-- 避免版本冲突，做 shade -->
     <relocations>
@@ -569,12 +571,15 @@ mvn gpg:sign-and-deploy-file -Dgpg.passphrase=$PASSPHRASE \
   -Dfile=$NAME-javadoc.jar -Dclassifier=javadoc
 ```
 
-
 ## settings.xml
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<settings
+  xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"
+>
 <mirrors>
   <mirror>
     <id>aliyun</id>
@@ -585,4 +590,3 @@ mvn gpg:sign-and-deploy-file -Dgpg.passphrase=$PASSPHRASE \
 </mirrors>
 </settings>
 ```
-

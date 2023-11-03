@@ -19,7 +19,9 @@ mvn compile jib:build       # 不依赖 docker 直接推送
 mvn compile jib:dockerBuild # 使用 docker
 mvn compile jib:buildTar
 
-mvn compile com.google.cloud.tools:jib-maven-plugin:3.3.1:build -Dimage=IMAGE
+mvn compile com.google.cloud.tools:jib-maven-plugin:3.4.0:buildTar
+ls target/jib-image.tar
+mvn compile com.google.cloud.tools:jib-maven-plugin:3.4.0:build -Dimage=IMAGE
 ```
 
 ```

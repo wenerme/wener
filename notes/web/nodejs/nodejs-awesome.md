@@ -276,10 +276,13 @@ export N_PREFIX=$HOME/n
   - Access Python & C-shared from Node.js
   - `@bitair/linker.js`
 
-## Sandbox
+## Sandbox/VM
 
 - vm
-- [patriksimek/vm2](https://github.com/patriksimek/vm2)
+- [justjake/quickjs-emscripten](https://github.com/justjake/quickjs-emscripten)
+- v8 Isolate
+  - [laverdet/isolated-vm](https://github.com/laverdet/isolated-vm)
+  - ~~[patriksimek/vm2](https://github.com/patriksimek/vm2)~~
 - [google/nsjail](https://github.com/google/nsjail)
   - light-weight process isolation tool
   - [windmill-labs/windmill](https://github.com/windmill-labs/windmill)

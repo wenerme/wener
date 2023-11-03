@@ -105,9 +105,15 @@ title: 阿里云
 
 ## ACK
 
+> ACK -> Aliyun Container Service for Kubernetes
+> - ACK vs Self-Managed Kubernetes
+>   - 省事
+>   - 能更好结合阿里云产品 - 会用到更多阿里云产品 - SLB、Log、Monitor
+>   - ACK 节点会部署相对多的 Agent
+
 - ACK Pro=集群管理+云产品资源
-  - 管理
-    - 0.64 元/小时/集群 - 441/月，5300/年
+  - 集群管理 - 独立的管理节点/单独的服务器 - 包含在集群费用中
+    - 按量计费: 0.64 元/小时/集群 - 441/月，5300/年
     - 资源包: 415 元/月，4980 元/年
 - 专有版
   - 管理免费

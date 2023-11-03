@@ -36,6 +36,7 @@ title: Dynamics 365
 | 订单       | 订单是依据指定条款交付货物和服务的已确认请求。 或者，它还可以是客户已接受的报价单。                                                                                                                           |
 | 发票       | 发票是已向客户开具帐单的订单或销售记录， 其中包括有关所购买产品或服务的详细信息。                                                                                                                             |
 
+- PBL - Portable Business Logic - 可移植业务逻辑
 - Ticker Symbol - 股票代码、证券代码
 - Entitlements - 服务权限、配额
   - Phone, Email, Web, Facebook, Twitter, IoT
@@ -1120,3 +1121,7 @@ Territory - 区域
     - teams
 - ProcessSession
   - Dialog
+
+## Service Solution
+
+- https://dynamics.microsoft.com/en-us/service-solution/
