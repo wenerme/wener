@@ -17,7 +17,6 @@ brew reinstall imagemagick --with-librsvg --with-opencl
 # 处理 SVG 也可以考虑 inkscape
 # 但在 macos 下 xserver 显示的不太好
 # brew cask info inkscape
-
 ```
 
 ## Convert

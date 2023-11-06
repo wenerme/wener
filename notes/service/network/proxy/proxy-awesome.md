@@ -62,7 +62,7 @@ tags:
 - [gost](./gost.md)
   - MIT, Go
   - Tunnel
-- [nadoo/glider](https://github.com/nadoo/glider)
+- [nadoo/glider](./glider.md)
   - 类似 gost，但支持更多协议
     - 只有 Listener 和 Forwarder
   - mix - http+socks5
@@ -84,10 +84,6 @@ tags:
 - [rapiz1/rathole](https://github.com/rapiz1/rathole)
   - Apache-2.0, Rust
   - 类似 frp，但 rust 实现
-
-```bash
-brew install glider
-```
 
 ## server
 
@@ -349,3 +345,8 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - https://github.com/Loyalsoldier/surge-rules
 - https://github.com/DustinWin/clash-geosite
 - https://github.com/MetaCubeX/meta-rules-dat
+
+## Limits
+
+- https://platform.openai.com/docs/supported-countries
+- Netflix HK 只能看自有，不能看授权内容

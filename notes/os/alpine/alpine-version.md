@@ -73,6 +73,12 @@ tags:
 
 - 🆙 升级包
   - NodeJS 20 LTS
+- iptables-nft
+  - symlink /sbin/iptables{,-save,-restore} -> xtables-nft-multi
+  - 而不是 xtables-legacy-multi
+  - 使用 nftables 而不是 iptable
+  - 旧的 iptables 包 iptables-legacy, iptables-legacy-save
+-- https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.19.0
 
 ## AlpineLinux 3.18
 
@@ -168,10 +174,10 @@ apk upgrade -a
   - 3.16 sudo 会挪到 community
 - 🟠 flannel 从 cni-plugins v1 中移除，独立为 flannel edge/testing
 - 🟢 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
+  - 类似 Debian 的 dkms
 - 🟢 UEFI Secure Boot - secureboot-hook, efi-mkkeys
 - 🔴 停止 mips64 架构 - EOL
 - Kernel 内核 gzip 压缩
-- 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
 - alpin-conf - setup-disk 支持 加密数据盘、加密系统盘
 - mount overlaytmpfs - mkinitfs-bootparams.7
 - openssl 1.1 - 升级 3.0 很多包有问题，退回到 1.1

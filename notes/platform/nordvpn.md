@@ -4,6 +4,9 @@ title: NordVPN
 
 # NordVPN
 
+- 参考
+  - [bubuntux/nordvpn](https://github.com/bubuntux/nordvpn)
+
 ## socks
 
 ```bash
@@ -64,6 +67,10 @@ us.socks.nordhold.net
 - nl - Netherlands
 - se - Sweden
 - https://ipleak.net/?q=us.socks.nordhold.net
+- dallas.us.socks.nordhold.net
+  - 165.231.210.164
+- atlanta.us.socks.nordhold.net
+  - 196.247.50.68
 
 ## NordLynx
 
@@ -83,18 +90,29 @@ nordvpn c
 
 ## API
 
+:::tip
 
+- socks 支持的区域少
+- proxy_ssl 支持的区域多
+
+:::
 
 ```bash
+sudo apk add jq yq fping
+
 curl -o countries.json https://api.nordvpn.com/v1/servers/countries
 curl -s https://api.nordvpn.com/v1/servers/countries | jq -r '[.[].name] | sort | unique | .[]'
 
-curl -o server.json https://nordvpn.com/api/server
+curl -sfL https://nordvpn.com/api/server | jq > server.json
 yq '[ .[] | select (.features.socks) | pick(["domain","load","name","country"])] ' server.json
 yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan"))] | sort_by(.domain) ' server.json
 
-fping -ac 60 $(yq '[ .[] | select (.features.socks) | .domain ] | join(" ")' server.json)
-fping -ac 60 $(yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan")) | .domain ] | join(" ")' server.json)
+fping -ac 60 $(yq -r '[ .[] | select (.features.socks) | .domain ] | join(" ")' server.json) > socks.txt
+# 非常多，只筛选部分
+fping -ac 10 $(yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan","Taiwan")) | .domain ] | join(" ")' server.json) &> proxy_ssl.txt
+
+# sort by avg, reverse
+sort -t / -k 9 -h -r proxy_ssl.txt
 
 # proxy_ssl
 openssl s_client -connect us4353.nordvpn.com:89
@@ -154,3 +172,9 @@ curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
 |              socks | SOCKS5                    | 1080 |
 |          proxy_ssl | HTTP Proxy (SSL)          | 89   |
 | proxy_ssl_cybersec | HTTP CyberSec Proxy (SSL) |
+|      wireguard_udp | WireGuard                 | 51820
+|            skylark | NordLynx                  |
+|         mesh_relay | NordMesh                  |
+
+- https://platform.openai.com/docs/supported-countries
+- https://cyberwaters.com/list-of-vpn-port-numbers-vpn-service-providers-use/

@@ -78,3 +78,7 @@ title: CloudFlare
 - Advanced Certificate Manager 10$/月 可以支持
 - 或者考虑 bypass
 - https://community.cloudflare.com/t/subdomain-too-deep/81872
+
+## 速度测试
+
+- https://github.com/XIU2/CloudflareSpeedTest

@@ -232,6 +232,7 @@ tags:
 - IoT
   - [PandaXGO/PandaX](https://github.com/PandaXGO/PandaX)
     - http://101.35.247.125:7789/
+    - https://github.com/PandaXGO/PandaX/blob/master/resource/pandax_iot_pg.sql
   - https://github.com/edgexfoundry
 
 ## Avatar

@@ -73,6 +73,7 @@ tags:
 
 ## Reading
 
+- https://github.com/microsoft/generative-ai-for-beginners
 - https://www.promptingguide.ai/zh/readings
 - https://jalammar.github.io/
 - https://karpathy.ai/zero-to-hero.html

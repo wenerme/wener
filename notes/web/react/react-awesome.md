@@ -816,6 +816,10 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 有趣
 
+- https://stackblitz.com/edit/demo-react-portal-ksmarb
+  - createPortal 就可以跨窗口
+- https://github.com/ryanseddon/react-frame-component/blob/master/src/Frame.jsx#L133
+  - createPortal 可以在 IFrame 里渲染
 - [remotion-dev/remotion](https://github.com/remotion-dev/remotion)
   - 非 OSS 协议
   - Create videos programmatically in React

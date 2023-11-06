@@ -7,6 +7,8 @@ tags:
 # Awesome Font
 
 - otf,ttf,woff,woff2
+- [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+  - Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts
 - [Inter typeface family](https://rsms.me/inter)
   - [rsms/inter](https://github.com/rsms/inter)
 - [Google fonts](https://fonts.google.com)

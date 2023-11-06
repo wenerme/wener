@@ -142,6 +142,62 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 120
+
+- CSS
+  - `:dir()`
+  - 数学函数 pow(), sqrt(), hypot(), log(), exp()
+  - 字体 FontFaceSet: check()
+    - document.fonts.check()
+    - 修改逻辑
+  - masking
+- worker
+  - document.requestStorageAccess
+- [CloseWatcher](https://github.com/WICG/close-watcher)
+  - dialog 修改为使用 CloseWatcher
+- Attribution Reporting API: further gating for trigger verbose debug reports
+  - `ar_debug` cookie
+  - https://chromestatus.com/feature/5092796566601728
+  - https://github.com/WICG/attribution-reporting-api/pull/1088
+
+## Chrome 119
+
+- CSS
+  - `:user-valid`,`:user-invalid`
+    - 类似于 `:valid`, 但是在用户交互过后
+  - Relative Color Syntax (RCS)
+    - https://www.w3.org/TR/css-color-5/#relative-colors
+      - `background: rgb(from var(--bg-color) r g b / 80%);`
+- HTML
+  - select 内可以有 hr 来分割选项
+- WebAssembly Garbage Collection (WasmGC)
+- Read Chrome device attributes
+  - https://github.com/WICG/WebApiDevice/blob/main/README.md
+  - `navigator.managed.getManagedConfiguration`
+- ~~WebSQL~~
+- ~~Sanitizer API~~
+
+## Chrome 118
+
+- CSS
+  - `@scope`
+  - logical flow-relative values
+    - float: inline-start|inline-end
+    - clear: inline-start|inline-end
+    - resize: block|inline
+  - `prefers-reduced-transparency`
+- HTML search element
+  - 容器元素，在 form 之外，表示这部分内容为搜索相关
+  - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
+  - https://github.com/whatwg/html/pull/7320
+- HTTP/3 protocol upgrade for HTTPS DNS records with h3 alpn parameter
+  - 尝试连接 H3 协议
+  - 通过 HTTPS DNS 记录路的 alpn 参数发现
+  - https://chromestatus.com/feature/5154357283651584
+- Enrollment for Privacy Sandbox (PSB)
+  - https://developer.chrome.com/blog/announce-enrollment-privacy-sandbox/
+- WebUSB in Extension Service Workers
+
 ## Chrome 117
 
 - Array grouping

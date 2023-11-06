@@ -1,21 +1,22 @@
 ---
-title: Passkey
+title: Passkeys
 ---
 
-# Passkey
+# Passkeys
 
 - Password-less
 - asymmetric public key
 - Multi-Device FIDO
+- [WebAuthn](./webauthn.md)
 - adopted by
-  - Amazon, Google, Nintendo, Shopify, Apple
+  - Amazon, Google, Nintendo, Shopify, Apple, DocuSign, Paypal
 - https://passkeys.dev/
 - https://developers.google.com/identity/passkeys
 - https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
 - window.PublicKeyCredential
 - 参考
+  - https://passkeys-demo.appspot.com/
   - [Bitwarden 支持管理 Passkey](https://bitwarden.com/blog/bitwarden-passkey-management/)
-  - https://teampassword.com/blog/passkey-vs-webauthn
 
 # Passkey vs WebAuthn
 
@@ -29,3 +30,7 @@ title: Passkey
     - CTAP - client to authenticator protocol
   - by W3C, FIDO Alliance
   - 可用于实现 Passkey
+
+---
+
+- https://teampassword.com/blog/passkey-vs-webauthn

@@ -14,6 +14,11 @@ title: zod
 
 :::note
 
+- parse 会返回 clone 的对象
+  - 所以性能会差一点 [#205](https://github.com/colinhacks/zod/issues/205)
+  - 使用 proxy 对象时需要注意
+    - 例如不能配合 immer、valtio 使用
+  - [#1769](https://github.com/colinhacks/zod/issues/1769)
 - [#2030](https://github.com/colinhacks/zod/discussions/2030)
   - Serialize
   - Serialize 推荐 JSONSchema - 减少部分校验，但能用到更多场景

@@ -4,6 +4,12 @@ title: WireGuard
 
 # WireGuard
 
+:::tip
+
+- 支持 Userspace 运行，类似于 Proxy 方式
+
+:::
+
 - [性能对比](https://www.wireguard.com/performance)
 - [WireGuard Mesh Configurator](https://github.com/k4yt3x/wireguard-mesh-configurator)
   - mesh 配置工具 - 批量生成配置

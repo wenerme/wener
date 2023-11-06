@@ -12,6 +12,7 @@ tags:
 
 ## Platform
 
+- mbed
 - Apache [edgent](https://edgent.apache.org/)
   - [apache/incubator-edgent](https://github.com/apache/incubator-edgent)
   - Java
@@ -43,12 +44,24 @@ tags:
 
 ## DEV
 
+- Lua
+- C
+- [berry-lang/berry](https://github.com/berry-lang/berry)
+  - 类似 Lua、Python
+- Javascript
+  - [jerryscript-project/jerryscript](https://github.com/jerryscript-project/jerryscript)
+    - Apache-2.0, C
+    - by Samsung?
+  - [espruino/Espruino](https://github.com/espruino/Espruino)
+  - [marcelkottmann/esp32-javascript](https://github.com/marcelkottmann/esp32-javascript)
+  - [cesanta/elk](https://github.com/cesanta/elk)
 - [JetBrains/kotlin-native](https://github.com/JetBrains/kotlin-native)
   - [samples/zephyr](https://github.com/JetBrains/kotlin-native/tree/master/samples/zephyr)
-- [ziutek/emgo](https://github.com/ziutek/emgo)
-  - Bare metal Go (language for programming embedded systems)
-- [rakyll/go-hardware](https://github.com/rakyll/go-hardware)
-  - A directory of hardware related libs, tools, and tutorials for Go
+- Golang
+  - [ziutek/emgo](https://github.com/ziutek/emgo)
+    - Bare metal Go (language for programming embedded systems)
+  - [rakyll/go-hardware](https://github.com/rakyll/go-hardware)
+    - A directory of hardware related libs, tools, and tutorials for Go
 - [gnu-mcu-eclipse](https://gnu-mcu-eclipse.github.io/qemu)
 - [beckus/qemu_stm32](https://github.com/beckus/qemu_stm32)
   - [qemu_stm32](https://beckus.github.io/qemu_stm32)

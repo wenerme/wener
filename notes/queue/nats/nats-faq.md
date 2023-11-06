@@ -20,6 +20,8 @@ tags:
   - max_payload=1 MB
     - 最大 64 MB
     - 推荐不超过 8 MB
+      - Base64 编码后 6 MB
+    - 如果想要支持 10MB Base64 则需要 13.MB
   - max_pending=64 MB
 - subjects
   - 目前无数量限制
@@ -27,6 +29,10 @@ tags:
   - 连接数量
 - max_control_line=4KB
 - https://docs.nats.io/running-a-nats-service/configuration
+
+## MAX_PAYLOAD_EXCEEDED
+
+- max_payload 默认 1 MB
 
 ## Subjects
 

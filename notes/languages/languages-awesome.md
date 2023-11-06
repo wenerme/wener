@@ -49,15 +49,6 @@ tags:
   - 文言文
 - https://github.com/breck7/pldb
 
-## IoT/Embeded
-
-- Javascript
-  - jerryscript
-- Lua
-- C
-- [berry-lang/berry](https://github.com/berry-lang/berry)
-  - 类似 Lua、Python
-
 ## Rank
 
 - https://www.tiobe.com/tiobe-index/

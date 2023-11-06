@@ -12,7 +12,7 @@ tags:
 - [andlabs/ui](https://github.com/andlabs/ui)
 - [unoplatform/uno](https://github.com/unoplatform/uno)
 - [ocornut/imgui](https://github.com/ocornut/imgui)
-  - Graphical User interface for C++ with minimal dependencies
+  - Dear ImGui: Bloat-free Graphical User interface for C++ with minimal dependencies
 - [CanvasKit - Skia + WebAssembly](https://skia.org/docs/user/modules/canvaskit)
 - Render
   - [mitsuba-renderer/drjit](https://github.com/mitsuba-renderer/drjit)

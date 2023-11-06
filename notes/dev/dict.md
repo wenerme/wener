@@ -617,6 +617,21 @@ tags:
   - 由用户行为操作发生变化
   - 强调偏好 - 有主体 - 通常为用户
 
+---
+
+- macOS
+  - [plist](https://en.wikipedia.org/wiki/Property_list)
+    - preference-list, property-list
+    - `Library/Preferences`
+  - Launch Services Database
+    - 类似 Windows HKEY_CLASSES_ROOT
+  - `man scutil`
+  - mdls
+  - [defaults](https://en.wikipedia.org/wiki/Defaults_(software))
+    - `defaults read com.apple.iTunes`
+    - https://keith.github.io/xcode-man-pages/defaults.1.html
+- Windows [Registry](https://en.wikipedia.org/wiki/Windows_Registry)
+
 ## picture vs image
 
 - picture - 图片

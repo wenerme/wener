@@ -316,6 +316,14 @@ find . -name RARBG_DO_NOT_MIRROR.exe -or -name RARBG.txt -or -name '._*' -or -na
   - SQLite dump
 - RARBG IPFS
 
+## Size
+
+- 4K 2160p WEB-DL HDR 10bit DDP5.1 H265
+  - 120分钟，大约 10GB
+  - 2160p - 3840\*2160
+  - 4K HDR蓝光原盘，大小普遍在50~90G
+- 8bit SDR
+
 <!--
 https://rarbg.live/rarbg-proxy/
 

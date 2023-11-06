@@ -103,7 +103,7 @@ tags:
   - wasm 1MB 左右
   - [justjake/quickjs-emscripten](https://github.com/justjake/quickjs-emscripten)
   - [second-state/wasmedge-quickjs](https://github.com/second-state/wasmedge-quickjs)
-- [mbbill/JSC.js](https://github.com/mbbill/JSC.js)
+- ~~[mbbill/JSC.js](https://github.com/mbbill/JSC.js)~~
 - [maple3142/wasm-jseval](https://github.com/maple3142/wasm-jseval)
 - `<iframe sandbox="allow-scripts"/>`
 - 参考

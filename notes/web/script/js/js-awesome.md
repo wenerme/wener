@@ -413,13 +413,14 @@ tags:
     - 定义的校验可生成 ts 类型
   - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
   - [typestack/class-validator](https://github.com/typestack/class-validator)
+  - https://github.com/moltar/typescript-runtime-type-benchmarks
+  - [typebox](https://github.com/sinclairzx81/typebox)
+  - [zod](../lib/zod.md)
 - typescript
   - [true-myth/true-myth](https://github.com/true-myth/true-myth)
   - [io-ts](https://github.com/gcanti/io-ts)
   - [fp-ts](https://github.com/gcanti/fp-ts)
-  - zod
   - trpc
-  - [typebox](https://github.com/sinclairzx81/typebox)
   - typia
   - ts-rest
 - math
@@ -873,6 +874,10 @@ tags:
 - http://www.webtoolkit.info/javascript-md5.html
 - http://www.webtoolkit.info/javascript-base64.html
 - http://pajhome.org.uk/crypt/md5/
+- Object hash
+  - https://github.com/tjwebb/fnv-plus
+  - https://github.com/sinclairzx81/typebox/#hash
+    - https://github.com/sinclairzx81/typebox/blob/master/src/value/hash.ts
 
 ## UX
 
