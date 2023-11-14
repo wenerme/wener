@@ -15,6 +15,32 @@ tags:
 | [PHP 8.0](#php-80) | 2020-11-26 |
 | [PHP 7.4](#php-74) | 2019-11-28 | 2022-11-28 |
 
+## PHP 8.4
+
+- JIT
+  - new JIT implementation based on IR
+    https://php.watch/rfcs/jit-ir
+
+## PHP 8.3
+
+- lint - `php -l`
+- `json_validate`
+- `gc_status`
+- `class_alias`
+
+```php
+<?php
+class Test {
+    // Typed Class Constants
+    const string TEST_CONSTANT = 'test';
+}
+
+$constName = 'TEST_CONSTANT';
+
+// Dynamic class constant and Enum member fetch support
+echo MyClass::{$constName};
+```
+
 ## PHP 8.2
 
 - readonly 类

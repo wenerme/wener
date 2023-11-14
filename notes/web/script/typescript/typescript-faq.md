@@ -57,13 +57,17 @@ tags:
 
 ## 箭头函数使用泛型参数
 
+> Array function use generic type parameter
+
 ```ts
 const identity = <T>(value: T): T[] => {
   return [value];
 };
+```
 
+```tsx
 // TSX
-const identity = <T>(arg: T): T => arg;
+const identity = <T,>(arg: T): T => arg;
 ```
 
 ## Path alias
@@ -261,3 +265,8 @@ function Button<T extends React.ElementType = "button">({
 ```
 
 - [Playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAKjgQwM5wEoFNkGN4BmUEIcARFDvmQNwBQdMAnmFnAAoQA2TI0YAC2C52xMKgA87OFgAeMLADsAJugDeKVAH4AXHAAqcAL4AaAzPlLVmKjAB0AUS5YQSmPpZYAfHAC8HOAAyOjg4AHkQYBgJbDx7AGESSEU3UQhxAHUogQgAVxhsAgl9LzMAaywmCAIOL3pGTzgAIXyYCEU08WKLBRV0WPxHZ1dFd0b-AHIAI1b2iZ9-Th4+KEFhTskQuDUt0LRdA3pQ0OF2g4H7C4A5CGUsI+PcIS5lSkVz2ztr2-ut0y39HQ6gwCLlFPhgO1mrNFN05L1rBchi43B5WH5yDMYG1FGQvAAKHZ7VAmLZ2clgMSoOhGPQtbHtDbFLx0ACU2y2uHaqHgiXA7TcGLQcAAPiLMTDaFtKDBclBFHAJHzkoK1OS7JT0qgjHAAPTAowMYCjLBQAh4NgAZVwlGQkUUAHN6TiNhzQq5UKhkA6sHoeVBjQ76Ia6KDwTBIQrrbb7U6YYS4B6vT7jHpozhY87GVT2US4DK5QqJFicXBmKxfGQS+0yHB2vEuMIyr41Pj2b4fMhnLB8UnvVhWUYvA2m4msABCCS66uKA1G-mwbZwZUC0YbMxOFGjNFsHVEEhwCa2-ATerlthNCCyJkOHpWdCbkZjVgLcKRaIrlJrqkSBylQ9oPMQRupoBwOMG9RcooPLNFeGK-nefRwI+qLjIeyjAAAbvMCZoGY6qauIqawdeP5-u2Ph5lBMH6N6Vx2mw-jCmK6FYae0pYLK8qKrRDr0a42wEVSOr6hBDChmCEJQgAgmAYBtiBBbcfiuyKiyxzHBIWazgAkigpDIHAM5Ttp6kaYq2maJWyC1gIlAEJWup4npdooHAjaKGUJkwmZGlaTCcB2VgDlkE5XguaQigQPAhkeWUZioBAgX2XAwDoFFMVwJhXbAMocCEd5DKzqpoT+UVVlqOmdqBtpOp9j6lYABJYFwXBJQA7tALy1vqJUWQF9VYE1LVtXAnVQN14X6XAGVuagNoZoGRkBYlY6ev2qXpdFbnZY2eUFbqpl9VpcFBQ5Ey6hdvmaZeshWRMyATMlwW+BdV3Hbd90Ydhz3nZdvV+QDcCssGDBAA)
+
+## namespace
+
+- https://github.com/babel/babel/issues/8244
+- https://github.com/microsoft/TypeScript/issues/30994

@@ -80,6 +80,7 @@ magnet:?xt=urn:btih:481dee5424b7024433504803a90efd32dae40fdf&dn=LLaMA-ggml-4bit_
 - https://rentry.org/lmg-resources
 - https://rentry.org/ayumi_erp_rating
 - https://rentry.co/ALLMRR
+- http://ayumi.m8geil.de/
 - ERP - erotic role playing - 情色角色扮演
 
 #->/lmg/ Model Links and Torrents <-

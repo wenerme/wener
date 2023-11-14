@@ -18,15 +18,41 @@ tags:
 
 ## Framework
 
-- [sunrise-php/http-router](https://github.com/sunrise-php/http-router)
+- [laravel](./laravel/README.md)
+  - 增加 fiber [#47077](https://github.com/laravel/framework/discussions/47077)
+- [revoltphp/event-loop](https://github.com/revoltphp/event-loop)
+  -  event loop for concurrent PHP
+- [walkor/workerman](https://github.com/walkor/workerman)
+  - https://github.com/joanhey/AdapterMan
+    - 适配运行别的框架，性能提升较大
+  - 增加 fiber 支持 https://github.com/walkor/workerman/issues/693
+- [AMPHP](./lib/amphp.md)
+  - non-blocking concurrency framework
 - [hyperf/hyperf](https://github.com/hyperf/hyperf)
+  - 基于 swoole/swow
   - coroutine framework that focuses on hyperspeed and flexibility
+- [swoole/swoole-src](https://github.com/swoole/swoole-src)
+  - Apache-2.0
+  - 开发不活跃
+  - 目前 PHP 已经有 fiber 能力，swoole 意义没那么大
+  - fork 事故 https://github.com/swoole/swoole-src/issues/4434
+    - 2022-05
+- [swow/swow](https://github.com/swow/swow)
+- [sunrise-php/http-router](https://github.com/sunrise-php/http-router)
 - [spiral/framework](https://github.com/spiral/framework)
   - PSR-{2,3,4,6,7,11,15,16,17}
   - Long-Living PHP Framework for enterprise application development
   - [stempler](https://spiral.dev/docs/stempler-basics/2.8/en)
     模板引擎
   - CycleORM
+- [openswoole/openswoole](https://github.com/openswoole/openswoole)
+- [Symfony](https://github.com/symfony/symfony)
+- [CakePHP](https://github.com/cakephp/cakephp)
+- [Yii2](https://github.com/yiisoft/yii2)
+- [Slim](https://github.com/slimphp/Slim)
+- [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
+- [ThinkPHP](https://github.com/top-think/framework)
+- [Leaf](https://github.com/leafsphp/leaf)
 - ORM
   - [cycle/orm](https://github.com/cycle/orm)
 

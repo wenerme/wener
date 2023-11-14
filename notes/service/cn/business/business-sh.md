@@ -4,6 +4,12 @@ title: Business Registration
 
 # 企业登记
 
+:::caution
+
+- 请上传.jpg/.jpeg 格式文件，单个文件大小不超过5MB。
+
+:::
+
 - https://yct.sh.gov.cn/portal_yct/
   上海企业登记在线（开办）
   Shanghai Online Business Registration（Establishment）

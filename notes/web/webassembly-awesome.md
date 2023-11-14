@@ -14,6 +14,8 @@ tags:
 
 :::
 
+- [WebAssembly/wasi-nn](https://github.com/WebAssembly/wasi-nn)
+  - https://github.com/WasmEdge/WasmEdge/tree/master/plugins/wasi_nn/thirdparty/ggml
 - [AssemblyScript/assemblyscript](https://github.com/AssemblyScript/assemblyscript)
   - 直接输出 wasm
   - 类 TypeScript 语法

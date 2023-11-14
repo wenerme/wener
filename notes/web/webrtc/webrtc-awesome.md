@@ -29,6 +29,11 @@ tags:
     - OBS, ffmpeg
 - [AlexxIT/go2rtc](https://github.com/AlexxIT/go2rtc)
 - https://github.com/Yahweasel/libav.js/
+- [node-webrtc/node-webrtc](https://github.com/node-webrtc/node-webrtc)
+  - [WebRTC](https://chromium.googlesource.com/external/webrtc/+/branch-heads/m79) 的 Node 绑定
+  - `yarn add wrtc`
+  - Node 支持 armv7l、arm64、x64
+  - Electron 支持 x64
 - TURN/STUN Server
   - [coturn/coturn](https://github.com/coturn/coturn)
     - BSD-3, C TURN/STUN Server
@@ -40,6 +45,10 @@ tags:
       Distributed RTC System by pure Go and Flutter
     - [pion/dtls](https://github.com/pion/dtls)
       Golang, DTLS 1.2 Server/Client
+    - [pions/webrtc](https://github.com/pion/webrtc)
+      - MIT, Golang
+      - WebRTC API
+  - ~~[keroserene/go-webrtc](https://github.com/keroserene/go-webrtc)~~
 - Gateway
   - [meetecho/janus-gateway](https://github.com/meetecho/janus-gateway)
     - GPL-3.0, C
@@ -58,7 +67,7 @@ tags:
     - TS 实现
     - ICE/DTLS/SCTP/RTP
   - [murat-dogan/node-datachannel](https://github.com/murat-dogan/node-datachannel)
-    - binding [libdatachannel](https://github.com/paullouisageneau/libdatachannel)
+      - binding libdatachannel
   - ~~[node-webrtc/node-webrtc](https://github.com/node-webrtc/node-webrtc)~~
 - Spec
   - https://w3c.github.io/p2p-webtransport/

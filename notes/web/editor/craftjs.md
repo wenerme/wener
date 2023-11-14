@@ -12,6 +12,7 @@ title: craft.js
   - 150kb - self 30kb + @craftjs/utils 13kb + lodash 96kb + immer + nanoid
 - [prevwong/reka.js](https://github.com/prevwong/reka.js)
   - 新的状态管理+序列化
+  - mobx
 
 :::caution
 

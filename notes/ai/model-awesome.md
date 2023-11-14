@@ -14,6 +14,7 @@ tags:
 | GPT-3   | 2020 | 175B   |
 | GPT-3.5 | 2022 |        | ChatGPT,570GB Text |
 | GPT-4   | 2023 |
+| GPT-4V   | 2023 |
 
 - Flan
 - Alpaca

@@ -106,6 +106,7 @@ title: 阿里云
 ## ACK
 
 > ACK -> Aliyun Container Service for Kubernetes
+>
 > - ACK vs Self-Managed Kubernetes
 >   - 省事
 >   - 能更好结合阿里云产品 - 会用到更多阿里云产品 - SLB、Log、Monitor
@@ -147,3 +148,10 @@ title: 阿里云
 | qwen-plus  | 0.14¥           | 免费 1,000,000 tokens、180 天 |
 
 - https://help.aliyun.com/zh/dashscope/product-overview/billing-rules
+
+## 号码百科
+
+- 企业
+  - 二要素核验 - 企业名称、企业证件号
+  - 三要素核验 - +企业法人姓名
+  - 四要素核验 - +企业法人身份证号

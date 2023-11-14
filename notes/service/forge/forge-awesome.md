@@ -17,7 +17,11 @@ tags:
   - gitee
     - CI/CD Jenkins,GiteeGo
   - [coding](./coding.md)
+    - 腾讯
     - CI/CD Jenkins
+  - Codeberg
+    - 基于 Gitea (2019)
+    - fork Gitea -> Forgejo (2022)
 - 开源
   - [theonedev/onedev](./onedev.md)
     - MIT, Java
@@ -34,6 +38,13 @@ tags:
     - 内置 package
     - 无 CI/CD - 可外置 drone
   - gogs
+  - [gitness](https://github.com/harness/gitness)
+    - Apache-2.0, Golang
+    - by Harness
+    - Drone 参考重命名为了 gitness
+    - Drone 3.0 ~-> Drone+/Code
+    - https://news.ycombinator.com/item?id=37598082
+      - Harness 名声不太好
 
 ## Package
 
@@ -44,7 +55,7 @@ tags:
 - [Jenkins](./jenkins/README.md)
   - MIT, Java
 - [GoCD](https://github.com/gocd/gocd)
-  -  Apache-2.0, Java
+  - Apache-2.0, Java
 - [rundeck](./rundeck.md)
 - CircleCI
 - [drone](./drone/README.md)

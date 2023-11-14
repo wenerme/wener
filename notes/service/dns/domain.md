@@ -12,6 +12,8 @@ title: Domain
   - .ws - Web Service
   - .tech
 - 参考
+  - 中国互联网域名体系 https://domain.miit.gov.cn/
+    - 列举了
   - [It's official: .corp, .home, .mail will never be top-level domains on the 'net](https://forums.theregister.com/forum/all/2018/02/12/icann_corp_home_mail_gtlds/)
   - [google/nomulus](https://github.com/google/nomulus/)
     - Google tld 管理服务
@@ -29,9 +31,10 @@ title: Domain
 
 ## Provider
 
-- [domains.google](https://domains.google)
+- ~~[domains.google](https://domains.google)~~
   - Google Domains 定价和支持的 TLD
   - https://support.google.com/domains/answer/6010092
+  - 被 squarespace 收购 - 20230907 18M$
 - [registry.google](https://registry.google)
 - [iwantmyname.com](https://iwantmyname.com)
 

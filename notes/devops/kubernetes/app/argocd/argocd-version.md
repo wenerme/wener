@@ -35,6 +35,15 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
 
+## ArgoCD 2.9
+
+- https://blog.argoproj.io/argo-cd-v2-9-release-candidate-a1e256d01017
+
+## ArgoCD 2.8
+
+- create a one-off Job
+- https://blog.argoproj.io/argo-cd-v2-8-release-candidate-be4443d974f
+
 ## ArgoCD 2.7
 
 - Proxy Extensions

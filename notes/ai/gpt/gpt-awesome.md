@@ -19,6 +19,9 @@ tags:
   - https://suulnnka.github.io/BullshitGenerator/index.html
 - [Torantulino/Auto-GPT](https://github.com/Torantulino/Auto-GPT)
 - [PromtEngineer/localGPT](https://github.com/PromtEngineer/localGPT)
+- OpenAI
+  - https://gptstore.ai/
+  - https://quail.ink/goldengrape/p/how-to-build-a-patent-gpt
 
 ### Reading
 

@@ -221,3 +221,12 @@ tags:
 - NodeJS
   - [erelsgl/limdu](https://github.com/erelsgl/limdu)
   - https://github.com/a16z-infra/ai-getting-started
+
+## Awesome
+
+- [BerriAI/litellm](https://github.com/BerriAI/litellm)
+  - Call all LLM APIs using the OpenAI format
+- [webpilot-ai/Webpilot](https://github.com/webpilot-ai/Webpilot)
+  - GPLv3
+- [outlines-dev/outlines](https://github.com/outlines-dev/outlines)
+  - Apache-2.0

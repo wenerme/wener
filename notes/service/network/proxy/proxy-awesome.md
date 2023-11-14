@@ -350,3 +350,5 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 - https://platform.openai.com/docs/supported-countries
 - Netflix HK 只能看自有，不能看授权内容
+- tv.apple.com
+  - https://support.apple.com/zh-cn/HT204411

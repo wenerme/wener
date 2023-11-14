@@ -299,6 +299,8 @@ tags:
 | district                 | 行政区           |
 | corporation              | 公司、企业、法人 |
 | legal representative     | 法人代表         |
+| legal person             | 法人             |
+| legal entity             | 法人             |
 | corporate representative | 法人代表         |
 | supervisor               | 监事             |
 | entrepreneurial          | 企业家           |
@@ -317,6 +319,24 @@ tags:
 - 总公司
   - Head office
   - Headquarters
+
+### 法人
+
+- Business entity
+- [Legal person](https://en.wikipedia.org/wiki/Legal_person)
+  - 是 person 或 legal entity
+  - legal entity
+    - 能做大多 person 能做的事情
+    - 但不是 people
+    - 分为 human & non-human
+      - human person - natural person, physical person
+      - non-human - juridical person, legal, juridic, juristic, artificial, fictitious person
+        - 拉丁语 persona ficta
+- legal person
+  - 侧重于法律权利和责任
+- legal subject
+  - 侧重于法律行为能力
+  - anyone or anything that holds legal rights and duties
 
 ## 统计分析
 
@@ -627,7 +647,7 @@ tags:
     - 类似 Windows HKEY_CLASSES_ROOT
   - `man scutil`
   - mdls
-  - [defaults](https://en.wikipedia.org/wiki/Defaults_(software))
+  - [defaults](<https://en.wikipedia.org/wiki/Defaults_(software)>)
     - `defaults read com.apple.iTunes`
     - https://keith.github.io/xcode-man-pages/defaults.1.html
 - Windows [Registry](https://en.wikipedia.org/wiki/Windows_Registry)
@@ -693,6 +713,16 @@ tags:
   - 通常用于 url
 - title - 标题
   - 通常用于描述
+
+## title vs salutation
+
+- Title
+  - 职业称号或学术头衔
+  - "Dr."、"Prof."、"Mr."、"Ms."
+  - **正式** 地表示一个人的社会、职业或学术地位
+- Salutation
+  - 用于表示书信或电子邮件
+  - 更侧重于个人的社交尊称
 
 ## title vs label
 
@@ -1059,6 +1089,15 @@ tags:
 ---
 
 - https://en.wikipedia.org/wiki/Unified_Social_Credit_Identifier
+
+## address
+
+- Address - 任何类型的地址
+- Mailing Address - 地址用于邮寄, 区分账单地址或办公地址
+- Shipping Address - 物理商品配送
+- Postal Address - 邮政 - 适合传统的邮件寄送
+- Street Address: - 街道信息
+- Physical Address: - 区分电子地址（如电子邮件）和物理地址
 
 ## 参考
 

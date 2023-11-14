@@ -181,7 +181,6 @@ npm add date-fns lodash-es react-fast-compare
   - 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
 - [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
   - 懒加载 UI 组件
-- [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
 - [asabaylus/react-command-palette](https://github.com/asabaylus/react-command-palette)
 - [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride)
 - kanban
@@ -261,6 +260,20 @@ npm add date-fns lodash-es react-fast-compare
     - react-easy-swipe +5kB
   - [akiran/react-slick](https://github.com/akiran/react-slick)
   - https://alvarotrigo.com/blog/react-carousels/
+- image editor/crop/rotate/scale/processing
+  - [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
+  - [ValentinH/react-easy-crop](https://github.com/ValentinH/react-easy-crop)
+  - [scaleflex/filerobot-image-editor](https://github.com/scaleflex/filerobot-image-editor)
+    - react-konva
+  - [swimmingkiim/react-image-editor](https://github.com/swimmingkiim/react-image-editor)
+    - React + Konva / image editor / like Figma or Canva
+  - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
+    - 注意会收集统计 usageStatistics
+  - [advanced-cropper/react-advanced-cropper](https://github.com/advanced-cropper/react-advanced-cropper)
+  - [evanw/glfx.js](https://github.com/evanw/glfx.js)
+  - [davidsonfellipe/lena.js](https://github.com/davidsonfellipe/lena.js)
+    - filter
+  -
 - timeline
   - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
   - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)

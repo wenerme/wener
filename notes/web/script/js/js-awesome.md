@@ -510,6 +510,7 @@ tags:
   - swc
   - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
 - bundle
+  - esbuild
   - webpack
   - rollup
   - [developit/microbundle](https://github.com/developit/microbundle)

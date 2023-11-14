@@ -13,6 +13,8 @@ tags:
 | RLHF  | Reinforcement Learning from Human Feedback   | 人类反馈强化学习     |
 | SFT   | Supervised Fine-tuning                       | 监督微调             |
 | RM    | Reward / preference modeling                 | 奖励/偏好建模        |
+| SDXL  | Stable Diffusion XL                          |
+| ERP   | erotic role playing                          | 情色角色扮演         |
 
 - temperature
   - 可以控制词元选择的随机性。较低的温度适合希望获得真实或正确回复的提示，而较高的温度可能会引发更加多样化或意想不到的结果。
