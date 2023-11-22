@@ -6,10 +6,20 @@ tags:
 
 # Stable Diffusion Awesome
 
+- https://latent-consistency-models.github.io/
+- https://www.fal.ai/models/latent-consistency-sd
+  - https://github.com/fal-ai
+  - https://huggingface.co/spaces/fal-ai/realtime-stable-diffusion
+- [Acly/krita-ai-diffusion](https://github.com/Acly/krita-ai-diffusion)
+  - ComfyUI 作为后端
+  - https://news.ycombinator.com/item?id=38342670
+  - [KDE/krita](https://github.com/KDE/krita)
+- [comfyanonymous/ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+- https://stable-diffusion-art.com/qr-code/
 - [Stability-AI/stablediffusion](https://github.com/Stability-AI/stablediffusion)
   - v2
 - [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
-  -  text-to-image
+  - text-to-image
 - [basujindal/stable-diffusion](https://github.com/basujindal/stable-diffusion)
 - WebUI
   - [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)

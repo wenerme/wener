@@ -17,8 +17,10 @@ title: DuckDB
     - 在 Web 内执行，基于 FS API 进行 IO 交互
   - https://news.ycombinator.com/item?id=32684424
   - https://h2oai.github.io/db-benchmark/
-- Arrow - Python Binding
-  - https://github.com/duckdblabs/arrow
+  - [duckdblabs/arrow](https://github.com/duckdblabs/arrow)
+    - Arrow - Python Binding
+  - [evanwashere/duckdb](https://github.com/evanwashere/duckdb)
+    - bun binding
 
 :::caution
 

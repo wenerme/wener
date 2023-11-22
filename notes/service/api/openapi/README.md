@@ -22,6 +22,8 @@ title: OpenAPI
 - [fabien0102/openapi-codegen](https://github.com/fabien0102/openapi-codegen)
 - [apioo/fusio](https://github.com/apioo/fusio)
 - [Swagger2Markup/swagger2markup](https://github.com/Swagger2Markup/swagger2markup)
+- [zalando/zally](https://github.com/zalando/zally)
+  - linter
 
 ## OpenAPI
 

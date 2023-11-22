@@ -241,6 +241,13 @@ tags:
 
 ## OpenAPI
 
+- JavaScript/Typescript/NodeJS
+  - [metadevpro/openapi3-ts](https://github.com/metadevpro/openapi3-ts)
+    - TS Model
+  - [APIDevTools/swagger-parser](https://github.com/APIDevTools/swagger-parser)
+    - MIT,  JS
+    - OpenAPI 2.0, 3.0 parser/validator
+    - Resolves all $ref
 - [getkin/kin-openapi](https://github.com/getkin/kin-openapi)
   - MIT, Golang
   - OpenAPIv3 for Go
@@ -295,15 +302,39 @@ tags:
   - GraphQL, REST, WebSockets, gRPC
   - 需要上传才能同步
 - [google/gnostic](https://github.com/google/gnostic)
-- [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 - [EsperoTech/yaade](https://github.com/EsperoTech/yaade)
   - self-hosted, collaborative API development environment
 - SoapUI
 - [kubeshop/tracetest](https://github.com/kubeshop/tracetest)
 - Postman
+- [mquan/api2ai](https://github.com/mquan/api2ai)
+  - Create API agents from OpenAPI Specs
+- [ShishirPatil/gorilla](https://github.com/ShishirPatil/gorilla)
+  - API store for LLMs
+
+## Codegen
+
+- [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+  - OpenAPI -> Client & Server
+- [drwpow/openapi-typescript](https://github.com/drwpow/openapi-typescript)
+  - OpenAPI -> Typescript
+- [curlconverter/curlconverter](https://github.com/curlconverter/curlconverter)
+  - cURL -> Code
+- [glideapps/quicktype](https://github.com/glideapps/quicktype)
+  - JSON, Schema, GraphQL -> type & converter
+
+```bash
+npx -y openapi-typescript https://github.com/openai/openai-openapi/raw/master/openapi.yaml --output apis.d.ts
+```
+
+## Produce OpenAPI
+
 - [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)
   - Chrome 插件
   - 在浏览时生成接口
+- [alufers/mitmproxy2swagger](https://github.com/alufers/mitmproxy2swagger)
+  - Automagically reverse-engineer REST APIs via capturing traffic
+- [jonluca/har-to-openapi](https://github.com/jonluca/har-to-openapi)
 
 ## 参考
 

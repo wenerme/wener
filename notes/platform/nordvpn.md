@@ -109,7 +109,8 @@ yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address"
 
 fping -ac 60 $(yq -r '[ .[] | select (.features.socks) | .domain ] | join(" ")' server.json) > socks.txt
 # 非常多，只筛选部分
-fping -ac 10 $(yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan","Taiwan")) | .domain ] | join(" ")' server.json) &> proxy_ssl.txt
+# "Hong"
+fping -ac 10 $(yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Japan","Taiwan","Singapore")) | .domain ] | join(" ")' server.json) &> proxy_ssl.txt
 
 # sort by avg, reverse
 sort -t / -k 9 -h -r proxy_ssl.txt
@@ -167,14 +168,20 @@ curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
 }
 ```
 
-|              field | for                       | port |
-| -----------------: | ------------------------- | ---- |
-|              socks | SOCKS5                    | 1080 |
-|          proxy_ssl | HTTP Proxy (SSL)          | 89   |
+|              field | for                       | port  |
+| -----------------: | ------------------------- | ----- |
+|              socks | SOCKS5                    | 1080  |
+|          proxy_ssl | HTTP Proxy (SSL)          | 89    |
 | proxy_ssl_cybersec | HTTP CyberSec Proxy (SSL) |
-|      wireguard_udp | WireGuard                 | 51820
+|      wireguard_udp | WireGuard                 | 51820 |
 |            skylark | NordLynx                  |
 |         mesh_relay | NordMesh                  |
 
+- cybersec
+  - 网络安全相关
 - https://platform.openai.com/docs/supported-countries
 - https://cyberwaters.com/list-of-vpn-port-numbers-vpn-service-providers-use/
+
+```bash
+curl https://api.nordvpn.com/vpn/check/full
+```

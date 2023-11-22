@@ -10,6 +10,9 @@ title: bun
   - boringssl,libarchive,libiconv,lol-html,mimalloc,picohttp,tinycc,uSockets,zlib-cloudflare,libicu,uWebsockets
 - bun-types
   - typing
+- 参考
+  - [SaltyAom/bun-http-framework-benchmark](https://github.com/SaltyAom/bun-http-framework-benchmark)
+  - [oven-sh/awesome-bun](https://github.com/oven-sh/awesome-bun)
 
 :::caution
 
@@ -27,7 +30,7 @@ title: bun
 :::tip
 
 - bun 嵌入了 tinycc，有 jit 能力，因此 ffi 效率非常高
-- bun 还处于非常早期开发阶段 - not prodution ready
+- bun 还处于非常早期开发阶段
 - 使用 JavaScriptCore - 各有优缺点
 - bun 一些点的性能很好，但整体应用性能比不上 node
 
@@ -75,6 +78,7 @@ console.log(
 ```
 
 ## macro
+
 - 类似 inline+预执行
 
 ```ts
@@ -85,7 +89,7 @@ import { random } from './random.ts' with { type: 'macro' };
 
 ```bash
 # 90MB+
-bun build --compile ./src/main.ts  --outfile myapp --external={pg-query-stream,better-sqlite3,tedious,oracledb,mysql2,sqlite3,mysql} --external=@mikro-orm/{migrations,entity-generator,better-sqlite,sqlite,mariadb,mysql,mongodb,seeder}
+bun build --compile ./src/main.ts --outfile myapp --external={pg-query-stream,better-sqlite3,tedious,oracledb,mysql2,sqlite3,mysql} --external=@mikro-orm/{migrations,entity-generator,better-sqlite,sqlite,mariadb,mysql,mongodb,seeder}
 ```
 
 # FAQ

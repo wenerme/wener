@@ -54,11 +54,12 @@ tags:
 
 :::tip
 
+- APM -> Application Performance Management
 - APM = Metrcis + Trace = Prometheus + Jaeger
 - APM 内置集成 - 而不是简单的组合两个场景 - 例如: Grafana 同时显示 Prometheus + Jaeger
 - 多用于 Java 环境 - 更容易 instrument
 - 非 Java 环境使用 OpenTelemetry
-- 围绕业务
+- 围绕 业务/应用/Application
 
 :::
 

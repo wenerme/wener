@@ -88,3 +88,9 @@ ini_set('memory_limit', '-1');
 ```
 
 ## epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while sending request to upstream
+
+## Declaration of Monolog\Logger must be compatible with PsrExt\Log\LoggerInterface
+
+```bash
+apk del php82-pecl-psr
+```

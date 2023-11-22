@@ -261,3 +261,7 @@ const defaultAjvOptions = {
 - https://fastify.dev/docs/latest/Reference/ContentTypeParser
 - text/xml
   - 需要做额外 middleware 处理
+
+## FST_ERR_CTP_INVALID_CONTENT_LENGTH
+
+- post multipart/form

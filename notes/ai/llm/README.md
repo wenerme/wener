@@ -12,6 +12,7 @@ title: LLM
 | PaLM        | 520B           | 2022-04 |
 | ChatGPT 3.5 | 17B            | 2022-03 |
 
+- https://github.com/continuedev/what-llm-to-use
 - LLM - Large Language Model - 大型语言模型
 - PaLM - Pathways Language Model
 - Google Flamingo

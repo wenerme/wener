@@ -234,6 +234,44 @@ tags:
     - http://101.35.247.125:7789/
     - https://github.com/PandaXGO/PandaX/blob/master/resource/pandax_iot_pg.sql
   - https://github.com/edgexfoundry
+- EDMS/文档管理系统
+  - Document Management System (DMS)
+    - 效率、成本、安全、协作
+  - [ciur/papermerge](https://github.com/ciur/papermerge)
+  - [mayan-edms/Mayan-EDMS](https://github.com/mayan-edms/Mayan-EDMS)
+    - Python
+  - [sismics/docs](https://github.com/sismics/docs)
+    - GPLv3, Java, JS
+  - [eikek/docspell](https://github.com/eikek/docspell)
+    - AGPLv3, Elm, Scala
+  - [openkm/document-management-system](https://github.com/openkm/document-management-system)
+    - GPLv3, Java
+  - Lodestone
+  - Seeddms
+  - [adlibre/Adlibre-DMS](https://github.com/adlibre/Adlibre-DMS)
+    - BSD-3, Python
+  - [formkiq/formkiq-core](https://github.com/formkiq/formkiq-core)
+    - MIT, Java
+  - [opendocman/opendocman](https://github.com/opendocman/opendocman)
+    - GPLv2, PHP
+  - [paperbaseapp/paperbase](https://github.com/paperbaseapp/paperbase)
+    - AGPLv3, PHP, Vue
+  - [haiwen/seafile](https://github.com/haiwen/seafile)
+    - AGPLv3
+  - [logicaldoc/community](https://github.com/logicaldoc/community)
+  - [kimios/kimios](https://github.com/kimios/kimios)
+  - [mkucej/i-librarian-free](https://github.com/mkucej/i-librarian-free)
+- forum/BBS/论坛/社区
+  - Discourse
+    - Ruby
+  - [flarum/flarum](https://github.com/flarum/flarum)
+    - MIT, PHP, MySQL
+    - https://discuss.flarum.org/d/32812-the-future-of-flarum-in-2023-balancing-open-source-and-success
+      - 2.0 计划
+      - 支持 PostgreSQL
+  - [jimmykuu/gopher](https://github.com/jimmykuu/gopher)
+  - [mlogclub/bbs-go](https://github.com/mlogclub/bbs-go)
+  - [beego/wetalk](https://github.com/beego/wetalk)
 
 ## Avatar
 

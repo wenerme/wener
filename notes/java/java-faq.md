@@ -203,6 +203,19 @@ jattach 1 properties
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/properties.html#socks
 
+---
+
+**gradle**
+
+- $HOME/.gradle/gradle.properties
+- ./gradle/wrapper/gradle-wrapper.properties
+- from https://objects.githubusercontent.com
+
+```properties
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=8080
+```
+
 ## Virtual Thread
 
 - Java 21+

@@ -9,6 +9,12 @@ title: age
   - 简单加密工具
   - 文件维度
 
+:::caution
+
+- age 不支持 ssh agent - [age#244](https://github.com/FiloSottile/age/discussions/244)
+
+:::
+
 ```bash
 apk add age      # AlpineLinux
 brew install age # macOS
@@ -27,11 +33,7 @@ age -R ~/.ssh/id_ed25519.pub example.jpg > example.jpg.age # 使用 SSH pubkey �
 age -d -i ~/.ssh/id_ed25519 example.jpg.age > example.jpg  # 使用 SSH private key 解密
 ```
 
-:::caution
 
-- age 不支持 ssh agent - [age#244](https://github.com/FiloSottile/age/discussions/244)
-
-:::
 
 | flag                       | for            |
 | -------------------------- | -------------- |

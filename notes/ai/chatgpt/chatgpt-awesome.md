@@ -27,6 +27,10 @@ tags:
   - expressvpn
 - 统计
   - statsigapi.net
+- text-gen-webui
+- LocalAI
+- llama-cpp-python
+- FastChat
 
 ## WebUI
 

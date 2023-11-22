@@ -5,6 +5,11 @@ tags:
 
 # NestJS FAQ
 
+## 没有 Logger.info
+
+- 导致部分不兼容的场景
+- https://github.com/nestjs/nest/issues/5281
+
 ## Can't resolve 'class-transformer/storage'
 
 1. lazyImports

@@ -15,6 +15,11 @@ title: Linode
 
 - Nano - 1C1G, 25G, 1T $5/mo $0.0075/hr
 - Linode 2 GB - 1C2G, 50GB, 2T $10/mo $0.015
+- GPU
+  - $1,000/mo ($1.50/hr) 1 GPU 8 vCPU 32 GB, 640GB SSD
+  - RTX 6000
+  - https://www.linode.com/pricing/#compute-gpu
+  - https://www.linode.com/docs/products/compute/compute-instances/plans/gpu/
 - 如果月中开通，流量会按比例减少
 - 流量超出后 $0.01/GB - $10/TB
   - 也可以选择更贵的实例，流量更多
@@ -37,8 +42,6 @@ title: Linode
 
 ## Service
 
-
-
 ## Regions
 
 ```bash
@@ -47,8 +50,6 @@ curl https://api.linode.com/v4/regions | jq '.data[].id' -r
 
 <!-- $$('.c-speed-test__links a').map(v=>new URL(v.href).hostname).map(v=>v.match(/speedtest.(\w+).linode.com/)[1]).join(' ') -->
 <!-- https://www.linode.com/community/questions/17075/how-do-i-use-your-speed-test -->
-
-
 
 ```bash
 ip=$(curl -sf "https://speedtest.tokyo2.linode.com/getIP.php" | jq -r .processedString | egrep -o '^[0-9.]+')

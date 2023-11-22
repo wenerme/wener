@@ -26,11 +26,13 @@ tags:
   - https://open-gpt.app/
   - [万能道歉信](https://open-gpt.app/app/clf28gwkx0002l108tvysyb9i)
 - design/image/ppt
+  - dalle
   - https://designer.microsoft.com/
   - https://pixian.ai/
     - Remove Image Backgrounds
   - https://quickqr.art/
     - QR Code Art
+  - https://ideogram.ai/
 
 ---
 
@@ -61,15 +63,38 @@ tags:
 
 ## Coding
 
+:::tips
+
+- 功能方向
+  - Chat - 基于代码询问、解释、找 Bug
+  - 编辑 - 基于 Prompt 修改选中代码
+  - Completion - 智能代码补全
+  - Generation - 生成代码
+  - 功能场景生成 - Commit Message、Commit Explain、Issue、PR、文档、注释
+  - NLP -> Code/Query/BI
+  - NLP/Vision -> Design/Image/Code(HTML+CSS)
+  - 编辑器集成
+
+:::
+
 - [continuedev/continue](https://github.com/continuedev/continue)
-- [CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)
-  - 类似 GitHub Copilot
-  - [HN](https://news.ycombinator.com/item?id=28962582)
+  - Apache-2.0, Python
+  - ChatGPT -> VS Code and JetBrains
 - [THUDM/CodeGeeX](https://github.com/THUDM/CodeGeeX)
   - Apache-2.0
   - Multilingual Code Generation Model
 - [cloudquery/pg_gpt](https://github.com/cloudquery/pg_gpt)
   - 自然语言查询 Pg
+- [codota/TabNine](https://github.com/codota/TabNine)
+  - 支持 VSC 和 JB
+  - [codota/tabnine-intellij](https://github.com/codota/tabnine-intellij)
+    - Self host 收费
+- ~~[CodedotAl/gpt-code-clippy](https://github.com/CodedotAl/gpt-code-clippy)~~
+  - 类似 GitHub Copilot
+  - [HN](https://news.ycombinator.com/item?id=28962582)
+- 不开源/商业版
+  - https://github.com/gitbito/bitoai
+    - Jetbrains 插件
 
 ## Reading
 
@@ -85,7 +110,30 @@ tags:
 - [prompt-engineering/click-prompt](https://github.com/prompt-engineering/click-prompt)
 - https://sharegpt.com/
 
-## 图片
+## Vision
+
+- 换脸
+  - Deepfake
+- 骨骼
+- 编辑
+- 对嘴形
+- 商业
+  - Heygen
+  - http://Rask.AI
+- https://news.ycombinator.com/item?id=35352452
+  - Text2Video
+  - https://github.com/Picsart-AI-Research/Text2Video-Zero
+- [tldraw/make-real](https://github.com/tldraw/make-real)
+  - Draw -> HTML
+  - https://makereal.tldraw.com/
+    - https://github.com/tldraw/make-real
+  - https://www.tldraw.com/
+- https://github.com/Azure/gen-cv/tree/main/avatar/interactive
+  - https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-speech-announces-public-preview-of-text-to-speech/ba-p/3981448
+
+<!--
+- https://twitter.com/xiaohuggg/status/1717568433381081487
+-->
 
 ## UI
 
@@ -157,10 +205,6 @@ tags:
   - MIT, Python
 - Universal Speech Model
   - https://news.ycombinator.com/item?id=35365399
-
-## Text to Video
-
-- https://news.ycombinator.com/item?id=35352452
 
 ## Text to Audio
 

@@ -21,8 +21,11 @@ title: Chrome Extension
 ## Awesome
 
 - [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
+  - 规则代理
 - [Quick source viewer](https://chrome.google.com/webstore/detail/quick-source-viewer/cfmcghennfbpmhemnnfjhkdmnbidpanb/related)
   更方便查看源码
+- [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)
+  - 在浏览时生成 OpenAPI
 
 ## Private
 

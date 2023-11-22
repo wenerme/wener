@@ -390,6 +390,8 @@ tags:
   - console
   - [pino](../nodejs/pino.md)
     - 6.5kB/2.5kB
+  - https://www.npmjs.com/package/picocolors
+    - https://github.com/alexeyraspopov/picocolors/blob/main/picocolors.js
   - roarr
     - 13kB/4kB
   - winston

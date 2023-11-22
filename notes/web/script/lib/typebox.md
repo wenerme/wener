@@ -3,6 +3,9 @@
 
 :::tip
 
+- Json Schema Type Builder with Static Type Resolution for TypeScript
+  - 构建的结果是 JsonSchema
+  - 同时提供 TypeScript 类型定义
 - 非常 Declarative
 - 适用于标准类型定义，不适用于带转换逻辑和自定义 transform 场景
   - 例如 Date <-> string

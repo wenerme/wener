@@ -6,15 +6,38 @@ title: V2Ray
 
 - [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)
   - MIT, Golang
+  - V2Ray 创始人 Victoria Raymond 失联后 fork 的项目
 - ~~[v2ray/v2ray-core](https://github.com/v2ray/v2ray-core)~~
   - MIT, Golang
 - [v2rayA/v2rayA](https://github.com/v2rayA/v2rayA)
   - web GUI
 - [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
   - MPLv2, Go
-  -  VLESS, XTLS, REALITY, XUDP, PLUX
+  - VLESS, XTLS, REALITY, XUDP, PLUX
+  - XTLS 修改了 Go 的 TLS - 别的工具不好集成
+  - XTLS 协议的原理是将代理过程中的两条 TLS 请求合并成一条 TLS，减少一次 TLS 加密过程来达到提升性能的目的
+    - https://github.com/rprx/v2ray-vless/releases/tag/xtls
+  - 由于 License 问题独立 https://github.com/XTLS/Go/issues/9
+    - 作者 RPRX 将 License 收紧
+    - https://github.com/XTLS/Go/issues/9#issuecomment-1094515399
+- [2dust/v2rayN](https://github.com/2dust/v2rayN)
+  - GPLv3, C#
+  - GUI client for Windows, support Xray core and v2fly
+- [2dust/v2rayNG](https://github.com/2dust/v2rayNG)
+  - Android
+- [Qv2ray/Qv2ray](https://github.com/Qv2ray/Qv2ray)
+  - GUI
+  - Linux / Windows / macOS
+- [tzmax/V2RayXS](https://github.com/tzmax/V2RayXS)
+  - ObjC, macOS
+- [mack-a/v2ray-agent](https://github.com/mack-a/v2ray-agent)
+- 协议
+  - TLS -> VMess -> Trojan -> VLESS / XTLS
+    - Trojan - TLS+VMess
 - 参考
+  - https://www.v2fly.org/
   - https://www.v2ray.com/
+  - https://www.chengxiaobai.com/essays/v2ray-trojan-xray.html
 
 ```bash
 brew install v2ray

@@ -41,3 +41,8 @@ tags:
 
 - fake ip
 - https://blog.skk.moe/post/what-happend-to-dns-in-proxy/
+
+## 获取代理原始 IP
+
+- 如果用户做了分流，则可以考虑访问未分流的地址请求 URL
+- https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime

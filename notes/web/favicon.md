@@ -77,9 +77,13 @@ title: favicon
 
 ## favicon
 
-- `https://www.google.com/s2/favicons?domain=wener.me&sz=256`
-- `https://icons.duckduckgo.com/ip3/wener.me.ico`
-- `https://icon.horse/icon/wener.me`
+```
+https://www.google.com/s2/favicons?domain=wener.me&sz=256
+https://icons.duckduckgo.com/ip3/wener.me.ico
+https://icon.horse/icon/wener.me
+https://favicongrabber.com/api/grab/wener.me
+```
+
 - `https://favicongrabber.com/api/grab/wener.me`
   - https://github.com/antongunov/favicongrabber.com
 - [pomdtr/fetch-favicon](https://github.com/pomdtr/fetch-favicon)

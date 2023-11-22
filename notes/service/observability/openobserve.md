@@ -24,6 +24,7 @@ title: OpenObserve
   - 无 Elastic 兼容接口
   - Cloud 在 CE 基础上加 Proxy 做了额外的权限功能和 UI
   - 无 Grafana 插件
+- Metric 可能写爆磁盘 - 暂时不建议使用
 
 :::
 

@@ -11,6 +11,8 @@ title: zod
   - [StefanTerdell/zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema)
   - [fabien0102/ts-to-zod](https://github.com/fabien0102/ts-to-zod)
   - [asteasolutions/zod-to-openapi](https://github.com/asteasolutions/zod-to-openapi)
+  - [Effect-TS/schema](https://github.com/Effect-TS/schema)
+    - 有点类似 Typebox 定义 schema 的感觉
 
 :::note
 

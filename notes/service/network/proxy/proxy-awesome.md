@@ -69,7 +69,7 @@ tags:
   - http
   - socks5
   - ss
-  - trojan
+  - [trojan](https://github.com/trojan-gfw/trojan)
   - trojanc - cleartext
   - vless
   - vmess
@@ -88,6 +88,11 @@ tags:
 ## server
 
 - [v2ray](./v2ray/README.md)
+- [HyNetwork/hysteria](./hysteria.md)
+  - MIT, Go
+- [SagerNet/sing-box](./sing-box.md)
+  - GPL, Golang
+  - universal proxy platform
 - [clash](./clash.md)
   - rule based
 - [ginuerzh/gost](./gost.md)
@@ -122,13 +127,19 @@ tags:
   - https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
 - [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
   - MPLv2, Go
-- [HyNetwork/hysteria](./hysteria.md)
-  - MIT, Go
-- [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
-  - GPL, Golang
-  - universal proxy platform
+- [XTLS/REALITY](https://github.com/XTLS/REALITY)
 - [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
 - https://github.com/hunshcn/gh-proxy
+- [heiher/hev-socks5-tproxy](https://github.com/heiher/hev-socks5-tproxy)
+- [sower-proxy/sower](https://github.com/sower-proxy/sower)
+  - 透明代理
+  - https://github.com/sower-proxy/sower/wiki
+
+## 配置
+
+- [xmdhs/clash2singbox](https://github.com/xmdhs/clash2singbox)
+  - Clash.Mate -> SingBox
+  - Web 版 [xmdhs/clash2sfa](https://github.com/xmdhs/clash2sfa)
 
 ## Sniff/Introspection
 
@@ -198,6 +209,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 - [eycorsican/leaf](https://github.com/eycorsican/leaf)
   - Apachev2, Rust
+- [Koolson/Qure](https://github.com/Koolson/Qure)
+  - Quantumult X Policy Icon Set
+- [crossutility/Quantumult-X/](https://github.com/crossutility/Quantumult-X/)
 
 ## Golang
 
