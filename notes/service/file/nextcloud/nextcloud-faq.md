@@ -1,7 +1,7 @@
 ---
 title: Nextcloud FAQ
 tags:
-- FAQ
+  - FAQ
 ---
 
 # Nextcloud FAQ
@@ -18,6 +18,14 @@ export PHP_MEMORY_LIMIT=8G
 ./occ
 
 tail -f /var/www/html/data/nextcloud.log
+```
+
+## 移除获取免费账号的 Footer
+
+```bash
+su -l www-data -s /bin/bash
+cd /var/www/html
+./occ config:system:set simpleSignUpLink.shown --value=false --type=boolean
 ```
 
 ## nextcloud put 413
@@ -99,7 +107,6 @@ Strict-Transport-Security max-age=31536000;
 
 ## Collabora Online should expose the same protocol as the server installation. Please check the ssl.enable and ssl.termination settings of your Collabora Online server.
 
-
 ## loading document exception: No acceptable WOPI hosts found matching the target host
 
 ```bash
@@ -119,4 +126,5 @@ docker run --rm -it -e 'domain=nextcloud.wener.me'
 ```
 
 ## AH00558: apache2: Could not reliably determine the server's fully qualified domain name
+
 Apache 错误信息，不影响

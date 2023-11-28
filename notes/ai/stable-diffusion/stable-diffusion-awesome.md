@@ -6,6 +6,7 @@ tags:
 
 # Stable Diffusion Awesome
 
+- [apple/ml-stable-diffusion](https://github.com/apple/ml-stable-diffusion)
 - https://latent-consistency-models.github.io/
 - https://www.fal.ai/models/latent-consistency-sd
   - https://github.com/fal-ai

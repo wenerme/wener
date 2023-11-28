@@ -1,3 +1,6 @@
+---
+title: typebox
+---
 
 # typebox
 

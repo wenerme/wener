@@ -235,6 +235,27 @@ mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 
 mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 ```
 
+## clean
+
+```bash
+brew cleanup
+go clean -modcache
+
+mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false --fail-at-end
+gradle clean
+
+ls ~/.nvm/versions/node/v{12,14,16}* -d 2>/dev/null | xargs -n1 basename
+# for s in $(  ls ~/.nvm/versions/node/v{12,14,16}* -d 2>/dev/null | xargs -n1 basename );do echo nvm uninstall $s; done
+rm -rf ~/.nvm/versions/node/v{12,14,16}*
+
+nvm cache clear
+yarn cache clean
+npm cache clean --force
+pnpm store prune
+
+pip cache purge
+```
+
 ## How to ask
 
 - https://stackoverflow.com/help/minimal-reproducible-example

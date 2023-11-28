@@ -245,12 +245,22 @@ tags:
   - [metadevpro/openapi3-ts](https://github.com/metadevpro/openapi3-ts)
     - TS Model
   - [APIDevTools/swagger-parser](https://github.com/APIDevTools/swagger-parser)
-    - MIT,  JS
+    - MIT, JS
     - OpenAPI 2.0, 3.0 parser/validator
     - Resolves all $ref
 - [getkin/kin-openapi](https://github.com/getkin/kin-openapi)
   - MIT, Golang
   - OpenAPIv3 for Go
+- Diff
+  - [OpenAPITools/openapi-diff](https://github.com/OpenAPITools/openapi-diff)
+    - Apache-2.0, Java
+  - [tufin/oasdiff](https://github.com/tufin/oasdiff)
+    - Apache-2.0, Golang
+    - https://www.oasdiff.com/
+  - [Azure/openapi-diff](https://github.com/Azure/openapi-diff)
+  - https://api-diff.io/
+  - https://bitbucket.org/atlassian/openapi-diff
+    - https://www.npmjs.com/package/openapi-diff
 
 ## API Gateway
 

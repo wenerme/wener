@@ -17,8 +17,11 @@ curl ipecho.net/plain
 curl icanhazip.com
 curl ipv4.icanhazip.com
 
+curl 'https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime'
+
 # 使用 DNS 的方式获取
 dig +short myip.opendns.com @resolver1.opendns.com
+
 ```
 
 ## Private

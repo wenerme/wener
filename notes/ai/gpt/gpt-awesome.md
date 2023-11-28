@@ -5,7 +5,7 @@ tags:
 
 # GPT Awesome
 
-- GPT - Generative Pre-trained Transformer - 生成型已训练变换模型
+- GPT - Generative Pre-trained Transformer - 生成型预训练变换模型
 - wikipedia [GPT-3](https://en.wikipedia.org/wiki/GPT-3)
   - autoregressive language model - 自回归语言模型
 - [openai/gpt-3](https://github.com/openai/gpt-3)

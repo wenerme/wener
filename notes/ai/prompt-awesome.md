@@ -68,6 +68,8 @@ https://twitter.com/dotey/status/1722831122285932592
 https://github.com/linexjlin/GPTs
 https://crackgpts.com/
 https://github.com/LouisShark/chatgpt_system_prompt
+https://gptseek.com/
+https://twitter.com/FinanceYF5/status/1726456413227298905
 
 https://chat.openai.com/g/g-4nCSDIETH-phototoavatar
 广告文案

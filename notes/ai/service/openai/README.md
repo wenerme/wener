@@ -113,3 +113,14 @@ Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests
 ```
 
 ## 您的银行卡被拒绝了。
+
+
+## Access denied
+
+尝试不用 VPN 或者换 VPN
+
+## 清理 Auth 信息
+
+```js
+javascript:window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.startsWith('@@auth0spajs'))
+```

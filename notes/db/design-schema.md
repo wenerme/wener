@@ -88,6 +88,8 @@ tags:
 - K-Sortable
   - 基本有序
   - Prefetch 优化 - 非常容易连续命中
+- https://sqids.org/
+  - HN https://news.ycombinator.com/item?id=38414914
 
 ## 主键类型
 

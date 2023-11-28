@@ -193,12 +193,25 @@ docker run --rm -it --entrypoint bash \
 - v1 - 默认
 - v2 - CMPXCHG16B, LAHF, SAHF, POPCNT, SSE3, SSE4.1, SSE4.2, SSSE3
   - 2009: Nehalem, Jaguar, Intel Atom Silvermont, QEMU
+  - amdv2
 - v3 - AVX, AVX2, BMI1, BMI2, F16C, FMA, LZCNT, MOVBE, OSXSAVE
   - 2015 - Haswell, Excavator
+  - amdv3
 - v4 - AVX512F, AVX512BW, AVX512CD, AVX512DQ, AVX512VL
+  - 2017: Skylake-X, Skylake-SP
+  - 2022: Zen 4
+  - amdv4
 - 参考
   - [GOAMD64](https://github.com/golang/go/wiki/MinimumRequirements#amd64)
   - [Microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels)
+
+```bash
+# AMDv3
+# avx 可能有，但可能没 avx2
+grep -oE 'avx2|bmi1|bmi2|f16|fma' /proc/cpuinfo  | sort -u
+# AMDv4
+grep -oE 'avx512' /proc/cpuinfo  | sort -u
+```
 
 ## GOARM
 

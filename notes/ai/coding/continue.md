@@ -15,6 +15,7 @@ title: continue
   - Jetbrain 插件 https://plugins.jetbrains.com/plugin/22707-continue
 
 ```
+# PostHog
 allow_anonymous_telemetry=False
 ```
 

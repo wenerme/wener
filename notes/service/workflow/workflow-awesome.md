@@ -43,6 +43,8 @@ tags:
 - [activepieces/activepieces](https://github.com/activepieces/activepieces)
   - MIT, Typescript
   - no-code workflow builder
+- [PipedreamHQ/pipedream](github.com/PipedreamHQ/pipedream)
+  - SALv1, JS, TS
 - Huginn
   - Python
 - [enso-org/enso](https://github.com/enso-org/enso)

@@ -4,6 +4,12 @@ title: NordVPN
 
 # NordVPN
 
+- 注意 6 设备限制
+- 推荐区域 - 香港作为 relay
+  - 美国 - 可以考虑额外节点
+  - 台湾
+  - 日本
+  - 新加坡
 - 参考
   - [bubuntux/nordvpn](https://github.com/bubuntux/nordvpn)
 
@@ -185,3 +191,12 @@ curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
 ```bash
 curl https://api.nordvpn.com/vpn/check/full
 ```
+
+# FAQ
+
+## 6 设备限制
+
+- 6 链接限制
+- 过多连接可能需要登录后才能连接成功
+- https://support.nordvpn.com/FAQ/1047408552
+- https://nordvpn.com/zh/features/vpn-for-multiple-devices/

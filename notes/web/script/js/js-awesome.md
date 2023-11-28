@@ -788,6 +788,17 @@ tags:
 
 ## WebServer
 
+- Reuqest/Response/WebStandard - 支持 EdgeRuntime/Deno/Bun/Cloudflare
+  - [honojs/hono](https://github.com/honojs/hono)
+    - https://ultrajs.dev/
+  - [elysiajs/elysia](https://github.com/elysiajs/elysia)
+  - [hattipjs/hattip](https://github.com/hattipjs/hattip)
+  - [unjs/nitro](https://github.com/unjs/nitro)
+- Router
+  - itty-router
+
+---
+
 - fastify
 - koa
 - express

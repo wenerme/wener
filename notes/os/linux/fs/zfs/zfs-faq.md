@@ -375,3 +375,74 @@ zpool online data DISK
 zpool clear data
 zpool scrube data # 推荐
 ```
+
+## remount zvol rw
+
+```bash
+mount -o remount,rw /data/docker
+```
+
+- cache 异常后导致 zvol 被重新挂载为 ro
+- clear cache 的 error 后还是无法挂载，因为 fs 损坏
+
+
+```ansi
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 5767264 starting block 14909936)[0m
+[0;31mBuffer I/O error on device zd0, logical block 14909936[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 5898267 starting block 11927556)[0m
+[0;31mBuffer I/O error on device zd0, logical block 11927556[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 5898258 starting block 20496389)[0m
+[0;31mBuffer I/O error on device zd0, logical block 20496389[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 5898266 starting block 2630818)[0m
+[0;31mBuffer I/O error on device zd0, logical block 2630818[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2919521 starting block 16194810)[0m
+[0;31mBuffer I/O error on device zd0, logical block 16194810[0m
+[0;31mBuffer I/O error on device zd0, logical block 16194811[0m
+[0;31mBuffer I/O error on device zd0, logical block 16194812[0m
+[0;31mBuffer I/O error on device zd0, logical block 16194813[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2920494 starting block 14332529)[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2883634 starting block 24493815)[0m
+[0;31mBuffer I/O error on device zd0, logical block 24493815[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2883634 starting block 24493816)[0m
+[0;31mBuffer I/O error on device zd0, logical block 14332529[0m
+[0;31mBuffer I/O error on dev zd0, logical block 0, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 1, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 2, lost async page write[0m
+[0;33mEXT4-fs error (device zd0): [0;31;1mext4_check_bdev_write_error:217: comm kworker/u8:0: Error while async write back metadata[0m
+[0;33mEXT4-fs (zd0): [0;31mprevious I/O error to superblock detected[0m
+[0;31mBuffer I/O error on dev zd0, logical block 5, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 6, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 8, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 1048588, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 1048589, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 1466067, lost async page write[0m
+[0;31mBuffer I/O error on dev zd0, logical block 1505175, lost async page write[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2883634 starting block 24493838)[0m
+[0;33mEXT4-fs error (device zd0): [0;31;1mext4_check_bdev_write_error:217: comm VM Periodic Tas: Error while async write back metadata[0m
+[0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 2883634 starting block 24493839)[0m
+[0;31mAborting journal on device zd0-8.[0m
+[0;33mEXT4-fs error (device zd0) in ext4_convert_unwritten_io_end_vec:4859: [0;31;1mIO failure[0m
+[0;33mEXT4-fs (zd0): [0mfailed to convert unwritten extents to written extents -- potential data loss!  (inode 2883634, error -5)
+[0;33mJBD2: [0;31mI/O error when updating journal superblock for zd0-8.[0m
+[0;33mEXT4-fs error (device zd0): [0;31;1mext4_journal_check_start:83: comm k3s-server: Detected aborted journal[0m
+[0;33mEXT4-fs (zd0): [0;31mprevious I/O error to superblock detected[0m
+[0;33mEXT4-fs error (device zd0): [0;31;1mext4_journal_check_start:83: comm http-nio-8080-P: Detected aborted journal[0m
+[0;33mEXT4-fs (zd0): [0;31mI/O error while writing superblock[0m
+[0;33mEXT4-fs (zd0): [0;31;1mRemounting filesystem read-only[0m
+[0;33mEXT4-fs (zd0): [0;31mI/O error while writing superblock
+```
+
+- 停止服务自动启动
+- reboot
+- fsck
+
+```bash
+umount /dev/zd0
+fsck -y /dev/zd0
+mount -a
+
+# ensure mount point working as expected
+touch /data/docker/test
+
+# start service
+```

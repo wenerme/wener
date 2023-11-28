@@ -27,9 +27,6 @@ title: Mirrors
 | https://mirrors.cloud.tencent.com/ | 腾讯云 |
 | https://mirrors.gitee.com/         | Gitee  |
 
-- https://fastly.jsdelivr.net
-- https://cnd.jsdelivr.net
-
 **高校镜像**
 
 | URL                                   | 地址             | 信息                                |
@@ -65,6 +62,14 @@ title: Mirrors
 
 - https://github.com/SUSTech-CRA/chinese-opensource-mirror-site
 - https://mirrors.cernet.edu.cn/list
+
+## jsdelivr
+
+- https://fastly.jsdelivr.net
+- https://cnd.jsdelivr.net
+- https://jsdelivr.wener.me
+- https://github.com/54ayao/Chinajsdelivr
+  - jsd.cdn.zzko.cn
 
 ## Github
 
@@ -169,27 +174,27 @@ EOF
 mirrors:
   docker.io:
     endpoint:
-    - https://dockercr.wener.me
-    - https://docker.m.daocloud.io
-    - https://registry-1.docker.io
+      - https://dockercr.wener.me
+      - https://docker.m.daocloud.io
+      - https://registry-1.docker.io
   ghcr.io:
     endpoint:
-    - https://ghcr.wener.me
-    - https://ghcr.io
+      - https://ghcr.wener.me
+      - https://ghcr.io
   registry.k8s.io:
     endpoint:
-    - https://k8scr.wener.me
-    - https://registry.k8s.io
+      - https://k8scr.wener.me
+      - https://registry.k8s.io
   gcr.io:
     endpoint:
-    - https://gcr.wener.me
-    - https://gcr.m.daocloud.io
-    - https://gcr.io
+      - https://gcr.wener.me
+      - https://gcr.m.daocloud.io
+      - https://gcr.io
   quay.io:
     endpoint:
-    - https://quaycr.wener.me
-    - https://quay.m.daocloud.io
-    - https://quay.io
+      - https://quaycr.wener.me
+      - https://quay.m.daocloud.io
+      - https://quay.io
 ```
 
 ## HomeBrew

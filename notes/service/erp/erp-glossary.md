@@ -17,7 +17,7 @@ tags:
   - [scheibler/khard](https://github.com/scheibler/khard) - Console carddav client
   - [3 open source tools to manage your contacts](https://opensource.com/article/20/1/sync-contacts-locally)
 
-## User - 员工/用户 {#user}
+## User - 员工/用户/服务商 {#user}
 
 ## Customer - 客户 {#customer}
 
@@ -29,6 +29,8 @@ tags:
 - 账户的联系人
 
 ## Account - 账户 {#account}
+
+- 企业客户
 
 ## Contact - 联系人 {#contact}
 

@@ -11,6 +11,13 @@ title: elysia
   - AOT
     - 生成代码来进行 route
     - route 变成一个大 switch
+  - 与 [hono](./hono.md) 非常相似，但面向 bun 为主
+    - hono 更早，支持更多 环境
+    - 没有 AOT
+    - 没默认 typebox - 支持多种 validator
+- 参考
+  - [bogeychan/elysia-polyfills](https://github.com/bogeychan/elysia-polyfills)
+    - 可以在 node 环境下使用 elysia
 
 ```bash
 pnpm add elysia @elysiajs/swagger @elysiajs/static
@@ -81,3 +88,8 @@ app.signIn
       - application/octet-stream 会让 body 为 arrayBuffer
       - 没有则会触发 onParse
       - fallback 为基于 header 里的 content-type 进行 parse
+
+# FAQ
+
+- gen eden types
+  - https://github.com/elysiajs/elysia/issues/257#issuecomment-1752547939

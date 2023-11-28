@@ -34,13 +34,6 @@ title: React Query
 |                  | isPlaceholderData                     |
 | keepPreviousData | isPreviousData                        |
 
-:::caution
-
-- mutation 状态不共享 [#2304](https://github.com/tannerlinsley/react-query/issues/2304)
-- useQueries suspense 不是一次性等待完成 [#1523](https://github.com/tannerlinsley/react-query/issues/1523)
-
-:::
-
 ## QueryClient
 
 - 框架无关客户端
@@ -158,7 +151,7 @@ const [unsubscribe, promise] = persistQueryClient({
 - cacheTime -> gcTime
 - keepPreviousData -> placeholderData
 - loading -> pending
--  `useMutationState`
+- `useMutationState`
 - suspense
   - `useSuspenseQuery`
   - `useSuspenseInfiniteQuery`

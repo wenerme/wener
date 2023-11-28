@@ -27,13 +27,6 @@ title: Level UP in China
 | NPDP    | 国际公认的产品开发专业认证         |
 | MBA     |
 
-## 上海居住证
-
-- 积分查询登陆 https://jzzjf.rsj.sh.gov.cn/jzzjf/
-  - 打印没有二维码时 临时修改站点设置，允许 Insecure content
-- 档案核实进度查询 http://222.68.19.232/webMaster/ggrs/ggrs_cxhs.htm
-- [紧缺专业目录](http://jzzjf.rsj.sh.gov.cn/jzzjf/pingfen/jqzyml.htm)
-- https://etax.chinatax.gov.cn/
 
 ## 会计
 

@@ -272,6 +272,115 @@ tags:
   - [jimmykuu/gopher](https://github.com/jimmykuu/gopher)
   - [mlogclub/bbs-go](https://github.com/mlogclub/bbs-go)
   - [beego/wetalk](https://github.com/beego/wetalk)
+- Storage/File/Drive
+  - Nextcloud
+  - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
+    - GPLv3, Golang
+- file share/airdrop
+  - [localsend/localsend](https://github.com/localsend/localsend)
+    - MIT, Dart, Flutter
+    - 🌟
+    - GUI/桌面/Web 应用
+    - https://localsend.org/
+  - [schollz/croc](https://github.com/schollz/croc)
+    - MIT, Go
+    - 🌟
+    - 命令行
+    - 依赖 relay，可以 selfhost
+    - 支持 resume
+  - [tudbut/qft](https://github.com/tudbut/qft)
+    - GPLv3, Rust
+  - [psanford/wormhole-william](https://github.com/psanford/wormhole-william)
+    - MIT, Go
+    - 不支持 resume
+    - ⚠️ 默认 release 依赖 glibc
+    - https://github.com/psanford/wormhole-william-mobile
+  - [schlagmichdoch/PairDrop](https://github.com/schlagmichdoch/PairDrop)
+    - GPLv3, JS, WebRTC, NodeJS
+    - fork of Snapdrop
+  - [RobinLinus/snapdrop](https://github.com/RobinLinus/snapdrop)
+    - GPLv3, JS
+  - [mozilla/send](https://github.com/mozilla/send)
+    - MPLv2
+  - [timvisee/send](https://github.com/timvisee/send)
+    - fork of mozilla/send
+    - https://send.vis.ee
+  - [saljam/webwormhole](https://github.com/saljam/webwormhole)
+  - [szimek/sharedrop](https://github.com/szimek/sharedrop)
+    - MIT, JS
+    - P2P
+  - [kern/filepizza](https://github.com/kern/filepizza)
+    - P2P
+    - https://file.pizza/
+  - ~~[dennis-tra/pcp](https://github.com/dennis-tra/pcp)~~
+    - Apache-2.0, Golang, libp2p
+    - 命令行
+    - IPFS DHT
+  - [blenderskool/blaze](https://github.com/blenderskool/blaze)
+    - MIT, JS
+    - Web, P2P
+    - built using WebTorrent and WebSockets
+  - [LeastAuthority/winden](https://github.com/LeastAuthority/winden)
+  - [magic-wormhole/magic-wormhole.rs](https://github.com/magic-wormhole/magic-wormhole.rs)
+    - EUPL-1.2, Rust
+    - http://magic-wormhole.io/
+  - [mat-sz/filedrop](https://github.com/mat-sz/filedrop)
+    - BSC-3, NodeJS, React
+  - https://magic-wormhole.readthedocs.io/en/latest/
+  - https://wormhole.app/
+  - PAKE - e2e 加密
+- CMS
+  - https://github.com/gollum/gollum
+    - MIT, Ruby
+    - Git-powered wiki with a sweet API and local frontend
+  - [outline/outline](https://github.com/outline/outline)
+    - BSL 1.1
+- image
+  - [cshum/imagor](https://github.com/cshum/imagor)
+    - Go, libvips
+- git
+  - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
+- zoom, team
+  - [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
+    - WebRTC & SFU
+    - SFU - [versatica/mediasoup](https://github.com/versatica/mediasoup) https://mediasoup.org/
+- office
+  - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
+    - stateless API for PDF files
+- gist/pastebin
+  - [thomiceli/opengist](https://github.com/thomiceli/opengist)
+    - AGPLv3, Go
+- form/问卷调查系统/表单系统
+  - [TDuckCloud/tduck-platform](https://github.com/TDuckCloud/tduck-platform)
+  - [javahuang/surveyking](https://github.com/javahuang/surveyking)
+- real-time/messaging/Websocket as a Service
+  - nats
+    - 支持 WebSocket， JWT 认证
+  - [im-awesome](./im/im-awesome.md)
+  - [centrifugal/centrifugo](https://github.com/centrifugal/centrifugo)
+    - 实时消息服务
+      - 作为独立服务存在
+      - JWT 认证
+      - 暴露 HTTP, GRPC 接口
+      - 可以将 RPC Websocket 请求转换为 HTTP 请求
+    - MIT 协议
+    - language-agnostic - 语言无关
+    - Websocket - JSON, Protobuf
+    - SockJS - polyfill
+    - 类似商业产品
+      - https://pusher.com/websockets
+    - 适用场景
+      - php+html - php 不易处理 ws，但使用该服务可以 php --POST-> centrifugo --WS-> html
+      - vercel 部署请求必须 10s 内 - 则可以 NextJS 后端 -> centrifugo -> 前端
+      - AWS Lambda 场景 - 没有长链接，需要支持通知
+      - Function as a Service 场景 - 没有链接概念，需要支持通知
+      - 聊天产品、实时通知、消息集成、事件驱动
+      - 类似于 Kafka，但是是面向 C 端产品
+- Map/Geo
+  - [protomaps](https://github.com/protomaps)
+  - [maplibre](https://github.com/maplibre)
+- serverless/event driven
+  - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
 
 ## Avatar
 
@@ -381,109 +490,7 @@ tags:
 - [Conchylicultor/DeepQA](https://github.com/Conchylicultor/DeepQA)
   - Apache-2.0, Python, 停止开发
 - [DopplerHQ/awesome-bots](https://github.com/DopplerHQ/awesome-bots)
-- [outline/outline](https://github.com/outline/outline)
-  - BSL 1.1
-- CMS
-  - https://github.com/gollum/gollum
-    - MIT, Ruby
-    - Git-powered wiki with a sweet API and local frontend
-- image
-  - [cshum/imagor](https://github.com/cshum/imagor)
-    - Go, libvips
-- git
-  - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
-- zoom, team
-  - [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
-    - WebRTC & SFU
-    - SFU - [versatica/mediasoup](https://github.com/versatica/mediasoup) https://mediasoup.org/
-- office
-  - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
-    - stateless API for PDF files
-- gist/pastebin
-  - [thomiceli/opengist](https://github.com/thomiceli/opengist)
-    - AGPLv3, Go
-- form/问卷调查系统/表单系统
-  - [TDuckCloud/tduck-platform](https://github.com/TDuckCloud/tduck-platform)
-  - [javahuang/surveyking](https://github.com/javahuang/surveyking)
-- real-time/messaging/Websocket as a Service
-  - nats
-    - 支持 WebSocket， JWT 认证
-  - [im-awesome](./im/im-awesome.md)
-  - [centrifugal/centrifugo](https://github.com/centrifugal/centrifugo)
-    - 实时消息服务
-      - 作为独立服务存在
-      - JWT 认证
-      - 暴露 HTTP, GRPC 接口
-      - 可以将 RPC Websocket 请求转换为 HTTP 请求
-    - MIT 协议
-    - language-agnostic - 语言无关
-    - Websocket - JSON, Protobuf
-    - SockJS - polyfill
-    - 类似商业产品
-      - https://pusher.com/websockets
-    - 适用场景
-      - php+html - php 不易处理 ws，但使用该服务可以 php --POST-> centrifugo --WS-> html
-      - vercel 部署请求必须 10s 内 - 则可以 NextJS 后端 -> centrifugo -> 前端
-      - AWS Lambda 场景 - 没有长链接，需要支持通知
-      - Function as a Service 场景 - 没有链接概念，需要支持通知
-      - 聊天产品、实时通知、消息集成、事件驱动
-      - 类似于 Kafka，但是是面向 C 端产品
-- file share/airdrop
-  - [localsend/localsend](https://github.com/localsend/localsend)
-    - MIT, Dart, Flutter
-    - 🌟
-    - GUI/桌面/Web 应用
-    - https://localsend.org/
-  - [schollz/croc](https://github.com/schollz/croc)
-    - MIT, Go
-    - 🌟
-    - 命令行
-    - 依赖 relay，可以 selfhost
-    - 支持 resume
-  - [tudbut/qft](https://github.com/tudbut/qft)
-    - GPLv3, Rust
-  - [psanford/wormhole-william](https://github.com/psanford/wormhole-william)
-    - MIT, Go
-    - 不支持 resume
-    - ⚠️ 默认 release 依赖 glibc
-    - https://github.com/psanford/wormhole-william-mobile
-  - [schlagmichdoch/PairDrop](https://github.com/schlagmichdoch/PairDrop)
-    - GPLv3, JS, WebRTC, NodeJS
-    - fork of Snapdrop
-  - [RobinLinus/snapdrop](https://github.com/RobinLinus/snapdrop)
-    - GPLv3, JS
-  - [mozilla/send](https://github.com/mozilla/send)
-    - MPLv2
-  - [timvisee/send](https://github.com/timvisee/send)
-    - fork of mozilla/send
-    - https://send.vis.ee
-  - [saljam/webwormhole](https://github.com/saljam/webwormhole)
-  - [szimek/sharedrop](https://github.com/szimek/sharedrop)
-    - MIT, JS
-    - P2P
-  - [kern/filepizza](https://github.com/kern/filepizza)
-    - P2P
-    - https://file.pizza/
-  - ~~[dennis-tra/pcp](https://github.com/dennis-tra/pcp)~~
-    - Apache-2.0, Golang, libp2p
-    - 命令行
-    - IPFS DHT
-  - [blenderskool/blaze](https://github.com/blenderskool/blaze)
-    - MIT, JS
-    - Web, P2P
-    - built using WebTorrent and WebSockets
-  - [LeastAuthority/winden](https://github.com/LeastAuthority/winden)
-  - [magic-wormhole/magic-wormhole.rs](https://github.com/magic-wormhole/magic-wormhole.rs)
-    - EUPL-1.2, Rust
-    - http://magic-wormhole.io/
-  - [mat-sz/filedrop](https://github.com/mat-sz/filedrop)
-    - BSC-3, NodeJS, React
-  - https://magic-wormhole.readthedocs.io/en/latest/
-  - https://wormhole.app/
-  - PAKE - e2e 加密
-- Map/Geo
-  - [protomaps](https://github.com/protomaps)
-  - [maplibre](https://github.com/maplibre)
+
 
 ## 学习
 

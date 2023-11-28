@@ -13,11 +13,17 @@ title: Nextcloud 版本
 
 | version      | date       |
 | ------------ | ---------- |
+| Nextcloud 27 |            |
+| Nextcloud 26 |            |
 | Nextcloud 25 | 2022-12-08 |
 | Nextcloud 24 | 2022-05-03 |
 | Nextcloud 23 | 2021-11-30 |
 | Nextcloud 23 | 2022-05-03 |
 | Nextcloud 22 | 2021-07-06 |
+
+## Nextcloud 27
+
+## Nextcloud 26
 
 ## Nextcloud 25
 

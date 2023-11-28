@@ -87,6 +87,8 @@ mkpasswd --rounds 1000 -m sha-512 --salt $(head -c 40 /dev/random | base64 | sed
 
 ## 常见服务加密算法
 
+- `$algorithm$[cost]$[salt][hash]`
+
 ### Gitea
 
 - `PASSWORD_HASH_ALGO=pbkdf2`
