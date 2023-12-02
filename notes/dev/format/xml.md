@@ -22,3 +22,15 @@ xmlstarlet ed -O --inplace -N x=http://www.w3.org/2000/svg \
   --insert "/x:svg[not(@fill)]" --type attr -n fill -v currentColor
   icon.svg
 ```
+
+# Schema
+- https://www.w3.org/XML/Schema
+- https://www.freeformatter.com/xsd-generator.html
+- https://www.liquid-technologies.com/online-xml-to-xsd-converter
+- https://extendsclass.com/xml-schema-validator.html
+
+# Diff
+- https://extendsclass.com/xml-diff.html
+- https://onlinetextcompare.com/xml
+- https://codebeautify.org/xml-diff
+- https://softwium.com/xml-compare/
