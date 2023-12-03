@@ -43,8 +43,11 @@ tags:
   - ~75%
 
 ```bash
-curl -LO https://github.com/shssoichiro/oxipng/releases/download/v8.0.0/oxipng-8.0.0-x86_64-apple-darwin.tar.gz
-tar zxvf oxipng-8.0.0-x86_64-apple-darwin.tar.gz
+brew install oxipng # install by macOS brew
+
+# install by download binary
+curl -LO https://github.com/shssoichiro/oxipng/releases/download/v9.0.0/oxipng-9.0.0-x86_64-apple-darwin.tar.gz
+tar zxvf oxipng-9.0.0-x86_64-apple-darwin.tar.gz
 
 oxipng -o max -i 0 --strip safe *.png
 ```

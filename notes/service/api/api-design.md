@@ -352,3 +352,46 @@ message BatchCreateUsersResponse {
 ```
 
 - https://github.com/ent/contrib/blob/1faab982b6648b7704a6cf41ff65d9cb7811a2be/entproto/internal/todo/ent/proto/entpb/entpb.proto
+
+## 翻页参数 {#pagination}
+
+- 最终是需要 limit+offset
+- 允许用户提供各种输入
+  - cursor 不在这个范围内
+
+```ts
+export function normalizePagination(page: {
+  pageSize?: number;
+  pageIndex?: number;
+  pageNumber?: number;
+  limit?: number;
+  offset?: number;
+}) {
+  let { pageSize = 20, pageNumber = 1, pageIndex = pageNumber - 1, limit, offset } = page;
+  return {
+    limit: limit || pageSize,
+    offset: offset ?? pageIndex * pageSize,
+  };
+}
+```
+
+## 游标翻页 {#cursor}
+
+- cursor+limit
+- 基本信息
+  - id/timestamp
+  - direction - 方向
+    - 默认 `>` - 往后取
+- 可以考虑额外的信息
+  - 例如排序字段
+
+```ts
+interface Cursor {
+  id: string;
+  direction: 'asc' | 'desc';
+}
+```
+
+```
+where id ${direction === 'asc' ? '>' : '<'} ${id}
+```

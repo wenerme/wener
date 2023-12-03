@@ -32,6 +32,7 @@ tags:
 - llama-cpp-python
 - FastChat
 
+
 ## WebUI
 
 - [Niek/chatgpt-web](https://github.com/Niek/chatgpt-web)
@@ -93,3 +94,7 @@ docker run --rm -it \
 
 1. 流式逐字输出 - 体感更好
 1. 一次性输出 - 可能等很久
+
+## Reading
+
+- https://www.youtube.com/watch?v=flXrLGPY3SU

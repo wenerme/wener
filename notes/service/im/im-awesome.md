@@ -36,6 +36,9 @@ tags:
 - [wildfirechat/im-server](https://github.com/wildfirechat/im-server)
   - Java
   - MQTT
+- Customer Chat
+  - [papercups-io/papercups](https://github.com/papercups-io/papercups)
+    - elixir
 
 ## Server
 

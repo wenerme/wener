@@ -52,3 +52,34 @@ title: daisy
 - --rounded-box: 1rem;
 - --rounded-btn: .5rem;
 - --rounded-badge: 1.9rem;
+
+# Version
+
+- https://daisyui.com/docs/changelog/
+
+## DaisyUI v4
+
+- 颜色类型调整 hsl -> oklch
+  - `hsl(var(--p))` -> `oklch(var(--p))`
+  - Chrome/Edge 111+, Safari 15.4+, Firefox 113+
+- 颜色调整
+  - 移除 `*-focus` - 之前只用于 button
+    - `bg-[color-mix(in_oklab,oklch(var(--p)),black)]`
+  - darker 使用 `color-mix`
+- 默认支持 rlt
+  - `<html dir=rlt>`
+  - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values
+- 组件调整
+  - tab 的 item 不需要重复 `tab`
+  - tabs 使用 flex -> grid
+  - button
+    - 不默认大写
+- 新组件
+  - timeline
+  - skeleton
+  - diff
+  - theme-controller
+- 新主题
+  - Dim
+  - Nord
+  - Sunset

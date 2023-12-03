@@ -507,7 +507,7 @@ NextJS ssr 不支持 React.lazy
 NODE_OPTIONS=--experimental-specifier-resolution=node
 ```
 
-##  process.env.NEXT_PHASE
+## process.env.NEXT_PHASE
 
 ```bash
 export const PHASE_EXPORT = 'phase-export'
@@ -521,3 +521,22 @@ export const PHASE_INFO = 'phase-info'
 - https://github.com/vercel/next.js/blob/2de45693a9207c040dcc0f1a1d1a4f44431170e2/packages/next/src/shared/lib/constants.ts#L23-L28
 
 ## Failed to find Server Action. This request might be from an older or newer deployment.
+
+## await isn't allowed in non-async function
+
+- NextJS 14， Server Action
+
+```
+await __webpack_async_dependencies__
+```
+
+- https://github.com/vercel/next.js/discussions/57535
+
+```js
+const config = {
+  experimental: {
+    // https://github.com/vercel/next.js/discussions/57535
+    esmExternals: false,
+  },
+};
+```

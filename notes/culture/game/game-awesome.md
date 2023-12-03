@@ -39,6 +39,8 @@ https://www.game-game.com.ua/
 | Roguelite |
 
 - https://store.epicgames.com/en-US/free-games
+- [Mzying2001/CefFlashBrowser](https://github.com/Mzying2001/CefFlashBrowser)
+  - Flash浏览器, Windows
 
 ## Nitendo Switch
 

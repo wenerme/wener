@@ -4,6 +4,17 @@ title: NextJS
 
 # NextJS
 
+:::caution
+
+- NextJS 的构建相当复杂 - lambda、server action、pages、app
+  - dev 能运行，build 后可能又无法运行
+- 不要用于后端太重的场景
+  - 构建会遇到各种问题
+  - 前后端 Refresh 的频度不一样 - 后端 refresh 时慢
+
+:::
+
+
 - [vercel/next.js](https://github.com/vercel/next.js)
 - 页面自定义
   - [默认特殊页面内容](https://github.com/zeit/next.js/tree/master/packages/next/pages)
@@ -58,7 +69,7 @@ title: NextJS
 - 无法按页面切分 CSS
   - 最终会生成单个 css 文件
   - 只有 `_app` 可以导入全局 css
-- 单一 HTML 入口 - 不像 vite 支持多入口
+- ~~单一 HTML 入口 - 不像 vite 支持多入口~~
 - rewrites 会在 build 时生成 router-manifest, 因此 start 时配置的变量 **无法** 产生影响
 - ESM 使用还有问题
   - 目前 main 最好还是指向 cjs

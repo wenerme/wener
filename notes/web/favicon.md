@@ -24,6 +24,17 @@ title: favicon
 <link rel="shortcut icon" href="/icons/favicon.ico" />
 ```
 
+```bash
+#convert favicon.svg -resize 64 favicon.png
+convert favicon.svg -define icon:auto-resize=64,48,32,16 favicon.ico
+
+brew install librsvg
+rsvg-convert -h 128 -w 128 --keep-aspect-ratio --background-color=none favicon.svg > favicon.png
+cp favicon.png in.png
+convert in.png -gravity center -background transparent -extent 128x128 favicon.png
+oxipng -o max -i 0 --strip safe *.png
+```
+
 ## dark
 
 1. svg style 控制

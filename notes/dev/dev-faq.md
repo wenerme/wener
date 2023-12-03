@@ -10,6 +10,36 @@ tags:
 - https://www.martinfowler.com/
 - https://web.stanford.edu/~ouster/cgi-bin/decisions.php
 
+## profile
+
+- 面向生命周期
+  - 开发、测试、预发布、生产、性能测试
+  - dev/test/staging/prod/perf
+  - local/development/staging/production/testing
+  - dev/test/staging/prod
+  - development/test/stage/produciton
+  - 预发布 - staging/pre/next
+  - 性能测试 - performance/perf
+- 面向环境
+  - region
+  - zone
+
+---
+
+- APP_ENV
+  - larval - local, production, testing
+    - https://github.com/laravel/framework/blob/5.8/src/Illuminate/Foundation/Application.php
+- NODE_ENV - production, development, test
+  - https://github.com/kerimdzhanov/dotenv-flow
+- SPRING_PROFILES_ACTIVE,spring.profiles.active
+- [.NET](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
+  - DOTNET_ENVIRONMENT
+  - ASPNETCORE_ENVIRONMENT
+- NEXT_PUBLIC_VERCEL_ENV, [VERCEL_ENV](https://vercel.com/docs/projects/environment-variables/system-environment-variables)
+  - production, preview, development
+- https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/
+  - APP_DOMAIN, APP_URL, APP_ID
+
 ## Roles
 
 - 管理岗
@@ -244,7 +274,7 @@ go clean -modcache
 mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false --fail-at-end
 gradle clean
 
-ls ~/.nvm/versions/node/v{12,14,16}* -d 2>/dev/null | xargs -n1 basename
+ls ~/.nvm/versions/node/v{12,14,16}* -d 2> /dev/null | xargs -n1 basename
 # for s in $(  ls ~/.nvm/versions/node/v{12,14,16}* -d 2>/dev/null | xargs -n1 basename );do echo nvm uninstall $s; done
 rm -rf ~/.nvm/versions/node/v{12,14,16}*
 
@@ -306,10 +336,10 @@ pip cache purge
 
 - 1048576
   - Excel 行限制
-- 16,384
+- 16384
   - Excel 列限制
 
-## 关于服务重启导致服务中断问题的说明
+## 关于 K8S 服务重启导致服务中断问题的说明
 
 - 部署使用 startProbe 等到 health 才切换，避免新版本出现问题导致服务启动失败，旧版本服务下线问题
 - Java 通常较慢，启动可能 1m 左右
@@ -388,3 +418,16 @@ pip cache purge
 - data is code
   - Code=Engine, Data=Fuel
   - Data 定义了逻辑规则 = Code
+
+## schema vs validator
+
+- Schema-First - 模式优先
+  - 数据类型定义
+  - 通常和类型能一一对应
+  - 可以用来做验证，还可以用来生成代码
+  - e.g. typebox, typia, jsonschema, ajv
+- Validate-First - 验证优先
+  - 业务逻辑定义
+  - 通常包含额外的处理逻辑 - 功能更多，能自定义处理
+  - 通常能生成 Schema - 但是会丢失一些信息且不一定准确
+  - e.g. zod

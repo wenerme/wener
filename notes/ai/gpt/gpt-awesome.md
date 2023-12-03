@@ -22,6 +22,8 @@ tags:
 - OpenAI
   - https://gptstore.ai/
   - https://quail.ink/goldengrape/p/how-to-build-a-patent-gpt
+- https://nihalsid.github.io/mesh-gpt/
+  - https://news.ycombinator.com/item?id=38448653
 
 ### Reading
 

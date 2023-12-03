@@ -544,7 +544,7 @@ npm add date-fns lodash-es react-fast-compare
 
 - Inside - 例如 useState, jotai, recoil
   - 面向 React - 组件、上下文、Tree
-- Outside - 例如 zustand, voltio
+- Outside - 例如 zustand, voltio/mobx
   - 面向 数据/状态 - 函数、全局、跨组件
   - 优势
     - 框架无关

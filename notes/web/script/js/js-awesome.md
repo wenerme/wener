@@ -928,6 +928,10 @@ go install github.com/cryogenicplanet/depp@latest
 # .depp/config.json
 depp init
 depp
+
+npx -y publint
+
+npx -y @biomejs/biome check ./src
 ```
 
 ## Reading

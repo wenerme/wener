@@ -16,4 +16,10 @@ tags:
 - Serverless
   - 侧重代码、runtime、ingress、webhook
   - 事件驱动应用
+  - 可能运行 job, cron task, event handler, webhook, delay task, long running server
   - 特点：按需部署、按时长计费、无状态、无运维、可视化和监控
+
+---
+
+- https://serverlessworkflow.io/
+  - [serverlessworkflow/specification](https://github.com/serverlessworkflow/specification)

@@ -336,3 +336,83 @@ tags:
 
 - Prosci ADKAR模型
 - Kotter的8步变革过程
+
+## Outsourcing Services
+
+外包服务（Outsourcing Services）
+
+- 定义：企业将其一部分业务流程或服务需求外包给专业服务公司来处理。
+- 应用：在财务服务领域，可能包括会计处理、税务咨询、薪资管理、审计服务等。
+- 目的：帮助客户企业降低成本、提高效率和专注于其核心业务。
+
+---
+
+- **质量控制**：确保提供的服务质量符合客户的期望。
+- **客户沟通**：与客户保持良好的沟通，确保服务满足他们的需求和标准。
+- **合规性和保密性**：特别是在财务领域，确保所有服务符合行业规范并严格保密。
+
+## OEM
+
+## BPO
+
+- 业务流程外包 - Bussiness Process Outsourcing
+- 定义：BPO是指企业将某些非核心的业务流程外包给第三方服务提供商。
+- 应用：涉及多种业务流程，包括财务、人力资源、客户服务等。
+- 特点：提供商专注于特定的服务领域，能够提供专业化、效率化的服务。
+
+## Status
+
+- 类似枚举
+- 建议记录对应的 state
+- 建议记录可能的下一个状态 status
+
+```json
+{
+  "OrderState": [
+    {
+      "value": "Active",
+      "label": "活跃"
+    },
+    {
+      "value": "Completed",
+      "label": "已完成"
+    },
+    {
+      "value": "Cancelled",
+      "label": "已取消"
+    }
+  ],
+  "OrderStatus": [
+    {
+      "value": "Pending",
+      "label": "待处理",
+      "state": "Active",
+      "next": ["Processing", "Cancelled"]
+    },
+    {
+      "value": "Processing",
+      "label": "处理中",
+      "state": "Active",
+      "next": ["Shipped", "Cancelled"]
+    },
+    {
+      "value": "Shipped",
+      "label": "已发货",
+      "state": "Active",
+      "next": ["Delivered"]
+    },
+    {
+      "value": "Delivered",
+      "label": "已交付",
+      "state": "Completed",
+      "next": []
+    },
+    {
+      "value": "Cancelled",
+      "label": "已取消",
+      "state": "Cancelled",
+      "next": []
+    }
+  ]
+}
+```

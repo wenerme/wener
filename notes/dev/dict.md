@@ -2,6 +2,7 @@
 title: 开发用词字典
 tags:
   - Glossary
+  - FAQ
 ---
 
 # 开发用词字典
@@ -23,6 +24,17 @@ tags:
   - 除非很常见
 - 尽量使用常见的词汇
 - 对于相同含义的词汇跟进场景选用
+
+:::tip
+
+- 熟悉和使用 专业术语、行话、Glossary
+  - 能够更好的沟通
+  - 更改更精确的表达含义
+  - 本身附带了 “行业” 属性
+  - 本身附带了上下文信息
+- 需要注意团队内达成一致
+
+:::
 
 ## 俚语
 
@@ -67,7 +79,7 @@ tags:
 | introduction    | 推荐, 被动, 位于关系被动方<br/>例如: 别人介绍你给我, 由别人产生联系 |
 | last name       | 姓                                                                  |
 | surname         | 姓                                                                  |
-| first anme      | 名                                                                  |
+| first name      | 名                                                                  |
 
 ## 技术词汇 {#tech}
 
@@ -512,18 +524,20 @@ tags:
 ## business unit vs division vs deparment
 
 - 组织架构三层关系
-- business unit - 业务单元 - 例如 出版署
-  - 位于某个地点
-  - 相对独立的业务单元，可跨组织
+- business unit - 事业部/业务单元 - 例如 出版署
   - 侧重独立的业务目标和运营
+  - 有自己的目标、战略和运营计划，专注于特定的产品线或市场领域
+  - 可能拥有自己的营销、财务、研发等职能部门，相对独立地运作，并针对特定的产品线或市场
   - 有自主的管理和利润中心
   - 独立业务定位目标
   - 按业务目标考核
+  - 相对独立的业务单元，可跨组织
+  - 位于某个地点
 - division - 分部 - 例如 市场分部、消费者分部
   - 位于某个地点的某些办公室或者区域
 - deparment - 部门 - 例如 编辑部、较对部
   - 位于公司某个区域
-  - 组织内职能单位
+  - 组织内**职能**单位
   - 侧重一个领域的职能作用
   - 受组织层级管理
   - 为组织整体目标服务
@@ -941,6 +955,7 @@ tags:
 
 - label
   - 标签
+  - 倾向于正式或预定义的分类
   - 可以是 KV 结构
   - GitHub 的 Issuse 标签使用的 Label
   - Gitlab 的 Issuse 标签使用的 Label
@@ -951,6 +966,7 @@ tags:
   - Docker 元数据使用 Label
 - tag
   - 标签、标记
+  - 表示一种**非正式**的、用户定义的分类方法
   - 通常是一串字符串
   - Stackoverflow 的问题使用的 Tag
 
@@ -1099,6 +1115,47 @@ tags:
 - Street Address: - 街道信息
 - Physical Address: - 区分电子地址（如电子邮件）和物理地址
 
+## parse vs resolve vs normalize
+
+- parse - 解析 - 抽象与结构化
+  - 文本 -> 信息/结构化
+- resolve - 确定/解决/解析 - 决策与确定性
+  - 处理不确定性、冲突、多重可能性
+- normalize - 标准化/规范化 - 标准化与一致性
+  - 数据标准化、数据清洗、统一格式
+
+## sort vs order
+
+- sort
+  - 排序 - 操作
+  - 通常是对一组数据进行排序
+  - 例如：sortBy
+- order
+  - 有序 - 定义、规则
+  - 通常有序的含义更强
+  - 例如：order by
+  - 可以是多个 OrderRule
+
+## value vs values vs options vs items vs enums vs data
+
+- value
+  - 通常单个值
+  - 或者指代 “值” 这个概念 - 因此也可能是数组
+- values
+  - 多个值
+- options
+  - 选项
+  - 面向界面
+- items
+  - 项
+  - 面向数据
+- enums
+  - 枚举
+  - 面向代码结构定义
+- data
+  - 数据
+  - 没有单数双数概念
+
 ## 参考
 
 - primary
@@ -1114,6 +1171,8 @@ tags:
 
 ---
 
+- https://unbug.github.io/codelf/
+  - 起名专用
 - https://www.dictionary.com/browse/employee?s=t
   - 查含义和词源
 - etymonline.com

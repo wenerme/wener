@@ -381,6 +381,16 @@ tags:
   - [maplibre](https://github.com/maplibre)
 - serverless/event driven
   - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
+- IPTV/Radio
+  - [YueChan/Live](https://github.com/YueChan/Live)
+- PM
+  - Jira
+  - [makeplane/plane](https://github.com/makeplane/plane)
+    - AGPLv3, Python, Typescript
+  - [zentao](./forge/zentao.md)
+  - Kanban
+  - Trello
+  - Linear
 
 ## Avatar
 

@@ -50,6 +50,9 @@ docker cp collabora:/etc/loolwsd/loolwsd.xml loolwsd.xml
 
 ## coolmount: Operation not permitted
 
+- cap_add: MKNOD
+- cap_add: SYS_ADMIN
+
 ## Explore The New Version
 
 - 将 /usr/share/coolwsd/browser/dist/welcome 挂载为空目录

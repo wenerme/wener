@@ -27,12 +27,19 @@ tags:
   - [万能道歉信](https://open-gpt.app/app/clf28gwkx0002l108tvysyb9i)
 - design/image/ppt
   - dalle
+    - https://dalle.party/
+      - https://news.ycombinator.com/item?id=38432486
   - https://designer.microsoft.com/
   - https://pixian.ai/
     - Remove Image Backgrounds
   - https://quickqr.art/
     - QR Code Art
   - https://ideogram.ai/
+  - https://github.com/diff-usion/Awesome-Diffusion-Models
+- SVG/vector
+  - https://logodiffusion.com/
+  - https://github.com/GeorgLegato/stable-diffusion-webui-vectorstudio
+
 
 ---
 
@@ -128,6 +135,10 @@ tags:
   - https://makereal.tldraw.com/
     - https://github.com/tldraw/make-real
   - https://www.tldraw.com/
+- [excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)
+  - text -> diagram
+- [OthersideAI/self-operating-computer](https://github.com/OthersideAI/self-operating-computer)
+  - text -> 电脑自动操作
 - https://github.com/Azure/gen-cv/tree/main/avatar/interactive
   - https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-speech-announces-public-preview-of-text-to-speech/ba-p/3981448
 

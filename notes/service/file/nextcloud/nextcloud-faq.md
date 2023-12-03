@@ -28,6 +28,10 @@ cd /var/www/html
 ./occ config:system:set simpleSignUpLink.shown --value=false --type=boolean
 ```
 
+## 注意 proxy 配置
+
+- 如果出现 office 打不开，也可能是开了 proxy 导致无法连接
+
 ## nextcloud put 413
 
 发生未知错误

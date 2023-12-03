@@ -191,7 +191,10 @@ tags:
 - [finagle]
   - Apache-2.0, Scala
   - by Twitter
-- tRPC
+- [tRPC](https://github.com/trpc/trpc)
+- [trpc-group/trpc-go](https://github.com/trpc-group/trpc-go)
+  - 不是 JS 的 tRPC，是腾讯的 RPC
+- [Tencent/flare](https://github.com/Tencent/flare)
 
 ## Serialization
 

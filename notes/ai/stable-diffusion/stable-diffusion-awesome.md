@@ -7,10 +7,14 @@ tags:
 # Stable Diffusion Awesome
 
 - [apple/ml-stable-diffusion](https://github.com/apple/ml-stable-diffusion)
+- https://github.com/CompVis/latent-diffusion
 - https://latent-consistency-models.github.io/
 - https://www.fal.ai/models/latent-consistency-sd
   - https://github.com/fal-ai
   - https://huggingface.co/spaces/fal-ai/realtime-stable-diffusion
+- https://stability.ai/news/stability-ai-sdxl-turbo
+- [lllyasviel/Fooocus](https://github.com/lllyasviel/Fooocus)
+- [Waifu Diffusion 1.3 Release Notes](https://gist.github.com/harubaru/f727cedacae336d1f7877c4bbe2196e1)
 - [Acly/krita-ai-diffusion](https://github.com/Acly/krita-ai-diffusion)
   - ComfyUI 作为后端
   - https://news.ycombinator.com/item?id=38342670

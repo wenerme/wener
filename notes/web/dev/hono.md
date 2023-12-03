@@ -22,7 +22,7 @@ title: Hono
     - https://ultrajs.dev/ React
 
 ```bash
-npm add hono @hono/node-server @hono/zod-openapi
+npm add hono @hono/node-server @hono/zod-openapi @hono/trpc-server
 ```
 
 ```ts
@@ -32,9 +32,28 @@ import { Hono } from 'hono';
 const app = new Hono();
 app.get('/', (c) => c.text('Hono meets Node.js'));
 
+// for NodeJS
 serve(app, (info) => {
   console.log(`Listening on http://localhost:${info.port}`); // Listening on http://localhost:3000
 });
+```
+
+```ts
+// for tRPC
+
+import { trpcServer } from '@hono/trpc-server';
+import { appRouter } from './router';
+
+const app = new Hono();
+
+app.use(
+  '/trpc/*',
+  trpcServer({
+    router: appRouter,
+  }),
+);
+
+
 ```
 
 ## html

@@ -7,6 +7,8 @@ title: 平台
 - 云平台
 - 系统平台
 - 应用平台
+- [Awesome](./platform-awesome.md)
+- [FAQ](./platform-faq.md)
 
 ## Status
 
