@@ -1,5 +1,6 @@
 ---
-tags: Configuration
+tags:
+- Configuration
 ---
 
 # NextJS Conf

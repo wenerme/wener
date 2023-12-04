@@ -40,7 +40,6 @@ tags:
   - https://logodiffusion.com/
   - https://github.com/GeorgLegato/stable-diffusion-webui-vectorstudio
 
-
 ---
 
 - [williamfzc/chat-gpt-ppt](https://github.com/williamfzc/chat-gpt-ppt)
@@ -185,6 +184,11 @@ tags:
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
   - Large Language-and-Vision Assistant
   - 类似 GPT4V
+- [bionic-gpt/bionic-gpt](https://github.com/bionic-gpt/bionic-gpt)
+- Reading/Explain
+  - LLM Visualization
+    - https://bbycroft.net/llm
+    - https://github.com/bbycroft/llm-viz
 
 ## LLaMA
 

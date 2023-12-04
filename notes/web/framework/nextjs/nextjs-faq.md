@@ -8,6 +8,22 @@ tags:
 
 - https://github.com/vercel/next.js/blob/canary/packages/next/src/lib/server-external-packages.json
 
+:::caution
+
+- react router 会导致页面整个刷新 [#49479](https://github.com/vercel/next.js/issues/49479)
+- NextJS Server
+  - 尽量避免太重的 Server
+    - 导致前端开发慢
+    - 依赖可能出现各种问题
+  - Server 环境复杂 - middleware、server action、edge
+    - 使用可能有各种注意事项
+    - Server 会初始化多次
+  - Server 会导致环境依赖
+    - 复用度降低
+  - 如果不需要 服务端渲染/SSR/SEO 尽量避免过多 Server 代码
+
+:::
+
 ## 环境变量
 
 - dotenv 会自动 reload
