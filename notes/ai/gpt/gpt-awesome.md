@@ -21,6 +21,7 @@ tags:
 - [PromtEngineer/localGPT](https://github.com/PromtEngineer/localGPT)
 - OpenAI
   - https://gptstore.ai/
+  - https://github.com/linexjlin/GPTs
   - https://quail.ink/goldengrape/p/how-to-build-a-patent-gpt
 - https://nihalsid.github.io/mesh-gpt/
   - https://news.ycombinator.com/item?id=38448653

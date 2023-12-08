@@ -141,6 +141,8 @@ server.register(fastifyTRPCPlugin, {
 
 ## openapi
 
+- 支持 fetch [jlalmes/trpc-openapi#315](https://github.com/jlalmes/trpc-openapi/pull/315)
+
 ```ts
 import { initTRPC } from '@trpc/server';
 import { OpenApiMeta } from 'trpc-openapi';

@@ -4,8 +4,8 @@ title: CubeJS
 
 # CubeJS
 
-- [cube-js/cube.js](https://github.com/cube-js/cube.js)
-  - MIT+Apache-2.0,
+- [cube-js/cube](https://github.com/cube-js/cube)
+  - MIT+Apache-2.0, Rust+Typescript
   - Analytics API for Building Data Apps
   - 可以独立运行，也可以 Node 集成
   - 数据库支持: Postgres,MySQL,ClickHouse,PrestoDB,Druid,Elasticsearch,SQLite

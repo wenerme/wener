@@ -41,7 +41,7 @@ tags:
 const TabContainer = () => {
   // 非当前 tab inert 并隐藏
   return (
-    <div className="[&>[inert]]:hidden">
+    <div className='[&>[inert]]:hidden'>
       {Tabs.map(({ content }, i) => (
         <div key={i} inert={i !== tab ? '' : null}>
           {content}
@@ -61,4 +61,12 @@ declare module 'react' {
     inert?: any;
   }
 }
+```
+
+## nested form
+
+- form 不允许嵌套
+
+```
+<form> cannot appear as a descendant of <form>
 ```

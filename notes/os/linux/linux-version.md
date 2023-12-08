@@ -63,6 +63,10 @@ tags:
 grep io_uring_setup /proc/kallsyms
 ```
 
+## Linux 6.5
+
+- https://kernelnewbies.org/Linux_6.5
+
 ## Linux 5.15
 
 - **NTFS**

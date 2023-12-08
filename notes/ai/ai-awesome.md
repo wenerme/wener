@@ -189,6 +189,8 @@ tags:
   - LLM Visualization
     - https://bbycroft.net/llm
     - https://github.com/bbycroft/llm-viz
+  - https://intro-llm.github.io/
+    - 大规模语言模型：从理论到实践
 
 ## LLaMA
 

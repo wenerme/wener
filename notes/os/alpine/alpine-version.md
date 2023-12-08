@@ -71,18 +71,31 @@ tags:
 
 ## AlpineLinux 3.19
 
+- Linux kernel 6.1 -> 6.6
 - 🆙 升级包
   - NodeJS 20 LTS
-- iptables-nft
+  - Go 1.21
+  - LLVM 17
+  - PostgreSQL 16
+  - OpenJDK 21
+  - PHP 8.3
+  - Rust 1.72
+  - ZFS 2.2 - 支持 overlayfs - docker/containerd/k3s 不再需要 zvol
+- 支持 Raspberry Pi 5
+  - 内核模块变化 ~~linux-rpi4~~ & ~~linux-rpi2~~ -> linux-rpi
+- openrc
+  - 移除 /sbin/rc - 确保 /etc/inittab 使用 /sbin/openrc
+  - 如果自己修改过需要检查下
+- iptables-nft 默认
   - symlink /sbin/iptables{,-save,-restore} -> xtables-nft-multi
   - 而不是 xtables-legacy-multi
   - 使用 nftables 而不是 iptable
   - 旧的 iptables 包 iptables-legacy, iptables-legacy-save
--- https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.19.0
+- https://alpinelinux.org/posts/Alpine-3.19.0-released.html
 
 ## AlpineLinux 3.18
 
-- Linux 6.1
+- Linux 5.15 -> 6.1
   - signed kernel modules
     - CONFIG_MODULE_SIG
     - 未强制
@@ -104,6 +117,7 @@ tags:
 
 ## AlpineLinux 3.17
 
+- Linux 5.15 - 没变
 - 环境
   - bash 5.2
   - gcc 12
@@ -124,6 +138,7 @@ apk add mount umount
 
 ## AlpineLinux 3.16
 
+- Linux 5.10 -> 5.15
 - 新的 setup-desktop
 - /tmp - 新安装使用 tmpfs 挂载 - 之前在 root 里，只影响新安装
 - shadow 包拆分

@@ -306,3 +306,14 @@ select set_config('tenant.id','1', true);
 - 增加部分 插入 和 更新 成本
 - 确保业务逻辑准确
 - 非强业务看情况
+
+## User Defined Order
+
+- 目前方案
+  - 全局使用一个 sequence
+  - 存储为 numberic
+  - 通过中间值来排序
+
+---
+
+- https://begriffs.com/posts/2018-03-20-user-defined-order.html

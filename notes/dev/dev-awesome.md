@@ -121,7 +121,7 @@ tags:
 
 ```bash
 # -M '[.]pb[.]' -M 'generated'
-scc --exclude-dir vendor --exclude-dir .gen -M '_test.go' --no-gen .
+scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
 ```
 
 ## 协作

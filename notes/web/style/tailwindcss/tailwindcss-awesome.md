@@ -36,6 +36,9 @@ tags:
   - https://www.hyperui.dev/
   - [flowbite](./flowbite.md)
     - 部分免费组件
+- Plugin
+  - [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
+    - 动画
 
 **Components**
 

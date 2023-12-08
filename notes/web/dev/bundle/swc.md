@@ -18,6 +18,11 @@ title: swc
   - https://github.com/dudykr/stc
 - https://swc.rs/playground
 - [swc-project/swc-node](https://github.com/swc-project/swc-node)
+  - ~ts-node
+  - 不建议使用
+  - Cannot find module ts
+    - https://github.com/swc-project/swc-node/pull/744
+    - https://github.com/swc-project/swc-node/issues/710
 
 ```bash
 pnpm i -D @swc/cli @swc/core

@@ -58,9 +58,12 @@ title: FS
   - /proc/fs/fscache/cookies
   - /sys/module/fscache/parameters/debug
 - rafs
-  -  RAFS v6 兼容 EROFS
+  - RAFS v6 兼容 EROFS
   - https://d7y.io/blog/2022/06/06/evolution-of-nydus/
 - /dev/ptsmx - terminal mulitplexer
+- max filename length
+  - 255 bytes
+    - ext4, zfs
 
 **逻辑**
 

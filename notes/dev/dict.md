@@ -965,7 +965,7 @@ tags:
     - Annotation 任意修改
   - Docker 元数据使用 Label
 - tag
-  - 标签、标记
+  - 标记
   - 表示一种**非正式**的、用户定义的分类方法
   - 通常是一串字符串
   - Stackoverflow 的问题使用的 Tag

@@ -404,6 +404,7 @@ tags:
   - [zod](./lib/zod.md)
     - 定义的校验会生成 ts 类型
     - TypeScript-first schema validation
+  - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
   - yup
   - joi
   - vest

@@ -105,6 +105,18 @@ title: 阿里云
 
 ## ACK
 
+- ACK
+  - 托管版
+    - 托管 Master 容器节点
+  - 专有版
+    - 3 Master 节点
+  - Serverless
+    - 无需创建和管理 Master 节点及 Worker 节点
+  - Edge
+    - 将边缘节点接入到边缘集群中进行托管
+  - 注册管理
+    - 为分布在各处的外部 Kubernetes 集群提供统一的使用和管理方式
+
 > ACK -> Aliyun Container Service for Kubernetes
 >
 > - ACK vs Self-Managed Kubernetes
@@ -112,10 +124,16 @@ title: 阿里云
 >   - 能更好结合阿里云产品 - 会用到更多阿里云产品 - SLB、Log、Monitor
 >   - ACK 节点会部署相对多的 Agent
 
-- ACK Pro=集群管理+云产品资源
+- ACK 托管集群管理+云产品资源
+  - Pro - 5000节点，自定义参数、监控、etcd高可用、高级调度
+    - 存在集群管理费用
+  - 基础 - 10节点
   - 集群管理 - 独立的管理节点/单独的服务器 - 包含在集群费用中
     - 按量计费: 0.64 元/小时/集群 - 441/月，5300/年
     - 资源包: 415 元/月，4980 元/年
+  - 网络 flannel/terway
+    - [AliyunContainerService/terway](https://github.com/AliyunContainerService/terway) 是阿里自己的 CNI
+    - 对比 https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/work-with-terway/
 - 专有版
   - 管理免费
 - 托管版

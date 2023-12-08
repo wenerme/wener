@@ -7,6 +7,7 @@ tags:
 
 :::caution
 
+- 部分类型参数推导 [#26242](https://github.com/microsoft/TypeScript/issues/26242)
 - monorepo 类型问题 [TypeScript#25376](https://github.com/microsoft/TypeScript/issues/25376)
   - 目前就 npm monorepo 工作相对正常
 - `abstract static` [TypeScript#34516](https://github.com/microsoft/TypeScript/issues/34516)

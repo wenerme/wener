@@ -42,6 +42,33 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 }
 ```
 
+## Node Dev
+
+- ts+watch - tsx, ts-node, swc-node
+  - +decorator
+    - ts-node+swc
+  - +tsconfig.paths
+    - tsx, ts-node+tsconfig-paths
+    - +esm
+      - tsx
+- 目前还没有 esm+tsconfig.paths+decorator 的
+
+---
+
+- ts-node+swc 问题
+  - 不加载 swcrc 导致 paths 无效 https://github.com/TypeStrong/ts-node/issues/1856
+  - pnpm patch 临时解决
+- esbuild decorator 问题
+  - https://github.com/evanw/esbuild/issues/104
+  - https://github.com/nuxt/nuxt/issues/21756
+  - https://github.com/unjs/nitro/issues/1345
+- swc-node 处理 .ts 问题
+  - https://github.com/swc-project/swc-node/pull/744
+  - https://github.com/swc-project/swc-node/issues/710
+- tsconfig-paths esm 问题
+  - https://github.com/dividab/tsconfig-paths/issues/243
+
+
 ## performance
 
 - UV_THREADPOOL_SIZE=4
