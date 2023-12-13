@@ -18,7 +18,7 @@ title: 模板
   - 无逻辑
   - 非常简单
 - handlebars
-  - js 为主
+  - js 为主 - bundle 75K/25K
 - pug/jade
   - HTML
   - JS, Larvel, Scala, Ruby, Python, Java
@@ -27,7 +27,7 @@ title: 模板
 
 - NoteJS
   - eta
-  - ejs
+  - ejs  - bundle 11.7K/4.5K
   - doT
 - Golang
   - html/template

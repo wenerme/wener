@@ -7,7 +7,10 @@ tags:
 # HAProxy 配置
 
 ```bash
-haproxy -c -V -f /etc/haproxy/haproxy.cfg
+haproxy -c -V -f /etc/haproxy/haproxy.cfg # 检测配置
+
+ulimit -n 8036
+haproxy -f /etc/haproxy/haproxy.cfg -d # Debug 启动
 ```
 
 - http-tunnel

@@ -43,10 +43,10 @@ curl -sI --http3 https://curl.se -o/dev/null -w '%{http_version}\n'
 | `-O, --remote-name`                    |       | 第一个使用 remote-name                                    |
 | `-J, --remote-header-name`             |       | 使用 `Content-Disposition` 头里的文件名                   |
 | `--create-file-mode <mode>`            | 7.75  |
---dns-servers NS|7.33|c-ares
--Z, --parallel|7.66
-`--parallel-max <num>` ||50
-
+| --dns-servers NS                       | 7.33  | c-ares                                                    |
+| -Z, --parallel                         | 7.66  |
+| `--parallel-max <num>`                 |       | 50                                                        |
+| --haproxy-protocol                     |       | 测试 HAProxy 代理                                         |
 
 - proxy
   - port=1080
@@ -107,14 +107,14 @@ cat curl-format.txt | curl -o /dev/null -s -w @- https://wener.me
 
 ```bash
 curl --include \
-     --no-buffer \
-     --header "Connection: Upgrade" \
-     --header "Upgrade: websocket" \
-     --header "Host: example.com:80" \
-     --header "Origin: http://example.com:80" \
-     --header "Sec-WebSocket-Key: SGVsbG8sIHdvcmxkIQ==" \
-     --header "Sec-WebSocket-Version: 13" \
-     http://example.com:80/
+  --no-buffer \
+  --header "Connection: Upgrade" \
+  --header "Upgrade: websocket" \
+  --header "Host: example.com:80" \
+  --header "Origin: http://example.com:80" \
+  --header "Sec-WebSocket-Key: SGVsbG8sIHdvcmxkIQ==" \
+  --header "Sec-WebSocket-Version: 13" \
+  http://example.com:80/
 
 # https://github.com/vi/websocat
 apk add websocat

@@ -23,7 +23,7 @@ allow_anonymous_telemetry=False
 apk add py3-pip
 
 # manual server
-pip install continuedev
+pip3 install continuedev
 # 默认端口 65432
 # MeiliSearch
 # --headless / --no-headless
@@ -31,7 +31,9 @@ pip install continuedev
 python -m continuedev --port 65432 --host 0.0.0.0
 
 # 运行需要访问目录
-# docker run --rm -it -p 65432:65432 --name continue-server wener/continue-server
+# docker run --rm -it -p 65432:65432 -v $HOME:$HOME --name continue-server wener/continue-server
 ```
 
-- /gui/socket.io
+- Endpoint
+  - /gui/socket.io
+- ~/.continue/config.json

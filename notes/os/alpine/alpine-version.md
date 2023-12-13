@@ -36,7 +36,7 @@ tags:
 
 | version                              | date       |
 | ------------------------------------ | ---------- |
-| [AlpineLinux 3.19](#alpinelinux-319) | 2023       |
+| [AlpineLinux 3.19](#alpinelinux-319) | 2023-12-07 |
 | [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 |
 | [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
 | [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
@@ -72,6 +72,7 @@ tags:
 ## AlpineLinux 3.19
 
 - Linux kernel 6.1 -> 6.6
+  - 有很多有意思的提升: nfs, ntfs, tmpfs
 - 🆙 升级包
   - NodeJS 20 LTS
   - Go 1.21

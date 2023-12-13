@@ -27,8 +27,7 @@ title: PowerDNS
 
 
 ```bash
-# macOS 安装
-brew install pdns --with-postgresql --with-remote
+brew install pdns # macOS 安装
 
 # SQLite3
 # https://doc.powerdns.com/md/authoritative/backend-generic-sqlite/

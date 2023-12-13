@@ -417,6 +417,7 @@ rm /sys/fs/pstore/dmesg*
 ```
 
 ```bash
+apk add pciutils
 lspci -vs 0000:00:1c.7
 ```
 

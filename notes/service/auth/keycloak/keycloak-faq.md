@@ -180,3 +180,8 @@ env:
 ```
 
 ## failed getting JSON response from Kubernetes Client
+
+## API Key
+
+- 目前只能考虑 client id + client secret 的模式
+- https://github.com/zak905/keycloak-api-key-demo

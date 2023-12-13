@@ -29,6 +29,8 @@ crane copy quay.io/keycloak/keycloak:17.0.0 registry.cn-hongkong.aliyuncs.com/cm
 crane pull docker.io/wener/base:v3.15 base-v3.15.tar
 crane push base-v3.15.tar registry.cn-hongkong.aliyuncs.com/cmi/wener_base:v3.15
 
+crane tag wener/node:20 20.10 # tag 20.10 为 20
+
 # 查看 tag
 crane ls docker.io/wener/base
 

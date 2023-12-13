@@ -1,5 +1,4 @@
 ---
-id: version
 title: Chrome Version
 tags:
   - Version
@@ -9,6 +8,11 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
+| [Chrome 120](#chrome-120) |            |                                                   |
+| [Chrome 119](#chrome-119) |            |                                                   |
+| [Chrome 118](#chrome-118) |            |                                                   |
+| [Chrome 117](#chrome-117) |            |                                                   |
+| [Chrome 116](#chrome-116) |            |                                                   |
 | [Chrome 115](#chrome-115) |            |                                                   |
 | [Chrome 114](#chrome-114) |            | popovertarget,popover                             |
 | [Chrome 113](#chrome-113) |            |                                                   |
@@ -72,6 +76,7 @@ tags:
 
 :::tip
 
+- [2023 CSS 总结](https://developer.chrome.com/blog/css-wrapped-2023)
 - 暴露 Socket - 支持 TCP 和 UDP - [Raw Sockets API](https://chromestatus.com/feature/6398297361088512)
 - Container Query - Chrome 105
 - :has - Chrome 105 - https://chromestatus.com/feature/5794378545102848

@@ -43,6 +43,7 @@ title: HAProxy
 
 ```bash
 haproxy -c -f haproxy.cfg # 检查配置是否正确
+haproxy -f  haproxy.cfg # 启动
 # master-worker mode - reload
 # 本质也是 -sf 启新的进程
 kill -USR2 $(cat /var/run/haproxy.pid)

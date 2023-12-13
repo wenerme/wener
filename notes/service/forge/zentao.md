@@ -11,15 +11,18 @@ title: zentao
 
 :::
 
+- [easysoft/zentaopms](https://github.com/easysoft/zentaopms)
+- [wwccss/zentaopms](https://gitee.com/wwccss/zentaopms)
+- [quicklyon/zentao-docker](https://github.com/quicklyon/zentao-docker)
 - 禅道
+
 
 ```bash
 # https://hub.docker.com/r/easysoft/zentao
 # Zentao >= 18.6
 docker run --rm -it \
   -p 8080:80 \
-  -v $PWD/data/zentao:/data/zentao \
-  -v $PWD/data/mysql:/var/lib/mysql \
+  -v $PWD/data:/data \
   -e MYSQL_ROOT_PASSWORD=123456
 --name zentao easysoft/zentao:18.7
 
@@ -84,6 +87,20 @@ docker run --rm -it \
   - PHP_SESSION_PATH=tcp://redis:6379
 - 参考
   - [Docker方式部署禅道](https://www.zentao.net/book/zentaopms/405.html)
+
+## Docker
+
+- /apps/zentao/config/my.php
+
+# FAQ
+
+## 修改 AI 参数
+
+```bash
+echo '$config->ai->openai->api->openai->format = "https://openai-proxy.wener.me/%s/%s";' >> /apps/zentao/module/ai/config.php
+```
+
+- https://gitee.com/wwccss/zentaopms/blob/zentaopms_18.9/module/ai/config.php
 
 # 版本
 

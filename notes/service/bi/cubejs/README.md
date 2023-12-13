@@ -23,8 +23,10 @@ title: CubeJS
 | ----------- | --------------------- |
 | 4000/http   | frontend              |
 | 3031/http   | Serving status probes |
-| 13306/mysql | cubestore             |
+| 13306/mysql | cubestore MySQL       |
 | 3030/http   | cubestore             |
+| 15432/pg    | Cube SQL (pg)         |
+| 3031/http   | status probes         |
 
 :::tip
 
@@ -42,8 +44,8 @@ title: CubeJS
 
 ```bash
 # http://localhost:4000
-docker run -p 4000:4000 \
-  -v ${PWD}:/cube/conf \
+docker run -p 4000:4000 -p 15432:15432 \
+  -v ${PWD}/cube:/cube/conf \
   -e CUBEJS_DEV_MODE=true \
   cubejs/cube:alpine
 ```

@@ -70,3 +70,11 @@ declare module 'react' {
 ```
 <form> cannot appear as a descendant of <form>
 ```
+
+## dialog vs popover
+
+- popover
+  - 在 顶层
+- dialog
+  - 不在 顶层
+

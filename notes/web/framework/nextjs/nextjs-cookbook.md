@@ -1,5 +1,4 @@
 ---
-id: nextjs-cookbook
 title: NextJS Cookbook
 tags:
   - Cookbook

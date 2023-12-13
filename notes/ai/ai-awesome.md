@@ -285,9 +285,18 @@ tags:
 
 ## Awesome
 
-- [BerriAI/litellm](https://github.com/BerriAI/litellm)
-  - Call all LLM APIs using the OpenAI format
+
 - [webpilot-ai/Webpilot](https://github.com/webpilot-ai/Webpilot)
   - GPLv3
 - [outlines-dev/outlines](https://github.com/outlines-dev/outlines)
   - Apache-2.0
+
+## SelfHost
+
+- [BerriAI/litellm](https://github.com/BerriAI/litellm)
+  - MIT, Python
+  - Call all LLM APIs using the OpenAI format
+- [bricks-cloud/BricksLLM](https://github.com/bricks-cloud/BricksLLM)
+  - MIT, Golang
+- [jmorganca/ollama](https://github.com/jmorganca/ollama)
+  - MIT, Golang

@@ -56,6 +56,10 @@ const MyForm: React.FC<{onSubmit; defaultValue}> = ({onSubmit, defaultValue}) =>
 - setValue -> reset - 如果需要设置非常多的值
 - Controller, useController -> register
 - FormProvider 使用了 React.Context, 导致 form 状态变化会 rerender
+- useForm
+  - 返回的是内部 `_formControl`
+    - formState 会代理
+      - 代理记录 validation
 
 ---
 

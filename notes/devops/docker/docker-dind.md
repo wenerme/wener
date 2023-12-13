@@ -62,6 +62,8 @@ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 docker info
 ```
 
+# FAQ
+
 ## 存在 mtu 问题
 
 - curl https 的时候 hang
@@ -79,4 +81,10 @@ docker info
 ```dockerfile
 FROM docker:dind
 RUN addgroup -g 2999 docker
+```
+
+## libcontainerd: failed to save daemon pid to disk: process with PID 65 is still running
+
+```bash
+rm /var/run/docker.pid
 ```

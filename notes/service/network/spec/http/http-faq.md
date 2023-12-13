@@ -51,3 +51,22 @@ curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
   - 支持 POST
 - 308 Permanent Redirect
   - 类似 301 但不允许修改 method
+
+## HTTP SEARCH/QUERY Method
+
+- GET 支持缓存，但不能携带 Body 请求
+- POST 可以用作查询，但不能缓存
+- 目前应该会支持 QUERY 方法
+
+> HTTP SEARCH is a new HTTP method, for safe requests that include a request body. It's still early & evolving, but it was recently adopted as an IETF draft standard, and it's going to add some great new tools for HTTP development everywhere.
+>
+> -- httptoolkit
+
+---
+
+- https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/
+- https://github.com/httpwg/http-extensions/labels/safe-method-w-body
+- https://httptoolkit.com/blog/http-search-method/
+- ecosystem
+  - https://github.com/nestjs/nest/pull/10533 NextJS v10 support SEARCH method
+  - Support for new HTTP QUERY method [akka-http#3936](https://github.com/akka/akka-http/issues/3936)

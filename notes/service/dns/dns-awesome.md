@@ -25,6 +25,19 @@ tags:
   - [dns.google](https://dns.google/)
   - [dnssec-analyzer](https://dnssec-analyzer.verisignlabs.com/)
 - DoT 853 被 GFW 拦截
+- Lookup Client
+  - nslookup
+  - host
+  - dig - bind-tools
+  - kdig - knot-dnsutils
+  - drill from [NLnetLabs/ldns](https://github.com/NLnetLabs/ldns)
+    - 输入输出接近 dig
+  - [ameshkov/dnslookup](https://github.com/ameshkov/dnslookup)
+    - MIT, Go
+  - [natesales/q](https://github.com/natesales/q)
+    - GPLv3, Go
+  - [ogham/dog](https://github.com/ogham/dog)
+    - EUPL1.2, Rust
 
 ## Server
 

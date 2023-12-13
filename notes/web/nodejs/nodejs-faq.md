@@ -236,7 +236,7 @@ npm install sqlite3 --node_sqlite3_binary_host_mirror=https://npmmirror.com/mirr
 node-pre-gyp rebuild --target=0.30.2 --arch=x32 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell
 ```
 
-- --{module_name}\_binary_host_mirror
+- `--{module_name}_binary_host_mirror`
 
 ## Undefined variable module_name in binding.gyp while trying to load binding.gyp
 
