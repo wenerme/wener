@@ -88,3 +88,10 @@ RUN addgroup -g 2999 docker
 ```bash
 rm /var/run/docker.pid
 ```
+
+## containerd is still running
+
+```
+level=info msg="containerd not running, starting managed containerd"
+level=info msg="containerd is still running" module=libcontainerd pid=943
+```

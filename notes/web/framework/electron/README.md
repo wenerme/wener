@@ -104,7 +104,8 @@ rm -R app-icon.iconset
 ```js
 function createWindow() {
   win = new BrowserWindow({ width: 800, height: 600 });
-  win.loadURL('http://www.whoishostingthis.com/tools/user-agent/', { userAgent: 'Chrome' });
+  // fixme
+  // win.loadURL('http://www.whoishostingthis.com/tools/user-agent/', { userAgent: 'Chrome' });
 
   win.on('closed', () => {
     win = null;

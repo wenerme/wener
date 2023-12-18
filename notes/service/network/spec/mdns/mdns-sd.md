@@ -1,5 +1,7 @@
 ---
 title: mDNS 服务定义
+commands:
+- dns-sd
 ---
 
 # mDNS 服务定义
@@ -26,6 +28,7 @@ dns-sd -B _ipp._tcp local.
 dns-sd -Z _ipp._tcp local.
 # 获取 IP
 dns-sd -Gv4v6 LenovoAB66CD.local.
+dns-sd -Gv4v6 LenovoAD69CD.local.
 
 # 域名 zone 格式
 # PTR SRV TXT

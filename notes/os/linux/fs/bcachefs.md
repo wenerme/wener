@@ -4,6 +4,8 @@ title: bcachefs
 
 # bcachefs
 
+> Linux 6.7+ 内核支持
+
 - [bcachefs](https://bcachefs.org) - [koverstreet/bcachefs](https://github.com/koverstreet/bcachefs)
   - 对标 zfs btrfs
   - COW

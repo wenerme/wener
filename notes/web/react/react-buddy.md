@@ -13,7 +13,7 @@ title: React Buddy
 - 参考
   - [JPA Buddy & React Buddy 加入了 JetBrains](https://blog.jetbrains.com/idea/2023/09/jpa-buddy-and-react-buddy-join-jetbrains/)
     - 2023-09-11
-    - 意味着不在额外收费
+    - 意味着不再额外收费
   - https://plugins.jetbrains.com/plugin/17467-react-buddy
 
 ```tsx

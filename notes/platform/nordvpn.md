@@ -116,7 +116,10 @@ yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address"
 fping -ac 60 $(yq -r '[ .[] | select (.features.socks) | .domain ] | join(" ")' server.json) > socks.txt
 # 非常多，只筛选部分
 # "Hong"
-fping -ac 10 $(yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Japan","Taiwan","Singapore")) | .domain ] | join(" ")' server.json) &> proxy_ssl.txt
+# 节点
+yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Japan","Taiwan","Singapore","Brazil","United States")) | .domain ] | join(" ")' server.json
+# 探测最快的
+fping -ac 10 $(yq -r '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Japan","Taiwan","Singapore","Brazil","United States")) | .domain ] | join(" ")' server.json) &> proxy_ssl.txt
 
 # sort by avg, reverse
 sort -t / -k 9 -h -r proxy_ssl.txt

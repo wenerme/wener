@@ -446,3 +446,11 @@ touch /data/docker/test
 
 # start service
 ```
+
+## zfs destory container snapshots
+
+```bash
+zfs list > zfs.txt
+# main/1poezhz45yv210xqwve9vft0d
+grep -E '^main/\w{25}\W' zfs.txt | cut -f 1 -d ' ' | xargs -n 1 sudo zfs destroy -r -R
+```

@@ -12,6 +12,14 @@ title: NATS JetStream
 :::
 
 - [nats-io/jetstream](https://github.com/nats-io/jetstream)
+- 视图 - 内置 Service 实现
+  - [KV](./nats-kv.md) - `$KV`
+  - [ObjectStore](./nats-objectstore.md)
+- Stream
+  - `$JS.API.>`
+  - domain - 多租户
+    - `$JS.<domain>.API.>`
+    - [LeafNode JS](https://docs.nats.io/running-a-nats-service/configuration/leafnodes/jetstream_leafnodes)
 - 特性
   - At-least-once delivery; exactly once within a window
   - Store messages and replay by time or sequence
@@ -212,29 +220,17 @@ jetstream {
     - 捕获所有的这些消息并存储
 - client
   - pull/push
-
-## KV
-
-- 基于 JetStream 的 KV 存储
-- https://pkg.go.dev/github.com/nats-io/nats.go#KeyValue
-- https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-8.md
-  - read in-memory cache
-  - key `\A[-/_=\.a-zA-Z0-9]+\z` - 不能 `.` 开头或结尾
-  - bucket `\A[a-zA-Z0-9_-]+\z`
-  - bucket
-    - main `KV_<Bucket Name>`
-    - ingest subject `$KV.<Bucket Name>.>`
-    - max_msgs_per_subject - 历史版本数 - 最大 64
-    - rollup_hdrs - rollup 删除
-    - max_age - TTL
-    - max_msg_size - value size
-    - max_bytes - bucket size
-  - $KV.CONFIGURATION.auth.username
-    - io.nats.jetstream.api.v1.stream_msg_get_request
-
-```bash
-nats kv
-```
+- `$JS.API.SERVER`
+- `$JS.API.INFO`
+- `$JS.API.$KV`
+- `$JS.API.$OBJ`
+- `$JS.API.STREAM.>`
+- `$JS.API.META.>`
+- `$JS.API.ACCOUNT.>`
+- `$JS.API.CONSUMER.>`
+- `$JS.API.DIRECT.>`
+- domain 通过映射实现
+  - `$JS.<DOMAIN>.API` -> `$JS.API`
 
 # FAQ
 

@@ -1,5 +1,7 @@
 ---
 title: Android Build
+tags:
+  - Build
 ---
 
 # Android Build
@@ -9,6 +11,58 @@ title: Android Build
 - https://developer.android.com/studio/command-line
 - https://github.com/alvr/alpine-android
 - ANDROID_SDK_ROOT
+
+## env
+
+
+| env                              | for                          |
+| -------------------------------- | ---------------------------- |
+| **Android SDK**                  |
+| ANDROID_HOME                     |                              |
+| ~~ANDROID_SDK_ROOT~~             | 使用 ANDROID_HOME            |
+| ANDROID_USER_HOME                |
+| REPO_OS_OVERRIDE                 | windows、macosx、linux       |
+| ANDROID_NDK_HOME                 |
+| **Emulator**                     |
+| ANDROID_EMULATOR_HOME            | =$ANDROID_USER_HOME          |
+| ANDROID_AVD_HOME                 | =$ANDROID_EMULATOR_HOME/avd/ |
+| ANDROID_LOG_TAGS                 |
+| HTTP_PROXY                       |
+| ANDROID_VERBOSE                  |
+| ANDROID_HOME                     |
+| ANDROID_EMULATOR_USE_SYSTEM_LIBS |
+| CMDLINE_VERSION                  |
+
+- ANDROID_EMULATOR_HOME=ANDROID_USER_HOME
+  - $ANDROID_SDK_HOME/.android
+- ANDROID_HOME
+  - `C:\Users\<用户名>\AppData\Local\Android\Sdk`
+  - `/Users/<用户名>/Library/Android/sdk`
+  - `/home/<用户名>/Android/Sdk`
+- `$ANDROID_HOME`
+  - add-ons/
+  - build-tools/ - aapt、dx
+  - emulator/
+  - extras/ - 附加的库和支持文件
+  - licenses/
+  - platform-tools/ - Android 平台交互所需的基本工具 - adb、fastboot
+  - platforms/ - 每个 Android 版本的 SDK 平台文件 - 核心库、API
+  - skins/ - 模拟器的皮肤文件
+  - sources/ - 系统源码
+  - system-images/ - 模拟器不同架构的系统镜像
+  - tools/
+  - cmdline-tools/ - 不同版本的工具集，替代 tools/
+    - sdkmanager
+    - avdmanager
+- aapt - Android Asset Packaging Tool
+- https://developer.android.com/tools/variables
+
+```bash
+export ANDROID_HOME=~/Library/Android/sdk # macOS
+
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+```
+
 
 ## SDK
 
@@ -98,3 +152,21 @@ cp d8.jar dx.jar
 ```
 
 - https://stackoverflow.com/questions/68387270
+
+## Failed to install the following Android SDK packages as some licences have not been accepted
+
+```bash
+yes | sdkmanager --licenses
+```
+
+## optimize
+
+```
+org.gradle.daemon=true
+org.gradle.parallel=true
+org.gradle.caching=true
+
+org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+```
+
+- --configuration-cache

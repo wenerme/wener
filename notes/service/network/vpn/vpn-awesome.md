@@ -78,7 +78,7 @@ tags:
 [tinc]: ./tinc/README.md
 [nebula]: ./nebula.md
 [zerotier]: ./zerotier.md
-[wireguard]: ./wireguard.md
+[wireguard]: ./wireguard/README.md
 
 - [tinc]
   - [gsliepen/tinc](https://github.com/gsliepen/tinc)

@@ -27,15 +27,16 @@ title: Storybook
 npx sb init
 
 # 手动安装
-yarn add --dev @storybook/{react,addons}
-yarn add --dev @storybook/addon-{actions,links,knob}
+npm add -D @storybook/{react,addons,testing-library,builder-vite,react-vite}
+# knob
+npm add -D @storybook/addon-{actions,links,essential,interactions}
 ```
 
 ## 配置 {#configuration}
 
 - .storybook/manager.js - 控制 StoryBook UI
 
-```ts title=".storybook/preview.js"
+```tsx title=".storybook/preview.js"
 // 全局样式
 import '../src/styles/globals.css';
 

@@ -16,12 +16,18 @@ tags:
   - 推荐 `[a-zA-Z0-9]`
   - 允许的一些特殊符号 `'!@#$%^&*()_;:\'\"?,<+-=~`,```
   - 推荐分隔符 `/#$-~`
+- KV - `$KV.<bucket>.<key>`
+  - KV-Operation
+  - bucket - 名字 `/^[-\w]+$/`
+  - search key - `/^[-/=.>*\w]+$/`
+  - key - `/^[-/=.\w]+$/`
+- ObjectStore
 - 消息
   - max_payload=1 MB
     - 最大 64 MB
     - 推荐不超过 8 MB
       - Base64 编码后 6 MB
-    - 如果想要支持 10MB Base64 则需要 13.MB
+    - 如果想要支持 10MB Base64 则需要 13MB, 可以考虑设置为 15MB
   - max_pending=64 MB
 - subjects
   - 目前无数量限制
@@ -121,3 +127,10 @@ nats server mapping "tenant.X.service.*" "service.{{wildcard(1)}}" tenant.X.serv
 ## cannot create a queue subscription for a consumer without a deliver group
 
 - 2.4+ nats 修复
+
+## 503 status from $SYS.REQ.SERVER.PING, ensure a system account is used with appropriate permissions
+
+不要用 `server info`, 用 `account info`
+
+- server 命令需要更高的权限 ` $SYS.REQ.SERVER.>`
+- https://docs.nats.io/running-a-nats-service/configuration/sys_accounts

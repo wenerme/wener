@@ -320,3 +320,19 @@ $do$
     end
 $do$;
 ```
+
+## add foreign key if not exists
+
+- https://stackoverflow.com/q/12855631/1870054
+
+```sql
+DO
+$$
+    BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'flow_active_stage_id_fkey') THEN
+            alter table flow
+                add constraint flow_active_stage_id_fkey foreign key (active_stage_id) references flow_stage (id);
+        END IF;
+    END;
+$$;
+```

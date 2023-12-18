@@ -1,20 +1,22 @@
+---
+title: Android
+---
+
 # Android
 
-* APK 下载
-  * https://apkpure.com/
-  * http://apk-dl.com/
-  * http://www.apkmirror.com/
-  * http://cn.jide.com/
-
-## Tips
-* 版本
-  * Play 2018.8 要求最低 API Level 26 - Android 8.0
-    * [facebook/react-native#17287](https://github.com/facebook/react-native/issues/17287)
-    * [Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html)
-* [Android version market share distribution among smartphone owners as of September 2018](https://www.statista.com/statistics/271774/share-of-android-platforms-on-mobile-devices-with-android-os/)
-* Device Id
-  * https://developer.android.com/training/articles/user-data-ids
-
+- 安卓
+- APK 下载
+  - https://apkpure.com/
+  - http://apk-dl.com/
+  - http://www.apkmirror.com/
+  - http://cn.jide.com/
+- 版本
+  - Play 2018.8 要求最低 API Level 26 - Android 8.0
+    - [facebook/react-native#17287](https://github.com/facebook/react-native/issues/17287)
+    - [Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html)
+- [Android version market share distribution among smartphone owners as of September 2018](https://www.statista.com/statistics/271774/share-of-android-platforms-on-mobile-devices-with-android-os/)
+- Device Id
+  - https://developer.android.com/training/articles/user-data-ids
 
 ## Shell
 
@@ -93,6 +95,7 @@ adb pull /mnt/sdcard/SMSBackupRestore
 ```
 
 ### Touch Event
+
 ```bash
 # 查看所有的设备,有 MT_TOUCH 为触摸设备
 getevent -pl
@@ -106,10 +109,13 @@ input tap 233 466
 # 查看所有操作的事件
 getevent -l
 ```
+
 <!-- while true;do { cat tap-dump > /dev/input/event1; usleep 500; } done -->
 
 ## 将 HttpClient 的日志输出到 Logcat
-__代码__
+
+**代码**
+
 ```java
 java.util.logging.Logger.getLogger("org.apache.http.wire").setLevel(java.util.logging.Level.FINEST);
 java.util.logging.Logger.getLogger("org.apache.http.headers").setLevel(java.util.logging.Level.FINEST);
@@ -121,7 +127,8 @@ System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "
 System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http.headers", "debug");
 ```
 
-__命令行__
+**命令行**
+
 ```bash
 adb shell setprop log.tag.org.apache.http VERBOSE
 adb shell setprop log.tag.org.apache.http.wire VERBOSE
@@ -132,21 +139,21 @@ adb logcat -s "org.apache.http.wire" -s "log.tag.org.apache.http.headers" -s "or
 
 ## 在 APK 中注入代码
 
-* 工具准备
-  * Android Studio
-    * 安装 [SmaliIdea](https://github.com/JesusFreke/smali/wiki/smalidea) 插件
-      * 只能通过下载安装
-    * 安装 Java2Smali 插件 - 可在插件仓库中搜索到
-    * 配合 ddms 可直接在 smali 中打断点进行调试
-  * [APKTool](http://ibotpeaches.github.io/Apktool/documentation)
-* 可选工具
-  * [dex2jar](https://github.com/pxb1988/dex2jar)
-    * 可将 dex 转为 jar, 然后在 idea 中查看的反编译内容,比 smali 直观
-    * 可将转换后的 jar 添加到类路径,然后在书写注入类时就可以直接引用其他 smali 的类,否则只能使用反射来操作
-      * Java 无法引用 smali 中的内容
-    * 如果想要添加新的 jar 到项目,需要使用 dex2smali,然后将所有的 smali 添加到项目
+- 工具准备
+  - Android Studio
+    - 安装 [SmaliIdea](https://github.com/JesusFreke/smali/wiki/smalidea) 插件
+      - 只能通过下载安装
+    - 安装 Java2Smali 插件 - 可在插件仓库中搜索到
+    - 配合 ddms 可直接在 smali 中打断点进行调试
+  - [APKTool](http://ibotpeaches.github.io/Apktool/documentation)
+- 可选工具
+  - [dex2jar](https://github.com/pxb1988/dex2jar)
+    - 可将 dex 转为 jar, 然后在 idea 中查看的反编译内容,比 smali 直观
+    - 可将转换后的 jar 添加到类路径,然后在书写注入类时就可以直接引用其他 smali 的类,否则只能使用反射来操作
+      - Java 无法引用 smali 中的内容
+    - 如果想要添加新的 jar 到项目,需要使用 dex2smali,然后将所有的 smali 添加到项目
 
-__命令行操作流程__
+**命令行操作流程**
 
 ```bash
 # 将 APK 解压到 ./my
@@ -170,7 +177,7 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.
 adb install -r my/dist/my.apk
 ```
 
-__其它操作__
+**其它操作**
 
 ```bash
 # 对 apk 解压可拿到代码文件
@@ -182,13 +189,13 @@ d2j-dex2jar classes.dex
 
 ### 代码注入
 
-* 使用 Java 编写入口点类
-* 将其转换为 Smali
-* 在启动时挂载该入口
+- 使用 Java 编写入口点类
+- 将其转换为 Smali
+- 在启动时挂载该入口
 
 在 `./my/smali/my` 下添加 Extra 类作为注入入口
 
-__Extra.java__
+**Extra.java**
 
 ```java
 package my;
@@ -201,11 +208,11 @@ public class Extra{
 }
 ```
 
-* 然后菜单 `Build -> Compile to smali`, 会在相同目录下生成 `Extra.smali`
-* 在 `AndroidManifest.xml` 中找到主程序入口,标签为  `<application android:name="me.wener.hello.MainApplication">`
-* 找到主程序的对应 smali 文件, 上例中的入口为 `smali/me/wener/hello/MainApplication.smali`
-* 然后找到 `.method public onCreate()V` onCreate 方法,在下面添加 `invoke-static {}, Lmy/Extra;->init()V` 来调用我们的注入内容
-  * 根据需要注入的内容不同,可选择不同的注入点: 构造函数,静态构造函数,onCreate 等
-  * 需要在其他地方注入代码时操作也是一样的
-* 然后参照上述命令行操作,重新将该项目构建为一个 APK 即可
-* 使用 `adb logcat -s "Injected"` 来查看在注入代码中打印的日志
+- 然后菜单 `Build -> Compile to smali`, 会在相同目录下生成 `Extra.smali`
+- 在 `AndroidManifest.xml` 中找到主程序入口,标签为 `<application android:name="me.wener.hello.MainApplication">`
+- 找到主程序的对应 smali 文件, 上例中的入口为 `smali/me/wener/hello/MainApplication.smali`
+- 然后找到 `.method public onCreate()V` onCreate 方法,在下面添加 `invoke-static {}, Lmy/Extra;->init()V` 来调用我们的注入内容
+  - 根据需要注入的内容不同,可选择不同的注入点: 构造函数,静态构造函数,onCreate 等
+  - 需要在其他地方注入代码时操作也是一样的
+- 然后参照上述命令行操作,重新将该项目构建为一个 APK 即可
+- 使用 `adb logcat -s "Injected"` 来查看在注入代码中打印的日志

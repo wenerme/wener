@@ -57,6 +57,20 @@ tags:
 - 个人/自然人 - individual/natural person
 - 实体 - entity
 
+| en                   | cn       |
+| -------------------- | -------- |
+| Tax Reporting        | 税务报道 |
+| Tax Registration     | 税务报到 |
+| Bank Account Opening | 银行开户 |
+| Company Registration | 公司注册 |
+| IC                   | 工商     |
+
+- 税务报道
+- 税务报到 - 需要公司注册所在城市
+  - 新成立的企业或新纳税人在注册后首次向税务机关报到的行为
+  - 初次登记的过程 - 企业或个人正式成为税务机关的纳税人
+  - 一次性的过程
+
 --
 
 - 参考

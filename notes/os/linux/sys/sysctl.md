@@ -43,3 +43,13 @@ vm.max_map_count=262144
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 ```
+
+## fs.conf
+
+```conf
+fs.inotify.max_user_instances=8192
+```
+
+**相关错误信息**
+
+> failed to create inotify: No file descriptors available

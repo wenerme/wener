@@ -6,6 +6,19 @@ tags:
 
 # Dnsmasq FAQ
 
+## dnsmasq: failed to create inotify: No file descriptors available
+
+```bash
+sysctl fs.inotify.max_user_instances
+
+sudo sysctl fs.inotify.max_user_instances=8192
+
+```
+
+- k8s 相关问题
+- fs.inotify.max_user_instances
+- https://github.com/kubernetes/kops/pull/2913
+
 ## dnsmasq: setting capabilities failed: Operation not permitted
 
 - Docker 里遇到

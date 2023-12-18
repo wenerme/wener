@@ -4,7 +4,22 @@ title: Brew
 
 # Brew
 
-- [Brew](http://brew.sh/) 是 OS X 下必不可少的软件包管理器.
+- [brew](https://github.com/Homebrew/brew)
+  - BSD-2, Ruby
+  - macOS/Linux 包管理器
+- 参考
+  - [Brew.sh](http://brew.sh/)
+
+:::caution
+
+- /usr/local -> /opt/homebrew
+  - 新版本做了位置迁移
+  - native 的 binary 都是 universal binary，但 brew 的 binary 不一定
+  - [Apple Silicon: port all Homebrew packages under /usr/local/opt/ to /opt/homebrew](https://apple.stackexchange.com/questions/410825)
+
+:::
+
+- HOMEBREW_PREFIX
 
 ## 安装 {#install}
 
@@ -27,8 +42,8 @@ xcode-select --install              # 安装 xcode command line tools
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+# export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 brew update
 
 # 添加环境变量
@@ -80,7 +95,7 @@ brew install gnu-{indent,sed,tar,which,units,time} gnutls gpatch grep
 brew install bash-completion2
 
 # 应用
-brew install iterm2 google-chrome
+brew install iterm2 google-chrome cyberduck
 ```
 
 ## NodeJS 环境 {#node}
@@ -120,13 +135,13 @@ orb docker
 
 ```bash
 # 基础
-brew tap caskroom/cask
-brew tap caskroom/versions
+#brew tap caskroom/cask
+#brew tap caskroom/versions
 brew tap homebrew/versions
-brew tap homebrew/dupes
-brew tap homebrew/completions
-brew tap homebrew/games
-brew tap homebrew/command-not-found
+#brew tap homebrew/dupes
+#brew tap homebrew/completions
+#brew tap homebrew/games
+#brew tap homebrew/command-not-found
 
 # 先安装 Lantern 用作梯子
 # 下面的部分软件包是安装不了的,必须需要梯子,在启动 lantern 后,可通过以下命令安装 google-chrome
@@ -480,3 +495,25 @@ brew update
   - HOMEBREW_API_DOMAIN
     - 以前 `HOMEBREW_{ARTIFCAT,BOTTLE}_DOMAIN`
 - https://brew.sh/2023/02/16/homebrew-4.0.0/
+
+## 迁移
+
+```bash
+brew bundle dump
+# brew & vsc
+cat Brewfile
+
+brew bundle install --file /path/to/Brewfile
+```
+
+## analytics
+
+```bash
+brew analytics # 当前状态
+
+export HOMEBREW_NO_ANALYTICS=1
+# 或
+brew analytics off
+```
+
+- https://docs.brew.sh/Analytics

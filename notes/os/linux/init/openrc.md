@@ -12,6 +12,29 @@ title: OpenRC
   - 脚本结构上类似于 sysvinit - 但更简单
   - 支持 supervise-daemon 0.21+
   - 支持 /sbin/init - 0.25+
+- RC_SYS - 为 VSERVER 和 LXC 不会 clean run
+  - VSERVER
+  - LXC
+  - OPENVZ
+  - SYSTEMD-NSPAWN
+  - PREFIX
+- https://github.com/OpenRC/openrc/blob/master/init.d/bootmisc.in
+- https://github.com/OpenRC/openrc/blob/master/etc/rc.conf
+
+| rc_sys         | for                                         |
+| -------------- | ------------------------------------------- |
+| docker         | Docker container manager (Linux)            |
+| jail           | Jail (DragonflyBSD or FreeBSD)              |
+| lxc            | Linux Containers                            |
+| openvz         | Linux OpenVZ                                |
+| prefix         | Prefix                                      |
+| rkt            | CoreOS container management system (Linux)  |
+| subhurd        | Hurd subhurds (to be checked)               |
+| systemd-nspawn | Container created by systemd-nspawn (Linux) |
+| uml            | Usermode Linux                              |
+| vserver        | Linux vserver                               |
+| xen0           | Xen0 Domain (Linux and NetBSD)              |
+| xenU           | XenU Domain (Linux and NetBSD)              |
 
 ## /etc/inittab
 
@@ -170,4 +193,4 @@ respawn_max=0
 retry="${TINC_RETRY:-TERM/60/KILL/10}"
 ```
 
-##  supervise-daemon: unable to open the logfile for stdout `/var/log/app.log': Permission denied
+## supervise-daemon: unable to open the logfile for stdout `/var/log/app.log': Permission denied

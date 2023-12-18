@@ -41,7 +41,7 @@ docker build -t demo -o type=image .
 # Test
 mkdir -p /tmp/build
 cd /tmp/build
-cat <<EOF > Dockerfile
+cat << EOF > Dockerfile
 FROM wener/base
 EOF
 docker buildx build -t test .
@@ -93,14 +93,13 @@ docker run --privileged --rm tonistiigi/binfmt --install all
   - compression=zstd
   - oci-mediatypes=true
     - 只针对 cache-to
-- https://docs.docker.com/build/cache/backends/
 - /var/lib/buildkit/runc-overlayfs/snapshots/snapshots/1639/fs/
   - cache source
 
 ## RUN mount
 
 - cache - 创建一个目录用于缓存
-  - /var/lib/buildkit/
+  - /var/lib/buildkit/ - 在 buildkitd 容器里
 - bind - bind host 目录
   - source 为 host path - 默认 =target
   - 不同环境 source 可能不同，使用上不太方便
@@ -123,20 +122,30 @@ RUN --mount=type=cache,target=/root/.npm/_cacache/ \
   && pnpm install
 ```
 
-| type=cache  | val                       |
-| ----------- | ------------------------- |
-| id          | =target                   |
-| target      | mount point               |
+| type=cache  | val                                 |
+| ----------- | ----------------------------------- |
+| id          | =target                             |
+| target      | mount point                         |
 | ro,readonly |
-| sharing     | shared,private,locked     |
-| from        | build stage, 默认为空目录 |
-| source      | from 的子目录             |
-| mode        | 0755                      |
-| uid         | 0                         |
-| gid         | 0                         |
+| sharing     | shared - 可选 shared,private,locked |
+| from        | build stage, 默认为空目录           |
+| source      | from 的子目录                       |
+| mode        | 0755                                |
+| uid         | 0                                   |
+| gid         | 0                                   |
 
-- https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md
-- https://github.com/moby/buildkit/issues/1673
+- sharing
+  - shared - 多写
+  - private - 单写
+  - locked - 顺序写 - 会暂停后续的写
+- `/var/lib/buildkit/runc-overlayfs/snapshots/snapshots/<ID>/<TARGET>`
+- 参考
+  - https://docs.docker.com/build/cache/backends/
+  - https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md#run---mounttypecache
+  - https://github.com/moby/buildkit/issues/1673
+    - 解释
+
+# FAQ
 
 ## docker build unknown flag: --push
 
@@ -155,7 +164,5 @@ docker buildx create --use
 ## push and load may not be set together at the moment
 
 - https://github.com/docker/buildx/issues/177
-
-
 
 ## error mounting cache no such file or directory

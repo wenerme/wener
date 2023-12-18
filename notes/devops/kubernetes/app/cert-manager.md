@@ -162,7 +162,7 @@ helm install \
 helm repo add wener https://charts.wener.tech
 helm repo update
 
-cat <<YAML > cert-manager.values.yaml
+cat << YAML > cert-manager.values.yaml
 image:
   repository: registry.cn-hongkong.aliyuncs.com/cmi/jetstack_cert-manager-controller
 webhook:
@@ -418,4 +418,35 @@ metadata:
 spec:
   # 添加这个
   commonName: what.ever
+```
+
+## Could not determine authoritative nameservers for
+
+```yaml
+extraArgs:
+  - --dns01-recursive-nameservers-only
+  #- --dns01-recursive-nameservers=8.8.8.8:53,1.1.1.1:53
+  - --dns01-recursive-nameservers=114.114.114.114:53,223.5.5.5:53
+```
+
+- https://cert-manager.io/docs/cli/controller/
+
+## DNS record for "dev.wener.me" not yet propagated
+
+```bash
+dig TXT _acme-challenge.dev.wener.me
+```
+
+```yaml
+apiVersion: acme.cert-manager.io/v1
+kind: Challenge
+metadata:
+spec:
+  dnsName: dev.zhang66.cn
+  issuerRef:
+    group: cert-manager.io
+    kind: Issuer
+    name: letsencrypt
+  # TXT 值
+  key: KEY
 ```

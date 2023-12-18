@@ -132,6 +132,13 @@ await client.end();
   - `curl -fsSL https://get.pnpm.io/install.sh | bash -`
   - `pnpm env use --global 16`
   - 不支持 MUSL
+- [FNM](https://github.com/Schniz/fnm) Fast Node Manager
+  - GPLv3, Rust
+- [volta](https://github.com/volta-cli/volta)
+  - BSD-2, Rust
+- [asdf-vm/asdf](https://github.com/asdf-vm/asdf)
+  - MIT, Shell
+  - Elixir、Erlang、Node.js、Ruby
 
 ```bash
 # n on alpine

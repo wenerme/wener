@@ -19,6 +19,8 @@ enc=$(echo 'digraph G {Hello->World}' | python -c "import sys; import base64; im
 curl https://kroki.io/graphviz/svg/$enc
 ```
 
+- https://docs.kroki.io/kroki/setup/encode-diagram/
+
 ```http
 ### POST json
 POST https://kroki.io

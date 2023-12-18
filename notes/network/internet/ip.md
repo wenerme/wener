@@ -60,6 +60,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | 10.244.0.0/16   | k0s cluster-cidr |
 | 10.96.0.0/12    | k0s service-cidr |
 | 10.96.0.10      | k0s dns          |
+| 10.10.0.0       | openvpn
 | 100.64.0.0/10   | tailscale        |
 | 100.100.100.100 | tailscale dns    |
 

@@ -18,6 +18,8 @@ tags:
 
 :::tip Roadmap
 
+- 3.20
+  - Linux 6.7+ 合并了 bcachefs
 - 3.19
   - zfs 2.2 - 支持 overlay
 - 3.18 riscv64

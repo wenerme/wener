@@ -4,6 +4,12 @@ title: chrony
 
 # chrony
 
+:::caution
+
+- 注意配置 minpoll - 否则可能导致系统时间不准
+
+:::
+
 - 如果时间差距特别大 chrony 可能不会同步
   - 配置 `makestep 1 -1` 然后重启 - 强制接受同步源
   - 或者 maxdistance

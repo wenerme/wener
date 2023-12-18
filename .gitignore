@@ -16,3 +16,5 @@
 atlassian-ide-plugin.xml
 node_modules
 .history
+/etc
+/var

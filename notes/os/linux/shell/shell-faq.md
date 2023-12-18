@@ -236,3 +236,33 @@ case $(uname -m) in
   arm) dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;;
 esac
 ```
+
+## detect
+
+```bash
+if [ -n "$ZSH_VERSION" ]; then
+  echo "zsh"
+elif [ -n "$BASH_VERSION" ]; then
+  echo "bash"
+else
+  # assume something else
+fi
+
+case $SHELL in
+  */zsh)
+    echo "zsh"
+    ;;
+  */bash)
+    echo "bash"
+    ;;
+  *) ;;
+    # assume something else
+esac
+```
+
+- FCEDIT
+  - fcsh
+- KSH_VERSION
+  - ksh
+- PS3
+  - ps3sh

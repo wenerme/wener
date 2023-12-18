@@ -33,6 +33,8 @@ title: pnpm
 
 - Typescript 可能检测不到类型，出现类型异常 [TypeScript#29808](https://github.com/microsoft/TypeScript/issues/29808)
   - 尝试 `"preserveSymlinks": true`
+- pnpm store path
+  - 默认会在相同磁盘 - 因为 hardlink 需要相同磁盘
 
 :::
 

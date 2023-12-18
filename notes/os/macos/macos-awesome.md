@@ -6,6 +6,12 @@ tags:
 
 # macOS Awesome
 
+- Package Manager
+  - [brew](./brew.md)
+  - [spack](https://github.com/spack/spack)
+    - MIT, Apache-2.0, Python
+  - macports
+
 ## System
 
 - [sindresorhus/quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)

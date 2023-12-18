@@ -314,6 +314,8 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 
 ## Mach-O universal binary
 
+- 自 Big Sur 开始
+  - 可以作为 x86 或 arm 启动
 - x86_64
 - arm64e
 

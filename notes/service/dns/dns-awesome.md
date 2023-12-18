@@ -256,7 +256,6 @@ jsdelivr.net
 k3s.io
 linode.com
 medium.com
-medium.com
 mega.nz
 msecnd.net
 netflix.com

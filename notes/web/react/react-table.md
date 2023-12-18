@@ -27,7 +27,7 @@ title: react-table
   - table
     - reset - 状态设置为 initialState
 - react-table
-  - [useReactTable](https://github.com/TanStack/table/blob/main/packages/react-table/src/index.tsx#L54-L91)
+  - [useReactTable](https://github.com/TanStack/table/blob/main/packages/react-table/src/index.tsx)
     - 主要提供状态
 
 ```ts
