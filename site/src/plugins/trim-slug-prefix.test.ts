@@ -1,4 +1,5 @@
-import test from 'ava';
+import test from 'node:test';
+import assert from 'node:assert/strict';
 
 test('trim prefix', (t) => {
   const trim = (s: string) => {
@@ -11,6 +12,6 @@ test('trim prefix', (t) => {
     'docs/dev/devfaq': 'docs/dev/devfaq',
     'docs/kubernetes/k8s-faq': 'docs/kubernetes/faq',
   })) {
-    t.is(trim(k), v);
+    assert.equal(trim(k), v);
   }
 });

@@ -3,8 +3,12 @@
   "editor.minimap.enabled": true,
   "editor.wordWrapColumn": 120,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[markdown]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"

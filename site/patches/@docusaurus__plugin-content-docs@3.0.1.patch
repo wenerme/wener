@@ -1,8 +1,8 @@
 diff --git a/lib/docs.js b/lib/docs.js
-index 407677cf81499599584045ba327083ba77d3bbec..722f20f98a14d9d4f8bccb930bee27d9f098073e 100644
+index 32b77c3661adbeda0a0ab7e898c969c1a6242a1c..f06a68fa6d24ee7c37b6fc049c9a4c1a31ebfa1a 100644
 --- a/lib/docs.js
 +++ b/lib/docs.js
-@@ -123,7 +123,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
+@@ -108,7 +108,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
          frontMatterSlug: frontMatter.slug,
          stripDirNumberPrefixes: parseNumberPrefixes,
          numberPrefixParser: options.numberPrefixParser,
@@ -12,11 +12,11 @@ index 407677cf81499599584045ba327083ba77d3bbec..722f20f98a14d9d4f8bccb930bee27d9
      // pagination buttons... frontMatter.title should be used in priority over
      // contentTitle (because it can contain markdown/JSX syntax)
 diff --git a/lib/index.js b/lib/index.js
-index b74c7f92a28b240696103758c684e6ebdae88ed1..685bec6a384c5d3b6770cb7d65916941b2cfb791 100644
+index 13101ac2bd8112fd6699cb604a3cbe04b73bc936..c9a4120b1ed0e5daef847ed0173c8282c9445655 100644
 --- a/lib/index.js
 +++ b/lib/index.js
-@@ -83,7 +83,8 @@ async function pluginContentDocs(context, options) {
-                         env: process.env.NODE_ENV,
+@@ -82,7 +82,8 @@ async function pluginContentDocs(context, options) {
+                         env,
                      });
                  }
 -                return Promise.all(docFiles.map(processVersionDoc));

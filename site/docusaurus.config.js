@@ -1,8 +1,14 @@
-const moment = require('moment-timezone');
-const math = require('remark-math');
-const katex = require('rehype-katex');
-const { default: deflist } = require('./dist/plugins/deflist');
-const { writeFileSync } = require('fs');
+// const moment = require('moment-timezone');
+// const math = require('remark-math');
+// const katex = require('rehype-katex');
+// const { default: deflist } = require('./dist/plugins/deflist');
+// const { writeFileSync } = require('fs');
+
+import moment from 'moment-timezone';
+import math from 'remark-math';
+import katex from 'rehype-katex';
+import deflist from './dist/plugins/deflist';
+import { writeFileSync } from 'node:fs';
 
 // https://docusaurus.io/docs/api/docusaurus-config
 // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
@@ -287,6 +293,8 @@ const config = {
 
   markdown: {
     mermaid: true,
+    // md -> CommonMark
+    format: 'detect',
   },
   themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
   stylesheets: [{
@@ -302,4 +310,4 @@ const config = {
     },
   ],
 };
-module.exports = config;
+export default config

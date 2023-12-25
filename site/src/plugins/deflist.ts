@@ -4,8 +4,8 @@
 /**
  * Detect metadata and add it to the `data` field of a VFile.
  */
-import visit from 'unist-util-visit';
-import toString from 'mdast-util-to-string';
+import { visit } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import type { Transformer } from 'unified';
