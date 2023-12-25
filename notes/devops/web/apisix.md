@@ -553,3 +553,14 @@ proxy_max_temp_file_size 1024m
 ```
 
 - http://nginx.org/en/docs/http/ngx_http_proxy_module.html
+
+## tls: failed to verify certificate: x509: certificate signed by unknown authority
+
+```
+2023-12-21T18:50:39Z	error	apisix/route.go:90	failed to list routes: Get "https://apisix-control-plane:9180/apisix/admin/routes": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+2023-12-21T18:50:39Z	error	apisix/cluster.go:298	failed to list routes in APISIX: Get "https://apisix-control-plane:9180/apisix/admin/routes": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+2023-12-21T18:50:39Z	error	apisix/plugin.go:46	failed to list plugins' names: Get "https://apisix-control-plane:9180/apisix/admin/plugins?all=true": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+2023-12-21T18:50:39Z	error	apisix/cluster.go:483	failed to list plugin names in APISIX: Get "https://apisix-control-plane:9180/apisix/admin/plugins?all=true": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+2023-12-21T18:50:39Z	error	apisix/cluster.go:446	failed to sync schema: Get "https://apisix-control-plane:9180/apisix/admin/plugins?all=true": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+2023-12-21T18:50:41Z	error	apisix/route.go:90	failed to list routes: Get "https://apisix-control-plane:9180/apisix/admin/routes": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "apisix-ca")
+```

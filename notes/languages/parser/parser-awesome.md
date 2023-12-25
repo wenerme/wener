@@ -63,9 +63,22 @@ tags:
     - Usable from your browser, from the command line, or via JavaScript API
   - [harc/ohm](./ohmjs.md)
     - MIT, JS
-    - 不生成代码，使用类似 Regex - 给语法解析执行
+    - 不生成代码 - 运行时解析
+    - 使用类似 Regex - 给语法解析执行
     - https://ohmjs.org/editor/
     - https://ohmjs.org/docs/syntax-reference
+  - [chevrotain](https://github.com/Chevrotain/chevrotain)
+    - LL(K)
+    - 使用代码的方式定义
+      - 写起来会有点冗长
+      - 非常动态
+    - https://chevrotain.io/playground/
+    - 性能好
+      - https://chevrotain.io/performance/
+  - [kach/nearley](https://github.com/kach/nearley)
+  - [zaach/jison](https://github.com/zaach/jison)
+    - Bison in JS
+  - [jneen/parsimmon](https://github.com/jneen/parsimmon)
 - 案例
   - https://github.com/jgm/peg-markdown/blob/master/markdown_parser.leg
     - Markdown

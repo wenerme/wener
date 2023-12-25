@@ -18,14 +18,17 @@ ARG TARGETPLATFORM
 
 | env            | for                                                                        |
 | -------------- | -------------------------------------------------------------------------- |
-| TARGETPLATFORM | platform of the build result. Eg linux/amd64, linux/arm/v7, windows/amd64. |
-| TARGETOS       | OS component of TARGETPLATFORM                                             |
-| TARGETARCH     | architecture component of TARGETPLATFORM                                   |
-| TARGETVARIANT  | variant component of TARGETPLATFORM                                        |
-| BUILDPLATFORM  | platform of the node performing the build.                                 |
-| BUILDOS        | OS component of BUILDPLATFORM                                              |
-| BUILDARCH      | architecture component of BUILDPLATFORM                                    |
-| BUILDVARIANT   | variant component of BUILDPLATFORM                                         |
+| TARGETPLATFORM | 构建结果的平台  |
+| TARGETOS       | OS  of TARGETPLATFORM                                             |
+| TARGETARCH     | arch  of TARGETPLATFORM                                   |
+| TARGETVARIANT  | variant  of TARGETPLATFORM                                        |
+| BUILDPLATFORM  | 执行构建的节点的平台                                |
+| BUILDOS        | OS of BUILDPLATFORM                                              |
+| BUILDARCH      | arch of BUILDPLATFORM                                    |
+| BUILDVARIANT   | variant of BUILDPLATFORM                                         |
+
+- platform
+  - linux/amd64, linux/arm/v7, windows/amd64
 
 **BuildKit 内置**
 

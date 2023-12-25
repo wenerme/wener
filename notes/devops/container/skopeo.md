@@ -5,6 +5,7 @@ title: skopeo
 # skopeo
 
 - [containers/skopeo](https://github.com/containers/skopeo)
+  - Apache-2.0, Go
 - $XDG_RUNTIME_DIR/containers/auth.json
 
 ```bash

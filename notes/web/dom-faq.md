@@ -125,3 +125,5 @@ navigation.addEventListener('navigate', (e) => {
   console.log(`navigate ->`, e.destination.url);
 });
 ```
+
+## The target origin provided  does not match the recipient window's origin

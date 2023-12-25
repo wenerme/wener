@@ -64,6 +64,8 @@ repositories {
 
 ## gradle.properties
 
+- https://docs.gradle.org/current/userguide/build_environment.html
+
 ```ini
 org.gradle.daemon=true
 ```

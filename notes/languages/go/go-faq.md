@@ -437,3 +437,5 @@ func main() {
 
 - https://research.swtch.com/mm
 - https://go.dev/ref/mem
+
+## This program can only be run on AMD64 processors with v3 microarchitecture support
