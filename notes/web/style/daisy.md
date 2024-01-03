@@ -11,7 +11,7 @@ title: daisy
   - {primary,secondary,accent,neutral}-{,focus,content}
   - base-{100,200,300,content}
   - {info,success,warning,error}-{,content}
-- [src/colors/themes.js](https://github.com/saadeghi/daisyui/blob/master/src/colors/themes.js)
+- [src/theming/themes.js](https://github.com/saadeghi/daisyui/blob/master/src/theming/themes.js)
   - 调整颜色
   - 部分调整 圆角+动画
 - 参考

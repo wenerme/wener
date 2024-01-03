@@ -377,3 +377,38 @@ sudo xcode-select --reset
 ## com.apple.MobileSoftwareUpdate.UpdateBrainService
 
 系统更新
+
+## VNC Server
+
+- 远程屏幕共享
+
+```bash
+/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -allUsers -privs -all
+
+
+# 1. by kickstart
+/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -off -restart -agent -privs -all -allowAccessFor -allUsers
+
+
+# 2. by launchctl
+defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
+launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+
+
+# 3. 指定用户
+/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -specifiedUsers
+/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -users $USER -access -on -agent -privs -all -restart -agent
+
+
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate
+
+
+open vnc://192.168.1.1
+```
+
+- https://gist.github.com/nateware/3915757
+- https://support.apple.com/zh-cn/guide/remote-desktop/apd8b1c65bd/mac
+
+```
+Screen Sharing is not permitted on “10.10.1.1”. Disable and re-enable Screen Sharing or Remote Management in System Settings before trying again
+```

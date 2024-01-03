@@ -223,3 +223,23 @@ unsafe-no-fsync: false
 | --quota-backend-bytes |    2GiB | 推荐 8GiB |
 
 - https://etcd.io/docs/v3.5/dev-guide/limit/
+
+## the member has been permanently removed from the cluster
+
+- https://github.com/bitnami/charts/issues/16071
+
+## member has already been bootstrapped
+
+```bash
+etcdctl endpoint status
+etcdctl member list
+etcdctl member remove 3ff1b5cd453a87df
+
+# etcdserver: member not found
+
+etcdctl member add apisix-etcd-2 --peer-urls=http://apisix-etcd-2.apisix-etcd-headless.apisix.svc.cluster.local:2380,http://apisix-etcd-2.apisix-etcd-headless.apisix.svc.cluster.local:2379,http://apisix-etcd.apisix.svc.cluster.local:2379
+```
+
+## prober detected unhealthy status
+
+- connection refused

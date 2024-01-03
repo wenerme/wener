@@ -40,6 +40,10 @@ tags:
 - https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/
   - APP_DOMAIN, APP_URL, APP_ID
 
+## env
+
+- NO_COLOR
+
 ## Roles
 
 - 管理岗

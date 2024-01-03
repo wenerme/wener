@@ -49,6 +49,23 @@ tags:
   - 文言文
 - https://github.com/breck7/pldb
 
+## DSL
+
+- JsonLogic
+  - https://jsonlogic.com/
+  - [Playground](https://jsonlogic.com/play.html)
+  - [jwadhams/json-logic-js](https://github.com/jwadhams/json-logic-js)
+- SpEL - [Spring Expression Language](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)
+- SQL
+  - [mysqljs/sqlstring](https://github.com/mysqljs/sqlstring)
+- GraphQL
+- JSONPath
+- XPath
+- CEL - [Common Expression Language](https://github.com/google/cel-spec)
+- MongoDB Query
+- Elasticsearch Query
+- PromQL
+
 ## Rank
 
 - https://www.tiobe.com/tiobe-index/

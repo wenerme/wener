@@ -10,6 +10,31 @@ title: Emoji
 - [Emoticons](<https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)>)
 - [UnicodeSet](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AEmoji%3DYes%3A%5D&esc=on)
 - https://github.com/hfg-gmuend/openmoji
+- https://emojipedia.org
+- [microsoft/fluentui-emoji](https://github.com/microsoft/fluentui-emoji)
+- Animated
+  - [Tarikul-Islam-Anik/Telegram-Animated-Emojis](https://github.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis)
+    - MIT, webp
+    - https://telegram-animated-emojis.vercel.app/
+  - [Tarikul-Islam-Anik/Animated-Fluent-Emojis](https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis)
+    - png
+    - https://animated-fluent-emoji.vercel.app/
+  - https://googlefonts.github.io/noto-emoji-animation/
+    - CC BY 4.0, Lottie .json, 512x512 .avif, .webp, .gif
+    - 411
+    - https://googlefonts.github.io/noto-emoji-animation/data/api.json
+    - [googlefonts/noto-emoji](https://github.com/googlefonts/noto-emoji)
+      - 4000+
+      - NotoColorEmoji.ttf 10.6MB
+      - Noto-COLRv1.ttf 4.5M
+      - https://github.com/googlefonts/noto-emoji/issues/390
+        - 黑白
+    - [googlefonts/emoji-metadata](https://github.com/googlefonts/emoji-metadata)
+
+<!--
+- https://iconscout.com/lottie-animations/emoji
+- https://lottiefiles.com/animation/emoji
+-->
 
 ---
 

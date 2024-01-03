@@ -1,5 +1,4 @@
 ---
-id: alpine-intro
 title: Alpine 入门
 date: 2018-02-26
 ---

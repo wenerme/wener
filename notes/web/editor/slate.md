@@ -1,10 +1,10 @@
 ---
-title: SlateJS
+title: Slate
 ---
 
-# SlateJS
+# Slate
 
-- [SlateJS](https://github.com/ianstormtaylor/slate)
+- [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate)
   - [文档](https://docs.slatejs.org/)
 - slate ~84kb + immer
 - slate-react ~59kb - +slate ~145kb

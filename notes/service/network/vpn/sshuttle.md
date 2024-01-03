@@ -19,6 +19,9 @@ title: sshuttle
 
 ```bash
 sshuttle -r 192.168.66.0/24 host
+
+# 不校验主机 - 用于主机可能是一个临时容器的场景
+sshuttle -e '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null' -r 192.168.66.0/24 host
 ```
 
 ```bash title="tproxy"

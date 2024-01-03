@@ -5,6 +5,15 @@ tags:
 
 # Editor FAQ
 
+- Block 之间的 virtual 位置
+  - https://twitter.com/nikitonsky/status/1649093609151684608
+  - https://curvenote.github.io/prosemirror-codemark/
+  - https://github.com/facebook/lexical/discussions/5219
+- EditContext API
+  - https://github.com/w3c/edit-context
+  - https://caniuse.com/mdn-api_editcontext
+    - Chrome 121+
+
 ## yjs vs automerge
 
 - [yjs/yjs](https://github.com/yjs/yjs)

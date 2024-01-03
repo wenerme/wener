@@ -6,10 +6,10 @@ tags:
 
 # Java Tuning
 
-| -X   | for               | default |
-| ---- | ----------------- | ------- |
-| -Xms | initial heap size |
-| -Xmx | max heap size     | 25%,最大25G     |
+| -X   | for               | default     |
+| ---- | ----------------- | ----------- |
+| -Xms | initial heap size |             |
+| -Xmx | max heap size     | 25%,最大25G |
 
 | -XX:flag             | for                  |
 | -------------------- | -------------------- |
@@ -60,6 +60,7 @@ java -Xlog:os+container=trace -version
 | > 2GB     | 75%    |
 
 - `-Xcompressedrefs`
+
   - 3-bit shift
   - heap size 25GB 上限
   - 可通过 `-XX:MaxRAMPercentage` 或者 `-Xmx` 覆盖

@@ -1156,6 +1156,24 @@ tags:
   - 数据
   - 没有单数双数概念
 
+## Resource vs Entity vs Record vs Object vs Item vs Document vs Entry vs Row vs DTO vs Model vs Schema
+
+- 数据库纬度
+  - Record、Row、Entry、Document
+- 数据维度
+  - Item、Entry
+- ORM
+  - Entity、Object、Document
+- 转换
+  - DTO、Model
+
+---
+
+- Entity
+  - ORM、数据库表模型
+- Resource
+  - 接口、RPC、Service 层
+
 ## 参考
 
 - primary

@@ -21,3 +21,8 @@ RTE 功能也分为很多层次
 - 文章 - medium、ghost、wordpress
 - WYSIWYG - CMS、RCT
 - 协作编辑
+
+---
+
+- [FAQ](./editor-faq.md)
+- [Awesome](./editor-awesome.md)

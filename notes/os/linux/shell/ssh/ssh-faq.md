@@ -71,6 +71,7 @@ GatewayPorts yes
 ## 不校验主机
 
 ```bash
+# 忽略 Host key 变化
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null root@127.0.0.1 -p 2222
 
 # 忽略 SSH Agent，测试 key

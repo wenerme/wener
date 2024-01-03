@@ -5,7 +5,7 @@ title: Nomad
 # Nomad
 
 - [hashicorp/nomad](https://github.com/hashicorp/nomad) 是什么？
-  - MPL-2.0, Go
+  - BSL, Go
   - 分布式调度器
   - 工作负载编排
 - 核心卖点： 混合工作负载编排
@@ -53,6 +53,8 @@ title: Nomad
   - [hashicorp/go-getter](https://github.com/hashicorp/go-getter) - 获取 artifact
   - [Why HashiCorp Customers Choose Nomad](https://www.hashicorp.com/resources/why-hashicorp-customers-choose-nomad/)
   - https://www.nomadproject.io/downloads/
+  - https://developer.hashicorp.com/nomad/docs/install/production/requirements
+    - Server 4C16G+
 
 :::tip 适用场景
 

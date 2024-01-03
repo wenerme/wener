@@ -46,3 +46,11 @@ tags:
 
 - 如果用户做了分流，则可以考虑访问未分流的地址请求 URL
 - https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime
+
+## jdbc url
+
+```
+jdbc:mysql://192.168.99.100:33056/guest?user=guest&\
+password=guest&failOverReadOnly=false&maxReconnects=10&\
+socksProxyHost=82.204.180.43&socksProxyPort=36819&autoReconnect=true
+```

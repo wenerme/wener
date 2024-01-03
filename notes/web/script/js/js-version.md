@@ -27,12 +27,15 @@ tags:
 
 | ES     | NodeJS      |
 | ------ | ----------- |
+|        | NodeJS 20   |
 | ES2022 | NodeJS 18   |
 | ES2021 | NodeJS 16   |
 | ES2020 | NodeJS 14   |
 | ES2019 | NodeJS 12   |
 | ES2018 | NodeJS 10   |
 | ES2017 | NodeJS 8.10 |
+
+- https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
 
 :::tip
 

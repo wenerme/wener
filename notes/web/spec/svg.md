@@ -22,7 +22,7 @@ brew install librsvg
 rsvg-convert -h 32 icon.svg > icon-32.png
 rsvg-convert -h 200 icon.svg > icon.png
 
-rsvg-convert -h 200 icon.svg | oxipng -o max -i 0 --strip safe > icon.png
+rsvg-convert -h 200 icon.svg | oxipng -o max -i 0 --strip safe - > icon.png
 ```
 
 ## 缩放和大小

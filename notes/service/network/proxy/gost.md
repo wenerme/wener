@@ -46,11 +46,11 @@ title: gost
 
 ```bash
 # macOS
-curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc8/gost_3.0.0-rc8_darwin_amd64.tar.gz
+curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc10/gost_3.0.0-rc10_darwin_amd64.tar.gz
 tar zxvf gost*.tar.gz
 
 # Linux
-curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc8/gost_3.0.0-rc8_linux_amd64.tar.gz
+curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc10/gost_3.0.0-rc10_linux_amd64.tar.gz
 tar zxvf gost*.tar.gz
 
 # v3

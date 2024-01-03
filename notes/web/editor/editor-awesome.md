@@ -9,35 +9,38 @@ tags:
 ## Web Editor
 
 - [prosemirror](https://github.com/ProseMirror/prosemirror)
-- [facebook/lexical](https://github.com/facebook/lexical)
-  - by Facebook, 替代 draftjs
-  - https://news.ycombinator.com/item?id=31019778
-  - [ozanyurtsever/verbum](https://github.com/ozanyurtsever/verbum)
-- [udecode/plate](https://github.com/udecode/plate)
-  - MIT, TS, React
-  - 基于 Slate
+- [tiptap](./tiptap)
+- React
+  - [facebook/lexical](https://github.com/facebook/lexical)
+    - by Facebook, 替代 draftjs
+    - https://news.ycombinator.com/item?id=31019778
+    - [ozanyurtsever/verbum](https://github.com/ozanyurtsever/verbum)
+  - [udecode/plate](./plat.md)
+    - MIT, TS, React
+    - 基于 Slate
+  - [slatejs](./slate.md)
+  - [draft.js](./draftjs.md)
+    - 使用 immutable-js 管理状态
+    - [sstur/react-rte](https://github.com/sstur/react-rte)
+    - [jpuri/react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)
+  - [editablejs/editable](https://github.com/editablejs/editable)
+    - Apache-2.0, TS, React
+  - [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
+    - Apache-2.0, React ContentEditable
+    - 非常简单的 ContentEditable 封装
 - [quilljs/quill](https://github.com/quilljs/quill)
   - Quill is a modern WYSIWYG editor built for compatibility and extensibility.
   - [zenoamaro/react-quill](https://github.com/zenoamaro/react-quill)
 - [tinymce/tinymce](https://github.com/tinymce/tinymce)
   - The world's most popular JavaScript library for rich text editing
-- [draft.js](https://github.com/facebook/draft-js)
-  - 使用 immutable-js 管理状态
-  - [sstur/react-rte](https://github.com/sstur/react-rte)
-  - [jpuri/react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)
-- [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate)
 - https://ckeditor.com/
 - https://github.com/JefMari/awesome-wysiwyg
 - [sofish/pen](https://github.com/sofish/pen)
   - enjoy live editing (+markdown)
-- [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
-  - React ContentEditable
 - [benjamn/kix-standalone](https://github.com/benjamn/kix-standalone)
   - google doc editor - 2010 - archived
 - [red-axe/am-editor](https://github.com/red-axe/am-editor)
   - 富文本实时协同编辑器框架
-- [editablejs/editable](https://github.com/editablejs/editable)
-  - Apache-2.0, TS, React
 
 ## Image Editor
 
@@ -92,17 +95,20 @@ tags:
 
 - [TypeCellOS/BlockNote](https://github.com/TypeCellOS/BlockNote)
   - MPLv2, TS, React
-- [codex-team/editor.js](https://github.com/codex-team/editor.js)
+  - 基于 tiptap
+  - UI mantine - bundle 非常大
+- [codex-team/editor.js](./editorjs.md)
   - Apache-2.0, Typescript
+  - Native、不依赖框架 - gzip 50kB
+  - [editor-js/awesome-editorjs](https://github.com/editor-js/awesome-editorjs)
 - [appleple/smartblock](https://github.com/appleple/smartblock)
   - React+ProseMirror
   - 不活跃
 - [WordPress/gutenberg](https://github.com/WordPress/gutenberg)
+  - GPLv2, MPLv2
   - [Automattic/isolated-block-editor](https://github.com/Automattic/isolated-block-editor)
     - 去除 WordPress 依赖
 - [tobi4120/notion-clone](https://github.com/tobi4120/notion-clone)
-- [portabletext/portabletext](https://github.com/portabletext/portabletext)
-  - Sanity.io 定义的规范
 
 ## Builder
 
@@ -200,6 +206,24 @@ tags:
   - aims to recreate the Macromedia/Adobe Flash experience of old
   - https://raverie-us.github.io/raverie-engine/
 - https://editor.godotengine.org/
+
+## Model/Spec/Schema {#model}
+
+> 设计/扩展 RichText Editor 的核心是理解文档模型
+
+- markdown
+- rst
+- asciidoc
+- [portabletext/portabletext](https://github.com/portabletext/portabletext)
+  - Sanity.io 定义的规范
+- https://docs.slatejs.org/v/v0.47/guides/data-model
+- [editor-js/document-model](https://github.com/editor-js/document-model)
+- [ProseMirror/prosemirror-model](https://github.com/ProseMirror/prosemirror-model)
+- [Low Code Design](./low-code/README.md)
+- https://www.builder.io/c/docs/models-intro
+- https://avuejs.com/
+  - 写好模板配数据
+- https://www.notion.so/blog/data-model-behind-notion
 
 ## Glossary
 

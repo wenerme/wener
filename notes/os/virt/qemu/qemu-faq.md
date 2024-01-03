@@ -26,9 +26,23 @@ tags:
 
 ## RNG
 
+> 建议默认添加，否则可能导致非常慢意外 Hang 住
+
+```
+-device virtio-rng-pci
+```
+
+默认 `/dev/random`。 可自定义参数
+
+```
+-object rng-random,filename=/dev/hwrng,id=rng0 -device virtio-rng-pci,rng=rng0
+```
+
 ```bash
 qemu-system-x86_64 -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0,bus=pci.0,addr=0x7
 ```
+
+- https://www.qemu.org/docs/master/system/devices/vhost-user-rng.html
 
 ## 环境检测
 

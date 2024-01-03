@@ -39,6 +39,7 @@ tags:
 - Plugin
   - [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
     - 动画
+    - https://www.tailwindcss-animated.com/configurator.html
 
 **Components**
 

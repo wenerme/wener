@@ -14,7 +14,7 @@ title: mermaid
 
 :::
 
-| type            |
+| type            |             |
 | --------------- | ----------- |
 | graph           | Flow        |
 | sequenceDiagram | Sequence    |
@@ -28,7 +28,7 @@ title: mermaid
 | flowchart       |
 
 ```mermaid
-graph TD;
+graph TD
     A-->B
     A-->C
     B-->D

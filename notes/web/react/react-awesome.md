@@ -62,7 +62,7 @@ npm add react-table
 npm add date-fns lodash-es react-fast-compare
 ```
 
-## 通用 UI 组件
+## 通用 UI 组件 {#ui-framework}
 
 - tailwindcss+daisyui
   - 如果开发人员能力足够
@@ -151,7 +151,7 @@ npm add date-fns lodash-es react-fast-compare
 - chat
   - [alibaba/ChatUI](https://github.com/alibaba/ChatUI)
 
-## 特殊 UI 组件
+## 特殊 UI 组件 {#ui-component}
 
 - [tamagui/tamagui](https://github.com/tamagui/tamagui)
 - [tremorlabs/tremor](https://github.com/tremorlabs/tremor)
@@ -225,6 +225,9 @@ npm add date-fns lodash-es react-fast-compare
     - 组件
       - Draggable - 包含基础状态，可受控的拖拽组件
       - DraggableCore - 无状态功能组件
+  - Query Builder
+    - [ukrbublik/react-awesome-query-builder](https://github.com/ukrbublik/react-awesome-query-builder)
+    - [react-querybuilder/react-querybuilder](https://github.com/react-querybuilder/react-querybuilder)
   - [react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
     - 简单的 resize 组件
     - 组件
@@ -509,6 +512,14 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 样式
 
+- class 合并
+  - [gregberge/twc](https://github.com/gregberge/twc)
+  - clsx
+  - classnames
+  - tailwind-merge
+  - [cva](https://github.com/joe-bell/cva)
+    - https://cva.style/docs
+  - [tw-classed](https://github.com/sannajammeh/tw-classed)
 - [stitchesjs/stitches](https://github.com/stitchesjs/stitches)
   - 写 Object 而不是写 string 的 css
   - 类似 styled-components 和 emotion 的中间形态

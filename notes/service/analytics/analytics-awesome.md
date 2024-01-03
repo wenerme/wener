@@ -6,10 +6,9 @@ tags:
 
 # Analytics Awesome
 
-- [mikecao/umami](https://github.com/mikecao/umami)
+- [mikecao/umami](https://github.com/umami-software/umami)
   - MIT, Node + PostgreSQL/MySQL
   - 简单、移动端友好
-  - Demo https://app.umami.is/share/8rmHaheU/umami.is
 - [plausible/analytics](https://github.com/plausible/analytics)
   - AGPLv3, Elixir
   - 轻量，面向 Web
@@ -24,15 +23,16 @@ tags:
 - [matomo-org/matomo](./matomo.md)
   - GPLv3, PHP+MySQL
   - https://matomo.org/
-- Fathom - https://usefathom.com/
 - [Countly/countly-server](https://github.com/Countly/countly-server)
 - [PostHog/posthog](https://github.com/PostHog/posthog)
   - 支持非 Web Session
 - [electerious/Ackee](https://github.com/electerious/Ackee)
+- ~~[usefathom/fathom](https://github.com/usefathom/fathom)~~
 
 ## Library
 
 - [microsoft/clarity](https://github.com/microsoft/clarity)
+  - behavioral analytics library that uses dom mutations and user interactions to generate aggregated insights
 - [DavidWells/analytics](https://github.com/DavidWells/analytics)
 
 ## 商业

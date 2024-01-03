@@ -361,37 +361,6 @@ data:
         - /webhooks/0/clientConfig/caBundle
 ```
 
-### 常见忽略 Diff
-
-```yaml
-# 如果使用 argocd 部署 argocd
-# 忽略 argocd-cm 部分
-- group: core
-  kind: ConfigMap
-  name: argocd-cm
-  jsonPointers:
-    - /data
-
-# 忽略部署的 repilca 数量 - 有时候希望运维调整
-- group: apps
-  kind: Deployment
-  jsonPointers:
-    - /spec/replicas
-
-# longhorn Volume 忽略部分会变字段
-- group: longhorn.io
-  kind: Volume
-  jsonPointers:
-    - /spec/nodeID
-    - /spec/lastAttachedBy
-
-# 忽略指定 Secret 数据
-- group: core
-  kind: Secret
-  name: default-cert
-  jsonPointers:
-    - /data
-```
 
 ## Sync
 
