@@ -65,3 +65,13 @@ tags:
 监事：唐强 13801234000
 一般项目：家政服务；专业保洁、清洗、消毒服务；礼仪服务；
 ```
+
+## EF BF BD
+
+- Replacement Character
+- �
+- `\ufffd`
+- `\xef\xbf\xbd`
+- Azure OpenAI GPT 3.5 turbo
+- https://community.openai.com/t/tokens-are-mangled-for-some-non-english-characters-resolved/74315
+- https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500

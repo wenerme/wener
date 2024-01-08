@@ -58,8 +58,8 @@ startxfce4
 apk add lightdm-gtk-greeter
 
 # 添加非 root 用户 admin 密码 admin - 不少应用需要非 root 用户
-adduser -d admin
-echo admin:admin | chpasswd
+adduser -D admin
+echo 'admin:admin' | chpasswd
 echo 'admin ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # 开机进入登陆界面
@@ -112,7 +112,8 @@ apk add chromium
 Linux 因为发布版太大了，应用分发比较混乱，且不少应用并不直接支持 musl，使用 flatpak 打包的应用可避免这些问题。
 
 ```bash
-apk add flatpak
+apk add flatpak xdg-user-dirs
+# https://flathub.org/setup/Alpine
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # 安装
@@ -168,7 +169,7 @@ xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi
 
 ```bash
 apk add xrandr
-DISPLAY=:0.0 xrandr
+DISPLAY=:0 xrandr
 ```
 
 ## 查看当前显卡和声卡信息
@@ -215,6 +216,35 @@ echo nopw >> ~/.x11vncrc
 ```
 
 > 如果服务常开，建议设置密码
+
+## KMS: DRM_IOCTL_MODE_CREATE_DUMB failed: Permission denied
+
+- DRM - Direct Rendering Manager
+
+## xrandr auto
+
+```bash
+xrandr --auto
+```
+
+```
+xrandr: Output DP1 is not disconnected but has no modes
+xrandr: Output HDMI2 is not disconnected but has no modes
+```
+
+```bash
+export DISPLAY=:0
+xrandr --query
+```
+
+## kiskos
+
+```bash title="~/.initrc"
+xset -dpms     # Disable DPMS (Energy Star) features
+xset s off     # Disable screen saver
+xset s noblank # Don't blank the video device
+exec chromium-browser --kiosk --no-first-run --no-sandbox 'https://wener.me'
+```
 
 # 参考
 

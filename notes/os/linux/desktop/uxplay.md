@@ -9,7 +9,9 @@ title: uxplay
   - AirPlay Unix mirroring server
 
 ```bash
-apk add git gcc g++ make cmake openssl-dev avahi-dev gstreamer-dev gst-plugins-base-dev gst-libav gst-plugins-good libplist-dev
+apk add git gcc g++ make cmake openssl-dev avahi-daemon avahi-dev gstreamer-dev gst-plugins-base-dev gst-libav gst-plugins-good libplist-dev
+
+service avahi-daemon start
 
 git clone https://github.com/FDH2/UxPlay
 cd UxPlay
@@ -18,6 +20,11 @@ cd build
 cmake ..
 make
 ./uxplay --help
+
+# 注意 需要在 X Session 的 terminal/环境 里启动 - 或者通过设置 env 应该也可以
+# glimagesink 测试下来这个可用，别的黑屏
+# 但 -fs 不支持 glimagesink :<
+./uxplay -n "tv@living-room" -nh -fps 60 -fs -FPSdata -vs glimagesink
 ```
 
 ## help
@@ -127,5 +134,10 @@ EOF
 
 ## libfusion segfault
 
+- 启动环境不对，在 x 环境里启动
 - directfb
 - https://github.com/deniskropp/DirectFB
+
+## gstreamer dropping frame due to qos
+
+OK
