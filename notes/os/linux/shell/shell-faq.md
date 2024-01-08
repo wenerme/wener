@@ -266,3 +266,25 @@ esac
   - ksh
 - PS3
   - ps3sh
+
+## PATH
+
+- /etc/paths
+- /etc/paths.d
+
+**macOS**
+
+```
+/usr/local/bin
+/System/Cryptexes/App/usr/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+```
+
+```txt title="/etc/paths.d/10-cryptex"
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+```

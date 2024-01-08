@@ -27,12 +27,11 @@ id: interfaces
   - auto
   - allow-hotplug
 
-
 :::caution
 
-* ifupdown 不同 interfaces 会有些微的不同
-* interfaces 本质是将执行的脚本以配置化的方式呈现
-  * imperative -> declartive
+- ifupdown 不同 interfaces 会有些微的不同
+- interfaces 本质是将执行的脚本以配置化的方式呈现
+  - imperative -> declartive
 
 :::
 
@@ -54,7 +53,7 @@ apk add bonding tunnel static-routing vlan bridge vde2 fwsnort
 
 ```bash
 # 检查 table 是否存
-ip ro li tab mytab 2>/dev/null || echo NO
+ip ro li tab mytab 2> /dev/null || echo NO
 
 install -Dv /dev/null /etc/udhcpc/udhcpc.conf
 echo IF_PEER_DNS=no >> /etc/udhcpc/udhcpc.conf
@@ -80,80 +79,80 @@ auto eth0 eth1
 # 适用于多子网
 # ip route add 10.10.0.0/24 如果子网已经存在则会失败
 iface eth2 inet static
-    address 10.10.0.10
-    netmask 255.255.255.0
-    post-up ip route add 10.10.0.0/24 dev eth1 src 10.10.0.10 table tgbe
-    post-up ip route add default via 10.10.0.1 dev eth1 table tgbe
-    post-up ip rule add from 10.10.0.10/32 table tgbe
-    post-up ip rule add to 10.10.0.10/32 table tgbe
+address 10.10.0.10
+netmask 255.255.255.0
+post-up ip route add 10.10.0.0/24 dev eth1 src 10.10.0.10 table tgbe
+post-up ip route add default via 10.10.0.1 dev eth1 table tgbe
+post-up ip rule add from 10.10.0.10/32 table tgbe
+post-up ip rule add to 10.10.0.10/32 table tgbe
 
 # 使用相同接口返回 - 适用于默认网关已经存在但想要通过 IP 使用网口时
 # 使用这个 IP 则会通过这个接口
 iface eth2 inet static
-    address 10.10.0.10
-    netmask 255.255.255.0
-    # 自动添加 table
-    # pre-up ip ro li tab tgbe &>/dev/null || echo '10 tgbe' >> /etc/iproute2/rt_tables
-    post-up ip rule add from 10.10.0.10 table tgbe
-    post-up ip ro add default via 10.10.0.1 dev eth2 table tgbe
+address 10.10.0.10
+netmask 255.255.255.0
+# 自动添加 table
+# pre-up ip ro li tab tgbe &>/dev/null || echo '10 tgbe' >> /etc/iproute2/rt_tables
+post-up ip rule add from 10.10.0.10 table tgbe
+post-up ip ro add default via 10.10.0.1 dev eth2 table tgbe
 
 # wireguard
 # ===================
 # 依赖 wireguard-vanilla/wireguard-virt wireguard-tools-wg
 auto wg0
 iface wg0 inet static
-    address 10.10.0.1
-    netmask 255.255.255.0
-    pre-up ip link add dev wg0 type wireguard
-    pre-up ip link set dev wg0 mtu 1450
-    pre-up wg setconf wg0 /etc/network/wg0.conf
-    post-down ip link delete dev wg0
+address 10.10.0.1
+netmask 255.255.255.0
+pre-up ip link add dev wg0 type wireguard
+pre-up ip link set dev wg0 mtu 1450
+pre-up wg setconf wg0 /etc/network/wg0.conf
+post-down ip link delete dev wg0
 
 # bonding
 # ===================
 # Slaves
 auto eth0
 iface eth0 inet manual
-    bond-master bond0
-    bond-primary eth0
-    bond-mode active-backup
+bond-master bond0
+bond-primary eth0
+bond-mode active-backup
 
 auto wlan0
 iface wlan0 inet manual
-    wpa-conf /etc/network/wpa.conf
-    bond-master bond0
-    bond-primary eth0
-    bond-mode active-backup
+wpa-conf /etc/network/wpa.conf
+bond-master bond0
+bond-primary eth0
+bond-mode active-backup
 
 # Master
 auto bond0
 iface bond0 inet dhcp
-    bond-slaves none
-    bond-primary eth0
-    bond-mode active-backup
-    bond-miimon 100
+bond-slaves none
+bond-primary eth0
+bond-mode active-backup
+bond-miimon 100
 
 # bridge
 # ===================
 auto br0
 iface br0 inet dhcp
-  # 有该配置说明是桥接
-  # 特殊值 none all
-  bridge-ports vnet0 vnet1
-  # 等待端口
-  # bridge-waitport 0
-  # bridge-ageing 0
-  # bridge-bridgeprio 0
-  # forward delay - 默认 30s
-  # bridge-fd 30
-  # bridge-gcint 0
-  # bridge-hello 0
-  # bridge-maxage 0
-  # bridge-pathcost 0
-  # 0-65535
-  # bridge-portprio 0
-  # 是否开启 STP - 如果不是唯一的 bridge 则需要打开
-  # bridge-stp on
+# 有该配置说明是桥接
+# 特殊值 none all
+bridge-ports vnet0 vnet1
+# 等待端口
+# bridge-waitport 0
+# bridge-ageing 0
+# bridge-bridgeprio 0
+# forward delay - 默认 30s
+# bridge-fd 30
+# bridge-gcint 0
+# bridge-hello 0
+# bridge-maxage 0
+# bridge-pathcost 0
+# 0-65535
+# bridge-portprio 0
+# 是否开启 STP - 如果不是唯一的 bridge 则需要打开
+# bridge-stp on
 ```
 
 ```bash
@@ -162,7 +161,9 @@ bridge fdb
 ```
 
 # Methods
+
 ## inet
+
 ### static
 
 ```ini
@@ -196,6 +197,7 @@ mtu size
 ```
 
 ### dhcp
+
 ```ini
 # Hostname to be requested (pump, dhcpcd, udhcpc)
 hostname hostname
@@ -214,6 +216,7 @@ hwaddress address
 ```
 
 ### bootp
+
 ```ini
 # Tell the server to use file as the bootfile.
 bootfile file
@@ -224,7 +227,8 @@ hwaddr addr
 ```
 
 ### tunnel
-* This method is used to create GRE or IPIP tunnels. You need to have the ip binary from the iproute package. For GRE tunnels, you will need to load the ip_gre module and the ipip module for IPIP tunnels.
+
+- This method is used to create GRE or IPIP tunnels. You need to have the ip binary from the iproute package. For GRE tunnels, you will need to load the ip_gre module and the ipip module for IPIP tunnels.
 
 ```ini
 # Local address (dotted quad) required
@@ -248,6 +252,7 @@ mtu size
 ```
 
 ### ppp
+
 This method uses pon/poff to configure a PPP interface
 
 ```ini
@@ -260,6 +265,7 @@ options string
 ```
 
 ### wvdial
+
 This method uses wvdial to configure a PPP interface. See that command for more details.
 
 ```ini
@@ -267,13 +273,14 @@ This method uses wvdial to configure a PPP interface. See that command for more 
 provider name
 ```
 
-
 ### ipv4ll
 
 This method uses avahi-autoipd to configure an interface with an IPv4 Link-Layer address (169.254.0.0/16 family). This method is also known as APIPA or IPAC, and often colloquially referred to as "Zeroconf address".
 
 ## ipx
+
 ### static
+
 This method may be used to setup an IPX interface. It requires the ipx_interface command.
 Options
 
@@ -283,6 +290,7 @@ frame type
 # Network number
 netnum id
 ```
+
 ### dynamic
 
 ```ini
@@ -291,6 +299,7 @@ frame type
 ```
 
 ## inet6
+
 ### auto
 
 This method may be used to define interfaces with automatically assigned IPv6 addresses. Using this method on its own doesn't mean that RDNSS options will be applied, too. To make this happen, rdnssd daemon must be installed, properly configured and running. If stateless DHCPv6 support is turned on, then additional network configuration parameters such as DNS and NTP servers will be retrieved from a DHCP server. Please note that on ifdown, the lease is not currently released (a known bug).
@@ -372,6 +381,7 @@ ll-interval
 ```
 
 ### v4tunnel
+
 IPv6-over-IPv4 tunnel. It requires the ip command from the iproute package.
 
 ```ini
@@ -413,6 +423,7 @@ preferred-lifetime int
 ```
 
 ### can
+
 This method may be used to setup an Controller Area Network (CAN) interface. It requires the the ip command from the iproute
 
 ```ini
@@ -468,7 +479,6 @@ net.ipv4.conf.eth1.arp_ignore = 1
 ip link add link eth2 macvtap2 address 00:22:33:44:55:66 type macvtap mode bridge
 ip link set macvtap2 up
 ip link show macvtap2
-
 ```
 
 - [notes on macvlan/macvtap](https://backreference.org/2014/03/20/some-notes-on-macvlanmacvtap/)
@@ -521,11 +531,11 @@ udhcpc -i bond0
 ```sh
 auto eth0
 iface eth0 inet static
-	address 192.168.1.11
-	netmask 255.255.255.0
-  pre-up ip ro li tab e0 &>/dev/null || echo '10 e0' >> /etc/iproute2/rt_tables
-  post-up ip ro add 192.168.1.0/24 dev eth0 src 192.168.1.11 table e0
-  post-up ip ro add default via 192.168.1.1 dev eth0 table e0
-  post-up ip ru add from 192.168.1.11/32 table e0
-  post-up ip ru add to 192.168.1.11/32 table e0
+address 192.168.1.11
+netmask 255.255.255.0
+pre-up ip ro li tab e0 &> /dev/null || echo '10 e0' >> /etc/iproute2/rt_tables
+post-up ip ro add 192.168.1.0/24 dev eth0 src 192.168.1.11 table e0
+post-up ip ro add default via 192.168.1.1 dev eth0 table e0
+post-up ip ru add from 192.168.1.11/32 table e0
+post-up ip ru add to 192.168.1.11/32 table e0
 ```

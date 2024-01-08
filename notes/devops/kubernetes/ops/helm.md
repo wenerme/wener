@@ -154,8 +154,9 @@ helm push argo-cd-5.45.1.tgz oci://index.docker.io/wcharts/
 helm pull oci://index.docker.io/wcharts/argo-cd:5.45.1
 
 # 推送新的 tgz
+ls -tr # 最新的
 # https://hub.docker.com/r/wcharts/sealed-secrets/tags
-find . -iname '*.tgz' -newer ./sealed-secrets-2.9.0.tgz | xargs -I {} -n 1 helm push {} oci://index.docker.io/wcharts
+find . -iname '*.tgz' -newer ./victoria-metrics-operator-0.27.9.tgz | xargs -I {} -n 1 helm push {} oci://index.docker.io/wcharts
 
 find . -type f -newermt 2017-09-24
 find . -type f -newerat 2017-09-25
@@ -165,9 +166,9 @@ find . -type f -newerat 2017-09-25
 name: argocd
 apiVersion: v2
 dependencies:
-- name: argo-cd
-  version: 5.45.1
-  repository: oci://registry-1.docker.io/wcharts
+  - name: argo-cd
+    version: 5.45.1
+    repository: oci://registry-1.docker.io/wcharts
 
 version: 1.0.0
 ```

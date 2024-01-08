@@ -16,6 +16,9 @@ tags:
 - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
   - Style and Grammar Checker for 25+ Languages
   - https://languagetool.org/dev
+- typescript
+  - https://ts-ast-viewer.com
+  - [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API)
 
 ## Languages
 

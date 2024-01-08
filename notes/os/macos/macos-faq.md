@@ -412,3 +412,8 @@ open vnc://192.168.1.1
 ```
 Screen Sharing is not permitted on “10.10.1.1”. Disable and re-enable Screen Sharing or Remote Management in System Settings before trying again
 ```
+
+## cryptex
+
+- cryptographically-sealed archive
+- /Volumes/Preboot/Cryptexes

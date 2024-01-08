@@ -17,6 +17,7 @@ tags:
 - subdomain 不能包含 `.` 和 `*`
 - frps 没有 reload 因此修改配置需要重启
 - visitor 端需要配置 server_name
+- 弃用 ini 配置，可以选择 toml、json、yaml 配置
 
 :::
 
@@ -27,6 +28,8 @@ tags:
   - plugin_local_addr
   - plugin_host_header_rewrite
   - plugin*header*
+- https://github.com/fatedier/frp/tree/dev/conf
+
 
 **frps.ini**
 

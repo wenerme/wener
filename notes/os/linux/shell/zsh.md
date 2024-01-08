@@ -45,14 +45,17 @@ man zshcontrib
 # FAQ
 
 ```zsh
+# 历史搜索
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-bindkey "^[[A" up-line-or-beginning-search    # Up
-bindkey "^[[B" down-line-or-beginning-search  # Down
+bindkey "^[[A" up-line-or-beginning-search   # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 ```
+
+- https://xpmo.gitlab.io/post/using-zparseopts/
 
 ## Why ZSH
 
@@ -64,4 +67,3 @@ bindkey "^[[B" down-line-or-beginning-search  # Down
   - 大多服务器环境都是 Bash 或 POSIX Shell
     - 平时使用 bash 更利于服务端编码
     - 过多使用 zsh 相关特性会产生依赖
-

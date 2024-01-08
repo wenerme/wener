@@ -16,17 +16,18 @@ reboot
 k3s -v                   # 当前版本
 cp $(which k3s) k3s.last # backup
 
+sudo apk add jq
+
 # ARCH=arm64
 # SUFFIX=-${ARCH}
 ARCH=amd64
 SUFFIX=
 
-sudo apk add jq
 VERSION_K3S=$(curl -sf https://update.k3s.io/v1-release/channels | jq -r '.data[] | select(.id == "stable") | .latest')
 echo Upgrade $VERSION_K3S
 # GITHUB_URL=https://github.com/k3s-io/k3s/releases
 # 走代理
-GITHUB_URL=https://ghproxy.com/github.com/k3s-io/k3s/releases
+GITHUB_URL=https://mirror.ghproxy.com/github.com/k3s-io/k3s/releases
 GITHUB_URL=https://github.com/k3s-io/k3s/releases
 curl --remote-name-all -L "${GITHUB_URL}/download/${VERSION_K3S}/sha256sum-${ARCH}.txt" "${GITHUB_URL}/download/${VERSION_K3S}/k3s${SUFFIX}"
 

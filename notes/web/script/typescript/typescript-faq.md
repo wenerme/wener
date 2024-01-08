@@ -43,6 +43,37 @@ tags:
   - 建议优先 interface
 - https://www.totaltypescript.com/type-vs-interface-which-should-you-use
 
+## enum vs union
+
+- enum
+  - 有类型，不能直接赋值
+- union
+
+```ts
+// 可以遍历的 ENUM
+const permissions = ['read', 'write', 'execute'] as const;
+type Permission = (typeof permissions)[number];
+
+// 使用 ENUM 且可以遍历的方式
+enum Permission {
+  Read = 'r',
+  Write = 'w',
+  Execute = 'x',
+}
+
+const Permission = {
+  Read: 'r',
+  Write: 'w',
+  Execute: 'x',
+} as const;
+type Permission = (typeof Permission)[keyof typeof Permission];
+```
+
+- jsonschema 也有这个问题
+  - enum 是数组，不能有 title
+  - oneOf/anyOf 可以有 title - union
+- https://stackoverflow.com/a/60041791/1870054
+
 ## 为每个方法添加一个参数
 
 - https://stackoverflow.com/a/49479117/1870054

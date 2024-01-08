@@ -178,3 +178,27 @@ server.listen(3000);
 ## Rollup typing
 
 - [bundle/rollup d.ts](../typescript/typescript-faq.md#bundlerollup-dts)
+
+## typebox
+
+```ts
+import { TypeCompiler } from '@sinclair/typebox/compiler';
+import { Type, TSchema } from '@sinclair/typebox';
+import { initTRPC } from '@trpc/server';
+
+export function Compile<T extends TSchema>(schema: T, references: TSchema[] = []) {
+  const check = TypeCompiler.Compile(schema, references);
+  return (input: unknown) => {
+    if (check.Check(input)) return input;
+    throw Error('Invalid Input');
+  };
+}
+
+const t = initTRPC.create();
+
+const appRouter = t.router({
+  hello: t.procedure.input(Compile(Type.Number())).query(({ input }) => {
+    console.log(input);
+  }),
+});
+```

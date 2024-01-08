@@ -7,7 +7,7 @@ title: JSON Schema
 :::tip
 
 - 自定义属性最好使用 `x-` 前缀
-- enum 通过数组定义，无法指定 title `[1,2,3]` - 可以使用 oneOf
+- enum 通过数组定义，无法指定 title `[1,2,3]` - 可以使用 oneOf/anyOf
 - 推荐使用 2020-12 或 draft-07
 
 :::

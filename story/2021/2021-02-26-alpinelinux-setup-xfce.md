@@ -19,10 +19,16 @@ tags:
 
 ```bash
 # xfce + xorg
-setup-xorg-base xfce4 xfce4-terminal dbus-x11 sudo
+setup-xorg-base xfce4 xfce4-terminal dbus-x11 sudo pm-utils
+
+service dbus start
+rc-update add dbus
 
 # xorg 输入设备
-apk add xf86-input-mouse xf86-input-keyboard kbd
+# apk add xf86-input-mouse xf86-input-keyboard kbd
+# 默认包含 libinput
+# 其他 synaptics vmmouse wacom mtrack
+apk add xf86-input-libinput xf86-input-evdev kbd
 
 # Intel 芯片集成显卡
 apk add xf86-video-intel
@@ -31,6 +37,7 @@ apk add xf86-video-amdgpu
 # QEMU
 # apk add xf86-video-qxl
 # 如果以上都不支持则考虑使用 framebuffer
+# https://pkgs.alpinelinux.org/packages?name=xf86-video-*
 # apk add xf86-video-fbdev
 ```
 
@@ -50,10 +57,6 @@ startxfce4
 ```bash
 apk add lightdm-gtk-greeter
 
-# 如果没启动则需要提前开启
-rc-service dbus start
-rc-update add dbus
-
 # 添加非 root 用户 admin 密码 admin - 不少应用需要非 root 用户
 adduser -d admin
 echo admin:admin | chpasswd
@@ -62,7 +65,7 @@ echo 'admin ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 # 开机进入登陆界面
 rc-update add lightdm
 # 立即启动 lightdm 进行登陆
-rc-service lightdm start
+service lightdm start
 ```
 
 ## setup xfce
@@ -71,11 +74,11 @@ rc-service lightdm start
 
 ```bash
 # 默认无法显示中文字符
-apk add noto-font-cjk
+apk add font-noto-cjk
 
 # 允许非 root 通过 fuse 访问设备
 apk add gvfs-fuse gvfs-smb
-rc-service fuse start
+service fuse start
 rc-update add fuse
 
 # 自动挂载 外部设备
@@ -116,6 +119,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.visualstudio.code
 # 启动
 flatpak run com.visualstudio.code
+
+flatpak install flathub org.chromium.Chromium
 ```
 
 **常用应用**
@@ -157,6 +162,13 @@ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2
 # 调整主题为 默认 xhdpi
 # Settings Manager > Window Manager > Style
 xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi
+```
+
+## DISPLAY 信息
+
+```bash
+apk add xrandr
+DISPLAY=:0.0 xrandr
 ```
 
 ## 查看当前显卡和声卡信息

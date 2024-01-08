@@ -383,7 +383,7 @@ tags:
   - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
 - IPTV/Radio
   - [YueChan/Live](https://github.com/YueChan/Live)
-- PM
+- PMS/Project Management/Planning/Task
   - Jira
   - [makeplane/plane](https://github.com/makeplane/plane)
     - AGPLv3, Python, Typescript
@@ -391,6 +391,16 @@ tags:
   - Kanban
   - Trello
   - Linear
+  - [taskana/taskana](https://github.com/taskana/taskana)
+    - Apache-2.0, Java
+    - https://taskana.azurewebsites.net/taskana/
+      - admin:admin
+  - [opf/openproject](https://github.com/opf/openproject)
+    - GPLv3, Ruby
+  - [kaleidos-ventures/taiga-docker](https://github.com/kaleidos-ventures/taiga-docker)
+- HRM
+  - [orangehrm/orangehrm](https://github.com/orangehrm/orangehrm)
+    - GPLv2, PHP
 
 ## Avatar
 

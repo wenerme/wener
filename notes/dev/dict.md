@@ -373,60 +373,101 @@ tags:
 
 ## 财税 {#taxation}
 
-| en                                        | cn                            |
-| ----------------------------------------- | ----------------------------- |
-| taxation                                  | 财税                          |
-| Financial voucher                         | 财务凭证                      |
-| Account reconciliations                   | 对账                          |
-| accounting outsourcing                    | 代账                          |
-| bookkeeping outsourcing                   | 代账                          |
-| Accountant                                | 会计师                        |
-| bookkeeping                               | 记账                          |
-| Financial statements                      | 财务报表                      |
-| Ledger                                    | 账册                          |
-| Income statement                          | 收支结算表                    |
-| Balance sheet                             | 资产负债表                    |
-| Profit and loss statement                 | 利润表                        |
-| Cash flow statement                       | 现金流量表                    |
-| Financial analysis                        | 财务分析                      |
-| Accounting subjects                       | 会计科目                      |
-| tax return form                           | 纳税申报表                    |
-| bookkeeper                                | 记账员,会计                   |
-| social security                           | 社保                          |
-| imposition                                | 征收                          |
-| file tax                                  | 报税                          |
-| Tax Filing                                | 纳税申报                      |
-| Tax Planning                              | 税务筹划                      |
-| Audit                                     | 审计                          |
-| Accounting                                | 会计核算                      |
-| Financial Analysis                        | 财务分析                      |
-| Finance Advisory                          | 财务咨询                      |
-| customs                                   | 海关，关税                    |
-| Customs Clearance                         | 清关                          |
-| Adjusted gross income (AGI)               | 调整后总收入                  |
-| Taxable income                            | 应税所得                      |
-| Tax credit                                | 税收抵免                      |
-| Tax deduction                             | 税收减免                      |
-| Standard deduction                        | 标准扣除额                    |
-| Itemized deduction                        | 逐项扣除额                    |
-| Tax exemption                             | 免税 - 减少应税收入的货币豁免 |
-| Filing status                             | 申报状态                      |
-| Married filing jointly                    | 夫妻联合报税                  |
-| Married filing separately                 | 夫妻单独报税                  |
-| Single filing                             | 单身个人报税                  |
-| Head of household filing                  | 家庭户主报税                  |
-| Qualifying Widow(er) with dependent child | 有子女的丧偶人士报税          |
-| Tax refund/Tax rebate                     | 退税                          |
-| Tax receipt                               | 纳税收据                      |
-| Tax return transcript                     | 纳税申报单                    |
-| File tax                                  | 报税                          |
-| Evade tax                                 | 逃税                          |
-| Avoid tax                                 | 避税                          |
-| Impose/Levy                               | 征税/课税                     |
-| Electronic Filing/e-File                  | 电子报税、网报                |
-| filing                                    | 报税                          |
-| Ledger                                    | 账本                          |
-| checkbook                                 | 支票簿                        |
+| en                                        | 中文                              |
+| ----------------------------------------- | --------------------------------- |
+| Taxation                                  | 财税                              |
+| Financial Voucher                         | 财务凭证 - 发票、收据、合同       |
+| Financial Document                        | 财务文件 - 报表、预算、计划、分析 |
+| Account Reconciliations                   | 对账                              |
+| Accounting Outsourcing                    | 代理记账、财务服务外包            |
+| Bookkeeping Outsourcing                   | 代理记账                          |
+| Accountant                                | 会计师                            |
+| Bookkeeping                               | 记账                              |
+| Financial Statements                      | 财务报表                          |
+| Ledger                                    | 账本                              |
+| Income Statement                          | 收支结算表                        |
+| Balance Sheet                             | 资产负债表                        |
+| Profit and Loss Statement                 | 利润表                            |
+| Cash Flow Statement                       | 现金流量表                        |
+| Financial Analysis                        | 财务分析                          |
+| Accounting Subjects                       | 会计科目                          |
+| Tax Return Form                           | 纳税申报表                        |
+| Bookkeeper                                | 记账员, 会计                      |
+| Social Security                           | 社保                              |
+| Imposition                                | 征收                              |
+| File Tax                                  | 报税                              |
+| Tax Filing                                | 纳税申报                          |
+| Tax Planning                              | 税务筹划                          |
+| Audit                                     | 审计                              |
+| Accounting                                | 会计核算                          |
+| Financial Analysis                        | 财务分析                          |
+| Finance Advisory                          | 财务咨询                          |
+| Customs                                   | 海关, 关税                        |
+| Customs Clearance                         | 清关                              |
+| Adjusted Gross Income (AGI)               | 调整后总收入                      |
+| Taxable Income                            | 应税所得                          |
+| Tax Credit                                | 税收抵免                          |
+| Tax Deduction                             | 税收减免                          |
+| Standard Deduction                        | 标准扣除额                        |
+| Itemized Deduction                        | 逐项扣除额                        |
+| Tax Exemption                             | 免税 - 减少应税收入的货币豁免     |
+| Filing Status                             | 申报状态                          |
+| Married Filing Jointly                    | 夫妻联合报税                      |
+| Married Filing Separately                 | 夫妻单独报税                      |
+| Single Filing                             | 单身个人报税                      |
+| Head of Household Filing                  | 家庭户主报税                      |
+| Qualifying Widow(er) with Dependent Child | 有子女的丧偶人士报税              |
+| Tax Refund/Tax Rebate                     | 退税                              |
+| Tax Receipt                               | 纳税收据                          |
+| Tax Return Transcript                     | 纳税申报单                        |
+| File Tax                                  | 报税                              |
+| Evade Tax                                 | 逃税                              |
+| Avoid Tax                                 | 避税                              |
+| Impose/Levy                               | 征税/课税                         |
+| Electronic Filing/E-File                  | 电子报税、网报                    |
+| Filing                                    | 报税                              |
+| Ledger                                    | 账本                              |
+| Checkbook                                 | 支票簿                            |
+| Accounts Payable                          | 应付账款                          |
+| Accounts Receivable                       | 应收账款                          |
+| Accruals                                  | 权责发生额                        |
+| Amortization                              | 摊销                              |
+| Asset                                     | 资产                              |
+| Audit Trail                               | 审计追踪                          |
+| Bank Reconciliation                       | 银行对账                          |
+| Budget                                    | 预算                              |
+| Capital                                   | 资本                              |
+| Capital Expenditure                       | 资本支出                          |
+| Cash Management                           | 现金管理                          |
+| Cost of Goods Sold (COGS)                 | 销售成本                          |
+| Credit                                    | 贷记，信用                        |
+| Debit                                     | 借记                              |
+| Depreciation                              | 折旧                              |
+| Equity                                    | 股权，净资产                      |
+| Expense                                   | 费用                              |
+| Fiscal Year                               | 财政年度                          |
+| General Ledger                            | 总账                              |
+| Gross Margin                              | 毛利                              |
+| Inventory                                 | 存货                              |
+| Journal Entry                             | 日记账条目                        |
+| Liabilities                               | 负债                              |
+| Liquidity                                 | 流动性                            |
+| Net Income                                | 净收入                            |
+| Operating Expenses                        | 营运费用                          |
+| Payroll                                   | 工资单                            |
+| Profit Margin                             | 利润率                            |
+| Retained Earnings                         | 留存收益                          |
+| Return on Investment (ROI)                | 投资回报率                        |
+| Revenue                                   | 收入                              |
+| Trial Balance                             | 试算表                            |
+| Variance Analysis                         | 差异分析                          |
+| Working Capital                           | 营运资本                          |
+| Year-end Closing                          | 年终结账                          |
+| Internal Accounting                       | 内账 - 内部管理和决策             |
+| External Accounting                       | 外账 - 财务状况                   |
+| Management Bookkeeping                    | 经营账 - 日常收入、成本、费用     |
+| Management Accounting                     | 经营会计                          |
+| Managerial Accounting                     | 经营会计                          |
 
 | abbr. | en              | cn     |
 | ----- | --------------- | ------ |
@@ -436,6 +477,14 @@ tags:
 - 实体 - entity
 - **return** 在税务领域表示报告纳税情况
   - return -> 回报 -> 往回报告 - 不是收益层的含义
+- 稻盛和夫 -> 经营会计 -> 阿米巴经营 模式
+  - 每个单位都有自己的利润目标和经营账户
+  - 经营状况 - 收入、成本、利润
+  - 目的
+    - 提高透明度
+    - 增强责任感
+    - 促进效率
+    - 激励创新
 
 ### Tax
 
