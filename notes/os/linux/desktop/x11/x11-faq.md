@@ -5,6 +5,9 @@ tags:
 
 # X11 FAQ
 
+- /usr/share/xsessions/*.desktop
+- /usr/share/wayland-sessions/*.desktop
+
 ## DISPLAY
 
 - 格式

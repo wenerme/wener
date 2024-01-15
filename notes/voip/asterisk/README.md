@@ -1,5 +1,4 @@
 ---
-id: asterisk
 title: Asterisk
 ---
 

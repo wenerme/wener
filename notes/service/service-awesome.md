@@ -261,7 +261,7 @@ tags:
   - [logicaldoc/community](https://github.com/logicaldoc/community)
   - [kimios/kimios](https://github.com/kimios/kimios)
   - [mkucej/i-librarian-free](https://github.com/mkucej/i-librarian-free)
-- forum/BBS/论坛/社区
+- forum/BBS/论坛/社区/QA/knowledge management
   - Discourse
     - Ruby
   - [flarum/flarum](https://github.com/flarum/flarum)
@@ -272,6 +272,8 @@ tags:
   - [jimmykuu/gopher](https://github.com/jimmykuu/gopher)
   - [mlogclub/bbs-go](https://github.com/mlogclub/bbs-go)
   - [beego/wetalk](https://github.com/beego/wetalk)
+  - [apache/incubator-answer](https://github.com/apache/incubator-answer)
+    - Apache-2.0, Golang, Typescript
 - Storage/File/Drive
   - Nextcloud
   - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
@@ -398,9 +400,12 @@ tags:
   - [opf/openproject](https://github.com/opf/openproject)
     - GPLv3, Ruby
   - [kaleidos-ventures/taiga-docker](https://github.com/kaleidos-ventures/taiga-docker)
-- HRM
+- HRM/human resource management
   - [orangehrm/orangehrm](https://github.com/orangehrm/orangehrm)
     - GPLv2, PHP
+- canvas/whiteboard
+  - [LHRUN/paint-board](https://github.com/LHRUN/paint-board)
+    - MIT, typescript
 
 ## Avatar
 
@@ -510,7 +515,6 @@ tags:
 - [Conchylicultor/DeepQA](https://github.com/Conchylicultor/DeepQA)
   - Apache-2.0, Python, 停止开发
 - [DopplerHQ/awesome-bots](https://github.com/DopplerHQ/awesome-bots)
-
 
 ## 学习
 

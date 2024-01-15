@@ -16,7 +16,6 @@ title: zentao
 - [quicklyon/zentao-docker](https://github.com/quicklyon/zentao-docker)
 - 禅道
 
-
 ```bash
 # https://hub.docker.com/r/easysoft/zentao
 # Zentao >= 18.6
@@ -102,6 +101,17 @@ echo '$config->ai->openai->api->openai->format = "https://openai-proxy.wener.me/
 
 - https://gitee.com/wwccss/zentaopms/blob/zentaopms_18.9/module/ai/config.php
 
+## 还没有保存配置文件
+
+## Admin
+
+```sql
+select admins from zt_company;
+
+-- 修改 admin
+update zt_company set admins=',cyw,' where id=1;
+```
+
 # 版本
 
 ## 18.6
@@ -115,3 +125,44 @@ echo '$config->ai->openai->api->openai->format = "https://openai-proxy.wener.me/
 - 可以使用 ENV 配置 PHP
 - 目录变化
 - https://www.zentao.net/book/zentaopms/1059.html
+
+---
+
+- 旧版本
+  - /www/zentaopms - 18.3
+    - /www/zentaopms/VERSION
+  - /apps/zentaopms - 18.4,18.5
+  - /var/lib/mysql
+- 新版本
+  - /data
+    - /data/mysql
+    - /data/zentao
+      - /data/zentao/.version
+    - /data/phy
+
+```bash
+# 旧版本备份
+cd /www/zentaopms/bin
+bash init.sh
+bash backup.sh
+
+ls -1 /www/zentaopms/tmp/backup
+
+cp -rp old/www/data new/data/zentao/www
+cp -rp old/config/my.php new/data/zentao/config/my.php
+
+cd old/www/zentaopms/tmp/backup
+
+cp 202401100259473.sql.php bak.sql
+sed -i '1d' bak.sql
+sed -i 's/0000-00-00/1970-01-01/g' bak.sql
+
+mysql -uroot -h127.0.0.1 -P3306 -p123456 zentao < bak.sql
+
+mysql -uroot -h127.0.0.1 -P3306 -p123456 zentao
+```
+
+```sql
+-- 判断数据是否恢复
+select account from zt_user;
+```

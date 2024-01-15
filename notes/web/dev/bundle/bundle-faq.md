@@ -5,6 +5,16 @@ tags:
 
 # Bundle FAQ
 
+```ts
+// for tree-shaking
+
+// 只需要在定义时
+/* @__NO_SIDE_EFFECTS__ */
+
+// 所有调用都需要标记
+/* @__PURE__ */
+```
+
 
 ## .js 文件后缀 {#js-extension}
 

@@ -150,6 +150,8 @@ tags:
 - [reactchartjs/react-chartjs-2](https://github.com/reactchartjs/react-chartjs-2)
   - 基于 chart.js
 - [nhn/tui.chart](https://github.com/nhn/tui.chart)
+- https://github.com/VisActor
+  - by ByteDance
 
 ---
 

@@ -7,6 +7,20 @@ title: uxplay
 - [FDH2/UxPlay](https://github.com/FDH2/UxPlay)
   - GPLv3, C
   - AirPlay Unix mirroring server
+- 参考
+  - [postlund/pyatv](https://github.com/postlund/pyatv)
+    - client library for Apple TV and AirPla
+  - https://nto.github.io/AirPlay.html
+    - Unofficial AirPlay Protocol Specification
+  - https://developer.apple.com/streaming/fps/
+    - FairPlay DRM
+
+:::caution
+
+- 不支持 DRM
+  - Netflix, AppleTV+ 不可用
+
+:::
 
 ```bash
 apk add git gcc g++ make cmake openssl-dev avahi-daemon avahi-dev gstreamer-dev gst-plugins-base-dev gst-libav gst-plugins-good libplist-dev
@@ -22,9 +36,29 @@ make
 ./uxplay --help
 
 # 注意 需要在 X Session 的 terminal/环境 里启动 - 或者通过设置 env 应该也可以
-# glimagesink 测试下来这个可用，别的黑屏
-# 但 -fs 不支持 glimagesink :<
-./uxplay -n "tv@living-room" -nh -fps 60 -fs -FPSdata -vs glimagesink
+# -vs 测试可用 glimagesink, ximagesink
+#   xvimagesink 没有内容输出，但似乎被默认选择
+#   ximagesink CPU 占用比 glimagesink 低得多, 支持 -fs
+./uxplay -n "tv@living-room" -nh -fps 18 -fs -vs ximagesink
+```
+
+## misc
+
+```bash
+#
+addgroup $USER audio
+addgroup $USER video
+
+apk add inxi
+inxi -A # audio
+
+apk add pavucontrol
+# 注意选择输出设备
+pavucontrol
+
+# pa
+apk add pulseaudio pulseaudio-alsa alsa-plugins-pulse
+# apk add pulseaudio-utils pipewire wireplumber pipewire-pulse
 ```
 
 ## help
@@ -117,6 +151,18 @@ gst-inspect-1.0 | tee
 apk add gst-libav
 ```
 
+## vaapi
+
+```bash
+apk add intel-media-driver gst-vaapi
+```
+
+```
+GStreammer error: Internal error: could not render surface
+```
+
+- https://github.com/intel/libva/issues/745
+
 ## error: XDG_RUNTIME_DIR is invalid or not set in the environment
 
 ```bash
@@ -141,3 +187,9 @@ EOF
 ## gstreamer dropping frame due to qos
 
 OK
+
+## iPhone 可以，macOS 不可以
+
+- macOS 投屏没有窗口
+- https://github.com/FDH2/UxPlay/issues/73#issuecomment-1086178735
+- https://github.com/FDH2/UxPlay/issues/264

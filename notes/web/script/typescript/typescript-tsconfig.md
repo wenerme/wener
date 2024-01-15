@@ -8,6 +8,7 @@ typescript 配置文件。
 
 - tslib 会用于 polyfill 特性
 - 参考
+  - https://www.typescriptlang.org/tsconfig
   - [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
     - [中文](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tsconfig.json.html)
   - [tsconfig.json.schema](http://json.schemastore.org/tsconfig)
@@ -40,6 +41,7 @@ tsc --p tsconfig.page.json
   - node16 - exports
 - _lib_ - 控制使用的特性 - https://www.typescriptlang.org/tsconfig#lib
 - _strict_
+  - 启用大多数类型检查 - `strict*` 相关检查
 - _outFile_ - 可以用来将多个 ts 输出为一个 js
   - 如果使用了模块, 则只能使用 amd 或 system
   - 如果没有使用到模块是可以编译成单个 js 直接运行的
@@ -121,6 +123,21 @@ tsc --p tsconfig.page.json
   }
 }
 ```
+
+
+## moduleResolution
+
+- ~~classic~~
+- ~~node10~~, ~~node~~
+- node16, nodenext - Typescript 4.7+
+  - 要求 import 包含后缀
+- bundler
+  - 不需要后缀
+  - 支持 package.json#typesVersions
+  - 更好配合现有 bundle 流程，可以无后缀
+  - 支持 package.json 的 imports, exports
+    - imports 可以做到类似 paths 的效果
+
 
 ## 参考配置
 

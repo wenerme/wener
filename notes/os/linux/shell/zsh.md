@@ -16,6 +16,8 @@ title: zsh
   - [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
   - [zsh-users/antigen](https://github.com/zsh-users/antigen)
   - [What are the practical differences between Bash and Zsh?](https://apple.stackexchange.com/a/361957/103557)
+  - https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2
+    - PATH
 
 ```bash
 # 使用相同的配置

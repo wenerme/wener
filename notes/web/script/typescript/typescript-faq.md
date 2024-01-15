@@ -11,6 +11,10 @@ tags:
 - monorepo 类型问题 [TypeScript#25376](https://github.com/microsoft/TypeScript/issues/25376)
   - 目前就 npm monorepo 工作相对正常
 - `abstract static` [TypeScript#34516](https://github.com/microsoft/TypeScript/issues/34516)
+- typescript 没有 ESM
+  - 直接 import 会有问题, 多一层 default
+  - Provide TypeScript as an ESM [#32949](https://github.com/microsoft/TypeScript/issues/32949)
+  - Use ESM for our executables [#51440](https://github.com/microsoft/TypeScript/issues/51440)
 
 :::
 

@@ -54,6 +54,7 @@ tags:
   - C/C++/Golang/Deno
 - [c-smile/sciter-sdk](https://github.com/c-smile/sciter-sdk)
   - embeddable HTML/CSS/scripting engine
+  - ~~RustDesk~~、Teamviewer、Todesk
 - netsurf
 - electron vs nwjs
   - https://www.electronjs.org/docs/latest/development/electron-vs-nwjs

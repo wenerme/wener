@@ -274,6 +274,8 @@ esac
 
 **macOS**
 
+- /usr/libexec/path_helper
+
 ```
 /usr/local/bin
 /System/Cryptexes/App/usr/bin

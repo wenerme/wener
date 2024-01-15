@@ -67,6 +67,12 @@ title: ESBuild
 esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 
+# bundle mutiple files
+pnpm esbuild --outdir=dist $(jq '.bundle.input | join (" ")' package.json -r) --format=esm --charset=utf8 --target=chrome90 --sourcemap --bundle
+
+# transform
+esbuild `find src \( -name '*.ts' -o -name '*.tsx' \)` --outdir=out
+
 esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdir=out --format=esm --bundle --charset=utf8 --target=chrome90 --sourcemap --minify
 
 # stdin -> stdout
@@ -146,6 +152,10 @@ echo 'export const OK = process.env.NODE_ENV === "producation"' | pnpm exec esbu
 - chrome70 会处理 `??`
 
 :::
+
+## analyze
+
+- https://esbuild.github.io/analyze/
 
 ## 只 bundle 内部文件
 
@@ -232,7 +242,6 @@ const __dirname = path.dirname(__filename);
 
 - https://github.com/remix-run/remix/issues/1423
 
-
-##  Transforming JavaScript decorators to the configured target environment ("node18.16.0") is not supported yet
+## Transforming JavaScript decorators to the configured target environment ("node18.16.0") is not supported yet
 
 - https://github.com/evanw/esbuild/issues/104

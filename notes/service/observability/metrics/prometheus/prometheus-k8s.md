@@ -293,3 +293,23 @@ syncPolicy:
   - ServerSideApply=true
   - CreateNamespace=true
 ```
+
+## spec.scrapeConfigSelector: field not declared in schema
+
+```bash
+# Create new CRDs, e.g.:
+kubectl create -f crd-prometheusagents.yaml
+kubectl create -f crd-scrapeconfigs.yaml
+
+# Patch existing CRDs, e.g.:
+kubectl patch crd alertmanagerconfigs.monitoring.coreos.com --patch-file crd-alertmanagerconfigs.yaml
+kubectl patch crd alertmanagers.monitoring.coreos.com       --patch-file crd-alertmanagers.yaml
+kubectl patch crd podmonitors.monitoring.coreos.com         --patch-file crd-podmonitors.yaml
+kubectl patch crd probes.monitoring.coreos.com              --patch-file crd-probes.yaml
+kubectl patch crd prometheuses.monitoring.coreos.com        --patch-file crd-prometheuses.yaml
+kubectl patch crd prometheusrules.monitoring.coreos.com     --patch-file crd-prometheusrules.yaml
+kubectl patch crd servicemonitors.monitoring.coreos.com     --patch-file crd-servicemonitors.yaml
+kubectl patch crd thanosrulers.monitoring.coreos.com        --patch-file crd-thanosrulers.yaml
+```
+
+- https://github.com/bitnami/charts/issues/17143

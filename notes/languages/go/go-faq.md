@@ -79,6 +79,13 @@ export GOROOT=/opt/sdk/go1.18
 export PATH="$GOROOT/bin:$HOME/go/bin:$PATH"
 ```
 
+## tip 版本 {#tip-version}
+
+- @latest - 稳定版本
+- @main, @master, @HEAD -> @tip
+  - 最新的提交
+  - 借用自 Mercurial
+
 ## iota
 
 - https://en.wiktionary.org/wiki/iota#Etymology

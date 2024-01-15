@@ -15,5 +15,8 @@
   },
   "[solidity]": {
     "editor.defaultFormatter": "JuanBlanco.solidity"
+  },
+  "[nft]": {
+    "editor.defaultFormatter": "omBratteng.nftables"
   }
 }

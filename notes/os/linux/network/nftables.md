@@ -68,6 +68,60 @@ nft describe ct_state
 nft describe icmp_type
 ```
 
+## gateway
+
+- eth0 lan
+- eth5 wan
+- 允许作为 gateway 转发
+- 允许来自 lan 的请求
+
+
+```
+table ip nat {
+    chain prerouting {
+        type nat hook prerouting priority 0;
+    }
+    chain postrouting {
+        type nat hook postrouting priority 100;
+        oif "eth5" masquerade
+    }
+}
+
+table ip filter {
+    chain input {
+        type filter hook input priority 0;
+
+        # 限制从 eth5 进来的流量只能访问特定端口
+        iifname "eth5" tcp dport { 22, 80, 443 } accept
+        iifname "eth5" udp dport { 22, 80, 443 } accept
+
+        # 允许来自 192.168.0.0/16 的所有流量
+        ip saddr 192.168.0.0/16 accept
+    }
+    chain forward {
+        type filter hook forward priority 0;
+        policy drop;
+
+        # 不转发到 192.168.66.2 的流量
+        ip daddr 192.168.66.2 drop;
+
+        # 允许来自 eth0 并且源地址为 192.168.0.0/16 的所有流量
+        ip saddr 192.168.0.0/16 iifname "eth0" oifname "eth5" accept;
+
+        # 允许从 eth5 到 eth0 的已建立连接的回应流量
+        iifname "eth5" oifname "eth0" ct state established accept;
+    }
+    chain output {
+        type filter hook output priority 0;
+    }
+}
+
+```
+
 # FAQ
 
 ## Error: Could not process rule: File exists
+
+## Error: Statement after terminal statement has no effect
+
+调整语句顺序，例如 accept、drop、masquerade 需要放在最后。

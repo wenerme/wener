@@ -36,6 +36,12 @@ pnpm tsx ./dist/out/main.ts
 
 # FAQ
 
+## keepImportAssertions
+
+- https://github.com/swc-project/swc/issues/7923
+- https://github.com/TypeStrong/ts-node/issues/2056
+- https://github.com/swc-project/swc/issues/5616
+
 ## file extension
 
 - [js extension](./bundle-faq.md#js-extension)

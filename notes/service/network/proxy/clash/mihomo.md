@@ -14,13 +14,13 @@ title: Clash.Meta
 
 ```bash
 # macOS
-curl -L -o clash.meta.gz https://github.com/MetaCubeX/Clash.Meta/releases/download/v1.16.0/clash.meta-darwin-amd64-cgo-v1.16.0.gz
+curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.18.0/mihomo-darwin-arm64-v1.18.0.gz
 # Linux
-curl -L -o clash.meta.gz https://github.com/MetaCubeX/Clash.Meta/releases/download/v1.16.0/clash.meta-linux-amd64-compatible-v1.16.0.gz
+curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.18.0/mihomo-linux-amd64-compatible-v1.18.0.gz
 
-gzip -d clash.meta.gz
-chmod +x clash.meta
-./clash.meta --help
+gzip -d mihomo.gz
+chmod +x mihomo
+./mihomo --help
 ```
 
 # 配置 {#config}

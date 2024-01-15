@@ -6,6 +6,25 @@ tags:
 
 # macOS 常见问题
 
+- Commands
+  - https://gist.github.com/sergiitk/a87207a8af11d6e6d807
+
+
+## path_helper
+- /etc/paths
+- /etc/paths.d/
+- /etc/manpaths
+- /etc/manpaths.d
+
+```bash
+cat /etc/paths.d/* /etc/paths
+
+/usr/libexec/path_helper
+```
+
+- https://opensource.apple.com/source/shell_cmds/shell_cmds-162/path_helper/path_helper.c.auto.html
+- https://github.com/yb66/path_helper
+
 ## APFS vs HFS+
 
 - APFS - 新的

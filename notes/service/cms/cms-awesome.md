@@ -20,9 +20,10 @@ title: CMS Awesome
 ## Headless CMS
 
 - [strapi/strapi](https://github.com/strapi/strapi)
-  - MIT+企业版特性, NodeJS
+  - MIT+EE, Typescript, NodeJS
+  - Schema 会生成代码
 - [directus/directus](https://github.com/directus/directus)
-  - GPL-3.0, Typescript
+  - GPL-3.0, Typescript, Vue
 - [agentejo/cockpit](https://github.com/agentejo/cockpit)
   - MIT, PHP
 - [webiny/webiny-js](https://github.com/webiny/webiny-js)
@@ -32,9 +33,6 @@ title: CMS Awesome
 - [bramw/baserow](https://gitlab.com/bramw/baserow)
   - Airtable Alternative
   - Django + Nuxt.js + PostgreSQL
-- [ponzu-cms/ponzu](https://github.com/ponzu-cms/ponzu)
-  - Golang
-  - 停止开发
 - [sanity-io/sanity](https://github.com/sanity-io/sanity)
   - Sanity Studio
   - MIT
@@ -48,6 +46,11 @@ title: CMS Awesome
   - AGPL-3.0, Go
   - BAAS, GraphQL/JSON-API
   - 用户, 数据, 存储, 站点, 集成, 邮件
+- [payloadcms/payload](https://github.com/payloadcms/payload)
+  - MIT, Typescript
+- [ponzu-cms/ponzu](https://github.com/ponzu-cms/ponzu)
+  - Golang
+  - 停止开发
 
 ## Note
 

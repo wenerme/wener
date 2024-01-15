@@ -519,17 +519,27 @@ tags:
 
 ## customer vs account vs client vs consumer vs user
 
-- customer
+- customer - 顾客、客户
   - 购买产品的个体 - 人或公司
-- consumer
+  - 交易性质
+  - 在零售、餐饮、在线购物等领域更常使用
+  - 在零售、餐饮、在线购物等领域更常使用
+- consumer - 消费者
   - 使用产品的个体
   - 不一定是 customer
-- client
+- client - 客户端、客户
   - 接受服务或信息的个体 - 一般不是产品
-- account
+  - 系通常更长期、更个性化
+  - 作为客户
+    - 用于专业服务或定制服务中，指接受这些服务的个人或组织
+    - 在法律、会计、咨询、广告等专业服务领域更常使用
+    - 关注服务的质量、专业性、定制化程度
+- account - 账户
   - 你或你公司 与 其他人或公司 建立的联系
     - 联系类型： 客户、合作伙伴、供应商
   - 持续提供信息，产品，服务等咨询
+  - 不同的 context 下可能表示不同的意思
+    - 例如 财务行业下可能代表科目
 - user
   - 按照合约使用信息、产品、服务的个体
 
@@ -1222,6 +1232,14 @@ tags:
   - ORM、数据库表模型
 - Resource
   - 接口、RPC、Service 层
+
+## PostalCode vs ZipCode
+
+- 邮政编码/邮编
+- PostalCode
+  - 在许多国家和地区（如加拿大、英国、澳大利亚等）中使用的术语。
+- ZipCode
+  - 特别是在美国使用的术语，是“Zone Improvement Plan Code”的缩写。
 
 ## 参考
 
