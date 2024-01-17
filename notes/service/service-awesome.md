@@ -355,7 +355,7 @@ tags:
 - form/问卷调查系统/表单系统
   - [TDuckCloud/tduck-platform](https://github.com/TDuckCloud/tduck-platform)
   - [javahuang/surveyking](https://github.com/javahuang/surveyking)
-- real-time/messaging/Websocket as a Service
+- real-time/messaging/Websocket as a Service/collaboration
   - nats
     - 支持 WebSocket， JWT 认证
   - [im-awesome](./im/im-awesome.md)
@@ -378,6 +378,9 @@ tags:
       - Function as a Service 场景 - 没有链接概念，需要支持通知
       - 聊天产品、实时通知、消息集成、事件驱动
       - 类似于 Kafka，但是是面向 C 端产品
+  - [liveblocks/liveblocks](https://github.com/liveblocks/liveblocks)
+    - Apache-2.0, Typescript
+  - yjs
 - Map/Geo
   - [protomaps](https://github.com/protomaps)
   - [maplibre](https://github.com/maplibre)
@@ -406,6 +409,8 @@ tags:
 - canvas/whiteboard
   - [LHRUN/paint-board](https://github.com/LHRUN/paint-board)
     - MIT, typescript
+- 商业
+  - https://nino.app/
 
 ## Avatar
 

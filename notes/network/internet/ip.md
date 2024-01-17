@@ -21,7 +21,6 @@ curl 'https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime'
 
 # 使用 DNS 的方式获取
 dig +short myip.opendns.com @resolver1.opendns.com
-
 ```
 
 ## Private
@@ -60,9 +59,13 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | 10.244.0.0/16   | k0s cluster-cidr |
 | 10.96.0.0/12    | k0s service-cidr |
 | 10.96.0.10      | k0s dns          |
-| 10.10.0.0       | openvpn
+| 10.10.0.0       | openvpn          |
 | 100.64.0.0/10   | tailscale        |
 | 100.100.100.100 | tailscale dns    |
+
+## Tags
+
+- https://github.com/MetaCubeX/meta-rules-dat
 
 ## FAQ
 

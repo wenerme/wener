@@ -10,3 +10,4 @@ title: remark
 - [remarkjs/remark-html](https://github.com/remarkjs/remark-html)
   plugin to compile Markdown to HTML
 - https://github.com/wataru-chocola/remark-extended-table
+- [remarkjs/remark-directive](https://github.com/remarkjs/remark-directive)

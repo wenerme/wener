@@ -18,6 +18,8 @@ tags:
   - Chinese text-to-speech engine
 - https://gist.github.com/alotaiba/1728771
   - https://cloud.google.com/speech/docs/languages
+- [RVC-Boss/GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS)
+- [see2023/Bert-VITS2-ext](https://github.com/see2023/Bert-VITS2-ext)
 
 ```bash
 # Google TTS

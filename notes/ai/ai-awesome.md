@@ -66,6 +66,13 @@ tags:
 - 发现
   - https://www.theaivalley.com/
 - [ShishirPatil/gorilla](https://github.com/ShishirPatil/gorilla)
+- [alesaccoia/VoiceStreamAI](https://github.com/alesaccoia/VoiceStreamAI)
+  - Near-Realtime audio transcription using self-hosted Whisper and WebSocket in Python/JS
+- [SJTU-IPADS/PowerInfer](https://github.com/SJTU-IPADS/PowerInfer)
+  - High-speed Large Language Model Serving on PCs with Consumer-grade GPUs
+- [Portkey-AI/gateway](https://github.com/Portkey-AI/gateway)
+  - MIT, Typescript
+  - Blazing Fast AI Gateway. Route to 100+ LLMs with 1 fast & friendly API
 
 ## Coding
 
@@ -191,6 +198,11 @@ tags:
     - https://github.com/bbycroft/llm-viz
   - https://intro-llm.github.io/
     - 大规模语言模型：从理论到实践
+- [tyxsspa/AnyText](https://github.com/tyxsspa/AnyText)
+  - by Alibaba
+- [janhq/jan](https://github.com/janhq/jan)
+  - AGPLv3, Typescript
+  - source alternative to ChatGPT that runs 100% offline
 
 ## LLaMA
 

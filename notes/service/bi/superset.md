@@ -4,6 +4,8 @@ title: Apache Superset
 
 # Apache Superset
 
+- [apache/superset](https://github.com/apache/superset)
+  - by Airbnb
 - 参考
   - [自定义授权实现分享](https://medium.com/@sairamkrish/8217956273c1)
   - [Apache superset dashboard in webpage](https://stackoverflow.com/questions/54219101/apache-superset-dashboard-in-webpage)
@@ -108,6 +110,12 @@ ENABLE_PROXY_FIX = True
 PREFERRED_URL_SCHEME = 'https'
 ```
 
+## Roles
+- Admin
+- Alpha
+- Gamma
+- sql_lab
+
 ## SQL Macro
 
 - https://superset.incubator.apache.org/sqllab.html#templating-with-jinja
@@ -124,6 +132,21 @@ AND date >= DATE_ADD({{date_ref}}, INTERVAL -7 DAYS)
 | current_username()                  | str? | 当前用户名         |
 | url_param(param, default=None)      | any  | URL 参数           |
 | filter_values(column, default=None) | any  | form_data 里的数据 |
+
+## K8S
+
+- 组件
+  - CeleryBeat
+  - CeleryFlower
+  - Node
+  - Websockets
+  - worker
+  - redis
+  - postgresql
+
+```bash
+helm repo add superset https://apache.github.io/superset
+```
 
 # FAQ
 

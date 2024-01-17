@@ -17,12 +17,12 @@ title: 控制理论
 | Glossary              | Desc                                        |
 | --------------------- | ------------------------------------------- |
 | PID controller        | Proportional–Integral–Derivative controller |
-| Non-Linear Control    |
-| Linear Control        |
+| Non-Linear Control    |                                             |
+| Linear Control        |                                             |
 | LPV                   | Linear Parameter Varing                     |
-| Gain Schedule         |
+| Gain Schedule         |                                             |
 | transient-free switch | 在指定时间内完成 switch                     |
-| feedback controller   |
+| feedback controller   |                                             |
 
 ![](./IdealFeedbackModel.svg)
 

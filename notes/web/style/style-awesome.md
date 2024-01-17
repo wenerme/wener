@@ -13,6 +13,7 @@ tags:
   - https://codepen.io/jh3y/pen/YzGgdyw
   - https://codepen.io/jh3y/pen/ExrWOJe
   - https://codepen.io/ste-vg/full/PoQgvBK
+  - https://twitter.com/jh3yy/status/1746755644609470909
   - [Cascading CSS Text Effects ✨](https://codepen.io/jh3y/pen/gOeGmRN)
   - [Animated Star Rating](https://codepen.io/jkantner/pen/BarvVNa)
   - [CSS Responsive Scroll-Driven Text Reveals - Chrome 115+](https://codepen.io/jh3y/pen/eYbYydG)

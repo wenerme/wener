@@ -24,3 +24,4 @@ tags:
   - iOS, Android
   - 🚧 2018
 - https://pyimagesearch.com/
+- [roboflow/supervision](https://github.com/roboflow/supervision)

@@ -14,3 +14,53 @@ title: million
     - 大量静态内容但，少部分动态内容
     - "Stable" UI trees - 不做结构性变化
     - 细粒度场景优化
+
+```bash
+npx million@latest # 自动 init
+```
+
+**vite**
+
+```ts
+import million from 'million/compiler';
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  plugins: [million.vite({ auto: true }), react()],
+});
+```
+
+**nextjs**
+
+```ts
+import million from 'million/compiler';
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+const millionConfig = {
+  auto: true, // if you're using RSC: auto: { rsc: true },
+};
+
+export default million.next(nextConfig, millionConfig);
+```
+
+## Rules
+
+- https://million.dev/docs/manual-mode/block
+- Block needs to be defined as a variable declaration.
+- Deterministic returns
+
+```ts
+// Block 能被定义为变量
+
+console.log(block(() => <div />)) // ❌ Wrong
+export default block(() => <div />) // ❌ Wrong
+
+// 👇👇👇
+
+const Block = block(() => <div />) // ✅ Correct
+```

@@ -8,6 +8,8 @@ title: gstreamer
   - flexible, fast and multiplatform multimedia framework
 - 参考
   - https://gstreamer.freedesktop.org/
+  - https://thiblahute.github.io/GStreamer-doc/plugins.html
+    - sinks
 
 | env                    | for                                                |
 | ---------------------- | -------------------------------------------------- |
@@ -21,3 +23,12 @@ title: gstreamer
 - GST_DEBUG
   - 可以针对组件 `GST_AUTOPLUG:6,GST_ELEMENT_*:4`
 - https://gstreamer.freedesktop.org/documentation/gstreamer/running.html
+
+
+```bash
+# sinks
+gst-inspect-1.0 | grep sink | grep -i -e video -e image
+```
+
+- vaapisink
+  - https://gstreamer.freedesktop.org/documentation/vaapi/vaapisink.html

@@ -247,3 +247,13 @@ scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
 ## 合规
 
 - [google/licensecheck](https://github.com/google/licensecheck)
+
+## weekly
+
+- 技术相关
+  - https://golangweekly.com/
+  - https://nodeweekly.com/
+  - https://postgresweekly.com/
+  - https://thisweekinreact.com/
+- 非技术相关
+  - https://softwareleadweekly.com/

@@ -46,6 +46,7 @@ tags:
 - [shadcn-ui/ui](https://github.com/shadcn-ui/ui)
 - [saadeghi/daisyui](https://github.com/saadeghi/daisyui)
   Tailwind Components
+- [cschroeter/park-ui](https://github.com/cschroeter/park-ui)
 - [markmead/hyperui](https://github.com/markmead/hyperui)
   - for marketing, ecommerce and application UI
 - [konstaui/konsta](https://github.com/konstaui/konsta)

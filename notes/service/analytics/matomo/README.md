@@ -5,7 +5,7 @@ title: Matomo
 # matomo
 
 - [matomo-org/matomo](https://github.com/matomo-org/matomo)
-  - GPLV3, PHP+MySQL
+  - GPLv3, PHP+MySQL
 - [nginx piwik recipes](https://www.nginx.com/resources/wiki/start/topics/recipes/piwik/)
 - [自定义 logo](https://github.com/piwik/piwik/issues/3318)
 - [通过代理进行外部访问](http://piwik.org/faq/troubleshooting/#faq_121)
@@ -33,6 +33,7 @@ username =      ; Proxy username: optional; if specified, password is mandatory
 password =      ; Proxy password: optional; if specified, username is mandatory
 ```
 
+- https://github.com/matomo-org/matomo/blob/5.x-dev/config/global.ini.php
 - https://github.com/matomo-org/matomo/blob/4.x-dev/config/global.ini.php
 
 ---

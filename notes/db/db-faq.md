@@ -142,10 +142,19 @@ SHOW TABLE STATUS;
 
 ## MySQL vs MariaDB
 
+- MySQL
+  - 8.2.0 不提供基于 debian 的 镜像 https://hub.docker.com/_/mysql
+- MariaDB
+- [Percona Server for MySQL](https://github.com/percona/percona-server)
+
+---
+
 - GUID 不同
-- Prefer MariaDB
-  - AlpineLinux 下 mysql 为 mariadb
+- MariaDB 10.X 和 MySQL 8.X 不再兼容
+- AlpineLinux 下 mysql 为 mariadb
 - 参考
+  - vitess 不支持 mariadb
+    - RFC: Deprecate MariaDB Support in 2022 and Remove in 2023 [vitess#9518](https://github.com/vitessio/vitess/issues/9518)
   - https://blog.devart.com/mysql-vs-mariadb.html
 
 ## 为什么不要选择 MySQL

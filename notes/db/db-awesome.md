@@ -214,15 +214,7 @@ curl --request POST \
 
 ## SQLite Awesome
 
-- [benbjohnson/litestream](./relational/litestream.md)
-  - Apache-2.0, Go
-  - Streaming replication for SQLite
-  - 外部进程
-  - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
-- [superfly/litefs](./relational/litefs.md)
-  - 基于 fuse 的 litestream - 批量同步
-- [maxpert/marmot](https://github.com/maxpert/marmot)
-  - 基于 NATS 同步 sqlite
+
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
   - Query sqlite via http
   - [HN](https://news.ycombinator.com/item?id=30636796)
@@ -232,11 +224,25 @@ curl --request POST \
   - REST api for SQLite & PostgreSQL
 - https://lumosql.org/
   - SQLite+LMDB
-- [tantaman/conflict-free-sqlite](https://github.com/tantaman/conflict-free-sqlite)
 - [pocketbase/pocketbase](https://github.com/pocketbase/pocketbase)
   - MIT, Go
   - realtime backend in 1 file
-- 分布式
+- Replication
+  - [vlcn-io/cr-sqlite](https://github.com/vlcn-io/cr-sqlite)
+    - MIT, Rust
+    - CRDT
+    - 之前为 tantaman/conflict-free-sqlite
+  - [benbjohnson/litestream](./relational/sqlite/litestream.md)
+    - Apache-2.0, Go
+    - Streaming replication for SQLite
+    - 外部进程
+    - 将一个 sqlite 同步到另外的 sqlite - 依赖中间存储
+  - [superfly/litefs](./relational/sqlite/litefs.md)
+    - Apache-2.0, Go
+    - 基于 fuse 的 litestream - 批量同步
+  - [maxpert/marmot](https://github.com/maxpert/marmot)
+    - 基于 NATS 同步 sqlite
+- SQLite Based Distributed Database/基于 SQLite 的分布式数据库
   - [dqlite](https://github.com/canonical/dqlite)
     - GPLv3, C
   - [rqlite](https://github.com/rqlite/rqlite)
@@ -253,6 +259,8 @@ curl --request POST \
   - [bloomberg/comdb2](https://github.com/bloomberg/comdb2)
     - Apache-2.0, C
 - [LumoSQL/LumoSQL](https://github.com/LumoSQL/LumoSQL)
+  - SQLite over LMDB
+- https://github.com/planetopendata/awesome-sqlite
 
 ## ID
 

@@ -7,8 +7,10 @@ title: lighttpd
 - [lighttpd](https://www.lighttpd.net/)
   - BSD-3-Clause, C
   - 轻量
-  - 通过 module 扩张功能
+  - 通过 module 扩展张功能
   - FastCGI, SCGI, CGI
+- adopted by
+  - Bloomberg
 
 :::info
 
