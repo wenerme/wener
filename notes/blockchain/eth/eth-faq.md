@@ -5,6 +5,10 @@ tags:
 
 # Ether FAQ
 
+- ETH - Ethereum Mainnet - ETH1 - PoW
+- ETH2 - BeaconChain - PoS
+  - 2020-12-01 - 负责非交易业务，交易业务还是保留在 主网
+
 ## Tornado.cash
 
 - 混币器

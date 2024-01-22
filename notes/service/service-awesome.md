@@ -134,7 +134,7 @@ tags:
     - [HN](https://news.ycombinator.com/item?id=30138434)
   - [sarvjeets/lakshmi](https://github.com/sarvjeets/lakshmi)
     - command-line interface inspired by the Bogleheads philosophy
-- flag
+- flag/A/B Testing/features
   - [Flagsmith/flagsmith](https://github.com/Flagsmith/flagsmith)
     - Python
   - [mwitkow/go-flagz](https://github.com/mwitkow/go-flagz)
@@ -142,6 +142,8 @@ tags:
   - [open-feature/spec](https://github.com/open-feature/spec)
   - [growthbook/growthbook](https://github.com/growthbook/growthbook)
     - A/B Testing
+  - [Unleash/unleash](https://github.com/Unleash/unleash)
+    - Apache-2.0, Typescript
 - grammar
   - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
   - https://github.com/JetBrains/intellij-community/tree/master/plugins/grazie
@@ -409,6 +411,12 @@ tags:
 - canvas/whiteboard
   - [LHRUN/paint-board](https://github.com/LHRUN/paint-board)
     - MIT, typescript
+- chat bot
+  - [koishijs/koishi](https://github.com/koishijs/koishi)
+- clients
+  - [KRTirtho/spotube](https://github.com/KRTirtho/spotube)
+    - BSD-4, Dart, Flutter
+    - Open source Spotify client
 - 商业
   - https://nino.app/
 

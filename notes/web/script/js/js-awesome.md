@@ -480,6 +480,11 @@ tags:
     - TikZ running under WebAssembly in the browser
   - katex
   - Asymptote (vector graphics language)
+- geo
+  - [Turfjs/turf](https://github.com/Turfjs/turf)
+    - MIT, TS
+    - geospatial engine
+  - https://geojson.io/
 - Phy
 - stat/bi
   - [jstat](https://github.com/jstat/jstat)

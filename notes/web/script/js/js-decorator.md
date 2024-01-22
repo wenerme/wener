@@ -21,6 +21,8 @@ type Decorator = (value: Input, context: {
   private?: boolean;
   static?: boolean;
   addInitializer?(initializer: () => void): void;
+  // TS 5.2
+  metadata?: Record<string | number | symbol, unknown>;
 }) => Output | void;
 
 type ClassMethodDecorator = (value: Function, context: {
@@ -93,6 +95,9 @@ type ClassAutoAccessorDecorator = (
   - accessor
 - `Symbol.annotations`
 - [proposal-decorators](https://github.com/tc39/proposal-decorators)
+  - TS 5.0
+- [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
+  - TS 5.2
 - [typescript 5.0 decorators](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#decorators)
   - 没有 `--experimentalDecorators` flag
     - 也能用

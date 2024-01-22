@@ -5,26 +5,39 @@ tags:
 
 # Blockchain Glossary
 
-| abbr. | stand for                             | mean                        |
-| ----- | ------------------------------------- | --------------------------- |
-| [DAO] | Decentralized Autonomous Organization | 去中心化自治组织            |
-| DAC   | Decentralized Autonomous Corporation  | DAO                         |
-| DeFi  | Decentralized finance                 | 去中心化金融                |
-| MVS   | Metaverse                             | 元宇宙                      |
-| EVM   | Ethereum virtual machine              |
-| NFT   | Non-fungible tokens                   | 非同质化代币                |
-| ICO   | initial coin offering                 | 首次代币发行                |
-| IPO   | Initial Public Offering               | 证券 首次公开募股           |
-| PoW   | Proof of Work                         |
-| PoS   | Proof of Stake                        | 持有量证明,权益证明         |
-| DPoS  | Delegated Proof of Stake              | 代理持有量证明,代理权益证明 |
-| APR   | Annual Reward %                       |
-| EOA   | externally owned account              |
-| PFP   | Profile Picture                       | NFT Avatar                  |
-| FOMO  | The Fear of Missing Out               |
-| IYKYK | If you know, you know                 |
-| DYOR  | Do Your Own Research                  |
-| NFA   | Not Financial Advice                  |
+| abbr.  | stand for                             | mean                        |
+| ------ | ------------------------------------- | --------------------------- |
+| [DAO]  | Decentralized Autonomous Organization | 去中心化自治组织            |
+| DAC    | Decentralized Autonomous Corporation  | DAO                         |
+| DeFi   | Decentralized finance                 | 去中心化金融                |
+| MVS    | Metaverse                             | 元宇宙                      |
+| EVM    | Ethereum virtual machine              |
+| NFT    | Non-fungible tokens                   | 非同质化代币                |
+| ICO    | initial coin offering                 | 首次代币发行                |
+| IPO    | Initial Public Offering               | 证券 首次公开募股           |
+| PoW    | Proof of Work                         |
+| PoS    | Proof of Stake                        | 持有量证明,权益证明         |
+| DPoS   | Delegated Proof of Stake              | 代理持有量证明,代理权益证明 |
+| APR    | Annual Reward %                       |
+| EOA    | externally owned account              |
+| PFP    | Profile Picture                       | NFT Avatar                  |
+| FOMO   | The Fear of Missing Out               |
+| IYKYK  | If you know, you know                 |
+| DYOR   | Do Your Own Research                  |
+| NFA    | Not Financial Advice                  |
+| OCAP   | Object Capabilities                   | 对象能力                    |
+| CACAO  | Chain Agnostic CApability Object      | 跨链能力对象                |
+| SIWE   | Sign-in with Ethereum                 | 使用 Ethereum 登录          |
+| IPLD   | InterPlanetary Linked Data            | 星际链数据                  |
+| DID    | Decentralized Identifier              | 去中心化身份标识            |
+| MUD    | Multi-User Dungeon                    | 多用户地下城                |
+| CAR    | Content Addressable aRchive           | IPLD 内容可寻址存档         |
+| CAIP   | Chain Agnostic Improvement Proposal   | 跨链改进提案                |
+| CASA   | Chain Agnostic Standards Alliance     | 跨链标准联盟                |
+| UCAN   |
+| AMM    | Automated Market Maker                | 自动做市商                  |
+| PCO    | Partial Common Ownership              | 部分共同所有权              |
+| PCOArt | Partial Common Ownership of Art       |
 
 | en                 | stand for                             |
 | ------------------ | ------------------------------------- |
@@ -41,6 +54,12 @@ tags:
 | Liquidity          | 流动性                                |
 | Derivatives        | 衍生物                                |
 | spot price         | 现货价格                              |
+| parcel             | 包裹                                  |
+| presale            | 预售                                  |
+| funding            | 资金                                  |
+| goods              | 商品                                  |
+| Fiat               | 法币                                  |
+| Estate             | 地产                                  |
 
 | Unit   | Decimals | Value                    | ETH         |
 | ------ | -------- | ------------------------ | ----------- |
@@ -62,7 +81,11 @@ tags:
 
 ---
 
+- Orbis club
+- [ChainAgnostic/CAIPs](https://github.com/ChainAgnostic/CAIPs)
 - https://blog.infura.io/offchain-protocols-sidechains-and-rollups/
+- https://blog.ceramic.network/capability-based-data-security-on-ceramic/
+- PCOArt https://www.radicalxchange.org/wiki/pco-art/
 
 ## Wrapped Token
 

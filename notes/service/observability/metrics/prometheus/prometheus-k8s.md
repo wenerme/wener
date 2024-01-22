@@ -57,12 +57,46 @@ kubectl api-resources --api-group monitoring.coreos.com
 ```
 
 ```yaml title="Pod Annotations"
-# 开启后抓取所有端口
-prometheus.io/scrape: 'true'
-prometheus.io/path: '/metrics'
-prometheus.io/port: '80'
+annotations:
+  # 开启后抓取所有端口
+  prometheus.io/scrape: 'true'
+  prometheus.io/path: '/metrics'
+  prometheus.io/port: '80'
 ```
 
+之所以会生效是因为
+
+```yaml
+- job_name: 'kubernetes-pods'
+  kubernetes_sd_configs:
+  - role: pod
+  relabel_configs:
+  # prometheus.io/scrape
+  - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+    action: keep
+    regex: true
+  # prometheus.io/path
+  - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+    action: replace
+    target_label: __metrics_path__
+    regex: (.+)
+  # prometheus.io/port
+  - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+    action: replace
+    regex: ([^:]+)(?::\d+)?;(\d+)
+    replacement: $1:$2
+    target_label: __address__
+  - action: labelmap
+    regex: __meta_kubernetes_pod_label_(.+)
+  - source_labels: [__meta_kubernetes_namespace]
+    action: replace
+    target_label: kubernetes_namespace
+  - source_labels: [__meta_kubernetes_pod_name]
+    action: replace
+    target_label: kubernetes_pod_name
+```
+
+- https://prometheus.io/docs/prometheus/latest/configuration/configuration/#pod
 - https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus
 
 ```yaml
@@ -219,7 +253,6 @@ kubectl -n monitoring describe svc/kube-prometheus-prometheus
 kubectl -n monitoring port-forward svc/kube-prometheus-prometheus 9090
 ```
 
-
 ## ~~stable/prometheus-operator~~
 
 - helm [stable/prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator)
@@ -287,11 +320,11 @@ pushgateway:
 
 - https://github.com/prometheus-operator/prometheus-operator/issues/4355
 
-```bash
+```yaml
 syncPolicy:
-  syncOptions:
-  - ServerSideApply=true
-  - CreateNamespace=true
+syncOptions:
+- ServerSideApply=true
+- CreateNamespace=true
 ```
 
 ## spec.scrapeConfigSelector: field not declared in schema
@@ -303,13 +336,13 @@ kubectl create -f crd-scrapeconfigs.yaml
 
 # Patch existing CRDs, e.g.:
 kubectl patch crd alertmanagerconfigs.monitoring.coreos.com --patch-file crd-alertmanagerconfigs.yaml
-kubectl patch crd alertmanagers.monitoring.coreos.com       --patch-file crd-alertmanagers.yaml
-kubectl patch crd podmonitors.monitoring.coreos.com         --patch-file crd-podmonitors.yaml
-kubectl patch crd probes.monitoring.coreos.com              --patch-file crd-probes.yaml
-kubectl patch crd prometheuses.monitoring.coreos.com        --patch-file crd-prometheuses.yaml
-kubectl patch crd prometheusrules.monitoring.coreos.com     --patch-file crd-prometheusrules.yaml
-kubectl patch crd servicemonitors.monitoring.coreos.com     --patch-file crd-servicemonitors.yaml
-kubectl patch crd thanosrulers.monitoring.coreos.com        --patch-file crd-thanosrulers.yaml
+kubectl patch crd alertmanagers.monitoring.coreos.com --patch-file crd-alertmanagers.yaml
+kubectl patch crd podmonitors.monitoring.coreos.com --patch-file crd-podmonitors.yaml
+kubectl patch crd probes.monitoring.coreos.com --patch-file crd-probes.yaml
+kubectl patch crd prometheuses.monitoring.coreos.com --patch-file crd-prometheuses.yaml
+kubectl patch crd prometheusrules.monitoring.coreos.com --patch-file crd-prometheusrules.yaml
+kubectl patch crd servicemonitors.monitoring.coreos.com --patch-file crd-servicemonitors.yaml
+kubectl patch crd thanosrulers.monitoring.coreos.com --patch-file crd-thanosrulers.yaml
 ```
 
 - https://github.com/bitnami/charts/issues/17143

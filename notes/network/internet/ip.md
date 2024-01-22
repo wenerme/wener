@@ -66,6 +66,9 @@ dig +short myip.opendns.com @resolver1.opendns.com
 ## Tags
 
 - https://github.com/MetaCubeX/meta-rules-dat
+- [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+- [Loyalsoldier/domain-list-custom](https://github.com/Loyalsoldier/domain-list-custom)
+- [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
 
 ## FAQ
 

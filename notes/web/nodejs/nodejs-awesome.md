@@ -116,7 +116,6 @@ console.log(res.rows[0].message); // Hello world!
 await client.end();
 ```
 
-
 ## Env
 
 - [nvm](./nvm.md)
@@ -169,7 +168,7 @@ export N_PREFIX=$HOME/n
 - job/cron/task/queue
   - bull
   - node-schedule
-    -  time-based scheduling, not interval-based scheduling
+    - time-based scheduling, not interval-based scheduling
   - node-cron
   - cron
   - [timgit/pg-boss](https://github.com/timgit/pg-boss)
@@ -256,19 +255,20 @@ export N_PREFIX=$HOME/n
 - JQuery/DOM
   - [jsdom/jsdom](https://github.com/jsdom/jsdom)
   - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
-
-## 工具
-
-- shell
-  - [google/zx](https://github.com/google/zx)
-
-## CLI
-
-- parse args
-  - minimist
-- framework
+- CUI/Command Line/CLI/Arguement Parser
+  - [minimistjs/minimist](https://github.com/minimistjs/minimist)
+  - [sindresorhus/meow](https://github.com/sindresorhus/meow)
+  - [tj/commander.js](https://github.com/tj/commander.js)
   - yargs
-  - commander
+  - [vercel/arg](https://github.com/vercel/arg)
+- shell/script
+  - [sindresorhus/execa](https://github.com/sindresorhus/execa)
+    - MIT, JS+TS
+  - [shelljs/shelljs](https://github.com/shelljs/shelljs)
+    - BSD-3, JS
+    - Portable Unix shell commands for Node.js
+  - [google/zx](https://github.com/google/zx)
+- [sindresorhus/awesome-nodejs](https://github.com/sindresorhus/awesome-nodejs)
 
 ## FFI
 

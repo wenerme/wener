@@ -51,6 +51,15 @@ tags:
 | stage 3 | Candidate   | 实现,等待用户使用反馈 |
 | stage 4 | Finished    | 准备添加到 标准       |
 
+| proposal             | stage   | note   |
+| -------------------- | ------- | ------ |
+| [decorators]         | stage 3 | TS 5.0 |
+| [decorator-metadata] | stage 3 | TS 5.2 |
+| Import Attributes    |         | TS 5.3 |
+
+[decorators]: https://github.com/tc39/proposal-decorators
+[decorator-metadata]: github.com/tc39/proposal-decorator-metadata
+
 :::tip 👀
 
 - Stage 3 - 接下来可能会加入到语言中的功能特性
@@ -60,7 +69,6 @@ tags:
   - Intl.DisplayNames
   - [proposal-temporal](https://github.com/tc39/proposal-temporal)
     - Temporal - 替代 Date
-  - [proposal-decorators](https://github.com/tc39/proposal-decorators)
   - 2023
     - array group, groupToMap
       - https://github.com/tc39/proposal-array-grouping
@@ -78,12 +86,13 @@ tags:
 
 :::
 
-| syntax  | Chrome   | Name                          |
-| ------- | -------- | ----------------------------- |
+| syntax  | Chrome   | Name                          | Note   |
+| ------- | -------- | ----------------------------- | ------ |
 | `?.`    | Chrome80 | Optional chaining             |
 | `??`    | Chrome80 | Nullish coalescing operator   |
 | `??=`   | Chrome85 | Nullish coalescing assignment |
 | `#name` | Chrome74 | Private class fields          |
+| `using` |          | Explicit Resource Management  | TS 5.2 |
 
 - es5 和 es6 是一个分界线
   - 2018 年所有浏览器支持 es6
@@ -106,6 +115,12 @@ tags:
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
   - https://en.wikipedia.org/wiki/ECMAScript
   - https://www.proposals.es/
+- Explicit Resource Management
+  - Symbol.dispose
+  - Symbol.asyncDispose
+  - DisposableStack
+  - AsyncDisposableStack
+  - SuppressedError
 
 ## ECMAScript 2023
 

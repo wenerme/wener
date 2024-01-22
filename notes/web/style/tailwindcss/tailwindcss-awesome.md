@@ -15,6 +15,7 @@ tags:
 - [tw-in-js/twind](https://github.com/tw-in-js/twind)
   - 不依赖 tailwindcss, 使用 tw 实时生成
   - +35kB/14kB
+- [unocss/unocss](https://github.com/unocss/unocss)
 - [rogden/tailwind-config-viewer](https://github.com/rogden/tailwind-config-viewer)
   - Tailwind 配置预览
 - [htmlstreamofficial/preline](https://github.com/htmlstreamofficial/preline)
@@ -27,10 +28,11 @@ tags:
   - 颜色生成
 - [tailwindlabs/prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
   - prettier 名字排序
-- [windicss/windicss](https://github.com/windicss/windicss)
+- ~~[windicss/windicss](https://github.com/windicss/windicss)~~
   - 类似 Tailwind+JIT
   - 不依赖 PostCSS - 用于不想依赖 PostCSS 的场景
   - 维护者后面可能会转向 unocss
+  - https://windicss.org/posts/sunsetting.html
 - UI
   - [TailwindUI](./tailwindui.md)
   - https://www.hyperui.dev/

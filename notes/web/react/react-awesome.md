@@ -336,6 +336,26 @@ npm add date-fns lodash-es react-fast-compare
   - [adobe/react-spectrum](https://github.com/adobe/react-spectrum)
 - for fun
   - [Clariity/react-chessboard](https://github.com/Clariity/react-chessboard)
+- GEO/Map
+  - [visgl/react-map-gl](https://github.com/visgl/react-map-gl)
+    - react for mapbox-gl, maplibre-gl
+  - [maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js)
+    - BSD-3, Typescript
+    - mapbox-gl-js v1 fork
+  - [mapbox/mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js)
+    - 2020-12 修改为非开源协议
+    - v2 需要 token
+  - math
+    - [Turfjs/turf](https://github.com/Turfjs/turf)
+      - MIT, TS
+      - geospatial engine
+  - tiles
+    - [openmaptiles/openmaptiles](https://github.com/openmaptiles/openmaptiles)
+      - BSD-3, CC-BY-4.0
+      - by MapTiler
+    - https://github.com/maplibre/demotiles
+    - https://www.maptiler.com/
+    - https://github.com/mapbox/awesome-vector-tiles
 
 ### 编辑器
 

@@ -39,6 +39,10 @@ tags:
   - [ogham/dog](https://github.com/ogham/dog)
     - EUPL1.2, Rust
 
+```bash
+curl 'https://dns.google/resolve?name=wener.me&type=A'
+```
+
 ## Server
 
 - knot dns

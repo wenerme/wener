@@ -14,6 +14,84 @@ tags:
 - https://coinmetrics.io/
 - https://coinmarketcap.com/
 - https://dune.com/
+- https://geoweb.network/
+  - Open Geospatial Information Network
+  - https://geoweb.land/
+- https://ceramic.network/
+  - The Open Data Network
+  - [ceramicstudio/self.id](https://github.com/ceramicstudio/self.id)
+- https://ramp.network/
+
+  - Empower users to buy & sell crypto inside your app
+  - Fiat <-> crypto on-ramp
+
+- https://ycharts.com/indicators/ethereum_average_gas_price
+- [Ethereum Gas Tracker](https://etherscan.io/gastracker)
+- Block Explorer and Analytics Platform
+  - https://etherscan.io/
+
+# Ethereum Awesome
+
+- https://goerli.etherscan.io/
+- https://sepolia.etherscan.io
+
+## Swap Fee
+
+| Reward     | Swap                               | Fee   |
+| ---------- | ---------------------------------- | ----- |
+| 0.3%       | Uniswap v1                         |
+| 0.3%       | Uniswap v2                         | 0.05% |
+| 0.05%      | Uniswap v3 very stablecoin pair    | 0.05% |
+| 0.05%      | Uniswap v3 stablecoin pair         | 0.05% |
+| 0.30%      | Uniswap v3 most                    | 0.05% |
+| 1.00%      | Uniswap v3 low trade               | 0.05% |
+| 9%-14% APR | Polygon Matic Staking - ETH->Matic |
+
+## Swap
+
+- [Uniswap](./swap/uniswap.md)
+  - Network: Ethereum mainnet, Optimism, Arbitrum, Polygon
+- [PartySwap](./swap/partyswap.md)
+  - Network: Avalanche
+  - Token: PARTY
+- [PolkaSwap](./swap/polkaswap.md)
+- [QuickSwap](https://quickswap.exchange/)
+- Sushiswap
+- Simpleswap
+- AAVE
+  - decentralised non-custodial liquidity market protocol
+  - https://docs.google.com/spreadsheets/d/1TY_ai7vapncY66HUdkFp8G8W7owIQOS2lqTsdvqm6PY/edit#gid=1150575472
+
+## Contracts
+
+- [ethereum/solidity](https://github.com/ethereum/solidity)
+- [ConsenSys/smart-contract-best-practices](https://github.com/ConsenSys/smart-contract-best-practices)
+  - 固化 vs 可升级
+  - 一体化 vs 模块化
+  - 重复 vs 可重用
+- [ConsenSys/ethereum-developer-tools-list](https://github.com/ConsenSys/ethereum-developer-tools-list)
+- [runtimeverification/verified-smart-contracts](https://github.com/runtimeverification/verified-smart-contracts)
+- https://github.com/yam-finance/yam-protocol/blob/master/contracts
+- https://docs.fractional.art/fractional/smart-contract-breakdown/token-vault
+  - https://github.com/fractional-company/contracts
+  - Vault
+- https://docs.unic.ly/tutorials/how-to-fractionalize-your-nfts
+  - https://github.com/uniclyNFT/unicly-core/tree/main/contracts
+  - NFT 拆分
+- https://github.com/ethereum/EIPs/issues/4674
+  - NFT 拆分
+- https://github.com/sablierhq/sablier/tree/develop/packages/protocol/contracts
+- https://github.com/safe-global
+  - secure management of blockchain assets
+- [superfluid-finance/protocol-monorepo](https://github.com/superfluid-finance/protocol-monorepo)
+- ~~[trufflesuite/truffle](https://github.com/trufflesuite/truffle)~~
+  - MIT, TS
+  - Ethereum contract abstraction, for Node and the browser
+- 应用
+  - [Geo-Web-Project/core-contracts](https://github.com/Geo-Web-Project/core-contracts)
+  - https://github.com/decentraland/land/tree/master/contracts
+- [solidstate-network/solidstate-solidity](https://github.com/solidstate-network/solidstate-solidity)
+  - Upgradeable-first Solidity smart contract development library
 
 ## Dev
 
@@ -32,6 +110,16 @@ tags:
   - [ethers.js](https://docs.ethers.io/v5/)
     - 针对 provider 有默认 apikey - https://docs.ethers.io/v5/api-keys/
   - [ChainSafe/web3.js](https://github.com/ChainSafe/web3.js)
+  - [wevm/viem](https://github.com/wevm/viem)
+    - MIT, TS
+    - npm:viem
+    - https://viem.sh/
+    - TypeScript Interface for Ethereum
+  - [wevm/wagmi](https://github.com/wevm/wagmi)
+    - MIT, TS
+    - npm:wagmi
+    - https://wagmi.sh/
+    - React Hooks for Ethereum
   - @ethereumjs
   - @ethersproject
   - @nomiclabs
@@ -55,6 +143,10 @@ tags:
 - React
   - [TrueFiEng/useDApp](https://github.com/TrueFiEng/useDApp)
   - [NoahZinsmeister/web3-react](https://github.com/NoahZinsmeister/web3-react)
+  - [rainbow-me/rainbowkit](https://github.com/rainbow-me/rainbowkit)
+    - connect a wallet
+  - [wagmi-dev/wagmi](https://github.com/wagmi-dev/wagmi)
+    - React Hooks for Ethereum
 - API
   - [graphprotocol/graph-node](https://github.com/graphprotocol/graph-node)
   - https://eth.wiki/json-rpc/API
@@ -73,9 +165,14 @@ tags:
     - https://cryptoicons.co/
   - [ConsenSysMesh/rimble-icons](https://github.com/ConsenSysMesh/rimble-icons)
   - https://cryptologos.cc/
+- 商业
+  - https://web3.storage/
+  - https://www.alchemy.com/
+    - https://github.com/alchemyplatform
+    - Web3 Developer Platform
 
 ```ts
-import {MetaMaskInpageProvider} from '@metamask/providers';
+import { MetaMaskInpageProvider } from '@metamask/providers';
 
 declare global {
   interface Window {
@@ -117,19 +214,21 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 
 > [ChainList](./eth/chainlist.md)
 
-| Hex  | Decimal | Symbol | Network | Proof               | RPC                                              | Explorer                      |
-| ---- | ------- | ------ | ------- | ------------------- | ------------------------------------------------ | ----------------------------- |
-| 0x3  | 3       | ROP    | Ropsten | PoW/ethash          | `https://ropsten.infura.io/v3/${INFURA_API_KEY}` |
-| 0x4  | 4       | RIN    | Rinkeby | PoA/Clique          |                                                  | https://www.rinkeby.io/       |
-| 0x5  | 5       | GOR    | Goerli  | PoA/Clique          |
-| 0x2a | 42      | KOV    | Kovan   | PoA/authority round |
-|      | 43113   | AVAX   | FUJI    |                     | https://api.avax-test.network/ext/bc/C/rpc       | https://testnet.snowtrace.io/ |
+| Hex  | Decimal  | Symbol | Network | Proof               | RPC                                              | Explorer                      |
+| ---- | -------- | ------ | ------- | ------------------- | ------------------------------------------------ | ----------------------------- |
+| 0x3  | 3        | ROP    | Ropsten | PoW/ethash          | `https://ropsten.infura.io/v3/${INFURA_API_KEY}` |
+| 0x4  | 4        | RIN    | Rinkeby | PoA/Clique          |                                                  | https://www.rinkeby.io/       |
+| 0x5  | 5        | GOR    | Goerli  | PoA/Clique          |
+| 0x2a | 42       | KOV    | Kovan   | PoA/authority round |
+|      | 43113    | AVAX   | FUJI    |                     | https://api.avax-test.network/ext/bc/C/rpc       | https://testnet.snowtrace.io/ |
+|      | 11155111 | ETH    | Sepolia |                     | https://sepolia.dev/                             | https://sepolia.etherscan.io/ |
+|      |          |        | Holesky |
 
-[faucet.metamask.io]: https://faucet.metamask.io
 
 - rETH - rinkeby ETH
 - Faucet
-  - Ropsten - [faucet.metamask.io]
+  - https://faucetlink.to/
+  - https://www.infura.io/faucet
 - Avalanche C-Chain
 
 :::tip
@@ -138,6 +237,11 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 - etherscan.io 支持 ropsten, rinkeby, kovan, goerli
 
 :::
+
+- Goerli - 2019-2022 +1 LTS
+- Sepolia - 2021-2025 +1 LTS
+- Holešky - 2023-2027 +1 LTS
+  - https://github.com/eth-clients/holesky
 
 **Ropsten**
 
@@ -264,15 +368,6 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 ```bash
 curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}'
 ```
-
-## contract
-
-- [ethereum/solidity](https://github.com/ethereum/solidity)
-- [ConsenSys/smart-contract-best-practices](https://github.com/ConsenSys/smart-contract-best-practices)
-  - 固化 vs 可升级
-  - 一体化 vs 模块化
-  - 重复 vs 可重用
-- [ConsenSys/ethereum-developer-tools-list](https://github.com/ConsenSys/ethereum-developer-tools-list)
 
 ## Token
 

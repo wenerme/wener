@@ -84,8 +84,10 @@ A wener.me 185.199.108.153
 
 :::
 
-wener.tech 使用阿里云 dcdn/全站加速 实现，添加域名 www.wener.tech ，指向 185.199.108.153 和 185.199.109.153。
-添加完成后前往域名解析，将 www.wener.tech CNAME 到 www.wener.tech.w.kunluncan.com 。完成后建议开启 https。
+wener.tech 使用 nginx 缓存实现。
+
+~~wener.tech 使用阿里云 dcdn/全站加速 实现，添加域名 www.wener.tech ，指向 185.199.108.153 和 185.199.109.153。
+添加完成后前往域名解析，将 www.wener.tech CNAME 到 www.wener.tech.w.kunluncan.com 。完成后建议开启 https~~。
 
 至此 www.wener.tech 可以被访问。
 
