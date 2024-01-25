@@ -6,7 +6,7 @@ tags:
 # Web Dev Awesome
 
 - bundle size
-  - https://bundle.js.org/
+  - https://bundlejs.com/
   - https://bundlephobia.com/
 - [privatenumber/minification-benchmarks](https://github.com/privatenumber/minification-benchmarks)
 - [JamieMason/syncpack](https://github.com/JamieMason/syncpack)

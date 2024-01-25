@@ -4,22 +4,31 @@ title: Vercel
 
 # Vercel
 
-- [价格](https://vercel.com/pricing)/[限制](https://vercel.com/docs/concepts/limits/overview)
-  - Free
-    - 100 部署/天
-    - Serverless Functions 12/部署
-    - Serverless Functions 10s 执行时间
-      - 没有后台执行概念
-      - Pro 60s Enterprise 900s
-    - 3 Git Repository/Vercel Project
-    - 内存 1024 MB
-    - 50 自定义域名
-    - 100 GB 带宽每月
+:::tip
+
+- Free
+  - 100 部署/天
+  - Serverless Functions 12/部署
+  - Serverless Functions 10s 执行时间
+    - 没有后台执行概念
+    - Pro 60s Enterprise 900s
+  - 3 Git Repository/Vercel Project
+  - 内存 1024 MB
+  - 50 自定义域名
+  - 100 GB 带宽每月
 - Serverless Function
   - 单个 < 50MB
   - 解压后 < 250MB
   - 消息体 5MB
   - 并发 1000
+- EdgeFunction
+  - Hobby gzip 1 MB
+  - Pro gzip 2 MB
+  - https://vercel.com/docs/functions/edge-functions/limitations
+
+:::
+
+- [价格](https://vercel.com/pricing)/[限制](https://vercel.com/docs/concepts/limits/overview)
 - [Fair Use Policy](https://vercel.com/docs/platform/fair-use-policy)
   - JAM 站点和应用
   - 前端
@@ -43,6 +52,7 @@ title: Vercel
   - yum
   - 添加额外包 `yum install jq -y`
   - [Extras library](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-ami-basics.html#extras-library)
+
 
 ```bash
 # 全局安装

@@ -13,7 +13,6 @@ $SRV.<operation>.<service_name>
 $SRV.<operation>.<service_name>.<service_id>
 ```
 
-
 - https://github.com/nats-io/nats.deno/blob/main/nats-base-client/service.ts
 - 标准操作
   - `$SRV.PING|STATS|INFO`
@@ -131,5 +130,74 @@ type EndpointStats = {
   - https://github.com/nats-io/nats-architecture-and-design/issues/220
   - https://github.com/nats-io/nats-architecture-and-design/issues/206
   - https://github.com/nats-io/nats-architecture-and-design/issues/184
-  - multiple endpoints on services  [#187](https://github.com/nats-io/nats-architecture-and-design/issues/187)
+  - multiple endpoints on services [#187](https://github.com/nats-io/nats-architecture-and-design/issues/187)
 - https://github.com/nats-io/nats.go/blob/main/micro/README.md
+
+```ts
+import { Type, Static } from '@sinclair/typebox';
+import { Value } from '@sinclair/typebox/value';
+import { firstOfAsyncIterator } from '@wener/utils';
+import { polyfillWebSocket } from '@wener/utils/server/ws';
+import { connect } from 'nats.ws';
+import { test } from 'vitest';
+
+test(
+  'nats-service',
+  async () => {
+    await polyfillWebSocket();
+
+    const nc = await connect({
+      servers: ['wss://demo.nats.io:8443'],
+    });
+
+    console.log(`nats ttl ${await nc.rtt()}ms`);
+
+    const svc = await nc.services.add({
+      name: 'test_Service',
+      version: '1.0.0',
+      statsHandler: async (ep) => {
+        console.log(`[STATS] ${ep.subject} ${ep.queue} ${JSON.stringify(ep.metadata)}`);
+        return null;
+      },
+      queue: 'SVC',
+    });
+
+    type HelloRequest = Static<typeof HelloRequest>;
+    const HelloRequest = Type.Object({
+      name: Type.String(),
+    });
+
+    const queue = svc.addEndpoint('hello', {
+      subject: `test_Service.hello`,
+      metadata: {
+        schema: JSON.stringify({
+          request: HelloRequest,
+        }),
+      },
+    });
+    Promise.resolve(null).then(async () => {
+      for await (const msg of queue) {
+        const str = msg.string();
+        const req = Value.Cast(HelloRequest, JSON.parse(str));
+        console.log(`[RECV] ${msg.subject}: ${str}`);
+        msg.respond(
+          JSON.stringify({
+            message: `hello ${req.name}`,
+          }),
+        );
+      }
+    });
+
+    const sc = nc.services.client();
+    console.log(await firstOfAsyncIterator(sc.ping('test_Service')));
+    console.log(await firstOfAsyncIterator(sc.stats('test_Service')));
+    console.log(await firstOfAsyncIterator(sc.info('test_Service')));
+    console.log(
+      (await nc.request('test_Service.hello', JSON.stringify({ name: 'wener' }), { timeout: 1000 * 60 * 60 })).string(),
+    );
+  },
+  {
+    timeout: 60_000,
+  },
+);
+```

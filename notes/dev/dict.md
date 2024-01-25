@@ -247,13 +247,14 @@ tags:
 
 ### 搜索引擎优化
 
-| 英文     | 含义         | 释义                   |
-| -------- | ------------ | ---------------------- |
-| SEO      | 搜索引擎优化 | Search Engin Optimize  |
-| UTM      | 跟踪模块     | Urchin Tracking Module |
-| medium   | 媒体         |
-| campaign | 活动         |
-| term     | 词组         |
+| 英文           | 含义         | 释义                   |
+| -------------- | ------------ | ---------------------- |
+| SEO            | 搜索引擎优化 | Search Engin Optimize  |
+| UTM            | 跟踪模块     | Urchin Tracking Module |
+| medium         | 媒体         |
+| campaign       | 活动         |
+| term           | 词组         |
+| Event Tracking | 日志埋点     |
 
 ## 投融资
 

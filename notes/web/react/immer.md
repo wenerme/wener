@@ -7,6 +7,10 @@ title: immer
 - [immerjs/immer](https://github.com/immerjs/immer)
 - 参考
   - https://immerjs.github.io/immer/performance/
+  - 不支持的场景 https://github.com/unadlib/mutative/blob/main/test/immer-non-support.test.ts
+  - [unadlib/mutative](https://github.com/unadlib/mutative)
+    - 类似 immer，但有更多的控制选项
+    - 默认不 freeze - 性能更好，能支持更多对象（Map、Set）
 
 :::tip
 

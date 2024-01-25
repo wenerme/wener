@@ -4,6 +4,14 @@ title: Apache APISIX
 
 # Apache APISIX
 
+
+:::caution
+
+- 默认 3 etcd 会占用非常多资源，非常不划算
+- apisix 依赖 etcd 容易出问题
+
+:::
+
 - [apache/apisix](https://github.com/apache/apisix)
   - Apache-2.0, Lua+Nginx/openresty+etcd
   - 支持 Golang 插件

@@ -8,6 +8,8 @@ title: graphql-code-generator
   - 基于 GraphQL 的代码生成工具
   - 支持的前端框架 urql, apollo, react-query, react, vue, svelte
   - 支持的后端 Java Resolver, Kotlin, Java, Java Apollo Android
+- 参考
+  - https://the-guild.dev/graphql/codegen
 
 ```bash
 # 安装 cli - 依赖插件无法 npx

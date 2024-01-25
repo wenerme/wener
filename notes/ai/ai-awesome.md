@@ -303,6 +303,12 @@ tags:
 - [outlines-dev/outlines](https://github.com/outlines-dev/outlines)
   - Apache-2.0
 
+## Client
+
+- Web
+  - [vercel/ai](https://github.com/vercel/ai)
+    - https://sdk.vercel.ai/docs
+
 ## SelfHost
 
 - [BerriAI/litellm](https://github.com/BerriAI/litellm)

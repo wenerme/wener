@@ -1,9 +1,10 @@
 ---
-title: Editor
+title: IDE
 ---
 
-# Editor
+# IDE
 
+- IDE - Integrated Development Environment
 - [VSC](./vsc.md)/monaco based
   - [Microsoft/monaco-editor](https://github.com/Microsoft/monaco-editor)
   - [vscodium](./vscodium.md)

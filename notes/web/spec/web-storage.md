@@ -92,6 +92,7 @@ title: WebStorage
     - spark-md5
     - object-path
     - clone
+  - https://rxdb.info/nodejs-database.html
 - [clientdb/clientdb](https://github.com/clientdb/clientdb)
   - Apache-2.0, Typescript
   - **in-memory** database, realtime
@@ -130,3 +131,9 @@ title: WebStorage
 - [amark/gun](https://github.com/amark/gun)
   - syncing decentralized graph data
 - [isaacs/node-lru-cache](https://github.com/isaacs/node-lru-cache)
+- [typicode/lowdb](https://github.com/typicode/lowdb)
+  - MIT, JS
+  - Simple and fast JSON database
+  - 支持 nodejs、browser、memory
+- [FrigadeHQ/remote-storage](https://github.com/FrigadeHQ/remote-storage)
+  - 非常简单的 remoteStorage 实现

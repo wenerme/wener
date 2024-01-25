@@ -65,3 +65,18 @@ title: Headless
 ## playwright vs puppeteer
 
 - https://blog.logrocket.com/playwright-vs-puppeteer/
+
+## New Headless
+
+- Chrome 112+
+- 支持
+  - --dump-dom
+  - --screenshot --window-size=412,892
+  - --print-to-pdf --no-pdf-header-footer
+  - --timeout=5000
+  - --virtual-time-budget
+    - 虚拟时间 - setTimeout/setInterval
+    - 以尽可能快的速度执行任意网页代码，同时使网页相信时间实际上是过去的时间。
+- https://developer.chrome.com/docs/chromium/new-headless
+- 实时视图目前仅实现触摸事件
+  - https://bugs.chromium.org/p/chromium/issues/detail?id=1410433

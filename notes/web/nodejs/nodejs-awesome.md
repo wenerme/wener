@@ -94,6 +94,8 @@ tags:
   - [Automattic/mongoose](https://github.com/Automattic/mongoose)
     - object modeling
 - 有趣
+  - [tndrle/node-sqlite3-wasm](https://github.com/tndrle/node-sqlite3-wasm)
+    - WebAssembly port of SQLite3 for Node.js with file system access
   - [oguimbal/pg-mem](https://github.com/oguimbal/pg-mem)
   - [oguimbal/pgsql-ast-parser](https://github.com/oguimbal/pgsql-ast-parser)
   - [share/sharedb](https://github.com/share/sharedb)
@@ -258,9 +260,29 @@ export N_PREFIX=$HOME/n
 - CUI/Command Line/CLI/Arguement Parser
   - [minimistjs/minimist](https://github.com/minimistjs/minimist)
   - [sindresorhus/meow](https://github.com/sindresorhus/meow)
-  - [tj/commander.js](https://github.com/tj/commander.js)
-  - yargs
   - [vercel/arg](https://github.com/vercel/arg)
+- CLI Builder
+  - [tj/commander.js](https://github.com/tj/commander.js)
+  - [yargs](https://github.com/yargs/yargs)
+    - MIT, JS
+  - [oclif](https://github.com/oclif/oclif)
+    - MIT, TS
+    - by Salesforce
+    - 生成
+    - used by
+      - built out of [heroku/cli](https://github.com/heroku/cli)
+      - [salesforcecli/cli](https://github.com/salesforcecli/cli)
+      - https://shopify.dev/docs/apps/tools/cli
+      - https://www.twilio.com/docs/twilio-cli
+- CLI Helper/terminal ui/tui/prompt
+  - [chalk](https://github.com/chalk/chalk)
+  - execa
+  - winston
+    - logging
+  - [sindresorhus/get-stdin](https://github.com/sindresorhus/get-stdin)
+  - [sindresorhus/conf](https://github.com/sindresorhus/conf)
+  - [SBoudrias/Inquirer.js](https://github.com/SBoudrias/Inquirer.js)
+    - collection of common interactive command line user interfaces
 - shell/script
   - [sindresorhus/execa](https://github.com/sindresorhus/execa)
     - MIT, JS+TS

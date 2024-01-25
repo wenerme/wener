@@ -103,17 +103,22 @@ tags:
   - lodash.isEqual
 - Date & Time
   - date-fns
+    - 多错误的容忍度低
+    - 可 tree-shaking
   - dayjs
     - Fast 2kB alternative to Moment.js
+    - 接口友好
+    - 不可 tree-shaking
     - Immutable
     - plugins
       - duration
-  - moment
+  - ~~moment~~
+    - 不再维护
   - d3-time-format
   - [chrono-node](https://github.com/wanasit/chrono)
     - natural language date parser
   - [moment/luxon](https://github.com/moment/luxon)
-    - 72kB, 21kB
+    - 70kB, 21kB
 - format - number, time, money
   - [SheetJS/printj](https://github.com/SheetJS/printj)
   - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
@@ -340,6 +345,7 @@ tags:
     - multiplayer desktop-like workspace
   - https://news.ycombinator.com/item?id=30983770
   - [partykit/partykit](https://github.com/partykit/partykit)
+  - [streamich/json-joy](https://github.com/streamich/json-joy)
 - p2p
   - [hyperhyperspace/hyperhyperspace-core](https://github.com/hyperhyperspace/hyperhyperspace-core)
   - gnudb

@@ -7,6 +7,7 @@ title: Strapi
 - [strapi/strapi](https://github.com/strapi/strapi)
   - MIT+[EE](https://github.com/strapi/strapi/blob/86e0cf0f55d58e714a67cf4daee2e59e39974dd9/packages/strapi-admin/ee/LICENSE)
     - strapi-admin 包含部分 EE 协议 - Strapi Enterprise Edition
+  - 生成代码 - 代码在本地
   - 半开发半可视化操作的 Headless CMS
     - 半开发
       - 接口、模型、组件、插件均可以代码操作

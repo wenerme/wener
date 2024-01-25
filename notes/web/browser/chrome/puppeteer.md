@@ -13,6 +13,8 @@ title: Puppeteer
 
 - Alpine 下有问题 [#7746](https://github.com/puppeteer/puppeteer/issues/7746)
   - 在 Alpine 下额外安装，然后配置 PUPPETEER_EXECUTABLE_PATH
+- 保持浏览器运行 [#8261](https://github.com/puppeteer/puppeteer/issues/8261)
+  - https://github.com/puppeteer/puppeteer/blob/main/packages/browsers/src/detectPlatform.ts
 
 :::
 
@@ -118,6 +120,17 @@ puppeteer.use(
 
 - --disable-extensions-except=/path/to/extension
 - --load-extension=/path/to/extension
+
+## Notes
+
+- @puppeteer/browsers
+  - 安装和启动浏览器
+  - 启动 https://github.com/puppeteer/puppeteer/blob/main/packages/browsers/src/launch.ts
+- puppeteer-core
+  - CDP API
+  - launch & connect
+  - launch 通过 `@puppeteer/browsers` 启动
+    - https://github.com/puppeteer/puppeteer/blob/main/packages/puppeteer-core/src/node/ProductLauncher.ts
 
 # FAQ
 

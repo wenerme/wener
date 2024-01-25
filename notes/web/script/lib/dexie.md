@@ -16,6 +16,14 @@ title: dexie
 - 参考
   - https://dexie.org/docs/DerivedWork
 
+:::caution
+
+- NodeJS 持久化 [#480](https://github.com/dexie/Dexie.js/issues/480)
+  - [dumbmatter/fakeIndexedDB](https://github.com/dumbmatter/fakeIndexedDB)
+    - 内存实现 IndexedDB API - mock 用
+
+:::
+
 ```bash
 npm add dexie dexie-react-hooks
 ```
@@ -122,3 +130,4 @@ interface ISyncProtocol {
   - 使用 jQuery 发起 ajax 请求
 - [WebSocketSyncProtocol](https://github.com/dexie/Dexie.js/blob/master/samples/remote-sync/websocket/WebSocketSyncProtocol.js)
   - [WebSocketSyncServer](https://github.com/dexie/Dexie.js/blob/master/samples/remote-sync/websocket/WebSocketSyncServer.js)
+- [StorageManager](https://dexie.org/docs/StorageManager)

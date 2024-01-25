@@ -357,3 +357,5 @@ class B extends React.Component {
   - `<></>`
 - ReactNode
   - false, null, undefined, true
+
+## TypeError: Cannot read properties of null (reading 'useRef')

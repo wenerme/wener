@@ -8,6 +8,15 @@ tags:
 
 - NODE_OPTIONS
 
+:::caution
+
+- 持久化 DB 存储是 NodeJS 的弱项
+  - 纯 JS 没有好的存储实现
+  - SQLite 依赖 addon
+  - SQLite over WASM 还不成熟
+
+:::
+
 ## Tool Chain
 
 - 静态项目 - ViteJS

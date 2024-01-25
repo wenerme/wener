@@ -183,9 +183,15 @@ tags:
 
 ## Client
 
-- apollo
+- graphql
+  - 164 kB, 41.9 kB
+- @apollo/client
+  - 204kB,60kB
 - urql
-- [graphql-request](https://github.com/prisma-labs/graphql-request)
+  - @urql/core+wonka
+  - 40kB,15kB
+- [graphql-request](https://github.com/jasonkuhrt/graphql-request)
+  - 58kB,16kB
   - fetch + gql
 - react-query+graphql-request
 

@@ -12,6 +12,27 @@ title: Matomo
   - 插件
 - [log-analytics](https://github.com/piwik/piwik-log-analytics)
   - [how-to](http://piwik.org/docs/log-analytics-tool-how-to/)
+- 限制
+  - Custom Dimensions	100个
+- 付费功能 - On-Premise 独立付费
+  - Activity Log
+  - WooCommerce Analytics
+  - Search Engine Keywords Performance
+  - Funnels
+  - Users Flow
+  - White Label
+  - Heatmap & Session Recording
+  - A/B Testing
+  - Custom Reports
+  - Forms
+  - Media Analytics
+  - Roll-Up Reporting
+  - Advertising Conversion Export
+  - SEO Web Vitals
+  - Crash Analytics
+  - Multi-Channel Conversion Attribution
+  - Cohorts
+  - SAML integration
 
 :::caution
 

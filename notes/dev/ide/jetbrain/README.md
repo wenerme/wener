@@ -141,18 +141,3 @@ sharedIndex:
 
 - https://www.jetbrains.com/help/webstorm/how-to-improve-product-performance.html
 - https://blog.jetbrains.com/kotlin/2021/06/simple-steps-for-improving-your-ide-performance/
-
-## Code Vision hints evaluation
-
-- 显示使用情况
-- 占用更多 CPU
-- https://www.jetbrains.com/help/rider/Code_Vision.html
-
-## Cannot connect to already running IDE instance. Exception: Process 621 is still running
-
-```bash
-ls "$HOME/Library/Application Support/JetBrains/IntelliJIdea2023.2"
-
-ls $HOME/Library/Application\ Support/JetBrains/*/.lock
-rm $HOME/Library/Application\ Support/JetBrains/*/.lock
-```
