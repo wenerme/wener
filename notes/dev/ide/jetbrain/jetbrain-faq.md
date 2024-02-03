@@ -5,6 +5,17 @@ tags:
 
 # Jetbrain FAQ
 
+## Project Storage
+
+```bash
+# projects/default
+ls $HOME/Library/Application\ Support/JetBrains/DataGrip*
+
+ls $HOME/Library/Application\ Support/JetBrains/DataGrip2023.3/consoles/db
+```
+
+- .idea/dataSources.xml
+
 ## macOS 获取 datasource 的密码
 
 - 复制 datasource - 实际为 XML

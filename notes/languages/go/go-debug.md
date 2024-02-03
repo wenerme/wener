@@ -5,6 +5,7 @@ title: Debugging
 # Go Debug
 
 - [go-delve/delve](https://github.com/go-delve/delve)
+  - MIT, Go
 
 ```bash
 go install github.com/go-delve/delve/cmd/dlv@latest

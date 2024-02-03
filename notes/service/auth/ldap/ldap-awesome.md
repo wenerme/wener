@@ -51,6 +51,7 @@ tags:
   - 不支持 LDAPS, HTTPS
 - [majewsky/portunus](https://github.com/majewsky/portunus)
   - GPLv3, Go
+  - Self-contained user/group management and authentication service
 
 ## Library
 

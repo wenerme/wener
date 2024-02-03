@@ -335,6 +335,7 @@ tags:
     - vs automerge [#145](https://github.com/yjs/yjs/issues/145)
   - [y-crdt/y-crdt](https://github.com/y-crdt/y-crdt)
     - Rust port
+  - [josephg/diamond-types](https://github.com/josephg/diamond-types)
   - [automerge/automerge](https://github.com/automerge/automerge)
     - 通用状态，自定义 CRDT
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
@@ -394,7 +395,7 @@ tags:
   - jquery
 - logger/logging
   - console
-  - [pino](../nodejs/pino.md)
+  - [pino](../../nodejs/pino.md)
     - 6.5kB/2.5kB
   - https://www.npmjs.com/package/picocolors
     - https://github.com/alexeyraspopov/picocolors/blob/main/picocolors.js

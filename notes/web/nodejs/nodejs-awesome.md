@@ -263,6 +263,7 @@ export N_PREFIX=$HOME/n
   - [vercel/arg](https://github.com/vercel/arg)
 - CLI Builder
   - [tj/commander.js](https://github.com/tj/commander.js)
+  - [privatenumber/cleye](https://github.com/privatenumber/cleye)
   - [yargs](https://github.com/yargs/yargs)
     - MIT, JS
   - [oclif](https://github.com/oclif/oclif)

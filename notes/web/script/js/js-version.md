@@ -27,7 +27,7 @@ tags:
 
 | ES     | NodeJS      |
 | ------ | ----------- |
-|        | NodeJS 20   |
+| ES2022 | NodeJS 20   |
 | ES2022 | NodeJS 18   |
 | ES2021 | NodeJS 16   |
 | ES2020 | NodeJS 14   |
@@ -56,9 +56,17 @@ tags:
 | [decorators]         | stage 3 | TS 5.0 |
 | [decorator-metadata] | stage 3 | TS 5.2 |
 | Import Attributes    |         | TS 5.3 |
+| [temporal]           | stage 3 |
+| [shadowrealm]        | stage 3 |
+| [binary-ast]         |
+| [set-methods]        | stage 3 |
 
 [decorators]: https://github.com/tc39/proposal-decorators
 [decorator-metadata]: github.com/tc39/proposal-decorator-metadata
+[binary-ast]: https://github.com/tc39/proposal-binary-ast
+[temporal]: https://github.com/tc39/proposal-temporal
+[shadowrealm]: https://github.com/tc39/proposal-shadowrealm
+[set-methods]: https://github.com/tc39/proposal-set-methods
 
 :::tip 👀
 
@@ -67,8 +75,7 @@ tags:
   - Import Attribute `import data from 'data.json' with {type:'json']}`
   - JSON Modules
   - Intl.DisplayNames
-  - [proposal-temporal](https://github.com/tc39/proposal-temporal)
-    - Temporal - 替代 Date
+  - [temporal] - Temporal - 替代 Date
   - 2023
     - array group, groupToMap
       - https://github.com/tc39/proposal-array-grouping

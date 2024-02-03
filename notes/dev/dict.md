@@ -516,6 +516,59 @@ tags:
 | value added tax                 | 增值税                                              |
 | Withholding tax                 | 预扣税                                              |
 
+## 市场营销 {#marketing}
+
+| abbr. | en                                  | cn                     |
+| ----- | ----------------------------------- | ---------------------- |
+| CPA   | cost per action                     | 每次行动成本           |
+| CTA   | call to action                      | 行动号召               |
+| CPC   | cost per click                      | 每次点击成本           |
+| CPL   | cost per lead                       | 每次潜在客户成本       |
+| CPM   | cost per mile                       | 千次展示成本           |
+| EPC   | earnings per click                  | 每次点击收益           |
+| CTR   | click through rate                  | 点击率                 |
+| UV    | unique visitor                      | 独立访客               |
+| PV    | page view                           | 页面浏览量             |
+| ROI   | return on investment                | 投资回报率             |
+| AIDA  | Attention, Interest, Desire, Action | 吸引、兴趣、欲望、行动 |
+
+| en                  | cn       |
+| ------------------- | -------- |
+| Rentention          | 留存     |
+| Affiliate Agreement | 联盟协议 |
+| Commission          | 佣金     |
+| Above the fold      | 屏幕上方 |
+| Chargeback          | 退款     |
+
+## 房屋租赁 {#property-rent}
+
+| abbr. | en                     | cn           |
+| ----- | ---------------------- | ------------ |
+| PMS   | Property Rental System | 物业租赁系统 |
+
+|                         en | cn                 |
+| -------------------------: | ------------------ |
+|      Housing Rental System | 房屋租赁系统       |
+|   Commercial Rental System | 商业租赁系统       |
+| Rental Property Management | 租赁物业管理       |
+|            Rental Property | 租赁物业           |
+|                     Rental | 租赁、租金         |
+|     Real Estate Businesses | 房地产业务         |
+|                Real Estate | 房地产             |
+|                     Estate | 房地产、遗产       |
+|               Collect rent | 收租               |
+|                     tenant | 租户、承租人、房客 |
+|                      Lease | 租约、租赁合同     |
+|           Raising The Rent | 提高租金           |
+
+- Housing
+  - 住宅
+- Property
+  - 物业
+  - 房产
+- Commercial
+  - 商业
+
 # FAQ
 
 ## customer vs account vs client vs consumer vs user
@@ -524,11 +577,12 @@ tags:
   - 购买产品的个体 - 人或公司
   - 交易性质
   - 在零售、餐饮、在线购物等领域更常使用
-  - 在零售、餐饮、在线购物等领域更常使用
 - consumer - 消费者
+  - producer
   - 使用产品的个体
   - 不一定是 customer
 - client - 客户端、客户
+  - service
   - 接受服务或信息的个体 - 一般不是产品
   - 系通常更长期、更个性化
   - 作为客户
@@ -541,8 +595,17 @@ tags:
   - 持续提供信息，产品，服务等咨询
   - 不同的 context 下可能表示不同的意思
     - 例如 财务行业下可能代表科目
+- contact - 联系人
+  - 与客户、供应商、合作伙伴等建立联系的个体
+  - 通常是 account 的一部分
 - user
   - 按照合约使用信息、产品、服务的个体
+- vendor - 服务商、供应商
+  - 提供产品或服务的个体
+  - 平级
+- supplier - 供应商
+  - 提供产品或服务的个体
+  - 侧重于供应链
 
 ## username vs user name vs userName
 

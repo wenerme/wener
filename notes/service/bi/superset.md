@@ -37,6 +37,8 @@ title: Apache Superset
   - [#3928](https://github.com/apache/incubator-superset/issues/3928)
 - Calendar Heatmap 时间偏差一天
   [apache-superset/superset-ui#409](https://github.com/apache-superset/superset-ui/issues/409)
+- 不能链接 prometheus [#18381](https://github.com/apache/superset/discussions/18381)
+  - 可以考虑周 trino 或者 postgresql
 
 :::
 

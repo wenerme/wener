@@ -53,3 +53,9 @@ batch_send_deadline: 10s
 ## unknown function with name "label_values"
 
 grafana template
+
+## scrape_interval
+
+- 默认 1m
+- 动态系统或高价值指标 15s,30s
+- 稳定系统 5m,10m

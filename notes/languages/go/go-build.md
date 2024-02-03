@@ -202,7 +202,7 @@ docker run --rm -it --entrypoint bash \
   - 2022: Zen 4
   - amdv4
 - 参考
-  - [GOAMD64](https://github.com/golang/go/wiki/MinimumRequirements#amd64)
+  - [GOAMD64](https://go.dev/wiki/MinimumRequirements#amd64)
   - [Microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels)
 
 ```bash

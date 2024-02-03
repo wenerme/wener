@@ -248,12 +248,35 @@ scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
 
 - [google/licensecheck](https://github.com/google/licensecheck)
 
-## weekly
+## news
 
-- 技术相关
-  - https://golangweekly.com/
-  - https://nodeweekly.com/
-  - https://postgresweekly.com/
-  - https://thisweekinreact.com/
-- 非技术相关
+:::tip Newsletter
+
+- 让你及时了解行业动态、技术发展、市场趋势和政策变化等信息
+- 通常由行业专家、领军人物或专业机构编写，提供深入的分析和独到的见解。这些内容可以帮助你拓宽视野，深化理解特定主题。
+- 订阅精选的 Newsletter，你可以节省在互联网上搜索和筛选信息的时间。
+- 提供的案例研究、最佳实践和教程等内容，是持续学习和技能提升的宝贵资源。
+- 阅读不同主题和领域的 Newsletter 可以激发新的想法和创意，有助于解决工作中的问题，甚至启动新的项目或创新。
+- 电子邮件形式的 Newsletter 便于存档和分类，当需要回顾某个话题或信息时，可以轻松查找。
+
+:::
+
+- 新闻
+  - Hacker News https://news.ycombinator.com/news
+  - Twitter https://twitter.com
+- 语言技术主题相关 Weekly Newsletter
+  - Golang https://golangweekly.com/
+  - NodeJS https://nodeweekly.com/
+  - PostgreSQL https://postgresweekly.com/
+  - React https://thisweekinreact.com/
+- 非技术相关 Weekly Newsletter
+  - Github 趋势 https://github.com/trending
   - https://softwareleadweekly.com/
+  - https://www.devopsweekly.com/
+- 技术博客
+  - https://web.dev/blog
+  - 官方网站博客/Docs
+- Awesome - 发现项目和技术
+  - https://wener.me/notes/tags/awesome
+  - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)
+  - [zudochkin/awesome-newsletters](https://github.com/zudochkin/awesome-newsletters)

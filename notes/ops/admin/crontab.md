@@ -54,13 +54,13 @@ done
   - 检测一个目录下有哪些会被执行 `run-parts --test /etc/periodic/daily`
   - 里面的脚本 **不要** 包含 `.sh` 后缀，且确保可执行 `chmod +x`
 
-```shell
+```
 # 强制指定 shell
 SHELL=/bin/sh
 # 可定义变量
-MAILTO=paul
+MAILTO=wener
 # 指定时区
-CRON_TZ=Japan
+CRON_TZ=Asia/Shanghai
 
 # 可执行任意 shell
 

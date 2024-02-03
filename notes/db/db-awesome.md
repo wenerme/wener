@@ -215,6 +215,8 @@ curl --request POST \
 ## SQLite Awesome
 
 
+- [dgllghr/stanchion](https://github.com/dgllghr/stanchion)
+  - Column
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
   - Query sqlite via http
   - [HN](https://news.ycombinator.com/item?id=30636796)

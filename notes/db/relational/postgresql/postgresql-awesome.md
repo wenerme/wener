@@ -78,6 +78,9 @@ tags:
   - OLAP
 - [heterodb/pg-strom](https://github.com/heterodb/pg-strom)
   - accelerate mostly batch and analytics workloads with utilization of GPU and NVME-SSD
+- [tembo-io/pgmq](https://github.com/tembo-io/pgmq)
+  - PostgreSQL, Rust
+  - lightweight message queue
 
 ## PL
 
@@ -167,6 +170,10 @@ tags:
   - 96C 768GiB 25Gbps
   - 加了 PgBouncer
   - 水平扩容
+
+## FDW
+
+- [tembo-io/prometheus_fdw](https://github.com/tembo-io/prometheus_fdw)
 
 # FAQ
 

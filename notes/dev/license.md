@@ -184,6 +184,10 @@ title: License
 
 # FAQ
 
+## Detect
+
+- https://github.com/pnpm/pnpm/pull/7530/files
+
 ## LGPL vs GPL vs AGPL
 
 - LGPL: you can link against and don't have to release source code as long as you don't modify the library itself

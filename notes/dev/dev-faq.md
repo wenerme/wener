@@ -31,6 +31,7 @@ tags:
     - https://github.com/laravel/framework/blob/5.8/src/Illuminate/Foundation/Application.php
 - NODE_ENV - production, development, test
   - https://github.com/kerimdzhanov/dotenv-flow
+  - process.env https://nodejs.org/api/process.html#process_process_env
 - SPRING_PROFILES_ACTIVE,spring.profiles.active
 - [.NET](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
   - DOTNET_ENVIRONMENT
@@ -39,6 +40,13 @@ tags:
   - production, preview, development
 - https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/
   - APP_DOMAIN, APP_URL, APP_ID
+- `__DEV__` 变量
+  - 由 RN 引入 https://reactnative.dev/docs/javascript-environment
+  - ReactRouter 也使用了这个变量 https://github.com/search?q=repo%3Aremix-run%2Freact-router%20__DEV__&type=code
+    - 通过 rollup 注入了变量
+- `__PROD__` 变量
+- import.meta.env
+  - by Vite
 
 ## env
 

@@ -7,6 +7,13 @@ title: JSON
 - [rfc6901](https://tools.ietf.org/html/rfc6901) - JavaScript Object Notation (JSON) Pointer
 - [automerge/automerge](https://github.com/automerge/automerge)
   - A JSON-like data structure that can be modified concurrently by different users, and merged again automatically.
+- Extension
+  - geojson
+  - hljson
+  - json5
+- Variants
+  - yaml
+  - toml
 
 ## Schema
 
@@ -41,6 +48,7 @@ title: JSON
     - `$patch`
       - replace, delete
     - [Strategic Merge Patch](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/strategic-merge-patch.md)
+
 ## Diff
 
 - https://github.com/andreyvit/json-diff

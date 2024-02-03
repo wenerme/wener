@@ -148,6 +148,9 @@ chains:
               type: tls
               metadata:
                 bar: baz
+
+api:
+  addr: :1234
 ```
 
 ## Auth

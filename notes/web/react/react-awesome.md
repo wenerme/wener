@@ -207,9 +207,10 @@ npm add date-fns lodash-es react-fast-compare
   - [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
     - 功能最为强大的日历组件 - 支持 React 绑定
   - [wojtekmaj/react-calendar](https://github.com/wojtekmaj/react-calendar)
-- flow
+- flow/diagram
   - [wbkd/react-flow](https://github.com/wbkd/react-flow)
     - 流程节点 UI
+  - [projectstorm/react-diagrams](https://github.com/projectstorm/react-diagrams)
 - dnd
   - [react-dnd/react-dnd](https://github.com/react-dnd/react-dnd)
   - [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放

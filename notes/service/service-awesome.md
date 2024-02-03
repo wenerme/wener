@@ -417,6 +417,9 @@ tags:
   - [KRTirtho/spotube](https://github.com/KRTirtho/spotube)
     - BSD-4, Dart, Flutter
     - Open source Spotify client
+- Rental Property Management
+  - https://gaiapm.com.hk/
+  - https://www.landlordstudio.com/blog/best-rental-property-management-software
 - 商业
   - https://nino.app/
 

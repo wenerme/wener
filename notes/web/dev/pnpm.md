@@ -360,6 +360,9 @@ CMD [ "node", "server.js" ]
 
 - [#3114](https://github.com/pnpm/pnpm/issues/3114)
 
+## license
+
+- @pnpm/license-scanner
 
 ## Typescript FAQ
 

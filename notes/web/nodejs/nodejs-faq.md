@@ -78,6 +78,33 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
   - https://github.com/dividab/tsconfig-paths/issues/243
 
 
+## shebang
+
+**CJS**
+
+```ts
+#!/usr/bin/env node
+```
+
+**ESM**
+
+```bash
+#!/usr/bin/env bash
+":" //# comment; exec /usr/bin/env node --input-type=module - "$@" < "$0"
+```
+
+**NodeJS 20.10+**
+
+```bash
+node --experimental-default-type=module cli
+```
+
+- ESM
+  - 增加 mjs 文件后缀即可
+  - https://github.com/nodejs/node/issues/49444
+  - https://github.com/orgs/nodejs/discussions/37857
+- --experimental-default-type
+
 ## performance
 
 - UV_THREADPOOL_SIZE=4

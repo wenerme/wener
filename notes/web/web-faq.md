@@ -16,6 +16,18 @@ tags:
 - Server-Timing
 - X-API-Key
 
+## global
+
+- globalThis
+  - ECMAScript 2020
+  - Chrome 71
+  - NodeJS 12
+  - Safari 12.1
+- global - Node.js
+- self - Web Worker
+- window - Browser
+- this - iife 环境
+
 ## trailing slash
 
 - [slorber/trailing-slash-guide](https://github.com/slorber/trailing-slash-guide)
