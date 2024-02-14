@@ -23,6 +23,8 @@ tags:
   - MIT, TS
   - Clickhouse 存储
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
+  - UI for Clickhouse
+- [highlight/highlight](https://github.com/highlight/highlight)
 
 ## Tracing
 

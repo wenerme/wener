@@ -733,6 +733,10 @@ tags:
     - React Native
   - XS Moddable
     - GPL
+  - [CanadaHonk/porffor](https://github.com/CanadaHonk/porffor)
+    - MIT, JS
+    - from-scratch AOT JS -> WASM
+    - https://porffor.goose.icu/
 - Engine - embeddable/interpreter
   - [svaarala/duktape](https://github.com/svaarala/duktape)
     - MIT, C

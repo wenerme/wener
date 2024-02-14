@@ -135,18 +135,22 @@ tags:
 
 ## Dashboard/UI
 
-| ui                     | in     | web | desktop | cli | extensible |
-| ---------------------- | ------ | --- | ------- | --- | ---------- |
-| lens                   |        |     | ✅      |
-| portainer              |        |     | ✅      |
-| k9s                    | Golang |     |         | ✅  |
-| [octant]               | Golang | ✅  | ✅      |     | ⭐️⭐️⭐️  |
-| [kubernetes-dashboard] |        | ✅  |
-| rancher                | Golang | ✅  | ✅      |
+| ui                     | in         | web | desktop | cli | extensible |
+| ---------------------- | ---------- | --- | ------- | --- | ---------- |
+| lens                   | TS         |     | ✅      |
+| portainer              |            |     | ✅      |
+| k9s                    | Golang     |     |         | ✅  |
+| [octant]               | Golang     | ✅  | ✅      |     | ⭐️⭐️⭐️  |
+| [kubernetes-dashboard] |            | ✅  |
+| rancher                | Golang     | ✅  | ✅      |
+| seabird                | Golang+GTK |     | ✅      |
 
 [kubernetes-dashboard]: https://github.com/kubernetes/dashboard
 [octant]: https://github.com/vmware-tanzu/octant
 
+- [lens](./app/lens.md) -> openlens
+- [getseabird/seabird](https://github.com/getseabird/seabird)
+  - MPL-2.0, Golang
 - [goodrain/rainbond](https://github.com/goodrain/rainbond)
   - LGPLv3, Golang
 - [kubeapps](https://github.com/kubeapps/kubeapps)
@@ -461,6 +465,7 @@ tags:
 - [kubernetes-client/javascript](https://github.com/kubernetes-client/javascript)
   - @kubernetes/client-node
     - 2.3MB, 350KB
+
 ```bash
 npm install @kubernetes/client-node
 ```

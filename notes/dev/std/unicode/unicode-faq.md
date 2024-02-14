@@ -3,6 +3,8 @@ tags:
   - FAQ
 ---
 
+# Unicode FAQ
+
 ## Remove BOM
 
 ```bash

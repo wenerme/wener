@@ -1,4 +1,0 @@
-# Contacts
-## Tips
-* vCards
-

@@ -177,6 +177,14 @@ tags:
 
 ## LLM
 
+- RAG
+  - [vanna-ai/vanna](https://github.com/vanna-ai/vanna)
+    - MIT
+    - Text-to-SQL
+- APP
+  - [a16z-infra/llm-app-stack](https://github.com/a16z-infra/llm-app-stack)
+- Service
+  - dify
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - https://vllm.ai/

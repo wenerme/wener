@@ -4,6 +4,8 @@ title: 轩辕剑-天之恒
 
 # 轩辕剑-天之恒
 
+- Xuan-Yuan Sword: Scar of Sky
+
 ## 偷窃
 
 伏魔山,雪女,不老泉之水,40 生命力上限

@@ -18,12 +18,30 @@ tags:
 - [企业微信小程序](https://developers.weixin.qq.com/miniprogram/dev/devtools/qywx-dev.html)
 - [支付宝 IOT 小程序](https://opendocs.alipay.com/iot/multi-platform/vcs0fv)
 - [飞书小程序](https://open.feishu.cn/document/uYjL24iN/uMjNzUjLzYzM14yM2MTN)
+- 快手小程序
+- 抖音小程序 -> 字节跳动小程序
+- 飞书小程序 -> 字节跳动小程序
+- [快应用](https://www.quickapp.cn/)
+- 支付宝开放平台可以关联其他平台
+  - 支付宝 IoT
+  - 天猫精灵
+  - 阿里车
+  - 阿里云盘
+  - UI浏览器
+  - 口碑商家版
+  - 钉钉
+  - 优酷
+  - 夸克
 
 ---
 
 - PWA - Progressive Web App
 - [H5](https://developer.mozilla.org/zh-CN/docs/Web)
 - [ReactNative](https://reactnative.dev/)
+- https://nervjs.github.io/taro/docs/
+- https://zh.uniapp.dcloud.io/tutorial/miniprogram-subject.html
+- https://jaq-doc.alibaba.com/docs/doc.htm?treeId=478&articleId=120776&docType=1
+
 
 ## 跨端小程序开发
 

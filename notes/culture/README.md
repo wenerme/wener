@@ -22,4 +22,7 @@ Culture is an umbrella term which encompasses the social behavior, institutions,
 - 宗教信仰、习俗
 - 习惯
 - 艺术 - 音乐、电影、美术
+
+---
+
 - [What is Culture? ](https://medium.com/@beautehealthy/7b4d65caddc7)

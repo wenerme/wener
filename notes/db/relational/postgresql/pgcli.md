@@ -5,4 +5,9 @@ title: pgcli
 # pgcli
 
 - [dbcli/pgcli](https://github.com/dbcli/pgcli)
-  - BSD-3, Python
+  - BSD-3, **Python**
+
+
+```bash
+brew install pgcli
+```

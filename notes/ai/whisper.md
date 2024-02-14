@@ -10,6 +10,7 @@ title: whisper
 - [ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
 - [m-bain/whisperX](https://github.com/m-bain/whisperX)
 - [FL33TW00D/whisper-turbo](https://github.com/FL33TW00D/whisper-turbo)
+- [collabora/WhisperSpeech](https://github.com/collabora/WhisperSpeech)
 
 
 ```bash

@@ -198,10 +198,31 @@ jattach 1 properties
   - ftp.nonProxyHosts
 - Datagrip 支持 `?socksProxyHost=&socksProxyPort=`
 
+
+```bash
+JAVA_FLAGS=-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8087
+java %JAVA_FLAGS%
+```
+
+```java
+// proxySet 似乎是无效的
+if (needsProxy()) {
+    System.getProperties().put("proxySet", "true");
+    System.getProperties().put("proxyHost", getProxyHost());
+    System.getProperties().put("proxyPort", getProxyPort());
+} else {
+    System.getProperties().put("proxySet", "false");
+    System.getProperties().put("proxyHost", "");
+    System.getProperties().put("proxyPort", "");
+}
+```
+
 ---
 
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/proxies.html
 - https://docs.oracle.com/javase/6/docs/technotes/guides/net/properties.html#socks
+- https://docs.oracle.com/javase/7/docs/technotes/guides/net/proxies.html
+- net 的属性 http://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html
 
 ---
 

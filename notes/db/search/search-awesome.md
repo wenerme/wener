@@ -75,13 +75,16 @@ tags:
   - Apache-2.0, Rust
 - [tinysearch/tinysearch](https://github.com/tinysearch/tinysearch)
   - Apache-2.0,MIT, Rust
-- WWW Search
+- Web Search
   - https://searchhut.org/
     - 提交域名索引 https://searchhut.org/about
     - https://sr.ht/~sircmpwn/searchhut/
       - GPLv3, Go
     - https://news.ycombinator.com/item?id=32104609
     - Crawler `SearchHut Bot 0.0 (GNU AGPL 3.0); https://sr.ht/~sircmpwn/searchhut; <sir@cmpwn.com>`
+  - [StractOrg/stract](https://github.com/StractOrg/stract)
+    - AGPLv3, Rust, Svelte
+    - axum web framework, rocksdb
 - [yacy/yacy_search_server](https://github.com/yacy/yacy_search_server)
   - GPLv2+, Java
   - Distributed Peer-to-Peer Web Search Engine and Intranet Search Appliance

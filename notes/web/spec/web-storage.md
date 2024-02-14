@@ -137,3 +137,7 @@ title: WebStorage
   - 支持 nodejs、browser、memory
 - [FrigadeHQ/remote-storage](https://github.com/FrigadeHQ/remote-storage)
   - 非常简单的 remoteStorage 实现
+  - GET/PUT/DELETE `https://api.remote.storage/entities/{key}`
+  - Header
+    - x-remote-storage-instance-id
+    - x-remote-storage-user-id

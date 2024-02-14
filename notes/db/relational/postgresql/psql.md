@@ -30,7 +30,10 @@ title: psql
 | -p,--port=port     |
 
 ```bash
-brew install postgresql@15 # macOS by homebre
+brew install libpq # client only
+export PATH="$(brew --prefix)/opt/libpq/bin:$PATH"
+
+# brew install postgresql@15 #
 
 # 使用链接字符串
 psql "service=myservice sslmode=require"

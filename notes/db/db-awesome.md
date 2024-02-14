@@ -201,6 +201,11 @@ tags:
   - 概念 NAMESPACE, DATABASE
   - 本地存储: RocksDB
   - 分布式存储: tikv
+- CommandLine/CUI/CLI
+  - [xo/usql](https://github.com/xo/usql)
+    - MIT, Go
+    - Universal command-line interface for SQL databases
+    - `usql -c '\drivers'`
 
 ```bash
 docker run --rm -p 8000:8000 surrealdb/surrealdb:latest start --log debug --user root --pass root

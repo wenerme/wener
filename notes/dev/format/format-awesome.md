@@ -16,6 +16,9 @@ tags:
   - yaml
   - capnp text format - https://capnproto.org/capnp-tool.html
   - hcl
+- vCards
+  - .vcf
+  - https://en.wikipedia.org/wiki/VCard
 
 ## 文本
 

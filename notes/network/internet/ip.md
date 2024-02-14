@@ -69,6 +69,8 @@ dig +short myip.opendns.com @resolver1.opendns.com
 - [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 - [Loyalsoldier/domain-list-custom](https://github.com/Loyalsoldier/domain-list-custom)
 - [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
+  - https://github.com/v2fly/v2ray-core/blob/master/app/router/config.proto
+  - 生成 PB 格式
 
 ## FAQ
 

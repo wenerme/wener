@@ -72,6 +72,11 @@ tags:
 [fontawesome]: https://fontawesome.com/
 [flaticon]: https://www.flaticon.com/
 
+## SVG
+
+- https://iconsvg.xyz/
+  - 可快速自定义
+
 ## Brand
 
 - https://developers.weixin.qq.com/doc/oplatform/Downloads/Design_Resource.html

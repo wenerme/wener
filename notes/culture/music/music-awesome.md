@@ -37,6 +37,7 @@ tags:
 
 - https://djmag.com/top100djs
 - https://djrankings.org/
+- [How to Become a DJ: A Beginner's Guide](https://passionatedj.com/how-to-become-a-dj-ultimate-guide/)
 
 ## 华语翻唱
 

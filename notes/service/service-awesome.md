@@ -390,6 +390,7 @@ tags:
   - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
 - IPTV/Radio
   - [YueChan/Live](https://github.com/YueChan/Live)
+  - [lizongying/my-tv](https://github.com/lizongying/my-tv)
 - PMS/Project Management/Planning/Task
   - Jira
   - [makeplane/plane](https://github.com/makeplane/plane)

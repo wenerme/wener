@@ -37,3 +37,17 @@ Declaration of Monolog\Logger::emergency(Stringable|string $message, array $cont
 
 - https://github.com/composer/composer/issues/11246
 - https://github.com/laravel/framework/issues/46165
+
+## laravel
+
+```bash
+APP_ENV=local
+APP_DEBUG=true
+```
+
+```bash
+php artisan env
+
+php artisan view:clear
+php artisan cache:clear
+```

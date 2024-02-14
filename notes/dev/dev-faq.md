@@ -19,7 +19,7 @@ tags:
   - dev/test/staging/prod
   - development/test/stage/produciton
   - 预发布 - staging/pre/next
-  - 性能测试 - performance/perf
+  - 性能测试 - performance/perf/benchmark/bench
 - 面向环境
   - region
   - zone
@@ -443,3 +443,8 @@ pip cache purge
   - 通常包含额外的处理逻辑 - 功能更多，能自定义处理
   - 通常能生成 Schema - 但是会丢失一些信息且不一定准确
   - e.g. zod
+
+## monorepo
+
+- Monorepo: please do
+  - https://news.ycombinator.com/item?id=18820258

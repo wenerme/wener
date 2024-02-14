@@ -4,6 +4,15 @@ title: Figma
 
 # Figma
 
+| Plan                           | Yearly | Features                     |
+| ------------------------------ | ------ | ---------------------------- |
+| Starter                        | Free   | 3 collaborative design files |
+| Professional                   | $12/mo |
+| Organization                   | $45/mo | SSO                          |
+| Organization for Dev Mode only | $25/mo |
+| Enterprise                     | $75/mo |
+| Enterprise for Dev Mode only   | $35/mo |
+
 ## Figma Plugin
 
 ---

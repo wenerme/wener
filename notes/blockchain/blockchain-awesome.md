@@ -161,10 +161,11 @@ tags:
   - [tylim88/Crypto-Symbol](https://github.com/tylim88/Crypto-Symbol)
     - Name <-> Symbol
   - [coinwink/cryptocurrency-logos](https://github.com/coinwink/cryptocurrency-logos)
+    - [coinwink/crypto-logos-cc](https://github.com/coinwink/crypto-logos-cc)
+      - https://cryptologos.cc/
   - [spothq/cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons)
     - https://cryptoicons.co/
   - [ConsenSysMesh/rimble-icons](https://github.com/ConsenSysMesh/rimble-icons)
-  - https://cryptologos.cc/
 - 商业
   - https://web3.storage/
   - https://www.alchemy.com/

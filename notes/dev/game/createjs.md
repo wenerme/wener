@@ -1,9 +1,17 @@
+---
+title: CreateJS
+---
+
 # CreateJS
 
+- [createjs](https://github.com/createjs)
+  - 开发不活跃
 - easejs
 - tweenjs
 - soundjs
 - preloadjs
+- 参考
+  - 停止开发 https://github.com/CreateJS/EaselJS/issues/1040
 
 ```bash
 # 类型定义
