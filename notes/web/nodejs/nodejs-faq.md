@@ -77,7 +77,6 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 - tsconfig-paths esm 问题
   - https://github.com/dividab/tsconfig-paths/issues/243
 
-
 ## shebang
 
 **CJS**
@@ -90,7 +89,8 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 
 ```bash
 #!/usr/bin/env bash
-":" //# comment; exec /usr/bin/env node --input-type=module - "$@" < "$0"
+":" //# comment
+exec /usr/bin/env node --input-type=module - "$@" < "$0"
 ```
 
 **NodeJS 20.10+**
@@ -140,7 +140,7 @@ node --experimental-default-type=module cli
     - https://esbuild.github.io/api/#sources-content
 
 ```ts
-import '@cspotcode/source-map-support/register'
+import '@cspotcode/source-map-support/register';
 ```
 
 ## cjs `__dirname`
@@ -460,4 +460,15 @@ Error: error:0308010C:digital envelope routines::unsupported
 
 ```js
 fetch(`http://example.com`);
+```
+
+## 命令行获取 package 所在目录
+
+```bash
+pnpm pwd
+pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
+```
+
+```makefile
+PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))')
 ```

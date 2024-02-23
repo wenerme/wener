@@ -81,9 +81,9 @@ tags:
   - [networknt/react-schema-form](https://github.com/networknt/react-schema-form)
   - [gitana/alpaca](https://github.com/gitana/alpaca)
     - Bootstrap, jQuery UI, jQuery Mobile
-- JS
+- JS/TS
   - [kriszyp/json-schema](https://github.com/kriszyp/json-schema)
-    - Typescript 定义
+  - https://github.com/kogosoftwarellc/open-api/tree/main/packages/openapi-types
 
 :::tip JSON Schema Form 的几种常见情况
 

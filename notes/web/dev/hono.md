@@ -43,7 +43,7 @@ pnpm swc ./src -d ./dist/out
 # bundle all deps
 pnpm esbuild ./dist/out/main.js --external:{http,fs,path,stream,crypto,os,node:\*} --define:process.env.NODE_ENV=\"production\" --bundle --format=esm --outdir=dist/app --minify-syntax --charset=utf8 --target=es2022,node20 --sourcemap=external --legal-comments=external
 
-cat <<EOF
+cat << EOF
 FROM wener/node:20
 
 WORKDIR /app
@@ -99,6 +99,56 @@ app.use(
   }),
 );
 ```
+
+## Notes
+
+- App - Hono
+  - use = ALL 方法 = all
+  - on - 支持多个方法、多个 path
+  - route
+    - 将另外一个 app 的所有 routes 添加到当前 app
+    - 指定的 path 会作为 basePath 添加到另外一个 app
+  - mount
+    - 挂载基于 fetch 接口的 handler
+    - 相当于 `ALL /path/*` -> `handler`
+  - fetch - 入口
+  - fire
+    - `addEventListener('fetch')` - 用于 edge 环境
+    - FetchEventLike
+    - https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+    - https://developers.cloudflare.com/workers/reference/migrate-to-module-workers/
+  - request
+    - 辅助用于测试 - 接受 ExecutionContext 和 Envs
+    - 不需要完整 URL
+    - 实际调用 fetch
+  - 特殊 handler
+    - onError
+    - notFound
+- Routing
+  - `/posts/:id/comment/:comment_id`
+  - `/api/animal/:type?` - 可选
+  - `/post/:date{[0-9]+}/:title{[a-z]+}` - 正则
+  - `/posts/:filename{.+\\.png$}` - 包含 slash
+  - `*`
+  - `/wild/*/card`
+
+```ts
+const app = new Hono({
+  // 处理带 Host
+  getPath: (req) => req.url.replace(/^https?:\/(.+?)$/, '$1'),
+})
+
+app.get('/www1.example.com/hello', (c) => c.text('hello www1'))
+app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
+```
+
+- @hono/zod-openapi
+  - 生成 openapi
+  - 但是写起来非常的麻烦
+  - 基于 [asteasolutions/zod-to-openapi](https://github.com/asteasolutions/zod-to-openapi)
+- @hono/node-server
+  - 会修改 Reuqest
+  - https://github.com/honojs/node-server/blob/main/src/request.ts
 
 ## html
 

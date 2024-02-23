@@ -44,13 +44,19 @@ npx create-remix@latest
 - `$var` - 路径上变量
 - https://remix.run/docs/en/main/file-conventions/routes
 - https://interactive-remix-routing-v2.netlify.app/
-- exports
-  - loader
+- exports - Route Module
+  - loader - 在 GET 请求时执行
+  - action - 在 DELETE, PATCH, POST, PUT 请求时执行
+  - clientLoader
+  - clientAction
   - default - 组件
-  - action
   - headers
   - meta
   - links
+  - ErrorBoundary
+  - handle - 路由元数据信息
+  - HydrateFallback - 在 clientLoader 时显示
+  - shouldRevalidate
 - `*.client.tsx`,`*.server.tsx`
 
 ```tsx
@@ -88,3 +94,11 @@ export default function Projects() {
 ## remix.config.js
 
 - https://remix.run/docs/en/main/file-conventions/remix-config
+
+## vite
+
+- https://github.com/remix-run/remix/tree/main/templates/unstable-vite
+
+# FAQ
+
+## Uncaught SyntaxError: Identifier 'RefreshRuntime' has already been declared

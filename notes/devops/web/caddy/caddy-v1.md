@@ -1,5 +1,7 @@
 ---
 title: Caddy V1
+tags:
+  - Deprecated
 ---
 
 # Caddy

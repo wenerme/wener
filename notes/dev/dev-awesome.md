@@ -30,6 +30,8 @@ tags:
 - lint
   - eslint
   - go vet
+- pkgs
+  - https://deps.dev
 
 ## Big Corp
 

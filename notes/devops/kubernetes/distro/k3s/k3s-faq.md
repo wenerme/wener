@@ -444,3 +444,11 @@ find /var/lib/cni/results/ -size 0 -delete # cached result
 ## starting kubernetes: preparing server: token CA hash does not match the Cluster CA certificate hash
 
 ## etcd cluster join failed: cannot fetch cluster info from peer urls: could not retrieve cluster information from the given URLs
+
+## iptables rule leak
+
+```bash
+iptables -L | wc -l -c
+```
+
+- https://github.com/k3s-io/k3s/issues/294

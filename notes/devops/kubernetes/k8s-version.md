@@ -19,6 +19,7 @@ tags:
 
 | version                            | release    |
 | ---------------------------------- | ---------- |
+| [Kubernetes 1.29](#kubernetes-128) | 2023-12-13           |
 | [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 |
 | [Kubernetes 1.27](#kubernetes-127) | 2023-04-11 |
 | [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |
@@ -79,6 +80,15 @@ tags:
 [cronjobcontrollerv2]: ./k8s-features.md#CronJobControllerV2
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
+
+## Kubernetes 1.23
+
+- Alpha
+  - nftables backend for kube-proxy
+
+---
+
+- https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/
 
 ## Kubernetes 1.28
 

@@ -91,7 +91,6 @@ githubpreview.dev
 githubstatus.com
 githubuniverse.com
 githubusercontent.com
-gle
 gmail.com
 gnu.org
 go-lang.com
@@ -143,7 +142,6 @@ gstatic.com
 hashicorp.com
 hbo.com
 herokuapp.com
-hk
 huggingface.co
 imdb.com
 imgur.com
@@ -151,7 +149,6 @@ infoq.com
 instagram.com
 intellij.net
 jetbrains.com
-jp
 js.org
 jsdelivr.net
 jwt.io
@@ -225,7 +222,6 @@ redditmedia.com
 redditstatic.com
 repo.new
 rocksdb.org
-rs
 slack.com
 spotify.com
 strapi.io
@@ -241,13 +237,11 @@ telesco.pe
 thefacebook.com
 thegithubshop.com
 thepiratebay.org
-tw
 tweetdeck.com
 twimg.com
 twitpic.com
 twitter.com
 twitter.jp
-uk
 unpkg.com
 v2ex.com
 vercel.app

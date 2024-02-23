@@ -126,3 +126,17 @@ root @parseHost /opt/serve/{re.parsedHost.2}/stages/{re.parsedHost.1}
 ```bash
 docker exec -w /etc/caddy caddy caddy reload
 ```
+
+## file_server
+
+```bash
+caddy file-server export-template
+```
+
+- https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/fileserver/browse.html
+- https://caddyserver.com/docs/caddyfile/directives/file_server
+
+## templates
+
+- https://github.com/caddyserver/website/blob/master/src/docs/index.html
+- https://caddyserver.com/docs/caddyfile/directives/templates

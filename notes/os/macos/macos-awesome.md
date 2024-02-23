@@ -14,6 +14,9 @@ tags:
 
 ## System
 
+- [Hammerspoon/hammerspoon](https://github.com/Hammerspoon/hammerspoon)
+  - MIT, ObjC,Lua
+  - Lua 自动化框架
 - [sindresorhus/quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
 - [dreampiggy/AVIFQuickLook](https://github.com/dreampiggy/AVIFQuickLook)
 - [remko/qlmka](https://github.com/remko/qlmka)

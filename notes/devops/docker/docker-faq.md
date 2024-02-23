@@ -8,6 +8,19 @@ tags:
 
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
+## Host IP
+- host.docker.internal
+- docker.for.mac.localhost
+
+
+```bash
+/sbin/ip route|awk '/default/ { print $3 }'
+
+# Docker in AWS
+# http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval
+curl http://169.254.169.254/latest/meta-data/local-ipv4
+```
+
 ## env
 
 - DOCKER_REGISTRY_URL

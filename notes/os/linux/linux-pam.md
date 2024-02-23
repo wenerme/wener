@@ -94,7 +94,6 @@ session         include         base-session-noninteractive
 - su
 - system-local-login
 - system-login
-- system-login.apk-new
 - useradd
 - userdel
 - usermod

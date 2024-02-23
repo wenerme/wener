@@ -16,6 +16,14 @@ ls $HOME/Library/Application\ Support/JetBrains/DataGrip2023.3/consoles/db
 
 - .idea/dataSources.xml
 
+
+## Status bar - Git branch
+
+恢复状态栏的 Git 分支显示
+
+- View -> Apperance -> Status bar widgets -> Git Branch
+- 视图 - 外观 - 状态栏微件 - Git 分支
+
 ## macOS 获取 datasource 的密码
 
 - 复制 datasource - 实际为 XML

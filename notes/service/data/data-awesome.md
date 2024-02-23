@@ -6,8 +6,14 @@ tags:
 
 # Data Awesome
 
+- douban
+  - https://github.com/mythsman/mouban
+  - https://github.com/mythsman/hexo-douban
+- 工商数据
+  - https://github.com/kinginsun/Enterprise-Registration-Data-of-Chinese-Mainland
+  - https://gitee.com/skyoo/Enterprise-Registration-Data-of-Chinese-Mainland
+  - https://github.com/chenli90s/govinfo
 - [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)
-
 ## Crawler
 
 - Scrapy

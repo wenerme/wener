@@ -185,6 +185,8 @@ tags:
   - [a16z-infra/llm-app-stack](https://github.com/a16z-infra/llm-app-stack)
 - Service
   - dify
+- Coding
+  - [replit/ReplitLM](https://github.com/replit/ReplitLM)
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - https://vllm.ai/

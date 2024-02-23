@@ -12,7 +12,7 @@ title: Gradle
 
 ```bash
 sdk install gradle 8.0.1 # for SDKMAN
-brew install gradle # for macOS
+brew install gradle      # for macOS
 
 # wrapper 升级
 ./gradlew wrapper --gradle-version=8.0.1 --distribution-type=bin
@@ -62,6 +62,43 @@ repositories {
 }
 ```
 
+## env
+
+| env              | default   | for      |
+| ---------------- | --------- | -------- |
+| GRADLE_HOME      |           | 安装目录 |
+| GRADLE_USER_HOME | ~/.gradle | 用户目录 |
+
+- Windows
+  - GRADLE_USER_HOME=`C:\Users\<USERNAME>\.gradle`
+
+```txt title=GRADLE_USER_HOME
+├── caches
+│   ├── 4.8
+│   ├── 4.9
+│   ├── ⋮
+│   ├── jars-3
+│   └── modules-2
+├── daemon
+│   ├── ⋮
+│   ├── 4.8
+│   └── 4.9
+├── init.d
+│   └── my-setup.gradle
+├── jdks
+│   ├── ⋮
+│   └── jdk-14.0.2+12
+├── wrapper
+│   └── dists
+│       ├── ⋮
+│       ├── gradle-4.8-bin
+│       ├── gradle-4.9-all
+│       └── gradle-4.9-bin
+└── gradle.properties
+```
+
+- https://docs.gradle.org/current/userguide/directory_layout.html
+
 ## gradle.properties
 
 - https://docs.gradle.org/current/userguide/build_environment.html
@@ -81,35 +118,33 @@ org.gradle.daemon=true
 
 - https://docs.gradle.org/8.0.1/userguide/gradle_daemon.html
 
-# FAQ
-
-
-## killall
+## cache
 
 ```bash
-pkill -9 -f GradleDaemon
-kill -9 $(pgrep -f GradleDaemon)
+gradle --build-cache compileJava
+gradle --build-cache compileJava -Dorg.gradle.caching.debug=true
+
+ls ~/.gradle/caches/build-cache-1/
+
+gradle clean
 ```
 
-
-## Waiting to acquire shared lock on daemon addresses registry
-
-- ~/.gradle/daemon/6.8/registry.bin.lock
-
-```
-[org.gradle.execution.plan.DefaultExecutionPlan] No node could be selected, nodes ready: false
-[org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
-[org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
-[org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+```properties title=gradle.properties
+org.gradle.caching=true
 ```
 
-```bash
-find .gradle/ -name '*.lock'
+**远程缓存**
 
-rm -rf .gradle
-rm -rf ~/.gradle/caches
-rm -rf ~/.gradle/daemon
+```groovy
+buildCache {
+    remote(HttpBuildCache) {
+        url = 'https://example.com:8123/cache/'
+        credentials {
+            username = 'build-cache-user-name'
+            password = 'build-cache-password'
+        }
+    }
+}
 ```
 
-- lombok val
-- https://github.com/gradle/gradle/issues/14531
+- https://docs.gradle.org/current/userguide/build_cache.html

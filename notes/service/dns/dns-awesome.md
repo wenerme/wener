@@ -38,6 +38,10 @@ tags:
     - GPLv3, Go
   - [ogham/dog](https://github.com/ogham/dog)
     - EUPL1.2, Rust
+- TLD
+  - https://data.iana.org/TLD/tlds-alpha-by-domain.txt
+  - https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
+  - [Top-level domain](https://en.wikipedia.org/wiki/Top-level_domain)
 
 ```bash
 curl 'https://dns.google/resolve?name=wener.me&type=A'
@@ -304,12 +308,14 @@ sort -uo notes/service/dns/gfwlist.txt{,}
 -->
 
 ```bash
-# dnsmasq
+# for dnsmasq
 curl -L https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns/gfwlist.txt \
   | sed -E 's#.+#address=/&/172.32.1.1#'
 
 #
 curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | base64 -d > gfwlist.txt
+
+grep -E '^([|]{2}|[.])' gfwlist.txt  | grep -v '/' | grep -v '[*]' | wc -l | sed 's/^[|.]*//' | sort -u
 ```
 
 **Bypass**

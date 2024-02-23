@@ -174,8 +174,9 @@ SHOW TABLE STATUS;
 1. 考虑 MariaDB ？ 那么不如考虑 PostgreSQL
 1. 协议更严格
 1. 缺少很多 SQL 特性
-  - 因为没有所以不知道
-  - 非常影响项目开发和选项
+
+- 因为没有所以不知道
+- 非常影响项目开发和选项
 
 - https://www.guru99.com/postgresql-vs-mysql-difference.html
 

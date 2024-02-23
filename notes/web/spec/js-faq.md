@@ -163,3 +163,21 @@ String(Object.create(null)); // 失败 - 不可以转 string
   - FileReader.readAsArrayBuffer()
 - ArrayBuffer -> Blob
   - `new Blob(arrayBuffer)`
+
+## Promise.race vs Promise.any vs Promise.allS vs Promise.allSettled
+
+> 完成/fulfilled = resolve or reject
+
+- Promise.race
+  - 任意一个 Promise 成功/resolve or 失败/reject
+- Promise.any
+  - 任意一个 Promise 成功
+  - 所有失败返回 AggregateError
+- Promise.all
+  - 所有 Promise 成功
+  - 一个失败则返回失败
+- Promise.allSettled
+  - 所有 Promise 完成/fulfilled
+  - 不区分成功失败
+  - 返回所有结果
+  - `{status:'reject'|'resolve',reason}`

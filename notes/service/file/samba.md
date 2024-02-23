@@ -4,6 +4,7 @@ title: Samba
 
 # Samba
 
+- [samba-team/samba](https://github.com/samba-team/samba)
 - [Samba3 by Example](https://www.samba.org/samba/docs/Samba3-ByExample.pdf)
 - [Samba3 How to](https://www.samba.org/samba/docs/Samba3-HOWTO.pdf)
 - [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)

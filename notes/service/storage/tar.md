@@ -1,6 +1,8 @@
 ---
 tags:
   - Shell
+commands:
+  - tar
 ---
 
 # tar

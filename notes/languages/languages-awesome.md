@@ -6,19 +6,39 @@ tags:
 
 # Languages Awesome
 
-## Online
+## Playground
+
+> ODE - Online IDE
 
 - https://tio.run/
 - https://godbolt.org/
-  - https://compiler-explorer.com/
-- replit
+  - [compiler-explorer/compiler-explorer](https://github.com/compiler-explorer/compiler-explorer)
+    - BSD-2, TypeScript
+    - https://compiler-explorer.com/
+    - 支持的语言 https://godbolt.org/api/languages
+- https://replit.com
 - https://ideone.com/
+- https://go.dev/play
+- https://play.golang.org/
+- https://play.rust-lang.org/s
+- https://play.kotlinlang.org/
+- https://play.crystal-lang.org/
+- https://play.nim-lang.org/
+- https://play.haskell.org/
+- https://pypl.github.io/ODE.html
+
+## Tools
+
+- AST
+  - https://astexplorer.net/
+  - [fkling/astexplorer](https://github.com/fkling/astexplorer)
+  - https://ts-ast-viewer.com
+    - [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API)
 - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
   - Style and Grammar Checker for 25+ Languages
   - https://languagetool.org/dev
-- typescript
-  - https://ts-ast-viewer.com
-  - [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API)
+- Version Manager
+  - https://github.com/asdf-vm/asdf
 
 ## Languages
 

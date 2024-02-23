@@ -12,13 +12,14 @@ title: CN
 | SFDA  | State Food and Drug Administration                                       | 国家食品药品监督管理局                 |
 | CFDA  | China Food and Drug Administration                                       | 中国食品药品监督管理局                 |
 | NMPA  | National Medical Products Administration                                 | 国家药品监督管理局                     |
-| SAIC  | State Administration of Industry and Commerce                            | 国家工商行政管理总局                   |
+| SAIC  | State Administration of Industry and Commerce                            | 中华人民共和国国家工商行政管理总局     |
 | AQSIQ | General Administration of Quality Supervision, Inspection and Quarantine | 中华人民共和国国家质量监督检验检疫总局 |
 | NBS   | National Bureau of Statistics                                            | 国家统计局                             |
 
 |                          url | gov                                      |
 | ---------------------------: | ---------------------------------------- |
 |            http://www.gov.cn | 中国政府网                               |
+|     https://www.samr.gov.cn/ | 国家市场监督管理总局                     |
 |     http://cpc.people.com.cn | 中国共产党新闻网                         |
 |        http://www.npc.gov.cn | 中国人大网                               |
 |      http://www.cppcc.gov.cn | 中国政协网                               |
@@ -29,13 +30,22 @@ title: CN
 |   http://wenshu.court.gov.cn | 中国裁判文书网                           |
 |     http://zxgk.court.gov.cn | 中国执行信息公开网                       |
 |     http://rmft.court.gov.cn | 全国人民法庭信息网                       |
-|     http://www.gjzwfw.gov.cn |
+|     https://www.gjzwfw.gov.cn |
 |     https://www.cods.org.cn/ | 全国组织机构统一社会信用代码数据服务中心 |
 
 - http://www.gov.cn/fuwu/index.htm
   全国政务服务总门户
 - http://www.gov.cn/fuwu/bm/index.htm
   部门和地方服务索引
+- SAIC/中华人民共和国国家工商行政管理总局
+  - 2018 年撤销 -> 国家市场监督管理总局
+- [国家市场监督管理总局](https://zh.wikipedia.org/wiki/国家市场监督管理总局)
+  - 11100000MB0143028R
+  - 2018年3月17日
+  - = 中华人民共和国国家工商行政管理总局 + 中华人民共和国国家质量监督检验检疫总局 + 国家食品药品监督管理总局
+  - 机构
+    - 登记注册局 https://www.samr.gov.cn/djzcj/
+  - 政务服务 https://zwfw.samr.gov.cn/
 
 ### 上海
 

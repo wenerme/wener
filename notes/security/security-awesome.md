@@ -22,6 +22,15 @@ tags:
 - [ocsf/ocsf-schema](https://github.com/ocsf/ocsf-schema)
 - [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
   - Apache-2.0
+- [danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
+
+## Algorithm
+
+- https://csrc.nist.gov/Projects/Post-Quantum-Cryptography
+- [CRYSTALS-Kyber](https://pq-crystals.org/kyber/)
+- https://signal.org/blog/pqxdh/
+- [iMessage with PQ3](https://security.apple.com/blog/imessage-pq3/)
+  - https://news.ycombinator.com/item?id=39453660
 
 ## Service
 

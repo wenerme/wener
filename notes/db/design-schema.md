@@ -317,3 +317,32 @@ select set_config('tenant.id','1', true);
 ---
 
 - https://begriffs.com/posts/2018-03-20-user-defined-order.html
+
+## table prefix vs schema
+
+> - 不要用 public schema
+> - SQL 标准里没有 public schema
+
+- schema - crm.account
+  - 优点
+    - 更好隔离
+    - 更好权限控制
+    - 名字易读，避免冲突
+  - 缺点
+    - 增加管理的复杂性
+    - 跨 schema 查询复杂
+    - schema 某种程度隐含了业务逻辑 - 例如 只支持 PG，启动限定了 schema
+      - 也可以作为可配置，类似于以前的 PHP 应用套餐支持修改 table prefix
+- prefix - crm_account
+  - 优点
+    - 简单
+    - 查询简便
+    - 所有 DB 都支持
+  - 缺点
+    - 隔离性较差
+    - 容易冲突
+    - 权限控制复杂
+
+---
+
+- https://www.postgresql.org/docs/current/ddl-schemas.html

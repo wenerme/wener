@@ -70,6 +70,20 @@ NODE_TOKEN =
 | pip3       | /root/.cache/pip/             |
 | yarn       | /usr/local/share/.cache/yarn/ |
 
+### Jenkins Deploy
+
+- 挂载目录
+  - /cache
+    - 全局缓存
+  - /root
+    - 用户缓存
+  - /var/run/docker
+    - 访问 docker
+    - 通过 dind 部署，但调整了 sock 目录方便挂载
+    - 修改环境变量 `DOCKER_HOST=unix:///var/run/docker/docker.sock`
+  - /etc/local.d/worker.start
+    - Jenkins 启动脚本
+
 ## CI Env
 
 | env        | for    |

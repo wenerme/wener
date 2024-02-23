@@ -6,6 +6,7 @@ title: OKR
 
 - Objectives and key results
 - 提供一个框架，通过它组织可以更清晰地设定和追踪目标，提高透明度和协作，同时促进个人和组织的持续成长和发展。
+- https://www.okr.com/
 
 ```txt
 目标 1: 提高代码质量

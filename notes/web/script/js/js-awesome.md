@@ -22,12 +22,14 @@ tags:
   - DOM MessageChannel - 1-1、WebWorker
   - DOM BroadcastChannel - origin 纬度 - 多窗口
   - DOM Window.postMessage - 跨 origin、多窗口、iframe
-  - [eventemitter2](https://github.com/EventEmitter2/EventEmitter2)
+  - [primus/eventemitter3](https://github.com/primus/eventemitter3)
+    - 移除 Domain 支持
+  - [Morglod/tseep](https://github.com/Morglod/tseep)
+    - https://github.com/Morglod/tseep/blob/master/benchmarks/results.md
+  - ~~[eventemitter2](https://github.com/EventEmitter2/EventEmitter2)~~
     - wildcard/namespace, ttl/once/many, async listener/setImmediate
     - emitAsync
     - 18.2kB, 5.6kB
-  - [primus/eventemitter3](https://github.com/primus/eventemitter3)
-    - 移除 Domain 支持
   - [developit/mitt](https://github.com/developit/mitt)
     - ts, 200byte
     - 建议直接拷到项目使用
@@ -229,6 +231,8 @@ tags:
   - [fathyb/html2svg](https://github.com/fathyb/html2svg)
     - HTML, `<canvas>` to SVG
     - https://fathy.fr/html2svg
+  - [Brooooooklyn/canvas](https://github.com/Brooooooklyn/canvas)
+    - skia binding to Node.js
 - 3d rendering/canvas
   - threejs
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
@@ -311,6 +315,8 @@ tags:
   - [YousefED/SyncedStore](https://github.com/YousefED/SyncedStore)
     - yjs
     - 提供 react, vue, svelte 组件
+- WASM/DB
+  - [electric-sql/pglite](https://github.com/electric-sql/pglite)
 - compiler
   - [wooorm/xdm](https://github.com/wooorm/xdm)
     - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
@@ -556,15 +562,20 @@ tags:
     - NodeJS Buffer
 - fetch/network
   - axios
+    - 30kB/18kB
+    - based on XMLHttpRequests
   - [elbywan/wretch](https://github.com/elbywan/wretch)
     - tiny wrapper built around fetch
   - [sindresorhus/ky](https://github.com/sindresorhus/ky)
     - fetch wrapper
+    - 9.5kB/3.3kB
     - 0 依赖
+  - [sindresorhus/got](https://github.com/sindresorhus/got)
+    - for NodeJS
   - undici
+    - NodeJS 的 fetch 实现
+    - 如果需要用代理功能则需要直接引入
   - superagent
-  - got
-    - 开发不活跃
   - ~~request~~
   - node-fetch
     - NodeJS v18 内置
@@ -711,6 +722,9 @@ tags:
   - [vm](https://nodejs.org/api/vm.html) - NodeJS
   - [ringo/ringojs](https://github.com/ringo/ringojs)
     - JVM
+  - [saghul/txiki.js](https://github.com/saghul/txiki.js)
+    - MIT, C
+    - QuickJS + libuv + wasm3 + curl + libffi
 - Engine - JIT
   - [V8](https://github.com/v8/v8)
     - Chrome
@@ -744,9 +758,7 @@ tags:
     - MIT, C
     - Typescript
     - https://bellard.org/quickjs/bench.html
-    - [saghul/txiki.js](https://github.com/saghul/txiki.js)
-      - MIT, C
-      - QuickJS + libuv + wasm3 + curl + libffi
+  - [quickjs-ng/quickjs](https://github.com/quickjs-ng/quickjs)
   - [cesanta/mjs](https://github.com/cesanta/mjs)
     - GPLv2, C
   - [ccxvii/mujs](https://github.com/ccxvii/mujs)

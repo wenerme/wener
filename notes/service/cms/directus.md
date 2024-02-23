@@ -44,13 +44,13 @@ npm install @directus/sdk
 import { createDirectus, rest, graphql } from '@directus/sdk';
 
 interface Article {
-	id: number;
-	title: string;
-	content: string;
+  id: number;
+  title: string;
+  content: string;
 }
 
 interface Schema {
-	articles: Article[];
+  articles: Article[];
 }
 
 // Client with REST support
@@ -144,9 +144,7 @@ extensions/
   ...
 ```
 
-
 ## 内部结构
-
 
 - directus_activity
 - directus_collections

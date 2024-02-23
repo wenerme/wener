@@ -29,6 +29,41 @@ tags:
 
 - EBITA
 
+## 代理记账流程
+
+- 理票、记账、报税/申报、缴款/缴费、抄税、清卡、装订凭证、打印凭证
+
+---
+
+- 理票
+  - 收集、整理客户提供的各种财务凭证和文件
+  - 如发票、收据、银行对账单等
+  - 目的是确保所有交易记录都完整、准确。
+- 记账
+  - 根据整理好的财务凭证，在会计软件或账簿中录入交易数据，进行日常的账务处理。这包括对各项收入和支出进行分类和登记。
+- 报税/申报
+  - 根据会计记录和相关税法，为客户准备和提交各种税务申报表。这可能包括增值税、所得税、社会保险和其他相关税费的申报。
+- 缴款/缴费
+  - 代表客户按时向税务局或其他政府机构缴纳相应的税款和费用。
+- 抄税
+  - 在一些地区，这一步骤涉及到用税控系统记录并上报企业的销售情况，以便税务机关计算应缴税款。
+- 清卡
+- 装订凭证
+  - 将所有会计期间内的财务凭证、账簿和报表进行物理装订和归档，以便日后查验和审计。
+- 打印凭证
+  - 为了备查和审计的需要，将电子记账记录转化为纸质形式，打印出相关的会计凭证和财务报表。
+
+---
+
+- 理票 - Sorting documents/receipts
+- 记账 - Bookkeeping/Recording transactions
+- 报税/申报 - Tax filing/Declaration
+- 缴款/缴费 - Payment of taxes/fees
+- 抄税 - Tax copying (or Tax record copying)
+- 清卡 - Clearing accounts
+- 装订凭证 - Binding vouchers/documents
+- 打印凭证 - Printing vouchers/documents
+
 ## 年报
 
 - https://ir.suse.com/websites/suse/English/6300/annual-reports.html

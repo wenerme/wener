@@ -23,6 +23,8 @@ tags:
 
 - [Atlas-OS/Atlas](https://github.com/Atlas-OS/Atlas)
   - modification of Windows 10, designed to optimize performance, and latency
+  - designed for gamers
+- Windows LTSC
 
 ## Tools
 

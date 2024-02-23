@@ -212,6 +212,7 @@ export N_PREFIX=$HOME/n
 
 ## Web
 
+- [hono]
 - [fastify](./fastify.md)
   - 🌟 推荐
 - express
@@ -229,6 +230,7 @@ export N_PREFIX=$HOME/n
   - trpc
   - [ecyrbe/zodios](https://github.com/ecyrbe/zodios)
     - zod, axio, nextjs, express
+- [t3-oss/create-t3-app](https://github.com/t3-oss/create-t3-app)
 
 ## Network
 

@@ -4,8 +4,9 @@ title: NestJS
 
 # NestJS
 
-- http-errors
-- 设计来自 Angular + SpringFramework
+- [nestjs/nest](https://github.com/nestjs/nest)
+  - 设计来自 Angular + SpringFramework
+  - http-errors
 - 核心概念
   - Module
     - `@Module()`

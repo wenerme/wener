@@ -88,7 +88,6 @@ apk fix
 
 ## 内核风格 - kernel flavors - lts vs virt {#flavors}
 
-
 - 区别
   - 内核编译参数
   - OS 默认 module
@@ -152,7 +151,6 @@ apk fix
 - https://git.alpinelinux.org/aports/tree/main/linux-lts
 - ~~https://git.alpinelinux.org/cgit/aports/tree/main/linux-hardened~~
 - ~~https://git.alpinelinux.org/cgit/aports/tree/main/linux-vanilla~~
-
 
 ## rc-update: failed to add service `loadkmap' to runlevel `boot': No such file or directory
 
@@ -403,4 +401,16 @@ openssl s_client -connect google.com:443
 
 ```bash
 apk update
+```
+
+## apk-new
+
+- apk 升级如果检测到本地修改，则会创建 .apk-new 文件
+- --clean-protected 不创建 .apk-new 文件
+
+```bash
+find /etc -name '*.apk-new'
+
+# rebase
+mv /etc/conf.d/k3s{.apk-new,}
 ```

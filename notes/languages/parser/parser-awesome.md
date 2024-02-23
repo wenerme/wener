@@ -75,10 +75,11 @@ tags:
     - https://chevrotain.io/playground/
     - 性能好
       - https://chevrotain.io/performance/
-  - [kach/nearley](https://github.com/kach/nearley)
   - [zaach/jison](https://github.com/zaach/jison)
     - Bison in JS
   - [jneen/parsimmon](https://github.com/jneen/parsimmon)
+  - ~~[kach/nearley](https://github.com/kach/nearley)~~
+    - parser toolkit
 - 案例
   - https://github.com/jgm/peg-markdown/blob/master/markdown_parser.leg
     - Markdown

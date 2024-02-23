@@ -20,6 +20,35 @@ title: 常见端口号
 | 27017 |        | Mongo                  |
 
 - over TLS/SSL/DTLS/QUIC
+- Cloudflare’s proxy [Network ports](https://developers.cloudflare.com/fundamentals/reference/network-ports/)
+  - Cloudflare Access 不支持自定义端口
+  - 前端请求也得用这些端口，而不能 80-> 8080
+  - HTTP
+    - 80
+    - 8080
+    - 8880
+    - 2052
+    - 2082
+    - 2086
+    - 2095
+  - HTTPS
+    - 443
+    - 2053
+    - 2083
+    - 2087
+    - 2096
+    - 8443
+  - Cache Disabled
+    - 2052
+    - 2053
+    - 2082
+    - 2083
+    - 2086
+    - 2087
+    - 2095
+    - 2096
+    - 8880
+    - 8443
 
 ## Well-known ports
 
