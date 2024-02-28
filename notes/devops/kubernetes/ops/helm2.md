@@ -1,6 +1,7 @@
 ---
-id: helm2
 title: HELM2 - 不推荐
+tags:
+- Deprecated
 ---
 
 # Helm 2 - 不推荐使用

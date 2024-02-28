@@ -99,6 +99,3 @@ export default function Projects() {
 
 - https://github.com/remix-run/remix/tree/main/templates/unstable-vite
 
-# FAQ
-
-## Uncaught SyntaxError: Identifier 'RefreshRuntime' has already been declared

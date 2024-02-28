@@ -25,6 +25,8 @@ tags:
   - https://quail.ink/goldengrape/p/how-to-build-a-patent-gpt
 - https://nihalsid.github.io/mesh-gpt/
   - https://news.ycombinator.com/item?id=38448653
+- [GPT in 500 Lines of SQL ](https://explainextended.com/2023/12/31/happy-new-year-15/)
+  - https://news.ycombinator.com/item?id=39488668
 
 ### Reading
 

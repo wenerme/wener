@@ -4,6 +4,35 @@ title: NFS
 
 # NFS
 
+- [nfs](http://linux-nfs.org/)
+  - ArchLinux [NFS](https://wiki.archlinux.org/index.php/NFS)
+- 参考
+  - [NFS 性能调优](https://www.cyberciti.biz/faq/linux-unix-tuning-nfs-server-client-performance/)
+- 组件
+  - rpc.nfsd
+  - rpc.idmapd
+  - rpc.mountd - NFS mount daemon
+    - -p 32767
+  - rpc.statd - NSM service daemon
+    - A daemon that listens for reboot notifications from other hosts, and manages the list of hosts to be notified when the local system reboots
+    - -p 32765 -o 32766
+    - 锁服务
+    - 挂载可使用 nolock 指定不启用锁
+    - sm-notify - A helper program that notifies NFS peers after the local system reboots
+  - rpc.gssd - gss-api generic security api to provide security for protocols using rpc
+  - rpc.svcgssd
+  - rpc.rquotad - remote quota server
+
+| conf               | for                | demo                                                                                   |
+| ------------------ | ------------------ | -------------------------------------------------------------------------------------- |
+| /etc/exports       | 对外暴露的文件     | `/usr/local 192.168.0.1(ro) 192.168.0.2(ro)`<br/>`/home 192.168.0.0/255.255.255.0(rw)` |
+| /etc/hosts.allow   | 允许访问的主机     | `portmap:ALL`                                                                          |
+| /etc/hosts.deny    | 禁止访问的主机     | `lockd: 192.168.0.1 , 192.168.0.2`                                                     |
+| /var/lib/nfs/etab  | 导出的主表         |
+| /var/lib/nfs/rmtab | 访问服务端的客户端 |
+
+---
+
 - 允许本地访问远程文件
 - 使用 C/S 结构在 `*nix` 之间分享文件
 - 两个机器之间不需要允许相同的操作系统
@@ -33,6 +62,36 @@ title: NFS
 - [SMB vs NFS authentication](https://serverfault.com/q/597254/190601)
 - NFS 如果感觉有问题，可以尝试使用 v3 版本 `-o v3`
 
+
+:::caution
+
+- 避免 NAT 使用 nfs - 部分服务可能有问题，例如 statd
+
+:::
+
+```bash
+apk add nfs-utils
+# 启动
+service nfs start
+# 开机启动
+rc-update add nfs
+# 导出所有定义的共享
+# 将 /etc/exports 定义输出到 /var/lib/nfs/etab
+exportfs -a
+# 取消所有共享 - 清除 /var/lib/nfs/etab
+exportfs -au
+
+# 查看服务提供的共享
+showmount -e localhost
+
+# NFSv4 可以挂在根目录
+mount server:/ /mountpoint/on/client
+# 挂载单个目录
+mount -t nfs -o vers=4 servername:/srv/nfs/music /mountpoint/on/client
+# fstab
+# servername:/music   /mountpoint/on/client   nfs   defaults,timeo=900,retrans=5,_netdev	0 0
+```
+
 ```bash
 # 安装
 apk add nfs-utils
@@ -48,12 +107,9 @@ sudo mkdir -p /share
 # 赋予当前用户共享目录权限
 sudo chown $USER /share
 
-
 # Linux
 # ========
 echo '/nfsshare 192.168.0.101(rw,sync,no_root_squash)' | sudo tee /etc/exports
-
-
 
 # 如果想让客户端非 root 访问服务端 root 信息, 则可以
 # all_squash,anonuid=0,anongid=0
@@ -85,12 +141,22 @@ nfsd disable
 mount -t nfs -o resvport 192.168.1.1:/ ~/mnt/alpine/
 ```
 
+<!--
 mount.nfs: access denied by server while mounting
 -o v3
 
 nfsstat -m
 
 nfs://vers=4,10.0.10.26/srv
+-->
+
+## Awesome
+
+- [nfs-ganesha/nfs-ganesha](https://github.com/nfs-ganesha/nfs-ganesha)
+  - C
+  - NFSv3,v4,v4.1 fileserver
+- [willscott/go-nfs](https://github.com/willscott/go-nfs)
+  - golang NFSv3 server
 
 ## nfs-utils
 
@@ -190,10 +256,7 @@ program vers proto   port
  100021    4   tcp    917  nlockmgr
 ```
 
-## Awesome
 
-- [nfs-ganesha/nfs-ganesha](https://github.com/nfs-ganesha/nfs-ganesha)
-  - C
-  - NFSv3,v4,v4.1 fileserver
-- [willscott/go-nfs](https://github.com/willscott/go-nfs)
-  - golang NFSv3 server
+## exports
+
+- https://linux.die.net/man/5/exports

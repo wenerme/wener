@@ -9,6 +9,7 @@ title: apk
 - github [mirror](https://github.com/alpinelinux/apk-tools)
 - .apk-new
   - apk 升级如果检测到本地修改，则会创建 apk-new 文件
+- -a, --available -> 允许 替换和降级
 
 ```bash
 apk info -r so:libgnutls.so.30.28.0
@@ -181,3 +182,31 @@ tar -c * | abuild-tar --hash | gzip -9 > $controldir/data.tar.gz
 - https://wiki.alpinelinux.org/wiki/Apkindex_format
 - https://wiki.alpinelinux.org/wiki/Alpine_package_format
 - https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+
+## cache
+
+| apk                          | for                        |
+| ---------------------------- | -------------------------- |
+| apk cache clean              | 移除不在 index 的包        |
+| apk cache download [...deps] | 下载到缓存，默认下载 world |
+| apk cache purge              | -> `clean --purge`         |
+| apk cache sync ...deps       |
+
+| apk cache flags    | for                |
+| ------------------ | ------------------ |
+| --add-dependencies | 添加 deps 到 world |
+| -a, --available    |
+| --ignore-conflict  |
+| -l, --latest       |
+| -u, --upgrade      |
+| -s, --simulate     | dry run            |
+
+- /var/cache/apk - apk 默认缓存
+  - `apk add`, `apk update`, `apk cache clean`
+- /etc/apk/cache - 本地缓存, 离线包
+  - `apk add`, `apk upgrade` 会检查这个目录避免下载
+
+```bash
+mkdir -p /var/cache/apk++
+ln -s /var/cache/apk /etc/apk/cache
+```

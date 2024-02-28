@@ -38,6 +38,16 @@ tags:
 - https://github.com/nats-io/nats-server/releases
 - https://github.com/nats-io/nats-architecture-and-design/tree/main/adr
 
+## Nats 2.11
+
+- pub/sub message tracing - OpenTelemetry
+  - [ADR#41](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-41.md) NATS Message Path Tracing
+- JetStream
+  - [ADR#31](https://github.com/nats-io/nats-architecture-and-design/blob/main/adr/ADR-31.md#batched-requests) batched requests
+    - batched direct-gets
+    - batched direct multi-get requests
+  - pausing/resuming consumers
+
 ## Nats 2.10
 
 - 确保先升级到了 2.9.22+ 再升级 2.10

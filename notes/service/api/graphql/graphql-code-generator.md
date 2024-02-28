@@ -16,10 +16,14 @@ title: graphql-code-generator
 npm add -D @graphql-codegen/cli @graphql-codegen/typescript
 npx -y graphql-codegen init
 
-npx -y graphql-codegen download-schema http://localhost:8080/graphql --output schema.json
+npx -y graphql-codegen download-schema http://localhost:8080/graphql --output graphql.schema.json
+npx -y graphql-codegen download-schema http://localhost:8080/graphql -H "Authorization: Bearer $TOKEN" --output graphql.schema.json
 
 # 客户端相关
 npm add -D @graphql-codegen/typescript-urql
+
+# introspection 生成 schema 方便 IDE 补全
+npm add -D @graphql-codegen/introspection
 ```
 
 ```yaml
@@ -64,7 +68,22 @@ generates:
       - 'urql-introspection'
 ```
 
-## near
+## plugins
+
+- @graphql-codegen/client-preset
+  - @apollo/client
+  - @urql/core
+  - @urql/preset
+  - urql
+  - graphql-request
+  - react-query + graphql-request
+  - swr + graphql-request
+  - Embrace Fragment Masking principles
+  - `FragmentType<T>`
+  - useFragment/getFragmentData
+    - 不是一个 hook
+- 参考
+  - [Unleash the power of Fragments with GraphQL Codegen](https://the-guild.dev/blog/unleash-the-power-of-fragments-with-graphql-codegen)
 
 ```bash
 npm add -D @graphql-codegen/near-operation-file-preset
@@ -72,12 +91,55 @@ npm add -D @graphql-codegen/near-operation-file-preset
 
 ```yaml
 generates:
-src/:
-  preset: near-operation-file
-  presetConfig:
-    extension: .generated.tsx
-    # baseTypesPath: types.ts
-    baseTypesPath: "~@src/generated/graphql"
-  plugins:
-    - typescript-operations
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.tsx
+      # baseTypesPath: types.ts
+      baseTypesPath: "~@src/generated/graphql"
+    plugins:
+      - typescript-operations
+```
+
+- https://the-guild.dev/graphql/codegen/plugins
+
+## examples
+
+**codegen.ts**
+
+```ts
+import type { CodegenConfig } from '@graphql-codegen/cli';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: ['.env.local', '.env'] });
+
+const config: CodegenConfig = {
+  overwrite: true,
+  schema: {
+    'http://127.0.0.:3000/graphql': {
+      headers: {
+        Authorization: `Bearer ${process.env.GQL_TOKEN}`,
+      },
+    },
+  },
+  documents: 'src/**/*.graphql',
+  hooks: {},
+  generates: {
+    'src/gen/gql.ts': { plugins: ['typescript'] },
+    './graphql.schema.json': {
+      plugins: ['introspection'],
+    },
+    'src/': {
+      preset: 'near-operation-file',
+      presetConfig: {
+        extension: '.gen.tsx',
+        baseTypesPath: '~@/gen/gql',
+      },
+      plugins: ['typescript-operations'],
+    },
+  },
+};
+
+export default config;
+
 ```

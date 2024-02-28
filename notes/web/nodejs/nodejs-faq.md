@@ -115,11 +115,16 @@ node --experimental-default-type=module cli
 - [fast-json-stringify](https://github.com/fastify/fast-json-stringify)
 - find-my-way
 
-## arm64/aarch64 musl
+## musl
 
-- 暂无
-- https://github.com/nodejs/node/pull/45756
-- https://github.com/nodejs/unofficial-builds/pull/59
+- 非官方构建 https://unofficial-builds.nodejs.org/download/release/v20.11.1/
+  - 构建仓库 [nodejs/unofficial-builds](https://github.com/nodejs/unofficial-builds)
+  - 只有 x64-musl
+- arm64/aarch64
+  - 暂无
+  - https://github.com/nodejs/node/pull/45756
+  - https://github.com/nodejs/unofficial-builds/pull/59
+  - [nodejs/unofficial-builds#104](https://github.com/nodejs/unofficial-builds/issues/104)
 
 ## source map
 
@@ -242,37 +247,24 @@ setGlobalDispatcher(new ProxyAgent(process.env.HTTP_PROXY));
 
 ## RequestInit: duplex option is required when sending a body
 
+```
+TypeError: Cannot set property duplex of #<Request> which has only a getter
+```
+
+```ts
+let init: RequestInit & Record<string, any> = {
+  get duplex() {
+    return 'half';
+  },
+};
+```
+
 - https://github.com/nodejs/node/issues/46221
+- https://github.com/whatwg/fetch/issues/1254
 
 ## Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
 
 检查下是不是 import 路径错误，可能因为 IDE 自动导入，指向了错误路径。
-
-## gyp
-
-- 依赖 apk add --no-cache python3 g++ gcc make
-  - 最好使用 prebuild
-  - 如果出现了从源码构建，先排查为什么会导致构建
-
-```bash
-# 强制从源码构建
-npm install sqlite3 --build-from-source=sqlite3
-
-# 查看 binary 地址
-# 注意 module_name 可能不同于 npm 包名
-npm view sqlite3@3.1.3 binary             # aws
-npm view sqlite3@5.1.0 binary.module_name # github
-
-# install 包含 platform 和 libc 条件
-npm install --platform=linux --libc=libc --registry https://npm.wener.me/
-
-npm install sqlite3 --node_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3
-
-# 根据平台 rebuild
-node-pre-gyp rebuild --target=0.30.2 --arch=x32 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell
-```
-
-- `--{module_name}_binary_host_mirror`
 
 ## Undefined variable module_name in binding.gyp while trying to load binding.gyp
 

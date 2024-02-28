@@ -74,3 +74,10 @@ $$
   - 设计需要考虑元素组件，相同元素组件保持相同 - 便于实现和用户发现功能
   - 有交互
 - 工业设计 - 产品设计 - 物理层面 - 给人用的
+
+## Logotype vs Logomark vs Logo
+
+- Logotype - 文字标志 - 带文字的Logo - Wordmark
+- Logomark - 图形标志 - 不带文字的Logo - 图形标志 - Brand Mark
+- Combination Mark - 组合标志 - 同时包含了文字和图标/符号
+- Logo - 统称

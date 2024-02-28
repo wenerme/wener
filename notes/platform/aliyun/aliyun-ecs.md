@@ -5,6 +5,7 @@ title: ECS
 # ECS
 
 ```bash
+# 获取当前实例的区域 ID
 curl http://100.100.100.200/latest/meta-data/region-id
 ```
 

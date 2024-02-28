@@ -34,6 +34,31 @@ docker run --rm -it \
 npm init directus-project
 ```
 
+## endpoint
+
+```
+# REST
+GET /auth
+POST /auth/refresh
+POST /auth/login
+POST /auth/login/:provider
+POST /auth/logout
+POST /auth/password/request
+
+# GraphQL
+POST /graphql/system
+```
+
+## auth
+
+```
+?access_token=<token>
+```
+
+```
+Authorization: Bearer <token>
+```
+
 ## client
 
 ```bash
@@ -91,7 +116,7 @@ PORT=8055
 
 WEBSOCKETS_ENABLED=true
 
-REDIS=
+REDIS=redis://user:password@127.0.0.1:6380/4
 REDIS_HOST=
 REDIS_USERNAME=
 REDIS_PASSWORD=
@@ -115,6 +140,11 @@ DB_PASSWORD="directus"
 # local, oauth2, openid, ldap, saml
 AUTH_PROVIDERS=
 ```
+
+- DB_SEARCH_PATH
+  - 影响 PG 的搜索路径
+  - 需要 select 权限
+  - https://github.com/directus/directus/blob/7f4d4319718d6542e63594fd2b532056c9ad98c7/packages/schema/src/dialects/postgres.ts#L48-L67
 
 ## extensions
 

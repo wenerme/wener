@@ -6,6 +6,12 @@ title: CVE
 
 - https://www.cve.org/
 
+## CVE-2024-21626
+
+- containerd 1.5.13 - 1.6.20
+- 1.0.0-rc93 <= runc <= 1.1.11
+- https://help.aliyun.com/noticelist/articleid/1069353299.html
+
 ## CVE-2022-22947
 
 - Java, SpringCloud Gateway

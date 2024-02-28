@@ -9,8 +9,8 @@ tags:
 - Commands
   - https://gist.github.com/sergiitk/a87207a8af11d6e6d807
 
-
 ## path_helper
+
 - /etc/paths
 - /etc/paths.d/
 - /etc/manpaths
@@ -404,23 +404,18 @@ sudo xcode-select --reset
 ```bash
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -allUsers -privs -all
 
-
 # 1. by kickstart
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -off -restart -agent -privs -all -allowAccessFor -allUsers
-
 
 # 2. by launchctl
 defaults write /var/db/launchd.db/com.apple.launchd/overrides.plist com.apple.screensharing -dict Disabled -bool false
 launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
 
-
 # 3. 指定用户
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -specifiedUsers
 /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -users $USER -access -on -agent -privs -all -restart -agent
 
-
 sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate
-
 
 open vnc://192.168.1.1
 ```

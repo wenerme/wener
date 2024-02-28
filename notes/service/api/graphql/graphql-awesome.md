@@ -6,13 +6,36 @@ tags:
 
 # GraphQL Awesome
 
+- WebUI
+  - [graphql/graphiql](https://github.com/graphql/graphiql)
+  - ~~[graphql/graphql-playground](https://github.com/graphql/graphql-playground)~~
+    - https://www.graphqlbin.com/v2/new
+  - [graphql-kit/graphql-voyager](https://github.com/graphql-kit/graphql-voyager)
+    - interactive graph
+  - [graphql-editor/graphql-editor](https://github.com/graphql-editor/graphql-editor)
+    - Visual Editor & GraphQL IDE.
+- Codegen
+  - [dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
+    - 基于 GraphQL 生成各种客户端服务端代码
+    - 对 TypeScript 支持非常好
+  - [anvilco/spectaql](https://github.com/anvilco/spectaql)
+    - 文档生成
+  - [glideapps/quicktype](https://github.com/glideapps/quicktype)
+    - types and converters from JSON, Schema, and GraphQL
+  - [graphql-editor/graphql-zeus](https://github.com/graphql-editor/graphql-zeus)
+- [jensneuse/graphql-go-tools](https://github.com/jensneuse/graphql-go-tools)
+  - 实现了 federation
+  - 可用于实现 graphql 服务应用
+- [B2o5T/graphql-eslint](https://github.com/B2o5T/graphql-eslint)
+  - GraphQL 语法检查
+
 ## 学习
 
 - https://spec.graphql.org/October2021/
 - [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
 - [howtographql](https://github.com/howtographql/howtographql)
 
-## 设计
+## 设计 {#design}
 
 - [GraphQL 最佳实践](https://graphql.org/learn/best-practices)
   1. 通过 HTTP 提供服务
@@ -160,22 +183,6 @@ tags:
   - Backend As A Service
 - [dosco/graphjin](https://github.com/dosco/graphjin)
 - [keystonejs/keystone](https://github.com/keystonejs/keystone)
-
-## Tool
-
-- [dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
-  - 基于 GraphQL 生成各种客户端服务端代码
-  - 对 TypeScript 支持非常好
-- [jensneuse/graphql-go-tools](https://github.com/jensneuse/graphql-go-tools)
-  - 实现了 federation
-  - 可用于实现 graphql 服务应用
-- [anvilco/spectaql](https://github.com/anvilco/spectaql)
-  - 文档生成
-- [APIs-guru/graphql-voyager](https://github.com/APIs-guru/graphql-voyager)
-- [quicktype/quicktype](https://github.com/quicktype/quicktype)
-- [graphql-editor/graphql-editor](https://github.com/graphql-editor/graphql-editor)
-- [graphql-editor/graphql-zeus](https://github.com/graphql-editor/graphql-zeus)
-- [B2o5T/graphql-eslint](https://github.com/B2o5T/graphql-eslint)
 
 ## DevTools
 

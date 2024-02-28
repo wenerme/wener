@@ -39,7 +39,7 @@ title: bun
 ```bash
 # Manually Install
 # =======================
-curl -LO https://ghproxy.com/https://github.com/oven-sh/bun/releases/download/bun-v1.0.0/bun-darwin-x64.zip
+curl -LO https://ghproxy.com/https://github.com/oven-sh/bun/releases/download/bun-v1.0.29/bun-darwin-x64.zip
 unzip bun-darwin-x64.zip
 mv bun-darwin-x64/bun ~/bin/
 xattr -r -d com.apple.quarantine ~/bin/bun

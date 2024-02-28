@@ -27,3 +27,4 @@ chmod +x mihomo
 
 - https://github.com/MetaCubeX/mihomo/blob/Alpha/docs/config.yaml
 - https://wiki.metacubex.one/config/
+- rules

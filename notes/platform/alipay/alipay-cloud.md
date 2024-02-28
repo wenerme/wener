@@ -76,16 +76,18 @@ curl 'https://openapi.alipay.com/gateway.do?timestamp=2013-01-01 08:08:08&method
 - 全局设置 - 全局管理 - CPT密钥
 - cloudbase 云开发
 - cloudrun 云托管
+- PRIVATE_KEY
 
 ```bash
 # macOS
-curl -LO https://public-hz.oss.cloudrun.cloudbaseapp.cn/cpt/darwin_amd64/cpt
-chmod +x cpt
+curl -L -o ~/bin/cpt https://public-hz.oss.cloudrun.cloudbaseapp.cn/cpt/darwin_amd64/cpt
+chmod +x ~/bin/cpt
 # xattr -d com.apple.quarantine cpt
 
 # Linux
 curl -LO https://public-hz.oss.cloudrun.cloudbaseapp.cn/cpt/linux_amd64/cpt
 
+cpt --version
 cpt login --appid $APPID --private_key $PRIVATE_KEY
 
 # 持久化登录 Docker - 默认 8h

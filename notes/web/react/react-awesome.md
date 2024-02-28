@@ -451,12 +451,13 @@ npm add date-fns lodash-es react-fast-compare
   - useCombobox
   - useMultipleSelection
   - useSelect
-- [react-hot-toast](https://github.com/timolins/react-hot-toast)
-  - 12kB/4.7kB
-    - goober 2.5kB/1.3kB
-      - css-in-js alternative
-- [react-toastify](https://github.com/fkhadra/react-toastify)
-  - 需要 import css
+- Toast
+  - [react-hot-toast](https://github.com/timolins/react-hot-toast)
+    - 12kB/4.7kB
+      - goober 2.5kB/1.3kB
+        - css-in-js alternative
+  - [react-toastify](https://github.com/fkhadra/react-toastify)
+    - 需要 import css
 - [devbookhq/splitter](https://github.com/devbookhq/splitter)
   - 切分面板
 

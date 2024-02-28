@@ -41,3 +41,14 @@ ARG TARGETPLATFORM
 | BUILDKIT_SANDBOX_HOSTNAME     | String | Set the hostname (default buildkitsandbox)                                                                                             |
 | BUILDKIT_SYNTAX               | String | Set frontend image                                                                                                                     |
 | SOURCE_DATE_EPOCH             | Int    | Set the UNIX timestamp for created image and layers. More info from reproducible builds. Supported since Dockerfile 1.5, BuildKit 0.11 |
+
+## ssh clone
+
+```bash
+FROM alpine
+RUN --mount=type=ssh \
+    apk add git openssh-client \
+    && install -m 0700 -d ~/.ssh \
+    && ssh-keyscan github.com >> ~/.ssh/known_hosts \
+    && git clone git@github.com:wener/wode.git
+```

@@ -157,6 +157,11 @@ tags:
   - [CoderLine/alphaTab](https://github.com/CoderLine/alphaTab)
     - MPL-2.0, TS
     - cross platform music notation and guitar tablature rendering
+  - [navidrome/navidrome](https://github.com/navidrome/navidrome)
+    - GPLv3, Go
+    - Modern Music Server and Streamer compatible with Subsonic/Airsonic
+  - Subsonic
+  - Airsonic
 - secrets manager/security/KMS
   - [Infisical/infisical](./secret/infisical.md)
     - MIT + EE, Typescript

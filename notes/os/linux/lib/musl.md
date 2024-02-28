@@ -142,3 +142,14 @@ iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
 apk add gcompat
 export LD_PRELOAD=/lib/libgcompat.so.0
 ```
+
+## symbols
+
+```bash
+# 基础
+apk add libstdc++ libgcc
+```
+
+- fcntl64
+- https://clickhouse.com/codebrowser/ClickHouse/base/glibc-compatibility/musl/fcntl.c.html
+- https://lore.kernel.org/all/20231014153924.54987-1-raj.khem@gmail.com/T/

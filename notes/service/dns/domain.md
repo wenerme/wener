@@ -5,12 +5,15 @@ title: Domain
 # Domain
 
 - 推荐 TLD
-  - .app - Google 所有
+  - .app
   - .how
+  - .dev
   - .name
-  - .me
+  - .co - company
+  - .me - 我的
   - .ws - Web Service
   - .tech
+  - .tax - 财税、企业服务行业
 - 参考
   - 中国互联网域名体系 https://domain.miit.gov.cn/
     - 列举了

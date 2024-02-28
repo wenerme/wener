@@ -15,11 +15,82 @@ tags:
 | [Typescript 4.6](#typescript-46) | 2022-02-28 |
 | [Typescript 4.5](#typescript-45) | 2021-11-17 |
 
+## Typescript 5.4
+
+module=preserve 隐含
+
+```json
+{
+  "moduleResolution": "bundler",
+  "esModuleInterop": true,
+  "resolveJsonModule": true
+}
+```
+
+```ts
+// In some global file.
+interface ImportAttributes {
+  type: 'json';
+}
+
+// 支持类型检查
+import * as ns from 'foo' with { type: 'not-json' };
+```
+
 ## Typescript 5.3
 
 - --isolatedDeclarations 提升构建速度
   - [#47947](https://github.com/microsoft/TypeScript/issues/47947)
   - [53463](https://github.com/microsoft/TypeScript/pull/53463#issuecomment-1660720127)
+- 支持 Import Attributes
+
+```ts
+//  Import Attributes
+import obj from './something.json' with { type: 'json' };
+const obj = await import('./something.json', {
+  with: { type: 'json' },
+});
+```
+
+---
+
+- https://devblogs.microsoft.com/typescript/announcing-typescript-5-3/
+
+## Typescript 5.2
+
+- `using` - Declarations and Explicit Resource Management
+  - Symbol.dispose
+  - Symbol.asyncDispose
+  - DisposableStack
+  - AsyncDisposableStack
+  - SuppressedError
+- Decorator Metadata
+  - Decorator 的 context 支持 context.metadata
+  - `Symbol.metadata`
+
+---
+
+- https://devblogs.microsoft.com/typescript/announcing-typescript-5-2/
+
+## Typescript 5.1
+
+- 没有返回这默认返回 undefined
+
+```ts
+function f4(): undefined {
+  // 可以不返回
+}
+
+// setter getter 类型可以不一样
+interface Serializer {
+  set value(v: string | number | boolean);
+  get value(): string;
+}
+```
+
+---
+
+- https://devblogs.microsoft.com/typescript/announcing-typescript-5-1/
 
 ## Typescript 5.0
 

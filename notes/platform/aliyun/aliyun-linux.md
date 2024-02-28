@@ -1,5 +1,7 @@
 ---
 title: Alibaba Cloud Linux
+tags:
+  - Linux
 ---
 
 # Alibaba Cloud Linux

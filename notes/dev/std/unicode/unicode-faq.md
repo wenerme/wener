@@ -12,6 +12,10 @@ iconv -f UTF-8 -t GB2312 input.txt > output.txt
 echo '你好!' | iconv -f UTF-8 -t GB2312 - | hexdump -C
 ```
 
+| code     | symbol | name                | ref                                              |
+| -------- | ------ | ------------------- | ------------------------------------------------ |
+| &#65021; | ﷽      | Arabic sign Basmala | [Basmala](https://en.wikipedia.org/wiki/Basmala) |
+
 ## Remove BOM
 
 ```bash

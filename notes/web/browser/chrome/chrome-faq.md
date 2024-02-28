@@ -47,3 +47,16 @@ $$('.unregister').forEach((b) => b.click());
 ## open /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory
 
 Docker 环境，非 root
+
+## Widevine Content Decryption Module
+
+- CDM - Content Decryption Module - 内容解密模块
+  - 实现 DRM
+  - for Chrome、Firefox、Edge
+- L1：最高安全级别，要求所有内容处理和加密/解密操作都在受保护的硬件环境中进行。
+- L2：允许内容处理在操作系统的普通环境中进行，但加密/解密操作必须在受保护的硬件中进行。
+- L3：对于没有受保护硬件的设备，所有操作都可以在操作系统的普通环境中进行，这是最低的安全级别。
+- DRM - Digital Rights Management - 数字版权管理
+  - adopted by Netflix、Amazon Prime Video
+- https://www.widevine.com/
+- https://support.mozilla.org/en-US/kb/enable-drm

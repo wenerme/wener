@@ -22,9 +22,15 @@ title: 密码加密方式
   - md5_crypt - MD5 Crypt - MD5 密码
   - sha1_crypt - SHA-1 Crypt - SHA-1 密码
   - bcrypt - Blowfish-based Adaptive Cryptographic Hash Function - 基于 Blowfish 的自适应密码哈希函数
+- MCF - Modular Crypt Format - 模块化密码格式
+  - Deprecated (as of 2016) in favor of the PHC String Format
+  - https://github.com/ademarre/binary-mcf
+  - https://passlib.readthedocs.io/en/stable/modular_crypt_format.html
+- PHC String Format
+  - https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md
 
 ```
-$<id>[$<param>=<value>(,<param>=<value>)*][$<salt>[$<hash>]]
+$<id>[$v=<version>][$<param>=<value>(,<param>=<value>)*][$<salt>[$<hash>]]
 ```
 
 | Scheme ID | Schema                                   |

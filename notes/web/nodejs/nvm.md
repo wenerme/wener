@@ -37,7 +37,5 @@ export NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/relea
 NVM_DIR="$HOME/.nvm"
 source "$HOME/.nvm/nvm.sh"
 
-nvm_get_arch() { nvm_echo "x64-musl"; }
-
 nvm i --lts
 ```

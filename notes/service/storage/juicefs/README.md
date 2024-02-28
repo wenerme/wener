@@ -154,6 +154,14 @@ du -sh $HOME/.juicefs/local/jfs/
 | --access-key value | ACCESS_KEY |
 | --secret-key value | SECRET_KEY |
 
+## Command
+
+- https://juicefs.com/docs/community/command_reference/
+
+```bash
+juicefs mount -o allow_other,writeback_cache sqlite3://myjfs.db ~/jfs
+```
+
 ## Metdata
 
 - Redis
@@ -175,44 +183,6 @@ juicefs format \
   badger://$PWD/meta jfs
 ```
 
-## CSI
-
-- 可以配置 pathPattern=`"${.PVC.namespace}-${.PVC.name}"`，生成的 pv 名字更易读
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: juicefs-secret
-type: Opaque
-stringData:
-  name: <JUICEFS_NAME>
-  metaurl: <META_URL>
-  storage: s3
-  bucket: https://<BUCKET>.s3.<REGION>.amazonaws.com
-  access-key: <ACCESS_KEY>
-  secret-key: <SECRET_KEY>
-  # 设置 Mount Pod 时区，默认为 UTC。
-  # envs: "{TZ: Asia/Shanghai}"
-  # 如需在 Mount Pod 中创建文件系统，也可以将更多 juicefs format 参数填入 format-options。
-  # format-options: trash-days=1,block-size=4096
-
----
-
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: juicefs
-provisioner: csi.juicefs.com
-parameters:
-  csi.storage.k8s.io/provisioner-secret-name: juicefs-secret
-  csi.storage.k8s.io/provisioner-secret-namespace: default
-  csi.storage.k8s.io/node-publish-secret-name: juicefs-secret
-  csi.storage.k8s.io/node-publish-secret-namespace: default
-```
-
-- /var/lib/juicefs/volume/PV_NAME
-- https://juicefs.com/docs/csi/introduction/
 
 ## Docker
 
@@ -227,6 +197,7 @@ docker volume create -d juicefs \
   -o access-key=ACCESS_KEY \
   -o secret-key=SECRET_KEY \
   jfsvolume
+
 # 已有 volume
 docker volume create -d juicefs \
   -o name=VOLUME_NAME \
@@ -242,51 +213,4 @@ docker plugin disable juicefs
 ```
 
 - https://hub.docker.com/r/juicedata/mount
-
-## S3 Gateway
-
-```bash
-export MINIO_ROOT_USER=admin
-export MINIO_ROOT_PASSWORD=12345678
-
-juicefs gateway --cache-size 20480 redis://localhost:6379 localhost:9000
-```
-
-- https://github.com/juicedata/minio/tree/gateway
-  - minio fork 分支，完整 minio 功能
-
-## Webdav
-
-```bash
-export WEBDAV_USER=user
-export WEBDAV_PASSWORD=mypassword
-
-juicefs webdav sqlite3://jfs.db localhost:8080
-```
-
-## 启动挂载
-
-```bash
-cp $(which juicefs) /sbin/mount.juicefs
-```
-
-```fstab title="/etc/fstab"
-redis://localhost:6379/1 /jfs juicefs  _netdev,max-uploads=50,writeback,cache-size=204800     0  0
-```
-
-## setpriority: permission denied
-
-macOS non root
-
-## Skipped objects bytes
-
-- `.trash/`
-- 可以禁用回收站然后 gc 清理
-
-```bash
-juicefs status sqlite3://jfs.db | jq .Setting.TrashDays
-
-juicefs rmr .trash/
-```
-
-bench 1G 左右数据，完成后被删除
+- https://github.com/juicedata/juicefs/blob/main/hack/builder/Dockerfile

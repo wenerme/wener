@@ -5,35 +5,35 @@ tags:
 
 # Font Glossary
 
+| abbr. | stand for     |
+| ----- | ------------- |
+| SF    | San Francisco |
+
 | en              | zh         |
 | --------------- | ---------- |
 | sans-serif      | 无衬线字体 |
 | serif           | 衬线字体   |
 | Script typeface | 书写体     |
 
-| abbr. | stand for     |
-| ----- | ------------- |
-| SF    | San Francisco |
-
-| font                           | subtype    | since | adopted by              |
-| ------------------------------ | ---------- | ----- | ----------------------- |
-| Helvetica                      | sans       | 1957  | iOS 7, iOS 8            |
-| Helvetica Neue                 | sans       | 1983  | OS X 10.10+             |
-| San Francisco                  | sans-serif |       | iOS 9, OS X El Capitan  |
-| PingFang SC,TC,HK              |            |       | iOS 9, OS X El Capitan  |
-| Monotype LingWai Medium SC,TC) |            |       | macOS 10.12 Sierra      |
-| Songti SC,TC                   |            |       | macOS 10.12 Sierra      |
-| San Francisco Mono             |            |       | macOS 10.12 Sierra      |
-| Kai                            |            |       | macOS 10.13 High Sierra |
-| Kaiti SC                       |            |       | macOS 10.13 High Sierra |
-| Arial                          | sans-serif | 1982  | Windows                 |
-| Nimbus Sans                    |            |       |
-| Lucida Grande                  |            |       | OS X Yosemite           |
-| Courier New                    | serif mono |       | Windows                 |
-| Segoe UI                       |            |       | Windows Visit           |
-| Ubuntu                         |            |       | Ubuntu                  |
-| Roboto                         |            |       | Android 4+, Chrome OS   |
-| .SF NS                         |
+| font                          | subtype    | since | adopted by              |
+| ----------------------------- | ---------- | ----- | ----------------------- |
+| Helvetica                     | sans       | 1957  | iOS 7, iOS 8            |
+| Helvetica Neue                | sans       | 1983  | OS X 10.10+             |
+| San Francisco                 | sans-serif |       | iOS 9, OS X El Capitan  |
+| PingFang SC,TC,HK             |            |       | iOS 9, OS X El Capitan  |
+| Monotype LingWai Medium SC,TC |            |       | macOS 10.12 Sierra      |
+| Songti SC,TC                  |            |       | macOS 10.12 Sierra      |
+| San Francisco Mono            |            |       | macOS 10.12 Sierra      |
+| Kai                           |            |       | macOS 10.13 High Sierra |
+| Kaiti SC                      |            |       | macOS 10.13 High Sierra |
+| Arial                         | sans-serif | 1982  | Windows                 |
+| Nimbus Sans                   |            |       |
+| Lucida Grande                 |            |       | OS X Yosemite           |
+| Courier New                   | serif mono |       | Windows                 |
+| Segoe UI                      |            |       | Windows Visit           |
+| Ubuntu                        |            |       | Ubuntu                  |
+| Roboto                        |            |       | Android 4+, Chrome OS   |
+| .SF NS                        |
 
 - https://developer.apple.com/fonts/
 - [List of typefaces included with macOS](https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS)
@@ -160,7 +160,7 @@ body {
 ```css
 .font {
   /* San Francisco */
-  font-family: -apple-system, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
 
   font-family: -apple-system-body;
   font-family: -apple-system-headline;
@@ -193,10 +193,21 @@ body {
 /* https://nolanlawson.com/2022/04/08/the-struggle-of-using-native-emoji-on-the-web/ */
 @font-face {
   font-family: 'color-emoji';
-  src: local('Apple Color Emoji'), local('Twemoji Mozilla'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji'), local('EmojiOne Color'), local('Android Emoji');
+  src:
+    /* system */
+    local('Apple Color Emoji'),
+    local('Android Emoji'),
+    local('Segoe UI Emoji'),
+    local('Segoe UI Symbol'),
+    /* extra */ local('Noto Color Emoji'),
+    local('EmojiOne Color') local('Twemoji Mozilla');
 }
 
 body {
-  font-family: -apple-system, Segoe UI, sans-serif, color-emoji;
+  font-family:
+    -apple-system,
+    Segoe UI,
+    sans-serif,
+    color-emoji;
 }
 ```

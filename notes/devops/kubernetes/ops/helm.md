@@ -154,9 +154,12 @@ helm push argo-cd-5.45.1.tgz oci://index.docker.io/wcharts/
 helm pull oci://index.docker.io/wcharts/argo-cd:5.45.1
 
 # 推送新的 tgz
-ls -tr -l --time-style=+"%Y-%m-%d %H:%M:%S" | awk '{print $6, $7, $8}' | tail # 最新的
+# https://hub.docker.com/u/wcharts
+# ls -tr -l --time-style=+"%Y-%m-%d %H:%M:%S" | awk '{print $6, $7, $8}' | tail # 最新的
+LAST=$(ls -lt | grep ^- | head -n1 | awk '{print $NF}')
+git pull
 # https://hub.docker.com/r/wcharts/sealed-secrets/tags
-find . -iname '*.tgz' -newer ./victoria-metrics-operator-0.27.9.tgz | xargs -I {} -n 1 helm push {} oci://index.docker.io/wcharts
+find . -iname '*.tgz' -newer $LAST | xargs -I {} -n 1 helm push {} oci://index.docker.io/wcharts
 
 find . -type f -newermt 2017-09-24
 find . -type f -newerat 2017-09-25

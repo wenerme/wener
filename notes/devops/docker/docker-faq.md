@@ -248,5 +248,5 @@ multiple platforms feature is currently not supported for docker driver. Please 
 ```
 
 ```bash
-docker buildx create --name multiarch-builder --driver docker-container
+docker buildx create --name multiarch-builder --driver docker-container --use
 ```

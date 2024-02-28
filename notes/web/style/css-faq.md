@@ -581,3 +581,9 @@ Array.from(document.styleSheets)
     [],
   );
 ```
+
+## text-stroke
+
+> text outline, text border
+
+- https://stackoverflow.com/a/4919231/1870054

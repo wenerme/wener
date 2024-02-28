@@ -44,6 +44,15 @@ tags:
   - Offscreen
   - Transition Tracing
 
+## React 19
+
+- Reac Compiler
+  - 自动 memo
+  - ~~React.lazy~~
+- ~~forwardRef~~
+- Server Component
+- async
+
 ## React 18
 
 :::caution

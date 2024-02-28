@@ -70,3 +70,12 @@ curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
 - ecosystem
   - https://github.com/nestjs/nest/pull/10533 NextJS v10 support SEARCH method
   - Support for new HTTP QUERY method [akka-http#3936](https://github.com/akka/akka-http/issues/3936)
+
+
+## Accept-Encoding
+
+- Chrome 121
+  - Accept-Encoding: gzip, deflate, br, zstd
+- [nodejs/undici#2847](https://github.com/nodejs/undici/issues/2847)
+  - fetch zstd support
+- https://caniuse.com/zstd

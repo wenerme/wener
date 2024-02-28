@@ -47,3 +47,22 @@ e.g.
     - 36 月 = 3131 \* 36 \* 0.48 = 53711.52
     - 48 月 = 3131 \* 48 \* 0.39 = 59942.08
     - 60 月 = 3131 \* 60 \* 0.33 = 62775.6
+
+## ECS 实例规格 {#ecs-family}
+
+- se - Storage Enhanced - 存储增强
+- ae - 平衡增强型
+- g - 通用型
+- c - 计算型
+- r - 内存型
+- t - 突发
+- e - economy - 经济型
+- s - standard - 标准型
+- v - 超分型
+- large
+  - xlarge - \*2
+  - Nxlarge - N\*2
+
+---
+
+- ECS 实例规格 - https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families

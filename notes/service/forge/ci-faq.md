@@ -82,3 +82,44 @@ GIT_PREVIOUS_SUCCESSFUL_COMMIT=
 - [GitHub Action Variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables)
 - Vercel [Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables)
 - https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+
+## snipptes
+
+- NPM_TOKEN
+  - `A://registry.npmjs.org:_authToken,B://registry.npmjs.org:_authToken`
+
+```bash
+# TOKEN://registry
+[ -n "$NPM_TOKEN" ] && {
+  echo NPM Login
+  echo "$NPM_TOKEN" |
+  tr ',' '\n' |
+  xargs -I {} sh -c 'X="{}";npm config set -L user "$(echo $X|cut -d: -f2- ):_authToken" "$(echo $X|cut -d: -f1)"'
+}
+
+[ -z "$DOCKER_REGISTRY" ] || docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" "$DOCKER_REGISTRY"
+
+# github secrets
+[ -z "${{ secrets.DOCKER_REGISTRY }}" ] || docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}" "${{ secrets.DOCKER_REGISTRY }}"
+```
+
+```yaml
+- name: Install
+  env:
+    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    # GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
+  run: |
+    set -e
+    # TOKEN://registry
+    [ -n "$NPM_TOKEN" ] && {
+      echo NPM Login
+      echo "$NPM_TOKEN" |
+      tr ',' '\n' |
+      xargs -I {} sh -c 'X="{}";npm config set -L user "$(echo $X|cut -d: -f2- ):_authToken" "$(echo $X|cut -d: -f1)"'
+    }
+
+    time npm add -g pnpm@latest
+    time CI=true \
+    PUPPETEER_SKIP_DOWNLOAD=true \
+    make install
+```
