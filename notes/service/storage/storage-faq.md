@@ -27,3 +27,22 @@ tags:
 ---
 
 - https://uploadcare.com/blog/handling-large-file-uploads/
+
+## Object Storage Service vs Filesystem
+
+- 对象存储
+  - 存储对象
+    - 每个对象包含数据本身+元数据+全局唯一标识 - data, metadata, key
+  - 面向网络
+  - 面向大规模 - 可伸缩
+    - 处理大量小文件时可能不如文件系统高效，但在处理大文件或流式数据时性能良好。
+  - 适合存储非结构化数据
+    - 如照片、视频、日志文件和备份数据等。
+    - 广泛应用于云存储、大数据分析、静态Web资源托管和数据归档。
+  - RESTful
+- 文件系统
+  - 文件+目录 - 支持嵌套
+  - 本地
+  - POSIX
+  - 低延迟
+  - 可靠

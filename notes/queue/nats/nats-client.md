@@ -1,6 +1,7 @@
 ---
 tags:
   - Client
+  - SDK
 ---
 
 # Client

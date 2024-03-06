@@ -74,8 +74,9 @@ curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
 
 ## Accept-Encoding
 
-- Chrome 121
+- Chrome 123
   - Accept-Encoding: gzip, deflate, br, zstd
 - [nodejs/undici#2847](https://github.com/nodejs/undici/issues/2847)
   - fetch zstd support
 - https://caniuse.com/zstd
+- https://github.com/web-platform-tests/wpt/tree/master/fetch/content-encoding/zstd

@@ -70,10 +70,13 @@ tags:
     - ts 10msec 39bit + machine 16bit + sequence 8bit
     - 174 years
     - 处理更多的 instance
-- UUIDv7
+- [UUIDv7](https://www.ietf.org/archive/id/draft-ietf-uuidrev-rfc4122bis-00.html#name-uuid-version-7)
+  - `{unix_ts_ms:48 bit}{ver:4bit}{rand_a:12bit}{var:2bit}{rand_b:64bit}`
   - 兼容 UUID
   - 有序 - 时间戳
   - 类似于 ULID
+  - [craigpastro/pg_uuidv7](https://github.com/craigpastro/pg_uuidv7)
+    - Postgres extension
 - [NanoID](https://github.com/ai/nanoid)
   - 一般不直接用于 DB, 前端用的多
   - `A-Za-z0-9_-`

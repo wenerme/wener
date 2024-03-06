@@ -1,5 +1,7 @@
 ---
 title: package.json
+files:
+- package.json
 ---
 
 # package.json
@@ -102,10 +104,13 @@ title: package.json
 
 ## exports
 
+- TypeScript 4.7 支持 exports
+- TypeScript 5.0 支持 bundler moduleResolution
 - --conditions,-C
   - `node --conditions=development index.js`
   - 运行 node 指定 condition 会根据 condition resolve
 - 常见类型
+  - types - `d.ts` - 一般放在最前面
   - import - esm - `import`,`import()` 使用 ECMAScript module loader
     - 可能 mjs 结尾
   - module

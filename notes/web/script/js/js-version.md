@@ -101,6 +101,10 @@ tags:
 | `#name` | Chrome74 | Private class fields          |
 | `using` |          | Explicit Resource Management  | TS 5.2 |
 
+| feat       | Version            | note |
+| ---------- | ------------------ | ---- |
+| globalThis | Chrome71, NodeJS12 |
+
 - es5 和 es6 是一个分界线
   - 2018 年所有浏览器支持 es6
   - 之后统一版本概念变弱 - 都以功能特性为单位

@@ -147,13 +147,21 @@ tags:
     - connect a wallet
   - [wagmi-dev/wagmi](https://github.com/wagmi-dev/wagmi)
     - React Hooks for Ethereum
-- API
+- API/Blockchain API Provider/Proxy
   - [graphprotocol/graph-node](https://github.com/graphprotocol/graph-node)
+    - Apache-2.0, MIT, Rust
+    - indexes data from blockchains such as Ethereum and serves it over GraphQL
+  - [llamanodes/web3-proxy](https://github.com/llamanodes/web3-proxy)
+    - GPLv3, Rust
   - https://eth.wiki/json-rpc/API
   - https://stripe.com/zh-cn-hk/use-cases/crypto
   - https://api.coingecko.com/api/v3/simple/price
   - https://api.etherscan.io/api
   - https://sentinel.matic.network/api/v2/validators/metadata/totalStake
+  - infura.io
+    - 10w/day
+  - AWS
+  - Moralis
 - Misc
   - [makerdao/multicall](https://github.com/makerdao/multicall)
   - [makerdao/awesome-makerdao](https://github.com/makerdao/awesome-makerdao)
@@ -224,7 +232,6 @@ curl 'https://api.etherscan.io/api?module=stats&action=ethprice&apikey=YourApiKe
 |      | 43113    | AVAX   | FUJI    |                     | https://api.avax-test.network/ext/bc/C/rpc       | https://testnet.snowtrace.io/ |
 |      | 11155111 | ETH    | Sepolia |                     | https://sepolia.dev/                             | https://sepolia.etherscan.io/ |
 |      |          |        | Holesky |
-
 
 - rETH - rinkeby ETH
 - Faucet

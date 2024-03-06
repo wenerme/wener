@@ -11,7 +11,10 @@ tags:
 > ODE - Online IDE
 
 - https://tio.run/
+  - try it online
+  - 可以运行各种语言
 - https://godbolt.org/
+  - 编译各种语言为 Assembly
   - [compiler-explorer/compiler-explorer](https://github.com/compiler-explorer/compiler-explorer)
     - BSD-2, TypeScript
     - https://compiler-explorer.com/
@@ -26,6 +29,8 @@ tags:
 - https://play.nim-lang.org/
 - https://play.haskell.org/
 - https://pypl.github.io/ODE.html
+- [jprendes/emception](https://github.com/jprendes/emception)
+  - https://jprendes.github.io/emception/
 
 ## Tools
 

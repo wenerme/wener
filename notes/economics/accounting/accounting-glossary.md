@@ -17,17 +17,35 @@ tags:
 | IFRS    | International Financial Reporting Standards            | 国际财务报告准则     |
 | US GAAP | United States Generally Accepted Accounting Principles | 美国一般公认会计原则 |
 
-| en                      | cn         |
-| ----------------------- | ---------- |
-| Account reconciliations | 对账       |
-| Balance sheet           | 资产负债表 |
-| Accountant              | 会计师     |
-| social security         | 社保       |
-| individual tax          | 个税       |
-| Personal Income Tax     | 个人所得税 |
-| imposition              | 征收       |
+| en                      | cn                              |
+| ----------------------- | ------------------------------- |
+| Account reconciliations | 对账                            |
+| Balance sheet           | 资产负债表                      |
+| Accountant              | 会计师                          |
+| social security         | 社保                            |
+| individual tax          | 个税                            |
+| Personal Income Tax     | 个人所得税                      |
+| imposition              | 征收                            |
+| Accounting Period       | 会计期间/会计分期/会计周期/账期 |
+| Accounting Year         | 会计年度                        |
+| Accounting Mid-term     | 会计中期                        |
+| Accounting              | 会计                            |
+| Closing the books       | 结账                            |
 
 - EBITA
+- 会计期间 - Accounting Period/Fiscal Period - 会计分期
+  - 对于经济活动做定期整理、汇存。
+  - 一个月、一个季度、一年
+  - 需要参考业务
+  - 参考
+    - https://quickbooks.intuit.com/global/zh-cn/glossary/accounting-period/
+- 会计中期
+  - 小于一年
+- 会计年度
+  - 中国 每年1月1日—每年12月31日
+- 《中华人民共和国会计法》
+- 参考
+  - https://quickbooks.intuit.com/global/zh-cn/glossary/
 
 ## 代理记账流程
 

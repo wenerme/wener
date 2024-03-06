@@ -10,14 +10,23 @@ tags:
 
 - https://www.google.com/intl/en/chrome/?standalone=1
 
-```
+```bash
 # ChromeStandaloneSetup64.exe
 # https://dl.google.com/tag/s/appguid={8A69D345-D564-463C-AFF1-A69D9E530F96}&iid={E3751212-181B-0E06-8D37-4EC9E8CE331E}&lang=en&browser=4&usagestats=0&appname=Google%20Chrome&needsadmin=prefers&ap=x64-stable-statsdef_1&installdataindex=defaultbrowser/chrome/install/ChromeStandaloneSetup64.exe
 
+# https://dl.google.com/tag/s/appguid={}&iid={}&lang=en&browser=4&usagestats=0&appname=Google%20Chrome&needsadmin=prefers&ap=x64-stable-statsdef_1&installdataindex=empty/chrome/install/ChromeStandaloneSetup64.exe
+
+#
+curl -o ChromeStandaloneSetup64.en.exe "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B87584CE6-0E38-80EC-E64B-445DE6CAC662%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
+#
+curl -o ChromeStandaloneSetup64.zh-CN.exe "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B1AF1CCDF-A7FA-8A43-6E6D-A889DB429A87%7D%26lang%3Dzh-CN%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
 # googlechrome.dmg
 curl -LOJC- https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 ```
 
+- Windows 11 x86_64
+  - appguid 8A69D345-D564-463C-AFF1-A69D9E530F96
+  - iid 87584CE6-0E38-80EC-E64B-445DE6CAC662
 - https://dl.google.com/mac/install/googlesoftwareupdate.dmg
 
 ## 自动更新域名

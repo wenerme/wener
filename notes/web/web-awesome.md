@@ -285,6 +285,22 @@ tags:
 - https://webcode.tools/
 - https://github.com/mbrlabs/Lorien
   - Infinite canvas drawing/whiteboarding app for Windows, Linux and macOS. Made with Godot
+- Web Desktop/Web OS
+  - [HeyPuter/puter](https://github.com/HeyPuter/puter)
+    - AGPLv3, JS
+    - Web OS
+    - https://news.ycombinator.com/item?id=39597030
+  - [MercuryWorkshop/anuraOS](https://github.com/MercuryWorkshop/anuraOS)
+    - AGPLv3, JS
+    - WebOS
+    - 支持模拟 Linux
+  - https://simone.computer/
+  - https://github.com/syxanash/awesome-web-desktops
+- [BrowserBox/BrowserBox](https://github.com/BrowserBox/BrowserBox)
+  - AGPLv3, JS
+  - 在服务端运行 浏览器，嵌入 iframe
+  - RBI - remote browser isolation
+- https://copy.sh/v86/
 
 ## Reference
 

@@ -40,6 +40,9 @@ nats server info nats-0
 # nats event - JSON Schema
 # https://app.quicktype.io/ 生成其他语言
 nats schema ls
+
+
+nats -s wss://demo.nats.io:8443 sub '>'
 ```
 
 ```json title="context/local.json"

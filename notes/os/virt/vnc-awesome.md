@@ -90,6 +90,10 @@ open vnc://127.0.0.1:5900
     - cross-platform pure Go screen shot library
   - http://go-lang.cat-v.org/library-bindings
 
+```bash
+brew install vnc-viewer
+```
+
 ## Virtual
 
 ```bash

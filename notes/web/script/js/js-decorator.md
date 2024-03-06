@@ -10,6 +10,40 @@ title: Decorator
 
 :::
 
+- kind
+  - class
+  - method
+  - getter
+  - setter
+  - field
+  - accessor
+- `Symbol.annotations`
+- 参考
+  - [proposal-decorators](https://github.com/tc39/proposal-decorators)
+    - 2023-08 – TS 5.2 支持  Decorator Metadata
+    - 2023-05 – Angular v16
+    - 2023-03 – Deno 1.32
+    - 2023-03 - TS 5.0
+    - 2022-09 – Babel 7.19.0. Stage 3
+    - 2022-08 – SpiderMonkey 支持
+    - 2022-03 – Stage 3
+    - 2016-07 – Stage 2
+    - 2015-03 – Stage 1 - TS 1.5, --experimentalDecorators
+    - 2014-04 – Stage 0
+    - https://caniuse.com/decorators
+  - [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
+    - TS 5.2
+  - [proposal-class-method-parameter-decorators](https://github.com/tc39/proposal-class-method-parameter-decorators)
+  - [typescript 5.0 decorators](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#decorators)
+    - 没有 `--experimentalDecorators` flag
+      - 也能用
+      - 生成逻辑不同
+      - 有类型检查
+    - 新的逻辑不支持 `--emitDecoratorMetadata`
+  - [esbuild#104](https://github.com/evanw/esbuild/issues/104)
+  - [nestjs/nest#11414](https://github.com/nestjs/nest/issues/11414)
+    - 短时间内还不会支持
+
 ```js
 type Decorator = (value: Input, context: {
   kind: string;
@@ -85,25 +119,6 @@ type ClassAutoAccessorDecorator = (
   init?: (initialValue: unknown) => unknown;
 } | void;
 ```
-
-- kind
-  - class
-  - method
-  - getter
-  - setter
-  - field
-  - accessor
-- `Symbol.annotations`
-- [proposal-decorators](https://github.com/tc39/proposal-decorators)
-  - TS 5.0
-- [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
-  - TS 5.2
-- [typescript 5.0 decorators](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#decorators)
-  - 没有 `--experimentalDecorators` flag
-    - 也能用
-    - 生成逻辑不同
-    - 有类型检查
-  - 新的逻辑不支持 `--emitDecoratorMetadata`
 
 ## Typescript legacy
 

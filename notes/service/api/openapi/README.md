@@ -60,3 +60,8 @@ title: OpenAPI
 - https://blog.stoplight.io/difference-between-open-v2-v3-v31
 
 # FAQ
+
+## summary vs description
+
+- summary - 简短描述
+- description - 详细描述

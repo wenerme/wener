@@ -219,7 +219,6 @@ curl --request POST \
 
 ## SQLite Awesome
 
-
 - [dgllghr/stanchion](https://github.com/dgllghr/stanchion)
   - Column
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)
@@ -364,6 +363,12 @@ curl --request POST \
   - [Open Source SQL Parsers](https://tokern.io/blog/open-source-sql-parsers/)
     - [HN](https://news.ycombinator.com/item?id=31107231)
     - https://stripe.com/en-gb/sigma
+  - [runreveal/pql](https://github.com/runreveal/pql)
+    - Golang
+    - Pipelined Query Language
+    - https://news.ycombinator.com/item?id=39539252
+  - [Azure Kusto Query Language (KQL)](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
+    - Azure appinsights logs
 
 ## 迁移/升级/Schema 变更/Migration {#migration}
 

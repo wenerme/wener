@@ -5,6 +5,30 @@ tags:
 
 # Address Book - 地址簿
 
+| abbr. |                              for | cn               |
+| ----: | -------------------------------: | ---------------- |
+|   ams |     Accounting Management System | 会计管理系统     |
+|  hrms | Human Resource Management System | 人力资源管理系统 |
+|   erp |     Enterprise Resource Planning | 企业资源计划     |
+|   crm | Customer Relationship Management | 客户关系管理     |
+|   wms |      Warehouse Management System | 仓库管理系统     |
+|   tms | Transportation Management System | 运输管理系统     |
+|   scm |          Supply Chain Management | 供应链管理       |
+|   plm |     Product Lifecycle Management | 产品生命周期管理 |
+|   mes |   Manufacturing Execution System | 制造执行系统     |
+|   dms |       Document Management System | 文档管理系统     |
+|   pms |        Project Management System | 项目管理系统     |
+|   cms |        Content Management System | 内容管理系统     |
+|   lms |       Learning Management System | 学习管理系统     |
+|   ems |          Event Management System | 事件管理系统     |
+|   oms |          Order Management System | 订单管理系统     |
+|   fms |      Financial Management System | 财务管理系统     |
+|   bms |       Building Management System | 建筑管理系统     |
+|   iot |               Internet of Things | 物联网           |
+|   PMS |           Property Rental System | 物业租赁系统     |
+|   RPM |       Rental Property Management | 租赁物业管理     |
+|   HRS |              House Rental System | 房屋租赁系统     |
+
 - 企业内部人员
 - 例如
   - LDAP 里有地址簿的相关结构

@@ -15,8 +15,6 @@ title: Domain
   - .tech
   - .tax - 财税、企业服务行业
 - 参考
-  - 中国互联网域名体系 https://domain.miit.gov.cn/
-    - 列举了
   - [It's official: .corp, .home, .mail will never be top-level domains on the 'net](https://forums.theregister.com/forum/all/2018/02/12/icann_corp_home_mail_gtlds/)
   - [google/nomulus](https://github.com/google/nomulus/)
     - Google tld 管理服务
@@ -31,6 +29,13 @@ title: Domain
   - https://www.101domain.com/er.htm
 
 :::
+
+## 中国 {#china}
+
+- 中国互联网域名体系 https://domain.miit.gov.cn/
+  - 列举了可备案的顶级域名和管理公司
+- 阿里云域名列表 https://help.aliyun.com/zh/dws/support/list-of-suffixes-of-top-level-domain-names
+- 腾讯云域名价格列表 https://buy.cloud.tencent.com/domain/price
 
 ## Provider
 

@@ -12,5 +12,6 @@ title: fortune-sheet
   - formula fork [handsontable/formula-parser](https://github.com/handsontable/formula-parser)
     - @formulajs/formula-parser
   - @fortune-sheet/core
-    - 1.6MB/375kB - @formulajs/formulajs, lodash, jstat
+    - 1.7MB/408kB - @formulajs/formulajs, lodash, jstat, dayjs
   - @fortune-sheet/react
+    - 260kB - immer

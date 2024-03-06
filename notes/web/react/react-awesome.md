@@ -456,6 +456,8 @@ npm add date-fns lodash-es react-fast-compare
     - 12kB/4.7kB
       - goober 2.5kB/1.3kB
         - css-in-js alternative
+  - [iamhosseindhv/notistack](https://github.com/iamhosseindhv/notistack)
+    - for Material UI
   - [react-toastify](https://github.com/fkhadra/react-toastify)
     - 需要 import css
 - [devbookhq/splitter](https://github.com/devbookhq/splitter)

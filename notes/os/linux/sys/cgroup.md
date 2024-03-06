@@ -26,6 +26,11 @@ echo 0 > /sys/fs/cgroup/memory/slack_group/memory.swappiness
 ```
 
 
+```bash
+cat /sys/fs/cgroup/memory/memory.usage_in_bytes
+cat /sys/fs/cgroup/memory/memory.limit_in_bytes
+```
+
 ## cgroup v2
 
 ## 内存使用情况

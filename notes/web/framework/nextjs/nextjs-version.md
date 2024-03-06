@@ -24,16 +24,19 @@ tags:
 
 | version      | date       | blog      |
 | ------------ | ---------- | --------- |
+| [NextJS 14]  | 2023-10-26 | [next-14] |
 | [NextJS 13]  | 2022-10-26 | [next-13] |
 | [NextJS 12]  | 2021-11-27 | [next-12] |
 | [NextJS 11]  | 2021-06-16 | [next-11] |
 | [NextJS 10]  | 2020-10-27 | [next-10] |
 | [NextJS 9.5] | 2020-7-28  |
 
+[next-14]: https://nextjs.org/blog/next-14
 [next-13]: https://nextjs.org/blog/next-13
 [next-12]: https://nextjs.org/blog/next-12
 [next-11]: https://nextjs.org/blog/next-11
 [next-10]: https://nextjs.org/blog/next-10
+[nextjs 14]: #NextJS-14
 [nextjs 13]: #NextJS-13
 [nextjs 12]: #NextJS-12
 [nextjs 11]: #NextJS-11
@@ -48,6 +51,15 @@ tags:
 - Server Action 文档
 - 部分渲染 - 实验阶段
   - 预渲染 suspense 部分
+- 14.1 - 2024-01-18
+  - 提升 Self-Hosting
+    - cacheHandler
+    - cacheMaxMemorySize
+  - 完善 Turbopack
+  - 配置 logging.fetches.fullUrl
+  - `import { getImageProps } from 'next/image';` 可用于 picture
+  - https://areweturboyet.com/
+  - https://nextjs.org/blog/next-14-1
 
 ## NextJS 13
 

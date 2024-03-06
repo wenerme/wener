@@ -54,7 +54,8 @@ tar zxvf gost*.tar.gz
 curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc10/gost_3.0.0-rc10_linux_amd64.tar.gz
 tar zxvf gost*.tar.gz
 
-mv gost /usr/local/bin/
+./gost -V
+sudo mv gost /usr/local/bin/
 
 # v3
 # -L 监听

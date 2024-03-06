@@ -366,11 +366,21 @@ tags:
 
 ## 社交 {#social}
 
-| abbr. | stand for         | mean     |
-| ----- | ----------------- | -------- |
-| OTOH  | on the other hand |
-| TL;TR | Too Long To Read  | 简而言之 |
-| TBH   | To be honest      |
+> Internet forum
+
+| abbr.  | stand for               | mean             |
+| ------ | ----------------------- | ---------------- |
+| PM     | Private Message         | 私信             |
+| DM     | Direct Message          | 私信             |
+| OP     | Original Poster         | 楼主             |
+| OTOH   | on the other hand       |
+| TL;TR  | Too Long To Read        | 简而言之         |
+| TBH    | To be honest            |
+| IMO    | In My Opinion           | 我的看法         |
+| IMHO   | In My Humble Opinion    | 我的谦虚意见     |
+| IRL    | In Real Life            | 现实生活         |
+| IYKWIM | If You Know What I Mean | 如果你懂我的意思 |
+| TTYL   | Talk To You Later       | 回头见           |
 
 ## 财税 {#taxation}
 
@@ -1184,7 +1194,7 @@ tags:
 
 ## task vs job vs process vs background process
 
-- job
+- job/flow
   - 侧重描述可调度性
   - 一个 job 可能包含多个 task
   - 通常具有连续运行的特点
@@ -1193,7 +1203,7 @@ tags:
 - process
   - 类似于 job
   - process 更多是自主运行
-- task/step
+- task/step/activity
   - 侧重描述内容
   - 通常运行一次
 - background process

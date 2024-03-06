@@ -126,6 +126,14 @@ tags:
 
 :::
 
+- amr - Adaptive Multi-Rate
+  - 专为语音编码设计的压缩格式
+  - 用于移动电话和语音
+    - 能够根据网络条件和通话质量自适应地调整编码速率
+    - 保持相对较低的数据传输速率的同时，最大限度地提高语音质量。
+  - AMR-NB（Narrowband）
+  - AMR-WB（Wideband）
+  - 3GPP标准化
 - mp3
 - ac3
 - aac

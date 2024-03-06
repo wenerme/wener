@@ -62,3 +62,15 @@ tags:
   - [VNC vs SPICE](http://zee-nix.blogspot.com/2011/06/welcome-to-virtual-world.html)
 
 ## kvm: vcpu0, guest rIP: disabled perfctr wrmsr: 0xc2 data 0xffff
+
+## vhd vs vhdx
+
+- vhd - Virtual Hard Disk
+  - 2TB
+- vhdx - Virtual Hard Disk v2
+  - 64TB
+  - 提供日志文件保护数据安全
+  - 针对现代存储硬件优化
+  - Windows Server 2012、Windows 8+
+  - 支持自定义元数据、支持更大的逻辑扇区大小
+  - 支持稀疏文件

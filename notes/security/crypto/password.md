@@ -28,6 +28,7 @@ title: 密码加密方式
   - https://passlib.readthedocs.io/en/stable/modular_crypt_format.html
 - PHC String Format
   - https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md
+  - https://man7.org/linux/man-pages/man3/crypt.3.html
 
 ```
 $<id>[$v=<version>][$<param>=<value>(,<param>=<value>)*][$<salt>[$<hash>]]

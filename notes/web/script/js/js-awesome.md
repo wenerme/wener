@@ -606,6 +606,9 @@ tags:
   - [bbc/peaks.js](https://github.com/bbc/peaks.js)
     - LGPLv3, JS
     - audio waveforms
+  - [BenzLeung/benz-amr-recorder](https://github.com/BenzLeung/benz-amr-recorder)
+  - [jpemartins/amr.js](https://github.com/jpemartins/amr.js)
+    - opencore-amr version 0.1.3 using emscripten
 - glob
   - [globby](https://github.com/sindresorhus/globby)
     - 基于 fast-glob 增加部分功能

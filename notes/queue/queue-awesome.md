@@ -115,6 +115,27 @@ tags:
   - Apache Storm
   - Apache Samza
   - Apache Beam
+- [Apache ActiveMQ Artemis](https://activemq.apache.org/components/artemis/)
+  - AMQP protocol support
+  - OpenWire support for ActiveMQ 5 clients
+  - MQTT support
+  - STOMP protocol support
+  - HornetQ Core protocol support for HornetQ 2.4,2.5 clients
+  - JMS 2.0 and 1.1 support
+  - High availability with shared store and non shared store (replication)
+  - Flexible Clustering
+  - High performance journal for message persistence
+  - Queue memory limitation
+  - SSL support
+  - Management over JMX, JMS and core protocol
+  - Large message support
+  - Topic hierarchies
+  - Producer flow control
+  - Consumer flow control
+  - Diverts
+  - Last value queue
+  - Message Groups
+  - OSGi support
 
 ## Protocol
 

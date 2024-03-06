@@ -9,6 +9,15 @@ tags:
 - Commands
   - https://gist.github.com/sergiitk/a87207a8af11d6e6d807
 
+```bash
+# 系统版本号
+# 14.3.1
+sw_vers -productVersion
+
+system_profiler SPSoftwareDataType
+cat /System/Library/CoreServices/SystemVersion.plist
+```
+
 ## path_helper
 
 - /etc/paths
@@ -431,3 +440,10 @@ Screen Sharing is not permitted on “10.10.1.1”. Disable and re-enable Screen
 
 - cryptographically-sealed archive
 - /Volumes/Preboot/Cryptexes
+
+## dmg
+
+```bash
+7z x googlechrome.dmg -o/tmp/googlechrome
+VER=$(cat /tmp/googlechrome/Google\ Chrome/Google\ Chrome.app/Contents/Info.plist | grep -A1 CFBundleShortVersionString | tail -1 | sed -r 's/.*>(.*?)<.*/\1/' | tr -d '[[:space:]]')
+```

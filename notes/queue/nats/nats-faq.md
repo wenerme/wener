@@ -124,6 +124,13 @@ nats server mapping "tenant.X.service.*" "service.{{wildcard(1)}}" tenant.X.serv
 - 参考
   - [Comparing NATS, NATS Streaming and NATS JetStream](https://gcoolinfo.medium.com/ec2d9f426dc8)
 
+## queue group
+
+- 用于实现负载均衡和消息分发
+- 同一个队列组内的成员之间会以负载均衡的方式共享消息
+  - 一个消息只会被队列组内的一个成员消费
+- https://docs.nats.io/nats-concepts/core-nats/queue
+
 ## cannot create a queue subscription for a consumer without a deliver group
 
 - 2.4+ nats 修复

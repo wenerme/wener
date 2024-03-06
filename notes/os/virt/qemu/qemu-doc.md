@@ -310,6 +310,7 @@ qemu-i386 /usr/local/qemu-i386/wine/bin/wine \
 
 - https://www.spice-space.org
 - vnc
+- SPICE（Simple Protocol for Independent Computing Environments）
 
 ```bash
 brew install tiger-vnc
@@ -322,3 +323,12 @@ vncviewer :0
 qemu-system-x86_64 sys.vhd-display vnc=:1
 vncviewer :1
 ```
+
+- vga
+  - std - 标准 VGA
+  - cirrus
+  - vmware
+  - qxl - QXL 驱动
+    - 为SPICE协议优化的一种虚拟VGA设备
+  - virtio
+  - none

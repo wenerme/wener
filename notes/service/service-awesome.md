@@ -74,10 +74,6 @@ tags:
   - Segment-alternative
   - 后端 PostgreSQL
   - Customer Data Platform, CDP
-- file transfer
-  - [schollz/croc](https://github.com/schollz/croc)
-    - MIT, Go
-    - 命令行
 - conferencing
   - [gjovanov/roomler](https://github.com/gjovanov/roomler)
     - Janus Gateway
@@ -285,7 +281,7 @@ tags:
   - Nextcloud
   - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
     - GPLv3, Golang
-- file share/airdrop
+- file share/airdrop/file transfer
   - [localsend/localsend](https://github.com/localsend/localsend)
     - MIT, Dart, Flutter
     - 🌟
@@ -297,6 +293,8 @@ tags:
     - 命令行
     - 依赖 relay，可以 selfhost
     - 支持 resume
+  - [psi-4ward/psitransfer](https://github.com/psi-4ward/psitransfer)
+    - BSD-2, JS, Vue
   - [tudbut/qft](https://github.com/tudbut/qft)
     - GPLv3, Rust
   - [psanford/wormhole-william](https://github.com/psanford/wormhole-william)
@@ -359,6 +357,14 @@ tags:
 - gist/pastebin
   - [thomiceli/opengist](https://github.com/thomiceli/opengist)
     - AGPLv3, Go
+  - [PrivateBin/PrivateBin](https://github.com/PrivateBin/PrivateBin)
+    - PHP
+  - [szabodanika/microbin](https://github.com/szabodanika/microbin)
+    - Rust
+  - [MaxLeiter/Drift](https://github.com/MaxLeiter/Drift)
+    - MIT, TS
+    - self-hostable Gist and paste service
+  - Pastebin.com
 - form/问卷调查系统/表单系统
   - [TDuckCloud/tduck-platform](https://github.com/TDuckCloud/tduck-platform)
   - [javahuang/surveyking](https://github.com/javahuang/surveyking)
@@ -423,9 +429,11 @@ tags:
   - [KRTirtho/spotube](https://github.com/KRTirtho/spotube)
     - BSD-4, Dart, Flutter
     - Open source Spotify client
-- Rental Property Management
+- Rental Property Management/租赁管理系统
   - https://gaiapm.com.hk/
   - https://www.landlordstudio.com/blog/best-rental-property-management-software
+- juge
+  - [judge0/judge0](https://github.com/judge0/judge0)
 - 商业
   - https://nino.app/
 

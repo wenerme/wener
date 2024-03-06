@@ -173,15 +173,22 @@ export N_PREFIX=$HOME/n
     - time-based scheduling, not interval-based scheduling
   - node-cron
   - cron
+  - [graphile-worker](./graphile-worker.md)
+    - PostgreSQL LISTEN/NOTIFY
   - [timgit/pg-boss](https://github.com/timgit/pg-boss)
+    - MIT, JS
+    - PostgreSQL SKIP LOCKED
+    - Queueing jobs in Node.js using PostgreSQL like a boss
   - [breejs/bree](https://github.com/breejs/bree)
-    - job scheduler
+    - scheduler with worker threads
   - [agenda/agenda](https://github.com/agenda/agenda)
     - mongodb
     - 独立服务
     - Lightweight job scheduling
   - [kibertoad/toad-scheduler](https://github.com/kibertoad/toad-scheduler)
-  - [SGrondin/bottleneck](https://github.com/SGrondin/bottleneck)
+    - MIT, TS
+    - In-memory Node.js and browser job scheduler
+  - ~~[SGrondin/bottleneck](https://github.com/SGrondin/bottleneck)~~
 - WebSocket
   - [ws](https://github.com/websockets/ws)
     - JS 实现

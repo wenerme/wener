@@ -4,6 +4,7 @@ title: Spring actuator
 
 # Spring actuator
 
+- actuator -> “执行器”或“监控指标”
 - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 
 ```ini

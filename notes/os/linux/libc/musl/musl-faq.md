@@ -1,42 +1,50 @@
 ---
-title: musl
+tags:
+  - FAQ
 ---
 
-# musl
+# MUSL FAQ
 
-:::caution
+- [Open Issues](https://wiki.musl-libc.org/open-issues.html)
+  - 不支持 LC_TIME
+  - 无 ucontext.h - obsolescent in POSIX.1-2001
+    - [makecontext](https://pubs.opengroup.org/onlinepubs/009695399/functions/makecontext.html#tag_03_356_08)
+    - [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
+      - glusterfs 不支持 musl
+    - [openssl#7406](https://github.com/openssl/openssl/issues/7406)
+      - 使用 no-async 绕过
+- 不支持 nsswitch
+  - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
+- 不支持 res_uinit
+  - asterisk 无法获取 nameserver
+- 无 fts
+- 其他软件兼容问题
+  - Golang runtime: c-shared builds fail with musllibc
+    [golang/go#13492](https://github.com/golang/go/issues/13492)
+    - 无法获取 argc, argv - 基于 glibc 扩展
+    - 导致
+      - FluentBit 插件不支持 AlpineLinux
+  - libasan 不支持 musl
+    [google/sanitizers#1080](https://github.com/google/sanitizers/issues/1080)
+  - glusterfs 不支持 musl [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
+- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
+  - 其他软件已知因为 musl 导致的 bug
 
-- malloc 大场景性能弱 - 性能要求高的场景使用 jemalloc 或 mimaloc
-- 不支持 utmp/wtmp - last,who,users 命令部分功能不可用
-  - 安全考虑、隐私考虑
-  - 需要实现 suid/sgid 修改 记录
-  - https://wiki.musl-libc.org/faq.html
+## malloc
 
-:::
+- musl 1.2.1 启用了重写的 malloc
+  - 2020-06
+- 参考
+  - https://andygrove.io/2020/05/why-musl-extremely-slow/
+  - https://pythonspeed.com/articles/alpine-docker-python/
+  - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/
 
-- [musl](https://musl.libc.org/) - MIT
-  - [FAQ](https://www.musl-libc.org/faq.html)
-- [与 glibc 的不同点](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
+## DNS
 
-## 环境变量
+- 目前已经支持 DNS over TCP，大部分 DNS 问题已经解决
+- musl libc 1.2.4 - tcp dns - 解决 udp dns 不能返回太多解析的问题
 
-| Env             | Used by                      | Note                                                      |
-| --------------- | ---------------------------- | --------------------------------------------------------- |
-| PATH            | execvp, execlp, posix_spawnp |
-| TZ              |                              | `stdoffset[dst[offset][,start[/time],end[/time]]` 或 名字 |
-| DATEMSK         | getdate                      |
-| PWD             | get_current_dir_name, getcwd |
-| LOGNAME         | getlogin                     |
-| LD_PRELOAD      | setuid, setgid 忽略          | dl 预加载动态库列表                                       |
-| LD_LIBRARY_PATH | setuid, setgid 忽略          | 动态库搜索目录列表                                        |
-
-- TZ 搜索目录
-  - /usr/share/zoneinfo
-  - /share/zoneinfo
-  - /etc/zoneinfo
-- [Environment Variables](https://wiki.musl-libc.org/environment-variables.html)
-
-## DNS 问题
+---
 
 resolv 不支持 dns over tcp/edns, 因此一次 resolve 最多返回 一个包，512 bytes，有时候解析会因此出现问题。
 
@@ -87,42 +95,6 @@ iptables -I OUTPUT 1 -p udp --dport 53 -j AAAA
 # drop 会导致超时 - 最好是返回 NXDATA 或者 NXDOMAIN
 iptables -A AAAA -m string --algo bm --from 40 --hex-string '|001c|' -j DROP
 ```
-
-## musl issues
-
-- [Open Issues](https://wiki.musl-libc.org/open-issues.html)
-  - 不支持 LC_TIME
-  - 无 ucontext.h - obsolescent in POSIX.1-2001
-    - [makecontext](https://pubs.opengroup.org/onlinepubs/009695399/functions/makecontext.html#tag_03_356_08)
-    - [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
-      - glusterfs 不支持 musl
-    - [openssl#7406](https://github.com/openssl/openssl/issues/7406)
-      - 使用 no-async 绕过
-- 不支持 nsswitch
-  - [pikhq/musl-nscd](https://github.com/pikhq/musl-nscd)
-- 不支持 res_uinit
-  - asterisk 无法获取 nameserver
-- 无 fts
-- 其他软件兼容问题
-  - Golang runtime: c-shared builds fail with musllibc
-    [golang/go#13492](https://github.com/golang/go/issues/13492)
-    - 无法获取 argc, argv - 基于 glibc 扩展
-    - 导致
-      - FluentBit 插件不支持 AlpineLinux
-  - libasan 不支持 musl
-    [google/sanitizers#1080](https://github.com/google/sanitizers/issues/1080)
-  - glusterfs 不支持 musl [glusterfs#268](https://github.com/gluster/glusterfs/issues/268)
-- [bugs-found-by-musl](https://wiki.musl-libc.org/bugs-found-by-musl.html)
-  - 其他软件已知因为 musl 导致的 bug
-
-## malloc performance
-
-- musl 1.2.1 启用了重写的 malloc
-  - 2020-06
-- 参考
-  - https://andygrove.io/2020/05/why-musl-extremely-slow/
-  - https://pythonspeed.com/articles/alpine-docker-python/
-  - https://www.linkedin.com/pulse/testing-alternative-c-memory-allocators-pt-2-musl-mystery-gomes/
 
 ## pthread_attr_setaffinity_np
 

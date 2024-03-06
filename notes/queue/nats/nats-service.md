@@ -8,19 +8,23 @@ tags:
 # NATS Service
 
 ```
-$SRV.<operation>
-$SRV.<operation>.<service_name>
-$SRV.<operation>.<service_name>.<service_id>
+$SRV.<verb>
+$SRV.<verb>.<name>
+$SRV.<verb>.<name>.<id>
 ```
 
 - https://github.com/nats-io/nats.deno/blob/main/nats-base-client/service.ts
-- 标准操作
-  - `$SRV.PING|STATS|INFO`
-- operation=method
+- verb - 标准操作
+  - `PING|STATS|INFO`
+  - operation=method
 - Group=相同的前缀
 - headers
   - Nats-Service-Error - 字符串描述
   - Nats-Service-Error-Code - 数字
+
+```bash
+nats --no-context -s wss://demo.nats.io:8443 sub --match-replies '$SRV.>'
+```
 
 ```ts
 // io.nats.micro.v1.info_response
@@ -200,4 +204,37 @@ test(
     timeout: 60_000,
   },
 );
+```
+
+## Explained
+
+- ServiceGroup
+  - addEndpoint
+  - addGroup
+- https://github.com/nats-io/nats.deno/blob/main/nats-base-client/service.ts
+
+```ts
+type NamedEndpoint = {
+  name: string;
+
+  /**
+   * Subject where the endpoint listens
+   */
+  subject: string;
+  /**
+   * An optional handler - if not set the service is an iterator
+   * @param err
+   * @param msg
+   */
+  handler?: ServiceHandler;
+  /**
+   * Optional metadata about the endpoint
+   */
+  metadata?: Record<string, string>;
+  /**
+   * Optional queue group to run this particular endpoint in. The service's configuration
+   * queue configuration will be used. See {@link ServiceConfig}.
+   */
+  queue?: string;
+};
 ```

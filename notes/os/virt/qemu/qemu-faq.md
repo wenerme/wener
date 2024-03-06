@@ -130,3 +130,33 @@ qemu-system-x86_64 \
 ```bash
 addgroup $USER kvm
 ```
+
+## 鼠标偏移
+
+```bash
+-device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-mouse -device usb-tablet -device usb-kbd
+```
+
+## usb
+
+**usb2.0**
+
+- 兼容性更好
+
+```
+-device usb-ehci,id=usb,bus=pci.0,addr=0x4
+```
+
+**usb3.0**
+
+```
+-device nec-usb-xhci,id=usb,bus=pci.0,addr=0x4
+```
+
+
+## TBD
+
+```
+no scancode found for keysym 1185
+no scancode found for keysym 65306
+```

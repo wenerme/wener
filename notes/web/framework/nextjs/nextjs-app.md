@@ -127,7 +127,7 @@ export async function generateStaticParams() {
 ```tsx title="layout.tsx"
 export default function RootLayout({ children, params }: { children: React.ReactNode; params?: any }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
         <title>Next.js</title>
       </head>
@@ -214,3 +214,37 @@ export default function NotFound() {
 - https://beta.nextjs.org/docs/app-directory-roadmap
 
 ## Only async functions are allowed to be exported in a "use server" file
+
+## middleware
+
+- [#34179](https://github.com/vercel/next.js/discussions/34179)
+  - 只能运行在 edge runtime
+  - 一般来说不能操作数据库
+- 不能 warp - 获取不到 响应
+
+```ts
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
+
+export async function middleware(req: NextRequest) {
+  const { url, method, nextUrl } = req;
+  console.log(`${method} ${nextUrl}`);
+  // let accessToken = request.cookies.get('access_token');
+  // if (!accessToken) {
+  //   return NextResponse.redirect(new URL('/auth/login', request.url));
+  // }
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
+};
+```

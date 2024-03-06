@@ -206,6 +206,9 @@ CBC, OFB and CFB are similar, however OFB/CFB is better because you only need en
 
 ## Scan
 
+- [future-architect/vuls](https://github.com/future-architect/vuls)
+  - GPLv3, Golang
+  - Agent-less vulnerability scanner for Linux, FreeBSD, Container, WordPress, Programming language libraries, Network devices
 - [robertdavidgraham/masscan](https://github.com/robertdavidgraham/masscan)
 - [projectdiscovery](https://github.com/projectdiscovery)
   - [nuclei](https://github.com/projectdiscovery/nuclei)

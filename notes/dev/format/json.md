@@ -51,16 +51,31 @@ title: JSON
 
 ## Diff
 
-- https://github.com/andreyvit/json-diff
-- http://www.jsondiff.com/
-- https://json-diff.com/
-- https://github.com/benjamine/jsondiffpatch/blob/master/docs/formatters.md
-- https://benjamine.github.io/jsondiffpatch
+- [benjamine/jsondiffpatch](- https://github.com/benjamine/jsondiffpatch)
+  - npm:jsondiffpatch
+  - https://github.com/benjamine/jsondiffpatch/blob/master/docs/formatters.md
+  - https://benjamine.github.io/jsondiffpatch
+- [andreyvit/json-diff](https://github.com/andreyvit/json-diff)
+  - MIT, CoffeeScript
+  - npm:json-diff
 - [google/diff-match-patch](https://github.com/google/diff-match-patch)
-- [Mendoza: Use stack machines to compute efficient JSON diffs](https://www.sanity.io/blog/mendoza)
-  - [HN](https://news.ycombinator.com/item?id=24943775)
+  - plain text
+- [trailofbits/graphtage](https://github.com/trailofbits/graphtage)
+  - LGPLv3, Python
+  - JSON, JSON5, XML, HTML, YAML, CSV
+- [sanity-io/mendoza](https://github.com/sanity-io/mendoza)
+  - MIT, Go
+  - [Mendoza: Use stack machines to compute efficient JSON diffs](https://www.sanity.io/blog/mendoza)
+    - [HN](https://news.ycombinator.com/item?id=24943775)
 - https://extendsclass.com/json-diff.html
-
+- [zgrossbart/jdd](https://github.com/zgrossbart/jdd)
+  - http://www.jsondiff.com/
+- https://json-diff.com/
+- [mattphillips/deep-object-diff](https://github.com/mattphillips/deep-object-diff)
+- [flitbit/diff](https://github.com/flitbit/diff)
+- [Starcounter-Jack/JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch)
+- [kpdecker/jsdiff](https://github.com/kpdecker/jsdiff)
+  - Text  Diff
 ## Command line tools
 
 - [antonmedv/fx](https://github.com/antonmedv/fx)

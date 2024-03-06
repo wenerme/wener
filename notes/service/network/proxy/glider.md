@@ -24,7 +24,6 @@ title: glider
 
 ```bash
 brew install glider
-
 ```
 
 ```ini

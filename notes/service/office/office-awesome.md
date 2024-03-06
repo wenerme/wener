@@ -23,9 +23,11 @@ tags:
 ## Library
 
 - Java
-  - apache poi
-  - [alibaba/easyexcel](https://github.com/alibaba/easyexcel)
+  - [apache/poi](https://github.com/apache/poi)
+    - Apache-2.0, Java
+    - reading and writing Microsoft Office binary and OOXML file formats
 - Javascript/NodeJS
+  - [xmldom/xmldom](https://github.com/xmldom/xmldom)
   - [exceljs/exceljs](https://github.com/exceljs/exceljs)
     - MIT, JS
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
@@ -43,7 +45,6 @@ tags:
     - Apache-2.0, JS
     - 不在 npm https://github.com/SheetJS/sheetjs/issues/2667
     - 开发也不在 Github 上了
-  - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
   - [foliojs](https://github.com/foliojs)
     - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
       - MIT, JavaScript
@@ -53,57 +54,97 @@ tags:
     - brotli.js
   - [mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
     - based on sheetjs
-- React Table
-  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
-    - MIT
-  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
-    - MIT, JS
-  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
 - Golang
-  - [qax-os/excelize](https://github.com/qax-os/excelize)
   - [unidoc/unioffice](https://github.com/unidoc/unioffice)
     - .docx, .xlsx, .pptx
 - PHP
   - [PHPOffice/PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
 - [FancyGrid/awesome-grid](https://github.com/FancyGrid/awesome-grid)
-- PDF
+- 应用
+  - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)
+    - personal finances
+
+## PDF
+
+- Javascript/TyepScript
   - [mozilla/pdf.js](https://github.com/mozilla/pdf.js)
     - Apache-2.0, Javascript
     - PDF Reader
+    - NPM pdfjs-dist @types/pdfjs-dist
     - [ZEISS/react-view-pdf](https://github.com/ZEISS/react-view-pdf)
+  - [modesty/pdf2json](https://github.com/modesty/pdf2json)
+    - Apache-2.0, JS
+    - 使用 @xmldom/xmldom
+- React
   - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
     - MIT, Javascript
     - Viewer
   - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
     - MIT, Javascript
     - Builder
-- 应用
-  - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)
-    - personal finances
 
-## Sheet
+## Sheet/Excel
 
-- [dream-num/Luckysheet](./luckysheet.md)
-- [ruilisi/fortune-sheet](./fortune-sheet.md)
-  - fork Luckysheet
-  - rewrite in ts
-  - 移除 jQuery，依赖 React/Vue + immer
-  - formula fork [handsontable/formula-parser](https://github.com/handsontable/formula-parser)
-    - @formulajs/formula-parser
-  - @fortune-sheet/core
-    - 1.6MB/375kB - @formulajs/formulajs, lodash, jstat
-  - @fortune-sheet/react
-- [sheetjs](./sheetjs.md)
-- [handsontable/handsontable](https://github.com/handsontable/handsontable)
-  - license 不允许商业产品使用
-- [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
-  - canvas
-  - -> [wolf-table/table](https://github.com/wolf-table/table)
-- [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
-  - MIT
-- [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
-- [nhn/tui.grid](https://github.com/nhn/tui.grid)
-- [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
+- Java
+  - [alibaba/easyexcel](https://github.com/alibaba/easyexcel)
+- Golang
+  - [qax-os/excelize](https://github.com/qax-os/excelize)
+- JS/TyepScript
+  - [sheetjs](./sheetjs.md)
+  - [dream-num/Luckysheet](./luckysheet.md)
+  - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
+    - Vue, React
+  - [handsontable/handsontable](https://github.com/handsontable/handsontable)
+    - license 不允许商业产品使用
+  - [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
+    - canvas
+    - -> [wolf-table/table](https://github.com/wolf-table/table)
+  - [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
+    - MIT
+  - [nhn/tui.grid](https://github.com/nhn/tui.grid)
+  - [LesterLyu/fast-formula-parser](https://github.com/LesterLyu/fast-formula-parser)
+    - MIT, JS
+    - 300kB,83kB
+    - Parse and evaluate MS Excel formula in javascript.
+  - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
+    - GPLv3, TS
+- React Table
+  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
+    - MIT
+  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
+    - MIT, JS
+  - [nick-keller/react-datasheet-grid](https://github.com/nick-keller/react-datasheet-grid)
+    - MIT, TS
+    - 数据为 对象数组
+    - 只支持 sticky right 列
+    - 不支持 sticky left
+    - 使用 @tanstack/react-virtual 作为虚拟滚动
+  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+    - MIT, TS
+    - 40kB/12kB
+    - 依赖的 fast-formula-parser 相对比较大
+    - 渲染表格内容部分
+    - 不支持: Pin, Frozen, Merge, Resize
+    - 数据为 matrix -  二维数组
+  - [blueprintjs/table](https://blueprintjs.com/docs/#table)
+  - [ruilisi/fortune-sheet](./fortune-sheet.md)
+    - fork Luckysheet
+    - rewrite in ts
+    - 移除 jQuery，依赖 React/Vue + immer
+    - formula fork [handsontable/formula-parser](https://github.com/handsontable/formula-parser)
+      - @formulajs/formula-parser
+    - @fortune-sheet/core
+      - 1.6MB/375kB - @formulajs/formulajs, lodash, jstat
+    - @fortune-sheet/react
+  - [silevis/reactgrid](https://github.com/silevis/reactgrid)
+    - MIT, TS
+    - 260kB/70kB
+    - 支持: 多人、填充、多选、Column Resize、Column Reorder、Sticky columns and rows、Group
+- https://en.wikipedia.org/wiki/Topological_sorting
+- 商业
+  - 葡萄城
+
+## Word/Doc
 
 ## LowCode DataTable
 

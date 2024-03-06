@@ -13,6 +13,8 @@ title: Linode
 
 :::
 
+- 中国大陆区域速度
+  - 最快 东京、新加坡、佛利蒙/Fremont
 - Nano - 1C1G, 25G, 1T $5/mo $0.0075/hr
 - Linode 2 GB - 1C2G, 50GB, 2T $10/mo $0.015
 - GPU

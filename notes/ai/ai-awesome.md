@@ -208,6 +208,7 @@ tags:
     - https://github.com/bbycroft/llm-viz
   - https://intro-llm.github.io/
     - 大规模语言模型：从理论到实践
+  - https://spreadsheets-are-all-you-need.ai
 - [tyxsspa/AnyText](https://github.com/tyxsspa/AnyText)
   - by Alibaba
 - [janhq/jan](https://github.com/janhq/jan)

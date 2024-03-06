@@ -5,15 +5,22 @@ title: 支付宝 云
 # 支付宝 云
 
 - AMPE - Alipay Mini-Program Engine - 支付宝小程序引擎
-- https://run.cloud.alipay.com/console
-  - 支付宝 小程序云
-- https://open.alipay.com/develop/manage
-  - 支付宝 开放平台
+- 参考
+  - https://run.cloud.alipay.com/console
+    - 支付宝 小程序云
+  - https://open.alipay.com/develop/manage
+    - 支付宝 开放平台
+  - https://opendocs.alipay.com/cloud/089qwo
+    - 什么是支付宝小程序云
+  - https://opendocs.alipay.com/mini/089c9g
+    - 小程序云 > 云开发 > 操作指南 > 环境管理 > 云调用
+  - https://opendocs.alipay.com/mini/089ca9
+    - 小程序云 > 云开发 > 开发指南 > NodeJS SDK > 开放能力 > 云调用 OpenAPI
 
 ```bash
-APPID=1234
-CLOUD_ID=
-docker tag mysvr registry.cloudrun.cloudbaseapp.cn/cloudrun-$APPID-prod/mysvr:v1.0.0
+APP_ID=1234
+CLOUD_ENV=prod
+docker tag mysvr registry.cloudrun.cloudbaseapp.cn/cloudrun-$APP_ID-$CLOUD_ENV/mysvr:v1.0.0
 ```
 
 - callContainer 调用服务
@@ -101,4 +108,16 @@ cpt cloudrun env list-eip # 获取对外请求的 IP - Egress IP
 cpt cloudrun service list # 服务
 # 部署
 cpt cloudrun deploy --env prod --service server --image registry.cloudrun.cloudbaseapp.cn/cloudrun-$APP_ID-$APP_ENV/$APP_SERVIE:latest
+```
+
+## faas-server-sdk
+
+```ts
+import Cloud from '@alipay/faas-server-sdk';
+const { CLOUD_ENV = 'prod' } = process.env;
+
+Cloud.init({
+  env: CLOUD_ENV,
+  timeout: 10000,
+});
 ```

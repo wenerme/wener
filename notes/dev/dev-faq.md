@@ -204,6 +204,21 @@ tags:
   - /health/live
   - /health/ready
 
+---
+
+- /ready, /readyz
+  - 是否准备好接受请求
+- /livez, /live
+  - alive/up and running
+- /health, /ping
+  - 通用的健康检查
+- /statusz
+  - 服务状态信息
+- /varz
+  - 内部变量和 metrics
+- /rpcz
+  - 一般是 RPC 统计
+
 ## 什么是边缘计算
 
 个人简单理解，Edge 就是 DataCenter 的反义词。

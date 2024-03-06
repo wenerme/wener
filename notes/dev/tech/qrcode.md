@@ -15,11 +15,13 @@ title: QrCode
   - [libdmtx](https://github.com/dmtx/libdmtx)
     - dmtxread
 - JS
+  - [mebjas/html5-qrcode](https://github.com/mebjas/html5-qrcode)
+    - cross platform HTML5 QR code reader
   - [@zxing/library](https://github.com/zxing-js/library)
     - 功能最多
     - NodeJS 需要 jimp 提取亮度通道
   - [nimiq/qr-scanner](https://github.com/nimiq/qr-scanner)
-    - 不能 NodeJS
+  - [Sec-ant/zxing-wasm](https://github.com/Sec-ant/zxing-wasm)
   - qrcode-reader
     - 很小
     - NodeJS 可直接用 jimp 数据

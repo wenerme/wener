@@ -5,6 +5,7 @@ title: univer
 # univer
 
 - [dream-num/univer](https://github.com/dream-num/univer)
+  - Apache-2.0, TS
 - 旧的项目 ~~[mengshukeji/luckysheet](https://github.com/mengshukeji/luckysheet)~~
   - MIT, JS+jQuery
   - 2.9MB/606kB
@@ -12,6 +13,8 @@ title: univer
   - xlsx 转 luckysheet
   - 目前 **不支持导出** - [mengshukeji/Luckyexcel#16](https://github.com/mengshukeji/Luckyexcel/issues/16)
     - 可基于 exceljs 自行导出 [参考](https://github.com/oy-paddy/luckysheet-vue-importAndExport/blob/master/src/components/export.js)
+
+## luckysheet
 
 :::caution
 
