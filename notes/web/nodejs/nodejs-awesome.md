@@ -286,6 +286,9 @@ export N_PREFIX=$HOME/n
       - https://www.twilio.com/docs/twilio-cli
 - CLI Helper/terminal ui/tui/prompt
   - [chalk](https://github.com/chalk/chalk)
+    - Color
+  - [larswaechter/voici.js](https://github.com/larswaechter/voici.js)
+    - Print table
   - execa
   - winston
     - logging

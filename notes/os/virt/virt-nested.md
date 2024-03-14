@@ -4,9 +4,15 @@ title: 嵌套虚拟化
 
 # 嵌套虚拟化
 
+- VMCS shadowing
+  - VMCS - virtual machine control structure
+  - 2013 intel Haswell 硬件加速
+- [Nested virtualization](https://en.wikipedia.org/wiki/Nested_virtualization)
+
 ## KVM
-* [Nested Guests](https://www.linux-kvm.org/page/Nested_Guests)
-  * 当启动了嵌套虚拟机后，在未关闭嵌套的虚拟机之前，上层虚拟机无法迁移、保存、加载
+
+- [Nested Guests](https://www.linux-kvm.org/page/Nested_Guests)
+  - 当启动了嵌套虚拟机后，在未关闭嵌套的虚拟机之前，上层虚拟机无法迁移、保存、加载
 
 ```bash
 # intel
@@ -23,11 +29,12 @@ modprobe kvm_intel -r
 ```
 
 ## HyperV
-* 要求
-  * Windows Server 2016+, Windows 10+
-  * Hyper-V VM 8+
-  * Intel VT-x,EPT
-  * AMD 目前不支持
+
+- 要求
+  - Windows Server 2016+, Windows 10+
+  - Hyper-V VM 8+
+  - Intel VT-x,EPT
+  - AMD 目前不支持
 
 ```powershell
 # ExposeVirtualizationExtensions 表示是否开启
@@ -36,5 +43,5 @@ Get-VMProcessor -VMName vm_name | fl *
 Set-VMProcessor -VMName vm_name -ExposeVirtualizationExtensions $true
 ```
 
-* 参考
-  * [Hyper-V Nested Virtualization Explained](https://www.nakivo.com/blog/hyper-v-nested-virtualization-explained)
+- 参考
+  - [Hyper-V Nested Virtualization Explained](https://www.nakivo.com/blog/hyper-v-nested-virtualization-explained)

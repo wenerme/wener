@@ -37,13 +37,13 @@ npm add -D @remix-run/dev
 npx create-remix@latest
 ```
 
+## routes
+
 - app/root.tsx - 顶层 layout
 - 路由规则 app/routes
 - `SEGMENT.tsx` 或 目录 `SEGMENT/_index.tsx`
 - `A.B.tsx` 或者 `A/B.tsx`
 - `$var` - 路径上变量
-- https://remix.run/docs/en/main/file-conventions/routes
-- https://interactive-remix-routing-v2.netlify.app/
 - exports - Route Module
   - loader - 在 GET 请求时执行
   - action - 在 DELETE, PATCH, POST, PUT 请求时执行
@@ -91,6 +91,12 @@ export default function Projects() {
 }
 ```
 
+**参考**
+
+- https://remix.run/docs/en/main/discussion/routes
+- https://remix.run/docs/en/main/file-conventions/routes
+- https://interactive-remix-routing-v2.netlify.app/
+
 ## remix.config.js
 
 - https://remix.run/docs/en/main/file-conventions/remix-config
@@ -98,4 +104,3 @@ export default function Projects() {
 ## vite
 
 - https://github.com/remix-run/remix/tree/main/templates/unstable-vite
-

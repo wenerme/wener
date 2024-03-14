@@ -6,6 +6,11 @@ tags:
 
 # GraphQL FAQ
 
+```bash
+# 服务端 常用依赖
+pnpm add graphql graphql-scalars
+```
+
 ## Apollo vs Relay vs URQL
 
 - [URQL](https://github.com/FormidableLabs/urql)

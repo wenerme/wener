@@ -279,19 +279,6 @@ tags:
 - [api-platform/api-platform](https://github.com/api-platform/api-platform)
   - Create REST and GraphQL APIs, scaffold Jamstack webapps, stream changes in real-time.
 
-## 管理 {#management}
-
-- [YMFE/yapi](https://github.com/YMFE/yapi)
-  - YMFE 去哪儿网
-  - 商业产品 apifox
-- [thx/rap2-delos](https://github.com/thx/rap2-delos)
-  - http://rap2.taobao.org/
-- [thx/RAP](https://github.com/thx/RAP)
-- [sx1989827/DOClever](https://github.com/sx1989827/DOClever)
-- https://www.eolinker.com/
-- https://www.getpostman.com/
-- https://paw.cloud/
-- [RecipeUI/RecipeUI](https://github.com/RecipeUI/RecipeUI)
 
 ## Doc
 
@@ -305,11 +292,21 @@ tags:
 - [syroegkin/swagger-markdown](https://github.com/syroegkin/swagger-markdown)
   - 只支持 v2
 
-## Tool
+## API IDE/Client
 
+- [usebruno/bruno](https://github.com/usebruno/bruno)
+  - MIT, JS, TS
+  - ightweight alternative to postman/insomnia
+  - 自定义的 [bru](https://www.usebruno.com/bru) 格式
+    - https://www.brulang.org/
+    - [Why bru](https://github.com/usebruno/bruno/discussions/360)
+  - 通过 Desktop APP、CLI、VSC Extension
+  - HN https://news.ycombinator.com/item?id=39653718
+  - [vs Postman](https://www.usebruno.com/compare/bruno-vs-postman)
 - [Hoppscotch](./hoppscotch.md)
   - MIT, Vue+Typescript
   - 不能持久化
+  - 支持 OpenAPI, GraphQL
 - [Kong/insomnia](https://github.com/Kong/insomnia)
   - MIT, JS+TS
   - GraphQL, REST, WebSockets, gRPC
@@ -319,12 +316,31 @@ tags:
   - self-hosted, collaborative API development environment
 - SoapUI
 - [kubeshop/tracetest](https://github.com/kubeshop/tracetest)
-- Postman
 - [mquan/api2ai](https://github.com/mquan/api2ai)
   - Create API agents from OpenAPI Specs
 - [ShishirPatil/gorilla](https://github.com/ShishirPatil/gorilla)
   - API store for LLMs
-
+- Markup
+  - bru
+  - JB [HTTP Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html)
+  - [Orange-OpenSource/hurl](https://github.com/Orange-OpenSource/hurl)
+    - https://hurl.dev/
+- Testing
+  - [stepci/stepci](https://github.com/stepci/stepci)
+    - MPLv2, TS
+    - Automated API Testing and Quality Assurance
+- 商业
+  - https://www.eolinker.com/
+  - [Postman](https://www.getpostman.com/)
+  - https://paw.cloud/
+- [YMFE/yapi](https://github.com/YMFE/yapi)
+  - YMFE 去哪儿网
+  - 商业产品 apifox
+- [thx/rap2-delos](https://github.com/thx/rap2-delos)
+  - http://rap2.taobao.org/
+- [thx/RAP](https://github.com/thx/RAP)
+- [sx1989827/DOClever](https://github.com/sx1989827/DOClever)
+- [RecipeUI/RecipeUI](https://github.com/RecipeUI/RecipeUI)
 ## Codegen
 
 - [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)

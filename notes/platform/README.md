@@ -27,6 +27,9 @@ title: 平台
 - https://status.digitalocean.com/
 - https://status.linode.com/
 - https://status.heroku.com/
+- Apple
+  - https://developer.apple.com/system-status/
+  - https://www.apple.com/support/systemstatus/
 
 ## Activity
 

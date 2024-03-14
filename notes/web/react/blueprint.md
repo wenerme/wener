@@ -1,5 +1,7 @@
 ---
 title: BlueprinrJS
+tags:
+  - Design System
 ---
 
 # BlueprinrJS

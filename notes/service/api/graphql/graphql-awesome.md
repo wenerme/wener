@@ -35,6 +35,47 @@ tags:
 - [TAO: The power of the graph](https://engineering.fb.com/2013/06/25/core-data/tao-the-power-of-the-graph/)
 - [howtographql](https://github.com/howtographql/howtographql)
 
+## 决策 {#decision}
+
+- Code first or GraphQL Schema first
+  - Code - Code to Schema
+    - 可读性好，但是需要手动维护，可以复用现有代码
+  - Schema - Schema to Code
+    - 生成很多代码，可读性交较差，但是可以快速搭建原型
+- 动态Schema vs 静态Schema
+  - 动态
+    - 可以根据租户自定义 - 类似动态 CMS
+    - 可以根据角色自定义 - conditional schema
+  - 静态
+    - 可以手写
+    - 可以一次性生成
+- DB Schema first or Entity first
+  - DB Schema
+    - 更好的掌控数据库结构
+    - 更好的利用数据库特性
+  - Entity
+    - 可能考虑支持多数据库
+- Prototype 阶段 还是 Production 阶段
+  - Prototype
+    - DB -> GraphQL - 只是做简单的接口封装
+  - Production
+    - 要求 DB 设计合理
+    - DB Schema first
+    - 预留扩展
+- 是否需要 类型安全
+  - 影响怎么做 schema builder
+  - 什么程度的 类型安全
+    - 全局
+    - 输入输出校验
+  - 一定程度增加 维护
+  - 一定程度增加 写代码 的难度
+- 是否需要 subscriptions
+  - 要求感知 修改
+- 是否需要 federation/gateway
+- 是否需要 dataloader
+- 是否需要 relay
+  - Node, Connection, clientMutationId
+
 ## 设计 {#design}
 
 - [GraphQL 最佳实践](https://graphql.org/learn/best-practices)
@@ -89,7 +130,6 @@ tags:
   - [Khan/genqlient](https://github.com/Khan/genqlient)
     - type-safe Go GraphQL client
 - Typescript
-  - [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
   - [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
     - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
     - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
@@ -124,18 +164,19 @@ tags:
   - graphql
     - GraphQLSchema
 - Schema/TypeScript Code First
-  - [MichalLytek/type-graphql](https://github.com/MichalLytek/type-graphql)
+  - [MichalLytek/type-graphql](./type-graphql.md)
     - MIT, Typescript
     - 注解/修饰器 方式
-    - 功能很好，开发不足
-  - [hayes/pothos](https://github.com/hayes/pothos)
+  - [hayes/pothos](./pothos.md)
     - ISC, Typescript
     - @pothos/core
     - 强类型，类似 zod 方式构建 schema
     - infer 推导类型
+    - ⚠️ 写起来有些繁琐
   - [graphql-nexus/nexus](https://github.com/graphql-nexus/nexus)
     - MIT, Typescript
     - nexus
+    - ⚠️ 开发不活跃
     - 通过代码生成，确保类型
 - [IvanGoncharov/graphql-faker](https://github.com/IvanGoncharov/graphql-faker)
   - mock graphql
@@ -149,8 +190,10 @@ tags:
 > Server, Federation, Gateway, Adapter
 
 - NodeJS
-  - [apollographql/apollo-server]
   - [graphql-yoga](./graphql-yoga.md)
+    - 👍 适合各种场景，支持不同的 schema 构建方式
+    - 简单轻量
+  - [apollographql/apollo-server]
   - [graphile/postgraphile](https://github.com/graphile/postgraphile)
     - PostgreSQL -> GraphQL
   - [zalando-incubator/graphql-jit](https://github.com/zalando-incubator/graphql-jit)
@@ -170,6 +213,8 @@ tags:
 - [ent/ent](https://github.com/ent/ent)
 - [Apollo Federation specification](https://www.apollographql.com/docs/federation/federation-spec/)
 - [hasura/graphql-engine](https://github.com/hasura/graphql-engine)
+- [dosco/graphjin](https://github.com/dosco/graphjin)
+  - Apache-2.0, Go
 - [parse-community/parse-server](https://github.com/parse-community/parse-server)
 - [dgraph-io/dgraph](https://github.com/dgraph-io/dgraph)
 - [directus/directus](https://github.com/directus/directus)

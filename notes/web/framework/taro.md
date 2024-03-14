@@ -31,7 +31,8 @@ npm install -g @tarojs/cli
 # npm install -g mirror-config-china
 
 # npx -y @tarojs/cli init my-app
-taro init my-app
+# taro init my-app
+npx -y @tarojs/cli init --name my-app --typescript --description ''
 
 cd my-app
 

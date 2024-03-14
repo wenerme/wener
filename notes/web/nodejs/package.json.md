@@ -1,16 +1,19 @@
 ---
 title: package.json
 files:
-- package.json
+  - package.json
 ---
 
 # package.json
 
 - 参考
+  - [stereobooster/package.json](https://github.com/stereobooster/package.json)
+    - package.json fields explained
+  - npm [package.json](https://docs.npmjs.com/cli/v10/configuring-npm/package-json)
+  - pnpm [package.json](https://pnpm.io/package_json)
   - https://nodejs.org/api/packages.html
   - https://nodejs.org/api/packages.html#packages_package_entry_points
   - https://webpack.js.org/guides/package-exports
-  - https://github.com/stereobooster/package.json
   - https://unpkg.com/browse/antd/package.json
   - jsnext:main [jsforum/jsforum#5](https://github.com/jsforum/jsforum/issues/5)
   - style,sass [twbs/bootstrap#12441](https://github.com/twbs/bootstrap/pull/12441)
@@ -218,8 +221,8 @@ import '#dep';
   - pnpm
 - `pnp:`
   - yarn plug & play
-- alias  - `<alias>@npm:<name>`
- - `lodash1@npm:lodash@1`
+- alias - `<alias>@npm:<name>`
+- `lodash1@npm:lodash@1`
 - `git+{url}.git`
 - `<protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]`
   - GIT_ASKPASS
@@ -257,7 +260,6 @@ npm install gist/gist_id
 ```
 
 - https://docs.npmjs.com/cli/v8/commands/npm-install
-
 
 ## resolve
 

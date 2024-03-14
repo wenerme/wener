@@ -12,10 +12,12 @@ tags:
   - [vs Git](https://fossil-scm.org/home/doc/trunk/www/fossil-v-git.wiki)
   - [whynotgit](https://www.sqlite.org/whynotgit.html)
 - Hosted
-  - gitee
-  - [github](./github.md)
+  - [github](./github/README.md)
   - gitee
     - CI/CD Jenkins,GiteeGo
+  - [gitlab](./gitlab/README.md)
+  - bitbucket
+  - Sourcehut
   - [coding](./coding.md)
     - 腾讯
     - CI/CD Jenkins
@@ -32,16 +34,18 @@ tags:
     - SLOC trend
     - https://code.onedev.io/
   - [gitlab](./gitlab/README.md)
-    - 非常重
-  - [gitea](./gitea.md)
+    - 非常重，不建议
+  - [gitea](./gitea/README.md)
     - 轻量级
     - 内置 package
-    - 无 CI/CD - 可外置 drone
+    - [gitea action](./gitea/gitea-action.md)
+    - fork Gogs 继续开发
   - gogs
+    - 开发停滞，治理不好
   - [gitness](https://github.com/harness/gitness)
     - Apache-2.0, Golang
     - by Harness
-    - Drone 参考重命名为了 gitness
+    - Drone Code 重命名为了 gitness
     - Drone 3.0 ~-> Drone+/Code
     - https://news.ycombinator.com/item?id=37598082
       - Harness 名声不太好

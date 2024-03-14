@@ -13,6 +13,7 @@ tags:
 
 | zh           | en                                             | note                               |
 | ------------ | ---------------------------------------------- | ---------------------------------- |
+| 个体户       | self-employed                                  | 个体工商户，个体经营               |
 | 个体工商户   | privately or individually-owned business       |
 | 个体工商户   | Individual Industrial and Commercial Household |
 | 个体工商户   | Individual business                            | 国务院法制办公室《民法通则》英译本 |

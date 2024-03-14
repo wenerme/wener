@@ -1,7 +1,7 @@
 ---
 title: mDNS 服务定义
 commands:
-- dns-sd
+  - dns-sd
 ---
 
 # mDNS 服务定义
@@ -115,3 +115,38 @@ avahi-browse _ssh._tcp -tr
 | type                    | port | txt           |
 | ----------------------- | ---- | ------------- |
 | `_prometheus-http._tcp` | 9100 | path=/metrics |
+
+## leboremote
+
+- `_leboremote._tcp`
+- HappyCast
+- lebo - 乐播投屏 https://www.lebo.cn/
+- 小米电视
+
+| key         | value                      |
+| ----------- | -------------------------- |
+| omd         | Andlink                    |
+| a           | 10088                      |
+| hstv        | 320.00                     |
+| hmd         | HappyCast3.2               |
+| etv         | 1                          |
+| atv         | 0                          |
+| htv         | 1                          |
+| vv          | 2                          |
+| appInfo     | 0                          |
+| ver         | 2.0                        |
+| u           | 10000633013734             |
+| packagename | com.xiaomi.mitv.smartshare |
+| lebofeature | 255                        |
+| feature     | 255                        |
+| channel     | LEBO-APK--60033-23516      |
+| mirror      | 7100                       |
+| devicemac   | MAC                        |
+| lelinkport  | 52266                      |
+| remote      | 52266                      |
+| airplay     | 52266                      |
+| raop        | 52266                      |
+| h           | 1080                       |
+| w           | 1920                       |
+| version     | 3.2                        |
+| port        | 53388                      |

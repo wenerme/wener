@@ -57,17 +57,27 @@ title: App Layout
 └─ 📂 path
 ```
 
+## 文件命名约定 {#file-conventions}
+
 - `src/app/`
   - page.tsx - 页面内容
   - layout.tsx
     - 布局 - Root 布局必须存在
     - 替代 `_app.js`, `_document.js`
+    - 没有 searchParams
+    - 不应该添加 `<head>`, 使用 metadata API
+    - 支持多个分组布局 - 会导致整页刷新
+      - `app/(shop)/layout.js`
+      - `app/(marketing)/layout.js`
   - template.tsx - 模板
     - 类似 layout 但不会持续存在
   - head.tsx - head 标签内容 - title,meta,link,script
   - loading.tsx - Suspense, Loading 时显示的内容
   - error.tsx
   - not-found.tsx
+- https://nextjs.org/docs/app/api-reference/file-conventions
+
+## config
 
 ```tsx
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'

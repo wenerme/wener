@@ -7,8 +7,13 @@ title: NATS
 :::tip
 
 - 支持 JetStreaming
-- 支持 WebSocket
+- 支持 WebSocket - 能够利用 HTTP 基础设施
 - 支持 JWT Auth
+- 支持 Auth Resolver - 通过 nats service 监听实现自定义 auth
+- 支持 Group Consumer
+- 支持 RPC -> Load Balance - Request/Reply
+- 支持 KV
+- 支持 ObjectStore
 
 :::
 

@@ -69,3 +69,26 @@ Docker 环境，非 root
   - adopted by Netflix、Amazon Prime Video
 - https://www.widevine.com/
 - https://support.mozilla.org/en-US/kb/enable-drm
+- https://www.freshports.org/www/linux-widevine-cdm/
+
+## Chrome vs Chromium
+
+- Chromium
+  - BSD-3 - 开源
+  - 更新频繁
+  - 不支持 DRM
+    - https://www.freshports.org/www/linux-widevine-cdm/
+  - 只包含基本编码: Opus, Theora, Vorbis, VP8, VP9, WAV
+    - **可能是最大的影响**
+    - https://www.chromium.org/audio-video/
+    - http://hpr.dogphilosophy.net/test/
+- Chrome
+  - Google Chrome - 商业产品
+  - 分三个版本: Stable, Beta/Canary, Dev
+  - **DRM** - 支持 Netflix, Amazon Prime Video
+  - 支持更多编码: AC, H.264, MP3,
+  - 额外内容
+    - [can i use format](https://caniuse.com/?search=format)
+    - 自动更新功能
+    - 用户跟踪
+    - 安全检测

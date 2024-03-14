@@ -1,9 +1,13 @@
 ---
 title: Prisma
+tags:
+- Legacy
 ---
 
 # Prisma
 
+- [prisma/prisma](https://github.com/prisma/prisma)
+  - Apache-2.0, TS
 - 注意
   - 生成的客户端只能服务端执行 [#3142](https://github.com/prisma/prisma/issues/3142)
     - 浏览器端只能通过 GraphQL 使用

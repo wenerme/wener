@@ -5,6 +5,8 @@ title: Astro
 # Astro
 
 - [snowpackjs/astro](https://github.com/snowpackjs/astro)
+  - web framework for content-driven websites
+  - 支持非常多的框架: React, Preact, Svelte, Vue, Solid, Lit, AlpineJS
   - 静态站点生成+动态集成能力
   - 支持集成各种框架
   - .astro 一种组件格式，面向静态站点生成

@@ -34,15 +34,15 @@ title: React Hook Form
 :::
 
 ```tsx
-const MyForm: React.FC<{onSubmit; defaultValue}> = ({onSubmit, defaultValue}) => {
-  const formMethods = useForm({mode: 'onBlur', defaultValues: defaultValue});
-  const {register, handleSubmit} = formMethods;
+const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }) => {
+  const formMethods = useForm({ mode: 'onBlur', defaultValues: defaultValue });
+  const { register, handleSubmit } = formMethods;
   return (
     <FormProvider {...formMethods}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('name')} />
-        <input type="number" {...register('age')} />
-        <button type="submit">Submit</button>
+        <input type='number' {...register('age')} />
+        <button type='submit'>Submit</button>
       </form>
     </FormProvider>
   );
@@ -58,8 +58,24 @@ const MyForm: React.FC<{onSubmit; defaultValue}> = ({onSubmit, defaultValue}) =>
 - FormProvider 使用了 React.Context, 导致 form 状态变化会 rerender
 - useForm
   - 返回的是内部 `_formControl`
-    - formState 会代理
-      - 代理记录 validation
+- formState
+  - 注意
+    - 会被代理 - 返回 Proxy 的对象，用于 subscribe
+    - useEffect 需要将 formState 作为依赖
+    - 取值时不要加 condition - 会导致未订阅的值不会更新
+  - isDirty - 和 defaultValues 比较
+  - dirtyFields
+  - touchedFields
+  - defaultValues
+  - isSubmitted - reset 会设置为 false
+  - isSubmitSuccessful
+  - isSubmitting
+  - isLoading - defaultValues 可以为 async 函数
+  - submitCount
+  - isValid
+  - isValidating
+  - validatingFields
+  - errors
 
 ---
 

@@ -395,3 +395,8 @@ interface Cursor {
 ```
 where id ${direction === 'asc' ? '>' : '<'} ${id}
 ```
+
+## Naming
+
+- Pagination
+- PaginationInfo

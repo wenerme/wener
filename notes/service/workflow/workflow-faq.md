@@ -74,3 +74,18 @@ tags:
 
 - https://docs.temporal.io/docs/cadence-to-temporal/
 - [Temporal vs Cadence](https://stackoverflow.com/questions/61157400)
+
+## Flow+Step vs Single Form
+
+- Single Form - 单个表单
+  - 单个 Form 也能记录整个服务流程 - 服务请求、服务过程、服务结果
+  - 实现简单 - 使用一个大的 JSON 即可记录所有信息
+  - 在原型阶段，或者临时性较强的业务非常适用
+- Flow Step - 流程步骤
+  - 业务逻辑的服务流程步骤 对应 设计的流程步骤
+  - 要求业务逻辑相对标准
+  - 利于流程控制
+    - 权限、分工
+    - 通知
+    - 异常处理
+    - 操作规范

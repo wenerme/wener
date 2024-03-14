@@ -47,9 +47,15 @@ PORTLAND OR 97253-1776
 
 ## Random Address
 
+- https://www.meiguodizhi.com/
 - https://codebeautify.org/random-street-address
 - https://www.randomlists.com/new-york-addresses
-
+- 免税州
+  - 蒙大拿州（Montana）
+  - 俄勒冈州（Oregon）
+  - 阿拉斯加州（Alaska）
+  - 特拉华州（Delaware）
+  - 新罕布什尔州（New Hampshire）
 # FAQ
 
 - Wifi Calling -> WLAN Calling

@@ -26,6 +26,21 @@ tags:
 
 常见的股票指数主要反映特定股票市场或股票市场部分的表现，以下是一些全球知名的股票指数：
 
+## Bank
+
+- SwiftCode/BIC
+  - 国际银行账号识别码，用于国际交易。
+  - [SWIFT](https://www.swift.com/)
+  - [BIC](https://en.wikipedia.org/wiki/ISO_9362)
+- RoutingNumber/SortCode
+  - 用于美国和英国的银行账号识别码。
+- IBAN - International Bank Account Number
+  - [IBAN](https://en.wikipedia.org/wiki/International_Bank_Account_Number)
+  - [IBAN](https://www.iban.com/)
+- Account Type
+  - 储蓄账户、支票账户、商业账户
+- ABA - American Bankers Association
+
 ## 股票指数
 
 - 美国

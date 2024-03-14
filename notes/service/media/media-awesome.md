@@ -16,9 +16,31 @@ tags:
   - [termusic](https://github.com/tramhao/termusic)
 - [MusicPlayerDaemon](./player/mpd.md)
 
+## Metadata
+
+- Audio/Music
+  - [taglib/taglib](https://github.com/taglib/taglib)
+    - https://taglib.org/
+    - TagLib Audio Meta-Data Library
+- Anime
+  - https://anidb.net/
+    - https://anidb.net/group/15631
+- Movie & Shows
+  - https://www.imdb.com/interfaces/
+  - openmovie
+  - TMDB https://www.themoviedb.org/documentation/api
+- Subtitles
+  - opensubtitle
+  - https://www.media.io/
+- Artwork
+  - Discogs https://www.discogs.com/
+  - Cover Art Archive https://coverartarchive.org/
+
 ## Music Server
 
 - [navidrome/navidrome](https://github.com/navidrome/navidrome)
+  - GPLv3, Go
+  - Modern Music Server and Streamer compatible with Subsonic/Airsonic
 - [owntone/owntone-server](./server/owntone.md)
   - GPLv2, C+Vue
   - 🌟 推荐 - WebUI, 支持较多客户端
@@ -43,8 +65,6 @@ tags:
 - [nukeop/nuclear](https://github.com/nukeop/nuclear)
   - AGPLv3, TS
   - Streaming music player that finds free music for you
-- [navidrome/navidrome](https://github.com/navidrome/navidrome)
-  - GPL-3.0, Go
 - [airsonic-advanced/airsonic-advanced](https://github.com/airsonic-advanced/airsonic-advanced)
   - GPL-3.0, Java
 - [mpache/ampache](https://github.com/ampache/ampache)
@@ -53,6 +73,10 @@ tags:
   - Ogg Vorbis and MP3 streaming media server
 - Gerbera
   - UPnP media server
+- Subsonic
+- Airsonic
+- [ironsmile/euterpe](https://github.com/ironsmile/euterpe)
+  - GPLv3, Go
 
 ## Media Server
 
@@ -337,21 +361,6 @@ for i in *.mkv; do mkvpropedit $i -d title; done
 for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
 ```
 
-## Metadata
-
-- Anime
-  - https://anidb.net/
-    - https://anidb.net/group/15631
-- Movie & Shows
-  - https://www.imdb.com/interfaces/
-  - openmovie
-  - TMDB https://www.themoviedb.org/documentation/api
-- Subtitles
-  - opensubtitle
-  - https://www.media.io/
-- Artwork
-  - Discogs https://www.discogs.com/
-  - Cover Art Archive https://coverartarchive.org/
 
 ## Protocol
 
@@ -373,3 +382,9 @@ for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
 
 - [AaronFeng753/Waifu2x-Extension-GUI](https://github.com/AaronFeng753/Waifu2x-Extension-GUI)
   - 图片放大
+
+## Awesome
+
+- [CoderLine/alphaTab](https://github.com/CoderLine/alphaTab)
+  - MPL-2.0, TS
+  - cross platform music notation and guitar tablature rendering

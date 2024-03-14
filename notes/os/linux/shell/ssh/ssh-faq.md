@@ -43,6 +43,11 @@ from="192.168.1.10",command="/usr/bin/ls" ssh-rsa XXX
 
 不允许 PortForward，需要开启
 
+```
+Match User admin
+    AllowTcpForwarding yes
+```
+
 ## 端口转发
 
 - -L/LocalForward 本地转发

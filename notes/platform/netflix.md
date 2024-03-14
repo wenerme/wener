@@ -110,4 +110,6 @@ curl http://api-global.netflix.com/apps/applefuji/config
 - 其他服务的检测方式
   - https://github.com/jinwyp/one_click_script/blob/master/netflix_check.sh
   - https://github.com/sjlleo/netflix-verify
-- 地区内容 https://unogs.com/countrydetail
+- 地区内容
+  - https://unogs.com/countrydetail
+  - https://www.tvguide.com/

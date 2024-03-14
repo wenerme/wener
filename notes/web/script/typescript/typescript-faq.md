@@ -108,12 +108,40 @@ const identity = <T,>(arg: T): T => arg;
 
 ## Path alias
 
-```json
+- 推荐 `@/*` -> `src/*`
+  - 简单好配置
+  - 适用于大多场景
+- 尽量保持使用相同的 alias 位置，让代码夸项目粘贴复制方便
+
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+```ts title="vite.config.ts"
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    alias: {
+      '@/': new URL('./src/', import.meta.url).pathname,
+    },
+  },
+});
+```
+
+```json title=".swcrc"
+{
+  "jsc": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["@/*"]
     }
   }
 }

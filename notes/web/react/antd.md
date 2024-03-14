@@ -1,8 +1,12 @@
 ---
 title: Ant Design
+tags:
+  - Design
+  - Design System
 ---
 
 # Ant Design
+
 - [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
   - 丰富强大的组件库
 
@@ -50,7 +54,6 @@ npm add antd
   - 依赖
     - [clauderic/dnd-kit](https://github.com/clauderic/dnd-kit)
 
-
 # Versions
 
 | version             | date       |
@@ -77,7 +80,6 @@ npm add antd
   - WaterMark, Tour, QrCode, Floating Button
 - [#33862](https://github.com/ant-design/ant-design/issues/33862)
 - https://kitchen.alipay.com/
-
 
 ## antd mobile v5
 

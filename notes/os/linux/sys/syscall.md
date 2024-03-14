@@ -4,13 +4,59 @@ title: syscall
 
 # syscall
 
+- Ring 0 - 内核态
+  - 初始化中断或异常处理机制
+  - 代码可以直接访问硬件、管理内存和执行CPU的所有指令集
+  - 内核和驱动程序
+- Ring 1 & Ring 2 - 很少使用 - 例如 驱动程序
+- Ring 3 - 用户态
+  - 不能直接访问硬件或执行某些敏感的CPU指令
+  - 通过 系统调用/syscall 访问内核态
+
+---
+
+- 汇编指令
+  - x86 `int 0x80`
+    - IDT - Interrupt Descriptor Table - 中断描述符表
+    - 0x80 - 0x85
+    - `lidt` - load IDT
+  - x86-64 `syscall`
+    - MSR - Model Specific Register - 模型特定寄存器
+    - `rdmsr` - read MSR
+    - `wrmsr` - write MSR
+  - arm `swi 0` - software interrupt
+  - aaarch64 `svc #0` - supervisor call
+- 当 linux 完成 init 之后 syscall 就是唯一的用户态和内核态交互方式
+  - 设置系统调用表
+    - `arch/x86/include/generated/uapi/asm/unistd_64.h` - 调用号
+    - `arch/x86/entry/syscalls/syscall_64.tbl`
+  - 初始化中断或异常处理机制
+  - 配置用户空间到内核空间的切换
+
+:::tip
+
+- 大多数应用通过 libc 的封装调用 syscall
+  - 例如 `write`, `read` 而不是 `syscall(SYS_write, 1, "Hello, world!\n", 14)`
+  - 大多动态依赖 libc - 引入环境依赖
+  - 不少应用可通过静态链接 musl 来避免依赖 libc
+- Golang 是直接调用 syscall - https://pkg.go.dev/syscall
+  - 不依赖 libc - 跨平台
+  - 静态编译
+
+:::
+
+```c
+// SYS_write=1
+syscall(SYS_write, 1, "Hello, world!\n", 14);
+```
+
 ```bash
 ausyscall 2 # open
 ausyscall --dump
 ```
 
-|   N | name                    |
-| --: | ----------------------- |
+|   N | name                    | note                    |
+| --: | ----------------------- | ----------------------- |
 |   0 | read                    |
 |   1 | write                   |
 |   2 | open                    |
@@ -323,12 +369,12 @@ ausyscall --dump
 | 309 | getcpu                  |
 | 310 | process_vm_readv        |
 | 311 | process_vm_writev       |
-| 312 | kcmp                    |
+| 312 | kcmp                    | Kernel Samepage Merging |
 | 313 | finit_module            |
 | 314 | sched_setattr           |
 | 315 | sched_getattr           |
 | 316 | renameat2               |
-| 317 | seccomp                 |
+| 317 | seccomp                 | Secure Computing Mode   |
 | 318 | getrandom               |
 | 319 | memfd_create            |
 | 320 | kexec_file_load         |
@@ -373,3 +419,23 @@ ausyscall --dump
 | 448 | process_mrelease        |
 | 449 | futex_waitv             |
 | 450 | set_mempolicy_home_node |
+
+- [seccomp.2](https://man7.org/linux/man-pages/man2/seccomp.2.html)
+  - 一种沙箱机制
+  - SECCOMP_MODE_FILTER
+    - 通过回调函数过滤 syscall
+    - 过滤器适用 `BPF` 语言
+- [google/gvisor](https://github.com/google/gvisor)
+  - 拦截 syscall 实现容器隔离
+
+# FAQ
+
+## BPF vs eBPF
+
+- BPF - Berkeley Packet Filter
+  - 1992年由Steven McCanne和Van Jacobson在BSD上实现
+  - 用于过滤网络数据包
+- eBPF - extended Berkeley Packet Filter
+  - 2014年由Alexei Starovoitov在Linux内核中实现
+  - 用于过滤系统调用
+  - 提升内核监控和分析能力

@@ -68,10 +68,12 @@ tags:
   - socketio
   - sockjs
 - IoC/Container/DI
-  - nestjs
+  - [nestjs](../../framework/nestjs/README.md)
+    - 👍 整体设计类似 Spring/Angular
+    - ⚠️ 只支持 NodeJS
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
     - inversify
-    - 功能非常全的 IoC
+    - 功能非常全的 IoC - 使用起来有一点复杂
     - ⚠️ 不活跃
   - [typestack/typedi](https://github.com/typestack/typedi)
     - typedi
@@ -80,7 +82,7 @@ tags:
     - ⚠️ 非常不活跃
   - [Microsoft/tsyringe](https://github.com/Microsoft/tsyringe)
     - ⚠️ 非常不活跃
-  - [jeffijoe/awilix](./lib/awilix.md)
+  - [jeffijoe/awilix](../lib/awilix.md)
     - 0 依赖, 12kB
     - Proxy+Reflect - Chrome >= 49, Safari >= 10
     - 支持代理模式 - 通过访问的字段名字进行 resolve
@@ -209,6 +211,9 @@ tags:
   - [fabricjs/fabric.js](https://github.com/fabricjs/fabric.js)
     - SVG <-> Canvas
     - [Build indoor maps with Fabric.js and React](https://blog.logrocket.com/build-indoor-maps-fabric-js-using-react/)
+  - [obsidianmd/jsoncanvas](https://github.com/obsidianmd/jsoncanvas)
+    - file format for infinite canvas data
+    - [HN](https://news.ycombinator.com/item?id=39670922)
   - [jonobr1/two.js](https://github.com/jonobr1/two.js)
   - [signature_pad](https://github.com/szimek/signature_pad)
   - [yisibl/resvg-js](https://github.com/yisibl/resvg-js)
@@ -412,6 +417,8 @@ tags:
   - log4js
   - [unjs/consola](https://github.com/unjs/consola)
 - validate
+  - [decs/typeschema](https://github.com/decs/typeschema)
+    - adapter for TypeScript schema validation.
   - [ajv](./lib/ajv.md)
     - JSON Schema
   - [zod](./lib/zod.md)
@@ -517,6 +524,7 @@ tags:
   - [stalniy/casl](https://github.com/stalniy/casl)
 - Syntax Highlighter
   - [shikijs/shiki](https://github.com/shikijs/shiki)
+    - MIT, TS
 - jwt
   - [openid-client](https://github.com/panva/node-openid-client)
     - nodejs RP client for passport.

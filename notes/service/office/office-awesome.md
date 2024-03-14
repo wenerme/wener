@@ -63,6 +63,11 @@ tags:
 - 应用
   - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)
     - personal finances
+- 商业
+  - https://docxtemplater.com/
+    - [open-xml-templating/docxtemplater](https://github.com/open-xml-templating/docxtemplater)
+      - 开源版本功能有限
+      - https://docxtemplater.com/pricing/
 
 ## PDF
 
@@ -111,7 +116,7 @@ tags:
 - React Table
   - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
     - MIT
-  - [nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)
+  - ~~[nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)~~
     - MIT, JS
   - [nick-keller/react-datasheet-grid](https://github.com/nick-keller/react-datasheet-grid)
     - MIT, TS
@@ -125,7 +130,7 @@ tags:
     - 依赖的 fast-formula-parser 相对比较大
     - 渲染表格内容部分
     - 不支持: Pin, Frozen, Merge, Resize
-    - 数据为 matrix -  二维数组
+    - 数据为 matrix - 二维数组
   - [blueprintjs/table](https://blueprintjs.com/docs/#table)
   - [ruilisi/fortune-sheet](./fortune-sheet.md)
     - fork Luckysheet
@@ -145,6 +150,10 @@ tags:
   - 葡萄城
 
 ## Word/Doc
+
+- NodeJS/Browser
+  - [docxjs](./docxjs.md)
+- 商业
 
 ## LowCode DataTable
 

@@ -22,6 +22,7 @@ blogspot.com
 cdninstagram.com
 cdnjs.com
 centos.org
+chatgpt.com
 chocolatey.org
 chrome.com
 chromecast.com
@@ -47,6 +48,7 @@ dribbble.com
 elixir-lang.org
 elrepo.org
 erlang.org
+expressvpn.com
 f8.com
 facebook.br
 facebook.com

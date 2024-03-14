@@ -99,7 +99,7 @@ tags:
 | cohesive       | 拼装、凝聚 |
 | Orchestration  | 编排       | 一个服务调度多个服务          |
 | Choreography   | 编舞       | 各自负责各自的角色 - 事件总线 |
-| reconciliation |
+| reconciliation | 对账       |
 
 ## 服务商 {#service-provider}
 
@@ -111,6 +111,16 @@ tags:
 | alipay   | 支付宝    |
 | wecom    | 企业微信  |
 | dingtalk | 钉钉      |
+
+| en               | for    |
+| ---------------- | ------ |
+| miniprogram      | 小程序 |
+| official account | 公众号 |
+| public account   | 公众号 |
+
+- mp.weixin.qq.com
+  - MP -> Media Press / Media Platform - 媒体平台
+  - https://mp.weixin.qq.com/s/Rg8NnCXGosouAm3NjkXu5Q
 
 ## 服务系统
 
@@ -1084,6 +1094,17 @@ tags:
 
 - https://answers.sap.com/questions/8738184/specification-symbols-and-descriptor-symbols.html
 
+## spec vs schema
+
+- schema - 模式、架构
+  - 数据结构
+  - 数据组织方式
+  - 包含字段、数据类型、约束
+- spec - 规范
+  - 执行标准
+  - 细节规范
+  - 包含 步骤、顺序、条件、操作细节
+
 ## tag vs label
 
 - label
@@ -1314,6 +1335,13 @@ tags:
   - 在许多国家和地区（如加拿大、英国、澳大利亚等）中使用的术语。
 - ZipCode
   - 特别是在美国使用的术语，是“Zone Improvement Plan Code”的缩写。
+
+## expiry vs expire_at vs end_at
+
+- expiry - 名词
+  - 到期的时间点或期限
+- expire_at
+  - 动作的完成状态
 
 ## 参考
 

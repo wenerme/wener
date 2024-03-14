@@ -130,16 +130,14 @@ tags:
   - by 网易
 - [cubefs](https://github.com/cubefs/cubefs)
   - Apache-2.0, Go,C++
-  - chubaofs -> cubeFS
   - by 京东, OPPO
-  - 🚧 开发不活跃
+  - chubaofs -> cubeFS
   - CNCF 项目
   - 提供 S3 接口
   - POSIX
   - 多租户
 - [happyfish100/fastdfs](https://github.com/happyfish100/fastdfs)
   - GPL-3.0, C
-  - 🚧 开发不活跃
 - [haiwen/seafile](https://github.com/haiwen/seafile)
   - GPL, C
   - 🚧 开发不活跃

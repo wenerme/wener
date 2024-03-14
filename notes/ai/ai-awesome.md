@@ -214,6 +214,7 @@ tags:
 - [janhq/jan](https://github.com/janhq/jan)
   - AGPLv3, Typescript
   - source alternative to ChatGPT that runs 100% offline
+- [Hannibal046/Awesome-LLM](https://github.com/Hannibal046/Awesome-LLM)
 
 ## LLaMA
 
@@ -307,7 +308,6 @@ tags:
   - https://github.com/a16z-infra/ai-getting-started
 
 ## Awesome
-
 
 - [webpilot-ai/Webpilot](https://github.com/webpilot-ai/Webpilot)
   - GPLv3

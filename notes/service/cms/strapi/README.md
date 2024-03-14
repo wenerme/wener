@@ -30,6 +30,8 @@ title: Strapi
 npx -y create-strapi-app@latest --ts --quickstart --use-npm --no-run my-project
 cd my-strapi
 
+# pnpm works
+
 # https://docs.strapi.io/dev-docs/plugins/i18n
 # https://github.com/strapi/strapi/blob/v4.20.2/packages/plugins/i18n/server/src/constants/iso-locales.json
 npm run strapi install i18n graphql documentation

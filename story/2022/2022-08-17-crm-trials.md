@@ -22,6 +22,8 @@ tags:
 
 :::
 
+<!-- more -->
+
 ## v2
 
 - 2020.1 - 2020.6
@@ -113,7 +115,7 @@ tags:
 
 ## v4
 
-- 2022.6 ->
+- 2022.6 -> 2022.11
 - 后端
   - 确定了要优先 GRPC，且使用标准 Schema。
     - 因此将 protobuf 的定义作为 Single-Source—Of—Truth Schema。
@@ -155,3 +157,33 @@ tags:
     - 提供开放的 OSS 存储
     - 目前明确方向
       - 分离 os 逻辑和核心 route 逻辑 - 揉在一起困难
+
+## v5
+
+- 2022.11 ->
+- 方式的调整
+  - 不只是独立于业务单纯的思考怎么做 CRM - 没有任何意义/产出的东西不可用
+  - 业务层面将以前的思路以 DB Schema 的方式沉淀
+  - 贴合现实做一些实际的事情
+- 后端
+  - RPC over NATS
+    - 简单易用
+    - 能实现多租户
+  - 自定义 RPC
+    - 弱 Schema - 一个人维护不过来
+  - 重新定义分层
+    - DB -> Entity -> EntityService -> RemoteService -> Controller, tRPC, GraphQL
+    - 层次更多，但是更清晰
+    - 改动相对独立，互不影响
+  - 依然全面的 NodeJS/TS/NextJS/NestJS
+  - 尝试更加轻量的服务 - HonoJS
+  - 尝试更加轻量的前端 - Vite
+    - 不能 SSR/SSG/Server Action
+    - 添加多个页面相对麻烦
+  - 尝试 Typescript 生成 zod/typebox - Single-Source-Of-Truth
+- 前端
+  - 大部分页面直接使用了 v4 的内容 - 逻辑结构上有一定调整
+  - 证明 daisyui+tailwindcss 的移植性的确很好
+  - 尝试引入了 shadcn
+  - 核心功能能够做到模块化
+  - 尝试重新恢复多窗口

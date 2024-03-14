@@ -811,6 +811,7 @@ npm add date-fns lodash-es react-fast-compare
 
 ## Rendering/Native
 
+- [scheduler](https://github.com/facebook/react/tree/main/packages/scheduler)
 - DOM
   - [remarkablemark/html-react-parser](https://github.com/remarkablemark/html-react-parser)
     - ~28kB - gzip 10kB
@@ -835,12 +836,8 @@ npm add date-fns lodash-es react-fast-compare
 - 2D/Canvas
   - [konvajs/react-konva](https://github.com/konvajs/react-konva)
     - 基于 [konvajs/konva](https://github.com/konvajs/konva)
-  - [Flipboard/react-canvas](https://github.com/Flipboard/react-canvas)
+  - ~~[Flipboard/react-canvas](https://github.com/Flipboard/react-canvas)~~
     - 停止
-- [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
-  - 渲染 PDF
-- [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
-  - 显示 PDF - 使用 pdfjs 并非 React 渲染
 - Native
   - [react-native-skia/react-native-skia](https://github.com/react-native-skia/react-native-skia)
   - [Shopify/react-native-skia](https://github.com/Shopify/react-native-skia)
@@ -860,6 +857,15 @@ npm add date-fns lodash-es react-fast-compare
     - blessed
   - [vadimdemedes/ink](https://github.com/vadimdemedes/ink)
     - 终端 渲染引擎
+    - [vadimdemedes/ink-ui](https://github.com/vadimdemedes/ink-ui)
+  - [vadimdemedes/pastel](https://github.com/vadimdemedes/pastel)
+    - Next.js-like framework for CLIs made with Ink
+- Documents
+  - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
+    - 使用 react 创建 PDF
+    - 渲染 PDF
+  - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
+    - 显示 PDF - 使用 pdfjs 并非 React 渲染
 - [chentsulin/awesome-react-renderer](https://github.com/chentsulin/awesome-react-renderer)
 
 ## 有趣

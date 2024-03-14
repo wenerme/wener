@@ -19,6 +19,7 @@ title: xstate
   - [statelyai/xstate-viz](https://github.com/statelyai/xstate-viz)
     - 开源 可视化 ，现在官方推的是 自己的在线编辑器
   - XState V5
+    - Docs https://stately.ai/docs
     - https://stately.ai/blog/2023-12-01-xstate-v5
     - actor model
 

@@ -68,6 +68,9 @@ tags:
 - [google/nsjail](https://github.com/google/nsjail)
   - Apache-2.0, C++
   - light-weight process isolation tool
+- [containers/bubblewrap](https://github.com/containers/bubblewrap)
+  - GPLv2, C
+  - Low-level unprivileged sandboxing tool used by Flatpak
 
 ## 有趣
 

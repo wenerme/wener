@@ -890,3 +890,7 @@ on conflict(value) do update set (label)= (excluded.label);
 ```
 on conflict(value) do update set (label,extensions)= (excluded.label,excluded.extensions);
 ```
+
+## for update nowait - FOR UPDATE cannot be applied to the nullable side of an outer join
+
+- mikroorm LockMode.PESSIMISTIC_WRITE_OR_FAIL

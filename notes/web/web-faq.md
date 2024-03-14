@@ -179,6 +179,16 @@ location.origin;
 
 - useOnClickOutside 处理 touchstart 时触发，需要传入 passive 参数
 
+## passive event listener
+
+- 不等待事件处理完成，直接执行下一个事件
+- 因此 preventDefault 不会生效
+- 对于性能影响较大的 event listener，可以使用 passive 优化
+  - 例如 scroll、wheel、touchstart、touchmove
+- 参考
+  - Chrome 51+
+  - [react#6436](https://github.com/facebook/react/issues/6436) Support Passive Event Listeners
+
 ## Failed to execute 'postMessage' on 'DOMWindow': The target origin provided does not match the recipient window's origin
 
 1. 确保 iframe 完全加载
