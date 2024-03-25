@@ -58,6 +58,13 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - FormProvider 使用了 React.Context, 导致 form 状态变化会 rerender
 - useForm
   - 返回的是内部 `_formControl`
+  - defaultValues
+    - 默认值 - 避免 undefined - 导致 controlled 和 uncontrolled 混用
+    - 表单的初始化值
+    - reset 会重置表单为 defaultValues
+  - values
+    - 表单的当前值 - 修改会反应到表单上
+    - 可用于 外部 状态修改
 - formState
   - 注意
     - 会被代理 - 返回 Proxy 的对象，用于 subscribe

@@ -22,8 +22,13 @@ title: URQL
   - createClient 开启 suspense 则默认认为在服务端 - 所有查询开启 suspense
   - useURQL 的 context 可控制关闭 suspense
   - 对于只希望单次查询 suspense 只能封装现有接口
+  - [#2235](https://github.com/urql-graphql/urql/discussions/2235)
+- 自定义 scalar 处理
+  - [clentfort/urql-custom-scalars-exchange](https://github.com/clentfort/urql-custom-scalars-exchange)
+    - v4 deps PR https://github.com/clentfort/urql-custom-scalars-exchange/pull/27
 
 :::
+
 
 ```bash
 npm add urql @urql/{core,devtools,exchange-graphcache,exchange-retry,exchange-multipart-fetch}
@@ -205,6 +210,24 @@ cacheExchange({
   - inwards - 默认 - 往后合并
   - outwards - 往前合并
 - 参数变化会重置 - 忽略 first, last, after, before
+
+# Version
+
+## URQL v4
+
+- 没有 defaultExchanges
+  - 之前为 [dedupExchange, cacheExchange, fetchExchange]
+- fetch
+  - 支持 multipart/mixed, text/event-stream
+- ~~@urql/exchange-multipart-fetch~~
+  - 合并到 core
+- ~~dedupExchange~~
+  - 默认行为
+- core
+  - 不再依赖 graphql
+  - bundle 部分 graphql 内容: parse, print, GraphQLError
+    - [0no-co/graphql.web](https://github.com/0no-co/graphql.web)
+- https://github.com/urql-graphql/urql/issues/3114
 
 # FAQ
 

@@ -9,6 +9,11 @@ tags:
 - [dimitropoulos/react-ui-roundup](https://github.com/dimitropoulos/react-ui-roundup)
   - [online](https://react-ui-roundup.dimitrimitropoulos.com/)
   - 对比不同 UI 框架中相同组件
+- Guide http://thedesignsystem.guide
+- Checklist http://designsystemchecklist.com
+- Database  http://designsystems.surf
+- Resources  http://designsystemsrepo.com
+- Component research  http://component.gallery
 - https://cloudfour.com/thinks/responsive-images-101-definitions/
 
 ## Reading

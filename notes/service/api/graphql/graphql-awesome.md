@@ -130,12 +130,6 @@ tags:
   - [Khan/genqlient](https://github.com/Khan/genqlient)
     - type-safe Go GraphQL client
 - Typescript
-  - [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
-    - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
-    - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
-  - [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
-    - ⚠️ 不活跃，没怎么维护
-    - 推荐 graphql-ws
 - SQL/GraphQL
   - [supabase/pg_graphql](https://github.com/supabase/pg_graphql)
   - [dosco/graphjin](https://github.com/dosco/graphjin)
@@ -246,6 +240,19 @@ tags:
   - 58kB,16kB
   - fetch + gql
 - react-query+graphql-request
+- subscription
+  - fetch
+    - GraphQL Yoga 支持
+  - graphql-sse
+    - [协议](https://github.com/enisdenjo/graphql-sse/blob/master/PROTOCOL.md)
+  - [enisdenjo/graphql-ws](https://github.com/enisdenjo/graphql-ws)
+    - [PROTOCOL](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+    - [99designs/gqlgen#1430](https://github.com/99designs/gqlgen/issues/1430) 不支持 graph-transport-ws
+  - [apollographql/subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
+    - ⚠️ 不活跃，没怎么维护
+    - 推荐 graphql-ws
+  - 参考
+    - urql [Subscriptions](https://commerce.nearform.com/open-source/urql/docs/advanced/subscriptions/)
 
 ## Public GraphQL
 

@@ -1,11 +1,9 @@
 ---
 tags:
-  - Awesome
+  - Model
 ---
 
-# Model Awesome
-
-**Transformer Network**
+# LLM Models
 
 | model   | year | params | note               |
 | ------- | ---- | ------ | ------------------ |
@@ -14,8 +12,34 @@ tags:
 | GPT-3   | 2020 | 175B   |
 | GPT-3.5 | 2022 |        | ChatGPT,570GB Text |
 | GPT-4   | 2023 |
-| GPT-4V   | 2023 |
+| GPT-4V  | 2023 |
 
+- https://ollama.com/library
+- 7B - 8GB 内存
+- 13B - 16GB 内存
+- 70B - 32GB 内存
+
+---
+
+- [google-deepmind/gemma](https://github.com/google-deepmind/gemma)
+  - Apache-2.0, Flax, JAX
+  - by Google DeepMind
+  - 2B, 7B
+- llama2
+  - 7B, 13B, 70B
+- uncensored
+  - llama2-uncensored
+    - 7B, 70B
+  - wizard-vicuna-uncensored
+    - 7B, 13B, 70B
+  - wizardlm-uncensored
+    - 13B
+  - https://erichartford.com/uncensored-models
+  - https://www.pixiv.net/novel/show.php?id=21039830
+    - https://huggingface.co/a686d380/rwkv-5-h-world
+- vicuna
+- mistral
+- mixtral
 - Flan
 - Alpaca
 - GPT4All
@@ -67,34 +91,3 @@ tags:
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
 grep avx /proc/cpuinfo --color # x86_64
 ```
-
-## Train/Alternative/TBD
-
-- https://github.com/lm-sys/FastChat
-- https://github.com/lvwzhen/law-cn-ai
-- https://github.com/okisdev/ChatChat
-- https://github.com/closedai-project/closedai
-- https://github.com/openlm-research/open_llama
-- https://github.com/ixaxaar/VardaGPT
-  - https://news.ycombinator.com/item?id=35839536
-
-## Languages
-
-- [Stability-AI/StableLM](https://github.com/Stability-AI/StableLM)
-  - [HN](https://news.ycombinator.com/item?id=35629127)
-
-## 3D
-
-- Action-GPT: Leveraging Large-scale Language Models for Improved and Generalized Action Generation
-  - https://actiongpt.github.io/
-- [openai/shap-e](https://github.com/openai/shap-e)
-
-## Visual
-
-- [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2)
-
-## Image
-
-## Video
-
-- [nadermx/backgroundremover](https://github.com/nadermx/backgroundremover)

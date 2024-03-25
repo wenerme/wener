@@ -126,4 +126,14 @@ navigation.addEventListener('navigate', (e) => {
 });
 ```
 
-## The target origin provided  does not match the recipient window's origin
+## The target origin provided does not match the recipient window's origin
+
+## idle
+
+- [IdleDetector](https://developer.mozilla.org/en-US/docs/Web/API/IdleDetector)
+  - API
+  - 需要权限
+- [Idle Detection](https://web.dev/idle-detection/)
+- Chromium 94+
+- https://stackoverflow.com/a/10126042/1870054
+  - 通过事件检测

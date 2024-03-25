@@ -202,7 +202,7 @@ csrutil disable
 csrutil enable
 ```
 
-## 制作安装盘
+## 制作安装盘 {#create-macos-bootable-usb}
 
 当下载好安装器后可直接使用安装器里附带的程序制作安装包
 
@@ -226,6 +226,10 @@ sudo /Applications/Install\ OS\ X\ Yosemite.app/Contents/Resources/createinstall
 sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --volume /Volumes/MyVolume
 ```
 
+- `--applicationpath`
+  - macOS Sierra or earlier
+- https://support.apple.com/downloads/macOS
+- https://mrmacintosh.com/how-to-download-macos-catalina-mojave-or-high-sierra-full-installers/
 - [Create a bootable installer for OS X](https://support.apple.com/en-us/HT201372)
 - [Disk Maker X](http://diskmakerx.com/)
 - 操作系统下载
@@ -258,11 +262,6 @@ diskutil resetFusion
 ```bash
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 ```
-
-## .DS_Store
-
-- https://eclecticlight.co/2021/11/27/explainer-ds_store-files/
-- https://news.ycombinator.com/item?id=29358932
 
 ## interface 添加地址
 

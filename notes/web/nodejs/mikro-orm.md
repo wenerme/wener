@@ -9,6 +9,7 @@ title: mikro-orm
   - ORM
   - 支持 Data Mapper, Unit of Work, Identity Map
   - 支持 MongoDB, MySQL, MariaDB, PostgreSQL, SQLite
+  - 支持 dataloader
 - @mikro-orm/knex
   - Builder
 
@@ -23,10 +24,14 @@ title: mikro-orm
 
 :::note
 
+- **类名不能重复**
 - 不支持多态 [#706](https://github.com/mikro-orm/mikro-orm/issues/706)
 - ManyToOne join 必须为主键 [#593](https://github.com/mikro-orm/mikro-orm/issues/593)
 - join 列不能重复定义
   - 例如 user, userId 不能同时存在
+- 不能配合 ts-mixer
+  - 可以考虑利用 EntitySchema 做 mixin
+  - https://github.com/mikro-orm/mikro-orm/discussions/5371
 
 ```ts
 // 让 user 和 userId 同时存在
@@ -137,6 +142,10 @@ export abstract class MinimalBaseEntity<Entity extends MinimalBaseEntity<any>> e
 ## RequestContext
 
 - Middleware `RequestContext.create(orm.em, next)`
+
+## Relationships
+
+- https://mikro-orm.io/docs/relationships
 
 # Version
 

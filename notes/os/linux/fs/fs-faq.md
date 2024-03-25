@@ -159,3 +159,52 @@ mount -o rw,remount /
 
 - /run - 新的标准 - tmpfs
 - /var/run - symlink 到 /run
+
+## 特殊文件 {#special-files}
+
+- Windows
+  - $RECYCLE.BIN
+- macOS
+  - .DS_Store
+  - `._XXX`
+  - .AppleDouble
+  - .Spotlight-V100
+  - .apDisk
+  - .VolumeIcon.icns
+  - .fseventsd
+    -  buffer for the File System Events daemon
+  - .Trash
+  - .Trashes
+  - .TemporaryItems
+
+## .DS_Store
+
+- Desktop Services Store
+- macOS Finder 用于存储 **文件夹** 的自定义属性
+- 文件排序、图标位置、视图、背景
+- 可以不在网络卷上创建
+  - `defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE`
+- https://eclecticlight.co/2021/11/27/explainer-ds_store-files/
+- https://news.ycombinator.com/item?id=29358932
+
+## `._XXX`
+
+- HFS+ 支持扩展属性，所以没有这个问题
+- 用于在不支持 macOS 扩展属性的文件系统存储文件元数据
+  - 早期 resource fork
+  - finder 存储 icon
+  - Time Machine
+- `.AppleDouble`
+- macOS 内置 dot_clean 工具可以删除
+- turds
+- [smb.conf.5](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
+  - `veto files = /._*/`
+  - `delete veto files = yes`
+  - hide special files - 隐藏特殊文件 - 客户端也看不到，所以不适合
+
+```bash
+dot_clean -m /Volumes/MyVolume
+find /Volumes/MyVolume -name '._*' -type f -delete
+```
+
+- https://apple.stackexchange.com/a/14981/103557

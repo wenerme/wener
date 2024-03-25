@@ -147,6 +147,10 @@ app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
   - 但是写起来非常的麻烦
   - 基于 [asteasolutions/zod-to-openapi](https://github.com/asteasolutions/zod-to-openapi)
 - @hono/node-server
+  - fetch -> listener
+    - listener
+      - incoming: IncomingMessage | Http2ServerRequest
+      - outgoing: ServerResponse | Http2ServerResponse
   - 会修改 Reuqest
   - https://github.com/honojs/node-server/blob/main/src/request.ts
 

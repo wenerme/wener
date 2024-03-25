@@ -4,10 +4,17 @@ title: PowerDNS
 
 # PowerDNS
 
+- [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
 - [PowerAdmin](http://www.poweradmin.org/) 网页管理工具
+- PowerDNS Authoritative Server
+- PowerDNS Recursor
+- PowerDNS DNSdist
+- PowerDNS Cloud Control
+- PowerDNS Dstore
+- PowerDNS Lightning Stream
+- ZoneControl
 - Auth server [settings](https://doc.powerdns.com/md/authoritative/settings/)
 - https://doc.powerdns.com/authoritative/indexTOC.html
-- [PowerDNS/pdns](https://github.com/PowerDNS/pdns)
 - 特性
   - 多种后端
   - 多种复制方式
@@ -21,6 +28,7 @@ title: PowerDNS
     - 例如 \*.example.org A 192.168.1.1, test.example.org TXT Test, 当查询 ANY test.example.org 只会返回 TXT
 - 参考
   - [Backend writers' guide](https://doc.powerdns.com/md/appendix/backend-writers-guide/)
+  - https://doc.powerdns.com/
 - pdnsutil
   - 域名管理工具
   - 通过修改 DB - 可以远程使用
@@ -30,7 +38,7 @@ title: PowerDNS
 brew install pdns # macOS 安装
 
 # SQLite3
-# https://doc.powerdns.com/md/authoritative/backend-generic-sqlite/
+# https://doc.powerdns.com/authoritative/backends/generic-sqlite3.html
 # 将 Schema 保存到 schema.sqlite3
 sqlite3 powerdns.sqlite .read schema.sqlite3
 # 在前台启动, 之所以修改 端口和 socket-dir 是因为可能会没有权限

@@ -1,8 +1,11 @@
 ---
 title: GraphiQL
+tags:
+  - Explorer
 ---
 
 # GraphiQL
+
 - [graphql/graphiql](https://github.com/graphql/graphiql)
   - Explorer
   - [Demo](https://graphql.org/swapi-graphql)

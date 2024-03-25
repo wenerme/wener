@@ -16,7 +16,7 @@ title: Mirrors
 
 :::
 
-## 镜像站点
+## 国内镜像站点 {#cn}
 
 | URL                                | 地址   |
 | ---------------------------------- | ------ |
@@ -26,6 +26,7 @@ title: Mirrors
 | https://mirrors.huaweicloud.com    | 华为   |
 | https://mirrors.cloud.tencent.com/ | 腾讯云 |
 | https://mirrors.gitee.com/         | Gitee  |
+| https://mirror.baidu.com           | 百度   |
 
 **高校镜像**
 
@@ -63,6 +64,20 @@ title: Mirrors
 - https://github.com/SUSTech-CRA/chinese-opensource-mirror-site
 - https://mirrors.cernet.edu.cn/list
 
+## 官方 {#official}
+
+| site                                              | for                 |
+| ------------------------------------------------- | ------------------- |
+| https://mirrors.kernel.org/                       | Linux               |
+| https://mirrors.edge.kernel.org/pub/linux/kernel/ | Linux Source        |
+| https://mirrors.alpinelinux.org/                  | Alpine Linux Mirror |
+| https://dl-cdn.alpinelinux.org/alpine/            | Alpine Linux Repo   |
+| https://www.debian.org/mirror/list.zh-cn.html     | Debian              |
+
+- mirrors.kernel.org = mirrors.edge.kernel.org
+
+<!--   | Alpine                                        | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) | -->
+
 ## jsdelivr
 
 - https://fastly.jsdelivr.net
@@ -81,18 +96,6 @@ title: Mirrors
 ## Apache
 
 - https://mirror.sjtu.edu.cn/apache
-
-## 镜像列表
-
-| 名字   | 地址                                          |
-| ------ | --------------------------------------------- |
-| Debian | https://www.debian.org/mirror/list.zh-cn.html |
-| Alpine | https://mirrors.alpinelinux.org/              |
-
-<!--   | Alpine                                        | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) | -->
-
-- Alpine
-  - https://dl-cdn.alpinelinux.org/alpine/
 
 ## NPM
 

@@ -249,7 +249,11 @@ npm add date-fns lodash-es react-fast-compare
     - Create a window manager with React
   - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
     - 移动端屏高问题
-- carousel
+- carousel/image zoom/view
+  - [malaman/react-image-zoom](https://github.com/malaman/react-image-zoom)
+    - 放大一块区域
+  - [rpearce/react-medium-image-zoom](https://github.com/rpearce/react-medium-image-zoom)
+    - 类似 medium 的点击图片放大
   - [xiaolin/react-image-gallery](https://github.com/xiaolin/react-image-gallery)
     - 图片浏览
   - [guonanci/react-images-viewer](https://github.com/guonanci/react-images-viewer)
@@ -266,18 +270,26 @@ npm add date-fns lodash-es react-fast-compare
   - https://alvarotrigo.com/blog/react-carousels/
 - image editor/crop/rotate/scale/processing
   - [DominicTobias/react-image-crop](https://github.com/DominicTobias/react-image-crop)
+    - ISC, TS
+    - 图片裁剪
   - [ValentinH/react-easy-crop](https://github.com/ValentinH/react-easy-crop)
+    - MIT, TS
+    - 图片裁剪
   - [scaleflex/filerobot-image-editor](https://github.com/scaleflex/filerobot-image-editor)
-    - react-konva
+    - MIT, JS
+    - 基于 react-konva
+    - 功能非常高级
   - [swimmingkiim/react-image-editor](https://github.com/swimmingkiim/react-image-editor)
     - React + Konva / image editor / like Figma or Canva
   - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
+    - ⚠️ 不维护
     - 注意会收集统计 usageStatistics
   - [advanced-cropper/react-advanced-cropper](https://github.com/advanced-cropper/react-advanced-cropper)
   - [evanw/glfx.js](https://github.com/evanw/glfx.js)
+    - ⚠️ 不维护
+    - Demo https://evanw.github.io/glfx.js/demo/
   - [davidsonfellipe/lena.js](https://github.com/davidsonfellipe/lena.js)
     - filter
-  -
 - timeline
   - [namespace-ee/react-calendar-timeline](https://github.com/namespace-ee/react-calendar-timeline)
   - [React9k/react-timeline-9000](https://github.com/React9k/react-timeline-9000)

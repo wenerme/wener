@@ -31,6 +31,7 @@ title: trpc
   - React Query 只能一个上下文 trpc
   - 基于路径请求不同 trpc 服务端
   - [examples/soa/client/client.ts#L11-L41](https://github.com/trpc/trpc/blob/c49e0333ced133a883d276e51679c10de2f575e8/examples/soa/client/client.ts#L11-L41)
+- 大项目 trpc 的全局类型反应会很慢
 
 :::
 

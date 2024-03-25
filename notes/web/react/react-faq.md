@@ -359,3 +359,35 @@ class B extends React.Component {
   - false, null, undefined, true
 
 ## TypeError: Cannot read properties of null (reading 'useRef')
+
+## Typescript
+
+
+```ts
+React.ButtonHTMLAttributes<HTMLButtonElement>;
+React.HTMLProps<HTMLButtonElement>; // 类型范围被扩大，例如 button 的 type 变成 string
+React.HTMLAttributes<HTMLDivElement>; // -> AllHTMLAttributes
+React.ComponentProps<"div">; // =ComponentPropsWithRef -> React.JSX.IntrinsicElements
+React.ComponentPropsWithoutRef<'div'>; // 推荐用法
+React.ComponentPropsWithRef<'div'>; //  如果需要 forward
+
+React.JSX.IntrinsicElements["button"]
+```
+
+- HTMLProps
+  - 包含更多的内容，例如 ref
+- https://github.com/typescript-cheatsheets/react
+- https://github.com/typescript-cheatsheets/react/blob/main/docs/advanced/patterns_by_usecase.md
+
+## ref as props
+
+- React 19 默认行为
+- 支持这样用
+- 遗留问题 - ref 可能需要特殊处理
+  - class component
+    - ref 指向 class instance
+    - 2019 后推荐使用函数写组建
+  - HOC
+- 部分场景存在 introspect ref 并做合并修改
+- 参考
+  - https://www.youtube.com/watch?v=m4QbeS9BTNU

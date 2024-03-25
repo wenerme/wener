@@ -9,6 +9,8 @@ title: graphql-yoga
   - 支持 NodeJS, Bun, Deno, Cloudflare Worker
   - 支持 Next.js, SvelteKit, uWebSockets, Fastify, NestJS
   - GraphQL 服务端
+- 参考
+  - 内部使用 [@whatwg-node/server](https://github.com/ardatan/whatwg-node) 作为 adapter
 
 ```ts
 import { createSchema, createYoga } from 'graphql-yoga';

@@ -93,9 +93,11 @@ $$
 
 - KaTeX
   - 只关心 TeX/LaTeX -> HTML
-  - 所以会更快一些
+  - HTML+CSS 来渲染，对 JS 依赖少 - 要求相对新一些的浏览器
+  - 会更快一些
+  - 支持的功能特性会少一些
 - MathJax
-  - 还支持 MathML, AsciiMath
+  - 还支持 LaTeX、MathML, AsciiMath
   - 可输出 HTML, SVG, MathML.
   - 包含输出 accessible 信息
 

@@ -1,0 +1,54 @@
+---
+tags:
+  - Client
+---
+
+# apollo/client
+
+- ApolloClient
+  - 包含 cache 和 link
+- link - 通信层
+  - httpLink 最常用
+- cache - 泛化缓存层
+- fetch 策略
+  - 'cache-first' | 'network-only' | 'cache-only' | 'no-cache' | 'standby'
+- WatchQueryFetchPolicy = FetchPolicy | 'cache-and-network'
+- ErrorPolicy = 'none' | 'ignore' | 'all'
+- 注意
+  - ⚠️ 不支持 fast refresh、不支持 suspense
+    - 开发体验十分糟糕
+  - issues 里不少影响使用的问题 - 开发不太活跃
+  - apollo 比较大 - bundle 可能 50k+
+  - notifyOnNetworkStatusChange 默认关闭
+  - errorPolicy 默认 none - runtime error
+- 优势
+  - 泛化缓存
+  - mutation 自动失效 - 不一定准
+  - 数据字段存在不会再次查询 - 比 react query 基于 key 的模式粒度更细
+  - devtools - 集成 iql，能直接查询可直观的看到 gql，能看泛化后的缓存数据
+- 个人感受
+  - retry 通过 link 实现 - 相对麻烦
+  - Devtools
+    - 似乎对 hmr/fast refresh 支持不好
+      - [#5870](https://github.com/apollographql/apollo-client/issues/5870)
+    - 无法失效数据 - 数据没有状态概念 - 因为没有单次查询概念
+    - 查询要写 displayName - 否则不方便看
+- 参考
+  - [React Query vs Apollo](https://react-query.tanstack.com/comparison)
+    - 劣势
+      - Devtools - 非 web 集成 - 使用没有 react query 的方便
+      - Lagged Query Data - react query 支持直接返回上次数据 - apollo 3 后添加了 previousData
+      - Render Optimization - react query 会优化状态变触发的 rerender - 可以选择性的部分状态从新渲染
+      - Auto Garbage Collection
+        - apollo 手动 gc
+        - react query 因为有 mount 概念，可以自动 gc 不用数据
+      - Stale While Revalidate
+      - Partial Query Matching
+        - react query 有 key 概念，数组可以部分匹配
+      - Stale Time 配置
+        - apollo 不支持
+      - Pre-usage Query/Mutation Configuration - 每次使用独立配置
+        - apollo 不支持
+      - Window Focus Refetching - 窗口获取焦点自动刷新
+      - Suspense - apollo 不支持 - [#162](https://github.com/apollographql/apollo-feature-requests/issues/162)
+  - [GraphQL Concepts Visualized](https://www.apollographql.com/blog/bc68bd819be3/)

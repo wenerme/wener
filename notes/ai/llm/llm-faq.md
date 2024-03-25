@@ -1,10 +1,9 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 # LLM FAQ
-
 
 - LLM
   - 预测下一个 Token
@@ -14,7 +13,6 @@ tags:
   - https://huggingface.co/blog/rlhf
   - https://github.com/yizhongw/self-instruct
   - https://platform.openai.com/docs/model-index-for-researchers
-
 
 ## structure
 
@@ -75,3 +73,9 @@ tags:
 - Azure OpenAI GPT 3.5 turbo
 - https://community.openai.com/t/tokens-are-mangled-for-some-non-english-characters-resolved/74315
 - https://community.openai.com/t/gpt-4-1106-preview-messes-up-function-call-parameters-encoding/478500
+
+## format
+
+- GGUF
+  - llama.cpp, August 21st 2023, 替代 GGML
+- GGML

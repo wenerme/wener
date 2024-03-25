@@ -10,6 +10,7 @@ tags:
 
 | macOS        | Name     | Darwin | Date       | Safari      | Note                     |
 | ------------ | -------- | ------ | ---------- | ----------- | ------------------------ |
+| macOS 14     | Sonoma   | 23     | 2023-06-05 |             |                          |
 | [macOS 13]   | Ventura  | 22     | 2022-06-22 |             | Virtualization.framework |
 | [macOS 12.6] | Monterey | 21     |            | Safari 16.1 |                          |
 | [macOS 12.3] | Monterey | 21     |            |             |                          |

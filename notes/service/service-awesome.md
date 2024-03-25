@@ -140,6 +140,8 @@ tags:
     - A/B Testing
   - [Unleash/unleash](https://github.com/Unleash/unleash)
     - Apache-2.0, Typescript
+  - [flipt-io/flipt](https://github.com/flipt-io/flipt)
+    - GPLv3, Golang
 - grammar
   - [languagetool-org/languagetool](https://github.com/languagetool-org/languagetool)
   - https://github.com/JetBrains/intellij-community/tree/master/plugins/grazie
@@ -336,6 +338,10 @@ tags:
 - image
   - [cshum/imagor](https://github.com/cshum/imagor)
     - Go, libvips
+- image placeholder
+  - https://placehold.co/
+    - https://placehold.co/600x400/png
+  - https://picsum.photos/2000/2000
 - git
   - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
 - zoom, team

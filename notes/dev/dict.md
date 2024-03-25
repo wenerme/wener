@@ -765,13 +765,20 @@ tags:
 ## Register vs Registry
 
 - Register - A recording of items, names, or actions
-  - 事情
+  - 事情/动作
+  - 可以是名词也可以是动词
+  - 例如 “guest register”（宾客登记簿）， “register a complaint”（登记投诉）
 - Registry - A place where you Register
   - 地点
+  - 存储记录 - 登记册、档案
+  - 强调的是存储和管理这些记录的 **实体** 或 **机构**
+  - 例如 domain name registry
 - Registrar - One who registers
-  - 人
+  - 人/执行人
+  - 负责注册工作的个人或机构
 - Registration - the act of registering
   - 动作
+  - 指注册的行为本身，包括提交必要的信息以登记记录某物或某人，或是为参加某项活动、获取权限等而进行的行为。
 
 ## setting vs configuration vs properties vs options vs preferences
 
@@ -934,15 +941,15 @@ tags:
 
 ## status vs state
 
-- status
+- status - 阶段
   - 结果状态 - 成果、失败
   - 面向用户 - 404、200
   - 可以理解为 stage - 阶段
-  - 可能支持自定义
-- state
+  - 可能支持自定义 - SaaS 场景可能租户能自定义不同 status 来表达不同业务场景含义
+- state - 状态
   - 中间状态 - 等待、执行
   - 有限状态 - 状态机 - state machine
-  - 通常固定
+  - 通常固定 - 系统判断依据
 
 ---
 
@@ -955,6 +962,14 @@ tags:
 - 例如订单状态
   - state - 已提交, 已支付, 已发货, 已完成
   - status - 等待处理, 正在进行, 暂时延迟, 即将完成
+
+---
+- 参考
+  - Dynamic365 entity state & status
+  - Status (statecode) - Status Reason (statuscode)
+    - state -> status
+    - status -> Status Reason
+    - https://www.tpein.dk/?page_id=210
 
 ## topic vs subject
 
@@ -973,12 +988,14 @@ tags:
 
 ## sex vs gender
 
-- sex
+- sex - 性别
   - male, female
+  - intersex - 难以划分, 间性
   - 生物特征，出生便决定了
-- gender
+- gender - 性别认同
   - 个性 - 可变
   - 内在自我
+  - 非二元性别
 
 ---
 
@@ -1309,6 +1326,7 @@ tags:
 - data
   - 数据
   - 没有单数双数概念
+- datum
 
 ## Resource vs Entity vs Record vs Object vs Item vs Document vs Entry vs Row vs DTO vs Model vs Schema
 
@@ -1343,7 +1361,45 @@ tags:
 - expire_at
   - 动作的完成状态
 
-## 参考
+## Material vs Document
+
+- Material
+  - 物质、原料或具体的物品
+  - 可以泛指各种形式的 **物理对象** ，包括文件和其他手持物品
+  - 除了纸质文件外，还可能包括其他形式的物理对象
+    - 样本、产品、原型、设备等
+- Document
+  - 特指书面材料，如文件、表格、证书或其他书面记录
+  - 文档性质 - 结构化
+  - 主要是纸质或电子形式的书面记录和信息
+
+## 后台管理系统名称
+
+- Console - 控制台
+  - 通常指代系统的管理界面
+  - 系统管理、配置或监控等较为技术性的任务
+  - 例如 AWS Console, Google Cloud Console
+  - 感觉： 传达出一种专业和技术性强的氛围。
+- Workbench - 工作台
+  - 全面的工作环境
+  - 提供了多种工具和功能，让员工可以完成各种任务，从客户关系管理到企业资源规划等。
+  - 感觉：给人以实用、多功能的印象，适用于更广泛的工作环境
+- Hub - 中心
+  - 各种活动和信息集中处理点的概念
+  - 所有资源和工具
+  - 感觉： 传达出一种集中、统一的印象
+- Portal - 门户
+  - 作为公司内部信息、任务、资源和服务访问入口的平台
+  - 一种全面接入点的概念
+  - 使员工能够轻松访问自己需要的一切
+  - 感觉： 传达出一种全面、便捷的印象
+- Enterprise Suite - 企业套件
+  - 一个包含多种功能的综合性企业应用软件集合
+- Workspace - 工作空间
+  - 个性化和定制化的工作区域
+  - 感觉： 传达出一种个性化、定制化的印象
+
+## 参考 {#reference}
 
 - primary
 - secondary

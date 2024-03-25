@@ -398,5 +398,6 @@ where id ${direction === 'asc' ? '>' : '<'} ${id}
 
 ## Naming
 
-- Pagination
+- PaginationResponse
+- PaginatedResponse
 - PaginationInfo

@@ -10,6 +10,7 @@ tags:
 
 - renameat2/overlayfs ZFS v2.2+
   - [zfs_rename: support RENAME\_ flags](https://github.com/openzfs/zfs/commit/dbf6108b4df92341eea40d0b41792ac16eabc514)
+  - feature zilsaxattr
 
 :::
 
@@ -206,7 +207,7 @@ zpool import -d /dev/disk/by-id
 zfs get atime | grep '\son\s' | cut -d ' ' -f 1 | xargs -n1 sudo zfs set atime=off
 ```
 
-# atime=on temporary
+## atime=on temporary
 
 - https://gitlab.alpinelinux.org/alpine/aports/-/issues/12382
 - https://github.com/openzfs/zfs/issues/7947
@@ -453,4 +454,92 @@ touch /data/docker/test
 zfs list > zfs.txt
 # main/1poezhz45yv210xqwve9vft0d
 grep -E '^main/\w{25}\W' zfs.txt | cut -f 1 -d ' ' | xargs -n 1 sudo zfs destroy -r -R
+```
+
+## Feature Flags
+
+```bash
+zpool get all | grep feature@
+zpool upgrade -v
+```
+
+```
+async_destroy                         (read-only compatible)
+     Destroy filesystems asynchronously.
+empty_bpobj                           (read-only compatible)
+     Snapshots use less space.
+lz4_compress
+     LZ4 compression algorithm support.
+multi_vdev_crash_dump
+     Crash dumps to multiple vdev pools.
+spacemap_histogram                    (read-only compatible)
+     Spacemaps maintain space histograms.
+enabled_txg                           (read-only compatible)
+     Record txg at which a feature is enabled
+hole_birth
+     Retain hole birth txg for more precise zfs send
+extensible_dataset
+     Enhanced dataset functionality, used by other features.
+embedded_data
+     Blocks which compress very well use even less space.
+bookmarks                             (read-only compatible)
+     "zfs bookmark" command
+filesystem_limits                     (read-only compatible)
+     Filesystem and snapshot limits.
+large_blocks
+     Support for blocks larger than 128KB.
+large_dnode
+     Variable on-disk size of dnodes.
+sha512
+     SHA-512/256 hash algorithm.
+skein
+     Skein hash algorithm.
+edonr
+     Edon-R hash algorithm.
+userobj_accounting                    (read-only compatible)
+     User/Group object accounting.
+encryption
+     Support for dataset level encryption
+project_quota                         (read-only compatible)
+     space/object accounting based on project ID.
+device_removal
+     Top-level vdevs can be removed, reducing logical pool size.
+obsolete_counts                       (read-only compatible)
+     Reduce memory used by removed devices when their blocks are freed or remapped.
+zpool_checkpoint                      (read-only compatible)
+     Pool state can be checkpointed, allowing rewind later.
+spacemap_v2                           (read-only compatible)
+     Space maps representing large segments are more efficient.
+allocation_classes                    (read-only compatible)
+     Support for separate allocation classes.
+resilver_defer                        (read-only compatible)
+     Support for deferring new resilvers when one is already running.
+bookmark_v2
+     Support for larger bookmarks
+redaction_bookmarks
+     Support for bookmarks which store redaction lists for zfs redacted send/recv.
+redacted_datasets
+     Support for redacted datasets, produced by receiving a redacted zfs send stream.
+bookmark_written
+     Additional accounting, enabling the written#<bookmark> property (space written since a bookmark), and estimates of send stream sizes for incrementals from bookmarks.
+log_spacemap                          (read-only compatible)
+     Log metaslab changes on a single spacemap and flush them periodically.
+livelist                              (read-only compatible)
+     Improved clone deletion performance.
+device_rebuild                        (read-only compatible)
+     Support for sequential mirror/dRAID device rebuilds
+zstd_compress
+     zstd compression algorithm support.
+draid
+     Support for distributed spare RAID
+zilsaxattr                            (read-only compatible)
+     Support for xattr=sa extended attribute logging in ZIL.
+head_errlog
+     Support for per-dataset on-disk error logs.
+blake3
+     BLAKE3 hash algorithm.
+block_cloning                         (read-only compatible)
+     Support for block cloning via Block Reference Table.
+vdev_zaps_v2
+     Support for root vdev ZAP.
 ```

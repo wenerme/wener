@@ -6,6 +6,11 @@ tags:
 
 # Apple Awesome
 
+- 开源 - https://github.com/apple
+  - LLVM
+  - Swift
+  - https://opensource.apple.com/releases/
+
 ## AirPlay
 
 - [FD-/RPiPlay](https://github.com/FD-/RPiPlay)

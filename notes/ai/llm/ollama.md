@@ -12,6 +12,12 @@ title: ollama
     - npm:ollama
     - 客户端
 - https://ollama.ai/library
+- 默认地址 http://localhost:11434
+- OLLAMA_HOST
+- ~/.ollama
+  - models
+    - blobs/
+    - manifests/registry.ollama.ai/library/gemma/latest
 
 ```bash
 # macOS 命令行
@@ -28,3 +34,14 @@ docker run --rm -it \
   ollama/ollama \
   --name ollama
 ```
+
+## API
+
+```bash
+curl -X POST http://localhost:11434/api/generate -d '{
+  "model": "llama2",
+  "prompt":"Why is the sky blue?"
+ }'
+```
+
+- https://github.com/ollama/ollama/blob/main/docs/api.md

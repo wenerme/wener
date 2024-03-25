@@ -3,6 +3,7 @@ title: Mercurius
 ---
 
 # Mercurius
+
 - [mercurius-js/mercurius](https://github.com/mercurius-js/mercurius)
   - GraphQL adapter for Fastify
   - @mercuriusjs/federation

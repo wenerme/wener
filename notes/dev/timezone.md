@@ -54,6 +54,13 @@ Date.prototype.toJSON = function () {
 | dayjs(now).format()                                  | 2022-01-12T00:00:00+08:00     |
 | date-fns format(now, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx") | 2022-01-12T00:00:00.000+08:00 |
 
+## JS Date timezone offset
+
+```ts
+new Date(2023, 2, 18); // 2023-03-17T16:00:00.000Z
+new Date(Date.UTC(2023, 2, 18)); // 2023-03-18T00:00:00.000Z
+```
+
 ## Java
 
 - JVM `-Duser.timezone=Asia/Shanghai`
