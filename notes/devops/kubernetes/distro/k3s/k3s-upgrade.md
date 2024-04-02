@@ -1,6 +1,6 @@
 ---
 tags:
-- Upgrade
+  - Upgrade
 ---
 
 # K3S 升级 {#upgrade}
@@ -13,8 +13,7 @@ rc-update del k3s
 reboot
 
 # 升级
-k3s -v                   # 当前版本
-cp $(which k3s) k3s.last # backup
+k3s -v # 当前版本
 
 sudo apk add jq
 
@@ -35,7 +34,8 @@ sha256sum -c sha256sum-${ARCH}.txt --ignore-missing
 
 cp k3s$SUFFIX k3s.$VERSION_K3S
 chmod +x k3s.$VERSION_K3S
-sudo cp k3s.$VERSION_K3S $(which k3s)
+cp $(which k3s) k3s.last              # backup
+sudo cp k3s.$VERSION_K3S $(which k3s) # replace
 
 sudo k3s check-config
 k3s -v

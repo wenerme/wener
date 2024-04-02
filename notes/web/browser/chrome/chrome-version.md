@@ -8,7 +8,9 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
-| [Chrome 120](#chrome-120) |            |                                                   |
+| [Chrome 122](#chrome-122) |            | zstd                                              |
+| [Chrome 121](#chrome-121) |            | EditContext                                       |
+| [Chrome 120](#chrome-120) | 2023-12-29 |                                                   |
 | [Chrome 119](#chrome-119) |            |                                                   |
 | [Chrome 118](#chrome-118) |            |                                                   |
 | [Chrome 117](#chrome-117) |            |                                                   |
@@ -29,7 +31,7 @@ tags:
 | [Chrome 102](#chrome-102) | 2022-05-24 | DNS HTTPS, Navigation                             |
 | [Chrome 101](#chrome-101) |            |
 | [Chrome 100](#chrome-100) | 2022-03-29 |
-| [Chrome 99](#chrome-99)   |            | @layer                                            |
+| [Chrome 99](#chrome-99)   |            | OPFS, @layer                                      |
 | [Chrome 98](#chrome-98)   |
 | [Chrome 97](#chrome-97)   |
 | [Chrome 96](#chrome-96)   |
@@ -146,6 +148,51 @@ tags:
   - https://web.dev/interop-2022
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
+
+## Chrome 123
+
+- import with
+  - `import data from 'data.json' with {type:'json'}`
+  - Chrome 91 增加的 import assert
+- pagereveal 事件
+- 支持 zstd
+- CSS
+  - align-content 支持 block, list-item, table-cell
+    - 不再需要 flex 或者 grid 也能方便 center 了
+  - 颜色函数 - light-dark
+  - text-spacing-trim
+    - 主要用于 CJK 的括号等，让括号之类的变窄，更好看
+  - field-sizing
+    - 让输入内容自动调整输入框的大小
+
+## Chrome 122
+
+- `navigator.clipboard.read({ unsanitized: ['text/html'] })`
+  - 读取未经过清理的剪贴板内容
+- [Iterator helper](https://github.com/tc39/proposal-iterator-helpers)
+  - iterator 增加 `map`, `filter`, `take`, `drop`, `flatMap`, `reduce`, `toArray`, `forEach`, `some`, `every`, `find`
+  - `Iterator.from(object)`
+- [Set methods](https://github.com/tc39/proposal-set-methods/)
+  - Set 增加 `intersection`, `union`, `difference`, `symmetricDifference`, `isSubsetOf`, `isSupersetOf`, `isDisjointFrom`
+- Storage Buckets API
+
+## Chrome 121
+
+- Array.fromAsync
+- EditContextAPI
+  - 影响如何实现编辑器
+  - https://w3c.github.io/edit-context/
+- HTMLSelectElement.showPicker()
+  - 手动 select 的 option popover
+- `ClipboardItem.supports('text/html')`
+  - 检测 ClipboardItem 支持的类型
+  - 以前需要尝试写入
+- CSS
+  - font-palette 支持动画
+  - scrollbar-color
+  - scrollbar-width
+  - `::spelling-error` - 拼写错误
+  - `::grammar-error` - 语法错误
 
 ## Chrome 120
 

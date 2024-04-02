@@ -5,7 +5,11 @@ title: Redis
 # Redis
 
 - [redis/redis](https://github.com/redis/redis)
-  - BSD-3, C
+  - RSALv2, SSPLv1, C
+  - 7.2 BSD-3 -> RSALv2, SSPLv1
+  - BSD fork
+    - [PlaceHolderKV](./placeholderkv.md)
+    - https://codeberg.org/redict/redict
 - 支持的数据类型: string, bitmap, hll, list, pub/sub, hash, set, sorted set, stream
 - Redis Stack 扩展: bloom, cuckoo, count-min, graph, json, suggest, search, t-digest, timeserial, top-k
 - 参考

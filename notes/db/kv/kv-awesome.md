@@ -18,7 +18,9 @@ title: KV DB Awesome
 
 ## 服务
 
-- Redis
+- [placeholderkv/placeholderkv](./redis/placeholderkv.md)
+  - Redis 最后的 BSD fork
+- [Redis](./redis/README.md)
 - [FoundationDB](https://github.com/apple/foundationdb)
   - [FoundationDB/awesome-foundationdb](https://github.com/FoundationDB/awesome-foundationdb)
 - [microsoft/FASTER](https://github.com/microsoft/FASTER)

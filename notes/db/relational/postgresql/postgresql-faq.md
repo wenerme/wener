@@ -894,3 +894,15 @@ on conflict(value) do update set (label,extensions)= (excluded.label,excluded.ex
 ## for update nowait - FOR UPDATE cannot be applied to the nullable side of an outer join
 
 - mikroorm LockMode.PESSIMISTIC_WRITE_OR_FAIL
+
+## permission denied to set session authorization
+
+```sql
+-- 获取当前的 superuser
+SELECT usename
+FROM pg_catalog.pg_user
+WHERE usesuper = true;
+```
+
+- ⚠️注意 [supabase](./postgres-supabase.md) 的 pg superuser 是 supabase_admin
+  - supabase_admin 密码和 postgres 相同，登录后 `ALTER USER postgres WITH SUPERUSER`

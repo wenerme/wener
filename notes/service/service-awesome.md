@@ -431,20 +431,20 @@ tags:
   - https://www.landlordstudio.com/blog/best-rental-property-management-software
 - juge
   - [judge0/judge0](https://github.com/judge0/judge0)
+- avatar
+  - [getavataaars](https://getavataaars.com/)
+    - [fangpenlin/avataaars-generator](https://github.com/fangpenlin/avataaars-generator)
+    - react 组件
+    - 头像相对比较好看
+  - [boringavatars](https://boringavatars.com/)
+    - [boringdesigners/boring-avatars](https://github.com/boringdesigners/boring-avatars)
+    - 简单的头像
+    - React 组件 - 基于 SVG
+  - [cvbox](https://cvbox.org/)
+  - https://github.com/txstc55/ugly-avatar/blob/main/src/views/FaceGenerator.vue
+    - 蛮有意思的丑丑的头像
 - 商业
   - https://nino.app/
-
-## Avatar
-
-- [getavataaars](https://getavataaars.com/)
-  - [fangpenlin/avataaars-generator](https://github.com/fangpenlin/avataaars-generator)
-  - react 组件
-  - 头像相对比较好看
-- [boringavatars](https://boringavatars.com/)
-  - [boringdesigners/boring-avatars](https://github.com/boringdesigners/boring-avatars)
-  - 简单的头像
-  - React 组件 - 基于 SVG
-- [cvbox](https://cvbox.org/)
 
 ## OCR
 

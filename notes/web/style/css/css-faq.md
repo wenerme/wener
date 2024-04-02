@@ -398,6 +398,30 @@ body {
 />
 ```
 
+## css env
+
+```css
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+```
+
+```js
+getComputedStyle(document.documentElement).getPropertyValue('--sat');
+```
+
+```css
+/* 常见 */
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+```
+
+- https://benfrain.com/css-environment-variables-iphonex/
+
 ## font size 适应容器
 
 1. SVG
@@ -587,3 +611,7 @@ Array.from(document.styleSheets)
 > text outline, text border
 
 - https://stackoverflow.com/a/4919231/1870054
+
+## inline flex + flex warp 导致换行
+
+- 使用 display:contents, 让元素作为 parent 的 children

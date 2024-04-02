@@ -73,55 +73,32 @@ const { app, route, page } = Taro.Current;
 
 ## 多端
 
-| app            | 平台自己            | taro                |
-| -------------- | ------------------- | ------------------- |
+| app            | 平台自己                                                                                            | taro                |
+| -------------- | --------------------------------------------------------------------------------------------------- | ------------------- |
 | 微信小程序     | [project.config.json](https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html) | project.config.json |
-| 百度小程序     | project.swan.json   | project.swan.json   |
-| 字节跳动小程序 | project.config.json | project.tt.json     |
-| QQ 小程序      | project.config.json | project.qq.json     |
-| 支付宝小程序   | mini.project.json   | project.alipay.json |
-| 京东小程序     |                     |
-| 飞书小程序     | project.config.json | project.lark.json   |
+| 百度小程序     | project.swan.json                                                                                   | project.swan.json   |
+| 字节跳动小程序 | project.config.json                                                                                 | project.tt.json     |
+| QQ 小程序      | project.config.json                                                                                 | project.qq.json     |
+| 支付宝小程序   | mini.project.json                                                                                   | project.alipay.json |
+| 京东小程序     |                                                                                                     |
+| 飞书小程序     | project.config.json                                                                                 | project.lark.json   |
 
-## FAQ
+## config
 
-##  Invalid option from onResolve() callback in plugin "scanImports": "importer"
+- 会自动加载的环境变量 `TARO_APP_`
+  - 使用 webpack.DefinePlugin 的方式静态替代
 
-- Taro 3.6.7+ 解决
-- https://github.com/NervJS/taro/issues/13767
-
-
-## taro immer
-
-```json
-{
-  "pnpm": {
-    "patchedDependencies": {
-      "immer@10.0.2": "patches/immer@10.0.2.patch"
-    }
-  },
-}
+```
+.env
+.env.local
+.env.[mode]
+.env.[mode].local
 ```
 
-```diff
-diff --git a/package.json b/package.json
-index 636a5d3b2d692851b3eda9bd18d6c4c22f8362c6..54999c2456b6114a946228785cb3a33b187fc4ac 100644
---- a/package.json
-+++ b/package.json
-@@ -7,12 +7,12 @@
-   "exports": {
-     ".": {
-       "types": "./dist/immer.d.ts",
--      "import": "./dist/immer.mjs",
-+      "import": "./dist/immer.legacy-esm.js",
-       "require": "./dist/cjs/index.js"
-     }
-   },
--  "jsnext:main": "dist/immer.mjs",
--  "react-native": "dist/immer.mjs",
-+  "jsnext:main": "dist/immer.legacy-esm.js",
-+  "react-native": "dist/immer.legacy-esm.js",
-   "source": "src/immer.ts",
-   "types": "./dist/immer.d.ts",
-   "sideEffects": false,
-```
+| env         | for        |
+| ----------- | ---------- |
+| TARO_APP_ID |
+| TARO_ENV    | 运行的环境 |
+
+- `Taro.env`
+  - USER_DATA_PATH=http://usr

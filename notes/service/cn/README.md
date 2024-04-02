@@ -4,6 +4,29 @@ title: CN
 
 # CN
 
+| phone | for                            | url                       |
+| ----- | ------------------------------ | ------------------------- |
+| 121XX | 公共信息服务电话               |
+| 12123 | 全国交管服务电话               |
+| 123XX | 党政机关服务电话               |
+| 12345 | 政府服务热线                   |
+| 12333 | 人力资源和社会保障公益服务电话 | https://www.12333.gov.cn/ |
+
+- CTID - 居民身份证网上凭证
+- 五险一金
+  - 养老保险
+  - 医疗保险
+  - 失业保险
+  - 工伤保险
+  - 生育保险
+  - 住房公积金
+- 三险一金
+  - 基本养老保险
+  - 基本医疗保险
+  - 失业保险
+  - 住房公积金
+- https://zh.wikipedia.org/wiki/中国大陆服务电话号码
+
 ## gov
 
 | abbr. | stand for                                                                | zh                                     |
@@ -30,7 +53,7 @@ title: CN
 |   http://wenshu.court.gov.cn | 中国裁判文书网                           |
 |     http://zxgk.court.gov.cn | 中国执行信息公开网                       |
 |     http://rmft.court.gov.cn | 全国人民法庭信息网                       |
-|     https://www.gjzwfw.gov.cn |
+|    https://www.gjzwfw.gov.cn |
 |     https://www.cods.org.cn/ | 全国组织机构统一社会信用代码数据服务中心 |
 
 - http://www.gov.cn/fuwu/index.htm

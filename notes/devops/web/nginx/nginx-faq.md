@@ -82,3 +82,5 @@ stream {
   }
 }
 ```
+
+## closed keepalive connection (104: Connection reset by peer)

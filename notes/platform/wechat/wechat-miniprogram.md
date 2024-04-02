@@ -32,6 +32,11 @@ title: 微信小程序
 
 :::
 
+- https://mp.weixin.qq.com/ 登录后台
+- https://mp.weixin.qq.com/cgi-bin/wx
+
+## 分析
+
 ```js
 console.assert(globalThis === window);
 const global = {
@@ -44,8 +49,14 @@ const global = {
 };
 ```
 
-- https://mp.weixin.qq.com/ 登录后台
-- https://mp.weixin.qq.com/cgi-bin/wx
+- 内部编译器
+
+  - wcc
+    - wxml -> js
+  - wcsc
+    - wxss -> js
+
+- https://zhaomenghuan.js.org/blog/wechat-miniprogram-principle-analysis.html
 
 ## wx
 
@@ -140,3 +151,7 @@ require() of ES Module ansi-styles from chalk not supported
 
 - chalk 5 is ESM
 - chalk 4 is CJS
+
+## render webview vs skyline
+
+- https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/skyline/custom-route.html

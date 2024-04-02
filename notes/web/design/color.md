@@ -49,6 +49,11 @@ title: Color
 
 - https://www.happyhues.co/
 
+## gradient
+
+- https://tailwindcomponents.com/gradient-generator
+- https://cssgradient.io/
+
 ## 为什么色盘一般是 5 个颜色
 
 - https://graphicdesign.stackexchange.com/q/95715/93247

@@ -123,12 +123,14 @@ tags:
     - natural language date parser
   - [moment/luxon](https://github.com/moment/luxon)
     - 70kB, 21kB
-- format - number, time, money
+- format/intl - number, time, money
   - [SheetJS/printj](https://github.com/SheetJS/printj)
   - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
     - 基于 numeral
   - [numeral](https://github.com/adamwdraper/Numeral-js)
     - 不再维护
+  - [ECMA-402](https://github.com/tc39/ecma402)
+  - [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
 - money
   - [dinero.js](https://github.com/dinerojs/dinero.js)
     - create, calculate, format money
@@ -277,15 +279,34 @@ tags:
     - https://github.com/a86861636/webAR-demo
       - https://blog.csdn.net/qq_28864105/article/details/119609531
 - color
+  - randomcolor
+  - [Evercoder/culori](https://github.com/Evercoder/culori)
+    - npm:culori
+    - 👍 在维护，功能多，支持新的 colorspace
   - [Qix-/color](https://github.com/Qix-/color)
-  - color-name
+    - MIT, JS
+    - npm:color
+    - color conversion and manipulation
+  - [gka/chroma.js](https://github.com/gka/chroma.js)
+    - Apache-2.0, JS
+    - npm:chroma-js
+    - color manipulations
+  - [colorjs/color-name](https://github.com/colorjs/color-name)
+    - http://dev.w3.org/csswg/css-color/#named-colors
+  - [davidmerfield/randomColor](https://github.com/davidmerfield/randomColor)
+    - npm:randomColor
+  - [bgrins/TinyColor](https://github.com/bgrins/TinyColor)
+    - npm:tinycolor2 - 14kb
   - color-parse
-  - tinycolor2 - 14kb
-  - chroma-js
   - color
-  - colors.js
+  - [brehaut/color-js](https://github.com/brehaut/color-js)
   - color2k
-  - polished
+  - [styled-components/polished](https://github.com/styled-components/polished)
+    - MIT, JS
+    - writing styles in JavaScript
+  - CSS color
+    - MDN [color-mix](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)
+    - [css-color-mix](https://developer.chrome.com/docs/css-ui/css-color-mix)
 - css
   - css-tree - parser
   - csstype - TypeScript for CSS
@@ -701,6 +722,17 @@ tags:
   - [chakra-ui/zag](https://github.com/chakra-ui/zag)
     - React, Vue, Solid
     - from chakra-ui
+- search
+  - [nextapps-de/flexsearch](https://github.com/nextapps-de/flexsearch)
+    - size min.mjs  16kB
+  - [krisk/fuse](https://github.com/krisk/fuse)
+    - MIT, JS
+    - npm:fuse.js
+    - size min.mjs 16kB
+  - [olivernn/lunr.js](https://github.com/olivernn/lunr.js)
+    - MIT, JS
+- security/fuzzer
+  - https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
 
 ---
 
@@ -973,6 +1005,10 @@ npx -y publint
 
 npx -y @biomejs/biome check ./src
 ```
+
+## Fun
+
+- https://gist.github.com/OrionReed/4c3778ebc2b5026d2354359ca49077ca
 
 ## Reading
 

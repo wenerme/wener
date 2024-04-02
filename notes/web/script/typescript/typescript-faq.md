@@ -95,7 +95,7 @@ type Permission = (typeof Permission)[keyof typeof Permission];
 
 ## 箭头函数使用泛型参数
 
-> Array function use generic type parameter
+> arrow function use generic type parameter
 
 ```ts
 const identity = <T>(value: T): T[] => {

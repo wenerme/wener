@@ -87,7 +87,8 @@ npx husky add .husky/pre-commit "npx lint-staged"
 
 ## 排序 import
 
-- [trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
+- ~~[trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)~~
+- [IanVS/prettier-plugin-sort-imports](https://github.com/IanVS/prettier-plugin-sort-imports)
 
 ```bash
 npm add -D @trivago/prettier-plugin-sort-imports
@@ -101,11 +102,16 @@ module.exports = {
   singleQuote: true,
   jsxBracketSameLine: true,
   semi: true,
-  // @trivago/prettier-plugin-sort-imports
   importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
-  importOrderSeparation: true,
 };
 ```
+
+- importOrderParserPlugins
+  - BabelParserPluginsList
+- https://github.com/the-guild-org/shared-config/blob/main/packages/prettier-config/index.cjs
+- import with
+  - babel 支持 importAttributesKeyword ， 但是无法传递
+    - https://github.com/trivago/prettier-plugin-sort-imports/pull/273
 
 ## plugins
 

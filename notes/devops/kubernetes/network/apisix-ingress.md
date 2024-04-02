@@ -4,6 +4,18 @@ title: Apisix Ingress
 
 # Apisix Ingress
 
+:::caution
+
+- 不建议使用
+- 依赖 etcd
+  - etcd 难维护
+  - helm 直接启动的 etcd 可能会有各种问题 - 可能导致无法启动
+  - 没必要为了 apisix 专门去维护 etcd
+  - etcd 非常吃 IO - IO 慢的时候 CPU 非常高
+- 建议尝试 kong - 使用现有的 DB 作为 backend
+
+:::
+
 - Helm
   - https://charts.apiseven.com apisix
     - apisix 依赖 apisix-dashboard, apisix-ingress-controller, etcd
@@ -48,23 +60,23 @@ spec:
 
 ```yaml
 annotations:
-  k8s.apisix.apache.org/enable-cors: "true"
-  k8s.apisix.apache.org/cors-allow-origin: "https://foo.com,http://bar.com:8080"
-  k8s.apisix.apache.org/cors-allow-headers: "Host: https://bar.com:8080"
-  k8s.apisix.apache.org/cors-allow-methods: "GET,POST"
-  k8s.apisix.apache.org/allowlist-source-range: "10.0.5.0/16,127.0.0.1,192.168.3.98"
-  k8s.apisix.apache.org/blocklist-source-range: "127.0.0.1,172.17.0.0/16"
-  k8s.apisix.apache.org/http-allow-methods: "GET,POST"
-  k8s.apisix.apache.org/http-block-method: "PUT,DELETE"
-  k8s.apisix.apache.org/rewrite-target-regex: "/app/(.*)"
-  k8s.apisix.apache.org/rewrite-target-regex-template: "/$1"
-  k8s.apisix.apache.org/http-to-https: "true"
-  k8s.apisix.apache.org/use-regex: "true"
-  k8s.apisix.apache.org/enable-websocket: "true"
-  k8s.apisix.apache.org/enable-response-rewrite: "true"
-  k8s.apisix.apache.org/response-rewrite-status-code: "404"
-  k8s.apisix.apache.org/response-rewrite-body: "bar-body"
-  k8s.apisix.apache.org/response-rewrite-body-base64: "true"
+  k8s.apisix.apache.org/enable-cors: 'true'
+  k8s.apisix.apache.org/cors-allow-origin: 'https://foo.com,http://bar.com:8080'
+  k8s.apisix.apache.org/cors-allow-headers: 'Host: https://bar.com:8080'
+  k8s.apisix.apache.org/cors-allow-methods: 'GET,POST'
+  k8s.apisix.apache.org/allowlist-source-range: '10.0.5.0/16,127.0.0.1,192.168.3.98'
+  k8s.apisix.apache.org/blocklist-source-range: '127.0.0.1,172.17.0.0/16'
+  k8s.apisix.apache.org/http-allow-methods: 'GET,POST'
+  k8s.apisix.apache.org/http-block-method: 'PUT,DELETE'
+  k8s.apisix.apache.org/rewrite-target-regex: '/app/(.*)'
+  k8s.apisix.apache.org/rewrite-target-regex-template: '/$1'
+  k8s.apisix.apache.org/http-to-https: 'true'
+  k8s.apisix.apache.org/use-regex: 'true'
+  k8s.apisix.apache.org/enable-websocket: 'true'
+  k8s.apisix.apache.org/enable-response-rewrite: 'true'
+  k8s.apisix.apache.org/response-rewrite-status-code: '404'
+  k8s.apisix.apache.org/response-rewrite-body: 'bar-body'
+  k8s.apisix.apache.org/response-rewrite-body-base64: 'true'
   # 可以通过 Prefix 路由
   # path: /helloworld.Greeter/SayHello
   k8s.apisix.apache.org/upstream-scheme: grpcs

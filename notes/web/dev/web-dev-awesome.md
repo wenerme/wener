@@ -8,6 +8,7 @@ tags:
 - bundle size
   - https://bundlejs.com/
   - https://bundlephobia.com/
+    - [pastelsky/bundlephobia](https://github.com/pastelsky/bundlephobia)
 - [privatenumber/minification-benchmarks](https://github.com/privatenumber/minification-benchmarks)
 - [JamieMason/syncpack](https://github.com/JamieMason/syncpack)
   - Consistent dependency versions in large JavaScript Monorepos.

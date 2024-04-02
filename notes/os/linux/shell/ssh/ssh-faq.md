@@ -293,3 +293,35 @@ sudo -E -s
 - --preserve-env=SSH_AUTH_SOCK
 
 ## expecting SSH2_MSG_KEX_ECDH_REPLY
+
+## SNI Routing
+
+
+```
+Host *.ssh
+  ProxyCommand openssl s_client -quiet -servername %h -connect gateway:443
+```
+
+**nginx**
+
+```
+stream {
+    tcp_nodelay on;
+    resolver 8.8.8.8;
+    resolver_timeout 5s;
+    map $ssl_server_name $srv_name {
+        ~(.+)\.ssh $1:22;
+        default unix:/run/nginx.sock;
+    }
+    server {
+        listen 443 ssl;
+        ssl_certificate     /path/to/your/cert;
+        ssl_certificate_key /path/to/your/key;
+        ssl_preread on;
+        proxy_ssl off;
+        proxy_pass $srv_name;
+    }
+}
+```
+
+- **double-encrypted**

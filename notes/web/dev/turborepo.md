@@ -173,7 +173,7 @@ turbo run build --token=$TURBO_TOKEN
 }
 ```
 
-- [fox1t/turborepo-remote-cache](https://github.com/fox1t/turborepo-remote-cache)
+- [ducktors/turborepo-remote-cache](https://github.com/ducktors/turborepo-remote-cache)
   - open-source implementation of the Turborepo custom remote cache server
 - [remote-caching](https://turborepo.org/docs/core-concepts/remote-caching)
 

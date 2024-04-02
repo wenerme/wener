@@ -16,6 +16,9 @@ Layout is an arrangement or plan, especially the schematic arrangement of parts 
   - [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid)
     - FF 71+
 - table
+- contents
+  - 不直接产生 box，相当于当前元素不存在不影响布局，子元素相当于直接在父元素里
+  - 用作逻辑分组
 - 参考
   - https://css-tricks.com/snippets/css/complete-guide-grid/
 

@@ -19,8 +19,16 @@ echo '你好!' | iconv -f UTF-8 -t GB2312 - | hexdump -C
 - BMP - Basic Multilingual Plane
   - 基本多文种平面
   - U+0000 to U+FFFF
+- SIP - Supplementary Ideographic Plane
+  - 补充表意文字平面
+  - Plane 2 - 第二辅助平面
+  - U+20000 to U+2A6DF
+- TIP - Tertiary Ideographic Plane
+  - 第三辅助平面
+  - Plane 3
+  - U+2A700 to U+2B73F
 
-## 中文
+## CJK
 
 **中文**
 
@@ -34,16 +42,29 @@ echo '你好!' | iconv -f UTF-8 -t GB2312 - | hexdump -C
 /[\u4e00-\u9fa5\u3400-\u4DBF]|[\u{20000}-\u{2A6DF}]/u
 ```
 
-- 扩展A区（Extension A）
+- 中日韩统一表意文字（U+4E00－U+9FA5） - `/[\u4e00-\u9fa5]/`
+  - 20902
+  - 〇 U+3007 - 特殊修正
+- 扩展A区（Extension A） - U+3400－U+4DB5
   - 6,582
   - 罕见汉字、少数民族汉字
-- 扩展B区（Extension B）
+  - 中日韩统一表意文字扩展区A
+  - https://en.wikipedia.org/wiki/CJK_Unified_Ideographs_Extension_A
+- 扩展B区（Extension B） - U+20000－U+2A6D6 - A+B
   - 42,711
   - 罕见、古老汉字
 - 扩展C区（U+2A700到U+2B73F）
 - 扩展D区（U+2B740到U+2B81F）
 - 扩展E区（U+2B820到U+2CEAF）
 - 扩展F区（U+2CEB0到U+2EBEF）
+- 中日韩统一表意文字
+  - https://en.wikipedia.org/wiki/CJK_Unified_Ideographs
+
+| 区块名                    | 码位数 | 未分配 | 编码范围        |
+| ------------------------- | ------ | ------ | --------------- |
+| 中日韩统一表意文字        | 20,992 | 0      | U+4E00-U+9FA5   |
+| 中日韩统一表意文字扩展区A | 6,592  | 0      | U+3400-U+4DB5   |
+| 中日韩统一表意文字扩展区B | 42,720 | 0      | U+20000-U+2A6DF |
 
 ## 200b
 

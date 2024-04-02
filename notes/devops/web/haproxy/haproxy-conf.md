@@ -350,35 +350,6 @@ hdr(host)
 hdr_end(host) -i .wener.me
 hdr_beg(host) -i .wener.me
 
-## Logging
-
-```haproxy
-global
-  # syslog UNIX socket
-  log /dev/log local0
-
-  # 本地 syslog server
-  log 127.0.0.1 local1 notice
-  # log 到 hostname 为 rsyslog 的服务器
-  log rsyslog:514 local0
-
-  # stdout - 用于容器环境
-  log stdout format raw local0
-  log stdout format raw daemon debug
-
-defaults
-  log global
-  mode http
-  option httplog
-
-backend s1
-  mode tcp
-  option tcplog
-```
-
-- https://www.haproxy.com/documentation/hapee/latest/onepage/#8
-- https://www.haproxy.com/documentation/hapee/latest/observability/logging/overview/
-- https://www.haproxy.com/blog/introduction-to-haproxy-logging/
 
 ## 参考
 

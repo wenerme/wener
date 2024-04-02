@@ -18,18 +18,18 @@ title: Size
   - 3.37 inch × 2.125 inch × 0.0625
   - [ISO/IEC 7810](https://en.wikipedia.org/wiki/ISO/IEC_7810) - ID-1
 
-| Social          |         Size |
-| --------------- | -----------: |
-| FB Page Cover   |  1640×664 px |
-| FB Shared Image |  1200×630 px |
-| FB Event Image  | 1920×1080 px |
-| FB Group Header |  1640×856 px |
-| Instagram       | 1080×1080 px |
-| Insta Story     | 1080×1920 px |
-| Youtube Profile |   800×800 px |
-| Youtube Cover   | 2560×1440 px |
-| Twitter Profile |   400×400 px |
-| Twitter Header  |  1500×500 px |
+| Social          |         Size | Ratio  |
+| --------------- | -----------: | ------ |
+| FB Page Cover   |  1640×664 px | 1:2.46 |
+| FB Shared Image |  1200×630 px | 1:1.91 |
+| FB Event Image  | 1920×1080 px | 16:9   |
+| FB Group Header |  1640×856 px | 1:1.91 |
+| Instagram       | 1080×1080 px | 1:1    |
+| Insta Story     | 1080×1920 px | 9:16   |
+| Youtube Profile |   800×800 px | 1:1    |
+| Youtube Cover   | 2560×1440 px | 16:9   |
+| Twitter Profile |   400×400 px | 1:1    |
+| Twitter Header  |  1500×500 px | 3:1    |
 
 | Print         |       Size | Pixel     | pt             |
 | ------------- | ---------: | --------- | -------------- |

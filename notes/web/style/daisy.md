@@ -24,13 +24,24 @@ title: daisy
 
 :::
 
-**指定样式**
+**指定主题**
 
 ```html
 <html data-theme="cupcake"></html>
+<!-- 也可以在任意元素上直接使用 -->
+<div data-theme="cupcake"></html>
 ```
 
-- 也可以在任意元素上直接使用
+| btn-size | height        | diff     |
+| -------- | ------------- | -------- |
+| btn-xs   | 24px, 1.5rem  |
+| btn-sm   | 32px, 2rem    | +0.5rem  |
+| btn-md   | 48px, 3rem    | +1rem    |
+| btn-lg   | 64px, 4rem    | +1rem    |
+| badge-xs | 12px, 0.75rem |
+| badge-sm | 16px, 1rem    | +0.25rem |
+| badge-md | 20px, 1.25rem |
+| badge-lg | 24px, 1.5rem  |
 
 | var              | for                                |
 | ---------------- | ---------------------------------- |

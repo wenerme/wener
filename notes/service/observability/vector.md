@@ -258,3 +258,5 @@ out:
 - https://vector.dev/docs/reference/configuration/transforms/reduce/
 
 ## More than one file has the same fingerprint
+
+## syslog

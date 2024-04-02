@@ -14,33 +14,20 @@ title: floating-ui
   - `<Tooltip/>`, `<Popover/>`, `<Select/>`, `<Dropdown/>`
 - @floating-ui/react-native
 - https://github.com/floating-ui/floating-ui/tree/master/packages/react/test/visual/components
+- 浏览器
+  - Chrome >= 73
+  - Firefox >= 78
+  - Edge >= 79
+  - Safari >= 12.0
+  - iOS >= 12.0
+  - Opera >= 53
 
-## React DOM
+:::tip
 
-```tsx
-import { useFloating, offset, flip, shift } from '@floating-ui/react-dom';
+- 建议加一层 wrapper 用于定位
+  - 内部的内容可用于 transition
+  - 例如 `useTransitionStyles` 的 style 和 floatingStyle 会冲突
+- 不建议过度封装
+  - 因为 很多功能可能存在特殊情况
 
-function App() {
-  const { x, y, reference, floating, strategy } = useFloating({
-    placement: 'right',
-    strategy: 'fixed',
-    middleware: [offset(10), flip(), shift()],
-  });
-
-  return (
-    <>
-      <button ref={reference}>Button</button>
-      <div
-        ref={floating}
-        style={{
-          position: strategy,
-          top: y ?? '',
-          left: x ?? '',
-        }}
-      >
-        Tooltip
-      </div>
-    </>
-  );
-}
-```
+:::

@@ -122,6 +122,7 @@ tags:
 - [boyter/scc](https://github.com/boyter/scc)
 
 ```bash
+brew install scc
 # -M '[.]pb[.]' -M 'generated'
 scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
 ```

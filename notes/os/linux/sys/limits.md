@@ -32,6 +32,7 @@ cat /proc/sys/fs/nr_open  # 1048576 - 1024*1024 - nofile hard limit 最大值
 cat /proc/sys/fs/file-nr  # 已分配 0 最大
 
 # 19778411
+# 26367207
 sysctl fs.file-max
 # sysctl -w fs.file-max=19778411
 ```

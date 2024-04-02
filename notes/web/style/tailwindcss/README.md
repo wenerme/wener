@@ -52,7 +52,7 @@ npm add tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 # 包含默认配置
-# https://unpkg.com/browse/tailwindcss@2.0.1/stubs/defaultConfig.stub.js
+# https://unpkg.com/browse/tailwindcss@3.4.1/stubs/config.full.js
 npx tailwindcss init --full
 
 # 自行构建
@@ -209,33 +209,33 @@ module.exports = {
 - spacing 用于 padding, margin, width, height, maxHeight, gap, inset, space, translate
 - [Default spacing scale](https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale)
 
-| text | rem       | px     | diff |
-| ---- | --------- | ------ | ---- |
-| xs   | 0.75 rem  | 12 px  | +2   |
-| sm   | 0.875 rem | 14 px  |
-| base | 1 rem     | 16 px  |
-| lg   | 1.125 rem | 18 px  |
-| xl   | 1.25 rem  | 20 px  | +4   |
-| 2xl  | 1.5 rem   | 24 px  | +6   |
-| 3xl  | 1.875 rem | 30 px  |
-| 4xl  | 2.25 rem  | 36 px  | +12  |
-| 5xl  | 3 rem     | 48 px  |
-| 6xl  | 3.75 rem  | 60 px  |
-| 7xl  | 4.5 rem   | 72 px  | +24  |
-| 8xl  | 6 rem     | 96 px  | +32  |
-| 9xl  | 8 rem     | 128 px |
+| text      |       rem |     px | diff |
+| --------- | --------: | -----: | ---- |
+| text-xs   |  0.75 rem |  12 px | +2   |
+| text-sm   | 0.875 rem |  14 px |
+| text-base |     1 rem |  16 px |
+| text-lg   | 1.125 rem |  18 px |
+| text-xl   |  1.25 rem |  20 px | +4   |
+| text-2xl  |   1.5 rem |  24 px | +6   |
+| text-3xl  | 1.875 rem |  30 px |
+| text-4xl  |  2.25 rem |  36 px | +12  |
+| text-5xl  |     3 rem |  48 px |
+| text-6xl  |  3.75 rem |  60 px |
+| text-7xl  |   4.5 rem |  72 px | +24  |
+| text-8xl  |     6 rem |  96 px | +32  |
+| text-9xl  |     8 rem | 128 px |
 
-| font       | weight |
-| ---------- | ------ |
-| thin       | 100    |
-| extralight | 200    |
-| light      | 300    |
-| normal     | 400    |
-| medium     | 500    |
-| semibold   | 600    |
-| bold       | 700    |
-| extrabold  | 800    |
-| black      | 900    |
+| font            | weight |
+| --------------- | ------ |
+| font-thin       | 100    |
+| font-extralight | 200    |
+| font-light      | 300    |
+| font-normal     | 400    |
+| font-medium     | 500    |
+| font-semibold   | 600    |
+| font-bold       | 700    |
+| font-extrabold  | 800    |
+| font-black      | 900    |
 
 | max-width        | rem   | px     | note          |
 | ---------------- | ----- | ------ | ------------- |
@@ -300,7 +300,7 @@ module.exports = {
 ## tailwind.config.js
 
 - [配置](https://tailwindcss.com/docs/configuration)
-- 默认配置 [stubs/defaultConfig.stub.js](https://unpkg.com/browse/tailwindcss/stubs/defaultConfig.stub.js)
+- 默认配置 [config.full.js](https://unpkg.com/browse/tailwindcss@3.4.1/stubs/config.full.js)
   - 84 颜色
   - 5 breakpoint
 - https://tailwindcss.com/docs/configuration#core-plugins
@@ -345,11 +345,11 @@ module.exports = {
 - 实现虚拟滚动窗口
 
 ```jsx
-<div className="flex flex-col">
+<div className='flex flex-col'>
   <header></header>
 
-  <div className="flex-1 min-h-0 relative">
-    <div className="absolute inset-0">content</div>
+  <div className='flex-1 min-h-0 relative'>
+    <div className='absolute inset-0'>content</div>
   </div>
 
   <footer></footer>

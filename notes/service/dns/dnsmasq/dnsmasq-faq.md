@@ -9,10 +9,10 @@ tags:
 ## dnsmasq: failed to create inotify: No file descriptors available
 
 ```bash
+# 128
 sysctl fs.inotify.max_user_instances
 
 sudo sysctl fs.inotify.max_user_instances=8192
-
 ```
 
 - k8s 相关问题

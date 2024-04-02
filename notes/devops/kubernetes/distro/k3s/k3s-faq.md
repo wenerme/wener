@@ -32,6 +32,50 @@ ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock g
 # ETCDCTL_API=3 etcdctl --endpoints=unix:///var/lib/rancher/k3s/server/kine.sock get / --prefix
 ```
 
+## DNS 问题
+
+```bash
+nslookup kubernetes.default
+
+# 确保网络正常
+ping 1.1.1.1
+```
+
+- 确保 coredns 能联网
+- kube-dns.kube-system.svc.cluster.local
+  - 10.43.0.10
+  - coredns
+
+## flannel 网络问题
+
+```bash
+# 排查 host 路由
+route -n
+
+cat /run/flannel/subnet.env
+
+# host
+ping 10.42.0.1
+
+# 排查 pod 网络
+tcpdump -i cni0 -nn -s0 -v -l host
+```
+
+```ini title="subnet.env"
+FLANNEL_NETWORK=10.42.0.0/16
+FLANNEL_SUBNET=10.42.0.1/24
+FLANNEL_MTU=1450
+FLANNEL_IPMASQ=true
+```
+
+## pod 之间网络不通
+
+```bash
+iptables -P FORWARD ACCEPT
+```
+
+- https://github.com/k3s-io/k3s/issues/8809
+
 ## containerd 配置
 
 - /var/lib/rancher/k3s/agent/etc/containerd/config.toml
