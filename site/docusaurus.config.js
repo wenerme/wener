@@ -27,6 +27,16 @@ function RewritePlugin(context, options) {
 const isTesting = Boolean(process.env.TEST);
 isTesting && console.warn(`Test building`);
 
+const rehypePlugins = [
+  [
+    rehypeExtendedTable,
+    {
+      mergeTo: ['right', 'left'],
+    },
+  ],
+  [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Wener Live & Life',
@@ -61,10 +71,7 @@ const config = {
 
           // https://katex.org/docs/options.html
           remarkPlugins: [math, deflist],
-          rehypePlugins: [
-            [rehypeExtendedTable, {}],
-            [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
-          ],
+          rehypePlugins,
 
           sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
             const items = await defaultSidebarItemsGenerator(args);
@@ -101,11 +108,8 @@ const config = {
 
           // https://katex.org/docs/options.html
           // deflist 和 2013-09-24-数据库原理 for NCRE 4.md 有问题
-          remarkPlugins: [math, ],
-          rehypePlugins: [
-            [rehypeExtendedTable, {}],
-            [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
-          ],
+          remarkPlugins: [math],
+          rehypePlugins,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
