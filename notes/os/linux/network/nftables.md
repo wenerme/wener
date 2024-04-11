@@ -44,8 +44,8 @@ nft flush ruleset ip6
 nft flush ruleset bridge
 nft flush ruleset inet
 
-# 应用规则
-nft -f rule.nft
+nft -c -f rule.nft # 检查规则
+nft -f rule.nft    # 应用规则
 
 # 转义
 # nft add rule ip filter INPUT tcp dport 22 ct state new counter accept
@@ -74,7 +74,6 @@ nft describe icmp_type
 - eth5 wan
 - 允许作为 gateway 转发
 - 允许来自 lan 的请求
-
 
 ```
 table ip nat {

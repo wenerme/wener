@@ -25,7 +25,6 @@ NEXT_TELEMETRY_DISABLED=1
 # NuxtJS
 NUXT_TELEMETRY_DISABLED=1
 
-
 # ========================
 # Service
 # ========================
@@ -91,6 +90,20 @@ MINIO_UPDATE=off
 
 ```bash
 export HOMEBREW_NO_ANALYTICS=1
+```
+
+## Scarf
+
+```
+SCARF_ANALYTICS=false
+```
+
+```json title="package.json"
+{
+  "scarfSettings": {
+    "defaultOptIn": false
+  }
+}
 ```
 
 ## NuxtJS

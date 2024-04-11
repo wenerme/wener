@@ -35,6 +35,24 @@ title: 微信小程序
 - https://mp.weixin.qq.com/ 登录后台
 - https://mp.weixin.qq.com/cgi-bin/wx
 
+## API
+
+- 手机号快速验证 [getPhoneNumber](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html)
+  - 平台不做二次实际校验
+- 手机号实时验证 [getRealtimePhoneNumber](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getRealtimePhoneNumber.html)
+  - 💲 付费使用
+  - 平台进行实际校验
+- wx.getSetting()
+  - 获取权限信息
+  - `scope.userInfo`,`scope.address`,`scope.invoice`,`scope.invoiceTitle`
+- wx.getUserInfo
+  - 一次性授权
+  - 返回**匿名**信息
+  - 需要 scope.userInfo
+- wx.getUserProfile
+  - 每次授权
+  - 2021年4月
+
 ## 分析
 
 ```js

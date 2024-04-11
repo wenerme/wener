@@ -287,3 +287,21 @@ $$
 $$
 A = 3 \times 2
 $$
+
+### Table span
+
+```md
+| Head 1 | Head 2 | Head 3 | Head 4 | Head 4 |
+| :----: | :----: | :----: | :----: | :----: |
+| (2x1)  |   <    |  Cell  |  Cell  |  Cell  |
+| (1x3)  | (2x2)  |   <    | (2x2)  |   <    |
+|   ^    |   ^    |   <    |  Cell  |  Cell  |
+|   ^    | (3x1)  |   <    |   <    |  Cell  |
+```
+
+| Head 1 | Head 2 | Head 3 | Head 4 | Head 4 |
+| :----: | :----: | :----: | :----: | :----: |
+| (2x1)  |   <    |  Cell  |  Cell  |  Cell  |
+| (1x3)  | (2x2)  |   <    | (2x2)  |   <    |
+|   ^    |   ^    |   <    |  Cell  |  Cell  |
+|   ^    | (3x1)  |   <    |   <    |  Cell  |

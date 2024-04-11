@@ -3,32 +3,53 @@ tags:
   - Glossary
 ---
 
-# Address Book - 地址簿
+# ERP 术语表
+
+| abbr. |                          for | cn           |
+| ----- | ---------------------------: | ------------ |
+| IOT   |           Internet of Things | 物联网       |
+| ERP   | Enterprise Resource Planning | 企业资源计划 |
+| CPS   |                Cost Per Sale | 销售成本     |
+| CPA   |         Cost Per Acquisition | 每次获取成本 |
+| CPC   |               Cost Per Click | 每次点击成本 |
+
+- CPS 推广/联盟
+
+**Management System**
 
 | abbr. |                              for | cn               |
 | ----: | -------------------------------: | ---------------- |
-|   ams |     Accounting Management System | 会计管理系统     |
-|  hrms | Human Resource Management System | 人力资源管理系统 |
-|   erp |     Enterprise Resource Planning | 企业资源计划     |
-|   crm | Customer Relationship Management | 客户关系管理     |
-|   wms |      Warehouse Management System | 仓库管理系统     |
-|   tms | Transportation Management System | 运输管理系统     |
-|   scm |          Supply Chain Management | 供应链管理       |
-|   plm |     Product Lifecycle Management | 产品生命周期管理 |
-|   mes |   Manufacturing Execution System | 制造执行系统     |
-|   dms |       Document Management System | 文档管理系统     |
-|   pms |        Project Management System | 项目管理系统     |
-|   cms |        Content Management System | 内容管理系统     |
-|   lms |       Learning Management System | 学习管理系统     |
-|   ems |          Event Management System | 事件管理系统     |
-|   oms |          Order Management System | 订单管理系统     |
-|   fms |      Financial Management System | 财务管理系统     |
-|   bms |       Building Management System | 建筑管理系统     |
-|   iot |               Internet of Things | 物联网           |
-|   PMS |           Property Rental System | 物业租赁系统     |
-|   RPM |       Rental Property Management | 租赁物业管理     |
+|   AMS |     Accounting Management System | 会计管理系统     |
+|   BMS |       Building Management System | 建筑管理系统     |
+|   CMS |        Content Management System | 内容管理系统     |
+|   DMS |       Document Management System | 文档管理系统     |
+|   EMS |          Event Management System | 事件管理系统     |
+|   FMS |      Financial Management System | 财务管理系统     |
 |   HRS |              House Rental System | 房屋租赁系统     |
+|   LMS |       Learning Management System | 学习管理系统     |
+|   MES |   Manufacturing Execution System | 制造执行系统     |
+|   OMS |          Order Management System | 订单管理系统     |
+|   OMS |          Order Management System | 订单管理系统     |
+|   OMS |      Operation Management System | 运营管理系统     |
+|   PMS |           Property Rental System | 物业租赁系统     |
+|   PMS |        Project Management System | 项目管理系统     |
+|   TMS | Transportation Management System | 运输管理系统     |
+|   WMS |      Warehouse Management System | 仓库管理系统     |
+|  HRMS | Human Resource Management System | 人力资源管理系统 |
+|  SMMS |   Social Media Management System | 社交媒体管理系统 |
+|   CRM | Customer Relationship Management | 客户关系管理     |
+|   PLM |     Product Lifecycle Management | 产品生命周期管理 |
+|   RPM |       Rental Property Management | 租赁物业管理     |
+|   SCM |          Supply Chain Management | 供应链管理       |
 
+|                                    en | cn               |
+| ------------------------------------: | ---------------- |
+| Enterprise Internal Management System | 企业内部管理系统 |
+|   Internal Business Management System | 内部业务管理系统 |
+|                          Address Book | 地址簿           |
+
+- ISO 9001 Quality Management System
+  - 组织管理框架
 - 企业内部人员
 - 例如
   - LDAP 里有地址簿的相关结构
@@ -40,6 +61,32 @@ tags:
   - [pimutils/vdirsyncer](https://github.com/pimutils/vdirsyncer) - Synchronize calendars and contacts.
   - [scheibler/khard](https://github.com/scheibler/khard) - Console carddav client
   - [3 open source tools to manage your contacts](https://opensource.com/article/20/1/sync-contacts-locally)
+  - https://www.qad.com/glossary
+  - https://www.visualsouth.com/blog/erp-terminology
+  - https://en.wikibooks.org/wiki/ERP_Internals/Glossary
+
+## Management vs Management System
+
+- Management
+  - 指组织、计划、指导和控制资源（包括人力、财力、物力和信息等）的 **过程**，以实现特定的目标和目的。
+- Management System
+  - 支持管理活动的工具、程序、流程和技术的集合。
+  - 提高决策的质量、优化流程、增强效率和效果，以及确保组织能够持续改进和适应环境变化。
+
+---
+
+- 支持与增强
+  - Management System 为 Management 提供了支持和增强。
+  - 通过引入结构化的流程和自动化的工具，管理系统帮助管理者更有效地组织、计划、执行和监控管理活动。
+- 实施与应用
+  - Management 表示更广泛的概念和实践，而 Management System 是这些管理实践的具体实施和应用方式。
+  - 换句话说，管理系统是实现管理目标和原则的手段和工具。
+- 理论与实践
+  - Management 涉及管理理论和原则，强调策略和人力资源的重要性；而 Management System 则更侧重于实践和应用，涵盖了实现这些理论和原则所需的具体工具和流程。
+
+---
+
+如果管理（Management）的基本原则和实践执行得不好，那么管理系统（Management System）也很难做好。
 
 ## User - 员工/用户/服务商 {#user}
 
@@ -440,3 +487,6 @@ tags:
   ]
 }
 ```
+
+- CRM STATE & STATUS CODES
+  - https://www.tpein.dk/?page_id=210

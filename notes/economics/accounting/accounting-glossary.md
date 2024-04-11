@@ -5,12 +5,13 @@ tags:
 
 # Accounting Glossary
 
-| abbr. | stand for                   | mean           | note                 |
-| ----- | --------------------------- | -------------- | -------------------- |
+| abbr. | stand for                   | mean           | note                                       |
+| ----- | --------------------------- | -------------- | ------------------------------------------ |
 | CPA   | Certified Public Accountant | 注册会计师     |
 | TA    |                             | 税务师         |
-| IRS   | Internal Revenue Service    | 美国国家税务局 | https://www.irs.gov/ |
-| IRC   | 國稅法規                    |
+| IRS   | Internal Revenue Service    | 美国国家税务局 | https://www.irs.gov/                       |
+| IRC   | Internal Revenue Code       | 美国国内税收法 | https://www.law.cornell.edu/uscode/text/26 |
+| COA   | Chart of Accounts           | 会计科目表     |
 
 | abbr.   | stand for                                              | mean                 |
 | ------- | ------------------------------------------------------ | -------------------- |

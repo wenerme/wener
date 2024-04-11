@@ -48,6 +48,26 @@ tags:
 
 ## 常见词汇 {#common}
 
+|   abbr. | en           | cn           |
+| ------: | ------------ | ------------ |
+|         | synonynm     | 同义词       |
+|         | antonym      | 反义词       |
+|         | homonym      | 同音异义词   |
+|         | homograph    | 同形异义词   |
+|         | acronym      | 首字母缩略词 |
+|   abbr. | abbreviate   | 缩写         |
+|    adj. | adjective    | 形容词       |
+|    adv. | adverb       | 副词         |
+|      n. | noun         | 名词         |
+|      v. | verb         | 动词         |
+|   prep. | preposition  | 介词         |
+|   conj. | conjunction  | 连词         |
+|   pron. | pronoun      | 代词         |
+| interj. | interjection | 感叹词       |
+|    art. | article      | 冠词         |
+|     pl. | plural       | 复数         |
+|   sing. | singular     | 单数         |
+
 | 英文            | 含义                                                                |
 | --------------- | ------------------------------------------------------------------- |
 | list            | 列表                                                                |
@@ -376,6 +396,10 @@ tags:
 
 ## 社交 {#social}
 
+| abbr. | stand for              | mean         |
+| ----- | ---------------------- | ------------ |
+| sns   | social network service | 社交网络服务 |
+
 > Internet forum
 
 | abbr.  | stand for               | mean             |
@@ -573,6 +597,9 @@ tags:
 | Rental Property Management | 租赁物业管理       |
 |            Rental Property | 租赁物业           |
 |                     Rental | 租赁、租金         |
+|                       rent | 租赁、租金         |
+|           security deposit | 押金               |
+|                     margin | 保证金             |
 |     Real Estate Businesses | 房地产业务         |
 |                Real Estate | 房地产             |
 |                     Estate | 房地产、遗产       |
@@ -580,6 +607,7 @@ tags:
 |                     tenant | 租户、承租人、房客 |
 |                      Lease | 租约、租赁合同     |
 |           Raising The Rent | 提高租金           |
+|    Labor Management System | 劳务管理系统       |
 
 - Housing
   - 住宅
@@ -588,6 +616,17 @@ tags:
   - 房产
 - Commercial
   - 商业
+- Lessee - 强调租赁关系
+- Occupant, Resident - 强调居住状态
+- Renter - 租客 - 简单地指一个支付租金使用房屋的个体
+- Tenant - 租户
+- Holder - 持有人 - 类似 landlord 和 house 的关系
+- security deposit vs margin
+  - security deposit
+    - 更加常用和准确
+  - margin
+    - 描述交易中所需的保证金
+    - 比如股票交易或期货交易中的最低保证金要求
 
 # FAQ
 
@@ -1312,10 +1351,15 @@ tags:
 
 - Address - 任何类型的地址
 - Mailing Address - 地址用于邮寄, 区分账单地址或办公地址
+  - 信件、账单、杂志 等
 - Shipping Address - 物理商品配送
+  - 通常用于较大包裹的发送，特别是涉及到在线购物、大件商品的运输等。
+  - 电商场景用的多
+  - 与 "shipping costs"（运费）、"shipping information"（运输信息） 相关
 - Postal Address - 邮政 - 适合传统的邮件寄送
 - Street Address: - 街道信息
 - Physical Address: - 区分电子地址（如电子邮件）和物理地址
+- recipient address - 收件人地址
 
 ## parse vs resolve vs normalize
 
@@ -1450,8 +1494,10 @@ tags:
 - https://www.dictionary.com/browse/employee?s=t
   - 查含义和词源
 - etymonline.com
+- 查询缩写词
+  - https://www.abbreviations.com
 
-| .abbr | for                                 |
+| abbr. | for                                 |
 | ----- | ----------------------------------- |
 | SDLC  | Software Development Life Cycle     |
 | AIDA  | AI Developer Assistant              |

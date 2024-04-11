@@ -391,3 +391,5 @@ React.JSX.IntrinsicElements["button"]
 - 部分场景存在 introspect ref 并做合并修改
 - 参考
   - https://www.youtube.com/watch?v=m4QbeS9BTNU
+
+## Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.

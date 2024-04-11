@@ -96,7 +96,10 @@ const config = {
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
 
           remarkPlugins: [math],
-          rehypePlugins: [[katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }]],
+          rehypePlugins: [
+            [rehypeExtendedTable, {}],
+            [(katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') })],
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -297,9 +300,11 @@ const config = {
     format: 'detect',
   },
   themes: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
-  stylesheets: [{
-    href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css'
-  }],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+    },
+  ],
   scripts: [
     // <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}'></script><!-- End Cloudflare Web Analytics -->
     {
@@ -310,4 +315,4 @@ const config = {
     },
   ],
 };
-export default config
+export default config;

@@ -82,6 +82,13 @@ enabled = false
 - https://learn.netdata.cloud/docs/agent/registry/#run-your-own-registry
 - 每个 Netdata 都是 registry
 - `/var/lib/netdata/registry/*.db`
+  - registry-log.db - 请求日志
+  - registry.db
+- registry 记录的信息
+  - machine_guid
+  - person_guid
+  - urls
+  - accounts
 
 ```ini
 [registry]

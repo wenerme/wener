@@ -3,7 +3,7 @@ tags:
   - Awesome
 ---
 
-# Office Awesome
+# Document Awesome
 
 - WOPI - Web Application Open Platform Interface Protocol
   - https://docs.microsoft.com/en-us/microsoft-365/cloud-storage-partner-program/rest/

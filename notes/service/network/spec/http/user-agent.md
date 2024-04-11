@@ -5,6 +5,19 @@ tags:
 
 # UserAgent
 
+```
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+```
+
+- navigator.userAgent
+- UA 内容判断
+  - UCBrowser
+  - MQQBrowser
+  - micromessenger
+  - ipod
+  - iphone
+  - android
+
 ## userAgentData
 
 - Chrome 90+

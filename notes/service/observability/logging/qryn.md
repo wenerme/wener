@@ -10,19 +10,14 @@ title: qryn
 
 ```bash
 docker run --rm -it \
-    -e CLICKHOUSE_SERVER=clickhouse \
-    -e CLICKHOUSE_AUTH=qryn:qryn \
-    -e CLICKHOUSE_PROTO=http \
-    -e CLICKHOUSE_PORT=8123 \
-    -e CLICKHOUSE_DB=qryn \
-    -p 3100:3100 \
-    ghcr.io/metrico/qryn:latest
+  -e CLICKHOUSE_SERVER=clickhouse \
+  -e CLICKHOUSE_AUTH=qryn:qryn \
+  -e CLICKHOUSE_PROTO=http \
+  -e CLICKHOUSE_PORT=8123 \
+  -e CLICKHOUSE_DB=qryn \
+  -p 3100:3100 \
+  ghcr.io/metrico/qryn:latest
 ```
-
-
-
-
-
 
 - LogQL
 - Tempo API

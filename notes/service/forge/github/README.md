@@ -17,6 +17,10 @@ curl https://api.github.com/users/wenerme/keys
 # .diff .patch
 curl -LO https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2875.diff
 git am 2875.diff
+
+
+curl https://api.github.com
+curl https://api.github.com/meta
 ```
 
 ## Git LFS

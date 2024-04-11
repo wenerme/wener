@@ -34,7 +34,6 @@ tags:
 - [Kopano-dev/kopano-core](https://github.com/Kopano-dev/kopano-core)
   - Groupware
   - AGPL-3.0
-- [SaaS Blocks](https://saasblocks.io/)
 - [Open Source Alternatives](https://www.btw.so/open-source-alternatives)
 - [calendso/calendso](https://github.com/calendso/calendso)
   - MIT, TypeScript
@@ -58,8 +57,6 @@ tags:
 - [getfider/fider](https://github.com/getfider/fider)
   - AGPL-3.0, Go
   - collect and prioritize feedback
-- [medusajs/medusa](https://github.com/medusajs/medusa)
-  - open-source Shopify alternative
 - [Kareadita/Kavita](https://github.com/Kareadita/Kavita)
   - Reading
   - [vs.](https://wiki.kavitareader.com/en/faq/compare-to-competition)
@@ -443,7 +440,16 @@ tags:
   - [cvbox](https://cvbox.org/)
   - https://github.com/txstc55/ugly-avatar/blob/main/src/views/FaceGenerator.vue
     - 蛮有意思的丑丑的头像
-- 商业
+- digital commerce
+  - [woocommerce](https://github.com/woocommerce/woocommerce)
+    - PHP
+  - [medusajs/medusa](https://github.com/medusajs/medusa)
+    - MIT, TS
+    - open-source Shopify alternative
+  - Shopify
+- SaaS 服务目录/商业
+  - [SaaS Blocks](https://saasblocks.io/)
+  - https://github.com/it2025/saasbook
   - https://nino.app/
 
 ## OCR

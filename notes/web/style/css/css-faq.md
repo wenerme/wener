@@ -129,6 +129,7 @@ CSS.supports('aspect-ratio', '1/1');
       - 新的 block formatting context
   - 参考
     - https://www.w3.org/TR/css-contain-2/
+    - https://web.dev/articles/content-visibility
     - [caniuse](https://caniuse.com/css-containment)
       - Chrome 52+
       - iOS/Saferi 不支持

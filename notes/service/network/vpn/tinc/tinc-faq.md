@@ -6,6 +6,12 @@ tags:
 
 # Tinc FAQ
 
+## openrc
+
+```bash
+sudo curl -o /etc/init.d/tinc.netname --create-file-mode 0755 -L https://github.com/wenerme/wener/blob/master/notes/service/network/vpn/tinc/tinc.openrc.sh
+```
+
 ## Could not create a tun/tap interface from /dev/net/tun: Resource busy
 
 ## MTU 1518

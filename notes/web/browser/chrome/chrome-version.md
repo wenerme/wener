@@ -164,6 +164,7 @@ tags:
     - 主要用于 CJK 的括号等，让括号之类的变窄，更好看
   - field-sizing
     - 让输入内容自动调整输入框的大小
+    - textarea
 
 ## Chrome 122
 

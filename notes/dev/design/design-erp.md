@@ -358,3 +358,12 @@ interface GeneralResource {
 - File - 文件
   - 通用文件
   - 内容可能不透明 - 不需要感知内容
+
+## zIndex
+
+- 50
+  - dialog
+- 40
+  - window host - isolate
+
+## State & Status

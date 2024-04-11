@@ -20,7 +20,7 @@ title: youtube-dl
   - yt-dlp
 
 ```bash
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl --create-file-mode 0755 -o /usr/local/bin/youtube-dl
+# sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl --create-file-mode 0755 -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # 测试文件名

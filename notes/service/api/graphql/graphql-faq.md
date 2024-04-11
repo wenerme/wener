@@ -50,3 +50,8 @@ pnpm add graphql graphql-scalars @graphql-tools/utils @graphql-tools/schema
 | 🔶     | Not Good Enough |
 | 🟡     | Bad at          |
 | 🛑     | Sorry for       |
+
+## Fragment Masking
+
+- https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#embrace-fragment-masking-principles
+- https://the-guild.dev/blog/unleash-the-power-of-fragments-with-graphql-codegen

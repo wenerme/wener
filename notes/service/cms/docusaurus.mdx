@@ -219,7 +219,7 @@ const Mermaid = ({ chart }) => {
   useEffect(() => {
     mermaid.contentLoaded();
   }, []);
-  return <div className="mermaid">{chart}</div>;
+  return <div className='mermaid'>{chart}</div>;
 };
 
 export default Mermaid;
@@ -488,10 +488,26 @@ module.exports = {
 - remark-emoji v2 ➡️ v4
 - https://docusaurus.io/blog/releases/3.0
 
-
 ## Search
+
 - Algolia DocSearch
 - typesense
   - 不支持 CJK
 - [meilisearch](https://github.com/tauri-apps/meilisearch-docsearch)
 - https://docusaurus.io/docs/search
+
+## Table span
+
+- rehype-extended-table
+- https://github.com/facebook/docusaurus/discussions/5155
+  - remark-extended-table
+  - remark-grid-tables
+
+```
+| Head 1 | Head 2 | Head 3 | Head 4 | Head 4 |
+| :----: | :----: | :----: | :----: | :----: |
+| (2x1)  |   <    |  Cell  |  Cell  |  Cell  |
+| (1x3)  | (2x2)  |   <    | (2x2)  |   <    |
+|   ^    |   ^    |   <    |  Cell  |  Cell  |
+|   ^    | (3x1)  |   <    |   <    |  Cell  |
+```

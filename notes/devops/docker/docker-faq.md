@@ -9,17 +9,25 @@ tags:
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
 ## Host IP
+
 - host.docker.internal
 - docker.for.mac.localhost
 
-
 ```bash
-/sbin/ip route|awk '/default/ { print $3 }'
+/sbin/ip route | awk '/default/ { print $3 }'
+
+getent host.docker.internal
+getent hosts docker.for.mac.localhost
 
 # Docker in AWS
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
+
+- https://docs.orbstack.dev/docker/domains
+  - container-name.orb.local
+  - service.project.orb.local
+  - 本地可直接打开 http://orb.local
 
 ## env
 

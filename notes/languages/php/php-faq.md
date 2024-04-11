@@ -94,3 +94,5 @@ ini_set('memory_limit', '-1');
 ```bash
 apk del php82-pecl-psr
 ```
+
+- psr-4 已经弃用？

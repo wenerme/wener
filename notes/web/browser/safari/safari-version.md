@@ -13,6 +13,9 @@ tags:
 | Safari 14.0 | 2020-09-17 |
 
 - 版本跟随 [macOS](../../os/darwin/macos-version.md)
+- https://developer.apple.com/safari/resources/
+- https://developer.apple.com/safari/
+- https://developer.apple.com/safari/technology-preview/
 - [Safari version history](https://en.wikipedia.org/wiki/Safari_version_history)
 
 ## 安装 Safari 14

@@ -69,9 +69,13 @@ tags:
 
 |                                service | month    | annual   | notes   |
 | -------------------------------------: | -------- | -------- | ------- |
-|                                 **US** |
-|          Nintendo Switch Online Family |          | $34.99/y | 8个账号 |
+|                                **USD** |
 |      Nintendo Switch Online Individual | $3.99/mo | $19.99/y | 1个账号 |
+|          Nintendo Switch Online Family |          | $34.99/y | 8个账号 |
 | Nintendo Switch Online Family + 扩展包 |          | $79.99/y | 8个账号 |
 |        Nintendo Switch Online + 扩展包 |          | $49.99/y |         |
 |                       PlayStation Plus |          |
+
+- https://accounts.nintendo.com/
+- Nintendo Switch Online 计划
+  - https://ec.nintendo.com/HK/zh/membership

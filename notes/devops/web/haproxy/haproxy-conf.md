@@ -134,10 +134,13 @@ timeout server-fin      1s
 | len   | 长度匹配                    |
 | bin   | 二进制数据匹配 - Hex        |
 
+- dom
 - `hdr_end(host) .wener.me` 不会匹配 `wener.me`
 - `hdr_end(host) wener.me` 会匹配 `xyzwener.me`
 - `hdr_dom(host) wener.me` 会匹配 `wener.me` 和 `*.wener.me`, 不会匹配 `xyzwener.me`
   - 大多时候期望结果
+- `_beg, _dir, _dom, _end, _len, _reg, _sub`
+
 
 | method   | alias       |
 | -------- | ----------- |

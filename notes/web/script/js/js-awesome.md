@@ -222,6 +222,9 @@ tags:
     - SVG renderer, powered by Rust based resvg and napi-rs
   - [svgdotjs/svg.js](https://github.com/svgdotjs/svg.js)
     - manipulating and animating SVG
+  - [chearon/dropflow](https://github.com/chearon/dropflow)
+    - MIT, TS
+    - CSS layout engine for canvas
   - [konvajs/konva](https://github.com/konvajs/konva)
     - MIT, JS+TS
     - react-konva
@@ -482,7 +485,7 @@ tags:
     - [decimal.js](https://github.com/MikeMcl/decimal.js)
       - 31kB/12kB
       - scientific
-    - [bignumber.js](./lib/bignumberjs.md)
+    - [bignumber.js](../lib/bignumberjs.md)
       - 18kB/8kB
       - financial
       - 支持 exp,ln,log

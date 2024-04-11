@@ -84,6 +84,8 @@ tags:
   - C#
   - fork of Emby
   - 🌟 推荐 - 简单易用，开发活跃
+- [advplyr/audiobookshelf](https://github.com/advplyr/audiobookshelf)
+  - GPLv3, JS, Vue
 - [Radarr/Radarr](https://github.com/Radarr/Radarr)
   - GPLv3, C#
   - fork of Sonarr

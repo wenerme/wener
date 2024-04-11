@@ -42,6 +42,8 @@ tags:
   - https://data.iana.org/TLD/tlds-alpha-by-domain.txt
   - https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
   - [Top-level domain](https://en.wikipedia.org/wiki/Top-level_domain)
+- https://dnschecker.org/public-dns/cn
+- https://public-dns.info/nameserver/cn.html
 
 ```bash
 curl 'https://dns.google/resolve?name=wener.me&type=A'

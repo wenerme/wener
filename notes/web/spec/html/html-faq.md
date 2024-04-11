@@ -26,16 +26,30 @@ tags:
 
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
 
-## inert
+## offscreen
 
-- 性能优化
-- polyfill wicg-inert
-- Temporarily offscreen/hidden content
-- On-screen but non-interactive content - pointer-events: none，user-select: none
-- jsx `inert={i !== tab ? '' : null}`
+- dom inert attribute
+  - accessibility 优化
+  - 性能优化
+  - polyfill wicg-inert
+  - Temporarily offscreen/hidden content
+  - On-screen but non-interactive content - pointer-events: none，user-select: none
+  - jsx `inert={i !== tab ? '' : null}`
 - 参考
   - https://developer.chrome.com/articles/inert/
   - [WICG/inert](https://github.com/WICG/inert)
+  - React Offscreen
+  - CSS [content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility)
+    - 强调是否渲染、是否可见
+    - 可用于 lazy
+    - hidden 时，engine 可直接跳过渲染
+    - offscreen 部分降低优先级
+    - 和 contain 相关
+    - https://web.dev/articles/content-visibility
+  - CSS display: none
+    - 不占用布局
+  - CSS visibility: hidden
+    - 依然保留布局
 
 ```tsx
 const TabContainer = () => {

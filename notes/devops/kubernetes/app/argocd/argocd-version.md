@@ -35,6 +35,19 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
 
+## ArgoCD 2.10
+
+- ApplicationSet Templates
+- Apps in Any Namespace & Notifications
+  - https://argo-cd.readthedocs.io/en/stable/operator-manual/app-any-namespace/
+  - --application-namespaces
+  - argocd-cm
+    - application.namespaces
+- PKCE
+- Server-Side Diff
+  - 2.5+ Server-Side Apply (SSA)
+  - based on kube structured-merge-diff
+
 ## ArgoCD 2.9
 
 - https://blog.argoproj.io/argo-cd-v2-9-release-candidate-a1e256d01017

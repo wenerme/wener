@@ -6,7 +6,11 @@ tags:
 # Accounting Awesome
 
 - [GNUCash](./gnucash.md)
+  - 个人和小规模企业财务软件
 - https://gnukhata.org/
+  - Web
+  - https://gitlab.com/gnukhata
+  - Demo https://gnukhata.gitlab.io/gkapp/
   - Business Accounting Software
 - [simonmichael/hledger](https://github.com/simonmichael/hledger)
   - GPLv3, Haskell

@@ -1,0 +1,26 @@
+diff --git a/lib/docs.js b/lib/docs.js
+index b127a4402cb61dad62c29243921b4bac2c92e29e..7d7f0b5e2365040154e55362aa352b13e100efc4 100644
+--- a/lib/docs.js
++++ b/lib/docs.js
+@@ -79,7 +79,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
+         frontMatterSlug: frontMatter.slug,
+         stripDirNumberPrefixes: parseNumberPrefixes,
+         numberPrefixParser: options.numberPrefixParser,
+-    });
++    }).replace(/\/([^\/]+)\/([^\/]+)\/\1-\2-/, '/$1/$2/').replace(/\/([^/]+)\/\1-/,'/$1/').replace(/\/(kubernetes)\/k8s-/,'/$1/');
+     // Note: the title is used by default for page title, sidebar label,
+     // pagination buttons... frontMatter.title should be used in priority over
+     // contentTitle (because it can contain markdown/JSX syntax)
+diff --git a/lib/index.js b/lib/index.js
+index 13101ac2bd8112fd6699cb604a3cbe04b73bc936..57cdfb6562fe5a8a4c6f1b42e7c49ddd5700c012 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -82,7 +82,7 @@ async function pluginContentDocs(context, options) {
+                         env,
+                     });
+                 }
+-                return Promise.all(docFiles.map(processVersionDoc));
++                return Promise.all(docFiles.filter(v=>v.content.startsWith('--')).map(processVersionDoc));
+             }
+             async function doLoadVersion(versionMetadata) {
+                 const docsBase = await loadVersionDocsBase(versionMetadata);

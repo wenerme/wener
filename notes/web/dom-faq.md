@@ -137,3 +137,10 @@ navigation.addEventListener('navigate', (e) => {
 - Chromium 94+
 - https://stackoverflow.com/a/10126042/1870054
   - 通过事件检测
+
+## tabIndex
+
+- tabIndex=0
+  - Tabbable and focusable
+- tabIndex=-1
+  - Not tabbable, but focusable
