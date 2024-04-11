@@ -59,9 +59,12 @@ const config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
 
-          remarkPlugins: [math, deflist],
           // https://katex.org/docs/options.html
-          rehypePlugins: [[katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }]],
+          remarkPlugins: [math, deflist],
+          rehypePlugins: [
+            [rehypeExtendedTable, {}],
+            [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
+          ],
 
           sidebarItemsGenerator: async ({ defaultSidebarItemsGenerator, ...args }) => {
             const items = await defaultSidebarItemsGenerator(args);
@@ -96,7 +99,8 @@ const config = {
           truncateMarker: /<!--\s*more\s*-->/,
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
 
-          remarkPlugins: [math],
+          // https://katex.org/docs/options.html
+          remarkPlugins: [math, deflist],
           rehypePlugins: [
             [rehypeExtendedTable, {}],
             [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
