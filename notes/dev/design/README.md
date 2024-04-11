@@ -4,6 +4,12 @@ title: Design
 
 # Design
 
+:::tip Design ？
+
+- 理论 -> 实践+应用
+
+:::
+
 - Architecture
   - [事件驱动](./design-event-driven.md)
   - [数据驱动](./design-data-driven.md)

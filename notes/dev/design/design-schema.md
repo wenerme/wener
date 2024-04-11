@@ -10,24 +10,26 @@ tags:
 
 - 表尽量不要前缀 - 清晰明了
   - MySQL 额外考虑
-  - PG 支持 Schema 隔离
+  - PG 支持 Schema 隔离 - 避免直接使用 public schema
 - 字段尽量不要缩写
 - 尽量不要用 拼音
   - 做国内环境除外 - 例如：政企数据无法很好翻译
-- 维护开发字典
+- 维护开发字典 - 例如 [开发用词字典](https://wener.me/notes/dev/dict)
 - 尽量 **不要** 用自增长 ID
   - 容易被遍历
   - 面向用户的可以 增加额外的 自增长 编号/序号
+- 使用 有序的 随机主键 - ULID, UUID
+- 建议主键增加 type tag
 - PostgreSQL
   - 尽量用 text, bigint, jsonb, bool
-  - 看情况用 array - array 能简化不少需要 join 表的场景
+  - 看情况用 array - array 能简化不少需要 join 表的场景 - 例如 `tags text[]`
   - 避免 varchar(n) 限定长度
     - 业务层控制 validation
     - 通过 check 验证
 
 :::
 
-## 主键生成
+## 主键生成 {#id}
 
 :::tip
 
@@ -94,7 +96,7 @@ tags:
 - https://sqids.org/
   - HN https://news.ycombinator.com/item?id=38414914
 
-## 主键类型
+## 主键类型 {#type-id}
 
 - `type-RANDOM`
   - OpenAI `sk-`,`org-`, `chat-`
@@ -118,7 +120,7 @@ a_1_b_0
 a-1-b-0
 -->
 
-## 元数据
+## 元数据 {#metadata}
 
 > **Note**
 >
@@ -273,7 +275,7 @@ select set_config('tenant.id','1', true);
   - 使用: AIP
   - 面向 **用户**, 业务
 
-## 扩展
+## 扩展 {#extension}
 
 - extensions
   - 内部使用
@@ -287,7 +289,7 @@ select set_config('tenant.id','1', true);
   - 外部导入原始数据
   - 也可以记录到 metadata, properties.raw, extensions.raw
 
-## 单数还是复数表名
+## 单数还是复数表名 {#plural}
 
 > 推荐单数形式。
 > 部分关键词使用复数: users, groups。
@@ -303,7 +305,7 @@ select set_config('tenant.id','1', true);
 - 参考
   - https://stackoverflow.com/questions/338156
 
-## 尽量使用外键
+## 尽量使用外键 {#fk}
 
 - 能一定程度提升查询性能
 - 增加部分 插入 和 更新 成本
@@ -320,6 +322,67 @@ select set_config('tenant.id','1', true);
 ---
 
 - https://begriffs.com/posts/2018-03-20-user-defined-order.html
+
+## serial id
+
+- 很多时候需要一个有序的 id
+  - 例如 自动的客户编号
+- 这样的 ID 可能是限定租户或者上下文的
+
+```sql
+create table if not exists users
+(
+
+  id  text   not null default 'user_' || public.gen_ulid() primary key,
+  uid uuid   not null default gen_random_uuid() unique,
+  sid bigint not null default next_entity_sid('user')
+);
+```
+
+```sql
+create table if not exists public.entity_sequence
+(
+  tid        text      not null,
+  type_name  text      not null,
+  sequence   bigint    not null,
+  created_at timestamp not null,
+  updated_at timestamp not null,
+  primary key (tid, type_name),
+  foreign key (tid) references public.tenant (tid)
+);
+
+create or replace function public.next_entity_sid(in_type_name text,
+                                                  in_tid public.tenant.tid%TYPE = public.current_tenant_id())
+  returns bigint
+  language plpgsql
+  volatile
+as
+$$
+declare
+  out_next entity_sequence.sequence%TYPE;
+begin
+  if in_type_name is null then
+    raise exception 'Empty sequence'
+      using hint = 'check you table definition';
+  end if;
+  -- trigger less default computing
+  update entity_sequence
+  set sequence=sequence + 1
+  where tid = in_tid
+    and type_name = in_type_name
+    and updated_at = now()
+  returning sequence into out_next;
+  if out_next is null
+  then
+    insert into entity_sequence(tid, type_name, sequence, created_at, updated_at)
+    values (in_tid, in_type_name, 1, now(), now())
+    on conflict(tid,type_name) do update set (sequence, updated_at)= (excluded.sequence + 1, excluded.updated_at)
+    returning sequence into out_next;
+  end if;
+  return out_next;
+end;
+$$;
+```
 
 ## table prefix vs schema
 

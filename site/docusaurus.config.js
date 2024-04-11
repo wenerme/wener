@@ -9,6 +9,7 @@ import math from 'remark-math';
 import katex from 'rehype-katex';
 import deflist from './dist/plugins/deflist';
 import { writeFileSync } from 'node:fs';
+import rehypeExtendedTable from 'rehype-extended-table';
 
 // https://docusaurus.io/docs/api/docusaurus-config
 // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
