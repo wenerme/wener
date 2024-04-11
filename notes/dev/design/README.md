@@ -10,6 +10,8 @@ title: Design
 
 :::
 
+- [数据库 Schema 设计](./design-schema.md) - 数据库设计基本原则
+- [ERP 设计](./design-erp.md) - ERP 建模
 - Architecture
   - [事件驱动](./design-event-driven.md)
   - [数据驱动](./design-data-driven.md)

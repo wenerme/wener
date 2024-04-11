@@ -9,7 +9,7 @@ import math from 'remark-math';
 import katex from 'rehype-katex';
 import deflist from './dist/plugins/deflist';
 import { writeFileSync } from 'node:fs';
-import rehypeExtendedTable from 'rehype-extended-table';
+import { rehypeExtendedTable } from 'rehype-extended-table';
 
 // https://docusaurus.io/docs/api/docusaurus-config
 // https://github.com/facebook/docusaurus/blob/main/website/docusaurus.config.js
@@ -99,7 +99,7 @@ const config = {
           remarkPlugins: [math],
           rehypePlugins: [
             [rehypeExtendedTable, {}],
-            [(katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') })],
+            [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
           ],
         },
         theme: {
@@ -245,10 +245,10 @@ const config = {
       // - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
     },
   },
-  // i18n: {
-  //   defaultLocale: 'zh',
-  //   locales: ['zh', 'en'],
-  // },
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+  },
   webpack: {
     jsLoader: (isServer) => ({
       // 默认使用 @docusaurus/mdx-loader
