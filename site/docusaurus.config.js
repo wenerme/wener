@@ -100,7 +100,8 @@ const config = {
           editUrl: 'https://github.com/wenerme/wener/edit/master/story/',
 
           // https://katex.org/docs/options.html
-          remarkPlugins: [math, deflist],
+          // deflist 和 2013-09-24-数据库原理 for NCRE 4.md 有问题
+          remarkPlugins: [math, ],
           rehypePlugins: [
             [rehypeExtendedTable, {}],
             [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
