@@ -32,7 +32,7 @@ const rehypePlugins = [
     rehypeExtendedTable,
     {
       // default: right
-      mergeTo: ['right', 'left'],
+      mergeTo: 'right',
     },
   ],
   [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],

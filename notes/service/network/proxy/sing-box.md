@@ -14,17 +14,23 @@ title: sing-box
   - [SagerNet/sing-box-for-apple](https://github.com/SagerNet/sing-box-for-apple)
 
 ```bash
-brew install sfm # macOS Homebrew
+# macOS Homebrew
+brew install sing-box # 命令行 /opt/homebrew/etc/sing-box/config.json
+brew install sfm      # 桌面应用
+
+/opt/homebrew/opt/sing-box/bin/sing-box version
 
 # AlpineLinux
 # /usr/bin/sing-box
-# -D /var/lib/sing-box -C /etc/sing-box run
+# sing-box -D /var/lib/sing-box -C /etc/sing-box run
 apk add -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing/ --no-cache sing-box
 kill -HUP $(pgrep sing-box) # reload
 
 curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v1.8.11/sing-box-1.8.11-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/').tar.gz
 tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 ./sing-box version
+sudo mv sing-box /usr/local/bin/
+# sudo mv sing-box /usr/bin/ # 配合 sing-box-openrc
 
 docker run -d \
   -v /etc/sing-box:/etc/sing-box/ \
