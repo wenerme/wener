@@ -5,6 +5,13 @@ tags:
 
 # Taro FAQ
 
+:::caution
+
+- CoverView 不支持 base64
+  - 尽量直接写路径 - 不能 import 为 base64
+
+:::
+
 ```ts
 enum AppEnvType {
   // 微信小程序
@@ -77,3 +84,37 @@ index 636a5d3b2d692851b3eda9bd18d6c4c22f8362c6..54999c2456b6114a946228785cb3a33b
 ## Field 'browser' doesn't contain a valid alias configuration
 
 注意引入的内容，可能是少了依赖
+
+## 分包
+
+```json
+{
+  "pages": ["pages/index"],
+  "subpackages": [
+    {
+      "root": "pkgs/a",
+      "pages": ["pages/rabbit", "pages/squirrel"]
+    },
+    {
+      "root": "pkgs/b",
+      "pages": ["pages/index", "pages/pineapple"],
+      "independent": true
+    }
+  ]
+}
+```
+
+- 所有分包 < 20M
+- 单个分包/主包 < 2M
+  - 开发模式可能导致超过 2M
+- 主包
+  - 包含默认启动页面/TabBar
+- 分包
+  - 可以设置 name 然后预加载
+  - 小程序启动时，默认会下载主包并启动主包内页面，当用户进入分包内某个页面时，客户端会把对应分包下载下来，下载完成后再进行展示。
+- https://docs.taro.zone/docs/app-config#subpackages
+  - https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html
+- independent
+  - 独立分包
+  - 可以独立于主包和其他分包运行。从独立分包中页面进入小程序时，不需要下载主包。当用户进入普通分包或主包内页面时，主包才会被下载。
+  - https://docs.taro.zone/docs/independent-subpackage/

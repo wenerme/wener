@@ -18,7 +18,11 @@ tags:
   - gcc
   - clang
   - tinycc
+  - [tpoechtrager/osxcross](https://github.com/tpoechtrager/osxcross)
+    - GPLv2, C++, Clang
+    - Mac OS X cross toolchain for Linux, FreeBSD, OpenBSD and Android
   - [rui314/chibicc](https://github.com/rui314/chibicc)
+    - Small C Compiler
 - GUI
   - [yue/yue](https://github.com/yue/yue)
     - LGPL-v2.1, BSD-3, C++

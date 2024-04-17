@@ -19,6 +19,8 @@ title: Jotai
       - Jotai advantages over Recoil [#420](https://github.com/pmndrs/jotai/issues/420)
     - recoil: string key, 序列化支持更好
   - [vs zustand](https://github.com/pmndrs/jotai/blob/master/docs/introduction/comparison.md)
+- 参考
+  - https://blog.axlight.com/posts/jotai-tips/
 
 ```bash
 # 推荐 focusAtom

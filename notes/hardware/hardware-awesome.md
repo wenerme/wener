@@ -6,6 +6,11 @@ tags:
 
 # Hardware Awesome
 
+## Printer
+
+- Epson L3250
+  - https://epson.com.jm/Support/Printers/All-In-Ones/L-Series/Epson-L3250/s/SPT_C11CJ67301?review-filter=macOS+14.x
+
 ## Network
 
 - RS232

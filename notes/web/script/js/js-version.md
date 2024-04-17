@@ -70,6 +70,8 @@ tags:
 
 :::tip 👀
 
+- [Promise.try](https://github.com/tc39/proposal-promise-try)
+  - `new Promise(r => r(f()))` -> `Promise.try(f)`
 - Stage 3 - 接下来可能会加入到语言中的功能特性
   - ~~Import Assertions~~
   - Import Attribute `import data from 'data.json' with {type:'json']}`

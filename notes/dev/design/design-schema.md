@@ -412,3 +412,19 @@ $$;
 ---
 
 - https://www.postgresql.org/docs/current/ddl-schemas.html
+
+## date vs timestamptz
+
+- 建议统一使用 timestamptz
+  - 避免处理时区和转换问题
+- 建议通过 column 名字来区分, 例如 `start_date timestamptz`
+
+---
+
+- timestamptz
+  - 不是 immutable 的，依赖当前 TZ 信息
+  - 在 immutable 场景使用时，需要先转换为无 tz 的格式，例如 `payment_time at time zone 'Asia/Shanghai'`
+- date
+  - 是 immutable 的
+  - 但其值取决于当前转换的上下文 TZ
+  - 除非确定是 date 的上下文，否则尽量用 timestamptz

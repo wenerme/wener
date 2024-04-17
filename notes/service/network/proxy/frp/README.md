@@ -23,6 +23,7 @@ title: FRP
   - xtcp 点到点穿透率低, 基本失败, 如果需要 p2p 可选择 tinc.
 - 参考
   - [gofrp/fp-multiuser](https://github.com/gofrp/fp-multiuser)
+  - [koho/frpmgr](https://github.com/koho/frpmgr)
 
 ```bash
 apk add frp       # AlpineLinux

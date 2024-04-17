@@ -10,6 +10,8 @@ tags:
   - [iOS Privacy: Announcing InAppBrowser.com - see what JavaScript commands get injected through an in-app browser](https://krausefx.com/blog/announcing-inappbrowsercom-see-what-javascript-commands-get-executed-in-an-in-app-browser)
 - [fipso/ccurl.sh](https://github.com/fipso/ccurl.sh)
   - curl 使用 Chrome 的 cookie
+- [browserless](https://github.com/browserless/browserless)
+  - SSPLv1, TS
 - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
   - Web -> PDF
   - MIT

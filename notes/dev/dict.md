@@ -1024,7 +1024,7 @@ tags:
   - Status (statecode) - Status Reason (statuscode)
     - state -> status
     - status -> Status Reason
-    - https://www.tpein.dk/?page_id=210
+
 
 ## topic vs subject
 

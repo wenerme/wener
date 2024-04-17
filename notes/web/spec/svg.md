@@ -23,6 +23,11 @@ rsvg-convert -h 32 icon.svg > icon-32.png
 rsvg-convert -h 200 icon.svg > icon.png
 
 rsvg-convert -h 200 icon.svg | oxipng -o max -i 0 --strip safe - > icon.png
+
+
+# 通过替换 currentColor 来生成不同颜色的图标
+cat ./svg/Home.svg | sed 's/currentColor/#999999/g' | rsvg-convert -h 48 | oxipng -o max -i 0 --strip safe - > HomeInactive.png
+cat ./svg/Home.svg | sed 's/currentColor/#4579F6/g' | rsvg-convert -h 48 | oxipng -o max -i 0 --strip safe - > HomeActive.png
 ```
 
 ## 缩放和大小

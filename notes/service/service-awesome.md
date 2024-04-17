@@ -447,6 +447,43 @@ tags:
     - MIT, TS
     - open-source Shopify alternative
   - Shopify
+- url-shortener
+  - [YOURLS/YOURLS](https://github.com/YOURLS/YOURLS)
+    - MIT, PHP
+  - [shlinkio/shlink](https://github.com/shlinkio/shlink)
+    - MIT, PHP
+  - [cydrobolt/polr](https://github.com/cydrobolt/polr)
+    - GPLv2, PHP
+  - [738/awesome-url-shortener](https://github.com/738/awesome-url-shortener)
+  - 功能
+    - URL 缩短
+    - 自定义短链接
+    - 跟踪&分析
+    - 安全性
+    - 链接管理
+  - 商业 - 大多是对内的
+    - bit.ly
+    - https://tinyurl.com/
+    - Short.io
+    - BL.INK
+    - ~~goo.gl~~
+      - by Google
+      - 2018-04-13 停止 -> Firebase Dynamic Links
+    - ~~[Firebase Dynamic Links](https://firebase.google.com/docs/dynamic-links)~~
+      - 2025 年 8 月 25 日关停
+      - 说明 https://firebase.google.com/support/dynamic-links-faq
+        - 包含了接口，可以参考
+    - ~~git.io~~
+      - by GitHub
+      - 2022-01-11 停止服务
+    - dwz.cn
+      - for 百度
+    - url.cn
+      - for 腾讯
+    - t.co
+      - for Twitter
+    - t.cn
+      - for Weibo
 - SaaS 服务目录/商业
   - [SaaS Blocks](https://saasblocks.io/)
   - https://github.com/it2025/saasbook

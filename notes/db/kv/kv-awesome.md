@@ -18,8 +18,21 @@ title: KV DB Awesome
 
 ## 服务
 
-- [placeholderkv/placeholderkv](./redis/placeholderkv.md)
+- [valkey](./valkey.md)
+  - supported by Linux Foundation
   - Redis 最后的 BSD fork
+- Protocol
+  - [sabledb-io/sabledb](https://github.com/sabledb-io/sabledb)
+    - BSD-3, Rust
+    - RocksDB
+  - [apache/kvrocks](https://github.com/apache/kvrocks)
+    - Apache-2.0, C++, Go, RocksDB
+    - distributed KV
+    - https://kvrocks.apache.org/users/
+  - ~~[ideawu/ssdb](https://github.com/ideawu/ssdb)~~
+    - BSD-3, C++
+  - [nalgeon/redka](https://github.com/nalgeon/redka)
+    - BSD-3, Go, SQLite
 - [Redis](./redis/README.md)
 - [FoundationDB](https://github.com/apple/foundationdb)
   - [FoundationDB/awesome-foundationdb](https://github.com/FoundationDB/awesome-foundationdb)

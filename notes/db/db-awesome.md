@@ -38,6 +38,9 @@ tags:
 
 - [rqlite/rqlite](https://github.com/rqlite/rqlite)
   - SQLite + Raft
+- [tigerbeetle/tigerbeetle](https://github.com/tigerbeetle/tigerbeetle)
+  - Apache-2.0, Zig
+  - OLTP
 - PostgreSQL
   - [citusdata/citus](./relational/postgresql/citus.md)
     - PostgreSQL Sharding

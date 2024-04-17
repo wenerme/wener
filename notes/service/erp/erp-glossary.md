@@ -487,6 +487,3 @@ tags:
   ]
 }
 ```
-
-- CRM STATE & STATUS CODES
-  - https://www.tpein.dk/?page_id=210

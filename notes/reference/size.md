@@ -4,6 +4,14 @@ title: Size
 
 # Size
 
+| from |       to | note    |
+| ---: | -------: | ------- |
+|  1cm | 0.3937in |
+|  1in |   2.54cm |
+|  1cm | 28.346pt | 72dpi   |
+|  1cm | 37.795px | 96dpi   |
+| 1rem |     16px | default |
+
 - A4 为 A3 对折大小 - 可以此类推
 - DPI - Dots Per Inch - 打印
   - 600 - 归档
@@ -16,6 +24,7 @@ title: Size
   - 8.56 cm × 5.398 cm
   - 85.6 mm × 53.98 mm
   - 3.37 inch × 2.125 inch × 0.0625
+  - px - 1011 × 638
   - [ISO/IEC 7810](https://en.wikipedia.org/wiki/ISO/IEC_7810) - ID-1
 
 | Social          |         Size | Ratio  |

@@ -35,6 +35,9 @@ tags:
 - 扩展
   - [redbug312/markdown-it-multimd-table](https://github.com/redbug312/markdown-it-multimd-table)
   - [MultiMarkdown](https://fletcher.github.io/MultiMarkdown-6/)
+  - [shd101wyy/markdown-preview-enhanced](https://github.com/shd101wyy/markdown-preview-enhanced)
+    - [shd101wyy/vscode-markdown-preview-enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced)
+    - https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics?id=table
 
 ## 语法扩展
 

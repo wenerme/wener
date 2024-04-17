@@ -129,16 +129,20 @@ cat /proc/sys/net/ipv4/ip_local_reserved_ports
 
 > 非官方，但实际使用常见的端口
 
-| Port | for                      |
-| ---- | ------------------------ |
-| 2197 | APNS HTTP/2 JSON API     |
-| 3000 | Node.js Web              |
-| 6443 | Kubernetes API           |
-| 8080 | HTTL Alt                 |
-| 4222 | NATS 客户端              |
-| 8222 | NATS HTTP 管理和信息上报 |
-| 6222 | NATS 集群路由            |
-| 7422 | NATS Leaf Node           |
+| Port            | for                            |
+| --------------- | ------------------------------ |
+| 2197            | APNS HTTP/2 JSON API           |
+| 3000            | Node.js Web                    |
+| 6443            | Kubernetes API                 |
+| 8080            | HTTL Alt                       |
+| 4222            | NATS 客户端                    |
+| 8222            | NATS HTTP 管理和信息上报       |
+| 6222            | NATS 集群路由                  |
+| 7422            | NATS Leaf Node                 |
+| 21115-21117/TCP | RustDesk Server                |
+| 21116/UDP       | RustDesk Server                |
+| 21119/TCP       | RustDesk Server for Web Client |
+| 21118/TCP       | RustDesk Server for Web Client |
 
 - IANA [Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
 - [List of TCP and UDP port numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)

@@ -53,11 +53,9 @@ FLAG_NPS=false
 ```
 
 - NPS - Net Promoter Score - 净推荐得分
-
   - 一种衡量顾客忠诚度和顾客满意度的管理工具。
   - 询问顾客一个简单的问题 —— 他们有多大可能性会向朋友或同事推荐该产品或服务 —— 来计算得出。
   - 顾客的回答范围通常是0到10，基于这个得分，顾客被分类为推荐者（Promoters）、中性（Passives）或批评者（Detractors）。
-
 - https://docs.strapi.io/dev-docs/configurations/environment/
 
 ```js title="src/admin/app.js"

@@ -14,9 +14,6 @@ tags:
 - [ghostunnel/ghostunnel](https://github.com/ghostunnel/ghostunnel)
   - Apache-2.0, Go
   - SSL/TLS proxy with mTLS for securing non-TLS backend applications.
-- [mRemoteNG/mRemoteNG](https://github.com/mRemoteNG/mRemoteNG)
-  - GPLv2, C#
-  - multi-protocol, remote connections manager.
 - [mistio/mist-ce](https://github.com/mistio/mist-ce)
   - Apache-2.0, Python
   - multicloud management platform

@@ -326,14 +326,23 @@ $$
 [^1]: 这是一个脚注
 ```
 
+这是一个脚注[^1]
+
+[^1]: 这是一个脚注
+
 ## 缩写 {#abbr}
 
-```md
-_[HTML]: Hyper Text Markup Language
-_[W3C]: World Wide Web Consortium
+```
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
 The HTML specification
 is maintained by the W3C.
 ```
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+The HTML specification
+is maintained by the W3C.
 
 ## 参考
 

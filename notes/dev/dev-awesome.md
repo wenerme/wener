@@ -32,6 +32,10 @@ tags:
   - go vet
 - pkgs
   - https://deps.dev
+- dotfiles
+  - [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
+  - https://dotfiles.github.io/utilities/
+
 
 ## Big Corp
 
@@ -125,6 +129,7 @@ tags:
 brew install scc
 # -M '[.]pb[.]' -M 'generated'
 scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
+scc --by-file ./src # 找到大文件
 ```
 
 ## 协作

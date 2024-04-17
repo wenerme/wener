@@ -12,6 +12,7 @@ title: refine
 
 - [refinedev/refine](https://github.com/refinedev/refine)
   - MIT, React
+  - A React Framework for building internal tools, admin panels, dashboards & B2B apps with unmatched flexibility.
   - Headless CRUD 组件
   - 支持 NextJS, Remix
   - 默认提供 antd, mui, mantine, chakra

@@ -36,14 +36,32 @@ tags:
   - 增删改查
   - Owner - 管理者 分配、认领 - 个人 释放、转移
   - 导入导出
-- 扩展关联
+- 扩展关联/信息
   - label - 标签 - 预定义
   - tags - 标记 - 自定义 - 任意字符串
+  - notes - 备注
   - task - 任务 - 资源可能被关联到任务
+  - todo
+  - reminder
+  - nofitication
   - activity - 活动
-  - comment - 评论
+    - comment - 评论
+  - state - 系统状态
+  - status - 状态阶段、原因
+  - cid+rid 外部系统关联
+  - eid 内部系统关联
 - 视图
   - 列表 - List
+    - 支持 Table 显示
+      - 定制 列 显示
+      - 搜索、过滤
+    - 支持 Kanban 显示 - 基于 status
+    - 可定制 条件+列显示
+    - Overview - 概览
+      - 重要信息
+    - Extended Overview - 扩展概览
+      - 活动信息、关联信息
+    - Quick Stats - 快速统计
   - 详情 - View/Detail
     - Resource Overview + 多 Tab 视图
     - Summary
@@ -53,7 +71,7 @@ tags:
     - File
   - 创建表单
   - 编辑表单 - 如果是 inline 编辑可能会不太一样
-  - Mention - 提及 - 显示被关联引用
+  - Mention - 提及 - 显示被关联引用 - ResourceChip
   - Select/Picker - 选择关联引用
   - Popup/Overview/Profile - 弹出层预览
 
@@ -65,6 +83,8 @@ interface GeneralResource {
   uid: string;
   /// 租户
   tid: string;
+  /// 顺序ID - 对用户友好
+  sid: number;
   /// 外部 ID - 例如 对接已有系统
   eid?: string;
   /// CID+RID - 平台+平台ID - 组成 vendor 相关的外部资源
@@ -72,10 +92,14 @@ interface GeneralResource {
   rid?: string;
 
   // 常见的名字字段 - 避免使用 name
-  fullName?: string;
-  displayName?: string;
+  fullName?: string; // 全名
+  displayName?: string; // 用于显示 - 优先显示
   title?: string;
   description?: string;
+  topic?: string;
+
+  // User
+  loginName?: string;
 
   // 常见的客户联系信息
   contactName?: string;
@@ -88,8 +112,12 @@ interface GeneralResource {
   // 阶段 - 细粒度业务定义
   status: string;
 
-  /// 标记
-  tags?: string[];
+  // 排序用
+  sort: number;
+  displayOrder: number;
+
+  tags?: string[]; // 标记体系 - 自定义
+  labels?: Label[]; // 标签体系 - 系统定义
 
   // 可归属资源
   ownerId?: string;
@@ -134,8 +162,6 @@ interface GeneralResource {
 
   owningUser?: User;
   owningTeam?: Team;
-
-  labels?: Label[];
 
   createdBy?: User;
   updatedBy?: User;
@@ -315,8 +341,8 @@ interface GeneralResource {
 
 **参考**
 
-- Dynamic365
-  - https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/annotation?view=op-9-1#BKMK_DocumentBody
+- Dynamic
+  - https://learn.microsoft.com/en-us/dynamics/customerengagement/on-premises/developer/entities/annotation?view=op--#BKMK_DocumentBody
   - Note/Annotation
 - Gitlab Notes
   - 等同于 Comments
@@ -328,7 +354,7 @@ interface GeneralResource {
     - Snippets
   - https://docs.gitlab.com/ee/api/notes.html
 - Github
-  - https://docs.github.com/en/rest/issues/comments?apiVersion=2022-11-28
+  - https://docs.github.com/en/rest/issues/comments?apiVersion=--
 
 ## Reminder vs To-do
 
@@ -361,9 +387,298 @@ interface GeneralResource {
 
 ## zIndex
 
-- 50
-  - dialog
-- 40
-  - window host - isolate
+- 50 - dialog
+- 40 - window host - isolate
+
+## Entity
+
+- User != 员工
+  - 员工是 HRM 的概念
 
 ## State & Status
+
+- State - 状态 - 系统定义 - 大状态 - 高级状态
+- Status - 状态原因、阶段 - 业务定义 - 小状态 - 低级状态
+
+| Entity  | State    | Status   | notes |
+| ------- | -------- | -------- | ----- |
+| Account | Active   | Active   |
+| ^       | Inactive | Inactive |
+
+| state        | label  | notes       |
+| ------------ | ------ | ----------- |
+| Active       | 激活   |
+| Inactive     | 未激活 |
+| Pending      | 待处理 |
+| Open         | 开放   |
+| Closed       | 关闭   |
+| Completed    | 完成   |
+| Canceled     | 取消   |
+| Resolved     | 已解决 |
+| Expired      | 已过期 |
+| OnHold       | 暂停   |
+| Qualified    | 合格   | Lead        |
+| Disqualified | 不合格 | Lead        |
+| Won          | 赢得   | Opportunity |
+| Lost         | 失去   | Opportunity |
+| Submitted    | 已提交 |
+| Fullfilled   | 已完成 |
+| Draft        | 草稿   |
+| Published    | 已发布 |
+
+| status | label | notes |
+| ------ | ----- | ----- |
+| New    | 新建  |
+
+- status+state 不是完整的状态机
+  - 因为状态流转不必然
+  - 但设计好 state 和 status 可支持实现 事件驱动、工作流、状态机
+- status 可能和 state 完全相等
+  - 但 status 可以自定义
+  - status 必然对应 **一个** state
+- User
+  - Active
+    - Pending Approval (待审批)：用户已注册，但账户正在等待管理员审批。
+    - Verified (已验证)：用户已通过电子邮件或手机验证过程。
+    - Suspended (暂停使用)：因违反条款或其他原因，用户账户暂时被禁止使用。
+  - Inactive
+    - Deactivated by User (用户停用)：用户自己选择停用账户。
+    - Deactivated by Admin (管理员停用)：由于某些原因，管理员停用了用户账户。
+    - Expired (已过期)：用户账户因长时间未使用或其他原因自动过期。
+- Contract - Draft, Invoiced, Active, OnHold, Canceled, Expired
+
+---
+
+- 一个堂食订单，主状态为 已下单 - 制作中 - 请取餐 - 已完成
+  - Status -> Ordered -> Making -> Ready -> Completed
+- 一个外卖订单，主状态为 已下单 - 配送中 - 已送达 - 已完成
+  - Status -> Ordered -> Delivering -> Delivered -> Completed
+
+---
+
+- MS Dynamics356
+  - statecode - State - Status - 状态
+  - statuscode - Status - Status Reason - 状态原因、阶段
+
+| Entity            | State        | Status                  | notes |
+| ----------------- | ------------ | ----------------------- | ----- |
+| Account           | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Activity          | Open         | Open                    |
+| ^                 | Completed    | Completed               |
+| ^                 | Canceled     | Canceled                |
+| ^                 | Scheduled    | Scheduled               |
+| Appointment       | Open         | Free                    |
+| ^                 | ^            | Tentative               |
+| ^                 | Completed    | Completed               |
+| ^                 | Canceled     | Canceled                |
+| ^                 | Scheduled    | Busy                    |
+| ^                 | ^            | Out of Office           |
+| Article           | Draft        | Draft                   |
+| ^                 | Unapproved   | Unapproved              |
+| ^                 | Published    | Published               |
+| Campaign          | Active       | Proposed                |
+| ^                 | ^            | Ready To Launch         |
+| ^                 | ^            | Launched                |
+| ^                 | ^            | Completed               |
+| ^                 | ^            | Canceled                |
+| ^                 | ^            | Suspended               |
+| Campaign Activity | Open         | InProgress              |
+| ^                 | ^            | Proposed                |
+| ^                 | ^            | Pending                 |
+| ^                 | ^            | System Aborted          |
+| ^                 | ^            | Completed               |
+| ^                 | Closed       | Closed                  |
+| ^                 | Canceled     | Canceled                |
+| Campaign Response | Open         | Open                    |
+| ^                 | Closed       | Closed                  |
+| ^                 | Canceled     | Canceled                |
+| Case              | Active       | InProgress              |
+| ^                 | ^            | OnHold                  |
+| ^                 | ^            | Waiting for Details     |
+| ^                 | ^            | Researching             |
+| ^                 | Resolved     | Problem Solved          |
+| ^                 | Canceled     | Canceled                |
+| Case Resolution   | Open         | Open                    |
+| ^                 | Completed    | Closed                  |
+| ^                 | Canceled     | Canceled                |
+| Contact           | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Contract          | Draft        | Draft                   |
+| ^                 | Invoiced     | Invoiced                |
+| ^                 | Active       | Active                  |
+| ^                 | OnHold       | OnHold                  |
+| ^                 | Canceled     | Canceled                |
+| ^                 | Expired      | Expired                 |
+| Contract Line     | Existing     | New                     |
+| ^                 | Renewed      | Renewed                 |
+| ^                 | Canceled     | Canceled                |
+| ^                 | Expired      | Expired                 |
+| Currency          | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Discount          | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| E-mail            | Open         | Draft                   |
+| ^                 | ^            | Failed                  |
+| ^                 | Completed    | Completed               |
+| ^                 | ^            | Sent                    |
+| ^                 | ^            | Received                |
+| ^                 | ^            | PendingSend             |
+| ^                 | ^            | Sending                 |
+| ^                 | Canceled     | Canceled                |
+| Fax               | Open         | Open                    |
+| ^                 | Completed    | Completed               |
+| ^                 | ^            | Sent                    |
+| ^                 | ^            | Received                |
+| ^                 | Canceled     | Canceled                |
+| Invoice           | Active       | New                     |
+| ^                 | ^            | Partially Shipped       |
+| ^                 | ^            | Billed                  |
+| ^                 | ^            | Booked                  |
+| ^                 | ^            | Installed               |
+| ^                 | ~~ Closed~~  | ~~ Canceled~~           |
+| ^                 | ^            | ~~ Paid in Full~~       |
+| ^                 | Paid         | Complete                |
+| ^                 | ^            | Parial                  |
+| ^                 | Canceled     | Canceled                |
+| Lead              | Open         | New                     |
+| ^                 | ^            | Contacted               |
+| ^                 | Qualified    | Qualified               |
+| ^                 | Disqualified | Lost                    |
+| ^                 | ^            | Cannot Contact          |
+| ^                 | ^            | No Longer Interested    |
+| ^                 | ^            | Canceled                |
+| Letter            | Open         | Open                    |
+| ^                 | ^            | Draft                   |
+| ^                 | Completed    | Received                |
+| ^                 | ^            | Sent                    |
+| ^                 | Canceled     | Canceled                |
+| Marketing List    | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Opportunity       | Open         | InProgress              |
+| ^                 | ^            | OnHold                  |
+| ^                 | Won          | Won                     |
+| ^                 | Lost         | Canceled                |
+| ^                 | ^            | Out-Sold                |
+| Order             | Active       | New                     |
+| ^                 | ^            | Pending                 |
+| ^                 | Submitted    | InProgress              |
+| ^                 | Canceled     | No Money                |
+| ^                 | Fulfilled    | Complete                |
+| ^                 | ^            | Partial                 |
+| ^                 | Invoiced     | Invoiced                |
+| Phone Call        | Open         | Open                    |
+| ^                 | Completed    | Made                    |
+| ^                 | ^            | Received                |
+| ^                 | Canceled     | Canceled                |
+| Price List        | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Product           | Active       | Active                  |
+| ^                 | Inactive     | Inactive                |
+| Quote             | Draft        | InProgress              |
+| ^                 | Active       | InProgress              |
+| ^                 | ^            | Open                    |
+| ^                 | Won          | Won                     |
+| ^                 | ^            | Out-Sold                |
+| ^                 | Closed       | Lost                    |
+| ^                 | ^            | Canceled                |
+| ^                 | ^            | Revised                 |
+| Service Activity  | Open         | Requested               |
+| ^                 | ^            | Tentative               |
+| ^                 | Closed       | Completed               |
+| ^                 | Canceled     | Canceled                |
+| ^                 | ^            | No Show                 |
+| ^                 | Scheduled    | Pending                 |
+| ^                 | ^            | Reserved                |
+| ^                 | ^            | InProgress              |
+| ^                 | ^            | Arrived                 |
+| Task              | Open         | Not Started             |
+| ^                 | ^            | InProgress              |
+| ^                 | ^            | Waiting on someone else |
+| ^                 | ^            | Deferred                |
+| ^                 | Completed    | Completed               |
+| ^                 | Canceled     | Canceled                |
+
+## 银行卡 vs 银行账户
+
+- 银行账户
+  - 金融存款账户
+  - 类型有 储蓄账户、支票账户、商业账户、投资账户 等
+  - 属性不同 - 如 利息率、交易限额、费用结构 等
+  - 记录所有交易 - 如 存款、取款、转账 等
+  - 用于存款、管理资金和其他财务活动 - 如收入管理、账单支付、定期存款等
+- 银行卡
+  - 一种物理或数字的支付工具
+  - 允许访问和使用账户中的资金
+  - 主要分为 借记卡 和 信用卡
+  - 银行卡主要用于消费和支付
+
+## Enum
+
+### Sex
+
+|     enum | label |
+| -------: | ----- |
+|   Unknow | 未知  |
+|     Male | 男性  |
+|   Female | 女性  |
+| Intersex | 间性  |
+
+### PaymentMethod
+
+|           enum | label      |
+| -------------: | ---------- |
+|           Cash | 现金支付   |
+|     CreditCard | 信用卡支付 |
+|      DebitCard | 借记卡支付 |
+|   BankTransfer | 银行转账   |
+|  OnlinePayment | 在线支付   |
+|          Check | 支票支付   |
+|  MobilePayment | 移动支付   |
+|    DirectDebit | 直接扣款   |
+|   WireTransfer | 电汇支付   |
+| Cryptocurrency | 加密货币   |
+
+### OnlinePaymentPlatform
+
+|      enum | label      |
+| --------: | ---------- |
+|    PayPal | PayPal     |
+|    Alipay | 支付宝支付 |
+| WeChatPay | 微信支付   |
+|    Stripe | Stripe     |
+|    Square | Square     |
+|  ApplePay | Apple Pay  |
+| GooglePay | Google Pay |
+
+### BankAccountType
+
+|          enum | label        |
+| ------------: | ------------ |
+|       Savings | 储蓄账户     |
+|      Checking | 支票账户     |
+|      Business | 商业账户     |
+|  JointSavings | 联名储蓄账户 |
+| JointChecking | 联名支票账户 |
+|    Investment | 投资账户     |
+|            CD | 定期存款账户 |
+|   MoneyMarket | 货币市场账户 |
+|     Brokerage | 证券账户     |
+|    CreditCard | 信用卡账户   |
+|          Loan | 贷款账户     |
+|      Mortgage | 抵押贷款账户 |
+|  LineOfCredit | 信用额度账户 |
+|         Other | 其他账户     |
+
+## Payment
+
+- recipient_bank_account
+- beneficiary_account_number
+- payee_account_number
+- receiving_account
+
+---
+
+- payer_bank_account
+- sender_account
+- sending_account

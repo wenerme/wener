@@ -190,6 +190,8 @@ tags:
   - 128kbps AAC
   - 256kbps AAC
 - https://superuser.com/questions/1049075
+- [TSAC](https://bellard.org/tsac/)
+  - Very Low Bitrate Audio Compression
 
 ## Image
 

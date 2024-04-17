@@ -6,9 +6,12 @@ tags:
 
 # 代理
 
+## 协议 {#protocol}
+
 > **Note**
 >
-> 建议基于 overlay 组件内部 proxy，更安全，更好跨网。
+> - 建议基于 overlay 组件内部 proxy，更安全，更好跨网。
+> - 对外暴露甚至选择
 
 | protocol         | transport           | UDP | Note                   |
 | ---------------- | ------------------- | --- | ---------------------- |
@@ -37,7 +40,11 @@ tags:
 - [TUIC](./tuic.md)
 - [vmess]
   - v2ray
+  - 支持非常复杂的协议配置
+  - 有点过于复杂和臃肿
+- [vless]
 - [trojan]
+  - WS+TLS
   - 伪装 tls
 - [snell]
 - hysteria
@@ -48,36 +55,23 @@ tags:
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post
 - http proxy
-  - nginx, haproxy
+  - nginx
   - squid
   - [tinyproxy](./tinyproxy.md)
   - [Privoxy](./privoxy.md)
 - socks proxy
   - [dante](./dante.md)
+- ss - ShadowSocks
+- ssr - ShadowSocksR
+  - 不活跃，不推荐使用
 - CCProxy, Proxycap, Proxifier
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
+
+---
+
 - [XX-net/XX-Net](https://github.com/XX-net/XX-Net)
-- [gost](./gost.md)
-  - MIT, Go
-  - Tunnel
-- [nadoo/glider](./glider.md)
-  - 类似 gost，但支持更多协议
-    - 只有 Listener 和 Forwarder
-  - mix - http+socks5
-  - http
-  - socks5
-  - ss
-  - [trojan](https://github.com/trojan-gfw/trojan)
-  - trojanc - cleartext
-  - vless
-  - vmess
-  - Forward/TCP - ssr, ssh. socks4, socks4a
-  - tcp, udp - tunnel
-  - tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs
-  - redir, redir6, TProxy
-  - reject
 - [snail007/goproxy](https://github.com/snail007/goproxy)
   - GPL-3.0, Go
 - [frp](./frp/README.md)
@@ -85,16 +79,15 @@ tags:
   - Apache-2.0, Rust
   - 类似 frp，但 rust 实现
 
-## server
+## universal
 
-- [v2ray](./v2ray/README.md)
-- [HyNetwork/hysteria](./hysteria.md)
-  - MIT, Go
+> **Note** universal
+>
+> - 入站和出站都支持多种协议
+
 - [SagerNet/sing-box](./sing-box.md)
   - GPL, Golang
   - universal proxy platform
-- [clash](./clash.md)
-  - rule based
 - [ginuerzh/gost](./gost.md)
   - MIT, Golang
   - GO Simple Tunnel
@@ -109,25 +102,61 @@ tags:
   - 负载均衡
   - 路由控制
   - DNS 解析和代理
-- [MetaCubeX/Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
-  - GPLv3, Go
-  - 支持出站传输协议 VLESS Reality, Vision, Trojan XTLS, Hysteria, TUIC, ShadowTLS
-  - 规则支持 GEOSITE
-  - 支持 TUN
-  - [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge)
-    - GPLv3, Rust+Typescript
-    - 基于 tauri 的桌面应用
+- [nadoo/glider](./glider.md)
+  - 类似 gost，但支持更多协议
+    - 只有 Listener 和 Forwarder
+  - mix - http+socks5
+  - http
+  - socks5
+  - ss
+  - [trojan]
+  - trojanc - cleartext
+  - vless
+  - vmess
+  - Forward/TCP - ssr, ssh. socks4, socks4a
+  - tcp, udp - tunnel
+  - tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs
+  - redir, redir6, TProxy
+  - reject
+
+## client
+
+> **Note** Client
+>
+> - 强调规则
+> - 支持较多出站协议 - outbound
+> - 至少支持 socks 或 http 入站 - 最常用本地代理
+> - 支持更多的接入逻辑 - 透明代理、tun、ebpf
+> - 支持多路复用
+> - 支持负载均衡
+
+- GUI
   - [2dust/clashN](https://github.com/2dust/clashN)
     - Windows
-- [daeuniverse/dae](https://github.com/daeuniverse/dae)
-  - AGPLv3, Go
-  - Linux >= 5.8
-  - /sys/fs/bpf
-  - Linux high-performance transparent proxy solution based on eBPF
-  - https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
-- [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
-  - MPLv2, Go
-- [XTLS/REALITY](https://github.com/XTLS/REALITY)
+- 服务/Servic/Socks/HTTP Proxy
+  - [MetaCubeX/mihomo](./mihomo/README.md)
+    - GPLv3, Go
+    - Clash.Meta -> mihomo
+    - 支持出站传输协议 VLESS Reality, Vision, Trojan XTLS, Hysteria, TUIC, ShadowTLS
+    - 规则支持 GEOSITE
+    - 支持 TUN
+    - [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge)
+      - GPLv3, Rust+Typescript
+      - 基于 tauri 的桌面应用
+  - ~~[clash](./clash.md)~~
+    - rule based
+- Transparent
+  - [mezantrop/ts-warp](https://github.com/mezantrop/ts-warp)
+    - BSD-2, C
+  - [daeuniverse/dae](https://github.com/daeuniverse/dae)
+    - AGPLv3, Go
+    - Linux >= 5.8
+    - eBPF
+    - /sys/fs/bpf
+    - Linux high-performance transparent proxy solution based on eBPF
+    - https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
+- 命令行/CLI
+  - [proxychain-ng](./proxychain-ng.md)
 - [anderspitman/awesome-tunneling](https://github.com/anderspitman/awesome-tunneling)
 - https://github.com/hunshcn/gh-proxy
 - [heiher/hev-socks5-tproxy](https://github.com/heiher/hev-socks5-tproxy)
@@ -135,11 +164,54 @@ tags:
   - 透明代理
   - https://github.com/sower-proxy/sower/wiki
 
+### iOS Client
+
+- SingBox https://apps.apple.com/us/app/sing-box/id6451272673
+- Surge 5 https://nssurge.com/buy_now
+  - $50
+- Stash - Rule Based Proxy
+  - $4
+  - 支持 Clash, hysteria
+  - App Store https://apps.apple.com/app/stash/id1596063349
+  - Test Flight https://testflight.apple.com/join/elwvzipQ
+  - https://t.me/RnNc2RaV8x0wMzQ0
+  - https://t.me/stashnetworks
+- Clash for iOS
+  - App Store https://apps.apple.com/us/app/choc/id1582542227
+  - Test Flight https://testflight.apple.com/join/J5QPqXKO
+  - https://t.me/choc_channel
+  - https://t.me/choc_chat
+- Proxyman
+  - https://github.com/ProxymanApp/atlantis
+
+
+## server
+
+> **Note** Server
+>
+> - 强调协议
+> - 支持较多入站协议
+
+- [v2ray](./v2ray/README.md)
+- [HyNetwork/hysteria](./hysteria.md)
+  - MIT, Go
+- [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
+  - MPLv2, Go
+- [XTLS/REALITY](https://github.com/XTLS/REALITY)
+
+
 ## 配置
 
 - [xmdhs/clash2singbox](https://github.com/xmdhs/clash2singbox)
   - Clash.Mate -> SingBox
   - Web 版 [xmdhs/clash2sfa](https://github.com/xmdhs/clash2sfa)
+- https://github.com/Toperlock/sing-box-subscribe
+  - https://sing-box-subscribe.vercel.app
+- https://github.com/izumiChan16/clash_ini2sing-box
+- https://clash2sfa-xmdhs.koyeb.app
+- https://github.com/chika0801/sing-box-examples
+- https://subconverters.com/
+
 
 ## Sniff/Introspection
 
@@ -181,30 +253,6 @@ curl -v --http2 http://localhost:8000
 curl -v --http2-prior-knowledge http://localhost:8000
 ```
 
-## iOS
-
-- Surge 5 https://nssurge.com/buy_now
-  - $50
-- Stash - Rule Based Proxy
-  - $4
-  - 支持 Clash, hysteria
-  - App Store https://apps.apple.com/app/stash/id1596063349
-  - Test Flight https://testflight.apple.com/join/elwvzipQ
-  - https://t.me/RnNc2RaV8x0wMzQ0
-  - https://t.me/stashnetworks
-- Clash for iOS
-  - App Store https://apps.apple.com/us/app/choc/id1582542227
-  - Test Flight https://testflight.apple.com/join/J5QPqXKO
-  - https://t.me/choc_channel
-  - https://t.me/choc_chat
-- Proxyman
-  - https://github.com/ProxymanApp/atlantis
-
-## Transparent
-
-- https://github.com/mezantrop/ts-warp
-- [proxychain](./proxychain-ng.md)
-
 # 库
 
 - [eycorsican/leaf](https://github.com/eycorsican/leaf)
@@ -232,6 +280,9 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - [xtaci/smux](https://github.com/xtaci/smux)
   - TCP, KCP
   - Simple MUltipleXing
+- [hashicorp/yamux](https://github.com/hashicorp/yamux)
+  - MPLv2, Go
+  - connection multiplexing
 - [jamescun/switcher](https://github.com/jamescun/switcher) - ssh http same port
 - [inetaf/tcpproxy](https://github.com/inetaf/tcpproxy)
   - TCP over HTTP

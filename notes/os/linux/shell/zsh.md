@@ -40,10 +40,6 @@ man zshcontrib
 | Spelling correction and approximate completion |
 | Plugin and theme suppor                        |
 
-## oh-my-zsh
-
-- https://github.com/ohmyzsh/ohmyzsh
-
 # FAQ
 
 ```zsh

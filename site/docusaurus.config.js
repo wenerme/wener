@@ -31,6 +31,7 @@ const rehypePlugins = [
   [
     rehypeExtendedTable,
     {
+      // default: right
       mergeTo: ['right', 'left'],
     },
   ],

@@ -1,5 +1,4 @@
 ---
-id: remote-desktop
 title: 远程桌面
 ---
 
@@ -12,18 +11,10 @@ title: 远程桌面
   * Mac 下需要 XQuartz
 * vbox [Remote virtual machines](https://www.virtualbox.org/manual/ch07.html)
 
-
 ```bash
 xfreerdp /v:127.0.0.1:3389
 xfreerdp +clipboard /u:<username> /v:<hostname> /size:<WxH> /p: <port>
 ```
-## VNC
-
-* [TigerVNC](http://tigervnc.org/) [Github](https://github.com/TigerVNC/tigervnc)
-  * 服务端
-  * Java TigerVNC-viewer 客户端
-  * [下载](https://bintray.com/tigervnc/stable/tigervnc)
-* Ubuntu [VNC Server](https://help.ubuntu.com/community/VNC/Servers)
 
 ## guacamole
 

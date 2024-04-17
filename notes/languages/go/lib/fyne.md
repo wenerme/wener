@@ -17,7 +17,6 @@ title: fyne
   - 不支持托盘 - https://github.com/fyne-io/fyne/issues/283
     - 现有的 tray 都需要运行在 main 线程，且是阻塞运行 - 因此通常无法共存
 
-
 ```bash
 # windows 构建
 GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc go build main.go

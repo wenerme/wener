@@ -32,6 +32,8 @@ tags:
 | Accounting Mid-term     | 会计中期                        |
 | Accounting              | 会计                            |
 | Closing the books       | 结账                            |
+| Accounting Set          | 账套                            |
+| Accounting Book         | 账簿                            |
 
 - EBITA
 - 会计期间 - Accounting Period/Fiscal Period - 会计分期
@@ -86,3 +88,16 @@ tags:
 ## 年报
 
 - https://ir.suse.com/websites/suse/English/6300/annual-reports.html
+
+## 账套 vs 账簿
+
+> 账套 > 账簿
+
+- 账套 - Set of Books
+  - 一组相关的会计账簿和记录
+  - 包括 各种日记账、总账、子账等
+  - 广泛性、功能性、系统性
+- 账簿 - Books of Account - Ledger
+  - 特定类型会计信息的具体书籍或文件
+  - 包括 日记账、现金账、销售账、购买账等
+  - 专一性、记录性、结构性

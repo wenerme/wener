@@ -1,11 +1,9 @@
 ---
 tags:
-- Glossary
+  - Glossary
 ---
 
-
 # 市场营销
-
 
 - AARRR
   - 根据所处时间和场景不同排列也不同
@@ -58,6 +56,17 @@ tags:
     - 实施增长实验
     - 数据分析和优化
     - 规模化成功策略
+
+## NPS
+
+- NPS - Net Promoter Score - 净推荐得分
+- 一种衡量顾客忠诚度和顾客满意度的管理工具。
+- 询问顾客一个简单的问题 —— 他们有多大可能性会向朋友或同事推荐该产品或服务 —— 来计算得出。
+- 顾客的回答范围通常是0到10，基于这个得分，顾客被分类为推荐者（Promoters）、中性（Passives）或批评者（Detractors）。
+- 参考
+  - [Net promoter score](https://en.wikipedia.org/wiki/Net_promoter_score)
+  - https://wiki.mbalib.com/wiki/净推荐值
+  - https://zh.surveymonkey.com/mp/presenting-your-rating-scales-numbered-versus-worded-lists/
 
 ## 客户生命周期
 

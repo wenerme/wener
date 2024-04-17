@@ -142,6 +142,7 @@ https://www.ontotext.com/knowledgehub/fundamentals/how-to-building-knowledge-gra
 
 ---
 
+- [mindoc-org/mindoc](https://github.com/mindoc-org/mindoc)
 - [facebook/docusaurus](https://github.com/facebook/docusaurus)
 - [docsifyjs/docsify](https://github.com/docsifyjs/docsify)
 - [doczjs/docz](https://github.com/doczjs/docz)

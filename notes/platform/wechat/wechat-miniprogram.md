@@ -34,6 +34,8 @@ title: 微信小程序
 
 - https://mp.weixin.qq.com/ 登录后台
 - https://mp.weixin.qq.com/cgi-bin/wx
+- https://kf.qq.com/faq/170109umMvm6170109MZNnYV.html
+  - 命名规则
 
 ## API
 
@@ -107,6 +109,14 @@ __wxAppCode__[__wxRoute + '.wxml'];
   - https://wechat-miniprogram.github.io/miniprogram-compat/
 - https://developers.weixin.qq.com/miniprogram/dev/devtools/codecompile.html
 - https://developers.weixin.qq.com/miniprogram/dev/framework/runtime/js-support.html
+
+
+## app.json
+
+- https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
+- https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html
+  - project.config.json
+  - project.private.config.json
 
 # FAQ
 

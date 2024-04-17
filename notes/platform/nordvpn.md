@@ -10,6 +10,7 @@ title: NordVPN
   - 台湾
   - 日本
   - 新加坡
+- 支持协议 HTTP Proxy, SOCKS5, NordLynx, OpenVPN TCP, and OpenVPN UDP
 - 参考
   - [bubuntux/nordvpn](https://github.com/bubuntux/nordvpn)
 
@@ -198,6 +199,13 @@ curl https://api.nordvpn.com/vpn/check/full
 # FAQ
 
 ## 6 设备限制
+
+:::caution
+
+- 6 并发连接
+- 相同服务相同协议不能同时发起连接
+
+:::
 
 - 6 链接限制
 - 过多连接可能需要登录后才能连接成功
