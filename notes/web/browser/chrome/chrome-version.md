@@ -8,12 +8,15 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
+| [Chrome 125](#chrome-125) |            | css anchor                                        |
+| [Chrome 123](#chrome-123) |            | WebSocketStream                                   |
+| [Chrome 123](#chrome-123) |            | css field-sizing                                  |
 | [Chrome 122](#chrome-122) |            | zstd                                              |
 | [Chrome 121](#chrome-121) |            | EditContext                                       |
 | [Chrome 120](#chrome-120) | 2023-12-29 |                                                   |
 | [Chrome 119](#chrome-119) |            |                                                   |
 | [Chrome 118](#chrome-118) |            |                                                   |
-| [Chrome 117](#chrome-117) |            |                                                   |
+| [Chrome 117](#chrome-117) |            | `@starting-style`                                 |
 | [Chrome 116](#chrome-116) |            |                                                   |
 | [Chrome 115](#chrome-115) |            |                                                   |
 | [Chrome 114](#chrome-114) |            | popovertarget,popover                             |
@@ -149,6 +152,73 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 125
+
+- WebSocket 接受 http/https URL
+- Compute Pressure - 检测当前 PC 的压力 - cpu/内存
+  - PressureObserver
+  - PressureRecord
+  - https://developer.chrome.com/docs/web-platform/compute-pressure
+- CSS anchor
+  - `anchor-name`
+  - `position-anchor`
+  - `anchor()`
+  - `inset-area`
+  - 能实现 https://floating-ui.com/ 类似的浮动效果 - 通过锚点定位，确保内容在页面内，避免滚动导致内容不可见
+  - https://anchor-tool.com/
+- CSS steeped value - `rounded()`, `mod()`, `rem()`
+- Declarative shadow DOM serialization
+  - `getHTML({serializableShadowRoots:bool, shadowRoots:[roots]})`
+  - 能够将 shadowDOM 序列化出来
+- Direct Sockets API in Chrome Apps
+  - TCPSocket, UDPSocket
+  - https://wicg.github.io/direct-sockets/
+  - https://github.com/WICG/direct-sockets/blob/main/docs/explainer.md
+- Extending Storage Access API (SAA) to non-cookie storage
+  - https://privacycg.github.io/saa-non-cookie-storage/
+  - https://github.com/privacycg/storage-access
+    - [Chrome 119](#chrome-119)
+- Keyboard-focusable scroll containers
+
+## Chrome 124
+
+- setHTMLUnsafe,parseHTMLUnsafe
+- ReadableStream async iteration - 支持 `for await...of`
+- WebSocketStream
+  - 和 WebSocket 目的类似，但暴露为 Stream 类似的接口
+  - 不在基于 Event 而是作为 stream 的方式处理
+  - 能支持 backpressure
+  - https://web.dev/websocketstream/
+  - [CarterLi/websocketstream-polyfill](https://github.com/CarterLi/websocketstream-polyfill)
+- SVG context-fill, context-stroke
+- Document Render-Blocking - https://chromestatus.com/feature/5113053598711808
+  - 主要用于 View Transitions
+  - 等待资源加载完成
+- Event pageswap - https://chromestatus.com/feature/5479301497749504
+  - 用于 View Transitions
+- HTTP 支持 priority 头
+- Windows ClearType Text Tuner Integration
+- `[writingsuggestions]` 可关闭拼写建议
+
+```js
+const wss = new WebSocketStream(url, {
+  // 扩展协议选择
+  protocols: ['chat', 'chatv2'],
+  // 避免长时间 handshake
+  signal: AbortSignal.timeout(1000),
+});
+const { readable, writable, protocol, extensions } = await wss.opened;
+const reader = readable.getReader();
+while (true) {
+  const { value, done } = await reader.read();
+  if (done) break;
+  await process(value);
+}
+//
+wss.close({ closeCode: 4000, reason: 'Game over' });
+const { closeCode, reason } = await wss.closed;
+```
+
 ## Chrome 123
 
 - import with
@@ -157,11 +227,13 @@ tags:
 - pagereveal 事件
 - 支持 zstd
 - CSS
+  - ` light-dark(a,b)` - 根据 prefers-color-scheme 选择 a 或 b
   - align-content 支持 block, list-item, table-cell
     - 不再需要 flex 或者 grid 也能方便 center 了
-  - 颜色函数 - light-dark
   - text-spacing-trim
     - 主要用于 CJK 的括号等，让括号之类的变窄，更好看
+    - https://drafts.csswg.org/css-text-4/#text-spacing-trim-property
+    - https://output.jsbin.com/figixaq
   - field-sizing
     - 让输入内容自动调整输入框的大小
     - textarea
@@ -204,8 +276,8 @@ tags:
     - document.fonts.check()
     - 修改逻辑
   - masking
-- worker
-  - document.requestStorageAccess
+- document.requestStorageAccess
+  - https://developer.mozilla.org/en-US/docs/Web/API/Document/requestStorageAccess
 - [CloseWatcher](https://github.com/WICG/close-watcher)
   - dialog 修改为使用 CloseWatcher
 - Attribution Reporting API: further gating for trigger verbose debug reports
@@ -295,6 +367,7 @@ tags:
     - `display: inline flow` -> `inline-block`
     - `display: block flex` -> `flex`
   - Scroll-driven animations
+    - scroll-timeline
     - https://scroll-driven-animations.style/
 - HTTPS Upgrades - 优先尝试 HTTPS
 - WebAssembly
@@ -353,6 +426,7 @@ tags:
   - Style Container Queries for CSS Custom Properties
 - Javascript
   - String.prototype.isWellFormed, toWellFormed
+  - ArrayBuffer.prototype.{resize,resizable,maxByteLength}
 - DOM
   - View Transitions API
 - Media

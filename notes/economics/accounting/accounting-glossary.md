@@ -5,13 +5,14 @@ tags:
 
 # Accounting Glossary
 
-| abbr. | stand for                   | mean           | note                                       |
-| ----- | --------------------------- | -------------- | ------------------------------------------ |
-| CPA   | Certified Public Accountant | 注册会计师     |
-| TA    |                             | 税务师         |
-| IRS   | Internal Revenue Service    | 美国国家税务局 | https://www.irs.gov/                       |
-| IRC   | Internal Revenue Code       | 美国国内税收法 | https://www.law.cornell.edu/uscode/text/26 |
-| COA   | Chart of Accounts           | 会计科目表     |
+| abbr. | stand for                      | mean           | note                                                                                        |
+| ----- | ------------------------------ | -------------- | ------------------------------------------------------------------------------------------- |
+| CPA   | Certified Public Accountant    | 注册会计师     |
+| TA    |                                | 税务师         |
+| IRS   | Internal Revenue Service       | 美国国家税务局 | https://www.irs.gov/                                                                        |
+| IRC   | Internal Revenue Code          | 美国国内税收法 | https://www.law.cornell.edu/uscode/text/26                                                  |
+| COA   | Chart of Accounts              | 会计科目表     |
+| TIN   | Taxpayer Identification Number | 纳税人识别号   | https://www.irs.gov/individuals/international-taxpayers/taxpayer-identification-numbers-tin |
 
 | abbr.   | stand for                                              | mean                 |
 | ------- | ------------------------------------------------------ | -------------------- |
@@ -34,7 +35,22 @@ tags:
 | Closing the books       | 结账                            |
 | Accounting Set          | 账套                            |
 | Accounting Book         | 账簿                            |
+| Standard Entry          | 蓝字                            |
+| Reversal Entry          | 红字/红冲                       |
+| Credit Note             | 贷项通知单                      |
+| Adjusting Entry         | 红字                            |
+| Void                    | 作废                            |
+| Write Off               | 冲销、坏账核销                  |
 
+- Credit Note
+  - 特指因商品退货或服务取消而发出的，与原销售发票相抵销的凭证。这通常用于销售和商业环境中。
+- Void Invoice
+  - 不删除，而是标记为作废
+  - 不会影响发票编号序列
+  - 可重新 Open/未结 让客户支付
+- Write Off
+  - 无法收回的特定发票
+  - 操作后发票变为 Paid
 - EBITA
 - 会计期间 - Accounting Period/Fiscal Period - 会计分期
   - 对于经济活动做定期整理、汇存。

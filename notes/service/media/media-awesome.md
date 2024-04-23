@@ -111,6 +111,20 @@ tags:
 - [illuspas/Node-Media-Server](https://github.com/illuspas/Node-Media-Server)
 - [bluenviron/mediamtx](https://github.com/bluenviron/mediamtx)
 
+## Streaming
+
+- Web/Client
+  - [xqq/mpegts.js](https://github.com/xqq/mpegts.js)
+    - Apache-2.0, JS, TS
+    - HTML5 MPEG2-TS / FLV Stream Player
+  - ~~[bilibili/flv.js](https://github.com/bilibili/flv.js)~~
+    - Apache-2.0, JS
+  - [mediaelement/mediaelement](https://github.com/mediaelement/mediaelement)
+    - HTML5 audio, video
+    - 支持 MP4, WebM, MP3
+    - 支持 HLS, Dash, YouTube, Facebook, SoundCloud
+    - http://www.mediaelementjs.com/
+
 ## Library
 
 - [ffmpegwasm/ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
@@ -364,7 +378,6 @@ mkvpropedit input.mkv --edit track:v1 --delete name # 删除 track:v1 的名字
 for i in *.mkv; do mkvpropedit $i -d title; done
 for i in *.mkv; do mkvpropedit $i --edit track:v1 --delete name; done
 ```
-
 
 ## Protocol
 

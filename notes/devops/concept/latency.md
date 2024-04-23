@@ -12,6 +12,12 @@ title: 延迟数
 | 过长响应   | > 1000ms       | **用户会感到延迟**         |
 | VoIP       | 150ms - 300ms  | 语音通话                   |
 
+|   debounce | for                             |
+| ---------: | ------------------------------- |
+|  100-200ms | UI元素的交互 - 滑块、拖动       |
+|  200-500ms | 轻量级的用户输入 - 搜索触发请求 |
+| 500-1000ms | 数据密集型的操作 - 实时数据校验 |
+
 ## Latency Comparison Numbers ~ 2012
 
 - Interactive [Latency Numbers Every Programmer Should Know](https://colin-scott.github.io/personal_website/research/interactive_latency.html)

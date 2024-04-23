@@ -14,6 +14,11 @@ title: PostgreSQL JSON
 - https://bitnine.net/blog-postgresql/postgresql-internals-jsonb-type-and-its-indexes/
 
 ```sql
+-- json null 不是 null
+select 'null'::jsonb is null;
+-- 通过 typeof 判断类型
+select jsonb_typeof('null'::jsonb) = 'null';
+
 -- 数组移除 null
 select jsonb_path_query_array('{"values": [null, "test", { "key": "value" }]}', '$.values[*] ? (@ != null)');
 

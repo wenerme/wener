@@ -414,9 +414,12 @@ tags:
   - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
     - image compressor
   - https://github.com/photopea
-- compression
+- compression/zip/unzip
   - fflate
   - TextEncoderStream
+  - [gildas-lormeau/zip.js](https://github.com/gildas-lormeau/zip.js)
+    - zip and unzip
+    - streams, zip64, split files and encryption
 - interactive
   - [transloadit/uppy](https://github.com/transloadit/uppy)
   - [anvaka/panzoom](https://github.com/anvaka/panzoom)
@@ -727,7 +730,7 @@ tags:
     - from chakra-ui
 - search
   - [nextapps-de/flexsearch](https://github.com/nextapps-de/flexsearch)
-    - size min.mjs  16kB
+    - size min.mjs 16kB
   - [krisk/fuse](https://github.com/krisk/fuse)
     - MIT, JS
     - npm:fuse.js

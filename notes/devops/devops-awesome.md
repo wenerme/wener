@@ -22,6 +22,9 @@ tags:
 - [Normation/rudder](https://github.com/Normation/rudder)
   - GPLv3, Scala
   - configuration and security automation platform
+- WebUI
+  - https://www.webmin.com
+  - http://phpdhcpadmin.sourceforge.net/
 
 ## Reading
 

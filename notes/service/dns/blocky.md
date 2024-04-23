@@ -27,3 +27,23 @@ curl -LO https://0xerr0r.github.io/blocky/v0.23/config.yml
 
 - https://0xerr0r.github.io/blocky/v0.23/configuration/
 - https://0xerr0r.github.io/blocky/v0.23/config.yml
+
+
+```ts
+type logEntry struct {
+	RequestTS     *time.Time `gorm:"index"`
+	ClientIP      string
+	ClientName    string `gorm:"index"`
+	DurationMs    int64
+	Reason        string
+	ResponseType  string `gorm:"index"`
+	QuestionType  string
+	QuestionName  string
+	EffectiveTLDP string
+	Answer        string
+	ResponseCode  string
+	Hostname      string
+}
+```
+
+- https://github.com/0xERR0R/blocky/blob/main/querylog/database_writer.go

@@ -4,6 +4,13 @@ title: HTTP Archive format
 
 # har
 
+
+:::tip
+
+- Chrome 导出包含了 Websocket 等信息，需要自行处理
+
+:::
+
 - har - HTTP Archive format
   - by W3C
   - **abandoned**
@@ -21,6 +28,10 @@ title: HTTP Archive format
   - k6 - 记录 HTTP 请求
   - http://www.softwareishard.com/blog/har-adopters/
 - 参考
+  - https://toolbox.googleapps.com/apps/har_analyzer/
+    - 不会显示 _initiator, _webSocketMessages
+    - _resourceType=websocket
+  - http://www.softwareishard.com/blog/har-12-spec/
   - [Everettss/puppeteer-har](https://github.com/Everettss/puppeteer-har)
 - 可用于
   - 记录 HTTP 请求

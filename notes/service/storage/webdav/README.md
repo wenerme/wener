@@ -73,3 +73,10 @@ location /cache/ {
   allow all;
 }
 ```
+
+## macOS
+
+- Finder
+  - Go > Connect to Server
+  - `http://webdav.example.com/`
+- https://support.apple.com/en-hk/guide/mac-help/mchlp1546/mac

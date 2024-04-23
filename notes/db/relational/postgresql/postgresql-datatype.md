@@ -4,13 +4,53 @@ title: 数据类型
 
 # Postgres 数据类型
 
-- [Data Types](https://www.postgresql.org/docs/current/datatype.html)
+|                                 type | alias            | desc                                       |
+| -----------------------------------: | ---------------- | ------------------------------------------ |
+|                               bigint | int8             | 有符号的八字节整数                         |
+|                            bigserial | serial8          | 自增的八字节整数                           |
+|                           `bit[(n)]` |                  | 固定长度的位串                             |
+|                   `bit varying[(n)]` | `varbit[(n)]`    | 可变长度的位串                             |
+|                              boolean | bool             | 逻辑布尔值（真/假）                        |
+|                                  box |                  | 平面上的矩形框                             |
+|                                bytea |                  | 二进制数据（“字节数组”）                   |
+|                     `character[(n)]` | `char[(n)]`      | 固定长度的字符串                           |
+|             `character varying[(n)]` | `varchar[(n)]`   | 可变长度的字符串                           |
+|                                 cidr |                  | IPv4或IPv6网络地址                         |
+|                               circle |                  | 平面上的圆                                 |
+|                                 date |                  | 日历日期（年，月，日）                     |
+|                     double precision | float8           | 双精度浮点数（8字节）                      |
+|                                 inet |                  | IPv4或IPv6主机地址                         |
+|                              integer | int, int4        | 有符号的四字节整数                         |
+|           `interval [ fields ][(p)]` |                  | 时间跨度                                   |
+|                                 json |                  | 文本JSON数据                               |
+|                                jsonb |                  | 二进制JSON数据，解构后的                   |
+|                                 line |                  | 平面上的无限线                             |
+|                                 lseg |                  | 平面上的线段                               |
+|                              macaddr |                  | MAC（媒体访问控制）地址                    |
+|                             macaddr8 |                  | MAC（媒体访问控制）地址（EUI-64格式）      |
+|                                money |                  | 货币金额                                   |
+|                     `numeric[(p,s)]` | `decimal[(p,s)]` | 可选择精度的精确数字                       |
+|                                 path |                  | 平面上的几何路径                           |
+|                               pg_lsn |                  | PostgreSQL日志序列号                       |
+|                          pg_snapshot |                  | 用户级事务ID快照                           |
+|                                point |                  | 平面上的几何点                             |
+|                              polygon |                  | 平面上的封闭几何路径                       |
+|                                 real | float4           | 单精度浮点数（4字节）                      |
+|                             smallint | int2             | 有符号的两字节整数                         |
+|                          smallserial | serial2          | 自增的两字节整数                           |
+|                               serial | serial4          | 自增的四字节整数                           |
+|                                 text |                  | 可变长度的字符串                           |
+|      `time[(p)] [without time zone]` |                  | 时间（无时区）                             |
+|           `time[(p)] with time zone` | timetz           | 包含时区的时间                             |
+| `timestamp[(p)] [without time zone]` |                  | 日期和时间（无时区）                       |
+|      `timestamp[(p)] with time zone` | timestamptz      | 包含时区的日期和时间                       |
+|                              tsquery |                  | 文本搜索查询                               |
+|                             tsvector |                  | 文本搜索文档                               |
+|                    ~~txid_snapshot~~ |                  | 用户级事务ID快照（已弃用；见 pg_snapshot） |
+|                                 uuid |                  | 通用唯一标识符                             |
+|                                  xml |                  | XML数据                                    |
 
-| type             |
-| ---------------- |
-| smallint,int2    |
-| integer,int,int4 |
-| bigint,int8      |
+- [Data Types](https://www.postgresql.org/docs/current/datatype.html)
 
 ## UUID
 

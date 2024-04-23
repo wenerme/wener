@@ -259,3 +259,11 @@ User-Agent: "Open Policy Agent/v0.12.3 (darwin, amd64)"
 ```toml
 disableTelemetry=true
 ```
+
+## juicefs
+
+```bash
+juicefs --no-usage-report
+```
+
+- https://github.com/juicedata/juicefs/blob/main/pkg/usage/usage.go

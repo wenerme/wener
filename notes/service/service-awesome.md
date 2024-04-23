@@ -484,6 +484,12 @@ tags:
       - for Twitter
     - t.cn
       - for Weibo
+- [DHCP](./network/dhcp/dhcp-awesome.md)
+  - [coredhcp/coredhcp](https://github.com/coredhcp/coredhcp)
+    - MIT, Go
+  - [facebookincubator/dhcplb](https://github.com/facebookincubator/dhcplb)
+    - MIT, Go
+    - load balancer for DHCP
 - SaaS 服务目录/商业
   - [SaaS Blocks](https://saasblocks.io/)
   - https://github.com/it2025/saasbook

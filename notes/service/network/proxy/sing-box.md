@@ -22,6 +22,7 @@ brew install sfm      # 桌面应用
 
 # AlpineLinux
 # /usr/bin/sing-box
+# sing-box -D /var/lib/sing-box -C /etc/sing-box check
 # sing-box -D /var/lib/sing-box -C /etc/sing-box run
 apk add -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing/ --no-cache sing-box
 kill -HUP $(pgrep sing-box) # reload
@@ -31,6 +32,7 @@ tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 ./sing-box version
 sudo mv sing-box /usr/local/bin/
 # sudo mv sing-box /usr/bin/ # 配合 sing-box-openrc
+apk add -X https://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing/ --no-cache sing-box
 
 docker run -d \
   -v /etc/sing-box:/etc/sing-box/ \

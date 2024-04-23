@@ -52,9 +52,10 @@ brew install juicefs # macOS
 
 # 手动安装 Linux, Darwin
 VER=$(curl -s https://api.github.com/repos/juicedata/juicefs/releases/latest | grep 'tag_name' | cut -d '"' -f 4 | tr -d 'v')
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-curl -LO "https://github.com/juicedata/juicefs/releases/download/v${VER}/juicefs-${VER}-${OS}-amd64.tar.gz"
-tar zxvf juicefs-*.tar.gz
+curl -L -o juicefs.tar.gz "https://github.com/juicedata/juicefs/releases/download/v${VER}/juicefs-${VER}-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64.tar.gz"
+tar zxvf juicefs.tar.gz juicefs
+./juicefs version
+sudo mv juicefs /usr/local/bin/
 
 # META-URL MOUNTPOINT
 # --storage file --bucket $HOME/.juicefs/local 为默认值
@@ -149,41 +150,6 @@ du -sh $HOME/.juicefs/local/jfs/
   - POSIX test suite
 - [linux-test-project/ltp](https://github.com/linux-test-project/ltp)
 
-| flag               | env        |
-| ------------------ | ---------- |
-| --access-key value | ACCESS_KEY |
-| --secret-key value | SECRET_KEY |
-
-## Command
-
-- https://juicefs.com/docs/community/command_reference/
-
-```bash
-juicefs mount -o allow_other,writeback_cache sqlite3://myjfs.db ~/jfs
-```
-
-## Metdata
-
-- Redis
-  - 300b 一个文件
-- META_PASSWORD
-  - 数据库密码
-
-```bash
-juicefs format \
-  --storage sqlite3 \
-  --bucket data.db \
-  sqlite3://meta.db jfs
-
-# 不支持 fsck, gc
-# 不能多进程挂载
-juicefs format \
-  --storage sqlite3 \
-  --bucket data.db \
-  badger://$PWD/meta jfs
-```
-
-
 ## Docker
 
 ```bash
@@ -214,3 +180,26 @@ docker plugin disable juicefs
 
 - https://hub.docker.com/r/juicedata/mount
 - https://github.com/juicedata/juicefs/blob/main/hack/builder/Dockerfile
+
+## SQL
+
+- storage
+  - jfs_blob
+- metadata
+  - jfs_chunk
+  - jfs_chunk_ref
+  - jfs_counter
+  - jfs_delfile
+  - jfs_delslices
+  - jfs_detached_node
+  - jfs_dir_quota
+  - jfs_dir_stats
+  - jfs_edge
+  - jfs_flock
+  - jfs_node
+  - jfs_plock
+  - jfs_session2
+  - jfs_setting
+  - jfs_sustained
+  - jfs_symlink
+  - jfs_xattr

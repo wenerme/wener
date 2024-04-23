@@ -52,3 +52,18 @@ juicefs rmr .trash/
 ```
 
 bench 1G 左右数据，完成后被删除
+
+## object storage: parse url first path segment in URL cannot contain colon
+
+虽然文档说
+
+```bash
+juicefs format \
+    --storage postgres \
+    --bucket "<host>:<port>/<db>[?parameters]"
+```
+
+但实际 bucket 包含 port 会异常
+
+- https://github.com/juicedata/juicefs/issues/4725
+

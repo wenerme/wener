@@ -159,3 +159,20 @@ console.assert(new TextDecoder().decode(buf) === 'hello', 'should be hello');
 ```
 
 - https://github.com/anonyco/FastestSmallestTextEncoderDecoder/issues/17
+
+## BufferSource vs ArrayBuffer
+
+
+```ts
+/**
+ * Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.
+ */
+interface ArrayBufferTypes {
+    ArrayBuffer: ArrayBuffer;
+}
+type ArrayBufferLike = ArrayBufferTypes[keyof ArrayBufferTypes];
+
+type BufferSource = ArrayBufferView | ArrayBuffer;
+
+type BinaryData = ArrayBuffer | ArrayBufferView;
+```
