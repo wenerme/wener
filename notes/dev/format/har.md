@@ -27,7 +27,14 @@ title: HTTP Archive format
   - OWASP ZAP
   - k6 - 记录 HTTP 请求
   - http://www.softwareishard.com/blog/har-adopters/
+- Chrome
+  - 支持导入 - Chrome62+
+  - 支持导出
+  - https://developer.chrome.com/docs/devtools/network/reference
+  - [chrome.devtools.network](https://developer.chrome.com/docs/extensions/reference/api/devtools/network)
 - 参考
+  - https://gitgrimbo.github.io/harviewer/master/
+    - [janodvarko/harviewer](https://github.com/janodvarko/harviewer)
   - https://toolbox.googleapps.com/apps/har_analyzer/
     - 不会显示 _initiator, _webSocketMessages
     - _resourceType=websocket

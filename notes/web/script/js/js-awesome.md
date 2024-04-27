@@ -168,8 +168,10 @@ tags:
     - 依赖 reflect-metadata
     - 基于 decorator
   - json5
+    - Human-readable JSON
   - [unjs/destr](https://github.com/unjs/destr)
     - JSON.parse
+  - [uhop/stream-json](https://github.com/uhop/stream-json)
 - json+ - 扩展 toJSON 支持更多类型
   - [yahoo/serialize-javascript](https://github.com/yahoo/serialize-javascript)
     - 支持 Function

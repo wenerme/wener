@@ -17,6 +17,8 @@ title: Design Form Service
     - 只关系结果
     - 能提交验证数据
     - 能显示页面
+- 确定校验和验证框架逻辑
+- 动态后段 + 前端 Builder
 - 逻辑
   - 复杂、高级表单通常存在内部关联逻辑
 
@@ -25,14 +27,30 @@ title: Design Form Service
 - 参考
   - 字段设计
     - https://github.com/gitana/alpaca/tree/master/src/js/fields
+      - generate interactive HTML5 forms for web and mobile applications
   - FormBuilder
     - https://github.com/formio/formio.js/blob/master/src/builders/Builders.js
 
-# 参考实现
+# 参考实现 {#reference}
+
+- [matheins/dorf](https://github.com/matheins/dorf)
+  - AGPLv3, TS, React, PG, Drizzle, NextJS
+  - form builder
+- [formbricks/formbricks](https://github.com/formbricks/formbricks)
+  - AGPLv3, TS
+  - Survey Platform
+  - snoopforms -> formbricks
+- [Ryczko/FormsLab](https://github.com/Ryczko/FormsLab)
+  - MIT, TS, MongoDB, React, Prisma, NextJS
+  - Form builder for anonymous surveys, polls, and collecting feedback
+
+## heyform
+
+- [heyform](https://github.com/heyform/heyform)
 
 ## ohmyform
 
-- ~~[ohmyform/ohmyform](https://github.com/ohmyform/ohmyform)~~
+- [ohmyform](https://github.com/ohmyform/ohmyform)
   - AGPL, TS, typeorm
 - entities
   - form
@@ -59,8 +77,8 @@ title: Design Form Service
 
 ## formio
 
-- [formio/formio](https://github.com/formio/formio)
-  - OSL-3.0, JS
+- [formio](https://github.com/formio/formio)
+  - MIT, JS
   - mongoose
   - https://github.com/formio/formio/blob/master/src/models/models.js
 - Models

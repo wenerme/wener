@@ -68,9 +68,9 @@ import type { PostgreSqlDriver } from '@mikro-orm/postgresql'; // or any other d
 import { EntityManager } from '@mikro-orm/postgresql';
 
 const orm = await MikroORM.init<PostgreSqlDriver>({
-  // 自动发现
-  entities: ['./dist/entities'], // path to our JS entities (dist), relative to `baseDir`
-  entitiesTs: ['./src/entities'], // path to our TS entities (src), relative to `baseDir`
+  // 自动发现 - 不推荐
+  // entities: ['./dist/entities'], // path to our JS entities (dist), relative to `baseDir`
+  // entitiesTs: ['./src/entities'], // path to our TS entities (src), relative to `baseDir`
   // entities: ['./dist/app/**/entities'],
   // entitiesTs: ['./src/app/**/entities'],
   // entities: ['./dist/app/**/entities/*.entity.js'],

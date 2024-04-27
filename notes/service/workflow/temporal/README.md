@@ -5,6 +5,7 @@ title: temporal
 # temporal
 
 - [temporalio/temporal](https://github.com/temporalio/temporal)
+  - MIT, Go
   - cadence fork, 包含原始团队人员
   - Persistence - Cassandra, PostgreSQL, MySQL
   - Workflow search - Elasticsearch v6.8+ - 高级搜索
@@ -288,7 +289,7 @@ clusterMetadata:
 ## Bootstrap
 
 - install schema
-  - https://github.com/temporalio/temporal/blob/v1.4.2/Makefile#L367-L383
+  - https://github.com/temporalio/temporal/blob/v1.22.7/Makefile#L384-L404
 - docker 启动
   - [docker/auto-setup.sh](https://github.com/temporalio/temporal/blob/master/docker/auto-setup.sh)
   - [docker/entrypoint.sh](https://github.com/temporalio/temporal/blob/master/docker/entrypoint.sh)

@@ -11,6 +11,7 @@ tags:
 - renameat2/overlayfs ZFS v2.2+
   - [zfs_rename: support RENAME\_ flags](https://github.com/openzfs/zfs/commit/dbf6108b4df92341eea40d0b41792ac16eabc514)
   - feature zilsaxattr
+- 不要用 `/dev/z0`, 用 `/dev/zvol/data/db` - zd0 可能会变
 
 :::
 
@@ -89,12 +90,6 @@ du --apparent-size -h .
 ## 目录下很多文件时非常慢
 
 尝试关闭 atime
-
-## cannot create '/data/db': pool must be upgraded to set this property or value
-
-```bash
-sudo zpool upgrade -a
-```
 
 ## 计算使用空间
 
@@ -386,7 +381,6 @@ mount -o remount,rw /data/docker
 - cache 异常后导致 zvol 被重新挂载为 ro
 - clear cache 的 error 后还是无法挂载，因为 fs 损坏
 
-
 ```ansi
 [0;33mEXT4-fs warning (device zd0): [0;1mext4_end_bio:343: I/O error 3 writing to inode 5767264 starting block 14909936)[0m
 [0;31mBuffer I/O error on device zd0, logical block 14909936[0m
@@ -530,16 +524,20 @@ device_rebuild                        (read-only compatible)
      Support for sequential mirror/dRAID device rebuilds
 zstd_compress
      zstd compression algorithm support.
-draid
-     Support for distributed spare RAID
-zilsaxattr                            (read-only compatible)
-     Support for xattr=sa extended attribute logging in ZIL.
-head_errlog
-     Support for per-dataset on-disk error logs.
-blake3
-     BLAKE3 hash algorithm.
-block_cloning                         (read-only compatible)
-     Support for block cloning via Block Reference Table.
-vdev_zaps_v2
-     Support for root vdev ZAP.
+```
+
+|          flag | ver  | for                                   |
+| ------------: | ---- | ------------------------------------- |
+| zstd_compress | v2.1 | zstd 压缩算法                         |
+|         draid | v2.1 | 支持分布式备用 RAID                   |
+|    zilsaxattr | v2.2 | ZIL 支持 xattr=sa 扩展属性日志        |
+|   head_errlog | v2.2 | per-dataset on-disk error logs        |
+|        blake3 | v2.2 | BLAKE3 哈希算法                       |
+| block_cloning | v2.2 | 通过 Block Reference Table 支持块克隆 |
+|  vdev_zaps_v2 | v2.2 | 支持 root vdev ZAP                    |
+
+## cannot create '/data/db': pool must be upgraded to set this property or value
+
+```bash
+sudo zpool upgrade -a
 ```

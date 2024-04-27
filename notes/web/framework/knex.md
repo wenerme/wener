@@ -51,8 +51,19 @@ const pool = new Pool({
   // rejected with the error. If this is false (the default) then
   // create is retried until acquireTimeoutMillis milliseconds has
   // passed.
-  propagateCreateError: false
+  propagateCreateError: false,
 });
+```
+
+```ts
+const db = knex({
+  client: 'better-sqlite3',
+  connection: {
+    filename: 'test.sqlite3',
+  },
+  useNullAsDefault: true,
+});
+db.raw('PRAGMA journal_mode = WAL');
 ```
 
 # FAQ

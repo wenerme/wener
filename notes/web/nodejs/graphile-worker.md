@@ -5,6 +5,7 @@ title: graphile-worker
 # graphile-worker
 
 - [graphile/worker](https://github.com/graphile/worker)
+  - MIT, TS
   - 支持 cron
   - PostgreSQL
     - LISTEN/NOTIFY

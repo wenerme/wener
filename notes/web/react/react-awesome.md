@@ -404,7 +404,7 @@ npm add date-fns lodash-es react-fast-compare
     - 提供了统一配置 route 的逻辑 - 很简单，可以作为参考
     - matchRoutes - 匹配嵌套路由 - 返回匹配的 tree 路由数组
     - renderRoutes - 渲染嵌套路由 - 递归 Switch, 遍历 Route
-- [tannerlinsley/react-location](https://github.com/tannerlinsley/react-location)
+- [@tanstack/react-router](./tanstack-router.md)
   - 参考/基于 React Router v6
   - 内置 async import - 异步加载 element
   - 内置 async load - 异步加载 data/状态 - useMatch 返回
@@ -412,8 +412,10 @@ npm add date-fns lodash-es react-fast-compare
   - declarative API
 - [molefrog/wouter](https://github.com/molefrog/wouter)
   - 轻量实现 - 很实用 - 可以直接拷贝到项目修改使用
+  - 可以不需要 context
   - 外部提供 location
-- [reach/router](https://github.com/reach/router)
+  - minimalist-friendly ~2.1KB routing for React and Preact
+- ~~[reach/router](https://github.com/reach/router)~~
   - React Router v6 后 reach router 不再需要
   - React Router 作者在 hook 出现后进行的尝试
   - 目前 hook 能力已经合并回 react router v5

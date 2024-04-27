@@ -1,26 +1,49 @@
 ---
-title: React Route
+title: Remix Router
+tags:
+  - Router
 ---
 
-# React Route
+# Remix Router
 
 - [remix-run/react-router](https://github.com/remix-run/react-router)
-  - 核心 [remix-run/history](https://github.com/remix-run/history)
+  - npm:react-router -> @remix-run/router
+  - ~~[remix-run/history](https://github.com/remix-run/history)~~ 合并到了 @remix-run/router
+  - 支持 ReactDOM 和 ReactNative
+  - 支持 MemoryRouter
+  - 支持 HashRouter 和 BrowserRouter
+  - 支持 Full-Stack
+  - 支持 Form
+  - remix 核心的路由逻辑也有 @remix/router 实现
+    - 基于文件路由
+    - 生成路由表
 
 :::caution
 
+- 因为同时兼容支持 ReactDOM、ReactNative、Remix Run - 因此牺牲了很多单个平台的高级特性
+  - 现在（2024年）重心在 remix run - 因此主要在 ssr/Server Component 等数据服务相关部分
 - 不能嵌套 Router
 - children 绝对路径需要包含 parent 前缀
 - NavLink 使用 routerState 会每次 rerender
   - [react-router-dom/index.tsx#L427-L501](https://github.com/remix-run/react-router/blob/f722d7fda7a5aff1d90fdc2d8cf51f14f7870376/packages/react-router-dom/index.tsx#L427-L501)
 - useNavigate 会 rerender [#7634](https://github.com/remix-run/react-router/issues/7634)
+- 无法获取到 history - 除非自己做上下文
+  - `useContext(UNSAFE_NavigationContext).navigator as History`
+    - unsafe 方式获取 history
+  - createHashRouter 和 createBrowserRouter 都无法自己传递 history
+  - history 只能做一次 listen - 因此拿到了意义也不大
+    - v6.4+
+- useSearchParams 会导致任意参数变化都会 rerender - 无法只监听一个参数
+  - 只能尝试通过 history 重新封装
+  - https://github.com/remix-run/react-router/discussions/9851
+- 没有过多暴露 low-level 接口
+  - 导致部分特殊功能不好实现
 
 :::
 
 ```bash
 npm add react-router-dom
 ```
-
 
 - Path
   - `*` - 处理 NotFound
@@ -67,6 +90,334 @@ npm add react-router-dom
       - staticSegmentValue=10 - `/user`
   - rankRouteBranches
   - matchRouteBranch
+- Context
+  - DataRouterContext
+  - DataRouterStateContext - `Router['state']`
+  - LocationContext
+  - NavigationContext
+  - RouteContext
+  - RouteErrorContext
+- createMemoryRouter
+  - -> createRouter+createMemoryHistory
+- https://github.com/remix-run/react-router/blob/main/packages/react-router/index.ts
+
+```ts
+interface DataRouterContextObject extends Omit<NavigationContextObject, 'future'> {
+  router: Router;
+  staticContext?: StaticHandlerContext;
+}
+
+interface NavigationContextObject {
+  basename: string;
+  navigator: Navigator;
+  static: boolean;
+  future: {
+    v7_relativeSplatPath: boolean;
+  };
+}
+
+interface RouteContextObject {
+  outlet: React.ReactElement | null;
+  matches: RouteMatch[];
+  isDataRoute: boolean;
+}
+```
+
+## @remix-run/router
+
+- history + Router
+- https://github.com/remix-run/react-router/blob/main/packages/router/router.ts
+
+## Router
+
+```ts
+/**
+ * A Router instance manages all navigation and data loading/mutations
+ */
+export interface Router {
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Return the basename for the router
+   */
+  get basename(): RouterInit['basename'];
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Return the future config for the router
+   */
+  get future(): FutureConfig;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Return the current state of the router
+   */
+  get state(): RouterState;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Return the routes for this router instance
+   */
+  get routes(): AgnosticDataRouteObject[];
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Return the window associated with the router
+   */
+  get window(): RouterInit['window'];
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Initialize the router, including adding history listeners and kicking off
+   * initial data fetches.  Returns a function to cleanup listeners and abort
+   * any in-progress loads
+   */
+  initialize(): Router;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Subscribe to router.state updates
+   *
+   * @param fn function to call with the new state
+   */
+  subscribe(fn: RouterSubscriber): () => void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Enable scroll restoration behavior in the router
+   *
+   * @param savedScrollPositions Object that will manage positions, in case
+   *                             it's being restored from sessionStorage
+   * @param getScrollPosition    Function to get the active Y scroll position
+   * @param getKey               Function to get the key to use for restoration
+   */
+  enableScrollRestoration(
+    savedScrollPositions: Record<string, number>,
+    getScrollPosition: GetScrollPositionFunction,
+    getKey?: GetScrollRestorationKeyFunction,
+  ): () => void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Navigate forward/backward in the history stack
+   * @param to Delta to move in the history stack
+   */
+  navigate(to: number): Promise<void>;
+
+  /**
+   * Navigate to the given path
+   * @param to Path to navigate to
+   * @param opts Navigation options (method, submission, etc.)
+   */
+  navigate(to: To | null, opts?: RouterNavigateOptions): Promise<void>;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Trigger a fetcher load/submission
+   *
+   * @param key     Fetcher key
+   * @param routeId Route that owns the fetcher
+   * @param href    href to fetch
+   * @param opts    Fetcher options, (method, submission, etc.)
+   */
+  fetch(key: string, routeId: string, href: string | null, opts?: RouterFetchOptions): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Trigger a revalidation of all current route loaders and fetcher loads
+   */
+  revalidate(): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Utility function to create an href for the given location
+   * @param location
+   */
+  createHref(location: Location | URL): string;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Utility function to URL encode a destination path according to the internal
+   * history implementation
+   * @param to
+   */
+  encodeLocation(to: To): Path;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Get/create a fetcher for the given key
+   * @param key
+   */
+  getFetcher<TData = any>(key: string): Fetcher<TData>;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Delete the fetcher for a given key
+   * @param key
+   */
+  deleteFetcher(key: string): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Cleanup listeners and abort any in-progress loads
+   */
+  dispose(): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Get a navigation blocker
+   * @param key The identifier for the blocker
+   * @param fn The blocker function implementation
+   */
+  getBlocker(key: string, fn: BlockerFunction): Blocker;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Delete a navigation blocker
+   * @param key The identifier for the blocker
+   */
+  deleteBlocker(key: string): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * HMR needs to pass in-flight route updates to React Router
+   * TODO: Replace this with granular route update APIs (addRoute, updateRoute, deleteRoute)
+   */
+  _internalSetRoutes(routes: AgnosticRouteObject[]): void;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Internal fetch AbortControllers accessed by unit tests
+   */
+  _internalFetchControllers: Map<string, AbortController>;
+
+  /**
+   * @internal
+   * PRIVATE - DO NOT USE
+   *
+   * Internal pending DeferredData instances accessed by unit tests
+   */
+  _internalActiveDeferreds: Map<string, DeferredData>;
+}
+```
+
+## RouterState
+
+```ts
+/**
+ * State maintained internally by the router.  During a navigation, all states
+ * reflect the the "old" location unless otherwise noted.
+ */
+export interface RouterState {
+  /**
+   * The action of the most recent navigation
+   */
+  historyAction: HistoryAction;
+
+  /**
+   * The current location reflected by the router
+   */
+  location: Location;
+
+  /**
+   * The current set of route matches
+   */
+  matches: AgnosticDataRouteMatch[];
+
+  /**
+   * Tracks whether we've completed our initial data load
+   */
+  initialized: boolean;
+
+  /**
+   * Current scroll position we should start at for a new view
+   *  - number -> scroll position to restore to
+   *  - false -> do not restore scroll at all (used during submissions)
+   *  - null -> don't have a saved position, scroll to hash or top of page
+   */
+  restoreScrollPosition: number | false | null;
+
+  /**
+   * Indicate whether this navigation should skip resetting the scroll position
+   * if we are unable to restore the scroll position
+   */
+  preventScrollReset: boolean;
+
+  /**
+   * Tracks the state of the current navigation
+   */
+  navigation: Navigation;
+
+  /**
+   * Tracks any in-progress revalidations
+   */
+  revalidation: RevalidationState;
+
+  /**
+   * Data from the loaders for the current matches
+   */
+  loaderData: RouteData;
+
+  /**
+   * Data from the action for the current matches
+   */
+  actionData: RouteData | null;
+
+  /**
+   * Errors caught from loaders for the current matches
+   */
+  errors: RouteData | null;
+
+  /**
+   * Map of current fetchers
+   */
+  fetchers: Map<string, Fetcher>;
+
+  /**
+   * Map of current blockers
+   */
+  blockers: Map<string, Blocker>;
+}
+```
 
 # Version
 
@@ -124,3 +475,7 @@ npm add react-router-dom
 ## Switch vs Route
 
 `<Switch>` 只渲染一个路由. 而 `<Route>` 会渲染所有匹配的路由。
+
+## A history only accepts one active listener
+
+- v6 的 History 只能被 router 监听

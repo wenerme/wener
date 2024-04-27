@@ -6,7 +6,19 @@ tags:
 
 # Torrent
 
+- Client
+  - [deluge-torrent/deluge](https://github.com/deluge-torrent/deluge)
+    - GPLv3, Python
+  - aria2c
+  - qBittorrent
+    - qBittorrent-nox
+  - [Transmission](https://github.com/transmission/transmission)
+    - GPLv2, C++
+  - rTorrent + ruTorrent
+  - [webtorrent](https://github.com/webtorrent/webtorrent)
+    - [webtorrent/bittorrent-tracker](https://github.com/webtorrent/bittorrent-tracker)
 - [atomashpolskiy/bt](https://github.com/atomashpolskiy/bt)
+  - Apache-2.0, Java
   - [HN](https://news.ycombinator.com/item?id=14911372)
   - Java BitTorrent library with DHT, magnet links, encryption and more
 - [mafintosh/peerflix](https://github.com/mafintosh/peerflix)
@@ -41,6 +53,10 @@ tags:
   - [anacrolix/torrent](https://github.com/anacrolix/torrent)
   - [xgfone/bt](https://github.com/xgfone/bt)
     - [xgfone/bttools](https://github.com/xgfone/bttools)
+- [arvidn/libtorrent](https://github.com/arvidn/libtorrent)
+
+
+
 
 ## Torrent file
 

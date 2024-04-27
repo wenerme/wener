@@ -334,3 +334,7 @@ bard.google.com
 - https://github.com/gfwlist/gfwlist
 - [中华人民共和国被封锁网站列表](https://zh.wikipedia.org/wiki/中华人民共和国被封锁网站列表)
 - https://github.com/paulmillr/encrypted-dns
+
+## CDN
+
+- ghcr.io -> pkg-containers.githubusercontent.com

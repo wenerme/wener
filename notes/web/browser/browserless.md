@@ -13,6 +13,8 @@ TOKEN=$(openssl rand -hex 16)
 echo TOKEN=$TOKEN
 docker run -p 3000:3000 \
   -e "CONCURRENT=10" \
+  -e DATA_DIR=/data/browser \
+  -e DOWNLOAD_DIR=/data/download \
   -e "TOKEN=$TOKEN" \
   --name browserless ghcr.io/browserless/chromium
 ```
@@ -45,7 +47,6 @@ docker run -p 3000:3000 \
 | FAILED_HEALTH_URL   |
 
 ```js
-const puppeteer = require('puppeteer-core');
 import puppeteer from 'puppeteer-core';
 
 const browser = await puppeteer.connect({

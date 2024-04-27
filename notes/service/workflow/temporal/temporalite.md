@@ -4,7 +4,8 @@ title: temporalite
 
 # temporalite
 
-- [temporalio/temporalite](https://github.com/temporalio/temporalite)
+- ~~[temporalio/temporalite](https://github.com/temporalio/temporalite)~~
+  - 废弃： 使用 Temporal CLI dev server
   - [Temporal](./temporal.md) runs as a single process
   - 支持 SQLite
 

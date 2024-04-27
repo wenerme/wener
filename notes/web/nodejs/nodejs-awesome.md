@@ -174,14 +174,16 @@ export N_PREFIX=$HOME/n
   - node-cron
   - cron
   - [graphile-worker](./graphile-worker.md)
+    - MIT, TS
     - PostgreSQL LISTEN/NOTIFY
-  - [timgit/pg-boss](https://github.com/timgit/pg-boss)
+  - [timgit/pg-boss](./pg-boss.md)
     - MIT, JS
     - PostgreSQL SKIP LOCKED
     - Queueing jobs in Node.js using PostgreSQL like a boss
   - [breejs/bree](https://github.com/breejs/bree)
+    - MIT, JS
     - scheduler with worker threads
-  - [agenda/agenda](https://github.com/agenda/agenda)
+  - ~~[agenda/agenda](https://github.com/agenda/agenda)~~
     - mongodb
     - 独立服务
     - Lightweight job scheduling

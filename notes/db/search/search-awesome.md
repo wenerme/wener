@@ -19,6 +19,7 @@ tags:
     - AGPLv3, Rust
     - Like Elasticsearch, but highly reliable & cost-efficient for log management.
   - [lnx-search/lnx](https://github.com/lnx-search/lnx)
+    - MIT, Rust
 - [valeriansaliou/sonic](https://github.com/valeriansaliou/sonic)
   - MPL-2.0, Rust
   - schema-less search backend

@@ -1,9 +1,10 @@
 ---
 title: 谷歌云端硬盘
+tags:
+  - Drive
 ---
 
 # 谷歌云端硬盘
-
 
 - [可存储在 Google 云端硬盘中的文件](https://support.google.com/drive/answer/37603?hl=zh-Hans)
   - Word
