@@ -110,6 +110,7 @@ sudo apk add jq yq fping
 curl -o countries.json https://api.nordvpn.com/v1/servers/countries
 curl -s https://api.nordvpn.com/v1/servers/countries | jq -r '[.[].name] | sort | unique | .[]'
 
+# 约 30MB
 curl -sfL 'https://api.nordvpn.com/v1/servers?limit=9999999' | jq > server.json
 yq '[ .[] | select (.features.socks) | pick(["domain","load","name","country"])] ' server.json
 yq '[ .[] | select (.features.proxy_ssl) | pick(["country","domain","ip_address","load"]) | select(.country | contains("Korea","Hong","Japan"))] | sort_by(.domain) ' server.json
@@ -138,6 +139,7 @@ curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
   - https://nordvpn.com/api/server/stats
 - `https://api.nordvpn.com/v1/servers?limit=9999999`
 - https://api.nordvpn.com/v1/servers/countries
+- https://api.nordvpn.com/v1/servers/recommendations
 
 ```json
 {

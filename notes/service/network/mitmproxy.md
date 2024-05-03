@@ -4,6 +4,8 @@ title: MitmProxy
 
 # mitmproxy
 
+- [mitmproxy/mitmproxy](https://github.com/mitmproxy/mitmproxy)
+  - MIT, Python
 - 证书安装访问 http://mitm.it/
 - [Doc](http://docs.mitmproxy.org/en/stable/)
 - [工作模式](https://docs.mitmproxy.org/stable/concepts-modes/)
@@ -29,6 +31,8 @@ title: MitmProxy
 - frozenpandaman/splatnet2statink - [mitmproxy instructions](https://github.com/frozenpandaman/splatnet2statink/wiki/mitmproxy-instructions)
 
 ```bash
+brew install mitmproxy # macOS brew
+
 mitmweb --mode regular --no-web-open-browser --web-port 8080 --listen-port 8888
 
 openssl genrsa -out cert.key 2048
@@ -48,6 +52,12 @@ docker run --rm -it -v $HOME/.mitmproxy:/home/mitmproxy/.mitmproxy \
 curl -x 0.0.0.0:8080 wener.me
 curl -x 0.0.0.0:8080 icanhazip.com
 ```
+
+- mode
+  - regular
+  - transparent
+  - wireguard
+  - `reverse:https://example.com@443`
 
 ## 透明代理
 

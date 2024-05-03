@@ -26,16 +26,19 @@ smartctl -H /dev/sdb
 smartctl --smart=on --offlineauto=on --saveauto=on /dev/sdb
 
 # 检查
-smartctl -t short /dev/sda
+smartctl -t short /dev/sda # 快速检测 - 大约几分钟
 # 检查完成查看结果
 smartctl -H /dev/sda
+
+smartctl -t long /dev/sda # 完整检测 - 大约几小时
+smartctl -c /dev/sda      # 查看进度
 
 # 批量操作
 echo /dev/sd{a,b,c,d,e} | xargs -n 1 smartctl -H
 
 smartctl -a --json /dev/nvme0n1
 # 先锋
-echo $((`sudo smartctl -a --json /dev/nvme0n1 | jq .nvme_smart_health_information_log.data_units_written` *512/1024/1024))G
+echo $(($(sudo smartctl -a --json /dev/nvme0n1 | jq .nvme_smart_health_information_log.data_units_written) * 512 / 1024 / 1024))G
 ```
 
 | smartctl                      | for                                                                                              |
@@ -391,3 +394,11 @@ ID      Size     Value  Description
 ```bash
 smartctl -d cciss,1 -a /dev/sda
 ```
+
+## Wear_Leveling_Count
+
+- 磨损均衡计数
+- 越接近 0 越接近磨损上限
+- Raw Value
+  - SSD 重映射了 N 个闪存块
+- 如果小于 20 则建议更换

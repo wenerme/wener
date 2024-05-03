@@ -139,6 +139,39 @@ export abstract class MinimalBaseEntity<Entity extends MinimalBaseEntity<any>> e
 }
 ```
 
+## Collection
+
+```ts
+interface Collection<T> {
+  load(): Promise<this>;
+  loadItems(): Promise<T[]>;
+  loadCount(): Promise<number>;
+
+  matching(cond: FilterQuery<T>): this;
+
+  getItems(): T[];
+
+  add(...items: T[]): this;
+  remove(...items: T[]): this;
+  contains(item: T): boolean;
+  count(): number;
+
+  // 数组
+  slice(start?: number, end?: number): T[];
+  exists(cb: (item: T) => boolean): boolean;
+  find(cb: (item: T, index: number) => boolean): T | undefined;
+  filter(cb: (item: T, index: number) => boolean): T[];
+  map<R>(mapper: (item: T, index: number) => R): R[];
+  indexBy<K extends keyof T>(prop: K): Record<string, T>;
+
+  shouldPopulate(populated?: boolean): boolean;
+  populated(populated?: boolean): boolean;
+  init(): Promise<this>;
+
+  toJSON(): any;
+}
+```
+
 ## RequestContext
 
 - Middleware `RequestContext.create(orm.em, next)`

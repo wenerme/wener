@@ -32,6 +32,8 @@ title: HTTP Archive format
   - 支持导出
   - https://developer.chrome.com/docs/devtools/network/reference
   - [chrome.devtools.network](https://developer.chrome.com/docs/extensions/reference/api/devtools/network)
+  - [sitespeedio/chrome-har](https://github.com/sitespeedio/chrome-har)
+    - Create HAR files from Chrome Debugging Protocol data
 - 参考
   - https://gitgrimbo.github.io/harviewer/master/
     - [janodvarko/harviewer](https://github.com/janodvarko/harviewer)

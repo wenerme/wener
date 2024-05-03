@@ -5,13 +5,16 @@ title: protobuf-web
 # protobuf-web
 
 - [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)
+  - Apache-2.0, TS
   - 与 protobuf-ts 相同作者
   - @bufbuild/protoc-gen-es
+  - used by [connectrpc/connect-es](https://github.com/connectrpc/connect-es)
 - [timostamm/protobuf-ts](https://github.com/timostamm/protobuf-ts)
 - [protobufjs/protobuf.js](https://github.com/protobufjs/protobuf.js)
   - .proto, JSON descriptors, reflectiom, custom class
   - https://protobufjs.github.io/protobuf.js/
 - [protocolbuffers/protobuf-javascript](https://github.com/protocolbuffers/protobuf-javascript)
+  - BSD-2, Apache-2.0, JS
   - 目前维护不足
 - [stephenh/ts-proto](https://github.com/stephenh/ts-proto)
   - 不生成 index.ts [#212](https://github.com/stephenh/ts-proto/issues/212)

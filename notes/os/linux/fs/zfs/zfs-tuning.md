@@ -94,7 +94,7 @@ zfs get all POOL | grep -E 'compression|atime|xattr|sync|primarycache|recordsize
   - 替代存储磁盘上的 ZIL - 避免双写
   - **不是写缓存**
   - 用不了多少空间
-    - 一般 16G 或 64G 足矣
+    - 一般 16G 或 32G 足矣
     - max amount of write traffic per second x 15
     - TXG commit interval - transaction group commit interval - 5s-10s
       - zfs_txg_synctime

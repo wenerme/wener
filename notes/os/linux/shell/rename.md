@@ -6,6 +6,7 @@ title: rename
 
 - util-linux - rename - c 版本
   - [rename.1](https://man7.org/linux/man-pages/man1/rename.1.html)
+- renameutils
 - perl 版本 - 支持正则
 - zsh - zmv
 
@@ -16,8 +17,13 @@ title: rename
 rename .htm .html *.htm
 rename .txt '' *.txt
 
+
+# qmv, qcp, imv, icp, deurlname
+# https://www.nongnu.org/renameutils/
+brew install renameutils
+
 # Perl 版本
-# macOS
+# macOSrename
 brew install rename
 
 rename 'y/a-z/A-Z/' *
@@ -26,6 +32,9 @@ rename 's/\.txt$//' *.txt
 rename -v 's/s(\d+)e(\d+)/S\1E\2/' *.ass
 # 【1997】05蜡笔小新 -> 蜡笔小新 (1997)
 rename -nv 's/【(\d+)】.*?蜡笔小新/蜡笔小新 (\1)'
+# 提取集 为完整名字
+rename -nv 's/^.*?\[(\d+)\].*?(-thumb.jpg|[.]\w+)$/胜者即是正义.S01E$1$2/' '[胜者即是正义]'*
+
 # 蜡笔小新.abc.mkv -> /Volumes/Movie/蜡笔小新.abc/蜡笔小新.abc.mkv
 ls 蜡笔小新*.{mkv,mp4} | xargs -I {} -n 1 sh -c 'f="{}";mkdir -p "/Volumes/Movie/${f%.*}";mv "$f" "/Volumes/Movie/${f%.*}"'
 

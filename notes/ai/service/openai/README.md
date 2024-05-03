@@ -6,12 +6,17 @@ title: OpenAI
 
 **价格**
 
-| Service      | Input/1K tokens | Output/1K tokens |     Chinese | note               |
-| ------------ | --------------- | ---------------- | ----------: | ------------------ |
-| GPT-4 8K     | $0.03           | $0.06            | ~1.6 万字/$ |
-| GPT-4 32K    | $0.06           | $0.12            | ~0.8 万字/$ |
-| Chat 3.5 4K  | $0.0015         | $0.002           |  ~30 万字/$ | gpt-3.5-turbo      |
-| Chat 3.5 16K | $0.003          | $0.004           |  ~15 万字/$ | gpt-3.5-turbo-0613 |
+| Service                |             Input |             Output | Notes      |
+| ---------------------- | ----------------: | -----------------: | ---------- |
+| gpt-4-turbo 128k       | $10.00 /1M tokens |  $30.00 /1M tokens | 更好更便宜 |
+| gpt-4                  | $30.00 /1M tokens |  $60.00 /1M tokens |
+| gpt-4-32k              | $60.00 /1M tokens | $120.00 /1M tokens |
+| gpt-3.5-turbo-0125     |  $0.50 /1M tokens |   $1.50 /1M tokens |
+| gpt-3.5-turbo-instruct |  $1.50 /1M tokens |   $2.00 /1M tokens |
+
+- 1M tokens 大约 50 万字
+
+---
 
 - InstructGPT - 单个指令生成
   - Ada - $0.0004 / 1K tokens
@@ -113,7 +118,6 @@ Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests
 ```
 
 ## 您的银行卡被拒绝了。
-
 
 ## Access denied
 

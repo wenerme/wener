@@ -1,0 +1,54 @@
+---
+title: Date Picker
+---
+
+# Date Picker
+
+- 模式
+  - 单个
+  - 多个
+  - 范围
+- 场景
+  - 日期+时间
+  - 日期
+  - 年月
+  - 年
+  - 周
+  - 时间
+- 常见功能
+  - 排除/包含
+  - 起始/截止
+  - 节假日/工作日
+  - 快捷
+  - 当前日期
+  - 输入组件
+  - locale
+  - format
+- Date Granularity
+  - year
+  - month
+  - week
+  - day
+  - hour
+  - minute
+  - second
+  - ~~millisecond~~
+- 参考
+  - [<input type="month">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month)
+  - [<input type="week">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week)
+  - [<input type="date">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
+  - [<input type="datetime-local">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
+  - https://blueprintjs.com/docs/#datetime2/date-picker3
+  - [gpbl/react-day-picker](https://github.com/gpbl/react-day-picker)
+  - https://www.downshift-js.com/
+  - [react-aria](https://react-spectrum.adobe.com/react-aria/useDatePicker.html)
+    - useCalendar
+    - useDateField
+    - useDatePicker
+    - useDateRangePicker
+    - useRangeCalendar
+    - useTimeField
+  - date-fns
+  - [@internationalized/date](https://github.com/adobe/react-spectrum/tree/main/packages/@internationalized/date)
+  - [Hacker0x01/react-datepicker](https://github.com/Hacker0x01/react-datepicker)
+    - 功能最多最完善

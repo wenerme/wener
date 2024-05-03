@@ -260,10 +260,10 @@ module.exports = {
 - `@container/main`, `@lg/main:underline` - 命名容器
 - [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
 
-| Name   | CSS                                          |
-| ------ | -------------------------------------------- |
+| Name   | CSS                                          | w    |
+| ------ | -------------------------------------------- | ---- |
 | `@xs`  | `@container (min-width: 20rem /* 320px */)`  |
-| `@sm`  | `@container (min-width: 24rem /* 384px */)`  |
+| `@sm`  | `@container (min-width: 24rem /* 384px */)`  | w-96 |
 | `@md`  | `@container (min-width: 28rem /* 448px */)`  |
 | `@lg`  | `@container (min-width: 32rem /* 512px */)`  |
 | `@xl`  | `@container (min-width: 36rem /* 576px */)`  |
