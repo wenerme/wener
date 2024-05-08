@@ -17,7 +17,9 @@ title: HPA
   - averageValue
 - behavior - scaleDown, scaleUp
   - policies
-    - periodSeconds
+    - type: Pods
+    - value - 每次变化的 Pod 数量
+    - periodSeconds - 间隔
       - 0-1800
   - selectPolicy=Max
   - stabilizationWindowSeconds

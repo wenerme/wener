@@ -14,6 +14,7 @@ tags:
 | VAT      | Value Added Tax                     | 增值税       |
 | GST      | Goods and Services Tax              | 商品和服务税 |
 | FICA Tax | Federal Insurance Contributions Act | 联邦保险捐税 |
+| PIT      | Personal Income Tax                 | 个人所得税   |
 
 **税种**
 
@@ -119,6 +120,7 @@ tags:
 
 ## Individual Income Tax vs Personal Income Tax
 
+- Personal Income Tax 更常用
 - 相同的
 - 根据地区不同叫法不同
 - 美国 Individual Income Tax
@@ -166,5 +168,3 @@ tags:
 | 4   | 无形资产                   |
 | 5   | 不动产                     |
 | 6   | 未发生销售行为的不征税项目 |
-
-## 个人所得税 {#individual-income-tax}

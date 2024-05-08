@@ -135,6 +135,53 @@ stop_pre() {
   - 被服务依赖 - 会 stop & start 依赖服务
 - https://github.com/OpenRC/openrc/blob/master/service-script-guide.md
 
+## start-stop-daemon
+
+| flags                            | for      |
+| -------------------------------- | -------- |
+| --exec `$command`                |
+| --chroot `$chroot`               |
+| --chdir `$directory`             | 工作目录 |
+| --stdout `$output_log`           |
+| --stderr `$error_log`            |
+| --stdout-logger `$output_logger` |
+| --stderr-logger `$error_logger`  |
+| --capabilities `$capabilities`   |
+| --secbits `$secbits`             |
+| --no-new-privs `$no_new_privs`   |
+| --name `$procname`               |
+| --pidfile `$pidfile`             |
+| --user `$command_user`           |
+| --umask `$umask`                 |
+| `$command_args`                  |
+| `$command_args_background`       |
+
+```bash
+start-stop-daemon --start \
+  --exec $command \
+  ${chroot:+--chroot} $chroot \
+  ${directory:+--chdir} $directory \
+  ${output_log+--stdout} $output_log \
+  ${error_log+--stderr} $error_log \
+  ${output_logger:+--stdout-logger \"$output_logger\"} \
+  ${error_logger:+--stderr-logger \"$error_logger\"} \
+  ${capabilities+--capabilities} "$capabilities" \
+  ${secbits:+--secbits} "$secbits" \
+  ${no_new_privs:+--no-new-privs} \
+  ${procname:+--name} $procname \
+  ${pidfile:+--pidfile} $pidfile \
+  ${command_user+--user} $command_user \
+  ${umask+--umask} $umask \
+  $_background $start_stop_daemon_args \
+  -- $command_args $command_args_background
+```
+
+- `_background` -> `--background --make-pidfile`
+- directory
+  - 会 chdir 到的目录
+  - start-start-daemon
+- https://github.com/OpenRC/openrc/blob/3d30b6fddaf92c612deea88d2ced7114ed1fcf9c/sh/start-stop-daemon.sh#L44-L60
+
 ## supervise-daemon
 
 | flag                              | for       |
@@ -153,12 +200,38 @@ stop_pre() {
 | -1, --stdout _logfile_            |
 | -2, --stderr _logfile_            |
 
+```bash
+supervise-daemon "${RC_SVCNAME}" --start \
+  ${retry:+--retry} $retry \
+  ${directory:+--chdir} $directory \
+  ${chroot:+--chroot} $chroot \
+  ${output_log+--stdout} ${output_log} \
+  ${error_log+--stderr} $error_log \
+  ${output_logger:+--stdout-logger \"$output_logger\"} \
+  ${error_logger:+--stderr-logger \"$error_logger\"} \
+  ${pidfile:+--pidfile} $pidfile \
+  ${respawn_delay:+--respawn-delay} $respawn_delay \
+  ${respawn_max:+--respawn-max} $respawn_max \
+  ${respawn_period:+--respawn-period} $respawn_period \
+  ${healthcheck_delay:+--healthcheck-delay} $healthcheck_delay \
+  ${healthcheck_timer:+--healthcheck-timer} $healthcheck_timer \
+  ${capabilities+--capabilities} "$capabilities" \
+  ${secbits:+--secbits} "$secbits" \
+  ${no_new_privs:+--no-new-privs} \
+  ${command_user+--user} $command_user \
+  ${umask+--umask} $umask \
+  ${supervise_daemon_args-${start_stop_daemon_args}} \
+  $command \
+  -- $command_args $command_args_foreground
+```
+
 - -K, --stop
 - -s, --signal
 - RC_SVCNAME
 - https://wiki.gentoo.org/wiki/OpenRC/supervise-daemon
 - https://github.com/OpenRC/openrc/blob/master/supervise-daemon-guide.md
 - https://manpages.debian.org/testing/openrc/supervise-daemon.8.en.html
+- https://github.com/OpenRC/openrc/blob/3d30b6fddaf92c612deea88d2ced7114ed1fcf9c/sh/supervise-daemon.sh#L27-L48
 
 # FAQ
 

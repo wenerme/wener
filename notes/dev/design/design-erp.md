@@ -658,6 +658,25 @@ interface GeneralResource {
 | Invoiced  | Invoiced             | 已开发票   | 服务已提供完毕，相应的发票已生成并发送给客户 |
 | ^         | AwaitingPayment      | 待支付     | 发票已发出，订单正在等待客户支付             |
 
+### Employee
+
+| State      | Status                   | Label       | Desc                                             |
+| ---------- | ------------------------ | ----------- | ------------------------------------------------ |
+| Active     | Probation                | 试用期      | 员工在试用期内，正接受评估是否适合长期职位。     |
+| ^          | Regular                  | 正式员工    | 员工已完成试用期，成为正式员工。                 |
+| ^          | PartTime                 | 兼职        | 员工以兼职形式在组织工作。                       |
+| ^          | Temporary                | 临时工      | 员工被临时雇佣，通常为完成特定项目或季节性工作。 |
+| Leave      | SickLeave                | 病假        | 员工因病缺勤。                                   |
+| ^          | Maternity/PaternityLeave | 产假/陪产假 | 员工因生育或陪伴配偶生育休假。                   |
+| ^          | AnnualLeave              | 年假        | 员工正在使用法定年假。                           |
+| ^          | UnpaidLeave              | 无薪假      | 员工处于批准的无薪假状态。                       |
+| Suspended  | Disciplinary             | 纪律暂停    | 员工因纪律问题被暂停工作。                       |
+| ^          | Investigation            | 调查中      | 员工因涉及调查被暂停工作，等待结果。             |
+| Terminated | Resigned                 | 自愿离职    | 员工自主决定结束与公司的雇佣关系。               |
+| ^          | Retired                  | 退休        | 员工正式退休，结束职业生涯。                     |
+| ^          | LaidOff                  | 裁员        | 因公司重组或缩减人员，员工被解雇。               |
+| ^          | Fired                    | 解雇        | 因员工表现或行为问题，被公司解雇。               |
+
 ### Client
 
 - Client 是 Service 的接受者
@@ -736,6 +755,15 @@ interface GeneralResource {
 |      Mortgage | 抵押贷款账户 |
 |  LineOfCredit | 信用额度账户 |
 |         Other | 其他账户     |
+
+### EmploymentType
+
+|      enum | label  |
+| --------: | ------ |
+|  FullTime | 全职   |
+|  PartTime | 兼职   |
+|  Contract | 合同工 |
+| Temporary | 临时工 |
 
 ## Payment
 

@@ -403,6 +403,9 @@ export NODE_OPTIONS=--openssl-legacy-provider
   - 例如: main.mjs 10mb, main.mjs.map 20mb
     - --enable-source-maps 启动 40s
     - 无 `enable-source-maps` 启动 2s
+- NODE_COMPILE_CACHE
+  - v22.1.0+
+  - 支持 cjs & esm
 
 ```bash
 echo "globalThis.foo = 'I am from the snapshot'" > snapshot.js

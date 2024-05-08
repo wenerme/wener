@@ -3,23 +3,43 @@ tags:
   - Configuration
 ---
 
-# 配置
+# redis.conf
 
 - [redis.conf](http://download.redis.io/redis-stable/redis.conf)
 - https://redis.io/docs/manual/config/
 
-## redis.conf
+```bash
+redis-server --check-system
 
-| unit | for                    |
-| ---- | ---------------------- |
-| 1k   | 1000 bytes             |
-| 1kb  | 1024 bytes             |
-| 1m   | 1000000 bytes          |
-| 1mb  | 1024\*1024 bytes       |
-| 1g   | 1000000000 bytes       |
+redis-server /etc/redis.conf --daemonize no --loglevel verbose --logfile ''
+
+redis-cli -u 'rediss://default:$PASSWORD@redis.example.com:443' --sni redis.example.com
+```
+
+- `redis[s]://[[username][:password]@][host][:port][/db-number]`
+  - [`redis`](https://www.iana.org/assignments/uri-schemes/prov/redis)
+  - [`rediss`](https://www.iana.org/assignments/uri-schemes/prov/rediss)
+  - 注意： 不支持配置 SNI
+
+:::caution
+
+- AlpineLinux 的 openrc init 会做 chdir - 默认目录为 dir=/var/lib/redis
+
+:::
+
+## explaind
+
+| unit |                    for |
+| ---- | ---------------------: |
+| 1k   |             1000 bytes |
+| 1kb  |             1024 bytes |
+| 1m   |          1000000 bytes |
+| 1mb  |       1024\*1024 bytes |
+| 1g   |       1000000000 bytes |
 | 1gb  | 1024\*1024\*1024 bytes |
 
-- 单位大小写无关
+> **Notes**
+> 单位大小写无关
 
 ```redis.conf
 # 引入额外的配置文件
@@ -28,6 +48,165 @@ tags:
 
 # 加载模块
 # loadmodule /var/lib/redis/modules/my_module.so
+```
+
+## recommended
+
+```conf
+dir /var/lib/redis
+save 900 1
+save 300 10
+save 60 10000
+
+appendonly yes
+appendfsync everysec
+
+maxmemory 1gb
+maxmemory-policy allkeys-lru
+
+protected-mode yes
+
+# requirepass 修改密码
+```
+
+## defaults
+
+**AlpineLinux**
+
+```redis.conf
+bind 127.0.0.1 -::1
+protected-mode yes
+port 6379
+tcp-backlog 511
+unixsocket /run/redis/redis.sock
+unixsocketperm 770
+timeout 0
+tcp-keepalive 300
+loglevel notice
+logfile /var/log/redis/redis.log
+databases 16
+always-show-logo no
+set-proc-title yes
+proc-title-template "{title} {listen-addr} {server-mode}"
+locale-collate ""
+stop-writes-on-bgsave-error yes
+rdbcompression yes
+rdbchecksum yes
+dbfilename dump.rdb
+rdb-del-sync-files no
+dir /var/lib/redis
+replica-serve-stale-data yes
+replica-read-only yes
+repl-diskless-sync yes
+repl-diskless-sync-delay 5
+repl-diskless-sync-max-replicas 0
+repl-diskless-load disabled
+repl-disable-tcp-nodelay no
+replica-priority 100
+acllog-max-len 128
+lazyfree-lazy-eviction no
+lazyfree-lazy-expire no
+lazyfree-lazy-server-del no
+replica-lazy-flush no
+lazyfree-lazy-user-del no
+lazyfree-lazy-user-flush no
+oom-score-adj no
+oom-score-adj-values 0 200 800
+disable-thp yes
+appendonly no
+appendfilename "appendonly.aof"
+appenddirname "appendonlydir"
+appendfsync everysec
+no-appendfsync-on-rewrite no
+auto-aof-rewrite-percentage 100
+auto-aof-rewrite-min-size 64mb
+aof-load-truncated yes
+aof-use-rdb-preamble yes
+aof-timestamp-enabled no
+
+slowlog-log-slower-than 10000
+slowlog-max-len 128
+latency-monitor-threshold 0
+notify-keyspace-events ""
+hash-max-listpack-entries 512
+hash-max-listpack-value 64
+list-max-listpack-size -2
+list-compress-depth 0
+set-max-intset-entries 512
+set-max-listpack-entries 128
+set-max-listpack-value 64
+zset-max-listpack-entries 128
+zset-max-listpack-value 64
+hll-sparse-max-bytes 3000
+stream-node-max-bytes 4096
+stream-node-max-entries 100
+activerehashing yes
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit replica 256mb 64mb 60
+client-output-buffer-limit pubsub 32mb 8mb 60
+hz 10
+dynamic-hz yes
+aof-rewrite-incremental-fsync yes
+rdb-save-incremental-fsync yes
+jemalloc-bg-thread yes
+```
+
+## example
+
+```
+# Redis configuration file example.
+#
+# Note that in order to read the configuration file, Redis must be
+# started with the file path as first argument:
+#
+# ./redis-server /path/to/redis.conf
+
+# Note on units: when memory size is needed, it is possible to specify
+# it in the usual form of 1k 5GB 4M and so forth:
+#
+# 1k => 1000 bytes
+# 1kb => 1024 bytes
+# 1m => 1000000 bytes
+# 1mb => 1024*1024 bytes
+# 1g => 1000000000 bytes
+# 1gb => 1024*1024*1024 bytes
+#
+# units are case insensitive so 1GB 1Gb 1gB are all the same.
+
+################################## INCLUDES ###################################
+
+# Include one or more other config files here.  This is useful if you
+# have a standard template that goes to all Redis servers but also need
+# to customize a few per-server settings.  Include files can include
+# other files, so use this wisely.
+#
+# Note that option "include" won't be rewritten by command "CONFIG REWRITE"
+# from admin or Redis Sentinel. Since Redis always uses the last processed
+# line as value of a configuration directive, you'd better put includes
+# at the beginning of this file to avoid overwriting config change at runtime.
+#
+# If instead you are interested in using includes to override configuration
+# options, it is better to use include as the last line.
+#
+# Included paths may contain wildcards. All files matching the wildcards will
+# be included in alphabetical order.
+# Note that if an include path contains a wildcards but no files match it when
+# the server is started, the include statement will be ignored and no error will
+# be emitted.  It is safe, therefore, to include wildcard files from empty
+# directories.
+#
+# include /path/to/local.conf
+# include /path/to/other.conf
+# include /path/to/fragments/*.conf
+#
+
+################################## MODULES #####################################
+
+# Load modules at startup. If the server is not able to load modules
+# it will abort. It is possible to use multiple loadmodule directives.
+#
+# loadmodule /path/to/my_module.so
+# loadmodule /path/to/other_module.so
 
 ################################## NETWORK #####################################
 
@@ -75,16 +254,11 @@ bind 127.0.0.1 -::1
 #
 # bind-source-addr 10.0.0.1
 
-# Protected mode is a layer of security protection, in order to avoid that
-# Redis instances left open on the internet are accessed and exploited.
+# 受保护模式是一层安全保护，为了避免在互联网上公开的Redis实例被访问和利用。
 #
-# When protected mode is on and the default user has no password, the server
-# only accepts local connections from the IPv4 address (127.0.0.1), IPv6 address
-# (::1) or Unix domain sockets.
+# 当受保护模式开启并且默认用户没有密码时，服务器只接受来自IPv4地址（127.0.0.1）、IPv6地址（::1）或Unix域套接字的本地连接。
 #
-# By default protected mode is enabled. You should disable it only if
-# you are sure you want clients from other hosts to connect to Redis
-# even if no authentication is configured.
+# 默认情况下，受保护模式是启用的。只有在你确定你希望其他主机的客户端连接到Redis时，即使没有配置认证，你也应该禁用它。
 protected-mode yes
 
 # Redis uses default hardened security configuration directives to reduce the
@@ -116,11 +290,8 @@ port 6379
 
 # TCP listen() backlog.
 #
-# In high requests-per-second environments you need a high backlog in order
-# to avoid slow clients connection issues. Note that the Linux kernel
-# will silently truncate it to the value of /proc/sys/net/core/somaxconn so
-# make sure to raise both the value of somaxconn and tcp_max_syn_backlog
-# in order to get the desired effect.
+# 在高 RPS 环境中，你需要一个高的backlog，以避免慢客户端连接问题。
+# 注意，Linux内核会将其静默地截断为/proc/sys/net/core/somaxconn的值，所以确保提高 somaxconn 和 tcp_max_syn_backlog 的值，以达到预期效果。
 tcp-backlog 511
 
 # Unix socket.
@@ -323,6 +494,7 @@ pidfile /var/run/redis_6379.pid
 # verbose (many rarely useful info, but not a mess like the debug level)
 # notice (moderately verbose, what you want in production probably)
 # warning (only very important / critical messages are logged)
+# nothing (nothing is logged)
 loglevel notice
 
 # Specify the log file name. Also the empty string can be used to force
@@ -385,6 +557,11 @@ set-proc-title yes
 # {config-file}     Name of configuration file used.
 #
 proc-title-template "{title} {listen-addr} {server-mode}"
+
+# Set the local environment which is used for string comparison operations, and
+# also affect the performance of Lua scripts. Empty String indicates the locale
+# is derived from the environment variables.
+locale-collate ""
 
 ################################ SNAPSHOTTING  ################################
 
@@ -601,11 +778,10 @@ repl-diskless-sync-delay 5
 repl-diskless-sync-max-replicas 0
 
 # -----------------------------------------------------------------------------
-# WARNING: RDB diskless load is experimental. Since in this setup the replica
-# does not immediately store an RDB on disk, it may cause data loss during
-# failovers. RDB diskless load + Redis modules not handling I/O reads may also
-# cause Redis to abort in case of I/O errors during the initial synchronization
-# stage with the master. Use only if you know what you are doing.
+# WARNING: Since in this setup the replica does not immediately store an RDB on
+# disk, it may cause data loss during failovers. RDB diskless load + Redis
+# modules not handling I/O reads may cause Redis to abort in case of I/O errors
+# during the initial synchronization stage with the master.
 # -----------------------------------------------------------------------------
 #
 # Replica can load the RDB it reads from the replication link directly from the
@@ -615,19 +791,22 @@ repl-diskless-sync-max-replicas 0
 # In many cases the disk is slower than the network, and storing and loading
 # the RDB file may increase replication time (and even increase the master's
 # Copy on Write memory and replica buffers).
-# However, parsing the RDB file directly from the socket may mean that we have
-# to flush the contents of the current database before the full rdb was
-# received. For this reason we have the following options:
+# However, when parsing the RDB file directly from the socket, in order to avoid
+# data loss it's only safe to flush the current dataset when the new dataset is
+# fully loaded in memory, resulting in higher memory usage.
+# For this reason we have the following options:
 #
 # "disabled"    - Don't use diskless load (store the rdb file to the disk first)
-# "on-empty-db" - Use diskless load only when it is completely safe.
 # "swapdb"      - Keep current db contents in RAM while parsing the data directly
 #                 from the socket. Replicas in this mode can keep serving current
-#                 data set while replication is in progress, except for cases where
+#                 dataset while replication is in progress, except for cases where
 #                 they can't recognize master as having a data set from same
 #                 replication history.
 #                 Note that this requires sufficient memory, if you don't have it,
 #                 you risk an OOM kill.
+# "on-empty-db" - Use diskless load only when current dataset is empty. This is
+#                 safer and avoid having old and new dataset loaded side by side
+#                 during replication.
 repl-diskless-load disabled
 
 # Master send PINGs to its replicas in a predefined interval. It's possible to
@@ -912,9 +1091,9 @@ replica-priority 100
 #               "nopass" status. After "resetpass" the user has no associated
 #               passwords and there is no way to authenticate without adding
 #               some password (or setting it as "nopass" later).
-#  reset        Performs the following actions: resetpass, resetkeys, off,
-#               -@all. The user returns to the same state it has immediately
-#               after its creation.
+#  reset        Performs the following actions: resetpass, resetkeys, resetchannels,
+#               allchannels (if acl-pubsub-default is set), off, clearselectors, -@all.
+#               The user returns to the same state it has immediately after its creation.
 # (<options>)   Create a new selector with the options specified within the
 #               parentheses and attach it to the user. Each option should be
 #               space separated. The first character must be ( and the last
@@ -1712,6 +1891,11 @@ aof-timestamp-enabled no
 #
 # cluster-announce-hostname ""
 
+# Clusters can configure an optional nodename to be used in addition to the node ID for
+# debugging and admin information. This name is broadcasted between nodes, so will be used
+# in addition to the node ID when reporting cross node events such as node failures.
+# cluster-announce-human-nodename ""
+
 # Clusters can advertise how clients should connect to them using either their IP address,
 # a user defined hostname, or by declaring they have no endpoint. Which endpoint is
 # shown as the preferred endpoint is set by using the cluster-preferred-endpoint-type
@@ -1752,9 +1936,9 @@ aof-timestamp-enabled no
 # published in the header of the bus packets so that other nodes will be able to
 # correctly map the address of the node publishing the information.
 #
-# If cluster-tls is set to yes and cluster-announce-tls-port is omitted or set
+# If tls-cluster is set to yes and cluster-announce-tls-port is omitted or set
 # to zero, then cluster-announce-port refers to the TLS port. Note also that
-# cluster-announce-tls-port has no effect if cluster-tls is set to no.
+# cluster-announce-tls-port has no effect if tls-cluster is set to no.
 #
 # If the above options are not used, the normal Redis Cluster auto-detection
 # will be used instead.
@@ -1921,12 +2105,19 @@ list-max-listpack-size -2
 # etc.
 list-compress-depth 0
 
-# Sets have a special encoding in just one case: when a set is composed
+# Sets have a special encoding when a set is composed
 # of just strings that happen to be integers in radix 10 in the range
 # of 64 bit signed integers.
 # The following configuration setting sets the limit in the size of the
 # set in order to use this special memory saving encoding.
 set-max-intset-entries 512
+
+# Sets containing non-integer values are also encoded using a memory efficient
+# data structure when they have a small number of entries, and the biggest entry
+# does not exceed a given threshold. These thresholds can be configured using
+# the following directives.
+set-max-listpack-entries 128
+set-max-listpack-value 64
 
 # Similarly to hashes and lists, sorted sets are also specially encoded in
 # order to save a lot of space. This encoding is only used when the length and
@@ -1935,7 +2126,7 @@ zset-max-listpack-entries 128
 zset-max-listpack-value 64
 
 # HyperLogLog sparse representation bytes limit. The limit includes the
-# 16 bytes header. When an HyperLogLog using the sparse representation crosses
+# 16 bytes header. When a HyperLogLog using the sparse representation crosses
 # this limit, it is converted into the dense representation.
 #
 # A value greater than 16000 is totally useless, since at that point the
@@ -2144,11 +2335,10 @@ rdb-save-incremental-fsync yes
 # to accumulate hits.
 #
 # The counter decay time is the time, in minutes, that must elapse in order
-# for the key counter to be divided by two (or decremented if it has a value
-# less <= 10).
+# for the key counter to be decremented.
 #
-# The default value for the lfu-decay-time is 1. A special value of 0 means to
-# decay the counter every time it happens to be scanned.
+# The default value for the lfu-decay-time is 1. A special value of 0 means we
+# will never decay the counter.
 #
 # lfu-log-factor 10
 # lfu-decay-time 1

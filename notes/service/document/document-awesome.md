@@ -20,6 +20,36 @@ tags:
 | [ONLYOFFICE/DocumentServer](https://github.com/ONLYOFFICE/DocumentServer)                   | AGPL    |
 | [LibreOffice/core](https://github.com/LibreOffice/core)                                     | GPL     |
 
+## mime
+
+| .ext             | mime                                                                      | notes |
+| ---------------- | ------------------------------------------------------------------------- | ----- |
+| .pdf             | application/pdf                                                           |
+| **Office**       |
+| .docx            | application/vnd.openxmlformats-officedocument.wordprocessingml.document   |
+| .xlsx            | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet         |
+| .pptx            | application/vnd.openxmlformats-officedocument.presentationml.presentation |
+| .doc             | application/msword                                                        |
+| .xls             | application/vnd.ms-excel                                                  |
+| .ppt             | application/vnd.ms-powerpoint                                             |
+| **OpenDocument** |
+| .odt, .fodt      | application/vnd.oasis.opendocument.text                                   |
+| .ods, .fods      | application/vnd.oasis.opendocument.spreadsheet                            |
+| .odp, .fodp      | application/vnd.oasis.opendocument.presentation                           |
+| .odg, .fodg      | application/vnd.oasis.opendocument.graphics                               |
+| .odf             |
+| **iWork**        |
+| .numbers         | application/x-iwork-numbers-sffnumbers                                    |
+| .keynote         | application/x-iwork-keynote-sffkey                                        |
+| .pages           | application/x-iwork-pages-sffpages                                        |
+| _2021_           |
+| .numbers         | application/vnd.apple.numbers                                             |
+| .pages           | application/vnd.apple.pages                                               |
+| .keynote         | application/vnd.apple.keynote                                             |
+
+- wikipedia [OpenDocument](https://en.wikipedia.org/wiki/OpenDocument)
+- https://www.iana.org/assignments/media-types/media-types.xhtml
+
 ## Library
 
 - Java
@@ -28,6 +58,7 @@ tags:
     - reading and writing Microsoft Office binary and OOXML file formats
 - Javascript/NodeJS
   - [xmldom/xmldom](https://github.com/xmldom/xmldom)
+    - 用于解析 各种文档
   - [exceljs/exceljs](https://github.com/exceljs/exceljs)
     - MIT, JS
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
@@ -113,6 +144,10 @@ tags:
     - Parse and evaluate MS Excel formula in javascript.
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
     - GPLv3, TS
+  - [revolist/revogrid](https://github.com/revolist/revogrid)
+    - MIT, TS
+    - React, Vue
+  - [501351981/vue-office](https://github.com/501351981/vue-office)
 - React Table
   - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
     - MIT
@@ -120,14 +155,19 @@ tags:
     - MIT, JS
   - [nick-keller/react-datasheet-grid](https://github.com/nick-keller/react-datasheet-grid)
     - MIT, TS
+    - npm:react-datasheet-grid
+    - 84kB/22kB
     - 数据为 对象数组
     - 只支持 sticky right 列
     - 不支持 sticky left
     - 使用 @tanstack/react-virtual 作为虚拟滚动
+    - deps: react-resize-detector
   - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
     - MIT, TS
+    - npm:react-spreadsheet
     - 40kB/12kB
     - 依赖的 fast-formula-parser 相对比较大
+      - +292kB/83kB
     - 渲染表格内容部分
     - 不支持: Pin, Frozen, Merge, Resize
     - 数据为 matrix - 二维数组
@@ -143,6 +183,7 @@ tags:
     - @fortune-sheet/react
   - [silevis/reactgrid](https://github.com/silevis/reactgrid)
     - MIT, TS
+    - npm:@silevis/reactgrid
     - 260kB/70kB
     - 支持: 多人、填充、多选、Column Resize、Column Reorder、Sticky columns and rows、Group
 - https://en.wikipedia.org/wiki/Topological_sorting

@@ -4,9 +4,21 @@ title: Decorator
 
 # Decorator
 
+:::tip
+
+- esbuild 0.21+ - 2024-05
+- TS 5.0+ - 2023-03
+- Stage 3 - 2022-03
+- Firefox [#1781212](https://bugzilla.mozilla.org/show_bug.cgi?id=1781212)
+- Chromium [#42202709](https://issues.chromium.org/issues/42202709)
+
+:::
+
 :::caution
 
 - 动态类不支持 Decorator 语法, 依赖代码生成
+- emitDecoratorMetadata & experimentalDecorators 是不同的功能
+  - 需要同时关闭
 
 :::
 
