@@ -174,3 +174,7 @@ export default defineConfig({
   - SSR、SSG、增量 SSG 支持很好
   - 单一 HTML 入口 - `_app.js` - 不能划分全局 CSS
   - 支持路由
+
+## Error when using sourcemap for reporting an error: Can't resolve original location of error
+
+- https://github.com/vitejs/vite/issues/15012

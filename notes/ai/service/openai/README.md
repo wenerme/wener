@@ -36,6 +36,8 @@ title: OpenAI
 - Audio
   - Whisper $0.006 / minute
 - https://openai.com/pricing
+- https://chatgpt.com/public-api/conversation_limit
+  - 检测 IP 是否可用
 
 ### Models
 

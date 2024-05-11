@@ -22,7 +22,7 @@ tags:
 
 | Title                             | Author                                                           | CN                                     |
 | --------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |
-| Financial & Managerial Accounting | Jan Williams<br/>Susan Haka<br/>Mark Bettner<br/>Joseph Carcello | 会计学：企业决策的基础（财务会计分册）
+| Financial & Managerial Accounting | Jan Williams<br/>Susan Haka<br/>Mark Bettner<br/>Joseph Carcello | 会计学：企业决策的基础（财务会计分册） |
 
 - Financial & Managerial Accounting
   - 19th Ed - 2020
@@ -30,7 +30,9 @@ tags:
 
 ## 国内会计代账平台
 
+- [17dz](https://www.17dz.com/)
 - [慧算账](https://www.kungeek.com/)
 - [畅捷通](https://www.chanjet.com/)
   - [易代账](http://e.chanjet.com/)
   - [好会计](http://h.chanjet.com/)
+- [中国会计网](https://www.canet.com.cn/)

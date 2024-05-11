@@ -446,3 +446,7 @@ Screen Sharing is not permitted on “10.10.1.1”. Disable and re-enable Screen
 7z x googlechrome.dmg -o/tmp/googlechrome
 VER=$(cat /tmp/googlechrome/Google\ Chrome/Google\ Chrome.app/Contents/Info.plist | grep -A1 CFBundleShortVersionString | tail -1 | sed -r 's/.*>(.*?)<.*/\1/' | tr -d '[[:space:]]')
 ```
+
+## 5000 & 7000 ports
+
+- System Settings > General > AirDrop & Handoff > AirPlay Receiver

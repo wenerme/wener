@@ -23,7 +23,8 @@ tags:
     - CI/CD Jenkins
   - Codeberg
     - 基于 Gitea (2019)
-    - fork Gitea -> Forgejo (2022)
+    - fork Gitea -> [Forgejo](https://codeberg.org/forgejo/forgejo) (2022)
+      - [HN](https://news.ycombinator.com/item?id=39393794)
 - 开源
   - [theonedev/onedev](./onedev.md)
     - MIT, Java

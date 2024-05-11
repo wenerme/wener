@@ -4,19 +4,18 @@ title: turbopack
 
 # turbopack
 
+- https://turbo.build/pack
+  - successor to Webpack
 - https://areweturboyet.com/
-
-:::caution
-
-alpha 阶段，还有 **太多太多** 的问题，不建议使用。
-
-:::
 
 ```bash
 next dev --turbo
+```
+
+<!--
 # 目前 tw 需要额外处理
 tailwindcss -i styles/globals.css -o styles/dist.css
-```
+-->
 
 - 在 app/layout.tsx import styles/dist.css
 

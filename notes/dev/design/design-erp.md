@@ -394,6 +394,63 @@ interface GeneralResource {
 
 - User != 员工
   - 员工是 HRM 的概念
+- User 可以是 用户、客户、服务商 - 所有能接触、访问到系统的对象
+
+## Case
+
+- 客户投诉、售后服务、内部问题
+- 紧急程度、优先级、客户满意度、处理时长、责任人
+- -> 一个或多个任务、事件、活动、备注、附件
+- 考核指标
+  - 处理时长
+  - 客户满意度
+  - 问题解决率
+  - 任务完成度
+  - 任务绩效 - 每个任务的完成质量、速度等
+
+---
+
+- CaseType
+  - Question
+  - Problem
+  - Request
+- CaseOrigin
+  - Phone
+  - Email
+  - Web
+  - Facebook
+  - Twitter
+- ServiceStage
+  - Identify
+  - Research
+  - Resolve
+- State
+  - Active
+    - In Progress
+    - On Hold
+    - Waiting for Details
+    - Researching
+  - Resolved
+    - Problem Solved
+    - Information Provided
+  - Canceled
+    - Canceled
+    - Merged
+- [Incident (case) entities](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/incident-case-entities)
+
+## Task
+
+代表需要**完成**的工作的通用活动。
+
+- State
+  - Open
+    - Not Started
+    - In Progress
+    - Waiting on someone else
+    - Deferred
+  - Completed
+  - Canceled
+- [Task entity reference](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/task)
 
 ## State & Status
 

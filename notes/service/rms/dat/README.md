@@ -22,8 +22,6 @@ title: 档案管理
   Information and documentation — Records management — Part 1: Concepts and principles
   - wikipedia [ISO 15489](https://en.wikipedia.org/wiki/ISO_15489)
 - [ISO 14712:2012]
-- wikipedia [Records management](https://en.wikipedia.org/wiki/Records_management)
-- wikipedia [Document management system](https://en.wikipedia.org/wiki/Document_management_system)
 
 | code         | year | for                                                                    | replace     |
 | ------------ | ---- | ---------------------------------------------------------------------- | ----------- |
@@ -81,7 +79,7 @@ title: 档案管理
 | filing                                           | 归档              |
 | transfer                                         | 移交              |
 | accession                                        | 接收              |
-| a c q u i s i t i o n                            | 收集 征 集        |
+| acquisition                                      | 收集 征 集        |
 | deposit                                          | 存放,寄存         |
 | holdings                                         | 馆藏              |
 | estray                                           | 散存档案          |
@@ -91,6 +89,14 @@ title: 档案管理
 | records retention schedule                       | 档案保管期限表    |
 | destruction                                      | 销毁              |
 | destruction list                                 | 销毁清单 銷毀清册 |
+| fonds number                                     | 全宗号            |
+| series number                                    | 目录号            |
+| file number                                      | 案卷号            |
+| archival code                                    | 档号              |
+
+```
+档号=全宗号-目录号-案卷号-件号
+```
 
 档案
 : archives

@@ -26,6 +26,8 @@ const Live = () => {
 ```
 
 - noInline - 不做 render 封装 - 可以在代码里调 render 方法
+  - 使用 renderElementAsync 进行 transform 和 render
+  - inline 的话会直接 generateElement
 - scope - 传递上下文
 
 ```jsx

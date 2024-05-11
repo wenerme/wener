@@ -126,7 +126,7 @@ tags:
 - Golang
   - [qax-os/excelize](https://github.com/qax-os/excelize)
 - JS/TyepScript
-  - [sheetjs](./sheetjs.md)
+  - [sheetjs](./sheet/sheetjs.md)
   - [dream-num/Luckysheet](./luckysheet.md)
   - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
     - Vue, React
@@ -166,6 +166,10 @@ tags:
     - MIT, TS
     - npm:react-spreadsheet
     - 40kB/12kB
+    - 非常简单易用
+    - ⚠️ 注意 - 不推荐使用
+      - 功能少
+      - 没有 virtual
     - 依赖的 fast-formula-parser 相对比较大
       - +292kB/83kB
     - 渲染表格内容部分

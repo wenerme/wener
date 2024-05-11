@@ -69,7 +69,13 @@ tags:
 
 ## Emu
 
-- [yuzu-emu/yuzu](https://github.com/yuzu-emu/yuzu)
+- Nintendo Switch
+  - [suyu-emu/suyu](https://github.com/suyu-emu/suyu)
+    - GPLv3, C++
+    - https://git.suyu.dev/suyu
+  - [Ryujinx](https://github.com/Ryujinx/Ryujinx)
+    - MIT, C#
+  - ~~yuzu~~
 
 ## Resources
 

@@ -148,3 +148,5 @@ https://retrocomputing.stackexchange.com/a/14808
 ```bash
 system_profiler SPDisplaysDataType | grep Resolution
 ```
+
+- https://screensizemap.com/

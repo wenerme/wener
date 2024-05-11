@@ -11,7 +11,42 @@ tags:
   - Equity - 所有者权益
   - Revenue - 收入
   - Expense - 费用
-- Liability=Equity+Asset
+
+```
+Assets = Liabilities + Owners's Equity
+Equity = Capital + Retained Earnings
+Retained Earnings = Revenue - Expenses - Dividends
+
+资产 = 负债 + 所有者权益
+所有者权益 = 资本 + 留存收益
+留存收益 = 收入 - 费用 - 股利
+```
+
+- Dividends - 股利/股息
+  - 公司制企业（股份公司、有限责任公司等） 的 股东
+  - 从公司的 **留存收益** 中扣除，减少股东权益，但不影响利润表中的净利润
+- Drawings - 提取
+  - 独资企业、合伙企业 的 所有者或合伙人
+  - 减少所有者的资本 **账户余额**，不影响公司利润。
+- 卢卡·帕乔利（Luca Pacioli）
+  - 1494年，意大利数学家 Luca Pacioli 发表了《Summa de arithmetica, geometria, proportioni et proportionalita》
+  - 书中详细描述了双向记账法
+  - 现代会计学之父
+
+## Credit & Debit
+
+- CR -> Credit - 贷方
+  - 拉丁语 creditum -> "what is due" - 应得的东西
+  - credere -> creditum - to believe, trust, entrust - 相信，信任，委托
+  - creditum 直接翻译是 “loan”（贷款）或 "something entrusted"（托付之物）
+  - 贷方表示一个账户中某种价值的减少，或者其他账户中价值的增加。
+  - 信用是一种信任的表现，是指一方承诺在未来支付或偿还价值的能力和意愿。
+- DR -> Debit - 借方
+  - 拉丁语 debitum -> "something entrusted to anothor or a loan" - 托付给他人的某物或贷款
+  - 借方表示一个账户中某种价值的增加，或者其他账户中价值的减少。
+
+---
+
 - Trasaction Type
   - DR - Debit - 借方
     - 左边
@@ -26,24 +61,6 @@ tags:
 | Liability | -     | +      |
 | Equity    | -     | +      |
 | Revenue   | -     | +      |
-
-
-- 中国会计科目表
-  - 小企业会计准则（2013版）
-  - 企业会计准则（2006年修订）
-  - https://github.com/r3f/china-chart-of-accounts
-- 卢卡·帕乔利（Luca Pacioli）
-  - 1494年，意大利数学家 Luca Pacioli 发表了《Summa de arithmetica, geometria, proportioni et proportionalita》
-  - 书中详细描述了双向记账法
-  - 现代会计学之父
-
-## Credit & Debit
-
-- CR -> Credit
-  - 拉丁语 creditum -> "what is due"
-- DR -> Debit
-  - 拉丁语 debitum -> "something entrusted to anothor or a loan"
-
 
 ## fee
 
@@ -74,8 +91,6 @@ outcome = amount + fee
 
 net outcome = gross outcome + fee
 ```
-
-
 
 ## 会计管理系统 代理记账公司 vs 公司内部
 

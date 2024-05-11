@@ -67,6 +67,15 @@ tags:
   - websocket
   - socketio
   - sockjs
+- WebWorker
+  - [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
+  - https://vitejs.dev/guide/features.html#web-workers
+    - https://vitejs.dev/config/worker-options.html
+    - `const worker = new Worker(new URL('./worker.ts', import.meta.url, { type: 'module', }))`
+    - `import MyWorker from './worker?worker'`
+    - `import MyWorker from './worker?worker&inline'`
+    - `import MyWorker from './worker?worker&url'`
+    - `const worker = new MyWorker()`
 - IoC/Container/DI
   - [nestjs](../../framework/nestjs/README.md)
     - 👍 整体设计类似 Spring/Angular
@@ -567,10 +576,16 @@ tags:
   - esbuild
   - swc
   - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
-- bundle
-  - esbuild
+- bundler/transpile
+  - [evanw/esbuild](https://github.com/evanw/esbuild)
+    - MIT, Go
+  - turbopack
+  - [rolldown](https://github.com/rolldown/rolldown)
+  - [web-infra-dev/rspack](https://github.com/web-infra-dev/rspack)
   - webpack
   - rollup
+  - parcel
+  - vite
   - [developit/microbundle](https://github.com/developit/microbundle)
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
