@@ -1,0 +1,6 @@
+---
+tags:
+- FAQ
+---
+
+# Drug FAQ

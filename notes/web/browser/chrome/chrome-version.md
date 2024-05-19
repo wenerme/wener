@@ -65,6 +65,7 @@ tags:
 - https://chromestatus.com/roadmap
   - 每个版本的特性变化
   - 关注 Enabled by default
+- https://webstatus.dev/
 - https://bugs.chromium.org/p/chromium/issues/list
 - https://chromiumdash.appspot.com/schedule
 - [What's New in DevTools](https://developer.chrome.com/tags/new-in-devtools/)

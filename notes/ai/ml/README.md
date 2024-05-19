@@ -1,7 +1,11 @@
+---
+title: 机器学习
+---
+
 # 机器学习
 
-## Tips
-
+- [训练](./traning.md)
+- [标记](./labeling.md)
 - [Comparing Deep Learning Frameworks](https://www.infoq.com/presentations/comparison-deep-learning-frameworks)
 
 | -                 | [tiny-cnn](https://github.com/nyanp/tiny-cnn) | [caffe](https://github.com/BVLC/caffe)                                        | [Theano](https://github.com/Theano/Theano)       | [TensorFlow](https://www.tensorflow.org/) |

@@ -5,25 +5,51 @@ tags:
 
 # LLM Models
 
-| model   | year | params | note               |
-| ------- | ---- | ------ | ------------------ |
-| GPT-1   | 2018 | 0.12B  |
-| GPT-2   | 2019 | 1.5B   |
-| GPT-3   | 2020 | 175B   |
-| GPT-3.5 | 2022 |        | ChatGPT,570GB Text |
-| GPT-4   | 2023 |
-| GPT-4V  | 2023 |
+**Proprietary Models**
+
+| model         | date | notes              |
+| ------------- | ---- | ------------------ |
+| GPT-3.5-turbo | 2022 | 4K                 |
+| GPT-3.5-16k   | 2022 | 16K                |
+| GPT-3.5       | 2022 | ChatGPT,570GB Text |
+| GPT-4         | 2023 |
+| GPT-4-32k     | 2023 |
+| GPT-4V        | 2023 |
+| GPT-4o        | 2023 |
+
+**Open Source/Weight Models**
+
+| model   | date | ctx | notes              |
+| ------- | ---- | --- | ------------------ |
+| GPT-1   | 2018 |     | 0.12B              |
+| GPT-2   | 2019 |     | 1.5B               |
+| GPT-3   | 2020 | 2k  | 175B               |
+| LLAMA2  | 2023 | 4K  | by Meta            |
+| LLAMA3  | 2024 | 8K  | by Meta            |
+| phi3    | 2024 |     | by Microsoft       |
+| gemma   | 2024 |     | by Google DeepMind |
+| mistral | 2024 |     | by Mistral AI      |
 
 - https://ollama.com/library
 - 7B - 8GB 内存
 - 13B - 16GB 内存
 - 70B - 32GB 内存
+- 小 context window 适用于 RAG
+- Context Window
+  - LLama-3 8B 8K-1M  https://ollama.com/library/llama3-gradient
+    - 256k context window requires at least 64GB of memory
+    - 1M+ context window requires significantly more (100GB+)
 
 ---
 
+- Leader board
+  - https://huggingface.co/open-llm-leaderboard
+  - https://chat.lmsys.org/?leaderboard
+  - https://www.vellum.ai/llm-leaderboard
 - [google-deepmind/gemma](https://github.com/google-deepmind/gemma)
   - Apache-2.0, Flax, JAX
   - by Google DeepMind
+  - Ultra, Pro, Flash, Nano
   - 2B, 7B
 - llama2
   - 7B, 13B, 70B

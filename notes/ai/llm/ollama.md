@@ -6,6 +6,7 @@ title: ollama
 
 - [ollama/ollama](https://github.com/ollama/ollama)
   - MIT, Golang
+  - 封装 llama.cpp
 - 参考
   - [ollama/ollama-js](https://github.com/ollama/ollama-js)
     - MIT, TS

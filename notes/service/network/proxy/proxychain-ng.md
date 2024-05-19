@@ -14,4 +14,7 @@ brew install proxychains-ng
 
 # 网络请求会被代理
 proxychains4 curl google.com
+
+# 配置
+echo -e '[ProxyList]\nsocks5 	127.0.0.1 8888' > proxychains.conf
 ```

@@ -4,4 +4,6 @@ title: sealos
 
 # sealos
 
-- [fanux/sealos](https://github.com/fanux/sealos)
+- [labring/sealos](https://github.com/labring/sealos)
+- 参考
+  - [labring/laf](https://github.com/labring/laf)

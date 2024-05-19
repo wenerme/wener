@@ -5,7 +5,7 @@ title: Kong
 # Kong Gateway
 
 - [kong](https://github.com/Kong/kong)
-  - OpenResty + LUA + lua-kong-nginx-module
+  - Apache-2.0, OpenResty + LUA + lua-kong-nginx-module
   - [REST Admin API](https://docs.konghq.com/latest/admin-api/)
   - 支持 Golang 插件
   - [CHANGELOG](https://github.com/Kong/kong/blob/master/CHANGELOG.md)

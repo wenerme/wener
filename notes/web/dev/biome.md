@@ -11,12 +11,6 @@ title: biome
 - 参考
   - https://biomejs.dev/blog/biome-wins-prettier-challenge/
 
-:::tip
-
-- lint 单个规则 https://github.com/biomejs/biome/issues/58
-
-:::
-
 ```bash
 brew install biome          # by macOS Brew
 pnpm add -Dw @biomejs/biome # add to Project
@@ -30,6 +24,9 @@ time npx biome check ./src --use-server # 一般项目 user 快 0.2s
 # 如果没安装 @biomejs/biome
 npx @biomejs/biome check ./src
 npx @biomejs/biome check ./src --apply
+
+# 单个规则 v1.7.4+
+biome lint --rule=style/useNamingConvention --apply ./src
 ```
 
 **biome.json**

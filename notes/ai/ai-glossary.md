@@ -5,17 +5,29 @@ tags:
 
 # AI Glossary
 
-| abbr. | for                                          | cn                   |
-| ----- | -------------------------------------------- | -------------------- |
-| GPT   | Generative Pre-trained Transformer           | 生成型预训练变换模型 |
-| LLM   | Large Language Model                         | 大语言模型           |
-| LoRA  | Language of Rules and Actions                | 语言规则与行动语言   |
-| LLaMa | Large Language Model for Machine Translation | 机器翻译的大语言模型 |
-| RLHF  | Reinforcement Learning from Human Feedback   | 人类反馈强化学习     |
-| SFT   | Supervised Fine-tuning                       | 监督微调             |
-| RM    | Reward / preference modeling                 | 奖励/偏好建模        |
-| SDXL  | Stable Diffusion XL                          |
-| ERP   | erotic role playing                          | 情色角色扮演         |
+| abbr. | for                                             | cn                   |
+| ----- | ----------------------------------------------- | -------------------- |
+| AI    | Artificial Intelligence                         | 人工智能             |
+| ERP   | erotic role playing                             | 情色角色扮演         |
+| GELAN | Generalized Efficient Layer Aggregation Network | 通用高效层聚合网络   |
+| GPT   | Generative Pre-trained Transformer              | 生成型预训练变换模型 |
+| LLaMa | Large Language Model for Machine Translation    | 机器翻译的大语言模型 |
+| LLM   | Large Language Model                            | 大语言模型           |
+| LoRA  | Language of Rules and Actions                   | 语言规则与行动语言   |
+| PGI   | Programmable Gradient Information               | 可编程梯度信息       |
+| RLHF  | Reinforcement Learning from Human Feedback      | 人类反馈强化学习     |
+| RM    | Reward / preference modeling                    | 奖励/偏好建模        |
+| SDXL  | Stable Diffusion XL                             | 稳定扩散 XL          |
+| SFT   | Supervised Fine-tuning                          | 监督微调             |
+| SOTA  | State of the Art                                | 最新技术             |
+| YOLO  | You Only Look Once                              |                      |
+
+| en               | cn       |
+| ---------------- | -------- |
+| Stable Diffusion | 稳定扩散 |
+
+
+## LLM 参数
 
 - temperature
   - 可以控制词元选择的随机性。较低的温度适合希望获得真实或正确回复的提示，而较高的温度可能会引发更加多样化或意想不到的结果。

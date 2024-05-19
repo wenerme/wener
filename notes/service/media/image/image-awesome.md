@@ -13,6 +13,15 @@ tags:
   - 有损 PNG 75%: ~75%
   - https://imageoptim.com/
   - [ImageOptim/libimagequant](https://github.com/ImageOptim/libimagequant)
+  - [JamieMason/ImageOptim-CLI](https://github.com/JamieMason/ImageOptim-CLI)
+
+```bash
+brew install imageoptim-cli
+```
+
+## JPG
+
+- [mozilla/mozjpeg](https://github.com/mozilla/mozjpeg)
 
 ## SVG
 

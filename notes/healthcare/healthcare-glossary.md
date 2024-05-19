@@ -1,5 +1,7 @@
 ---
 title: 词汇表
+tags:
+  - Glossary
 ---
 
 # 词汇表
@@ -62,8 +64,6 @@ title: 词汇表
 
 - 参考
   - [what-are-mets](https://www.healthline.com/health/what-are-mets)
-
-# FAQ
 
 ## 运动项目能量消耗表
 

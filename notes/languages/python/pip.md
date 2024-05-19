@@ -4,8 +4,17 @@ title: pip
 
 # pip
 
+- [pypa/pip](https://github.com/pypa/pip)
+  - MIT, Python
+  - package installer for Python
+  - pypa -> Python Packaging Authority
+- 参考
+  - https://pip.pypa.io/en/stable/
+
 ```bash
 # pip install | download | uninstall | freeze | inspect | list | show | check | config | search | cache | index | wheel | hash | debug
+
+eval "$(pip completion --bash)"
 ```
 
 ## Torch
@@ -57,6 +66,16 @@ trusted-host = https://pypi.tuna.tsinghua.edu.cn
 ---
 
 - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+
+## conf
+
+```ini
+[global]
+proxy = http://user:password@proxy_name:port
+```
+
+- https://pip.pypa.io/en/stable/topics/configuration/
+- https://pip.pypa.io/en/stable/user_guide/#config-file
 
 # FAQ
 

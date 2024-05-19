@@ -26,6 +26,14 @@ title: 医学词汇表
 |            capsule | 胶囊     |
 |             tablet | 片       |
 
+| en           | cn       |
+| ------------ | -------- |
+| Drug         | 药物     |
+| Healthcare   | 医疗保健 |
+| Medicine     | 医学     |
+| Pathology    | 病理学   |
+| Pharmacology | 药理学   |
+
 ## X-ray vs CT vs MRI
 
 - X 射线 - X-Ray - 1901 年

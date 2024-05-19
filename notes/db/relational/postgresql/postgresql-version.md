@@ -14,6 +14,7 @@ tags:
 
 | PostgreSQL      | Release Date |
 | --------------- | ------------ |
+| [PostgreSQL 16] | 2023-09-14   |
 | [PostgreSQL 15] | 2022-10-13   |
 | [PostgreSQL 14] | 2021-09-30   |
 | [PostgreSQL 13] | 2020-09-24   |
@@ -31,6 +32,22 @@ tags:
 [postgresql 12]: #postgresql-12
 [postgresql 11]: #postgresql-11
 
+## PostgreSQL 16
+
+- Logical Replication 优化
+- Parallel Execution 优化
+- JSON/JSONB 支持更多操作 - 更完善的 SQL/JSON  支持
+- Concurrent Bulk Loading
+- psql
+  - `\bind` -> `SELECT $1::int + $2::int \bind 1 2 \g)`
+- SIMD 加速
+  - JSON
+  - 字符串处理
+- pg_stat_io
+- load_balance_hosts
+  - libpq
+- 参考
+  - https://www.postgresql.org/about/news/postgresql-16-released-2715/
 ## PostgreSQL 15
 
 - 新增 MERGE 语句 - 用于合并两个 **表**

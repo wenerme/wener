@@ -165,10 +165,11 @@ tags:
   - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
     - MIT, TS
     - npm:react-spreadsheet
+    - deps: @linaria/core
     - 40kB/12kB
     - 非常简单易用
     - ⚠️ 注意 - 不推荐使用
-      - 功能少
+      - 功能很少
       - 没有 virtual
     - 依赖的 fast-formula-parser 相对比较大
       - +292kB/83kB

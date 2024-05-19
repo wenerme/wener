@@ -70,3 +70,5 @@ ffmpeg -i input.mp4 -f srt -i input.srt \
 ```bash
 ffmpeg -i in.mp4 -tag:v hvc1 -c:a copy -c:v copy -movflags faststart out.mp4
 ```
+
+## ffprobe durations is different from ffmpeg

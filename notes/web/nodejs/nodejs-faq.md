@@ -77,6 +77,29 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 - tsconfig-paths esm 问题
   - https://github.com/dividab/tsconfig-paths/issues/243
 
+
+## 选择包管理器 {#choose-pm}
+
+> 选择 pnpm
+
+- pnpm
+  - 速度快
+  - 使用 hardlink - 节省空间，速度快
+    - 如果在 wsl 可能用不了 hardlink，回退为 softlink 或者 copy 方式
+  - 意外情况比较少
+  - workspace 支持完善
+- npm
+  - node_modules 太大
+  - 安装慢
+  - 如果 pnpm 不兼容的情况可以考虑 npm
+- yarn v1
+  - 比 npm 好一点 - 区别越来越小
+  - 支持 workspace
+- yarn berry
+  - 很多工具不支持
+  - pnp 方式生态推进慢
+  - 不建议使用
+
 ## shebang
 
 **CJS**
