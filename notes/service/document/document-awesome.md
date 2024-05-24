@@ -79,10 +79,12 @@ tags:
   - [foliojs](https://github.com/foliojs)
     - [foliojs/pdfkit](https://github.com/foliojs/pdfkit)
       - MIT, JavaScript
-      - JavaScript PDF generation library for Node and the browser
+      - npm:pdfkit
+      - PDF 生成
     - fontkit
     - png.js
     - brotli.js
+  - [alafr/SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit)
   - [mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
     - based on sheetjs
 - Golang

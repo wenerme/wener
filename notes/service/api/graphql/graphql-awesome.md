@@ -231,9 +231,10 @@ tags:
 
 - graphql
   - 164 kB, 41.9 kB
-- @apollo/client
+- [@apollo/client](./apollo/apollo-client.md)
   - 204kB,60kB
-- urql
+  - 支持 batch - apollo-link-batch-http
+- [urql](./urql.md)
   - @urql/core+wonka
   - 40kB,15kB
 - [graphql-request](https://github.com/jasonkuhrt/graphql-request)

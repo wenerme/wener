@@ -8,14 +8,21 @@ tags:
 
 ## Web Editor
 
-- [prosemirror](https://github.com/ProseMirror/prosemirror)
-- [tiptap](./tiptap)
+:::tip
+
+- React 优先建议选择 Lexical，否则考虑 tiptap/prosemirror
+
+:::
+
+- [prosemirror](./prosemirror/README.md)
+  - 实现 Editor 的基础库
+- [tiptap](./tiptap/README.md)
 - React
   - [facebook/lexical](https://github.com/facebook/lexical)
     - by Facebook, 替代 draftjs
     - https://news.ycombinator.com/item?id=31019778
     - [ozanyurtsever/verbum](https://github.com/ozanyurtsever/verbum)
-  - [udecode/plate](./plat.md)
+  - [udecode/plate](./plate.md)
     - MIT, TS, React
     - 基于 Slate
   - [slatejs](./slate.md)
@@ -55,7 +62,7 @@ tags:
 
 ## Code Editor
 
-- monaco
+- [monaco](./monaco.md)
 - [codemirror](http://codemirror.net/)
   - [adoption](https://codemirror.net/5/doc/realworld.html)
   - [We are rewriting CodeMirror](https://news.ycombinator.com/item?id=17858672)
@@ -95,12 +102,14 @@ tags:
 
 - [TypeCellOS/BlockNote](https://github.com/TypeCellOS/BlockNote)
   - MPLv2, TS, React
-  - 基于 tiptap
-  - UI mantine - bundle 非常大
+  - 基于 tiptap，prosemirror
+  - UI mantine, shadcn
 - [codex-team/editor.js](./editorjs.md)
   - Apache-2.0, Typescript
   - Native、不依赖框架 - gzip 50kB
   - [editor-js/awesome-editorjs](https://github.com/editor-js/awesome-editorjs)
+- [Darginec05/Yoopta-Editor](https://github.com/Darginec05/Yoopta-Editor)
+  - 基于 slate
 - [appleple/smartblock](https://github.com/appleple/smartblock)
   - React+ProseMirror
   - 不活跃
@@ -108,7 +117,12 @@ tags:
   - GPLv2, MPLv2
   - [Automattic/isolated-block-editor](https://github.com/Automattic/isolated-block-editor)
     - 去除 WordPress 依赖
+  - [lukecav/awesome-blocks](https://github.com/lukecav/awesome-blocks)
+    - for WordPress Gutenberg
 - [tobi4120/notion-clone](https://github.com/tobi4120/notion-clone)
+- 参考
+  - https://open.feishu.cn/document/server-docs/docs/docs-overview
+  - https://developers.notion.com/reference/block
 
 ## Builder
 

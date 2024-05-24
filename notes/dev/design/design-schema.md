@@ -96,7 +96,7 @@ tags:
 - https://sqids.org/
   - HN https://news.ycombinator.com/item?id=38414914
 
-## 主键类型 {#type-id}
+## 主键类型 {#typed-id}
 
 - `type-RANDOM`
   - OpenAI `sk-`,`org-`, `chat-`
@@ -114,6 +114,8 @@ tags:
 - Reddit
   - `tN_ID`
 - 💡 使用 `_` 可以双击选中复制
+- 参考
+  - [Strongly typed identifier](https://en.wikipedia.org/wiki/Strongly_typed_identifier)
 
 <!--
 a_1_b_0

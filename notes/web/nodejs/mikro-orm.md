@@ -139,6 +139,35 @@ export abstract class MinimalBaseEntity<Entity extends MinimalBaseEntity<any>> e
 }
 ```
 
+## STI
+
+- STI -> Single Table Inheritance 单表继承
+
+```ts
+@Entity({
+  discriminatorColumn: 'type',
+  // discriminatorMap: { person: 'Person', employee: 'Employee' },
+  // discriminatorValue: 'person',
+  abstract: true, // discriminatorMap 不包含自己
+})
+export class BasePerson {
+  @Enum()
+  type!: 'person' | 'employee';
+}
+@Entity({
+  discriminatorValue: 'person',
+})
+export class Person extends BasePerson {
+  // ...
+}
+@Entity({
+  discriminatorValue: 'employee',
+})
+export class Employee extends BasePerson {}
+```
+
+- https://mikro-orm.io/docs/inheritance-mapping#single-table-inheritance
+
 ## Collection
 
 ```ts
@@ -179,6 +208,30 @@ interface Collection<T> {
 ## Relationships
 
 - https://mikro-orm.io/docs/relationships
+
+## Metadata
+
+```ts
+MetadataStorage.getMetadataFromDecorator(UserEntity);
+```
+
+**@Entity**
+
+```ts
+export function Entity(options: EntityOptions<any> = {}) {
+  return function <T>(target: T & Dictionary) {
+    const meta = MetadataStorage.getMetadataFromDecorator(target);
+    Utils.mergeConfig(meta, options);
+    meta.class = target as unknown as Constructor<T>;
+
+    if (!options.abstract || meta.discriminatorColumn) {
+      meta.name = target.name;
+    }
+
+    return target;
+  };
+}
+```
 
 # Version
 

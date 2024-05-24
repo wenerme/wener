@@ -50,6 +50,30 @@ tags:
 
 - https://reactpatterns.com/
 
+## Non-Rendering State Management Components {#non-rendering-state-management-components}
+
+- 避免 rerender
+- 状态/hook 复用
+
+```tsx
+export const CurrentListTableQueryReactor = () => {
+  let store = useReactTableStore();
+  let { useListQuery } = useListQueryContext();
+  const { data } = useListQuery();
+
+  useEffect(() => {
+    if (!data) return;
+    store.getState().setOptions((prev) => ({
+      ...prev,
+      data: data.data,
+      rowCount: data.total,
+    }));
+  }, [data]);
+
+  return null;
+};
+```
+
 ## Portal cross boundary {#portal-cross-boundary}
 
 - createPortal 可以跨越边界, 且共享状态

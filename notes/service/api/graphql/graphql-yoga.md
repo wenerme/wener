@@ -37,3 +37,12 @@ server.listen(4000, () => {
   console.info('Server is running on http://localhost:4000/graphql');
 });
 ```
+
+## upload
+
+```bash
+curl localhost:4000/graphql \
+  -F operations='{ "query": "mutation ($file: File!) { upload(file: $file){clientMutationId} }", "variables": { "file": null } }' \
+  -F map='{ "0": ["variables.file"] }' \
+  -F 0=@README.md
+```

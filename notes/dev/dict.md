@@ -100,7 +100,7 @@ tags:
 | last name           | 姓                                                                  |
 | surname             | 姓                                                                  |
 | first name          | 名                                                                  |
-| census              | 人口普查, 户籍                                                       |
+| census              | 人口普查, 户籍                                                      |
 | ​household register | 户籍                                                                |
 | residential         | 住宅                                                                |
 
@@ -611,6 +611,7 @@ tags:
 |                      Lease | 租约、租赁合同     |
 |           Raising The Rent | 提高租金           |
 |    Labor Management System | 劳务管理系统       |
+|                   Rent Due | 租金到期           |
 
 - Housing
   - 住宅

@@ -539,6 +539,7 @@ interface GeneralResource {
 | ^                 | ^            | Completed               |
 | ^                 | ^            | Canceled                |
 | ^                 | ^            | Suspended               |
+| ^                 | Inactive     | Inactive                |
 | Campaign Activity | Open         | InProgress              |
 | ^                 | ^            | Proposed                |
 | ^                 | ^            | Pending                 |
@@ -741,20 +742,20 @@ interface GeneralResource {
   - 不一定直接产生沟通
   - 是服务关系
 
-| State      | Status             | Label        | Desc                                                     |
-| ---------- | ------------------ | ------------ | -------------------------------------------------------- |
-| Active     | New                | 新建         | 客户服务刚刚创建，尚未开始任何实质性操作。               |
-| ^          | Onboarding         | 准备阶段     | 客户在此阶段完成必要的准备工作，如资料提交和初步设置。   |
-| ^          | ServicesProvided   | 服务中       | 客户正在接受服务，正常的服务交付期间。                   |
-| ^          | ReviewPending      | 待复核       | 服务已提供，正在等待内部复核或客户最终确认。             |
-| ^          | ComplianceCheck    | 合规性检查   | 进行定期的合规性检查，确保服务符合所有相关法规和标准。   |
-| Suspended  | NonPayment         | 因欠款暂停   | 由于未支付服务费用，客户服务暂停。                       |
-| ^          | ComplianceIssues   | 合规问题     | 由于合规性或法律问题，客户服务被暂停。                   |
-| Resumed    | PaymentResolved    | 欠款解决     | 客户已解决支付问题，服务恢复。                           |
-| ^          | ComplianceResolved | 合规问题解决 | 客户已解决之前的合规问题，服务恢复。                     |
-| Terminated | ClientCanceled     | 客户取消     | 客户决定终止服务关系。                                   |
-| ^          | ServiceCompleted   | 服务结束     | 服务合约期满或所有服务项目均已完成，客户状态更新为终止。 |
-| ^          | Defaulted          | 违约         | 客户由于违反服务条款被终止服务。                         |
+| State       | Status             | Label        | Desc                                                     |
+| ----------- | ------------------ | ------------ | -------------------------------------------------------- |
+| Pending     | New                | 新建         | 客户服务刚刚创建，尚未开始任何实质性操作。               |
+| ^           | Onboarding         | 准备阶段     | 客户在此阶段完成必要的准备工作，如资料提交和初步设置。   |
+| Active      | InService          | 服务中       | 客户正在接受服务，正常的服务交付期间。                   |
+| ^           | ReviewPending      | 待复核       | 服务已提供，正在等待内部复核或客户最终确认。             |
+| ^           | ComplianceCheck    | 合规性检查   | 进行定期的合规性检查，确保服务符合所有相关法规和标准。   |
+| Suspended   | NonPayment         | 因欠款暂停   | 由于未支付服务费用，客户服务暂停。                       |
+| ^           | ComplianceIssues   | 合规问题     | 由于合规性或法律问题，客户服务被暂停。                   |
+| Terminated  | ClientCanceled     | 客户取消     | 客户决定终止服务关系。                                   |
+| ^           | ServiceCompleted   | 服务结束     | 服务合约期满或所有服务项目均已完成，客户状态更新为终止。 |
+| ^           | Defaulted          | 违约         | 客户由于违反服务条款被终止服务。                         |
+| ~~Resumed~~ | PaymentResolved    | 欠款解决     | 客户已解决支付问题，服务恢复。                           |
+| ^           | ComplianceResolved | 合规问题解决 | 客户已解决之前的合规问题，服务恢复。                     |
 
 ## Enum
 

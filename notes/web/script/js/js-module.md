@@ -4,11 +4,11 @@ title: ESM
 
 # ESM
 
-| Can I Use                                                       | Chrome      | Safari       |
-| --------------------------------------------------------------- | ----------- | ------------ |
-| [module](https://caniuse.com/es6-module)                        | Chrome v61+ |
-| [dynamic-import](https://caniuse.com/es6-module-dynamic-import) | Chrome 63+  | Safari 11.1+ |
-| [import-maps](https://caniuse.com/import-maps)                  | Chrome 89+  |
+| Can I Use                                                       | Chrome     | Safari       |
+| --------------------------------------------------------------- | ---------- | ------------ |
+| [module](https://caniuse.com/es6-module)                        | Chrome 61+ |
+| [dynamic-import](https://caniuse.com/es6-module-dynamic-import) | Chrome 63+ | Safari 11.1+ |
+| [import-maps](https://caniuse.com/import-maps)                  | Chrome 89+ |
 
 > [Can I Use](../browser/caniuse.md)
 

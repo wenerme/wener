@@ -24,8 +24,8 @@ title: ollama
 # macOS 命令行
 brew install ollama
 
-ollama serve       # 启动服务端
-ollama run mistral # 运行模型
+ollama serve --flash-attn # 启动服务端
+ollama run mistral        # 运行模型
 ollama list
 
 # https://hub.docker.com/r/ollama/ollama
@@ -34,6 +34,8 @@ docker run --rm -it \
   -p 11434:11434 \
   ollama/ollama \
   --name ollama
+
+ollama pull qwen:7b # 中文相对好点
 ```
 
 ## API

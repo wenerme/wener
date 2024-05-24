@@ -26,6 +26,9 @@ title: CN
   - 失业保险
   - 住房公积金
 - https://zh.wikipedia.org/wiki/中国大陆服务电话号码
+- https://beian.mps.gov.cn/#/query/webSearch
+  - 公安部备案查询
+  - 网站、APP、小程序
 
 ## gov
 

@@ -26,6 +26,12 @@ tags:
   - https://github.com/bytedeco/javacv/wiki/Other-Resources
 - [aleju/imgaug](https://github.com/aleju/imgaug)
   - Image augmentation for machine learning experiments
+- JS/Web/Wasm
+  - [huningxin/opencv.js](https://github.com/huningxin/opencv.js)
+  - [echamudi/opencv-wasm](https://github.com/echamudi/opencv-wasm)
+  - https://huningxin.github.io/opencv.js/samples/
+- https://cloudvision.app/
+- https://learnopencv.com/
 
 ## Projects
 

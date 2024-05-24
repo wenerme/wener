@@ -6,11 +6,12 @@ tags:
 
 # React Version
 
-| ver                      | date       |
-| ------------------------ | ---------- |
-| [React 18](#react-18)    |
+| ver                      | date       | notes                     |
+| ------------------------ | ---------- | ------------------------- |
+| [React 19](#react-19)    |            | RSC, async, WebComponents |
+| [React 18](#react-18)    | 2022-03-29 | ReactDOM.createRoot       |
 | [React 17](#react-17)    | 2020-10-20 |
-| [React 16.8](#react-168) | 2019-02-06 |
+| [React 16.8](#react-168) | 2019-02-06 | Hooks                     |
 
 :::tip Roadmap
 
@@ -29,7 +30,7 @@ tags:
 - Formalize top-level ES exports [#11503](https://github.com/facebook/react/issues/11503)
   - 解决 `import * as React` 问题
   - 目前 ESM 内已经使用 `import React from 'react';` - 2020-02 [#18102](https://github.com/facebook/react/pull/18102)
-- Support for reparenting  [#3965](https://github.com/facebook/react/issues/3965)
+- Support for reparenting [#3965](https://github.com/facebook/react/issues/3965)
 - Remove Factory Components [#13560](https://github.com/facebook/react/issues/13560)
   - deprecated in React 17.x
 
@@ -46,12 +47,17 @@ tags:
 
 ## React 19
 
-- Reac Compiler
+- React Compiler
   - 自动 memo
   - ~~React.lazy~~
+  - https://playground.react.dev
 - ~~forwardRef~~
+  - 支持 ref 作为 props
 - Server Component
-- async
+- async 组件
+- WebComponents
+  - custom element attributes/properties
+  - https://github.com/facebook/react/issues/11347
 
 ## React 18
 
@@ -132,11 +138,11 @@ const MyInputs = () => {
   - 也可以与其他 JSX 项目共享
 
 ```jsx
-import {jsx as _jsx} from 'react/jsx-runtime';
+import { jsx as _jsx } from 'react/jsx-runtime';
 
 function App() {
   // return React.createElement('h1', null, 'Hello world');
-  return _jsx('h1', {children: 'Hello world'});
+  return _jsx('h1', { children: 'Hello world' });
 }
 ```
 

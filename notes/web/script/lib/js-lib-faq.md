@@ -43,3 +43,8 @@ tags:
   - 性能更好
   - 但 平坦 DOM 处理起来不方便
   - 只能在 NodeJs 使用
+
+## Can only have one anonymous define call per script file
+
+- monaco 加载时出现的异常
+- [monaco-editor#2283](https://github.com/microsoft/monaco-editor/issues/2283)

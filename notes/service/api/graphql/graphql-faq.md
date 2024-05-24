@@ -14,7 +14,7 @@ pnpm add graphql graphql-scalars @graphql-tools/utils @graphql-tools/schema
 ## Apollo vs Relay vs URQL
 
 - [URQL](https://github.com/FormidableLabs/urql)
-  - Bundle 小 - 5.9kB + React = 7.1kB + cache 6.5kB = 13.6kB
+  - ~15kB
   - ✅
     - 支持离线 - 本地 resolve、本地数据缓存
     - Focus Refetching
@@ -29,7 +29,7 @@ pnpm add graphql graphql-scalars @graphql-tools/utils @graphql-tools/schema
     - 不支持本地状态管理
     - 不支持 Batched Queries
 - [Relay](https://github.com/facebook/relay)
-  - Bundle - 27.7kB + React = 34.1kB
+  - ~35kB
   - 对 Schema 有要求
   - ✅
     - Schema 规范
@@ -40,9 +40,12 @@ pnpm add graphql graphql-scalars @graphql-tools/utils @graphql-tools/schema
     - 不能本地 Resolve
     - 不支持返回部分结果
 - [Apollo](https://github.com/apollographql/apollo-client)
-  - Bundle - 32.9kB
+  - ~60kB
+  - ✅
+    - 支持 batch
 - 参考
   - urql [vs Apollo vs Relay](https://formidable.com/open-source/urql/docs/comparison/)
+  - [Why I (finally) switched to urql from Apollo Client](https://blog.logrocket.com/why-i-finally-switched-to-urql-from-apollo-client/)
 
 | Symbol | Desc            |
 | ------ | --------------- |

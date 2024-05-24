@@ -60,7 +60,9 @@ tags:
 | [shadowrealm]        | stage 3 |
 | [binary-ast]         |
 | [set-methods]        | stage 3 |
+| [record-tuple]       | stage 2 |
 
+[record-tuple]: https://github.com/tc39/proposal-record-tuple
 [decorators]: https://github.com/tc39/proposal-decorators
 [decorator-metadata]: github.com/tc39/proposal-decorator-metadata
 [binary-ast]: https://github.com/tc39/proposal-binary-ast
@@ -128,6 +130,8 @@ tags:
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
   - https://en.wikipedia.org/wiki/ECMAScript
   - https://www.proposals.es/
+  - https://polyfill-fastly.io/
+  - https://webstatus.dev/
 - Explicit Resource Management
   - Symbol.dispose
   - Symbol.asyncDispose
@@ -135,18 +139,56 @@ tags:
   - AsyncDisposableStack
   - SuppressedError
 
+## ECMAScript 2024
+
+- Promise.withResolvers
+- Object.groupBy
+- Map.groupBy
+- Temporal
+  - Temporal.PlainDate
+  - Temporal.PlainTime
+  - Temporal.PlainMonthDay
+  - Temporal.PlainYearMonth
+  - [fullcalendar/temporal-polyfill](https://github.com/fullcalendar/temporal-polyfill)
+    - `import 'temporal-polyfill/global';`
+    - 部分实现， 20kb
+  - [js-temporal/temporal-polyfill](https://github.com/js-temporal/temporal-polyfill)
+    - 没有 global
+    - 完整实现，更大， 56+kb
+
+```ts
+const date = Temporal.PlainDate(2024, 5, 1);
+const time = new Temporal.PlainTime(10, 30);
+const md = new Temporal.PlainMonthDay(5, 1);
+const ym = new Temporal.PlainYearMonth(2024, 5);
+```
+
 ## ECMAScript 2023
 
-- findLast, findLastIndex
-  - `{Array, %TypedArray%}.prototype.findLastIndex`
-  - `{Array, %TypedArray%}.prototype.findLast`
+- Array toReversed, toSorted, toSpliced, findLast, findLastIndex, with
+  - TypedArray, Array
 - Hashbang Grammar - JS 直接作为可执行脚本
 
 ```js
 #!/usr/bin/env node
 ```
 
+```ts
+[1, 2].with(1, 0);
+```
+
 ## ECMAScript 2022
+
+- String at
+- Array at
+- Regex `/d` - start and end of the match
+- Object.hasOwn
+- Error cause
+- Top-level await
+- Class
+  - field 定义
+  - private field
+  - static block
 
 ```js
 // Class Fields
@@ -197,6 +239,9 @@ try {
 
 ## ECMAScript 2021
 
+- Promise.any
+- String#replaceAll
+- 数字分隔符 - `1_2_3_4`
 - FinalizationRegistry
   - 注册 GC 回调
 
@@ -219,6 +264,17 @@ a ??= b;
 
 ## ECMAScript 2020
 
+- BigInt
+  - [GoogleChromeLabs/jsbi](https://github.com/GoogleChromeLabs/jsbi)
+    - pure-JavaScript implementation of BigInt
+- String matchAll()
+- `??` Nullish Coalescing Operator
+- `?.` Optional Chaining Operator
+- `&&=` Logical AND Assignment Operator
+- `||=` Logical OR Assignment
+- `??=` Nullish Coalescing Assignment
+- Promise.allSettled
+- `import()` Dynamic Import
 - [for-in 顺序](https://tc39.es/proposal-for-in-order/)
 
 ```js
@@ -248,10 +304,17 @@ undefined ?? null ?? 0 ?? 1;
 
 ## ECMAScript 2019
 
+- String trimStart,trimEnd
+- Object fromEntries
+- Optional catch binding
+- Array flat, flatMap
+- Array.sort - 修改为稳定排序
 - JSON superset
   - U+2028 LINE SEPARATOR, U+2029 PARAGRAPH SEPARATOR
 - Function.prototype.toString [revision](https://tc39.es/Function-prototype-toString-revision/)
+  - 修改 Function.toString 返回完整无修改源码
 - Well-formed JSON.stringify
+  - 修复 JSON.stringify 处理 `\u` 的问题
   - 避免返回错误 Unicode escape
 
 ```js

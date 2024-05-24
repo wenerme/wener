@@ -26,3 +26,17 @@ make -j
 
 ./main -m ./models/ggml-alpaca-7b-q4.bin --color -f ./prompts/alpaca.txt -ins -b 256 --top_k 10000 --temp 0.2 --repeat_penalty 1 -t 7
 ```
+
+## nodejs
+
+```bash
+NODE_LLAMA_CPP_SKIP_DOWNLOAD=1 pnpm add node-llama-cpp
+```
+
+## quantization
+
+- `Q3_K_M`
+  - `Q3` - 3 bits
+  - `K` - 1024
+  - `M` - 256
+- gguf

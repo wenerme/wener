@@ -20,6 +20,7 @@ tags:
 
 - 3.20
   - Linux 6.7+ 合并了 bcachefs
+  - RISC-V 64
 - 3.19
   - zfs 2.2 - 支持 overlay
 - 3.18 riscv64
@@ -70,6 +71,24 @@ tags:
   - https://ariadne.space/
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
+
+## AlpineLinux 3.20
+
+- Linux kernel 6.1 -> 6.6
+  - 有很多有意思的提升: nfs, ntfs, tmpfs
+- RISC-V 64
+- ⚠️ 变更
+  - grub 可能有升级问题
+  - Redis -> Valkey - 因为 RSALv2+SSPLv1 License 问题
+    - valkey-compat - 兼容 redis
+    - redis 包移到 community - 不会再继续升级，保持 7.2.x
+    - redict - LGPLv3 也可以作为 redis 替代
+- 🆙 升级包
+  - LLVM 18
+  - Go 1.22
+  - OpenJDK 22
+- 参考
+  - [Release Notes for Alpine 3.20.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.20.0)
 
 ## AlpineLinux 3.19
 

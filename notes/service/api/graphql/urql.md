@@ -13,6 +13,8 @@ title: URQL
     - 页面切换数据显示更顺畅
   - stale 查询 - @urql/exchange-request-policy
   - 支持多框架 - @urlql/core, urql -> react-urql, preact, next, vue, svelte
+- 参考
+  - RFC: Fragment Suspense boundaries in React bindings [#1408](https://github.com/urql-graphql/urql/issues/1408)
 
 :::caution
 
@@ -26,6 +28,7 @@ title: URQL
 - 自定义 scalar 处理
   - [clentfort/urql-custom-scalars-exchange](https://github.com/clentfort/urql-custom-scalars-exchange)
     - v4 deps PR https://github.com/clentfort/urql-custom-scalars-exchange/pull/27
+- 不支持 batch [#800](https://github.com/urql-graphql/urql/issues/800)
 
 :::
 
@@ -227,7 +230,7 @@ cacheExchange({
   - 不再依赖 graphql
   - bundle 部分 graphql 内容: parse, print, GraphQLError
     - [0no-co/graphql.web](https://github.com/0no-co/graphql.web)
-- https://github.com/urql-graphql/urql/issues/3114
+- [urql v4 Major Releases](https://github.com/urql-graphql/urql/issues/3114)
 
 # FAQ
 

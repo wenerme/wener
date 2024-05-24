@@ -308,3 +308,39 @@ struct inode_operations {
 - unlink - 从 dir 目录删除 dentry 目录项所指文件的硬链接
 
 ## share
+
+## Entity
+
+- File
+  - 不建议使用
+  - File 含义太过宽泛
+  - File 可能和系统里对象冲突
+- FileMeta - 文件的基本元数据
+  - 用于快速检索和显示文件列表时的基本信息
+  - name, size, type
+- FileMetadata - 文件的详细元数据
+  - 显示文件的详细信息和管理文件的权限、版本等
+  - author, tags, description, version, permissions
+- FileRef - 文件引用信息
+  - 指向实际存储位置的引用或链接
+  - path, object_url
+- FileContent - 文件内容
+  - 实际存储的文件内容
+  - 用于 dedup
+  - content, hash
+- FileInfo
+- FileEntry - 文件记录
+  - 包含 **path** 信息
+  - 用于表示文件在系统中的位置
+  - path, parent, children
+- DirectoryEntry - 目录记录
+  - 包含 **path** 信息
+  - 用于表示目录在系统中的位置
+  - path, parent, children
+
+---
+
+- 常见配对关系
+  - FileEntry & DirectoryEntry - 目录结构
+  - FilePath & FileMeta
+  - FileRef & FileContent - 存储分离

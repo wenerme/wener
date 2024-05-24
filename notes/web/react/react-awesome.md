@@ -6,9 +6,6 @@ tags:
 
 # React Awesome
 
-- [React Patterns](https://reactpatterns.com/)
-- [Glossary + Explain](https://github.com/reactwg/react-18/discussions/46)
-
 :::tip
 
 - 专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果
@@ -61,6 +58,9 @@ npm add react-table
 # 工具
 npm add date-fns lodash-es react-fast-compare
 ```
+
+- [React Patterns](https://reactpatterns.com/)
+- [Glossary + Explain](https://github.com/reactwg/react-18/discussions/46)
 
 ## 通用 UI 组件 {#ui-framework}
 

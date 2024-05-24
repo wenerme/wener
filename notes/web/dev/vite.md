@@ -87,6 +87,20 @@ export default defineConfig(async ({ command, mode }) => {
 });
 ```
 
+## Build
+
+- 默认兼容
+  - Chrome >=87, Firefox >=78, Safari >=14, Edge >=88
+  - import.meta
+  - ESM
+  - dynamic import()
+- build.target = esbuild 的 target
+  - 默认 modules -> `['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14']`
+    - chrome87 -> 2020-10
+  - 可以用 esnext 几乎不转换
+  - 推荐可以稍微高一点 - 例如 chrome100
+- https://vitejs.dev/guide/build
+
 ## env
 
 | meta env                 | for                                     |
@@ -147,7 +161,6 @@ export default defineConfig({
   },
   plugins: [react()],
 });
-
 ```
 
 ## Vite vs Snowpack

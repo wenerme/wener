@@ -158,3 +158,28 @@ String(Object.create(null)); // 失败 - 不可以转 string
   - 不区分成功失败
   - 返回所有结果
   - `{status:'reject'|'resolve',reason}`
+
+## polyfill vs ponyfill
+
+- polyfill - 修改全局对象
+  - 补丁
+  - 为旧浏览器提供新特性
+- ponyfill - 不修改全局对象
+  - 为新特性提供旧浏览器支持
+  - 通过引入新库实现
+
+```ts
+// ponyfill
+const exports = {};
+
+// polyfill
+for (const prop in exports) {
+  if (Object.prototype.hasOwnProperty.call(exports, prop)) {
+    Object.defineProperty(globals!, prop, {
+      value: exports[prop as keyof typeof exports],
+      writable: true,
+      configurable: true,
+    });
+  }
+}
+```

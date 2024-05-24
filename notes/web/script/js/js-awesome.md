@@ -570,18 +570,20 @@ tags:
   - [nolanlawson/fuite](https://github.com/nolanlawson/fuite)
     - finding memory leaks in web apps
   - [sverweij/dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
-- transpile
-  - babel
-  - ts
-  - esbuild
-  - swc
-  - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
-- bundler/transpile
+- bundler/transpile/build
   - [evanw/esbuild](https://github.com/evanw/esbuild)
     - MIT, Go
+  - babel
+  - ts
+  - swc
+  - rsbuild
+    - by rspack
+  - [web-infra-dev/rspack](https://github.com/web-infra-dev/rspack)
+    - MIT, Rust
+    - Rust-based web bundler
+  - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
   - turbopack
   - [rolldown](https://github.com/rolldown/rolldown)
-  - [web-infra-dev/rspack](https://github.com/web-infra-dev/rspack)
   - webpack
   - rollup
   - parcel

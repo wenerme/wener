@@ -4,9 +4,27 @@ title: IO
 
 # JavaScript IO
 
+```ts
+interface Blob {
+  readonly size: number;
+  readonly type: string;
+  arrayBuffer(): Promise<ArrayBuffer>;
+  slice(start?: number, end?: number, contentType?: string): Blob;
+  stream(): ReadableStream<Uint8Array>;
+  text(): Promise<string>;
+}
+
+interface File extends Blob {
+  readonly lastModified: number;
+  readonly name: string;
+  readonly webkitRelativePath: string;
+}
+```
+
+- File, Blob, FileReader, ArrayBuffer, URL.createObjectURL
+  - Chrome 76+, NodeJS 16+
 - BigInt - Chrome 67, Firefox 68, Safari 14
 - Buffer - NodeJS - 为 Uint8Array
-- ArrayBuffer
 - SharedArrayBuffer
   - 用于共享内存，但不是 transferable
   - WebAssembly.Memory
@@ -162,13 +180,12 @@ console.assert(new TextDecoder().decode(buf) === 'hello', 'should be hello');
 
 ## BufferSource vs ArrayBuffer
 
-
 ```ts
 /**
  * Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.
  */
 interface ArrayBufferTypes {
-    ArrayBuffer: ArrayBuffer;
+  ArrayBuffer: ArrayBuffer;
 }
 type ArrayBufferLike = ArrayBufferTypes[keyof ArrayBufferTypes];
 
