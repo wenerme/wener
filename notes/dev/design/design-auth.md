@@ -81,3 +81,27 @@ OpenAI-Organization: $ORG_ID
   - 被动绑定
   - 持久标识
   - 使用场景: 认证, 授权, 跟踪审计, 身份隔离, 权限委托, 资源归属, 责任追究, 长会话
+
+## ACL
+
+- ACL
+- abilities
+
+```ts
+// cancancan
+```
+
+- [stalniy/casl](https://github.com/stalniy/casl)
+  - MIT, JS, TS
+- [CanCanCommunity/cancancan](https://github.com/CanCanCommunity/cancancan)
+  - MIT, Ruby
+- [casbin](https://github.com/casbin/casbin)
+  - Apache-2.0, Go
+  - r - request -  sub, obj, act
+  - p - policy - sub, obj, act
+  - e - effect - allow, deny
+  - m - matcher
+  - https://casbin.org/editor/
+
+
+## Permission

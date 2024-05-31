@@ -6,12 +6,23 @@ tags:
 
 # 资源站
 
+- Anime
+- Movie/Stream Service
+  - https://whereto.stream/
+  - Netflix
+  - HBO Max
+  - Amazon Prime Video
+  - Disney+
+  - Hulu
+  - Apple TV+
+
 ## Index
 
 - 1337x
   - https://1337xto.to/
   - https://www.1337x.io/
 - https://ext.to/
+- https://nyaa.land/
 - anime
   - [动漫花园](https://dmhy.anoneko.com/)
   - btbtt

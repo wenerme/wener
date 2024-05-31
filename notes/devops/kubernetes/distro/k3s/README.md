@@ -53,7 +53,7 @@ title: K3S
       - metric 9100
       - httpn 8880
   - servicelb - 内嵌负载均衡
-    - [rancher/klipper-lb](https://github.com/rancher/klipper-lb)
+    - [k3s-io/klipper-lb](https://github.com/k3s-io/klipper-lb)
       - https://github.com/rancher/klipper-lb/blob/master/entry
       - This works by using a host port for each service load balancer and setting up iptables to forward the request to the cluster IP. The regular k8s scheduler will find a free host port. If there are no free host ports, the service load balancer will stay in pending.
   - 内嵌网络策略控制器

@@ -2,13 +2,14 @@
 title: Alpine 运维笔记
 ---
 
-## Tips
-
 ```bash
 lsblk --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE         # 查看磁盘硬盘
 lsblk -x NAME --output NAME,SIZE,VENDOR,FSTYPE,LABEL,UUID,MODE # 使用 NAME 排序
 
-apk add wpa_supplicant e2fsprogs-extra # 基础安装包
+apk add wpa_supplicant e2fsprogs-extra
+
+# 基础工具
+apk add bash tar util-linux iproute2 curl busybox-extras file nano libc6-compat gcompat
 ```
 
 ## bash

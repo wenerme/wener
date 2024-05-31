@@ -14,6 +14,9 @@ title: JSON
 - Variants
   - yaml
   - toml
+- [jsonata-js/jsonata](https://github.com/jsonata-js/jsonata)
+  - JSON query and transformation language
+  - https://jsonata.org/
 
 ## Schema
 

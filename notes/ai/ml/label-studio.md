@@ -90,6 +90,11 @@ interface Obj {
 }
 ```
 
+## ML Backend
+
+- https://github.com/HumanSignal/label-studio-ml-backend
+- https://github.com/seblful/label-studio-yolov8-backend
+
 # FAQ
 
 ## video frameCount

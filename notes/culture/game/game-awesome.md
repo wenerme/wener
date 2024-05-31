@@ -193,6 +193,10 @@ https://zh.wikipedia.org/wiki/baccarat
 - Explain
   - NES Game Genie Technical Notes (2001)
     - https://news.ycombinator.com/item?id=31922445
+- [CPU unofficial opcodes](http://wiki.nesdev.com/w/index.php/CPU_unofficial_opcodes)
+- [instructions_impl](https://github.com/missblit/nesnes/blob/master/instructions_impl.h#L4)
+- https://www.emulatorgames.net/roms/nintendo/1200-in-1/
+  - 1200-in-1
 
 ## TBD
 

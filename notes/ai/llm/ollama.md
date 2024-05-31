@@ -20,6 +20,12 @@ title: ollama
     - blobs/
     - manifests/registry.ollama.ai/library/gemma/latest
 
+:::caution
+
+- Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)
+
+:::
+
 ```bash
 # macOS 命令行
 brew install ollama

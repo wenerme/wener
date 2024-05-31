@@ -18,6 +18,40 @@ title: 延迟数
 |  200-500ms | 轻量级的用户输入 - 搜索触发请求 |
 | 500-1000ms | 数据密集型的操作 - 实时数据校验 |
 
+| Metric                                | Estimate | Metric Impact  |
+| ------------------------------------- | -------- | -------------- |
+| Wifi 连接到互联网的延迟               | 1-4ms    | TTFB, FCP, LCP |
+| 5G 高频段（毫米波）连接到互联网的延迟 | 1-5ms    | TTFB, FCP, LCP |
+| 每帧 60 帧每秒的用户空间预算          | 5-10ms   | 平滑帧率       |
+| 5G 中频段连接到互联网的延迟           | 10-30ms  | TTFB, FCP, LCP |
+| 与同一云区域内服务或数据库的往返延迟  | 10ms     | TTFB, FCP, LCP |
+| LTE 连接到互联网的延迟                | 15-50ms  | TTFB, FCP, LCP |
+| 60 帧每秒的帧持续时间                 | 16ms     | 平滑帧率       |
+| 与同一大陆其他城市的往返延迟          | 33ms     | TTFB, FCP, LCP |
+| 人类感知到时间流逝的最短时间          | 40-80ms  | INP            |
+| 解析 1MB CSS 的时间                   | 100ms    | FCP, LCP       |
+| 解析 1MB HTML 的时间                  | 120ms    | FCP, LCP       |
+| 3G 连接到互联网的延迟                 | 150ms    | TTFB, FCP, LCP |
+| 高质量网络到地球另一端的往返延迟      | 150ms    | TTFB, FCP, LCP |
+| 解析 1MB JS 的时间                    | 150ms    | FCP, LCP, INP  |
+| 人类感知到的迟缓时间                  | 200ms    | INP            |
+| 无租用光纤到地球另一端的往返延迟      | 300ms    | TTFB, FCP, LCP |
+
+| abbr. | for                      | cn           |
+| ----- | ------------------------ | ------------ |
+| TTFB  | Time To First Byte       | 首字节时间   |
+| FCP   | First Contentful Paint   | 首次内容绘制 |
+| LCP   | Largest Contentful Paint | 最大内容绘制 |
+| INP   | Input Delay              | 输入延迟     |
+
+- hot potato routing - 无租用光纤 - 网络运营商会尽可能快地将数据包从自己的网络中移出并传递给下一个网络
+  - 特点：快速移交，低成本
+  - 问题： 导致更高延迟，可能会选择次优路径来传递
+- cold potato routing - 高质量网络 - 尽可能长时间地在自己的网络中保持数据包，然后再将其传递给下一个网络
+  - 特点： 延迟移交、高质量
+  - 问题：成本较高
+- [Latency numbers every frontend developer should know](https://vercel.com/blog/latency-numbers-every-web-developer-should-know)
+
 ## Latency Comparison Numbers ~ 2012
 
 - Interactive [Latency Numbers Every Programmer Should Know](https://colin-scott.github.io/personal_website/research/interactive_latency.html)

@@ -15,6 +15,17 @@ title: million
     - "Stable" UI trees - 不做结构性变化
     - 细粒度场景优化
 
+:::tip
+
+- 功能和 [react compiler](./react-compiler.md) 有一定重复
+  - https://twitter.com/aidenybai/status/1794192039808315427
+  - https://million.dev/blog/lint-rc
+    - million lint PGO - Profile Guided Optimization
+    - 支持外部状态库优化
+
+
+:::
+
 ```bash
 npx million@latest # 自动 init
 ```

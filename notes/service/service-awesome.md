@@ -127,6 +127,9 @@ tags:
     - [HN](https://news.ycombinator.com/item?id=30138434)
   - [sarvjeets/lakshmi](https://github.com/sarvjeets/lakshmi)
     - command-line interface inspired by the Bogleheads philosophy
+  - https://invoice-generator.com/
+  - https://invoicedragon.com/
+  - https://wakatime.com/invoicing
 - flag/A/B Testing/features
   - [Flagsmith/flagsmith](https://github.com/Flagsmith/flagsmith)
     - Python
@@ -220,6 +223,7 @@ tags:
     - JSON Forms for jQuery and Bootstrap
   - [orbeon/orbeon-forms](https://github.com/orbeon/orbeon-forms)
     - LGPL-2.1, Scala
+  - [Self-hosting forms, the sane way](https://karelvo.com/blog/selfhosting-forms-the-sane-way)
   - 商业
     - TypeForm, TellForm, Google Forms
 - IoT
@@ -268,9 +272,15 @@ tags:
   - [apache/incubator-answer](https://github.com/apache/incubator-answer)
     - Apache-2.0, Golang, Typescript
 - Storage/File/Drive
-  - Nextcloud
+  - [Nextcloud](./file/nextcloud/README.md)
+  - [cryptpad](https://github.com/cryptpad/cryptpad)
+    - AGPLv3, JS
   - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
     - GPLv3, Golang
+- collaboration
+  - [hedgedoc](https://github.com/hedgedoc/hedgedoc)
+    - AGPLv3, TS
+    - real-time collaborative markdown notes
 - file share/airdrop/file transfer
   - [localsend/localsend](https://github.com/localsend/localsend)
     - MIT, Dart, Flutter
@@ -339,6 +349,10 @@ tags:
   - https://placehold.co/
     - https://placehold.co/600x400/png
   - https://picsum.photos/2000/2000
+- photo
+  - [ente-io/ente](https://github.com/ente-io/ente)
+    - AGPLv3, Dart, TS, Go
+    - End to End Encrypted alternative to Google Photos and Apple Photos
 - git
   - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
 - zoom, team
@@ -484,6 +498,14 @@ tags:
       - for Twitter
     - t.cn
       - for Weibo
+- education
+  - [zoonk/zoonk](https://github.com/zoonk/zoonk)
+    - AGPLv3, Elixir
+    - Platform for creating interactive courses
+- controller
+  - [thewh1teagle/mobslide](https://github.com/thewh1teagle/mobslide)
+    - MIT, TS, Rust
+    - Turn your smartphone into presentation remote controller
 - [DHCP](./network/dhcp/dhcp-awesome.md)
   - [coredhcp/coredhcp](https://github.com/coredhcp/coredhcp)
     - MIT, Go

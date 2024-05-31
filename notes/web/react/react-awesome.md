@@ -11,9 +11,10 @@ tags:
 - 专门功能选择专业组件 - Headless 配合 UI 组件达到更为理想的结果
   - react-table
   - react-hook-form
-  - react-popper
+  - floatingui
 - 选择样式与组件独立的 UI 库
-  - bluprintjs
+  - tailwindcss+daisyui
+  - rewindui/rewindui
 - 避免选择绑定了功能的组件
   - antd
 - 选择组件库的考虑维度
@@ -64,12 +65,14 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 通用 UI 组件 {#ui-framework}
 
-- tailwindcss+daisyui
+- tailwindcss+[daisyui](../style/daisy.md)
   - 如果开发人员能力足够
   - 如果想要完全控制样式
   - 如果想要做自己的产品
-- [rewindui/rewindui](https://github.com/rewindui/rewindui)
-  - Tailwind
+- TailwindCSS
+  - [rewindui/rewindui](https://github.com/rewindui/rewindui)
+  - [StaticMania/keep-react](https://github.com/StaticMania/keep-react)
+  - [lmsqueezy/wedges](https://github.com/lmsqueezy/wedges)
 - [palantir/blueprint](https://github.com/palantir/blueprint)
   - CSS 样式定义 + React 封装组件
   - 很多组件都可以直接 HTML + CSS 类定义达到效果 - 非常清晰明了
@@ -151,8 +154,13 @@ npm add date-fns lodash-es react-fast-compare
 - chat
   - [alibaba/ChatUI](https://github.com/alibaba/ChatUI)
 
-## 特殊 UI 组件 {#ui-component}
+## 专用 UI 组件 {#ui-component}
 
+- [yairEO/tagify](https://github.com/yairEO/tagify)
+- [react-tags/react-tags](https://github.com/react-tags/react-tags)
+  - npm:react-tag-input
+  - react-dnd
+- [molefrog/spoiled](https://github.com/molefrog/spoiled)
 - [tamagui/tamagui](https://github.com/tamagui/tamagui)
 - [tremorlabs/tremor](https://github.com/tremorlabs/tremor)
   - Apache-2.0

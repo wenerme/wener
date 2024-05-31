@@ -76,6 +76,9 @@ tags:
 - [wenyan-lang/wenyan](https://github.com/wenyan-lang/wenyan)
   - 文言文
 - https://github.com/breck7/pldb
+- [Ph0enixKM/Amber](https://github.com/Ph0enixKM/Amber)
+  - GPLv3, Rust
+  - 编译为 bash
 
 ## DSL
 

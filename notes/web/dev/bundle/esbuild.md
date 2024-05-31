@@ -15,7 +15,7 @@ title: ESBuild
     - 目前暂无 swc
       - https://github.com/evanw/esbuild/issues/762
       - swc not ready
-- [Playground](https://esbuild.egoist.dev/)
+- [Playground](https://esbuild.github.io/try/)
 
 :::tip
 

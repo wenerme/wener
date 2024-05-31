@@ -6,6 +6,9 @@ tags:
 
 # Terraform Awesome
 
+- [MatthewJohn/Terrareg](https://github.com/MatthewJohn/Terrareg)
+  - GPLv3, Python
+  - Terraform module registry with UI
 - [runatlantis/atlantis](https://github.com/runatlantis/atlantis)
   Terraform Pull Request Automation
 - [bridgecrewio/checkov](https://github.com/bridgecrewio/checkov)

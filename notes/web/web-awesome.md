@@ -262,6 +262,8 @@ tags:
 
 ## 有趣
 
+- https://beforeidieproject.com/
+- https://www.insideoutproject.net/
 - https://github.com/hunar4321/particle-life
 - [airbnb/lottie-web](https://github.com/airbnb/lottie-web)
 - [DustinBrett/daedalOS](https://github.com/DustinBrett/daedalOS)

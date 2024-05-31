@@ -1,5 +1,7 @@
 ---
 title: llama.cpp
+tags:
+  - Engine
 ---
 
 # llama.cpp
@@ -7,6 +9,8 @@ title: llama.cpp
 - [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp)
   - MIT, C++
   - LLM inference in C/C++
+- 参考
+  - [withcatai/node-llama-cpp](https://github.com/withcatai/node-llama-cpp)
 
 ```bash
 # AlpineLinux py for ML

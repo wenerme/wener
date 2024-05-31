@@ -604,6 +604,7 @@ tags:
 
 ## 有趣 {#fun}
 
+- [Zxilly/go-size-analyzer](https://github.com/Zxilly/go-size-analyzer)
 - [fogleman/primitive](https://github.com/fogleman/primitive)
   - 将图像转换为原子图形
 - [esimov/triangle](https://github.com/esimov/triangle)

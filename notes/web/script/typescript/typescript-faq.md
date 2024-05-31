@@ -98,7 +98,7 @@ type Permission = (typeof Permission)[keyof typeof Permission];
 > arrow function use generic type parameter
 
 ```ts
-const identity = <T>(value: T): T[] => {
+const identity = <T,>(value: T): T[] => {
   return [value];
 };
 ```

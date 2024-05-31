@@ -159,14 +159,18 @@ String(Object.create(null)); // 失败 - 不可以转 string
   - 返回所有结果
   - `{status:'reject'|'resolve',reason}`
 
-## polyfill vs ponyfill
+## polyfill vs ponyfill vs shim
 
-- polyfill - 修改全局对象
+- polyfill - 修改全局对象，提供不支持的 API
+  - 实现某个 API 或功能
   - 补丁
   - 为旧浏览器提供新特性
 - ponyfill - 不修改全局对象
   - 为新特性提供旧浏览器支持
   - 通过引入新库实现
+  - [sindresorhus/ponyfill](https://github.com/sindresorhus/ponyfill)
+- shim - 修改全局对象，提供环境和 API
+  - 需要快速兼容旧环境的场景
 
 ```ts
 // ponyfill

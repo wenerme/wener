@@ -30,6 +30,8 @@ title: Design Form Service
       - generate interactive HTML5 forms for web and mobile applications
   - FormBuilder
     - https://github.com/formio/formio.js/blob/master/src/builders/Builders.js
+  - [Self-hosting forms, the sane way](https://karelvo.com/blog/selfhosting-forms-the-sane-way)
+    - [HN](https://news.ycombinator.com/item?id=40179398)
 
 # 参考实现 {#reference}
 

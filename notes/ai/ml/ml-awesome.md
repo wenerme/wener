@@ -9,6 +9,67 @@ tags:
 - [GPT Awesome](./gpt-awesome.md)
 - [Stable Diffusion Awesome](./stable-diffusion-awesome.md)
 - [OCR Awesome](./ocr-awesome.md)
+- Framework
+  - [apple/corenet](https://github.com/apple/corenet)
+  - PyTorch
+    - [tinygrad/tinygrad](https://github.com/tinygrad/tinygrad)
+    - [minitorch/minitorch](https://github.com/minitorch/minitorch)
+    - micrograd
+  - JAX
+    - [google/maxtext](https://github.com/google/maxtext)
+      - simple, performant and scalable Jax LLM
+  - [microsoft/SynapseML](https://github.com/microsoft/SynapseML)
+    - MIT, Scala
+    - Distributed Machine Learning
+  - caffe
+  - [flashlight/flashlight](https://github.com/flashlight/flashlight)
+    - C++ standalone library for machine learning
+    - from Facebook AI Research Speech team, creators of Torch and Deep Speech
+  - [arrayfire/arrayfire](https://github.com/arrayfire/arrayfire)
+    - BSD-3, C++
+    - general purpose GPU library
+    - Binding: Python, Rust, Julia, NIM
+    - WIP: .NET, Go, Java, Lua, JS, R, Ruby
+  - [google/jax](https://github.com/google/jax)
+    - Apache-2.0, Python, C++
+    - Autograd and XLA
+    - 基础计算框架
+    - [google/flax](https://github.com/google/flax)
+      - neural network
+    - [deepmind/rlax](https://github.com/deepmind/rlax)
+      - reinforcement learning
+    - [deepmind/optax](https://github.com/deepmind/optax)
+      - gradient processing and optimization
+    - [deepmind/dm-haiku](https://github.com/deepmind/dm-haiku)
+      - neural network
+    - [deepmind/chex](https://github.com/deepmind/chex)
+- [Labeling](./labeling.md)
+  - [Label Studio](./label-studio.md)
+  - [CVHub520/X-AnyLabeling](./x-anylabeling.md)
+    - GPLv3, Python
+- RT-DETR - Real-Time Detection Transformer
+  - by Baidu
+- SAM/Segment Anything Model
+  - by Meta
+  - [facebookresearch/segment-anything](https://github.com/facebookresearch/segment-anything)
+    - https://segment-anything.com
+  - MobileSAM
+  - FastSAM
+- Visual recognition/object detection/segmentation
+  - [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)
+  - [open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
+  - [google-research/big_vision](https://github.com/google-research/big_vision)
+  - [Yolo](./yolo.md) - You Only Look Once
+    - YOLO-NAS - Neural Architecture Search
+    - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+    - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
+- [lastmile-ai/aiconfig](https://github.com/lastmile-ai/aiconfig)
+  - MIT, Python
+  - config-based framework to build generative AI applications
+- Dataset
+  - [OpenOrca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
+    - [SlimOrca](https://huggingface.co/datasets/Open-Orca/SlimOrca)
+- [PKU-YuanGroup/Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
 - [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
 - [wunderwuzzi23/mlattacks](https://github.com/wunderwuzzi23/mlattacks)
@@ -154,9 +215,7 @@ tags:
 - [NVIDIAGameWorks/kaolin-wisp](https://github.com/NVIDIAGameWorks/kaolin-wisp)
   - PyTorch library powered by NVIDIA Kaolin Core to work with neural fields
   - NeRFs, NGLOD, instant-ngp and VQAD
-- [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - [nnaisense/evotorch](https://github.com/nnaisense/evotorch)
-- [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
 - [Musico: AI Generated Music](https://www.musi-co.com/listen/streams)
   - [HN](https://news.ycombinator.com/item?id=33027376)
 - [Adventure game graphics with DALL-E 2](https://hpjansson.org/blag/2022/08/16/adventure-game-graphics-with-dall-e-2/)
@@ -182,6 +241,16 @@ tags:
     - 需要 GPU
     - App 方式
     - Real-ESRGAN
+- image
+  - https://huggingface.co/datasets/vivym/midjourney-messages
+- video
+  - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
+    - MIT, Python, TS
+    - NVR with realtime local object detection for IP cameras
+- tts
+  - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
+    - MIT, Python
+    - [HN](https://news.ycombinator.com/item?id=38335255)
 
 ---
 
@@ -195,6 +264,8 @@ tags:
 - https://ai.googleblog.com/
 - https://www.kdnuggets.com/
 - https://stanford.edu/~shervine/teaching/
+- DEEP LEARNING COURSE https://fleuret.org/dlc/
+  - [HN](https://news.ycombinator.com/item?id=38331200)
 
 ---
 
@@ -259,32 +330,6 @@ tags:
 
 ## Framework
 
-- [minitorch/minitorch](https://github.com/minitorch/minitorch)
-- [microsoft/SynapseML](https://github.com/microsoft/SynapseML)
-  - MIT, Scala
-  - Distributed Machine Learning
-- caffe
-- [flashlight/flashlight](https://github.com/flashlight/flashlight)
-  - C++ standalone library for machine learning
-  - from Facebook AI Research Speech team, creators of Torch and Deep Speech
-- [arrayfire/arrayfire](https://github.com/arrayfire/arrayfire)
-  - BSD-3, C++
-  - general purpose GPU library
-  - Binding: Python, Rust, Julia, NIM
-  - WIP: .NET, Go, Java, Lua, JS, R, Ruby
-- [google/jax](https://github.com/google/jax)
-  - Apache-2.0, Python, C++
-  - Autograd and XLA
-  - 基础计算框架
-  - [google/flax](https://github.com/google/flax)
-    - neural network
-  - [deepmind/rlax](https://github.com/deepmind/rlax)
-    - reinforcement learning
-  - [deepmind/optax](https://github.com/deepmind/optax)
-    - gradient processing and optimization
-  - [deepmind/dm-haiku](https://github.com/deepmind/dm-haiku)
-    - neural network
-  - [deepmind/chex](https://github.com/deepmind/chex)
 - [tensorflow/lingvo](https://github.com/tensorflow/lingvo)
   - building sequence models neural networks in Tensorflow
   - ASR, MT

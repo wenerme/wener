@@ -11,6 +11,8 @@ title: whisper
 - [m-bain/whisperX](https://github.com/m-bain/whisperX)
 - [FL33TW00D/whisper-turbo](https://github.com/FL33TW00D/whisper-turbo)
 - [collabora/WhisperSpeech](https://github.com/collabora/WhisperSpeech)
+- [Xenova/distil-whisper-web](https://huggingface.co/spaces/Xenova/distil-whisper-web)
+- [distil-whisper/distil-large-v2](https://huggingface.co/distil-whisper/distil-large-v2)
 
 
 ```bash

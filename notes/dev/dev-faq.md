@@ -10,6 +10,37 @@ tags:
 - https://www.martinfowler.com/
 - https://web.stanford.edu/~ouster/cgi-bin/decisions.php
 
+## 常见命名格式 {#case}
+
+| case                            | demo                    | for                          |
+| ------------------------------- | ----------------------- | ---------------------------- |
+| `SNAKE_CASE`,`UPPER_SNAKE_CASE` | `MY_CONSTANT_VALUE`     | 常量值、宏定义               |
+| `camelCase`                     | `myVariableName`        | 变量名、函数名               |
+| `PascalCase`                    | `MyClassName`           | 类名、构造函数名             |
+| `kebab-case`,`dash-case`        | `my-variable-name`      | 文件名、URL 路径             |
+| `Title Case`                    | `Title Case Example`    | 标题、文章标题               |
+| `lower_snake_case`              | `my_variable_name`      | 文件名、数据库列名           |
+| `Train-Case`                    | `Train-Case`            | API 名称、某些特定语言的类名 |
+| `dot.case`                      | `my.variable.name`      | 配置项、文件路径             |
+| `Sentence case`                 | `Sentence case example` | 标题、段落开头               |
+| `path/case`                     | `path/case/example`     | 文件路径、URL 路径           |
+| `UPPERCASE`                     | `UPPERCASE`             | 缩写、某些特定语言的常量     |
+| `lowercase`                     | `lowercase`             | 某些特定文件名或变量名       |
+| `namespace:identifier`          | `system:admin`          | 命名空间、标识符、OIDC Scope |
+
+- golang 里特殊的名词会做大写
+  - 例如 `UserID` 而不是 `UserId`
+  - MixedCaps
+  - Initialisms https://go.dev/wiki/CodeReviewComments#initialisms
+  - Another convention is that acronyms should be capitalized:
+    - ServeHTTP <- ServeHttp
+    - XMLHTTPRequest <- XmlHttpRequest
+
+## keycode
+
+- https://keycode.info/
+  - https://www.toptal.com/developers/keycode/table
+
 ## profile
 
 - 面向生命周期
@@ -464,7 +495,6 @@ pip cache purge
 - Monorepo: please do
   - https://news.ycombinator.com/item?id=18820258
 
-
 ## 链接超时 {#idle-connections}
 
 - 云平台会主动切断 idle 的链接，这个和局域网的链接不同 - 云平台 nat 资源
@@ -510,7 +540,7 @@ sysctl -w \
   net.ipv4.tcp_keepalive_intvl=60 \
   net.ipv4.tcp_keepalive_probes=5
 
-cat <<EOF | sudo tee /etc/sysctl.d/99-tcp_keepalive.conf
+cat << EOF | sudo tee /etc/sysctl.d/99-tcp_keepalive.conf
 net.ipv4.tcp_keepalive_time = 60
 net.ipv4.tcp_keepalive_intvl = 60
 net.ipv4.tcp_keepalive_probes = 5

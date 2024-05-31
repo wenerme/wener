@@ -6,6 +6,14 @@ tags:
 
 # Web FAQ
 
+## BOM vs DOM
+
+- BOM - Browser Object Model
+  - 浏览器环境
+  - window, navigator, screen, location, history
+- DOM - Document Object Model
+  - 文档内容和结构
+
 ## Headers
 
 - X-Response-Time

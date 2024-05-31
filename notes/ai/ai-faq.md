@@ -12,10 +12,12 @@ tags:
 ---
 
 - AI: Artificial Intelligence - 人工智能
+  - 强调应用
   - 规则系统
   - 专家系统
   - 机器学习
 - ML: Machine Learning - 机器学习
+  - 强调学习过程 - Data -> Model -> Prediction
   - ML 是实现 AI 的方式之一
 - DL: Deep Learning - 深度学习
   - DL 是实现 ML 的方式之一

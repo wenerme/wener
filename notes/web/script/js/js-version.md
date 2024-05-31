@@ -51,17 +51,19 @@ tags:
 | stage 3 | Candidate   | 实现,等待用户使用反馈 |
 | stage 4 | Finished    | 准备添加到 标准       |
 
-| proposal             | stage   | note   |
-| -------------------- | ------- | ------ |
-| [decorators]         | stage 3 | TS 5.0 |
+|             proposal | stage   | note   |
+| -------------------: | ------- | ------ |
+|         [decorators] | stage 3 | TS 5.0 |
 | [decorator-metadata] | stage 3 | TS 5.2 |
-| Import Attributes    |         | TS 5.3 |
-| [temporal]           | stage 3 |
-| [shadowrealm]        | stage 3 |
-| [binary-ast]         |
-| [set-methods]        | stage 3 |
-| [record-tuple]       | stage 2 |
+|    Import Attributes |         | TS 5.3 |
+|           [temporal] | stage 3 |
+|        [shadowrealm] | stage 3 |
+|         [binary-ast] |
+|        [set-methods] | stage 3 |
+|       [record-tuple] | stage 2 |
+|      [async-context] | stage 2 |
 
+[async-context]: https://github.com/tc39/proposal-async-context
 [record-tuple]: https://github.com/tc39/proposal-record-tuple
 [decorators]: https://github.com/tc39/proposal-decorators
 [decorator-metadata]: github.com/tc39/proposal-decorator-metadata

@@ -72,6 +72,27 @@ can('*', 'Post');
 can('*', '*');
 ```
 
+## Notes
+
+- Builder
+  - can, cannot -> rules -> build -> createAbility -> Ability
+  - createAbility -> createMongoAbility
+    - mongoQueryMatcher - @ucast/mongo2js
+    - fieldPatternMatcher
+- can, cannot
+  - `(action: string, subject?: Subject, field?: string)`
+
+```ts
+interface BaseRawRule<Conditions> {
+  fields?: string | string[];
+  conditions?: Conditions;
+  /** indicates that rule forbids something (i.e., has inverted logic) */
+  inverted?: boolean;
+  /** explains the reason of why rule does not allow to do something */
+  reason?: string;
+}
+```
+
 ## ucast
 
 - [stalniy/ucast](https://github.com/stalniy/ucast)

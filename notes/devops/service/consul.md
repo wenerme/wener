@@ -9,7 +9,7 @@ title: Consul
   - Identity-based networking
   - 服务发现、配置管理、Mesh 网络
 - [Consul 手册](https://www.consul.io/docs/guides/)
-- 端口
+- 端口 https://developer.hashicorp.com/consul/docs/install/ports
   - HTTP 8500
   - HTTPS 8501 - 默认没开启
   - gRPC 8502

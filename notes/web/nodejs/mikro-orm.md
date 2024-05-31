@@ -211,6 +211,12 @@ interface Collection<T> {
 
 ## Metadata
 
+- MetadataStorage
+  - Key ->EntityMetadata
+  - `key = entity && path ? entity + '-' + Utils.hash(path) : null`
+- Utils.lookupPathFromDecorator
+  - 获取 Decorator 调用的 path
+
 ```ts
 MetadataStorage.getMetadataFromDecorator(UserEntity);
 ```

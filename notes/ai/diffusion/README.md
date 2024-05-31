@@ -1,8 +1,9 @@
 ---
-title: Stable Diffusion
+title: Diffusion
 ---
 
-# SD
+# Diffusion
 
+- SD - Stable Diffusion
 - https://cyberes.github.io/stable-diffusion-models/
 - EMA

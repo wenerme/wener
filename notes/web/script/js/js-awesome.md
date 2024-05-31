@@ -229,6 +229,10 @@ tags:
     - [HN](https://news.ycombinator.com/item?id=39670922)
   - [jonobr1/two.js](https://github.com/jonobr1/two.js)
   - [signature_pad](https://github.com/szimek/signature_pad)
+  - [jakubfiala/atrament](https://github.com/jakubfiala/atrament)
+    - MIT, JS
+    - drawing & handwriting
+    - https://www.fiala.space/atrament/demo/
   - [yisibl/resvg-js](https://github.com/yisibl/resvg-js)
     - SVG renderer, powered by Rust based resvg and napi-rs
   - [svgdotjs/svg.js](https://github.com/svgdotjs/svg.js)
@@ -318,6 +322,9 @@ tags:
   - [styled-components/polished](https://github.com/styled-components/polished)
     - MIT, JS
     - writing styles in JavaScript
+  - [rvanwijnen/spectral.js](https://github.com/rvanwijnen/spectral.js)
+    - MIT, JS
+    - paint like color mixing library utilizing the Kubelka-Munk theory
   - CSS color
     - MDN [color-mix](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)
     - [css-color-mix](https://developer.chrome.com/docs/css-ui/css-color-mix)
@@ -589,6 +596,8 @@ tags:
   - parcel
   - vite
   - [developit/microbundle](https://github.com/developit/microbundle)
+  - [webpro-nl/knip](https://github.com/webpro-nl/knip)
+    - Find unused
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB
@@ -608,6 +617,15 @@ tags:
       - set by path
 - benchmark
   - [js-framework-benchmark](https://krausest.github.io/js-framework-benchmark/current.html)
+- framework
+  - [Effect-TS/effect](https://github.com/Effect-TS/effect)
+    - MIT, TS
+    - ecosystem of tools to build robust applications in TypeScript.
+- debug
+  - [HuolalaTech/page-spy-web](https://github.com/HuolalaTech/page-spy-web)
+    - MIT, TS
+    - by 货拉拉
+    - Debug remotely and easily like chrome devtools.
 - data/io
   - ArrayBuffer
     - js 标准里的 nodejs Buffer 对等角色
@@ -637,7 +655,7 @@ tags:
   - punycode
   - url-js
   - url
-- AST
+- AST/parser
   - [meriyah/meriyah](https://github.com/meriyah/meriyah)
     - 127kB, 40kB
   - [acornjs/acorn](https://github.com/acornjs/acorn)
@@ -758,6 +776,11 @@ tags:
     - MIT, JS
 - security/fuzzer
   - https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
+- layout
+  - [gridstack/gridstack.js](https://github.com/gridstack/gridstack.js)
+    - MIT, TS
+    - Build interactive dashboards
+- [xyflow/xyflow](https://github.com/xyflow/xyflow)
 
 ---
 
@@ -848,8 +871,12 @@ tags:
     - [tc39/proposal-ses](https://github.com/tc39/proposal-ses)
     - [endojs/Jessie](https://github.com/endojs/Jessie)
       - simple universal safe mobile code
+  - [markwylde/workerbox](https://github.com/markwylde/workerbox)
+    - MIT, JS
+  - [justjake/quickjs-emscripten](https://github.com/justjake/quickjs-emscripten)
   - [tc39/proposal-shadowrealm](https://github.com/tc39/proposal-shadowrealm)
     - https://tc39.es/proposal-shadowrealm/
+  - Azure [AppBlades](https://github.com/Azure/portaldocs/blob/main/portal-sdk/generated/portalfx-blades-appblades.md)
 - IoT
   - [espruino](https://github.com/espruino/Espruino)
     - MPLv2, C
@@ -932,6 +959,7 @@ tags:
   - events
   - server
 - [aermin/web-locks](https://github.com/aermin/web-locks)
+- [Modernizr/Modernizr](https://github.com/Modernizr/Modernizr)
 
 ## Edge/Serverless
 

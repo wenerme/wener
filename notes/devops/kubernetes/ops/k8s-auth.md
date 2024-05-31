@@ -1,13 +1,54 @@
 ---
 title: 认证授权
+tags:
+  - Auth
 ---
 
 # 认证授权
 
-## Tips
+- Authentication - AuthN
+  - Client Certificates
+  - Bear Token
+  - HTTP Basic Auth
+  - OpenID Connect
+  - Webhook Token
+- Authorization - AuthZ
+  - RBAC - Role-Based Access Control
+    - Role & ClusterRole - 定义一组权限
+    - RoleBinding & ClusterRoleBinding - 将角色赋予特定用户或组
+  - ABAC - Attribute-Based Access Control
+  - Webhook
+  - Node
+- 内置
+  - ClusterRoles
+    - cluster-admin - 集群范围内的所有权限
+    - admin - 管理命名空间中大多数资源的权限, 但不包括资源配额或命名空间的绑定操作
+    - edit - 可以修改命名空间中的大多数资源，但不能进行权限管理。
+    - view - 仅具有读取权限，不能修改任何资源。
+    - system:aggregate-to-admin
+    - system:aggregate-to-edit
+    - system:aggregate-to-view
+    - `system:aggregate-to-*`
+      - 不会直接分配给用户
+      - `rbac.authorization.k8s.io/aggregate-to-admin: "true"`
+- `system:`
+  - `system:serviceaccount:`
+  - `system:node:`
+  - `system:masters`
+- 参考
+  - [AuthN](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+  - [AuthZ](https://kubernetes.io/docs/reference/access-authn-authz/authorization/)
 
-- [AuthN](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
-- [AuthZ](https://kubernetes.io/docs/reference/access-authn-authz/authorization/)
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-admin
+rules:
+  - apiGroups: ['*']
+    resources: ['*']
+    verbs: ['*']
+```
 
 ## Authentication
 
@@ -48,7 +89,7 @@ kubectl certificate deny myuser
 # CSR
 kubectl get csr/myuser -o yaml
 
-kubectl get csr myuser -o jsonpath='{.status.certificate}'| base64 -d > myuser.crt
+kubectl get csr myuser -o jsonpath='{.status.certificate}' | base64 -d > myuser.crt
 
 # RB
 kubectl create role developer --verb=create --verb=get --verb=list --verb=update --verb=delete --resource=pods

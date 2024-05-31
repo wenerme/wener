@@ -16,6 +16,10 @@ sw_vers -productVersion
 
 system_profiler SPSoftwareDataType
 cat /System/Library/CoreServices/SystemVersion.plist
+
+system_profiler SPHardwareDataType # 查看硬件信息
+system_profiler SPDisplaysDataType # 查看 GPU 信息
+system_profiler SPDisplaysDataType -json | jq -r '.SPDisplaysDataType[0].sppci_cores'
 ```
 
 ## path_helper

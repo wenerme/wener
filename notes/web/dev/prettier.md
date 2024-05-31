@@ -14,12 +14,15 @@ title: prettier
     - 社区: go-template, java, kotlin, properties, svelte, toml, sh
   - [benjie/prettier-plugin-pg](https://github.com/benjie/prettier-plugin-pg)
     PostgreSQL
+  - [simonhaenisch/prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)
+  - [trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
 - 配置
   - .prettierrc.json
   - .prettierignore
 
 :::caution
 
+- tailwindcss 插件要放在最后面
 - YAML 无法调整 array 缩进
   - [redhat-developer/vscode-yaml#172](https://github.com/redhat-developer/vscode-yaml/issues/172)
   - [brodybits/prettierx](https://github.com/brodybits/prettierx)
@@ -130,6 +133,10 @@ module.exports = {
 
 - `.prettierignore`
 - prettier-ignore 注释
+
+```js
+// prettier-ignore
+```
 
 ```jsx
 <div>

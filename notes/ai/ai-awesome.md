@@ -6,7 +6,23 @@ tags:
 # AI Awesome
 
 - [LLM Awesome](./llm/llm-awesome.md)
-- [Stable-Diffusion Awesome](./stable-diffusion/stable-diffusion-awesome.md)
+- [ML Awesome](./ml/ml-awesome.md)
+- [Stable-Diffusion Awesome](./diffusion/diffusion-awesome.md)
+- Voice
+  - [jianchang512/clone-voice](https://github.com/jianchang512/clone-voice)
+- Search/RAG
+  - Perplexity
+  - [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica)
+    - MIT, TS
+    - AI-powered search engine
+    - alternative to Perplexity
+- Web/SDK/UI
+  - [vercel/ai](https://github.com/vercel/ai)
+    - Apache-2.0, TS
+    - npm:ai
+    - Build AI-powered applications with React, Svelte, Vue, and Solid
+  - [xenova/transformers.js](https://github.com/xenova/transformers.js)
+    - Apache-2.0, JS
 
 ## 应用 {#applications}
 
@@ -40,6 +56,8 @@ tags:
 - SVG/vector
   - https://logodiffusion.com/
   - https://github.com/GeorgLegato/stable-diffusion-webui-vectorstudio
+  - https://vectorart.ai/
+  - https://vectormagic.com/
 
 ---
 
@@ -263,22 +281,9 @@ tags:
   - [vercel/ai](https://github.com/vercel/ai)
     - https://sdk.vercel.ai/docs
 
-## SelfHost
-
-- [BerriAI/litellm](https://github.com/BerriAI/litellm)
-  - MIT, Python
-  - Call all LLM APIs using the OpenAI format
-- [bricks-cloud/BricksLLM](https://github.com/bricks-cloud/BricksLLM)
-  - MIT, Golang
-- [jmorganca/ollama](https://github.com/jmorganca/ollama)
-  - MIT, Golang
-
-
 # Model
 
-
 # Model Awesome
-
 
 ## Train/Alternative/TBD
 

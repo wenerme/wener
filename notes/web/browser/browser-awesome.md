@@ -16,6 +16,8 @@ tags:
 - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
   - Web -> PDF
   - MIT
+- Extensions
+  - https://extension.js.org/
 
 ## Browser Automation
 

@@ -104,6 +104,13 @@ tags:
 
 ## PDF
 
+- [Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+  - GPLv3, Java
+  - Locally hosted web application that allows you to perform various operations on PDF files
+- Reader
+  - [sumatrapdfreader/sumatrapdf](https://github.com/sumatrapdfreader/sumatrapdf)
+    - GPLv3, C++, Windows
+    - PDF, EPUB, MOBI, CBZ, CBR, FB2, CHM, XPS, DjVu
 - Javascript/TyepScript
   - [mozilla/pdf.js](https://github.com/mozilla/pdf.js)
     - Apache-2.0, Javascript

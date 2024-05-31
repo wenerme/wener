@@ -6,6 +6,16 @@ tags:
 
 # Observability Awesome
 
+:::tip What dose Observability mean?
+
+- logs - 日志
+- metrics - 指标
+- session replays - 会话重放
+- traces - 跟踪
+- errors - 错误
+
+:::
+
 - [getsentry/sentry](./tracing/sentry.md)
 - [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
   - MIT, JS, Vue
@@ -22,6 +32,7 @@ tags:
 - [hyperdxio/hyperdx](https://github.com/hyperdxio/hyperdx)
   - MIT, TS
   - Clickhouse 存储
+  - session replays, logs, metrics, traces, errors
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
   - UI for Clickhouse
 - [highlight/highlight](https://github.com/highlight/highlight)

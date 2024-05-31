@@ -51,6 +51,7 @@ tags:
   - Latent Text-to-Image Diffusion
 - [MubertAI/Mubert-Text-to-Music](https://github.com/MubertAI/Mubert-Text-to-Music)
 - [Arcane-Diffusion](https://huggingface.co/nitrosocke/Arcane-Diffusion)
+- [lllyasviel/ControlNet](https://github.com/lllyasviel/ControlNet)
 - MJ
   - https://docs.google.com/spreadsheets/d/16KKh1FQmd-r98K9aWPBux5m9lc9PCV_T1AWgU54qXm8/edit#gid=0
   - https://docs.google.com/spreadsheets/d/1cm6239gw1XvvDMRtazV6txa9pnejpKkM5z24wRhhFz0/edit#gid=1057933666

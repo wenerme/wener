@@ -6,20 +6,85 @@ tags:
 # LLM Awesome
 
 - [Models](./llm-models.md)
+- Engine/Framework/Service/Inference
+  - [ggerganov/llama.cpp](./llama.cpp.md)
+    - MIT, C++
+    - 有非常多的语言绑定
+    - 支持最好最广泛使用的推理引擎
+  - [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
+    - Toolbox for Optimized LLM Inference
+- Application
+  - [jmorganca/ollama](./ollama.md)
+    - MIT, Golang
+    - 快速启动任意模型
+    - 提供模型管理
+    - 提供管理接口
+  - [mudler/LocalAI](https://github.com/mudler/LocalAI)
+    - MIT, C++, Go
+  - [abi/secret-llama](https://github.com/abi/secret-llama)
+    - Apache-2.0, TS
+    - Fully private LLM chatbot that runs entirely with a browser with no server needed. Supports Mistral and LLama 3.
+  - [open-webui/open-webui](https://github.com/open-webui/open-webui)
+    - MIT, Sevlet, Python
+    - WebUI for LLMs
+  - [janhq/jan](https://github.com/janhq/jan)
+    - AGPLv3, Typescript
+    - alternative to ChatGPT that runs 100% offline
+    - Multiple engine - llama.cpp, TensorRT-LLM
+  - [a16z-infra/llm-app-stack](https://github.com/a16z-infra/llm-app-stack)
+  - [TavernAI](https://github.com/TavernAI/TavernAI)
+    - MIT, JS
+  - [SillyTavern](https://github.com/SillyTavern/SillyTavern)
+    - AGPLv3, JS
+    - fork TavernAI
+    - LLM Frontend for Power Users
+  - [enricoros/big-agi](https://github.com/enricoros/big-agi)
+    - MIT, TS, JS
+- Service/API/Adapter/Gateway
+  - [BerriAI/litellm](https://github.com/BerriAI/litellm)
+    - MIT, Python
+    - 将各种 LLM 适配为 OpenAI 的 API 格式
+  - [bricks-cloud/BricksLLM](./bricksllm.md)
+    - MIT, Golang
+    - Enterprise-grade API gateway
+    - 提供访问控制、监控
+    - 支持 OpenAI, Azure OpenAI, Anthropic, vLLM 等
+  - [Helicone/helicone](https://github.com/Helicone/helicone)
+    - Apache-2.0, TS
+    - observability platform for LLMs
+- Platform/Traing/Playground
+  - [lm-sys/FastChat](https://github.com/lm-sys/FastChat)
+    - Apache-2.0
+    - training, serving, and evaluating
+- Web/UI/Chat
+  - [Yidadaa/ChatGPT-Next-Web](./chatgpt-next-web.md)
+  - [nluxai/nlux](https://github.com/nluxai/nlux)
+    - Conversational AI JavaScript Library
+  - [CopilotKit](https://github.com/CopilotKit/CopilotKit)
+    - MIT, TS
+    - framework for building custom AI Copilots
+    - npm:@copilotkit/react-core,@copilotkit/react-ui,@copilotkit/react-textarea
+  - [Oneirocom/Magick](https://github.com/Oneirocom/Magick)
+    - toolkit for AI builder
 - RAG
   - [vanna-ai/vanna](https://github.com/vanna-ai/vanna)
     - MIT
     - Text-to-SQL
-- APP
-  - [a16z-infra/llm-app-stack](https://github.com/a16z-infra/llm-app-stack)
+  - [truefoundry/cognita](https://github.com/truefoundry/cognita)
+    - Apache-2.0, TS, Python
+  - [EZ-hwh/AutoCrawler](https://github.com/EZ-hwh/AutoCrawler)
 - Service
   - dify
+- Agent
+  - [kingjulio8238/memary](https://github.com/kingjulio8238/memary)
+    - Longterm Memory for Autonomous Agents
+  - [a16z-infra/ai-town](https://github.com/a16z-infra/ai-town)
+    - MIT, TS
+  - [coder-hxl/x-crawl](https://github.com/coder-hxl/x-crawl)
+    - MIT, TS
+    - Node.js AI-assisted crawler library
 - Coding
   - [replit/ReplitLM](https://github.com/replit/ReplitLM)
-- Platform/Playground
-  - [lm-sys/FastChat](https://github.com/lm-sys/FastChat)
-    - Apache-2.0
-    - training, serving, and evaluating
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - https://vllm.ai/
@@ -44,17 +109,15 @@ tags:
   - https://spreadsheets-are-all-you-need.ai
 - [tyxsspa/AnyText](https://github.com/tyxsspa/AnyText)
   - by Alibaba
-- [janhq/jan](https://github.com/janhq/jan)
-  - AGPLv3, Typescript
-  - source alternative to ChatGPT that runs 100% offline
 - [Hannibal046/Awesome-LLM](https://github.com/Hannibal046/Awesome-LLM)
+- [imoneoi/openchat](https://github.com/imoneoi/openchat)
+- [What can LLMs never do?](https://www.strangeloopcanon.com/p/what-can-llms-never-do)
+  - [HN](https://news.ycombinator.com/item?id=40179232)
 
-## LLaMA
+## Models
 
 - [facebookresearch/llama](https://github.com/facebookresearch/llama)
   - GPLv3
-- [ggerganov/llama.cpp](https://github.com/ggerganov/llama.cpp)
-  - MIT, C++
 - [ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
   - Apache-2.0
   - 中文大语言模型

@@ -29,3 +29,5 @@ tags:
 
 - [rust learn](https://www.rust-lang.org/zh-CN/learn)
 - https://doc.rust-lang.org/reference/glossary.html
+- [Leaving Rust gamedev after 3 years](https://loglog.games/blog/leaving-rust-gamedev/)
+  - [HN](https://news.ycombinator.com/item?id=40172033)

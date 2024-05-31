@@ -144,3 +144,29 @@ navigation.addEventListener('navigate', (e) => {
   - Tabbable and focusable
 - tabIndex=-1
   - Not tabbable, but focusable
+
+
+## HTML attributes vs DOM properties
+
+- HTML attributes
+  - 可以序列化 - 在 HTML 里能表现出来
+  - 所有类型都是 string - 因为序列化
+  - 大小写无关
+  - 访问方式不同
+    - `div.getAttributeNames()`
+    - `div.getAttribute('id')`
+  - Reflection - property 可能会映射为 attribute
+    - `crossOrigin` -> `crossorigin`
+    - `ariaLabel` -> `aria-label`
+    - `className` -> `class`
+    - `htmlFor` -> `for`
+    - ⚠️ 注意 `defaultValue` -> `value`
+      - `value` property 没有对应的 attribute
+- DOM properties
+  - 如果一个 property 反映一个 attribute，那么 attribute 为 property 的 source 值
+    - 也就是说以 attribute 为准
+  - 有初始值和校验逻辑
+
+---
+
+- https://jakearchibald.com/2024/attributes-vs-properties/

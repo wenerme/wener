@@ -7,9 +7,16 @@ title: SVG
 - [svg2-draft](https://svgwg.org/svg2-draft/)
   - [Changes from SVG 1.1](https://www.w3.org/TR/SVG2/changes.html)
 - [SVG Loaders](https://wpack.io/tutorials/using-various-svg-loader/)
-- https://inkscape.org/
-- https://uxwing.com/svg-icon-editor/
 - https://jakearchibald.github.io/svgomg/
+- https://svgomg.net/
+- https://svgcrop.com/
+- https://daveknispel.github.io/svg2use/
+- Editor
+  - https://uxwing.com/svg-icon-editor/
+  - https://www.svgviewer.dev/
+  - https://yqnn.github.io/svg-path-editor/
+  - https://boxy-svg.com/
+  - https://inkscape.org/
 
 ```bash
 # AI to SVG

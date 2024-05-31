@@ -1,5 +1,7 @@
 ---
 title: PyTorch
+tags:
+  - Framework
 ---
 
 # PyTorch
@@ -10,6 +12,7 @@ title: PyTorch
 ```bash
 pip3 install torch torchvision torchaudio
 
+# for proxychains
 brew install proxychains-ng
 echo -e '[ProxyList]\nsocks5 	127.0.0.1 8888' > proxychains.conf
 proxychains4 pip3 install torch torchvision

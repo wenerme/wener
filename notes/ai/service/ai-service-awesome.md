@@ -11,8 +11,3 @@ tags:
 ## RAG
 
 - [BuilderIO/gpt-crawler](https://github.com/BuilderIO/gpt-crawler)
-
-## UI
-
-- Chat
-  - [Yidadaa/ChatGPT-Next-Web](./chatgpt-next-web.md)

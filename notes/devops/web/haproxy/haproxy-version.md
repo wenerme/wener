@@ -8,6 +8,8 @@ tags:
 
 | version       | date       |
 | ------------- | ---------- |
+| [HAProxy 3.0] | 2024-05-29 |
+| [HAProxy 2.9] | 2023-12-05 |
 | [HAProxy 2.8] | 2023-05-31 |
 | [HAProxy 2.7] | 2022-12-01 |
 | [HAProxy 2.6] | 2022-05-31 |
@@ -15,10 +17,52 @@ tags:
 | [HAProxy 2.4] | 2021-05-13 |
 | [HAProxy 2.3] | 2020-11-05 |
 
+[haproxy 3.0]: #haproxy-30
+[haproxy 2.9]: #haproxy-29
+[haproxy 2.8]: #haproxy-28
+[haproxy 2.7]: #haproxy-27
 [haproxy 2.6]: #haproxy-26
 [haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 3.0
+
+- 使用 guid 跟踪配置对象
+- `dump stats-file`
+  - reload 后不会丢失统计数据
+- 日志支持 JSON 和 CBOR 格式
+- https://www.haproxy.com/blog/announcing-haproxy-3-0
+
+## HAProxy 2.9
+
+- 性能优化： 内存使用、线程锁、日志锁、连接池、Maps、缓存锁、QUIC 内存、Stick tables 锁
+- HTTP 内存使用优化
+  - zero-copy forwarding
+  - tune.disable-zero-copy-forwarding
+- json_query
+  - 转换 json 响应数据
+- L7 fetch
+  - req.cook_names
+  - res.cook_names
+- Load balancing syslog
+
+```
+log-forward graylog
+  # Listen on Graylog ports
+  bind :12201
+  dgram-bind :12201
+  log backend@mylog-rrb local0
+
+backend mylog-rrb
+  mode log
+  balance roundrobin
+
+  server log1 udp@10.0.0.1:514
+  server log2 udp@10.0.0.2:514
+```
+
+- https://www.haproxy.com/blog/announcing-haproxy-2-9
 
 ## HAProxy 2.8
 

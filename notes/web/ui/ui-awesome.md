@@ -15,6 +15,8 @@ tags:
 - Resources  http://designsystemsrepo.com
 - Component research  http://component.gallery
 - https://cloudfour.com/thinks/responsive-images-101-definitions/
+- https://magicui.design/
+  - [HN](https://news.ycombinator.com/item?id=40450128)
 
 ## Reading
 

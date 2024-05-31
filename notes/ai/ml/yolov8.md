@@ -66,6 +66,17 @@ success = model.export(format='onnx')
 yolo train data=coco8.yaml model=yolov8n.pt epochs=10 lr0=0.01
 ```
 
+- lr0 - 初始学习率
+  - 常用 lr0=0.01
+  - 较大模型考虑 lr0=0.001
+- imgsz - 图像尺寸
+  - 默认 640
+  - 一般 320 - 640
+- batch - 批次大小
+  - batch=-1 - AutoBatch - 基于 GPU 内存
+- https://docs.ultralytics.com/usage/cfg/
+
+
 ```yaml
 train: train
 val: val
