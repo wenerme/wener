@@ -36,6 +36,7 @@ title: Yolo
   - by 清华大学, 2024
   - [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
     - AGPLv3
+    - 暂无 segmentation [THU-MIG/yolov10#98](https://github.com/THU-MIG/yolov10/issues/98)
   - [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
 
 | model   | file                      | for              |                                Size |
@@ -87,6 +88,14 @@ title: Yolo
   - 代表模型在一次前向传播过程中需要执行的浮点运算的总次数
 - TOPS - Tera Operations per Second - 每秒万亿次运算
 - TTA - Test Time Augmentation - 测试时数据增强
+- AMP - Automatic Mixed Precision - 自动混合精度
+  - 混合精度训练
+  - 减少内存占用
+  - 加速训练
+- NMS - Non-Maximum Suppression - 非极大值抑制
+  - 用于去除重叠的边界框
+    - half conf=0.05
+  - https://github.com/THU-MIG/yolov10/issues/136
 - imgsz
   - 32 的倍数 https://stackoverflow.com/a/75270907/1870054
   - 会 scale 图像到这个大小
@@ -103,6 +112,8 @@ title: Yolo
 - 模型选择 - size, speed, accuracy
 
 ## train
+
+- https://docs.ultralytics.com/modes/train/
 
 **results.csv**
 

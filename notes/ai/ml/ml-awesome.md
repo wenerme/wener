@@ -10,7 +10,6 @@ tags:
 - [Stable Diffusion Awesome](./stable-diffusion-awesome.md)
 - [OCR Awesome](./ocr-awesome.md)
 - Framework
-  - [apple/corenet](https://github.com/apple/corenet)
   - PyTorch
     - [tinygrad/tinygrad](https://github.com/tinygrad/tinygrad)
     - [minitorch/minitorch](https://github.com/minitorch/minitorch)
@@ -18,6 +17,15 @@ tags:
   - JAX
     - [google/maxtext](https://github.com/google/maxtext)
       - simple, performant and scalable Jax LLM
+  - [apple/corenet](https://github.com/apple/corenet)
+  - Tensorflow
+  - Keras
+  - AutoKeras
+  - FastAI
+  - XGBoost
+  - LightGBM
+  - MegEngine
+  - Scikit-Learn
   - [microsoft/SynapseML](https://github.com/microsoft/SynapseML)
     - MIT, Scala
     - Distributed Machine Learning
