@@ -52,6 +52,12 @@ title: mpv
 | <kbd>`</kbd>                     | Console                  |
 
 ```bash
+brew install mpv        # macOS brew mpv 命令行
+brew install mpv --cask # macOS brew mpv 应用 https://laboratory.stolendata.net/~djinn/mpv_osx/
+
+# fake gui
+mpv --no-video
+
 # yt-dlp
 mpv 'https://www.youtube.com/watch?v=xyz'
 # 终端渲染
@@ -60,9 +66,7 @@ mpv --vo=tct "https://youtube.com/watch?v=xyz"
 # --ytdl-format='bestaudio'
 mpv --no-video --vo=null --ytdl-format='bestaudio/best' 'https://www.youtube.com/watch?v=xyz'
 # Strming
-mpv -vo=gpu --hwdec=vaapi --gpu-context=wayland  https://www.twitch.tv/gorgc
-
-
+mpv -vo=gpu --hwdec=vaapi --gpu-context=wayland https://www.twitch.tv/gorgc
 ```
 
 ```ini
@@ -90,6 +94,7 @@ tscale=oversample
 - 下载 https://mpv.io/installation/
   - macOS https://laboratory.stolendata.net/~djinn/mpv_osx/
     - https://laboratory.stolendata.net/~djinn/mpv_osx/mpv-latest.tar.gz
+    - 暂不支持 Apple M1/M2
 
 ```conf
 profile=gpu-hq

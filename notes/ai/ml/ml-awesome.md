@@ -7,7 +7,7 @@ tags:
 # Machine Learning Awesome
 
 - [GPT Awesome](./gpt-awesome.md)
-- [Stable Diffusion Awesome](./stable-diffusion-awesome.md)
+- [Diffusion Awesome](../diffusion/diffusion-awesome.md)
 - [OCR Awesome](./ocr-awesome.md)
 - Framework
   - PyTorch
@@ -77,6 +77,12 @@ tags:
 - Dataset
   - [OpenOrca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
     - [SlimOrca](https://huggingface.co/datasets/Open-Orca/SlimOrca)
+- Foundation
+  - https://lfaidata.foundation/
+  - https://ai.meta.com/
+  - https://ai.google/
+  - https://labs.google/
+  - https://ai.tencent.com/
 - [PKU-YuanGroup/Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
 - [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)

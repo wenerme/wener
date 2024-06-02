@@ -14,14 +14,44 @@ title: Labeling
     - images, annotations, categories
     - bbox - `[x, y, w, h]`
 - YOLO - You Only Look Once
-  - `<class_index> <x_center> <y_center> <width> <height>`
-  - OOB `class_index, x1, y1, x2, y2, x3, y3, x4, y4`
-  - SEG `<class-index> <x1> <y1> <x2> <y2> ... <xn> <yn>`
-  - Pose DIM=2 `<class-index> <x> <y> <width> <height> <px1> <py1> <px2> <py2> ... <pxn> <pyn>`
-  - Pose DIM=3 `<class-index> <x> <y> <width> <height> <px1> <py1> <p1-visibility> <px2> <py2> <p2-visibility> <pxn> <pyn> <p2-visibility>`
+  - txt
 - VGG Image Annotator (VIA)
 - 参考
   - https://github.com/KKKSQJ/DeepLearning/tree/master/others/label_convert
+
+## YOLO
+
+**YOLO Detection**
+
+```
+class_index x_center y_center width height
+```
+
+**YOLO OOB**
+
+```
+class_index, x1, y1, x2, y2, x3, y3, x4, y4
+```
+
+- OOB Oriented Bounding Box
+
+**YOLO Segmentation**
+
+```
+class-index x1 y1 x2 y2 ... xn yn
+```
+
+**YOLO Pose Estimation 2D**
+
+```
+class-index x y width height px1 py1 px2 py2 ... pxn pyn
+```
+
+**YOLO Pose Estimation 3D**
+
+```
+class-index x y width height px1 py1 p1-visibility px2 py2 p2-visibility ... pxn pyn pn-visibility
+```
 
 ## VOC
 

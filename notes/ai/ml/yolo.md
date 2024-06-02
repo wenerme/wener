@@ -20,24 +20,30 @@ title: Yolo
 - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
   - GPLv3
   - speed & accuracy
-- [YOLOv8](./yolov8.md)
+- [YOLOv8](./yolov8.md) - Detection, Instance Segmentation, Pose/Keypoints, Oriented Detection, Classification
   - backbone & neck architectures
   - anchor-free split
-  - 支持 detection, segmentation, pose estimation, tracking, and classification
   - https://docs.ultralytics.com/
-  - [ultralytics/ultralytics](https://github.com/ult
-    ralytics/ultralytics)
-    - AGPLv3
+  - [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+    - **AGPLv3**
 - YOLOv9
   - based on YOLOv5
+  - [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
   - PGI - Programmable Gradient Information
   - GELAN - Generalized Efficient Layer Aggregation Network
 - [YOLOv10](./yolov10.md)
   - by 清华大学, 2024
+  - Key Features: NMS-Free Training, Holistic Model Design, Enhanced Model Capabilities
   - [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
     - AGPLv3
     - 暂无 segmentation [THU-MIG/yolov10#98](https://github.com/THU-MIG/yolov10/issues/98)
   - [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
+- Yolo World - Object Detection
+  - based one YOLOv8
+  - [AILab-CVC/YOLO-World](https://github.com/AILab-CVC/YOLO-World)
+    - by 腾讯
+  - >  MDETR, GLIP
+  - Open-Vocabulary detection
 
 | model   | file                      | for              |                                Size |
 | ------- | ------------------------- | ---------------- | ----------------------------------: |
@@ -115,6 +121,18 @@ title: Yolo
 
 - https://docs.ultralytics.com/modes/train/
 
+```yaml title="data.yaml"
+# path: # root dir
+train: src/dataset/train # 训练集图像路径
+val: src/dataset/val # 验证集图像路径
+# test:
+
+nc: 3 # 类别数量
+names: ['cat', 'dog', 'bird'] # 类别名称列表
+
+# download:
+```
+
 **results.csv**
 
 - **epoch**：当前的训练轮数（epoch），每个 epoch 表示模型在整个训练数据集上进行了一次完整的训练。
@@ -172,6 +190,7 @@ title: Yolo
     - Union Area：预测边界框与真实边界框的联合区域面积，即两者面积之和减去重叠区域的面积。
   - IoU 越高，模型的检测效果越好
 - mAP - Mean Average Precision
+
 ## Notes
 
 - FPN - Feature Pyramid Network - 特征金字塔网络
@@ -188,3 +207,20 @@ title: Yolo
   - 易用
 - YOLOv8
   - 更快、更准
+
+## Cascade
+
+- Hierarchical, Cascade
+- Cascade RCNN
+  - 适合小对象, 精细化
+  - two-stage detector
+  - RPN region proposal network
+- Yolo
+  - single-stage detector
+  - YOLOv8 optimized for **speed** and **simplicity**
+- YOLO + RCNN
+  - Faster R-CNN
+- 参考
+  - Comparing YOLOv8x vs Cascade RCNN on human detection [ultralytics#3248](https://github.com/ultralytics/ultralytics/issues/3248)
+  - Hierarchical Classification in Yolo v8 [ultralytics#4353](https://github.com/ultralytics/ultralytics/issues/4353)
+  - Open-Vocabulary One-Stage Detection with Hierarchical Visual-Language Knowledge Distillation

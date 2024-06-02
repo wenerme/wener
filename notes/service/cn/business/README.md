@@ -20,6 +20,57 @@ title: 企业服务行业
   - 风险管理和合规
   - 区块链和加密货币
 
+**Service **
+
+| en                                       | cn                 | notes                             |
+| ---------------------------------------- | ------------------ | --------------------------------- |
+| Corporate Services                       | 工商服务, 企业服务 |
+| Company Registration Services            | 公司注册服务       |
+| Company Name Approval                    | 公司名称核准       |
+| Business Registration                    | 工商注册           |
+| Tax Registration                         | 税务登记           |
+| Organizational Code Certificate          | 组织机构代码证办理 |
+| Company Change Services                  | 公司变更服务       |
+| Company Name Change                      | 公司名称变更       |
+| Address Change                           | 地址变更           |
+| Legal Representative Change              | 法定代表人变更     |
+| Equity Change                            | 股权变更           |
+| Company Deregistration Services          | 公司注销服务       |
+| Tax Clearance                            | 税务清算           |
+| Business Deregistration                  | 工商注销           |
+| Bank Account Closure                     | 银行账户注销       |
+| Qualification Services                   | 资质服务           | 通用、简洁，涵盖 申请、审核、认证 |
+| Qualification and License Services       | 资质办理服务       |
+| Qualification and Certification Services | 资质认证服务       | 强调资质认证过程                  |
+| Qualification Handling services          | 资质办理服务       | 强调处理和办理资质的过程          |
+| Qualification Application Services       | 资质申请服务       |
+| Business License Application             | 经营许可证办理     |
+| Safety Production License                | 安全生产许可证     |
+| Industry Qualification Certification     | 行业资质认证       |
+| Bank Account Opening Services            | 银行开户服务       |
+| Bank Account Opening                     | 银行账户开设       |
+| Account Changes                          | 账户变更           |
+| Account Closure                          | 账户注销           |
+
+| en                  | cn          |
+| ------------------- | ----------- |
+| Qualification       | 资质        |
+| Licensing           | 执照/许可证 |
+| Processing/Handling | 办理        |
+
+## License vs Licensing
+
+- License
+  - 名词
+  - 具体的实体，如文件、证书等
+  - e.g. 营业执照、驾驶执照
+- Licensing
+  - 动词
+  - 描述取得或管理许可证的过程或体系
+  - e.g.
+    - Licensing Process：许可流程
+    - Licensing Agreement：许可协议
+
 ## 企业信用查询
 
 工商信息查询

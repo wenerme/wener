@@ -150,3 +150,51 @@ system_profiler SPDisplaysDataType | grep Resolution
 ```
 
 - https://screensizemap.com/
+
+## CSS Absolute length units
+
+| Unit | Name                | Equivalent to       | cn           |
+| ---- | ------------------- | ------------------- | ------------ |
+| cm   | Centimeters         | 1cm = 96px/2.54     | 厘米         |
+| in   | Inches              | 1in = 2.54cm = 96px | 英寸         |
+| mm   | Millimeters         | 1mm = 1/10th of 1cm | 毫米         |
+| pc   | Picas               | 1pc = 1/6th of 1in  | 派卡         |
+| pt   | Points              | 1pt = 1/72th of 1in | 点           |
+| px   | Pixels              | 1px = 1/96th of 1in | 像素         |
+| Q    | Quarter-millimeters | 1Q = 1/40th of 1cm  | 四分之一毫米 |
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units
+  - Absolute length units
+
+## Resolution
+
+| Resolution | Ratio |         Quality | low motion | high motion | audio |
+| ---------: | ----: | --------------: | ---------: | ----------: | ----: |
+|    426x240 |  16:9 |            240p |       400k |        600k |   64k |
+|    640x360 |  16:9 |            360p |       700k |        900k |   96k |
+|    640x480 |   4:3 |         SD 480p |      1000k |       1200k |  128k |
+|    854x480 |  16:9 |            480p |      1250k |       1600k |  128k |
+|   1280x720 |  16:9 |         HD 720p |      2500k |       3200k |  128k |
+|   1280x720 |  16:9 |   HD 720p 60fps |      3500k |       4400k |  128k |
+|  1920x1080 |  16:9 |       FHD 1080p |      4500k |       5300k |  192k |
+|  1920x1080 |  16:9 | FHD 1080p 60fps |      5800k |       7400k |  192k |
+|  3840x2160 |  16:9 |              4k |     14000k |       18200 |  192k |
+|  3840x2160 |  16:9 |        4k 60fps |     23000k |      29500k |  192k |
+
+| Res. Type |  Name | Ratio |      Size |
+| --------: | ----: | ----: | --------: |
+|        SD |  480p |   4:3 |   640x480 |
+|        HD |  720p |  16:9 |  1280x720 |
+|       FHD | 1080p |  16:9 | 1920x1080 |
+|       QHD | 1440p |  16:9 | 2560x1440 |
+|        2K | 1440p |  16:9 | 2560x1440 |
+|    4K UHD | 2160p |  16:9 | 3840x2160 |
+|   8K FUHD | 4320p |  16:9 | 7680x4320 |
+
+- 16:9 = 1.77
+- SD - Standard Definition
+- HD - High Definition
+- FHD - Full High Definition
+- UHD - Ultra High Definition
+- QHD - Quad High Definition
+- [List of common display resolutions](https://en.wikipedia.org/wiki/List_of_common_display_resolutions)

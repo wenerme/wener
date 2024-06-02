@@ -76,7 +76,6 @@ yolo train data=coco8.yaml model=yolov8n.pt epochs=10 lr0=0.01
   - batch=-1 - AutoBatch - 基于 GPU 内存
 - https://docs.ultralytics.com/usage/cfg/
 
-
 ```yaml
 train: train
 val: val
@@ -91,18 +90,6 @@ yolo train data=dataset.yaml model=yolov8n.pt epochs=100 imgsz=640
 
 ```
 <class_index> <x_center> <y_center> <width> <height>
-```
-
-```yaml title="dataset.yaml"
-# path: # root dir
-train: src/dataset/train # 训练集图像路径
-val: src/dataset/val # 验证集图像路径
-# test:
-
-nc: 3 # 类别数量
-names: ['cat', 'dog', 'bird'] # 类别名称列表
-
-# download:
 ```
 
 - YOLOv5 & YOLOv8 YAML

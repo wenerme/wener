@@ -350,6 +350,9 @@ tags:
     - https://placehold.co/600x400/png
   - https://picsum.photos/2000/2000
 - photo
+  - [pulsejet/memories](https://github.com/pulsejet/memories)
+    - AGPLv3, PHP, Vue
+    - Nextcloud app
   - [ente-io/ente](https://github.com/ente-io/ente)
     - AGPLv3, Dart, TS, Go
     - End to End Encrypted alternative to Google Photos and Apple Photos
@@ -407,6 +410,14 @@ tags:
   - [maplibre](https://github.com/maplibre)
 - serverless/event driven
   - [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev)
+    - background jobs platform for TypeScript
+  - [fission/fission](https://github.com/fission/fission)
+  - [nuclio](https://github.com/nuclio/nuclio)
+    - Apache-2.0, Go
+    - focused on data, I/O, compute intensive workloads
+    - 集成  Jupyter, Kubeflow, cvat
+  - [PipedreamHQ/pipedream](github.com/PipedreamHQ/pipedream)
+    - Source Available
 - IPTV/Radio
   - [YueChan/Live](https://github.com/YueChan/Live)
   - [lizongying/my-tv](https://github.com/lizongying/my-tv)

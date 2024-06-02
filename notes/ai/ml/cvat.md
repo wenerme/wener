@@ -1,0 +1,131 @@
+---
+title: CVAT
+---
+
+# CVAT
+
+- [cvat-ai/cvat](https://github.com/cvat-ai/cvat)
+  - MIT, Python, TS
+  - by Intel
+  - 支持 OpenCV
+  - 支持基于模型的自动化标注
+- Interactors - 用于 Segmentation
+  - Segment Anything Model (SAM)
+  - Deep extreme cut (DEXTR)
+  - Feature backpropagating refinement scheme (f-BRS)
+  - High Resolution Net (HRNet)
+  - Inside-Outside-Guidance (IOG)
+  - Intelligent scissors - OpenCV
+- Detectors
+  - Mask RCNN
+  - Faster RCNN
+  - YOLO v3
+  - Semantic segmentation for ADAS
+  - RetinaNet
+  - Face Detection
+- Trackers
+  - TrackerMIL - OpenCV - https://learnopencv.com/tag/mil/
+  - SiamMask - [foolwood/SiamMask](https://github.com/foolwood/SiamMask)
+  - TransT - Transformer Tracking -  [chenxin-dlut/TransT](https://github.com/chenxin-dlut/TransT)
+- 参考
+  - YoloV8 serverlesss support  [#6471](https://github.com/cvat-ai/cvat/issues/6471)
+    - 由于 AGPL 原因无法合并 [#6472](https://github.com/cvat-ai/cvat/pull/6472)
+  - https://docs.cvat.ai/docs/manual/advanced/ai-tools/
+
+```bash
+# https://github.com/cvat-ai/cvat/blob/develop/docker-compose.yml
+git clone https://github.com/cvat-ai/cvat.git
+cd cvat
+# grafana, vector, pg, redis, treafik, opa
+# ui, utils, server, worker_{analytics_reports, quality_reports, webhooks, annotation, export, import}
+docker compose pull
+# 推荐修改 volumns
+mkdir -p ./data/{db,data,keys,logs,inmem_db,events_db,cache_db}
+
+# http://localhost:8080
+docker compose up
+
+# 自动化标注 - AI Tool
+# https://docs.cvat.ai/docs/administration/advanced/installation_automatic_annotation/
+# 如果修改了注意添加  --build
+# 使用 nuclio 作为 serverless runtime
+# 部署 nuclio/dashboard
+# 为 server 添加 CVAT_SERVERLESS=1
+# 添加 额外的 host 信息
+docker compose -f docker-compose.yml -f components/serverless/docker-compose.serverless.yml up
+
+```
+
+```yaml
+volumes:
+  cvat_db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/db
+      o: bind
+  cvat_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/data
+      o: bind
+  cvat_keys:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/keys
+      o: bind
+  cvat_logs:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/logs
+      o: bind
+  cvat_inmem_db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/inmem_db
+      o: bind
+  cvat_events_db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/events_db
+      o: bind
+  cvat_cache_db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/cache_db
+      o: bind
+```
+
+- https://docs.cvat.ai/docs/manual/advanced/ai-tools
+
+## serverless
+
+- nuctl
+- https://github.com/nuclio/nuclio
+
+```bash
+./serverless/deploy_cpu.sh serverless/openvino/dextr
+./serverless/deploy_cpu.sh serverless/openvino/omz/public/yolo-v3-tf
+
+
+# GPU
+nuctl deploy --project-name cvat \
+  --path serverless/tensorflow/matterport/mask_rcnn/nuclio \
+  --platform local --base-image tensorflow/tensorflow:1.15.5-gpu-py3 \
+  --desc "GPU based implementation of Mask RCNN on Python 3, Keras, and TensorFlow." \
+  --image cvat/tf.matterport.mask_rcnn_gpu \
+  --triggers '{"myHttpTrigger": {"maxWorkers": 1}}' \
+  --resource-limit nvidia.com/gpu=1
+```
+
+# FAQ
+
+## export skip un-anotated frames
+
+- https://github.com/cvat-ai/cvat/issues/1251

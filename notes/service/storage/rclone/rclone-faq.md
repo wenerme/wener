@@ -5,6 +5,16 @@ tags:
 
 # Rclone FAQ
 
+```bash
+# 局域网临时使用
+rclone serve ftp --addr :8080 ./
+
+rclone lsf :ftp: --ftp-host=127.0.0.1 --ftp-port=8080 --ftp-user=anonymous --ftp-pass=$(rclone obscure dummy)
+rclone lsf :ftp,host=127.0.0.1,port=8080,user=anonymous,pass=$(rclone obscure dummy):
+
+rclone sync $PWD :ftp,host=127.0.0.1,port=8080,user=anonymous,pass=$(rclone obscure dummy): -P --stats-one-line --transfers 10 -M
+```
+
 ## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF
 
 ## Failed to copy: mkdir permission denied
@@ -52,4 +62,12 @@ export RCLONE_CONFIG_MYSFTP_PASS=$(rclone obscure mypassword)
 apk add acl
 getfacl -R / > permissions.facl
 setfacl --restore=permissions.facl
+```
+
+## NewFS decrypt password: input too short when revealing password - is it obscured?
+
+- 必须要 user & pass
+
+```
+--ftp-user=anonymous --ftp-pass=$(rclone obscure dummy)
 ```
