@@ -6,18 +6,28 @@ tags:
 
 # Machine Learning Awesome
 
-- [GPT Awesome](./gpt-awesome.md)
-- [Diffusion Awesome](../diffusion/diffusion-awesome.md)
-- [OCR Awesome](./ocr-awesome.md)
+- [LLM](../llm/README.md)
+  - [LLM Awesome](../llm/llm-awesome.md)
+- [Diffusion](../diffusion/README.md)
+  - [Diffusion Awesome](../diffusion/diffusion-awesome.md)
+- [NLP](../nlp/README.md)
+  - [NLP Awesome](../nlp/nlp-awesome.md)
 - Framework
-  - PyTorch
+  - [PyTorch](./pytorch/README.md)
+    - by Meta
     - [tinygrad/tinygrad](https://github.com/tinygrad/tinygrad)
     - [minitorch/minitorch](https://github.com/minitorch/minitorch)
     - micrograd
-  - JAX
+  - [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning)
+    - Apache-2.0, Python
+  - [JAX](./jax.md)
+    - by Google
     - [google/maxtext](https://github.com/google/maxtext)
       - simple, performant and scalable Jax LLM
   - [apple/corenet](https://github.com/apple/corenet)
+  - [Paddle](./paddle.md)
+    - by 百度
+  - [OpenCV](./opencv/README.md)
   - Tensorflow
   - Keras
   - AutoKeras
@@ -55,6 +65,49 @@ tags:
   - [Label Studio](./label-studio.md)
   - [CVHub520/X-AnyLabeling](./x-anylabeling.md)
     - GPLv3, Python
+- Deploy/Inference/Serving/Mobile/Optimization
+  - [openvinotoolkit/openvino](https://github.com/openvinotoolkit/openvino)
+    - Apache-2.0, C++, Python
+    - optimizing, deploying AI inference
+    - by Intel
+  - [hpcaitech/ColossalAI](https://github.com/hpcaitech/ColossalAI)
+    - Apache-2.0, Python
+  - [microsoft/DeepSpeed](https://github.com/microsoft/DeepSpeed)
+    - Apache-2.0, Python, C++
+    - optimization library that makes distributed training and inference easy, efficient, and effective
+  - [Tencent/ncnn](https://github.com/Tencent/ncnn)
+    - BSD-3, C++, C
+    - neural network inference framework optimized for the mobile platform
+  - ~~[johnolafenwa/deepstack](https://github.com/johnolafenwa/deepstack)~~
+    - Apache-2.0, Go, Python
+    - Cross Platform AI Engine for Edge Devices
+- MLOps
+  - [wandb](https://github.com/wandb/wandb)
+    - MIT, Python, Go
+- VToonify
+- music
+  - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
+- upscale
+  - [Araxeus/PNG-Upscale](https://github.com/Araxeus/PNG-Upscale)
+    - MIT, Java
+  - [IBM/MAX-Image-Resolution-Enhancer](https://github.com/IBM/MAX-Image-Resolution-Enhancer)
+    - Apache-2.0, Python
+    - Docker
+  - [upscayl/upscayl](https://github.com/upscayl/upscayl)
+    - AGPL-3.0
+    - 需要 GPU
+    - App 方式
+    - Real-ESRGAN
+- image
+  - https://huggingface.co/datasets/vivym/midjourney-messages
+- video
+  - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
+    - MIT, Python, TS
+    - NVR with realtime local object detection for IP cameras
+- tts
+  - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
+    - MIT, Python
+    - [HN](https://news.ycombinator.com/item?id=38335255)
 - RT-DETR - Real-Time Detection Transformer
   - by Baidu
 - SAM/Segment Anything Model
@@ -80,9 +133,14 @@ tags:
 - Foundation
   - https://lfaidata.foundation/
   - https://ai.meta.com/
+  - [facebookresearch](https://github.com/facebookresearch)
   - https://ai.google/
   - https://labs.google/
   - https://ai.tencent.com/
+  - [NVlabs](https://github.com/NVlabs)
+    - NVIDIA Research
+  - [THUDM](https://github.com/THUDM)
+    - 清华 KEG & 数据挖掘
 - [PKU-YuanGroup/Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
 - [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
@@ -234,37 +292,6 @@ tags:
   - [HN](https://news.ycombinator.com/item?id=33027376)
 - [Adventure game graphics with DALL-E 2](https://hpjansson.org/blag/2022/08/16/adventure-game-graphics-with-dall-e-2/)
   - [HN](https://news.ycombinator.com/item?id=32490455)
-- VToonify
-- orgs
-  - [NVlabs](https://github.com/NVlabs)
-  - [facebookresearch](https://github.com/facebookresearch)
-  - [THUDM](https://github.com/THUDM)
-    - 清华 KEG & 数据挖掘
-- music
-  - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
-- serving
-  - [johnolafenwa/deepstack](https://github.com/johnolafenwa/deepstack)
-- upscale
-  - [Araxeus/PNG-Upscale](https://github.com/Araxeus/PNG-Upscale)
-    - MIT, Java
-  - [IBM/MAX-Image-Resolution-Enhancer](https://github.com/IBM/MAX-Image-Resolution-Enhancer)
-    - Apache-2.0, Python
-    - Docker
-  - [upscayl/upscayl](https://github.com/upscayl/upscayl)
-    - AGPL-3.0
-    - 需要 GPU
-    - App 方式
-    - Real-ESRGAN
-- image
-  - https://huggingface.co/datasets/vivym/midjourney-messages
-- video
-  - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
-    - MIT, Python, TS
-    - NVR with realtime local object detection for IP cameras
-- tts
-  - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
-    - MIT, Python
-    - [HN](https://news.ycombinator.com/item?id=38335255)
 
 ---
 
@@ -494,17 +521,6 @@ tags:
 - [cmusphinx](https://cmusphinx.github.io/)
   - 工作已经开始转移到 Kaldi, Vosk
   - [cmusphinx/pocketsphinx](https://github.com/cmusphinx/pocketsphinx)
-
-**术语**
-
-| abbr | mean                          | desc |
-| ---- | ----------------------------- | ---- |
-| ASR  | Automatic Speech Recognition  |
-| TTS  | Text-to-speech                |
-| SE   | Speech enhancement/separation |
-| ST   | Speech Translation            |
-| MT   | Machine Translation           |
-| VC   | Voice conversion              |
 
 ## Hardware Platform
 

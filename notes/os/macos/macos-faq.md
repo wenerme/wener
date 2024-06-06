@@ -454,3 +454,50 @@ VER=$(cat /tmp/googlechrome/Google\ Chrome/Google\ Chrome.app/Contents/Info.plis
 ## 5000 & 7000 ports
 
 - System Settings > General > AirDrop & Handoff > AirPlay Receiver
+
+## utun 无法 ping 本地IP
+
+```txt title=/etc/pf.conf
+rdr on utun0 inet proto tcp from any to 192.168.100.2 -> 127.0.0.1
+```
+
+```bash
+sudo pfctl -f /etc/pf.conf
+```
+
+- rdr from pfctl
+- 旧版本有 rdr 命令 `rdr on utun0 from any to 192.168.100.2 -> lo0`
+
+```bash
+sudo ifconfig lo0 alias 192.168.100.2
+```
+
+**如果需要每次**
+
+```xml title="/Library/LaunchDaemons/com.example.addlo0alias.plist"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.addlo0alias</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/sbin/ifconfig</string>
+        <string>lo0</string>
+        <string>alias</string>
+        <string>192.168.100.2</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <false/>
+</dict>
+</plist>
+```
+
+```bash
+sudo chown root:wheel /Library/LaunchDaemons/com.example.addlo0alias.plist
+sudo chmod 644 /Library/LaunchDaemons/com.example.addlo0alias.plist
+sudo launchctl load /Library/LaunchDaemons/com.example.addlo0alias.plist
+```

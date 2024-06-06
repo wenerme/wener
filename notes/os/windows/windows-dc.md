@@ -1,5 +1,4 @@
 ---
-id: windows-dc
 title: Windows 域控
 ---
 

@@ -13,20 +13,23 @@ title: blocky
     - DNS over HTTPS (aka DoH)
     - DNS over TLS (aka DoT)
   - 支持 DNSSEC, eDNS
+  - 多节点可使用 Redis 缓存
+  - queryLog 可写入数据库 - mysql, postgresql, csv, csv-client, console
 
 ```bash
-curl -L -o blocky.tar.gz https://github.com/0xERR0R/blocky/releases/download/v0.23/blocky_v0.23_$(uname -o)_$(uname -m).tar.gz
+curl -L -o blocky.tar.gz https://github.com/0xERR0R/blocky/releases/download/v0.24/blocky_v0.24_$(uname -o)_$(uname -m).tar.gz
 tar zxvf blocky.tar.gz
 
 ./blocky version
+mv blocky ~/bin/
 
 curl -LO https://0xerr0r.github.io/blocky/v0.23/config.yml
 # 注释掉 redis.address
 ./blocky serve -c config.yaml
 ```
 
-- https://0xerr0r.github.io/blocky/v0.23/configuration/
-- https://0xerr0r.github.io/blocky/v0.23/config.yml
+- https://0xerr0r.github.io/blocky/v0.24/configuration/
+- https://0xerr0r.github.io/blocky/v0.24/config.yml
 
 
 ```ts

@@ -5,6 +5,17 @@ title: react-jsonschema-form
 # react-jsonschema-form
 
 - [rjsf-team/react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
-  - UI: AntD, Bootstrap 3, Bootstrap 4, Fluent UI, MUI4, MUI5, Semantic UI, Charkra UI
+  - Apache-2.0, TS
+  - UI: AntD, Bootstrap, Fluent UI, MUI, Semantic UI, Charkra UI
 - 参考
-  - https://rjsf-team.github.io/react-jsonschema-form/
+  - [Playground](https://rjsf-team.github.io/react-jsonschema-form/)
+
+
+## Notes
+
+- field
+  - 所有行为
+- template
+  - layout
+- widget
+  - input

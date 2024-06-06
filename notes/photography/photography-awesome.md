@@ -1,8 +1,7 @@
 ---
 title: Photography Awesome
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Photography Awesome
-

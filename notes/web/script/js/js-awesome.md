@@ -258,10 +258,14 @@ tags:
     - https://fathy.fr/html2svg
   - [Brooooooklyn/canvas](https://github.com/Brooooooklyn/canvas)
     - skia binding to Node.js
-- 3d rendering/canvas
+- 3d rendering/canvas/webgl
   - threejs
+  - https://wiggle.three.tools/
+  - https://www.shadertoy.com/
   - [pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
     - React renderer for Three.js
+  - [3d-dice/dice-box](https://github.com/3d-dice/dice-box)
+    - 3D Game Dice
 - animation
   - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
     - MIT, TS
@@ -598,6 +602,7 @@ tags:
   - [developit/microbundle](https://github.com/developit/microbundle)
   - [webpro-nl/knip](https://github.com/webpro-nl/knip)
     - Find unused
+  - retire.js
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB

@@ -14,6 +14,9 @@ tags:
 - [cairoshell/cairoshell](https://github.com/cairoshell/cairoshell)
   - customizable, intuitive desktop environment for Windows
 - [WhatTheBlock/WindowsSimplify](https://github.com/WhatTheBlock/WindowsSimplify)
+- [the1812/Malware-Patch](https://github.com/the1812/Malware-Patch)
+  - MIT, C#
+  - 阻止中国流氓软件的管理员授权
 
 ## Softwares
 

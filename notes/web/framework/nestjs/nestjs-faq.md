@@ -5,6 +5,11 @@ tags:
 
 # NestJS FAQ
 
+- Hono/Deno/fetch
+  - [nestjs/nest#13013](https://github.com/nestjs/nest/issues/13013)
+  - [jiawei397/deno-oak-nest](https://github.com/jiawei397/deno-oak-nest)
+  - Add NestJS Hono Adapter [honojs/hono#2817](https://github.com/honojs/hono/issues/2817)
+
 ## 没有 Logger.info
 
 - 导致部分不兼容的场景

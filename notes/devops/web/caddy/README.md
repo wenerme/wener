@@ -107,7 +107,6 @@ rewrite * {path}?{query}&host={host}
 root @parseHost /opt/serve/{re.parsedHost.2}/stages/{re.parsedHost.1}
 ```
 
-
 - `abc.builds.wener.me` -> `abc/{uri}`
   - `http.request.host.labels` 从 0 开始
 
@@ -140,3 +139,41 @@ caddy file-server export-template
 
 - https://github.com/caddyserver/website/blob/master/src/docs/index.html
 - https://caddyserver.com/docs/caddyfile/directives/templates
+
+## docker proxy
+
+- [lucaslorentz/caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
+
+```bash
+docker network create caddy
+```
+
+```yaml
+version: '3.7'
+services:
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - CADDY_INGRESS_NETWORKS=caddy
+    networks:
+      - caddy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - caddy_data:/data
+    restart: unless-stopped
+
+networks:
+  caddy:
+    external: true
+
+volumes:
+  caddy_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./caddy_data
+      o: bind
+```

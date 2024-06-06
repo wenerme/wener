@@ -7,8 +7,16 @@ tags:
 # Stable Diffusion Awesome
 
 - [apple/ml-stable-diffusion](https://github.com/apple/ml-stable-diffusion)
-- https://github.com/CompVis/latent-diffusion
-- https://latent-consistency-models.github.io/
+  - MIT, Python, Swift
+  - Stable Diffusion with Core ML on Apple Silicon
+- [huggingface/diffusers](https://github.com/huggingface/diffusers)
+  - Apache-2.0, Python
+- [CompVis/latent-diffusion](https://github.com/CompVis/latent-diffusion)
+  - MIT
+  - High-Resolution Image Synthesis with Latent Diffusion Models
+  - https://latent-consistency-models.github.io/
+- Fundation
+  - https://github.com/CompVis
 - https://www.fal.ai/models/latent-consistency-sd
   - https://github.com/fal-ai
   - https://huggingface.co/spaces/fal-ai/realtime-stable-diffusion
@@ -59,3 +67,11 @@ tags:
   - https://journeyintoai.com/
   - https://www.midlibrary.io/styles
   - https://www.midlibrary.io/categories/photographers
+- [Stable Diffusion Models](https://cyberes.github.io/stable-diffusion-models/)
+- [openai/guided-diffusion](https://github.com/openai/guided-diffusion)
+
+| en                    | cn       | notes |
+| --------------------- | -------- | ----- |
+| Simple Diffusion      | 简单扩散 |
+| Facilitated Diffusion | 促进扩散 |
+| Active Transport      | 主动运输 |

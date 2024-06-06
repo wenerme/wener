@@ -9,6 +9,8 @@ title: Sysbench
 ```bash
 brew install sysbench
 
+sysbench --test=cpu --cpu-max-prime=20000 --num-threads=2 run
+
 USERNAME=
 PASSWORD=
 sysbench oltp_read_write --db-driver=mysql --time=60 --threads=32 --report-interval=3 --mysql-host=mysql \

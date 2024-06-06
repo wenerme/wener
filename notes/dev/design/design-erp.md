@@ -5,6 +5,13 @@ tags:
 
 # Design ERP
 
+:::tip Seealso
+
+- [Design API](./design-api.md)
+- [Design Auth](./design-auth.md)
+
+:::
+
 ## 服务分层 {#service-layer}
 
 - DB - Entity - EntityService - RemoteService - Controller/GraphQL/RESTful - UI
@@ -883,3 +890,26 @@ interface GeneralResource {
   - 商品订单
     - 价格通常基于单个或批量商品的固定价格
     - 支付通常在购买时一次性完成，除非涉及分期支付的特殊情况
+
+## Entity vs Resource vs Object
+
+> 相同点: 有唯一标识符，有属性和行为
+
+- Entity
+  - 实体
+  - 通常是业务领域中的一个对象或概念
+  - 通常是数据库中的表
+  - 通常用于 ORM、数据模型、数据存储
+  - Entity -> Property & Relationship & Collection
+- Resource
+  - 资源
+  - 通常是网络或分布式系统中的一个对象或概念
+  - 通常是 RESTful API 中的一个端点
+  - 通常面向 Client/Web/前端
+  - Resource -> URI & Method & Representation & Endpoint & View
+  - urn -> Uniform Resource Name
+- Object
+  - 对象
+  - 通常是一个实例
+  - Object -> Field & Method
+  - GraphQL Object 可以有自定义 field resolver

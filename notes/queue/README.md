@@ -4,7 +4,6 @@ title: Queue
 
 # 队列
 
-
 - Dump pipe, Smart endpoint.
 - 常见协议
   - AMQP - v1.0 2011
@@ -46,8 +45,6 @@ title: Queue
   - 消息消费的事务性质 - 至少一次、至多一次、准确一次
   - 队列服务 HA 特性
   - 支持协议类型
-
-
 
 ## Cherami
 

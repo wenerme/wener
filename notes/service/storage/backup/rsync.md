@@ -131,14 +131,24 @@ rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
   - p - perishable
   - x - xattr
 
+# FAQ
+
 ## ssh port
 
 ```bash
 rsync -e 'ssh -p 2222'
 ```
 
-## rsync: change_dir "/" (in f) failed: Permission denied (13)
+## change_dir "/" (in f) failed: Permission denied (13)
 
-## rsync: receiver mkstemp "/.file.tar.gz.XXXXXX" (in backup) failed: Permission denied (13)
+## receiver mkstemp "/.file.tar.gz.XXXXXX" (in backup) failed: Permission denied (13)
 
-## rsync: generator failed to set permissions on "/file.tar.gz" (in backup): No such file or directory (2)
+## generator failed to set permissions on "/file.tar.gz" (in backup): No such file or directory (2)
+
+- 说明： rsync 无法在目标目录创建临时文件
+- 原因:
+  - 可能是目标目录权限问题
+  - 可能是目标目录不存在
+- 解决： 目标目录权限问题
+
+## error in rsync protocol data stream (code 12)

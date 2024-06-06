@@ -40,3 +40,15 @@ tags:
   - https://www.linode.com/docs/products/compute/compute-instances/plans/choosing-a-plan/#gpu-instances
   - [Apple M2 Max 38-Core GPU vs NVIDIA GeForce RTX 4090 Laptop GPU](https://www.notebookcheck.net/M2-Max-38-Core-GPU-vs-NVIDIA-GeForce-RTX-4090-Laptop-GPU-vs-M2-Pro-16-Core-GPU_11574_11437_11570.247598.0.html)
   - https://cloud.google.com/tpu/docs/system-architecture-tpu-vm
+
+## TensorFlow vs PyTorch
+
+> 推荐 PyTorch
+
+- TensorFlow
+  - 大型应用
+- PyTorch
+  - 易用
+  - 快速原型
+- 参考
+  - https://opencv.org/blog/pytorch-vs-tensorflow/

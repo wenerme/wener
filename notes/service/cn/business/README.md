@@ -20,7 +20,7 @@ title: 企业服务行业
   - 风险管理和合规
   - 区块链和加密货币
 
-**Service **
+**Service**
 
 | en                                       | cn                 | notes                             |
 | ---------------------------------------- | ------------------ | --------------------------------- |
@@ -57,6 +57,33 @@ title: 企业服务行业
 | Qualification       | 资质        |
 | Licensing           | 执照/许可证 |
 | Processing/Handling | 办理        |
+
+## License
+
+| 许可证         | 经营范围                                     | 说明 |
+| -------------- | -------------------------------------------- | ---- |
+| 食品经营许可证 | 餐饮服务                                     |
+| ^              | 预包装食品、含冷冻冷藏、酒类批发             |
+| 增值电信许可证 | ICP、EDI                                     |
+| ^              | IDC、ISP、SP、CDN                            |
+| ^              | 呼叫中心                                     |
+| 文化出版类     | 网络文化许可证（直播类、音乐类、动漫类）     |
+| ^              | 出版物经营许可证                             |
+| ^              | 广播电视许可证                               |
+| 药品医疗       | 互联网药品信息服务许可证 （经营性/非经营性） |
+
+- 食品经营许可证
+  - https://www.gov.cn/gongbao/2023/issue_10606/202307/content_6894763.html
+  - https://amr.sz.gov.cn/zxbs/zdyw/spjyxkzt/
+
+| abbr. | stand for                   | cn               |
+| ----- | --------------------------- | ---------------- |
+| ICP   | Internet Content Provider   | 互联网内容提供商 |
+| EDI   | Electronic Data Interchange | 电子数据交换     |
+| IDC   | Internet Data Center        | 互联网数据中心   |
+| ISP   | Internet Service Provider   | 互联网服务提供商 |
+| SP    | Service Provider            | 服务提供商       |
+| CDN   | Content Delivery Network    | 内容分发网络     |
 
 ## License vs Licensing
 

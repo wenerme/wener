@@ -317,8 +317,16 @@ curl -L https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns
 #
 curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | base64 -d > gfwlist.txt
 
-grep -E '^([|]{2}|[.])' gfwlist.txt  | grep -v '/' | grep -v '[*]' | wc -l | sed 's/^[|.]*//' | sort -u
+grep -E '^([|]{2}|[.])' gfwlist.txt | grep -v '/' | grep -v '[*]' | wc -l | sed 's/^[|.]*//' | sort -u
 ```
+
+- [gfwlist.txt](https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns/gfwlist.txt)
+- [gfwlist.dev.txt](https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns/gfwlist.dev.txt)
+  - 开发相关域名
+  - https://learn.microsoft.com/en-us/azure/security/fundamentals/azure-domains
+  - https://www.netify.ai/resources/applications/github
+  - https://www.google.com/supported_domains
+  - https://github.com/v2fly/domain-list-community/blob/master/data/google
 
 **Bypass**
 
@@ -338,3 +346,10 @@ bard.google.com
 ## CDN
 
 - ghcr.io -> pkg-containers.githubusercontent.com
+
+## reverse
+
+- 112.46.2.37
+  - pcs.baidu.com
+  - 百度网盘
+- public-dns-a.baidu.com

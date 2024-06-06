@@ -225,9 +225,9 @@ docker run --rm -it \
 # traefik.http.routers.my-container.tls=true
 ```
 
-## FAQ
+# FAQ
 
-### traefik v1 vs v2
+## traefik v1 vs v2
 
 - 新特性
   - 支持带 SNI 的 TCP 路由和多协议端口

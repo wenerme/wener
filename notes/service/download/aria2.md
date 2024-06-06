@@ -213,3 +213,7 @@ find . -type f -iname '*.torrent' | sort -u | xargs -I % bash -c $'echo;echo Dow
 ```bash
 find . -iname '*字幕组*' -not -iname '*.aria2' | xargs -I {} sh -c '[ -e "{}.aria2" ] && echo "{}" || echo' | sort -u | awk NF
 ```
+
+## .aria2
+
+- https://github.com/aria2/aria2/issues/792

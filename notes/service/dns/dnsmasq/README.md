@@ -59,8 +59,9 @@ echo 'nameserver 127.0.0.1' > /etc/resolv.conf
 
 # 测试配置
 dnsmasq --test
+dnsmasq -C /etc/dnsmasq.conf --no-daemon # 前台测试启动
 
-# 启动
+# 启动服务
 rc-service dnsmasq start
 rc-update add dnsmasq
 

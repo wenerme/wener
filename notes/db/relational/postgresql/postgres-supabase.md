@@ -20,13 +20,13 @@ title: Supabase PostgreSQL Image
 # 注意 superuser 为 supabase_admin 密码和 postgres 相同
 # 建议登录为 supabase_admin 然后 alter user postgres with superuser
 PASSWORD=$(uuidgen | tr -d '[[:space:]]')
-docker run -d --restart=always \
+docker run --rm -it \
   -e POSTGRES_PASSWORD=$PASSWORD \
   -p 5432:5432 \
   -e POSTGRES_INITDB_ARGS="--encoding=UTF-8 --lc-collate=C --lc-ctype=C" \
-  -v /data/postgres/data:/var/lib/postgresql/data \
-  --name postgres supabase/postgres:15.1.1.33 \
-  -clisten_addresses=* \
+  -v $PWD/data:/var/lib/postgresql/data \
+  --name postgres supabase/postgres:15.1.1.58 \
+  -clisten_addresses="*" \
   -cshared_preload_libraries=pg_stat_statements,pg_stat_monitor,pgaudit,plpgsql,plpgsql_check,pg_cron,pg_net,timescaledb,auto_explain,pg_tle
 ```
 

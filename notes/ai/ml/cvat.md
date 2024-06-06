@@ -9,26 +9,8 @@ title: CVAT
   - by Intel
   - 支持 OpenCV
   - 支持基于模型的自动化标注
-- Interactors - 用于 Segmentation
-  - Segment Anything Model (SAM)
-  - Deep extreme cut (DEXTR)
-  - Feature backpropagating refinement scheme (f-BRS)
-  - High Resolution Net (HRNet)
-  - Inside-Outside-Guidance (IOG)
-  - Intelligent scissors - OpenCV
-- Detectors
-  - Mask RCNN
-  - Faster RCNN
-  - YOLO v3
-  - Semantic segmentation for ADAS
-  - RetinaNet
-  - Face Detection
-- Trackers
-  - TrackerMIL - OpenCV - https://learnopencv.com/tag/mil/
-  - SiamMask - [foolwood/SiamMask](https://github.com/foolwood/SiamMask)
-  - TransT - Transformer Tracking -  [chenxin-dlut/TransT](https://github.com/chenxin-dlut/TransT)
 - 参考
-  - YoloV8 serverlesss support  [#6471](https://github.com/cvat-ai/cvat/issues/6471)
+  - YoloV8 serverlesss support [#6471](https://github.com/cvat-ai/cvat/issues/6471)
     - 由于 AGPL 原因无法合并 [#6472](https://github.com/cvat-ai/cvat/pull/6472)
   - https://docs.cvat.ai/docs/manual/advanced/ai-tools/
 
@@ -42,18 +24,16 @@ docker compose pull
 # 推荐修改 volumns
 mkdir -p ./data/{db,data,keys,logs,inmem_db,events_db,cache_db}
 
-# http://localhost:8080
-docker compose up
-
-# 自动化标注 - AI Tool
+# http://localhost:8080 cvat
+# http://localhost:8070 nuclio
+# docker compose up
+# 自动化标注 - AI Tool 依赖 nuclio serverless runtime
 # https://docs.cvat.ai/docs/administration/advanced/installation_automatic_annotation/
 # 如果修改了注意添加  --build
-# 使用 nuclio 作为 serverless runtime
 # 部署 nuclio/dashboard
 # 为 server 添加 CVAT_SERVERLESS=1
 # 添加 额外的 host 信息
 docker compose -f docker-compose.yml -f components/serverless/docker-compose.serverless.yml up
-
 ```
 
 ```yaml
@@ -106,13 +86,20 @@ volumes:
 
 ## serverless
 
-- nuctl
-- https://github.com/nuclio/nuclio
-
 ```bash
+# https://github.com/nuclio/nuclio/releases/
+curl -o nuctl -L https://github.com/nuclio/nuclio/releases/download/1.13.3/nuctl-1.13.3-darwin-$(uname -m)
+chmod +x nuctl
+# 假设 $HOME/bin 在 PATH 中
+mv nuctl ~/bin/
+
+# function.yaml
+# 构建过程会访问 github.com dl.fbaipublicfiles.com pip3
+# 不配置代理大多数情况下是构建不成功的
 ./serverless/deploy_cpu.sh serverless/openvino/dextr
 ./serverless/deploy_cpu.sh serverless/openvino/omz/public/yolo-v3-tf
 
+./serverless/deploy_cpu.sh serverless/pytorch/facebookresearch/sam
 
 # GPU
 nuctl deploy --project-name cvat \
@@ -122,10 +109,69 @@ nuctl deploy --project-name cvat \
   --image cvat/tf.matterport.mask_rcnn_gpu \
   --triggers '{"myHttpTrigger": {"maxWorkers": 1}}' \
   --resource-limit nvidia.com/gpu=1
+
+# quay.io/nuclio/uhttpc:0.0.1-arm6
+# quay.io/nuclio/handler-builder-python-onbuild:1.13.0-arm64
+
+# 依赖 gcr
+docker pull alpine:3.17
+docker tag alpine:3.17 gcr.io/iguazio/alpine:3.17
+# mirror
+crane copy gcr.io/kaniko-project/executor:v1.9.0 registry-vpc.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:v1.9.0
+docker pull registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:v1.9.0
+docker tag registry.cn-hongkong.aliyuncs.com/cmi/kaniko-project_executor:v1.9.0 gcr.io/kaniko-project/executor:v1.9.0
 ```
+
+```bash
+nuctl get function
+```
+
+- nuctl
+- https://github.com/nuclio/nuclio
+
+## AI & OpenCV
+
+- Interactors - 用于 Segmentation, 半自动构建 polygon
+  - Segment Anything Model (SAM)
+  - Deep extreme cut (DEXTR)
+  - Feature backpropagating refinement scheme (f-BRS)
+  - High Resolution Net (HRNet)
+  - Inside-Outside-Guidance (IOG)
+  - Intelligent scissors - OpenCV
+- Detectors
+  - Mask RCNN
+  - Faster RCNN
+  - YOLO v3
+  - Semantic segmentation for ADAS
+  - RetinaNet
+    - detectron2
+  - Face Detection
+- Trackers
+  - TrackerMIL - OpenCV - https://learnopencv.com/tag/mil/
+  - SiamMask - [foolwood/SiamMask](https://github.com/foolwood/SiamMask)
+  - TransT - Transformer Tracking - [chenxin-dlut/TransT](https://github.com/chenxin-dlut/TransT)
 
 # FAQ
 
 ## export skip un-anotated frames
 
 - https://github.com/cvat-ai/cvat/issues/1251
+
+## cvat.openvino.base
+
+## status code 503
+
+
+```bash
+# 检查端口是否通
+nuctl get function
+
+# 检查日志
+docker logs -f  nuclio-nuclio-pth-facebookresearch-sam-vit-h
+# 判断容器内端口是否正常
+docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://localhost:8080
+```
+
+- https://github.com/cvat-ai/cvat/issues/6582
+
+## Failed to parse: http://host.docker.internal:None

@@ -26,7 +26,10 @@ npx @biomejs/biome check ./src
 npx @biomejs/biome check ./src --apply
 
 # 单个规则 v1.7.4+
-biome lint --rule=style/useNamingConvention --apply ./src
+# https://biomejs.dev/linter/rules/
+biome lint --only=style/useNamingConvention --apply ./src
+npx -y @biomejs/biome lint --only=style/useImportType ./src
+npx -y @biomejs/biome lint --only=style/noUnusedImports ./src
 ```
 
 **biome.json**

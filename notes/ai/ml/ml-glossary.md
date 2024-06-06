@@ -31,6 +31,15 @@ tags:
 | MIL    | Multiple Instance Learning                             | 多实例学习             |
 | UAV    | Unmanned Aerial Vehicle                                | 无人机, 无人驾驶飞行器 |
 
+| abbr. | stand for                     | cn            |
+| ----- | ----------------------------- | ------------- |
+| ASR   | Automatic Speech Recognition  | 自动语音识别  |
+| TTS   | Text-to-speech                | 文本转语音    |
+| SE    | Speech enhancement/separation | 语音增强/分离 |
+| ST    | Speech Translation            | 语音翻译      |
+| MT    | Machine Translation           | 机器翻译      |
+| VC    | Voice conversion              | 语音转换      |
+
 - FLOPs - 浮点数运算次数
   - 衡量模型的计算复杂度和硬件的浮点运算性能
 - TOPS - 所有类型的运算次数
@@ -61,12 +70,32 @@ tags:
     - Region Proposal Network
   - RFCN
   - Mask R-CNN
+  - Cascade R-CNN
+  - Hybrid Task Cascade (HTC)
+- VAE - Variational Autoencoder
+- PixelCNN
 - 2 steps to detect objects
   - Detect the object regions
   - Classify the objects in those regions
 - YOLO - by Joseph Redmond et al in 2015
   - 单步骤、不需要 regions
-- https://www.cvat.ai/post/yolo
+- panoptic segmentation
+- Densepose
+- Cascade R-CNN
+- rotated bounding boxes
+- PointRend
+- DeepLab
+- ViTDet - Vision Transformer Detector
+- MViTv2 - Mobile Video Transformer v2
+- f-BRS - Feature backpropagating refinement scheme
+- SAM - Segment Anything Model
+- DEXTR - Deep extreme cut
+- HRNet - High Resolution Net
+- [foolwood/SiamMask](https://github.com/foolwood/SiamMask)
+  - Fast Online Object Tracking and Segmentation: A Unifying Approach
+  - CVPR2019
+- 参考
+  - https://www.cvat.ai/post/yolo
 
 ## Types of AI Agents
 
@@ -76,4 +105,8 @@ tags:
 - Utility-based agent
 - Learning agent
 
-## Region-CNN R-CNN
+## Variational Autoencoder {#vae}
+
+- VAE - Variational Autoencoder - 变分自编码器
+
+是一种生成模型，用于学习复杂数据分布并生成与训练数据相似的新数据。VAE 将传统的自编码器与概率图模型相结合，通过对数据的潜在表示进行建模和采样来生成数据。

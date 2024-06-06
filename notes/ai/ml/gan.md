@@ -10,6 +10,9 @@ title: GAN
   - [eriklindernoren/PyTorch-GAN](https://github.com/eriklindernoren/PyTorch-GAN)
   - [eriklindernoren/Keras-GAN](https://github.com/eriklindernoren/Keras-GAN)
   - [nightrome/really-awesome-gan](https://github.com/nightrome/really-awesome-gan)
+  - https://videogigagan.github.io/
+    - [HN](https://news.ycombinator.com/item?id=40130803)
+  - https://pfnet-research.github.io/tgan/
 - Generator - 生成器
   - 负责生成看起来像真实数据的样本
 - Discriminator - 判别器

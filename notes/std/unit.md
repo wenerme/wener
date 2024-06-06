@@ -34,8 +34,10 @@ title: Unit
 - 50M 的带宽 - 50 Mb/s - 约 5M/s - 传输 1GB 文件约 200s - 约 4 分钟
 - SI - International System of Units
 - IEC - International Electrotechnical Commission
-- https://en.wikipedia.org/wiki/Byte
-- [Binary prefix](https://en.wikipedia.org/wiki/Binary_prefix)
-- [IEC 80000-13](https://en.wikipedia.org/wiki/IEC_80000-13)
-- https://www.nist.gov/pml/owm/metric-si-prefixes
-- https://physics.nist.gov/cuu/Units/binary.html
+- 参考
+  - https://en.wikipedia.org/wiki/Byte
+  - [Binary prefix](https://en.wikipedia.org/wiki/Binary_prefix)
+  - [IEC 80000-13](https://en.wikipedia.org/wiki/IEC_80000-13)
+  - https://www.nist.gov/pml/owm/metric-si-prefixes
+  - https://physics.nist.gov/cuu/Units/binary.html
+  - [CSS values and units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units)

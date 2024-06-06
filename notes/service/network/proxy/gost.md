@@ -66,7 +66,7 @@ gost -L http://:8080 -L socks5://:1080 -F http://192.168.1.1:8080
 gost -L sni://:80 -L sni://:443 -F socks5://192.168.1.1:1080
 gost -L sni://:8080 -L sni://:8443
 # flag -> config
-gost -L sni://:80 -L sni://:443 -F socks5://192.168.1.1:1080  -O yaml > gost.yaml
+gost -L sni://:80 -L sni://:443 -F socks5://192.168.1.1:1080 -O yaml > gost.yaml
 gost
 
 docker run --rm -it \

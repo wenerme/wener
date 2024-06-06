@@ -401,3 +401,30 @@ where id ${direction === 'asc' ? '>' : '<'} ${id}
 - PaginationResponse
 - PaginatedResponse
 - PaginationInfo
+
+## Payload vs Input vs Data vs Object vs Output
+
+- Payload - 载荷
+  - GraphQL 里一般 mutation 返回都是 Payload
+  - 不具有 Resource/Entity 属性
+  - CreateUserPayload, UpdateUserPayload
+- Input - 输入
+  - 强调数据作为输入
+  - GraphQL 里有 Input 概念区分于 Object 概念
+  - 具有 Resource/Entity 属性
+  - UserCreateInput, UserUpdateInput
+- Data - 数据
+  - 通用 - Data -> Key & Value
+  - 类似 Dicionary, Record, DTO
+  - UserCreationData, UserUpdateData
+- Object - 对象
+  - 通常内存表示
+  - 可能支持方法 - Object -> Method & Fields
+  - UserCreationObject, UserUpdateObject
+- Output
+  - 输出
+  - 强调可序列化的数据
+  - 用于 IO/API 交互场景
+  - 区分内部的 Entity
+  - 类似 Object
+  - 例如: UserEntity, UserOutput, UserObject - 避免都叫 User

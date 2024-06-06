@@ -39,3 +39,8 @@ ajv.addKeyword('x-meta');
 ```
 
 ## due to error strict mode: unknown keyword
+
+## ajv schema with key or id already exists
+
+- 如果 schema 有 `$id` 可能会出现
+- 如果 schema 是通过反序列化生成的，可能会出现重复 - ref 不一样但 id 一样

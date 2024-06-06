@@ -16,7 +16,7 @@ title: 佳能
     - EF, EF-S 镜头
   - Canon EOS RP
     - Since 2019
-    -  26.2-megapixel full-frame
+    - 26.2-megapixel full-frame
     - RF 镜头
 - Magic Lantern
 - [RF](https://en.wikipedia.org/wiki/Canon_RF_lens_mount)

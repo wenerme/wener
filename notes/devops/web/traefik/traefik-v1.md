@@ -4,9 +4,8 @@ title: Traefik V1
 
 # Traefik V1
 
-## Notes
 
-### Docker
+## Docker
 
 ```bash
 # 简单启动
@@ -15,7 +14,7 @@ docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO
 docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO --web --consul.endpoint=consul:8500
 ```
 
-### 基本概念
+## 基本概念
 
 - 入口
   - http
@@ -167,7 +166,7 @@ docker run --rm -it -p 443:443 -p 80:80 -p 8080:8080 traefik --accesslog -l INFO
     weight = 2
 ```
 
-### 配置
+## 配置
 
 - 配置路径
   - `/etc/traefik/`
@@ -235,7 +234,7 @@ watch=true
 address=":8081"
 ```
 
-### admin
+## admin
 
 ```bash
 # 健康检查

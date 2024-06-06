@@ -154,3 +154,44 @@ module.exports = {
 ```
 importOrderParserPlugins: ['typescript', 'decorators-legacy'],
 ```
+
+### .prettierrc.json
+
+```json
+{
+  "bracketSameLine": false,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "overrides": [
+    {
+      "files": ["*.html", "*.css"],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": ["*.sql"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ],
+  "importOrder": [
+    "^node:",
+    "<BUILTIN_MODULES>",
+    "[.](polyfill|shim)$",
+    "reflect-metadata",
+    "^react(-dom)?",
+    "<THIRD_PARTY_MODULES>",
+    "^@/",
+    "^[.][.]",
+    "^[.][/]"
+  ],
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy", "importAttributes"],
+  "plugins": ["prettier-plugin-pkg", "@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["clsx", "tw", "cn"],
+  "tailwindConfig": "./tailwind.config.ts"
+}
+```

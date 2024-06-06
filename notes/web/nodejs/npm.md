@@ -1,5 +1,6 @@
 ---
 title: NPM
+  - Registry
 ---
 
 # NPM
