@@ -9,6 +9,10 @@ tags:
 - [valeriansaliou/bloom](https://github.com/valeriansaliou/bloom)
   - MPLv2, Rust
   - HTTP REST API caching middleware
+- Docker Proxy - 通过 label 配置方向代理
+  - Traefik Docker Provider
+  - [lucaslorentz/caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
+  - [nginx-proxy/nginx-proxy](https://github.com/nginx-proxy/nginx-proxy)
 
 ## Framework
 

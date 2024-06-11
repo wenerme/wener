@@ -1,20 +1,19 @@
 ---
-id: watchtower
 title: Watchtower
 ---
 
 # Watchtower
-## Tips
-* [containrrr/watchtower](https://github.com/containrrr/watchtower)
-* 如果 image 有更新自动更新
-* 支持通知
-  * email
-  * slack
-  * msteams
-  * gotify
-    * WATCHTOWER_NOTIFICATIONS=gotify
-    * WATCHTOWER_NOTIFICATION_GOTIFY_URL
-    * WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN
+
+- [containrrr/watchtower](https://github.com/containrrr/watchtower)
+- 如果 image 有更新自动更新
+- 支持通知
+  - email
+  - slack
+  - msteams
+  - gotify
+    - WATCHTOWER_NOTIFICATIONS=gotify
+    - WATCHTOWER_NOTIFICATION_GOTIFY_URL
+    - WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN
 
 ```bash
 # 确保存在配置文件
@@ -32,6 +31,6 @@ docker run -d \
 
 # 升级单个容器
 docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.docker/config.json:/config.json containrrr/watchtower -R <NAME>
-# 升级单个容器 - 不带鉴权信息
+# 升级单个容器 - 不带鉴权信息
 docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -R <NAME>
 ```

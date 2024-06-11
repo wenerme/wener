@@ -42,6 +42,7 @@ tags:
   - https://api.lorem.space/image/face?hash=40361
 - https://www.magicpattern.design/tools/mesh-gradients
   - 生成渐变
+- https://github.com/terkelg/awesome-creative-coding
 
 ## 设计参考
 

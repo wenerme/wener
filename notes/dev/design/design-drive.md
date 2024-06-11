@@ -307,7 +307,7 @@ struct inode_operations {
 - lookup - 查找索引节点所在的目录
 - unlink - 从 dir 目录删除 dentry 目录项所指文件的硬链接
 
-## share
+
 
 ## Entity
 
@@ -344,3 +344,110 @@ struct inode_operations {
   - FileEntry & DirectoryEntry - 目录结构
   - FilePath & FileMeta
   - FileRef & FileContent - 存储分离
+
+## PHP
+
+- https://github.com/nextcloud/server/blob/master/lib/private/Files/Storage/Storage.php
+- https://flysystem.thephpleague.com/
+  - filesystem abstraction for PHP
+  - https://flysystem.thephpleague.com/docs/advanced/creating-an-adapter/
+- https://laravel.com/docs/master/filesystem
+  - [Illuminate\Support\Facades\Storage](https://laravel.com/api/master/Illuminate/Support/Facades/Storage.html)
+
+## flystorage
+
+```ts
+export type CommonStatInfo = Readonly<{
+  path: string;
+  lastModifiedMs?: number;
+  visibility?: string;
+}>;
+
+export type FileInfo = Readonly<
+  {
+    type: 'file';
+    size?: number;
+    isFile: true;
+    isDirectory: false;
+    mimeType?: string;
+  } & CommonStatInfo
+>;
+
+export type DirectoryInfo = Readonly<
+  {
+    type: 'directory';
+    isFile: false;
+    isDirectory: true;
+  } & CommonStatInfo
+>;
+
+export type StatEntry = FileInfo | DirectoryInfo;
+
+export type FileContents = Iterable<any> | AsyncIterable<any> | NodeJS.ReadableStream | Readable | string;
+
+export interface StorageAdapter {
+  write(path: string, contents: Readable, options: WriteOptions): Promise<void>;
+  read(path: string): Promise<FileContents>;
+  deleteFile(path: string): Promise<void>;
+  createDirectory(path: string, options: CreateDirectoryOptions): Promise<void>;
+  copyFile(from: string, to: string, options: CopyFileOptions): Promise<void>;
+  moveFile(from: string, to: string, options: MoveFileOptions): Promise<void>;
+  stat(path: string): Promise<StatEntry>;
+  list(path: string, options: { deep: boolean }): AsyncGenerator<StatEntry>;
+  changeVisibility(path: string, visibility: string): Promise<void>;
+  visibility(path: string): Promise<string>;
+  deleteDirectory(path: string): Promise<void>;
+  fileExists(path: string): Promise<boolean>;
+  directoryExists(path: string): Promise<boolean>;
+  publicUrl(path: string, options: PublicUrlOptions): Promise<string>;
+  temporaryUrl(path: string, options: TemporaryUrlOptions): Promise<string>;
+  checksum(path: string, options: ChecksumOptions): Promise<string>;
+  mimeType(path: string, options: MimeTypeOptions): Promise<string>;
+  lastModified(path: string): Promise<number>;
+  fileSize(path: string): Promise<number>;
+}
+
+export type MiscellaneousOptions = {
+  [option: string]: any;
+};
+
+export type MimeTypeOptions = MiscellaneousOptions & {
+  disallowFallback?: boolean;
+  fallbackMethod?: 'contents' | 'path';
+};
+
+export type VisibilityOptions = {
+  visibility?: string;
+  directoryVisibility?: string;
+};
+export type WriteOptions = VisibilityOptions &
+  MiscellaneousOptions & {
+    mimeType?: string;
+    size?: number;
+    cacheControl?: string;
+  };
+
+export type CreateDirectoryOptions = MiscellaneousOptions & Pick<VisibilityOptions, 'directoryVisibility'> & {};
+export type PublicUrlOptions = MiscellaneousOptions & {};
+export type CopyFileOptions = MiscellaneousOptions &
+  VisibilityOptions & {
+    retainVisibility?: boolean;
+  };
+export type MoveFileOptions = MiscellaneousOptions &
+  VisibilityOptions & {
+    retainVisibility?: boolean;
+  };
+export type ListOptions = { deep?: boolean };
+export type TemporaryUrlOptions = MiscellaneousOptions & {
+  expiresAt: ExpiresAt;
+};
+```
+
+- https://github.com/duna-oss/flystorage/blob/main/packages/file-storage/src/file-storage.ts
+- [duna-oss/flystorage](https://github.com/duna-oss/flystorage)
+  - by the maintainer of Flysystem
+  - File storage abstraction for Node / TypeScript
+  - [flystorage.dev](https://flystorage.dev/)
+- https://flystorage.dev/architecture/
+
+## 参考 {#reference}

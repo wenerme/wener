@@ -51,6 +51,9 @@ tags:
 - [primer/octicons](https://github.com/primer/octicons)
   - by GitHub
   - `@primer/octicons`, `@primer/octicons-react`, `@primer/styled-octicons`
+- [simple-icons/simple-icons](https://github.com/simple-icons/simple-icons)
+  - CC0
+  - SVG icons for popular **brands**
 - https://www.ibm.com/design/language/iconography/ui-icons/library/
 - [akveo/eva-icons](https://github.com/akveo/eva-icons)
   - 400

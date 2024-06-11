@@ -4,8 +4,25 @@ title: Docker compose
 
 # Docker compose
 
-- Compose V2
-  - docker compose
+
+:::caution
+
+- docker-compose.yaml 设计用于 docker compose/swarm/stack
+  - 在不同场景不同的配置会生效
+  - deploy 不在 docker compose 生效
+
+:::
+
+- [compose-spec/compose-spec](https://github.com/compose-spec/compose-spec)
+- docker compose 1.27.0+ -> Compose V2
+- docker compose - 本地开发
+  - 管理多个 docker run
+  - 忽略 deploy
+- docker stack deploy -> Docker Swarm
+  - 先 `docker swarm init`
+  - 忽略 build
+  - 支持 deploy - 资源限制
+- https://docs.docker.com/compose/compose-file/
 
 ```bash
 # V1
@@ -23,6 +40,9 @@ docker compose version
   - compose.yaml, docker-compose.yaml
 
 ```yaml
+# COMPOSE_PROJECT_NAME
+name:
+
 services:
   web:
     # 构建
@@ -269,3 +289,4 @@ web:
     # base service
     service: webapp
 ```
+

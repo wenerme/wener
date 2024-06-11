@@ -17,3 +17,8 @@ indent_style = tab
 [Makefile,*.mk]
 indent_size = 4
 indent_style = tab
+
+
+[Makefile]
+indent_size = 4
+indent_style = tab

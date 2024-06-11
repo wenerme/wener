@@ -356,6 +356,20 @@ tags:
   - [ente-io/ente](https://github.com/ente-io/ente)
     - AGPLv3, Dart, TS, Go
     - End to End Encrypted alternative to Google Photos and Apple Photos
+- design/graphic
+  - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
+    - MIT, TS
+    - vector animations
+  - [penpot/penpot](https://github.com/penpot/penpot)
+    - MPLv2, Clojure
+    - https://penpot.app/
+  - Figma
+  - [gztchan/awesome-design](https://github.com/gztchan/awesome-design)
+  - [goabstract/Awesome-Design-Tools](https://github.com/goabstract/Awesome-Design-Tools)
+- screen share/recorder
+  - [alyssaxuu/screenity](https://github.com/alyssaxuu/screenity)
+    - GPLv3, JS
+  - RustDesk
 - git
   - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
 - zoom, team
@@ -415,7 +429,7 @@ tags:
   - [nuclio](https://github.com/nuclio/nuclio)
     - Apache-2.0, Go
     - focused on data, I/O, compute intensive workloads
-    - 集成  Jupyter, Kubeflow, cvat
+    - 集成 Jupyter, Kubeflow, cvat
   - [PipedreamHQ/pipedream](github.com/PipedreamHQ/pipedream)
     - Source Available
 - IPTV/Radio
@@ -523,6 +537,11 @@ tags:
   - [facebookincubator/dhcplb](https://github.com/facebookincubator/dhcplb)
     - MIT, Go
     - load balancer for DHCP
+- Chat/IM
+  - [chatwoot/chatwoot](https://github.com/chatwoot/chatwoot)
+    - Ruby, Vue
+    - live-chat, email support, omni-channel desk
+  - Zendesk
 - SaaS 服务目录/商业
   - [SaaS Blocks](https://saasblocks.io/)
   - https://github.com/it2025/saasbook

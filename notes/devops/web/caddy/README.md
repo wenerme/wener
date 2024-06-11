@@ -6,6 +6,9 @@ title: Caddy
 
 - [mholt/caddy](https://github.com/mholt/caddy)
   - Apache-2.0, Golang
+- 参考
+  - [caddy-dns/acmedns](https://github.com/caddy-dns/acmedns)
+    - ACME DNS-01 challenge solver for Caddy
 
 ```bash
 brew install caddy # macOS - /usr/local/etc/Caddyfile
@@ -124,6 +127,8 @@ root @parseHost /opt/serve/{re.parsedHost.2}/stages/{re.parsedHost.1}
 
 ```bash
 docker exec -w /etc/caddy caddy caddy reload
+
+docker exec caddy curl -s http://127.0.0.1:2019/config/
 ```
 
 ## file_server
@@ -145,11 +150,15 @@ caddy file-server export-template
 - [lucaslorentz/caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
 
 ```bash
+docker exec caddy cat /config/caddy/autosave.json
+docker exec caddy curl -s http://127.0.0.1:2019/config/
+```
+
+```bash
 docker network create caddy
 ```
 
 ```yaml
-version: '3.7'
 services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine
@@ -177,3 +186,7 @@ volumes:
       device: ./caddy_data
       o: bind
 ```
+
+## modules
+
+- https://caddyserver.com/docs/modules/

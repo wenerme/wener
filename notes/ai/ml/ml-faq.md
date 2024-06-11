@@ -52,3 +52,22 @@ tags:
   - 快速原型
 - 参考
   - https://opencv.org/blog/pytorch-vs-tensorflow/
+
+## VAE vs GAN
+
+- GAN
+  - generator + discriminator
+  - adversarial training
+  - 生成高质量、真实的图片、数据
+  - 图片生成、图像到图像的转换、超分辨率
+  - 弱点: 训练不稳定、模式崩溃、模式坍塌；需要小心的调参
+- VAE
+  - encoder + decoder, probabilistic framework
+  - input data -> latent space - 潜在空间/隐空间 - 压缩后的数据/PCA表示
+  - 训练:
+    - 优化一个损失函数来进行训练，这个损失函数包含重构损失（确保输出与输入相似）和正则化项（确保潜在空间具有一定的结构，通常为高斯分布）。
+    - 这个正则化项促使潜在空间连续且平滑，从而使得从中采样新的数据点变得容易。
+    - KL-divergence
+  - 优点: 生成的数据更加平滑、连续；更容易训练；更容易生成新数据
+  - 缺点: 生成的数据质量不如 GAN
+  -  reconstruction loss, regularization term

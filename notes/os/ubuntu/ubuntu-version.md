@@ -24,6 +24,7 @@ tags:
 
 | LTS Version                  | Date       | Kernel |
 | ---------------------------- | ---------- | ------ |
+| Ubuntu 24.04                 | 2024-04-25 | 6.8    |
 | Ubuntu 22.04 Jammy Jellyfish | 2022-04-21 | 5.15   |
 | Ubuntu 20.04 Focal Fossa     | 2020-04-23 | 5.4    |
 | Ubuntu 18.04 Bionic Beaver   | 2018-04-26 | 4.15   |

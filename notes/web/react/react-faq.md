@@ -400,3 +400,19 @@ React.JSX.IntrinsicElements["button"]
   - 也可以认为是 as=Fragment
 
 ## Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
+
+## registry
+
+```ts
+addReact('YourComponentName', YourComponent);
+define('YourComponentName', componentBlueprint);
+getDefinition('YourComponentName');
+getInstance('YourComponentName', componentID);
+isDefined('YourComponentName');
+```
+
+- https://www.manageiq.org/docs/guides/ui/register_react_component
+- https://github.com/ryansolid/component-register
+- https://www.builder.io/c/docs/custom-components-setup
+- https://github.com/microsoft/fluentui/tree/master/packages/fluentui/react-component-nesting-registry
+- https://github.com/lmerotta-zz/react-plugins

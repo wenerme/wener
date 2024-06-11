@@ -134,12 +134,161 @@ openssl s_client -connect 5.253.207.203:89
 curl -x https://$USERNAME:$PASSWORD@at80.nordvpn.com:89 icanhazip.com
 ```
 
+```js
+let all = require('./server.json');
+let byCountry = all
+  .sort((a, b) => a.load - b.load)
+  .reduce((acc, v) => {
+    acc[v.locations[0].country.code] ||= v;
+    return acc;
+  }, {});
+```
+
+- type: physical, virtual
+- 110 Country
 - 废弃 https://support.nordvpn.com/hc/en-us/articles/21586950310801
   - https://nordvpn.com/api/server
   - https://nordvpn.com/api/server/stats
 - `https://api.nordvpn.com/v1/servers?limit=9999999`
 - https://api.nordvpn.com/v1/servers/countries
 - https://api.nordvpn.com/v1/servers/recommendations
+
+```json
+{
+  "id": 1000502,
+  "created_at": "2023-11-15 12:48:42",
+  "updated_at": "2024-06-07 05:43:26",
+  "name": "Singapore #557",
+  "station": "149.50.213.43",
+  "ipv6_station": "",
+  "hostname": "sg557.nordvpn.com",
+  "load": 0,
+  "status": "online",
+  "type": "physical",
+  "locations": [
+    {
+      "id": 557,
+      "created_at": "2017-09-06 12:24:30",
+      "updated_at": "2017-09-06 12:24:30",
+      "latitude": 1.2930556,
+      "longitude": 103.8558333,
+      "country": {
+        "id": 195,
+        "name": "Singapore",
+        "code": "SG",
+        "city": {
+          "id": 7867982,
+          "name": "Singapore",
+          "latitude": 1.293056,
+          "longitude": 103.855833,
+          "dns_name": "singapore",
+          "hub_score": 0
+        }
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "VPN",
+      "identifier": "vpn",
+      "created_at": "2017-03-21 12:00:45",
+      "updated_at": "2017-05-25 13:12:31"
+    },
+    {
+      "id": 5,
+      "name": "Proxy",
+      "identifier": "proxy",
+      "created_at": "2017-05-29 19:38:30",
+      "updated_at": "2017-05-29 19:38:30"
+    }
+  ],
+  "technologies": [
+    {
+      "id": 3,
+      "name": "OpenVPN UDP",
+      "identifier": "openvpn_udp",
+      "created_at": "2017-05-04 08:03:24",
+      "updated_at": "2017-05-09 19:27:37",
+      "metadata": [],
+      "pivot": { "technology_id": 3, "server_id": 1000502, "status": "online" }
+    },
+    {
+      "id": 5,
+      "name": "OpenVPN TCP",
+      "identifier": "openvpn_tcp",
+      "created_at": "2017-05-09 19:28:14",
+      "updated_at": "2017-05-09 19:28:14",
+      "metadata": [],
+      "pivot": { "technology_id": 5, "server_id": 1000502, "status": "online" }
+    },
+    {
+      "id": 42,
+      "name": "OpenVPN UDP Dedicated",
+      "identifier": "openvpn_dedicated_udp",
+      "created_at": "2019-09-19 14:49:18",
+      "updated_at": "2019-09-19 14:49:18",
+      "metadata": [],
+      "pivot": { "technology_id": 42, "server_id": 1000502, "status": "online" }
+    },
+    {
+      "id": 45,
+      "name": "OpenVPN TCP Dedicated",
+      "identifier": "openvpn_dedicated_tcp",
+      "created_at": "2019-09-19 14:49:54",
+      "updated_at": "2019-09-19 14:49:54",
+      "metadata": [],
+      "pivot": { "technology_id": 45, "server_id": 1000502, "status": "online" }
+    }
+  ],
+  "groups": [
+    {
+      "id": 9,
+      "created_at": "2017-06-13 13:42:36",
+      "updated_at": "2018-08-22 12:54:48",
+      "title": "Dedicated IP",
+      "identifier": "legacy_dedicated_ip",
+      "type": {
+        "id": 3,
+        "created_at": "2017-06-13 13:40:17",
+        "updated_at": "2017-06-13 13:40:23",
+        "title": "Legacy category",
+        "identifier": "legacy_group_category"
+      }
+    },
+    {
+      "id": 23,
+      "created_at": "2017-10-27 14:23:51",
+      "updated_at": "2017-10-30 08:09:57",
+      "title": "Asia Pacific",
+      "identifier": "asia_pacific",
+      "type": {
+        "id": 5,
+        "created_at": "2017-10-27 14:16:30",
+        "updated_at": "2017-10-27 14:16:30",
+        "title": "Regions",
+        "identifier": "regions"
+      }
+    }
+  ],
+  "specifications": [
+    { "id": 8, "title": "Version", "identifier": "version", "values": [{ "id": 200, "value": "2.0.0" }] }
+  ],
+  "ips": [
+    {
+      "id": 1140179,
+      "created_at": "2023-11-15 12:53:55",
+      "updated_at": "2023-11-15 12:53:55",
+      "server_id": 1000502,
+      "ip_id": 47332106,
+      "type": "entry",
+      "ip": { "id": 47332106, "ip": "149.50.213.43", "version": 4 }
+    }
+  ]
+}
+```
+
+**旧版本格式**
 
 ```json
 {

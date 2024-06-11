@@ -13,6 +13,9 @@ rclone lsf :ftp: --ftp-host=127.0.0.1 --ftp-port=8080 --ftp-user=anonymous --ftp
 rclone lsf :ftp,host=127.0.0.1,port=8080,user=anonymous,pass=$(rclone obscure dummy):
 
 rclone sync $PWD :ftp,host=127.0.0.1,port=8080,user=anonymous,pass=$(rclone obscure dummy): -P --stats-one-line --transfers 10 -M
+
+# 替代 scp
+rclone copy ./data/ :sftp:host=127.0.0.1,port=2022,user=root:/data/ -P --stats-one-line --transfers 10
 ```
 
 ## ReadFileHandle.Read error: low level retry 1/10: unexpected EOF

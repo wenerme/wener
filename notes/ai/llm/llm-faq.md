@@ -14,6 +14,36 @@ tags:
   - https://github.com/yizhongw/self-instruct
   - https://platform.openai.com/docs/model-index-for-researchers
 
+## model metrics
+
+- 参数量
+- 非Embedding参数量
+- GQA
+- Tie Embedding
+- Context Window - 上下文长度
+- 语言支持度
+- Code Switch - 语言转换
+  - 避免模型直接切换语言
+- Safety
+- 评测/Benchmark
+  - MMLU
+  - MMLU-Pro
+  - GPQA
+  - TheoremQA
+  - BBH
+  - HumanEval
+  - MBPP
+  - MultiPL-E
+  - GSM8K
+  - MATH
+  - C-Eval
+  - CMMLU
+  - Multi-Exam
+  - Multi-Understanding
+  - Multi-Mathematics
+- 参考
+  - https://qwenlm.github.io/zh/blog/qwen2/
+
 ## structure
 
 - https://github.com/dzhng/zod-gpt

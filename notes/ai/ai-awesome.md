@@ -61,6 +61,9 @@ tags:
 
 ---
 
+- [openrecall/openrecall](https://github.com/openrecall/openrecall)
+  - AGPLv3, Python
+  - Windows 11 Recall 替代
 - [williamfzc/chat-gpt-ppt](https://github.com/williamfzc/chat-gpt-ppt)
   - 生成 PPT
 - [mckaywrigley/ai-code-translator](https://github.com/mckaywrigley/ai-code-translator)

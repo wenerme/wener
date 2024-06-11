@@ -11,8 +11,13 @@ title: SNI Reverse Proxy
 - clash premium 支持 Sniff TLS SNI
 
 ```bash
-gost -L sni://:80 -L sni://:443 -F socks5://192.168.1.1:1080
+gost -L sni://:80 -L sni://:443 -L sni://5228 -F socks5://192.168.1.1:1080
 ```
+
+- 1119
+  - Blizzard Battle.net
+- 5228
+  - https://intellij-support.jetbrains.com/hc/en-us/community/posts/12122215925906-Intellij-Updates-Marketplace-Port
 
 ## HAProxy SNI Proxy
 

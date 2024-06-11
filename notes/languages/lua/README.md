@@ -4,8 +4,16 @@ title: Lua
 
 # Lua
 
+:::tip
+
+- 使用最广的脚本语言之一
+
+:::
+
 - [lua/lua](https://github.com/lua/lua)
 - [5.4/manual](https://www.lua.org/manual/5.4/manual.html)
+- 参考
+  - [What do I think about Lua after shipping a project with 60,000 lines of code?](https://blog.luden.io/bf72a1328733)
 
 :::caution
 

@@ -66,13 +66,16 @@ tags:
     - npm:@copilotkit/react-core,@copilotkit/react-ui,@copilotkit/react-textarea
   - [Oneirocom/Magick](https://github.com/Oneirocom/Magick)
     - toolkit for AI builder
-- RAG
+- RAG/Embedding
   - [vanna-ai/vanna](https://github.com/vanna-ai/vanna)
     - MIT
     - Text-to-SQL
   - [truefoundry/cognita](https://github.com/truefoundry/cognita)
     - Apache-2.0, TS, Python
   - [EZ-hwh/AutoCrawler](https://github.com/EZ-hwh/AutoCrawler)
+  - [marqo-ai/marqo](https://github.com/marqo-ai/marqo)
+    - Apache-2.0, Python
+    - Unified embedding generation and search engine.
 - Service
   - dify
 - Agent
@@ -84,7 +87,15 @@ tags:
     - MIT, TS
     - Node.js AI-assisted crawler library
 - Coding
-  - [replit/ReplitLM](https://github.com/replit/ReplitLM)
+  - [replit/ReplitLM](https://github.com/replit/ReplitLM)∑
+- Fine-tuning
+  - [unslothai/unsloth](https://github.com/unslothai/unsloth)
+    - Apache-2.0, Python
+    - Finetune Llama 3, Mistral, Phi, Gemma
+    - QWen2 https://github.com/unslothai/unsloth/issues/149
+  - [meta-llama/llama-recipes](https://github.com/meta-llama/llama-recipes)
+  - LoRA
+  - [Efficiently fine-tune Llama 3 with PyTorch FSDP and Q-Lora](https://www.philschmid.de/fsdp-qlora-llama3)
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - https://vllm.ai/

@@ -23,16 +23,19 @@ title: Cloudflare Workers
 - [lukeed/worktop](https://github.com/lukeed/worktop)
 - Free
   - Workers Bundled
+    - 第一个请求后的延迟变低
     - 10 ms/请求
-    - 第一个请求后的延迟最低
     - 100,000 请求/天
+    - 最多 1000 秒/天, 一个月最多 30,000 秒, =500 分钟
   - KV
     - 全局性的低延迟键值边缘存储
     - 100,000 read/day
     - 1,000 update or list/day
 - Paid Plan - Bundled - US$5/月
   - 10 million 请求/月, +$0.50/million
-  - 50ms/请求
+  - 30s/请求
+  - 100M/请求
+  - 30Mms/CPU时间 - 500分钟, 约 8.3 小时
 - Paid plan - Unbound
   - 1 million 请求/月, + $0.15/million
   - 400,000 GB-s, +$12.50/million GB-s

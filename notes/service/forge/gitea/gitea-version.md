@@ -7,6 +7,8 @@ tags:
 
 | version    | date       |
 | ---------- | ---------- |
+| Gitea 1.22 | 2024-05-04 |
+| Gitea 1.21 | 2023-11-12 |
 | Gitea 1.20 | 2023-07-16 |
 | Gitea 1.19 | 2023-03-20 |
 | Gitea 1.18 | 2022-10-29 |
@@ -34,6 +36,33 @@ tags:
   - https://github.com/go-gitea/gitea/pull/24257
 
 :::
+
+## Gitea 1.22
+
+- 不需要配置缓存也能搜索
+- 支持 SHA256 仓库
+- 支持 组织 profile 页面
+  - 使用 `.profile` 仓库
+- Actions
+  - 提供 actions 的 runner-image
+    - https://gitea.com/gitea/runner-images
+  -  Artifacts v4 backend
+  - 支持 `[skip ci]`
+  - 支持全局变量
+- 管理
+  - 可以禁用用户功能 - `[admin]USER_DISABLED_FEATURES=` - deletion,manage_ssh_keys,manage_gpg_keys
+- OFFLINE_MODE=false
+  - 之前默认 true
+- LOGIN_REMEMBER_DAYS=30
+  - 记住登录保留 30 天
+  - 之前默认 7 天
+- 依赖变化
+  - MySQL 5.7 → MySQL 8.0
+  - PostgreSQL 10 → PostgreSQL 12
+  - MSSQL 2008 → MSSQL 2012
+- Markdown Callout/Alter 语法变化
+  - `> **Note** My note` -> `> [!NOTE]\n> My note`
+  - https://github.com/go-gitea/gitea/pull/29121
 
 ## Gitea 1.21
 

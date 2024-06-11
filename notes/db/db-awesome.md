@@ -27,6 +27,10 @@ tags:
 
 - https://db-engines.com/en/ranking
 - https://db-benchmarks.com/
+- [FirebirdSQL/firebird](https://github.com/FirebirdSQL/firebird)
+  - MPL-1.1, C++
+  - since 1981
+  - ANSI SQL
 
 ## 理论
 

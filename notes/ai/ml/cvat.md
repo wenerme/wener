@@ -157,17 +157,46 @@ nuctl get function
 
 - https://github.com/cvat-ai/cvat/issues/1251
 
-## cvat.openvino.base
+## cvat.openvino.base: pull access denied
+
+- 默认开启了 DOCKER_BUILDKIT=1
+
+```bash
+# 是存在的
+docker images | grep cvat.openvino.base
+
+# container builder 看不到
+docker buildx ls
+
+# 方案 1
+docker context use default
+
+# 方案 2
+DOCKER_BUILDKIT=0 docker build -t cvat.openvino.base serverless/openvino/base
+DOCKER_BUILDKIT=0 docker build -t cvat.openvino.omz.public.yolo-v3-tf.base serverless/openvino/omz/public/yolo-v3-tf/nuclio
+
+nuctl deploy --project-name cvat --path "$func_root" \
+  --file "$func_config" --platform local
+```
+
+- Apple Silicon macOS 上有问题
+  - https://github.com/moby/moby/pull/42951
+- https://github.com/docker/buildx/issues/795
+- https://github.com/moby/buildkit/issues/2343
+
+## The TensorFlow library was compiled to use AVX instructions, but these aren't available on your machine.
+
+- Apple Silicon 上出现
+- https://github.com/tensorflow/tensorflow/issues/24548
 
 ## status code 503
-
 
 ```bash
 # 检查端口是否通
 nuctl get function
 
 # 检查日志
-docker logs -f  nuclio-nuclio-pth-facebookresearch-sam-vit-h
+docker logs -f nuclio-nuclio-pth-facebookresearch-sam-vit-h
 # 判断容器内端口是否正常
 docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://localhost:8080
 ```
@@ -175,3 +204,6 @@ docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://loca
 - https://github.com/cvat-ai/cvat/issues/6582
 
 ## Failed to parse: http://host.docker.internal:None
+
+- git pull 了新的代码然后重新 deploy 就好了
+- https://github.com/cvat-ai/cvat/issues/5205

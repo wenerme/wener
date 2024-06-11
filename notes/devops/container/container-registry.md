@@ -25,3 +25,4 @@ location="quay.io/libpod"
 ```
 
 - https://github.com/containers/image/blob/main/docs/containers-registries.conf.5.md
+- https://github.com/opencontainers/distribution-spec

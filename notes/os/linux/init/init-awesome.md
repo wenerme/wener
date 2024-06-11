@@ -18,6 +18,7 @@ tags:
 
 :::
 
+- supervisor ~= process manager/monitor
 - [supervisor](https://github.com/Supervisor/supervisor)
   - size: 4161536
   - Python

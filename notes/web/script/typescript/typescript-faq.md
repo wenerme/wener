@@ -39,15 +39,19 @@ tags:
   - 可以表示任意类型
   - 支持 union、mapped type、conditional type、tuple
   - 隐含 `Record<PropertyKey, unknown>`
+  - type 定义后就不可变了
 - `interface`
   - 可以 extends - 会比 type `&` 快一点
-  - 同名会做合并 - 通常是不希望的结果
+  - 同名会做合并
+    - 通常是不希望的结果
+    - 可以作为扩展点，库提供定义类型的能力
 
 ---
 
 - https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
   - 建议优先 interface
 - https://www.totaltypescript.com/type-vs-interface-which-should-you-use
+- [Stop Using TypeScript Interfaces](https://dev.to/afzalimdad9/stop-using-typescript-interfaces-1lc2)
 
 ## enum vs union
 

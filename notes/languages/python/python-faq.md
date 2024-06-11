@@ -18,6 +18,7 @@ source bin/activate
 
 - [pyenv](./pyenv.md)
   - 多版本管理
+- [python-poetry/poetry](https://github.com/python-poetry/poetry)
 - pyenv-virtualenv
 - venv
   - https://docs.python.org/3/library/venv.html

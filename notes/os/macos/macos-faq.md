@@ -501,3 +501,13 @@ sudo chown root:wheel /Library/LaunchDaemons/com.example.addlo0alias.plist
 sudo chmod 644 /Library/LaunchDaemons/com.example.addlo0alias.plist
 sudo launchctl load /Library/LaunchDaemons/com.example.addlo0alias.plist
 ```
+
+## sudo touch id
+
+```bash
+sudo nano /etc/pam.d/sudo
+```
+
+```
+auth sufficient pam_tid.so
+```
