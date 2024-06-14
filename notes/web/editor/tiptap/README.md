@@ -16,6 +16,10 @@ title: tiptap
   - @tiptap/starter-kit +4k - 扩展都很小
   - @tiptap/react 包含 @popperjs/core, tippy.js ~ +60k
   - ~310kb
+- 参考
+  - https://tiptap.dev/docs/editor/api/extensions
+  - https://tiptap.dev/docs/editor/examples/custom-document
+    - 通过强制 Document schema 来实现第一行必定为 标题
 
 :::note
 

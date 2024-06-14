@@ -96,6 +96,9 @@ tags:
   - [meta-llama/llama-recipes](https://github.com/meta-llama/llama-recipes)
   - LoRA
   - [Efficiently fine-tune Llama 3 with PyTorch FSDP and Q-Lora](https://www.philschmid.de/fsdp-qlora-llama3)
+- Uncensor
+  - https://huggingface.co/blog/mlabonne/abliteration
+    - [HN](https://news.ycombinator.com/item?id=40665721)
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - https://vllm.ai/

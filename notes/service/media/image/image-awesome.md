@@ -19,6 +19,12 @@ tags:
 brew install imageoptim-cli
 ```
 
+- AI Based
+  - https://cloudinary.com/blog/jpeg-xl-and-automatic-image-quality
+- Optimization/Apple silicon/GPU
+  - https://github.com/shssoichiro/oxipng/issues/561
+  - https://github.com/ImageOptim/ImageOptim/issues/334
+
 ## JPG
 
 - [mozilla/mozjpeg](https://github.com/mozilla/mozjpeg)
@@ -40,7 +46,7 @@ brew install imageoptim-cli
   - pngquant, GPL
 - [shssoichiro/oxipng](https://github.com/shssoichiro/oxipng)
   - MIT, Rust
-  - ~30%
+  - ~30%+
 - [kornelski/pngquant](https://github.com/kornelski/pngquant)
   - GPLv3
   - 允许损失质量

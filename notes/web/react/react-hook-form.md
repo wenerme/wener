@@ -88,3 +88,12 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 
 - https://react-hook-form.com/advanced-usage#FormProviderPerformance
 - https://github.com/react-hook-form/react-hook-form/discussions/7611#discussioncomment-2008064
+
+# FAQ
+
+## defaultValues vs values
+
+- values
+  - 动态字段
+- defaultValues
+  - 静态字段

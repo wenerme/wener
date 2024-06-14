@@ -176,6 +176,27 @@ interface GeneralResource {
 }
 ```
 
+## React
+
+```ts
+export type UseSimpleQuery<T, V extends object = Record<string, any>> = (options?: {
+  pause?: boolean;
+  suspense?: boolean;
+  variables?: V;
+}) => {
+  data: T | undefined;
+  loading: boolean;
+  error?: any;
+  refetch: () => void;
+};
+export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] }, ListQueryInput>;
+```
+
+- https://commerce.nearform.com/open-source/urql/docs/api/urql/
+  - useQuery
+  - useMutation
+- https://tanstack.com/query/latest/docs/framework/react/reference/useQuery
+
 ## Activity
 
 - Activity - 活动

@@ -129,6 +129,21 @@ nuctl get function
 - nuctl
 - https://github.com/nuclio/nuclio
 
+| env                            | default   | for                                |
+| ------------------------------ | --------- | ---------------------------------- |
+| CVAT_NUCLIO_HOST               | localhost |
+| CVAT_NUCLIO_SCHEME             | http      |
+| CVAT_NUCLIO_PORT               | 8070      |
+| CVAT_NUCLIO_DEFAULT_TIMEOUT    | 120       |
+| CVAT_NUCLIO_FUNCTION_NAMESPACE | nuclio    |
+| CVAT_NUCLIO_INVOKE_METHOD      | dashboard | direct for KUBERNETES_SERVICE_HOST |
+
+- https://github.com/cvat-ai/cvat/issues/6714
+- [Serverless tutorial](https://docs.cvat.ai/docs/manual/advanced/serverless-tutorial/)
+- function.yaml
+  - metadata - 提供名字相关信息
+  - spec.handler - 定义入口
+
 ## AI & OpenCV
 
 - Interactors - 用于 Segmentation, 半自动构建 polygon
@@ -151,9 +166,18 @@ nuctl get function
   - SiamMask - [foolwood/SiamMask](https://github.com/foolwood/SiamMask)
   - TransT - Transformer Tracking - [chenxin-dlut/TransT](https://github.com/chenxin-dlut/TransT)
 
+## Dataset
+
+- https://docs.cvat.ai/docs/manual/advanced/dataset_manifest/
+
 # FAQ
 
 ## export skip un-anotated frames
+
+```bash
+pip install "datumaro[default]"
+datum project export -e '/item/annotation' --filter-mode 'i+a' -f --save-images < your_target_format > --
+```
 
 - https://github.com/cvat-ai/cvat/issues/1251
 

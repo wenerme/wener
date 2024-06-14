@@ -20,3 +20,33 @@ tags:
 | small       | 小   |
 | big pair    | 大对 |
 | small pair  | 小对 |
+
+**Casino**
+
+| en        | cn       |
+| --------- | -------- |
+| Baccarat  | 百家乐   |
+| Blackjack | 二十一点 |
+| Poker     | 扑克牌   |
+| Roulette  | 轮盘     |
+| Slot      | 老虎机   |
+| Sic Bo    | 骰宝     |
+| Craps     | 赌场骰子 |
+| Casino    | 赌场     |
+| Chips     | 筹码     |
+| Dealer    | 庄家     |
+| Croupier  | 荷官     |
+| Pit Boss  | 管理员   |
+| Punter    | 赌徒     |
+| Whale     | 鲸鱼     |
+| VIP       | 贵宾     |
+| House     | 庄家     |
+| Banker    | 庄家     |
+| Player    | 闲家     |
+| Tie       | 和局     |
+| Pair      | 对子     |
+| Big       | 大       |
+| Small     | 小       |
+| Wager     | 押注     |
+| Patron    | 顾客     |
+| Deduction | 扣除     |

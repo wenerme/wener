@@ -117,3 +117,22 @@ eval "$(pyenv init -)"
 # ~/.bashrc
 eval "$(pyenv virtualenv-init -)"
 ```
+
+**Yolo**
+
+```bash
+pip3 install openvino==2023.2 'datumaro[default]==1.7.0'
+pip3 install ultralytics torch torchvision
+```
+
+# FAQ
+
+## Non-monotonic DTS; previous: 22695088, current: 22695088; changing to 22695089. This may result in incorrect timestamps in the output file.
+
+```bash
+ffmpeg -fflags +genpts -i input.flv -c copy -vsync 1 output.mp4
+```
+
+- flv -> mp4 出现
+  - 实时视频流抖动导致
+- DTS - Decoding Time Stamp

@@ -6,15 +6,28 @@ tags:
 
 # Shell Awesome
 
-- bash - Bourne shell
-- ash - Almquist shell - 1989 NetBSD
-- Dash - bin 还是叫 ash - Debian Almquist shell - 1997 Debian Linux
-  - Debian,Ubuntu /bin/sh
-  - BusyBox, AlpineLinux, TinyCoreLinux, OpenWrt, Tomato, DD-WRT
-  - https://git.kernel.org/pub/scm/utils/dash/dash.git
-  - macOS `brew install dash`
-  - 可用于测试 shell 兼容性
-- zsh
+- shell
+  - bash - Bourne shell
+  - ash - Almquist shell - 1989 NetBSD
+  - Dash - bin 还是叫 ash - Debian Almquist shell - 1997 Debian Linux
+    - Debian,Ubuntu /bin/sh
+    - BusyBox, AlpineLinux, TinyCoreLinux, OpenWrt, Tomato, DD-WRT
+    - https://git.kernel.org/pub/scm/utils/dash/dash.git
+    - macOS `brew install dash`
+    - 可用于测试 shell 兼容性
+  - zsh
+- workspace/session/multiplexer
+  - tmux
+  - [zellij-org/zellij](https://github.com/zellij-org/zellij)
+  - [shell-pool/shpool](https://github.com/shell-pool/shpool)
+- remote
+  - openssh
+  - bear
+  - mosh
+  - [moul/quicssh](https://github.com/moul/quicssh)
+    - SSH over QUIC
+  - [moul/assh](https://github.com/moul/assh)
+    - ssh wrapper 添加一些额外功能
 - Terminal UI
   - kitty
   - hyper
@@ -41,7 +54,6 @@ tags:
   - doas
     - OpenBSD 5.8 - 2015-10
     - AlpineLinux 3.15 - 2021-11
-  - runas
 - [bats-core/bats-core](https://github.com/bats-core/bats-core)
   - Bash Automated Testing System
 - https://ohse.de/uwe/software/lrzsz.html
@@ -69,13 +81,6 @@ tags:
   - 闭源
 - [janmojzis/tinyssh](https://github.com/janmojzis/tinyssh)
 
-## SSH
-
-- openssh
-- bear
-- mosh
-- [moul/quicssh](https://github.com/moul/quicssh)
-  - SSH over QUIC
 
 ## Share
 

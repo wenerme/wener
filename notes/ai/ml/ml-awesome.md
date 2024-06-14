@@ -62,6 +62,7 @@ tags:
       - neural network
     - [deepmind/chex](https://github.com/deepmind/chex)
 - [Labeling](./labeling.md)
+  - [CVAT](./cvat.md)
   - [Label Studio](./label-studio.md)
   - [CVHub520/X-AnyLabeling](./x-anylabeling.md)
     - GPLv3, Python
@@ -128,6 +129,9 @@ tags:
   - MIT, Python
   - config-based framework to build generative AI applications
 - Dataset
+  - https://datasetsearch.research.google.com/
+  - [datumaro](./datumaro.md)
+    - 数据集管理
   - [OpenOrca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
     - [SlimOrca](https://huggingface.co/datasets/Open-Orca/SlimOrca)
 - Foundation

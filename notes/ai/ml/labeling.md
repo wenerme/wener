@@ -1,5 +1,7 @@
 ---
 title: Labeling
+tags:
+  - Dataset
 ---
 
 # Labeling
@@ -18,6 +20,8 @@ title: Labeling
 - VGG Image Annotator (VIA)
 - 参考
   - https://github.com/KKKSQJ/DeepLearning/tree/master/others/label_convert
+  - https://openvinotoolkit.github.io/datumaro/latest/docs/data-formats/formats/index.html
+- [datumaro](./datumaro.md)
 
 ## YOLO
 

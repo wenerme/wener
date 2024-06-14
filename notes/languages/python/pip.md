@@ -15,6 +15,44 @@ title: pip
 # pip install | download | uninstall | freeze | inspect | list | show | check | config | search | cache | index | wheel | hash | debug
 
 eval "$(pip completion --bash)"
+
+pip show torch # 显示信息
+pip check      # 检查依赖
+
+#  ~/.cache/pip
+# /Users/$USER/Library/Caches/pip
+# C:\Users\$USER\AppData\Local\pip\Cache
+# PIP_CACHE_DIR
+# --cache-dir
+pip cache dir
+
+pip install datumaro==1.7.0 # 安装指定版本
+
+
+# https://pypi.org/simple
+pip3 install -h | grep index-url  # 默认 index-url
+pip config get global.index-url # 查看配置的 index-url
+pip3 config -v list # 查看搜索的路径
+```
+
+- /etc/pip.conf
+- `%ProgramData%\pip\pip.ini`
+- `~/.config/pip/pip.conf`
+- `%APPDATA%\pip\pip.ini`
+- pip.conf
+- pip.ini
+
+## requirements.txt
+
+```
+package1==version1
+package2>=version2
+```
+
+```bash
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
 ```
 
 ## Torch
@@ -86,3 +124,12 @@ proxy = http://user:password@proxy_name:port
 ```
 
 - PIP_ROOT_USER_ACTION=ignore
+
+## WARNING: There was an error checking the latest version of pip
+
+```bash
+# 可以禁用
+pip install touch --disable-pip-version-check
+```
+
+- https://pypi.org/pypi/pip/json

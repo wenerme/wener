@@ -204,8 +204,14 @@ tags:
   - 128kbps AAC
   - 256kbps AAC
 - https://superuser.com/questions/1049075
-- [TSAC](https://bellard.org/tsac/)
-  - Very Low Bitrate Audio Compression
+- Low-Bitrate
+  - [TSAC](https://bellard.org/tsac/)
+    - Very Low Bitrate Audio Compression
+  - [google/lyra](https://github.com/google/lyra)
+    - Apache-2.0, C++
+    - Very Low-Bitrate Codec for Speech
+  - [MLow: Meta’s low bitrate audio codec](https://engineering.fb.com/2024/06/13/web/mlow-metas-low-bitrate-audio-codec/)
+
 
 ## Image
 

@@ -65,6 +65,9 @@ tags:
 - [bitlbee/bitlbee](https://github.com/bitlbee/bitlbee)
 - [miranda-ng/miranda-ng](https://github.com/miranda-ng/miranda-ng)
 - [tox-rs/tox](https://github.com/tox-rs/tox)
+- [berty/berty](https://github.com/berty/berty)
+  - Apache-2.0, MIT, Golang
+  - offline-first, peer-to-peer and zero trust messaging app
 
 ## Video/Audio
 

@@ -66,9 +66,14 @@ WebServer 也可以是 Proxy
 - Caddy
   - 定位是 Web 服务器
   - 特点是 HTTP2、自动 HTTPS
-  - ~~V2 版本还在开发中 - 变化很大~~
   - 支持多 acme 服务商
   - 支持作为 acme 服务商
+  - 功能扩展性好 - xcaddy 动态构建自己需要的插件
+    - 意味着可能默认插件少，很多时候需要自己构建
+    - 意味着最终还是只有一个 Binary - 很好分发
+  - 使用扩展性好 - 支持接口配置、JSON配置、Caddyfile 配置
+    - 配置复杂
+    - 门槛高
 - Traefik
   - 定位是微服务下的负载均衡、边界路由、反向代理
   - 偏向 Cloud Native
@@ -76,6 +81,9 @@ WebServer 也可以是 Proxy
   - V2 版本调整了前后端概念 - 结构更加清晰易于配置
   - 支持 TCP 和 SNI 负载路由
   - acme 不支持分布式 - 付费
+  - 扩展性弱于 Caddy
+    - 默认功能相对多一些
+  - 支持 ACL 配置
 
 ### Nginx vs HAProxy
 

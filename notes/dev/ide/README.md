@@ -5,19 +5,7 @@ title: IDE
 # IDE
 
 - IDE - Integrated Development Environment
-- [VSC](./vsc.md)/monaco based
-  - [Microsoft/monaco-editor](https://github.com/Microsoft/monaco-editor)
-  - [vscodium](./vscodium.md)
-  - [code-server](./coder.md)
-  - [theia](./theia.md)
-  - [gitpod-io/gitpod](https://github.com/gitpod-io/gitpod)
-    - AGPLv3, Go
-  - [gitpod-io/openvscode-server](https://github.com/gitpod-io/openvscode-server)
-    - MIT
-  - https://open-vsx.org/
-- IDE
-  - [eclipse/che](./che.md)
-    - Kubernetes based Cloud Development
+- [Awesome](./ide-awesome.md)
 - Web REPL/Playground
   - https://repl.it/
 - Nodepad++

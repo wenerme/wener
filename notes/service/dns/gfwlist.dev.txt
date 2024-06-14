@@ -4,6 +4,8 @@ akamaihd.net
 alpinelinux.org
 amazonaws.com
 anaconda.com
+anaconda.org
+anaconda.org
 azure.com
 bitbucket.org
 bootstrapcdn.com
@@ -15,6 +17,7 @@ codecov.io
 composer.org
 conda-forge.org
 continuum.io
+crates.io
 docker.com
 docker.io
 fastly.net
@@ -50,11 +53,14 @@ oaiusercontent.com
 openai.com
 openai.io
 packagist.org
+php.net
 pypi.org
 python.org
 pythonhosted.org
 quay.io
 rubygems.org
+rust-lang.org
+rustup.rs
 sourceforge.net
 terraform.io
 toolbox.app

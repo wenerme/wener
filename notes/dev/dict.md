@@ -671,6 +671,33 @@ tags:
   - 提供产品或服务的个体
   - 侧重于供应链
 
+## article vs post vs document
+
+- Article - 文章
+  - 通常指一篇正式的、较长的内容，可能包含详细的分析、研究或深度报道。
+  - 场景
+    - 新闻和报道：如新闻文章、深度报道
+    - 博客和媒体：如博客文章、技术文章、教程。
+  - 特点
+    - 内容丰富：通常较长且详细，包含图片、图表和其他多媒体内容。
+    - 结构化：可能包含标题、副标题、段落、引文等。
+- Post - 帖子、日志
+  - 通常指较短、较即时的内容，适用于社交媒体、博客等平台。
+  - 适用场景
+    - 博客：如博客帖子、个人日志。
+    - 社交媒体：如社交媒体更新、简短的公告。
+  - 特点
+    - 即时性：内容较短、发布频繁。
+    - 互动性：通常允许评论、点赞等互动功能。
+- Document - 文档
+  - 正式的、结构化的内容，可能是报告、手册、合同等。
+  - 适用场景
+    - 企业和法律：如合同、政策文件、法律文书。
+    - 技术和产品：如用户手册、技术文档、白皮书。
+  - 特点
+    - 正式性：内容正式，通常用于记录重要信息。
+    - 结构化：包含章节、节、附录等结构。
+
 ## username vs user name vs userName
 
 - username - 用户名
@@ -826,12 +853,22 @@ tags:
 - Register - A recording of items, names, or actions
   - 事情/动作
   - 可以是名词也可以是动词
+  - 名词 - 登记簿, 注册表, 记录本, 名册
+  - 动词 - 登记, 注册, 记录, 挂号
   - 例如 “guest register”（宾客登记簿）， “register a complaint”（登记投诉）
+  - 特点
+    - 灵活性：可以记录各种类型的信息，如名称、物品、事件等。
+    - 日常使用：常见于日常事务中的记录和登记。
 - Registry - A place where you Register
   - 地点
   - 存储记录 - 登记册、档案
+  - 名词 - 登记处, 注册中心, 记录库, 档案馆, 名册
   - 强调的是存储和管理这些记录的 **实体** 或 **机构**
   - 例如 domain name registry
+  - 内容: RegisteredItem, Entry, Record, ComponentRegistration
+  - 特点：
+    - 专门性：通常是专门设立的机构或数据库，用于存储特定类型的信息。
+    - 管理功能：不仅存储记录，还负责管理和维护这些记录的完整性和准确性。
 - Registrar - One who registers
   - 人/执行人
   - 负责注册工作的个人或机构
@@ -1350,6 +1387,16 @@ tags:
 ---
 
 - https://en.wikipedia.org/wiki/Unified_Social_Credit_Identifier
+
+## create vs add
+
+- create
+  - 强调从无到有
+  - 通常涉及初始化
+- add
+  - 强调增加
+  - 通常 add X to Y
+  - e.g. addUserToGroup, addArticleToCategory
 
 ## address
 

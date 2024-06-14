@@ -21,6 +21,7 @@ tags:
 | [PostgreSQL 12] | 2019-10-03   |
 | [PostgreSQL 11] | 2018-10-18   |
 
+- https://www.postgresql.org/about/featurematrix/
 - [zheap](https://wiki.postgresql.org/wiki/Zheap)
   - handle UPDATE in PostgreSQL
   - 2020 [ZHEAP: REINVENTED POSTGRESQL STORAGE](https://www.cybertec-postgresql.com/en/zheap-reinvented-postgresql-storage/)

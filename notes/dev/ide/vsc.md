@@ -4,6 +4,15 @@ title: Visual Studio Code
 
 # Visual Studio Code
 
+:::caution
+
+- Remote Development 是不开源的
+- 非 VSC 不能使用官方的插件
+
+:::
+
+
+
 | 快捷键                  | 说明         |
 | ----------------------- | ------------ |
 | <kbd>Ctrl+-</kbd>       | 后退编辑位置 |

@@ -158,7 +158,7 @@ multiple platforms feature is currently not supported for docker driver. Please 
 ```
 
 ```bash
-docker buildx create --use
+docker buildx create --use --name buildx
 ```
 
 ## push and load may not be set together at the moment

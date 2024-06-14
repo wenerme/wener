@@ -8,6 +8,42 @@ tags:
 - 工商 - Industry & Business
 - GB 11643 [公民身份号码](./gb/gb-11643.md)
 
+## 备案号
+
+- ICP 备案号 https://beian.miit.gov.cn/
+  - 网站、APP、小程序、块应用
+- 公安备案 - https://beian.mps.gov.cn/#/query/webSearch
+  - 网站、APP、小程序
+- 网络文化经营许可证 - 网文备案 https://ccm.mct.gov.cn/ccnt/hbase/index.html
+- 网络出版服务许可证
+- 网络视听许可证
+- 增值电信业务经营许可证 - ICP 证
+- 互联网宗教信息服务许可证
+- 新闻信息服务许可证
+- 互联网药品信息服务资格证书
+  - https://mpa.gd.gov.cn/
+
+**QQ**
+
+```
+粤网文[2023]2882-203号 http://gs.ccm.mct.gov.cn/lic/7FC1A3B6A4DA43CB967B0260BF425AED
+新出网证（粤）字010号 https://www.qq.com/internet_licence.htm
+网络视听许可证1904073号 https://www.qq.com/cbst.shtml
+增值电信业务经营许可证：粤B2-20090059B2-20090028
+互联网宗教信息服务许可证：粤（2022）0000011
+新闻信息服务许可证 https://www.qq.com/scio.htm
+粤府新函[2001]87号
+粤公网安备44030002000001号 http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030002000001
+互联网药品信息服务资格证书 （粤）—非营业性—2023—0186
+```
+
+```
+粤ICP备XXX号
+粤ICP备XXX号-1
+湘B1.B2-XXX
+
+```
+
 ## 三证合一
 
 > **Note**

@@ -4,9 +4,9 @@ title: Power
 
 # Power
 
-| unit  | for     |
+| unit  | for     | note |
 | ----- | ------- | ---- |
-| 1wt   | 1 瓦特  | 1 瓦 |
+| 1 wt  | 1 瓦特  | 1 瓦 |
 | 1 kWh | 千瓦·時 | 度   |
 
 - 1wt = 1j/s
@@ -67,7 +67,6 @@ title: Power
 - D - 一号
   - 电压: 1.5V
   - 容量: 10000-13000mAh
-
 
 ## 直流玩具马达
 

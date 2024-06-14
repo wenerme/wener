@@ -59,6 +59,14 @@ tags:
 fc-list : file family
 ```
 
+## PingFang
+
+- OS X 10.11 El Capitan+
+  - PingFang SC / PingFang TC / PingFang HK
+  - San Francisco UI / Display / Text
+- https://support.apple.com/en-hk/103203
+- [List of typefaces included with macOS](https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS)
+
 ## 中文字体
 
 - 四大主流文字：宋、仿、黑、楷

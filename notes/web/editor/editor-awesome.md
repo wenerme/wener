@@ -10,6 +10,7 @@ tags:
 
 :::tip
 
+- 推荐👍 Lexical, Tiptap, QuillJS
 - React 优先建议选择 Lexical，否则考虑 tiptap/prosemirror
 
 :::
@@ -35,12 +36,27 @@ tags:
   - [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
     - Apache-2.0, React ContentEditable
     - 非常简单的 ContentEditable 封装
-- [quilljs/quill](https://github.com/quilljs/quill)
+- [slab/quill](https://github.com/slab/quill)
+  - BSD-3, TS
   - Quill is a modern WYSIWYG editor built for compatibility and extensibility.
   - [zenoamaro/react-quill](https://github.com/zenoamaro/react-quill)
+    - npm:react-quill
+  - [gtgalone/react-quilljs](https://github.com/gtgalone/react-quilljs)
+    - npm:react-quilljs
+    - 建议拷贝出来用，就一个 hook
 - [tinymce/tinymce](https://github.com/tinymce/tinymce)
+  - **GPLv2**
   - The world's most popular JavaScript library for rich text editing
-- https://ckeditor.com/
+  - What happened to TinyMCE's license? [#9453](https://github.com/tinymce/tinymce/issues/9453)
+    - TinyMCE v7 变更为 GPLv2
+    - MIT -> GPLv2
+    - [hugemce/hugemce](https://github.com/hugemce/hugemce)
+  - CKEditor -> TinyMCE
+    - 以前的迁移方向，现在 TinyMCE 也是 GPLv2 了
+    - CKEditor license 问题
+- [ckeditor/ckeditor5](https://github.com/ckeditor/ckeditor5)
+  - GPLv2, JS
+  - https://ckeditor.com/
 - https://github.com/JefMari/awesome-wysiwyg
 - [sofish/pen](https://github.com/sofish/pen)
   - enjoy live editing (+markdown)

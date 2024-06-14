@@ -1,8 +1,17 @@
 ---
 title: Atom
+tags:
+  - Legacy
 ---
 
 # Atom
+
+:::tip
+
+- 已经停止维护 2022-12-15
+- Electron 来源于 Atom
+
+:::
 
 - 轻量级
 - 跨平台
@@ -14,11 +23,6 @@ title: Atom
   - Notepad++
   - UltraEdit
 - 前往 [官网](https://atom.io/) 下载
-
-## 常用插件
-
-atom-sync emmet language-groovy pigments
-atom-beautify dash file-icons merge-conflicts script
 
 ## script
 

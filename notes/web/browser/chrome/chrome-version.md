@@ -235,7 +235,7 @@ const { closeCode, reason } = await wss.closed;
     - 主要用于 CJK 的括号等，让括号之类的变窄，更好看
     - https://drafts.csswg.org/css-text-4/#text-spacing-trim-property
     - https://output.jsbin.com/figixaq
-  - field-sizing
+  - field-sizing=content
     - 让输入内容自动调整输入框的大小
     - textarea
 

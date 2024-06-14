@@ -1,5 +1,4 @@
 ---
-title: Java
 tags:
   - Awesome
 ---
@@ -51,7 +50,6 @@ tags:
     - golang
 
 [adoptium]: https://adoptium.net/
-
 
 ## Languages
 

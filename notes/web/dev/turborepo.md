@@ -67,6 +67,19 @@ npx turbo login --sso-team=<team-slug>
 | TURBO_FORCE                      | `--force`                             |
 | FORCE_COLOR                      |
 
+**flags**
+
+flag | default | for
+---|---
+--env-mode | strict | 环境变量模式: strict, loose
+
+- --env-mode=strict
+  - 只会传递定义的环境变量
+    - env
+    - passThroughEnv
+    - globalEnv
+    - globalPassThroughEnv
+
 ## Caching
 
 - https://turbo.build/repo/docs/core-concepts/caching
@@ -177,6 +190,8 @@ turbo run build --token=$TURBO_TOKEN
   - open-source implementation of the Turborepo custom remote cache server
 - [remote-caching](https://turborepo.org/docs/core-concepts/remote-caching)
 
+# FAQ
+
 ## error hashing files: could not hash file package-lock.json
 
 - 如果从 npm 切换到了 pnpm，还需要修改 package.json 里的 packageManager
@@ -184,3 +199,23 @@ turbo run build --token=$TURBO_TOKEN
 ## No caches are enabled
 
 > No caches are enabled. You can try "turbo login", "turbo link", or ensuring you are not passing --remote-only to enable caching
+
+# Version
+
+## turbo 2.0
+
+- 支持 watch 模式
+- 支持 交互式 命令 - 例如 dev 这种
+- `node_modules/.cache` -> `.turbo/cache`
+- package.json 要求定义 packageManager
+- pipeline -> tasks
+- 环境变量默认 Strict Mode
+  - `--env-mode=strict`
+  - 可能导致以前的环境变量不生效，可以考虑修改为 `--env-mode=loose`
+- 所有包默认依赖 Workspace root
+
+```bash
+npx @turbo/codemod migrate
+```
+
+- https://turbo.build/repo/docs/crafting-your-repository/upgrading

@@ -6,6 +6,8 @@ tags:
 
 # Stable Diffusion Awesome
 
+- Stable Diffusion 3 Medium
+  - https://huggingface.co/stabilityai/stable-diffusion-3-medium
 - [apple/ml-stable-diffusion](https://github.com/apple/ml-stable-diffusion)
   - MIT, Python, Swift
   - Stable Diffusion with Core ML on Apple Silicon

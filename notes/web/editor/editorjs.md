@@ -7,9 +7,13 @@ title: editor.js
 - [codex-team/editor.js](https://github.com/codex-team/editor.js)
   - Apache-2.0, TS
   - Block 编辑器
+  - 插件非常多，生态比较好
+  - ⚠️ 基础功能薄弱，基本的功能也得使用插件
+    - editorjs-undo, editorjs-drag-drop
 - [editor-config.d.ts](https://github.com/codex-team/editor.js/blob/next/types/configs/editor-config.d.ts)
 - [editor-js/awesome-editorjs](https://github.com/editor-js/awesome-editorjs)
 - [codex-team/codex.docs](https://github.com/codex-team/codex.docs)
+- https://github.com/moveyourdigital/editorjs-blocks-react-renderer
 
 :::caution
 
@@ -150,4 +154,52 @@ export class MyBlock {
 
   //
 }
+```
+
+## Plugins
+
+- @editorjs/image
+  - 不支持 align - 可参考 https://www.npmjs.com/package/@ikbenbas/editorjs-image
+
+```bash
+pnpm add @editorjs/{image,simple-image,link}
+```
+
+```ts
+import Embed from '@editorjs/embed';
+import Table from '@editorjs/table';
+import Paragraph from '@editorjs/paragraph';
+import List from '@editorjs/list';
+import Warning from '@editorjs/warning';
+import Code from '@editorjs/code';
+import LinkTool from '@editorjs/link';
+import Image from '@editorjs/image';
+import Raw from '@editorjs/raw';
+import Header from '@editorjs/header';
+import Quote from '@editorjs/quote';
+import Marker from '@editorjs/marker';
+import CheckList from '@editorjs/checklist';
+import Delimiter from '@editorjs/delimiter';
+import InlineCode from '@editorjs/inline-code';
+import SimpleImage from '@editorjs/simple-image';
+
+export const EDITOR_JS_TOOLS = {
+  // Paragraph 默认就有，除非需要替换
+  // paragraph: Paragraph,
+  embed: Embed,
+  table: Table,
+  list: List,
+  warning: Warning,
+  code: Code,
+  linkTool: LinkTool,
+  image: Image,
+  raw: Raw,
+  header: Header,
+  quote: Quote,
+  marker: Marker,
+  checklist: CheckList,
+  delimiter: Delimiter,
+  inlineCode: InlineCode,
+  simpleImage: SimpleImage,
+};
 ```

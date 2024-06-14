@@ -55,3 +55,4 @@ export function Page() {
 ```
 
 - https://github.com/measuredco/puck/blob/main/packages/core/types/Config.tsx
+

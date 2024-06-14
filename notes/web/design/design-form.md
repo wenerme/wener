@@ -16,6 +16,7 @@ title: Design Form
   - [Pattern 5: Improve usability of long forms](https://proximityschool.com/learn/pattern-5-improve-usability-long-forms/)
   - [Form Field Usability: Avoid Multi-Column Layouts (13% Get It Wrong)](https://baymard.com/blog/avoid-multi-column-forms)
   - [Form Design Inspiration](https://medium.muz.li/form-design-inspiration-6bb9a350f2d8?gi=da5178313d5e)
+  - [When designing a 2 column form, should the logical order of fields flow vertically or left to right](https://ux.stackexchange.com/a/131932/36888)
 
 ## Form 类型
 

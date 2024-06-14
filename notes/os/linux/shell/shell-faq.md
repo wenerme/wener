@@ -6,6 +6,15 @@ tags:
 
 # Shell FAQ
 
+```bash
+# YYYY-mm-DD-HH-MM
+date +"%Y-%m-%d-%H-%M"
+
+tar -czvf backup-$(date +"%Y-%m-%d-%H-%M").tar.gz ./data/ # 备份
+tar -xzvf backup.tar.gz -C ./restored                     # 恢复
+tar -I zstd -xvf archive.tar.zst                          # zstd
+```
+
 ## skip first n line
 
 ```bash

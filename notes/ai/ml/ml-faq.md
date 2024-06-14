@@ -71,3 +71,8 @@ tags:
   - 优点: 生成的数据更加平滑、连续；更容易训练；更容易生成新数据
   - 缺点: 生成的数据质量不如 GAN
   -  reconstruction loss, regularization term
+
+---
+
+- https://www.baeldung.com/cs/vae-vs-gan-image-generation
+- [Understanding Variational Autoencoders](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
