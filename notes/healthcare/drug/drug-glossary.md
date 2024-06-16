@@ -14,45 +14,61 @@ tags:
 | MTC   | Medullary Thyroid Cancer                 | 髓样甲状腺癌       |
 | MEN   | Multiple Endocrine Neoplasia             | 多发性内分泌腺肿瘤 |
 | NMPA  | National Medical Products Administration | 国家药品监督管理局 |
+| OTC   | Over-the-counter                         | 非处方药           |
+| RX    | Prescription                             | 处方药             |
+| RA    | Rheumatoid Arthritis                     | 类风湿关节炎       |
 
-| en                | cn         |
-| ----------------- | ---------- |
-| Drug nomenclature | 药物命名法 |
-| Dexamethasone     | 地塞米松   |
-| Steroid           | 类固醇     |
-| Corticosteroid    | 皮质类固醇 |
-| Prednisone        | 泼尼松     |
-| Quinolines        | 喹啉类药物 |
-| Oxycinchophen     | 奥西曲芬   |
-| Gold preparations | 金制剂     |
-| Penicillamine     | 青霉胺     |
-| Oxicam            | 昔康       |
+| en                | cn           |
+| ----------------- | ------------ |
+| Drug nomenclature | 药物命名法   |
+| Dexamethasone     | 地塞米松     |
+| Steroid           | 类固醇       |
+| Corticosteroid    | 皮质类固醇   |
+| Prednisone        | 泼尼松       |
+| Quinolines        | 喹啉类药物   |
+| Oxycinchophen     | 奥西曲芬     |
+| Gold preparations | 金制剂       |
+| Penicillamine     | 青霉胺       |
+| Oxicam            | 昔康         |
+| Penicillin        | 青霉素       |
+| Roxithromycin     | 罗红霉素     |
+| Aspirin           | 阿司匹林     |
+| Paracetamol       | 对乙酰氨基酚 |
+| Ibuprofen         | 布洛芬       |
+| Diclofenac        | 双氯芬酸钾   |
 
 **知名制药公司**
 
 | en                             | cn           | notes            | known for                        |
 | ------------------------------ | ------------ | ---------------- | -------------------------------- |
-| Eli Lilly and Company          | 礼来公司     | 美国, 1876       | 精神疾病、内分泌疾病、抗肿瘤药物 |
-| Roche, F. Hoffmann-La Roche AG | 罗氏         | 瑞士巴塞尔, 1896 | 创新药物和诊断产品               |
-| Pfizer Inc.                    | 辉瑞         | 美国, 1849       | 各类药物和疫苗                   |
-| Merck & Co., Inc.              | 默沙东       | 美国, 1891       | 新药研发、疫苗                   |
-| Novartis International AG      | 诺华         | 瑞士, 1996       | 创新药物、仿制药、眼科保健产品   |
-| GlaxoSmithKline, GSK           | 葛兰素史克   | 英国, 2000       | 疫苗、药物、消费者保健品         |
-| AstraZeneca                    | 阿斯利康     | 英国, 1999       | 肿瘤、心血管、肾病及代谢疾病药物 |
-| Sanofi                         | 赛诺菲       | 法国, 2004       | 处方药和疫苗                     |
-| Bayer AG                       | 拜耳         | 德国, 1863       | 医药保健、作物科学               |
-| Johnson & Johnson              | 强生         | 美国, 1886       | 医药、医疗设备、消费品           |
 | AbbVie Inc.                    | 艾伯维       | 美国, 2013       | 免疫学、肿瘤学、病毒学           |
 | Amgen Inc.                     | 安进         | 美国, 1980       | 生物制药、肿瘤和骨骼健康         |
-| Bristol-Myers Squibb           | 百时美施贵宝 | 美国, 1989       | 肿瘤学、免疫学、心血管疾病       |
-| Gilead Sciences, Inc.          | 吉利德       | 美国, 1987       | 抗病毒药物、肿瘤药物             |
-| Takeda Pharmaceutical Company  | 武田药品     | 日本, 1781       | 肿瘤、消化系统疾病、神经疾病     |
-| Novo Nordisk                   | 诺和诺德     | 丹麦, 1923       | 糖尿病治疗、肥胖管理             |
-| Boehringer Ingelheim           | 勃林格殷格翰 | 德国, 1885       | 心血管疾病、呼吸系统疾病         |
-| Biogen                         | 渤健         | 美国, 1978       | 神经科学、罕见病                 |
 | Astellas Pharma Inc.           | 安斯泰来     | 日本, 2005       | 器官移植、泌尿系统疾病           |
-| Teva Pharmaceutical Industries | Teva 制药    | 以色列, 1901     | 仿制药、生物制药                 |
+| AstraZeneca                    | 阿斯利康     | 英国, 1999       | 肿瘤、心血管、肾病及代谢疾病药物 |
+| Bayer AG                       | 拜耳         | 德国, 1863       | 医药保健、作物科学               |
+| Biogen                         | 渤健         | 美国, 1978       | 神经科学、罕见病                 |
+| Boehringer Ingelheim           | 勃林格殷格翰 | 德国, 1885       | 心血管疾病、呼吸系统疾病         |
+| Bristol-Myers Squibb           | 百时美施贵宝 | 美国, 1989       | 肿瘤学、免疫学、心血管疾病       |
+| Eli Lilly and Company          | 礼来公司     | 美国, 1876       | 精神疾病、内分泌疾病、抗肿瘤药物 |
+| Gilead Sciences, Inc.          | 吉利德       | 美国, 1987       | 抗病毒药物、肿瘤药物             |
+| GlaxoSmithKline, GSK           | 葛兰素史克   | 英国, 2000       | 疫苗、药物、消费者保健品         |
 | Himalaya Drug Company          | 喜马拉雅药业 | 印度, 1930       | 天然草药、保健品                 |
+| Janssen Pharmaceutica          | 杨森制药     | 比利时, 1953     | 药物、疫苗、诊断产品             |
+| Johnson & Johnson              | 强生         | 美国, 1886       | 医药、医疗设备、消费品           |
+| Merck & Co., Inc.              | 默沙东       | 美国, 1891       | 新药研发、疫苗                   |
+| Novartis International AG      | 诺华         | 瑞士, 1996       | 创新药物、仿制药、眼科保健产品   |
+| Novo Nordisk                   | 诺和诺德     | 丹麦, 1923       | 糖尿病治疗、肥胖管理             |
+| Pfizer Inc.                    | 辉瑞         | 美国, 1849       | 各类药物和疫苗                   |
+| Roche, F. Hoffmann-La Roche AG | 罗氏         | 瑞士巴塞尔, 1896 | 创新药物和诊断产品               |
+| Sanofi                         | 赛诺菲       | 法国, 2004       | 处方药和疫苗                     |
+| Takeda Pharmaceutical Company  | 武田药品     | 日本, 1781       | 肿瘤、消化系统疾病、神经疾病     |
+| Teva Pharmaceutical Industries | Teva 制药    | 以色列, 1901     | 仿制药、生物制药                 |
+
+- Janssen Pharmaceutica/杨森制药
+  - -> 西安杨森 - 最早进入中国的大型药厂
+  - <- 强生公司
+  - 达克宁、派瑞松、息斯敏、吗丁啉
+- [List of pharmaceutical companies](https://en.wikipedia.org/wiki/List_of_pharmaceutical_companies)
 
 **药物**
 
@@ -82,6 +98,17 @@ tags:
 | Tirzepatide           | 替西帕肽               | Mounjaro/2型糖尿病, Zepbound/减肥         | 抗糖尿病、减肥                             | 礼来 |
 
 - https://drugbank.ca/
+- 非处方消炎药 - otc-anti-inflammatories
+  - ibuprofen/布洛芬
+    - 缓解疼痛、发热和炎症。常用于头痛、牙痛、肌肉疼痛和轻度炎症。
+  - Aspirin/阿司匹林
+    - 减轻疼痛、降低发热和减少炎症反应。适用于关节炎和其他轻度炎症。
+  - Acetaminophen/对乙酰氨基酚
+    - 止痛和退烧，但没有抗炎效果。
+    - 适合对布洛芬或阿司匹林不耐受的人。
+  - naproxen
+  - https://www.healthline.com/health/pain-relief/otc-anti-inflammatories
+- 处方消炎药
 
 ## 皮质类固醇 {#corticosteroid}
 

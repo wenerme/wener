@@ -53,8 +53,8 @@ ExitPolicy reject *:*
 
 ## onion links
 
-- https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/
 - Ahmia http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion/
+  - 搜索
 - Haystak http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/
 - DDG https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
 - The Hidden Wiki
@@ -79,4 +79,10 @@ ExitPolicy reject *:*
 - Impreza Hosting https://imprezareshna326gqgmbdzwmnad2wnjmeowh45bs2buxarh5qummjad.onion/
 - Just Another Library http://libraryfyuybp7oyidyya3ah5xvwgyx6weauoini7zyz555litmmumad.onion/
 - Comic Book Library http://nv3x2jozywh63fkohn5mwp2d73vasusjixn3im3ueof52fmbjsigw6ad.onion/
+- TGX http://galaxy3yrfbwlwo72q3v2wlyjinqr2vejgpkxb22ll5pcpuaxlnqjiid.onion/
+
+---
+
 - https://gist.github.com/0x00009b/8cf0c2b0e147dc0c1114fb32b5d2d7a3
+- https://en.wikipedia.org/wiki/List_of_Tor_onion_services
+- https://darkweblinks.com/

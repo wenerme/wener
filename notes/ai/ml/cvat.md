@@ -176,9 +176,12 @@ nuctl get function
 
 ```bash
 pip install "datumaro[default]"
-datum project export -e '/item/annotation' --filter-mode 'i+a' -f --save-images < your_target_format > --
+
+# 默认导出为 PNG
+datum convert -i SRC_DIR -e '/item/annotation' --filter-mode 'i+a' -f yolo -o DST_DIR -- --save-media --image-ext='.jpg'
 ```
 
+- SRC_DIR 为 cvat 导出的 datumaro 数据集格式
 - https://github.com/cvat-ai/cvat/issues/1251
 
 ## cvat.openvino.base: pull access denied

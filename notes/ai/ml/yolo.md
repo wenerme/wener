@@ -208,6 +208,21 @@ names: ['cat', 'dog', 'bird'] # 类别名称列表
 - YOLOv8
   - 更快、更准
 
+## Model Size
+
+```yaml
+scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call yolov8.yaml with scale 'n'
+  # [depth, width, max_channels]
+  n: [0.33, 0.25, 1024] # YOLOv8n summary: 225 layers,  3157200 parameters,  3157184 gradients,   8.9 GFLOPs
+  s: [0.33, 0.50, 1024] # YOLOv8s summary: 225 layers, 11166560 parameters, 11166544 gradients,  28.8 GFLOPs
+  m: [0.67, 0.75, 768] # YOLOv8m summary: 295 layers, 25902640 parameters, 25902624 gradients,  79.3 GFLOPs
+  l: [1.00, 1.00, 512] # YOLOv8l summary: 365 layers, 43691520 parameters, 43691504 gradients, 165.7 GFLOPs
+  x: [1.00, 1.25, 512] # YOLOv8x summary: 365 layers, 68229648 parameters, 68229632 gradients, 258.5 GFLOPs
+```
+
+- https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v8/yolov8.yaml
+- https://www.researchgate.net/figure/YOLOv5-different-model-sizes-where-FP16-stands-for-the-half-floating-point-precision_fig3_354846944
+
 ## Cascade
 
 - Hierarchical, Cascade
@@ -224,3 +239,7 @@ names: ['cat', 'dog', 'bird'] # 类别名称列表
   - Comparing YOLOv8x vs Cascade RCNN on human detection [ultralytics#3248](https://github.com/ultralytics/ultralytics/issues/3248)
   - Hierarchical Classification in Yolo v8 [ultralytics#4353](https://github.com/ultralytics/ultralytics/issues/4353)
   - Open-Vocabulary One-Stage Detection with Hierarchical Visual-Language Knowledge Distillation
+
+## SyntaxError: 'v5loader' is not a valid YOLO argument
+
+- 可能没之前的数据，取消 resume 参数

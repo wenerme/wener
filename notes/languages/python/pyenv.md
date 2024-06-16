@@ -15,7 +15,7 @@ title: pyenv
 :::
 
 ```bash
-brew install pyenv
+brew install pyenv # by macOS Homebre
 pyenv install --list
 pyenv install 3.10 # 安装指定版本
 pyenv local 3.10   # 切换当前目录的 Python 版本, 需要先 init
@@ -51,3 +51,17 @@ pyenv virtualenv 3 venv
 - PYENV_VERSION
 - .python-version
 - $(pyenv root)/version
+
+## Install
+
+- 会 clone 到 ~/.pyenv/
+
+```bash
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+eval "$(pyenv virtualenv-init -)"
+```

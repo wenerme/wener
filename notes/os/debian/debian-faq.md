@@ -21,3 +21,9 @@ apt-get install asterisk/buster-backports
 # 从 backport 安装
 apt-get install -t buster-backports asterisk
 ```
+
+## non-free
+
+- non-free-firmware
+  - 2022
+  - firmware-iwlwifi, firmware-amd-graphics, firmware-misc-nonfree

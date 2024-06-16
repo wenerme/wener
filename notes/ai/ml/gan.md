@@ -30,9 +30,28 @@ title: GAN
 - SRGAN - Super Resolution GAN
 - BiGAN - Bidirectional GAN
 - CycleGAN
+  - 2017
+  - 无需成对的训练数据
+  - 引入 Cycle-Consistency Loss
+  - CycleGAN > CUT > FastCUT
+- DiscoGAN
+  - 和 CycleGAN 非常相似
+- CUT - Contrastive Unpaired Translation
+  - 2020
+  - fast and memory-efficient training
+  - [taesungp/contrastive-unpaired-translation](https://github.com/taesungp/contrastive-unpaired-translation)
+- img2img-turbo - CycleGAN-Turbo, pix2pix-Turbo
+  - 2024
+- FastCUT
+- CycleDiffusion
+- pixelRNN
+- DDIB - Dual Diffusion Implicit Bridges
 - InfoGAN
 - BigGAN
 - SinGAN
+- Contextual Attention GAN (CA-GAN)
+- DeepFill v2
+- Attention-based Image Inpainting
 - StyleGAN
   - 能够独立地控制图像的不同层次特征
   - Gen
@@ -48,10 +67,22 @@ title: GAN
 - PatchGAN discriminator
   - pix2pix
   - https://paperswithcode.com/method/patchgan
+- Pix2Pix
+  - 需要成对的训练数据
 
 ## StyleGAN
 
 - [EvgenyKashin/stylegan2-distillation](https://github.com/EvgenyKashin/stylegan2-distillation)
+
+## CycleGAN
+
+- [junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+  - Image-to-Image Translation in PyTorch
+
+
+```bash
+git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
+```
 
 ## 参考 {#reference}
 
@@ -67,3 +98,4 @@ title: GAN
 - https://poloclub.github.io/ganlab/
 - [junyanz/pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
   - Image-to-Image Translation in PyTorch
+- [GaParmar/img2img-turbo](https://github.com/GaParmar/img2img-turbo)

@@ -4,6 +4,8 @@ title: Tmux
 
 # Tmux
 
+- [tmux/tmux](https://github.com/tmux/tmux)
+  - ISC, C
 - [tmux.1](https://man7.org/linux/man-pages/man1/tmux.1.html)
 - Cheat sheet
   - https://gist.github.com/andreyvit/2921703
@@ -13,7 +15,9 @@ title: Tmux
 
 ```bash
 # 新建或 attach 到会话
-tmuxrc new -A -s main
+tmux new -A -s main
+
+tmuxrc new -A -s main # or tmuxrc
 
 # 显示指定服务开启的会话
 tmux -S /tmp/extratmuxserver/tmuxserver ls
@@ -31,6 +35,15 @@ tmux list-panes -F '#F' | grep -q Z || tmux resize-pane -Z
 # Zoom Out
 tmux list-panes -F '#F' | grep -q Z && tmux resize-pane -Z
 ```
+
+**常用命令**
+
+```bash
+set -g mouse on
+split-window -h # 水平分割
+split-window -v # 垂直分割
+```
+
 
 ## 窗口管理
 

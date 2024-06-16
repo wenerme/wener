@@ -59,9 +59,11 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - useForm
   - 返回的是内部 `_formControl`
   - defaultValues
-    - 默认值 - 避免 undefined - 导致 controlled 和 uncontrolled 混用
+    - 默认值 - 避免 **undefined** - 导致 controlled 和 uncontrolled 混用
     - 表单的初始化值
     - reset 会重置表单为 defaultValues
+    - 值会缓存
+    - 会包含在 submit 的数据里
   - values
     - 表单的当前值 - 修改会反应到表单上
     - 可用于 外部 状态修改
@@ -90,10 +92,3 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - https://github.com/react-hook-form/react-hook-form/discussions/7611#discussioncomment-2008064
 
 # FAQ
-
-## defaultValues vs values
-
-- values
-  - 动态字段
-- defaultValues
-  - 静态字段

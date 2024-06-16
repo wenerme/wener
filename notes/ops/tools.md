@@ -33,10 +33,6 @@ direnv allow
 * 支持滚动
 * 但需要启服务端
 
-## sshrc
-* [sshrc](https://github.com/Russell91/sshrc)
-* 将本地的 dotfiles 和 vimrc 等通过 ssh 或 mosh 带到远程环境
-
 ## ttyd
 * [ttyd](https://github.com/tsl0922/ttyd/)
   * [gotty](https://github.com/yudai/gotty) 的 fork

@@ -430,3 +430,21 @@ $$;
   - 是 immutable 的
   - 但其值取决于当前转换的上下文 TZ
   - 除非确定是 date 的上下文，否则尽量用 timestamptz
+
+## 通过生成实现多态 ID 关联 {#entity_id_type}
+
+- 可以实现外按键关联多态类型
+
+```sql
+create table entity_label(
+  id                  text        not null default gen_ulid(),
+
+  -- 多态关联，无法外键
+  entity_id           text        not null,
+  entity_type         text        not null,
+
+  account_id text generated always as ( case entity_type when 'Account' then entity_id end ) stored,
+
+  foreign key (account_id) references account(id),
+)
+```

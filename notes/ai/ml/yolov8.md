@@ -73,7 +73,7 @@ yolo train data=coco8.yaml model=yolov8n.pt epochs=10 lr0=0.01
   - 默认 640
   - 一般 320 - 640
 - batch - 批次大小
-  - batch=-1 - AutoBatch - 基于 GPU 内存
+  - batch=-1 - AutoBatch - 基于内存自动检测
 - https://docs.ultralytics.com/usage/cfg/
 
 ```yaml

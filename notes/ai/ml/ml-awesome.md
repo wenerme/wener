@@ -105,6 +105,21 @@ tags:
   - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
     - MIT, Python, TS
     - NVR with realtime local object detection for IP cameras
+- vision
+  - [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2)
+    - Apache-2.0, PyTorch
+    - 2023-04-14
+    - DINOv2: Learning Robust Visual Features without Supervision
+    - 用于特征提取，无监督
+  - [facebookresearch/dino](https://github.com/facebookresearch/dino)
+    - Apache-2.0, PyTorch
+    - 2021
+    - ViT
+    - XCiT
+    - DINO - Self-Supervised Vision Transformers
+    - PyTorch code for Vision Transformers training with the Self-Supervised learning method DINO
+- text & image
+  - [Yutong-Zhou-cv/Awesome-Text-to-Image](https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image)
 - tts
   - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
     - MIT, Python
@@ -129,6 +144,7 @@ tags:
   - MIT, Python
   - config-based framework to build generative AI applications
 - Dataset
+  - https://www.opendatanetwork.com/
   - https://datasetsearch.research.google.com/
   - [datumaro](./datumaro.md)
     - 数据集管理

@@ -23,9 +23,8 @@ datum project create
 
 datum project export -e '/item/annotation' --filter-mode 'i+a' -f --save-images < your_target_format > --
 
-# CVAT annotations.xml
-datum project import --format cvat -n cvat1 annotations.xml
-datum project import --format video_frames -n vid1 video.mp4
+# -t TRANSFORM [-o DST_DIR] [--overwrite] [-p PROJECT_DIR] [--stage STAGE] [--apply APPLY] [target]
+datum transform -t random_split ds:yolo -- --subset train:.67 --subset test:.33 # 随机分割数据集
 ```
 
 # FAQ
@@ -42,3 +41,72 @@ brew install rust
 # %localappdata%\Intel Corporation\isip
 rm -rf $HOME/intel/isip
 ```
+
+
+## schema
+
+```ts
+export interface Root {
+  info: Info;
+  categories: Categories;
+  items: Item[];
+}
+
+export interface Info {}
+
+export interface Categories {
+  label: Label;
+  points: Points;
+}
+
+export interface Label {
+  labels: Label2[];
+  attributes: string[];
+}
+
+export interface Label2 {
+  name: string;
+  parent: string;
+  attributes: any[];
+}
+
+export interface Points {
+  items: any[];
+}
+
+export interface Item {
+  id: string; // frame_000000
+  annotations: Annotation[];
+  attr: Attr;
+  point_cloud: { path: '' };
+  image: Image;
+}
+
+export interface Annotation {
+  id: number;
+  type: string;
+  attributes: Attributes;
+  group: number;
+  label_id: number;
+  z_order: number;
+  bbox: number[];
+}
+
+export interface Attributes {
+  occluded: boolean;
+  rotation: number;
+  track_id: number;
+  keyframe: boolean;
+}
+
+export interface Attr {
+  frame: number;
+}
+
+export interface Image {
+  path: string;
+  size: number[];
+}
+```
+
+- https://openvinotoolkit.github.io/datumaro/latest/docs/data-formats/formats/datumaro.html

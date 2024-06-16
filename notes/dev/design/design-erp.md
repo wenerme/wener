@@ -9,6 +9,7 @@ tags:
 
 - [Design API](./design-api.md)
 - [Design Auth](./design-auth.md)
+- [Design Schema](./design-schema.md)
 
 :::
 

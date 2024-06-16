@@ -15,6 +15,14 @@ tags:
   - Disney+
   - Hulu
   - Apple TV+
+- open library/Sci-Hub/LibGen/Z-Lib/DuXiu
+  - https://annas-archive.org/
+  - https://z-lib.org/
+  - https://libgen.is/
+  - https://librivox.org/
+    - free public domain audiobooks
+  - [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
+  - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 
 ## Index
 
@@ -48,16 +56,6 @@ tags:
   - https://www.alipansou.com/
     - https://pan.alipanso.com/
 
----
-
-- https://z-lib.org/
-- https://libgen.is/
-- https://librivox.org/
-  - free public domain audiobooks
-- [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
-- [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
-- http://annas-blog.org/blog-3x-new-books.html
-  - [HN](https://news.ycombinator.com/item?id=32972923)
 
 <!--
 alipanso6.com，alipanso7.com，alipanso8.com

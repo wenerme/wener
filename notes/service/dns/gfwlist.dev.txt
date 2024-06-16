@@ -7,12 +7,14 @@ anaconda.com
 anaconda.org
 anaconda.org
 azure.com
+berkeley.edu
 bitbucket.org
 bootstrapcdn.com
 cdnjs.com
 chatgpt.com
 cloudflare.com
 cloudfront.net
+cmu.edu
 codecov.io
 composer.org
 conda-forge.org
@@ -50,6 +52,7 @@ npmjs.org
 nuget.org
 oaistatic.com
 oaiusercontent.com
+onion
 openai.com
 openai.io
 packagist.org
@@ -64,6 +67,7 @@ rustup.rs
 sourceforge.net
 terraform.io
 toolbox.app
+torproject.org
 uber.org
 unpkg.com
 visualstudio.com

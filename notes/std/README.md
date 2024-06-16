@@ -22,3 +22,13 @@ title: 标准数据
   - IETF（Internet Engineering Task Force，互联网工程任务组）
   - 关注互联网的技术规范、协议、过程和约定
   - 过程较为开放，强调技术社区的贡献和共识
+
+| abbr. | stand for                                      |
+| ----- | ---------------------------------------------- | ---------------- |
+| EIA   | Electronic Industries Alliance                 | 电子工业联盟     |
+| ANSI  | American National Standards Institute          | 美国国家标准协会 |
+| NEDA  | National Electronic Distributors Association   | 国防工业协会     |
+| ECIA  | Electronic Components Industry Association     |
+| ISO   | International Organization for Standardization |
+
+- [List of EIA standards](https://en.wikipedia.org/wiki/List_of_EIA_standards)
