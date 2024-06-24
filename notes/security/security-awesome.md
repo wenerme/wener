@@ -23,6 +23,16 @@ tags:
 - [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
   - Apache-2.0
 - [danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
+- Linux
+  - [liamg/traitor](https://github.com/liamg/traitor)
+    - MIT, Go
+    - Linux privilege escalation
+- Web/滑块验证/机器人
+  - [pavlealeksic/puppeteer-afp](https://github.com/pavlealeksic/puppeteer-afp)
+    - stop sites from fingerprinting your puppeteer
+  - https://www.zhihu.com/question/287191234/answer/3521005150
+
+
 
 ## Algorithm
 

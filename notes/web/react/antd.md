@@ -9,6 +9,8 @@ tags:
 
 - [ant-design/ant-design](https://github.com/ant-design/ant-design) - 不建议产品使用
   - 丰富强大的组件库
+- 参考
+  - 推荐使用 [react-component](./react-component.md)，antd 的基础库
 
 ```bash
 npm add antd

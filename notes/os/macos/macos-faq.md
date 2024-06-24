@@ -453,7 +453,13 @@ VER=$(cat /tmp/googlechrome/Google\ Chrome/Google\ Chrome.app/Contents/Info.plis
 
 ## 5000 & 7000 ports
 
+macOS 的 AirPlay Receiver 服务会占用 5000 和 7000 端口
+
 - System Settings > General > AirDrop & Handoff > AirPlay Receiver
+
+---
+
+AirPlay Receiver 是 macOS 的一个服务，用于接收来自 iOS 设备的音频和视频流。
 
 ## utun 无法 ping 本地IP
 

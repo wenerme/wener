@@ -92,3 +92,61 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - https://github.com/react-hook-form/react-hook-form/discussions/7611#discussioncomment-2008064
 
 # FAQ
+
+## reset
+
+- reset 可能只能覆盖，也就是必须要传入内容，否则之前的值会保留
+- https://github.com/orgs/react-hook-form/discussions/7589
+
+## empty to null
+
+## 只提交修改后的值
+
+```ts
+function getDirtyFields(
+  {
+    formState: { dirtyFields },
+    getValues,
+  }: {
+    formState: { dirtyFields: any };
+    getValues: () => any;
+  },
+  formValues = getValues(),
+) {
+  if (typeof dirtyFields !== 'object' || dirtyFields === null || !formValues) {
+    return {};
+  }
+
+  return Object.keys(dirtyFields).reduce(
+    (accumulator, key) => {
+      const isDirty = dirtyFields[key];
+      const value = formValues[key];
+
+      // If it's an array, apply the logic recursively to each item
+      if (Array.isArray(isDirty)) {
+        // eslint-disable-next-line no-underscore-dangle
+        const _dirtyFields = isDirty.map((item, index) => getDirtyFields(item, value[index]));
+        if (_dirtyFields.length > 0) {
+          // eslint-disable-next-line no-param-reassign
+          accumulator[key] = _dirtyFields;
+        }
+      }
+      // If it's an object, apply the logic recursively
+      else if (typeof isDirty === 'object' && isDirty !== null) {
+        // eslint-disable-next-line no-param-reassign
+        accumulator[key] = getDirtyFields(isDirty, value);
+      }
+      // If it's a dirty field, get the value from formValues
+      else if (isDirty) {
+        // eslint-disable-next-line no-param-reassign
+        accumulator[key] = value;
+      }
+
+      return accumulator;
+    },
+    {} as Record<string, any>,
+  );
+}
+```
+
+- https://github.com/orgs/react-hook-form/discussions/9472

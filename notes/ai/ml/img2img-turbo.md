@@ -34,15 +34,14 @@ python -m venv venv
 source venv/bin/activate
 
 pip install -r requirements.txt
+# wandb 配置 $HOME/.netrc
+pip install wandb vision_aided_loss
+
+# https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/15863#issuecomment-2125026282
 
 # $HOME/.cache/huggingface/accelerate/default_config.yaml
 accelerate config
 export NCCL_P2P_DISABLE=1
-
-pip install wandb vision_aided_loss
-
-# wandb
-# $HOME/.netrc
 
 accelerate launch --main_process_port 29501 src/train_cyclegan_turbo.py \
   --pretrained_model_name_or_path="stabilityai/sd-turbo" \

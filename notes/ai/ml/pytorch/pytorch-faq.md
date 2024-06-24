@@ -20,3 +20,7 @@ else:
 ```
 tensor([1.], device='mps:0')
 ```
+
+## torch dynamo
+
+- 自动计算图生成和优化

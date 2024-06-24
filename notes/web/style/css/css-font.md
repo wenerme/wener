@@ -13,6 +13,7 @@ title: CSS Font
 - 参考
   - https://web.dev/optimize-webfont-loading/
   - https://www.fontsquirrel.com/fonts/list/popular
+  - https://css-tricks.com/snippets/css/system-font-stack/
 
 ## 默认字体
 

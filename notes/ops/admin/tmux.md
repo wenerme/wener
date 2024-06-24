@@ -40,6 +40,18 @@ tmux list-panes -F '#F' | grep -q Z && tmux resize-pane -Z
 
 ```bash
 set -g mouse on
+
+# 使用 - | 来分割窗口
+unbind %
+bind | split-window -h
+
+unbind '"'
+bind - split-window -v
+```
+
+**常用命令**
+
+```bash
 split-window -h # 水平分割
 split-window -v # 垂直分割
 ```

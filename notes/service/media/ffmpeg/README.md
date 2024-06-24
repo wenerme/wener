@@ -24,10 +24,30 @@ title: ffmpeg
 
 ## Flags
 
-| flag                          |
-| ----------------------------- | --- |
-| -hide_banner                  |     |
-| `-vf,-filter:v <filtergraph>` |     |
+- -vf -> -filter:v
+- -af -> -filter:a
+- `-filter[:stream_specifier] filtergraph (output,per-stream)`
+
+| Flag                         | For                   |
+| ---------------------------- | --------------------- |
+| `-hide_banner`               | 隐藏 Banner           |
+| `-i INPUT`                   | 指定输入文件          |
+| `-o OUTPUT`                  | 指定输出文件          |
+| `-f FORMAT`                  | 指定输入/输出文件格式 |
+| `-start_number START_NUMBER` | 设置起始帧/索引号     |
+| `-c CODEC`                   | 指定编解码器          |
+| `-b:a BITRATE`               | 设置音频码率          |
+| `-b:v BITRATE`               | 设置视频码率          |
+| `-r FPS`                     | 设置帧率              |
+| `-s WIDTHxHEIGHT`            | 设置分辨率            |
+| `-vf FILTER`                 | 应用视频滤镜          |
+| `-af FILTER`                 | 应用音频滤镜          |
+| `-ss START_TIME`             | 设置开始时间          |
+| `-to END_TIME`               | 设置结束时间          |
+| `-t DURATION`                | 设置持续时间          |
+| `-metadata KEY=VALUE`        | 添加元数据            |
+
+- https://ffmpeg.org/ffmpeg.html
 
 - 常用参数
   - `-r 17` 修改帧率

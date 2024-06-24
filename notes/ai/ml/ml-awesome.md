@@ -85,6 +85,10 @@ tags:
 - MLOps
   - [wandb](https://github.com/wandb/wandb)
     - MIT, Python, Go
+- Voice assistant/voice agent/voice chat/TTS
+  - [mezbaul-h/june](https://github.com/mezbaul-h/june)
+  - [PromtEngineer/Verbi](https://github.com/PromtEngineer/Verbi)
+  - [bolna-ai/bolna](https://github.com/bolna-ai/bolna)
 - VToonify
 - music
   - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
@@ -105,6 +109,8 @@ tags:
   - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
     - MIT, Python, TS
     - NVR with realtime local object detection for IP cameras
+- text to image
+  - [Yutong-Zhou-cv/Awesome-Text-to-Image](https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image)
 - vision
   - [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2)
     - Apache-2.0, PyTorch
@@ -124,6 +130,15 @@ tags:
   - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
     - MIT, Python
     - [HN](https://news.ycombinator.com/item?id=38335255)
+- diagram/Visualizer
+  - [lutzroeder/netron](https://github.com/lutzroeder/netron)
+  - https://alexlenail.me/NN-SVG/LeNet.html
+  - [HarisIqbal88/PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet)
+    - Latex code for making neural networks diagrams
+  - https://www.tensorflow.org/tensorboard/graphs
+  - [stared/keras-sequential-ascii](https://github.com/stared/keras-sequential-ascii)
+    - ASCII
+  - https://medium.com/inbrowserai/simple-diagrams-of-convoluted-neural-networks-39c097d2925b
 - RT-DETR - Real-Time Detection Transformer
   - by Baidu
 - SAM/Segment Anything Model
@@ -144,6 +159,7 @@ tags:
   - MIT, Python
   - config-based framework to build generative AI applications
 - Dataset
+  - https://annas-archive.org/llm
   - https://www.opendatanetwork.com/
   - https://datasetsearch.research.google.com/
   - [datumaro](./datumaro.md)

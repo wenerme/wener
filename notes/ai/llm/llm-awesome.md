@@ -13,6 +13,9 @@ tags:
     - 支持最好最广泛使用的推理引擎
   - [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
     - Toolbox for Optimized LLM Inference
+  - [vllm-project/vllm](https://github.com/vllm-project/vllm)
+    - https://vllm.ai/
+    - vLLM: Easy, Fast, and Cheap LLM Serving
 - Application
   - [jmorganca/ollama](./ollama.md)
     - MIT, Golang
@@ -103,9 +106,6 @@ tags:
     - [HN](https://news.ycombinator.com/item?id=40665721)
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
-- https://vllm.ai/
-  - [vllm-project/vllm](https://github.com/vllm-project/vllm)
-  - vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention
 - [HazyResearch/flash-attention](https://github.com/HazyResearch/flash-attention)
   - Fast and memory-efficient exact attention
 - [refuel-ai/autolabel](https://github.com/refuel-ai/autolabel)

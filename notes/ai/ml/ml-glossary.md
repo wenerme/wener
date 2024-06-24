@@ -43,6 +43,7 @@ tags:
 | MPC    | Multi-Party Computation                                 | 多方计算                |
 | FBPCS  | Facebook Private Computation Service                    | Facebook 私有计算服务   |
 | FID    | Fréchet Inception Distance                              | 弗雷歇特 Inception 距离 |
+| LCM    | Latent Consistency Model                                | 潜在一致性模型          |
 
 | abbr. | stand for                     | cn            |
 | ----- | ----------------------------- | ------------- |

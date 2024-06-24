@@ -75,6 +75,50 @@ NEXTAUTH_URL_INTERNAL=http://127.0.0.1:$PORT/auth/api/auth
 NEXTAUTH_SECRET=
 ```
 
+## 避免 Build 预渲染 {#prevent-build-phase}
+
+Build 预渲染 需要构建环境有完备的 ENV，比如数据库连接、接口请求都要能正常返回。
+
+```bash
+next build --experimental-build-mode compile
+# next experimental-compile
+```
+
+- [--experimental-build-mode](https://github.com/vercel/next.js/blob/canary/docs/02-app/02-api-reference/08-next-cli.mdx#:~:text=%2D%2Dexperimental%2Dbuild%2Dmode)
+- https://github.com/vercel/next.js/discussions/46544
+
+## Render Context
+
+- 静态渲染 - 预渲染阶段
+  - 根据情况有时候可能需要，有时候可能不希望需要
+  - 预渲染后的内容是纯静态的
+  - 调用 cookies, headers, fetch 会 opt 为 服务端渲染
+  - 纯静态内容相当于直接生成了文件
+- 服务端渲染
+  - 能 async
+  - 能很容易获取到数据
+  - 能获取到的上下文信息较少
+  - 不能包含任何 state、Context 的代码
+  - 只能使用部分 React 功能
+- 客户端渲染
+  - 能使用所有 React 功能
+  - 根据构建的站点情况，可能需要对数据获取做特殊处理
+  - 例如：使用 action 来避免请求到真实的服务器，避免暴露真实服务器信息
+
+---
+
+- 通常不要求 静态渲染/预渲染，除非是非常大流量的站点，不期望任何额外的请求到服务端后端。
+- 因此大多数时候需要区分 服务端渲染/SSR 还是 客户端渲染/CSR
+- 营销、推广、官网 站点 尽可能的让代码能 SSR
+- 让代码能 SSR 的一些方式
+  - 尽量使用 CSS 做一些效果
+    - 例如 tab 切换、按钮效果
+  - 使用统一的一个 CSR 组件维护全局状态
+    - 例如 弹窗、按钮 action 处理
+  - 尽量隔离 CSR 组件
+    - 可能一个 CSR 组件只做一个事情
+    - 例如 ShowContactButton 只是在 Button 的基础上增加了 onClick 操作
+
 ## socket hang up - 30s timeout
 
 - rewrite 时出现

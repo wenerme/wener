@@ -33,6 +33,9 @@ tags:
   - [temporalio/temporal](https://github.com/temporalio/temporal)
     - cadence fork - 2020-10
   - [uber/cadence](https://github.com/uber/cadence)
+- Task Queue
+  - [hatchet-dev/hatchet](https://github.com/hatchet-dev/hatchet)
+    - MIT, Go, TS
 - [node-red/node-red](https://github.com/node-red/node-red)
   - Apache-2.0, Javascript
 - [n8n-io/n8n](https://github.com/n8n-io/n8n)

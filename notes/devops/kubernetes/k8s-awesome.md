@@ -112,6 +112,8 @@ tags:
   - [metallb](./network/metallb.md)
   - [cert-manager](./app/cert-manager.md)
   - kube-prometheus
+- StorageClass
+  - https://storageclass.info/storageclasses/
 - [armosec/kubescape](https://github.com/armosec/kubescape)
   - testing if Kubernetes is deployed securely
 - [open-policy-agent/opa](https://github.com/open-policy-agent/opa)

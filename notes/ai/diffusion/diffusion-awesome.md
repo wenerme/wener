@@ -77,3 +77,4 @@ tags:
 | Simple Diffusion      | 简单扩散 |
 | Facilitated Diffusion | 促进扩散 |
 | Active Transport      | 主动运输 |
+

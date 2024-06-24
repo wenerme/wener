@@ -6,6 +6,7 @@ amazonaws.com
 anaconda.com
 anaconda.org
 anaconda.org
+annas-archive.org
 azure.com
 berkeley.edu
 bitbucket.org

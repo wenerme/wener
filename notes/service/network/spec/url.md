@@ -5,6 +5,23 @@ tags:
 
 # URI
 
+- URL - Uniform Resource Locator
+  - URI > URL & URN
+  - [List of URI schemes](https://en.wikipedia.org/wiki/List_of_URI_schemes)
+  - https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
+- URN - Uniform Resource Name
+  - `<URN>:<NID>:<NSS>`
+  - `urn:isbn:X`
+  - URN 一般为 urn
+  - NID - Namespace Identifier
+  - NSS - Namespace Specific String
+  - [rfc2141](https://datatracker.ietf.org/doc/html/rfc2141)
+- URI - Uniform Resource Identifier
+  - Scheme + Resource Identifier
+  - [rfc3986](https://datatracker.ietf.org/doc/html/rfc3986)
+
+## URL
+
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                            href                                                  │

@@ -234,3 +234,23 @@ docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://loca
 
 - git pull 了新的代码然后重新 deploy 就好了
 - https://github.com/cvat-ai/cvat/issues/5205
+
+## ffprobe show frame count
+
+```bash
+
+ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 input.mp4
+```
+
+
+## ffmpeg frames
+
+```bash
+# -q:v 1-31 - 16 为中等，1 为最好，31 为最差
+ffmpeg -i video.mp4 -start_number 0 -b:v 10000k -vsync 0 -an -y -q:v 16 images/%d.jpg
+
+# 推荐 - 增加视频名称前缀，多个视频可合并，质量调高一点
+ffmpeg -i v2.mp4 -start_number 0 -b:v 10000k -vsync 0 -an -y -q:v 4 v2/v2-frame_%06d.jpg
+```
+
+- https://github.com/cvat-ai/cvat/issues/818

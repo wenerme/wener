@@ -935,3 +935,41 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
   - 通常是一个实例
   - Object -> Field & Method
   - GraphQL Object 可以有自定义 field resolver
+
+## displayOrder vs sort vs rank
+
+希望能够在列表中按照一定的顺序展示数据。
+一般使用浮点数或者 fraction。
+
+---
+
+- displayOrder
+  - 显示顺序
+  - 名字最为直观
+- sort
+  - 简短
+- rank - 排名
+  - 一般为整数
+
+## Connection vs Association vs Link vs Join vs Relation
+
+- Connection
+  - 通用的多对多关系
+- Association
+  - 强调关联关系
+- Link
+  - 任何类型的多对多关系
+- Join
+  - 用于数据库设计和ORM框架
+- Relation
+  - 强调关系
+
+---
+
+- 字段
+  - related
+  - target
+  - linked
+  - associated
+- 通用 Connection Entity
+  - https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/connection?view=op-9-1
