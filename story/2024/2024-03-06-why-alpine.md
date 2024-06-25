@@ -31,17 +31,17 @@ small footprint, non-systemd, fast enough, good community, sane defaults.
 
 **不适用场景**
 
-1. 机器学习 - ubuntu/debian 是最好的 - 最新 Linux 开始要集成 Navdia 驱动，情况会有所好转，但 Nvidia 官方明确不会支持 Alpine
-2. 商务用桌面系统 - 默认 xface - _生态_ 和体验没有 ubuntu 好
+1. 机器学习 - ubuntu/debian 是最好的 - 最新 Linux 开始要集成 Nvidia 驱动，情况会有所好转，目前 Nvidia 官方尚未正式支持Alpine。
+2. 商务用桌面系统 - 默认 xfce - _生态_ 和体验没有 ubuntu 好
 3. 定制化嵌入式设备 - alpine 支持的 arch 远没有 debian 的多，如果 arch 支持可以考虑 alpine
 
-**Note Convinced?**
+**Not Convinced?**
 
 - 轻量级
   - 最小安装 5MB
-  - 大部分都是静态链接
   - musl
   - openrc
+- 部分包提供静态编译二进制，可在非 Alpine 环境使用
 - 稳定滚动升级
   - 有稳定版和最新版
   - 每半年一个稳定版

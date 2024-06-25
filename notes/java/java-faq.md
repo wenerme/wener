@@ -2,6 +2,7 @@
 title: 常见问题
 tags:
   - FAQ
+  - Musl
 ---
 
 # Java FAQ
@@ -96,6 +97,8 @@ graph TD
 
 - [Why is generic of a return type erased when there is an unchecked conversion of a method parameter in Java 8?](https://stackoverflow.com/q/30918308/1870054)
 
+<!--
+
 Collection
 http://fastutil.di.unimi.it/
 http://pcollections.org/
@@ -118,6 +121,8 @@ https://mvnrepository.com/open-source/collections
 
 https://github.com/carrotsearch/hppc
 
+-->
+
 ## Proxy performance
 
 https://stackoverflow.com/q/1856242/1870054
@@ -127,7 +132,6 @@ https://stackoverflow.com/q/1856242/1870054
 - `-Dspring.profiles.active=development`
 - `SPRING_PROFILES_ACTIVE`
 
-## Memory usage
 
 ## A fatal error has been detected by the Java Runtime Environment
 
