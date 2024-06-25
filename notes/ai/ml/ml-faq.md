@@ -124,6 +124,8 @@ tags:
 
 > microarchitecture
 
+Pascal (2016) > Volta (2017) > Turing (2018) > Ampere (2020) > Hopper (2022) >= Ada Lovelace (2022)
+
 - Pascal - 2016
 - Volta - 2017, professional
   - 核心 80SM, 32 FP64+ 63 Int32 + 64 FP32 + 8 Tensor Cores/SM
@@ -251,6 +253,5 @@ python -m pip install setuptools==69.5.1
 ```bash
 pip install wheel
 ```
-
 
 ## cannot import name 'is_flash_attn_greater_or_equal_2_10' from 'transformers.utils'

@@ -413,6 +413,7 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
   - @nestjs/platform-fastify -> fastify@4.15.0
   - fastify@4.17.0
   - 会导致两份 fastify - 导致版本不匹配
+  - graphql - Cannot use GraphQLScalarType from another module or realm
 - 带全局状态的不能有多个
   - @mikro-orm/postgresql
   - @mikro-orm/core
@@ -420,6 +421,8 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
   - 例如 nestjs 需要匹配依赖
 
 ```bash
+ls -d node_modules/.pnpm/graphql@*
+
 pnpm tsx ./dup.ts
 ```
 
@@ -449,6 +452,8 @@ dups = Object.fromEntries(Object.entries(dups).filter(([, v]) => v.length > 1));
 
 console.log(dups);
 ```
+
+
 
 ## peer deps
 

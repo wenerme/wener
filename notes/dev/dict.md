@@ -1575,6 +1575,15 @@ tags:
   - 通常用于高级搜索和排序功能
   - 例如: JPA [CriteriaBuilder](https://javadoc.io/doc/javax.persistence/javax.persistence-api/latest/index.html)
 
+## inspect vs sniff
+
+- inspect - 检查
+  - 主动检查获取系统内部的详细信息或状态
+  - 代码调试、软件工程、性能分析
+- sniff - 嗅探
+  - 被动监测捕获信息
+  - 网络安全、性能分析、协议分析
+
 ## Concurrency vs Parallelism / 并发 vs 并行
 
 - 并发

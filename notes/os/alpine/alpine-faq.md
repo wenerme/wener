@@ -36,7 +36,7 @@ small footprint, non-systemd, fast enough, good community, sane defaults.
 
 - 注意用的镜像是否同步 - 否则可能导致安装异常
   - tuna 目前是最好的
-- 不要跨版本升级
+- 避免跨版本升级
 - OpenSSL version mismatch
 
 ## apk opening from cache No such file or directory
