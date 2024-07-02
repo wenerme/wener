@@ -156,61 +156,22 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 专用 UI 组件 {#ui-component}
 
-- [yairEO/tagify](https://github.com/yairEO/tagify)
-- [react-tags/react-tags](https://github.com/react-tags/react-tags)
-  - npm:react-tag-input
-  - react-dnd
-- [molefrog/spoiled](https://github.com/molefrog/spoiled)
-- [tamagui/tamagui](https://github.com/tamagui/tamagui)
-- [tremorlabs/tremor](https://github.com/tremorlabs/tremor)
-  - Apache-2.0
-  - build dashboards
-- [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
-- [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
-  - 模仿 macOS High Sierra 和 Windows 10 的组件
-- [reakit/reakit](https://github.com/reakit/reakit) - 专注于 accessible 的组件
-  - ARIA
-  - 在国内一般不关心 accessible
-- [table-library/react-table-library](https://github.com/table-library/react-table-library)
-  - 带 UI
-- [react-icons/react-icons](https://github.com/react-icons/react-icons)
-  - [react-icons.github.io](https://react-icons.github.io/react-icons) 包含了大量可用 Icon
-  - 来自 tailwincss 的 [heroicons](https://heroicons.com/) 崇尚直接 copy svg 使用
-    - 简单方便
-- @tabler/icons
-  - https://github.com/tabler/tabler-icons
-    - 4500, MIT
-- [popperjs/react-popper](https://github.com/popperjs/react-popper)
-  - 显示弹出气泡
-- [signavio/react-mentions](https://github.com/signavio/react-mentions)
-  - 支持 `@username`
-- [jedwatson/react-select](https://github.com/jedwatson/react-select)
-  - 功能完善的 select 组件
-  - 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
-- [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
-  - 懒加载 UI 组件
-- [asabaylus/react-command-palette](https://github.com/asabaylus/react-command-palette)
-- [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride)
-- kanban
-  - [asseinfo/react-kanban](https://github.com/asseinfo/react-kanban)
-- notion
-  - [splitbee/react-notion](https://github.com/splitbee/react-notion)
-  - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
-- https://github.com/bvaughn/planner
-- [ReactTooltip/react-tooltip](https://github.com/ReactTooltip/react-tooltip)
-- floatingui
-- [reaviz](https://github.com/reaviz)
-  - [reaviz](https://github.com/reaviz/reaviz)
-    - Data visualization
-  - [reaflow](https://github.com/reaviz/reaflow)
-    - Apache-2.0, TS
-    - flow
-    - layout ELKJS
-  - [reagraph](https://github.com/reaviz/reagraph)
-    - Apache-2.0, TS
-    - WebGL, network graph
-- https://github.com/wojtekmaj
-  - react-calendar, react-clock, react-pdf
+- Select/Tag/Input
+  - [react-tags/react-tags](https://github.com/react-tags/react-tags)
+    - npm:react-tag-input
+    - react-dnd
+  - [yairEO/tagify](https://github.com/yairEO/tagify)
+  - [rc-select](./react-component.md#rc-select)
+  - [jedwatson/react-select](https://github.com/jedwatson/react-select)
+    - @floating-ui/core, @emotion/react, stylis
+    - 功能完善的 select 组件
+    - 通过 emotion 控制样式 - 如果没有使用 emotion 建议避免使用
+  - react-autosuggest
+  - [downshift-js/downshift](https://github.com/downshift-js/downshift)
+    - autocomplete, combobox, select dropdown
+    - useCombobox
+    - useMultipleSelection
+    - useSelect
 - calendar
   - [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
     - 功能最为强大的日历组件 - 支持 React 绑定
@@ -235,9 +196,6 @@ npm add date-fns lodash-es react-fast-compare
     - 组件
       - Draggable - 包含基础状态，可受控的拖拽组件
       - DraggableCore - 无状态功能组件
-  - Query Builder
-    - [ukrbublik/react-awesome-query-builder](https://github.com/ukrbublik/react-awesome-query-builder)
-    - [react-querybuilder/react-querybuilder](https://github.com/react-querybuilder/react-querybuilder)
   - [react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
     - 简单的 resize 组件
     - 组件
@@ -246,6 +204,9 @@ npm add date-fns lodash-es react-fast-compare
   - [SortableJS/Sortable](https://github.com/SortableJS/Sortable)
     - [6pac/SlickGrid](https://github.com/6pac/SlickGrid)
   - [react-dropzone/react-dropzone](https://github.com/react-dropzone/react-dropzone)
+- Query Builder
+  - [ukrbublik/react-awesome-query-builder](https://github.com/ukrbublik/react-awesome-query-builder)
+  - [react-querybuilder/react-querybuilder](https://github.com/react-querybuilder/react-querybuilder)
 - layout
   - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
     - 动态网格布局组件
@@ -258,6 +219,22 @@ npm add date-fns lodash-es react-fast-compare
     - Create a window manager with React
   - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
     - 移动端屏高问题
+- Dashboard/Panel/Splitter/Layout
+  - [devbookhq/splitter](https://github.com/devbookhq/splitter)
+    - 切分面板
+  - [tremorlabs/tremor](https://github.com/tremorlabs/tremor)
+    - Apache-2.0
+    - build dashboards
+    - 构建 Dashboard
+- Toast/Interactive/Notification
+  - [react-hot-toast](https://github.com/timolins/react-hot-toast)
+    - 12kB/4.7kB
+      - goober 2.5kB/1.3kB
+        - css-in-js alternative
+  - [iamhosseindhv/notistack](https://github.com/iamhosseindhv/notistack)
+    - for Material UI
+  - [react-toastify](https://github.com/fkhadra/react-toastify)
+    - 需要 import css
 - Tree
   - [dgreene1/react-accessible-treeview](https://github.com/dgreene1/react-accessible-treeview)
   - rc-tree
@@ -386,6 +363,54 @@ npm add date-fns lodash-es react-fast-compare
     - https://www.maptiler.com/
     - https://github.com/mapbox/awesome-vector-tiles
 
+---
+
+- [molefrog/spoiled](https://github.com/molefrog/spoiled)
+- [tamagui/tamagui](https://github.com/tamagui/tamagui)
+- [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+- [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
+  - 模仿 macOS High Sierra 和 Windows 10 的组件
+- [reakit/reakit](https://github.com/reakit/reakit) - 专注于 accessible 的组件
+  - ARIA
+  - 在国内一般不关心 accessible
+- [table-library/react-table-library](https://github.com/table-library/react-table-library)
+  - 带 UI
+- [react-icons/react-icons](https://github.com/react-icons/react-icons)
+  - [react-icons.github.io](https://react-icons.github.io/react-icons) 包含了大量可用 Icon
+  - 来自 tailwincss 的 [heroicons](https://heroicons.com/) 崇尚直接 copy svg 使用
+    - 简单方便
+- @tabler/icons
+  - https://github.com/tabler/tabler-icons
+    - 4500, MIT
+- [popperjs/react-popper](https://github.com/popperjs/react-popper)
+  - 显示弹出气泡
+- [signavio/react-mentions](https://github.com/signavio/react-mentions)
+  - 支持 `@username`
+- [twobin/react-lazyload](https://github.com/twobin/react-lazyload)
+  - 懒加载 UI 组件
+- [asabaylus/react-command-palette](https://github.com/asabaylus/react-command-palette)
+- [gilbarbara/react-joyride](https://github.com/gilbarbara/react-joyride)
+- kanban
+  - [asseinfo/react-kanban](https://github.com/asseinfo/react-kanban)
+- notion
+  - [splitbee/react-notion](https://github.com/splitbee/react-notion)
+  - [NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
+- https://github.com/bvaughn/planner
+- [ReactTooltip/react-tooltip](https://github.com/ReactTooltip/react-tooltip)
+- floatingui
+- [reaviz](https://github.com/reaviz)
+  - [reaviz](https://github.com/reaviz/reaviz)
+    - Data visualization
+  - [reaflow](https://github.com/reaviz/reaflow)
+    - Apache-2.0, TS
+    - flow
+    - layout ELKJS
+  - [reagraph](https://github.com/reaviz/reagraph)
+    - Apache-2.0, TS
+    - WebGL, network graph
+- https://github.com/wojtekmaj
+  - react-calendar, react-clock, react-pdf
+
 ### 编辑器
 
 - Markdown
@@ -476,22 +501,6 @@ npm add date-fns lodash-es react-fast-compare
 - [its-danny/use-lilius](https://github.com/its-danny/use-lilius)
   - date-fns
   - DateInput
-- [downshift-js/downshift](https://github.com/downshift-js/downshift)
-  - autocomplete, combobox, select dropdown
-  - useCombobox
-  - useMultipleSelection
-  - useSelect
-- Toast
-  - [react-hot-toast](https://github.com/timolins/react-hot-toast)
-    - 12kB/4.7kB
-      - goober 2.5kB/1.3kB
-        - css-in-js alternative
-  - [iamhosseindhv/notistack](https://github.com/iamhosseindhv/notistack)
-    - for Material UI
-  - [react-toastify](https://github.com/fkhadra/react-toastify)
-    - 需要 import css
-- [devbookhq/splitter](https://github.com/devbookhq/splitter)
-  - 切分面板
 
 ### 虚拟滚动
 

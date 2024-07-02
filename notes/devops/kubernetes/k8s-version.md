@@ -19,7 +19,8 @@ tags:
 
 | version                            | release    |
 | ---------------------------------- | ---------- |
-| [Kubernetes 1.29](#kubernetes-128) | 2023-12-13           |
+| [Kubernetes 1.30](#kubernetes-130) | 2024-04-17 |
+| [Kubernetes 1.29](#kubernetes-129) | 2023-12-13 |
 | [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 |
 | [Kubernetes 1.27](#kubernetes-127) | 2023-04-11 |
 | [Kubernetes 1.25](#kubernetes-125) | 2022-08-23 |
@@ -81,7 +82,16 @@ tags:
 [ipv6dualstack]: ./k8s-features.md#IPv6DualStack
 [statefulsetautodeletepvc]: ./k8s-features.md#StatefulSetAutoDeletePVC
 
-## Kubernetes 1.23
+## Kubernetes 1.30
+
+- Service
+  - Alpha spec.trafficDistribution
+
+---
+
+- https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/
+
+## Kubernetes 1.29
 
 - Alpha
   - nftables backend for kube-proxy

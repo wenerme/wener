@@ -27,6 +27,24 @@ datum project export -e '/item/annotation' --filter-mode 'i+a' -f --save-images 
 datum transform -t random_split ds:yolo -- --subset train:.67 --subset test:.33 # 随机分割数据集
 ```
 
+## Reference
+
+```bash
+# near-duplicated images
+datum prune -m ndr -p </path/to/project/>
+
+datum transform -t ndr -- \
+  --working_subset train
+  --algorithm gradient
+  --num_cut 100
+  --over_sample random
+  --under_sample uniform
+```
+
+- ndr
+  - https://openvinotoolkit.github.io/datumaro/latest/docs/command-reference/context_free/transform.html#ndr
+- https://openvinotoolkit.github.io/datumaro/latest/docs/command-reference/context_free/index.html
+
 # FAQ
 
 ## error: can't find Rust compiler
@@ -41,7 +59,6 @@ brew install rust
 # %localappdata%\Intel Corporation\isip
 rm -rf $HOME/intel/isip
 ```
-
 
 ## schema
 

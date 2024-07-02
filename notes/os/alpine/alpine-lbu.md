@@ -16,6 +16,24 @@ title: Alpine local backup
 
 :::
 
+:::caution
+
+- 不要恢复到不同 boot 的系统
+  - 例如不要将 extlinux 的配置恢复到 grub 系统
+  - 如果需要，注意备份或恢复的时候排除相关文件
+- 注意添加自定义的 initd 脚本 - symlink 默认会复制
+- 系统恢复注意 修改 rootfs UUID 后再重启
+  - `/etc/update-extlinux.conf`
+    - 修改或删除 root
+    - 默认 `blkid -o export /dev/root`
+  - `/etc/fstab`
+    - 修改 UUID
+  - 重新 mkinitfs 或 修改 `/boot/extlinux.conf`
+  - 错误可能导致 rootfs 只读
+    - `sudo mount -o remount,rw /dev/vda2 /`
+
+:::
+
 | abbr.     | command     | desc                                                                    |
 | --------- | ----------- | ----------------------------------------------------------------------- |
 | ci        | commit      |
@@ -93,25 +111,17 @@ DEFAULT_CIPHER=aes-256-cbc
 **推荐**
 
 ```pre /etc/apk/protected_paths.d/lbu.list
-+var/lib/tailscale/
--etc/ssh/ssh_host*
-
 home/admin/.ssh
 root/.ssh
-
-# /etc/init.d/tincd.netname
 ```
 
-- 注意添加自定义的 initd 脚本 - symlink 默认会复制
-- 恢复注意 修改 rootfs UUID
-  - `/etc/update-extlinux.conf`
-    - 修改或删除 root
-    - 默认 `blkid -o export /dev/root`
-  - `/etc/fstab`
-    - 修改 UUID
-  - 重新 mkinitfs 或 修改 `/boot/extlinux.conf`
-  - 错误可能导致 rootfs 只读
-    - `sudo mount -o remount,rw /dev/vda2 /`
+**MISC**
+
+```pre /etc/apk/protected_paths.d/lbu.list
++var/lib/tailscale/
+-etc/ssh/ssh_host*
+# /etc/init.d/tincd.netname
+```
 
 ## rootfs.apkvol
 
@@ -146,3 +156,15 @@ grep etc/sockd.conf /tmp/ovlfiles > /dev/null && service sockd restart
 
 # service xyz start       # start needed services
 ```
+
+## exclude boot
+
+```
+-etc/default/grub
+-etc/fstab
+-etc/mkinitfs/mkinitfs.conf
+```
+
+- 不同的 boot 需要不同的包
+  - grub-efi
+  - extlinux

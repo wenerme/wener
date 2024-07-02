@@ -236,71 +236,6 @@ curl --doh-url https://dns.cloudflare.com/dns-query https://wener.me
 
 > 不要走国内解析
 
-```
-ai.com
-akamai.net
-bing.com
-cloudflare.com
-docker.io
-dribbble.com
-facebook.com
-gitbook.com
-gitbook.io
-github.com
-github.io
-githubassets.com
-githubusercontent.com
-gmail.com
-goog
-google
-google.com
-googleapis.com
-googlevideo.com
-hbo.com
-imdb.com
-instagram.com
-intellij.net
-jetbrains.com
-jp
-jsdelivr.net
-k3s.io
-linode.com
-medium.com
-mega.nz
-msecnd.net
-netflix.com
-nintendo.com
-nintendo.net
-nordvpn.com
-openai.com
-pornhub.com
-pximg.net
-quay.io
-quora.com
-rarbg.to
-rarbgprx.org
-redd.it
-reddit.com
-reddit.com
-slack.com
-spotify.com
-svc.ms
-t.co
-telegram.org
-thepiratebay.org
-twimg.com
-twitter.com
-uk
-v2ex.com
-whatsapp.com
-wikileaks.org
-wikipedia.org
-wikiquote.org
-wsj.com
-xvideos.com
-youtube.com
-```
-
 <!--
 Adguard
 a=``
@@ -316,6 +251,9 @@ curl -L https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns
 
 #
 curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | base64 -d > gfwlist.txt
+
+# address=/docker.io/$SNI
+curl -sfL 'https://github.com/wenerme/wener/raw/master/notes/service/dns/gfwlist.dev.txt' | sed -e 's#.*#address=/\0/$SNI#'
 
 grep -E '^([|]{2}|[.])' gfwlist.txt | grep -v '/' | grep -v '[*]' | wc -l | sed 's/^[|.]*//' | sort -u
 ```

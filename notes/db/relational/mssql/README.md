@@ -9,6 +9,11 @@ title: MSSQL
 | 1433 | default         |
 | 1434 | browser service |
 
+
+```bash
+nmap -p 1433,1434 HOST
+```
+
 ## 备份
 
 - .bkf

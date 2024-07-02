@@ -325,3 +325,9 @@ stream {
 ```
 
 - **double-encrypted**
+
+## REMOTE HOST IDENTIFICATION HAS CHANGED
+
+```bash
+ssh-keygen -R HOSTNAME
+```

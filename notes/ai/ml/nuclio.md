@@ -21,3 +21,17 @@ nuctl get function
 ```bash
 docker run -p 8070:8070 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp --name nuclio-dashboard quay.io/nuclio/dashboard:stable-amd64
 ```
+
+## nuctl
+
+- --platform local/kube
+  - local -> docker
+- https://nuclio.io/docs/latest/reference/nuctl/
+
+
+# FAQ
+
+## Copy local file
+
+- 部署目录默认都会包含 到 /opt/nuclio
+- https://github.com/nuclio/nuclio/issues/2333

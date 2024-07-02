@@ -237,6 +237,28 @@ rm chunk* sorted-chunk*
 ## arch
 
 ```bash
+uname -m # x86_64, i686, arm, aarch64 - cpu type/arch
+uname -s # Linux, Darwin - os type
+uname -s | tr '[:upper:]' '[:lower:]'
+
+# AlpineLinux
+apk --print-arch
+
+# debian/ubuntu
+dpkg --print-architecture # amd64
+arch                      # from coreutils, arch of the current terminal
+
+# Golang
+go env GOARCH # arm64, amd64
+# GCC
+gcc -dumpmachine # x86_64-linux-gnu, arm64-apple-darwin23.5.0
+# NodeJS
+node -p process.arch # arm64
+# Java
+java -XshowSettings:properties -version | grep os.arch
+```
+
+```bash
 architecture=""
 case $(uname -m) in
   i386 | i686) architecture="386" ;;

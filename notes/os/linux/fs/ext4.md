@@ -208,6 +208,22 @@ mkfs.ext4 -F -b 4096 test
 
 # FAQ
 
+- ordered - 默认模式
+  - 元数据写入日志，而数据在写入磁盘之前先写入主文件系统。提供了较好的性能和一致性折衷。
+- journal
+  - 数据和元数据都写入日志
+  - 最高的数据一致性，但性能较低。
+- writeback
+  - 不保证数据在写入磁盘前写入日志。
+- journal_data_writeback
+  - 元数据写日志，数据写盘
+  - 优点
+    - 性能更好，特别是在写入大量数据时。
+    - 减少了对 SSD 的写入次数，可能延长 SSD 寿命。
+  - 缺点
+    - 在系统崩溃的情况下，数据一致性保证较弱。
+    - 可能导致文件数据丢失或损坏，尽管文件系统结构仍然完整。
+
 ## resize 需要注意的参数
 
 mke2fs will attempt to reserve enough space so that the filesystem may grow to 1024 times its initial size. This can be changed using the resize extended option.
@@ -303,4 +319,10 @@ zstdcat -v sda2.zst >/dev/sda2
 ```bash
 # 手动启动 Quota
 sudo tune2fs -o usrquota /dev/sda1
+```
+
+## ssd
+
+```bash
+mkfs.ext4 -E discard /dev/nvme0n1 # 启用 TRIM
 ```

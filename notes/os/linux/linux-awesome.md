@@ -6,7 +6,27 @@ tags:
 
 # Linux Awesome
 
+- WebAdmin/WebUI
+  - [IceWhaleTech/CasaOS](https://github.com/IceWhaleTech/CasaOS)
+    - Apache-2.0, Go
+    - Personal Cloud system
+  - [azukaar/Cosmos-Server](https://github.com/azukaar/Cosmos-Server)
+    - Apache-2.0, Go
+    - Selfhosted Home Server
+  - [cockpit-project/cockpit](https://github.com/cockpit-project/cockpit)
+    - LGPL-2.1
+    - by Red Hat
+    - 需要 systemd 系
+    - 不支持 AlpineLinux [#17709](https://github.com/cockpit-project/cockpit/discussions/17709)
+  - AlpineLinux
+    - ACF
+    - https://wiki.alpinelinux.org/wiki/Webmin
+  - [zhaojh329/oui](https://github.com/zhaojh329/oui)
+    - for OpenWrt
+- selfhost
+  - https://github.com/awesome-selfhosted/awesome-selfhosted?#self-hosting-solutions
 - https://www.appimagehub.com/
+
 
 ## Components
 
@@ -30,10 +50,6 @@ tags:
 
 - [Linux Performance](http://www.brendangregg.com/linuxperf.html)
 
-## webadmin
-
-- [zhaojh329/oui](https://github.com/zhaojh329/oui)
-- [cockpit-project/cockpit](https://github.com/cockpit-project/cockpit)
 
 ## Firmware
 

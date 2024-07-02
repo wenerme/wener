@@ -79,7 +79,6 @@ git-scm.com
 git.io
 gitbook.com
 gitbook.io
-github-cloud.s3.amazonaws.com
 github.blog
 github.com
 github.community
@@ -151,6 +150,7 @@ infoq.com
 instagram.com
 intellij.net
 jetbrains.com
+jp
 js.org
 jsdelivr.net
 jwt.io
@@ -244,6 +244,7 @@ twimg.com
 twitpic.com
 twitter.com
 twitter.jp
+uk
 unpkg.com
 v2ex.com
 vercel.app

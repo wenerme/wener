@@ -23,10 +23,12 @@
 - [Auth 服务](https://www.wener.tech/notes/service/auth)
 - [Golang](https://www.wener.tech/notes/languages/go)
 - [Java](https://www.wener.tech/notes/java)
+- [Web开发](https://www.wener.tech/notes/web) - React, NodeJS
+- [VoIP](https://www.wener.tech/notes/voip) - asterisk
+- [运维部署](https://www.wener.tech/notes/devops)
 - [Kubernetes](https://www.wener.tech/notes/devops/kubernetes)
-- [VoIP](https://www.wener.tech/notes/voip)
-- [纪念那些在 BBK 的时光](https://wener.me/story/bbk-memory)
 - [虚拟化](https://www.wener.tech/notes/os/virt)
+- [纪念那些在 BBK 的时光](https://wener.me/story/bbk-memory)
 
 ## Projects Working On
 

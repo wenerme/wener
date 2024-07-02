@@ -8,9 +8,12 @@ refs:
 
 - [GaParmar/img2img-turbo](https://github.com/GaParmar/img2img-turbo)
   - MIT
+  - One-step image-to-image with Stable Diffusion turbo
+  - sketch2image, day2night, clear2rainy
   - pix2pix-turbo
   - cyclegan-turbo
-  - One-step image-to-image with Stable Diffusion turbo: sketch2image, day2night
+    - 使用 dino 做特征提取
+    - 利用 sd-turbo
 - 模型和训练只能 A <-> B
 - 参考
   - One-Step Image Translation with Text-to-Image Models https://arxiv.org/abs/2403.12036

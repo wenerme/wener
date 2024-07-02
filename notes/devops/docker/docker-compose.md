@@ -36,8 +36,24 @@ docker compose version
 
 ## docker-compose.yaml
 
+- services, volumes,
+- configs
+  - 全局配置定义
+- secrets
+  - container_name - 定义容器名字，默认生成
+  - configs
+    - 挂载为一个文件
+  - credential_spec - 定义拉的授权信息
+    - config
+    - registry - file://, registry://
+  - depends_on - 控制启动顺序，控制是否重启
+  - build
+  - deploy
+  - develop
+- networks
+- version - 现在一般不需要了
 - https://github.com/compose-spec/compose-spec/blob/master/spec.md
-  - compose.yaml, docker-compose.yaml
+  - {compose,docker-compose}.{yaml,yml}
 
 ```yaml
 # COMPOSE_PROJECT_NAME
@@ -45,8 +61,8 @@ name:
 
 services:
   web:
-    # 构建
-    build: .
+    attach: true # false 不收集日志
+    build: . # 构建 context
     # 修改 CMD - 数组或字符串
     command: bundle exec thin -p 3000
     # 修改 ENTRYPOINT - 数组或字符串
@@ -76,6 +92,7 @@ services:
       SHOW: "true"
       USER_INPUT:
     environment:
+      - COMPOSE_PROJECT_NAME # 定义了可直接访问
       - RACK_ENV=development
       - SHOW=true
       - USER_INPUT
@@ -236,6 +253,7 @@ services:
     # os[/arch[/variant]]
     platform:
     # cgourp
+    cgourp:
     cgroup_parent:
     # https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v1/devices.html
     device_cgroup_rules:

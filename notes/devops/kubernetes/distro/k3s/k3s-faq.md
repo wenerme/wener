@@ -45,6 +45,7 @@ ping 1.1.1.1
 - kube-dns.kube-system.svc.cluster.local
   - 10.43.0.10
   - coredns
+- coredns
 
 ## flannel 网络问题
 

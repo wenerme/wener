@@ -22,6 +22,8 @@ tags:
   - DOM MessageChannel - 1-1、WebWorker
   - DOM BroadcastChannel - origin 纬度 - 多窗口
   - DOM Window.postMessage - 跨 origin、多窗口、iframe
+  - EventEmitter
+    - npm:events
   - [primus/eventemitter3](https://github.com/primus/eventemitter3)
     - 移除 Domain 支持
   - [Morglod/tseep](https://github.com/Morglod/tseep)
@@ -41,7 +43,7 @@ tags:
   - [browserify/events](https://github.com/browserify/events)
     - EventEmitter 同 `node:events`
   - tiny-emitter
-  - [eventemitter2 vs eventemitter3 vs mitt vs tiny-emitter](https://npmtrends.com/eventemitter2-vs-eventemitter3-vs-mitt-vs-tiny-emitter)
+  - [eventemitter2 vs eventemitter3 vs events vs mitt vs tiny-emitter](https://npmtrends.com/eventemitter2-vs-eventemitter3-vs-events-vs-mitt-vs-tiny-emitter)
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing

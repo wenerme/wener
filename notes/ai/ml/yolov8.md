@@ -125,6 +125,10 @@ yolo explorer
 
 ## Settings
 
+```bash
+yolo settings
+```
+
 ```py
 from ultralytics import settings
 print(settings)

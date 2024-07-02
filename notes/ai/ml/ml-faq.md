@@ -19,6 +19,13 @@ tags:
 - SafeTensor
   - 存储和传输神经网络权重、数据和其他张量数据的格式
 
+## Thoughts
+
+- ML 最重要的是数据
+- CVAT 目前用下来是标注 图片/视频 最好的用具
+  - 一定要注意 Tracker 插帧的问题
+  - 尽量使用快捷键
+
 ## Hardware
 
 | Device                  | Arch         | RAM          |   CUDA | Tensor |  RT |          FP64 |        FP32 |        FP16 |     INT8 |     INT4 |       Tensor |  TF32 Tensor |  FP16 Tensor |

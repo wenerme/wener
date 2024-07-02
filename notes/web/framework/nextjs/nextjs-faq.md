@@ -327,6 +327,28 @@ module.export = {
 
 - https://github.com/vercel/next.js/discussions/14361#discussioncomment-874019
 
+## dynamic rewrites
+
+- 不支持动态，构建时生成的 manifest
+- https://github.com/vercel/next.js/discussions/33932
+
+```ts
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    // 会在构建时静态生成，不支持动态
+    const { SERVER_URL } = process.env;
+    let redir = [
+      {
+        source: '/api/:path*',
+        destination: `${SERVER_URL}/api/:path*`,
+      },
+    ];
+    return redir;
+  },
+};
+```
+
 ## Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
 
 ## standalone

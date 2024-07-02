@@ -44,6 +44,7 @@ tags:
 | FBPCS  | Facebook Private Computation Service                    | Facebook 私有计算服务   |
 | FID    | Fréchet Inception Distance                              | 弗雷歇特 Inception 距离 |
 | LCM    | Latent Consistency Model                                | 潜在一致性模型          |
+| LaMDA  | Language Model for Dialogue Applications                | 对话应用的语言模型      |
 
 | abbr. | stand for                     | cn            |
 | ----- | ----------------------------- | ------------- |
@@ -57,6 +58,8 @@ tags:
 | en                   | cn       |
 | -------------------- | -------- |
 | Contrastive Learning | 对比学习 |
+| Inpainting           | 局部重绘 |
+| Outpainting          | 扩展绘制 |
 
 - ClassicML
   - Regression

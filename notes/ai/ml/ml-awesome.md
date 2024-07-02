@@ -12,6 +12,8 @@ tags:
   - [Diffusion Awesome](../diffusion/diffusion-awesome.md)
 - [NLP](../nlp/README.md)
   - [NLP Awesome](../nlp/nlp-awesome.md)
+- [GAN](./gan.md)
+- [img2img](./img2img.md)
 - Framework
   - [PyTorch](./pytorch/README.md)
     - by Meta
@@ -343,6 +345,10 @@ tags:
 - https://stanford.edu/~shervine/teaching/
 - DEEP LEARNING COURSE https://fleuret.org/dlc/
   - [HN](https://news.ycombinator.com/item?id=38331200)
+- https://github.com/y33-j3T/Coursera-Deep-Learning
+- 中文
+  - [d2l-ai/d2l-zh](https://github.com/d2l-ai/d2l-zh)
+    - https://zh.d2l.ai
 
 ---
 
@@ -505,10 +511,6 @@ tags:
 - MobileNetv2
 - https://modelplace.ai/models
 - [OpenBMB/BMList](https://github.com/OpenBMB/BMList)
-
-## GAN
-
-- [orpatashnik/StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
 
 ## Music
 

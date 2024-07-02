@@ -336,3 +336,40 @@ $$
     END;
 $$;
 ```
+
+## array
+
+- `@> ARRAY(1,2,3)` - 包含所有
+- `<@`
+- `&& ARRAY(1,2,3)` - 包含任意, overlap
+- `||` Concatenates
+- `'其他' like any(tags)`
+  - 不能做 pattern like，需要使用 `unnest` 或者 `array_to_string`
+  - pg 要求 any 必须在右边
+  - 结果和 `'其他' = any(tags)` 相同
+- `ARRAY[1,2,3]` - array constructor
+- `'{1,2,3}'` - array literal
+
+```sql
+-- 通过自定义 operator 实现 array like 搜索
+CREATE OR REPLACE FUNCTION reverse_like (text, text)
+  RETURNS boolean LANGUAGE sql IMMUTABLE PARALLEL SAFE AS
+'SELECT $2 LIKE $1';
+
+CREATE OPERATOR <~~ (function = reverse_like, leftarg = text, rightarg = text);
+
+SELECT *
+FROM   mac_ip_addresses
+WHERE  '192.168.2%.255' <~~ ANY (ipaddress);
+```
+
+---
+
+- https://stackoverflow.com/a/55484447/1870054
+- https://www.postgresql.org/docs/current/functions-array.html
+
+## any
+
+- `expr IN (subquery)` -> `expr operator ANY (subquery)`
+- `expr IN (value [, ...])` -> `expr operator ANY (array expr)`
+  - 会做内部重写 - `IN` -> `= ANY`, `NOT IN` -> `<> ALL`

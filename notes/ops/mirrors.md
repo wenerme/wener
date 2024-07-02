@@ -130,6 +130,8 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
 
 - docker.io
   - docker.m.daocloud.io
+    - 白名单制
+    - https://github.com/DaoCloud/public-image-mirror/issues/2328
   - ~~https://fogjl973.mirror.aliyuncs.com~~
   - ~~https://8x40wsit.mirror.aliyuncs.com~~
   - https://registry-1.docker.io

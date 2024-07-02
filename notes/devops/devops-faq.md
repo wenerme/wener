@@ -23,6 +23,17 @@ tags:
 - 参考
   - https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592
 
+## Boot/Infra Chain
+
+- 出口/入口
+- slb, haproxy, nginx
+- nameserver
+  - 集群重启后检查 coredns 是否正常 - 可能 host 的 ns 不通，导致 coredns 启动失败
+- ocr registry, gitea
+- database
+
+
+
 ## 版本老就意味着安全稳定？
 
 - [Upgrade](./upgrade.md)

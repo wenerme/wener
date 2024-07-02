@@ -13,6 +13,8 @@ title: CVAT
   - YoloV8 serverlesss support [#6471](https://github.com/cvat-ai/cvat/issues/6471)
     - 由于 AGPL 原因无法合并 [#6472](https://github.com/cvat-ai/cvat/pull/6472)
   - https://docs.cvat.ai/docs/manual/advanced/ai-tools/
+  - https://github.com/cvat-ai/cvat/issues/5686
+    - Tracker 只能单帧运行
 
 ```bash
 # https://github.com/cvat-ai/cvat/blob/develop/docker-compose.yml
@@ -89,7 +91,9 @@ volumes:
 ```bash
 # https://github.com/nuclio/nuclio/releases/
 curl -o nuctl -L https://github.com/nuclio/nuclio/releases/download/1.13.3/nuctl-1.13.3-darwin-$(uname -m)
+# curl -o nuctl -L https://github.com/nuclio/nuclio/releases/download/1.13.3/nuctl-1.13.3-linux-$(dpkg --print-architecture)
 chmod +x nuctl
+# sudo mv nuctl /usr/local/bin/
 # 假设 $HOME/bin 在 PATH 中
 mv nuctl ~/bin/
 
@@ -109,6 +113,8 @@ nuctl deploy --project-name cvat \
   --image cvat/tf.matterport.mask_rcnn_gpu \
   --triggers '{"myHttpTrigger": {"maxWorkers": 1}}' \
   --resource-limit nvidia.com/gpu=1
+
+./serverless/deploy_gpu.sh serverless/pytorch/facebookresearch/sam
 
 # quay.io/nuclio/uhttpc:0.0.1-arm6
 # quay.io/nuclio/handler-builder-python-onbuild:1.13.0-arm64
@@ -140,9 +146,24 @@ nuctl get function
 
 - https://github.com/cvat-ai/cvat/issues/6714
 - [Serverless tutorial](https://docs.cvat.ai/docs/manual/advanced/serverless-tutorial/)
+- 返回结果 https://github.com/cvat-ai/cvat/issues/6332
 - function.yaml
   - metadata - 提供名字相关信息
+    - type detector, interactor, tracker, reid
   - spec.handler - 定义入口
+
+```yaml
+metadata:
+  name: pth-facebookresearch-detectron2-retinanet-r101
+  namespace: cvat
+  annotations:
+    name: RetinaNet R101
+    type: detector
+    spec: |
+      [
+        { "id": 1, "name": "person" }
+      ]
+```
 
 ## AI & OpenCV
 
@@ -169,6 +190,70 @@ nuctl get function
 ## Dataset
 
 - https://docs.cvat.ai/docs/manual/advanced/dataset_manifest/
+
+## yolo
+
+```bash
+mkdir -p serverless/pytorch/ultralytics/yolov8
+nano serverless/pytorch/ultralytics/yolov8/nuclio/function-gpu.yaml
+
+./serverless/deploy_gpu.sh serverless/pytorch/ultralytics/yolov8
+```
+
+```py title="main.py"
+import json
+import base64
+from PIL import Image
+import io
+from ultralytics import YOLO
+import supervision as sv
+
+
+def init_context(context):
+    context.logger.info("Init context...  0%")
+    # Change model path for custom model
+    model_path = "/opt/nuclio/model.pt"
+    model = YOLO(model_path)
+    # Read the DL model
+    context.user_data.model = model
+    context.logger.info("Init context...100%")
+
+
+def handler(context, event):
+    context.logger.info("Run yolo-v8 model")
+    data = event.body
+    buf = io.BytesIO(base64.b64decode(data["image"]))
+    threshold = float(data.get("threshold", 0.5))
+    context.user_data.model.conf = threshold
+    image = Image.open(buf)
+    yolo_results = context.user_data.model(image, conf=threshold)[0]
+    labels = yolo_results.names
+    # from_ultralytics in supervision-0.16.0+
+    detections = sv.Detections.from_ultralytics(yolo_results)
+    detections = detections[detections.confidence > threshold]
+    boxes = detections.xyxy
+    conf = detections.confidence
+    class_ids = detections.class_id
+
+    results = []
+    if boxes.shape[0] > 0:
+        for label, score, box in zip(class_ids, conf, boxes):
+            xtl = int(box[0])
+            ytl = int(box[1])
+            xbr = int(box[2])
+            ybr = int(box[3])
+
+            results.append({
+                "confidence": str(score),
+                "label": labels.get(label, "unknown"),
+                "points": [xtl, ytl, xbr, ybr],
+                "type": "rectangle", })
+
+    return context.Response(body=json.dumps(results), headers={},
+                            content_type='application/json', status_code=200)
+```
+
+- 由于 AGPL 原因无法合并 [#6472](https://github.com/cvat-ai/cvat/pull/6472)
 
 # FAQ
 
@@ -238,10 +323,8 @@ docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://loca
 ## ffprobe show frame count
 
 ```bash
-
 ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 input.mp4
 ```
-
 
 ## ffmpeg frames
 
@@ -254,3 +337,11 @@ ffmpeg -i v2.mp4 -start_number 0 -b:v 10000k -vsync 0 -an -y -q:v 4 v2/v2-frame_
 ```
 
 - https://github.com/cvat-ai/cvat/issues/818
+
+## hide long label mapper
+
+- 自定义模型的 label 非常多的时候
+
+```js
+$$('.cvat-runner-label-mapper').forEach((v) => (v.style.display = 'none'));
+```

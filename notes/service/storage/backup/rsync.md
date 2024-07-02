@@ -139,6 +139,14 @@ rsync -zarv --include="*/" --exclude="*" --include="*.sh" "$from" "$to"
 rsync -e 'ssh -p 2222'
 ```
 
+## zstd
+
+- `--compress-choice=zstd --compress-level=3 --checksum-choice=xxh3`
+
+```bash
+rsync -avP --compress-choice=zstd --compress-level=3 --checksum-choice=xxh3 ./data/ wen-svr:/data/
+```
+
 ## change_dir "/" (in f) failed: Permission denied (13)
 
 ## receiver mkstemp "/.file.tar.gz.XXXXXX" (in backup) failed: Permission denied (13)

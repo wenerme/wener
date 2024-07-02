@@ -220,6 +220,12 @@ scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call 
   x: [1.00, 1.25, 512] # YOLOv8x summary: 365 layers, 68229648 parameters, 68229632 gradients, 258.5 GFLOPs
 ```
 
+- depth - 模型深度
+  - 深度缩放因子，控制模型中每个模块的重复次数，影响模型的总层数。
+- width - 模型宽度
+  - 宽度缩放因子，控制模型中每个层的通道数，影响模型的参数数量。
+- https://github.com/ultralytics/ultralytics/issues/1155#issuecomment-1735325530
+  - 怎么选择
 - https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v8/yolov8.yaml
 - https://www.researchgate.net/figure/YOLOv5-different-model-sizes-where-FP16-stands-for-the-half-floating-point-precision_fig3_354846944
 

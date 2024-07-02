@@ -4,9 +4,12 @@ title: Lens
 
 # Lens
 
+- [lensapp/lens](https://github.com/lensapp/lens)
+  - 2024-01-23 闭源 https://github.com/lensapp/lens/commit/e1fc8869a9e0033fb22665a990e07a6b72756630
+  - Lens - The Kubernetes IDE
+  - by Mirantis
 - [MuhammedKalkan/OpenLens](https://github.com/MuhammedKalkan/OpenLens)
-  - 不要求登陆
-- [lensapp/lens](https://github.com/lensapp/lens) - Lens - The Kubernetes IDE
+  - 不要求登陆 - 从 lens 移除相关逻辑
 - [extensions/metrics-cluster-feature](https://github.com/lensapp/lens/tree/master/extensions/metrics-cluster-feature)
 - src/features/user-mode
   - ClusterRole lens-user

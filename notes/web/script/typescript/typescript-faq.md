@@ -102,7 +102,7 @@ type Permission = (typeof Permission)[keyof typeof Permission];
 > arrow function use generic type parameter
 
 ```ts
-const identity = <T,>(value: T): T[] => {
+const identity = <T>(value: T): T[] => {
   return [value];
 };
 ```
@@ -340,3 +340,25 @@ function Button<T extends React.ElementType = "button">({
 
 - https://github.com/babel/babel/issues/8244
 - https://github.com/microsoft/TypeScript/issues/30994
+
+## NullableOptional
+
+```ts
+type RequiredKeys<T> = {
+  [K in keyof T]-?: {} extends { [P in K]: T[K] } ? never : K;
+}[keyof T];
+
+type OptionalKeys<T> = {
+  [K in keyof T]-?: {} extends { [P in K]: T[K] } ? K : never;
+}[keyof T];
+
+type PickRequired<T> = Pick<T, RequiredKeys<T>>;
+
+type PickOptional<T> = Pick<T, OptionalKeys<T>>;
+
+type Nullable<T> = {
+  [P in keyof T]: T[P] | null;
+};
+
+type NullableOptional<T> = PickRequired<T> & Nullable<PickOptional<T>>;
+```

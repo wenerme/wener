@@ -139,7 +139,7 @@ tags:
 
 | ui                     | in         | web | desktop | cli | extensible |
 | ---------------------- | ---------- | --- | ------- | --- | ---------- |
-| lens                   | TS         |     | ✅      |
+| ~~lens~~               | TS         |     | ✅      |
 | portainer              |            |     | ✅      |
 | k9s                    | Golang     |     |         | ✅  |
 | [octant]               | Golang     | ✅  | ✅      |     | ⭐️⭐️⭐️  |
@@ -150,21 +150,37 @@ tags:
 [kubernetes-dashboard]: https://github.com/kubernetes/dashboard
 [octant]: https://github.com/vmware-tanzu/octant
 
-- [lens](./app/lens.md) -> openlens
-- [getseabird/seabird](https://github.com/getseabird/seabird)
-  - MPL-2.0, Golang
+- 命令行/TUI
+  - k9s
+  - [kdash-rs/kdash](https://github.com/kdash-rs/kdash)
+- Desktop/App
+  - ~~[lens](./app/lens.md)~~ -> openlens
+    - 2024-01-23 闭源
+    - by Mirantis
+  - [healmap](./app/healmap.md)
+    - Apache-2.0, Golang, TS
+  - [getseabird/seabird](https://github.com/getseabird/seabird)
+    - MPL-2.0, Golang
+  - [kubenav/kubenav](https://github.com/kubenav/kubenav)
+    - MIT, Dark, Golang
+    - 移动端
+  - portainer
+    - 早期支持 docker，后来支持 k8s
+- WebUI
+  - [kubernetes/dashboard][kubernetes-dashboard]
+    - 简洁
+  - [Rancher](./platform/rancher/README.md)
+  - OpenShift
+  - [kubeapps](https://github.com/kubeapps/kubeapps)
+    - 可简单的理解为 HELM WebUI
+    - web-based UI for deploying and managing applications in Kubernetes clusters
+- 商业/闭源
+  - lens
+  - https://infra.app/
+  - https://aptakube.com/
+    - 无免费方案
 - [goodrain/rainbond](https://github.com/goodrain/rainbond)
   - LGPLv3, Golang
-- [kubeapps](https://github.com/kubeapps/kubeapps)
-  - 可简单的理解为 HELM WebUI
-  - web-based UI for deploying and managing applications in Kubernetes clusters
-- healmap
-- lens
-- [kubernetes/dashboard][kubernetes-dashboard]
-  - 简洁
-- k9s - 命令行
-- portainer
-  - 早期支持 docker，后来支持 k8s
 - [kubernetes-sigs/kui](https://github.com/kubernetes-sigs/kui)
   - 增强 kubectl
   - kubectl kui get pods

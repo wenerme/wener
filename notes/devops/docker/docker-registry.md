@@ -20,9 +20,10 @@ title: Docker 仓库
 ## docker registry
 
 
-- [配置](https://docs.docker.com/registry/configuration/)
+- [配置](https://distribution.github.io/distribution/about/configuration/)
 - 存储: 文件系统、azure、gcs、s3、switf、oss
 - 授权: silly、token、htpasswd、none
+- ttl 默认 168h - 7d
 
 ```bash
 # -v $PWD/config.yml:/etc/docker/registry/config.yml \
