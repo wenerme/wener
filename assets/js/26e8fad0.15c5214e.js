@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[2296],{92292:e=>{e.exports=JSON.parse('{"label":"Unsupervised","permalink":"/notes/tags/unsupervised","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/ml/dinov2","title":"dino","description":"- facebookresearch/dinov2","permalink":"/notes/ai/ml/dinov2"}],"unlisted":false}')}}]);

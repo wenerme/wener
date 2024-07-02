@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[76672],{49336:e=>{e.exports=JSON.parse('{"label":"CLI","permalink":"/en/notes/tags/cli","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"db/relational/mysql/mysq-cli","title":"MySQL CLI","description":"","permalink":"/en/notes/db/relational/mysql/mysq-cli"}],"unlisted":false}')}}]);

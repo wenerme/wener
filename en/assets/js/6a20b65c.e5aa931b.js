@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[56436],{34738:e=>{e.exports=JSON.parse('{"label":"WebSocket","permalink":"/en/notes/tags/web-socket","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"web/nodejs/ws","title":"ws","description":"- websockets/ws","permalink":"/en/notes/web/nodejs/ws"}],"unlisted":false}')}}]);

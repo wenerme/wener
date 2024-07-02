@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[24866],{29224:e=>{e.exports=JSON.parse('{"label":"Life","permalink":"/notes/tags/life","allTagsPath":"/notes/tags","count":1,"items":[{"id":"evolve/wishlist","title":"Wishlist","description":"- \u613f\u671b","permalink":"/notes/evolve/wishlist"}],"unlisted":false}')}}]);

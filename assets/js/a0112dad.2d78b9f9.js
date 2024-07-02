@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[63668],{19128:e=>{e.exports=JSON.parse('{"label":"VB.NET","permalink":"/story/tags/vb-net","allTagsPath":"/story/tags","count":2,"unlisted":false}')}}]);

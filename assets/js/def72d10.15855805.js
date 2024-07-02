@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[75608],{44891:e=>{e.exports=JSON.parse('{"label":"Poker","permalink":"/notes/tags/poker","allTagsPath":"/notes/tags","count":1,"items":[{"id":"culture/game/baccarat","title":"\u767e\u5bb6\u4e50","description":"- Baccarat","permalink":"/notes/culture/game/baccarat"}],"unlisted":false}')}}]);

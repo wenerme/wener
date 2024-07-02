@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[68083],{78404:e=>{e.exports=JSON.parse('{"permalink":"/en/story/tags/\u7f16\u7a0b","page":1,"postsPerPage":10,"totalPages":2,"totalCount":13,"nextPage":"/en/story/tags/\u7f16\u7a0b/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

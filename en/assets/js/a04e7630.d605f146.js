@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[78944],{50824:e=>{e.exports=JSON.parse('{"label":"Apache","permalink":"/en/notes/tags/apache","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"service/data/nifi","title":"Apache NiFi","description":"- apache/nifi","permalink":"/en/notes/service/data/nifi"}],"unlisted":false}')}}]);

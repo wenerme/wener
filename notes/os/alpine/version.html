@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-os/alpine/alpine-version" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.2.1">
+<title data-rh="true">AlpineLinux 版本历史 | Wener Live &amp; Life</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://wener.me/notes/os/alpine/version"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="AlpineLinux 版本历史 | Wener Live &amp; Life"><meta data-rh="true" name="description" content="- 发布频率"><meta data-rh="true" property="og:description" content="- 发布频率"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wener.me/notes/os/alpine/version"><link data-rh="true" rel="alternate" href="https://wener.me/notes/os/alpine/version" hreflang="zh"><link data-rh="true" rel="alternate" href="https://wener.me/en/notes/os/alpine/version" hreflang="en"><link data-rh="true" rel="alternate" href="https://wener.me/notes/os/alpine/version" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://37P8DMWBKF-dsn.algolia.net" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" href="/story/rss.xml" title="Wener Live &amp; Life RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/story/atom.xml" title="Wener Live &amp; Life Atom Feed">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script>
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Wener Live &amp; Life" href="/opensearch.xml">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css">
+<script src="https://static.cloudflareinsights.com/beacon.min.js" async data-cf-beacon="{&quot;token&quot;: &quot;e9a1b931103044f3940ee67b78c7df70&quot;}" defer="defer"></script><link rel="stylesheet" href="/assets/css/styles.de206ab6.css">
+<script src="/assets/js/runtime~main.28280f93.js" defer="defer"></script>
+<script src="/assets/js/main.03d687e1.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_j12f" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/wener-logo-head.svg" alt="Wener Logo" class="themedComponent_VbNf themedComponent--light_DmUm"><img src="/img/wener-logo-head.svg" alt="Wener Logo" class="themedComponent_VbNf themedComponent--dark_TrMl"></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/notes">笔记</a><a class="navbar__item navbar__link" href="/story">故事</a><a class="navbar__item navbar__link" href="/notes/howto/network/dns-prevent-spoofing">指南</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/wenerme/wener" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_NWwd"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_Yzhw colorModeToggle_wQYh"><button class="clean-btn toggleButton_rALk toggleButtonDisabled_ueSy" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_jpMz"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_Ppq1"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_hOQ9"><button type="button" class="DocSearch DocSearch-Button" aria-label="搜索"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">搜索</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_EGx4"><div class="docsWrapper_yBgo"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_UDpU" type="button"></button><div class="docRoot_n7Md"><aside class="theme-doc-sidebar-container docSidebarContainer_tUoH"><div class="sidebarViewport_xtDv"><div class="sidebar_qYR6"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_vI8v"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/notes">笔记</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/ai">AI</a><button aria-label="展开侧边栏分类 &#x27;AI&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/algorithm">算法</a><button aria-label="展开侧边栏分类 &#x27;算法&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/blockchain">区块链</a><button aria-label="展开侧边栏分类 &#x27;区块链&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/courses">课程</a><button aria-label="展开侧边栏分类 &#x27;课程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/culture">文化</a><button aria-label="展开侧边栏分类 &#x27;文化&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/db">数据库</a><button aria-label="展开侧边栏分类 &#x27;数据库&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/dev">开发</a><button aria-label="展开侧边栏分类 &#x27;开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/devops">DevOps</a><button aria-label="展开侧边栏分类 &#x27;DevOps&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/economics">经济学</a><button aria-label="展开侧边栏分类 &#x27;经济学&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/notes/electrical/glossary">electrical</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/notes/embedded/awesome">embedded</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/evolve">自我成长</a><button aria-label="展开侧边栏分类 &#x27;自我成长&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/hardware">硬件</a><button aria-label="展开侧边栏分类 &#x27;硬件&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/healthcare">健康</a><button aria-label="展开侧边栏分类 &#x27;健康&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/notes/howto/network/dns-prevent-spoofing">howto</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/java">Java</a><button aria-label="展开侧边栏分类 &#x27;Java&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/languages">语言</a><button aria-label="展开侧边栏分类 &#x27;语言&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/mgmt">管理</a><button aria-label="展开侧边栏分类 &#x27;管理&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/notes/network/application/dns">network</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/ops">运维</a><button aria-label="展开侧边栏分类 &#x27;运维&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/notes/os">操作系统</a><button aria-label="折叠侧边栏分类 &#x27;操作系统&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/notes/os/alpine">Alpine</a><button aria-label="折叠侧边栏分类 &#x27;Alpine&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/apk">apk</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/awesome">AlpineLinux Awesome</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/boot">Alpin Boot</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/chroot">Alpine chroot 环境</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/faq">Alpine FAQ</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/glibc">Alpine GLIBC</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/health">Health Check</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/image">Alpine Image</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/install">AlpineLinux Install</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/intro">Alpine 入门</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/lbu">Alpine local backup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/ops">Alpine 运维笔记</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/pkgs">Alpine 包维护</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/pxe">pxe</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/setup">AlpineLinux Setup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/tip">Alpine Tip</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/notes/os/alpine/version">AlpineLinux 版本历史</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/alpine/virt">Alpine Virt</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/android">Android</a><button aria-label="展开侧边栏分类 &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/notes/os/bsd/awesome">bsd</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/busybox">Busybox</a><button aria-label="展开侧边栏分类 &#x27;Busybox&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/centos">CentOS</a><button aria-label="展开侧边栏分类 &#x27;CentOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/chromeos">ChromeOS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/darwin">Darwin</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/debian">Debian</a><button aria-label="展开侧边栏分类 &#x27;Debian&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/freebsd">FreeBSD</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/fuchsia">Fuchsia</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/lakka">lakka tv</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/libreelec">LibreELEC</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/notes/os/linux/admin">linux</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/macos">macOS</a><button aria-label="展开侧边栏分类 &#x27;macOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/mobile">手机</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/network">网络设备系统</a><button aria-label="展开侧边栏分类 &#x27;网络设备系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/openbsd">OpenBSD</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/awesome">OS Awesome</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/faq">OS FAQ</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/glossary">OS Glossary</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/notes/os/rhel/anaconda">rhel</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/notes/os/synology">Synology</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/notes/os/ubuntu/version">ubuntu</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/virt">虚拟化</a><button aria-label="展开侧边栏分类 &#x27;虚拟化&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/notes/os/windows">Windows</a><button aria-label="展开侧边栏分类 &#x27;Windows&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/philosophy">理念</a><button aria-label="展开侧边栏分类 &#x27;理念&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/photography">摄影</a><button aria-label="展开侧边栏分类 &#x27;摄影&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/platform">平台</a><button aria-label="展开侧边栏分类 &#x27;平台&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/notes/psychology/glossary">psychology</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/queue">Queue</a><button aria-label="展开侧边栏分类 &#x27;Queue&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/security">安全</a><button aria-label="展开侧边栏分类 &#x27;安全&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/service">服务</a><button aria-label="展开侧边栏分类 &#x27;服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/software">软件</a><button aria-label="展开侧边栏分类 &#x27;软件&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/std">标准数据</a><button aria-label="展开侧边栏分类 &#x27;标准数据&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/voip">VoIP</a><button aria-label="展开侧边栏分类 &#x27;VoIP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/notes/web">Web</a><button aria-label="展开侧边栏分类 &#x27;Web&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav><button type="button" title="收起侧边栏" aria-label="收起侧边栏" class="button button--secondary button--outline collapseSidebarButton_Oxb9"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_qjI1"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_J4QB"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_vdLE"><div class="docItemContainer_joOt"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_kSi2" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_PIvU"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/notes/os"><span itemprop="name">操作系统</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/notes/os/alpine"><span itemprop="name">Alpine</span></a><meta itemprop="position" content="2"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">AlpineLinux 版本历史</span><meta itemprop="position" content="3"></li></ul></nav><div class="tocCollapsible_wqQw theme-doc-toc-mobile tocMobile_si_U"><button type="button" class="clean-btn tocCollapsibleButton_yx4a">本页总览</button></div><div class="theme-doc-markdown markdown"><h1>AlpineLinux 版本历史</h1>
+<ul>
+<li>发布频率
+<ul>
+<li>每年两个版本 - 5 月左右一个，11 月左右一个</li>
+<li>每年年底的 Linux 版本一般为 LTS - 因此下半年版本一般也会更新内核版本</li>
+<li>每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
+<ul>
+<li>main 仓库支持两年 - 发布后以稳定为主，基本不升级</li>
+<li>community 仓库支持到下一个稳定版 - 一般半年</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>每次发布前会先编译所有包，当包都有后才会正式发布
+<ul>
+<li>但部分 test 无法通过的包会被暂时禁止 - 如果发现可以提出</li>
+</ul>
+</li>
+<li><a href="https://alpinelinux.org/releases/" target="_blank" rel="noopener noreferrer">发布版本历史日期</a></li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_AGta alert alert--success"><div class="admonitionHeading_wvTi"><span class="admonitionIcon_DyuB"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Roadmap</div><div class="admonitionContent_qS6E"><ul>
+<li>3.20
+<ul>
+<li>Linux 6.7+ 合并了 bcachefs</li>
+<li>RISC-V 64</li>
+</ul>
+</li>
+<li>3.19
+<ul>
+<li>zfs 2.2 - 支持 overlay</li>
+</ul>
+</li>
+<li>3.18 riscv64</li>
+<li>3.17 OpenSSL 3</li>
+<li>3.16 - rust community -&gt; main</li>
+<li>3.15 推迟了 riscv64 支持
+<ul>
+<li>官方没有 <strong>足够好的硬件</strong> 构建整个流程</li>
+<li>之后可能会出非正式的 iso - 可 QEMU 体验</li>
+</ul>
+</li>
+<li>s6 开发者在为 alpine 开发 openrc 后继服务管理
+<ul>
+<li><a href="https://skarnet.com/projects/service-manager.html" target="_blank" rel="noopener noreferrer">A new service manager for Linux distributions</a></li>
+</ul>
+</li>
+<li>Linux 5.13 后可能支持 Apple M1
+<ul>
+<li>可能会新增 linux-m1 内核</li>
+<li>16K page</li>
+</ul>
+</li>
+<li>loongarch
+<ul>
+<li><a href="https://dev.alpinelinux.org/~loongarch" target="_blank" rel="noopener noreferrer">https://dev.alpinelinux.org/~loongarch</a></li>
+</ul>
+</li>
+</ul></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>version</th><th>date</th></tr></thead><tbody><tr><td><a href="#alpinelinux-319">AlpineLinux 3.19</a></td><td>2023-12-07</td></tr><tr><td><a href="#alpinelinux-318">AlpineLinux 3.18</a></td><td>2023-05-29</td></tr><tr><td><a href="#alpinelinux-317">AlpineLinux 3.17</a></td><td>2022-11-22</td></tr><tr><td><a href="#alpinelinux-316">AlpineLinux 3.16</a></td><td>2022-05-23</td></tr><tr><td><a href="#alpinelinux-315">AlpineLinux 3.15</a></td><td>2021-11-24</td></tr><tr><td><a href="#alpinelinux-314">AlpineLinux 3.14</a></td><td>2021-07-15</td></tr><tr><td><a href="#alpinelinux-313">AlpineLinux 3.13</a></td><td>2020-01-14</td></tr><tr><td><a href="#alpinelinux-312">AlpineLinux 3.12</a></td><td>2020-05-29</td></tr><tr><td><a href="#alpinelinux-311">AlpineLinux 3.11</a></td><td>2019-12-29</td></tr><tr><td><a href="#alpinelinux-310">AlpineLinux 3.10</a></td><td>2019-06-19</td></tr><tr><td><a href="#alpinelinux-39">AlpineLinux 3.9</a></td><td>2019-01-29</td></tr><tr><td><a href="#alpinelinux-38">AlpineLinux 3.8</a></td><td>2018-06-26</td></tr><tr><td><a href="#alpinelinux-37">AlpineLinux 3.7</a></td><td>2017-11-30</td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-caution admonition_AGta alert alert--warning"><div class="admonitionHeading_wvTi"><span class="admonitionIcon_DyuB"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>版本升级注意事项</div><div class="admonitionContent_qS6E"><ul>
+<li>大版本升级务必确认 镜像仓库 是否同步</li>
+<li>不建议直接用 edge 仓库 - 单个包使用 edge 影响不大</li>
+<li>如果升级了 openssh 建议重启 sshd，否则可能不会接受新的链接</li>
+<li>3.15 - Linux 5.15 zfs /dev/zvol 启动时可能没创建 - <a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/13198" target="_blank" rel="noopener noreferrer">#13198</a></li>
+<li>3.14 musl 开启了 faccessat2, 对 docker 和 libseccomp 有要求
+<ul>
+<li>不然可能会出现类似无权限访问的问题</li>
+<li>Linux 5.8 增加 faccessat2</li>
+</ul>
+</li>
+<li>3.11 内核 vanilla 变为 lts</li>
+<li>3.8 移除 hardened, virthardened 内核，使用 vanilla 和 virt 替代</li>
+</ul></div></div>
+<ul>
+<li>参考
+<ul>
+<li><a href="https://ariadne.space/" target="_blank" rel="noopener noreferrer">https://ariadne.space/</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-320">AlpineLinux 3.20<a href="#alpinelinux-320" class="hash-link" aria-label="AlpineLinux 3.20的直接链接" title="AlpineLinux 3.20的直接链接">​</a></h2>
+<ul>
+<li>Linux kernel 6.1 -&gt; 6.6
+<ul>
+<li>有很多有意思的提升: nfs, ntfs, tmpfs</li>
+</ul>
+</li>
+<li>RISC-V 64</li>
+<li>⚠️ 变更
+<ul>
+<li>grub 可能有升级问题</li>
+<li>Redis -&gt; Valkey - 因为 RSALv2+SSPLv1 License 问题
+<ul>
+<li>valkey-compat - 兼容 redis</li>
+<li>redis 包移到 community - 不会再继续升级，保持 7.2.x</li>
+<li>redict - LGPLv3 也可以作为 redis 替代</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>LLVM 18</li>
+<li>Go 1.22</li>
+<li>OpenJDK 22</li>
+</ul>
+</li>
+<li>参考
+<ul>
+<li><a href="https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.20.0" target="_blank" rel="noopener noreferrer">Release Notes for Alpine 3.20.0</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-319">AlpineLinux 3.19<a href="#alpinelinux-319" class="hash-link" aria-label="AlpineLinux 3.19的直接链接" title="AlpineLinux 3.19的直接链接">​</a></h2>
+<ul>
+<li>Linux kernel 6.1 -&gt; 6.6
+<ul>
+<li>有很多有意思的提升: nfs, ntfs, tmpfs</li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>NodeJS 20 LTS</li>
+<li>Go 1.21</li>
+<li>LLVM 17</li>
+<li>PostgreSQL 16</li>
+<li>OpenJDK 21</li>
+<li>PHP 8.3</li>
+<li>Rust 1.72</li>
+<li>ZFS 2.2 - 支持 overlayfs - docker/containerd/k3s 不再需要 zvol</li>
+</ul>
+</li>
+<li>支持 Raspberry Pi 5
+<ul>
+<li>内核模块变化 <del>linux-rpi4</del> &amp; <del>linux-rpi2</del> -&gt; linux-rpi</li>
+</ul>
+</li>
+<li>openrc
+<ul>
+<li>移除 /sbin/rc - 确保 /etc/inittab 使用 /sbin/openrc</li>
+<li>如果自己修改过需要检查下</li>
+</ul>
+</li>
+<li>iptables-nft 默认
+<ul>
+<li>symlink /sbin/iptables{,-save,-restore} -&gt; xtables-nft-multi</li>
+<li>而不是 xtables-legacy-multi</li>
+<li>使用 nftables 而不是 iptable</li>
+<li>旧的 iptables 包 iptables-legacy, iptables-legacy-save</li>
+</ul>
+</li>
+<li><a href="https://alpinelinux.org/posts/Alpine-3.19.0-released.html" target="_blank" rel="noopener noreferrer">https://alpinelinux.org/posts/Alpine-3.19.0-released.html</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-318">AlpineLinux 3.18<a href="#alpinelinux-318" class="hash-link" aria-label="AlpineLinux 3.18的直接链接" title="AlpineLinux 3.18的直接链接">​</a></h2>
+<ul>
+<li>Linux 5.15 -&gt; 6.1
+<ul>
+<li>signed kernel modules
+<ul>
+<li>CONFIG_MODULE_SIG</li>
+<li>未强制</li>
+<li><a href="https://www.kernel.org/doc/html/v4.15/admin-guide/module-signing.html" target="_blank" rel="noopener noreferrer">https://www.kernel.org/doc/html/v4.15/admin-guide/module-signing.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>musl libc 1.2.4
+<ul>
+<li>tcp dns - 解决 udp dns 不能返回太多解析的问题</li>
+<li>DT_RELR - relative relocation
+<ul>
+<li>减小 binary size
+<ul>
+<li>qemu-system-aarch64 3.17 v7.1 22.6M -&gt; 3.18 v8.0 19.5M</li>
+</ul>
+</li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/tsc/-/issues/58" target="_blank" rel="noopener noreferrer">https://gitlab.alpinelinux.org/alpine/tsc/-/issues/58</a></li>
+<li><a href="https://maskray.me/blog/2021-10-31-relative-relocations-and-relr" target="_blank" rel="noopener noreferrer">https://maskray.me/blog/2021-10-31-relative-relocations-and-relr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tiny-cloud - 自动安装配置
+<ul>
+<li>类似 cloud-init 的精简版</li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/cloud/tiny-cloud" target="_blank" rel="noopener noreferrer">https://gitlab.alpinelinux.org/alpine/cloud/tiny-cloud</a></li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>Python 3.11</li>
+<li>Go 1.20</li>
+<li>Qemu 8.0</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-317">AlpineLinux 3.17<a href="#alpinelinux-317" class="hash-link" aria-label="AlpineLinux 3.17的直接链接" title="AlpineLinux 3.17的直接链接">​</a></h2>
+<ul>
+<li>Linux 5.15 - 没变</li>
+<li>环境
+<ul>
+<li>bash 5.2</li>
+<li>gcc 12</li>
+<li>llvm 16</li>
+<li>PostgreSQL 15</li>
+<li>NodeJS 18.12 LTS</li>
+<li><strong>OpenSSL 3</strong></li>
+<li>Go 1.19</li>
+</ul>
+</li>
+<li>openssl1.1-compat 兼容 OpenSSL 1</li>
+</ul>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade libcrypto3 libssl3 apk-tools</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade -a</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 从 util-linux-misc 移到了独立包</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk add mount umount</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-316">AlpineLinux 3.16<a href="#alpinelinux-316" class="hash-link" aria-label="AlpineLinux 3.16的直接链接" title="AlpineLinux 3.16的直接链接">​</a></h2>
+<ul>
+<li>Linux 5.10 -&gt; 5.15</li>
+<li>新的 setup-desktop</li>
+<li>/tmp - 新安装使用 tmpfs 挂载 - 之前在 root 里，只影响新安装</li>
+<li>shadow 包拆分
+<ul>
+<li>shadow-login - faillog, lastlog, login, newgrp, nologin, sg, su</li>
+<li>shadow-conv - pwconv, pwunconv, grpconv, and grpunconv</li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>Go 1.18, LLVM 13, Python 3.10</li>
+<li>sudo - main -&gt; community - 推荐 doas, doas-sudo-shim</li>
+<li>utmp - <a href="https://skarnet.org/software/utmps" target="_blank" rel="noopener noreferrer">https://skarnet.org/software/utmps</a></li>
+<li>QEMU 7</li>
+</ul>
+</li>
+</ul>
+<p><strong>升级出现的错误</strong></p>
+<div class="codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-text codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain">40282431904584:error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:1919:</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">ERROR: libssl1.1-1.1.1q-r0: Permission denied</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 先升级 SSL 相关，再升级其他</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade libcrypto1.1</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade libssl1.1</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade -a</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-315">AlpineLinux 3.15<a href="#alpinelinux-315" class="hash-link" aria-label="AlpineLinux 3.15的直接链接" title="AlpineLinux 3.15的直接链接">​</a></h2>
+<div class="theme-admonition theme-admonition-caution admonition_AGta alert alert--warning"><div class="admonitionHeading_wvTi"><span class="admonitionIcon_DyuB"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>警告</div><div class="admonitionContent_qS6E"><p>因为升级了 key, 升级 3.15 之前一定确保先将 alpine-keys 升级到 2.4.0+</p><div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade alpine-keys</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -i &#x27;s/v3.1./v3.15/g&#x27; /etc/apk/repositories</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade -a</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div></div></div>
+<ul>
+<li>Linux <a href="https://wener.me/notes/os/linux/linux-version#515" target="_blank" rel="noopener noreferrer">5.15</a>
+<ul>
+<li>NTFS 内核 驱动</li>
+</ul>
+</li>
+<li>🟠 新的签名 key - alpine-keys-2.4-r0 - 2048 -&gt; 4096 bits</li>
+<li>🟠 sudo -&gt; <a href="https://wener.me/notes/os/linux/shell/doas/" target="_blank" rel="noopener noreferrer">doas</a>
+<ul>
+<li>3.15 默认 doas</li>
+<li>3.16 sudo 会挪到 community</li>
+</ul>
+</li>
+<li>🟠 flannel 从 cni-plugins v1 中移除，独立为 flannel edge/testing</li>
+<li>🟢 支持 out-of-tree 内核模块 - akms - Alpine Kernel Module Support
+<ul>
+<li>类似 Debian 的 dkms</li>
+</ul>
+</li>
+<li>🟢 UEFI Secure Boot - secureboot-hook, efi-mkkeys</li>
+<li>🔴 停止 mips64 架构 - EOL</li>
+<li>Kernel 内核 gzip 压缩</li>
+<li>alpin-conf - setup-disk 支持 加密数据盘、加密系统盘</li>
+<li>mount overlaytmpfs - mkinitfs-bootparams.7</li>
+<li>openssl 1.1 - 升级 3.0 很多包有问题，退回到 1.1</li>
+<li>🆙 升级包
+<ul>
+<li>llvm12</li>
+<li>nodejs 16</li>
+<li>php 7.4 phase out</li>
+<li>openjdk 17</li>
+<li>openldap 2.6</li>
+<li>rust 1.56</li>
+<li>go 1.17</li>
+<li>node 16</li>
+<li>ruby 3.0</li>
+<li>PostgreSQL 14
+<ul>
+<li>独立 postgresql-jit 包</li>
+</ul>
+</li>
+<li>k3s 1.22.3</li>
+<li>n2n 3.0</li>
+<li>kea 2.0 - DHCPv4, DHCPv6 server</li>
+</ul>
+</li>
+<li>⭐️ 支持多版本 postgresql
+<ul>
+<li>postgresql{12,13,14} - 升级迁移方便</li>
+<li>不用害怕升级 postgresql 导致现在服务无法启动</li>
+<li>postgresql 默认指向最新版</li>
+<li>pg_versions 可切换版本</li>
+</ul>
+</li>
+<li>postgresql-dev -&gt; libpq-dev, libecpg-dev</li>
+<li>radvd init 默认不开启 ipv6 转发
+<ul>
+<li>可自行开启 <code>net.ipv6.conf.all.forwarding=1</code></li>
+</ul>
+</li>
+<li>ifupdown-ng-wifi
+<ul>
+<li>目前只支持 wpa_supplicant</li>
+<li><a href="https://github.com/ifupdown-ng/ifupdown-ng/blob/main/executor-scripts/linux/wifi" target="_blank" rel="noopener noreferrer">https://github.com/ifupdown-ng/ifupdown-ng/blob/main/executor-scripts/linux/wifi</a></li>
+</ul>
+</li>
+<li><a href="https://wiki.alpinelinux.org/wiki/Draft_Release_Notes_for_Alpine_3.15.0" target="_blank" rel="noopener noreferrer">Draft Release Notes for Alpine 3.15.0</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-314">AlpineLinux 3.14<a href="#alpinelinux-314" class="hash-link" aria-label="AlpineLinux 3.14的直接链接" title="AlpineLinux 3.14的直接链接">​</a></h2>
+<div class="theme-admonition theme-admonition-caution admonition_AGta alert alert--warning"><div class="admonitionHeading_wvTi"><span class="admonitionIcon_DyuB"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>警告</div><div class="admonitionContent_qS6E"><ul>
+<li>如果升级容器建议先升级主机，因为 faccessat2 对 docker 版本 和 libseccomp 有要求
+<ul>
+<li>3.13 最新版 docker 是 20.10, libseccomp 是 2.5 都支持</li>
+<li>运行 <code>scmp_sys_resolver faccessat2</code> 确保不是返回 -1</li>
+</ul>
+</li>
+</ul></div></div>
+<ul>
+<li>Linux Kernel 5.10</li>
+<li>🆕 新增包
+<ul>
+<li>n2n</li>
+<li>openssh-server-krb5, openssh-client-krb5
+<ul>
+<li>ssh 支持 krb5 和 pam 的 flavor</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>python 3.9</li>
+<li>lua 5.4.3</li>
+<li>node 14</li>
+<li>nginx 1.20.0, njs 0.5.3</li>
+<li><a href="https://wener.me/notes/devops/web/haproxy-version/#24---2021-05-13" target="_blank" rel="noopener noreferrer">haproxy 2.4</a> - 更新非常大,值得关注</li>
+<li>PostgreSQL 13</li>
+<li>QEMU 6</li>
+<li>k3s 1.21.1</li>
+</ul>
+</li>
+<li>变化
+<ul>
+<li>musl 启用 faccessat2
+<ul>
+<li>要求 docker 20.10.0+, libseccomp 2.4.4</li>
+<li>检查系统支持 scmp_sys_resolver faccessat2</li>
+<li>直接升级遇到这个问题的可能性非常高</li>
+<li><a href="https://github.com/opencontainers/runc/issues/2151" target="_blank" rel="noopener noreferrer">opencontainers/runc#2151</a></li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/aports/-/issues/12321" target="_blank" rel="noopener noreferrer">alpine/aports#12321</a>
+3.13.0 vs. edge - cmake fails to detect C compiler ABI info</li>
+</ul>
+</li>
+<li>移除 xf86-input-{mouse,keyboard}, 使用 xf86-input-evdev, xf86-input-libinput</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-313">AlpineLinux 3.13<a href="#alpinelinux-313" class="hash-link" aria-label="AlpineLinux 3.13的直接链接" title="AlpineLinux 3.13的直接链接">​</a></h2>
+<ul>
+<li>Linux Kernel <a href="https://wener.me/notes/os/linux/linux-version/#510---lts" target="_blank" rel="noopener noreferrer">5.10 LTS</a></li>
+<li>参考
+<ul>
+<li><a href="https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.13.0" target="_blank" rel="noopener noreferrer">Release Notes for Alpine 3.13.0</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_QKFm" id="变化">变化<a href="#变化" class="hash-link" aria-label="变化的直接链接" title="变化的直接链接">​</a></h3>
+<ul>
+<li>musl 1.2
+<ul>
+<li>time_t 在 32 位系统上为 64 位
+<ul>
+<li>在 64 位上跑 32 位的容器可能有问题</li>
+<li><strong>影响在其他 Disto 上跑 Alpine 容器的问题</strong></li>
+<li>Docker 版本需要大于 19.03.9 - 否则会有兼容问题</li>
+<li>libseccomp &gt;= 2.4.2
+<ul>
+<li>执行 <code>scmp_sys_resolver -a x86 clock_gettime64</code> 返回 403 就是支持的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1.2.1 使用了新的 <a href="https://github.com/richfelker/mallocng-draft" target="_blank" rel="noopener noreferrer">malloc</a>, 也能配合 jemalloc 使用</li>
+</ul>
+</li>
+<li>iproute2-minial/tc/ss
+<ul>
+<li>单独 ip/tc/ss 命令包，从之前的 iproute2 独立出来 - 但安装 iproute2 会直接安装这些附属包</li>
+<li>alpine-base 会包含， busybox 的 ip 功能比较受限</li>
+<li><a href="https://gitlab.alpinelinux.org/alpine/aports/commit/62c858b85bb379fb014cfe188f4cb25ed75f76e3" target="_blank" rel="noopener noreferrer">commit</a></li>
+</ul>
+</li>
+<li>ifupdown -&gt; <a href="https://github.com/ifupdown-ng/ifupdown-ng/" target="_blank" rel="noopener noreferrer">ifupdown-ng</a>
+<ul>
+<li>默认包含了 vlan，不再需要额外安装</li>
+<li>兼容 /etc/network/if-X.d 脚本但倾向于 <code>/usr/libexec/ifupdown-ng</code></li>
+<li>配置 /etc/network/ifupdown-ng.conf
+<ul>
+<li>use_hostname_for_dhcp 默认 开启 - <code>hostname $(hostname)</code></li>
+</ul>
+</li>
+<li>支持依赖关系 - <code>requires eth0</code></li>
+<li>手动指定 executor - <code>use bond</code></li>
+<li>上游支持 hotplug 但目前 3.13 不会支持 - ifmond</li>
+<li>后续可能会支持 ifreload</li>
+<li>之后版本可能会移除 busybox 中的 ifupdown</li>
+<li>⚠️ 虽然 ifupdown-ng 支持 bond 和 bridge，但 alpinelinux 包中移除了脚本，<code>bonding</code> 和 <code>bridge</code> 包依然需要
+<ul>
+<li><a href="https://gitlab.alpinelinux.org/alpine/aports/-/blob/e249384af27cdc09490bfbb02ae5153eab1d49e9/main/ifupdown-ng/APKBUILD#L22-27" target="_blank" rel="noopener noreferrer">main/ifupdown-ng/APKBUILD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>gcc 10
+<ul>
+<li>默认开启了 <code>-fno-common</code> - 某些包编译可能异常</li>
+</ul>
+</li>
+<li>busybox 组件变化
+<ul>
+<li>❌ 移除 hdparm - 使用 hdparm</li>
+<li>❌ 移除 fdformat,readprofile - 使用 util-linux</li>
+<li>❌ 移除 lspci - 使用 pciutils</li>
+<li>❌ 移除 sendmail - 使用 ssmtp, opensmtpd, dma, exim, nullmailer, postfix</li>
+<li>❌ 移除 conspy, smemcap, dumpleases</li>
+</ul>
+</li>
+<li>内核
+<ul>
+<li>lts 添加了 RBD 模块 - 之前只有 virt 有 - ceph 需要</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_QKFm" id="升级">升级<a href="#升级" class="hash-link" aria-label="升级的直接链接" title="升级的直接链接">​</a></h3>
+<ul>
+<li>🆕 新增包
+<ul>
+<li>k3s</li>
+<li>cloud-init</li>
+<li>cni-plugins</li>
+<li>php8 - php 默认依然为 php7</li>
+</ul>
+</li>
+<li>🆙 升级包
+<ul>
+<li>nodejs 14</li>
+<li>go 1.15
+<ul>
+<li>1.16 支持 embded - 但是 2021-2 发布</li>
+</ul>
+</li>
+<li>qemu 5.2</li>
+<li>zfs 2.0.1 - 之前是 0.8
+<ul>
+<li>zfs 调整了开发模式 - ZoL -&gt; OpenZFS</li>
+<li>Linux 和 BSD 使用相同的核心代码 - 自 2018 年开始进行调整 - 增加了很多特性</li>
+<li>新特性
+<ul>
+<li>Sequential resilver - 快速构建镜像 vdev
+<ul>
+<li><code>zpool replace|attach -s</code></li>
+</ul>
+</li>
+<li>Persistent L2ARC - 重启后 L2ARC 缓存依然有效</li>
+<li>ZStandard 压缩 - 比 gzip 和 lzm 更好</li>
+<li>zfs send/receive - 支持部分数据
+<ul>
+<li><code>zfs redact</code>, <code>zfs send --redact</code>, <code>zfs send --saved</code></li>
+</ul>
+</li>
+<li>dRAID</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-312">AlpineLinux 3.12<a href="#alpinelinux-312" class="hash-link" aria-label="AlpineLinux 3.12的直接链接" title="AlpineLinux 3.12的直接链接">​</a></h2>
+<ul>
+<li><a href="https://alpinelinux.org/posts/Alpine-3.12.0-released.html" target="_blank" rel="noopener noreferrer">3.12</a></li>
+<li>新增架构 mips64 be</li>
+<li>D 语言</li>
+<li>内核 5.4.43</li>
+<li>QEMU 5.0</li>
+<li>移除了 python 包 - 按需安装 python2 或 python3</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-311">AlpineLinux 3.11<a href="#alpinelinux-311" class="hash-link" aria-label="AlpineLinux 3.11的直接链接" title="AlpineLinux 3.11的直接链接">​</a></h2>
+<ul>
+<li>v<a href="https://alpinelinux.org/posts/Alpine-3.11.0-released.html" target="_blank" rel="noopener noreferrer">3.11</a></li>
+<li>5.4.5 内核</li>
+<li>RPi 4 支持</li>
+<li>新增 GNOME 和 KDE 桌面</li>
+<li>支持 Vulkan</li>
+<li>MinGW-w64 和 DXVK 支持</li>
+<li>升级注意
+<ul>
+<li>内核名字修改为 linux-lts 以前为 linux-vanilla</li>
+<li>废弃并移除了大量 py2 的包</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 修改为 3.11 包</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -i -r &#x27;s/v[.0-9]+/v3.11/&#x27; /etc/apk/repositories</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 升级</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 确认升级完成</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk version</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 切换内核 - 只有使用 linux-vanilla 才需要 - linux-virt 不需要</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk add linux-lts</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 修改默认启动项为 lts</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 在安装两个后默认会修改为 menu.c32</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -i -r &#x27;s/DEFAULT .*?/DEFAULT lts/&#x27; /boot/extlinux.conf</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 重启使用新的内核</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">reboot</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 重启后确认为 -tls 内核版本</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">uname -r</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 移除旧版内核</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk del linux-vanilla</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-310">AlpineLinux 3.10<a href="#alpinelinux-310" class="hash-link" aria-label="AlpineLinux 3.10的直接链接" title="AlpineLinux 3.10的直接链接">​</a></h2>
+<ul>
+<li>v<a href="https://alpinelinux.org/posts/Alpine-3.10.0-released.html" target="_blank" rel="noopener noreferrer">3.10</a></li>
+<li>4.19 内核</li>
+<li>新增 ceph</li>
+<li>新增 lightdm</li>
+<li>arm 支持串口和 ethernet</li>
+<li>移除 mongodb</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-39">AlpineLinux 3.9<a href="#alpinelinux-39" class="hash-link" aria-label="AlpineLinux 3.9的直接链接" title="AlpineLinux 3.9的直接链接">​</a></h2>
+<ul>
+<li>v<a href="https://alpinelinux.org/posts/Alpine-3.9.0-released.html" target="_blank" rel="noopener noreferrer">3.9</a></li>
+<li>4.19 内核</li>
+<li>支持 armv7</li>
+<li>使用 OpenSSL 而不是 LibreSSL</li>
+</ul>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 升级仓库之前可先升级本地包</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 更新为 3.9 仓库</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -ire &#x27;s/v\d\.\d/v3.9/g&#x27; /etc/apk/repositories</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sync</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-38">AlpineLinux 3.8<a href="#alpinelinux-38" class="hash-link" aria-label="AlpineLinux 3.8的直接链接" title="AlpineLinux 3.8的直接链接">​</a></h2>
+<ul>
+<li>v<a href="https://alpinelinux.org/posts/Alpine-3.8.0-released.html" target="_blank" rel="noopener noreferrer">3.8</a> 2018-06-27</li>
+<li>4.14 内核</li>
+<li>所有架构支持网络启动 - netboot</li>
+<li>新增 arm64 的 rpi 镜像</li>
+<li>支持 rpi3b+</li>
+<li>移除 linux-hardened 内核 - 非官方 Grsecurity</li>
+<li>拆分了 linux-firmware 子包, 可单独安装</li>
+<li>注意
+<ul>
+<li>3.8 移除了 hardened 相关的 kernel, 之前版本安装的都需  要做调整</li>
+<li>3.7 没有 linut-virt 只有 linut-virthardened 需要先更新仓库</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 更新为 3.8 仓库</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -ire &#x27;s/v\d\.\d/v3.8/g&#x27; /etc/apk/repositories</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 更新仓库索引</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 3.8 内核切换</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># ============</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 3.8 移除了 hardened 内核, 升级前先切换到非 hardened 内核版本</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 查看当前内核</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk info -vv | grep hardened</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果为 linux-virthardened 则安装 linux-virt</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果为 linux-hardened 则安装 linux-vanilla</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果不是 hardened 内 核, 跳过</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk add linux-vanilla</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果有其他内核模块是 hardened 也需要安装对应的 vanilla 版本, zfs, drbd, spl, dahdi, 例如</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># apk add zfs-vanilla spl-vanilla</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 移除 hardened 的启动菜单, 确保下次启动进入选择正确的内核</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">nano /boot/extlinux.conf</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">reboot</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 重启后移除旧的内核</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk del linux-hardened</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果有依赖需要一并移除, 例如</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># apk del linux-hardened spl-hardened zfs-hardened</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 更新所有的包</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sync</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">reboot</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="alpinelinux-37">AlpineLinux 3.7<a href="#alpinelinux-37" class="hash-link" aria-label="AlpineLinux 3.7的直接链接" title="AlpineLinux 3.7的直接链接">​</a></h2>
+<ul>
+<li><a href="https://alpinelinux.org/posts/Alpine-3.7.0-released.html" target="_blank" rel="noopener noreferrer">3.7.0</a></li>
+<li>查看当前内核版本 <a href="https://pkgs.alpinelinux.org/packages?name=linux*&amp;branch=v3.7&amp;repo=main&amp;arch=x86_64" target="_blank" rel="noopener noreferrer">https://pkgs.alpinelinux.org/packages?name=linux*&amp;branch=v3.7&amp;repo=main&amp;arch=x86_64</a></li>
+<li>3.7 添加了 busybox-extras, 部分原先 busybox 中的工具被移到了该包</li>
+<li>Support for EFI;</li>
+<li>Support in the installer for the GRUB bootloader</li>
+<li>Linux 4.9.65</li>
+<li>GCC 6.4</li>
+<li>LLVM 5.0</li>
+<li>Go 1.9</li>
+<li>Node.js 8.9 (LTS)</li>
+<li>Perl 5.26</li>
+<li>PostgreSQL 10</li>
+<li>Rust 1.22</li>
+</ul>
+<div class="language-bash codeBlockContainer_zTdX theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_LawP"><pre tabindex="0" class="prism-code language-bash codeBlock_fWVI thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_n6dK"><span class="token-line" style="color:#bfc7d5"><span class="token plain">sed -ire &#x27;s/v\d\.\d/v3.7/g&#x27; /etc/apk/repositories</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk update</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 在进行升级之前先更新 apk 工具</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk add --upgrade apk-tools</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 更新所有的包, --available 会强制更新包, 即便版本是一样的</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk upgrade --available</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 查看是否还有未升级的</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk version</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 内核可能由于依赖原因不会升级</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk info -r linux-hardened</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 将依赖的包进行统一升级即可</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">apk add --upgrade linux-hardened spl-hardened zfs-hardened</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"># 如果更新了内核, 则需要重启</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">sync</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">reboot</span><br></span></code></pre><div class="buttonGroup_TrSR"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_xs76" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_eseE"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_pHuf"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_QKFm" id="my-commits">我的提交数<a href="#my-commits" class="hash-link" aria-label="我的提交数的直接链接" title="我的提交数的直接链接">​</a></h2>
+<blockquote>
+<p>Commits of wener/wenerme</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>version</th><th>commits</th></tr></thead><tbody><tr><td>3.14.2</td><td>1</td></tr><tr><td>3.14.0</td><td>12</td></tr><tr><td>3.13.1</td><td>2</td></tr><tr><td>3.13.0</td><td>29</td></tr><tr><td>3.12.1</td><td>2</td></tr><tr><td>3.12.0</td><td>16</td></tr><tr><td>3.11.0</td><td>11</td></tr><tr><td>3.10.0</td><td>1</td></tr><tr><td>3.9.0</td><td>3</td></tr><tr><td>3.8.0</td><td>6</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>标签：</b><ul class="tags_NVAU padding--none margin-left--sm"><li class="tag_wOON"><a class="tag_P3cE tagRegular_wyYd" href="/notes/tags/version">Version</a></li></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/wenerme/wener/edit/master/notes/../notes/os/alpine/alpine-version.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_ia4M" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_rA2t"><span class="theme-last-updated">最后<!-- -->由 <b>wener</b> <!-- -->于 <b><time datetime="2024-06-11T04:15:05.000Z" itemprop="dateModified">2024年6月11日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/notes/os/alpine/tip"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Alpine Tip</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/notes/os/alpine/virt"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Alpine Virt</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_a1Wf thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#alpinelinux-320" class="table-of-contents__link toc-highlight">AlpineLinux 3.20</a></li><li><a href="#alpinelinux-319" class="table-of-contents__link toc-highlight">AlpineLinux 3.19</a></li><li><a href="#alpinelinux-318" class="table-of-contents__link toc-highlight">AlpineLinux 3.18</a></li><li><a href="#alpinelinux-317" class="table-of-contents__link toc-highlight">AlpineLinux 3.17</a></li><li><a href="#alpinelinux-316" class="table-of-contents__link toc-highlight">AlpineLinux 3.16</a></li><li><a href="#alpinelinux-315" class="table-of-contents__link toc-highlight">AlpineLinux 3.15</a></li><li><a href="#alpinelinux-314" class="table-of-contents__link toc-highlight">AlpineLinux 3.14</a></li><li><a href="#alpinelinux-313" class="table-of-contents__link toc-highlight">AlpineLinux 3.13</a><ul><li><a href="#变化" class="table-of-contents__link toc-highlight">变化</a></li><li><a href="#升级" class="table-of-contents__link toc-highlight">升级</a></li></ul></li><li><a href="#alpinelinux-312" class="table-of-contents__link toc-highlight">AlpineLinux 3.12</a></li><li><a href="#alpinelinux-311" class="table-of-contents__link toc-highlight">AlpineLinux 3.11</a></li><li><a href="#alpinelinux-310" class="table-of-contents__link toc-highlight">AlpineLinux 3.10</a></li><li><a href="#alpinelinux-39" class="table-of-contents__link toc-highlight">AlpineLinux 3.9</a></li><li><a href="#alpinelinux-38" class="table-of-contents__link toc-highlight">AlpineLinux 3.8</a></li><li><a href="#alpinelinux-37" class="table-of-contents__link toc-highlight">AlpineLinux 3.7</a></li><li><a href="#my-commits" class="table-of-contents__link toc-highlight">我的提交数</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">笔记</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/notes/java">Java</a></li><li class="footer__item"><a class="footer__link-item" href="/notes/os/alpine">AlpineLinux</a></li><li class="footer__item"><a class="footer__link-item" href="/notes/devops/kubernetes">Kubernates</a></li><li class="footer__item"><a class="footer__link-item" href="/notes/voip">VoIP</a></li></ul></div><div class="col footer__col"><div class="footer__title">Projects</div><ul class="footer__items clean-list"><li class="footer__item">
+              <div>
+              <a class="footer__link-item" href="https://github.com/wenerme/wener">Wener</a>
+              -
+              <a class="footer__link-item" href="https://github.com/wenerme/wener/actions" title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src="https://github.com/wenerme/wener/workflows/Build/badge.svg">
+              </a>
+              </div>
+              </li><li class="footer__item"><a href="https://apis.wener.me" target="_blank" rel="noopener noreferrer" class="footer__link-item">Wener&#x27;s Apis<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_NWwd"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Social</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/story">Blog</a></li><li class="footer__item"><a href="https://github.com/wenerme" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li><li class="footer__item"><a href="https://twitter.com/wenerme" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/wener-logo.svg" alt="Wener Site" class="footer__logo themedComponent_VbNf themedComponent--light_DmUm"><img src="/img/wener-logo.svg" alt="Wener Site" class="footer__logo themedComponent_VbNf themedComponent--dark_TrMl"></div><div class="footer__copyright">Copyright © 1992-2024 Wener - <img alt="cc-by-sa-4.0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg"> - Build @2024-07-02 11:54</div></div></div></footer></div>
+</body>
+</html>

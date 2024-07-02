@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[22704],{55706:e=>{e.exports=JSON.parse('{"label":"AWS","permalink":"/notes/tags/aws","allTagsPath":"/notes/tags","count":1,"items":[{"id":"service/storage/s3","title":"S3","description":"- MinIO","permalink":"/notes/service/storage/s3"}],"unlisted":false}')}}]);

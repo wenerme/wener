@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[74339],{9440:e=>{e.exports=JSON.parse('{"label":"Pitfal","permalink":"/en/notes/tags/pitfal","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"dev/dev-pitfal","title":"Pitfal","description":"CMS \u670d\u52a1","permalink":"/en/notes/dev/pitfal"}],"unlisted":false}')}}]);

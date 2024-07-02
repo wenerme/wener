@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[28356],{92726:e=>{e.exports=JSON.parse('{"label":"JavaFX","permalink":"/story/tags/java-fx","allTagsPath":"/story/tags","count":1,"unlisted":false}')}}]);
