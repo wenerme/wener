@@ -235,3 +235,13 @@ interface RowSelectRowProps {
   getToggleRowSelectedProps(props): RowSelectProps;
 }
 ```
+
+# FAQ
+
+## in deeply nested key "" returned undefined
+
+- 使用 accessorFn 替代 accessorKey 可以避免
+- https://github.com/TanStack/table/issues/579#issuecomment-841844029
+- https://github.com/TanStack/table/discussions/4788
+- Code
+  - https://github.com/TanStack/table/blob/6a4a10d3603e5792a536f6dc96e8527aebd067ed/packages/table-core/src/core/column.ts#L97-L103

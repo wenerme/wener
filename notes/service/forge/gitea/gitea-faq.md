@@ -5,6 +5,16 @@ tags:
 
 # Gitea FAQ
 
+:::caution
+
+- AccessToken 目前无法限定 org/repo
+  - Organization and Repository level access token [gitea#25900](https://github.com/go-gitea/gitea/issues/25900)
+  - Permissions for package repositories [gitea#20596](https://github.com/go-gitea/gitea/issues/20596)
+- Action 目前不能手动触发
+  - Actions - Manually trigger a workflow/action [gitea#23668](https://github.com/go-gitea/gitea/issues/23668)
+
+:::
+
 ## OIDC Mapping
 
 ```env

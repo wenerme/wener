@@ -77,22 +77,35 @@ title: App Layout
   - not-found.tsx
 - https://nextjs.org/docs/app/api-reference/file-conventions
 
-## config
+## Route
+
+**Route Segment Config**
 
 ```tsx
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
 export const dynamic = 'auto';
+// true 不在 generateStaticParams 的自动生成
+// false 不自动生成，返回 404，例如 /post/[slug] 如果 slug 不在 generateStaticParams 返回的数组中则 404
 export const dynamicParams = true;
 // false | 'force-cache' | 0 | number
+// false 不自动 revalidate
+// 0 总是动态渲染
+// seconds
 export const revalidate = false;
 // 'auto' | 'default-cache' | 'only-cache'
 // 'force-cache' | 'force-no-store' | 'default-no-store' | 'only-no-store'
 export const fetchCache = 'auto';
-// 'experimental-edge' | 'nodejs'
+// 'edge' | 'nodejs'
 export const runtime = 'nodejs';
 // 'auto' | 'home' | 'edge' | 'string'
+// root 为 all
 export const preferredRegion = 'auto';
+
+// 平台设置、影响 server action timeout
+export const maxDuration = 5
+
 export function generateStaticParams() {}
+
 
 // ISR
 export const revalidate = 3600; // revalidate every hour

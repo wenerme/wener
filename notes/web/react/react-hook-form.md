@@ -96,6 +96,8 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 ## reset
 
 - reset 可能只能覆盖，也就是必须要传入内容，否则之前的值会保留
+  - 修改 value 时，如果新的 value 为 null 也会导致保留之前的值
+- `reset()` 只有在有 defaultValues 才有用
 - https://github.com/orgs/react-hook-form/discussions/7589
 
 ## empty to null

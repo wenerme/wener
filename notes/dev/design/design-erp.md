@@ -483,6 +483,26 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 
 ## State & Status
 
+<!--
+我正在设计一个 ERP/CRM 系统，以下是 state 和 status 的定义
+
+- State - 状态 - 系统定义 - 大状态 - 高级状态
+- Status - 状态原因、阶段 - 业务定义 - 小状态 - 低级状态
+
+设计参考
+
+- status+state 不是完整的状态机
+  - 因为状态流转不必然
+  - 但设计好 state 和 status 可支持实现 事件驱动、工作流、状态机
+- status 可能和 state 完全相等
+  - 但 status 可以自定义
+  - status 必然对应 **一个** state
+
+系统架构 NodeJS, MikroORM, TypeGraphQL, PostgreSQL, React, TailwindCSS
+
+之后我会和你沟通更多关于设计的内容。
+-->
+
 - State - 状态 - 系统定义 - 大状态 - 高级状态
 - Status - 状态原因、阶段 - 业务定义 - 小状态 - 低级状态
 
@@ -688,47 +708,29 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 - Invoice
   - https://www.zoho.com/au/billing/kb/invoices/
 
-### Sales Invoice
+### LeadState
 
-| Status    | Label  | Desc                                                                                |
-| --------- | ------ | ----------------------------------------------------------------------------------- |
-| Sent      | 已发送 | 发票已发送给客户                                                                    |
-| Paid      | 已支付 | 客户已支付发票                                                                      |
-| Overdue   | 逾期   | 发票已超过付款日期且客户尚未支付                                                    |
-| Void      | 作废   | 如果发票开具错误，你可以将其作废。客户无法支付已作废的发票。                        |
-| Write Off | 核销   | 只有当你确信客户欠款无法收回时，你才可以对发票进行坏账核销。                        |
-| Draft     | 草稿   | 你已创建一张未完成的发票，并且它尚未发送给客户。Zoho Billing 无法生成任何草稿发票。 |
+| State        | Desc                       |
+| ------------ | -------------------------- |
+| Open         | 订单已创建，尚未开始处理   |
+| Qualified    | 线索已经过资质审查         |
+| Disqualified | 线索不再跟进，已被取消资格 |
 
-### Accounting Invoice
+### LeadStatus
 
-| State     | Status          | Label  | Desc                                                                           |
-| --------- | --------------- | ------ | ------------------------------------------------------------------------------ |
-| Active    | Draft           | 草稿   | 发票已创建但尚未最终审核或发送。用于初步录入和编辑发票信息。                   |
-| ^         | PendingApproval | 待审批 | 发票已提交审批流程，等待相关管理者或会计审核。此步骤是确保发票准确无误的关键。 |
-| ^         | Approved        | 已审批 | 发票已经过审批，等待进一步处理，如记账或支付。                                 |
-| ^         | Paid            | 已支付 | 发票已结清款项，表示客户已完成支付，会计处理完毕。                             |
-| Completed | Posted          | 已过账 | 发票的财务数据已被记入总账，此状态表示发票已在会计记录中正式体现其经济效果。   |
-| Cancelled | Cancelled       | 已取消 | 发票在完成所有必要流程前被取消，不再适用或有效，不需进一步操作。               |
-| ^         | Written-Off     | 已核销 | 发票因确认无法收回款项而被标记为已支付，处理为坏账。                           |
-| ^         | Void            | 作废   | 发票因错误或其他原因被取消，使用作废状态来确保其不会影响财务记录。             |
+| State        | Status             | Label      | Desc                     | Condition/Trigger      |
+| ------------ | ------------------ | ---------- | ------------------------ | ---------------------- |
+| Open         | New                | 新建       | 订单已创建，尚未开始处理 | 订单创建               |
+| ^            | Contacted          | 已联系     | 已经联系线索内的联系信息 | 联系成功               |
+| Qualified    | Qualified          | 已资质审查 | 线索已经过审查           | 审查通过               |
+| ^            | AwaitingOrder      | 等待下单   | 线索有效，等待下单       | 待客户确认订单         |
+| Disqualified | Lost               | 已流失     | 线索流失                 | 超过联系次数未响应     |
+| ^            | Rejected           | 拒绝       | 无法提供服务             | 确认无法提供服务       |
+| ^            | CannotContact      | 无法联系   | 无法联系线索内的联系信息 | 联系多次无响应         |
+| ^            | NoLongerInterested | 不再感兴趣 | 客户对产品不再感兴趣     | 客户明确表示不感兴趣   |
+| ^            | Canceled           | 已取消     | 客户资格已被取消         | 客户取消或系统取消资格 |
 
-### TaxDeclaration
-
-| State     | Status             | Label      | Desc                                                       |
-| --------- | ------------------ | ---------- | ---------------------------------------------------------- |
-| Draft     | New                | 未填写     |
-| ^         | Draft              | 草稿       | 填写中                                                     |
-| Submitted | Pending            | 待审核     | 申报已提交，正在等待税务机关的初步审核。                   |
-| ^         | Query              | 待补充资料 | 税务机关对申报有疑问，需要纳税人提供更多信息或解释。       |
-| ^         | PendingPayment     | 未缴款     |
-| Completed | Processed          | 已处理     | 申报已经完全处理完成，包括所有必要的审核、调整和确认。     |
-| ^         | Amended            | 已修正     | 纳税人已根据税务机关的要求修正申报，并重新提交审核。       |
-| ^         | PartiallyProcessed | 部分处理   | 申报的部分内容已处理，其余部分可能因特定原因暂未完成处理。 |
-| ^         | PaymentConfirmed   | 已缴款     |
-| Closed    | Withdrawn          | 已撤销     | 申报被纳税人撤回或税务机关关闭，无需进一步处理。           |
-| ^         | Archived           | 已存档     | 申报处理完成后被正式存档，作为税务记录保留。               |
-
-### ServiceOrder
+### ServiceOrderStatus
 
 | State     | Status               | Label      | Desc                                         |
 | --------- | -------------------- | ---------- | -------------------------------------------- |
@@ -745,7 +747,47 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | Invoiced  | Invoiced             | 已开发票   | 服务已提供完毕，相应的发票已生成并发送给客户 |
 | ^         | AwaitingPayment      | 待支付     | 发票已发出，订单正在等待客户支付             |
 
-### Employee
+### SalesInvoiceStatus
+
+| Status    | Label  | Desc                                                                                |
+| --------- | ------ | ----------------------------------------------------------------------------------- |
+| Sent      | 已发送 | 发票已发送给客户                                                                    |
+| Paid      | 已支付 | 客户已支付发票                                                                      |
+| Overdue   | 逾期   | 发票已超过付款日期且客户尚未支付                                                    |
+| Void      | 作废   | 如果发票开具错误，你可以将其作废。客户无法支付已作废的发票。                        |
+| Write Off | 核销   | 只有当你确信客户欠款无法收回时，你才可以对发票进行坏账核销。                        |
+| Draft     | 草稿   | 你已创建一张未完成的发票，并且它尚未发送给客户。Zoho Billing 无法生成任何草稿发票。 |
+
+### AccountingInvoiceStatus
+
+| State     | Status          | Label  | Desc                                                                           |
+| --------- | --------------- | ------ | ------------------------------------------------------------------------------ |
+| Active    | Draft           | 草稿   | 发票已创建但尚未最终审核或发送。用于初步录入和编辑发票信息。                   |
+| ^         | PendingApproval | 待审批 | 发票已提交审批流程，等待相关管理者或会计审核。此步骤是确保发票准确无误的关键。 |
+| ^         | Approved        | 已审批 | 发票已经过审批，等待进一步处理，如记账或支付。                                 |
+| ^         | Paid            | 已支付 | 发票已结清款项，表示客户已完成支付，会计处理完毕。                             |
+| Completed | Posted          | 已过账 | 发票的财务数据已被记入总账，此状态表示发票已在会计记录中正式体现其经济效果。   |
+| Cancelled | Cancelled       | 已取消 | 发票在完成所有必要流程前被取消，不再适用或有效，不需进一步操作。               |
+| ^         | Written-Off     | 已核销 | 发票因确认无法收回款项而被标记为已支付，处理为坏账。                           |
+| ^         | Void            | 作废   | 发票因错误或其他原因被取消，使用作废状态来确保其不会影响财务记录。             |
+
+### TaxDeclarationStatus
+
+| State     | Status             | Label      | Desc                                                       |
+| --------- | ------------------ | ---------- | ---------------------------------------------------------- |
+| Draft     | New                | 未填写     |
+| ^         | Draft              | 草稿       | 填写中                                                     |
+| Submitted | Pending            | 待审核     | 申报已提交，正在等待税务机关的初步审核。                   |
+| ^         | Query              | 待补充资料 | 税务机关对申报有疑问，需要纳税人提供更多信息或解释。       |
+| ^         | PendingPayment     | 未缴款     |
+| Completed | Processed          | 已处理     | 申报已经完全处理完成，包括所有必要的审核、调整和确认。     |
+| ^         | Amended            | 已修正     | 纳税人已根据税务机关的要求修正申报，并重新提交审核。       |
+| ^         | PartiallyProcessed | 部分处理   | 申报的部分内容已处理，其余部分可能因特定原因暂未完成处理。 |
+| ^         | PaymentConfirmed   | 已缴款     |
+| Closed    | Withdrawn          | 已撤销     | 申报被纳税人撤回或税务机关关闭，无需进一步处理。           |
+| ^         | Archived           | 已存档     | 申报处理完成后被正式存档，作为税务记录保留。               |
+
+### EmployeeStatus
 
 | State      | Status                   | Label       | Desc                                             |
 | ---------- | ------------------------ | ----------- | ------------------------------------------------ |
@@ -764,7 +806,7 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | ^          | LaidOff                  | 裁员        | 因公司重组或缩减人员，员工被解雇。               |
 | ^          | Fired                    | 解雇        | 因员工表现或行为问题，被公司解雇。               |
 
-### Client
+### ClientStatus
 
 - Client 是 Service 的接受者
   - 不一定直接产生交易关系

@@ -29,7 +29,7 @@ npx @biomejs/biome check ./src --apply
 # https://biomejs.dev/linter/rules/
 biome lint --only=style/useNamingConvention --apply ./src
 npx -y @biomejs/biome lint --only=style/useImportType ./src
-npx -y @biomejs/biome lint --only=style/noUnusedImports ./src
+npx -y @biomejs/biome lint --only=lint/correctness/noUnusedImports ./src
 ```
 
 **biome.json**

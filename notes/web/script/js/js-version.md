@@ -23,6 +23,7 @@ tags:
 |         | [ECMAScript 2021](#ecmascript-2021) | 2021 |
 |         | [ECMAScript 2022](#ecmascript-2022) | 2022 |
 |         | [ECMAScript 2023](#ecmascript-2023) | 2023 |
+|         | [ECMAScript 2024](#ecmascript-2024) | 2024 |
 | ES.Next |                                     |      | 下一个版本      |
 
 | ES     | NodeJS      |
@@ -141,11 +142,8 @@ tags:
   - AsyncDisposableStack
   - SuppressedError
 
-## ECMAScript 2024
+## Next
 
-- Promise.withResolvers
-- Object.groupBy
-- Map.groupBy
 - Temporal
   - Temporal.PlainDate
   - Temporal.PlainTime
@@ -164,6 +162,24 @@ const time = new Temporal.PlainTime(10, 30);
 const md = new Temporal.PlainMonthDay(5, 1);
 const ym = new Temporal.PlainYearMonth(2024, 5);
 ```
+
+## ECMAScript 2024
+
+- Promise.withResolvers
+- Object.groupBy
+- Map.groupBy
+- RegExp `/v`, unicodeSets
+  - `/^\p{RGI_Emoji}$/v.test('😵‍💫')`=true - Unicode string properties
+  - `/^[\q{😵‍💫}]$/v.test('😵‍💫')`=true - \q for String literals
+  - `/^[\p{RGI_Emoji}--\q{😵‍💫}]$/v.test('😵‍💫')`=false - 支持排除
+- ArrayBuffer.{resize,transfer}
+  - SharedArrayBuffers 只能 grow, 且没有 transfer, 因为不支持 transfer
+- String.{isWellFormed,toWellFormed}
+- Atomics.waitAsync for SharedArrayBuffer
+
+---
+
+- https://2ality.com/2024/06/ecmascript-2024.html
 
 ## ECMAScript 2023
 

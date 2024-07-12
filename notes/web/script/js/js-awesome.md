@@ -497,6 +497,18 @@ tags:
   - trpc
   - typia
   - ts-rest
+- typescript codegen / Generating Schema from TypeScript
+  - [vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator)
+    - MIT, TS
+  - [YousefED/typescript-json-schema](https://github.com/YousefED/typescript-json-schema)
+    - json-schema from ts
+  - [sinclairzx81/typebox-workbench](https://github.com/sinclairzx81/typebox-workbench)
+    - 单一文件
+    - 生成 typebox - JSONSchema
+    - 生成 zod, effect, arktype, io-ts, valibot
+    - 直接调用 [sinclairzx81/typebox-codegen](https://github.com/sinclairzx81/typebox-codegen)
+  - 使用 astexplorer 比较好开发这种工具
+    - https://astexplorer.net/#/gist/8f70c44afee08eed1c73c5ab1ce081b0/3f353f76499783b10169974ff3d2b81184ce36ce
 - math
   - jsbi - pure-JavaScript BigInts
     - 33kB/10kB

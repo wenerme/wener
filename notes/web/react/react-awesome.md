@@ -219,6 +219,12 @@ npm add date-fns lodash-es react-fast-compare
     - Create a window manager with React
   - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
     - 移动端屏高问题
+- scrollbar/container/affix
+  - react-scroll
+    - 实现滚动到自定义位置
+  - [okonet/react-scroll-sync](https://github.com/okonet/react-scroll-sync)
+    - 多个 scroll 同步
+  - [KingSora/OverlayScrollbars](https://github.com/KingSora/OverlayScrollbars)
 - Dashboard/Panel/Splitter/Layout
   - [devbookhq/splitter](https://github.com/devbookhq/splitter)
     - 切分面板

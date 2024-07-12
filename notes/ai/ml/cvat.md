@@ -324,6 +324,10 @@ docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://loca
 
 ```bash
 ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 input.mp4
+
+ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames src/v1-000.mp4
+
+ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 input.mp4
 ```
 
 ## ffmpeg frames

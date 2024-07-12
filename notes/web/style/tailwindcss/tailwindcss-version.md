@@ -5,6 +5,18 @@ tags:
 
 # TailwindCSS Version
 
+## TailwindCSS v4
+
+- 会用新的特性
+  - @layer, @property, color-mix(), @starting-style , anchor positioning, container queries
+- tailwind.config.js 可以不再需要，直接通过 css 配置
+
+---
+
+- caniuse popover https://caniuse.com/mdn-api_htmlelement_popover
+- https://tailwindcss.com/blog/tailwindcss-v4-alpha
+- https://daisyui.com/blog/daisyui-5-upcoming-changes/
+
 ## TailwindCSS v3.2
 
 - 支持拆分配置导入

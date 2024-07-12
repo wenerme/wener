@@ -54,10 +54,10 @@ nvidia-smi
 sudo docker run --gpus all nvidia/cuda:12.5.0-base-ubuntu22.04 nvidia-smi
 
 #
-apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev git
 #pip install nvidia-cublas-cu11 nvidia-cudnn-cu11
 
-apt install -y docker-buildx-plugin docker-compose-plugin
+sudo apt install -y docker-buildx-plugin docker-compose-plugin
 
 # ultralytics ->
 # py-cpuinfo, mpmath, triton, sympy, opencv-python, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, nvidia-cusparse-cu12, nvidia-cudnn-cu12, nvidia-cusolver-cu12, torch, ultralytics-thop, torchvision, ultralytics

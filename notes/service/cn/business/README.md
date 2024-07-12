@@ -55,8 +55,13 @@ title: 企业服务行业
 | en                  | cn          |
 | ------------------- | ----------- |
 | Qualification       | 资质        |
+| License             | 许可证      |
 | Licensing           | 执照/许可证 |
 | Processing/Handling | 办理        |
+| Certification       | 认证        |
+| Certificate         | 证书        |
+
+- Qualification -> License -> Certificate
 
 ## License
 
@@ -75,6 +80,10 @@ title: 企业服务行业
 - 食品经营许可证
   - https://www.gov.cn/gongbao/2023/issue_10606/202307/content_6894763.html
   - https://amr.sz.gov.cn/zxbs/zdyw/spjyxkzt/
+- 进出口
+  - https://www.singlewindow.sh.cn/winxportal/static/lic/xuke.html
+- ICP
+  - https://help.aliyun.com/zh/icp-filing/
 
 | abbr. | stand for                   | cn               |
 | ----- | --------------------------- | ---------------- |
@@ -132,37 +141,52 @@ title: 企业服务行业
 
 - https://www.zhihu.com/question/42990444/answer/104145608
 
-## 企业服务大类
+## 企业服务大类 {#Corporate-Services}
 
-- 工商
-  - 公司注册（网上申请）
-  - 公司注册+记账
-  - 法人变更
-  - 同区公司变更
-  - 跨区公司变更
-  - 同区股权转让
-  - 跨区股权转让
-  - 公司注销（简易）
-  - 公司注销（一般）
-  - 工商异常解除
-- 税务
-  - 税务报道+记账
-  - 代开增值税专用发票
-  - 申请一般纳税人
-  - 申请发票
-- 社保公积金
-  - 新购社保
-  - 公积金开户
-  - 新购社保+公积金开户
-- 许可资质
-  - 商标注册
-  - 食品经营许可证
-  - 进出口权办理
-- 内部
-  - 新客户代账流程
-  - 老客户停账流程
-- 人力资源
-- 跑腿
+- 工商服务 (Business Administration Services)
+  - 公司注册（网上申请） (Online Company Registration)
+  - 公司注册+记账 (Company Registration + Accounting)
+  - 法人变更 (Change of Legal Representative)
+  - 同区公司变更 (Intra-District Company Change)
+  - 跨区公司变更 (Inter-District Company Change)
+  - 同区股权转让 (Intra-District Equity Transfer)
+  - 跨区股权转让 (Inter-District Equity Transfer)
+  - 公司注销（简易） (Simplified Company Deregistration)
+  - 公司注销（一般） (General Company Deregistration)
+  - 工商异常解除 (Business Abnormality Removal)
+- 税务服务 (Tax Services)
+  - 税务登记 (Tax Registration)
+  - 税务报道+记账 (Tax Reporting + Accounting)
+  - 代开增值税专用发票 (Issuance of VAT Special Invoices)
+  - 申请一般纳税人 (Application for General Taxpayer)
+  - 申请发票 (Invoice Application)
+  - 税务筹划 (Tax Planning)
+- 社保公积金服务 (Social Insurance and Housing Fund Services)
+  - 新购社保 (New Social Insurance Purchase)
+  - 公积金开户 (Housing Fund Account Opening)
+  - 新购社保+公积金开户 (New Social Insurance + Housing Fund Account Opening)
+  - 社保年审 (Social Insurance Annual Audit)
+  - 公积金年审 (Housing Fund Annual Audit)
+- 许可资质服务 (Licensing and Qualifications Services)
+  - 商标注册 (Trademark Registration)
+  - 食品经营许可证 (Food Business License)
+  - 进出口权办理 (Import and Export License)
+  - 特种设备许可证 (Special Equipment License)
+  - 环评审批 (Environmental Impact Assessment Approval)
+- 内部流程 (Internal Processes)
+  - 新客户代账流程 (New Customer Accounting Process)
+  - 老客户停账流程 (Old Customer Accounting Suspension Process)
+  - 内部培训 (Internal Training)
+  - 流程优化 (Process Optimization)
+- 人力资源服务 (Human Resources Services)
+  - 招聘服务 (Recruitment Services)
+  - 员工培训 (Employee Training)
+  - 劳务派遣 (Labor Dispatch)
+  - 薪酬管理 (Payroll Management)
+- 跑腿服务 (Errand Services)
+  - 文件递送 (Document Delivery)
+  - 政务代办 (Government Affairs Agency)
+  - 银行事务代办 (Banking Affairs Agency)
 
 ## 企业服务资源类型
 

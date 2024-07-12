@@ -171,3 +171,10 @@ route add -net 10.66.1 -interface $INTERFACE
 ifconfig tun0 inet 10.0.0.1 10.0.0.2 up # A
 ifconfig tun0 inet 10.0.0.2 10.0.0.1 up # B
 ```
+
+
+## Packet is 150 seqs in the future, dropped (1) from svr_1 (192.168.1.1 port 653)
+
+- network split
+- 会导致这两个节点之间不通，重启一个节点即可
+- https://github.com/gsliepen/tinc/issues/423

@@ -42,7 +42,7 @@ title: Yolo
   - based one YOLOv8
   - [AILab-CVC/YOLO-World](https://github.com/AILab-CVC/YOLO-World)
     - by 腾讯
-  - >  MDETR, GLIP
+  - > MDETR, GLIP
   - Open-Vocabulary detection
 
 | model   | file                      | for              |                                Size |
@@ -154,7 +154,11 @@ names: ['cat', 'dog', 'bird'] # 类别名称列表
 - **metrics/precision(B)**：验证集上的精度（Precision），表示在所有预测为正类的样本中，实际为正类的比例。
 - **metrics/recall(B)**：验证集上的召回率（Recall），表示在所有实际为正类的样本中，被正确预测为正类的比例。
 - **metrics/mAP50(B)**：在 IoU 阈值为 0.5 时的平均精度（Mean Average Precision）。
+  - 检测框与真实框有 50% 或以上的重叠就算作正确检测。
+  - 比较宽松的标准。
 - **metrics/mAP50-95(B)**：在不同 IoU 阈值（0.5 到 0.95）下的平均精度。
+  - 从 0.5 到 0.95，步长为 0.05，计算平均精度
+  - 更全面地反映模型在各种匹配严格程度下的检测能力。
 - **val/box_loss**：验证集上的边界框回归损失。
 - **val/cls_loss**：验证集上的分类损失。
 - **val/dfl_loss**：验证集上的分配函数损失。
@@ -208,7 +212,15 @@ names: ['cat', 'dog', 'bird'] # 类别名称列表
 - YOLOv8
   - 更快、更准
 
-## Model Size
+## YoloV8 Model Size
+
+| Model   | Size (MB) | Inference Time (ms) | mAP COCO |
+| ------- | --------- | ------------------- | -------- |
+| YOLOv8n | 6.5 MB    | 0.99 ms (A100)      | 37.3     |
+| YOLOv8s | 22.6 MB   | 1.2 ms (A100)       | 44.9     |
+| YOLOv8m | 52.1 MB   | 1.83 ms (A100)      | 50.2     |
+| YOLOv8l | 87.8 MB   | 2.39 ms (A100)      | 52.9     |
+| YOLOv8x | 136.9 MB  | 3.53 ms (A100)      | 53.9     |
 
 ```yaml
 scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call yolov8.yaml with scale 'n'
@@ -220,14 +232,24 @@ scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call 
   x: [1.00, 1.25, 512] # YOLOv8x summary: 365 layers, 68229648 parameters, 68229632 gradients, 258.5 GFLOPs
 ```
 
+- n/s - 几百张图片
+- s/m - 几千张图片
+- l/x - 几万张图片
+- x - > 10万张图片
+
+---
+
 - depth - 模型深度
   - 深度缩放因子，控制模型中每个模块的重复次数，影响模型的总层数。
 - width - 模型宽度
   - 宽度缩放因子，控制模型中每个层的通道数，影响模型的参数数量。
+- N/S, L/X 只改了缩放系数
+- S/M/L 通道数不一样
 - https://github.com/ultralytics/ultralytics/issues/1155#issuecomment-1735325530
   - 怎么选择
 - https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v8/yolov8.yaml
 - https://www.researchgate.net/figure/YOLOv5-different-model-sizes-where-FP16-stands-for-the-half-floating-point-precision_fig3_354846944
+- https://zhuanlan.zhihu.com/p/598566644
 
 ## Cascade
 
@@ -249,3 +271,5 @@ scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call 
 ## SyntaxError: 'v5loader' is not a valid YOLO argument
 
 - 可能没之前的数据，取消 resume 参数
+
+

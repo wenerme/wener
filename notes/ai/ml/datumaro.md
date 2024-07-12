@@ -7,6 +7,8 @@ title: datumaro
 - [openvinotoolkit/datumaro](https://github.com/openvinotoolkit/datumaro)
   - MIT, Python
 - 注意⚠️ 依赖的 [openvino](./openvino.md) 可能对 Python 版本有要求，安装不上会导致安装 0.5.0 的 datumaro
+  - openvino==2023.2
+    - 要求 Python **3.8-3.11**
 
 ```bash
 # https://pypi.org/project/datumaro/

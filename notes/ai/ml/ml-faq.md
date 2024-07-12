@@ -262,3 +262,25 @@ pip install wheel
 ```
 
 ## cannot import name 'is_flash_attn_greater_or_equal_2_10' from 'transformers.utils'
+
+## Could not load library libcudnn_cnn_train.so.8
+
+- /opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib/libcudnn_cnn_train.so.8
+- /opt/conda/lib/python3.10/site-packages/torch/lib
+- /usr/local/cuda/lib64
+
+```
+Could not load library libcudnn_cnn_train.so.8. Error: /usr/local/cuda/lib64/libcudnn_cnn_train.so.8: undefined symbol: _ZN5cudnn3cnn5infer22queryClusterPropertiesERPhS3_, version libcudnn_cnn_infer.so.8
+```
+
+```bash
+ldd /opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib/libcudnn_cnn_train.so.8
+ldd /usr/local/cuda/lib64/libcudnn_cnn_train.so.8
+
+# 修改后就可以了
+LD_LIBRARY_PATH=/opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib/:$LD_LIBRARY_PATH yolo
+
+#LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/conda/lib/python3.10/site-packages/torch/lib
+```
+
+- https://github.com/pytorch/pytorch/issues/104591

@@ -135,6 +135,10 @@ tags:
 - 阿莫西林胶囊
   - 鼻窦炎、咽炎、中耳炎
 - 慢性阻塞性肺病（COPD）
+- 司美格鲁肽 - Semaglutide
+  - 皮下注射、口服
+  - 品牌名：Ozempic、Wegovy、Rybelsus
+  - 由诺和诺德于2012年开发的针对2型糖尿病的抗糖尿病药和用于长期体重管理的减肥药。
 
 ## 皮质类固醇 {#corticosteroid}
 

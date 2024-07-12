@@ -20,6 +20,7 @@ pyenv install --list
 pyenv install 3.10 # 安装指定版本
 pyenv local 3.10   # 切换当前目录的 Python 版本, 需要先 init
 cat .python-version
+python3 --version
 
 python3 -m venv venv # 使用当前的版本来初始化 venv, 之后 activate 也是这个版本
 source venv/bin/activate

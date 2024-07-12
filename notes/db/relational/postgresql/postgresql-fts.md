@@ -1,11 +1,10 @@
 ---
-id: fts
 title: PostgreSQL 全文检索
+tags:
+  - FTS
 ---
 
 # PostgreSQL 全文检索
-
-
 
 :::tip 怎么选择
 
@@ -41,6 +40,9 @@ title: PostgreSQL 全文检索
 - 参考
   - https://news.ycombinator.com/item?id=27973497
   - [Do you need a Full-Text Search in PostgreSQL ?](https://www.postgresql.eu/events/pgconfeu2018/sessions/session/2116/slides/137/pgconf.eu-2018-fts.pdf)
+  - [zombodb/zombodb](https://github.com/zombodb/zombodb)
+  - [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)
+    - bm25
 - 中文
   - [jaiminpan/pg_jieba](https://github.com/jaiminpan/pg_jieba)
   - [amutu/zhparser](https://github.com/amutu/zhparser)

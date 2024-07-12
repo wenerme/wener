@@ -135,3 +135,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 ```
+
+# FAQ
+
+## Invariant failed: No matching indexer found for Loaders.stories.mdx
+
+- `Loaders.stories.mdx` -> `Loaders.mdx`

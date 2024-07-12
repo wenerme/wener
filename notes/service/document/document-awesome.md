@@ -22,6 +22,10 @@ tags:
 
 ## mime
 
+- Doc -> Word, Document, Doc, Writer, Pages
+- Sheet -> Excel, Table, Spreadsheet, Sheet, Calc, Numbers
+- Slice -> PPT, PowerPoint, Slide, Presentation, Impress, Keynote
+
 | .ext             | mime                                                                      | notes |
 | ---------------- | ------------------------------------------------------------------------- | ----- |
 | .pdf             | application/pdf                                                           |

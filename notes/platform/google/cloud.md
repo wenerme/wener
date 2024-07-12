@@ -18,3 +18,12 @@ title: GCP
   - 其他的折扣相对少
   - https://cloud.google.com/spot-vms/pricing
 - https://cloud.google.com/compute/docs/instances/spot
+
+## Region
+
+- https://cloud.google.com/about/locations
+
+## GPU
+
+- https://cloud.google.com/compute/docs/gpus/gpu-regions-zones
+- https://cloud.google.com/compute/docs/gpus#restrictions

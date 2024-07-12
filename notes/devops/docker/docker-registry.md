@@ -19,7 +19,6 @@ title: Docker 仓库
 
 ## docker registry
 
-
 - [配置](https://distribution.github.io/distribution/about/configuration/)
 - 存储: 文件系统、azure、gcs、s3、switf、oss
 - 授权: silly、token、htpasswd、none
@@ -41,7 +40,6 @@ registry garbage-collect -d -m /etc/docker/registry/config.yml
 ```
 
 - https://github.com/distribution/distribution/blob/main/docs/spec/api.md
-
 
 ```yaml
 version: 0.1
@@ -110,14 +108,13 @@ docker run -d \
   registry:2
 ```
 
-
 ## apis
 
 - [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api)
 
 ```bash
 # docker hub 所有 tag
-curl -L -s 'https://registry.hub.docker.com/v2/repositories/wener/base/tags?page_size=1024'|jq '."results"[].name'
+curl -L -s 'https://registry.hub.docker.com/v2/repositories/wener/base/tags?page_size=1024' | jq '."results"[].name'
 
 # 判断 tag 是否存在
 curl --silent -f -lSL https://index.docker.io/v1/repositories/wener/base/tags/latest > /dev/null
@@ -132,3 +129,27 @@ DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect registry.cn-shanghai.ali
 ```
 
 ## docker registry v1 vs v2
+
+# FAQ
+
+## local
+
+```yaml
+service:
+  registry:
+    image: registry:2
+    ports:
+      - '5000:5000'
+    volumes:
+      - registry_data:/var/lib/registry
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry
+    restart: always
+```
+
+```json
+{
+  "registry-mirrors": [],
+  "insecure-registries": ["localhost:5000"]
+}
+```

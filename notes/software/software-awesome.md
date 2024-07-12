@@ -28,6 +28,8 @@ tags:
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)
   - C#
   - PDF 处理
+- [mifi/lossless-cut](https://github.com/mifi/lossless-cut)
+  - GPLv2, TS, ffmpeg
 
 ## Online
 

@@ -27,13 +27,16 @@ title: 电信术语
 
 | abbr. | stand for                                  | meanning         |
 | ----- | ------------------------------------------ | ---------------- |
-| VoLTE | Voice over Long-Term Evolution             |
-| UMTS  | Universal Mobile Telecommunications System | 通用移动通讯系统 |
-| GoIP  | GSM over IP                                |
-| QMI   | Qualcomm MSM Interface                     | 高通 MSM 接口    |
-| WDS   | Wireless Data Service                      | 无线数据服务     |
-| SMD   | Shared Memory Device                       | 共享内存设备     |
+| GoIP  | GSM over IP                                | IP 网络 GSM      |
 | HSDPA | High-Speed Downlink Packet Access          | 高速封包存取     |
+| MAP   | Mobile Application Part                    | 移动应用部分     |
+| QMI   | Qualcomm MSM Interface                     | 高通 MSM 接口    |
+| SIP   | Session Initiation Protocol                | 会话初始协议     |
+| SMD   | Shared Memory Device                       | 共享内存设备     |
+| SSP   | Service Switching Point                    | 服务交换点       |
+| UMTS  | Universal Mobile Telecommunications System | 通用移动通讯系统 |
+| VoLTE | Voice over Long-Term Evolution             | 长期演进语音     |
+| WDS   | Wireless Data Service                      | 无线数据服务     |
 
 ## HSDPA - High-Speed Downlink Packet Access - 高速封包存取
 
