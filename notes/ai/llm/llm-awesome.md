@@ -55,6 +55,12 @@ tags:
   - [Helicone/helicone](https://github.com/Helicone/helicone)
     - Apache-2.0, TS
     - observability platform for LLMs
+- Structure
+  - [outlines-dev/outlines](https://github.com/outlines-dev/outlines)
+    - Apache-2.0, Pythone
+    - Structured Text Generation
+  - [guidance-ai/guidance](https://github.com/guidance-ai/guidance)
+    - MIT, Pythone
 - Platform/Traing/Playground
   - [lm-sys/FastChat](https://github.com/lm-sys/FastChat)
     - Apache-2.0
@@ -90,7 +96,14 @@ tags:
     - MIT, TS
     - Node.js AI-assisted crawler library
 - Coding
-  - [replit/ReplitLM](https://github.com/replit/ReplitLM)∑
+  - [replit/ReplitLM](https://github.com/replit/ReplitLM)
+  - [albertan017/LLM4Decompile](https://github.com/albertan017/LLM4Decompile)
+    - Decompiling Binary Code
+  - [jehna/humanify](https://github.com/jehna/humanify)
+    - Deobfuscate Javascript
+    - https://thejunkland.com/blog/using-llms-to-reverse-javascript-minification.html
+  - [facebook/llm-compiler](https://huggingface.co/collections/facebook/llm-compiler-667c5b05557fe99a9edd25cb)
+    - Meta LLM Compiler, a family of models built on Meta Code Llama with additional code optimization and compiler capabilities
 - Fine-tuning
   - [unslothai/unsloth](https://github.com/unslothai/unsloth)
     - Apache-2.0, Python

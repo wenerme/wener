@@ -9,6 +9,11 @@ title: eta.js
 - [eta-dev/eta](https://github.com/eta-dev/eta)
   - 5.7kB/2.4kB
   - 面向可信代码
+- API
+  - render{,Async} - 渲染 template，基于 views 进行文件 resolve
+  - renderString{,Async} - 渲染字符串
+  - loadTemplate - 加载模板
+- 通过 `extends Eta` 覆盖 readFile, resolvePath 来实现自定义模板加载
 
 ## 语法
 
@@ -25,3 +30,5 @@ title: eta.js
 - used by
   - Docusaurus v2
     - 生成 SSR Build
+- `@NAMED`
+  - 不会尝试 resolve 文件，直接从内存搜索模板

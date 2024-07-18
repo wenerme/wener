@@ -44,6 +44,12 @@ tags:
   - 不支持 input 因为 input 不支持 `::before`
     - https://stackoverflow.com/a/4660434/1870054
 
+## margin 重叠 {#margin-collapse}
+
+- margin 塌陷
+- 上下margin 塌陷后取大值
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
+
 ## pure selector
 
 - 能够被 prefix 的 selector

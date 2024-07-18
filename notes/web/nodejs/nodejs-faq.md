@@ -490,3 +490,9 @@ pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
 ```makefile
 PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))')
 ```
+
+## ioredis vs redis
+
+> 推荐 ioredis
+
+- https://www.reddit.com/r/node/comments/uymb7w/redis_vs_ioredis/

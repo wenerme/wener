@@ -34,8 +34,11 @@ tags:
     - cadence fork - 2020-10
   - [uber/cadence](https://github.com/uber/cadence)
 - Task Queue
-  - [hatchet-dev/hatchet](https://github.com/hatchet-dev/hatchet)
+  - [hatchet-dev/hatchet](./hatchet.md)
     - MIT, Go, TS
+  - [inngest/inngest](https://github.com/inngest/inngest)
+    - SSPL, Go, TS
+    -  scalable, low-latency, event-driven durable execution platform
 - [node-red/node-red](https://github.com/node-red/node-red)
   - Apache-2.0, Javascript
 - [n8n-io/n8n](https://github.com/n8n-io/n8n)

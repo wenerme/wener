@@ -96,7 +96,7 @@ generates:
     presetConfig:
       extension: .generated.tsx
       # baseTypesPath: types.ts
-      baseTypesPath: "~@src/generated/graphql"
+      baseTypesPath: '~@src/generated/graphql'
     plugins:
       - typescript-operations
 ```
@@ -141,5 +141,27 @@ const config: CodegenConfig = {
 };
 
 export default config;
-
 ```
+
+# FAQ
+
+## Bundle size
+
+```ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react({
+      plugins: [
+        ['@graphql-codegen/client-preset-swc-plugin', { artifactDirectory: './src/gql', gqlTagName: 'graphql' }],
+      ],
+    }),
+  ],
+});
+```
+
+- `@graphql-codegen/client-preset-swc-plugin`
+- https://the-guild.dev/blog/optimize-bundle-size-with-swc-and-graphql-codegen

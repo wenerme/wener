@@ -517,3 +517,7 @@ sudo nano /etc/pam.d/sudo
 ```
 auth sufficient pam_tid.so
 ```
+
+## 外部显示器鼠标卡顿 {#mouse-lag-on-external-display}
+
+- https://discussions.apple.com/thread/254666579

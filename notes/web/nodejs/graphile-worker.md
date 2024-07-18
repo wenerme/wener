@@ -32,6 +32,7 @@ docker run \
 ## Library
 
 ```ts
+// worker
 import { run, quickAddJob } from 'graphile-worker';
 import type { Task, WorkerUtils } from 'graphile-worker';
 

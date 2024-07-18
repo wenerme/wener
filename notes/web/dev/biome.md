@@ -10,6 +10,10 @@ title: biome
   - roma -> biome
 - 参考
   - https://biomejs.dev/blog/biome-wins-prettier-challenge/
+  - IntellJ
+    - [biomejs/biome-intellij](https://github.com/biomejs/biome-intellij)
+      - https://plugins.jetbrains.com/plugin/22761-biome
+    - youtrack [WEB-46895](https://youtrack.jetbrains.com/issue/WEB-46895)
 
 ```bash
 brew install biome          # by macOS Brew
@@ -28,8 +32,8 @@ npx @biomejs/biome check ./src --apply
 # 单个规则 v1.7.4+
 # https://biomejs.dev/linter/rules/
 biome lint --only=style/useNamingConvention --apply ./src
-npx -y @biomejs/biome lint --only=style/useImportType ./src
-npx -y @biomejs/biome lint --only=lint/correctness/noUnusedImports ./src
+npx -y @biomejs/biome lint --only=style/useImportType ./src --write
+npx -y @biomejs/biome lint --only=lint/correctness/noUnusedImports ./src --write
 ```
 
 **biome.json**
@@ -70,3 +74,7 @@ npx -y @biomejs/biome lint --only=lint/correctness/noUnusedImports ./src
   }
 }
 ```
+
+## prettier
+
+- https://biomejs.dev/formatter/differences-with-prettier/

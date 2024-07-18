@@ -191,11 +191,16 @@ tags:
     - 可以配合 NextJS 使用
     - 可以配合 Decimal.js / Prisma.Decimal 使用
   - https://github.com/iccicci/next-json
-- xml
+- html/dom/xml
   - fast-xml-parser
   - xml2js
   - saxjs
   - xmlbuilder
+  - jsdom
+    - 模拟 DOM
+  - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
+    - 开发不活跃
+    - 模仿 jquery 接口
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
 - fs/filesystem
@@ -387,25 +392,28 @@ tags:
   - [mengshukeji/Luckysheet](../../service/office/luckysheet.md)
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
 - crdt
-  - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
   - [yjs/yjs](https://github.com/yjs/yjs)
     - 实现协作编辑
     - [dmonad/lib0](https://github.com/dmonad/lib0)
     - vs automerge [#145](https://github.com/yjs/yjs/issues/145)
   - [y-crdt/y-crdt](https://github.com/y-crdt/y-crdt)
-    - Rust port
+    - Rust port of Yjs
+  - [yousefed/SyncedStore](https://github.com/yousefed/SyncedStore)
+    - YJS based
   - [josephg/diamond-types](https://github.com/josephg/diamond-types)
   - [automerge/automerge](https://github.com/automerge/automerge)
     - 通用状态，自定义 CRDT
   - [dmonad/crdt-benchmarks](https://github.com/dmonad/crdt-benchmarks)
   - Where is the CRDT for syntax trees [HN](https://news.ycombinator.com/item?id=29433896)
-  - [inkandswitch/peritext](https://github.com/inkandswitch/peritext)
-  - [felipeleivav/yboard](https://github.com/felipeleivav/yboard)
+  - ~~[inkandswitch/peritext](https://github.com/inkandswitch/peritext)~~
+  - ~~[felipeleivav/yboard](https://github.com/felipeleivav/yboard)~~
     - Vue
     - multiplayer desktop-like workspace
   - https://news.ycombinator.com/item?id=30983770
   - [partykit/partykit](https://github.com/partykit/partykit)
+    - MIT, TS
   - [streamich/json-joy](https://github.com/streamich/json-joy)
+    - JSON CRDT, JSON CRDT Patch, JSON Patch+, JSON Predicate, JSON Pointer, JSON Expression, JSON Type
 - p2p
   - [hyperhyperspace/hyperhyperspace-core](https://github.com/hyperhyperspace/hyperhyperspace-core)
   - gnudb

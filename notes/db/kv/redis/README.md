@@ -8,7 +8,7 @@ title: Redis
   - RSALv2, SSPLv1, C
   - 7.2 BSD-3 -> RSALv2, SSPLv1
   - BSD fork
-    - [PlaceHolderKV](./placeholderkv.md)
+    - [valkey](../valkey.md)
     - https://codeberg.org/redict/redict
 - 支持的数据类型: string, bitmap, hll, list, pub/sub, hash, set, sorted set, stream
 - Redis Stack 扩展: bloom, cuckoo, count-min, graph, json, suggest, search, t-digest, timeserial, top-k
@@ -47,7 +47,7 @@ redis-server --bind=0.0.0.0
 
 :::
 
-[keydb]: ./keydb.md
+[keydb]: ../keydb.md
 
 ```
 # 获取 key 数量 - 可能失效的也包含

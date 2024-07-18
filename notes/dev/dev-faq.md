@@ -324,7 +324,7 @@ pip cache purge
   - Windows
   - HTTP 头部的换行符
 
-## 常见问题
+## 新手常见问题 {#newbie}
 
 1. 未掌握 std 库
 1. 未掌握 core 库
@@ -517,3 +517,48 @@ sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepinit
 - AWS API Gateway 默认 10 分钟
   - [Amazon API Gateway quotas and important notes](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html)
 - https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/
+
+## 重构的价值 {#refactor}
+
+1. 提高 可维护性
+1. 提高 质量
+1. 提高 开发效率
+1. 提高 系统的灵活性和可扩展性
+1. 技术债务管理
+1. 提高 系统性能
+1. 提高 团队士气
+1. 改善 系统安全性
+
+> Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+>
+> 任何傻瓜都能写出计算机能理解的代码，而优秀的程序员会写出人类能理解的代码
+>
+> -- Martin Fowler
+
+## 技术债务 {#tech-debt}
+
+> 技术债务（Technical Debt）
+
+- 类型
+  - 设计
+  - 代码
+  - 测试
+  - 文档
+  - 流程
+- 成因
+  - 时间
+  - 不充分的设计
+  - 技能不足
+  - 不良的开发习惯
+  - 业务需求变化
+- 影响
+  - 维护成本
+  - 系统稳定性
+  - 开发效率
+  - 团队士气
+- 管理
+  - 识别评估
+  - 制定计划
+  - 优先级排序
+  - 重构优化
+  - 改进流程
