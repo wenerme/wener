@@ -1,5 +1,4 @@
 ---
-id: note
 title: 笔记
 ---
 

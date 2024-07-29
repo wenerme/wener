@@ -496,3 +496,5 @@ PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
 > 推荐 ioredis
 
 - https://www.reddit.com/r/node/comments/uymb7w/redis_vs_ioredis/
+
+## The operation failed for an operation-specific reason: Cipher job failed

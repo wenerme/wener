@@ -195,3 +195,9 @@ importOrderParserPlugins: ['typescript', 'decorators-legacy'],
   "tailwindConfig": "./tailwind.config.ts"
 }
 ```
+
+## No parser could be inferred for file
+
+```bash
+cat abc.css | prettier --stdin-filepath abc.css
+```

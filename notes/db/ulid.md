@@ -6,8 +6,8 @@ title: ulid
 
 - [ulid/spec](https://github.com/ulid/spec) - Universally Unique Lexicographically Sortable Identifier
 - 例如 `01ARZ3NDEKTSV4RRFFQ69G5FAV`
-- 128bit - 编码后 26 字符
-  - timestamp 48bits + 随机 80bits
+- 128bit/16byte - 编码后 26 字符
+  - timestamp 48bits/6byte + 随机 80bits/10byte
   - Crockford base32 - 5 bit/char
   - `ttttttttttrrrrrrrrrrrrrrrr` - t 时间戳, r 随机
   - 时间戳保留到 毫秒

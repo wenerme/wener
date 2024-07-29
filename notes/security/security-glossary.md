@@ -6,22 +6,27 @@ tags:
 
 # Security Glossary
 
-| abbr.   | stand for                                     | mean |
-| ------- | --------------------------------------------- | ---- |
-| AEAD    | Authenticated Encryption with Associated Data |
-| ASN.1   |
-| DER     |
-| HSM     | Hardware Security Modules                     |
-| KMS     | Key Management Systems                        |
-| PEM     | Privacy Enhanced Mail [rfc1421]               |
+| abbr.   | stand for                                     | cn                     |
+| ------- | --------------------------------------------- | ---------------------- |
+| AEAD    | Authenticated Encryption with Associated Data | 带关联数据的认证加密   |
+| ASN.1   | Abstract Syntax Notation One                  | 抽象语法标记一         |
+| DER     | Distinguished Encoding Rules                  |                        |
+| HSM     | Hardware Security Modules                     | 硬件安全模块           |
+| KMS     | Key Management Systems                        | 密钥管理系统           |
+| PEM     | Privacy Enhanced Mail [rfc1421]               | 隐私增强邮件           |
 | PKCS    | Public-Key Cryptography Standards [rfc7292]   |
 | PKCS#1  | RSA                                           |
 | PKCS#12 |
 | PKCS#7  |
-| RSA     |
-| TPM     | Trusted Platform Modules                      |
+| RSA     | Rivest–Shamir–Adleman                         |
+| TPM     | Trusted Platform Modules                      | 受信任平台模块         |
+| ED25519 | Edwards-curve Digital Signature Algorithm     | 爱德华曲线数字签名算法 |
 | X.509   |
-| SLSA    | Supply chain Levels for Software Artifacts    |
+| SLSA    | Supply chain Levels for Software Artifacts    | 软件构件供应链级别     |
+| CA      | Certificate Authority                         | 证书颁发机构           |
+| OCSP    | Online Certificate Status Protocol            | 在线证书状态协议       |
+| CRL     | Certificate Revocation List                   | 证书吊销列表           |
+| PKI     | Public Key Infrastructure                     | 公钥基础设施           |
 
 [rfc1421]: https://www.rfc-editor.org/rfc/rfc1421
 [rfc7292]: https://www.rfc-editor.org/rfc/rfc7292

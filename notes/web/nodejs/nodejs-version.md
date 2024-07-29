@@ -17,22 +17,46 @@ tags:
 - 参考
   - v8 [js/wasm 特性](https://v8.dev/features)
 
-| ver                           | Active LTS | EOL        | v8 ver |
-| ----------------------------- | ---------- | ---------- | ------ |
-| [Node v20 LTS](#node-v20-lts) | 2023-10-24 | 2026-04-30 | v11.3  |
-| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | v10.1  |
-| [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2023-09-11 | v9.0   |
-| [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | v8.1   |
-| [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | v7.4   |
+| ver                           | Active LTS | EOL        | v8 ver   |
+| ----------------------------- | ---------- | ---------- | -------- |
+| [Node v22 LTS](#node-22-lts)  |            |            | v8 v12.4 |
+| [Node v20 LTS](#node-v20-lts) | 2023-10-24 | 2026-04-30 | v8 v11.3 |
+| [Node v18 LTS](#node-v18-lts) | 2022-10-25 | 2025-04-30 | v8 v10.1 |
+| [Node v16 LTS](#node-v16-lts) | 2021-10-26 | 2023-09-11 | v8 v9.0  |
+| [Node v14 LTS](#node-v14-lts) | 2020-10-27 | 2023-04-30 | v8 v8.1  |
+| [Node v12 LTS](#node-v12-lts) | 2019-10-21 | 2022-04-30 | v8 v7.4  |
 
 :::info Roadmap
 
+- `--experimental-strip-types` Node 23
+  - 直接运行 TypeScript，也需要配套解决 resolve 的一些问题
+  - strip type 基于 @swc/wasm-typescript
+- Websocket
+  - [Native WebSockets in node 20](https://github.com/nodejs/node/issues/53684)
 - corepack
 
 :::
 
 - https://unofficial-builds.nodejs.org/download/release
   - arm64 musl [nodejs/unofficial-builds#59](https://github.com/nodejs/unofficial-builds/pull/59)
+
+## Node v22
+
+- `--experimental-require-module`
+  - 在 ESM 环境下使用 require
+- `node --run TASK` - 运行 package.json 里的 script
+  - 类似于 npm run TASK
+- `node --watch`
+- WebSocket 客户端
+  - ~~--experimental-websocket~~
+- `import {glob, globSync} from "node:fs"`
+  - 增加常用的 glob 方法
+- v8 v12.4
+  - WebAssembly Garbage Collection
+  - Array.fromAsync
+  - Set methods
+  - iterator helpers
+  - Maglev Fastest Optimizing JIT - https://v8.dev/blog/maglev
 
 ## Node v21
 
@@ -80,7 +104,7 @@ tags:
 - Test Runner
   - `import { test, describe, it, mock } from 'node:test';`
   - `node --test --watch test.mjs`
-- single executable application - SEA
+- single executable application - SEA - 可执行文件
 
 ```json title="sea-config.json"
 {

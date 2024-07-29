@@ -252,6 +252,18 @@ module.exports = {
 | max-w-screen-xl  |       | 1280px |
 | max-w-screen-2xl |       | 1536px |
 
+| rounded       |   rem |  px |
+| ------------- | ----: | --: |
+| xrounded-none |     0 |   0 |
+| rounded-sm    | 0.125 |   2 |
+| rounded       |  0.25 |   4 |
+| rounded-md    | 0.375 |   6 |
+| rounded-lg    |   0.5 |   8 |
+| rounded-xl    |  0.75 |  12 |
+| rounded-2xl   |     1 |  16 |
+| rounded-3xl   |   1.5 |  24 |
+| rounded-full  |  9999 |     |
+
 ## container query
 
 - 支持 Container Query - v3.2+

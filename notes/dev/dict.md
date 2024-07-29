@@ -37,6 +37,87 @@ tags:
 
 :::
 
+| en             | cn                   |
+| -------------- | -------------------- |
+| sinology       | 汉学                 |
+| year-on-year   | 同比                 |
+| month-on-month | 环比                 |
+| robust         | 健壮性, ~~鲁棒~~     |
+| socket         | ~~套接字~~           |
+| handler        | ~~句柄~~             |
+| macro          | ~~宏~~               |
+| metaphysics    | ~~形而上学~~,玄学    |
+| philosophy     | 哲学,理学            |
+| subjective     |
+| objective      |
+| idealism       | ~~唯心主义~~         |
+| utilitarianism | ~~功利主义~~         |
+| login,signin   | 登录                 |
+| signup         | 注册                 |
+| logout,signout | 登出,退出登录        |
+| argument       | 实际参数             |
+| parameter      | 形式参数             |
+| chorus         | 合唱、复歌、~~副歌~~ |
+| verse          | 主唱                 |
+| debit          | 借, 左               |
+| credit         | 贷, 右               |
+
+> ~~划掉~~ 的词语表示不建议这样翻译, 或尽量避免从翻译去理解，直接理解本来的词义
+
+- metaphysics - 形而上学
+  - 越物质世界、探讨存在本质、宇宙本源和终极实在的哲学学说
+  - 形而上学 这个翻译从小感觉就是贬义的
+- idealism - 唯心主义
+  - 本身是个中性词，但是从小的教育是贬义指向
+
+## 中文的优缺点 {#avoid-chinese-defect}
+
+:::tip
+
+- 文字只是辅助理解的工具。
+- 近现代科学技术的发展几乎不在中文圈
+  - 哲学、政治、经济、科技 相关的翻译先从日本传入
+  - 可追溯 汉语外来词词典
+
+:::
+
+- 优点
+  - 信息密度 非常/最 高
+  - 二义性
+    - 文字可以优美 - 留白
+    - 文学性强
+  - 象形文字
+- 缺点
+  - 信息密度 非常 高 - 阅读/理解 负担
+  - 发音和结构非强相关
+  - 汉字去掉了非常多的不常用字 - 记忆负担
+  - 二义性
+    - 相对不适合用于严谨的科学研究 - 因为总能够被解释
+    - 咬文嚼字
+    - 学术信息 参考 中文资料 和 英文资料 有明显感受
+  - 象形文字 - 形意文字
+    - 象形 表达在视觉上，难以体现逻辑关系
+    - 不宜造字
+    - 字形复杂
+    - 书写负担 - 大陆汉字简化后已经没那么 象形 了
+    - 舶来语不适应 - 无法联系实际意义
+    - 科研相关的翻译就像灾难
+    - 例如：化学元素周期表 - 实际的翻译几乎没用
+
+---
+
+- 不同的语言形成的思维会有所不同
+- 参考
+  - [Lost (or gained) in translation](https://www.economist.com/graphic-detail/2012/03/30/lost-or-gained-in-translation)
+  - 知乎 https://www.zhihu.com/question/294972764/answer/790215150
+  - 哪些专业名词翻译得特别烂？ https://www.zhihu.com/question/27192923
+  - 汉学||这些词竟然来自日本！ https://www.sohu.com/a/253715588_176673
+
+---
+
+- 劳动节 - Labour Day / International Workers' Day
+  - 实际是强调劳工，而不是劳动
+
 ## 俚语
 
 - [bruh](https://www.urbandictionary.com/define.php?term=Bruh)
@@ -1589,6 +1670,16 @@ tags:
   - 被动监测捕获信息
   - 网络安全、性能分析、协议分析
 
+## handler vs handle
+
+- handler - 句柄
+  - 名词 - 表示处理过程或处理机制
+  - 一个对象或函数
+- handle - 处理
+  - 动词 - 表示执行处理的动作。
+  - 一个动作或函数
+  - 处理某件事情的行为或过程
+
 ## Concurrency vs Parallelism / 并发 vs 并行
 
 - 并发
@@ -1692,6 +1783,9 @@ try to get the other instance of the resource. In the unfortunate case it might 
   - Memory（记忆）
   - Action（行动）
   - AIDMA
+- 中文
+  - freemdict.com
+  - zdict
 
 ## Abbr
 

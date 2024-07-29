@@ -5,6 +5,13 @@ tags:
 
 # 存储服务常见问题
 
+:::tip
+
+- xfs,ext4 inode 通常在百万级别时会有性能问题
+  - 元数据管理、fsck、目录 list、碎片化
+
+:::
+
 ## Web 大文件处理
 
 - Gmail attachment 20-25 MB
@@ -27,6 +34,19 @@ tags:
 ---
 
 - https://uploadcare.com/blog/handling-large-file-uploads/
+
+## garage vs minio
+
+- garage
+  - 小文件处理似乎更友好
+  - 默认分布式
+  - chunk+metadata
+- minio
+  - 小文件有特殊优化，但还是没那么理想
+  - 默认单机，分布式方案相对复杂，不推荐
+  - disk 上直接存储文件
+    - list 操作依赖 fs 性能
+  - 辅助功能完善：console 控制台、policy、bucket lifecycle、加密等
 
 ## Object Storage Service vs Filesystem
 

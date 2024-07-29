@@ -78,3 +78,10 @@ mkfs
 # hformat -l File image.img
 # mount -t hfs -o loop image.img /mnt/file
 ```
+
+# FAQ
+## fusermount: option allow_other only allowed if 'user_allow_other' is set in /etc/fuse.conf
+
+```bash
+echo user_allow_other | sudo tee -a /etc/fuse.conf
+```

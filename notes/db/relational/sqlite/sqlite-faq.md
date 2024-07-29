@@ -13,6 +13,43 @@ select lower(hex(randomblob(16)));
 select lower(hex(randomblob(4))) || '-' || lower(hex(randomblob(2))) || '-4' || substr(lower(hex(randomblob(2))),2) || '-' || substr('89ab',abs(random()) % 4 + 1, 1) || substr(lower(hex(randomblob(2))),2) || '-' || lower(hex(randomblob(6)));
 ```
 
+```sql
+create table if not exists message_log
+(
+  id            text        not null default (lower(hex(randomblob(16)))) primary key,
+  uid           uuid        not null default (lower(hex(randomblob(4))) || '-' || lower(hex(randomblob(2))) || '-4' || substr(lower(hex(randomblob(2))),2) || '-' || substr('89ab',abs(random()) % 4 + 1, 1) || substr(lower(hex(randomblob(2))),2) || '-' || lower(hex(randomblob(6)))),
+  created_at    timestamptz not null default current_timestamp,
+  updated_at    timestamptz not null default current_timestamp,
+  deleted_at    timestamptz,
+  tid           text        not null default 'org_00000000000000000000000000',
+  eid           text,
+
+  user_id       text,
+  session_id    text,
+  connection_id text,
+  message_seq   bigint,
+  url           text,
+  port          integer,
+  seq           bigint,
+  type          bigint,
+  name          text,
+  direction     text,
+  data          json,
+  data_hash     text,
+  remaining     int,
+  key           text unique,
+  size          integer,
+  flags         json,
+  metadata      json,
+  payload       bytea,
+
+  attributes    jsonb       not null default '{}',
+  properties    jsonb       not null default '{}',
+  extensions    jsonb       not null default '{}',
+  unique (tid, eid)
+);
+```
+
 ## attempt to write a readonly database
 
 可能是权限不足

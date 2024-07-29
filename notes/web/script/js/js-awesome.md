@@ -43,6 +43,7 @@ tags:
   - [browserify/events](https://github.com/browserify/events)
     - EventEmitter 同 `node:events`
   - tiny-emitter
+  - ~~[tunnckoCoreLabs/dush](https://github.com/tunnckoCoreLabs/dush)~~
   - [eventemitter2 vs eventemitter3 vs events vs mitt vs tiny-emitter](https://npmtrends.com/eventemitter2-vs-eventemitter3-vs-events-vs-mitt-vs-tiny-emitter)
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
@@ -65,10 +66,33 @@ tags:
         - dom.toJSON()
     - [zeed-dom](https://github.com/holtwick/zeed-dom)
   - [focus-trap/focus-trap](https://github.com/focus-trap/focus-trap)
-- Communication/Network
-  - websocket
-  - socketio
+- Communication/Network/Websocket
+  - WebSockets
+    - 浏览器 Chrome 17+, Safari 7+, Android 4.4+ - 2013+
+    - NodeJS 21+ `node --experimental-websocket`
+  - [websockets/ws](https://github.com/websockets/ws)
+    - MIT, JS
+    - JS 实现
+    - binary 加速包 bufferutil, utf-8-validate
+  - [uWebSockets.js](https://github.com/uNetworking/uWebSockets.js)
+    - 基于 [uWebSockets](https://github.com/uNetworking/uWebSockets) C++ 库
+      - 基于 [uNetworking/uSockets](https://github.com/uNetworking/uSockets)
+    - 性能好
+    - 针对 Linux 优化
+  - [theturtle32/WebSocket-Node](https://github.com/theturtle32/WebSocket-Node)
+    - Apache-2.0, JS
+    - JS 实现
+    - npm:websocket
+  - [faye/faye-websocket-node](https://github.com/faye/faye-websocket-node)
   - sockjs
+    - 支持回滚为其他协议
+  - [primus/primus](https://github.com/primus/primus)
+  - [SocketCluster/socketcluster](https://github.com/SocketCluster/socketcluster)
+    - realtime pub/sub and RPC framework
+  - socketio
+  - eventsource
+  - WebRTC
+  - WebTransport
 - WebWorker
   - [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
   - https://vitejs.dev/guide/features.html#web-workers

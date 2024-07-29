@@ -49,6 +49,8 @@ redis-server --bind=0.0.0.0
 
 [keydb]: ../keydb.md
 
+## commands
+
 ```
 # 获取 key 数量 - 可能失效的也包含
 dbsize
@@ -59,6 +61,30 @@ info keyspace
 # SCAN cursor [MATCH pattern] [COUNT count] [TYPE type]
 scan 0
 ```
+
+```
+# NX -> Not Exists - 不存在则设置
+# XX -> Exists - 存在则设置
+# GET -> 返回旧值
+# EX -> Expires Seconds - 过期时间 单位秒
+# PX -> Expires Milliseconds - 过期时间 单位毫秒
+# EXAT -> Expires At - 过期时间 时间戳秒
+# PXAT -> Expires At - 过期时间 时间戳毫秒
+# KEEPTTL -> 保持原有 TTL
+SET key value [NX | XX] [GET] [EX seconds | PX milliseconds | EXAT unix-time-seconds | PXAT unix-time-milliseconds | KEEPTTL]
+```
+
+- 2.6.12+ 支持 EX, PX, NX, XX
+- 6.0.0+ 支持 KEEPTTL
+- 6.2.0+ 支持 GET, EXAT, PXAT
+- 7.0.0+ 支持 NX, GET 同时使用
+
+| command    | note                               |
+| ---------- | ---------------------------------- |
+| ~~SETEX~~  | -> `SET key value EX seconds`      |
+| ~~SETNX~~  | -> `SET key value NX`              |
+| ~~PSETEX~~ | -> `SET key value PX milliseconds` |
+| ~~GETSET~~ | -> `SET key value GET`             |
 
 ## Stream
 
@@ -85,7 +111,6 @@ scan 0
 - [Antirez 关于 Redis 模块的博客](http://antirez.com/news/106)
 - [wenerme/go-rm](https://github.com/wenerme/go-rm)
   - 使用 Golang 写 Redis 模块
-
 
 ## 键变化通知
 
@@ -180,7 +205,6 @@ scan 0
 redis-cli --csv psubscribe '__key*__:*'
 ```
 
-
 ## redis-benchmark
 
 ```bash
@@ -189,6 +213,5 @@ redis-benchmark -q -n 100000 -t set,get -P 16
 ```
 
 - https://redis.io/docs/reference/optimization/benchmarks/
-
 
 ## Inside

@@ -15,6 +15,48 @@ title: 耻辱墙
   - 儿童鞋
     - Amore Materno, 爱慕·玛蒂诺
     - Macbana, 玛克邦纳 - 就像很真的假洋牌 - 英文域名官网上用中文写着品牌名字，生怕不知道中文是这个名字
+- 开放原子开源基金会 https://openatom.org/
+  - 旗下的 git 仓库、 docker 仓库
+- CSDN
+  - 垃圾内容过多
+  - 牛皮鲜过多
+- `polyfill.io`
+  - 域名卖给中国公司，被注入代码
+  - Funnull -> 南京妙彩文化传播有限公司
+- CDN
+  - GoEdge
+    - goedge.cn
+  - BootcssCDN
+
+**黑名单**
+
+```
+51.la
+bootcdn.net
+bootcss.com
+polyfill.io
+staticfile.net
+staticfile.org
+jsdelivr.vip
+goedge.cloud
+goedge.cn
+```
+
+---
+
+- 参考
+  - [供应链投毒后，我们的选择还剩下哪些？](https://v2ex.com/t/1056428)
+    - BootcssCDN
+      - bootcss.com
+      - bootcdn.net
+      - -> 郑州紫田网络科技有限公司
+      - unionadjs.com
+    - Staticfile CDN
+      - staticfile.net
+      - staticfile.org
+      - 2023-10-11 七牛云 -> 河南泉磐网络科技有限公司
+      - 51.la
+  - GoEdge https://www.v2ex.com/t/1060326
 
 ## OSS
 

@@ -82,24 +82,36 @@ tags:
 - hdfs - 大数据, 计算->存储
 - openio-sds
 - longhorn
+- S3/对象存储
+  - [minio](./minio.md) - S3
+    - AGPLv3, Go
+    - 支持作为 S3 代理
+  - [garage](./garage.md)
+    - Rust
+- S3 to FS/FUSE
+  - [s3fs-fuse](https://github.com/s3fs-fuse/s3fs-fuse)
+    - GPLv2, C++
+    - inotify 不会检测到外部修改
+    - 不支持原子 rename
+  - [archiecobbs/s3backer](https://github.com/archiecobbs/s3backer)
+    - GPLv2, C
+    - FUSE/NBD single file backing store via Amazon S3
+  - rclone mount
+  - [kahing/goofys](https://github.com/kahing/goofys)
+    - Apache-2.0, Go
+    - 性能更好，更少的 POSIX 兼容
+    - 不怎么维护
+  - [s3ql/s3ql](https://github.com/s3ql/s3ql)
+    - GPLv3, Python
+    - 自有存储格式
 - 对象存储
-  - S3
   - Swift
   - [linkedin/ambry](https://github.com/linkedin/ambry)
     - Apache-2.0, Java
     - Distributed object store
-  - [minio](./minio.md) - S3
-    - AGPLv3, Go
-    - 支持作为 S3 代理
   - [apache/ozone](https://github.com/apache/ozone)
     - Apache-2.0, Java
     - for Apache Hadoop
-  - https://garagehq.deuxfleurs.fr/
-    - https://git.deuxfleurs.fr/Deuxfleurs/garage
-    - Rust
-    - https://git.deuxfleurs.fr/Deuxfleurs/bagage
-      - Golang
-      - WebDav-to-S3, SFTP-to-S3
 - 文件存储
   - [juicefs](./juicefs.md)
   - [lizardfs](https://github.com/lizardfs/lizardfs)

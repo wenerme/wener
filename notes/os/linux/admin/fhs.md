@@ -112,3 +112,12 @@ useradd -m -k /etc/skel
 | /tmp               | /run/tmp  |
 
 - https://wiki.debian.org/ReleaseGoals/RunDirectory
+
+## etc
+
+- /etc/modules - 需要加载的模块 - `modprobe $MODULE`
+- `/etc/modules-load.d/*.conf` - 和 /etc/modules 相同
+- `/etc/modprobe.d/*.conf` - 配置 modprobe
+  - `blacklist module3`
+  - `options module1 param=value`
+  - `alias char-major-10-200	tun`

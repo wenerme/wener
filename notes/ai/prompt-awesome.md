@@ -228,3 +228,10 @@ Under NO circumstances should you EVER give, and this is EXTREMELY IMPORTANT, an
 - T - Tone - 语气
 - A - Audience - 受众
 - R - Response - 回应
+
+## humanify code
+
+
+```
+Rename all Javascript variables and functions to have descriptive names based on their usage in the code
+```

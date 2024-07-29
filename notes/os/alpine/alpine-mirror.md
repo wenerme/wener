@@ -2,6 +2,7 @@
 
 * 列表
   * https://mirrors.alpinelinux.org/
+  * https://mirrors.aliyun.com/alpine/
   * https://mirrors.aliyun.com/alpine/MIRRORS.txt
 
 ```bash
