@@ -1,8 +1,7 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
-
 
 # Markdown FAQ
 

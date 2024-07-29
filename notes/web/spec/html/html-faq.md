@@ -5,7 +5,7 @@ tags:
 
 # HTML FAQ
 
-## 响应式 {responsive-meta-tag}
+## 响应式 {#responsive-meta-tag}
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -92,3 +92,29 @@ declare module 'react' {
 - dialog
   - 不在 顶层
 
+## 响应式图片 {#responsive-image}
+
+- img
+  - srcset
+- picture
+  - source
+
+**next/image**
+
+```html
+<img
+  alt=""
+  loading="lazy"
+  width="350"
+  height="280"
+  decoding="async"
+  data-nimg="1"
+  class="h-full w-full object-cover md:w-[354px]"
+  srcset="
+    /_next/image?url=%2Fimg1&amp;w=384&amp;q=75 1x,
+    /_next/image?url=%2Fimg1&amp;w=750&amp;q=75 2x
+  "
+  src="/_next/image?url=%2Fimg1&amp;w=750&amp;q=75"
+  style="color: transparent;"
+/>
+```

@@ -6,6 +6,27 @@ title: OS FAQ
 
 - [Windowing system](https://en.wikipedia.org/wiki/Windowing_system)
 
+## tmpdir
+
+```js
+os.tmpdir()
+```
+
+```java
+System.getProperty("java.io.tmpdir")
+```
+
+```shell
+echo $TMPDIR
+```
+
+- Windows `C:\Users\$USER\AppData\Local\Temp`
+- Linux `/tmp`
+- macOS `/var/folders/.../T/`
+- 参考
+  - [TMPDIR](https://en.wikipedia.org/wiki/TMPDIR)
+  - [Temporary folder](https://en.wikipedia.org/wiki/Temporary_folder)
+
 ## AlpineLinux vs OpenWRT
 
 **相同点**

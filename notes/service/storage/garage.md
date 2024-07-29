@@ -24,6 +24,26 @@ title: garage
     - The Dynamo ring
     - CRDTs
 
+
+:::tip
+
+garage 是一个分布式对象存储系统，兼容 S3 API，支持 GEO 分布，压缩和去重。
+
+如何核心需求是 分布式 和 S3 API 那么 garage 是目前开源的最佳选择。
+
+- vs Minio
+  - minio 不是分布式
+  - minio 会保持目录文件结构
+  - minio 辅助功能更多
+- vs seaweedfs
+  - seaweedfs 默认是 对象存储
+  - S3 API 需要 filer，需要额外的 metadata
+- vs juicefs
+  - juicefs 是 metadata+chunk 套壳提供 POSIX 接口
+  - juicefs 本身不存储数据，不提供 S3 API
+
+:::
+
 :::caution
 
 - 不支持匿名 Bucket 访问 - 支持暴露 website

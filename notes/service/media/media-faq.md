@@ -6,6 +6,18 @@ tags:
 
 # Media FAQ
 
+| codec      | chrome              | safari               | notes                        |
+| ---------- | ------------------- | -------------------- | ---------------------------- |
+| **Image**  |
+| webp       | 2014-01 Chrome 32+  | 2022-09 Safari 14.1+ |
+| avif       | 2020-08 Chrome 85+  | 2023-03 Safari 16.4+ |
+| **Video**  |
+| av1        | 2018-10 Chrome 70+  | 2023-09 Safari 17.0+ | safari 要求硬件支持          |
+| HEVC/H.265 | 2022-10 Chrome 107+ | 2019-09 Safari 11+   | chrome 要求硬件支持          |
+| **Audio**  |
+| webm       | 2013-01 Chrome 25+  | 2021-04 Safari 14.1  |
+| opus       | 2014-02 Chrome 33+  | 2017-09 Safari 11+   | safari 要求 caf 或 webm 容器 |
+
 ## VP9
 
 - Apple Safari 不支持 VP9

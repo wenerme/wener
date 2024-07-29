@@ -465,11 +465,23 @@ tags:
   - condition build
     - [babel-plugin-dev-expression](https://www.npmjs.com/package/babel-plugin-dev-expression)
     - [tsdx](https://github.com/jaredpalmer/tsdx)
-- image
+- image/media
   - [nhn/tui.image-editor](https://github.com/nhn/tui.image-editor)
   - [fengyuanchen/compressorjs](https://github.com/fengyuanchen/compressorjs)
     - image compressor
   - https://github.com/photopea
+  - [sharp](../lib/sharp.md)
+  - [jimp-dev/jimp](https://github.com/jimp-dev/jimp)
+    - 纯 JS
+    - JavaScript Image Manipulation Program
+    - 支持 jpeg, png, bmp, tiff, gif
+  - [rsms/node-imagemagick](https://github.com/rsms/node-imagemagick)
+    - npm:imagemagick
+  - gm
+    - GraphicsMagick
+  - fluent-ffmpeg
+  - [GoogleChromeLabs/squoosh](https://github.com/GoogleChromeLabs/squoosh)
+    - Make images smaller using best-in-class codecs
 - compression/zip/unzip
   - fflate
   - TextEncoderStream
