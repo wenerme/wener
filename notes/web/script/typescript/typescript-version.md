@@ -8,6 +8,9 @@ tags:
 
 | version                          | date       |
 | -------------------------------- | ---------- |
+| [Typescript 5.5](#typescript-55) | 2024-06-20 |
+| [Typescript 5.4](#typescript-54) | 2024-03-06 |
+| [Typescript 5.3](#typescript-53) | 2023-11-20 |
 | [Typescript 5.0](#typescript-50) | 2023-03-14 |
 | [Typescript 4.9](#typescript-49) | 2022-11-15 |
 | [Typescript 4.8](#typescript-48) | 2022-08-25 |
@@ -15,7 +18,45 @@ tags:
 | [Typescript 4.6](#typescript-46) | 2022-02-28 |
 | [Typescript 4.5](#typescript-45) | 2021-11-17 |
 
+## Typescript 5.6
+
+- Disallowed Nullish and Truthy Checks
+  - eslint:no-constant-binary-expression
+- 由于名称碰撞原因，引入 BuiltinIterator, BuiltinAsyncIterator
+  - Iterator 在之前被作为类型定义
+  - 现在 js 有了 Iterator - https://github.com/tc39/proposal-iterator-helpers
+  - BuiltinAsyncIterator 目前还不存在 https://github.com/tc39/proposal-async-iterator-helpers
+- `--strictBuiltinIteratorReturn`
+- `--noUncheckedSideEffectImports`
+- `--noCheck`
+- region-prioritized diagnostics / region-prioritized checking
+  - 优化类型检测性能
+  - 更好的编辑体验
+
+## Typescript 5.5
+
+- Inferred Type Predicates/类型推断
+  - filter 能够 narrow 类型了
+    - `all.filter(v => v !== undefined)` 返回的数组值不为 undefined
+- Control Flow Narrowing for Constant Indexed Accesses
+  - 能把 `typeof obj[key] === "string"` 这样检测的结果带到之后访问，以前需要把 `obj[key]` 提取为变量
+- Regular Expression Syntax Checking/正则表达式语法检查
+- 增加新的 Set 方法定义 - union, intersection, difference, symmetricDifference, isSubsetOf, isSupersetOf, isDisjointFrom
+- `--isolatedDeclarations`
+- tsconfig.json 配置支持 `${configDir}` 变量
+  - 解决在 extends 里配置路径的时候能正确引用 路径
+
+```ts
+// 之前返回 boolean
+// 现在返回 x is NonNullable<T>
+const isNonNullish = <T>(x: T) => x != null;
+```
+
 ## Typescript 5.4
+
+- 增加 `NoInfer` 用于提示 ts 不从某个类型参数推导类型
+- 增加定义 Object.groupBy, Map.groupBy
+- `--moduleResolution=bundler` 支持使用 require
 
 module=preserve 隐含
 
@@ -28,13 +69,13 @@ module=preserve 隐含
 ```
 
 ```ts
-// In some global file.
+// 定义支持的 import 属性
 interface ImportAttributes {
   type: 'json';
 }
 
 // 支持类型检查
-import * as ns from 'foo' with { type: 'not-json' };
+import * as ns from 'foo' with { type: 'not-json' }; // 会报错 type
 ```
 
 ## Typescript 5.3
@@ -43,6 +84,11 @@ import * as ns from 'foo' with { type: 'not-json' };
   - [#47947](https://github.com/microsoft/TypeScript/issues/47947)
   - [53463](https://github.com/microsoft/TypeScript/pull/53463#issuecomment-1660720127)
 - 支持 Import Attributes
+- resolution-mode
+  - `/// <reference types="pkg" resolution-mode="import" />`
+  - `import type { TypeFromImport } from "pkg" with { "resolution-mode": "import" };`
+- `switch (true)` Narrowing
+  - 多个 case 针对同一个变量时能够正确的 narrow 类型
 
 ```ts
 //  Import Attributes
@@ -74,7 +120,7 @@ const obj = await import('./something.json', {
 
 ## Typescript 5.1
 
-- 没有返回这默认返回 undefined
+- 没有返回默认返回 undefined
 
 ```ts
 function f4(): undefined {

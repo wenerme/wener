@@ -30,6 +30,8 @@ title: React Hook Form
 
 - 默认 mode 为 onSubmit - 也就是在提交的时候才会校验
 - 元素上的 required 会由浏览器处理，而不会添加到 rhf 的规则里
+- resolver 和 rules 不能同时使用
+  - [#8992](https://github.com/orgs/react-hook-form/discussions/8992)
 
 :::
 

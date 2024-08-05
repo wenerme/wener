@@ -184,7 +184,7 @@ package dlopen
 
 # FAQ
 
-## 查找用到了 cgo 的模块
+## 查找用到了 cgo 的模块 {#find-cgo-modules}
 
 ```bash
 go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}}{{range .Deps}} {{.}}{{end}}" ./...)
@@ -194,7 +194,7 @@ go list -f "{{if .CgoFiles}}{{.ImportPath}}{{end}}" $(go list -f "{{.ImportPath}
 
 ```bash
 # Go 1.18+
-CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="zig cc -target x86_64-linux" CXX="zig c++ -target x86_64-linux" go build --tags extended
+CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="zig cc -target x86_64-linux-musl" CXX="zig c++ -target x86_64-linux-musl" go build --tags extended
 ```
 
 - amd64 -> x86_64

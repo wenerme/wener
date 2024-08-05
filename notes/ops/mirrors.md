@@ -1,5 +1,7 @@
 ---
 title: Mirrors
+tags:
+  - Mirror
 ---
 
 # 镜像
@@ -141,6 +143,8 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
   - ~~https://docker.mirrors.ustc.edu.cn~~
   - ~~https://f1361db2.m.daocloud.io~~
   - ~~https://reg-mirror.qiniu.com~~
+  - 参考
+    - -> https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/1c/1c4cc75be746862b262b81a1f45042849da7c12c8ba87ceb1a50fc3e90b78f79/data
 - gcr.io
   - gcr.m.daocloud.io
 - k8s.gcr.io -> gcr.io/google-containers
@@ -226,3 +230,26 @@ mirrors:
 ## Mirrorss
 
 - https://github.com/DaoCloud/public-image-mirror
+
+## AlpineLinux
+
+- https://mirrors.alpinelinux.org/
+- https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml
+- 官方
+  - http://dl-cdn.alpinelinux.org
+  - http://dl-cdn.alpinelinux.org/alpine/MIRRORS.txt
+- aliyun
+  - https://mirrors.aliyun.com/alpine/
+  - https://mirrors.aliyun.com/alpine/MIRRORS.txt
+- 参考
+  - https://wiki.alpinelinux.org/wiki/How_to_setup_a_Alpine_Linux_mirror
+
+```bash
+# 基于更新时间排序
+curl -s https://mirrors.aliyun.com/alpine/MIRRORS.txt | xargs -n1 -I {} sh -c 'echo $(curl -s {}/last-updated) {}' | sort -n
+
+# 同步
+# 建议参数 -og --chown=1000:1000 - 覆盖 uid:gid - 默认 100:101
+# rsync 服务建议使用官方 rsync.alpinelinux.org - 国内镜像要嘛不支持要嘛偶尔有问题
+rsync --archive --update --hard-links --timeout=600 --progress rsync://rsync.alpinelinux.org/alpine/ /alpine/mirror
+```

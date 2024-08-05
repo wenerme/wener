@@ -142,6 +142,8 @@ SHOW TABLE STATUS;
 
 ## MySQL vs MariaDB
 
+> MariaDB 开发现状不太理想 (2024)
+
 - MySQL
   - 8.2.0 不提供基于 debian 的 镜像 https://hub.docker.com/_/mysql
 - MariaDB
@@ -236,6 +238,8 @@ from test;
 
 ## MongoDB vs PostgreSQL
 
+> 默认选择 PostgreSQL 即可
+
 - MongoDB
   - SSPL
   - 文档模型
@@ -252,6 +256,8 @@ from test;
   - [FerretDB](./relational/postgresql/ferretdb.md) 提供兼容协议
 
 ## MySQL vs PostgreSQL
+
+> 默认选择 PostgreSQL 即可
 
 - MySQL CE
   - GPL
@@ -273,3 +279,28 @@ from test;
 ---
 
 - https://www.bytebase.com/blog/postgres-vs-mysql/
+
+## NATS vs Redis
+
+- NATS
+  - 核心是 消息
+  - 支持 request/reply 模式
+  - 支持 多租户
+  - 支持 更灵活的消息路由, 集群架构
+  - 支持 KV, ObjectStore, JetStream
+  - 支持持久化存储
+  - 支持自定义 AuthZ
+  - ⚠️ 劣势
+    - 运维更重
+    - KV, ObjectStore 功能薄弱，不完善
+- Redis/Valkey
+  - 核心是 内存KV存储
+  - 支持 pubsub, stream - 基本和 NATS 一致
+  - 结构丰富
+  - 运维轻便
+  - ⚠️ 劣势
+    - 不支持 request/reply 模式，需要应用层做更复杂的处理
+    - 不支持多租户
+    - ACL 以配置文件的方式存在 - 多个节点同步复杂
+    - 数据需要全部加载到内存
+    - 集群模式运维复杂，需要考虑的事情非常多

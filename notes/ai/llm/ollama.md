@@ -41,7 +41,7 @@ docker run --rm -it \
   ollama/ollama \
   --name ollama
 
-ollama pull qwen:7b # 中文相对好点
+ollama pull qwen2:7b # 中文相对好点
 ```
 
 | env                      | default         | desc                           |

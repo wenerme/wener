@@ -6,7 +6,26 @@ tags:
 
 # NATS FAQ
 
-- Pub 不支持 wildcard
+:::caution
+
+- NATS 的功能目前铺的太多了，很多功能都是实验性的，不稳定不完善，虽然看起来很美好，但是实际使用中可能会遇到很多问题
+- KeyValue
+  - TTL 是 bucket 维度的，不支持 单个 KV 维度 - 因此不能作为 Redis KV 替代
+    - [#3251](https://github.com/nats-io/nats-server/issues/3251)
+  - 目前无法监听 KV 失效事件 - 类似 redis 的 keyevent
+    - [#3268](https://github.com/nats-io/nats-server/issues/3268)
+  - 目前无法重置 KV 的 TTL
+    - [#3073](https://github.com/nats-io/nats-server/issues/3073)
+  - 没有内置基础的 incr 和 decr - 原子递增
+    - [#2656](https://github.com/nats-io/nats-server/issues/2656)
+- MQTT 目前支持到 3.1.1 (2014)， 不支持 MQTTv5 (2018)
+  - [#3369](https://github.com/nats-io/nats-server/issues/3369)
+- Pub 不支持 wildcard, 不支持多个 subject
+  - 需要发送多个的时候需要多次上传发送
+  - [#1306](https://github.com/nats-io/nats-server/issues/1306)
+  - JetStream Batch Publish support [#3971](https://github.com/nats-io/nats-server/issues/3971)
+
+:::
 
 ## Limits
 

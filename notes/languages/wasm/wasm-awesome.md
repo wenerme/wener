@@ -11,18 +11,51 @@ tags:
 - 推荐 rust, c, c++, zig
 - 推荐 js 加嵌入类型的 engine - duktape, quickjs
 - emscripten 可以将 llvm 支持的任意语言编译为 wasm
+- 几种场景
+  - for WASM
+    - 语言层面 AssemblyScript
+  - port to WASM
+    - 编译为 wasm
+    - ir -> wasm
+  - WASM to Native
 
 :::
 
-- [WebAssembly/wasi-nn](https://github.com/WebAssembly/wasi-nn)
-  - https://github.com/WasmEdge/WasmEdge/tree/master/plugins/wasi_nn/thirdparty/ggml
-- [AssemblyScript/assemblyscript](https://github.com/AssemblyScript/assemblyscript)
-  - 直接输出 wasm
-  - 类 TypeScript 语法
-  - https://www.assemblyscript.org/status.html
-  - https://www.assemblyscript.org/built-with-assemblyscript.html
-- [Rust & Wasm](https://rustwasm.github.io/book/introduction.html)
-- [roadmap](https://webassembly.org/roadmap/)
+- WebAssembly
+  - [WebAssembly/wasi-nn](https://github.com/WebAssembly/wasi-nn)
+    - https://github.com/WasmEdge/WasmEdge/tree/master/plugins/wasi_nn/thirdparty/ggml
+  - [roadmap](https://webassembly.org/roadmap/)
+- Language
+  - [AssemblyScript](./assemblyscript.md)
+    - 直接输出 wasm
+    - 类 TypeScript 语法
+  - [Rust & Wasm](https://rustwasm.github.io/book/introduction.html)
+- Runtime
+  - [wasmerio/wasmer](https://github.com/wasmerio/wasmer)
+    - MIT, Rust
+    - supporting WASIX, WASI and Emscripten
+    - [wasmerio/wasmer-go](https://github.com/wasmerio/wasmer-go)
+      runtime for Go
+  - [wasm3/wasm3](https://github.com/wasm3/wasm3)
+    - MIT, C
+    - interpreter
+  - [WasmEdge/WasmEdge](https://github.com/WasmEdge/WasmEdge)
+    - Apache-2.0, C++
+    - WebAssembly runtime for cloud native, edge, and decentralized applications
+    - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
+      - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
+  - [tetratelabs/wazero](https://github.com/tetratelabs/wazero)
+    - Apache-2.0, Go
+    - 无依赖
+- Toolchain
+  - [bytecodealliance/javy](https://github.com/bytecodealliance/javy)
+    - Apache-2.0, Rust
+  - [CanadaHonk/porffor](https://github.com/CanadaHonk/porffor)
+    - MIT, JS, TS
+    - AOT JS engine
+  - [tc39/test262](https://github.com/tc39/test262)
+    - ECMAScript Conformance Test Suite
+    - 测试 JS 兼容性
 - bytecodealliance
   - [bytecodealliance/lucet](https://github.com/bytecodealliance/lucet)
     Sandboxing WebAssembly Compiler.
@@ -38,32 +71,20 @@ tags:
     - WebAssembly Pre-Initializer
     - 空间换时间
   - [bytecodealliance/wit-bindgen](https://github.com/bytecodealliance/wit-bindgen)
-- [wasmerio/wasmer](https://github.com/wasmerio/wasmer)
-  WebAssembly Runtime supporting WASI and Emscripten
-  - MIT, Rust
-  - [wasmerio/wasmer-go](https://github.com/wasmerio/wasmer-go)
-    runtime for Go
 - [aduros/wasm4](https://github.com/aduros/wasm4)
   - Build retro games using WebAssembly
-- [wasm3/wasm3](https://github.com/wasm3/wasm3)
-  - MIT, C
-  - interpreter
 - [suborbital/sat](https://github.com/suborbital/sat)
   - Apache-2.0, Go
   - Tiny, blazing fast WebAssembly compute
   - [HN](https://news.ycombinator.com/item?id=28788303)
     - 包含作者选型原因
-- [WasmEdge/WasmEdge](https://github.com/WasmEdge/WasmEdge)
-  - Apache-2.0, C++
-  - WebAssembly runtime for cloud native, edge, and decentralized applications
-  - [second-state/dapr-wasm](https://github.com/second-state/dapr-wasm)
-    - [WasmEdge Runtime for Dapr](https://www.infoq.com/articles/webassembly-dapr-wasmedge/)
 - https://webvm.io/
   - https://github.com/leaningtech/webvm
   - https://github.com/leaningtech/cheerpx
 - [zandaqo/iswasmfast](https://github.com/zandaqo/iswasmfast)
 - [wasmx/fizzy](https://github.com/wasmx/fizzy)
 - [WAVM/WAVM](https://github.com/WAVM/WAVM)
+  - BSD-3, C++
   - WebAssembly Virtual Machine
 - [ewasm/design](https://github.com/ewasm/design)
   - Ethereum flavored WebAssembly
@@ -87,14 +108,8 @@ tags:
 - [fermyon/spin](https://github.com/fermyon/spin)
   - Apache-2, Rust
   - developer tool for building and running serverless applications
+- [renderlet/wander](https://github.com/renderlet/wander)
 
-## Golang
-
-**Host**
-
-- [tetratelabs/wazero](https://github.com/tetratelabs/wazero)
-  - Apache-2.0, Go
-  - 无依赖
 
 ## JS
 
@@ -145,3 +160,10 @@ tags:
 - [emscripten-core/emscripten](https://github.com/emscripten-core/emscripten)
   - LLVM-to-WebAssembly Compiler
 - [WebAssembly/binaryen](https://github.com/WebAssembly/binaryen)
+  - Optimizer and compiler/toolchain library for WebAssembly
+
+## TBD
+
+https://github.com/petersalomonsen/wasm-git/blob/master/README.md
+https://github.com/mbasso/awesome-wasm
+https://nodejs.org/api/wasi.html

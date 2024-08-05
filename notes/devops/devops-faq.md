@@ -6,6 +6,11 @@ tags:
 
 # DevOps 常见问题
 
+- ClickOps
+  - Jenkins
+  - AWX, SemaphoreUI
+  - Gitlab CI manual trigger
+  - Github Action manual trigger
 
 ## DevOps vs OPS
 

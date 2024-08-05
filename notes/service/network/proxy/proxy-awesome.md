@@ -408,8 +408,16 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - https://github.com/Loyalsoldier/v2ray-rules-dat
 - https://github.com/Loyalsoldier/clash-rules
 - https://github.com/Loyalsoldier/surge-rules
+- https://github.com/Loyalsoldier/geoip
 - https://github.com/DustinWin/clash-geosite
 - https://github.com/MetaCubeX/meta-rules-dat
+- [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+
+## Game Rules
+
+> 游戏主要以 IP 为判断标准，且大多需要 UDP 协议，传统代理试用 域名 作为判断标准
+
+- https://github.com/FQrabbit/SSTap-Rule
 
 ## Limits
 

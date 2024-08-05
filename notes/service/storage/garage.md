@@ -7,10 +7,15 @@ title: garage
 - [Deuxfleurs/garage](https://git.deuxfleurs.fr/Deuxfleurs/garage)
   - AGPLv3, Rust
   - 分布式 S3-compatible object store
+  - metadata + chunk
+    - metadata - lmdb, sqlite
+    - chunk - 1M
+      - 对小文件友好
+      - 如果节点之间网速理想，可修改为较大值 例如 1 Gbps -> 10MiB
 - 特性
   - S3
   - GEO Distribution
-  - Standalone
+  - Standalone - 自包含 metadata & data，不依赖外部，单 binary
   - 压缩 & 去重
   - K2V API - 实验性
 - gateway
@@ -24,21 +29,20 @@ title: garage
     - The Dynamo ring
     - CRDTs
 
-
 :::tip
 
 garage 是一个分布式对象存储系统，兼容 S3 API，支持 GEO 分布，压缩和去重。
 
-如何核心需求是 分布式 和 S3 API 那么 garage 是目前开源的最佳选择。
+如果核心需求是 分布式 和 S3 API 那么 garage 是目前开源的最佳选择。
 
-- vs Minio
-  - minio 不是分布式
+- vs Minio - AGPLv3, Go
+  - minio 分布式实施起来更复杂
   - minio 会保持目录文件结构
   - minio 辅助功能更多
-- vs seaweedfs
+- vs seaweedfs - Apache-2.0, Go
   - seaweedfs 默认是 对象存储
   - S3 API 需要 filer，需要额外的 metadata
-- vs juicefs
+- vs juicefs - Apache-2.0, Go
   - juicefs 是 metadata+chunk 套壳提供 POSIX 接口
   - juicefs 本身不存储数据，不提供 S3 API
 
@@ -90,9 +94,7 @@ RUST_LOG=garage=info garage -c garage.toml server
 
 sudo chmod 0600 /etc/garage/rpc_secret
 
-
 su -l garage garage -c /etc/garage/garage.toml server
-
 ```
 
 ## 配置 {#config}
@@ -224,7 +226,6 @@ root_domain = ""
 - https://garagehq.deuxfleurs.fr/documentation/reference-manual/configuration/
 
 ## cluster
-
 
 ```bash
 cat << EOF > garage.toml

@@ -254,46 +254,47 @@ options:
         - 本地或远程
       - 无盘模式
 
-| opt           | default      | desc                                                                                      |
-| ------------- | ------------ | ----------------------------------------------------------------------------------------- |
-| BOOTIF        |
-| alpine_dev    |
-| alpine_repo   | `auto`       | `http://...`                                                                              |
-| alpine_start  |
-| apkovl        |              | `/tmp/apkovls`                                                                            |
-| autodetect    |
-| autoraid      |
-| blacklist     |              | `/etc/modprobe.d/boot-opt-blacklist.conf`                                                 |
-| chart         | no           | `bootchart` logging                                                                       |
-| cryptdiscards | no           | `nlplug-findfs -D` - allow discards on crypto device                                      |
-| cryptdm       |              | `nlplug-findfs -m` - use CRYPTNAME name for crypto device mapping                         |
-| cryptheader   |
-| cryptkey      |              | `nlplug-findfs -k ${cryptkey:-/crypto_keyfile.bin}`                                       |
-| cryptoffset   |              | `nlplug-findfs -o` - cryptsetup payload offset                                            |
-| cryptroot     |              | `nlplug-findfs -c` - run cryptsetup luksOpen when CRYPTDEVICE is found                    |
-| dasd          |              | modprobe `dasd_mod dasd_eckd_mod dasd_fba_mod`<br/>`/sys/bus/ccw/devices/${dash}/online`  |
-| debug_init    | no           | `set -x`                                                                                  |
-| dma           |
-| init          | `/sbin/init` |
-| init_args     |
-| ip            |
-| keep_apk_new  |
-| modules       |              | `${rootfstype} loop squashfs`                                                             |
-| nbd           |
-| overlaytmpfs  | no           | mount root ro, tmpfs root rw,                                                             |
-| ovl_dev       |              | apkvol - diskless, `/boot/ovl_dev/cache`                                                  |
-| pkgs          |
-| quiet         | no           | `dmesg -n 1`                                                                              |
-| resume        |              | `/sys/power/resume`                                                                       |
-| root          |
-| root_size     |              | tmpfs sysroot,使用 rootflags `,size=`                                                     |
-| rootflags     |              | `ro`                                                                                      |
-| rootfstype    |              | `ext4`, `zfs`, `btrfs`                                                                    |
-| s390x_net     |              | modprobe `qeth qeth_l2 qeth_l3`                                                           |
-| single,s,1    |              | SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh |
-| splash        | yes          | 无 root 时, 默认使用 `/media/*/fbsplash.ppm`,`/media/*/fbsplash$num.ppm`                  |
-| ssh_key       |
-| usbdelay      |              | `nlplug-findfs -t` delay, second                                                          |
+| opt               | default      | desc                                                                                      |
+| ----------------- | ------------ | ----------------------------------------------------------------------------------------- |
+| BOOTIF            |
+| autodetect_serial |
+| alpine_dev        |
+| alpine_repo       | `auto`       | `http://...`                                                                              |
+| alpine_start      |
+| apkovl            |              | `/tmp/apkovls`                                                                            |
+| autodetect        |
+| autoraid          |
+| blacklist         |              | `/etc/modprobe.d/boot-opt-blacklist.conf`                                                 |
+| chart             | no           | `bootchart` logging                                                                       |
+| cryptdiscards     | no           | `nlplug-findfs -D` - allow discards on crypto device                                      |
+| cryptdm           |              | `nlplug-findfs -m` - use CRYPTNAME name for crypto device mapping                         |
+| cryptheader       |
+| cryptkey          |              | `nlplug-findfs -k ${cryptkey:-/crypto_keyfile.bin}`                                       |
+| cryptoffset       |              | `nlplug-findfs -o` - cryptsetup payload offset                                            |
+| cryptroot         |              | `nlplug-findfs -c` - run cryptsetup luksOpen when CRYPTDEVICE is found                    |
+| dasd              |              | modprobe `dasd_mod dasd_eckd_mod dasd_fba_mod`<br/>`/sys/bus/ccw/devices/${dash}/online`  |
+| debug_init        | no           | `set -x`                                                                                  |
+| dma               |
+| init              | `/sbin/init` |
+| init_args         |
+| ip                |
+| keep_apk_new      |
+| modules           |              | `${rootfstype} loop squashfs`                                                             |
+| nbd               |
+| overlaytmpfs      | no           | mount root ro, tmpfs root rw,                                                             |
+| ovl_dev           |              | apkvol - diskless, `/boot/ovl_dev/cache`                                                  |
+| pkgs              |
+| quiet             | no           | `dmesg -n 1`                                                                              |
+| resume            |              | `/sys/power/resume`                                                                       |
+| root              |
+| root_size         |              | tmpfs sysroot,使用 rootflags `,size=`                                                     |
+| rootflags         |              | `ro`                                                                                      |
+| rootfstype        |              | `ext4`, `zfs`, `btrfs`                                                                    |
+| s390x_net         |              | modprobe `qeth qeth_l2 qeth_l3`                                                           |
+| single,s,1        |              | SINGLEMODE<br/>有 root，直接进入 sh，不挂载<br/> 无 root，可能启动网络和挂载设备后进入 sh |
+| splash            | yes          | 无 root 时, 默认使用 `/media/*/fbsplash.ppm`,`/media/*/fbsplash$num.ppm`                  |
+| ssh_key           |
+| usbdelay          |              | `nlplug-findfs -t` delay, second                                                          |
 
 - apkvol
   - `http://xyz/{MAC}/xyz/{UUID}/$(cat /sys/class/dmi/id/product_uuid)`

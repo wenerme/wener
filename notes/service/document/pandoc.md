@@ -34,8 +34,44 @@ brew install pandoc # macOS brew
 pandoc makrdown.md -f markdown -t docx -o output.docx
 
 # Markdown 转 pdf
-# 依赖于 pdflatex,
-# Mac 下可通过安装 maclatex 提供
-#   brew cask install mactex # 2.5 G
+# 依赖于 pdflatex
+
+# Mac 下可通过安装 maclatex 提供 pdflatex
+# https://mirror.ctan.org/systems/mac/mactex/
+brew install librsvg python basictex # macOS  basictex 更小 90MB
+cd /usr/local/texlive/2024basic/bin/universal-darwin/
+./tlmgr update --self
+./tlmgr install collection-fontsrecommended
+./tlmgr install xecjk # File `xeCJK.sty' not found
+# ./tlmgr install texliveonfly
+# ./tlmgr install enumitem
+# ./tlmgr install fnbreak
+# brew install mactex # macOS mactex 非常大 5.6G
+
 pandoc makrdown.md -f markdown -t latex -o output.pdf
 ```
+
+# FAQ
+
+## LaTeX Error: Unicode character
+
+```
+--pdf-engine=xelatex -V CJKmainfont="KaiTi"
+--pdf-engine=xelatex -V mainfont="Noto"
+--pdf-engine=xelatex -V CJKmainfont="Source Han Serif CN"
+```
+
+```bash
+fc-list :lang=zh
+```
+
+## Package soul Error: Reconstruction failed.
+
+See the soul package documentation for explanation.
+
+`-V CJKmainfont="STSong"` -> `-V mainfont="STSong"`
+
+
+## pandoc Missing character: There is no in font ectt1000
+
+使用 `-V mainfont="STSong"`，虽然生成的有内容，但是会有大量的 `Missing character: There is no in font` 错误

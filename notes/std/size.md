@@ -198,3 +198,13 @@ system_profiler SPDisplaysDataType | grep Resolution
 - UHD - Ultra High Definition
 - QHD - Quad High Definition
 - [List of common display resolutions](https://en.wikipedia.org/wiki/List_of_common_display_resolutions)
+
+## Avatar
+
+- github avatar 460x460
+- Instagram
+  - avatar 320x320
+  - Square 1080x1080
+  - Portrait 1080x1350
+  - Landscape 1080x566
+  - Stories & Reels 1080x1920

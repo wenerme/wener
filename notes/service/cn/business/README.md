@@ -311,3 +311,13 @@ title: 企业服务行业
 - 社保登记
 - 刻制公章
 - 办理专业许可证
+
+## 资质办理
+
+| 大类               | 英文名称                                        | notes                             |
+| ------------------ | ----------------------------------------------- | --------------------------------- |
+| 食品和餐饮行业资质 | Food and Catering Industry Licenses             | 食品经营、餐饮服务                |
+| 增值电信服务资质   | Value-Added Telecommunications Service Licenses | ICP、EDI、IDC、ISP、SP、CDN许可证 |
+| 文化和出版类资质   | Cultural and Publishing Licenses                | 网络文化、出版物、广播电视        |
+| 药品和医疗资质     | Pharmaceutical and Medical Licenses             | 药品信息服务                      |
+| 法定和常规营业资质 | Statutory and General Business Licenses         | 营业执照                          |

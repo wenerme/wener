@@ -57,7 +57,12 @@ ipconfig /flushdns
 
 ## usercontent
 
-- To C 场景运行 UGC 时需要考虑
+- To C 场景运行 UGC(User Generate Content) 时需要考虑
+- 安全考虑
+  - XSS
+  - CSRF
+  - 上传文件
+  - 隔离
 - Thanks HN: Lessons learned after Google nearly killed my site
   [HN](https://news.ycombinator.com/item?id=26357033)
 
@@ -65,3 +70,47 @@ ipconfig /flushdns
 
 - placeholder = the current domain/current origin
 - https://datatracker.ietf.org/doc/html/rfc1035#page-35
+
+## 二级域名 {#subdomain}
+
+- 控制台
+  - dash
+  - console
+- 后台
+  - admin
+- 静态
+  - static <-> dynamic
+    - 静态资源
+    - 强调文件的静态性质，适合用于所有不需要服务器动态处理的文件。
+    - HTML、CSS、JS、图像等
+  - assets
+    - 资源
+    - 静态资源
+    - 通常包括图片、字体、样式表、脚本等。
+  - cdn
+    - 内容分发, 和地理位置相关
+    - 包含多种文件类型 图片、视频、JavaScript/CSS 文件
+  - public <-> internal
+    - 强调文件是公开可访问的，适合用于公开的文档、下载链接等。
+    - 用途更为广泛
+  - img
+    - 图片
+    - 可能支持图片的缩略图、水印等处理
+  - avatar
+    - 头像
+    - 专门用于存放用户头像
+    - https://avatars.githubusercontent.com/u/1777211
+    - `https://lh3.googleusercontent.com/ogw/AF2bZygZwHRnKCON05JMtPJkbegumW5fl7A8-AjDqkHMqeIov88g=s128-c-mo`
+      - s128-c-mo
+        - s: size
+        - c: crop
+        - mo: mode
+  - dl
+    - 下载
+    - 专门用于提供文件下载的链接，通常用于软件、文档等文件的下载页面
+  - files
+    - 文件
+    - 用于存放各种文件，如文档、图片、视频等
+  - vod
+  - videos
+    - [kaltura/nginx-vod-module](https://github.com/kaltura/nginx-vod-module)

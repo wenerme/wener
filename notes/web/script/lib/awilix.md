@@ -11,6 +11,7 @@ title: awilix
   - 也就是说 context 不是一个黑盒，而是完全需要感知字段名字的，类似于一个大的 context 对象
 - 不依赖 decorator - 对环境依赖度低，使用实现简单
 - 不支持 async - 建议 user-land 做 https://github.com/jeffijoe/awilix/issues/310#issuecomment-1375445068
+- asFunction 会传入 cradle 作为参数，注意 `asFunction(createUserStore)` => `asFunction(()=>createUserStore())`
 
 :::
 
@@ -23,7 +24,7 @@ title: awilix
   - 支持浏览器
   - adopted by [medusa](https://github.com/medusajs/medusa)
 - lifetime
-  - Lifetime.TRANSIENT - 默认
+  - Lifetime.TRANSIENT - **默认**
   - Lifetime.SCOPED - Container 维度 - 例如 子 container
   - Lifetime.SINGLETON
     - 缓存位置 `container.cache`

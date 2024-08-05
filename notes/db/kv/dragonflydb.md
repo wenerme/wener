@@ -5,19 +5,22 @@ title: dragonflydb
 # dragonflydb
 
 - [dragonflydb/dragonfly](https://github.com/dragonflydb/dragonfly)
-  - BSL 1.1, C++,C
+  - BSL 1.1, C++, C
   - 兼容 Redis, Memcached 接口
   - 多线程
-- https://github.com/dragonflydb/dragonfly/blob/main/docs/api_status.md
 - 6379
   - http://127.0.0.1:6379
   - `:6379/metrics`
+- 参考
+  - [Dragonfly API Compatibility](https://www.dragonflydb.io/docs/command-reference/compatibility)
 
 :::caution
 
 - Redis v7 RDB [#1403](https://github.com/dragonflydb/dragonfly/issues/1403)
-- BullMQ [#1398](https://github.com/dragonflydb/dragonfly/issues/1398)
-  - [#782](https://github.com/dragonflydb/dragonfly/issues/782)
+- 兼容问题 - 大多已经修复，但如果遇到问题可以参考
+  - BullMQ [#1398](https://github.com/dragonflydb/dragonfly/issues/1398)
+  - nest/bull,nextcloud [#782](https://github.com/dragonflydb/dragonfly/issues/782)
+- 多租户支持讨论 [#1466](https://github.com/dragonflydb/dragonfly/discussions/1466)
 
 :::
 

@@ -61,32 +61,39 @@ ddrescue -S -b8M /dev/sda1 /mount/external/backup/sda1.raw
 
 ## 磁盘格式
 
+| format    | for                                        |
+| --------- | ------------------------------------------ |
+| raw       | 原始磁盘格式                               |
+| bochs     | Bochs                                      |
+| cloop     | compressed loopback                        |
+| cow       | User Mode Linux Copy On Write image format |
+| dmg       | Mac                                        |
+| iso       | CDROM                                      |
+| ~~qcow~~  | QEMUv1                                     |
+| qcow2     | QEMUv2                                     |
+| qed       | QEMU Enhanced                              |
+| vdi       | Oracle VM VirtualBox Disk Image            |
+| vmdk      | VMware                                     |
+| nbd       | Network block device                       |
+| parallels | Parallels virtualization                   |
+| vvfat     | Virtual VFAT                               |
+| vhd       | Microsoft virtual hard disk                |
+| vhdx      | Microsoft Hyper-V                          |
+
 - raw - 原始磁盘格式
   - 性能最好，占用空间最多
   - fallocate 可以预留空间
   - Linux 下如果文件系统支持 holes(ext2,ext3,NTFS 等) 则只有使用的空间才会被占用 - `ls -ls` 查看第一列 或 `qemu-img info` 查看
-- bochs: Bochs disk image format
 - cloop - compressed loopback disk image format
   - useful only to reuse directly compressed CD-ROM images present for example in the Knoppix CD-ROMs.
 - cow - User Mode Linux Copy On Write image format
   - 为了兼容存在，不支持 Windows
-- dmg - Mac disk image format
-- iso - CDROM disk image format
-- qcow - QEMU v1
-  - 为了兼容存在
 - qcow2 - QEMU v2
   - 功能最为齐全
   - AES 加密
   - zlib 压缩
   - 支持快照
-- qed - QEMU Enhanced Disk image format
-- vmdk - VMware disk image format
-- vpc/vhd - Windows Virtual PC disk image format / Microsoft virtual hard disk image format
-- nbd - Network block device
-- parallels - Parallels virtualization disk image format
-- vdi - Oracle VM VirtualBox hard disk image format
-- vmdk - VMware 3 and 4 compatible image format
-- vvfat - Virtual VFAT disk image format
+- vpc/vhd - Windows Virtual PC / Microsoft virtual hard disk image format
 
 ```bash
 # 检测是否支持 holes

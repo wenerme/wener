@@ -178,6 +178,9 @@ tags:
 
 - [panva/node-oidc-provider](https://github.com/panva/node-oidc-provider)
   - MIT, NodeJS, JS
+  - [panva/oauth4webapi](https://github.com/panva/oauth4webapi)
+    - MIT, TS
+    - OAuth 2 / OpenID Connect
 - [dexidp/dex](https://github.com/dexidp/dex)
   - Apache-2.0, Go
   - OpenID Connect Identity (OIDC) and OAuth 2.0 Provider with Pluggable Connectors

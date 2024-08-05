@@ -957,6 +957,21 @@ tags:
 - detection/user agent/fingerprinting
   - [abrahamjuliot/creepjs](https://github.com/abrahamjuliot/creepjs)
     - https://abrahamjuliot.github.io/creepjs/
+- [AssemblyScript/assemblyscript](https://github.com/AssemblyScript/assemblyscript)
+  - Apache-2.0, TypeScript
+  - [WebAssembly/binaryen](https://github.com/WebAssembly/binaryen)
+    - Apache-2.0, C++
+    - Binaryen IR
+- [CanadaHonk/porffor](https://github.com/CanadaHonk/porffor)
+  - MIT, JS, TS
+  - JS/TS -> WASM
+  - WASM -> Native
+- [turbolent/w2c2](https://github.com/turbolent/w2c2)
+  - MIT, C, WebAssembly
+  - WASM -> C
+- [microsoft/pxt](https://github.com/microsoft/pxt)
+  - MIT, TS, JS
+  - Microsoft MakeCode (PXT - Programming eXperience Toolkit)
 
 ---
 

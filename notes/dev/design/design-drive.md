@@ -69,6 +69,14 @@ date: 2021-11-30
   - 后端存储要求
 - 围绕服务展开
   - 现有服务提供的能力进行封装
+- Metadata+Chunk
+  - 通常是底层存储的实现
+  - 例如: seaweedfs, juicefs, garage
+- FS Meta+Object+Metadata
+  - 在对象存储之上实现文件系统
+  - FS Meta 可以存储在 DB
+  - Object Key 为 sha
+  - Metadata 记录关于 Object 的信息 - 便于不依赖 fs meta 直接访问操作
 
 ## S3 API
 
@@ -309,8 +317,6 @@ struct inode_operations {
 - lookup - 查找索引节点所在的目录
 - unlink - 从 dir 目录删除 dentry 目录项所指文件的硬链接
 
-
-
 ## Entity
 
 - File
@@ -452,4 +458,132 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
   - [flystorage.dev](https://flystorage.dev/)
 - https://flystorage.dev/architecture/
 
+## Object
+
+**git**
+
+- .git/objects
+- .git/objects/pack - 已打包的对象文件 - .pack+.idx
+- .git/objects/info - 对象的附加信息
+- `.git/objects/[0-9a-f]{2}` - 对象的哈希前两位
+- `.git/objects/[0-9a-f]{2}/[0-9a-f]{38}` - 对象的剩余哈希值
+
+**juicefs**
+
+- chunk 64 MiB
+- slice -> object 4 MiB
+  - sliceId 为 int
+- meta - 以 Redis 为例
+  - setting - string
+  - allSessions - sset
+  - sessionInfos - hash
+  - Node `i${inode}` - string
+  - Edge/Dir `d${inode}` - hash{fn,binary}
+  - LinkParent `p${inode}` - hash
+  - Chunk `c${inode}_${index}` - list
+  - SliceRef `k${sliceId}_${size}` - hash
+  - Symlink `s${inode}` - string
+  - Xattr `x${inode}` - hash
+  - Flock `lockf${inode}` - hash{`${sid}_${owner}`,R/W}
+  - Plock `lockp${inode}` - hash
+  - DelFiles - `delfiles` - sset
+  - DelSlices - `delSlices` - hash
+  - Sustained - `session${sid}` - list
+- data
+  - `${fsname}/chunks/${hash}/${basename}`
+    - hash
+      - 有Prefix -> `fmt.Sprintf("%02X/%d", sliceId%256, sliceId/1000/1000)`
+      - 无Prefix -> `fmt.Sprintf("%d/%d", sliceId/1000/1000, sliceId/1000)`
+    - basename -> `${sliceId}_${index}_${size}`
+- 参考
+  - https://juicefs.com/docs/community/internals/
+
+```go
+type setting struct {
+    Name  string `xorm:"pk"`
+    Value string `xorm:"varchar(4096) notnull"`
+}
+type counter struct {
+    Name  string `xorm:"pk"`
+    Value int64  `xorm:"notnull"`
+}
+type node struct {
+    Inode  Ino    `xorm:"pk"`
+    Type   uint8  `xorm:"notnull"`
+    Flags  uint8  `xorm:"notnull"`
+    Mode   uint16 `xorm:"notnull"`
+    Uid    uint32 `xorm:"notnull"`
+    Gid    uint32 `xorm:"notnull"`
+    Atime  int64  `xorm:"notnull"`
+    Mtime  int64  `xorm:"notnull"`
+    Ctime  int64  `xorm:"notnull"`
+    Nlink  uint32 `xorm:"notnull"`
+    Length uint64 `xorm:"notnull"`
+    Rdev   uint32
+    Parent Ino
+    AccessACLId  uint32 `xorm:"'access_acl_id'"`
+    DefaultACLId uint32 `xorm:"'default_acl_id'"`
+}
+type edge struct {
+    Id     int64  `xorm:"pk bigserial"`
+    Parent Ino    `xorm:"unique(edge) notnull"`
+    Name   []byte `xorm:"unique(edge) varbinary(255) notnull"`
+    Inode  Ino    `xorm:"index notnull"`
+    Type   uint8  `xorm:"notnull"`
+}
+type chunk struct {
+    Id     int64  `xorm:"pk bigserial"`
+    Inode  Ino    `xorm:"unique(chunk) notnull"`
+    Indx   uint32 `xorm:"unique(chunk) notnull"`
+    Slices []byte `xorm:"blob notnull"`
+}
+type sliceRef struct {
+    Id   uint64 `xorm:"pk chunkid"`
+    Size uint32 `xorm:"notnull"`
+    Refs int    `xorm:"notnull"`
+}
+type symlink struct {
+    Inode  Ino    `xorm:"pk"`
+    Target []byte `xorm:"varbinary(4096) notnull"`
+}
+type xattr struct {
+    Id    int64  `xorm:"pk bigserial"`
+    Inode Ino    `xorm:"unique(name) notnull"`
+    Name  string `xorm:"unique(name) notnull"`
+    Value []byte `xorm:"blob notnull"`
+}
+type flock struct {
+    Id    int64  `xorm:"pk bigserial"`
+    Inode Ino    `xorm:"notnull unique(flock)"`
+    Sid   uint64 `xorm:"notnull unique(flock)"`
+    Owner int64  `xorm:"notnull unique(flock)"`
+    Ltype byte   `xorm:"notnull"`
+}
+type plock struct {
+    Id      int64  `xorm:"pk bigserial"`
+    Inode   Ino    `xorm:"notnull unique(plock)"`
+    Sid     uint64 `xorm:"notnull unique(plock)"`
+    Owner   int64  `xorm:"notnull unique(plock)"`
+    Records []byte `xorm:"blob notnull"`
+}
+type delfile struct {
+    Inode  Ino    `xorm:"pk notnull"`
+    Length uint64 `xorm:"notnull"`
+    Expire int64  `xorm:"notnull"`
+}
+type delslices struct {
+    Id      uint64 `xorm:"pk chunkid"`
+    Deleted int64  `xorm:"notnull"`
+    Slices  []byte `xorm:"blob notnull"`
+}
+type sustained struct {
+    Id    int64  `xorm:"pk bigserial"`
+    Sid   uint64 `xorm:"unique(sustained) notnull"`
+    Inode Ino    `xorm:"unique(sustained) notnull"`
+}
+```
+
 ## 参考 {#reference}
+
+- https://github.com/opencurve/curve/blob/master/docs/cn/chunkserver_design.md
+  - https://github.com/opencurve/curve/blob/master/docs/en/chunkserver_design_en.md

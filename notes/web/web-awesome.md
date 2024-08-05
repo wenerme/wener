@@ -15,6 +15,15 @@ tags:
 - https://teetow.github.io/elementary_grid
 - [varkor/quiver](https://github.com/varkor/quiver)
 
+## Spec
+
+- WebPush
+  - [web.dev/explore/notifications](https://web.dev/explore/notifications)
+  - [webpush-protocol](https://datatracker.ietf.org/doc/html/draft-ietf-webpush-protocol)
+  - [webpush-encryption](https://datatracker.ietf.org/doc/html/draft-ietf-webpush-encryption)
+  - 实现
+    - [web-push-libs/web-push](https://github.com/web-push-libs/web-push)
+
 ## Runtime
 
 - nodejs

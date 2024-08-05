@@ -210,3 +210,41 @@ location.origin;
 - 美化 URL - 产生更友好的路径
 - 通常是唯一的 - 辅助标识数据
 - 可能是自动转化的，也可能是手动指定
+
+## crossOrigin
+
+- crossorigin - 控制 Origin 头 和 credentials
+  - anonymous
+    - 不包含 credentials - cookies, x.509 certs, Authorization
+  - use-credentials
+    - 包含 credentials
+    - 服务端通过 Access-Control-Allow-Credentials: true 控制
+  - 影响是否包含 Origin 头
+  - 服务端通过 Access-Control-Allow-Origin 控制
+- referrerpolicy - 控制 referrer 头
+  - no-referrer
+  - no-referrer-when-downgrade - 只有 TLS/HTTPS 才发送 Referer
+  - origin - Referer 设置为当前 origin
+  - same-origin - cross-origin 不设置 Referer
+  - strict-origin - 不允许 https -> http 的 origin
+  - origin-when-cross-origin
+  - strict-origin-when-cross-origin
+  - unsafe-url - 包含路径信息
+
+---
+
+- 支持的标签 img, audio, video, link, script
+- script
+  - 无法使用 window.onerror
+- audio, video, img crossorigin
+  - 影响是否能够访问 image 数据
+  - 影响 canvas 能否使用 img
+  - 标记为 tainted
+
+## rel
+
+---
+
+- a 等同于 area 效果
+- 支持的标签 a, area, link, form
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel

@@ -105,6 +105,10 @@ tags:
   - `import { test, describe, it, mock } from 'node:test';`
   - `node --test --watch test.mjs`
 - single executable application - SEA - 可执行文件
+- globalThis.process?.getBuiltinModule
+  - 20.16+
+- `Blob#bytes():Uint8Array`
+  - 20.16+
 
 ```json title="sea-config.json"
 {
@@ -131,6 +135,23 @@ export async function load(url, defaultLoad) {
 
 ```bash
 node --experimental-loader=./loader.mjs
+```
+
+**getBuiltinModule**
+
+> NodeJS v20.16+
+
+```js
+if (globalThis.process?.getBuiltinModule) {
+  // Run in Node.js, use the Node.js fs module.
+  const fs = globalThis.process.getBuiltinModule('fs');
+  // If `require()` is needed to load user-modules, use createRequire()
+  const module = globalThis.process.getBuiltinModule('module');
+  const require = module.createRequire(import.meta.url);
+  const foo = require('foo');
+
+  module.isBuiltin(id)
+}
 ```
 
 - https://nodejs.org/en/blog/announcements/v20-release-announce

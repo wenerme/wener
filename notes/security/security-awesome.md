@@ -23,6 +23,11 @@ tags:
 - [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
   - Apache-2.0
 - [danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
+- DPI bypass
+  - [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
+    - bypasss DPI for windows
+  - [bol-van/zapret](https://github.com/bol-van/zapret)
+    - for Linux
 - Linux
   - [liamg/traitor](https://github.com/liamg/traitor)
     - MIT, Go
