@@ -86,3 +86,74 @@ dos2unix test.xml
 - GBK - 1995年，21003个字符
   - 是 GB2312 的扩展/升级
   - 兼容 GB2312
+
+## Normalize
+
+- NFC
+  - Canonical Decomposition, followed by Canonical Composition.
+- NFD
+  - Canonical Decomposition.
+- NFKC
+  - Compatibility Decomposition, followed by Canonical Composition.
+- NFKD
+  - Compatibility Decomposition.
+- Lone leading surrogate
+  - `ab\uD800`
+  - `ab\uD800c`
+- Lone trailing surrogate
+  - `\uDFFFab`
+  - `c\uDFFFab`
+- JS
+  - String.prototype.isWellFormed - Chrome 111+, Safari 16.4+, Node 20.0+
+    - 避免 encodeURI 时出错
+  - String.prototype.toWellFormed
+  - String.prototype.normalize - Chrome 34+, Safari 10.1+, Node 0.12+
+
+```js
+{
+  let string1 = '\u00F1'; // ñ
+  let string2 = '\u006E\u0303'; // ñ
+
+  string1 = string1.normalize('NFD');
+  string2 = string2.normalize('NFD');
+
+  console.log(string1 === string2); // true
+  console.log(string1.length); // 2
+  console.log(string2.length); // 2
+}
+
+{
+  let string1 = '\u00F1'; // ñ
+  let string2 = '\u006E\u0303'; // ñ
+
+  string1 = string1.normalize('NFC');
+  string2 = string2.normalize('NFC');
+
+  console.log(string1 === string2); // true
+  console.log(string1.length); // 1
+  console.log(string2.length); // 1
+  console.log(string2.codePointAt(0).toString(16)); // f1
+}
+
+{
+  let string1 = '\uFB00';
+  let string2 = '\u0066\u0066';
+
+  console.log(string1); // ﬀ
+  console.log(string2); // ff
+  console.log(string1 === string2); // false
+  console.log(string1.length); // 1
+  console.log(string2.length); // 2
+
+  string1 = string1.normalize('NFKD');
+  string2 = string2.normalize('NFKD');
+
+  console.log(string1); // ff <- visual appearance changed
+  console.log(string2); // ff
+  console.log(string1 === string2); // true
+  console.log(string1.length); // 2
+  console.log(string2.length); // 2
+}
+```
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize

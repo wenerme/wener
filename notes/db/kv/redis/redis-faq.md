@@ -74,3 +74,47 @@ redis-cli
 ulimit -Sn 100000
 sysctl -w fs.file-max=100000
 ```
+
+## LOCK
+
+- key 为 lock name
+- value 为 holder
+
+**acquire**
+
+```
+SET key uuid PX timeout NX
+```
+
+**release**
+
+```lua
+if redis.call('GET', KEYS[1]) == ARGV[1] then
+  return redis.call('DEL', KEYS[1])
+end
+return 0
+```
+
+**extend**
+
+```lua
+if redis.call('GET', KEYS[1]) == ARGV[1] then
+  return redis.call('PEXPIRE', KEYS[1], ARGV[2])
+end
+return 0
+```
+
+- 其他方案
+
+```
+WATCH key  # Begin watching the key for changes
+GET key    # Retrieve its value, return an error if not equal to the lock's UUID
+MULTI      # Start transaction
+DEL key    # Delete the key
+EXEC       # Execute the transaction, which will fail if the key had expired
+```
+
+- 参考
+  - [mike-marcacci/node-redlock](https://github.com/mike-marcacci/node-redlock)
+  - https://redis.io/docs/latest/develop/use/patterns/distributed-locks/
+  - [microfleet/ioredis-lock](https://github.com/microfleet/ioredis-lock)

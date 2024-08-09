@@ -159,6 +159,15 @@ String(Object.create(null)); // 失败 - 不可以转 string
   - 返回所有结果
   - `{status:'reject'|'resolve',reason}`
 
+## peek Promise
+
+- 仅获取 Promise 结果，不触发 then
+- state: pending, fulfilled, rejected
+
+---
+
+- https://bun.sh/docs/api/utils#bun-peek
+
 ## polyfill vs ponyfill vs shim
 
 - polyfill - 修改全局对象，提供不支持的 API

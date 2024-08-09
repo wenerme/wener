@@ -145,7 +145,6 @@ navigation.addEventListener('navigate', (e) => {
 - tabIndex=-1
   - Not tabbable, but focusable
 
-
 ## HTML attributes vs DOM properties
 
 - HTML attributes

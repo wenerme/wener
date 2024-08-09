@@ -77,7 +77,6 @@ pnpm node --loader ts-node/esm --watch ./src/apps/ve-contract-server/main.ts
 - tsconfig-paths esm 问题
   - https://github.com/dividab/tsconfig-paths/issues/243
 
-
 ## 选择包管理器 {#choose-pm}
 
 > 选择 pnpm
@@ -493,8 +492,22 @@ PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
 
 ## ioredis vs redis
 
-> 推荐 ioredis
+> ⚠️ ioredis 在被 redis 收编后不在怎么维护
 
+- @redis/client
+  - 官方主推
+  - 开发相对活跃
+- ioredis
+  - 更好用
+  - 接口更友好
+  - 更快
+  - Is this package still actively maintained? [redis/ioredis#1870](https://github.com/redis/ioredis/issues/1870)
+- iovalkey
+  - fork ioredis
+  - 目前开发还不太活跃
+  - [valkey-io/iovalkey](https://github.com/valkey-io/iovalkey)
 - https://www.reddit.com/r/node/comments/uymb7w/redis_vs_ioredis/
+- https://ably.com/blog/migrating-from-node-redis-to-ioredis
+  - ably 从 node-redis 迁移为 ioredis
 
 ## The operation failed for an operation-specific reason: Cipher job failed

@@ -114,3 +114,11 @@ ipconfig /flushdns
   - vod
   - videos
     - [kaltura/nginx-vod-module](https://github.com/kaltura/nginx-vod-module)
+
+---
+
+- drive.google.com
+- onedrive.live.com
+- amazon.com/clouddrive
+- pan.baidu.com
+- www.alipan.com

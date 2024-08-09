@@ -16,14 +16,23 @@ title: bun
 
 :::caution
 
+- bun 目前还不适用于通用的生产环境
+  - 相对来说，bun 更适用于前端项目而不是后端项目，因为 后端 项目通常需要更多的 node 兼容模块
 - musl 支持
   - [#918](https://github.com/oven-sh/bun/issues/918)
   - [#255](https://github.com/oven-sh/bun/issues/255)
 - deploy [bun#211](https://github.com/oven-sh/bun/issues/211)
 - ~~无 dns 模块~~ - 0.5+ - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
 - ~~无 async_hooks - sequelize 不支持~~
-- 未实现 ~~dns~~, http2, https, child_process, vm, tls, async_hooks, worker_threads
-- 支持 NestJS [#1641](https://github.com/oven-sh/bun/issues/1641)
+- 未实现 ~~dns~~, http2, https, child_process, vm, tls, async_hooks, worker_threads, inspector
+- 未实现 HTTP request body streaming
+- 未实现 HTTP2 不支持 gRPC
+- 兼容
+  - 支持 vitest [#4145](https://github.com/oven-sh/bun/issues/4145)
+  - 支持 ReactNative [#123](https://github.com/oven-sh/bun/issues/123)
+  - fetch 100 continue 问题 [#7428](https://github.com/oven-sh/bun/issues/7428)
+    - S3 SDK, fetch 请求
+  - ~~支持 NestJS [#1641](https://github.com/oven-sh/bun/issues/1641)~~
 
 :::
 

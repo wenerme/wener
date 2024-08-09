@@ -103,7 +103,7 @@ app.use(
 ## Notes
 
 - App - Hono
-  - use = ALL 方法 = all
+  - use = ALL 方法 = all -> `on(['ALL'],path,handler)`
   - on - 支持多个方法、多个 path
   - route
     - 将另外一个 app 的所有 routes 添加到当前 app
@@ -136,10 +136,10 @@ app.use(
 const app = new Hono({
   // 处理带 Host
   getPath: (req) => req.url.replace(/^https?:\/(.+?)$/, '$1'),
-})
+});
 
-app.get('/www1.example.com/hello', (c) => c.text('hello www1'))
-app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
+app.get('/www1.example.com/hello', (c) => c.text('hello www1'));
+app.get('/www2.example.com/hello', (c) => c.text('hello www2'));
 ```
 
 - @hono/zod-openapi
@@ -173,4 +173,27 @@ app.get('/www2.example.com/hello', (c) => c.text('hello www2'))
 /** @jsx jsx */
 /** @jsxFrag Fragment */
 import { jsx, Fragment } from 'hono/jsx';
+```
+
+# FAQ
+
+## Hijack
+
+- 如果已经处理，则返回 RESPONSE_ALREADY_SENT
+
+```ts
+import { serve } from '@hono/node-server';
+import type { HttpBindings } from '@hono/node-server';
+import { RESPONSE_ALREADY_SENT } from '@hono/node-server/utils/response';
+import { Hono } from 'hono';
+
+const app = new Hono<{ Bindings: HttpBindings }>();
+
+app.get('/', (c) => {
+  const { outgoing } = c.env;
+  outgoing.writeHead(200, { 'Content-Type': 'text/plain' });
+  outgoing.end('Hello World\n');
+
+  return RESPONSE_ALREADY_SENT;
+});
 ```

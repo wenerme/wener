@@ -77,6 +77,41 @@ const notThis = /^(?:(?!this).)*$/;
 
 ## JavaScript
 
+:::caution
+
+- RegExp 是有状态的
+  - lastIndex
+  - 连续执行 `exec()` 可能结果不一样
+
+:::
+
+|                                         synbax | for                             | notes                   |
+| ---------------------------------------------: | ------------------------------- | ----------------------- |
+|                                           `\N` | Backreference                   |
+|                                     `\k<name>` | Named backreference             | Chrome 64+, Safari 11.1 |
+|                                   `\c[A-Za-z]` | control character = `char % 32` |
+|                                           `\0` | NULL, U+0000                    |
+|                             `(?<name>pattern)` | Named capture group             | Chrome 64+, Safari 11.1 |
+|                                  `(?:pattern)` | Non-capturing group             |
+|                    `(?=pattern)`,`(?!pattern)` | Lookahead assertion             |
+|                  `(?<=pattern)`,`(?<!pattern)` | Lookbehind assertion            |
+| `(?flags1:pattern)`,`(?flags1-flags2:pattern)` | Modifier, ims, `-flags2` 是关闭 |
+
+- flags
+  - i - ignoreCase
+  - m - multiline
+  - s - dotAll
+  - g - global
+  - y - sticky
+  - d - hasIndices
+  - u - unicode
+  - v - unicodeSets
+- atoms - 正则最基础单元
+- `\c[A-Za-z]`
+  - 控制字符
+  - = `char % 32`
+  - 因为大写和小写相差 32 因此 `\cJ` 和 `\cj` 是一样的
+  - `\cJ` = `\n`
 - replacement - 替换
   - `$$` -> `$`
   - `$&`
@@ -84,4 +119,12 @@ const notThis = /^(?:(?!this).)*$/;
   - `$'`
   - `$<n>`
   - replacer(match,p1,p2,offset,wholeString,namedGroups)
-
+- `/u` -> unicode
+  - 影响 `\w`, `\u{HHHH}`, `\uHHHH`
+  - `/[\p{L}\p{N}]+/u`
+- RegExp `/v`, unicodeSets
+  - `/^\p{RGI_Emoji}$/v.test('😵‍💫')`=true - Unicode string properties
+  - `/^[\q{😵‍💫}]$/v.test('😵‍💫')`=true - \q for String literals
+  - `/^[\p{RGI_Emoji}--\q{😵‍💫}]$/v.test('😵‍💫')`=false - 支持排除
+- 参考
+  - [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions)

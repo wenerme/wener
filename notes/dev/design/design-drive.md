@@ -460,6 +460,12 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
 
 ## Object
 
+- Hash 分层
+- CAS (Content Addressable Storage) 内容可寻址存储系统
+  - hash -> object
+  - kv
+- FCS - fixed content storage
+
 **git**
 
 - .git/objects
@@ -467,6 +473,13 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
 - .git/objects/info - 对象的附加信息
 - `.git/objects/[0-9a-f]{2}` - 对象的哈希前两位
 - `.git/objects/[0-9a-f]{2}/[0-9a-f]{38}` - 对象的剩余哈希值
+- git-annex
+  - .git/annex/objects/12/34/SHA256E-s1024--1234567890abcdef
+    - `HASH-sSIZE--FILENAME`
+    - 对象为 symlink / pointer
+  - 参考
+    - https://git-annex.branchable.com/internals/
+    - https://git-annex.branchable.com/internals/hashing/
 
 **juicefs**
 
@@ -583,7 +596,28 @@ type sustained struct {
 }
 ```
 
+## Glossory
+
+- path - 完整路径 `/home/user/documents/report.pdf`
+  - path=dirname+basename
+- filename - 文件名 `report.pdf`
+  - name+extname
+    - extname 包含 `.`
+  - `^[^\\/:*?"<>|]+(\.[a-zA-Z0-9]+)?$`
+  - reserved
+    - Windows
+      - 保留文件名 CON, PRN, AUX, NUL, COM{1..9}, LPT{1..9} - 大小写不敏感
+        - `NUL.txt` `NUL.tar.gz` 也等同于 `NUL`
+        - https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+      - 保留字符 `/\:*?"<>|`
+      - 特殊文件名 `Thumbs.db`, `desktop.ini`
+    - macOS
+      - `:` - HFS 分隔符
+- dirname - 目录名 `/home/user/documents`
+- basename - 指路径中最后一部分的名称，无论它是文件还是目录
+
 ## 参考 {#reference}
 
+- https://en.wikipedia.org/wiki/Filename
 - https://github.com/opencurve/curve/blob/master/docs/cn/chunkserver_design.md
   - https://github.com/opencurve/curve/blob/master/docs/en/chunkserver_design_en.md

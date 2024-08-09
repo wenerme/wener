@@ -4,6 +4,15 @@ title: Youtube
 
 # Youtube
 
+- YouTube Premium
+  - 去广告
+  - 后台播放 & 画中画
+  - 离线下载
+  - YouTube Music Premium
+  - YouTube Originals
+- 参考
+  - 国家地区 https://support.google.com/youtube/answer/6307365
+
 **会员价格**
 
 | 地区     | 价格 USD/月         | 差额 USD/月 |

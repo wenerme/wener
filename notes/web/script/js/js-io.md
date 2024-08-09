@@ -82,12 +82,6 @@ interface File extends Blob {
   - Encoder 只支持 UTF-8
   - 解码支持 UTF-8, ISO-8859-2, KOI8-R, GBK
   - `new TextDecoder('windows-1251')`
-- Streams
-  - ReadableStream
-  - WritableStream
-  - TransformStream
-  - https://nodejs.org/api/webstreams.html
-  - https://nodejs.org/api/stream.html
 
 ---
 
@@ -96,6 +90,20 @@ interface File extends Blob {
   - https://encoding.spec.whatwg.org/
   - [sindresorhus/file-type](https://github.com/sindresorhus/file-type)
     - Detect the file type of a Buffer/Uint8Array/ArrayBuffer
+
+## Stream
+
+> 处理大文件
+
+- Streams/WebStream - `node:stream/web`
+  - ReadableStream
+  - WritableStream
+  - TransformStream
+- 参考
+  - https://streams.spec.whatwg.org/
+  - https://nodejs.org/api/webstreams.html
+  - https://nodejs.org/api/stream.html
+  - [lovell/sharp#179](https://github.com/lovell/sharp/issues/179)
 
 ## ReadableStream to Buffer
 
@@ -125,6 +133,19 @@ async function readStreamToString(rs) {
     chunks.push(decoder.decode(value));
   }
   return chunks.join('');
+}
+```
+
+## Buffer to ReadableStream
+
+```ts
+function bufferToStream(buffer) {
+  return new ReadableStream({
+    start(controller) {
+      controller.enqueue(buffer);
+      controller.close();
+    },
+  });
 }
 ```
 
@@ -164,6 +185,16 @@ const p = new URLSearchParams({ b: 2, a: 1 });
 p.sort();
 p.toString();
 ```
+
+## NodeJS
+
+- NodeJS 没有 mmap
+- fs.readFile 会将整个文件加载到内存
+- fs.open 能打开 URL
+
+**Stream**
+
+- fs.ReadStream extends stream.Readable implements NodeJS.ReadableStream
 
 # FAQ
 

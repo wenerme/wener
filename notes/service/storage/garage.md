@@ -21,10 +21,12 @@ title: garage
 - gateway
   - 只提供接口不存储数据
 - 参考
+  - mirror [deuxfleurs-org/garage](https://github.com/deuxfleurs-org/garage)
   - [S3 Compatibility](https://garagehq.deuxfleurs.fr/documentation/reference-manual/s3-compatibility/)
     - 不支持 ACL, Policies, Versioning, Replication, Locking, Encryption, Tagging
   - [Deuxfleurs/bagage](https://git.deuxfleurs.fr/Deuxfleurs/bagage)
     - WebDAV -> S3
+  - https://news.ycombinator.com/item?id=41013004
   - 实现
     - The Dynamo ring
     - CRDTs
@@ -106,116 +108,35 @@ garage layout assign -c1 -z garage $node_id
 garage layout apply --version 1
 ```
 
-```toml
-# The directory in which Garage will store its metadata.
-metadata_dir = "/var/lib/garage/meta"
+- replication_factor
+  - 1 - 单节点存储
+  - 2 - 两个节点存储，会尽量存储到不同 zone
+  - 3 -
+  - 5,7 - 单选择大于 3 节点的时候，建议选择奇数
 
-# The directory in which Garage will store the data blocks of objects.
-data_dir = "/var/lib/garage/data"
+:::caution replication_factor
 
-# Whether to enable synchronous mode for the database engine or not.
-#metadata_fsync = false
+- 确保所有节点的配置相同
+- 不支持直接修改
+- 修改步骤
+  - 关闭集群
+  - 删除 meta custer_layout
+  - 更新所有的 replication_factor
+  - 重启集群
+  - 重建 layout
+  - 集群会 rebalance
 
-# Whether to fsync data blocks and their containing directory after they are
-# saved to disk.
-#data_fsync = false
+:::
 
-# Whether to automatically run a scrub of the data directory approximately once
-# per month. If you are already scrubbing at the filesystem level, you can set
-# this option to true to disable automatic scrub.
-#disable_scrub = false
-
-# Garage is only built with "lmdb" on Alpine Linux since v3.19! If you're still
-# using "sled", migrate it using 'garage-convert-db' package from Alpine v3.18.
-#db_engine = "lmdb"
-
-# The block size for stored objects.
-#block_size = "1M"
-
-# A limit on the total size of data blocks kept in RAM by S3 API nodes awaiting
-# to be sent to storage nodes asynchronously.
-#block_ram_buffer_max = "256MiB"
-
-# The map size used by LMDB, which is the size of the virtual memory region
-# used for mapping the database file. It's not bound by the physical RAM size
-# of the machine running Garage.
-#lmdb_map_size = "1T"
-
-# This can be any positive integer smaller or equal the node count in your
-# cluster. It must be the same in the configuration files of all nodes!
-# If you're running a cluster of Garage nodes, change this to at least 2!
-replication_factor = 1
-
-# This determines the read and write behaviour of your cluster. Read the
-# reference manual before changing!
-#consistency_mode = "consistent"
-
-# Zstd compression level to use for storing blocks. Defaults to 1.
-#compression_level = 1
-
-# The address and port on which to bind for inter-cluster communications.
-# Hint: Change to 127.0.0.1:3901 if running a single node cluster.
-rpc_bind_addr = "[::]:3901"
-
-# If enabled, pre-bind all sockets for outgoing connections to the same IP
-# address used for listening (rpc_bind_addr) before trying to connect to remote
-# nodes.
-#rpc_bind_outgoing = false
-
-# The address and port that other nodes need to use to contact this node for
-# RPC calls.
-# rpc_public_addr = "127.0.0.1:3901"
-
-# The secret key file that is shared between all nodes of the cluster in order
-# to identify these nodes and allow them to communicate together. The key is a
-# 32-byte hex-encoded random string.
-# If this file doesn't exist, it will be automatically created with a random
-# string on the service start.
-rpc_secret_file = "/etc/garage/rpc_secret"
-
-# A list of peer identifiers on which to contact other Garage peers of this
-# cluster. Format: <node public key>@<node public IP or hostname>:<port>.
-#bootstrap_peers = []
-
-[s3_api]
-# The IP and port on which to bind for accepting S3 API calls. This endpoint
-# doesn't support TLS: a reverse proxy (e.g. nginx) should be used to provide it.
-api_bind_addr = "[::]:3900"
-
-# The region name.
-s3_region = "garage"
-
-# The optional suffix to access bucket using vhost-style in addition to
-# path-style request.
-root_domain = ""
-
-[s3_web]
-# The IP and port on which to bind for accepting HTTP requests to buckets
-# configured for website access. This endpoint doesn't support TLS: a reverse
-# proxy (e.g. nginx) should be used to provide it.
-bind_addr = "127.0.0.1:3902"
-
-# The optional suffix appended to bucket names for the corresponding HTTP Host.
-root_domain = ""
-
-[admin]
-# If specified, Garage will bind an HTTP server to this port and address,
-# on which it will listen to requests for administration features.
-#api_bind_addr = ""
-
-# The token for accessing all of the other administration endpoints.
-# If not set, access to these endpoints is disabled entirely.
-#admin_token = ""
-# or read it from the file.
-# admin_token_file = "/etc/garage/admin_token"
-
-# The token for accessing the Metrics endpoint. If not set, the Metrics
-# endpoint can be accessed without access control!
-#metrics_token = ""
-# or read it from the file.
-# metrics_token_file = "/etc/garage/metrics_token"
-```
-
+- consistency_mode
+  - consistent - 默认
+    - 读写都需要 quorum
+  - degraded
+    - 读不需要 quorum
+    - 写同 consistent
+    - 不支持 read-after-write consistency
+  - dangerous
+    - 读写都不需要 quorum
 - db_engine
   - lmdb - 默认
     - 性能更好
@@ -223,6 +144,94 @@ root_domain = ""
     - 不能跨架构： arm64、amd64 的存储结构不同
     - 可能导致损坏
   - sqlite
+    - Alpine 默认没有构建
+
+```toml
+# 元数据目录
+metadata_dir = "/var/lib/garage/meta"
+# 数据目录
+data_dir = "/var/lib/garage/data"
+
+# 数据库引擎是否启用同步模式
+#metadata_fsync = false
+
+# 是否在数据块保存到磁盘后，对其及其所在的目录进行 fsync 操作。
+#data_fsync = false
+
+# 是否每月大约自动运行一次数据目录的擦洗操作。如果你已经在文件系统级别进行擦洗，可以设置此选项为 true 以禁用自动擦洗。
+#disable_scrub = false
+
+# 用于存储元数据的数据库引擎。可选值：lmdb、sqlite。
+#db_engine = "lmdb"
+
+# 存储对象的块大小。
+#block_size = "1M"
+
+# S3 API 节点在发送到存储节点之前异步保存到内存中的数据块的总大小限制。
+#block_ram_buffer_max = "256MiB"
+
+# LMDB 使用的映射大小，即用于映射数据库文件的虚拟内存区域的大小。它不受运行 Garage 的机器的物理 RAM 大小的限制。
+#lmdb_map_size = "1T"
+
+# 这个值可以是任何比你的集群节点数小的正整数。它在所有节点的配置文件中必须一致！如果你运行的是 Garage 节点集群，请将此值更改为至少 2！
+replication_factor = 1
+
+# 这个选项决定了你的集群的读写行为。在更改之前请先阅读参考手册！
+#consistency_mode = "consistent"
+
+# 用于存储块的 Zstd 压缩级别。默认值为 1。
+#compression_level = 1
+
+# 绑定用于集群间通信的地址和端口。
+# 提示：如果运行的是单节点集群，请将其更改为 127.0.0.1:3901。
+rpc_bind_addr = "[::]:3901"
+
+# 如果启用，在尝试连接到远程节点之前，将为传出连接绑定所有与侦听使用相同 IP 地址的套接字（rpc_bind_addr）。
+#rpc_bind_outgoing = false
+
+# 其他节点需要使用此地址和端口来联系此节点以进行 RPC 调用。
+# rpc_public_addr = "127.0.0.1:3901"
+
+# 在集群中的所有节点之间共享的密钥文件，用于识别这些节点并允许它们相互通信。该密钥是一个 32 字节的十六进制编码随机字符串。
+# 如果此文件不存在，它将在服务启动时自动创建一个随机字符串。
+rpc_secret_file = "/etc/garage/rpc_secret"
+
+# 用于联系此集群的其他 Garage 节点的对等标识符列表。格式：<节点公钥>@<节点公网 IP 或主机名>:<端口>。
+#bootstrap_peers = []
+
+[s3_api]
+# 绑定 IP 和端口以接受 S3 API 调用。
+api_bind_addr = "[::]:3900"
+
+# 区域名称。
+s3_region = "garage"
+
+# 允许通过 vhost 风格（而非路径风格）访问 bucket 时的可选后缀。
+root_domain = ""
+
+[s3_web]
+# 绑定 IP 和端口以接受 HTTP 请求访问已配置为网站访问的存储桶。
+bind_addr = "127.0.0.1:3902"
+
+# 追加到存储桶名称后的可选后缀，用于对应的 HTTP 主机。
+root_domain = ""
+
+[admin]
+# 如果指定，Garage 将绑定一个 HTTP 服务器到此端口和地址，并在此上监听管理功能的请求。
+#api_bind_addr = ""
+
+# 用于访问所有其他管理端点的令牌。
+# 如果未设置，则完全禁用对这些端点的访问。
+#admin_token = ""
+# 或从文件中读取。
+# admin_token_file = "/etc/garage/admin_token"
+
+# 用于访问 Metrics 端点的令牌。如果未设置，则可以在没有访问控制的情况下访问 Metrics 端点！
+#metrics_token = ""
+# 或从文件中读取。
+# metrics_token_file = "/etc/garage/metrics_token"
+```
+
 - https://garagehq.deuxfleurs.fr/documentation/reference-manual/configuration/
 
 ## cluster
@@ -253,3 +262,9 @@ root_domain = ".web.garage"
 index = "index.html"
 EOF
 ```
+
+## Internal
+
+- CAS / Content Addressable Storage
+  - 内部 chunk dedup
+  - 使用 zstd 压缩

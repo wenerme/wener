@@ -87,3 +87,17 @@ tags:
 | 2     | 1      | etc         |      |          |
 | 3     | 2      | app         |      |          |
 | 4     | 3      | config.json | `{}` |          |
+
+## Content Addressable Storage {#cas}
+
+- 内容寻址存储
+- hash -> object
+- 可能对大的文件做 chunk
+- 不友好的场景
+  - E2E 加密
+  - 可压缩文件类型 - 图片
+- 应用场景
+  - git
+  - garage
+  - IPFS
+  - juicefs

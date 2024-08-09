@@ -179,115 +179,16 @@ module.exports = {
 };
 ```
 
-## Cheatsheet
-
-| screen | min width | container | rem   |
-| ------ | --------- | --------- | ----- |
-|        |           | 100%      |
-| sm     | 640px     | 640px     | 40rem |
-| md     | 768px     | 768px     | 48rem |
-| lg     | 1024px    | 1024px    | 64rem |
-| xl     | 1280px    | 1280px    | 80rem |
-| 2xl    | 1536px    | 1536px    | 96rem |
-
-- `max-{PREFIX}` 可以限定固定范围
-  - `md:max-md:underline` - 限定在 md 范围内
-
-| spacing |      size |    px |
-| ------- | --------: | ----: |
-| 0       |       0px |   0px |
-| px      |       1px |   1px |
-| 0.5     |  0.125rem |   2px |
-| 1       |   0.25rem |   4px |
-| 4       |      1rem |  16px |
-| `<n>`   | n×0.25rem | n×4px |
-
-- 0-4 - 0.5 递增
-- 4-12 - 1 递增
-- 12,14,16
-- 20-96 - 4 递增
-- spacing 用于 padding, margin, width, height, maxHeight, gap, inset, space, translate
-- [Default spacing scale](https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale)
-
-| text      |       rem |     px | diff |
-| --------- | --------: | -----: | ---- |
-| text-xs   |  0.75 rem |  12 px | +2   |
-| text-sm   | 0.875 rem |  14 px |
-| text-base |     1 rem |  16 px |
-| text-lg   | 1.125 rem |  18 px |
-| text-xl   |  1.25 rem |  20 px | +4   |
-| text-2xl  |   1.5 rem |  24 px | +6   |
-| text-3xl  | 1.875 rem |  30 px |
-| text-4xl  |  2.25 rem |  36 px | +12  |
-| text-5xl  |     3 rem |  48 px |
-| text-6xl  |  3.75 rem |  60 px |
-| text-7xl  |   4.5 rem |  72 px | +24  |
-| text-8xl  |     6 rem |  96 px | +32  |
-| text-9xl  |     8 rem | 128 px |
-
-| font            | weight |
-| --------------- | ------ |
-| font-thin       | 100    |
-| font-extralight | 200    |
-| font-light      | 300    |
-| font-normal     | 400    |
-| font-medium     | 500    |
-| font-semibold   | 600    |
-| font-bold       | 700    |
-| font-extrabold  | 800    |
-| font-black      | 900    |
-
-| max-width        | rem   | px     | note          |
-| ---------------- | ----- | ------ | ------------- |
-| max-w-xs         | 20rem | 320px  | screen 的一半 |
-| max-w-sm         | 24rem | 384px  |
-| max-w-md         | 28rem | 448px  |
-| max-w-lg         | 32rem | 512px  |
-| max-w-xl         | 36rem | 576px  |
-| max-w-2xl        | 42rem | 672px  |
-| max-w-prose      | 65ch  |
-| max-w-screen-sm  |       | 640px  |
-| max-w-screen-md  |       | 768px  |
-| max-w-screen-lg  |       | 1024px |
-| max-w-screen-xl  |       | 1280px |
-| max-w-screen-2xl |       | 1536px |
-
-| rounded       |   rem |  px |
-| ------------- | ----: | --: |
-| xrounded-none |     0 |   0 |
-| rounded-sm    | 0.125 |   2 |
-| rounded       |  0.25 |   4 |
-| rounded-md    | 0.375 |   6 |
-| rounded-lg    |   0.5 |   8 |
-| rounded-xl    |  0.75 |  12 |
-| rounded-2xl   |     1 |  16 |
-| rounded-3xl   |   1.5 |  24 |
-| rounded-full  |  9999 |     |
-
 ## container query
 
 - 支持 Container Query - v3.2+
 - `@container`, `@lg:p-8`
   - 自定义 `@[17.5rem]:underline`
 - `@container/main`, `@lg/main:underline` - 命名容器
+- `@container-normal` 元素不作为 container
 - [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries)
+- Chrome v106+, Safari 16.0+ 2022-09
 
-| Name   | CSS                                          | w    |
-| ------ | -------------------------------------------- | ---- |
-| `@xs`  | `@container (min-width: 20rem /* 320px */)`  |
-| `@sm`  | `@container (min-width: 24rem /* 384px */)`  | w-96 |
-| `@md`  | `@container (min-width: 28rem /* 448px */)`  |
-| `@lg`  | `@container (min-width: 32rem /* 512px */)`  |
-| `@xl`  | `@container (min-width: 36rem /* 576px */)`  |
-| `@2xl` | `@container (min-width: 42rem /* 672px */)`  |
-| `@3xl` | `@container (min-width: 48rem /* 768px */)`  |
-| `@4xl` | `@container (min-width: 56rem /* 896px */)`  |
-| `@5xl` | `@container (min-width: 64rem /* 1024px */)` |
-| `@6xl` | `@container (min-width: 72rem /* 1152px */)` |
-| `@7xl` | `@container (min-width: 80rem /* 1280px */)` |
-
-- xs,sm,md,lg,xl - 4rem/step - 64px/step
-- xl -> 7xl - 8rem/step - 128px/step
 
 ```js
 module.exports = {

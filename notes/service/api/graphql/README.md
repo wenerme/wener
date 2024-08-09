@@ -1,10 +1,32 @@
 ---
 title: GraphQL
 tags:
-- Awesome
+  - Awesome
 ---
 
 # GraphQL
+
+:::tip
+
+- 主要让 consumer/client 方使用便捷
+- 核心特性/卖点 - 推荐开启
+  - GlobalID - ID 包含类型消息，能实现 ID -> `__typename`
+  - Graph Cache - 以 `__typename` + id 来缓存 - 类似一个内存的 KV 数据库，可以直接查询
+    - 配合自定义 resolver 将查询指向缓存 能大量减少查询
+    - 需要暴露 `__typename`, 但是一般影响不大
+  - Batch
+  - Subscription - EventSource, WebSocket
+  - 代码生成
+- 推荐特性
+  - partial query - 只返回需要的字段
+  - Document Cache - 以查询维度来缓存
+  - persisted query - 通过 hash 来缓存查询, 避免暴露整个查询内容
+  - schema aware - 直接告诉查询引擎 schema 内容能让查询引擎更加智能
+    - 例如 判断 nullable 可以先返回缓存数据再发起查询
+  - federation - 多个 schema 合并
+  - schema stitching - 多个 schema 合并
+
+:::
 
 - 特点
   - 面向终端
@@ -73,12 +95,10 @@ tags:
   - [Reusable GraphQL schema directives](https://dev-blog.apollodata.com/131fb3a177d1)
   - [Principled GraphQL](https://principledgraphql.com/)
 - Relay
-
   - [facebook/relay](https://facebook.github.io/relay/)
   - [Learn Relay](https://www.learnrelay.org)
   - [What is a Query?](https://www.learnrelay.org/queries/what-is-a-query/)
     - The node and viewer fields
-
 - [Pagination](http://graphql.org/learn/pagination/)
   - 直接返回数组
   - 返回数组接收翻页参数

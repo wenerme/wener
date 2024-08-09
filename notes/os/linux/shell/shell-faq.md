@@ -15,6 +15,12 @@ tar -xzvf backup.tar.gz -C ./restored                     # 恢复
 tar -I zstd -xvf archive.tar.zst                          # zstd
 ```
 
+## ip
+
+```bash
+ip -o -4 addr show | grep -v veth | awk '{print $2, $4}'
+```
+
 ## skip first n line
 
 ```bash
