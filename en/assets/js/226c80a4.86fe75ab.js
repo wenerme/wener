@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[244],{48256:e=>{e.exports=JSON.parse('{"label":"AWS","permalink":"/en/notes/tags/aws","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"service/storage/s3","title":"S3","description":"- garage","permalink":"/en/notes/service/storage/s3"}],"unlisted":false}')}}]);

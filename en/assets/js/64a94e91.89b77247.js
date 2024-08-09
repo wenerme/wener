@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[9144],{74080:e=>{e.exports=JSON.parse('{"label":"Swing","permalink":"/en/story/tags/swing","allTagsPath":"/en/story/tags","count":1,"unlisted":false}')}}]);

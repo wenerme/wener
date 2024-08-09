@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[67051],{57752:e=>{e.exports=JSON.parse('{"permalink":"/en/story/tags/\u5fae\u670d\u52a1","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

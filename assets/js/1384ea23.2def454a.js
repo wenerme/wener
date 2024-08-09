@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[64432],{16488:e=>{e.exports=JSON.parse('{"label":"Color","permalink":"/notes/tags/color","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/style/css/css-color","title":"CSS Color","description":"- MDN color-mix","permalink":"/notes/web/style/css/color"}],"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[14696],{7932:e=>{e.exports=JSON.parse('{"label":"arch","permalink":"/en/notes/tags/arch","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"os/macos/macos-arch","title":"macOS arch","description":"- ~/Library/archSettings","permalink":"/en/notes/os/macos/arch"}],"unlisted":false}')}}]);

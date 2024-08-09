@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[71516],{52592:e=>{e.exports=JSON.parse('{"label":"Testing","permalink":"/en/notes/tags/testing","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"languages/go/go-test","title":"Golang Testing","description":"Fuzz","permalink":"/en/notes/languages/go/test"}],"unlisted":false}')}}]);

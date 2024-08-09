@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[31746],{71744:e=>{e.exports=JSON.parse('{"label":"Registry","permalink":"/en/notes/tags/registry","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"web/nodejs/jsr","title":"JSR","description":"- https://jsr.io/","permalink":"/en/notes/web/nodejs/jsr"}],"unlisted":false}')}}]);

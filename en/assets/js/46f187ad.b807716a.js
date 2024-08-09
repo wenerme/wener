@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[7732],{11432:e=>{e.exports=JSON.parse('{"label":"DevOps","permalink":"/en/story/tags/dev-ops","allTagsPath":"/en/story/tags","count":5,"unlisted":false}')}}]);

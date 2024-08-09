@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[6520],{28528:e=>{e.exports=JSON.parse('{"label":"Form","permalink":"/en/notes/tags/form","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"web/react/formik","title":"formik","description":"- jaredpalmer/formik","permalink":"/en/notes/web/react/formik"}],"unlisted":false}')}}]);

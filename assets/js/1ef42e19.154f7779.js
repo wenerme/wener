@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[36368],{6210:e=>{e.exports=JSON.parse('{"label":"Thinking","permalink":"/story/tags/thinking","allTagsPath":"/story/tags","count":1,"unlisted":false}')}}]);

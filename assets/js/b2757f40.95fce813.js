@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[69956],{37906:e=>{e.exports=JSON.parse('{"label":"Gateway","permalink":"/notes/tags/gateway","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/llm/bricksllm","title":"BricksLLM","description":"- bricks-cloud/BricksLLM","permalink":"/notes/ai/llm/bricksllm"}],"unlisted":false}')}}]);

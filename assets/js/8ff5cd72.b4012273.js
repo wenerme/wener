@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[49176],{82730:e=>{e.exports=JSON.parse('{"label":"Service","permalink":"/notes/tags/service","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/service/README","title":"AI Service","description":"- OpenAI","permalink":"/notes/ai/service/"}],"unlisted":false}')}}]);

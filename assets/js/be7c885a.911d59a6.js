@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[51392],{46992:e=>{e.exports=JSON.parse('{"label":"Musl","permalink":"/notes/tags/musl","allTagsPath":"/notes/tags","count":1,"items":[{"id":"java/java-faq","title":"\u5e38\u89c1\u95ee\u9898","description":"javac \u4e71\u7801","permalink":"/notes/java/faq"}],"unlisted":false}')}}]);
