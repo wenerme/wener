@@ -80,6 +80,7 @@ mkfs
 ```
 
 # FAQ
+
 ## fusermount: option allow_other only allowed if 'user_allow_other' is set in /etc/fuse.conf
 
 ```bash

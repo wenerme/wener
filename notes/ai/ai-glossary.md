@@ -21,11 +21,25 @@ tags:
 | SFT   | Supervised Fine-tuning                          | 监督微调             |
 | SOTA  | State of the Art                                | 最新技术             |
 | YOLO  | You Only Look Once                              |                      |
+| ASR   | Automatic Speech Recognition                    | 自动语音识别         |
+| TTS   | Text to Speech                                  | 文本转语音           |
+| STT   | Speech to Text                                  | 语音转文本           |
+| VAD   | Voice Activity Detection                        | 语音活动检测         |
+| WFST  | Weighted Finite-State Transducer                | 加权有限状态转换器   |
+| LID   | Language Identification                         | 语言识别             |
+| SER   | Speech Emotion Recognition                      | 语音情感识别         |
+| AED   | Automatic Emotion Detection                     | 自动情感检测         |
+| RTF   | Real-Time Factor                                | 实时因子             |
+| ITN   | Inverse Text Normalization                      | 逆文本规范化         |
+
+- ITN
+  - 口语 -> 书面语 - 符合 自然书写习惯
+- RTF - Real-Time Factor - 实时因子
+  - 语音识别中的速度指标，表示每秒识别的时间长度，RTF 越小越好，1 表示实时识别，0.5 表示 2 倍速识别
 
 | en               | cn       |
 | ---------------- | -------- |
 | Stable Diffusion | 稳定扩散 |
-
 
 ## LLM 参数
 

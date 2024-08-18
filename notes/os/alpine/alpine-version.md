@@ -9,7 +9,7 @@ tags:
 - 发布频率
   - 每年两个版本 - 5 月左右一个，11 月左右一个
   - 每年年底的 Linux 版本一般为 LTS - 因此下半年版本一般也会更新内核版本
-  - 每个版本的支持周期约为两年 - 也就是共计 4 个活跃支持版本
+  - 每个版本的支持周期约为两年 - 也就是共计 **4** 个活跃支持版本
     - main 仓库支持两年 - 发布后以稳定为主，基本不升级
     - community 仓库支持到下一个稳定版 - 一般半年
 - 每次发布前会先编译所有包，当包都有后才会正式发布
@@ -39,10 +39,11 @@ tags:
 
 :::
 
-| version                              | date       |
-| ------------------------------------ | ---------- |
-| [AlpineLinux 3.19](#alpinelinux-319) | 2023-12-07 |
-| [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 |
+| version                              | date       | note                                       |
+| ------------------------------------ | ---------- | ------------------------------------------ |
+| [AlpineLinux 3.20](#alpinelinux-320) | 2024-05-22 | nodejs 20, go 1.22, php8.3, php8.2         |
+| [AlpineLinux 3.19](#alpinelinux-319) | 2023-12-07 | nodejs 20, go 1.21, php8.3, php8.2, php8.1 |
+| [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 | nodejs 18, go 1.20                         |
 | [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
 | [AlpineLinux 3.16](#alpinelinux-316) | 2022-05-23 |
 | [AlpineLinux 3.15](#alpinelinux-315) | 2021-11-24 |
@@ -76,19 +77,17 @@ tags:
 
 ## AlpineLinux 3.20
 
-- Linux kernel 6.1 -> 6.6
-  - 有很多有意思的提升: nfs, ntfs, tmpfs
+- Linux kernel 6.6 - 和 3.19 一样
 - RISC-V 64
 - ⚠️ 变更
   - grub 可能有升级问题
-  - Redis -> Valkey - 因为 RSALv2+SSPLv1 License 问题
+  - Redis -> **Valkey** - 因为 RSALv2+SSPLv1 License 问题
     - valkey-compat - 兼容 redis
     - redis 包移到 community - 不会再继续升级，保持 7.2.x
     - redict - LGPLv3 也可以作为 redis 替代
 - 🆙 升级包
   - LLVM 18
   - Go 1.22
-  - OpenJDK 22
 - 参考
   - [Release Notes for Alpine 3.20.0](https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.20.0)
 

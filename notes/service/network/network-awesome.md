@@ -5,8 +5,8 @@ tags:
 
 # Network Awesome
 
-- [VPN Awesome](./vpn-awesome.md)
-- [Proxy Awesome](./proxy-awesome.md)
+- [VPN Awesome](./vpn/vpn-awesome.md)
+- [Proxy Awesome](./proxy/proxy-awesome.md)
 - [cjdelisle/cjdns](https://github.com/cjdelisle/cjdns)
   - GPLv3, C+Python
   - encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing

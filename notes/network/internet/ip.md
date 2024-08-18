@@ -11,6 +11,7 @@ title: IP
   - CF WARP
   - https://bgpview.io/asn/13335
   - https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/firewall/
+- https://datatracker.ietf.org/doc/html/rfc3330
 
 ```bash
 # 获取 IP
@@ -30,7 +31,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 ## Private
 
 | CIDR            | Start       | End             | Count    | Class |
-| --------------- | ----------- | --------------- | -------- | ----- |
+| --------------- | ----------- | --------------- | -------- | ----- | ---------- |
 | 0.0.0.0/8       |
 | 127.0.0.0/8     |
 | 10.0.0.0/8      | 10.0.0.0    | 10.255.255.255  | 16777216 | A     |
@@ -38,12 +39,12 @@ dig +short myip.opendns.com @resolver1.opendns.com
 | 169.254.0.0/16  |
 | 172.16.0.0/12   | 172.16.0.0  | 172.31.255.255  | 1048576  | B     |
 | 192.0.0.0/24    |
-| 192.0.2.0/24    |
+| 192.0.2.0/24    |             |                 |          |       | TEST-NET-1 |
 | 192.168.0.0/16  | 192.168.0.0 | 192.168.255.255 | 65536    | B     |
 | 192.88.99.0/24  |
 | 198.18.0.0/15   |
-| 198.51.100.0/24 |
-| 203.0.113.0/24  |
+| 198.51.100.0/24 |             |                 |          |       | TEST-NET-2 |
+| 203.0.113.0/24  |             |                 |          |       | TEST-NET-3 |
 | 224.0.0.0/3     |
 | 224.0.0.0/4     |
 | ::1/128         |
@@ -53,6 +54,10 @@ dig +short myip.opendns.com @resolver1.opendns.com
 ```
 127.0.0.0/8,10.0.0.0/8,100.64.0.0/10,172.16.0.0/12,192.168.0.0/16
 ```
+
+- [rfc5737](https://datatracker.ietf.org/doc/html/rfc5737) IPv4 Address Blocks Reserved for Documentation
+  - TEST-NET
+  - 文档建议 Block
 
 ## Welknown Private
 

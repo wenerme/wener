@@ -126,6 +126,9 @@ https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=l
 - [Komet/MediaElch](https://github.com/Komet/MediaElch)
   - LGPL-3.0, C++
   - Media Manager for Kodi
+- 云下载
+  - 迅雷
+  - https://mypikpak.com/
 
 ## Bot
 

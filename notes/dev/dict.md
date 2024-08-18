@@ -1291,6 +1291,18 @@ tags:
   - 通常是一串字符串
   - Stackoverflow 的问题使用的 Tag
 
+## meta vs metadata
+
+- meta
+  - 元
+  - 是一个词前缀 - `meta-`
+  - ObjectMeta - 通常为一个对象
+- metadata
+  - 元数据
+  - 描述数据的数据
+  - 通常为一个字段
+
+
 ## view vs viewer
 
 - view

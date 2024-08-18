@@ -13,6 +13,7 @@ tags:
 - LTS 支持 2-6 年
 - SLTS kernel
   - 支持 5+ 年
+  - 由 CIP 维护
 - CIP kernel - 提供额外支持
   - Linux 4.4 - 支持到 2026/2036 年
   - CIP - Civil Infrastructure Platform
@@ -21,15 +22,22 @@ tags:
 
 :::
 
-| linux version | LTS | SLTS    | date       | EOL     | distro                          |
-| :------------ | --- | ------- | ---------- | ------- | ------------------------------- |
-| [Linux 5.15]  | 22  |         | 2021-10-32 | 2023-10 | alpine 3.15                     |
-| [Linux 5.10]  | 21  | 3       | 2020-12-13 | 2026-09 | alpine 3.14, debian 11 Bullseye |
-| [Linux 5.4]   | 20  |         | 2019-09-24 | 2025-09 | alpine 3.13, ubuntu 20.04       |
-| [Linux 5.1]   |     |         | 2019-05-05 |         |                                 |
-| [Linux 4.19]  | 19  | 2,ARM64 | 2019-10-22 | 2024-12 | alpine 3.12, debian 10 Buster   |
-| [Linux 4.4]   | 16  | 1       | 2016-01-10 | 2022-02 | ubuntu 16.04                    |
-| Linux 3.14    |     |         | 2014-03-30 |         |
+| linux version | LTS |         SLTS | date       | EOL     | distro                              |
+| :------------ | --: | -----------: | ---------- | ------- | ----------------------------------- |
+| Linux 6.6     |  24 |              | 2023-10-30 | 2026-09 | alpine 3.20,3.19                    |
+| Linux 6.1     |  23 | 4th, 2033-08 | 2022-12-31 | 2026-12 | alpine 3.18, debian 12 Brookworm    |
+| [Linux 5.15]  |  22 |              | 2021-10-32 | 2023-10 | alpine 3.17,3.16,3.15, ubuntu 22.04 |
+| Linux 5.14    |     |              |            |         | rhel 9                              |
+| [Linux 5.10]  |  21 | 3rd, 2031-01 | 2020-12-13 | 2026-09 | alpine 3.14, debian 11 Bullseye     |
+| [Linux 5.4]   |  20 |              | 2019-09-24 | 2025-09 | alpine 3.13, ubuntu 20.04           |
+| [Linux 5.1]   |     |              | 2019-05-05 |         |                                     |
+| [Linux 4.19]  |  19 | 2nd, 2029-01 | 2019-10-22 | 2024-12 | alpine 3.12, debian 10 Buster       |
+| Linux 4.18    |     |              | 2018-08-12 | 2023-08 | rhel 8, centos 8                    |
+| [Linux 4.4]   |  16 | 1st, 2027-01 | 2016-01-10 | 2022-02 | ubuntu 16.04                        |
+| Linux 3.14    |     |              | 2014-03-30 |         |
+| Linux 3.10    |     |              | 2013-06-30 |         | rhel 7, centos 7                    |
+| Linux 2.6.32  |   3 |              | 2009-12-03 |         | rhel 6, centos 6                    |
+| Linux 2.6.18  |     |              | 2006-09-20 |         | rhel 5, centos 5                    |
 
 :::tip
 
@@ -51,6 +59,7 @@ tags:
 - News
   - [Moving the kernel to modern C](https://lwn.net/SubscriberLink/885941/01fdc39df2ecc25f/)
     - C89 -> C99, C11
+- [RHEL Reelease date](https://access.redhat.com/articles/3078)
 
 [linux 5.15]: #linux-515
 [linux 5.10]: #linux-510
@@ -63,14 +72,30 @@ tags:
 grep io_uring_setup /proc/kallsyms
 ```
 
+## Linux 6.7
+
+- bcachefs
+- Nouveau - Nvidia GSP 固件
+
+## Linux 6.6
+
 ## Linux 6.5
 
 - https://kernelnewbies.org/Linux_6.5
+
+## Linux 6.1
+
+- 支持 Rust 写内核模块
 
 ## Linux 5.15
 
 - **NTFS**
 - ksmbd - in-kernel SMB 3 server
+
+## Linux 5.13
+
+- 支持 zstd 压缩的模块 - `.ko.zst`
+  - 之前支持 gzip 和 xz
 
 ## Linux 5.10
 

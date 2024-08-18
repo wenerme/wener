@@ -11,3 +11,9 @@ title: dockerd
   - 支持格式
     - `myregistry:5000`
     - `10.1.0.0/16`
+
+```json
+{
+  "insecure-registries": ["localhost:5000"]
+}
+```

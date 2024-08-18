@@ -1,5 +1,7 @@
 ---
 title: whisper
+tags:
+  - ASR
 ---
 
 # whisper
@@ -7,13 +9,6 @@ title: whisper
 - [openai/whisper](https://github.com/openai/whisper)
   - [HN](https://news.ycombinator.com/item?id=32927360)
   - https://openai.com/blog/whisper/
-- [ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
-- [m-bain/whisperX](https://github.com/m-bain/whisperX)
-- [FL33TW00D/whisper-turbo](https://github.com/FL33TW00D/whisper-turbo)
-- [collabora/WhisperSpeech](https://github.com/collabora/WhisperSpeech)
-- [Xenova/distil-whisper-web](https://huggingface.co/spaces/Xenova/distil-whisper-web)
-- [distil-whisper/distil-large-v2](https://huggingface.co/distil-whisper/distil-large-v2)
-
 
 ```bash
 git clone https://github.com/ggerganov/whisper.cpp

@@ -148,6 +148,15 @@ node --experimental-default-type=module cli
   - https://github.com/nodejs/unofficial-builds/pull/59
   - [nodejs/unofficial-builds#104](https://github.com/nodejs/unofficial-builds/issues/104)
 
+## sqlite3
+
+```bash
+# ./node_modules/sqlite3/build/Release/node_sqlite3.node
+find ./node_modules/sqlite3/ -iname '*.node'
+
+npm install sqlite3 --build-from-source
+```
+
 ## source map
 
 - sourcemap 大了过后非常慢
@@ -511,3 +520,21 @@ PKG_ROOT ?= $(shell pnpm node -e 'process.stdout.write(path.resolve(__dirname))'
   - ably 从 node-redis 迁移为 ioredis
 
 ## The operation failed for an operation-specific reason: Cipher job failed
+
+## Failed to execute 'digest' on 'SubtleCrypto': 2nd argument is not instance of ArrayBuffer, Buffer, TypedArray, or DataView.
+
+多半是传入了 undefined
+
+## detect runtime
+
+- bun 也会设置 process.versions.node
+
+```js
+console.log(process.release.name); // 总是 node
+
+// bun
+if (process.versions.bun) {
+}
+if (typeof Bun !== 'undefined') {
+}
+```

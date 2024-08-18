@@ -121,3 +121,10 @@ useradd -m -k /etc/skel
   - `blacklist module3`
   - `options module1 param=value`
   - `alias char-major-10-200	tun`
+- /etc/resolv.conf
+- /etc/hosts
+- /etc/hostname
+- /etc/network/interfaces
+- `/etc/network/if-{pre-up,up,post-up,pre-down,down,post-down}.d/*`
+  - ifupdown
+

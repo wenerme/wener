@@ -47,10 +47,12 @@ tags:
 
 ## Languages
 
-- [carbon-language/carbon-lang](https://github.com/carbon-language/carbon-lang)
+- [carbon-language/carbon-lang](./carbon/README.md)
   - 目标是替代 C++
   - by Google
   - https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/faq.md#why-not-rust
+    - C++ is difficult to improve
+    - Rust 对现有 C++ 代码不友好 - interop, safe
 - [GoodManWEN/Programming-Language-Benchmarks-Visualization](https://github.com/GoodManWEN/Programming-Language-Benchmarks-Visualization)
 - [ballerina-platform/ballerina-lang](https://github.com/ballerina-platform/ballerina-lang)
   - Apache-2.0, Java

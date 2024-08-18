@@ -25,6 +25,13 @@ tags:
 - https://www.rfc-editor.org/rfc/rfc3089
 - https://blog.skk.moe/post/what-happend-to-dns-in-proxy/
 
+## fakeip + tun
+
+- 全局透明
+- TEST-NET
+  - [RFC 5737](https://datatracker.ietf.org/doc/html/rfc5737): “IPv4 Address Blocks Reserved for Documentation”
+  - 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24
+
 ## proxy env
 
 - `[scheme]_proxy`

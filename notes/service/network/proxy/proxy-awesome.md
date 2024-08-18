@@ -79,6 +79,10 @@ tags:
   - Apache-2.0, Rust
   - 类似 frp，但 rust 实现
 
+```bash
+curl https://1.1.1.1/cdn-cgi/trace
+```
+
 ## universal
 
 > **Note** universal

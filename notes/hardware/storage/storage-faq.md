@@ -51,3 +51,13 @@ tags:
   - 高级格式化
 - IDEMA - International Disk Drive Equipment and Materials Association - 国际硬盘设备与材料协会
 - http://www.seagate.com/cn/zh/tech-insights/advanced-format-4k-sector-hard-drives-master-ti/
+
+## 磨损均衡 {#wear-leveling}
+
+- Wear Leveling
+- 延长闪存存储设备（如 SSD 和 U 盘）寿命的技术
+- 闪存存储设备由许多存储单元（称为块）组成，每个块都有有限的写入/擦除周期。为了避免某些块因过度使用而过早损坏，Wear Leveling 会确保写入操作均匀分布在整个存储器的所有块中。
+- 动态均衡
+  - 写入的时候均衡
+- 静态均衡
+  - 没有写入的时候会移动冷数据

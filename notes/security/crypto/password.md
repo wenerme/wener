@@ -198,3 +198,21 @@ userPassword: {SASL}username@realm
    - Argon2、bcrypt 和 scrypt 都拥有相对广泛的社区支持，而且这些算法已经得到了安全研究人员的审查和推荐。PBKDF2 也得到了一定的支持，但相对较弱。
 
 综合考虑上述因素，Argon2（尤其是 Argon2id 变体）通常是首选算法，因为它在安全性和性能方面表现最佳。如果项目中 Argon2 的支持有限，可以考虑使用 bcrypt 或 scrypt。PBKDF2 应该作为最后的选择，仅在其他选项不可用时使用。
+
+## 破解时间 {#crack-time}
+
+**password count**
+
+| n   | num   | alpha | alphanum |
+| --- | ----- | ----- | -------- |
+| 6   | 10^6  | 52^6  | 62^6     |
+| 7   | 10^7  | 52^7  | 62^7     |
+| 8   | 10^8  | 52^8  | 62^8     |
+| 9   | 10^9  | 52^9  | 62^9     |
+| 10  | 10^10 | 52^10 | 62^10    |
+| 11  | 10^11 | 52^11 | 62^11    |
+| 12  | 10^12 | 52^12 | 62^12    |
+
+- Nvidia RTX 4090 hashcat 164 GH/s, 164亿次/秒
+- bcrypt
+- https://specopssoft.com/blog/hashing-algorithm-cracking-bcrypt-passwords/

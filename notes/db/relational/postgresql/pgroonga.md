@@ -47,3 +47,8 @@ ORDER BY pgroonga_score(tableoid, ctid) DESC;
 -- 如果自己加了 friso 插件，可以注册
 SELECT pgroonga_command('register tokenizer/friso');
 ```
+
+- tokenizer='TokenMecab'
+  - Yet Another Part-of-Speech and Morphological Analyzer
+  - https://taku910.github.io/mecab/
+- https://pgroonga.github.io/v1/reference/create-index-using-pgroonga.html

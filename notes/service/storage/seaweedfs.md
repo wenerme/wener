@@ -7,10 +7,12 @@ title: seaweedfs
 :::caution
 
 - 默认构建的单 `weed volume` 只支持 30G - 对分布式文件系统来说太小了
+- weed 的 filer/s3 依赖 metadata - 维护 metadata db 增加复杂度，影响稳定性
 
 :::
 
 - [chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
+  - Apache-2.0, Go
   - 起源于 [Facebook's Haystack design paper](http://www.usenix.org/event/osdi10/tech/full_papers/Beaver.pdf), f4
   - 每个文件 40byte 元数据
   - 底层对象存储

@@ -6,14 +6,16 @@ tags:
 # PHP Version
 
 - 每个版本支持 2 年，+1 年安全修复
-- https://www.php.net/supported-versions.php
+- 参考
+  - https://www.php.net/supported-versions.php
+  - https://www.php.net/eol.php
 
-| Version            | date       | eol        |
+| Version            | date       | active/eol |
 | ------------------ | ---------- | ---------- |
 | [PHP 8.4](#php-84) |            |
-| [PHP 8.3](#php-83) | 2023-11-23 |
-| [PHP 8.2](#php-82) | 2022-12-08 |
-| [PHP 8.1](#php-81) | 2021-11-25 |
+| [PHP 8.3](#php-83) | 2023-11-23 | 2025-11-31 |
+| [PHP 8.2](#php-82) | 2022-12-08 | 2024-11-31 |
+| [PHP 8.1](#php-81) | 2021-11-25 | 2023-12-28 |
 | [PHP 8.0](#php-80) | 2020-11-26 |
 | [PHP 7.4](#php-74) | 2019-11-28 | 2022-11-28 |
 

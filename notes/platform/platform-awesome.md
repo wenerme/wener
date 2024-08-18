@@ -101,6 +101,8 @@ tags:
 - BandwagonHost - 1C1G 20GB 1T $50/an ~ $4.2/mo - 联通专线
   - 速度测试 https://www.bandwagonhost.net/test-ip
   - https://1kb.day/deals.html
+- https://www.arosscloud.com/
+  - 香港业务为主
 - [joedicastro/vps-comparison](https://github.com/joedicastro/vps-comparison)
 
 ## Wechat

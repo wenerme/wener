@@ -41,6 +41,8 @@ title: Linode
   - Go client for Linode REST v4 API
 - https://www.linode.com/global-infrastructure/
 - https://status.linode.com/
+- https://www.linode.com/global-infrastructure/availability/
+  - 区域
 
 ## Service
 

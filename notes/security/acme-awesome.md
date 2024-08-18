@@ -16,11 +16,14 @@ tags:
 ## Provider
 
 - letsencrypt
-  - **频率** 50 domain/week, 5 duplicate certificates/week
+  - **频率** 50 每个注册域名/每周, 5 duplicate certificates/week, 10账户/3小时/IP
+    - 假如使用二级 泛域名，每周 50 个二级域名，三个月最多存在 150 个证书
   - K8S cert-manager 配置的时候注意，如果配置的 secret 覆盖，会导致
   - 问题排查
     - https://crt.sh/?q=baidu.com
     - https://letsdebug.net/
+  - 参考
+    - https://letsencrypt.org/docs/rate-limits/
 - ZeroSSL
   - 不支持 ACME 账号自动申请 - 需要注册账号, 客户端要支持 EAB
   - **无频率限制**

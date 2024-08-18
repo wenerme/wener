@@ -481,6 +481,12 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
     - https://git-annex.branchable.com/internals/
     - https://git-annex.branchable.com/internals/hashing/
 
+**garage**
+
+- metadata
+- data
+  - `{2}/{2}/hash.zst`
+
 **juicefs**
 
 - chunk 64 MiB
@@ -615,9 +621,13 @@ type sustained struct {
       - `:` - HFS 分隔符
 - dirname - 目录名 `/home/user/documents`
 - basename - 指路径中最后一部分的名称，无论它是文件还是目录
+- stem
+  - basename w/o extname
 
 ## 参考 {#reference}
 
+- https://github.com/vfile/vfile
+- https://github.com/gulpjs/vinyl
 - https://en.wikipedia.org/wiki/Filename
 - https://github.com/opencurve/curve/blob/master/docs/cn/chunkserver_design.md
   - https://github.com/opencurve/curve/blob/master/docs/en/chunkserver_design_en.md

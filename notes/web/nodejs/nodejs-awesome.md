@@ -311,16 +311,19 @@ export N_PREFIX=$HOME/n
 
 ## FFI
 
-- https://dyncall.org/
 - node-ffi
   - ffi-napi
+- ref-napi
 - sbffi
 - napi-addon
 - napi-addon-sb
-- bun ffi
-- [bitair-org/linker.js](https://github.com/bitair-org/linker.js)
+- bun:ffi
+  - 🌟 最佳选择 - 使用简单，性能好，使用 tinycc jit，但是需要 bun
+  - bun 只能在 glibc os 运行 - 不支持 musl
+- ~~[bitair-org/linker.js](https://github.com/bitair-org/linker.js)~~
   - Access Python & C-shared from Node.js
   - `@bitair/linker.js`
+- https://dyncall.org/
 
 ## Sandbox/VM
 

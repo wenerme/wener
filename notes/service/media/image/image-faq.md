@@ -5,6 +5,11 @@ tags:
 
 # Image FAQ
 
+```bash
+# HEIC -> jpg
+mogrify -strip -format jpg *.HEIC
+```
+
 ## PSNR
 
 - Peak signal-to-noise ratio

@@ -166,10 +166,12 @@ sources:
     tag: v0.40.0
 ```
 
-- [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md)
+- [crane](./crane.md)
   - 基于 [google/go-containerregistry] 的工具
-- [containers/skopeo](https://github.com/containers/skopeo)
+- [containers/skopeo](./skopeo.md)
   - remote images registries - retrieving information, images, signing content
+- [oras](./oras.md)
+- regctl
 - [GoogleContainerTools/container-diff](https://github.com/GoogleContainerTools/container-diff)
 - [jwilder/dockerize](https://github.com/jwilder/dockerize)
 - 参考

@@ -13,10 +13,12 @@ title: mihomo
     - 前端
 
 ```bash
+# https://github.com/MetaCubeX/mihomo/releases
+VERSION=1.18.7
 # macOS
-curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.18.1/mihomo-darwin-arm64-v1.18.1.gz
+curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v${VERSION}/mihomo-darwin-arm64-v${VERSION}.gz
 # Linux
-curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v1.18.1/mihomo-linux-amd64-compatible-v1.18.1.gz
+curl -L -o mihomo.gz https://github.com/MetaCubeX/mihomo/releases/download/v${VERSION}/mihomo-linux-amd64-compatible-v${VERSION}.gz
 
 gzip -d mihomo.gz
 chmod +x mihomo

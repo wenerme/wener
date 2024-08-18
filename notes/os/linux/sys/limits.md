@@ -1,5 +1,7 @@
 ---
 title: limits
+tags:
+  - Limits
 ---
 
 # LIMIT

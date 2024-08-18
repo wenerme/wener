@@ -35,6 +35,38 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 [argocd 2.2]: #argocd-22
 [argocd 2.1]: #argocd-21
 
+## ArgoCD 2.12
+
+- Multi-source application 增强
+- 参考
+  - https://blog.argoproj.io/argo-cd-v2-12-release-candidate-90793368bfb5
+
+## ArgoCD 2.11
+
+- generate-path annotation
+  - 告诉 argocd 什么时候失效缓存，而不是每次都全量失效
+  - `argocd.argoproj.io/manifest-generate-paths`
+    - 支持相对目录，绝对目录
+    - 支持多个目录 `;` 分隔
+    - 支持 glob
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  annotations:
+    # resolves to the 'guestbook' directory
+    argocd.argoproj.io/manifest-generate-paths: .
+spec:
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+# ...
+```
+
 ## ArgoCD 2.10
 
 - ApplicationSet Templates

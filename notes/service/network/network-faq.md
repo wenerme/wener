@@ -6,6 +6,15 @@ tags:
 
 # Network FAQ
 
+## 反电信网络诈骗
+
+curl 一个地址的时候，返回 302 到 183.192.65.101。
+
+目前无解，只能代理。
+
+- 183.192.65.101
+- 上海市反电信网络诈骗中心
+
 ## TURN vs STUN
 
 - STUN
@@ -57,3 +66,16 @@ echo "test" | socat -u - tcp:127.0.0.1:12345
     - `server app1-tls 192.0.2.10:3001 source * usesrc client weight 0`
     - usesrc
   - https://docs.kernel.org/networking/tproxy.html
+
+## 保留网络
+- [RFC 5737](https://datatracker.ietf.org/doc/html/rfc5737): “IPv4 Address Blocks Reserved for Documentation”
+  - TEST-NET
+  - 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24
+- RFC 3849 IPv6 Address Prefix Reserved for Documentation
+  - 2001:DB8::/32
+- 域名
+  - .test
+  - .example
+  - .invalid
+  - .localhost
+  - .internal

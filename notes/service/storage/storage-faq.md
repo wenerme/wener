@@ -101,3 +101,32 @@ tags:
   - garage
   - IPFS
   - juicefs
+
+## document vs file vs object
+
+- document
+  - 使用 ID 跟踪
+  - 结构化
+  - 强调协作、编辑
+  - 内容可知
+  - 内容随时变化
+  - 内容通常表现为 json object
+  - 内容可能为 base + diff 的方式合并
+  - 通常会有多版本支持
+  - 通常支持集成多种类型媒体
+- file
+  - 使用 filapth/id 跟踪
+  - 叫做 file 可能会有 file 相关的一些基本性质
+    - 文件名、文件大小、文件类型、文件权限、文件创建时间、文件修改时间
+    - 拷贝、复制、移动、删除
+  - 位于 document 和 object 之间
+  - 有结构，但不一定可知
+  - 可能表现为 document 也可能表现为 object
+  - 可能表现为 metadata + blob/object 的方式
+- object
+  - key -> blob
+  - 通常 object 变化频率很低
+  - 通常不会直接修改 object，而是新建一个 object
+  - 通常 可以使用 hash 等方式来跟踪
+  - 通常用于存储 大的 非结构化数据
+    - 大 -> MB 级别 到 TB 级别

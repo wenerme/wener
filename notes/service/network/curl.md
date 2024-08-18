@@ -54,7 +54,7 @@ curl -sI --http3 https://curl.se -o/dev/null -w '%{http_version}\n'
   - `-p, --proxytunnel` - 使用 HTTP CONNECT
 
 ```bash
-curl -LOJC- https://example.com/pancakes.jpg # 继续上次下载位置
+curl -LOC- https://example.com/pancakes.jpg # 继续上次下载位置
 
 # 下载到指定目录，目录不存在则创建
 curl --create-dirs -O --output-dir /tmp/receipes https://example.com/pancakes.jpg

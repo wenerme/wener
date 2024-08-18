@@ -140,6 +140,8 @@ tags:
   - [lukeed/dequal](https://github.com/lukeed/dequal)
     - 304B to 489B
   - lodash.isEqual
+  - object-hash
+  - hash-sum
 - Date & Time
   - date-fns
     - 多错误的容忍度低
@@ -227,7 +229,7 @@ tags:
     - 模仿 jquery 接口
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
-- fs/filesystem
+- fs/filesystem/virtual file
   - https://github.com/isomorphic-git/isomorphic-git
   - lighting-fs
   - [jvilk/BrowserFS](https://github.com/jvilk/BrowserFS)
@@ -241,6 +243,12 @@ tags:
     - [feross/buffer](https://github.com/feross/buffer)
       - 26.8kB/8kB
   - [browserify/path-browserify](https://github.com/browserify/path-browserify)
+  - [vfile/vfile](https://github.com/vfile/vfile)
+  - [gulpjs/vinyl](https://github.com/gulpjs/vinyl)
+  - https://github.com/ebidel/idb.filesystem.js/blob/2f9e8fb3ece3aeca8388e60ba75d622dd354e6da/src/idb.filesystem.js
+  - [LiteCode-IDE/virtual-file-system](https://github.com/LiteCode-IDE/virtual-file-system)
+  - https://manual.os-js.org/tutorial/vfs/
+  - [aaronhuggins/jsvfs](https://github.com/aaronhuggins/jsvfs)
 - files
   - tar
     - 77.4kB/23kB

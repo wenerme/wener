@@ -38,6 +38,11 @@ tags:
   - https://ahgamut.github.io/2023/07/13/patching-gcc-cosmo/
   - https://github.com/golang/go/issues/51900
 
+## toolchain
+
+- glibc
+- [binutils](./binutils.md)
+
 ## GL
 
 - [rswinkle/PortableGL](https://github.com/rswinkle/PortableGL)

@@ -8,6 +8,11 @@ tags:
 
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
+```bash
+# Docker over SSH
+docker context create svr --docker "host=ssh://admin@svr"
+```
+
 ## Host IP
 
 - host.docker.internal

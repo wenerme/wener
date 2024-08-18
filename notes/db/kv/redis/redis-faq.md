@@ -11,6 +11,11 @@ AOF base file appendonly.aof.1.base.rdb
 AOF incr file appendonly.aof.1.incr.aof
 ```
 
+```bash
+# delete by pattern
+redis-cli -p 6379 --scan --pattern 'city:*' -i 0.01 | xargs -L 100 redis-cli -p 6379 unlink
+```
+
 ## Replica vs Slave
 
 - 含义完全相同

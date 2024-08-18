@@ -296,7 +296,6 @@ sudo -E -s
 
 ## SNI Routing
 
-
 ```
 Host *.ssh
   ProxyCommand openssl s_client -quiet -servername %h -connect gateway:443
@@ -331,3 +330,29 @@ stream {
 ```bash
 ssh-keygen -R HOSTNAME
 ```
+
+## ssh dss
+
+- 旧设备不可避免还是需要 DSA 算法
+  - 例如 voip, 路由器
+- OpenSSH 新版本移除 DSA 算法
+- known_hosts 不支持 ssh-dss
+- HostKeyAlgorithms +ssh-dss
+  - 这个配置被移除
+- 移除计划
+  - 2015 后默认关闭, 需要手动启动 `HostKeyAlgorithms +ssh-dss`
+  - 2024/06 后 ssh 编译时默认关闭 - 大多情况无法使用都是从这时候开始
+  - 2025/01 默认关闭
+  - DSA（Digital Signature Algorithm）
+  - DSA 不安全，新版本已经移除
+  - 160 bit private key, SHA1 digest
+    - security level is <=80 bits symmetric equivalent
+- 参考
+  - https://lwn.net/Articles/958048/
+
+## known_hosts
+
+- ssh-dss
+- ssh-rsa
+- pgp-sign-rsa
+- pgp-sign-dss

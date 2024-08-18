@@ -262,7 +262,7 @@ tags:
   - [logicaldoc/community](https://github.com/logicaldoc/community)
   - [kimios/kimios](https://github.com/kimios/kimios)
   - [mkucej/i-librarian-free](https://github.com/mkucej/i-librarian-free)
-- forum/BBS/论坛/社区/QA/knowledge management
+- forum/BBS/论坛/社区/QA
   - Discourse
     - Ruby
   - [flarum/flarum](https://github.com/flarum/flarum)
@@ -270,11 +270,34 @@ tags:
     - https://discuss.flarum.org/d/32812-the-future-of-flarum-in-2023-balancing-open-source-and-success
       - 2.0 计划
       - 支持 PostgreSQL
-  - [jimmykuu/gopher](https://github.com/jimmykuu/gopher)
+  - ~~[jimmykuu/gopher](https://github.com/jimmykuu/gopher)~~
   - [mlogclub/bbs-go](https://github.com/mlogclub/bbs-go)
-  - [beego/wetalk](https://github.com/beego/wetalk)
+    - GPLv3, Golang
+  - ~~[beego/wetalk](https://github.com/beego/wetalk)~~
   - [apache/incubator-answer](https://github.com/apache/incubator-answer)
     - Apache-2.0, Golang, Typescript
+- knowledge management/Note taking/Notebook/markdown editor/CMS
+  - vscode
+  - [freeplane](https://github.com/freeplane/freeplane)
+    - GPLv2, Java
+  - [zadam/trilium](https://github.com/zadam/trilium)
+    - AGPLv3, JS
+  - [logseq/logseq](https://github.com/logseq/logseq)
+    - AGPLv3, Clojure, TS
+    - 桌面应用
+  - [Zettlr/Zettlr](https://github.com/Zettlr/Zettlr)
+    - GPLv3, TS, Vue
+  - [marktext/marktext](https://github.com/marktext/marktext)
+    - MIT, JS, Vue, Electron
+  - [toeverything/AFFiNE](https://github.com/toeverything/AFFiNE)
+    - MIT, JS, Electron, React
+    - alternative for Notion, Miro, Airtable
+    - 基于 [toeverything/blocksuite](https://github.com/toeverything/blocksuite)
+  - [usememos/memos](https://github.com/usememos/memos)
+    - MIT, Go, TS
+  - obsidian
+    - 存储为 markdown
+    - 闭源
 - Storage/File/Drive
   - [Nextcloud](./file/nextcloud/README.md)
   - [cryptpad](https://github.com/cryptpad/cryptpad)
@@ -498,6 +521,7 @@ tags:
   - [cydrobolt/polr](https://github.com/cydrobolt/polr)
     - GPLv2, PHP
   - [738/awesome-url-shortener](https://github.com/738/awesome-url-shortener)
+  - [yourselfhosted/slash](https://github.com/yourselfhosted/slash)
   - 功能
     - URL 缩短
     - 自定义短链接

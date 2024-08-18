@@ -20,12 +20,22 @@ title: garage
   - K2V API - 实验性
 - gateway
   - 只提供接口不存储数据
+- 端口
+  - 3900 - S3 API
+  - 3901 - RPC
+  - 3902 - S3 Website
+  - 3903 - Admin API
+  - 3904 - K2V API
 - 参考
+  - https://git.deuxfleurs.fr/garage-sdk/garage-admin-sdk-js.git
+    - 管理 SDK
   - mirror [deuxfleurs-org/garage](https://github.com/deuxfleurs-org/garage)
   - [S3 Compatibility](https://garagehq.deuxfleurs.fr/documentation/reference-manual/s3-compatibility/)
     - 不支持 ACL, Policies, Versioning, Replication, Locking, Encryption, Tagging
+    - 不支持 Notification
   - [Deuxfleurs/bagage](https://git.deuxfleurs.fr/Deuxfleurs/bagage)
-    - WebDAV -> S3
+    - AGPLv3, Go
+    - WebDAV -> S3 proxy
   - https://news.ycombinator.com/item?id=41013004
   - 实现
     - The Dynamo ring
@@ -35,15 +45,19 @@ title: garage
 
 garage 是一个分布式对象存储系统，兼容 S3 API，支持 GEO 分布，压缩和去重。
 
-如果核心需求是 分布式 和 S3 API 那么 garage 是目前开源的最佳选择。
+- 如果核心需求是 分布式 和 S3 API 那么 garage 是目前开源的最佳选择。
+- 如果核心需求是 尽量兼容 S3 且需要应用层能力，那么 minio 是最佳选择。
+
+---
 
 - vs Minio - AGPLv3, Go
   - minio 分布式实施起来更复杂
   - minio 会保持目录文件结构
   - minio 辅助功能更多
+  - minio Erasure Coding 比多副本更节省空间
 - vs seaweedfs - Apache-2.0, Go
   - seaweedfs 默认是 对象存储
-  - S3 API 需要 filer，需要额外的 metadata
+  - S3 API 需要 filer，需要额外的 metadata 服务
 - vs juicefs - Apache-2.0, Go
   - juicefs 是 metadata+chunk 套壳提供 POSIX 接口
   - juicefs 本身不存储数据，不提供 S3 API
@@ -97,7 +111,75 @@ RUST_LOG=garage=info garage -c garage.toml server
 sudo chmod 0600 /etc/garage/rpc_secret
 
 su -l garage garage -c /etc/garage/garage.toml server
+
+# Docker
+# ==================
+# 推荐 docker，因为 garage 的功能更全
+# 默认命令 /garage server
+# -p 3900:3900 -p 3901:3901 -p 3902:3902
+docker run \
+  --restart always \
+  --network host \
+  -v /etc/garage.toml:/etc/garage.toml \
+  -v /var/lib/garage/meta:/var/lib/garage/meta \
+  -v /var/lib/garage/data:/var/lib/garage/data \
+  --name garage \
+  dxflrs/garage:v1.0.0
+
+alias garage="docker exec -ti garage /garage"
+
+garage status     # 集群状态
+garage node id    # 当前节点
+garage node id -q # 只输出 <full-node-id>@<ip>:<port>
+
+# garage node connect <full-node-id>@<ip>:<port> # 连接别的节点，加入集群
+garage status   # 加入后的状态
+garage stats -a # 所有节点的统计
+
+garage layout show # 当前 layout
+# zone=shhome capacity=200G tags=sh,phy,sshd
+garage layout assign $(garage node id -q | head -c 10) -z shhome -c 200G -t sh -t phy -t ssd
+garage layout show              # 修改后的状态
+garage layout apply --version 2 # 应用 layout
+garage status                   # 增加新的节点和容量
+
+garage bucket list # 列出所有 bucket
+garage bucket create public
+garage bucket info public
+garage key create pub-key
+
+garage key list
+garage key info pub-key
+garage bucket allow --read --write --owner public --key pub-key
+
+# block-rc      重新计算 block ref 计数器
+# block-refs    重新传播版本删除到 block ref 表
+# blocks        修复（重新同步/重新平衡）集群中存储的块
+# mpu           重新传播对象删除到 multipart upload 表
+# rebalance     在各个节点的硬盘驱动器之间重新平衡数据块
+# scrub         验证磁盘上所有块的完整性
+# tables        完全同步元数据表
+# versions      重新传播对象删除到版本表
+garage repair --yes -a blocks
+# resync queue length
+# blocks with resync errors
+garage stats -a
+
+garage bucket alias public assets    # assets -> public
+garage bucket website --allow assets # 允许直接访问 $BUCKET.$s3_web_root_domain
 ```
+
+| env                                 | for                            | note                    |
+| ----------------------------------- | ------------------------------ | ----------------------- |
+| GARAGE_ADMIN_TOKEN                  | --admin-token                  |
+| GARAGE_ADMIN_TOKEN_FILE             | --admin-token-file             |
+| GARAGE_ALLOW_WORLD_READABLE_SECRETS | --allow-world-readable-secrets |
+| GARAGE_CONFIG_FILE                  | -c,--config                    | /etc/garage.toml        |
+| GARAGE_RPC_SECRET                   | --rpc-secret                   |
+| GARAGE_RPC_SECRET_FILE              | --rpc-secret-file              |
+| GARAGE_METRICS_TOKEN                | --metrics-token                |
+| GARAGE_METRICS_TOKEN_FILE           | --metrics-token-file           |
+| GARAGE_RPC_HOST                     | --rpc-host                     | `<node-id>@<ip>:<port>` |
 
 ## 配置 {#config}
 
@@ -268,3 +350,53 @@ EOF
 - CAS / Content Addressable Storage
   - 内部 chunk dedup
   - 使用 zstd 压缩
+
+## K2V
+
+- 帮助高效地在桶中存储许多小值（与 S3更适合存储大块数据 相反）。
+
+## gateways
+
+- 不存储数据，暴露 s3 API 和 website
+- 减少 1-2 的网络 RTT
+- 简化服务管理 - 不需要配置所有上游服务
+- 简化安全 - gateway 只暴露为 127.0.0.1, 通过内部网络访问, 内部网络本身有加密
+
+```bash
+# 添加 Gateway
+garage layout assign --gateway --tag gw1 -z dc1 $NODE_ID
+garage layout show
+garage layout apply
+
+# 如果 gateway 没生效
+garage repair -a --yes tables
+```
+
+- https://garagehq.deuxfleurs.fr/documentation/cookbook/gateways/
+
+## admin
+
+```bash
+garage worker get
+garage worker list
+
+garage repair scrub start
+```
+
+- https://garagehq.deuxfleurs.fr/documentation/operations/durability-repairs/
+
+# FAQ
+
+## Handshake error: i/o: unexpected end of file
+
+- garage node connect 发生
+  - Pubkey 错了
+
+```
+garage_net::error: Error: ServerConn::run: Handshake error: performing handshake: failed opening client secret box
+```
+
+- https://github.com/Kuska-ssb/handshake
+  - RecvClientAuthSecretbox
+
+## Response: error 400 Bad Request, Parts given to CompleteMultipartUpload do not match uploaded parts

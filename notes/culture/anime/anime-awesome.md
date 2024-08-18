@@ -71,6 +71,8 @@ tags:
   - Fate 系列
   - 鬼灭之刃
   - 空之境界
+- J.C.STAFF - 节操社 - 1986 年
+- Studio DEEN - 1975 年
 
 :::info 霸权社
 

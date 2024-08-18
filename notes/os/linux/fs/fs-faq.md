@@ -172,7 +172,7 @@ mount -o rw,remount /
   - .apDisk
   - .VolumeIcon.icns
   - .fseventsd
-    -  buffer for the File System Events daemon
+    - buffer for the File System Events daemon
   - .Trash
   - .Trashes
   - .TemporaryItems
@@ -208,3 +208,26 @@ find /Volumes/MyVolume -name '._*' -type f -delete
 ```
 
 - https://apple.stackexchange.com/a/14981/103557
+
+## mount shared
+
+```bash
+mount --make-rshared /
+
+#
+echo user_allow_other | sudo tee -a /etc/fuse.conf
+s3fs -o allow_other
+
+# 如果是 host mount 已经 allow_other 则不需要在做其他处理
+docker run --rm -it -w /host -v $PWD:/host --cap-add SYS_ADMIN --device /dev/fuse docker.wener.me/wener/node:20
+
+# 允许 docker 访问 host 上的 fuse mount
+docker run --rm -it -w /host --mount type=bind,source=$PWD,target=/host,bind-propagation=rshared --cap-add SYS_ADMIN --device /dev/fuse docker.wener.me/wener/node:20
+```
+
+- 外部 fuse umount 再 mount 容器里不会生效
+- https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation
+
+```
+docker: Error response from daemon: invalid mount config for type "bind": stat /: permission denied.
+```

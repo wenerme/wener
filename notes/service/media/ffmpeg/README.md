@@ -5,6 +5,7 @@ title: ffmpeg
 # FFMpeg
 
 - [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)
+  - FF -> Fast Forward
 - 库
   - libavcodec 提供大量的编码实现
   - libavformat 实现流体协议,容器格式和基本的 IO 访问

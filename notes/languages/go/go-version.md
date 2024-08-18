@@ -17,20 +17,20 @@ tags:
   - [Release History](https://golang.org/doc/devel/release)
   - https://dev.golang.org/release
 
-| ver                | date   | macOS                   | Windows          |
-| ------------------ | ------ | ----------------------- | ---------------- |
-| [Go 1.21](#go-121) |        | -                       | -                |
-| [Go 1.20](#go-120) |        | -                       | -                |
-| [Go 1.19](#go-119) | 2022-8 | -                       | -                |
-| [Go 1.18](#go-118) | 2022-3 | -                       | 64-bit ARM       |
+| ver                | date   | macOS                   | Windows                                |
+| ------------------ | ------ | ----------------------- | -------------------------------------- |
+| [Go 1.21](#go-121) |        | macOS 10.15+            | Windows 10+, Server 2016+              |
+| [Go 1.20](#go-120) |        | macOS 10.13, 10.14      | Windows 7, 8, Server 2008, Server 2012 |
+| [Go 1.19](#go-119) | 2022-8 | -                       | -                                      |
+| [Go 1.18](#go-118) | 2022-3 | -                       | 64-bit ARM                             |
 | [Go 1.17](#go-117) | 2021-8 | macOS 10.13 High Sierra |
 | [Go 1.16](#go-116) | 2021-2 | -                       |
 | [Go 1.15](#go-115) | 2020-8 | macOS 10.12 Sierra      |
 | [Go 1.14](#go-114) | 2020-2 | -                       |
-| [Go 1.13](#go-113) | 2019-8 | macOS 10.11 El Capitan  | Windows 7        |
-| [Go 1.12](#go-112) | 2019-2 | -                       | -                |
-| [Go 1.11](#go-111) | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0 |
-| [Go 1.10](#go-110) | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista |
+| [Go 1.13](#go-113) | 2019-8 | macOS 10.11 El Capitan  | Windows 7                              |
+| [Go 1.12](#go-112) | 2019-2 | -                       | -                                      |
+| [Go 1.11](#go-111) | 2018-8 | macOS 10.10 Yosemite    | Windows 7/NT 4.0                       |
+| [Go 1.10](#go-110) | 2018-2 | OS X 10.8, 10.9         | Windows XP/Vista                       |
 
 :::tip Roadmap
 
@@ -41,11 +41,29 @@ tags:
 
 ## Go 1.21
 
-- GOOS=wasip1
+- GOOS=wasip1, GOARCH=wasm
+  - `go:wasmimport` 支持 import wasm 的函数
+- 增加内置函数 min, max, clear
+- GOEXPERIMENT=loopvar
+  - for loop 的变量作用范围从 loop 变为 iteration - 也就是说每次循环的变量不会变了
+  - `go build -gcflags=all=-d=loopvar=2 cmd/go` 检测受影响的地方
+  - https://tip.golang.org/wiki/LoopvarExperiment
+- panic recover 不再会返回 nil
+  - nil 会转为 `*runtime.PanicNilError`
+  - `GODEBUG=panicnil=1` 恢复以前的行为
+- 新增 `log/slog` 结构化日志
+- 新增 `testing/slogtest`
+- 新增 `slices`, `maps`, `cmp`
 - https://go.dev/doc/toolchain
   - GOTOOLCHAIN
+- 参考
+  - https://tip.golang.org/doc/go1.21
 
 ## Go 1.20
+
+- slice -> array pointer - `[4]byte(x)` -> `*(*[4]byte)(x)`
+- 参考
+  - https://tip.golang.org/doc/go1.20
 
 ## Go 1.19
 
@@ -62,6 +80,9 @@ tags:
 - `sort.Find` -
   - `sort.Sort` - pattern defeating quicksort https://arxiv.org/pdf/2106.05123.pdf
 - 支持 龙芯 - linux/loong64
+- `//go:build` 支持 unix -> aix, android, darwin, dragonfly, freebsd, hurd, illumos, ios, linux, netbsd, openbsd, solaris
+- 参考
+  - https://tip.golang.org/doc/go1.19
 
 ## Go 1.18
 

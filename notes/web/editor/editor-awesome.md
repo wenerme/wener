@@ -157,6 +157,7 @@ tags:
 
 ---
 
+- [premieroctet/openchakra](https://github.com/premieroctet/openchakra)
 - [plasmicapp/plasmic](https://github.com/plasmicapp/plasmic)
   - MIT, TS
 - [BuilderIO/mitosis](https://github.com/BuilderIO/mitosis)

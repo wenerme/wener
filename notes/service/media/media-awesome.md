@@ -212,7 +212,6 @@ tags:
     - Very Low-Bitrate Codec for Speech
   - [MLow: Meta’s low bitrate audio codec](https://engineering.fb.com/2024/06/13/web/mlow-metas-low-bitrate-audio-codec/)
 
-
 ## Image
 
 :::tip 最佳选择 AVIF
@@ -241,13 +240,15 @@ tags:
     - 底层基于 vips
   - online [butteraugli](http://libwebpjs.hohenlimburg.org/butteraugli/)
 - Service
+  - [thumbor/thumbor](https://github.com/thumbor/thumbor)
+    - MIT, Python
+    - photo thumbnail service
   - [imgproxy](./server/imgproxy.md)
     - MIT, Go
     - JPEG, PNG, WebP, AVIF, GIF, SVG, ICO, HEIC, BMP, TIFF, and animated GIF and WebP
   - [cshum/imagor](https://github.com/cshum/imagor)
     - Apache-2.0, Go
     - jpeg, png, gif, webp, tiff, avif, jp2, pdf
-  - thumbor
   - [cactus/go-camo](https://github.com/cactus/go-camo)
     - MIT, Go
   - [joe-bell/plaiceholder](https://github.com/joe-bell/plaiceholder)

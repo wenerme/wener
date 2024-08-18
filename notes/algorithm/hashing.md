@@ -5,16 +5,22 @@ title: Hashing
 # Hashing
 
 - Broken - MD4, MD5, SHA-0, SHA-1
+  - 但是作为校验码还是可以使用
+  - md5,sha1 有硬件加速, 非常快
+    - SIMD Intel SSE, Intel SHA Extensions
 
 :::tip Hash used by various tools/services
 
+- sha256 通常指 sha2-256
 - git
   - 默认 sha2-256 - https://git-scm.com/docs/hash-function-transition/
   - git lfs sha256
 - docker - sha256
 - npm - sha512, multihash
 - alpine - md5, sha1
-- sha256 通常指 sha2-256
+- S3 Content-MD5
+- ⚠️注意
+  - 避免使用 md5, sha1 这种已经被破解的算法作为 unique hash - 存在碰撞攻击
 
 :::
 

@@ -84,3 +84,11 @@ console.log(
   ),
 );
 ```
+
+- Type.Composite
+  - 🌟 推荐
+  - `A extends B`
+  - 得到单个合并的 schema
+- Type.Intersect
+  - `A & B`
+  - 得到 allOf schema

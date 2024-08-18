@@ -267,3 +267,16 @@ juicefs --no-usage-report
 ```
 
 - https://github.com/juicedata/juicefs/blob/main/pkg/usage/usage.go
+
+## netdata
+
+```bash
+# 1
+touch /etc/netdata/.opt-out-from-anonymous-statistics
+# 2
+export DISABLE_TELEMETRY=1
+```
+
+- DISABLE_TELEMETRY=1 或 DO_NOT_TRACK=1 启动会自动创建 .opt-out-from-anonymous-statistics
+- `--disable-telemetry` when installation
+- https://learn.netdata.cloud/docs/netdata-agent/configuration/anonymous-telemetry-events

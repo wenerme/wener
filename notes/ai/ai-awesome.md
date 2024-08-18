@@ -202,14 +202,42 @@ tags:
 
 ## Audio to Text
 
-- [ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
-  - MIT, C++
-- [m-bain/whisperX](https://github.com/m-bain/whisperX)
-  - BSD-4, Python
+- ASR - Automatic Speech Recognition
+- [whisper](./whisper.md)
+- [FunASR](./funasr.md)
+  - MIT, Python
+  - by 阿里
 - [jianfch/stable-ts](https://github.com/jianfch/stable-ts)
   - MIT, Python
 - Universal Speech Model
   - https://news.ycombinator.com/item?id=35365399
+- [ggerganov/whisper.cpp](https://github.com/ggerganov/whisper.cpp)
+  - MIT, C/C++
+  - Port of OpenAI's Whisper model in C/C++
+- [chidiwilliams/buzz](https://github.com/chidiwilliams/buzz)
+  - MIT, Python
+  - 桌面应用
+  - transcribes and translates audio offline
+- [SYSTRAN/faster-whisper](https://github.com/SYSTRAN/faster-whisper)
+  - MIT, Python
+  - Whisper transcription with CTranslate2
+- [m-bain/whisperX](https://github.com/m-bain/whisperX)
+  - BSD-4, Python
+  - Word-level Timestamps
+- [FL33TW00D/whisper-turbo](https://github.com/FL33TW00D/whisper-turbo)
+- [collabora/WhisperSpeech](https://github.com/collabora/WhisperSpeech)
+- [Xenova/distil-whisper-web](https://huggingface.co/spaces/Xenova/distil-whisper-web)
+- [distil-whisper/distil-large-v2](https://huggingface.co/distil-whisper/distil-large-v2)
+- [MahmoudAshraf97/whisper-diarization](https://github.com/MahmoudAshraf97/whisper-diarization)
+  - Speaker Diarization based on OpenAI Whisper
+- oTranscribe
+  - https://otranscribe.com/
+  - https://otranscribe.com/opensource/
+- Speaker Diarization
+  - 分离说话者
+- 商业
+  - https://spectropic.ai/
+  - https://audiogest.app/
 
 ## Text to Audio
 
@@ -318,3 +346,32 @@ tags:
 ## Video
 
 - [nadermx/backgroundremover](https://github.com/nadermx/backgroundremover)
+
+## Pricing
+
+**阿里云 语音交互**
+
+**资源包**
+
+| Item         | Spec         | Price      | Unit Price   |
+| ------------ | ------------ | ---------- | ------------ |
+| 录音文件识别 | 40 小时      | 100 元     | 2.50 元/小时 |
+| ^            | 1,000 小时   | 1,200 元   | 1.20 元/小时 |
+| ^            | 20,000 小时  | 20,000 元  | 1.00 元/小时 |
+| ^            | 100,000 小时 | 90,000 元  | 0.90 元/小时 |
+| ^            | 250,000 小时 | 200,000 元 | 0.80 元/小时 |
+
+**后付费**
+
+| item         | 标准价      |       每日用量 |  梯度折扣价 |
+| ------------ | ----------- | -------------: | ----------: |
+| 实时语音识别 | 3.50元/小时 |     0～299小时 | 3.50元/小时 |
+| ^            | ^           |   300～999小时 | 3.00元/小时 |
+| ^            | ^           | 1000～2999小时 | 2.40元/小时 |
+| ^            | ^           | 3000～4999小时 | 1.60元/小时 |
+| ^            | ^           |         5000 + | 1.20元/小时 |
+
+- 梯度折扣价
+  - Tiered Discount Pricing
+  - Graduated Discount Pricing
+- https://help.aliyun.com/zh/isi/product-overview/billing-10

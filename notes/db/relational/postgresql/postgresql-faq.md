@@ -16,6 +16,7 @@ tags:
   - https://stackoverflow.com/a/50441059/1870054
   - https://commitfest.postgresql.org/17/1252/
   - S094
+- 不支持  column reordering
 
 :::
 
@@ -127,19 +128,6 @@ docker run --rm \
 ```bash
 pg_upgrade --old-datadir /var/lib/pgsql/data/ --new-datadir /var/lib/pgsql/10/data/ \
   --old-bindir /usr/bin/ --new-bindir /usr/pgsql-10/bin/
-```
-
-## Dump
-
-- [pg_dumpall](https://www.postgresql.org/docs/current/app-pg-dumpall.html)
-- https://www.postgresql.org/docs/current/app-pgdump.html
-- https://www.postgresql.org/docs/current/app-pgrestore.html
-- https://www.percona.com/blog/2019/03/27/postgresql-upgrade-using-pg_dump-pg_restore/
-
-```bash
-# -Z compress
-pg_dump -Fc -Z 9 -j $(nproc) --file=file.dump myDb
-pg_restore -Fc -j $(nproc) file.dump
 ```
 
 ## CTID

@@ -31,6 +31,13 @@ tags:
 - [AutomaApp/automa](https://github.com/AutomaApp/automa)
   - AGPL, Automa Commercial License, Vue+JS
   - browser extension for automating your browser by connecting blocks
+- CDP -> WebDriver BiDi
+  - https://developer.chrome.com/blog/webdriver-bidi
+  - bi-directional communication
+- [w3c/webdriver-bidi](https://github.com/w3c/webdriver-bidi)
+- WebDriver Classic vs BiDi
+- https://www.w3.org/groups/wg/browser-tools-testing/
+- https://bit.ly/wbidi-wpt
 
 ## puppeteer awesome
 

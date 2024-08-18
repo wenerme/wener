@@ -6,7 +6,11 @@ title: 数据泄漏
 
 | date       |                            | rows         | note                                          |
 | ---------- | -------------------------- | ------------ | --------------------------------------------- |
+| 2024.08    | QQ+电话+邮箱               | 14亿         | 500GB json, 44G 压缩                          |
+| 2024.08    | 美国社保                   | 27亿         | 277GB csv, 31.1G 7z                           |
+| 2024.03    | Pandabuy                   | 3M           | 名字、电话、邮箱、地址                        |
 | 2023.11    | taobao.com                 | 81.5亿,1.8T  | 2015-2020,姓名、电话、地址、购买商品          |
+| 2023.10    | haijiao                    | 4.8M         |
 | 2023.10    | jd.com                     | 100亿,2.8TB  | 姓名、电话、地址、购买商品                    |
 | 2023.02    | 快递信息                   | 45亿条,435G  |
 | 2022.07.07 | ksyun.com                  | 1M           | 金山云                                        |
@@ -121,6 +125,10 @@ title: 数据泄漏
 - [List of data breaches](https://en.wikipedia.org/wiki/List_of_data_breaches)
 - https://en.wikipedia.org/wiki/Data_breach
 
+| abbr. | for                | cn           |
+| ----- | ------------------ | ------------ |
+| NPD   | NationalPublicData | 国家公共数据 |
+
 ## Index
 
 - MagBo
@@ -137,8 +145,11 @@ title: 数据泄漏
 - stealth.si
   - Bittorrent Tracker
 - https://cracked.io/
-- https://leakbase.org/
-- breached https://breachforums.is
+- leakbase
+  - https://leakbase.org/
+  - https://leakbase.io/
+- https://breachforums.st/
+  - ~~https://breachforums.is~~
   - ~~https://breached.vc~~
   - ~~https://breached.to~~
   - https://t.me/baphchat

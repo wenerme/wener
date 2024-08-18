@@ -7,6 +7,11 @@ tags:
 
 # 容器常见问题
 
+```bash
+# 通过 ssh 传输镜像 - 不能分层只能全量
+docker save myimage:tag | ssh user@remote 'docker load'
+```
+
 ## docker vs containerd
 
 - docker

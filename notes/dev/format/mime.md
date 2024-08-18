@@ -60,3 +60,46 @@ title: MIME
 - https://www.freeformatter.com/mime-types-list.html
 - https://www.iana.org/assignments/media-types/media-types.xhtml
 - https://mimetype.io/all-types/
+
+## cfb
+
+- application/x-cfb
+  - .doc、.xls、.ppt
+  - .ole
+  - [[MS-CFB]: Compound File Binary File Format](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/53989ce4-7b05-4f8d-829b-d08d6148375b)
+- https://www.loc.gov/preservation/digital/formats/fdd/fdd000380.shtml - cfb
+- https://www.loc.gov/preservation/digital/formats/fdd/fdd000510.shtml - .xls
+- https://www.loc.gov/preservation/digital/formats/fdd/fdd000511.shtml - .ppt
+- https://www.loc.gov/preservation/digital/formats/fdd/fdd000509.shtml - .doc
+
+## file-type
+
+- NodeJS filte-type 只能检测到 cfb
+  - cfb 为 .doc, .xls, .ppt, .msi 的 supertype
+- 通过调用 ffprobe 来获取音频长度 [caffco/get-audio-duration](https://github.com/caffco/get-audio-duration)
+
+## metadata
+
+- probe -> 探测
+- audio, video
+  - ffprobe
+- pdf
+  - nodejs
+    - [cantoo-scribe/pdf-lib](https://github.com/cantoo-scribe/pdf-lib)
+      - npm @cantoo/pdf-lib
+      - fork of [Hopding/pdf-lib](https://github.com/Hopding/pdf-lib)
+  - pdfinfo
+  - exiftool
+
+## exif
+
+- exif - Exchangeable image file format
+- iptc - International Press Telecommunications Council
+- xmp - Extensible Metadata Platform
+- icc - International Color Consortium
+- mpf - Multi-Picture Format
+- exiftool
+- NodeJS
+  - [mattiasw/ExifReader](https://github.com/mattiasw/ExifReader)
+    - npm:exifreader
+    - jpeg, tiff, png, heic, avif, webp

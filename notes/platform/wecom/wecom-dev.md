@@ -206,16 +206,6 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, lik
   - 新可见用户会发送 subscribe 事件
   - 不可见用户会发送 unsubscribe 事件
 
-## 10006: 解密失败 GetMediaData
-
-:::caution
-
-- 就是可能出现个别 文件 解密失败的情况
-
-:::
-
-请检查是否先进行 base64decode 再进行 rsa 私钥解密，再进行 DecryptMsg 调用。
-
 ## 校验请求来源错误
 
 - 只有在服务商后台-通用开发参数-配置登入授权发起域名下的页面才可以发起授权

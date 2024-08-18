@@ -1,7 +1,7 @@
 ---
 title: BaseN
 tags:
-- Codec
+  - Codec
 ---
 
 # BaseN
@@ -39,7 +39,7 @@ tags:
   - big-endian
   - used by ZMODEM, Adobe PostScript, PDF, Git Binary Patch
   - Z85 - ZeroMQ Base-85
-  - Base85 RFC1924 62 `0–9A–Za–z` + 23 `` !#$%&()*+-;<=>?@^_`{|}~ ``
+  - Base85 RFC1924 62 `0–9A–Za–z` + 23 ``!#$%&()*+-;<=>?@^_`{|}~``
 - 常见视觉混淆字符
   - 0,o,O
   - 1,l,I,i,j
@@ -75,3 +75,11 @@ tags:
 | md5  | 128  | 16    | hex 32  |
 
 - UUID - 1 million, bytes 节省 20MB
+
+# FAQ
+
+## base64 vs base64url
+
+- base64 - `+/,`
+- base64url - `-_,`
+  - URL 不需要 escape

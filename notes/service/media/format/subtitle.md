@@ -51,6 +51,24 @@ ffsubsync reference.srt -i unsynchronized.srt -o synchronized.srt --gss
 
 ## srt
 
+- srt - SubRip Subtitle
+- 支持基本的格式
+  - bold `<b>`, `{b}`
+  - italic `<i>`, `{i}`
+  - underline `<u>`, `{u}`
+  - fontcolor `<font color="">`
+  - line position `X1:`
+
+```
+Counter
+Timecode
+Subtitle text
+\n
+```
+
+- timecode
+  - hours:minutes:seconds,milliseconds
+
 ```srt
 1
 00:01:00,770 --> 00:01:01,780
@@ -90,6 +108,8 @@ Style: Default,微软雅黑,58,&H00FFFFFF,&HF0000000,&H00030304,&H00000000,0,0,0
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:03:08.37,0:03:09.54,Default,,0,0,0,,{\fs45\shad0\bord0\b1\pos(625.6,304.4)}哈哈
 ```
+
+## WebVTT
 
 ## 形式
 

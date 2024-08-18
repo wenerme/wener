@@ -183,7 +183,7 @@ unlink-window (unlinkw) [-k] [-t target-window]
 wait-for (wait) [-L|-S|-U] channel
 ```
 
-## ~/.tmux.conf
+## tmux.conf
 
 ```bash
 new-session
@@ -347,6 +347,21 @@ bind F2 setw synchronize-panes on
 bind F3 setw synchronize-panes off
 
 set -g default-terminal "xterm"
+```
+
+## ~/.tmux.conf
+
+```bash
+set -g mouse on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g history-limit 30000
+
+unbind %
+bind | split-window -h
+
+unbind '"'
+bind - split-window -v
 ```
 
 # FAQ
