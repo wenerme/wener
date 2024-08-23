@@ -58,3 +58,25 @@ spec:
         value: '2'
       - name: edns0
 ```
+
+## 优先自定义 DNS {#custom-dns}
+
+- 修改 resolve.conf 顺序
+- 带上全部选项
+
+```yaml
+spec:
+  dnsPolicy: None
+  dnsConfig:
+    # reorder
+    nameservers:
+      - 10.43.0.153 # 希望优先解析的 DNS
+      - 10.43.0.10 # kube-dns
+    searches:
+      - dev-system.svc.cluster.local
+      - svc.cluster.local
+      - cluster.local
+    options:
+      - name: ndots
+        value: '5'
+```

@@ -396,6 +396,117 @@ interface Cursor {
 where id ${direction === 'asc' ? '>' : '<'} ${id}
 ```
 
+## pageInfo
+
+- relay 会返回 pageInfo 包含游标信息
+
+```ts
+export class RelayPageInfo {
+  readonly startCursor?: RelayConnectionCursor | null;
+  readonly endCursor?: RelayConnectionCursor | null;
+  readonly hasPreviousPage!: boolean;
+  readonly hasNextPage!: boolean;
+}
+```
+
+- Spring 的 Page 对象有类似信息
+  - https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageImpl.html
+
+```ts
+export interface Page<T> {
+  content: T[];
+  // number of the current Slice
+  number: number;
+  // number of elements currently on this Slice.
+  numberOfElements: number;
+
+  pageable: Pageable;
+
+  size: number;
+  sort: Sort;
+
+  totalElements: number;
+  totalPages: number;
+
+  hasContent(): boolean;
+  hasNext(): boolean;
+  hasPrevious(): boolean;
+  isFirst(): boolean;
+  isLast(): boolean;
+
+  nextPageable(): Pageable;
+  previousPageable(): Pageable;
+}
+
+interface Pageable {
+  pageNumber: number;
+  pageSize: number;
+  offset: number;
+  paged: boolean;
+  sort: Sort;
+  unpaged: boolean;
+  paged: boolean;
+
+  next(): Pageable;
+  previousOrFirst(): Pageable;
+  first(): Pageable;
+}
+
+interface Sort {
+  sorted: boolean;
+  unsorted: boolean;
+  empty: boolean;
+
+  orders: Order[];
+}
+
+interface Order {
+  direction: 'ASC' | 'DESC';
+  property: string;
+  ignoreCase: boolean;
+  nullHandling: 'NATIVE' | 'NULLS_FIRST' | 'NULLS_LAST';
+  ascending: boolean;
+  descending: boolean;
+}
+```
+
+- Django Rest Framework (DRF)
+- https://www.django-rest-framework.org/api-guide/pagination/
+
+```json
+{
+  "count": 1023,
+  "next": "https://api.example.org/accounts/?limit=100&offset=500",
+  "previous": "https://api.example.org/accounts/?limit=100&offset=300",
+  "results": []
+}
+```
+
+- Prisma
+
+```ts
+const result = await prisma.user.findMany({
+  take: 10,
+  skip: 10,
+});
+```
+
+- Larval
+
+```json
+{
+  "total": 200,
+  "per_page": 15,
+  "current_page": 1,
+  "last_page": 14,
+  "next_page_url": "...",
+  "prev_page_url": null,
+  "from": 1,
+  "to": 15,
+  "data": []
+}
+```
+
 ## Naming
 
 - PaginationResponse

@@ -150,41 +150,44 @@ tags:
 |     pl. | plural       | 复数         |
 |   sing. | singular     | 单数         |
 
-| 英文                | 含义                                                                |
-| ------------------- | ------------------------------------------------------------------- |
-| list                | 列表                                                                |
-| detail              | 详情                                                                |
-| resource/res        | 资源                                                                |
-| number/no           | 编号                                                                |
-| count               | 数量                                                                |
-| service             | 服务                                                                |
-| management/mgmt     | 管理                                                                |
-| dashboard           | 工作台                                                              |
-| logo                | 商标                                                                |
-| icon                | 图标                                                                |
-| avatar              | 头像                                                                |
-| picture             | 图片                                                                |
-| banner              | 旗帜                                                                |
-| photo               | 照片                                                                |
-| category            | 分类                                                                |
-| amount              | 数额/金额                                                           |
-| mobile              | 手机号                                                              |
-| telephone           | 座机                                                                |
-| gender              | 性别                                                                |
-| working             | 在职                                                                |
-| leave               | 离职                                                                |
-| rank                | 等级, 主动, 例如: 客户星级,产品评价                                 |
-| grade               | 等级, 被动, 例如: 成绩,商品                                         |
-| property            | 属性, 多指固有的,本身的,proper                                      |
-| attribute           | 属性, 多指特征的,可变的,tribute                                     |
-| referral            | 引荐, 主动, 掌握关系主动方<br/>例如: 别人引荐你给我, 你和我直接联系 |
-| introduction        | 推荐, 被动, 位于关系被动方<br/>例如: 别人介绍你给我, 由别人产生联系 |
-| last name           | 姓                                                                  |
-| surname             | 姓                                                                  |
-| first name          | 名                                                                  |
-| census              | 人口普查, 户籍                                                      |
-| ​household register | 户籍                                                                |
-| residential         | 住宅                                                                |
+| en                  | cn             | notes                                                         |
+| ------------------- | -------------- | ------------------------------------------------------------- |
+| list                | 列表           |
+| detail              | 详情           |
+| resource/res        | 资源           |
+| number/no           | 编号           |
+| count               | 数量           |
+| service             | 服务           |
+| management/mgmt     | 管理           |
+| dashboard           | 工作台         |
+| logo                | 商标           |
+| icon                | 图标           |
+| avatar              | 头像           |
+| picture             | 图片           |
+| banner              | 旗帜           |
+| photo               | 照片           |
+| category            | 分类           |
+| amount              | 数额/金额      |
+| mobile              | 手机号         |
+| telephone           | 座机           |
+| gender              | 性别           |
+| working             | 在职           |
+| leave               | 离职           |
+| rank                | 等级           | 主动, 例如: 客户星级,产品评价                                 |
+| grade               | 等级           | 被动, 例如: 成绩,商品                                         |
+| property            | 属性           | 多指固有的,本身的,proper                                      |
+| attribute           | 属性           | 多指特征的,可变的,tribute                                     |
+| referral            | 引荐           | 主动, 掌握关系主动方<br/>例如: 别人引荐你给我, 你和我直接联系 |
+| introduction        | 推荐           | 被动, 位于关系被动方<br/>例如: 别人介绍你给我, 由别人产生联系 |
+| last name           | 姓             |
+| surname             | 姓             |
+| first name          | 名             |
+| census              | 人口普查, 户籍 |
+| ​household register | 户籍           |
+| residential         | 住宅           |
+| business card       | 名片           |
+| red packet          | 红包           |
+| red envelope        | 红包           |
 
 ## 技术词汇 {#tech}
 
@@ -1301,7 +1304,6 @@ tags:
   - 元数据
   - 描述数据的数据
   - 通常为一个字段
-
 
 ## view vs viewer
 

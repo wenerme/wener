@@ -31,10 +31,12 @@ title: pnpm
 
 :::caution
 
-- Typescript 可能检测不到类型，出现类型异常 [TypeScript#29808](https://github.com/microsoft/TypeScript/issues/29808)
-  - 尝试 `"preserveSymlinks": true`
 - pnpm store path
   - 默认会在相同磁盘 - 因为 hardlink 需要相同磁盘
+  - 因此想要利用 pnpm 的特性，需要在同一磁盘下 - 容器缓存场景会不太好处理
+  - windows 使用 junctions / soft link
+- Typescript 可能检测不到类型，出现类型异常 [TypeScript#29808](https://github.com/microsoft/TypeScript/issues/29808)
+  - 尝试 `"preserveSymlinks": true`
 
 :::
 
@@ -374,6 +376,10 @@ CMD [ "node", "server.js" ]
 - https://github.com/microsoft/TypeScript/issues/42873
 - https://github.com/microsoft/TypeScript/issues/47663
 
+## pnpm-lock.yaml
+
+- https://github.com/pnpm/pnpm/blob/main/lockfile/types/src/lockfileFileTypes.ts
+
 # FAQ
 
 ## ERR_PNPM_MODIFIED_DEPENDENCY  Packages in the store have been mutated
@@ -423,37 +429,50 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
 ```bash
 ls -d node_modules/.pnpm/graphql@*
 
-pnpm tsx ./dup.ts
+pnpm tsx --experimental-network-imports ./dup.ts
 ```
 
 ```ts title="dup.ts"
 import fs from 'node:fs';
+import YAML from 'https://esm.sh/yaml@2.5.0';
 
-const deps = fs
-  .readFileSync('./pnpm-lock.yaml', 'utf8')
-  .split('\n')
-  .filter((v) => /^\s*[/]/.test(v))
-  .map((v) => v.trim())
-  .map((v) => {
-    const { name, version, spec } =
-      v.match(/^\/(?<name>(@[^\/]+\/)?[^@]+)@(?<version>[^:(]+)(\((?<spec>.*?)\))?:$/)?.groups || {};
-    return { name, version, spec };
-  });
+let lock = YAML.parse(fs.readFileSync('./pnpm-lock.yaml', 'utf8'));
 
-let dups: Record<string, { name: string; version: string; spec: string }[]> = {};
+const deps = Object.entries(lock.packages).map(([id, spec]) => {
+  let idx = id.lastIndexOf('@');
+  let name = id.slice(0, idx);
+  let version = id.slice(idx + 1);
+  return { name, version, spec, id };
+});
+
+let dups: Record<string, { name: string; version: string; id: string; spec: any }[]> = {};
 for (const dep of deps) {
-  if (!dep) continue;
-  const { name, version, spec } = dep;
-  if (!dups[name]) dups[name] = [];
-  dups[name].push({ name, version, spec });
+  dups[dep.name] ||= [];
+  dups[dep.name].push(dep);
 }
 
-dups = Object.fromEntries(Object.entries(dups).filter(([, v]) => v.length > 1));
+let out: string[] = [];
 
-console.log(dups);
+Object.entries(dups).forEach(([k, v]) => {
+  if (v.length > 1) {
+    out.push(
+      `- ${k} - ${v
+        .map((v) => v.version)
+        .sort()
+        .join(', ')}`,
+    );
+  }
+});
+
+console.log(out.join('\n'));
+console.log(
+  [
+    `pkgs: ${Object.keys(lock.packages).length}`,
+    `unique pkg: ${Object.keys(dups).length}`,
+    `dups: ${Object.values(dups).filter((v) => v.length > 1).length}`,
+  ].join(' '),
+);
 ```
-
-
 
 ## peer deps
 

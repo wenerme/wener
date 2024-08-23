@@ -17,7 +17,6 @@ tags:
   - 数字编号
 - 授权 != 登录
 
-
 **跳转到公众号**
 
 ```
@@ -49,3 +48,30 @@ http://weixin.qq.com/r/XXX?utm_source=XX
 ---
 
 - Window 设置里面就有
+
+## ID
+
+| ID              | for    | demo |
+| --------------- | ------ | ---- |
+| gh_000000000000 | 小程序 |
+
+**Wecom**
+
+| ID Prefix             | stand for                  | demo                             |
+| --------------------- | -------------------------- | -------------------------------- |
+| oa                    | union id                   |
+| ww                    | CorpID/SuitID              | ww000000000000000a               |
+| wr                    | wecom room id              | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
+| wm                    | external open/user id      | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
+| wmV                   | external member wechat     |
+| wrV                   | external rootm id          |
+| wo                    | 企业微信外部联系人 open id |
+| o                     | openid                     |
+| tj                    | suite id/早期套件          | tjddddccc7775555aaa              |
+| 1000000               | 自建 agent id              | 1000001                          |
+| 2000000               | 系统应用 agent id          | 2000004 会话归档                 |
+| 3000000               | 管理应用 agent id          | 3010084 日程                     |
+| `gh_[0-9a-f]{12}@app` | 小程序消息的用户名         | gh_000000000000@app              |
+
+- https://developer.work.weixin.qq.com/document/path/95327
+  - 企业微信帐号 ID 安全性全面升级

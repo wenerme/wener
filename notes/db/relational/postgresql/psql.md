@@ -124,12 +124,18 @@ psql postgresql://dbmaster:5433/mydb?sslmode=require
     - 类似 `COPY ... TO STDOUT ` - 不过这样可以写多行 SQL
 
 ```sql
--- 两者效果相同
+-- 两者效果相同, 但 copy 支持多行, \copy 只能在一行
 \copy (select 1 as val) TO 'test.csv' WITH CSV HEADER
 COPY (
   select 1 as val
 ) TO STDOUT WITH CSV HEADER \g test.csv;
 
+
+-- COPY 处理 conflict - 只能通过临时表来处理
+-- 如果在事务 BEGIN, COMMIT 里可以增加 ON COMMIT DROP
+CREATE TEMP TABLE tmp_table  (LIKE main_table INCLUDING DEFAULTS);
+COPY tmp_table FROM 'data.csv';
+INSERT INTO main_table SELECT * FROM tmp_table ON CONFLICT DO NOTHING;
 
 -- 链接信息
 \conninfo

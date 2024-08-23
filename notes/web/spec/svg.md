@@ -60,3 +60,10 @@ TL;DR: SVG icons should use fill-rule:nonzero instead of Sketch default evenodd 
 ## font
 
 - https://github.com/jaywcjlove/svgtofont
+
+## viewBox vs width/height
+
+- viewBox="min-x min-y width height"
+  - 视窗或视区
+- width/height
+  - 物理大小 - 即实际在页面上占据的空间大小

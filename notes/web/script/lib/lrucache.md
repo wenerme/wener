@@ -15,3 +15,5 @@ tags:
 :::
 
 - maxSize, max, ttl 至少需要指定一个
+- 不能存储 undefined 值 - undefined 等同于没有
+- fetch -> stale-while-revalidate

@@ -538,3 +538,19 @@ if (process.versions.bun) {
 if (typeof Bun !== 'undefined') {
 }
 ```
+
+## unhandled
+
+- uncaughtException
+
+```js
+process
+  .on('unhandledRejection', (reason, p) => {
+    console.error('Unhandled Rejection at Promise', reason, p);
+  })
+  .on('uncaughtException', (err, origin) => {
+    fs.writeSync(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}\n`);
+    console.log(`ERROR`, err);
+    process.exit(1);
+  });
+```

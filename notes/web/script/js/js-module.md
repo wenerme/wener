@@ -385,3 +385,8 @@ declare global {
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 ```
+
+## [ERR_UNSUPPORTED_ESM_URL_SCHEME]: Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. Received protocol 'https:'
+
+- nodejs,bun `--experimental-network-imports`
+

@@ -5,6 +5,14 @@ title: LMDB
 
 # LMDB - Lighting Memory-Maped Database
 
+- [LMDB/lmdb](https://github.com/LMDB/lmdb)
+  -  OpenLDAP Public License, BSD-3, C
+  - from OpenLDAP
+  - by Symas Corporation
+- adopted by
+  - OpenLDAP
+  - meilisearch
+  - garage
 - Key/value 存储
 - 内存映射
 - 使用全局递增 ID 标示版本
@@ -30,3 +38,9 @@ title: LMDB
   - 追踪读 ID 的数组与数据映射分离
   - 与 CPU 页对齐
   - 可能读到脏数据
+- 参考
+  - [meilisearch/heed](https://github.com/meilisearch/heed/)
+    - MIT, Rust
+    - fully typed LMDB wrapper
+  - [lmdbjava/lmdbjava](https://github.com/lmdbjava/lmdbjava)
+    - Apache-2.0, Java

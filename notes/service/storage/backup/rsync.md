@@ -30,6 +30,16 @@ title: rsync
 
 :::
 
+- 同步的属性
+  - times
+  - owner
+    - 备份、跨系统同步需要忽略 owners
+  - group
+  - perms
+- 同步文件的类型
+  - links
+  - devices
+
 | flags                 | for                                       |
 | --------------------- | ----------------------------------------- |
 | --archive, -a         | `-rlptgoD`                                |

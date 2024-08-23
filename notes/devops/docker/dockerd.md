@@ -12,6 +12,8 @@ title: dockerd
     - `myregistry:5000`
     - `10.1.0.0/16`
 
+**daemon.json**
+
 ```json
 {
   "insecure-registries": ["localhost:5000"]

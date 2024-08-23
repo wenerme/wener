@@ -44,6 +44,10 @@ npm add -D prettier
 prettier --find-config-path src/types.d.ts
 
 prettier --write src --cache --cache-strategy metadata
+
+
+prettier --support-info
+prettier --file-info a.js
 ```
 
 **prettier.config.js**

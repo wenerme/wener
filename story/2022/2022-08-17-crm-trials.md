@@ -8,9 +8,18 @@ tags:
 
 # CRM 实现经历
 
+| v   | date              |
+| --- | ----------------- |
+| v1  | 2019.11 - 2021.01 |
+| v2  | 2020.01 - 2020.06 |
+| v3  | 2020.11 - 2022.07 |
+| v4  | 2022.06 - 2022.11 |
+| v5  | 2022.11 - 2023.03 |
+| v6  | 2023.03 -         |
+
 ## v1
 
-- 后端 - Java - 2019.11 - 2021.1
+- 后端 - Java - 2019.11 - 2021.01
 - 前端 - NextJS v9 + Antd - 2019.11 - 2021.3
   - @reduxjs/toolkit
 
@@ -26,7 +35,7 @@ tags:
 
 ## v2
 
-- 2020.1 - 2020.6
+- 2020.01 - 2020.06
 - 后端 - Node - nestjs
   - nestjs
   - objection - ORM
@@ -61,7 +70,7 @@ tags:
 
 ## v3
 
-- 后端 - Go - 2020.11 - 2022.7
+- 后端 - Go - 2020.11 - 2022.07
   - gorm + restful - 前期
   - ent + gqlgen - 中期
   - gorm - 非核心 CRM 业务
@@ -115,7 +124,7 @@ tags:
 
 ## v4
 
-- 2022.6 -> 2022.11
+- 2022.06 -> 2022.11
 - 后端
   - 确定了要优先 GRPC，且使用标准 Schema。
     - 因此将 protobuf 的定义作为 Single-Source—Of—Truth Schema。
@@ -147,7 +156,7 @@ tags:
     - grpc-server -> grpc 实现
     - 未来: web -> connect-gateway -> grpc-server -> grpc 实现
 - 前端
-  - daisyui+tailwindcss
+  - daisyui+tailwindcss - 放弃 ~~Blueprint~~
   - 不再直接选择成熟的 UI 框架，而是选择基于 CSS 的样式库
   - daisyui 提供了一套命名 class 的方式 - 有 Theme
   - 确定 管理功能优先于用户功能
@@ -160,7 +169,7 @@ tags:
 
 ## v5
 
-- 2022.11 ->
+- 2022.11 -> 2023.03
 - 方式的调整
   - 不只是独立于业务单纯的思考怎么做 CRM - 没有任何意义/产出的东西不可用
   - 业务层面将以前的思路以 DB Schema 的方式沉淀
@@ -187,3 +196,51 @@ tags:
   - 尝试引入了 shadcn
   - 核心功能能够做到模块化
   - 尝试重新恢复多窗口
+
+## v6
+
+- 2023.3 ->
+- 基于 v5 大致内容不变的情况下调整以提升开发效率
+- 主要调整内容
+  - API 调整 - trpc -> GQL
+  - 结构选型调整 - 轻量化, 开发效率优先
+- 调整内容
+  - ~~Nats RPC + trpc ~~ -> GraphQL
+    - trpc 内容多了过后类型推导太慢
+    - GraphQL 直接对客户端保留
+      - 避免要求通过 RPC+trpc 对客户端
+      - 减少开发量
+    - RPC 保留为对服务端
+  - NextJS -> Vite - 纯静态前端 console
+    - 开发反映要快得多
+    - 现在的 NextJS 不适合做后台，不适合做太过动态的项目
+    - Vite HMR 体验要好得多
+  - ~~fastify + NestJS Controller ~~ -> Hono
+    - 保留 NestJS 作为 IoC 容器
+    - Hono 简单容易维护
+    - 缺点是 Hono OpenAPI 使用 zod-openapi
+      - 没 NestJS Controller 那么好用
+      - 但 可以 share schema 给前端 - 不过使用了 GraphQL Codegen 一般也不需要
+  - GraphQL 使用 type-graphql+yoga+urql
+  - 大量引入 mixin 来抽象业务逻辑
+    - ORM 层 https://github.com/wenerme/wode/blob/main/packages/nestjs/src/entity/mixins/index.ts
+    - GQL 层 https://github.com/wenerme/wode/blob/main/packages/nestjs/src/type-graphql/mixins/index.ts
+  - Golang -> Bun
+    - 将最后依赖 Golang 的 企业微信会话内容存档转为 Bun
+    - bun:ffi 能很好的和 c interop
+      - [WeWorkFinanceClient.ts](https://github.com/wenerme/wode/blob/main/packages/client/src/wecom/archive/bun/WeWorkFinanceClient.ts)
+- 领域开发
+  - Follow 固定的 schema 模式 https://wener.me/notes/dev/design/schema
+  - 逐渐固化大的业务框架 https://wener.me/notes/dev/design/erp
+  - 逐步引入一些公共的业务逻辑
+- 结果
+  - 目前差不多的前后端部署了 3+ 套
+  - 固化下来差不多的前后端框架
+    - 前端 https://github.com/wenerme/wode/tree/main/packages/console
+    - 后端 https://github.com/wenerme/wode/tree/main/packages/nestjs
+  - 外部集成 https://github.com/wenerme/wode/tree/main/packages/client
+- 接下来
+  - 抽取更多公共业务逻辑
+  - 引入更多业务域
+  - 文件处理 - 类似网盘
+  - 更多外部服务集成

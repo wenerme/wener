@@ -70,6 +70,42 @@ queueEvents.on('failed', ({ jobId, failedReason }: { jobId: string; failedReason
   - 让 job 进入等待 children 的状态
 - throw UnrecoverableError 可以避免 retry
 - throw throw Worker.RateLimitError 可以实现手动 rate-limit
+- repeatable jobs -> delayed jobs
+  - jobId 用于生成 deplayed job，而不用于本身 job 去重
+    - `repeat:KEY:1724148000000`
+  - key
+    - 默认通过 options 生成，自定义 key 创建相同配置的 repeatable job
+    - 相同 key 创建可以覆盖之前的 options
+
+**job.toJSON**
+
+```json
+{
+  "name": "pull",
+  "opts": {
+    "attempts": 0,
+    "delay": 30121,
+    "repeat": {
+      "every": 90000,
+      "key": "WecomArchivePull",
+      "count": 1
+    },
+    "jobId": "repeat:WecomArchivePull:1724148000000",
+    "timestamp": 1724147969879,
+    "prevMillis": 1724148000000
+  },
+  "id": "repeat:WecomArchivePull:1724148000000",
+  "progress": 0,
+  "returnvalue": null,
+  "stacktrace": null,
+  "attemptsStarted": 0,
+  "attemptsMade": 0,
+  "delay": 30121,
+  "repeatJobKey": "WecomArchivePull",
+  "timestamp": 1724147969879,
+  "queueQualifiedName": "bull:WecomArchive"
+}
+```
 
 # FAQ
 

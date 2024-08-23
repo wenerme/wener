@@ -15,12 +15,15 @@ tags:
 - switch 切换企业日志不是真正的消息，与上述消息结构不完全相同。
 - 消息 5天 失效
 - 错误 10001-10003 可以重试
+- file
+  - 可能 md5 为空字符串
 
 :::
 
 
 :::tip
 
+- 通过 sequence 获取的数据是获取 sequence+1 而不会取到 sequence 这一条
 - NewSDK, InitSDK 只需要调用一次
 
 :::
@@ -55,3 +58,32 @@ apt install gcc g++
 :::
 
 请检查是否先进行 base64decode 再进行 rsa 私钥解密，再进行 DecryptMsg 调用。
+
+
+## Quote
+
+```
+/^(这是一条引用\/回复消息：|This is a quote\/reply:)\n["“](?<user>[^\n]+)[：:]\s?\n(?<quote>.*?)[”"]\n-{6}\n(?<content>.*)$/s
+```
+
+```
+/^「(?<user>[^\n]+)：\n?(?<quote>.*?)」\n-( -){14}\n(?<content>.+)$/s
+```
+
+**消息归档**
+
+```
+这是一条引用/回复消息：
+"USER:
+QUOTE"
+------
+CONTENT
+```
+
+**微信**
+
+```
+「USER：QUOTE」
+- - - - - - - - - - - - - - -
+CONTENT
+```

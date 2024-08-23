@@ -37,6 +37,11 @@ cat /proc/sys/fs/file-nr  # 已分配 0 最大
 # 26367207
 sysctl fs.file-max
 # sysctl -w fs.file-max=19778411
+
+ulimit -n  # soft limit
+ulimit -Hn # hard limit
+
+ulimit -n 4096 # 临时修改
 ```
 
 | conf/item    | type                        | unit         | flag | value     | flavor         |
@@ -87,6 +92,8 @@ Max realtime timeout      unlimited            unlimited            us
 ```
 
 ## limits.conf
+
+- /etc/security/limits.conf
 
 ```
 <domain><type><item><value>
@@ -152,7 +159,20 @@ UsePrivilegeSeparation no
 UsePAM yes
 ```
 
+> Unsupported option UsePAM
+
+```bash
+apk add openssh-server-pam
+sudo service sshd restart
+```
+
 ## open files
 
 - 1073741816
 - 1048576
+
+## debug
+
+```bash
+strace -o loglimit su - user01
+```

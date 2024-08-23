@@ -21,7 +21,7 @@ tags:
 - 使用 有序的 随机主键 - ULID, UUID
 - 建议主键增加 type tag
 - PostgreSQL
-  - 尽量用 text, bigint, jsonb, bool
+  - 尽量用 text, bigint, jsonb, bool, timestamptz
   - 看情况用 array - array 能简化不少需要 join 表的场景 - 例如 `tags text[]`
   - 避免 varchar(n) 限定长度
     - 业务层控制 validation
@@ -37,6 +37,7 @@ tags:
 - 建议小写
 - 不要大小写混合
 - 可以考虑加类型 tag
+- 可以用 `_`, 避免用 `-`, 方便双击选中 例如 usr_123
 
 :::
 

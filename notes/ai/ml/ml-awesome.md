@@ -95,8 +95,6 @@ tags:
 - music
   - [AI-Guru/music-generation-research](https://github.com/AI-Guru/music-generation-research)
 - upscale
-  - [Araxeus/PNG-Upscale](https://github.com/Araxeus/PNG-Upscale)
-    - MIT, Java
   - [IBM/MAX-Image-Resolution-Enhancer](https://github.com/IBM/MAX-Image-Resolution-Enhancer)
     - Apache-2.0, Python
     - Docker
@@ -105,6 +103,13 @@ tags:
     - 需要 GPU
     - App 方式
     - Real-ESRGAN
+  - [philz1337x/clarity-upscaler](https://github.com/philz1337x/clarity-upscaler)
+    - AGPLv3, Python
+    - Magnific Alternative
+  - [Araxeus/PNG-Upscale](https://github.com/Araxeus/PNG-Upscale)
+    - MIT, Java
+  - 商业
+    - https://magnific.ai/
 - image
   - https://huggingface.co/datasets/vivym/midjourney-messages
 - video

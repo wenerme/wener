@@ -14,6 +14,7 @@ tags:
 
 - [rustdesk/rustdesk-server](https://github.com/rustdesk/rustdesk-server)
   - AGPLv3, Rust
+  - hbb ->
 - https://rustdesk.com/docs/en/self-host/
   - TCP 21115-21117
   - UDP 21116

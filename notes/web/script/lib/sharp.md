@@ -12,3 +12,6 @@ title: sharp
 # 支持使用 wasm
 npm install --cpu=wasm32 sharp
 ```
+
+- SHARP_IGNORE_GLOBAL_LIBVIPS
+- SHARP_FORCE_GLOBAL_LIBVIPS

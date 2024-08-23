@@ -72,7 +72,7 @@ curl 'https://dns.google/resolve?name=wener.me&type=A'
 
 ## Block
 
-- [0xERR0R/blocky](https://github.com/0xERR0R/blocky)
+- [0xERR0R/blocky](./blocky)
 - [nicholasb2101/PiHole](https://github.com/nicholasb2101/PiHole)
 - https://gist.github.com/michaelx/316dc4882f125a8325150e4e2fa9edd6
 - https://firebog.net/

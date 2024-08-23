@@ -23,7 +23,7 @@ tar zxvf blocky.tar.gz
 ./blocky version
 mv blocky ~/bin/
 
-curl -LO https://0xerr0r.github.io/blocky/v0.23/config.yml
+curl -LO https://0xerr0r.github.io/blocky/latest/config.yml
 # 注释掉 redis.address
 ./blocky serve -c config.yaml
 ```

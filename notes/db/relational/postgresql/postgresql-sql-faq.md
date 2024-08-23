@@ -26,6 +26,17 @@ tags:
     - DEFERRABLE INITIALLY IMMEDIATE
     - NOT DEFERRABLE
 
+```sql
+-- regexp_matches 获取为数组而不是作为 set 返回
+select array(select array_to_string(regexp_matches(text, '@(\S+?)\u2005', 'g'), '')), text
+from wecom_archive_message
+where type in ('text')
+-- 获取字符出现的次数
+-- 也可以用 replace 如果用不到 regex 的功能 `\u2005` 依赖 regex 的功能
+  and (LENGTH(text) - LENGTH(regexp_replace(text, '\u2005', ''))) > 0
+;
+```
+
 ## XML xpath 返回结果包含 CDATA
 
 - [BUG #16046: xpath returns CDATA tag along with the value in postgres 12](https://www.postgresql.org/message-id/5DB23068.3080601%40anastigmatix.net)
@@ -373,3 +384,16 @@ WHERE  '192.168.2%.255' <~~ ANY (ipaddress);
 - `expr IN (subquery)` -> `expr operator ANY (subquery)`
 - `expr IN (value [, ...])` -> `expr operator ANY (array expr)`
   - 会做内部重写 - `IN` -> `= ANY`, `NOT IN` -> `<> ALL`
+
+## sequence gap
+
+- 找到序列中的间隔
+
+```sql
+select sequence + 1 as gap_start,
+       next_nr - 1  as gap_end
+from (select sequence,
+             lead(sequence) over (order by sequence) as next_nr
+      from wecom_archive_message) nr
+where sequence + 1 <> next_nr;
+```

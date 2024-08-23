@@ -13,11 +13,17 @@ title: IKEv2
       - 10.8.0.0/16
 - PSK
 - 500/udp 4500/udp
+- 参考
+  - https://github.com/gaomd/docker-ikev2-vpn-server/issues/51
 
 ```bash
 docker run -d --restart always --privileged \
   -p 500:500/udp -p 4500:4500/udp \
   --name ikev2-vpn-server gaomd/ikev2-vpn-server:0.3.0
+
+# fix proposals not match when using iOS 14.01
+docker exec -it ikev2-vpn-server /bin/bash -c 'echo esp=aes256-sha256-modp2048  >> /etc/ipsec.conf'
+docker restart ikev2-vpn-server
 
 # 将 vpn1.example.com 修改为机器的 IP 地址
 docker run -i -t --rm --volumes-from ikev2-vpn-server -e "HOST=vpn1.example.com" gaomd/ikev2-vpn-server:0.3.0 generate-mobileconfig > ikev2-vpn.mobileconfig

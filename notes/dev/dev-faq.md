@@ -562,3 +562,35 @@ sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepinit
   - 优先级排序
   - 重构优化
   - 改进流程
+
+## endian
+
+> endian, endianness, byte-order
+
+- big / big-endian / bigEndian / BE / 大端序
+  - 反序
+  - network byte order
+  - 网络通信、文件格式
+    - 因此大多时候操作数据都是大端序
+  - RISC, IBM PowerPC, Solaris, SPARC
+  - `0x12345678` -> `0x12 0x34 0x56 0x78`
+- little / little-endian / littleEndian / LE
+  - 处理器, 内存, 计算
+    - 因此大多时候实现模拟器、虚拟机都是小端序
+  - Intel x86, x86-64
+  - Windows
+  - 和内存地址对齐
+  - `0x12345678` -> `0x78 0x56 0x34 0x12`
+
+```bash
+# Byte Order: Little Endian
+lscpu | grep Endian
+
+# 0 for Big Endian, 1 for Little Endian
+echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
+```
+
+---
+
+- https://en.wikipedia.org/wiki/Endianness / 小端序
+- https://developer.mozilla.org/en-US/docs/Glossary/Endianness

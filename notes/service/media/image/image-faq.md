@@ -7,6 +7,7 @@ tags:
 
 ```bash
 # HEIC -> jpg
+# -strip 移除元数据
 mogrify -strip -format jpg *.HEIC
 ```
 

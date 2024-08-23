@@ -7,7 +7,7 @@ tags:
 
 ```bash
 sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt-get install ca-certificates curl rsync htop
 
 # Docker from docker.com
 # ====================
@@ -20,4 +20,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 sudo apt-get update
 
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl restart docker
+
+sudo usermod -aG docker $USER
 ```

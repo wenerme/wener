@@ -68,6 +68,7 @@ echo "test" | socat -u - tcp:127.0.0.1:12345
   - https://docs.kernel.org/networking/tproxy.html
 
 ## 保留网络
+
 - [RFC 5737](https://datatracker.ietf.org/doc/html/rfc5737): “IPv4 Address Blocks Reserved for Documentation”
   - TEST-NET
   - 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24
@@ -79,3 +80,24 @@ echo "test" | socat -u - tcp:127.0.0.1:12345
   - .invalid
   - .localhost
   - .internal
+
+## latency
+
+```bash
+ping 1.1.1.1
+
+time ssh svr-1 exit
+
+time nc -zv 192.168.1.1 22
+
+hping3 -S -p 22 192.168.1.1
+
+sshp user@your-server
+
+# MTR 支持 TCP 模式
+# 'traceroute' and 'ping' in a single tool
+mtr -P 22 --tcp your-server
+```
+
+- iperf3
+- https://github.com/Samsar4/Ethical-Hacking-Labs/blob/master/2-Scanning-Networks/1-hping3.md

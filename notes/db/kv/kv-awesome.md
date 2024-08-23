@@ -99,11 +99,63 @@ title: KV DB Awesome
 
 ## 文件
 
-- LMDB
-- LevelDB
-- RocksDB
-- BoltDB
+- [LMDB](./lmdb.md)
+  - BSD-3, C
+  - from OpenLDAP
+  - by Symas Corporation
+  - 2011-11
+  - hadow paging
+  - http://www.lmdb.tech/bench/microbench/benchmark.html
+- [LevelDB](./leveldb.md)
+  - BSD-3, C++
+  - by Google
+  - 2011-10
+  - inspired by Bigtable
+  - adopted by
+    - IndexedDB in Google Chrome
+    - Riak
+    - Bitcoin Core, go-ethereum
+- [RocksDB](./rocksdb.md)
+  - by Facebook
+  - a fork of LevelDB
+    - for **server workloads**
+    - 支持 多核心
+    - SSD 优化
+    - IO 优化
+    - Bloom filter, TTL, Statistics, GeoSpatial Indexcing, Column family, Backup, Compaction, Merge Operator
+  - adopted by
+    - MyRocks - RocksDB + MySQL
+    - ArangoDB
+    - Cassandra
+    - MariaDB
+    - Kafka Streams
+    - TiDB
+    - YugabyteDB
+    - [KvRocks](./kvrocks.md)
+  - 2012-05
 - Badger
+- BoltDB
+- H2
+- BDB - Berkeley DB
+- features
+  - Key Types
+    - byte array in lexicographical order
+  - Value Types
+    - byte array
+  - Iteration
+    - lexicographical order
+    - reverse order
+    - seeking to a key
+  - ACID
+    - Atomicity
+    - Consistency
+    - Isolation
+      - 同步
+      - 多线程
+      - COW/MVCC
+    - Durability
+- 参考
+  - https://mozilla.github.io/firefox-browser-architecture/text/0017-lmdb-vs-leveldb.html
 
 # FAQ
 

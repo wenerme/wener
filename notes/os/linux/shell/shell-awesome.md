@@ -28,6 +28,9 @@ tags:
     - SSH over QUIC
   - [moul/assh](https://github.com/moul/assh)
     - ssh wrapper 添加一些额外功能
+  - [lwch/natpass](https://github.com/lwch/natpass)
+    - MIT, Golang
+    - shell 管理, 远程桌面管理
 - Terminal UI
   - kitty
   - hyper
@@ -35,6 +38,11 @@ tags:
   - iTerm2
   - [withfig/autocomplete](https://github.com/withfig/autocomplete)
   - for bash, zsh, fish
+- parser/formatter/interpreter
+  - [mvdan/sh](https://github.com/mvdan/sh)
+    - BSD-3, Golang
+  - [elves/elvish](https://github.com/elves/elvish)
+    - BSD-2, Golang
 - [Comparison of command shells](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
 - Online
   - https://replit.com/languages/bash
@@ -80,7 +88,6 @@ tags:
   - Rust based GPU-accelerated termina
   - 闭源
 - [janmojzis/tinyssh](https://github.com/janmojzis/tinyssh)
-
 
 ## Share
 

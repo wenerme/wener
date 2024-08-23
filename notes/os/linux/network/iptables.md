@@ -164,7 +164,7 @@ iptables-save | grep -v '^#' | sed -r 's/(^:[^[]]+).*/\1[0:0]/'
 # 排除规则 - 排除 libvirt 相关规则
 iptables-save | grep -v LIBVIRT
 # 常用
-ipts(){ iptables-save "$@" | grep -v '^#' | sed -r 's/(^:[^[]]+).*/\1[0:0]/' | grep -v LIBVIRT | grep -i -v DOCKER; }
+ipts() { iptables-save "$@" | grep -v '^#' | sed -r 's/(^:[^[]]+).*/\1[0:0]/' | grep -v LIBVIRT | grep -i -v DOCKER; }
 
 # 查看 nat 路由表
 iptables -t nat -v -L -n --line-number
@@ -195,6 +195,13 @@ NIC +----> PREROUTING +-------------------> Local
               v                 +
 NIC <----+ POSTROUTING <----+ OUTPUT <----+ Local
 ```
+
+- iptables-save
+  - debian
+    - /etc/iptables/rules.v6
+    - /etc/iptables/rules.v4
+- `iptables-restore < /etc/iptables/rules.v4`
+- `netfilter-persistent save|reload`
 
 ## empty
 

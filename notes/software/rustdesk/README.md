@@ -8,6 +8,12 @@ title: rustdesk
 - https://github.com/rustdesk/rustdesk/issues/3565
   - sciter -> flutter_desktop
 
+## Awesome
+
+- [kingmo888/rustdesk-api-server](https://github.com/kingmo888/rustdesk-api-server)
+  - Python
+  - 基于Django的RustDesk Api&Web Server，除了支持api所有功能，还支持web注册、管理、展示等。
+
 # FAQ
 
 ## Unsupported Display server, X11 or Wayland expected

@@ -16,6 +16,13 @@ title: Supabase PostgreSQL Image
 - 扩展
   - [supabase/supautils](https://github.com/supabase/supautils)
 
+:::caution
+
+- 目前只有 PG 15
+  - Supabase with PostgreSQL 16 [#19427](https://github.com/orgs/supabase/discussions/19427)
+
+:::
+
 ```bash
 # 注意 superuser 为 supabase_admin 密码和 postgres 相同
 # 建议登录为 supabase_admin 然后 alter user postgres with superuser

@@ -29,6 +29,12 @@ getent hosts docker.for.mac.localhost
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
 
+```
+getaddrinfo ENOTFOUND host.docker.internal
+```
+
+- 只有 Windows 和 macOS 定义了 host.docker.internal
+- Linux 下 host network 直接使用 localhost
 - https://docs.orbstack.dev/docker/domains
   - container-name.orb.local
   - service.project.orb.local

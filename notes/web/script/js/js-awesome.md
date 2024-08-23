@@ -185,6 +185,8 @@ tags:
 - reactive
   - rxjs
 - core
+  - [toss/es-toolkit](https://github.com/toss/es-toolkit)
+    - lodash alternative
   - lodash
   - [angus-c/just](https://github.com/angus-c/just)
   - core-js

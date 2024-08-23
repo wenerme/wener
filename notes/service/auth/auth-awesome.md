@@ -45,6 +45,9 @@ tags:
   - 将用户授权转交给 IdP
 - [logto-io/logto](https://github.com/logto-io/logto)
   - MPLv2, TS
+- [eicrud/eicrud](https://github.com/eicrud/eicrud)
+  - MIT, TS
+  - CRUD/Authorization framework based on NestJS
 
 ## Authorization Design
 

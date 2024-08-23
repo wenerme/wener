@@ -29,7 +29,8 @@ kill -HUP $(pgrep sing-box) # reload
 
 # https://github.com/SagerNet/sing-box/releases
 # https://sing-box.sagernet.org/changelog/
-VERSION=1.9.3
+VERSION=1.9.4
+VERSION=1.10.0-beta.3
 curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${VERSION}/sing-box-${VERSION}-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/').tar.gz
 # gtar -zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
@@ -71,6 +72,10 @@ sing-box run conf.json
 - https://github.com/chika0801/sing-box-examples
 
 ### tun
+
+- auto_route
+  - 将 tun 作为默认路由 或 配置 route_address
+- interface_name
 
 ```json
 {
