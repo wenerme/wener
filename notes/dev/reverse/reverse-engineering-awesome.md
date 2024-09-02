@@ -12,7 +12,7 @@ tags:
 ## HEX Editor
 
 - [WerWolv/ImHex](https://github.com/WerWolv/ImHex)
-  - Gplv2, C++
+  - GPLv2, C++
 - [synalysis](https://www.synalysis.net/)
   - macOS
 

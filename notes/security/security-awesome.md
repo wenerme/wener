@@ -37,7 +37,17 @@ tags:
     - stop sites from fingerprinting your puppeteer
   - https://www.zhihu.com/question/287191234/answer/3521005150
 
+## Topic
 
+| en                    | cn           |
+| --------------------- | ------------ |
+| Anti-Bot Verification | 反机器人验证 |
+| Authentication        | 认证         |
+| Security Verification | 安全验证     |
+| CAPTCHA               | 图像验证码   |
+
+- CAPTCHA - Completely Automated Public Turing test to tell Computers and Humans Apart
+  - by [Luis von Ahn](https://en.wikipedia.org/wiki/Luis_von_Ahn) 2000
 
 ## Algorithm
 

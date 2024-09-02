@@ -132,6 +132,12 @@ app.use(
   - `*`
   - `/wild/*/card`
 
+:::caution
+
+- `/api/foo/*` 这种方式无法获取 `param('*')`, 使用 `/api/foo/:target{.+}` 可以获取 param
+
+:::
+
 ```ts
 const app = new Hono({
   // 处理带 Host
@@ -196,4 +202,10 @@ app.get('/', (c) => {
 
   return RESPONSE_ALREADY_SENT;
 });
+```
+
+## OpenAPI Type Error
+
+```bash
+pnpm add @asteasolutions/zod-to-openapi openapi3-ts
 ```

@@ -90,6 +90,13 @@ create extension if not exists pg_hashids;
 select id_encode(1234567, 'This is my salt', /*min length*/ 10, /* alphabet */ 'abcdefghijABCDxFGHIJ1234567890');
 ```
 
+- TLE - Trusted Language Extensions
+- [tensorchord/pgvecto.rs](https://github.com/tensorchord/pgvecto.rs)
+  - pgvecto.rs [#895](https://github.com/supabase/postgres/issues/895)
+    - 不是 trusted extension, 使用了 ipc/mmap
+  - vs pgvector
+    https://docs.pgvecto.rs/faqs/comparison-pgvector.html
+
 # FAQ
 
 ## You might want to create it and/or set "pgsodium.getkey_script" to the correct path.

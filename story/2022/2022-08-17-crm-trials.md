@@ -17,6 +17,32 @@ tags:
 | v5  | 2022.11 - 2023.03 |
 | v6  | 2023.03 -         |
 
+:::tips Choose
+
+- FE
+  - React
+  - Vite
+  - tailwindcss
+  - daisyui
+  - headlessui
+  - floatingui
+  - GraphQL + urlq + CodeGen
+  - react-hook-form
+  - zustand
+- BE
+  - PostgreSQL
+  - mikro-orm
+  - type-graphql
+  - NestJS
+  - Hono
+  - swc+esbuild -> single bundle
+  - ts-node+swc -> faster dev
+- 不要选择
+  - ~~andt~~
+  - ~~trpc~~
+
+:::
+
 ## v1
 
 - 后端 - Java - 2019.11 - 2021.01

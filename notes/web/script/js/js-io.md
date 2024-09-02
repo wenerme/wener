@@ -105,6 +105,10 @@ interface File extends Blob {
   - https://nodejs.org/api/stream.html
   - [lovell/sharp#179](https://github.com/lovell/sharp/issues/179)
 
+## Stream to ReadableStream
+
+- Readable.toWeb
+
 ## ReadableStream to Buffer
 
 ```ts
@@ -211,6 +215,8 @@ console.assert(new TextDecoder().decode(buf) === 'hello', 'should be hello');
 
 ## BufferSource vs ArrayBuffer
 
+> Helper types for ArrayBufferView and related Typed Arrays.
+
 ```ts
 /**
  * Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.
@@ -223,4 +229,6 @@ type ArrayBufferLike = ArrayBufferTypes[keyof ArrayBufferTypes];
 type BufferSource = ArrayBufferView | ArrayBuffer;
 
 type BinaryData = ArrayBuffer | ArrayBufferView;
+
+type AllowSharedBufferSource = ArrayBuffer | ArrayBufferView;
 ```

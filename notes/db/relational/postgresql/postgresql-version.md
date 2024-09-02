@@ -108,6 +108,14 @@ create table test2 (
 
 ## PostgreSQL 14
 
+- `BEGIN ATOMIC ... END` 不再需要 quote `BEGIN $$ ... $$ END`, 只能用于 LANGUAGE sql
+  - 定义时就被解析和检查 - early binding
+    - 构造依赖关系
+    - 检查对象合法
+  - 会自动跟踪函数体内使用的数据库对象的依赖关系。
+  - 能 DROP ... CASCADE，避免留下孤立的函数
+  - 不支持多态参数
+  - https://www.postgresql.org/docs/current/sql-createfunction.html#id-1.9.3.67.6
 - SELECT/INSERT
   - 大部分关键词允许被用于列名
   - 正确处理插入多列时的 `DEFAULT` - 之前是直接错误

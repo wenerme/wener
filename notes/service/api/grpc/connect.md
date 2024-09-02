@@ -29,8 +29,8 @@ POST /<Package>.<Service>/<Method>
 
 ## connect-web
 
-- [bufbuild/connect-web](https://github.com/bufbuild/connect-web)
-- @bufbuild/connect-web
+- [connectrpc/connect-es](https://github.com/connectrpc/connect-es)
+- @bufbuild/connect-web -> connectrpc/connect-es
   - 16kB/5kB
 
 ```bash
@@ -42,10 +42,11 @@ PATH=$PATH:$(pwd)/node_modules/.bin
 
 ## connect-go
 
-- [bufbuild/connect-go](https://github.com/bufbuild/connect-go)
+- ~~[bufbuild/connect-go](https://github.com/bufbuild/connect-go)~~
   - 使用 net/http
   - 生成使用泛型
   - 🌟 Client 和 Server 接口相同 - 方便操作
+- [connectrpc/connect-go](https://github.com/connectrpc/connect-go)
 
 ```bash
 # 基于 POST 的 connect 协议

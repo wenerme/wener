@@ -5,6 +5,7 @@ title: Audit
 # Audio
 
 - 建议尽量使用 opus
+- 浏览器不支持播放 amr
 
 ## Opus
 

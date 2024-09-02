@@ -28,6 +28,16 @@ select json_strip_nulls('[{"f1":1, "f2":null}, 2, null, 3]');
 -- 检测 key 存在 - jsonb
 SELECT '{"a":1}'::jsonb ? 'a';
 SELECT '{"a": {"b": 1}}'::jsonb -> 'a' ? 'b';
+
+-- jsonb 数组转 text 数组
+-- BEGIN ATOMIC ... END PG 14+ 支持,不再需要 quote, 只能用于 LANGUAGE sql
+CREATE OR REPLACE FUNCTION jsonb_array_to_text_array(_js jsonb)
+    RETURNS text[]
+    LANGUAGE sql
+    IMMUTABLE STRICT PARALLEL SAFE
+BEGIN ATOMIC
+    SELECT ARRAY(SELECT jsonb_array_elements_text(_js));
+END;
 ```
 
 ## JSON 数组转行

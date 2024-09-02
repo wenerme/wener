@@ -89,6 +89,10 @@ tags:
   - [tancredi/fantasticon](https://github.com/tancredi/fantasticon)
     - Icon font generation tool
 - [notlmn/awesome-icons](https://github.com/notlmn/awesome-icons)
+- animation
+  - lottie
+  - [useAnimations/react-useanimations](https://github.com/useAnimations/react-useanimations)
+  - https://lordicon.com/
 
 ## SVG
 

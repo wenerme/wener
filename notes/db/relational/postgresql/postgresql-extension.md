@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL Extension
 tags:
-- Extension
+  - Extension
 ---
 
 # PostgreSQL Extension
@@ -37,6 +37,17 @@ make install USE_PGXS=1
   - MIT, Rust
   - Postgres Extensions with Rust
 
+## TLE
+
+- 避免直接访问文件系统
+- TLE/Trusted Language Extensions
+- 部分语言可以 TRUSTED/UNTRUSTED 的方式运行
+  - https://wiki.postgresql.org/wiki/PL_Matrix
+- 参考
+  - https://github.com/aws/pg_tle
+  - https://supabase.com/blog/pg-tle
+
+## Extensions
 
 **FDW**
 

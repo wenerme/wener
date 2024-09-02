@@ -554,3 +554,25 @@ process
     process.exit(1);
   });
 ```
+
+## The "windows-1252" encoding is not supported
+
+Throug
+```js
+new TextDecoder('latin1');
+```
+
+```bash
+# icu-data-en 不够
+# 11.53 MB / 29.38 MB
+apk add icu-data-full
+```
+
+- nodejs latin1/windows-1252
+  - 需要完整的 icu-data
+  - https://github.com/nodejs/node/issues/28190
+- 参考
+  - [npm:windows-1252](https://www.npmjs.com/package/windows-1252)
+    - 检测编码
+    - ansi_x3.4-1968, ascii, cp1252, cp819, csisolatin1, ibm819, iso-8859-1, iso-ir-100, iso8859-1, iso88591, iso_8859-1, iso_8859-1:1987, l1, latin1, us-ascii, windows-1252, x-cp1252
+  - https://encoding.spec.whatwg.org/#windows-1252

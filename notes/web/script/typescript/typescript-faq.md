@@ -20,6 +20,27 @@ tags:
 
 :::
 
+## null
+
+> 用 `undefined` . 不要用 `null` .
+>
+> -- Coding Guidelines for Contributors to TypeScript.
+
+- undefined
+  - 无值，不能被序列化
+  - not been assigned a value
+- null
+  - 有值，值为 null，能序列化
+  - 可以保持 object 的 key 存在
+  - intentional absence
+  - resource not ready
+- `foo == null`
+  - 会匹配 `null` 和 `undefined`
+- 参考
+  - https://2ality.com/2021/01/undefined-null-revisited.html
+  - https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined
+  - https://github.com/urql-graphql/urql/issues/792
+
 ## tsconfig.tsbuildinfo
 
 - `--incremental`
@@ -338,6 +359,45 @@ function Button<T extends React.ElementType = "button">({
 
 ## namespace
 
+```ts
+export namespace A {
+  export const B = 1;
+}
+```
+
+**或**
+
+```ts
+export module A {
+  export const B = 1;
+}
+```
+
+**等同于**
+
+```js
+export var A;
+(function (A) {
+  A.B = 1;
+})(A || (A = {}));
+```
+
+> 1. Namespaces are a TypeScript-specific way to organize code.
+> 1. Namespaces are simply named JavaScript objects in the global namespace
+
+- Namespace
+  - 没有被 deprecated
+  - 另外的一种组织代码的方式
+  - 可以用来组织复杂的单文件
+  - 可以用来实现 singletone 的工具类
+- 推荐使用 module 而不是用 namespace
+  - module 依赖 module loader/runtime/cjs/esm - 现代环境都有
+  - ECMAScript 2015+ / ES6+
+- 指代 internal modules
+- TypeScript 1.5+
+  - `module X` = `namespace X`
+- https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html
+- https://www.typescriptlang.org/docs/handbook/namespaces.html
 - https://github.com/babel/babel/issues/8244
 - https://github.com/microsoft/TypeScript/issues/30994
 

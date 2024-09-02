@@ -19,6 +19,11 @@ tags:
   - [gallonyin/worktool](https://github.com/gallonyin/worktool)
     - Apache-2.0, Kotlin
     - Android 机器人
+- 媒体
+  - 图片（image）：10MB，支持JPG,PNG格式
+  - 语音（voice） ：2MB，播放长度不超过60s，仅支持AMR格式
+  - 视频（video） ：10MB，支持MP4格式
+  - 普通文件（file）：20MB
 
 :::tip
 
@@ -79,24 +84,6 @@ tags:
       - receiver_id 为 suite_id
   - 安装完成回调域名
     - 包含临时 auth_code，再用此 code 换取永久授权码
-
-| ID Prefix | stand for                  | demo                             |
-| --------- | -------------------------- | -------------------------------- |
-| oa        | union id                   |
-| ww        | CorpID/SuitID              | ww000000000000000a               |
-| wr        | wecom room id              | wrjc7bDwAASxc8tZvBErFE02BtPWyAAA |
-| wm        | external open/user id      | wmeDKaCQAAIQ_p7ACnxksfeBJSGocAAA |
-| wmV       | external member wechat     |
-| wrV       | external rootm id          |
-| wo        | 企业微信外部联系人 open id |
-| o         | openid                     |
-| tj        | suite id/早期套件          | tjddddccc7775555aaa              |
-| 1000000   | 自建 agent id              | 1000001                          |
-| 2000000   | 系统应用 agent id          | 2000004 会话归档                 |
-| 3000000   | 管理应用 agent id          | 3010084 日程                     |
-
-- https://developer.work.weixin.qq.com/document/path/95327
-  - 企业微信帐号 ID 安全性全面升级
 
 ## UserAgent
 

@@ -9,6 +9,9 @@ title: biome
   - linter, formatter
   - roma -> biome
 - 参考
+  - [支持的语言](https://biomejs.dev/internals/language-support/)
+    - 不支持格式化 HTML, CSS, Yaml, Markdown, GQL
+      - prettier 支持所有这些
   - https://biomejs.dev/blog/biome-wins-prettier-challenge/
   - IntellJ
     - [biomejs/biome-intellij](https://github.com/biomejs/biome-intellij)

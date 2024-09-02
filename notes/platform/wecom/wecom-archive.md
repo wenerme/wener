@@ -20,7 +20,6 @@ tags:
 
 :::
 
-
 :::tip
 
 - 通过 sequence 获取的数据是获取 sequence+1 而不会取到 sequence 这一条
@@ -35,6 +34,15 @@ tags:
 - 群聊
   - from 发送方, tolist 群内其他成员, roomid 非空
 - 图片 jpg, 语音 amr, 视频 mp4
+- 机器人与外部联系人的账号都是 external_userid ，其中机器人的external_userid是以"wb"开头
+  - 获取机器人信息 `GET /cgi-bin/msgaudit/get_robot_info?access_token&robot_id`
+    - data: robot_id, name, creator_userid
+  - https://developer.work.weixin.qq.com/document/path/91774#%E8%8E%B7%E5%8F%96%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BF%A1%E6%81%AF
+- 外部联系人的 external_userid 以"wo"或"wm"开头
+- msgid以 `_external` 结尾的消息，表明该消息是一条外部消息。msgid以 `_updown_stream` 结尾的消息，表明该消息是一条上下游消息。
+- roomid
+  - 可能为内部群
+  - 可能为外部群
 - mediadata
   - index 格式为 Range:bytes=524288-655711
   - dataLen 默认 524288, 512k
@@ -58,7 +66,6 @@ apt install gcc g++
 :::
 
 请检查是否先进行 base64decode 再进行 rsa 私钥解密，再进行 DecryptMsg 调用。
-
 
 ## Quote
 

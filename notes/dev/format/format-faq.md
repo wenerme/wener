@@ -31,3 +31,19 @@ tags:
     - 图像 -> 数据
   - 通常为二进制 - 信息结构严格
   - Codec 过程可能会有信息转换
+
+---
+
+- e.g.
+  - codec=opus, format=ogg,webm,mp4
+
+## audio/amr
+
+- 常用于电话录音、语音消息
+- 低比特率
+- chrome 不支持直接播放
+- https://github.com/BenzLeung/benz-amr-recorder
+- https://github.com/jpemartins/amr.js
+- https://github.com/malcolmyu/amr-js
+- https://github.com/alex374/amr-player
+- https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Audio_codecs

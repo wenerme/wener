@@ -188,7 +188,6 @@ curl https://1.1.1.1/cdn-cgi/trace
 - Proxyman
   - https://github.com/ProxymanApp/atlantis
 
-
 ## server
 
 > **Note** Server
@@ -203,7 +202,6 @@ curl https://1.1.1.1/cdn-cgi/trace
   - MPLv2, Go
 - [XTLS/REALITY](https://github.com/XTLS/REALITY)
 
-
 ## 配置
 
 - [xmdhs/clash2singbox](https://github.com/xmdhs/clash2singbox)
@@ -215,7 +213,6 @@ curl https://1.1.1.1/cdn-cgi/trace
 - https://clash2sfa-xmdhs.koyeb.app
 - https://github.com/chika0801/sing-box-examples
 - https://subconverters.com/
-
 
 ## Sniff/Introspection
 
@@ -423,8 +420,15 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 - Roblex AS22697
   - https://bgp.he.net/AS22697#_prefixes
-- https://github.com/FQrabbit/SSTap-Rule
-
+  - https://en.help.roblox.com/hc/en-us/articles/203312880-General-Connection-Problems
+    - UDP 49152 - 65535
+    - TCP: 3074
+    - UDP: 88, 500, 3074, 3544, 4500
+- Nintendo
+  - `t-00000000-lp1.lp1.t.npln.srv.nintendo.net`
+  - `baas.nintendo.net`
+- 参考
+  - https://github.com/FQrabbit/SSTap-Rule
 
 ## Limits
 

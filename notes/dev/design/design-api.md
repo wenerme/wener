@@ -513,6 +513,61 @@ const result = await prisma.user.findMany({
 - PaginatedResponse
 - PaginationInfo
 
+## Grouping and Aggregation
+
+- 大多需要分析场景的时候又会回到使用 DSL/SQL
+- 参考
+  - https://cube.dev/docs/reference/rest-api
+  - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html
+  - https://learn.microsoft.com/en-us/odata/client/grouping-and-aggregation
+
+**ES**
+
+```http
+GET /my-index-000001/_search
+```
+
+```json
+{
+  "size": 0,
+  "aggs": {
+    "my-agg-name": {
+      "terms": {
+        "field": "my-field"
+      },
+      "meta": {
+        "my-metadata-field": "foo"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "aggregations": {
+    "my-agg-name": {
+      "meta": {
+        "my-metadata-field": "foo"
+      },
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "foo",
+          "doc_count": 5,
+          "my-sub-agg-name": {
+            "value": 75.0
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+# FAQ
+
 ## Payload vs Input vs Data vs Object vs Output
 
 - Payload - 载荷

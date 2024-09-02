@@ -15,6 +15,7 @@ tags:
 | OOM    | Out of memory                          |
 | NPE    | Null Pointer Exception                 | 空指针异常       |
 | RTTI   | Runtime Type Information               |
+| CRUD   | Create, Read, Update, Delete           | 增删改查         |
 
 [raii]: https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization
 

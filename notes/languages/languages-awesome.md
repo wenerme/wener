@@ -6,6 +6,12 @@ tags:
 
 # Languages Awesome
 
+- 分类
+  - System Language
+  - Application Language
+  - Script Language
+  - DSL
+
 ## Playground
 
 > ODE - Online IDE

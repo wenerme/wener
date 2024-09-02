@@ -266,6 +266,12 @@ docker buildx ls
 multiple platforms feature is currently not supported for docker driver. Please switch to a different driver (eg. "docker buildx create --use")
 ```
 
+```
+Multi-platform build is not supported for the docker driver
+```
+
 ```bash
 docker buildx create --name multiarch-builder --driver docker-container --use
+
+docker buildx ls
 ```

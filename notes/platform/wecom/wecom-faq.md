@@ -33,36 +33,40 @@ tags:
   - 2000000 - 系统应用
   - 3000000 - 内置应用
 
-| AgentID | for                | API                                        |
-| ------- | ------------------ | ------------------------------------------ |
-| 2000003 | 客户联系           |
-| 2000004 | 会话内容存档       | financial,[会话内容存档/API]               |
-| 3010168 | 上下游             | 密钥,事件接收                              |
-| 3010011 | 打卡               |
-| 3010040 | 审批               | 密钥,事件接收,[审批/API]                   |
-| 3010041 | 汇报               |
-| 3010097 | 直播               | [直播/API]                                 |
-| 3010115 | 对外收款           | 密钥,事件接收,[对外收款/API]               |
-| 3010185 | 人事助手           |
-|         | 公费电话           | [公费电话/API]                             |
-|         | 微信客服           | 密钥,事件接收,[微信客服/API]               |
-|         | 企业微信服务商助手 |
-|         | 会议室             |
-|         | 学习园地           |
-|         | 公告               |
-|         | 健康上报           |
-|         | 同事吧             |
-|         | 行业资讯           |
-|         | 投屏               |
-|         | 测温               |
-|         | 打印               |
-|         | 网络               |
-|         | 门禁               |
-|         | 通讯录同步         | contactsApi,密钥,事件接收,[通讯录管理/API] |
-|         | 员工服务           | intelligentServicer                        |
-|         | 奖励               | fuli                                       |
-|         | 一周小结           | weeklySummary                              |
-|         | 素材库             | material                                   |
+| AgentID | for                 | API                                        |
+| ------- | ------------------- | ------------------------------------------ |
+| 2000002 | 通讯录同步          |
+| 2000003 | 客户联系/外部联系人 | Contact Customers                          |
+| 2000004 | 会话内容存档        | financial,[会话内容存档/API]               |
+| 2000005 | groupSharedApps     |
+|         | 安全管理            |
+|         | 数据同步            |
+| 3010168 | 上下游              | 密钥,事件接收                              |
+| 3010011 | 打卡                |
+| 3010040 | 审批                | 密钥,事件接收,[审批/API]                   |
+| 3010041 | 汇报                |
+| 3010097 | 直播                | [直播/API]                                 |
+| 3010115 | 对外收款            | 密钥,事件接收,[对外收款/API]               |
+| 3010185 | 人事助手            |
+|         | 公费电话            | [公费电话/API]                             |
+|         | 微信客服            | 密钥,事件接收,[微信客服/API]               |
+|         | 企业微信服务商助手  |
+|         | 会议室              |
+|         | 学习园地            |
+|         | 公告                |
+|         | 健康上报            |
+|         | 同事吧              |
+|         | 行业资讯            |
+|         | 投屏                |
+|         | 测温                |
+|         | 打印                |
+|         | 网络                |
+|         | 门禁                |
+|         | 通讯录同步          | contactsApi,密钥,事件接收,[通讯录管理/API] |
+|         | 员工服务            | intelligentServicer                        |
+|         | 奖励                | fuli                                       |
+|         | 一周小结            | weeklySummary                              |
+|         | 素材库              | material                                   |
 
 [会话内容存档/API]: https://developer.work.weixin.qq.com/document/path/91360
 [直播/API]: https://developer.work.weixin.qq.com/document/path/93633
@@ -71,3 +75,17 @@ tags:
 [对外收款/API]: https://open.work.weixin.qq.com/api/doc/24952
 [审批/API]: https://work.weixin.qq.com/api/doc/17893
 [通讯录管理/API]: https://developer.work.weixin.qq.com/document/path/90193
+
+## 群聊
+
+- 消息归档应用 /cgi-bin/msgaudit/groupchat/get
+
+```
+only support inner room
+```
+
+- 外部联系人应用 /cgi-bin/externalcontact/groupchat/get
+
+```
+chat is not external group chat
+```

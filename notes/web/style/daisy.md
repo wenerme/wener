@@ -32,8 +32,8 @@ title: daisy
 <div data-theme="cupcake"></html>
 ```
 
-| btn-size | height        | diff     |
-| -------- | ------------- | -------- |
+| btn-size | height        | diff     | padding       |
+| -------- | ------------- | -------- | ------------- |
 | btn-xs   | 24px, 1.5rem  |
 | btn-sm   | 32px, 2rem    | +0.5rem  |
 | btn-md   | 48px, 3rem    | +1rem    |
@@ -42,6 +42,10 @@ title: daisy
 | badge-sm | 16px, 1rem    | +0.25rem |
 | badge-md | 20px, 1.25rem |
 | badge-lg | 24px, 1.5rem  |
+| menu-xs  | 24px          |          | .25rem .5rem  |
+| menu-sm  | 28px          |          | .25rem .75rem |
+| menu-md  | 36px          |          | .50rem 1rem   |
+| menu-lg  | 52px          |          | .75rem 1.5rem |
 
 | var              | for                                |
 | ---------------- | ---------------------------------- |

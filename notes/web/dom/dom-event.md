@@ -6,9 +6,9 @@ tags:
 # DOM Event
 
 - Phase - eventPhase
-  - Capturing
-  - At target
-  - Bubbling
+  - Event.CAPTURING_PHASE - 1 - 捕获
+  - Event.AT_TARGET - 2 - 目标
+  - Event.BUBBLING_PHASE - 3 - 冒泡
 - 不冒泡事件
   - mouseeneter
   - mouseleave
@@ -36,6 +36,9 @@ tags:
     - 包含 scroll 的坐标
 - window.event
   - 当前事件
+- react 的 focus & blur 会 bubble
+  - 因此实际应该类似 onFocus -> onFocusIn, onBlur -> onFocusOut
+  - [facebook/react#6410](https://github.com/facebook/react/issues/6410#issuecomment-207064994)
 
 ```ts
 // if (e.pageX || pageY) -> MouseEvent
@@ -141,11 +144,6 @@ interface MouseEvent extends CommonEvent {
 ```
 
 ---
-
-- react 的 focus & blur 会 bubble
-  - 因此实际应该类似 onFocus -> onFocusIn, onBlur -> onFocusOut
-- 参考
-  - https://github.com/facebook/react/issues/6410#issuecomment-207064994
 
 ## onClick vs onFocus
 

@@ -276,7 +276,7 @@ tags:
   - ~~[beego/wetalk](https://github.com/beego/wetalk)~~
   - [apache/incubator-answer](https://github.com/apache/incubator-answer)
     - Apache-2.0, Golang, Typescript
-- knowledge management/Note taking/Notebook/markdown editor/CMS
+- knowledge management/Note taking/Notebook/markdown editor/CMS/gist
   - vscode
   - [freeplane](https://github.com/freeplane/freeplane)
     - GPLv2, Java
@@ -295,6 +295,9 @@ tags:
     - 基于 [toeverything/blocksuite](https://github.com/toeverything/blocksuite)
   - [usememos/memos](https://github.com/usememos/memos)
     - MIT, Go, TS
+  - [laurent22/joplin](https://github.com/laurent22/joplin)
+    - AGPLv3, TS
+    - 替代 Evernote
   - obsidian
     - 存储为 markdown
     - 闭源
@@ -376,13 +379,30 @@ tags:
   - https://placehold.co/
     - https://placehold.co/600x400/png
   - https://picsum.photos/2000/2000
-- photo
-  - [pulsejet/memories](https://github.com/pulsejet/memories)
-    - AGPLv3, PHP, Vue
-    - Nextcloud app
+- photo/相册/gallery/照片同步
+  - [meichthys/foss_photo_libraries](https://github.com/meichthys/foss_photo_libraries)
   - [ente-io/ente](https://github.com/ente-io/ente)
     - AGPLv3, Dart, TS, Go
     - End to End Encrypted alternative to Google Photos and Apple Photos
+  - [photoprism/photoprism](https://github.com/photoprism/photoprism)
+    - AGPL, Golang
+    - 不挪动照片位置、机器学习人脸识别
+    - 2 核 4G，MariaDB 10, MySQL 8, SQLite 3
+  - [alextran1502/immich](https://github.com/alextran1502/immich)
+    - AGPLv3, TS, Dart
+    - photo and video backup solution directly from your mobile phone
+  - [gilesknap/gphotos-sync](https://github.com/gilesknap/gphotos-sync)
+    - Apache-2.0, Python
+    - 基于 Google Photos Library API 备份照片
+  - [pulsejet/memories](https://github.com/pulsejet/memories)
+    - AGPLv3, PHP, Vue
+    - Nextcloud app
+  - [Piwigo/Piwigo](https://github.com/Piwigo/Piwigo)
+    - GPL, PHP
+  - ~~[perkeep/gphotos-cdp](https://github.com/perkeep/gphotos-cdp)~~
+    - Apache-2.0, Go
+    - 基于 Chrome DevTools Protocol, 下载 Google Photos.
+  - Nextcloud
 - design/graphic
   - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
     - MIT, TS

@@ -853,6 +853,13 @@ tags:
   - [gridstack/gridstack.js](https://github.com/gridstack/gridstack.js)
     - MIT, TS
     - Build interactive dashboards
+- shell/script
+  - [sindresorhus/execa](https://github.com/sindresorhus/execa)
+    - MIT, JS+TS
+  - [shelljs/shelljs](https://github.com/shelljs/shelljs)
+    - BSD-3, JS
+    - Portable Unix shell commands for Node.js
+  - [google/zx](https://github.com/google/zx)
 - [xyflow/xyflow](https://github.com/xyflow/xyflow)
 
 ---

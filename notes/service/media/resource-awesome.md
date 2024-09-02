@@ -108,10 +108,11 @@ https://torrentapi.org/pubapi_v2.php?mode=search&search_string=riverdale&token=l
 
 ## 字幕
 
-- opensubtitles.com
+- https://opensubtitles.com
 - http://www.ddzimu.com/
 - [subhd.tv](https://subhd.tv/)
 - https://assrt.net/
+- https://github.com/ChineseSubFinder/ChineseSubFinder
 
 ## Tools
 

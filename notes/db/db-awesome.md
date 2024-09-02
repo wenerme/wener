@@ -301,14 +301,52 @@ curl --request POST \
 
 > Vector -> `number[]`
 
-:::tip
+:::tip 常见模型的向量维度
 
-- [ClickHouse#35101](https://github.com/ClickHouse/ClickHouse/issues/35101)
-  Indexed Vector Similarity and kNN Search
+- OpenAI text-embedding-3-large 3072 dims
+- mistral-derivative 4096 dims
+- https://huggingface.co/spaces/mteb/leaderboard
 
 :::
 
-- pg_vector
+
+- [pgvector/pgvector](https://github.com/pgvector/pgvector)
+  - PostgreSQL/MIT, C
+  - since 2021-07
+  - PG extension: vector
+  - 比 pgvecto.rs 更成熟, 使用面更广泛, 最近开发没有 pgvecto.rs 活跃, 功能特性更少
+  - 适合目前已有环境，能够很方便直接使用，对 vector 要求不高的场景，避免单独部署 DB 直接利用现有 PG
+  - 特性
+    - 2000 dim
+    - 使用 PG 管理索引存储
+  - HNSW_MAX_DIM = IVFFLAT_MAX_DIM = 2000
+    - [pgvector#461](https://github.com/pgvector/pgvector/issues/461) Increase max vectors dimension limit for index
+      - PG 默认 8KB Page, 不可调整, 限制了 1page 能存放的 float32
+  - Supabase PostgreSQL Image 包含了 pgvector
+- [tensorchord/pgvecto.rs](https://github.com/tensorchord/pgvecto.rs)
+  - Apache-2.0, Rust
+  - since 2023-05
+  - PG extension: vectors
+  - 适合需要更高性能，更多功能，更大维度的场景，可以针对 vector 需求单独部署一个 DB
+  - docker [tensorchord/pgvecto-rs:pg16-v0.2.1](https://hub.docker.com/r/tensorchord/pgvecto-rs)
+  - 不是 TLE / trusted extension
+    - AWS 不支持
+    - Supabase 的 PG 镜像未包含
+      - [supabase/postgres#895](https://github.com/supabase/postgres/issues/895) support pgvecto.rs extension
+  - vs [pgvector](https://docs.pgvecto.rs/faqs/comparison-pgvector.html)
+    - by pgvecto.rs
+    - 功能更丰富
+    - 支持 sparse vector
+    - 65535 dim
+    - 支持 FP16, INT8
+    - 独立的索引管理
+    - 更好的 filtering 支持
+    - https://blog.pgvecto.rs/pgvector-vs-pgvectors-in-2024-a-comprehensive-comparison-for-vector-search-in-postgresql
+  - [immich-app/immich#5830](https://github.com/immich-app/immich/discussions/5830) Why Pgvecto.rs over pgvector?
+    - filtering 结果更准确
+    - 索引更快
+    - 插入更快
+    - 功能更多 - quantization, VBASE
 - [qdrant/qdrant](https://github.com/qdrant/qdrant)
   - Apache-2.0, Rust
 - [milvus-io/milvus](https://github.com/milvus-io/milvus)

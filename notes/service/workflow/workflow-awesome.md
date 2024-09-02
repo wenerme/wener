@@ -2,23 +2,46 @@
 title: Workflow Awesome
 tags:
   - Awesome
+keywords:
+  - scheduler
+  - automation
+  - orchestration
+  - operations
+  - low-code
 ---
 
 # Workflow Awesome
 
-## Spec
+- 功能维度
+  - BPMS - 业务为中心，强调自定义流程，业务流程管理系统
+  - Orchestration
+    - 编排，强调任务的顺序和依赖关系
+    - 强调基础设施能力
+    - Durable Functions
+  - Workflow Automation
+    - 事件驱动，强调事件的触发和处理
+  - Low-code workflow automation
+    - 低代码，强调用户友好
+    - 大多情况是 Event Driven/Webhook
+    - 强调自定义编排
+    - 大多情况是对接各种 API
+  - Data Pipelines
+    - 围绕数据的批处理
+    - 通常有很多 connector
+  - Stream Processing
+    - 实时数据处理
+  - Machine Learning Workflow
+    - 机器学习的工作流
+- 基础设施
+  - 执行调度 - Kubernetes, ML Ops, KEDA
+  - 事件触发 - Webhook, Kafka, NATS, HTTP, KEDA
+  - Workflow 调度 - Argo, Temporal, Cadence, Durables Functions
+  - Job Queue - RabbitMQ, Redis, PG
+  - Message Queue - Kafka, NATS
+  - Storage - S3, Minio, PG
+  - Stream - Kafka, Flink, Hazelcast Jet, NATS
 
-- BPMS
-- [serverlessworkflow](https://github.com/serverlessworkflow/specification)
-- IDEF0 - Integration Definition for Process Modelling
-  - wikipedia [IDEF0](https://en.wikipedia.org/wiki/IDEF0)
-  - Visio [Create IDEF0 diagrams](https://support.microsoft.com/en-us/office/create-idef0-diagrams-ea7a9289-96e0-4df8-bb26-a62ea86417fc)
-- BPEL - Business Process Execution Language
-- DFD - Data Flow Diagram
-- Process - Stage - Activity - Participant
-- [Workflow engine](https://en.wikipedia.org/wiki/Workflow_engine)
-
-## Awesomes
+---
 
 - BPMS
   - Camunda BPM
@@ -33,52 +56,76 @@ tags:
   - [temporalio/temporal](https://github.com/temporalio/temporal)
     - cadence fork - 2020-10
   - [uber/cadence](https://github.com/uber/cadence)
-- Task Queue
+    - by Uber
+  - [conductor](./conductor.md)
+    - Apache-2.0, Java, gRPC
+    - from Netflix
+- Task Queue/Job Scheduler
   - [hatchet-dev/hatchet](./hatchet.md)
     - MIT, Go, TS
   - [inngest/inngest](https://github.com/inngest/inngest)
     - SSPL, Go, TS
-    -  scalable, low-latency, event-driven durable execution platform
-- [node-red/node-red](https://github.com/node-red/node-red)
-  - Apache-2.0, Javascript
-- [n8n-io/n8n](https://github.com/n8n-io/n8n)
-  - [faircode](http://faircode.io/), Typescript
-- [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)
-  - Apache-2.0, Golang
-  - Workflow engine for Kubernetes
-- [activepieces/activepieces](https://github.com/activepieces/activepieces)
-  - MIT, Typescript
-  - no-code workflow builder
-- [PipedreamHQ/pipedream](github.com/PipedreamHQ/pipedream)
-  - SALv1, JS, TS
+    - scalable, low-latency, event-driven durable execution platform
+  - [xuxueli/xxl-job](https://github.com/xuxueli/xxl-job)
+    - GPLv3, Java
+    - 分布式任务调度平台
+- Event Driven/Low-code/workflow automation/API Orchestration
+  - [brigadecore/brigade](https://github.com/brigadecore/brigade)
+    - Apache-2.0, Go
+    - scripting for Kubernetes
+    - ⚠️ 停止开发
+  - [node-red/node-red](https://github.com/node-red/node-red)
+    - Apache-2.0, Javascript
+  - [n8n-io/n8n](https://github.com/n8n-io/n8n)
+    - [faircode](http://faircode.io/), Typescript
+  - [argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)
+    - Apache-2.0, Golang
+    - Workflow engine for Kubernetes
+  - [activepieces/activepieces](https://github.com/activepieces/activepieces)
+    - MIT, Typescript
+    - no-code workflow builder
+  - [PipedreamHQ/pipedream](https://github.com/PipedreamHQ/pipedream)
+    - SALv1, JS, TS
+  - [StackStorm/st2](https://github.com/StackStorm/st2)
+    - Apache-2.0, Python
+    - IFTTT for Ops
+  - [rundeck/rundeck](https://github.com/rundeck/rundeck)
+    - Apache-2.0, Groovy, Java
+  - ~~[muesli/beehive](https://github.com/muesli/beehive)~~
+    - AGPL-3.0, Go
+    - event/agent & automation system
+- data pipelines/batch processing
+  - [spotify/luigi](https://github.com/spotify/luigi)
+    - Apache-2.0, Python
+  - airflow
+  - flink
+  - [rudderlabs/rudder-server](https://github.com/rudderlabs/rudder-server)
+    - ELv2, Golang
+    - Privacy and Security focused Segment-alternative, in Golang and React
+  - [PrefectHQ/prefect](https://github.com/PrefectHQ/prefect)
+    - Apache-2.0, Python
+    - orchestrator for data-intensive workflows
+  - ~~[multiprocessio/datastation](https://github.com/multiprocessio/datastation)~~
+  - Segment
+- Serverless/Workflow
+  - [windmill-labs/windmill](./windmill.md)
+    - AGPLv3, Rust, Svelte
+    - scripts into workflows and UIs
+    - alternative to Airplane, Retool
+  - Airplane
+  - Retool
 - Huginn
   - Python
 - [enso-org/enso](https://github.com/enso-org/enso)
   - Apache-2.0, Scala
-- [muesli/beehive](https://github.com/muesli/beehive)
-  event/agent & automation system
-  - AGPL-3.0, Go
-- [PrefectHQ/prefect](https://github.com/PrefectHQ/prefect)
-  - Apache-2.0, Python
-  - orchestrator for data-intensive workflows
+  - Hybrid visual and textual functional programming.
 - rundeck
   - http://rundeck.org/
-- [StackStorm/st2](https://github.com/StackStorm/st2)
-  - Apache-2.0, Python
-  - IFTTT for Ops
 - [nextflow-io/nextflow](https://github.com/nextflow-io/nextflow)
   - Apache-2.0, Groovy
-- [runabol/piper](https://github.com/runabol/piper)
+- ~~[runabol/piper](https://github.com/runabol/piper)~~
   - Apache-2.0, Java
-- Event Driven
-  - [brigadecore/brigade](https://github.com/brigadecore/brigade)
-    - Apache-2.0, Go
-    - scripting for Kubernetes
-    - 停止开发
-- [windmill-labs/windmill](./windmill.md)
-  - AGPLv3, Rust, Svelte
-  - scripts into workflows and UIs
-  - alternative to Airplane, Retool
+  - distributed workflow engine
 
 ---
 
@@ -89,11 +136,14 @@ tags:
     - light weight forward chaining rule engine
   - [oliverzy/process-engine.js](https://github.com/oliverzy/process-engine.js)
 
-## Data Pipeline
+## Spec
 
-- [prefecthq/prefect](https://github.com/prefecthq/prefect)
-  - Apache 2.0, Python
-  - 数据处理
-- [multiprocessio/datastation](https://github.com/multiprocessio/datastation)
-- rudder stack
-- luige
+- BPMS
+- [serverlessworkflow](https://github.com/serverlessworkflow/specification)
+- IDEF0 - Integration Definition for Process Modelling
+  - wikipedia [IDEF0](https://en.wikipedia.org/wiki/IDEF0)
+  - Visio [Create IDEF0 diagrams](https://support.microsoft.com/en-us/office/create-idef0-diagrams-ea7a9289-96e0-4df8-bb26-a62ea86417fc)
+- BPEL - Business Process Execution Language
+- DFD - Data Flow Diagram
+- Process - Stage - Activity - Participant
+- [Workflow engine](https://en.wikipedia.org/wiki/Workflow_engine)

@@ -222,6 +222,7 @@ create table tpl_res
   - 系统表
     - 只有基础字段 - id、sid、tid、uid
 
+
 ## current_tenant_id
 
 ```sql

@@ -35,6 +35,11 @@ npm add @remix-run/node @remix-run/react @remix-run/serve
 npm add -D @remix-run/dev
 
 npx create-remix@latest
+
+
+npx @remix-run/dev routes --config vite.remix.config.ts
+# 只想用 remix 的 filebase routing 结构
+pnpm dlx @remix-run/dev routes --config vite.remix.config.ts --json
 ```
 
 ## routes
@@ -96,6 +101,10 @@ export default function Projects() {
 - https://remix.run/docs/en/main/discussion/routes
 - https://remix.run/docs/en/main/file-conventions/routes
 - https://interactive-remix-routing-v2.netlify.app/
+- [kiliman/remix-flat-routes](https://github.com/kiliman/remix-flat-routes)
+  - v1 的 routing 结构
+  - [kiliman/remix-flat-routes#39](https://github.com/kiliman/remix-flat-routes/discussions/39) Deprecate remix-flat-routes in favor of remix-hybrid-routes
+- v1 和 v2 的 routing 有很大的不同
 
 ## remix.config.js
 
