@@ -6,6 +6,7 @@ title: KeyDB
 
 - [KeyDB](https://github.com/Snapchat/KeyDB)
   - BSD-3, C++,C
+  - ⚠️ 开发缓慢
   - 多线程 Redis - IO 多线程，事务单线程
   - ModJS - 可以通过 V8 扩展
   - 同步 redis 源码 - 版本匹配

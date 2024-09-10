@@ -98,6 +98,11 @@ export default function Projects() {
 
 **参考**
 
+- app/routes.ts
+  - `import { type RoutesConfig, route, layout, index } from "@react-router/dev/routes";`
+  - [brookslybrand/route-convention-evolution](https://github.com/brookslybrand/route-convention-evolution)
+    - Add support for routes.ts [remix-run/react-router#11773](https://github.com/remix-run/react-router/pull/11773)
+    - @react-router/dev
 - https://remix.run/docs/en/main/discussion/routes
 - https://remix.run/docs/en/main/file-conventions/routes
 - https://interactive-remix-routing-v2.netlify.app/

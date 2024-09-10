@@ -68,6 +68,26 @@ tags:
   - [redotvideo/revideo](https://github.com/redotvideo/revideo)
   - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
 
+## Collaborative
+
+- 主要功能
+  - Text Editor / CRDT
+  - Comment
+  - Presence
+  - Room
+
+---
+
+- yjs
+- automerge
+- [partykit/partykit](https://github.com/partykit/partykit)
+  - MIT, TS
+  - simplifies developing multiplayer applications
+  - hosting platform for globally distributed, stateful, on-demand, programmable web servers
+- [liveblocks/liveblocks](https://github.com/liveblocks/liveblocks)
+  - Apache-2.0, TS
+  - 只是客户端，不能 SelfHost [#682](https://github.com/liveblocks/liveblocks/issues/682)
+
 ## Image Editor
 
 - [steffest/DPaint-js](https://github.com/steffest/DPaint-js)

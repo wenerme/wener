@@ -6,6 +6,12 @@ title: Lens
 
 - [lensapp/lens](https://github.com/lensapp/lens)
   - 2024-01-23 闭源 https://github.com/lensapp/lens/commit/e1fc8869a9e0033fb22665a990e07a6b72756630
+    - 替代
+      - k9s
+      - kdash
+      - [headlamp](https://github.com/headlamp-k8s/headlamp)
+      - seabird
+      - [kubenav/kubenav](https://github.com/kubenav/kubenav)
   - Lens - The Kubernetes IDE
   - by Mirantis
 - [MuhammedKalkan/OpenLens](https://github.com/MuhammedKalkan/OpenLens)

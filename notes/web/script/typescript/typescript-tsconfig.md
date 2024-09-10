@@ -14,6 +14,7 @@ typescript 配置文件。
   - [tsconfig.json.schema](http://json.schemastore.org/tsconfig)
   - [reference](https://www.typescriptlang.org/tsconfig)
   - [tsconfig/bases](https://github.com/tsconfig/bases) 配置推荐
+  - https://esbuild.github.io/content-types/#tsconfig-json
 
 ```bash
 # 使用自定义的配置文件
@@ -124,7 +125,6 @@ tsc --p tsconfig.page.json
 }
 ```
 
-
 ## moduleResolution
 
 - ~~classic~~
@@ -138,6 +138,16 @@ tsc --p tsconfig.page.json
   - 支持 package.json 的 imports, exports
     - imports 可以做到类似 paths 的效果
 
+## bundle
+
+- experimentalDecorators
+- emitDecoratorMetadata
+  - 大多情况不支持
+- target, useDefineForClassFields
+- baseUrl, paths
+- jsx, jsxFactory, jsxFragmentFactory, jsxImportSource
+- alwaysStrict, strict
+- verbatimModuleSyntax, ~~importsNotUsedAsValues~~, ~~preserveValueImports~~
 
 ## 参考配置
 

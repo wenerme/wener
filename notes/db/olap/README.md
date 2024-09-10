@@ -1,5 +1,4 @@
 ---
-id: olap
 title: OLAP
 ---
 

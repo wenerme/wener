@@ -20,6 +20,9 @@ tags:
 - queueName vs jobName
   - Worker 使用 queue 来区分
   - job 包含 jobName - 不能用来分流给 Worker，但可以让 Worker 处理多种 job
+    - 如果希望细粒度分流可以考虑创建多个 Queue，例如 `Email:Send`, `Email:Receive`
+    - pro 支持 group 概念
+    - https://docs.bullmq.io/patterns/named-processor
 - 去重机制
   - debounce - 会生成 debounced 事件
   - jobId - 会生成 duplicated 事件
@@ -64,6 +67,14 @@ queueEvents.on('failed', ({ jobId, failedReason }: { jobId: string; failedReason
 
 ## Notes
 
+```ts
+export type FinishedStatus = 'completed' | 'failed';
+export type JobState = FinishedStatus | 'active' | 'delayed' | 'prioritized' | 'waiting' | 'waiting-children';
+export type JobType = JobState | 'paused' | 'repeat' | 'wait';
+```
+
+- QueueEvents
+  - `XREAD BLOCK 10000 STREAMS $key $lastEventId`
 - 处理中可以 job.moveToDelayed 然后 throw DelayedError
   - 让 job 进入等待状态
 - 处理中可以 job.moveToWaitingChildren 然后 throw WaitingChildrenError
@@ -106,6 +117,91 @@ queueEvents.on('failed', ({ jobId, failedReason }: { jobId: string; failedReason
   "queueQualifiedName": "bull:WecomArchive"
 }
 ```
+
+## Lifecycle
+
+- priority 0 - 2^21
+  - 0 最高
+- Worker Pickup - prioritized > wait
+  - pickup 后变为 active
+
+```mermaid
+---
+title: Lifecycle of a Job - Queue
+---
+
+stateDiagram-v2
+
+state fork_state <<fork>>
+    [*] --> fork_state: added
+    fork_state --> wait
+    fork_state --> delayed: delay > 0
+    fork_state --> prioritized: priority > 0
+
+    wait --> wait: rate limit
+    wait --> active
+
+
+    active --> wait: dyanmic rate limit <br/> error retry
+    active --> delayed: error & backoff
+    active --> prioritized: rate limit & priority > 0
+    active --> failed: 失败
+    active --> completed: 成功
+
+    prioritized --> active
+    delayed --> prioritized: priority > 0
+    delayed --> wait
+
+state join_state <<join>>
+    failed --> join_state
+    completed --> join_state
+    join_state --> [*]
+```
+
+```mermaid---
+title: Lifecycle of a Job - Flow Producer
+---
+
+stateDiagram-v2
+
+state added <<fork>>
+    [*] --> added: added
+
+    state no_children <<fork>>
+        added --> no_children: 无 children
+        no_children --> delayed: delay > 0
+        no_children --> prioritized: priority > 0
+
+    waiting_children: waiting-children
+    added --> waiting_children: 有 chdilren
+
+
+    waiting_children --> wait: children completed
+    waiting_children --> delayed: delay > 0
+    waiting_children --> prioritized: priority > 0
+    waiting_children --> failed: child fail & failParentOnFailure
+
+    wait --> wait: rate limit
+    wait --> active
+
+    active --> wait: dyanmic rate limit <br/> error retry
+    active --> delayed: error & backoff
+    active --> prioritized: rate limit & priority > 0
+    active --> failed: 失败
+    active --> completed: 成功
+
+    prioritized --> active
+    delayed --> prioritized: priority > 0
+    delayed --> wait
+
+state finished <<join>>
+    failed --> finished
+    completed --> finished
+    finished --> [*]: finished
+```
+
+- 参考
+  - https://docs.bullmq.io/guide/architecture
 
 # FAQ
 

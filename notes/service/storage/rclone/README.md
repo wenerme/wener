@@ -15,6 +15,11 @@ title: rclone
     - `mc mirror --watch --overwrite --remove`
   - 可以用 mount
 - 不支持 fs 属性同步 [#1202](https://github.com/rclone/rclone/issues/1202)
+  - ACL 信息
+  - `getfacl -R / >permissions.facl;setfacl --restore=permissions.facl`
+  - `--metadata`
+  - `--metadata-mapper`
+  - `--refresh-times`
 
 :::
 

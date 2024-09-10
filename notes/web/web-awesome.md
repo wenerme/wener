@@ -307,10 +307,6 @@ tags:
     - 支持模拟 Linux
   - https://simone.computer/
   - https://github.com/syxanash/awesome-web-desktops
-- [BrowserBox/BrowserBox](https://github.com/BrowserBox/BrowserBox)
-  - AGPLv3, JS
-  - 在服务端运行 浏览器，嵌入 iframe
-  - RBI - remote browser isolation
 - https://copy.sh/v86/
 
 ## Reference

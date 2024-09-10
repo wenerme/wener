@@ -16,8 +16,13 @@ title: bun
 
 :::caution
 
+- bun:ffi 能力是独一无二的
+  - 可以为了 ffi 而使用 bun
 - bun 目前还不适用于通用的生产环境
   - 相对来说，bun 更适用于前端项目而不是后端项目，因为 后端 项目通常需要更多的 node 兼容模块
+- bun 非常不建议直接用于后端
+  - 可能会遇到各式各样无法修复的错误
+  - 库的开发者一般也不会针对 bun 测试
 - musl 支持
   - [#918](https://github.com/oven-sh/bun/issues/918)
   - [#255](https://github.com/oven-sh/bun/issues/255)
@@ -142,6 +147,12 @@ import { random } from './random.ts' with { type: 'macro' };
 ```bash
 # 90MB+
 bun build --compile ./src/main.ts --outfile myapp --external={pg-query-stream,better-sqlite3,tedious,oracledb,mysql2,sqlite3,mysql} --external=@mikro-orm/{migrations,entity-generator,better-sqlite,sqlite,mariadb,mysql,mongodb,seeder}
+```
+
+## debug
+
+```bash
+bun --inspect server.ts
 ```
 
 # FAQ

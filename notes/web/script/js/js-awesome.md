@@ -24,6 +24,9 @@ tags:
   - DOM Window.postMessage - 跨 origin、多窗口、iframe
   - EventEmitter
     - npm:events
+  - [sindresorhus/emittery](https://github.com/sindresorhus/emittery)
+    - 支持 async, generator
+    - 🌟 推荐 - 更加现代
   - [primus/eventemitter3](https://github.com/primus/eventemitter3)
     - 移除 Domain 支持
   - [Morglod/tseep](https://github.com/Morglod/tseep)
@@ -44,7 +47,7 @@ tags:
     - EventEmitter 同 `node:events`
   - tiny-emitter
   - ~~[tunnckoCoreLabs/dush](https://github.com/tunnckoCoreLabs/dush)~~
-  - [eventemitter2 vs eventemitter3 vs events vs mitt vs tiny-emitter](https://npmtrends.com/eventemitter2-vs-eventemitter3-vs-events-vs-mitt-vs-tiny-emitter)
+  - [emittery vs eventemitter2 vs eventemitter3 vs events vs mitt vs tiny-emitter](https://npmtrends.com/emittery-vs-eventemitter2-vs-eventemitter3-vs-events-vs-mitt-vs-tiny-emitter)
 - DOM
   - [google/incremental-dom](https://github.com/google/incremental-dom)
     - in-place DOM diffing

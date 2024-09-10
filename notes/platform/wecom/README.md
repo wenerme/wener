@@ -110,41 +110,6 @@ https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?
   code=CODE
 ```
 
-## 会话存档
-
-> **Note**
->
-> 1. 会话存档保存 **5** 天
-> 1. 从 Sequence+1 拉取，不包含 Sequence
-> 1. limit 最大 1000
-> 1. 图片 jpg, 音频 amr, 视频 mp4
-> 1. MediaData 的 MD5 可能匹配不上，可以一直重试
-> 1. MediaData 单次最多返回 512K
-
-- libWeWorkFinanceSdk_C.so
-  - 依赖 GLIBC
-  - 使用了 libcurl
-    - https_proxy 能生效
-- 实际请求 qyapi.weixin.qq.com
-- RSA2048 key
-  - `openssl genrsa -out private.pem 2048`
-  - `openssl rsa -in private.pem -pubout -out public.pem`
-- 参考
-  - https://developer.work.weixin.qq.com/document/path/91774
-
----
-
-获取 wr 和 wm 信息
-
-- 内部群 - inner room
-  - POST /cgi-bin/msgaudit/groupchat/get `{"roomid":""}`
-  - 会话存档 Secret 可调用
-- 外部客户群 - external contact group
-  - POST /cgi-bin/externalcontact/groupchat/get `{"chat_id":""}`
-- 外部客户群列表
-  - POST /cgi-bin/externalcontact/groupchat/list
-- **注意** 有的群是无法取到信息的，由微信拉起的群
-
 # FAQ
 
 ## redirect_uri 与配置的授权完成回调域名不一致

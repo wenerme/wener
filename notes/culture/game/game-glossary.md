@@ -107,7 +107,7 @@ https://zh.wikipedia.org/wiki/baccarat
 | Diamond | 方块 ♦️ |
 | Suit    | 花色    |
 
-- 负数表示 花色牌的总称
+> 复数表示 花色牌的总称, e.g. Hearts, Spades, Clubs, Diamonds
 
 | en                       | for                           |
 | ------------------------ | ----------------------------- |
@@ -119,17 +119,24 @@ https://zh.wikipedia.org/wiki/baccarat
 | Queen                    | Q, 王后                       |
 | King                     | K, 国王                       |
 | Ace                      | A, A牌                        |
-| Joker                    |
+| Joker                    | 百搭牌, 小王, 大王            |
 | Black/Little Joker       | 小王                          |
 | Red/Big Joker            | 大王                          |
 | Wild Card                | 百搭牌, 替用牌                |
 
-| en          | cn     |
-| ----------- | ------ |
-| Gambling    | 赌博   |
-| Whac-A-Mole | 打地鼠 |
-| Reckon      | 结算   |
-| Jetton      | 筹码   |
+| en                        | cn                       |
+| ------------------------- | ------------------------ |
+| Gambling                  | 赌博                     |
+| Whac-A-Mole               | 打地鼠                   |
+| Reckon                    | 结算                     |
+| Jetton                    | 筹码                     |
+| Betting Odds              | 赔率                     |
+| Betting Market            | 投注市场,盘口市场        |
+| Electronic Betting Market | 电子盘口                 |
+| Bet                       | 押注, 投注, 下注         |
+| Betting Slip              | 投注单                   |
+| Betting Limit             | 投注限额, 限红, 赌注限制 |
+| Wagering limit            | 投注限制, 下注限制       |
 
 ## Casino
 

@@ -157,7 +157,7 @@ tags:
   - ~~[lens](./app/lens.md)~~ -> openlens
     - 2024-01-23 闭源
     - by Mirantis
-  - [healmap](./app/healmap.md)
+  - [headlamp](./app/headlamp.md)
     - Apache-2.0, Golang, TS
   - [getseabird/seabird](https://github.com/getseabird/seabird)
     - MPL-2.0, Golang

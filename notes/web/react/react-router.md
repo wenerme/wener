@@ -48,7 +48,7 @@ npm add react-router-dom
 ```ts
 // for https://github.com/HTTPArchive/wappalyzer
 window.__remixContext; // Remix 全局检测
-window.__reactRouterVersion // ReactRouter
+window.__reactRouterVersion; // ReactRouter
 ```
 
 - CWV - Core Web Vitals
@@ -428,29 +428,11 @@ export interface RouterState {
 
 # Version
 
-- 2024-06-24 v6.24 支持 Laze Route Discovery/Fog of War
-  - 路由没找到时调用 `unstable_patchRoutesOnMiss({ path, patch })`, 在 createBrowserRouter 指定
-    - 通过 patch 对 router 进行补丁
-  - 也可以考虑在 route 的 handle 增加 自定义逻辑，然后在 onMiss 时发现进行调用
-  - https://reactrouter.com/en/main/routers/create-browser-router#optsunstable_patchroutesonmiss
-- 2023-10-31 v6.18 增加 Fetcher
-  - useFetcher, useFetchers
-  - Form, useSubmit 增加 navigate/fetcherKey 可指向 fetcher
-  - future.v7_fetcherPersist 可以避免在 unmount 时清除 fetcher 状态
-- 2023-10-31 v6.15 增加 redirectDocument 在 loader/action 触发 reload
-  - v7 可能会默认为 json
-- 2023-06-23 v6.14 Form 提交支持 json/text, 通过 encType 设置
-- 2023-06-06 v6.12 支持 React.startTransition, 增加 future.v7_startTransition
-- 2023-03-10 v6.9 增加 route.lazy, route.Component, route.ErrorBoundary
-  - 可 lazy 的内容 loader, action, element/Component, errorElement/ErrorBoundary, shouldRevalidate, handle
-  - 不可以 lazy 的内容 path, index, children
-  - 在 loading, submitting 会加载 lazy 的内容
-- 2023-01-26 v6.8 允许 `<Link to>` 为外部 url
-- 2023-01-18 v6.7 增加 unstable_useBlocker/unstable_usePrompt, `<Form preventScrollReset>`
-- 2022-12-16 v6.5 支持 `?` 表示可选 `:lang?/about/us?`
-- 2022-09-13 v6.4 增加 Remix Data APIs `<RouterProvider>`
-  - 将 remix 的 Data APIs 集成到 react-router 中
-  - https://remix.run/blog/react-routering-remix
+## React Router v7
+
+- react-router v7 & remix.run v3
+- 参考
+  - [Merging Remix and React Router](https://remix.run/blog/merging-remix-and-react-router)
 
 ## React Router v6
 
@@ -500,6 +482,32 @@ export interface RouterState {
   - 更好的支持 React suspense - useTransition
 - `<NavLink exact />` -> `<NavLink end />`
 - useRouteMatch -> useMatch
+
+---
+
+- 2024-06-24 v6.24 支持 Laze Route Discovery/Fog of War
+  - 路由没找到时调用 `unstable_patchRoutesOnMiss({ path, patch })`, 在 createBrowserRouter 指定
+    - 通过 patch 对 router 进行补丁
+  - 也可以考虑在 route 的 handle 增加 自定义逻辑，然后在 onMiss 时发现进行调用
+  - https://reactrouter.com/en/main/routers/create-browser-router#optsunstable_patchroutesonmiss
+- 2023-10-31 v6.18 增加 Fetcher
+  - useFetcher, useFetchers
+  - Form, useSubmit 增加 navigate/fetcherKey 可指向 fetcher
+  - future.v7_fetcherPersist 可以避免在 unmount 时清除 fetcher 状态
+- 2023-10-31 v6.15 增加 redirectDocument 在 loader/action 触发 reload
+  - v7 可能会默认为 json
+- 2023-06-23 v6.14 Form 提交支持 json/text, 通过 encType 设置
+- 2023-06-06 v6.12 支持 React.startTransition, 增加 future.v7_startTransition
+- 2023-03-10 v6.9 增加 route.lazy, route.Component, route.ErrorBoundary
+  - 可 lazy 的内容 loader, action, element/Component, errorElement/ErrorBoundary, shouldRevalidate, handle
+  - 不可以 lazy 的内容 path, index, children
+  - 在 loading, submitting 会加载 lazy 的内容
+- 2023-01-26 v6.8 允许 `<Link to>` 为外部 url
+- 2023-01-18 v6.7 增加 unstable_useBlocker/unstable_usePrompt, `<Form preventScrollReset>`
+- 2022-12-16 v6.5 支持 `?` 表示可选 `:lang?/about/us?`
+- 2022-09-13 v6.4 增加 Remix Data APIs `<RouterProvider>`
+  - 将 remix 的 Data APIs 集成到 react-router 中
+  - https://remix.run/blog/react-routering-remix
 
 # FAQ
 

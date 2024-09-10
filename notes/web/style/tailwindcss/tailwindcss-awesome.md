@@ -52,6 +52,15 @@ tags:
   - [jamiebuilds/tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)
     - 动画
     - https://www.tailwindcss-animated.com/configurator.html
+  - [brandonmcconnell/tailwindcss-multi](https://github.com/brandonmcconnell/tailwindcss-multi)
+    - group utility classes together
+    - `hover:multi-[bg-red-500;text-white]`
+  - [brandonmcconnell/tailwindcss-signals](https://github.com/brandonmcconnell/tailwindcss-signals)
+    - 把多种条件抽象为 signal 状态控制，其他元素通过 signal 状态来控制样式
+    - 依赖 style queries ，Chrome 111+
+  - [brandonmcconnell/tailwindcss-mixins](https://github.com/brandonmcconnell/tailwindcss-mixins)
+    - 定义 mixin 让元素复用，减少重复代码
+- https://github.com/aniftyco/awesome-tailwindcss
 
 **Components**
 

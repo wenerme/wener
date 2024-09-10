@@ -6,6 +6,14 @@ tags:
 
 # IM Awesome
 
+- 主要功能
+  - Message
+  - Presence
+  - Transport
+  - Notification
+  - Room
+  - State Sync
+
 ## Open Protocol
 
 - DDP

@@ -5,27 +5,60 @@ tags:
 
 # 会话内容存档
 
+:::caution
+
+1. 会话存档保存 **5** 天
+1. 从 Sequence+1 拉取，不包含 Sequence
+1. GetChat limit 最大 1000
+1. 图片 jpg, 音频 amr, 视频 mp4
+1. 可能存在 MD5 为空字符串
+1. MediaData 的 MD5 可能匹配不上，可以多次重试
+1. MediaData 单次最多返回 512K
+1. NewSDK, InitSDK 只需要调用一次
+1. switch 切换企业日志不是真正的消息，与上述消息结构不完全相同。
+1. 错误 10001-10003 可以重试
+1. 接收事件回调 最小间隔 15s
+
+:::
+
+- libWeWorkFinanceSdk_C.so
+  - 依赖 GLIBC
+  - 使用了 libcurl
+    - https_proxy 能生效
+- 实际请求 qyapi.weixin.qq.com
+- 「会话内容存档」Secret 权限
+  - 群信息：群名、群主、群公告、群成员入群时间
+  - 会话信息：会话发送方、会话发送时间、会话接收方、会话内容
+- 参考
+  - https://developer.work.weixin.qq.com/document/path/91774
+
+```bash
+# RSA2048 key
+openssl genrsa -out wecom.pri.pem 2048
+openssl rsa -in wecom.pri.pem -pubout -out wecom.pub.pem
+```
+
+---
+
+获取 wr 和 wm 信息
+
+- 内部群 - inner room
+  - POST /cgi-bin/msgaudit/groupchat/get `{"roomid":""}`
+  - 会话存档 Secret 可调用
+- 外部客户群 - external contact group
+  - POST /cgi-bin/externalcontact/groupchat/get `{"chat_id":""}`
+- 外部客户群列表
+  - POST /cgi-bin/externalcontact/groupchat/list
+- **注意** 有的群是无法取到信息的，由微信拉起的群
+
+## message
+
 - action
   - send 发送消息
   - recall 撤回消息
   - switch 切换企业日志
 
-:::caution
-
-- switch 切换企业日志不是真正的消息，与上述消息结构不完全相同。
-- 消息 5天 失效
-- 错误 10001-10003 可以重试
-- file
-  - 可能 md5 为空字符串
-
-:::
-
-:::tip
-
-- 通过 sequence 获取的数据是获取 sequence+1 而不会取到 sequence 这一条
-- NewSDK, InitSDK 只需要调用一次
-
-:::
+---
 
 - proxy 格式 socks5://10.0.0.1:8081, http://10.0.0.1:8081
 - proxy credentials 格式 username:password
@@ -49,7 +82,7 @@ tags:
 - https://developer.work.weixin.qq.com/document/path/91774
 - FAQ https://developer.work.weixin.qq.com/document/path/91552
 
-## SDK
+## SDK 依赖
 
 ```bash
 apt install gcc g++

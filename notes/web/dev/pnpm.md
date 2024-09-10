@@ -305,6 +305,19 @@ fetch-retries=2
 
 - https://github.com/vercel/next.js/blob/canary/.npmrc
 
+## node-linker
+
+- isolated
+  - 所有的依赖安装到 node_modules/.pnpm, 然后 symlink 到项目
+- hoisted
+  - 平坦 node_modules 结构，无 symlink
+    - 不 symlink 会产生非常多依赖安装
+  - 同 npm/yarn classic
+  - 目前 bun 有 symlink 问题 https://github.com/oven-sh/bun/issues/1760
+- pnp
+  - 无 node_modules, 推荐同时设置 symlink=false
+  - https://yarnpkg.com/features/pnp
+
 ### .pnpmfile.cjs
 
 - https://pnpm.io/pnpmfile
@@ -428,6 +441,7 @@ grep '^\s*/' pnpm-lock.yaml | sort -u | tr -d ' ' | grep -E '[0-9.]+_' -C 1
 
 ```bash
 ls -d node_modules/.pnpm/graphql@*
+ls -d node_modules/.pnpm/@mikro-orm*
 
 pnpm tsx --experimental-network-imports ./dup.ts
 ```

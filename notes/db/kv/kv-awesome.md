@@ -16,25 +16,86 @@ title: KV DB Awesome
 - KV 最容易实现分布式
 - 数据库都是某种形式上的 KV
 
-## 服务
+## Redis Compatible
 
-- [valkey](./valkey.md)
-  - supported by Linux Foundation
-  - Redis 最后的 BSD fork
-- Protocol
-  - [sabledb-io/sabledb](https://github.com/sabledb-io/sabledb)
-    - BSD-3, Rust
-    - RocksDB
+:::tip
+
+- kvrocks 是目前唯一支持 多租户/namespace 的 Redis 兼容数据库
+  - 但只兼容到了 4.0, 部分客户端要求 5.0+
+  - BullMQ 要求 Redis 5+
+
+:::
+
+- [Redis](./redis/README.md)
+  - RSALv2, SSPLv1, C
+- forks
+  - [valkey](./valkey.md)
+    - supported by Linux Foundation
+    - Redis 最后的 BSD fork
+  - ~~[KeyDB](./keydb.md)~~
+    - BSD-3, C++,C
+    - ⚠️ 开发缓慢
+    - 被 Snapchat 收购 - 2022-05-11 - 开源之前的 Pro 特性
+    - 多线程 Redis - IO 多线程，事务单线程
+    - **完整 Redis 兼容** - 持续使用 Redis 代码
+    - ModJS - 可以通过 V8 扩展
+    - HASH KEY 支持 TTL
+    - WIP
+      - JSON
+    - [Migrating from Redis or KeyDB](https://docs.keydb.dev/docs/migration)
+- protocol compatible server
   - [apache/kvrocks](https://github.com/apache/kvrocks)
     - Apache-2.0, C++, Go, RocksDB
     - distributed KV
     - https://kvrocks.apache.org/users/
+  - [dragonflydb/dragonfly](./dragonflydb.md)
+    - BSL 1.1, C++,C
+    - 兼容 Redis 接口 - 不完整
+    - 兼容 Memcached 接口
+    - 多线程
+    - 类似 KeyDB
+      - 不完全使用 Redis
+      - 完整多线程 - 事务也多线程
+      - io_uring - 要求 linux 5.1+ 内核
+      - 性能优于 KeyDB - 不同的 trade off
+  - [sabledb-io/sabledb](https://github.com/sabledb-io/sabledb)
+    - BSD-3, Rust
+    - RocksDB
+  - [OpenAtomFoundation/pika](https://github.com/OpenAtomFoundation/pika)
+    - BSD-3, C++, Golang
+    - by Qihu 360
+    - RocksDB
+    - [Redis 兼容命令](https://github.com/OpenAtomFoundation/pika/wiki/pika-%E6%94%AF%E6%8C%81%E7%9A%84redis%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%BC%E5%AE%B9%E6%83%85%E5%86%B5)
+      - 兼容程度很低，需要做区别对待
+  - [skytable/skytable](https://github.com/skytable/skytable)
+    - AGPL-3.0, Rust
+    - 不完全兼容 https://docs.skytable.io/all-actions/
+  - ~~[doyoubi/undermoon](https://github.com/doyoubi/undermoon)~~
+    - Apache-2.0, Rust
+    - Mordern Redis Cluster solution
   - ~~[ideawu/ssdb](https://github.com/ideawu/ssdb)~~
     - BSD-3, C++
   - [nalgeon/redka](https://github.com/nalgeon/redka)
     - BSD-3, Go, SQLite
-- [Redis](./redis/README.md)
-- [FoundationDB](https://github.com/apple/foundationdb)
+  - [Tencent/Tendis](https://github.com/Tencent/Tendis)
+    - GPLv3, C++
+    - by 腾讯
+    - ⚠️ 开发不活跃
+- proxy server
+  - codis
+  - tweemproxy
+  - redis cluster
+- redis module
+  - [RedisJSON](https://github.com/RedisJSON/RedisJSON)
+  - [alibaba/TairHash](https://github.com/alibaba/TairHash)
+    - Apache-2.0, C
+    - HASH KEY 支持 TTL
+    - by 阿里
+
+## Awesome
+
+- [FoundationDB](./foundationdb.md)
+  - 结构复杂，功能强大
   - [FoundationDB/awesome-foundationdb](https://github.com/FoundationDB/awesome-foundationdb)
 - [microsoft/FASTER](https://github.com/microsoft/FASTER)
   - MIT C++,C#
@@ -61,43 +122,7 @@ title: KV DB Awesome
   - raft
   - paxios
 
-## Redis
-
-- [KeyDB](./keydb.md)
-  - BSD-3, C++,C
-  - 被 Snapchat 收购 - 2022-05-11 - 开源之前的 Pro 特性
-  - 多线程 Redis - IO 多线程，事务单线程
-  - **完整 Redis 兼容** - 持续使用 Redis 代码
-  - ModJS - 可以通过 V8 扩展
-  - HASH KEY 支持 TTL
-  - WIP
-    - JSON
-  - [Migrating from Redis or KeyDB](https://docs.keydb.dev/docs/migration)
-- [dragonflydb/dragonfly](./dragonflydb.md)
-  - BSL 1.1, C++,C
-  - 兼容 Redis 接口 - 不完整
-  - 兼容 Memcached 接口
-  - 多线程
-  - 类似 KeyDB
-    - 不完全使用 Redis
-    - 完整多线程 - 事务也多线程
-    - io_uring - 要求 linux 5.1+ 内核
-    - 性能优于 KeyDB - 不同的 trade off
-- [skytable/skytable](https://github.com/skytable/skytable)
-  - AGPL-3.0, Rust
-  - 不完全兼容 https://docs.skytable.io/all-actions/
-- [doyoubi/undermoon](https://github.com/doyoubi/undermoon)
-  - Mordern Redis Cluster solution
-- [Tencent/Tendis](https://github.com/Tencent/Tendis)
-  - 腾讯
-- redis module
-  - [RedisJSON](https://github.com/RedisJSON/RedisJSON)
-  - [alibaba/TairHash](https://github.com/alibaba/TairHash)
-    - Apache-2.0, C
-    - HASH KEY 支持 TTL
-    - by 阿里
-
-## 文件
+## 存储引擎
 
 - [LMDB](./lmdb.md)
   - BSD-3, C

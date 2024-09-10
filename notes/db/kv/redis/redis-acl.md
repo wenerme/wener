@@ -21,6 +21,10 @@ ACL 是配置，不是数据，因此不会同步，不会持久。 [#7988](http
 user default on nopass ~* &* +@all
 ```
 
+```txt
+# user <username> on <password> ~<pattern> &<pattern> +<command> -<command> +@<category> -@<category>
+```
+
 - 密码设置
   - `nopass`
   - `>密码`/`<密码` - 设置/移除 明文密码

@@ -9,4 +9,4 @@ title: valkey
   - placeholderkv -> valkey
   - Redis 7.2 BSD fork
 - 参考
-  - https://github.com/placeholderkv/placeholderkv/issues/17
+  - [valkey-io/valkey#17](https://github.com/valkey-io/valkey/issues/17)

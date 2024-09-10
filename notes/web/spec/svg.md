@@ -37,6 +37,14 @@ cat ./svg/Home.svg | sed 's/currentColor/#999999/g' | rsvg-convert -h 48 | oxipn
 cat ./svg/Home.svg | sed 's/currentColor/#4579F6/g' | rsvg-convert -h 48 | oxipng -o max -i 0 --strip safe - > HomeActive.png
 ```
 
+## SVG 颜色
+
+- fill="currentColor"
+  - 让 SVG 显示为当前文本颜色
+  - 对于 `<img/>` 的方式不生效
+- `<img/>`
+  - `filter: invert(1);` 黑色
+
 ## 缩放和大小
 
 - viewBox 控制可见区域

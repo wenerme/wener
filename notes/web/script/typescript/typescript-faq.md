@@ -357,50 +357,6 @@ function Button<T extends React.ElementType = "button">({
 
 - [Playground](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAKjgQwM5wEoFNkGN4BmUEIcARFDvmQNwBQdMAnmFnAAoQA2TI0YAC2C52xMKgA87OFgAeMLADsAJugDeKVAH4AXHAAqcAL4AaAzPlLVmKjAB0AUS5YQSmPpZYAfHAC8HOAAyOjg4AHkQYBgJbDx7AGESSEU3UQhxAHUogQgAVxhsAgl9LzMAaywmCAIOL3pGTzgAIXyYCEU08WKLBRV0WPxHZ1dFd0b-AHIAI1b2iZ9-Th4+KEFhTskQuDUt0LRdA3pQ0OF2g4H7C4A5CGUsI+PcIS5lSkVz2ztr2-ut0y39HQ6gwCLlFPhgO1mrNFN05L1rBchi43B5WH5yDMYG1FGQvAAKHZ7VAmLZ2clgMSoOhGPQtbHtDbFLx0ACU2y2uHaqHgiXA7TcGLQcAAPiLMTDaFtKDBclBFHAJHzkoK1OS7JT0qgjHAAPTAowMYCjLBQAh4NgAZVwlGQkUUAHN6TiNhzQq5UKhkA6sHoeVBjQ76Ia6KDwTBIQrrbb7U6YYS4B6vT7jHpozhY87GVT2US4DK5QqJFicXBmKxfGQS+0yHB2vEuMIyr41Pj2b4fMhnLB8UnvVhWUYvA2m4msABCCS66uKA1G-mwbZwZUC0YbMxOFGjNFsHVEEhwCa2-ATerlthNCCyJkOHpWdCbkZjVgLcKRaIrlJrqkSBylQ9oPMQRupoBwOMG9RcooPLNFeGK-nefRwI+qLjIeyjAAAbvMCZoGY6qauIqawdeP5-u2Ph5lBMH6N6Vx2mw-jCmK6FYae0pYLK8qKrRDr0a42wEVSOr6hBDChmCEJQgAgmAYBtiBBbcfiuyKiyxzHBIWazgAkigpDIHAM5Ttp6kaYq2maJWyC1gIlAEJWup4npdooHAjaKGUJkwmZGlaTCcB2VgDlkE5XguaQigQPAhkeWUZioBAgX2XAwDoFFMVwJhXbAMocCEd5DKzqpoT+UVVlqOmdqBtpOp9j6lYABJYFwXBJQA7tALy1vqJUWQF9VYE1LVtXAnVQN14X6XAGVuagNoZoGRkBYlY6ev2qXpdFbnZY2eUFbqpl9VpcFBQ5Ey6hdvmaZeshWRMyATMlwW+BdV3Hbd90Ydhz3nZdvV+QDcCssGDBAA)
 
-## namespace
-
-```ts
-export namespace A {
-  export const B = 1;
-}
-```
-
-**或**
-
-```ts
-export module A {
-  export const B = 1;
-}
-```
-
-**等同于**
-
-```js
-export var A;
-(function (A) {
-  A.B = 1;
-})(A || (A = {}));
-```
-
-> 1. Namespaces are a TypeScript-specific way to organize code.
-> 1. Namespaces are simply named JavaScript objects in the global namespace
-
-- Namespace
-  - 没有被 deprecated
-  - 另外的一种组织代码的方式
-  - 可以用来组织复杂的单文件
-  - 可以用来实现 singletone 的工具类
-- 推荐使用 module 而不是用 namespace
-  - module 依赖 module loader/runtime/cjs/esm - 现代环境都有
-  - ECMAScript 2015+ / ES6+
-- 指代 internal modules
-- TypeScript 1.5+
-  - `module X` = `namespace X`
-- https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html
-- https://www.typescriptlang.org/docs/handbook/namespaces.html
-- https://github.com/babel/babel/issues/8244
-- https://github.com/microsoft/TypeScript/issues/30994
-
 ## NullableOptional
 
 ```ts
@@ -421,46 +377,4 @@ type Nullable<T> = {
 };
 
 type NullableOptional<T> = PickRequired<T> & Nullable<PickOptional<T>>;
-```
-
-## enum
-
-- const enum
-  - 编译的时候会直接替换
-  - 减少生成的代码
-  - 外部无法引用
-  - 不要 export
-- enum 要求类型匹配，不只是值匹配
-- https://www.typescriptlang.org/docs/handbook/enums.html#const-enums
-
-```ts
-const ODirection = {
-  Up: 0,
-  Down: 1,
-  Left: 2,
-  Right: 3,
-} as const;
-
-// 达到类似 enum 的效果
-type Direction = (typeof ODirection)[keyof typeof ODirection];
-
-enum LogLevel {
-  ERROR,
-  WARN,
-  INFO,
-  DEBUG,
-}
-// 这样可以值匹配即可
-type LogLevelStrings = keyof typeof LogLevel;
-```
-
-**编译后的 ENUM**
-
-```js
-var Enum;
-(function (Enum) {
-  Enum[(Enum['A'] = 0)] = 'A';
-})(Enum || (Enum = {}));
-let a = Enum.A;
-let nameOfA = Enum[a]; // "A"
 ```

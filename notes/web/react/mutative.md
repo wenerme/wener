@@ -14,3 +14,29 @@ title: mutative
     - 没有全局配置
     - 支持 async
     - 使用 json patch
+
+## Notes
+
+- markSimpleObject
+
+```ts
+export const markSimpleObject = (value: unknown) => {
+  if (isSimpleObject(value)) {
+    return dataTypes.immutable;
+  }
+  return;
+};
+
+const isSimpleObject = (value: unknown) => {
+  if (!value || typeof value !== 'object') return false;
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype === null) {
+    return true;
+  }
+  const constructor = Object.hasOwnProperty.call(prototype, 'constructor') && prototype.constructor;
+
+  if (constructor === Object) return true;
+
+  return typeof constructor === 'function' && Function.toString.call(constructor) === constructorString;
+};
+```

@@ -218,6 +218,19 @@ interface Collection<T> {
   - 获取 Decorator 调用的 path
 
 ```ts
+// true
+DemoEntity.prototype.__entity;
+// boolean
+DemoEntity.prototype.__baseEntity;
+// EntityMetadata
+DemoEntity.prototype.__meta;
+DemoEntity.prototype.__config;
+DemoEntity.prototype.__platform;
+DemoEntity.prototype.__factory;
+DemoEntity.prototype.__helper;
+```
+
+```ts
 MetadataStorage.getMetadataFromDecorator(UserEntity);
 ```
 

@@ -13,6 +13,9 @@ title: DuckDB
   - 官方支持 SDK: Python, Java, C++, NodeJS, R
   - 语法类似 pg - 使用 libpg_query
 - 参考
+  - [duckdb/pg_duckdb](https://github.com/duckdb/pg_duckdb)
+    - 作为 PG 插件使用 DuckDB
+    - [supabase/postgres#1106](https://github.com/supabase/postgres/issues/1106)
   - [duckdb/duckdb-wasm](https://github.com/duckdb/duckdb-wasm)
     - 在 Web 内执行，基于 FS API 进行 IO 交互
   - https://news.ycombinator.com/item?id=32684424
@@ -24,10 +27,7 @@ title: DuckDB
 
 :::caution
 
-- 不支持 vacuum [duckdb#109](https://github.com/duckdb/duckdb/issues/109)
-  - 只能 export 然后 import 来减小文件体积
 - 不能更新 unique 列 [#5771](https://github.com/duckdb/duckdb/issues/5771)
-- DataGrip Driver [DBE-15099/](https://youtrack.jetbrains.com/issue/DBE-15099/Driver-for-DuckDB)
 
 :::
 

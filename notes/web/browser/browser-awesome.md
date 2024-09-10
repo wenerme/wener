@@ -13,6 +13,10 @@ tags:
 - [browserless](https://github.com/browserless/browserless)
   - SSPLv1, TS
   - Browswe as a Service
+- [BrowserBox/BrowserBox](https://github.com/BrowserBox/BrowserBox)
+  - AGPLv3, JS
+  - 在服务端运行 浏览器，嵌入 iframe
+  - RBI - remote browser isolation
 - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
   - Web -> PDF
   - MIT

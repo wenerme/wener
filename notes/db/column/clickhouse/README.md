@@ -15,7 +15,17 @@ title: ClickHouse
 
 :::
 
-- [yandex/ClickHouse](https://github.com/yandex/ClickHouse)
+
+:::caution
+
+- 独立运作后重心转向 ClickHouse Cloud
+  - e.g. SharedMergeTree
+- 参考
+  - https://altinity.com/blog/is-clickhouse-moving-away-from-open-source
+
+:::
+
+- [ClickHouse](https://github.com/ClickHouse/ClickHouse)
   - Apache-2.0, C++
   - OLAP, 列存储
     - 每列存一个文件

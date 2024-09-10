@@ -6,16 +6,30 @@ tags:
 
 # NodeJS FAQ
 
-- NODE_OPTIONS
-
-:::caution
-
 - 持久化 DB 存储是 NodeJS 的弱项
+  - 官方 正在尝试支持集成 SQLite
+    - v22.5.0+
+    - `node:sqlite`
+    - --experimental-sqlite
+    - https://nodejs.org/api/sqlite.html
   - 纯 JS 没有好的存储实现
   - SQLite 依赖 addon
   - SQLite over WASM 还不成熟
+- FFI 是 NodeJS 的弱项
+  - 可以尝试 bun:ffi
+  - [nodejs/node#46905](https://github.com/nodejs/node/pull/46905) ffi implementation
+  - [nodejs/node#46233](https://github.com/nodejs/node/issues/46233) Reconsider adding FFI to the core
+    - tinycc does not support all of the platforms that node does
+- 直接运行 typescript
+  - `--experimental-strip-types`
+- `import.meta.main`
+  - [nodejs/node#32223](https://github.com/nodejs/node/pull/32223)
+  - 以前 `require.main`
+  - `module === process.mainModule`
 
-:::
+## env
+
+- NODE_OPTIONS
 
 ## Tool Chain
 
@@ -558,6 +572,7 @@ process
 ## The "windows-1252" encoding is not supported
 
 Throug
+
 ```js
 new TextDecoder('latin1');
 ```
