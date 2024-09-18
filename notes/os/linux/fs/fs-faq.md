@@ -6,6 +6,18 @@ tags:
 
 # 文件系统常见问题
 
+- SMB3
+  - 支持 POSIX, NTFS ACL
+  - account based
+- NFS
+  - Kerberos Authentication (GSS-API)
+    - RPCSEC_GSS
+    - sec=krb5
+  - AUTH_SYS (UNIX Authentication)
+    - sec=sys
+  - SPKM (Simple Public Key Mechanism)
+  - NFSv4 ACLs (Access Control Lists)
+
 ## 文件名
 
 - Linux

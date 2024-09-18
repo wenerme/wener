@@ -6,6 +6,16 @@ tags:
 
 # K3S 常见问题
 
+:::caution
+
+- 尽量指定固定的 node-ip
+  - 避免因网络迁移导致集群不可用
+  - 同时影响 tls
+  - node.spec.addresses
+    - type: InternalIP
+
+:::
+
 ## K3S 网络结构
 
 - 容器 10.42.0.0/16 - 可以 ping 通

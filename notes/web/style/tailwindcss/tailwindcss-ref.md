@@ -16,6 +16,7 @@ tags:
 | xl     | 1280px    | 1280px    | 80rem |
 | 2xl    | 1536px    | 1536px    | 96rem |
 
+- container - 实际为定义 max-w
 - `max-{PREFIX}` 可以限定固定范围
   - `md:max-md:underline` - 限定在 md 范围内
 

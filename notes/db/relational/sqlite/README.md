@@ -1,5 +1,7 @@
 ---
 title: SQLite
+tags:
+  - Topic
 ---
 
 # SQLite

@@ -22,6 +22,7 @@ tags:
 |   AMS |     Accounting Management System | 会计管理系统     |
 |   BMS |       Building Management System | 建筑管理系统     |
 |   CMS |        Content Management System | 内容管理系统     |
+|   CRM | Customer Relationship Management | 客户关系管理     |
 |   DMS |       Document Management System | 文档管理系统     |
 |   EMS |          Event Management System | 事件管理系统     |
 |   FMS |      Financial Management System | 财务管理系统     |
@@ -31,16 +32,19 @@ tags:
 |   OMS |          Order Management System | 订单管理系统     |
 |   OMS |          Order Management System | 订单管理系统     |
 |   OMS |      Operation Management System | 运营管理系统     |
+|   PLM |     Product Lifecycle Management | 产品生命周期管理 |
 |   PMS |           Property Rental System | 物业租赁系统     |
 |   PMS |        Project Management System | 项目管理系统     |
-|   TMS | Transportation Management System | 运输管理系统     |
-|   WMS |      Warehouse Management System | 仓库管理系统     |
-|  HRMS | Human Resource Management System | 人力资源管理系统 |
-|  SMMS |   Social Media Management System | 社交媒体管理系统 |
-|   CRM | Customer Relationship Management | 客户关系管理     |
-|   PLM |     Product Lifecycle Management | 产品生命周期管理 |
+|   RMS |         Record Management System | 档案管理系统     |
+|   RMS |         Rental Management System | 租赁管理系统     |
 |   RPM |       Rental Property Management | 租赁物业管理     |
 |   SCM |          Supply Chain Management | 供应链管理       |
+|   TMS | Transportation Management System | 运输管理系统     |
+|   WMS |      Warehouse Management System | 仓库管理系统     |
+|   MIS |    Management Information System | 管理信息系统     |
+|  HRMS |   House Rental Management System | 房屋租赁管理系统 |
+|  HRMS | Human Resource Management System | 人力资源管理系统 |
+|  SMMS |   Social Media Management System | 社交媒体管理系统 |
 
 |                                    en | cn               |
 | ------------------------------------: | ---------------- |

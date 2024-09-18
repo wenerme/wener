@@ -33,10 +33,16 @@ title: WSL
 ```bash
 cmd.exe /c ver # 确认当前系统版本
 
+# runas /user:Administrator "cmd.exe"
+powershell -Command "Start-Process cmd -Verb RunAs" # 以管理员权限运行
+
 # 启用 WSL
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 # 启用 VM
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+# dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart # 启用 Hyper-V
+# Get-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform # 检查是否启用
 
 # 重启，安装 Windows WSL2 Update
 
@@ -46,7 +52,7 @@ wsl --set-default-version 2
 
 ## 安装 Alpine {#install-alpine}
 
-- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.16.0-0/Alpine.zip
+- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.18.4-0/Alpine.zip
   - 注意放到空间较大的位置
 
 ```bash
@@ -57,13 +63,15 @@ wsl -d Alpine # 进入 Alpine VM
 
 # 配置系统
 cat << EOF > /etc/apk/repositories
-https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.17/main
-https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.17/community
+https://mirrors.aliyun.com/alpine/v3.20/main
+https://mirrors.aliyun.com/alpine/v3.20/community
 EOF
 echo "nameserver 114.114.114.114" > /etc/resolv.conf
 apk update
 apk upgrade -a
 ```
+
+- 上海交大 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.20/main
 
 ## Windows 开发环境 {#windows-dev}
 
@@ -84,7 +92,7 @@ apk upgrade -a
 - 可以打开 `\\wsl$` 目录
 - https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html
 
-## 开发环境准备
+## 开发环境准备 {#dev-env}
 
 ```bash
 wsl -d Alpine # 进入 WSL
@@ -95,7 +103,6 @@ apk add libc6-compat gcompat curl bash ca-certificates openssl ncurses coreutils
 
 bash # ash -> bash
 
-
 # SSH 配置
 # 同步 Windows 上的 ssh 密钥信息
 USERNAME=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g')
@@ -103,7 +110,6 @@ rsync -a /mnt/c/Users/USERNAME/.ssh/ ~/.ssh/
 chmod 700 ~/.ssh/id_rsa
 # 同步 Windows 上的 git 配置
 cp /mnt/c/Users/USERNAME/.gitconfig ~
-
 
 # Git 配置
 # 注意修改用户名和邮箱
@@ -121,7 +127,7 @@ apk --no-cache add php81 php81-{bcmath,bz2,calendar,common,ctype,curl,dev,dba,do
 ln -s /usr/bin/php81 /usr/bin/php
 ```
 
-## 端口暴露
+## 端口暴露 {#port-expose}
 
 > 1. 每次都需要
 > 2. 需要 Admin 执行
@@ -136,7 +142,7 @@ wsl -d Alpine ifconfig eth0
 netsh interface portproxy set v4tov4 listenport=8000 listenaddress=0.0.0.0 connectport=8000 connectaddress=上面的地址
 ```
 
-## Docker 环境
+## Docker 环境 {#docker}
 
 > 不需要 Docker Desktop
 
@@ -154,7 +160,7 @@ tee /etc/docker/daemon.json <<- 'EOF'
   "features": {
     "buildkit": true
   },
-  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
+  "registry-mirrors": ["https://docker.wener.me"]
 }
 EOF
 
@@ -167,6 +173,12 @@ docker ps
 - Docker Desktop 创建的
   - docker-desktop
   - docker-desktop-data
+
+## 管理
+
+```bash
+wsl -l -v # 列出所有的 WSL 和 WSL 版本
+```
 
 # FAQ
 
@@ -252,4 +264,43 @@ HRESULT: 0x8007019e
 powershell.exe '$env:UserName'
 cmd.exe /c "echo %USERNAME%"
 cmd.exe /c "whoami"
+```
+
+## alpine networking
+
+```
+# service docker start
+ * Starting networking ...
+ifquery: could not parse /etc/network/interfaces
+ * ERROR: networking failed to start
+ * ERROR: cannot start docker as networking would not start
+```
+
+**/etc/network/interfaces**
+
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+```
+
+## Docker network
+
+```bash
+sudo dockerd --iptables=false
+```
+
+- https://github.com/microsoft/WSL/issues/8450
+
+## Cannot open netlink socket: Protocol not supported
+
+- iproute2 ss
+- WSL 1 问题
+
+## The virtual machine could not be started because a required feature is not installed.
+
+```
+ERR: The virtual machine could not be started because a required feature is not installed.
+HRESULT: 0x80370102
 ```

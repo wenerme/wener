@@ -13,7 +13,20 @@ date +"%Y-%m-%d-%H-%M"
 tar -czvf backup-$(date +"%Y-%m-%d-%H-%M").tar.gz ./data/ # 备份
 tar -xzvf backup.tar.gz -C ./restored                     # 恢复
 tar -I zstd -xvf archive.tar.zst                          # zstd
+
+apk add procps-ng
+ps aux
+ps -ef e
+# -E error: unsupported SysV option
+ps -e -o 'pid,ppid,comm,args,user,uid' --sort pid
 ```
+
+- prompt
+  - `PS1` - primary
+  - `PS2` - secondary
+  - `PS3` - select
+  - `PS4` - debug
+  - `%` non root, `#` root
 
 ## ip
 

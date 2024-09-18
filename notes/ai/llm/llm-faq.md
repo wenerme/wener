@@ -14,6 +14,26 @@ tags:
   - https://github.com/yizhongw/self-instruct
   - https://platform.openai.com/docs/model-index-for-researchers
 
+## Pricing
+
+|                                 Model | 1M input/output |
+| ------------------------------------: | --------------: |
+|                                gpt-4o |  $5.00 / $15.00 |
+|                           gpt-4o-mini |  $0.150 / $0.60 |
+|                            o1-preview | $15.00 / $60.00 |
+|                               o1-mini |  $3.00 / $12.00 |
+|               Anthropic Claude 3 Opus | $15.00 / $75.00 |
+|     Groq Llama 3.1 70B Versatile 128k |   $0.59 / $0.79 |
+|                 Groq Whisper V3 Large |        $0.111/h |
+| DeepInfra Llama-3.1-70B-Instruct 128k |   $0.35 / $0.40 |
+|               DeepInfra Qwen2-72b 32k |   $0.35 / $0.40 |
+
+
+- https://www.together.ai/pricing
+- https://deepinfra.com/pricing
+- https://groq.com/pricing/
+- https://openai.com/api/pricing/
+
 ## model metrics
 
 - 参数量

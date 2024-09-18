@@ -626,9 +626,11 @@ tags:
     - geospatial engine
   - https://geojson.io/
 - Phy
-- stat/bi
+- stat/bi/data
   - [jstat](https://github.com/jstat/jstat)
   - cubejs
+  - [uwdata/arquero](https://github.com/uwdata/arquero)
+  - [pbeshai/tidy](https://github.com/pbeshai/tidy)
 - markdown
   - [markdown-it](../editor/markdown-it.md)
   - [mdx-js/mdx](https://github.com/mdx-js/mdx)

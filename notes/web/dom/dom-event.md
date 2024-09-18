@@ -168,3 +168,37 @@ interface MouseEvent extends CommonEvent {
 - onBlur
 - onFocusIn
 - onFocusOut
+
+## React.SyntheticEvent
+
+- 额外
+  - isDefaultPrevented()
+  - isPropagationStopped()
+  - persist()
+    - 在事件结束后还能访问事件对象
+  - isPersistent()
+
+```ts
+interface SyntheticEvent<E = object, C = any, T = any> {
+  nativeEvent: E;
+  currentTarget: C;
+  target: T;
+  bubbles: boolean;
+  cancelable: boolean;
+  defaultPrevented: boolean;
+  eventPhase: number;
+  isTrusted: boolean;
+  preventDefault(): void;
+  //
+  isDefaultPrevented(): boolean;
+  stopPropagation(): void;
+  isPropagationStopped(): boolean;
+  // ReactDOM v17 现在无效
+  persist(): void;
+  timeStamp: number;
+  type: string;
+}
+```
+
+- https://legacy.reactjs.org/docs/events.html
+- https://react.dev/reference/react-dom/components/common#react-event-object

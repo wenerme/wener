@@ -32,6 +32,12 @@ tags:
 |       | [On-premises Software] | 本地软件   |
 | SaaS  | Software as a Service  | 软件即服务 |
 
+| en          | cn     |
+| ----------- | ------ |
+| Checksum    | 校验和 |
+| Check digit | 校验位 |
+| Check code  | 校验码 |
+
 - off-premises -> SaaS
 - on-premises - server-based software
   - 按需、本地化、面向服务
@@ -39,3 +45,5 @@ tags:
 - futureproofing - 确保不会过时
 
 [on-premises software]: https://en.wikipedia.org/wiki/On-premises_software
+
+## Checksum

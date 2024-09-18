@@ -128,7 +128,9 @@ tags:
 ```bash
 brew install scc
 # -M '[.]pb[.]' -M 'generated'
+# Golang
 scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
+scc --no-gen --exclude-dir=gql ./src
 scc --by-file ./src # 找到大文件
 ```
 

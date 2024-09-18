@@ -1,5 +1,7 @@
 ---
 title: MariaDB
+tags:
+  - Topic
 ---
 
 # MariaDB

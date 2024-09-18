@@ -17,39 +17,33 @@ tags:
 - [observablehq/plot](https://github.com/observablehq/plot)
   - ISC, JS
   - https://observablehq.com/plot/
+- BI/Business Intelligence
+  - Metabase
+  - Redash
+  - Superset
+  - [jitsucom/jitsu](https://github.com/jitsucom/jitsu)
+    - open-source Segment alternative
+    - [vs-segment](https://jitsu.com/vs-segment)
+  - [snowplow/snowplow](https://github.com/snowplow/snowplow)
+    - Apache-2.0, Scala
+    - behavioral data engine
+  - [meltano/meltano](https://gitlab.com/meltano/meltano)
+    - MIT, Python
+    - ELT for the DataOps
+  - [lightdash](https://github.com/lightdash/lightdash)
+    - MIT, Typescript
+    - Looker alternative
+  - [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core)
+    - Apache-2.0, Python
+  - [cube-js/cube.js](https://github.com/cube-js/cube.js)
+    - Client Apache-2.0 TS, Backend MIT, Rust
+- Pipeline/Data Integration
+  - airbytehq/airbyte
+  - [honeycombio/honeytail](https://github.com/honeycombio/honeytail)
+    - Apache-2.0, Go
+    - extracting structured data out of common log files
 
-## Service
-
-- Metabase
-- Redash
-- Superset
-- [jitsucom/jitsu](https://github.com/jitsucom/jitsu)
-  - open-source Segment alternative
-  - [vs-segment](https://jitsu.com/vs-segment)
-- [snowplow/snowplow](https://github.com/snowplow/snowplow)
-  - Apache-2.0, Scala
-  - behavioral data engine
-- [meltano/meltano](https://gitlab.com/meltano/meltano)
-  - MIT, Python
-  - ELT for the DataOps
-- [lightdash](https://github.com/lightdash/lightdash)
-  - MIT, Typescript
-  - Looker alternative
-
-## Ingest
-
-- [honeycombio/honeytail](https://github.com/honeycombio/honeytail)
-  - Apache-2.0, Go
-  - extracting structured data out of common log files
-
-## Analytical
-
-- [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core)
-  - Apache-2.0, Python
-- [cube-js/cube.js](https://github.com/cube-js/cube.js)
-  - Client Apache-2.0 TS, Backend MIT, Rust
-
-## Chart
+## 可视化 {#visualization}
 
 - 基础图形
   - 折线图、区域图
@@ -263,7 +257,7 @@ tags:
 - [Comparison of JavaScript charting libraries](https://en.wikipedia.org/wiki/Comparison_of_JavaScript_charting_libraries)
 - npmtrends [vs](https://www.npmtrends.com/bizcharts-vs-echarts-vs-plotly.js-vs-recharts-vs-vega-vs-vega-lite-vs-victory-vs-@nivo/core)
 
-## Visualization
+---
 
 - [microsoft/datamations](https://github.com/microsoft/datamations)
 - https://github.com/riccardoscalco/textures

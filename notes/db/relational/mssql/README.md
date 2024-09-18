@@ -1,5 +1,7 @@
 ---
 title: MSSQL
+tags:
+  - Topic
 ---
 
 # MSSQL

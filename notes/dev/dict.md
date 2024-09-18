@@ -503,6 +503,9 @@ tags:
 | IRL    | In Real Life            | 现实生活         |
 | IYKWIM | If You Know What I Mean | 如果你懂我的意思 |
 | TTYL   | Talk To You Later       | 回头见           |
+| ICYMI  | In Case You Missed It   | 如果你错过了     |
+| FOMO   | Fear of Missing Out     | 害怕错过         |
+| TIL    | Today I Learned         | 今天我学到了     |
 
 ## 财税 {#taxation}
 
@@ -681,6 +684,7 @@ tags:
 |                         en | cn                 |
 | -------------------------: | ------------------ |
 |      Housing Rental System | 房屋租赁系统       |
+|   Rental Management System | 租赁管理系统       |
 |   Commercial Rental System | 商业租赁系统       |
 | Rental Property Management | 租赁物业管理       |
 |            Rental Property | 租赁物业           |
@@ -716,6 +720,11 @@ tags:
   - margin
     - 描述交易中所需的保证金
     - 比如股票交易或期货交易中的最低保证金要求
+- Rental management - 租赁管理
+  - 租赁行业 - rental industry - 设备租赁
+  - 工具、重型施工设备、空中设备、车辆、派对和活动设备、计算机、测试和测量设备等
+  - 欧洲设备租赁行业 http://www.hae.org.uk
+- [Rental management software](https://en.wikipedia.org/wiki/Rental_management_software)
 
 # FAQ
 

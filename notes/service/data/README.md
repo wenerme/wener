@@ -5,3 +5,6 @@ tags:
 ---
 
 # Data
+
+- [Awesome](./data-awesome.md)
+- [FAQ](./data-faq.md)

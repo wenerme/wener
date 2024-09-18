@@ -105,3 +105,25 @@ Layout is an arrangement or plan, especially the schematic arrangement of parts 
   - `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));`
   - `grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));`
     - 自适应
+
+# FAQ
+
+## align vs justify
+
+- justify
+  - 水平轴/main-axis/主轴/横轴
+- align
+  - 垂直轴/cross-axis
+- place -> align + justify
+  - place-items -> align-items + justify-items
+  - place-content
+  - place-self
+
+---
+
+- items
+  - 子元素
+- self
+  - 单个元素，自身控制，覆盖 items
+- content
+  - 整体内容，多行，多列

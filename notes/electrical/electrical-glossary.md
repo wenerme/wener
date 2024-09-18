@@ -14,6 +14,23 @@ tags:
 | R     | Resistor          | 电阻      |
 | V     | Volt              | 伏        |
 
+| abbr. | en                       | for        |
+| ----- | ------------------------ | ---------- |
+| GND   | Ground                   | 接地       |
+| VCC   | Voltage Common Collector | 电压共集   |
+| TXD   | Transmit Data            | 发送数据   |
+| RXD   | Receive Data             | 接收数据   |
+| CTS   | Clear To Send            | 清除发送   |
+| RTS   | Request To Send          | 请求发送   |
+| DTR   | Data Terminal Ready      | 数据终端   |
+| DSR   | Data Set Ready           | 数据集准备 |
+
+| abbr. | en                                          | cn             |
+| ----- | ------------------------------------------- | -------------- |
+| UART  | Universal Asynchronous Receiver/Transmitter | 通用异步收发器 |
+| SPI   | Serial Peripheral Interface                 | 串行外设接口   |
+| I2C   | Inter-Integrated Circuit                    | I2C总线        |
+
 | en                  | cn         |
 | ------------------- | ---------- |
 | Current             | 电流       |

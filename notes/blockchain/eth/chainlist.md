@@ -20,6 +20,14 @@ Network 列表，使用 ID 标识，每个 Network 有自己的 本地货币/Nat
 | --------------------------- | ------ | ------- | ----- |
 | [Polygon](./polygon.md)     | MATIC  |         | PoS   |
 | [Avalanche](./avalanche.md) | AVAX   | 2020-09 | PoS   |
+| Ethereum                    | ETH    | 2015-07 | PoW   |
+| Tron                        | TRX    | 2017-09 | DPoS  |
+| Bitcoin                     | BTC    | 2009-01 | PoW   |
+| Solana                      | SOL    | 2020-03 | PoS   |
+| Binance Smart Chain         | BNB    | 2020-09 | PoS   |
+
+- PoS - Proof of Stake
+- PoW - Proof of Work
 
 ## Testnet
 

@@ -63,6 +63,10 @@ tags:
     - [deepmind/dm-haiku](https://github.com/deepmind/dm-haiku)
       - neural network
     - [deepmind/chex](https://github.com/deepmind/chex)
+- Fineturning
+  - [unslothai/unsloth](https://github.com/unslothai/unsloth)
+    - Apache-2.0, Python
+    - Finetune Llama 3.1, Mistral, Phi & Gemma LLMs 2-5x faster with 80% less memory
 - [Labeling](./labeling.md)
   - [CVAT](./cvat.md)
   - [Label Studio](./label-studio.md)

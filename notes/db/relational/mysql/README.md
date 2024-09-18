@@ -1,5 +1,7 @@
 ---
 title: MySQL
+tags:
+  - Topic
 ---
 
 # MySQL

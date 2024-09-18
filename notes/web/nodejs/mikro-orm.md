@@ -252,6 +252,24 @@ export function Entity(options: EntityOptions<any> = {}) {
 }
 ```
 
+## EntitySchema
+
+**可以动态增加**
+
+```ts
+const schema = new EntitySchema({
+  tableName: 'myNewTable',
+  name: 'myNewTable',
+  properties: {
+    id: { primary: true, type: 'string' },
+    price: { type: 'number', nullable: true, columnType: 'float' },
+  },
+});
+orm.discoverEntity(schema);
+em.create('myNewTable', { id: 'abc-123', price: 1.5 });
+await em.flush();
+```
+
 # Version
 
 ## MikroORM v6

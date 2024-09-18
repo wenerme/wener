@@ -16,6 +16,7 @@ title: dockerd
 
 ```json
 {
-  "insecure-registries": ["localhost:5000"]
+  "insecure-registries": ["localhost:5000"],
+  "registry-mirrors": ["https://docker.wener.me"]
 }
 ```

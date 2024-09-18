@@ -6,11 +6,30 @@ tags:
 
 # 档案管理
 
+- EDMS - Electronic Document Management System - 电子文件管理系统
 - RMS - Records Management System - 档案管理系统
 - 中国 [DAT](./dat/README.md)/档案管理 标准
 - ISO 15489 Information and Documentation - Records Management - 信息和文档 - 记录管理
   - ISO 15489-1:2016 信息和文档 - 记录管理 - 第1部分：概念和原则
   - ISO 15489-2:2001 信息和文档 - 记录管理 - 第2部分：指南
+- ISO 14721 – OAIS（开放档案信息系统参考模型）
+  - OAIS - Open Archival Information System
+- ISO 16363 – 数字存档认证标准
+- Dublin Core Metadata Initiative - DCMI - 都柏林核心元数据倡议
+- MoReq - Model Requirements for the Management of Electronic Records - 电子记录管理模型要求
+- DoD 5015.2 - Department of Defense Records Management Program - 美国国防部记录管理标准
+-  《中华人民共和国档案法》
+- GB/T 18894-2016 《电子文件归档与电子档案管理规范》
+- DA/T 46-2009 《文书类电子文件归档光盘技术要求和应用规范》
+- DA/T 38-2008 《电子公文归档管理规范》
+- DA/T 50-2014 《电子档案移交与接收办法》
+- DA/T 37-2015 《数字档案馆建设指南》
+- 《全国档案事业发展“十四五”规划纲要》
+- 档案学 是以档案和档案工作为研究对象的一门社会科学。
+  - [Archives--Administration](https://id.loc.gov/authorities/subjects/sh2007101328.html)
+- 参考
+  - https://www.saac.gov.cn/
+  - [Digital preservation](https://en.wikipedia.org/wiki/Digital_preservation)
 
 ```
 档号=全宗号-目录号-案卷号-件号

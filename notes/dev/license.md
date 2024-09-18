@@ -30,6 +30,13 @@ title: License
   - 推荐 ISC
 - https://fair.io/
 - LGPL
+- 开源的定义
+  - https://opensource.org/osd
+- MS-RSL - MICROSOFT REFERENCE SOURCE LICENSE
+  - 不是 Open Source
+  - 允许您在公司内部以只读形式使用软件源代码，目的仅限于参考、调试、维护您的产品或增强与该软件的互操作性。
+  - 禁止在公司外部分发该软件，也不允许修改或创建衍生作品。
+  - https://referencesource.microsoft.com/license.html
 
 | abbr   | for                                |
 | ------ | ---------------------------------- |

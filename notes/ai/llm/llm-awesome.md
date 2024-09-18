@@ -16,6 +16,26 @@ tags:
   - [vllm-project/vllm](https://github.com/vllm-project/vllm)
     - https://vllm.ai/
     - vLLM: Easy, Fast, and Cheap LLM Serving
+  - [codelion/optillm](https://github.com/codelion/optillm)
+    - Optimizing inference proxy for LLMs
+  - [bklieger-groq/g1](https://github.com/bklieger-groq/g1)
+    - Reasoning/CoT/reasoning chain
+    - [HN](https://news.ycombinator.com/item?id=41550364)
+  - 商业
+    - Perplexity
+    - Fireworks AI
+    - [groq](https://groq.com/)
+    - Cloudflare AI Workers
+    - Nvidia NIM
+  - Models
+    - https://models.litellm.ai/
+    - https://openrouter.ai/models
+    - https://app.hyperbolic.xyz/models
+    - https://minthemiddle.github.io/openrouter-model-comparison/
+  - 价格
+    - https://github.com/arc53/llm-price-compass
+    - https://llmprices.dev/
+    - https://aichatmakers.com/2024/04/15/llms-pricing-comparison-with-chat-arena-leaderboard-ranking-april-2024/
 - Application
   - [jmorganca/ollama](./ollama.md)
     - MIT, Golang

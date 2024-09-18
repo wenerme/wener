@@ -35,3 +35,8 @@ yt-dlp --download-archive archive.txt -a urls.txt
 ```
 -f 'bestvideo[vcodec=av1]+bestaudio[acodec=opus]/bestvideo[vcodec=vp9]+bestaudio[acodec=opus]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best'
 ```
+
+## Sign in to confirm you’re not a bot. This helps protect our community. Learn more
+
+- `--cookies-from-browser chrome`
+- https://github.com/yt-dlp/yt-dlp/issues/10128

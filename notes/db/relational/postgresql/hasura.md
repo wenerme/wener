@@ -386,3 +386,12 @@ hasura migrate delete --all --server --database-name DB
 ## "Query" has to be an object type
 
 - https://github.com/hasura/graphql-engine/issues/9399
+
+## schema 变更流程
+
+1. 修改 SQL，调整 schema，alter table
+2. `hasura md reload`
+3. `hasura md ic list` - 确认是否有不一致的地方
+4. `hasura md ic drop` - 移除不一致的地方 - 注意也需要到 console 修复回来
+5. `hasura md export` - 更新 meta 到仓库
+6. `pnpm graphql-codegen --config codegen.ts` - 生成新的 graphql schema

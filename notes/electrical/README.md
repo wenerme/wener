@@ -1,4 +1,10 @@
+---
+title: 电学基础
+---
+
 # 电学基础
+
+- [术语](./electrical-glossary.md)
 
 ## 电路基础
 

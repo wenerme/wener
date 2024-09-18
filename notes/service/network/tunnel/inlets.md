@@ -5,14 +5,21 @@ title: inlets 通道
 # inlets
 
 
-- [inlets/inlets](https://github.com/inlets/inlets) - L7 HTTP/HTTPS 通道 - MIT
+:::caution
+
+- 不支持 **gRPC**
+- 开源版本限制非常多，不建议使用
+
+:::
+
+- inlets - L7 HTTP/HTTPS 通道
+  - MIT, Go
   - 反向通道 客户端和服务端 - 类似 ngrok, argo tunnel
   - 一个进程一个 tunnel
   - 自动重连
   - 支持 ws 和 wss 通讯
   - 支持 http, https, ws 通道
   - 默认开启 CORS - `--disable-transport-wrapping`
-  - 注意 ⚠️ 不支持 **gRPC**
 - inlets-pro - L4 通道 - 商业授权
   - 支持 TCP 自动 TLS 加密
   - ⚠️ 个人 2 通道 180/年，商业 5 通道 1860/年 额外通道 20/月
@@ -40,7 +47,7 @@ inlets client --remote 127.0.0.1:8000 --upstream http://127.0.0.1:8123
 
 - [inlets/inlets-operator](https://github.com/inlets/inlets-operator)
 
-## 笔记
+## Notes
 
 - 使用 websocket 进行 tunnel
   - 类似项目 [google/huproxy](https://github.com/google/huproxy) - 非常简单，好理解

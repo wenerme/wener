@@ -4,6 +4,8 @@ title: sdkman
 
 # sdkman
 
+- [sdkman/sdkman-cli](https://github.com/sdkman/sdkman-cli)
+
 ```bash
 curl -s "https://get.sdkman.io?rcupdate=false" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"

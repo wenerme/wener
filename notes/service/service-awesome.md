@@ -301,6 +301,48 @@ tags:
   - obsidian
     - 存储为 markdown
     - 闭源
+- BI/Busines Intelligence/Data Visualization/数据分析/Visualization UI builder
+  - Metabase
+  - Redash
+  - Superset
+  - [jitsucom/jitsu](https://github.com/jitsucom/jitsu)
+    - open-source Segment alternative
+    - [vs-segment](https://jitsu.com/vs-segment)
+  - [snowplow/snowplow](https://github.com/snowplow/snowplow)
+    - Apache-2.0, Scala
+    - behavioral data engine
+  - [meltano/meltano](https://gitlab.com/meltano/meltano)
+    - MIT, Python
+    - ELT for the DataOps
+  - [lightdash](https://github.com/lightdash/lightdash)
+    - MIT, Typescript
+    - Looker alternative
+  - observablehq/plot
+- Notebook/Data/BI/数据分析/Visualize with code/Interactive Computing
+  - [jupyter/jupyter](https://github.com/jupyter/jupyter)
+    - JupyterLab
+      - 多文档, 插件, 内置文件浏览, 交互输出, 更高级的文本编辑
+      - next-generation web-based user interface for Project Jupyter
+    - [jupyter/notebook](https://github.com/jupyter/notebook)
+      - 单一页面的笔记本界面
+    - [Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
+      - kernels -> 执行环境
+  - [apache/zeppelin](https://github.com/apache/zeppelin)
+    - Apache-2.0, Java
+  - [pinterest/querybook](https://github.com/pinterest/querybook)
+    - Apache-2.0, TS
+    - Big Data Querying UI
+  - [sagemathinc/cocalc](https://github.com/sagemathinc/cocalc)
+    - MS-RSL
+  - ~~[nteract/nteract](https://github.com/nteract/nteract)~~
+    - BSD-3, TS, Jupyter
+    - [nteract/hydrogen](https://github.com/nteract/hydrogen)
+      - MIT, TS, JS
+      - Run code interactively, inspect data, plot
+  - Google Colab
+  - Amazon SageMaker
+  - Jetbrains Datalore
+  - https://datasciencenotebook.org/
 - Storage/File/Drive
   - [Nextcloud](./file/nextcloud/README.md)
   - [cryptpad](https://github.com/cryptpad/cryptpad)
