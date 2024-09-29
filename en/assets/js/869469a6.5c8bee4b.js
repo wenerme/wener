@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[21096],{56756:e=>{e.exports=JSON.parse('{"label":"ACL","permalink":"/en/notes/tags/acl","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"platform/aliyun/aliyun-acl","title":"Aliyun ACL","description":"","permalink":"/en/notes/platform/aliyun/acl"}],"unlisted":false}')}}]);

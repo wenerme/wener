@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[12176],{41032:e=>{e.exports=JSON.parse('{"label":"K3S","permalink":"/story/tags/k-3-s","allTagsPath":"/story/tags","count":1,"unlisted":false}')}}]);

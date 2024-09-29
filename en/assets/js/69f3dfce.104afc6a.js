@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[42008],{51848:e=>{e.exports=JSON.parse('{"label":"Haxe","permalink":"/en/notes/tags/haxe","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"dev/game/engine/openfl","title":"OpenFL","description":"- openfl/openfl","permalink":"/en/notes/dev/game/engine/openfl"}],"unlisted":false}')}}]);

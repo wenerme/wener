@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[1669],{79404:e=>{e.exports=JSON.parse('{"label":"GUI","permalink":"/en/story/tags/gui","allTagsPath":"/en/story/tags","count":1,"unlisted":false}')}}]);

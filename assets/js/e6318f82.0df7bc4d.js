@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[75680],{40630:e=>{e.exports=JSON.parse('{"label":"Compile","permalink":"/notes/tags/compile","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/script/js/js-compile","title":"JS Compile","description":"- minification","permalink":"/notes/web/script/js/compile"}],"unlisted":false}')}}]);

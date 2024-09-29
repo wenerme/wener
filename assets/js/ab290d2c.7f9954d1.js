@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[67096],{40854:e=>{e.exports=JSON.parse('{"label":"Runtime","permalink":"/notes/tags/runtime","allTagsPath":"/notes/tags","count":1,"items":[{"id":"web/react/hermes","title":"hermes","description":"- facebook/hermes","permalink":"/notes/web/react/hermes"}],"unlisted":false}')}}]);

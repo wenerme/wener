@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[63752],{20635:e=>{e.exports=JSON.parse('{"label":"NCRE","permalink":"/en/story/tags/ncre","allTagsPath":"/en/story/tags","count":1,"unlisted":false}')}}]);

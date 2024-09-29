@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[69352],{69120:e=>{e.exports=JSON.parse('{"label":"AlpineLinux","permalink":"/en/story/tags/alpine-linux","allTagsPath":"/en/story/tags","count":5,"unlisted":false}')}}]);

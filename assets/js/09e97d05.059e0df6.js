@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[63656],{37531:e=>{e.exports=JSON.parse('{"label":"GraphQL","permalink":"/story/tags/graph-ql","allTagsPath":"/story/tags","count":2,"unlisted":false}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[80288],{22264:e=>{e.exports=JSON.parse('{"label":"Debian","permalink":"/en/story/tags/debian","allTagsPath":"/en/story/tags","count":1,"unlisted":false}')}}]);

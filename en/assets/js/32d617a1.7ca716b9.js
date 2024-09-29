@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[39020],{54320:e=>{e.exports=JSON.parse('{"label":"Event","permalink":"/en/notes/tags/event","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"web/dom/dom-event","title":"DOM Event","description":"- Phase - eventPhase","permalink":"/en/notes/web/dom/event"}],"unlisted":false}')}}]);

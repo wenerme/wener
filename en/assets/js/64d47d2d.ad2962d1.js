@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[58456],{37168:e=>{e.exports=JSON.parse('{"label":"IEEE","permalink":"/en/notes/tags/ieee","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"network/ieee-802","title":"IEEE 802","description":"| spec         |","permalink":"/en/notes/network/ieee-802"}],"unlisted":false}')}}]);

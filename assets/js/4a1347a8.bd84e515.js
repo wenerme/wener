@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[25668],{32718:e=>{e.exports=JSON.parse('{"label":"UI","permalink":"/notes/tags/ui","allTagsPath":"/notes/tags","count":1,"items":[{"id":"dev/design/design-ui","title":"Design UI","description":"- \u5c3d\u91cf\u662f Headless + Style","permalink":"/notes/dev/design/ui"}],"unlisted":false}')}}]);

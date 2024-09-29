@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([[6460],{88800:e=>{e.exports=JSON.parse('{"label":"Firewall","permalink":"/en/notes/tags/firewall","allTagsPath":"/en/notes/tags","count":1,"items":[{"id":"os/windows/windows-firewall","title":"Firewall","description":"","permalink":"/en/notes/os/windows/firewall"}],"unlisted":false}')}}]);
