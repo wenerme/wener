@@ -23,6 +23,11 @@ tags:
 | XDG_DATA_DIRS   | /usr/local/share/:/usr/share/ |
 | XDG_CONFIG_DIRS | /usr/local/share/:/usr/share/ |
 
+- https://github.com/adrg/xdg
+- HOME vs DIRS
+  - HOME - 单个固定目录
+  - DIRS - 多个搜索目录
+
 ```env title="~/.config/user-dirs.dirs"
 XDG_DESKTOP_DIR="$HOME/Desktop"
 XDG_DOCUMENTS_DIR="$HOME/Documents"

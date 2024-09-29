@@ -13,6 +13,16 @@ title: Stable Diffusion
 - SD Turbo
 - [stabilityai/stable-video-diffusion-img2vid-xt](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt)
   - Image-to-Video
+- [vladmandic/automatic](https://github.com/vladmandic/automatic)
+  - AGPLv3, Python
+  - SD.Next: Advanced Implementation of Stable Diffusion and other Diffusion-based generative image models
+- [ChenWu98/cycle-diffusion](https://github.com/ChenWu98/cycle-diffusion)
+- studio/webui
+  - [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio)
+- models
+  - https://huggingface.co/cagliostrolab/animagine-xl-3.1
+- 参考
+  - https://stable-diffusion-art.com/
 
 ---
 

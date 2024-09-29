@@ -17,6 +17,18 @@ tags:
 
 :::
 
+
+```Makefile
+tidy:
+  go mod tidy
+fmt: tidy
+  go fmt ./...
+outdated:
+  go list -u -m -f '{{if .Update}}{{.}}{{end}}' all
+update:
+	go get -u ./...
+```
+
 ## 安装
 
 - https://go.dev/dl/
@@ -446,3 +458,15 @@ func main() {
 - https://go.dev/ref/mem
 
 ## This program can only be run on AMD64 processors with v3 microarchitecture support
+
+## unknown-unsupported file format error
+
+- 检查下是不是有 .syso
+  - macOS 下用不了
+
+## .syso
+
+Go 语言项目中使用的一种资源文件，主要用于将静态资源（如图标、版本信息、Windows 清单文件等）嵌入到编译后的二进制文件中。
+
+- windres
+  - .rc -> .syso

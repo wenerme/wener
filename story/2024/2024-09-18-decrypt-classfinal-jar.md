@@ -2,15 +2,13 @@
 slug: decrypt-classfinal-jar
 title: 解密 ClassFinal 加密的 Java Jar 包
 tags:
-- Java
-- Decrypt
+  - Java
+  - Decrypt
 ---
-
 
 # 解密 ClassFinal 加密的 Java Jar 包
 
 [ClassFinal](https://github.com/roseboy/classfinal) 是一款java class文件安全加密工具，支持直接加密jar包或war包，无需修改任何项目代码，兼容spring-framework；可避免源码泄漏或字节码被反编译。
-
 
 **要点**
 
@@ -23,8 +21,15 @@ tags:
 - 将 jar 添加到 classpath - 方便直接调用 net.roseboy.classfinal 内内容
   - 通过 IDE 或者通过命令行参数
 - 解压 jar 到当前 目录 tmp
+- 解密 class
+- 反编译得到 java
+- 添加 lib 目录到 classpath
+- 通过 IDEA 可直接调用原始 jar 里内容或直接启动 Application
+  - 可能需要修改反编译后的 java 文件 - 部分反编译语法错误
 
-```java
+<!-- more -->
+
+```java title="DecryptClassFinal.java"
 package main;
 
 import net.roseboy.classfinal.JarDecryptor;
@@ -85,9 +90,7 @@ public class DecryptClassFinal {
 
 运行 main 后 src/main/class 目录下会生成解密后的 class 文件。
 
-反编译 class 为 java
-
-```bash
+```bash title="反编译 class 为 java"
 # 假设是 macOS 安装的 IDEA
 # IDEA 自带的反编译工具解密即可
 java -cp ~/Applications/IntelliJ\ IDEA\ Ultimate.app/Contents/plugins/java-decompiler/lib/java-decompiler.jar \
@@ -97,7 +100,6 @@ java -cp ~/Applications/IntelliJ\ IDEA\ Ultimate.app/Contents/plugins/java-decom
 ```
 
 执行后 src/main/java 目录下会生成反编译后的 java 文件。
-
 
 :::tip
 

@@ -5,6 +5,7 @@ title: ImageMagick
 # imagemagick
 
 
+- [ImageMagick/ImageMagick](https://github.com/ImageMagick/ImageMagick)
 - http://www.imagemagick.org/
 - http://www.imagemagick.org/script/formats.php
   - PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, and SVG
@@ -43,3 +44,14 @@ pdftk pdf1.pdf pdf2.pdf cat output temp.pdf
 
 magick mogrify -monitor -format jpg *.HEIC
 ```
+
+# FAQ
+
+## The convert command is deprecated in IMv7, use "magick" instead of "convert" or "magick convert"
+
+- `convert` -> `magick convert`
+- IM7
+
+---
+
+- convert, mogrify, identify, composite -> magick

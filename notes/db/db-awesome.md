@@ -25,12 +25,31 @@ tags:
 | Content stores       | 内容存储       |
 | Navigational DBMS    | 导航数据库     |
 
-- https://db-engines.com/en/ranking
-- https://db-benchmarks.com/
-- [FirebirdSQL/firebird](https://github.com/FirebirdSQL/firebird)
-  - MPL-1.1, C++
-  - since 1981
-  - ANSI SQL
+- [PostgreSQL Awesome](./relational/postgresql/postgresql-awesome.md)
+- NewSQL
+  - cockroachdb
+- Realtime/Baas/Streaming/实时
+  - [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
+    - 基于 PostgreSQL
+    - 实时的 `MATERIALIZED VIEW`
+    - [CREATE SOURCE](https://materialize.com/docs/sql/create-source/)
+      - 支持 Kafka, S3
+  - [supabase/supabase](https://github.com/supabase/supabase)
+    - 基于 PostgreSQL
+    - 类比 Firebase
+- CommandLine/CUI/CLI
+  - [xo/usql](https://github.com/xo/usql)
+    - MIT, Go
+    - Universal command-line interface for SQL databases
+    - `usql -c '\drivers'`
+    - 推荐 🌟 没有依赖，方便 Windows 这样的环境使用，支持的驱动多
+  - [dbcli/pgcli](https://github.com/dbcli/pgcli)
+    - BSC-3, Python
+  - [dbcli/mycli](https://github.com/dbcli/mycli)
+- Ranking
+  - https://db-engines.com/en/ranking
+  - https://db-benchmarks.com/
+    - by manticoresearch
 
 ## 理论
 
@@ -38,8 +57,27 @@ tags:
   - wikipedia [Sargable](https://en.wikipedia.org/wiki/Sargable)
   - 定义查询可利用索引的场景
 
-## 分布式
+## 关系型 {#relational}
 
+- [PostgreSQL](./relational/postgresql/postgresql-awesome.md)
+- SQLite
+- MySQL
+- [FirebirdSQL/firebird](https://github.com/FirebirdSQL/firebird)
+  - MPL-1.1, C++
+  - since 1981
+  - ANSI SQL
+
+## MySQL
+
+- Viteness
+- TiDB
+- [baidu/BaikalDB](https://github.com/baidu/BaikalDB)
+  - Apache-2.0, C++
+  - HTAP
+
+## 分布式 {#distributed}
+
+- 分布式/Disributed/HA/高可用
 - [rqlite/rqlite](https://github.com/rqlite/rqlite)
   - SQLite + Raft
 - [tigerbeetle/tigerbeetle](https://github.com/tigerbeetle/tigerbeetle)
@@ -51,11 +89,6 @@ tags:
   - [cdb](./newsql/cockroachdb.md)
   - [yugabyte/yugabyte-db](./newsql/yugabytedb.md)
   - [ydb-platform/ydb](https://github.com/ydb-platform/ydb)
-- MySQL
-  - Viteness
-  - TiDB
-  - [baidu/BaikalDB](https://github.com/baidu/BaikalDB)
-    - HTAP
 
 ## 时序数据库 {#time-series}
 
@@ -72,17 +105,6 @@ tags:
   - from Uber
   - Distributed TSDB, Aggregator and Query Engine, Prometheus Sidecar, Graphite Compatible, Metrics Platform
 - [taosdata/TDengine](https://github.com/taosdata/TDengine)
-
-## 实时数据库
-
-- [MaterializeInc/materialize](https://github.com/MaterializeInc/materialize)
-  - 基于 PostgreSQL
-  - 实时的 `MATERIALIZED VIEW`
-  - [CREATE SOURCE](https://materialize.com/docs/sql/create-source/)
-    - 支持 Kafka, S3
-- [supabase/supabase](https://github.com/supabase/supabase)
-  - 基于 PostgreSQL
-  - 类比 Firebase
 
 ## OLAP
 
@@ -208,11 +230,6 @@ tags:
   - 概念 NAMESPACE, DATABASE
   - 本地存储: RocksDB
   - 分布式存储: tikv
-- CommandLine/CUI/CLI
-  - [xo/usql](https://github.com/xo/usql)
-    - MIT, Go
-    - Universal command-line interface for SQL databases
-    - `usql -c '\drivers'`
 
 ```bash
 docker run --rm -p 8000:8000 surrealdb/surrealdb:latest start --log debug --user root --pass root
@@ -308,7 +325,6 @@ curl --request POST \
 - https://huggingface.co/spaces/mteb/leaderboard
 
 :::
-
 
 - [pgvector/pgvector](https://github.com/pgvector/pgvector)
   - PostgreSQL/MIT, C

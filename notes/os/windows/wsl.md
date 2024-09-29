@@ -97,7 +97,7 @@ apk upgrade -a
 ```bash
 wsl -d Alpine # 进入 WSL
 
-apk add openssh make rsync bash # 基础依赖
+apk add openssh make rsync bash nano # 基础依赖
 # 开发相关依赖
 apk add libc6-compat gcompat curl bash ca-certificates openssl ncurses coreutils python3 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
 
@@ -213,9 +213,14 @@ net start LxssManager
 
 ## 允许外面访问端口
 
-```bash
-netsh interface portproxy set v4tov4 listenport=8000 listenaddress=0.0.0.0 connectport=8000 connectaddress=$(wsl hostname -I)
+```shell
+# eth0 的地址
+wsl sh -c "ip -4 addr show eth0  | grep -Po '(?<=inet\s)\d+(\.\d+){3}'"
 
+netsh interface portproxy set v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=172.26.186.210
+```
+
+```bash
 wsl hostname -I             # 返回 disto 的 IP 地址
 wsl -d Alpine ifconfig eth0 # 同理
 ```
@@ -276,6 +281,15 @@ ifquery: could not parse /etc/network/interfaces
  * ERROR: cannot start docker as networking would not start
 ```
 
+```bash
+tee /etc/network/interfaces <<- 'EOF'
+auto lo
+iface lo inet loopback
+
+auto eth0
+EOF
+```
+
 **/etc/network/interfaces**
 
 ```
@@ -297,6 +311,20 @@ sudo dockerd --iptables=false
 
 - iproute2 ss
 - WSL 1 问题
+
+## docker RULE_APPEND failed (No such file or directory): rule in chain DOCKER-ISOLATION-STAGE-1
+
+```bash
+# /sbin/xtables-nft-multi -> /sbin/xtables-legacy-multi
+# iptables-nft -> iptables-legacy
+ln $(which iptables-legacy) $(which iptables) -f
+ln $(which ip6tables-legacy) $(which ip6tables) -f
+
+service docker restart
+```
+
+- WSL 2
+- https://github.com/microsoft/WSL/issues/6655
 
 ## The virtual machine could not be started because a required feature is not installed.
 

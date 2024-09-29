@@ -158,6 +158,9 @@ application/geo+json
       - fork of [Hopding/pdf-lib](https://github.com/Hopding/pdf-lib)
   - pdfinfo
   - exiftool
+- [moshen/wasmagic](https://github.com/moshen/wasmagic)
+  - BSD-2, TS
+  - WebAssembly compiled version of libmagic
 
 ## exif
 

@@ -524,6 +524,8 @@ tags:
   - bunyan
   - log4js
   - [unjs/consola](https://github.com/unjs/consola)
+  - [HuolalaTech/page-spy-web](https://github.com/HuolalaTech/page-spy-web)
+  - [Tencent/vConsole](https://github.com/Tencent/vConsole)
 - validate
   - [decs/typeschema](https://github.com/decs/typeschema)
     - adapter for TypeScript schema validation.

@@ -6,7 +6,45 @@ tags:
 # MySQL FAQ
 
 ```sql
-select version();
+select version(); -- 查看版本
+SELECT USER(); -- 查看用户
+SELECT DATABASE(); -- 查看数据库
+
+SHOW STATUS;
+SHOW GLOBAL VARIABLES;
+SHOW SESSION VARIABLES;
+SHOW VARIABLES LIKE 'max_connections';
+SHOW PROCESSLIST; -- 查看当前连接
+SHOW ENGINES;
+SHOW ENGINE INNODB STATUS;
+SHOW DATABASES; -- 显示数据库
+SHOW TABLES; -- 显示表
+
+SHOW GRANTS FOR CURRENT_USER; -- 查看当前用户权限
+SHOW GRANTS FOR 'user'@'host'; -- 查看权限
+
+use mysql; -- 切换数据库
+describe users; -- 查看表结构
+
+SELECT NOW();
+
+SHOW SLAVE STATUS; -- 查看从库状态
+SHOW MASTER STATUS; -- 查看主库状态
+```
+
+- db
+  - sys
+  - information_schema
+  - performance_schema
+  - mysql
+
+```sql
+-- 允许 root 远程登录
+UPDATE mysql.user SET host='%' WHERE user='root' AND host='localhost';
+FLUSH PRIVILEGES; -- 重载权限
+
+-- 修改密码
+ALTER USER 'root'@'%' IDENTIFIED BY '123456';
 ```
 
 ## 限制 {#limits}
@@ -115,7 +153,6 @@ MySQL virtual 列不能用 CONNECTION_ID(), CURRENT_USER(), NOW().
 
 - https://dev.mysql.com/doc/refman/8.0/en/stored-programs-logging.html
 - https://stackoverflow.com/a/26015334/1870054
-
 
 ## dump
 

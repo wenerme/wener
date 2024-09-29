@@ -81,13 +81,11 @@ ajv.addFormat('byte', {
   type: 'number',
   validate: (x) => x >= 0 && x <= 255 && x % 1 == 0,
 });
-ajv.addFormat('int8',{
+ajv.addFormat('int8', {
   type: 'number',
   validate: (x) => x >= -128 && x <= 127 && Number.isInteger(x),
-})
+});
 ```
-
-
 
 ## standalone validation code
 
@@ -99,6 +97,10 @@ ajv compile -s schema.json -o validate_schema.js
 ```
 
 - https://ajv.js.org/standalone.html
+
+## addKeyword
+
+- https://ajv.js.org/keywords.html
 
 # FAQ
 

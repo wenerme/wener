@@ -116,6 +116,9 @@ tags:
     - https://magnific.ai/
 - image
   - https://huggingface.co/datasets/vivym/midjourney-messages
+  - [openai/CLIP](https://github.com/openai/CLIP)
+    - MIT
+    - CLIP (Contrastive Language-Image Pretraining), Predict the most relevant text snippet given an image
 - video
   - [blakeblackshear/frigate](https://github.com/blakeblackshear/frigate)
     - MIT, Python, TS
@@ -135,9 +138,8 @@ tags:
     - XCiT
     - DINO - Self-Supervised Vision Transformers
     - PyTorch code for Vision Transformers training with the Self-Supervised learning method DINO
-- text & image
-  - [Yutong-Zhou-cv/Awesome-Text-to-Image](https://github.com/Yutong-Zhou-cv/Awesome-Text-to-Image)
-- tts
+- audio/music/speech/voice/tts
+  - [microsoft/muzic](https://github.com/microsoft/muzic)
   - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)
     - MIT, Python
     - [HN](https://news.ycombinator.com/item?id=38335255)
@@ -188,6 +190,9 @@ tags:
     - NVIDIA Research
   - [THUDM](https://github.com/THUDM)
     - 清华 KEG & 数据挖掘
+- apps/ios/android
+  - [niedev/RTranslator](https://github.com/niedev/RTranslator)
+    - Apache-2.0, C++, Java
 - [PKU-YuanGroup/Video-LLaVA](https://github.com/PKU-YuanGroup/Video-LLaVA)
 - [GokuMohandas/MadeWithML](https://github.com/GokuMohandas/MadeWithML)
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
@@ -342,8 +347,22 @@ tags:
 
 ---
 
+- [ml-tooling/best-of-ml-python](https://github.com/ml-tooling/best-of-ml-python)
 - [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python)
 - [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp)
+
+## UI/Desktop/GUI/WebUI {#ui}
+
+- [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
+  - Apache-2.0, TypeScript
+- [JetBrains/KotlinDL](https://github.com/JetBrains/KotlinDL)
+  - Kotlin DSL for ML
+
+## Library
+
+- js/ts/nodejs
+  - [dexaai/openai-fetch](https://github.com/dexaai/openai-fetch)
+  - vercel/ai
 
 ## Learn
 
@@ -485,16 +504,6 @@ tags:
 - [PyTorch vs TensorFlow in 2022](https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2022/)
   - [HN](https://news.ycombinator.com/item?id=29552665)
 
-## Service
-
-- [openvinotoolkit/cvat](https://github.com/openvinotoolkit/cvat)
-  - Powerful and efficient Computer Vision Annotation Tool (CVAT)
-
-## Language
-
-- [JetBrains/KotlinDL](https://github.com/JetBrains/KotlinDL)
-  - Kotlin DSL for ML
-
 ## Intrested
 
 - [ZHKKKe/MODNet](https://github.com/ZHKKKe/MODNet)
@@ -520,10 +529,6 @@ tags:
 - MobileNetv2
 - https://modelplace.ai/models
 - [OpenBMB/BMList](https://github.com/OpenBMB/BMList)
-
-## Music
-
-- [microsoft/muzic](https://github.com/microsoft/muzic)
 
 ## STT
 

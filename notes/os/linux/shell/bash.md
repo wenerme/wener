@@ -69,27 +69,12 @@ for i in $(seq 0 $((3 - 1))); do echo $i; done
 
 ## set
 
-| set | set -o      |
-| --- | ----------- | -------------------------------------- |
-| a   | allexport   | export 所有变量                        |
-| E   | errtrace    | 继承 ERR trap                          |
-| e   | errexit     | 命令失败(返回非 0)则退出脚本           |
-| u   | nounset     | 要求变量 unset                         |
-| x   | xtrace      | trace - 回显执行的内容, 输出前缀为 PS4 |
-| B   | braceexpand | 展开 `{`                               |
-| T   | functrace   |
-| h   | hashall     |
-| H   | histexpand  |
-|     | pipefail    | pipe 失败也退出                        |
-|     | posix       | Bash 符合 POSIX 标准                   |
-| t   | onecmd      | 执行一条命令后便退出                   |
-| v   | verbose     |
-
 ```bash
 # 推荐
 set -Eeuo pipefail
 ```
 
+- [Reference](./shell-ref.md#options)
 - trap ERR 可处理 -e 退出
 - [set](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 

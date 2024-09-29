@@ -19,6 +19,7 @@ tags:
 - https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02
 - [json-schema-org/json-schema-spec](https://github.com/json-schema-org/json-schema-spec)
 - 工具
+  - json-schema-traverse
   - [APIDevTools/json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser)
     - MIT, JS
     - 合并 $ref

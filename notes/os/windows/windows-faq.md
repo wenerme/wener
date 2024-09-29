@@ -6,6 +6,21 @@ tags:
 
 # Windows FAQ
 
+```shell
+eventvwr             # 事件查看器
+taskmgr              # 任务管理器
+cmd                  # 命令行
+control firewall.cpl # 控制面板 -> 防火墙
+winver               # 版本
+msconfig             # 系统配置
+
+wf.msc       # 高级防火墙
+services.msc # 服务
+```
+
+- mmc - Microsoft Management Console
+- .msc - Microsoft Common Console
+
 ## Windows 11 无账号安装
 
 1. 国家页面 `Shift-F11`
@@ -19,7 +34,6 @@ shutdown /r /t 0
 ```
 
 3. 重启后断网安装
-
 
 ## Ports
 
@@ -157,6 +171,11 @@ curl www.msftncsi.com/ncsi.txt
 
 ## runas admin
 
+```bash
+# 启动 管理员权限运行的 cmd
+powershell -Command "Start-Process cmd -Verb RunAs"
+```
+
 ```batch
 runas /savecred /user:Administrator "cmd.exe /C %CD%\installer.cmd %CD%"
 ```
@@ -166,3 +185,23 @@ runas /savecred /user:Administrator "cmd.exe /C %CD%\installer.cmd %CD%"
 ```batch
 net user Administrator /active:yes
 ```
+
+## MinGW vs Cygwin vs MSYS2
+
+- MinGW
+  - GCC port 到 windows
+  - 直接构建 Win32 应用
+- Cygwin
+  - POSIX 环境
+  - 中间层
+  - 编译后的程序需要 cygwin1.dll
+  - 整个环境 - cyglsa, cygserver, cygstart
+    - 包含了服务管理，进程管理，路径转换等
+- MSYS2
+  - MinGW-w64+Cygwin
+    - 去掉了 Cygwin 的服务管理
+  - 强调构建 Native Windows 程序 - 不依赖 cygwin1.dll
+  - 提供多种 runtime
+  - msys2 有 msys-2.0.dll，作用类似于 cygwin1.dll
+    - 提供 POSIX 环境
+    - https://www.msys2.org/wiki/How-does-MSYS2-differ-from-Cygwin/

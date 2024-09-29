@@ -91,6 +91,13 @@ tags:
   - [alafr/SVG-to-PDFKit](https://github.com/alafr/SVG-to-PDFKit)
   - [mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
     - based on sheetjs
+  - [harshankur/officeParser](https://github.com/harshankur/officeParser)
+    - MIT, JS
+    - parse text out of any office file
+    - docx, pptx, xlsx and odt, odp, ods
+  - [cantoo-scribe/pdf-lib](https://github.com/cantoo-scribe/pdf-lib)
+    - npm @cantoo/pdf-lib
+    - fork of [Hopding/pdf-lib](https://github.com/Hopding/pdf-lib)
 - Golang
   - [unidoc/unioffice](https://github.com/unidoc/unioffice)
     - .docx, .xlsx, .pptx

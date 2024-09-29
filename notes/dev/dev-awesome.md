@@ -35,7 +35,27 @@ tags:
 - dotfiles
   - [twpayne/chezmoi](https://github.com/twpayne/chezmoi)
   - https://dotfiles.github.io/utilities/
+  - yadm
+  - bare git repository
+  - symlinks
+  - [anishathalye/dotbot](https://github.com/anishathalye/dotbot)
+    - MIT, Python
+  - [stow](https://www.gnu.org/software/stow/)
+    - Perl
+    - symlink farm manager
+  - demo
+    - [renemarc/dotfiles](https://github.com/renemarc/dotfiles)
 
+```bash
+# 使用 Bare Git Repository 管理 dotfiles
+git init --bare $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
+
+dotfiles add .bashrc
+dotfiles commit -m 'Add .bashrc'
+dotfiles push
+```
 
 ## Big Corp
 

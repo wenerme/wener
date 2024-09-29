@@ -9,6 +9,7 @@ title: CloudFlare
   - https://www.cloudflare.com/zh-cn/learning/
   - [为什么能提供无限带宽？](https://webmasters.stackexchange.com/a/88685)
   - [Understanding Origin Cache-Control](https://support.cloudflare.com/hc/en-us/articles/115003206852-Understanding-Origin-Cache-Control)
+  - https://cloudflare.chuhai.tools/
 
 | product       |                     | Base           |
 | ------------- | ------------------- | -------------- |

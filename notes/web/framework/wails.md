@@ -7,6 +7,7 @@ title: wails
 - [wailsapp/wails](https://github.com/wailsapp/wails)
   - MIT, Go
   - 基于 Webview 的应用封装
+- WML
 - Windows - [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
 - macOS - Safari
 - Linux - gcc,libgtk3,libwebkit
@@ -67,5 +68,139 @@ wails build -trimpath -upx -platform darwin/amd64
 ```ts
 export function Greet(arg1) {
   return window['go']['main']['App']['Greet'](arg1);
+}
+```
+
+## app
+
+- 注入内容
+  - /wails/runtime.js
+  - /wails/ipc.js
+- `<div data-wails-drag>` -> `style="--wails-dragable:drag"`
+  - `style="--wails-draggable:no-drag"`
+
+```html
+<!-- noautoinjectruntime, noautoinjectipc, noautoinject -->
+<meta name="wails-options" content="[options]" />
+```
+
+```ts
+window._wails;
+window.wails;
+```
+
+- https://github.com/wailsapp/wails/tree/v3-alpha/v3/internal/runtime/desktop
+
+## wails v3
+
+- v3
+  - 声明式 -> 过程式
+  - 多窗口
+  - 集成 系统托盘
+  - 优化 bindings 实现和生成逻辑
+  - 使用 taskfile 构建
+  - 优化事件
+  - WML - Wails Markup Language
+    - 有点类似 htmx
+    - element 特殊属性
+      - `wlm-window` - 操作窗口
+        - Center,Close,Minimize,Maximize,UnMaximize,FullScreen,UnFullScreen,Restore
+      - `wlm-event` - emit 事件
+        - `wlm-trigger` - 触发条件
+          - 例如 mouseover
+- https://github.com/wailsapp/wails/tree/v3-alpha
+- https://v3alpha.wails.io/
+- events
+  - 三种类型
+    - ApplicationEvent
+    - WindowEvent
+    - CustomEvent - 字符串
+  - ApplicationEvent, WindowEvent 和 js 交互的时候会做 字符串 uint 的 mapping
+  - events.Common.ApplicationStarted
+    - events.Mac.ApplicationDidFinishLaunching
+    - events.Windows.ApplicationStarted
+  - events.Common.WindowRuntimeReady
+    - WebView runtime
+
+```bash
+go install -v github.com/wailsapp/wails/v3/cmd/wails3@latest
+
+wails3 init -n my-app
+cd my-app
+wails3 build
+./bin/my-app
+```
+
+## syso
+
+- 使用 [tc-hib/winres](https://github.com/tc-hib/winres)
+- info.json
+  - res.SetVersionInfo
+  - RT_VERSION
+  - langId
+    - https://learn.microsoft.com/en-us/windows/win32/intl/language-identifiers
+    - GetUserDefaultLocaleName
+    - GetSystemDefaultLocaleName
+    - https://github.com/cloudfoundry-attic/jibber_jabber
+- wails.exe.manifest
+  - https://github.com/tc-hib/winres/blob/master/manifest.go
+
+```json title="info.json"
+{
+  "fixed": {
+    "file_version": "",
+    "product_version": "",
+    "flags": "", // debug, prerelease, patched, privatebuild, specialbuild
+    "type": "", // app, dll
+    "timestamp": ""
+  },
+  "info": {
+    // langID
+    "000": {
+      "file_version": "",
+      "product_version": "",
+      "flags": "",
+      "type": "",
+      "KEY": "Value"
+    }
+  }
+}
+```
+
+```bash
+# wails3 generate syso -arch {{.ARCH}} -icon icon.ico -manifest wails.exe.manifest -info info.json -out ../wails.syso
+```
+
+```go
+// AppManifest describes an application manifest.
+//
+// Its zero value corresponds to the most common case.
+type AppManifest struct {
+	Identity                          AssemblyIdentity `json:"identity"`
+	Description                       string           `json:"description"`
+	Compatibility                     SupportedOS      `json:"minimum-os"`
+	ExecutionLevel                    ExecutionLevel   `json:"execution-level"`
+	UIAccess                          bool             `json:"ui-access"` // Require access to other applications' UI elements
+	AutoElevate                       bool             `json:"auto-elevate"`
+	DPIAwareness                      DPIAwareness     `json:"dpi-awareness"`
+	DisableTheming                    bool             `json:"disable-theming"`
+	DisableWindowFiltering            bool             `json:"disable-window-filtering"`
+	HighResolutionScrollingAware      bool             `json:"high-resolution-scrolling-aware"`
+	UltraHighResolutionScrollingAware bool             `json:"ultra-high-resolution-scrolling-aware"`
+	LongPathAware                     bool             `json:"long-path-aware"`
+	PrinterDriverIsolation            bool             `json:"printer-driver-isolation"`
+	GDIScaling                        bool             `json:"gdi-scaling"`
+	SegmentHeap                       bool             `json:"segment-heap"`
+	UseCommonControlsV6               bool             `json:"use-common-controls-v6"` // Application requires Common Controls V6 (V5 remains the default)
+}
+
+// AssemblyIdentity defines the side-by-side assembly identity of the executable.
+//
+// It should not be needed unless another assembly depends on this one.
+//
+// If the Name field is empty, the <assemblyIdentity> element will be omitted.
+type AssemblyIdentity struct {
+	Name    string
+	Version [4]uint16
 }
 ```

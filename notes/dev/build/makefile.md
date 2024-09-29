@@ -46,3 +46,15 @@ build: # 必须要定义 target
 ```makefile
 NAMESPACE := $(or $(NAMESPACE), $(shell basename $(shell pwd)))
 ```
+
+## ONESHELL
+
+- 3.8.2+
+- macOS 默认 make 为 3.8.1
+
+```makefile
+.ONESHELL:
+logo:
+	cd build
+	ls
+```

@@ -4,13 +4,15 @@ title: Size
 
 # Size
 
-| from |       to | note    |
-| ---: | -------: | ------- |
-|  1cm | 0.3937in |
-|  1in |   2.54cm |
-|  1cm | 28.346pt | 72dpi   |
-|  1cm | 37.795px | 96dpi   |
-| 1rem |     16px | default |
+|  from |        to | note    |
+| ----: | --------: | ------- |
+|  1 cm | 0.3937 in |
+|  1 in |   2.54 cm |
+|  1 cm | 28.346 pt | 72dpi   |
+|  1 cm | 37.795 px | 96dpi   |
+|  1 in | 72.000 pt | 72dpi   |
+|  1 in | 96.000 px | 96dpi   |
+| 1 rem |     16 px | default |
 
 - A4 为 A3 对折大小 - 可以此类推
 - DPI - Dots Per Inch - 打印
@@ -198,6 +200,67 @@ system_profiler SPDisplaysDataType | grep Resolution
 - UHD - Ultra High Definition
 - QHD - Quad High Definition
 - [List of common display resolutions](https://en.wikipedia.org/wiki/List_of_common_display_resolutions)
+
+|     abbr. | size      | notes    |
+| --------: | --------- | -------- |
+|      ntsc | 720x480   |
+|       pal | 720x576   |
+|     qntsc | 352x240   |
+|      qpal | 352x288   |
+|     sntsc | 640x480   |
+|      spal | 768x576   |
+|      film | 352x240   |
+| ntsc-film | 352x240   |
+|     sqcif | 128x96    |
+|      qcif | 176x144   |
+|       cif | 352x288   |
+|      4cif | 704x576   |
+|     16cif | 1408x1152 |
+|     qqvga | 160x120   | 1/4 QVGA |
+|      qvga | 320x240   | 1/4 VGA  |
+|       vga | 640x480   |
+|      svga | 800x600   |
+|       xga | 1024x768  |
+|      uxga | 1600x1200 |
+|      qxga | 2048x1536 |
+|      sxga | 1280x1024 |
+|     qsxga | 2560x2048 |
+|     hsxga | 5120x4096 |
+|      wvga | 852x480   |
+|      wxga | 1366x768  |
+|     wsxga | 1600x1024 |
+|     wuxga | 1920x1200 |
+|     woxga | 2560x1600 |
+|    wqsxga | 3200x2048 |
+|    wquxga | 3840x2400 |
+|    whsxga | 6400x4096 |
+|    whuxga | 7680x4800 |
+|       cga | 320x200   |
+|       ega | 640x350   |
+|     hd480 | 852x480   |
+|     hd720 | 1280x720  |
+|    hd1080 | 1920x1080 |
+|        2k | 2048x1080 |
+|    2kflat | 1998x1080 |
+|   2kscope | 2048x858  |
+|        4k | 4096x2160 |
+|    4kflat | 3996x2160 |
+|   4kscope | 4096x1716 |
+|       nhd | 640x360   |
+|     hqvga | 240x160   |
+|     wqvga | 400x240   |
+|    fwqvga | 432x240   |
+|      hvga | 480x320   | 1/2 VGA  |
+|       qhd | 960x540   |
+|     2kdci | 2048x1080 |
+|     4kdci | 4096x2160 |
+|   uhd2160 | 3840x2160 |
+|   uhd4320 | 7680x4320 |
+
+- VAG - Video Graphics Array
+  - 640x480
+- QVGA - Quarter VGA
+  - 1/4 VGA
 
 ## Avatar
 

@@ -42,6 +42,9 @@ tags:
   - [honeycombio/honeytail](https://github.com/honeycombio/honeytail)
     - Apache-2.0, Go
     - extracting structured data out of common log files
+- Report
+  - [jeecgboot/JimuReport](https://github.com/jeecgboot/JimuReport)
+    - GPLv3, Java
 
 ## 可视化 {#visualization}
 

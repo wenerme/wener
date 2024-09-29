@@ -1,10 +1,9 @@
 ---
 tags:
-- Awesome
+  - Awesome
 ---
 
 # Chrome Awesome
-
 
 - [ChromeDevTools/awesome-chrome-devtools](https://github.com/ChromeDevTools/awesome-chrome-devtools)
 - [Chrome Flags for Tooling](https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md)
@@ -13,6 +12,9 @@ tags:
 - https://niek.github.io/chrome-features/
 - [blink features](https://source.chromium.org/chromium/chromium/src/+/master:out/Debug/gen/third_party/blink/renderer/platform/runtime_enabled_features.cc;l=1559;drc=170473ad887b7990079f1f996b126548569c5902)
 - [RuntimeEnabledFeatures](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/platform/RuntimeEnabledFeatures.md)
+- Chrome Extensions
+  - [Picture-in-Picture Extension (by Google)](https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg)
+    - [GoogleChromeLabs/picture-in-picture-chrome-extension](https://github.com/GoogleChromeLabs/picture-in-picture-chrome-extension)
 
 ## Awesome
 
@@ -37,7 +39,6 @@ tags:
   - https://chromedriver.storage.googleapis.com/index.html
 - webdriver
   - Python `from selenium import webdriver`
-
 
 ## Chromium
 

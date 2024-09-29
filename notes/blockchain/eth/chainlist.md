@@ -15,6 +15,11 @@ Network 列表，使用 ID 标识，每个 Network 有自己的 本地货币/Nat
   - Explorer https://eips.ethereum.org/EIPS/eip-3091
   - 模型参考 https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1.json
   - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+  - https://tron.network/
+    - tron20
+    - TRONIX mainnet native token
+    - 波场
+    - DPoS（Delegated Proof of Stake，代理权益证明）
 
 | Chain                       | Symbol | Date    | Proof |
 | --------------------------- | ------ | ------- | ----- |

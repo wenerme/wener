@@ -7,15 +7,22 @@ title: zsh
 - [zsh-users/zsh](https://github.com/zsh-users/zsh)
   - GPL, C
   - Mirror
-- 配置
+- 配置 - /etc, ~
   - .zshenv - 所有
-  - .zprofile - 登陆 shell
-  - .zshrc - 交互 shell
+    - 系统 更新 PATH
+    - macOS path_helper
+  - .zprofile
+    - 登陆 shell - 交互 & 非交互
+    - 子 shell 不会重复加载
+    - 建议在这里更新自定义 PATH
+  - .zshrc
+    - 交互 shell
+    - 子 shell 会重复加载
+    - 配置 alias, prompt
   - .zlogin
+    - 登陆 shell - 在 .zpofile 之后
   - .zlogout
 - 参考
-  - [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-  - [zsh-users/antigen](https://github.com/zsh-users/antigen)
   - [What are the practical differences between Bash and Zsh?](https://apple.stackexchange.com/a/361957/103557)
   - https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2
     - PATH
@@ -45,8 +52,19 @@ man zshcontrib
 
 - RPROMPT 右侧提示
 - [zsh-users/zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+  - 命令语法高亮
 - [zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+  - 命令自动补全
 - [rupa/z](https://github.com/rupa/z)
+  - z - jump around
+  - 跟踪常用目录，直接跳转
+- [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+  - 配置好的套件，可以作为参考
+- [zsh-users/antigen](https://github.com/zsh-users/antigen)
+  - 插件管理
+- [larkery/zsh-histdb](https://github.com/larkery/zsh-histdb)
+  - 记录执行命令到数据库
+  - 配合 autosuggestions 可以更好的做提示
 - autojump
   - j
 - fzf

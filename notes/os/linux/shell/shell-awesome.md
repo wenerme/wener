@@ -11,7 +11,7 @@ tags:
   - ash - Almquist shell - 1989 NetBSD
   - Dash - bin 还是叫 ash - Debian Almquist shell - 1997 Debian Linux
     - Debian,Ubuntu /bin/sh
-    - BusyBox, AlpineLinux, TinyCoreLinux, OpenWrt, Tomato, DD-WRT
+    - used by BusyBox, AlpineLinux, TinyCoreLinux, OpenWrt, Tomato, DD-WRT
     - https://git.kernel.org/pub/scm/utils/dash/dash.git
     - macOS `brew install dash`
     - 可用于测试 shell 兼容性

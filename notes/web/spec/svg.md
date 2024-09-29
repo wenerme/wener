@@ -11,6 +11,8 @@ title: SVG
 - https://svgomg.net/
 - https://svgcrop.com/
 - https://daveknispel.github.io/svg2use/
+- https://simpleicons.org/
+  - Free SVG icons for popular brands
 - Editor
   - https://uxwing.com/svg-icon-editor/
   - https://www.svgviewer.dev/

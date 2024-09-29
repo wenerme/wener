@@ -31,5 +31,4 @@ tags:
 - [flash_attn](https://github.com/Dao-AILab/flash-attention) - Flash Attention
   - 不支持 macOS/Apple Silicon
 - timm - PyTorch Image Models
-- [ml-tooling/best-of-ml-python](https://github.com/ml-tooling/best-of-ml-python)
 - https://pypi.org/classifiers/

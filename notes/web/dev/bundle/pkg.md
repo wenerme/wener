@@ -6,10 +6,12 @@ title: pkg
 
 - [vercel/pkg](https://github.com/vercel/pkg)
   - Node.js -> exec
+  - node 现在支持 SEA - Single Executable Application
   - 主要用于容器环境
   - 会下载添加 nodejs runtime
 - [vercel/pkg-fetch](https://github.com/vercel/pkg-fetch)
   - 下载 runtime
+  - 静态 binary https://github.com/vercel/pkg-fetch/releases
 
 :::caution
 

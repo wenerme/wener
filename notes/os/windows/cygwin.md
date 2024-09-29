@@ -4,9 +4,13 @@ title: cygwin
 
 # cygwin
 
-- 在 Windows 下 提供 POSIX 环境
+::: tip
 
-## Tools
+- 在 Windows 下 提供 POSIX 环境
+- 编译后的程序可以在 Windows 下运行，依赖 cygwin1.dll
+- MinGW 编译的程序不依赖 cygwin1.dll
+
+:::
 
 - cygcheck
 - cygpath - 模拟环境路径转 Windows 路径

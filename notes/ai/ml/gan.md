@@ -97,3 +97,5 @@ title: GAN
 - [From Scratch - GAN](https://ym2132.github.io/GenerativeAdversarialNetworks_Goodfellow)
   - https://github.com/YM2132/YMPaperImplementations/blob/main/paper_implementations/python_implemenations/GAN_Goodfellow.py
 - https://poloclub.github.io/ganlab/
+- [hindupuravinash/the-gan-zoo](https://github.com/hindupuravinash/the-gan-zoo)
+  - A list of all named GANs!

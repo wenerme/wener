@@ -23,6 +23,8 @@ tags:
     - free public domain audiobooks
   - [EbookFoundation/free-programming-books](https://github.com/EbookFoundation/free-programming-books)
   - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
+- ebooks
+  - [bookstairs/bookhunter](https://github.com/bookstairs/bookhunter)
 
 ## Index
 

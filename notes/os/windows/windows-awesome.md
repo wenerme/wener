@@ -17,6 +17,32 @@ tags:
 - [the1812/Malware-Patch](https://github.com/the1812/Malware-Patch)
   - MIT, C#
   - 阻止中国流氓软件的管理员授权
+- 系统下载
+  - [itellyou](http://msdn.itellyou.cn/)
+- 工具
+  - [sysinternals](https://learn.microsoft.com/zh-cn/sysinternals/downloads/sysinternals-suite)
+    - 管理辅助工具合集
+    - Github [Sysinternals](https://github.com/Sysinternals)
+    - [下载](https://download.sysinternals.com/files/SysinternalsSuite.zip)
+  - CPUID [下载](http://www.cpuid.com/softwares/cpu-z.html)
+    - 硬件信息
+  - HWMonitor [下载](http://www.cpuid.com/softwares/hwmonitor.html)
+    - 硬件信息
+    - 温度
+  - [rufus](https://rufus.akeo.ie/) [Github](https://github.com/pbatard/rufus)
+    - 制作启动盘
+    - 速度很快
+    - 只能在 Windows 下使用
+  - [etcher](https://etcher.io/)
+    - 制作启动盘
+    - 可以跨平台使用
+- 开发/Dev
+  - MinGW
+  - msys2
+  - cygwin
+- 输入法
+  - http://dl.google.com/pinyin/v2/GooglePinyinInstaller.exe
+  - http://dl.google.com/pinyin/v1/GooglePinyinInstaller.exe
 
 ## Softwares
 
@@ -31,9 +57,6 @@ tags:
 
 ## Tools
 
-- [sysinternals](https://technet.microsoft.com/en-us/sysinternals/bb842062)
-  - [sysinternals](https://docs.microsoft.com/zh-cn/sysinternals/)
-  - Github [Sysinternals](https://github.com/Sysinternals)
 - [crazy-max/WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
 - [microsoft/PowerToys](https://github.com/microsoft/PowerToys)
 - [BornToBeRoot/NETworkManager](https://github.com/BornToBeRoot/NETworkManager)

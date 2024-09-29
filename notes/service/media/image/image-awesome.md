@@ -14,6 +14,9 @@ tags:
   - https://imageoptim.com/
   - [ImageOptim/libimagequant](https://github.com/ImageOptim/libimagequant)
   - [JamieMason/ImageOptim-CLI](https://github.com/JamieMason/ImageOptim-CLI)
+    - 不支持 Apple Silicon [JamieMason/ImageOptim-CLI#208](https://github.com/JamieMason/ImageOptim-CLI/issues/208)
+      - 可以安装 ImageOptim 然后 `npm install -g imageoptim-cli`
+  - https://foldleft.io/image-tools
 
 ```bash
 brew install imageoptim-cli

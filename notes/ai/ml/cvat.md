@@ -6,6 +6,7 @@ title: CVAT
 
 - [cvat-ai/cvat](https://github.com/cvat-ai/cvat)
   - MIT, Python, TS
+  - Powerful and efficient Computer Vision Annotation Tool (CVAT)
   - by Intel
   - 支持 OpenCV
   - 支持基于模型的自动化标注

@@ -421,7 +421,7 @@ tags:
   - https://placehold.co/
     - https://placehold.co/600x400/png
   - https://picsum.photos/2000/2000
-- photo/相册/gallery/照片同步
+- photo/相册/gallery/照片同步/download
   - [meichthys/foss_photo_libraries](https://github.com/meichthys/foss_photo_libraries)
   - [ente-io/ente](https://github.com/ente-io/ente)
     - AGPLv3, Dart, TS, Go
@@ -445,6 +445,9 @@ tags:
     - Apache-2.0, Go
     - 基于 Chrome DevTools Protocol, 下载 Google Photos.
   - Nextcloud
+  - [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
+    - GPLv2, Python
+    - 支持站点 https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.md
 - design/graphic
   - [motion-canvas/motion-canvas](https://github.com/motion-canvas/motion-canvas)
     - MIT, TS
@@ -632,6 +635,9 @@ tags:
     - Ruby, Vue
     - live-chat, email support, omni-channel desk
   - Zendesk
+- Learning/Study
+  - [jaywcjlove/copybook-generator](https://github.com/jaywcjlove/copybook-generator)
+    - Swift
 - SaaS 服务目录/商业
   - [SaaS Blocks](https://saasblocks.io/)
   - https://github.com/it2025/saasbook

@@ -51,24 +51,37 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 };
 ```
 
-## Rerender
+## Notes
 
 - watch -> useWatch, getValues
 - useFormContext -> useFormState
 - setValue -> reset - 如果需要设置非常多的值
 - Controller, useController -> register
 - FormProvider 使用了 React.Context, 导致 form 状态变化会 rerender
+- 默认
+  - mode=onSubmit
+  - reValidateMode=onChange
+  - shouldFocusError=true
 - useForm
+  - control.\_options = props
   - 返回的是内部 `_formControl`
   - defaultValues
+    - 值会缓存 - 第一次调用有效
     - 默认值 - 避免 **undefined** - 导致 controlled 和 uncontrolled 混用
     - 表单的初始化值
     - reset 会重置表单为 defaultValues
-    - 值会缓存
     - 会包含在 submit 的数据里
-  - values
-    - 表单的当前值 - 修改会反应到表单上
+  - values - 建议 memo
+    - 表单的当前值 - 修改会反应到表单上 - ⚠️ 主要用于 reset 表单
     - 可用于 外部 状态修改
+    - 会和上次的做 deepEqual 比较
+      - 变化后会调用 reset 触发 formState 更新
+      - 未变化会调用 \_resetDefaultValues
+        - 如果 defaultValues 是个函数，则会调用函数 然后 reset
+  - errors - 建议 memo
+    - 用于传递 server errors
+  - disabled - 是否禁用表单
+    - 可以在 submit 的时候将 disabled 设置为 true
 - formState
   - 注意
     - 会被代理 - 返回 Proxy 的对象，用于 subscribe
@@ -76,10 +89,14 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
     - 取值时不要加 condition - 会导致未订阅的值不会更新
   - isDirty - 和 defaultValues 比较
   - dirtyFields
+    - 跟踪哪些字段发生了变化
+    - ⚠️ 存在 isDirty=true 但 dirtyFields 为空的情况
+    - 通过 defaultValues & formValues 生成
   - touchedFields
   - defaultValues
   - isSubmitted - reset 会设置为 false
   - isSubmitSuccessful
+    - 提交时 errors 不为空 且 onValid 没有抛出异常
   - isSubmitting
   - isLoading - defaultValues 可以为 async 函数
   - submitCount
@@ -87,6 +104,8 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
   - isValidating
   - validatingFields
   - errors
+    - root.server
+      - `<Form>` 组件会使用这个记录请求返回的错误
 
 ---
 
@@ -94,6 +113,18 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - https://github.com/react-hook-form/react-hook-form/discussions/7611#discussioncomment-2008064
 
 # FAQ
+
+- context.control._options 为 useForm props
+- FormProvider/Context 能传递任何附加的值，但不推荐
+
+## values vs defaultValues
+
+- defaultValues
+  - 推荐用于静态值
+  - 不会跟随改变，使用 reset 修改
+- values
+  - 推荐用于动态值
+  - 会跟随改变
 
 ## reset
 
@@ -103,6 +134,11 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 - https://github.com/orgs/react-hook-form/discussions/7589
 
 ## empty to null
+
+## isDirty 不匹配 dirtyFields
+
+- isDirty=true, dirtyFields 为 空
+- 注意设置 values
 
 ## 只提交修改后的值
 

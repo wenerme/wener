@@ -8,6 +8,11 @@ tags:
 
 - modeling languages
   - UML, SysML, RAAML, C4
+- ERD - Entity-Relationship Diagram
+  - mermaid
+- UML
+  - PlantUML
+  - yworks
 - [kroki](./kroki)
   - [yuzutech/kroki](https://github.com/yuzutech/kroki)
   - 统一支持多种语言

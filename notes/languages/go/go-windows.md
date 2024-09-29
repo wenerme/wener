@@ -1,18 +1,21 @@
 ---
-id: go-windows
 title: Golang Windows
 ---
 
 # Golang Windows
-## Tips
-* 注意
-  * `-ldflags="-H=windowsgui"` 可以避免显示控制台
-* 参考
-  * [golang使用execCommand调用的时候子进程如何杀掉处理方法](https://studygolang.com/articles/7497)
-    * Linux 可以使用 Setpgid
-  * [go-cmd/cmd](https://github.com/go-cmd/cmd)
-  * [AllenDang/w32](https://github.com/AllenDang/w32)
-  * [golang.org/x/sys/windows/svc/mgr](https://pkg.go.dev/golang.org/x/sys/windows/svc/mgr)
+
+:::tip
+
+- `-ldflags="-H=windowsgui"` 可以避免显示控制台
+
+:::
+
+- 参考
+  - [golang使用execCommand调用的时候子进程如何杀掉处理方法](https://studygolang.com/articles/7497)
+    - Linux 可以使用 Setpgid
+  - [go-cmd/cmd](https://github.com/go-cmd/cmd)
+  - [AllenDang/w32](https://github.com/AllenDang/w32)
+  - [golang.org/x/sys/windows/svc/mgr](https://pkg.go.dev/golang.org/x/sys/windows/svc/mgr)
 
 ```bash
 # CGO 交叉编译
@@ -30,7 +33,7 @@ go get github.com/josephspurrier/goversioninfo/cmd/goversioninfo
 goversioninfo -icon=pkg/icon/icon.ico -manifest=main.exe.manifest -o cmd/launcher/main.syso
 ```
 
-__main.exe.manifest__
+**main.exe.manifest**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -80,6 +83,7 @@ func hideConsole() {
 ```
 
 # FAQ
-## is incompatible with i386:x86-64 output .rsrc merge failure: corrupt .rsrc section
-* 添加 `-64` 参数
 
+## is incompatible with i386:x86-64 output .rsrc merge failure: corrupt .rsrc section
+
+- 添加 `-64` 参数

@@ -115,6 +115,8 @@ tags:
   - [coder-hxl/x-crawl](https://github.com/coder-hxl/x-crawl)
     - MIT, TS
     - Node.js AI-assisted crawler library
+  - [andrewyng/translation-agent](https://github.com/andrewyng/translation-agent)
+    - Agentic translation using reflection workflow
 - Coding
   - [replit/ReplitLM](https://github.com/replit/ReplitLM)
   - [albertan017/LLM4Decompile](https://github.com/albertan017/LLM4Decompile)
@@ -137,6 +139,16 @@ tags:
   - [llm-attacks/llm-attacks](https://github.com/llm-attacks/llm-attacks)
   - https://huggingface.co/blog/mlabonne/abliteration
     - [HN](https://news.ycombinator.com/item?id=40665721)
+- Promopt
+  - [langgptai/LangGPT](https://github.com/langgptai/LangGPT)
+    - 结构化提示词
+  - [linexjlin/GPTs](https://github.com/linexjlin/GPTs)
+    - leaked prompts of GPTs
+- Vision
+  - [vikhyat/moondream](https://github.com/vikhyat/moondream)
+    - tiny vision language model
+- [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy)
+  - DSPy: The framework for programming—not prompting—foundation models
 - [BloopAI/bloop](https://github.com/BloopAI/bloop)
   - Answer questions about your code with an LLM agent
 - [HazyResearch/flash-attention](https://github.com/HazyResearch/flash-attention)

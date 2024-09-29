@@ -163,6 +163,11 @@ tags:
   - pingyin4j
   - thymeleaf
 - classfinal 加密
+- /license.lic
+  - `licenseJson = aesDecrypt(licenseData, clientSource[0:16],clientSource[16:32])`
+    - key, iv
+  - clientSource = sha256(computerSn + hardwareUUID + baseboardSn).toUpperCase()
+  - oshi.SystemInfo
 
 ```properties
 # 加工数据存储目录
