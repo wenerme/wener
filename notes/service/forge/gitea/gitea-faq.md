@@ -44,3 +44,7 @@ GITEA__service__ALLOW_ONLY_EXTERNAL_REGISTRATION=true
 ```bash
 curl -X POST https://gitea.com/api/v1/repos/{owner}/{repo}/mirror-sync?token={pta}
 ```
+
+## exit status 128 - fatal: protocol error: bad line length character: 4?
+
+- git push 时发生

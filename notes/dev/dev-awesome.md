@@ -214,8 +214,9 @@ scc --by-file ./src # 找到大文件
 - [gopasspw/gopass](https://github.com/gopasspw/gopass)
   - password manager for teams
 
-## 有趣
+## 有趣 {#fun}
 
+- [ASCII progress indicators](https://glama.ai/blog/2024-09-25-ascii-progress-indicators)
 - [denigma](https://denigma.app/)
 - [Leetcode has taught me that I'm a bad engineer](https://news.ycombinator.com/item?id=29804607)
 - https://github.com/afatcoder/LeetcodeTop

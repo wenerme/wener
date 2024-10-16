@@ -508,3 +508,9 @@ iptables -L | wc -l -c
 
 - https://github.com/k3s-io/k3s/issues/294
 
+
+## containerd pid
+
+```bash
+ps -e -o pid= -o args= | sed -e 's/^ *//; s/\s\s*/\t/;' | grep containerd-shim | grep '/run/k3s/containerd' | cut -f1
+```

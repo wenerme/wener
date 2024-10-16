@@ -9,13 +9,70 @@ tags:
 
 - 会用新的特性
   - @layer, @property, color-mix(), @starting-style , anchor positioning, container queries
+- 移除
+  - ~~text-opacity-*~~ -> `text-{color}/*`
+  - ~~flex-grow-*~~ -> `grow-*`
+  - ~~decoration-slice~~ -> `box-decoration-slice`
 - tailwind.config.js 可以不再需要，直接通过 css 配置
+- 默认不依赖 postcss
+- 拆分包 `@tailwindcss/postcss`, `@tailwindcss/cli`
+- 没有默认的 border 颜色 - 之前为 `gray-200`, 如果有主题需要注意重置颜色，现在不需要了，默认为 `currentColor`
+- ring 默认宽度 `3px` -> `1px`
+
+```css
+@import 'tailwindcss';
+
+@theme {
+  /* 增加 font-display  */
+  --font-family-display: 'Satoshi', 'sans-serif';
+
+  /* 增加 3xl: 前缀 */
+  --breakpoint-3xl: 1920px;
+
+  --color-neon-pink: oklch(71.7% 0.25 360);
+  --color-neon-lime: oklch(91.5% 0.258 129);
+  --color-neon-cyan: oklch(91.3% 0.139 195.8);
+
+  /* reset */
+  --color-*: initial;
+}
+```
+
+扩展的方式
+
+```css
+@import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/utilities" layer(utilities);
+```
+
+**vite plugin**
+
+```ts title="vite.config.ts"
+import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+})
+```
+
+**postcss**
+
+```js title="postcss.config.js"
+module.exports = {
+  plugins: {
+    '@tailwindcss/postcss': {}
+  }
+}
+```
 
 ---
 
 - caniuse popover https://caniuse.com/mdn-api_htmlelement_popover
 - https://tailwindcss.com/blog/tailwindcss-v4-alpha
-- https://daisyui.com/blog/daisyui-5-upcoming-changes/
+- daisyUI 5
+  - 会基于 TailwindCSS v4
+  - https://daisyui.com/blog/daisyui-5-upcoming-changes/
 
 ## TailwindCSS v3.2
 

@@ -1,4 +1,5 @@
-SHELL:=env bash -O extglob -O globstar
+#SHELL:=env bash -O extglob -O globstar
+SHELL:=env bash -O extglob
 
 status:
 	git add -u && git diff --color=always --staged --stat | tee

@@ -1,5 +1,7 @@
 ---
 title: 词汇表
+tags:
+- Glossary
 ---
 
 # 词汇表

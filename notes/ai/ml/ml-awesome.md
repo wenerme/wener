@@ -353,6 +353,8 @@ tags:
 
 ## UI/Desktop/GUI/WebUI {#ui}
 
+- [Yonom/assistant-ui](https://github.com/Yonom/assistant-ui)
+  - React Components for AI Chat
 - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
   - Apache-2.0, TypeScript
 - [JetBrains/KotlinDL](https://github.com/JetBrains/KotlinDL)

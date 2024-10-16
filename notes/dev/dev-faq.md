@@ -6,6 +6,29 @@ tags:
 
 # Dev FAQ
 
+- Optimize
+  - PGO - Profile Guided Optimization
+    - GCC, Clang, MSVC, Golang
+  - LTO - Link Time Optimization
+    - 使得 Link 能全局优化而非局限于单个模块
+  - AutoFDO - Auto Feedback Directed Optimization
+    - by Google
+    - 通过运行时采集数据，优化编译
+  - ThinLTO - Thin Link Time Optimization
+    - 一种 LTO 的变种，用更少的内存和时间
+  - BOLT - Binary Optimization and Layout Tool
+    - by Facebook/Meta
+    - GCC, LLVM
+    - 一种 PLO 技术
+    - 重新布局代码块，减少分支预测错误，提高 CPU 缓存命中率
+  - PLO - Post Link Optimization
+  - XRay - XRay Instrumentation
+    - LLVM 的性能分析工具
+  - Intel VTune Profiler
+  - Binary Instrumentation
+    - Pin
+    - DynamoRIO
+    - Valgrind
 - https://www.joelonsoftware.com/
 - https://www.martinfowler.com/
 - https://web.stanford.edu/~ouster/cgi-bin/decisions.php

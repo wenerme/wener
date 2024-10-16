@@ -39,13 +39,34 @@ tags:
   - 支持迭代 cursor
   - 支持 int64
   - Convince me to use better-sqlite3 [#262](https://github.com/WiseLibs/better-sqlite3/issues/262)
-- [sequelize/sequelize](./sequelize.md)
-  - ORM
-  - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
-  - 因为需要支持很多 DB 类型，丢失一定的特性
-  - Use better-sqlite3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
-- prisma
+- ORM
+  - [sequelize/sequelize](./sequelize.md)
+    - Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server.
+    - 因为需要支持很多 DB 类型，丢失一定的特性
+    - Use better-sqlite3 [#11400](https://github.com/sequelize/sequelize/issues/11400)
+  - prisma
+  - [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
+    - MIT, Typescript
+    - Data Mapper, Unit of Work, Identity Map
+    - 使用注解定义模型
+    - 基于 knex
+    - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
+  - [drizzle-team/drizzle-orm](https://github.com/drizzle-team/drizzle-orm)
+    - Apache-2.0, TypeScript
+    - TypeScript ORM that feels like writing SQL.
+  - [typeorm/typeorm](./typeorm.md)
+    - Future of TypeORM [typeorm#3267](https://github.com/typeorm/typeorm/issues/3267)
+    - 基于 typescript decoration 的 ORM
+    - 🚧 开发缓慢
+  - [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
+    - 基于 knex 的 ORM
+    - 🚧 开发停止
+  - [stephenh/joist-ts](https://github.com/stephenh/joist-ts)
+    - TypeScript ORM for Postgres
 - SQL Builder/Typed Schema/Query
+  - [kysely-org/kysely](https://github.com/kysely-org/kysely)
+    - type-safe typescript SQL query builder
+    - 替代 knex
   - [knex/knex](https://github.com/knex/knex)
     - SQL Builder
     - Composite - 解耦构建最终 query 的过程
@@ -56,21 +77,8 @@ tags:
     - PostgreSQL client with strict types
     - string tag
   - [adelsz/pgtyped](https://github.com/adelsz/pgtyped)
-  - [kysely-org/kysely](https://github.com/kysely-org/kysely)
-    - type-safe typescript SQL query builder
   - [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
     - schema -> ts
-- [mikro-orm/mikro-orm](https://github.com/mikro-orm/mikro-orm)
-  - MIT, Typescript
-  - Data Mapper, Unit of Work, Identity Map
-  - 使用注解定义模型
-  - 基于 knex
-  - 不支持多态关联 [mikro-orm#706](https://github.com/mikro-orm/mikro-orm/issues/706)
-- [stephenh/joist-ts](https://github.com/stephenh/joist-ts)
-  - TypeScript ORM for Postgres
-- [drizzle-team/drizzle-orm](https://github.com/drizzle-team/drizzle-orm)
-  - Apache-2.0, TypeScript
-  - TypeScript ORM that feels like writing SQL.
 - [aerotoad/neboa](https://github.com/aerotoad/neboa)
   - AGPL-3.0, TS
   - Type-safe NoSQL with Node & SQLite
@@ -79,13 +87,6 @@ tags:
   - 🚧 开发停滞
   - SQL-friendly ORM
   - 基于 knex
-- [typeorm/typeorm](./typeorm.md)
-  - Future of TypeORM [typeorm#3267](https://github.com/typeorm/typeorm/issues/3267)
-  - 基于 typescript decoration 的 ORM
-  - 🚧 开发缓慢
-- [bookshelf/bookshelf](https://github.com/bookshelf/bookshelf)
-  - 基于 knex 的 ORM
-  - 🚧 开发停止
 - [balderdashy/waterline](https://github.com/balderdashy/waterline)
   - 🚧 开发停止 - 2021
 - [dmfay/massive-js](https://gitlab.com/dmfay/massive-js)
@@ -191,6 +192,21 @@ export N_PREFIX=$HOME/n
     - MIT, TS
     - In-memory Node.js and browser job scheduler
   - ~~[SGrondin/bottleneck](https://github.com/SGrondin/bottleneck)~~
+- migration
+  - @mikro-orm/migrations
+  - knex/kysely
+  - [sequelize/umzug](https://github.com/sequelize/umzug)
+    - MIT, SQL/DSL
+    - used by
+      - sequelize
+      - @mikro-orm/migrations https://mikro-orm.io/docs/migrations
+  - [salsita/node-pg-migrate](https://github.com/salsita/node-pg-migrate)
+    - MIT, DSL
+  - [graphile/migrate](https://github.com/graphile/migrate)
+    - MIT, SQL
+    - 支持 current 概念
+  - [tj/node-migrate](https://github.com/tj/node-migrate)
+    - MIT, Code
 - WebSocket
   - [ws](https://github.com/websockets/ws)
     - JS 实现
@@ -218,6 +234,13 @@ export N_PREFIX=$HOME/n
   - [colyseus/colyseus](https://github.com/colyseus/colyseus)
     - MIT, TS
     - Multiplayer Framework for Node.js
+- RPC/Network
+  - grpc
+  - buf
+  - [SocketCluster/socketcluster](https://github.com/SocketCluster/socketcluster)
+  - [moleculerjs/moleculer](https://github.com/moleculerjs/moleculer)
+    - MIT, JS
+    - Progressive microservices framework for Node.js
 
 ## Web
 

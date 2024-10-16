@@ -28,6 +28,7 @@ title: pnpm
     - [vercel/next.js#37259](https://github.com/vercel/next.js/pull/37259)
       - 从 yarn v1 迁移到 pnpm 安装时间减半
     - https://divriots.com/blog/switching-to-pnpm
+  - https://github.com/pnpm/pnpm/blob/main/packages/git-utils/src/index.ts
 
 :::caution
 
@@ -392,6 +393,47 @@ CMD [ "node", "server.js" ]
 ## pnpm-lock.yaml
 
 - https://github.com/pnpm/pnpm/blob/main/lockfile/types/src/lockfileFileTypes.ts
+
+## Protocol
+
+- workspace:
+  - link-workspace-packages=false 时必须要明确指定 workspace:
+    - 默认 false
+  - alias `"bar": "workspace:foo@*"` - bar 指向 foo
+    - publish 会变为 `"bar": "npm:foo@1.0.0"`
+  - 支持相对路径 `"foo": "workspace:../foo"`
+- file:
+  - hard link
+  - 会安装依赖
+  - `pnpm add ./package.tar.gz`
+- link:
+  - symlink
+  - 不会安装依赖
+  - `pnpm link`
+  - `pnpm add ./some-directory`
+  - `pnpm add https://github.com/indexzero/forever/tarball/v0.5.6`
+- npm:
+  - alias - `pnpm add lodash@npm:awesome-lodas
+- catalog:
+  - `catalog:` = `catalog:default` -> catalog
+  - `catalog:react17` -> catalogs.react17
+  - 引用在 `pnpm-workspace.yaml` 定义的 `catalog`, `catalogs` 版本
+  - 统一版本管理，方便升级，减少 merge conflict
+  - `pnpx codemod pnpm/catalog`
+- git:
+  - `pnpm add kevva/is-positive`
+  - Commit `pnpm add kevva/is-positive#97edff6f525f192a3f83cea1944765f769ae2678`
+  - Branch `pnpm add kevva/is-positive#master`
+  - Branch relative to refs `pnpm add zkochan/is-negative#heads/canary`
+  - Tag `pnpm add zkochan/is-negative#2.0.1`
+  - V prefix tag `pnpm add andreineculau/npm-publish-git#v0.0.7`
+  - semver `pnpm add zkochan/is-negative#semver:1.0.0`
+  - subpath `pnpm add RexSkz/test-git-subdir-fetch#path:/packages/simple-react-app`
+  - git+ssh `pnpm add git+ssh://git@github.com:zkochan/is-negative.git#2.0.1`
+  - git+https `pnpm add https://github.com/zkochan/is-negative.git#2.0.1`
+  - providers `pnpm add github:zkochan/is-negative`
+    - github, gitlab, bitbucket
+  - 多个参数 `pnpm add RexSkz/test-git-subdir-fetch.git#beta&path:/packages/simple-react-app`
 
 # FAQ
 

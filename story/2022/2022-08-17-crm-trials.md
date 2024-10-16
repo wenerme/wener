@@ -17,7 +17,7 @@ tags:
 | v5  | 2022.11 - 2023.03 |
 | v6  | 2023.03 -         |
 
-:::tips Choose
+:::tip Choose
 
 - FE
   - React
@@ -231,7 +231,7 @@ tags:
   - API 调整 - trpc -> GQL
   - 结构选型调整 - 轻量化, 开发效率优先
 - 调整内容
-  - ~~Nats RPC + trpc ~~ -> GraphQL
+  - ~~Nats RPC + trpc~~ -> GraphQL
     - trpc 内容多了过后类型推导太慢
     - GraphQL 直接对客户端保留
       - 避免要求通过 RPC+trpc 对客户端
@@ -241,7 +241,7 @@ tags:
     - 开发反映要快得多
     - 现在的 NextJS 不适合做后台，不适合做太过动态的项目
     - Vite HMR 体验要好得多
-  - ~~fastify + NestJS Controller ~~ -> Hono
+  - ~~fastify + NestJS Controller~~ -> Hono
     - 保留 NestJS 作为 IoC 容器
     - Hono 简单容易维护
     - 缺点是 Hono OpenAPI 使用 zod-openapi

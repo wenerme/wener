@@ -6,6 +6,13 @@ title: Docker
 
 - [Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
 
+
+```bash
+# AlpineLinux install
+sudo apk add docker docker-compose
+sudo adduser $USER docker
+```
+
 ## 目录结构
 
 - /var/lib/docker - 数据目录 - `/etc/docker/daemon.json` data-root 配置

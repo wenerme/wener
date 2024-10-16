@@ -52,7 +52,7 @@ title: NextJS
   - [Layouts RFC](https://nextjs.org/blog/layouts-rfc)
     - https://nextjs.org/docs/basic-features/layouts
 
-:::tips
+:::tip
 
 - getInitialProps
   - 只能用于页面组件不能用于子组件

@@ -591,3 +591,12 @@ apk add icu-data-full
     - 检测编码
     - ansi_x3.4-1968, ascii, cp1252, cp819, csisolatin1, ibm819, iso-8859-1, iso-ir-100, iso8859-1, iso88591, iso_8859-1, iso_8859-1:1987, l1, latin1, us-ascii, windows-1252, x-cp1252
   - https://encoding.spec.whatwg.org/#windows-1252
+
+## Download
+
+- https://nodejs.org/download/release/latest-v20.x/win-x64/
+  - node.exe - 用于运行
+    - static
+  - node.lib - 用于编译
+  - node_pdb.7z
+  - node_pdb.zip - 用于调试

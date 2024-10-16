@@ -19,9 +19,29 @@ title: favicon
 <link rel="icon" href="favicon.ico" type="image/ico" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
+<!--
+Classic
+-->
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 <link rel="shortcut icon" href="/icons/favicon.ico" />
+
+<!-- iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<link rel="icon" href="favicon.ico" type="image/ico" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<!--
+Android Chrome 192x192 PNG
+https://developers.google.com/web/fundamentals/web-app-manifest/
+-->
+<link rel="manifest" href="/icons/site.webmanifest" />
+
+<!--
+Edge & IE 12
+-->
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/icons/browserconfig.xml" />
 ```
 
 ```bash

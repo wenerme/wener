@@ -22,13 +22,12 @@ title: ollama
 
 :::caution
 
-- Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)
+- ~~Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)~~
 
 :::
 
 ```bash
-# macOS 命令行
-brew install ollama
+brew install ollama # macOS brew
 
 OLLAMA_FLASH_ATTENTION=1 ollama serve # 启动服务端
 ollama run mistral                    # 运行模型

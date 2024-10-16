@@ -8,7 +8,9 @@ tags:
 
 | version                   | date       | notes                                             |
 | ------------------------- | ---------- | ------------------------------------------------- |
-| [Chrome 125](#chrome-125) |            | css anchor                                        |
+| [Chrome 131](#chrome-131) |            | Direct Sockets API                                |
+| [Chrome 130](#chrome-130) | 2024-10-09 |
+| [Chrome 125](#chrome-125) | 2024-05-08 | css anchor                                        |
 | [Chrome 123](#chrome-123) |            | WebSocketStream                                   |
 | [Chrome 123](#chrome-123) |            | css field-sizing                                  |
 | [Chrome 122](#chrome-122) |            | zstd                                              |
@@ -152,6 +154,41 @@ tags:
   - https://web.dev/interop-2022
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
+
+## Chrome 131
+
+- CSS font-variant-emoji
+- Direct Sockets API
+  - for [Isolated Web Apps](https://github.com/WICG/isolated-web-apps) - IWAs
+    - 基于 Web 技术的小程序
+    - `isolated-app:`
+  - usecase WebUSB, WebMIDI, WebBluetooth
+  - TCPSocket, UDPSocket, TCPServerSocket
+  - https://wicg.github.io/direct-sockets/
+  - https://github.com/GoogleChromeLabs/telnet-client
+
+## Chrome 130
+
+## Chrome 129
+
+- Intl.DurationFormat
+- `scheduler.yield()`
+  - 让长时间运行的任务让出时间片
+  - mdn [Scheduler](https://developer.mozilla.org/en-US/docs/Web/API/Scheduler)
+    - postTask, Chrome 94+
+
+## Chrome 128
+
+- Isolated Web Apps
+  - by admin policy on enterprise-managed ChromeOS devices
+- Promise.try
+- CSS zoom
+
+## Chrome 127
+
+- CSS
+  - font-size-adjust
+    - based on the height of lowercase letters rather than the height of capital letters.
 
 ## Chrome 125
 

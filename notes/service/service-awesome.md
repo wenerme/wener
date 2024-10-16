@@ -168,6 +168,10 @@ tags:
     - Verifiable Data
 - captcha
   - [ZYSzys/awesome-captcha](https://github.com/ZYSzys/awesome-captcha)
+  - [mCaptcha/mCaptcha](https://github.com/mCaptcha/mCaptcha)
+    - AGPL-3.0, Rust
+    - 依赖 postgres, redis
+    - 支持多站点
 - qr
   - [kochrt/qr-designer](https://github.com/kochrt/qr-designer)
 - jumpserver/basestation/跳板机/堡垒机/WebTerminal/bastion-host/Agent

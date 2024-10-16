@@ -69,7 +69,7 @@ tags:
         - dom.toJSON()
     - [zeed-dom](https://github.com/holtwick/zeed-dom)
   - [focus-trap/focus-trap](https://github.com/focus-trap/focus-trap)
-- Communication/Network/Websocket
+- Communication/Network/Websocket/proxy
   - WebSockets
     - 浏览器 Chrome 17+, Safari 7+, Android 4.4+ - 2013+
     - NodeJS 21+ `node --experimental-websocket`
@@ -96,6 +96,8 @@ tags:
   - eventsource
   - WebRTC
   - WebTransport
+  - [OptimalBits/redbird](https://github.com/OptimalBits/redbird)
+    - reverse proxy for node
 - WebWorker
   - [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
   - https://vitejs.dev/guide/features.html#web-workers
@@ -195,6 +197,12 @@ tags:
   - core-js
   - underscore
   - [stdlib-js/stdlib](https://github.com/stdlib-js/stdlib)
+- Error
+  - verror
+  - @netflix/nerror
+  - [voxpelli/pony-cause](github.com/voxpelli/pony-cause)
+  - Error Cause [tc39/proposal-error-cause](https://github.com/tc39/proposal-error-cause)
+    - Chrome 93+, Safari 15+, Firefox 91+, Node 16+
 - clone
   - structuredClone - Chrome 98
   - [lukeed/klona](https://github.com/lukeed/klona)
@@ -682,14 +690,31 @@ tags:
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB
     - react + 7kB, 2.5kB
+    - @lingui/macro
+    - 支持语义
+    - 支持 自动提取
+    - https://lingui.dev/
   - [i18next](https://github.com/i18next/i18next)
+    - MIT, JS, TS
     - 56kB, 15kB
+    - key-based
   - [globalizejs/globalize](https://github.com/globalizejs/globalize)
+    - MIT, JS
   - [airbnb/polyglot.js](https://github.com/airbnb/polyglot.js)
+    - BSD-2, JS
   - [lukeed/rosetta](https://github.com/lukeed/rosetta)
     - 27 LOC
     - [lukeed/templite](https://github.com/lukeed/templite)
     - dlv
+  - react-intl
+  - 服务
+    - translation.io
+    - [Crowdin](https://crowdin.com/)
+    - [Loco](https://localise.biz/)
+  - 参考
+    - PO - Portable Object
+    - POT - Portable Object Template
+    - [i18next -> LinguiJS](https://medium.com/@radist2s/4b07ac73a9bb)
 - object path
   - [dlv](https://github.com/developit/dlv)
     - get by path
@@ -746,14 +771,13 @@ tags:
     - eslint, acorn, babel, Esprima
   - [jquery/esprima](https://github.com/jquery/esprima)
 - router
-  - [lukeed/taskr](https://github.com/lukeed/taskr)
-    - MIT, JS
-    - 58 LOC
-    - [lukeed/regexparam](https://github.com/lukeed/regexparam)
-      - 36 LOC
+  - URLPattern Chrome 95+
+  - [lukeed/regexparam](https://github.com/lukeed/regexparam)
   - [lukeed/polka](https://github.com/lukeed/polka)
     - Web Server
-  - path-to-regexp
+  - [pillarjs/path-to-regexp](https://github.com/pillarjs/path-to-regexp)
+    - React router 之前版本
+  - hono RegExpRouter https://hono.dev/docs/concepts/routers
 - audio
   - [bbc/peaks.js](https://github.com/bbc/peaks.js)
     - LGPLv3, JS
@@ -762,6 +786,8 @@ tags:
   - [jpemartins/amr.js](https://github.com/jpemartins/amr.js)
     - opencore-amr version 0.1.3 using emscripten
 - glob
+  - [thecodrr/fdir](https://github.com/thecodrr/fdir)
+    - fastest directory crawler & globbing library
   - [globby](https://github.com/sindresorhus/globby)
     - 基于 fast-glob 增加部分功能
   - [glob](https://github.com/isaacs/node-glob)
@@ -977,7 +1003,14 @@ tags:
   - 支持 charkra, gralljs, hermes, JavaScriptCore, quickjs, SpiderMonkey, v8, v8 debug, xs
 - Typescript
   - [ts-node](../nodejs/ts-node.md)
+    - ts-node+swc - 支持新特性
   - [tsx](../nodejs/tsx.md)
+    - esbuild
+    - 不支持 legacy decorator
+  - swc/cli
+  - [unjs/jiti](https://github.com/unjs/jiti)
+    - babel transform
+    - `import "jiti/register";`
 - detection/user agent/fingerprinting
   - [abrahamjuliot/creepjs](https://github.com/abrahamjuliot/creepjs)
     - https://abrahamjuliot.github.io/creepjs/

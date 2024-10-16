@@ -10,3 +10,4 @@ tags:
   - MIT, TS
   - type-safe typescript SQL query builder
   - inspired by [Knex.js](./knex.md)
+  - 支持迁移

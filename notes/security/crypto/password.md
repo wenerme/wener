@@ -26,7 +26,7 @@ title: 密码加密方式
   - Deprecated (as of 2016) in favor of the PHC String Format
   - https://github.com/ademarre/binary-mcf
   - https://passlib.readthedocs.io/en/stable/modular_crypt_format.html
-- PHC String Format
+- PHC String Format - Password Hashing Competition String Format
   - https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md
   - https://man7.org/linux/man-pages/man3/crypt.3.html
 
@@ -34,33 +34,49 @@ title: 密码加密方式
 $<id>[$v=<version>][$<param>=<value>(,<param>=<value>)*][$<salt>[$<hash>]]
 ```
 
-| Scheme ID | Schema                                   |
-| --------- | ---------------------------------------- |
-| 1         | MD5                                      |
-| 2a        | Blowfish / bcrypt                        |
-| 2b        |
-| 2x        | 兼容 2a                                  |
-| 2y        | 兼容 2a                                  |
-| 3         | NTHASH                                   |
-| 5         | SHA-256                                  |
-| 6         | SHA-512                                  |
-| md5       | Solaris MD5                              |
-| sha1      | PBKDF1 with SHA-1                        |
-| argon2d   |
-| argon2i   |
-| argon2id  |
-| pbkdf2    | PBKDF2 with SHA-1                        |
-| scrypt    | 使用内存密集型密钥导出函数的密码哈希算法 |
-| bcrypt    | 使用 Blowfish 加密算法的密码哈希算法     |
+| Scheme ID     | Schema                                   |
+| ------------- | ---------------------------------------- |
+| 1             | MD5 / md5_crypt                          |
+| 2a            | Blowfish / bcrypt                        |
+| 2b            | 兼容 2a                                  |
+| 2x            | 兼容 2a                                  |
+| 2y            | 兼容 2a                                  |
+| 3             | NTHASH / bsd_nthash                      |
+| 5             | SHA-256 / sha256_crypt                   |
+| 6             | SHA-512 / sha512_crypt                   |
+| md5           | Solaris MD5 / sun_md5_crypt              |
+| sha1          | PBKDF1 with SHA-1 / sha1_crypt           |
+| argon2d       | argon2                                   |
+| argon2i       | ^                                        |
+| argon2id      | ^                                        |
+| pbkdf2        | PBKDF2 with SHA-1 / pbkdf2_sha1          |
+| pbkdf2-sha256 | pbkdf2_sha256                            |
+| pbkdf2-sha512 | pbkdf2_sha512                            |
+| scram         | scram                                    |
+| p5k2          | cta_pbkdf2_sha1, dlitz_pbkdf2_sha1       |
+| scrypt        | 使用内存密集型密钥导出函数的密码哈希算法 |
+| bcrypt        | 使用 Blowfish 加密算法的密码哈希算法     |
+| apr1          | apr_md5_crypt / Apache htdigest          |
+| P, H          | phpass                                   |
 
 ```bash
 # 不是所有 mkpasswd 都支持 rounds 和 -m
 mkpasswd --rounds 1000 -m sha-512 --salt $(head -c 40 /dev/random | base64 | sed -e 's/+/./g' | cut -b 10-25) 'password'
 ```
 
+- 1 / md5 - `$1$salt$checksum`
+  - salt - `[./0-9A-Za-z]{0,8}`
+  - checksum - 22, 128bit
+- 5 / sha256 - `$5$rounds=rounds$salt$checksum`
+- des_crypt
+- bsdi_crypt
+  - `_` 前缀
 - sha
   - rounds
-- argon2
+
+## argon2
+
+- argon2 schema
   - m - 内存 - 1 - `(2^32)-1`
     - WebApp - 64Mib
     - 敏感数据离线 - 1Gib
@@ -71,8 +87,10 @@ mkpasswd --rounds 1000 -m sha-512 --salt $(head -c 40 /dev/random | base64 | sed
   - salt - 8-48 bytes, b64 11-64 char
   - hash - 16-64 bytes, b64 22-86 char - 默认 32 bytes 43 char
   - 推荐 argon2id
+- 参数 salt, memory cost, time cos, parallelism factor, hash length
 - Argon2d（数据依赖）：这个变体使用数据依赖的内存访问模式，使得它具有较强的抵抗侧信道攻击能力。但是，由于其数据依赖性，它可能对时间空间权衡攻击（TMTO）较为敏感。Argon2d 适用于需要较高抗侧信道攻击能力的场景，但不需要考虑 TMTO 攻击的情况。
 - Argon2i（数据独立）：这个变体使用数据独立的内存访问模式，使其对时间空间权衡攻击具有较好的抵抗能力。但是，相对于 Argon2d，它的抗侧信道攻击能力较弱。Argon2i 适用于需要考虑 TMTO 攻击抵抗能力，但抗侧信道攻击能力要求较低的场景。
+  - 密码场景
 - Argon2id（混合）：这个变体是 Argon2d 和 Argon2i 的混合，结合了它们的优点。它首先使用数据独立的内存访问模式（类似于 Argon2i），然后在后续的过程中切换为数据依赖的内存访问模式（类似于 Argon2d）。这种方法既提供了较强的抗侧信道攻击能力，又具有较好的抵抗时间空间权衡攻击能力。Argon2id 是一种通用的密码哈希方案，适用于大多数场景。
 - https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md
   - PHC - Password Hashing Competition

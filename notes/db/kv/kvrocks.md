@@ -18,7 +18,8 @@ tags:
 
 :::caution
 
-- Redis 4.0.0  兼容，部分 client 不支持
+- 不推荐使用，除非只是需要一个分布式 kv 内存存储而不是 Redis
+- Redis 4.0.0 兼容，部分 client 不支持
   - 例如 bullmq 要求 5.0+
 
 :::

@@ -277,13 +277,13 @@ Signed-off-by: wener <wener@wener.me>
 
 ## 迁移子目录为仓库
 
-- [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
-
 ```bash
 # git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME
 
 git subtree split -P <name-of-folder> -b <name-of-new-branch>
 ```
+
+- [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
 
 ## 迁移分支为仓库
 

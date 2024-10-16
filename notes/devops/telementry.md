@@ -11,7 +11,9 @@ Collection of how to disable telementry and analytics that default to enable.
 **env**
 
 ```bash
+# for most cases
 # https://do-not-track.dev/
+# https://consoledonottrack.com/
 # https://en.wikipedia.org/wiki/Do_Not_Track
 DO_NOT_TRACK=1
 
@@ -46,6 +48,8 @@ ZO_TELEMETRY=false
 GF_ANALYTICS_REPORTING_ENABLED=false
 GF_ANALYTICS_CHECK_FOR_UPDATES=false
 ```
+
+- https://consoledonottrack.com/
 
 ## HTTP DNT
 
@@ -141,6 +145,10 @@ npx next telemetry disable
 new CubejsServer({
   telemetry: false,
 });
+```
+
+```bash
+CUBEJS_TELEMETRY=false
 ```
 
 ## yarn
@@ -280,3 +288,14 @@ export DISABLE_TELEMETRY=1
 - DISABLE_TELEMETRY=1 或 DO_NOT_TRACK=1 启动会自动创建 .opt-out-from-anonymous-statistics
 - `--disable-telemetry` when installation
 - https://learn.netdata.cloud/docs/netdata-agent/configuration/anonymous-telemetry-events
+
+## turbo
+
+```bash
+TURBO_TELEMETRY_DISABLED=1
+DO_NOT_TRACK=1
+
+turbo telemetry status
+```
+
+- https://turbo.build/repo/docs/telemetry

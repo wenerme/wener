@@ -57,12 +57,35 @@ ipconfig /flushdns
 
 ## usercontent
 
-- To C 场景运行 UGC(User Generate Content) 时需要考虑
+- To C 场景支持 UGC(User Generate Content) 时需要考虑
 - 安全考虑
   - XSS
   - CSRF
   - 上传文件
   - 隔离
+    - 域名不同 对于浏览器来说不在一个 origin
+    - cookie, sandbox, CSP 策略都不同
+  - 缓存策略后端逻辑可能不同
+  - 用户隐私 & 合规 - 区分不同的内容类型
+- e.g. 区分 CDN & UserContent
+  - githubusercontent.com
+  - googleusercontent.com
+  - fbcdn.net
+  - dropboxusercontent.com
+  - redditmedia.com
+  - redditusercontent.com
+  - slack-edge.com
+  - slack-files.com
+  - wp.com
+  - wordpressusercontent.com
+  - oaiusercontent.com
+  - oaistatic.com
+  - twimg.com
+  - ytimg.com
+  - cloudfront.net
+  - scdn.co
+  - discordapp.com
+  - discordusercontent.com
 - Thanks HN: Lessons learned after Google nearly killed my site
   [HN](https://news.ycombinator.com/item?id=26357033)
 

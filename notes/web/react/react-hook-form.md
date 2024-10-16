@@ -138,7 +138,8 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 ## isDirty 不匹配 dirtyFields
 
 - isDirty=true, dirtyFields 为 空
-- 注意设置 values
+- array swap 的时候会出现这样的情况，需要 touch 了才会 有
+  - https://github.com/react-hook-form/react-hook-form/issues/2778
 
 ## 只提交修改后的值
 

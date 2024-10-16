@@ -14,6 +14,7 @@ title: make
 - `$(wildcard src/**/*.ts)` 在有些平台上是 `$(wildcard src/*/*.ts)`
   - 不能遍历所有文件
   - 推荐 shell 展开或 find 命令
+- macOS 自带 make 是 v3.1
 
 :::
 
@@ -28,8 +29,11 @@ SHELL=/bin/bash
 .SECONDEXPANSION:
 
 # 总是执行
-.PHONEY: always
+.PHONY: always
 always:
+
+# 所有 target 都不依赖 fs
+.PHONY: $(MAKECMDGOALS)
 
 # export 所有变量
 .EXPORT_ALL_VARIABLES:
@@ -77,7 +81,8 @@ foreach:
 # 目录切换
 foo : bar/lose
   cd $(<D) && gobble $(<F) > ../$@
-# 使用 ONESHELL 则简单一些
+
+# 使用 ONESHELL 则简单一些 make v3.2+, macOS 自带的 make 是 3.1
 .ONESHELL:
 foo : bar/lose
   cd $(@D)

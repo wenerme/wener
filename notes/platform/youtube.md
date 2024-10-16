@@ -12,6 +12,8 @@ title: Youtube
   - YouTube Originals
 - 参考
   - 国家地区 https://support.google.com/youtube/answer/6307365
+  - https://findyoutubevideo.thetechrobo.ca/
+    - 查找删除的视频信息
 
 **会员价格**
 

@@ -20,7 +20,7 @@ title: Port forward
 ```bash
 socat TCP4-LISTEN:80,fork TCP4:www.yourdomain.org:8080
 
-# 启用端口转发
+# 启用转发
 echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
 
 # 本地
@@ -140,4 +140,14 @@ table ip filter {
 # 8001 -> 80
 iptables -t nat -A PREROUTING -s 127.0.0.1 -p tcp --dport 8001 -j REDIRECT --to 80
 iptables -t nat -A OUTPUT -s 127.0.0.1 -p tcp --dport 8001 -j REDIRECT --to 80
+```
+
+```bash
+#  UDP 500, 4500
+iptables -t nat -A PREROUTING -p udp --dport 500 -j DNAT --to-destination 192.168.1.100:500
+iptables -t nat -A PREROUTING -p udp --dport 4500 -j DNAT --to-destination 192.168.1.100:4500
+
+# 确保转发后的数据包可以返回客户端
+iptables -t nat -A POSTROUTING -p udp --dport 500 -d 192.168.1.100 -j MASQUERADE
+iptables -t nat -A POSTROUTING -p udp --dport 4500 -d 192.168.1.100 -j MASQUERADE
 ```

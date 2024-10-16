@@ -49,6 +49,11 @@ title: SATA
 | SFF-8088 | 26    | 4       | external iPass,iSAS,mSAS |
 | SFF-8482 | 29    | 2 lanes | SATA, SAS - 最常见       |
 | SFF-8484 | 32,19 | 4,2     |
+| SFF-8639 | 67    | 4       | U.2, U.3                 |
+
+- SFF -> Small Form Factor
+- SFFWG -> Small Form Factor Working Group
+  - 2010
 
 | Connector | Pin |
 | --------- | --- | ----------------------------- |
@@ -75,6 +80,26 @@ title: SATA
 - 用于替换 mSATA
 - 物理硬件使用 pcie-mini 的布局
 - 更适合于 SSD
+- 支持 3.3V
+- for thin, power-constrained devices
+  - tablet computers, laptops.
+- 宽 22 mm
+- 长 60, 80, 110 mm
+
+## U.2
+
+- 2.5" SSDs
+- SFF-8639
+- 支持 3.3 V, 5 V, 12 V
+- for enterprise storage systems
+  - 2.5", 3.5" 硬盘
+- successor
+  - EDSFF
+  - U.3
+
+## U.3
+
+- SFF-TA-1001
 
 ## iSCSI
 

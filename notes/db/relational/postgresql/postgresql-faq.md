@@ -16,7 +16,7 @@ tags:
   - https://stackoverflow.com/a/50441059/1870054
   - https://commitfest.postgresql.org/17/1252/
   - S094
-- 不支持  column reordering
+- 不支持 column reordering
 
 :::
 
@@ -894,3 +894,78 @@ WHERE usesuper = true;
 
 - ⚠️注意 [supabase](./postgres-supabase.md) 的 pg superuser 是 supabase_admin
   - supabase_admin 密码和 postgres 相同，登录后 `ALTER USER postgres WITH SUPERUSER`
+
+## Windows minimal
+
+- 下载 zip
+  - https://www.enterprisedb.com/download-postgresql-binaries
+- 解压
+- 得到 pgsql 目录
+  - 17.0
+    - zip 250MB
+    - 解压后 997MB
+    - pgAdmin 650MB
+    - bin 175MB
+    - lib 95MB
+    - doc 31MB
+    - share 24MB
+    - 移除后
+      - 112MB
+
+```bash
+rm -rf pgAdmin doc include StackBuilder
+rm lib/*.pdb bin/*.pdb
+
+cd bin
+rm clusterdb.exe createdb.exe createuser.exe dropdb.exe dropuser.exe ecpg.exe oid2name.exe pg_amcheck.exe pg_archivecleanup.exe pg_basebackup.exe pg_checksums.exe pg_combinebackup.exe pg_config.exe pg_controldata.exe pg_createsubscriber.exe pg_isready.exe pg_receivewal.exe pg_recvlogical.exe pg_resetwal.exe pg_rewind.exe pg_test_fsync.exe pg_test_timing.exe pg_upgrade.exe pg_verifybackup.exe pg_waldump.exe pg_walsummary.exe pgbench.exe reindexdb.exe stackbuilder.exe vacuumdb.exe vacuumlo.exe
+cd -
+
+rm -rf share/locale
+rm -rf share/doc
+
+ls bin/*.exe | sort
+# bin/initdb.exe
+# bin/pg_ctl.exe
+# bin/pg_dump.exe
+# bin/pg_dumpall.exe
+# bin/pg_restore.exe
+# bin/postgres.exe
+# bin/psql.exe
+```
+
+**package**
+
+```bash
+cd ..
+# gnu tar + zstd ~ 27MB
+tar -I 'zstd -20' --exclude='.DS_Store' -cvf pgsql.tar.zst pgsql
+# just zip ~ 38MB
+zip -r -9 pgsql.zip pgsql -x "*.DS_Store"
+```
+
+**init**
+
+```batch
+set PATH=%PATH%;%CD%\pgsql\bin
+initdb.exe -D .\data -U postgres --encoding=UTF-8 --lc-collate=C --lc-ctype=C
+pg_ctl -D ./data start -l db.log
+```
+
+```bash title="Shell"
+export PATH=$PWD/pgsql/bin:$PATH
+TZ=Asia/Shanghai initdb -D ./data  -U postgres --encoding=UTF-8 --lc-collate=C --lc-ctype=C
+pg_ctl -D ./data start -l db.log
+
+
+export PGDATA=$PWD/data
+pg_ctl status
+psql -U postgres
+pg_ctl stop
+```
+
+```bash
+echo 'listen_addresses = "*"' >> data/postgresql.conf
+echo 'host all all 0.0.0.0/0 md5' >> data/pg_hba.conf
+
+pg_ctl reload
+```

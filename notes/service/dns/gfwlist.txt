@@ -202,6 +202,8 @@ oculuscdn.com
 onion
 openai.com
 openai.io
+openai.com.cdn.cloudflare.net
+openai.io.cdn.cloudflare.net
 opensource.com
 opensource.guide
 parse.com

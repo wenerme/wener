@@ -22,6 +22,13 @@ title: Size
   - 72 - 普通
 - PPI - Pixels Per Inch - 显示器
   - > = 200 - 视网膜屏, HiDPI
+- dppx - Device Pixel Per X
+  - 1=96dpi
+  - 2=192dpi
+  - 会跟随缩放变化
+  - CSS resolution
+  - window.devicePixelRatio
+- DPCM - dots per cm
 - 银行卡/身份证
   - 8.56 cm × 5.398 cm
   - 85.6 mm × 53.98 mm

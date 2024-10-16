@@ -19,7 +19,9 @@ tags:
   - https://foldleft.io/image-tools
 
 ```bash
+# npm install -g imageoptim-cli
 brew install imageoptim-cli
+imageoptim ./src/assets/*.jpg
 ```
 
 - AI Based

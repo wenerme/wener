@@ -1,0 +1,41 @@
+---
+title: WebRTC
+---
+
+# WebRTC
+
+- [WebRTC](https://en.wikipedia.org/wiki/WebRTC)
+- 基础
+  - [连通性](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity) - 协议步骤
+  - Can I Use [WebRTC](https://caniuse.com/#search=webrtc)
+  - [发布记录](http://webrtc.github.io/webrtc-org/release-notes/)
+- WebRTC 接口
+  - [RTCPeerConnection](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection)
+    - 本地和远程之间的 WebRTC 连接
+    - RTCConfiguration 为配置对象
+  - RTCDataChannel - 双向的数据通道
+  - RTCSessionDescription - 会话参数
+  - RTCStatsReport - 连接统计信息
+  - RTCIceCandidate - ICE 连接待选
+  - RTCIceTransport - ICE 传输
+  - RTCIceServer - ICE 服务端连接信息
+  - RTCRtpSender - 管理 RTCPeerConnection 中 MediaStreamTrack 的连接和解码
+  - RTCSctpTransport - SCTP 传输信息 - 提供 DTLS 访问
+  - RTCDTMFSender - 处理 DTMF 信令
+    - RTCPeerConnection tonechange 事件
+  - RTCIceCandidateType
+    - host - peer IP 信息
+    - srflx - server reflexive
+      - stun 映射地址
+    - prflx - peer reflexive
+    - relay
+      - 从 stun 获取的中继地址
+    - 参考 [rfc5245#section-3](https://datatracker.ietf.org/doc/html/rfc5245#section-3)
+- 开发
+  - 浏览器测试
+    - [test.webrtc.org](https://test.webrtc.org) - [webrtc/testrtc](https://github.com/webrtc/testrtc) - [webrtc/test-pages](https://github.com/webrtc/test-pages/tree/gh-pages)
+    - [webrtc.github.io/test-pages](https://webrtc.github.io/test-pages/)
+    - [WebRTC 泄漏检测](https://browserleaks.com/webrtc)
+  - [webrtc-adapter](https://github.com/webrtcHacks/adapter) - 提供兼容
+- 参考
+  - [webrtcglossary](https://webrtcglossary.com/)

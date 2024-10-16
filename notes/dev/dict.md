@@ -1166,17 +1166,21 @@ tags:
 
 ## sex vs gender
 
-- sex - 性别
+- sex - 性别 - 生理性别/生物性别
   - male, female
   - intersex - 难以划分, 间性
   - 生物特征，出生便决定了
-- gender - 性别认同
+- gender - 社会性别/性别认同
   - 个性 - 可变
   - 内在自我
   - 非二元性别
 
 ---
 
+- 性别表达（Gender Expression）：指个人通过行为、服饰、发型等外在方式表达其性别认同。
+- 跨性别者（Transgender）：指性别认同与其生理性别不一致的人。
+- 性别多样性（Gender Diversity）：强调社会对不同性别身份和表达的包容与认可。
+- 性取向（Sexual Orientation）：与性别概念不同，指个人在情感或性方面被何种性别的人所吸引。
 - 参考
   - https://www.ons.gov.uk/economy/environmentalaccounts/articles/whatisthedifferencebetweensexandgender/2019-02-21
 

@@ -4,7 +4,7 @@ title: nextra
 
 # nextra
 
-:::tips
+:::tip
 
 - 支持 SSG, SSR, ISR
 

@@ -12,6 +12,41 @@ tags:
 > - column 的 generated 不能修改
 > - column 只支持 STORE 的生成列，不支持虚拟列
 
+```sql
+-- Diagnostic
+select version();
+show server_version;
+show server_version_num;
+show server_encoding;
+select current_user, current_schema, current_catalog, current_database();
+
+SHOW server_encoding;
+SHOW client_encoding;
+
+SHOW timezone;
+SELECT now();
+SELECT current_timestamp;
+
+SELECT inet_server_addr() AS server_ip, inet_client_addr() AS client_ip;
+SELECT inet_server_port() AS server_port, inet_client_port() AS client_port;
+
+SELECT pg_size_pretty(pg_database_size(current_database())) AS database_size;
+
+SHOW data_directory;
+SHOW max_connections;
+SHOW shared_buffers;
+SHOW default_transaction_isolation;
+SHOW ALL;
+```
+
+```sql
+SELECT * FROM pg_stat_activity;
+SELECT * FROM pg_locks;
+select * from pg_user;  -- 查看所有 user
+SELECT usename, usesuper AS superuser, usecreatedb AS createdb, valuntil AS expiration
+FROM pg_user;
+```
+
 - [JSON Functions and Operators](https://www.postgresql.org/docs/current/functions-json.html)
 - `PRIMARY KEY` ~= `UNIQUE` + `NOT NULL`
 - FK
@@ -35,6 +70,15 @@ where type in ('text')
 -- 也可以用 replace 如果用不到 regex 的功能 `\u2005` 依赖 regex 的功能
   and (LENGTH(text) - LENGTH(regexp_replace(text, '\u2005', ''))) > 0
 ;
+
+-- 基本的应用初始化
+create user app with password 'app'; -- 创建用户
+create database app with owner app; -- 创建数据库
+\c app; -- 连接数据库
+set session authorization app; -- 切换用户
+select current_user; -- 查看当前用户
+create schema main; -- 创建 schema, 避免使用 public
+alter user app set search_path to main,public; -- 设置用户默认 schema
 ```
 
 ## XML xpath 返回结果包含 CDATA
@@ -47,15 +91,6 @@ where type in ('text')
 select unnest(xpath('/s/text()','<s><![CDATA[text]]></s>'));
 -- 添加 string 转换返回正常
 select unnest(xpath('string(/s)','<s><![CDATA[text]]></s>'::xml));
-```
-
-## 系统信息
-
-```sql
-select version();
-show server_version;
-show server_version_num;
-show server_encoding;
 ```
 
 ## 静态数据行

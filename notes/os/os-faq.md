@@ -20,9 +20,12 @@ System.getProperty("java.io.tmpdir")
 echo $TMPDIR
 ```
 
-- Windows `C:\Users\$USER\AppData\Local\Temp`
-- Linux `/tmp`
-- macOS `/var/folders/.../T/`
+- Windows
+  - TEMP, TMP, `%SystemRoot%\temp`, `%windir%\temp`
+  - `C:\Users\$USER\AppData\Local\Temp`
+- Linux
+  - TMPDIR, TMP, TEMP, /tmp
+- macOS `/var/folders/<two-characters>/<random-string>/T`
 - 参考
   - [TMPDIR](https://en.wikipedia.org/wiki/TMPDIR)
   - [Temporary folder](https://en.wikipedia.org/wiki/Temporary_folder)

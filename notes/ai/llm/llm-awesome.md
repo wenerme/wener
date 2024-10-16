@@ -36,17 +36,26 @@ tags:
     - https://github.com/arc53/llm-price-compass
     - https://llmprices.dev/
     - https://aichatmakers.com/2024/04/15/llms-pricing-comparison-with-chat-arena-leaderboard-ranking-april-2024/
-- Application
+- Runner/Inference
   - [jmorganca/ollama](./ollama.md)
     - MIT, Golang
     - 快速启动任意模型
     - 提供模型管理
     - 提供管理接口
+- Application/WebUI/UI/Desktop/Consumer
   - [mudler/LocalAI](https://github.com/mudler/LocalAI)
     - MIT, C++, Go
   - [abi/secret-llama](https://github.com/abi/secret-llama)
     - Apache-2.0, TS
     - Fully private LLM chatbot that runs entirely with a browser with no server needed. Supports Mistral and LLama 3.
+  - [Yonom/assistant-ui](https://github.com/Yonom/assistant-ui)
+    - React Components for AI Chat
+  - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
+    - Apache-2.0, TypeScript
+  - [n4ze3m/page-assist](https://github.com/n4ze3m/page-assist)
+    - MIT, TS
+    - 浏览器插件
+    - https://chrome.google.com/webstore/detail/page-assist/jfgfiigpkhlkbnfnbobbkinehhfdhndo
   - [open-webui/open-webui](https://github.com/open-webui/open-webui)
     - MIT, Sevlet, Python
     - WebUI for LLMs

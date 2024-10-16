@@ -101,7 +101,7 @@ tags:
 
 ## Coding
 
-:::tips
+:::tip
 
 - 功能方向
   - Chat - 基于代码询问、解释、找 Bug

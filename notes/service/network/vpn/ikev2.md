@@ -14,7 +14,7 @@ title: IKEv2
 - PSK
 - 500/udp 4500/udp
 - 参考
-  - https://github.com/gaomd/docker-ikev2-vpn-server/issues/51
+  - proposals not match when using iOS 14.01 https://github.com/gaomd/docker-ikev2-vpn-server/issues/51
 
 ```bash
 docker run -d --restart always --privileged \

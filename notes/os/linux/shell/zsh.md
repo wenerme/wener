@@ -65,6 +65,7 @@ man zshcontrib
 - [larkery/zsh-histdb](https://github.com/larkery/zsh-histdb)
   - 记录执行命令到数据库
   - 配合 autosuggestions 可以更好的做提示
+  - ~/.histdb/zsh-history.db
 - autojump
   - j
 - fzf
@@ -75,6 +76,8 @@ man zshcontrib
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+git clone https://github.com/larkery/zsh-histdb ~/.zsh/zsh-histdb
 ```
 
 # FAQ
@@ -105,6 +108,7 @@ bindkey "^[[B" down-line-or-beginning-search # Down
     - 过多使用 zsh 相关特性会产生依赖
 
 ## CORRECT vs CORRECT_ALL
+
 - CORRECT
   - 仅针对命令
 - CORRECT_ALL

@@ -12,3 +12,10 @@ title: zstd
   - --ultra - levels >= 20
     - 需要更多内存
   - https://github.com/facebook/zstd/blob/dev/lib/compress/clevels.h
+- .zst
+
+```bash
+tar -I zstd --exclude='.DS_Store' -cvf pgsql.tar.zst pgsql
+# 压缩级别
+tar -I 'zstd -10' --exclude='.DS_Store' -cvf pgsql.tar.zst pgsql
+```

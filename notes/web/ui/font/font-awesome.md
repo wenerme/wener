@@ -74,6 +74,15 @@ tags:
 
 ## variable fonts
 
+- font-variation-settings
+- wght - weight
+- wdth - width
+- slnt - slant
+- ital - italic
+- opsz - optical size
+- e.g.
+  - Noto
+  - Roboto
 - https://fonts.google.com/specimen/Roboto+Flex
   - 有 10+ 可变维度
 - https://fonts.google.com/knowledge/introducing_type/introducing_variable_fonts

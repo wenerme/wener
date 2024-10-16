@@ -17,6 +17,10 @@ title: BlockNote
 
 :::
 
+```bash
+npm add @blocknote/{core,react,shadcn}
+```
+
 ## Cutome
 
 - 媒体和图片统一作为 File 处理

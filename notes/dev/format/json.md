@@ -54,6 +54,7 @@ title: JSON
 
 ## Diff
 
+- [DoneDeal0/superdiff](https://github.com/DoneDeal0/superdiff)
 - [benjamine/jsondiffpatch](- https://github.com/benjamine/jsondiffpatch)
   - npm:jsondiffpatch
   - https://github.com/benjamine/jsondiffpatch/blob/master/docs/formatters.md
