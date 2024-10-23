@@ -20,8 +20,9 @@ brew install crane
 go install github.com/google/go-containerregistry/cmd/crane@latest
 # 手动下载
 # https://github.com/google/go-containerregistry/releases
-curl -LO https://github.com/google/go-containerregistry/releases/download/v0.13.0/go-containerregistry_Linux_arm64.tar.gz
-
+curl -LO https://github.com/google/go-containerregistry/releases/download/v0.20.2/go-containerregistry_Linux_x86_64.tar.gz
+mkdir ~/bin/
+tar zxvf go-containerregistry_*.tar.gz -C ~/bin/ crane
 
 echo quay.io | crane auth get # 从 keychain 获取 auth 信息
 crane copy quay.io/keycloak/keycloak:17.0.0 registry.cn-hongkong.aliyuncs.com/cmi/keycloak_keycloak

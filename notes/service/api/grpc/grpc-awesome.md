@@ -63,7 +63,10 @@ tags:
 - https://github.com/onosproject/onos-api/tree/master/proto
 - https://github.com/thanos-io/thanos/search?p=1&q=in%3Apath+proto
 
-<!-- -path:vendor  filename:*.proto -->
+<!--
+-path:vendor path:*.proto
+language:"Protocol Buffers"
+-->
 
 ## 工具
 

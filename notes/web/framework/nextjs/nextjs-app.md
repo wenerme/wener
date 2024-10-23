@@ -102,10 +102,9 @@ export const runtime = 'nodejs';
 export const preferredRegion = 'auto';
 
 // 平台设置、影响 server action timeout
-export const maxDuration = 5
+export const maxDuration = 5;
 
 export function generateStaticParams() {}
-
 
 // ISR
 export const revalidate = 3600; // revalidate every hour
@@ -271,3 +270,25 @@ export const config = {
   ],
 };
 ```
+
+## layout access url
+
+```ts
+// server component 能获取到 pathname
+const headers = new Headers(req.headers);
+headers.set('x-url', req.url);
+
+return NextResponse.next({
+  request: {
+    headers: headers,
+  },
+});
+```
+
+```ts
+// 隐藏的获取 url 的方式，替代 pathname
+// https://github.com/vercel/next.js/issues/57762
+headers().get('next-url');
+```
+
+- https://github.com/vercel/next.js/issues/43704

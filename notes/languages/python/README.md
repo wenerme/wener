@@ -16,6 +16,10 @@ title: Python
 - [The Python Standard Library](https://docs.python.org/3/library/)
 
 ```bash
+# venv
+python3 -m venv venv
+source venv/bin/activate
+
 # 确保安装 pip
 python -m ensurepip
 

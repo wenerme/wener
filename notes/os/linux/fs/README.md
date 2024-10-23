@@ -130,6 +130,9 @@ mount -t specfs none /dev/streams
 - [List of file systems](https://en.wikipedia.org/wiki/List_of_file_systems)
 - https://www.deepanseeralan.com/tech/some-notes-on-filesystems
 - [vgough/encfs](https://github.com/vgough/encfs)
+- Docker fileshare
+  - FUSE
+  - gRPC over Hypervisor sockets
 
 ## bind
 

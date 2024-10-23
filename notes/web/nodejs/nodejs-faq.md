@@ -600,3 +600,17 @@ apk add icu-data-full
   - node.lib - 用于编译
   - node_pdb.7z
   - node_pdb.zip - 用于调试
+
+## shell scripting
+
+```ts
+#!/usr/bin/env -S npx tsx
+import { Command } from "@commander-js/extra-typings";
+
+const program = new Command()
+  .name("word-count")
+  .description("CLI to count words")
+  .version("1.0.0")
+  .argument("<file>")
+  .parse()
+```

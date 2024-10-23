@@ -80,6 +80,10 @@ tags:
   - https://erichartford.com/uncensored-models
   - https://www.pixiv.net/novel/show.php?id=21039830
     - https://huggingface.co/a686d380/rwkv-5-h-world
+- [microsoft/BitNet](https://github.com/microsoft/BitNet)
+  - MIT, C++, Python
+  - by Microsoft
+  - [HN](https://news.ycombinator.com/item?id=41877609)
 - vicuna
 - mistral
 - mixtral

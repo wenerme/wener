@@ -5,6 +5,14 @@ tags:
 
 # Python FAQ
 
+```bash
+python -V && pip -V
+pip list --outdated
+```
+
+- PYTHONPATH
+- https://docs.python.org/3/using/cmdline.html
+
 ## venv
 
 :::caution

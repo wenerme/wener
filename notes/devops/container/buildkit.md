@@ -38,6 +38,9 @@ docker buildx install # buildx -> build
 docker buildx create --use
 docker build -t demo -o type=image .
 
+# Images, Containers, Local Volumes, Build Cache
+docker system df -v # 系统空间使用情况
+
 # Test
 mkdir -p /tmp/build
 cd /tmp/build

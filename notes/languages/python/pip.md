@@ -9,6 +9,7 @@ title: pip
   - package installer for Python
   - pypa -> Python Packaging Authority
 - 参考
+  - pip-tools
   - https://pip.pypa.io/en/stable/
 
 ```bash
@@ -19,20 +20,22 @@ eval "$(pip completion --bash)"
 pip show torch # 显示信息
 pip check      # 检查依赖
 
-#  ~/.cache/pip
-# /Users/$USER/Library/Caches/pip
-# C:\Users\$USER\AppData\Local\pip\Cache
+# Linux  ~/.cache/pip
+# macOS /Users/$USER/Library/Caches/pip
+# Windows C:\Users\$USER\AppData\Local\pip\Cache
 # PIP_CACHE_DIR
 # --cache-dir
 pip cache dir
 
 pip install datumaro==1.7.0 # 安装指定版本
 
-
 # https://pypi.org/simple
-pip3 install -h | grep index-url  # 默认 index-url
-pip config get global.index-url # 查看配置的 index-url
-pip3 config -v list # 查看搜索的路径
+pip3 install -h | grep index-url # 默认 index-url
+pip config get global.index-url  # 查看配置的 index-url
+pip3 config -v list              # 查看搜索的路径
+
+# pip-check pip-review
+pip list --outdated # 查看过期的包
 ```
 
 - /etc/pip.conf

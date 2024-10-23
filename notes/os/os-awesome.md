@@ -139,6 +139,42 @@ tags:
   - [ventoy/Ventoy](https://github.com/ventoy/Ventoy)
     - GPL-3.0, C
 
+## Package Manager
+
+- pacman - package manager
+  - Arch Linux
+  - Manjaro
+  - MSYS2
+  - Arch based
+    - RebornOS
+    - Garuda Linux
+    - EndeavourOS
+- apk
+  - Alpine Linux
+- apt - Advanced Package Tool
+  - Debian
+  - Debian based
+    - Ubuntu
+    - Raspbian
+- dnf - Dandified YUM
+  - Fedora 22
+  - RHEL 8
+  - CentOS 8
+  - RPM based
+    - Rocky Linux
+    - AlmaLinux
+- yum - Yellowdog Updater, Modified
+  - RHEL
+  - CentOS
+  - RPM based
+- Homebrew
+  - macOS
+  - Linux
+- [scoop](https://scoop.sh/)
+  - Windows
+- [chocolatey](https://chocolatey.org/)
+  - Windows
+
 ## Emulator
 
 - [pokemium/magia](https://github.com/pokemium/magia)

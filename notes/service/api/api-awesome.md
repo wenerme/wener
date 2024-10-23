@@ -196,6 +196,12 @@ tags:
   - 不是 JS 的 tRPC，是腾讯的 RPC
 - [Tencent/flare](https://github.com/Tencent/flare)
 
+## JSON-RPC
+
+- [elpheria/rpc-websockets](https://github.com/elpheria/rpc-websockets)
+  - LGPLv3, TS, JS
+  - JSON-RPC 2.0 over WebSockets
+
 ## Serialization
 
 - protobuf
@@ -245,12 +251,32 @@ tags:
 ## OpenAPI
 
 - JavaScript/Typescript/NodeJS
+  - [hey-api/openapi-ts](https://github.com/hey-api/openapi-ts)
+    - OpenAPI to TypeScript codegen. Generate clients, SDKs, validators
   - [metadevpro/openapi3-ts](https://github.com/metadevpro/openapi3-ts)
     - TS Model
   - [APIDevTools/swagger-parser](https://github.com/APIDevTools/swagger-parser)
     - MIT, JS
     - OpenAPI 2.0, 3.0 parser/validator
     - Resolves all $ref
+- Codegen
+  - [7nohe/openapi-react-query-codegen](https://github.com/7nohe/openapi-react-query-codegen)
+    - OpenAPI -> React Query+@hey-api/openapi-ts
+  - [orval-labs/orval](https://github.com/orval-labs/orval)
+    - ⚠️ 项目开发不活跃
+    - OpenAPI -> TS
+  - [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+    - OpenAPI -> Client & Server
+  - [drwpow/openapi-typescript](https://github.com/drwpow/openapi-typescript)
+    - OpenAPI -> Typescript
+  - [curlconverter/curlconverter](https://github.com/curlconverter/curlconverter)
+    - cURL -> Code
+  - [glideapps/quicktype](https://github.com/glideapps/quicktype)
+    - JSON, Schema, GraphQL -> type & converter
+- [fern-api/fern](https://github.com/fern-api/fern)
+  - Apache-2.0, TS, JS
+  - OpenAPI -> SDKs & Docs
+  - Ruby, Python, TS, Java, Go, C#, PHP
 - [getkin/kin-openapi](https://github.com/getkin/kin-openapi)
   - MIT, Golang
   - OpenAPIv3 for Go
@@ -265,6 +291,17 @@ tags:
   - https://bitbucket.org/atlassian/openapi-diff
     - https://www.npmjs.com/package/openapi-diff
 
+```bash
+npx -y openapi-typescript https://github.com/openai/openai-openapi/raw/master/openapi.yaml --output apis.d.ts
+
+# @7nohe/openapi-react-query-codegen
+# ==================================
+# https://openapi-react-query-codegen.vercel.app/guides/introduction
+# default to @hey-api/client-fetch
+npm add @hey-api/client-fetch
+npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./petstore.yaml
+```
+
 ## API Gateway
 
 > API 生命周期管理
@@ -278,7 +315,6 @@ tags:
 - [How to choose the right API Gateway for your platform](https://www.moesif.com/blog/technical/api-gateways/How-to-Choose-The-Right-API-Gateway-For-Your-Platform-Comparison-Of-Kong-Tyk-Apigee-And-Alternatives/)
 - [api-platform/api-platform](https://github.com/api-platform/api-platform)
   - Create REST and GraphQL APIs, scaffold Jamstack webapps, stream changes in real-time.
-
 
 ## Doc
 
@@ -341,20 +377,6 @@ tags:
 - [thx/RAP](https://github.com/thx/RAP)
 - [sx1989827/DOClever](https://github.com/sx1989827/DOClever)
 - [RecipeUI/RecipeUI](https://github.com/RecipeUI/RecipeUI)
-## Codegen
-
-- [OpenAPITools/openapi-generator](https://github.com/OpenAPITools/openapi-generator)
-  - OpenAPI -> Client & Server
-- [drwpow/openapi-typescript](https://github.com/drwpow/openapi-typescript)
-  - OpenAPI -> Typescript
-- [curlconverter/curlconverter](https://github.com/curlconverter/curlconverter)
-  - cURL -> Code
-- [glideapps/quicktype](https://github.com/glideapps/quicktype)
-  - JSON, Schema, GraphQL -> type & converter
-
-```bash
-npx -y openapi-typescript https://github.com/openai/openai-openapi/raw/master/openapi.yaml --output apis.d.ts
-```
 
 ## Produce OpenAPI
 

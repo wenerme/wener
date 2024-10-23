@@ -28,6 +28,10 @@ nvm use --lts             # 切换版本
 nvm install 'lts/*'       #
 nvm alias default 'lts/*' # 设置默认 LTS
 nvm alias default 16      #
+
+
+# clone ~/.nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
 ## AlpineLinux

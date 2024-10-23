@@ -37,6 +37,8 @@ npx @biomejs/biome check ./src --apply
 biome lint --only=style/useNamingConvention --apply ./src
 npx -y @biomejs/biome lint --only=style/useImportType ./src --write
 npx -y @biomejs/biome lint --only=lint/correctness/noUnusedImports ./src --write
+# warn `export * from './mod` in index.ts
+npx -y @biomejs/biome lint --only=lint/performance/noReExportAll ./src/**/index.ts
 ```
 
 **biome.json**

@@ -55,3 +55,16 @@ iconutil --convert icns icon.iconset
 - Peak signal-to-noise ratio
 - 信噪比
 - 评估图像质量的一种方法
+
+## tiff vs png
+
+- tiff - TIFF (Tagged Image File Format)
+  - publishing, photo editing, graphic design, professional, scanning, printing
+  - high resolution, layering, transparency
+  - 大多 online 环境不支持
+  - 可以作为 container
+  - 支持更多编辑信息 - 可以看作支持作为编辑态文件 - 例如 PSD
+- png - Portable Network Graphics
+  - web graphics
+  - 更小
+  - 最终输出格式

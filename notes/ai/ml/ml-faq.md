@@ -284,3 +284,5 @@ LD_LIBRARY_PATH=/opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib/:$LD_LI
 ```
 
 - https://github.com/pytorch/pytorch/issues/104591
+
+## Placeholder shape mismatches (expected 1 vs got tensorData with 2240) at dimIdx = 0

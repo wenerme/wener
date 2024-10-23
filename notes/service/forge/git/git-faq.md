@@ -207,7 +207,7 @@ git diff > my.patch
 
 ## 检测是否发生变化
 
-## 认证缓存
+## 认证缓存 {#credential-cache}
 
 - https://stackoverflow.com/questions/5343068
 

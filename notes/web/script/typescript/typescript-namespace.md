@@ -9,10 +9,22 @@ title: TypeScript Namespace
 1. namespace 是 TypeScript 特有的一种组织代码的方式。
 2. namespace 本质上是全局命名空间中的命名 JavaScript 对象。
 3. 推荐使用 `namespace` 而不是 `module`, 避免和 ES6 的 module 混淆。
+   - `module XXX {}` -> `namespace XXX {}`
 4. 当存在同名，但不同上下文的时候，使用 namespace 非常便捷。
    - 例如: 项目里有两个 `useResourceId`, 增加 namespace 变成 `FormContext.useResourceId`, `ResourceContext.useResourceId`
+5. 如果前端关注 bundle size 则不推荐在一个 namespace 里放太多内容 - 无法 tree shaking
+6. 后端复杂结构本身会存在 namespace 的概念
+   - 例如: Java 的 package, C# 的 namespace
+   - 例如: `GameEngine.Render.Core.renderShape`, namepsace 提供了更好的组织代码的方式
 
 :::
+
+- 参考
+  - ESBuild, Rollup, Parcel 不支持 namespace tree shaking
+    - 推荐使用 ESM 的 `import * as Module` 代替 - 支持 tree shaking
+    - https://github.com/evanw/esbuild/issues/3077
+    - [playground](https://esbuild.github.io/try/#YgAwLjI0LjAALS1idW5kbGUgLS1mb3JtYXQ9ZXNtAGUAZW50cnkuanMAaW1wb3J0IHtYfSBmcm9tICcuL2ZpbGUnOwppbXBvcnQgKiBhcyBYMiBmcm9tICcuL2ZpbGUyJzsKY29uc3QgQXBwID0gKCk9PnsKY29uc29sZS5sb2coWC5BLFgyLkEpCn0KCkFwcCgpAABmaWxlLnRzAGV4cG9ydCBuYW1lc3BhY2UgWCB7CmV4cG9ydCBjb25zdCBBID0gMQpleHBvcnQgY29uc3QgQiA9IDI7CmV4cG9ydCBmdW5jdGlvbiBGKCl7fQp9AABmaWxlMi50cwBleHBvcnQgY29uc3QgQSA9IDEKZXhwb3J0IGNvbnN0IEIgPSAyOwpleHBvcnQgZnVuY3Rpb24gWEYoKXt9)
+  - namespace is out-of-date syntax https://github.com/sinclairzx81/typebox/issues/408
 
 ```ts
 export namespace A {

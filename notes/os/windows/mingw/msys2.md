@@ -29,15 +29,39 @@ title: msys2
 
 :::
 
+| cmd                           | for                |
+| ----------------------------- | ------------------ |
+| `pacman -S PACKAGE`           | 安装               |
+| `pacman -R PACKAGE`           | 卸载               |
+| `pacman -Q PACKAGE`           | 查询               |
+| `pacman -Syu PACKAGE`         | 安装 & 更新        |
+| `pacman -Syu`                 | 更新所有           |
+| **查询**                      |
+| `pacman -Qe`                  | 查询所有安装的包   |
+| `pacman -Ql PACKAGE`          | 查询包内容         |
+| `pacman -Qii PACKAGE`         | 查询包信息         |
+| `pacman -Qo FILE`             | 查询文件归属包     |
+| `pacman -Qs PACKAGE`          | 搜索 已经安装 的包 |
+| **MISC**                      |
+| `pacman -Qdt`                 | 查询孤立的包       |
+| `pacman -Rns $(pacman -Qdtq)` | 删除孤立的包       |
+| `pactree PACKAGE`             | 包依赖树           |
+| `pactree -r PACKAGE`          | 谁依赖这个包       |
+
+- https://wiki.archlinux.org/title/pacman
+
 ```bash
-# 更新
+# 更新 index
 pacman -Syu
 # 从新启动再更新
 pacman -Su
 
 # 基础开发工具
+# 前缀 mingw-w64-SUBSYSTEM-ARCH
+# 前缀 mingw-w64-${MSYSTEM,,}-$(uname -m)
 pacman -Sy --needed base-devel git mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc
 pacman -Sy gcc unzip zip rsync
+pacman -Sy procps-ng # provide top
 
 # Go
 # ==========
@@ -52,6 +76,9 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 # 安装 win-sudo
 curl -s https://raw.githubusercontent.com/imachug/win-sudo/master/install.sh | sh
+
+pacman -S mingw-w64-ucrt-x86_64-fastfetch
+fastfetch
 ```
 
 ```bash
@@ -103,6 +130,12 @@ fi
 
 ```bash
 export MSYSTEM=UCRT64
+source /etc/profile
+echo $PATH
+```
+
+```bash
+export MSYSTEM=MINGW64
 source /etc/profile
 echo $PATH
 ```
@@ -292,11 +325,44 @@ cygrunsrv -R gitlab_shell_runner
 cygrunsrv -I gitlab_shell_runner -d "Gitlab Shell Runner" -p /opt/bin/gitlab-runner.exe -c $PWD -a "run -c ./config.toml -d ." -y tcpip
 ```
 
+## Python
+
+- 应该只有 mingw 好用
+- 避免 `python3 -m pip install --upgrade pip`
+
+```bash
+# mingw-w64-ucrt-x86_64-python
+# mingw-w64-x86_64-python
+# python
+pacman -Q | grep "python"
+
+# ucrt
+# mingw-w64-ucrt-x86_64-python mingw-w64-ucrt-x86_64-python-pip
+
+# mingw
+# libpython3.11.dll libgcc_s_seh-1.dll libwinpthread-1.dll
+# mingw-w64-x86_64-python-poetry mingw-w64-x86_64-python-pip
+
+# msys
+# 依赖 msys-*.dll
+# python python3-pip
+```
+
 ## CI
 
 - https://www.msys2.org/docs/ci/
 
 # FAQ
+
+```bash
+cygpath -w '/'
+
+# 从 Windows Defender 排除目录
+powershell.exe -Command "Add-MpPreference -ExclusionPath $(cygpath -w '/')"
+# 当前的排除列表
+powershell.exe -Command "Get-MpPreference | Select-Object -ExpandProperty ExclusionPath"
+powershell.exe -Command 'Set-MpPreference -DisableRealtimeMonitoring $true'
+```
 
 ## GCC vs LLVM/Clang
 
@@ -329,7 +395,7 @@ cygrunsrv -I gitlab_shell_runner -d "Gitlab Shell Runner" -p /opt/bin/gitlab-run
 
 - https://learn.microsoft.com/en-us/cpp/porting/upgrade-your-code-to-the-universal-crt
 
-# Node Must load N-API bindings
+## Node Must load N-API bindings
 
 ```
 Must load N-API bindings
@@ -370,3 +436,12 @@ curl -LO https://nodejs.org/download/release/latest-v20.x/win-x64/node.exe
 # 没有外部依赖
 ldd node.exe | grep -vi 'Windows/SYSTEM32'
 ```
+
+## pacman hang on GPG
+
+```bash
+pstree -lp
+```
+
+- https://github.com/msys2/setup-msys2/issues/358
+- https://github.com/msys2/MSYS2-packages/issues/2752

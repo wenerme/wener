@@ -5,6 +5,28 @@ tags:
 
 # OCR Awesome
 
+- 特性
+  - Detection
+    - 文章+Box
+  - OCR
+    - 文字识别
+  - Layout
+    - 区块、标题
+  - Reading Order
+    - 阅读顺序
+  - Table Recognition
+    - 表格识别
+  - 多语言
+- 领域
+  - document OCR
+  - printed text
+  - handwriting
+  - license plates
+  - image
+  - photo
+
+---
+
 - [Walleclipse/ChineseAddress_OCR](https://github.com/Walleclipse/ChineseAddress_OCR)
 - [ooooverflow/chinese-ocr](https://github.com/ooooverflow/chinese-ocr)
   - CRNN
@@ -18,6 +40,9 @@ tags:
   - [Evezerest/PPOCRLabel](https://github.com/Evezerest/PPOCRLabel)
     - 半自动化图形标注工具
   - [PP-OCRv4](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/PP-OCRv4_introduction.md)
+- [VikParuchuri/surya](https://github.com/VikParuchuri/surya)
+  - GPLv3, Python
+  - 支持 Detection, OCR, Layout, Reading Order, Table Recognition
 - EasyOCR
 - macOS OCR Live Text
   - 直接 Preview 在图片上识别文字

@@ -24,6 +24,10 @@ tags:
 - 数字化 - 信息化 - 社会化 - 个性化
 - 档案公司的注册公司经营范围
   - 工程项目管理、资料编辑、数据整理、工程规划设计、工程造价咨询、企业管理咨询等。
+- 参考
+  - 容易混淆的常见有关概念的解读 https://dag.ncepu.edu.cn/fgzd/dabz/xybz/28ea228db9a44df9b9623dad5e49d01b.htm
+  - 山东档案 http://www.sxdabjb.com/CN/1005-9652/home.shtml
+- 文书档案/综合文书档案/项目档案
 
 ## 档案管理工作内容
 
@@ -173,7 +177,6 @@ tags:
 # 加工数据存储目录
 aidp.path.base=C:\\soft\\aidp\\data
 ```
-
 
 - https://deeppaas.com/
   - 北京深帕平台科技有限公司

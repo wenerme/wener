@@ -437,6 +437,14 @@ CMD [ "node", "server.js" ]
 
 # FAQ
 
+- `pnpx` -> `pnpm dlx`
+- `pnpm dlx` - 下载并执行
+- `pnpm create react-app my-app` -> `pnpm dlx create-react-app my-app`
+- `pnpm exec` 不会下载
+  - `node_modules/.bin`
+- `pnpm start` -> `pnpm run start`
+- `pnpm test` -> `pnpm run test`
+
 ## ERR_PNPM_MODIFIED_DEPENDENCY  Packages in the store have been mutated
 
 `pnpm store status` 时出现

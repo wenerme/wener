@@ -34,8 +34,6 @@ https://ark.intel.com/content/www/us/en/ark/products/120479/intel-xeon-gold-6136
 
 -->
 
-## 2023-06
-
 > **Note** 注意
 >
 > - M.2 vs U.2
@@ -45,6 +43,13 @@ https://ark.intel.com/content/www/us/en/ark/products/120479/intel-xeon-gold-6136
 >   - SSD 的写入寿命，可重复写入次数。
 >   - 容量越大，寿命越长。
 >   - SSD 本身相当于消耗品。
+
+## 2024-10
+
+- SATA3 企业级 - 能保持和 SAS 差不多 特性/性能
+  - 12T,14T,16T - 45-65 ¥/T - 质保 1,2,3 年
+
+## 2023-06
 
 **SSD**
 
@@ -212,3 +217,7 @@ https://ecs-buy.aliyun.com/disk
 - +DDR4 32G × 24 = 768G ~= ¥5000
 - +SAS 2.5 15K 600G128M × 8 = 4.8T ~= ¥1000
 - +SAS 3.5 7.2K 10T256M × 8 = 80T ~= ¥5000
+
+## 2018-04
+
+- SAS 6T - 750¥ - ~125¥/T

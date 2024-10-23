@@ -50,6 +50,29 @@ wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=U
 
 ## Search
 
+- 精确匹配 `"关键词"`
+- 排除 `-关键词`
+- 或 `关键词1 OR 关键词2`
+- 网站 `site:example.com`
+- 文件类型 `filetype:pdf`
+- `inurl:`
+- `intitle:`
+- `intitle:关键词1 关键词2`
+- `related:example.com`
+- 占位符 `*`
+- 数字范围 `..`
+- 缓存版本 `cache:example.com`
+- 查找链接到特定页面的网站 `link:example.com`
+- 定义 `define:word`
+- 翻译 `translate:word`
+- 货币转换 `100 USD to CNY`
+- 计算 `100 * 2`
+- 单位转换 `100 cm to inch`
+- 时区 `time in Beijing`
+- 天气 `weather in Beijing`
+- 股票 `GOOG`
+
+
 [HN - spinner](https://news.ycombinator.com/item?id=13476939)
 
 - 计时器 [timer](https://www.google.com/search?q=timer)
