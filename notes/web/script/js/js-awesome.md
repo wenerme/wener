@@ -109,10 +109,22 @@ tags:
     - `const worker = new MyWorker()`
 - IoC/Container/DI
   - [nestjs](../../framework/nestjs/README.md)
-    - 👍 整体设计类似 Spring/Angular
+    - 整体设计类似 Spring/Angular
     - ⚠️ 只支持 NodeJS
+  - [jeffijoe/awilix](../lib/awilix.md)
+    - npm:awilix
+    - 9kB/3kB
+    - 0 依赖
+    - Proxy+Reflect - Chrome >= 49, Safari >= 10
+    - 支持代理模式 - 通过访问的字段名字进行 resolve
+      - 不支持异步
+    - 支持传统 Token 模式
+    - 支持浏览器
+    - 强类型 Container
+    - 不支持 异步，功能相对比较欠缺
   - [inversify/InversifyJS](https://github.com/inversify/InversifyJS)
-    - inversify
+    - npm:inversify
+    - 51kB/11kB
     - 功能非常全的 IoC - 使用起来有一点复杂
     - ⚠️ 不活跃
   - [typestack/typedi](https://github.com/typestack/typedi)
@@ -122,13 +134,6 @@ tags:
     - ⚠️ 非常不活跃
   - [Microsoft/tsyringe](https://github.com/Microsoft/tsyringe)
     - ⚠️ 非常不活跃
-  - [jeffijoe/awilix](../lib/awilix.md)
-    - 0 依赖, 12kB
-    - Proxy+Reflect - Chrome >= 49, Safari >= 10
-    - 支持代理模式 - 通过访问的字段名字进行 resolve
-      - 不支持异步
-    - 支持传统 Token 模式
-    - 支持浏览器
   - [@abraham/reflection](https://github.com/abraham/reflection)
     - ~3k - 替代 reflect-metadata ～ 50k
   - [async-dependency-graph](https://github.com/chriswoodle/async-dependency-graph)
@@ -778,7 +783,11 @@ tags:
   - [pillarjs/path-to-regexp](https://github.com/pillarjs/path-to-regexp)
     - React router 之前版本
   - hono RegExpRouter https://hono.dev/docs/concepts/routers
-- audio
+- audio/sound
+  - [goldfire/howler.js](https://github.com/goldfire/howler.js)
+    - MIT, JS
+    - Web Audio API, HTML5 Audio
+    - https://github.com/DawidWraga/davstack/tree/main/packages/sound
   - [bbc/peaks.js](https://github.com/bbc/peaks.js)
     - LGPLv3, JS
     - audio waveforms
@@ -1133,16 +1142,23 @@ tags:
 ## Crypto
 
 - Hashing
+- [brix/crypto-js](https://github.com/brix/crypto-js)
 - [rzcoder/node-rsa](https://github.com/rzcoder/node-rsa)
-  - pure js
+  - pure js, 不依赖 OpenSSL, 支持浏览器
 - [travist/jsencrypt](https://github.com/travist/jsencrypt)
   - RSA
+- [digitalbazaar/forge](https://github.com/digitalbazaar/forge)
+  - node-forge
 - [dchest/tweetnacl-js](https://github.com/dchest/tweetnacl-js)
   - Port of TweetNaCl cryptographic library to JavaScript
 - aes-decrypter
 - pkcs7
 - videojs-contrib-hls
   - AES-128 segment encryption
+- https://github.com/originjs/crypto-js-wasm
+  - Rust -> WASM
+  - npm:@originjs/crypto-js-wasm
+- JavaScript Crypto Libraries https://gist.github.com/jo/8619441
 - http://www.webtoolkit.info/javascript-sha1.html
 - http://www.webtoolkit.info/javascript-sha256.html
 - http://www.webtoolkit.info/javascript-md5.html

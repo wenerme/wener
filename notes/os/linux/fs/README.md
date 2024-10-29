@@ -4,6 +4,10 @@ title: FS
 
 # FS
 
+- [Filesystem Hierarchy Standard](./fs-hierarchy.md)
+
+## FileSystem
+
 **逻辑/内存**
 
 | fs         | mount point              | notes                        |

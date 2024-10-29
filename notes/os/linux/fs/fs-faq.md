@@ -18,7 +18,7 @@ tags:
   - SPKM (Simple Public Key Mechanism)
   - NFSv4 ACLs (Access Control Lists)
 
-## 文件名
+## 文件名 {#filename}
 
 - Linux
   - 不可以包含 `/`, `\x00`
@@ -42,11 +42,50 @@ tags:
 
 - https://stackoverflow.com/a/9847573/1870054
 
-## 文件系统限制
+## attr and xattr {#xattr}
+
+- attr
+  - size
+  - type
+  - mode
+  - uid, gid
+  - atime, mtime, ctime
+- xattr
+  - namespace
+    - user
+      - user.comment
+    - trusted
+    - security
+    - system
+  - 一般上限 64kb
+  - 存储位置
+    - ext4 inode - 256/128 byte
+    - xfs b+
+    - zfs 内置 xattr - 不存在空间不够
+      - `zfs get xattr DATASET`
+      - `zfs set xattr=on DATASET`
+    - 扩展块
+    - 特殊数据结构
+- NTFS ADS - Alternate Data Streams
+  - `:<stream_name>`
+  - `example.txt` -> `example.txt:stream1`
+
+---
+
+- attr
+  - ls
+  - stat
+- xattr
+  - getfattr
+  - setfattr
+  - attr - `attr -l file`
+- [xattr.7](https://man7.org/linux/man-pages/man7/xattr.7.html)
+
+## 文件系统限制 {#limits}
 
 - [What are the file and file system size limitations for Red Hat Enterprise Linux?](https://access.redhat.com/solutions/1532)
 
-## atime, mtime, ctime
+## atime, mtime, ctime {#time}
 
 | field | mean        | stand for   |
 | ----- | ----------- | ----------- |
@@ -107,7 +146,7 @@ debugfs -R "stat <$(stat -c %i /etc/profile)>" /dev/sda2
 
 > The size of this disk is 2 TiB (2199023255552 bytes). DOS partition table format cannot be used on drives for volumes larger than 2199023255040 bytes for 512-byte sectors. Use GUID partition table format (GPT).
 
-## 重新挂载为可读写
+## 重新挂载为可读写 {#remount-rw}
 
 ```bash
 mount -o rw,remount /

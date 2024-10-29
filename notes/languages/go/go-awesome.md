@@ -21,7 +21,7 @@ tags:
   - [ent](./lib/ent.md) - ⭐️
     - 基于代码生成
     - Meta 信息完善，更适合复杂业务逻辑
-- 命令行
+- 命令行/Command
   - [urfave/cli](https://github.com/urfave/cli) - ⭐️
     - 简单易用
   - [spf13/cobra](https://github.com/spf13/cobra) - ⭐️
@@ -32,6 +32,8 @@ tags:
     - urfave/cli 更加 declarative
     - [muesli/coral](https://github.com/muesli/coral)
       - cobra fork with only 4 dependencies
+  - [go-cmd/cmd](https://github.com/go-cmd/cmd)
+    - MIT, Golang
 - IoC/DI
   - [fx](./lib/fx.md)
   - dig
@@ -228,6 +230,9 @@ tags:
 - revel
 - [danielgtaylor/huma](https://github.com/danielgtaylor/huma)
   - Huma REST/GraphQL API Framework for Golang with OpenAPI 3
+- swaggo/swag
+- [swaggo/http-swagger](https://github.com/swaggo/http-swagger)
+- [goadesign/goa](https://github.com/goadesign/goa)
 
 ### 增强处理 {#enhance}
 

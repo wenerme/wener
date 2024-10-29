@@ -6,6 +6,13 @@ tags:
 
 # PHP FAQ
 
+```bash
+php -m    # 查看已经加载的模块
+php --ini # 查看配置文件
+php -i    # phpinfo
+php -r 'echo "Hello, World!\n";'
+```
+
 ## Timezone
 
 - 默认使用 TZ 环境变量

@@ -299,3 +299,9 @@ turbo telemetry status
 ```
 
 - https://turbo.build/repo/docs/telemetry
+
+## Hugging Face
+
+- HF_HUB_DISABLE_TELEMETRY
+- DISABLE_TELEMETRY
+- DO_NOT_TRACK

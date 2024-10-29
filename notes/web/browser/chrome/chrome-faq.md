@@ -92,3 +92,23 @@ Docker 环境，非 root
     - 自动更新功能
     - 用户跟踪
     - 安全检测
+
+## Bookmarks
+
+```html
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<!-- This is an automatically generated file. It will be read and overwritten. -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+
+<DL><p>
+    <DT><H3 ADD_DATE="1698514800" LAST_MODIFIED="1698601200">Folder 1</H3>
+    <DL><p>
+        <DT><A HREF="https://www.example.com" ADD_DATE="1698514800" ICON="https://example.com/favicon.ico">Example</A>
+    </DL><p>
+    <DT><A HREF="https://www.anotherexample.com" ADD_DATE="1698514800">Another Example</A>
+</DL><p>
+```
+
+- chrome://bookmarks/

@@ -113,7 +113,7 @@ useradd -m -k /etc/skel
 
 - https://wiki.debian.org/ReleaseGoals/RunDirectory
 
-## etc
+## /etc/
 
 - /etc/modules - 需要加载的模块 - `modprobe $MODULE`
 - `/etc/modules-load.d/*.conf` - 和 /etc/modules 相同
@@ -128,3 +128,72 @@ useradd -m -k /etc/skel
 - `/etc/network/if-{pre-up,up,post-up,pre-down,down,post-down}.d/*`
   - ifupdown
 
+## /etc/passwd
+
+```txt title="/etc/passwd"
+username:password:UID:GID:GECOS:home_directory:shell
+```
+
+- password - x - 密码存储在 /etc/shadow
+- GECOS - 用户的描述信息，可以包含用户全名、办公电话等
+
+---
+
+大部分现代 Linux 系统将密码移到 /etc/shadow 文件，以提高安全性。
+
+- /etc/passwd
+  - 所有用户可读 - 导致暴力破解问题
+- /etc/shadow
+  - 只有 root 可读
+  - 特定权限进程可以读取
+  - 支持更高级的密码算法 - SHA-512, bcrypt
+  - 支持更多密码功能
+    - 密码过期、锁定账户、警告时间、宽限期、最小密码长度、最大密码长度、密码历史、密码复杂度
+
+## /etc/shadow
+
+```txt title="/etc/shadow"
+username:password:last_change:min:max:warn:inactive:expire:reserved
+```
+
+- last_change
+  - tiemstamp
+  - 上次修改密码时间
+- min
+  - 最小密码更改间隔
+  - 0 不限制
+  - 单位天
+- max
+  - 密码有效期
+  - 单位天
+- warn
+  - 密码过期警告时间
+  - 单位天
+- inactive
+  - 密码过期后多久锁定账户
+  - -1 不锁定
+- expire
+  - 时间戳
+  - 账户失效日期
+  - -1 永不失效
+
+```bash
+# 使用加密算法
+# NONE DES MD5 SHA256 SHA512 YESCRYPT
+echo "username:password" | chpasswd -e -c SHA512
+```
+
+## /etc/login.defs
+
+```
+USERGROUPS_ENAB yes
+```
+
+- USERGROUPS_ENAB
+  - 为每个用户创建一个同名的用户组
+- ENCRYPT_METHOD
+- 参考
+  - shadow-utils
+  - [login.defs.5](https://man7.org/linux/man-pages/man5/login.defs.5.html)
+
+## /etc/pam.d/

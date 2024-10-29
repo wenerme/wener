@@ -4,8 +4,6 @@ id: interfaces
 
 # interfaces
 
-## Tips
-
 - debian [interfaces.5](https://manpages.debian.org/stretch/ifupdown/interfaces.5.en.html)
 - /etc/network/interfaces
   - 网络接口配置

@@ -8,6 +8,25 @@ tags:
 
 - [rr-debugger/rr](https://github.com/rr-debugger/rr)
 - [radareorg/radare2](https://github.com/radareorg/radare2)
+  - CLI
+  - [rizinorg/cutter](https://github.com/rizinorg/cutter)
+    - GPLv3, C++
+- Ghidra
+- IDA Pro
+
+```bash
+brew install radare2
+r2 -v
+
+# https://cutter.re/docs/user-docs/shortcuts.html
+brew install --cask cutter # GUI for radare2
+```
+
+---
+
+- PLT - Procedure Linkage Table
+  - `Sdk::Decrypt(std::string const&, std::string const&, std::string*)`
+- GOT - Global Offset Table
 
 ## HEX Editor
 

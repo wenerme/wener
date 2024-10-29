@@ -9,6 +9,11 @@ title: 电源
 
 ## Power consumption
 
+- SATA - 机械硬盘
+  - 2.5" 5400 RPM: 1.7W
+  - 2.5" 7200 RPM: 2.5W
+  - 3.5" 5400 RPM: 6.5W
+  - 3.5" 7200 RPM: 9W
 - RasPi0 / Pi Zero W
   - 100 mA: 没有连接外设，WiFi和蓝牙关闭
   - 160 mA: 蓝牙开启

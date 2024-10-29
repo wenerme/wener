@@ -13,6 +13,24 @@ tags:
 
 :::
 
+:::tip Limits
+
+- 请求 Message 默认最大 4MB
+- 响应 Message 默认无限制
+- Web/ConnectRPC
+  - 支持 Server Streaming
+  - 不支持 Client Streaming
+- HTTP Header
+  - Cloudflare 32 KB, 单个 16 KB
+    - Pages https://developers.cloudflare.com/pages/configuration/headers/
+  - Apache - 8K
+  - Nginx - 4K-8K
+  - IIS - 8K-16K
+  - Tomcat - 8K – 48K
+  - Node (<13) - 8K; (>13) - 16K
+
+:::
+
 - [grpc/proposal](https://github.com/grpc/proposal)
 
 ## proto3 optional

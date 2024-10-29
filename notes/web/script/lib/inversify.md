@@ -27,6 +27,7 @@ title: inversify
   - @lazyMultiInject
 - 参考
   - https://github.com/inversify/InversifyJS/blob/master/wiki/ecosystem.md
+  - https://github.com/Kukkimonsuta/inversify-react
 
 :::tip
 
@@ -60,7 +61,7 @@ let childContainer = new Container();
 childContainer.parent = parentContainer;
 
 // 外部 Class 可手动修饰
-import {decorate, injectable} from 'inversify';
+import { decorate, injectable } from 'inversify';
 decorate(injectable(), SomeClass);
 ```
 
@@ -83,4 +84,22 @@ let warriors = new AsyncContainerModule(async (bind: interfaces.Bind, unbind: in
 container.load(warriors); // 加载
 await container.loadAsync(warriors, weapons); // 加载异步
 container.unload(warriors); // 卸载
+```
+
+## Typed Token
+
+collocate service identifier and type
+
+```ts
+export interface IFoo {}
+export namespace IFoo {
+  export const $: interfaces.ServiceIdentifier<IFoo> = Symbol('IFoo');
+}
+
+class MyService {
+  @inject(IFoo.$)
+  private readonly foo!: IFoo;
+
+  constructor(@inject(IFoo.$) foo: IFoo) {}
+}
 ```

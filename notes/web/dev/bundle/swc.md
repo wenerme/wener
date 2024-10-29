@@ -75,6 +75,12 @@ pnpm tsx ./dist/out/main.ts
 
 - https://swc.rs/docs/configuration/swcrc
 
+## Plugins
+
+- https://plugins.swc.rs/
+  - 查看版本
+- [swc-project/plugins](https://github.com/swc-project/plugins)
+
 # FAQ
 
 ## keepImportAssertions

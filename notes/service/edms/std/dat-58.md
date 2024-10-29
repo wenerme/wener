@@ -2,6 +2,8 @@
 tags:
   - Glossary
   - Standard
+refs:
+- DA/T 58
 ---
 
 # 电子档案管理基本术语

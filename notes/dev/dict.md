@@ -1103,19 +1103,23 @@ tags:
 
 - https://www.ibm.com/docs/en/zos/2.2.0?topic=basics-purpose-realms
 
-## glossary vs terminology vs concept
+## glossary vs terminology vs concept vs terms
 
 - glossary - 术语表
-  - 术语列表 - 专用语列表
-    - 一般不会详细说明
-  - 通常关联上下文 - 某某的术语表
-  - 在特定上下文下表述不同含义
-  - 例如： 缩写、专有名词、行业用语、通用说法
-- terminology - 专用语、专用语
-  - 单个
+  - 包含专用术语的列表
+  - 通常不提供详细解释
+  - 常用于某特定上下文或领域
+  - 示例：包括缩写、专有名词、行业用语
+- terminology - 术语
+  - 指某一领域或主题中的专用词汇
+  - 多为单独的术语
 - concept - 概念
-  - 解释性质
-  - terminology 通常不易于理解，需要解释概念
+  - 对术语或其他抽象思想的解释
+  - 较抽象，需要详细说明和阐释
+  - 通常是用来解释复杂的 terminology
+- terms - 词汇
+  - 指一般或特定语境中的词语
+  - 范围较广，可以是任何术语或普通词语
 
 ## status vs state
 

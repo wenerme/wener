@@ -2,6 +2,8 @@
 title: DA/T 89
 tags:
   - Standard
+refs:
+- DA/T 89
 ---
 
 # DA/T 89 - 2022

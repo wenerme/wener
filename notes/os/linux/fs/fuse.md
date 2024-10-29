@@ -79,6 +79,11 @@ mkfs
 # mount -t hfs -o loop image.img /mnt/file
 ```
 
+## go-fuse
+
+- [hanwen/go-fuse](https://github.com/hanwen/go-fuse)
+  - [fs/api.go](https://github.com/hanwen/go-fuse/blob/master/fs/api.go)
+
 # FAQ
 
 ## fusermount: option allow_other only allowed if 'user_allow_other' is set in /etc/fuse.conf

@@ -605,12 +605,54 @@ apk add icu-data-full
 
 ```ts
 #!/usr/bin/env -S npx tsx
-import { Command } from "@commander-js/extra-typings";
+import { Command } from '@commander-js/extra-typings';
 
 const program = new Command()
-  .name("word-count")
-  .description("CLI to count words")
-  .version("1.0.0")
-  .argument("<file>")
-  .parse()
+  .name('word-count')
+  .description('CLI to count words')
+  .version('1.0.0')
+  .argument('<file>')
+  .parse();
 ```
+
+## RSA_PKCS1_PADDING is no longer supported for private decryption at privateDecrypt (native) at decrypt
+
+- node 22+ `--security-revert=CVE-2024-PEND`
+- node < 22 `--security-revert=CVE-2023-46809`
+- Bun
+  - 最后可用版本 1.1.27
+  - 目前不支持 --security-revert https://github.com/oven-sh/bun/issues/14770
+- 参考
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-46809
+  - node [Wednesday February 14 2024 Security Releases](https://nodejs.org/en/blog/vulnerability/february-2024-security-releases#nodejs-is-vulnerable-to-the-marvin-attack-timing-variant-of-the-bleichenbacher-attack-against-pkcs1-v15-padding-cve-2023-46809---medium)
+  - https://github.com/nodejs/node/issues/52017#issuecomment-1987369610
+
+```ts
+// 触发错误
+crypto.privateDecrypt(
+  {
+    key: privateKey,
+    padding: crypto.constants.RSA_PKCS1_PADDING,
+  },
+  buffer,
+);
+```
+
+---
+
+可以使用 node-rsa
+
+- 大约慢 10 倍
+
+```ts
+import NodeRSA from 'node-rsa';
+
+const key = new NodeRSA(privateKey);
+key.setOptions({ encryptionScheme: 'pkcs1' });
+const decrypted = key.decrypt(buffer);
+```
+
+- [rzcoder/node-rsa](https://github.com/rzcoder/node-rsa)
+- node-forge
+- JSEncrypt
+- https://github.com/orgs/vercel/discussions/6630

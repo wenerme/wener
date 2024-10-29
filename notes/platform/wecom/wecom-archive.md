@@ -88,6 +88,102 @@ openssl rsa -in wecom.pri.pem -pubout -out wecom.pub.pem
 apt install gcc g++
 ```
 
+## libWeWorkFinanceSdk_C
+
+- 内部使用了 protobuf
+- MediaData 20byte
+- wwmsgauditsdk::SdkKeyInfo::SdkKeyInfo
+- google::protobuf::MessageLite
+- DecryptData
+  - EVP AES-256-CBC
+  - 分为多个步骤
+
+---
+
+- wwmsgauditsdk.proto
+
+```protobuf
+syntax = "proto3";
+
+package wwmsgauditsdk;
+
+// Access Token 信息
+message AccessTokenInfo {
+    string token = 1;                // 访问令牌
+    int64 expiration_time = 2;       // 令牌过期时间（Unix 时间戳）
+}
+
+// 聊天记录请求
+message GetChatReq {
+    string chat_id = 1;              // 请求的聊天记录 ID
+    int64 start_timestamp = 2;       // 开始时间戳
+    int64 end_timestamp = 3;         // 结束时间戳
+}
+
+// 聊天数据的信息
+message WwOpenMsgAuditGetChatDataInfo {
+    string chat_id = 1;              // 聊天 ID
+    string msg_type = 2;             // 消息类型
+    int64 timestamp = 3;             // 消息的时间戳
+}
+
+// 聊天数据响应
+message WwOpenMsgAuditGetChatDataRsp {
+    int32 status_code = 1;           // 响应状态码
+    string response_data = 2;        // 响应数据，包含聊天记录
+}
+
+// 媒体文件请求
+message GetMediaReq {
+    string media_id = 1;             // 媒体文件 ID
+    int32 media_type = 2;            // 媒体类型
+}
+
+// 文件 ID
+message MsgSdkFileId {
+    string file_id = 1;              // 文件 ID
+}
+
+// 单条消息内容
+message MsgAuditSdkMsg {
+    string msg_id = 1;               // 消息 ID
+    string sender_id = 2;            // 发送者 ID
+    string receiver_id = 3;          // 接收者 ID
+    int64 timestamp = 4;             // 消息时间戳
+    string msg_content = 5;          // 消息内容
+}
+
+// 审计数据
+message MsgAuditSdkData {
+    repeated MsgAuditSdkMsg messages = 1; // 消息列表
+    int32 audit_result = 2;               // 审计结果代码
+}
+
+// 获取媒体文件的响应
+message GetAuditMediaRsp {
+    int32 status_code = 1;           // 响应状态码
+    bytes media_data = 2;            // 媒体文件数据
+}
+
+// 版本 2 私钥信息
+message Version2PriKeyInfo {
+    string prikey_id = 1;            // 私钥 ID
+    int32 key_version = 2;           // 私钥版本号
+}
+
+// 版本 2 私钥集合
+message Version2PriKeys {
+    repeated Version2PriKeyInfo keys = 1;  // 多个私钥
+}
+
+// SDK 密钥信息
+message SdkKeyInfo {
+    string key_id = 1;               // 密钥 ID
+    bytes key_value = 2;             // 密钥值
+    int64 expiration_time = 3;       // 密钥过期时间
+}
+```
+
 # FAQ
 
 ## 10006: 解密失败 GetMediaData

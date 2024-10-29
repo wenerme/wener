@@ -626,6 +626,8 @@ type sustained struct {
 
 ## 参考 {#reference}
 
+- API
+  - https://github.com/hanwen/go-fuse/blob/master/fs/api.go
 - https://github.com/vfile/vfile
 - https://github.com/gulpjs/vinyl
 - https://en.wikipedia.org/wiki/Filename

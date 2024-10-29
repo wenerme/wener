@@ -149,3 +149,23 @@ plugins:
     out: gen/proto/go
     opt: paths=source_relative
 ```
+
+## Node
+
+- 关于兼容 ts-proto https://github.com/connectrpc/connect-es/issues/1030
+- 注意 @bufbuild/protobuf @bufbuild/protoc-gen-es 需要配合 @connectrpc/connect 的版本
+- 目前无法生成 index
+  - Provide support for top-level exports [bufbuild/protobuf-es#455](https://github.com/bufbuild/protobuf-es/issues/455)
+
+```bash
+# @bufbuild/buf
+
+# v1
+pnpm add -D @bufbuild/buf @bufbuild/protoc-gen-es@^1 @connectrpc/protoc-gen-connect-es
+pnpm add @connectrpc/connect @bufbuild/protobuf@^1
+
+# v2
+# 不再需要 @connectrpc/protoc-gen-connect-es
+pnpm add -D @bufbuild/protoc-gen-es
+pnpm add @connectrpc/connect@rc @bufbuild/protobuf
+```
