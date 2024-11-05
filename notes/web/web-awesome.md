@@ -10,6 +10,9 @@ tags:
 
 - https://www.c82.net/iconography/
 - https://www.photopea.com/
+- [ryohey/signal](https://github.com/ryohey/signal)
+  - MIT, TS
+  - Online MIDI Editor: signal
 - http://oskarstalberg.com/Townscaper/
 - https://remove-white-background.imageonline.co/
 - https://teetow.github.io/elementary_grid

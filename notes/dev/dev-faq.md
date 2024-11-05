@@ -231,7 +231,7 @@ tags:
 - /rpcz
   - 一般是 RPC 统计
 
-## 什么是边缘计算
+## 什么是边缘计算 {#edge-computing}
 
 个人简单理解，Edge 就是 DataCenter 的反义词。
 
@@ -270,7 +270,7 @@ tags:
   - 相对更解偶
   - 失去业务全局观
 
-## 开发缓存
+## 开发缓存 {#dev-cache}
 
 | dir                 | macOS                      | for                 | clean              |
 | ------------------- | -------------------------- | ------------------- | ------------------ |
@@ -304,7 +304,7 @@ mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 
 mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 ```
 
-## clean
+## cleanup
 
 ```bash
 brew cleanup
@@ -590,6 +590,7 @@ sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepinit
 
 > endian, endianness, byte-order
 
+- 端序 / 字节序
 - big / big-endian / bigEndian / BE / 大端序
   - 反序
   - network byte order
@@ -617,3 +618,17 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
 
 - https://en.wikipedia.org/wiki/Endianness / 小端序
 - https://developer.mozilla.org/en-US/docs/Glossary/Endianness
+
+## Design vs. Architecture
+
+- Design - 设计
+  - 侧重细节和实现
+  - UX/UI 设计、API 设计、数据库设计
+- Architecture - 架构
+  - 偏向整体结构和系统层次的设计决
+  - 整个系统的 结构 和 组件之间的 交互方式
+  - 设计决策
+    - 选择技术、组件、模块、库、框架
+    - 可扩展性、容错性
+    - 微服务架构、分布式、RPC
+  - 设计原则 - SOLID, DRY, KISS, YAGNI

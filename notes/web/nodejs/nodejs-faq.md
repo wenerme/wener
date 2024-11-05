@@ -442,7 +442,7 @@ export NODE_OPTIONS=--openssl-legacy-provider
 
 - https://stackoverflow.com/questions/69692842
 
-## snapshot
+## snapshot / compile
 
 - 使用 snapshot 加速启动
   - 例如: main.mjs 10mb, main.mjs.map 20mb
@@ -451,6 +451,7 @@ export NODE_OPTIONS=--openssl-legacy-provider
 - NODE_COMPILE_CACHE
   - v22.1.0+
   - 支持 cjs & esm
+  - 当文件非常多的时候，目前可能没有 cache 所有内容 https://github.com/nodejs/help/issues/4484
 
 ```bash
 echo "globalThis.foo = 'I am from the snapshot'" > snapshot.js
@@ -465,7 +466,22 @@ node --snapshot-blob snapshot.blob
 
 - 不支持 ESM https://github.com/nodejs/help/issues/3981
 - RFC: speeding up Node.js startup using V8 snapshot [#17058](https://github.com/nodejs/node/issues/17058)
-- https://github.com/microsoft/TypeScript/issues/25658
+- Ideas for faster cold compiler start-up [microsoft/TypeScript#25658](https://github.com/microsoft/TypeScript/issues/25658)
+- [zertosh/v8-compile-cache](https://github.com/zertosh/v8-compile-cache)
+- [bytenode/bytenode](https://github.com/bytenode/bytenode)
+  - 编译为 v8 字节码
+  - 移除源码
+    - Function.prototype.toString 失效
+- Package
+  - pkg
+  - ncc
+  - nexe
+  - NodeJS SAE
+
+```bash
+bytenode --compile server.js
+bytenode server.jsc
+```
 
 ## fastify vs express
 

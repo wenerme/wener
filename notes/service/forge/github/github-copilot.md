@@ -20,6 +20,22 @@ title: Copilot
 :::
 
 ```bash
+brew install gh
+gh auth login
+gh extension install github/gh-copilot # 安装 Copilot 扩展
+gh extension upgrade gh-copilot        # 升级 Copilot 扩展
+
+gh copilot config # 配置 Copilot
+
+gh copilot explain "sudo apt-get"
+
+# GH_DEBUG
+# GH_HOST
+# ghcs -> gh copilot suggest
+# ghce -> gh copilot explain
+[ -n "$BASH_VERSION" ] && eval "$(gh copilot alias -- bash)"
+[ -n "$ZSH_VERSION" ] && eval "$(gh copilot alias -- zsh)"
+
 curl https://copilot-proxy.githubusercontent.com/_ping
 ```
 
@@ -33,15 +49,17 @@ curl https://copilot-proxy.githubusercontent.com/_ping
 |         <kbd>Alt + [</kbd>,<kbd>Option + [</kbd> | 上一个建议     |
 |         <kbd>Alt + \</kbd>,<kbd>Option + \</kbd> | 触发建议       |
 | <kbd>Alt + Enter</kbd>,<kbd>Option + Enter</kbd> | 显示建议侧边栏 |
+|                      <kbd>Ctrl + Shift + G</kbd> | Inline Chat    |
+|                      <kbd>Ctrl + Shift + C</kbd> | Chat           |
 
 ## VSC Shortcut
 
-| key | for            |
-| --: | -------------- |
+| key | for |
+| --: | --- |
 
+## Reference
 
-## Reverse
-
+- https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#keyboard-shortcuts-for-macos
 - https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment
 - https://github.com/search?q=GH_COPILOT_TOKEN&type=code
 - https://news.ycombinator.com/item?id=34032872

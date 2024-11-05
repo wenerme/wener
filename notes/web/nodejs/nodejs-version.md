@@ -11,6 +11,7 @@ tags:
   - lts 版本周期长
 - [nodejs release](https://nodejs.org/en/download/releases)
   - Node 版本 <-> 模块版本
+  - https://github.com/nodejs/Release
 - [发布周期](https://nodejs.org/en/about/releases)
   - 每 6 个月一个大版本
   - 偶数版本为 LTS - 支持 30 个月

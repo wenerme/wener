@@ -78,6 +78,13 @@ date: 2021-11-30
   - Object Key 为 sha
   - Metadata 记录关于 Object 的信息 - 便于不依赖 fs meta 直接访问操作
 
+:::tip
+
+- murmur3,md5,sha1 用来做文件 Hash 是合适的，但不建议做唯一
+- 如果要唯一，可以使用 sha256
+
+:::
+
 ## S3 API
 
 - [Amazon S3 REST API Introduction](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html)
@@ -458,7 +465,7 @@ export type TemporaryUrlOptions = MiscellaneousOptions & {
   - [flystorage.dev](https://flystorage.dev/)
 - https://flystorage.dev/architecture/
 
-## Object
+## Object Storage
 
 - Hash 分层
 - CAS (Content Addressable Storage) 内容可寻址存储系统
@@ -602,6 +609,447 @@ type sustained struct {
 }
 ```
 
+## Web File System API
+
+- Chrome 86+
+- FileSystemHandle
+- FileSystemFileHandle
+- FileSystemDirectoryHandle
+- FileSystemSyncAccessHandle
+- FileSystemWritableFileStream
+- Window.showOpenFilePicker()
+- Window.showSaveFilePicker()
+- Window.showDirectoryPicker()
+- DataTransferItem.getAsFileSystemHandle()
+- StorageManager.getDirectory()
+- input webkitdirectory - `<input type='file' webkitdirectory multiple>`
+  - Chrome 7+, Safari 11.1+
+  - 能获取到 webkitEntries - `<input type='file' multiple>`
+    - Chrome 22+, Safari 11.1+
+
+```ts
+interface FileSystemHandle {
+  readonly kind: 'file' | 'directory';
+  readonly name: string;
+
+  isSameEntry(other: FileSystemHandle): Promise<boolean>;
+  queryPermission(descriptor?: FileSystemHandlePermissionDescriptor): Promise<PermissionState>;
+  requestPermission(descriptor?: FileSystemHandlePermissionDescriptor): Promise<PermissionState>;
+
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isFile: boolean;
+
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isDirectory: boolean;
+}
+var FileSystemHandle: {
+  prototype: FileSystemHandle;
+  new (): FileSystemHandle;
+};
+type FileSystemHandleUnion = FileSystemFileHandle | FileSystemDirectoryHandle;
+
+interface FilePickerAcceptType {
+  description?: string | undefined;
+  accept: Record<string, string | string[]>;
+}
+
+interface FilePickerOptions {
+  types?: FilePickerAcceptType[] | undefined;
+  excludeAcceptAllOption?: boolean | undefined;
+}
+
+interface OpenFilePickerOptions extends FilePickerOptions {
+  multiple?: boolean | undefined;
+}
+
+interface SaveFilePickerOptions extends FilePickerOptions {
+  suggestedName?: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface DirectoryPickerOptions {}
+
+type FileSystemPermissionMode = 'read' | 'readwrite';
+
+interface FileSystemPermissionDescriptor extends PermissionDescriptor {
+  handle: FileSystemHandle;
+  mode?: FileSystemPermissionMode | undefined;
+}
+
+interface FileSystemHandlePermissionDescriptor {
+  mode?: FileSystemPermissionMode | undefined;
+}
+
+interface FileSystemCreateWritableOptions {
+  keepExistingData?: boolean | undefined;
+}
+
+interface FileSystemGetFileOptions {
+  create?: boolean | undefined;
+}
+
+interface FileSystemGetDirectoryOptions {
+  create?: boolean | undefined;
+}
+
+interface FileSystemRemoveOptions {
+  recursive?: boolean | undefined;
+}
+
+type WriteParams =
+  | { type: 'write'; position?: number | undefined; data: BufferSource | Blob | string }
+  | { type: 'seek'; position: number }
+  | { type: 'truncate'; size: number };
+
+type FileSystemWriteChunkType = BufferSource | Blob | string | WriteParams;
+
+// TODO: remove this once https://github.com/microsoft/TSJS-lib-generator/issues/881 is fixed.
+// Native File System API especially needs this method.
+interface WritableStream {
+  close(): Promise<void>;
+}
+
+class FileSystemWritableFileStream extends WritableStream {
+  write(data: FileSystemWriteChunkType): Promise<void>;
+  seek(position: number): Promise<void>;
+  truncate(size: number): Promise<void>;
+}
+
+interface FileSystemFileHandle extends FileSystemHandle {
+  readonly kind: 'file';
+  getFile(): Promise<File>;
+  createWritable(options?: FileSystemCreateWritableOptions): Promise<FileSystemWritableFileStream>;
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isFile: true;
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isDirectory: false;
+}
+
+var FileSystemFileHandle: {
+  prototype: FileSystemFileHandle;
+  new (): FileSystemFileHandle;
+};
+
+interface FileSystemDirectoryHandle extends FileSystemHandle {
+  readonly kind: 'directory';
+  getDirectoryHandle(name: string, options?: FileSystemGetDirectoryOptions): Promise<FileSystemDirectoryHandle>;
+  getFileHandle(name: string, options?: FileSystemGetFileOptions): Promise<FileSystemFileHandle>;
+  removeEntry(name: string, options?: FileSystemRemoveOptions): Promise<void>;
+  resolve(possibleDescendant: FileSystemHandle): Promise<string[] | null>;
+  keys(): AsyncIterableIterator<string>;
+  values(): AsyncIterableIterator<FileSystemDirectoryHandle | FileSystemFileHandle>;
+  entries(): AsyncIterableIterator<[string, FileSystemDirectoryHandle | FileSystemFileHandle]>;
+  [Symbol.asyncIterator]: FileSystemDirectoryHandle['entries'];
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isFile: false;
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `kind` property in the new API.
+   */
+  readonly isDirectory: true;
+}
+
+var FileSystemDirectoryHandle: {
+  prototype: FileSystemDirectoryHandle;
+  new (): FileSystemDirectoryHandle;
+};
+
+interface DataTransferItem {
+  getAsFileSystemHandle(): Promise<FileSystemHandle | null>;
+}
+
+interface StorageManager {
+  getDirectory(): Promise<FileSystemDirectoryHandle>;
+}
+
+function showOpenFilePicker(
+  options?: OpenFilePickerOptions & { multiple?: false | undefined },
+): Promise<[FileSystemFileHandle]>;
+function showOpenFilePicker(options?: OpenFilePickerOptions): Promise<FileSystemFileHandle[]>;
+function showSaveFilePicker(options?: SaveFilePickerOptions): Promise<FileSystemFileHandle>;
+function showDirectoryPicker(options?: DirectoryPickerOptions): Promise<FileSystemDirectoryHandle>;
+
+// Old methods available on Chromium 85 instead of the ones above.
+
+interface ChooseFileSystemEntriesOptionsAccepts {
+  description?: string | undefined;
+  mimeTypes?: string[] | undefined;
+  extensions?: string[] | undefined;
+}
+
+interface ChooseFileSystemEntriesFileOptions {
+  accepts?: ChooseFileSystemEntriesOptionsAccepts[] | undefined;
+  excludeAcceptAllOption?: boolean | undefined;
+}
+
+/**
+ * @deprecated Old method just for Chromium <=85. Use `showOpenFilePicker()` in the new API.
+ */
+function chooseFileSystemEntries(
+  options?: ChooseFileSystemEntriesFileOptions & {
+    type?: 'open-file' | undefined;
+    multiple?: false | undefined;
+  },
+): Promise<FileSystemFileHandle>;
+/**
+ * @deprecated Old method just for Chromium <=85. Use `showOpenFilePicker()` in the new API.
+ */
+function chooseFileSystemEntries(
+  options: ChooseFileSystemEntriesFileOptions & {
+    type?: 'open-file' | undefined;
+    multiple: true;
+  },
+): Promise<FileSystemFileHandle[]>;
+/**
+ * @deprecated Old method just for Chromium <=85. Use `showSaveFilePicker()` in the new API.
+ */
+function chooseFileSystemEntries(
+  options: ChooseFileSystemEntriesFileOptions & {
+    type: 'save-file';
+  },
+): Promise<FileSystemFileHandle>;
+/**
+ * @deprecated Old method just for Chromium <=85. Use `showDirectoryPicker()` in the new API.
+ */
+function chooseFileSystemEntries(options: { type: 'open-directory' }): Promise<FileSystemDirectoryHandle>;
+
+interface GetSystemDirectoryOptions {
+  type: 'sandbox';
+}
+
+interface FileSystemDirectoryHandle {
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `.getFileHandle()` in the new API.
+   */
+  getFile: FileSystemDirectoryHandle['getFileHandle'];
+
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `.getDirectoryHandle()` in the new API.
+   */
+  getDirectory: FileSystemDirectoryHandle['getDirectoryHandle'];
+
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `.keys()`, `.values()`, `.entries()`, or the directory itself as an async iterable in the new API.
+   */
+  getEntries: FileSystemDirectoryHandle['values'];
+}
+
+interface FileSystemHandlePermissionDescriptor {
+  /**
+   * @deprecated Old property just for Chromium <=85. Use `mode: ...` in the new API.
+   */
+  writable?: boolean | undefined;
+}
+```
+
+- 参考
+  - @types/wicg-file-system-access
+    - https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/wicg-file-system-access/ts5.0/index.d.ts
+  - https://developer.mozilla.org/en-US/docs/Web/API/File_System_API
+
+## API
+
+**Homedir**
+
+| Language | Code                                                                                  |
+| -------- | ------------------------------------------------------------------------------------- |
+| C        | `const char *homedir = getenv("HOME") ? getenv("HOME") : getpwuid(getuid())->pw_dir;` |
+| Node.js  | `const homedir = os.homedir();`                                                       |
+| Java     | `String homedir = System.getProperty("user.home");`                                   |
+| Python   | `homedir = os.path.expanduser("~")`                                                   |
+| Go       | `homedir, _ := os.UserHomeDir()`                                                      |
+
+```go title="golang.org/x/tools/godoc/vfs"
+package vfs // import "golang.org/x/tools/godoc/vfs"
+
+import (
+	"io"
+	"os"
+)
+
+// RootType indicates the type of files contained within a directory.
+//
+// It is used to indicate whether a directory is the root
+// of a GOROOT, a GOPATH, or neither.
+// An empty string represents the case when a directory is neither.
+type RootType string
+
+const (
+	RootTypeGoRoot RootType = "GOROOT"
+	RootTypeGoPath RootType = "GOPATH"
+)
+
+// The FileSystem interface specifies the methods godoc is using
+// to access the file system for which it serves documentation.
+type FileSystem interface {
+	Opener
+	Lstat(path string) (os.FileInfo, error)
+	Stat(path string) (os.FileInfo, error)
+	ReadDir(path string) ([]os.FileInfo, error)
+	RootType(path string) RootType
+	String() string
+}
+
+// Opener is a minimal virtual filesystem that can only open regular files.
+type Opener interface {
+	Open(name string) (ReadSeekCloser, error)
+}
+
+// A ReadSeekCloser can Read, Seek, and Close.
+type ReadSeekCloser interface {
+	io.Reader
+	io.Seeker
+	io.Closer
+}
+```
+
+## libc
+
+- dirent.h
+- unistd.h
+
+```c
+struct dirent {
+  ino_t          d_ino;       /* Inode编号 */
+  off_t          d_off;       /* 不是偏移量，详见下文 */
+  unsigned short d_reclen;    /* 此记录的长度 */
+  unsigned char  d_type;      /* 文件类型，不是所有文件系统都支持 */
+  char           d_name[256]; /* 以空字符结尾的文件名 */
+};
+
+
+#define DT_UNKNOWN 0 // Unknown file type
+#define DT_FIFO    1 // FIFO (named pipe)
+#define DT_CHR     2 // Character device - 字符设备
+#define DT_DIR     4 // Directory - 目录
+#define DT_BLK     6 // Block device - 块设备
+#define DT_REG     8 // Regular file - 文件
+#define DT_LNK    10 // Symbolic link - 符号链接
+#define DT_SOCK   12 // Socket - 套接字
+#define DT_WHT    14 //
+
+int            alphasort(const struct dirent **, const struct dirent **);
+int            closedir(DIR *);
+int            dirfd(DIR *);
+DIR           *fdopendir(int);
+DIR           *opendir(const char *);
+ssize_t        posix_getdents(int, void *, size_t, int);
+struct dirent *readdir(DIR *);
+int            readdir_r(DIR *restrict, struct dirent *restrict, struct dirent **restrict);
+void           rewinddir(DIR *);
+int            scandir(const char *, struct dirent ***, int (*)(const struct dirent *), int (*)(const struct dirent **, const struct dirent **));
+void           seekdir(DIR *, long);
+long           telldir(DIR *);
+```
+
+- https://github.com/davidlazar/musl/blob/master/include/dirent.h
+- https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/basedefs/unistd.h.html
+- https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/basedefs/dirent.h.html
+
+## Explorer
+
+- Explorer 通常会实现一些额外的元数据
+  - 例如: 作者、标签、描述、版本、本地化
+- 功能
+  - macOS Finder 收藏 Favorites
+  - Windows Quick Access
+  - 书签 Bookmarks / Starred
+    - Windows XP
+    - nemo
+    - Files
+  - 快捷方式（Shortcuts）
+- File Explorer / File Manager
+  - [mucommander/mucommander](https://github.com/mucommander/mucommander)
+    - Java
+    - 跨平台, Dual-pane file manager
+  - [ranger/ranger](https://github.com/ranger/ranger)
+    - TUI
+  - Midnight Commander (mc)
+    - ncurses
+  - Windows
+    - File Explorer
+    - [files-community/files](https://github.com/files-community/files)
+      - MIT, C#
+      - [Files](https://files.community/)
+  - macOS
+    - Finder
+    - 💵 Commander One
+      - $44.98 for Lifetime Upgrades
+    - 💵 EasyFind
+    - 💵 ForkLift 4
+    - 💵 fman
+      - Dual-pane file manager
+    - ~~[MeanEYE/Sunflower](https://github.com/MeanEYE/Sunflower)~~
+  - Linux
+    - [Nautilus](https://github.com/GNOME/nautilus)
+      - https://apps.gnome.org/Nautilus/
+      - GNOME
+    - Dolphin
+      - KDE Plasma
+    - Thunar
+      - Xfce
+    - PCManFM
+      - LXDE, LXQt
+    - Caja
+      - MATE
+    - [linuxmint/nemo](https://github.com/linuxmint/nemo)
+      - GPL, C
+      - for Cinnamon
+      - fork of the GNOME file manager Nautilus v3.4
+
+**Windows**
+
+- desktop.ini
+- `attrib +s "C:\path\to\folder"`
+- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions
+  - CLSID LocalizedString
+
+```ini title="desktop.ini"
+[.ShellClassInfo]
+LocalizedResourceName=显示名称
+```
+
+```
+LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21770
+```
+
+**macOS**
+
+- 扩展属性 Extended Attributes
+  - com.apple.FinderInfo
+  - com.apple.metadata
+- 本地化目录结构
+  - .localized
+  - .lproj
+    - e.g. `zh-CN.lproj/InfoPlist.strings`
+      - CFBundleDisplayName = "显示名称";
+
+**Linux**
+
+- GNOME、KDE、XDG
+- .directory
+- Desktop Entry
+- ~/.config/user-dirs.dirs
+- xdg-user-dirs-update ~/.config/user-dirs.locale
+  - 语言代码
+
+```ini title=".directory"
+[Desktop Entry]
+Name=显示名称
+Name[zh_CN]=显示名称
+```
+
+- [Desktop Entry Specification](https://www.freedesktop.org/wiki/Specifications/desktop-entry-spec/)
+
 ## Glossory
 
 - path - 完整路径 `/home/user/documents/report.pdf`
@@ -626,9 +1074,27 @@ type sustained struct {
 
 ## 参考 {#reference}
 
-- API
-  - https://github.com/hanwen/go-fuse/blob/master/fs/api.go
-- https://github.com/vfile/vfile
+- JS
+  - [vfile/vfile](https://github.com/vfile/vfile)
+    - Virtual file format for text processing used in @unifiedjs
+  - [gulpjs/vinyl](https://github.com/gulpjs/vinyl)
+    - Virtual file format.
+- Golang
+  - `io/fs.FS` since Go 1.16
+  - `http.FileSystem`, `http.Dir`
+  - golang.org/x/tools/godoc/vfs
+    - zipfs
+  - [bazil/fuse](https://github.com/bazil/fuse)
+    - bazil.org/fuse
+    - 不需要 CGO
+  - [spf13/afero](https://github.com/spf13/afero)
+  - [C2FO/vfs](https://github.com/C2FO/vfs)
+  - [mandelsoft/vfs](https://github.com/mandelsoft/vfs)
+  - [hanwen/go-fuse](https://github.com/hanwen/go-fuse)
+    - https://github.com/hanwen/go-fuse/blob/master/fs/api.go
+  - ~~[blang/vfs](https://github.com/blang/vfs)~~
+  - [psanford/memfs](https://github.com/psanford/memfs)
+    - In-memory implementation of Go's `io/fs.FS` interface
 - https://github.com/gulpjs/vinyl
 - https://en.wikipedia.org/wiki/Filename
 - https://github.com/opencurve/curve/blob/master/docs/cn/chunkserver_design.md

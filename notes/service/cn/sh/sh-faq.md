@@ -15,7 +15,6 @@ tags:
 - [紧缺专业目录](http://jzzjf.rsj.sh.gov.cn/jzzjf/pingfen/jqzyml.htm)
 - https://etax.chinatax.gov.cn/
 
-
 # 教育
 
 ## 对口报名条件
@@ -118,7 +117,7 @@ tags:
   - 点心 2¥/点
   - 保险
 
-## 电费
+## 电费/电价 {#power-price}
 
 | 档     | 电量 (度/户·年) | 时段 | 电价(元/度) |
 | ------ | --------------- | ---- | ----------- |

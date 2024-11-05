@@ -480,12 +480,15 @@ tags:
     - AGPLv3, Go
   - [PrivateBin/PrivateBin](https://github.com/PrivateBin/PrivateBin)
     - PHP
+    - fork of ZeroBin
   - [szabodanika/microbin](https://github.com/szabodanika/microbin)
-    - Rust
+    - Rust, BSD-3
+    - secure, configurable file-sharing and URL shortening
   - [MaxLeiter/Drift](https://github.com/MaxLeiter/Drift)
     - MIT, TS
     - self-hostable Gist and paste service
   - Pastebin.com
+  - https://open-tools.webflow.io/categories/pastebins
 - form/问卷调查系统/表单系统
   - [TDuckCloud/tduck-platform](https://github.com/TDuckCloud/tduck-platform)
   - [javahuang/surveyking](https://github.com/javahuang/surveyking)

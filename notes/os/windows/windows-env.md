@@ -1,5 +1,7 @@
 ---
 title: Windows 环境
+tags:
+  - Environment
 ---
 
 # Windows 环境信息
@@ -33,7 +35,7 @@ title: Windows 环境
 | `%SystemDirectory%`            | C:\WINDOWS\System32                    |
 | `%PUBLIC%`                     | C:\Users\Public                        |
 
-| Environment Variable | Detail                |
+| Environment Variable | For                   |
 | -------------------- | --------------------- |
 | `%CD%`               | 当前目录              |
 | `%ERRORLEVEL%`       | 上一个命令的退出码    |

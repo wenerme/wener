@@ -55,9 +55,9 @@ ausyscall 2 # open
 ausyscall --dump
 ```
 
-|   N | name                    | note                    |
-| --: | ----------------------- | ----------------------- |
-|   0 | read                    |
+|   N | `SYS_name`              | api                                                                                     |
+| --: | ----------------------- | --------------------------------------------------------------------------------------- |
+|   0 | read                    | `ssize_t read(int fd, void *buf, size_t count)`                                         |
 |   1 | write                   |
 |   2 | open                    |
 |   3 | close                   |
@@ -135,11 +135,11 @@ ausyscall --dump
 |  75 | fdatasync               |
 |  76 | truncate                |
 |  77 | ftruncate               |
-|  78 | getdents                |
+|  78 | getdents                | `ssize_t posix_getdents(int fd, void *buf, size_t len, int flags)`,readdir              |
 |  79 | getcwd                  |
 |  80 | chdir                   |
 |  81 | fchdir                  |
-|  82 | rename                  |
+|  82 | rename                  | `int rename(const char *old, const char *new)`                                          |
 |  83 | mkdir                   |
 |  84 | rmdir                   |
 |  85 | creat                   |
@@ -321,7 +321,7 @@ ausyscall --dump
 | 261 | futimesat               |
 | 262 | newfstatat              |
 | 263 | unlinkat                |
-| 264 | renameat                |
+| 264 | renameat                | `int renameat(int oldfd, const char *old, int newfd, const char *new)`                  |
 | 265 | linkat                  |
 | 266 | symlinkat               |
 | 267 | readlinkat              |
@@ -369,12 +369,12 @@ ausyscall --dump
 | 309 | getcpu                  |
 | 310 | process_vm_readv        |
 | 311 | process_vm_writev       |
-| 312 | kcmp                    | Kernel Samepage Merging |
+| 312 | kcmp                    |                                                                                         |
 | 313 | finit_module            |
 | 314 | sched_setattr           |
 | 315 | sched_getattr           |
-| 316 | renameat2               |
-| 317 | seccomp                 | Secure Computing Mode   |
+| 316 | renameat2               | `int renameat2(int oldfd, const char *old, int newfd, const char *new, unsigned flags)` |
+| 317 | seccomp                 |                                                                                         |
 | 318 | getrandom               |
 | 319 | memfd_create            |
 | 320 | kexec_file_load         |
@@ -420,6 +420,15 @@ ausyscall --dump
 | 449 | futex_waitv             |
 | 450 | set_mempolicy_home_node |
 
+```c
+int rename(const char *old, const char *new);
+syscall(SYS_rename, old, new);
+syscall(SYS_renameat, AT_FDCWD, old, AT_FDCWD, new);
+syscall(SYS_renameat2, AT_FDCWD, old, AT_FDCWD, new, 0);
+```
+
+- kcm -> Kernel Samepage Merging
+- seccmp -> Secure Computing Mode
 - [seccomp.2](https://man7.org/linux/man-pages/man2/seccomp.2.html)
   - 一种沙箱机制
   - SECCOMP_MODE_FILTER
@@ -427,6 +436,7 @@ ausyscall --dump
     - 过滤器适用 `BPF` 语言
 - [google/gvisor](https://github.com/google/gvisor)
   - 拦截 syscall 实现容器隔离
+- https://github.com/bminor/musl/blob/master/src/internal/syscall.h
 
 # FAQ
 

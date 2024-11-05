@@ -796,8 +796,10 @@ tags:
     - opencore-amr version 0.1.3 using emscripten
 - glob
   - [thecodrr/fdir](https://github.com/thecodrr/fdir)
+    - MIT, TS
     - fastest directory crawler & globbing library
   - [globby](https://github.com/sindresorhus/globby)
+    - MIT
     - 基于 fast-glob 增加部分功能
   - [glob](https://github.com/isaacs/node-glob)
   - [fast-glob](https://github.com/mrmlnc/fast-glob)

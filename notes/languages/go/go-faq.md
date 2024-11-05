@@ -17,7 +17,6 @@ tags:
 
 :::
 
-
 ```Makefile
 tidy:
   go mod tidy
@@ -470,3 +469,102 @@ Go 语言项目中使用的一种资源文件，主要用于将静态资源（�
 
 - windres
   - .rc -> .syso
+
+## SysProcAttr
+
+```go
+type Credential struct {
+	Uid         uint32   // User ID.
+	Gid         uint32   // Group ID.
+	Groups      []uint32 // Supplementary group IDs.
+	NoSetGroups bool     // If true, don't set supplementary groups
+}
+
+type SysProcAttr struct {
+  // linux like
+
+	Chroot     string      // Chroot.
+	Credential *Credential // Credential.
+	Ptrace     bool        // Enable tracing.
+	Setsid     bool        // Create session.
+	// Setpgid sets the process group ID of the child to Pgid,
+	// or, if Pgid == 0, to the new child's process ID.
+	Setpgid bool
+	// Setctty sets the controlling terminal of the child to
+	// file descriptor Ctty. Ctty must be a descriptor number
+	// in the child process: an index into ProcAttr.Files.
+	// This is only meaningful if Setsid is true.
+	Setctty bool
+	Noctty  bool // Detach fd 0 from controlling terminal
+	Ctty    int  // Controlling TTY fd
+	// Foreground places the child process group in the foreground.
+	// This implies Setpgid. The Ctty field must be set to
+	// the descriptor of the controlling TTY.
+	// Unlike Setctty, in this case Ctty must be a descriptor
+	// number in the parent process.
+	Foreground bool
+	Pgid       int // Child's process group ID if Setpgid.
+
+  //region Linux
+
+  // Pdeathsig, if non-zero, is a signal that the kernel will send to
+	// the child process when the creating thread dies. Note that the signal
+	// is sent on thread termination, which may happen before process termination.
+	// There are more details at https://go.dev/issue/27505.
+	Pdeathsig    Signal
+	Cloneflags   uintptr        // Flags for clone calls.
+	Unshareflags uintptr        // Flags for unshare calls.
+	UidMappings  []SysProcIDMap // User ID mappings for user namespaces.
+	GidMappings  []SysProcIDMap // Group ID mappings for user namespaces.
+	// GidMappingsEnableSetgroups enabling setgroups syscall.
+	// If false, then setgroups syscall will be disabled for the child process.
+	// This parameter is no-op if GidMappings == nil. Otherwise for unprivileged
+	// users this should be set to false for mappings work.
+	GidMappingsEnableSetgroups bool
+	AmbientCaps                []uintptr // Ambient capabilities.
+	UseCgroupFD                bool      // Whether to make use of the CgroupFD field.
+	CgroupFD                   int       // File descriptor of a cgroup to put the new process into.
+	// PidFD, if not nil, is used to store the pidfd of a child, if the
+	// functionality is supported by the kernel, or -1. Note *PidFD is
+	// changed only if the process starts successfully.
+	PidFD *int
+
+  //endregion
+
+  //region Windows
+  // https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
+
+  HideWindow                 bool                 // 隐藏 Promopt/提示窗口 0x08000000 CREATE_NO_WINDOW
+  CmdLine                    string               // 若非空，则使用此命令行；否则，根据传递给 StartProcess 的参数构建
+  CreationFlags              uint32
+  Token                      Token                // 在该 token 表示的安全上下文中运行新进程
+  ProcessAttributes          *SecurityAttributes  // 应用这些安全属性作为新进程的描述符
+  ThreadAttributes           *SecurityAttributes  // 应用这些安全属性作为新进程主线程的描述符
+  NoInheritHandles           bool                 // 新进程不继承任何句柄，甚至包括 ProcAttr.Files 中的标准句柄，以及 AdditionalInheritedHandles 中的句柄
+  AdditionalInheritedHandles []Handle             // 已标记为可继承的新进程将继承的额外句柄列表
+  ParentProcess              Handle               // 新进程将该句柄指定的进程视为父进程，且 AdditionalInheritedHandles（如果设置）应该存在于该父进程中
+
+  //endregion
+}
+```
+
+## 文件名 {#filename-convention}
+
+|                       fn | for             | node   |
+| -----------------------: | --------------- | ------ |
+|            snake_case.go | 文件名          | 不强制 |
+|              `internal/` | 内部包          |
+|           **Go Testing** |
+|              `x_test.go` | 测试文件        |
+|              `testdata/` |
+| **Go Build Constraints** |
+|              `x_GOOS.go` | `//go:build OS` |
+|             `x_linux.go` |                 |
+|           `x_windows.go` |
+|            `x_GOARCH.go` |
+|             `x_amd64.go` |
+|          `x_GOOS_GOARCH` |
+
+- `// +build linux` < go 1.17
+- `//go:build linux` >= go 1.17
+- https://github.com/golang/go/issues/36060

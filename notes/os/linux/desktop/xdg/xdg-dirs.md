@@ -12,6 +12,7 @@ tags:
 - [xdg-user-dirs](https://www.freedesktop.org/wiki/Software/xdg-user-dirs/)
 - /etc/xdg/user-dirs.conf
   - ~/.config/user-dirs.conf
+- ~/.local/
 
 | env             | default                       |
 | --------------- | ----------------------------- |

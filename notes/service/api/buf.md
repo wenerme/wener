@@ -154,6 +154,20 @@ plugins:
 
 - 关于兼容 ts-proto https://github.com/connectrpc/connect-es/issues/1030
 - 注意 @bufbuild/protobuf @bufbuild/protoc-gen-es 需要配合 @connectrpc/connect 的版本
+- 注意⚠️
+  - int64,uint64,fixed64,sfixed64,sint64 为 BigInt
+- `int64 field = 1 [jstype = JS_STRING]; // 生成 string 类型`
+  - 可以强制得到 string
+- `google.protobuf.Struct`
+- `map<string, string>` -> `Record<string, string>`
+  - 没有使用 Map 因为很多 库不支持
+- oneof -> `{ case:"X", value:"" }`
+- 主要操作
+  - create
+  - fromBinary/toBinary
+  - fromjson/toJson
+  - isMessage
+  - isFieldSet
 - 目前无法生成 index
   - Provide support for top-level exports [bufbuild/protobuf-es#455](https://github.com/bufbuild/protobuf-es/issues/455)
 
@@ -167,5 +181,5 @@ pnpm add @connectrpc/connect @bufbuild/protobuf@^1
 # v2
 # 不再需要 @connectrpc/protoc-gen-connect-es
 pnpm add -D @bufbuild/protoc-gen-es
-pnpm add @connectrpc/connect@rc @bufbuild/protobuf
+pnpm add @connectrpc/connect@rc @bufbuild/protobuf @connectrpc/connect-node
 ```

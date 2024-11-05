@@ -25,10 +25,51 @@ tags:
 | `$-`        | set options                                     |
 | `$_`        | 上一个命令的最后一个参数, `mkdir -p ~ && cd $_` |
 
-| var   | for             |
-| ----- | --------------- |
-| SHELL | 当前 shell PATH |
-| SHLVL | shell 嵌套深度  |
+| var        | for                      |
+| ---------- | ------------------------ |
+| SHELL      | 当前 shell PATH          |
+| SHLVL      | shell 嵌套深度           |
+| FUNCNAME   | 当前函数名字             |
+| COMP_CWORD | 当前补全的单词索引       |
+| COMP_LINE  | 当前补全的命令行         |
+| COMP_POINT | 光标在命令行中的位置     |
+| COMP_WORDS | 当前补全的单词数组       |
+| DIRSTACK   | 目录栈                   |
+| EUID       | 当前用户的有效用户 ID    |
+| FUNCNAME   | 当前函数名字             |
+| GROUPS     | 当前用户所属的组 ID 列表 |
+| HOSTNAME   | 当前主机名               |
+| HOSTTYPE   | 当前主机类型             |
+| LINENO     | 当前脚本行号             |
+| MACHTYPE   | 系统类型                 |
+| OLDPWD     | 上一个工作目录           |
+| OPTERR     | getopts 错误处理标志     |
+| OSTYPE     | 操作系统类型             |
+| PIPESTATUS | 管道中各命令的退出状态   |
+| PPID       | 父进程的 PID             |
+| PWD        | 当前工作目录             |
+| RANDOM     | 随机数                   |
+| REPLY      | read 命令的默认变量      |
+| SECONDS    | 脚本运行的秒数           |
+| SHELLOPTS  | 当前启用的 shell 选项    |
+| UID        | 当前用户的用户 ID        |
+
+**Bash**
+
+| var           | for                       |
+| ------------- | ------------------------- |
+| BASH          | 当前使用的 Bash 版本      |
+| BASH_ENV      | 非交互式 shell 启动时加载 |
+| BASH_VERSION  | Bash 版本信息             |
+| BASHOPTS      | 当前启用的 Bash 选项      |
+| BASH_ALIASES  | 当前定义的别名            |
+| BASH_ARGC     | 每个函数调用的参数个数    |
+| BASH_ARGV     | 每个函数调用的参数值      |
+| BASH_CMDS     | 哈希表，记录命令的位置    |
+| BASH_LINENO   | 当前脚本行号              |
+| BASH_SOURCE   | 当前脚本的文件名          |
+| BASH_SUBSHELL | 子 shell 的嵌套级别       |
+| BASH_VERSINFO | Bash 版本信息数组         |
 
 ```bash
 # 当前 SHELL - $0 最稳定

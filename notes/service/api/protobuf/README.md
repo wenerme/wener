@@ -1,7 +1,7 @@
 ---
 title: protobuf
 tags:
-- Awesome
+  - Awesome
 ---
 
 # protobuf
@@ -22,13 +22,22 @@ tags:
   - [protobuf-c/protobuf-c](https://github.com/protobuf-c/protobuf-c)
   - [protobuf-net/protobuf-net](https://github.com/protobuf-net/protobuf-net)
 
-:::tip
-
-- optional 使用 oneof 实现
-  - 类似 jsonschema
-
-:::
-
 ```bash
 brew install protobuf
+```
+
+## Reference
+
+- 使用 protobuf 尽量将 零值 和 空值 平等对待
+- proto2 特性 optional, group, required
+  - ⚠️ 不再推荐使用 group, required
+  - required & optional - 可以考虑使用 FieldMask
+  - optional 使用 oneof 实现
+    - 类似 jsonschema
+
+
+```proto
+message User {
+  extensions 100 to 200;
+}
 ```

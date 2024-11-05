@@ -18,10 +18,28 @@ curl https://api.github.com/users/wenerme/keys
 curl -LO https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2875.diff
 git am 2875.diff
 
-
 curl https://api.github.com
 curl https://api.github.com/meta
 ```
+
+## gh
+
+```bash
+brew install gh
+
+gh auth login
+gh extension install github/gh-copilot
+
+# ghcs - gh copilot suggest
+# ghce - gh copilot explain
+[ -n "$BASH_VERSION" ] && eval "$(gh copilot alias -- bash)"
+[ -n "$ZSH_VERSION" ] && eval "$(gh copilot alias -- zsh)"
+```
+
+- ~/.config/gh/config.yml
+- ~/.config/gh/host.yml
+- ~/.config/gh-copilot/config.yml
+- .github/copilot-instructions.md
 
 ## Git LFS
 

@@ -282,3 +282,18 @@ docker run --rm -it -w /host --mount type=bind,source=$PWD,target=/host,bind-pro
 ```
 docker: Error response from daemon: invalid mount config for type "bind": stat /: permission denied.
 ```
+
+## Single Root vs Multiple Root
+
+- Single Root
+  - / - 一个根目录
+  - /home, /var, /usr, /tmp, /opt, /srv, /mnt, /media, /boot
+  - 优点
+    - 用户层面简单
+    - 灵活 - 统一结构
+  - 缺点
+- Multiple Root
+  - C:\, D:\, E:\
+  - 优点
+    - 每个 Drive 可识别 - 系统层面简单
+    - Drive 隔离

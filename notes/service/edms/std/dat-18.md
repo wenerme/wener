@@ -6,7 +6,7 @@ refs:
   - DA/T 18
 ---
 
-# 档案著录规则
+# DA/T 18 档案著录规则
 
 - Rules for archival description
 - DA/T18—2022 <- ~~DA/T18—1999~~

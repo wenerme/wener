@@ -13,10 +13,15 @@ title: 正则表达式
   - re2
     - [google/re2/wiki/Syntax](https://github.com/google/re2/wiki/Syntax)
   - js
+    - v8 Irregexp
     - mdn [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
   - java
   - .net
   - python
+- golang
+  - RE2
+  - [dlclark/regexp2](https://github.com/dlclark/regexp2)
+    - full-featured regex engine in pure Go based on the .NET engine
 - tools
   - https://regex101.com/
   - https://www.regexpal.com/
@@ -29,6 +34,7 @@ title: 正则表达式
   - https://www.regexplanet.com/advanced/java/index.html
   - https://www.regextester.com/
 - 参考
+  - [slevithan/awesome-regex](https://github.com/slevithan/awesome-regex)
   - [RegexNote](https://wener.me/story/regex-note)
   - wikipedia [Regular expression](https://en.wikipedia.org/wiki/Regular_expression)
   - https://www.regular-expressions.info/
@@ -130,3 +136,34 @@ const notThis = /^(?:(?!this).)*$/;
   - `/^[\p{RGI_Emoji}--\q{😵‍💫}]$/v.test('😵‍💫')`=false - 支持排除
 - 参考
   - [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions)
+
+## re2
+
+- [google/re2/wiki/Syntax](https://github.com/google/re2/wiki/Syntax)
+
+**不支持**
+
+| Syntax    | For                              |
+| --------- | -------------------------------- |
+| `\g`      | 搜索子文本的开始 (PCRE)          |
+| `\G`      | 上次匹配的结束 (PERL)            |
+| `\Z`      | 文本的结尾，或文本末尾的换行符前 |
+| `(?=re)`  | 匹配 `re` 的文本之前             |
+| `(?!re)`  | 不匹配 `re` 的文本之前           |
+| `(?<=re)` | 匹配 `re` 的文本之后             |
+| `(?<!re)` | 不匹配 `re` 的文本之后           |
+| `re&`     | 匹配 `re` 的文本之前 (VIM)       |
+| `re@=`    | 匹配 `re` 的文本之前 (VIM)       |
+| `re@!`    | 不匹配 `re` 的文本之前 (VIM)     |
+| `re@<=`   | 匹配 `re` 的文本之后 (VIM)       |
+| `re@<!`   | 不匹配 `re` 的文本之后 (VIM)     |
+| `\zs`     | 设置匹配的开始 (= `\K`) (VIM)    |
+| `\ze`     | 设置匹配的结束 (VIM)             |
+| `\%^`     | 文件开头 (VIM)                   |
+| `\%$`     | 文件结尾 (VIM)                   |
+| `\%V`     | 屏幕上 (VIM)                     |
+| `\%#`     | 光标位置 (VIM)                   |
+| `\%'m`    | 标记 `m` 位置 (VIM)              |
+| `\%23l`   | 第 23 行 (VIM)                   |
+| `\%23c`   | 第 23 列 (VIM)                   |
+| `\%23v`   | 第 23 个虚拟列 (VIM)             |
