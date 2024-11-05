@@ -1,0 +1,35 @@
+diff --git a/lib/docs.js b/lib/docs.js
+index 226c5d0e7db07d230d5ac56c6496d9be2bf82d8d..3a6521b636da5a46185a1283148dbc2185271c36 100644
+--- a/lib/docs.js
++++ b/lib/docs.js
+@@ -45,7 +45,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
+         parseFrontMatter,
+     });
+     const frontMatter = (0, frontMatter_1.validateDocFrontMatter)(unsafeFrontMatter);
+-    const { custom_edit_url: customEditURL, 
++    const { custom_edit_url: customEditURL,
+     // Strip number prefixes by default
+     // (01-MyFolder/01-MyDoc.md => MyFolder/MyDoc)
+     // but allow to disable this behavior with front matter
+@@ -84,7 +84,7 @@ async function doProcessDocMetadata({ docFile, versionMetadata, context, options
+         frontMatterSlug: frontMatter.slug,
+         stripDirNumberPrefixes: parseNumberPrefixes,
+         numberPrefixParser: options.numberPrefixParser,
+-    });
++    }).replace(/\/([^\/]+)\/([^\/]+)\/\1-\2-/, '/$1/$2/').replace(/\/([^/]+)\/\1-/,'/$1/').replace(/\/(kubernetes)\/k8s-/,'/$1/');
+     // Note: the title is used by default for page title, sidebar label,
+     // pagination buttons... frontMatter.title should be used in priority over
+     // contentTitle (because it can contain markdown/JSX syntax)
+diff --git a/lib/index.js b/lib/index.js
+index fd19737451291a557d88932d76e02b9cf7bc2af0..488428f8ce16bfa05fb3a7e623f22355fde4d4b1 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -142,7 +142,7 @@ async function pluginContentDocs(context, options) {
+                         tagsFile,
+                     });
+                 }
+-                return Promise.all(docFiles.map(processVersionDoc));
++                return Promise.all(docFiles.filter(v=>v.content.startsWith('--')).map(processVersionDoc));
+             }
+             async function doLoadVersion(versionMetadata) {
+                 const tagsFile = await (0, utils_validation_1.getTagsFile)({

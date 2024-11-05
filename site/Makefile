@@ -1,4 +1,4 @@
-SHELL:=env bash -O extglob -O globstar
+# SHELL:=env bash -O extglob -O globstar
 
 ci: host-info ci-install sync process notes.json build stats
 

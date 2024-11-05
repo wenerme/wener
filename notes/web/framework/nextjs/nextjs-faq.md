@@ -54,17 +54,17 @@ export default async () => {
 - 参考
   - https://vercel.com/docs/concepts/projects/environment-variables#system-environment-variables
 
-| env                    | demo                                 | production                     |
-| ---------------------- | ------------------------------------ | ------------------------------ |
-| BASE_PATH              | /auth                                |
-| NEXT_PUBLIC_URL        | http://127.0.0.1:$PORT               | https://wener.me               |
-| NEXT_PUBLIC_BASE_PATH  | `$BASE_PATH `                        |
-| NEXT_PUBLIC_BASE_URL   | `$NEXT_PUBLIC_URL$BASE_PATH`         |
+| env                    | demo                                   | production                     |
+| ---------------------- | -------------------------------------- | ------------------------------ |
+| BASE_PATH              | /auth                                  |
+| NEXT_PUBLIC_URL        | `http://127.0.0.1:$PORT`               | https://wener.me               |
+| NEXT_PUBLIC_BASE_PATH  | `$BASE_PATH `                          |
+| NEXT_PUBLIC_BASE_URL   | `$NEXT_PUBLIC_URL$BASE_PATH`           |
 | NEXTAUTH_URL           |
-| PORT                   | 3000                                 |
-| NEXTAUTH_URL           | http://127.0.0.1:$PORT/auth/api/auth | https://wener.me/auth/api/auth |
-| NEXTAUTH_URL_INTERNAL  | http://127.0.0.1:$PORT/auth/api/auth |
-| NEXTAUTH_SECRET        |                                      | 生产环境必须                   |
+| PORT                   | 3000                                   |
+| NEXTAUTH_URL           | `http://127.0.0.1:$PORT/auth/api/auth` | https://wener.me/auth/api/auth |
+| NEXTAUTH_URL_INTERNAL  | `http://127.0.0.1:$PORT/auth/api/auth` |
+| NEXTAUTH_SECRET        |                                        | 生产环境必须                   |
 | NEXT_PUBLIC_VERCEL_URL |
 
 ```ini

@@ -2,8 +2,8 @@
 title: 数据同步模式
 slug: etl-pattens
 tags:
-  - 设计
-  - 架构
+  - Design
+  - Architecture
 ---
 
 # 数据同步模式

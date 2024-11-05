@@ -316,7 +316,7 @@ docker exec -it nuclio-nuclio-pth-facebookresearch-sam-vit-h curl -v http://loca
 
 - https://github.com/cvat-ai/cvat/issues/6582
 
-## Failed to parse: http://host.docker.internal:None
+## Failed to parse: `http://host.docker.internal:None`
 
 - git pull 了新的代码然后重新 deploy 就好了
 - https://github.com/cvat-ai/cvat/issues/5205

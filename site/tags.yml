@@ -1,0 +1,673 @@
+voip:
+  label: VoIP
+  description: Voice over IP
+  alias: ['voip']
+aliyun:
+  label: Aliyun
+  description: Alibaba Cloud services
+network:
+  label: Network
+  description: Networking
+  alias: ['网络', 'networking']
+life:
+  label: 生活
+  description: Life
+dotNET:
+  label: .NET
+  description: Microsoft's software framework
+  alias: ['dot-net']
+csharp:
+  label: C#
+  description: .NET language
+  alias: ['c-sharp']
+nodejs:
+  label: Node.js
+  description: JavaScript runtime
+  alias: ['node-js']
+movie:
+  label: 电影
+  description: Movies
+alpine:
+  label: Alpine
+  description: Lightweight Linux distribution
+  alias: ['AlpineLinux','alpine-linux']
+php:
+  label: PHP
+  description: Scripting language
+notes:
+  label: 笔记
+  description: Notes
+android:
+  label: Android
+  description: Mobile OS
+postgresql:
+  label: PostgreSQL
+  description: Relational database
+  alias: ['postgres']
+algorithm:
+  label: 算法
+  description: Algorithms
+asterisk:
+  label: Asterisk
+  description: Open-source PBX
+redis:
+  label: Redis
+  description: In-memory datastore
+system:
+  label: 系统
+  description: System
+bbvm:
+  label: BBVM
+  description: Virtual machine
+setup:
+  label: Setup
+  description: Configuration guides
+programming:
+  label: 编程
+  description: Programming
+  alias: ['编程']
+bi:
+  label: BI
+  description: Business intelligence
+swing:
+  label: Swing
+  description: Java GUI toolkit
+website:
+  label: 网站
+  description: Websites
+  alias: ['web']
+c:
+  label: C
+  description: Programming language
+thinking:
+  label: Thinking
+  description: Thoughts and ideas
+design:
+  label: 设计
+  description: Design
+crm:
+  label: CRM
+  description: Customer management
+ubuntu:
+  label: Ubuntu
+  description: Linux distribution
+poetry:
+  label: 诗歌
+  description: Poetry
+  alias: ['诗歌']
+debian:
+  label: Debian
+  description: Linux distribution
+vb-net:
+  label: VB.NET
+  description: .NET language
+language:
+  label: 语言
+  description: Languages
+  alias: ['english']
+decrypt:
+  label: Decrypt
+  description: Decryption methods
+operations:
+  label: 运维
+  description: Operations
+  alias: ['ops']
+devops:
+  label: DevOps
+  description: Development operations
+  alias: ['dev-ops']
+wechat:
+  label: WeChat
+  description: Messaging app
+alibaba:
+  label: 阿里
+  description: Alibaba Group
+firecracker:
+  label: Firecracker
+  description: MicroVMs
+xfce:
+  label: XFCE
+  description: Desktop environment
+project:
+  label: 项目
+  description: Projects
+game:
+  label: 游戏
+  description: Games
+  alias: ['games', '游戏']
+library:
+  label: 库
+  description: Code libraries
+  alias: ['libraries']
+middleware:
+  label: 中间件
+  description: Middleware
+golang:
+  label: GoLang
+  description: Programming language
+big-data:
+  label: 大数据
+  description: Big data
+graph-ql:
+  label: GraphQL
+  description: API query language
+proxy:
+  label: 代理
+  description: Proxy services
+embedded:
+  label: 嵌入式
+  description: Embedded systems
+gui:
+  label: GUI
+  description: User interfaces
+  alias: ['ui']
+learning:
+  label: 学习
+  description: Learning resources
+microservices:
+  label: 微服务
+  description: Microservices
+jackson:
+  label: Jackson
+  description: JSON processor
+development:
+  label: 开发
+  description: Development
+  alias: ['dev', 'devlopment']
+database:
+  label: 数据库
+  description: Databases
+java-fx:
+  label: JavaFX
+  description: Java GUI framework
+thoughts:
+  label: 思考
+  description: Reflections
+  alias: ['thoughs']
+bbk:
+  label: 步步高
+  description: BBK Electronics
+java:
+  label: Java
+  description: Programming language
+growth:
+  label: 成长
+  description: Personal growth
+virtualization:
+  label: 虚拟化
+  description: Virtualization tech
+json:
+  label: JSON
+  description: Data format
+guide:
+  label: 指南
+  description: Guides
+virtual-machine:
+  label: 虚拟机
+  description: Virtual machines
+k3s:
+  label: K3s
+  description: Lightweight Kubernetes
+story:
+  label: 故事
+  description: Stories
+data-structures:
+  label: 数据结构
+  description: Data structures
+  alias: ['data-structure', '数据结构']
+kubernetes:
+  label: Kubernetes
+  description: Container orchestration
+  alias: ['k8s', 'k-8-s']
+architecture:
+  label: 架构
+  description: Architecture
+software-design:
+  label: 软件设计
+  description: Software design
+macos:
+  label: macOS
+  description: Apple's OS
+desktop:
+  label: 桌面
+  description: Desktop environments
+ncre:
+  label: NCRE
+  description: Computer exams
+topic:
+  label: 主题
+acl:
+  label: ACL
+  description: Access Control Lists
+admin:
+  label: Admin
+  description: Administration and management
+apache:
+  label: Apache
+  description: Apache HTTP Server
+api:
+  label: API
+  description: Application Programming Interface
+arch:
+  label: Arch Linux
+  description: Linux distribution
+asr:
+  label: ASR
+  description: Automatic Speech Recognition
+ast:
+  label: AST
+  description: Abstract Syntax Tree
+auth:
+  label: Auth
+  description: Authentication and Authorization
+automation:
+  label: Automation
+  description: Automated processes
+  alias: ['automachine']
+awesome:
+  label: Awesome
+  description: Collection of awesome resources
+aws:
+  label: AWS
+  description: Amazon Web Services
+backend:
+  label: Backend
+  description: Server-side development
+backup:
+  label: Backup
+  description: Data backup strategies
+beginner:
+  label: Beginner
+  description: Resources for beginners
+benchmark:
+  label: Benchmark
+  description: Performance measurement
+book:
+  label: Book
+  description: Books and literature
+build:
+  label: Build
+  description: Build systems and processes
+bundle:
+  label: Bundle
+  description: Bundling resources
+cache:
+  label: Cache
+  description: Caching mechanisms
+china:
+  label: China
+  description: China-related topics
+cli:
+  label: CLI
+  description: Command Line Interface
+client:
+  label: Client
+  description: Client-side development
+cloud:
+  label: Cloud
+  description: Cloud computing
+codec:
+  label: Codec
+  description: Coding and decoding algorithms
+collection:
+  label: Collection
+  description: Data collections
+color:
+  label: Color
+  description: Color theory and usage
+command:
+  label: Command
+  description: Command usage and syntax
+compile:
+  label: Compile
+  description: Compilation processes
+compiler:
+  label: Compiler
+  description: Compiler design and usage
+compression:
+  label: Compression
+  description: Data compression techniques
+configuration:
+  label: Configuration
+  description: System and application configurations
+cookbook:
+  label: Cookbook
+  description: Collection of recipes
+core:
+  label: Core
+  description: Core concepts
+dataset:
+  label: Dataset
+  description: Collections of data
+debug:
+  label: Debug
+  description: Debugging techniques
+deprecated:
+  label: Deprecated
+  description: Outdated or deprecated items
+design-system:
+  label: Design System
+  description: Design systems and guidelines
+device:
+  label: Device
+  description: Hardware devices
+dhcp:
+  label: DHCP
+  description: Dynamic Host Configuration Protocol
+diagnosis:
+  label: Diagnosis
+  description: Troubleshooting and diagnosis
+dict:
+  label: Dictionary
+  description: Dictionaries and word lists
+document:
+  label: Document
+  description: Documentation and writing
+drive:
+  label: Drive
+  description: Storage drives
+dsl:
+  label: DSL
+  description: Domain-Specific Languages
+encoding:
+  label: Encoding
+  description: Data encoding formats
+engine:
+  label: Engine
+  description: Software engines
+enterprise:
+  label: Enterprise
+  description: Enterprise software
+enum:
+  label: Enum
+  description: Enumerated types
+environment:
+  label: Environment
+  description: Software environments
+erp:
+  label: ERP
+  description: Enterprise Resource Planning
+event:
+  label: Event
+  description: Event handling
+explain:
+  label: Explain
+  description: Explanations and tutorials
+explorer:
+  label: Explorer
+  description: File explorers
+extension:
+  label: Extension
+  description: Software extensions
+faq:
+  label: FAQ
+  description: Frequently Asked Questions
+firewall:
+  label: Firewall
+  description: Network security
+form:
+  label: Form
+  description: Forms and data input
+framework:
+  label: Framework
+  description: Software frameworks
+fts:
+  label: FTS
+  description: Full Text Search
+fuse:
+  label: FUSE
+  description: Filesystem in Userspace
+gateway:
+  label: Gateway
+  description: Network gateways
+get-started:
+  label: Get Started
+  description: Getting started guides
+glossary:
+  label: Glossary
+  description: Glossary of terms
+  alias: ['glossay', 'glossory']
+guideline:
+  label: Guideline
+  description: Guidelines and best practices
+  alias: ['指南']
+hash:
+  label: Hash
+  description: Hash functions
+haxe:
+  label: Haxe
+  description: Cross-platform toolkit
+header:
+  label: Header
+  description: Headers in files or networks
+html:
+  label: HTML
+  description: HyperText Markup Language
+hub:
+  label: Hub
+  description: Central repositories
+i18n:
+  label: I18N
+  description: Internationalization
+  alias: ['i-18-n']
+ieee:
+  label: IEEE
+  description: IEEE standards
+init:
+  label: Init
+  description: Initialization processes
+insight:
+  label: Insight
+  description: Insights and analysis
+internal:
+  label: Internal
+  description: Internal systems
+interop:
+  label: Interop
+  description: Interoperability
+iso:
+  label: ISO
+  description: ISO standards
+javascript:
+  label: JavaScript
+  description: Programming language
+  alias: ['java-script']
+json-schema:
+  label: JSON Schema
+  description: JSON schema definitions
+ldap:
+  label: LDAP
+  description: Lightweight Directory Access Protocol
+legacy:
+  label: Legacy
+  description: Legacy systems
+limits:
+  label: Limits
+  description: System and resource limits
+linux:
+  label: Linux
+  description: Open-source operating system
+logging:
+  label: Logging
+  description: Log management
+marketing:
+  label: Marketing
+  description: Marketing strategies
+maven:
+  label: Maven
+  description: Build automation tool
+metadata:
+  label: Metadata
+  description: Data about data
+mirror:
+  label: Mirror
+  description: Mirroring services
+model:
+  label: Model
+  description: Data and software models
+musl:
+  label: musl
+  description: Lightweight C standard library
+netboot:
+  label: Netboot
+  description: Network booting
+nlp:
+  label: NLP
+  description: Natural Language Processing
+operator:
+  label: Operator
+  description: Operators in programming
+package-management:
+  label: Package Management
+  description: Software package management
+partition:
+  label: Partition
+  description: Disk partitioning
+password:
+  label: Password
+  description: Password management
+pattern:
+  label: Pattern
+  description: Design patterns
+pitfall:
+  label: Pitfall
+  description: Common mistakes
+poker:
+  label: Poker
+  description: Card games
+practice:
+  label: Practice
+  description: Practical exercises
+  alias: ['practices']
+pricing:
+  label: Pricing
+  description: Pricing models
+protocol:
+  label: Protocol
+  description: Communication protocols
+query-builder:
+  label: Query Builder
+  description: Tools for building queries
+recipe:
+  label: Recipe
+  description: Guides and instructions
+reference:
+  label: Reference
+  description: Reference materials
+  alias: ['references']
+registry:
+  label: Registry
+  description: Registry services
+repository:
+  label: Repository
+  description: Code repositories
+restful:
+  label: RESTful
+  description: RESTful APIs
+  alias: ['res-tful']
+review:
+  label: Review
+  description: Reviews and critiques
+rfc:
+  label: RFC
+  description: Request for Comments documents
+router:
+  label: Router
+  description: Network routers
+rpc:
+  label: RPC
+  description: Remote Procedure Call
+runtime:
+  label: Runtime
+  description: Runtime environments
+scale:
+  label: Scale
+  description: Scaling systems
+schema:
+  label: Schema
+  description: Data schemas
+sdk:
+  label: SDK
+  description: Software Development Kit
+search:
+  label: Search
+  description: Search technologies
+security:
+  label: Security
+  description: Security measures
+server:
+  label: Server
+  description: Server technologies
+service:
+  label: Service
+  description: Services and daemons
+shell:
+  label: Shell
+  description: Command shells
+specification:
+  label: Specification
+  description: Detailed descriptions
+  alias: ['spec']
+sql:
+  label: SQL
+  description: Structured Query Language
+standard:
+  label: Standard
+  description: Industry standards
+structure:
+  label: Structure
+  description: Structural organization
+tar:
+  label: TAR
+  description: Tape Archive format
+template:
+  label: Template
+  description: Template files
+testing:
+  label: Testing
+  description: Software testing
+tip:
+  label: Tip
+  description: Tips and tricks
+troubleshooting:
+  label: Troubleshooting
+  description: Resolving issues
+tuning:
+  label: Tuning
+  description: Performance tuning
+typescript:
+  label: TypeScript
+  description: Typed JavaScript
+unsupervised:
+  label: Unsupervised Learning
+  description: Machine learning without labels
+upgrade:
+  label: Upgrade
+  description: Upgrading systems
+utility:
+  label: Utility
+  description: Utility tools
+version:
+  label: Version
+  description: Versioning systems
+vite:
+  label: Vite
+  description: Frontend build tool
+websocket:
+  label: WebSocket
+  description: WebSocket protocol
+webui:
+  label: Web UI
+  description: Web user interfaces
+windows:
+  label: Windows
+  description: Microsoft Windows OS
+技巧:
+  label: 技巧
+  description: Skills and tips
+概念:
+  label: 概念
+  description: Concepts and ideas
+目录结构:
+  label: 目录结构
+  description: Directory structures

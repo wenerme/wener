@@ -25,7 +25,7 @@ title: rsync
 - rsync 不支持检测 rename, --fuzzy 能对名字做模糊匹配
   - rclone 支持基于 hash, modtime, leaf 检测 rename
 - rsync 不支持并行 - rclone 支持并行
-- 更复杂的**同步**场景推荐 [rclone](./rclone.md)
+- 更复杂的**同步**场景推荐 [rclone](../rclone/README.md)
 - 更复杂的**备份**场景推荐 [restic](./restic.md)
 
 :::

@@ -672,3 +672,13 @@ const decrypted = key.decrypt(buffer);
 - node-forge
 - JSEncrypt
 - https://github.com/orgs/vercel/discussions/6630
+
+## Error ShellJSInternalError: spawn EBADF
+
+```json
+{
+  "errno": -9,
+  "code": "EBADF",
+  "syscall": "spawn"
+}
+```

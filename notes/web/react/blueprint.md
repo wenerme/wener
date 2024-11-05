@@ -13,7 +13,7 @@ tags:
   - Demo 页能很好的预览所有组件样式
   - https://output.circle-artifacts.com/output/job/d898ab7d-232d-4915-8d3b-5e0476f6dcbe/artifacts/0/packages/demo-app/dist/index.html
 
-:::not
+:::warning
 
 - bundle icons you actually use [#2193](https://github.com/palantir/blueprint/issues/2193)
   - icon 不支持 tree shake

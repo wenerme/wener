@@ -37,6 +37,8 @@ const rehypePlugins = [
   ],
   [katex, { strict: (code) => (code === 'unicodeTextInMathMode' ? 'ignore' : 'error') }],
 ];
+import {parseBoolean} from'@wener/utils';
+const USE_GIT = parseBoolean(process.env.USE_GIT ?? 'true')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -55,20 +57,34 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      mdxCrossCompilerCache: true,
+    },
+  },
+
   presets: [
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          onInlineTags: 'warn',
+
+          // disableVersioning: true,
           routeBasePath: 'notes',
           path: isTesting ? './notes' : '../notes',
           sidebarPath: require.resolve('./sidebars.js'),
           // .. 会消除最后的 notes
           editUrl: 'https://github.com/wenerme/wener/edit/master/notes/',
 
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
+          showLastUpdateTime: USE_GIT,
+          showLastUpdateAuthor: USE_GIT,
 
           // https://katex.org/docs/options.html
           remarkPlugins: [math, deflist],
@@ -101,6 +117,8 @@ const config = {
           },
         },
         blog: {
+          onInlineTags: 'warn',
+
           routeBasePath: 'story',
           path: isTesting ? './story' : '../story',
           include: ['**/*.md', '**/*.mdx'],
@@ -255,34 +273,35 @@ const config = {
       // - <a class='footer__link-item' href='https://beian.miit.gov.cn/'>蜀ICP备20010081号-1</a>
     },
   },
-  i18n: {
-    defaultLocale: 'zh',
-    locales: ['zh', 'en'],
-  },
-  webpack: {
-    jsLoader: (isServer) => ({
-      // 默认使用 @docusaurus/mdx-loader
-      // https://mdxjs.com/packages/esbuild/
-      loader: require.resolve('esbuild-loader'),
-      options: {
-        loader: 'tsx',
-        target: isServer ? 'node12' : 'es2017',
-      },
-      // loader: require.resolve('swc-loader'),
-      // options: {
-      //   jsc: {
-      //     "parser": {
-      //       "syntax": "typescript",
-      //       "tsx": true
-      //     },
-      //     target: 'es2017',
-      //   },
-      //   module: {
-      //     type: isServer ? 'commonjs' : 'es6',
-      //   }
-      // },
-    }),
-  },
+  // i18n: {
+  //   defaultLocale: 'zh',
+  //   locales: ['zh', 'en'],
+  // },
+  // use faster instead
+  // webpack: {
+  //   jsLoader: (isServer) => ({
+  //     // 默认使用 @docusaurus/mdx-loader
+  //     // https://mdxjs.com/packages/esbuild/
+  //     loader: require.resolve('esbuild-loader'),
+  //     options: {
+  //       loader: 'tsx',
+  //       target: isServer ? 'node12' : 'es2017',
+  //     },
+  //     // loader: require.resolve('swc-loader'),
+  //     // options: {
+  //     //   jsc: {
+  //     //     "parser": {
+  //     //       "syntax": "typescript",
+  //     //       "tsx": true
+  //     //     },
+  //     //     target: 'es2017',
+  //     //   },
+  //     //   module: {
+  //     //     type: isServer ? 'commonjs' : 'es6',
+  //     //   }
+  //     // },
+  //   }),
+  // },
   plugins: [
     // old redirect migration
     // [
@@ -303,6 +322,13 @@ const config = {
     //   },
     // ],
     // RewritePlugin,
+
+    process.env.RSDOCTOR === 'true' && [
+      'rsdoctor',
+      {
+        /* options */
+      },
+    ],
   ],
 
   markdown: {
