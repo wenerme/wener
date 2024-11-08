@@ -137,7 +137,7 @@ docker exec caddy curl -s http://127.0.0.1:2019/config/
 caddy file-server export-template
 ```
 
-- https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/fileserver/browse.html
+- 页面模板 https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/fileserver/browse.html
 - https://caddyserver.com/docs/caddyfile/directives/file_server
 
 ## templates

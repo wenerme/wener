@@ -278,3 +278,17 @@ system_profiler SPDisplaysDataType | grep Resolution
   - Portrait 1080x1350
   - Landscape 1080x566
   - Stories & Reels 1080x1920
+
+## Def
+
+```ts
+// mm
+const Size = {
+  A1: { width: 594, height: 841 },
+  A2: { width: 420, height: 594 },
+  A3: { width: 297, height: 420 },
+  A4: { width: 210, height: 297 },
+  A5: { width: 148, height: 210 },
+  A6: { width: 105, height: 148 },
+};
+```

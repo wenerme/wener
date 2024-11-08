@@ -11,10 +11,6 @@ tags:
 - [RobinCsl/awesome-js-tooling-not-in-js](https://github.com/RobinCsl/awesome-js-tooling-not-in-js)
 - [sorrycc/awesome-javascript](https://github.com/sorrycc/awesome-javascript)
 
-## Framework
-
-- [preactjs/wmr](https://github.com/preactjs/wmr)
-
 ## Library
 
 - Event
@@ -170,11 +166,19 @@ tags:
     - natural language date parser
   - [moment/luxon](https://github.com/moment/luxon)
     - 70kB, 21kB
-- format/intl - number, time, money
+- format/intl/unit - number, time, money
   - [SheetJS/printj](https://github.com/SheetJS/printj)
+    - Apache-2.0, JS
+    - sprintf for JS
   - [numbro](https://github.com/BenjaminVanRyseghem/numbro)
+    - MIT, JS
     - 基于 numeral
-  - [numeral](https://github.com/adamwdraper/Numeral-js)
+  - [EvanHahn/HumanizeDuration.js](https://github.com/EvanHahn/HumanizeDuration.js)
+  - [adamwdraper/Numeral-js](https://github.com/adamwdraper/Numeral-js)
+    - MIT, JS
+    - npm:numeral
+    - 不再维护
+  - [ben-ng/convert-units](https://github.com/ben-ng/convert-units)
     - 不再维护
   - [ECMA-402](https://github.com/tc39/ecma402)
   - [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
@@ -423,11 +427,11 @@ tags:
   - [YousefED/SyncedStore](https://github.com/YousefED/SyncedStore)
     - yjs
     - 提供 react, vue, svelte 组件
-- WASM/DB
+- DB/SQL Builder/Database
   - [electric-sql/pglite](https://github.com/electric-sql/pglite)
-- compiler
-  - [wooorm/xdm](https://github.com/wooorm/xdm)
-    - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
+  - pgmock
+  - knex
+  - [kysely]
 - reactive
   - rxjs
 - utils
@@ -669,7 +673,7 @@ tags:
   - [nolanlawson/fuite](https://github.com/nolanlawson/fuite)
     - finding memory leaks in web apps
   - [sverweij/dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
-- bundler/transpile/build
+- bundler/transpile/build/tool
   - [evanw/esbuild](https://github.com/evanw/esbuild)
     - MIT, Go
   - babel
@@ -691,6 +695,11 @@ tags:
   - [webpro-nl/knip](https://github.com/webpro-nl/knip)
     - Find unused
   - retire.js
+  - ~~[wooorm/xdm](https://github.com/wooorm/xdm)~~
+    - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
+  - ~~[preactjs/wmr](https://github.com/preactjs/wmr)~~
+    - MIT, JS
+    - tiny all-in-one development tool for modern web apps
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB
@@ -1065,6 +1074,9 @@ tags:
   - [hattipjs/hattip](https://github.com/hattipjs/hattip)
   - [unjs/nitro](https://github.com/unjs/nitro)
 - Router
+  - [lukeautry/tsoa](https://github.com/lukeautry/tsoa)
+    - Build OpenAPI-compliant REST APIs using TypeScript and Node
+    - support Express, Hapi, Koa
   - itty-router
 
 ---

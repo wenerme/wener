@@ -59,7 +59,7 @@ gazelle_dependencies()
 ```py title="BUILD"
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix zhensikeji.net/inccall/core
+# gazelle:prefix wener.me/wode/core
 gazelle(name = "gazelle")
 
 gazelle(

@@ -41,6 +41,9 @@ docker run --rm -it \
   --name ollama
 
 ollama pull qwen2:7b # 中文相对好点
+
+# vision
+ollama pull llama3.2-vision:11b
 ```
 
 | env                      | default         | desc                           |

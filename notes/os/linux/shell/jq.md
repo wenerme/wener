@@ -69,7 +69,7 @@ jq --slurp . <in.jsonl >out.json      # jsonl to array
 
 ```bash
 COMPOSER_REPO=$(cat composer.json | jq '.repositories[0].url' -r | sed -r 's|https?://([^/]+).*|\1|')
-echo '{}' | jq '."http-basic"."code.dev.zhang66.cn" = { "username": $ENV.COMPOSER_USER, "password": $ENV.COMPOSER_PASS }' > auth.json
+echo '{}' | jq '."http-basic"."code.dev.wener.me" = { "username": $ENV.COMPOSER_USER, "password": $ENV.COMPOSER_PASS }' > auth.json
 ```
 
 ## parse error: Invalid numeric literal at line 1, column 3

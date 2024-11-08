@@ -8,6 +8,36 @@ tags:
 
 - Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
 
+## base64
+
+- atob, btoa 经常弄不清
+  - atob - Ascii to Binary - decode
+  - btoa - Binary to Ascii - encode
+  - 仅支持 ASCII 字符
+  - UTF8 可能出现问题
+    - 例如 emoji
+    - 编码的时候就会出现问题
+    - 可以 encodeURIComponent
+
+```js
+function toBinary(string) {
+  const codeUnits = new Uint16Array(string.length);
+  for (let i = 0; i < codeUnits.length; i++) {
+    codeUnits[i] = string.charCodeAt(i);
+  }
+  return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
+}
+function fromBinary(encoded) {
+  const binary = atob(encoded);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return String.fromCharCode(...new Uint16Array(bytes.buffer));
+}
+
+```
+
 ## 内存泄露
 
 - 常见场景

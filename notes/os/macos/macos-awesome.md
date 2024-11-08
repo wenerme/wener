@@ -27,6 +27,7 @@ tags:
 
 - https://shottr.cc/
   - 多功能截屏软件
+  - OCR, 长截图, 画笔, 标注, 标尺, 颜色拾取器
 - [ospfranco/sol](https://github.com/ospfranco/sol)
   - MacOS launcher & command palette
 - [mas-cli/mas](https://github.com/mas-cli/mas)

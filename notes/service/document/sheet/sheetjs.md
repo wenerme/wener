@@ -14,7 +14,8 @@ tags:
   - https://cdn.sheetjs.com/
 
 ```bash
-pnpm add https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz
+pnpm add https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
+# pnpm add https://cdn.sheetjs.com/xlsx-latest/xlsx-latest.tgz # for latest
 ```
 
 :::tip
@@ -60,7 +61,7 @@ export interface CellObject {
   /** 与单元格关联的注释 */
   c?: Comments;
 
-  /** 与单元格关联的数字格式字符串（如果请求） */
+  /** 与单元格关联的数字格式字符串（如果需要） */
   z?: NumberFormat;
 
   /** 单元格超链接对象（.Target保存链接，.tooltip是工具提示） */
@@ -83,7 +84,7 @@ export interface CellObject {
   - ~~dialogsheets~~ - `!type=dialog`
 - A1-style
 - dense 模式 - 影响 sheet 在内存的存储方式
-  - cells 存储为 AoA
+  - cells 存储为 AoA - Array of Arrays
   - 数据量大的时候更节省内存
   - `sheet["!data"][R][C]`
   - `sheet["B7"]` -> `sheet["!data"]?.[6]?.[1]`

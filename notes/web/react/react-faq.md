@@ -296,7 +296,7 @@ react-helmet 可以支持一个 onChangeClientState 来检测。
 ```tsx
 class A extends React.Component {
   render() {
-    return <iframe src="https://www.youtube.com/embed/cWDJoK8zw58" />;
+    return <iframe src='https://www.youtube.com/embed/cWDJoK8zw58' />;
   }
 }
 class B extends React.Component {
@@ -362,16 +362,15 @@ class B extends React.Component {
 
 ## Typescript
 
-
 ```ts
 React.ButtonHTMLAttributes<HTMLButtonElement>;
 React.HTMLProps<HTMLButtonElement>; // 类型范围被扩大，例如 button 的 type 变成 string
 React.HTMLAttributes<HTMLDivElement>; // -> AllHTMLAttributes
-React.ComponentProps<"div">; // =ComponentPropsWithRef -> React.JSX.IntrinsicElements
+React.ComponentProps<'div'>; // =ComponentPropsWithRef -> React.JSX.IntrinsicElements
 React.ComponentPropsWithoutRef<'div'>; // 推荐用法
 React.ComponentPropsWithRef<'div'>; //  如果需要 forward
 
-React.JSX.IntrinsicElements["button"]
+React.JSX.IntrinsicElements['button'];
 ```
 
 - HTMLProps
@@ -416,3 +415,7 @@ isDefined('YourComponentName');
 - https://www.builder.io/c/docs/custom-components-setup
 - https://github.com/microsoft/fluentui/tree/master/packages/fluentui/react-component-nesting-registry
 - https://github.com/lmerotta-zz/react-plugins
+
+## NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+
+- 替代 Fragment 为 div

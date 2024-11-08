@@ -442,7 +442,7 @@ apiVersion: acme.cert-manager.io/v1
 kind: Challenge
 metadata:
 spec:
-  dnsName: dev.zhang66.cn
+  dnsName: dev.wener.me
   issuerRef:
     group: cert-manager.io
     kind: Issuer

@@ -23,6 +23,9 @@ title: Zerotier
 
 :::caution
 
+- ZeroTier 是中心化的，依赖官方服务器
+- 由于 ZeroTier Licence 不是 OSI 认证的开源协议，Alpine 仓库移除了 zerotier-one
+  - https://github.com/zerotier/ZeroTierOne/issues/2020
 - 如果大量传输数据可能导致被官方 ZTC block，状态一直处于 REQUESTING_CONFIGURATION
   - 删除本地 ID 重连应该可以解决
   - `/var/lib/zerotier-one/identity.*`

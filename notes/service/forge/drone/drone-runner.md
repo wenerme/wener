@@ -53,7 +53,7 @@ drone-runner-exec service start   # service run
 | DRONE_RUNNER_ROOT | /tmp |
 
 - https://docs.drone.io/runner/exec/configuration/reference/
-- 注册的 Webhook `https://drone.dev.zhang66.cn/hook?secret=`
+- 注册的 Webhook `https://drone.dev.wener.me/hook?secret=`
 
 ## docker runner
 

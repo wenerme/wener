@@ -202,7 +202,7 @@ garage layout apply --version 1
 - 不支持直接修改
 - 修改步骤
   - 关闭集群
-  - 删除 meta custer_layout
+  - 删除 meta/custer_layout
   - 更新所有的 replication_factor
   - 重启集群
   - 重建 layout

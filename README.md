@@ -54,6 +54,7 @@
 
 | Golang         | CI                                          | Desc                                         |
 | -------------- | ------------------------------------------- | -------------------------------------------- |
+| [wego]         |                                             | Wener's Golang Utilities                     |
 | [go-req]       | [![][go-req-ci-img]][go-req-ci]             | Declarative HTTP Request                     |
 | [go-gb]        | [![][go-gb-ci-img]][go-gb-ci]               | Chinese Guobiao/国标                         |
 | [go-wecom]     | [![][go-wecom-ci-img]][go-wecom-ci]         | Wechat Work/Wecom/企业微信 SDK               |
@@ -66,6 +67,7 @@
 | [stardict]     |                                             | 星际译王                                     |
 | [telattr]      |                                             | 电话归属地                                   |
 
+[wego]: https://github.com/wenerme/wego
 [mediatagger]: https://github.com/wenerme/mediatagger
 [mediatagger-ci]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml
 [mediatagger-ci-img]: https://github.com/wenerme/mediatagger/actions/workflows/ci.yml/badge.svg
@@ -124,18 +126,26 @@
 | Repository                                          | NPM                                                             | Info                                                                                         |
 | --------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [@wener/utils][utils-repo]                          | [![][utils-version]][utils-npm]                                 | [Doc][utils-doc]<br/> ![][utils-license]<br/>![][utils-size]<br/>![][utils-deps]             |
+| [@wener/console][console-repo]                      | [![][console-version]][console-npm]                             | Build console like a pro!                                                                    |
+| [@wener/client][client-repo]                        | [![][client-version]][client-npm]                               | Client in Typescript                                                                         |
 | [@wener/system][system-repo]                        | [![][system-version]][system-npm]                               | [Doc][system-doc]<br/> ![][system-license]<br/>![][system-size]<br/>![][system-deps]         |
 | [@wener/reaction][reaction-repo]                    | [![][reaction-version]][reaction-npm]                           | [Doc][reaction-doc]<br/> ![][reaction-license]<br/>![][reaction-size]<br/>![][reaction-deps] |
 | [@wener/torrent][torrent-repo]                      | [![][torrent-version]][torrent-npm]                             | [Doc][torrent-doc]<br/> ![][torrent-license]<br/>![][torrent-size]<br/>![][torrent-deps]     |
 | [ohm-grammar-miniquery][ohm-grammar-miniquery-repo] | [![][ohm-grammar-miniquery-version]][ohm-grammar-miniquery-npm] | ![][ohm-grammar-miniquery-license]                                                           |
 
-[utils-repo]: https://github.com/wenerme/wode/tree/main/packages/utils
+[utils-repo]: https://github.com/wenerme/wode/tree/main/packages/wener-utils
 [utils-npm]: https://www.npmjs.com/package/@wener/utils
 [utils-version]: https://img.shields.io/npm/v/@wener/utils
 [utils-license]: https://img.shields.io/npm/l/@wener/utils
 [utils-size]: https://badgen.net/bundlephobia/minzip/@wener/utils
 [utils-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/utils
 [utils-doc]: https://wode.vercel.app/docs/modules/_wener_utils.html
+[console-repo]: https://github.com/wenerme/wode/tree/main/packages/wener-console
+[console-npm]: https://www.npmjs.com/package/@wener/console
+[console-version]: https://img.shields.io/npm/v/@wener/console
+[client-repo]: https://github.com/wenerme/wode/tree/main/packages/wener-client
+[client-npm]: https://www.npmjs.com/package/@wener/client
+[client-version]: https://img.shields.io/npm/v/@wener/client
 [system-repo]: https://github.com/wenerme/wode/tree/main/packages/system
 [system-npm]: https://www.npmjs.com/package/@wener/system
 [system-version]: https://img.shields.io/npm/v/@wener/system
@@ -143,7 +153,7 @@
 [system-size]: https://badgen.net/bundlephobia/minzip/@wener/system
 [system-deps]: https://badgen.net/bundlephobia/dependency-count/@wener/system
 [system-doc]: https://wode.vercel.app/docs/modules/_wener_system.html
-[reaction-repo]: https://github.com/wenerme/wode/tree/main/packages/reaction
+[reaction-repo]: https://github.com/wenerme/wode/tree/main/packages/wener-reaction
 [reaction-npm]: https://www.npmjs.com/package/@wener/reaction
 [reaction-version]: https://img.shields.io/npm/v/@wener/reaction
 [reaction-license]: https://img.shields.io/npm/l/@wener/reaction

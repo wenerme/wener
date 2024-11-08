@@ -9,6 +9,7 @@ title: knex
   - 对于基础的访问模式提供跨库支持
 - knex-types 基于 db schema 生成 ts
 - 参考
+  - [kysely](./kysely.md)
   - https://michaelavila.com/knex-querylab/
     - Knex to SQL
 - pool

@@ -74,6 +74,15 @@ tags:
   - nethogs
   - iotop
   - iostat
+  - [aksakalli/gtop](https://github.com/aksakalli/gtop)
+    - MIT, JS
+  - [xxxserxxx/gotop](https://github.com/xxxserxxx/gotop)
+    - MIT, Go
+  - [ClementTsang/bottom](https://github.com/ClementTsang/bottom)
+    - MIT, Rust
+    - btm
+  - [Abdenasser/neohtop](https://github.com/Abdenasser/neohtop)
+    - MIT, Rust, Tauri, Svelte
 - privilege escalation/switch user/privilage execution/权限提升/用户切换
   - [sudo](https://github.com/sudo-project/sudo)
     - Superuser Do

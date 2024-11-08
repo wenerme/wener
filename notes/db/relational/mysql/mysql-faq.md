@@ -159,3 +159,14 @@ MySQL virtual 列不能用 CONNECTION_ID(), CURRENT_USER(), NOW().
 ```bash
 mysqldump --single-transaction --routines --triggers --all-databases > MySQLData.sql
 ```
+
+## Authentication plugin 'mysql_native_password' cannot be loaded
+
+- mysql 9.0 移除
+
+```bash
+brew uninstall mysql
+brew install mysql@8.4
+
+ln -s /opt/homebrew/opt/mysql@8.4 /opt/homebrew/opt/mysql
+```

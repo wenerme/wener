@@ -24,6 +24,8 @@ docker context create svr --docker "host=ssh://admin@svr"
 getent host.docker.internal
 getent hosts docker.for.mac.localhost
 
+docker network inspect bridge -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}'
+
 # Docker in AWS
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-retrieval
 curl http://169.254.169.254/latest/meta-data/local-ipv4

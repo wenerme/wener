@@ -69,7 +69,7 @@ jobs:
           folder: site/build
           single-commit: true
 
-      - run: echo www.wener.tech > site/build/CNAME
+      - run: echo wener.tech > site/build/CNAME
       - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
