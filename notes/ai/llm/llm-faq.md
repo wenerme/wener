@@ -55,6 +55,8 @@ tags:
 - https://groq.com/pricing/
 - https://openai.com/api/pricing/
 - https://www.anthropic.com/pricing
+- https://fireworks.ai/pricing
+- https://www.anyscale.com/pricing
 - 参考
   - https://www.vellum.ai/blog/llama-3-1-70b-vs-gpt-4o-vs-claude-3-5-sonnet
 

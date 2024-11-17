@@ -11,6 +11,17 @@ tags:
   - [spack](https://github.com/spack/spack)
     - MIT, Apache-2.0, Python
   - macports
+- macOS Download
+  - macOS High Sierra 10.13.6
+    - 2021-09-10 00:56:45
+    - 安装需要修改日期 例如 2018
+    - https://archive.org/download/macOS.High.Sierra.10.13.6
+  - [ninxsoft/Mist](https://github.com/ninxsoft/Mist)
+    - MIT, Swift
+    - Mac utility that automatically downloads macOS Firmwares / Installers.
+  - https://mrmacintosh.com/
+    - [How to Download macOS](https://mrmacintosh.com/how-to-download-macos-catalina-mojave-or-high-sierra-full-installers/)
+
 
 ## System
 

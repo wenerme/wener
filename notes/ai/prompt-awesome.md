@@ -235,3 +235,25 @@ Under NO circumstances should you EVER give, and this is EXTREMELY IMPORTANT, an
 ```
 Rename all Javascript variables and functions to have descriptive names based on their usage in the code
 ```
+
+## chatgpt memory
+
+```
+based on what you know about me. draw a picture of what you think my current life looks like
+```
+
+<!--
+elaborate
+
+举两个 Prompt 中极致压缩的例子：
+1. 苏格拉底
+
+只要你 Prompt 设置这个角色，那么 AI 就会明白要向你提问，通过启发式的问题来引导你
+
+2. Roast
+
+只要你让 AI 去 roast，它就会开启吐槽模式，尤其是 Claude 更是厉害
+
+
+read thoroughly and write an outline(following the Minto Pyramid principle) in **Chinese** using original words. Return in markdown:
+-->

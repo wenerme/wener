@@ -4,6 +4,8 @@ title: immich
 
 # immich
 
+- [immich-app/immich](https://github.com/immich-app/immich)
+  - AGPLv3, TS, Dart, Svelte
 - Helm
   - https://github.com/immich-app/immich-charts
 - Docker Compose
@@ -43,3 +45,25 @@ CREATE EXTENSION vectors;
 
 - 默认 WORKDIR = /usr/src/app
 - https://immich.app/docs/install/environment-variables/
+
+
+## docker
+
+- ghcr.io/immich-app/immich-server
+- ghcr.io/immich-app/immich-machine-learning
+- docker.io/redis
+- docker.io/tensorchord/pgvecto-rs
+- 查看当前版本号 https://github.com/immich-app/immich/releases/
+
+```bash
+curl -LO https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+curl -L -o .env https://github.com/immich-app/immich/releases/latest/download/example.env
+curl -LO https://github.com/immich-app/immich/releases/latest/download/hwaccel.transcoding.yml
+curl -LO https://github.com/immich-app/immich/releases/latest/download/hwaccel.ml.yml
+
+# 修改 .env
+# IMMICH_VERSION
+
+# 127.0.0.1:2283
+docker compose up -d
+```

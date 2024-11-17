@@ -378,6 +378,27 @@ npx --package @7nohe/openapi-react-query-codegen openapi-rq -i ./petstore.yaml
 - [sx1989827/DOClever](https://github.com/sx1989827/DOClever)
 - [RecipeUI/RecipeUI](https://github.com/RecipeUI/RecipeUI)
 
+## SOAP
+
+- NodeJS
+  - [vpulim/node-soap](https://github.com/vpulim/node-soap)
+    - [npm:soap]
+  - [loopbackio/strong-soap](https://github.com/loopbackio/strong-soap)
+    - [npm:strong-soap]
+  - [circa10a/easy-soap-request](https://github.com/circa10a/easy-soap-request)
+    - [npm:easy-soap-request]
+- Public
+  - [NOAA National Weather Service](https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php)
+    - https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl
+  - [USGS Water Services](https://waterservices.usgs.gov/)
+    - https://waterservices.usgs.gov/nwis/site/?format=waterml,1.1&stateCd=ca&siteType=ST&siteStatus=active
+  - [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/ws/design)
+    - https://earthquake.usgs.gov/ws/design
+  - [USGS Water Services](https://waterservices.usgs.gov/)
+    - https://waterservices.usgs.gov/nwis/site/?format=waterml,1.1&stateCd=ca&siteType=ST&siteStatus=active
+  - [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/ws/design)
+    - https://earthquake.usgs.gov/ws/design
+
 ## Produce OpenAPI
 
 - [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)

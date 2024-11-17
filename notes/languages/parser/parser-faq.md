@@ -6,6 +6,19 @@ tags:
 
 # Parser FAQ
 
+## 命名规范
+
+- Antlr
+  - Lexical Rules - UPPERCASE - IDENTIFIER
+  - Parser Rules - camelCase - identifier
+  - Token - UPPERCASE - TOKEN
+- PEG
+  - Entry - PascalCase
+  - rule - camelCase
+  - KEYWORD
+  - `_` whitespace - 例如 可选/单行
+  - `__` whitespace2 - 例如 必须/多行
+
 ## Antlr vs PEG
 
 - PEG - Parsing expression grammar

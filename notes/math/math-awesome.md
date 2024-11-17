@@ -11,3 +11,9 @@ tags:
   - https://www.geogebra.org/calculator
 - https://zs.symbolab.com/solver/vector-calculator
 - http://chowkafat.net/Mathtopic.html
+- JS/Web
+  - [mathjs](./mathjs.md)
+- Python
+  - [sympy](./sympy.md)
+    - BSD, Python
+    - https://github.com/sympy/sympy/blob/master/sympy/parsing/latex/LaTeX.g4

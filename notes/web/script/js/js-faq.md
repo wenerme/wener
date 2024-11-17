@@ -226,3 +226,7 @@ for (const prop in exports) {
   }
 }
 ```
+
+## window.showOpenFilePicker is not a function
+
+- 需要在 HTTPS 或者 localhost 下

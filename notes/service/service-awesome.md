@@ -427,6 +427,7 @@ tags:
   - https://picsum.photos/2000/2000
 - photo/相册/gallery/照片同步/download
   - [meichthys/foss_photo_libraries](https://github.com/meichthys/foss_photo_libraries)
+    - Free and Open Source Photo Libraries
   - [ente-io/ente](https://github.com/ente-io/ente)
     - AGPLv3, Dart, TS, Go
     - End to End Encrypted alternative to Google Photos and Apple Photos
@@ -437,9 +438,15 @@ tags:
   - [alextran1502/immich](https://github.com/alextran1502/immich)
     - AGPLv3, TS, Dart
     - photo and video backup solution directly from your mobile phone
-  - [gilesknap/gphotos-sync](https://github.com/gilesknap/gphotos-sync)
+  - ~~[gilesknap/gphotos-sync](https://github.com/gilesknap/gphotos-sync)~~
     - Apache-2.0, Python
+    - Google 修改了 Auth 策略，无法实现
+      - https://github.com/gilesknap/gphotos-sync-discussion/discussions/1
     - 基于 Google Photos Library API 备份照片
+  - rclone https://rclone.org/googlephotos/
+    - 下载会移除 EXIF - google API 限制
+    - 使用 google takeout 获取原始照片
+  - https://takeout.google.com/settings/takeout
   - [pulsejet/memories](https://github.com/pulsejet/memories)
     - AGPLv3, PHP, Vue
     - Nextcloud app

@@ -353,6 +353,7 @@ tags:
 
 ## UI/Desktop/GUI/WebUI {#ui}
 
+- omnimodel
 - [Yonom/assistant-ui](https://github.com/Yonom/assistant-ui)
   - React Components for AI Chat
 - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)

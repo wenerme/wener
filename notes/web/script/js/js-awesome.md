@@ -664,8 +664,35 @@ tags:
 - Auth/ACL/Security
   - [stalniy/casl](https://github.com/stalniy/casl)
 - Syntax Highlighter
+  - [PrismJS/prism](https://github.com/PrismJS/prism)
+    - MIT, JS
   - [shikijs/shiki](https://github.com/shikijs/shiki)
     - MIT, TS
+    - [shikijs/shiki-magic-move](https://github.com/shikijs/shiki-magic-move)
+  - Highlight.js
+  - [wooorm/lowlight](https://github.com/wooorm/lowlight)
+    - 基于 lowlight
+  - [wooorm/refractor](https://github.com/wooorm/refractor)
+    - 基于 Prism.js
+  - [wooorm/starry-night](https://github.com/wooorm/starry-night)
+    - TextMate syntax
+  - [react-syntax-highlighter/react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)
+    - 基于 lowlight, refractor
+    - prismjs, highlightjs
+  - https://lezer.codemirror.net
+  - [antonmedv/codejar](https://github.com/antonmedv/codejar)
+    - embeddable code editor
+  - [react-simple-code-editor/react-simple-code-editor](https://github.com/react-simple-code-editor/react-simple-code-editor)
+    - 基于 prismjs
+  - [inokawa/rich-textarea](https://github.com/inokawa/rich-textarea)
+    - MIT, TS, React
+    - 基于 textarea overlay
+  - [inokawa/edix](https://github.com/inokawa/edix)
+    - framework agnostic
+  - [Justineo/highlightable-input](https://github.com/Justineo/highlightable-input)
+    - 基于 contenteditable
+  - [twoslashes/twoslash](https://github.com/twoslashes/twoslash)
+    - Markup for generating rich type information in your documentations ahead of time
 - jwt
   - [openid-client](https://github.com/panva/node-openid-client)
     - nodejs RP client for passport.

@@ -356,3 +356,24 @@ ssh-keygen -R HOSTNAME
 - ssh-rsa
 - pgp-sign-rsa
 - pgp-sign-dss
+
+## ssh-agent
+
+```bash
+SSH_ENV="$HOME/.ssh/agent.env"
+function start_agent {
+    ssh-agent -s > "$SSH_ENV"
+    . "$SSH_ENV" > /dev/null
+}
+if [ -f "$SSH_ENV" ]; then
+    . "$SSH_ENV" > /dev/null
+    if ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
+        start_agent
+    fi
+else
+    start_agent
+fi
+
+unset SSH_ENV
+unset -f start_agent
+```

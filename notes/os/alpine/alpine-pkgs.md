@@ -28,22 +28,46 @@ title: Alpine 包维护
   - [build.alpinelinux.org](https://build.alpinelinux.org/)
     构建状态
   - apk-audit
+  - 移除了 non-free https://gitlab.alpinelinux.org/alpine/aports/-/commit/f7fff70bb1f1a2b9756ec19318dfc4c9cc3c5f1c
+    - 3dm2
+    - b43-firmware
+    - bcwc_pcie-src
+    - chromium-widevine
+    - cockroach
+    - compcert
+    - facetimehd-firmware
+    - mongodb
+    - mspdebugstack
+    - netperf
+    - postgresql-timescaledb-tsl
+    - py-flask-mongoengine
+    - py-flask-pymongo
+    - py-flask-views
+    - unifi
+    - unrar
+    - urbanterror-data
+    - urbanterror
+    - vlmcsd
+    - yed
+
 
 ```bash
 # 准备
-mkdir buiild && cd build
+mkdir build && cd build
 git clone --depth 50 https://gitlab.alpinelinux.org/alpine/aports
 
 # 启动环境
 # 配置缓存
+# HOME=/build
 docker run --rm -it \
   -v $PWD:/build \
   -v $PWD/distfiles:/var/cache/distfiles \
   -v $PWD/cache:/etc/apk/cache \
   --name builder wener/base:builder
 
-# 更新仓库
-sudo apk update
+sudo apk upgrade -a # 更新
+cd aports           # 进入 aports
+git pull            # 更新 aports
 
 # git 用户配置
 git config --global user.name "Your Full Name"
@@ -84,6 +108,10 @@ rsync -avz --no-perms --no-owner --no-group --exclude='src,pkg' mnt/wener abuild
 ```
 
 ## abuild
+
+```bash
+
+```
 
 ```bash
 # 默认环境
@@ -261,7 +289,6 @@ Options:
 ```
 
 ```
-$ abuild -h
 usage: abuild [options] [-P REPODEST] [-s SRCDEST] [-D DESCRIPTION] [cmd] ...
        abuild [-c] -n PKGNAME[-PKGVER]
 Options:
@@ -269,7 +296,7 @@ Options:
  -c  Enable colored output
  -d  Disable dependency checking
  -D  Set APKINDEX description (default: $repo $(git describe))
- -f  Force specified cmd (skip checks: apk up to date, arch, libc)
+ -f  Force specified cmd (skip checks: apk up to date, arch)
  -F  Force run as root
  -h  Show this help
  -k  Keep built packages, even if APKBUILD or sources are newer
@@ -277,7 +304,7 @@ Options:
  -m  Disable colors (monochrome)
  -P  Set REPODEST as the repository location for created packages
  -q  Quiet
- -r  Install missing dependencies from system repository (using sudo)
+ -r  Install missing dependencies from system repository (using $SUDO_APK)
  -s  Set source package destination directory
  -v  Verbose: show every command as it is run (very noisy)
 
@@ -293,12 +320,12 @@ Commands:
   fetch       Fetch sources to $SRCDEST (consider: 'abuild fetch verify')
   index       Regenerate indexes in $REPODEST
   listpkg     List target packages
-  package     Install project into
+  package     Install project into $pkgdir
   prepare     Apply patches
   rootbld     Build package in clean chroot
   rootpkg     Run 'package', the split functions and create apks as fakeroot
   sanitycheck Basic sanity check of APKBUILD
-  snapshot    Create a $giturl or $svnurl snapshot and upload to $disturl
+  snapshot    Create a $giturl snapshot and upload to $disturl
   sourcecheck Check if remote source package exists upstream
   srcpkg      Make a source package
   undeps      Uninstall packages listed in makedepends and depends
@@ -369,7 +396,6 @@ abuild checksum
 git add -u
 ```
 
-
 **builder**
 
 ```bash
@@ -383,7 +409,7 @@ pnpm tsx src/aports/upgrade.ts --cwd $PWD community/frp
 git push gl
 git switch master
 
-grep 'github.com'  community/*/APKBUILD -l | sort -u | cut -f 2 -d '/'
+grep 'github.com' community/*/APKBUILD -l | sort -u | cut -f 2 -d '/'
 
 # rclone frp grpc seaweedfs postgresql-timescaledb grpc-java
 pnpm tsx src/aports/upgrade.ts --cwd $PWD seaweedfs

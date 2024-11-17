@@ -103,6 +103,20 @@ tags:
     - .docx, .xlsx, .pptx
 - PHP
   - [PHPOffice/PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- Convert/Parse
+  - pandoc
+  - [VikParuchuri/marker](https://github.com/VikParuchuri/marker)
+    - GPLv3, Python
+    - PDF to markdown quickly with high accuracy
+  - [opengovsg/pdf2md](https://github.com/opengovsg/pdf2md)
+    - by Open Government Products for open.gov.sg
+    - fork [jzillmann/pdf-to-markdown](https://github.com/jzillmann/pdf-to-markdown)
+  - [benbalter/word-to-markdown](https://github.com/benbalter/word-to-markdown)
+    - MIT, Ruby
+    - based on LibreOffice
+  - [opendatalab/magic-doc](https://github.com/opendatalab/magic-doc)
+    - Apache-2.0, Python
+    - based on libreoffice
 - [FancyGrid/awesome-grid](https://github.com/FancyGrid/awesome-grid)
 - 应用
   - [kevinschaich/mintable](https://github.com/kevinschaich/mintable)

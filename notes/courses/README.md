@@ -4,7 +4,7 @@ title: 课程
 
 # 课程
 
-- [数学](./math/README.md)
+- [数学]
 - Stanford [CS221](./cs221/README.md): Artificial Intelligence: Principles and Techniques
 - https://www.deeplearningbook.org/
   - 3 部分

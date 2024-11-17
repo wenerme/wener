@@ -12,7 +12,7 @@ title: 方法论
   - 可实现（Achievable）：目标应挑战性强但可达成。
   - 相关性（Relevant）：目标与组织的愿景和目标相符合。
   - 时限（Time-bound）：设定一个明确的截止日期。
-- [OKR](./theory/okr.md) - Objectives and key results
+- [OKR](./okr.md) - Objectives and key results
   - Objectives - 目标
   - Key Results - 关键结果
 - Balanced Scorecard - 平衡计分卡

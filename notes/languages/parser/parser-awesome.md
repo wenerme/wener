@@ -23,7 +23,11 @@ tags:
 - Diagram - railroad diagrams - wikipedia [Syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram)
   - [tabatkins/railroad-diagrams](https://github.com/tabatkins/railroad-diagrams)
     - MIT, JS, Python
+  - [dundalek/GrammKit](https://github.com/dundalek/GrammKit)
+    - PEG.js -> Railroad Diagram
+    - https://dundalek.com/GrammKit/
   - https://www.bottlecaps.de/rr/ui
+    - Railroad Diagram Generator
 - Languages
   - https://github.com/mingodad/squilu
 - [adrian-thurston/ragel](https://github.com/adrian-thurston/ragel)
@@ -54,6 +58,7 @@ tags:
     - successor of PEG.js
   - [PEG.js](./pegjs.md)
     - ⚠️ 不再维护
+    - 生成代码
     - [pegjs/pegjs](https://github.com/pegjs/pegjs)
     - [parser.pegjs](https://github.com/pegjs/pegjs/blob/master/src/parser.pegjs)
     - Simple and expressive grammar syntax
@@ -77,7 +82,11 @@ tags:
       - https://chevrotain.io/performance/
   - [zaach/jison](https://github.com/zaach/jison)
     - Bison in JS
-  - [jneen/parsimmon](https://github.com/jneen/parsimmon)
+  - ~~[kach/nearley](https://github.com/kach/nearley)~~
+    - MIT, JS
+  - ~~[jneen/parsimmon](https://github.com/jneen/parsimmon)~~
+    - MIT, JS
+    - monadic LL(infinity) parser combinator
   - ~~[kach/nearley](https://github.com/kach/nearley)~~
     - parser toolkit
 - 案例

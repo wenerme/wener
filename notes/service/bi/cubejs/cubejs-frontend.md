@@ -30,7 +30,8 @@ const client = cubejs(async () => 'Bearer ' + getAuthToken(), { apiUrl: 'http://
 - 可以 POST 也可以 GET 传递参数
 
 ## date
-- date 格式 [packages/cubejs-api-gateway/src/dateParser.js](https://github.com/cube-js/cube.js/blob/master/packages/cubejs-api-gateway/src/dateParser.js)
+
+- date 格式 [packages/cubejs-api-gateway/src/dateParser.js](https://github.com/cube-js/cube/blob/master/packages/cubejs-api-gateway/src/dateParser.js)
   - [chrono-node](http://github.com/wanasit/chrono)
 - `from (.*) to (.*)`
   - 使用 chrono 解析

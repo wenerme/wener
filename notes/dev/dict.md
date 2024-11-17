@@ -1768,7 +1768,18 @@ but they also check if the other needs the resource, too. If the resource is req
 try to get the other instance of the resource. In the unfortunate case it might happen that the two participants
 “bounce” between the two resources, never acquiring it, but always yielding to the other.
 
-## 后台管理系统名称
+## language vs script
+
+- language
+  - 语言
+  - 一种人类交流的方式
+  - 例如：中文、英文、法文
+- script
+  - 文字
+  - 一种书写的方式
+  - 例如：“简体中文”、“繁体中文”、“拉丁字母”
+
+## 后台管理系统名称 {#admin-system-name}
 
 - Console - 控制台
   - 通常指代系统的管理界面

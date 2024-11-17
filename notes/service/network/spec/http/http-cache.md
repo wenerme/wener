@@ -15,6 +15,21 @@ title: Cache-Control
   - 值为 etag, 存在则返回 304 Not Modified
   - 修改操作, 412 Precondition Failed
   - `If-None-Match: "<etag>"[, "<etag>"]`
+- 参考
+  - [RFC 9111] HTTP Caching, STD 98
+    - 替代 [RFC 7234] - Hypertext Transfer Protocol (HTTP/1.1): Caching
+  - [darkweak/souin](https://github.com/darkweak/souin)
+    - MIT, Go
+    - An HTTP cache system, RFC compliant, compatible
+  - [jaredwray/cacheable](https://github.com/jaredwray/cacheable)
+    - MIT, NodeJS
+    - node http request
+  - undici http caching
+    - https://undici.nodejs.org/#/docs/api/CacheStorage.md
+    - [nodejs/undici#3562](https://github.com/nodejs/undici/pull/3562)
+  - [natemoo-re/ultrafetch](https://github.com/natemoo-re/ultrafetch)
+    - MIT, TS
+    - fetch
 
 **请求**
 

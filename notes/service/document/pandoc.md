@@ -32,6 +32,8 @@ brew install pandoc # macOS brew
 
 # Markdown 转 docx
 pandoc makrdown.md -f markdown -t docx -o output.docx
+# doc -> markdown
+pandoc doc.docx -f docx -t markdown -o output.md
 
 # Markdown 转 pdf
 # 依赖于 pdflatex

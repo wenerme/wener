@@ -435,6 +435,20 @@ CMD [ "node", "server.js" ]
     - github, gitlab, bitbucket
   - 多个参数 `pnpm add RexSkz/test-git-subdir-fetch.git#beta&path:/packages/simple-react-app`
 
+## packageManager
+
+```ini title=".npmrc"
+# packageManager 名字匹配 pnpm v9.2.0+
+# COREPACK_ENABLE_STRICT=0 禁用
+package-manager-strict=true # 如果不是 pnpm 则 pnpm 执行会报错
+
+# 版本匹配 v9.2.0
+package-manager-strict-version=false
+# 自动下载对应版本 v9.7.0
+manage-package-manager-versions=false
+manage-package-manager-versions=true # v10+
+```
+
 # FAQ
 
 - `pnpx` -> `pnpm dlx`

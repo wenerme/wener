@@ -22,6 +22,9 @@ curl -o ChromeStandaloneSetup64.en.exe "https://dl.google.com/tag/s/appguid%3D%7
 curl -o ChromeStandaloneSetup64.zh-CN.exe "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B1AF1CCDF-A7FA-8A43-6E6D-A889DB429A87%7D%26lang%3Dzh-CN%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
 # googlechrome.dmg
 curl -LOJC- https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+
+# 获取版本号
+strings ChromeStandaloneSetup64.exe | grep -i '<manifest version='
 ```
 
 - Windows 11 x86_64

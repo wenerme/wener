@@ -110,6 +110,7 @@ tags:
   - [sismics/docs](https://github.com/sismics/docs)
 - [IceWhaleTech/CasaOS](https://github.com/IceWhaleTech/CasaOS)
   - Home Cloud system
+- [atareao/self-hosted](https://github.com/atareao/self-hosted)
 
 ---
 

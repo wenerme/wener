@@ -5,6 +5,76 @@ tags:
 
 # Mgmt Awesome
 
+- 目标设定
+  - SMART - Specific, Measurable, Achievable, Relevant, Time-bound
+  - OKR - Objective and Key Results - 目标与关键成果
+  - KPI - Key Performance Indicator - 关键绩效指标
+  - BHAG - Big Hairy Audacious Goal - 大胆宏伟目标
+  - MBO - Management by Objectives - 目标管理法
+  - Balanced Scorecard - 平衡计分卡
+    - 综合考虑财务、客户、内部流程和学习与成长四个方面的目标
+  - Hoshin Kanri - 方针管理 - 通过方针和目标来推动组织的发展
+  - V2MOM - Vision, Values, Methods, Obstacles, Measures - 愿景、价值观、方法、障碍、度量
+- 资源优化
+  - Pareto Principle - 帕累托法则 - 80/20 原则
+  - Lean Management - 精益管理 - 减少浪费，提高效率
+  - Six Sigma - 六西格玛 - 通过数据分析和流程改进来提高质量
+  - Eisenhower Matrix - 时间管理矩阵
+  - Critical Path Method - 关键路径法 - 时间优化
+  - Resource Leveling - 资源平衡
+  - SWOT Analysis - SWOT 分析 - 优势、劣势、机会、威胁
+  - TOC - Theory of Constraints - 约束理论
+  - Agile - 敏捷 - 通过迭代、自组织、跨职能团队来提高灵活性
+- 领导力 - Leadership
+  - Transformational Leadership - 变革型领导
+    - 通过激励和激发员工的潜力来推动组织变革
+  - Servant Leadership - 服务型领导
+    - 以服务为导向，关注员工的成长和发展
+- 变革管理 - Change Management
+  - Kotter's 8-Step Change Model - 科特八步变革模型
+    - 创建紧迫感、组建指导团队、制定愿景等
+  - ADKAR Model - Awareness, Desire, Knowledge, Ability, Reinforcement - 意识、愿望、知识、能力、强化
+- 决策制定 - Decision Making
+  - Decision Matrix - 决策矩阵
+  - Decision Tree - 决策树
+  - Delphi Method - 戴尔菲法
+    - 通过专家意见的多轮反馈来达成共识
+- 团队管理 - Team Management
+  - Tuckman's Stages of Group Development - 图克曼团队发展阶段
+    - Forming, Storming, Norming, Performing, Adjourning
+    - 形成、磨合、规范、执行、解散
+  - Belbin Team Roles - 贝尔宾团队角色
+    - 识别团队成员的角色和贡献，以便更好地分配任务
+  - Situational Leadership - 情境领导
+- 激励理论 - Motivation Theory
+  - Maslow's Hierarchy of Needs - 马斯洛需求层次理论 - 生理、安全、社交、尊重、自我实现
+  - Herzberg's Two-Factor Theory - 赫茨伯格双因素理论 - 激励因素、卫生因素
+- 风险管理 - Risk Management
+  - Risk Assessment Matrix - 风险评估矩阵
+  - FMEA - Failure Mode and Effects Analysis - 失效模式和影响分析
+- 方法/工具/理论
+  - 4DX - 4 Disciplines of Execution - 执行的四项纪律
+    - 帮助组织专注于最重要的目标并实现它们。
+    - Focus on the Wildly Important - 专注于最重要的目标
+    - Act on Lead Measures - 采取行动以影响前导指标
+    - Keep a Compelling Scoreboard - 保持一个引人注目的记分板
+    - Create a Cadence of Accountability - 创建责任节奏
+  - 5W2H - What, Why, Where, When, Who, How, How much
+    - 问题分析工具，用于全面了解和解决问题
+  - PDCA - Plan, Do, Check, Act - 计划、执行、检查、改进
+    - 持续改进的循环方法
+  - DMAIC - Define, Measure, Analyze, Improve, Control - 定义问题、测量现状、分析原因、改进过程、控制结果
+    - 六西格玛中的一种数据驱动的改进方法。
+  - 6S - Sort, Set in order, Shine, Standardize, Sustain, Safety - 整理、整顿、清扫、标准化、维护、安全
+    - 一种工作场所组织方法
+    - 5S+Safety 的延伸
+  - 接龙
+- 监控与评估
+  - Gantt Chart - 甘特图
+  - PERT Chart - PERT 图
+  - RACI Matrix - 责任分配矩阵
+  - EVM - Earned Value Management - 已赚值管理
+
 ## Learning
 
 - https://github.com/LappleApple/awesome-leading-and-managing

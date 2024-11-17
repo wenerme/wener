@@ -52,6 +52,12 @@ tags:
 ---
 
 - [zriyansh/awesome-os](https://github.com/zriyansh/awesome-os)
+- [dockur/macos](https://github.com/dockur/macos)
+  - OSX (macOS) inside a Docker container.
+- [dockur/windows](https://github.com/dockur/windows)
+  - Windows inside a Docker container.
+- [dockur/windows-arm](https://github.com/dockur/windows-arm)
+  - Windows for ARM in a Docker container.
 
 ## Linux Distro
 

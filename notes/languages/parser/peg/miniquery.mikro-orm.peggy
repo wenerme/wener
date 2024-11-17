@@ -5,10 +5,16 @@ a > 1 or
 (b < 2 or c.d.e = true )
 --
 and a not in [1,2,3,]
+and a between 1 and 2
+-- contains
+and tags @> ['Hello']
+and !( tags @> ['Hello'] )
 */
 {{
 /* eslint-disable @typescript-eslint/interface-name-prefix,@typescript-eslint/no-empty-interface,no-case-declarations,no-control-regex,prefer-const */
 // ts-nocheck
+const pick = (obj, keys) => keys.reduce((o, k) => (o[k] = obj[k], o), {})
+// https://mikro-orm.io/docs/query-conditions
 const OPERATORS = {
   ">=":"$gte",
   "<=":"$lte",
@@ -32,16 +38,20 @@ const OPERATORS = {
   'like' : '$like',
   'ilike' : '$ilike',
   // https://www.postgresql.org/docs/current/functions-json.html
-  '@>' : '@contains',
-  '@<' : '@contained',
+  '@>' : '$contains',
+  '<@' : '$contained',
   // $overlap	&&
   // https://www.postgresql.org/docs/current/functions-textsearch.html
   // $fulltext
+  'between': '$between',
 }
+// https://www.postgresql.org/docs/current/functions-array.html
+const ARRAY_OPERATORS = Object.assign({'&&':'$overlap'},pick(OPERATORS,['@>','<@']))
 }}
 
 {
 function _op(op){
+  if(typeof op === 'string' && op.startsWith('$')) return op;
   op = !Array.isArray(op)?op:op.flat().filter(v=>v && v.trim()).join(' ').toLowerCase()
   return OPERATORS[op] || (console.error('unexpected op',op),op)
 }
@@ -51,52 +61,72 @@ function _compound(op,a,b){
   if(b[op])return {[op]:[a,...b[op]]}
   return {[op]:[a,b]}
 }
-function _make(a,op,b){
+function _make(field, op, a, b) {
   // NOTE 如果做了 join 支持 {'a.b':{$gt:1}}
-  const o = {}
-  let c = o
-  if(Array.isArray(a)){
-    for(const v of a){
-      c = c[v] ||= {}
+  const out = {};
+  let cur = out;
+  if (Array.isArray(field)) {
+    for (const v of field) {
+      cur = cur[v] ||= {};
     }
   } else {
-    c = o[a] ||= {}
+    cur = out[field] ||= {};
   }
-  c[_op(op)]=b
-  return o
+  switch (op) {
+    case '$between':
+      cur['$gte'] = a;
+      cur['$lte'] = b;
+      break;
+    default:
+      cur[_op(op)] = a;
+      break;
+  }
+  return out;
 }
 }
 
 
 // https://github.com/stalniy/ucast
 // https://www.mongodb.com/docs/manual/reference/operator/query/
-Main = next:Expr EOF {return next}
+Main = next:ValueExpr EOF {return next}
 
 Expr = _ next:CompoundExpr _ {return next}
 
 CompoundExpr
   = left:RelExpr
     rest:(
-      op:(('&&'/'||')/(__ (and/or) __))
+      op:(_('&&'/'||')_/(__ (and/or) __))
       right:CompoundExpr {return {op,right}}
     )? {return rest?.right?_compound(rest?.op,left,rest?.right):left}
 
 RelExpr
   = '(' next:Expr ')' {return next} // NOTE: and > or
   / '!' next:RelExpr {return {'$not':next}}
+  / field:Field __ 'between' __ value1:literal __ 'and' __ value2:literal { return _make(field, '$between', value1, value2); }
   / field:Field _ op:('>=' / '<='/ '<>' /  '>' / '<' / '===' / '==' / '!='  / '=' / ':') _ value:literal {return _make(field,op,value)}
+  / field:Field _ op:('@>' / '<@' / '&&' ) _ value:Array {return _make(field,ARRAY_OPERATORS[op],value)}
   / field:Field _ op:('~') _ value:string {return _make(field,op,value)}
   / field:Field __ op:(is __ null) {return _make(field,'=',null)}
   / field:Field __ op:(is __ not __ null) {return _make(field,'!=',null)}
   / field:Field __ op:((not __)? (in)) __ value:Array {return _make(field,op,value)}
   / field:Field __ op:((not __)? (like/ilike)) __ value:string {return _make(field,op,value)}
 
+ValueExpr
+  = Value
+  / Field
+  / Function
+
+Function
+  = name:name _ "(" _ args:Values? _ ")" {
+      return { type: 'function', name, values: args || [] };
+    }
+
 Field 	= ref / name
 //ref     = a:name b:('.' v:name {return v})+ {return [a,...b].join('.')}
 ref     = a:name|1..,_ '.'_ | {return a}
 name 	= ([a-zA-Z]([_a-zA-Z0-9])*) {return text()}
 
-Value   = literal
+Value   = literal / Field
 // Values = next:(a:Value _ b:(_ ',' _ next:Value {return next})* ','? {return b?[a,...b]:a})? {return next || []}
 Values 	= next:(Value|.., _ "," _ |) _  ','?  {return next || []}
 Array   = '[' _ next:Values _ ']' {return next} / '(' _ next:Values _ ')' {return next}

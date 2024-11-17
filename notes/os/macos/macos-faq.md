@@ -248,7 +248,7 @@ sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstal
 date 0101010116
 ```
 
-## 重置混合磁盘/Fusion Drive
+## 重置混合磁盘/Fusion Drive {#reset-fusion-drive}
 
 ```bash
 diskutil resetFusion

@@ -20,6 +20,10 @@ tags:
 
 ## iOS
 
+- 解锁
+  - [VirgilClyne/iRingo](https://github.com/VirgilClyne/iRingo)
+  - [straight-tamago/misakaX](https://github.com/straight-tamago/misakaX)
+  - [leminlimez/Nugget](https://github.com/leminlimez/Nugget)
 - Simulator
   - [TrungNguyen1909/qemu-t8030](https://github.com/TrungNguyen1909/qemu-t8030)
     - iPhone 11 emulated on QEMU

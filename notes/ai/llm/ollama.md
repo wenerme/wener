@@ -44,6 +44,7 @@ ollama pull qwen2:7b # 中文相对好点
 
 # vision
 ollama pull llama3.2-vision:11b
+#ollama pull llama3.2-vision:90b
 ```
 
 | env                      | default         | desc                           |

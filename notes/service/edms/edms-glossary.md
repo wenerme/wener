@@ -108,6 +108,41 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 - 参考
   - https://dag.chd.edu.cn/dasy/list.htm
 
+## 元数据层级
+
+- 全宗级 - Fonds
+- 类别级 - Series / Category
+- 案卷级 - File / Record / Volume
+- 文件级 - Item / Document / File
+
+---
+
+- 卷内件 - FileItem / Item
+- 页面级 - Page
+
+---
+
+**柜位/存储位置/密集架号**
+
+- 库房 - repository
+- 区号 - area/zone
+- 列号 - row/column（column 可以，但 row 也常用于表示纵列）
+- 节号 - section
+- 架号 - shelf
+- 层号 - level
+- 面号 - side（通常标记为左、右）
+- 盒号 - box
+- 盒内号 - boxItem / boxFileNumber（“boxItem”简洁，或 boxFileNumber）
+
+---
+
+- ISAD(G)
+  - Physical Location
+  - Storage Location
+- ISO 11799（档案和图书馆材料的存储环境）
+- 《DA/T 18-2022 档案著录规则》 区、列、层、架、盒
+  - Storage Location
+
 ## 案件级 vs 案卷级
 
 - 案卷级 - Volume
@@ -332,3 +367,47 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
   - https://www.gov.cn/gongbao/content/2019/content_5377125.htm
 - 国家档案局 2014 印发的《数字档案室建设指南》规定各档案门类的代码
   - 文书∶WS，照片∶ZP，录音∶LY，录像;LX，科技∶KJ，专业∶ZY。
+
+## 密级 {#confidential-level}
+
+- 绝密、机密、秘密、内部、公开、非密、商密
+- 《中华人民共和国保守国家秘密法》及其实施条例
+  - 绝密、机密、秘密
+- 《党政机关公文处理工作条例》
+  - 绝密、机密、秘密
+- 《国家秘密载体管理规定》
+- 《信息系统安全等级保护基本要求》（GB/T 22239）
+
+## 开放标识
+
+- Access Control Status
+- 取值
+  - 开放（Open）
+  - 控制（Restricted）
+  - 延期开放（Deferred）
+  - 未审核（NotReviewed）
+- ISAD(G) - 国际档案描述标准通则
+  - Conditions Governing Access（访问条件）
+- 《中华人民共和国档案法》
+- 《政府信息公开条例》
+  - “主动公开”“依申请公开”“不予公开”
+
+## 密集架
+
+- 密集架 Compact Shelving
+- 密集柜 Movable Rack
+  - [Mobile shelving](https://en.wikipedia.org/wiki/Mobile_shelving)
+  - 日语 移动棚
+- 起源于日本
+- 用于机关、企事业单位图书资料室、档案室、样品室等存放图书资料、档案、货价、档案财务凭证、货物的新型装具。
+- 与传统式书架、货架、档案架相比，储存量大，节省空间且更有传统性。
+- 固定列
+  - 控制列 - 一般不动
+  - 上面通常能统管其他移动列
+- 参考
+  - DA/T 7-1992 直列式档案密集架
+  - GB/T 13667.3 图书密集架
+- 产品
+  - https://www.bjroit.com/news/list-80-cn.html
+  - https://www.jx-jh.cn/product/473.html
+  - https://www.jx-jh.cn/product/12/

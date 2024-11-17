@@ -33,3 +33,16 @@ rm -rf ~/.gradle/daemon
 
 - lombok val
 - https://github.com/gradle/gradle/issues/14531
+
+## Proxy
+
+
+```bash
+./gradlew build \
+    -Dhttp.proxyHost=your.proxy.host -Dhttp.proxyPort=your_proxy_port \
+    -Dhttp.proxyUser=your_username -Dhttp.proxyPassword=your_password
+```
+
+```bash
+export GRADLE_OPTS="-Dhttp.proxyHost=your.proxy.host -Dhttp.proxyPort=your_proxy_port -Dhttps.proxyHost=your.proxy.host -Dhttps.proxyPort=your_proxy_port"
+```
