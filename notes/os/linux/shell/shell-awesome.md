@@ -23,7 +23,8 @@ tags:
   - [shell-pool/shpool](https://github.com/shell-pool/shpool)
 - remote/ssh
   - openssh
-  - bear
+  - [mkj/dropbear](https://github.com/mkj/dropbear)
+    - Dropbear SSH
   - mosh
   - [moul/quicssh](https://github.com/moul/quicssh)
     - SSH over QUIC
@@ -126,6 +127,8 @@ tags:
 - [ibraheemdev/modern-Unix](https://github.com/ibraheemdev/modern-Unix)
 - [explainshell](https://explainshell.com/)
 - [shellinabox/shellinabox](https://github.com/shellinabox/shellinabox)
+- sshrc
+- [xxh/xxh](https://github.com/xxh/xxh)
 - awk
   - Awk: The Power and Promise of a 40-Year-Old Language [HN](https://news.ycombinator.com/item?id=28441887)
   - [benhoyt/prig](https://github.com/benhoyt/prig)
@@ -155,6 +158,7 @@ tags:
   - 支持 tmux
   - 支持 iTerm2 https://trzsz.github.io/iterm2
   - trzsz-go, trzsz-ssh
+  - [trzsz/trzsz-ssh](https://github.com/trzsz/trzsz-ssh)
   - [trzsz/trzsz.js](https://github.com/trzsz/trzsz.js)
     - https://github.com/jumpserver/jumpserver/issues/10679
 

@@ -41,3 +41,15 @@ mkdir -p /etc/mihomo
 - https://github.com/MetaCubeX/mihomo/blob/Alpha/docs/config.yaml
 - https://wiki.metacubex.one/config/
 - rules
+
+# FAQ
+
+## ASN
+
+```yaml
+rules:
+  - IP-ASN,22697,Proxy,no-resolve # Roblox
+```
+
+- ~/.config/mihomo/ASN.mmdb
+- https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb

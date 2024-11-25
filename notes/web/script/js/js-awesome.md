@@ -1092,6 +1092,12 @@ tags:
 - [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 - [privatenumber/ts-runtime-comparison](https://github.com/privatenumber/ts-runtime-comparison)
 
+## Bun Awesome
+
+- [oven-sh/awesome-bun](https://github.com/oven-sh/awesome-bun)
+- [tr1ckydev/webview-bun](https://github.com/tr1ckydev/webview-bun)
+  - Binding for [webview/webview](https://github.com/webview/webview)
+
 ## WebServer
 
 - Reuqest/Response/WebStandard - 支持 EdgeRuntime/Deno/Bun/Cloudflare

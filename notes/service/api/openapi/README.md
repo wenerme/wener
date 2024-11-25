@@ -31,6 +31,19 @@ title: OpenAPI
 - https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml
 - https://api.twitter.com/2/openapi.json
 
+## Schema
+
+- ComponentType
+  - Schema
+  - Response
+  - Parameter
+  - Example
+  - RequestBody
+  - Header
+  - SecurityScheme
+  - Link
+  - Callback
+
 ## Version
 
 - OpenAPI v3.1 - 2020-06-18

@@ -33,10 +33,25 @@ tags:
 - PEG
   - 语法结构更简单，类似于拼装复杂正则，不区分语法和词法
   - 执行逻辑自上下下一次性执行出结果
+  - 接近 Regex
+  - 优点
+    - 简单直观的语法，易于理解和编写
+    - 没有解析歧义，规则匹配顺序明确
+    - 适合处理上下文相关语法
+  - 缺点
+    - 不能处理 LR，需要处理为 RR
+    - 复杂语法需要更多的规则和优先级管理 - 每个优先级一个规则
 - Antlr
   - 语法区分词法和语法 - Lexer 和 Grammar
   - 解析是有分词逻辑 - Tokenize
   - 将 Token 放入 Grammar 逻辑得到最终的 AST
+  - 优点
+    - 功能强大 - 支持复杂语法和词法分析
+    - 支持 LR
+    - 生态丰富
+  - 缺点
+    - 语法和词法分离 - 复杂
+    - 速度可能不如 PEG
 
 **概念理论区别**
 
@@ -81,6 +96,47 @@ Int: [0-9]+ ;
 - 参考
   - [Left Recursion in Parsing Expression Grammars](https://arxiv.org/abs/1207.0443)
 
+## AST vs CST
+
+- AST - Abstract Syntax Tree - 抽象语法树
+  - 抽象结构 - 一般不包含语法规则
+  - 保留有意义的节点，忽略细节
+  - 简洁 - 便于后续的编译优化
+  - 场景
+    - 语义分析、优化和代码生成
+- CST - Concrete Syntax Tree - 具体语法树
+  - 具体结构 - 包含语法规则
+  - 保留细节
+  - 场景
+    - 代码格式化
+    - 语法错误提示
+
+---
+
+- 通常先生成 CST，再转换为 AST
+
+**例子**
+
+```
+3 + 4 * 5
+```
+
+```txt title='AST'
+  +
+ / \
+3   *
+   / \
+  4   5
+```
+
+```txt title='CST'
+    Expr
+   / | \
+  3  +  Expr
+        / | \
+       4  *  5
+```
+
 ## OctetString
 
 - Sequence of Byte
@@ -92,3 +148,17 @@ Int: [0-9]+ ;
   - https://docs.microsoft.com/en-us/windows/win32/seccertenroll/about-octet-string
   - https://ldapwiki.com/wiki/OctetString
   - https://www.iso.org/obp/ui/#iso:std:iso-iec:8825:-7:ed-2:v1:en
+
+## Precedence
+
+**PL/SQL**
+
+| op                                             | for                                  |
+| ---------------------------------------------- | ------------------------------------ |
+| +, -                                           | identity, negation                   |
+| \*, /                                          | multiplication, division             |
+| +, -                                           | addition, subtraction, concatenation |
+| =, <, >, <=, >=, <>, !=, IS, LIKE, BETWEEN, IN | comparion                            |
+| !, NOT                                         | logical negation                     |
+| AND                                            | conjunction                          |
+| OR                                             | inclusion                            |

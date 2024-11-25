@@ -47,6 +47,9 @@ caddy add-package github.com/caddy-dns/cloudflare
 
 ## Caddyfile
 
+- 全局 `{}`
+- snippet `(snippet) {}`
+- Site block `example.com {}`
 - 环境变量 `{$SITE_ADDRESS}`
   - `{env.HOME}`
 - 默认值 `{$DOMAIN:localhost}`

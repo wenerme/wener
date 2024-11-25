@@ -57,7 +57,7 @@ tags:
   - [jimblackler/jsongenerator](https://github.com/jimblackler/jsongenerator)
     - Apache-2.0, Java
 - UI from JSON Schema
-  - [rjsf-team/react-jsonschema-form](../../web/react/react-jsonschema-form.md)
+  - [rjsf-team/react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
   - [json-editor/json-editor](https://github.com/json-editor/json-editor)
     - MIT, JS
     - https://json-editor.github.io/json-editor/
@@ -132,6 +132,13 @@ tags:
   - [SchemaStore/schemastore](https://github.com/SchemaStore/schemastore)
     - https://www.schemastore.org/json/
   - https://schemas.sourcemeta.com/
+- usecases
+  - https://json-schema.org/tools
+  - OpenAPI
+  - [snowplow/snowplow](https://github.com/snowplow/snowplow)
+    - for event definition & validation
+  - https://blog.heroku.com/json_schema_for_heroku_platform_api
+  - Google API discovery service https://developers.google.com/discovery/v1/getting_started
 - 参考
   - [Understanding JSON Schema](https://json-schema.org/understanding-json-schema/index.html)
   - proptypes-to-json-schema

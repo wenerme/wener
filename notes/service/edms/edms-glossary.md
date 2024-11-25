@@ -78,6 +78,9 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 | specialized archives    | 专业档案          |
 | transfer                | 移交              |
 | usability               | 可用性            |
+| Compact Shelving        | 密集架            |
+| Movable Rack            | 密集柜/移动棚     |
+| Filing cabinet          | 文件柜            |
 
 - 移交 transfer
   - 按照国家规定将电子档案的保管权交给档案馆的过程。
@@ -391,23 +394,3 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 - 《中华人民共和国档案法》
 - 《政府信息公开条例》
   - “主动公开”“依申请公开”“不予公开”
-
-## 密集架
-
-- 密集架 Compact Shelving
-- 密集柜 Movable Rack
-  - [Mobile shelving](https://en.wikipedia.org/wiki/Mobile_shelving)
-  - 日语 移动棚
-- 起源于日本
-- 用于机关、企事业单位图书资料室、档案室、样品室等存放图书资料、档案、货价、档案财务凭证、货物的新型装具。
-- 与传统式书架、货架、档案架相比，储存量大，节省空间且更有传统性。
-- 固定列
-  - 控制列 - 一般不动
-  - 上面通常能统管其他移动列
-- 参考
-  - DA/T 7-1992 直列式档案密集架
-  - GB/T 13667.3 图书密集架
-- 产品
-  - https://www.bjroit.com/news/list-80-cn.html
-  - https://www.jx-jh.cn/product/473.html
-  - https://www.jx-jh.cn/product/12/

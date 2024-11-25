@@ -1,11 +1,16 @@
 ---
-title: temporal-sdk
+title: Development
+tags:
+  - Development
+  - SDK
 ---
 
-# temporal-sdk
+# Temporal Development
 
 - https://github.com/temporalio/sdk-typescript/blob/main/packages/worker/src/workflow/bundler.ts
   - swc-loader
+- 参考
+  - https://api-docs.temporal.io/
 
 ## Can't extract inlined source map from the provided Workflow Bundle
 
@@ -23,4 +28,4 @@ esbuild --sourcemap=inline
 esbuild --banner:js="module = typeof module === 'undefined'? {exports:{}}:module"
 ```
 
-## ReferenceError: __TEMPORAL__ is not defined
+## ReferenceError: **TEMPORAL** is not defined

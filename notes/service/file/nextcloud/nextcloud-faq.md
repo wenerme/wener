@@ -20,6 +20,12 @@ export PHP_MEMORY_LIMIT=8G
 tail -f /var/www/html/data/nextcloud.log
 ```
 
+```bash
+occ files:scan --all
+occ maintenance:repair --include-expensive
+occ db:add-missing-indices
+```
+
 ## 移除获取免费账号的 Footer
 
 ```bash

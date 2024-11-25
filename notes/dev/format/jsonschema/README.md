@@ -12,11 +12,11 @@ title: JSON Schema
 
 :::
 
-| version    | $schema                                | adopted by  |
-| ---------- | -------------------------------------- | ----------- |
+| version    | $schema                                | adopted by  | date    |
+| ---------- | -------------------------------------- | ----------- | ------- |
 | [2020-12]  |                                        | OpenAPI 3.1 |
-| [2019-09]  |                                        |             |
-| [draft-07] | http://json-schema.org/draft-07/schema | ajv default |
+| [2019-09]  |                                        |             | 2019-09 |
+| [draft-07] | http://json-schema.org/draft-07/schema | ajv default | 2018-06 |
 | [draft-06] |                                        |
 | [draft-04] |                                        |
 | draft-00   |                                        | OpenAPI 3.0 |
@@ -56,6 +56,150 @@ title: JSON Schema
   - nullable
   - discriminator
     - 不影响校验
+- 版本选择
+  - ajv 默认 draft-07
+  - typebox 使用 draft-07
+- 参考
+  - https://github.com/json-schema-org
+  - https://datatracker.ietf.org/doc/html/draft-handrews-json-schema-validation-02
+
+```ts
+export type JSONSchemaTypeName =
+  | 'string' //
+  | 'number'
+  | 'integer'
+  | 'boolean'
+  | 'object'
+  | 'array'
+  | 'null';
+export type JSONSchemaType =
+  | string //
+  | number
+  | boolean
+  | JSONSchemaObject
+  | JSONSchemaArray
+  | null;
+type JSONSchemaDefinition = JSONSchema | boolean;
+
+interface JSONSchema {
+  $id?: string;
+  $ref?: string;
+  /**
+   * Meta schema
+   *
+   * Recommended values:
+   * - 'http://json-schema.org/schema#'
+   * - 'http://json-schema.org/hyper-schema#'
+   * - 'http://json-schema.org/draft-07/schema#'
+   * - 'http://json-schema.org/draft-07/hyper-schema#'
+   *
+   * @see https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-5
+   */
+  $schema?: string;
+  $comment?: string;
+
+  $defs?: Record<string, JsonSchema | boolean>;
+
+  // for any type
+
+  type?: JSONSchemaTypeName | JSONSchemaTypeName[];
+  enum?: JSONSchemaType[];
+  const?: JSONSchemaType;
+
+  //region keywords for strings
+  maxLength?: number;
+  minLength?: number;
+  pattern?: string;
+
+  contentEncoding?: string; // e.g. base64
+  contentMediaType?: string; // e.g. image/png, text/html, application/jwt
+  contentSchema?: JSONSchemaDefinition; // for application/jwt e.g. {type:"array"}
+  //endregion
+
+  //region keywords for numbers
+  multipleOf?: number;
+  maximum?: number;
+  exclusiveMaximum?: number;
+  minimum?: number;
+  exclusiveMinimum?: number;
+  //endregion
+
+  //region keywords for arrays
+  /**
+   * @see https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.4
+   */
+  items?: JSONSchemaDefinition | JSONSchemaDefinition[] | undefined;
+  additionalItems?: JSONSchemaDefinition | undefined;
+  contains?: JSONSchemaDefinition;
+
+  maxItems?: number;
+  minItems?: number;
+  uniqueItems?: boolean;
+  maxContains?: number;
+  minContains?: number;
+  //endregion
+
+  /**
+   * @see https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.5
+   */
+  //region keywords for objects
+  maxProperties?: number;
+  minProperties?: number;
+  required?: string[];
+  dependentRequired?: Record<string, string[]>; // draft 2019-09
+
+  properties?: Record<string, JSONSchemaDefinition>;
+  patternProperties?: Record<string, JSONSchemaDefinition>;
+  additionalProperties?: JSONSchemaDefinition;
+  propertyNames?: JSONSchemaDefinition;
+
+  /**
+   * renamed to dependentSchemas, dependentRequired
+   * @deprecated draft 2019-09
+   */
+  dependencies?: Record<string, JSONSchemaDefinition | string[]>;
+  //endregion
+
+  //region conditional subschemas
+  if?: JSONSchemaDefinition;
+  then?: JSONSchemaDefinition;
+  else?: JSONSchemaDefinition;
+  //endregion
+
+  //region logical operations
+  allOf?: JSONSchemaDefinition[];
+  anyOf?: JSONSchemaDefinition[];
+  oneOf?: JSONSchemaDefinition[];
+  not?: JSONSchemaDefinition;
+  //endregion
+
+  /**
+   * @see https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-7
+   */
+  format?: string;
+
+  /**
+   * @see https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-8
+   */
+  contentMediaType?: string;
+  contentEncoding?: string;
+
+  /**
+   * renamed to `$defs` to match `$ref`
+   */
+  definitions?: Record<string, JSONSchemaDefinition>;
+
+  //region metadata
+  title?: string;
+  description?: string;
+  default?: JSONSchemaType;
+  deprecated?: boolean;
+  readOnly?: boolean;
+  writeOnly?: boolean;
+  examples?: JSONSchemaType;
+  //endregion
+}
+```
 
 ```json
 {
@@ -72,7 +216,7 @@ title: JSON Schema
 
 ```json
 {
-  "type": "integer",
+  "type": "integer"
 }
 ```
 
@@ -107,7 +251,7 @@ title: JSON Schema
       }
     },
     // null or string
-    "nullable": {"type": ["string", "null"]}
+    "nullable": { "type": ["string", "null"] }
   },
   "required": [],
   "$defs": {
@@ -118,23 +262,13 @@ title: JSON Schema
     "single": {
       "$anchor": "item",
       "type": "object",
-      "additionalProperties": {"$ref": "other.json"}
+      "additionalProperties": { "$ref": "other.json" }
     }
   },
   "$comment": ""
 }
 ```
 
-- 任意类型
-  - enum
-  - const
-  - $data - 引用数据
-- 组合逻辑
-  - not
-  - oneOf
-  - anyOf
-  - allOf
-  - if/then/else
 - 元数据
   - title, description
   - $comment
@@ -218,7 +352,7 @@ title: JSON Schema
 **decimal 精度**
 
 ```json
-{"type": "number", "multipleOf": 0.01}
+{ "type": "number", "multipleOf": 0.01 }
 ```
 
 ## ajv formats

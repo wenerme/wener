@@ -1,5 +1,7 @@
 ---
 title: Python
+tags:
+- Topic
 ---
 
 # Python
@@ -17,8 +19,9 @@ title: Python
 
 ```bash
 # venv
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+# VIRTUAL_ENV_PROMPT 增加在 PS1 的内容
+source .venv/bin/activate
 
 # 确保安装 pip
 python -m ensurepip
@@ -38,20 +41,6 @@ cd useful
 python3 -m venv build/useful
 source build/useful/bin/activate
 ```
-
-## FAQ
-
-### venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv
-
-- venv - py3 自带，创建隔离环境，不需要拷贝二进制
-- virtualenv - 创建虚拟隔离环境，支持 py2 py3
-- pyenv - 多版本隔离
-- pyvenv - venv+pyenv
-- virtualenvwrapper - virtualenv 扩展
-- pipenv - Pipefile+pip+virtualenv
-- Pipenv、Poetry - 类似于 yanr 和 bundler
-
-- [What is the difference between venv, pyvenv, pyenv, virtualenv, virtualenvwrapper, pipenv, etc?](https://stackoverflow.com/questions/41573587)
 
 ## 词汇
 
@@ -103,7 +92,7 @@ pip install -i http://localhost:3141/testuser/dev my-package
   - Python 转可执行文件
 - shiv
   - 类似于 pex，但更简单，直接使用 pip
-- xar - eXecutable ARchive)
+- xar - eXecutable ARchive
   - 设计于打包自包含可的可执文件，以 py 为主
 
 ```bash
@@ -116,5 +105,6 @@ entry_points=dict(
 )
 ```
 
-pyproject.toml
-flit
+- pyproject.toml
+  - poetry
+- flit

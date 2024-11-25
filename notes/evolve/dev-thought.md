@@ -1,5 +1,8 @@
 ---
 title: 开发思考
+tags:
+- Insight
+- Thinking
 ---
 
 # 开发思考

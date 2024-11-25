@@ -6,7 +6,7 @@ tags:
 
 # Parser Glossary
 
-| Abbr.           | Word                                           | Desc                           |
+| Abbr.           | Word                                           | cn                             |
 | --------------- | ---------------------------------------------- | ------------------------------ |
 | BNF             | Backus–Naur form                               | 巴科斯范式 - 1959 John Backus  |
 | EBNF            | extended BNF                                   | 扩展巴科斯范式 - ISO-14977     |
@@ -24,8 +24,11 @@ tags:
 | SLR             |
 | Canonical LR(1) |
 | Minimal LR(1)   |
-| GLR             |
+| GLR             | Generalized LR parser                          | 广义 LR 解析器                 |
 | RPN             | Reverse Polish notation                        |
+| AST             | Abstract Syntax Tree                           | 抽象语法树                     |
+| CST             | Concrete Syntax Tree                           | 具体语法树                     |
+| CSG             | Context-sensitive grammar                      | 上下文相关语法                 |
 
 | en         | cn     |
 | ---------- | ------ |
@@ -61,19 +64,28 @@ graph TD;
     LL_k["LL(k)"]
 ```
 
-## Left recursion
+## 右递归 {#right-recursion}
+
+- `A -> αA | β`
+- 不会导致无限递归，更容易处理。
+- 可能会导致更深的递归调用栈，但现代的 Parser 能优化这种情况。
+
+## 左递归 {#left-recursion}
+
+- `A -> Aα | β`
+  - A 递归调用自己
 - [Left recursion](https://en.wikipedia.org/wiki/Left_recursion)
   - Direct left recursion
   - Indirect left recursion
 
-**a and b and c**
+## Packrat
 
-```json
-{
-  "type": "and",
-  // left
-  "left": {"type": "and", "left": {"term": "a"}, "right": {"term": "b"}},
-  //
-  "right": {"term": "c"}
-}
-```
+- 动态规划
+- 在解析过程中缓存(memoization)中间结果
+- 适合处理具有无限前瞻能力的语法。
+- 优点
+  - 能够处理左递归和右递归。
+  - 解析速度快，适合实时解析。
+- 缺点
+  - 需要额外的内存空间。
+- [Packrat parsing](https://en.wikipedia.org/wiki/Packrat_parser)

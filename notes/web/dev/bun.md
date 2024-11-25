@@ -16,6 +16,7 @@ title: bun
 
 :::caution
 
+- Roadmap [#159](https://github.com/oven-sh/bun/issues/159)
 - bun:ffi 能力是独一无二的
   - 可以为了 ffi 而使用 bun
 - bun 目前还不适用于通用的生产环境
@@ -23,15 +24,10 @@ title: bun
 - bun 非常不建议直接用于后端
   - 可能会遇到各式各样无法修复的错误
   - 库的开发者一般也不会针对 bun 测试
-- musl 支持
-  - [#918](https://github.com/oven-sh/bun/issues/918)
-  - [#255](https://github.com/oven-sh/bun/issues/255)
 - deploy [bun#211](https://github.com/oven-sh/bun/issues/211)
-- ~~无 dns 模块~~ - 0.5+ - pg 不支持 [#288](https://github.com/oven-sh/bun/issues/288)
-- ~~无 async_hooks - sequelize 不支持~~
-- 未实现 ~~dns~~, http2, https, child_process, vm, tls, async_hooks, worker_threads, inspector
+- 未实现 ~~dns~~, ~~http2~~, https, child_process, vm, tls, async_hooks, worker_threads, inspector
 - 未实现 HTTP request body streaming
-- 未实现 HTTP2 不支持 gRPC
+  - Streaming upload with fetch [#6017](https://github.com/oven-sh/bun/issues/6017)
 - 兼容
   - 支持 vitest [#4145](https://github.com/oven-sh/bun/issues/4145)
   - 支持 ReactNative [#123](https://github.com/oven-sh/bun/issues/123)
@@ -145,6 +141,7 @@ import { random } from './random.ts' with { type: 'macro' };
 ## compile
 
 ```bash
+# --sourcemap --minify --target bun-linux-x64-modern
 # 90MB+
 bun build --compile ./src/main.ts --outfile myapp --external={pg-query-stream,better-sqlite3,tedious,oracledb,mysql2,sqlite3,mysql} --external=@mikro-orm/{migrations,entity-generator,better-sqlite,sqlite,mariadb,mysql,mongodb,seeder}
 ```

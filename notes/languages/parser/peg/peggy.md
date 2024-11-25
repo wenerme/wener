@@ -11,6 +11,10 @@ title: peggy
   - https://peggyjs.org/online
   - [metadevpro/ts-pegjs](https://github.com/metadevpro/ts-pegjs)
     - TS code generation plugin for peggy
+  - Formatter https://siefkenj.github.io/prettier-pegjs-playground/
+  - examples
+    - https://github.com/alsotang/sql.pegjs/blob/master/lib/sql.pegjs
+    - https://www.sqlite.org/syntaxdiagrams.html
 - PEG.js 之后新功能
   - Global Initializers `{{}}`
     - 全局
@@ -139,7 +143,7 @@ Values = next:(Value|..,","|)  ','?  {return next || []}
 - reserved/保留关键词
   - count
 
-```pegjs
+```peggy
 {{
   // 全局初始化 - 定义的方法和变量全局有效
 }}

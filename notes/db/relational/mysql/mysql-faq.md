@@ -39,6 +39,8 @@ SHOW MASTER STATUS; -- 查看主库状态
   - mysql
 
 ```sql
+-- is not allowed to connect to this MySQL server
+-- /c/Program\ Files/MySQL/MySQL\ Server\ 8.0/bin/mysql -u root -p123456 app -h 127.0.0.1
 -- 允许 root 远程登录
 UPDATE mysql.user SET host='%' WHERE user='root' AND host='localhost';
 FLUSH PRIVILEGES; -- 重载权限

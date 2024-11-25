@@ -4,9 +4,9 @@ title: Antlr 4
 
 # Antlr4
 
-- ANTLR - ANother Tool for Language Recognition
-- 案例
-  - [grammars-v4](https://github.com/antlr/grammars-v4)
+- [antlr/antlr4](https://github.com/antlr/antlr4)
+  - BSD-3
+  - ANTLR - ANother Tool for Language Recognition
 - 语言支持
   - Java
   - C#
@@ -17,6 +17,9 @@ title: Antlr 4
   - Swift
 - Antlr4 - Adaptive LL(*) - https://www.antlr.org/papers/allstar-techreport.pdf
 - Antlr3 - LL(*)
+- 参考
+  - [grammars-v4](https://github.com/antlr/grammars-v4)
+  - http://lab.antlr.org/
 
 ```bash
 java -jar antlr-4.6-complete.jar -Dlanguage=Go MyLang.g4

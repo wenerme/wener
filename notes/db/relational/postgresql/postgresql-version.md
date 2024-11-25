@@ -14,6 +14,7 @@ tags:
 
 | PostgreSQL      | Release Date |
 | --------------- | ------------ |
+| [PostgreSQL 17] | 2024-09-26   |
 | [PostgreSQL 16] | 2023-09-14   |
 | [PostgreSQL 15] | 2022-10-13   |
 | [PostgreSQL 14] | 2021-09-30   |
@@ -33,11 +34,30 @@ tags:
 [postgresql 12]: #postgresql-12
 [postgresql 11]: #postgresql-11
 
+## PostgreSQL 17
+
+- libpq 支持 TLS `?sslnegotiation=direct`
+  - https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLNEGOTIATION
+  - alpn postgresql
+  - 旧版本 应用层实现的 SSL - 无法利用现有基础设施
+  - https://www.postgresql.org/docs/17/protocol-flow.html#PROTOCOL-FLOW-SSL
+  - PGJDBC v42.7.4
+    - https://github.com/pgjdbc/pgjdbc/pull/3252
+    - https://github.com/pgjdbc/pgjdbc/blob/master/pgjdbc/src/main/java/org/postgresql/PGProperty.java#L696
+  - nodejs pg https://github.com/brianc/node-postgres/issues/3346
+  - `?sslnegotiation=direct&sslmode=require`
+- `JSON_TABLE()`
+- `pg_createsubscriber`
+- `pg_basebackup` 支持增量
+- `COPY ON_ERROR ignore`
+- 参考
+  - https://www.postgresql.org/docs/current/release-17.html
+
 ## PostgreSQL 16
 
 - Logical Replication 优化
 - Parallel Execution 优化
-- JSON/JSONB 支持更多操作 - 更完善的 SQL/JSON  支持
+- JSON/JSONB 支持更多操作 - 更完善的 SQL/JSON 支持
 - Concurrent Bulk Loading
 - psql
   - `\bind` -> `SELECT $1::int + $2::int \bind 1 2 \g)`
@@ -49,6 +69,7 @@ tags:
   - libpq
 - 参考
   - https://www.postgresql.org/about/news/postgresql-16-released-2715/
+
 ## PostgreSQL 15
 
 - 新增 MERGE 语句 - 用于合并两个 **表**

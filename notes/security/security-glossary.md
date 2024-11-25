@@ -21,12 +21,20 @@ tags:
 | RSA     | Rivest–Shamir–Adleman                         |
 | TPM     | Trusted Platform Modules                      | 受信任平台模块         |
 | ED25519 | Edwards-curve Digital Signature Algorithm     | 爱德华曲线数字签名算法 |
+| ECDSA   | Elliptic Curve Digital Signature Algorithm    | 椭圆曲线数字签名算法   |
 | X.509   |
 | SLSA    | Supply chain Levels for Software Artifacts    | 软件构件供应链级别     |
 | CA      | Certificate Authority                         | 证书颁发机构           |
 | OCSP    | Online Certificate Status Protocol            | 在线证书状态协议       |
 | CRL     | Certificate Revocation List                   | 证书吊销列表           |
 | PKI     | Public Key Infrastructure                     | 公钥基础设施           |
+| GSS     | Generic Security Service                      | 通用安全服务           |
+| FIPS    | Federal Information Processing Standards      | 联邦信息处理标准       |
+| SNI     | Server Name Indication                        | 服务器名称指示         |
+| TLS     | Transport Layer Security                      | 传输层安全             |
+| SSL     | Secure Sockets Layer                          | 安全套接字层           |
+| ECH     | Encrypted Client Hello                        | 加密客户端 Hello       |
+| SSH     | Secure Shell                                  |                        |
 
 [rfc1421]: https://www.rfc-editor.org/rfc/rfc1421
 [rfc7292]: https://www.rfc-editor.org/rfc/rfc7292

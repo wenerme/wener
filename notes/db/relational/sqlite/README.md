@@ -85,6 +85,22 @@ tags:
 
 :::
 
+:::tip Why use SQLite
+
+- 零配置
+- 轻量级高效
+- 读为主
+- 需要传输大量小数据 - 把 SQLite 作为容器，传输整个文件
+- 不希望有外部服务依赖
+  - 大多服务能 Embed
+  - 大多环境直接提供 NodeJS, Bun
+- 希望在 KV 之上有 SQL - 有很多 KV 的文件存储方案
+- 支持 ACID
+- 跨平台兼容
+- 完善的社区和生态系统
+
+:::
+
 ```bash
 # macOS 安装
 brew install sqlite3

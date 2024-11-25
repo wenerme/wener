@@ -23,6 +23,10 @@ tags:
     - VNC Server & Client
     - Java TigerVNC-viewer 客户端
     - [下载](https://bintray.com/tigervnc/stable/tigervnc)
+- 压缩/解压缩
+  - [peazip/PeaZip](https://github.com/peazip/PeaZip)
+    - LGPLv3
+    - 跨平台
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)

@@ -7,6 +7,14 @@ tags:
 
 # 硬件词汇
 
+**Networks**
+
+| abbr. | stand for                      | cn               |
+| ----- | ------------------------------ | ---------------- |
+| AP    | Access Point                   | 接入点           |
+| WDS   | Wireless Distribution System   | 无线分布系统     |
+| DAWN  | Dynamic Access Windows Network | 动态访问窗口网络 |
+
 - Form Factor
   - M.2 Type 2280-S3-M / 2280-D3-M
   - M.2 Type 2280-S2-M
@@ -34,3 +42,7 @@ tags:
 # CH_PD
 
 - Chip power-down
+
+## AX3000
+
+- OFDM - Orthogonal Frequency Division Multiplexing - 正交频分复用

@@ -29,6 +29,35 @@ tags:
 | 工商局       | Industrial and Commercial Bureau               |
 | 工商局       | Administration for Industry and Commerce       |
 
+公司
+: coproration / company
+: 依照公司法设立的企业法人，包括有限责任公司和股份有限公司。
+
+法定代表人
+: legal representative
+: 根据法律或法人组织章程的规定，代表法人行使职权的负责人，在法律文件上具有签署效力。
+: **法人代表** 不是正式术语，正式的称谓是“法定代表人”。
+
+法人
+: legal person
+: 在法律上具有独立人格的组织，可以独立承担民事责任，包括企业法人、机关法人、事业单位法人和社会团体法人等。
+
+legal entity
+: 法人/法律实体
+: 与“legal person”同义，指在法律上被视为具有独立权利和义务的组织。
+
+corporate representative
+: 公司代表/企业代表
+: 指受公司或企业委托，代表其处理特定事务的人员，可能包括但不限于法定代表人。
+
+- 企业 - enterprise, business entity
+  - 所有从事生产、经营活动的 **经济组织** 。
+  - 法人企业：如有限责任公司、股份有限公司等，具有独立的法人资格。
+  - 非法人企业：如个人独资企业、合伙企业、个体工商户等，不具有法人资格。
+- 公司一定是法人
+  - 《中华人民共和国公司法》，公司是依法成立的企业法人。
+- 合伙企业、个人独资企业 **不是法人**
+
 # 中国行政区划（administrative division）
 
 分为几个级别（government level/level）；宪法（Constitution）规定了三个级别（de jure level），但实际上有五个级别（de facto level/practical level）——33 个省级（province/province-level region/province-level division）、333 个地区级（prefecture/prefecture-level region/prefecture-level division/second-level division）【非宪法区划】、2862 个县级（county/county-level region/county-level division）、41636 个乡级（township/township-level region/township-level division）及无数村级（village/village-level region/village-level division）【非宪法区划】行政区。各个级别又有不同名称，下面加以详细讨论【具体数字以 2005 年统计数据为准】。

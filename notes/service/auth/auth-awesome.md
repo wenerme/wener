@@ -97,6 +97,7 @@ tags:
   - Apache-2.0, Go
   - by Auth0 FGA
     - https://dashboard.fga.dev/
+  - PostgreSQL 14, MySQL 8, SQLite
 - [ory/keto](https://github.com/ory/keto)
   - Apache-2.0, Go
 - [josephglanville/zanzibar-pg](https://github.com/josephglanville/zanzibar-pg)

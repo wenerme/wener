@@ -29,6 +29,9 @@ title: SOAP
     - 请求-响应
     - 通知
     - 请求-多响应
+- WADL - Web Application Description Language - Web 应用描述语言
+  - 描述 Web 应用的资源、方法、输入/输出参数
+  - RESTful
 - UDDI - Universal Description, Discovery, and Integration - 通用描述、发现和集成
   - 用于注册和查找 Web 服务
   - 三个部分

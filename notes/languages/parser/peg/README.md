@@ -7,6 +7,7 @@ sidebar_label: PEG
 
 - PEG 类似 CFG，但不存在歧义
   - 不会回溯执行 - 例如 `a|ab` 只会匹配第一个
+  - `LL(*)` with infinite lookahead
 - 优化
   - Packrat
 - [Parsing expression grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
@@ -59,4 +60,3 @@ Boolean = "true" / "false"
 _ "whitespace" = [ \t\n\r]*
 ```
 
-## Packrat

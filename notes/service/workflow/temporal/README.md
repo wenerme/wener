@@ -18,7 +18,6 @@ title: temporal
   - MIT, Rust
   - Core Temporal SDK
 
-
 ```bash
 # https://github.com/temporalio/docker-compose
 # Elasticsearch + PostgreSQL + Web + UI
@@ -349,3 +348,14 @@ auth:
       callback_base_uri: http://localhost:8088
       pass_id_token: false # adds ID token as 'authorization-extras' header with every request to server
 ```
+
+# FAQ
+
+- Temporal Nexus
+  - HTTP 7243
+  - `/namespaces/{namespace}/task-queues/{task_queue}/nexus-services`
+  - `/nexus/endpoints/{endpoint}/services`
+  - `/namespaces/{namespace}/nexus/callback`
+  - 面向 长时间运行的服务
+  - https://github.com/temporalio/temporal/blob/main/docs/architecture/nexus.md
+  - [nexus-rpc/sdk-go](https://github.com/nexus-rpc/sdk-go)

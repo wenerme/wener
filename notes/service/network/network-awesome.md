@@ -14,6 +14,15 @@ tags:
 - [openziti/ziti](https://github.com/openziti/ziti)
   - Apache-2.0, Go
   - zero trust, application embedded, programmable network
+- Proxy/Multiplexer
+  - [yrutschle/sslh](https://github.com/yrutschle/sslh)
+    - GPLv2, C
+    - Applicative Protocol Multiplexer
+    - protocol demultiplexer
+    - 支持探测 HTTP, TLS/SSL (SNI, ALPN), SSH, OpenVPN, tinc, XMPP, SOCKS5
+  - [mholt/caddy-l4](https://github.com/mholt/caddy-l4)
+    - Caddy L4 模块
+    - 支持探测 RDP, OpenVPN, Postgres, ProxyProtocol, QUIC, Socks, SSH, TLS, Winbox, Wireguard, XMPP
 - TCP over ICMP
   - https://github.com/esrrhs/pingtunnel/tree/delete
 - VIP
@@ -37,6 +46,8 @@ tags:
 - Tunnel
   - [frp](./proxy/frp/README.md)
   - ssh
+  - gost
+  - [proxytunnel/proxytunnel](https://github.com/proxytunnel/proxytunnel)
   - [rapiz1/rathole](https://github.com/rapiz1/rathole)
     - Apache-2.0, Rust
   - [stunnel](./tunnel/stunnel.md)

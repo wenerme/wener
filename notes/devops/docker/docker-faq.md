@@ -277,3 +277,11 @@ docker buildx create --name multiarch-builder --driver docker-container --use
 
 docker buildx ls
 ```
+
+## Docker Image Format v1 and Docker Image manifest version 2
+
+```
+Docker Image Format v1 and Docker Image manifest version 2, schema 1 support is disabled by default and will be removed in an upcoming release
+```
+
+- https://distribution.github.io/distribution/spec/deprecated-schema-v1/

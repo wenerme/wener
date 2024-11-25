@@ -349,10 +349,13 @@ tags:
   - https://datasciencenotebook.org/
 - Storage/File/Drive
   - [Nextcloud](./file/nextcloud/README.md)
+  - [filegator/filegator](https://github.com/filegator/filegator)
+    - MIT, PHP, Vue
   - [cryptpad](https://github.com/cryptpad/cryptpad)
     - AGPLv3, JS
   - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
     - GPLv3, Golang
+    - file management system with muilt-cloud support
 - collaboration
   - [hedgedoc](https://github.com/hedgedoc/hedgedoc)
     - AGPLv3, TS
@@ -383,6 +386,8 @@ tags:
     - fork of Snapdrop
   - [RobinLinus/snapdrop](https://github.com/RobinLinus/snapdrop)
     - GPLv3, JS
+  - LANDrop
+  - Dukto
   - [mozilla/send](https://github.com/mozilla/send)
     - MPLv2
   - [timvisee/send](https://github.com/timvisee/send)
