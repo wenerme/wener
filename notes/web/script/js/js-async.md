@@ -19,6 +19,16 @@ title: JS Async
 - AsyncIterator
   - `[Symbol.asyncIterator]()` -> AsyncIterator
   - `for await ... of`
+- [scheduler](https://developer.mozilla.org/en-US/docs/Web/API/Scheduler) - 优化调度
+  - scheduler.yield()
+    - Chrome 129+
+    - 默认优先级  "user-visible"
+  - scheduler.postTask()
+    - Chrome 94+
+    - priority - user-blocking, user-visible, background
+- 参考
+  - https://web.dev/articles/optimize-long-tasks
+  - https://wicg.github.io/scheduling-apis/
 
 ```js
 // 输出 1 2
@@ -31,4 +41,11 @@ await {
     console.log(1);
   },
 };
+
+// 避免阻塞主线程
+function yieldToMain () {
+  return new Promise(resolve => {
+    setTimeout(resolve, 0);
+  });
+}
 ```

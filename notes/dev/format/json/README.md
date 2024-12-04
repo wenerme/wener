@@ -17,6 +17,18 @@ title: JSON
 - [jsonata-js/jsonata](https://github.com/jsonata-js/jsonata)
   - JSON query and transformation language
   - https://jsonata.org/
+- jsonnl - JSON with new line
+  - https://jsonlines.org/
+  - Standard MIME content-type [#19](https://github.com/wardi/jsonlines/issues/19)
+    - `.jsonl`, `application/jsonl`
+  - jsonlines.org and ndjson.org [wardi/jsonlines#22](https://github.com/wardi/jsonlines/issues/22)
+- ndjson - Newline delimited JSON
+  - ⚠️ 不活跃
+  - [ndjson/ndjson-spec](https://github.com/ndjson/ndjson-spec)
+- wikipedia [JSON streaming](https://en.wikipedia.org/wiki/JSON_streaming)
+  - line delimited JSON
+  - concatenated JSON
+  - length-prefixed JSON
 
 ## Schema
 
@@ -79,7 +91,8 @@ title: JSON
 - [flitbit/diff](https://github.com/flitbit/diff)
 - [Starcounter-Jack/JSON-Patch](https://github.com/Starcounter-Jack/JSON-Patch)
 - [kpdecker/jsdiff](https://github.com/kpdecker/jsdiff)
-  - Text  Diff
+  - Text Diff
+
 ## Command line tools
 
 - [antonmedv/fx](https://github.com/antonmedv/fx)

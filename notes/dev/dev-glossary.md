@@ -10,19 +10,17 @@ tags:
 
 | abbr.  | stand for                              | mean             |
 | ------ | -------------------------------------- | ---------------- |
-| GC     | garbage collect                        | 垃圾收集         |
 | [RAII] | Resource acquisition is initialization | 资源获取即初始化 |
-| OOM    | Out of memory                          |
-| NPE    | Null Pointer Exception                 | 空指针异常       |
-| RTTI   | Runtime Type Information               |
 | CRUD   | Create, Read, Update, Delete           | 增删改查         |
+| DORA   | DevOps research program                | DevOps 研究项目  |
+| FTBS   | Fail to build from source              | 构建失败         |
+| GC     | garbage collect                        | 垃圾收集         |
+| NPE    | Null Pointer Exception                 | 空指针异常       |
+| OOM    | Out of memory                          | 内存溢出         |
+| RIIR   | Rewrite It In Rust                     | 使用 Rust 重写   |
+| RTTI   | Runtime Type Information               | 运行时类型信息   |
 
 [raii]: https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization
-
-| abbr. | stand for               | mean |
-| ----- | ----------------------- | ---- |
-| RIIR  | Rewrite It In Rust      |
-| DORA  | DevOps research program |
 
 | abbr. | stand for              | cn         |
 | ----- | ---------------------- | ---------- |

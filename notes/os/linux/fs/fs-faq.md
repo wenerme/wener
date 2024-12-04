@@ -6,6 +6,20 @@ tags:
 
 # 文件系统常见问题
 
+:::tip
+
+- 移动存储首选 exFAT
+
+:::
+
+- NTFS
+  - ⚠️ macOS 不支持写入，只能读取
+  - Linux 5.15 内核支持 - NTFS3 by Paragon
+    - R/O MODULE
+    - ntfs: driver 2.1.32 [Flags: R/W MODULE] - 读写
+  - Linux ntfs-ng
+- exFAT
+  - Linux 5.4 内核支持 - 在这之前 exfat-fuse, exfat-utils
 - SMB3
   - 支持 POSIX, NTFS ACL
   - account based

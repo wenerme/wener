@@ -182,8 +182,10 @@ npm add date-fns lodash-es react-fast-compare
   - [projectstorm/react-diagrams](https://github.com/projectstorm/react-diagrams)
 - dnd
   - [clauderic/dnd-kit](https://github.com/clauderic/dnd-kit)
-  - [react-dnd/react-dnd](https://github.com/react-dnd/react-dnd)
-  - [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - 拖放
+  - ~~[react-dnd/react-dnd](https://github.com/react-dnd/react-dnd)~~
+    - MIT, TS
+  - ~~[atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)~~
+    - 拖放
   - [bokuweb/react-rnd](https://github.com/bokuweb/react-rnd) - Resize & Drag
     - 实现类似窗口的效果
     - react-draggable+[bokuweb/re-resizable](https://github.com/bokuweb/re-resizable)
@@ -244,6 +246,7 @@ npm add date-fns lodash-es react-fast-compare
 - Tree
   - [dgreene1/react-accessible-treeview](https://github.com/dgreene1/react-accessible-treeview)
   - rc-tree
+  - https://www.npmjs.com/package/@atlaskit/tree
   - [brimdata/react-arborist](https://github.com/brimdata/react-arborist)
     - npm:react-arborist
   - https://geist-ui.dev/en-us/components/file-tree
@@ -322,20 +325,38 @@ npm add date-fns lodash-es react-fast-compare
 - input
   - react-textarea-autosize
 - table/Spreadsheet/Excel/Data Grid
+  - 两种 sheet 数据格式
+    - 1. `object[]` - 贴近 Table/数据表/DataGrid
+      - 适用于有逻辑处理
+      - 支持 schema 逻辑
+      - 支持 业务
+      - Header 为 key/title
+    - 2. `any[][]` - AoA
+      - 适用于简单数据展示、数据导入导出 - 贴近 Excel/Sheet
+      - 适用于通用数据
+      - 适用于数据中间处理
+      - Header 为 Index(A-Z), 第一行数据可能为 Header
   - [react-data-grid](https://github.com/adazzle/react-data-grid)
     - MIT, TS
-    - 41kB, 14kB
+    - 42kB, 14kB
+    - 适用于 object[]
+    - 自身功能非常简洁轻量
+    - 🌟 首选
+    - formula 功能可选
   - [react-spreadsheet](https://github.com/iddan/react-spreadsheet)
     - MIT, TS
     - 支持 formula
-    - @handsontable/formulajs, jstat, @reduxjs/toolkit, @reduxjs/toolkit, es-abstract, hot-formula-parser
-  - [react-spreadsheet-grid](https://github.com/denisraslov/react-spreadsheet-grid)
+    - 适用于二维数组 - AoA
+    - fast-formula-parserm, jstat, es-abstract
+    - fast-formula-parser -> chevrotain, jstat - 体积比较大
+    - ~~hot-formula-parser~~ -> ~~@handsontable/formulajs~~ License 原因
+  - ~~[react-spreadsheet-grid](https://github.com/denisraslov/react-spreadsheet-grid)~~
     - MIT, JS
     - 66kB, 17kB
   - [@silevis/reactgrid](https://github.com/silevis/reactgrid)
     - MIT, TS
     - 250kB, 68kB
-  - [react-datasheet](https://github.com/nadbm/react-datasheet)
+  - ~~[react-datasheet](https://github.com/nadbm/react-datasheet)~~
     - ⚠️ 不再维护
 - i18n - [Unicode Language and Locale Identifiers](https://www.unicode.org/reports/tr35/tr35-59/tr35.html#Identifiers)
   - react-i18next

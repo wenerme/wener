@@ -13,7 +13,12 @@ title: Connect
     - 支持 Stream - 一行一个请求，类似 SSE
     - 协议和实现更简单
     - 支持 HTTP1
-  - 预计支持 go, ts, express, rails, django, laravel
+  - 目前支持 Go, Web, Node.js, Swift, Kotlin
+- grpc: application/grpc, application/grpc+proto, application/grpc+json
+- grpc-web: pplication/grpc-web, application/grpc-web+proto, application/grpc-web+json
+- connect
+  - unary: application/proto, application/json
+  - striming: application/connect+proto, application/connect+json
 - 参考
   - [Connect Protocol Reference](https://connect.build/docs/protocol/)
   - [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)

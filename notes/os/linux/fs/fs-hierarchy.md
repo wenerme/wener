@@ -197,3 +197,18 @@ USERGROUPS_ENAB yes
   - [login.defs.5](https://man7.org/linux/man-pages/man5/login.defs.5.html)
 
 ## /etc/pam.d/
+
+## Special
+
+- `$RECYCLE.BIN` - 回收站
+  - `/$SID` - 用户 SID
+    - `S-1-5-21-2520661685-4050719181-3436956139-1001`
+  - Windows
+- `System Volume Information` - 系统还原
+  - IndexerVolumeGuid
+  - MountPointManagerRemoteDatabase
+  - tracking.log
+- `RECYCLER` - 回收站
+- `.Trashes`
+  -
+- `.fseventsd`

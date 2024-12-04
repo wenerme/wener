@@ -33,6 +33,34 @@ console.assert('next' in function* () {}.prototype);
 
 ## Symbol
 
+- Symbol
+  - 不支持 JSON 序列化
+    - 通过 replacer 可做特殊处理
+    - 作为 value 会被处理为 null
+  - 不能 Transferable
+- 全局 Symbol
+  - structuredClone 会保留
+- 局部 Symbol/Unique Symbol
+  - structuredClone 会丢弃
+
+```ts
+{
+  // unique
+  const sym1 = Symbol('description');
+  const sym2 = Symbol('description');
+  // 不等
+  console.assert(sym1 !== sym2);
+}
+{
+  // 全局
+  const sym1 = Symbol.for('description');
+  const sym2 = Symbol.for('description');
+  // 等
+  console.assert(sym1 === sym2);
+  console.assert(Symbol.keyFor(sym1) === 'description');
+}
+```
+
 | Symbol                      | Description                          | Used by                       | Since                             |
 | --------------------------- | ------------------------------------ | ----------------------------- | --------------------------------- |
 | `Symbol.asyncIterator`      | 返回对象默认的异步迭代器的方法       | `for await...of`              | Chrome 63+, Safari 12+, Node 10+  |

@@ -15,7 +15,6 @@ title: Kong
 - 8001 - 管理接口 HTTP
 - 8444 - 管理接口 HTTPS
 
-
 :::tip
 
 - v3 支持 db-less - 直接通过 YAML 配置

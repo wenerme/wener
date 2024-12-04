@@ -5,6 +5,8 @@ title: dexie
 # dexie
 
 - [dexie/Dexie.js](https://github.com/dexie/Dexie.js)
+  - Apache-2.0, JS, TS
+  - A Minimalistic Wrapper for IndexedDB
 - dexie-react-hooks
   - [useLiveQuery](<https://dexie.org/docs/dexie-react-hooks/useLiveQuery()>)
     - 会 observe 数据变化

@@ -5,7 +5,7 @@ title: NTFS
 # NTFS
 
 - Linux 5.15+ RW
-- [NTFS filesystem driver](https://www.kernel.org/doc/html/latest/filesystems/ntfs.html)
+- [NTFS filesystem driver](https://docs.kernel.org/6.6/filesystems/ntfs.html)
 - 是否需要 NTFS ?
   - 只是 PC 使用 -> 建议 NTFS
   - 否则 exFAT

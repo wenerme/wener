@@ -2,18 +2,22 @@
 title: gRPC FAQ
 tags:
   - FAQ
+  - Limits
 ---
 
 # gRPC FAQ
 
 :::note
 
+- 不支持 Prefix
+  - [grpc/grpc-web#702](https://github.com/grpc/grpc-web/issues/702)
+  - [grpc/grpc-dotnet#110](https://github.com/grpc/grpc-dotnet/issues/110)
 - Support gRPC over HTTP/3 [grpc#19126](https://github.com/grpc/grpc/issues/19126)
 - gRPC tunneling [grpc#14101](https://github.com/grpc/grpc/issues/14101)
 
 :::
 
-:::tip Limits
+## Limits
 
 - 请求 Message 默认最大 4MB
 - 响应 Message 默认无限制
@@ -29,7 +33,7 @@ tags:
   - Tomcat - 8K – 48K
   - Node (<13) - 8K; (>13) - 16K
 
-:::
+---
 
 - [grpc/proposal](https://github.com/grpc/proposal)
 

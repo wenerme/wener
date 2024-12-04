@@ -405,6 +405,8 @@ tags:
   - sessionStorage - 单 Tab, 关闭消息, 打开新 Tab 继承
   - localStorage - origin 纬度, 可监听跨 tab 变化
   - cookie - C/S 交互
+  - tinybase
+    - 功能集成非常多
   - [localforage](https://github.com/localForage/localForage)
     - async 的 localStorage
     - 可以存储到 IndexedDB, WebSQL, localStorage
@@ -420,6 +422,7 @@ tags:
     - 82kB, 26kB - 无依赖
     - IndexedDB wrapper
     - 支持 Sync, Subscribe
+  - [maxnowack/signaldb](https://github.com/maxnowack/signaldb)
   - [share/sharedb](https://github.com/share/sharedb)
     - 126kB, 35kB - ot-json0, array-diff
     - JSON OT database backend

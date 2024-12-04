@@ -21,6 +21,13 @@ tags:
     - Mac utility that automatically downloads macOS Firmwares / Installers.
   - https://mrmacintosh.com/
     - [How to Download macOS](https://mrmacintosh.com/how-to-download-macos-catalina-mojave-or-high-sierra-full-installers/)
+- Remote Login
+  - RustDesk
+
+---
+
+- https://github.com/jaywcjlove/awesome-mac
+- https://www.torrentmac.net/
 
 
 ## System
@@ -33,30 +40,28 @@ tags:
 - [remko/qlmka](https://github.com/remko/qlmka)
   - Quick Look plugin for Matroska `.mka`
 - [openairplay/airplay2-receiver](https://github.com/openairplay/airplay2-receiver)
+  - AirPlay 2 Receiver
+- [sparkle-project/Sparkle](https://github.com/sparkle-project/Sparkle)
+  - 应用自动升级框架
 
 ## Apps
 
+- [Tencent/lemon-cleaner](https://github.com/Tencent/lemon-cleaner)
+- [Kevin-De-Koninck/Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
 - https://shottr.cc/
   - 多功能截屏软件
   - OCR, 长截图, 画笔, 标注, 标尺, 颜色拾取器
 - [ospfranco/sol](https://github.com/ospfranco/sol)
   - MacOS launcher & command palette
 - [mas-cli/mas](https://github.com/mas-cli/mas)
-  - 命令行安装应用
-- [sparkle-project/Sparkle](https://github.com/sparkle-project/Sparkle)
-  - 应用自动升级框架
-- [Tencent/lemon-cleaner](https://github.com/Tencent/lemon-cleaner)
+  - 命令行安装 App Store 应用
+  - `brew install mas`
 - 破解
-  - https://www.torrentmac.net/
 
 ## Command Line
 
 - [moretension/duti](https://github.com/moretension/duti)
   - 命令行工具，配置扩展关联应用
-
-## Application
-
-- [Kevin-De-Koninck/Clean-Me](https://github.com/Kevin-De-Koninck/Clean-Me)
 
 ## Misc
 

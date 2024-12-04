@@ -5,7 +5,7 @@ title: vaultwarden
 # vaultwarden
 
 - [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
-  - GPL-3.0, Rust
+  - AGPL-3.0, Rust
   - 非官方 bitwarden 兼容服务实现
   - 支持 LDAP
   - 必须要求 HTTPS

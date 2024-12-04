@@ -2,6 +2,7 @@
 title: NATS FAQ
 tags:
   - FAQ
+  - Limits
 ---
 
 # NATS FAQ

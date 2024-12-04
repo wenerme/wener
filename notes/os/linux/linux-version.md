@@ -42,7 +42,9 @@ tags:
 :::tip
 
 - NTFS - linux 5.15
+  - 在这之前 ntfs-3g
 - exFAT - linux 5.4
+  - 在这之前 exfat-fuse, exfat-utils
 - io_uring - linux 5.1
 
 :::

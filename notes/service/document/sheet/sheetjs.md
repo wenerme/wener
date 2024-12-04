@@ -12,6 +12,10 @@ tags:
   - 开发也不在 Github 上了
 - 参考
   - https://cdn.sheetjs.com/
+  - [protobi/js-xlsx](https://github.com/protobi/js-xlsx)
+  - https://sheetjs.com/pro/
+  - [Siemienik/XToolset](https://github.com/Siemienik/XToolset)
+    - MIT, TS
 
 ```bash
 pnpm add https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
@@ -24,24 +28,45 @@ pnpm add https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
 
 :::
 
+:::caution CE 版本限制
+
+- 不支持 formula 求值
+- 不支持 Style
+  - https://github.com/gitbrent/xlsx-js-style
+  - https://github.com/ShanaMaid/sheetjs-style
+- 不支持 images/graphs/PivotTables
+
+:::
+
 ## types
 
 ```ts
 // b Boolean, n Number, e error, s String, d Date, z Stub
 export type ExcelDataType = 'b' | 'n' | 'e' | 's' | 'd' | 'z';
+export interface Comments extends Array<Comment> {
+  /** Hide comment by default */
+  hidden?: boolean;
+}
+export interface Hyperlink {
+  /** Target of the link (HREF) */
+  Target: string;
+  /** Plaintext tooltip to display when mouse is over cell */
+  Tooltip?: string;
+}
+export type NumberFormat = string | number;
+
 /** 工作表单元格对象 */
 export interface CellObject {
-  /** 单元格的原始值。如果指定了公式，可以省略 */
-  v?: string | number | boolean | Date;
-
-  /** 格式化文本（如果适用） */
-  w?: string;
-
   /**
    * 单元格的Excel数据类型。
    * b Boolean, n Number, e Error, s String, d Date, z Empty
    */
   t: ExcelDataType;
+  /** 单元格的原始值。如果指定了公式，可以省略 */
+  v?: string | number | boolean | Date;
+
+  /** 格式化文本（如果适用） */
+  w?: string;
 
   /** 单元格公式（如果适用） */
   f?: string;
@@ -72,7 +97,48 @@ export interface CellObject {
 }
 ```
 
+```json
+{
+  "t": "s",
+  "v": "保 管\n期 限",
+  "r": "<t>保 管&#10;期 限</t>",
+  "h": "保 管<br/>期 限",
+  "w": "保 管\n期 限"
+}
+```
+
+- v 范围 0~60000
+- v 如果包含小数点，则包含时间部分
+- 如果 cellDates=true, 则 v 会被转换为 Date
+
+---
+
 - https://docs.sheetjs.com/docs/csf/cell
+
+## Date
+
+```ts
+if (!wb?.Workbook?.WBProps?.date1904) {
+  /* uses 1904 date system */
+} else {
+  /* uses 1900 date system */
+}
+```
+
+```json
+{
+  "t": "n",
+  "v": 44234,
+  "w": "2/7/21"
+}
+```
+
+- `t=d` 表示 date&time
+- `n` - number
+  - 标准做法
+- `d` - ISO 8601 date string
+- `w` 为格式化文本
+- https://docs.sheetjs.com/docs/csf/features/dates/
 
 # Common Spreadsheet Format
 

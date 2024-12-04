@@ -19,6 +19,7 @@ tags:
 
 | version                            | release    |
 | ---------------------------------- | ---------- |
+| [Kubernetes 1.31](#kubernetes-131) | 2024-08-13 |
 | [Kubernetes 1.30](#kubernetes-130) | 2024-04-17 |
 | [Kubernetes 1.29](#kubernetes-129) | 2023-12-13 |
 | [Kubernetes 1.28](#kubernetes-128) | 2023-08-15 |

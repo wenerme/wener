@@ -63,8 +63,6 @@ tags:
 - Javascript/NodeJS
   - [xmldom/xmldom](https://github.com/xmldom/xmldom)
     - 用于解析 各种文档
-  - [exceljs/exceljs](https://github.com/exceljs/exceljs)
-    - MIT, JS
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
     - GPLv3
   - [mwilliamson/mammoth.js](https://github.com/mwilliamson/mammoth.js)
@@ -145,6 +143,11 @@ tags:
   - [modesty/pdf2json](https://github.com/modesty/pdf2json)
     - Apache-2.0, JS
     - 使用 @xmldom/xmldom
+  - [bpampuch/pdfmake](https://github.com/bpampuch/pdfmake)
+    - MIT, JS
+    - structure JSON to PDF
+    - http://pdfmake.org/playground.html
+  - pdfkit
 - React
   - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
     - MIT, Javascript
@@ -152,39 +155,116 @@ tags:
   - [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
     - MIT, Javascript
     - Builder
+    - for React PDF
+      - https://react-pdf-repl.vercel.app/
+      - [aanckar/react-pdf-tailwind](https://github.com/aanckar/react-pdf-tailwind)
 
 ## Sheet/Excel
+
+:::tip 两种 sheet 数据格式
+
+- 1. `object[]` - 贴近 Table/数据表/DataGrid
+  - 适用于有逻辑处理
+  - 支持 schema 逻辑
+  - 支持 业务
+  - Header 为 key/title
+- 2. `any[][]` - AoA
+  - 适用于简单数据展示、数据导入导出 - 贴近 Excel/Sheet
+  - 适用于通用数据
+  - 适用于数据中间处理
+  - Header 为 Index(A-Z), 第一行数据可能为 Header
+
+:::
 
 - Java
   - [alibaba/easyexcel](https://github.com/alibaba/easyexcel)
 - Golang
   - [qax-os/excelize](https://github.com/qax-os/excelize)
+- Formula
+  - [formulajs/formulajs](https://github.com/formulajs/formulajs)
+    - MIT, JS
+    - forked from handsontable/formula.js
+  - [LesterLyu/fast-formula-parser](https://github.com/LesterLyu/fast-formula-parser)
+    - MIT, JS
+    - ⚠️ 开发不活跃
+    - npm:fast-formula-parser
+    - 300kB,83kB
+    - Parse and evaluate MS Excel formula in javascript.
+  - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
+    - **GPLv3**, TS
+  - ~~[handsontable/formula-parser](https://github.com/handsontable/formula-parser)~~
+  - Excel Formula Beautifier https://www.excelformulabeautifier.com/
 - JS/TyepScript
+  - [exceljs/exceljs](https://github.com/exceljs/exceljs)
+    - MIT, JS
+    - Excel Workbook Manager
+    - vs sheetjs
+      - 完整样式支持
+      - 支持的格式更少
   - [sheetjs](./sheet/sheetjs.md)
+    - CE 版本功能限制
+      - 不支持 style, image, table, chart
+      - 不支持 i18n
+      - 不支持 Data Validations, Conditional Formatting
+      - 不会对 formula 求值
   - [dream-num/Luckysheet](./luckysheet.md)
   - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
-    - Vue, React
+    - MIT, JS, TS, Vue, React
+  - [VisActor/VTable](https://github.com/VisActor/VTable)
+    - MIT, TS, React, Vue
+    - by 字节跳动
+    - 1.6MB, 400kB
+    - npm:@visactor/vtable
+  - [antvis/S2](https://github.com/antvis/S2)
+    - MIT, TS, React, Vue
+    - by AntV
+    - npm:@antv/s2
+    - 926kB, 256kB
+    - deps: gl-matrix, @antv/g
   - [handsontable/handsontable](https://github.com/handsontable/handsontable)
     - license 不允许商业产品使用
-  - [myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)
+  - ~~[myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)~~
+    - MIT, JS
+    - ⚠️ 开发不活跃
     - canvas
     - -> [wolf-table/table](https://github.com/wolf-table/table)
   - [jspreadsheet/ce](https://github.com/jspreadsheet/ce)
     - MIT
   - [nhn/tui.grid](https://github.com/nhn/tui.grid)
-  - [LesterLyu/fast-formula-parser](https://github.com/LesterLyu/fast-formula-parser)
-    - MIT, JS
-    - 300kB,83kB
-    - Parse and evaluate MS Excel formula in javascript.
   - [handsontable/hyperformula](https://github.com/handsontable/hyperformula)
     - GPLv3, TS
   - [revolist/revogrid](https://github.com/revolist/revogrid)
-    - MIT, TS
-    - React, Vue
+    - MIT, TS, React, Vue, Svelte, Angular
+    - `object[]` 数据结构
   - [501351981/vue-office](https://github.com/501351981/vue-office)
-- React Table
-  - [adazzle/react-data-grid](https://github.com/adazzle/react-data-grid)
-    - MIT
+- React Table/Grid/Speadsheet
+  - [react-data-grid](https://github.com/adazzle/react-data-grid)
+    - MIT, TS
+    - 42kB, 14kB
+    - 适用于 object[]
+    - 自身功能非常简洁轻量
+    - 🌟 首选
+    - formula 功能可选
+  - [react-spreadsheet](https://github.com/iddan/react-spreadsheet)
+    - MIT, TS
+    - npm:react-spreadsheet
+    - 40kB/12kB
+    - 支持 formula
+    - 适用于二维数组 - AoA
+    - fast-formula-parser, jstat, es-abstract, @linaria/core
+    - fast-formula-parser -> chevrotain, jstat - 体积比较大
+    - ~~hot-formula-parser~~ -> ~~@handsontable/formulajs~~ - 弃用 迁移为 hyperformula
+    - 非常简单易用
+    - ⚠️ 注意 - 不推荐使用
+      - 功能很少
+      - 没有 virtual
+    - 依赖的 fast-formula-parser 相对比较大
+      - +292kB/83kB
+    - 渲染表格内容部分
+    - 不支持: Pin, Frozen, Merge, Resize, Span
+    - 数据为 matrix - 二维数组
+  - [glideapps/glide-data-grid](https://github.com/glideapps/glide-data-grid)
+    - MIT, TS
   - ~~[nadbm/react-datasheet](https://github.com/nadbm/react-datasheet)~~
     - MIT, JS
   - [nick-keller/react-datasheet-grid](https://github.com/nick-keller/react-datasheet-grid)
@@ -196,20 +276,6 @@ tags:
     - 不支持 sticky left
     - 使用 @tanstack/react-virtual 作为虚拟滚动
     - deps: react-resize-detector
-  - [iddan/react-spreadsheet](https://github.com/iddan/react-spreadsheet)
-    - MIT, TS
-    - npm:react-spreadsheet
-    - deps: @linaria/core
-    - 40kB/12kB
-    - 非常简单易用
-    - ⚠️ 注意 - 不推荐使用
-      - 功能很少
-      - 没有 virtual
-    - 依赖的 fast-formula-parser 相对比较大
-      - +292kB/83kB
-    - 渲染表格内容部分
-    - 不支持: Pin, Frozen, Merge, Resize
-    - 数据为 matrix - 二维数组
   - [blueprintjs/table](https://blueprintjs.com/docs/#table)
   - [ruilisi/fortune-sheet](./fortune-sheet.md)
     - fork Luckysheet

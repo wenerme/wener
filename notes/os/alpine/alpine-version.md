@@ -75,6 +75,23 @@ tags:
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
 
+## AlpineLinux 3.21
+
+- Linux 6.12
+- 新增 loongarch64
+- openssh-server 拆分为 sshd & sshd-session
+  - 升级后建议重启 sshd `rc-service --ifstarted sshd restart`
+- 为 /usr-merge 做准备
+  - 如果 `/` 和 `/usr` 不在同一个 partition 可能会有问题
+  - `/lib`, `/bin`, `/sbin` -symlink-> `/usr/lib`, `/usr/bin`, `/usr/sbin`
+  - 管理员自定义的 binary 应该放在 `/usr/local`
+  - https://gitlab.alpinelinux.org/alpine/infra/alpine-mksite/-/merge_requests/88/diffs
+- linux-firmware 使用 zstd
+  - `CONFIG_FW_LOADER_COMPRESS_ZSTD=y`
+- 移除包
+  - ~~gogs~~ - 使用 gitea, forgejo - 有安全问题且官方维护不活跃
+  - ~~neofetch~~ - 使用 fastfetch - 官方仓库已经归档
+
 ## AlpineLinux 3.20
 
 - Linux kernel 6.6 - 和 3.19 一样

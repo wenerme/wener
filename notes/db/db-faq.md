@@ -159,7 +159,7 @@ SHOW TABLE STATUS;
     - RFC: Deprecate MariaDB Support in 2022 and Remove in 2023 [vitess#9518](https://github.com/vitessio/vitess/issues/9518)
   - https://blog.devart.com/mysql-vs-mariadb.html
 
-## 为什么不要选择 MySQL
+## 为什么不要选择 MySQL {#reason-not-mysql}
 
 **为什么会选择 MySQL**
 
@@ -182,7 +182,7 @@ SHOW TABLE STATUS;
 
 - https://www.guru99.com/postgresql-vs-mysql-difference.html
 
-## 软删除实现唯一索引
+## 软删除实现唯一索引 {#unique-index-soft-delete}
 
 ```sql
 create temporary table if not exists test
@@ -304,3 +304,18 @@ from test;
     - ACL 以配置文件的方式存在 - 多个节点同步复杂
     - 数据需要全部加载到内存
     - 集群模式运维复杂，需要考虑的事情非常多
+
+## Data Model
+
+| SQL      | MongoDB    | In-Memory       | Redis  |
+| -------- | ---------- | --------------- | ------ |
+| Database | Database   |                 | DB     |
+| Schema   |            |                 | prefix |
+| Table    | Collection | List            |
+| Row      | Document   | Object/Item     |
+| Column   | Field      | Field/Attribute |
+| PK       | `_id`      |
+| View     | View       |
+| Index    | Index      |
+| Trigger  |
+| UDF      |

@@ -9,6 +9,8 @@ title: Caddy
 - 参考
   - [caddy-dns/acmedns](https://github.com/caddy-dns/acmedns)
     - ACME DNS-01 challenge solver for Caddy
+  - [caddyserver/ingress](https://github.com/caddyserver/ingress)
+    - WIP - not ready for production use
 
 ```bash
 brew install caddy # macOS - /usr/local/etc/Caddyfile

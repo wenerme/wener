@@ -49,6 +49,12 @@ printcap name = /dev/null
 
 ```bash
 # 带 samba 的镜像
+docker run --rm -it \
+  -p 139:139 -p 139:139/udp -p 445:445 \
+  -v $PWD:/share \
+  --name samba wener/samba
+
+# debug
 docker run --rm -it -p 139:139 -p 445:445 -v $PWD:/share -w /share wener/samba sh
 
 # 或者 APK 安装

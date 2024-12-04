@@ -804,15 +804,24 @@ tags:
   - .kdbx
   - [DataGrip](https://www.jetbrains.com/help/datagrip/reference-ide-settings-password-safe.html)
     支持集成 KeePass
+- [KeePassXC](https://github.com/keepassxreboot/keepassxc)
+  - GPLv3, GPLv3, C++
+  - fork of KeePassX
 - 1Password
 - Dashlane
 - LastPass
-- [bitwarden](./selfhost/bitwarden.md)
+- [buttercup](https://github.com/buttercup)
+  - GPLv3, TS
+  - 提供桌面、浏览器插件、移动端
+  - 通过 WebDAV 同步
+- [bitwarden](./password/bitwarden.md)
 - [padloc/padloc](https://github.com/padloc/padloc)
   - AGPLv3, JS+TS
 - [cloudflare/gokey](https://github.com/cloudflare/gokey)
   - BSD-3, Go
   - Master key 衍生所有其他 key
+- [passbolt/passbolt_api](https://github.com/passbolt/passbolt_api)
+  - AGPLv3, PHP
 - Linux
   - GNOME Keyring
   - KWallet - KDE Wallet

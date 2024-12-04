@@ -29,9 +29,6 @@ title: typebox
 - 参考
   - https://moltar.github.io/typescript-runtime-type-benchmarks/
     - 性能非常好
-  - https://sinclairzx81.github.io/typebox-workbench/
-    - TypeScript to Typebox, zod, io-ts, ark, yup, valibot, JsonSchema, TypeExpression,
-  - [sinclairzx81/typebox-codegen](https://github.com/sinclairzx81/typebox-codegen)
 
 :::caution
 
@@ -42,6 +39,13 @@ title: typebox
   - 使用 Value.Convert
 - Value.Default 的返回结果不要修改
   - 可能会修改到 schema 上的 default
+- 对 format 支持较少
+  - 没有 date, time 等
+  - `FormatRegistry.Set('date', value=>true)`
+    - 允许未知 format
+  - 推荐使用 ajv-formats
+  - `Type.Date` 得到的 `{type:"Date"}` 与 ajv 不兼容，ajv 不支持扩展 type
+  - https://github.com/sinclairzx81/typebox/issues/856#issuecomment-2365329669
 
 :::
 
@@ -92,3 +96,31 @@ console.log(
 - Type.Intersect
   - `A & B`
   - 得到 allOf schema
+
+## codegen
+
+- [sinclairzx81/typebox-codegen](https://github.com/sinclairzx81/typebox-codegen)
+- `Date | string` 会得到 `Type.Union([Type.Date(), Type.String()], { title: '扫描时间' })`
+  - -> `{anyOf: [{type: 'Date'}, {type: 'string'}]}`
+- 参考
+  - https://github.com/xddq/ts2typebox
+  - https://sinclairzx81.github.io/typebox-workbench/
+    - TypeScript to Typebox, zod, io-ts, ark, yup, valibot, JsonSchema, TypeExpression,
+
+```ts
+/**
+ * @type: string
+ * @format: "date-time"
+ */
+type JsonDateTime = Date | string;
+
+interface Message {
+  /**
+   * @type: string
+   * @format: "date-time"
+   */
+  date?: Date | string;
+  // 折衷方案
+  date2?: JsonDateTime;
+}
+```

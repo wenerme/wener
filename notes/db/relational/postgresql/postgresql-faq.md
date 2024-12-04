@@ -2,6 +2,7 @@
 title: 常见问题
 tags:
   - FAQ
+  - Limits
 ---
 
 # PostgreSQL FAQ
@@ -23,11 +24,20 @@ tags:
 - [Unsupported Features](https://www.postgresql.org/docs/current/unsupported-features-sql-standard.html)
   - SQL:2016
 
-## 限制
+## 限制 {#limits}
 
-- db 名字
-  - 最长 63 byte
-- 最多 32767 参数占位 - `?` - 范围为 smallint
+| limit                   | value   | notes    |
+| ----------------------- | ------- | -------- |
+| db name                 | 63 byte |
+| identifier length       | 63 byte |
+| columns per index       | 32      |
+| columns per table       | 1600    |
+| columns in a result set | 1,664   |
+| max params `?`, `:`     | 32767   | smallint |
+| query params            | 65,535  |
+| function params         | 100     |
+| field size              | 1GB     |
+
 - https://www.postgresql.org/docs/current/limits.html
 
 ## unique constraint vs unique index
@@ -953,9 +963,8 @@ pg_ctl -D ./data start -l db.log
 
 ```bash title="Shell"
 export PATH=$PWD/pgsql/bin:$PATH
-TZ=Asia/Shanghai initdb -D ./data  -U postgres --encoding=UTF-8 --lc-collate=C --lc-ctype=C
+TZ=Asia/Shanghai initdb -D ./data -U postgres --encoding=UTF-8 --lc-collate=C --lc-ctype=C
 pg_ctl -D ./data start -l db.log
-
 
 export PGDATA=$PWD/data
 pg_ctl status

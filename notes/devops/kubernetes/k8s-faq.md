@@ -2,6 +2,7 @@
 title: K8S 常见问题
 tags:
   - FAQ
+  - Limits
 ---
 
 # K8S 常见问题
