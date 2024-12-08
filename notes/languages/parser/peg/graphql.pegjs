@@ -1,6 +1,6 @@
 // GraphQL PEG.js Grammer
 // ==============
-// https://github.com/wenerme/wener/tree/master/tricks/languages/peg/graphql.pegjs
+// https://github.com/wenerme/wener/tree/master/notes/languages/peg/graphql.pegjs
 //
 // Try online https://pegjs.org/online
 // Appendix B -- Grammar Summary.md https://github.com/facebook/graphql/blob/master/spec/Appendix%20B%20--%20Grammar%20Summary.md

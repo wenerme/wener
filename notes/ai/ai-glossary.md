@@ -40,6 +40,8 @@ tags:
 | en               | cn       |
 | ---------------- | -------- |
 | Stable Diffusion | 稳定扩散 |
+| Speech Synthesis | 语音合成 |
+| Voice Synthesis  | 语音合成 |
 
 ## LLM 参数
 

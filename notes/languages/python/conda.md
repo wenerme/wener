@@ -1,5 +1,7 @@
 ---
 title: conda
+tags:
+- Package Manager
 ---
 
 # conda

@@ -1,5 +1,7 @@
 ---
 title: PyInstaller
+tags:
+- Bundle
 ---
 
 # PyInstaller

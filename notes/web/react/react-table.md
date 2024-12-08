@@ -10,6 +10,7 @@ title: react-table
 
 :::caution
 
+- 针对同一个状态，不要 initialState 和 state 都设置
 - 不支持 sticky 行列
   - ~~可使用 [GuillaumeJasmin/react-table-sticky](https://github.com/GuillaumeJasmin/react-table-sticky)~~
     - react-table v7
@@ -32,7 +33,7 @@ title: react-table
 
 ```ts
 // 完整空状态
-const InitialReactTableState = {
+const InitialTableState = {
   columnVisibility: {},
   columnOrder: [],
   columnPinning: {
@@ -59,6 +60,58 @@ const InitialReactTableState = {
   },
   rowSelection: {},
 } as TableState;
+
+export interface TableState
+  extends CoreTableState,
+    VisibilityTableState,
+    ColumnOrderTableState,
+    ColumnPinningTableState,
+    RowPinningTableState,
+    ColumnFiltersTableState,
+    GlobalFilterTableState,
+    SortingTableState,
+    ExpandedTableState,
+    GroupingTableState,
+    ColumnSizingTableState,
+    PaginationTableState,
+    RowSelectionTableState {
+  columnVisibility: Record<string, boolean>;
+  columnOrder: string[];
+  columnPinning: {
+    left?: string[];
+    right?: string[];
+  };
+  rowPinning: {
+    top?: string[];
+    bottom?: string[];
+  };
+  columnFilters: Array<{
+    id: string;
+    value: unknown;
+  }>;
+  globalFilter: any;
+  sorting: Array<{
+    id: string;
+    desc: boolean;
+  }>;
+  expanded: true | Record<string, boolean>;
+  grouping: string[];
+  columnSizing: Record<string, number>;
+  columnSizingInfo: {
+    // ColumnSizingInfoState
+    columnSizingStart: [string, number][];
+    deltaOffset: null | number;
+    deltaPercentage: null | number;
+    isResizingColumn: false | string;
+    startOffset: null | number;
+    startSize: null | number;
+  };
+  pagination: {
+    pageIndex: number;
+    pageSize: number;
+  };
+  rowSelection: Record<string, boolean>;
+}
 ```
 
 - react-table 基于 table-core 提供简单的状态管理
@@ -86,27 +139,25 @@ const InitialReactTableState = {
   - 默认用 index 作为 id
 
 ```tsx
-export function useReactTable<TData extends RowData>(
-  options: TableOptions<TData>
-) {
+export function useReactTable<TData extends RowData>(options: TableOptions<TData>) {
   // 合并选项
   const resolvedOptions: TableOptionsResolved<TData> = {
     state: {}, // Dummy state
     onStateChange: () => {}, // noop
     renderFallbackValue: null,
     ...options,
-  }
+  };
 
   // 创建 table
   const [tableRef] = React.useState(() => ({
     current: createTable<TData>(resolvedOptions),
-  }))
+  }));
 
   // 使用 react 状态
-  const [state, setState] = React.useState(() => tableRef.current.initialState)
+  const [state, setState] = React.useState(() => tableRef.current.initialState);
 
   // 优先使用用户提供的状态
-  tableRef.current.setOptions(prev => ({
+  tableRef.current.setOptions((prev) => ({
     ...prev,
     ...options,
     state: {
@@ -114,13 +165,13 @@ export function useReactTable<TData extends RowData>(
       ...options.state,
     },
     // 维护两边状态
-    onStateChange: updater => {
-      setState(updater)
-      options.onStateChange?.(updater)
+    onStateChange: (updater) => {
+      setState(updater);
+      options.onStateChange?.(updater);
     },
-  }))
+  }));
 
-  return tableRef.current
+  return tableRef.current;
 }
 ```
 

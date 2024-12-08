@@ -1,5 +1,7 @@
 ---
 title: pip
+tags:
+- Package Manager
 ---
 
 # pip

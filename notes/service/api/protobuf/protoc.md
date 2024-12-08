@@ -32,7 +32,10 @@ title: protoc
   - js
   - kotlin
   - objc
-  - php
+  - php https://protobuf.dev/reference/php/php-generated/
+    - php_namespace
+    - php_metadata_namespace
+    - php_class_prefix
   - python
   - ruby
 - descriptor_set

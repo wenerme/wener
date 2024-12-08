@@ -120,6 +120,22 @@ tags:
 - [List of game engines](https://en.wikipedia.org/wiki/List_of_game_engines)
 - https://github.com/topics/2d-game-engine
 
+## Maze
+
+- https://www.mazegenerator.net/
+  - Shape - 正方形、圆形、三角、六边形
+  - Style - orthogonal, sigma, delta
+  - Cell
+    - 宽、高
+    - Inner width, inner height
+  - 起点位置
+  - E - elitism tendency - 精英主义倾向
+  - R - river tendency - 河流倾向
+- [keesiemeijer/maze-generator](https://github.com/keesiemeijer/maze-generator)
+  - https://keesiemeijer.github.io/maze-generator/
+- https://github.com/N7K5/Amazing-Maze
+
+
 ## Studio
 
 - https://www.fairygui.com/

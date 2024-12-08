@@ -7,6 +7,12 @@ tags:
 
 - Keywords
   - DMCA Ignored VPS
+- 开放平台/开发者平台
+  - Open Platform
+  - Developer Platform
+  - Open Ecosystem
+  - API Platform
+  - Partner Platform
 
 ## 链接超时 {#idle-connections}
 
@@ -53,7 +59,7 @@ sysctl -w \
   net.ipv4.tcp_keepalive_intvl=60 \
   net.ipv4.tcp_keepalive_probes=5
 
-cat <<EOF | sudo tee /etc/sysctl.d/99-tcp_keepalive.conf
+cat << EOF | sudo tee /etc/sysctl.d/99-tcp_keepalive.conf
 net.ipv4.tcp_keepalive_time = 60
 net.ipv4.tcp_keepalive_intvl = 60
 net.ipv4.tcp_keepalive_probes = 5

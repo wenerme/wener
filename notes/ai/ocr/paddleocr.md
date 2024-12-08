@@ -13,6 +13,14 @@ title: PaddleOCR
   - https://gitee.com/duolabmeng666/paddlehub_ppocr/blob/master/Dockerfile
   - https://gitee.com/paddlepaddle/PaddleOCR/blob/release/2.6/deploy/docker/hubserving/cpu/Dockerfile
 
+```bash
+# registry.baidubce.com/paddlepaddle/paddle:3.0.0b1-jupyter
+# registry.baidubce.com/paddlepaddle/paddle:3.0.0b1
+docker run --rm -it \
+  -v $PWD:/paddle \
+  --name paddle registry.baidubce.com/paddlepaddle/paddle:3.0.0b1 /bin/bash
+```
+
 ```py
 from paddleocr import PaddleOCR, draw_ocr
 
@@ -37,3 +45,9 @@ im_show = draw_ocr(image, boxes, txts, scores, font_path='/path/to/PaddleOCR/doc
 im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
+
+## PP-Structure
+
+- PP-Structure 文档分析
+- https://github.com/PaddlePaddle/PaddleOCR/tree/main/ppstructure
+- https://paddlepaddle.github.io/PaddleOCR/latest/ppstructure/overview.html

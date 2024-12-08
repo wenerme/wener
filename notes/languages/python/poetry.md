@@ -1,6 +1,6 @@
 ---
 tags:
-  - Package Management
+- Package Manager
 ---
 
 # poetry

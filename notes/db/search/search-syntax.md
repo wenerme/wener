@@ -109,3 +109,8 @@ db.students.updateOne({ _id: 3 }, [{ $set: { test3: 98, modified: '$$NOW' } }]);
 ```
 
 - https://www.mongodb.com/zh-cn/docs/manual/reference/aggregation-variables/
+
+## Google
+
+- https://www.google.com/advanced_search
+- https://support.google.com/websearch/answer/

@@ -129,6 +129,8 @@ Values = next:(a:Value _ b:(_ ',' _ next:Value {return next})* ','? {return b?[a
 Values = next:(Value|..,","|)  ','?  {return next || []}
 ```
 
+- https://github.com/peggyjs/peggy/blob/main/lib/peg.d.ts
+
 ## Action Execution Environment
 
 - `()` 会形成变量作用域

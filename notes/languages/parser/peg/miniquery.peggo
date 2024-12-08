@@ -1,6 +1,6 @@
 // MiniQuery peg grammar
 // ==============
-// https://github.com/wenerme/wener/tree/master/tricks/languages/parser/peg/miniquery.peggo
+// https://github.com/wenerme/wener/tree/master/notes/languages/parser/peg/miniquery.peggo
 // https://github.com/wenerme/go-miniquery/blob/main/miniquery/miniquery.peg
 // https://github.com/pointlander/peg
 

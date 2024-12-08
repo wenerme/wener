@@ -29,6 +29,26 @@ tags:
     - Pin
     - DynamoRIO
     - Valgrind
+- Research -> POC -> Integration -> Functionality -> Service -> Product
+  - Research - 是否能解决问题？ - 理论可行性
+  - POC - 是否能解决我的问题？ - 初步实践验证
+  - Integration - 是否能解决团队的问题？ - 整合
+  - Functionality/MVP - 提供一个可靠的解决方案 - 完善功能实现
+  - Service - 将解决方案变成可用服务 - 对用户或客户可直接使用
+  - Product - 将服务产品化或商业化 - 面向市场和用户的成品
+- 研究，投入资金产出技术。创新，投入技术产出资金。
+  - Research - “研究”是用钱换技术，是投入成本、积累知识的阶段
+  - Innovation - “创新”是用技术换钱，是将技术付诸实践，创造经济价值的阶段
+- 研发划分
+  - Fundamental - 基础
+  - Domain - 领域
+  - Application - 应用
+  - Service - 服务
+  - Product - 产品
+  - Operation - 运营
+  - Optimization - 优化
+  - Monetization - 价值变现
+  - Management - 管理
 - https://www.joelonsoftware.com/
 - https://www.martinfowler.com/
 - https://web.stanford.edu/~ouster/cgi-bin/decisions.php

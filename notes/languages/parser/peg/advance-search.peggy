@@ -1,11 +1,26 @@
 /*
 Grammar for advance search query
 
-grammar: https://github.com/wenerme/wener/tree/master/tricks/languages/parser/peg/advance-search.peggy
+grammar: https://github.com/wenerme/wener/blob/master/notes/languages/parser/peg/advance-search.peggy
 js: https://github.com/wenerme/wode/tree/main/packages/wener-common
 playground: https://peggyjs.org/online
 ================================
 
+- Github search
+- Google search like
+
+MAYBE date(createdAt):>2024-01-01
+BUT   createdAt:2024-01-01..*
+
+MAYBE createdAt:now-7d..now
+
+single quote string
+MAYBE @HELLO:'HI'
+
+MAYBE field.*, field.0
+
+Examples
+==========
 ok OR yes AND NO AND NO
 QUALIFIER.a:@me is:yes AND yes HELLO WORLD
 start:>2019-09-12T12:20:30.123+08:00
@@ -23,7 +38,7 @@ owner:!=@me
 
 {
   const OPERATORS = {
-    ":": "has",
+    ":": "match",
     ":=": "eq",
     ":!=": "ne",
     ":>": "gt",
@@ -96,7 +111,7 @@ ComparisonExpr
       return {
         type: "compare",
         field,
-        operator: "has",
+        operator: "match",
         value: { value },
         mention: true,
       };
@@ -118,10 +133,6 @@ KeywordExpr
 
 keyword = [^-+,'" \r\n\t()] [^ \r\n\t)]* { return text(); }
 
-// support field,
-// support field.key
-// MAYBE field.*, field.0
-// MAYBE date(field)
 field = $ident|1.., "."|
 
 range
@@ -178,8 +189,28 @@ literal
 
 number = ([0-9]+ ("." [0-9]+)? / "." [0-9]+) { return parseFloat(text()); }
 
-// todo escape
-string = "\"" v:[^"]* "\"" { return v.join(""); }
+string = "\"" v:single_char* "\"" { return v.join(""); }
+
+single_char
+  = [^"\\\0-\x1F\x7f]
+  / escape_char
+
+escape_char
+  = "\\'" { return "'"; }
+  / "\\\"" { return '"'; }
+  / "\\\\" { return "\\"; }
+  / "\\/" { return "/"; }
+  / "\\b" { return "\b"; }
+  / "\\f" { return "\f"; }
+  / "\\n" { return "\n"; }
+  / "\\r" { return "\r"; }
+  / "\\t" { return "\t"; }
+  / "''" { return "'"; }
+  / "\\u" h1:hex_digit h2:hex_digit h3:hex_digit h4:hex_digit {
+      return String.fromCharCode(parseInt("0x" + h1 + h2 + h3 + h4));
+    }
+
+hex_digit = [0-9a-fA-F]
 
 bool = ("true" / "false") { return text().toLowerCase() === "true"; }
 

@@ -1,0 +1,81 @@
+---
+tags:
+  - Awesome
+---
+
+# OCR Awesome
+
+- All in One OCR/OCR Toolkit
+  - [PaddleOCR](./paddleocr.md)
+    - Paddle
+    - by 百度
+    - https://paddlejs.baidu.com/ocr
+    - [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+    - [PaddlePaddle/Paddle.js](https://github.com/PaddlePaddle/Paddle.js)
+      - 很久没维护了
+    - [hiroi-sora/PaddleOCR-json](https://github.com/hiroi-sora/PaddleOCR-json)
+      - 离线，Windows，命令行输出 JSON 结果
+    - [Evezerest/PPOCRLabel](https://github.com/Evezerest/PPOCRLabel)
+      - 半自动化图形标注工具
+    - [PP-OCRv4](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/PP-OCRv4_introduction.md)
+  - [breezedeus/Pix2Text](https://github.com/breezedeus/Pix2Text)
+    - MIT
+    - 国内开发者维护
+    - 简体中文&英文 使用的 CnOCR, 其他使用的 EasyOCR
+    - p2t 命令行 https://pix2text.readthedocs.io/zh-cn/stable/command/
+    - macOS 桌面工具 [breezedeus/Pix2Text-Mac](https://github.com/breezedeus/Pix2Text-Mac)
+  - [RapidAI/RapidOCR](https://github.com/RapidAI/RapidOCR)
+    - Apache-2.0, Python
+    - based on ONNXRuntime, OpenVION, PaddlePaddle
+    - PaddleOCR -> ONNXRuntime
+    - OCR, Layout, Table, Form, Receipt, Invoice
+  - [VikParuchuri/surya](https://github.com/VikParuchuri/surya)
+    - GPLv3, Python
+    - 支持 Detection, OCR, Layout, Reading Order, Table Recognition
+- 基础 OCR/通用 OCR
+  - EasyOCR
+  - tesseract
+    - [naptha/tesseract.js](https://github.com/naptha/tesseract.js)
+      - Apache-2.0, JS
+  - [breezedeus/cnocr](https://github.com/breezedeus/cnocr)
+    - Apache-2.0
+    - 基于 RapidOCR 集成 PPOCRv4 最新版 OCR 模型
+  - [jingsongliujing/OnnxOCR](https://github.com/jingsongliujing/OnnxOCR)
+    - 基于PaddleOCR重构，并且脱离PaddlePaddle深度学习训练框架的轻量级OCR
+- 表格/Table/Layout/文档
+  - [RapidAI/TableStructureRec](https://github.com/RapidAI/TableStructureRec)
+    - 表格识别算法的集合库
+    - wired_table_rec 有线表格识别算法
+    - lineless_table_rec 无线表格识别算法
+  - [RapidAI/RapidTable](https://github.com/RapidAI/RapidTable)
+    - Apache-2.0, Python, ONNX
+    - 源自 PP-Structure 的表格识别算法，模型转换为ONNX，推理引擎采用ONNXRuntime
+  - [opendatalab/DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLO)
+    - AGPLv3, Python, YOLOv10
+    - https://huggingface.co/spaces/opendatalab/DocLayout-YOLO
+  - [AlibabaResearch/AdvancedLiterateMachinery](https://github.com/AlibabaResearch/AdvancedLiterateMachinery)
+    - Apache-2.0, Python, C++
+    - by 阿里巴巴
+- [getomni-ai/zerox](https://github.com/getomni-ai/zerox)
+  - MIT
+  - PDF to Markdown
+  - 使用 OpenAI, Anthropic, AWS Bedrock
+- [katanaml/sparrow](https://github.com/katanaml/sparrow)
+  - GPLv3, Python
+  - Data processing with ML, LLM and Vision LLM
+- [mindee/doctr](https://github.com/mindee/doctr)
+  - Apache-2.0, Python, TensorFlow 2, PyTorch
+- [Walleclipse/ChineseAddress_OCR](https://github.com/Walleclipse/ChineseAddress_OCR)
+- [ooooverflow/chinese-ocr](https://github.com/ooooverflow/chinese-ocr)
+  - CRNN
+- macOS OCR Live Text
+  - 直接 Preview 在图片上识别文字
+- [dynobo/normcap](https://github.com/dynobo/normcap)
+  - OCR powered screen-capture tool
+- [faustomorales/keras-ocr](https://github.com/faustomorales/keras-ocr)
+- [TDiblik/main-gate-alpr](https://github.com/TDiblik/main-gate-alpr)
+  - license plates
+  - https://news.ycombinator.com/item?id=37384327
+- https://github.com/kba/awesome-ocr
+- 商业
+  - https://doc2x.noedgeai.com/

@@ -11,6 +11,12 @@ title: PDF
 - [PDF Readers](http://pdfreaders.org/)
 - [PDF processing and analysis with open-source tools](https://www.bitsgalore.org/2021/09/06/pdf-processing-and-analysis-with-open-source-tools)
 
+```bash
+# 第1页  PDF -> PNG
+convert -density 300 input.pdf[0] output.png
+convert -density 300 input.pdf[0-3] "output-%d.png"
+```
+
 ## Tools
 
 - poppler

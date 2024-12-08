@@ -29,3 +29,10 @@ tags:
 - RAQ - retrieval-augmented generation - 检索增强生成
 - 参考
   - https://research.ibm.com/blog/retrieval-augmented-generation-RAG
+
+## STT vs ASR
+
+- STT: Speech to Text - 语音转文本
+  - 产品功能描述
+- ASR: Automatic Speech Recognition - 自动语音识别
+  - 技术

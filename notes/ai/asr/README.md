@@ -5,6 +5,7 @@ tags:
 
 # ASR
 
+- ASR - Automatic Speech Recognition - 自动语音识别
 - [FunASR](./funasr.md)
 - [Whisper](./whisper.md)
 - Kaldi

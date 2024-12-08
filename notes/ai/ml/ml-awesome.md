@@ -138,6 +138,9 @@ tags:
     - XCiT
     - DINO - Self-Supervised Vision Transformers
     - PyTorch code for Vision Transformers training with the Self-Supervised learning method DINO
+  - GOT - Generic Object Tracking
+    - [GOT-10k](http://got-10k.aitestunion.com/)
+    - [GOT-10k: A Large High-Diversity Benchmark for Generic Object Tracking in the Wild](https://arxiv.org/abs/1810.11981)
 - audio/music/speech/voice/tts
   - [microsoft/muzic](https://github.com/microsoft/muzic)
   - [yl4579/StyleTTS2](https://github.com/yl4579/StyleTTS2)

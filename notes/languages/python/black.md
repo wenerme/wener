@@ -1,6 +1,6 @@
 ---
 tags:
-  - formatter
+  - Formatter
 ---
 
 # black

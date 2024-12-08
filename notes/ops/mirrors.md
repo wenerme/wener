@@ -159,6 +159,8 @@ sass_binary_site=http://cdn.npm.taobao.org/dist/node-sass
   - quay-mirror.qiniu.com
   - quay.mirrors.ustc.edu.cn
 - public.ecr.aws
+- 参考
+  - Docker Hub 镜像加速器 https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6
 
 ```bash
 docker pull nginx:alpine

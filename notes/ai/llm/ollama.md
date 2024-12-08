@@ -29,8 +29,11 @@ title: ollama
 ```bash
 brew install ollama # macOS brew
 
-OLLAMA_FLASH_ATTENTION=1 ollama serve # 启动服务端
-ollama run mistral                    # 运行模型
+# 启动服务端
+# OLLAMA_KV_CACHE_TYPE 0.5+
+OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q4_0 ollama serve
+
+ollama run mistral # 运行模型
 ollama list
 
 # https://hub.docker.com/r/ollama/ollama

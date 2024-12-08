@@ -5,6 +5,9 @@ tags:
 
 # Python FAQ
 
+- distutils
+  - 3.12 之后移除
+
 ```bash
 python -V && pip -V
 pip list --outdated

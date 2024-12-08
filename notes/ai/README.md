@@ -10,6 +10,24 @@ title: AI
 
 - 规则系统、专家系统、机器学习
 
+---
+
+- fundamentals
+  - [机器学习](./ml/README.md)
+  - Deep Learning
+- models
+  - [LLM](./llm/README.md)
+    - [GPT](./gpt/README.md)
+  - [GAN](./gan/README.md)
+  - Diffusion
+- domains
+  - [OCR](./ocr/README.md)
+  - [NLP](./nlp/README.md)
+  - [TTS](./tts/README.md)
+  - [ASR](./asr/README.md)
+- services
+  - OpenAI
+
 ## 解释
 
 - 常见子领域
