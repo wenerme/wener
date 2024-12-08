@@ -1,0 +1,559 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-security/security-awesome" data-has-hydrated=false><meta charset=UTF-8><meta name=generator content="Docusaurus v3.6.0"><title data-rh=true>Security Awesome | Wener Live & Life</title><meta data-rh=true name=viewport content="width=device-width,initial-scale=1.0"><meta data-rh=true name=twitter:card content=summary_large_image><meta data-rh=true property=og:url content=https://wener.me/notes/security/awesome><meta data-rh=true property=og:locale content=en><meta data-rh=true name=docusaurus_locale content=en><meta data-rh=true name=docsearch:language content=en><meta data-rh=true name=docusaurus_version content=current><meta data-rh=true name=docusaurus_tag content=docs-default-current><meta data-rh=true name=docsearch:version content=current><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current><meta data-rh=true property=og:title content="Security Awesome | Wener Live & Life"><meta data-rh=true name=description content="- https://github.com/zmap"><meta data-rh=true property=og:description content="- https://github.com/zmap"><link data-rh=true rel=icon href=/img/favicon.ico><link data-rh=true rel=canonical href=https://wener.me/notes/security/awesome><link data-rh=true rel=alternate href=https://wener.me/notes/security/awesome hreflang=en><link data-rh=true rel=alternate href=https://wener.me/notes/security/awesome hreflang=x-default><link data-rh=true rel=preconnect href=https://37P8DMWBKF-dsn.algolia.net crossorigin><link rel=alternate type=application/rss+xml href=/story/rss.xml title="Wener Live & Life RSS Feed"><link rel=alternate type=application/atom+xml href=/story/atom.xml title="Wener Live & Life Atom Feed"><link rel=preconnect href=https://www.google-analytics.com><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-30404720-1","auto"),ga("send","pageview")</script><script async src=https://www.google-analytics.com/analytics.js></script><link rel=preconnect href=https://www.google-analytics.com><link rel=preconnect href=https://www.googletagmanager.com><script async src="https://www.googletagmanager.com/gtag/js?id=UA-30404720-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-30404720-1",{})</script><link rel=search type=application/opensearchdescription+xml title="Wener Live & Life" href=/opensearch.xml><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css><script src=https://static.cloudflareinsights.com/beacon.min.js async data-cf-beacon='{"token": "e9a1b931103044f3940ee67b78c7df70"}' defer></script><link rel=stylesheet href=/assets/css/styles.56a3f5b7.css><script src=/assets/js/main.69725c7d.js defer></script><script src=/assets/js/runtime~main.d7a7f58a.js defer></script><body class=navigation-with-keyboard><script>!function(){var t,e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t=null!==e?e:"light",document.documentElement.setAttribute("data-theme",t)}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label="Skip to main content"><a class=skipToContent_QYrL href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="navbar navbar--fixed-top"><div class=navbar__inner><div class=navbar__items><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_wSAl themedComponent--light_ucsn"><img src=/img/wener-logo-head.svg alt="Wener Logo" class="themedComponent_wSAl themedComponent--dark_rJUF"></div><b class="navbar__title text--truncate">Wener</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/notes>笔记</a><a class="navbar__item navbar__link" href=/story>故事</a><a class="navbar__item navbar__link" href=/notes/howto/network/dns-prevent-spoofing>指南</a></div><div class="navbar__items navbar__items--right"><a href=https://github.com/wenerme/wener target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-hidden=true viewBox="0 0 24 24" class=iconExternalLink_hxdO><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></a><div class="toggle_aL_b colorModeToggle_LUS1"><button class="clean-btn toggleButton_kX3I toggleButtonDisabled_FUbT" type=button disabled title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live=polite aria-pressed=false><svg viewBox="0 0 24 24" width=24 height=24 class=lightToggleIcon_xso0><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 class=darkToggleIcon_U_cC><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg></button></div><div class=navbarSearchContainer_wFfy><button type=button class="DocSearch DocSearch-Button" aria-label=Search><span class=DocSearch-Button-Container><svg width=20 height=20 class=DocSearch-Search-Icon viewBox="0 0 20 20" aria-hidden=true><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke=currentColor fill=none fill-rule=evenodd stroke-linecap=round stroke-linejoin=round /></svg><span class=DocSearch-Button-Placeholder>Search</span></span><span class=DocSearch-Button-Keys></span></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="main-wrapper mainWrapper_jUvW"><div class=docsWrapper_T229><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_n_pY" type=button></button><div class=docRoot_FsgH><aside class="theme-doc-sidebar-container docSidebarContainer_WLvf"><div class=sidebarViewport_a7UK><div class=sidebar_tqV5><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_emZq"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/notes>笔记</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/ai>AI</a><button aria-label="Expand sidebar category 'AI'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/algorithm>算法</a><button aria-label="Expand sidebar category '算法'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/blockchain>区块链</a><button aria-label="Expand sidebar category '区块链'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/courses>课程</a><button aria-label="Expand sidebar category '课程'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/culture>文化</a><button aria-label="Expand sidebar category '文化'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/db>数据库</a><button aria-label="Expand sidebar category '数据库'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/dev>开发</a><button aria-label="Expand sidebar category '开发'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/devops>DevOps</a><button aria-label="Expand sidebar category 'DevOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/economics>经济学</a><button aria-label="Expand sidebar category '经济学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/electrical>电学基础</a><button aria-label="Expand sidebar category '电学基础'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/embedded/awesome>embedded</a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/evolve>自我成长</a><button aria-label="Expand sidebar category '自我成长'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/hardware>硬件</a><button aria-label="Expand sidebar category '硬件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/healthcare>健康</a><button aria-label="Expand sidebar category '健康'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/howto/network/dns-prevent-spoofing>howto</a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/java>Java</a><button aria-label="Expand sidebar category 'Java'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/languages>语言</a><button aria-label="Expand sidebar category '语言'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/math>数学</a><button aria-label="Expand sidebar category '数学'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/mgmt>管理</a><button aria-label="Expand sidebar category '管理'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/network/application/dns>network</a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/ops>运维</a><button aria-label="Expand sidebar category '运维'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/os>操作系统</a><button aria-label="Expand sidebar category '操作系统'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/philosophy>理念</a><button aria-label="Expand sidebar category '理念'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/photography>摄影</a><button aria-label="Expand sidebar category '摄影'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/platform>平台</a><button aria-label="Expand sidebar category '平台'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/notes/psychology/glossary>psychology</a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/queue>Queue</a><button aria-label="Expand sidebar category 'Queue'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--active" href=/notes/security>安全</a><button aria-label="Collapse sidebar category '安全'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul style=display:block;overflow:visible;height:auto class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/acme-awesome>ACME</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/security/cert/faq>cert</a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" tabindex=0 href=/notes/security/crypto>Crypto</a><button aria-label="Expand sidebar category 'Crypto'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/cve>CVE</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/cvechecker>cvechecker</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/ddos>DDoS</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/fips>FIPS</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/mcaptcha>mCaptcha</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/openssl-version>OpenSSL Version</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/openssl>OpenSSL</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/pkcs>PKCS</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/privacy>Privacy</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/security/scan/trivy>scan</a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/notes/security/awesome>Security Awesome</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/faq>Security FAQ</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/glossary>Security Glossary</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/threat>威胁</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/ssh-audit>ssh-audit</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/security/tls/ech>tls</a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/tls>TLS</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/virustotal>virustotal</a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/notes/security/web/waf>web</a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/yubikeys>Yubikeys</a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/notes/security/zerossl>ZeroSSL</a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/service>服务</a><button aria-label="Expand sidebar category '服务'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/software>软件</a><button aria-label="Expand sidebar category '软件'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/std>标准数据</a><button aria-label="Expand sidebar category '标准数据'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/voip>VoIP</a><button aria-label="Expand sidebar category 'VoIP'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="menu__link menu__link--sublist" href=/notes/web>Web</a><button aria-label="Expand sidebar category 'Web'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav><button type=button title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_G1jJ"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_X8Qy><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_nPBz><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_hKOZ"><div class=docItemContainer_funi><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_RAyl" aria-label=Breadcrumbs><ul class=breadcrumbs itemscope itemtype=https://schema.org/BreadcrumbList><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_EY7l><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li itemscope itemprop=itemListElement itemtype=https://schema.org/ListItem class=breadcrumbs__item><a class=breadcrumbs__link itemprop=item href=/notes/security><span itemprop=name>安全</span></a><meta itemprop=position content=1><li itemscope itemprop=itemListElement itemtype=https://schema.org/ListItem class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link itemprop=name>Security Awesome</span><meta itemprop=position content=2></ul></nav><div class="tocCollapsible_N4qV theme-doc-toc-mobile tocMobile_OppT"><button type=button class="clean-btn tocCollapsibleButton_axhU">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Security Awesome</h1></header>
+<ul>
+<li><a href=https://github.com/zmap target=_blank rel="noopener noreferrer">https://github.com/zmap</a></li>
+<li><a href=https://github.com/jtesta/ssh-audit target=_blank rel="noopener noreferrer">jtesta/ssh-audit</a>
+<ul>
+<li><a href=https://www.ssh-audit.com/ target=_blank rel="noopener noreferrer">ssh-audit.com</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/ycd/dstp target=_blank rel="noopener noreferrer">ycd/dstp</a></li>
+<li><a href=https://github.com/SentryPeer/SentryPeer target=_blank rel="noopener noreferrer">SentryPeer/SentryPeer</a>
+<ul>
+<li>peer to peer list of bad actor IP addresses and phone numbers collected via a SIP Honeypot</li>
+</ul>
+</li>
+<li><a href=https://github.com/undergroundwires/privacy.sexy target=_blank rel="noopener noreferrer">undergroundwires/privacy.sexy</a>
+<ul>
+<li>Open-source tool to enforce privacy & security best-practices on Windows and macOS</li>
+<li><a href="https://news.ycombinator.com/item?id=32436949" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/google/osv.dev target=_blank rel="noopener noreferrer">google/osv.dev</a>
+<ul>
+<li>vulnerability DB and triage service</li>
+</ul>
+</li>
+<li><a href=https://github.com/soxoj/maigret target=_blank rel="noopener noreferrer">soxoj/maigret</a>
+<ul>
+<li>Collect a dossier on a person by username from thousands of sites</li>
+</ul>
+</li>
+<li><a href=https://github.com/ocsf/ocsf-schema target=_blank rel="noopener noreferrer">ocsf/ocsf-schema</a></li>
+<li><a href=https://github.com/vanhauser-thc/thc-hydra target=_blank rel="noopener noreferrer">vanhauser-thc/thc-hydra</a>
+<ul>
+<li>Apache-2.0</li>
+</ul>
+</li>
+<li><a href=https://github.com/danielmiessler/SecLists target=_blank rel="noopener noreferrer">danielmiessler/SecLists</a></li>
+<li>DPI bypass
+<ul>
+<li><a href=https://github.com/ValdikSS/GoodbyeDPI target=_blank rel="noopener noreferrer">ValdikSS/GoodbyeDPI</a>
+<ul>
+<li>bypasss DPI for windows</li>
+</ul>
+</li>
+<li><a href=https://github.com/bol-van/zapret target=_blank rel="noopener noreferrer">bol-van/zapret</a>
+<ul>
+<li>for Linux</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux
+<ul>
+<li><a href=https://github.com/liamg/traitor target=_blank rel="noopener noreferrer">liamg/traitor</a>
+<ul>
+<li>MIT, Go</li>
+<li>Linux privilege escalation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Web/滑块验证/机器人
+<ul>
+<li><a href=https://github.com/pavlealeksic/puppeteer-afp target=_blank rel="noopener noreferrer">pavlealeksic/puppeteer-afp</a>
+<ul>
+<li>stop sites from fingerprinting your puppeteer</li>
+</ul>
+</li>
+<li><a href=https://www.zhihu.com/question/287191234/answer/3521005150 target=_blank rel="noopener noreferrer">https://www.zhihu.com/question/287191234/answer/3521005150</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=topic>Topic<a href=#topic class=hash-link aria-label="Direct link to Topic" title="Direct link to Topic">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>en<th>cn<tbody><tr><td>Anti-Bot Verification<td>反机器人验证<tr><td>Authentication<td>认证<tr><td>Security Verification<td>安全验证<tr><td>CAPTCHA<td>图像验证码</table>
+<ul>
+<li>CAPTCHA - Completely Automated Public Turing test to tell Computers and Humans Apart
+<ul>
+<li>by <a href=https://en.wikipedia.org/wiki/Luis_von_Ahn target=_blank rel="noopener noreferrer">Luis von Ahn</a> 2000</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=algorithm>Algorithm<a href=#algorithm class=hash-link aria-label="Direct link to Algorithm" title="Direct link to Algorithm">​</a></h2>
+<ul>
+<li><a href=https://csrc.nist.gov/Projects/Post-Quantum-Cryptography target=_blank rel="noopener noreferrer">https://csrc.nist.gov/Projects/Post-Quantum-Cryptography</a></li>
+<li><a href=https://pq-crystals.org/kyber/ target=_blank rel="noopener noreferrer">CRYSTALS-Kyber</a></li>
+<li><a href=https://signal.org/blog/pqxdh/ target=_blank rel="noopener noreferrer">https://signal.org/blog/pqxdh/</a></li>
+<li><a href=https://security.apple.com/blog/imessage-pq3/ target=_blank rel="noopener noreferrer">iMessage with PQ3</a>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=39453660" target=_blank rel="noopener noreferrer">https://news.ycombinator.com/item?id=39453660</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=service>Service<a href=#service class=hash-link aria-label="Direct link to Service" title="Direct link to Service">​</a></h2>
+<ul>
+<li><a href=https://github.com/smicallef/spiderfoot target=_blank rel="noopener noreferrer">smicallef/spiderfoot</a>
+<ul>
+<li>MIT, Python</li>
+<li>automates OSINT for threat intelligence and mapping your attack surface</li>
+<li><a href=https://en.wikipedia.org/wiki/Open-source_intelligence target=_blank rel="noopener noreferrer">OSINT</a> - Open-source intelligence</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=library>Library<a href=#library class=hash-link aria-label="Direct link to Library" title="Direct link to Library">​</a></h2>
+<ul>
+<li><a href=https://github.com/google/tink target=_blank rel="noopener noreferrer">google/tink</a>
+<ul>
+<li>Java/Android, C++, Obj-C, Go, Python</li>
+<li>基于 BoringSSL</li>
+</ul>
+</li>
+<li><a href=https://github.com/jedisct1/libsodium target=_blank rel="noopener noreferrer">jedisct1/libsodium</a>
+<ul>
+<li>portable, easy to use crypto library</li>
+</ul>
+</li>
+<li><a href=https://nacl.cr.yp.to/ target=_blank rel="noopener noreferrer">NaCl</a> - Networking and Cryptography library
+<ul>
+<li>wikipedia <a href=https://en.wikipedia.org/wiki/NaCl_(software) target=_blank rel="noopener noreferrer">NaCl</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/google/paranoid_crypto target=_blank rel="noopener noreferrer">google/paranoid_crypto</a>
+<ul>
+<li>checks for well known weaknesses on cryptographic</li>
+</ul>
+</li>
+<li><a href=https://github.com/Idov31/Sandman target=_blank rel="noopener noreferrer">Idov31/Sandman</a></li>
+<li>参考
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries target=_blank rel="noopener noreferrer">Comparison of cryptography libraries</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=ssl>SSL<a href=#ssl class=hash-link aria-label="Direct link to SSL" title="Direct link to SSL">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>impl<th>license<th>written in<th>by<th>adopted by<tbody><tr><td><a href=https://github.com/google/boringssl target=_blank rel="noopener noreferrer">BoringSSL</a><td>ISC<td>C, C++, Go<td>Google<td><tr><td><a href=https://github.com/randombit/botan target=_blank rel="noopener noreferrer">Botan</a><td>BSD<td>C++<td><td><tr><td>Bouncy Castle<td>MIT<td>Java,C#<td><td><tr><td>JSSE<td>GPLv2<td>Java<td>Oracle<td><tr><td>LibreSSL<td>Apache-2.0, BSD, ISC<td>C<td>OpenBSD<td>macOS,OpenBSD,DragonflyBSD<tr><td><a href=https://github.com/Mbed-TLS/mbedtls target=_blank rel="noopener noreferrer">MbedTLS</a><td>Apache-2.0, GPLv2+<td>C<td>ARM<td>PowerDNS,OpenVPN<tr><td>NSS<td>MPL-2.0<td>C<td>Mozilla...<td><tr><td>OpenSSL<td>Apache-2.0<td>C<td>OpenSSL<td><tr><td>s2n<td>Apache-2.0, GPLv2+<td>Amazon<td><td><tr><td>Secure Transport<td>APSL-2.0<td>Apple<td><td><tr><td>GnuTLS<td>LGPLv2.1<td>C<td>FSF<td><tr><td>wolfssl<td>GPLv2+<td>C<td><td></table>
+<ul>
+<li>Botan</li>
+<li>MbedTLS
+<ul>
+<li>适用于嵌入式场景</li>
+</ul>
+</li>
+<li>LibreSSL
+<ul>
+<li>2014-04 - OpenBSD fork OpenSSL</li>
+</ul>
+</li>
+<li>BoringSSL
+<ul>
+<li>2014-06 Google fork OpenSSL</li>
+<li>Tink - based on BoringSSL</li>
+</ul>
+</li>
+<li>JSSE - Java Secure Socket Extension</li>
+<li>NSS - Network Security Services</li>
+</ul>
+<div class="theme-admonition theme-admonition-info admonition_Y08F alert alert--info"><div class=admonitionHeading_t1cr><span class=admonitionIcon_hfau><svg viewBox="0 0 14 16"><path fill-rule=evenodd d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></span>info</div><div class=admonitionContent__HUn><ul>
+<li>使用最多的是 OpenSSL - OpenSSL 3.0 变动较大</li>
+<li>2014-04 OpenSSL Heartbleed 事件</li>
+</ul></div></div>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Comparison_of_TLS_implementations target=_blank rel="noopener noreferrer">Comparison of TLS implementations</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=private-pki>Private PKI<a href=#private-pki class=hash-link aria-label="Direct link to Private PKI" title="Direct link to Private PKI">​</a></h2>
+<ul>
+<li><a href=/notes/security/cert/ejbca>Keyfactor/ejbca-ce</a>
+<ul>
+<li>LPLv2.1, Java</li>
+<li><a href=https://hub.docker.com/r/keyfactor/ejbca-ce target=_blank rel="noopener noreferrer">https://hub.docker.com/r/keyfactor/ejbca-ce</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/letsencrypt/boulder target=_blank rel="noopener noreferrer">letsencrypt/boulder</a></li>
+<li><a href=https://github.com/dogtagpki/pki target=_blank rel="noopener noreferrer">dogtagpki/pki</a>
+<ul>
+<li>GPLv2, Java</li>
+</ul>
+</li>
+<li><a href=/notes/security/cert/smallstep>step ca</a></li>
+<li><a href=https://github.com/hakwerk/labca target=_blank rel="noopener noreferrer">hakwerk/labca</a>
+<ul>
+<li>MPLv2+CC, Go</li>
+<li>WebUI</li>
+</ul>
+</li>
+<li><a href=/notes/security/cert/cfssl>cloudflare/cfssl</a>
+<ul>
+<li>BSD-2, Go</li>
+</ul>
+</li>
+<li>Vault Hashicorp</li>
+<li><a href=https://github.com/xipki/xipki target=_blank rel="noopener noreferrer">https://github.com/xipki/xipki</a></li>
+<li><a href=https://github.com/viralpoetry/awesome-pki target=_blank rel="noopener noreferrer">https://github.com/viralpoetry/awesome-pki</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=av>AV<a href=#av class=hash-link aria-label="Direct link to AV" title="Direct link to AV">​</a></h2>
+<ul>
+<li><a href=https://www.av-comparatives.org/tests/performance-test-april-2022/ target=_blank rel="noopener noreferrer">https://www.av-comparatives.org/tests/performance-test-april-2022/</a></li>
+<li><a href=https://github.com/Cisco-Talos/clamav target=_blank rel="noopener noreferrer">Cisco-Talos/clamav</a>
+<ul>
+<li>GPLv2, C, C++</li>
+<li>唯一广泛使用的开源杀毒软件</li>
+</ul>
+</li>
+<li><a href=https://github.com/Tlaster/YourAV target=_blank rel="noopener noreferrer">Tlaster/YourAV</a></li>
+<li><a href=https://en.wikipedia.org/wiki/Comparison_of_antivirus_software target=_blank rel="noopener noreferrer">Comparison of antivirus software</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=index>Index<a href=#index class=hash-link aria-label="Direct link to Index" title="Direct link to Index">​</a></h2>
+<ul>
+<li><a href=https://fofa.so/ target=_blank rel="noopener noreferrer">https://fofa.so/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=password>Password<a href=#password class=hash-link aria-label="Direct link to Password" title="Direct link to Password">​</a></h2>
+<ul>
+<li><a href=http://project-rainbowcrack.com/ target=_blank rel="noopener noreferrer">project-rainbowcrack</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=crack>Crack<a href=#crack class=hash-link aria-label="Direct link to Crack" title="Direct link to Crack">​</a></h2>
+<ul>
+<li>Geetest
+<ul>
+<li><a href=https://github.com/yanglbme/geetest-crack target=_blank rel="noopener noreferrer">yanglbme/geetest-crack</a></li>
+<li><a href=https://github.com/topics/geetest target=_blank rel="noopener noreferrer">https://github.com/topics/geetest</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=firewall>Firewall<a href=#firewall class=hash-link aria-label="Direct link to Firewall" title="Direct link to Firewall">​</a></h2>
+<ul>
+<li><a href=https://shorewall.org/ target=_blank rel="noopener noreferrer">shorewall</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=tools>Tools<a href=#tools class=hash-link aria-label="Direct link to Tools" title="Direct link to Tools">​</a></h2>
+<ul>
+<li><a href=https://github.com/samuel-lucas6/Kryptor target=_blank rel="noopener noreferrer">samuel-lucas6/Kryptor</a></li>
+<li><a href=/notes/security/age.md>FiloSottile/age</a>
+<ul>
+<li>file encryption tool</li>
+<li><a href="https://news.ycombinator.com/item?id=28435613" target=_blank rel="noopener noreferrer">HN</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/FiloSottile/yubikey-agent target=_blank rel="noopener noreferrer">FiloSottile/yubikey-agent</a></li>
+<li><a href=https://github.com/str4d/rage target=_blank rel="noopener noreferrer">str4d/rage</a>
+<ul>
+<li>类似 age，但 rust 实现</li>
+<li>依然还不支持 ssh-agent</li>
+</ul>
+</li>
+<li><a href=https://github.com/woodruffw/kbs2 target=_blank rel="noopener noreferrer">woodruffw/kbs2</a>
+<ul>
+<li>secret manager backed by age</li>
+</ul>
+</li>
+<li><a href=https://github.com/Ex0dIa-dev/ssh-honeypot-go target=_blank rel="noopener noreferrer">Ex0dIa-dev/ssh-honeypot-go</a></li>
+<li><a href=https://github.com/sairson/Yasso target=_blank rel="noopener noreferrer">sairson/Yasso</a></li>
+<li><a href=https://github.com/geemion/Khepri target=_blank rel="noopener noreferrer">geemion/Khepri</a></li>
+<li><a href=https://github.com/carlospolop/PEASS-ng target=_blank rel="noopener noreferrer">carlospolop/PEASS-ng</a>
+<ul>
+<li>PEASS - Privilege Escalation Awesome Scripts SUITE</li>
+</ul>
+</li>
+<li>Repo
+<ul>
+<li><a href=https://github.com/StackExchange/blackbox target=_blank rel="noopener noreferrer">StackExchange/blackbox</a></li>
+<li>git-secret</li>
+<li><a href=https://github.com/AGWA/git-crypt target=_blank rel="noopener noreferrer">AGWA/git-crypt</a>
+<ul>
+<li>GPLv3, C++</li>
+</ul>
+</li>
+<li><a href=https://github.com/slok/agebox target=_blank rel="noopener noreferrer">slok/agebox</a>
+<ul>
+<li>Apache-2.0, Golang</li>
+<li>基于 age</li>
+<li>.ageboxreg.yml</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pgp
+<ul>
+<li>encryption, signing services, key management, web-of-trust, smartcard compat</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=reference>Reference<a href=#reference class=hash-link aria-label="Direct link to Reference" title="Direct link to Reference">​</a></h2>
+<ul>
+<li><a href=https://github.com/scaredos/cfresearch target=_blank rel="noopener noreferrer">scaredos/cfresearch</a>
+research from CloudFlare's Anti-DDoS challenges.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=web>Web<a href=#web class=hash-link aria-label="Direct link to Web" title="Direct link to Web">​</a></h2>
+<ul>
+<li><a href=https://github.com/jptosso/coraza-waf target=_blank rel="noopener noreferrer">jptosso/coraza-waf</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=aes>AES<a href=#aes class=hash-link aria-label="Direct link to AES" title="Direct link to AES">​</a></h2>
+<ul>
+<li>建议 Key 至少 256</li>
+<li>CBC/CTR/GCM/CCM/EAX</li>
+<li>不要使用 ECB</li>
+<li>used by
+<ul>
+<li>US Government to protect their own files - <a href=http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf target=_blank rel="noopener noreferrer">FIPS 197</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=block-cipher-mode>Block cipher mode<a href=#block-cipher-mode class=hash-link aria-label="Direct link to Block cipher mode" title="Direct link to Block cipher mode">​</a></h2>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation target=_blank rel="noopener noreferrer">https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation</a></li>
+</ul>
+<p>ECB should not be used if encrypting more than one block of data with the same key.</p>
+<p>CBC, OFB and CFB are similar, however OFB/CFB is better because you only need encryption and not decryption, which can save code space.</p>
+<ul>
+<li>CTR 并行效率高于 CBC/OFB/CFB</li>
+<li><a href=https://stackoverflow.com/a/1220869/1870054 target=_blank rel="noopener noreferrer">https://stackoverflow.com/a/1220869/1870054</a></li>
+<li><a href=https://stackoverflow.com/questions/1220751 target=_blank rel="noopener noreferrer">https://stackoverflow.com/questions/1220751</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=spam>Spam<a href=#spam class=hash-link aria-label="Direct link to Spam" title="Direct link to Spam">​</a></h2>
+<ul>
+<li><a href=https://github.com/cobaltdisco/Google-Chinese-Results-Blocklist target=_blank rel="noopener noreferrer">cobaltdisco/Google-Chinese-Results-Blocklist</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=scan>Scan<a href=#scan class=hash-link aria-label="Direct link to Scan" title="Direct link to Scan">​</a></h2>
+<ul>
+<li><a href=https://github.com/future-architect/vuls target=_blank rel="noopener noreferrer">future-architect/vuls</a>
+<ul>
+<li>GPLv3, Golang</li>
+<li>Agent-less vulnerability scanner for Linux, FreeBSD, Container, WordPress, Programming language libraries, Network devices</li>
+</ul>
+</li>
+<li><a href=https://github.com/robertdavidgraham/masscan target=_blank rel="noopener noreferrer">robertdavidgraham/masscan</a></li>
+<li><a href=https://github.com/projectdiscovery target=_blank rel="noopener noreferrer">projectdiscovery</a>
+<ul>
+<li><a href=https://github.com/projectdiscovery/nuclei target=_blank rel="noopener noreferrer">nuclei</a>
+<ul>
+<li>vulnerability scanner</li>
+<li><a href=https://github.com/projectdiscovery/nuclei-templates target=_blank rel="noopener noreferrer">nuclei-templates</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/projectdiscovery/subfinder target=_blank rel="noopener noreferrer">subfinder</a>
+<ul>
+<li>subdomain discovery</li>
+</ul>
+</li>
+<li><a href=https://github.com/projectdiscovery/interactsh target=_blank rel="noopener noreferrer">interactsh</a>
+<ul>
+<li>OOB</li>
+</ul>
+</li>
+<li><a href=https://github.com/projectdiscovery/naabu target=_blank rel="noopener noreferrer">naabu</a>
+<ul>
+<li>port scanner</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://github.com/aquasecurity/trivy target=_blank rel="noopener noreferrer">aquasecurity/trivy</a>
+<ul>
+<li>Apache-2.0, Go</li>
+<li>Scanner for vulnerabilities in container images, file systems, and Git</li>
+</ul>
+</li>
+<li>服务
+<ul>
+<li><a href="https://www.shodan.io/search?query=clickhouse" target=_blank rel="noopener noreferrer">https://www.shodan.io/search?query=clickhouse</a></li>
+</ul>
+</li>
+<li><a href=https://github.com/ivre/ivre target=_blank rel="noopener noreferrer">ivre/ivre</a>
+<ul>
+<li>GPLv3, Python</li>
+<li>Network recon framework</li>
+<li><a href=https://ivre.rocks/ target=_blank rel="noopener noreferrer">https://ivre.rocks/</a></li>
+</ul>
+</li>
+<li><a href=https://www.arachni-scanner.com/ target=_blank rel="noopener noreferrer">https://www.arachni-scanner.com/</a></li>
+<li><a href=https://ecsypno.com/ target=_blank rel="noopener noreferrer">https://ecsypno.com/</a></li>
+<li><a href=https://github.com/Arachni target=_blank rel="noopener noreferrer">https://github.com/Arachni</a></li>
+<li><a href=https://github.com/qadron/ target=_blank rel="noopener noreferrer">https://github.com/qadron/</a></li>
+<li><a href=https://github.com/ecsypno target=_blank rel="noopener noreferrer">https://github.com/ecsypno</a></li>
+<li><a href=https://github.com/scnr/ target=_blank rel="noopener noreferrer">https://github.com/scnr/</a></li>
+<li><a href=https://github.com/laramies/theHarvester target=_blank rel="noopener noreferrer">laramies/theHarvester</a>
+<ul>
+<li>E-mails, subdomains and names Harvester - OSINT</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Nmap
+<ul>
+<li>端口扫描 + 指纹探测 + 简单的漏洞扫描</li>
+</ul>
+</li>
+<li>AWVS - Acunetix Web Vulnerability Scanner
+<ul>
+<li>Web 漏洞扫描</li>
+</ul>
+</li>
+<li>AppScan</li>
+<li>Nessus
+<ul>
+<li>系统安全漏洞扫描</li>
+</ul>
+</li>
+<li>Goby
+<ul>
+<li>资产探测和漏洞检查</li>
+</ul>
+</li>
+<li>NetSparker</li>
+<li>Xray
+<ul>
+<li>被动 Web 漏洞检查</li>
+</ul>
+</li>
+<li>fscan
+<ul>
+<li>内网渗透</li>
+</ul>
+</li>
+<li>burpsuite</li>
+<li>msf sqlmap</li>
+<li>IAST</li>
+<li><a href=https://ipchaxun.com/ target=_blank rel="noopener noreferrer">https://ipchaxun.com/</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_gXJ2" id=参考>参考<a href=#参考 class=hash-link aria-label="Direct link to 参考" title="Direct link to 参考">​</a></h2>
+<ul>
+<li>wikipedia <a href=https://en.wikipedia.org/wiki/Dynamic_application_security_testing target=_blank rel="noopener noreferrer">DAST</a>
+<ul>
+<li>Dynamic application security testing</li>
+</ul>
+</li>
+<li><a href=https://www.goggleheadedhacker.com/blog/post/reversing-crypto-functions-aes target=_blank rel="noopener noreferrer">Reverse Engineering Crypto Functions: AES</a></li>
+<li><a href=https://github.com/klezVirus/vortex target=_blank rel="noopener noreferrer">klezVirus/vortex</a>
+<ul>
+<li>VPN Overall Reconnaissance, Testing, Enumeration and Exploitation Toolkit</li>
+</ul>
+</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class=col><b>Tags:</b><ul class="tags_Jiah padding--none margin-left--sm"><li class=tag_lTj9><a class="tag_IMqe tagRegular_cnjZ" href=/notes/tags/awesome>Awesome</a></ul></div></div><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class=col><a href=https://github.com/wenerme/wener/edit/master/notes/../notes/security/security-awesome.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_UJMw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_UYAl"><span class=theme-last-updated>Last updated<!-- --> on <b><time datetime=2024-09-02T03:20:13.000Z itemprop=dateModified>Sep 2, 2024</time></b> by <b>wener</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/notes/security/scan/trivy><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>trivy</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/notes/security/faq><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Security FAQ</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_nk4Y thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#topic class="table-of-contents__link toc-highlight">Topic</a><li><a href=#algorithm class="table-of-contents__link toc-highlight">Algorithm</a><li><a href=#service class="table-of-contents__link toc-highlight">Service</a><li><a href=#library class="table-of-contents__link toc-highlight">Library</a><li><a href=#ssl class="table-of-contents__link toc-highlight">SSL</a><li><a href=#private-pki class="table-of-contents__link toc-highlight">Private PKI</a><li><a href=#av class="table-of-contents__link toc-highlight">AV</a><li><a href=#index class="table-of-contents__link toc-highlight">Index</a><li><a href=#password class="table-of-contents__link toc-highlight">Password</a><li><a href=#crack class="table-of-contents__link toc-highlight">Crack</a><li><a href=#firewall class="table-of-contents__link toc-highlight">Firewall</a><li><a href=#tools class="table-of-contents__link toc-highlight">Tools</a><li><a href=#reference class="table-of-contents__link toc-highlight">Reference</a><li><a href=#web class="table-of-contents__link toc-highlight">Web</a><li><a href=#aes class="table-of-contents__link toc-highlight">AES</a><li><a href=#block-cipher-mode class="table-of-contents__link toc-highlight">Block cipher mode</a><li><a href=#spam class="table-of-contents__link toc-highlight">Spam</a><li><a href=#scan class="table-of-contents__link toc-highlight">Scan</a><li><a href=#参考 class="table-of-contents__link toc-highlight">参考</a></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class=footer__title>笔记</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/notes/java>Java</a><li class=footer__item><a class=footer__link-item href=/notes/os/alpine>AlpineLinux</a><li class=footer__item><a class=footer__link-item href=/notes/devops/kubernetes>Kubernates</a><li class=footer__item><a class=footer__link-item href=/notes/voip>VoIP</a></ul></div><div class="col footer__col"><div class=footer__title>Projects</div><ul class="footer__items clean-list"><li class=footer__item>
+              <div>
+              <a class=footer__link-item href=https://github.com/wenerme/wener>Wener</a>
+              -
+              <a class=footer__link-item href=https://github.com/wenerme/wener/actions title="wenerme/wener - ci">
+              <img style="vertical-align: middle;opacity: .4;" src=https://github.com/wenerme/wener/workflows/Build/badge.svg>
+              </a>
+              </div>
+              <li class=footer__item><a href=https://apis.wener.me target=_blank rel="noopener noreferrer" class=footer__link-item>Wener's Apis<svg width=13.5 height=13.5 aria-hidden=true viewBox="0 0 24 24" class=iconExternalLink_hxdO><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></svg></a></ul></div><div class="col footer__col"><div class=footer__title>Social</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/story>Blog</a><li class=footer__item><a href=https://github.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>GitHub</a><li class=footer__item><a href=https://twitter.com/wenerme target=_blank rel="noopener noreferrer" class=footer__link-item>Twitter</a></ul></div></div><div class="footer__bottom text--center"><div class=margin-bottom--sm><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_wSAl themedComponent--light_ucsn"><img src=/img/wener-logo.svg alt="Wener Site" class="footer__logo themedComponent_wSAl themedComponent--dark_rJUF"></div><div class=footer__copyright>Copyright © 1992-2024 Wener - <img alt=cc-by-sa-4.0 src=https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-sa.svg> - Build @2024-12-08 21:46</div></div></div></footer></div>
