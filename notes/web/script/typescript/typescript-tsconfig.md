@@ -27,6 +27,12 @@ tsc --p tsconfig.page.json
 | node18 | `{"lib": ["es2023"],"module": "Node16","target": "es2022",}` |
 | node20 | `{"lib": ["es2023"],"module": "Node16","target": "es2022",}` |
 
+## lib
+
+- [src/lib/esnext.full.d.ts](https://github.com/saschanaz/TypeScript/blob/main/src/lib/esnext.full.d.ts)
+- https://github.com/saschanaz/TypeScript/blob/main/src/lib/libs.json
+- https://github.com/saschanaz/TypeScript/blob/14da4889691e310d479327072b05544f3c1ec555/src/compiler/commandLineParser.ts#L147-L231
+
 ## 常用属性
 
 - _target_ - 默认 es3, 推荐至少 es6

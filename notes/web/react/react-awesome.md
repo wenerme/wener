@@ -221,6 +221,23 @@ npm add date-fns lodash-es react-fast-compare
     - Create a window manager with React
   - [react-div-100vh](https://www.npmjs.com/package/react-div-100vh)
     - 移动端屏高问题
+  - [caplin/FlexLayout](https://github.com/caplin/FlexLayout)
+    - Docking Layout Manager
+  - golden-layout
+    - multi window layout manager
+  - [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+    - 检测元素是否在窗口可见
+    - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+  - [Aljullu/react-lazy-load-image-component](https://github.com/Aljullu/react-lazy-load-image-component)
+    - MIT, JS
+    - 基于 IntersectionObserver
+  - [maslianok/react-resize-detector](https://github.com/maslianok/react-resize-detector)
+    - `const { width, height, ref } = useResizeDetector()`
+    - 基于 ResizeObservers
+  - [mattrothenberg/react-overflow-list](https://github.com/mattrothenberg/react-overflow-list)
+    - Overflow List 动态显示隐藏
+  - [mgorabbani/react-image-pan-zoom-rotate](https://github.com/mgorabbani/react-image-pan-zoom-rotate)
+    - 图片缩放、旋转
 - scrollbar/container/affix
   - react-scroll
     - 实现滚动到自定义位置
@@ -394,7 +411,7 @@ npm add date-fns lodash-es react-fast-compare
 
 - [molefrog/spoiled](https://github.com/molefrog/spoiled)
 - [tamagui/tamagui](https://github.com/tamagui/tamagui)
-- [thebuilder/react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+
 - [gabrielbull/react-desktop](https://github.com/gabrielbull/react-desktop)
   - 模仿 macOS High Sierra 和 Windows 10 的组件
 - [reakit/reakit](https://github.com/reakit/reakit) - 专注于 accessible 的组件

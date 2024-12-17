@@ -200,13 +200,19 @@ tags:
 - [lxe/simple-llama-finetuner](https://github.com/lxe/simple-llama-finetuner)
   - LLaMA Finetuner
 
-## Audio to Text
+## Speech To Text {#stt}
 
-- ASR - Automatic Speech Recognition
+- [STT](./stt/README.md) - Speech To Text - 语音转文本
+- ASR - Automatic Speech Recognition - 自动语音识别
 - [whisper](./whisper.md)
 - [FunASR](./funasr.md)
   - MIT, Python
   - by 阿里
+- [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)
+  - Apache-2.0, Python, C++
+  - End-to-End Speech Recognition Toolkit
+- SpeechBrain
+- Kaldi
 - [jianfch/stable-ts](https://github.com/jianfch/stable-ts)
   - MIT, Python
 - Universal Speech Model

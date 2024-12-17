@@ -1,6 +1,6 @@
 ---
 tags:
-- Package Manager
+  - Package Manager
 ---
 
 # poetry
@@ -150,3 +150,8 @@ poetry run echo "Venv initialized"
 ```
 
 用于先有 venv, 然后需要使用 pip 安装部分依赖, 然后再使用 poetry 安装的场景
+
+```bash
+# 进入 venv 环境
+poetry shell
+```

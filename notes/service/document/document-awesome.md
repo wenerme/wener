@@ -198,6 +198,8 @@ tags:
   - [exceljs/exceljs](https://github.com/exceljs/exceljs)
     - MIT, JS
     - Excel Workbook Manager
+    - ⚠️ 项目开发不活跃
+      - https://github.com/exceljs/exceljs/issues/2764
     - vs sheetjs
       - 完整样式支持
       - 支持的格式更少
@@ -207,6 +209,12 @@ tags:
       - 不支持 i18n
       - 不支持 Data Validations, Conditional Formatting
       - 不会对 formula 求值
+  - [ag-grid](https://github.com/ag-grid/ag-grid)
+    - MIT, TS, React, Angular, Vue
+    - 社区版+企业版
+  - [jmaister/excellentexport](https://github.com/jmaister/excellentexport)
+    - MIT, TS
+    - 导出 Excel
   - [dream-num/Luckysheet](./luckysheet.md)
   - [future-architect/cheetah-grid](https://github.com/future-architect/cheetah-grid)
     - MIT, JS, TS, Vue, React
@@ -222,7 +230,7 @@ tags:
     - 926kB, 256kB
     - deps: gl-matrix, @antv/g
   - [handsontable/handsontable](https://github.com/handsontable/handsontable)
-    - license 不允许商业产品使用
+    - license **不允许** 商业产品使用
   - ~~[myliang/x-spreadsheet](https://github.com/myliang/x-spreadsheet)~~
     - MIT, JS
     - ⚠️ 开发不活跃
@@ -316,13 +324,27 @@ tags:
 
 ## 商业
 
-- https://www.grapecity.com.cn/developer/spreadjs
-  - adopted by https://yunnzhangfanng.com/
-  - [@grapecity/spread-excelio](https://www.npmjs.com/package/@grapecity/spread-excelio)
-    - SpreadJS JSON <-> XLSX
-  - https://www.grapecity.com.cn/developer/spreadjs/price
-    - ￥29, 400+￥22, 000
+- https://www.grapecity.com
+  - 葡萄城软件（GrapeCity）是一家起源于日本的公司，总部位于日本仙台市。
+  - https://www.grapecity.com.cn/developer/spreadjs
+    - adopted by https://yunnzhangfanng.com/
+    - [@grapecity/spread-excelio](https://www.npmjs.com/package/@grapecity/spread-excelio)
+      - SpreadJS JSON <-> XLSX
+    - https://www.grapecity.com.cn/developer/spreadjs/price
+      - 个人 - ￥9800 - 1人开发
+      - 团队 - ￥29400 - 4人开发
+- [Ag-Grid](https://github.com/ag-grid/ag-grid)
+  - https://www.ag-grid.com/license-pricing/
+    - AG Grid Enterprise $999/开发者
+- Handsontable
+  - https://handsontable.com/pricing
 - onlyoffice
+  - https://www.onlyoffice.com/workspace-prices.aspx
+- SheetJS Pro
+- https://www.syncfusion.com/
+  - 价格 https://www.syncfusion.com/sales/teamlicense
+- https://www.componentsource.com/
+  - 有一些产品的价格
 
 ## 协议
 

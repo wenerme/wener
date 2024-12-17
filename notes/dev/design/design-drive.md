@@ -1095,7 +1095,31 @@ Name[zh_CN]=显示名称
   - ~~[blang/vfs](https://github.com/blang/vfs)~~
   - [psanford/memfs](https://github.com/psanford/memfs)
     - In-memory implementation of Go's `io/fs.FS` interface
+- Java
+  - [apache/commons-vfs](https://github.com/apache/commons-vfs)
+    - [org.apache.commons.vfs2.FileSystem] https://github.com/apache/commons-vfs/blob/master/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystem.java
+    - [org.apache.commons.vfs2.FileObject](https://github.com/apache/commons-vfs/blob/master/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileObject.java)
+    - [org.apache.commons.vfs2.FileName](https://github.com/apache/commons-vfs/blob/master/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileName.java)
 - https://github.com/gulpjs/vinyl
 - https://en.wikipedia.org/wiki/Filename
 - https://github.com/opencurve/curve/blob/master/docs/cn/chunkserver_design.md
   - https://github.com/opencurve/curve/blob/master/docs/en/chunkserver_design_en.md
+
+```ts
+// based on Apache commons-vfs2
+class FileName {
+  path: string;
+  baseName: string;
+  depth: number;
+  extention: string;
+  parent: FileName | null;
+  root: FileName | null;
+  schema: string;
+  type: 'FILE' | 'FOLDER';
+  uri: string;
+
+  isAncestor(file: FileName): boolean;
+  isDescendant(file: FileName, nameScope: 'FILE_SYSTEM' | 'CHILD' | 'DESCENDENT' | 'ANCESTOR'): boolean;
+  isFile(): boolean;
+}
+```

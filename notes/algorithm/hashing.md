@@ -238,3 +238,16 @@ echo -n "secret" | argon2 "saltsalt" -e
 - 犹豫就选择 sha256
 - http://emboss.github.io/blog/2012/12/14/breaking-murmur-hash-flooding-dos-reloaded/
 - https://github.com/microsoft/AttackSurfaceAnalyzer/issues/8#issuecomment-478215004
+
+## Well Known
+
+```bash
+echo -n "" | openssl dgst -sha256
+php -r 'echo hash("sha256", "");'
+```
+
+_空字符串_
+
+| hash   | value                                                            |
+| ------ | ---------------------------------------------------------------- |
+| sha256 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |

@@ -255,3 +255,15 @@ curl -s https://mirrors.aliyun.com/alpine/MIRRORS.txt | xargs -n1 -I {} sh -c 'e
 # rsync 服务建议使用官方 rsync.alpinelinux.org - 国内镜像要嘛不支持要嘛偶尔有问题
 rsync --archive --update --hard-links --timeout=600 --progress rsync://rsync.alpinelinux.org/alpine/ /alpine/mirror
 ```
+
+## PIP
+
+- Aliyun https://mirrors.aliyun.com/pypi/simple
+- Baidu https://mirror.baidu.com/pypi/simple
+
+```toml title="pyproject.toml"
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
+priority = "primary"
+```

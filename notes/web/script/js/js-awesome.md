@@ -152,10 +152,13 @@ tags:
   - date-fns
     - 多错误的容忍度低
     - 可 tree-shaking
+      - format 约 20kB/6kB
+    - format 格式为标准的 unicode CLDR
   - dayjs
     - Fast 2kB alternative to Moment.js
     - 接口友好
     - 不可 tree-shaking
+    - format 格式 follow Moment.js - 非标准
     - Immutable
     - plugins
       - duration
@@ -552,8 +555,13 @@ tags:
   - [ajv](./lib/ajv.md)
     - JSON Schema
   - [zod](./lib/zod.md)
+    - 58kB/14kB, 不可 tree-shaking
     - 定义的校验会生成 ts 类型
     - TypeScript-first schema validation
+  - valibot
+    - `import * as v from 'valibot'`
+    - 可 tree-shaking
+      - 一个简单对象约 3kB/1kB
   - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
   - yup
   - joi

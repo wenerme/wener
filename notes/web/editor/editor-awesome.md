@@ -36,6 +36,9 @@ tags:
   - [lovasoa/react-contenteditable](https://github.com/lovasoa/react-contenteditable)
     - Apache-2.0, React ContentEditable
     - 非常简单的 ContentEditable 封装
+  - [uiwjs/react-md-editor](https://github.com/uiwjs/react-md-editor)
+    - MIT, TS
+    - npm:@uiw/react-md-editor
 - [slab/quill](https://github.com/slab/quill)
   - BSD-3, TS
   - Quill is a modern WYSIWYG editor built for compatibility and extensibility.

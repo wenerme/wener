@@ -9,6 +9,7 @@ title: Github
   - https://gist.github.com/toolbear/ac62691d6f59812a6710
     GitHub as an authority for SSH public keys
   - https://codeload.github.com/bufbuild/buf/tar.gz/refs/tags/v1.3.0
+  - https://trendshift.io/
 
 ```bash
 curl https://github.com/wenerme.keys >> ~/.ssh/authorized_keys

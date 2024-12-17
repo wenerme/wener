@@ -49,27 +49,48 @@ tags:
   - Optimization - 优化
   - Monetization - 价值变现
   - Management - 管理
-- https://www.joelonsoftware.com/
-- https://www.martinfowler.com/
-- https://web.stanford.edu/~ouster/cgi-bin/decisions.php
+- 专注于价值交付
+  - 定义“价值”
+    - 客户
+    - 内部
+    - 个人
+  - 理解核心需求
+    - 结果导向
+    - 体验导向
+    - 目标驱动
+    - 客户优先
+  - 减少非核心工作
+  - 优化交付流程
+  - 聚焦高价值任务
+  - 打造客户价值感知
+  - 解放精力，聚焦资源
+- 2/8原则
+  - MVP
+  - 避免过度设计
+- 参考
+  - https://www.joelonsoftware.com/
+  - https://www.martinfowler.com/
+  - https://web.stanford.edu/~ouster/cgi-bin/decisions.php
 
 ## 常见命名格式 {#case}
 
-| case                            | demo                    | for                          |
-| ------------------------------- | ----------------------- | ---------------------------- |
-| `SNAKE_CASE`,`UPPER_SNAKE_CASE` | `MY_CONSTANT_VALUE`     | 常量值、宏定义               |
-| `camelCase`                     | `myVariableName`        | 变量名、函数名               |
-| `PascalCase`                    | `MyClassName`           | 类名、构造函数名             |
-| `kebab-case`,`dash-case`        | `my-variable-name`      | 文件名、URL 路径             |
-| `Title Case`                    | `Title Case Example`    | 标题、文章标题               |
-| `lower_snake_case`              | `my_variable_name`      | 文件名、数据库列名           |
-| `Train-Case`                    | `Train-Case`            | API 名称、某些特定语言的类名 |
-| `dot.case`                      | `my.variable.name`      | 配置项、文件路径             |
-| `Sentence case`                 | `Sentence case example` | 标题、段落开头               |
-| `path/case`                     | `path/case/example`     | 文件路径、URL 路径           |
-| `UPPERCASE`                     | `UPPERCASE`             | 缩写、某些特定语言的常量     |
-| `lowercase`                     | `lowercase`             | 某些特定文件名或变量名       |
-| `namespace:identifier`          | `system:admin`          | 命名空间、标识符、OIDC Scope |
+| case                            | demo                    | for                            |
+| ------------------------------- | ----------------------- | ------------------------------ |
+| `SNAKE_CASE`,`UPPER_SNAKE_CASE` | `MY_CONSTANT_VALUE`     | 常量值、宏定义                 |
+| `camelCase`                     | `myVariableName`        | 变量名、函数名                 |
+| `PascalCase`                    | `MyClassName`           | 类名、构造函数名               |
+| `kebab-case`,`dash-case`        | `my-variable-name`      | 文件名、URL 路径               |
+| `Title Case`                    | `Title Case Example`    | 标题、文章标题                 |
+| `lower_snake_case`              | `my_variable_name`      | 文件名、数据库列名             |
+| `Train-Case`                    | `Train-Case`            | API 名称、某些特定语言的类名   |
+| `dot.case`                      | `my.variable.name`      | 配置项、文件路径               |
+| `Sentence case`                 | `Sentence case example` | 标题、段落开头                 |
+| `path/case`                     | `path/case/example`     | 文件路径、URL 路径             |
+| `PascalCase\PascalCase`         | `Grpc\BaseStub`         | PHP namespace                  |
+| `UPPERCASE`                     | `UPPERCASE`             | 缩写、某些特定语言的常量       |
+| `lowercase`                     | `lowercase`             | 某些特定文件名或变量名         |
+| `namespace:identifier`          | `system:admin`          | 命名空间、标识符、OIDC Scope   |
+| `com.case.lower`                | `me.wener.code`         | Reverse Domain Name, namespace |
 
 - golang 里特殊的名词会做大写
   - 例如 `UserID` 而不是 `UserId`
@@ -652,3 +673,28 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
     - 可扩展性、容错性
     - 微服务架构、分布式、RPC
   - 设计原则 - SOLID, DRY, KISS, YAGNI
+
+## 如何判断是否过度设计？ {#over-design}
+
+> 分辨「需要」和「可能需要」之间的界限，并权衡当前与未来的复杂性成本。
+
+---
+
+- 是否解决了当前明确的核心需求？
+- 是否在为未来的“可能性”做设计？
+- 是否为少数特殊情况增加了复杂度？
+- 是否增加了维护成本？
+
+---
+
+- 好的设计能减少维护和控制复杂度
+
+---
+
+- 优先解决当前问题
+- 设计可演进的系统
+- 使用 MVP 原则
+- 定义一个“YAGNI”边界 - You Aren’t Gonna Need It
+  - 明确列出「不需要」的内容，避免“顺手实现”。
+- 以成本和收益为衡量标准
+  - ROI

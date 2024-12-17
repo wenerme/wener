@@ -30,6 +30,32 @@ tags:
 - [WhiteHouse/api-standards](https://github.com/WhiteHouse/api-standards)
 - https://postgrest.org/en/stable/api.html
 
+## 设计场景 {#scenarios}
+
+- **本地/内存**
+  - 能够在内部持有引用，无需一次性加载或读写所有数据，支持逐步处理。
+  - 接口友好，直观简洁，方便开发者直接操作。
+  - 常见形式：`handle`, `pointer`, `reference`, `object`, `entity`
+- **远程/网络**
+  - 服务以 Request/Response 模式提供，保持 API 的简单性和可扩展性。
+  - 请求响应应保持单层关系：`Service.Method(Request) -> Response`。
+  - 尽量保持单个输入输出对象，避免多层嵌套。
+  - 信息设计相对浓缩：
+    - 例如，使用字符串 `"A > 1"` 表示条件，而非复杂对象 `{op: '>', field: 'A', value: 1}`。
+  - 单个接口应功能丰富，覆盖特定用例。
+  - 需要考虑：序列化、包大小、状态、会话、幂等性、性能、错误处理、安全性。
+  - 常见形式：`message`, `payload`, `data`, `object`
+- **封装**
+  - 将复杂的远程或底层接口封装为类似本地接口，隐藏内部实现细节。
+  - 提供开发者友好的接口，便于快速上手。
+  - 提供便携的使用方式，降低集成成本。
+  - 常见形式：`object`, `resource`
+- **系统/集成**
+  - 尽量保持系统原貌，避免过度抽象导致系统功能受限。
+  - 不隐藏系统内部机制，便于开发者理解和排查问题。
+  - 按照系统本身的逻辑建模，提升兼容性和可维护性。
+  - 常见形式：`syscall`
+
 ## 分页和排序 {#pagination}
 
 - Offset/Limit

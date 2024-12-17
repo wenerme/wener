@@ -11,6 +11,9 @@ title: OpenTelemetry
 - 参考
   - [open-telemetry/opentelemetry-operator](https://github.com/open-telemetry/opentelemetry-operator)
 - otlp
+  - /v1/traces
+  - /v1/metrics
+  - /v1/logs
 
 ```bash
 docker run --rm -it \
@@ -72,7 +75,18 @@ service:
       exporters: [otlp]
 ```
 
+## Integration
+
+| env                         | for |
+| --------------------------- | --- |
+| OTEL_EXPORTER_OTLP_ENDPOINT |
+| OTEL_LOG_LEVEL              |
+
 ## NodeJS
+
+- 参考
+  - https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
+  - Hono https://github.com/orgs/honojs/discussions/3215
 
 ```bash
 npm add @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/auto-instrumentations-node
@@ -86,21 +100,22 @@ npm add @opentelemetry/sdk-trace-node @opentelemetry/exporter-trace-otlp-proto
 'use strict';
 
 import process from 'node:process';
+import opentelemetry from '@opentelemetry/sdk-node';
+import { NodeSDK } from '@opentelemetry/sdk-node';
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-base';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+import { PeriodicExportingMetricReader, ConsoleMetricExporter } from '@opentelemetry/sdk-metrics';
 
-const opentelemetry = require('@opentelemetry/sdk-node');
-const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-const { ConsoleSpanExporter } = require('@opentelemetry/sdk-trace-base');
-const { Resource } = require('@opentelemetry/resources');
-const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
-
-// configure the SDK to export telemetry data to the console
-// enable all auto-instrumentations from the meta package
-const traceExporter = new ConsoleSpanExporter();
-const sdk = new opentelemetry.NodeSDK({
+const sdk = new NodeSDK({
+  traceExporter: new ConsoleSpanExporter(),
+  metricReader: new PeriodicExportingMetricReader({
+    exporter: new ConsoleMetricExporter(),
+  }),
   resource: new Resource({
     [SemanticResourceAttributes.SERVICE_NAME]: 'my-service',
   }),
-  traceExporter,
   instrumentations: [getNodeAutoInstrumentations()],
 });
 

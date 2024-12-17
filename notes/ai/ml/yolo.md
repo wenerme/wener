@@ -26,6 +26,7 @@ title: Yolo
   - https://docs.ultralytics.com/
   - [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
     - **AGPLv3**
+    - ~/.config/Ultralytics/settings.json
 - YOLOv9
   - based on YOLOv5
   - [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)

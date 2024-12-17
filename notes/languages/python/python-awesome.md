@@ -7,6 +7,32 @@ tags:
 
 - https://pypa.io
   - PyPA -> Python Packaging Authority
+- PSF -> Python Software Foundation
+- Typing
+  - [pydantic](https://github.com/pydantic/pydantic)
+    - MIT
+    - ⭐⭐⭐⭐⭐
+    - by Samuel Colvin
+    - Data validation and settings management using Python type annotations.
+    - 要求 Python 3.8+
+  - [dataclasses](https://docs.python.org/3/library/dataclasses.html)
+    - PSF
+    - by PSF
+    - Python 3.7+, lightweight, immutable data classes with minimal boilerplate.
+  - [typing](https://docs.python.org/3/library/typing.html)
+    - PSF
+    - by PSF
+    - PEP 484,  static type checking in Python.
+  - [mypy](https://github.com/python/mypy)
+    - MIT
+    - by Jukka Lehtosalo
+  - [pyright](https://github.com/microsoft/pyright)
+    - MIT
+    - by Microsoft
+  - [pytype](https://github.com/google/pytype)
+    - Apache-2.0
+    - by Google
+    - A Python type inferencer and static analyzer that checks and infers Python types, supporting legacy Python code.
 - Toolchain
   - pip
   - poetry
@@ -31,7 +57,7 @@ tags:
   - PyQT5
   - [Kivy](https://github.com/kivy/kivy)
     - MIT, Python, Cython
-    -  OpenGL ES 2.0
+    - OpenGL ES 2.0
   - wxPython
   - Libavg
     - for media-centric applications
@@ -44,4 +70,3 @@ tags:
     - OpenGL, GTK
   - Streamlit
   - Dear PyGui
-

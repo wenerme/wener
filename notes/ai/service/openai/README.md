@@ -4,6 +4,12 @@ title: OpenAI
 
 # OpenAI
 
+```bash
+# 判断是否 Block
+# 可能返回 403 - 因为 CF Challenge
+curl https://sora.com/backend/public/authenticate
+```
+
 **价格**
 
 | Service                |             Input |             Output | Notes      |
@@ -112,6 +118,11 @@ export OPENAI_API_KEY="<OPENAI_API_KEY>"
 openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -m <BASE_MODEL>
 openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
 ```
+
+# FAQ
+
+- Sora - Supported Countries https://help.openai.com/en/articles/10250692
+- ChatGPT Supported Countries https://help.openai.com/en/articles/7947663
 
 ## Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests per min. Limit: 60 / min.
 

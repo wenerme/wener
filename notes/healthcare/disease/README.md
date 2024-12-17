@@ -4,12 +4,16 @@ title: 疾病
 
 # 疾病
 
-| abbr. | stand for            |
+| abbr. | stand for            | meaning        |
 | ----- | -------------------- | -------------- |
 | RA    | rheumatoid arthritis | 类风湿性关节炎 |
 
+| en               | cn     |
+| ---------------- | ------ |
+| tinnitus         | 耳鸣   |
+| house dust mites | 屋尘螨 |
+
 - [Lists of diseases](https://en.wikipedia.org/wiki/Lists_of_diseases)
-- house dust mites - 屋尘螨
 
 ## 汗疱疹
 

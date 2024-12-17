@@ -531,3 +531,11 @@ git push . develop:main
 ```bash
 git push -u origin main:main
 ```
+
+## send-pack: unexpected disconnect while reading sideband packet
+
+```bash
+git config --global http.postBuffer 157286400
+```
+
+- https://stackoverflow.com/a/69891948/1870054

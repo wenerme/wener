@@ -6,6 +6,9 @@ tags:
 
 # FunASR
 
+- [modelscope/FunASR](https://github.com/modelscope/FunASR)
+  - MIT
+
 ```bash
 # --privileged=true
 docker run --rm -it \

@@ -32,6 +32,13 @@ title: nextra
 
 :::
 
+```bash
+pnpm add next react react-dom
+pnpm add nextra nextra-theme-{docs,blog}
+
+pnpm run next dev
+```
+
 - /
   - theme.config.{jsx,tsx}
   - pages/
@@ -41,6 +48,7 @@ title: nextra
       - 顺序
 
 ## markdown
+
 **GFM**
 
 ```
@@ -50,7 +58,6 @@ title: nextra
 - 高亮语言
   - VSCode TextMate Grammar
   - https://github.com/shikijs/shiki/blob/main/docs/languages.md
-
 
 ## docs
 
@@ -117,3 +124,41 @@ export default {
 
 - typesetting - default, article
 - layout - raw, full
+
+## Notes
+
+- 内容目录 ./content, ./src/content
+- 默认后缀 js, jsx, ts, tsx, md mdx
+- env
+  - NEXTRA_LOCALES
+  - NEXTRA_DEFAULT_LOCALE
+- 通过插件 resolve 的虚拟 module
+  - private-next-root-dir
+  - private-next-content-dir
+- 核心逻辑 loader - webpack loader
+  - findMetaAndPageFilePaths
+    - 内容目录 `**/_meta.{js,jsx,ts,tsx}`, `**/*.{md,mdx}`
+    - appDir 目录
+      - 会额外扫描 `**/page.{js,jsx,jsx,tsx,md,mdx}`, `_meta.global.{js,jsx,ts,tsx}`
+      - 会排除 `_` 开头目录
+  - `const { pageMap, mdxPages } = convertToPageMap({filePaths})`
+  - `_meta.global.`
+  - `convertPageMapToJs({ pageMap, mdxPages, globalMetaPath })`
+
+```ts
+type TPageItem = { name: string; route: string; __pagePath: string };
+type TMetaItem = { __metaPath: string };
+
+interface TFolder<T = TItem> {
+  name: string;
+  route: string;
+  children: T[];
+}
+
+export type TItem = TPageItem | TMetaItem | TFolder;
+```
+
+## Nextra v4
+
+- NextJS 15 app route
+- React 19

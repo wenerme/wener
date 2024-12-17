@@ -14,6 +14,10 @@ title: Pix2Text
   - ~/.pix2text/1.1
     - layout-docyolo
     - table-rec
+  - ~/.cnstd - [breezedeus/CnSTD](https://github.com/breezedeus/CnSTD) - 基于 RapidOCR 集成 PPOCRv4
+    - CN STD - 中文文本检测
+  - ~/.cnocr - [breezedeus/CnOCR](https://github.com/breezedeus/CnOCR)
+    - CN OCR - 中文文本识别
 - 参考
   - [breezedeus/pix2text-layout-docyolo](https://huggingface.co/breezedeus/pix2text-layout-docyolo)
     - 基于 https://github.com/opendatalab/DocLayout-YOLO

@@ -13,6 +13,13 @@ title: vrl
 vector vrl --input input.json --program run.vrl --print-object
 ```
 
+
+**移除颜色**
+
+```vrl
+.message = strip_ansi_escape_codes!(.message)
+```
+
 ## syslog
 
 - parse_syslog
@@ -35,7 +42,7 @@ structured = parse_syslog(.message) ?? {}
 ```
 
 
-# Cookbook
+## kube_log
 
 ```vrl
 # use node name instead of pod name

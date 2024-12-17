@@ -1,5 +1,4 @@
 ---
-id: codec
 title: Asterisk 编码
 ---
 
