@@ -1,5 +1,7 @@
 ---
 title: Connect
+tags:
+  - Protocol
 ---
 
 # Connect
@@ -19,18 +21,36 @@ title: Connect
 - connect
   - unary: application/proto, application/json
   - striming: application/connect+proto, application/connect+json
-- 参考
-  - [Connect Protocol Reference](https://connect.build/docs/protocol/)
-  - [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)
-    - JS PB 实现
-  - [bufbuild/connect-crosstest](https://github.com/bufbuild/connect-crosstest)
-    - 兼容测试
 
-## Connect 协议
+## Awesome
+
+- [Connect Protocol Reference](https://connect.build/docs/protocol/)
+- [connectrpc/vanguard-go](https://github.com/connectrpc/vanguard-go)
+  - Apache-2.0, Go
+  - Gateway
+  - REST, gRPC, gRPC-Web, and Connect
+- [bufbuild/protobuf-es](https://github.com/bufbuild/protobuf-es)
+  - JS PB 实现
+- [bufbuild/connect-crosstest](https://github.com/bufbuild/connect-crosstest)
+  - 兼容测试
+- [connectrpc/connect-es](https://github.com/connectrpc/connect-es)
+
+## 协议 {#protocol}
 
 ```http
 POST /<Package>.<Service>/<Method>
 ```
+
+## connect-es
+
+- router = `{handlers,service(),rpc()}`
+  - handlers - universal handler
+    - 支持所有协议
+    - 包含元信息
+  - service 注册整个 service
+  - rpc 注册一个方法
+  - handler = 协议协商 -> interceptor -> impl
+    - interceptor 无法访问当前的 impl
 
 ## connect-web
 
@@ -42,7 +62,6 @@ POST /<Package>.<Service>/<Method>
 npm install @bufbuild/protoc-gen-es @bufbuild/protoc-gen-connect-web
 
 PATH=$PATH:$(pwd)/node_modules/.bin
-
 ```
 
 ## connect-go
@@ -90,7 +109,7 @@ plugins:
 
 - Handler - 当个 RPC 方法处理
   - 实现 Connect, gRPC, gRPC-Web 协议
-  - 提供  ServeHTTP
+  - 提供 ServeHTTP
   - 构造
     - NewBidiStreamHandler
     - NewClientStreamHandler

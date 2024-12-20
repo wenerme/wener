@@ -56,6 +56,16 @@ Match
 
 - Match
   - canonical, final, exec, host, originalhost, user, localuser, all
+  - all：始终匹配。在 Match 行上仅写 all，或紧接在 canonical、final 后面写时表示无条件匹配。
+	-	canonical：当主机名已被 CanonicalizeHostname 选项处理并规范化（canonicalization）后，再次解析配置文件时此条件为真。这常用于那些只适用于规范化后的主机名的配置规则。
+	-	final：请求在配置文件解析结束前再做一次最终解析，并在那次最终解析过程中匹配。若 CanonicalizeHostname 开启，那么 canonical 和 final 会在同一阶段匹配。
+	-	exec：执行后续指定的命令，如果该命令返回退出状态码 0 则匹配为真。这可用于动态决策逻辑，如基于脚本结果调整后续配置。
+	-	localnetwork：将本地主机的活动网络接口地址与给定的网络列表（CIDR 格式）匹配。如果本地网卡 IP 位于该网段中则为真。这在移动设备在不同网络间切换时很有用，但需要谨慎使用，因为网络地址信息在安全场景中并不一定可靠。
+	-	host：根据最终使用的目标主机名匹配，常用的 * 通配符也可使用。
+	-	originalhost：根据用户在命令行上输入的原始主机名（尚未规范化的）进行匹配。
+	-	tagged：匹配由 Tag 指令设定的标签名或在 ssh 命令行中用 -P 选项指定的标签。
+	-	user：匹配目标远程主机上的登录用户名。
+	-	localuser：匹配本地执行 ssh 命令的用户。
 
 > 通配 Host 需要放在后面
 

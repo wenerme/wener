@@ -80,15 +80,14 @@ npm add date-fns lodash-es react-fast-compare
   - `@blueprintjs/select`
     - 多功能 select 组件
     - 不控制样式，以逻辑为主
-- [radix-ui/primitives](https://github.com/radix-ui/primitives)
-  - by WorkOS
-  - Slot 组件 - asChild 时使用 child 组件进行渲染，传递所有 props
 - [nextui-org/nextui](https://github.com/nextui-org/nextui)
   - 与 vercel 无关
 - [rsuite/rsuite](https://github.com/rsuite/rsuite)
   - 各方面神似 AntD - 但比 AntD 轻的多
 - [ant-design/ant-design](./antd.md)
+  - MIT, TS
   - 1.3MB
+  - antd 直接依赖 49 个, 间接依赖 19 个 - 共计 68 个依赖
   - @ant-design/icons
   - dayjs
   - rx-
@@ -147,7 +146,36 @@ npm add date-fns lodash-es react-fast-compare
     - 很多样式都通过 props 控制
     - 如果喜欢这样的还不如选择 tailwindcss 更加规范实用
 
-## 移动端 UI 组件
+## Headless UI 组件 {#headless-ui}
+
+- [radix-ui/primitives](https://github.com/radix-ui/primitives)
+  - by WorkOS
+  - Slot 组件 - asChild 时使用 child 组件进行渲染，传递所有 props
+- [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
+  - 功能性 headless 组件
+  - popover
+  - listbox/select
+  - combobox/autocomplete
+  - menu/dropdown
+  - switch/toggle
+  - disclosure
+  - dialog/modal
+  - radio group
+  - tabs
+  - transition
+- [mui/base-ui](https://github.com/mui/base-ui)
+  - MIT, TS
+  - npm:@base-ui-components/react
+  - from the creators of Radix, Floating UI, and Material UI
+  - https://mui.com/blog/base-ui-2024-plans/
+  - https://mui.com/blog/introducing-base-ui/
+    - 2022 MUI, npm:@mui/base
+  - https://mui.com/base-ui/getting-started/
+- [nandorojo/dripsy](https://github.com/nandorojo/dripsy)
+  - MIT, TS
+  - for React Native + Web.
+
+## 移动端 UI 组件 {#mobile-ui}
 
 - [tailwind-mobile](https://github.com/tailwind-mobile/tailwind-mobile)
 - [ant-design/ant-design-mobile](https://github.com/ant-design/ant-design-mobile)
@@ -455,7 +483,7 @@ npm add date-fns lodash-es react-fast-compare
 - https://github.com/wojtekmaj
   - react-calendar, react-clock, react-pdf
 
-### 编辑器
+### 编辑器 {#editor}
 
 - Markdown
   - [andrerpena/react-mde](https://github.com/andrerpena/react-mde)
@@ -465,7 +493,7 @@ npm add date-fns lodash-es react-fast-compare
 - [margox/braft-editor](https://github.com/margox/braft-editor)
   - [margox/braft-extensions](https://github.com/margox/braft-extensions) - 扩展包
 
-## 路由
+## 路由 {#router}
 
 - [ReactTraining/react-router](https://github.com/ReactTraining/react-router)
   - React 16.8 hook 之前已经存在
@@ -512,7 +540,7 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 功能组件
 
-> 大多为 Headless
+> 大多为 Headless/unstyled
 
 - TanStack
   - [react-table](./react-table.md)
@@ -529,20 +557,7 @@ npm add date-fns lodash-es react-fast-compare
   - 支持 SSR
 - [gregberge/loadable-components](https://github.com/gregberge/loadable-components)
   - 异步加载组件
-- [tailwindlabs/headlessui](https://github.com/tailwindlabs/headlessui)
-  - 功能性 headless 组件
-  - popover
-  - listbox/select
-  - combobox/autocomplete
-  - menu/dropdown
-  - switch/toggle
-  - disclosure
-  - dialog/modal
-  - radio group
-  - tabs
-  - transition
-- [nandorojo/dripsy](https://github.com/nandorojo/dripsy)
-- [its-danny/use-lilius](https://github.com/its-danny/use-lilius)
+- ~~[its-danny/use-lilius](https://github.com/its-danny/use-lilius)~~
   - date-fns
   - DateInput
 

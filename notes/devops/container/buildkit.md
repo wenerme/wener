@@ -51,6 +51,10 @@ docker buildx build -t test .
 docker buildx build --platform linux/amd64,linux/arm64 --pull --push -t test .
 ```
 
+| env               | value | notes                  |
+| ----------------- | ----- | ---------------------- |
+| BUILDKIT_PROGRESS | auto  | auto,plain,tty,rawjson |
+
 - driver
   - docker
   - docker-container

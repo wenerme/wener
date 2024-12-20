@@ -12,7 +12,10 @@ tags:
 - http://www.phptherightway.com/
 - [PHP-FIG](http://www.php-fig.org/)
   - [PSRs](http://www.php-fig.org/psr/)
+- [php/pie](https://github.com/php/pie)
+- [pear/pear-core](https://github.com/pear/pear-core)
 - https://github.com/ziadoz/awesome-php
+- https://getcomposer.org
 - styleci
   - composer require styleci/cli:^1.2 --dev
 

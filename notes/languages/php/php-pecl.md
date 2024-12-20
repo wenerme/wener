@@ -10,7 +10,18 @@ After Alpine v3.5, the `/usr/bin/php` is php7, before that is php5 in php5-cli p
 
 :::
 
+- PECL - PHP Extension Community Library
+- https://pecl.php.net/
+
 ```bash
+# ABI Version
+# PHP Extension Build => API20240924,NTS
+php -i | grep "PHP Extension Build"
+pecl config-get ext_dir
+php-config --extension-dir
+
+pecl list
+
 # igbinary
 # https://pecl.php.net/package/igbinary
 pecl install -o -f igbinary

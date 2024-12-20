@@ -398,3 +398,9 @@ interface JSONSchema {
 ```
 
 - protobufjs 使用 long 包
+
+## Bundle
+
+- `$defs`
+- https://json-schema.org/blog/posts/bundling-json-schema-compound-documents
+- https://json-schema.org/understanding-json-schema/structuring

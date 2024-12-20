@@ -5,6 +5,7 @@ tags:
 
 # JS File System API
 
+
 - FileSystem - `{name,root}`
   - Chrome 7, Safari 11.1
 - FileSystemEntry
@@ -12,6 +13,9 @@ tags:
   - FileSystemDirectoryEntry
     - FileSystemDirectoryEntry.createReader()
   - FileSystemDirectoryReader
+- 类型定义
+  - npm:@types/wicg-file-system-access
+  - npm:@types/filesystem
 
 **获取 FS 的方式**
 
@@ -23,6 +27,7 @@ tags:
 - Window.showDirectoryPicker
 - Window.showOpenFilePicker
 - Window.showSaveFilePicker
+- ~~Window.requestFileSystem~~
 
 ---
 

@@ -14,6 +14,11 @@ tags:
   - https://gitee.com/skyoo/Enterprise-Registration-Data-of-Chinese-Mainland
   - https://github.com/chenli90s/govinfo
 - 企业数据
+- 手机归属地
+  - 《电信网编号计划（2017年版）》
+    - https://nac.miit.gov.cn/#/noticeDetail?id=600126024
+  - [xluohome/phonedata](https://github.com/xluohome/phonedata)
+  - [ls0f/phone](https://github.com/ls0f/phone)
 - service
   - https://github.com/OpenRefine/OpenRefine
 - [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)

@@ -51,9 +51,9 @@ tags:
   - v1 和 v2 不兼容
 - brook wss
   - https://github.com/txthinking/brook
-- obfs - 混淆 - 用于 ss,ssr,hysteria
-  - tls1.2_ticket_auth, tls1.2_ticket_fastauth
-  - http_simple, http_post
+- [enfein/mieru](https://github.com/enfein/mieru)
+  - 一些设计思考 https://github.com/enfein/mieru/issues/8
+- naive
 - http proxy
   - nginx
   - squid
@@ -64,6 +64,9 @@ tags:
 - ss - ShadowSocks
 - ssr - ShadowSocksR
   - 不活跃，不推荐使用
+- obfs - 混淆 - 用于 ss,ssr,hysteria
+  - tls1.2_ticket_auth, tls1.2_ticket_fastauth
+  - http_simple, http_post
 - CCProxy, Proxycap, Proxifier
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)

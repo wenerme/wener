@@ -144,6 +144,8 @@ export default {
   - `const { pageMap, mdxPages } = convertToPageMap({filePaths})`
   - `_meta.global.`
   - `convertPageMapToJs({ pageMap, mdxPages, globalMetaPath })`
+- 构建的 pageMap 会通过 `placeholder.js` 访问
+  - `{pageMap: PageMapItem[]}`
 
 ```ts
 type TPageItem = { name: string; route: string; __pagePath: string };
@@ -156,6 +158,23 @@ interface TFolder<T = TItem> {
 }
 
 export type TItem = TPageItem | TMetaItem | TFolder;
+
+export type PageMapItem = Folder | MdxFile | MetaJsonFile;
+export interface Folder<FileType = PageMapItem> {
+  name: string;
+  route: string;
+  children: FileType[];
+}
+export type MdxFile<FrontMatterType = FrontMatter> = {
+  name: string;
+  route: string;
+  frontMatter?: FrontMatterType;
+};
+export type MetaJsonFile = {
+  data: {
+    [fileName: string]: Meta;
+  };
+};
 ```
 
 ## Nextra v4

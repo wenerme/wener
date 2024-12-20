@@ -131,6 +131,7 @@ export interface AnyResource {
 
   state?: string; // 状态 - 粗粒度系统定义
   status?: string; // 阶段 - 细粒度业务定义
+  statusReason?: string; // 状态原因
   stateLabel?: string; // 自动 resolve 出来的显示内容
   statusLabel?: string;
 

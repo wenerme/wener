@@ -275,7 +275,7 @@ Signed-off-by: wener <wener@wener.me>
     - 明确 sign-off 身份
   - [What is the Sign Off feature in Git for?](https://stackoverflow.com/a/1962112/1870054)
 
-## 迁移子目录为仓库
+## 迁移子目录为仓库 {#subdir-to-repo}
 
 ```bash
 # git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME
@@ -285,7 +285,7 @@ git subtree split -P <name-of-folder> -b <name-of-new-branch>
 
 - [Detach (move) subdirectory into separate Git repository](https://stackoverflow.com/questions/359424)
 
-## 迁移分支为仓库
+## 迁移分支为仓库 {#branch-to-repo}
 
 ```bash
 mkdir /path/to/new/repo && cd "$@"

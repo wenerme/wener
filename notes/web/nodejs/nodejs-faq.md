@@ -135,6 +135,10 @@ exec /usr/bin/env node --input-type=module - "$@" < "$0"
 node --experimental-default-type=module cli
 ```
 
+```js
+node --input-type=module --eval 'console.log("Hello, world!")'
+```
+
 - ESM
   - 增加 mjs 文件后缀即可
   - https://github.com/nodejs/node/issues/49444

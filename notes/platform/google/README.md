@@ -58,7 +58,7 @@ wget -q -U Mozilla -O output.mp3 "http://translate.google.com/translate_tts?ie=U
 - `inurl:`
 - `intitle:`
 - `intitle:关键词1 关键词2`
-- `related:example.com`
+- `related:example.com` 相关网站
 - 占位符 `*`
 - 数字范围 `..`
 - 缓存版本 `cache:example.com`

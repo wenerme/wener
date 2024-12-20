@@ -13,8 +13,11 @@ tags:
 composer require grpc/grpc
 composer require google/protobuf
 
+# /opt/homebrew/lib/php/pecl/<ABI_VERSION>/grpc.so
 pecl install grpc       # by pecl - e.g. macOS
 apk add php82-pecl-grpc # AlpineLinux
+
+php -i | grep "PHP Extension Build" # ABI 版本
 ```
 
 ```json title=composer.json
@@ -24,8 +27,17 @@ apk add php82-pecl-grpc # AlpineLinux
       "App\\": "app/",
       "": "gen/"
     }
+  },
+  "require": {
+    "grpc/grpc": "^1.41",
+    "google/protobuf": "^3.19",
+    "ext-grpc": "*"
   }
 }
+```
+
+```ini title="php.ini"
+extension=grpc.so
 ```
 
 ```php

@@ -63,6 +63,18 @@ caddy add-package github.com/caddy-dns/cloudflare
 - Named matchers - `@name`
 - 表达式 匹配
   - https://github.com/google/cel-spec
+- placeholders
+  - https://caddyserver.com/docs/caddyfile/concepts#placeholders
+  - https://caddyserver.com/docs/json/apps/http/#docs
+  - https://caddyserver.com/docs/conventions#placeholders
+
+:::caution
+
+- log format append 的 value 只支持 global 的 placeholder
+  - 因为日志是在 HTTP 请求上下文之外处理的
+  - 不支持 per-request placeholders
+
+:::
 
 ```
 @mutable `{method}.startsWith("P")`

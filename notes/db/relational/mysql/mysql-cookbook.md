@@ -27,3 +27,40 @@ WHERE
 ORDER BY
     total_bytes DESC;
 ```
+
+## analyze_small_tables
+
+```sql
+DELIMITER $$
+
+CREATE PROCEDURE analyze_small_tables()
+BEGIN
+  DECLARE done INT DEFAULT FALSE;
+  DECLARE schema_name VARCHAR(255);
+  DECLARE table_name VARCHAR(255);
+  DECLARE cur CURSOR FOR
+    SELECT table_schema, table_name
+    FROM table_size
+    WHERE table_schema not in ('information_schema', 'performance_schema', 'mysql','sys')
+      AND row_estimate < 10;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+  OPEN cur;
+
+  read_loop: LOOP
+    FETCH cur INTO schema_name, table_name;
+    IF done THEN
+      LEAVE read_loop;
+    END IF;
+
+    SET @stmt = CONCAT('ANALYZE TABLE ', schema_name, '.', table_name);
+    PREPARE stmt FROM @stmt;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+  END LOOP;
+
+  CLOSE cur;
+END$$
+
+DELIMITER ;
+```

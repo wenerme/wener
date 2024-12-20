@@ -5,6 +5,21 @@ tags:
 
 # 任务管理
 
+- Task Management System
+  - e.g. Trello, Jira, Asana
+- Workflow Management System
+  - e.g. Camunda, Activiti
+- Job Scheduling Systems
+  - e.g. Apache Airflow, Azkaban
+- Business Process Management
+  - e.g. Bizagi, Appian, Pega
+- 参考
+  - Digital Archiving Workflow
+  - [CCA Digital Archives Processing Manual](https://github.com/CCA-Public/digital-archives-manual)
+    - CCA - Canadian Centre for Architecture - 加拿大建筑中心
+  - https://github.com/amiaopensource/open-workflows
+  - [Digital preservation workflows](https://www.nationalarchives.gov.uk/archives-sector/advice-and-guidance/managing-your-collection/preserving-digital-collections/digital-preservation-workflows/)
+
 ## 任务管理系统设计
 
 ### 核心对象

@@ -63,6 +63,71 @@ composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress 
 require __DIR__ . '/vendor/autoload.php';
 ```
 
+## composer.json
+
+```bash
+# 可以通过 config.platform 覆盖
+composer show --platform
+```
+
+```json title="composer.json"
+{
+  "name": "vendor-name/package-name",
+  "description": "This is a package",
+  // library - 默认 - 会将文件 copy 到 vendor
+  // project - 项目
+  // metapackage
+  // composer-plugin
+  // php-ext
+  // php-ext-zend
+  "type": "library",
+  "license": "MIT",
+  "license": [],
+  "keywords": [],
+  "homepage": "https://example.com",
+  "readme": "README.md",
+  // 发布时间
+  // YYYY-MM-DD, YYYY-MM-DD HH:MM:SS
+  "time": "2021-01-01",
+  "authors": [
+    {
+      "name": "Author Name",
+      "email": "",
+      "homepage": "",
+      "role": ""
+    }
+  ],
+  "support": {},
+  // {type,url}[]
+  "funding":[],
+  "require": {
+    "php": "^7.4",
+    "vendor-name/package-name": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "VendorName\\PackageName\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "VendorName\\PackageName\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  // https://getcomposer.org/doc/06-config.md
+  "config":{}
+}
+```
+
+- https://getcomposer.org/schema.json
+- https://getcomposer.org/doc/04-schema.md
+
 ## config
 
 - $HOME/.composer - data-dir/home
@@ -70,7 +135,7 @@ require __DIR__ . '/vendor/autoload.php';
   - config.json
   - keys.dev.pub
   - keys.tags.pub
-  - cache/ - cache-dir
+  - cache/ - cache-dir macOS ~/Library/Caches/composer
     - files/
     - repo/
     - vcs/
