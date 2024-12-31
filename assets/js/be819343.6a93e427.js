@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["47616"],{68224:function(e){e.exports=JSON.parse('{"tag":{"label":"React","permalink":"/notes/tags/react","allTagsPath":"/notes/tags","count":1,"items":[{"id":"dev/design/design-frontend","title":"Frontend","description":"","permalink":"/notes/dev/design/frontend"}],"unlisted":false}}')}}]);
