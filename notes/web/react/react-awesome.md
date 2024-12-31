@@ -200,6 +200,9 @@ npm add date-fns lodash-es react-fast-compare
     - useCombobox
     - useMultipleSelection
     - useSelect
+- drag and select/region select/area select
+  - [AirLabsTeam/react-drag-to-select](https://github.com/AirLabsTeam/react-drag-to-select)
+    - MIT, TS
 - calendar
   - [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)
     - 功能最为强大的日历组件 - 支持 React 绑定
@@ -264,6 +267,8 @@ npm add date-fns lodash-es react-fast-compare
     - 基于 ResizeObservers
   - [mattrothenberg/react-overflow-list](https://github.com/mattrothenberg/react-overflow-list)
     - Overflow List 动态显示隐藏
+  - [BetterTyped/react-zoom-pan-pinch](https://github.com/BetterTyped/react-zoom-pan-pinch)
+    - 缩放、平移、捏合
   - [mgorabbani/react-image-pan-zoom-rotate](https://github.com/mgorabbani/react-image-pan-zoom-rotate)
     - 图片缩放、旋转
 - scrollbar/container/affix

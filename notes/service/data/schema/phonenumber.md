@@ -18,15 +18,22 @@ title: 电话号码元数据
 ```ts
 interface PhoneNumberMetadata {
   phoneNumber: string;
-  countryCode: string;
-  areaCode: string;
 
-  isp: string;
+  carrier: string;
+
+  divisionCode: string;
   province: string;
   city: string;
-  divisionCode: string;
+
   latitude: number;
   longitude: number;
+
+  postalCode: string; // 邮政编码
+  areaCode: string;
+
+  countryCode: string;
+  timezone: string;
+
 
   // 可能存在定位不准确有多个地址的情况
   locations: Array<{

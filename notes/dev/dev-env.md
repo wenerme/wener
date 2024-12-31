@@ -2,8 +2,18 @@
 title: ENV
 ---
 
-# 环境
+# 环境变量
 
+- 运行环境 - 分支可能对应了运行环境
+  - 开发环境
+  - 测试环境
+  - 预发布环境
+  - 生产环境
+  - 性能测试环境
+- 运行模式
+  - production
+  - development
+  - test
 - env - 环境
 - profile - 配置文件/配置轮廓
   - --spring.profiles.active
@@ -47,7 +57,7 @@ title: ENV
 - APP_ENV
   - larval - local, production, testing
     - https://github.com/laravel/framework/blob/5.8/src/Illuminate/Foundation/Application.php
-- NODE_ENV - production, development, test
+- NODE_ENV - production, development, test - 运行模式
   - https://github.com/kerimdzhanov/dotenv-flow
   - process.env https://nodejs.org/api/process.html#process_process_env
 - SPRING_PROFILES_ACTIVE,spring.profiles.active
@@ -58,7 +68,7 @@ title: ENV
   - production, preview, development
 - https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/
   - APP_DOMAIN, APP_URL, APP_ID
-- `__DEV__` 变量
+- `__DEV__` 变量 - 运行模式
   - 由 RN 引入 https://reactnative.dev/docs/javascript-environment
   - ReactRouter 也使用了这个变量 https://github.com/search?q=repo%3Aremix-run%2Freact-router%20__DEV__&type=code
     - 通过 rollup 注入了变量
@@ -70,3 +80,42 @@ title: ENV
 
 - NO_COLOR - 关闭彩色输出
 - DNT - Do Not Track - 关闭 Telemetry
+
+# FAQ
+
+
+## 静态前端配置 {#static-frontend-config}
+
+> 加载 Bootstrap 配置 - 例如 API 地址
+
+1. 构建时根据 branch 加载配置
+
+```ts
+import { defineConfig, loadEnv, type PluginOption } from 'vite';
+export default defineConfig(({ mode, command }) => {
+  const env = {};
+  console.log(`Vite ${command} mode=${mode} branch=${process.env.CI_COMMIT_BRANCH || ''}`);
+  Object.assign(env, loadEnv(mode, process.cwd(), ''));
+
+  // 加载 .env.branch 覆盖
+  if (process.env.CI_COMMIT_BRANCH) {
+    Object.assign(env, loadEnv(process.env.CI_COMMIT_BRANCH, process.cwd(), ''));
+  }
+  process.env = Object.assign(process.env, env);
+
+  return defineConfig({});
+});
+```
+
+1. 部署时通过覆盖 json 配置
+  - 请求 `${location.origin}/config.json` 获取配置
+    - 允许配置不存在
+    - 部署时可以将 /config.json 重定向
+    - 部署时可以将 `/app/public/config.json` 内容进行替换
+1. 在前端配置所有 domain -> config 的配置，根据当前域名加载配置
+1. 基于 当前域名 按照规则生成 api 地址
+1. 回滚到 `${location.origin}/api` 作为默认 API 地址
+1. 通过请求 API 获取配置
+  - SaaS 场景
+  - 允许用户输入租户 ID/名字
+  - 服务端判断 referer/url 判断返回的配置信息

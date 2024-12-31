@@ -340,3 +340,12 @@ esac
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
 /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 ```
+
+## 临时关闭 history
+
+```bash
+# bash
+set +o history
+# zsh - 空格开头
+ TOEKN="ABC"
+```

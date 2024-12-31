@@ -115,6 +115,10 @@ tags:
   - 商业
     - https://magnific.ai/
 - image
+  - [idealo/imagededup](https://github.com/idealo/imagededup)
+    - Apache-2.0, Python
+    - 图片查重
+    - CNN, PHash, DHash, WHash, AHash
   - https://huggingface.co/datasets/vivym/midjourney-messages
   - [openai/CLIP](https://github.com/openai/CLIP)
     - MIT

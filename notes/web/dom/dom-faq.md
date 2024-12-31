@@ -11,6 +11,26 @@ title: DOM FAQ
 - Comparison of Event Targets
   - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
 
+
+## size
+
+- width, height
+- clientWidth, clientHeight
+- offsetWidth, offsetHeight
+  - size+border+padding
+- scrollWidth, scrollHeight
+  - `scrollbarWidth = offsetWidth - clientWidth - getComputedStyle().borderLeftWidth - getComputedStyle().borderRightWidth`
+  - `scrollbarWidth = getComputedStyle().width + getComputedStyle().paddingLeft + getComputedStyle().paddingRight - clientWidth`
+    - 在 chrome 下可能不准确
+- `element.getBoundingClientRect()`
+- naturalWidth, naturalHeight
+  - 图片的原始大小
+
+---
+
+- 参考
+  - https://stackoverflow.com/questions/21064101
+
 ## ShadowRoot rem & font-size
 
 - 无法覆盖

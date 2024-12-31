@@ -547,6 +547,7 @@ tags:
   - bunyan
   - log4js
   - [unjs/consola](https://github.com/unjs/consola)
+    - console wrapper
   - [HuolalaTech/page-spy-web](https://github.com/HuolalaTech/page-spy-web)
   - [Tencent/vConsole](https://github.com/Tencent/vConsole)
 - validate
@@ -845,17 +846,26 @@ tags:
   - [thecodrr/fdir](https://github.com/thecodrr/fdir)
     - MIT, TS
     - fastest directory crawler & globbing library
+    - 0 依赖，glob 通过传入函数实现
   - [globby](https://github.com/sindresorhus/globby)
     - MIT
     - 基于 fast-glob 增加部分功能
-  - [glob](https://github.com/isaacs/node-glob)
+    - 支持 ignore 文件 - .gitignore
   - [fast-glob](https://github.com/mrmlnc/fast-glob)
+    - 使用 micromatch
+  - [glob](https://github.com/isaacs/node-glob)
   - [micromatch/micromatch](https://github.com/micromatch/micromatch)
     - wildcard and glob matching library
-    - 在 picomatch 之上增加部分功能 - `{.ts,.js}` 展开, extglobs
+    - picomatch+brace 展开 - `{.ts,.js}` 展开
+    - 依赖 npm:braces npm:fill-range npm:to-regex-range
+    - 替代 minimatch, multimatch
   - [micromatch/picomatch](https://github.com/micromatch/picomatch)
+    - 轻量级，0依赖
+    - 支持 `*`, `?`, `**`
+    - 支持 extglob `@(pattern)`, `*(pattern)`, `+(pattern)`, `?(pattern)`, `!(pattern)`
+    - 支持 POSIX brackets `[[:alpha:]]` - alnum, alpha, ascii, blank, cntrl, digit, graph, lower, print, punct, space, upper, word, xdigit
+    - 不支持 Braces
     - 20kB/7kB
-  - consola
 - test - WebStorm 支持 jest, mocha
   - node:test
     - NodeJS v18 内置 Test Runner

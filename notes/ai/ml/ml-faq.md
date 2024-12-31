@@ -253,6 +253,15 @@ ffmpeg -i v2.mp4 -start_number 0 -b:v 10000k -vsync 0 -an -y -q:v 4 v2/v2-frame_
 python -m pip install setuptools==69.5.1
 ```
 
+```
+ModuleNotFoundError: No module named 'setuptools'
+```
+
+```toml title='pyproject.toml'
+[tool.poetry.dependencies]
+setuptools = { version = "<70" }
+```
+
 - https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/15863#issuecomment-2125026282
 
 ## ModuleNotFoundError: No module named 'packaging'
@@ -260,6 +269,8 @@ python -m pip install setuptools==69.5.1
 ```bash
 pip install wheel
 ```
+
+
 
 ## cannot import name 'is_flash_attn_greater_or_equal_2_10' from 'transformers.utils'
 

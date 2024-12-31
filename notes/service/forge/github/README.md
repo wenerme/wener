@@ -4,14 +4,20 @@ title: Github
 
 # Github
 
-- [chrishunt/github-auth](https://github.com/chrishunt/github-auth)
+- Private Repo - 自 2020-04-14 起 不限制
+- GHCR
+  - 单层最大 10G
+  - 10分钟 上传超时
+  - [价格](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-packages/about-billing-for-github-packages)
+    - Free 500M 存储, 10G/月
 - 参考
   - https://gist.github.com/toolbear/ac62691d6f59812a6710
     GitHub as an authority for SSH public keys
   - https://codeload.github.com/bufbuild/buf/tar.gz/refs/tags/v1.3.0
   - https://trendshift.io/
   - blocked story
-    - [](https://medium.com/@catamphetamine/c32c61f061d3)
+    - catamphetamine [How GitHub blocked me (and all my libraries)](https://medium.com/@catamphetamine/c32c61f061d3)
+  - [chrishunt/github-auth](https://github.com/chrishunt/github-auth)
 
 
 ```bash

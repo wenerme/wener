@@ -29,3 +29,5 @@ title: ERP
 - [List of ERP software packages](https://en.wikipedia.org/wiki/List_of_ERP_software_packages)
 - [Dolibarr/dolibarr](https://github.com/Dolibarr/dolibarr)
   - GPLv3, PHP
+- [idurar/idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)
+  - AGPL-3.0, JS, React, Express.js, MongoDB, Redux, AntD

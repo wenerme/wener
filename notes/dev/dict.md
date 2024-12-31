@@ -960,24 +960,30 @@ tags:
 
 ## setting vs configuration vs properties vs options vs preferences
 
-- properties
+- properties - 属性
   - 通常影响整个组件或程序
   - 相对泛指
   - 可能影响应用行为
-- configuration
+  - 键值对 .properties
+- configuration - 配置
   - 针对应用和用户自定义
   - 通常有默认值 - 基础
   - 通常在运行前发生
-- option
+  - 用于定义应用程序的整体行为和环境
+- option - 选项
   - 类似配置 - 但可能指更小的范围
   - 通常在运行时发生
   - 例如一个方法有很多选项
-- setting
+  - 临时、局部、方法参数
+  - 常见于命令行参数或函数调用中的参数
+- setting - 设置
   - 由行为操作发生变化
   - 整个应用维度
-- preferences
+  - 通常指用户在应用程序中可以调整的参数
+- preferences - 偏好
   - 由用户行为操作发生变化
   - 强调偏好 - 有主体 - 通常为用户
+  - 通常指用户在应用程序中的个性化设置
 
 ---
 
@@ -994,12 +1000,20 @@ tags:
     - https://keith.github.io/xcode-man-pages/defaults.1.html
 - Windows [Registry](https://en.wikipedia.org/wiki/Windows_Registry)
 
-## picture vs image
+## picture vs image vs photo
 
 - picture - 图片
   - 更多指打印的，物理的
+  - 可以是绘画、照片等实体形式
+  - 通常用于描述具体的、可触摸的物体
 - image - 图像
   - 更多指数字的，光学成像产生的
+  - 可以是数字文件、屏幕显示等
+  - 通常用于描述通过电子设备生成或处理的视觉内容
+- photo - 照片
+  - 通过相机或其他设备拍摄的图像
+  - 可以是数字的或打印的
+  - 通常用于描述通过摄影技术捕捉的视觉内容
 
 ## module vs plugin vs extension
 
@@ -1020,18 +1034,26 @@ tags:
 ## job title vs job position
 
 - job title - 职称
-  - 公司指定
+  - 公司指定的头衔或称谓
+  - 通常用于描述员工在公司的等级或角色
+  - 例如：软件工程师、项目经理、销售主管
 - job position/position - 工作职位
-  - 描述职责
-  - 工作内容相关
+  - 描述具体的职责和工作内容
+  - 更关注于员工的实际工作和任务
+  - 例如：负责开发新功能的前端开发人员、管理团队的项目经理
 
 ## phone
 
 - contact phone - 联系电话
+  - 用于联系某人的电话号码，可以是家庭电话、办公电话或手机
 - home phone - 家庭电话
+  - 安装在家庭中的固定电话
 - office phone - 办公电话
+  - 安装在办公室中的固定电话
 - mobile phone - 手机
+  - 便携式的无线电话设备
 - telephone - 电话
+  - 泛指所有类型的电话设备，包括固定电话和手机
 
 ## name
 
@@ -1155,18 +1177,26 @@ tags:
 
 ## topic vs subject
 
-- topic
+- topic - 话题
   - 更广泛、简单、日常
-- subject
+  - 通常指讨论或写作的主题
+  - 例如：今天的讨论话题是环境保护。
+- subject - 主题
   - 更具体
   - 更关注论点
+  - 通常指学术或研究中的具体领域或科目
+  - 例如：她的研究主题是量子物理。
 
 ## study vs learn
 
-- study
+- study - 学习
   - 过程
-- learn
+  - 指专注于某一主题或学科，通过阅读、研究、上课等方式获取知识
+  - 例如：我每天花两个小时学习数学。
+- learn - 学到
   - 结果 - 获取知识
+  - 指通过学习、经验或练习掌握新知识或技能
+  - 例如：我学会了如何编程。
 
 ## sex vs gender
 
@@ -1191,45 +1221,70 @@ tags:
 ## study vs research
 
 - verbs
-  - 表示系统性学习
-  - study 可表示为一个动作
+  - study - 学习
+    - 表示系统性学习
+    - 可以表示为一个动作，例如：I study math every day.
+  - research - 研究
+    - 表示深入调查和分析
+    - 通常用于学术或科学领域，例如：She researches quantum physics.
 - nouns
-  - study
+  - study - 学习
     - 单次学习
-  - research
+    - 例如：I have a study session tonight.
+  - research - 研究
     - 表示一组 study 的集合
+    - 更系统、更深入的调查和分析
+    - 例如：His research on climate change is groundbreaking.
 
 ## inside vs insight vs internal
 
 - inside
   - 位置
-  - 既有事实 - CPU 在 电脑 中
+  - 既有事实 - CPU 在电脑中
   - 隐含主观动作 - 把 X 放到 Y 中
+  - 例如：The keys are inside the drawer.
 - insight
   - 思考
+  - 深刻的理解或见解
+  - 例如：She has great insight into human behavior.
 - internal
   - 描述 inside 这样的一个事实
     - inside of something
   - 描述事物联系 - 与 public 对立
+  - 内部的，通常指组织或系统内部
+  - 例如：The company has internal policies.
 
 ## modeling vs design
 
 - modeling - 建模
   - 描述已知的事情
   - 对即将要做的事情做假设 - 确定事情怎么做、限定范围
+  - 通过模型来表示系统或过程的结构和行为
+  - 例如：我们使用 UML 建模来描述系统架构。
 - design - 设计
-  - 对未知的事情就行假设
+  - 对未知的事情进行假设
+  - 创造性地规划和构思解决方案
+  - 关注外观、功能和用户体验
+  - 例如：我们设计了一个新的用户界面。
 
 ---
 
 - https://wiki.c2.com/?DesigningVsModeling
 
-## note vs memo
+## note vs memo vs remark
 
-- note
-- memo
-  - short note, 备忘录
-  - make a note of something
+- note - 笔记
+  - 用于记录信息或想法
+  - 可以是简短的或详细的
+  - 例如：I took notes during the meeting.
+- memo - 备忘录
+  - short note
+  - 通常用于在组织内部传达信息
+  - 例如：The manager sent a memo about the new policy.
+- remark - 评论
+  - 简短的评论或意见
+  - 通常是口头的
+  - 例如：He made a remark about the weather.
 
 ## Software Design vs. Software Architecture
 
@@ -1242,42 +1297,54 @@ tags:
 
 ## staff vs personnel vs employee
 
-- employee - 员工/雇员 - 来自于 法语 1800s
-  - 形式上更正式 - 强调雇佣关系
-- staff - 工作人员 - 来自于 德语
+- employee - 员工/雇员
+  - 强调雇佣关系
+  - 形式上更正式
+  - 例如：The company has 100 employees.
+- staff - 工作人员
   - 更通用的形式
-  - 是一个组织的一员 - 不一定是雇佣关系 - 比如 volunteer
-  - 示例
+  - 是一个组织的一员，不一定是雇佣关系，例如 volunteer
+  - 例如：
     - staff member - 工作人员
     - member of the staff - 工作人员
     - staff meeting - 员工会议
-- personnel
-  - 示例 - 用于组织表
-    - personnel department
-    - director of personnel
-    - personnel expenses
+- personnel - 人员
+  - 通常用于指代组织中的所有员工
+  - 常用于正式或行政上下文
+  - 例如：
+    - personnel department - 人事部门
+    - director of personnel - 人事主管
+    - personnel expenses - 人员开支
 
 ## on premise vs cloud
 
 - on premise - 本地化
-  - 安装在客户提供的环境 - 可以是本地可以是客户的云端
+  - 安装在客户提供的环境 - 可以是本地也可以是客户的云端
   - 按需部署
   - 安全、成本、完全可控
   - 基础成本高，足量后成本低
   - 实现更复杂
-  - On-premises Software - 本地软件
-- cloud - saas - 云化
+  - 例如：On-premises Software - 本地软件
+- cloud - 云化
   - 云端部署 - 供应商的环境
+  - SaaS (Software as a Service) 模式
+  - 低初始成本，按需付费
+  - 维护和扩展更简单
+  - 例如：使用 AWS、Azure 等云服务
 
 ## data breach vs data leak
 
-- breach - 数据泄露
+- data breach - 数据泄露
   - 事件
   - 原因: cyberattack、木马、系统漏洞、不安全密码、第三方
-- leak
+  - 通常指数据被恶意访问或窃取
+  - 例如：A data breach occurred due to a cyberattack.
+- data leak - 数据泄漏
   - 未知、被动
   - 原因: 错误配置、人为失误、软件漏洞、物理层面、弱密码
-  - 作为已知事件后一般都用 break - leak 只表示这个事情发生非主观
+  - 通常指数据意外地暴露或泄漏
+  - 例如：Sensitive information was exposed due to a data leak.
+  - 作为已知事件后一般都用 breach - leak 只表示这个事情发生非主观
 
 ---
 
@@ -1286,12 +1353,14 @@ tags:
 
 ## specification vs descriptor
 
-- specification
-  - 规格信息
+- specification - 规格信息
   - 限定内容
-- descriptor
-  - 描述信息
+  - 详细说明产品或系统的要求和标准
+  - 例如：The specification outlines the technical requirements.
+- descriptor - 描述信息
   - 文字性
+  - 用于描述某物的特征或属性
+  - 例如：The descriptor provides a summary of the product's features.
 
 ---
 
@@ -1357,18 +1426,23 @@ tags:
 
 - company - 公司
   - 依法成立的公司
+  - 一般指任何类型的商业实体
 - enterprise - 企业
   - company 都可以叫 enterprise
   - 一般会用于指代 创新、艰难、重要 的 商业项目
+  - 更强调创业精神和创新
 - corporation - corp. - 集团公司、大型公司
   - 在 enterprise 基础之上，更严谨
   - 法律义务责任
   - 脱离单个法人
   - legal corporation/法人公司
+  - 通常指大型、跨国公司
 - incorporated - inc.
   - (of a company or other organization) formed into a legal corporation.
-- firm - 公司、事務所
+  - 表示公司已注册成为法人实体
+- firm - 公司、事务所
   - 提供服务类业务
+  - 通常指专业服务公司，如律师事务所、会计师事务所
 
 ## namespace 翻译 {#namespace}
 
@@ -1424,10 +1498,13 @@ tags:
 
 - tel - telephone
   - 泛指任何通讯设备
-  - mobile+landline
+  - 包括 mobile 和 landline
 - mobile - 移动电话
   - 可指 cordless phone, cellphone, walkie-talkie
-- phone
+  - 通常指手机 (cellphone)
+- phone - 电话
+  - 泛指所有类型的电话设备
+  - 包括固定电话 (landline) 和移动电话 (mobile)
 
 ## core vs base vs extend vs common vs share
 
@@ -1435,17 +1512,23 @@ tags:
   - 强调核心、主体
   - 引擎
   - 有业务语义
+  - 例如：核心模块 (core module)
 - base <-> extend
   - base 强调基础
   - base 通常可以被 extend
     - 与 abstract 不同，base 可独立可用
+  - 例如：基础类 (base class)
 - extend
   - 附加部分
+  - 用于扩展 base 的功能
+  - 例如：扩展类 (extended class)
 - common
   - 弱业务性质
   - 工具性
+  - 例如：通用库 (common library)
 - share
   - 多个业务功能共享部分
+  - 例如：共享组件 (shared component)
 
 ## task vs job vs process vs background process
 
@@ -1458,11 +1541,15 @@ tags:
 - process
   - 类似于 job
   - process 更多是自主运行
+  - 通常指操作系统中的进程
 - task/step/activity
   - 侧重描述内容
   - 通常运行一次
+  - 一个 job 或 process 可能包含多个 task
 - background process
   - 强调不可见、不需要用户干预
+  - 在后台运行的进程
+  - 例如：后台数据同步
 
 ## workflow vs flow
 
@@ -1499,10 +1586,12 @@ tags:
 - create
   - 强调从无到有
   - 通常涉及初始化
+  - 例如：create a new file, create a user account
 - add
   - 强调增加
   - 通常 add X to Y
-  - e.g. addUserToGroup, addArticleToCategory
+  - 例如：addUserToGroup, addArticleToCategory
+  - 增加到已有的集合或结构中
 
 ## address
 
@@ -1520,12 +1609,18 @@ tags:
 
 ## parse vs resolve vs normalize
 
-- parse - 解析 - 抽象与结构化
+- parse - 解析
+  - 抽象与结构化
   - 文本 -> 信息/结构化
-- resolve - 确定/解决/解析 - 决策与确定性
+  - 例如：parse a JSON string into an object
+- resolve - 确定/解决/解析
+  - 决策与确定性
   - 处理不确定性、冲突、多重可能性
-- normalize - 标准化/规范化 - 标准化与一致性
+  - 例如：resolve a hostname to an IP address
+- normalize - 标准化/规范化
+  - 标准化与一致性
   - 数据标准化、数据清洗、统一格式
+  - 例如：normalize a phone number format
 
 ## sort vs order
 
@@ -1533,32 +1628,42 @@ tags:
   - 排序 - 操作
   - 通常是对一组数据进行排序
   - 例如：sortBy
+  - 强调排序的动作或过程
 - order
   - 有序 - 定义、规则
   - 通常有序的含义更强
   - 例如：order by
   - 可以是多个 OrderRule
+  - 强调数据的顺序或排列方式
 
 ## value vs values vs options vs items vs enums vs data
 
 - value
   - 通常单个值
   - 或者指代 “值” 这个概念 - 因此也可能是数组
+  - 例如：The value of the variable is 42.
 - values
   - 多个值
+  - 例如：The values in the array are [1, 2, 3].
 - options
   - 选项
   - 面向界面
+  - 例如：The dropdown menu has several options.
 - items
   - 项
   - 面向数据
+  - 例如：The list contains several items.
 - enums
   - 枚举
   - 面向代码结构定义
+  - 例如：The enum defines the possible states.
 - data
   - 数据
   - 没有单数双数概念
+  - 例如：The data is stored in a database.
 - datum
+  - 单个数据点
+  - 例如：Each datum represents a unique measurement.
 
 ## Resource vs Entity vs Record vs Object vs Item vs Document vs Entry vs Row vs DTO vs Model vs Schema
 
@@ -1582,9 +1687,17 @@ tags:
 
 - 邮政编码/邮编
 - PostalCode
-  - 在许多国家和地区（如加拿大、英国、澳大利亚等）中使用的术语。
+  - 在许多国家和地区（如加拿大、英国、澳大利亚等）中使用的术语
+  - 例如：
+    - 英国: AA9A 9AA (e.g. EC1A 1BB)
+    - 加拿大: A9A 9A9 (e.g. K1A 0B1)
+    - 澳大利亚: 9999 (e.g. 2000)
+    - 中国: 999999 (e.g. 100000)
 - ZipCode
-  - 特别是在美国使用的术语，是“Zone Improvement Plan Code”的缩写。
+  - 特别是在美国使用的术语，是“Zone Improvement Plan Code”的缩写
+  - 例如：
+    - 基础格式: 99999 (e.g. 10001)
+    - 扩展格式: 99999-9999 (e.g. 10001-1234)
 
 ## expiry vs expire_at vs end_at
 
@@ -1604,13 +1717,6 @@ tags:
   - 特指书面材料，如文件、表格、证书或其他书面记录
   - 文档性质 - 结构化
   - 主要是纸质或电子形式的书面记录和信息
-
-## order vs sort
-
-- order - 顺序
-  - 强调固有顺序
-- sort - 排序
-  - 强调分类 - 形式不固定
 
 ## tag vs label
 
@@ -1645,20 +1751,26 @@ tags:
 
 - relation
   - 泛指关系
-  - ERM - 实体关系模型
-  - relate - 名词 - 关系
+  - ERM - 实体关系模型 (Entity-Relationship Model)
+  - relate - 动词 - 关系
+  - 例如：The relation between two tables in a database.
 - association
   - 具体关系
-  - User associated with Order
-  - 用户与账单一对多的关联关系
+  - 强调实体之间的特定关联
+  - 例如：User associated with Order
+  - 用户与订单一对多的关联关系
   - associate - 动词、名词 - 关联
 
 ## relationship vs relation
 
 - relation
   - 如何进行关联的 - how to connect
+  - 泛指关系
+  - 例如：The relation between two tables in a database.
 - relationship
   - 关联本身 - the connection
+  - 强调实体之间的特定关联
+  - 例如：The relationship between a user and their orders.
 
 ## property vs attribute
 
@@ -1690,7 +1802,8 @@ tags:
   - 一般用于 SQL 查询中
   - 指定查询结果需要满足的条件
   - 通常用于数据库查询语句中
-  - 内容通常为 字符串
+  - 内容通常为字符串
+  - 例如：SELECT \* FROM users WHERE age > 30;
 - filter - 对象、函数
   - 一般用于编程中的数据处理
   - 筛选符合特定条件的数据
@@ -1701,21 +1814,24 @@ tags:
   - 用于控制流和逻辑判断
   - 广泛应用于编程和查询中
   - 更多描述为逻辑判断，通常不指代整体
+  - 例如：if (condition) { ... }
 - criteria - 搜索+排序+选择
   - 一般用于定义搜索或排序的标准
   - 指定符合标准的数据或行为
-  - 例如：排序标准、搜索标准
   - 通常用于高级搜索和排序功能
-  - 例如: JPA [CriteriaBuilder](https://javadoc.io/doc/javax.persistence/javax.persistence-api/latest/index.html)
+  - 例如：排序标准、搜索标准
+  - 例如：JPA CriteriaBuilder 用于构建动态查询
 
 ## inspect vs sniff
 
 - inspect - 检查
   - 主动检查获取系统内部的详细信息或状态
   - 代码调试、软件工程、性能分析
+  - 例如：使用调试工具 inspect 代码中的变量值
 - sniff - 嗅探
   - 被动监测捕获信息
   - 网络安全、性能分析、协议分析
+  - 例如：使用网络嗅探器 sniff 网络流量
 
 ## handler vs handle
 
@@ -1807,16 +1923,18 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 ## 参考 {#reference}
 
-- primary
-- secondary
-- tertiary
-- quaternary
-- quinary
-- senary
-- septenary
-- octonary
-- nonary
-- denary
+| en         | cn        |
+| ---------- | --------- |
+| primary    | 初级,主要 |
+| secondary  | 次级,次要 |
+| tertiary   | 第三级    |
+| quaternary | 第四级    |
+| quinary    | 第五级    |
+| senary     | 第六级    |
+| septenary  | 第七级    |
+| octonary   | 第八级    |
+| nonary     | 第九级    |
+| denary     | 第十级    |
 
 ---
 
@@ -1847,10 +1965,18 @@ try to get the other instance of the resource. In the unfortunate case it might 
 
 ## Abbr
 
-| abbr       | latin           | en     |
-| ---------- | --------------- | ------ |
-| no., №, Nº | numero          | number |
-| lb         | lībra (balance) | pound  |
-| &          | et              | and    |
+| abbr       | latin           | en          |
+| ---------- | --------------- | ----------- |
+| no., №, Nº | numero          | number      |
+| lb         | lībra (balance) | pound       |
+| &          | et              | and         |
+| e.g.       | exempli gratia  | for example |
+| i.e.       | id est          | that is     |
+| etc.       | et cetera       | and so on   |
+| vs.        | versus          | against     |
+| cf.        | confer          | compare     |
+| et al.     | et alii         | and others  |
+| N.B.       | nota bene       | note well   |
+| P.S.       | post scriptum   | postscript  |
 
 - https://www.bbc.com/news/magazine-26014925

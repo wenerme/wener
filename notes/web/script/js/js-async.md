@@ -26,6 +26,10 @@ title: JS Async
   - scheduler.postTask()
     - Chrome 94+
     - priority - user-blocking, user-visible, background
+- navigator.wakeLock
+  - 运行时保持设备唤醒
+  - `const sentinel = navigator.wakeLock.request("screen")`
+  - `sentinel.release()`
 - 参考
   - https://web.dev/articles/optimize-long-tasks
   - https://wicg.github.io/scheduling-apis/

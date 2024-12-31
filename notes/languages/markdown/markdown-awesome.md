@@ -39,6 +39,12 @@ tags:
     - [shd101wyy/vscode-markdown-preview-enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced)
     - https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics?id=table
 
+| abbr. | stand for                      | notes             |
+| ----- | ------------------------------ | ----------------- |
+| hast  | Hypertext Abstract Syntax Tree | HTML, SVG, MathML |
+| mdast | Markdown Abstract Syntax Tree  |
+
+
 ## 语法扩展
 
 - Tables

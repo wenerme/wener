@@ -15,6 +15,7 @@ tags:
   - 纯 JS 没有好的存储实现
   - SQLite 依赖 addon
   - SQLite over WASM 还不成熟
+  - [knex#6162](https://github.com/knex/knex/issues/6162)
 - FFI 是 NodeJS 的弱项
   - 可以尝试 bun:ffi
   - [nodejs/node#46905](https://github.com/nodejs/node/pull/46905) ffi implementation

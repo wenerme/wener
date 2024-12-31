@@ -18,6 +18,9 @@ tags:
 - https://getcomposer.org
 - styleci
   - composer require styleci/cli:^1.2 --dev
+- env
+  - phpenv
+  - asdf
 
 ## Framework
 

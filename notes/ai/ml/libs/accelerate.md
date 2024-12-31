@@ -15,7 +15,6 @@ title: accelerate
 accelerate config
 ```
 
-
 ```yaml
 debug: false
 distributed_type: 'NO'

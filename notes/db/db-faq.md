@@ -6,6 +6,11 @@ tags:
 
 # Database FAQ
 
+- between - 左闭右闭
+  - `a BETWEEN x AND y` -> `a >= x AND a <= y`
+  - `a BETWEEN SYMMETRIC x AND y`
+    - 对 x, y 排序，然后 `a BETWEEN x AND y`
+
 ## How to choose database
 
 :::tip

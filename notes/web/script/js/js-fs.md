@@ -13,6 +13,10 @@ tags:
   - FileSystemDirectoryEntry
     - FileSystemDirectoryEntry.createReader()
   - FileSystemDirectoryReader
+- FileSystemHandle
+  - .kind =  directory | file
+  - FileSystemDirectoryHandle
+    - .entries()
 - 类型定义
   - npm:@types/wicg-file-system-access
   - npm:@types/filesystem

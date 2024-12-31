@@ -126,29 +126,40 @@ tags:
 
 - [FormidableLabs/victory](https://github.com/FormidableLabs/victory)
   - 530K
-  - React, d3
+  - MIT, React, d3
   - Victory Native 支持 React Native
   - 支持 极坐标、桑基图、BoxPlot
   - 绘图能力强
 - [recharts/recharts](https://github.com/recharts/recharts)
+  - MIT, TS, React
   - React and D3
   - 自定义能力强
   - 支持 桑基图、Treemap、漏斗、放射饼图、雷达图
   - Support for histogram chart [recharts#1580](https://github.com/recharts/recharts/issues/1580)
 - [plouc/nivo](https://github.com/plouc/nivo)
+  - MIT, TS, React
   - 图表类型为独立包 - 例如 @nivo/bar, @nivo/funnel
 - [airbnb/visx](https://github.com/airbnb/visx/)
-  - React
+  - MIT, React
+  - ⚠️注意 开发不活跃
   - visualization components
   - 原子组件
 - [tannerlinsley/react-charts](https://github.com/tannerlinsley/react-charts)
-  - React
+  - MIT, React
+  - ⚠️注意 开发不活跃
   - 基于 visx
 - [reactchartjs/react-chartjs-2](https://github.com/reactchartjs/react-chartjs-2)
+  - MIT, TS
+  - ⚠️注意 开发不活跃
   - 基于 chart.js
-- [nhn/tui.chart](https://github.com/nhn/tui.chart)
+- ~~[uber/react-vis](https://github.com/uber/react-vis)~~
+  - MIT, JS
+  - by Uber
+- ~~[nhn/tui.chart](https://github.com/nhn/tui.chart)~~
+- ~~[react-financial/react-financial-charts](https://github.com/react-financial/react-financial-charts)~~
 - https://github.com/VisActor
   - by ByteDance
+- https://github.com/topics/charts
 
 ---
 

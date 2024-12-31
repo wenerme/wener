@@ -53,6 +53,7 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 | contingency plan        | 应急预案          |
 | deposit                 | 存放,寄存         |
 | description             | 著录              |
+| cataloguing             | 编目              |
 | destruction             | 销毁              |
 | destruction list        | 销毁清单 銷毀清册 |
 | digital archives        | 数字档案馆        |
@@ -110,6 +111,51 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
   - 电子文件 形成、办理、归档 以及 电子档案 维护、利用、最终处置 （销毁 或 永久保存）全过程进行的控制
 - 参考
   - https://dag.chd.edu.cn/dasy/list.htm
+
+## 档案归档内容 {#archiving}
+
+- 收集 (Collection)
+  - 收集需要归档的文件和资料，包括纸质文件和电子文件。
+  - 将纸质文件进行数字化扫描，转化为电子文件。
+- 整理 (Organization)
+  - 对收集到的文件进行分类、编号、排序和编目，确保文件有序、系统地存放。
+  - 对电子文件进行分类、编号、排序和编目，存放在电子档案系统中。
+- 著录 (Cataloging)
+  - 对文件的基本信息进行记录和标注，包括标题、作者、日期、内容摘要等。
+  - 在电子档案系统中记录和标注文件的基本信息。
+- 编目 (Indexing)
+  - 系统地组织和分类文献或档案，使其易于检索和管理。包括分类、编排和索引等工作。
+  - 在电子档案系统中进行编目。
+- 保存 (Storage)
+  - 将整理好的文件存放在适当的档案库房或电子档案系统中，确保文件的安全和长期保存。
+  - 将电子文件存放在电子档案系统中。
+- 检索 (Retrieval)
+  - 建立检索系统，方便用户快速查找和利用档案信息。
+  - 使用电子档案系统的检索功能。
+- 维护 (Maintenance)
+  - 定期检查和维护档案，防止文件损坏或丢失，确保档案的完整性和可用性。
+  - 定期检查和维护电子档案系统。
+- 销毁 (Destruction)
+  - 对于超过保存期限且无保存价值的档案，按照规定程序进行销毁处理。
+  - 对于超过保存期限且无保存价值的电子档案，按照规定程序在电子档案系统中进行销毁处理。
+
+---
+
+**终端**
+
+- 电子化/扫描端
+- 归档端
+  - 著录、编目、导出
+  - 上架
+- 检索端/利用端
+  - 管理端
+    - 档案管理员
+    - 档案馆
+    - 档案维护
+    - 库房
+    - 档案柜
+  - 用户端
+    - 检索、借阅
 
 ## 元数据层级
 
@@ -276,6 +322,10 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 - 标引（Indexing）
   - 定义：对著录信息的进一步详细标注，便于精确查询。
   - 特点：细化档案信息，提升检索效率。
+- 编目（Cataloging/Classification）
+  - 定义：系统地组织和分类文献或档案的过程，使其易于检索和管理。
+  - 特点：不仅包括著录，还涉及分类、编排和索引等工作。
+  - 例如：图书馆编目、档案编目。
 
 ## 文稿/文本/正本/副本/修订本/试行本 {#manuscript}
 
@@ -444,3 +494,31 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 | 顺序号 | 档号 | 文号 | 责任者 | 题名 | 日期 | 密级 | 页数 | 保管<br/>期限 | 备注 |
 | ------ | ---- | ---- | ------ | ---- | ---- | ---- | ---- | ------------- | ---- |
 |        |      |      |        |      |      |      |      |               |      |
+
+## 文号
+
+- 发文机关代字、年份代码、发文顺序号
+- 应使用 `〔〕` 符号
+- 发文顺序号不编虚位 - 1 编为 1 不编为 01
+- ~~`X市财发(1992)字第36号`~~ -> `X市财发〔1992〕36号`
+- 参考
+  - https://baike.baidu.com/item/发文字号/3242304
+  - https://research.un.org/zh/docs/symbols
+  - https://www.mohrss.gov.cn/SYrlzyhshbzb/dbdh/wzgl/
+
+```
+国办发〔1996〕2号
+```
+
+## Archival vs Archive
+
+- Archival - 档案的
+  - 形容词
+  - 与档案相关的，或用于描述档案管理的过程和方法
+  - 例如：archival quality (档案级质量), archival storage (档案存储)
+- Archive - 档案、归档
+  - 名词或动词
+  - 名词：指档案或档案库，存放文件和记录的地方
+    - 例如：The archive contains historical documents. (档案馆包含历史文件)
+  - 动词：指将文件或记录归档的动作
+    - 例如：We need to archive these documents. (我们需要将这些文件归档)

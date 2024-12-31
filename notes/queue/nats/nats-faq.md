@@ -161,3 +161,13 @@ nats server mapping "tenant.X.service.*" "service.{{wildcard(1)}}" tenant.X.serv
 
 - server 命令需要更高的权限 ` $SYS.REQ.SERVER.>`
 - https://docs.nats.io/running-a-nats-service/configuration/sys_accounts
+
+## JetStream Not Extended, adding deny
+
+- Lead 重启后无法再次使用
+- https://docs.nats.io/running-a-nats-service/configuration/leafnodes/jetstream_leafnodes
+- https://github.com/nats-io/nats-server/issues/3024
+
+```
+nats Adding deny [$JS.API.> $KV.> $OBJ.>] for account
+```

@@ -1,5 +1,7 @@
 ---
 title: PaddleOCR
+tags:
+  - OCR
 ---
 
 # PaddleOCR
@@ -12,8 +14,19 @@ title: PaddleOCR
   - https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/whl.md
   - https://gitee.com/duolabmeng666/paddlehub_ppocr/blob/master/Dockerfile
   - https://gitee.com/paddlepaddle/PaddleOCR/blob/release/2.6/deploy/docker/hubserving/cpu/Dockerfile
+- 模型
+  - https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_infer.tar
+    - 文本检测
+  - https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_infer.tar
+    - 文本识别
+  - https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar
+    - 文本方向检测
+  - ONNX https://huggingface.co/OleehyO/paddleocrv4.onnx/tree/main
+- 缓存目录
+  - ~/.paddleocr/whl/det/ch/ch_PP-OCRv4_det_infer/ch_PP-OCRv4_det_infer.tar
 
 ```bash
+# 版本 https://pypi.org/project/paddlepaddle/#history
 # registry.baidubce.com/paddlepaddle/paddle:3.0.0b1-jupyter
 # registry.baidubce.com/paddlepaddle/paddle:3.0.0b1
 docker run --rm -it \
@@ -48,6 +61,13 @@ im_show.save('result.jpg')
 
 ## PP-Structure
 
+- 模型
+  - layout - picodet_lcnet_x1_0_fgd_layout_cdla_infer
+  - table - SLANet_infer
+    - 推荐替换为 SLANet_plus_infer
+- 会输出为 HTML 结构
+  - 提供转 excel 方法 `from paddleocr.ppstructure.table.predict_table import to_excel`
+    - `from tablepyxl import tablepyxl;tablepyxl.document_to_xl(html_table, excel_path)`
 - PP-Structure 文档分析
 - https://github.com/PaddlePaddle/PaddleOCR/tree/main/ppstructure
 - https://paddlepaddle.github.io/PaddleOCR/latest/ppstructure/overview.html

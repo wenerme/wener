@@ -5,6 +5,7 @@ title: buf
 # buf
 
 - [bufbuild/buf](https://github.com/bufbuild/buf)
+- BUF_CACHE_DIR
 
 ```bash
 # macOS
@@ -32,7 +33,6 @@ buf build -o - | buf breaking --against -
 
 buf generate petapis
 
-
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
@@ -56,6 +56,8 @@ docker run \
   --volume "$(pwd):/workspace" \
   --workdir /workspace \
   bufbuild/buf build
+
+buf lint --error-format=config-ignore-yaml
 ```
 
 ```yaml

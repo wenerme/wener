@@ -15,6 +15,7 @@ title: peggy
   - examples
     - https://github.com/alsotang/sql.pegjs/blob/master/lib/sql.pegjs
     - https://www.sqlite.org/syntaxdiagrams.html
+    - protobuf https://github.com/yyfrankyy/protobuf.pegjs/blob/master/protobuf.pegjs
 - PEG.js 之后新功能
   - Global Initializers `{{}}`
     - 全局

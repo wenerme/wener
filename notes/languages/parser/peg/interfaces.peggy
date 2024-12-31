@@ -95,7 +95,7 @@ Line
     __
     name:ident
     _
-    tags:("inet" / "dhcp" / "loopback" / "ppp" / "inherits" __ ident)|.., __|
+    tags:("inet" / "static" / "dhcp" / "loopback" / "ppp" / "inherits" __ ident)|.., __|
     notes:Comment? { return iface({ type, name, tags, notes }); }
   / _ key:Keyword _ value:Value notes:Comment? {
       return push({ type: "Keyword", key, value, notes });

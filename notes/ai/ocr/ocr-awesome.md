@@ -56,6 +56,10 @@ tags:
   - [AlibabaResearch/AdvancedLiterateMachinery](https://github.com/AlibabaResearch/AdvancedLiterateMachinery)
     - Apache-2.0, Python, C++
     - by 阿里巴巴
+- Formula
+  - [OleehyO/TexTeller](https://github.com/OleehyO/TexTeller)
+    - 使用 PaddleOCR, ONNX
+    - image to latex formulas
 - [getomni-ai/zerox](https://github.com/getomni-ai/zerox)
   - MIT
   - PDF to Markdown

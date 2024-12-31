@@ -15,6 +15,11 @@ title: eta.js
   - loadTemplate - 加载模板
 - 通过 `extends Eta` 覆盖 readFile, resolvePath 来实现自定义模板加载
 
+```ts
+const eta = new Eta({ views: path.join(__dirname, 'templates') });
+const res = eta.render('./simple', { name: 'Ben' });
+```
+
 ## 语法
 
 - `<%`, `%>` - 支持自定义

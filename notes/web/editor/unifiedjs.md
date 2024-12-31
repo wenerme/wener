@@ -9,9 +9,13 @@ title: unifiedjs
 - [learn](https://unifiedjs.com/learn/)
 - 主要处理模块
   - retext - natural language
-  - [remark](https://remark.js.org/) - markdown
+  - [remarkjs/remark](https://github.com/remarkjs/remark)
+    - https://remark.js.org/ - markdown
     - https://github.com/remarkjs/remark/blob/main/doc/plugins.md
-  - rehype - HTML
+  - [rehype/rehype](https://github.com/rehypejs/rehype) - HTML
+  - [micromark/micromark](https://github.com/micromark/micromark)
+    - commonmark (optionally gfm) compliant markdown parser
+    - 如果只需要 markdown -> HTML
 - [vfile](https://github.com/vfile/vfile)
   - Virtual file format for text processing
 - mdast-util-to-hast
@@ -60,3 +64,26 @@ console.log(result);
 
 - MDN
   - https://github.com/mdn/yari/tree/main/markdown
+- recma -  Remark (re) and ECMAScript (ecma).
+
+## remark
+
+- remark-parse - markdown -> mdast
+- remark-stringify - mdast -> markdown
+- remark-gfm - GitHub Flavored Markdown
+- remark-toc - Table of Contents
+- remark-slug - slugify headings
+- remark-html - mdast -> HTML
+
+---
+
+- 插件列表
+  - https://github.com/remarkjs/remark/blob/main/doc/plugins.md
+- docusaurus 的 md 处理逻辑
+  - https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-mdx-loader/src/processor.ts
+
+## rehype
+
+## ref
+
+- https://www.npmjs.com/package/next-mdx-remote

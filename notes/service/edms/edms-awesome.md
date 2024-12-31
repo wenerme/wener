@@ -14,6 +14,7 @@ tags:
   - 清华大学-档案馆 https://dag.tsinghua.edu.cn/
   - 华北电力大学档案馆 https://dag.ncepu.edu.cn/
   - 深圳市档案馆 http://www.szdag.gov.cn/szdag/kfdaxxzxcx_1/
+  - https://www.aqda.com.cn/
 
 ---
 

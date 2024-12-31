@@ -17,6 +17,9 @@ tags:
 
 ## Projects
 
+- [flairNLP/flair](https://github.com/flairNLP/flair)
+  - [flairNLP/fundus](https://github.com/flairNLP/fundus)
+    - news crawler
 - [jdkato/prose](https://github.com/jdkato/prose)
   - MIT, Golang
   - tokenization, part-of-speech tagging, named-entity extraction
