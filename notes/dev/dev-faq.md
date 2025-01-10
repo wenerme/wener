@@ -516,6 +516,7 @@ pip cache purge
 
 - Monorepo: please do
   - https://news.ycombinator.com/item?id=18820258
+- https://danluu.com/monorepo/
 
 ## 链接超时 {#idle-connections}
 

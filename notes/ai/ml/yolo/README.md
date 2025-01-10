@@ -4,7 +4,9 @@ title: Yolo
 
 # Yolo
 
-- [YOLO](https://arxiv.org/abs/1506.02640)
+- [YOLO](https://arxiv.org/abs/1506.02640) You Only Look Once
+  - 2016
+  - by Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi
 - YOLOv3
 - YOLOv4
   - [AlexeyAB/darknet](https://github.com/AlexeyAB/darknet)
@@ -21,12 +23,9 @@ title: Yolo
   - GPLv3
   - speed & accuracy
 - [YOLOv8](./yolov8.md) - Detection, Instance Segmentation, Pose/Keypoints, Oriented Detection, Classification
+  - by Ultralytics
   - backbone & neck architectures
   - anchor-free split
-  - https://docs.ultralytics.com/
-  - [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-    - **AGPLv3**
-    - ~/.config/Ultralytics/settings.json
 - YOLOv9
   - based on YOLOv5
   - [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
@@ -39,12 +38,25 @@ title: Yolo
     - AGPLv3
     - 暂无 segmentation [THU-MIG/yolov10#98](https://github.com/THU-MIG/yolov10/issues/98)
   - [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
+- YOLOv11
+  - by ultralytics
 - Yolo World - Object Detection
   - based one YOLOv8
   - [AILab-CVC/YOLO-World](https://github.com/AILab-CVC/YOLO-World)
     - by 腾讯
   - > MDETR, GLIP
   - Open-Vocabulary detection
+- ultralytics
+  - 是一家专注于计算机视觉的 AI 公司
+  - 将其品牌与 YOLO 生态绑定
+  - https://docs.ultralytics.com/
+  - [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+    - **AGPLv3**
+    - ~/.config/Ultralytics/settings.json
+- 参考
+  - [Eric-Canas/qrdet](https://github.com/Eric-Canas/qrdet)
+    - 检测 QR Code
+    - YOLOv8
 
 | model   | file                      | for              |                                Size |
 | ------- | ------------------------- | ---------------- | ----------------------------------: |
@@ -272,5 +284,3 @@ scales: # model compound scaling constants, i.e. 'model=yolov8n.yaml' will call 
 ## SyntaxError: 'v5loader' is not a valid YOLO argument
 
 - 可能没之前的数据，取消 resume 参数
-
-

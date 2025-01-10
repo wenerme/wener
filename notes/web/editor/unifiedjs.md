@@ -64,7 +64,9 @@ console.log(result);
 
 - MDN
   - https://github.com/mdn/yari/tree/main/markdown
-- recma -  Remark (re) and ECMAScript (ecma).
+- mdxhast
+- recma - Remark (re) and ECMAScript (ecma).
+  - 用于转换 [esast](https://github.com/syntax-tree/esast)
 
 ## remark
 
@@ -87,3 +89,8 @@ console.log(result);
 ## ref
 
 - https://www.npmjs.com/package/next-mdx-remote
+
+## vfile
+
+- [vfile](https://github.com/vfile/vfile)
+  - Virtual file format for text processing

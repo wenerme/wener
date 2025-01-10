@@ -50,6 +50,10 @@ tags:
 | MNN      |
 | TNN      |
 | NCNN     |
+| CRNN     | Convolutional Recurrent Neural Network                  | 卷积循环神经网络        |
+| DTRB     | Deep Transformer Reinforcement Learning                 | 深度变压器强化学习      |
+
+**Voice**
 
 | abbr. | stand for                              | cn                       |
 | ----- | -------------------------------------- | ------------------------ |
@@ -67,12 +71,40 @@ tags:
 | NMS   | Non-Maximum Suppression                | 非极大值抑制             |
 | IoU   | Intersection over Union                | 交并比                   |
 | mAP   | Mean Average Precision                 | 平均精度                 |
+| SRN   | Semantic Reasoning Network             | 语义推理网络             |
+| STR   | scene text recognition                 | 场景文本识别             |
+| SER   | Structured Entity Recognition          | 结构化实体识别           |
+| RE    | Relation Extraction                    | 关系抽取                 |
+| KIE   | Key Information Extraction             | 关键信息提取             |
+| PSE   |
+
+- 文本检测算法
+  - DB, EAST, SAST, PSE, DB++, FCE
+- 文本识别算法
+  - CRNN, SRN, RARE, NETR, SAR, ViTSTR, ABINet, VisionLAN, SPIN, RobustScanner, SVTR, SVTR_LCNet
+- 端到端文本检测算法
+  - PGNet
+
+**Visual**
+
+| abbr. | stand for                               | cn                 |
+| ----- | --------------------------------------- | ------------------ |
+| MIM   | Masked Image Modeling                   | 掩码图像建模       |
+| CLIP  | Contrastive Language-Image Pre-training | 对比语言图像预训练 |
+| OOB   | Oriented Object Detection               | 有向物体检测       |
+| COCO  | Common Objects in Context               | 上下文中的通用对象 |
+| OKS   | Object Keypoint Similarity              | 对象关键点相似度   |
 
 | en                   | cn       |
 | -------------------- | -------- |
 | Contrastive Learning | 对比学习 |
 | Inpainting           | 局部重绘 |
 | Outpainting          | 扩展绘制 |
+
+- CLIP - 具有良好的通用性和可扩展性 - modular, reusable, scalable
+- MIM - 适合具体的视觉任务 - 如分类、检测、分割
+
+---
 
 - ClassicML
   - Regression

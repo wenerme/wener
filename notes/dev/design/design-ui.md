@@ -43,23 +43,44 @@ tags:
 - Chip
   - 类似 badge，但是可以操作
   - 快捷的显示关联关系
+  - 特点
+    - 紧凑
+      - Chips 是紧凑的组件，代表离散的信息。
+    - 相关
+      - Chips 应该与它们代表的内容或任务有明确且有帮助的关系。
+    - 专注
+      - Chips 应该使任务更容易完成，或使内容更容易分类。
+  - 参考
+    - https://m2.material.io/components/chips
 - The Atom Syndication Format [rfc4287](https://datatracker.ietf.org/doc/html/rfc4287)
   - type - text, html, xhtml
   - person
     - atom:name
     - atom:url
     - atom:email
+- 参考
+  - https://m3.material.io/components
+  - https://m2.material.io/components
 
 # FAQ
 
 ## Pick vs Select
 
+> Picker vs Selector
+
 - Pick - 挑选
   - 更加随意 - 选择的内容不一定固定
-  - 例如: 选择配色、选择图标、选择日期
+  - 使用场景：
+    - 配色器（Color Picker）：用户可以从调色板中挑选任意颜色。
+    - 图标选择器（Icon Picker）：用户可以从图标库中挑选任意图标。
+    - 日期选择器（Date Picker）：用户可以从日历中挑选任意日期。
 - Select - 选择
   - 更加正式 - 选项固定
-  - 通常用于 dropdown, combobox, radio, checkbox
+  - 使用场景：
+    - 下拉菜单（Dropdown）：用户从预定义的选项中选择一个。
+    - 组合框（Combobox）：用户可以从预定义的选项中选择一个或输入新的选项。
+    - 单选按钮（Radio）：用户从一组单选按钮中选择一个。
+    - 复选框（Checkbox）：用户可以从一组复选框中选择多个。
 
 ## React as vs asChild
 

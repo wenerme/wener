@@ -179,7 +179,7 @@ tags:
 - JSON RPC
 - [gRPC]
   - by Google
-  - [connect](./connect.md) - 支持 HTTP POST ，兼容 gRPC
+  - [connect](./connect.md) - 支持 HTTP POST ，兼容 gRPC, gRPC Web
 - Avro
 - [json-api/json-api](https://github.com/json-api/json-api)
   - application/vnd.api+json

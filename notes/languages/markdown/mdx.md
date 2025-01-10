@@ -18,6 +18,7 @@ title: MDX
     - mdxast 插件，添加 mermaid 支持
     - 可以支持直接渲染 svg - 需要 puppeteer
     - `{type:mermaidCodeBlock, data:{hName, hProperties:{config:{}, chart:""}}}`
+  - [hashicorp/next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)
 
 ```mdx title="input.mdx"
 export const Thing = () => <>World</>;
@@ -48,6 +49,34 @@ export default function MDXContent() {
 - `export default function Layout` - 同 components.wrapper
 - `<MDXProvider components={components}></MDXProvider>`
   - 上下文配置好组件
+
+## Notes
+
+- extensions https://github.com/sindresorhus/markdown-extensions/blob/v2.0.0/markdown-extensions.json
+  - mdx, md, markdown, mdown, mkdn, mkd, mkdown, ron
+- createProcessor
+  - unified 的 Processor
+- https://github.com/DefinitelyTyped/DefinitelyTyped/blob/HEAD/types/mdx/types.d.ts
+
+# Version
+
+## MDX v3
+
+- 支持 await
+- 支持 ES2024 语法 - 更新 Acorn
+- Adjacent block JSX and expressions in MDX
+
+```mdx
+<style>{`
+
+  h1 {
+    color: blue;
+  }
+
+`}</style>
+```
+
+- https://mdxjs.com/blog/v3/
 
 ## MDX v2
 

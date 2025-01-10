@@ -18,6 +18,10 @@ tags:
   - [knex#6162](https://github.com/knex/knex/issues/6162)
 - FFI 是 NodeJS 的弱项
   - 可以尝试 bun:ffi
+  - [zhangyuang/node-ffi-rs](https://github.com/zhangyuang/node-ffi-rs)
+    - MIT, Rust, JS
+  - [Koromix/koffi](https://github.com/Koromix/koffi)
+    - source https://github.com/Koromix/rygel/tree/master/src/koffi
   - [nodejs/node#46905](https://github.com/nodejs/node/pull/46905) ffi implementation
   - [nodejs/node#46233](https://github.com/nodejs/node/issues/46233) Reconsider adding FFI to the core
     - tinycc does not support all of the platforms that node does

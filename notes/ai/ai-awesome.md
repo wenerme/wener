@@ -8,8 +8,12 @@ tags:
 - [LLM Awesome](./llm/llm-awesome.md)
 - [ML Awesome](./ml/ml-awesome.md)
 - [Stable-Diffusion Awesome](./diffusion/diffusion-awesome.md)
-- Voice
+- [Voice](./voice/voice-awesome.md)
   - [jianchang512/clone-voice](https://github.com/jianchang512/clone-voice)
+  - [FunAudioLLM/CosyVoice](https://github.com/FunAudioLLM/CosyVoice)
+    - ASR, TTS
+  - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)
+    - STT
 - Search/RAG
   - Perplexity
   - [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica)

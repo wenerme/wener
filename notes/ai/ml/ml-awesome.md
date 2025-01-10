@@ -171,10 +171,11 @@ tags:
   - [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2)
   - [open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
   - [google-research/big_vision](https://github.com/google-research/big_vision)
-  - [Yolo](./yolo.md) - You Only Look Once
+  - [Yolo](./yolo/README.md) - You Only Look Once
     - YOLO-NAS - Neural Architecture Search
     - [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
     - [YOLOv7 Breakdown](https://blog.roboflow.com/yolov7-breakdown/)
+  - CLIP
 - [lastmile-ai/aiconfig](https://github.com/lastmile-ai/aiconfig)
   - MIT, Python
   - config-based framework to build generative AI applications
@@ -182,6 +183,7 @@ tags:
   - https://annas-archive.org/llm
   - https://www.opendatanetwork.com/
   - https://datasetsearch.research.google.com/
+  - kaggle
   - [datumaro](./datumaro.md)
     - 数据集管理
   - [OpenOrca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
@@ -357,6 +359,39 @@ tags:
 - [ml-tooling/best-of-ml-python](https://github.com/ml-tooling/best-of-ml-python)
 - [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python)
 - [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp)
+
+## Institute
+
+- OpenAI
+- DeepMind
+- Microsoft Research
+- SAIL - Stanford AI Lab
+- Carnegie Mellon University Robotics Institute
+- Google AI
+- CSAIL - MIT Computer Science and Artificial Intelligence Laboratory
+- FAIR - Facebook AI Research
+- IBM Research
+
+**国内**
+
+- BAAI - Beijing Academy of Artificial Intelligence - 智源研究院
+  - [baaivision](https://github.com/baaivision)
+  - BEG - BAAI General Embedding
+    - [FlagOpen/FlagEmbedding](https://github.com/FlagOpen/FlagEmbedding)
+      - Retrieval and Retrieval-augmented LLMs
+  - https://huggingface.co/BAAI
+  - https://baai.ac.cn/
+- 百度研究院
+  - https://research.baidu.com/
+- 阿里巴巴达摩院
+  - https://damo.alibaba.com/
+- 腾讯 - https://yuanbao.tencent.com/
+- 商汤科技
+  - https://www.sensetime.com/
+- 旷视科技
+  - https://www.megvii.com/
+- 云从科技
+  - https://www.cloudwalk.cn/
 
 ## UI/Desktop/GUI/WebUI {#ui}
 

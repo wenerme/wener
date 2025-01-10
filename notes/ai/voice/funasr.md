@@ -8,6 +8,12 @@ tags:
 
 - [modelscope/FunASR](https://github.com/modelscope/FunASR)
   - MIT
+- 参考
+  - [FunAudioLLM/SenseVoice](https://github.com/FunAudioLLM/SenseVoice)
+    - Multilingual Voice Understanding Model
+- 模型缓存目录 ~/.cache/modelscope/hub/iic
+- 16kHz sampling rate, single channel, 16 bit depth
+  - [funasr/utils/load_utils.py](https://github.com/modelscope/FunASR/blob/172a3152b42af36443ec6a0a39969471c35b893d/funasr/utils/load_utils.py)
 
 ```bash
 # --privileged=true
@@ -35,6 +41,33 @@ bash run_server.sh \
   --itn-dir thuduj12/fst_itn_zh \
   --hotword /workspace/models/hotwords.txt
 ```
+
+## Notes
+
+- Process
+  - vad - 语音活动检测模型
+    - 过滤掉无用的静音部分或背景噪音，确保 ASR 模型只处理有效的语音片段。
+    - 输出 `[[370, 2230], [2560, 7080]]` - 开始, 结束
+      - vad segments
+  - asr
+    - 输出 `{text:'', timestamp: [[100,200], [200,500]]}`
+  - spk
+    - speaker verification/diarization
+    - 输出 spk_embedding
+    - spk_mode = punc_segment | vad_segment
+    - 依赖 timestamp
+    - 没有 spk_model 的时候可以设置 sentence_timestamp=True 返回 sentence 信息
+  - punc
+    - 处理 `result["text"]`
+    - 输出 `{text:'', punc_array:[]}`
+  - 如果设置了 preset_spk_num 会根据 spk_embedding 做 cluster 来确定说话人
+  - 如果设置了 return_raw_text 则会设置 `result["raw_text"]`
+- params
+  - batch_size_s
+  - en_post_proc=Flase - 英文后处理
+- https://github.com/modelscope/FunASR/blob/main/runtime/run_server.sh
+- https://github.com/modelscope/FunASR/blob/main/runtime/websocket/bin/funasr-wss-server.cpp
+
 
 ## Protocol
 
@@ -70,3 +103,15 @@ interface ResponseMessage {
   - online 实时语音识别
   - 2pass 实时语音识别，并且说话句尾采用离线模型进行纠错
 - https://github.com/modelscope/FunASR/blob/main/runtime/docs/websocket_protocol_zh.md
+
+## llvmlite
+
+- 依赖 LLVM
+- llvmlite 对 LLVM 版本有硬性要求
+- 先安装 llvmlite 再安装 funasr
+- `llvm-config --version`
+- https://github.com/numba/llvmlite
+
+## 双声道
+
+- https://github.com/modelscope/FunASR/issues/1509

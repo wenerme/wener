@@ -5,7 +5,7 @@ tags:
 
 # Economics FAQ
 
-## Accounting vs. Finance vs. Economics
+## Accounting vs. Finance vs. Economics vs. Taxation
 
 - Accounting - 会计
   - 强调日常
@@ -22,6 +22,9 @@ tags:
 - Economics - 经济学
   - 宏观经济
   - 理论
+- Taxation - 税务
+  - 税收法律法规、税种、计税方式、税务审批程序等
+  - 税务管理 - 申报税款、税务审计、税务筹划、税务咨询和税务诉讼等
 
 ---
 

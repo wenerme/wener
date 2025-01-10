@@ -49,17 +49,19 @@ chmod -R 1777 /transmission
 /usr/bin/transmission-daemon --foreground --config-dir /transmission/config
 
 # https://hub.docker.com/r/linuxserver/transmission
+#  -e TRANSMISSION_WEB_HOME= `#optional` \
+#  -e WHITELIST= `#optional` \
+#  -e PEERPORT= `#optional` \
+#  -e HOST_WHITELIST= `#optional` \
+# 9091 WebUI
+# 51413 P2P
 docker run -d \
   --name=transmission \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -e TRANSMISSION_WEB_HOME= `#optional` \
-  -e USER= `#optional` \
-  -e PASS= `#optional` \
-  -e WHITELIST= `#optional` \
-  -e PEERPORT= `#optional` \
-  -e HOST_WHITELIST= `#optional` \
+  -e TZ=Asia/Shanghai \
+  -e USER=transmission \
+  -e PASS=CHANGMEPASSWORD \
   -p 9091:9091 \
   -p 51413:51413 \
   -p 51413:51413/udp \

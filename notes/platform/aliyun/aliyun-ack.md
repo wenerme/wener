@@ -6,6 +6,7 @@ tags:
 # Aliyun ACK
 
 ## 存储
+
 - 内置 StorageClass
   - 单可用区集群：
     - alibaba-disk-auto - ESSD AutoPL云盘

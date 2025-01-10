@@ -11,6 +11,7 @@ title: radix
     - 原子组件 - 包含状态管理
     - 组件结构 和 状态管理 值得参考
     - https://github.com/radix-ui/primitives/blob/main/philosophy.md
+    - 可以尝试 [Base UI](./base-ui.md)
   - themes
   - icons
   - colors

@@ -141,3 +141,13 @@ Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests
 ```js
 javascript:window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.startsWith('@@auth0spajs'))
 ```
+
+## SSO
+
+- 访问 https://chatgpt.com/auth/login_with?auth_flow=auth0
+- 当跳转为 auth.openai.com 的时候，修改 URL hostname 为 auth0.openai.com
+- 正常登陆
+
+---
+
+- https://www.reddit.com/r/ChatGPT/comments/1eloa0j

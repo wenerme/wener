@@ -22,6 +22,9 @@ tags:
 - service
   - https://github.com/OpenRefine/OpenRefine
 - [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)
+- https://odesli.co/
+  - song.link
+  - artist.link
 - 商业
   - https://opencorporates.com
     - https://api.opencorporates.com/documentation/API-Reference

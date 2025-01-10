@@ -152,6 +152,8 @@ brew install scc
 scc --exclude-dir={vendor,.gen,node_modules} -M '_test.go' --no-gen .
 scc --no-gen --exclude-dir=gql ./src
 scc --by-file ./src # 找到大文件
+
+scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ext=vue
 ```
 
 ## 协作

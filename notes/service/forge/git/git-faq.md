@@ -287,6 +287,8 @@ git subtree split -P <name-of-folder> -b <name-of-new-branch>
 
 ## 迁移分支为仓库 {#branch-to-repo}
 
+> Migrate Branch to Repository
+
 ```bash
 mkdir /path/to/new/repo && cd "$@"
 git config receive.denyCurrentBranch warn

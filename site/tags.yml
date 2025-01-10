@@ -662,12 +662,12 @@ webui:
 windows:
   label: Windows
   description: Microsoft Windows OS
-技巧:
+skill:
   label: 技巧
   description: Skills and tips
-概念:
+concept:
   label: 概念
   description: Concepts and ideas
-目录结构:
+directory-structure:
   label: 目录结构
   description: Directory structures

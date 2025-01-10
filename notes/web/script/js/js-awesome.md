@@ -52,8 +52,17 @@ tags:
     - jquery
   - parser
     - zeed-dom - Parser
-    - cheerio - jQuery
-    - htmlparser2
+    - [cheerio](https://github.com/cheeriojs/cheerio) - jQuery like API
+    - [fb55/htmlparser2](https://github.com/fb55/htmlparser2)
+      - npm:htmlparser2
+    - [fb55/domhandler](https://github.com/fb55/domhandler)
+      - documents -> DOM
+    - [cheeriojs/dom-serializer](https://github.com/cheeriojs/dom-serializer)
+      - domhandler 序列化 DOM
+    - [fb55/css-select](https://github.com/fb55/css-select)
+      - CSS selector
+    - [fb55/domutils](https://github.com/fb55/domutils)
+      - DOM utils
     - parse5
     - jsdom
   - santinizer

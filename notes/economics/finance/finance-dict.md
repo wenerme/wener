@@ -1,7 +1,7 @@
 ---
 tags:
-- Dict
-- i18n
+  - Dict
+  - i18n
 ---
 
 # 金融 字典

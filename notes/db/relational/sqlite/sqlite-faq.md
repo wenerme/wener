@@ -6,11 +6,34 @@ tags:
 
 # SQLite FAQ
 
+:::caution
+
+- 不支持添加非常量默认值的列
+  - Cannot add a column with non-constant default
+  - 不可以 `alter table tab add column my_time timestamp default current_timestamp;`
+- timestamp
+  - current_timestamp 返回的是 text
+  - `strftime('%s', current_timestamp)` 返回的是 integer
+  - 可以使用 real 存储高精度 - 包含 ms/μs/ns
+
+:::
+
 ```sql
 select hex(randomblob(16));
 select lower(hex(randomblob(16)));
 -- 伪 UUIv4
 select lower(hex(randomblob(4))) || '-' || lower(hex(randomblob(2))) || '-4' || substr(lower(hex(randomblob(2))),2) || '-' || substr('89ab',abs(random()) % 4 + 1, 1) || substr(lower(hex(randomblob(2))),2) || '-' || lower(hex(randomblob(6)));
+-- 伪 UUIv7
+SELECT
+  -- timestamp
+  format('%08x', ((strftime('%s') * 1000) >> 16)) || '-' ||
+  format('%04x', ((strftime('%s') * 1000) + ((strftime('%f') * 1000) % 1000)) & 0xffff) || '-' ||
+  -- version
+  format('%04x', 0x7000 + abs(random()) % 0x0fff) || '-' ||
+  -- variant
+  format('%04x', 0x8000 + abs(random()) % 0x3fff) || '-' ||
+  -- randomness
+  format('%012x', abs(random()) >> 16) AS uuid7;
 ```
 
 ```sql

@@ -24,6 +24,8 @@ tags:
   - ONNX https://huggingface.co/OleehyO/paddleocrv4.onnx/tree/main
 - 缓存目录
   - ~/.paddleocr/whl/det/ch/ch_PP-OCRv4_det_infer/ch_PP-OCRv4_det_infer.tar
+- 参考
+  - 模型列表 https://github.com/frotms/PaddleOCR2Pytorch/blob/main/doc/doc_ch/models_list.md
 
 ```bash
 # 版本 https://pypi.org/project/paddlepaddle/#history

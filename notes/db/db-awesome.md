@@ -243,6 +243,9 @@ curl --request POST \
 
 ## SQLite Awesome
 
+- [nalgeon/sqlean](https://github.com/nalgeon/sqlean)
+  - MIT, C
+  - 扩展合集
 - [dgllghr/stanchion](https://github.com/dgllghr/stanchion)
   - Column
 - [proofrock/ws4sqlite](https://github.com/proofrock/ws4sqlite)

@@ -1,17 +1,18 @@
 ---
 tags:
   - Glossary
+  - FAQ
 ---
 
 # Accounting Glossary
 
 | abbr. | stand for                      | mean           | note                                                                                        |
 | ----- | ------------------------------ | -------------- | ------------------------------------------------------------------------------------------- |
-| CPA   | Certified Public Accountant    | 注册会计师     |
-| TA    |                                | 税务师         |
-| IRS   | Internal Revenue Service       | 美国国家税务局 | https://www.irs.gov/                                                                        |
-| IRC   | Internal Revenue Code          | 美国国内税收法 | https://www.law.cornell.edu/uscode/text/26                                                  |
 | COA   | Chart of Accounts              | 会计科目表     |
+| CPA   | Certified Public Accountant    | 注册会计师     |
+| IRC   | Internal Revenue Code          | 美国国内税收法 | https://www.law.cornell.edu/uscode/text/26                                                  |
+| IRS   | Internal Revenue Service       | 美国国家税务局 | https://www.irs.gov/                                                                        |
+| TA    |                                | 税务师         |
 | TIN   | Taxpayer Identification Number | 纳税人识别号   | https://www.irs.gov/individuals/international-taxpayers/taxpayer-identification-numbers-tin |
 
 | abbr.   | stand for                                              | mean                 |
@@ -19,33 +20,35 @@ tags:
 | IFRS    | International Financial Reporting Standards            | 国际财务报告准则     |
 | US GAAP | United States Generally Accepted Accounting Principles | 美国一般公认会计原则 |
 
-| en                      | cn                              |
-| ----------------------- | ------------------------------- |
-| Account reconciliations | 对账                            |
-| Balance sheet           | 资产负债表                      |
-| Accountant              | 会计师                          |
-| social security         | 社保                            |
-| individual tax          | 个税                            |
-| Personal Income Tax     | 个人所得税                      |
-| imposition              | 征收                            |
-| Accounting Period       | 会计期间/会计分期/会计周期/账期 |
-| Accounting Year         | 会计年度                        |
-| Accounting Mid-term     | 会计中期                        |
-| Accounting              | 会计                            |
-| Closing the books       | 结账                            |
-| Accounting Set          | 账套                            |
-| Accounting Book         | 账簿                            |
-| Standard Entry          | 蓝字                            |
-| Reversal Entry          | 红字/红冲                       |
-| Credit Note             | 贷项通知单                      |
-| Adjusting Entry         | 红字                            |
-| Void                    | 作废                            |
-| Write Off               | 冲销、坏账核销                  |
+| en                      | cn                              | notes                            |
+| ----------------------- | ------------------------------- | -------------------------------- |
 | Account Code            | 科目代码                        |
-| Voucher                 | 凭证                            |
-| Document                | 文件、文档                      |
-| Chart of Accounts       | 会计科目表                      |
+| Account reconciliations | 对账                            |
+| Accountant              | 会计师                          |
+| Accounting              | 会计                            |
 | Accounting Account      | 会计科目                        |
+| Accounting Book         | 账簿                            |
+| Accounting Mid-term     | 会计中期                        |
+| Accounting Period       | 会计期间/会计分期/会计周期/账期 |
+| Accounting Set          | 账套                            |
+| Accounting Year         | 会计年度                        |
+| Adjusting Entry         | 调整分录                        |
+| Balance sheet           | 资产负债表                      |
+| Bank Receipt            | 银行回单                        |
+| Bank Statement          | 银行对账单                      |
+| Chart of Accounts       | 会计科目表                      |
+| Closing the books       | 结账                            |
+| Credit Note             | 贷项通知单                      |
+| Document                | 文件、文档                      | 用于记录和存档的书面材料         |
+| Imposition              | 征收                            |
+| Individual Tax          | 个税                            |
+| Personal Income Tax     | 个人所得税                      |
+| Reversal Entry          | 红字/红冲                       | 用于冲销错误的会计分录           |
+| Social Security         | 社保                            |
+| Standard Entry          | 标准分录/蓝字                   |
+| Void                    | 作废                            |
+| Voucher                 | 凭证                            | 用于记录和证明经济业务的原始凭证 |
+| Write Off               | 冲销、坏账核销                  | 将无法收回的应收账款从账面上冲销 |
 
 - Credit Note
   - 特指因商品退货或服务取消而发出的，与原销售发票相抵销的凭证。这通常用于销售和商业环境中。
@@ -82,6 +85,27 @@ tags:
   - 部门、员工 - 成本费用类、其他应收、其他应付
 - 参考
   - https://quickbooks.intuit.com/global/zh-cn/glossary/
+
+## Bank Statement vs Bank Receipt
+
+- Bank Statement - 银行对账单
+  - 概括性、汇总性
+  - 银行对账单、信用卡对账单
+  - 一条收据产生一行记录
+  - 定义：银行定期向账户持有人提供的账户交易记录。
+  - 内容：包括账户的所有交易记录，如存款、取款、转账、费用等。
+  - 目的：用于核对企业或个人的账目，确保账目与银行记录一致。
+  - 频率：通常按月提供，但也可以按季度或其他周期提供。
+  - 例如：月度银行对账单显示了账户在一个月内的所有交易活动。
+- Bank Receipt - 银行回单 - 收据
+  - 具体性、明细性
+  - 交易发生时，卖方提供给买方的书面凭证
+  - 通常包括交易日期、金额、交易类型等信息
+  - 定义：银行提供的交易凭证，证明某笔交易已完成。
+  - 内容：包括具体交易的详细信息，如交易日期、金额、交易类型等。
+  - 目的：用于记录和确认单笔资金的收付情况。
+  - 频率：每次交易完成后提供。
+  - 例如：存款回单、取款回单、转账回单显示了具体交易的详细信息。
 
 ## 科目代码
 

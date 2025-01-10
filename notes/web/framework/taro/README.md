@@ -102,3 +102,39 @@ const { app, route, page } = Taro.Current;
 
 - `Taro.env`
   - USER_DATA_PATH=http://usr
+
+# Version
+
+## Taro 4
+
+- 鸿蒙端平台 - harmony
+- 小程序编译模式（CompileMode）
+  - Taro v3.6.22
+  - 优化 `<template>` 的渲染性能
+  - mini.experimental.compileMode = true
+  - https://github.com/NervJS/taro/discussions/14708
+
+```tsx
+function GoodsItem() {
+  return <View compileMode></View>;
+}
+```
+
+- React Native 适配升级 - 支持 0.73 版本
+- 新的编译系统支持 - Vite
+  - `@tarojs/vite-runner`
+
+```ts
+export default defineConfig<'vite'>(async (merge, { command, mode }) => {
+  // modifyViteConfig
+  const baseConfig: UserConfigExport<'vite'> = {
+    compiler: {
+      type: 'vite',
+      vitePlugins: [vitePlugin],
+    },
+  };
+});
+```
+
+- 基建更新改造 —— Rust
+- 新的 DSL 框架支持 —— Solidjs

@@ -22,6 +22,14 @@ tags:
   - unary: application/proto, application/json
   - striming: application/connect+proto, application/connect+json
 
+:::caution
+
+- Python Implementation [connectrpc/connectrpc.com#71](https://github.com/connectrpc/connectrpc.com/pull/71)
+  - https://github.com/mattrobenolt/connect-python
+  - https://github.com/i2y/connecpy
+
+:::
+
 ## Awesome
 
 - [Connect Protocol Reference](https://connect.build/docs/protocol/)

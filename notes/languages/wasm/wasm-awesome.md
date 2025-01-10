@@ -17,7 +17,7 @@ tags:
   - port to WASM
     - 编译为 wasm
     - ir -> wasm
-  - WASM to Native
+  - WASM to Native - JIT
 
 :::
 
