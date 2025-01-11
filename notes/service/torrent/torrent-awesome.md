@@ -55,9 +55,6 @@ tags:
     - [xgfone/bttools](https://github.com/xgfone/bttools)
 - [arvidn/libtorrent](https://github.com/arvidn/libtorrent)
 
-
-
-
 ## Torrent file
 
 - [Torrent file](https://en.wikipedia.org/wiki/Torrent_file)

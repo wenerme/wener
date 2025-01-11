@@ -32,6 +32,13 @@ cat example.org.crt ca.crt > example.org.bundle.crt
 
 # FP
 echo -sha256 -sha1 -md5 | xargs -n1 openssl x509 -noout -fingerprint -inform pem -in ca.crt
+
+# 查看证书时间
+# notBefore=
+# notAfter=
+openssl x509 -in wener.me.crt -noout -dates
+# 查看域名
+openssl x509 -in wener.me.crt -noout -text | grep -E 'Subject:|DNS:'
 ```
 
 - https://gist.github.com/Soarez/9688998

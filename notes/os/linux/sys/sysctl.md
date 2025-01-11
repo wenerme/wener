@@ -163,6 +163,13 @@ net.ipv4.tcp_congestion_control=bbr
 fs.inotify.max_user_instances=8192
 ```
 
+```bash
+# 128
+sysctl fs.inotify.max_user_instances
+
+sudo sysctl fs.inotify.max_user_instances=8192
+```
+
 **相关错误信息**
 
 > failed to create inotify: No file descriptors available

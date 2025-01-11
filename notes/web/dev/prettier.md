@@ -94,7 +94,7 @@ npx husky add .husky/pre-commit "npx lint-staged"
 
 ## 排序 import
 
-- ~~[trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)~~
+- [trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
 - [IanVS/prettier-plugin-sort-imports](https://github.com/IanVS/prettier-plugin-sort-imports)
 
 ```bash

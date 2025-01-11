@@ -4,7 +4,7 @@ title: mCaptcha
 
 # mCaptcha
 
-- [mCaptcha/mCaptcha](https://github.com/mCaptcha/mCaptcha)
+- ~~[mCaptcha/mCaptcha](https://github.com/mCaptcha/mCaptcha)~~
   - AGPL-3.0, Rust
   - 依赖 postgres, redis
   - 支持多站点

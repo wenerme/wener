@@ -378,3 +378,9 @@ type Nullable<T> = {
 
 type NullableOptional<T> = PickRequired<T> & Nullable<PickOptional<T>>;
 ```
+
+## SyntaxError: A type-only import can specify a default import or named bindings, but not both
+
+```ts
+import type React, {type ReactNode} from 'react';
+````

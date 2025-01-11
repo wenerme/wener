@@ -8,6 +8,9 @@ tags:
 
 ```bash
 git config --global core.ignorecase false
+
+git status --untracked-files=all # 未跟踪的文件
+git ls-files --others --exclude-standard # 未跟踪的文件 - 考虑 .gitignore
 ```
 
 ## 修正用户名 {#amend-author}

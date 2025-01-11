@@ -1,8 +1,42 @@
 ---
 title: Torrent
+tags:
+  - Torrent
+  - Reference
 ---
 
 # Torrent
+
+- .torrent
+- Magnet Link
+  - 替代 .torrent 文件，通过 URI 表示共享的文件信息。
+- Tracker
+  - Peer Protocol
+  - HTTP Tracker
+  - UDP Tracker Protocol
+  - Distributed Hash Table (DHT)
+    - Kademlia
+- P2P Protocol
+  - Handshake：初次连接时交换信息。
+  - Piece：交换文件数据。
+  - Have：通知拥有的数据块。
+- PEX - Peer Exchange
+  - 让节点之间共享已知的 Peer 列表，减少对 Tracker 的依赖。
+- 分片（Piece）机制
+  - 将大文件分成小片段（Piece），实现高效的并行下载。
+  - 每个文件被分成多个 Piece，每个 Piece 都有一个 SHA-1 哈希值。
+  - Peer 下载时验证每个 Piece 的完整性。
+- 超种（Super-Seeding）模式
+  - 提高 Seeder 初次分发文件的效率。
+  - Seeder 优先将不同的 Piece 传给不同的 Peer，减少重复传输。
+  - 适用于文件刚发布、节点数较少的场景。
+- 扩展
+  - uTP（Micro Transport Protocol）：
+    - 基于 UDP 的传输协议，减少网络拥塞。
+  - Fast Extension：
+    - 提高下载速度的功能，例如允许 Peer 请求跳跃式的 Piece。
+  - Peer Identification：
+    - 识别 Peer 的下载客户端（如 μTorrent、qBittorrent）。
 
 | Spec    | Title                                                            | Status |
 | ------- | ---------------------------------------------------------------- | ------ |
