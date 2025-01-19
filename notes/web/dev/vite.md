@@ -87,6 +87,12 @@ export default defineConfig(async ({ command, mode }) => {
 });
 ```
 
+- plugins
+  - @vitejs/plugin-react
+    - 基于 Babel
+  - @vitejs/plugin-react-swc
+    - 基于 SWC
+
 ## Build
 
 - 默认兼容

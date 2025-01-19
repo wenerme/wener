@@ -31,7 +31,7 @@ touch src/{api,pages}/index.js src/{router,base,conf}.js
 
 - 服务端渲染框架 https://github.com/nuxt/nuxt.js
 
-## Tips
+## Notes
 
 - Vue 基本元素
   - 指令

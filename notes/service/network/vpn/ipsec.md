@@ -4,12 +4,33 @@ title: IPSec
 
 # IPSec
 
-- 一套协议而不是单个协议
-- 加密数据
+- IPSec - Internet Protocol Security
+- 数据加密
 - 验证来源
 - 验证数据完整性
-- [IPsec](https://en.wikipedia.org/wiki/IPsec) - Internet Protocol Security
+- 主要特性
+  - 内核加密：速度快
+  - 高加密强度：确保数据安全
+  - 开放协议：兼容性好
+- IPSec 使用的协议：
+  - AH (Authentication Header)：数据完整性和来源验证
+  - ESP (Encapsulating Security Payload)：数据加密
+- IPSec 的工作模式：
+  - 通道模式：适用于站点对站点和主机对主机的通信，封装消息头和消息体
+  - 传输模式：适用于主机对主机的通信，仅封装消息体，配置简单，性能更好
+- 机会性加密 (Opportunistic IPsec)：
+  - 允许大量节点使用相同的配置进行部署
+  - 适用于企业或云环境
 - 参考
+  - [IPsec](https://en.wikipedia.org/wiki/IPsec)
+  - [Full-mesh IPsec network](https://www.usenix.org/sites/default/files/conference/protected-files/srecon16europe_slides_garcia.pdf)
+  - [IPSec over NAT](http://docs.ruckuswireless.com/fastiron/08.0.80/fastiron-08080-securityguide/GUID-0F5E2C64-B9B8-4900-A446-F44FBEA493C1.html)
+  - [CONFIGURING A VPN WITH IPSEC](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/configuring-a-vpn-with-ipsec_securing-networks)
+  - [“On the fly” IPsec VPN with iproute2](https://backreference.org/2014/11/12/on-the-fly-ipsec-vpn-with-iproute2/)
+  - [Opportunistic IPsec](https://libreswan.org/wiki/HOWTO:_Opportunistic_IPsec)
+  - [Quick Start: 在 AWS 云上部署机会性 IPsec 网格](https://aws.amazon.com/cn/about-aws/whats-new/2019/05/new-quick-start-deploys-opportunistic-ipsec-mesh-on-aws/)
+  - [OPPORTUNISTIC ENCRYPTION USING IPSEC](http://events17.linuxfoundation.org/sites/events/files/slides/LinuxSecuritySummit-2016-OE-16x9.pdf)
+  - [IPsec](https://en.wikipedia.org/wiki/IPsec) - Internet Protocol Security
   - [Full-mesh IPsec network](https://www.usenix.org/sites/default/files/conference/protected-files/srecon16europe_slides_garcia.pdf)
     - [n2n](https://github.com/ntop/n2n) 迁移 IPSec
     - 不要使用 ipsec-tools/racoon

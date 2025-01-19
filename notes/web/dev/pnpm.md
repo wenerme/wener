@@ -64,6 +64,8 @@ pnpm env use --global lts         # 使用 LTS 版本 Node.js
 pnpm root # 返回当前 node_modules 路径
 pnpm bin  # 返回当前 node_modules/.bin 路径
 
+pnpm -r run fmt # 递归运行 fmt
+
 # store 管理
 # ==========
 pnpm store status

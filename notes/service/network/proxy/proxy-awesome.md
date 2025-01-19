@@ -72,7 +72,7 @@ tags:
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
 
----
+## Tunnel
 
 - [XX-net/XX-Net](https://github.com/XX-net/XX-Net)
 - [snail007/goproxy](https://github.com/snail007/goproxy)
@@ -84,6 +84,7 @@ tags:
 
 ```bash
 curl https://1.1.1.1/cdn-cgi/trace
+curl https://wener.me/cdn-cgi/trace
 ```
 
 ## universal

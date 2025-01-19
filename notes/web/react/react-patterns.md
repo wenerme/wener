@@ -50,6 +50,89 @@ tags:
 
 - https://reactpatterns.com/
 
+## Sidecar
+
+- 分离业务逻辑和渲染
+
+```tsx
+const ResourceList = () => {
+  return (
+    <Root>
+      <Sidecar />
+      List Content
+    </Root>
+  );
+};
+
+// 封装所有业务逻辑，不渲染内容
+const Sidecar = () => {
+  const store = useRootStore();
+  const { pageSize } = useStore(
+    store,
+    useShallow(({ pageSize }) => ({ pageSize })),
+  );
+
+  const { data, loading, error } = useQuery({
+    variables: { pageSize },
+  });
+  useEffect(() => {
+    store.setState({ data, loading, error });
+  }, [data, loading, error]);
+  return null;
+};
+```
+
+## Raw State vs State Wrapper
+
+- Raw State
+  - 直接、易于理解、灵活
+  - 直接暴露 state 和操作方法
+  - actions 封装部分预设的操作逻辑
+- State Wrapper
+  - 封装、可维护（没有暴露过多细节）、易扩展、适用于复杂场景
+  - 本质还是维护和操作 state
+  - 但是使用体验上感觉是在操作组件
+
+```tsx
+// Raw State
+type StoreState = {
+  active: any;
+
+  actions: {
+    setActive: (active: any) => void;
+  };
+};
+
+// State Wrapper
+type ReactTable = {
+  state: any;
+  getOptions: () => any;
+  setPageSize: (size: number) => void;
+};
+```
+
+## Composable Primitive
+
+- 原子组件
+- 组合、复用
+- 参考
+  - cmdk
+  - radix-ui
+  - base-ui
+
+```tsx
+const MyList = ()=>{
+  return (
+    <List.Root>
+      <List.Header>Header</List.Header>
+      <List.Search></List.Search>
+      <List.Item>1</List.Item>
+      <List.Item>2</List.Item>
+    </List>
+  );
+}
+```
+
 ## Non-Rendering State Management Components {#non-rendering-state-management-components}
 
 - 避免 rerender

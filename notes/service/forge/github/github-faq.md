@@ -11,6 +11,16 @@ tags:
   - 可以考虑 gitea mirror 别人参考然后加 webhook
   - 或者拉 releases/tags 判断
 
+```bash
+# 提交的行数量统计
+git log --pretty=format:"%h %an %ad %s" --shortstat
+
+git log --pretty=format:"%h %an %ad %s" --shortstat -- :^graphql.schema.json :^pnpm-lock.yaml
+
+# --numstat COMMIT 来 debug
+git log --pretty=format:"%h %an %ad %s" --shortstat -- :^*/{graphql.schema.json,graphql.ts,manifest.json,manifest.md} :^pnpm-lock.yaml
+```
+
 ## Github Pages CNAME
 
 - 一个仓库只支持一个 CNAME

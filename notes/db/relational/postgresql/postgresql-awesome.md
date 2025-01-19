@@ -53,6 +53,10 @@ tags:
 ## Extension
 
 - TimescaleDB
+- [Mooncake-Labs/pg_mooncake](https://github.com/Mooncake-Labs/pg_mooncake)
+  - MIT, C++
+  - columnar storage, vectorized execution (DuckDB)
+  - Columnstore tables are stored as Iceberg or Delta Lake
 - [apache/incubator-age](https://github.com/apache/incubator-age)
   - Graph + Realtime
   - openCypher

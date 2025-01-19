@@ -661,6 +661,8 @@ tags:
   - [SaaS Blocks](https://saasblocks.io/)
   - https://github.com/it2025/saasbook
   - https://nino.app/
+- CORS/Proxy
+  - [gridaco/cors.sh](https://github.com/gridaco/cors.sh)
 
 ## OCR
 

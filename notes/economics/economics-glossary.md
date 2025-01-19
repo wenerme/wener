@@ -5,11 +5,11 @@ tags:
 
 # Economics Glossary
 
-| abbr.               | en                                      | zh       |
-| ------------------- | --------------------------------------- | -------- |
-| CD,COD              | Certificate of Deposit                  | 存单     |
-| CPA                 |
-| SSE Composite Index | Shanghai Stock Exchange Composite Index | 上证指数 |
+| abbr.               | en                                      | zh         |
+| ------------------- | --------------------------------------- | ---------- |
+| CD,COD              | Certificate of Deposit                  | 存单       |
+| CPA                 | Certified Public Accountant             | 注册会计师 |
+| SSE Composite Index | Shanghai Stock Exchange Composite Index | 上证指数   |
 
 | en         | cn     |
 | ---------- | ------ |
@@ -62,3 +62,16 @@ tags:
 - 其他地区
   - **印度孟买证券交易所敏感指数 (BSE SENSEX)**: 反映印度孟买证券交易所30家主要上市公司的股票表现。
   - **巴西IBOVESPA指数**: 反映巴西证券交易所最活跃的股票表现。
+
+## 贷款
+
+1. 抵押贷款：以资产（如房产）作为抵押的贷款。如果借款人无法按时还款，贷款人有权处置抵押资产以收回贷款。
+1. 无抵押贷款：不需要提供抵押资产的贷款，通常利率较高，因为贷款人承担的风险较大。
+1. 个人贷款：用于个人消费或紧急支出的贷款。
+1. 商业贷款：用于企业运营或扩展的贷款。
+
+## 次级贷款
+
+## 经营贷
+
+小微企业的认定标准从授信不超过1000万提高到2000万。

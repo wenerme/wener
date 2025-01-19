@@ -5,12 +5,13 @@ tags:
 
 # OpenZFS Version
 
-| version          | date       | Linux             | FreeBSD |
-| ---------------- | ---------- | ----------------- | ------- |
+| version          | date       | Linux       | FreeBSD           |
+| ---------------- | ---------- | ----------- | ----------------- |
+| [OpenZFS 2.3]    | 2025-01-14 | 4.18 - 6.12 | 13.3, 14.0 - 14.2 |
 | [OpenZFS 2.2]    | 2023-11-13 |
-| [OpenZFS 2.1]    | 2021-07-03 | Kernel 3.10+      | 12.2    |
-| [OpenZFS 2.0]    | 2020-10-01 | Kernel 3.10+      | 12.2    |
-| [ZfsOnLinux 0.8] | 2019-05-24 | Kernel 2.6.32-5.9 |
+| [OpenZFS 2.1]    | 2021-07-03 | 3.10+       | 12.2              |
+| [OpenZFS 2.0]    | 2020-10-01 | 3.10+       | 12.2              |
+| [ZfsOnLinux 0.8] | 2019-05-24 | 2.6.32-5.9  |
 
 :::tip Roadmap
 
@@ -21,6 +22,23 @@ tags:
 - 支持 renameat2/overlayfs - [#12209](https://github.com/openzfs/zfs/pull/12209)
 
 :::
+
+## OpenZFS 2.3
+
+- RAIDZ Expansion
+  - `zpool attach POOL raidzP-N NEW_DEVICE`
+  - `feature@raidz_expansion`
+- Fast Dedup
+- Direct IO
+  - 绕过 ARC 缓存直接进行读写操作
+  - O_DIRECT
+- JSON 输出
+- Long names - 文件/目录名 1023 字符
+  - ZAP_MAXNAMELEN 256 -> 1023
+
+---
+
+- https://github.com/openzfs/zfs/releases/tag/zfs-2.3.0
 
 ## OpenZFS 2.2
 

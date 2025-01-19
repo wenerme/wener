@@ -20,6 +20,9 @@ ls ~/Library/Application\ Support/Battle.net
 # 判断所在区域
 # -> https://tw.battle.net/login/
 curl https://battle.net/login/ -sfI | grep Location
+
+# clean
+rm -rf /Users/Shared/Battle.net
 ```
 
 - http://us.patch.battle.net:1119

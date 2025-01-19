@@ -6,7 +6,7 @@ tags:
 
 # Platform Awesome
 
-## 小程序平台
+## 小程序平台 {#miniprogram}
 
 - [微信小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [京东小程序](https://mp.jd.com/)
@@ -44,7 +44,6 @@ tags:
 - 工具下载
   - [微信小程序/下载](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
     - [Stable](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)
-
 
 ## 跨端小程序开发
 
@@ -91,19 +90,34 @@ tags:
 [linode]: ./linode.md
 [bandwagonhost]: https://bandwagonhost.com/
 
-- Vultr
+- [Vultr](https://www.vultr.com/)
   - ~~1C0.5G 10GB 0.5TB $2.5/mo - IPv6~~
   - ~~1C0.5G 10GB 0.5TB $3.5/mo - IPv4~~
   - 1C1G 25GB 1TB $5/mo
   - 1C1G 25GB 2TB $6/mo
   - **注意** Alpine 需要通过挂载 ISO 安装，有点麻烦
 - Kamatera - 1C1G 20GB 1T $4/mo
-- BandwagonHost - 1C1G 20GB 1T $50/an ~ $4.2/mo - 联通专线
+- [BandwagonHost](https://bandwagonhost.com)
   - 速度测试 https://www.bandwagonhost.net/test-ip
+  - 1C1G 20GB 1T $50/an ~ $4.2/mo - 联通专线
   - https://1kb.day/deals.html
+- CSTserver
+  - 香港, 美国, CN2
+  - https://cstserver.com/
+  - Promot Code CSTOU4 CVM EPYC X2 22.4$/year 2C2G
 - https://www.arosscloud.com/
   - 香港业务为主
+- https://www.simcentric.com/
+- CstoneCloud
+- https://cloud.colocrossing.com
+  - ccs
 - [joedicastro/vps-comparison](https://github.com/joedicastro/vps-comparison)
+- 美国CN2 GIA线路
+- 欧洲AS9929线路
+- 日本CN2 GIA/Softbank线路
+- 香港CN2 GIA/CMI线路
+- CN2 GIA/CTGNet
+- HK85线路
 
 ## Wechat
 

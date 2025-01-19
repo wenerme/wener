@@ -44,12 +44,25 @@ tags:
 | /lib  | /usr/lib   | /usr/local/lib   |
 |       | /usr/share | /usr/local/share |
 
----
+| dev      | for        | mod         |
+| -------- | ---------- | ----------- |
+| /dev/ppp | IPsec/L2TP | ppp_generic |
+
+**procfs**
+
+| path           | for |
+| -------------- | --- |
+| /proc/consoles |
 
 ```bash
 # skeleton
 # /etc/default/useradd
 useradd -m -k /etc/skel
+
+# PPP - Point-to-Point Protocol
+modprobe ppp_generic
+zcat /proc/config.gz | grep PPP
+cat /boot/config-virt | grep PPP
 ```
 
 ## FHS
@@ -209,6 +222,5 @@ USERGROUPS_ENAB yes
   - MountPointManagerRemoteDatabase
   - tracking.log
 - `RECYCLER` - 回收站
-- `.Trashes`
-  -
+- ## `.Trashes`
 - `.fseventsd`

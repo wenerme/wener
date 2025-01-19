@@ -231,4 +231,36 @@ tags:
 - L2TP over IPSec
   - IPSec 提供认证和加密通道
   - L2TP 提供网络
-  - IP 包之上添加 L2TP 包头
+
+## IPsec/L2TP vs Cisco IPsec vs IKEv2
+
+- IPsec/L2TP
+  - 使用 L2TP 协议进行隧道封装
+  - 提供二层隧道，适用于需要二层连接的场景
+  - 通过 IPsec 提供认证和加密
+  - 常用于 VPN 连接，支持广泛的客户端
+- IPSec/Xauth - Cisco IPsec
+  - 使用 Xauth 进行用户认证
+  - 提供三层隧道，适用于需要三层连接的场景
+  - 通过 IPsec 提供认证和加密
+  - 常用于远程访问 VPN，支持多种客户端
+- IKEv2
+  - 使用 IKEv2 协议进行密钥交换
+  - 提供三层隧道，适用于需要三层连接的场景
+  - 通过 IPsec 提供认证和加密
+  - 常用于移动设备，支持 iOS 和 Android
+  - **优势**
+    - 对移动设备非常友好，适合频繁切换网络的场景（如 Wi-Fi 和 4G/5G 切换）。
+    - 更适合复杂的 NAT 环境，穿透性较好。
+    - 支持 MOBIKE（网络切换时保持连接）。
+
+| 协议        | 隧道类型 | 安全性      | 适用场景             | 兼容性                   | 部署难度 |
+| ----------- | -------- | ----------- | -------------------- | ------------------------ | -------- |
+| IPsec/L2TP  | 二层隧道 | 高（IPsec） | 二层连接（例如内网） | 广泛（支持大部分客户端） | 中等     |
+| Cisco IPsec | 三层隧道 | 高          | 企业远程访问         | 需要支持的 Cisco 设备    | 略高     |
+| IKEv2       | 三层隧道 | 很高        | 移动设备频繁切换网络 | 广泛（特别是移动平台）   | 较高     |
+
+> _参考_
+>
+> 1. [IPsec/L2TP](https://en.wikipedia.org/wiki/IPsec)
+> 2. [IPSec/Xauth](https://en.wikipedia.org/wiki/Internet_Key_Exchange)

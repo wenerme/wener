@@ -20,6 +20,17 @@ tags:
 
 :::
 
+- Design Token
+  - Design Token 是一种在设计和开发中用于定义和管理视觉样式的标准化方式，能够将设计系统中的关键样式信息（如颜色、字体、间距等）抽象为小的、可重用的、跨平台的值。
+  - 这些 Token 以通用格式（如 JSON 或 YAML）表示，可以在不同工具和技术栈之间共享和一致地应用。
+  - [amzn/style-dictionary](https://github.com/amzn/style-dictionary)
+    - Apache-2.0, JS
+    - build system for creating cross-platform styles.
+    - Playground https://www.style-dictionary-play.dev/
+  - [sturobson/Awesome-Design-Tokens](https://github.com/sturobson/Awesome-Design-Tokens)
+  - https://m3.material.io/foundations/design-tokens/overview
+  - https://spectrum.adobe.com/page/design-tokens/
+  - https://atlassian.design/tokens/design-tokens
 - Profile
   - banner image
   - avatar/logo
@@ -40,18 +51,6 @@ tags:
   - https://indieweb.org/hovercard
   - https://www.radix-ui.com/primitives/docs/components/hover-card
 - Popover
-- Chip
-  - 类似 badge，但是可以操作
-  - 快捷的显示关联关系
-  - 特点
-    - 紧凑
-      - Chips 是紧凑的组件，代表离散的信息。
-    - 相关
-      - Chips 应该与它们代表的内容或任务有明确且有帮助的关系。
-    - 专注
-      - Chips 应该使任务更容易完成，或使内容更容易分类。
-  - 参考
-    - https://m2.material.io/components/chips
 - The Atom Syndication Format [rfc4287](https://datatracker.ietf.org/doc/html/rfc4287)
   - type - text, html, xhtml
   - person
@@ -61,6 +60,28 @@ tags:
 - 参考
   - https://m3.material.io/components
   - https://m2.material.io/components
+
+## Chip
+
+- 类似 badge，但是可以操作
+- 快捷的显示关联关系
+- 特点
+  - 紧凑
+    - Chips 是紧凑的组件，代表离散的信息。
+  - 相关
+    - Chips 应该与它们代表的内容或任务有明确且有帮助的关系。
+  - 专注
+    - Chips 应该使任务更容易完成，或使内容更容易分类。
+
+**参考**
+
+- https://m3.material.io/components/chips
+- https://m2.material.io/components/chips
+  - Assist chip
+  - Filter chip
+  - Input chip
+  - Suggestion chip
+- https://designsystem.line.me/LDSG/components/inputs/chip-en
 
 # FAQ
 

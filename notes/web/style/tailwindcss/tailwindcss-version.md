@@ -10,8 +10,8 @@ tags:
 - 会用新的特性
   - @layer, @property, color-mix(), @starting-style , anchor positioning, container queries
 - 移除
-  - ~~text-opacity-*~~ -> `text-{color}/*`
-  - ~~flex-grow-*~~ -> `grow-*`
+  - ~~text-opacity-\*~~ -> `text-{color}/*`
+  - ~~flex-grow-\*~~ -> `grow-*`
   - ~~decoration-slice~~ -> `box-decoration-slice`
 - tailwind.config.js 可以不再需要，直接通过 css 配置
 - 默认不依赖 postcss
@@ -41,19 +41,19 @@ tags:
 扩展的方式
 
 ```css
-@import "tailwindcss/preflight" layer(base);
-@import "tailwindcss/utilities" layer(utilities);
+@import 'tailwindcss/preflight' layer(base);
+@import 'tailwindcss/utilities' layer(utilities);
 ```
 
 **vite plugin**
 
 ```ts title="vite.config.ts"
-import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [tailwindcss()],
-})
+});
 ```
 
 **postcss**
@@ -61,9 +61,9 @@ export default defineConfig({
 ```js title="postcss.config.js"
 module.exports = {
   plugins: {
-    '@tailwindcss/postcss': {}
-  }
-}
+    '@tailwindcss/postcss': {},
+  },
+};
 ```
 
 ---

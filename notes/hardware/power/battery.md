@@ -9,6 +9,11 @@ title: 电池
   - [电池尺寸列表](https://en.wikipedia.org/wiki/List_of_battery_sizes)
   - [蓄電池](https://zh.wikipedia.org/wiki/蓄電池)
 
+| abbr.  | stand for   | meaning |
+| ------ | ----------- | ------- |
+| NCR    |
+| Li-ion | Lithium-ion | 锂离子  |
+
 | name                       | since | spec     | recharge | stand for        |
 | -------------------------- | ----- | -------- | -------- | ---------------- |
 | Pb                         | 1859  |          | x        | 铅               |
@@ -47,6 +52,24 @@ title: 电池
 |    C | 二号 | 8000 (alkaline)<br/>3800 (carbon–zinc)<br/>4500–6000M<br/>(NiMH)                                   | 26.2 × 50        |
 |    D | 一号 | 12000 (alkaline)<br/>8000 (carbon–zinc)<br/>2200–11000 (NiMH)<br/>2000-5500 (NiCd)                 | 34.2 × 61.5      |
 
+| spec         | capacity      | V    | size         | notes                      |
+| ------------ | ------------- | ---- | ------------ | -------------------------- |
+| **Li-ion**   |
+| 10440        | 350–600 mAh   | 3.7V | 10×44 mm     | ~AAA                       |
+| 14500        | 600–1200 mAh  | 3.7V | 14×50 mm     | ~AA                        |
+| 14650        |               | 3.7V | 14×65 mm     |
+| 16340        |               | 3.7V | 16×34 mm     | 123A,CR                    |
+| 16650        |               | 3.7V | 16×65 mm     |
+| 18350        |               | 3.7V | 18×35 mm     |
+| 18500        |               | 3.7V | 18×50 mm     |
+| 18650        | 1500–3500 mAh | 3.7V | 18×65 mm     |                            |
+| 21700        | 3000–5800 mAh | 3.7V | 21×70 mm     | Tesla Model 3              |
+| 26650        |               | 3.7V | 26×65 mm     |
+| 168A         | 1500–3500 mAh | 3.7V | 18×65 mm     | 18650 + protection circuit |
+| **Alkaline** |
+| AA           | ~2700 mAh     | 1.5V | 14.5×50.5 mm | 五号                       |
+| AAA          | ~1200 mAh     | 1.5V | 10.5×44.5 mm | 七号                       |
+
 - SM2P - 2-pin JST connector
   - 间距 (Pitch) 2.54mm
   - 用途
@@ -55,22 +78,6 @@ title: 电池
     - 模型与玩具
 
 ## 锂电池 {#li-ion}
-
-| spec  | capacity      | V    | size         | notes                      |
-| ----- | ------------- | ---- | ------------ | -------------------------- |
-| 10440 | 350–600 mAh   | 3.7V | 10×44 mm     | ~AAA                       |
-| 14500 | 600–1200 mAh  | 3.7V | 14×50 mm     | ~AA                        |
-| 14650 |               | 3.7V | 14×65 mm     |
-| 16340 |               | 3.7V | 16×34 mm     | 123A,CR                    |
-| 16650 |               | 3.7V | 16×65 mm     |
-| 18350 |               | 3.7V | 18×35 mm     |
-| 18500 |               | 3.7V | 18×50 mm     |
-| 18650 | 1500–3500 mAh | 3.7V | 18×65 mm     |                            |
-| 21700 | 3000–5800 mAh | 3.7V | 21×70 mm     | Tesla Model 3              |
-| 26650 |               | 3.7V | 26×65 mm     |
-| 168A  | 1500–3500 mAh | 3.7V | 18×65 mm     | 18650 + protection circuit |
-| AA    | ~2700 mAh     | 1.5V | 14.5×50.5 mm | 五号,Alkaline              |
-| AAA   | ~1200 mAh     | 1.5V | 10.5×44.5 mm | 七号,Alkaline              |
 
 - `长宽形状`
   - 例如 18650, 18mm x 65mm, 0 表示圆柱体

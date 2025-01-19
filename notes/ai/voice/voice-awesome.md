@@ -7,6 +7,10 @@ tags:
 
 # Voice Awesome
 
+- Kokoro
+  - TTS
+  - https://huggingface.co/spaces/hexgrad/Kokoro-TTS
+  - [thewh1teagle/kokoro-onnx](https://github.com/thewh1teagle/kokoro-onnx)
 - [FunAudioLLM/CosyVoice](https://github.com/FunAudioLLM/CosyVoice)
   - ASR, TTS
 - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)

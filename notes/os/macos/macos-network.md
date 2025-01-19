@@ -6,6 +6,12 @@ tags:
 
 # macOS Network
 
+```bash
+sudo networksetup -listallnetworkservices
+sudo networksetup -listnetworkserviceorder
+sudo networksetup -listallhardwareport
+```
+
 ## ifconfig
 
 ```

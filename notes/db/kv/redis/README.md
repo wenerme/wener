@@ -93,7 +93,7 @@ SET key value [NX | XX] [GET] [EX seconds | PX milliseconds | EXAT unix-time-sec
   - [Redis Streams: consumer groups v2 specification document](https://gist.github.com/antirez/68e67f3251d10f026861be2d0fe0d2f4)
   - [An update on Redis Streams development](http://antirez.com/news/116)
 
-## 命令
+## 命令 {#command}
 
 - L - List
 - H - Hash
@@ -112,7 +112,7 @@ SET key value [NX | XX] [GET] [EX seconds | PX milliseconds | EXAT unix-time-sec
 - [wenerme/go-rm](https://github.com/wenerme/go-rm)
   - 使用 Golang 写 Redis 模块
 
-## 键变化通知
+## 键变化通知 {#keyspace}
 
 - 配置 `notify-keyspace-events`
   - 默认为 空 - 无事件产生

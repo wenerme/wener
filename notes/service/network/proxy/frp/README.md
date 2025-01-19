@@ -52,7 +52,7 @@ curl -s https://api.github.com/repos/fatedier/frp/releases/latest | jq -r .tag_n
 
 nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他方案, 例如 tinc.
 
-## start new visitor connection error: custom listener for [] doesn't exist
+## start new visitor connection error: custom listener for doesn't exist
 
 visitor 端出现, 应该是没有配置 server_name
 

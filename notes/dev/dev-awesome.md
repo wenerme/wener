@@ -309,6 +309,7 @@ scc --exclude-dir={vendor,.gen,node_modules} --by-file --sort=lines --include-ex
 - 技术博客
   - https://web.dev/blog
   - 官方网站博客/Docs
+- https://trendshift.io/
 - Awesome - 发现项目和技术
   - https://wener.me/notes/tags/awesome
   - [sindresorhus/awesome](https://github.com/sindresorhus/awesome)

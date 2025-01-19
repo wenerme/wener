@@ -62,17 +62,6 @@ curl https://api.openai.com/v1/models \
   -H "OpenAI-Organization: YOUR_ORG_ID"
 ```
 
-```json
-{
-  "error": {
-    "message": "This key is associated with a deactivated account. If you feel this is an error, contact us through our help center at help.openai.com.",
-    "type": "invalid_request_error",
-    "param": null,
-    "code": "account_deactivated"
-  }
-}
-```
-
 ## 限制 {#limits}
 
 | -                 | Text&Embedding        | Chat                  | Codex               | Edit                 | Image           | Audio  |
@@ -123,6 +112,28 @@ openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
 
 - Sora - Supported Countries https://help.openai.com/en/articles/10250692
 - ChatGPT Supported Countries https://help.openai.com/en/articles/7947663
+
+```json
+{
+  "error": {
+    "message": "This key is associated with a deactivated account. If you feel this is an error, contact us through our help center at help.openai.com.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": "account_deactivated"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": "unsupported_country_region_territory",
+    "message": "Country, region, or territory not supported",
+    "param": null,
+    "type": "request_forbidden"
+  }
+}
+```
 
 ## Rate limit reached for default-gpt-3.5-turbo in organization org-xxx on requests per min. Limit: 60 / min.
 

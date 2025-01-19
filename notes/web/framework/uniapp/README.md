@@ -35,14 +35,6 @@ title: uniapp
 - %PLATFORM%
 - https://zh.uniapp.dcloud.io/tutorial/platform.html
 
-## HBuilderX
-
-> - 非常难用，建议只用于 调试
-> - 如想用其他ide开发uni-app，只能使用cli模式
-
-- 写 uniapp 很难绕开 HBuilderX
-- HBuilderX 创建的项目不同于 cli 创建的项目
-  - 默认没有 package.json 文件
 
 ## pages.json
 

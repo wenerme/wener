@@ -46,7 +46,8 @@ tags:
   - [dbcli/pgcli](https://github.com/dbcli/pgcli)
     - BSC-3, Python
   - [dbcli/mycli](https://github.com/dbcli/mycli)
-- Ranking
+- Ranking/Benchmark
+  - https://benchmark.clickhouse.com/
   - https://db-engines.com/en/ranking
   - https://db-benchmarks.com/
     - by manticoresearch

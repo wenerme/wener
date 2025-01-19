@@ -285,3 +285,4 @@ Docker Image Format v1 and Docker Image manifest version 2, schema 1 support is 
 ```
 
 - https://distribution.github.io/distribution/spec/deprecated-schema-v1/
+

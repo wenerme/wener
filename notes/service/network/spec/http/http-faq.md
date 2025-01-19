@@ -80,3 +80,37 @@ curl -H 'Accept-encoding: zstd, br, gzip, deflate' -I https://s.wener.me
   - fetch zstd support
 - https://caniuse.com/zstd
 - https://github.com/web-platform-tests/wpt/tree/master/fetch/content-encoding/zstd
+
+
+## Real IP
+
+- X-Forwarded-For
+  - 反向代理
+  - `X-Forwarded-For: <client>, <proxy1>, <proxy2>`
+- Forwarded
+  - RFC 7239
+  - `Forwarded: for=<client-ip>, for=<proxy1>;proto=https;by=<proxy2>`
+- X-Real-IP
+  - Nginx
+- CF-Connecting-IP
+  - Cloudflare
+  - `CF-Connecting-IP: <client-ip>`
+- True-Client-Ip
+  - Cloudflare Enterprise
+  - Akamai CDN
+  - `True-Client-IP: <client-ip>`
+- X-Cluster-Client-IP
+  - AWS Elastic Load Balancer
+  - `X-Cluster-Client-IP: <client-ip>`
+- cf-ray
+- cf-visitor
+
+---
+
+- Proxy
+  - `Via: <protocol> <hostname>`
+  - X-Forwarded-Proto
+  - X-Forwarded-Host
+- Request-Start: t=1672531200
+- X-Request-ID
+- Request-ID

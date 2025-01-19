@@ -19,6 +19,8 @@ tags:
     - https://nac.miit.gov.cn/#/noticeDetail?id=600126024
   - [xluohome/phonedata](https://github.com/xluohome/phonedata)
   - [ls0f/phone](https://github.com/ls0f/phone)
+- geo
+  - https://github.com/wp-statistics/GeoLite2-City
 - service
   - https://github.com/OpenRefine/OpenRefine
 - [microsoft/Data-Science-For-Beginners](https://github.com/microsoft/Data-Science-For-Beginners)

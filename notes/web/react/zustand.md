@@ -162,6 +162,13 @@ function Component() {
 }
 ```
 
+## The result of getSnapshot should be cached to avoid an infinite loop Error Component Stack
+
+- 升级 zustand v5 出现
+- 使用 useShallow 确保返回同样内容
+- 参考
+  - https://github.com/pmndrs/zustand/discussions/1936
+
 # version
 
 ## Zustand v4

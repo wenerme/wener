@@ -24,6 +24,9 @@ sysctl -p /etc/sysctl.d/99-tuning.conf # 加载指定文件
 sysctl --system                        # 加载所有系统配置
 ```
 
+- br_netfilter
+  - net.bridge.bridge-nf-call-iptables
+
 ## tuning.conf
 
 > 面向服务器

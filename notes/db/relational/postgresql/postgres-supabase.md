@@ -12,14 +12,15 @@ title: Supabase PostgreSQL Image
   - 版本号匹配 Postgres
   - 基础镜像为 postgres
   - [Dockerfile](https://github.com/supabase/postgres/blob/develop/Dockerfile)
-- Vote for Postgres extensions [supabase#679](https://github.com/orgs/supabase/discussions/679)
 - 扩展
   - [supabase/supautils](https://github.com/supabase/supautils)
 
-:::caution
+:::notes
 
 - 目前只有 PG 15
   - Supabase with PostgreSQL 16 [#19427](https://github.com/orgs/supabase/discussions/19427)
+  - 目前有 PG 17 orioledb 镜像 https://hub.docker.com/r/supabase/postgres/tags
+- Vote for Postgres extensions [supabase#679](https://github.com/orgs/supabase/discussions/679)
 
 :::
 

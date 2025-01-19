@@ -29,19 +29,6 @@ tags:
 
 :::info Roadmap
 
-- [Typescript](https://nodejs.org/api/typescript.html)
-  - Node v22.6+
-  - Stability 1.0
-  - `--experimental-strip-types`
-    - 直接运行 TypeScript，也需要配套解决 resolve 的一些问题
-    - strip type 基于 @swc/wasm-typescript
-  - `--experimental-transform-types`
-    - 启用 TypeScript 转换 - 支持 enum, namespace, legacy module, parameter properties
-    - 启用 sourcemap
-    - 不会支持旧的 Decorators
-    - 不会读取 tsconfig.json
-    - 不支持 path
-  - 推荐启用 verbatimModuleSyntax
 - [node:module](https://nodejs.org/api/module.html)
 - [node:sqlite](https://nodejs.org/api/sqlite.html)
   - v22.5 +
@@ -69,6 +56,19 @@ tags:
 
 ## Node v22
 
+- [Typescript](https://nodejs.org/api/typescript.html)
+  - Node v22.6+
+  - Stability 1.0
+  - `--experimental-strip-types`
+    - 直接运行 TypeScript，也需要配套解决 resolve 的一些问题
+    - strip type 基于 @swc/wasm-typescript
+  - `--experimental-transform-types`
+    - 启用 TypeScript 转换 - 支持 enum, namespace, legacy module, parameter properties
+    - 启用 sourcemap
+    - 不会支持旧的 Decorators
+    - 不会读取 tsconfig.json
+    - 不支持 path
+  - 推荐启用 verbatimModuleSyntax
 - `--experimental-require-module`
   - 在 ESM 环境下使用 require
 - `node --run TASK` - 运行 package.json 里的 script

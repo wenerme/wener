@@ -21,47 +21,24 @@ title: Cloudflare Workers
 - [flareact/flareact](https://github.com/flareact/flareact)
   - Edge-rendered React framework built for Cloudflare Workers
 - [lukeed/worktop](https://github.com/lukeed/worktop)
-- [Pricing](https://developers.cloudflare.com/workers/platform/pricing/)
-  - Free
-    - Workers Bundled
-      - 第一个请求后的延迟变低
-      - 10 ms/请求
-      - 100,000 请求/天
-      - 最多 1000 秒/天, 一个月最多 30,000 秒, =500 分钟
-    - KV
-      - 全局性的低延迟键值边缘存储
-      - 100,000 read/day
-      - 1,000 update or list/day
-  - Paid Plan - Bundled - US$5/月
-    - 10 million 请求/月, +$0.50/million
-    - 30s/请求
-    - 100M/请求
-    - 30Mms/CPU时间 - 500分钟, 约 8.3 小时
-  - Paid plan - Unbound
-    - 1 million 请求/月, + $0.15/million
-    - 400,000 GB-s, +$12.50/million GB-s
 
 :::note
 
+- 会移除 `.html` 后缀
 - Cloudflare Workers [serverless-next.js#111](https://github.com/serverless-nextjs/serverless-next.js/issues/111)
+- worker 没有本地临时 存储
+  - 使用 KV 或 R2
 
 :::
 
 - https://workers.cloudflare.com/
 
-## wrangler
-
-```bash
-npm create cloudflare@latest -- my-first-worker
-
-npm i @cloudflare/wrangler -g
-
-wrangler login
-```
-
-- ~/.wrangler/config/default.toml
-
 # FAQ
+
+## OpenAI API Country, region, or territory not supported
+
+- Cloudflare 会使用请求的 IP 来发出请求
+- 因此从国内发出的请求还是会被拦截
 
 ## You have not installed wrangler
 

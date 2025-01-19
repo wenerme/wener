@@ -7,14 +7,78 @@ title: IKEv2
 ## IKEv2 服务端
 
 - 通过 strongSwan 提供 IKEv2
-- DockerHub [ikev2-vpn-server](https://hub.docker.com/r/gaomd/ikev2-vpn-server)
-  - [aomd/docker-ikev2-vpn-server](https://github.com/gaomd/docker-ikev2-vpn-server)
-    - [bin/start-vpn](https://github.com/gaomd/docker-ikev2-vpn-server/blob/master/bin/start-vpn)
-      - 10.8.0.0/16
 - PSK
 - 500/udp 4500/udp
 - 参考
   - proposals not match when using iOS 14.01 https://github.com/gaomd/docker-ikev2-vpn-server/issues/51
+
+## hwdsl2/docker-ipsec-vpn-server
+
+- [hwdsl2/docker-ipsec-vpn-server](https://github.com/hwdsl2/docker-ipsec-vpn-server)
+  - 不支持 K8S 环境运行
+- 需要 privileged
+- /dev/ppp for IPsec/L2TP
+
+| env                     | default                                                                           |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| VPN_IPSEC_PSK           | `LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2-9' </dev/urandom 2>/dev/null \| head -c 20` |
+| VPN_USER                | vpnuser                                                                           |
+| VPN_PASSWORD            | `LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2-9' </dev/urandom 2>/dev/null \| head -c 16` |
+| VPN_ADDL_IP_ADDRS       |
+| VPN_ADDL_USERS          | user1,user2                                                                       |
+| VPN_ADDL_PASSWORDS      | pass1,pass2                                                                       |
+| VPN_DNS_NAME            |
+| VPN_CLIENT_NAME         | vpnclient                                                                         |
+| VPN_DNS_SRV1            | 8.8.8.8                                                                           |
+| VPN_DNS_SRV2            | 8.                                                                                |
+| VPN_PROTECT_CONFIG      | yes                                                                               |
+| VPN_ANDROID_MTU_FIX     |
+| VPN_SHA2_TRUNCBUG       |
+| VPN_SPLIT_IKEV2         |
+| VPN_DISABLE_IPSEC_L2TP  |
+| VPN_DISABLE_IPSEC_XAUTH |
+| VPN_IKEV2_ONLY          |
+| VPN_ENABLE_MODP1024     |
+| VPN_ENABLE_MODP1536     |
+| VPN_L2TP_NET            |
+| VPN_L2TP_LOCAL          |
+| VPN_L2TP_POO            |
+| VPN_XAUTH_NET           |
+| VPN_XAUTH_POOL          |
+
+```bash
+# https://github.com/hwdsl2/docker-ipsec-vpn-server/blob/master/vpn.env.example
+# /etc/ipsec.d/vpnclient.p12 (for Windows & Linux)
+# /etc/ipsec.d/vpnclient.sswan (for Android)
+# /etc/ipsec.d/vpnclient.mobileconfig (for iOS & macOS)
+docker run --rm -it --privileged \
+  --name ipsec-vpn-server \
+  -v /data/vpn/ipsec.d:/etc/ipsec.d \
+  -v /lib/modules:/lib/modules:ro \
+  -p 500:500/udp \
+  -p 4500:4500/udp \
+  hwdsl2/ipsec-vpn-server
+
+
+docker exec -it ipsec-vpn-server ikev2.sh --listclients
+
+alias ikev2cli="docker exec -it ipsec-vpn-server ikev2.sh"
+# --revokeclient [client name]
+# --deleteclient [client name]
+# --removeikev2 移除所有
+ikev2cli --listclients
+ikev2cli -h
+
+# ikev2cli --addclient user1 pass1
+# ikev2cli --exportclient [client name]
+```
+
+## gaomd/ikev2-vpn-server
+
+- DockerHub [ikev2-vpn-server](https://hub.docker.com/r/gaomd/ikev2-vpn-server)
+  - [aomd/docker-ikev2-vpn-server](https://github.com/gaomd/docker-ikev2-vpn-server)
+    - [bin/start-vpn](https://github.com/gaomd/docker-ikev2-vpn-server/blob/master/bin/start-vpn)
+      - 10.8.0.0/16
 
 ```bash
 docker run -d --restart always --privileged \

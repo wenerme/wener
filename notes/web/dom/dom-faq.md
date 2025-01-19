@@ -1,5 +1,7 @@
 ---
 title: DOM FAQ
+tags:
+  - FAQ
 ---
 
 # DOM FAQ
@@ -10,7 +12,6 @@ title: DOM FAQ
   - [UI Events Testing Tools](https://w3c.github.io/uievents/tools/main.html)
 - Comparison of Event Targets
   - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-
 
 ## size
 
@@ -189,3 +190,10 @@ navigation.addEventListener('navigate', (e) => {
 ---
 
 - https://jakearchibald.com/2024/attributes-vs-properties/
+
+## IME
+
+- 事件
+  - compositionstart
+  - compositionupdate
+  - compositionend

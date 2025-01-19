@@ -126,3 +126,28 @@ tags:
 
 玩了 55h+， 通关，第一关 99%，第二关 98%，第三关只有 80%，第四关只有 60%，因为后面太重复了，有点枯燥。
 有些谜题有些隐讳，查了别人的解法。
+
+
+## Vampire Survivors
+
+- 吸血鬼生存者
+- https://vampire-survivors.fandom.com/wiki/Vampire_Survivors_Wiki
+
+| hero          | code                          | task                                             |
+| ------------- | ----------------------------- | ------------------------------------------------ |
+| 布恩·马拉比奥 | fettinepanate                 |
+| 阿瓦达        | kalvasflam                    |
+| 米娜          | foldinthecheese               | 在乳品厂偷了奶酪，那就准备好接受惩罚吧           |
+| 勒达          | iwillneverletyouforgetaboutme | 调查擎天塔的底部                                 |
+| 烈焰          | lhovistoio                    | 带着一颗纯洁的心和两个好朋友，去大教堂的火热阳台 |
+| 佩皮诺        | pinociampino                  | 在莫利塞当一个好孩子                             |
+| 帅气·裤子商   | earrivatolarrotino            | 在昇月城带着 16 个道具离开                       |
+| 破碎死神      | rightninetyseven              | 在青翠草甸上承受最不幸的命运，奔向世界边缘       |
+| 甘斯          | highfive                      | 在埋骨地找到唯一一处鲜花盛开的地方               |
+| 圭伦顿        | secondevolution               | 只使用一种武器，在魔王竞技场上活下来             |
+| 面具·红死神   | ablasphemousmockery           | 与死神算账                                       |
+| Exdash        | x-x1viiq                      |
+| 托阿斯蒂      | tramezzini                    | 给一个非红色死神上勾拳                           |
+| 史密斯四世    | maybeimastallion              |
+| 随机          | igottagettotheedgeofsoul      |
+| 斯寇瑞鬼      | notsureitsthunder             | 发现小桥上轰鸣雷声的来源                         |

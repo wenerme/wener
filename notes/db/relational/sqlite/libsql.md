@@ -18,6 +18,10 @@ title: libsql
 - [tursodatabase/libsql](https://github.com/tursodatabase/libsql)
   - MIT, C
   - fork of SQLite
+  - SQLite ABI
+  - SQLite C API
+  - PostgreSQL wire protocol
+  - backend SQLite, mvSQLite/FoundationDB
   - 社区运营，接受贡献
   - [特性](https://github.com/tursodatabase/libsql/blob/main/libsql-sqlite3/doc/libsql_extensions.md)
     - `ALTER TABLE ... ALTER COLUMN ...`
@@ -43,15 +47,8 @@ sqld --http-listen-addr 0.0.0.0:8080 --grpc-listen-addr 0.0.0.0:5001 --db-path .
 # 服务端的 DB
 sqlite3 db/dbs/default/data ".table"
 
-# SQLD_DB_PATH
-# SQLD_HTTP_AUTH=basic:${base64('user:pass')}
-# SQLD_AUTH_JWT_KEY_FILE
-# -e SQLD_NODE=replica -e SQLD_PRIMARY_URL=https://<host>:<port>
-docker run --rm -it \
-  -v $PWD/data:/var/lib/sqld \
-  -p 8080:8080 \
-  -e SQLD_NODE=primary \
-  --name sqld ghcr.io/tursodatabase/libsql-server:latest
+# HTTP
+curl -d '{"statements": ["SELECT * FROM users"]}' 127.0.0.1:8080
 
 # Multitenancy
 # AMIN
@@ -79,6 +76,37 @@ const client = createClient({
   syncInterval: 60,
 });
 ```
+
+## sqld
+
+- [tursodatabase/libsql/libsql-server](https://github.com/tursodatabase/libsql/tree/main/libsql-server)
+  - MIT, Rust
+  - 服务端
+
+**Docker**
+
+| env                    | for                                            |
+| ---------------------- | ---------------------------------------------- |
+| SQLD_HTTP_AUTH         | `basic:${base64('user:pass')}`                 |
+| SQLD_AUTH_JWT_KEY_FILE |
+| SQLD_AUTH_JWT_KEY      |
+| SQLD_DB_PATH           | iku.db                                         |
+| SQLD_NODE              | primary/replica/standalone                     |
+| SQLD_PRIMARY_URL       | for replica, gRPC URL, `https://<host>:<port>` |
+| SQLD_HTTP_LISTEN_ADDR  | 0.0.0.0:8080                                   |
+| SQLD_GRPC_LISTEN_ADDR  | 0.0.0.0:5001                                   |
+| SQLD_HEARTBEAT_URL     |                           |
+
+```bash
+# -e SQLD_NODE=replica
+docker run --rm -it \
+  -v $PWD/data:/var/lib/sqld \
+  -p 8080:8080 \
+  -e SQLD_NODE=primary \
+  --name sqld ghcr.io/tursodatabase/libsql-server:latest
+```
+
+- https://github.com/tursodatabase/libsql/blob/main/docs/DOCKER.md
 
 ## Notes
 

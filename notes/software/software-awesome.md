@@ -27,6 +27,18 @@ tags:
   - [peazip/PeaZip](https://github.com/peazip/PeaZip)
     - LGPLv3
     - 跨平台
+- Paste
+  - [EcoPasteHub/EcoPaste](https://github.com/EcoPasteHub/EcoPaste)
+    - Apache-2.0, TS, Rust
+    - 跨平台的剪贴板管理工具
+  - [DargonLee/easy_pasta](https://github.com/DargonLee/easy_pasta)
+    - MIT, Dart, C++
+    - cross-platform clipboard manager
+  - [sabrogden/Ditto](https://github.com/sabrogden/Ditto)
+    - Windows Clipboard Manager
+  - [sindresorhus/Pasteboard-Viewer](https://github.com/sindresorhus/Pasteboard-Viewer)
+    - Swift
+    - Inspect the system pasteboards on macOS
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)
