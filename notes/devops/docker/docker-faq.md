@@ -11,6 +11,9 @@ tags:
 ```bash
 # Docker over SSH
 docker context create svr --docker "host=ssh://admin@svr"
+
+# Docker transfer image over SSH
+docker save image | ssh svr docker load
 ```
 
 ## Host IP
@@ -286,3 +289,18 @@ Docker Image Format v1 and Docker Image manifest version 2, schema 1 support is 
 
 - https://distribution.github.io/distribution/spec/deprecated-schema-v1/
 
+## nftables
+
+- 容器内无法访问网络
+- 重启 docker 服务一般能恢复
+
+```bash
+sudo service docker restart # ensure docker network rules are loaded
+
+sudo iptables-save > legacy-rules.txt
+# /etc/nftables.d/docker.nft
+iptables-restore-translate -f legacy-rules.txt
+```
+
+- https://github.com/containers/podman/issues/24486
+- https://github.com/docker/for-linux/issues/1472#issuecomment-2189535038

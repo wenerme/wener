@@ -8,7 +8,22 @@ tags:
 ## TailwindCSS v4
 
 - 会用新的特性
-  - @layer, @property, color-mix(), @starting-style , anchor positioning, container queries
+  - @layer, @property, color-mix() , anchor positioning,
+  - container queries
+    - 不再需要插件
+  - @starting-style
+    - `starting:`
+  - `not-*` - `not-hover:`, `not-supports-hanging-punctation:`
+- 新增
+  - inset-shaddow, inset-ring
+  - field-sizing
+  - color-schema
+  - font-stretch
+  - inert
+  - `nth-*`
+  - `in-*` - 类似 `group-*`, 但不需要 group 类
+  - `**` - 所有子元素
+    - 之前的 `*` 是 `> *`
 - 移除
   - ~~text-opacity-\*~~ -> `text-{color}/*`
   - ~~flex-grow-\*~~ -> `grow-*`
@@ -16,6 +31,7 @@ tags:
 - tailwind.config.js 可以不再需要，直接通过 css 配置
 - 默认不依赖 postcss
 - 拆分包 `@tailwindcss/postcss`, `@tailwindcss/cli`
+- 新增 `@tailwindcss/vite`
 - 没有默认的 border 颜色 - 之前为 `gray-200`, 如果有主题需要注意重置颜色，现在不需要了，默认为 `currentColor`
 - ring 默认宽度 `3px` -> `1px`
 
@@ -69,7 +85,7 @@ module.exports = {
 ---
 
 - caniuse popover https://caniuse.com/mdn-api_htmlelement_popover
-- https://tailwindcss.com/blog/tailwindcss-v4-alpha
+- https://tailwindcss.com/blog/tailwindcss-v4
 - daisyUI 5
   - 会基于 TailwindCSS v4
   - https://daisyui.com/blog/daisyui-5-upcoming-changes/

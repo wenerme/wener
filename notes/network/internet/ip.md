@@ -75,11 +75,22 @@ dig +short myip.opendns.com @resolver1.opendns.com
 ## Tags
 
 - https://github.com/MetaCubeX/meta-rules-dat
+  - https://github.com/MetaCubeX/meta-rules-dat/blob/master/.github/workflows/run.yml
+  - https://github.com/metacubex/geo
+    - 工具
 - [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 - [Loyalsoldier/domain-list-custom](https://github.com/Loyalsoldier/domain-list-custom)
 - [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
   - https://github.com/v2fly/v2ray-core/blob/master/app/router/config.proto
   - 生成 PB 格式
+- mmdb - MaxMind DB
+  - https://maxmind.github.io/MaxMind-DB/
+  - [runk/node-maxmind](https://github.com/runk/node-maxmind)
+    - NodeJS
+  - [runk/mmdb-lib](https://github.com/runk/mmdb-lib)
+    - MIT, Browser
+- geoip2
+  - http://dev.maxmind.com/geoip/geoip2/geolite2/
 
 ## FAQ
 

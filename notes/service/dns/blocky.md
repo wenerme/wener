@@ -15,6 +15,8 @@ title: blocky
   - 支持 DNSSEC, eDNS
   - 多节点可使用 Redis 缓存
   - queryLog 可写入数据库 - mysql, postgresql, csv, csv-client, console
+- 参考
+  - [Mozart409/blocky-frontend](https://github.com/Mozart409/blocky-frontend)
 
 ```bash
 curl -L -o blocky.tar.gz https://github.com/0xERR0R/blocky/releases/download/v0.24/blocky_v0.24_$(uname -o)_$(uname -m).tar.gz

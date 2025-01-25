@@ -117,6 +117,18 @@ select * from pg_timezone_names;
 - 参考
   - [Which data type for latitude and longitude?](https://stackoverflow.com/a/8150944/1870054)
 
+## ARRAY
+
+```sql
+CREATE TABLE test (
+    id serial PRIMARY KEY,
+    tags text[]
+);
+
+select * from test where 'tag' = ANY(tags);
+
+```
+
 # FAQ
 
 ## VARCHAR vs TEXT

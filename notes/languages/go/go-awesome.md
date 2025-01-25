@@ -603,9 +603,6 @@ tags:
 ## Template
 
 - [Masterminds/sprig](https://github.com/Masterminds/sprig) - 提供大量模板函数
-- [gliderlabs/sigil](https://github.com/gliderlabs/sigil)
-- [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
-  - slim - UPX - https://github.com/hairyhenderson/gomplate/issues/326
 
 ## 有趣 {#fun}
 

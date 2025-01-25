@@ -5,6 +5,8 @@ title: 战网
 # 战网
 
 - Battle.net
+- 参考
+  - https://bnetdocs.org/servers
 
 ```bash
 # 排查 安装 失败问题
@@ -22,7 +24,15 @@ ls ~/Library/Application\ Support/Battle.net
 curl https://battle.net/login/ -sfI | grep Location
 
 # clean
-rm -rf /Users/Shared/Battle.net
+# rm -rf /Users/Shared/Battle.net
+
+# Battle.net v2 Game Service :1119
+fping -l {prod,eu,us,kr}.actual.battle.net
+# Battle.net v2 Logon Service :3724
+fping -l iir.blizzard.com
+
+fping -l {asia,europe,useast}.battle.net
+fping -l connect-{eur,kor,use,usw}.classic.blizzard.com
 ```
 
 - http://us.patch.battle.net:1119
@@ -61,6 +71,8 @@ account.battle.net
 
 bnetaccount.akamaized.net
 telemetry-in.battle.net
+
+geo.battle.net
 ```
 
 | 服务                            | TCP 端口                                                                                     | UDP 端口                                                                                                                           |

@@ -12,6 +12,22 @@ title: dotenv
   - [dotenvx/dotenvx](https://github.com/dotenvx/dotenvx)
     - `dotenvx run -- node index.js`
   - [kerimdzhanov/dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow)
+- env tpl
+  - [envsubst](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html)
+    - from gnu gettext
+    - `${key}`, `$key`
+  - [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate)
+    - Go
+  - [kreuzwerker/envplate](https://github.com/kreuzwerker/envplate)
+    - MIT, Go
+    - `${key}`
+    - `${key:-default value}`
+  - [stephenc/envsub](https://github.com/stephenc/envsub)
+    - Rust
+  - [a8m/envsubst](https://github.com/a8m/envsubst)
+    - Go
+  - [danday74/envsub](https://github.com/danday74/envsub)
+    - NodeJS
 - 通常覆盖逻辑 .env, .env.local, .env.development, .env.development.local
   - `local` 不提交到仓库
 - 通常提供 `.env.example`

@@ -19,6 +19,15 @@ ps aux
 ps -ef e
 # -E error: unsupported SysV option
 ps -e -o 'pid,ppid,comm,args,user,uid' --sort pid
+
+# Random
+uuidgen
+openssl rand -hex 16
+openssl rand -base64 16
+head -c 16 /dev/urandom | hexdump -v -e '/1 "%02x"'
+cat /dev/urandom | tr -dc 'a-f0-9' | head -c 32
+for i in {1..16}; do printf "%02x" $((RANDOM % 256)); done; echo
+xxd -l 16 -p /dev/urandom
 ```
 
 - prompt
@@ -345,7 +354,26 @@ esac
 
 ```bash
 # bash
-set +o history
+# ==========
+# 忽略空格开头 - 推荐
+HISTCONTROL=ignorespace
+TOEKN="ABC"
+history
+
+# 匹配忽略
+HISTIGNORE="&:ls:[bf]g:exit:pwd:clear:mount:umount:[ \t]*"
+HISTIGNORE='?:??'                           # 忽略 1-2 字符的命令
+HISTIGNORE="*(TOKEN|USERNAME|PASS|SECRET)*" # 忽略 特殊变量
+
+# 选项控制
+set +o history # 完全关闭
+set -o history # 打开
+
+# 控制 history 文件
+unset HISTFILE # 关闭写入
+
 # zsh - 空格开头
- TOEKN="ABC"
+# setopt HIST_IGNORE_SPACE
+# HISTORY_IGNORE
+TOEKN="ABC"
 ```

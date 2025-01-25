@@ -11,8 +11,11 @@ title: NordVPN
   - 日本
   - 新加坡
 - 支持协议 HTTP Proxy, SOCKS5, NordLynx, OpenVPN TCP, and OpenVPN UDP
+- NordLynx 基于 WireGuard
 - 参考
   - [bubuntux/nordvpn](https://github.com/bubuntux/nordvpn)
+  - [azinchen/nordvpn](- https://github.com/azinchen/nordvpn)
+    - Docker
 
 ## socks
 
@@ -330,14 +333,31 @@ let byCountry = all
 }
 ```
 
-|              field | for                       | port  |
-| -----------------: | ------------------------- | ----- |
-|              socks | SOCKS5                    | 1080  |
-|          proxy_ssl | HTTP Proxy (SSL)          | 89    |
-| proxy_ssl_cybersec | HTTP CyberSec Proxy (SSL) |
-|      wireguard_udp | WireGuard                 | 51820 |
-|            skylark | NordLynx                  |
-|         mesh_relay | NordMesh                  |
+| Name                      | Identifier            | ID  | ports |
+| ------------------------- | --------------------- | --- | ----- |
+| IKEv2/IPSec               | ikev2                 | 1   |
+| OpenVPN UDP               | openvpn_udp           | 3   |
+| OpenVPN TCP               | openvpn_tcp           | 5   |
+| Socks 5                   | socks                 | 7   | 1080  |
+| HTTP Proxy                | proxy                 | 9   |
+| PPTP                      | pptp                  | 11  |
+| L2TP/IPSec                | l2tp                  | 13  |
+| OpenVPN UDP Obfuscated    | openvpn_xor_udp       | 15  |
+| OpenVPN TCP Obfuscated    | openvpn_xor_tcp       | 17  |
+| HTTP CyberSec Proxy       | proxy_cybersec        | 19  |
+| HTTP Proxy (SSL)          | proxy_ssl             | 21  | 89    |
+| HTTP CyberSec Proxy (SSL) | proxy_ssl_cybersec    | 23  |
+| IKEv2/IPSec IPv6          | ikev2_v6              | 26  |
+| OpenVPN UDP IPv6          | openvpn_udp_v6        | 29  |
+| OpenVPN TCP IPv6          | openvpn_tcp_v6        | 32  |
+| Wireguard                 | wireguard_udp         | 35  | 51820 |
+| OpenVPN UDP TLS Crypt     | openvpn_udp_tls_crypt | 38  |
+| OpenVPN TCP TLS Crypt     | openvpn_tcp_tls_crypt | 41  |
+| OpenVPN UDP Dedicated     | openvpn_dedicated_udp | 42  |
+| OpenVPN TCP Dedicated     | openvpn_dedicated_tcp | 45  |
+| Skylark                   | skylark               | 48  |
+| Mesh Relay                | mesh_relay            | 50  |
+| NordWhisper               | nordwhisper           | 51  | 8443  |
 
 - cybersec
   - 网络安全相关
@@ -350,16 +370,17 @@ curl https://api.nordvpn.com/vpn/check/full
 
 # FAQ
 
-## 6 设备限制
+## 10 设备限制 {#limits}
 
 :::caution
 
-- 6 并发连接
+- 10 并发连接
 - 相同服务相同协议不能同时发起连接
 
 :::
 
-- 6 链接限制
+- ~~6 链接限制~~ -> 10
 - 过多连接可能需要登录后才能连接成功
-- https://support.nordvpn.com/FAQ/1047408552
+- https://support.nordvpn.com/hc/en-us/articles/19476515228305
 - https://nordvpn.com/zh/features/vpn-for-multiple-devices/
+- ~~https://support.nordvpn.com/FAQ/1047408552~~

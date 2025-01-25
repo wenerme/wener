@@ -5,6 +5,16 @@ tags:
 
 # NestJS Version
 
+## NextJS 11
+
+- Node v20+
+- 增加 JsonLooger
+- 优化默认 Logger
+- 依赖升级
+  - express v5
+  - fastify v5
+- microservices 支持 nats
+
 ## NextJS 10
 
 - Node v16+

@@ -10,8 +10,16 @@ title: sing-box
   - 支持协议
     - ShadowTLS / Shadowsocks / Trojan / VLESS / VLESS-REALITY / VMess-HTTPUpgrade-TLS / VMess-WebSocket-TLS / VMess-WebSocket / VMess
 - 参考
-  - [SagerNet/sing-box-for-android](https://github.com/SagerNet/sing-box-for-android)
-  - [SagerNet/sing-box-for-apple](https://github.com/SagerNet/sing-box-for-apple)
+  - GSO - Generic Segmentation Offload - 通用分段卸载
+
+:::caution
+
+- ICMP 会被拦截且无法绕过，导致所有 ping 都 < 1ms
+  - [google/gvisor#8657](https://github.com/google/gvisor/issues/8657)
+- prefer_ipv4 不一定能保证 IPv4 优先
+  - [#932](https://github.com/SagerNet/sing-box/issues/932#issuecomment-1738723839)
+
+:::
 
 ```bash
 # macOS Homebrew
@@ -29,8 +37,8 @@ kill -HUP $(pgrep sing-box) # reload
 
 # https://github.com/SagerNet/sing-box/releases
 # https://sing-box.sagernet.org/changelog/
-VERSION=1.9.4
-VERSION=1.10.0-beta.3
+VERSION=1.10.7
+#VERSION=1.10.0-beta.3
 curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${VERSION}/sing-box-${VERSION}-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/').tar.gz
 # gtar -zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
@@ -52,67 +60,50 @@ docker run -d \
 sing-box run conf.json
 ```
 
-## 配置 {#config}
+| flag             | for |
+| ---------------- | --- |
+| `-c config.json` |
+| `-C config.d`    |
+| `-D CWD`         |
 
-- `sing-box://import-remote-profile?url=urlEncodedURL#urlEncodedName`
+| abbr. | stand for              | meaning          |
+| ----- | ---------------------- | ---------------- |
+| VAPID |                        |                  |
+| ECH   | Encrypted Client Hello | 加密客户端 Hello |
+RDRC |
 
-```json
-{
-  "log": {},
-  "dns": {},
-  "ntp": {},
-  "inbounds": [],
-  "outbounds": [],
-  "route": {},
-  "experimental": {}
-}
-```
+- srs
+  - 二进制的 rule set, zlib 压缩
+- Router
+  - router
+    - router.rules
+  - dns
+    - dns.rules
+  - DnsClient
+  - `func RouteConnection(ctx context.Context, conn net.Conn, metadata adapter.InboundContext)`
+    - .matchRule
+      - 按需查找 ProcessInfo
+      - 按需 匹配 FakeIP, 匹配到了更新 FQDN
+      - 按需 DnsReverseMapping - IP -> Domain
+      - 遍历 .rules.Match(metadata)
+- NetworkManager
+  - 监测 网络状态
+  - 监测 网络接口
+  - 监测 电源
+- InboundManager
+- OutboundManager
+- EndpointManager
+- ConnectionManager
+- platform.Interface
 
-- mixed -> socks4, socks4a, socks5, http
-- https://github.com/chika0801/sing-box-examples
-
-### tun
-
-- auto_route
-  - 将 tun 作为默认路由 或 配置 route_address
-- interface_name
-
-```json
-{
-  "type": "tun",
-  "tag": "tun-in",
-  "address": "172.16.0.1/30",
-  "gso": true,
-  "auto_route": true,
-  "auto_redirect": false,
-  "iproute2_table_index": 2022,
-  "iproute2_rule_index": 9000,
-  "mtu": 1400,
-  "strict_route": true,
-  "stack": "gvisor",
-  "sniff": true,
-  "sniff_override_destination": false,
-  "route_exclude_address": ["223.5.5.5/32", "1.1.1.1/32", "10.0.0.0/8"],
-  "route_exclude_address_set": ["geoip-cn"]
-}
-```
-
-```bash
-ip ru
-```
-
-```
-9000:	from all to 172.16.0.0/30 lookup 2022
-9001:	from all lookup 2022 suppress_prefixlength 0
-9002:	not from all dport 53 lookup main suppress_prefixlength 0
-9002:	from all iif tun0 goto 9010
-9003:	not from all iif lo lookup 2022
-9003:	from 0.0.0.0 iif lo lookup 2022
-9003:	from 172.16.0.0/30 iif lo lookup 2022
-9010:	from all nop
-```
-
-
-```bash
-ip ro show tab 2022
+```ts
+/*
+	DomainStrategyAsIS DomainStrategy = iota
+	DomainStrategyPreferIPv4
+	DomainStrategyPreferIPv6
+	DomainStrategyUseIPv4
+	DomainStrategyUseIPv6
+*/
+// `prefer_ipv4` `prefer_ipv6` `ipv4_only` `ipv6_only`
+type DomainStrategy =  'prefer_ipv4'
 ```

@@ -110,6 +110,7 @@ tags:
 - https://www.simcentric.com/
 - CstoneCloud
 - https://cloud.colocrossing.com
+  - CODE: BLACKFRIDAY25
   - ccs
 - [joedicastro/vps-comparison](https://github.com/joedicastro/vps-comparison)
 - 美国CN2 GIA线路
@@ -118,6 +119,11 @@ tags:
 - 香港CN2 GIA/CMI线路
 - CN2 GIA/CTGNet
 - HK85线路
+
+### 香港中国优化普通型不限流量带宽
+
+中国优化普通型带宽表示带宽峰值为 **50M**，不限制流量，但不得长时间满载使用。
+**6小时**内平均流量超过**30%**，将在48小时内被**限速至30%**。
 
 ## Wechat
 
@@ -157,7 +163,28 @@ tags:
   - 流量=读+写+索引+时序索引+外网读取
 - https://help.aliyun.com/document_detail/259690.html
 
-## Proxy/VPN
+## VPN
 
 - [NordVPN](./nordvpn.md)
 - ExpressVPN
+
+## CDN
+
+- cloudfront
+- fastly
+- akamai
+- cloudflare
+  - https://cdnjs.cloudflare.com/
+    - [cdnjs/cdnjs](https://github.com/cdnjs/cdnjs)
+- https://jsdelivr.net
+  - 商业化、功能多速度快
+  - cdn.jsdelivr.net
+    - 使用 Fastly
+    - 国内大部分地区不可用
+  - testingcf.jsdelivr.net
+    - 使用 Cloudflare
+
+## Lookup
+
+- https://bgp.tools/
+- https://www.netify.ai/resources

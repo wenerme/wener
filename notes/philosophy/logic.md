@@ -5,31 +5,49 @@ tags:
 
 # 逻辑学
 
+| en                  | cn         |
+| ------------------- | ---------- |
+| Logic               | 逻辑学     |
+| Proposition         | 命题       |
+| Hypothesis          | 假设       |
+| Premise             | 前提条件   |
+| Induction           | 归纳       |
+| Deduction           | 演绎       |
+| Syllogism           | 三段论     |
+| Inference           | 推理       |
+| Conclusion          | 结论       |
+| Abductive Reasoning | 溯因推理   |
+| Inductive Reasoning | 归纳推理   |
+| Deductive Reasoning | 演绎推理   |
+| Contradiction       | 矛盾       |
+| Paradox             | 悖论       |
+| Validity            | 有效性     |
+| Consistency         | 一致性     |
+| Axiom               | 公理       |
+| Theorem             | 定理       |
+| Proof               | 证明       |
+| Biconditional       | 双条件     |
+| Tautology           | 重言式     |
+| Fallacy             | 谬误       |
+| Logical Fallacy     | 逻辑谬误   |
+| Reflection          | 反思       |
+| Self-Reflection     | 自省       |
+| Introspection       | 反省       |
+| Deep Thinking       | 深思       |
+| Dialectics          | 辩证法     |
+| Critical Thinking   | 批判性思维 |
+| Critique            | 批判       |
+| Analytical          | 分析       |
+| Synthesis           | 综合       |
+
+**逻辑**
+
 | en                     | cn         | notes                       |
 | ---------------------- | ---------- | --------------------------- |
-| Logic                  | 逻辑学     |
-| Proposition            | 命题       |
-| Hypothesis             | 假设       |
-| Premise                | 前提条件   |
-| Deduction              | 演绎       |
-| Induction              | 归纳       |
-| Contradiction          | 矛盾       |
-| Syllogism              | 三段论     |
-| Inference              | 推理       |
-| Conclusion             | 结论       |
-| Validity               | 有效性     |
-| Consistency            | 一致性     |
-| Paradox                | 悖论       |
-| Axiom                  | 公理       |
-| Theorem                | 定理       |
-| Proof                  | 证明       |
 | Conjunction, And       | 合取       | P∧Q                         |
 | Disjunction, Or        | 析取       | P∨Q                         |
 | Negation , Not         | 否定       | ¬P                          |
 | Conditional            | 条件       | IF ... THEN ..., P→Q        |
-| Biconditional          | 双条件     |
-| Tautology              | 重言式     |
-| Fallacy                | 谬误       |
 | Modus Ponens           | 肯定前件   | P->Q; P=True -> Q=True      |
 | Modus Tollens          | 否定后件   | P->Q; Q=False -> P=False    |
 | Disjunctive Syllogism  | 析取三段论 | P∨Q; ¬P -> Q=True           |
@@ -51,8 +69,8 @@ tags:
 : Conclusion
 : 由前提支持的陈述，是论证的最终目标。
 
-    •	有效论证（Valid Argument）：如果前提为真，结论必然为真。这是论证形式上的正确性。
-    •	无效论证（Invalid Argument）：即使前提为真，结论也可能为假，论证形式存在问题。
+• 有效论证（Valid Argument）：如果前提为真，结论必然为真。这是论证形式上的正确性。
+• 无效论证（Invalid Argument）：即使前提为真，结论也可能为假，论证形式存在问题。
 
 - 逻辑谬误 - Fallacy
   - 稻草人谬误 - 曲解对方的论点然后反驳这个曲解。
@@ -112,10 +130,85 @@ tags:
   - 数学归纳法
   - 穷举法
 
-## 批判性思维
-
 ## 数学基础
 
 - 集合论：集合、子集、交集、并集等概念。
 - 数论基础：偶数、奇数、质数等数的性质。
 - 基础代数：表达式展开、平方、基本因式分解。
+
+## 批判性思维
+
+批判性思维是一种理性、反思性的思维方式，涉及分析、评估和改进思维过程。
+
+### 核心要素
+
+1. **分析能力**
+
+   - 识别论点和假设
+   - 评估证据质量
+   - 理解逻辑关系
+
+2. **评估标准**
+
+   - 准确性
+   - 相关性
+   - 完整性
+   - 逻辑性
+   - 深度和广度
+
+3. **思维特征**
+   - 开放性
+   - 系统性
+   - 客观性
+   - 怀疑精神
+
+### 常见谬误
+
+- 诉诸权威
+- 人身攻击
+- 以偏概全
+- 因果谬误
+- 感情诉求
+
+## 辩证法 {#dialectics}
+
+辩证法是一种研究矛盾、变化和发展的思维方法。
+
+### 基本原理
+
+1. **对立统一**
+
+   - 矛盾的普遍性
+   - 矛盾的特殊性
+   - 主要矛盾与次要矛盾
+
+2. **量变质变**
+
+   - 渐进式变化
+   - 突变
+   - 临界点
+
+3. **否定之否定**
+   - 扬弃
+   - 螺旋式上升
+   - 新旧更替
+
+### 应用方法
+
+1. **分析**
+
+   - 整体与部分
+   - 本质与现象
+   - 内容与形式
+
+2. **综合**
+   - 抽象到具体
+   - 理论与实践
+   - 历史与逻辑
+
+### 现代意义
+
+- 系统思维
+- 矛盾分析
+- 发展观
+- 创新思维

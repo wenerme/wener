@@ -25,6 +25,46 @@ tags:
 - WebUI
   - https://www.webmin.com
   - http://phpdhcpadmin.sourceforge.net/
+- 配置/模板
+  - [hairyhenderson/gomplate](https://github.com/hairyhenderson/gomplate) - 支持数据源的命令行模板
+    - 来源支持 JSON, EJSON, YAML, AWS EC2 metadata, Consul, Vault
+    - binary 约 80MB
+    - slim - UPX - https://github.com/hairyhenderson/gomplate/issues/326
+  - [gliderlabs/sigil](https://github.com/gliderlabs/sigil)
+    - BSD-3, Go
+    - binary 约 7MB
+    - text/template
+  - [hashicorp/consul-template](https://github.com/hashicorp/consul-template)
+    - MPLv2, Go
+    - 使用 consul, vault, nomad 信息生成
+- env/环境变量
+  - [hashicorp/envconsul](https://github.com/hashicorp/envconsul)
+    - MPLv2, Golang
+    - 动态修改启动进程的环境变量
+    - 支持 consul 和 vault 输入
+  - [sorah/envchain](https://github.com/sorah/envchain)
+    - MIT, C
+    - env from macOS Keychain / gnome-keyring
+- Automation/Agent/Configuration Management Tools/配置管理/自动化运维
+  - Ansible
+  - Ansible Pull
+  - Terraform
+  - Tofu
+  - [puppetlabs/puppet](https://github.com/puppetlabs/puppet)
+    - Apache-2.0, Ruby
+  - [chef/chef](https://github.com/chef/chef)
+    - Apache-2.0, Ruby
+  - [saltstack/salt](https://github.com/saltstack/salt)
+    - Apache-2.0, Python
+  - Chef
+  - [cfengine/core](https://github.com/cfengine/core)
+    - GPLv3, C
+  - Fleet
+  - Consul Agent
+  - HashiCorp Nomad
+  - Zabbix Agent
+  - RunDeck
+- https://12factor.net/
 
 ## Reading
 

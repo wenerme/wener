@@ -21,6 +21,11 @@ title: CDN
 
 - jsDelivr
   - 商业化、功能多速度快
+  - cdn.jsdelivr.net
+    - 使用 Fastly
+    - 国内大部分地区不可用
+  - testingcf.jsdelivr.net
+    - 使用 Cloudflare
 - JSPM
   - 基于 rollup
   - **支持 systemjs**
@@ -37,6 +42,8 @@ title: CDN
   - 加入 CDN 需要申请
   - [cdnjs](https://github.com/cdnjs/cdnjs)
   - https://cdnjs.cloudflare.com
+- 检测
+  - https://ping.chinaz.com/
 
 ## CDN Test
 

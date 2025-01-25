@@ -9,7 +9,8 @@ tags:
 ```bash
 sudo networksetup -listallnetworkservices
 sudo networksetup -listnetworkserviceorder
-sudo networksetup -listallhardwareport
+sudo networksetup -getdnsservers Wi-Fi
+sudo networksetup -setdnsservers Wi-Fi 127.0.0.1
 ```
 
 ## ifconfig

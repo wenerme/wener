@@ -22,6 +22,10 @@ title: sysctl
 sysctl -p                              # 加载 文件 - 默认为 /etc/sysctl.conf
 sysctl -p /etc/sysctl.d/99-tuning.conf # 加载指定文件
 sysctl --system                        # 加载所有系统配置
+
+# 等同
+sysctl net.ipv4.ip_forward
+cat /proc/sys/net/ipv4/ip_forward
 ```
 
 - br_netfilter

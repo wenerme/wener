@@ -8,6 +8,7 @@ title: age
   - BSD-3, Go
   - 简单加密工具
   - 文件维度
+  - X25519
 
 :::caution
 

@@ -6,6 +6,48 @@ tags:
 
 # Security Awesome
 
+
+- DPI bypass
+  - [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
+    - bypasss DPI for windows
+  - [bol-van/zapret](https://github.com/bol-van/zapret)
+    - for Linux
+- Linux
+  - [liamg/traitor](https://github.com/liamg/traitor)
+    - MIT, Go
+    - Linux privilege escalation
+- Web/滑块验证/机器人
+  - [pavlealeksic/puppeteer-afp](https://github.com/pavlealeksic/puppeteer-afp)
+    - stop sites from fingerprinting your puppeteer
+  - https://www.zhihu.com/question/287191234/answer/3521005150
+- 加密库/crypto
+  - openssl
+  - libsodium
+  - https://github.com/tink-crypto
+    - https://developers.google.com/tink
+- 文件加密
+  - age
+  - gpg
+  - openssl
+  - [sobolevn/git-secret](https://github.com/sobolevn/git-secret)
+- 配置加密/secrets
+  - sops
+  - [Ansible Vault](https://docs.ansible.com/ansible/latest/cli/ansible-vault.html)
+  - Helm Secrets
+  - K8S kubeseal
+- 加密服务
+  - Bitwarden
+  - Vault
+  - KMS
+- 存储加密
+  - encfs
+- 块加密
+  - veracrypt
+  - luks
+  - BitLocker
+- Scan
+  - ~~[awslabs/git-secrets](https://github.com/awslabs/git-secrets)~~
+    - scan git secrets
 - https://github.com/zmap
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
@@ -23,19 +65,6 @@ tags:
 - [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
   - Apache-2.0
 - [danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
-- DPI bypass
-  - [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
-    - bypasss DPI for windows
-  - [bol-van/zapret](https://github.com/bol-van/zapret)
-    - for Linux
-- Linux
-  - [liamg/traitor](https://github.com/liamg/traitor)
-    - MIT, Go
-    - Linux privilege escalation
-- Web/滑块验证/机器人
-  - [pavlealeksic/puppeteer-afp](https://github.com/pavlealeksic/puppeteer-afp)
-    - stop sites from fingerprinting your puppeteer
-  - https://www.zhihu.com/question/287191234/answer/3521005150
 
 ## Topic
 

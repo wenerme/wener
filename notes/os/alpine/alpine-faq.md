@@ -377,3 +377,25 @@ find /etc -name '*.apk-new'
 # rebase
 mv /etc/conf.d/k3s{.apk-new,}
 ```
+
+## ping: permission denied (are you root?)
+
+```bash
+# 推荐
+apk add iputils
+realpath $(which ping) # /bin/ping
+ping 1.1.1.1
+
+# 原因
+realpath $(which ping) # /bin/busybox
+# ping 需要 suid bit
+# chmod u+s /bin/ping # 不建议给 busybox 太高的权限
+# setcap cap_net_raw+p $(which ping) # 可以使用 cap 方式
+getcap $(which ping)
+
+stat /bin/busybox # 0755
+stat /bin/ping    # 4755 - with suid
+```
+
+- https://github.com/iputils/iputils
+- https://gitlab.alpinelinux.org/alpine/aports/-/tree/master/main/iputils

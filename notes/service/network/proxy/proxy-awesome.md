@@ -30,6 +30,7 @@ tags:
 | hysteria2        | http3, 0rtt udp     |
 | wireguard        |                     |     | 用户空间实现可作为代理 |
 | juicity          | quic                |
+| reality          |                     |     |              |
 
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
@@ -37,15 +38,26 @@ tags:
 
 - [juicity](https://github.com/juicity/juicity)
   - AGPLv3, Golang
+  - quic-based, inspired by tuic
 - [TUIC](./tuic.md)
-- [vmess]
-  - v2ray
+- [trojan]
+  - 伪装 tls/https
+  - 必须 TLS
+  - WS+TLS
+  - 伪装非常好
+- VLESS
+  - 更轻量的协议，无需加密，常配合 TLS 使用
+  - 推荐 VLESS+TLS
+  - vs Trojan
+    - 性能更好一点
+    - TLS 非必须
+    - 配置更简单一些
+- ~~[vmess]~~
+  - V2Ray 原生加密协议，自带加密
   - 支持非常复杂的协议配置
   - 有点过于复杂和臃肿
-- [vless]
-- [trojan]
-  - WS+TLS
-  - 伪装 tls
+- [XTLS/REALITY](https://github.com/XTLS/REALITY)
+  - 替代 TLS，消除服务端 TLS 指纹特征
 - [snell]
 - hysteria
   - v1 和 v2 不兼容
@@ -204,7 +216,6 @@ curl https://wener.me/cdn-cgi/trace
   - MIT, Go
 - [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
   - MPLv2, Go
-- [XTLS/REALITY](https://github.com/XTLS/REALITY)
 
 ## 配置
 
@@ -440,3 +451,8 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - Netflix HK 只能看自有，不能看授权内容
 - tv.apple.com
   - https://support.apple.com/zh-cn/HT204411
+
+## Testing
+
+- https://i.ytimg.com/generate_204
+- https://www.gstatic.com/generate_204

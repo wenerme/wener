@@ -21,6 +21,9 @@ tags:
   - [bklieger-groq/g1](https://github.com/bklieger-groq/g1)
     - Reasoning/CoT/reasoning chain
     - [HN](https://news.ycombinator.com/item?id=41550364)
+  - [mlc-ai/web-llm](https://github.com/mlc-ai/web-llm)
+    - Apache-2.0, TS, WebGPU
+    - 直接在浏览器内运行 模型 inference
   - 商业
     - Perplexity
     - Fireworks AI
@@ -72,6 +75,14 @@ tags:
     - LLM Frontend for Power Users
   - [enricoros/big-agi](https://github.com/enricoros/big-agi)
     - MIT, TS, JS
+  - [swirlai/swirl-search](https://github.com/swirlai/swirl-search)
+    - Apache-2.0, Python
+    - AI Search & RAG Without Moving Your Data
+  - [Pythagora-io/gpt-pilot](https://github.com/Pythagora-io/gpt-pilot)
+    - MIT, Python
+    - The first real AI developer
+  - [All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands)
+    - MIT, Python, TS
 - Service/API/Adapter/Gateway
   - [BerriAI/litellm](https://github.com/BerriAI/litellm)
     - MIT, Python
@@ -97,13 +108,19 @@ tags:
 - Web/UI/Chat
   - [Yidadaa/ChatGPT-Next-Web](./chatgpt-next-web.md)
   - [nluxai/nlux](https://github.com/nluxai/nlux)
-    - Conversational AI JavaScript Library
+    - MPL-2.0, TS, React
+    - UI for any LLM, supporting LangChain / HuggingFace / Vercel AI,
   - [CopilotKit](https://github.com/CopilotKit/CopilotKit)
     - MIT, TS
+    - React UI + elegant infrastructure for AI Copilots
     - framework for building custom AI Copilots
     - npm:@copilotkit/react-core,@copilotkit/react-ui,@copilotkit/react-textarea
   - [Oneirocom/Magick](https://github.com/Oneirocom/Magick)
     - toolkit for AI builder
+  - [hubtype/botonic](https://github.com/hubtype/botonic)
+    - MIT, TS, React
+  - ~~[yoctol/bottender](https://github.com/yoctol/bottender)~~
+    - MIT, TS, React
 - RAG/Embedding
   - [vanna-ai/vanna](https://github.com/vanna-ai/vanna)
     - MIT
