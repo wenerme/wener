@@ -22,7 +22,7 @@ tags:
 | ss/ShadowSocks   | tcp,ws,quic,http    | ✅  |
 | ssr/ShadowSocksR |                     | ✅  |
 | vmess            | tcp,ws,http,h2,grpc | ✅  | V2Ray                  |
-| vless            |                     |     |
+| vless            |                     |     | by XTLS                |
 | snell            | tcp                 | ❌  | surge                  |
 | trojan           | h2,http,grpc,ws     | ✅  |
 | tuic             | quic                |
@@ -30,7 +30,7 @@ tags:
 | hysteria2        | http3, 0rtt udp     |
 | wireguard        |                     |     | 用户空间实现可作为代理 |
 | juicity          | quic                |
-| reality          |                     |     |              |
+| reality          |                     |     | by XTLS                |
 
 [snell]: https://github.com/surge-networks/snell
 [trojan]: https://github.com/trojan-gfw/trojan
@@ -99,75 +99,106 @@ curl https://1.1.1.1/cdn-cgi/trace
 curl https://wener.me/cdn-cgi/trace
 ```
 
-## universal
+## Awesome
 
-> **Note** universal
+> **Note** Server/universal
 >
 > - 入站和出站都支持多种协议
 
-- [SagerNet/sing-box](./sing-box.md)
-  - GPL, Golang
-  - universal proxy platform
-- [ginuerzh/gost](./gost.md)
-  - MIT, Golang
-  - GO Simple Tunnel
-  - 多端口
-  - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
-  - UDP over TCP
-  - TCP/UDP 透明代理/转发
-  - 支持 Shadowsocks(TCP/UDP)
-  - 支持 SNI 代理
-  - TUN/TAP
-  - 权限控制
-  - 负载均衡
-  - 路由控制
-  - DNS 解析和代理
-- [nadoo/glider](./glider.md)
-  - 类似 gost，但支持更多协议
-    - 只有 Listener 和 Forwarder
-  - mix - http+socks5
-  - http
-  - socks5
-  - ss
-  - [trojan]
-  - trojanc - cleartext
-  - vless
-  - vmess
-  - Forward/TCP - ssr, ssh. socks4, socks4a
-  - tcp, udp - tunnel
-  - tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs
-  - redir, redir6, TProxy
-  - reject
-
-## client
-
 > **Note** Client
 >
+> - 支持订阅
 > - 强调规则
 > - 支持较多出站协议 - outbound
 > - 至少支持 socks 或 http 入站 - 最常用本地代理
-> - 支持更多的接入逻辑 - 透明代理、tun、ebpf
+> - 支持更多的接入逻辑 - 透明代理、tun、ebpf、redir、tproxy
 > - 支持多路复用
 > - 支持负载均衡
+> - 支持 DNS
 
-- GUI
+:::tips
+
+- macOS 只能使用 tun 做全局代理
+- TUN macOS/Windows 无法自动劫持发往局域网的 dns 请求
+  - 因为不会走 TUN interface
+- Linux 可以选择 redir/tproxy 做全局代理
+- LAN 可以使用 DNS+SNI 做部分全局透明代理
+- 本机可以使用 TUN+Route 做全局代理
+- TUN 模式不支持 ICMP
+  - 基本没有实现 ICMP 代理的，因此开发场景不建议本地使用 TUN 代理
+  - 不能使用 ping 很多时候无法排查网络问题
+
+:::
+
+- GUI/客户端
   - [2dust/clashN](https://github.com/2dust/clashN)
     - Windows
-- 服务/Servic/Socks/HTTP Proxy
+  - [clash-verge-rev/clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)
+    - GPLv3, TS, Rust
+    - GUI client based on Tauri, designed to run in Windows, macOS and Linux
+    - mihomo 内核
+- 内核/通用/平台/Universal
   - [MetaCubeX/mihomo](./mihomo/README.md)
     - GPLv3, Go
     - Clash.Meta -> mihomo
+    - 💡 适合做客户端，支持的入站协议不多
     - 支持出站传输协议 VLESS Reality, Vision, Trojan XTLS, Hysteria, TUIC, ShadowTLS
     - 规则支持 GEOSITE
     - 支持 TUN
     - [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge)
       - GPLv3, Rust+Typescript
       - 基于 tauri 的桌面应用
+  - [v2ray](./v2ray/README.md)
+  - [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
+    - MPLv2, Go
+    - 不支持 TUN [XTLS/Xray-core#3576](https://github.com/XTLS/Xray-core/issues/3576)
+  - [SagerNet/sing-box](./sing-box/README.md)
+    - GPLv3, Golang
+    - universal proxy platform
   - ~~[clash](./clash.md)~~
     - rule based
-- Transparent
+- Dashboard/GUI
+  - [MetaCubeX/metacubexd](https://github.com/MetaCubeX/metacubexd)
+  - [MetaCubeX/Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)
+- Config
+  - https://clash.skk.moe/general
+  - https://github.com/SukkaW/Surge
+- 服务/Servic/Socks/HTTP Proxy
+  - [ginuerzh/gost](./gost.md)
+    - MIT, Golang
+    - GO Simple Tunnel
+    - 多端口
+    - 支持代理 HTTP/HTTPS/HTTP2/SOCKS4(A)/SOCKS5
+    - UDP over TCP
+    - TCP/UDP 透明代理/转发
+    - 支持 Shadowsocks(TCP/UDP)
+    - 支持 SNI 代理
+    - TUN/TAP
+    - 权限控制
+    - 负载均衡
+    - 路由控制
+    - DNS 解析和代理
+  - [nadoo/glider](./glider.md)
+    - 类似 gost，但支持更多协议
+      - 只有 Listener 和 Forwarder
+    - mix - http+socks5
+    - http
+    - socks5
+    - ss
+    - [trojan]
+    - trojanc - cleartext
+    - vless
+    - vmess
+    - Forward/TCP - ssr, ssh. socks4, socks4a
+    - tcp, udp - tunnel
+    - tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs
+    - redir, redir6, TProxy
+    - reject
+- Transparent/Protocol
   - [mezantrop/ts-warp](https://github.com/mezantrop/ts-warp)
     - BSD-2, C
+  - [HyNetwork/hysteria](./hysteria.md)
+    - MIT, Go
   - [daeuniverse/dae](https://github.com/daeuniverse/dae)
     - AGPLv3, Go
     - Linux >= 5.8
@@ -203,19 +234,6 @@ curl https://wener.me/cdn-cgi/trace
   - https://t.me/choc_chat
 - Proxyman
   - https://github.com/ProxymanApp/atlantis
-
-## server
-
-> **Note** Server
->
-> - 强调协议
-> - 支持较多入站协议
-
-- [v2ray](./v2ray/README.md)
-- [HyNetwork/hysteria](./hysteria.md)
-  - MIT, Go
-- [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
-  - MPLv2, Go
 
 ## 配置
 

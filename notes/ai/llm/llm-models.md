@@ -63,6 +63,12 @@ tags:
     - MIT
     - base 0.23B, large 0.77B
     - Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks
+- [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
+  - Janus-Series: Unified Multimodal Understanding and Generation Models
+- [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
+- [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
+- [deepseek-ai/DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
+  - DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding
 - [google-deepmind/gemma](https://github.com/google-deepmind/gemma)
   - Apache-2.0, Flax, JAX
   - by Google DeepMind

@@ -26,6 +26,8 @@ HOMEBREW_NO_ANALYTICS=1
 NEXT_TELEMETRY_DISABLED=1
 # NuxtJS
 NUXT_TELEMETRY_DISABLED=1
+# Wrangler/Cloudflare Worker
+WRANGLER_SEND_METRICS=false
 
 # ========================
 # Service
@@ -98,7 +100,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 ## Scarf
 
-```
+```bash
 SCARF_ANALYTICS=false
 ```
 
@@ -305,3 +307,18 @@ turbo telemetry status
 - HF_HUB_DISABLE_TELEMETRY
 - DISABLE_TELEMETRY
 - DO_NOT_TRACK
+
+## wrangler
+
+```bash
+npx wrangler telemetry disable
+npx wrangler telemetry status
+```
+
+```toml
+send_metrics=false
+```
+
+```bash
+WRANGLER_SEND_METRICS=false
+```

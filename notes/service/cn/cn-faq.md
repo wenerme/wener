@@ -8,7 +8,27 @@ tags:
 - 工商 - Industry & Business
 - GB 11643 [公民身份号码](./gb/gb-11643.md)
 
-## 备案号
+## ISP 封锁端口 {#isp-block-port}
+
+| Port | 描述                                     |
+| ---- | ---------------------------------------- |
+| 25   | SMTP邮件传输协议，用于邮件发送           |
+| 80   | HTTP协议，用于网页访问接口               |
+| 443  | HTTPS协议，支持加密的网页传输            |
+| 135  | Microsoft RPC服务端口，用于远程过程调用  |
+| 139  | NetBIOS Session服务，支持网络文件共享    |
+| 445  | Microsoft-DS服务，支持文件共享和活动目录 |
+| 3128 | Squid代理默认端口，用于缓存和代理服务    |
+| 5900 | VNC远程桌面服务默认端口                  |
+| 5800 | VNC Web访问端口，通过浏览器访问VNC       |
+| 8080 | HTTP代理或备用HTTP端口，常用于测试环境   |
+
+---
+
+- https://www.v2ex.com/t/509732
+- https://gist.github.com/vfreex/32b7de2e36422dbee94454afc762305e
+
+## 备案号 {#icp}
 
 - ICP 备案号 https://beian.miit.gov.cn/
   - 网站、APP、小程序、块应用

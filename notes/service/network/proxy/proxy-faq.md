@@ -151,3 +151,8 @@ table ip nat {
   - 不方便配置 TLS
   - 需要额外加密层
   - 兼容性要求高的场景
+
+
+## XTLS vs Xray vs V2Ray vs V2Fly
+
+- Xray-core 是 v2ray-core 的超集

@@ -79,3 +79,66 @@ tags:
 
 - https://github.com/LappleApple/awesome-leading-and-managing
 - https://github.com/engineering-management/awesome-engineering-management
+- 综合企业管理
+  - 《管理学》（Management）
+    - 作者：斯蒂芬·P·罗宾斯（Stephen P. Robbins）
+    - 内容：全面介绍管理学的基本概念、理论和实践，是管理学入门和进阶的经典教材。
+  - 《管理：任务、责任、实践》（Management: Tasks, Responsibilities, Practices）
+    - 作者：彼得·德鲁克（Peter Drucker）
+    - 内容：德鲁克被称为现代管理学之父，这本书全面阐述了管理的本质、任务和责任。
+- 战略管理
+  - 《竞争战略》（Competitive Strategy）
+    - 作者：迈克尔·波特（Michael E. Porter）
+    - 内容：波特的竞争战略理论，包括五力模型、竞争优势等，已成为战略管理领域的经典。
+  - 《蓝海战略》（Blue Ocean Strategy）
+    - 作者：W. 陈·金（W. Chan Kim）和勒妮·莫博涅（Renée Mauborgne）
+    - 内容：提出了如何创造无竞争的市场空间，实现价值创新。
+- 财务管理
+  - 《公司理财》（Principles of Corporate Finance）
+    - 作者：理查德·布雷利（Richard A. Brealey）和斯图尔特·迈尔斯（Stewart C. Myers）
+    - 内容：介绍了公司财务管理的核心概念和实践，是财务管理领域的经典教材。
+  - 《财务管理基础》（Fundamentals of Financial Management）
+    - 作者：尤金·F·布里格姆（Eugene F. Brigham）和乔尔·F·休斯顿（Joel F. Houston）
+    - 内容：全面讲解财务管理的基本概念、工具和方法。
+- 人力资源管理
+  - 《人力资源管理》（Human Resource Management）
+    - 作者：盖瑞·德斯勒（Gary Dessler）
+    - 内容：详细介绍了人力资源管理的各个方面，包括招聘、培训、绩效管理等。
+  - 《有效的管理者》（The Effective Executive）
+    - 作者：彼得·德鲁克（Peter Drucker）
+    - 内容：讨论了如何成为一名有效的管理者，重点在于时间管理、决策和绩效评估。
+- 运营管理
+  - 《运营管理》（Operations Management）
+    - 作者：威廉·J·史蒂文森（William J. Stevenson）
+    - 内容：全面介绍运营管理的基本概念和方法，包括生产计划、质量管理和供应链管理。
+  - 《精益思想》（Lean Thinking）
+    - 作者：詹姆斯·W·沃麦克（James P. Womack）和丹尼尔·T·琼斯（Daniel T. Jones）
+    - 内容：讲解精益生产和精益管理的理念和实践。
+- 营销管理
+  - 《营销管理》（Marketing Management）
+    - 作者：菲利普·科特勒（Philip Kotler）和凯文·凯勒（Kevin Lane Keller）
+    - 内容：被誉为营销学的“圣经”，详细讲述了营销管理的理论和实践。
+  - 《定位》（Positioning: The Battle for Your Mind）
+    - 作者：艾尔·里斯（Al Ries）和杰克·特劳特（Jack Trout）
+    - 内容：提出了市场定位的概念，影响了无数企业的营销战略。
+- 信息管理
+  - 《管理信息系统》（Management Information Systems）
+    - 作者：肯尼斯·劳达（Kenneth C. Laudon）和简·P·劳达（Jane P. Laudon）
+    - 内容：介绍管理信息系统的基本概念、技术和应用。
+  - 《数据、模型与决策》（Data, Models, and Decisions: The Fundamentals of Management Science）
+    - 作者：迪米特里·贝尔（Dimitris Bertsimas）和罗伯特·弗罗因德（Robert Freund）
+    - 内容：探讨了数据驱动的决策过程和管理科学中的模型应用。
+- 创新和创业管理
+  - 《创新者的窘境》（The Innovator's Dilemma）
+    - 作者：克莱顿·克里斯坦森（Clayton M. Christensen）
+    - 内容：讨论了为何大型公司常常被颠覆性技术击败，以及如何应对这种挑战。
+  - 《创业维新》（The Lean Startup）
+    - 作者：埃里克·莱斯（Eric Ries）
+    - 内容：介绍了精益创业的方法，强调通过快速迭代和验证来实现创业成功。
+- 风险管理
+  - 《风险管理与保险》（Risk Management and Insurance）
+    - 作者：斯科特·E·哈林顿（Scott E. Harrington）和格雷戈里·R·尼伯（Gregory R. Niehaus）
+    - 内容：系统讲解风险管理的基本概念和保险的应用。
+  - 《风险管理：企业内部的视角》（Enterprise Risk Management: From Incentives to Controls）
+    - 作者：詹姆斯·A·霍尔特（James A. Holton）
+    - 内容：探讨企业内部的风险管理机制和控制方法。

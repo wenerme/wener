@@ -170,3 +170,27 @@ curl -x socks5h://127.0.0.1:1080 icanhazip.com # 测试
     - 牺牲带宽来降低延迟
   - grpc
   - quic
+
+## xray
+
+```bash
+brew install xray
+# https://github.com/XTLS/Xray-core/releases
+# /etc/xray/
+docker run --rm -it ghcr.io/xtls/xray-core:25.1.1
+
+xray run -c config.json
+```
+
+- 配置支持环境变量 `env:PORT`
+- 不支持 mixed - http & socks 同端口
+- 入
+  - dokodemo-doo
+  - http
+  - shadowsocks
+  - socks
+  - vless
+  - vmess
+  - trojan
+  - wireguard
+- https://xtls.github.io/config/

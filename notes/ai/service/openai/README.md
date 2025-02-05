@@ -8,6 +8,9 @@ title: OpenAI
 # 判断是否 Block
 # 可能返回 403 - 因为 CF Challenge
 curl https://sora.com/backend/public/authenticate
+
+# 40 messages / 3 hours
+curl https://chatgpt.com/public-api/conversation_limit
 ```
 
 **价格**

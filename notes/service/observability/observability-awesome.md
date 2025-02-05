@@ -36,6 +36,9 @@ tags:
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
   - UI for Clickhouse
 - [highlight/highlight](https://github.com/highlight/highlight)
+- uptime
+  - [louislam/uptime-kuma](./uptime-kuma.md)
+  - [upptime/upptime](https://github.com/upptime/upptime)
 
 ## Tracing
 

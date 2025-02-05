@@ -8,6 +8,7 @@ tags:
 
 | version       | date       |
 | ------------- | ---------- |
+| [HAProxy 3.1] | 2024-11-26 |
 | [HAProxy 3.0] | 2024-05-29 |
 | [HAProxy 2.9] | 2023-12-05 |
 | [HAProxy 2.8] | 2023-05-31 |
@@ -25,6 +26,12 @@ tags:
 [haproxy 2.5]: #haproxy-25
 [haproxy 2.4]: #haproxy-24
 [haproxy 2.3]: #haproxy-23
+
+## HAProxy 3.1
+
+- 新的 SPOE
+- 提升 H2 性能
+- https://www.haproxy.com/blog/announcing-haproxy-3-1
 
 ## HAProxy 3.0
 

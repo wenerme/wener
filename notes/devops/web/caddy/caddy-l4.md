@@ -13,6 +13,13 @@ tags:
   - 支持 regexp 自定义探测
   - 路由支持 Socks5, TLS termination, echo, proxy protocol, tee
 
+:::caution
+
+- 可能有内存占用过高的问题
+  - 跑一段时间后内存占用到了 1G
+
+:::
+
 ```caddyfile
 {
   servers {
@@ -56,3 +63,7 @@ tags:
 	}
 }
 ```
+
+# FAQ
+
+## tls: failed to verify certificate: x509: certificate is not valid for any names, but wanted to match

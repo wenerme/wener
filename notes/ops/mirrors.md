@@ -84,7 +84,8 @@ tags:
 
 - https://fastly.jsdelivr.net
 - https://cnd.jsdelivr.net
-- https://jsdelivr.wener.me
+- https://testingcf.jsdelivr.net
+- https://jsdelivr.wener.cc
 - https://github.com/54ayao/Chinajsdelivr
   - jsd.cdn.zzko.cn
 

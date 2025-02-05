@@ -14,12 +14,20 @@ title: sing-box
 
 :::caution
 
+- Sing Box 的作者经常以教育或居高临下的态度对待用户
+  - 个人感觉社区不友好
+  - 文档非常差
 - ICMP 会被拦截且无法绕过，导致所有 ping 都 < 1ms
   - [google/gvisor#8657](https://github.com/google/gvisor/issues/8657)
 - prefer_ipv4 不一定能保证 IPv4 优先
   - [#932](https://github.com/SagerNet/sing-box/issues/932#issuecomment-1738723839)
 
 :::
+
+| abbr. | stand for            |
+| ----- | -------------------- |
+| SFM   | sing-box for MacOS   |
+| SFA   | sing-box for Android |
 
 ```bash
 # macOS Homebrew
@@ -70,7 +78,7 @@ sing-box run conf.json
 | ----- | ---------------------- | ---------------- |
 | VAPID |                        |                  |
 | ECH   | Encrypted Client Hello | 加密客户端 Hello |
-RDRC |
+| RDRC  |
 
 - srs
   - 二进制的 rule set, zlib 压缩
@@ -86,6 +94,10 @@ RDRC |
       - 按需 匹配 FakeIP, 匹配到了更新 FQDN
       - 按需 DnsReverseMapping - IP -> Domain
       - 遍历 .rules.Match(metadata)
+      - .actionSniff
+    - action=route
+    - action=reject
+    - action=hijack-dns
 - NetworkManager
   - 监测 网络状态
   - 监测 网络接口
@@ -105,5 +117,5 @@ RDRC |
 	DomainStrategyUseIPv6
 */
 // `prefer_ipv4` `prefer_ipv6` `ipv4_only` `ipv6_only`
-type DomainStrategy =  'prefer_ipv4'
+type DomainStrategy = 'prefer_ipv4';
 ```

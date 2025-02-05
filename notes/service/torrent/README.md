@@ -33,6 +33,7 @@ tags:
 - 扩展
   - uTP（Micro Transport Protocol）：
     - 基于 UDP 的传输协议，减少网络拥塞。
+    - [μTP](https://en.wikipedia.org/wiki/Micro_Transport_Protocol)
   - Fast Extension：
     - 提高下载速度的功能，例如允许 Peer 请求跳跃式的 Piece。
   - Peer Identification：

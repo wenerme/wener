@@ -5,6 +5,14 @@ tags:
 
 # Caddy FAQ
 
+## 禁用自动证书 {#disable-auto-cert}
+
+```caddyfile
+{
+	auto_https off
+}
+```
+
 ## ACME DNS Wildcard cert
 
 - [libdns/acmedns](https://github.com/libdns/acmedns)
@@ -55,7 +63,7 @@ http://:80 {
 - caddy=*.example.com
 - caddy.1_@foo = host foo.example.com
 - caddy.1_handle = @foo
-- "caddy.1_handle.reverse_proxy={{ upstreams 8080 }}"
+- 'caddy.1_handle.reverse_proxy={{ upstreams 8080 }}'
 ```
 
 - https://caddyserver.com/docs/caddyfile/patterns#wildcard-certificates

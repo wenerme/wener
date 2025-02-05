@@ -17,7 +17,6 @@ title: 平台
   - https://downdetector.com/status/openai/
   - https://status.openai.com/history
 - https://status.gitlab.com/
-- https://github.com/upptime/upptime
 - https://downdetector.com/
 - https://radar.cloudflare.com/
 - https://status.aliyun.com/
@@ -30,6 +29,7 @@ title: 平台
 - Apple
   - https://developer.apple.com/system-status/
   - https://www.apple.com/support/systemstatus/
+- https://github.com/upptime/upptime
 
 ## Activity
 

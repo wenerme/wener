@@ -35,3 +35,11 @@ https://www.game-game.com.ua/
   - Asia Gaming Casino Software
   - https://www.gammastack.com/online-casino-games/
 - Pre-dealing 6 cards
+
+## Steam
+
+- macOS https://store.steampowered.com/macos
+
+<!--
+- https://steamcommunity.com/id/wenerme/
+-->

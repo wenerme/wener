@@ -29,6 +29,11 @@ tags:
     - https://open-vsx.org/
     - [jeanp413/open-remote-ssh](https://github.com/jeanp413/open-remote-ssh)
       - https://open-vsx.org/extension/jeanp413/open-remote-ssh
+- AI
+  - Aider
+  - [cline/cline](https://github.com/cline/cline)
+  - [RooVetGit/Roo-Code](https://github.com/RooVetGit/Roo-Code)
+    - fork cline 3.1
 - [eclipse/che](./che.md)
   - Kubernetes based Cloud Development
 - [JetBrains](./jetbrain/README.md)

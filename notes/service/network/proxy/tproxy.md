@@ -5,12 +5,18 @@ title: TProxy
 # TProxy
 
 - 透明代理 - 转发流量到给定端口
+- 支持 TCP, UDP
 - Linux 2.2+
 - 服务支持: Squid, Envoy, HAProxy, Clash
+- [IP_TRANSPARENT](https://man7.org/linux/man-pages/man7/ip.7.html#:~:text=IP_TRANSPARENT%20(since%20Linux%202.6.24))
+  - 允许代理程序接受原本不属于本机 IP 的连接，并获取数据包中的原始目标地址信息。
+  - 需要 CAP_NET_ADMIN 权限
+  - `getsockopt(SO_ORIGINAL_DST)`
 - 参考
   - [networking/tproxy.txt](https://www.kernel.org/doc/Documentation/networking/tproxy.txt)
   - https://blog.csdn.net/dog250/article/details/13161945
   - https://toutyrater.github.io/app/tproxy.html
+  - https://gost.run/en/tutorials/redirect/#tproxy
 
 
 ```bash
@@ -27,4 +33,7 @@ iptables -t mangle -A PREROUTING -p tcp --dport 50080 -j TPROXY --tproxy-mark 0x
 iptables -t mangle -A PREROUTING -p tcp -m multiport --dport 50080 -j REDIRECR --to-port 1234
 
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+#
+iptables -t mangle -A PREROUTING -p tcp --dport 80 -j TPROXY --tproxy-mark 0x1/0x1 --on-port 3128
 ```

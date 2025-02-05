@@ -95,6 +95,7 @@ tags:
   - Software Delivery Workflow For Kubernetes
   - Web 界面
   - 部署基于 argo rollout 修改
+- [kubeshop/monokle](https://github.com/kubeshop/monokle)
 - [oam-dev/kubevela](https://github.com/oam-dev/kubevela)
   Modern Application Deployment System Based on Kubernetes and OAM
 - [acorn-io/acorn](https://github.com/acorn-io/acorn)
@@ -137,18 +138,20 @@ tags:
 
 ## Dashboard/UI
 
-| ui                     | in         | web | desktop | cli | extensible |
-| ---------------------- | ---------- | --- | ------- | --- | ---------- |
-| ~~lens~~               | TS         |     | ✅      |
-| portainer              |            |     | ✅      |
-| k9s                    | Golang     |     |         | ✅  |
-| [octant]               | Golang     | ✅  | ✅      |     | ⭐️⭐️⭐️  |
-| [kubernetes-dashboard] |            | ✅  |
-| rancher                | Golang     | ✅  | ✅      |
-| seabird                | Golang+GTK |     | ✅      |
+| ui                     | in                | web | desktop | cli | extensible |
+| ---------------------- | ----------------- | --- | ------- | --- | ---------- |
+| [headlamp]             | Go,TS,React,Redux | ✅  | ✅      |     | ✅         |
+| portainer              |                   |     | ✅      |
+| k9s                    | Golang            |     |         | ✅  |
+| [kubernetes-dashboard] |                   | ✅  |
+| rancher                | Golang            | ✅  | ✅      |
+| seabird                | Golang+GTK        |     | ✅      |
+| ~~lens~~               | TS                |     | ✅      |
+| ~~[octant]~~           | Golang            | ✅  | ✅      |     | ⭐️⭐️⭐️  |
 
 [kubernetes-dashboard]: https://github.com/kubernetes/dashboard
 [octant]: https://github.com/vmware-tanzu/octant
+[headlamp]: ./app/headlamp.md
 
 - 命令行/TUI
   - k9s
@@ -166,11 +169,12 @@ tags:
     - 移动端
   - portainer
     - 早期支持 docker，后来支持 k8s
-- WebUI
+- WebUI/dashboard
   - [kubernetes/dashboard][kubernetes-dashboard]
     - 简洁
   - [Rancher](./platform/rancher/README.md)
   - OpenShift
+  - [kubewall/kubewall](https://github.com/kubewall/kubewall)
   - [kubeapps](https://github.com/kubeapps/kubeapps)
     - 可简单的理解为 HELM WebUI
     - web-based UI for deploying and managing applications in Kubernetes clusters

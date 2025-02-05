@@ -14,6 +14,8 @@ title: Kong
 - 8443 - HTTPS 监听端口
 - 8001 - 管理接口 HTTP
 - 8444 - 管理接口 HTTPS
+- 参考
+  - [apisix](../apisix/README.md)
 
 :::tip
 
@@ -23,8 +25,8 @@ title: Kong
 
 :::caution
 
-- 限制非常多， 不如用 [apisix](../apisix.md)
-- EE 版本 - [ee vs gateway](https://docs.konghq.com/gateway/latest/)
+- EE 版本限制比较多
+- EE 版本 - [ee vs gateway](https://docs.konghq.com/gateway/latest/#features)
   - ws,wss
   - rbac
   - GraphQL
@@ -32,6 +34,7 @@ title: Kong
   - OPA AuthZ
   - Secret
   - API Analytics
+  - FIPS 140-2
 
 :::
 

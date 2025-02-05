@@ -3,6 +3,7 @@ title: 日常运维计划
 tags:
   - Document
   - OPS
+  - Template
 ---
 
 # 日常运维计划
