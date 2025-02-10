@@ -194,6 +194,8 @@ curl https://wener.me/cdn-cgi/trace
     - tls, kcp, unic, vsock, smux, ws, wss, PROXY Protocol, simple obfs
     - redir, redir6, TProxy
     - reject
+  - [hiddify/Hiddify-Manager](https://github.com/hiddify/Hiddify-Manager)
+    - GPLv3, Python
 - Transparent/Protocol
   - [mezantrop/ts-warp](https://github.com/mezantrop/ts-warp)
     - BSD-2, C
@@ -217,16 +219,33 @@ curl https://wener.me/cdn-cgi/trace
 
 ### iOS Client
 
-- SingBox https://apps.apple.com/us/app/sing-box/id6451272673
-- Surge 5 https://nssurge.com/buy_now
-  - $50
-- Stash - Rule Based Proxy
+- [Stash](https://apps.apple.com/app/stash/id1596063349) - Rule Based Proxy
   - $4
-  - 支持 Clash, hysteria
-  - App Store https://apps.apple.com/app/stash/id1596063349
+  - 支持 iPhone, iPad, AppleTV
+  - Clash 内核
   - Test Flight https://testflight.apple.com/join/elwvzipQ
   - https://t.me/RnNc2RaV8x0wMzQ0
   - https://t.me/stashnetworks
+- [Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)
+  - $3
+  - 支持 iPhone, iPad, AppleTV
+- [Loon](https://apps.apple.com/app/loon/id1373567447)
+  - $8
+  - 支持 iPhone, iPad, AppleTV
+- [Quantumult X](https://apps.apple.com/app/quantumult-x/id1443988620)
+  - $8
+  - 支持 macOS, iPhone, iPad, AppleTV
+  - https://github.com/crossutility/Quantumult-X
+- [SingBox](https://apps.apple.com/app/sing-box/id6451272673)
+  - 免费
+- [Pharos Pro](https://apps.apple.com/app/pharos-pro/id1456610173)
+  - $3
+  - iPad, iPhone
+- [Potatso](https://apps.apple.com/app/potatso/id1239860606)
+  - Free
+  - iPad, iPhone
+- Surge 5 https://nssurge.com/buy_now
+  - $50
 - Clash for iOS
   - App Store https://apps.apple.com/us/app/choc/id1582542227
   - Test Flight https://testflight.apple.com/join/J5QPqXKO

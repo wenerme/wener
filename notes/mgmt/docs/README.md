@@ -18,6 +18,11 @@ title: 文档
 - 人力资源
   - 员工手册，还包括招聘策略、绩效考核制度、薪酬体系、人才培养计划
 
+## SOPs
+
+- https://frederick.cancer.gov/sites/default/files/2022-04/Document_Storage_and_Archival_Process.pdf
+- https://www.kem.edu/wp-content/uploads/2014/04/SOP-19.pdf
+
 ## 员工手册
 
 **定义**

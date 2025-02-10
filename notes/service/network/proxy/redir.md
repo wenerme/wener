@@ -22,3 +22,4 @@ iptables -t nat -A OUTPUT -p tcp --match multiport ! --dports 12345,1080 -j DNAT
 - 参考
   - https://gost.run/en/tutorials/redirect/
   - [troglobit/redir](https://github.com/troglobit/redir)
+  - https://blog.waynecommand.com/post/gateway-proxy

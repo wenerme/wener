@@ -1921,6 +1921,25 @@ try to get the other instance of the resource. In the unfortunate case it might 
   - 个性化和定制化的工作区域
   - 感觉： 传达出一种个性化、定制化的印象
 
+## 帐 vs 账
+
+- **帐 (zhàng)**：多用于指布幕、篷帐，引申为记录、记载。也用于某些旧时的会计科目。
+  - 例如：蚊帐、营帐、借帐（旧时指借款的记录）。
+- **账 (zhàng)**：主要指关于钱财的记录、债项、账目等。
+  - 例如：账本、账单、算账、还账、欠账。
+
+**简单记忆方法：**
+
+- 如果和布有关，用“帐”。
+- 如果和钱财数目有关，用“账”。
+
+**容易混淆的词语：**
+
+- **帐号 vs 账号**：现在通常都用“账号”，指网络服务的用户身份。但“帐号”在某些旧的会计语境下也可能出现。
+- **记帐 vs 记账**：现在通常都用“记账”，指记录财务账目。
+
+- 现代汉语中，“账”的使用频率远高于“帐”
+
 ## 参考 {#reference}
 
 | en         | cn        |
@@ -1953,11 +1972,11 @@ try to get the other instance of the resource. In the unfortunate case it might 
 | AIDA  | Attention, Interest, Desire, Action |
 
 - [AIDA](<https://en.wikipedia.org/wiki/AIDA_(marketing)>)
-  - Attention（注意）
-  - Interest（关心）
-  - Desire（欲求）
-  - Memory（记忆）
-  - Action（行动）
+  - Attention - 注意
+  - Interest - 关心
+  - Desire - 欲求
+  - Memory - 记忆
+  - Action - 行动
   - AIDMA
 - 中文
   - freemdict.com

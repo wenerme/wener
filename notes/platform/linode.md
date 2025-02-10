@@ -102,3 +102,29 @@ curl -o /dev/null -w "@curl-format.txt" https://speedtest.singapore.linode.com/1
 
 fping -ac 60 speedtest.{newark,singapore,london,frankfurt,dallas,toronto1,syd1,atlanta,tokyo2,mumbai1,fremont}.linode.com
 ```
+
+# FAQ
+
+## Network Auto conf
+
+- 管理配置
+  - /etc/network/interfaces
+  - /etc/resolv.conf
+- 备份
+  - /etc/.resolv.conf.linode-{last,orig}
+  - /etc/network/.interfaces.linode-{last,orig}
+- https://techdocs.akamai.com/cloud-computing/docs/automatically-configure-networking
+
+```bash
+# restore
+mv /etc/.resolv.conf.linode-orig /etc/resolv.conf
+```
+
+```txt title="/etc/resolv.conf"
+domain members.linode.com
+search members.linode.com
+nameserver 139.162.16.5
+nameserver 139.162.6.5
+nameserver 139.162.22.7
+options rotate
+```

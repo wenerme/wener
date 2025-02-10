@@ -6,6 +6,19 @@ title: Stash
 
 - iOS $4
 - 基于规则的代理
+- 不支持 Reality
+
+## 配置
+
+- 规则类型
+  - DOMAIN, DOMAIN-SUFFIX, DOMAIN-KEYWORD
+  - IP-ASN, IP-CIDR, GEOIP, IP-CIDR6
+  - DST-PORT
+  - RULE-SET
+  - GEOSITE
+  - PROCESS-NAME, PROCESS-PATH
+  - SCRIPT
+    - python 脚本
 
 ## 默认配置
 

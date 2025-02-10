@@ -12,6 +12,12 @@ title: Caddy
   - [caddyserver/ingress](https://github.com/caddyserver/ingress)
     - WIP - not ready for production use
 
+:::caution
+
+- Caddy 有点耗内存，很容易内存就接近 G 级别
+
+:::
+
 ```bash
 brew install caddy # macOS - /usr/local/etc/Caddyfile
 

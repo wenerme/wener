@@ -4,10 +4,14 @@ title: NFTables
 
 # NFTables
 
+- Linux 3.13+
+- AlpineLinux 3.19 iptables 默认为 ipatbles-nft
+- RHEL 9 [The ipset and iptables-nft packages have been deprecated](https://access.redhat.com/solutions/6739041)
 - 是什么？
   - iptables 后继
 - [nft.8](https://jlk.fjfi.cvut.cz/arch/manpages/man/nft.8)
 - 参考
+  - docker 和 podman 都还没完全支持 nftables
   - [Adoption](https://wiki.nftables.org/wiki-nftables/index.php/Adoption)
   - [Quick reference-nftables in 10 minutes](https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes)
   - [Migrating my iptables setup to nftables](https://developers.redhat.com/blog/2017/01/10/migrating-my-iptables-setup-to-nftables/)

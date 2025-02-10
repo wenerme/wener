@@ -45,6 +45,7 @@ tags:
   - 将用户授权转交给 IdP
 - [logto-io/logto](https://github.com/logto-io/logto)
   - MPLv2, TS
+  - open-source alternative to Auth0
 - [eicrud/eicrud](https://github.com/eicrud/eicrud)
   - MIT, TS
   - CRUD/Authorization framework based on NestJS
@@ -115,7 +116,7 @@ tags:
 - [keycloak/keycloak](https://github.com/keycloak/keycloak)
   - Apache-2.0, Java
 - [zitadel/zitadel](https://github.com/zitadel/zitadel)
-  - Apache-2.0, Go
+  - Apache-2.0, Go, TS
   - by CAOS from Switzerland
   - 提供 gRPC 接口
   - 依赖 CockroachDB

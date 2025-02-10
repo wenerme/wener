@@ -37,6 +37,12 @@ tags:
 |  Brand Communication Specialist/Manager | 品牌传播专员/经理   |
 |                         Brand Promotion | 品牌推广            |
 
+| abbr. | stand for                                              | meaning                              |
+| ----- | ------------------------------------------------------ | ------------------------------------ |
+| NPS   | Net Promoter Score                                     | 净推荐值                             |
+| eNPS  | Employee Net Promoter Score                            | 员工净推荐值                         |
+| SMART | Specific, Measurable, Achievable, Relevant, Time-bound | 具体、可衡量、可实现、相关、时间限定 |
+
 - ISO 9001 Quality Management System
 
 ## SMART
@@ -48,7 +54,7 @@ tags:
   - Relevant - 相关的
   - Time-bound - 有时限的
 
-----
+---
 
 - 目标设定
 
@@ -65,8 +71,6 @@ tags:
       +------------------------+------------------------+
 ```
 
-
-
-----
+---
 
 - 资源优化

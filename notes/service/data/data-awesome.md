@@ -183,3 +183,23 @@ tags:
 
 - 诗词
   - https://github.com/KonghaYao/classic-poetry
+
+## Datasets
+
+- AA
+  - https://annas-archive.se/torrents
+  - https://annas-archive.org/datasets
+  - Meta torrented & seeded 81.7 TB dataset containing copyrighted data
+    - https://news.ycombinator.com/item?id=42971446
+- 1985年至2021年的裁判文书全量数据（94.36G）
+  - magnet:?xt=urn:btih:c6aac12ebd697041ba60a8cba9f7326155921fae
+  - ResilioSync key: BC76W4N26A3ZCOQEIAQYMMBGY7PRWE6TG
+- [Hacker News](https://github.com/HackerNews/API)
+  - Dump
+    - November 1, 2023 https://huggingface.co/datasets/OpenPipe/hacker-news
+      - parquet, 10GB
+      - 41,813,385 行
+    - https://console.cloud.google.com/marketplace/details/y-combinator/hacker-news
+- bigquery-public-data
+  - https://cloud.google.com/bigquery/public-data
+

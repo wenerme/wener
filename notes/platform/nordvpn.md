@@ -4,18 +4,79 @@ title: NordVPN
 
 # NordVPN
 
-- 注意 6 设备限制
+- 注意 10 设备限制
 - 推荐区域 - 香港作为 relay
   - 美国 - 可以考虑额外节点
   - 台湾
   - 日本
   - 新加坡
-- 支持协议 HTTP Proxy, SOCKS5, NordLynx, OpenVPN TCP, and OpenVPN UDP
 - NordLynx 基于 WireGuard
+- DNS - 支持 tls
+  - 103.86.99.100
+  - 103.86.96.100
 - 参考
   - [bubuntux/nordvpn](https://github.com/bubuntux/nordvpn)
   - [azinchen/nordvpn](- https://github.com/azinchen/nordvpn)
     - Docker
+  - https://downloads.nordvpn.com/certificates/root.der
+
+```bash
+curl -x https://$USERNAME:$PASSWORD@uk2160.nordvpn.com:89 4.icanhazip.com
+curl -x socks5h://$USERNAME:$PASSWORD@dallas.us.socks.nordhold.net 4.icanhazip.com
+```
+
+
+| Name                      | Identifier            | ID  | ports |
+| ------------------------- | --------------------- | --- | ----- |
+| IKEv2/IPSec               | ikev2                 | 1   |
+| OpenVPN UDP               | openvpn_udp           | 3   |
+| OpenVPN TCP               | openvpn_tcp           | 5   |
+| Socks 5                   | socks                 | 7   | 1080  |
+| HTTP Proxy                | proxy                 | 9   |
+| PPTP                      | pptp                  | 11  |
+| L2TP/IPSec                | l2tp                  | 13  |
+| OpenVPN UDP Obfuscated    | openvpn_xor_udp       | 15  |
+| OpenVPN TCP Obfuscated    | openvpn_xor_tcp       | 17  |
+| HTTP CyberSec Proxy       | proxy_cybersec        | 19  |
+| HTTP Proxy (SSL)          | proxy_ssl             | 21  | 89    |
+| HTTP CyberSec Proxy (SSL) | proxy_ssl_cybersec    | 23  |
+| IKEv2/IPSec IPv6          | ikev2_v6              | 26  |
+| OpenVPN UDP IPv6          | openvpn_udp_v6        | 29  |
+| OpenVPN TCP IPv6          | openvpn_tcp_v6        | 32  |
+| Wireguard                 | wireguard_udp         | 35  | 51820 |
+| OpenVPN UDP TLS Crypt     | openvpn_udp_tls_crypt | 38  |
+| OpenVPN TCP TLS Crypt     | openvpn_tcp_tls_crypt | 41  |
+| OpenVPN UDP Dedicated     | openvpn_dedicated_udp | 42  |
+| OpenVPN TCP Dedicated     | openvpn_dedicated_tcp | 45  |
+| Skylark                   | skylark               | 48  |
+| Mesh Relay                | mesh_relay            | 50  |
+| NordWhisper               | nordwhisper           | 51  | 8443  |
+
+- HTTPS Proxy - 89 - 最简单易用，但是不支持 UDP
+- SOCKS5 不作为主要支持 - 只有特殊少部分节点支持
+- VPN 类协议不方便代理使用 - OpenVPN, IKEv2/IPSec, WireGuard/NordLynx
+  - WireGuard 越来越多场景支持 userspace
+- 私有协议支持的场景很少 - NordWhisper, NordLynx
+- 支持协议 HTTP Proxy, SOCKS5, NordLynx, OpenVPN TCP, OpenVPN UDP, NordWhisper
+- cybersec
+  - 网络安全相关
+- https://platform.openai.com/docs/supported-countries
+- https://cyberwaters.com/list-of-vpn-port-numbers-vpn-service-providers-use/
+
+```bash
+ TOKEN=
+# 会返回 username,password,nordlynx_private_key
+curl -u token:$TOKEN https://api.nordvpn.com/v1/users/services/credentials
+# wg 的 public_key 在 server 信息里
+# 获取推荐服务
+curl -s "https://api.nordvpn.com/v1/servers/recommendations?&filters\[servers_technologies\]\[identifier\]=wireguard_udp&limit=3"
+```
+
+## NordWhisper
+
+## Wireguard
+
+- https://gist.github.com/bluewalk/7b3db071c488c82c604baf76a42eaad3
 
 ## socks
 
@@ -27,10 +88,13 @@ curl -x socks5h://$USERNAME:$PASSWORD@dallas.us.socks.nordhold.net 4.icanhazip.c
 amsterdam.nl.socks.nordhold.net
 atlanta.us.socks.nordhold.net
 dallas.us.socks.nordhold.net
+detroit.us.socks.nordhold.net
 dublin.ie.socks.nordhold.net
 ie.socks.nordhold.net
 los-angeles.us.socks.nordhold.net
+new-york.us.socks.nordhold.net
 nl.socks.nordhold.net
+san-francisco.us.socks.nordhold.net
 se.socks.nordhold.net
 stockholm.se.socks.nordhold.net
 us.socks.nordhold.net
@@ -74,7 +138,7 @@ stockholm.se.socks.nordhold.net
 us.socks.nordhold.net
 ```
 
-- nl - Netherlands
+- nl - Amsterdam North Holland
 - se - Sweden
 - https://ipleak.net/?q=us.socks.nordhold.net
 - dallas.us.socks.nordhold.net
@@ -333,36 +397,6 @@ let byCountry = all
 }
 ```
 
-| Name                      | Identifier            | ID  | ports |
-| ------------------------- | --------------------- | --- | ----- |
-| IKEv2/IPSec               | ikev2                 | 1   |
-| OpenVPN UDP               | openvpn_udp           | 3   |
-| OpenVPN TCP               | openvpn_tcp           | 5   |
-| Socks 5                   | socks                 | 7   | 1080  |
-| HTTP Proxy                | proxy                 | 9   |
-| PPTP                      | pptp                  | 11  |
-| L2TP/IPSec                | l2tp                  | 13  |
-| OpenVPN UDP Obfuscated    | openvpn_xor_udp       | 15  |
-| OpenVPN TCP Obfuscated    | openvpn_xor_tcp       | 17  |
-| HTTP CyberSec Proxy       | proxy_cybersec        | 19  |
-| HTTP Proxy (SSL)          | proxy_ssl             | 21  | 89    |
-| HTTP CyberSec Proxy (SSL) | proxy_ssl_cybersec    | 23  |
-| IKEv2/IPSec IPv6          | ikev2_v6              | 26  |
-| OpenVPN UDP IPv6          | openvpn_udp_v6        | 29  |
-| OpenVPN TCP IPv6          | openvpn_tcp_v6        | 32  |
-| Wireguard                 | wireguard_udp         | 35  | 51820 |
-| OpenVPN UDP TLS Crypt     | openvpn_udp_tls_crypt | 38  |
-| OpenVPN TCP TLS Crypt     | openvpn_tcp_tls_crypt | 41  |
-| OpenVPN UDP Dedicated     | openvpn_dedicated_udp | 42  |
-| OpenVPN TCP Dedicated     | openvpn_dedicated_tcp | 45  |
-| Skylark                   | skylark               | 48  |
-| Mesh Relay                | mesh_relay            | 50  |
-| NordWhisper               | nordwhisper           | 51  | 8443  |
-
-- cybersec
-  - 网络安全相关
-- https://platform.openai.com/docs/supported-countries
-- https://cyberwaters.com/list-of-vpn-port-numbers-vpn-service-providers-use/
 
 ```bash
 curl https://api.nordvpn.com/vpn/check/full

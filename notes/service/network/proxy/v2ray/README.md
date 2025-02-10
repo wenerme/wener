@@ -171,26 +171,13 @@ curl -x socks5h://127.0.0.1:1080 icanhazip.com # 测试
   - grpc
   - quic
 
-## xray
 
-```bash
-brew install xray
-# https://github.com/XTLS/Xray-core/releases
-# /etc/xray/
-docker run --rm -it ghcr.io/xtls/xray-core:25.1.1
+# FAQ
 
-xray run -c config.json
-```
+## History
 
-- 配置支持环境变量 `env:PORT`
-- 不支持 mixed - http & socks 同端口
-- 入
-  - dokodemo-doo
-  - http
-  - shadowsocks
-  - socks
-  - vless
-  - vmess
-  - trojan
-  - wireguard
-- https://xtls.github.io/config/
+- 2015-2019 原始项目 [v2ray/v2ray-core](https://github.com/v2ray/v2ray-core)
+  - Project V
+- 2019年11月，V2Ray 项目创始人 Victoria Raymond 失联
+- V2Fly 基于原始项目 fork
+- 2020年11月，XTLS 被 V2Ray社区从V2ray core移除，VLESS及XTLS的作者和支持者基于V2Ray另行组建了Project X 组织

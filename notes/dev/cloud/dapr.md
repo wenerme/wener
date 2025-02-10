@@ -1,5 +1,8 @@
 ---
 title: Dapr
+tags:
+  - Distributed
+  - CNCF
 ---
 
 # Dapr
@@ -23,11 +26,13 @@ Dapr 提供云服务抽象，让实现底层解耦可替换。
 ---
 
 - [dapr/dapr](https://github.com/dapr/dapr) 是什么？
+  - Apache-2.0, Go
+  - Distributed Application Runtime - 分布式应用运行时
   - 云原生开发工具集
   - 支持多语言 - sidecar 暴露 http 和 grpc 接口
   - 支持多环境 - 不限制在 kube 集群
   - Sidecar 模式 - 轻 sdk 重 sidecar
-  - CNCF 孵化项目
+  - CNCF
 
 :::caution
 
@@ -38,7 +43,6 @@ Dapr 提供云服务抽象，让实现底层解耦可替换。
 
 :::tip
 
-- Go SDK 不支持 actor - [dapr/go-sdk#21](https://github.com/dapr/go-sdk/issues/21)
 - WIP
   - Configuration - [dapr/dapr#2988](https://github.com/dapr/dapr/issues/2988)
   - Lock
@@ -63,13 +67,14 @@ dapr run --app-id nodeapp --app-port 3000 --dapr-http-port 3500 app.js
 
 ## SDK
 
-| Language | Status | Client |    Server    |       Actor        |
-| -------- | :----- | :----: | :----------: | :----------------: |
-| .NET     | Stable |   ✔    | ASP.NET Core |         ✔          |
-| Python   | Stable |   ✔    |     gRPC     | FastAPI<br />Flask |
-| Java     | Stable |   ✔    | Spring Boot  |         ✔          |
-| Go       | Stable |   ✔    |      ✔       |         ❌         |
-| PHP      | Stable |   ✔    |      ✔       |         ✔          |
+| Language   | Status | Client |        Server        | Actor | Workflow |
+| ---------- | :----- | :----: | :------------------: | :---: | -------- |
+| .NET       | Stable |   ✔   |     ASP.NET Core     |  ✔   | ✔       |
+| Python     | Stable |   ✔   | gRPC, FastAPI, Flask |  ✔   | ✔       |
+| Java       | Stable |   ✔   | Spring Boot, Quarkus |  ✔   | ✔       |
+| Go         | Stable |   ✔   |          ✔          |  ✔   | ✔       |
+| PHP        | Stable |   ✔   |          ✔          |  ✔   |
+| JavaScript | Stable |   ✔   |    gRPC, express     |  ✔   | ✔       |
 
 - Client
   - 服务方法请求

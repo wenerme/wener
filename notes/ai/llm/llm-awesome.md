@@ -54,14 +54,16 @@ tags:
   - [Yonom/assistant-ui](https://github.com/Yonom/assistant-ui)
     - React Components for AI Chat
   - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
-    - Apache-2.0, TypeScript
+    - ~Apache-2.0, TypeScript
   - [n4ze3m/page-assist](https://github.com/n4ze3m/page-assist)
     - MIT, TS
     - 浏览器插件
     - https://chrome.google.com/webstore/detail/page-assist/jfgfiigpkhlkbnfnbobbkinehhfdhndo
   - [open-webui/open-webui](https://github.com/open-webui/open-webui)
-    - MIT, Sevlet, Python
+    - MIT, Svelte, Python
     - WebUI for LLMs
+    - [open-webui/desktop](https://github.com/open-webui/desktop)
+      - BSD-3, TS, Svelte, Electron
   - [janhq/jan](https://github.com/janhq/jan)
     - AGPLv3, Typescript
     - alternative to ChatGPT that runs 100% offline

@@ -31,13 +31,7 @@ title: DuckDB
 
 :::
 
-:::note
 
-- upsert 0.6.2
-  - 支持 insert or replace/ignore
-  - 支持 on conflict
-
-:::
 
 ```bash
 # by Homebre
@@ -175,6 +169,18 @@ load 'sqlite_scanner';
   - SQL 生成器，用于测试
 - tpch
 - tpcds
+
+## Version
+
+- 1.2.0
+  - prefix alias `SELECT alias: column_name from t: table_name`
+    - https://github.com/duckdb/duckdb/pull/14436
+  - rename column `SELECT * RENAME (a TO b)`
+  - star LIKE `SLEECT * LIKE '%_time'`
+    - 也支持 `SIMILAR TO`
+- upsert 0.6.2
+  - 支持 insert or replace/ignore
+  - 支持 on conflict
 
 # FAQ
 

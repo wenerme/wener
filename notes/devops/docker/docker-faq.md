@@ -297,10 +297,99 @@ Docker Image Format v1 and Docker Image manifest version 2, schema 1 support is 
 ```bash
 sudo service docker restart # ensure docker network rules are loaded
 
+# 方案 1. 迁移 docker 相关配置到 nftables
 sudo iptables-save > legacy-rules.txt
-# /etc/nftables.d/docker.nft
 iptables-restore-translate -f legacy-rules.txt
+# 调整后将内容放到 /etc/nftables.d/docker.nft
+# nftables reload now works
+
+# 方案 2. 让 nftables 和 iptables 同时存在
+apk add iptables-legacy
+modprobe ip_tables
+modprobe ip6_tables
+
+lsmod | grep -E '^[^_]+_tables'
+
+iptables -V # nf_tables
+
+iptables-legacy -L # 没有内容 - 说明 docker 用的 nft 版本
+
+# 相当于是 iptables-nft
+realpath $(which iptables)        # /sbin/xtables-nft-multi
+realpath $(which iptables-legacy) # /sbin/xtables-legacy-multi
+# ln -s /sbin/xtables-nft-multi /sbin/iptables
+
+ln -fs /sbin/xtables-legacy-multi /sbin/iptables
+
+service nftables reload # 重置 nftables 规则
+service docker restart  # 重启 docker
+iptables -L             # 存在新的 DOCKER 规则
+
+# 这样过后 iptable 没问题但是容器内无法访问网络
+
+# check network
+docker run --rm -it wener/base nslookup example.com
 ```
 
+**revert**
+
+```bash
+ln -fs /sbin/xtables-nft-multi /sbin/iptables
+
+sudo iptables-legacy -t nat -F
+sudo iptables-legacy -t nat -X
+sudo iptables-legacy -t mangle -F
+sudo iptables-legacy -t mangle -X
+sudo iptables-legacy -F
+sudo iptables-legacy -X
+
+sudo iptables-legacy-save # 验证
+```
+
+**Debian/Ubuntu**
+
+```bash
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
+sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+```
+
+- dind
+  - DOCKER_IPTABLES_LEGACY
+  - https://github.com/docker-library/docker/blob/fbb79dd2512681b42f6f0a3a82543c29640b85ce/dockerd-entrypoint.sh#L147-L165
+- AlpineLinux 3.19 后 iptables 默认为了 nft
+- docker nft
+  - 主要是用 table ip filter 和 table ip nat
 - https://github.com/containers/podman/issues/24486
-- https://github.com/docker/for-linux/issues/1472#issuecomment-2189535038
+- Native support for nftables https://github.com/docker/for-linux/issues/1472#issuecomment-2189535038
+- https://github.com/docker-library/docker/issues/467
+- https://github.com/moby/libnetwork/issues/2331
+- https://www.going-flying.com/blog/docker-and-nftables.html
+
+### No chain/target/match by that name
+
+- 通常是因为使用了 nftables， nftables reload 清掉了 iptables 规则
+
+```
+failed to create network service: Error response from daemon: Failed to Setup IP tables: Unable to enable SKIP DNAT rule:  (iptables failed: iptables --wait -t nat -I DOCKER -i br-3918c98566e1 -j RETURN: iptables: No chain/target/match by that name.
+```
+
+## docker kill signal
+
+- Non-fatal signals break restart policies [#11065](https://github.com/moby/moby/issues/11065)
+- Signal breaks unless-stopped restart policy [#41302](https://github.com/moby/moby/issues/41302)
+
+```bash
+# 只有 restart=alway 强制重启的可以
+docker kill --signal=SIGHUP service
+
+# workaround
+docker exec service -- kill -s HUP 1
+
+# test 不会重启
+docker run -d --name=test --restart=unless-stopped nginx
+docker kill -s HUP test
+```
+
+from scratch 的容器没有 kill, 因此无法使用信号

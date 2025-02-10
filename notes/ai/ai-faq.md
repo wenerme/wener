@@ -5,6 +5,29 @@ tags:
 
 # AI FAQ
 
+## 降低成本
+
+- 模型交付
+  - 量化 - Quantization
+    - 降低精度
+    - 减少内存占用和计算需求
+    - 例如 FP32 -> INT8, INT4, BIT1.5
+  - 蒸馏 - Distillation
+    - 将大型模型的知识转移到较小的模型中，实现性能接近的同时降低计算成本。
+    - 例如 Teacher-Student
+  - 剪枝 - Pruning
+    - 去除冗余参数
+    - 例如 L1, L2, FPGM, Taylor
+- 推理
+  - Flash Attention
+    - 减少内存占用和计算需求
+  - KV缓存 - KV Cache
+    - 减少计算需求
+- 训练 - Training
+- MoE - Mixture of Experts
+  - 减少内存和计算需求
+
+
 ## AI vs ML vs DL
 
 - AI > ML > DL

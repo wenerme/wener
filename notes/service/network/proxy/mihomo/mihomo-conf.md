@@ -31,6 +31,26 @@ tags:
   - tun
   - listeners
 
+---
+
+```bash
+# 配置了 tun+sniffer 也可以这样
+curl -H 'Host: example.com' 198.18.0.1
+```
+
+- 大部分配置和 clash 配置相同
+- 新增的能会有和 clash 配置不同的地方
+
+**域名匹配规则**
+
+| sym | rule         | true                                           | false                         |
+| --- | ------------ | ---------------------------------------------- | ----------------------------- |
+| `*` | `*.wener.me` | `a.wener.me`                                   | `a.a.wener.me`<br/>`wener.me` |
+| `+` | `+.wener.me` | `wener.me`<br/>`a.wener.me`<br/>`a.a.wener.me` | -                             |
+| `.` | `.wener.me`  | `a.wener.me`<br/>`a.a.wener.me`                | `wener.me`                    |
+
+- 端口范围 `114-514/810-1919,65530`
+
 ## DNS
 
 **支持的协议**

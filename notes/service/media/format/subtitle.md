@@ -131,6 +131,28 @@ Dialogue: 0,0:03:08.37,0:03:09.54,Default,,0,0,0,,{\fs45\shad0\bord0\b1\pos(625.
 - AD - 口述音频
 - HI
 
+## Online
+
+- opensubtitles
+  - https://www.opensubtitles.com/consumers
+  - API 文档 https://opensubtitles.stoplight.io/
+  - https://api.opensubtitles.com/api//v1/infos/languages
+  - OpenSubtitles.org
+    - 旧站点，免费额度更高
+  - OpenSubtitles.com
+    - 新站点，价格更高
+    - Free
+      - 5 qps/ip
+      - 5 downloads/24h/ip
+- https://www.addic7ed.com/
+
+```bash
+curl -X POST -d "useragent=YourUserAgent" -d "username=your_username" -d "password=your_password" https://api.opensubtitles.org/xml-rpc
+curl -X POST -d "useragent=YourUserAgent" -d "token=YourAPIToken" -d "query=movie_name" https://api.opensubtitles.org/xml-rpc
+```
+
+# FAQ
+
 ## Caption vs Subtitle
 
 区别在于语言。

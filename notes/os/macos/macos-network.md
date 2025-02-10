@@ -1,17 +1,44 @@
 ---
 title: macOS Network
 tags:
-- Network
+  - Network
 ---
 
 # macOS Network
 
 ```bash
-sudo networksetup -listallnetworkservices
-sudo networksetup -listnetworkserviceorder
-sudo networksetup -getdnsservers Wi-Fi
-sudo networksetup -setdnsservers Wi-Fi 127.0.0.1
+sudo networksetup -listallnetworkservices        # 列出所有网络服务
+sudo networksetup -listnetworkserviceorder       # 优先级
+sudo networksetup -getdnsservers Wi-Fi           # 获取 DNS
+sudo networksetup -setdnsservers Wi-Fi 127.0.0.1 # 设置 DNS
+
+scutil --dns # 查看 DNS 配置
+
+# flush dns cache
+sudo killall -HUP mDNSResponder
+sudo dscacheutil -flushcache
+
+netstat -rn
+# route [-dnqtv] command [[modifiers] args]
+route -n get default # 获取默认路由
 ```
+
+| command      | desc                                 |
+| ------------ | ------------------------------------ |
+| ifconfig     | 显示和配置网络接口                   |
+| networksetup | 网络配置                             |
+| netstat      | 显示路由表、网络连接、接口统计等信息 |
+| route        | 路由表管理                           |
+| pf           | 防火墙, Packet filter                |
+| ~~ipfw~~     | IP Firewall                          |
+| tcpdump      | 包分析工具                           |
+| dtrace       | 跟踪工具                             |
+| systat       | 实时统计工具                         |
+| scutil       | System configuration                 |
+| lsof         | List open files/ports                |
+
+- ipfw -> pf
+  - macOS 10.7+
 
 ## ifconfig
 
@@ -41,45 +68,23 @@ netstat -nr # 路由表
 
 # route
 
+路由表管理工具
+
+- routed(8) - 系统路由表管理守护进程
+
 ```
-ROUTE(8)                  BSD System Manager's Manual                 ROUTE(8)
+route [-dnqtv] command [[modifiers] args]
+```
 
-NAME
-     route -- manually manipulate the routing tables
+| flag | for                     |
+| ---- | ----------------------- |
+| -d   | debug-only, dry-run     |
+| -n   | number, 不 resolve name |
+| -t   | test-only               |
+| -v   | verbose                 |
+| -q   | quiet                   |
 
-SYNOPSIS
-     route [-dnqtv] command [[modifiers] args]
-
-DESCRIPTION
-     Route is a utility used to manually manipulate the network routing
-     tables.  It normally is not needed, as a system routing table management
-     daemon such as routed(8), should tend to this task.
-
-     The route utility supports a limited number of general options, but a
-     rich command language, enabling the user to specify any arbitrary request
-     that could be delivered via the programmatic interface discussed in
-     route(4).
-
-     The following options are available:
-
-     -d      Run in debug-only mode, i.e., do not actually modify the routing
-             table.
-
-     -n      Bypass attempts to print host and network names symbolically when
-             reporting actions.  (The process of translating between symbolic
-             names and numerical equivalents can be quite time consuming, and
-             may require correct operation of the network; thus it may be
-             expedient to forget this, especially when attempting to repair
-             networking operations).
-
-     -t      Run in test-only mode.  /dev/null is used instead of a socket.
-
-     -v      (verbose) Print additional details.
-
-     -q      Suppress all output.
-
-     The route utility provides six commands:
-
+```
      add         Add a route.
      flush       Remove all routes.
      delete      Delete a specific route.

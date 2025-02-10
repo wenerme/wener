@@ -1,5 +1,7 @@
 ---
 title: Kubernetes 调度
+tags:
+  - Scheduler
 ---
 
 # Kubernetes 调度

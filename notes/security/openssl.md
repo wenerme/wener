@@ -29,6 +29,13 @@ openssl x509 -req -in example.org.csr -CA ca.crt -CAkey ca.key -CAcreateserial -
 openssl x509 -in example.org.crt -noout -text
 cat example.org.crt ca.crt > example.org.bundle.crt
 
+# 查看服务器证书
+openssl s_client -servername cloudflare.com -connect cloudflare.com:443
+# 获取证书
+openssl s_client -servername cloudflare.com -connect cloudflare.com:443 < /dev/null | openssl x509 -outform PEM > cloudflare.com.crt
+# 证书信息
+# cloudflare.com, *.amp.cloudflare.com, *.cloudflare.com, *.dns.cloudflare.com, *.staging.cloudflare.com
+openssl x509 -in cloudflare.com.crt -text -noout | grep -E 'Subject:|DNS:'
 
 # FP
 echo -sha256 -sha1 -md5 | xargs -n1 openssl x509 -noout -fingerprint -inform pem -in ca.crt

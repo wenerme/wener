@@ -14,6 +14,9 @@ tags:
     - ASR, TTS
   - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)
     - STT
+- API/Aggregator
+  - https://openrouter.io
+  - https://together.ai
 - Search/RAG
   - Perplexity
   - [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica)
@@ -27,6 +30,17 @@ tags:
     - Build AI-powered applications with React, Svelte, Vue, and Solid
   - [xenova/transformers.js](https://github.com/xenova/transformers.js)
     - Apache-2.0, JS
+- Client/Desktop
+  - [chatbox](./service/chatbox.md)
+    - GPLv3, TypeScript, React, Electron
+    - 支持 Desktop, iOS, Android, Web
+  - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
+    - MIT
+- WebUI
+- Provider
+  - Google Colab
+  - Runpod
+  - Autodl
 
 ## 应用 {#applications}
 
@@ -196,7 +210,6 @@ tags:
   - MIT
   - ONNX
 - [AbdBarho/stable-diffusion-webui-docker](https://github.com/AbdBarho/stable-diffusion-webui-docker)
-- [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
 - [LostRuins/koboldcpp](https://github.com/LostRuins/koboldcpp)
 
 ---

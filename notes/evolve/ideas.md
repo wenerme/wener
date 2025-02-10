@@ -4,6 +4,55 @@ title: Ideas
 
 # Ideas
 
+- 还在 云盘
+  - 简单的非常小的云盘
+  - 主打一个不会丢失
+- 看懂 字幕
+  - 提供字幕翻译
+  - 免费提供字幕服务
+  - opensubtitles 现在收费了
+  - subhd 依赖广告收入
+- hn relay
+  - 提供 Hacker news 的代理服务
+  - 提供翻译为多个语言
+- 站点评论浏览器插件
+  - 浏览器插件
+  - 提供 Hacker news 的评价
+  - 允许用户留下标记/评论
+- 播放器弹幕插件
+  - 为现在的开源播放器 IINA, MPV 提供弹幕服务
+- Free Mind
+  - 定时推送让人生活更有意义的事情/图片
+  - 定时提醒出去走走
+- 个人 NAS 服务
+  - 现在的云盘都不 “安全” 不 “可靠”
+  - 自托管成为主流
+- 游戏加速器
+  - 应该个人不好做
+- AI Promots Index
+  - 收集整理提示词
+  - 提供给 AI 生成器
+
+## 小家
+
+> **Notes**
+>
+> - Your Date is Yours.
+> - 私人数据相关服务
+> - 私人相册共享同步
+
+数据离线、私有，使用 SQLite WASM。
+
+- 小家云盘
+- 小家账本
+- 小家相册
+- 小家通讯录
+- 数据
+  - 微信聊天数据
+  - 抓取其他平台 - 例如：幼儿园 发照片的 APP
+
+## Tech Fun
+
 - 抽象的多语言的 PEG
 - Clash 支持日志到 DB
 - Nebula Mobile 支持中心化配置
@@ -17,9 +66,6 @@ title: Ideas
     - 收藏
     - 媒体
   - 不需要 proxy 也能访问
-- hn relay
-- 还在 云盘
-- 看懂 字幕
 
 ## Wode
 
@@ -106,20 +152,11 @@ title: Ideas
 
 - https://emn178.github.io/online-tools/sha256.html
 
-## 小家
+## 参考
 
-> **Notes**
->
-> - Your Date is Yours.
-> - 私人数据相关服务
-> - 私人相册共享同步
-
-数据离线、私有，使用 SQLite WASM。
-
-- 小家云盘
-- 小家账本
-- 小家相册
-- 小家通讯录
-- 数据
-  - 微信聊天数据
-  - 抓取其他平台 - 例如：幼儿园 发照片的 APP
+- https://profithunt.co/
+- https://www.sideprojectors.com/
+- https://www.reddit.com/r/SideProject/
+- https://what-to-code.com/
+- https://github.com/dailyidea/dailyidea.com---ARCHIVE
+- http://github-help-wanted.com/

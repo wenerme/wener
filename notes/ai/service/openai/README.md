@@ -165,3 +165,7 @@ javascript:window.localStorage.removeItem(Object.keys(window.localStorage).find(
 ---
 
 - https://www.reddit.com/r/ChatGPT/comments/1eloa0j
+
+## There is a problem with your request HKG
+
+- 不能用 Hong Kong IP

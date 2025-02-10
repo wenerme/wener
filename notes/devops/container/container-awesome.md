@@ -223,7 +223,8 @@ curl https://ustc-edu-cn.mirror.aliyuncs.com/v2/wener/base/tags/list | jq -r '.t
 ## Inspect
 
 - [wagoodman/dive](https://github.com/wagoodman/dive)
-- [vicanso/diving](https://github.com/vicanso/diving)
+- ~~[vicanso/diving](https://github.com/vicanso/diving)~~
+- [vicanso/diving-rs](https://github.com/vicanso/diving-rs)
   - https://diving.npmtrend.com/
   - dive web
 

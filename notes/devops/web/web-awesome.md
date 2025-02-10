@@ -13,6 +13,11 @@ tags:
   - Traefik Docker Provider
   - [lucaslorentz/caddy-docker-proxy](https://github.com/lucaslorentz/caddy-docker-proxy)
   - [nginx-proxy/nginx-proxy](https://github.com/nginx-proxy/nginx-proxy)
+- [vicanso/pingap](https://github.com/vicanso/pingap)
+  - reverse proxy like nginx, built on pingora
+- [cloudflare/pingora](https://github.com/cloudflare/pingora)
+  - Apache-2.0, Rust
+  - library for building fast, reliable and evolvable network services
 
 ## Framework
 

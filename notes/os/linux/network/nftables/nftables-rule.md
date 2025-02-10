@@ -4,12 +4,41 @@ title: nftables 规则
 
 # 表达式
 
+```bash
+# 翻译 iptables 规则为 nftables
+sudo iptables-save > legacy-rules.txt
+iptables-restore-translate -f legacy-rules.txt
+
+nft list ruleset   # dump nftables 规则
+nft -c -f rule.nft # check
+nft -f rule.nft    # load  - 原子操作
+```
+
 - accept、drop、queue、continue、return、jump chain、goto chain
 - masquerade - 源地址自动设置为出口地址
-- type
-  - filter、route、nat
 
-| family | -                |
+# Table
+
+- chain 容器
+  - 同一个 table 的 chain 不能有相同名字
+- name
+  - 避免使用名称 inet, filter, nat, mangle
+  - 不同 family 可以有相同名字的 table
+- family=ip, arp, ip6, bridge, inet, netdev
+
+:::tips
+
+- 建议大多数时候只用 `table inet` 作为 filter
+- 目前 NAT 相关规则主要支持 IPv4
+  - 因此 masquerade 相关可以放到单独的 `table ip` 表
+  - 例如 chain prerouting, postrouting, forward
+- 如果不考虑 IPv6 可以只用 `table ip`
+
+:::
+
+**地址类型**
+
+| family | desc             |
 | ------ | ---------------- |
 | ip     | IPv4 - 默认      |
 | ip6    | IPv6             |
@@ -18,25 +47,87 @@ title: nftables 规则
 | bridge | 经过桥接设备的包 |
 | netdev | 入口设备         |
 
-[地址类型]
+```bash
+nft list tables # [<family>]
+# nft [-n] [-a] list table [<family>] <name>
+# nft (add | delete | flush) table [<family>] <name>
+```
 
-| hook        | desc                                                       |
-| ----------- | ---------------------------------------------------------- |
-| prerouting  | 所有进入系统的包，在路由之前处理，可用于过滤和修改属性     |
-| input       | 进入 本地 系统的包                                         |
-| forward     | 转发到其他 host 的包                                       |
-| output      | 本地 发出的包                                              |
-| postrouting | 所有离开系统的包                                           |
-| ingress     | 所有进入系统的包， L3 之前，早于 prerouting，只能用于 inet |
+## 单文件 reload {#reload-individual-table}
 
-[Hook 类型]
+```nft
+flush table ip wode
+flush table inet wode
+
+table ip wode {
+}
+
+table inet wode {
+}
+```
+
+或者 `replace` 也是安全的
+
+```nft
+replace table ip mytable {
+}
+```
+
+```bash
+nft -f /etc/nftables/wode.nft
+```
+
+# Chain
+
+- rule 容器
+- type=filter, route, nat
+  - filter - 过滤
+    - 支持 arp, bridge, ip, ip6, inet
+  - route
+    - 支持 ip, ip6
+  - nat
+    - 支持 ip, ip6
+- hook
+  - ip, ip6, inet 支持 prerouting, input, forward, output, postrouting
+  - arp 支持 input, output
+  - bridge
+  - netdev 支持 ingress, egress
+- priority - 优先级
+- policy - 默认规则
+  - accept, drop, queue, continue, return, jump chain, goto chain
+- base chain
+  - 指的是直接与内核数据包处理钩子（hook）关联的链。
+  - 不是通过 jump 调用的链，而是内核在数据包进入网络栈时直接调用的入口点。
+  - input、output、forward、prerouting、postrouting
+  - 必须指定默认策略
+
+```bash
+# nft (add | create) chain [<family>] <table> <name> [ \{ type <type> hook <hook> [device <device>] priority <priority> \; [policy <policy> \;] \} ]
+# nft (delete | list | flush) chain [<family>] <table> <name>
+# nft rename chain [<family>] <table> <name> <newname>
+```
+
+**hook**
+
+![](https://people.netfilter.org/pablo/nf-hooks.png)
+
+| hook        | desc                                                   |
+| ----------- | ------------------------------------------------------ |
+| prerouting  | 所有进入系统的包，在路由之前处理，可用于过滤和修改属性 |
+| input       | 进入 本地 系统的包                                     |
+| forward     | 转发到其他 host 的包                                   |
+| output      | 本地 发出的包                                          |
+| postrouting | 所有离开系统的包                                       |
+| ingress     |
+| egress      |
 
 - 地址 支持的 hook
   - ip,ip6,inet,bridge - prerouting,input,forward,output,postrouting
   - arp - input,output
   - netdav - ingress
+- https://wiki.nftables.org/wiki-nftables/index.php/Netfilter_hooks
 
-## 优先级
+**priority**
 
 | PRI  | name     | def                        | desc                                                                              |
 | ---- | -------- | -------------------------- | --------------------------------------------------------------------------------- |
@@ -52,14 +143,26 @@ title: nftables 规则
 | 225  |          | NF_IP_PRI_SELINUX_LAST     | SELinux at packet exit                                                            |
 | 300  |          | NF_IP_PRI_CONNTRACK_HELPER | connection tracking at exit                                                       |
 
-**bridge 优先级**
+**bridge priority**
 
-| Name   | Value ｜ Hooks |
-| ------ | -------------- | ----------- |
-| dstnat | -300           | prerouting  |
-| filter | -200           | all         |
-| out    | 100            | output      |
-| srcnat | 300            | postrouting |
+| Name   | Value | Hooks       |
+| ------ | ----- | ----------- |
+| dstnat | -300  | prerouting  |
+| filter | -200  | all         |
+| out    | 100   | output      |
+| srcnat | 300   | postrouting |
+
+# Rule
+
+- 定义 action
+- handle - 内部标识, 序号
+
+```bash
+# nft add rule [<family>] <table> <chain> <matches> <statements>
+# nft insert rule [<family>] <table> <chain> [position <handle>] <matches> <statements>
+# nft replace rule [<family>] <table> <chain> [handle <handle>] <matches> <statements>
+# nft delete rule [<family>] <table> <chain> [handle <handle>]
+```
 
 ## 匹配
 
@@ -286,7 +389,7 @@ table inet filter {
 	}
 
 	chain output {
-    # 默认不允许 output
+    # 默认允许 output
 		type filter hook output priority 0; policy accept;
 	}
 }
@@ -354,3 +457,9 @@ table ip nat {
   }
 }
 ```
+
+# 参考
+
+- https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes
+- Syntax
+  - https://wiki.nftables.org/wiki-nftables/index.php/Scripting

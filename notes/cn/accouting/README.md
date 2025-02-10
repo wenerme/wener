@@ -6,6 +6,10 @@ title: 记账服务
 
 - 《GBT 19581-2004 信息技术 会计核算软件数据接口》
   - 备份格式
+- [纳税人识别号（TIN）规则查询](http://www.chinatax.gov.cn/chinatax/n810219/n810744/n2594306/c101700/index.html)
+- 个体户
+- 一般纳税人
+- 小规模纳税人
 
 ## 代理记账行业
 
@@ -49,3 +53,14 @@ title: 记账服务
   - by 税友软件
 - https://new.36kr.com/
 - https://yijian.tv/
+- 猪哥云 https://www.joolgo.com/
+- 慧财税 https://www.huicaishui.net/kjgc/
+- 账小白
+- 财行智造
+  - 财行智造(北京)科技有限公司
+  - 杨立鑫
+  - [包干？分组？分岗+会计工场?哪种模式是趋势？](https://mp.weixin.qq.com/s?__biz=Mzg5MjUzNjQ1NA==&mid=2247483749&idx=1&sn=b16e07ae0a4ce1f4f3a835f3877f177e)
+- 文档
+  - https://www.zijizhang.com/help?cateId=14
+  - http://www.jiqiao.tech/problem/
+  - https://author.baidu.com/home?app_id=1784332796628090

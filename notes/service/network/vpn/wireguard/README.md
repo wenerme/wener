@@ -72,6 +72,27 @@ echo wg set wg0 peer $(cat wg0.pub) persistent-keepalive 25 allowed-ips 10.0.0.1
 ping 10.0.0.1
 ```
 
+## conf
+
+- /etc/wireguard/wg0.conf
+
+```ini
+[Interface]
+PrivateKey =
+ListenPort = 249
+Address = 10.10.0.2/32
+DNS = 1.1.1.1
+
+[Peer]
+PublicKey =
+PresharedKey =
+AllowedIPs = 0.0.0.0/0
+Endpoint = <主机A地址>:51820
+PersistentKeepalive = 25
+```
+
+- engage.cloudflareclient.com:2408
+
 ## FAQ
 
 ### 桥接或 DHCP

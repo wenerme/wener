@@ -100,3 +100,7 @@ http://weixin.qq.com/r/XXX?utm_source=XX
 ---
 
 - Window 设置里面就有
+
+## 公众号文章参数
+
+- https://soaked.in/2020/08/wechat-platform-url/

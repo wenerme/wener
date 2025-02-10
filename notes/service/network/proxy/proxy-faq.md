@@ -127,31 +127,32 @@ table ip nat {
 }
 ```
 
-## VLESS vs VMess
+## VLESS vs VMess vs Trojan
 
-- VLESS
-  - 更轻量的协议，无需加密，常配合 TLS 使用
-- VMess
-  - V2Ray 原生加密协议，自带加密
+> 选择 vless+reality/tls 或 trojan
 
-| 特性       | VLESS         | VMess      |
-| ---------- | ------------- | ---------- |
-| 加密       | 无内置加密    | 自带加密层 |
+| 特性       | VLESS         | VMess      | Trojan |
+| ---------- | ------------- | ---------- | ------ |
+| 加密       | 无内置加密    | 自带加密层 | TLS    |
 | 性能       | 较好          | 一般       |
-| TLS        | 推荐配合使用  | 可选       |
+| TLS        | 推荐配合使用  | 可选       | 必须   |
 | 协议复杂度 | 简单          | 较复杂     |
-| 检测难度   | 较难          | 较容易     |
+| 检测难度   | 较难          | 较容易     | 较难   |
 | 使用场景   | 配合 TLS 使用 | 通用场景   |
 
-- 推荐 VLESS + TLS
+- VLESS
+  - 配合 TLS/Reality 使用
+  - 本身没有加密
+  - 协议更简单
   - 性能更好
   - 配置简单
-  - 安全性有保障
-- VMess 适用于
+- Trojan
+  - 必须 TLS
+- VMess
+  - V2Ray 原生加密协议
   - 不方便配置 TLS
   - 需要额外加密层
   - 兼容性要求高的场景
-
 
 ## XTLS vs Xray vs V2Ray vs V2Fly
 

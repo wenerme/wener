@@ -663,6 +663,20 @@ tags:
   - https://nino.app/
 - CORS/Proxy
   - [gridaco/cors.sh](https://github.com/gridaco/cors.sh)
+- Bookkeeping/Accouting
+  - https://github.com/mayswind/ezbookkeeping
+    - MIT, Go, Vue
+    - ightweight personal bookkeeping app hosted by yourself.
+- music streaming/音乐
+  - [koel/koel]
+  - [agersant/polaris](https://github.com/agersant/polaris)
+    - MIT, Rust
+- Health/健康/Medicine/医疗
+  - [OpenHealthForAll/open-health](https://github.com/OpenHealthForAll/open-health)
+- Study/学习/Research/研究
+  - https://www.alphaxiv.org/
+  - https://arxiv.org/
+  - [jwasham/coding-interview-university]
 
 ## OCR
 

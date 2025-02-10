@@ -11,6 +11,10 @@ tags:
 |       | two-legged OAuth 2.0   | client_credentials |
 |       | three-legged OAuth 2.0 |
 
+| abbr. | stand for                               | meanning           |
+| ----- | --------------------------------------- | ------------------ |
+| CIAM  | Customer Identity and Access Management | 客户身份和访问管理 |
+
 ## ACL 相关对象
 
 - Subject - 访问主体,即进行访问和操作的实体,如用户、组织、设备等

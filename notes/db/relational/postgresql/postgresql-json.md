@@ -6,18 +6,25 @@ title: PostgreSQL JSON
 
 :::caution
 
-- `data->'field' is not null` 无法检测 null 数据 - 通过 `->>` 可以检测到 null
-- 使用 json_typeof 监测 null - `json_typeof(col->'field') = 'null'`
+- null
+  - `data->'field' is not null` 无法检测 null 数据 - 通过 `->>` 可以检测到 null
+  - 也可以使用 json_typeof 监测 null - `json_typeof(col->'field') = 'null'`
 
 :::
 
+- https://www.postgresql.org/docs/current/functions-json.html
 - https://bitnine.net/blog-postgresql/postgresql-internals-jsonb-type-and-its-indexes/
 
 ```sql
 -- json null 不是 null
 select 'null'::jsonb is null;
+select 'null'::jsonb #>> '{}' is null; -- 转换后为 null
 -- 通过 typeof 判断类型
 select jsonb_typeof('null'::jsonb) = 'null';
+
+-- jsonb string -> text
+-- ::text 会保留引号
+select to_json('text') #>> '{}';
 
 -- 数组移除 null
 select jsonb_path_query_array('{"values": [null, "test", { "key": "value" }]}', '$.values[*] ? (@ != null)');

@@ -6,8 +6,10 @@ tags:
 
 # ReactPDF
 
-- yogo+pdfkit
-- react-reconciler, scheduler
+- [diegomura/react-pdf](https://github.com/diegomura/react-pdf)
+  - Create PDF files using React
+  - yogo+pdfkit
+  - react-reconciler, scheduler
 - 参考
   - https://react-pdf-repl.vercel.app/
   - [aanckar/react-pdf-tailwind](https://github.com/aanckar/react-pdf-tailwind)
@@ -16,34 +18,15 @@ tags:
   - [ag-media/react-pdf-table](https://github.com/ag-media/react-pdf-table)
     - page wrapping may happen in unexpected ways:
 
-```ts
-export const PDFViewer = ({
-  title,
-  style,
-  className,
-  children,
-  innerRef,
-  showToolbar = true,
-  ...props
-}) => {
+```tsx
+export const PDFViewer = ({ title, style, className, children, innerRef, showToolbar = true, ...props }) => {
   const [instance, updateInstance] = usePDF();
 
   useEffect(() => updateInstance(children), [children]);
 
-  const src = instance.url
-    ? `${instance.url}#toolbar=${showToolbar ? 1 : 0}`
-    : null;
+  const src = instance.url ? `${instance.url}#toolbar=${showToolbar ? 1 : 0}` : null;
 
-  return (
-    <iframe
-      src={src}
-      title={title}
-      ref={innerRef}
-      style={style}
-      className={className}
-      {...props}
-    />
-  );
+  return <iframe src={src} title={title} ref={innerRef} style={style} className={className} {...props} />;
 };
 ```
 
