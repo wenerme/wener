@@ -209,3 +209,9 @@ app.get('/', (c) => {
 ```bash
 pnpm add @asteasolutions/zod-to-openapi openapi3-ts
 ```
+
+## Nest Adaptor
+
+- https://github.com/kiyasov/platform-hono
+  - @kiyasov/platform-hono
+- https://github.com/asnowc/nest-hono-adapter

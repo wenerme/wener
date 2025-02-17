@@ -12,6 +12,23 @@ title: PostgreSQL JSON
 
 :::
 
+| operator | for                                                                                          |
+| -------- | -------------------------------------------------------------------------------------------- |
+| `->`     | Get JSON object field by key                                                                 |
+| `->>`    | Get JSON object field as text                                                                |
+| `#>`     | Get JSON object at specified path                                                            |
+| `#>>`    | Get JSON object at specified path as text                                                    |
+| `?`      | Does the object contain the given key?                                                       |
+| `?\|`    | Do any of these keys exist?                                                                  |
+| `?&`     | Do all of these keys exist?                                                                  |
+| `\|\|`   | Concatenate two jsonb values into a new jsonb value                                          |
+| `@>`     | Does the left JSON value contain the right JSON path/value entries at the top level?         |
+| `<@`     | Are the left JSON path/value entries contained at the top level within the right JSON value? |
+| `-`      | Delete key/value pair or string element from left operand                                    |
+| `#-`     | Delete key/value pair from left operand                                                      |
+| `@?`     | Does the JSON path string exist as a top-level key within the JSON value?                    |
+| `@@`     | Does the string exist as a top-level key within the JSON value?                              |
+
 - https://www.postgresql.org/docs/current/functions-json.html
 - https://bitnine.net/blog-postgresql/postgresql-internals-jsonb-type-and-its-indexes/
 

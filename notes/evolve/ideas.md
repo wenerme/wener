@@ -24,14 +24,106 @@ title: Ideas
 - Free Mind
   - 定时推送让人生活更有意义的事情/图片
   - 定时提醒出去走走
-- 个人 NAS 服务
-  - 现在的云盘都不 “安全” 不 “可靠”
-  - 自托管成为主流
 - 游戏加速器
   - 应该个人不好做
 - AI Promots Index
   - 收集整理提示词
   - 提供给 AI 生成器
+
+## 记账软件
+
+- 支持导入和集成多方的数据导入
+- 数据来源
+  - 支付宝
+  - 银行流水
+
+## 企业 NAC
+
+- 企业网络接入控制
+- 功能
+  - 网络准入（NAC）
+  - VPN
+- 其他功能
+  - 上网审查
+  - 无线投屏
+  - 音视频会议
+  - 软电话
+  - 软件管家
+- 例如
+  - 阿里郎
+    - https://alilang.alibaba-inc.com/portal/help.htm
+  - 阿里 云壳
+
+## NAS
+
+- 个人 NAS 服务
+- 企业 NAS 服务
+- 现在的云盘都不 “安全” 不 “可靠”
+- 自托管成为主流
+
+**案例**
+
+- NextCloud
+
+## OminiChat
+
+- AI Chat Client
+- 复刻 ChatGPT 功能的客户端即可
+- 基础功能
+  - 登陆 - 微信、公众号
+  - 会话管理
+  - 会话记录
+- 扩展功能
+  - 会话共享
+  - 实时对话
+  - TTS/STT - 语音转文字、文字转语音
+  - 记忆
+- 额外管理功能
+  - 项目 - 组织会话上下文
+  - Profile - 切换 Profile 实现多人使用 - 或者实现多个角色
+    - Profile 绑定 memory
+- 高级功能
+  - 专门场景 Agent
+    - 例如: mud - 基于文本的游戏，直接给出玩家选项
+  - 支持自定义 API/Token
+  - 对话生成的 markdown 支持更高级的交互
+    - 例如: 预览 HTML, 预览 js 执行结果
+  - 支持图像、文件
+  - RAG/本地知识库
+  - 扩展集成多模型
+    - 根据不同场景选用不同模型
+    - 例如 对接不同的 图像 生成模型
+- 目标客户对象
+  - 无法访问 AI 的个人
+  - 需要整体管理 AI 接入的 企业
+  - 家庭
+  - 教育
+
+---
+
+**案例**
+
+- Chatbox
+  - 客户端开源
+  - 通过提供 AI 模型访问来盈利
+  - 针对使用平台 AI 的场景来进行产品优化
+  - 对平台 AI 扩展刚刚
+- [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
+
+## 会话共享+内置代理 的浏览器
+
+- 基于 Electron 封装
+- 会话共享
+  - 共享 Cookie/localstorage 信息实现免登陆
+  - 参考
+    - https://chromewebstore.google.com/detail/glifngepkcmfolnojchcfiinmjgeablm
+    - https://chromewebstore.google.com/detail/jcnbanhdjeeeacgdffdakdopacfppbfo
+- 代理
+  - 避免触发异地
+  - 针对网站的代理 - 有些网站本身需要代理才能登陆
+    - 例如: 访问公司内网
+  - p2p 代理 - 从初始登陆的用户进行代理
+    - 例如: frp 实现 p2p 代理通道
 
 ## 小家
 

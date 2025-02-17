@@ -7,12 +7,12 @@ tags:
 
 ## NextJS 11
 
-- Node v20+
-- 增加 JsonLooger
-- 优化默认 Logger
 - 依赖升级
+  - Node v20+
   - express v5
   - fastify v5
+- 增加 JsonLooger
+- 优化默认 Logger
 - microservices 支持 nats
 
 ## NextJS 10

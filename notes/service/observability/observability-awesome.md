@@ -17,10 +17,13 @@ tags:
 :::
 
 - [getsentry/sentry](./tracing/sentry.md)
-- [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
-  - MIT, JS, Vue
-  - 监控网站 uptime
-  - https://demo.uptime.kuma.pet/
+- Uptime
+  - [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma)
+    - MIT, JS, Vue
+    - 监控网站 uptime
+    - https://demo.uptime.kuma.pet/
+    - [uptime-kuma](./uptime-kuma.md)
+  - [upptime/upptime](https://github.com/upptime/upptime)
 - [openobserve](./openobserve.md)
   - zincobserve -> openobserve
   - Apache-2.0, Rust
@@ -36,9 +39,7 @@ tags:
 - [clickvisual/clickvisual](https://github.com/clickvisual/clickvisual)
   - UI for Clickhouse
 - [highlight/highlight](https://github.com/highlight/highlight)
-- uptime
-  - [louislam/uptime-kuma](./uptime-kuma.md)
-  - [upptime/upptime](https://github.com/upptime/upptime)
+
 
 ## Tracing
 

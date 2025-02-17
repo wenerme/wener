@@ -4,6 +4,12 @@ title: ACL
 
 # PostgreSQL ACL
 
+:::tip
+
+- `CREATE USER` 是 `CREATE ROLE` 的别名
+
+:::
+
 - User -> Role - 新版都是 ROLE
 - 属性
   - LOGIN - 可登录 - `CREATE USER` 默认包含 LOGIN
@@ -18,8 +24,10 @@ title: ACL
   - CONNECTION LIMIT - 连接数限制
   - VALID UNTIL 'timestamp'
   - IN ROLE - 赋予角色
-  - ROLE - 添加其他角色到该分组
-  - ADMIN - 类似 ROLE, 但允许该角色添加其他成员到该组
+  - `ROLE role` - 添加其他角色到该分组
+  - `ADMIN role`
+    - 类似 ROLE, 但允许该角色添加其他成员到该组
+    - 允许 `role` 添加其他成员到该组
 - 预设角色
   - pg_read_all_data
   - pg_read_all_settings
@@ -60,6 +68,7 @@ title: ACL
   - [CREATE ROLE](https://www.postgresql.org/docs/current/sql-createrole.html)
   - [ALTER DEFAULT PRIVILEGES](https://www.postgresql.org/docs/current/sql-alterdefaultprivileges.html)
     - 影响未来创建对象，不影响现在
+  - [CREATE USER](https://www.postgresql.org/docs/current/sql-createuser.html)
   - postgrest [auth](https://postgrest.org/en/stable/auth.html)
   - pgconf us 2019 [Row Level Security](https://postgresconf.org/system/events/document/000/000/996/pgconf_us_2019.pdf)
 

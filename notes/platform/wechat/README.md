@@ -4,6 +4,11 @@ title: WeChat
 
 # WeChat
 
+- 开放平台
+- 微信支付
+- 微信小店
+- 腾讯小微
+- 小商店
 - 企业号
   - [企业号开发文档](http://qydev.weixin.qq.com/wiki/index.php?title=首页)
   - [微信企业号接口调试工具](http://qydev.weixin.qq.com/debug)

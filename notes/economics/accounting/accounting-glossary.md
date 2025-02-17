@@ -20,35 +20,47 @@ tags:
 | IFRS    | International Financial Reporting Standards            | 国际财务报告准则     |
 | US GAAP | United States Generally Accepted Accounting Principles | 美国一般公认会计原则 |
 
-| en                      | cn                              | notes                            |
-| ----------------------- | ------------------------------- | -------------------------------- |
-| Account Code            | 科目代码                        |
-| Account reconciliations | 对账                            |
-| Accountant              | 会计师                          |
-| Accounting              | 会计                            |
-| Accounting Account      | 会计科目                        |
-| Accounting Book         | 账簿                            |
-| Accounting Mid-term     | 会计中期                        |
-| Accounting Period       | 会计期间/会计分期/会计周期/账期 |
-| Accounting Set          | 账套                            |
-| Accounting Year         | 会计年度                        |
-| Adjusting Entry         | 调整分录                        |
-| Balance sheet           | 资产负债表                      |
-| Bank Receipt            | 银行回单                        |
-| Bank Statement          | 银行对账单                      |
-| Chart of Accounts       | 会计科目表                      |
-| Closing the books       | 结账                            |
-| Credit Note             | 贷项通知单                      |
-| Document                | 文件、文档                      | 用于记录和存档的书面材料         |
-| Imposition              | 征收                            |
-| Individual Tax          | 个税                            |
-| Personal Income Tax     | 个人所得税                      |
-| Reversal Entry          | 红字/红冲                       | 用于冲销错误的会计分录           |
-| Social Security         | 社保                            |
-| Standard Entry          | 标准分录/蓝字                   |
-| Void                    | 作废                            |
-| Voucher                 | 凭证                            | 用于记录和证明经济业务的原始凭证 |
-| Write Off               | 冲销、坏账核销                  | 将无法收回的应收账款从账面上冲销 |
+| en                               | cn                              | notes                                                  |
+| -------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| Account Code                     | 科目代码                        |
+| Account reconciliations          | 对账                            |
+| Accountant                       | 会计师                          |
+| Accounting                       | 会计                            |
+| Accounting Account               | 会计科目                        |
+| Accounting Book                  | 账簿                            |
+| Accounting Mid-term              | 会计中期                        |
+| Accounting Period                | 会计期间/会计分期/会计周期/账期 |
+| Accounting Set                   | 账套                            |
+| Accounting Year                  | 会计年度                        |
+| Adjusting Entry                  | 调整分录                        |
+| Balance sheet                    | 资产负债表                      |
+| Bank Receipt                     | 银行回单                        |
+| Bank Statement                   | 银行对账单                      |
+| Chart of Accounts                | 会计科目表                      |
+| Closing the books                | 结账                            |
+| Credit Note                      | 贷项通知单                      |
+| Document                         | 文件、文档                      | 用于记录和存档的书面材料                               |
+| Imposition                       | 征收                            |
+| Individual Tax                   | 个税                            |
+| Personal Income Tax              | 个人所得税                      |
+| Reversal Entry                   | 红字/红冲                       | 用于冲销错误的会计分录                                 |
+| Social Security                  | 社保                            |
+| Standard Entry                   | 标准分录/蓝字                   |
+| Void                             | 作废                            |
+| Voucher                          | 凭证                            | 用于记录和证明经济业务的原始凭证                       |
+| Write Off                        | 冲销、坏账核销                  | 将无法收回的应收账款从账面上冲销                       |
+| Amortization                     | 摊销                            | 将无形资产成本分摊到多个会计期间                       |
+| Depreciation                     | 折旧                            | 将固定资产的成本按使用寿命逐期计入费用                 |
+| Accrual Basis                    | 权责发生制                      | 根据业务发生而非现金流入/流出进行会计确认的原则        |
+| Deferred Revenue                 | 递延收入                        | 已收款项但尚未完成相应服务，暂时作为负债记录的收入     |
+| Accrued Expenses                 | 预提费用                        | 已经发生但未实际支付的费用，在会计期间需要计提入账     |
+| Capital Expenditure (CAPEX)      | 资本支出                        | 用于购买或升级固定资产而发生的支出                     |
+| Non-operating Income             | 营业外收入                      | 与主营业务无直接关系的收入（如利息收入、资产处置收益） |
+| Non-operating Expenses           | 营业外支出                      | 与主营业务无直接关系的支出（如罚款、诉讼费用）         |
+| Inventory Obsolescence Allowance | 存货跌价准备                    | 针对存货可能贬值做出的拨备                             |
+| Financial Leverage               | 财务杠杆                        | 通过借款等方式放大企业收益或亏损的经营策略             |
+| Fair Value                       | 公允价值                        | 资产或负债在市场上可能实现的合理价值                   |
+| Matching Principle               | 资产负债匹配                    | 将费用与产生该费用的相关收入在相同会计期间内确认的原则 |
 
 - Credit Note
   - 特指因商品退货或服务取消而发出的，与原销售发票相抵销的凭证。这通常用于销售和商业环境中。
@@ -85,6 +97,15 @@ tags:
   - 部门、员工 - 成本费用类、其他应收、其他应付
 - 参考
   - https://quickbooks.intuit.com/global/zh-cn/glossary/
+
+A表
+: 资产负债表
+
+B表
+: 利润表
+
+C表
+: 现金流量表
 
 ## Bank Statement vs Bank Receipt
 

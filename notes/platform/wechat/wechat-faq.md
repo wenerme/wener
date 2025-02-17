@@ -22,6 +22,13 @@ tags:
   - 企业微信可信域名验证
 - `/Abcde12345.txt`
   - 小程序业务域名验证
+- 公众号/订阅号
+  - 权限低、门槛低、功能少
+  - 个人主体
+    - 不能实现网页登陆
+    - 不能申请认证
+- 服务号
+  - 面向企业、平台服务
 
 ## ID
 
@@ -67,6 +74,36 @@ tags:
 - [企业微信账号ID安全性全面升级](https://developer.work.weixin.qq.com/document/path/96516)
   - 2024/07/18
 
+## Auth
+
+**网页登陆**
+
+- 二维码 扫码
+
+```
+https://open.weixin.qq.com/connect/qrconnect?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redire
+```
+
+- scope
+  - snsapi_login
+
+**跳转登陆**
+
+```
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+```
+
+- scope
+  - snsapi_base
+  - snsapi_userinfo
+- state - `a-zA-Z0-9`, 128
+
+---
+
+- 开放平台/网站应用微信登录 https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html
+  - 二维码
+- 公众号/网页授权 https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html
+
 ## URL
 
 **跳转到公众号**
@@ -104,3 +141,4 @@ http://weixin.qq.com/r/XXX?utm_source=XX
 ## 公众号文章参数
 
 - https://soaked.in/2020/08/wechat-platform-url/
+

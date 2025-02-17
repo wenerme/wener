@@ -1843,6 +1843,14 @@ tags:
   - 一个动作或函数
   - 处理某件事情的行为或过程
 
+## path vs dir
+
+- path - 路径
+  - 可以是目录也可以是文件
+  - 是一个字符串
+- dir - directory - 目录
+  - 强调是一个目录
+
 ## Concurrency vs Parallelism / 并发 vs 并行
 
 - 并发

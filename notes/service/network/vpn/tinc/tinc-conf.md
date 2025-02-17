@@ -17,6 +17,7 @@ tags:
   - tinc-down
   - invitations/
   - invitation-data - 接受邀请包含的内容
+- macOS tinc /opt/homebrew/etc/tinc/NETNAME/
 
 **脚本**
 

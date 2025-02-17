@@ -8,7 +8,7 @@ tags:
 
 ## su as
 
-- 有些时候无法 `docker exec -u www-data`
+- 有些时候无法 `docker exec -u www-data -it nextcloud bash`
 - kubectl 不支持 -u
 
 ```bash
@@ -24,6 +24,18 @@ tail -f /var/www/html/data/nextcloud.log
 occ files:scan --all
 occ maintenance:repair --include-expensive
 occ db:add-missing-indices
+```
+
+## cron
+
+- /nextcloud/cron.php
+
+```bash
+crontab -u www-data -l
+```
+
+```txt
+*/5  *  *  *  * php -f /var/www/nextcloud/cron.php
 ```
 
 ## 移除获取免费账号的 Footer
@@ -138,3 +150,26 @@ docker run --rm -it -e 'domain=nextcloud.wener.me'
 ## AH00558: apache2: Could not reliably determine the server's fully qualified domain name
 
 Apache 错误信息，不影响
+
+
+## Upgrade
+
+> 注意 Disabled incompatible app, 如果关了网络会直接被禁用
+
+```bash
+./occ maintenance:repair --include-expensive
+./occ db:add-missing-indices
+```
+
+```bash
+docker exec -it -u www-data nextcloud bash -c './occ maintenance:repair --include-expensive; ./occ db:add-missing-indices'
+```
+
+```
+Initializing finished
+Warning: /var/www/html/config/redis.config.php differs from the latest version of this image at /usr/src/nextcloud/config/redis.config.php
+Warning: /var/www/html/config/reverse-proxy.config.php differs from the latest version of this image at /usr/src/nextcloud/config/reverse-proxy.config.php
+Warning: /var/www/html/config/s3.config.php differs from the latest version of this image at /usr/src/nextcloud/config/s3.config.php
+Warning: /var/www/html/config/smtp.config.php differs from the latest version of this image at /usr/src/nextcloud/config/smtp.config.php
+Warning: /var/www/html/config/upgrade-disable-web.config.php differs from the latest version of this image at /usr/src/nextcloud/config/upgrade-disable-web.config.php
+```

@@ -22,6 +22,8 @@ title: 标准数据
   - IETF（Internet Engineering Task Force，互联网工程任务组）
   - 关注互联网的技术规范、协议、过程和约定
   - 过程较为开放，强调技术社区的贡献和共识
+- Authority control - 规范化数据/规范控制
+  - https://en.wikipedia.org/wiki/Help:Authority_control
 
 | abbr. | stand for                                      |
 | ----- | ---------------------------------------------- | ---------------- |

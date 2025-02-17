@@ -54,7 +54,7 @@ tags:
   - [Yonom/assistant-ui](https://github.com/Yonom/assistant-ui)
     - React Components for AI Chat
   - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
-    - ~Apache-2.0, TypeScript
+    - ~~Apache-2.0~~, TypeScript
   - [n4ze3m/page-assist](https://github.com/n4ze3m/page-assist)
     - MIT, TS
     - 浏览器插件

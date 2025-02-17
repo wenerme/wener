@@ -32,6 +32,14 @@ title: Nextcloud 版本
 | [Nextcloud 23](#nextcloud-23) | 2022-05-03 |
 | [Nextcloud 22](#nextcloud-22) | 2021-07-06 |
 
+```bash
+# 一次升级一个版本
+echo nextcloud:{25.0.13,26.0.13,27.1.11,28.0.14,29.0.11,30.0.5}-apache | xargs -n 1 docker pull
+echo nextcloud:{25.0.13,26.0.13,27.1.11,28.0.14,29.0.11,30.0.5}-apache | tr ' ' '\n' | parallel -j 4 docker pull
+
+docker images -f reference="nextcloud"
+```
+
 ## Nextcloud 30
 
 - **设计改进**:

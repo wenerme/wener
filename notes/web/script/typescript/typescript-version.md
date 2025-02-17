@@ -8,6 +8,7 @@ tags:
 
 | version                          | date       |
 | -------------------------------- | ---------- |
+| [Typescript 5.7](#typescript-57) | 2024-11-22 |
 | [Typescript 5.5](#typescript-55) | 2024-06-20 |
 | [Typescript 5.4](#typescript-54) | 2024-03-06 |
 | [Typescript 5.3](#typescript-53) | 2023-11-20 |
@@ -17,6 +18,34 @@ tags:
 | [Typescript 4.7](#typescript-47) | 2022-05-24 |
 | [Typescript 4.6](#typescript-46) | 2022-02-28 |
 | [Typescript 4.5](#typescript-45) | 2021-11-17 |
+
+## Typescript 5.8
+
+- `--erasableSyntaxOnly`
+  - 因为 Node 开始支持 strip type 了，但是部分特性必须要求 transform
+  - 这个 flag 会对需要 transform 的语法报错
+  - 主要影响
+    - `enum`
+    - `namespace`
+    - `tsconfig.json#paths` -> `package.json#imports`
+    - `constructor(private foo: string)`
+- `--module nodenext` 支持 require
+- 增加 `--module node18`
+
+## Typescript 5.7
+
+- `--rewriteRelativeImportExtensions`
+  - 辅助 node 支持 ts
+  - 只处理 `./`, `../`
+  - `./foo.{ts,tsx,mts,cts}` -> `./foo.{js,jsx,mjs,cjs}`
+- --target es2024, --lib es2024
+  - 更多 SharedArrayBuffer, ArrayBuffer 方法
+  - Object.groupBy, Map.groupBy, Promise.withResolvers
+  - Atomics.waitAsync
+
+---
+
+- https://devblogs.microsoft.com/typescript/announcing-typescript-5-7/
 
 ## Typescript 5.6
 

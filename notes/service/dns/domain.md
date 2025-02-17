@@ -35,6 +35,7 @@ title: Domain
 - 中国互联网域名体系 https://domain.miit.gov.cn/
   - 列举了可备案的顶级域名和管理公司
 - 阿里云域名列表 https://help.aliyun.com/zh/dws/support/list-of-suffixes-of-top-level-domain-names
+- 阿里云域名价格 https://wanwang.aliyun.com/help/price.html
 - 腾讯云域名价格列表 https://buy.cloud.tencent.com/domain/price
 
 ## Provider

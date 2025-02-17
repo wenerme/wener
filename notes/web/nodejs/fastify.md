@@ -36,7 +36,7 @@ title: fastify
 - `/data/*`
   - `req.prams['*']` 获取之后的参数
 
-## ecosystem
+## Awesome
 
 - fastify
   - ajv - 验证
@@ -248,6 +248,14 @@ const defaultAjvOptions = {
   allErrors: false,
 };
 ```
+
+# Version
+
+## Fastify 5
+
+- Node 20+
+
+# FAQ
 
 ## You cannot use `send` inside the `onError` hook
 

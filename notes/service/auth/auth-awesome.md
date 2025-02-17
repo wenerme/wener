@@ -36,8 +36,6 @@ tags:
 - [authelia/authelia](https://github.com/authelia/authelia)
   - Apache-2.0, Go
   - SSO Multi-Factor portal for web apps
-- [boxyhq/jackson](https://github.com/boxyhq/jackson)
-  - Apache-2.0, Typescript
 - OpenID Provider (OP), Identity Provider (IDP)
   - 实现了 OpenID Connect 和 OAuth 2.0
 - Relying Party (RP)
@@ -49,8 +47,29 @@ tags:
 - [eicrud/eicrud](https://github.com/eicrud/eicrud)
   - MIT, TS
   - CRUD/Authorization framework based on NestJS
+- Service
 
-## Authorization Design
+## Client
+
+> Client/Web/Library/SDK/Integration
+
+- Framework
+  - [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth)
+    - ISC, TS
+    - Authentication for the Web
+- [auth0/node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+  - MIT, JS
+  - jsonwebtoken
+- [panva/jose](https://github.com/panva/jose)
+  - MIT, TS, JS
+  - JWA, JWS, JWE, JWT, JWK, JWKS
+- passport
+- [authts/oidc-client-ts](https://github.com/authts/oidc-client-ts)
+  - Apache-2.0, TS
+- [panva/node-openid-client](https://github.com/panva/node-openid-client)
+  - OpenID Certified™ Relying Party
+
+## Design
 
 - Google Cloud
   - [Policies](https://cloud.google.com/iam/docs/policies)
@@ -60,7 +79,65 @@ tags:
     - `//mail.googleapis.com/users/name@example.com/settings/customFrom`
     - 无传输协议
 
+## Authentication
+
+> AuthN/Authentication/OAuth2 Server/IdP/IAM
+
+- https://oauth.net/code/
+- [zitadel/zitadel](https://github.com/zitadel/zitadel)
+  - Apache-2.0, Go, TS
+  - by CAOS from Switzerland
+  - 提供 gRPC 接口
+  - CockroachDB/PostgreSQL
+  - [zitadel vs keycloak](https://zitadel.ch/blog/zitadel-vs-keycloak)
+- [goauthentik/authentik](https://github.com/goauthentik/authentik)
+  - GPL-3.0, Python, TS
+- [node-oauth/node-oauth2-server](https://github.com/node-oauth/node-oauth2-server)
+  - MIT, JS
+  - npm:@node-oauth/oauth2-server
+  - successor to ~~[oauthjs/node-oauth2-server](https://github.com/oauthjs/node-oauth2-server)~~
+- [boxyhq/jackson](https://github.com/boxyhq/jackson)
+  - Apache-2.0, Typescript
+  - supporting SAML and OpenID Connect
+  - Directory Sync via the SCIM 2.0 protocol
+- [panva/node-oidc-provider](https://github.com/panva/node-oidc-provider)
+  - MIT, NodeJS, JS
+  - [panva/oauth4webapi](https://github.com/panva/oauth4webapi)
+    - MIT, TS
+    - OAuth 2 / OpenID Connect
+- [dexidp/dex](https://github.com/dexidp/dex)
+  - Apache-2.0, Go
+  - OpenID Connect Identity (OIDC) and OAuth 2.0 Provider with Pluggable Connectors
+- [ory/hydra](https://github.com/ory/hydra)
+
+  - Apache-2.0, Go
+  - OAuth2 Server and OpenID Certified™ OpenID Connect Provider written in Go
+
+- [keycloak/keycloak](https://github.com/keycloak/keycloak)
+  - Apache-2.0, Java
+- [kanidm/kanidm](https://github.com/kanidm/kanidm)
+  - MPL-2.0, Rust
+  - SSH/PAM/RADIUS/Web OAuth
+  - [oauth design](https://github.com/kanidm/kanidm/blob/master/designs/oauth.rst)
+- [compare open-source-sso](https://gist.github.com/bmaupin/6878fae9abcb63ef43f8ac9b9de8fafd)
+- OpenIAM
+- Apache Syncope
+- FreeIPA
+  - Python
+- WSO2
+- [apereo/cas](https://github.com/apereo/cas) - Central Authentication Service
+- Okta
+- FusionAuth
+- LDAP/GSSAPI
+- Kerberos
+  - not use public key crypto
+- [supertokens/supertokens-core](https://github.com/supertokens/supertokens-core)
+  - Apache-2.0, Java
+- [ory/kratos](./kratos.md)
+
 ## Authorization
+
+> AuthZ/Authorization/Policy/ACL/RBAC/ABAC
 
 - [casbin](./authz/casbin.md)
 - [ory/oathkeeper](https://github.com/ory/oathkeeper)
@@ -111,39 +188,6 @@ tags:
   - [What is Zanzibar?](https://authzed.com/blog/what-is-zanzibar/)
   - https://www.osohq.com/learn/google-zanzibar
 
-## IAM
-
-- [keycloak/keycloak](https://github.com/keycloak/keycloak)
-  - Apache-2.0, Java
-- [zitadel/zitadel](https://github.com/zitadel/zitadel)
-  - Apache-2.0, Go, TS
-  - by CAOS from Switzerland
-  - 提供 gRPC 接口
-  - 依赖 CockroachDB
-  - [zitadel vs keycloak](https://zitadel.ch/blog/zitadel-vs-keycloak)
-  - https://zitadel.ch/v2 WIP
-- [kanidm/kanidm](https://github.com/kanidm/kanidm)
-  - MPL-2.0, Rust
-  - SSH/PAM/RADIUS/Web OAuth
-  - [oauth design](https://github.com/kanidm/kanidm/blob/master/designs/oauth.rst)
-- [compare open-source-sso](https://gist.github.com/bmaupin/6878fae9abcb63ef43f8ac9b9de8fafd)
-- OpenIAM
-- Apache Syncope
-- FreeIPA
-  - Python
-- WSO2
-- [apereo/cas](https://github.com/apereo/cas) - Central Authentication Service
-- Okta
-- FusionAuth
-- LDAP/GSSAPI
-- Kerberos
-  - not use public key crypto
-- [supertokens/supertokens-core](https://github.com/supertokens/supertokens-core)
-  - Apache-2.0, Java
-- [goauthentik/authentik](https://github.com/goauthentik/authentik)
-  - GPL-3.0, Python
-- [ory/kratos](./kratos.md)
-
 ## Proxy
 
 > API 网关通常支持 auth、authz
@@ -164,31 +208,3 @@ tags:
 
 - Google [Authentication/Authorization for Enterprise SPI Guide](https://support.google.com/gsa/answer/6329233)
 - [How to Design a Permissions Framework](https://itnext.io/7c054a009c52)
-
-## Library
-
-- [auth0/node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
-  - MIT, JS
-  - jsonwebtoken
-- [panva/jose](https://github.com/panva/jose)
-  - MIT, TS, JS
-  - JWA, JWS, JWE, JWT, JWK, JWKS
-- passport
-- [authts/oidc-client-ts](https://github.com/authts/oidc-client-ts)
-  - Apache-2.0, TS
-- [panva/node-openid-client](https://github.com/panva/node-openid-client)
-  - OpenID Certified™ Relying Party
-
-## IdP
-
-- [panva/node-oidc-provider](https://github.com/panva/node-oidc-provider)
-  - MIT, NodeJS, JS
-  - [panva/oauth4webapi](https://github.com/panva/oauth4webapi)
-    - MIT, TS
-    - OAuth 2 / OpenID Connect
-- [dexidp/dex](https://github.com/dexidp/dex)
-  - Apache-2.0, Go
-  - OpenID Connect Identity (OIDC) and OAuth 2.0 Provider with Pluggable Connectors
-- [ory/hydra](https://github.com/ory/hydra)
-  - Apache-2.0, Go
-  - OAuth2 Server and OpenID Certified™ OpenID Connect Provider written in Go

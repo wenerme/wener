@@ -68,3 +68,41 @@ http://:80 {
 
 - https://caddyserver.com/docs/caddyfile/patterns#wildcard-certificates
 - https://github.com/lucaslorentz/caddy-docker-proxy/issues/581#issuecomment-1925432620
+
+## ZeroSSL ACME
+
+```caddyfile
+{
+    acme_ca https://acme.zerossl.com/v2/DV90
+    email   you@yours.com
+}
+```
+
+```caddyfile
+{
+    acme_ca https://acme.zerossl.com/v2/DV90
+    acme_eab {
+        key_id  $ACME_EAB_KEY_ID
+        mac_key $ACME_EAB_MAC_KEY
+    }
+}
+```
+
+```caddyfile
+tls you@yours.com {
+    ca https://acme.zerossl.com/v2/DV90
+}
+```
+
+```caddyfile
+tls {
+   ca  https://acme.zerossl.com/v2/DV90
+   eab <key_id> <mac_key>
+}
+```
+
+- https://caddy.community/t/using-zerossls-acme-endpoint/9406
+
+## could not determine the zone for: unexpected response code 'SERVFAIL'
+
+DNS 有问题

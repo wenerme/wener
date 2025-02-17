@@ -41,6 +41,8 @@ title: PDF
   - [wojtekmaj/react-pdf](https://github.com/wojtekmaj/react-pdf)
     - MIT, TS, React
     - pdfjs
+  - [Laomai-codefee/pdfjs-annotation-extension](https://github.com/Laomai-codefee/pdfjs-annotation-extension)
+    - Apache-2.0, TS
 - [Portable Document Format](https://en.wikipedia.org/wiki/Portable_Document_Format)
 - [PDF Reference](http://www.adobe.com/devnet/pdf/pdf_reference.html)
 - [PDF Hacks](http://www.pdfhacks.com/)

@@ -14,7 +14,10 @@ tags:
     - ASR, TTS
   - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)
     - STT
-- API/Aggregator
+- API/Aggregator/Gateway
+  - [langfuse/langfuse](https://github.com/langfuse/langfuse)
+    - MIT+EE, TS, React
+    - LLM Observability, Prompt Management, LLM Evaluations, Datasets, LLM Metrics, Prompt Playground
   - https://openrouter.io
   - https://together.ai
 - Search/RAG
@@ -36,7 +39,34 @@ tags:
     - 支持 Desktop, iOS, Android, Web
   - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
     - MIT
-- WebUI
+  - [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)
+    - ~~Apache-2.0~~, TS
+- WebUI/Chatbot
+  - [vercel/ai-chatbot](https://github.com/vercel/ai-chatbot)
+    - MIT, React
+  - [Yidadaa/ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/NextChat)
+    - MIT, TS, React
+  - [nluxai/nlux](https://github.com/nluxai/nlux)
+    - MPL-2.0, TS, React
+    - UI for any LLM, supporting LangChain / HuggingFace / Vercel AI,
+  - [CopilotKit](https://github.com/CopilotKit/CopilotKit)
+    - MIT, TS
+    - React UI + elegant infrastructure for AI Copilots
+    - framework for building custom AI Copilots
+    - npm:@copilotkit/react-core,@copilotkit/react-ui,@copilotkit/react-textarea
+  - [Oneirocom/Magick](https://github.com/Oneirocom/Magick)
+    - toolkit for AI builder
+  - [hubtype/botonic](https://github.com/hubtype/botonic)
+    - MIT, TS, React
+  - [open-webui/open-webui](https://github.com/open-webui/open-webui)
+    - BSD-3, Svete, Python
+    - WebUI for LLMs
+    - [open-webui/desktop](https://github.com/open-webui/desktop)
+      - BSD-3, TS, Svelte, Electron
+  - [lobehub/lobe-chat](https://github.com/lobehub/lobe-chat)
+    - ~~Apache-2.0~~, TypeScript, React
+  - ~~[yoctol/bottender](https://github.com/yoctol/bottender)~~
+    - MIT, TS, React
 - Provider
   - Google Colab
   - Runpod

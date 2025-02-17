@@ -30,7 +30,9 @@ cat config/config.php
 ./occ config:system:set trusted_domains 1 --value=192.168.1.1
 
 # 离线
+./occ config:system:get has_internet_connection
 ./occ config:system:set has_internet_connection --value=true --type=boolean
+./occ config:system:set has_internet_connection --value=false --type=boolean
 
 # 设置默认语言
 ./occ config:system:set default_language --value=zh_CN

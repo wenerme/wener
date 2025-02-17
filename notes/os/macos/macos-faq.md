@@ -522,7 +522,3 @@ auth sufficient pam_tid.so
 
 - https://discussions.apple.com/thread/254666579
 
-## mds_stores
-
-- Spotlight Metadata Server Stores
-- 索引文件时会占用大量资源

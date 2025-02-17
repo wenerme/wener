@@ -81,6 +81,7 @@ tags:
   - 首页模板
 - [mertJF/tailblocks](https://github.com/mertJF/tailblocks)
   - Ready-to-use Tailwind CSS blocks.
+- https://uiverse.io/
 
 **Projects**
 

@@ -369,7 +369,7 @@ hdparm -I /dev/sda | grep -i trim # 检查 TRIM 支持
 ```bash
 zpool online data DISK
 zpool clear data
-zpool scrube data # 推荐
+zpool scrub data # 推荐
 ```
 
 ## remount zvol rw

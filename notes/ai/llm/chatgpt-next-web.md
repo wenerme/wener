@@ -5,5 +5,6 @@ tags:
 
 # ChatGPT-Next-Web
 
-- [Yidadaa/ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
+- [ChatGPTNextWeb/NextChat](https://github.com/ChatGPTNextWeb/NextChat)
   - MIT, TS, React, SCSS
+  - 之前 Yidadaa/ChatGPT-Next-Web

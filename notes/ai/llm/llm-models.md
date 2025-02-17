@@ -152,3 +152,7 @@ grep avx /proc/cpuinfo --color # x86_64
 - [UnicomAI/Unichat-llama3-Chinese](https://github.com/UnicomAI/Unichat-llama3-Chinese)
   - 联通 llama3 微调
 - https://github.com/datawhalechina/self-llm
+
+## Fine-tuning {#fine-tuning}
+
+- https://huggingface.co/ValueFX9507/Tifa-Deepsex-14b-CoT-GGUF-Q4

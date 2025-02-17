@@ -67,6 +67,7 @@ tags:
 - pg_stat_io
 - load_balance_hosts
   - libpq
+- `GRANT role_a TO role_b` 支持 `INHERIT | SET`
 - 参考
   - https://www.postgresql.org/about/news/postgresql-16-released-2715/
 

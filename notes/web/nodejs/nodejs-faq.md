@@ -31,6 +31,7 @@ tags:
   - [nodejs/node#32223](https://github.com/nodejs/node/pull/32223)
   - 以前 `require.main`
   - `module === process.mainModule`
+- NODE_COMPILE_CACHE
 
 ## env
 

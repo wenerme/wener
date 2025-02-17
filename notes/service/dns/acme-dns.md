@@ -53,7 +53,62 @@ _acme-challenge.domain.tld 6f449871-18d4-4239-851c-8c221d56750f.auth.acme-dns.io
 
 ```bash
 dig CNAME _acme-challenge.domain.tld # 检测 CNAME 正确
-dig TXT _acme-challenge.domain.tld    # 检测正确设置 challenge
+dig TXT _acme-challenge.domain.tld   # 检测正确设置 challenge
+```
+
+## API
+
+```bash
+docker run --rm --name acmedns \
+  -p 53:53 \
+  -p 53:53/udp \
+  -p 80:80 \
+  -v /path/to/your/config:/etc/acme-dns:ro \
+  -v /path/to/your/data:/var/lib/acme-dns \
+  -d joohoi/acme-dns
+```
+
+```http
+POST /register
+```
+
+```json
+{
+  "allowfrom": ["0.0.0.0/0"]
+}
+```
+
+```json
+{
+  "allowfrom": ["192.168.100.1/24", "1.2.3.4/32", "2002:c0a8:2a00::0/40"],
+  "fulldomain": "8e5700ea-a4bf-41c7-8a77-e990661dcc6a.auth.acme-dns.io",
+  "password": "htB9mR9DYgcu9bX_afHF62erXaH2TS7bg9KW3F7Z",
+  "subdomain": "8e5700ea-a4bf-41c7-8a77-e990661dcc6a",
+  "username": "c36f50e8-4632-44f0-83fe-e070fef28a10"
+}
+```
+
+```http
+POST /update
+X-Api-User:
+X-Api-Key:
+```
+
+```json
+{
+  "subdomain": "8e5700ea-a4bf-41c7-8a77-e990661dcc6a",
+  "txt": "___validation_token_received_from_the_ca___"
+}
+```
+
+```json
+{
+  "txt": "___validation_token_received_from_the_ca___"
+}
+```
+
+```http
+GET /health
 ```
 
 ## cert-manager

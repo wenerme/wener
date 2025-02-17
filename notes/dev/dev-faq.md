@@ -311,31 +311,40 @@ tags:
   - 相对更解偶
   - 失去业务全局观
 
-## 开发缓存 {#dev-cache}
+## 开发缓存 {#cache}
 
-| dir                 | macOS                      | for                 | clean              |
-| ------------------- | -------------------------- | ------------------- | ------------------ |
-| ~/.m2/repository/   |                            | Maven               |
-| ~/.npm/             |                            | NPM                 |
-| ~/.cache/zig/       |
-| ~/.cache/prisma/    |
-| ~/.cache/buf/       |
-| ~/go/pkg/mod        |                            | `go env GOMODCACHE` |
-| - ~/.cache/go-build | ~/Library/Caches/go-build/ | `go env GOCACHE`    | `go clean --cache` |
-|                     | ~/Library/Caches/Homebrew  | `brew --cache`      |
-| ~/.pnpm-store       |
+| cli  | dir                  | macOS                       | for                 | clean              |
+| ---- | -------------------- | --------------------------- | ------------------- | ------------------ |
+| mvn  | ~/.m2/repository/    |                             | Maven               |
+| npm  | ~/.npm/              |                             | NPM                 |
+| zig  | ~/.cache/zig/        |
+|      | ~/.cache/prisma/     |
+| buf  | ~/.cache/buf/        |
+|      | ~/.cache/huggingface |
+|      | ~/.cache/puppeteer   |
+|      | ~/go/pkg/mod         |                             | `go env GOMODCACHE` |
+|      | ~/.cache/go-build    | ~/Library/Caches/go-build/  | `go env GOCACHE`    | `go clean --cache` |
+|      |                      | ~/Library/Caches/Homebrew   | `brew --cache`      |
+| pnpm | ~/.pnpm-store        | ~/Library/Caches/pnpm       |
+| yarn |                      | ~/Library/Caches/Yarn       |
+|      |                      | ~/Library/Caches/typescript |
+| pip  | ~/.cache/pip         | ~/Library/Caches/pip        |
 
 - ~/Library/Caches/JetBrains
-- ~/Library/Caches/Yarn
 - ~/Library/Caches/electron
 - ~/Library/Caches/esbuild
 - ~/Library/Caches/golangci-lint
 - ~/Library/Caches/hardhat-nodejs
 - ~/Library/Caches/helm
-- ~/Library/Caches/pip
-- ~/Library/Caches/pnpm
-- ~/Library/Caches/typescript
 - ~/Library/Caches/turbo
+
+```bash
+ls -d \
+  ~/.cache/* ~/.m2 ~/.npm \
+  ~/go/pkg/mod \
+  ~/Library/Caches/{JetBrains,electron,go-build,esbuild,golangci-lint,hardhat-nodejs,helm,turbo,Yarn,pnpm,Homebrew} 2> /dev/null \
+  | xargs du -sh | sort -h
+```
 
 ```bash
 # Maven
@@ -345,7 +354,7 @@ mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false 
 mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
 ```
 
-## cleanup
+## 缓存清理 {#cache-clean}
 
 ```bash
 brew cleanup
@@ -738,10 +747,10 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
 - Best Practice：当你需要快速了解某一领域的通用建议时。
 - Pattern：当你需要解决特定问题且希望复用解决方案时。
 - Pattern
-	- 实现（Implementation）：将抽象的模式转化为具体的代码或模块。
-	- 工具化（Tooling）：开发工具或库，简化模式的使用。
-	- 工程化（Productization）：优化工具，形成产品，便于广泛使用。
-	- 标准化（Standardization）：规范化，确保跨组织、跨系统的兼容性。
-	- 应用化（Application）：结合实际需求，将模式转化为解决问题的业务价值。
+  - 实现（Implementation）：将抽象的模式转化为具体的代码或模块。
+  - 工具化（Tooling）：开发工具或库，简化模式的使用。
+  - 工程化（Productization）：优化工具，形成产品，便于广泛使用。
+  - 标准化（Standardization）：规范化，确保跨组织、跨系统的兼容性。
+  - 应用化（Application）：结合实际需求，将模式转化为解决问题的业务价值。
 
 ## 程序员 vs 软件工程师 {#programmer-vs-engineer}
