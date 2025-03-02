@@ -38,6 +38,8 @@ tags:
 | AMM    | Automated Market Maker                | 自动做市商                  |
 | PCO    | Partial Common Ownership              | 部分共同所有权              |
 | PCOArt | Partial Common Ownership of Art       |
+| CEX    | Centralized Exchange                  | 中心化交易所                |
+| DEX    | Decentralized Exchange                | 去中心化交易所, Web3        |
 
 | en                 | stand for                             |
 | ------------------ | ------------------------------------- |
@@ -79,6 +81,86 @@ tags:
 - sidechains - https://blockstream.com/sidechains.pdf
 - rollups - https://github.com/barryWhiteHat/roll_up
 
+**Trading**
+
+| abbr. | stand for                  | mean           | notes                                  |
+| ----- | -------------------------- | -------------- | -------------------------------------- |
+| TP    | Take Profit                | 止盈           |
+| SL    | Stop Loss                  | 止损           |
+| OB    | Order Book                 | 订单簿         |
+| LT    | Last Trade                 | 最后交易       |
+| SMA   | Simple Moving Average      | 简单移动平均线 | 计算特定时间段内价格的平均值           |
+| EMA   | Exponential Moving Average | 指数移动平均线 | 对近期数据赋予更高权重的平均值         |
+| WMA   | Weighted Moving Average    | 加权移动平均线 | 对不同时间段的数据赋予不同权重的平均值 |
+
+| en                            | cn                   | notes        |
+| ----------------------------- | -------------------- | ------------ |
+| A-shares                      | A股                  |
+| Ask price                     | 卖价                 |
+| Bear market                   | 熊市                 |
+| Bid price                     | 买价                 |
+| Blue-chip stocks              | 蓝筹股               |
+| Bull market                   | 牛市                 |
+| Buy and hold strategy         | 价值投资策略         |
+| Circuit breaker               | 熔断机制             |
+| Day trading                   | 日内交易             |
+| Derivatives                   | 衍生品               |
+| Dividend stocks               | 分红股               |
+| Dividend yield                | 股息率               |
+| Earnings report               | 财报                 |
+| Equity analyst                | 股票分析师           |
+| ETF (Exchange-Traded Fund)    | 交易型开放式指数基金 |
+| Financial advisor             | 财务顾问             |
+| Financial management          | 财务管理             |
+| Financial products            | 理财产品             |
+| Fund                          | 基金                 |
+| Fund manager                  | 基金经理             |
+| Fundamental analysis          | 基本面分析           |
+| Futures trading               | 期货交易             |
+| Growth stocks                 | 成长股               |
+| Hedge fund                    | 对冲基金             |
+| Index fund                    | 指数基金             |
+| Initial Public Offering (IPO) | 首次公开募股（IPO）  |
+| Insider trading               | 内幕交易             |
+| Institutional investor        | 机构投资者           |
+| Investment manager            | 投资经理             |
+| Investment planning           | 投资规划             |
+| Investment products           | 投资产品             |
+| Leverage                      | 杠杆                 |
+| Leverage                      | 杠杆                 | 借钱交易     |
+| Limit order                   | 限价单               |
+| Liquidity                     | 流动性               |
+| Margin                        | 保证金               |              |
+| Margin trading                | 保证金交易           |
+| Market capitalization         | 市值                 |
+| Market order                  | 市价单               |
+| Market sentiment              | 市场情绪             |
+| Mutual fund                   | 共同基金             |
+| Options trading               | 期权交易             |
+| Personal finance              | 个人理财             |
+| Playing the stock market      | 炒股                 | 带有投机意味 |
+| Portfolio                     | 投资组合             |
+| Position trading              | 趋势交易             |
+| Price-to-earnings ratio (P/E) | 市盈率（P/E比率）    |
+| Retail investor               | 个人投资者           |
+| Retail investor               | 散户投资者           |
+| Reverse stock split           | 反向股票拆分         |
+| Risk management               | 风险管理             |
+| Secondary offering            | 增发                 |
+| Short selling                 | 做空                 |
+| Spread                        | 买卖价差             |
+| Stock investing               | 股票投资             |
+| Stock split                   | 股票拆分             |
+| Stock trader                  | 证券交易员           |
+| Stock trading                 | 股票交易             |
+| Stop-loss order               | 止损单               |
+| Swing trading                 | 波段交易             |
+| Technical analysis            | 技术分析             |
+| U.S. stocks                   | 美股                 |
+| Value stocks                  | 价值股               |
+| Volatility halts              | 波动性暂停交易       |
+| Wealth management             | 财富管理             |
+
 ---
 
 - Orbis club
@@ -86,6 +168,8 @@ tags:
 - https://blog.infura.io/offchain-protocols-sidechains-and-rollups/
 - https://blog.ceramic.network/capability-based-data-security-on-ceramic/
 - PCOArt https://www.radicalxchange.org/wiki/pco-art/
+
+## Layer 1
 
 ## Wrapped Token
 

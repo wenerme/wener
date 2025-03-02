@@ -401,39 +401,40 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67
     - https://uniswap.org/tokenlist.schema.json
   - [Cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency)
 
-| Token  | Name       | Network |
-| ------ | ---------- | ------- |
+| Token  | Name             | Network |
+| ------ | ---------------- | ------- |
 | ADA    |
 | ATOM   |
 | AVAX   |
 | AXS    |
-| BCH    | 比特币现金 |
-| BTC    | 比特币     |
+| BCH    | 比特币现金       |
+| BTC    | 比特币           |
 | CRV    |
 | DOME   |
 | DOT    |
-| EOS    | 柚子币     |
+| EOS    | 柚子币           |
 | FIL    |
 | FTM    |
 | GALA   |
 | ICP    |
-| LINK   | Chialink   |
+| LINK   | Chialink         |
 | LOOKS  |
-| LTC    | 莱特币     |
-| LUNA   |            | [Terra] |
+| LTC    | 莱特币           |
+| LUNA   |                  | [Terra] |
 | MANA   |
 | NFT    |
-| OKB    | Okx        |
+| OKB    | Okx              |
 | PEOPLE |
 | SAND   |
-| SHIB   | Shiba Inu  |
+| SHIB   | Shiba Inu        |
 | SLP    |
 | SOL    |
 | SOS    |
-| TRX    | 波场币     |
+| TRX    | 波场币           |
 | UNI    |
 | USDK   |
-| XRP    | 瑞波币     |
+| XRP    | 瑞波币           |
+| TON    | The Open Network |
 
 ## Trade
 

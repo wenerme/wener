@@ -24,18 +24,24 @@ title: Ideas
 - Free Mind
   - 定时推送让人生活更有意义的事情/图片
   - 定时提醒出去走走
-- 游戏加速器
-  - 应该个人不好做
+- 游戏“加速器”
+  - 个人不好运营
+  - 但容易实现
 - AI Promots Index
   - 收集整理提示词
   - 提供给 AI 生成器
+- QQ相册导出
+- 微信聊天导出 & 基础 UI
+- 调优小规模 LLM 模型
+  - 例如 14B
+  - 针对行业
 
 ## 记账软件
 
 - 支持导入和集成多方的数据导入
 - 数据来源
   - 支付宝
-  - 银行流水
+  - 银行流水对账单
 
 ## 企业 NAC
 
@@ -239,6 +245,8 @@ title: Ideas
 - 翻译/多语言
 
 ## APK Indexer
+
+- AlpineLinux APK Indexer
 
 ## DevWebTool
 

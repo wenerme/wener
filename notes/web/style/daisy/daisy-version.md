@@ -9,6 +9,29 @@ tags:
 
 ## DaisyUI v5
 
+**Breaking Changes**
+
+- bordered 为默认，增加 ghost 修饰
+  - ~~input-bordered~~, input-ghost
+  - ~~file-input-bordered~~, file-input-ghost
+  - ~~select-bordered~~, select-ghost
+  - ~~textarea-bordered~~, textarea-ghost
+- ~~card-bordered~~ -> card-border
+- ~~bottom-nav~~ -> dock
+- menu item 修饰符变化
+  - disabled -> menu-disabled
+  - active -> menu-active
+  - focus -> menu-focus
+- ~~tabs-lifted~~ -> tabs-lift
+- table tr ~~hover~~ -> `hover:bg-base-300`
+- ~~form-control~~, ~~label-text~~, ~~label-text-alt~~
+  - 使用 `<fieldset>` , `<legend>`
+  - fieldset=form-control
+- ~~btn-group~~ , ~~input-group~~
+  - 使用 join
+
+---
+
 - 基于 [TailwindCSS v4](../tailwindcss/tailwindcss-version.md#tailwindcss-v4)
 - 新增组件 List, Status, Fieldset, Label, Filter, Calendar, Validator, Dock
   - BottomNav -> Dock

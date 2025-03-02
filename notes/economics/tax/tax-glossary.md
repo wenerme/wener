@@ -73,7 +73,8 @@ tags:
 | Tax Evasion                               | 逃税                 |                              |
 | Tax Avoidance                             | 避税                 | 法律允许的税务规划活动       |
 | Impose / Levy                             | 征收                 | 征税的行为                   |
-| Electronic Filing / e-File                | 电子报税             |                              |
+| Electronic Filing                         | 电子报税             |                              |
+| e-File                                    | 电子报税             |                              |
 | Tax Statement                             | 纳税申报单           |                              |
 | Tax Filing                                | 税务填报             | 强调税务申报的过程           |
 | Tax Reporting                             | 税务报告             | 强调税务信息的报告行为       |
@@ -144,10 +145,19 @@ tags:
 
 ## 税务申报
 
-申报可以被视为是填报过程的一部分
-
-- Tax filling - 填报
+- Tax filing - 报税
+  - 般指完整的报税流程，包括填报、检查、提交和后续跟踪
 - Tax declaration - 申报
+  - 侧重向税务机关提交申报、进行法定声明
+- Tax filling - 填报
+  - 填写或录入税务信息的过程
+
+---
+
+```
+File a tax return
+中文: 提交税务申报
+```
 
 ## 税收分类编码
 

@@ -19,6 +19,7 @@ tags:
   - [fontsource/fontsource](https://github.com/fontsource/fontsource)
     - https://fontsource.org/
     - Self-host Open Source fonts in neatly bundled NPM packages.
+  - https://github.com/jaywcjlove/free-font
 - 阿里巴巴普惠体
   - https://ics.alibaba.com/font/alibaba-sans
   - https://github.com/liruifengv/alibaba-puhuiti/blob/master/index.html

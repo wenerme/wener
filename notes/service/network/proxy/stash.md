@@ -6,7 +6,38 @@ title: Stash
 
 - iOS $4
 - 基于规则的代理
+
+:::caution 注意
+
 - 不支持 Reality
+- vless 不支持 xtls-rprx-vision flow
+
+:::
+
+- 部分新的功能会先进入 TestFlight 版本
+  - shadowsocks-2022
+  - https://stash.wiki/faq/testflight
+
+## StashLink
+
+- 用于 Stash 之间通信的内网穿透代理工具
+- 它通过私有 iCloud 服务安全地交换 IP 和密钥数据，实现高效、可靠的通信。
+
+```yaml
+stashlink:
+  # 必须配置为支持 Full Cone NAT 和 UDP 的代理
+  underlying-proxy:
+    type: trojan
+    server: your-underlying-proxy
+    port: 443
+    password: your-password
+    udp: true
+
+proxies:
+  - name: Mac Pro
+    type: stashlink
+    device-id: ABCDEFGH12345678
+```
 
 ## 配置
 
@@ -23,7 +54,6 @@ title: Stash
 ## 默认配置
 
 - https://stash.wiki/get-started
-
 
 ```yaml
 proxy-providers:
@@ -269,4 +299,3 @@ dns:
 log-level: warning
 mode: rule
 ```
-

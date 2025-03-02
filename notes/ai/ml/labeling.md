@@ -22,6 +22,12 @@ tags:
   - https://github.com/KKKSQJ/DeepLearning/tree/master/others/label_convert
   - https://openvinotoolkit.github.io/datumaro/latest/docs/data-formats/formats/index.html
 - [datumaro](./datumaro.md)
+- box
+  - xywh
+  - xywhn
+  - xyxy
+  - xyxyn
+  - cycywh
 
 ## YOLO
 

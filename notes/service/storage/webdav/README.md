@@ -30,6 +30,56 @@ Access-Control-Expose-Headers: DAV, content-length, Allow
 Access-Control-Max-Age: 3600
 ```
 
+## Awesome
+
+### Server
+
+- rclone
+- nginx
+- [mholt/caddy-webdav](https://github.com/mholt/caddy-webdav)
+- [AlistGo/alist](https://github.com/AlistGo/alist)
+  - AGPLv3, Go
+- NextCloud
+- ownCloud
+- Seafile
+- [drakkan/sftpgo](https://github.com/drakkan/sftpgo)
+  - AGPLv3, Go
+  - SFTP, HTTP/S, FTP/S and WebDAV server - S3, Google Cloud Storage, Azure Blob
+
+### Server Library
+
+- NodeJS
+  - [sciactive/nephele](https://github.com/sciactive/nephele)
+    - Apache-2.0
+    - pluggable WebDAV, CardDAV, and CalDAV server for Node.js and Express
+  - [hironico/nico.drive](https://github.com/hironico/nico.drive)
+    - MIT
+    - WebDAV server written in NodeJS with additional REST API features such as thumbnail generation API
+  - [OpenMarshal/npm-WebDAV-Server-Types](https://github.com/OpenMarshal/npm-WebDAV-Server-Types)
+- Golang
+  - [hacdias/webdav](https://github.com/hacdias/webdav)
+    - MIT, Go
+  - https://godoc.org/golang.org/x/net/webdav
+
+### Client
+
+- [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
+  - AGPLv3, JS, Go
+  - file manager / web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
+
+### Client Library
+
+- [perry-mitchell/webdav-client](https://github.com/perry-mitchell/webdav-client)
+  - MIT, TS, JS
+  - Client, Browser, NodeJS
+  - npm:webdav
+- https://sabre.io/dav/clients/
+
+### Reading
+
+- MS Exchange [WebDAV Methods](<https://docs.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2003/aa142917(v=exchg.65)>)
+- https://en.wikipedia.org/wiki/WebDAV
+
 ## Props
 
 - dead properties
@@ -80,3 +130,23 @@ location /cache/ {
   - Go > Connect to Server
   - `http://webdav.example.com/`
 - https://support.apple.com/en-hk/guide/mac-help/mchlp1546/mac
+
+## windows
+
+```bat
+net use z: https:/my.cloud.domain/remote.php/dav/files/USERNAME/ /persistent:yes /user:USERNAME PASSWORD
+
+@echo off
+net use z: /delete
+echo mit USERNAME verbinden
+timeout /T 3 /nobreak >NUL
+net use z: https://your.domain.tld/remote.php/dav/files/USERNAME/ /persistent:yes /user:USERNAME PASSWORD
+```
+
+- 不使用 HTTPS 连接
+  - 可能是 WebDAV Client 不支持 SNI - 使用 IP 访问
+  - 可能不支持 TSLv1.1 / TSLv1.2
+- Error 0x800700DF: The file size exceeds the limit allowed and cannot be saved.
+  - `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters`
+    - FileSizeLimitInBytes
+      - 4GB -> 4294967295

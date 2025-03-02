@@ -297,3 +297,12 @@ LD_LIBRARY_PATH=/opt/conda/lib/python3.10/site-packages/nvidia/cudnn/lib/:$LD_LI
 - https://github.com/pytorch/pytorch/issues/104591
 
 ## Placeholder shape mismatches (expected 1 vs got tensorData with 2240) at dimIdx = 0
+
+## transforms.Normalize
+
+```py
+# 基于 ImageNet 的均值和标准差
+transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+```
+
+- https://stackoverflow.com/a/58151903/1870054

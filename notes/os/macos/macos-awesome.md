@@ -23,6 +23,7 @@ tags:
     - [How to Download macOS](https://mrmacintosh.com/how-to-download-macos-catalina-mojave-or-high-sierra-full-installers/)
 - Remote Login
   - RustDesk
+- Alfred
 
 ---
 

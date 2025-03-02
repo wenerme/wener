@@ -5,23 +5,28 @@ title: Jupyter
 # Project Jupyter
 
 - https://jupyter.org/
+  - Kernel
+  - Binder
+- UI/用户界面
+  - [jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab)
+    - BSD-3, TS, Python
+    - 多文档, 插件, 内置文件浏览, 交互输出, 更高级的文本编辑
+    - next-generation web-based user interface for Project Jupyter
+  - [jupyter/notebook](https://github.com/jupyter/notebook)
+    - 特点
+      - document-centric
+    - Notebook v7
+      - JupyterLab components for the frontend
+      - Jupyter Server for the Python server
+    - Classic Notebook v6
+      - [jupyter/nbclassic](https://github.com/jupyter/nbclassic)
+  - nbclassic
+  - Jupyter Console
+  - Qt console
   - Voilà
     - 笔记本转换为独立的交互式网页应用程序
-  - Binder
 - [jupyter/jupyter](https://github.com/jupyter/jupyter)
   - metapackage for installation, docs and chat
-- [jupyterlab/jupyterlab](https://github.com/jupyterlab/jupyterlab)
-  - BSD-3, TS, Python
-  - 多文档, 插件, 内置文件浏览, 交互输出, 更高级的文本编辑
-  - next-generation web-based user interface for Project Jupyter
-- [jupyter/notebook](https://github.com/jupyter/notebook)
-  - 特点
-    - document-centric
-  - Notebook v7
-    - JupyterLab components for the frontend
-    - Jupyter Server for the Python server
-  - Classic Notebook v6
-    - [jupyter/nbclassic](https://github.com/jupyter/nbclassic)
 - [Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
   - kernels -> 执行环境
 - [jupyter-server/jupyter_server](https://github.com/jupyter-server/jupyter_server)

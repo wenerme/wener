@@ -8,6 +8,11 @@ tags:
 - ETH - Ethereum Mainnet - ETH1 - PoW
 - ETH2 - BeaconChain - PoS
   - 2020-12-01 - 负责非交易业务，交易业务还是保留在 主网
+- BETH - Beacon ETH，ETH2 的质押代币
+- ETHW - Ethereum PoW，分叉自以太坊主网的工作量证明链
+- ETHFI - Ethereum Fair，另一个以太坊分叉链
+- STETH - Staked ETH，通过 Lido 等平台质押 ETH 获得的代币
+
 
 ## Tornado.cash
 

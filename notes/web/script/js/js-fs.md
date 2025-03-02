@@ -43,6 +43,7 @@ tags:
     - `handle.queryPermission()`
   - https://wpt.fyi/results/entries-api/idlharness.window.html
   - https://wpt.fyi/results/file-system-access
+  - https://fs.spec.whatwg.org/
 
 ```js
 window.requestFileSystem ||= window.webkitRequestFileSystem;

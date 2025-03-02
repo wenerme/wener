@@ -25,5 +25,6 @@ ETag: W/"<etag_value>"
 ETag: "<etag_value>"
 ```
 
+- Cache-Control, Content-Location, Date, ETag, Expires, Vary
 - https://www.rfc-editor.org/rfc/rfc9110#field.etag
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers

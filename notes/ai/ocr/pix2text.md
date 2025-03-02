@@ -10,20 +10,9 @@ title: Pix2Text
   - 简体中文&英文 使用的 CnOCR, 其他使用的 EasyOCR
   - p2t 命令行 https://pix2text.readthedocs.io/zh-cn/stable/command/
   - macOS 桌面工具 [breezedeus/Pix2Text-Mac](https://github.com/breezedeus/Pix2Text-Mac)
-- 本地缓存
-  - ~/.pix2text/1.1
-    - layout-docyolo
-    - table-rec
-  - ~/.cnstd - [breezedeus/CnSTD](https://github.com/breezedeus/CnSTD) - 基于 RapidOCR 集成 PPOCRv4
-    - CN STD - 中文文本检测
-  - ~/.cnocr - [breezedeus/CnOCR](https://github.com/breezedeus/CnOCR)
-    - CN OCR - 中文文本识别
 - 参考
   - [breezedeus/pix2text-layout-docyolo](https://huggingface.co/breezedeus/pix2text-layout-docyolo)
     - 基于 https://github.com/opendatalab/DocLayout-YOLO
-  - [breezedeus/pix2text-table-rec](https://huggingface.co/breezedeus/pix2text-table-rec)
-    - 表格识别
-    - 基于 https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all
   - [breezedeus/pix2text-mfd](https://huggingface.co/breezedeus/pix2text-mfd)
     - 数学公式检测
   - [breezedeus/pix2text-mfr](https://huggingface.co/breezedeus/pix2text-mfr)
@@ -35,6 +24,13 @@ title: Pix2Text
   - 1024
   - 1536
   - 2048
+
+:::caution
+
+- table-ocr 可能会错误的识别出 table spanning cell
+  - 导致一列少了内容
+
+:::
 
 ```bash
 # 目前最高只支持 Python 3.12
@@ -67,6 +63,66 @@ curl -X POST \
   -F "image=@docs/examples/page2.png;type=image/jpeg" \
   http://0.0.0.0:8503/pix2text
 ```
+
+## Notes
+
+- Pix2Text
+  - #from_config(total_configs:{layout,text_formula,table},enable_table,enable_formula)
+  - recognize
+  - recognize_pdf
+  - recognize_page
+  - recognize_text
+  - recognize_text_formula
+- TableOCR
+  - recognize(out_cells,out_objects,out_html,out_csv,out_markdown)
+  - `AutoModelForObjectDetection.from_pretrained("$HOME/.pix2text/1.1/table-ocr")`
+- DocYoloLayoutParser
+  - layout 识别
+- LayoutLMv3LayoutParser
+  - 之前的 layout 识别
+- 数据目录 - data_dir(), root - PIX2TEXT_HOME=$HOME/.pix2text
+  - model 目录 `data_dir()/MODEL_VERSION` 例如 `~/.pix2text/1.1`
+  - layout-docyolo/
+  - mfd-onnx/
+  - mfr-onnx/
+  - table-rec/
+- ~/.cnstd - [breezedeus/CnSTD](https://github.com/breezedeus/CnSTD) - 基于 RapidOCR 集成 PPOCRv4
+  - CN STD - 中文文本检测
+- ~/.cnocr - [breezedeus/CnOCR](https://github.com/breezedeus/CnOCR)
+  - CN OCR - 中文文本识别
+- PIX2TEXT_DOWNLOAD_SOURCE=HF
+
+```python
+from torchvision import transforms
+
+# TableOCR 的输入处理
+structure_transform = transforms.Compose(
+    [
+        MaxResize(1000),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+    ]
+)
+```
+
+## table-rec
+
+- 表格结构识别
+- 模型 [breezedeus/pix2text-table-rec](https://huggingface.co/breezedeus/pix2text-table-rec)
+- fork [microsoft/table-transformer-structure-recognition-v1.1-all](https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all)
+  - ⚠️ 模型完全相同，只是 fork 了仓库
+- TATR - Table Transformer
+- classes
+  - table
+  - table column
+  - table row
+  - table column header
+  - table projected row header
+  - table spanning cell
+  - no object
+- 参考
+  - Table Transformer (TATR) [microsoft/table-transformer](https://github.com/microsoft/table-transformer)
+  - https://huggingface.co/microsoft/table-transformer-structure-recognition
 
 # CN OCR
 

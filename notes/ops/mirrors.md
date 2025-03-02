@@ -8,7 +8,9 @@ tags:
 
 :::caution
 
-- Aliyun 提供非常多的镜像，但质量堪忧
+- Aliyun
+  - 提供非常多的镜像，但质量(延迟)堪忧
+  - 长期来说，阿里云是最可靠的
   - docker latest tag 可能不同步，并且没办法触发同步
   - linux os 的包可能同步延迟几天
   - npm 需要手动同步

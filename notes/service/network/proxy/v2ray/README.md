@@ -14,6 +14,7 @@ title: V2Ray
 - [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
   - MPLv2, Go
   - VLESS, XTLS, REALITY, XUDP, PLUX
+  - ⚠️ 不支持 TUN, Hy
   - XTLS 修改了 Go 的 TLS - 别的工具不好集成
   - XTLS 协议的原理是将代理过程中的两条 TLS 请求合并成一条 TLS，减少一次 TLS 加密过程来达到提升性能的目的
     - https://github.com/rprx/v2ray-vless/releases/tag/xtls

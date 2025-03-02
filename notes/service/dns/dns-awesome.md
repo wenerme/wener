@@ -19,6 +19,39 @@ tags:
 
 :::
 
+## DNS Provider
+
+| Provider      | Primary        | Secondary       | DoH                                              | DoT                              | DoQ | ECS | ECS-Override |
+| ------------- | -------------- | --------------- | ------------------------------------------------ | -------------------------------- | --- | --- | ------------ |
+| Google        | 8.8.8.8        | 8.8.4.4         | dns.google                                       | dns.google                       | ✓   | ✓   | ✓            |
+| Cloudflare    | 1.1.1.1        | 1.0.0.1         | cloudflare-dns.com <br/> https://one.one.one.one | 1dot1dot1dot1.cloudflare-dns.com | ✓   | ✗   | ✗            |
+| Quad9         | 9.9.9.9        | 149.112.112.112 | dns.quad9.net                                    | dns.quad9.net                    | ✓   | ✓   | ✗            |
+| Cisco OpenDNS | 208.67.222.222 | 208.67.220.220  | doh.opendns.com                                  | dns.opendns.com                  | ✗   | ✓   | ✗            |
+| **国内**      |                |                 |                                                  |                                  |     |     |              |
+| Aliyun        | 223.5.5.5      | 223.6.6.6       | dns.alidns.com                                   | dns.alidns.com                   | ✗   | ✓   | ✗            |
+| 腾讯 DNSPod   | 119.29.29.29   | 182.254.116.116 | doh.pub                                          | dot.pub                          | ✗   | ✓   | ✗            |
+
+| protocol | url                                                   |
+| -------- | ----------------------------------------------------- |
+| UDP      | 1.1.1.1:53                                            |
+| TCP      | 1.1.1.1:53                                            |
+| DoT      | tls://1.1.1.1:853                                     |
+| DoH      | `https://dns.wener.me/dns-query?name=wener.me&type=A` |
+
+| abbr.  | stand for                              | notes                                          |
+| ------ | -------------------------------------- | ---------------------------------------------- |
+| DoH    | DNS over HTTPS                         | 通过HTTPS协议加密DNS查询                       |
+| ODoH   | Oblivious DNS over HTTPS               | RFC 9230, 隐私增强, Proxy 无法感知内容         |
+| HPKE   | Hybrid Public Key Encryption           | ODoH实现中使用的加密标准                       |
+| DNSSEC | Domain Name System Security Extensions | 验证DNS响应以防止欺骗                          |
+| DNSKEY | DNS Public Key                         | DNSSEC中使用的公钥记录                         |
+| DoQ    | DNS over QUIC                          | 通过QUIC协议的DNS查询，提供更好的性能          |
+| ECS    | EDNS Client Subnet                     | 允许DNS解析器指定客户端子网以优化CDN响应的扩展 |
+
+- [DNS64](https://developers.google.com/speed/public-dns/docs/dns64) 返回 AAAA, IPv4 合成的 IPv6 地址
+- DoH
+  - `GET/POST /dns-query `
+    - RFC 8484
 - [域名.信息](http://域名.信息)
 - [alidns](https://alidns.com/)
 - 工具
@@ -59,7 +92,79 @@ tags:
 - names
   - https://github.com/uklans/cache-domains
 - https://dnschecker.org/public-dns/cn
-- https://public-dns.info/nameserver/cn.html
+- https://public-dns.info/
+  - https://public-dns.info/nameserver/cn.html
+- https://developers.google.com/speed/public-dns
+
+```yaml
+- name: google
+  url: https://developers.google.com/speed/public-dns
+  services:
+    - hosts:
+        - 8.8.8.8
+        - 8.8.4.4
+        - 2001:4860:4860::8844
+        - 2001:4860:4860::8888
+    - host: dns.google
+    - host: dns.google.com
+      notes: since 2020-06-23 -> dns.google
+    - hosts:
+        - 2001:4860:4860::6464
+        - 2001:4860:4860::64
+      notes: DNS64
+  notes: DoH 支持 `GET /resolve?` 的 JSON-API
+
+- name: cloudflare
+  url: https://developers.cloudflare.com/1.1.1.1/
+  services:
+    - hosts:
+        - 1.1.1.1
+        - 1.1.0.0
+        - 2606:4700:4700::1111
+        - 2606:4700:4700::1001
+        - one.one.one.one
+        - cloudflare-dns.com
+    - title: Block malware
+      hosts:
+        - 1.1.1.2
+        - 1.0.0.2
+        - 2606:4700:4700::1112
+        - 2606:4700:4700::1002
+        - security.cloudflare-dns.com
+    - title: Block malware and adult content
+      hosts:
+        - 1.1.1.3
+        - 1.0.0.3
+        - 2606:4700:4700::1113
+        - 2606:4700:4700::1003
+        - family.cloudflare-dns.com
+    - title: Oblivious DNS over HTTPS
+      hosts:
+        - odoh.cloudflare-dns.com
+    - hosts:
+      - http://cloudflare-ech.com/
+
+- name: quad9
+  url: https://quad9.net/service/service-addresses-and-features
+  services:
+    - hosts:
+        - 9.9.9.9
+        - 149.112.112.112
+        - 2620:fe::fe
+        - 2620:fe::9
+        - dns.quad9.net
+      features: [Malware Blocking, DNSSEC Validation]
+
+- name: aliyun
+  url: https://alidns.com
+  services:
+    - hosts:
+        - 223.5.5.5
+        - 223.6.6.6
+        - 2400:3200::1
+        - 2400:3200:baba::1
+        - dns.alidns.com
+```
 
 ```bash
 curl 'https://dns.google/resolve?name=wener.me&type=A'
@@ -118,7 +223,6 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
 
 - https://whotracks.me/trackers/markmonitor.html
 - https://whotracks.me/trackers/adguard.html
-
 
 # mDNS
 

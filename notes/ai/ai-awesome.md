@@ -26,6 +26,10 @@ tags:
     - MIT, TS
     - AI-powered search engine
     - alternative to Perplexity
+  - [zaidmukaddam/scira](https://github.com/zaidmukaddam/scira)
+    - MIT, TS
+    - MiniPerplx -> scira
+    - minimalistic AI-powered search engine
 - Web/SDK/UI
   - [vercel/ai](https://github.com/vercel/ai)
     - Apache-2.0, TS
@@ -33,7 +37,7 @@ tags:
     - Build AI-powered applications with React, Svelte, Vue, and Solid
   - [xenova/transformers.js](https://github.com/xenova/transformers.js)
     - Apache-2.0, JS
-- Client/Desktop
+- Client/Desktop/App
   - [chatbox](./service/chatbox.md)
     - GPLv3, TypeScript, React, Electron
     - 支持 Desktop, iOS, Android, Web
@@ -41,6 +45,11 @@ tags:
     - MIT
   - [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)
     - ~~Apache-2.0~~, TS
+  - [mainframecomputer/fullmoon-ios](https://github.com/mainframecomputer/fullmoon-ios)
+    - MIT, Swift
+  - [languine-ai/languine](https://github.com/languine-ai/languine)
+    - AGPLv3, TS
+    - CLI, 用于 i10n
 - WebUI/Chatbot
   - [vercel/ai-chatbot](https://github.com/vercel/ai-chatbot)
     - MIT, React
@@ -428,3 +437,9 @@ tags:
   - Tiered Discount Pricing
   - Graduated Discount Pricing
 - https://help.aliyun.com/zh/isi/product-overview/billing-10
+
+## Learning
+
+> Reading, Learning, Tutorials, 教程, 阅读资料
+
+- https://github.com/NielsRogge/Transformers-Tutorials

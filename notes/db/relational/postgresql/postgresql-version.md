@@ -1,5 +1,4 @@
 ---
-id: version
 title: 版本历史
 tags:
   - Version
@@ -33,6 +32,13 @@ tags:
 [postgresql 13]: #postgresql-13
 [postgresql 12]: #postgresql-12
 [postgresql 11]: #postgresql-11
+
+## PostgreSQL 18
+
+- 虚拟生成列
+  - `generated always as (EXPR) virtual`
+  - 提升写入性能、减少存储空间
+  - 影响查询性能
 
 ## PostgreSQL 17
 

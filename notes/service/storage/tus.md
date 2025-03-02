@@ -109,10 +109,19 @@ tusd --hooks-http http://localhost:8081/write --hooks-http-retry 5 --hooks-http-
 
 - 事件
   - POST_CREATE - 创建了 upload 但还没写入到 store
-  - ~~POST_RECEIVE~~
+  - ~~POST_RECEIVE~~ - 类似于 POST_FINISH
   - POST_RECEIVE_V2 - 每隔 postReceiveInterval 会调用一次，能够获取到进度
   - POST_FINISH - 上传完成，完成响应给客户端
   - POST_TERMINATE - 上传被终止，完成响应给客户端
+- KvStore
+  - MemoryKvStore
+  - FileKvStore
+    - `./{KEY}.json`
+  - RedisKvStore
+  - IoRedisKvStore
+- DataStore
+  - FileStore
+  - S3Store
 
 ```bash
 npm add @tus/server @tus/file-store @tus/s3-store
@@ -120,18 +129,18 @@ npm add @tus/server @tus/file-store @tus/s3-store
 
 ```ts
 type TUpload = {
-    id: string;
-    size?: number;
-    offset: number;
-    // uppy type, relativePath, name
-    // tusd filetype, filename
-    metadata?: Record<string, string | null>;
-    storage?: {
-        type: string;
-        path: string;
-        bucket?: string;
-    };
-    creation_date?: string;
+  id: string;
+  size?: number;
+  offset: number;
+  // uppy type, relativePath, name
+  // tusd filetype, filename
+  metadata?: Record<string, string | null>;
+  storage?: {
+    type: string;
+    path: string;
+    bucket?: string;
+  };
+  creation_date?: string;
 };
 ```
 

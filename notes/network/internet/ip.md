@@ -28,6 +28,14 @@ curl 'https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime'
 dig +short myip.opendns.com @resolver1.opendns.com
 ```
 
+- 240.0.0.0/4
+  - class E
+  - 没有被使用
+  - 特殊 IP 段
+  - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
+  - https://tools.ietf.org/html/draft-chen-ati-adaptive-ipv4-address-space-03
+  - Reclaiming IPv4 Class E's 240.0.0.0/4  https://news.ycombinator.com/item?id=40491038
+
 ## Private
 
 | CIDR            | Start       | End             | Count    | Class |

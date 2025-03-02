@@ -8,6 +8,12 @@ tags:
 
 - Promise 在创建时便会请求，而不是在 then 时请求 - eager eval
 
+| item                    | for               |
+| ----------------------- | ----------------- |
+| Number.MAX_SAFE_INTEGER | 9007199254740991  |
+| Number.MIN_SAFE_INTEGER | -9007199254740991 |
+| 安全整数长度            | 15 位, 最大 16 位 |
+
 ## base64
 
 - atob, btoa 经常弄不清
@@ -35,7 +41,6 @@ function fromBinary(encoded) {
   }
   return String.fromCharCode(...new Uint16Array(bytes.buffer));
 }
-
 ```
 
 ## 内存泄露
@@ -230,3 +235,17 @@ for (const prop in exports) {
 ## window.showOpenFilePicker is not a function
 
 - 需要在 HTTPS 或者 localhost 下
+
+## Number percision
+
+```js
+0.1 + 0.2 !== 0.3;
+
+200000 * 0.55; // 110000.00000000001
+
+// 避免浮点数计算
+(200000 * 55) / 100; // 110000
+(200000n * 55n) / 100n;
+```
+
+- decimal.js

@@ -48,6 +48,10 @@ tags:
 - Scan
   - ~~[awslabs/git-secrets](https://github.com/awslabs/git-secrets)~~
     - scan git secrets
+- Captcha/验证码
+  - Geetest
+    - [yanglbme/geetest-crack](https://github.com/yanglbme/geetest-crack)
+    - https://github.com/topics/geetest
 - https://github.com/zmap
 - [jtesta/ssh-audit](https://github.com/jtesta/ssh-audit)
   - [ssh-audit.com](https://www.ssh-audit.com/)
@@ -186,11 +190,6 @@ tags:
 
 - [project-rainbowcrack](http://project-rainbowcrack.com/)
 
-## Crack
-
-- Geetest
-  - [yanglbme/geetest-crack](https://github.com/yanglbme/geetest-crack)
-  - https://github.com/topics/geetest
 
 ## Firewall
 

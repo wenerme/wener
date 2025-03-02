@@ -75,7 +75,7 @@ tags:
   - [dante](./dante.md)
 - ss - ShadowSocks
 - ssr - ShadowSocksR
-  - 不活跃，不推荐使用
+- [klzgrad/naiveproxy](https://github.com/klzgrad/naiveproxy)
 - obfs - 混淆 - 用于 ss,ssr,hysteria
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post
@@ -83,6 +83,9 @@ tags:
 - Tunnel
   - [ginuerzh/gost](https://github.com/ginuerzh/gost)
   - kcp
+- [quic-go/masque-go](https://github.com/quic-go/masque-go)
+  - MIT, Go
+  - MASQUE: Proxying UDP in HTTP/3, RFC 9298
 
 ## Tunnel
 
@@ -131,12 +134,21 @@ curl https://wener.me/cdn-cgi/trace
 :::
 
 - GUI/客户端
-  - [2dust/clashN](https://github.com/2dust/clashN)
-    - Windows
+  - [2dust/v2rayN](https://github.com/2dust/v2rayN)
+    - clashN 合并到 v2rayN
+    - ~~[2dust/clashN](https://github.com/2dust/clashN)~~
+      - Windows
   - [clash-verge-rev/clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)
     - GPLv3, TS, Rust
     - GUI client based on Tauri, designed to run in Windows, macOS and Linux
     - mihomo 内核
+  - [MatsuriDayo/nekoray](https://github.com/MatsuriDayo/nekoray)
+    - GPLv3, C++, QT
+    - sing-box
+    - Windows/Linux
+- App/移动端
+  - [MatsuriDayo/NekoBoxForAndroid](https://github.com/MatsuriDayo/NekoBoxForAndroid)
+    - NekoBox for Android / sing-box / universal proxy toolchain for Android
 - 内核/通用/平台/Universal
   - [MetaCubeX/mihomo](./mihomo/README.md)
     - GPLv3, Go
@@ -206,7 +218,7 @@ curl https://wener.me/cdn-cgi/trace
     - Linux >= 5.8
     - eBPF
     - /sys/fs/bpf
-    - Linux high-performance transparent proxy solution based on eBPF
+    - eBPF-based Linux high-performance transparent proxy solution
     - https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
 - 命令行/CLI
   - [proxychain-ng](./proxychain-ng.md)
@@ -216,6 +228,39 @@ curl https://wener.me/cdn-cgi/trace
 - [sower-proxy/sower](https://github.com/sower-proxy/sower)
   - 透明代理
   - https://github.com/sower-proxy/sower/wiki
+- 规则
+  - https://github.com/deezertidal/stash-override
+    - https://whatshub.top/
+  - https://raw.githubusercontent.com/qsoyq/shell/main/config/stash/override/ad/youtube-remove-ads.stoverride
+  - https://github.com/Script-Hub-Org/Script-Hub
+  - https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+- GEO/GEOIP/GEOSITE
+  - [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community)
+    - https://github.com/v2fly/v2ray-core/blob/master/app/router/config.proto
+    - 生成 PB 格式
+  - mmdb - MaxMind DB
+    - https://maxmind.github.io/MaxMind-DB/
+    - [runk/node-maxmind](https://github.com/runk/node-maxmind)
+      - NodeJS
+    - [runk/mmdb-lib](https://github.com/runk/mmdb-lib)
+      - MIT, Browser
+  - https://github.com/MetaCubeX/meta-rules-dat
+    - https://github.com/MetaCubeX/meta-rules-dat/blob/master/.github/workflows/run.yml
+    - https://github.com/metacubex/geo
+      - 工具
+  - [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+  - [Loyalsoldier/domain-list-custom](https://github.com/Loyalsoldier/domain-list-custom)
+  - geoip2
+    - http://dev.maxmind.com/geoip/geoip2/geolite2/
+
+```bash
+script:
+  shortcuts:
+    quic-googlevideo: network == 'udp' and (host.endswith('+.googlevideo.com') or host.endswith('+.googleapi.com'))
+
+rules:
+  - SCRIPT,quic-googlevideo,REJECT
+```
 
 ### iOS Client
 
@@ -466,21 +511,49 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - https://github.com/MetaCubeX/meta-rules-dat
 - [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
 
-## Game Rules
+# Game
 
 > 游戏主要以 IP 为判断标准，且大多需要 UDP 协议，传统代理试用 域名 作为判断标准
 
-- Roblex AS22697
+- 参考
+  - https://github.com/FQrabbit/SSTap-Rule
+
+## Roblox
+
+```
+roblox.com
+rbxcdn.com
+rbxtrk.com
+AS22697
+AS11281
+```
+
+腾讯代理
+
+```
+roblox.cn
+roblox.qq.com
+robloxdev.cn
+```
+
+- Roblox AS22697
+  - AS136766 Luobu IPv4
+    - 中国, 深圳
   - https://bgp.he.net/AS22697#_prefixes
   - https://en.help.roblox.com/hc/en-us/articles/203312880-General-Connection-Problems
     - UDP 49152 - 65535
     - TCP: 3074
     - UDP: 88, 500, 3074, 3544, 4500
-- Nintendo
-  - `t-00000000-lp1.lp1.t.npln.srv.nintendo.net`
-  - `baas.nintendo.net`
-- 参考
-  - https://github.com/FQrabbit/SSTap-Rule
+
+## Nintendo
+
+- `t-00000000-lp1.lp1.t.npln.srv.nintendo.net`
+- `baas.nintendo.net`
+
+# Misc
+
+- [net4people/bbs](https://github.com/net4people/bbs)
+  - Forum for discussing Internet censorship
 
 ## Limits
 
@@ -493,3 +566,5 @@ curl -v --http2-prior-knowledge http://localhost:8000
 
 - https://i.ytimg.com/generate_204
 - https://www.gstatic.com/generate_204
+- https://cp.cloudflare.com
+- HTTP 204 无内容（No Content）

@@ -47,7 +47,7 @@ title: gost
 ```bash
 # https://github.com/go-gost/gost/releases/
 # macOS
-curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc10/gost_3.0.0-rc10_darwin_amd64.tar.gz
+curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_darwin_amd64.tar.gz
 tar zxvf gost*.tar.gz
 
 # Linux

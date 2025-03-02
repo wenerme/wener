@@ -30,6 +30,24 @@ tags:
     - Linux, Android
   - tun
   - listeners
+- dns
+  - default-nameserver
+    - 用来解析 DNS 用到的域名，必须是 IP
+    - 推荐 tls://223.5.5.5:853
+  - direct-nameserver
+    - for DIRECT
+    - nameserver-policy -> nameserver -> fallback
+  - nameserver-policy
+    - 根据策略选择 DNS
+  - nameserver
+  - fallback
+    - 通常为海外 DNS
+    - 配合 fallback-filter: geoip-code: CN
+  - respect-rules
+    - DNS 服务是否走路由规则
+  - enhanced-mode
+    - redir-host
+    - fake-ip
 
 ---
 
@@ -50,6 +68,8 @@ curl -H 'Host: example.com' 198.18.0.1
 | `.` | `.wener.me`  | `a.wener.me`<br/>`a.a.wener.me`                | `wener.me`                    |
 
 - 端口范围 `114-514/810-1919,65530`
+- 参考
+  - https://github.com/ewigl/mihomo
 
 ## DNS
 
@@ -104,6 +124,7 @@ curl -H 'Host: example.com' 198.18.0.1
     - 120.53.53.53
     - https://doh.pub/dns-query
 - 国外 DNS - DoT, DoH, DoQ
+  - ⚠️ 目前海外服务都是被阻断或者污染的状态
   - Google
     - dns.google
     - 8.8.8.8

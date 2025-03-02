@@ -9,10 +9,12 @@ title: 电池
   - [电池尺寸列表](https://en.wikipedia.org/wiki/List_of_battery_sizes)
   - [蓄電池](https://zh.wikipedia.org/wiki/蓄電池)
 
-| abbr.  | stand for   | meaning |
-| ------ | ----------- | ------- |
-| NCR    |
-| Li-ion | Lithium-ion | 锂离子  |
+| abbr.  | stand for   | meaning  |
+| ------ | ----------- | -------- |
+| NCR    |             |          |
+| Li-ion | Lithium-ion | 锂离子   |
+| Zn–C   | Zinc–carbon | 碳锌电池 |
+| Alk    | Alkaline    | 碱性电池 |
 
 | name                       | since | spec     | recharge | stand for        |
 | -------------------------- | ----- | -------- | -------- | ---------------- |
@@ -67,8 +69,15 @@ title: 电池
 | 26650        |               | 3.7V | 26×65 mm     |
 | 168A         | 1500–3500 mAh | 3.7V | 18×65 mm     | 18650 + protection circuit |
 | **Alkaline** |
-| AA           | ~2700 mAh     | 1.5V | 14.5×50.5 mm | 五号                       |
-| AAA          | ~1200 mAh     | 1.5V | 10.5×44.5 mm | 七号                       |
+| AA           | ~2700 mAh     | 1.5V | 14.5×50.5 mm | 五号电池                   |
+| AAA          | ~1200 mAh     | 1.5V | 10.5×44.5 mm | 七号电池                   |
+
+| en  | IEC  | cn  |
+| --- | ---- | --- |
+| C   | LR14 | 2号 |
+| AA  | LR6  | 5号 |
+| AAA | LR03 | 7号 |
+| N   | LR1  | 1号 |
 
 - SM2P - 2-pin JST connector
   - 间距 (Pitch) 2.54mm

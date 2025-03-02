@@ -121,6 +121,9 @@ tags:
   - 支持 AirVPN, Cyberghost, ExpressVPN, FastestVPN, Giganews, HideMyAss, IPVanish, IVPN, Mullvad, NordVPN, Perfect Privacy, Privado, Private Internet Access, PrivateVPN, ProtonVPN, PureVPN, SlickVPN, Surfshark, TorGuard, VPNSecure.me, VPNUnlimited, Vyprvpn, WeVPN, Windscribe
   - 支持 OpenVPN
   - 支持 Wireguard
+- [ooni/minivpn](https://github.com/ooni/minivpn)
+  - GPLv3, Go
+  - minimalistic OpenVPN implementation in Go
 
 ## Tunnel/通道
 

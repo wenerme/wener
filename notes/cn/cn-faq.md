@@ -70,9 +70,22 @@ tags:
 > 自 2015 年 10 月 1 日 起实施，于 2012 年 10 月 30 日 提出。
 
 - 三证
-  - 工商营业执照
-  - 组织机构代码证
-  - 税务登记证
+  - 工商营业执照 - 营业执照 (Business License)
+    - 由工商部门发放
+    - 唯一编号 “注册号”或“营业执照注册号”，
+      - 15 位数字
+      - organization code, registration code
+      - business license number
+  - 组织机构代码证 - 组织机构代码证 (Organization Code Certificate)
+    - 由质监部门或其授权机构发放
+    - 唯一编号 组织机构代码
+      - 9 位数字和 1 位校验码
+      - organization code
+  - 税务登记证 - 税务登记证 (Tax Registration Certificate)
+    - 由税务部门发放
+    - 唯一编号 “税务登记号”或“纳税人识别号”
+      - 15 位数字
+      - tax registration number
 - 三证合一
   - 企业营业执照、组织机构代码证、税务登记证 -> 企业营业执照
   - 营业执照编号：由工商行政管理部门颁发的唯一编号，用于标识企业的身份和经营范围

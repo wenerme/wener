@@ -654,6 +654,9 @@ tags:
     - Ruby, Vue
     - live-chat, email support, omni-channel desk
   - Zendesk
+- EMail
+  - [Mail-0/Mail-0](https://github.com/Mail-0/Mail-0)
+    - MIT, TS
 - Learning/Study
   - [jaywcjlove/copybook-generator](https://github.com/jaywcjlove/copybook-generator)
     - Swift

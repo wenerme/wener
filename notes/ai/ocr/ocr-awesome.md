@@ -81,5 +81,17 @@ tags:
   - license plates
   - https://news.ycombinator.com/item?id=37384327
 - https://github.com/kba/awesome-ocr
+- [deepdoctection/deepdoctection](https://github.com/deepdoctection/deepdoctection)
+  - Apache-2.0, Python
+  - 用到了很多东西，可以作为参考
+- LayoutLM
+  - https://huggingface.co/docs/transformers/en/model_doc/layoutlm
+  - https://medium.com/@shivarama/layoutlmv3-from-zero-to-hero-part-1-85d05818eec4
+- DiT - Document Image Text
+  - https://github.com/microsoft/unilm/tree/master/dit
+- [microsoft/unilm](https://github.com/microsoft/unilm)
+  - MIT, Python
+  - Large-scale Self-supervised Pre-training Across Tasks, Languages, and Modalities
+  - Unified Language Model Pre-training
 - 商业
   - https://doc2x.noedgeai.com/

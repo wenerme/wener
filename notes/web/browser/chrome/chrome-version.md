@@ -155,9 +155,74 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 134
+
+- 自定义 `<select>` 元素
+  - https://open-ui.org/components/customizableselect/
+  - 依赖 SelectParserRelaxation 解析保留额外的 tag
+    - 允许 `<option>`, `<optgroup>`, `<hr>` 之外的元素
+- Dialog light dismiss
+  - `<dialog closedby=none|closerequest|any>`
+  - closerequest - ESC 或 close trigger
+  - any - closereques+点击外部 - 类似于 popover=auto
+- Explicit resource management
+  - `using res = createResource()`
+  - https://tc39.es/proposal-explicit-resource-management/
+  - `Symbol.dispose`
+  - `Symbol.asyncDispose`
+- fetchLater API
+  - 用于发送监控数据
+- highlightsFromPoint API
+  - `CSS.highlights.highlightsFromPoint(mouseX, mouseY)`
+- LLM-powered on-device detection of abusive notifications on Android
+- Support Web Locks API in Shared Storage
+  - worklet 环境支持 `navigator.locks.request`
+  - `{ withLock: <resource>}` 选项
+
+## Chrome 133
+
+- Animation.overallProgress
+- Atomics.pause
+- CSS
+  - :open
+  - Scroll State Container Queries
+    - `container-type: scroll-state`
+    - `@contaner scroll-state(stuck: top){}`
+  - text-box, text-box-trim, text-box-edge
+- DOM State-Preserving Move
+  - `moveBefore`
+  - iframe 保留加载状态
+  - 保留 focus
+  - popover, 全屏, 模态对话框 依然开启
+  - 保留 CSS transition 和 动画
+  - React 目前支持 moveBefore
+- FileSystemObserver interface
+  - 监听文件系统变化
+- popover=hint
+  - 实现类似 tooltip 的效果
+  - 之前支持 auto|manual
+- ESM Multiple import maps
+
+## Chrome 132
+
+- CSS Anchor Positioning: allow anchor-size() in inset and margin Properties
+- Device Posture API
+  - 可用于折叠屏
+  - https://www.w3.org/TR/device-posture/
+- Dialog Toggle Events
+  - newState=open|close
+  - 之前是检测 open 属性
+- MediaStreamTrack Element Capture
+- fetch Request,Response .bytes()
+  - 返回 Uint8Array
+- File System Access for Android
+- Keyboard-focusable scroll containers
+
 ## Chrome 131
 
 - CSS font-variant-emoji
+- CSS Anchor Positioning: anchor-scope
+- @page margin
 - Direct Sockets API
   - for [Isolated Web Apps](https://github.com/WICG/isolated-web-apps) - IWAs
     - 基于 Web 技术的小程序

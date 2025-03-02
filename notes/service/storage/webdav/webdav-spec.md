@@ -2,6 +2,8 @@
 title: WebDAV Spec
 tags:
   - RFC
+  - Protocol
+  - HTTP
 ---
 
 # WebDAV Spec

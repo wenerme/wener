@@ -30,6 +30,9 @@ title: Cache-Control
   - [natemoo-re/ultrafetch](https://github.com/natemoo-re/ultrafetch)
     - MIT, TS
     - fetch
+- ETag + If-None-Match
+- Last-Modified + If-Modified-Since
+- Cache-Control + Expires
 
 **请求**
 

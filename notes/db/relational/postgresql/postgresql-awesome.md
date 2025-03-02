@@ -19,6 +19,9 @@ tags:
 - [neondatabase/neon](https://github.com/neondatabase/neon)
   - Apache-2.0, Rust
   - Serverless Postgres
+- [pg-sharding/spqr](https://github.com/pg-sharding/spqr)
+  - BSD, PostgreSQL License, Go
+  - Stateless Postgres Query Router
 - [orioledb/orioledb](./orioledb.md)
   - storage engine
   - [slide](https://www.slideshare.net/AlexanderKorotkov/solving-postgresql-wicked-problems)
@@ -33,6 +36,10 @@ tags:
 - Superbase
 - [PostgresApp/PostgresApp](https://github.com/PostgresApp/PostgresApp)
   - macOS 应用
+- [secp256k1-sha256/postgres-compatibility-index](https://github.com/secp256k1-sha256/postgres-compatibility-index)
+  - PostgreSQL Compatibility Index
+  - 对比 PostgreSQL 兼容性
+  - https://postgres.is/
 - PipelineDB - 停止
 - DB to API
   - [Postgrest](https://github.com/begriffs/postgrest)

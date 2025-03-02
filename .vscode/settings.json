@@ -3,7 +3,7 @@
   "editor.minimap.enabled": true,
   "editor.wordWrapColumn": 120,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-   "[javascript]": {
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
@@ -12,6 +12,12 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "kennylong.kubernetes-yaml-formatter"
+  },
+  "[helm]": {
+    "editor.defaultFormatter": "kennylong.kubernetes-yaml-formatter"
   },
   "[solidity]": {
     "editor.defaultFormatter": "JuanBlanco.solidity"

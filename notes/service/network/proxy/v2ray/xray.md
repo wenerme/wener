@@ -15,6 +15,11 @@ title: xray
     - https://github.com/XTLS/Go/issues/9#issuecomment-1094515399
 - 参考
   - https://github.com/XTLS/Xray-core/issues/1896
+- flow
+  - xtls-rprx-vision
+  - xtls-rprx-origin
+  - xtls-rprx-direct
+  - xtls-rprx-splice
 
 :::tips
 

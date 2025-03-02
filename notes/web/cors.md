@@ -9,6 +9,11 @@ title: CORS
   - 否则不会 set-cookie
 - 参考
   - mdn [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- `Allow-Credentials: true`
+  - 会传递 Cookie, 会接受 Set-Cookie
+  - 注意 CSRF
+  - 不支持返回 `Allow-Origin: *`
+  - 必须列举所有 origin
 
 **Preflight 请求**
 

@@ -53,6 +53,34 @@ GF_ANALYTICS_CHECK_FOR_UPDATES=false
 
 - https://consoledonottrack.com/
 
+## Storybook
+
+```bash
+# STORYBOOK_DISABLE_TELEMETRY=1 npm run storybook
+
+npm run storybook -- --disable-telemetry
+```
+
+```ts title=".storybook/main.ts"
+import type { StorybookConfig } from '@storybook/your-framework';
+
+const config: StorybookConfig = {
+  framework: '@storybook/your-framework',
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  core: {
+    disableTelemetry: true, // 👈 Disables telemetry
+    enableCrashReports: false,
+  },
+};
+
+export default config;
+```
+
+- STORYBOOK_ENABLE_CRASH_REPORTS
+- STORYBOOK_TELEMETRY_DEBUG
+- https://storybook.js.org/telemetry
+
+
 ## HTTP DNT
 
 ```

@@ -4,6 +4,7 @@ title: Docker 仓库
 
 # Docker Registry
 
+- Docker Registry -> Distribution Registry
 - 常见实现
   - `registry:2` 官方
   - Nexus
@@ -23,6 +24,11 @@ title: Docker 仓库
 - 存储: 文件系统、azure、gcs、s3、switf、oss
 - 授权: silly、token、htpasswd、none
 - ttl 默认 168h - 7d
+
+| env                  | for |
+| -------------------- | --- |
+| REGISTRY_HTTP_SECRET |
+
 
 ```bash
 # -v $PWD/config.yml:/etc/docker/registry/config.yml \
