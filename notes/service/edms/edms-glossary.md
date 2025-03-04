@@ -82,6 +82,9 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
 | Compact Shelving        | 密集架            |
 | Movable Rack            | 密集柜/移动棚     |
 | Filing cabinet          | 文件柜            |
+| Boxing                  | 装盒              |
+| Shelving                | 上架              |
+| Labeling                | 标记              |
 
 - 移交 transfer
   - 按照国家规定将电子档案的保管权交给档案馆的过程。
@@ -199,11 +202,69 @@ https://cdarchive.chengdu.gov.cn/cdarchive/uploads/201808231539113wkmdljxvgl.pdf
   - 立卷归档
   - 档案目录的第一级分类
   - 案卷目录
-- 案件级/文件级 - Case/File
+- 案件级/文件级 - Case/File/Item
   - 以件归档
   - 不立卷归档
   - 最小档案单元，是档案组成的基本单位
   - 文件目录
+
+```
+Box Level (盒级)
+   |
+   +--> Folder Level (文件夹级)
+           |
+           +--> Item Level (件级)
+```
+
+## 按件整理 vs 按卷整理
+
+- 按件整理 -
+  - 每份文件为一件
+  - 有一些特定规则，例如：
+    - 文件正本与定稿为一件
+    - 正文与附件为一件
+    - 原件与复制件为一件
+  - 档号以件为编号
+  - 以件来装订
+- 按卷整理
+  - 包含多份文件 - 卷内文件
+  - 有圈内目录
+  - 以卷来装订
+  - 编的是案卷目录
+
+## 整理层级
+
+- 档案整理层级
+  - Fonds
+  - Series
+  - File
+  - Item
+
+---
+
+- https://www.archives.gov/research/alic/reference/archives-resources/archival-arrangement.html
+- Levels of Arrangement
+  - Depository - 仓库
+    - 时间顺序
+    - 层级顺序 - 组织部门
+    - 政府层级 - 中央、地区
+    - 主题领域 - 本身和政府部门职责也相关
+  - record group / subgroup - 记录组
+    - 由 fonds 组成
+  - series
+    - 结构相似的归档单元构成，并以一致的模式排列
+    - 有起点终点
+    - 所有部分均存在某种内在联系
+  - filing unit
+  - document
+
+## 册
+
+- 卷的组成部分
+
+## 来处原则
+
+- principle of provenance
 
 ## 物品 {#subject}
 

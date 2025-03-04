@@ -1107,6 +1107,19 @@ tags:
   - 不需要结构性
   - 比 description 更短
 
+## title vs name
+
+- title
+  - 通常是一个描述性的名字
+  - 用于描述一个事物的名称或头衔
+  - 例如：文章标题、书名、电影名称
+  - title 通常还配合 description, subtitle, tagline, summary 等
+- name
+  - 通常是一个唯一的标识符
+  - 用于标识一个人、物体或概念
+  - 例如：人名、产品名称、文件名
+  - name 通常还配合 id, key, code, slug 等
+
 ## realm vs tenant vs organization
 
 - tenant - 租户

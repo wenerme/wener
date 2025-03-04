@@ -8,6 +8,11 @@ title: WebDAV
 - 子协议
   - CalDAV - 日历
   - CardDAV - 联系人
+- WebDAV 没有标准位置，常见位置
+  - /webdav
+  - /dav
+- CalDAV /.well-known/caldav
+- CardDAV /.well-known/carddav
 
 ```bash
 # echo Hello > /hello.txt
@@ -61,11 +66,29 @@ Access-Control-Max-Age: 3600
     - MIT, Go
   - https://godoc.org/golang.org/x/net/webdav
 
+```bash
+# ghcr.io/hacdias/webdav:latest
+# hacdias/webdav:latest
+go install github.com/hacdias/webdav/v5@latest
+```
+
+```yaml
+address: 0.0.0.0
+port: 6065
+behindProxy: true
+directory: .
+prefix: /webdav
+permissions: CRUD
+users: []
+```
+
 ### Client
 
 - [mickael-kerjean/filestash](https://github.com/mickael-kerjean/filestash)
   - AGPLv3, JS, Go
   - file manager / web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
+- macOS Finder
+  - `WebDAVFS/3.0.0 (03008000) Darwin/24.1.0 (arm64)`
 
 ### Client Library
 

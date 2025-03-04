@@ -3,12 +3,13 @@ title: S3
 tags:
   - AWS
   - Limits
+  - Protocol
 ---
 
 # S3
 
 - [garage](./garage.md)
-- [MinIO](./minio/README.md)
+- [MinIO](../minio/README.md)
 - [oxyno-zeta/s3-proxy](https://github.com/oxyno-zeta/s3-proxy)
   - Apache-2.0, Go
 - [gaul/s3proxy](https://github.com/gaul/s3proxy)

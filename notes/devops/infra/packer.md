@@ -4,7 +4,8 @@ title: Packer
 
 # Packer
 
-- 是什么？
+- [hashicorp/packer](https://github.com/hashicorp/packer) 是什么？
+  - BSL, Go
   - 自动化多平台镜像构建工具
 - 使用场景
   - CD
@@ -25,6 +26,7 @@ title: Packer
   - `PACKER_LOG=1` 开启日志
 - 参考
   - [geerlingguy/packer-boxes](https://github.com/geerlingguy/packer-boxes)
+- ~/.cache/packer
 
 ```bash
 # macOS
