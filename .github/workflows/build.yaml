@@ -14,66 +14,66 @@ jobs:
     #     node-version: [ 16.x ]
 
     steps:
-      # $GITHUB_WORKSPACE
-      - uses: actions/checkout@v3
-        with:
-          # last edit time
-          fetch-depth: 0
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      # - name: Install PNPM
-      #   run: |
-      #     npm add -g pnpm
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 9
-          run_install: false
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-      - name: Build Cache
-        id: build-cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+    # $GITHUB_WORKSPACE
+    - uses: actions/checkout@v3
+      with:
+        # last edit time
+        fetch-depth: 0
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+    # - name: Install PNPM
+    #   run: |
+    #     npm add -g pnpm
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 9
+        run_install: false
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      run: |
+        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+    - name: Build Cache
+      id: build-cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
 
-      - name: Sharp Deps
-        run: |
-          #sudo apt-get update
-          #sudo apt-get install -y libvips-dev glib2.0-dev --no-install-recommends
+    - name: Sharp Deps
+      run: |
+        #sudo apt-get update
+        #sudo apt-get install -y libvips-dev glib2.0-dev --no-install-recommends
 
-      - run: |
-          #export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
-          #npm install --verbose --platform=linux sharp
-          cd site
-          make ci
-          cd -
+    - run: |
+        #export CXX="$(which g++) $(pkg-config --cflags glib-2.0)"
+        #npm install --verbose --platform=linux sharp
+        cd site
+        make ci
+        cd -
 
-        name: Build
-      - run: cp -r site/build site/tech-build
+      name: Build
+    - run: cp -r site/build site/tech-build
 
-      - run: echo wener.me > site/build/CNAME
-      - name: Deploy Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v4
-        with:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          folder: site/build
-          single-commit: true
+    - run: echo wener.me > site/build/CNAME
+    - name: Deploy Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v4
+      with:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: site/build
+        single-commit: true
 
-      - run: echo wener.tech > site/build/CNAME
-      - name: Deploy Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: site/tech-build
-          REPOSITORY_NAME: wenerme/wener.tech
+    - run: echo wener.tech > site/build/CNAME
+    - name: Deploy Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: site/tech-build
+        REPOSITORY_NAME: wenerme/wener.tech
