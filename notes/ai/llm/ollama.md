@@ -65,6 +65,15 @@ ollama pull llama3.2-vision:11b
 | OLLAMA_FLASH_ATTENTION   |                 | 启用 Flash Attention           |
 | OLLAMA_LLM_LIBRARY       |                 | 设置 LLM 库以绕过自动检测      |
 | OLLAMA_MAX_VRAM          |                 | 最大显存（VRAM）               |
+| OLLAMA_CONTEXT_LENGTH    |
+
+```
+/set verbose
+
+/show info
+# 130k
+/set parameter num_ctx 131072
+```
 
 ## API
 

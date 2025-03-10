@@ -62,6 +62,8 @@ sudo mv gost /usr/local/bin/
 # -F 转发，支持配置多个，作为转发链
 gost -L http://:8080 -L socks5://:1080 -F http://192.168.1.1:8080
 
+gost -L http://:1080 -F ss://chacha20-ietf-poly1305:pass@:8338
+
 # SNI proxy
 gost -L sni://:80 -L sni://:443 -F socks5://192.168.1.1:1080
 gost -L sni://:8080 -L sni://:8443

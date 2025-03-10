@@ -22,6 +22,15 @@ title: Dynamics 365
   - Sales (Premium, Enterprise, Professional)
   - Supply Chain Management
 - [Microsoft Dynamics 365 documentation](https://learn.microsoft.com/en-us/dynamics365/)
+- https://microsoft.github.io/CDM/
+- Dataverse - 数据平台
+  - Common Data Model - 公共数据模型
+  - CDS - Common Data Service - 公共数据服务
+  - Microsoft Dataverse
+  - 与 Microsoft Power Platform 集成
+    - Power Apps、Power Automate、Power BI
+  - 支持低代码和无代码开发
+  - 通过内置的业务规则、数据关系、数据验证和安全性控制，实现高效的数据治理和应用开发。
 
 | 术语       | 定义                                                                                                                                                                                                          |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

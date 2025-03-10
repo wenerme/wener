@@ -89,6 +89,7 @@ users: []
   - file manager / web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
 - macOS Finder
   - `WebDAVFS/3.0.0 (03008000) Darwin/24.1.0 (arm64)`
+  - `WebDAVLib/1.3`
 
 ### Client Library
 

@@ -110,8 +110,8 @@ tags:
   - 优势 👍
     - 更支持更复杂的结构
   - 劣势 👎
-    - 定义 props 类型相对麻烦，特别是有 forwardRef 的时候
-    - forwardRef 不能使用 arrow function 定义 - 无法指定泛型, 只能强制 cast
+    - 定义 props 类型相对麻烦，特别是有 ~~forwardRef~~ 的时候
+    - ~~forwardRef~~ 不能使用 arrow function 定义 - 无法指定泛型, 只能强制 cast
 - asChild
   - 使用子组件
   - 优势 👍

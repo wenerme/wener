@@ -14,9 +14,9 @@ title: sing-box
 
 :::caution
 
-- Sing Box 的作者经常以教育或居高临下的态度对待用户
-  - 个人感觉社区不友好
-  - 文档非常差
+- Sing Box
+  - 社区不友好
+  - 文档差
 - ICMP 会被拦截且无法绕过，导致所有 ping 都 < 1ms
   - [google/gvisor#8657](https://github.com/google/gvisor/issues/8657)
 - prefer_ipv4 不一定能保证 IPv4 优先

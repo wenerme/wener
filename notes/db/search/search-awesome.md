@@ -102,7 +102,8 @@ tags:
 - [beir-cellar/beir](https://github.com/beir-cellar/beir)
   - Heterogeneous Benchmark for Information Retrieval
 - Web
-  - pagefind
+  - [pagefind](https://pagefind.com)
+    - static
   - [nearform/lyra](https://github.com/nearform/lyra)
     - @nearform/lyra
     - in-memory, typo-tolerant, full-text search engine

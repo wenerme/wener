@@ -1,356 +1,221 @@
-voip:
-  label: VoIP
-  description: Voice over IP
-  alias: ['voip']
-aliyun:
-  label: Aliyun
-  description: Alibaba Cloud services
-network:
-  label: Network
-  description: Networking
-  alias: ['网络', 'networking']
-life:
-  label: 生活
-  description: Life
-dotNET:
-  label: .NET
-  description: Microsoft's software framework
-  alias: ['dot-net']
-csharp:
-  label: C#
-  description: .NET language
-  alias: ['c-sharp']
-nodejs:
-  label: Node.js
-  description: JavaScript runtime
-  alias: ['node-js']
-movie:
-  label: 电影
-  description: Movies
-alpine:
-  label: Alpine
-  description: Lightweight Linux distribution
-  alias: ['AlpineLinux','alpine-linux']
-php:
-  label: PHP
-  description: Scripting language
-notes:
-  label: 笔记
-  description: Notes
-android:
-  label: Android
-  description: Mobile OS
-postgresql:
-  label: PostgreSQL
-  description: Relational database
-  alias: ['postgres']
-algorithm:
-  label: 算法
-  description: Algorithms
-asterisk:
-  label: Asterisk
-  description: Open-source PBX
-redis:
-  label: Redis
-  description: In-memory datastore
-system:
-  label: 系统
-  description: System
-bbvm:
-  label: BBVM
-  description: Virtual machine
-setup:
-  label: Setup
-  description: Configuration guides
-programming:
-  label: 编程
-  description: Programming
-  alias: ['编程']
-bi:
-  label: BI
-  description: Business intelligence
-swing:
-  label: Swing
-  description: Java GUI toolkit
-website:
-  label: 网站
-  description: Websites
-  alias: ['web']
-c:
-  label: C
-  description: Programming language
-thinking:
-  label: Thinking
-  description: Thoughts and ideas
-design:
-  label: 设计
-  description: Design
-crm:
-  label: CRM
-  description: Customer management
-ubuntu:
-  label: Ubuntu
-  description: Linux distribution
-poetry:
-  label: 诗歌
-  description: Poetry
-  alias: ['诗歌']
-debian:
-  label: Debian
-  description: Linux distribution
-vb-net:
-  label: VB.NET
-  description: .NET language
-language:
-  label: 语言
-  description: Languages
-  alias: ['english']
-decrypt:
-  label: Decrypt
-  description: Decryption methods
-operations:
-  label: 运维
-  description: Operations
-  alias: ['ops']
-devops:
-  label: DevOps
-  description: Development operations
-  alias: ['dev-ops']
-wechat:
-  label: WeChat
-  description: Messaging app
-alibaba:
-  label: 阿里
-  description: Alibaba Group
-firecracker:
-  label: Firecracker
-  description: MicroVMs
-xfce:
-  label: XFCE
-  description: Desktop environment
-project:
-  label: 项目
-  description: Projects
-game:
-  label: 游戏
-  description: Games
-  alias: ['games', '游戏']
-library:
-  label: 库
-  description: Code libraries
-  alias: ['libraries']
-middleware:
-  label: 中间件
-  description: Middleware
-golang:
-  label: GoLang
-  description: Programming language
-big-data:
-  label: 大数据
-  description: Big data
-graph-ql:
-  label: GraphQL
-  description: API query language
-proxy:
-  label: 代理
-  description: Proxy services
-embedded:
-  label: 嵌入式
-  description: Embedded systems
-gui:
-  label: GUI
-  description: User interfaces
-  alias: ['ui']
-learning:
-  label: 学习
-  description: Learning resources
-microservices:
-  label: 微服务
-  description: Microservices
-jackson:
-  label: Jackson
-  description: JSON processor
-development:
-  label: 开发
-  description: Development
-  alias: ['dev', 'devlopment']
-database:
-  label: 数据库
-  description: Databases
-java-fx:
-  label: JavaFX
-  description: Java GUI framework
-thoughts:
-  label: 思考
-  description: Reflections
-  alias: ['thoughs']
-bbk:
-  label: 步步高
-  description: BBK Electronics
-java:
-  label: Java
-  description: Programming language
-growth:
-  label: 成长
-  description: Personal growth
-virtualization:
-  label: 虚拟化
-  description: Virtualization tech
-json:
-  label: JSON
-  description: Data format
-guide:
-  label: 指南
-  description: Guides
-virtual-machine:
-  label: 虚拟机
-  description: Virtual machines
-k3s:
-  label: K3s
-  description: Lightweight Kubernetes
-story:
-  label: 故事
-  description: Stories
-data-structures:
-  label: 数据结构
-  description: Data structures
-  alias: ['data-structure', '数据结构']
-kubernetes:
-  label: Kubernetes
-  description: Container orchestration
-  alias: ['k8s', 'k-8-s']
-architecture:
-  label: 架构
-  description: Architecture
-software-design:
-  label: 软件设计
-  description: Software design
-macos:
-  label: macOS
-  description: Apple's OS
-desktop:
-  label: 桌面
-  description: Desktop environments
-ncre:
-  label: NCRE
-  description: Computer exams
-topic:
-  label: 主题
 acl:
   label: ACL
-  description: Access Control Lists
+  description: 关于访问控制列表（Access Control Lists）的基本原理、使用方法、应用场景及安全策略的详细介绍与经验分享。
 admin:
-  label: Admin
-  description: Administration and management
+  label: 管理
+  description: 关于系统或软件的管理（Administration and Management）技巧、方法论、工具推荐及实践经验的分享。
+algorithm:
+  label: 算法
+  description: 涵盖算法（Algorithm）的基础知识、常用算法介绍、实现方法以及优化技巧。
+alibaba:
+  label: 阿里巴巴
+  description: 关于阿里巴巴集团（Alibaba Group）的业务生态、技术实践、电商平台、企业文化及行业动态的分享与分析。
+  alias:
+  - 阿里
+aliyun:
+  label: 阿里云
+  description: 关于阿里巴巴旗下云计算服务（Alibaba Cloud）的使用技巧、产品介绍、架构设计以及最佳实践的文章。
+alpine:
+  label: Alpine
+  description: 轻量级Linux发行版（Alpine Linux）的介绍、安装方法、使用技巧、软件包管理及应用部署的内容。
+  alias:
+  - alpine-linux
+android:
+  label: Android
+  description: 关于谷歌开发的移动操作系统（Android）的应用开发、技巧分享、框架使用及系统优化内容。
 apache:
   label: Apache
-  description: Apache HTTP Server
+  description: Apache HTTP服务器的安装部署、配置优化、性能调优、模块扩展及问题排查相关的文章。
 api:
   label: API
-  description: Application Programming Interface
+  description: 应用程序接口（Application Programming Interface）的设计方法、开发技巧、性能优化、安全设计及最佳实践案例。
+app:
+  label: 应用
+  description: 应用程序的开发与管理。
 arch:
-  label: Arch Linux
-  description: Linux distribution
+  label: 架构
+  description: 介绍计算机硬件或软件的架构（Architecture），如CPU架构（x86、ARM等）、操作系统架构或软件架构设计，涵盖架构原理、应用场景及性能分析。
+architecture:
+  label: 架构
+  description: 关于软件或系统架构（Architecture）的设计原则、模式分析、架构实践经验、性能优化及技术选型的文章分享。
 asr:
   label: ASR
-  description: Automatic Speech Recognition
+  description: 自动语音识别（Automatic Speech Recognition）技术的基础知识、实现方法、模型训练技巧及应用案例。
 ast:
   label: AST
-  description: Abstract Syntax Tree
+  description: 抽象语法树（Abstract Syntax Tree）相关的技术原理、生成方法、应用场景以及在编译与代码分析中的实践经验。
+asterisk:
+  label: Asterisk
+  description: 开源电话交换系统（Open-source PBX）的介绍、部署、使用技巧及应用案例分享。
 auth:
-  label: Auth
-  description: Authentication and Authorization
+  label: 认证授权
+  description: 身份认证与授权（Authentication and Authorization）的实现方法、安全设计、协议介绍、常见问题及最佳实践。
 automation:
-  label: Automation
-  description: Automated processes
-  alias: ['automachine']
+  label: 自动化
+  description: 自动化流程（Automation）的实现方法、工具介绍、实践技巧及在开发、运维、测试中的应用经验分享。
+  alias:
+  - automachine
 awesome:
-  label: Awesome
-  description: Collection of awesome resources
+  label: 资源精选
+  description: 收集和整理各领域高质量资源推荐（Awesome），涵盖技术工具、学习资源、最佳实践以及经验分享。
 aws:
   label: AWS
-  description: Amazon Web Services
+  description: 关于亚马逊云服务（Amazon Web Services）的介绍、使用教程、架构设计、性能优化、安全实践及相关技术的文章。
 backend:
-  label: Backend
-  description: Server-side development
+  label: 后端
+  description: 涉及服务端（Backend）开发的技术选型、架构设计、API开发、性能优化及实际项目经验分享。
 backup:
-  label: Backup
-  description: Data backup strategies
+  label: 备份
+  description: 关于数据备份（Backup）策略、工具推荐、数据恢复、灾难恢复计划及最佳实践的相关内容。
+bbk:
+  label: 步步高
+  description: 关于步步高电子（BBK Electronics）的产品介绍、技术方案、行业分析，以及旗下品牌发展动态的相关文章。
+bbvm:
+  label: BBVM
+  description: 虚拟机（BBVM，Virtual Machine）相关内容，包括原理、应用场景及使用方法介绍。
 beginner:
-  label: Beginner
-  description: Resources for beginners
+  label: 入门
+  description: 提供面向初学者（Beginner）的入门教程、基础知识、学习路线、资源推荐及实操练习经验。
 benchmark:
-  label: Benchmark
-  description: Performance measurement
+  label: 基准测试
+  description: 性能基准测试（Benchmark）工具使用、测试方法、性能分析、对比测试结果及优化策略的文章分享。
+bi:
+  label: BI
+  description: 商业智能（Business Intelligence）相关的理论、技术实现、数据分析及应用实践。
+big-data:
+  label: 大数据
+  description: 介绍大数据（Big Data）相关的技术原理、应用场景、数据处理方法、分析工具、架构设计及实践经验总结，包含Hadoop、Spark、Kafka等相关技术的应用案例。
 book:
-  label: Book
-  description: Books and literature
+  label: 书籍
+  description: 推荐书籍、读书笔记、书籍评论及文学作品的内容分享，包括技术、文学及个人提升类书籍。
 build:
-  label: Build
-  description: Build systems and processes
+  label: 构建
+  description: 软件或项目构建（Build）系统的介绍、配置方法、自动化实践、性能优化及工具推荐。
 bundle:
-  label: Bundle
-  description: Bundling resources
+  label: 打包
+  description: 资源打包（Bundle）的实现方法、工具使用、项目实践及常见问题解决方案。
+business:
+  label: 商业
+  description: 商业知识、实践与策略。
+c:
+  label: C
+  description: 编程语言C语言（C Programming Language）的教程、语法特性介绍、实例应用及技巧。
 cache:
-  label: Cache
-  description: Caching mechanisms
+  label: 缓存
+  description: 涉及数据缓存（Cache）技术原理、策略选择、性能优化、缓存失效问题及实践经验分享。
 china:
-  label: China
-  description: China-related topics
+  label: 中国
+  description: 关于中国的人文、历史、文化、经济、技术发展，以及社会观察与分析的相关文章。
 cli:
-  label: CLI
-  description: Command Line Interface
+  label: 命令行
+  description: 命令行接口（CLI）的使用技巧、工具推荐、脚本编写及命令优化实践经验分享。
 client:
-  label: Client
-  description: Client-side development
+  label: 客户端
+  description: 关于客户端（Client-side）开发的相关技术、开发技巧、架构设计、性能优化及实践案例的内容分享。
 cloud:
-  label: Cloud
-  description: Cloud computing
+  label: 云计算
+  description: 涵盖云计算（Cloud Computing）的技术原理、架构设计、平台选型、性能优化、实践案例及经验分享。
+cncf:
+  label: CNCF
+  description: 云原生计算基金会（Cloud Native Computing Foundation）及其生态系统。
 codec:
-  label: Codec
-  description: Coding and decoding algorithms
+  label: 编解码
+  description: 编解码（Codec）算法的原理、实现方法、性能优化、应用场景以及实际开发中遇到的问题解决方案。
 collection:
-  label: Collection
-  description: Data collections
+  label: 集合
+  description: 数据集合（Collection）的定义、管理技巧、使用场景及开发中的应用案例分享。
 color:
-  label: Color
-  description: Color theory and usage
+  label: 色彩
+  description: 关于色彩理论（Color Theory）的基础知识、设计应用、配色技巧及实践案例分享。
 command:
-  label: Command
-  description: Command usage and syntax
+  label: 命令
+  description: 具体命令（Command）的使用方法、参数解析、常见用途及应用技巧。
+communication:
+  label: 通信
+  description: 通信系统与技术。
 compile:
-  label: Compile
-  description: Compilation processes
+  label: 编译
+  description: 程序编译（Compile）技术、编译过程分析、编译工具使用技巧、性能优化及实践经验。
 compiler:
-  label: Compiler
-  description: Compiler design and usage
+  label: 编译器
+  description: 编译器（Compiler）的工作原理、实现方法、应用实践、性能优化技巧及相关案例分享。
 compression:
-  label: Compression
-  description: Data compression techniques
+  label: 压缩
+  description: 数据压缩（Compression）技术的原理、算法选择、实践经验、性能优化及实际应用案例分享。
+concept:
+  label: 概念
+  description: 基础概念与理论讲解。
 configuration:
-  label: Configuration
-  description: System and application configurations
+  label: 配置
+  description: 系统与软件配置（Configuration）的技巧、文件管理、最佳实践及常见问题排查经验。
 cookbook:
-  label: Cookbook
-  description: Collection of recipes
+  label: 实践手册
+  description: 提供实用的技术解决方案（Cookbook），包括常见问题的解决步骤、配置指导与最佳实践分享。
 core:
-  label: Core
-  description: Core concepts
+  label: 核心概念
+  description: 深入介绍相关领域的核心概念（Core Concepts）、技术基础、原理分析与实践指导的内容。
+crm:
+  label: CRM
+  description: 客户关系管理（Customer Relationship Management）系统的介绍、应用场景及实施方法的内容。
+csharp:
+  label: C#
+  description: 微软开发的编程语言（C Sharp）相关内容，包含语法、特性、编程技巧及实际项目案例等。
+  alias:
+  - c-sharp
+daemon:
+  label: 守护进程
+  description: 后台服务进程（daemon）的设计与实现。
+data-structures:
+  label: 数据结构
+  description: 涵盖数据结构（Data Structures）基本概念、实现方法、应用实例、性能分析，以及在编程和算法中的应用技巧。
+  alias:
+  - data-structure
+  - Data Structure
+  - 数据结构
+database:
+  label: 数据库
+  description: 涉及数据库（Database）设计、使用教程、优化技巧、SQL查询、架构选型、常见问题解决方案及实践经验。
 dataset:
   label: Dataset
   description: Collections of data
+debian:
+  label: Debian
+  description: Debian Linux发行版的相关内容，涵盖系统安装、管理、应用部署及问题解决方案。
 debug:
   label: Debug
   description: Debugging techniques
+decrypt:
+  label: Decrypt
+  description: 数据或信息的解密方法、技术原理及应用案例分享，涉及加密技术的深入解析。
 deprecated:
   label: Deprecated
   description: Outdated or deprecated items
+design:
+  label: 设计
+  description: 与设计（Design）相关的理论、技巧、工具分享，包括产品设计、界面设计与创意表达。
 design-system:
   label: Design System
   description: Design systems and guidelines
+desktop:
+  label: 桌面
+  description: 关于桌面环境（Desktop Environment）的使用技巧、配置方法、推荐软件、性能优化及用户体验改进的相关内容。
+developer-platform:
+  label: 开发者平台
+  description: 为开发者提供服务的平台或工具。
+development:
+  label: 开发
+  description: 涉及软件开发（Development）过程中的技术选型、工具推荐、开发技巧、经验分享及项目实践记录。
+  alias:
+  - dev
+  - devlopment
 device:
   label: Device
   description: Hardware devices
+devops:
+  label: DevOps
+  description: 开发与运维一体化（DevOps）相关技术、方法论、实践经验及工具使用技巧的分享。
+  alias:
+  - dev-ops
 dhcp:
   label: DHCP
   description: Dynamic Host Configuration Protocol
@@ -360,15 +225,36 @@ diagnosis:
 dict:
   label: Dictionary
   description: Dictionaries and word lists
+directory-structure:
+  label: 目录结构
+  description: 项目或系统的目录组织结构设计。
+distributed:
+  label: 分布式
+  description: 分布式系统架构与实现方法。
 document:
   label: Document
   description: Documentation and writing
+dot-net:
+  label: .NET
+  description: 微软的软件开发框架（Microsoft .NET Framework）的介绍、编程指南、开发技巧以及相关生态工具的内容。
+  alias:
+  - dot-net
+  - dotNET
 drive:
   label: Drive
   description: Storage drives
 dsl:
   label: DSL
   description: Domain-Specific Languages
+economy:
+  label: 经济
+  description: 经济学原理及相关话题。
+editor:
+  label: 编辑器
+  description: 文本和代码编辑工具及使用技巧。
+embedded:
+  label: 嵌入式
+  description: 涉及嵌入式系统（Embedded Systems）的基础知识、开发技术、硬件选型、调试方法、实际应用案例及性能优化的经验分享。
 encoding:
   label: Encoding
   description: Data encoding formats
@@ -387,6 +273,9 @@ environment:
 erp:
   label: ERP
   description: Enterprise Resource Planning
+error:
+  label: Error
+  description: Error design and handling
 event:
   label: Event
   description: Event handling
@@ -402,272 +291,583 @@ extension:
 faq:
   label: FAQ
   description: Frequently Asked Questions
+firecracker:
+  label: Firecracker
+  description: 关于亚马逊开源的轻量级虚拟机（MicroVM）技术Firecracker的介绍、架构解析、性能优化、实践经验及在云计算领域的应用案例。
 firewall:
   label: Firewall
   description: Network security
 form:
   label: Form
   description: Forms and data input
+format:
+  label: 格式
+  description: 数据格式的定义与使用。
+formatter:
+  label: 格式化工具
+  description: 代码与数据格式化工具及其使用方法。
 framework:
   label: Framework
   description: Software frameworks
+frontend:
+  label: 前端
+  description: 前端开发技术与实践。
 fts:
   label: FTS
   description: Full Text Search
 fuse:
   label: FUSE
   description: Filesystem in Userspace
+game:
+  label: 游戏
+  description: 与游戏相关的内容，包含游戏开发技术、设计理念、玩法分析、体验心得、推荐介绍，以及各种类型游戏的相关讨论。
+  alias:
+  - games
+  - 游戏
 gateway:
   label: Gateway
   description: Network gateways
 get-started:
   label: Get Started
   description: Getting started guides
+  alias:
+  - GetStarted
 glossary:
   label: Glossary
   description: Glossary of terms
-  alias: ['glossay', 'glossory']
+  alias:
+  - glossay
+  - glossory
+golang:
+  label: Go语言
+  description: 涉及谷歌开发的编程语言Go（Golang）的使用教程、语法解析、性能调优、生态工具推荐及实际项目开发经验分享。
+graph-ql:
+  label: GraphQL
+  description: 介绍一种用于API设计的查询语言GraphQL的使用技巧、架构设计、实践案例、与REST的对比分析及性能优化的经验。
+growth:
+  label: 成长
+  description: 分享个人成长过程中的心得、经验总结、自我提升方法，涉及职业发展、技能提升、心理建设及个人成长感悟。
+gui:
+  label: 图形界面
+  description: 有关图形用户界面（GUI, Graphical User Interface）的设计原则、开发工具、实现方法、用户体验优化及实践案例。
+  alias:
+  - ui
+guide:
+  label: 指南
+  description: 提供系统性指导内容的文章，包括技术指南、工具使用方法、问题解决流程，以及学习路线和参考文档推荐。
 guideline:
   label: Guideline
   description: Guidelines and best practices
-  alias: ['指南']
+  alias:
+  - 指南
+hardware:
+  label: 硬件
+  description: 计算机硬件设备及相关技术。
 hash:
-  label: Hash
-  description: Hash functions
+  label: 哈希
+  description: 哈希函数（Hash Functions）的原理、常用算法（如MD5、SHA-256）及其在数据校验、安全和检索方面的应用。
 haxe:
   label: Haxe
-  description: Cross-platform toolkit
+  description: 一种跨平台开发工具包，能够生成多种目标语言代码，用于游戏开发、Web应用和桌面软件等场景。
 header:
-  label: Header
-  description: Headers in files or networks
+  label: 头部
+  description: 文件头（File Header）或网络通信中的头信息（HTTP Headers），用于描述数据结构或提供元数据。
 html:
   label: HTML
-  description: HyperText Markup Language
+  description: 超文本标记语言（HyperText Markup Language），用于创建和设计网页内容结构的标准标记语言。
+http:
+  label: HTTP
+  description: 超文本传输协议（Hypertext Transfer Protocol）及相关技术。
 hub:
-  label: Hub
-  description: Central repositories
+  label: 中心库
+  description: 用于集中存储和分发资源的中心库或仓库，如GitHub、Docker Hub等。
 i18n:
-  label: I18N
-  description: Internationalization
-  alias: ['i-18-n']
+  label: 国际化
+  description: 国际化（Internationalization，简称I18N），用于使软件或服务支持多语言和地区差异的开发实践。
+  alias:
+  - i-18-n
 ieee:
   label: IEEE
-  description: IEEE standards
+  description: 电气与电子工程师协会（IEEE）的标准、规范和技术文档，涵盖电子、通信和计算机工程等领域。
+image-manipulation:
+  label: 图像处理
+  description: 图像处理与编辑技术。
 init:
-  label: Init
-  description: Initialization processes
+  label: 初始化
+  description: 软件、系统或服务的初始化流程及相关技术，包含启动脚本、系统配置和环境准备。
 insight:
-  label: Insight
-  description: Insights and analysis
+  label: 洞察
+  description: 基于数据或经验的深入分析和观点，用于辅助决策或理解特定领域的趋势。
+interaction:
+  label: 交互设计
+  description: 用户交互设计与实践技巧。
 internal:
-  label: Internal
-  description: Internal systems
+  label: 内部系统
+  description: 企业或组织内专供内部使用的系统、工具或服务，非公开或对外开放的应用。
 interop:
-  label: Interop
-  description: Interoperability
+  label: 互操作性
+  description: 系统、应用或技术间的互操作性（Interoperability），实现不同系统无障碍沟通与协作的方法。
+investment:
+  label: 投资
+  description: 投资策略及实践。
+ios:
+  label: iOS
+  description: 苹果移动操作系统的开发与应用。
 iso:
   label: ISO
-  description: ISO standards
+  description: 国际标准化组织（ISO）制定的国际标准、规范和认证体系，广泛用于工业、科技及管理领域。
+jackson:
+  label: Jackson
+  description: 介绍Java平台上常用的JSON数据处理库Jackson的使用方法、序列化与反序列化技巧、性能优化及实际应用案例。
+java:
+  label: Java
+  description: Oracle开发的编程语言Java相关内容，包含基础教程、高级特性讲解、框架使用、性能优化、开发经验与项目案例。
+java-fx:
+  label: JavaFX
+  description: Oracle提供的Java图形界面框架JavaFX的开发教程、界面设计技巧、性能优化方案及实践项目案例分享。
 javascript:
   label: JavaScript
-  description: Programming language
-  alias: ['java-script']
+  description: 用于前后端开发的高级编程语言，广泛应用于网页交互、服务器开发及应用程序开发。
+  alias:
+  - java-script
+json:
+  label: JSON
+  description: 介绍轻量级数据交换格式（JSON）的使用技巧、格式规范、解析方法、常用工具库及实践案例分享。
 json-schema:
   label: JSON Schema
-  description: JSON schema definitions
+  description: 一种用于定义和验证JSON数据结构的标准格式，广泛应用于数据校验、接口定义和文档生成。
+jsonschema:
+  label: JSON Schema
+  description: JSON数据模式的定义与验证标准。
+k3s:
+  label: K3s
+  description: 介绍轻量级 Kubernetes（K3s）的搭建、配置、使用技巧、应用案例及问题排查经验，适用于边缘计算和资源受限场景。
+kubernetes:
+  label: Kubernetes
+  description: 介绍容器编排工具 Kubernetes（简称K8s）的技术原理、集群管理、部署实践、问题排查及云原生应用开发经验分享。
+  alias:
+  - k8s
+  - k-8-s
+language:
+  label: 语言
+  description: 涵盖语言学习、语言技巧分享、翻译相关的内容，含英语（English）及其他语言。
+  alias:
+  - english
 ldap:
   label: LDAP
-  description: Lightweight Directory Access Protocol
+  description: 轻量级目录访问协议（Lightweight Directory Access Protocol），用于访问和维护分布式目录服务。
+learning:
+  label: 学习
+  description: 关于学习资源、方法技巧、学习路线规划、自学经验、知识整理技巧，以及如何高效学习新知识的个人经验分享。
 legacy:
-  label: Legacy
-  description: Legacy systems
+  label: 遗留系统
+  description: 历史遗留的旧系统或旧技术，涉及其维护、迁移和现代化改造。
+library:
+  label: 库
+  description: 收录或介绍各类代码库（Code Libraries），包括使用方法、功能特点、示例展示、最佳实践和生态相关的内容。
+  alias:
+  - libraries
+life:
+  label: 生活
+  description: 分享日常生活体验与心得，包括衣食住行、个人感悟，以及提升生活品质的小技巧。
 limits:
-  label: Limits
-  description: System and resource limits
+  label: 限制
+  description: 系统资源、性能指标或技术实现的限制，包括内存、CPU、并发量和网络带宽等方面。
 linux:
   label: Linux
-  description: Open-source operating system
+  description: 开源操作系统Linux的使用技巧、内核机制、发行版特性、命令行工具和性能优化实践。
+literature:
+  label: 文学
+  description: 文学作品、写作经验与阅读分享。
+  alias:
+  - 我把我的矜持都给了她
 logging:
-  label: Logging
-  description: Log management
+  label: 日志管理
+  description: 软件或系统中的日志记录、管理和分析方法，包括日志收集、存储和监控。
+macos:
+  label: macOS
+  description: 苹果的桌面操作系统macOS的使用技巧、软件推荐、系统优化、常见问题解决方案以及相关的开发经验分享。
+management:
+  label: 管理
+  description: 管理学概念与管理实践技巧。
 marketing:
-  label: Marketing
-  description: Marketing strategies
+  label: 市场营销
+  description: 各类市场营销策略、技巧与案例，包括线上营销、内容营销、广告投放和品牌建设。
 maven:
   label: Maven
-  description: Build automation tool
+  description: 一种用于Java项目的自动化构建与依赖管理工具，提供标准化构建流程。
 metadata:
-  label: Metadata
-  description: Data about data
+  label: 元数据
+  description: 描述数据特征或属性的数据，广泛用于数据管理、索引、分类和检索。
+microservices:
+  label: 微服务
+  description: 涵盖微服务（Microservices）的架构设计理念、开发实践、部署运维技巧、常见问题解决方法及技术选型的内容。
+middleware:
+  label: 中间件
+  description: 讨论软件中间件（Middleware）的原理、应用场景、使用技巧、架构设计、性能优化及常见问题的解决方案。
 mirror:
-  label: Mirror
-  description: Mirroring services
+  label: 镜像
+  description: 数据、软件或资源的镜像服务，用于提高访问速度和资源可用性。
 model:
-  label: Model
-  description: Data and software models
+  label: 模型
+  description: 数据模型或软件模型的定义、设计和应用，包括数据库模型、机器学习模型和业务模型。
+  alias:
+  - models
+movie:
+  label: 电影
+  description: 关于电影的评论、推荐、分析或个人观影心得的分享，内容涉及各种题材与类型的影片。
 musl:
   label: musl
-  description: Lightweight C standard library
+  description: 一种轻量级的C标准库实现，常用于Alpine Linux等轻量级环境。
+ncre:
+  label: NCRE
+  description: 全国计算机等级考试（National Computer Rank Examination）相关的学习指南、考试技巧、真题解析及备考经验分享。
 netboot:
-  label: Netboot
-  description: Network booting
+  label: 网络启动
+  description: 利用网络进行系统引导或启动的方法，如PXE、TFTP等。
+network:
+  label: 网络
+  description: 涵盖计算机网络（Computer Networking）的基础知识、网络协议、配置技巧、架构设计及问题排查等内容。
+  alias:
+  - 网络
+  - networking
 nlp:
-  label: NLP
-  description: Natural Language Processing
+  label: 自然语言处理
+  description: 自然语言处理（Natural Language Processing，简称NLP）的技术、算法与应用，涉及文本分析、语义理解与机器翻译。
+nodejs:
+  label: Node.js
+  description: JavaScript运行时环境（JavaScript Runtime）的相关内容，包括开发技巧、生态工具、性能优化与最佳实践。
+  alias:
+  - node-js
+notes:
+  label: 笔记
+  description: 个人或技术笔记的整理与分享，包含知识要点、经验记录以及相关技巧。
+ocr:
+  label: 光学字符识别
+  description: OCR（Optical Character Recognition）技术及应用。
+operations:
+  label: 运维
+  description: 系统运维（Operations）的管理、维护、监控及自动化运维工具的使用实践经验分享。
+  alias:
+  - ops
 operator:
-  label: Operator
-  description: Operators in programming
+  label: 操作符
+  description: 编程语言中的运算符或容器化技术（如Kubernetes Operators）中的控制器与自动化机制。
 package-management:
-  label: Package Management
-  description: Software package management
+  label: 包管理
+  description: 软件包的管理工具与方法，包含依赖管理、版本控制及软件分发机制。
+package-manager:
+  label: 包管理器
+  description: 软件包管理工具的使用与技巧。
+parser:
+  label: 解析器
+  description: 数据或语法的解析工具与技术。
 partition:
-  label: Partition
-  description: Disk partitioning
+  label: 分区
+  description: 磁盘或存储设备的分区方法与管理技术，包括数据安全性、性能优化和数据管理策略。
 password:
-  label: Password
-  description: Password management
+  label: 密码管理
+  description: 密码的存储、生成与安全管理方法，包括安全策略和防护措施。
 pattern:
-  label: Pattern
-  description: Design patterns
+  label: 设计模式
+  description: 软件设计模式的概念、实现方法和应用场景，用于解决常见设计问题。
+php:
+  label: PHP
+  description: "Web开发常用脚本语言（PHP: Hypertext Preprocessor）的相关教程、框架介绍、开发技巧以及实践案例分享。"
 pitfall:
-  label: Pitfall
-  description: Common mistakes
+  label: 常见陷阱
+  description: 技术开发、系统部署或项目管理过程中经常出现的错误或陷阱及避免方法。
+  alias:
+  - pitfal
+plugin:
+  label: 插件
+  description: 软件插件和扩展工具的开发与使用。
+poetry:
+  label: 诗歌
+  description: 诗歌作品的创作、赏析、分享，涉及不同风格的诗歌及文学作品。
+  alias:
+  - 诗歌
 poker:
-  label: Poker
-  description: Card games
+  label: 扑克
+  description: 扑克类卡牌游戏的规则、策略及玩法。
+policy:
+  label: 政策
+  description: 政策、规则和指南的设计及应用。
+postgresql:
+  label: PostgreSQL
+  description: 关系型数据库（PostgreSQL）的安装、使用教程、性能优化、架构设计和实践案例分享。
+  alias:
+  - postgres
 practice:
-  label: Practice
-  description: Practical exercises
-  alias: ['practices']
+  label: 实践
+  description: 各种技术或知识的实践练习、案例分析和实际操作指导。
+  alias:
+  - practices
 pricing:
-  label: Pricing
-  description: Pricing models
+  label: 定价
+  description: 产品或服务的定价策略、定价模型及相关的经济理论。
+privacy:
+  label: 隐私保护
+  description: 数据隐私与保护措施、隐私合规及隐私技术方案。
+programming:
+  label: 编程
+  description: 编程（Programming）技巧、经验分享、代码实例、开发方法以及编程基础知识。
+  alias:
+  - 编程
+project:
+  label: 项目
+  description: 涉及各种项目（Projects）的策划、管理、开发经验、进展记录、技术选型分析以及实际项目实施过程中的经验总结。
 protocol:
-  label: Protocol
-  description: Communication protocols
+  label: 协议
+  description: 网络或软件间通信的协议及标准，包括HTTP、TCP/IP、gRPC等。
+proxy:
+  label: 代理
+  description: 包含代理（Proxy）服务的搭建方法、原理解析、应用场景分析、性能调优及安全策略等相关技术和经验分享。
+public:
+  label: 公共资源
+  description: 公共或公开的资源及其利用。
+python:
+  label: Python
+  description: Python编程语言相关知识与技巧。
 query-builder:
-  label: Query Builder
-  description: Tools for building queries
+  label: 查询构建器
+  description: 用于构建和管理数据库或数据接口查询的工具与方法。
+  alias:
+  - QueryBuilder
+react:
+  label: React
+  description: 前端JavaScript UI库。
 recipe:
-  label: Recipe
-  description: Guides and instructions
+  label: 指南
+  description: 技术或操作的详细步骤指南与使用说明。
+redis:
+  label: Redis
+  description: 基于内存的数据存储系统（In-memory datastore），涉及应用场景、配置管理、优化技巧。
 reference:
-  label: Reference
-  description: Reference materials
-  alias: ['references']
+  label: 参考资料
+  description: 技术参考手册、API文档或权威资料。
+  alias:
+  - references
 registry:
-  label: Registry
-  description: Registry services
+  label: 注册表
+  description: 存储、管理和分发资源或配置信息的注册表服务。
 repository:
-  label: Repository
-  description: Code repositories
+  label: 仓库
+  description: 代码仓库的管理、维护及使用技巧。
+resource:
+  label: 资源
+  description: 有用的学习资源与资料。
 restful:
   label: RESTful
-  description: RESTful APIs
-  alias: ['res-tful']
+  description: 基于REST（Representational State Transfer）架构风格的API设计与实践。
+  alias:
+  - res-tful
 review:
-  label: Review
-  description: Reviews and critiques
+  label: 审阅
+  description: 代码、文档或设计方案的评审与反馈技巧。
 rfc:
   label: RFC
-  description: Request for Comments documents
+  description: 请求评议文档（Request for Comments），互联网标准及协议规范。
 router:
-  label: Router
-  description: Network routers
+  label: 路由器
+  description: 网络路由器的原理、配置及维护方法。
 rpc:
   label: RPC
-  description: Remote Procedure Call
+  description: 远程过程调用（Remote Procedure Call）的原理及应用实践。
 runtime:
-  label: Runtime
-  description: Runtime environments
+  label: 运行时
+  description: 软件运行时环境的设计、管理及优化技巧。
 scale:
-  label: Scale
-  description: Scaling systems
+  label: 扩展性
+  description: 系统的水平或垂直扩展策略及优化方法。
+scheduler:
+  label: 调度器
+  description: 任务调度系统的设计与优化。
 schema:
-  label: Schema
-  description: Data schemas
+  label: 模式
+  description: 数据模式（Schema）的设计原则及最佳实践。
 sdk:
   label: SDK
-  description: Software Development Kit
+  description: 软件开发工具包（Software Development Kit）的使用和集成技巧。
 search:
-  label: Search
-  description: Search technologies
+  label: 搜索
+  description: 搜索技术、算法及应用开发实践。
 security:
-  label: Security
-  description: Security measures
+  label: 安全
+  description: 系统、网络与应用的安全策略、防护措施及风险防范技巧。
 server:
-  label: Server
-  description: Server technologies
+  label: 服务器
+  description: 服务器技术及运维管理实践。
 service:
-  label: Service
-  description: Services and daemons
+  label: 服务
+  description: 系统服务（service）、后台守护进程（daemon）的设计和管理。
+setup:
+  label: Setup
+  description: 软件或系统的安装配置指南，涉及环境搭建、常规操作及注意事项。
 shell:
-  label: Shell
-  description: Command shells
-specification:
-  label: Specification
-  description: Detailed descriptions
-  alias: ['spec']
-sql:
-  label: SQL
-  description: Structured Query Language
-standard:
-  label: Standard
-  description: Industry standards
-structure:
-  label: Structure
-  description: Structural organization
-tar:
-  label: TAR
-  description: Tape Archive format
-template:
-  label: Template
-  description: Template files
-testing:
-  label: Testing
-  description: Software testing
-tip:
-  label: Tip
-  description: Tips and tricks
-troubleshooting:
-  label: Troubleshooting
-  description: Resolving issues
-tuning:
-  label: Tuning
-  description: Performance tuning
-typescript:
-  label: TypeScript
-  description: Typed JavaScript
-unsupervised:
-  label: Unsupervised Learning
-  description: Machine learning without labels
-upgrade:
-  label: Upgrade
-  description: Upgrading systems
-utility:
-  label: Utility
-  description: Utility tools
-version:
-  label: Version
-  description: Versioning systems
-vite:
-  label: Vite
-  description: Frontend build tool
-websocket:
-  label: WebSocket
-  description: WebSocket protocol
-webui:
-  label: Web UI
-  description: Web user interfaces
-windows:
-  label: Windows
-  description: Microsoft Windows OS
+  label: 命令行
+  description: 命令行环境、shell脚本及命令使用技巧。
 skill:
   label: 技巧
-  description: Skills and tips
-concept:
-  label: 概念
-  description: Concepts and ideas
-directory-structure:
-  label: 目录结构
-  description: Directory structures
+  description: 开发与工作技巧的分享。
+software-design:
+  label: 软件设计
+  description: 软件设计（Software Design）的基础概念、设计原则、模式应用、实践案例、代码重构以及软件架构规划经验分享。
+sop:
+  label: 标准操作流程
+  description: 标准操作流程（Standard Operating Procedures）的编写与管理。
+specification:
+  label: 规范
+  description: 详细的技术规范与标准文档。
+  alias:
+  - spec
+sql:
+  label: SQL
+  description: 结构化查询语言（Structured Query Language）的使用及优化方法。
+standard:
+  label: 标准
+  description: 行业或技术领域的通用标准与实践。
+state-management:
+  label: 状态管理
+  description: 应用程序状态的管理技术与实践。
+story:
+  label: 故事
+  description: 个人故事、经历分享，包含生活感悟、成长故事或职场经历，以及富有启发性或趣味性的短篇故事内容。
+structure:
+  label: 结构
+  description: 软件或数据的结构化组织与管理技巧。
+stt:
+  label: STT
+  description: 语音转文本（Speech-to-Text）技术。
+supervisor:
+  label: 进程管理器
+  description: 进程控制与管理系统（如Supervisor）的应用与实践。
+surveillance:
+  label: 监控
+  description: 系统监控与安全监视技术。
+swing:
+  label: Swing
+  description: Java图形用户界面工具包（Java GUI toolkit）的开发教程、示例代码及应用实例。
+syntax:
+  label: 语法
+  description: 编程语言的语法规则。
+system:
+  label: 系统
+  description: 操作系统及系统级应用的管理、优化技巧、配置方法及问题解决方案的内容。
+tar:
+  label: TAR
+  description: 文件归档格式（Tape Archive）的使用和管理。
+task:
+  label: 任务
+  description: 任务管理与规划技巧。
+template:
+  label: 模板
+  description: 模板文件的设计与使用技巧。
+testing:
+  label: 测试
+  description: 软件测试方法、工具及最佳实践。
+thinking:
+  label: Thinking
+  description: 记录个人的思考过程、观点及想法，包含对事物的分析与探索。
+thoughts:
+  label: 思考
+  description: 记录个人对生活、技术、职业及其他主题的思考与感悟，包括分析、总结与心得体会，涉及生活哲学与经验启发。
+  alias:
+  - thoughs
+tip:
+  label: 技巧
+  description: 开发与运维中的实用技巧与窍门。
+topic:
+  label: 主题
+  description: 对特定话题的深入探讨，包括技术、生活、行业分析、个人观点与经验总结等内容。
+torrent:
+  label: 种子
+  description: 点对点（P2P）文件共享与种子技术。
+trading:
+  label: 交易
+  description: 金融交易概念与技巧。
+trash:
+  label: 回收站
+  description: 废弃物管理或数据删除与恢复。
+trick:
+  label: 技巧
+  description: 巧妙的编程技术和实用方法。
+troubleshooting:
+  label: 故障排查
+  description: 系统和应用故障诊断与问题解决方法。
+tts:
+  label: TTS
+  description: 文本转语音（Text-to-Speech）技术。
+tuning:
+  label: 调优
+  description: 系统性能调优与优化技巧。
+typescript:
+  label: TypeScript
+  description: 带有类型定义的JavaScript超集语言。
+ubuntu:
+  label: Ubuntu
+  description: 关于Ubuntu Linux发行版的安装、使用技巧、配置优化及问题解决方案的内容。
+unsupervised:
+  label: 无监督学习
+  description: 不使用标记数据的机器学习方法。
+upgrade:
+  label: 升级
+  description: 系统或软件的升级策略与方法。
+uptime:
+  label: 可用性
+  description: 系统可用性和运行时间的监控与优化。
+utility:
+  label: 工具
+  description: 实用工具软件及其使用技巧。
+vb-net:
+  label: VB.NET
+  description: 微软.NET平台的编程语言VB.NET的使用方法、语法教程及实际项目开发的案例分享。
+version:
+  label: 版本
+  description: 版本管理技术与实践。
+video:
+  label: 视频
+  description: 视频技术与应用。
+virtual-machine:
+  label: 虚拟机
+  description: 关于虚拟机（Virtual Machine）的技术原理、应用场景、性能优化、软件安装及虚拟化平台（如VMware、VirtualBox）的使用经验分享。
+virtualization:
+  label: 虚拟化
+  description: 介绍虚拟化技术（Virtualization）的原理、工具使用、实践方案、性能优化、容器与虚拟机的对比，以及相关应用案例。
+vite:
+  label: Vite
+  description: 快速的前端构建工具及应用实践。
+voip:
+  label: VoIP
+  description: 有关基于互联网协议（Voice over Internet Protocol）的语音通信技术，包含VoIP的实现、应用及相关问题的讨论。
+  alias:
+  - voip
+vs:
+  label: 对比
+  description: 技术方案或工具之间的对比分析。
+webdav:
+  label: WebDAV
+  description: 基于Web的分布式创作与版本控制技术。
+website:
+  label: 网站
+  description: 网站开发、设计、维护相关的内容，包含前后端技术、优化技巧及项目经验分享。
+  alias:
+  - web
+websocket:
+  label: WebSocket
+  description: 用于实时通信的WebSocket协议及其实现方法。
+webui:
+  label: Web界面
+  description: Web用户界面的设计与开发技巧。
+wechat:
+  label: 微信
+  description: 介绍腾讯旗下的即时通讯应用微信（WeChat），包括开发经验、技术方案、小程序生态、API使用技巧及运营策略分享。
+windows:
+  label: Windows
+  description: 微软Windows操作系统的管理与使用技巧。
+xfce:
+  label: XFCE
+  description: 针对轻量级Linux桌面环境XFCE的使用教程、界面定制技巧、性能优化及常见问题解决方案，适合追求低资源占用的用户。
+yolo:
+  label: YOLO
+  description: 实时目标检测算法（You Only Look Once）。

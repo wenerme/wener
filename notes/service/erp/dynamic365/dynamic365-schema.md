@@ -23,7 +23,7 @@ title: Schema
   - [KnowledgeBaseRecord](https://msdn.microsoft.com/en-au/library/dn996872.aspx)
     - https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/knowledgebaserecord?view=op-9-1
   - [Deprecation announcements with Dynamics CRM Online 2016 Update 1 and Microsoft Dynamics CRM 2016 Service Pack 1](https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/2016/06/17/deprecation-announcements-with-dynamics-crm-online-2016-update-1-and-microsoft-dynamics-crm-2016-service-pack-1/)
-  - https://community.dynamics.com/blogs/post/?postid=97501c3e-626e-47d1-b126-db81b996e80c
+  - [[KB] Understanding Dynamics 365 kbarticle vs knowledgebaserecord vs knowledgearticle entities](https://community.dynamics.com/blogs/post/?postid=97501c3e-626e-47d1-b126-db81b996e80c)
   - Interactive Service Hub > Knowledge Management System
     - Dynamics CRM 2016
 

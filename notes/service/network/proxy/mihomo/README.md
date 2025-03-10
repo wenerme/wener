@@ -67,6 +67,15 @@ mkdir -p /etc/mihomo
 - https://wiki.metacubex.one/config/
 - rules
 
+## Notes
+
+- tun
+  - 大多数参数都只针对 linux
+  - https://github.com/metacubex/sing-tun
+    - fork [SagerNet/sing-tun](https://github.com/SagerNet/sing-tun)
+  - auto-redirect
+    - 支持 iptables, nftables
+
 # FAQ
 
 - mrs - Mihomo Rule Set ?

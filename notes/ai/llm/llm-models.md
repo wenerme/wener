@@ -63,6 +63,18 @@ tags:
     - MIT
     - base 0.23B, large 0.77B
     - Florence-2: Advancing a Unified Representation for a Variety of Vision Tasks
+- 阿里云/Alibaba
+  - [QwenLM](https://github.com/QwenLM)
+    - [Qwen](https://huggingface.co/Qwen)
+    - [QwQ 32B](https://huggingface.co/Qwen/QwQ-32B)
+    - [QwenLM/Qwen2.5](https://github.com/QwenLM/Qwen2.5)
+      - Qwen2.5 Coder
+      - Qwen2.5 VL
+      - Qwen2.5 Math
+    - [QwenLM/Qwen](https://github.com/QwenLM/Qwen)
+    - ⚠️ Ollama 不支持 Qwen VL [ollama#2874](https://github.com/ollama/ollama/issues/2874)
+  - [Wan-Video](https://github.com/Wan-Video)
+    - [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1)
 - [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
   - Janus-Series: Unified Multimodal Understanding and Generation Models
 - [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)

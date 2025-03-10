@@ -21,6 +21,9 @@ sudo dscacheutil -flushcache
 netstat -rn
 # route [-dnqtv] command [[modifiers] args]
 route -n get default # 获取默认路由
+
+# ip ro get 1.1.1.1
+route -n get 1.1.1.1
 ```
 
 | command      | desc                                 |

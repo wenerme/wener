@@ -258,10 +258,10 @@ tags:
 
 ## Speech To Text {#stt}
 
-- [STT](./stt/README.md) - Speech To Text - 语音转文本
+- [STT](./voice/README.md) - Speech To Text - 语音转文本
 - ASR - Automatic Speech Recognition - 自动语音识别
-- [whisper](./whisper.md)
-- [FunASR](./funasr.md)
+- [whisper](./voice/whisper.md)
+- [FunASR](./voice/funasr.md)
   - MIT, Python
   - by 阿里
 - [wenet-e2e/wenet](https://github.com/wenet-e2e/wenet)

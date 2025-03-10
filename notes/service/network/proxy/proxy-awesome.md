@@ -76,6 +76,9 @@ tags:
 - ss - ShadowSocks
 - ssr - ShadowSocksR
 - [klzgrad/naiveproxy](https://github.com/klzgrad/naiveproxy)
+  - BSD-3, C++
+  - 复用 Chromium 网络栈
+  - TLS, HTTP/2
 - obfs - 混淆 - 用于 ss,ssr,hysteria
   - tls1.2_ticket_auth, tls1.2_ticket_fastauth
   - http_simple, http_post
@@ -119,7 +122,7 @@ curl https://wener.me/cdn-cgi/trace
 > - 支持负载均衡
 > - 支持 DNS
 
-:::tips
+:::tip
 
 - macOS 只能使用 tun 做全局代理
 - TUN macOS/Windows 无法自动劫持发往局域网的 dns 请求
@@ -564,7 +567,11 @@ robloxdev.cn
 
 ## Testing
 
+- HTTP 204 无内容（No Content）
 - https://i.ytimg.com/generate_204
 - https://www.gstatic.com/generate_204
 - https://cp.cloudflare.com
-- HTTP 204 无内容（No Content）
+- 中国国内
+  - http://wifi.vivo.com.cn/generate_204
+- 参考
+  - https://imldy.cn/posts/99d42f85/

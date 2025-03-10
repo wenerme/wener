@@ -11,6 +11,27 @@ tags:
   - Application Language
   - Script Language
   - DSL
+- Template/General
+  - [mustache](./template/mustache.md)
+    - Logic-less, 最安全
+    - 可面向用户
+  - Handlebars
+    - Java, .NET, Rust, Go
+    - [handlebars-lang/handlebars.js](https://github.com/handlebars-lang/handlebars.js)
+- Template/Golang
+  - 内置
+  - [Masterminds/sprig]
+- Template/Javascript
+  - ejs
+  - eta
+  - JSX, React
+  - Vue.js
+  - Svelte
+  - Angular
+  - Backbone.js
+  - Ember.js
+  - Knockout
+
 
 ## Playground
 

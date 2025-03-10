@@ -21,7 +21,7 @@ title: xray
   - xtls-rprx-direct
   - xtls-rprx-splice
 
-:::tips
+:::tip
 
 - xray-core licence 比 sing-box 的 GPL 更宽松, 比 v2fly/v2ray-core 更严格
 - xray 比 sing-box 在 vless, trojan 的认证相关支持更好

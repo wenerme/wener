@@ -8,13 +8,12 @@ title: Go 模板
 
 - GoLand 支持添加类型注释 `{{/* gotype: entgo.io/ent/entc/gen.Graph */}}`
   - 添加后可对模板进行补全
-- 推荐使用 `.gohtml`, `.gotpl`, `.tmpl`，  后缀
+- 推荐使用 `.gohtml`, `.gotpl`, `.tmpl`， 后缀
 
 :::
 
 - https://gotemplate.io/
   - wasm 编译的在线 template 渲染
-
 
 ## 语法
 

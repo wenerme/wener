@@ -1120,6 +1120,21 @@ tags:
   - 例如：人名、产品名称、文件名
   - name 通常还配合 id, key, code, slug 等
 
+## tltd vs summary vs description
+
+- tltd - 摘要
+  - 极其简短，高度浓缩。
+  - 只呈现核心内容或关键信息。
+  - 不涉及细节或背景。
+- summary - 概括
+  - 简洁地覆盖全部要点和大致内容脉络。
+  - 使读者快速理解整体情况。
+  - 适合于提供一个快速的全局理解。
+- description - 描述/说明
+  - 详细解释具体内容、特征、用途或背景。
+  - 包括细节和更深入的信息。
+  - 适合需要全面了解具体情况时使用。
+
 ## realm vs tenant vs organization
 
 - tenant - 租户

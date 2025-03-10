@@ -35,6 +35,19 @@ dig +short myip.opendns.com @resolver1.opendns.com
   - https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
   - https://tools.ietf.org/html/draft-chen-ati-adaptive-ipv4-address-space-03
   - Reclaiming IPv4 Class E's 240.0.0.0/4  https://news.ycombinator.com/item?id=40491038
+- 169.254.169.254
+  - 通常作为 metadata
+  - AWS, GCP, Azure
+  - 系统会通过这个 IP 地址向云服务查询当前实例的信息（例如实例ID、区域、配置信息等）。
+  - AWS http://169.254.169.254/latest/meta-data/
+    - [aws/amazon-ec2-metadata-mock](https://github.com/aws/amazon-ec2-metadata-mock)
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+  - Azure `http://169.254.169.254/metadata/instance?api-version=2021-02-01`
+    - Header ` Metadata: true`
+  - GCP http://metadata.google.internal/
+    - Header `Metadata-Flavor: Google`
+  - OpenStack http://169.254.169.254/openstack/
+
 
 ## Private
 

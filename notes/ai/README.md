@@ -23,8 +23,8 @@ title: AI
 - domains
   - [OCR](./ocr/README.md)
   - [NLP](./nlp/README.md)
-  - [TTS](./tts/README.md)
-  - [ASR](./asr/README.md)
+  - [voice](./voice/README.md)
+    - TTS, ASR, STT
 - services
   - OpenAI
 

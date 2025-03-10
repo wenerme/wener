@@ -5,6 +5,7 @@ tags:
 
 # Mihomo 配置
 
+
 - [DNS]
 - sniffer - 嗅探
 - prixies - 出站代理
@@ -46,8 +47,22 @@ tags:
   - respect-rules
     - DNS 服务是否走路由规则
   - enhanced-mode
-    - redir-host
+    - redir-host - DNSMapping
     - fake-ip
+    - normal
+    - hosts
+
+```yaml
+log-level: warning
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+find-process-mode: off
+mode: rule
+tcp-concurrent: true
+unified-delay: true
+ipv6: false
+```
 
 ---
 

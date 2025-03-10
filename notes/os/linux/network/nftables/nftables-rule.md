@@ -26,7 +26,7 @@ nft -f rule.nft    # load  - 原子操作
   - 不同 family 可以有相同名字的 table
 - family=ip, arp, ip6, bridge, inet, netdev
 
-:::tips
+:::tip
 
 - 建议大多数时候只用 `table inet` 作为 filter
 - 目前 NAT 相关规则主要支持 IPv4
