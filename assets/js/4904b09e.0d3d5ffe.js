@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["82197"],{77246:function(e){e.exports=JSON.parse('{"tag":{"label":"Automachine","permalink":"/notes/tags/automachine","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/lm/lm-agent","title":"Agent","description":"- MCP","permalink":"/notes/ai/lm/agent"}],"unlisted":false}}')}}]);
