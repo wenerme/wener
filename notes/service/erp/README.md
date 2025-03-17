@@ -31,3 +31,5 @@ title: ERP
   - GPLv3, PHP
 - [idurar/idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)
   - AGPL-3.0, JS, React, Express.js, MongoDB, Redux, AntD
+- [metasfresh/metasfresh](https://github.com/metasfresh/metasfresh)
+  - GPLv2, Java

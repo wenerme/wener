@@ -60,6 +60,12 @@ keywords:
   - [conductor](./conductor.md)
     - Apache-2.0, Java, gRPC
     - from Netflix
+  - [restatedev/restate](https://github.com/restatedev/restate)
+    - BSL-1.1, Rust
+    - Lambda Workflows as Code
+    - Transactional RPC Handlers
+    - Event Processing with Kafka
+    - platform for building resilient applications
 - Task Queue/Job Scheduler
   - [hatchet-dev/hatchet](./hatchet.md)
     - MIT, Go, TS
@@ -114,6 +120,19 @@ keywords:
     - alternative to Airplane, Retool
   - Airplane
   - Retool
+- State Machine
+  - https://www.w3.org/TR/scxml/
+  - [statelyai/xstate](./xstate.md)
+    - MIT, TS
+    - 状态机
+  - [matthewp/robot](https://github.com/matthewp/robot)
+    - BSD-2, JS
+  - [ifandelse/machina.js](https://github.com/ifandelse/machina.js)
+    - MIT, JS
+  - [jakesgordon/javascript-state-machine](https://github.com/jakesgordon/javascript-state-machine)
+    - MIT, JS
+  - [pytransitions/transitions](https://github.com/pytransitions/transitions)
+    - MIT, Python
 - Huginn
   - Python
 - [enso-org/enso](https://github.com/enso-org/enso)

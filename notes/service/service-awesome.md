@@ -77,7 +77,9 @@ tags:
   - [bigbluebutton/bigbluebutton](https://github.com/bigbluebutton/bigbluebutton)
     web conferencing system
     - LGPLv3, JS,Java
-- editor & ide
+- editor & ide & Note
+  - [tangly1024/NotionNext](https://github.com/tangly1024/NotionNext)
+    - MIT, JS
   - [opensumi/core](https://github.com/opensumi/core)
     - by Alibaba
     - A framework helps you quickly build Cloud or Desktop IDE products.

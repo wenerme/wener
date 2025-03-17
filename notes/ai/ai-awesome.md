@@ -76,10 +76,47 @@ tags:
     - ~~Apache-2.0~~, TypeScript, React
   - ~~[yoctol/bottender](https://github.com/yoctol/bottender)~~
     - MIT, TS, React
+- [refly-ai/refly](https://github.com/refly-ai/refly)
+  - Apache-2.0, TS
+- Document
+  - [deepdoctection/deepdoctection](https://github.com/deepdoctection/deepdoctection)
+  - [table-transformer-structure-recognition](https://huggingface.co/microsoft/table-transformer-structure-recognition)
+  - [Table Extraction using LLMs: Unlocking Structured Data from Documents](https://nanonets.com/blog/table-extraction-using-llms-unlocking-structured-data-from-documents/)
+  - [opendatalab/DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLO)
+  - [microsoft/table-transformer](https://github.com/microsoft/table-transformer)
+    - TATR
+  - [phamquiluan/jdeskew](https://github.com/phamquiluan/jdeskew)
+    - MIT, Python
+    - ICIP 2022: Adaptive Radial Projection on Fourier Magnitude Spectrum for Document Image Skew Estimation
+  - [clovaai/donut](https://github.com/clovaai/donut)
+    - MIT, Python
+    - OCR-free Document Understanding Transformer (Donut) and Synthetic Document Generator (SynthDoG), ECCV 2022
+- Text
+  - [facebookresearch/fastText](https://github.com/facebookresearch/fastText)
+    - MIT, C++
+    - Word representation and sentence classification
+- Image
+  - [franciszzj/Leffa](https://github.com/franciszzj/Leffa)
+    - MIT, Python
+    - CVPR 2025 Learning Flow Fields in Attention for Controllable Person Image Generation
+- Audio
+  - [sergree/matchering](https://github.com/sergree/matchering)
+    - GPLv3, Python
+    - Audio Matching and Mastering
+- OCR
+  - [allenai/olmocr](https://github.com/allenai/olmocr)
+    - Toolkit for linearizing PDFs for LLM datasets/training
 - Provider
   - Google Colab
   - Runpod
   - Autodl
+- [microsoft/unilm](https://github.com/microsoft/unilm)
+  - MIT, Python
+  - https://thegenerality.com/agi/
+- [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm)
+  - MIT, JS
+  - all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder,
+- https://github.com/NielsRogge/Transformers-Tutorials
 
 ## 应用 {#applications}
 

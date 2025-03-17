@@ -747,3 +747,12 @@ env:
   - 不使用云服务可以用 MetalLB 这类的组件+Overlay/LAN 实现 ClusterIP 能力
     - 例如: flannel+host+tinc switch
   - 使用云服务可以用云服务的 LB 组件 - 可直接提供外网 IP
+
+## 删除所有被驱逐的 Pod
+
+```bash
+# 所有被驱逐的 pod
+kubectl get pods --all-namespaces | grep Evicted
+
+kubectl get pods --all-namespaces | grep Evicted | awk '{print $2, "-n", $1}' | xargs -n3 kubectl delete pod
+```

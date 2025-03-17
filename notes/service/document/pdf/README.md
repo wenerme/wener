@@ -51,9 +51,21 @@ title: PDF
 - [PDF processing and analysis with open-source tools](https://www.bitsgalore.org/2021/09/06/pdf-processing-and-analysis-with-open-source-tools)
 
 ```bash
+# ImageMagick
 # 第1页  PDF -> PNG
 convert -density 300 input.pdf[0] output.png
 convert -density 300 input.pdf[0-3] "output-%d.png"
+
+# 有些 PDF 文档有问题
+# -flatten
+convert -density 300 input.pdf[0,1,-2,-1] -background white "output-%d.png"
+
+# Poppler
+# https://poppler.freedesktop.org/
+apt-get install poppler-utils # Debian/Ubuntu
+brew install poppler          # macOS
+# 文件-1.png
+pdftoppm -png 文件{.pdf,}
 ```
 
 ## Tools

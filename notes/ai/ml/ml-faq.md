@@ -82,6 +82,12 @@ tags:
 - https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-PCIe-datasheet.pdf
 - https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf
 - https://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf
+- 平台
+  - Google
+    - Spot GPU
+      - Nvidia T4 US$0.12/hr
+      - Nvidia L4 24 GB US$0.31/hr
+  - https://www.runpod.io/
 
 ---
 
@@ -270,8 +276,6 @@ setuptools = { version = "<70" }
 pip install wheel
 ```
 
-
-
 ## cannot import name 'is_flash_attn_greater_or_equal_2_10' from 'transformers.utils'
 
 ## Could not load library libcudnn_cnn_train.so.8
@@ -306,3 +310,19 @@ transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ```
 
 - https://stackoverflow.com/a/58151903/1870054
+
+## TqdmWarning: IProgress not found. Please update jupyter and ipywidgets.
+
+- https://github.com/CosmiQ/solaris/issues/392
+
+## ImportError: Using `low_cpu_mem_usage=True` or a `device_map` requires Accelerate: `pip install accelerate`
+
+安装了 accelerate 需要重启 notebook kernel
+
+## You current version of `autoawq` does not support module quantization skipping
+
+```bash
+pip install autoawq
+```
+
+- https://github.com/casper-hansen/AutoAWQ

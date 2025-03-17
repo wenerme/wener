@@ -244,6 +244,12 @@ npm add date-fns lodash-es react-fast-compare
   - [react-grid-layout/react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
     - 动态网格布局组件
     - react-draggable+[react-grid-layout/react-resizable](https://github.com/react-grid-layout/react-resizable)
+  - [mathuo/dockview](https://github.com/mathuo/dockview)
+    - MIT, TS
+    - Zero dependency Docking Layout Manager. Supports Vanilla TypeScript, React and Vue.
+  - [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+    - MIT, TS
+    - beautifull interactive react/nextjs component based on tailwindcss, framer-motion, gsap
   - [nomcopter/react-mosaic](https://github.com/nomcopter/react-mosaic)
     - tiling window manager
   - [zzarcon/react-cristal](https://github.com/zzarcon/react-cristal)
@@ -973,6 +979,8 @@ npm add date-fns lodash-es react-fast-compare
 
 ## 有趣
 
+- [ui-layouts/cursify](https://github.com/ui-layouts/cursify)
+  - Cursor Animation Library for React & Next.js
 - https://stackblitz.com/edit/demo-react-portal-ksmarb
   - createPortal 就可以跨窗口
 - https://github.com/ryanseddon/react-frame-component/blob/master/src/Frame.jsx#L133

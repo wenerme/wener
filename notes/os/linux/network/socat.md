@@ -7,6 +7,12 @@ title: socat
 - [man page](http://www.dest-unreach.org/socat/doc/socat.html)
 - [EXAMPLES](https://github.com/craSH/socat/blob/master/EXAMPLES)
 
+:::caution
+
+- 一次只能一个端口
+
+:::
+
 ```bash
 # 转发本地的 8080 到 百度
 # -d 用于打开日志

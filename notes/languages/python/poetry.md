@@ -11,7 +11,7 @@ tags:
 
 ```bash
 brew install poetry # by macOS Homebrew
-pip install poetry  # by pip
+pipx install poetry # by pipx
 
 poetry init           # for existing project
 poetry new my-project # for new project
@@ -154,4 +154,31 @@ poetry run echo "Venv initialized"
 ```bash
 # 进入 venv 环境
 poetry shell
+```
+
+## b'HEAD'
+
+- KeyError
+- 读取 git 信息失败
+- 删掉 venv 重新安装
+- 可能是 add git 依赖的时候被中断
+
+```bash
+# 通常删除空的 src 能解决
+ls .venv/src
+rm -rf .venv/src/transformers # 例如我是 transformers 安装时被中断
+# 重新安装 - 需要非常久，因为仓库很大
+# 避免 clone ~2GB
+poetry add 'git+https://github.com/huggingface/transformers.git'
+
+# 推荐 - 避免 clone, 也能支持定位到 commit
+poetry add https://github.com/huggingface/transformers/archive/refs/heads/main.zip
+
+# 如果不是标准 .venv 可通过 env 信息找到环境位置
+poetry env info
+
+# 如果还不行，则重建
+deactivate
+rm -rf .venv
+eval $(poetry env activate)
 ```

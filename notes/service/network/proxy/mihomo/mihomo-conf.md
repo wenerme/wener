@@ -57,6 +57,7 @@ log-level: warning
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
+# off, always, strict
 find-process-mode: off
 mode: rule
 tcp-concurrent: true

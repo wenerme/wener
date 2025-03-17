@@ -160,6 +160,12 @@ tags:
   - [distributed_fs_evaluation](https://www.reddit.com/r/homelab/comments/q9weh4/distributed_fs_evaluation/)
   - [Comparison of distributed file systems](https://en.wikipedia.org/wiki/Comparison_of_distributed_file_systems)
 
+## Awesome
+
+- [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
+  - GPLv3, Go
+  - file management and sharing system, supports multiple storage providers
+
 ## 协议库 {#library}
 
 - [drakkan/sftpgo](https://github.com/drakkan/sftpgo)

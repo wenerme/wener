@@ -151,3 +151,102 @@ Host: www.example.com
 Destination: http://www.example.com/users/f/fielding/index.html
 Overwrite: F
 ```
+
+```http
+PROPFIND http://127.0.0.1:3000/webdav/scans/B126/WS/2001/D10/135
+Accept: application/xml
+depth: 1
+content-type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<d:propfind
+  xmlns:d="DAV:"
+  xmlns:oc="http://owncloud.org/ns"
+  xmlns:nc="http://nextcloud.org/ns"
+  xmlns:ocs="http://open-collaboration-services.org/ns"
+  xmlns:ocm="http://open-cloud-mesh.org/ns">
+  <d:prop>
+    <d:resourcetype/>
+    <d:displayname/>
+    <d:getcontentlength/>
+    <d:getlastmodified/>
+    <d:getcontenttype/>
+    <d:supportedlock/>
+    <d:getetag/>
+  </d:prop>
+</d:propfind>
+```
+
+| previx | uri                                       |
+| ------ | ----------------------------------------- |
+| d      | DAV:                                      |
+| oc     | http://owncloud.org/ns                    |
+| nc     | http://nextcloud.org/ns                   |
+| ocs    | http://open-collaboration-services.org/ns |
+| ocm    | http://open-cloud-mesh.org/ns             |
+
+**properties**
+
+| Property                        | Description                                 | Example                                                                                       |
+| ------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `<d:creationdate />`            | 节点的创建日期。                            | 1970-01-01T00:00:00+00:00                                                                     |
+| `<d:getlastmodified />`         | 最近修改时间。                              | Wed, 20 Jul 2022 05:12:23 GMT                                                                 |
+| `<d:getetag />`                 | 文件的 etag。                               | &quot;6436d084d4805&quot;                                                                     |
+| `<d:getcontenttype />`          | 文件的 MIME 类型。                          | image/jpeg                                                                                    |
+| `<d:resourcetype />`            | 指定资源的性质。                            | `<d:collection />` 表示文件夹                                                                 |
+| `<d:getcontentlength />`        | 如果是文件，则表示文件大小（字节）。        | 3030237                                                                                       |
+| `<d:getcontentlanguage />`      | 内容的语言。                                | en                                                                                            |
+| `<d:displayname />`             | 适合展示的名称。                            | 文件名                                                                                        |
+| `<d:lockdiscovery />`           | WebDAV 2 类支持的虚拟端点。始终返回空响应。 | `<d:lockdiscovery />`                                                                         |
+| `<d:quota-available-bytes />`   | 文件夹中可用字节数量。                      | 3950773, -1 (未计算), -2 (未知), -3 (无限制)                                                  |
+| `<d:quota-used-bytes />`        | 文件夹中已用字节数量。                      | 3950773                                                                                       |
+| `<d:supportedlock />`           | WebDAV 2 类支持的虚拟端点。                 | 锁定功能 XML                                                                                  |
+| `<nc:acl-can-manage>`           | 当前用户的 ACL 管理能力。                   | 1 或 0                                                                                        |
+| `<nc:acl-enabled>`              | 群组文件夹的 ACL 状态。                     | 1 或 0                                                                                        |
+| `<nc:acl-list>`                 | ACL 规则数组。                              | ACL 规则的 XML                                                                                |
+| `<nc:contained-file-count />`   | 目录中的文件数量。                          |                                                                                               |
+| `<nc:contained-folder-count />` | 目录中的文件夹数量。                        |                                                                                               |
+| `<nc:creation_time />`          | 创建时间戳。                                | 1675789581                                                                                    |
+| `<nc:data-fingerprint />`       | 备份恢复标识符。                            |                                                                                               |
+| `<nc:group-folder-id>`          | 群组文件夹 ID。                             | 1                                                                                             |
+| `<nc:has-preview />`            | 是否有可用预览。                            | true 或 false                                                                                 |
+| `<nc:hidden>`                   | 文件是否应该隐藏。                          | true 或 false                                                                                 |
+| `<nc:inherited-acl-list>`       | 来自父文件夹的 ACL 规则。                   | 见 `<nc:acl-list>`                                                                            |
+| `<nc:is-encrypted />`           | 文件夹是否端到端加密。                      | 0 (否), 1 (是)                                                                                |
+| `<nc:is-mount-root>`            | 节点是否为挂载根目录。                      | true 或 false                                                                                 |
+| `<nc:lock-owner-displayname>`   | 锁定所有者的显示名称。                      | Alice                                                                                         |
+| `<nc:lock-owner-editor>`        | 应用拥有的锁的应用 ID。                     |                                                                                               |
+| `<nc:lock-owner-type>`          | 锁定所有者类型。                            | 0 (用户), 1 (Office/Text), 2 (WebDAV)                                                         |
+| `<nc:lock-owner>`               | 锁定所有者的用户 ID。                       | alice                                                                                         |
+| `<nc:lock-time>`                | 锁定创建时间戳。                            | 1675789581                                                                                    |
+| `<nc:lock-timeout>`             | 锁定的 TTL（秒）。                          | 0 (无超时)                                                                                    |
+| `<nc:lock-token>`               | 锁定令牌。                                  | files_lock/0e53dfb6-61b4-46f0-b38e-d9a428292998                                               |
+| `<nc:lock>`                     | 文件锁定状态。                              | 1 或 0                                                                                        |
+| `<nc:mount-type />`             | 挂载类型。                                  | '' (本地), 'shared', 'group', 'external', 'external-session'                                  |
+| `<nc:note />`                   | 共享备注。                                  |                                                                                               |
+| `<nc:reminder-due-date>`        | 提醒到期日期（ISO 8601）。                  | 1970-01-01T00:00:00+00:00                                                                     |
+| `<nc:rich-workspace />`         | 工作区文件内容。                            |                                                                                               |
+| `<nc:rich-workspace-file />`    | 工作区文件 ID。                             | 3456                                                                                          |
+| `<nc:share-attributes />`       | 用户设置的属性。                            | 属性的 JSON 数组                                                                              |
+| `<nc:sharees />`                | 共享接收者列表。                            | 共享接收者的 XML                                                                              |
+| `<nc:upload_time />`            | 上传时间戳。                                | 1675789581                                                                                    |
+| `<nc:version-author />`         | 文件版本作者的 ID。                         |                                                                                               |
+| `<nc:version-label />`          | 用户设置的文件标签。                        |                                                                                               |
+| `<oc:checksums />`              | 校验和数组。                                | `<oc:checksum>md5:04c36b75222cd9fd47f2607333029106</oc:checksum>`                             |
+| `<oc:comments-count />`         | 评论数量。                                  | 2                                                                                             |
+| `<oc:comments-href />`          | 评论的 DAV 端点。                           | /remote.php/dav/comments/files/{fileId}                                                       |
+| `<oc:comments-unread />`        | 未读评论数量。                              | 0                                                                                             |
+| `<oc:downloadURL />`            | 直接下载 URL（未实现）。                    |                                                                                               |
+| `<oc:favorite />`               | 收藏状态。                                  | 0 (未收藏), 1 (已收藏)                                                                        |
+| `<oc:fileid />`                 | 实例内文件的唯一 ID。                       | 7                                                                                             |
+| `<oc:id />`                     | 由实例 ID 命名空间限定的文件 ID。           | 00000007oc9l3j5ur4db                                                                          |
+| `<oc:owner-display-name />`     | 共享文件所有者的显示名称。                  | Alice                                                                                         |
+| `<oc:owner-id />`               | 共享文件所有者的用户 ID。                   | alice                                                                                         |
+| `<oc:permissions />`            | 用户对文件的权限。                          | S(已共享), R(可共享), M(已挂载), G(可读), D(可删除), NV(可更新/可移动), W(可更新), CK(可创建) |
+| `<oc:share-types />`            | 共享类型的 XML 数组。                       | `<oc:share-type>{shareTypeId}</oc:share-type>`                                                |
+| `<oc:size />`                   | 大小（字节）（对文件夹也有效）。            | 127815235                                                                                     |
+| `<oc:tags />`                   | 用户指定标签列表。                          | `<oc:tag>test</oc:tag>`                                                                       |
+| `<ocm:share-permissions />`     | 用户权限的 JSON 数组。                      | ["share", "read", "write"]                                                                    |
+| `<ocs:share-permissions />`     | 用户对共享的权限。                          | 1 (读), 2 (更新), 4 (创建), 8 (删除), 16 (共享), 31 (全部)                                    |
+
+- https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html

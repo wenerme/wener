@@ -31,6 +31,14 @@ tags:
 | GPT-4V        | 2023 |
 | GPT-4o        | 2023 |
 
+- `*-pt` - Pre-Training - 预训练模型
+  - 在大规模数据集上进行初始训练，学习语言模式和结构。
+  - 该模型适合作为基础模型，供开发者在特定任务上进行进一步的微调。
+- `*-ft`
+  - Fine-tuned
+- `*-it` - Instruction Tuning - 经过指令微调的模型
+  - 在预训练模型的基础上，进一步针对特定任务或指令进行了微调。
+  - 此版本更适合直接应用于实际任务，因为它已经针对特定用途进行了优化。
 - https://ollama.com/library
 - 内存占用计算方式
   - 参数x精度
@@ -75,17 +83,32 @@ tags:
     - ⚠️ Ollama 不支持 Qwen VL [ollama#2874](https://github.com/ollama/ollama/issues/2874)
   - [Wan-Video](https://github.com/Wan-Video)
     - [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1)
-- [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
-  - Janus-Series: Unified Multimodal Understanding and Generation Models
-- [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
-- [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
-- [deepseek-ai/DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
-  - DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding
+  - [HumanMLLM/R1-Omni](https://github.com/HumanMLLM/R1-Omni)
+    - 阿里通义实验室
+    - Explainable Omni-Multimodal Emotion Recognition with Reinforcement Learning
+- deepseek
+  - [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
+    - Janus-Series: Unified Multimodal Understanding and Generation Models
+  - [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
+  - [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
+  - [deepseek-ai/DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
+    - DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding
 - [google-deepmind/gemma](https://github.com/google-deepmind/gemma)
   - Apache-2.0, Flax, JAX
   - by Google DeepMind
   - Ultra, Pro, Flash, Nano
-  - 2B, 7B
+  - https://ai.google.dev/gemma/docs/core
+  - gemma 3
+    - 1B text only, 4, 12, 27B Vision + text. 14T tokens
+    - 128K context length further trained from 32K. 1B is 32K.
+    - Removed attn softcapping. Replaced with QK norm
+    - 5 sliding + 1 global attn
+    - 1024 sliding window attention
+    - RL - BOND, WARM, WARP
+    - https://huggingface.co/collections/google/gemma-3-release-67c6c6f89c4f76621268bb6d
+    - https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf
+    - https://blog.google/technology/developers/gemma-3/
+    - https://huggingface.co/blog/gemma3
 - llama2
   - 7B, 13B, 70B
 - uncensored

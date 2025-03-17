@@ -12,6 +12,8 @@ title: ollama
     - MIT, TS
     - npm:ollama
     - 客户端
+  - [sgomez/ollama-ai-provider](https://github.com/sgomez/ollama-ai-provider)
+    - provider for vercel ai
 - https://ollama.ai/library
 - 默认地址 http://localhost:11434
 - OLLAMA_HOST
@@ -19,9 +21,13 @@ title: ollama
   - models
     - blobs/
     - manifests/registry.ollama.ai/library/gemma/latest
+- 参考
+  - 使用 CF r2 存储
+    - dd20bb891979d25aebc8bec07b2b3bbc.r2.cloudflarestorage.com
 
 :::caution
 
+- format=json 非常慢 https://github.com/ollama/ollama/issues/3851
 - ~~Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)~~
 
 :::
@@ -85,3 +91,14 @@ curl -X POST http://localhost:11434/api/generate -d '{
 ```
 
 - https://github.com/ollama/ollama/blob/main/docs/api.md
+
+## Vision
+
+
+```bash
+ollama run gemma3:27b "describe this image: ./inputs/demo.jpg"
+ollama run --verbose gemma3:27b "中文描述这个文件: ./inputs/demo.jpg ; 输出 JSON, 文本使用中文, 包含 tags, description, title, alt, objects:[{x,y,w,h,type,tags}]"
+```
+
+- 提取文件的逻辑 https://github.com/ollama/ollama/blob/b3af953a55f0bd054937374404506c4229fbda8c/cmd/interactive.go#L501-L509
+  - `(?:[a-zA-Z]:)?(?:\./|/|\\)[\S\\ ]+?\.(?i:jpg|jpeg|png)\b`

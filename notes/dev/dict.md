@@ -118,11 +118,47 @@ tags:
 - 劳动节 - Labour Day / International Workers' Day
   - 实际是强调劳工，而不是劳动
 
-## 俚语
+## 社交 {#social}
+
+> Internet forum
+
+| abbr.  | stand for                     | mean             |
+| ------ | ----------------------------- | ---------------- |
+| AMA    | Ask Me Anything               | 问我任何事       |
+| DM     | Direct Message                | 私信             |
+| FOMO   | Fear of Missing Out           | 害怕错过         |
+| ICYMI  | In Case You Missed It         | 如果你错过了     |
+| IMHO   | In My Humble Opinion          | 我的谦虚意见     |
+| IMO    | In My Opinion                 | 我的看法         |
+| IRL    | In Real Life                  | 现实生活         |
+| IYKWIM | If You Know What I Mean       | 如果你懂我的意思 |
+| LMAO   | Laugh My Ass Off              | 大声笑           |
+| LOL    | Laugh Out Loud                | 大声笑           |
+| NSFW   | Not Safe For Work             | 不适合工作场合   |
+| OP     | Original Poster               | 楼主             |
+| OTOH   | on the other hand             | 另一方面         |
+| PITA   | Pain In The Ass               | 麻烦事           |
+| PM     | Private Message               | 私信             |
+| ROFL   | Rolling On the Floor Laughing | 笑到在地上打滚   |
+| TBH    | To be honest                  | 说实话           |
+| TIL    | Today I Learned               | 今天我学到了     |
+| TL;TR  | Too Long To Read              | 简而言之         |
+| TTYL   | Talk To You Later             | 回头见           |
+
+| abbr. | stand for              | mean         |
+| ----- | ---------------------- | ------------ |
+| sns   | social network service | 社交网络服务 |
+
+## 俚语 {#slang}
 
 - [bruh](https://www.urbandictionary.com/define.php?term=Bruh)
+
   - best answer to literally anything
   - 嘲笑别人的问题很傻
+
+- [lit](https://www.urbandictionary.com/define.php?term=Lit)
+  - used to describe something that is exciting or excellent
+  - 形容某事令人兴奋或非常好
 
 ---
 
@@ -132,11 +168,14 @@ tags:
 
 |   abbr. | en           | cn           |
 | ------: | ------------ | ------------ |
-|         | synonynm     | 同义词       |
+|         | synonym      | 同义词       |
 |         | antonym      | 反义词       |
 |         | homonym      | 同音异义词   |
 |         | homograph    | 同形异义词   |
 |         | acronym      | 首字母缩略词 |
+|         | idiom        | 成语         |
+|         | expression   | 表达         |
+|         | phrase       | 短语         |
 |   abbr. | abbreviate   | 缩写         |
 |    adj. | adjective    | 形容词       |
 |    adv. | adverb       | 副词         |
@@ -497,31 +536,6 @@ tags:
 | CDA   | confirmatory data analysis | 验证性数据分析 |
 | EDA   | exploratory data analysis  | 探索性数据分析 |
 | IDA   | initial data analysis      | 初步数据分析   |
-
-## 社交 {#social}
-
-| abbr. | stand for              | mean         |
-| ----- | ---------------------- | ------------ |
-| sns   | social network service | 社交网络服务 |
-
-> Internet forum
-
-| abbr.  | stand for               | mean             |
-| ------ | ----------------------- | ---------------- |
-| PM     | Private Message         | 私信             |
-| DM     | Direct Message          | 私信             |
-| OP     | Original Poster         | 楼主             |
-| OTOH   | on the other hand       |
-| TL;TR  | Too Long To Read        | 简而言之         |
-| TBH    | To be honest            |
-| IMO    | In My Opinion           | 我的看法         |
-| IMHO   | In My Humble Opinion    | 我的谦虚意见     |
-| IRL    | In Real Life            | 现实生活         |
-| IYKWIM | If You Know What I Mean | 如果你懂我的意思 |
-| TTYL   | Talk To You Later       | 回头见           |
-| ICYMI  | In Case You Missed It   | 如果你错过了     |
-| FOMO   | Fear of Missing Out     | 害怕错过         |
-| TIL    | Today I Learned         | 今天我学到了     |
 
 ## 财税 {#taxation}
 
@@ -1120,9 +1134,9 @@ tags:
   - 例如：人名、产品名称、文件名
   - name 通常还配合 id, key, code, slug 等
 
-## tltd vs summary vs description
+## tltr vs summary vs description
 
-- tltd - 摘要
+- tltr - 摘要
   - 极其简短，高度浓缩。
   - 只呈现核心内容或关键信息。
   - 不涉及细节或背景。

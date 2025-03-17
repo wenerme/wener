@@ -136,6 +136,8 @@ tags:
 - Service
   - dify
 - Agent
+  - [cloudflare/agents](https://github.com/cloudflare/agents)
+    - MIT, TS
   - [kingjulio8238/memary](https://github.com/kingjulio8238/memary)
     - Longterm Memory for Autonomous Agents
   - [a16z-infra/ai-town](https://github.com/a16z-infra/ai-town)

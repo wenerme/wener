@@ -26,9 +26,9 @@ tags:
 
 ## 国内镜像站点 {#cn}
 
-| URL                                | 地址   |
-| ---------------------------------- | ------ |
-| https://mirrors.aliyun.com         | 阿里云 |
+| URL                                | 地址   | 内网                 |
+| ---------------------------------- | ------ | -------------------- |
+| https://mirrors.aliyun.com         | 阿里云 | mirrors.aliyuncs.com |
 | https://mirrors.163.com            | 网易   |
 | https://mirror.azure.cn/           | Azure  |
 | https://mirrors.huaweicloud.com    | 华为   |
