@@ -13,3 +13,6 @@ title: Base UI
   - https://base-ui.com/react/overview/about
     - 由 Radix, Floating UI, MUI 人员组成
     - Radix 现在更新比较缓慢，Base UI 可以作为 Radix 的替代品
+- vs `@radix-ui/*`
+  - `import * as Popover from '@radix-ui/react-popover'` -> `import { Popover } from '@base-ui-components/react/popover'`
+  - asChild -> renderContent

@@ -1,13 +1,11 @@
 ---
-id: voip
 title: VoIP
+tags:
+  - Topic
+  - RFC
 ---
 
 # VoIP
-
-## Tips
-
-- https://www.linphone.org/
 
 ## RFCs
 

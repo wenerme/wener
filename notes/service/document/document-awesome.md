@@ -74,8 +74,9 @@ tags:
     - 生成 docx
   - [dbashford/textract](https://github.com/dbashford/textract)
     - 文本提取
-  - [SheetJS/sheetjs](https://github.com/SheetJS/sheetjs)
+  - [SheetJS/sheetjs](./sheet/sheetjs.md)
     - Apache-2.0, JS
+    - ⚠️ CE 版本 不支持 style/formula/images/graphs/PivotTables
     - 不在 npm https://github.com/SheetJS/sheetjs/issues/2667
     - 开发也不在 Github 上了
   - [foliojs](https://github.com/foliojs)
@@ -121,9 +122,16 @@ tags:
     - personal finances
 - 商业
   - https://docxtemplater.com/
-    - [open-xml-templating/docxtemplater](https://github.com/open-xml-templating/docxtemplater)
-      - 开源版本功能有限
-      - https://docxtemplater.com/pricing/
+    - CE 版本 [open-xml-templating/docxtemplater](https://github.com/open-xml-templating/docxtemplater)
+      - MIT, GPLv3, JS
+      - 只支持 docx/pptx
+    - https://docxtemplater.com/pricing/
+  - 葡萄城
+  - JSpreadsheet
+    - JSpreadsheet CE
+  - SheetJS Pro
+    - SheetJS CE 没有 style/formula 等
+  - [ag-grid]
 
 ## PDF
 
@@ -300,8 +308,6 @@ tags:
     - 260kB/70kB
     - 支持: 多人、填充、多选、Column Resize、Column Reorder、Sticky columns and rows、Group
 - https://en.wikipedia.org/wiki/Topological_sorting
-- 商业
-  - 葡萄城
 
 ## Word/Doc
 

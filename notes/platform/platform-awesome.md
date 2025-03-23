@@ -197,3 +197,36 @@ tags:
 
 - https://bgp.tools/
 - https://www.netify.ai/resources
+
+## GPU
+
+:::tip
+
+- 区分 按时付费 和 调用付费
+- 按时付费
+  - 适合短期频繁使用
+  - 适合自定义
+  - 通常支持 Spot/抢占 实例 - 通常价格 50%
+- 调用付费
+  - 不需要考虑使用时间
+  - 适合常规模型开箱即用
+
+:::
+
+- [Runpod](./runpod.md)
+- [Replicate](https://replicate.com/)
+  - https://replicate.com/pricing
+- [Paperspace](https://www.paperspace.com/)
+- [CUDO Compute](https://www.cudocompute.com/)
+- [gpux](https://gpux.ai/)
+- [Salad](https://salad.com/)
+- [Lambda Labs](https://lambdalabs.com/)
+- Hugging Face
+  - https://huggingface.co/pricing#endpoints
+
+| Architecture | GPUs | GPU Memory |            $/hr |
+| ------------ | ---- | ---------- | --------------: |
+| NVIDIA T4    | 1    | 14GB       |    HF AWS $0.50 |
+|              | ^    | 16 GB      | Replicate $0.81 |
+| ^            | 4    | 56GB       |    HF AWS $3.00 |
+| RTX 6000     | 1    | 48GB       |    Runpod $0.77 |

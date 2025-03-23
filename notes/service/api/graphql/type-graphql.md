@@ -25,3 +25,26 @@ tags:
   - `@Directive('@deprecated(reason: "Use newField")')`
 
 :::
+
+## Notes
+
+- @Args()
+- @ArgsType()
+- @Authorized()
+- @Ctx()
+- @EnumType()
+- @Field()
+- @FieldResolver()
+- @Info()
+- @InputType()
+- @InterfaceType()
+- @Mutation()
+- @ObjectType()
+- @PubSub()
+- @Query()
+- @Resolver()
+- @Root()
+- @Subscription()
+- @UseMiddleware()
+- @ValidateArgs()
+

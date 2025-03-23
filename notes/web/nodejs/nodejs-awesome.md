@@ -314,6 +314,8 @@ export N_PREFIX=$HOME/n
 - CLI Helper/terminal ui/tui/prompt
   - [chalk](https://github.com/chalk/chalk)
     - Color
+  - [colors](https://github.com/Marak/colors.js)
+    - Color manipulation
   - [larswaechter/voici.js](https://github.com/larswaechter/voici.js)
     - Print table
   - execa

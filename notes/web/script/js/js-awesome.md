@@ -957,6 +957,16 @@ tags:
     - size min.mjs 16kB
   - [olivernn/lunr.js](https://github.com/olivernn/lunr.js)
     - MIT, JS
+  - [farzher/fuzzysort)](https://github.com/farzher/fuzzysort)
+    - MIT, JS
+    - npm:fuzzysort
+  - [lucaong/minisearch](https://github.com/lucaong/minisearch)
+    - MIT, TS, JS
+    - npm:minisearch
+  - [kentcdodds/match-sorter](https://github.com/kentcdodds/match-sorter)
+    - MIT, TS
+    - npm:match-sorter
+  - https://npmtrends.com/flexsearch-vs-fuse.js-vs-fuzzysort-vs-match-sorter-vs-minisearch
 - security/fuzzer
   - https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/jsfuzz
 - layout

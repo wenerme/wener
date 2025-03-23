@@ -105,10 +105,17 @@ tags:
     - 5 sliding + 1 global attn
     - 1024 sliding window attention
     - RL - BOND, WARM, WARP
+    - ⚠️注意 不支持获取对象检测的坐标
     - https://huggingface.co/collections/google/gemma-3-release-67c6c6f89c4f76621268bb6d
     - https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf
     - https://blog.google/technology/developers/gemma-3/
     - https://huggingface.co/blog/gemma3
+    - https://blog.roboflow.com/gemma-3/
+    - Ollama 3 Tools support https://github.com/ollama/ollama/issues/9680
+- command-a
+  - 主要用于 Agent, 工具调用
+  - https://cohere.com/blog/command-a
+  - https://huggingface.co/CohereForAI/c4ai-command-a-03-2025
 - llama2
   - 7B, 13B, 70B
 - uncensored

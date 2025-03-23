@@ -1,8 +1,8 @@
 ---
-id: languages
 title: 语言
 ---
 
+# 语言
 
 - [Learn X in Y minutes](https://learnxinyminutes.com/)
 - Ranking

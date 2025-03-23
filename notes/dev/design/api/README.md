@@ -119,17 +119,8 @@ tags:
 
 :::
 
-- [MiniQuery](https://wener.me/notes/languages/miniquery)
-  - 允许前端直接传类似 where 的语句，后端重写为安全的查询过滤
-  - [wenerme/js-miniquery](https://github.com/wenerme/js-miniquery)
-- AIP-160
-  - `field > 1`
-  - 字段在左边
-- PostgREST
-  - `GET /people?age=gte.18&student=is.true HTTP/1.1`
-    - `age=gte.18` -> `age > 18`
-    - 通过操作过滤
-  - `GET /people?or=(age.lt.18,age.gt.21) HTTP/1.1`
+
+- [Filter](./design-api-filter.md)
 
 ## 选择返回 {#select}
 

@@ -6,6 +6,7 @@ tags:
 # vllm
 
 - [vllm-project/vllm](https://github.com/vllm-project/vllm)
+  - Apache-2.0, Python, CUDA, Linux
 
 
 :::caution

@@ -13,9 +13,6 @@ tags:
     - 支持最好最广泛使用的推理引擎
   - [NVIDIA/TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)
     - Toolbox for Optimized LLM Inference
-  - [vllm-project/vllm](https://github.com/vllm-project/vllm)
-    - https://vllm.ai/
-    - vLLM: Easy, Fast, and Cheap LLM Serving
   - [codelion/optillm](https://github.com/codelion/optillm)
     - Optimizing inference proxy for LLMs
   - [bklieger-groq/g1](https://github.com/bklieger-groq/g1)
@@ -40,6 +37,9 @@ tags:
     - https://llmprices.dev/
     - https://aichatmakers.com/2024/04/15/llms-pricing-comparison-with-chat-arena-leaderboard-ranking-april-2024/
 - Runner/Inference
+  - [vllm-project/vllm](https://github.com/vllm-project/vllm)
+    - https://vllm.ai/
+    - vLLM: Easy, Fast, and Cheap LLM Serving
   - [jmorganca/ollama](./ollama.md)
     - MIT, Golang
     - 快速启动任意模型
@@ -48,6 +48,11 @@ tags:
 - Application/WebUI/UI/Desktop/Consumer
   - [mudler/LocalAI](https://github.com/mudler/LocalAI)
     - MIT, C++, Go
+  - [menloresearch/jan](https://github.com/menloresearch/jan)
+    - AGPLv3, TS
+  - [LostRuins/koboldcpp](https://github.com/LostRuins/koboldcpp)
+    - AGPLv3, C++
+    - Run GGUF models easily with a KoboldAI UI
   - [abi/secret-llama](https://github.com/abi/secret-llama)
     - Apache-2.0, TS
     - Fully private LLM chatbot that runs entirely with a browser with no server needed. Supports Mistral and LLama 3.

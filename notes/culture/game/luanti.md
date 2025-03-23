@@ -1,15 +1,16 @@
 ---
-title: minetest
+title: Luanti
 ---
 
-# minetest
+# Luanti
 
-- [minetest](https://github.com/minetest/minetest)
+- [luanti-org/luanti](https://github.com/luanti-org/luanti)
   - minetest -> Luanti
   - 由于 (L)GPL License 原因，没有 iOS/iPad 版本
     - https://github.com/minetest/minetest/issues/12176
 - 参考
   - [MultiCraft/MultiCraft](https://github.com/MultiCraft/MultiCraft)
+    - 基于 Minetest
 
 ---
 

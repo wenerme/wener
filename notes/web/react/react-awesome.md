@@ -423,6 +423,10 @@ npm add date-fns lodash-es react-fast-compare
   - [formatjs](https://github.com/formatjs/formatjs)
 - hooks/utils
   - [adobe/react-spectrum](https://github.com/adobe/react-spectrum)
+- log viewer
+  - [samdenty/console-feed](https://github.com/samdenty/console-feed)
+  - [melloware/react-logviewer](https://github.com/melloware/react-logviewer)
+  - [rrweb-io/rrweb](https://github.com/rrweb-io/rrweb)
 - for fun
   - [Clariity/react-chessboard](https://github.com/Clariity/react-chessboard)
 - GEO/Map
@@ -579,6 +583,9 @@ npm add date-fns lodash-es react-fast-compare
 - [TanStack/virtual](https://github.com/TanStack/virtual)
   - 基于 Hook
   - 推荐 - 因为 react-virtualized 不活跃
+- [inokawa/virtua](https://github.com/inokawa/virtua)
+  - MIT, TS
+  - https://github.com/inokawa/virtua#features
 - [bvaughn/react-window](https://github.com/bvaughn/react-window) - 虚拟滚动
   - [react-window vs react-virtualized](https://github.com/bvaughn/react-window#how-is-react-window-different-from-react-virtualized)
   - [Lodin/react-vtree](https://github.com/Lodin/react-vtree)

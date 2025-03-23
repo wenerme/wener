@@ -51,7 +51,7 @@ curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_dar
 tar zxvf gost*.tar.gz
 
 # Linux
-curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0-rc10/gost_3.0.0-rc10_linux_amd64.tar.gz
+curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_linux_amd64.tar.gz
 tar zxvf gost*.tar.gz
 
 ./gost -V

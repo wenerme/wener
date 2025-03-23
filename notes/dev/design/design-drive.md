@@ -1053,7 +1053,7 @@ Name[zh_CN]=显示名称
 ## Glossory
 
 - path - 完整路径 `/home/user/documents/report.pdf`
-  - path=dirname+basename
+  - path=dirname/basename
 - filename - 文件名 `report.pdf`
   - name+extname
     - extname 包含 `.`
@@ -1069,8 +1069,10 @@ Name[zh_CN]=显示名称
       - `:` - HFS 分隔符
 - dirname - 目录名 `/home/user/documents`
 - basename - 指路径中最后一部分的名称，无论它是文件还是目录
+  - stem+extname
 - stem
   - basename w/o extname
+- extname/extension
 
 ## 参考 {#reference}
 

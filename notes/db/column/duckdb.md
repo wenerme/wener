@@ -31,8 +31,6 @@ title: DuckDB
 
 :::
 
-
-
 ```bash
 # by Homebre
 brew install duckdb
@@ -169,6 +167,48 @@ load 'sqlite_scanner';
   - SQL 生成器，用于测试
 - tpch
 - tpcds
+
+## Settings
+
+| name                | value        |
+| ------------------- | ------------ |
+| memory_limit        |
+| threads             |
+| enable_progress_bar |
+| default_null_order  | `nulls_last` |
+
+```sql
+SELECT current_setting('threads') AS threads;
+
+SELECT *
+FROM duckdb_settings()
+WHERE name = 'threads';
+```
+
+- https://duckdb.org/docs/stable/configuration/overview
+
+## NodeJS
+
+- [duckdb/duckdb-node-neo](https://github.com/duckdb/duckdb-node-neo)
+  - npm:@duckdb/node-api
+    - 基于 @duckdb/node-bindings
+  - 直接使用 DuckDB C API, 不依赖 SQLite Node API
+  - 数据处理更高效
+  - 直接使用 DuckDB binaries 而不是重新构建
+- [duckdb/duckdb-node](https://github.com/duckdb/duckdb-node)
+  - npm:duckdb
+  - 基于 SQLite Node API
+  - 使用的重新构建的 DuckDB
+
+```tsx
+import duckdb from '@duckdb/node-api';
+import { test } from 'vitest';
+
+test('duckdb info', async () => {
+  console.log(duckdb.version());
+  console.log(duckdb.configurationOptionDescriptions());
+});
+```
 
 ## Version
 
