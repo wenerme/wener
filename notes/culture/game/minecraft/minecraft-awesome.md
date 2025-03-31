@@ -19,10 +19,6 @@ tags:
   - https://docker-minecraft-server.readthedocs.io/en/latest/
   - [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server)
   - [itzg/docker-minecraft-bedrock-server](https://github.com/itzg/docker-minecraft-bedrock-server)
-  - [GeyserMC/Geyser](https://github.com/GeyserMC/Geyser)
-    - MIT, Java
-    - Java 版本服务器兼容 Bedrock
-    - bridge/proxy allowing you to connect to Minecraft: Java Edition servers with Minecraft: Bedrock Edition.
   - [neoforged/NeoForge](https://github.com/neoforged/NeoForge)
   - [mcMMO-Dev/mcMMO](https://github.com/mcMMO-Dev/mcMMO)
     - GPLv3, Java
@@ -30,6 +26,10 @@ tags:
     - 允许玩家通过完成任务和挑战来获得经验和技能点
     - ⚠️ 有些功能可能 bedrock/geyser 不支持
 - Proxy
+  - [GeyserMC/Geyser](https://github.com/GeyserMC/Geyser)
+    - MIT, Java
+    - Java 版本服务器兼容 Bedrock
+    - bridge/proxy allowing you to connect to Minecraft: Java Edition servers with Minecraft: Bedrock Edition.
   - [itzg/docker-mc-proxy](https://github.com/itzg/docker-mc-proxy)
     - 支持选择 BungeeCord 或 Velocity
   - [PaperMC/Velocity](https://github.com/PaperMC/Velocity)
@@ -38,6 +38,9 @@ tags:
   - [PaperMC/Waterfall](https://github.com/PaperMC/Waterfall)
     - GPLv3, Java
     - BungeeCord 的分支
+  - [haveachin/infrared](https://github.com/haveachin/infrared)
+    - AGPLv3, Go
+    - Reverse Proxy for Minecraft
 - Server List
   - https://minecraftservers.org/
   - https://play.mcmod.cn/
@@ -48,6 +51,16 @@ tags:
     - https://modrinth.com/app
   - curseforge
     - https://www.curseforge.com/download/app
+- World/Map/Editor
+  - LevelDB 存储
+  - MCA Selector
+    - MIT, Java
+    - 地图裁剪
+  - [Amulet-Team/Amulet-Map-Editor](https://github.com/Amulet-Team/Amulet-Map-Editor)
+    - https://www.amuletmc.com/
+    - `python -m pip install amulet-map-editor --upgrade`
+    - `python -m amulet_map_editor `
+  - ~~MCEdit~~
 - Wiki
   - https://minecraftitemids.com/
     - 物品

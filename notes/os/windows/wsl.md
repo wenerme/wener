@@ -52,7 +52,7 @@ wsl --set-default-version 2
 
 ## 安装 Alpine {#install-alpine}
 
-- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.18.4-0/Alpine.zip
+- 下载安装 Alpine https://github.com/yuk7/AlpineWSL/releases/download/3.21.3-1/Alpine.zip
   - 注意放到空间较大的位置
 
 ```bash
@@ -63,15 +63,15 @@ wsl -d Alpine # 进入 Alpine VM
 
 # 配置系统
 cat << EOF > /etc/apk/repositories
-https://mirrors.aliyun.com/alpine/v3.20/main
-https://mirrors.aliyun.com/alpine/v3.20/community
+https://mirrors.aliyun.com/alpine/v3.21/main
+https://mirrors.aliyun.com/alpine/v3.21/community
 EOF
-echo "nameserver 114.114.114.114" > /etc/resolv.conf
+echo "nameserver 223.5.5.5" > /etc/resolv.conf
 apk update
 apk upgrade -a
 ```
 
-- 上海交大 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.20/main
+- 上海交大 https://mirrors.sjtug.sjtu.edu.cn/alpine/v3.21/main
 
 ## Windows 开发环境 {#windows-dev}
 
@@ -98,7 +98,7 @@ apk upgrade -a
 wsl -d Alpine # 进入 WSL
 
 apk add openssh make rsync bash nano # 基础依赖
-# 开发相关依赖
+# 开发相关依赖apk add openssh make rsync bash nano
 apk add libc6-compat gcompat curl bash ca-certificates openssl ncurses coreutils python3 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
 
 bash # ash -> bash
@@ -127,7 +127,7 @@ apk --no-cache add php81 php81-{bcmath,bz2,calendar,common,ctype,curl,dev,dba,do
 ln -s /usr/bin/php81 /usr/bin/php
 ```
 
-## 端口暴露 {#port-expose}
+## 端口暴露 {#expose-ports}
 
 > 1. 每次都需要
 > 2. 需要 Admin 执行
@@ -141,6 +141,20 @@ wsl -d Alpine ifconfig eth0
 ; 映射 8000 到 WSL
 netsh interface portproxy set v4tov4 listenport=8000 listenaddress=0.0.0.0 connectport=8000 connectaddress=上面的地址
 ```
+
+```shell
+addr=$(ip -4 addr show eth0 | grep -Po '(?<=inet\s)\d+(\.\d+){3}')
+
+export PATH="$PATH:/usr/lib/wsl/lib:/mnt/c/Windows/system32"
+netsh.exe interface portproxy set v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=$addr
+```
+
+```bash
+wsl hostname -I             # 返回 disto 的 IP 地址
+wsl -d Alpine ifconfig eth0 # 同理
+```
+
+- https://github.com/microsoft/WSL/issues/4150
 
 ## Docker 环境 {#docker}
 
@@ -164,6 +178,14 @@ tee /etc/docker/daemon.json <<- 'EOF'
 }
 EOF
 
+# use legacy iptables for docker
+apk add iptables-legacy
+ln $(which iptables-legacy) $(which iptables) -f
+ln $(which ip6tables-legacy) $(which ip6tables) -f
+
+# openrc 启动 networking 需要配置
+touch /etc/network/interfaces
+
 rc-update add docker default
 openrc default
 
@@ -174,15 +196,65 @@ docker ps
   - docker-desktop
   - docker-desktop-data
 
+## 开机启动 OpenRC {#autostart-openrc}
+
+```bat title="start-wsl-alpine-openrc.bat"
+@echo off
+REM Alpine 启动 OpenRC
+wsl -d Alpine -u root --exec /sbin/openrc-init
+```
+
+- Win + R `shell:startup` 目录下放入 `start-wsl-alpine-openrc.bat`
+- 或者 WSL 里
+  - /mnt/c/Users/$WSLUSER/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
+
+```bash
+WSLUSER=$(powershell.exe '$env:UserName' | tr -d '\r')
+cd "/mnt/c/Users/$WSLUSER/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
+
+tee start-wsl-alpine-openrc.bat <<- 'EOF'
+@echo off
+echo Alpine: Starting
+wsl -d Alpine -u root -- uname -a
+wsl -d Alpine -u root -- openrc default
+echo Alpine: Started
+pause > nul
+EOF
+```
+
+## /etc/wsl.conf
+
+- Windows 11
+- Windows Build 17093+
+- https://learn.microsoft.com/en-us/windows/wsl/wsl-config
+- https://gist.github.com/ecarlson94/283102ffd2f2473d41e7c9965be8fdd4
+
 ## 管理
 
 ```bash
 wsl -l -v # 列出所有的 WSL 和 WSL 版本
 ```
 
+## wslu
+
+| cmd        | for                                                                        | 示例用法                          |
+| ---------- | -------------------------------------------------------------------------- | --------------------------------- |
+| `wslview`  | 在 WSL 中调用 Windows 默认程序打开文件或 URL。                             | `wslview https://www.example.com` |
+| `wslusc`   | `wslview` 的别名，同样用于打开文件或 URL。                                 | `wslusc file.txt`                 |
+| `wslvar`   | 从 Windows 环境中获取环境变量的值，便于在 WSL 内访问 Windows 配置。        | `wslvar USERNAME`                 |
+| `wslupath` | 在 WSL 与 Windows 路径之间相互转换（例如将 Windows 路径转换为 WSL 格式）。 | `wslupath "C:\Program Files"`     |
+| `wslfetch` | 显示 WSL 系统信息，类似于 Linux 下的 neofetch，用于快速了解系统状态。      | `wslfetch`                        |
+
+- https://wslutiliti.es/wslu
+
 # FAQ
 
 - https://learn.microsoft.com/en-us/windows/wsl/troubleshooting
+
+```bash
+# /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/USERNAME/AppData/Local/Microsoft/WindowsApps
+export PATH="$PATH:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows/System32/WindowsPowerShell/v1.0"
+```
 
 ## WSL vs WSL2
 
@@ -210,22 +282,6 @@ netsh wincosk reset
 net stop LxssManager
 net start LxssManager
 ```
-
-## 允许外面访问端口
-
-```shell
-# eth0 的地址
-wsl sh -c "ip -4 addr show eth0  | grep -Po '(?<=inet\s)\d+(\.\d+){3}'"
-
-netsh interface portproxy set v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=172.26.186.210
-```
-
-```bash
-wsl hostname -I             # 返回 disto 的 IP 地址
-wsl -d Alpine ifconfig eth0 # 同理
-```
-
-- https://github.com/microsoft/WSL/issues/4150
 
 ## 系统找不到指定路径
 
@@ -263,12 +319,21 @@ HRESULT: 0x8007019e
 
 - dism 启用功能，然后重启
 
-## 获取当前用户名
+## 获取当前用户名 {#get-current-username}
 
 ```shell
 powershell.exe '$env:UserName'
 cmd.exe /c "echo %USERNAME%"
 cmd.exe /c "whoami"
+
+# wsl.locahost
+basename "$(wslpath -w ~ | cut -d'\' -f3)"
+
+apk add wslu
+wslvar USERNAME
+
+# 所有用户
+ls -l /mnt/c/Users/ | grep -v "Public\|Default" | grep -E '^d' | awk '{print $9}'
 ```
 
 ## alpine networking
@@ -315,6 +380,7 @@ sudo dockerd --iptables=false
 ## docker RULE_APPEND failed (No such file or directory): rule in chain DOCKER-ISOLATION-STAGE-1
 
 ```bash
+apk add iptables-legacy
 # /sbin/xtables-nft-multi -> /sbin/xtables-legacy-multi
 # iptables-nft -> iptables-legacy
 ln $(which iptables-legacy) $(which iptables) -f

@@ -311,9 +311,14 @@ export N_PREFIX=$HOME/n
       - [salesforcecli/cli](https://github.com/salesforcecli/cli)
       - https://shopify.dev/docs/apps/tools/cli
       - https://www.twilio.com/docs/twilio-cli
-- CLI Helper/terminal ui/tui/prompt
+- Terminal Text Color
   - [chalk](https://github.com/chalk/chalk)
-    - Color
+  - picocolors
+  - kleur
+  - [sindresorhus/yoctocolors](https://github.com/sindresorhus/yoctocolors)
+  - [jorgebucaran/colorette](https://github.com/jorgebucaran/colorette)
+  - [lukeed/kleur](https://github.com/lukeed/kleur)
+- CLI Helper/terminal ui/tui/prompt
   - [colors](https://github.com/Marak/colors.js)
     - Color manipulation
   - [larswaechter/voici.js](https://github.com/larswaechter/voici.js)

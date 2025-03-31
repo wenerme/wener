@@ -272,9 +272,16 @@ await em.flush();
 
 ## Migration
 
+- MigrationRunner
+- umzug
+- Migration
+  - 调用 up/down
+  - 调用 getQueries 获取生成的查询
+
 ```bash
 pnpm add -D @mikro-orm/cli
 npx mikro-orm migration:create --initial
 
 pnpm --package=@mikro-orm/cli dlx mikro-orm migration:create --initial
 ```
+

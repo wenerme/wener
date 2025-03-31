@@ -17,3 +17,8 @@ title: AMD
 | 1   | Naples | 2017 | Zen 1 |
 
 - P -> single socket
+
+# ROCm
+
+- AMD GPU 加速技术
+- ROCm - Radeon Open Compute

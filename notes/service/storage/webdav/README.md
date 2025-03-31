@@ -70,6 +70,7 @@ Access-Control-Max-Age: 3600
     - 使用的 golang.org/x/net/webdav
   - [golang.org/x/net/webdav](https://godoc.org/golang.org/x/net/webdav)
     - 提供了 WebDAV 的实现。
+    - https://cs.opensource.google/go/x/net/+/master:webdav/webdav.go
 
 ```bash
 # ghcr.io/hacdias/webdav:latest

@@ -6,9 +6,15 @@ tags:
 # QwenLM
 
 - [QwenLM](https://github.com/QwenLM)
-  - [QwenLM/Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
-    - Collection [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
-      - 3B, 7B, 72B
+- [QwenLM/Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
+  - Collection [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
+    - 3B, 7B, 32B, 72B
+- QvQ
+  - visual reasoning
+- Qwen
+  - 大模型
+  - Omni
+    - text, audio, image, video, natural speech interaction
 
 ## VL
 
@@ -18,6 +24,11 @@ tags:
 - `<|object_ref_start|><|object_ref_end|>`
 - min_pixels = 256*28*28
 - max_pixels = 1280*28*28
+- FineTune
+  - https://huggingface.co/Alibaba-NLP/gme-Qwen2-VL-2B-Instruct
+  - https://huggingface.co/prithivMLmods/Qwen2-VL-OCR-2B-Instruct
+  - https://github.com/2U1/Qwen2-VL-Finetune
+  - https://huggingface.co/learn/cookbook/en/fine_tuning_vlm_trl
 
 ## FAQ
 

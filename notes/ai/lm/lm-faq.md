@@ -51,7 +51,7 @@ tags:
 ## EF BF BD
 
 - Replacement Character
-- �
+- `�`
 - `\ufffd`
 - `\xef\xbf\xbd`
 - Azure OpenAI GPT 3.5 turbo

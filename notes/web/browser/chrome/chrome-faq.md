@@ -27,6 +27,8 @@ curl -LOJC- https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
 strings ChromeStandaloneSetup64.exe | grep -i '<manifest version='
 ```
 
+- https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Mac
+- https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows
 - Windows 11 x86_64
   - appguid 8A69D345-D564-463C-AFF1-A69D9E530F96
   - iid 87584CE6-0E38-80EC-E64B-445DE6CAC662

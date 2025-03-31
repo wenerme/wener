@@ -4,8 +4,8 @@ title: OpenRC
 
 # Qemu OpenRC
 
-
-- https://github.com/jirutka/qemu-openrc
+- [jirutka/qemu-openrc](https://github.com/jirutka/qemu-openrc)
+- https://pkgs.alpinelinux.org/contents?name=qemu-openrc&arch=x86_64
 
 ```bash
 # VM_NAME=example
@@ -14,7 +14,7 @@ cp /etc/conf.d/qemu /etc/conf.d/qemu.example
 
 # 4c4g
 # vnc 5910
-cat <<EOF > /etc/conf.d/qemu.example
+cat << EOF > /etc/conf.d/qemu.example
 smp_cpus="4"
 memory="4G"
 vnc_display=10
@@ -26,7 +26,6 @@ EOF
 ```
 
 ## conf
-
 
 ```sh
 user="qemu"
@@ -41,7 +40,6 @@ logfile="/var/log/qemu/${VM_NAME}.log"
 # How many seconds to wait after sending "system_shutdown" before force
 # stopping the VM.
 #shutdown_timeout=40
-
 
 # qemu-system-${system_type}
 system_type="x86_64"
@@ -93,7 +91,6 @@ memory="1G"
 
 # Path of the QEMU monitor socket for this VM.
 monitor_socket="/run/qemu/${VM_NAME}/monitor.sock"
-
 
 ##
 # Network interfaces

@@ -36,11 +36,33 @@ cat /proc/sys/net/ipv4/ip_local_reserved_ports
 | 220   | 993    | IMAP,IMAPS             |
 | 389   | 636    | LDAP,LDAPS             |
 | 3478  | 5349   | TURN/STURN             |
-| 3306  |        | MySQL                  |
-| 5432  |        | PostgreSQL             |
-| 6379  |        | Redis                  |
 | 8080  | 8443   | HTTP Alt               |
-| 27017 |        | Mongo                  |
+
+| port  | protocol               |
+| ----- | ---------------------- |
+| 25    | SMTP                   |
+| 53    | DNS                    |
+| 80    | HTTP                   |
+| 110   | POP3                   |
+| 220   | IMAP                   |
+| 389   | LDAP                   |
+| 443   | HTTPS                  |
+| 465   | SMTP over SSL/TLS      |
+| 636   | LDAPS                  |
+| 853   | DNS over QUIC/TLS/DTLS |
+| 993   | IMAPS                  |
+| 995   | POP3S                  |
+| 1080  | SOCKS                  |
+| 3306  | MySQL                  |
+| 3389  | Razor, RDP Client      |
+| 3478  | TURN/STUN              |
+| 5349  | TURN/STUN over TLS     |
+| 5432  | PostgreSQL             |
+| 5900  | VNC                    |
+| 6379  | Redis                  |
+| 8080  | HTTP Alt               |
+| 8443  | HTTPS Alt              |
+| 27017 | MongoDB                |
 
 - over TLS/SSL/DTLS/QUIC
 - Cloudflare’s proxy [Network ports](https://developers.cloudflare.com/fundamentals/reference/network-ports/)

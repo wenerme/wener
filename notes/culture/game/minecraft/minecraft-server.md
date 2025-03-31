@@ -30,6 +30,10 @@ tags:
     - RPG 和冒险
     - 红石/生电
     - 小游戏类
+- 教育版支持 WebSocket
+  - https://minecraft.fandom.com/wiki/Commands/wsserver
+  - floodgate 协议是 WS 的
+  - geyser 不支持 WS 协议, 只支持 UDP
 
 ```yaml
 services:
@@ -92,7 +96,6 @@ MODRINTH_DOWNLOAD_DEPENDENCIES: none
 # release, beta, alpha
 MODRINTH_ALLOWED_VERSION_TYPE: release
 ```
-
 
 - MODRINTH_PROJECTS
   - https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/modrinth/
@@ -424,6 +427,10 @@ rcon-cli
 
 - [itzg/docker-mc-proxy](https://github.com/itzg/docker-mc-proxy)
 
+# 优化 {#optimization}
+
+- https://github.com/YouHaveTrouble/minecraft-optimization
+
 # FAQ
 
 - Bukkit
@@ -433,6 +440,26 @@ rcon-cli
 - 骷髅陷阱（Skeleton Horse Trap）事件
   - 雷雨天
   - 骨头马
+
+## 支持版本 {#supported-version}
+
+**影响因素**
+
+- BedRock
+  - Geyser - 通常直接重启获取最新版能解决
+    - https://geysermc.org/wiki/geyser/supported-versions/
+- Java
+  - PaperMC 支持版本
+    - https://docs.papermc.io/velocity/server-compatibility
+  - ViaVersion - 未发布的新版本
+  - ViaBackwards - 1.9,1.10-1.20
+  - ViaRewind - 1.7, 1.8
+
+```bash
+/viaver list
+```
+
+- https://github.com/ViaVersion/ViaVersion
 
 ## You need to accept the resource pack to play on this server.
 

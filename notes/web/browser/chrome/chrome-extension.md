@@ -20,8 +20,11 @@ title: Chrome Extension
 
 ## Awesome
 
-- [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
-  - 规则代理
+- 规则代理/代理
+  - [zero-peak/ZeroOmega](https://github.com/zero-peak/ZeroOmega)
+    - SwitchyOmega fork
+    - https://chromewebstore.google.com/detail/proxy-switchyomega-3-zero/pfnededegaaopdmhkdmcofjmoldfiped
+  - ~~[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)~~
 - [Quick source viewer](https://chrome.google.com/webstore/detail/quick-source-viewer/cfmcghennfbpmhemnnfjhkdmnbidpanb/related)
   更方便查看源码
 - [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)

@@ -253,14 +253,28 @@ tags:
   - https://github.com/iccicci/next-json
 - html/dom/xml
   - fast-xml-parser
+  - @xmldom/xmldom
   - xml2js
   - saxjs
   - xmlbuilder
+  - htmlparser2
+    - Fast & forgiving HTML/XML parser
+  - domhandler
+    - Handler for htmlparser2
+    - callback interface
+      - 资源占用更少，速度快
+  - parser5
+    - HTML parser and serializer
+    - Strict HTML5 specification compliance and accuracy.
   - jsdom
     - 模拟 DOM
   - [cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
-    - 开发不活跃
-    - 模仿 jquery 接口
+    - 默认 parser5
+    - slim 为 htmlparser2
+    - npm:cherrio-select
+      - CSS selector engine
+    - npm:dom-serializer
+      - render domhandler DOM nodes to a string
 - diff
   - [microdiff](https://github.com/AsyncBanana/microdiff)
 - fs/filesystem/virtual file

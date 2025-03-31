@@ -22,14 +22,15 @@ tags:
   - Auth、2FA、OIDC、WebConsole、LDAP
   - https://rustdesk.com/pricing.html
 
-| port            | for                                                             |
-| --------------- | --------------------------------------------------------------- |
-| 21114           | API Server - 未开源，可自行实现                                 |
-| 21115           | RustDesk Server hbbs - NAT type test                            |
-| 21116/UDP       | RustDesk Server hbbs - ID registration and heartbeat service    |
-| 21116/TCP       | RustDesk Server hbbs - TCP hole punching and connection service |
-| 21117           | RustDesk Server hbbr - Relay services                           |
-| 21118,21119/TCP | RustDesk Server hbbr - web clients                              |
+| port      | for                                                             |
+| --------- | --------------------------------------------------------------- |
+| 21114     | API Server - 未开源，可自行实现                                 |
+| 21115     | RustDesk Server hbbs - NAT type test                            |
+| 21116/UDP | RustDesk Server hbbs - ID registration and heartbeat service    |
+| 21116/TCP | RustDesk Server hbbs - TCP hole punching and connection service |
+| 21117     | RustDesk Server hbbr - Relay services                           |
+| 21118     |
+| 21119     | hbbr WebSocket                                                  |
 
 ```bash
 # AlpineLinux
@@ -103,12 +104,25 @@ sysctl net.core.rmem_max
   - `rustdesk-host=MY.DOMAIN,key=MY-PUBLIC-KEY=.exe`
   - https://github.com/rustdesk/rustdesk/discussions/966
 
-## 参考 {#reference}
+---
 
-- API Server
-  - [xiaoyi510/rustdesk-api-server](https://github.com/xiaoyi510/rustdesk-api-server)
-    - Go 语言实现，可以参考 API
-  - [lantongxue/rustdesk-api-server](https://github.com/lantongxue/rustdesk-api-server)
-    - PHP
-- [danbai225/go-rustdesk-server](https://github.com/danbai225/go-rustdesk-server)
-  - Golang 实现的 Rustdesk Server
+- /var/lib/rustdesk-server/
+  - db_v2.sqlite3
+
+```sql
+CREATE TABLE peer (
+                guid blob primary key not null,
+                id varchar(100) not null,
+                uuid blob not null,
+                pk blob not null,
+                created_at datetime not null default(current_timestamp),
+                user blob,
+                status tinyint,
+                note varchar(300),
+                info text not null
+            ) without rowid;
+CREATE UNIQUE INDEX index_peer_id on peer (id);
+CREATE INDEX index_peer_user on peer (user);
+CREATE INDEX index_peer_created_at on peer (created_at);
+CREATE INDEX index_peer_status on peer (status);
+```

@@ -24,20 +24,7 @@ title: Minecraft
   - iOS https://apps.apple.com/us/app/minecraft-play-with-friends/id479516143
     - $6.99
 
-| abbr. | stand for               |
-| ----- | ----------------------- |
-| MC    | Minecraft               |
-| RCON  | Remote Console Protocol |
-| TPS   | Ticks Per Second        |
-| MSPT  | Minecraft Server Tick   |
-| PVP   | Player vs Player        |
-| RTP   | Random Teleport         |
-| SMP   | Survival Multiplayer    |
-
-| en           | cn       |
-| ------------ | -------- |
-| End Portal   | 末影之门 |
-| Ender Dragon | 末影龙   |
+---
 
 - rcon
   - 25575

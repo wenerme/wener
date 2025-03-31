@@ -48,11 +48,11 @@ title: gost
 # https://github.com/go-gost/gost/releases/
 # macOS
 curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_darwin_amd64.tar.gz
-tar zxvf gost*.tar.gz
+tar zxvf gost*.tar.gz gost
 
 # Linux
 curl -LO https://github.com/go-gost/gost/releases/download/v3.0.0/gost_3.0.0_linux_amd64.tar.gz
-tar zxvf gost*.tar.gz
+tar zxvf gost*.tar.gz gost
 
 ./gost -V
 sudo mv gost /usr/local/bin/
@@ -73,6 +73,16 @@ gost
 
 docker run --rm -it \
   gogost/gost
+
+# 测试下来两个端口都可以 proxy-protocol 和不 proxy-protocol
+# service,handler,listener 都加了 proxyProtocol=1
+gost -L tcp://:8000/:8080 -L tcp://:8080/example.com:80?proxyProtocol=1
+curl -H 'Host: example.com' 127.0.0.1:8000 -v
+curl --haproxy-protocol -H 'Host: wener.me' 127.0.0.1:8080 -v
+
+# 发送 HAProxy protocol / send-proxy
+# 目前只有 rtcp 和 rudp 会处理
+gost -L rtcp://:8080/127.0.0.1:80?proxyProtocol=1
 ```
 
 - `-L tcp://:8080/192.168.1.1:80`
@@ -84,14 +94,69 @@ docker run --rm -it \
 - 四大模块
   - 服务(Service)
     - Listener+Handler
-  - 节点(Node)
-    - Dialer+Connector
-  - 跳跃点(Hop)
-    - N\*Node
   - 转发链(Chain)
     - N\*Hop -> Selector+Bypass -> Route
+  - 跳跃点(Hop)
+    - N\*Node
+  - 节点(Node)
+    - Dialer+Connector
 - 五个子模块：监听器(Listener)，处理器(Handler)，转发器(Forwarder)，拨号器(Dialer),连接器(Connector)
 - 辅助模块：节点选择器(Selector)，准入控制器(Admission)，分流器(Bypass)，域名解析器(Resolver)，主机映射器(Hosts)，限速器(Limiter)等组成。
+- https://gost.run/concepts/architecture/
+
+```mermaid
+flowchart TD
+
+subgraph 客户端 [客户端 - person]
+    client["需要使用代理服务的用户"]
+end
+
+subgraph GOST系统 [GOST系统 - system]
+    服务["服务<br/>(处理客户端请求)"]
+    转发链["转发链<br/>(管理数据转发路径)"]
+    跳跃点["跳跃点<br/>(节点集合)"]
+    节点["节点<br/>(转发数据)"]
+
+
+    subgraph 服务
+        监听器["监听器<br/>(接收客户端请求)"]
+        处理器["处理器<br/>(处理客户端请求)"]
+        转发器["转发器<br/>(执行端口转发)"]
+    end
+
+    subgraph 节点
+        拨号器["拨号器<br/>(与服务建立连接)"]
+        连接器["连接器<br/>(处理实际请求数据)"]
+    end
+end
+
+subgraph 外部 [互联网 - external_system]
+    internet["互联网<br/>(外部网络资源)"]
+end
+
+client --"发送请求(TCP/UDP)"--> 服务
+转发器 --> 转发链
+转发链 --> 跳跃点
+跳跃点 --> 节点
+连接器 --"访问(TCP/UDP)"--> internet
+
+%% 服务容器内部
+监听器 --> 处理器
+处理器 --> 转发器
+
+%% 节点容器内部
+拨号器 --> 连接器
+
+classDef person fill:#08427b,color:#fff
+classDef system fill:#1168bd,color:#fff
+classDef container fill:#3193f5,color:#000
+classDef external_system fill:#a9a9a9,color:#fff
+
+class client person
+class GOST系统 system
+class 服务容器,节点容器 container
+class 外部 external_system
+```
 
 ## Config
 

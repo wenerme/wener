@@ -68,6 +68,7 @@ tags:
   - https://webflow.com/blog/parallax-scrolling
 - https://appshots.design/
   - 应用截图
+- https://design.procore.com/
 
 ---
 

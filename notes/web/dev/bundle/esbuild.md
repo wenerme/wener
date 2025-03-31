@@ -71,7 +71,7 @@ esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 pnpm esbuild --outdir=dist $(jq '.bundle.input | join (" ")' package.json -r) --format=esm --charset=utf8 --target=chrome90 --sourcemap --bundle
 
 # transform
-esbuild `find src \( -name '*.ts' -o -name '*.tsx' \)` --outdir=out
+esbuild $(find src \( -name '*.ts' -o -name '*.tsx' \)) --outdir=out
 
 esbuild src/modules/*/{index.tsx,manifest.json} --serve=8000 --splitting --outdir=out --format=esm --bundle --charset=utf8 --target=chrome90 --sourcemap --minify
 
@@ -224,12 +224,17 @@ npx esbuild --banner:js="import { createRequire } from 'module';const require = 
 ```
 
 ```ts
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+var require, __filename, __dirname;
+{
+  const { createRequire } = await import('node:module');
+  require ||= createRequire(import.meta.url);
+}
+{
+  const { fileURLToPath } = await import('node:url');
+  const { dirname } = await import('node:path');
+  __filename ||= fileURLToPath(import.meta.url);
+  __dirname ||= dirname(__filename);
+}
 ```
 
 - https://github.com/evanw/esbuild/issues/1921

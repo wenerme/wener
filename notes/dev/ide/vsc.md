@@ -11,12 +11,25 @@ title: Visual Studio Code
 
 :::
 
+## 常用快捷键 {#shortcuts}
 
+| 快捷键                        | 功能                                 |
+| ----------------------------- | ------------------------------------ |
+| <kbd>Ctrl + -</kbd>           | 后退编辑位置                         |
+| <kbd>Shift + Ctrl + -</kbd>   | 前进编辑位置                         |
+| <kbd>Ctrl + P</kbd>           | 快速打开文件                         |
+| <kbd>Ctrl + Shift + P</kbd>   | 打开命令面板                         |
+| <kbd>Ctrl + /</kbd>           | 注释/取消注释                        |
+| <kbd>Alt + Shift + F</kbd>    | 格式化文档                           |
+| <kbd>Ctrl + B</kbd>           | 切换侧边栏                           |
+| <kbd>Ctrl + `</kbd>           | 切换终端                             |
+| <kbd>Ctrl + Shift + N</kbd>   | 新建窗口                             |
+| <kbd>Ctrl + W</kbd>           | 关闭窗口                             |
+| <kbd>F8</kbd>                 | 下一个错误位置 Edit.GoToNextLocation |
+| <kbd>Shift + F8</kbd>         | 上一个错误位置                       |
+| <kbd>Ctrl + Shift + F12</kbd> | View.NextError                       |
 
-| 快捷键                  | 说明         |
-| ----------------------- | ------------ |
-| <kbd>Ctrl+-</kbd>       | 后退编辑位置 |
-| <kbd>Shift+Ctrl+-</kbd> | 前进编辑位置 |
+- https://code.visualstudio.com/docs/configure/keybindings
 
 ## 插件
 
@@ -51,7 +64,6 @@ ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null admin@127.0.0.1 
 # 远程打开
 # code --remote ssh-remote+root@server.com <your-directory>
 ```
-
 
 ## setting
 

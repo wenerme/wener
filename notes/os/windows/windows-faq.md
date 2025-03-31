@@ -16,12 +16,15 @@ msconfig             # 系统配置
 
 wf.msc       # 高级防火墙
 services.msc # 服务
+
+shutdown /r /t 0 # 重启
+shutdown /s /t 0 # 关机
 ```
 
 - mmc - Microsoft Management Console
 - .msc - Microsoft Common Console
 
-## Windows 11 无账号安装
+## Windows 11 无账号安装 {#bypass-nro}
 
 1. 国家页面 `Shift-F11`
 2. 输入 `oobe\BypassNRO`

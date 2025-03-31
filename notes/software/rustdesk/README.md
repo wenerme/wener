@@ -21,10 +21,20 @@ title: rustdesk
 - [kingmo888/rustdesk-api-server](https://github.com/kingmo888/rustdesk-api-server)
   - Python
   - 基于Django的RustDesk Api&Web Server，除了支持api所有功能，还支持web注册、管理、展示等。
-- [lejianwen/rustdesk-api](https://github.com/lejianwen/rustdesk-api)
-  - MIT, Go
 - [v5star/rustdesk-api](https://github.com/v5star/rustdesk-api)
   - PHP
+- [lejianwen/rustdesk-api](https://github.com/lejianwen/rustdesk-api)
+  - MIT, Go
+  - Api Server, web admin ,web client, web client v2
+- API Server
+  - [xiaoyi510/rustdesk-api-server](https://github.com/xiaoyi510/rustdesk-api-server)
+    - Go 语言实现，可以参考 API
+  - [lantongxue/rustdesk-api-server-pro](https://github.com/lantongxue/rustdesk-api-server-pro)
+    - AGPLv3, TS, Vue, Go
+  - [lantongxue/rustdesk-api-server](https://github.com/lantongxue/rustdesk-api-server)
+    - PHP
+- [danbai225/go-rustdesk-server](https://github.com/danbai225/go-rustdesk-server)
+  - Golang 实现的 Rustdesk Server
 
 ## Client
 
@@ -75,3 +85,12 @@ audio-input = 'MacBook Pro Microphone'
 apk add elogind
 loginctl
 ```
+
+## No Display
+
+- 当前没有显示器
+- Windows 使用 MSI 安装
+  - 使用管理员，允许无用户的情况下运行
+- 其他解决方案
+  - Headless Ghost HDMI 转接头
+  - 虚拟显示驱动

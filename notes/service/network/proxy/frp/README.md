@@ -44,6 +44,14 @@ apk add iproute2-ss
 ss -lntp
 
 curl -s https://api.github.com/repos/fatedier/frp/releases/latest | jq -r .tag_name
+
+frpc stcp --sk SECRET -n my-ssh --local-port 22 -t TOKEN -p wss -s frp.wener.me -P 443 --uc --ue
+```
+
+## frps
+
+```bash
+
 ```
 
 # FAQ
@@ -57,8 +65,6 @@ nat 穿透率低, 目前没有解决方案. 如果需要 p2p 建议选择其他�
 visitor 端出现, 应该是没有配置 server_name
 
 ## websocket.Dial ws://frps:443/~!frp: unexpected EOF
-
-~~不支持 wss~~
 
 - 0.51 支持 wss
 - `protocol=wss`

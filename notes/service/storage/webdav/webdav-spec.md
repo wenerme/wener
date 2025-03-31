@@ -16,6 +16,7 @@ tags:
   - authors, creation dates
   - Live Property
   - Dead Property
+    - 用户定义的属性
 - Collections
 - Locking
 - Namespace
@@ -32,8 +33,8 @@ tags:
 - 423 (Locked)
 - 507 (Insufficient Storage)
 
-| method        | mean       | Headers                     |
-| ------------- | ---------- | --------------------------- |
+| method        | mean       | Request Headers             | notes                     |
+| ------------- | ---------- | --------------------------- | ------------------------- |
 | OPTIONS       | stat       | Allow                       |
 | GET,HEAD,POST | read file  |
 | DELETE        | rm         |
@@ -43,13 +44,11 @@ tags:
 | MOVE          | mv         | Depth,Overwrite,Destination |
 | LOCK          |            | Lock-Token,Timeout,Depth    |
 | UNLOCK        |            | Lock-Token                  |
-| PROPFIND      | ls         | Depth                       |
-| PROPPATCH     |
-
-| method |     |
-| ------ | --- |
-| ACL    |     |
-| REPORT |     |
+| PROPFIND      | ls, readir | Depth                       |
+| PROPPATCH     |            |                             | 修改资源属性,displayname  |
+| **其他**      |            |                             |
+| REPORT        | find       |                             | 高级查询, CalDAV, CardDAV |
+| ACL           |            |
 
 - [RFC3253] DeltaV - 版本控制
   - methods: VERSION-CONTROL, CHECKOUT, CHECKIN, UNCHECKOUT, MKWORKSPACE, UPDATE, LABEL, MERGE, BASELINE-CONTROL, MKACTIVITY
@@ -97,12 +96,20 @@ tags:
 - [RFC5689] Extended MKCOL
   - 扩展 MKCOL 支持自定义资源类型 - 例如 兼容支持 MKCALENDER
 - [RFC5323] SEARCH - 服务端搜索
+  - 2008
 - [RFC5397] Current Principal
-- [RFC5842] BIND - 添加新方法
+- [RFC5842] Binding Extensions
+  - BIND,UNBIND,REBIND
+  - 2010-04
 
 [rfc3253]: https://datatracker.ietf.org/doc/html/rfc3253
 [rfc3648]: https://datatracker.ietf.org/doc/html/rfc3648
-[rfc3744]: https://datatracker.ietf.org/doc/html/rfc3744.html
+[rfc3744]: https://datatracker.ietf.org/doc/html/rfc3744
+[rfc4316]: https://datatracker.ietf.org/doc/html/rfc4316
+[rfc5323]: https://datatracker.ietf.org/doc/html/rfc5323
+[rfc5397]: https://datatracker.ietf.org/doc/html/rfc5397
+[rfc5689]: https://datatracker.ietf.org/doc/html/rfc5689
+[rfc5842]: https://datatracker.ietf.org/doc/html/rfc5842
 
 ```http
 OPTIONS /hello.txt
@@ -119,15 +126,15 @@ Allow: OPTIONS, LOCK, GET, HEAD, POST, DELETE, PROPPATCH, COPY, MOVE, UNLOCK, PR
 ```
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
-  <D:propfind xmlns:D="DAV:">
-    <D:allprop/>
-    <D:propname/>
-    <D:include>
-      <D:supported-live-property-set/>
-      <D:supported-report-set/>
-    </D:include>
-  </D:propfind>
+<?xml version="1.0" encoding="utf-8" ?>
+<D:propfind xmlns:D="DAV:">
+  <D:allprop/>
+  <D:propname/>
+  <D:include>
+    <D:supported-live-property-set/>
+    <D:supported-report-set/>
+  </D:include>
+</D:propfind>
 ```
 
 ```http
@@ -150,7 +157,11 @@ COPY /~fielding/index.html HTTP/1.1
 Host: www.example.com
 Destination: http://www.example.com/users/f/fielding/index.html
 Overwrite: F
+Depth: 1
 ```
+
+- Destination: 目标 URI
+  - 服务端可能会校验 Host 和请求 Host 相匹配，因此代理的时候需要注意替换
 
 ```http
 PROPFIND http://127.0.0.1:3000/webdav/scans/B126/WS/2001/D10/135

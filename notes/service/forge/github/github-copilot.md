@@ -39,6 +39,9 @@ gh copilot explain "sudo apt-get"
 curl https://copilot-proxy.githubusercontent.com/_ping
 ```
 
+- https://github.com/copilot
+- https://proxy.individual.githubcopilot.com/v1/engines/gpt-4o-copilot/completions
+
 ## IDEA Shortcut
 
 |                                              key | for            |
