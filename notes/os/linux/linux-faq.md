@@ -126,6 +126,7 @@ e1000e: probe of 0000:00:1f.6 failed with error -5
   - 最优雅的关机方式
   - 会先 `kill -15 `然后 `kill -9`
   - 现代的 `halt` 和 `reboot` 一般也会调用 shutdown
+  - openrc 有 shutdown level
 
 ## 'RTLD_NEXT' undeclared
 

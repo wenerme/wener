@@ -153,6 +153,10 @@ addgroup $USER kvm
 -device nec-usb-xhci,id=usb,bus=pci.0,addr=0x4
 ```
 
+## Cannot enable HVF when guest CPU has EL3 enabled
+
+- Exception Level 3 (EL3)
+  - 最高的特权级别
 
 ## TBD
 

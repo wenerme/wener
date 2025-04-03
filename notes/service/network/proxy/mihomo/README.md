@@ -83,12 +83,6 @@ mkdir -p /etc/mihomo
   - 提供 domain & ipcidr 列表
   - 体积更小
   - zstd 压缩
-  - 类似的
-    - [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
-    - https://github.com/SagerNet/sing-box/commit/439f181f80fef985cb1d8cc8e71d6d0fd36dbb75
-    - https://sing-box.sagernet.org/configuration/rule-set/adguard/
-    - https://github.com/AdguardTeam/AdGuardSDNSFilter
-    - https://github.com/peiyingyao/Rule-for-OCD
 
 ## ASN
 

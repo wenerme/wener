@@ -25,6 +25,14 @@ tags:
 | Content stores       | 内容存储       |
 | Navigational DBMS    | 导航数据库     |
 
+| db         | lang                                                |
+| ---------- | --------------------------------------------------- |
+| MSSQL      | T-SQL/Transact-SQL                                  |
+| PostgreSQL | PL/pgSQL                                            |
+| Oracle     | PL/SQL                                              |
+| MySQL      | PL/SQL (有限支持) / Stored Procedures (SQL语法扩展) |
+| DB2        | SQL PL                                              |
+
 - [PostgreSQL Awesome](./relational/postgresql/postgresql-awesome.md)
 - NewSQL
   - cockroachdb
@@ -62,7 +70,10 @@ tags:
 
 - [PostgreSQL](./relational/postgresql/postgresql-awesome.md)
 - SQLite
+- MS Access
+  - .accdb, .mdb
 - MySQL
+- Oracle
 - [FirebirdSQL/firebird](https://github.com/FirebirdSQL/firebird)
   - MPL-1.1, C++
   - since 1981

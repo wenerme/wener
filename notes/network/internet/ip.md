@@ -26,6 +26,12 @@ curl 'https://vv.video.qq.com/checktime?otype=json&callback=onCheckTime'
 
 # 使用 DNS 的方式获取
 dig +short myip.opendns.com @resolver1.opendns.com
+
+
+# Service
+curl https://www.cloudflare.com/ips-v4
+curl https://www.cloudflare.com/ips-v6
+curl https://ip-ranges.amazonaws.com/ip-ranges.json
 ```
 
 - 240.0.0.0/4

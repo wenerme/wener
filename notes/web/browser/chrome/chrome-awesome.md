@@ -29,6 +29,30 @@ tags:
     - [chromedp/examples](https://github.com/chromedp/examples)
   - [sensepost/gowitness](https://github.com/sensepost/gowitness)
 
+## Extensions
+
+- 规则代理/代理
+  - [zero-peak/ZeroOmega](https://github.com/zero-peak/ZeroOmega)
+    - SwitchyOmega fork
+    - https://chromewebstore.google.com/detail/proxy-switchyomega-3-zero/pfnededegaaopdmhkdmcofjmoldfiped
+  - ~~[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)~~
+- [Quick source viewer](https://chrome.google.com/webstore/detail/quick-source-viewer/cfmcghennfbpmhemnnfjhkdmnbidpanb/related)
+  更方便查看源码
+- [AndrewWalsh/openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools)
+  - 在浏览时生成 OpenAPI
+- Ads
+  - uBlock Origin / uBO
+    - [gorhill/uBlock](https://github.com/gorhill/uBlock)
+      - GPLv3, JS
+      - 不支持 Manifest v3
+  - uBO Lite (uBOL)
+  - AdBlock
+    - 现在也被 eyeo GmbH 收购
+  - Adblock Plus / ABP
+    - 德国公司 eyeo GmbH
+    - inspired by Adblock for Firefox
+    - 起源更早，最初主要为 Firefox 开发
+
 ## WebDriver
 
 - [W3C WebDriver](https://w3c.github.io/webdriver/webdriver-spec.html)

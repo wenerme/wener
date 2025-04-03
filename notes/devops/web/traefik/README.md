@@ -4,8 +4,9 @@ title: Traefik
 
 # Traefik
 
-- [containous/traefik](https://github.com/containous/traefik)
-  - [traefik.sample.toml](https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
+- [traefik/traefik](https://github.com/traefik/traefik)
+  - MIT, Go
+  - The Cloud Native Application Proxy
 - ISSUES
   - 支持泛域名
   - [#5048](https://github.com/containous/traefik/issues/5048) 支持 UDP
@@ -16,6 +17,8 @@ title: Traefik
   - 如果 EndPoint 是 HTTPS 但是 router 未指定 tls 会无法匹配出现 404 - router 相当于是匹配 HTTP
   - V2 不支持高可用部署 [#5792](https://github.com/containous/traefik/issues/5792)
   - 不支持重写 Host
+- 参考
+  - [traefik.sample.toml](https://raw.githubusercontent.com/containous/traefik/master/traefik.sample.toml)
 
 ```bash
 # 启动

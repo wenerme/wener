@@ -1,8 +1,18 @@
 ---
 title: 树莓派常见问题
 tags:
-- FAQ
+  - FAQ
 ---
+
+# Raspberry Pi 常见问题
+
+## 闪电标志
+
+- 电源不足警告
+
+```bash
+vcgencmd get_throttled
+```
 
 ## 树莓派 4B 键盘不工作
 

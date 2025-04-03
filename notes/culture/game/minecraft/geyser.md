@@ -33,3 +33,9 @@ tags:
 允许飞行的时候，破快方块有延迟/速度慢。
 
 - https://github.com/GeyserMC/Geyser/issues/3084
+
+## has disconnected from the Java server because of Bedrock client timed out
+
+
+- -DGeyser.RakRateLimitingDisabled=true
+  - Rate Limiting

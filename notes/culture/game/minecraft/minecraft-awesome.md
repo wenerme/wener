@@ -51,6 +51,16 @@ tags:
     - https://modrinth.com/app
   - curseforge
     - https://www.curseforge.com/download/app
+- Web
+  - [leaningtech/browsercraft](https://github.com/leaningtech/browsercraft)
+    - 1.2.5 Minecraft run by Cheerpj
+    - Cheerpj 不支持新版本的 Java 和 OpenGL
+    - https://browsercraft.cheerpj.com/
+  - Eaglercraft
+    - 最新 1.12.2
+    - https://git.eaglercraft.rip/eaglercraft
+    - https://servers.eaglercraft.com/
+  - https://classic.minecraft.net/
 - World/Map/Editor
   - LevelDB 存储
   - MCA Selector

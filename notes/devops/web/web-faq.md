@@ -1,5 +1,5 @@
 ---
-title: Proxy FAQ
+title: Web Server FAQ
 tags:
   - FAQ
 ---
@@ -64,6 +64,10 @@ WebServer 也可以是 Proxy
 ## Caddy vs Traefik
 
 - Caddy
+  - vs. Traefik
+    - 插件系统和社区强
+    - 配置 AdminAPI 功能强
+    - CloudNative 支持弱
   - 定位是 Web 服务器
   - 特点是 HTTP2、自动 HTTPS
   - 支持多 acme 服务商
@@ -75,6 +79,9 @@ WebServer 也可以是 Proxy
     - 配置复杂
     - 门槛高
 - Traefik
+  - vs. Caddy
+    - 专注于 CloudNative
+    - 服务发现强
   - 定位是微服务下的负载均衡、边界路由、反向代理
   - 偏向 Cloud Native
   - 对 K8S 支持较好 - 支持作为 Ingress
@@ -96,7 +103,6 @@ WebServer 也可以是 Proxy
   - 更多应用层面的感知 - 7 层
   - 通过模块提供各种功能
   - 收费版 [Nginx Plus](https://www.nginx.com/products/nginx/#compare-versions)
-  - ⚠️ 社区版 upstream 的 host 不会变 - 不会随 dns 变化 - 对于 LB 来说比较致命
 - HAProxy
   - 擅长负载均衡
   - 不支持作为 Web 服务器

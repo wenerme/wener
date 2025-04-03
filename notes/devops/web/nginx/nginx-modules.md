@@ -4,6 +4,35 @@ title: Nginx Modules
 
 # Nginx Modules
 
+| moudle                        | 功能描述            |
+| ----------------------------- | ------------------- |
+| ngx_http_access_module        | 访问控制            |
+| ngx_http_addition_module      | 附加内容            |
+| ngx_http_auth_basic_module    | 基本认证            |
+| ngx_http_autoindex_module     | 目录索引            |
+| ngx_http_core_module          | HTTP 核心模块       |
+| ngx_http_fastcgi_module       | FastCGI 处理        |
+| ngx_http_geo_module           | IP 地址映射         |
+| ngx_http_gunzip_module        | 解压缩              |
+| ngx_http_gzip_module          | Gzip 压缩           |
+| ngx_http_headers_module       | 响应头处理          |
+| ngx_http_image_filter_module   | 图像过滤            |
+| ngx_http_index_module         | 索引文件            |
+| ngx_http_js_module            | JavaScript 脚本支持 |
+| ngx_http_limit_conn_module    | 连接限流            |
+| ngx_http_limit_req_module     | 请求限流            |
+| ngx_http_log_module           | 访问日志            |
+| ngx_http_map_module           | 映射变量            |
+| ngx_http_proxy_module         | HTTP 代理           |
+| ngx_http_rewrite_module       | HTTP 重写           |
+| ngx_http_secure_link_module   | 安全链接            |
+| ngx_http_split_clients_module | AB 测试             |
+| ngx_http_ssl_module           | SSL/TLS 支持        |
+| ngx_http_static_module        | 静态文件处理        |
+| ngx_http_stub_status_module   | 状态监控            |
+| ngx_http_upstream_module      | 上游服务器组        |
+| ngx_stream_module             | TCP/UDP 代理        |
+
 ## ngx_http_core_module - HTTP 核心模块
 
 - [ngx_http_core_module](http://nginx.org/en/docs/http/ngx_http_core_module.html)

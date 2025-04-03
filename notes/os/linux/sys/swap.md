@@ -5,6 +5,8 @@ title: Swap
 # Swap
 
 ```bash
+apk add util-linux-misc # util-linux 提供全功能的 swap 工具
+
 swapon --show   # 查看交换区
 cat /proc/swaps #
 ```

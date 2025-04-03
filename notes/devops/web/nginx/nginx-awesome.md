@@ -8,7 +8,34 @@ tags:
 - [nginx documentation](http://nginx.org/en/docs/)
 - [NGINX 3rd Party Modules](https://www.nginx.com/resources/wiki/modules/)
 - [agile6v/awesome-nginx](https://github.com/agile6v/awesome-nginx)
-- [NginxProxyManager/nginx-proxy-manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
-  - MIT, JS
-  - Docker container for managing Nginx proxy hosts with a simple, powerful interface
+- WebUI
+  - [digitalocean/nginxconfig.io](https://github.com/digitalocean/nginxconfig.io)
+    - MIT, JS, Vue
+    - 配置生成器
+    - https://www.digitalocean.com/community/tools/nginx
+  - [NginxProxyManager/nginx-proxy-manager](https://github.com/NginxProxyManager/nginx-proxy-manager)
+    - MIT, JS
+    - NPM - nginx-proxy-manager
+    - Docker container for managing Nginx proxy hosts with a simple, powerful interface
+  - [0xJacky/nginx-ui](https://github.com/0xJacky/nginx-ui)
+    - AGPLv3, Go, Vue
+    - Demo https://demo.nginxui.com admin/admin
+  - [caprover/caprover](https://github.com/caprover/caprover)
+    - Apache-2.0, TS
+    - Scalable PaaS (automated Docker+nginx) - aka Heroku on Steroids
 - https://nginx.org/en/docs/http/ngx_http_image_filter_module.html
+- [nginx/nginx-gateway-fabric](https://github.com/nginx/nginx-gateway-fabric)
+  - K8S Gateway API
+- [nginx/unit](https://github.com/nginx/unit)
+  - Apache-2.0, C, Java
+  - 应用容器
+  - https://unit.nginx.org/keyfeatures/
+    - Binary-compiled languages in general: using the embedded libunit library.
+    - Go: by overriding the http module.
+    - JavaScript (Node.js): by automatically overloading the http and websocket modules.
+    - Java: by using the Servlet Specification 3.1 and WebSocket APIs.
+    - Perl: by using PSGI.
+    - PHP: by using a custom SAPI module.
+    - Python: by using WSGI or ASGI with WebSocket support.
+    - Ruby: by using the Rack API.
+    - WebAssembly: by using Wasmtime.

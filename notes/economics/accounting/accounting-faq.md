@@ -13,11 +13,14 @@ tags:
   - Expense - 费用
 
 ```
+Debit = Credit
+
 Assets = Liabilities + Owners's Equity
 Equity = Capital + Retained Earnings
 Retained Earnings = Revenue - Expenses - Dividends
 
-资产 = 负债 + 所有者权益
+资产 (Assets) = 负债 (Liabilities) + 所有者权益 (Equity)
+资产 + 费用 (Expenses) = 负债 + 所有者权益 + 收入 (Revenue)
 所有者权益 = 资本 + 留存收益
 留存收益 = 收入 - 费用 - 股利
 ```
@@ -35,15 +38,26 @@ Retained Earnings = Revenue - Expenses - Dividends
 
 ## Credit & Debit
 
-- CR -> Credit - 贷方
+- 有借必有贷，借贷必相等。
+- 每笔经济业务至少要记录在两个不同的账户中。
+- 每个账户都有两方，借方和贷方。
+- 借方不一定代表增加，贷方也不一定代表减少。
+  - 含义取决于账户的类型（如资产、负债、所有者权益、收入、费用）
+- 复式记账基础
+
+---
+
+- CR -> Credit - 贷 - 左边
+  - a sum of money paid into a bank account; a record of the payment
   - 拉丁语 creditum -> "what is due" - 应得的东西
   - credere -> creditum - to believe, trust, entrust - 相信，信任，委托
   - creditum 直接翻译是 “loan”（贷款）或 "something entrusted"（托付之物）
-  - 贷方表示一个账户中某种价值的减少，或者其他账户中价值的增加。
   - 信用是一种信任的表现，是指一方承诺在未来支付或偿还价值的能力和意愿。
-- DR -> Debit - 借方
+  - 资产减少, 负债/所有者权益的增加
+- DR -> Debit - 借 - 右边
+  - a sum of money taken from a bank account
   - 拉丁语 debitum -> "something entrusted to anothor or a loan" - 托付给他人的某物或贷款
-  - 借方表示一个账户中某种价值的增加，或者其他账户中价值的减少。
+  - 资产的增加, 负债/所有者权益的减少
 
 ---
 
@@ -61,6 +75,15 @@ Retained Earnings = Revenue - Expenses - Dividends
 | Liability | -     | +      |
 | Equity    | -     | +      |
 | Revenue   | -     | +      |
+
+- 资产账户 - 增加通常记录在借方，减少记录在贷方
+- 负债账户 - 增加通常记录在贷方，减少记录在借方
+- 每个账户都像一个容器，它有两个不同的侧面用来记录经济业务对该账户的影响：借方和贷方。
+
+## 流水账
+
+- 单式记账法
+- Single-entry bookkeeping
 
 ## fee
 

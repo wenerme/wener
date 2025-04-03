@@ -513,6 +513,11 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - https://github.com/DustinWin/clash-geosite
 - https://github.com/MetaCubeX/meta-rules-dat
 - [felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)
+- [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)
+- https://github.com/SagerNet/sing-box/commit/439f181f80fef985cb1d8cc8e71d6d0fd36dbb75
+- https://sing-box.sagernet.org/configuration/rule-set/adguard/
+- https://github.com/AdguardTeam/AdGuardSDNSFilter
+- https://github.com/peiyingyao/Rule-for-OCD
 
 # Game
 

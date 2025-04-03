@@ -34,6 +34,10 @@ tags:
   - https://minecraft.fandom.com/wiki/Commands/wsserver
   - floodgate 协议是 WS 的
   - geyser 不支持 WS 协议, 只支持 UDP
+- 环境
+  - sessionHost=https://sessionserver.mojang.com
+  - servicesHost=https://api.minecraftservices.com
+  - name=PROD
 
 ```yaml
 services:

@@ -754,3 +754,19 @@ echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6
   - 应用化（Application）：结合实际需求，将模式转化为解决问题的业务价值。
 
 ## 程序员 vs 软件工程师 {#programmer-vs-engineer}
+
+- Programmer - Coding
+- Engineer - Design
+
+## 缩进 {#indent}
+
+- Indent
+  - 缩进 - 代码块的开始和结束
+  - 代码的层级关系
+  - 代码的可读性
+  - 代码的可维护性
+- Space vs Tab
+- Space
+  - 所有人看起来都一样
+- Tab
+  - 能够自定义
