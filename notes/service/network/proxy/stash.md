@@ -9,8 +9,8 @@ title: Stash
 
 :::caution 注意
 
-- 不支持 Reality
-- vless 不支持 xtls-rprx-vision flow
+- ~~不支持 Reality~~
+- ~~vless 不支持 xtls-rprx-vision flow~~
 
 :::
 

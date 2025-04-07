@@ -41,6 +41,7 @@ tags:
   - nameserver-policy
     - 根据策略选择 DNS
   - nameserver
+  - proxy-server-nameserver
   - fallback
     - 通常为海外 DNS
     - 配合 fallback-filter: geoip-code: CN

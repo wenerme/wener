@@ -334,6 +334,18 @@ xattr -d -r com.apple.quarantine ~/Library/QuickLook/AVIFQuickLook.qlgenerator
 - 苹果拒绝使用 GPLv3
 - 10 年后迁移为使用 ZSH - MIT
 
+## GPLv3
+
+- 苹果拒绝使用 GPLv3
+  - GPLv2 和 GPLv3 彼此不兼容
+  - 禁止 Tivoization
+- 影响
+  - Bash v3 -> ZSH
+  - rsync 2.x -> openrsync
+    - macOS 15.4 Sequoia
+  - macOS Catalina 移除 Emacs
+  - 替换/移除 Samba、GCC
+
 ## installd
 
 - PackageKit framework

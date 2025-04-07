@@ -76,3 +76,7 @@ ip ru
 ```bash
 ip ro show tab 2022
 ```
+
+## Schema
+
+- https://github.com/GUI-for-Cores/GUI.for.SingBox/blob/main/frontend/src/types/profile.d.ts

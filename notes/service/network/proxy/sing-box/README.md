@@ -14,10 +14,7 @@ title: sing-box
 
 :::caution
 
-- Sing Box
-  - 社区不友好
-  - 文档差
-- ICMP 会被拦截且无法绕过，导致所有 ping 都 < 1ms
+- TUN ICMP 会被拦截且无法绕过，导致所有 ping 都 < 1ms
   - [google/gvisor#8657](https://github.com/google/gvisor/issues/8657)
 - prefer_ipv4 不一定能保证 IPv4 优先
   - [#932](https://github.com/SagerNet/sing-box/issues/932#issuecomment-1738723839)
@@ -45,8 +42,7 @@ kill -HUP $(pgrep sing-box) # reload
 
 # https://github.com/SagerNet/sing-box/releases
 # https://sing-box.sagernet.org/changelog/
-VERSION=1.10.7
-#VERSION=1.10.0-beta.3
+VERSION=1.11.6
 curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${VERSION}/sing-box-${VERSION}-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/').tar.gz
 # gtar -zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'
 tar zxvf sing-box.tar.gz --strip-components=1 --wildcards '*/sing-box'

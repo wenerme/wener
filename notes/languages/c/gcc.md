@@ -1,5 +1,6 @@
 ---
-title: gcc
+tags:
+  - Compiler
 ---
 
 # gcc

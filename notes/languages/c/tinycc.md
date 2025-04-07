@@ -1,7 +1,8 @@
 ---
 title: TinyCC
+tags:
+  - Compiler
 ---
-
 
 # tinycc
 

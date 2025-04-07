@@ -378,12 +378,6 @@ curl -v --http2-prior-knowledge http://localhost:8000
   - library for building custom HTTP/S proxies
 - [antoniomika/sish](https://github.com/antoniomika/sish)
   - HTTP(S)/WS(S)/TCP Tunnels to localhost using only SSH.
-- [xtaci/smux](https://github.com/xtaci/smux)
-  - TCP, KCP
-  - Simple MUltipleXing
-- [hashicorp/yamux](https://github.com/hashicorp/yamux)
-  - MPLv2, Go
-  - connection multiplexing
 - [jamescun/switcher](https://github.com/jamescun/switcher) - ssh http same port
 - [inetaf/tcpproxy](https://github.com/inetaf/tcpproxy)
   - TCP over HTTP
@@ -395,6 +389,25 @@ curl -v --http2-prior-knowledge http://localhost:8000
 - [pojntfx/weron](https://github.com/pojntfx/weron)
   - AGPLv3, Golang
   - Overlay networks based on WebRTC
+- mux
+  - [SagerNet/sing-mux](https://github.com/SagerNet/sing-mux)
+  - [xtaci/smux](https://github.com/xtaci/smux)
+    - TCP, KCP
+    - Simple MUltipleXing
+    - 高丢包、高延迟的网络环境下提升性能
+  - [hashicorp/yamux](https://github.com/hashicorp/yamux)
+    - MPLv2, Go
+    - connection multiplexing
+  - [golang.org/x/net/http2](https://golang.org/x/net/http2)
+- transport
+  - ws
+  - http
+  - grpc - 支持 mux, 不再需要 smux
+  - h2
+  - quic
+  - HTTPUpgrade
+  - 参考
+    - https://sing-box.sagernet.org/configuration/shared/v2ray-transport/
 
 ## 其他语言
 

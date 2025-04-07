@@ -5,6 +5,12 @@ tags:
 
 # SSH FAQ
 
+## SOCKS Proxy
+
+```bash
+ssh -ND 1080 user@host
+```
+
 ## tunning only user
 
 **配置限制**

@@ -5,16 +5,16 @@ tags:
 
 # Minecraft Glossary
 
-| abbr. | stand for               |
-| ----- | ----------------------- |
-| MC    | Minecraft               |
-| RCON  | Remote Console Protocol |
-| TPS   | Ticks Per Second        |
+| abbr. | stand for               | mean           |
+| ----- | ----------------------- | -------------- |
+| MC    | Minecraft               | 我的世界       |
+| RCON  | Remote Console Protocol | 远程控制台协议 |
+| TPS   | Ticks Per Second        | 每秒刻数       |
 | MSPT  | Minecraft Server Tick   |
 | PVP   | Player vs Player        |
 | RTP   | Random Teleport         |
 | SMP   | Survival Multiplayer    |
-| NBT   | Named Binary Tag        |
+| NBT   |
 
 | en           | cn       |
 | ------------ | -------- |
@@ -48,13 +48,10 @@ tags:
   - 一个阶段 8 天
   - 一天为 **现实** 20 分钟
 - 区块内,每游戏刻（1/20 秒）随机选择 3 个方块进行“随机刻”更新
-- 水流，平坦表面 7 格，加上自身一共8格
 - 冰块（Ice）、浮冰（Packed Ice）和蓝冰（Blue Ice）最主要的作用是大幅减少摩擦力，让实体（包括玩家、生物和掉落物）在上面滑动得更快、更远。
 - 普通冰块 （Ice）会在阳光直射下融化，变成水源方块（Water Source Block），而浮冰（Packed Ice）和蓝冰（Blue Ice）则不会融化。
 - 物品栏（Inventory）是玩家存放物品的地方。每个玩家有 36 个物品栏格子，另外还有 4 个热键栏格子和 1 个盔甲栏格子。
-- 一个甘蔗方块大约需要 18 分钟 左右的时间才能长高一格。
 - 碰撞箱 collision box
-
 
 ## Mobs
 
@@ -109,37 +106,39 @@ tags:
 
 **Overworld**
 
-| en            | cn           | Y Coordinate               | desc                                                                                     |
-| :------------ | :----------- | :------------------------- | :--------------------------------------------------------------------------------------- |
-| Biomes        | 生物群系     | N/A (全高度范围)           | 具有独特气候、方块、植被和生物的不同地理区域。                                           |
-| Spawn Point   | 出生点       | Surface (最高方块)         | 玩家首次加入世界时最初出现的精确位置。                                                   |
-| Slime Chunk   | 史莱姆区块   | < Y=40                     | 特定的 16x16 区块，史莱姆可在此生成，不受亮度影响。                                      |
-| Village       | 村庄         | Surface (随地形)           | 由村民居住的自然生成定居点，包含各种结构和工作站点方块。                                 |
-| Ancient City  | 远古城市     | ~ Y=-51 (通常 < Y=0)       | 在深暗之域生物群系深处发现的大型结构群，由监守者守卫 (1.19+)。                           |
-| Dungeon       | 地牢         | Underground (较广泛)       | 包含一个刷怪笼（僵尸、骷髅或蜘蛛）和箱子的小型地下房间。                                 |
-| Stronghold    | 要塞         | Underground (通常<Y=0)     | 包含末地传送门框架、图书馆和各种房间的地下堡垒。                                         |
-| Mansion       | 林地府邸     | Surface (随地形)           | 通常生成在黑森林中的大型稀有结构，内有灾厄村民。                                         |
-| Monument      | 海底神殿     | Underwater (~Y=30-60)      | 由海晶石构成的大型水下神殿，由守卫者和远古守卫者守护。                                   |
-| Outpost       | 掠夺者前哨站 | Surface (随地形)           | 由掠夺者居住的塔楼及周边结构，通常生成在村庄附近。                                       |
-| Mineshaft     | 废弃矿井     | Underground (广泛)         | 包含铁轨、运输矿车箱子和洞穴蜘蛛刷怪笼的广泛地下隧道系统。                               |
-| Ruined Portal | 废弃传送门   | Surface / Underground      | 在主世界和下界自然生成的、不完整的下界传送门结构。                                       |
-| Jungle Temple | 丛林神庙     | Surface (随地形)           | 在丛林生物群系中发现的结构，包含谜题、陷阱和战利品箱。                                   |
-| Desert Temple | 沙漠神殿     | Surface (随地形)           | 在沙漠中发现的金字塔状结构，包含隐藏的 TNT 陷阱房间和战利品箱。                          |
-| Witch Hut     | 女巫小屋     | Surface (~Y=64-70)         | 在沼泽生物群系中发现的小屋，女巫可在此生成。                                             |
-| Treasure      | 埋藏的宝藏   | Buried (~Y=55-62)          | 埋藏在地下或水下的箱子，通常通过沉船或海底废墟中的藏宝图找到。                           |
-| Shipwreck     | 沉船         | Surface / Underwater       | 在海滩或水下发现的失事船只结构，包含战利品箱和可能的藏宝图。                             |
-| Igloo         | 雪屋         | Surface (随地形)           | 在寒冷生物群系中发现的小型雪结构，部分拥有含酿造设备和村民的隐藏地下室。                 |
-| Ocean Ruins   | 海底废墟     | Underwater (~Y=30-60)      | 各种大小的水下结构，通常由石砖或砂岩构成，常有溺尸出没。                                 |
-| Fossil        | 化石         | Underground (大多Y=0至-64) | 由骨块组成的地下结构，有时包含煤矿石或钻石矿石。                                         |
-| Cave          | 洞穴         | Underground (< Surface)    | 自然的地下空腔和隧道系统，包括繁茂洞穴、绒球洞穴等特定类型。                             |
-| Ravine        | 峡谷         | Surface to Underground     | 地形中巨大、深邃的裂缝，常常暴露洞穴和矿脉。                                             |
-| Lava Pool     | 岩浆池       | Surface / Underground      | 在地表或地下自然出现的开放岩浆区域。（地下多见于 Y<10）                                  |
-| Geode         | 紫水晶洞     | Underground (~Y=-64-30)    | 地下发现的空心球状结构，内壁由方解石和紫水晶簇构成。                                     |
-| Apple         | (金)苹果     | 取决于容器结构             | 代表特定结构（如地牢、要塞等）中的战利品箱，这些箱子**有几率**生成金苹果（普通或附魔）。 |
-| Ore Veins     | 矿脉         | Underground (通常<Y=0)     | 地下大型、细长条状的矿物富集区域（铜或铁），伴生有相关岩石类型 (1.18+)。                 |
-| Desert Well   | 沙漠水井     | Surface (随地形)           | 在沙漠中偶尔发现的小型、主要起装饰作用的水井结构。                                       |
-| Trail Ruins   | 古迹废墟     | Buried (近地表)            | 埋藏的结构，包含用于考古的可疑的沙子/沙砾 (1.20+)。                                      |
-| Trial Chamber | 试炼密室     | Underground (~Y=-40-0)     | 具有试炼刷怪笼、陷阱和独特战利品的地下结构 (1.21+)。                                     |
+| en              | cn           | Y Coordinate                                                 | desc                                                                                     |
+| :-------------- | :----------- | :----------------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+| Biomes          | 生物群系     | N/A (全高度范围)                                             | 具有独特气候、方块、植被和生物的不同地理区域。                                           |
+| Spawn Point     | 出生点       | Surface (最高方块)                                           | 玩家首次加入世界时最初出现的精确位置。                                                   |
+| Slime Chunk     | 史莱姆区块   | < Y=40                                                       | 特定的 16x16 区块，史莱姆可在此生成，不受亮度影响。                                      |
+| Village         | 村庄         | Surface (随地形)                                             | 由村民居住的自然生成定居点，包含各种结构和工作站点方块。                                 |
+| Ancient City    | 远古城市     | ~ Y=-51 (通常 < Y=0)                                         | 在深暗之域生物群系深处发现的大型结构群，由监守者守卫 (1.19+)。                           |
+| Dungeon         | 地牢         | Underground (较广泛)                                         | 包含一个刷怪笼（僵尸、骷髅或蜘蛛）和箱子的小型地下房间。                                 |
+| Stronghold      | 要塞         | Underground (通常<Y=0)                                       | 包含末地传送门框架、图书馆和各种房间的地下堡垒。                                         |
+| Mansion         | 林地府邸     | Surface (随地形)                                             | 通常生成在黑森林中的大型稀有结构，内有灾厄村民。                                         |
+| Monument        | 海底神殿     | Underwater (~Y=30-60)                                        | 由海晶石构成的大型水下神殿，由守卫者和远古守卫者守护。                                   |
+| Outpost         | 掠夺者前哨站 | Surface (随地形)                                             | 由掠夺者居住的塔楼及周边结构，通常生成在村庄附近。                                       |
+| Mineshaft       | 废弃矿井     | Underground (广泛)                                           | 包含铁轨、运输矿车箱子和洞穴蜘蛛刷怪笼的广泛地下隧道系统。                               |
+| Ruined Portal   | 废弃传送门   | Surface / Underground                                        | 在主世界和下界自然生成的、不完整的下界传送门结构。                                       |
+| Jungle Temple   | 丛林神庙     | Surface (随地形)                                             | 在丛林生物群系中发现的结构，包含谜题、陷阱和战利品箱。                                   |
+| Desert Temple   | 沙漠神殿     | Surface (随地形)                                             | 在沙漠中发现的金字塔状结构，包含隐藏的 TNT 陷阱房间和战利品箱。                          |
+| Witch Hut       | 女巫小屋     | Surface (~Y=64-70)                                           | 在沼泽生物群系中发现的小屋，女巫可在此生成。                                             |
+| Treasure        | 埋藏的宝藏   | Buried (~Y=55-62)                                            | 埋藏在地下或水下的箱子，通常通过沉船或海底废墟中的藏宝图找到。                           |
+| Shipwreck       | 沉船         | Surface / Underwater                                         | 在海滩或水下发现的失事船只结构，包含战利品箱和可能的藏宝图。                             |
+| Igloo           | 雪屋         | Surface (随地形)                                             | 在寒冷生物群系中发现的小型雪结构，部分拥有含酿造设备和村民的隐藏地下室。                 |
+| Ocean Ruins     | 海底废墟     | Underwater (~Y=30-60)                                        | 各种大小的水下结构，通常由石砖或砂岩构成，常有溺尸出没。                                 |
+| Fossil          | 化石         | Underground (大多Y=0至-64)                                   | 由骨块组成的地下结构，有时包含煤矿石或钻石矿石。                                         |
+| Cave            | 洞穴         | Underground (< Surface)                                      | 自然的地下空腔和隧道系统，包括繁茂洞穴、绒球洞穴等特定类型。                             |
+| Ravine          | 峡谷         | Surface to Underground                                       | 地形中巨大、深邃的裂缝，常常暴露洞穴和矿脉。                                             |
+| Lava Pool       | 岩浆池       | Surface / Underground                                        | 在地表或地下自然出现的开放岩浆区域。（地下多见于 Y<10）                                  |
+| Geode           | 紫水晶洞     | Underground (~Y=-64-30)                                      | 地下发现的空心球状结构，内壁由方解石和紫水晶簇构成。                                     |
+| Apple           | (金)苹果     | 取决于容器结构                                               | 代表特定结构（如地牢、要塞等）中的战利品箱，这些箱子**有几率**生成金苹果（普通或附魔）。 |
+| Ore Veins       | 矿脉         | Underground (通常<Y=0)                                       | 地下大型、细长条状的矿物富集区域（铜或铁），伴生有相关岩石类型 (1.18+)。                 |
+| Desert Well     | 沙漠水井     | Surface (随地形)                                             | 在沙漠中偶尔发现的小型、主要起装饰作用的水井结构。                                       |
+| Trail Ruins     | 古迹废墟     | Buried (近地表)                                              | 埋藏的结构，包含用于考古的可疑的沙子/沙砾 (1.20+)。                                      |
+| Trial Chamber   | 试炼密室     | Underground (~Y=-40-0)                                       | 具有试炼刷怪笼、陷阱和独特战利品的地下结构 (1.21+)。                                     |
+| Cheese Cave     | 奶酪洞穴     | 巨大的开放空间, 多孔结构和石柱, 复杂的连通性, 丰富的矿石暴露 |
+| Spaghetti Caves | 意大利面洞穴 | 狭窄的通道, 复杂的分支和交叉, 通常有水流或熔岩流动           |
 
 **The Nether**
 
@@ -157,6 +156,36 @@ tags:
 | End Gateway Portal | 末地折跃门 | ~ Y=75 (Center) / Surface (Outer) | 击败末影龙后生成的小型传送门，或在外岛生成用于返回。可将玩家传送至末地外岛或中心岛。           |
 
 - https://www.chunkbase.com/apps/seed-map
+
+## Map Gen
+
+- 程序化生成 (Procedural Generation) 过程
+- 伪随机数生成器 (Pseudo-Random Number Generators, PRNGs)
+  - Seed `/seed`
+- 噪声函数 (Noise Functions)
+  - 柏林噪声 (Perlin Noise)
+  - 单纯形噪声 (Simplex Noise)
+- 分层生成 (Layered Generation)
+  - 基础地形层: 确定大陆、海洋、山脉、平原的大致高度和形状。
+  - 生物群系层: 根据气候参数（温度、湿度等）确定每个区域属于哪个生物群系。
+  - 细节层: 添加地表方块（草、沙、雪）、洞穴、水体（湖泊、河流、含水层）、矿石。
+  - 结构层: 放置村庄、神殿、废弃矿井、要塞等结构。
+  - 特征层: 添加树木、花草、巨型蘑菇、冰刺等生物群系特定的小型特征。
+- 1.18+
+  - 引入 3D 噪声系统
+    - 世界高度扩展至 Y=-64 到 Y=320
+    - 含水层 (Aquifers)
+    - 地表生成 (Surface Generation)
+    - 洞穴与峡谷 (Caves & Ravines) - 噪声洞穴 (Noise Caves)、传统洞穴/面条洞穴 (Spaghetti Caves)、峡谷 (Ravines)
+    - 矿石生成 (Ore Generation) - 矿脉 (Ore Veins) 或团簇 (Blobs)
+  - 引入多重噪声生物群系源 (Multi Noise Biome Source)
+    - 气候参数 - 温度、湿度/降水、大陆性 、侵蚀度、怪异度、深度/偏移
+    - 3D 生物群系
+    - 生物群系放置 (Biome Placement)
+    - 生物群系边界平滑 (Biome Blending)
+- [Cubitect/cubiomes](https://github.com/Cubitect/cubiomes)
+  - MIT, C
+  - C library that mimics the Minecraft biome generation.
 
 ## 生物群系 {#biomes}
 

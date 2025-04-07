@@ -95,9 +95,15 @@ title: ifupdown-ng
 
 ## executor
 
+## WiFi
+
 - wifi - AlpineLinux 3.15+
   - wifi-ssid
   - wifi-psk
+- 使用
+  - wpa_supplicant
+  - iwconfig
+- 需要安装 [wireless-tools](https://pkgs.alpinelinux.org/contents?name=wireless-tools&arch=x86_64) 包
 
 ```interfaces
 # 账号密码模式
@@ -110,3 +116,13 @@ iface wifi-work
 	use dhcp
 	wifi-config-path /etc/network/wpa-work.conf
 ```
+
+```bash
+# Virtual
+ifup wlan0=wifi-home
+ifdown wlan0
+ifup wlan0=wifi-work
+```
+
+- wifi-config-path
+  - 默认临时配置文件 `/run/wpa_supplicant.<interface>.conf`

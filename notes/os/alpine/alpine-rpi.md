@@ -17,6 +17,11 @@ tags:
   - https://mirrors.aliyun.com/alpine/latest-stable/releases/aarch64/
 - dd img 到 sd/tf 卡, 插入树莓派即可启动
 
+```bash
+# for vcgencmd
+apk add raspberrypi-utils-vcgencmd
+```
+
 ## Emulator
 
 ```bash

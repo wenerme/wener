@@ -10,6 +10,11 @@ Web
 https://www.game-game.com.ua/
 -->
 
+- Voxel Game
+  - [Minecraft](./minecraft/README.md)
+  - [Luanti](./luanti.md)
+  - https://bloxd.io/
+
 ## NES
 
 - [mmatyas/pegasus-frontend](https://github.com/mmatyas/pegasus-frontend)

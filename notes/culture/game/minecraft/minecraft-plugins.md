@@ -80,12 +80,18 @@ pingall
 tabtps reload
 ```
 
-**Vane**
+## Vane
 
+- 依赖下载自定义资源包
+  - https://github.com/oddlama/vane/issues/288
+- 不支持 BedRock
+  - https://github.com/oddlama/vane/issues/238
 - https://oddlama.github.io/vane/
 - https://github.com/oddlama/vane
 
 ## simple-voice-chat
+
+> 不支持 bedrock, 依赖客户端 mod
 
 - [henkelmax/simple-voice-chat](https://github.com/henkelmax/simple-voice-chat)
 - UDP/24454
@@ -143,6 +149,58 @@ example_task:
 ## CoreProtect
 
 - [PlayPro/CoreProtect](https://github.com/PlayPro/CoreProtect)
+- https://docs.coreprotect.net/commands/
+
+| 参数         | 示例      | 描述                                 |
+| ------------ | --------- | ------------------------------------ |
+| `u:`,`user:` | `u:wener` | 指定用户名过滤                       |
+| `t:`,`time:` | `t:1h`    | 指定时间段（如1h=1小时, 2d=2天）     |
+| `r:`         | `r:20`    | 指定半径范围（方块数）               |
+| `a:`         | `a:block` | 指定动作类型（如block,chat,command） |
+| `i:`         | `i:stone` | 指定物品或方块类型                   |
+| `e:`         | `e:wener` | 排除特定条件                         |
+
+- user
+  - #fire, #tnt, #creeper, #explosion
+- time
+  - `t:2w,5d,7h,2m,10s`
+  - `t:5d2h`
+  - `t:1h-2h`
+  - `t:2.50h`
+- radius
+  - #global - 整个服务器
+  - #world_the_end
+  - #worldedit, #we - WorldEdit 选择的内容
+- `#<hashtag>`
+  - `#preview` - 预览 rollback/restore
+  - `#count` - 返回 lookup 的 block 数量
+  - `#verbose`, `#silent` - 控制 rollback/restore 消息显示
+
+| action         | for                                                                                       | alias                                                                                                                                            |
+| :------------- | :---------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `a:block`      | 查询方块的放置与破坏记录。= `a:+block` + `a:-block`                                       | `block`, `blocks`, `block-change`, `change`, `changes`                                                                                           |
+| `a:+block`     | 查询方块的放置记录。                                                                      | `+block`, `+blocks`, `block+`, `placed`, `place`, `block-place`                                                                                  |
+| `a:-block`     | 查询方块的破坏记录。                                                                      | `-block`, `-blocks`, `block-`, `broke`, `break`, `remove`, `destroy`, `block-break`, `block-remove`                                              |
+| `a:click`      | 查询玩家的交互行为记录。(例如：按钮、拉杆、门、非容器方块的右键点击等)                    | `click`, `clicks`, `interact`, `interaction`, `player-interact`, `player-interaction`, `player-click`                                            |
+| `a:kill`       | 查询生物/动物/实体被杀死的记录。                                                          | `kill`, `kills`, `death`, `deaths`, `entity-death`, `entity-deaths`, `entity-kill`, `entity-kills`                                               |
+| `a:container`  | 查询容器中物品的存入与取出记录。= `a:+container` + `a:-container`                         | `container`, `container-change`, `containers`, `chest`, `transaction`, `transactions`                                                            |
+| `a:+container` | 查询物品存入容器的记录。                                                                  | `+container`, `container+`, `container-add`, `add-container`                                                                                     |
+| `a:-container` | 查询从容器中取出物品的记录。                                                              | `-container`, `container-`, `remove-container`                                                                                                   |
+| `a:chat`       | 查询聊天框中发送的消息记录。                                                              | `chat`, `chats`                                                                                                                                  |
+| `a:command`    | 查询玩家使用命令的记录。                                                                  | `command`, `commands`                                                                                                                            |
+| `a:session`    | 查询玩家的登录与登出记录。= `a:+session` + `a:-session`                                   | `session`, `sessions`, `connection`, `connections`                                                                                               |
+| `a:+session`   | 查询玩家的登录记录。                                                                      | `+session`, `+sessions`, `session+`, `logins`, `login`, `+connection`, `connection+`                                                             |
+| `a:-session`   | 查询玩家的登出记录。                                                                      | `-session`, `sessions-`, `session-`, `logout`, `logouts`, `-connection`, `connection-`                                                           |
+| `a:sign`       | 查询在告示牌上书写信息的记录。                                                            | `sign`, `signs`                                                                                                                                  |
+| `a:username`   | 查询玩家更改用户名的记录。                                                                | `username`, `usernames`, `user`, `users`, `name`, `names`, `uuid`, `uuids`, `username-change`, `username-changes`, `name-change`, `name-changes` |
+| `a:inventory`  | 复合查询：查询与玩家背包交互相关的容器操作和物品拾取/丢弃记录。= `a:container` + `a:item` | `inv`, `inventory`, `inventories`                                                                                                                |
+| `a:+inventory` | 复合查询：查询物品进入玩家背包的记录。= `a:-container` (取出) + `a:+item` (拾取)          | `+inv`, `inv+`, `+inventory`, `inventory+`, `+inventories` (源码逻辑对应内部类型 4 和 11 以及标志 0，即 Container 取出 和 Item 拾取)             |
+| `a:-inventory` | 复合查询：查询物品离开玩家背包的记录。= `a:+container` (存入) + `a:-item` (丢弃)          | `-inv`, `inv-`, `-inventory`, `inventory-`, `-inventories` (源码逻辑对应内部类型 4 和 11 以及标志 1，即 Container 存入 和 Item 丢弃)             |
+| `a:item`       | 查询玩家丢弃、投掷、拾取、存入或取出掉落物形态物品的记录。= `a:+item` + `a:-item`         | `item`, `items`                                                                                                                                  |
+| `a:+item`      | 查询玩家拾取或（通过容器等机制）获得掉落物形态物品的记录。                                | `+item`, `item+`, `+items`, `items+`, `pickup`, `pickups`, `withdraw`, `withdraws`, `withdrew`                                                   |
+| `a:-item`      | 查询玩家丢弃、投掷或（通过容器等机制）存入掉落物形态物品的记录。                          | `-item`, `item-`, `-items`, `items-`, `drop`, `drops`, `deposit`, `deposits`, `deposited`                                                        |
+
+- https://github.com/PlayPro/CoreProtect/blob/master/src/main/java/net/coreprotect/command/parser/ActionParser.java
 
 ```bash
 mvn clean package
@@ -154,13 +212,52 @@ mvn clean package
 
 # 预览
 /co rollback r:20 t:1m #preview
-# 确认
-/co apply
 
 # 撤销回滚
 # 也支持控制范围 r:10 t:2m
 /co restore
+
+# 类似于 lookup r:5
+/co near
+# 撤销上一个 rollback/restore
+/co undo
+
+# 清理 2周 前的数据
+/co purge t:2w
+
+# 达到恢复死亡物品掉落目的
+/co lookup user:wenerme action:-inventory radius:5 time:15m
 ```
+
+### 数据库
+
+- https://github.com/PlayPro/CoreProtect/blob/master/src/main/java/net/coreprotect/database/Database.java
+- https://github.com/PlayPro/CoreProtect/tree/master/src/main/java/net/coreprotect/patch/script
+
+```bash
+sqlite3 plugins/CoreProtect/database.db
+```
+
+| table              | for                                                          |
+| :----------------- | :----------------------------------------------------------- |
+| `co_art_map`       | 映射内部 ID 到画或物品展示框的类型。                         |
+| `co_block`         | 存储方块放置和破坏的记录。                                   |
+| `co_blockdata_map` | 映射内部 ID 到方块的附加数据（如告示牌文本、容器内容等）。   |
+| `co_chat`          | 存储玩家聊天信息的记录。                                     |
+| `co_command`       | 存储玩家执行命令的记录。                                     |
+| `co_container`     | 存储容器（箱子、熔炉等）中物品存取的记录。                   |
+| `co_database_lock` | 用于数据库操作的锁定机制，防止冲突。                         |
+| `co_entity`        | 存储实体（生物、动物）被杀死的记录。                         |
+| `co_entity_map`    | 映射内部 ID 到实体类型（如 `minecraft:zombie`）。            |
+| `co_item`          | 存储物品被丢弃或拾取的记录。                                 |
+| `co_material_map`  | 映射内部 ID 到方块/物品的材质名称（如 `minecraft:stone`）。  |
+| `co_session`       | 存储玩家登录和登出时间的记录。                               |
+| `co_sign`          | 存储写入告示牌的文本记录（可能与 `co_blockdata_map` 关联）。 |
+| `co_skull`         | 存储玩家头颅（Skull）相关的数据，如所有者信息。              |
+| `co_user`          | 存储用户信息，主要是玩家 UUID 到内部用户 ID 的映射。         |
+| `co_username_log`  | 存储玩家曾用名和改名时间的记录。                             |
+| `co_version`       | 存储 CoreProtect 数据库结构的版本信息。                      |
+| `co_world`         | 映射内部 ID 到世界名称。                                     |
 
 - https://gist.github.com/iamnotpayingforyourpatreon/20371ddfb318c49dda48fc537032d923
 

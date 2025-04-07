@@ -16,6 +16,14 @@ tags:
   - https://modrinth.com/
   - https://resourcepack.net/
 - Server
+  - [PaperMC](./paper.md)
+    - GPLv3, MIT, Java
+    - fork Spigot -> Bukkit & CraftBukkit
+  - [PurpurMC/Purpur](https://github.com/PurpurMC/Purpur)
+    - MIT, Java
+    - fork PaperMC
+    - PurpurExtras
+    - PurpurPacks
   - https://docker-minecraft-server.readthedocs.io/en/latest/
   - [itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server)
   - [itzg/docker-minecraft-bedrock-server](https://github.com/itzg/docker-minecraft-bedrock-server)
@@ -71,6 +79,16 @@ tags:
     - `python -m pip install amulet-map-editor --upgrade`
     - `python -m amulet_map_editor `
   - ~~MCEdit~~
+- Seed Map / Biomes
+  - https://www.chunkbase.com/apps/seed-map
+  - [toolbox4minecraft/amidst](https://github.com/toolbox4minecraft/amidst)
+    - GPLv3, Java
+  - [TrinTragula/seeder](https://github.com/TrinTragula/seeder)
+    - MIT, JS
+    - https://www.mcseeder.com/
+  - [Cubitect/cubiomes](https://github.com/Cubitect/cubiomes)
+    - MIT, C
+    - C library that mimics the Minecraft biome generation.
 - Wiki
   - https://minecraftitemids.com/
     - 物品
@@ -84,6 +102,7 @@ tags:
     - protocol library for Minecraft Bedrock Edition
 - Community
   - https://minecraft.wiki/
+  - https://minecraft.fandom.com/
 
 ## Resource Pack
 

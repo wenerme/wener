@@ -15,11 +15,14 @@ title: xray
     - https://github.com/XTLS/Go/issues/9#issuecomment-1094515399
 - 参考
   - https://github.com/XTLS/Xray-core/issues/1896
-- flow
+- flow - 流控制（Flow Control）模式 - 用来配合 TLS 类的传输
   - xtls-rprx-vision
   - xtls-rprx-origin
   - xtls-rprx-direct
   - xtls-rprx-splice
+  - 非 TCP 不需要 - 传输层如果使用 grpc, ws, h2 不需要设置 flow
+  - 解决 TCP + TLS/REALITY 场景下的双重 TLS 加解密性能开销问题
+  - 依赖于直接处理底层的 TLS 记录
 
 :::tip
 

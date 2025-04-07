@@ -233,6 +233,18 @@ supervise-daemon "${RC_SVCNAME}" --start \
 - https://manpages.debian.org/testing/openrc/supervise-daemon.8.en.html
 - https://github.com/OpenRC/openrc/blob/3d30b6fddaf92c612deea88d2ced7114ed1fcf9c/sh/supervise-daemon.sh#L27-L48
 
+## settings
+
+| var                                 | for |
+| ----------------------------------- | --- |
+| supervisor=supervise-daemon         |
+| command_args_foreground="arguments" |
+| healthcheck_delay=seconds           |
+| healthcheck_timer=seconds           |
+| respawn_delay                       |
+| respawn_max=x                       |
+| respawn_period=seconds              |
+
 # FAQ
 
 ## failed to add service `sysfs` to `runlevel` boot': No such file or directory

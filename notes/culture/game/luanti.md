@@ -5,6 +5,7 @@ title: Luanti
 # Luanti
 
 - [luanti-org/luanti](https://github.com/luanti-org/luanti)
+  - LGPLv2.1, C++, Lua
   - minetest -> Luanti
   - 由于 (L)GPL License 原因，没有 iOS/iPad 版本
     - https://github.com/minetest/minetest/issues/12176

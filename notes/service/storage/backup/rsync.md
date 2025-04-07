@@ -10,7 +10,16 @@ title: rsync
 
 :::
 
+- rsync
+  - 3.x GPLv2 -> GPLv3
+  - macOS 带的还是 rsync 2.x - GPLv2
+- librsync
+  - GNU LGPL v2.1
+- [kristapsdz/openrsync](https://github.com/kristapsdz/openrsync)
+  - ISC, C
+  - 兼容协议版本 27, rsync 3.1.3
 - 参考
+  - [openrsync](https://man.openbsd.org/openrsync)
   - [rsync.1](https://man7.org/linux/man-pages/man1/rsync.1.html)
   - https://www.cheatography.com/richardjh/cheat-sheets/rsync/
   - https://wiki.archlinux.org/index.php/rsync
