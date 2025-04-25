@@ -24,6 +24,7 @@ title: ajv
 
 :::caution
 
+- 不能扩展 type
 - additionalProperties 不能默认为 false
   - [ajv-validator/ajv#634](https://github.com/ajv-validator/ajv/issues/634)
 

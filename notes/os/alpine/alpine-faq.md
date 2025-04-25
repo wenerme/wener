@@ -399,3 +399,17 @@ stat /bin/ping    # 4755 - with suid
 
 - https://github.com/iputils/iputils
 - https://gitlab.alpinelinux.org/alpine/aports/-/tree/master/main/iputils
+
+## mdev: unknown user/group 'root:uucp' on line 54
+
+```bash
+getent group uucp
+id uucp
+# ttyS[0-9]*	root:uucp 0660
+cat /etc/mdev.conf | grep uucp
+
+# 如果没修改过 mdef.conf, 直接使用新版本覆盖
+mv /etc/mdev.conf{.apk-new,}
+# 重新制作 initramfs
+mkinitfs
+```

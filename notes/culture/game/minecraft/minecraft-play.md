@@ -70,6 +70,50 @@ tags:
     - Y=8 到 Y=119
     - 主要在 Y=15
     - **不会暴露在空气中**
+- 主世界
+  - The End 传送门通常在 要塞 (Stronghold)
+  - 末影之眼 (Ender Eye) 会指向要塞
+    - 末影珍珠 (Ender Pearl) + 烈焰粉 (Blaze Powder)
+  - 使用 末影之眼 (Ender Eye) 可以打开要塞的传送门
+- 下界/地狱 (The Nether)
+  - Y=31 是默认的岩浆海平面
+  - 特殊地形能延伸到更低位置
+    - 固体下界岩 (Netherrack)
+    - 灵魂沙峡谷 (Soul Sand Valley)
+    - 绯红/诡异森林 (Crimson/Warped Forest)
+    - 玄武岩三角洲 (Basalt Deltas)
+- 酿造台
+  - 烈焰粉 + 水瓶 + 下界疣/地狱疣 -> 粗制的药水
+  - 粗制的药水 (Awkward Potion) +
+    - 金西瓜 -> 治疗药水 (Potion of Healing) 瞬间治疗
+    - 金胡萝卜 (Golden Carrot) -> 夜视药水 (Potion of Night Vision)
+    - 海豚 - 水肺药水 (Potion of Water Breathing)
+    - 糖 (Sugar) -> 迅捷药水 (Potion of Swiftness)
+    - 兔子脚 (Rabbit's Foot) -> 跳跃药水 (Potion of Leaping)
+    - 烈焰粉 (Blaze Powder) -> 力量药水 (Potion of Strength)
+    - 蜘蛛眼 (Spider Eye) -> 剧毒药水 (Potion of Poison)
+    - 恶魂之泪 (Ghast Tear) -> 再生药水 (Potion of Regeneration)
+    - 岩浆膏 (Magma Cream) -> 抗火药水 (Potion of Fire Resistance)
+    - 幻翼膜 (Phantom Membrane) -> 缓落药水 (Potion of Slow Falling)
+    - 海龟壳 (Turtle Shell): (用海龟鳞甲 Scute 合成) - 神龟药水 (Potion of the Turtle Master) (提供 迟缓 IV + 抗性提升 III/IV，持续 0:20)
+  - 红石粉 (Redstone Dust) -> 延长药水效果 - 3:00 -> 8:00
+  - 萤石粉 (Glowstone Dust) -> 增强药水的效果等级 - I 级 -> II 级
+  - 火药 (Gunpowder) - 喷溅药水 (Splash Potion)
+  - 龙息 (Dragon's Breath) - 滞留药水 (Lingering Potion)
+    - 只能添加到已经是 **喷溅药水** 上
+  - 发酵蛛眼 (Fermented Spider Eye) - “腐化”或“反转”
+    - 迅捷药水 (Swiftness) + 发酵蛛眼 -> 迟缓药水 (Slowness)
+    - 治疗药水 (Healing) 或 剧毒药水 (Poison) + 发酵蛛眼 -> 伤害药水 (Harming)
+    - 夜视药水 (Night Vision) + 发酵蛛眼 -> 隐身药水 (Invisibility)
+    - 跳跃药水 (Leaping) + 发酵蛛眼 -> 迟缓药水 (Slowness) (不太常用)
+    - 抗火药水 (Fire Resistance) + 发酵蛛眼 -> 迟缓药水 (Slowness) (Java版)
+- 下界疣/地狱疣
+  - 在下界的地狱堡垒中找到
+  - 种子在灵魂沙上，楼梯间旁边
+  - 可以自己培育
+- 龙息 (Dragon's Breath)
+  - 玻璃瓶收集末影龙在战斗中喷吐的紫色龙息云
+- 发酵蛛眼 = 1个棕色蘑菇 + 1个糖 + 1个蜘蛛眼
 
 ## 红石
 

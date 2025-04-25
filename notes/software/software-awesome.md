@@ -46,6 +46,10 @@ tags:
   - PDF 处理
 - [mifi/lossless-cut](https://github.com/mifi/lossless-cut)
   - GPLv2, TS, ffmpeg
+- https://www.synfig.org/
+  - Open-source 2D Animation Software
+- https://www.leocad.org/
+
 
 ## Online
 

@@ -104,6 +104,10 @@ tags:
     - GPLv3, Python
     - Audio Matching and Mastering
 - OCR
+  - [getomni-ai/zerox](https://github.com/getomni-ai/zerox)
+    - MIT, TS, Python
+    - OCR & Document Extraction using vision models
+    - https://getomni.ai/ocr-benchmark
   - [allenai/olmocr](https://github.com/allenai/olmocr)
     - Toolkit for linearizing PDFs for LLM datasets/training
 - Provider

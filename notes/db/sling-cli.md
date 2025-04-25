@@ -1,0 +1,46 @@
+---
+tags:
+  - Command
+---
+
+# sling-cli
+
+- [slingdata-io/sling-cli](https://github.com/slingdata-io/sling-cli)
+  - GPLv3, Go
+  - extracts data from a source storage/database and loads it in a target storage/database
+  - 支持非常多的 数据库、文件系统、文件格式
+- ~/.sling/env.yaml
+
+```bash
+curl -LO https://github.com/slingdata-io/sling-cli/releases/download/v1.4.5/sling_darwin_all.tar.gz
+tar -xzf sling_darwin_all.tar.gz sling
+
+sling conns list
+
+# avoid MSSQL TLS 1.0 error
+sling conns set MSSQL url='sqlserver://sa:sa@127.0.0.1:1433?database=master;encrypt=disabled'
+
+sling conns set DUMP url='sqlite://./dump.db'
+
+sling conns discover MSSQL
+sling conns discover DUMP
+
+sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-conn DUMP
+sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-object file://$PWD/dump.json
+```
+
+```yaml title="replication.yaml"
+source: MY_POSTGRES
+target: MY_SNOWFLAKE
+
+# default config options which apply to all streams
+defaults:
+  mode: full-refresh
+  object: new_schema.{stream_schema}_{stream_table}
+
+streams:
+  my_schema.*:
+
+env:
+  SLING_THREADS: 3
+```

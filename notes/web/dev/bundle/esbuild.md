@@ -67,6 +67,9 @@ title: ESBuild
 esbuild example.js --outfile=out.js
 esbuild --bundle main.ts --outdir=dist --minify --sourcemap
 
+# for Node
+esbuild --bundle main.ts --outfile=dist/out.js --platform=node --format=esm
+
 # bundle mutiple files
 pnpm esbuild --outdir=dist $(jq '.bundle.input | join (" ")' package.json -r) --format=esm --charset=utf8 --target=chrome90 --sourcemap --bundle
 

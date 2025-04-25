@@ -13,6 +13,9 @@ tags:
     - 使用并不理想
   - serverless-trace
     - serverless 但不 bundle node_modules
+- OpenAPI 生成会使用 Object 上的 schema 字段
+  - 使得动态构建 schema 成为可能
+  - https://github.com/anatine/zod-plugins/blob/main/packages/zod-nestjs/src/lib/create-zod-dto.ts
 
 ## 默认 next start
 

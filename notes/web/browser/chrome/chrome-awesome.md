@@ -52,6 +52,14 @@ tags:
     - 德国公司 eyeo GmbH
     - inspired by Adblock for Firefox
     - 起源更早，最初主要为 Firefox 开发
+- user script
+  - 篡改猴 / [Tampermonkey](https://github.com/Tampermonkey/tampermonkey)
+    - 2013年1月 2.9 后闭源
+    - 5.2 后支持 Manifest v3
+  - 暴力猴 / [Violentmonkey](https://github.com/violentmonkey/violentmonkey)
+    - 目前只支持 Manifest v2 [#1934](https://github.com/violentmonkey/violentmonkey/issues/1934)
+  - https://greasyfork.org/zh-CN
+  - https://www.userscript.zone/
 
 ## WebDriver
 

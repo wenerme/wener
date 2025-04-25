@@ -7,6 +7,7 @@ tags:
 
 | version    | date       |
 | ---------- | ---------- |
+| Gitea 1.23 | 2025-01-09 |
 | Gitea 1.22 | 2024-05-04 |
 | Gitea 1.21 | 2023-11-12 |
 | Gitea 1.20 | 2023-07-16 |
@@ -26,16 +27,30 @@ tags:
     password: ${{ secrets.GITEA_TOKEN }}
 ```
 
-- 支持手动触发 action [#23668](https://github.com/go-gitea/gitea/issues/23668)
-- action badge [#23688](https://github.com/go-gitea/gitea/issues/23688)
 - Package Registry TODO [#19270](https://github.com/go-gitea/gitea/issues/19270)
-- 1.21 [#25123](https://github.com/go-gitea/gitea/issues/25123)
-- git sha256 [#13794](https://github.com/go-gitea/gitea/issues/13794)
 - Audit Log
   - https://github.com/go-gitea/gitea/issues/8
   - https://github.com/go-gitea/gitea/pull/24257
 
 :::
+
+## Gitea 1.23
+
+- SSH RSA signing 移除 SHA1
+- API `/admin` -> `/-/admin`
+- 支持禁用密码登陆
+- 支持 Passkey 登陆
+- Repository
+  - 支持 License 显示
+  - 支持 "merge upstream branch" (Sync fork)
+  - 支持 Tag 搜索
+  - 支持 pure SSH LFS
+- Actions
+  - 默认删除 1年前的 action 日志
+  - 现在默认会压缩 action 日志
+  - 支持 workflow dispatch event - 手动触发
+- Packages
+  - 支持 Arch 包
 
 ## Gitea 1.22
 
@@ -46,7 +61,7 @@ tags:
 - Actions
   - 提供 actions 的 runner-image
     - https://gitea.com/gitea/runner-images
-  -  Artifacts v4 backend
+  - Artifacts v4 backend
   - 支持 `[skip ci]`
   - 支持全局变量
 - 管理

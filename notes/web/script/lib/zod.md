@@ -24,6 +24,8 @@ title: zod
 - [#2030](https://github.com/colinhacks/zod/discussions/2030)
   - Serialize
   - Serialize 推荐 JSONSchema - 减少部分校验，但能用到更多场景
+- v4
+  - https://github.com/fabien0102/ts-to-zod/issues/307
 
 :::
 

@@ -10,6 +10,8 @@ title: NTP
   - https://www.pool.ntp.org/zone/hk
   - pool.ntp.org
   - time.nist.gov
+  - https://www.ntppool.org/
+  - https://gist.github.com/mutin-sa/eea1c396b1e610a2da1e5550d94b0453
 - [twekkel/htpdate](https://github.com/twekkel/htpdate)
   - HTTP Time protocol
 

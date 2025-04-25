@@ -64,8 +64,13 @@ tags:
 
 - Leader board
   - https://huggingface.co/open-llm-leaderboard
-  - https://chat.lmsys.org/?leaderboard
+  - https://lmarena.ai/
   - https://www.vellum.ai/llm-leaderboard
+  - https://openrouter.ai/rankings
+  - https://aider.chat/docs/leaderboards/
+- 价格/Pricing
+  - https://openrouter.ai/models
+  - https://ai.google.dev/gemini-api/docs/pricing
 - Visual
   - [microsoft/Florence-2-large](https://huggingface.co/microsoft/Florence-2-large)
     - MIT
@@ -186,6 +191,7 @@ tags:
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
 grep avx /proc/cpuinfo --color # x86_64
 ```
+
 
 ## 中文 {#chinese}
 

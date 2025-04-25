@@ -45,6 +45,16 @@ strings ChromeStandaloneSetup64.exe | grep -i '<manifest version='
 
 macOS 自动更新失败
 
+## manifest v2
+
+- 打开 `chrome://flags/`
+- 搜索 `mv2`
+- 允许
+
+---
+
+- https://github.com/violentmonkey/violentmonkey/issues/2284
+
 ## 证书错误继续访问
 
 1. 页面内输入 - `thisisunsafe`

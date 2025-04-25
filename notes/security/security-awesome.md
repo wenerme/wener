@@ -48,6 +48,20 @@ tags:
 - Scan
   - ~~[awslabs/git-secrets](https://github.com/awslabs/git-secrets)~~
     - scan git secrets
+- honypot/蜜罐/trap
+  - [paralax/awesome-honeypots](https://github.com/paralax/awesome-honeypots)
+  - [cowrie/cowrie](https://github.com/cowrie/cowrie)
+    - BSD-3, Python
+  - [telekom-security/tpotce](https://github.com/telekom-security/tpotce)
+    - GPLv3, C
+  - [fffaraz/fakessh](https://github.com/fffaraz/fakessh)
+    - BSD-3, Go
+  - [skeeto/endlessh](https://github.com/skeeto/endlessh)
+    - C
+  - [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)
+    - GPLv3, Go
+  - ~~[honeytrap/honeytrap](https://github.com/honeytrap/honeytrap)~~
+    - Apache-2.0, Go
 - Captcha/验证码
   - Geetest
     - [yanglbme/geetest-crack](https://github.com/yanglbme/geetest-crack)

@@ -57,6 +57,9 @@ npm add @xstate/react
 
 :::
 
+- machine
+  - 定义的内容: transition, meta, actions, guards, actors, delays
+  - 除了 transition 以外大多都可以 Machine.provide 的方式提供实现
 - Actions - 即触发后不关心结果的副作用
   - 同步
 - Services - 即触发后需要等待结果的副作用
@@ -74,8 +77,38 @@ npm add @xstate/react
   - swap actors - State machine actors can spawn/invoke actors and have child actors.
   - 输入
   - 输出
+  - 有自己的内部状态 - 自己维护
+  - 可以与其他 actor 交互 - 使用异步 event 方式
+  - 一次只处理一个 message, 有内部的 mailbox, 类似事件队列
+  - 可以创建新的 actor - spawn/invoke
+  - actor model
+    - 类似 Akka, Erlang
+  - 通过 ActorSystem 在 actor 之间交互和调度
+  - actor 有自己的 systemId
+- Actor
+  - id, systemId, update, start, stop, emit, on, send, subscribe, mailbox, getPersistedSnapshot, getSnapshot
+  - `_actorScope` - 相当于 Actor 的上下文
+  - update - 实际处理
+  - mailbox -> _process|logic.transition -> update
+  - stop 会 clear mailbox
+- ActorScope
+  - self, id, sessionId, logger, defer, emit, system stopChild, actionExecutor
+  - logic/machine 的参数传递都是传递 actorScope 而不是 Actor
+  - 提供 defer 实现 timeout/延迟执行 功能
+- ActorSystem
+- `interface ActorLogic`
+  - config, transition, getInitialSnapshot, restoreSnapshot, start, getPersistedSnapshot
+  - Actor 实际使用的是 ActorLogic 接口
+  - StateMachine 也是一个 ActorLogic
+- 内置 actors
+  - fromCallback, fromObservable, fromPromise, fromEventObservable, fromTransition
+  - 直接实现的 ActorLogic 而不是作为 machine
+- 内置 actions
+  - 实现 ActionFunction
+  - 不应该直接调用 - actionExecutor 调用会修改全局 executingCustomAction
+  - assign, cancel, emit, log, raose, forwardTo, sendParent, sendTo, spawnChild, stopChild, enqueueActions
 - PersistedSnapshot
-  - status
+  - status - done, error, active
   - output
   - error
 - State
@@ -95,10 +128,32 @@ npm add @xstate/react
     - `*` 只会匹配单层
     - catch-all
   - 禁止 `{ on: { forbidden: {} } }`
-- event
-  - @xstate.actor - 系统中创建了一个 actor 引用
+- transition
+  - `import {transition} from 'xstate'`
+  - Pure function - 不会执行 actions
+  - 返回 nextSnapshot 和 actions
+  - 等同于 `logic.transition(snapshot, event, createInertActorScope())`
+- inspect event
+  - @xstate.actor
+    - createActor 触发
+    - actorRef 获取当前 actor 的引用
   - @xstate.event - 系统中从源 actor 引用向目标 actor 引用发送了一个事件
   - @xstate.snapshot - actor 引用因接收到事件而发出快照
+  - @xstate.microstep
+  - @xstate.action
+- event
+  - xstate.init
+  - xstate.stop
+  - xstate.error
+  - xstate.raise
+  - `xstate.done.actor.${invokeId}`
+  - `xstate.done.state.${id}`
+  - `xstate.error.actor.${id}`
+  - `xstate.after.${delayRef}.${id}`
+- Mailbox
+  - 事件队列
+  - 使用 LinkedList
+- ActorSystem
 - StateNodeConfig
   - type
     - atomic - 无子状态节点

@@ -576,6 +576,7 @@ tags:
 - validate
   - [decs/typeschema](https://github.com/decs/typeschema)
     - adapter for TypeScript schema validation.
+  - https://standardschema.dev/
   - [ajv](./lib/ajv.md)
     - JSON Schema
   - [zod](./lib/zod.md)
@@ -587,8 +588,8 @@ tags:
     - 可 tree-shaking
       - 一个简单对象约 3kB/1kB
   - [validatorjs/validator.js](https://github.com/validatorjs/validator.js)
-  - yup
-  - joi
+  - [yup](https://github.com/jquense/yup)
+  - [joi](https://github.com/hapijs/joi)
   - vest
   - superstruct
   - [quicktype/quicktype](https://github.com/quicktype/quicktype)
@@ -611,7 +612,12 @@ tags:
 - typescript codegen / Generating Schema from TypeScript
   - [vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator)
     - MIT, TS
+    - 生成一个单一的 jsonschema，通过 deifinition 查找类型引用
+    - 生成带 $id 的时候 $ref 有问题
+      - https://github.com/vega/ts-json-schema-generator/issues/1732
+    - https://transform.tools/typescript-to-json-schema
   - [YousefED/typescript-json-schema](https://github.com/YousefED/typescript-json-schema)
+    - BSD-3. TS
     - json-schema from ts
   - [sinclairzx81/typebox-workbench](https://github.com/sinclairzx81/typebox-workbench)
     - 单一文件

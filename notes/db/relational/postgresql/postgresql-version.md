@@ -13,6 +13,7 @@ tags:
 
 | PostgreSQL      | Release Date |
 | --------------- | ------------ |
+| [PostgreSQL 18] |
 | [PostgreSQL 17] | 2024-09-26   |
 | [PostgreSQL 16] | 2023-09-14   |
 | [PostgreSQL 15] | 2022-10-13   |
@@ -27,6 +28,9 @@ tags:
   - 2020 [ZHEAP: REINVENTED POSTGRESQL STORAGE](https://www.cybertec-postgresql.com/en/zheap-reinvented-postgresql-storage/)
   - 2021 [zheap: What has been done since last time](https://www.cybertec-postgresql.com/en/postgresql-zheap-current-status/)
 
+[postgresql 18]: #postgresql-18
+[postgresql 17]: #postgresql-17
+[postgresql 16]: #postgresql-16
 [postgresql 15]: #postgresql-15
 [postgresql 14]: #postgresql-14
 [postgresql 13]: #postgresql-13

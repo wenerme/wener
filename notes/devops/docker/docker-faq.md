@@ -393,3 +393,10 @@ docker kill -s HUP test
 ```
 
 from scratch 的容器没有 kill, 因此无法使用信号
+
+## error from daemon in stream: Error grabbing logs: invalid character '\x00' looking for beginning of value
+
+```bash
+docker compose down
+docker compose up -d
+```

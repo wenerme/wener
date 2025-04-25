@@ -404,3 +404,4 @@ interface JSONSchema {
 - `$defs`
 - https://json-schema.org/blog/posts/bundling-json-schema-compound-documents
 - https://json-schema.org/understanding-json-schema/structuring
+

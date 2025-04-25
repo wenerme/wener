@@ -48,6 +48,8 @@ tags:
   - MIT, TS
   - CRUD/Authorization framework based on NestJS
 - Service
+  - [better-auth/better-auth](https://github.com/better-auth/better-auth)
+    - MIT, TS
 
 ## Client
 

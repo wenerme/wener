@@ -94,6 +94,8 @@ tags:
     - 物品
 - Plugins - 服务端
 - Mods - 客户端
+  - [MinecraftForge/MinecraftForge](https://github.com/MinecraftForge/MinecraftForge)
+    - Modding API, Mod Loader
   - [AllTheMods/ATM-10](https://github.com/AllTheMods/ATM-10)
   - [CurseForge](https://www.curseforge.com/minecraft/search)
 - Bedrocks

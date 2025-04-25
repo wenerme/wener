@@ -129,6 +129,11 @@ port=24454
 
 - https://github.com/DenizenScript/Denizen
   - Citizens2 脚本
+- 参考脚本
+  - https://github.com/mcmonkeyprojects/DenizenSampleScripts
+  - https://github.com/SXRWahrheit/Denizen-Scripts
+  - https://forum.denizenscript.com/threads/tiny-sample-scripts-to-start-with.354/
+  - https://meta.denizenscript.com/Docs/Languages
 
 ```shell
 /ex narrate "hi <player.name>"
@@ -446,6 +451,8 @@ java -jar mcaselector-2.5.1.jar
 | `//brush`   | 地形笔刷             |
 | `//undo`    | 撤销操作             |
 | `//redo`    | 重做操作             |
+
+
 
 ```shell
 # Run CraftScript

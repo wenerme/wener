@@ -35,6 +35,8 @@ Retained Earnings = Revenue - Expenses - Dividends
   - 1494年，意大利数学家 Luca Pacioli 发表了《Summa de arithmetica, geometria, proportioni et proportionalita》
   - 书中详细描述了双向记账法
   - 现代会计学之父
+- 账套
+- 凭证序时账
 
 ## Credit & Debit
 

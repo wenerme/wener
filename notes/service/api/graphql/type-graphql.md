@@ -48,3 +48,21 @@ tags:
 - @UseMiddleware()
 - @ValidateArgs()
 
+## Internal
+
+- getMetadataStorage
+
+```ts
+// 全局注册中心
+import { getMetadataStorage } from 'type-graphql';
+
+// @InputType() 等同于
+getMetadataStorage().collectInputMetadata({
+  name: name || target.name,
+  target,
+  description: options.description,
+});
+
+// 等同于记录定义 - 等到调用 build 的时候才开始正式处理
+MetadataStorage.inputTypes.push(definition)
+```

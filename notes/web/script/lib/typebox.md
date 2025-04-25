@@ -13,6 +13,9 @@ title: typebox
 - 适用于标准类型定义，不适用于带转换逻辑和自定义 transform 场景
   - 例如 Date <-> string
 - 需要转换逻辑使用 zod
+- Type.Date, Type.RegExp 之类的使用了自定义 type
+  - 导致生成的 jsonschema 是无效的
+  - ajv 无法扩展 type
 
 :::
 

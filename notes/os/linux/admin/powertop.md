@@ -17,10 +17,21 @@ tags:
   - 监控和限制 CPU 包（Package）、核心（Cores）、内存控制器（DRAM）甚至集成显卡（GPU/uncore）的功耗
 
 ```bash
+# 生成报告
+powertop --html
+# 自动调优
+powertop --auto-tune
+```
+
+```bash
 sysctl vm.dirty_writeback_centisecs
 ```
 
 ```ini
 # PowerTOP
+
+# VM writeback timeout
 vm.dirty_writeback_centisecs = 1500
+# NMI watchdog should be turned off
+kernel.nmi_watchdog = 0
 ```

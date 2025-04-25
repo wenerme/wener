@@ -15,9 +15,11 @@ tags:
 
 :::
 
+- 分层 - 关注点分离 - 避免 阻抗失配
+
 ## 服务分层 {#service-layer}
 
-- DB - Entity - EntityService - RemoteService - Controller/GraphQL/RESTful - UI
+- DB - Entity - EntityService - RemoteService/Controller/GraphQL/RESTful - UI
 - 接口实现的上一层可以是 RemoteService 也可以 EntityService
   - EntityService
     - 能够支持类似 dataloader 这样的加载方式
@@ -28,14 +30,42 @@ tags:
 - DB - 数据库层面
   - 设计以 schema 优先
 - Entity - 实体映射
+- EntityRepository - 实体仓库 - 数据库操作
 - EntityService - 实体服务层面
   - 基础接口
   - 业务逻辑
 - RemoteService - 远程服务 - 服务界限
-  - 暴露 EntityService 为远程服务
+  - gRPC/ConnectRPC
+  - 暴露 Service 为远程服务
   - 客户端通过远程服务访问
-- Controller/GraphQL/RESTful - 控制器
-  - 自定义后实现的接口
+- Resolver - 解析器
+  - GraphQL
+- Controller - 控制器
+  - Restful
+
+## 模型分层 {#model-layer}
+
+- 模型分层
+  - ContactEntity for mikro-orm
+  - ContactObject for type-graphql
+  - ContactCreateInput for create input
+  - ContactUpdateInput for update input
+  - ContactPatchInput
+- 分离好处
+  - 关注点分离 (Separation of Concerns)
+  - API 契约
+  - 安全
+  - 验证
+  - 解耦
+- 不分离 出现的问题
+  - 会出现 Impedance Mismatch/阻抗失配
+- 分离 出现的问题
+  - 会出现 Boilerplate/样板代码
+  - 同步维护
+- 管理
+  - 代码生成
+  - 复用
+  - 清晰命名约定
 
 ## Resource
 

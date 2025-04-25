@@ -167,3 +167,12 @@ const notThis = /^(?:(?!this).)*$/;
 | `\%23l`   | 第 23 行 (VIM)                   |
 | `\%23c`   | 第 23 列 (VIM)                   |
 | `\%23v`   | 第 23 个虚拟列 (VIM)             |
+
+## CJK
+
+```js
+const reCJK = /[\p{Unified_Ideograph}\u3006\u3007][\ufe00-\ufe0f\u{e0100}-\u{e01ef}]?/;
+const reChinese = /[\u4e00-\u9fa5]/;
+```
+
+- https://ayaka.shn.hk/hanregex/

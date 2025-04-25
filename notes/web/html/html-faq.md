@@ -5,6 +5,9 @@ tags:
 
 # HTML FAQ
 
+- fieldset readonly
+  - https://github.com/whatwg/html/issues/10293
+
 ## 响应式 {#responsive-meta-tag}
 
 ```html
@@ -110,10 +113,7 @@ declare module 'react' {
   decoding="async"
   data-nimg="1"
   class="h-full w-full object-cover md:w-[354px]"
-  srcset="
-    /_next/image?url=%2Fimg1&amp;w=384&amp;q=75 1x,
-    /_next/image?url=%2Fimg1&amp;w=750&amp;q=75 2x
-  "
+  srcset="/_next/image?url=%2Fimg1&amp;w=384&amp;q=75 1x, /_next/image?url=%2Fimg1&amp;w=750&amp;q=75 2x"
   src="/_next/image?url=%2Fimg1&amp;w=750&amp;q=75"
   style="color: transparent;"
 />

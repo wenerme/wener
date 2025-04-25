@@ -429,6 +429,7 @@ tags:
   - [cshum/imagor](https://github.com/cshum/imagor)
     - Go, libvips
 - image placeholder
+  - https://cataas.com/
   - https://placehold.co/
     - https://placehold.co/600x400/png
   - https://picsum.photos/2000/2000
