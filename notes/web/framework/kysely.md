@@ -28,3 +28,16 @@ tags:
 - 参考
   - [mikro-orm#5646](https://github.com/mikro-orm/mikro-orm/discussions/5646)
     - 在尝试往 kysely 迁移
+
+## codegen
+
+- [RobinBlomberg/kysely-codegen](https://github.com/RobinBlomberg/kysely-codegen)
+  - MIT, TS
+
+```bash
+pnpm add -D kysely-codegen
+# mysql2, pg
+
+# --env-file
+pnpm kysely-codegen --config-file .kysely-codegenrc.yaml
+```

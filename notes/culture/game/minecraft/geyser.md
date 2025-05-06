@@ -36,6 +36,5 @@ tags:
 
 ## has disconnected from the Java server because of Bedrock client timed out
 
-
 - -DGeyser.RakRateLimitingDisabled=true
   - Rate Limiting

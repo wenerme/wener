@@ -105,6 +105,11 @@ tags:
 - Community
   - https://minecraft.wiki/
   - https://minecraft.fandom.com/
+- Bedrock Edition
+  - .mcpack
+  - .mcworld
+  - .mcaddon
+
 
 ## Resource Pack
 

@@ -6,6 +6,11 @@ tags:
 
 # Commands
 
+```bash
+#
+/kill @e[distance=..100,type=!minecraft:player]
+```
+
 ## Admin
 
 | 命令 (Command)                    | 描述 (Description)                                                | 备注 (Notes)                                                                                                                                                                           |
@@ -83,3 +88,11 @@ tags:
 | `spawnRadius`                | `10`    | 玩家首次加入游戏或死亡后（无床）重生点距离世界出生点的最大半径。                                       | Integer (>=0)   |
 | `spectatorsGenerateChunks`   | `true`  | 旁观者模式（Spectator）的玩家是否能够加载新的区块。                                                    | Boolean         |
 | `universalAnger`             | `false` | 被激怒的中立生物（如僵尸猪灵、蜜蜂）是否会敌视附近所有玩家，而不仅仅是激怒它们的玩家。                 | Boolean         |
+| `doMobSpawning`              | `true`  | 是否允许生物（被动和攻击性）自然生成。不影响刷怪笼。                                                   | Boolean         |
+
+```bash
+# 关闭日夜交替
+gamerule doDaylightCycle false
+# 修改当前时间
+time set day
+```

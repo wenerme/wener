@@ -85,6 +85,9 @@ SELECT gen_random_uuid();
 select * from pg_timezone_abbrevs;
 -- 时区名字
 select * from pg_timezone_names;
+
+-- unix timestamp -> timestamp
+select to_timestamp(1633072800);
 ```
 
 ## 二进制数据

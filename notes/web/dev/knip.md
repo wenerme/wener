@@ -11,6 +11,8 @@ title: knip
 # npm init @knip/config
 
 knip --config knip.jsonc
+
+pnpm dlx knip --config knip.jsonc
 ```
 
 ```

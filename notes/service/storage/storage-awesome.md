@@ -74,11 +74,12 @@ tags:
   - RBD - 块存储
   - RAOD - 底层
   - 对网络带宽和磁盘带宽要求高
-- [gluster](./gluster.md) - POSIX
+- [glusterfs](./gluster.md) - POSIX
 - lustre
   - GPLv2, LGPL, C
   - 利用很多 ZFS 特性
   - [lustre/lustre-release](https://github.com/lustre/lustre-release)
+- [ThinkParQ/beegfs](https://github.com/ThinkParQ/beegfs)
 - hdfs - 大数据, 计算->存储
 - openio-sds
 - longhorn
@@ -121,6 +122,12 @@ tags:
     - Apache 2.0, Java
     - Tachyon
     - UFS
+- 块存储
+  - GFS2
+    - Global File System 2
+    - Symmetric Shared-Disk
+    - 分布式锁管理器 (DLM) 来协调节点间的访问 - Pacemaker、 Corosync
+
 
 **国人开发/维护**
 

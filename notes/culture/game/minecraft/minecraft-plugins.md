@@ -38,6 +38,7 @@ tags:
   - [Ste3et/FurnitureLib](https://github.com/Ste3et/FurnitureLib)
 - Map
   - BlueMap
+    - port
   - [webbukkit/dynmap](https://github.com/webbukkit/dynmap)
     - 二维地图
   - Overviewer
@@ -46,8 +47,9 @@ tags:
 - 参考
   - https://bstats.org/
   - http://mcstats.org
+  - https://modifiedcommand.github.io/ConvertJavaTextureToBedrock/
 
-**Chunky**
+## Chunky
 
 - https://hangar.papermc.io/pop4959/Chunky
 - https://mineplugin.org/Chunky
@@ -59,7 +61,7 @@ chunky start
 chunky progress
 ```
 
-**TabTPS**
+## TabTPS
 
 ```
 tabtps toggle tab
@@ -79,6 +81,9 @@ pingall
 
 tabtps reload
 ```
+
+
+
 
 ## Vane
 
@@ -459,8 +464,15 @@ java -jar mcaselector-2.5.1.jar
 # /cs <filename> <args>
 # Run last CraftScript
 # /.s <args>
+
+# plugins/WorldEdit/schematics
+# //schematic, /schematic, //schem, /schem
+//schematic
 ```
 
+- schema
+  - 可以通过 https://paste.enginehub.org/ 分享
+    - `//schem share [name] [destination] [format]`
 - 保存和加载建筑蓝图 (.schem 格式)。
 - CraftScript
   - 基于 JavaScript Rihno 的脚本
@@ -468,6 +480,7 @@ java -jar mcaselector-2.5.1.jar
 
 ---
 
+- https://worldedit.enginehub.org/
 - https://minecraft-worldedit.fandom.com/wiki/Worldedit_Commands
 - https://hangar.papermc.io/kennytv/WorldEditSUI
 - https://minecraft-worldedit.fandom.com/wiki/Worldedit_Commands
@@ -544,3 +557,19 @@ java -jar mcaselector-2.5.1.jar
 - https://modrinth.com/plugin/flycraft
 
 ## LuckPerms
+
+## nexo
+
+Nexo is a Minecraft plugin that allows you to create highly customizable custom items, blocks, armor & furniture.
+It also handles Resourcepack generation, uploading and dispatching to players.
+
+- Paper & Folia
+- https://docs.nexomc.com/
+
+## Nova
+
+server-side modding framework for Paper
+
+- 不支持 geyser/bedrock
+  - https://github.com/xenondevs/Nova/issues/21
+- https://github.com/xenondevs/Nova

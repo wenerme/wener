@@ -17,4 +17,6 @@ title: toybox
 ```bash
 curl -O http://www.landley.net/toybox/bin/toybox-armv5l
 curl -O https://landley.net/toybox/downloads/binaries/0.7.1/toybox-armv6l
+
+curl -o toybox https://landley.net/toybox/downloads/binaries/latest/toybox-x86_64
 ```

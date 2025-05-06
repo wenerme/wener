@@ -184,6 +184,11 @@ files:
 ## imports
 
 - 包内映射 import
+- ts 5.4 支持
+- 参考
+  - 目前来说，情况不是很乐观，IDE 支持还没跟上
+  - https://youtrack.jetbrains.com/issues/WEB?q=subpath&u=1
+  - https://github.com/vercel/turborepo/discussions/620
 
 ```json
 {

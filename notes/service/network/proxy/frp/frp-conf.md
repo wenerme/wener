@@ -1,10 +1,9 @@
 ---
 tags:
-- Configuration
+  - Configuration
 ---
 
 # 配置
-
 
 - 配置会通过 tpl 渲染
 - 可通过 Envs 访问环境变量 - 例如 `server_addr = {{.Envs.SERVER_ADDR}}`
@@ -29,7 +28,6 @@ tags:
   - plugin_host_header_rewrite
   - plugin*header*
 - https://github.com/fatedier/frp/tree/dev/conf
-
 
 **frps.ini**
 
@@ -599,3 +597,32 @@ frpc nathole discover --nat_hole_stun_server stun.miwifi.com:3478
 ```
 
 - https://github.com/fatedier/frp/issues/3469
+
+## start new visitor connection error: visitor connection of [user.name] user [] not allowed
+
+- 需要在对方 frpc 配置 allowUsers
+- 配置了 allowUsers 后 serverUser 才有效
+
+```yaml
+.common: &common
+  type: stcp
+  secretKey: "{{.Envs.FRPC_SECRET_KEY}}"
+  localIp: 127.0.0.1
+  allowUsers: [ '*' ]
+  transport:
+    useEncryption: true
+    useCompression: true
+
+proxies:
+- name: ssh
+  localPort: 22
+  <<: *common
+
+- name: pg
+  localPort: 5432
+  <<: *common
+
+- name: web
+  localPort: 80
+  <<: *common
+```

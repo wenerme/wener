@@ -8,9 +8,23 @@ tags:
 - TIFF - Tagged Image File Format
 - 浏览器不支持渲染 TIFF
 
+| type | for         |
+| ---- | ----------- |
+| 0    | WhiteIsZero |
+| 1    | BlackIsZero |
+| 2    | RGB         |
+| 3    | Palette     |
+| 4    | GrayScale   |
+| 5    | RGB Palette |
+| 6    | YCbCr       |
+
 ## 参考 {#reference}
 
+- [image-js/tiff](https://github.com/image-js/tiff)
+  - 不支持 Image Type 6 - YCbCr
+  - npm:tiff
 - [photopea/UTIF.js](https://github.com/photopea/UTIF.js)
+  - npm:utif
   - Fast and advanced TIFF decoder
   - 依赖 npm:pako for zlib decompression
 - 参考

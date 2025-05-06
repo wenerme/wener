@@ -114,7 +114,7 @@ const MyForm: React.FC<{ onSubmit; defaultValue }> = ({ onSubmit, defaultValue }
 
 # FAQ
 
-- context.control._options 为 useForm props
+- context.control.\_options 为 useForm props
 - FormProvider/Context 能传递任何附加的值，但不推荐
 
 ## values vs defaultValues
@@ -191,3 +191,8 @@ function getDirtyFields(
 ```
 
 - https://github.com/orgs/react-hook-form/discussions/9472
+
+## validation 修改会导致 submit 失败
+
+- 使用 onBlur, focus 在 input, 点 submit 会无效，因为触发 blur 后 validation，然后会中止 submit
+- https://github.com/react-hook-form/react-hook-form/issues/4177

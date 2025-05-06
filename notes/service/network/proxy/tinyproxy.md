@@ -33,6 +33,9 @@ tinyproxy -dc ./tinyproxy.conf
 curl -x admin:password@127.0.0.1:8888 icanhazip.com
 # 测试 头
 curl -x admin:password@127.0.0.1:8888 https://httpbin.org/get
+
+# 内部统计页
+curl -x 127.0.0.1:8888 tinyproxy.stats
 ```
 
 ## tinyproxy.conf
