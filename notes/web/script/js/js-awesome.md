@@ -103,6 +103,11 @@ tags:
   - WebTransport
   - [OptimalBits/redbird](https://github.com/OptimalBits/redbird)
     - reverse proxy for node
+  - [PartySocket](https://github.com/cloudflare/partykit/tree/main/packages/partysocket)
+    - fork reconnecting-websocket
+    - 支持自动重连
+    - 兼容 WebSocket API
+    - 支持多平台
 - WebWorker
   - [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
   - https://vitejs.dev/guide/features.html#web-workers

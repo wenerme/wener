@@ -30,13 +30,6 @@ tags:
     - MIT, TS
     - MiniPerplx -> scira
     - minimalistic AI-powered search engine
-- Web/SDK/UI
-  - [vercel/ai](https://github.com/vercel/ai)
-    - Apache-2.0, TS
-    - npm:ai
-    - Build AI-powered applications with React, Svelte, Vue, and Solid
-  - [xenova/transformers.js](https://github.com/xenova/transformers.js)
-    - Apache-2.0, JS
 - Client/Desktop/App
   - [chatbox](./service/chatbox.md)
     - GPLv3, TypeScript, React, Electron
@@ -114,6 +107,15 @@ tags:
   - Google Colab
   - Runpod
   - Autodl
+- Editor
+  - cursor
+  - windsurf
+    - by Codex
+    - OpenAI 收购
+  - Aider
+  - [cline/cline](https://github.com/cline/cline)
+  - [RooVetGit/Roo-Code](https://github.com/RooVetGit/Roo-Code)
+    - fork cline
 - [microsoft/unilm](https://github.com/microsoft/unilm)
   - MIT, Python
   - https://thegenerality.com/agi/

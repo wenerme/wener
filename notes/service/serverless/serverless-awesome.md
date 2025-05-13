@@ -19,6 +19,16 @@ tags:
 
 ## 实现
 
+- [rivet-gg/rivet](https://github.com/rivet-gg/rivet)
+  - Apache-2.0, Rust
+  - Rust
+  - V8 & Deno: Actor isolate runtime
+  - FoundationDB: Actor state
+  - CockroachDB: OLTP
+  - ClickHouse: Developer-facing monitoring
+  - Valkey: Caching
+  - NATS: Pub/sub
+  - Traefik: Load balancers & tunnels
 - [kedacore/keda](https://github.com/kedacore/keda)
   Kubernetes-based Event Driven Autoscaling component
 - [knative](https://github.com/knative)

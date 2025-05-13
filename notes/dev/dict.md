@@ -707,30 +707,81 @@ tags:
 
 ## 房屋租赁 {#property-rent}
 
-| abbr. | en                     | cn           |
-| ----- | ---------------------- | ------------ |
-| PMS   | Property Rental System | 物业租赁系统 |
+| abbr. | en                       | cn           |
+| ----- | ------------------------ | ------------ |
+| PMS   | Property Rental System   | 物业租赁系统 |
+| RMS   | Rental Management System | 租赁管理系统 |
 
-|                         en | cn                 |
-| -------------------------: | ------------------ |
-|      Housing Rental System | 房屋租赁系统       |
-|   Rental Management System | 租赁管理系统       |
-|   Commercial Rental System | 商业租赁系统       |
-| Rental Property Management | 租赁物业管理       |
-|            Rental Property | 租赁物业           |
-|                     Rental | 租赁、租金         |
-|                       rent | 租赁、租金         |
-|           security deposit | 押金               |
-|                     margin | 保证金             |
-|     Real Estate Businesses | 房地产业务         |
-|                Real Estate | 房地产             |
-|                     Estate | 房地产、遗产       |
-|               Collect rent | 收租               |
-|                     tenant | 租户、承租人、房客 |
-|                      Lease | 租约、租赁合同     |
-|           Raising The Rent | 提高租金           |
-|    Labor Management System | 劳务管理系统       |
-|                   Rent Due | 租金到期           |
+|                         en | cn           |
+| -------------------------: | ------------ |
+|      Housing Rental System | 房屋租赁系统 |
+|   Commercial Rental System | 商业租赁系统 |
+| Rental Property Management | 租赁物业管理 |
+|            Rental Property | 租赁物业     |
+|    Labor Management System | 劳务管理系统 |
+
+| en                       | cn                         |
+| ------------------------ | -------------------------- |
+| actual received amount   | 实收款                     |
+| amortization             | 摊销                       |
+| arrear                   | 欠款、拖欠                 |
+| asset                    | 资产                       |
+| balance                  | 余额                       |
+| billing / invoicing      | 开票                       |
+| bonus / dividend         | 分红                       |
+| buget                    | 预算                       |
+| capital                  | 资本                       |
+| cash flow                | 现金流                     |
+| collect rent             | 收租                       |
+| collect security deposit | 收押金                     |
+| default on payment       | 违约                       |
+| depreciation             | 折旧                       |
+| due date                 | 到期日                     |
+| Estate                   | 房地产、遗产               |
+| expense / expenditure    | 支出                       |
+| fee / charge             | 费用                       |
+| holder                   | 持有人                     |
+| house / unit             | 房屋、单元                 |
+| income                   | 收入                       |
+| internal transfer        | 内部转账, 内转             |
+| invoice number           | 发票号码                   |
+| labor fee                | 劳务费                     |
+| landlord                 | 房东、地主                 |
+| lease                    | 租约、租赁合同             |
+| ledger / account book    | 分类账、账簿               |
+| liability                | 负债                       |
+| loan                     | 贷款                       |
+| loan repayment           | 还款                       |
+| mantenance               | 维护、保养                 |
+| margin                   | 保证金                     |
+| notice period            | 通知期限                   |
+| overdue                  | 逾期                       |
+| payable amount           | 应付款                     |
+| payment term             | 付款条款                   |
+| property                 | 物业、财产                 |
+| proportion / ratio       | 比例                       |
+| Raising The Rent         | 提高租金                   |
+| Real Estate              | 房地产                     |
+| Real Estate Business     | 房地产业务                 |
+| receivable amount        | 应收款                     |
+| renewal of lease         | 续租                       |
+| rent                     | 租赁、租金                 |
+| rent collection record   | 收租记录                   |
+| rent Due                 | 租金到期                   |
+| rental                   | 租赁、租金                 |
+| renter                   | 租客                       |
+| return security deposit  | 退押金                     |
+| security deposit         | 押金                       |
+| service fee              | 服务费                     |
+| tax                      | 税                         |
+| tenant / lessee          | 租户、承租人、房客         |
+| transaction              | 交易                       |
+| utility                  | 公用事业                   |
+| utility bill             | 公用事业账单               |
+| utility fee              | 公用事业费用、水电费、杂费 |
+| vacancy                  | 空置                       |
+| vacancy rate             | 空置率                     |
+| voucher / receipt        | 凭证、收据                 |
 
 - Housing
   - 住宅

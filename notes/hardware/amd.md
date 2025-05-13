@@ -22,3 +22,18 @@ title: AMD
 
 - AMD GPU 加速技术
 - ROCm - Radeon Open Compute
+- Instinct
+- Radeon Pro
+- Radeon RX
+
+```bash
+apk add pciutils
+
+lspci | grep -E 'VGA|Display'
+# Radeon RX 7900 XTX
+
+rocminfo
+rocm-smi
+
+lsmod | grep amdgpu
+```

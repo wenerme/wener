@@ -35,6 +35,13 @@ tags:
 - 没有默认的 border 颜色 - 之前为 `gray-200`, 如果有主题需要注意重置颜色，现在不需要了，默认为 `currentColor`
 - ring 默认宽度 `3px` -> `1px`
 
+:::caution
+
+- ~~tailwind.config.js~~ 直接使用 CSS 配置
+- `@apply` 需要 `@reference`
+
+:::
+
 ```css
 @import 'tailwindcss';
 

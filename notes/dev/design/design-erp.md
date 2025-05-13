@@ -527,7 +527,36 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
     - Deferred
   - Completed
   - Canceled
+- 事务性 - 开始、进行中、结束
+  - 前置审批
+  - 后置确认验收
+- 计划型 - 计划 开始、结束日期/时间、提醒日期
+- 审批类型 - 请求者发起，需要一个或多个审批者决策（批准/拒绝）。
+- 确认类型 - 一方执行或记录了某个事实，需要另一方进行核实和确认。这与“审批”相似，但语义上更偏向于“验证已发生/已记录的事项的准确性”，而不是“批准一个未来的行动”。
+- 任务类型定义
+  - needsPreApproval
+  - needsProcessing
+  - needsPostConfirmation
 - [Task entity reference](https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/entities/task)
+
+## Work
+
+- 事务性工作 - Transactional Work
+- 项目性工作 - Project based Work
+- 关系型/人际互动型工作 - Relational / Interpersonal Work
+- 发展性/学习型工作 - Developmental / Learning Work
+- 战略性工作 - Strategic Work
+- 分析性/解决问题型工作 - Analytical / Problem Solving Work
+- 创造性/创新性工作 - Creative / Innovative Work
+- 计划性工作 - Planning Work
+- 设计性工作 - Design Work
+- 组织性工作 - Organizational Work
+- 评估性工作 - Evaluative Work
+- 监督性工作 - Supervisory Work
+- 领导性工作 - Leadership Work
+- 研究性工作 - Research Work
+- 评审性工作 - Review Work
+- 反馈性工作 - Feedback Work
 
 ## State & Status
 
@@ -756,7 +785,9 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 - Invoice
   - https://www.zoho.com/au/billing/kb/invoices/
 
-### LeadState
+### LeadStatus
+
+**LeadState**
 
 | State        | Desc                       |
 | ------------ | -------------------------- |
@@ -764,7 +795,7 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | Qualified    | 线索已经过资质审查         |
 | Disqualified | 线索不再跟进，已被取消资格 |
 
-### LeadStatus
+**LeadStatus**
 
 | State        | Status             | Label      | Desc                     | Condition/Trigger      |
 | ------------ | ------------------ | ---------- | ------------------------ | ---------------------- |
@@ -777,6 +808,9 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | ^            | CannotContact      | 无法联系   | 无法联系线索内的联系信息 | 联系多次无响应         |
 | ^            | NoLongerInterested | 不再感兴趣 | 客户对产品不再感兴趣     | 客户明确表示不感兴趣   |
 | ^            | Canceled           | 已取消     | 客户资格已被取消         | 客户取消或系统取消资格 |
+
+- Unqualified - 客观，可能不具备，未达标
+- Disqualified - 主观判断，不符合，被排除
 
 ### ServiceOrderStatus
 
@@ -1002,6 +1036,16 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
   - 商品订单
     - 价格通常基于单个或批量商品的固定价格
     - 支付通常在购买时一次性完成，除非涉及分期支付的特殊情况
+
+## 事务性工作 {#transactional-work}
+
+- 事务性工作 - Transactional Work
+- 特点
+  - 高频性 - 经常发生
+  - 重复性 - 流程步骤相对固定
+  - 规则驱动 - 有明确的业务规则和操作指南
+  - 可衡量 - 工作结果和效率容易量化
+  - 关注效率和准确性 - 主要目标是快速、准确地完成任务
 
 ## Entity vs Resource vs Object
 

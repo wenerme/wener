@@ -85,6 +85,11 @@ tags:
       - Qwen2.5 VL
       - Qwen2.5 Math
     - [QwenLM/Qwen](https://github.com/QwenLM/Qwen)
+    - Qwen3
+      - 推荐参数
+        - Thinking - temperature=0.6, top_p=0.95, top_k=20
+        - temperature=0.7, top_p=0.8, top_k=20
+        - min_p=0.0
     - ⚠️ Ollama 不支持 Qwen VL [ollama#2874](https://github.com/ollama/ollama/issues/2874)
   - [Wan-Video](https://github.com/Wan-Video)
     - [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1)
@@ -110,12 +115,14 @@ tags:
     - 5 sliding + 1 global attn
     - 1024 sliding window attention
     - RL - BOND, WARM, WARP
+    - 推荐参数: temperature=1.0, top_k=64, top_p=0.95, min_p=0.0
     - ⚠️注意 不支持获取对象检测的坐标
     - https://huggingface.co/collections/google/gemma-3-release-67c6c6f89c4f76621268bb6d
     - https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf
     - https://blog.google/technology/developers/gemma-3/
     - https://huggingface.co/blog/gemma3
     - https://blog.roboflow.com/gemma-3/
+    - https://docs.unsloth.ai/basics/gemma-3-how-to-run-and-fine-tune
     - Ollama 3 Tools support https://github.com/ollama/ollama/issues/9680
 - command-a
   - 主要用于 Agent, 工具调用
@@ -124,12 +131,8 @@ tags:
 - llama2
   - 7B, 13B, 70B
 - uncensored
-  - llama2-uncensored
-    - 7B, 70B
-  - wizard-vicuna-uncensored
-    - 7B, 13B, 70B
-  - wizardlm-uncensored
-    - 13B
+  - https://huggingface.co/datasets/Guilherme34/uncensor
+  - https://huggingface.co/models?search=uncensored
   - https://erichartford.com/uncensored-models
   - https://www.pixiv.net/novel/show.php?id=21039830
     - https://huggingface.co/a686d380/rwkv-5-h-world

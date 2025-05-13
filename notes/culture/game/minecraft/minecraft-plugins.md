@@ -82,9 +82,6 @@ pingall
 tabtps reload
 ```
 
-
-
-
 ## Vane
 
 - 依赖下载自定义资源包
@@ -364,25 +361,43 @@ java -jar mcaselector-2.5.1.jar
 
 ```shell
 /gamerule maxCommandChainLength 3000000
+# /gamerule commandMoidificationBlockLimit 1000000
 
 # /buildpaste <allowall|disallowall>
 # /paste <argument1> <argument2>
 # ID dontplaceair
 /paste
-/construct
+
+/paste dontplaceair
+
+/pastepaper
+
+# 使用背包的物品来构建，可以在非作弊状态使用
+# /undopaste 不会恢复物品
+/construct <buildId>
 /preview # Forge 1.20 and 1.21, and NeoForge 1.21
 /undopaste
-/buildplacer # Build Placer
-/upload
+# Build Placer wand
+/buildplacer
+
+/connectaccounts <e-mail>
+/disconnectaccount
+
+/upload <name>
+# 获取 Position Selector 物品 - 用于选择上传的范围
 /selector
 /pos1
 /pos2
-/removepos
-/connectaccounts
-/disconnectaccount
-/bindbuild
+/removepos # 移除 pos1 和 pos2
+/bindbuild # 把当前选中范围绑定到 Build Placer
 /buildhistory
-/sharebuild
+/sharebuild <build-ID>
+```
+
+- https://buildpaste.net/
+
+```
+Command execution stopped due to limit (executed 65536 commands)
 ```
 
 ## LevelledMobs
@@ -456,8 +471,6 @@ java -jar mcaselector-2.5.1.jar
 | `//brush`   | 地形笔刷             |
 | `//undo`    | 撤销操作             |
 | `//redo`    | 重做操作             |
-
-
 
 ```shell
 # Run CraftScript

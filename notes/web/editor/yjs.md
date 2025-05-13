@@ -14,6 +14,8 @@ title: yjs
   - y-dat
 - 参考
   - https://github.com/yjs/yjs/blob/main/INTERNALS.md
+  - [ueberdosis/hocuspocus](https://github.com/ueberdosis/hocuspocus)
+  - [yjs/y-websocket-server](https://github.com/yjs/y-websocket-server)
   - [YousefED/Matrix-CRDT](https://github.com/YousefED/Matrix-CRDT)
     - Matrix-CRDT Yjs provider
     - MSC2477: User-defined ephemeral events in rooms [#2477](https://github.com/matrix-org/matrix-spec-proposals/pull/2477)

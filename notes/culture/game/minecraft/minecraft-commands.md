@@ -9,6 +9,13 @@ tags:
 ```bash
 #
 /kill @e[distance=..100,type=!minecraft:player]
+
+# 获取实体 UUID
+/entitydata @e[type=minecraft:villager,limit=1,sort=nearest] {}
+# 恢复村民生命值
+/data merge entity @e[type=minecraft:villager,limit=1,sort=nearest] {Health:20f}
+# 使用效果恢复村民生命值
+/effect give @e[type=minecraft:villager,limit=1,sort=nearest] minecraft:regeneration 10 10
 ```
 
 ## Admin

@@ -7,30 +7,32 @@ tags:
 
 | abbr. | for                                             | cn                   |
 | ----- | ----------------------------------------------- | -------------------- |
+| AED   | Automatic Emotion Detection                     | 自动情感检测         |
 | AI    | Artificial Intelligence                         | 人工智能             |
+| ASR   | Automatic Speech Recognition                    | 自动语音识别         |
 | ERP   | erotic role playing                             | 情色角色扮演         |
 | GELAN | Generalized Efficient Layer Aggregation Network | 通用高效层聚合网络   |
+| GME   | Generalized Multimodal Encoder                  | 通用多模态编码器     |
 | GPT   | Generative Pre-trained Transformer              | 生成型预训练变换模型 |
+| GTE   | Generalized Text Encoder                        | 通用文本编码器       |
+| ITN   | Inverse Text Normalization                      | 逆文本规范化         |
+| LID   | Language Identification                         | 语言识别             |
 | LLaMa | Large Language Model for Machine Translation    | 机器翻译的大语言模型 |
 | LLM   | Large Language Model                            | 大语言模型           |
 | LoRA  | Language of Rules and Actions                   | 语言规则与行动语言   |
 | PGI   | Programmable Gradient Information               | 可编程梯度信息       |
 | RLHF  | Reinforcement Learning from Human Feedback      | 人类反馈强化学习     |
 | RM    | Reward / preference modeling                    | 奖励/偏好建模        |
+| RTF   | Real-Time Factor                                | 实时因子             |
 | SDXL  | Stable Diffusion XL                             | 稳定扩散 XL          |
+| SER   | Speech Emotion Recognition                      | 语音情感识别         |
 | SFT   | Supervised Fine-tuning                          | 监督微调             |
 | SOTA  | State of the Art                                | 最新技术             |
-| YOLO  | You Only Look Once                              |                      |
-| ASR   | Automatic Speech Recognition                    | 自动语音识别         |
-| TTS   | Text to Speech                                  | 文本转语音           |
 | STT   | Speech to Text                                  | 语音转文本           |
+| TTS   | Text to Speech                                  | 文本转语音           |
 | VAD   | Voice Activity Detection                        | 语音活动检测         |
 | WFST  | Weighted Finite-State Transducer                | 加权有限状态转换器   |
-| LID   | Language Identification                         | 语言识别             |
-| SER   | Speech Emotion Recognition                      | 语音情感识别         |
-| AED   | Automatic Emotion Detection                     | 自动情感检测         |
-| RTF   | Real-Time Factor                                | 实时因子             |
-| ITN   | Inverse Text Normalization                      | 逆文本规范化         |
+| YOLO  | You Only Look Once                              |                      |
 
 - ITN
   - 口语 -> 书面语 - 符合 自然书写习惯

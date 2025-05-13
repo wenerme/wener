@@ -38,6 +38,10 @@ tags:
   - 全局 ~/Library/Application Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json
   - 项目 ./.roo/mcp.json
 
+```bash
+CLIENT_PORT=8080 SERVER_PORT=9000 npx @modelcontextprotocol/inspector node build/index.js
+```
+
 # Spec
 
 - https://www.claudemcp.com/specification

@@ -73,27 +73,58 @@ ollama pull llama3.2-vision:11b
 | OLLAMA_MAX_VRAM          |                 | 最大显存（VRAM）               |
 | OLLAMA_CONTEXT_LENGTH    |
 
-```
+- https://github.com/ollama/ollama/blob/main/envconfig/config.go
+- https://github.com/ollama/ollama/issues/2941
+
+```shell
 /set verbose
 
 /show info
 # 130k
 /set parameter num_ctx 131072
+
+
+# 输入多行
+"""
+"""
+```
+
+- /no_think - 禁用思考
+- /think - 启用思考
+
+
+```
+FROM gemma3:4b-it-qat
+
+PARAMETER temperature 1.0
+PARAMETER top_k 64
+PARAMETER top_p 0.95
+PARAMETER min_p 0.0
+```
+
+```bash
+ollama create gemma3-4b -f my.Modfile
 ```
 
 ## API
 
 ```bash
+# Modesl
+curl http://localhost:11434/api/tags
+
 curl -X POST http://localhost:11434/api/generate -d '{
-  "model": "llama2",
-  "prompt":"Why is the sky blue?"
- }'
+  "model": "qwen3:0.6b",
+  "prompt":"天空是什么颜色",
+  "stream": false
+}'
 ```
 
 - https://github.com/ollama/ollama/blob/main/docs/api.md
+- OpenAI 兼容接口
+  - 不支持 reasoning_content [#8529](https://github.com/ollama/ollama/issues/8529)
+  - https://github.com/ollama/ollama/blob/main/docs/openai.md
 
 ## Vision
-
 
 ```bash
 ollama run gemma3:27b "describe this image: ./inputs/demo.jpg"
@@ -102,3 +133,11 @@ ollama run --verbose gemma3:27b "中文描述这个文件: ./inputs/demo.jpg ; �
 
 - 提取文件的逻辑 https://github.com/ollama/ollama/blob/b3af953a55f0bd054937374404506c4229fbda8c/cmd/interactive.go#L501-L509
   - `(?:[a-zA-Z]:)?(?:\./|/|\\)[\S\\ ]+?\.(?i:jpg|jpeg|png)\b`
+
+# FAQ
+
+- CPU 使用不满
+  - 修改线程数量 `/set parameter num_thread 20`
+  - https://github.com/ollama/ollama/issues/2929
+- New Engine  - https://github.com/ollama/ollama/issues/9959
+  - 替代 llama.cpp

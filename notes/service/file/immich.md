@@ -6,6 +6,7 @@ title: immich
 
 - [immich-app/immich](https://github.com/immich-app/immich)
   - AGPLv3, TS, Dart, Svelte
+  - High performance self-hosted photo and video management solution.
 - Helm
   - https://github.com/immich-app/immich-charts
 - Docker Compose

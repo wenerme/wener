@@ -483,10 +483,13 @@ tags:
   - RustDesk
 - git
   - [charmbracelet/soft-serve](https://github.com/charmbracelet/soft-serve)
-- zoom, team
+- zoom, team, broadcast
   - [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
     - WebRTC & SFU
     - SFU - [versatica/mediasoup](https://github.com/versatica/mediasoup) https://mediasoup.org/
+  - [galaxy-s10/billd-live](https://github.com/galaxy-s10/billd-live)
+    - Vue3 + WebRTC + Nodejs + SRS搭建的直播间
+    - [galaxy-s10/billd-desk](https://github.com/galaxy-s10/billd-desk)
 - office
   - [gotenberg/gotenberg](https://github.com/gotenberg/gotenberg)
     - stateless API for PDF files

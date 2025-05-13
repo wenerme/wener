@@ -33,6 +33,10 @@ tags:
   - `module === process.mainModule`
 - NODE_COMPILE_CACHE
 
+```bash
+npx envinfo --binaries --system
+```
+
 ## env
 
 - NODE_OPTIONS

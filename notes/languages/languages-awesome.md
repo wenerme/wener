@@ -32,7 +32,6 @@ tags:
   - Ember.js
   - Knockout
 
-
 ## Playground
 
 > ODE - Online IDE
@@ -125,6 +124,9 @@ tags:
 - MongoDB Query
 - Elasticsearch Query
 - PromQL
+- [silentmatt/expr-eval](https://github.com/silentmatt/expr-eval)
+  - MIT, JS
+  - Mathematical expression evaluator in JavaScript
 
 ## Rank
 

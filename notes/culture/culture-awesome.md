@@ -8,6 +8,21 @@ tags:
 - Photography/摄影
   - https://jherr.github.io/depth-of-field/
 
+## Children
+
+| en                             | cn           | by  |
+| ------------------------------ | ------------ | --- |
+| Hey Duggee                     | 嗨！道奇     |     |
+| Peppa Pig                      | 小猪佩奇     |     |
+| Sarah & Duck                   | 莎拉和鸭     | BBC |
+| PAW Patrol                     | 汪汪队       |     |
+| Gabby's Dollhouse              | 盖比的娃娃屋 |     |
+| Ricky Zoom                     | 瑞奇宝宝     |     |
+| Blaze and the Monster Machines | 旋风战车队   |     |
+
+- Sarah & Duck
+  - https://archive.org/details/sarah-and-duck-full-series
+
 ## Show
 
 > for shows more than 3 seasons
