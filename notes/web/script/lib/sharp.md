@@ -7,9 +7,11 @@ title: sharp
 - [lovell/sharp](https://github.com/lovell/sharp)
   - 基于 libvips
 - 类似针对视频的 [fluent-ffmpeg](./fluent-ffmpeg.md)
+- wasm 目前无法再浏览器使用
 
 ```bash
 # 支持使用 wasm
+# @img/sharp-wasm32/sharp.node
 npm install --cpu=wasm32 sharp
 ```
 

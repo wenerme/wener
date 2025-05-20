@@ -38,6 +38,7 @@ title: Ethereum
 | [EIP-4626] | Tokenized Vault Standard                                                  | Final  |
 | [EIP-4675] | Multi-Fractional Non-Fungible Token Standard                              |
 | [EIP-6093] | Custom errors for commonly-used tokens                                    |
+| [EIP-7928] | Block-Level Access Lists, BALs                                            |
 
 [eip-20]: ./eip-20.md
 [eip-721]: ./eip-721.md
@@ -855,6 +856,17 @@ interface IERC2981 is IERC165 {
 ## EIP-4626
 
 - ropsten [0xba12222222228d8ba445958a75a0704d566bf2c8#code=](https://ropsten.etherscan.io/address/0xba12222222228d8ba445958a75a0704d566bf2c8#code=)
+
+## EIP-7928
+
+- Block-Level Access Lists, BALs
+- 引入一种机制，允许并行处理交易和区块验证，从而显著提升以太坊主网（L1）的可扩展性
+- 引入
+  - 区块访问列表（BAL）：一个映射，包含了交易将访问的地址、存储插槽及其执行后的值。
+  - 交易索引（Transaction Indices）：用于精确定位区块内每项操作的位置。
+  - 执行后值（Post-Execution Values）：每笔交易在网络全局状态上留下的最终结果。
+- 验证节点可以实现并行磁盘读取和并行交易验证，从而大幅提升执行效率和区块验证速度 。
+- “读写无知”（read-write oblivious）-> “读写感知”（read-write aware）
 
 # FAQ
 

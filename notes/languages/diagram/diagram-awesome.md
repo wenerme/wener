@@ -19,6 +19,7 @@ tags:
   - MIT, Java
   - https://kroki.io
 - [terrastruct/d2](https://github.com/terrastruct/d2)
+  - MPLv2, Go
   - 画架构
 - [asciiflow](https://asciiflow.com)
 - [vega/vega](https://github.com/vega/vega)

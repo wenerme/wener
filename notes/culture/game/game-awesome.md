@@ -14,6 +14,16 @@ https://www.game-game.com.ua/
   - [Minecraft](./minecraft/README.md)
   - [Luanti](./luanti.md)
   - https://bloxd.io/
+- MUD / Multi-User Dungeon / Multi-User Domain / 多用户地牢 / 多用户领域
+  - [MUD](https://en.wikipedia.org/wiki/MUD)
+- 文字冒险游戏 / Text Adventure Game
+  - https://textadventures.co.uk/
+- AI 生成类
+  - https://midreal.ai/
+  - https://aidungeon.com
+- 发现
+  - https://itch.io/
+  - https://www.crazygames.com/
 
 ## NES
 

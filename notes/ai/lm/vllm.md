@@ -16,7 +16,10 @@ tags:
 :::
 
 ```bash
-docker run --rm -it --entrypoint bash vllm/vllm-openai:v0.8.5
+docker run --rm -it -p 8080:8080 --entrypoint bash --name vllm vllm/vllm-openai:v0.8.5
+
+export VLLM_USE_V1=1
+vllm serve
 ```
 
 ```py

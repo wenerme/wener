@@ -6,8 +6,10 @@ tags:
 # JSON-RPC
 
 - used by
+  - MCP / Model Context Protocol
   - LSP https://microsoft.github.io/language-server-protocol/
     - https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
+  - Ethereum
 
 ```json
 {

@@ -248,3 +248,12 @@ location.origin;
 - a 等同于 area 效果
 - 支持的标签 a, area, link, form
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel
+
+## URL.createObjectURL
+
+- URL.createObjectURL
+  - MediaSource, Blob, File -> URL
+  - 生成一个 URL，添加对 Object 的引用
+  - 有些场景创建 Object URL 不一定需要关心 revoke
+    - 例如 磁盘上的 File
+- 调用 URL.revokeObjectURL 也不会立即释放内存，只是减少 ref 引用

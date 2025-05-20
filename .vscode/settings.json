@@ -24,5 +24,6 @@
   },
   "[nft]": {
     "editor.defaultFormatter": "omBratteng.nftables"
-  }
+  },
+  "makefile.configureOnOpen": false
 }

@@ -83,7 +83,6 @@ ollama pull llama3.2-vision:11b
 # 130k
 /set parameter num_ctx 131072
 
-
 # 输入多行
 """
 """
@@ -91,7 +90,6 @@ ollama pull llama3.2-vision:11b
 
 - /no_think - 禁用思考
 - /think - 启用思考
-
 
 ```
 FROM gemma3:4b-it-qat
@@ -119,6 +117,21 @@ curl -X POST http://localhost:11434/api/generate -d '{
 }'
 ```
 
+```json
+{
+  // 生成响应 - 单位 nanoseconds
+  "total_duration": 4017602595,
+  // 加载模型
+  "load_duration": 1254191081,
+  // 输入 token
+  "prompt_eval_count": 52,
+  "prompt_eval_duration": 1685919742,
+  // 输出 token
+  "eval_count": 19,
+  "eval_duration": 1005502138
+}
+```
+
 - https://github.com/ollama/ollama/blob/main/docs/api.md
 - OpenAI 兼容接口
   - 不支持 reasoning_content [#8529](https://github.com/ollama/ollama/issues/8529)
@@ -139,5 +152,5 @@ ollama run --verbose gemma3:27b "中文描述这个文件: ./inputs/demo.jpg ; �
 - CPU 使用不满
   - 修改线程数量 `/set parameter num_thread 20`
   - https://github.com/ollama/ollama/issues/2929
-- New Engine  - https://github.com/ollama/ollama/issues/9959
+- New Engine - https://github.com/ollama/ollama/issues/9959
   - 替代 llama.cpp

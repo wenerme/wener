@@ -5,6 +5,7 @@ tags:
 
 # OCR Awesome
 
+- qwen2.5 vl
 - All in One OCR/OCR Toolkit
   - [PaddleOCR](./paddleocr.md)
     - Paddle
@@ -94,4 +95,5 @@ tags:
   - Large-scale Self-supervised Pre-training Across Tasks, Languages, and Modalities
   - Unified Language Model Pre-training
 - 商业
+  - Mistral OCR
   - https://doc2x.noedgeai.com/

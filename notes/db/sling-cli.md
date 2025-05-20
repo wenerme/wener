@@ -12,8 +12,9 @@ tags:
 - ~/.sling/env.yaml
 
 ```bash
-curl -LO https://github.com/slingdata-io/sling-cli/releases/download/v1.4.5/sling_darwin_all.tar.gz
+curl -LO https://github.com/slingdata-io/sling-cli/releases/download/v1.4.6/sling_darwin_all.tar.gz
 tar -xzf sling_darwin_all.tar.gz sling
+cp sling ~/bin
 
 sling conns list
 
@@ -27,6 +28,8 @@ sling conns discover DUMP
 
 sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-conn DUMP
 sling run --src-conn MSSQL --src-stream 'dbo.Users' --tgt-object file://$PWD/dump.json
+
+sling run -r sling.dump.yaml
 ```
 
 ```yaml title="replication.yaml"

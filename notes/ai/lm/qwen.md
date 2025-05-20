@@ -15,8 +15,40 @@ tags:
   - 大模型
   - Omni
     - text, audio, image, video, natural speech interaction
+- Qwen VL
+  - 有很多基于 Qwen VL finetune 的模型
+  - https://huggingface.co/reducto/RolmOCR
 
 ## VL
+
+- 每个 28x28 像素对应一个 token
+- 图像至少需要 4个 token
+
+```py
+# https://github.com/QwenLM/Qwen2.5-VL/blob/main/qwen-vl-utils/src/qwen_vl_utils/vision_process.py
+IMAGE_FACTOR = 28
+MIN_PIXELS = 4 * 28 * 28
+MAX_PIXELS = 16384 * 28 * 28
+MAX_RATIO = 200
+
+VIDEO_MIN_PIXELS = 128 * 28 * 28
+VIDEO_MAX_PIXELS = 768 * 28 * 28
+FRAME_FACTOR = 2
+FPS = 2.0
+FPS_MIN_FRAMES = 4
+FPS_MAX_FRAMES = 768
+
+# Set the maximum number of video token inputs.
+# Here, 128K represents the maximum number of input tokens for the VLLM model.
+# Remember to adjust it according to your own configuration.
+VIDEO_TOTAL_PIXELS = int(float(os.environ.get('VIDEO_MAX_PIXELS', 128000 * 28 * 28 * 0.9)))
+logger.info(f"set VIDEO_TOTAL_PIXELS: {VIDEO_TOTAL_PIXELS}")
+```
+
+```bash
+# 300DPI -> 72DPI
+convert a.jpg -resize 25% -resize 'x28<' a.output.jpg
+```
 
 - `<box></box>`
 - <|box_start|>

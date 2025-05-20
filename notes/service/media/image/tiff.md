@@ -7,6 +7,7 @@ tags:
 
 - TIFF - Tagged Image File Format
 - 浏览器不支持渲染 TIFF
+- IFDs - Image File Directories
 
 | type | for         |
 | ---- | ----------- |
@@ -29,3 +30,9 @@ tags:
   - 依赖 npm:pako for zlib decompression
 - 参考
   - Konva 支持通过 utif 来转码 https://github.com/konvajs/react-konva/issues/262
+
+# FAQ
+
+## Input buffer has corrupt header: tiff2vips: tile size out of range
+
+- sharp 加载 tiff 出错
