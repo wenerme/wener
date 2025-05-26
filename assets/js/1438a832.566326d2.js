@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwener_website=self.webpackChunkwener_website||[]).push([["41708"],{56686:function(e){e.exports=JSON.parse('{"tag":{"label":"STT","permalink":"/notes/tags/stt","allTagsPath":"/notes/tags","count":1,"items":[{"id":"ai/voice/voice-awesome","title":"Voice Awesome","description":"- Kokoro","permalink":"/notes/ai/voice/awesome"}],"unlisted":false}}')}}]);
