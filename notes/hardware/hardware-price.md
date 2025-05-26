@@ -44,6 +44,15 @@ https://ark.intel.com/content/www/us/en/ark/products/120479/intel-xeon-gold-6136
 >   - 容量越大，寿命越长。
 >   - SSD 本身相当于消耗品。
 
+## 2025-05
+
+- 13000¥
+  - PowerEdge C4130
+  - 2 x Intel(R) Xeon(R) E5-2686 v4 (72) @ 3.00 GHz
+    - 2 x 16 x 2
+  - 内存 256 GiB
+  - 4 x NVIDIA Tesla V100 SXM2 16GB
+
 ## 2024-10
 
 - SATA3 企业级 - 能保持和 SAS 差不多 特性/性能

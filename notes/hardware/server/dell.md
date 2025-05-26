@@ -77,3 +77,10 @@ HP_spp-2017.04.0-SPP2017040.2017_0420.14.iso
 - Dell [DRAC](https://en.wikipedia.org/wiki/Dell_DRAC)
   - Dell Remote Access Controller
   - iDRAC - integrated DRAC
+
+# FAQ
+
+## UEFI0147: The system hardware or cabling configuration is invalid
+
+- 安装了Riser 2（第二根 PCIe 扩展卡槽） 那么必须要安装两颗 CPU
+- 也可能是没检测到 CPU

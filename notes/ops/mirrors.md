@@ -274,3 +274,10 @@ name = "aliyun"
 url = "https://mirrors.aliyun.com/pypi/simple"
 priority = "primary"
 ```
+
+## Ubuntu
+
+- https://mirrors.aliyun.com/ubuntu/
+- https://mirrors.ustc.edu.cn/ubuntu/
+  - https://mirrors.ustc.edu.cn/libnvidia-container/
+- https://mirrors.163.com/.help/ubuntu.html

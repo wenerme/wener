@@ -5,34 +5,43 @@ tags:
 
 # AI Glossary
 
-| abbr. | for                                             | cn                   |
-| ----- | ----------------------------------------------- | -------------------- |
-| AED   | Automatic Emotion Detection                     | 自动情感检测         |
-| AI    | Artificial Intelligence                         | 人工智能             |
-| ASR   | Automatic Speech Recognition                    | 自动语音识别         |
-| ERP   | erotic role playing                             | 情色角色扮演         |
-| GELAN | Generalized Efficient Layer Aggregation Network | 通用高效层聚合网络   |
-| GME   | Generalized Multimodal Encoder                  | 通用多模态编码器     |
-| GPT   | Generative Pre-trained Transformer              | 生成型预训练变换模型 |
-| GTE   | Generalized Text Encoder                        | 通用文本编码器       |
-| ITN   | Inverse Text Normalization                      | 逆文本规范化         |
-| LID   | Language Identification                         | 语言识别             |
-| LLaMa | Large Language Model for Machine Translation    | 机器翻译的大语言模型 |
-| LLM   | Large Language Model                            | 大语言模型           |
-| LoRA  | Language of Rules and Actions                   | 语言规则与行动语言   |
-| PGI   | Programmable Gradient Information               | 可编程梯度信息       |
-| RLHF  | Reinforcement Learning from Human Feedback      | 人类反馈强化学习     |
-| RM    | Reward / preference modeling                    | 奖励/偏好建模        |
-| RTF   | Real-Time Factor                                | 实时因子             |
-| SDXL  | Stable Diffusion XL                             | 稳定扩散 XL          |
-| SER   | Speech Emotion Recognition                      | 语音情感识别         |
-| SFT   | Supervised Fine-tuning                          | 监督微调             |
-| SOTA  | State of the Art                                | 最新技术             |
-| STT   | Speech to Text                                  | 语音转文本           |
-| TTS   | Text to Speech                                  | 文本转语音           |
-| VAD   | Voice Activity Detection                        | 语音活动检测         |
-| WFST  | Weighted Finite-State Transducer                | 加权有限状态转换器   |
-| YOLO  | You Only Look Once                              |                      |
+| abbr.     | for                                             | cn                   |
+| --------- | ----------------------------------------------- | -------------------- |
+| AED       | Automatic Emotion Detection                     | 自动情感检测         |
+| AI        | Artificial Intelligence                         | 人工智能             |
+| ASR       | Automatic Speech Recognition                    | 自动语音识别         |
+| CE        | Cross Entropy                                   | 交叉熵               |
+| ERP       | erotic role playing                             | 情色角色扮演         |
+| FLCE      | Fused Linear Cross Entropy                      | 融合线性交叉熵       |
+| FSDP      | Fully Sharded Data Parallel                     | 完全分片数据并行     |
+| GeGLU     | Gated Linear Unit                               | 门控线性单元         |
+| GELAN     | Generalized Efficient Layer Aggregation Network | 通用高效层聚合网络   |
+| GME       | Generalized Multimodal Encoder                  | 通用多模态编码器     |
+| GPT       | Generative Pre-trained Transformer              | 生成型预训练变换模型 |
+| GTE       | Generalized Text Encoder                        | 通用文本编码器       |
+| ITN       | Inverse Text Normalization                      | 逆文本规范化         |
+| LayerNorm | Layer Normalization                             | 层归一化             |
+| LID       | Language Identification                         | 语言识别             |
+| LLaMa     | Large Language Model for Machine Translation    | 机器翻译的大语言模型 |
+| LLM       | Large Language Model                            | 大语言模型           |
+| LoRA      | Language of Rules and Actions                   | 语言规则与行动语言   |
+| PGI       | Programmable Gradient Information               | 可编程梯度信息       |
+| QLoRA     | Quantized Low-Rank Adaptation                   | 量化低秩适配         |
+| RLHF      | Reinforcement Learning from Human Feedback      | 人类反馈强化学习     |
+| RM        | Reward / preference modeling                    | 奖励/偏好建模        |
+| RMSNorm   | Root Mean Square Normalization                  | 均方根归一化         |
+| RoPE      | Rotary Position Embedding                       | 旋转位置嵌入         |
+| RTF       | Real-Time Factor                                | 实时因子             |
+| SDXL      | Stable Diffusion XL                             | 稳定扩散 XL          |
+| SER       | Speech Emotion Recognition                      | 语音情感识别         |
+| SFT       | Supervised Fine-tuning                          | 监督微调             |
+| SOTA      | State of the Art                                | 最新技术             |
+| STT       | Speech to Text                                  | 语音转文本           |
+| SwiGLU    | Swish-Gated Linear Unit                         | Swish 门控线性单元   |
+| TTS       | Text to Speech                                  | 文本转语音           |
+| VAD       | Voice Activity Detection                        | 语音活动检测         |
+| WFST      | Weighted Finite-State Transducer                | 加权有限状态转换器   |
+| YOLO      | You Only Look Once                              |                      |
 
 - ITN
   - 口语 -> 书面语 - 符合 自然书写习惯
@@ -44,38 +53,6 @@ tags:
 | Stable Diffusion | 稳定扩散 |
 | Speech Synthesis | 语音合成 |
 | Voice Synthesis  | 语音合成 |
-
-## 精度 {#precision}
-
-| type | byte |        dynamic | 训练中常见用途                         | GPU支持性        |
-| ---- | ---- | -------------: | -------------------------------------- | ---------------- |
-| FP64 | 8    | 极高（~10³⁰⁸） | 科学计算、极端精度需求，极少用于DL训练 | 较弱，性能低     |
-| FP32 | 4    |    高（~10³⁸） | 中小型模型训练，混合精度中的关键操作   | 广泛支持         |
-| FP16 | 2    |     低（~10⁴） | 大模型训练（需损失缩放），推理优化     | Tensor Core 加速 |
-| BF16 | 2    |    高（~10³⁸） | 大模型训练主流，数值稳定               | A100/H100 优化   |
-
-- FP64 - Double Precision 双精度
-- FP32 - Single Precision 单精度
-- FP16 - Half Precision 半精度
-- BF16 / Bfloat16
-  - Brain Floating Point 16-bit
-  - by Google Brain
-  - 保留了 FP32 的指数范围（8位指数），减少尾数（7位）
-- Float
-  - s 符号位（Sign bit）
-  - e 指数（Exponent）
-  - m 尾数（Mantissa，或称为有效数/分数）
-
-$$
-\text{FP} = (-1)^s \times 2^{e-\text{Bias}} \times (1 + m)
-$$
-
-- 1 + m
-  - 更明确地分开隐含位（1）和存储的小数部分（m）
-
-$$
-\text{FP32} = (-1)^s \times 2^{e - 127} \times (1 + m)
-$$
 
 ## LLM 参数
 

@@ -10,17 +10,20 @@ tags:
 - Tesla A100
   - 2020-05-14
 
-| abbr. | stand for                           | meaning          |
-| ----- | ----------------------------------- | ---------------- |
-| CC    | Compute Capability                  | 计算能力         |
-| CUDA  | Compute Unified Device Architecture | 统一计算设备架构 |
-| FP    | Floating Point                      | 浮点数           |
-| GPCs  | Graphics Processing Cluster         | 图形处理集群     |
-| ISA   | Instruction Set Architecture        | 指令集架构       |
-| ROPs  | Raster Operation Pipeline           | 光栅操作管线     |
-| RT    | Ray Tracing                         | 光线追踪         |
-| SMs   | Streaming Multiprocessor            | 流多处理器       |
-| TMUs  | Texture Mapping Unit                | 纹理映射单元     |
+| abbr. | stand for                           | meaning                                      |
+| ----- | ----------------------------------- | -------------------------------------------- |
+| CC    | Compute Capability                  | 计算能力                                     |
+| CUDA  | Compute Unified Device Architecture | 统一计算设备架构                             |
+| DGX   | Deep GPU Xceleration                | 深度学习超级计算机 / 数据中心 GPU 超级计算机 |
+| FP    | Floating Point                      | 浮点数                                       |
+| GPCs  | Graphics Processing Cluster         | 图形处理集群                                 |
+| HBM   | High Bandwidth Memory               | 高带宽内存                                   |
+| HGX   | Hyperscale GPU Accelerator          | 超大规模 GPU 加速器                          |
+| ISA   | Instruction Set Architecture        | 指令集架构                                   |
+| ROPs  | Raster Operation Pipeline           | 光栅操作管线                                 |
+| RT    | Ray Tracing                         | 光线追踪                                     |
+| SMs   | Streaming Multiprocessor            | 流多处理器                                   |
+| TMUs  | Texture Mapping Unit                | 纹理映射单元                                 |
 
 - CC - Compute Capability - 计算能力
   - GPU 架构的版本号
@@ -28,6 +31,14 @@ tags:
     - 主版本号表示 GPU 架构的主要版本
     - 次版本号表示该架构的次要更新或修复
   - 例如，CC 6.1 表示主版本号为 6，次版本号为 1
+- NVLink
+  - 用于连接多个 GPU 以实现更高的带宽和更低的延迟
+  - 高端产品通常都支持
+- SXM2接口
+  - 替代 PCIe 接口
+  - 用于 NVLink
+  - 用于 数据中心产品 - NVIDIA DGX
+- NVSwitch 交换芯片
 
 ## Arch
 
@@ -35,16 +46,16 @@ tags:
 
 Pascal (2016) > Volta (2017) > Turing (2018) > Ampere (2020) > Hopper (2022) >= Ada Lovelace (2022)
 
-| year    | code         | Consumer               | Workstation               | Server/DC                      |      CC |
-| :------ | :----------- | ---------------------- | ------------------------- | ------------------------------ | ------: |
-| 2016    | Pascal       | GeForce GTX 10         | Quadro P                  | Tesla P4, P100, P40            | 6.0,6.1 |
-| 2017    | Volta        |                        | Quadro GV100, Titan V     | Tesla V100                     |     7.0 |
-| 2018    | Turing       | GeForce GTX 16, RTX 20 | Quadro RTX                | Tesla T4                       |     7.5 |
-| 2020    | Ampere       | GeForce RTX 30         | NVIDIA RTX A              | NVIDIA A100, A40, A30, A10, A2 | 8.0,8.6 |
-| 2022.09 | Hopper       |                        |                           | NVIDIA H100， H200             |     9.0 |
-| 2022.12 | Ada Lovelace | GeForce RTX 40         | NVIDIA RTX Ada Generation | NVIDIA L4, L40, L40S           |     8.9 |
-| 2024    | Blackwell    | GeForce RTX 50         | NVIDIA RTX PRO            | NVIDIA B100, B200, GB200       |     9.0 |
-| 2026    | Rubin        |                        |                           |                                |
+| year    | code         | Consumer                          | Workstation               | Server/DC                      |      CC |
+| :------ | :----------- | --------------------------------- | ------------------------- | ------------------------------ | ------: |
+| 2016    | Pascal       | GeForce GTX 10                    | Quadro P                  | Tesla P4, P100, P40            | 6.0,6.1 |
+| 2017    | Volta        |                                   | Quadro GV100, Titan V     | Tesla V100                     |     7.0 |
+| 2018    | Turing       | GeForce GTX 16, RTX 20, Titan RTX | Quadro RTX                | Tesla T4                       |     7.5 |
+| 2020    | Ampere       | GeForce RTX 30                    | NVIDIA RTX A              | NVIDIA A100, A40, A30, A10, A2 | 8.0,8.6 |
+| 2022.09 | Hopper       |                                   |                           | NVIDIA H100， H200             |     9.0 |
+| 2022.12 | Ada Lovelace | GeForce RTX 40                    | NVIDIA RTX Ada Generation | NVIDIA L4, L40, L40S           |     8.9 |
+| 2024    | Blackwell    | GeForce RTX 50                    | NVIDIA RTX PRO            | NVIDIA B100, B200, GB200       |     9.0 |
+| 2026    | Rubin        |                                   |                           |                                |
 
 - 市场
   - 消费级/桌面

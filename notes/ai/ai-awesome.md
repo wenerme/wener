@@ -116,6 +116,8 @@ tags:
   - [cline/cline](https://github.com/cline/cline)
   - [RooVetGit/Roo-Code](https://github.com/RooVetGit/Roo-Code)
     - fork cline
+- Eval
+  - [stanford-crfm/helm](https://github.com/stanford-crfm/helm)
 - [microsoft/unilm](https://github.com/microsoft/unilm)
   - MIT, Python
   - https://thegenerality.com/agi/

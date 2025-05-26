@@ -44,6 +44,18 @@ nvidia-smi
 apt-get install poppler-utils
 # 文件-1.png
 pdftoppm -png 文件{.pdf,}
+
+# Ollama
+# ==========
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve
+ollama pull qwen2.5vl:32b
+
+# FRP
+# ==========
+curl -LO https://github.com/fatedier/frp/releases/download/v0.62.1/frp_0.62.1_linux_amd64.tar.gz
+tar -xzf frp_0.62.1_linux_amd64.tar.gz --strip-components=1 frp_0.62.1_linux_amd64/frpc
+./frpc -v
 ```
 
 ```jupyter

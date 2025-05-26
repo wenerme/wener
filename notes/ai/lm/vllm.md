@@ -16,10 +16,21 @@ tags:
 :::
 
 ```bash
-docker run --rm -it -p 8080:8080 --entrypoint bash --name vllm vllm/vllm-openai:v0.8.5
+# --shm-size or --ipc=host
+docker run --rm -it \
+  --runtime nvidia --gpus all \
+  -p 8080:8080 \
+  --ipc=host \
+  -v ~/.cache/huggingface:/root/.cache/huggingface \
+  --entrypoint bash \
+  --name vllm vllm/vllm-openai:v0.8.5
 
+# 目前默认开启
 export VLLM_USE_V1=1
 vllm serve
+
+
+vllm serve NousResearch/Meta-Llama-3-8B-Instruct --dtype auto --api-key token-abc123
 ```
 
 ```py
@@ -151,3 +162,7 @@ llm = LLM(
 | VLLM_MSGPACK_ZERO_COPY_THRESHOLD        | `256`                      | 控制 msgspec 使用“零拷贝”进行张量序列化/反序列化的阈值。低于此限制的张量将被编码到 msgpack 缓冲区中，而高于此限制的张量将通过单独的消息发送。虽然发送方在所有情况下仍然复制张量，但在接收方，高于此限制的张量将实际进行零拷贝解码。                               |
 
 - https://docs.vllm.ai/en/stable/serving/env_vars.html
+
+# API
+
+- https://docs.vllm.ai/en/v0.8.5/serving/openai_compatible_server.html

@@ -5,19 +5,33 @@ tags:
 
 # LLM Models
 
-**Open Source/Weight Models**
-
-| model   | date       | ctx          | notes                            |
-| ------- | ---------- | ------------ | -------------------------------- |
-| Qwen2   | 2024-06-07 | 32k,64k,128k | 0.5, 1.5, 7, 57, 72 B by Alibaba |
-| LLAMA3  | 2024-04-18 | 8K           | by Meta                          |
-| phi3    | 2024       |              | by Microsoft                     |
-| gemma   | 2024       |              | by Google DeepMind               |
-| mistral | 2024       |              | by Mistral AI                    |
-| LLAMA2  | 2023       | 4K           | by Meta                          |
-| GPT-3   | 2020       | 2k           | 175B                             |
-| GPT-2   | 2019       |              | 1.5B                             |
-| GPT-1   | 2018       |              | 0.12B                            |
+| Date       | Model        | Size                                                        | Context Window | Creator         | Ability                           |
+| :--------- | :----------- | :---------------------------------------------------------- | :------------- | :-------------- | --------------------------------- |
+| 2025-03-26 | Qwen2.5-Omni | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech |
+| 2025-05-20 | Gemma3n      | 8b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                         |
+| 2025-04-29 | Qwen3        | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Thinking                     |
+| 2025-04-05 | Llama 4      | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                       |
+| 2025-03-12 | Gemma3       | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                            |
+| 2025-02-26 | Wan 2.1      |                                                             |                | Alibaba         | Video                             |
+| 2025-02-24 | smollm2      | 135m, 360m, 1.7b                                            | 8K             | HuggingFaceTB   |
+| 2025-01-28 | Qwen2.5-VL   | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                            |
+| 2025-01-28 | Qwen2.5      | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
+| 2025-01-20 | DeepSeek R1  | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     |
+| 2024-12-07 | Llama 3.3    | 70B                                                         | 128K           | Meta            |
+| 2024-10-05 | LLaVA        | 7b, 13b, 34b                                                | 4K, 32K        |
+| 2024-09-25 | Llama 3.2    | 1B, 3B, 11B, 90B                                            | 128K           | Meta            |
+| 2024-07-23 | Llama 3.1    | 8B, 70.6B, 405B                                             | 128K           | Meta            |
+| 2024-06-27 | Gemma 2      | 9b, 27.2b                                                   | 8K             | Google DeepMind |
+| 2024-06-07 | Qwen2        | 0.5b, 1.5b, 7b, 57b (A14b), 72b                             | 32K, 64K, 128K | Alibaba         |
+| 2024-04-23 | Phi-3        | 3.8b , 7b , 14b                                             | 4K, 128K       | Microsoft       |
+| 2024-04-18 | Llama 3      | 8b, 70.6b                                                   | 8K, 128K       | Meta            |
+| 2024-02-21 | Gemma        | 2b, 7b                                                      | 8K             | Google DeepMind |
+| 2023-12-11 | Mistral      | 7b, 46.7b (8x7B MoE)                                        | 33K            | Mistral AI      |
+| 2023-07-18 | Llama 2      | 6.7b, 13b, 69b                                              | 4K             | Meta            |
+| 2023-02-24 | LLaMA        | 6.7B, 13B, 32.5B, 65.2B                                     | 2K             | Meta            |
+| 2020-06-11 | GPT-3        | 175b                                                        | 2K             | OpenAI          |
+| 2019-02-14 | GPT-2        | 1.5b                                                        | 1K             | OpenAI          |
+| 2018-06-11 | GPT-1        | 117m                                                        | 512            | OpenAI          |
 
 **Proprietary Models**
 
@@ -30,6 +44,9 @@ tags:
 | GPT-4-32k     | 2023 |
 | GPT-4V        | 2023 |
 | GPT-4o        | 2023 |
+| Gemini        |
+| Gemini 2.0    |
+| Gemini 2.5    |
 
 - `*-pt` - Pre-Training - 预训练模型
   - 在大规模数据集上进行初始训练，学习语言模式和结构。
@@ -68,6 +85,7 @@ tags:
   - https://www.vellum.ai/llm-leaderboard
   - https://openrouter.ai/rankings
   - https://aider.chat/docs/leaderboards/
+  - https://huggingface.co/models
 - 价格/Pricing
   - https://openrouter.ai/models
   - https://ai.google.dev/gemini-api/docs/pricing
@@ -90,7 +108,6 @@ tags:
         - Thinking - temperature=0.6, top_p=0.95, top_k=20
         - temperature=0.7, top_p=0.8, top_k=20
         - min_p=0.0
-    - ⚠️ Ollama 不支持 Qwen VL [ollama#2874](https://github.com/ollama/ollama/issues/2874)
   - [Wan-Video](https://github.com/Wan-Video)
     - [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1)
   - [HumanMLLM/R1-Omni](https://github.com/HumanMLLM/R1-Omni)
@@ -100,9 +117,12 @@ tags:
   - [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
     - Janus-Series: Unified Multimodal Understanding and Generation Models
   - [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
+    - MoE, GRPO, MLA, RL, MTP, FP8
   - [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
   - [deepseek-ai/DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
     - DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding
+  - DeepSeek-V2
+    - MLA
 - [google-deepmind/gemma](https://github.com/google-deepmind/gemma)
   - Apache-2.0, Flax, JAX
   - by Google DeepMind
@@ -124,6 +144,12 @@ tags:
     - https://blog.roboflow.com/gemma-3/
     - https://docs.unsloth.ai/basics/gemma-3-how-to-run-and-fine-tune
     - Ollama 3 Tools support https://github.com/ollama/ollama/issues/9680
+- bytedance
+  - ~~[ByteDance-Seed/Seed1.5-VL](https://github.com/ByteDance-Seed/Seed1.5-VL)~~
+    - https://huggingface.co/spaces/ByteDance-Seed/Seed1.5-VL
+  - [ByteDance-Seed/BAGEL-7B-MoT](https://huggingface.co/ByteDance-Seed/BAGEL-7B-MoT)
+- OpenGVLab
+  - [OpenGVLab/InternVL3-8B](https://huggingface.co/OpenGVLab/InternVL3-8B)
 - command-a
   - 主要用于 Agent, 工具调用
   - https://cohere.com/blog/command-a
@@ -195,7 +221,6 @@ tags:
 grep avx /proc/cpuinfo --color # x86_64
 ```
 
-
 ## 中文 {#chinese}
 
 - Qwen2
@@ -207,3 +232,32 @@ grep avx /proc/cpuinfo --color # x86_64
 ## Fine-tuning {#fine-tuning}
 
 - https://huggingface.co/ValueFX9507/Tifa-Deepsex-14b-CoT-GGUF-Q4
+
+## Vision
+
+- 文档 OCR
+- 手写 OCR
+- 图片 QA
+- 图片分类
+- 文档理解
+- 视频理解
+- 对象识别
+- 对象计数
+- Agent - 屏幕理解操作
+- Grounding
+  - visual grounding poor performance after fine-tuning [2U1/Qwen2-VL-Finetune#77](https://github.com/2U1/Qwen2-VL-Finetune/issues/77)
+
+---
+
+- 参考
+  - https://blog.roboflow.com/multimodal-vision-models/
+
+## Coding
+
+- [All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands)
+- [block/goose](https://github.com/block/goose)
+- https://www.swebench.com/
+- 模型
+  - devstral 24B
+    - https://mistral.ai/news/devstral
+    - https://ollama.com/library/devstral

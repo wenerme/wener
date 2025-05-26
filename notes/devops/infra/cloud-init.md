@@ -24,12 +24,49 @@ title: Cloud Init
   - terraform-provider-libvirt [libvirt_cloudinit_disk](https://github.com/dmacvicar/terraform-provider-libvirt/blob/master/website/docs/r/cloudinit.html.markdown)
   - Ansible [cloud_init_data_facts_module](https://docs.ansible.com/ansible/latest/modules/cloud_init_data_facts_module.html)
     - 获取 cloud init 配置信息
+- /var/log/cloud-init.log
 
 ```bash
 # < 3.13
 # ifupdown-ng
-apk add ifupdown-ng iproute2-minimal -X https://mirrors.aliyun.com/alpine/edge/main/
-apk add cloud-init -X https://mirrors.aliyun.com/alpine/edge/community/
+apk add ifupdown-ng iproute2-minimal
+apk add cloud-init
+
+cloud-init status --wait
+
+# 阿里云
+curl http://100.100.100.200/
+
+# Linode / Akamai
+# fd00:a9fe:a9fe::1
+curl 169.254.169.254
+
+# GCE
+curl http://meta-data.google.internal/computeMetadata/v1/
 ```
 
 - [cloud init to install docker on ubuntu](https://gist.github.com/syntaqx/9dd3ff11fb3d48b032c84f3e31af9163)
+
+**user-data**
+
+```yaml
+#cloud-config
+password: password
+chpasswd:
+  expire: False
+```
+
+**meta-data**
+
+```yaml
+instance-id: someid/somehostname
+```
+
+- Instance Metadata Service (IMDS)
+- /
+  - meta-data
+  - user-data
+  - vendor-data
+- qemu `-smbios type=1,serial=ds='nocloud;s=http://10.0.2.2:8000/'`
+- nocloud
+  - https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html

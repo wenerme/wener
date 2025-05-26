@@ -5,6 +5,17 @@ tags:
 
 # Prompt Awesome
 
+- Optimizer/Tuning
+  - [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy)
+  - [latitude-dev/latitude-llm](https://github.com/latitude-dev/latitude-llm)
+    - LGPLv3, TS, Python
+    - prompt engineering platform
+    - https://promptl.ai/
+  - [Eladlev/AutoPrompt](https://github.com/Eladlev/AutoPrompt)
+    - Apache-2.0, Python
+  - [microsoft/PromptWizard](https://github.com/microsoft/PromptWizard)
+    - MIT, Python
+    - Task-Aware Agent-driven Prompt Optimization Framework
 - [dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
   - https://www.promptingguide.ai/zh
 - [PlexPt/awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)

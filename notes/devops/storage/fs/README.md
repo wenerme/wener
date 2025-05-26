@@ -175,6 +175,9 @@ diskutil eraseDisk HFS+ DISK disk2
 # 磁盘分区
 diskutil partitionDisk disk4 1 GPT HFS+ newdisk R
 
+# 格式化为 exfat
+diskutil eraseDisk ExFAT MyUSB /dev/disk6
+
 # 添加 ext 类磁盘操作工具
 brew install e2fsprogs
 ls `brew --prefix e2fsprogs`/sbin

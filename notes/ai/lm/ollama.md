@@ -37,7 +37,8 @@ brew install ollama # macOS brew
 
 # 启动服务端
 # OLLAMA_KV_CACHE_TYPE 0.5+
-OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q4_0 ollama serve
+# OLLAMA_CONTEXT_LENGTH 默认 4096 也可以 /set parameter num_ctx 4096 或者 num_ctx 参数
+OLLAMA_CONTEXT_LENGTH=8192 OLLAMA_FLASH_ATTENTION=1 OLLAMA_KV_CACHE_TYPE=q4_0 ollama serve
 
 ollama run mistral # 运行模型
 ollama list
@@ -71,7 +72,7 @@ ollama pull llama3.2-vision:11b
 | OLLAMA_FLASH_ATTENTION   |                 | 启用 Flash Attention           |
 | OLLAMA_LLM_LIBRARY       |                 | 设置 LLM 库以绕过自动检测      |
 | OLLAMA_MAX_VRAM          |                 | 最大显存（VRAM）               |
-| OLLAMA_CONTEXT_LENGTH    |
+| OLLAMA_CONTEXT_LENGTH    |     4096            | 上下文长度                     |
 
 - https://github.com/ollama/ollama/blob/main/envconfig/config.go
 - https://github.com/ollama/ollama/issues/2941

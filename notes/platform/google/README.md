@@ -10,6 +10,20 @@ title: Google
   - 图像处理套件
   - Photoshop 插件
   - [Nik Software](https://en.wikipedia.org/wiki/Nik_Software)
+- https://labs.google/experiments
+
+## AI
+
+- Gemini
+- Gemma
+- https://deepmind.google/
+- https://labs.google/fx/zh/tools/whisk
+  - 生成 图片/视频
+- NotebookLM
+- flow
+  - 视频、流程场景控制
+- https://stitch.withgoogle.com/
+  - 生成设计稿到 Figma 或 Code
 
 ## Cloud service
 

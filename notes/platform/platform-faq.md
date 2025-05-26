@@ -78,3 +78,12 @@ sysctl net.inet.tcp.always_keepalive net.inet.tcp.keepidle net.inet.tcp.keepinit
 - AWS API Gateway 默认 10 分钟
   - [Amazon API Gateway quotas and important notes](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html)
 - https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/
+
+## 国家限制 {#regions}
+
+- Google
+  - Available regions for Google AI Studio and Gemini API https://ai.google.dev/gemini-api/docs/available-regions
+  - 账号关联地区更改请求 https://policies.google.com/country-association-form
+- OpenAI
+  - Supported countries and territories https://platform.openai.com/docs/supported-countries
+- https://www.anthropic.com/supported-countries

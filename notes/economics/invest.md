@@ -150,10 +150,46 @@ $$
 ## 投资 vs 交易
 
 - 投资 (Investment)
-  - 长期
+  - 宏大、宽泛的概念
+  - 长期、可持续增长，并抵御通货膨胀
+    - 数年、数十年
   - 持续 - 股息、利息
-  - 关注基本面分析
+  - 关注基本面分析: 内在价值、盈利能力、行业前景、宏观经济环境
+  - 资本（资金、资产等） -> 项目、资产、事业 -> 经济回报（增值、分红、利息、租金等）、实现特定财务目标
+  - 宏观经济学、金融学原理、估值模型、资产配置理论、风险管理哲学
+  - 对未来趋势进行预测和规划
 - 交易 (Trading)
-  - 市场的短期价格波动
+  - 投资领域中的一个具体分支或实现投资的一种操作手段
+  - 买卖 金融工具（如股票、期货、外汇、加密货币等） -> 中短期波动 -> 利润
   - 更关注技术分析、市场情绪和短期催化剂
   - 持仓时间相对较短，从几秒钟、几分钟到几天或几周不等。
+
+---
+
+- 投资领域 (Investment Domain)
+  - 基金经理 (Fund Manager)
+  - 投资分析师/研究员 (Investment Analyst / Research Analyst)
+  - 财务规划师/财富管理顾问 (Financial Planner / Wealth Manager / Private Banker)
+  - 投资组合经理 (Portfolio Manager)
+  - 风险投资家 (Venture Capitalist - VC)
+  - 私募股权投资者 (Private Equity Investor - PE)
+  - 资产配置策略师 (Asset Allocation Strategist)
+  - 房地产投资专业人士 (Real Estate Investment Professional)
+- 交易领域 (Trading Domain)
+  - 交易员 (Trader)
+    - 机构交易员 (Institutional Trader)
+      - 自营交易员 (Proprietary Trader / Prop Trader)
+      - 销售交易员 (Sales Trader)
+      - 执行交易员 (Execution Trader)
+    - 量化交易员 (Quantitative Trader / "Quant Trader")
+    - 高频交易员 (High-Frequency Trader - HFT)
+    - 日内交易员 (Day Trader) - 在单个交易日内完成所有买卖操作，不持仓过夜。
+    - 波段交易员 (Swing Trader) - 持仓时间从几天到几周不等，旨在捕捉市场中期趋势的“波段”。
+    - 加密货币交易员 (Cryptocurrency Trader)
+  - 做市商 (Market Maker)
+  - 技术分析师 (Technical Analyst)
+  - 交易系统开发者/算法工程师 (Trading System Developer / Algorithmic Engineer)
+  - 风险管理师（交易风险）(Risk Manager - Trading Risk)
+- 交叉领域 (Overlapping Fields / Hybrid Roles)
+  - 对冲基金经理 (Hedge Fund Manager)
+  - 金融科技专业人士 (Fintech Professional)

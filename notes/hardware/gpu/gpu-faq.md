@@ -1,6 +1,6 @@
 ---
 tags:
-- FAQ
+  - FAQ
 ---
 
 # GPU FAQ
@@ -13,3 +13,6 @@ tags:
 - https://en.wikipedia.org/wiki/GFLOPS
 - Nvidia GPUs
 - AMD Radeon GPUs
+- Intel Arc
+- IPEX - Intel Extension for PyTorch
+  - [intel/intel-extension-for-pytorch](https://github.com/intel/intel-extension-for-pytorch)

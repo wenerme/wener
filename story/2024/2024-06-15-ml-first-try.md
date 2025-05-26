@@ -271,9 +271,9 @@ eval "$(pyenv virtualenv-init -)"
 ## nvtop
 
 ```bash
-curl -LO https://github.com/Syllo/nvtop/releases/download/3.1.0/nvtop-x86_64.AppImage
-chmod +x nvtop-x86_64.AppImage
-./nvtop-x86_64.AppImage
+curl -o nvtop -L https://github.com/Syllo/nvtop/releases/download/3.2.0/nvtop-3.2.0-x86_64.AppImage
+chmod +x nvtop
+./nvtop
 ```
 
 **from source**
