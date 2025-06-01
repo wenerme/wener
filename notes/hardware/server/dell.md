@@ -77,6 +77,11 @@ HP_spp-2017.04.0-SPP2017040.2017_0420.14.iso
 - Dell [DRAC](https://en.wikipedia.org/wiki/Dell_DRAC)
   - Dell Remote Access Controller
   - iDRAC - integrated DRAC
+- RACADM (Remote Access Controller Admin)
+  - 命令行工具
+- OMSA - Dell OpenManage Server Administrator
+- Redfish API 客户端可以和 iDRAC 交互
+- IPMI (Intelligent Platform Management Interface)
 
 # FAQ
 

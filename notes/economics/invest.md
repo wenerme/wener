@@ -57,6 +57,31 @@ tags:
 - 保险产品 (Insurance Products):
   - 如年金、分红险等。这些产品通常结合了投资和保险功能，适合长期规划和保障需求。
 
+> Investing isn't about beating others as their game, It's about controlling yourself at your own game
+> 投资不是在别人的游戏中击败他人，而是在自己的游戏中控制自己
+>
+> Those who do not remember the past are condemned to repeat it.
+> 那些不记得过去的人注定要重蹈覆辙。
+>
+> The intelligent investor is a realist who sells to optimists and buys from pessimists.
+> 聪明的投资者是一个现实主义者，他向乐观主义者出售，而从悲观主义者那里购买。
+>
+> In the short run, the market is a voting machine but in the long run, it is a weighing machine.
+> 短期内，市场是一个投票机，但长期来看，它是一个称重机。
+>
+> As the Danish philosopher Søren Kierkegaard noted, life can only be understood backwards—but it must be lived forwards.
+> 丹麦哲学家索伦·克尔凯郭尔曾指出，生活只能向后理解，但必须向前生活。
+>
+> You will be much more in control, if you realize how much you are not in control.
+> 你会更加掌控自己的局面，如果你意识到自己并不完全掌控局面。
+>
+> ― Benjamin Graham, The Intelligent Investor
+> ― 本杰明·格雷厄姆，《聪明的投资者》
+
+- 本杰明·格雷厄姆，《聪明的投资者》
+- 参考
+  - https://www.bilibili.com/festival/jzj2023?bvid=BV1e8411B7w7
+
 ## 投资回报率
 
 - 投资回报率 (Return on Investment): 衡量投资收益与成本之间关系的指标，通常用百分比表示。计算公式为：

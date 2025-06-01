@@ -40,6 +40,10 @@ PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 -----END RSA PRIVATE KEY-----"
 ```
 
+```bash
+npx @dotenvx/dotenvx run -f .env.frpc.local -- frpc -c frpc.yaml
+```
+
 ## .env
 
 - key - `[a-zA-Z_]+[a-zA-Z0-9_]*`

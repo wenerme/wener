@@ -172,6 +172,9 @@ tags:
 - [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)
   - GPLv3, Go
   - file management and sharing system, supports multiple storage providers
+- [nimbusdotstorage/Nimbus](https://github.com/nimbusdotstorage/Nimbus)
+  - Apache-2.0, TS
+  - open source alternative to Google Drive, One Drive, iCloud, etc.
 
 ## 协议库 {#library}
 

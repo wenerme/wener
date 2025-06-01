@@ -48,6 +48,11 @@ tags:
 | -------- | ---------- | ----------- |
 | /dev/ppp | IPsec/L2TP | ppp_generic |
 
+```bash
+# 修改 tmpfs size
+mount -o remount,size=2G,noatime /tmp
+```
+
 **procfs**
 
 | path           | for |

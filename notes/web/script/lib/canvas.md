@@ -40,6 +40,8 @@ type ImageBitmapSource = CanvasImageSource | Blob | ImageData;
     - macOS aarch64 (aka Apple silicon)
     - Linux x86/64 (glibc only)
     - Windows x86/64
+- canvas_binary_host
+- https://github.com/Automattic/node-canvas/releases/download/v3.1.0/canvas-v3.1.0-napi-v7-darwin-x64.tar.gz
 
 ```bash
 # AlpineLinux
@@ -47,5 +49,5 @@ apk add pkgconf cairo-dev pango-dev libpng-dev jpeg-dev giflib-dev librsvg-dev
 
 # macOS
 # https://github.com/Automattic/node-canvas/issues/2036
-brew install pkg-config cairo pango libpng jpeg giflib librsvg
+brew install pkg-config cairo pango libpng jpeg giflib librsvg pixman python-setuptools
 ```

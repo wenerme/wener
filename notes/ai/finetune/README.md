@@ -1,18 +1,32 @@
 ---
 tags:
   - Topic
+  - Training
 ---
 
 # 微调
 
-# Awesome
-
-- [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
-  - Apache-2.0, Python
-  - Unified Efficient Fine-Tuning of 100+ LLMs & VLMs
-- [2U1/Qwen2-VL-Finetune](https://github.com/2U1/Qwen2-VL-Finetune)
-  - Apache-2.0, Python
-  - Liger-Kernel
+- toolkit
+  - [InternLM/xtuner](https://github.com/InternLM/xtuner)
+    - Apache-2.0, Python
+  - [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
+    - Apache-2.0, Python
+    - Unified Efficient Fine-Tuning of 100+ LLMs & VLMs
+  - [2U1/Qwen2-VL-Finetune](https://github.com/2U1/Qwen2-VL-Finetune)
+    - Apache-2.0, Python
+    - Liger-Kernel
+  - [axolotl-ai-cloud/axolotl](https://github.com/axolotl-ai-cloud/axolotl)
+    - Apache-2.0, Python
+  - [unslothai/unsloth](https://github.com/unslothai/unsloth)
+    - Apache-2.0, Python
+  - [pytorch/torchtune](https://github.com/pytorch/torchtune)
+    - Apache-2.0, Python
+- Example/LoRA
+  - [daniel3303/StoryReasoning](https://github.com/daniel3303/StoryReasoning)
+    - 多image，连续故事推理，人物识别
+    - 数据集 [daniel3303/StoryReasoning](https://huggingface.co/datasets/daniel3303/StoryReasoning)
+- Article/文章/参考
+  - [Training a WAN or HunYuan LoRA the right way.](https://civitai.com/articles/11942)
 
 # Glossary
 
@@ -25,6 +39,10 @@ tags:
 | DPO      | Direct Preference Optimization             | 直接偏好优化     |
 | GRPO     | Group Relative Policy Optimization         | 组相对策略优化   |
 | RLHF     | Reinforcement Learning from Human Feedback | 人类反馈强化学习 |
+| DoRA     | Weight-Decomposed Low-Rank Adaptation      | 动态秩适配       |
+| RSLORA   | Rank-Stabilized LoRA                       | 稳定秩低秩适配   |
+| LoftQ    | LoRA-Fine-Tuning-Aware Quantization        | 低秩微调感知量化 |
+| SFT      | Supervised Fine-Tuning                     | 监督微调         |
 
 | en                | cn       |
 | ----------------- | -------- |
@@ -61,3 +79,59 @@ tags:
     - 将模型参数本身也进行切分。每个GPU只保留当前计算层所需的参数，其他参数在使用时动态聚合。
   - ZeRO-Offload
     - 将部分或全部被切分的状态（参数、梯度、优化器状态）进一步卸载到CPU内存中，进一步降低GPU显存需求。
+
+## 2U1/Qwen2-VL-Finetune
+
+- [2U1/Qwen2-VL-Finetune](https://github.com/2U1/Qwen2-VL-Finetune)
+  - Apache-2.0, Python, Liger-Kernel, DeepSpeed
+  - ⚠️ Liger-kernel 不支持 QLoRA
+- dataset
+  - --data_path data.json
+  - --image_folder
+
+```json
+[
+  {
+    "id": "000000033471",
+    "image": ["000000033471.jpg", "000000033472.jpg"],
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\n<image>\nIs the perspective of the camera differnt?"
+      },
+      {
+        "from": "gpt",
+        "value": "Yes, It the perspective of the camera is different."
+      }
+    ]
+  }
+]
+```
+
+```bash
+git clone https://github.com/2U1/Qwen2-VL-Finetune
+cd Qwen2-VL-Finetune
+uv venv --python 3.11
+uv pip install -r requirements.txt -f https://download.pytorch.org/whl/cu124
+uv pip install qwen-vl-utils
+uv pip install flash-attn --no-build-isolation
+
+# 复制脚本 自行修改后使用
+# 修改 data-path, image-folder, MODEL_NAME
+cp scripts/finetune.sh ft.sh
+
+# 参考脚本
+# Full Finetuning
+bash scripts/finetune.sh
+# LoRA Finetuning
+bash scripts/finetune_lora.sh
+# LoRA Finetuning language model & vision model
+bash scripts/finetune_lora_vision.sh
+
+# for Video
+bash scripts/finetune_video.sh
+
+bash scripts/merge_lora.sh
+```
+
+- https://github.com/2U1/Qwen2-VL-Finetune

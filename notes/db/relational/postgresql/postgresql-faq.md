@@ -758,25 +758,6 @@ CREATE TABLE t (
 
 - 使用 pg_isready 判断是否可用
 
-## COLLATE
-
-```sql
-create index on t (name COLLATE "C");
--- 支持使用 Index
-explain select * from t where name like 'W%';
--- 不会用 Index
-explain select * from t where name = 'Wener';
--- 会用 Index
-explain select * from t where name = 'Wener' collate "C";
-
--- 修改默认 COLLATE
-alter table t alter column name set data type text collate "C";
--- 会用 Index
-explain select * from t where name = 'Wener';
-```
-
-- COLLATE "C" 支持前缀过滤索引
-- LC_COLLATE
 
 ## ERROR: could not resize shared memory segment "/PostgreSQL.2692148336" to 1073812480 bytes: No space left on device
 
@@ -823,13 +804,39 @@ preStop:
 
 - https://stackoverflow.com/a/75829325/1870054
 
-## LC_MONETERY
+## collate
 
 :::caution
 
 - collate 不能创建 db 后修改，可以针对 column 或 table 修改。
 
 :::
+
+
+```sql
+create index on t (name COLLATE "C");
+-- 支持使用 Index
+explain select * from t where name like 'W%';
+-- 不会用 Index
+explain select * from t where name = 'Wener';
+-- 会用 Index
+explain select * from t where name = 'Wener' collate "C";
+
+-- 修改默认 COLLATE
+alter table t alter column name set data type text collate "C";
+-- 会用 Index
+explain select * from t where name = 'Wener';
+```
+
+- COLLATE "C" 支持前缀过滤索引
+  - 不支持 pg_trgm
+  - show_trgm 返回空
+- LC_COLLATE
+- LC_CTYPE
+- `{locale_name}.{encoding_name}`
+- C.UTF-8
+  - PostgreSQL 17+
+  - https://pganalyze.com/blog/5mins-postgres-17-builtin-c-utf8-locale
 
 ```sql
 show lc_collate;

@@ -74,9 +74,30 @@ tags:
 - [Stable Diffusion Models](https://cyberes.github.io/stable-diffusion-models/)
 - [openai/guided-diffusion](https://github.com/openai/guided-diffusion)
 
+| mode | date | author | notes |
+| ---- | ---- | ------ | ----- |
+
 | en                    | cn       | notes |
 | --------------------- | -------- | ----- |
 | Simple Diffusion      | 简单扩散 |
 | Facilitated Diffusion | 促进扩散 |
 | Active Transport      | 主动运输 |
 
+- CompVis
+  - 慕尼黑大学 (LMU Munich) 的计算机视觉与学习研究组 (Computer Vision & Learning Group)
+- LAION: 大型人工智能开放网络 (Large-scale Artificial Intelligence Open Network)，提供了训练数据集。
+
+| date    | model              | size     | author            | notes |
+| ------- | ------------------ | -------- | ----------------- | ----- |
+| 2024-10 | FLUX.1             | dev 12B  | Black Forest Labs |
+| 2024-10 | SD 3.5             | 2.5B, 8B |
+| 2024-02 | SD 3.0             | 800M, 8B |
+| 2023-11 | SDXL Turbo         |          |
+| 2023-07 | SDXL 1.0           | 3.5B     |
+| 2022-12 | SD v2.1            |
+| 2022-11 | SD v2.0            |          |
+| 2022-10 | SD 1.5             | 983M     | RunwayML          |
+| 2022-08 | SD 1.1 1.2 1.3 1.4 |          | CompVis           |
+
+- CFG - Classifier-Free Diffusion Guidance (2022)
+- [black-forest-labs/flux](https://github.com/black-forest-labs/flux)

@@ -72,6 +72,12 @@ pnpm store status
 # pnpm store add <package> # 等同于 pnpm add
 pnpm store prune # 移除未引用的包
 pnpm store path  # 路径
+
+
+#
+npm_config_include_workspace_root=true pnpm -r exec pwd
+# clean
+npm_config_include_workspace_root=true pnpm -r exec rm -rf node_modules
 ```
 
 ```ini title=".npmrc"

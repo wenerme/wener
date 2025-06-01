@@ -32,6 +32,11 @@ tags:
 
 :::
 
+- pg_trgm
+- pg_bgram
+- pgroonga
+- rum
+- zhparser
 - 可通过 [postgrespro/rum](https://github.com/postgrespro/rum) 索引提高效率
   - 基于 GIN 索引
   - 排序更快
@@ -47,15 +52,54 @@ tags:
   - [jaiminpan/pg_jieba](https://github.com/jaiminpan/pg_jieba)
   - [amutu/zhparser](https://github.com/amutu/zhparser)
 
+## rum
+
+- [postgrespro/rum](https://github.com/postgrespro/rum)
+  - 基于 GIN
+- 比 GIN 好的地方
+  - 速度更快
+    - 存储更多额外信息来辅助排序 - 例如 词素的位置
+    - ts_rank, ts_rank_cd
+  - 短语搜索效果更好
+  - 允许在索引中与词素一起存储额外的数据
+    - 例如 时间戳 做辅助排序
+- 比 GIN 差的地方
+  - 存储更多信息
+  - 构建更新相对更慢
+
 ## pg_trgm
 
 - 将文本进行 [ngram](https://en.wikipedia.org/wiki/N-gram) 分词
+- `similarity(text, text):real`
+  - 计算两个文本的相似度
+  - 范围 `[0,1]`，1 完全相同
+- `show_trgm(text):text[]`
+  - 显示文本的 ngram 分词
+- `word_similarity(text, text):real`
+  - 计算两个文本的相似度，使用词而不是字符
+- `text % text -> boolean`
+  - 相似度大于 0.3 / pg_trgm.similarity_threshold
+  - 可以被索引
+- `text <% text -> boolean`
+  - word_similarity, pg_trgm.word_similarity_threshold
+  - `>%`
+- `text <-> text -> real`
+  - 1 - `similarity(text, text)`
+  - `<<->` , `<->>`
 - 暴力搜索，可以被索引
 - 今天天气很好
   - 2 -> `今天 天气 很好`
   - 3 -> `今天天 气很好`
+- 支持 multi-byte character
+- 需要 collate 和 ctype 不是 C
 
 ```sql
+-- 查看当前数据库的 collate 和 ctype
+-- 需要是 UTF8
+SELECT datcollate, datctype
+FROM pg_database
+WHERE datname = current_database();
+
 create extension pg_trgm;
 
 -- 0.2

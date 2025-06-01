@@ -58,11 +58,10 @@ tags:
 | Option              | 期权       |
 | Perpetual           | 永续       |
 | Position            | 仓位       |
-| Scalping            |
+| Scalping            | 剥头皮交易 |
 | Settlement          | 交割       |
 | Short               | 做空       |
 | Simple Interest     | 单利       |
-| Speculation         | 投机       |
 | Spot                | 现货       |
 | Spot Trading        | 现货交易   |
 | Spread              | 买卖差价   |
@@ -83,13 +82,19 @@ tags:
 | Line Charts        | 折线图    |
 | Bar Charts         | 条形图    |
 
+| en          | cn                   |
+| ----------- | -------------------- |
+| Hedge       | 对冲、套期保值、避险 |
+| Speculation | 投机                 |
+
 - 交易品种/工具 (Trading Instruments)
   - 股票 (Stocks/Equities): 公司所有权的凭证。
   - 债券 (Bonds): 固定收益证券，代表债权。
   - 外汇 (Forex/FX): 不同国家货币之间的兑换交易。
   - 商品 (Commodities): 原材料，如黄金、原油、农产品等。
   - 加密货币 (Cryptocurrencies): 数字或虚拟货币，如比特币、以太坊。
-  - 衍生品 (Derivatives): 期货 (Futures)、期权 (Options)、差价合约 (CFDs)
+  - 衍生品 (Derivatives): 期货 (Futures)、期权 (Options)、差价合约 (CFDs)、远期契约（Forward Contract）、交换交易（Swaps）
+    - 用途：避险/对冲、投机、套利
 - 市场类型 (Market Types)
   - 交易所市场 (Exchange-Traded Markets): 如证券交易所，提供标准化的合约和透明的交易环境。
   - 场外市场 (Over-the-Counter, OTC Markets): 交易双方直接进行，更具灵活性，但透明度较低。
@@ -511,6 +516,14 @@ $$
 | Flag               | 旗形      |
 | Cup and Handle     | 杯柄形态  |
 
+| abbr.        | stand for                   | meaning         |
+| ------------ | --------------------------- | --------------- |
+| Top Acc. L/S | Top Accumulation Long/Short | 头部账户 多空比 |
+| Top Pos. L/S | Top Position Long/Short     | 仓位 多空比     |
+| Acc. L/S     | Accumulation Long/Short     | 账户 多空比     |
+| Taker L/S    | Taker Long/Short            | 主动 买卖量     |
+|              | Majority Rule               | 多数规则        |
+
 - MA - Moving Average - 移动平均线
   - 用于平滑价格数据，消除短期波动。
   - SMA - Simple Moving Average: 简单移动平均线
@@ -626,6 +639,12 @@ $$
   - 1978年出版《新概念技术交易系统》
   - 提出了RSI、ATR、MACD等指标。
 
+## Tradingview
+
+- https://www.tradingview.com/
+- https://finviz.com
+- https://coinmarketcap.com/currencies/ethereum/
+
 ## 支撑位 和 阻力位 {#support-resistance}
 
 - Support Level - 支撑位 - 支撑区
@@ -699,6 +718,108 @@ $$
 
 ## 交割合约 {#future-contract}
 
+交割合约是一种标准化的、具有法律约束力的协议，约定了在未来某个特定的日期（交割日/到期日），以预先确定的价格（期货价格）买入或卖出特定数量和质量的标的资产。
+
+- 双向义务 (Bilateral Obligation)
+- 结算方式 (Settlement Method)
+  - 实物交割 (Physical Delivery): 在合约到期时，卖方实际交付标的资产（如原油、黄金、农产品），买方实际接收并支付货款。
+  - 现金交割 (Cash Settlement): 在合约到期时，不进行实物交割，而是根据合约价格与到期日标的资产的现货价格（或某个结算价）之间的差额，进行现金收付。金融期货（如股指期货、利率期货）和目前大部分数字货币的交割合约多采用现金交割。
+- 到期日 (Expiry Date)
+- 交割月份 (Delivery Month)
+- 参考
+  - OKX 交割
+    - 结算时间 每日下午 4:00 (UTC+8)
+
+交割收益
+
+```
+多仓：面值 × 张数 × 交割价格 – 面值 × 张数 × 开仓均价
+空仓：面值 × 张数 × 开仓均价 – 面值 × 张数 × 交割价格
+```
+
+平仓收益
+
+```
+多仓：数量 (币) × 平仓均价 – 数量 (币) × 开仓均价
+空仓：数量 (币) × 开仓均价 – 数量 (币) × 平仓均价
+```
+
+结算收益
+
+```
+多仓：面值 × 乘数 × 张数 × (结算均价 – 开仓价格)
+空仓：面值 × 乘数 × 张数 × (开仓价格 – 结算均价)
+```
+
+## 期权 {#option}
+
+- Option - 期权、选择权、期货与选择权
+  - 是一种选择交易与否的权利
+- 权利金 Premium
+- Exercise Price, Strike Price - 行使价、执行价格
+- 种类
+  - 买权（Call） / 买入期权（Call Option
+  - 卖权（Put） / 卖出期权（Put Option）
+  - 奇异期权（Exotic Option） - 除了 买、卖 意外的其他类型
+- 行使方式（Exercise Style）
+  - 欧式期权（European Option） - 只能在到期日行使
+  - 美式期权（American Option） - 可以在到期日前的任何时间行使
+  - 百慕大式期权（Bermudan Option） - 可以在特定的几个日期行使
+- 要素
+  - 标的物（Underlying）
+  - 单位合约数量（Contract Size）
+  - 履约日期（Expiration Date）
+  - 履约价格（Strike Price）
+- 买卖双方权利义务不对等
+- 场景
+  - 单纯现货买卖已无法满足投机者的需求
+  - 高杠杆
+  - 现货速度跟不上市场的运作速度
+- 现货期权（Option on Spot）
+  - 金融产品
+  - 如 股票、ETF、外汇、利率、金属、农产品等大宗商品。
+- 期货期权（Option on Futures）
+  - 金融衍生品
+  - 如 石油和黄金。
+- 消耗型资产（Wasting Asset）
+  - 期权的价值会随着时间衰减
+  - Time Value / 时间价值 可能为 负
+    - 由于持有人无法提早行使，他损失了内在值至到期日的利息收入。
+    - 当利息成本足够大，超过了期权的保险价值时间值就会变成负数。
+    - 负的时间值在认购及认沽期权均会出现。
+- 参考
+  - wikipedia [期权](https://zh.wikipedia.org/zh/期权)
+
+| en               | cn                                     |
+| ---------------- | -------------------------------------- |
+| Intrinsic Value  | 实质价值, 内涵价值, 内在价值, 内生价值 |
+| In-the-Money     | 实值期权, 价内, 正内生价值             |
+| Out-of-the-Money | 虚值期权, 价外                         |
+| At-the-Money     | 平值期权, 价平, 零内生价值, 两平期权   |
+| Time Value       | 时间价值                               |
+| Insurance Value  | 保险价值, 风险价值, 风险溢价           |
+
+---
+
+- 欧式看涨期权
+
+行权收益
+
+```
+看涨期权买方：Max [(交割价格 – 行权价格) / 交割价格，0] × 合约乘数 × 持仓数量
+看跌期权买方：Max [(行权价格 – 交割价格) / 交割价格，0] × 合约乘数 × 持仓数量
+```
+
+平仓收益
+
+```
+(卖出价格 – 买入价格) × 合约乘数 × 持仓数量
+```
+
+---
+
+- 欧式看跌期权
+
 ## 网格策略
 
 网格交易策略 (Grid Trading Strategy)
@@ -745,6 +866,12 @@ $$
 - 市场心理: 市场参与者的心理状态和情绪会影响市场价格波动。
 - 市场流动性: 市场的流动性水平会影响价格波动的幅度和频率。
 
+## 交易规则 {#trading-rules}
+
+- 追逐限价委托
+  - 追单（Chase Order）
+  - 根据当前市场买一或卖一价进行限价委托的一种订单类型，自动更新追逐价格，直至订单成交、撤销、达到预先设置的最大追逐距离。
+
 # FAQ
 
 - 盈利 (Gain Incurred) -> 回到本金所需亏损 (Loss Required to Break Even)
@@ -771,6 +898,12 @@ $$
 | -50% | +100%   |
 | -60% | +150%   |
 | -70% | +233%   |
+
+- 复利
+  - 5% -> 100% 需要 14.4 周期
+  - 10% -> 100% 需要 7.2 周期
+- 72法则: 72除以年化收益率，得到翻倍所需的年数。
+  - 例如，年化收益率为6%，则72/6=12年翻倍。
 
 ## 累计成本价 vs. 平均成本价
 
@@ -850,3 +983,10 @@ $$
 
 - 参考
   - https://www.okx.com/zh-hans/fees
+
+## 交割合约 vs 期权
+
+- 交割合约 (Delivery Futures)
+  - 买卖双方均有义务在到期日履约（买方必须买，卖方必须卖）。
+- 期权 (Options)
+  - 买方（持有者）拥有权利，而非义务，可以在到期日或之前决定是否以约定价格买入（看涨期权）或卖出（看跌期权）标的资产。卖方（发行方）则有义务在买方行权时履约。

@@ -18,3 +18,29 @@ title: Dataset
 - openlibrary
 - 百度数据集 https://aistudio.baidu.com/datasetoverview
   - 增值税发票数据集-适配PaddleOCR https://aistudio.baidu.com/datasetdetail/165561
+- [huggingface/datasets](https://huggingface.co/docs/datasets/index)
+- [ConardLi/easy-dataset](https://github.com/ConardLi/easy-dataset)
+  - creating fine-tuning datasets for LLM
+  - 不支持 图片数据集
+- [open-sciencelab/GraphGen](https://github.com/open-sciencelab/GraphGen)
+  - Enhancing Supervised Fine-Tuning for LLMs with Knowledge-Driven Synthetic Data Generation
+
+```bash
+git clone https://github.com/ConardLi/easy-dataset.git
+cd easy-dataset
+pnpm i
+pnpm run build
+pnpm run start
+```
+
+- 数据集格式
+  - coco
+  - yolo
+  - alpaca
+  - sharegpt
+- 文件类型
+  - json
+  - jsonl
+  - csv
+  - parquet
+  - arrow

@@ -125,6 +125,9 @@ tags:
   - MIT, JS
   - all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder,
 - https://github.com/NielsRogge/Transformers-Tutorials
+- news/trending
+  - https://huggingface.co/models
+  - https://aihot.today/
 
 ## 应用 {#applications}
 
@@ -281,13 +284,24 @@ tags:
 
 ## UI
 
-**Playground**
 
 - [oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui)
   - AGPLv3, Python
   - LLaMA, llama.cpp, GPT-J, OPT, GALACTICA
 - [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
   - AGPLv3, Python
+  - A1111
+- Stable Diffusion WebUI Forge
+  - AGPLv3, Python
+  - fork AUTOMATIC1111
+  - 更好的性能
+- ComfyUI
+  - GPLv3, Python
+  - 基于节点的流程图界面
+  - 高级用户、开发者，希望完全掌控生成过程的每一个细节、构建复杂的工作流
+- [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI)
+  - Apache 2.0
+  - 艺术家、设计师
 - [nat/openplayground](https://github.com/nat/openplayground)
   - https://nat.dev/
 - [webonnx/wonnx](https://github.com/webonnx/wonnx)

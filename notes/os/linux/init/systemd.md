@@ -17,6 +17,30 @@ title: Systemd
   - https://wiki.archlinux.org/index.php/Systemd-networkd
   - [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
 
+| component         | for                                        |
+| ----------------- | ------------------------------------------ |
+| bootctl           | 控制和管理系统引导加载程序 (EFI)           |
+| hostnamectl       | 控制系统主机名                             |
+| journalctl        | 查询和显示 systemd 日志 (journal)          |
+| localectl         | 控制系统区域设置和键盘布局                 |
+| loginctl          | 控制用户登录会话和席位 (seat)              |
+| machinectl        | 管理虚拟机和容器                           |
+| networkctl        | 查询由 systemd-networkd 管理的网络链接状态 |
+| resolvectl        | DNS 解析 (客户端工具)                      |
+| systemctl         | 控制 systemd 系统、服务和单元              |
+| systemd           | 系统和服务管理器 (PID 1)                   |
+| systemd-analyze   | 分析系统启动性能和单元依赖                 |
+| systemd-homed     | 便携式/可加密的用户家目录管理服务          |
+| systemd-logind    | 用户登录管理守护进程                       |
+| systemd-networkd  | 网络连接管理守护进程                       |
+| systemd-nspawn    | 创建和运行轻量级命名空间容器               |
+| systemd-oomd      | 用户空间内存不足 (OOM) 监控和查杀守护进程  |
+| systemd-resolved  | 网络名称解析守护进程 (DNS, LLMNR, mDNS)    |
+| systemd-timesyncd | 网络时间同步守护进程                       |
+| systemd-tmpfiles  | 创建、删除和清理易失性和临时文件与目录     |
+| systemd-udevd     | 设备事件管理守护进程                       |
+| timedatectl       | 控制系统时间和日期设置                     |
+
 ```bash
 # 查看配置
 systemctl show docker
@@ -72,6 +96,28 @@ systemctl list-unit-files --type=service
 # 查看内容
 systemctl cat atd.service
 ```
+
+```bash
+resolvectl status
+resolvectl status eno1
+sudo resolvectl statistics
+
+resolvectl query example.com
+resolvectl query example.com --interface=eth0
+resolvectl query 8.8.8.8
+
+# LLMNR (Link-Local Multicast Name Resolution)
+resolvectl llmnr
+# mDNS (Multicast DNS)
+resolvectl mdns
+#  DNSSEC (DNS Security Extensions)
+resolvectl dnssec
+
+apt install knot-dnsutils
+kdig google.com @127.0.0.53
+```
+
+- /etc/systemd/resolved.conf
 
 | command                            | mean                            |
 | ---------------------------------- | ------------------------------- |
@@ -273,6 +319,7 @@ systemctl list-unit-files | grep enabled
 ```
 
 ## crontab
+
 - /var/spool/cron/root - 全局，无用户
 - /etc/crontab - root，需要指定用户
 - /etc/cron.d/ - 需要指定用户

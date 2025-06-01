@@ -4,16 +4,18 @@ title: Android Awesome
 
 # Android Awesome
 
-## Control
-
-- ~~[openstf/stf](https://github.com/openstf/stf)~~
-  - -> [DeviceFarmer/stf](https://github.com/DeviceFarmer/stf)
-- [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy)
-- [546669204/wechatbot-xposed](https://github.com/546669204/wechatbot-xposed)
-  WeChat robot
-- [546669204/wechatbot](https://github.com/546669204/wechatbot)
-- [546669204/taobaoke](https://github.com/546669204/taobaoke)
-  淘宝联盟 控制
+- Control/ADB
+  - [liriliri/aya](https://github.com/liriliri/aya)
+    - AGPLv3, TS
+    - Android ADB desktop app
+  - ~~[openstf/stf](https://github.com/openstf/stf)~~
+    - -> [DeviceFarmer/stf](https://github.com/DeviceFarmer/stf)
+  - [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy)
+  - [546669204/wechatbot-xposed](https://github.com/546669204/wechatbot-xposed)
+    WeChat robot
+  - [546669204/wechatbot](https://github.com/546669204/wechatbot)
+  - [546669204/taobaoke](https://github.com/546669204/taobaoke)
+    淘宝联盟 控制
 
 ## RE
 

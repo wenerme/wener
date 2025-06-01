@@ -122,14 +122,21 @@ select to_timestamp(1633072800);
 
 ## ARRAY
 
+- https://www.postgresql.org/docs/current/functions-array.html
+
 ```sql
 CREATE TABLE test (
     id serial PRIMARY KEY,
     tags text[]
 );
 
-select * from test where 'tag' = ANY(tags);
+-- filter array[]
+SELECT * FROM test WHERE 'tag' = ANY(tags);
+SELECT * FROM test WHERE tags @> ARRAY['tag1', 'tag2'];
+-- array to string
+SELECT array_to_string('{1,2}'::text[], ',', '');
 
+select array[1,2,3];
 ```
 
 # FAQ

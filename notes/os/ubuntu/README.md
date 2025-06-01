@@ -26,7 +26,7 @@ dd if=./ubuntu-24.04.2-live-server-amd64.iso of=/dev/rdisk6 status=progress bs=4
 # 直接安装到 USB
 qemu-system-x86_64 -m 8g -smp 4 -hda /dev/rdisk6 -cdrom ./ubuntu-24.04.2-live-server-amd64.iso -net nic,model=virtio,mac=52:54:00:12:34:56 -net user,hostfwd=tcp::2222-:22 -boot d
 
-apt install -y btop build-essential curl dialog git htop iotop iputils-ping jq lsof nano pip pipx python3 python3-pip sysstat wget
+apt install -y btop build-essential curl dialog git htop iotop iputils-ping jq lsof nano pip pipx python3 python3-pip sysstat wget tree
 
 curl -LO https://github.com/fastfetch-cli/fastfetch/releases/download/2.43.0/fastfetch-linux-amd64.deb
 dpkg -i fastfetch-linux-amd64.deb
@@ -35,7 +35,7 @@ dpkg -i fastfetch-linux-amd64.deb
 bootctl status | grep SecureBoot
 ```
 
-# Nvidia GPU Driver
+## Nvidia GPU Driver
 
 - nvidia-headless-no-dkms-XXX-server
   - 如果不需要 X11 或 Wayland
@@ -76,6 +76,54 @@ options nouveau modeset=0
 ```bash
 sudo update-initramfs -u
 sudo reboot
+```
+
+## Nvidia cuDNN
+
+- https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#network-repo-installation-for-ubuntu
+
+```bash
+# ubuntu2204/x86_64
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+
+sudo apt update
+# cuda-toolkit
+# nvidia-gds
+# cuda-compat
+
+apt install libcudnn9-cuda-12
+
+# 版本
+nvcc --version
+nvidia-smi
+
+apt list --installed | grep -i cuda
+
+# 升级版本
+sudo apt remove nvidia-cuda-toolkit nvidia-cuda-dev
+sudo apt install cuda-toolkit-12-8
+```
+
+```py title="cuda.py"
+import torch
+
+# 检查 PyTorch 版本
+print(f"PyTorch Version: {torch.__version__}")
+
+# 检查 CUDA 是否可用
+is_cuda_available = torch.cuda.is_available()
+print(f"CUDA Available: {is_cuda_available}")
+
+if is_cuda_available:
+    # 检查 PyTorch 编译时使用的 CUDA 版本
+    print(f"PyTorch CUDA Version: {torch.version.cuda}")
+    # 获取当前 GPU 的名称
+    print(f"GPU Name: {torch.cuda.get_device_name(0)}")
+    # 获取当前 GPU 的 CUDA 计算能力
+    print(f"GPU Compute Capability: {torch.cuda.get_device_capability(0)}")
+else:
+    print("CUDA is not available to PyTorch. Please check your installation and drivers.")
 ```
 
 ## Docker
@@ -171,18 +219,12 @@ docker run --rm -it --gpus all \
 
 # try vllm
 docker pull docker.m.daocloud.io/vllm/vllm-openai:v0.8.5
+docker run --rm -it --gpus all \
+  --runtime nvidia --gpus all \
+  -p 8080:8080 \
+  --ipc=host \
+  -v /data/home/.cache/huggingface:/root/.cache/huggingface \
+  --entrypoint bash \
+  --name vllm docker.m.daocloud.io/vllm/vllm-openai:v0.8.5
 ```
 
-## netplan
-
-- [canonical/netplan](https://github.com/canonical/netplan)
-  - GPLv3, Python, C
-  - by Canonical
-  - YAML based network configuration abstraction renderer
-- /etc/netplan/50-cloud-init.yaml
-- 生成到 /run/systemd/network/
-
-```bash
-netplan try
-netplan apply
-```

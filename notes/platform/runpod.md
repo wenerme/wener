@@ -13,6 +13,10 @@ HF_HOME=/workspace/.cache/huggingface
 - PUBLIC_KEY
   - for ssh
 - JUPYTER_PASSWORD
+- Pod
+  - vRAM 48G ~$0.5/hr
+  - vRAM 80G ~$2.0/hr
+  - Spot/抢占 50% off
 
 ```bash
 apt update
@@ -38,7 +42,6 @@ df -h / /workspace
 
 neofetch
 nvidia-smi
-
 
 # PDF to Images
 apt-get install poppler-utils

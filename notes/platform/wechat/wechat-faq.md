@@ -142,3 +142,41 @@ http://weixin.qq.com/r/XXX?utm_source=XX
 
 - https://soaked.in/2020/08/wechat-platform-url/
 
+## 导出收藏的语音
+
+- 文件格式 silk
+
+```bash
+# macOS
+# ==========
+# 相关目录
+find ~/Library/Containers/com.tencent.xinWeChat -type d -name 'Favorites'
+# silk 文件
+find ~/Library/Containers/com.tencent.xinWeChat -path '*Favorites*' -iname '*.silk'
+
+mkdir -p ~/Download/dump
+find ~/Library/Containers/com.tencent.xinWeChat -path '*Favorites*' -iname '*.silk' -exec cp {} ~/Download/dump \;
+
+# rename 为 01.silk 这种名字
+# rename -v  -N 01 -e '$_ = $N . ".silk"' *.silk
+
+git clone --depth 1 https://github.com/kn007/silk-v3-decoder
+cd silk-v3-decoder/silk
+make
+cd ..
+
+# 转换整个目录
+sh converter.sh input/path output/path mp3
+
+# silk -> pcm
+./silk/decoder a.silk a.pcm
+# pcm -> mp3
+ffmpeg -y -f s16le -ar 24000 -ac 1 -i a.pcm a.mp3
+```
+
+- SILK
+  - by Skype Limited
+  - 2009 年 开发用于替代 SVOPC codec
+  - Opus codec 的前身
+- [kn007/silk-v3-decoder](https://github.com/kn007/silk-v3-decoder)
+- wikipedia [SILK](https://en.wikipedia.org/wiki/SILK)

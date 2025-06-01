@@ -155,3 +155,18 @@ ollama run --verbose gemma3:27b "中文描述这个文件: ./inputs/demo.jpg ; �
   - https://github.com/ollama/ollama/issues/2929
 - New Engine - https://github.com/ollama/ollama/issues/9959
   - 替代 llama.cpp
+
+## 限制 GPU
+
+```bash
+# 得到 GPU ID
+nvidia-smi -L
+
+rocminfo
+```
+
+- CUDA_VISIBLE_DEVICES
+  - 逗号分割的 GPU ID 列表
+  - 支持 UUID 或 数字 ID
+  - 设置为 -1 表示禁用 GPU 强制 CPU
+- ROCM_VISIBLE_DEVICES

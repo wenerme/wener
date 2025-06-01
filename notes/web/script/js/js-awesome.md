@@ -746,33 +746,6 @@ tags:
   - [nolanlawson/fuite](https://github.com/nolanlawson/fuite)
     - finding memory leaks in web apps
   - [sverweij/dependency-cruiser](https://github.com/sverweij/dependency-cruiser)
-- bundler/transpile/build/tool
-  - [evanw/esbuild](https://github.com/evanw/esbuild)
-    - MIT, Go
-  - babel
-  - ts
-  - swc
-  - rsbuild
-    - by rspack
-  - [web-infra-dev/rspack](https://github.com/web-infra-dev/rspack)
-    - MIT, Rust
-    - Rust-based web bundler
-  - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
-  - turbopack
-  - [rolldown](https://github.com/rolldown/rolldown)
-  - webpack
-  - rollup
-  - parcel
-  - vite
-  - [developit/microbundle](https://github.com/developit/microbundle)
-  - [webpro-nl/knip](https://github.com/webpro-nl/knip)
-    - Find unused
-  - retire.js
-  - ~~[wooorm/xdm](https://github.com/wooorm/xdm)~~
-    - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
-  - ~~[preactjs/wmr](https://github.com/preactjs/wmr)~~
-    - MIT, JS
-    - tiny all-in-one development tool for modern web apps
 - i18n
   - [lingui/js-lingui](https://github.com/lingui/js-lingui)
     - core - 30kB, 8kB
@@ -1287,6 +1260,40 @@ tags:
 
 ## 工具 {#toolchain}
 
+- bundler/transpile/build/tool
+  - [evanw/esbuild](https://github.com/evanw/esbuild)
+    - MIT, Go
+  - babel
+  - ts
+  - [egoist/tsup](https://github.com/egoist/tsup)
+    - MIT, TS, esbuild
+    - Bundle .js, .json, .mjs, .ts, .tsx
+    - 主要用于 NodeJS, Library 环境
+    - 次要关注 HTML, CSS 等场景
+  - swc
+  - rsbuild
+    - by rspack
+  - [web-infra-dev/rspack](https://github.com/web-infra-dev/rspack)
+    - MIT, Rust, SWC, NAPI-RS
+    - Rust-based web bundler
+  - [farm-fe/farm](https://github.com/farm-fe/farm)
+    - MIT, Rust, TS, SWC, NAPI-RS
+  - [alangpierce/sucrase](https://github.com/alangpierce/sucrase)
+  - turbopack
+  - [rolldown](https://github.com/rolldown/rolldown)
+  - webpack
+  - rollup
+  - parcel
+  - vite
+  - [developit/microbundle](https://github.com/developit/microbundle)
+  - [webpro-nl/knip](https://github.com/webpro-nl/knip)
+    - Find unused
+  - retire.js
+  - ~~[wooorm/xdm](https://github.com/wooorm/xdm)~~
+    - MDX compiler - No runtime. With esbuild, Rollup, and webpack plugins
+  - ~~[preactjs/wmr](https://github.com/preactjs/wmr)~~
+    - MIT, JS
+    - tiny all-in-one development tool for modern web apps
 - formatter
   - prettier
 - linter
@@ -1317,6 +1324,7 @@ go install github.com/cryogenicplanet/depp@latest
 depp init
 depp
 
+# 检查 package.json
 npx -y publint
 
 npx -y @biomejs/biome check ./src

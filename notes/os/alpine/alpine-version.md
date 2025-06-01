@@ -41,7 +41,8 @@ tags:
 
 | version                              | date       | note                                       |
 | ------------------------------------ | ---------- | ------------------------------------------ |
-| [AlpineLinux 3.20](#alpinelinux-320) | 2024-05-22 | nodejs 20, go 1.22, php8.3, php8.2         |
+| [AlpineLinux 3.21](#alpinelinux-321) | 2024-05-22 | nodejs 22.16, go 1.24                      |
+| [AlpineLinux 3.20](#alpinelinux-320) | 2024-12-22 | nodejs 22, go 1.23, php8.4                 |
 | [AlpineLinux 3.19](#alpinelinux-319) | 2023-12-07 | nodejs 20, go 1.21, php8.3, php8.2, php8.1 |
 | [AlpineLinux 3.18](#alpinelinux-318) | 2023-05-29 | nodejs 18, go 1.20                         |
 | [AlpineLinux 3.17](#alpinelinux-317) | 2022-11-22 |
@@ -74,6 +75,37 @@ tags:
   - https://ariadne.space/
 
 <!-- ❓⭐️🌟🔴🟠🟡🟢🔵🟣⚫️⚪️🟤🔺🔻🔸🔹🔶🔷🔳🔲▪️▫️◾️◽️◼️◻️🟥🟧🟨🟩🟦🟪⬛️⬜️🟫❌⭕️⛔️✅❎ -->
+
+## AlpineLinux 3.22
+
+- /usr-merge
+  - 3.21 做了大部分准备
+  - `/{bin,sbin,lib,lib64}` --> `/usr/{bin,sbin,lib,lib64}`
+  - 标准化 linux fs 结构
+  - 合并可以简化文件系统层次结构
+  - 历史遗留问题
+    - 最初分离这些目录（例如 /bin 和 /usr/bin）是由于早期 Unix 系统磁盘空间的限制。
+    - 根文件系统（/）通常很小，而 /usr 目录则挂载在更大的磁盘上。因此，一些核心工具放在 /bin 以便在 /usr 尚未挂载时也能使用，而更多的应用程序则放在 /usr/bin。
+    - 现在磁盘空间不再是主要制约因素，分离的原始理由已经不再成立。
+  - 方便操作系统快照
+    - 系统核心内容放在 /usr 可以 readonly
+    - 可以将 /usr 作为网络共享挂载为 readonly
+    - 更好实现 无状态系统
+    - 分离 vendor-supplied OS resources 和用户的内容
+    - 便于实现云环境和大规模虚拟化
+  - 参考
+    - https://lists.busybox.net/pipermail/busybox/2010-December/074114.html
+    - https://gitlab.alpinelinux.org/alpine/infra/alpine-mksite/-/merge_requests/88/diffs
+    - https://tracker.debian.org/pkg/usrmerge
+    - https://systemd.io/THE_CASE_FOR_THE_USR_MERGE/
+    - https://www.freedesktop.org/wiki/Software/systemd/TheCaseForTheUsrMerge/
+- 要求 apk-tools v2.14+
+  - 下一个版本是 apk-tools v3
+- uefi 现在使用 systemd-efistub 的 stub
+  - 确保没修改 /etc/kernel-hooks.d/secureboot.conf 的 efistub_file
+  - 之前的 gummiboot-efistub 目前无法使用了, 移到了 testing
+- ~~LXD~~ -> incus
+- https://beacondb.net/
 
 ## AlpineLinux 3.21
 

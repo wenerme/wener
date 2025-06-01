@@ -40,6 +40,38 @@ tags:
   - 用于 数据中心产品 - NVIDIA DGX
 - NVSwitch 交换芯片
 
+## Products
+
+- NVIDIA Tesla V100 SXM2 16 GB
+  - fp8, int8
+  - 不支持 AWQ
+
+| itme                         |               fp16 |         fp32 |                fp64 | Tensor Cores | Tensor           |
+| ---------------------------- | -----------------: | -----------: | ------------------: | ------------ | ---------------- |
+| NVIDIA Tesla V100 SXM2 16 GB | 31.33 TFLOPS (2:1) | 15.67 TFLOPS |  7.834 TFLOPS (1:2) | 640          | 125 TFLOPS (6:1) |
+| NVIDIA GeForce RTX 4090      | 82.58 TFLOPS (1:1) | 82.58 TFLOPS | 1.290 TFLOPS (1:64) |
+| NVIDIA GeForce RTX 5090      | 104.8 TFLOPS (1:1) | 104.8 TFLOPS | 1.637 TFLOPS (1:64) |
+| NVIDIA H100 SXM5 96 GB       | 267.6 TFLOPS (4:1) | 66.91 TFLOPS |  33.45 TFLOPS (1:2) |
+
+- Tensor Core - 优化特定类型的矩阵运算
+  - Volta
+    - Tensor FP16
+    - CUDA FP16, FP32, F64, INT8
+  - Turing
+    - Tensor FP16, INT1, INT4, INT8
+    - CUDA FP16, FP32, F64
+  - Blackwell
+    - Tensor FP64, TF32, BF16, FP16, FP8, INT8, FP6, FP4
+    - CUDA FP64, FP32, FP16, BF16
+  - Hopper
+    - Tensor FP64, TF32, BF16, FP16, FP8, INT8
+    - CUDA FP64, FP32, FP16, BF16, INT8
+
+---
+
+- 参考
+  - https://docs.nvidia.com/deeplearning/tensorrt/latest/getting-started/support-matrix.html
+
 ## Arch
 
 > microarchitecture
@@ -123,7 +155,13 @@ Pascal (2016) > Volta (2017) > Turing (2018) > Ampere (2020) > Hopper (2022) >= 
 
 - CUDA（Compute Unified Device Architecture）
 - https://en.wikipedia.org/wiki/CUDA
+- [CUDA GPU Compute Capability](https://developer.nvidia.com/cuda-gpus)
 
 | ver       | date | notes                        |
 | --------- | ---- | ---------------------------- |
 | CUDA 13.x |      | 弃用 Maxwell、Pascal、 Volta |
+
+## cuDNN
+
+- https://developer.download.nvidia.cn/compute/cuda/repos/ubuntu2204/x86_64
+- https://docs.nvidia.com/deeplearning/cudnn/installation/latest/linux.html#ubuntu-debian-network-installation

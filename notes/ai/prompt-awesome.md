@@ -34,6 +34,8 @@ tags:
   - 推理
 - 参考
   - https://github.com/Aider-AI/aider/issues/3362
+- https://prompthero.com/
+- https://stablediffusionweb.com/prompts
 
 | topic                          | cite                                 |
 | ------------------------------ | ------------------------------------ |

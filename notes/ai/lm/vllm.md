@@ -19,7 +19,7 @@ tags:
 # --shm-size or --ipc=host
 docker run --rm -it \
   --runtime nvidia --gpus all \
-  -p 8080:8080 \
+  -p 8000:8000 \
   --ipc=host \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
   --entrypoint bash \
@@ -29,9 +29,49 @@ docker run --rm -it \
 export VLLM_USE_V1=1
 vllm serve
 
+vllm -v
 
+curl -v https://huggingface.co                       # 确保 HF 访问正常
+huggingface-cli download Qwen/Qwen2.5-VL-7B-Instruct # 手动下载
+
+vllm serve Qwen/Qwen2.5-VL-7B-Instruct --dtype auto --api-key token-abc123
 vllm serve NousResearch/Meta-Llama-3-8B-Instruct --dtype auto --api-key token-abc123
+
+
+curl http://localhost:8000/v1/models
+curl http://localhost:8000/v1/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+        "model": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
+        "prompt": "Today is",
+        "max_tokens": 100,
+        "temperature": 0
+    }'
+
+curl http://localhost:8000/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+        "model": "Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4",
+        "messages": [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Who won the world series in 2020?"}
+        ]
+    }'
+
+docker run --rm -it \
+  --runtime nvidia --gpus all \
+  -p 8000:8000 \
+  --ipc=host \
+  -v ~/.cache/huggingface:/root/.cache/huggingface \
+  --entrypoint bash \
+  --name vllm vllm/vllm-openai:v0.8.5 \
+  --model Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4 \
+  --enable-sleep-mode \
+  --dtype float16
 ```
+
+- 参考
+  - https://docs.vllm.ai/en/v0.8.5/serving/engine_args.html
 
 ```py
 from vllm import LLM
@@ -166,3 +206,61 @@ llm = LLM(
 # API
 
 - https://docs.vllm.ai/en/v0.8.5/serving/openai_compatible_server.html
+
+# FAQ
+
+- dtype
+  - auto, half, float16, bfloat16, float, float32
+  - “auto” will use FP16 precision for FP32 and FP16 models, and BF16 precision for BF16 models.
+  - “half” for FP16. Recommended for AWQ quantization.
+  - “float16” is the same as “half”.
+  - “bfloat16” for a balance between precision and range.
+  - “float” is shorthand for FP32 precision.
+  - “float32” for FP32 precision.
+- --quantization
+  - aqlm,awq,deepspeedfp,tpu_int8,fp8,ptpc_fp8,fbgemm_fp8,modelopt,nvfp4,marlin,bitblas,gguf,gptq_marlin_24,gptq_marlin
+  - gptq_bitblas,awq_marlin,gptq,compressed-tensors,bitsandbytes,qqq,hqq,experts_int8,neuron_quant,ipex,quark,moe_wna16,torchao,None
+- capability
+  - 8.0 bfloat16
+    - 不支持会 cast 为 fp16 或 fp32 - 性能影响很大
+  - 7.5 awq
+
+## Compute Capability < 8.0 is not supported by the V1 Engine. Falling back to V0.
+
+## dtype=auto
+
+```
+ValueError: Bfloat16 is only supported on GPUs with compute capability of at least 8.0. Your Tesla V100-SXM2-16GB GPU has compute capability 7.0. You can use float16 instead by explicitly setting the `dtype` flag in CLI, for example: --dtype=half.
+```
+
+## The quantization method awq is not supported for the current GPU. Minimum capability: 75. Current capability: 70.
+
+- V100
+- https://github.com/vllm-project/vllm/issues/1345
+
+## GPTQ-Int4
+
+```bash
+vllm serve Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4 --dtype=half
+```
+
+```
+ValueError: Trying to use the bitblas backend, but could not importwith the following error: No module named 'bitblas'. Please install bitblas through the following command: `pip install bitblas>=0.1.0`
+```
+
+## No optimized function available for platform CUDA
+
+```
+TVM target not found. Please set the TVM target environment variable using export TVM_TARGET=<target>
+```
+
+```bash
+# force --quantization=gptq
+CUDA_DEVICE_ORDER=PCI_BUS_ID vllm serve Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4 --dtype=half --quantization=gptq
+```
+
+- Volta (sm_70) 出错
+- gptq_bitblas 会使用 BitBLAS
+- BitBLAS 依赖 TVM
+- 参考
+  - Disable gptq_bitblas for < SM80 to fix GPTQ on V100/T4 [vllm-project/vllm#17541](https://github.com/vllm-project/vllm/pull/17541)

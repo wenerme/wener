@@ -18,6 +18,17 @@ brew reinstall imagemagick
 # 处理 SVG 也可以考虑 inkscape
 # 但在 macos 下 xserver 显示的不太好
 # brew cask info inkscape
+
+convert hd.jpg -resize 1920x1080 hd_1080p.png
+convert hd.jpg -resize 2048x1080 hd_2k.png
+convert hd.jpg -resize 2048x hd_w2048.png
+
+convert hd.jpg -resize 1080x hd_w1080.png
+
+convert hd.jpg -fuzz 5% -trim +repage -alpha set -bordercolor none -border 48x48 -resize 1080x hd_w1080.png
+
+# 照片保持原本的方向
+magick hd.jpg -auto-orient -resize 1080x hd_w1080.png
 ```
 
 ## Convert

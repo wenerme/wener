@@ -301,6 +301,17 @@ sqlite3 plugins/CoreProtect/database.db
 # TYPE: FLAT, LARGEBIOMES, AMPLIFIED, NORMAL, NETHER, END
 # /mv create <新世界名称> <环境类型> -g Terra:<PACK_ID>
 
+/mv create overcreate NORMAL
+# 修改默认模式为 创造模式
+# creative, survival, adventure
+/mv modify set mode creative overcreate
+# PEACEFUL - 0, EASY - 1, NORMAL - 2, HARD - 3
+/mv modify set difficulty 3 overcreate
+
+# 平坦且不生成建筑
+/mv create flatworld NORMAL -t FLAT -a false
+
+
 # 导入
 # mv import, mvimport, mvim
 # /mv import {NAME} {ENV} [GENERATOR[:ID]]

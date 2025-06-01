@@ -8,6 +8,13 @@ title: Hugging Face
 - git lfs
 - 参考
   - https://huggingface.co/pricing
+- XET Storage
+  - https://huggingface.co/xet-team
+  - https://xethub.com/
+  - transfer.xethub.hf.co - CloudFront, 能直联
+  - cas-server.xethub.hf.co
+- Pro https://huggingface.co/subscribe/pro
+  - $9.00 / month
 
 ```bash
 brew install huggingface-cli
@@ -19,6 +26,8 @@ huggingface-cli download Qwen/Qwen2.5-VL-7B-Instruct        # 下载模型
 # ~/.cache/huggingface/stored_tokens
 huggingface-cli login
 huggingface-cli whoami
+
+uvx --from huggingface_hub huggingface-cli
 ```
 
 - --repo-type dataset
