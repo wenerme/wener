@@ -5,5 +5,5 @@ title: FastAPI
 # FastAPI
 
 ```bash
-pip install fastapi uvicorn
+pip install fastapi uvicorn python-multipart python-dotenv
 ```

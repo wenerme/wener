@@ -18,6 +18,19 @@ tags:
       - MLP - multi-layer perceptron - 多层感知机
   - Collection [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
     - 3B, 7B, 32B, 72B
+  - [Alibaba-NLP/VRAG](https://github.com/Alibaba-NLP/VRAG)
+    - hf [autumncc/Qwen2.5-VL-7B-VRAG](https://huggingface.co/autumncc/Qwen2.5-VL-7B-VRAG)
+    - https://arxiv.org/pdf/2505.22019
+  - [reducto/RolmOCR](https://huggingface.co/reducto/RolmOCR)
+    - based on Qwen2.5-VL-7B
+    - finetune on https://huggingface.co/datasets/allenai/olmOCR-mix-0225
+    - 应该偏向语音
+    - 主要是 文档 OCR
+  - [Fancy-MLLM/R1-Onevision-7B](https://huggingface.co/Fancy-MLLM/R1-Onevision-7B)
+    - 包含 3B, 7B, 32B
+    - 图像是 518 px
+    - 数据集 [Fancy-MLLM/R1-Onevision](https://huggingface.co/datasets/Fancy-MLLM/R1-Onevision)
+    - CoT
 - QvQ
   - visual reasoning
 - Qwen
@@ -27,6 +40,13 @@ tags:
 - Qwen VL
   - 有很多基于 Qwen VL finetune 的模型
   - https://huggingface.co/reducto/RolmOCR
+- [Tongyi-Zhiwen](https://github.com/Tongyi-Zhiwen)
+  - [Tongyi-Zhiwen/QwenLong-L1](https://github.com/Tongyi-Zhiwen/QwenLong-L1)
+    - Reasoning, 长上下文推理, DocQA
+    - base R1-Distill-Qwen-14B, R1-Distill-Qwen-32B
+    - SFT, RL
+    - 渐进式上下文扩展（progressive context scaling）
+    - 数据集 [DocQA-RL-1.6K](https://huggingface.co/datasets/Tongyi-Zhiwen/DocQA-RL-1.6K)
 
 ## Qwen 2.5 VL
 
@@ -53,6 +73,17 @@ tags:
 | Vocabulary Size                | 151646          | 151646          | 151646          |
 | # Trained Tokens               | 4.1T            | 4.1T            | 4.1T            |
 
+:::caution
+
+- 输出重复问题
+  - https://github.com/QwenLM/Qwen2.5-VL/issues/575
+- 实际使用下来，A4 300DPI 的识别很容易出现 重复内容问题，72DPI 的识别效果更好。
+  - 例如: 办公室 识别结果为 办公办公室
+  - 参考
+    - https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct/discussions/35
+
+:::
+
 - 每个 28x28 像素对应一个 token
 - 图像至少需要 4个 token
   - 最小像素 `4 * 28 * 28`
@@ -62,10 +93,6 @@ tags:
   - 最大正方形 `128 * 28` -> `3584 * 3584` 像素
 - MAX_RATIO
   - 图像宽高比最大 200
-- ⚠️ 实际使用下来，A4 300DPI 的识别很容易出现 重复内容问题，72DPI 的识别效果更好。
-  - 例如: 办公室 识别结果为 办公办公室
-  - 参考
-    - https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct/discussions/35
 - OCR 推荐参数： 控制准确度和一致性
   - temperature=0, top_p=1.0, top_k=0
   - temperature=0.001, top_p=0.9, top_k=5
@@ -108,7 +135,7 @@ convert a.jpg -resize 25% -resize 'x28<' a.output.jpg
   - https://github.com/2U1/Qwen2-VL-Finetune
   - https://huggingface.co/learn/cookbook/en/fine_tuning_vlm_trl
   - Grounding Bias After Fine-Tuning [QwenLM/Qwen2.5-VL#721](https://github.com/QwenLM/Qwen2.5-VL/issues/721)
-  - visual grounding poor performance after fine-tuning  [QwenLM/Qwen2.5-VL#584](https://github.com/QwenLM/Qwen2.5-VL/issues/584)
+  - visual grounding poor performance after fine-tuning [QwenLM/Qwen2.5-VL#584](https://github.com/QwenLM/Qwen2.5-VL/issues/584)
   - https://github.com/OpenGVLab/InternVL/blob/main/internvl_chat/eval/refcoco/evaluate_grounding.py
   - [daniel3303/StoryReasoning](https://github.com/daniel3303/StoryReasoning)
     - 跨图片跟踪识别

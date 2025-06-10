@@ -6,6 +6,19 @@ tags:
 
 # Platform Awesome
 
+- RPA
+  - 影刀 RPA
+    - 社区版 免费 - 简单易用，门槛低
+    - 创业版 价格 黑盒
+    - 企业版 60w+
+  - UiBot
+  - UiPath 社区版
+  - 八爪鱼RPA
+  - 实在RPA
+  - 阿里云 RPA https://www.aliyun.com/product/codestore
+  - 阿里云 无影云手机 https://www.aliyun.com/product/cloud-phone
+    - 2C4G ￥65.00/1个月
+
 ## 小程序平台 {#miniprogram}
 
 - [微信小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/)

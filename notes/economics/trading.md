@@ -174,6 +174,13 @@ tags:
   - 不追涨杀跌: 避免情绪化交易，尤其是在市场剧烈波动时。
   - 持续学习: 加密市场发展迅速，需要不断更新知识和调整策略。
 
+## Awesome
+
+- https://www.tradingview.com/
+- https://finviz.com
+- https://coinmarketcap.com/currencies/ethereum/
+- https://www.coinglass.com/zh/currencies/ETH
+
 ## 关键概念
 
 - 流动性 (Liquidity): 资产能够以稳定价格快速买卖的程度。
@@ -638,12 +645,6 @@ $$
 - 威尔斯·威尔德 (J. Welles Wilder Jr.)
   - 1978年出版《新概念技术交易系统》
   - 提出了RSI、ATR、MACD等指标。
-
-## Tradingview
-
-- https://www.tradingview.com/
-- https://finviz.com
-- https://coinmarketcap.com/currencies/ethereum/
 
 ## 支撑位 和 阻力位 {#support-resistance}
 

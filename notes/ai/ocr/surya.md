@@ -8,7 +8,9 @@ title: surya
   - GPLv3, Python
   - document OCR
 - 参考
+  - https://huggingface.co/spaces/artificialguybr/Surya-OCR
   - https://github.com/VikParuchuri/surya/blob/master/surya/languages.py
+  - Qwen2.5 VL
 - 宽度不要超过 2048
 
 ```bash

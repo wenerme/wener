@@ -155,6 +155,69 @@ tags:
   - https://wpt.fyi/interop-2022
   - [What's new for the web platform](https://youtu.be/5b4YcLB4DVI) 2022 年 5 月 12 日
 
+## Chrome 137
+
+- CSS if()
+- CSS reading-flow, reading-order
+- Ed25519 in Web Cryptography
+- Canvas Floating Point Color Types
+  - CanvasRenderingContext2D, OffscreenCanvasRenderingContext2D, ImageData
+  - 高精度、高动态范围颜色
+
+## Chrome 136
+
+- Explicit Compile Hints with Magic Comments
+  - `//# allFunctionsCalledOnLoad`
+- H265 (HEVC) codec support in WebRTC
+
+## Chrome 135
+
+- rel=facilitated-payment push payments
+- Float16Array
+- 伪元素 ::scroll-button()
+- Carousel
+  - ::column
+  - ::scroll-marker
+  - ::scroll-marker-group
+  - CSS Inertness
+    - https://github.com/flackr/carousel/tree/main/inert
+- CSS Logical Overflow
+  - overflow 基于 writing-mode
+- fetchLater
+  - 用于发送监控数据
+- Invoker Commands
+  - command commandfor 属性
+  - 未来的 request-close 属性
+  - https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API
+
+```html
+<button commandfor="mypopover" command="toggle-popover">Toggle the popover</button>
+<!-- popover 内置 command -->
+<div id="mypopover" popover>
+  <button commandfor="mypopover" command="hide-popover">Close</button>
+  Popover content
+</div>
+```
+
+```html
+<!-- 自定义 command 处理 -->
+<button commandfor="my-img" command="--rotate-left">Rotate left</button>
+<button commandfor="my-img" command="--rotate-right">Rotate right</button>
+<img id="my-img" src="photo.jpg" alt="[add appropriate alt text here]" />
+```
+
+```js
+const myImg = document.getElementById('my-img');
+
+myImg.addEventListener('command', (event) => {
+  if (event.command === '--rotate-left') {
+    myImg.style.rotate = '-90deg';
+  } else if (event.command === '--rotate-right') {
+    myImg.style.rotate = '90deg';
+  }
+});
+```
+
 ## Chrome 134
 
 - 自定义 `<select>` 元素

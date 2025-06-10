@@ -18,123 +18,11 @@ title: Android
 - Device Id
   - https://developer.android.com/training/articles/user-data-ids
 
-## Shell
-
 ```bash
-# Simulate fast tap
-# /mnt/sdcard/events 是从 dev 中获取到的
-adb shell "while true;do cat /mnt/sdcard/events > /dev/input/event1 && sleep 0.01; done;"
+brew install android-platform-tools # adb, fastboot, 通信
 
-# 设备 ID
-adb shell settings get secure android_id
-# 查看当前 Activity 的名字
-adb shell dumpsys activity | grep mFocusedActivity
-# 串号
-adb shell getprop ro.serialno
-# 查看设备信息 Android < 5.0
-adb shell dumpsys iphonesubinfo
-# 通过 TCP 链接
-adb tcpip 5555
-adb connect 192.168.0.101:5555
-adb shell ip -f inet addr show wlan0
-# 恢复为 USB 链接
-adb usb
-
-# 服务调用
-# http://ktnr74.blogspot.com/2014/09/calling-android-services-from-adb-shell.html
-# 获取 IMEI
-adb shell service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A-F]*//g' | tr -d '\n' && echo
-# 1  getDeviceId
-# 2  getDeviceIdForSubscriber
-# 3  getImeiForSubscriber
-# 4  getDeviceSvn
-# 5  getSubscriberId
-# 6  getSubscriberIdForSubscriber
-# 7  getGroupIdLevel1
-# 8  getGroupIdLevel1ForSubscriber
-# 9  getIccSerialNumber
-# 10  getIccSerialNumberForSubscriber
-# 11  getLine1Number
-# 12  getLine1NumberForSubscriber
-# 13  getLine1AlphaTag
-# 14  getLine1AlphaTagForSubscriber
-# 15  getMsisdn
-# 16  getMsisdnForSubscriber
-# 17  getVoiceMailNumber
-# 18  getVoiceMailNumberForSubscriber
-# 19  getCompleteVoiceMailNumber
-# 20  getCompleteVoiceMailNumberForSubscriber
-# 21  getVoiceMailAlphaTag
-# 22  getVoiceMailAlphaTagForSubscriber
-# 23  getIsimImpi
-# 24  getIsimDomain
-# 25  getIsimImpu
-# 26  getIsimIst
-# 27  getIsimPcscf
-# 28  getIsimChallengeResponse
-# 29  getIccSimChallengeResponse
-
-# 获取屏幕上的颜色
-# <bytes per pixel> 一般为4
-# <pixel offset> = Y * width + X
-# 需要 ROOT 权限
-adb shell "dd if=/dev/graphics/fb0 bs=<bytes per pixel> count=1 skip=<pixel offset> 2>/dev/null | hd"
-# 获取屏幕宽度
-adb shell getprop ro.sf.lcd_density
-
-# 拉取所有照片
-adb pull /mnt/sdcard/DCIM/
-
-# 短信
-# 数据库文件需要 root 权限
-# /data/data/com.android.providers.telephony/databases/mmssms.db
-# 可使用 APP 备份然后下载
-# https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore
-# 备份后拉取即可
-adb pull /mnt/sdcard/SMSBackupRestore
-```
-
-### Touch Event
-
-```bash
-# 查看所有的设备,有 MT_TOUCH 为触摸设备
-getevent -pl
-# 假设 /dev/input/event1 为触摸设备
-# 记录所有的操作, 需手动中断
-cat /dev/input/event1 > event-dump
-# 回放记录的操作
-cat event-dump > /dev/input/event1
-# 可命令行操作 tap
-input tap 233 466
-# 查看所有操作的事件
-getevent -l
-```
-
-<!-- while true;do { cat tap-dump > /dev/input/event1; usleep 500; } done -->
-
-## 将 HttpClient 的日志输出到 Logcat
-
-**代码**
-
-```java
-java.util.logging.Logger.getLogger("org.apache.http.wire").setLevel(java.util.logging.Level.FINEST);
-java.util.logging.Logger.getLogger("org.apache.http.headers").setLevel(java.util.logging.Level.FINEST);
-
-System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
-System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
-System.setProperty("org.apache.commons.logging.simplelog.log.httpclient.wire", "debug");
-System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "debug");
-System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http.headers", "debug");
-```
-
-**命令行**
-
-```bash
-adb shell setprop log.tag.org.apache.http VERBOSE
-adb shell setprop log.tag.org.apache.http.wire VERBOSE
-adb shell setprop log.tag.org.apache.http.headers VERBOSE
-
-adb logcat -s "org.apache.http.wire" -s "log.tag.org.apache.http.headers" -s "org.apache.http"
+brew install android-commandlinetools # 管理和构建安卓应用开发环境
+brew install android-sdk              # Android SDK
 ```
 
 ## 在 APK 中注入代码
@@ -216,3 +104,25 @@ public class Extra{
   - 需要在其他地方注入代码时操作也是一样的
 - 然后参照上述命令行操作,重新将该项目构建为一个 APK 即可
 - 使用 `adb logcat -s "Injected"` 来查看在注入代码中打印的日志
+
+## java.io.FileNotFoundException: /data/system/theme_config/theme_compatibility.xml: open failed: ENOENT (No such file or directory)
+
+- 不影响使用，可忽略
+- uiautomator
+- adb shell uiautomator dump
+
+## 获取页面元素
+
+```bash
+adb exec-out uiautomator dump /dev/tty
+```
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<hierarchy>
+<node bounds="" text="" class="" hint="" resource-id="" content-desc="">
+  <node>
+  </node>
+</node>
+</hierarchy>
+```

@@ -186,6 +186,17 @@ title: 配件
     - ⚠️ 需要专用 Lexar 读卡器 RevB
   - 128GB - 读取 160MB/s, 写入 120MB/s
     - UHS-I U3, A2, V30
+- 参考
+  - https://old.reddit.com/r/raspberry_pi/comments/1l0v25s
+    - 首次错误的平均周期数约为 2400 次，中位数为 1450 次
+    - 高于平均水平
+      - Lexar (雷克沙)
+      - Kingston (金士顿)
+      - Kioxia (铠侠) Exceria Plus, Exceria G2s
+      - Amazon Basics (亚马逊倍思)
+    - 低于平均水平
+      - SanDisk/WD (闪迪/西部数据)
+      - ADATA (威刚)
 
 ## My Homelab
 

@@ -44,7 +44,6 @@ tags:
   - Multi-Understanding
   - Multi-Mathematics
 - 参考
-  - https://github.com/open-compass/VLMEvalKit
   - https://qwenlm.github.io/zh/blog/qwen2/
 
 

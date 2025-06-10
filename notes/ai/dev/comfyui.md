@@ -139,7 +139,7 @@ No module named pip
   - 1008x1344
 - 9:16
 
-## 参考
+## 参考 {#reference}
 
 - https://dreamlook.ai/
   - Finetune Stable Diffusion
@@ -151,6 +151,26 @@ No module named pip
 - SDXL Tubo model – https://civitai.com/models/215418?modelVersionId=273102
 - SDXL Studio Ghibli LoRA – https://civitai.com/models/137562/studioghibliredmond-studio-ghibli-lora-for-sd-xl
 - SDXL ControlNet LoRA – https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-canny-rank256.safetensors
+- 保持面部一致
+  - [lldacing/ComfyUI_PuLID_Flux_ll](https://github.com/lldacing/ComfyUI_PuLID_Flux_ll)
+  - https://huggingface.co/guozinan/PuLID/
+  - https://www.runcomfy.com/comfyui-workflows/create-consistent-characters-in-comfyui-with-ipadapter-faceid-plus
+- ADetailer 修复脸手
+  - https://github.com/Bing-su/adetailer
+    - AGPLv3
+    - Auto detecting, masking and inpainting with detection model.
+    - inpaint, scribble, lineart, openpose, tile, depth
+    - detection model - https://huggingface.co/Bingsu/adetailer
+      - face_yolo
+      - person_yolo
+      - mediapipe_face
+  - https://stable-diffusion-art.com/adetailer/
+- FaceDetailer
+- Hires
+  - https://www.runcomfy.com/comfyui-nodes/ComfyUI-Easy-Use/easy-hiresFix
+  - https://comfyanonymous.github.io/ComfyUI_examples/2_pass_txt2img/
+  - https://www.reddit.com/r/comfyui/comments/1d42dim/comfyui_sdxl_upscaler_hires_fix/
+- [ltdrdata/ComfyUI-Impact-Pack](https://github.com/ltdrdata/ComfyUI-Impact-Pack)
 
 <!--
 https://civitai.com/models/133005?modelVersionId=1759168

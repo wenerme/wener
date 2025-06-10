@@ -20,13 +20,30 @@ tags:
 curl -o ChromeStandaloneSetup64.en.exe "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B87584CE6-0E38-80EC-E64B-445DE6CAC662%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
 #
 curl -o ChromeStandaloneSetup64.zh-CN.exe "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B1AF1CCDF-A7FA-8A43-6E6D-A889DB429A87%7D%26lang%3Dzh-CN%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe"
-# googlechrome.dmg
+
+# macOS
+curl -LOJC- https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg
+curl -LOJC- https://dl.google.com/chrome/mac/universal/stable/CHFA/googlechrome.dmg
+
+# googlechrome.dmg 87.0
 curl -LOJC- https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+
+# pkg 版本
+curl -LOJC- https://dl.google.com/chrome/mac/universal/stable/gcem/GoogleChrome.pkg
 
 # 获取版本号
 strings ChromeStandaloneSetup64.exe | grep -i '<manifest version='
 ```
 
+| Brand Code | Name Fragments             | Notes                                                                        |
+| :--------- | :------------------------- | :--------------------------------------------------------------------------- |
+| GGRO       | Stable-PureOrganic         | 纯自然安装 (Pure organic installs)。                                         |
+| CHFA       | Stable-OffNetworkMarketing | 非网络营销安装 (Off-network marketing installs)，即不源自 `google.xx` 营销。 |
+| MACD       | Stable-DistributionDeals   | 分销合作 (Distribution deals)。                                              |
+| GGRM       | Stable-GoogleMarketing     | 谷歌营销渠道 (google.xx marketing channels)，例如站内广告、toast 促销等。    |
+
+- https://chromium.googlesource.com/chromium/reference_builds/chrome_mac/+/master/Google%20Chrome%20Packaging/generate_dmgs
+  - 生成镜像的命名逻辑
 - https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Mac
 - https://chromiumdash.appspot.com/fetch_releases?channel=Stable&platform=Windows
 - Windows 11 x86_64

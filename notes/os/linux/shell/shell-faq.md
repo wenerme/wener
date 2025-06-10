@@ -28,6 +28,9 @@ head -c 16 /dev/urandom | hexdump -v -e '/1 "%02x"'
 cat /dev/urandom | tr -dc 'a-f0-9' | head -c 32
 for i in {1..16}; do printf "%02x" $((RANDOM % 256)); done; echo
 xxd -l 16 -p /dev/urandom
+
+# infinite loop
+while true; do echo "Hello, World!"; sleep 1; done
 ```
 
 - prompt

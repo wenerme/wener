@@ -9,6 +9,11 @@ tags:
 - [Docker Best Practices](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5)
 
 ```bash
+docker system df # 查看磁盘使用情况
+
+# 避免日志过大
+docker run --log-opt max-size=10m --log-opt max-file=3 [你的镜像名]
+
 # Docker over SSH
 docker context create svr --docker "host=ssh://admin@svr"
 
@@ -222,7 +227,7 @@ export DOCKER_BUILDKIT=0
 
 - io.containerd.tracing.processor.v1.otlp
 
-# DOCKER_HOST 格式
+## DOCKER_HOST 格式
 
 - DOCKER_HOST
   - tcp://1.2.3.4:2375
@@ -400,3 +405,19 @@ from scratch 的容器没有 kill, 因此无法使用信号
 docker compose down
 docker compose up -d
 ```
+
+## Error saving credentials: error storing credentials - err: exit status 1, out: `User interaction is not allowed. (-25308)`
+
+1. unlock keychain
+
+通过 SSH 连接时可能会出现
+
+```bash
+# 先 unlock 再 login
+security unlock-keychain
+docker login
+```
+
+1. 不使用 docker-desktop 作为 credsStore
+
+移除 ~/.docker/config.json 中的 `"credsStore": "desktop"`

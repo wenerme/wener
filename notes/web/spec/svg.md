@@ -19,6 +19,12 @@ title: SVG
   - https://yqnn.github.io/svg-path-editor/
   - https://boxy-svg.com/
   - https://inkscape.org/
+- Library/Engine
+  - [thorvg/thorvg](https://github.com/thorvg/thorvg)
+    - MIT, C++, C
+  - [svg.js/svg.js](https://github.com/svgdotjs/svg.js)
+    - MIT, JavaScript
+    - manipulating and animating SVG
 
 ```bash
 # AI to SVG
@@ -32,7 +38,6 @@ rsvg-convert -h 32 icon.svg > icon-32.png
 rsvg-convert -h 200 icon.svg > icon.png
 
 rsvg-convert -h 200 icon.svg | oxipng -o max -i 0 --strip safe - > icon.png
-
 
 # 通过替换 currentColor 来生成不同颜色的图标
 cat ./svg/Home.svg | sed 's/currentColor/#999999/g' | rsvg-convert -h 48 | oxipng -o max -i 0 --strip safe - > HomeInactive.png
@@ -63,7 +68,6 @@ The default svg value is “nonzero”, and this is what Android requires. Unfor
 inkscape -g $filename --verb=EditSelectAll --verb=SelectionUnGroup --verb=StrokeToPath --verb=FileSave"
 
 fill-rule evenodd 可能会导致内部的一些内容被忽略
-
 
 TL;DR: SVG icons should use fill-rule:nonzero instead of Sketch default evenodd property to support Android VectorDrawable (as of now)
 

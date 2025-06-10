@@ -38,7 +38,7 @@ tags:
 
 - https://www.ivpn.net/knowledgebase/troubleshooting/how-do-i-change-the-port-or-protocol-used-to-connect/
 
-## VPN/私有网络
+## VPN/私有网络 {#vpn}
 
 :::tip
 
@@ -124,6 +124,10 @@ tags:
 - [ooni/minivpn](https://github.com/ooni/minivpn)
   - GPLv3, Go
   - minimalistic OpenVPN implementation in Go
+- [EasyTier/Easytier](https://github.com/EasyTier/Easytier)
+  - Apache-2.0, Rust
+  - WireGuard, Mesh VPN
+  - 国人维护
 
 ## Tunnel/通道
 

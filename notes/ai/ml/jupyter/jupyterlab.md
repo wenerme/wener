@@ -14,5 +14,8 @@ title: Jupyter Lab
 sudo systemctl status jupyter
 
 jupyter lab list
+
+
+docker run -p 8888:8888 -v "$(pwd):/home/jovyan/work" quay.io/jupyter/scipy-notebook
 ```
 

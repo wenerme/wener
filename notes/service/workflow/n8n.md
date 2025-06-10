@@ -5,6 +5,7 @@ id: n8n
 # n8n
 
 - [n8n-io/n8n](https://github.com/n8n-io/n8n) 是什么
+  - Sustainable Use License, TS, Vue
   - 带图形化界面的工作流自动化服务
   - Vue+Typescript+TypeORM
 - 参考
@@ -20,20 +21,41 @@ id: n8n
   - LDAP
   - Collaborate
 
-
 :::
 
 ```bash
+
+
+
 # /home/node/.n8n
+# SQLite
 docker run -it --rm \
+  -v $PWD/n8n/data:/home/node/.n8n \
   -p 5678:5678 \
-  -v $PWD/data:/root/.n8n \
-  -e N8N_ENCRYPTION_KEY=$(uuidgen) \
-  -e N8N_BASIC_AUTH_ACTIVE="true" \
-  -e N8N_BASIC_AUTH_USER="n8n" \
-  -e N8N_BASIC_AUTH_PASSWORD="n8n" \
+  -e N8N_RUNNERS_ENABLED=true \
+  -e N8N_DIAGNOSTICS_ENABLED=false \
+  -e N8N_VERSION_NOTIFICATIONS_ENABLED=false \
+  -e N8N_SECURE_COOKIE=false \
+  -e GENERIC_TIMEZONE="Asia/Shanghai" \
+  -e TZ="Asia/Shanghai" \
   --name n8n n8nio/n8n
+
+
+# 中文
+curl -LO https://github.com/other-blowsnow/n8n-i18n-chinese/releases/download/n8n%401.95.3/editor-ui.tar.gz
+mkdir -p n8n/n8n-editor-ui
+tar zxvf editor-ui.tar.gz -C ./n8n/n8n-editor-ui
+
+# -v $PWD/n8n/n8n-editor-ui/dist:/usr/local/lib/node_modules/n8n/node_modules/n8n-editor-ui/dist \
+# -e N8N_DEFAULT_LOCALE=zh-CN \
 ```
+
+- i18n
+  - 需要添加后从新编译 https://github.com/n8n-io/n8n/tree/master/packages/frontend/%40n8n/i18n/src/locales
+  - /usr/local/lib/node_modules/n8n/node_modules/n8n-editor-ui/dist
+  - https://github.com/n8n-io/n8n/blob/master/packages/frontend/%40n8n/i18n/docs/README.md
+  - https://docs.n8n.io/hosting/configuration/environment-variables/
+- https://github.com/other-blowsnow/n8n-i18n-chinese
 
 | env                         | for  | note                |
 | --------------------------- | ---- | ------------------- |

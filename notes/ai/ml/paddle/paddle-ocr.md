@@ -8,12 +8,16 @@ tags:
 
 - [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 - 支持 英文(ch)、英文(en)、法语(french)、德语(german)、韩语(korean)、日语(japan)
+- ocr_version: PP-OCRv5, PP-OCRv4, PP-OCRv3
+- PP-OCRv5
+  - lang: ch, chinese_cht, en, japan
 - 参考
   - https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7/deploy/hubserving
   - https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/installation.md
   - https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/doc/doc_ch/whl.md
   - https://gitee.com/duolabmeng666/paddlehub_ppocr/blob/master/Dockerfile
   - https://gitee.com/paddlepaddle/PaddleOCR/blob/release/2.6/deploy/docker/hubserving/cpu/Dockerfile
+  - hf space [PaddlePaddle/PaddleOCR](https://huggingface.co/spaces/PaddlePaddle/PaddleOCR)
 - 模型
   - https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_infer.tar
     - 文本检测
@@ -61,6 +65,28 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
+```bash
+uv venv --python 3.11
+uv pip install paddlepaddle paddleocr
+```
+
+```
+https://paddle-model-ecology.bj.bcebos.com/paddlex/PaddleX3.0/fonts/PingFang-SC-Regular.ttf
+https://paddle-model-ecology.bj.bcebos.com/paddlex/PaddleX3.0/fonts/simfang.ttf
+https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv5_server_rec_infer.tar
+https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-LCNet_x1_0_doc_ori_infer.tar
+https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/UVDoc_infer.tar
+https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-LCNet_x1_0_textline_ori_infer.tar
+```
+
+- ~/.paddlex/fonts
+- ~/.paddlex/official_models
+  - PP-LCNet_x1_0_doc_ori
+  - PP-LCNet_x1_0_textline_ori
+  - PP-OCRv5_server_det
+  - PP-OCRv5_server_rec
+  - UVDoc
+
 ## PP-Structure
 
 - 模型
@@ -73,3 +99,17 @@ im_show.save('result.jpg')
 - PP-Structure 文档分析
 - https://github.com/PaddlePaddle/PaddleOCR/tree/main/ppstructure
 - https://paddlepaddle.github.io/PaddleOCR/latest/ppstructure/overview.html
+
+# FAQ
+
+## No module named 'paddle'
+
+```bash
+pip install paddlepaddle
+```
+
+## AttributeError: 'paddle.base.libpaddle.AnalysisConfig' object has no attribute 'set_mkldnn_cache_capacity'
+
+```
+enable_mkldnn: False
+```

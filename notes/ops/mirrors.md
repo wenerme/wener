@@ -38,7 +38,7 @@ tags:
 
 **高校镜像**
 
-| URL                                   | 地址             | 信息                                |
+| URL                                   | 地址             | news                                |
 | ------------------------------------- | ---------------- | ----------------------------------- |
 | https://mirror.bjtu.edu.cn/           | 北京交通大学     |
 | https://mirror.cqupt.edu.cn/          | 重庆邮电大学     |
@@ -64,11 +64,15 @@ tags:
 | https://mirrors.sustech.edu.cn/       | 南方科技大学     |
 | https://mirrors.tongji.edu.cn/        | 同济大学         |
 | https://mirrors.tuna.tsinghua.edu.cn/ | 清华大学         |
-| https://mirrors.ustc.edu.cn/          | 中国科学技术大学 |
+| https://mirrors.ustc.edu.cn/          | 中国科学技术大学 | https://servers.ustclug.org/        |
 | https://mirrors.xjtu.edu.cn           | 西安交大         |
 | https://mirrors.ynu.edu.cn/           | 云南大学         |
 | https://mirrors.zju.edu.cn/           | 浙江大学         |
 
+- ustc 中国科学技术大学
+  - https://mirrors.ustc.edu.cn/
+  - [ustclug/mirrorrequest](https://github.com/ustclug/mirrorrequest)
+  - news https://servers.ustclug.org/
 - https://github.com/SUSTech-CRA/chinese-opensource-mirror-site
 - https://mirrors.cernet.edu.cn/list
 
@@ -85,6 +89,14 @@ tags:
 - mirrors.kernel.org = mirrors.edge.kernel.org
 
 <!--   | Alpine                                        | [mirrors.yaml](https://git.alpinelinux.org/cgit/aports/tree/main/alpine-mirrors/mirrors.yaml)/[MIRRORS.txt](http://rsync.alpinelinux.org/alpine/MIRRORS.txt) | -->
+
+## Alpine Linux
+
+```bash
+curl https://dl-cdn.alpinelinux.org/alpine/last-updated
+curl https://mirrors.aliyun.com/alpine/last-updated
+curl https://mirrors.ustc.edu.cn/alpine/last-updated
+```
 
 ## jsdelivr
 

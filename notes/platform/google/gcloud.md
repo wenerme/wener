@@ -43,4 +43,27 @@ gcloud compute firewall-rules create allow-ops \
 
 # --zone
 gcloud compute instances add-tags --tags ops-server INSTANCE_ID
+
+
+# 自定义仓库
+gcloud artifacts repositories create quay-proxy \
+    --repository-format=docker \
+    --mode=REMOTE_REPOSITORY \
+    --location=asia-southeast1 \
+    --description="Remote repository for Quay.io images" \
+    --upstream-uris=https://quay.io
+
+# 配置 Docker 认证
+# gcr.io us.gcr.io eu.gcr.io asia.gcr.io staging-k8s.gcr.io marketplace.gcr.io
+gcloud auth configure-docker
+
+
+gcloud run deploy hello_world \
+  --image gcr.io/first_gcloud_project-67/hello_world:main \
+  --platform managed \
+  --region us-central1 \
+  --set-env-vars=SECRET_VALUE="secret" \
+  --project first_gcloud_project-67
 ```
+
+- Supported container registries and images https://cloud.google.com/run/docs/deploying#images

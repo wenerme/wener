@@ -26,6 +26,7 @@ tags:
 | LLaMa     | Large Language Model for Machine Translation    | 机器翻译的大语言模型 |
 | LLM       | Large Language Model                            | 大语言模型           |
 | LoRA      | Language of Rules and Actions                   | 语言规则与行动语言   |
+| LRM       | Large Reasoning Models                          | 大型推理模型         |
 | MLP       | Multi-Layer Perceptron                          | 多层感知机           |
 | MRoPE     | Multimodal Rotary Position Embedding            | 多模态旋转位置嵌入   |
 | PGI       | Programmable Gradient Information               | 可编程梯度信息       |
@@ -45,6 +46,7 @@ tags:
 | VAD       | Voice Activity Detection                        | 语音活动检测         |
 | ViT       | Vision Transformer                              | 视觉变换器           |
 | WFST      | Weighted Finite-State Transducer                | 加权有限状态转换器   |
+| YaRN      | Yet another RoPE extensioN method               | 另一种 RoPE 扩展方法 |
 | YOLO      | You Only Look Once                              |                      |
 
 - ITN

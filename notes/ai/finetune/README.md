@@ -6,6 +6,23 @@ tags:
 
 # 微调
 
+- 为什么要微调大语言模型 (LLM)？
+  - 解决特定问题：针对具体、可衡量的问题优化模型表现。
+  - 提升任务质量：提高模型在特定任务上的准确性和效果。
+  - 降低成本与提升速度：使用微调后的小模型可能比通用大模型更经济、更快速。
+  - 优化工具调用能力：增强模型理解和执行特定工具或 API 调用的能力。
+  - 增强逻辑与规则遵循：使模型更好地理解和遵循复杂的指令、逻辑和特定规则。
+  - 模型蒸馏：将大型、复杂模型的知识和能力迁移到更小、更高效的模型中。
+  - 改进思考与推理链：提升模型进行复杂思考、推理和形成连贯思维链条的能力。
+  - 对齐人类价值观与安全要求：使模型的输出更符合人类的价值观、道德标准和安全规范。
+- 如何开始微调 LLM？
+  - 明确目标 (Pick a goal)：清晰定义你希望通过微调解决的具体问题或达成的性能指标。
+  - 准备训练数据 (Generate training data)：收集或生成高质量的训练数据。文章提到，合成数据（Synthetic data）在微调中效果良好。
+  - 训练候选模型 (Train a few candidates)：选择合适的基模型，并尝试训练几个不同的微调版本。
+  - 评估关键指标 (Measure what matters)：根据你设定的目标，对微调后的模型进行严格的评估，衡量其在关键指标上的表现。
+
+---
+
 - toolkit
   - [InternLM/xtuner](https://github.com/InternLM/xtuner)
     - Apache-2.0, Python
@@ -21,6 +38,12 @@ tags:
     - Apache-2.0, Python
   - [pytorch/torchtune](https://github.com/pytorch/torchtune)
     - Apache-2.0, Python
+  - [kiln-ai/kiln](https://github.com/kiln-ai/kiln)
+    - Rapid AI Prototyping and Dataset Collaboration Tool
+- Eval
+  - [open-compass/VLMEvalKit](https://github.com/open-compass/VLMEvalKit)
+    - Apache-2.0, Python
+    - evaluation toolkit of large multi-modality models (LMMs), support 220+ LMMs, 80+ benchmarks
 - Example/LoRA
   - [daniel3303/StoryReasoning](https://github.com/daniel3303/StoryReasoning)
     - 多image，连续故事推理，人物识别
@@ -50,6 +73,10 @@ tags:
 | Transfer Learning | 迁移学习 |
 | Post-Training     | 后训练   |
 
+- Full Training
+  - Optimizer - 8bit
+  - Gradient - 16bit
+  - Weight - 16bit
 - LoRA (Low-Rank Adaptation) - 低秩适配
   - 通过在预训练模型的基础上，添加低秩矩阵来实现微调。
   - PEFT 技术

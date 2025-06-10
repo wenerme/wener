@@ -67,10 +67,43 @@ tags:
     - TS 实现
     - ICE/DTLS/SCTP/RTP
   - [murat-dogan/node-datachannel](https://github.com/murat-dogan/node-datachannel)
-      - binding libdatachannel
+    - binding libdatachannel
   - ~~[node-webrtc/node-webrtc](https://github.com/node-webrtc/node-webrtc)~~
 - Spec
   - https://w3c.github.io/p2p-webtransport/
+- Ecosystem
+  - [bitwhip/bitwhip](https://github.com/bitwhip/bitwhip)
+    - MIT, Rust
+    - CLI Native WebRTC Agent in Rust
+  - [Glimesh/broadcast-box](https://github.com/Glimesh/broadcast-box)
+    - MIT, Go
+  - [obsproject/obs-studio#7926](https://github.com/obsproject/obs-studio/pull/7926)
+    - OBS 支持 WebRTC 输出
+  - ffmpeg 支持 WebRTC - WHIP
+
+| abbr. | stand for                              | meaning              |
+| ----- | -------------------------------------- | -------------------- |
+| DTLS  | Datagram Transport Layer Security      | 数据报传输层安全协议 |
+| ICE   | Interactive Connectivity Establishment | 交互式连接建立       |
+| RTC   | Real-Time Communication                | 实时通信             |
+| SCTP  | Stream Control Transmission Protocol   | 流控制传输协议       |
+| SDP   | Session Description Protocol           | 会话描述协议         |
+| SRTP  | Secure Real-time Transport Protocol    | 安全实时传输协议     |
+| STUN  | Session Traversal Utilities for NAT    | NAT 会话遍历实用工具 |
+| SVC   | Scalable Video Coding                  | 可伸缩视频编码       |
+| TURN  | Traversal Using Relays around NAT      | NAT 中继穿越         |
+| WHIP  | WebRTC HTTP Ingestion Protocol         | WebRTC HTTP 输入协议 |
+
+- WHIP
+  - WebRTC 推流
+  - https://www.ietf.org/archive/id/draft-ietf-wish-whip-01.html
+    - 使用一个 HTTP POST 请求来完成一次性的 SDP (Session Description Protocol) 要约/应答过程
+    - 在编码器/媒体生产者（WHIP 客户端）与广播摄取端点（媒体服务器）之间建立一个 ICE/DTLS 会话
+    - 会话一旦建立，媒体流就会单向地从客户端流向服务器。
+- Simulcast 同播
+  - 同一个媒体源（例如，同一个摄像头或麦克风）发送多个不同编码版本的媒体流，并通过不同的 RTP 流进行传输
+  - [RFC 8853](https://datatracker.ietf.org/doc/html/rfc8853)
+    - 《在会话描述协议 (SDP) 和 RTP 会话中使用 Simulcast》
 
 ## WebCodecs
 
@@ -79,13 +112,13 @@ tags:
 - https://caniuse.com/webcodecs
   - Chrome 94+
 
-
 ## WebTransport
 
 - 加密、拥塞控制、独立流、1RTT、UDP 端口复用、透明网络迁移
 - HTTP/3
 - https://caniuse.com/webtransport
   - Chrome 97+
+
 ## 参考/References
 
 - https://quic.video/blog/replacing-webrtc/

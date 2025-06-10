@@ -7,7 +7,8 @@ tags:
 
 | Date       | Model            | Size                                                        | Context Window | Creator         | Ability                           |
 | :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | --------------------------------- |
-| 2025-05-28 | DeepSeek R1 0528 |
+| 2025-05-28 | DeepSeek R1 0528 |                                                             |                | DeepSeek AI     |
+| 2025-05-26 | QwenLong-L1      | 32b                                                         | 120K           | Alibaba         |
 | 2025-05-20 | Gemma3n          | 8b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                         |
 | 2025-04-29 | Qwen3            | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Thinking                     |
 | 2025-04-05 | Llama 4          | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                       |
@@ -89,6 +90,10 @@ tags:
   - https://openrouter.ai/rankings
   - https://aider.chat/docs/leaderboards/
   - https://huggingface.co/models
+  - BFCL Leaderboard https://gorilla.cs.berkeley.edu/leaderboard.html
+    - Berkeley Function-Calling Leaderboard
+  - https://models.litellm.ai/
+  - https://arena.xlang.ai/leaderboard
 - 价格/Pricing
   - https://openrouter.ai/models
   - https://ai.google.dev/gemini-api/docs/pricing
@@ -166,6 +171,8 @@ tags:
         - e.g. 1 minute on 3xRTX3090, 8 minutes on A100
         - https://github.com/ByteDance-Seed/Bagel/issues/4
       - https://github.com/neverbiasu/ComfyUI-BAGEL
+  - [UI-TARS](https://github.com/bytedance/UI-TARS)
+    - https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B
 - Tencent/腾讯
   - https://huggingface.co/tencent
   - 混元
@@ -185,6 +192,56 @@ tags:
     - 2025-03-06
     - hf [tencent/HunyuanVideo-I2V](https://huggingface.co/tencent/HunyuanVideo-I2V)
       - for diffusers [hunyuanvideo-community/HunyuanVideo-I2V](https://huggingface.co/hunyuanvideo-community/HunyuanVideo-I2V)
+- Microsoft
+  - phi
+    - phi4
+      - Text: Arabic, Chinese, Czech, Danish, Dutch, English, Finnish, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian
+      - vision: 英语
+      - Audio: English, Chinese, German, French, Italian, Japanese, Spanish, Portuguese
+      - https://huggingface.co/microsoft/Phi-4-multimodal-instruct
+    - phi3
+  - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
+    - 识别 UI 交互元素, 屏幕分析
+    - Pure Vision Based GUI Agent
+    - hf [microsoft/OmniParser-v2.0](https://huggingface.co/microsoft/OmniParser-v2.0)
+    - demo [microsoft/OmniParser-v2](https://huggingface.co/spaces/microsoft/OmniParser-v2)
+    - provider
+      - https://replicate.com/microsoft/omniparser-v2
+    - https://microsoft.github.io/WindowsAgentArena/
+  - [microsoft/SoM](https://github.com/microsoft/SoM)
+    - Set-of-Mark Prompting for GPT-4V and LMMs
+    - Segment+Mark
+  - [microsoft/Magma](https://github.com/microsoft/Magma)
+    - 2025.02.18
+    - A Foundation Model for Multimodal AI Agents
+    - CLIP-ConvneXt-XXLarge
+    - usecase/capabilities
+      - Visual Planning and Action / 视觉规划和行动
+      - Robotics Manipulations / 机器人操作
+      - Environment Interaction / 环境交互
+      - Visual Navigation / 视觉导航
+      - 高级图文理解
+    - https://huggingface.co/MagmaAI
+    - https://huggingface.co/microsoft/Magma-8B
+    - demo [microsoft/Magma-UI](https://huggingface.co/spaces/microsoft/Magma-UI)
+    - OLLAMA https://github.com/ollama/ollama/issues/9366
+- Cohere for AI
+- https://huggingface.co/CohereLabs/aya-vision-32b
+  - 多语言，23种语言
+- OCR
+  - Qwen VL
+  - InternVL2
+  - [mindee/doctr](https://github.com/mindee/doctr)
+    - Apache-2.0, Python, TensorFlow 2, PyTorch
+    - Document Text Recognition
+    - ⚠️ french vocab, 不支持 中文
+    - https://huggingface.co/spaces/mindee/doctr
+    - Multilingual support [mindee/doctr#1699](https://github.com/mindee/doctr/issues/1699)
+  - [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+  - RapidOCR
+  - tesseract
+  - surya
+  - [breezedeus/Pix2Text](https://github.com/breezedeus/Pix2Text)
 - LLaMA based
   - Vicuna
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
@@ -200,6 +257,7 @@ tags:
   - 7B, 13B, 70B
 - uncensored/abliterated/CensorTune
   - [Sumandora/remove-refusals-with-transformers](https://github.com/Sumandora/remove-refusals-with-transformers)
+  - https://huggingface.co/NSFW-API/NSFW_Wan_1.3b
   - https://huggingface.co/huihui-ai
   - https://huggingface.co/datasets/Guilherme34/uncensor
   - https://huggingface.co/models?search=uncensored
@@ -264,11 +322,21 @@ tags:
   - https://huggingface.co/models
   - https://www.modelscope.cn/models
 
-
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
 grep avx /proc/cpuinfo --color # x86_64
 ```
+
+## Computer Agent
+
+- Qwen 2.5 VL 72B
+- UI-TARS
+- [web-infra-dev/Midscene](https://github.com/web-infra-dev/Midscene)
+  - MIT, TypeScript
+  - UI-TARS, Qwen-2.5-VL
+- https://platform.openai.com/docs/models/computer-use-preview
+  - $3 / $12
+- https://arena.xlang.ai/leaderboard
 
 ## 中文 {#chinese}
 
@@ -284,7 +352,18 @@ grep avx /proc/cpuinfo --color # x86_64
 
 ## Voice
 
-- TTS, STT, ASR, Dialogue, Audio
+- TTS, Dialogue, Audio
+- TTS
+  - Text Analysis
+  - Acoustic
+  - Vocoder
+- 选择因素
+  - 语音质量：合成语音需自然流畅，清晰易懂，适合长时间聆听，能表达情感。
+  - 个性化：支持音色、语速、语调等自定义，满足不同场景和品牌需求。
+  - 语言支持
+  - 延迟：低延迟适合实时交互场景，如语音助手；非实时应用对延迟要求较低。
+  - 资源需求
+  - 授权与使用：明确模型的授权方式和使用限制，注意是否需注明来源。
 - [VITA-MLLM/VITA-Audio](https://github.com/VITA-MLLM/VITA-Audio)
   - ASR, TTS, SpokenQA
   - https://huggingface.co/spaces/shenyunhang/VITA-Audio
@@ -310,6 +389,22 @@ grep avx /proc/cpuinfo --color # x86_64
   - text to dialogue
   - 只支持 en
   - https://huggingface.co/spaces/nari-labs/Dia-1.6B
+- 商业
+  - https://elevenlabs.io/
+
+| case           | desc                             | notes                        | models                            |
+| -------------- | -------------------------------- | ---------------------------- | --------------------------------- |
+| 虚拟助手       | AI助手提供自然语音应答，优化交互 | 自然度高、低延迟、多情感     | XTTS-v2, MeloTTS, F5-TTS, ChatTTS |
+| 无障碍解决方案 | 为视觉及学习障碍者提供语音内容   | 清晰度高、易懂、稳定性好     | MeloTTS, Bark                     |
+| 内容创作       | 生成播客、有声书等专业配音       | 音色多样、情感丰富、韵律自然 | XTTSv2, F5-TTS, GPT-SoVITS-v2     |
+| 自动化客服     | IVR系统赋能高效自动化客服        | 清晰稳定、可定制性强         | Piper, ParlerTTS, XTTSv2          |
+| 语音自助终端   | 自助终端的交互式语音应答         | 响应快速、清晰易懂           | Piper, MeloTTS                    |
+
+## STT
+
+- STT - Speech to Text - 语音转文本
+- ASR - Automatic Speech Recognition - 自动语音识别
+- [modelscope/FunASR](https://github.com/modelscope/FunASR)
 
 ## MLLM
 
@@ -377,7 +472,7 @@ grep avx /proc/cpuinfo --color # x86_64
 make this image come alive, cinematic motion, smooth animation
 -->
 
-## Generation
+## Generation Media
 
 - Text to Image, Video, Audio
 - Image Inpainting
@@ -387,6 +482,20 @@ make this image come alive, cinematic motion, smooth animation
 - [huggingface/diffusers](https://github.com/huggingface/diffusers)
   - [bghira/SimpleTuner](https://github.com/bghira/SimpleTuner)
   - [ostris/ai-toolkit](https://github.com/ostris/ai-toolkit)
+- 商业/平台/Hub/Router
+  - https://fal.ai/
+  - https://heygen.com
+  - https://aihubmix.com/
+  - https://www.dmxapi.cn/
+    - 中国
+    - 即梦
+  - https://tokenflux.ai/
+    - 模型 https://tokenflux.ai/models
+  - https://www.siliconflow.com/
+    - 硅基流动
+    - 北京硅动科技有限公司
+  - https://xiaoice.com/
+    - 小冰 数字人
 - FLUX.1
   - https://playground.bfl.ai/
   - collection [FLUX.1](https://huggingface.co/collections/black-forest-labs/flux1-679d013aee236841c0e9d38a)
@@ -402,12 +511,199 @@ make this image come alive, cinematic motion, smooth animation
   - https://huggingface.co/lodestones/Chroma
 - https://genai-showdown.specr.net/
 
+**问题领域**
+
+- Prompt adherence（提示词遵循度）
+- Generation quality（生成质量）
+- Instructiveness（可指导性）
+- Consistency of styles, characters, settings, etc.（风格、角色、设置的一致性）
+- Deliberate and exact intentional posing of characters and set pieces（角色和场景元素的精确姿态和故意摆放）
+- Compositing different images or layers together（将不同图像或图层组合在一起）
+- Relighting（重新打光）
+- Posing built into the model. No ControlNet hacks.（姿态控制内置于模型中，无需ControlNet等“黑科技”）
+- References built into the model. No IPAdapter, no required character/style LoRAs, etc.（参考功能内置于模型中，无需IPAdapter、角色/风格LoRA等）
+- Ability to address objects, characters, mannequins, etc. for deletion / insertion.（能够针对物体、角色、人体模型等进行删除/插入操作）
+- Ability to pull sources from across multiple images with or without "innovation" / change to their pixels.（能够从多张图片中提取来源，无论是否对其像素进行“创新”/更改）
+- Fine-tunable (so we can get higher quality and precision)（可微调，以获得更高的质量和精度）
+
+## Generative Marketing
+
+好的，这是去掉“AI”关键词后的版本：
+
+### 媒体
+
+- 可灵 (Kling) 2.1:
+  - 根据图像生成视频，效果不错
+  - 动态表情、大动态运镜、精确手势控制、演唱口型
+  - 旋转机位运镜和口型演出
+- Veo 3:
+  - 根据文本提示生成视频
+  - 实拍效果模拟
+- Sora:
+  - 将现有视频转换为新风格
+- Pika:
+  - 在场景中切换或添加内容
+- Runway:
+  - 引用人物、地点或风格（Gen-3）
+- Luma:
+  - 将视频重新调整为新的宽高比
+- Hedra:
+  - 让角色说话（口型同步）
+- 即梦 (Instant Dream):
+  - 网上很多视频就是他做的
+  - 即梦 Omnihuman: 擅长静态口型
+- Vidu:
+  - 二次元动漫演绎
+- Viggle:
+  - 将角色添加到视频表情包中（角色动作迁移）
+- [Higgsfield](https://higgsfield.ai/)
+  - 使用好莱坞级视觉效果
+- 剪映专业版:
+  - 功能强大，素材特效丰富，剪辑视频必装软件
+- [Krea](https://www.krea.ai/)
+  - 使用 Wan 或 Hunyuan 等开源模型
+- 美图秀秀:
+  - 直接绘画，大家用的惯
+
+### 文本
+
+- 豆包:
+  - 专注情感，生活场景必备
+- Kimi:
+  - 专业长文，就是不怕内容多
+- Deepseek:
+  - 写代码完全不出错，强的可怕
+- 知乎:
+  - 喜欢知乎文章的朋友必备
+- gamma:
+  - 全球最牛的 PPT，根据你的文章直接定制化生成
+- MindShow:
+  - 输入文字大纲，自动整理成思维导图，还能一键转换成演示文稿
+
+### 设计
+
+- 稿定设计:
+  - 涵盖平面设计、电商设计等，提供超多可编辑模板，满足各种设计需求
+- 易企秀:
+  - 能快速做 H5 页面，模板种类多，适合活动宣传、产品推广
+
+### 检索
+
+- https://felo.ai/
+  - 全网最好用的小红书搜索工具，不知道的绝对是一大遗憾
+
+## Avatar
+
+- 数字人
+- HunyuanVideo-Avatar
+- [tencent-ailab/IP-Adapter](https://github.com/tencent-ailab/IP-Adapter)
+
+  - Text-to-Image
+
+- Pony
+  - finetune on SDXL
+  - trained on 2.5 million furry/anthro/cartoon/anime images
+  - 能直接识别很多动漫角色，不需要 lora
+
+## Diffusion Models
+
+```
+[人物描述] [场景构建] [摄影参数] [氛围强化] [细节补充]
+```
+
+- 场景构建
+  - 服装细节
+  - 动态姿势
+  - 光影氛围
+
+**Resolution**
+
+- 1:1
+  - 512x512
+  - 768x768
+  - 1024x1024
+- 4:3
+- 16:9
+  - 1216x704
+- Portrait
+  - 832x1216
+- Landscape
+  - 1216x832
+
+**Negative**
+
+```
+text
+watermark
+camera
+```
+
+```
+out of frame, lowres, text, error, cropped, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, out of frame, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, username, watermark, signature,
+```
+
+```
+(worst quality, low quality:1.4), (ugly:1.2), (stitching:1.2),
+bad anatomy, deformed, disfigured, malformed limbs, extra limbs, fused limbs,
+poorly drawn face, distorted face, malformed face, asymmetric eyes,
+poorly drawn hands, extra fingers, fused fingers, malformed hands,
+text, error, signature, watermark, username
+```
+
+- https://huggingface.co/spaces/stabilityai/stable-diffusion/discussions/7857
+
+**动态姿势**
+
+**服装细节**
+
+```
+trendy off-shoulder top
+oversized cozy sweater
+t-shirt with a cute cat print
+```
+
+**质量**
+
+```
+(shot on Sony A7 IV, 50mm f/1.8 lens)
+photorealistic
+ultra detailed
+natural skin texture
+soft film grain
+8k uhd
+```
+
+**氛围强化**
+
+- 氛围
+
+```
+serene, tranquil, intimate, modern elegance
+```
+
+- 色彩
+
+```
+Warm neutrals with pops of soft pastels in window light
+```
+
+- 动态
+
+```
+Subtle light reflection on sweater fabric, gentle light diffusion across the room
+```
+
+**摄影参数**
+
+- 视觉风格
+- 光影处理
+
 <!--
 **Video Generation**
 make this image come alive, cinematic motion, smooth animation
 The creature from the image starts to move
 
-**Image Generation**
+**Image Edit**
 
 vast snowy grassland as the background and a few snowflakes gently falling
 
@@ -426,20 +722,71 @@ Using this style, a bunny, a dog and a cat are having a tea party seated around 
 Change the background to a beach while keeping the person in the exact same position, scale, and pose. Maintain identical subject placement, camera angle, framing, and perspective. Only replace the environment around them
 
 Change the background to vast snowy grassland and a few snowflakes gently falling while keeping the person in the exact same position, scale, and pose. Maintain identical subject placement, camera angle, framing, and perspective. Only replace the environment around them
+
+
+**Image Generation**
+
+cinematic photo, a serene chinese woman in her 20s, sitting in a velvet armchair in a stylish bedroom. wearing an oversized cozy sweater. Soft morning sunlight streams through the window, creating a warm and gentle atmosphere,
+(shot on Sony A7 IV, 50mm f/1.8 lens), photorealistic, ultra detailed, natural skin texture, soft film grain, 8k uhd
+
 -->
 
+### Juggernaut XL
 
-**问题领域**
+- SDXL 1.0
 
-- Prompt adherence（提示词遵循度）
-- Generation quality（生成质量）
-- Instructiveness（可指导性）
-- Consistency of styles, characters, settings, etc.（风格、角色、设置的一致性）
-- Deliberate and exact intentional posing of characters and set pieces（角色和场景元素的精确姿态和故意摆放）
-- Compositing different images or layers together（将不同图像或图层组合在一起）
-- Relighting（重新打光）
-- Posing built into the model. No ControlNet hacks.（姿态控制内置于模型中，无需ControlNet等“黑科技”）
-- References built into the model. No IPAdapter, no required character/style LoRAs, etc.（参考功能内置于模型中，无需IPAdapter、角色/风格LoRA等）
-- Ability to address objects, characters, mannequins, etc. for deletion / insertion.（能够针对物体、角色、人体模型等进行删除/插入操作）
-Ability to pull sources from across multiple images with or without "innovation" / change to their pixels.（能够从多张图片中提取来源，无论是否对其像素进行“创新”/更改）
-Fine-tunable (so we can get higher quality and precision)（可微调，以获得更高的质量和精度）
+---
+
+- Juggernaut Ragnarok
+  - 专注于提升照片写实感、数字绘画、人物姿势、手部和脚部等方面的表现。
+  - 该模型以 Jug XII 为基础，首先通过摄影数据集训练，进一步使用 Booru 标签进行重标注，并以 SDXL 作为底座进行训练。随后，作者又以 Lustify by Coyotte 为基础对同一数据集再次训练，并将其以一定比例合并，作为输出的稳定器。由于数据集采用 Booru 标签标注，Booru 风格的提示词和 X–XII 版本的描述方式在 Ragnarok 上都能很好地工作。
+  - 适合用于追求高质量写实风格的图像生成项目，但作为 SDXL 模型，仍存在如远距离人脸、文本渲染等方面的局限。推荐将其作为生成管道中的一环（如 FluxDev / Pixelwave / Jug Flux Pro → Juggernaut Ragnarok）以获得更佳效果。模型完全开源，支持自由合并、微调和商用。
+
+| Base Model | SDXL 1.0                                                     |
+| ---------- | ------------------------------------------------------------ |
+| Resolution | 832x1216 for Portrait                                        |
+| Sampler    | DPM++ 2M SDE                                                 |
+| Steps      | 30-40                                                        |
+| CFG        | 3-6 (less is a bit more realistic)                           |
+| VAE        | ✅                                                           |
+| HiRes      | 4xNMKD-Siax_200k with 15 Steps and 0.3 Denoise + 1.5 Upscale |
+
+- https://huggingface.co/RunDiffusion/Juggernaut-XI-v11
+- https://civitai.com/models/133005/juggernaut-xl
+
+### CyberRealistic Pony
+
+CyberRealistic Pony 是将 Pony Diffusion 的可爱风格与 CyberRealistic 的写实质感结合的模型。
+
+- CyberRealistic Pony https://civitai.com/models/443821/cyberrealistic-pony
+
+| Base Model | Pony                                         |
+| ---------- | -------------------------------------------- |
+| Resolution | 896x1152 / 832x1216                          |
+| Sampler    | DPM++ SDE Karras / DPM++ 2M Karras / Euler a |
+| Steps      | 30+ Steps                                    |
+| CFG        | 5                                            |
+| Clip Skip  | 2                                            |
+
+**Positive**
+
+```
+score_9, score_8_up, score_7_up, (SUBJECT),
+```
+
+**Negative**
+
+```
+score_6, score_5, score_4, (worst quality:1.2), (low quality:1.2), (normal quality:1.2), lowres, bad anatomy, bad hands, signature, watermarks, ugly, imperfect eyes, skewed eyes, unnatural face, unnatural body, error, extra limb, missing limbs
+```
+
+```
+score_6, score_5, score_4, simplified, abstract, unrealistic, impressionistic, low resolution, lowres, bad anatomy, bad hands, missing fingers, worst quality, low quality, normal quality, cartoon, anime, drawing, sketch, illustration, artificial, poor quality
+```
+
+**ADetailer**
+
+```
+Adetailer model: face_yolov9c.pt
+If you only want the main face being refined set 'Mask only the top k largest' to 1.
+```

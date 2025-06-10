@@ -10,16 +10,23 @@ tags:
   - https://gist.github.com/sergiitk/a87207a8af11d6e6d807
 
 ```bash
+# ProductName:	macOS
+# ProductVersion:	12.7.6
+# BuildVersion:	21H1320
+sw_vers
+
 # 系统版本号
 # 14.3.1
 sw_vers -productVersion
 
-system_profiler SPSoftwareDataType
+system_profiler SPSoftwareDataType # 软件信息
+system_profiler SPHardwareDataType # 硬件信息
+system_profiler SPDisplaysDataType # GPU 信息
+
 cat /System/Library/CoreServices/SystemVersion.plist
 
-system_profiler SPHardwareDataType # 查看硬件信息
-system_profiler SPDisplaysDataType # 查看 GPU 信息
 system_profiler SPDisplaysDataType -json | jq -r '.SPDisplaysDataType[0].sppci_cores'
+system_profiler
 ```
 
 ## path_helper

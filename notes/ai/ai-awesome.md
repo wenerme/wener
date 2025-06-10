@@ -34,10 +34,13 @@ tags:
   - [chatbox](./service/chatbox.md)
     - GPLv3, TypeScript, React, Electron
     - 支持 Desktop, iOS, Android, Web
+    - 轻量、专注
   - [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui)
     - MIT
   - [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio)
     - ~~Apache-2.0~~, TS
+    - 功能更加全面、综合
+    - 桌面端为主
   - [mainframecomputer/fullmoon-ios](https://github.com/mainframecomputer/fullmoon-ios)
     - MIT, Swift
   - [languine-ai/languine](https://github.com/languine-ai/languine)
@@ -118,16 +121,50 @@ tags:
     - fork cline
 - Eval
   - [stanford-crfm/helm](https://github.com/stanford-crfm/helm)
+- Agent/MCP
+  - [google-gemini/gemini-fullstack-langgraph-quickstart](https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart)
+    - Apache-2.0, TS, Python, React
+    - building Fullstack Agents using Gemini 2.5 and LangGraph
+    - [Google Opensources Deep Research Agents using Gemini 2.5 & LangGraph](https://huggingface.co/blog/lynn-mikami/google-opensource-deepresearch)
+  - [agno-agi/agno](https://github.com/agno-agi/agno)
+    - MPLv2, Python
+    - Full-stack framework for building Multi-Agent Systems with memory, knowledge and reasoning.
+  - [Fosowl/agenticSeek](https://github.com/Fosowl/agenticSeek)
+  - [microsoft/qlib](https://github.com/microsoft/qlib)
+    - MIT, Python
+    - AI-oriented Quant investment platform
+  - [microsoft/RD-Agent](https://github.com/microsoft/RD-Agent)
+    - MIT, Python
+  - [airweave-ai/airweave](https://github.com/airweave-ai/airweave)
+    - MIT, Python
+    - lets agents search any app
+  - [OpenAdaptAI/OpenAdapt](https://github.com/OpenAdaptAI/OpenAdapt)
+    - MIT, Python
+    - AI-First Process Automation with Large Multimodal Models (LMMs).
+  - [tuananh/hyper-mcp](https://github.com/tuananh/hyper-mcp)
+    - Apache-2.0, Rust
+  - [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent)
+    - Apache-2.0, Python
+- Vision
+  - [microsoft/OmniParser](https://github.com/microsoft/OmniParser)
+    - UI -> structured
 - [microsoft/unilm](https://github.com/microsoft/unilm)
   - MIT, Python
   - https://thegenerality.com/agi/
 - [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm)
   - MIT, JS
   - all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder,
+- Platform
+  - [langfuse/langfuse](https://github.com/langfuse/langfuse)
+    - MIT+EE, TS
+    -  LLM Observability, metrics, evals, prompt management, playground, datasets.
 - https://github.com/NielsRogge/Transformers-Tutorials
 - news/trending
   - https://huggingface.co/models
   - https://aihot.today/
+- usecase/showcase
+  - [601 real-world gen AI use cases from the world's leading organizations](https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders)
+
 
 ## 应用 {#applications}
 
@@ -283,7 +320,6 @@ tags:
 -->
 
 ## UI
-
 
 - [oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui)
   - AGPLv3, Python

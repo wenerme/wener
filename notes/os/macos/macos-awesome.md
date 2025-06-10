@@ -24,6 +24,14 @@ tags:
 - Remote Login
   - RustDesk
 - Alfred
+- 版本
+  - Chrome macOS 12+
+  - orbstack macOS 13+
+
+```bash
+# 获取系统版本
+sw_vers
+```
 
 ---
 

@@ -26,6 +26,8 @@ title: 精度
   - s 符号位（Sign bit）
   - e 指数（Exponent）
   - m 尾数（Mantissa，或称为有效数/分数）
+- nf4 - Normal Float 4-bit
+  - 4位浮点数表示，通常用于极低精度的量化推理
 
 $$
 \text{FP} = (-1)^s \times 2^{e-\text{Bias}} \times (1 + m)

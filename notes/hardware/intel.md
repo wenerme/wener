@@ -47,6 +47,16 @@ title: Intel
 - ISE - instruction set extensions
 - CPUID
   - https://pkg.go.dev/golang.org/x/sys/cpu
+- Intel Arc
+  - 显卡
+  - 2022-03-30 发布
+- Intel XeSS - Intel Xe Super Sampling
+  - https://en.wikipedia.org/wiki/Intel_XeSS
+- Intel Optane
+  - https://en.wikipedia.org/wiki/Intel_Optane
+- Intel NUC - Next Unit of Computing
+- Intel Compute Stick
+- Xe LL - Xe Low Latency
 
 <!--
 MB X99 2k+
