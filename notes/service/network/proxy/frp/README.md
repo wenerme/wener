@@ -47,6 +47,9 @@ curl -s https://api.github.com/repos/fatedier/frp/releases/latest | jq -r .tag_n
 
 # -u wener -n ssh -> wener.ssh
 frpc stcp --sk SECRET -t TOKEN -l 22 -u wener -n ssh -s frp.wener.me -P 443 -p wss --ue --uc
+
+# 检查配置
+frpc verify -c /etc/frp/frpc.yaml
 ```
 
 ## frps

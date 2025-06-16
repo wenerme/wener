@@ -13,6 +13,9 @@ tags:
 ```bash
 python -V && pip -V
 pip list --outdated
+
+# 简单的 HTTP 服务器
+python3 -m http.server 8080
 ```
 
 - PYTHONHOME

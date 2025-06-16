@@ -6,6 +6,22 @@ tags:
 
 # Raspberry Pi 常见问题
 
+
+```bash
+# SPI & i2c
+ls /dev/i2c-*
+ls /dev/spidev*
+```
+
+```txt title="/boot/config.txt"
+dtparam=spi=on
+dtparam=i2c_arm=on
+```
+
+- 如果不需要也可以 blacklist
+  - i2c_bcm2835
+  - spi_bcm2835
+
 ## 闪电标志
 
 - 电源不足警告
@@ -30,3 +46,48 @@ echo max_usb_current=1 >> /boot/config.txt
 - 最高 15W - 5V3A
 - 参考
   - [Raspberry Pi admits to faulty USB-C design on the Pi 4](https://arstechnica.com/gadgets/2019/07/raspberry-pi-4-uses-incorrect-usb-c-design-wont-work-with-some-chargers/)
+
+## 没有 wlan0
+
+
+```bash
+lshw -short
+dmesg | grep -i "brcmfmac\|firmware"
+modprobe brcmfmac
+```
+
+- 可能 kernel bug
+  - https://github.com/RaspAP/raspap-webgui/discussions/1606
+
+```txt title="/etc/modprobe.d/brcmfmac.conf"
+options brcmfmac feature_disable=0x82000
+```
+
+## platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+
+```
+platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+cfg80211: failed to load regulatory.db
+```
+
+```bash
+apk add wireless-regdb
+```
+
+## task vchiq-keep/0:427 blocked for more than 362 seconds.
+
+```
+INFO: task vchiq-keep/0:427 blocked for more than 362 seconds.
+      Not tainted 6.12.31-0-rpi #1-Alpine
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:vchiq-keep/0    state:D stack:0     pid:427   tgid:427   ppid:2      flags:0x00000008
+Call trace:
+ __switch_to+0xe8/0x140
+ __schedule+0x38c/0xb64
+ schedule+0x34/0x134
+ schedule_preempt_disabled+0x24/0x40
+ kthread+0xbc/0x120
+ ret_from_fork+0x10/0x20
+```
+
+- VCHIQ (Video Core Image Queue)

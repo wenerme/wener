@@ -68,6 +68,9 @@ tags:
   - Cannon.js: https://github.com/schteppe/cannon.js
   - Brython (Python engine in JavaScript): https://github.com/brython-dev/brython
   - Fengari (Lua engine in JavaScript): https://github.com/fengari-lua
+  - [kaplayjs/kaplay](https://github.com/kaplayjs/kaplay)
+    - MIT, TS
+    - fork [replit/kaboom](https://github.com/replit/kaboom)
 - 国内
   - Cocos Creator
   - Cocos2Dx
@@ -94,6 +97,8 @@ tags:
     - Rust GameDev 组件
   - [bevyengine/bevy](https://github.com/bevyengine/bevy)
     - data-driven
+    - 严格 ECS
+    - 逻辑（系统）与数据（组件）分离
   - [amethyst/amethyst](https://github.com/amethyst/amethyst)
     - data-driven
 - [morgan3d/quadplay](https://github.com/morgan3d/quadplay)
@@ -134,7 +139,6 @@ tags:
 - [keesiemeijer/maze-generator](https://github.com/keesiemeijer/maze-generator)
   - https://keesiemeijer.github.io/maze-generator/
 - https://github.com/N7K5/Amazing-Maze
-
 
 ## Studio
 

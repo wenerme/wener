@@ -588,7 +588,7 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | Account | Active   | Active   |
 | ^       | Inactive | Inactive |
 
-| state        | label  | notes       |
+| status        | label  | notes       |
 | ------------ | ------ | ----------- |
 | Active       | 激活   |
 | Inactive     | 未激活 |
@@ -628,7 +628,13 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
     - Deactivated by User (用户停用)：用户自己选择停用账户。
     - Deactivated by Admin (管理员停用)：由于某些原因，管理员停用了用户账户。
     - Expired (已过期)：用户账户因长时间未使用或其他原因自动过期。
-- Contract - Draft, Invoiced, Active, OnHold, Canceled, Expired
+- Contract - 合同
+  - Draft
+  - Invoiced
+  - Active
+  - OnHold
+  - Canceled
+  - Expired
 
 ---
 

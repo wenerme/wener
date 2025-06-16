@@ -14,6 +14,10 @@ title: ComfyUI
 - Juggernaut
 - 参考
   - https://github.com/Comfy-Org/ComfyUI-Manager
+- 生产部署
+  - ComfyDeploy
+  - 另存 (API 格式)
+  - 调用 /prompt
 
 ```bash
 git clone --depth 1 https://github.com/comfyanonymous/ComfyUI ComfyUI

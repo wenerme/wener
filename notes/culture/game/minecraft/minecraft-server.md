@@ -57,6 +57,31 @@ services:
       - ./data:/data
 ```
 
+```yaml
+services:
+  mc-bedrock:
+    image: itzg/minecraft-bedrock-server
+    environment:
+      # https://minecraft.wiki/w/Server.properties#Bedrock_Edition
+      SERVER_NAME: Wener MC Bedrock
+      EULA: 'true'
+      VERSION: LATEST
+      TZ: Asia/Shanghai
+      SERVER_PORT: 19133
+    ports:
+      - '19133:19133/udp'
+    volumes:
+      - ./data:/data
+```
+
+```bash
+# https://minecraft.fandom.com/wiki/Game_rule
+send-command gamerule showCoordinates true # 显示玩家坐标
+send-command gamerule showDaysPlayed true # 显示游玩天数
+send-command gamerule playersSleepingPercentage 10 # 10% 玩家睡觉就可以过夜
+send-command gamerule keepInventory true # 死亡不掉落物品
+```
+
 **休闲**
 
 ```yaml

@@ -12,10 +12,11 @@ title: 平台
 
 ## Status
 
+- https://www.cloudflarestatus.com/
+- https://status.cloud.google.com/
 - https://www.githubstatus.com/
 - https://status.openai.com/
   - https://downdetector.com/status/openai/
-  - https://status.openai.com/history
 - https://status.gitlab.com/
 - https://downdetector.com/
 - https://radar.cloudflare.com/

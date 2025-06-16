@@ -5,7 +5,6 @@ tags:
 
 # AI FAQ
 
-
 ## 降低成本
 
 - 模型交付
@@ -26,11 +25,6 @@ tags:
 - 训练 - Training
 - MoE - Mixture of Experts
   - 减少内存和计算需求
-
-## Train
-
-- Train Your Own O1 Preview Model Within $450
-  - https://news.ycombinator.com/item?id=43125430
 
 ## AI vs ML vs DL
 

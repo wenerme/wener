@@ -23,6 +23,25 @@ tags:
 - Screensaver
   - [sandydoo/flux](https://github.com/sandydoo/flux)
     - macOS Drift screensaver
+- DE/Desktop Environment/桌面环境
+  - Xfce
+  - LXDE - Lightweight X11 Desktop Environment
+    - 建议使用 LXQt 替代
+  - LXQt
+  - Unity
+    - by Canonical for Ubuntu
+    - 2017 停止 - Ubuntu 18.04 使用 GNOME
+    - 由 UBPorts 作为 Lomiri 继续开发
+  - [Comparison of X Window System desktop environments](https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments)
+
+| DE         | Adopted by                                      |
+| ---------- | ----------------------------------------------- |
+| GNOME      | Fedora Workstation, Ubuntu, Debian, Pop!\_OS    |
+| KDE Plasma | KDE Neon, openSUSE, Kubuntu, Manjaro KDE        |
+| XFCE       | Xubuntu, Linux Mint (XFCE Edition), EndeavourOS |
+| MATE       | Ubuntu MATE, Linux Mint (MATE Edition)          |
+| LXQt       | Lubuntu                                         |
+| Sway       |
 
 ## Windowing System
 
@@ -53,18 +72,6 @@ tags:
 - X.Org Server
   - by X.Org Foundation
   - 实现 X Window System display server
-
-## Desktop Environment
-
-- Xfce
-- LXDE - Lightweight X11 Desktop Environment
-  - 建议使用 LXQt 替代
-- LXQt
-- Unity
-  - by Canonical for Ubuntu
-  - 2017 停止 - Ubuntu 18.04 使用 GNOME
-  - 由 UBPorts 作为 Lomiri 继续开发
-- [Comparison of X Window System desktop environments](https://en.wikipedia.org/wiki/Comparison_of_X_Window_System_desktop_environments)
 
 ## Window Manager
 

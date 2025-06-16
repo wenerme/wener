@@ -36,6 +36,7 @@ tags:
 - anime
   - [动漫花园](https://dmhy.anoneko.com/)
   - btbtt
+    - https://www.1lou.cc/
   - https://share.acgnx.se/
     - 字幕组 https://share.acgnx.net/union.php
     - 大陆镜像 https://share.acgnx.net/

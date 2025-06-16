@@ -5,16 +5,17 @@ tags:
 
 # DNS Protocol
 
-| nmae                     | abbr.    | schema                 | notes    |
-| ------------------------ | -------- | ---------------------- | -------- |
-| DNS-over-UDP/53          | Do53     |                        | 512 字节 |
-| DNS-over-TCP/53          | Do53/TCP | `tcp`, `tcp+udp` |
-| DNS-over-TLS             | DoT      | `tls`, `tcp-tls` |
-| DNS-over-HTTPS           | DoH      | `https`             |
-| DNS-over-TOR             |          |
-| Oblivious DNS-over-HTTPS | ODoH     |
-| [DNS-over-QUIC]          |          | `quic://:763`          |
-| DNSCrypt                 |          | `sdns://`              |
+| nmae                     | abbr.    | port                   | schema           | notes    |
+| ------------------------ | -------- | ---------------------- | ---------------- | -------- |
+| DNS-over-UDP/53          | Do53     | udp/53                 |                  | 512 字节 |
+| DNS-over-TCP/53          | Do53/TCP | tcp/53                 | `tcp`, `tcp+udp` |
+| [DNS-over-QUIC]          | DoQ      | udp/853                | `quic://:763`    |
+| DNS-over-TLS             | DoT      | tcp/853                | `tls`, `tcp-tls` |
+| DNS-over-HTTPS           | DoH      | https://host/dns-query | `https`          |
+| DNS-over-HTTP3           | DoH3     | h3://host/dns-query    | `h3`             | DoH+H3   |
+| DNS-over-TOR             |          |                        |                  |
+| Oblivious DNS-over-HTTPS | ODoH     |                        |
+| DNSCrypt                 |          |                        | `sdns://`        |
 
 [dns-over-quic]: https://tools.ietf.org/html/draft-huitema-quic-dnsoquic-07
 [rfc7858]: https://datatracker.ietf.org/doc/html/rfc7858.html

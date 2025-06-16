@@ -10,6 +10,11 @@ tags:
 - Tesla A100
   - 2020-05-14
 
+```bash
+# 单独查看内存使用情况
+nvidia-smi --query-gpu=memory.total,memory.used,memory.free --format=csv,noheader,nounits
+```
+
 | abbr. | stand for                           | meaning                                      |
 | ----- | ----------------------------------- | -------------------------------------------- |
 | CC    | Compute Capability                  | 计算能力                                     |

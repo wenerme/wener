@@ -135,7 +135,9 @@ cat /boot/config-virt | grep PPP
 
 - /etc/modules - 需要加载的模块 - `modprobe $MODULE`
 - `/etc/modules-load.d/*.conf` - 和 /etc/modules 相同
+  - 决定哪些模块在启动时加载
 - `/etc/modprobe.d/*.conf` - 配置 modprobe
+  - 怎么配置模块
   - `blacklist module3`
   - `options module1 param=value`
   - `alias char-major-10-200	tun`

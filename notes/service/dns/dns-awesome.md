@@ -19,17 +19,86 @@ tags:
 
 :::
 
+:::caution
+
+- DNS 都有限速或者限制 - 尽量做本地 Cache
+  - alidns [公共DNS免费版接入限速通知](https://help.aliyun.com/zh/dns/public-dns-free-version-access-speed-limit-notification)
+    - 2024年9月30日24时起
+    - DoT, DoH 每月1000万次
+  - dnspod [免费版DoH、DoT不再公开IP接入的公告](https://docs.dnspod.cn/notices/mian-fei-ban-dot-dohbu-zai-gong-kai-ipjie-ru-de-gong-gao/)
+- ISP 一般都会污染 UDP DNS
+  - 尽量使用 DoT, DoH 之类的协议在本地做代理
+
+:::
+
+```bash
+# DoT tcp 853
+kdig @223.5.5.5 +tls-ca wener.me
+# kdig @120.53.53.53 +tls-ca wener.me
+fping 223.5.5.5 223.6.6.6 8.8.8.8 1.1.1.1 119.29.29.29 120.53.53.53 -l
+
+# 检测 DNS 配置
+curl https://nstool.netease.com/
+```
+
+- Forwarder/Proxy/转发/代理/缓存/Local/Resolver
+  - [dnsmasq]
+  - [AdguardTeam/dnsproxy](https://github.com/AdguardTeam/dnsproxy)
+    - Apache-2.0, Golang
+    - 上游 DoT, DoH, DoQ, DNSCrypt
+    - 下游 DoH, DoT, DoQ
+    - DNS proxy with DoH, DoT, DoQ and DNSCrypt support
+  - [DNSCrypt/dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy)
+  - [pymumu/smartdns](https://github.com/pymumu/smartdns)
+    - GPLv3, C
+    - TCP, UDP, DoH，DoT，DoQ
+    - 返回 访问速度最快的解析结果
+    - 支持分流
+    - ⚠️ 不支持 macOS
+  - [0xERR0R/blocky](./blocky)
+  - [nicholasb2101/PiHole](https://github.com/nicholasb2101/PiHole)
+  - [IrineSistiana/mosdns](https://github.com/IrineSistiana/mosdns)
+    - GPLv3, Golang
+    - DNS Forwarder
+  - [looterz/grimd](https://github.com/looterz/grimd)
+    - MIT, Golang
+- Command Line Tools/Client/Debug/Lookup
+  - nslookup
+  - host
+  - dig - bind-tools
+  - kdig - knot-dnsutils
+  - [NLnetLabs/ldns](https://github.com/NLnetLabs/ldns)
+    - BSD-3, C
+    - DNS library
+    - drill
+      - 输入输出接近 dig
+  - [ameshkov/dnslookup](https://github.com/ameshkov/dnslookup)
+    - MIT, Go
+  - [natesales/q](https://github.com/natesales/q)
+    - GPLv3, Go
+  - ~~[ogham/dog](https://github.com/ogham/dog)~~
+    - EUPL1.2, Rust
+  - [mr-karan/doggo](https://github.com/mr-karan/doggo)
+    - GPLv3, Go
+- blocklist/list/category/anti-ad/hosts
+  - https://github.com/hagezi/dns-blocklists
+  - [hagezi/dns-blocklists](https://github.com/hagezi/dns-blocklists)
+  - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+  - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
 ## DNS Provider
 
-| Provider      | Primary        | Secondary       | DoH                                              | DoT                              | DoQ | ECS | ECS-Override |
-| ------------- | -------------- | --------------- | ------------------------------------------------ | -------------------------------- | --- | --- | ------------ |
-| Google        | 8.8.8.8        | 8.8.4.4         | dns.google                                       | dns.google                       | ✓   | ✓   | ✓            |
-| Cloudflare    | 1.1.1.1        | 1.0.0.1         | cloudflare-dns.com <br/> https://one.one.one.one | 1dot1dot1dot1.cloudflare-dns.com | ✓   | ✗   | ✗            |
-| Quad9         | 9.9.9.9        | 149.112.112.112 | dns.quad9.net                                    | dns.quad9.net                    | ✓   | ✓   | ✗            |
-| Cisco OpenDNS | 208.67.222.222 | 208.67.220.220  | doh.opendns.com                                  | dns.opendns.com                  | ✗   | ✓   | ✗            |
-| **国内**      |                |                 |                                                  |                                  |     |     |              |
-| Aliyun        | 223.5.5.5      | 223.6.6.6       | dns.alidns.com                                   | dns.alidns.com                   | ✗   | ✓   | ✗            |
-| 腾讯 DNSPod   | 119.29.29.29   | 182.254.116.116 | doh.pub                                          | dot.pub                          | ✗   | ✓   | ✗            |
+| Provider        | Primary         | Secondary       | IPv6            | DoH                                              | DoT                              | DoQ | ECS | ECS-Override |
+| --------------- | --------------- | --------------- | --------------- | ------------------------------------------------ | -------------------------------- | --- | --- | ------------ |
+| Google          | 8.8.8.8         | 8.8.4.4         |                 | dns.google                                       | dns.google                       | ✓   | ✓   | ✓            |
+| Cloudflare      | 1.1.1.1         | 1.0.0.1         |                 | cloudflare-dns.com <br/> https://one.one.one.one | 1dot1dot1dot1.cloudflare-dns.com | ✓   | ✗   | ✗            |
+| Quad9           | 9.9.9.9         | 149.112.112.112 |                 | dns.quad9.net                                    | dns.quad9.net                    | ✓   | ✓   | ✗            |
+| Cisco OpenDNS   | 208.67.222.222  | 208.67.220.220  |                 | doh.opendns.com                                  | dns.opendns.com                  | ✗   | ✓   | ✗            |
+| **国内**        |                 |                 |                 |                                                  |                                  |     |     |              |
+| Aliyun          | 223.5.5.5       | 223.6.6.6       |                 | dns.alidns.com                                   | dns.alidns.com                   | ✗   | ✓   | ✗            |
+| 腾讯 DNSPod     | 119.29.29.29    | 182.254.116.116 | 2402:4e00::     | doh.pub                                          | dot.pub                          | ✗   | ✓   | ✗            |
+| 114DNS 中国电信 | 114.114.114.114 | 114.114.115.115 |
+| 百度            | 180.76.76.76    |                 | 2400:da00::6666 |
 
 | protocol | url                                                   |
 | -------- | ----------------------------------------------------- |
@@ -53,38 +122,11 @@ tags:
   - `GET/POST /dns-query `
     - RFC 8484
 - [域名.信息](http://域名.信息)
-- [alidns](https://alidns.com/)
 - 工具
   - [dns.google](https://dns.google/)
   - [dnssec-analyzer](https://dnssec-analyzer.verisignlabs.com/)
   - [zu1k/nali](https://github.com/zu1k/nali)
 - DoT 853 被 GFW 拦截
-- Lookup Client
-  - nslookup
-  - host
-  - dig - bind-tools
-  - kdig - knot-dnsutils
-  - [NLnetLabs/ldns](https://github.com/NLnetLabs/ldns)
-    - BSD-3, C
-    - DNS library
-    - drill
-      - 输入输出接近 dig
-  - [ameshkov/dnslookup](https://github.com/ameshkov/dnslookup)
-    - MIT, Go
-  - [natesales/q](https://github.com/natesales/q)
-    - GPLv3, Go
-  - ~~[ogham/dog](https://github.com/ogham/dog)~~
-    - EUPL1.2, Rust
-- Resolver/Proxy/Cache
-  - [dnsmasq]
-  - [DNSCrypt/dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy)
-  - [pymumu/smartdns](https://github.com/pymumu/smartdns)
-  - [0xERR0R/blocky](./blocky)
-  - [nicholasb2101/PiHole](https://github.com/nicholasb2101/PiHole)
-- Blocklist/AD List
-  - [hagezi/dns-blocklists](https://github.com/hagezi/dns-blocklists)
-  - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-  - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 - TLD
   - https://data.iana.org/TLD/tlds-alpha-by-domain.txt
   - https://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
@@ -94,7 +136,16 @@ tags:
 - https://dnschecker.org/public-dns/cn
 - https://public-dns.info/
   - https://public-dns.info/nameserver/cn.html
-- https://developers.google.com/speed/public-dns
+- Provider
+  - Google DNS
+    - 100 QPS/IP
+    - https://developers.google.com/speed/public-dns
+    - https://cloud.google.com/dns/quotas
+  - [alidns](https://alidns.com/)
+    - DoH3
+      - h3://dns.alidns.com/dns-query
+      - h3://223.5.5.5/dns-query
+  - https://adguard-dns.io/kb/zh-CN/general/dns-providers/
 
 ```yaml
 - name: google
@@ -142,7 +193,7 @@ tags:
       hosts:
         - odoh.cloudflare-dns.com
     - hosts:
-      - http://cloudflare-ech.com/
+        - http://cloudflare-ech.com/
 
 - name: quad9
   url: https://quad9.net/service/service-addresses-and-features
@@ -168,6 +219,86 @@ tags:
 
 ```bash
 curl 'https://dns.google/resolve?name=wener.me&type=A'
+```
+
+```conf
+#AliDNS
+223.5.5.5
+223.6.6.6
+2400:3200::1
+2400:3200:baba::1
+dns.alidns.com
+
+#DNSPod
+1.12.12.12
+120.53.53.53
+doh.pub
+dot.pub
+
+#360
+101.198.191.4
+101.199.254.118
+106.63.24.74
+111.7.73.60
+112.65.69.15
+123.6.48.18
+180.163.249.75
+221.181.72.233
+36.99.170.86
+39.156.84.71
+
+#OpenDNS
+208.67.222.222
+208.67.220.220
+2620:119:35::35
+2620:119:53::53
+146.112.41.2
+146.112.41.5
+2620:119:fc::2
+2620:119:fc::5
+
+#HiNet 中華電信
+168.95.1.1
+168.95.192.1
+2001:b000:168::1
+2001:b000:168::2
+
+#Cloudflare
+104.16.132.229
+104.16.133.229
+2606:4700::6810:84e5
+2606:4700::6810:85e5
+
+#Google
+8.8.8.8
+8.8.4.4
+
+#Cloudflare
+1.1.1.1
+1.0.0.1
+
+#DNS.SB
+#HK
+45.125.0.26
+#JP
+103.121.210.210
+202.5.221.130
+#KR
+3.34.32.82
+#SG
+165.22.61.129
+
+#NextDNS
+#HK
+45.11.104.186
+#TW
+45.150.242.161
+#JP
+103.170.232.254
+#KR
+103.127.124.46
+#SG
+194.156.163.172
 ```
 
 ## Server
@@ -233,15 +364,6 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
   - MIT, Go
   - Pure Go implementation of Multicast DNS
 
-## Forwarder/Proxy
-
-- [IrineSistiana/mosdns](https://github.com/IrineSistiana/mosdns)
-  - GPLv3, Golang
-  - DNS Forwarder
-- [AdguardTeam/dnsproxy](https://github.com/AdguardTeam/dnsproxy)
-- [looterz/grimd](https://github.com/looterz/grimd)
-  - MIT, Golang
-
 ## Misc
 
 - [dnstap](https://dnstap.info/)
@@ -270,6 +392,9 @@ a=``
 copy(`/${a.split(/\n/).join('/')}/`)
 
 sort -uo notes/service/dns/gfwlist.txt{,}
+
+cat notes/service/dns/gfwlist{,.dev,.spoofing}.txt > notes/service/dns/gfwlist.full.txt
+sort -uo notes/service/dns/gfwlist.full.txt{,}
 -->
 
 ```bash
@@ -293,6 +418,7 @@ grep -E '^([|]{2}|[.])' gfwlist.txt | grep -v '/' | grep -v '[*]' | wc -l | sed 
   - https://www.netify.ai/resources/applications/github
   - https://www.google.com/supported_domains
   - https://github.com/v2fly/domain-list-community/blob/master/data/google
+- https://github.com/MetaCubeX/meta-rules-dat/blob/meta/geo/geosite/gfw.list
 
 **Bypass**
 

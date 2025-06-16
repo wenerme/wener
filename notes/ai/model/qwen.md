@@ -6,49 +6,78 @@ tags:
 # QwenLM
 
 - [QwenLM](https://github.com/QwenLM)
-- [QwenLM/Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
-  - https://arxiv.org/abs/2502.13923
-    - Language
-      - 1D RoPE -> Multimodal Rotary Position Embedding Aligned to Absolute Time
-    - Vision
-      - 2D-RoPE, window attention
-      - ViT 28
-      - 14×14 patch size
-    - MLP-based Vision-Language Merger
-      - MLP - multi-layer perceptron - 多层感知机
-  - Collection [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
-    - 3B, 7B, 32B, 72B
-  - [Alibaba-NLP/VRAG](https://github.com/Alibaba-NLP/VRAG)
-    - hf [autumncc/Qwen2.5-VL-7B-VRAG](https://huggingface.co/autumncc/Qwen2.5-VL-7B-VRAG)
-    - https://arxiv.org/pdf/2505.22019
-  - [reducto/RolmOCR](https://huggingface.co/reducto/RolmOCR)
-    - based on Qwen2.5-VL-7B
-    - finetune on https://huggingface.co/datasets/allenai/olmOCR-mix-0225
-    - 应该偏向语音
-    - 主要是 文档 OCR
-  - [Fancy-MLLM/R1-Onevision-7B](https://huggingface.co/Fancy-MLLM/R1-Onevision-7B)
-    - 包含 3B, 7B, 32B
-    - 图像是 518 px
-    - 数据集 [Fancy-MLLM/R1-Onevision](https://huggingface.co/datasets/Fancy-MLLM/R1-Onevision)
-    - CoT
-- QvQ
-  - visual reasoning
-- Qwen
-  - 大模型
-  - Omni
-    - text, audio, image, video, natural speech interaction
-- Qwen VL
+- [Qwen 3 Embeding](#qwen-3-embedding)
+- [Qwen 3](#qwen-3)
+- [Qwen2.5-Omni](https://github.com/QwenLM/Qwen2.5-Omni)
+  - 3b, 7b
+  - 32k(30k input + 2k output)
+  - text, audio, image, video, natural speech interaction
+  - audio
+    - 1s/25token
+    - 输入 3分钟
+    - 输出 普通话/英语
+    - 音色 Ethan, Chelsie
+    - 商业版额外支持 Cherry, Serena
+  - image 28x28/token, 最少 4token, 最大 1280 token
+  - hf [Qwen2.5-Omni](https://huggingface.co/collections/Qwen/qwen25-omni-67de1e5f0f9464dc6314b36e)
+  - https://help.aliyun.com/zh/model-studio/qwen-omni
+- [Qwen 2.5 VL](#qwen-25-vl)
+- QvQ - QWen visual reasoning
+- QwQ - QWen question answering
+- Qwen - 大模型
+- [QwenLM/Qwen-VL](https://github.com/QwenLM/Qwen-VL)
   - 有很多基于 Qwen VL finetune 的模型
   - https://huggingface.co/reducto/RolmOCR
 - [Tongyi-Zhiwen](https://github.com/Tongyi-Zhiwen)
-  - [Tongyi-Zhiwen/QwenLong-L1](https://github.com/Tongyi-Zhiwen/QwenLong-L1)
-    - Reasoning, 长上下文推理, DocQA
-    - base R1-Distill-Qwen-14B, R1-Distill-Qwen-32B
-    - SFT, RL
-    - 渐进式上下文扩展（progressive context scaling）
-    - 数据集 [DocQA-RL-1.6K](https://huggingface.co/datasets/Tongyi-Zhiwen/DocQA-RL-1.6K)
+- [Tongyi-Zhiwen/QwenLong-L1](https://github.com/Tongyi-Zhiwen/QwenLong-L1)
+  - Reasoning, 长上下文推理, DocQA
+  - base R1-Distill-Qwen-14B, R1-Distill-Qwen-32B
+  - SFT, RL
+  - 渐进式上下文扩展（progressive context scaling）
+  - 数据集 [DocQA-RL-1.6K](https://huggingface.co/datasets/Tongyi-Zhiwen/DocQA-RL-1.6K)
+
+## Qwen 3 Embedding
+
+- [QwenLM/Qwen3-Embedding](https://github.com/QwenLM/Qwen3-Embedding)
+
+## Qwen 3
+
+- Dense & MoE: 0.6B, 2B, 4B, 8B, 30B, 30B-A3B, 235B-A22B
+- 100+ 语言和方言
+- Reasoning
+- 30b-a3b
+  - MoE, 单个 token 计算只使用 3B 参数
+  - 速度快
+  - UD-Q4_K_XL
+- [QwenLM/Qwen3](https://github.com/QwenLM/Qwen3)
 
 ## Qwen 2.5 VL
+
+- [QwenLM/Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL)
+- https://arxiv.org/abs/2502.13923
+- Language
+  - 1D RoPE -> Multimodal Rotary Position Embedding Aligned to Absolute Time
+- Vision
+  - 2D-RoPE, window attention
+  - ViT 28
+  - 14×14 patch size
+- MLP-based Vision-Language Merger
+  - MLP - multi-layer perceptron - 多层感知机
+- Collection [Qwen2.5-VL](https://huggingface.co/collections/Qwen/qwen25-vl-6795ffac22b334a837c0f9a5)
+  - 3B, 7B, 32B, 72B
+- [Alibaba-NLP/VRAG](https://github.com/Alibaba-NLP/VRAG)
+  - hf [autumncc/Qwen2.5-VL-7B-VRAG](https://huggingface.co/autumncc/Qwen2.5-VL-7B-VRAG)
+  - https://arxiv.org/pdf/2505.22019
+- [reducto/RolmOCR](https://huggingface.co/reducto/RolmOCR)
+  - based on Qwen2.5-VL-7B
+  - finetune on https://huggingface.co/datasets/allenai/olmOCR-mix-0225
+  - 应该偏向语音
+  - 主要是 文档 OCR
+- [Fancy-MLLM/R1-Onevision-7B](https://huggingface.co/Fancy-MLLM/R1-Onevision-7B)
+  - 包含 3B, 7B, 32B
+  - 图像是 518 px
+  - 数据集 [Fancy-MLLM/R1-Onevision](https://huggingface.co/datasets/Fancy-MLLM/R1-Onevision)
+  - CoT
 
 | Configuration                  | Qwen2.5-VL-3B   | Qwen2.5-VL-7B   | Qwen2.5-VL-72B  |
 | :----------------------------- | :-------------- | :-------------- | :-------------- |
@@ -93,6 +122,7 @@ tags:
   - 最大正方形 `128 * 28` -> `3584 * 3584` 像素
 - MAX_RATIO
   - 图像宽高比最大 200
+- temperature=0.6, top_p = 1.0, top_k = 50
 - OCR 推荐参数： 控制准确度和一致性
   - temperature=0, top_p=1.0, top_k=0
   - temperature=0.001, top_p=0.9, top_k=5

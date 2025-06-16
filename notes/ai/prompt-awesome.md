@@ -5,17 +5,26 @@ tags:
 
 # Prompt Awesome
 
-- Optimizer/Tuning
+- Optimizer/Tuning/Evaluation
   - [stanfordnlp/dspy](https://github.com/stanfordnlp/dspy)
   - [latitude-dev/latitude-llm](https://github.com/latitude-dev/latitude-llm)
     - LGPLv3, TS, Python
     - prompt engineering platform
     - https://promptl.ai/
   - [Eladlev/AutoPrompt](https://github.com/Eladlev/AutoPrompt)
-    - Apache-2.0, Python
+  - Apache-2.0, Python
   - [microsoft/PromptWizard](https://github.com/microsoft/PromptWizard)
     - MIT, Python
     - Task-Aware Agent-driven Prompt Optimization Framework
+  - [promptfoo/promptfoo](https://github.com/promptfoo/promptfoo)
+    - MIT, TS
+  - [linshenkx/prompt-optimizer](https://github.com/linshenkx/prompt-optimizer)
+    - MIT, TS, Vue
+    - 纯前端项目，简单的提示词和优化迭代
+- System Prompt/Leak Prompt
+  - [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)
+  - [jujumilk3/leaked-system-prompts](https://github.com/jujumilk3/leaked-system-prompts)
+  - [CyberAlbSecOP/Awesome_GPT_Super_Prompting](https://github.com/CyberAlbSecOP/Awesome_GPT_Super_Prompting)
 - [dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)
   - https://www.promptingguide.ai/zh
 - [PlexPt/awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)

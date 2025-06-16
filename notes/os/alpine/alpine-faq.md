@@ -227,6 +227,12 @@ mount UUID=x-x-x-x /sysroot
   - 执行 who, last, screen 时
 - 3.16 包含 utmp
 
+```bash
+apk add utmps
+service utmpd start
+rc-update add utmpd boot
+```
+
 ## Password: chpasswd: PAM: Authentication failure
 
 - 3.6+ BUG https://gitlab.alpinelinux.org/alpine/aports/issues/10209

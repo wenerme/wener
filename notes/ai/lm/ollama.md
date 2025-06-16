@@ -29,6 +29,8 @@ title: ollama
 
 - format=json 非常慢 https://github.com/ollama/ollama/issues/3851
 - ~~Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)~~
+- phi4-multimodel https://github.com/ollama/ollama/issues/9387
+- qwen3 rerank https://github.com/ollama/ollama/issues/10989
 
 :::
 

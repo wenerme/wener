@@ -31,7 +31,20 @@ tags:
     - 通用专家
       - 总结四个专家LLM的报告
       - 预测模式 (Prediction Mode)：基于总结报告预测股票涨跌。
-      - 排名模式 (Ranking Mode)：作为比较器，判断两支股票中哪支未来表现更好。  通过一种“宽松的基于比较的排序算法”（类似冒泡排序，但进行N²次比较）来获得Top-K股票排名，以应对LLM比较器的非传递性问题。
+      - 排名模式 (Ranking Mode)：作为比较器，判断两支股票中哪支未来表现更好。 通过一种“宽松的基于比较的排序算法”（类似冒泡排序，但进行N²次比较）来获得Top-K股票排名，以应对LLM比较器的非传递性问题。
+
+| en  | cn         |
+| --- | ---------- |
+|     | 物价       |
+|     | 房价收入比 |
+
+## Live
+
+- https://www.numbeo.com/cost-of-living/
+- 房价
+  - https://mobile.anjuke.com/fangjia/chengdu/wenjiangcq/
+  - https://m.fang.com/fangjia/fjmap.html
+  - 总体房价 https://sc.macromicro.me/collections/26/cn-house-relative/983/house-price-yoy
 
 ## Tax
 

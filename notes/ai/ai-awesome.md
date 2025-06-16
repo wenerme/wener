@@ -122,6 +122,8 @@ tags:
 - Eval
   - [stanford-crfm/helm](https://github.com/stanford-crfm/helm)
 - Agent/MCP
+  - [microsoft/autogen](https://github.com/microsoft/autogen)
+    - Multi Agent
   - [google-gemini/gemini-fullstack-langgraph-quickstart](https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart)
     - Apache-2.0, TS, Python, React
     - building Fullstack Agents using Gemini 2.5 and LangGraph

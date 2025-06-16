@@ -1,26 +1,32 @@
 ---
 tags:
   - Model
+  - Reference
+  - Awesome
 ---
 
-# LLM Models
+# Models
 
-| Date       | Model            | Size                                                        | Context Window | Creator         | Ability                           |
-| :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | --------------------------------- |
-| 2025-05-28 | DeepSeek R1 0528 |                                                             |                | DeepSeek AI     |
-| 2025-05-26 | QwenLong-L1      | 32b                                                         | 120K           | Alibaba         |
-| 2025-05-20 | Gemma3n          | 8b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                         |
-| 2025-04-29 | Qwen3            | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Thinking                     |
-| 2025-04-05 | Llama 4          | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                       |
-| 2025-03-26 | Qwen2.5-Omni     | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech |
-| 2025-03-12 | Gemma3           | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                            |
-| 2025-02-26 | Wan 2.1          |                                                             |                | Alibaba         | Video                             |
+| Date       | Model            | Size                                                        | Context Window | Creator         | tags                                                                               |
+| :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
+| 2025-06-11 | Magistral        | small 24B                                                   | 39K            | Mistral AI      | Reasoning, Multilingual                                                            |
+| 2025-06-07 | Comma v0.1       | 7B                                                          |                | EleutherAI      | Full OSS, English                                                                  |
+| 2025-06-05 | Qwen3-Embedding  | 0.6b, 4b, 8b                                                | 32K            | Alibaba         | Embedding, Reranking, Multilingual(100+), Instruction Aware, MRL(1024, 2560, 4096) |
+|            | Phi-4            | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
+| 2025-05-28 | DeepSeek R1 0528 |                                                             |                | DeepSeek AI     | Update                                                                             |
+| 2025-05-26 | QwenLong-L1      | 32b                                                         | 120K           | Alibaba         | text                                                                               |
+| 2025-05-20 | Gemma3n          | 8b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                                                                          |
+| 2025-04-29 | Qwen3            | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Reasoning                                                                     |
+| 2025-04-05 | Llama 4          | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                                                                        |
+| 2025-03-26 | Qwen2.5-Omni     | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech                                                  |
+| 2025-03-12 | Gemma3           | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                                                                             |
+| 2025-02-26 | Wan 2.1          | 1.3b,14b                                                    |                | Alibaba         | t2v, 480P, 720p                                                                    |
 | 2025-02-24 | smollm2          | 135m, 360m, 1.7b                                            | 8K             | HuggingFaceTB   |
-| 2025-01-28 | Qwen2.5-VL       | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                            |
+| 2025-01-28 | Qwen2.5-VL       | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                                                                             |
 | 2025-01-28 | Qwen2.5          | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
-| 2025-01-20 | DeepSeek R1      | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     |
+| 2025-01-20 | DeepSeek R1      | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     | Reasoning                                                                          |
 | 2024-12-07 | Llama 3.3        | 70B                                                         | 128K           | Meta            |
-| 2024-10-05 | LLaVA            | 7b, 13b, 34b                                                | 4K, 32K        |
+| 2024-10-05 | LLaVA            | 7b, 13b, 34b                                                | 4K, 32K        |                 | Vision                                                                             |
 | 2024-09-25 | Llama 3.2        | 1B, 3B, 11B, 90B                                            | 128K           | Meta            |
 | 2024-07-23 | Llama 3.1        | 8B, 70.6B, 405B                                             | 128K           | Meta            |
 | 2024-06-27 | Gemma 2          | 9b, 27.2b                                                   | 8K             | Google DeepMind |
@@ -37,19 +43,50 @@ tags:
 
 **Proprietary Models**
 
-| model         | date | notes              |
-| ------------- | ---- | ------------------ |
-| GPT-3.5-turbo | 2022 | 4K                 |
-| GPT-3.5-16k   | 2022 | 16K                |
-| GPT-3.5       | 2022 | ChatGPT,570GB Text |
-| GPT-4         | 2023 |
-| GPT-4-32k     | 2023 |
-| GPT-4V        | 2023 |
-| GPT-4o        | 2023 |
-| Gemini        |
-| Gemini 2.0    |
-| Gemini 2.5    |
+| release    | model                        | author    | notes                            |
+| :--------- | :--------------------------- | :-------- | :------------------------------- |
+| 2025-04-17 | Gemini 2.5 Flash             | Google    |
+| 2025-04-14 | GPT-4.1, mini, nano          | OpenAI    |
+| 2025-03-25 | Gemini 2.5 Pro               | Google    | 2M                               |
+| 2025-02-05 | Gemini 2.0 Flash             | Google    | audio, video                     |
+| 2025-02-01 | Gemini 2.0 Flash-Lite        | Google    |
+| 2025-01-10 | o3, o3-mini                  | OpenAI    | Reasoning                        |
+| 2024-12-17 | o1                           | OpenAI    |
+| 2024-09-12 | o1-preview                   | OpenAI    | Reasoning                        |
+| 2024-07-18 | GPT-4o mini                  | OpenAI    |
+| 2024-05-13 | GPT-4o                       | OpenAI    | text, audio, image               |
+| 2024-03-04 | Claude 3 Haiku, Sonnet, Opus | Anthropic | 200K                             |
+| 2024-02-15 | Gemini 1.5 Pro               | Google    | 突破性的100万token超长上下文窗口 |
+| 2023-12-06 | Gemini 1.0 Pro               | Google    | 原生多模态模型家族               |
+| 2023-11-21 | Claude 2.1                   | Anthropic | 200K                             |
+| 2023-11-06 | GPT-4V                       | OpenAI    | 128K, Vision                     |
+| 2023-11-06 | GPT-4 Turbo                  | OpenAI    | 128K                             |
+| 2023-07-11 | Claude 2                     | Anthropic | 100K                             |
+| 2023-06-27 | GPT-3.5-16k                  | OpenAI    | 16K                              |
+| 2023-03-14 | GPT-4                        | OpenAI    | 8K, 32K , image                  |
+| 2023-03-01 | GPT-3.5-turbo                | OpenAI    | 4K                               |
+| 2022-11-30 | GPT-3.5                      | OpenAI    | 4K                               |
 
+| abbr. | stand for                                 | meaning      |
+| ----- | ----------------------------------------- | ------------ |
+| MRL   | Matryoshka Representation Learning        |
+| R2V   | reference-to-video                        |
+| MV2V  | masked video-to-video                     |
+| V2V   | video-to-video                            |
+| MoE   | Mixture of Experts                        | 混合专家模型 |
+| VACE  | Video Animation, Composition, and Editing |
+
+- MRL - Matryoshka Representation Learning
+  - Embedding 模型支持 支持自定义最终嵌入的维度
+  - https://huggingface.co/blog/matryoshka
+- VACE: All-in-One Video Creation and Editing
+  - 2025-03-11
+  - VACE - Video Animation, Composition, and Editing
+  - 一体化的视频处理框架
+  - r2v, mv2v, v2v
+  - https://arxiv.org/abs/2503.07598
+- R2V - reference-to-video
+- MV2V - masked video-to-video
 - `*-pt` - Pre-Training - 预训练模型
   - 在大规模数据集上进行初始训练，学习语言模式和结构。
   - 该模型适合作为基础模型，供开发者在特定任务上进行进一步的微调。
@@ -58,7 +95,9 @@ tags:
 - `*-it` - Instruction Tuning - 经过指令微调的模型
   - 在预训练模型的基础上，进一步针对特定任务或指令进行了微调。
   - 此版本更适合直接应用于实际任务，因为它已经针对特定用途进行了优化。
-- https://ollama.com/library
+
+---
+
 - 内存占用计算方式
   - 参数x精度
   - 目前理想精度是 float16, bfloat16 - 1 个参数占用 16bit
@@ -83,7 +122,9 @@ tags:
 
 > 按照 商业公司分类 模型之间关联性高，模型有连续性。虽然会扩展调整各种能力，但是 Base 模型的发展和用到的技术会相对连续。
 
-- Leader board
+- Leader board/Index/排行/Ranking
+  - https://ollama.com/library
+  - https://livebench.ai/
   - https://huggingface.co/open-llm-leaderboard
   - https://lmarena.ai/
   - https://www.vellum.ai/llm-leaderboard
@@ -94,7 +135,8 @@ tags:
     - Berkeley Function-Calling Leaderboard
   - https://models.litellm.ai/
   - https://arena.xlang.ai/leaderboard
-- 价格/Pricing
+- 价格/Pricing/成本/Cost
+  - https://www.llm-prices.com/
   - https://openrouter.ai/models
   - https://ai.google.dev/gemini-api/docs/pricing
 - Visual
@@ -173,6 +215,10 @@ tags:
       - https://github.com/neverbiasu/ComfyUI-BAGEL
   - [UI-TARS](https://github.com/bytedance/UI-TARS)
     - https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B
+  - [bytedance/MegaTTS3](https://github.com/bytedance/MegaTTS3)
+    - TTS Diffusion Transformer
+    - 0.45B
+    - 中文、英文
 - Tencent/腾讯
   - https://huggingface.co/tencent
   - 混元
@@ -194,9 +240,9 @@ tags:
       - for diffusers [hunyuanvideo-community/HunyuanVideo-I2V](https://huggingface.co/hunyuanvideo-community/HunyuanVideo-I2V)
 - Microsoft
   - phi
-    - phi4
+    - [phi4](https://huggingface.co/microsoft/phi-4)
       - Text: Arabic, Chinese, Czech, Danish, Dutch, English, Finnish, French, German, Hebrew, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish, Ukrainian
-      - vision: 英语
+      - Vision: 英语
       - Audio: English, Chinese, German, French, Italian, Japanese, Spanish, Portuguese
       - https://huggingface.co/microsoft/Phi-4-multimodal-instruct
     - phi3
@@ -242,6 +288,19 @@ tags:
   - tesseract
   - surya
   - [breezedeus/Pix2Text](https://github.com/breezedeus/Pix2Text)
+  - [Yuliang-Liu/MonkeyOCR](https://github.com/Yuliang-Liu/MonkeyOCR)
+    - MonkeyOCR: Document Parsing with a Structure-Recognition-Relation Triplet Paradigm
+    - 2025.06.05
+    - 3B
+    - 支持 中文、英文
+    - hf [echo840/MonkeyOCR](https://huggingface.co/echo840/MonkeyOCR)
+    - Document Parsing LMM
+    - 擅长 公式识别、表格识别
+    - 传统方式: 版面分析、OCR、结构分析
+    - SRR (Structure-Recognition-Relation)
+      - 结构检测 (Structure Detection)：一眼看懂文档的宏观布局，识别出这是一个表格、一个公式，还是一个普通段落。
+      - 内容识别 (Content Recognition)：在识别出结构的同时，完成对内部文字的 OCR 识别。
+      - 关系预测 (Relationship Prediction)：理解这些结构之间的关联，比如知道某个图表是为哪一段文字作解释的。
 - LLaMA based
   - Vicuna
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
@@ -350,13 +409,23 @@ grep avx /proc/cpuinfo --color # x86_64
 
 - https://huggingface.co/ValueFX9507/Tifa-Deepsex-14b-CoT-GGUF-Q4
 
-## Voice
+## Audio
 
-- TTS, Dialogue, Audio
+- TTS, Dialogue, Audio, Speech, Voice
 - TTS
   - Text Analysis
   - Acoustic
   - Vocoder
+  - https://huggingface.co/spaces/TTS-AGI/TTS-Arena
+  - https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2
+- STT / Speech-to-Text / ASR / Automatic Speech Recognition / Speech Recognition
+  - https://huggingface.co/spaces/hf-audio/open_asr_leaderboard
+- Turn / VAD / Voice Activity Detection
+  - VAD (voice activity detection)
+    - 传统检测方式, 不能理解语言所以容易导致 FP 检测
+  - https://huggingface.co/livekit/turn-detector
+  - https://github.com/livekit/agents/tree/main/livekit-plugins/livekit-plugins-turn-detector
+  - https://huggingface.co/spaces/webml-community/conversational-webgpu
 - 选择因素
   - 语音质量：合成语音需自然流畅，清晰易懂，适合长时间聆听，能表达情感。
   - 个性化：支持音色、语速、语调等自定义，满足不同场景和品牌需求。
@@ -364,6 +433,8 @@ grep avx /proc/cpuinfo --color # x86_64
   - 延迟：低延迟适合实时交互场景，如语音助手；非实时应用对延迟要求较低。
   - 资源需求
   - 授权与使用：明确模型的授权方式和使用限制，注意是否需注明来源。
+- KokoroTTS
+  - https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX
 - [VITA-MLLM/VITA-Audio](https://github.com/VITA-MLLM/VITA-Audio)
   - ASR, TTS, SpokenQA
   - https://huggingface.co/spaces/shenyunhang/VITA-Audio
@@ -391,6 +462,7 @@ grep avx /proc/cpuinfo --color # x86_64
   - https://huggingface.co/spaces/nari-labs/Dia-1.6B
 - 商业
   - https://elevenlabs.io/
+- https://huggingface.co/hf-audio
 
 | case           | desc                             | notes                        | models                            |
 | -------------- | -------------------------------- | ---------------------------- | --------------------------------- |
@@ -790,3 +862,24 @@ score_6, score_5, score_4, simplified, abstract, unrealistic, impressionistic, l
 Adetailer model: face_yolov9c.pt
 If you only want the main face being refined set 'Mask only the top k largest' to 1.
 ```
+
+## Metric
+
+| abbr. | stand for            | better | meaning    | notes |
+| ----- | -------------------- | ------ | ---------- | ----- |
+| WER   | Word Error Rate      | ⬇️ L   | 词错误率   | STT   |
+| RTFx  | Real-Time Factor     | ⬆️ H   | 实时因子   | STT   |
+| CER   | Character Error Rate |        | 字符错误率 | STT   |
+| PER   | Phoneme Error Rate   |        | 音素错误率 | STT   |
+
+- WER = (S + D + I) / N = (S + D + I) / (S + D + C)
+  - S = Substitutions
+  - D = Deletions
+  - I = Insertions
+  - C = Correct
+  - N = Total number of words
+    - N=S+D+C
+- RTFx = (number of seconds of audio inferred) / (compute time in seconds)
+- RTFx = RTFx = 1/RTF
+- [huggingface/evaluate](https://huggingface.co/docs/evaluate/index)
+- https://huggingface.co/spaces/evaluate-metric/wer
