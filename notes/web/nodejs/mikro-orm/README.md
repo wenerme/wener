@@ -234,9 +234,8 @@ DemoEntity.prototype.__helper;
 MetadataStorage.getMetadataFromDecorator(UserEntity);
 ```
 
-**@Entity**
-
 ```ts
+// @Entity
 export function Entity(options: EntityOptions<any> = {}) {
   return function <T>(target: T & Dictionary) {
     const meta = MetadataStorage.getMetadataFromDecorator(target);
@@ -252,9 +251,23 @@ export function Entity(options: EntityOptions<any> = {}) {
 }
 ```
 
+## Entity
+
+- 好处
+  - 使用 class 定义 Entity
+  - 方便 setter/getter 等辅助方法
+  - 与其他 OOP 语言语法类似
+- 坏处
+  - 不方便 mixin 和 reuse 部分定义
+
 ## EntitySchema
 
-**可以动态增加**
+- 好处
+  - 可以动态定义
+  - 可以复用字段
+  - mixin
+- 坏处
+  - 需要重复定义一个 类型
 
 ```ts
 const schema = new EntitySchema({
@@ -270,6 +283,13 @@ em.create('myNewTable', { id: 'abc-123', price: 1.5 });
 await em.flush();
 ```
 
+## defineEntity
+
+- v6.5+
+- 基于 EntitySchema, 但同时定义 类型
+- 使用类似 zod 的 DSL
+- Virtual Propertie 还是会用到 class
+
 ## Migration
 
 - MigrationRunner
@@ -284,4 +304,3 @@ npx mikro-orm migration:create --initial
 
 pnpm --package=@mikro-orm/cli dlx mikro-orm migration:create --initial
 ```
-

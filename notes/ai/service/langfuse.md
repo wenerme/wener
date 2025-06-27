@@ -11,6 +11,8 @@ title: langfuse
 - 参考
   - CE vs EE
     - https://langfuse.com/self-hosting/license-key
+  - 集成
+    - https://langfuse.com/docs/integrations/overview
 
 ```bash
 # https://github.com/langfuse/langfuse/blob/main/docker-compose.yml

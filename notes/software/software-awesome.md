@@ -39,6 +39,19 @@ tags:
   - [sindresorhus/Pasteboard-Viewer](https://github.com/sindresorhus/Pasteboard-Viewer)
     - Swift
     - Inspect the system pasteboards on macOS
+- Image Editor/Digital Painting/Photo Editing
+  - [Photopea](https://www.photopea.com/)
+  - [GIMP](https://www.gimp.org/)
+    - GPLv3, C
+    - GNU Image Manipulation Program
+    - 图像编辑器，类似于 Photoshop
+  - [Krita](https://krita.org/)
+    - [KDE/krita](https://github.com/KDE/krita)
+    - GPLv3, C++
+    - 开源数字绘画软件
+    - https://krita-artists.org/
+    - https://github.com/Acly/krita-ai-diffusion
+      - bridge to ComfyUI
 - [safing/portmaster](https://github.com/safing/portmaster)
   - 端口映射
 - [wmjordan/PDFPatcher](https://github.com/wmjordan/PDFPatcher)
@@ -49,7 +62,6 @@ tags:
 - https://www.synfig.org/
   - Open-source 2D Animation Software
 - https://www.leocad.org/
-
 
 ## Online
 

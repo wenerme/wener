@@ -124,8 +124,12 @@ tags:
 
 | abbr.  | stand for                     | mean             |
 | ------ | ----------------------------- | ---------------- |
+| AFAIK  | As Far As I Know              | 据我所知         |
 | AMA    | Ask Me Anything               | 问我任何事       |
+| BTW    | By The Way                    | 顺便说一下       |
 | DM     | Direct Message                | 私信             |
+| ETA    | Estimated Time of Arrival     | 预计到达时间     |
+| ETC    | Et Cetera                     | 以及其他         |
 | FOMO   | Fear of Missing Out           | 害怕错过         |
 | ICYMI  | In Case You Missed It         | 如果你错过了     |
 | IMHO   | In My Humble Opinion          | 我的谦虚意见     |
@@ -133,17 +137,19 @@ tags:
 | IRL    | In Real Life                  | 现实生活         |
 | IYKWIM | If You Know What I Mean       | 如果你懂我的意思 |
 | LMAO   | Laugh My Ass Off              | 大声笑           |
-| LOL    | Laugh Out Loud                | 大声笑           |
+| LOL    | Laugh Out Loud                | 大声笑, 笑死     |
 | NSFW   | Not Safe For Work             | 不适合工作场合   |
 | OP     | Original Poster               | 楼主             |
 | OTOH   | on the other hand             | 另一方面         |
 | PITA   | Pain In The Ass               | 麻烦事           |
 | PM     | Private Message               | 私信             |
+| PS     | Postscript                    | 附言             |
 | ROFL   | Rolling On the Floor Laughing | 笑到在地上打滚   |
 | TBH    | To be honest                  | 说实话           |
 | TIL    | Today I Learned               | 今天我学到了     |
 | TL;TR  | Too Long To Read              | 简而言之         |
 | TTYL   | Talk To You Later             | 回头见           |
+| YMMV   | Your Mileage May Vary         | 具体情况具体分析 |
 
 | abbr. | stand for              | mean         |
 | ----- | ---------------------- | ------------ |
@@ -795,12 +801,6 @@ tags:
 - Renter - 租客 - 简单地指一个支付租金使用房屋的个体
 - Tenant - 租户
 - Holder - 持有人 - 类似 landlord 和 house 的关系
-- security deposit vs margin
-  - security deposit
-    - 更加常用和准确
-  - margin
-    - 描述交易中所需的保证金
-    - 比如股票交易或期货交易中的最低保证金要求
 - Rental management - 租赁管理
   - 租赁行业 - rental industry - 设备租赁
   - 工具、重型施工设备、空中设备、车辆、派对和活动设备、计算机、测试和测量设备等
@@ -1379,6 +1379,18 @@ tags:
   - 通常是口头的
   - 例如：He made a remark about the weather.
 
+## duration vs interval vs elapsed
+
+- duration - 持续时间
+  - 指某个事件或过程从开始到结束所花费的时间
+  - 例如：The duration of the meeting was two hours.
+- interval - 间隔
+  - 指两个事件之间的时间间隔
+  - 例如：There was a five-minute interval between the two presentations.
+- elapsed - 经过的时间
+  - 指从某个起点到现在所经过的时间
+  - 通常用于描述时间的流逝
+
 ## Software Design vs. Software Architecture
 
 - Architecture
@@ -1623,25 +1635,71 @@ tags:
   - 多个业务功能共享部分
   - 例如：共享组件 (shared component)
 
-## task vs job vs process vs background process
+## deposit vs margin
 
-- job/flow
-  - 侧重描述可调度性
+- deposit - 押金、存款、保证金
+  - 租赁、银行、预付款、合同履约等
+  - 指为确保合同履行、租赁物品归还、账户资金安全等而预先支付的一笔钱。通常在合同结束或义务履行后可退还。
+  - 例如：房屋租赁押金、银行存款、预付定金。
+- margin - 保证金
+  - 金融交易（如股票、期货、外汇）、杠杆交易
+  - 指在金融交易中，为了获得更大交易额度或杠杆操作，按规定比例缴纳的最低资金。margin 主要用于风险控制，未必可退还。
+  - 例如：股票保证金账户、期货交易保证金。
+
+**对比说明**
+
+- deposit 更加通用，适用于多种场景，强调“预先支付、可退还”。
+- margin 主要用于金融领域，强调“风险担保、杠杆交易”，通常与交易额度、风险管理相关。
+- 在租赁、合同等场景优先使用 deposit；在金融交易、投资等场景优先使用 margin。
+
+**示例**
+
+- 房屋租赁时支付押金（deposit），合同结束后如无损坏可退还。
+- 股票交易时账户需有一定保证金（margin），以满足杠杆交易要求。
+
+## task vs job vs process vs background process vs flow
+
+- job - 作业 / 工作 / 工程
+  - 宏观 (Macro)，粒度较大，通常包含多个步骤。
+  - 关注 达成目标 / What
+  - 侧重描述 可调度性、按需运行
   - 一个 job 可能包含多个 task
-  - 通常具有连续运行的特点
   - 通常具有监控、日志记录、故障恢复等机制
   - job 强调被调度执行
-- process
+- task - 任务 / 步骤 / 事项
+  - 微观 (Micro)，粒度较小，是构成Job的具体动作。
+  - 关注 要做什么 / How
+  - 侧重描述内容
+  - 强调 原子性、单一职责原则
+  - 通常运行一次
+  - 一个 job 或 process 可能包含多个 task
+  - 接近 step/activity
+- flow/workflow - 工作流
+  - 侧重描述流程、依赖
+  - 通常具有连续运行的特点
+- process - 进程
   - 类似于 job
   - process 更多是自主运行
   - 通常指操作系统中的进程
-- task/step/activity
-  - 侧重描述内容
-  - 通常运行一次
-  - 一个 job 或 process 可能包含多个 task
-- background process
+  - 系统视角 而不是 业务视角
+  - BPM 也定义了 Process 对象
+  - Process 强调 **规则和顺序**, Job 强调 被调度的 **执行实例**
+  - 可以是一个守护进程 (Daemon)，持续在后台监听事件
+  - Job 通常是被外部调度器在特定时间或条件下触发
+- step - 步骤
+  - 强调 描述性
+  - 在流程里的 步骤
+- activity - 活动
+  - 接近一个 event 的概念
+  - 很多系统里会把所有发生的 事件 记录为 activity
+  - 事件本身是中性的，activity 强调了上下文和做了什么
+  - 是过去的、已发生的
+  - Task 是未来的、待执行的
+- background process / Background Job - 后台进程/后台任务
   - 强调不可见、不需要用户干预
   - 在后台运行的进程
+  - 非阻塞、异步、无界面、资源友好
+  - 目的: 自动化维护、提升用户体验
   - 例如：后台数据同步
 
 ## workflow vs flow

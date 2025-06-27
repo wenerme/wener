@@ -50,6 +50,17 @@ title: 数据类型
 |                                 uuid |                  | 通用唯一标识符                             |
 |                                  xml |                  | XML数据                                    |
 
+```sql
+-- array length
+SELECT array_length(ARRAY[1,2,3], 1);
+-- remove element from array
+SELECT array_remove(ARRAY[1,2,3], 2);
+SELECT array_remove(ARRAY ['A','B','C'], 'B');
+
+-- end of month
+select to_char(date_trunc('month', '2021-02-27'::date) + interval '1 month - 1 day', 'YYYY-MM-DD');
+```
+
 - [Data Types](https://www.postgresql.org/docs/current/datatype.html)
 
 ## UUID
@@ -67,7 +78,7 @@ SELECT gen_random_uuid();
 - [Object Identifier Types](https://www.postgresql.org/docs/current/datatype-oid.html)
 - regproc
 
-## 时间日期
+## 时间日期 {#date-time}
 
 - [Date/Time Types](https://www.postgresql.org/docs/current/datatype-datetime.html)
 
@@ -80,6 +91,9 @@ SELECT gen_random_uuid();
 | timetz      | 00:00:00+1459    | 24:00:00-1459   | 微秒       | 12 bytes |
 | interval    | -178000000 years | 178000000 years | 微秒       | 16 bytes |
 
+- interval
+  - `interval '1 month - 1 day'` 等价 `interval '1 month' - interval '1 day'`
+
 ```sql
 -- 时区缩写
 select * from pg_timezone_abbrevs;
@@ -89,6 +103,48 @@ select * from pg_timezone_names;
 -- unix timestamp -> timestamp
 select to_timestamp(1633072800);
 ```
+
+```c
+/*
+ * 表示拆分后的 interval（时间间隔）的数据结构。
+ *
+ * 出于历史原因，该结构体的设计参考了用于时间戳的 struct pg_tm。
+ * 与时间戳不同，interval 的月和年字段没有特殊含义：仅为零或非零。
+ * 注意各字段可能为负数；但由于从 struct Interval 转换时的除法运算，
+ * 只有 tm_mday 可能为 INT_MIN。这一点很重要，因为某些代码路径下
+ * 可能需要对这些值取相反数。
+ */
+struct pg_itm
+{
+  int			tm_usec;   // 微秒
+  int			tm_sec;    // 秒
+  int			tm_min;    // 分钟
+  int64		tm_hour;   // 小时（需要较宽的数据类型）
+  int			tm_mday;   // 天
+  int			tm_mon;    // 月
+  int			tm_year;   // 年
+};
+
+typedef int64 Timestamp;
+typedef int64 TimestampTz;
+typedef int64 TimeOffset;
+
+/*
+ * interval 类型的存储结构体。
+ *
+ * time 字段存储除天、月、年以外的所有时间单位（如秒、微秒等）。
+ * day 字段存储天数，放在 time 字段之后以保证内存对齐。
+ * month 字段存储月和年，同样放在 time 字段之后以保证对齐。
+ */
+typedef struct
+{
+  TimeOffset	time;	/* 除天、月、年以外的所有时间单位 */
+  int32		day;	/* 天数，紧跟在 time 后面以保证对齐 */
+  int32		month;	/* 月和年，紧跟在 time 后面以保证对齐 */
+} Interval;
+```
+
+- https://github.com/postgres/postgres/blob/master/src/include/datatype/timestamp.h
 
 ## 二进制数据
 

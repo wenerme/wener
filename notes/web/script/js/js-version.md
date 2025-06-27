@@ -93,8 +93,6 @@ tags:
   - stage 1
   - import 过程可控
 - [Function.memo](https://github.com/tc39/proposal-function-memo)
-- `await generateItems().toArray()`
-  - [tc39/proposal-iterator-helpers](https://github.com/tc39/proposal-iterator-helpers)
 - `Array.fromAsync`
   [tc39/proposal-array-from-async](https://github.com/tc39/proposal-array-from-async)
 
@@ -129,7 +127,7 @@ tags:
   - [tc39/agendas](https://github.com/tc39/agendas)
   - [finished-proposals](https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md)
   - https://caniuse.com/#search=es6
-  - [compat-table](https://kangax.github.io/compat-table)
+  - [compat-table](https://compat-table.github.io/compat-table/)
     - [2016+](https://kangax.github.io/compat-table/es2016plus/)
   - https://en.wikipedia.org/wiki/ECMAScript
   - https://www.proposals.es/
@@ -163,18 +161,37 @@ const md = new Temporal.PlainMonthDay(5, 1);
 const ym = new Temporal.PlainYearMonth(2024, 5);
 ```
 
+## ECMAScript 2025
+
+- RegExp 支持捕获重复名字分组
+- RegExp Pattern Modifiers
+  - 支持调整 modifiers - `/^a(?i:a)(?-i:a)/`
+  - 支持 `i`, `m`, `s`, `x`
+- RegExp.escape
+- Set 方法扩展
+  - intersection, union, difference, symmetricDifference, isDisjointFrom, isSubsetOf, isSupersetOf
+- Iterator 方法扩展
+  - 新增全局 Iterator 对象
+  - Iterator.from
+  - Iterator.prototype.{drop,every,filter,find,flatMap,forEach,map,reduce,some,take,toArray}
+  - [tc39/proposal-iterator-helpers](https://github.com/tc39/proposal-iterator-helpers)
+- Promise.try
+
 ## ECMAScript 2024
 
 - Promise.withResolvers
-- Object.groupBy
-- Map.groupBy
+  - `const { resolve, reject, promise } = Promise.withResolvers();`
+  - 类似 future
+- Array Grouping
+  - Object.groupBy
+  - Map.groupBy
 - RegExp `/v`, unicodeSets
   - `/^\p{RGI_Emoji}$/v.test('😵‍💫')`=true - Unicode string properties
   - `/^[\q{😵‍💫}]$/v.test('😵‍💫')`=true - \q for String literals
   - `/^[\p{RGI_Emoji}--\q{😵‍💫}]$/v.test('😵‍💫')`=false - 支持排除
-- ArrayBuffer.{resize,transfer}
+- ArrayBuffer.prototype.{resize,transfer}
   - SharedArrayBuffers 只能 grow, 且没有 transfer, 因为不支持 transfer
-- String.{isWellFormed,toWellFormed}
+- String.prototype.{isWellFormed,toWellFormed}
 - Atomics.waitAsync for SharedArrayBuffer
 
 ---
@@ -183,9 +200,14 @@ const ym = new Temporal.PlainYearMonth(2024, 5);
 
 ## ECMAScript 2023
 
-- Array toReversed, toSorted, toSpliced, findLast, findLastIndex, with
-  - TypedArray, Array
+- Change Array by copy - 通过复制修改数组
+  - toReversed, toSorted, toSpliced, with
+  - for TypedArray, Array
+- Array find from last - 从后面查找数组
+  - findLast, findLastIndex
 - Hashbang Grammar - JS 直接作为可执行脚本
+- ~~Temporal~~
+- ~~`import mod from './mod.json' assert { type: 'json' }`~~
 
 ```js
 #!/usr/bin/env node
@@ -197,10 +219,14 @@ const ym = new Temporal.PlainYearMonth(2024, 5);
 
 ## ECMAScript 2022
 
-- String at
-- Array at
+- at()
+  - 支持 负数 索引
+  - String.prototype.at
+  - Array.prototype.at
+  - TypedArray.prototype.at
 - Regex `/d` - start and end of the match
 - Object.hasOwn
+  - `Object.prototype.hasOwnProperty.call(obj, prop)`
 - Error cause
 - Top-level await
 - Class
@@ -258,10 +284,13 @@ try {
 ## ECMAScript 2021
 
 - Promise.any
-- String#replaceAll
+- String.prototype.replaceAll
+- WeakReferences
+  - FinalizationRegistry
+    - 注册 GC 回调
 - 数字分隔符 - `1_2_3_4`
-- FinalizationRegistry
-  - 注册 GC 回调
+- Logical Assignment Operators - 逻辑赋值运算符
+  - `||=`, `&&=`, `??=`
 
 ```js
 String.prototype.replaceAll;
@@ -286,11 +315,8 @@ a ??= b;
   - [GoogleChromeLabs/jsbi](https://github.com/GoogleChromeLabs/jsbi)
     - pure-JavaScript implementation of BigInt
 - String matchAll()
-- `??` Nullish Coalescing Operator
-- `?.` Optional Chaining Operator
-- `&&=` Logical AND Assignment Operator
-- `||=` Logical OR Assignment
-- `??=` Nullish Coalescing Assignment
+- `??` Nullish Coalescing Operator - 空值合并运算符
+- `?.` Optional Chaining Operator - 可选链运算符
 - Promise.allSettled
 - `import()` Dynamic Import
 - [for-in 顺序](https://tc39.es/proposal-for-in-order/)
@@ -419,9 +445,10 @@ async function run() {
 
 ## ECMAScript 2016
 
-```js
-Array.prototype.includes;
+- `**` Exponentiation Operator - 指数操作符
+- Array.prototype.includes - 数组包含判断
 
+```js
 // Exponentiation
 1 ** 2; // Math.pow(1,2)
 ```

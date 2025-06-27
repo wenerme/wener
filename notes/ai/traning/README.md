@@ -49,7 +49,12 @@ graph TD
     - Unified Efficient Fine-Tuning of 100+ LLMs & VLMs
   - [modelscope/ms-swift](https://github.com/modelscope/ms-swift)
     - Apache-2.0, Python
+    - by 阿里巴巴, 阿里达摩院
     - SWIFT - Scalable lightWeight Infrastructure for Fine-Tuning
+  - [volcengine/verl](https://github.com/volcengine/verl)
+    - Apache-2.0, Python
+    - Volcano Engine Reinforcement Learning for LLMs
+    - by 火山引擎
   - [2U1/Qwen2-VL-Finetune](https://github.com/2U1/Qwen2-VL-Finetune)
     - Apache-2.0, Python
     - Liger-Kernel

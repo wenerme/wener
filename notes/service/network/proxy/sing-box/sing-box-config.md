@@ -7,6 +7,12 @@ tags:
 
 - `sing-box://import-remote-profile?url=urlEncodedURL#urlEncodedName`
 
+```bash
+# 使用 .env + yaml 来配置
+export $(grep -v '^#' .env.sb.local | xargs) \
+  && envsubst < sb.envsubst.yaml | yq -P -o json 'explode(.) | del( ."x-*"  )' > sing-box.secret.json
+```
+
 ```json
 {
   "log": {},

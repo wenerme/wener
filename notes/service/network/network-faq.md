@@ -101,3 +101,31 @@ mtr -P 22 --tcp your-server
 
 - iperf3
 - https://github.com/Samsar4/Ethical-Hacking-Labs/blob/master/2-Scanning-Networks/1-hping3.md
+
+## dhcp debug
+
+```bash
+# Windows
+# =========
+ipconfig /all     # 查看当前IP配置
+ipconfig /release # 释放当前IP
+ipconfig /renew   # 重新获取IP
+
+# macOS
+ipconfig getpacket en0 # DHCP租约信息
+
+# systemd
+resolvectl status
+
+# 发现局域网 DHCP
+apk add nmap nmap-scripts
+nmap --script broadcast-dhcp-discover
+
+#
+arp -an
+ip neighbor
+
+arp-scan --localnet
+arpwatch
+tcpdump -i eth0 -enn 'arp'
+```

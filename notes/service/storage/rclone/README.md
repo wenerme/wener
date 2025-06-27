@@ -77,6 +77,10 @@ rclone copyto                 # 复制单个文件
 rclone lsd --webdav-url http://192.168.1.1:8080 :webdav:
 rclone lsd --sftp-host example.com :sftp:
 rclone lsd --ftp-host 192.168.1.1 --ftp-port 21 --ftp-user anonymous --ftp-pass $(rclone obscure anonymous) :ftp:
+# 直接访问 S3
+rclone lsd :s3:/ngi-igenomes/
+# 预设参数可以避免 warning
+rclone lsd --s3-provider=AWS --s3-region=eu-west-1 :s3:/ngi-igenomes/
 
 rclone about gd:     # 使用情况
 rclone reconnect gd: # Token 失效重连

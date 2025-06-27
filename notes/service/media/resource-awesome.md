@@ -25,6 +25,11 @@ tags:
   - [trimstray/the-book-of-secret-knowledge](https://github.com/trimstray/the-book-of-secret-knowledge)
 - ebooks
   - [bookstairs/bookhunter](https://github.com/bookstairs/bookhunter)
+- 网盘检索/网盘聚合搜索
+  - https://qkpanso.com/
+  - https://jujuso.com/
+  - https://www.alipansou.com/
+    - https://pan.alipanso.com/
 
 ## Index
 
@@ -54,14 +59,10 @@ tags:
 - 压制
   - VCB-Studio https://vcb-s.com/
   - Fussoir,ANE,Henshin(km/Kuramori),mawen1250,LittleBakas！,ANK,AI-Raws
-- 网盘聚合搜索
-  - https://jujuso.com/
-  - https://www.alipansou.com/
-    - https://pan.alipanso.com/
-
 
 <!--
 alipanso6.com，alipanso7.com，alipanso8.com
+https://qkpanso.com/
 
 - [btbtt](http://btbtt.biz/)
   - 中文 BT 站点

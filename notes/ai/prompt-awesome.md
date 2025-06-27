@@ -48,6 +48,8 @@ tags:
   - https://github.com/Aider-AI/aider/issues/3362
 - https://prompthero.com/
 - https://stablediffusionweb.com/prompts
+- https://www.promptrepo.net/explore
+- https://promptingpixels.com/
 
 | topic                          | cite                                 |
 | ------------------------------ | ------------------------------------ |

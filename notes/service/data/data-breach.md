@@ -148,7 +148,10 @@ title: 数据泄漏
 - leakbase
   - https://leakbase.org/
   - https://leakbase.io/
-- https://breachforums.st/
+- DataBreached
+  - BreachForums clone
+- BreachForums
+  - ~~https://breachforums.st/~~
   - ~~https://breachforums.is~~
   - ~~https://breached.vc~~
   - ~~https://breached.to~~
@@ -169,6 +172,12 @@ title: 数据泄漏
 |               price | 10€   | 20€   | 50€   |
 |             credits | +30   | +60   | +120  |
 | credits/post/thread | +1/+1 | +1/+2 | +2/+3 |
+
+---
+
+- NPD202401 National Public Data Breach
+  - 2.7B
+  - 2024年8月
 
 ---
 

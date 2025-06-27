@@ -18,7 +18,10 @@ title: Stable Diffusion
   - SD.Next: Advanced Implementation of Stable Diffusion and other Diffusion-based generative image models
 - [ChenWu98/cycle-diffusion](https://github.com/ChenWu98/cycle-diffusion)
 - studio/webui
+  - ComfyUI
+  - AUTOMATIC1111/stable-diffusion-webui
   - [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio)
+  - [mcmonkeyprojects/SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI)
 - models
   - https://huggingface.co/cagliostrolab/animagine-xl-3.1
 - 参考

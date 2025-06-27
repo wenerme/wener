@@ -25,8 +25,6 @@ tags:
   - [nodejs/node#46905](https://github.com/nodejs/node/pull/46905) ffi implementation
   - [nodejs/node#46233](https://github.com/nodejs/node/issues/46233) Reconsider adding FFI to the core
     - tinycc does not support all of the platforms that node does
-- 直接运行 typescript
-  - `--experimental-strip-types`
 - `import.meta.main`
   - [nodejs/node#32223](https://github.com/nodejs/node/pull/32223)
   - 以前 `require.main`
@@ -36,6 +34,13 @@ tags:
 ```bash
 npx envinfo --binaries --system
 ```
+
+## typescript
+
+- 2024年4月 Node v22+ 支持直接运行 typescript
+  - `--experimental-strip-types`
+  - 注意只是 strip types
+  - 不支持 enum, namespace, experimentalDecorators, emitDecoratorMetadata 等需要 transpile 的特性
 
 ## env
 

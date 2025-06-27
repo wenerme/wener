@@ -25,3 +25,7 @@ ip ro add $IP via 192.168.1.2
 # test again
 curl -H 'Host: icanhazip.com' $IP
 ```
+
+```bash
+iptables -A FORWARD -i $IFACE -j ACCEPT
+```

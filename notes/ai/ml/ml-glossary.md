@@ -141,7 +141,8 @@ tags:
   - Mask R-CNN
   - Cascade R-CNN
   - Hybrid Task Cascade (HTC)
-- VAE - Variational Autoencoder
+- CFG - Classifier Free Guidance - 无分类器引导
+  - 用于控制生成图像的多样性和质量
 - PixelCNN
 - 2 steps to detect objects
   - Detect the object regions
@@ -173,6 +174,20 @@ tags:
 - 参考
   - https://www.cvat.ai/post/yolo
   - https://github.com/dair-ai/ml-visuals
+
+## Variational Autoencoder {#vae}
+
+- VAE - Variational Autoencoder - 变分自编码器
+- Encoder - 像素空间 → 潜空间 - 图像 → 潜空间数据
+  - 输入: pixels
+  - 输出: latent
+  - 用于 KSampler, U-Net
+  - 例如: Image-to-Image
+- Decoder
+  - 从潜在空间的分布中采样，并解码为输出数据
+  - 输入: latent
+  - 输出: pixels
+  - 例如: Text-to-Image
 
 ## Types of AI Agents
 

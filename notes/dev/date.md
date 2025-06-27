@@ -6,6 +6,12 @@ tags:
 # Date & Time
 
 - JSON 标准为 ISO Date String `RFC 3339` - `2022-01-12T00:00:00Z`
+- 主要操作对象
+  - Date
+  - DateTime
+  - Duration
+  - Interval - start, end
+  - Calendar - 日历
 - jsonschema
   - type=string
     - format=date-time - `yyyy-MM-dd HH:mm:ssZ` - `2022-01-12T00:00:00Z`
@@ -14,6 +20,7 @@ tags:
       - `hh:mm:ss[.sss][Z|(+|-)hh:mm]`
 - 标准
   - ISO 8601
+    - ISO WeekDate 2017-W24-5
   - RFC 3339
     - ISO 8601 规范化版本
   - RFC 2822 常用于电子邮件
@@ -49,8 +56,13 @@ tags:
       - https://www.joda.org/joda-time/
     - JS - js-joda
     - .NET - [nodatime](https://github.com/nodatime/nodatime)
+- PostgreSQL
+  - https://www.postgresql.org/docs/current/datatype-datetime.html
 
 ```ts
+// 得到的是 UTC 时间
+new Date('2021-01-02').getTime() === new Date('2021-01-02T00:00:00Z').getTime();
+
 // 有 daylight savings 的时区可能有问题
 // https://github.com/iamkun/dayjs/issues/1260
 // 目前 luxon 能处理好这样的情况
@@ -137,6 +149,17 @@ new Date(2010, 9, 8, 7, 6, 5).toGMTString();
 | m    | minute  | 分钟 |
 | s    | second  | 秒   |
 | Q    | quarter | 季度 |
+
+- ISO 8601 Duration
+- `P[n]Y[n]M[n]DT[n]H[n]M[n]S`
+- PostgreSQL Interval
+  - 输入格式
+    - `P [ years-months-days ] [ T hours:minutes:seconds ]`
+    - `1 year 2 months 3 days 4 hours 5 minutes 6 seconds`
+    - `P1Y2M3DT4H5M6S`
+    - `P0001-02-03T04:05:06`
+    - `1-2` 1 year 2 months
+    - `3 4:05:06` 3 days 4 hours 5 minutes 6 seconds
 
 ## Relative Time
 

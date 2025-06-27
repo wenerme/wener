@@ -45,6 +45,15 @@ tags:
     - symlink farm manager
   - demo
     - [renemarc/dotfiles](https://github.com/renemarc/dotfiles)
+- reference/framework
+  - [YunaiV/yudao-cloud](https://github.com/YunaiV/yudao-cloud)
+    - MIT, Java
+    - Spring Cloud Alibaba + MyBatis Plus + Vue & Element
+    - 后台管理系统 + 用户小程序
+    - 支持 RBAC 动态权限、多租户、数据权限、工作流、三方登录、支付、短信、商城、CRM、ERP、AI 大模型等
+  - [YunaiV/ruoyi-vue-pro](https://github.com/YunaiV/ruoyi-vue-pro)
+    - MIT, Java
+    - Spring Boot + MyBatis Plus + Vue & Element
 
 ```bash
 # 使用 Bare Git Repository 管理 dotfiles

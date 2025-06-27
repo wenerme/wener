@@ -7,25 +7,28 @@ tags:
 
 # Models
 
+**Open Weights/Transformer**
+
 | Date       | Model            | Size                                                        | Context Window | Creator         | tags                                                                               |
 | :--------- | :--------------- | :---------------------------------------------------------- | :------------- | :-------------- | ---------------------------------------------------------------------------------- |
 | 2025-06-11 | Magistral        | small 24B                                                   | 39K            | Mistral AI      | Reasoning, Multilingual                                                            |
 | 2025-06-07 | Comma v0.1       | 7B                                                          |                | EleutherAI      | Full OSS, English                                                                  |
 | 2025-06-05 | Qwen3-Embedding  | 0.6b, 4b, 8b                                                | 32K            | Alibaba         | Embedding, Reranking, Multilingual(100+), Instruction Aware, MRL(1024, 2560, 4096) |
-|            | Phi-4            | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
 | 2025-05-28 | DeepSeek R1 0528 |                                                             |                | DeepSeek AI     | Update                                                                             |
 | 2025-05-26 | QwenLong-L1      | 32b                                                         | 120K           | Alibaba         | text                                                                               |
-| 2025-05-20 | Gemma3n          | 8b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                                                                          |
+| 2025-05-20 | Gemma3n          | 5b-e2b, 8b-e4b                                              |                | Google          | Edge, PLE                                                                          |
 | 2025-04-29 | Qwen3            | 0.6b, 1.7b, 4b, 8b, 14b, 30b, 32b, 235b, 30b-a3b, 235b-a22b | 40K            | Alibaba         | MoE, Reasoning                                                                     |
 | 2025-04-05 | Llama 4          | scout 109b-a17b ,marverik 400b-a17b, _2T_                   | 1M, 10M        | Meta            | MoE, Vision                                                                        |
 | 2025-03-26 | Qwen2.5-Omni     | 3B, 7B                                                      |                | Alibaba         | text, audio, image, video, speech                                                  |
 | 2025-03-12 | Gemma3           | 1b, 4b, 12b, 27b                                            | 128K           | Google DeepMind | Vision                                                                             |
-| 2025-02-26 | Wan 2.1          | 1.3b,14b                                                    |                | Alibaba         | t2v, 480P, 720p                                                                    |
+| 2025-02-25 | Wan 2.1          | 1.3b,14b                                                    |                | Alibaba         | t2v, 480P, 720p                                                                    |
 | 2025-02-24 | smollm2          | 135m, 360m, 1.7b                                            | 8K             | HuggingFaceTB   |
 | 2025-01-28 | Qwen2.5-VL       | 3b, 7b, 32b, 72b                                            | 125K           | Alibaba         | Vision                                                                             |
 | 2025-01-28 | Qwen2.5          | 0.5b, 1.5b, 3b, 7b, 14b, 32b, 72b                           | 32K,1M         | Alibaba         |
 | 2025-01-20 | DeepSeek R1      | 1.5b, 7b, 8b, 14b, 32b, 70b, 671b                           | 128K           | DeepSeek AI     | Reasoning                                                                          |
 | 2024-12-07 | Llama 3.3        | 70B                                                         | 128K           | Meta            |
+| 2024-12    | Phi-4            | 14b                                                         | 128K           | Microsoft       | mini-reasoning,reasoning,multimodal                                                |
+| 2024-11-21 | LTX-Video        | 2b, 13b                                                     |                | Lightricks      | T2V                                                                                |
 | 2024-10-05 | LLaVA            | 7b, 13b, 34b                                                | 4K, 32K        |                 | Vision                                                                             |
 | 2024-09-25 | Llama 3.2        | 1B, 3B, 11B, 90B                                            | 128K           | Meta            |
 | 2024-07-23 | Llama 3.1        | 8B, 70.6B, 405B                                             | 128K           | Meta            |
@@ -41,31 +44,73 @@ tags:
 | 2019-02-14 | GPT-2            | 1.5b                                                        | 1K             | OpenAI          |
 | 2018-06-11 | GPT-1            | 117m                                                        | 512            | OpenAI          |
 
+| date       | model        | author | notes                                   |
+| ---------- | ------------ | ------ | --------------------------------------- |
+| 2025-06    | MobileNet V5 | Google | 256x256, 512x512, 768x768, CNN,Gemma 3n |
+| 2025-02-19 | [YOLOv12]    |
+| 2024-08    | [SAM] v2     | Meta   |
+| 2024-04    | MobileNet V4 | Google |
+| 2023-04    | [SAM]        | Meta   |
+| 2019-05    | MobileNet V3 | Google |
+| 2019-03    | MobileNet V2 | Google |
+| 2017-04    | [MobileNet]  | Google |
+
+[MobileNet]: https://arxiv.org/abs/1704.04861
+[SAM]: https://github.com/facebookresearch/segment-anything
+[YOLOv12]: https://github.com/sunsmarterjie/yolov12
+
+- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+  - https://arxiv.org/abs/1704.04861
+  - https://en.wikipedia.org/wiki/MobileNet
+  - MobileNetV3 https://arxiv.org/abs/1905.02244
+  - MobileNetV4 https://arxiv.org/abs/2404.10518
+- YOLO
+  - YOLO12 Attention-Centric Object Detection
+    - [sunsmarterjie/yolov12](https://github.com/sunsmarterjie/yolov12)
+    - https://arxiv.org/abs/2502.12524
+    - https://github.com/sunsmarterjie/yolov12/issues/74
+  - https://github.com/ultralytics/ultralytics
+- SAM - Segment Anything Model
+  - https://github.com/facebookresearch/segment-anything
+- SAM v2
+  - https://arxiv.org/abs/2408.00714
+
 **Proprietary Models**
 
-| release    | model                        | author    | notes                            |
-| :--------- | :--------------------------- | :-------- | :------------------------------- |
-| 2025-04-17 | Gemini 2.5 Flash             | Google    |
-| 2025-04-14 | GPT-4.1, mini, nano          | OpenAI    |
-| 2025-03-25 | Gemini 2.5 Pro               | Google    | 2M                               |
-| 2025-02-05 | Gemini 2.0 Flash             | Google    | audio, video                     |
-| 2025-02-01 | Gemini 2.0 Flash-Lite        | Google    |
-| 2025-01-10 | o3, o3-mini                  | OpenAI    | Reasoning                        |
-| 2024-12-17 | o1                           | OpenAI    |
-| 2024-09-12 | o1-preview                   | OpenAI    | Reasoning                        |
-| 2024-07-18 | GPT-4o mini                  | OpenAI    |
-| 2024-05-13 | GPT-4o                       | OpenAI    | text, audio, image               |
-| 2024-03-04 | Claude 3 Haiku, Sonnet, Opus | Anthropic | 200K                             |
-| 2024-02-15 | Gemini 1.5 Pro               | Google    | 突破性的100万token超长上下文窗口 |
-| 2023-12-06 | Gemini 1.0 Pro               | Google    | 原生多模态模型家族               |
-| 2023-11-21 | Claude 2.1                   | Anthropic | 200K                             |
-| 2023-11-06 | GPT-4V                       | OpenAI    | 128K, Vision                     |
-| 2023-11-06 | GPT-4 Turbo                  | OpenAI    | 128K                             |
-| 2023-07-11 | Claude 2                     | Anthropic | 100K                             |
-| 2023-06-27 | GPT-3.5-16k                  | OpenAI    | 16K                              |
-| 2023-03-14 | GPT-4                        | OpenAI    | 8K, 32K , image                  |
-| 2023-03-01 | GPT-3.5-turbo                | OpenAI    | 4K                               |
-| 2022-11-30 | GPT-3.5                      | OpenAI    | 4K                               |
+| release    | model                        | output                 | input price              | author            | notes                            |
+| :--------- | :--------------------------- | ---------------------- | ------------------------ | :---------------- | :------------------------------- |
+| 2025-05-20 | Imagen 4                     |                        |                          | Google            | t2i                              |
+| 2025-06    | Kling 2.1                    | $0.28/s                |
+| 2025-05    | Veo 3                        | $0.50/s, audio $0.75/s |                          | Google            | t2v                              |
+| 2025-06    | Gemini 2.5 Pro               | $10.00/1M              | $1.25/1M                 |
+| 2025-06    | Gemini 2.5 Flash             | $2.50/1M               | $0.30/1M, audio $1.00/1M | Google            |
+| 2025-06    | Gemini 2.5 Flash-Lite        | $0.40/1M               | $0.10/1M, audio $0.50/1M | Google            |
+| 2025-05    | FLUX.1 Kontext max/pro       |                        |                          | Black Forest Labs | t2i                              |
+| 2025-04-17 | Gemini 2.5 Flash             |                        |                          | Google            |
+| 2025-04-16 | Seedream 3.0                 |                        |                          | Bytedance         | t2i                              |
+| 2025-04-14 | GPT-4.1, mini, nano          |                        |                          | OpenAI            |
+| 2025-03-25 | Gemini 2.5 Pro               |                        |                          | Google            | 2M                               |
+| 2025-02-05 | Gemini 2.0 Flash             |                        |                          | Google            | audio, video                     |
+| 2025-02-01 | Gemini 2.0 Flash-Lite        |                        |                          | Google            |
+| 2025-01-10 | o3, o3-mini                  |                        |                          | OpenAI            | Reasoning                        |
+| 2024-12-17 | o1                           |                        |                          | OpenAI            |
+| 2024-12    | Veo 2                        | $0.35/s                |                          | Google            | t2v                              |
+| 2024-10    | Recraft V3                   |                        |                          | Recraft           |
+| 2024-09-12 | o1-preview                   |                        |                          | OpenAI            | Reasoning                        |
+| 2024-08    | Imagen 3                     |                        |                          | Google            | t2i                              |
+| 2024-07-18 | GPT-4o mini                  |                        |                          | OpenAI            |
+| 2024-05-13 | GPT-4o                       |                        |                          | OpenAI            | text, audio, image               |
+| 2024-03-04 | Claude 3 Haiku, Sonnet, Opus |                        |                          | Anthropic         | 200K                             |
+| 2024-02-15 | Gemini 1.5 Pro               |                        |                          | Google            | 突破性的100万token超长上下文窗口 |
+| 2023-12-06 | Gemini 1.0 Pro               |                        |                          | Google            | 原生多模态模型家族               |
+| 2023-11-21 | Claude 2.1                   |                        |                          | Anthropic         | 200K                             |
+| 2023-11-06 | GPT-4V                       |                        |                          | OpenAI            | 128K, Vision                     |
+| 2023-11-06 | GPT-4 Turbo                  |                        |                          | OpenAI            | 128K                             |
+| 2023-07-11 | Claude 2                     |                        |                          | Anthropic         | 100K                             |
+| 2023-06-27 | GPT-3.5-16k                  |                        |                          | OpenAI            | 16K                              |
+| 2023-03-14 | GPT-4                        |                        |                          | OpenAI            | 8K, 32K , image                  |
+| 2023-03-01 | GPT-3.5-turbo                |                        |                          | OpenAI            | 4K                               |
+| 2022-11-30 | GPT-3.5                      |                        |                          | OpenAI            | 4K                               |
 
 | abbr. | stand for                                 | meaning      |
 | ----- | ----------------------------------------- | ------------ |
@@ -123,14 +168,19 @@ tags:
 > 按照 商业公司分类 模型之间关联性高，模型有连续性。虽然会扩展调整各种能力，但是 Base 模型的发展和用到的技术会相对连续。
 
 - Leader board/Index/排行/Ranking
-  - https://ollama.com/library
-  - https://livebench.ai/
-  - https://huggingface.co/open-llm-leaderboard
-  - https://lmarena.ai/
-  - https://www.vellum.ai/llm-leaderboard
-  - https://openrouter.ai/rankings
-  - https://aider.chat/docs/leaderboards/
-  - https://huggingface.co/models
+  - LLM
+    - https://huggingface.co/open-llm-leaderboard
+    - https://lmarena.ai/
+    - https://www.vellum.ai/llm-leaderboard
+  - Text-to-Image
+    - [ArtificialAnalysis/Text-to-Image-Leaderboard](https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard)
+  - Usage/Adoption/Coding
+    - https://openrouter.ai/rankings
+    - https://aider.chat/docs/leaderboards/
+  - Indexing
+    - https://ollama.com/library
+    - https://livebench.ai/
+    - https://huggingface.co/models
   - BFCL Leaderboard https://gorilla.cs.berkeley.edu/leaderboard.html
     - Berkeley Function-Calling Leaderboard
   - https://models.litellm.ai/
@@ -139,6 +189,7 @@ tags:
   - https://www.llm-prices.com/
   - https://openrouter.ai/models
   - https://ai.google.dev/gemini-api/docs/pricing
+  - https://idp-leaderboard.org/
 - Visual
   - [microsoft/Florence-2-large](https://huggingface.co/microsoft/Florence-2-large)
     - MIT
@@ -163,12 +214,27 @@ tags:
         - min_p=0.0
   - [Wan-Video](https://github.com/Wan-Video)
     - [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1)
+      - 1.3B, 14B
+      - T2V-1.3B, VACE-1.3B
+      - T2V-14B, I2V-14B-720P, I2V-14B-480P, FLF2V-14B, VACE-14B
+      - VACE
+        - 视频编辑
+      - FLF2V - First-Last-Frame-to-Video - 首末帧到视频
+        - 生成中间的过渡动画
+  - [ali-vilab/VACE](https://github.com/ali-vilab/VACE)
+    - all-in-one Video Creation and Editing
+    - VACE-Wan2.1-1.3B-Preview
+    - VACE-LTX-Video-0.9
+    - Wan2.1-VACE-1.3B,14B
   - [HumanMLLM/R1-Omni](https://github.com/HumanMLLM/R1-Omni)
     - 阿里通义实验室
     - Explainable Omni-Multimodal Emotion Recognition with Reinforcement Learning
 - deepseek
   - [deepseek-ai/Janus](https://github.com/deepseek-ai/Janus)
     - Janus-Series: Unified Multimodal Understanding and Generation Models
+    - 理解图像，生成图像
+    - 基于 DeepSeek-LLM-1.5b-base/DeepSeek-LLM-7b-base
+    - hf [deepseek-ai/Janus-Pro-7B](https://huggingface.co/deepseek-ai/Janus-Pro-7B)
   - [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
     - MoE, GRPO, MLA, RL, MTP, FP8
   - [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3)
@@ -219,6 +285,10 @@ tags:
     - TTS Diffusion Transformer
     - 0.45B
     - 中文、英文
+  - SeedVR - 3B, 7B
+    - 视频修复（Video Restoration, VR） - 视频画质增强
+    - hf collection [SeedVR](https://huggingface.co/collections/ByteDance-Seed/seedvr-6849deeb461c4e425f3e6f9e)
+  - [ByteDance-Seed/SeedVR2-3B](https://huggingface.co/ByteDance-Seed/SeedVR2-3B)
 - Tencent/腾讯
   - https://huggingface.co/tencent
   - 混元
@@ -238,6 +308,7 @@ tags:
     - 2025-03-06
     - hf [tencent/HunyuanVideo-I2V](https://huggingface.co/tencent/HunyuanVideo-I2V)
       - for diffusers [hunyuanvideo-community/HunyuanVideo-I2V](https://huggingface.co/hunyuanvideo-community/HunyuanVideo-I2V)
+  - hf [tencent/SongGeneration](https://huggingface.co/tencent/SongGeneration)
 - Microsoft
   - phi
     - [phi4](https://huggingface.co/microsoft/phi-4)
@@ -274,9 +345,11 @@ tags:
 - Cohere for AI
 - https://huggingface.co/CohereLabs/aya-vision-32b
   - 多语言，23种语言
-- OCR
+- OCR/Document Understanding
+  - Demo
+    - https://huggingface.co/spaces/prithivMLmods/Multimodal-OCR2
   - Qwen VL
-  - InternVL2
+  - InternVL
   - [mindee/doctr](https://github.com/mindee/doctr)
     - Apache-2.0, Python, TensorFlow 2, PyTorch
     - Document Text Recognition
@@ -288,10 +361,16 @@ tags:
   - tesseract
   - surya
   - [breezedeus/Pix2Text](https://github.com/breezedeus/Pix2Text)
+  - [docling-project/docling](https://github.com/docling-project/docling)
+    - [ds4sd/docling-models](https://huggingface.co/ds4sd/docling-models)
+    - hf [ds4sd/SmolDocling-256M-preview](https://huggingface.co/ds4sd/SmolDocling-256M-preview)
+      - 只支持英文
+      - by Docling Team, IBM Research
+      - based on SmolVLM-256M-Instruct
   - [Yuliang-Liu/MonkeyOCR](https://github.com/Yuliang-Liu/MonkeyOCR)
     - MonkeyOCR: Document Parsing with a Structure-Recognition-Relation Triplet Paradigm
     - 2025.06.05
-    - 3B
+    - 基于 Qwen2.5-VL-3b
     - 支持 中文、英文
     - hf [echo840/MonkeyOCR](https://huggingface.co/echo840/MonkeyOCR)
     - Document Parsing LMM
@@ -301,6 +380,30 @@ tags:
       - 结构检测 (Structure Detection)：一眼看懂文档的宏观布局，识别出这是一个表格、一个公式，还是一个普通段落。
       - 内容识别 (Content Recognition)：在识别出结构的同时，完成对内部文字的 OCR 识别。
       - 关系预测 (Relationship Prediction)：理解这些结构之间的关联，比如知道某个图表是为哪一段文字作解释的。
+  - [nanonets/Nanonets-OCR-s](https://huggingface.co/nanonets/Nanonets-OCR-s)
+    - Image -> Structure Markdown
+    - 基于 Qwen2.5-VL-3b
+  - [ByteDance/Dolphin](https://huggingface.co/ByteDance/Dolphin)
+    - Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting
+- Document Structure/Layout Analysis/OCR Toolkit
+  - Marker
+  - [allenai/olmocr](https://github.com/allenai/olmocr)
+    - Apache-2.0, Python
+    - Toolkit for linearizing PDFs for LLM datasets/training
+  - [opendatalab/MinerU](https://github.com/opendatalab/MinerU)
+    - AGPLv3, Python
+    - 上海人工智能实验室（OpenDataLab）
+    - PDF -> JSON, Markdown
+    - LayoutLMv3
+    - UniMERNet
+    - [opendatalab/PDF-Extract-Kit](https://github.com/opendatalab/PDF-Extract-Kit)
+- Task Specific Models/任务模型/领域模型
+  - [osmosis-ai/Osmosis-Structure-0.6B](https://huggingface.co/osmosis-ai/Osmosis-Structure-0.6B)
+    - 基于 Qwen3-0.6B
+    - 文本 -> JSON
+  - [osmosis-ai/osmosis-mcp-4b](https://huggingface.co/osmosis-ai/osmosis-mcp-4b)
+    - 基于 Qwen3-4B
+    - multi step MCP-style tool usage
 - LLaMA based
   - Vicuna
 - [haotian-liu/LLaVA](https://github.com/haotian-liu/LLaVA)
@@ -377,9 +480,10 @@ tags:
   - https://huggingface.co/jinaai/jina-embeddings-v2-base-en
   - https://huggingface.co/jinaai/jina-embeddings-v2-small-en
 - Models
-  - https://civitai.com/
   - https://huggingface.co/models
   - https://www.modelscope.cn/models
+  - https://civitai.com/
+  - https://openmodeldb.info/
 
 ```bash
 # AVX = 1 | AVX2 = 0 | AVX512 = 0 | FMA = 0 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 0 | SSE3 = 1 | VSX = 0 |
@@ -409,7 +513,7 @@ grep avx /proc/cpuinfo --color # x86_64
 
 - https://huggingface.co/ValueFX9507/Tifa-Deepsex-14b-CoT-GGUF-Q4
 
-## Audio
+## TTS
 
 - TTS, Dialogue, Audio, Speech, Voice
 - TTS
@@ -460,6 +564,9 @@ grep avx /proc/cpuinfo --color # x86_64
   - text to dialogue
   - 只支持 en
   - https://huggingface.co/spaces/nari-labs/Dia-1.6B
+- [fishaudio/openaudio-s1-mini](https://huggingface.co/fishaudio/openaudio-s1-mini)
+  - 0.5B
+  - S1 4B, 商业版本
 - 商业
   - https://elevenlabs.io/
 - https://huggingface.co/hf-audio
@@ -516,6 +623,7 @@ grep avx /proc/cpuinfo --color # x86_64
     - https://www.reddit.com/r/LocalLLaMA/comments/1kmi6vl
 - 参考
   - https://blog.roboflow.com/multimodal-vision-models/
+  - https://github.com/0xsline/GeminiImageApp
 
 ## Coding
 
@@ -538,7 +646,11 @@ grep avx /proc/cpuinfo --color # x86_64
   - 30 FPS, 1216×704
   - text-to-image, image-to-video, keyframe-based animation, video extension, video-to-video
 - [Wan-Video](https://github.com/Wan-Video)
-  - https://huggingface.co/spaces/multimodalart/wan2-1-fast
+  - WAN 2.1
+    - https://huggingface.co/lym00/Wan2.1-T2V-1.3B-Self-Forcing-VACE-Addon-Experiment
+    - https://huggingface.co/spaces/multimodalart/wan2-1-fast
+- 参考
+  - [Olow304/memvid](https://github.com/Olow304/memvid)
 
 <!--
 make this image come alive, cinematic motion, smooth animation
@@ -677,7 +789,218 @@ make this image come alive, cinematic motion, smooth animation
   - trained on 2.5 million furry/anthro/cartoon/anime images
   - 能直接识别很多动漫角色，不需要 lora
 
-## Diffusion Models
+## Diffusion
+
+- I2I Image to Image
+- Image Edit
+- Image Generation
+- Image Inpainting
+- Image Upscale
+- Image Variation
+- T2I Text to Image
+- T2V Text to Video
+- Video Generation
+- In/Out-Painting
+- Structural Conditioning
+
+| date       | model              | size                           | author            | notes |
+| ---------- | ------------------ | ------------------------------ | ----------------- | ----- |
+| 2025-05-29 | FLUX.1 Kontext     | dev,~~max~~,~~pro~~            |
+| 2024-10-22 | SD 3.5             | turbo, large, medium ,2.5B, 8B | Stability AI      |
+| 2024-08-01 | FLUX.1             | dev, schnell, 12B, ~~pro~~     | Black Forest Labs |
+| 2024-02    | SD 3.0             | 800M, 8B                       | Stability AI      |
+| 2023-11    | SDXL Turbo         |                                | Stability AI      |
+| 2023-07    | SDXL 1.0           | 3.5B                           |
+| 2022-12    | SD v2.1            |
+| 2022-11    | SD v2.0            |                                |
+| 2022-10    | SD 1.5             | 983M                           | RunwayML          |
+| 2022-08    | SD 1.1 1.2 1.3 1.4 |                                | CompVis           |
+
+<!--
+civitai.com
+-->
+
+| base model                | date       |
+| ------------------------- | ---------- |
+| Aura Flow                 |
+| CogVideoX                 |
+| Flux .1 D, flux.1-dev     | 2024-08-01 |
+| Flux .1 Kontext           | 2025-05-29 |
+| Flux .1 S, flux.1-schnell | 2024-08-01 |
+| HiDream                   |
+| Hunyuan 1                 |
+| Hunyuan Video             |
+| Illustrious               |
+| Imagen 4                  | 2025-05-20 |
+| Kolors                    |
+| LTXV                      |
+| Lumina                    |
+| Mochi                     |
+| NoobAI                    |
+| ODOR                      |
+| Open AI                   |
+| Other                     |
+| PixArt Σ                  |
+| PixArt Α                  |
+| Playground V2             |
+| Pony                      |
+| SD 1.4                    |
+| SD 1.5                    |
+| SD 1.5 Hyper              |
+| SD 1.5 LCM                |
+| SD 2.0                    |
+| SD 2.0 768                |
+| SD 2.1                    |
+| SD 2.1 768                |
+| SD 2.1 Unclip             |
+| SD 3                      |
+| SD 3.5                    |
+| SD 3.5 Large              |
+| SD 3.5 Large Turbo        |
+| SD 3.5 Medium             |
+| SDXL 0.9                  |
+| SDXL 1.0                  |
+| SDXL 1.0 LCM              |
+| SDXL Distilled            |
+| SDXL Hyper                |
+| SDXL Lightning            |
+| SDXL Turbo                |
+| SVD                       |
+| SVD XT                    |
+| Stable Cascade            |
+| WAN Video                 |
+| Wan Video 1.3B T2v        |
+| Wan Video 14B I2v 480p    |
+| Wan Video 14B I2v 720p    |
+| Wan Video 14B T2v         |
+
+| Mode Type          | cn           |
+| ------------------ | ------------ |
+| Aesthetic Gradient | 美学渐变     |
+| Checkpoint         | 检查点       |
+| Controlnet         | 控制网       |
+| Detection          | 检测         |
+| DoRA               | DoRA         |
+| Hypernetwork       | 超网络       |
+| LoRA               | LoRA         |
+| LyCORIS            | LyCORIS      |
+| Motion             | 动态         |
+| Other              | 其他         |
+| Poses              | 姿势         |
+| Embedding          | 嵌入         |
+| Upscaler           | 超分辨率     |
+| VAE                | 变分自编码器 |
+| Wildcards          | 通配符       |
+| Workflows          | 工作流       |
+
+| Checkpoint Type |
+| --------------- |
+| Merge           |
+| Trained         |
+
+| File Type     |
+| ------------- |
+| Core ML       |
+| Diffusers     |
+| GGUF          |
+| ONNX          |
+| Other         |
+| Pickle Tensor |
+| Safe Tensor   |
+| Pt            |
+
+| Category     | cn       |
+| ------------ | -------- |
+| Action       | 动作     |
+| Aesthetic    | 美学     |
+| Architecture | 建筑     |
+| Animal       | 动物     |
+| Assets       | 资产     |
+| Background   | 背景     |
+| Base Model   | 基础模型 |
+| Buildings    | 建筑物   |
+| Celebrity    | 名人     |
+| Character    | 角色     |
+| Clothing     | 服装     |
+| Concept      | 概念     |
+| Objects      | 物体     |
+| Poses        | 姿势     |
+| Style        | 风格     |
+| Tool         | 工具     |
+| Vehicle      | 交通工具 |
+
+[FLUX.1-schnell]: https://huggingface.co/black-forest-labs/FLUX.1-schnell
+[FLUX.1-dev]: https://huggingface.co/black-forest-labs/FLUX.1-dev
+
+- CFG - Classifier-Free Diffusion Guidance (2022)
+- [black-forest-labs/flux](https://github.com/black-forest-labs/flux)
+  - FLUX.1 [dev] Non-Commercial License
+    - 不能将这个模型或其生成的任何内容，用于任何以盈利为目的商业活动。
+    - 不允许 训练竞争模型
+    - 只有 FLUX.1-schnell 是 apache-2.0 协议
+  - [FLUX.1-Kontext dev](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev)
+    - Demo https://specularrealms.com/ai-transcripts/experiments-with-flux-kontext/
+    - https://blog.fal.ai/announcing-flux-1-kontext-dev-inference-training/
+  - FLUX.1-kontext
+    - in-context image generation
+    - https://bfl.ai/models/flux-kontext
+    - https://bfl.ai/announcements/flux-1-kontext
+  - hf collection [FLUX.1](https://huggingface.co/collections/black-forest-labs/flux1-679d013aee236841c0e9d38a)
+    - [FLUX.1-dev] - FLUX.1 dev Non-Commercial License
+      - 图像质量
+      - guidance distillation
+      - https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0
+    - [FLUX.1-schnell] - Apache 2.0
+      - 生成速度和效率 - 1-4 步
+      - latent adversarial diffusion distillation
+      - Finetune/LoRA
+        - [black-forest-labs/FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell)
+          - [lodestones/Chroma](https://huggingface.co/lodestones/Chroma)
+            - https://civitai.com/posts/13766416
+            - https://civitai.com/models/1330309/chroma
+- [HiDream-I1-Full](https://huggingface.co/HiDream-ai/HiDream-I1-Full)
+  - 2025-04-28
+  - 17B
+  - FLUX.1 schnell VAE
+  - Text Encoder google/t5-v1_1-xxl, meta-llama/Meta-Llama-3.1-8B-Instruct
+- [huanngzh/mv-adapter](https://huggingface.co/huanngzh/mv-adapter)
+- Stable Diffusion
+  - Stable Diffusion XL (SDXL)
+  - [Stable Diffusion 3.5](https://github.com/Stability-AI/sd3.5)
+    - OpenAI CLIP-L
+    - OpenCLIP bigG
+    - Google T5-XXL
+    - hf collection [Stable Diffusion 3.5](https://huggingface.co/collections/stabilityai/stable-diffusion-35-671785cca799084f71fa2838)
+    - https://huggingface.co/stabilityai/stable-diffusion-3.5-large
+      - Multimodal Diffusion Transformer (MMDiT)
+    - Medium
+      - 2B 模型
+      - MMDiT-X
+    - Large-Turbo
+      - MMDiT + ADD
+      - 速度快, 4 个步骤
+
+---
+
+- OpenAI CLIP
+  - Contrastive Language-Image Pre-training - 对比语言-图像预训练
+  - -L Vision Transformer, ViT, Large
+  - 零样本图像分类 (Zero-shot Image Classification)
+  - ViT-L/14
+- OpenCLIP
+  - 对 OpenAI CLIP 的开源复现和扩展, 提高透明度和性能
+  - LAION数据集
+  - bigG - ViT-bigG/14
+- Google T5-XXL
+  - Text-to-Text Transfer Transformer（文本到文本迁移Transformer）
+  - 将所有自然语言处理（NLP）任务都统一为一种“文本到文本”的格式
+  - 在输入文本前加上一个 **任务前缀** 来告诉模型需要做什么
+    - `translate English to German: That is good.`
+    - `summarize: [一篇很长的文章]`
+    - `cola sentence: The course is jumping well.`
+  - FLAN-T5
+
+### Prompting
 
 ```
 [人物描述] [场景构建] [摄影参数] [氛围强化] [细节补充]
@@ -687,6 +1010,28 @@ make this image come alive, cinematic motion, smooth animation
   - 服装细节
   - 动态姿势
   - 光影氛围
+- https://huggingface.co/spaces/gokaygokay/FLUX-Prompt-Generator
+- https://github.com/dagthomas/comfyui_dagthomas
+- 参考
+  - https://huggingface.co/microsoft/Promptist
+    - 优化 Stable Diffusion v1.4 prompt
+  - https://huggingface.co/Gustavosta/MagicPrompt-Stable-Diffusion
+    - GPT-2 models intended to generate prompt texts for imaging AIs
+  - https://huggingface.co/daspartho/prompt-extend
+    - GPT-2 model trained on dataset of stable diffusion prompts
+  - https://huggingface.co/datasets/daspartho/stable-diffusion-prompts
+  - https://huggingface.co/succinctly/text2image-prompt-generator
+    - GPT-2 model fine-tuned on the succinctly/midjourney-prompts dataset
+- [AUTOMATIC/promptgen-lexart (~300mb)](https://huggingface.co/AUTOMATIC/promptgen-lexart) - Finetuned using 134,819 prompts from lexica.art
+- [AUTOMATIC/promptgen-majinai-safe (~300mb)](https://huggingface.co/AUTOMATIC/promptgen-majinai-safe) - 1,654 prompts from majinai.art
+- [AUTOMATIC/promptgen-majinai-unsafe (~300mb)](https://huggingface.co/AUTOMATIC/promptgen-majinai-unsafe) - 825 prompts from majinai.art (NSFW)
+- [Gustavosta/MagicPrompt-Dalle](https://huggingface.co/Gustavosta/MagicPrompt-Dalle)
+- [kmewhort/stable-diffusion-prompt-bolster (~500mb)](https://huggingface.co/kmewhort/stable-diffusion-prompt-bolster),
+- [Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator (~500mb)](Ar4ikov/gpt2-650k-stable-diffusion-prompt-generator),
+- [Ar4ikov/gpt2-medium-650k-stable-diffusion-prompt-generator (~1.4gb)](https://huggingface.co/Ar4ikov/gpt2-medium-650k-stable-diffusion-prompt-generator),
+- [crumb/bloom-560m-RLHF-SD2-prompter-aesthetic (~1.1gb)](https://huggingface.co/crumb/bloom-560m-RLHF-SD2-prompter-aesthetic),
+- [Meli/GPT2-Prompt (~500mb)](https://huggingface.co/Meli/GPT2-Prompt),
+- [DrishtiSharma/StableDiffusion-Prompt-Generator-GPT-Neo-125M (~550mb)](https://huggingface.co/DrishtiSharma/StableDiffusion-Prompt-Generator-GPT-Neo-125M)
 
 **Resolution**
 
@@ -697,6 +1042,8 @@ make this image come alive, cinematic motion, smooth animation
 - 4:3
 - 16:9
   - 1216x704
+- 9:16
+  - 704x1216
 - Portrait
   - 832x1216
 - Landscape
@@ -801,7 +1148,37 @@ Change the background to vast snowy grassland and a few snowflakes gently fallin
 cinematic photo, a serene chinese woman in her 20s, sitting in a velvet armchair in a stylish bedroom. wearing an oversized cozy sweater. Soft morning sunlight streams through the window, creating a warm and gentle atmosphere,
 (shot on Sony A7 IV, 50mm f/1.8 lens), photorealistic, ultra detailed, natural skin texture, soft film grain, 8k uhd
 
+
+photography of a asian woman,  outdoor,  (front view:1.1),  , The image features a person with long, dark hair that is slightly tousled, giving it a natural and slightly windswept appearance. The background is a soft, blurred blue, which contrasts with the person's dark hair and adds a serene and somewhat melancholic atmosphere to the scene. The person is wearing a white, sleeveless top, which is partially visible. The overall mood of the image is introspective and contemplative.
 -->
+
+### Chroma
+
+- FT on FLUX.1-schnell
+- Apache 2.0
+- https://civitai.com/models/1330309/chroma
+
+### Realisian
+
+- SD 1.5
+- steps 12 (8 ≈ 16)
+- DPM++ SDE Karras
+- Hires Fix **Required**
+  - On
+  - Upscaler: Latent (bicubic antialised)
+  - Hires Steps: 5 (4 ≈ 10)
+  - Denoising Strenght: 0.55 (0.4 ≈ 0.7)
+  - Upscale by: 2
+- CFG Scale 3 (2 ≈ 5)
+- Clip Skip 1 (1 ≈ 2)
+
+Negative
+
+- https://civitai.com/models/289190/realisian-negative-embedding
+
+```
+embedding:realisianNeg.Z5yh, Realisian-Neg
+```
 
 ### Juggernaut XL
 

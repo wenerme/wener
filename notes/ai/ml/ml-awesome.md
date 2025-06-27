@@ -85,6 +85,9 @@ tags:
   - [Tencent/ncnn](https://github.com/Tencent/ncnn)
     - BSD-3, C++, C
     - neural network inference framework optimized for the mobile platform
+  - [gpustack/gpustack](https://github.com/gpustack/gpustack)
+    - Apache-2.0, Python
+    - backend llama.cpp, stable-diffusion.cpp , vLLM, vox-box
   - ~~[johnolafenwa/deepstack](https://github.com/johnolafenwa/deepstack)~~
     - Apache-2.0, Go, Python
     - Cross Platform AI Engine for Edge Devices

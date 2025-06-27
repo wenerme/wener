@@ -44,6 +44,11 @@ title: Color
 - mdn css [accent-color](https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color)
 - https://www.homesandgardens.com/spaces/decorating/accent-color-ideas-224260
 - https://atmos.style/blog/lch-color-space
+- https://github.com/meodai/color-name-api
+- https://github.com/meodai/color-names
+- https://colorguesser.com/
+- https://colornames.org/
+- https://meodai.github.io/poline/
 
 ## 工具
 

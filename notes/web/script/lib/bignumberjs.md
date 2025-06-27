@@ -7,6 +7,7 @@ title: bignumber.js
 :::tip
 
 - 如果考虑 bundle size 选择 big.js 否则选择 decimal.js
+- 操作对象 Decimal 都是 immutable 的，注意接收处理返回结果
 
 :::
 

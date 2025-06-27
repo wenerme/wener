@@ -59,12 +59,14 @@ iconutil --convert icns icon.iconset
 ## tiff vs png
 
 - tiff - TIFF (Tagged Image File Format)
-  - publishing, photo editing, graphic design, professional, scanning, printing
+  - 数字母版 / 生产格式 / publishing, photo editing, graphic design, professional, scanning, printing
   - high resolution, layering, transparency
   - 大多 online 环境不支持
   - 可以作为 container
   - 支持更多编辑信息 - 可以看作支持作为编辑态文件 - 例如 PSD
 - png - Portable Network Graphics
-  - web graphics
+  - 网络最终分发格式 / web graphics
   - 更小
   - 最终输出格式
+
+## png vs webp

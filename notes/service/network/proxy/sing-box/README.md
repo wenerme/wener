@@ -61,6 +61,8 @@ docker run -d \
   -D /var/lib/sing-box \
   -C /etc/sing-box/ run
 
+sing-box version
+sing-box check -c conf.json
 sing-box run conf.json
 ```
 

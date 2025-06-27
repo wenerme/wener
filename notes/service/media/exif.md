@@ -10,6 +10,8 @@ title: exif
     - imagemagick
   - exiv2
   - exif
+- 参考
+  - https://exiv2.org/tags.html
 
 ```bash
 brew install exiftool

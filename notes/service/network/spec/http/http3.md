@@ -21,5 +21,11 @@ title: HTTP 3
 - [haproxy/haproxy#680](https://github.com/haproxy/haproxy/issues/680) HAProxy Support HTTP3
   - HAProxy 2.5, QUIC+HTTP/3
 - https://github.com/haproxytech/kubernetes-ingress/issues/546
+- cURL 应该不支持
+  - https://github.com/Homebrew/homebrew-core/issues/174686#issuecomment-2171680045
 
 :::
+
+```bash
+$(brew --prefix curl)/bin/curl --http3 -I https://www.cloudflare.com/
+```

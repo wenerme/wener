@@ -18,6 +18,10 @@ tags:
   - 阿里云 RPA https://www.aliyun.com/product/codestore
   - 阿里云 无影云手机 https://www.aliyun.com/product/cloud-phone
     - 2C4G ￥65.00/1个月
+- 全球服务低价地区
+  - 土耳其
+  - 阿根廷
+  - 巴西
 
 ## 小程序平台 {#miniprogram}
 
@@ -179,16 +183,43 @@ tags:
 ## VPN
 
 - [NordVPN](./nordvpn.md)
+  - ~320RMB/年
   - HTTP Proxy, SOCKS5, NordLynx, OpenVPN TCP, OpenVPN UDP, NordWhisper, WireGuard
   - 10 Limits
 - Surfshark
+  - ~220RMB/年
   - WireGuard, IKEv2, OpenVPN, SOCKS
+  - fair use unlimited connections
   - https://surfshark.com/servers
   - https://surfshark.com/blog/vpn-protocols
+  - https://surfshark.com/pricing
 - ExpressVPN
-- Proton VPN
+  - - ~420RMB/年
+  - https://www.expressvpn.com/order/
+- ProtonVPN
+  - ~300RMB/年
+- StrongVPN
+  - ~340RMB/年
+  - 12 devices
+  - https://strongvpn.com/plans/
+- Pure
+- IVacy
+- Vypr
 - 参考
   - https://www.techradar.com/vpn/best-vpn
+
+<!--
+https://github.com/vpncn/vpncn.github.io
+-->
+
+## Proxy
+
+- https://decodo.com/
+  - $3.5/GB
+- Bright Data / Luminati
+- Oxylabs
+- 参考
+  - https://www.techradar.com/best/proxy
 
 ## CDN
 

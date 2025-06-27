@@ -14,8 +14,21 @@ title: 个人所得税
 ```
 
 - 残疾、孤老、烈属
-  - 本市残疾、孤老人员和烈属取得劳动所得，在一个纳税年度内，全年减征个人所得税的税款以9600元为限额；不足9600元的，据实减征。
-  - https://czj.sh.gov.cn/zys_8908/zcfg_8983/zcfb_8985/sszc_8998/20230117/xxfbdf0000020378.html
+  - 2023年1月1日起至2025年12月31日止
+    - 沪财发〔2023〕1号
+    - 9600元
+    - 本市残疾、孤老人员和烈属取得劳动所得，在一个纳税年度内，全年减征个人所得税的税款以9600元为限额；不足9600元的，据实减征。
+    - https://czj.sh.gov.cn/zys_8908/zcfg_8983/zcfb_8985/sszc_8998/20230117/xxfbdf0000020378.html
+  - 2020
+    - 7320元
+    - 《关于本市残疾、孤老人员和烈属实行劳动所得减征个人所得税政策的通知》【沪财发〔2020〕1号】
+    - https://shanghai.chinatax.gov.cn/zcfw/zcjd/202002/t452312.html
+  - 2017
+    - 5640元
+    - https://shanghai.chinatax.gov.cn/zcfw/zcfgk/grsds/201702/t430168.html
+  - 2014
+    - 4500
+    - https://shanghai.chinatax.gov.cn/zcfw/zcfgk/grsds/201401/t406123.html
 
 ## 所得项目编码表
 

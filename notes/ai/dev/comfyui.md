@@ -18,6 +18,15 @@ title: ComfyUI
   - ComfyDeploy
   - 另存 (API 格式)
   - 调用 /prompt
+- 参考
+  - https://docs.comfy.org/tutorials/
+
+:::caution
+
+- 只能单一显卡
+  - https://github.com/comfyanonymous/ComfyUI/discussions/4139
+
+:::
 
 ```bash
 git clone --depth 1 https://github.com/comfyanonymous/ComfyUI ComfyUI
@@ -36,6 +45,9 @@ uv pip install --pre torch torchvision torchaudio --extra-index-url https://down
 uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
 #uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128
 uv pip install -r requirements.txt
+
+# Nvidia APEX normalization not installed, using PyTorch LayerNorm
+uv pip install xformers
 ```
 
 ```bash title="mps.py"
@@ -76,6 +88,33 @@ No module named pip
 使用 uv 的时候会出现
 
 ## Notes
+
+好的，遵照您的要求，这里是精简后的版本，仅包含**目录**和**主要用途说明**两列。
+
+### ComfyUI Models 目录结构详解
+
+| dir                | for                                                                                                                                                       |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checkpoints`      | 核心基础模型，也叫“大模型”。这是文生图的起点，决定了图像生成的基础风格和能力。例如 Stable Diffusion v1.5, SDXL, 以及社区训练的各种整合模型。              |
+| `loras`            | LoRA 模型。这些是小型微调文件，用于向基础模型添加特定的角色、画风、概念或服装，灵活性极高。                                         |
+| `vae`              | VAE  模型。用于图像的编码和解码。独立的 VAE 文件可以修正图像的色彩（如改善灰蒙蒙的问题）或修复手部等细节问题。SDXL 模型通常不需要额外 VAE。 |
+| `controlnet`       | ControlNet 模型。用于精确控制图像的生成，例如通过姿势骨架、深度图、线稿、二维码等来引导构图和内容。                                                       |
+| `upscale_models`   | 图像放大模型。用于“图像放大 (模型)”节点，提升图片分辨率并优化细节。例如 ESRGAN, SwinIR, 4x-UltraSharp 等。                                                |
+| `embeddings`       | 文本反演 (Textual Inversion) 嵌入，也叫 Embedding。这些是极小的文件，通过一个关键词触发特定的概念、角色或画风。常用于负面提示词（如 `bad-hands-5`）。     |
+| `clip`             | CLIP 文本编码器模型。通常 ComfyUI 会自动从大模型中加载，但你也可以把独立的 CLIP 模型放在这里，供高级工作流使用。                                          |
+| `clip_vision`      | CLIP Vision 模型。用于分析图像内容，是 IPAdapter、PhotoMaker 等“图像提示”功能的核心组件。                                                                 |
+| `style_models`     | 风格模型。主要用于 T2I-Adapter，功能与 ControlNet 类似，但更侧重于风格的迁移。                                                                            |
+| `hypernetworks`    | Hypernetwork 模型。一种比 LoRA 更早出现的微调技术，现在已不常用，但 ComfyUI 仍然支持加载。                                                                |
+| `unet`             | U-Net 模型。U-Net 是 Stable Diffusion 模型的核心降噪网络。普通用户几乎不会用到这个目录，主要用于模型开发和研究，将 U-Net 单独分离出来加载。               |
+| `text_encoders`    | 文本编码器模型。与 `unet` 类似，用于模型研究，允许单独加载和替换文本编码器部分。                                                                          |
+| `photomaker`       | PhotoMaker 模型。一种专门用于根据输入人脸照片生成统一角色的模型。                                                                                         |
+| `sams`             | SAM (Segment Anything Model) 模型。由 Meta 开发的图像分割模型，在 ComfyUI 中用于精确地创建和分离遮罩 (Mask)。                                             |
+| `gligen`           | GLIGEN 模型。用于“限定区域生成”，允许你通过画框来指定某个物体在图像中的特定位置和大小。                                                                   |
+| `diffusers`        | 用于存放 Hugging Face 的 Diffusers 格式模型。这种格式是一个包含多个子目录和文件的文件夹，而不是单个文件。ComfyUI 可以直接加载这种格式。                   |
+| `configs`          | 配置文件。存放一些旧的 `.ckpt` 模型所需要的 `.yaml` 配置文件，以帮助 ComfyUI 识别其模型架构（如 v1 或 v2）。现在的 `.safetensors` 模型通常不需要。        |
+| `vae_approx`       | VAE 近似解码器模型。这些是极小的、速度极快的模型，用于在 KSampler 采样过程中生成快速预览图，而不是每次都调用完整的 VAE。                                  |
+| `onnx`             | ONNX 模型。用于存放已转换为 ONNX (Open Neural Network Exchange) 格式的模型，通常用于在非 NVIDIA 硬件（如 AMD 显卡）上通过 DirectML 或 Olive 进行推理。    |
+| `diffusion_models` | 扩散模型组件。一个更通用的目录，类似于 `unet`，用于存放扩散模型的某些部分。主要供模型开发者使用。                                                         |
 
 **AI Art**
 
@@ -119,6 +158,22 @@ No module named pip
   - SD 1.5
   - LAION 5B
   - SDXL
+- Upscaler
+  - ESRGAN
+  - SwinIR
+  - 4x-UltraSharp
+  - OmniSR
+  - MoSR
+  - DRCT
+  - ADT
+  - DAT
+  - RealPLKSR
+  - SPAN
+  - RGT
+  - HAT
+  - SRFormer
+  - SwiftESRGAN
+  - SPSR
 - KSampler
   - 用于采样生成图像
   - sampler
@@ -142,6 +197,22 @@ No module named pip
   - 912x1216
   - 1008x1344
 - 9:16
+  - 512x896
+  - 576x1024
+  - 768x1366
+  - 1024x1820
+
+输出可以包含日期
+
+```
+%date:yyyy-MM-dd%/ComfyUI
+```
+
+## API
+
+```bash
+
+```
 
 ## 参考 {#reference}
 
@@ -226,3 +297,13 @@ CUDA kernel errors might be asynchronously reported at some other API call, so t
 For debugging consider passing CUDA_LAUNCH_BLOCKING=1
 Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 ```
+
+## ImportError: cannot import name 'guidedFilter' from 'cv2.ximgproc'
+
+```bash
+uv pip uninstall opencv-python opencv-python-headless opencv-contrib-python-headless opencv-contrib-python
+uv pip install opencv-python opencv-python-headless opencv-contrib-python-headless
+uv pip install opencv-contrib-python
+```
+
+- https://github.com/chflame163/ComfyUI_LayerStyle/issues/5

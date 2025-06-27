@@ -14,6 +14,17 @@ tags:
 - [PuerkitoBio/goquery](https://github.com/PuerkitoBio/goquery)
   - BSD-3, Golang
   - jQuery
+- [apify/impit](https://github.com/apify/impit)
+  - Apache-2.0, Rust
+  - browser impersonation
+  - npm:impit
+- NodeJS/Typescript
+  - [apify/crawlee](https://github.com/apify/crawlee)
+    - Apache-2.0, TS
+    - web scraping, browser automation
+  - Cheerio
+  - Puppeteer
+  - Playwright
 
 ## Bots
 

@@ -50,6 +50,16 @@ tags:
   - 协议 https://web.archive.org/web/20151204034044/https://shadowsocks.org/en/spec/protocol.html
   - https://github.com/Shadowsocks-NET/shadowsocks-specs/blob/main/2022-1-shadowsocks-2022-edition.md
 
+```bash
+# ghcr.io/shadowsocks/sslocal-rust:latest
+brew install shadowsocks-rust
+
+# 生成密码 32 for
+openssl rand -base64 32 | tr -d '\n' | pbcopy
+sslocal -b "127.0.0.1:1080" --protocol http -s "[::1]:1234" -m "2022-blake3-aes-256-gcm" -k "hello-kitty"
+http_proxy=127.0.0.1:1080 wget icanhazip.com -O- -q
+```
+
 ## Awesome
 
 - [database64128/shadowsocks-go](https://github.com/database64128/shadowsocks-go)

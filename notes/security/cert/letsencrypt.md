@@ -25,3 +25,7 @@ title: Let's Encrypt
 - [staging](https://letsencrypt.org/docs/staging-environment/)
   - https://acme-staging-v02.api.letsencrypt.org/directory
   - ACME v2 New Orders 1,500/3h
+- IP 证书 - IP SAN
+  - 使用 HTTP, TLS-ALPN challange
+  - 参考
+    - https://community.letsencrypt.org/t/getting-ready-to-issue-ip-address-certificates/238777/3

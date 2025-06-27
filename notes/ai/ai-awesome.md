@@ -124,6 +124,9 @@ tags:
 - Agent/MCP
   - [microsoft/autogen](https://github.com/microsoft/autogen)
     - Multi Agent
+  - [magnitudedev/magnitude](https://github.com/magnitudedev/magnitude)
+    - Aapche-2.0, TS
+    - browser automation framework
   - [google-gemini/gemini-fullstack-langgraph-quickstart](https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart)
     - Apache-2.0, TS, Python, React
     - building Fullstack Agents using Gemini 2.5 and LangGraph
@@ -159,14 +162,13 @@ tags:
 - Platform
   - [langfuse/langfuse](https://github.com/langfuse/langfuse)
     - MIT+EE, TS
-    -  LLM Observability, metrics, evals, prompt management, playground, datasets.
+    - LLM Observability, metrics, evals, prompt management, playground, datasets.
 - https://github.com/NielsRogge/Transformers-Tutorials
 - news/trending
   - https://huggingface.co/models
   - https://aihot.today/
 - usecase/showcase
   - [601 real-world gen AI use cases from the world's leading organizations](https://cloud.google.com/transform/101-real-world-generative-ai-use-cases-from-industry-leaders)
-
 
 ## 应用 {#applications}
 
@@ -205,6 +207,11 @@ tags:
 
 ---
 
+- [automattic/harper](https://github.com/automattic/harper)
+  - Apache-2.0, Rust
+  - privacy-first grammar checker
+  - English grammar checker
+  - alternative to Grammarly
 - [openrecall/openrecall](https://github.com/openrecall/openrecall)
   - AGPLv3, Python
   - Windows 11 Recall 替代

@@ -5,6 +5,23 @@ tags:
 
 # Media Glossary
 
+| abbr. | stand for                           | meaning        |
+| ----- | ----------------------------------- | -------------- |
+| AAC   | Advanced Audio Coding               | 高级音频编码   |
+| AV1   | AOMedia Video 1                     | AOMedia 视频 1 |
+| AVC   | Advanced Video Coding               | H.264          |
+| HDR   | High Dynamic Range                  | 高动态范围     |
+| HEVC  | High Efficiency Video Coding        | H.265          |
+| JPEG  | Joint Photographic Experts Group    |                |
+| MPEG  | Moving Picture Experts Group        |                |
+| PNG   | Portable Network Graphics           | 便携式网络图形 |
+| PSNR  | Peak Signal-to-Noise Ratio          | 峰值信噪比     |
+| PSY   | Psychovisual                        | 视觉感知       |
+| SDR   | Standard Dynamic Range              | 标准动态范围   |
+| VMAF  | Video Multimethod Assessment Fusion | 视频质量评估   |
+| VP8   | Video Processing 8                  |                |
+| VP9   | Video Processing 9                  |                |
+
 - PTS - [Presentation timestamp](https://en.wikipedia.org/wiki/Presentation_timestamp)
 - DTS - decoding time stamp
 - I - Intra-coded picture - key frame

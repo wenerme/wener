@@ -19,12 +19,12 @@ title: NordVPN
   - [azinchen/nordvpn](- https://github.com/azinchen/nordvpn)
     - Docker
   - https://downloads.nordvpn.com/certificates/root.der
+  - PacketHub S.A.
 
 ```bash
 curl -x https://$USERNAME:$PASSWORD@uk2160.nordvpn.com:89 4.icanhazip.com
 curl -x socks5h://$USERNAME:$PASSWORD@dallas.us.socks.nordhold.net 4.icanhazip.com
 ```
-
 
 | Name                      | Identifier            | ID  | ports |
 | ------------------------- | --------------------- | --- | ----- |
@@ -64,13 +64,35 @@ curl -x socks5h://$USERNAME:$PASSWORD@dallas.us.socks.nordhold.net 4.icanhazip.c
 - https://cyberwaters.com/list-of-vpn-port-numbers-vpn-service-providers-use/
 
 ```bash
- TOKEN=
+# https://my.nordaccount.com/zh/dashboard/nordvpn/access-tokens/
+TOKEN=
 # 会返回 username,password,nordlynx_private_key
 curl -u token:$TOKEN https://api.nordvpn.com/v1/users/services/credentials
 # wg 的 public_key 在 server 信息里
 # 获取推荐服务
-curl -s "https://api.nordvpn.com/v1/servers/recommendations?&filters\[servers_technologies\]\[identifier\]=wireguard_udp&limit=3"
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=195&filters[servers_technologies][identifier]=wireguard_udp&limit=3'
+
+# BR
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=30&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+# HK
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=97&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+# JP
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=108&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+# SG
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=195&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
+# TR Turkey
+curl -s 'https://api.nordvpn.com/v1/servers/recommendations?&filters[country_id]=220&filters[servers_technologies][identifier]=proxy_ssl&limit=1'
 ```
+
+- filters
+  - `filters[country_id]`
+    - 10, Argentina
+    - 30, Brazil
+    - 97, Hong Kong
+    - 108, Japan
+    - 195, Singapore
+    - 220, Turkey
+    - https://github.com/bubuntux/nordlynx/discussions/8
 
 ## NordWhisper
 
@@ -396,7 +418,6 @@ let byCountry = all
   }
 }
 ```
-
 
 ```bash
 curl https://api.nordvpn.com/vpn/check/full

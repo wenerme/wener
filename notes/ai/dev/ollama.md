@@ -31,6 +31,7 @@ title: ollama
 - ~~Support tools in OpenAI-compatible API [#4386](https://github.com/ollama/ollama/issues/4386)~~
 - phi4-multimodel https://github.com/ollama/ollama/issues/9387
 - qwen3 rerank https://github.com/ollama/ollama/issues/10989
+- InternVL3 https://github.com/ollama/ollama/issues/10248
 
 :::
 
@@ -78,6 +79,8 @@ ollama pull llama3.2-vision:11b
 
 - https://github.com/ollama/ollama/blob/main/envconfig/config.go
 - https://github.com/ollama/ollama/issues/2941
+- OLLAMA_KV_CACHE_TYPE 依赖 flash attention
+  - https://github.com/ollama/ollama/blob/502028968ddca04bd19c0859a73fb4e0cbeac3e1/llm/server.go#L221-L223
 
 ```shell
 /set verbose

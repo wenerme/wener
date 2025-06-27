@@ -31,6 +31,8 @@ title: Decorator
   - accessor
 - `Symbol.annotations`
 - 参考
+  - [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
+    - TS 5.2
   - [proposal-decorators](https://github.com/tc39/proposal-decorators)
     - 2023-08 – TS 5.2 支持  Decorator Metadata
     - 2023-05 – Angular v16
@@ -43,8 +45,6 @@ title: Decorator
     - 2015-03 – Stage 1 - TS 1.5, --experimentalDecorators
     - 2014-04 – Stage 0
     - https://caniuse.com/decorators
-  - [proposal-decorator-metadata](github.com/tc39/proposal-decorator-metadata)
-    - TS 5.2
   - [proposal-class-method-parameter-decorators](https://github.com/tc39/proposal-class-method-parameter-decorators)
   - [typescript 5.0 decorators](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/#decorators)
     - 没有 `--experimentalDecorators` flag

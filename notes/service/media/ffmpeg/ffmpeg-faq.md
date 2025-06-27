@@ -12,6 +12,15 @@ tags:
 
 :::
 
+```bash
+#
+ffmpeg -i video-audio.m4a \
+  -af "silenceremove=start_periods=1:start_duration=0:start_threshold=-50dB:\
+                         stop_periods=-1:stop_duration=0.02:stop_threshold=-50dB,\
+                         apad=pad_dur=0.02" \
+  -c:a aac -b:a 128k output_minpause.m4a -y
+```
+
 ## 提取音轨
 
 ```bash
@@ -124,7 +133,6 @@ ffmpeg -i input.mkv -vf mpdecimate=hi=1:lo=1:frac=1:max=0 output.mkv
 - https://www.ffmpeg.org/ffmpeg-all.html#mpdecimate
 
 ## frame count
-
 
 ```bash
 ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 input.mp4

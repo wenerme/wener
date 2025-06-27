@@ -1,8 +1,13 @@
-# IPv6
+---
+title: IPv6
+---
 
+# IPv6
 
 - [NICMx/Jool](https://github.com/NICMx/Jool)
   SIIT and NAT64 for Linux
+- 参考
+  - https://test-ipv6.com/
 
 ```bash
 [ -f /proc/net/if_inet6 ] && echo 'IPv6: yes' || echo 'IPv6: no'

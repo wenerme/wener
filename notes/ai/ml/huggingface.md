@@ -82,6 +82,21 @@ completion = client.chat.completions.create(
 )
 ```
 
+## modelscope
+
+```bash
+# 国内镜像下载 HF Repo
+pip install modelscope
+```
+
+- cache_dir= ~/.cache/modelscope/hub
+- allow_patterns
+- ignore_patterns
+- --include
+- --exclude
+- 模型缓存目录
+  - cache_dir/MODEL_ID/THE_MODEL_FILES
+
 # FAQ
 
 ## The model Qwen/Qwen2.5-VL-72B-Instruct is too large to be loaded automatically (146GB > 10GB).

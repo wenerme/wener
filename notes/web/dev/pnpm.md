@@ -18,6 +18,10 @@ title: pnpm
 - 支持 workspace 引用 - `"button": "workspace:1.0.0",`
 - .npmrc - https://pnpm.io/npmrc
   - workspace 要求必须存在
+- 全局配置
+  - ~/.config/pnpm/rc
+  - ~/Library/Preferences/pnpm/rc
+  - ~/AppData/Local/pnpm/config/rc
 - **采用**: next.js, vite, vue3
   - 因为 yarn 2+/berry 变化太大，无法使用 - 同时 yarn v1 开发停滞，导致大量项目迁移 pnpm
 - 参考
@@ -78,6 +82,9 @@ pnpm store path  # 路径
 npm_config_include_workspace_root=true pnpm -r exec pwd
 # clean
 npm_config_include_workspace_root=true pnpm -r exec rm -rf node_modules
+
+# 全局配置
+pnpm config list --global
 ```
 
 ```ini title=".npmrc"

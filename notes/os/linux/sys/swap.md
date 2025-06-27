@@ -11,6 +11,12 @@ swapon --show   # 查看交换区
 cat /proc/swaps #
 ```
 
+- swap 文件
+  - Ubuntu /swap.img
+  - macOS `/private/var/vm/swapfile*`
+  - Windows C:\pagefile.sys
+  - /swapfile
+
 Linux 中的交换文件称为 `swappiness`,swappiness 的值为当内存达到某个百分比时会进行交换. 0 为不使用交换, 10 为 当内存达到 90% 后会使用交换.
 
 > 该值修改后需要重启
@@ -72,6 +78,17 @@ swapon /sysswap
 echo /sysswap swap swap sw 0 0 >> /etc/fstab
 
 sysctl vm.swappiness=10
+```
+
+## 删除 swap
+
+```bash
+# 先关闭 swap
+swapoff /sysswap
+# 删除 swap 文件
+rm -f /sysswap
+# 删除 fstab 中的 swap
+sed -i '/\/sysswap/d' /etc/fstab
 ```
 
 ## 参考

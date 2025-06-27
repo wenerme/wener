@@ -6,7 +6,6 @@ tags:
 
 # Security Awesome
 
-
 - DPI bypass
   - [ValdikSS/GoodbyeDPI](https://github.com/ValdikSS/GoodbyeDPI)
     - bypasss DPI for windows
@@ -52,16 +51,25 @@ tags:
   - [paralax/awesome-honeypots](https://github.com/paralax/awesome-honeypots)
   - [cowrie/cowrie](https://github.com/cowrie/cowrie)
     - BSD-3, Python
+    - SSH/Telnet Honeypot
   - [telekom-security/tpotce](https://github.com/telekom-security/tpotce)
     - GPLv3, C
+    - All In One Multi Honeypot
+    - 蜜罐平台
+  - [DinoTools/dionaea](https://github.com/DinoTools/dionaea)
+  - [thinkst/opencanary](https://github.com/thinkst/opencanary)
+    - BSD-3, Python
   - [fffaraz/fakessh](https://github.com/fffaraz/fakessh)
     - BSD-3, Go
   - [skeeto/endlessh](https://github.com/skeeto/endlessh)
     - C
   - [mariocandela/beelzebub](https://github.com/mariocandela/beelzebub)
     - GPLv3, Go
+    - LLM for System Virtualization
   - ~~[honeytrap/honeytrap](https://github.com/honeytrap/honeytrap)~~
     - Apache-2.0, Go
+- Hacking
+  - https://github.com/carpedm20/awesome-hacking
 - Captcha/验证码
   - Geetest
     - [yanglbme/geetest-crack](https://github.com/yanglbme/geetest-crack)
@@ -83,6 +91,21 @@ tags:
 - [vanhauser-thc/thc-hydra](https://github.com/vanhauser-thc/thc-hydra)
   - Apache-2.0
 - [danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
+
+```bash
+docker run --rm -it \
+  --name opencanary dockercr.dev.zhensi.tech/thinkst/opencanary
+```
+
+| s       | note |
+| ------- | ---- |
+| openssl |
+| ngtcp2  |
+| quiche  |
+| msquic  |
+| nghttp3 |
+| nghttp2 |
+| quictls |
 
 ## Topic
 
@@ -203,7 +226,6 @@ tags:
 ## Password
 
 - [project-rainbowcrack](http://project-rainbowcrack.com/)
-
 
 ## Firewall
 

@@ -27,6 +27,8 @@ tags:
   - https://github.com/googlefonts/Montserrat
   - https://github.com/JulietaUla/Montserrat
   - https://fonts.google.com/specimen/Montserrat
+- Coding
+  - https://github.com/microsoft/cascadia-code
 - 参考
   - [VSC 配置倾斜字体](https://stackoverflow.com/questions/41320848)
 

@@ -39,11 +39,13 @@ curl -LO https://github.com/ngosang/trackerslist/raw/master/trackers_all_ip.txt
 echo bt-tracker=$(grep . trackers_all_ip.txt | tr '\n' ',') > ~/.aria2/aria2.conf
 ```
 
-| flag             | val      |
-| ---------------- | -------- |
-| `-d,--dir <DIR>` | 下载目录 |
-| -D,--daemon      | daemon   |
-| --conf-path      |
+| flag                                 | default | val             |
+| ------------------------------------ | ------- | --------------- |
+| `-d,--dir <DIR>`                     |         | 下载目录        |
+| -D,--daemon                          |         | daemon          |
+| --conf-path                          |         |
+| `-j, --max-concurrent-downloads=<N>` | 5       | 最大并发下载数  |
+| `-c, --continue [true\|false]`       |         | for HTTP(S)/FTP |
 
 ## 配置 {configuration}
 

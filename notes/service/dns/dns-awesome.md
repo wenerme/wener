@@ -355,7 +355,7 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
 - https://whotracks.me/trackers/markmonitor.html
 - https://whotracks.me/trackers/adguard.html
 
-# mDNS
+## mDNS
 
 - [hashicorp/mdns](https://github.com/hashicorp/mdns)
   - MIT, Golang
@@ -382,7 +382,7 @@ grep '127.0.0.1' ad-wars.txt | grep -v '#' | awk '{print $2}' | sort -u | split 
 | ---------------- | --------------------- |
 | https://pki.goog | Google Trust Services |
 
-## 污染封禁域名列表
+## 污染封禁域名列表 {#gfw}
 
 > 不要走国内解析
 
@@ -392,9 +392,12 @@ a=``
 copy(`/${a.split(/\n/).join('/')}/`)
 
 sort -uo notes/service/dns/gfwlist.txt{,}
-
-cat notes/service/dns/gfwlist{,.dev,.spoofing}.txt > notes/service/dns/gfwlist.full.txt
 sort -uo notes/service/dns/gfwlist.full.txt{,}
+
+cat notes/service/dns/gfwlist{,.tld}.txt > notes/service/dns/gfwlist.full.txt
+sort -uo notes/service/dns/gfwlist.full.txt{,}
+
+cat gfw.list >> notes/service/dns/gfwlist.full.txt
 -->
 
 ```bash
@@ -409,6 +412,9 @@ curl -L https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt | b
 curl -sfL 'https://github.com/wenerme/wener/raw/master/notes/service/dns/gfwlist.dev.txt' | sed -e 's#.*#address=/\0/$SNI#'
 
 grep -E '^([|]{2}|[.])' gfwlist.txt | grep -v '/' | grep -v '[*]' | wc -l | sed 's/^[|.]*//' | sort -u
+
+curl -LO https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gfw.list
+sed -i -e 's#^+.##' gfw.list
 ```
 
 - [gfwlist.txt](https://raw.githubusercontent.com/wenerme/wener/master/notes/service/dns/gfwlist.txt)

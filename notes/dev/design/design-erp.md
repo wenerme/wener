@@ -588,7 +588,7 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
 | Account | Active   | Active   |
 | ^       | Inactive | Inactive |
 
-| status        | label  | notes       |
+| status       | label  | notes       |
 | ------------ | ------ | ----------- |
 | Active       | 激活   |
 | Inactive     | 未激活 |
@@ -628,13 +628,64 @@ export type UseSimpleListQuery<T> = UseSimpleQuery<{ total: number; data: T[] },
     - Deactivated by User (用户停用)：用户自己选择停用账户。
     - Deactivated by Admin (管理员停用)：由于某些原因，管理员停用了用户账户。
     - Expired (已过期)：用户账户因长时间未使用或其他原因自动过期。
+
+**Contract**
+
+| State        | Label  | Desc                                           |
+| :----------- | :----- | :--------------------------------------------- |
+| `Draft`      | 草稿   | 合同正在起草或修订中。                         |
+| `Pending`    | 待处理 | 合同已提交，正在等待内部或外部的审批。         |
+| `Active`     | 生效中 | 合同已签署并生效，是其生命周期的主要活动阶段。 |
+| `OnHold`     | 暂停中 | 合同因故被暂停执行，但并未终止。               |
+| `Terminated` | 已终止 | 合同已结束，这是一个**最终状态**的集合。       |
+
 - Contract - 合同
-  - Draft
-  - Invoiced
-  - Active
-  - OnHold
-  - Canceled
-  - Expired
+  - Draft - 草稿
+    - Update -> Draft
+    - Submit/SubmitForReview -> Pending
+  - Pending - 待处理
+    - Approve -> Active
+    - ReturnForRevision -> Draft
+    - Cancel -> Canceled
+  - Active - 活动
+    - NotStarted
+    - InProgress
+    - NearingExpiry
+  - OnHold - 暂停
+  - Terminated - 终止
+    - Completed
+    - Expired
+    - Canceled
+- TaskCase - 任务案例
+  - Draft - 草稿
+    - Update -> Draft
+    - Submit -> Pending
+  - Pending - 待处理
+    - ReturnForRevision -> Draft
+    - Approve -> Approved
+    - Reject -> Rejected
+  - Approved - 已批准
+  - Rejected - 已拒绝
+  - Canceled - 已取消
+- TaskCase 其他情况
+  - 前置审批
+  - 中间过程
+  - 后置确认验收
+
+<!--
+- Entity
+  - State
+    - Action -> State/Status
+-->
+
+**Invoice**
+
+| State               | Label    | Desc                             |
+| :------------------ | :------- | :------------------------------- |
+| `NotYetInvoiced`    | 未开票   | 合同尚未生成任何发票。           |
+| `PartiallyInvoiced` | 部分开票 | 已为合同的一个或多个里程碑开票。 |
+| `FullyInvoiced`     | 全部开票 | 合同的所有款项均已开具发票。     |
+| `Overdue`           | 逾期未付 | 存在已开票但超过付款期限的款项。 |
 
 ---
 
